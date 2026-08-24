@@ -1,0 +1,3479 @@
+\chapter{Assembly and consequences of the envelope theorem}
+\index{envelope theorem!consequences}\index{unibranch variety!characterization}
+\label{chap:bj-envelope-consequences}
+
+All descent mechanisms are now available.
+The normal case was proved by alterations in
+\Cref{chap:bj-alterations}.
+The normalization of a unibranch variety is a finite birational universal
+homeomorphism by \Cref{lem:bj-unibranch-normalization-universal}.
+Pullback through such a map identifies psh spaces in every characteristic by
+\Cref{cor:bj-universal-reflection-all-characteristics}.
+This chapter assembles those statements, proves the theorem announced in
+\Cref{chap:bj-envelope-statement}, and records the formal consequences
+that will be used in the energy chapters.
+
+Throughout, \(k\) is algebraically closed and trivially valued,
+\(X\) is an integral projective \(k\)-variety, and numerical classes are real.
+Extended-real values are retained on the whole of \(X^{\An}\).
+
+\section{Orientation}
+\label{sec:ch45-orientation}
+
+\subsection{What is proved here, and out of what}
+\label{sec:ch45-what}
+
+\Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
+proved eight independent theorems, each of which is a statement about
+\emph{one} class of morphisms and \emph{one} technique.  None of them is the
+envelope theorem.  This chapter is where they are put together, and where
+the result is allowed to act on the rest of the book.
+
+The assembly itself occupies four lines and is written out in
+\Cref{sec:ch45-proof}.  It reproduces the argument of \S7 of the supplied
+manuscript, in which the chain
+\[
+ \text{smooth}
+ \ \xRightarrow{\ \text{alterations}\ }\ \text{normal}
+ \ \xRightarrow{\ \text{normalization}\ }\ \text{unibranch}
+\]
+is closed by a single application of the identification of analytic spaces
+under a finite birational universal homeomorphism.  What deserves attention
+is not the length of the argument but three things that are easy to get
+wrong and that the chapter checks explicitly:
+
+\begin{itemize}
+\item that the assembly consumes its inputs \emph{in one direction only},
+      so that no input was itself proved using the conclusion
+      (\Cref{sec:ch45-noncircular});
+\item that the identity of regularized suprema transported through the
+      normalization is an identity of \emph{extended-real} functions, valid
+      at semivaluations of proper support where both sides may be
+      \(-\infty\) (\Cref{sec:ch45-endpoint});
+\item that the class \(\theta\) is an arbitrary element of
+      \(N^1(X)_{\mathbf R}\), so that the reduction to rational or positive
+      classes has to be performed, not assumed
+      (\Cref{sec:ch45-perturbation}).
+\end{itemize}
+
+The consequences occupy the bulk of the chapter and are of four kinds.
+First, the increasing-net formulation
+(\Cref{sec:ch45-nets}), which is the form in which the envelope property is
+used in every later argument, because psh functions are defined by
+\emph{decreasing} approximation and every construction that produces a
+supremum produces it as an increasing net.  Second, the obstacle envelope
+\(P_\theta\) (\Cref{sec:ch45-obstacles}), which becomes an operator with
+values in \(\PSH_X(\theta)\) only at this point in the book; before it, the
+symbol \(P_\theta\) denoted a function of unknown regularity, and
+\Cref{chap:bj-envelope-history} carried an explicit warning to that effect.
+Third, the monotone approximation statements
+(\Cref{sec:ch45-monotone}) that convert the closure property into a
+calculus.  Fourth, the geometric characterization
+(\Cref{sec:ch45-characterization}): in an ample class the envelope property
+holds \emph{if and only if} \(X\) is unibranch, so the hypothesis of the
+theorem is not an artefact of the proof.
+
+\subsection{The firewall inverts in this chapter}
+\label{sec:ch45-firewall-inverts}
+
+Every chapter from \Cref{chap:bj-cartier-realization} to
+\Cref{chap:bj-subintegral-normalization} carried a warning forbidding the
+use of \Cref{thm:bj-final-envelope}; \Cref{warn:ch42-firewall} is the
+sharpest of them, because on a normal variety the forbidden appeal would
+have shortened a whole chapter to a line.  Those warnings are discharged
+here.
+
+\begin{important}{The firewall is discharged in this chapter}
+\label{imp:ch45-firewall-discharged}
+From this point onward in the book, \Cref{thm:bj-final-envelope} is
+available and may be used freely on integral projective unibranch varieties
+over an algebraically closed trivially valued field.  In particular:
+\begin{enumerate}
+\item the envelope property \(\operatorname{EP}_X(\theta)\) of
+      \Cref{def:bj-envelope-property} may be quoted as a theorem, for every
+      \(\theta\in N^1(X)_{\mathbf R}\), whenever \(X\) is unibranch;
+\item \(\PSH_X(\theta)\) may be used as a class closed under regularized
+      suprema of nonempty bounded-above families;
+\item the obstacle envelope \(P_\theta\) of
+      \Cref{def:bj-obstacle-envelope} may be treated as an operator with
+      values in \(\PSH_X(\theta)\), subject to the hypotheses recorded in
+      \Cref{thm:bj-final-obstacle-psh};
+\item the equivalences of \Cref{thm:bj-envelope-equivalences} and
+      \Cref{thm:general-obstacle-criterion}, and the increasing-net
+      criterion \Cref{prop:bj-ep-equivalences}, may be used in either
+      direction without further hypothesis.
+\end{enumerate}
+The restriction to unibranch \(X\) is not a residue of the method:
+by \Cref{thm:bj-final-unibranch-characterization} it is equivalent to the
+envelope property in a single ample class.
+\end{important}
+
+The inversion is worth stating in the negative as well.  Nothing proved
+before this chapter may be re-proved using
+\Cref{thm:bj-final-envelope}; the earlier proofs are the reason the theorem
+is available, and replacing one of them by an appeal to the theorem would
+turn the chain into a circle.  \Cref{sec:ch45-noncircular} carries out that
+audit once and for all, in the form in which a reader can check it: for each
+input, the chapter in which it is proved and the fact that its proof uses
+only strictly earlier material.
+
+\subsection{The six tasks, and where each is discharged}
+\label{sec:ch45-tasks}
+
+\begin{enumerate}
+\item\label{itm:ch45-task:assembly}
+      \emph{Completion of the proof of \Cref{chap:bj-envelope-statement}.}
+      Display the dependency chain, attribute every arrow to the chapter in
+      which it was proved, verify that the assembly is not circular, and
+      write out the proof with each hypothesis checked.
+      \Cref{sec:ch45-dependency,sec:ch45-noncircular,sec:ch45-proof}.
+\item\label{itm:ch45-task:nets}
+      \emph{Increasing nets and regularized suprema.}  Prove the equivalence
+      of the family formulation with the increasing-net formulation on a
+      unibranch variety, in the unconditional form, and record the
+      compactness statement that it is equivalent to.
+      \Cref{sec:ch45-nets}.
+\item\label{itm:ch45-task:perturbation}
+      \emph{Perturbation of the class.}  Prove that the envelope property
+      for arbitrary real classes reduces to big rational classes with an
+      ample gap, and record why the orientation of the gap matters.
+      \Cref{sec:ch45-perturbation}.
+\item\label{itm:ch45-task:obstacles}
+      \emph{Obstacle envelopes for arbitrary real classes.}  Prove that
+      \(P_\theta\) is an operator into \(\PSH_X(\theta)\), that its raw and
+      regularized forms agree for upper semicontinuous obstacles, and prove
+      its calculus as theorems rather than as the formal identities of
+      \Cref{lem:obstacle-envelope-formal}.
+      \Cref{sec:ch45-obstacles}.
+\item\label{itm:ch45-task:monotone}
+      \emph{Monotone approximation.}  Decreasing nets of obstacles,
+      increasing nets of obstacles, the conditional join--meet structure of
+      \(\PSH_X(\theta)\), and the resulting projection calculus.
+      \Cref{sec:ch45-monotone}.
+\item\label{itm:ch45-task:geometry}
+      \emph{Geometric characterization and historical replacement.}  Prove
+      the two-directional statement in the ample case, compute the node and
+      the cusp with both directions available, and replace the obsolete
+      conjecture of the supplied complex book by the theorem, with a
+      provenance note.
+      \Cref{sec:ch45-characterization,sec:ch45-examples,sec:ch45-historical}.
+\end{enumerate}
+
+\subsection{Standing hypotheses and notation}
+\label{sec:ch45-hypotheses}
+
+Unless a statement says otherwise:
+
+\begin{itemize}
+\item \(k\) is algebraically closed and carries the trivial absolute value;
+\item \(X\) is an integral projective \(k\)-variety;
+\item \(\theta\in N^1(X)_{\mathbf R}\) is an arbitrary real numerical class;
+\item \(\PSH_X(\theta)\) is the Boucksom--Jonsson class of
+      \Cref{def:bj-psh}, whose members are upper semicontinuous, generically
+      finite, and decreasing limits of nets of generically finite
+      Fubini--Study functions in classes \emph{converging} to \(\theta\);
+\item \(X^{\divis}\subset X^{\An}\) is the set of the trivial valuation
+      together with the positive real multiples of divisorial valuations,
+      all of which have full support;
+\item \(\nu:X^\nu\to X\) is the normalization, and \(\nu^{\An}\) its
+      analytification.
+\end{itemize}
+
+Two conventions from the front matter are in force throughout and are worth
+repeating, since the whole chapter is about suprema of extended-real
+functions.  For a family \((f_i)\) of functions
+\(X^{\An}\to\Rbar\), the symbol \((\sup_i f_i)^*\) denotes the least upper
+semicontinuous majorant of the pointwise supremum; and no difference of two
+infinite values is ever formed.  Every identity below involving \(-\infty\)
+is either an identity of suprema or infima, or an identity obtained by
+transporting neighbourhood filters through a homeomorphism; neither
+operation requires subtraction.
+
+The word \emph{unibranch} is used in the sense of
+\Cref{def:ch43-unibranch}: the normalization \(\nu\) is bijective on points.
+Over an algebraically closed field this is equivalent, for integral \(X\),
+to \(\nu\) being a universal homeomorphism
+(\Cref{lem:bj-unibranch-normalization-universal}).
+
+\subsection{What is used from earlier chapters}
+\label{sec:ch45-inputs}
+
+The chapter uses exactly seven imported statements, and it is worth listing
+them with the chapter of proof, because the remainder of the chapter is
+bookkeeping around them.
+
+\begin{enumerate}
+\item \Cref{thm:bj-smooth-envelope}: the envelope property in every real
+      class on a smooth projective variety, in every characteristic
+      (\Cref{chap:bj-smooth-characteristic}).
+\item \Cref{thm:bj-birational-ep-descent}: descent of the envelope property
+      along a projective birational morphism of normal projective varieties
+      (\Cref{chap:bj-reflection}).
+\item \Cref{thm:bj-finite-normal-descent}: descent along a finite surjective
+      morphism of normal projective varieties
+      (\Cref{chap:bj-finite-descent}).
+\item \Cref{thm:bj-normal-envelope} and
+      \Cref{cor:bj-normalization-source-ep}: the envelope property on a
+      normal projective variety, and on the normalization of an arbitrary
+      integral projective variety (\Cref{chap:bj-alterations}).
+\item \Cref{lem:bj-unibranch-normalization-universal} and
+      \Cref{cor:bj-universal-usc}: unibranchness makes \(\nu\) a finite
+      birational universal homeomorphism, and \(\nu^{\An}\) a homeomorphism
+      compatible with upper semicontinuous regularization
+      (\Cref{chap:bj-universal-homeomorphisms}).
+\item \Cref{cor:bj-universal-reflection-all-characteristics}: pullback is a
+      bijection of psh classes through such a map, in every characteristic
+      (\Crefrange{chap:bj-universal-homeomorphisms}{chap:bj-subintegral-normalization}).
+\item \Cref{thm:ep-implies-unibranch}: the converse in the ample case, due
+      to Boucksom and Jonsson and \emph{not} part of the supplied envelope
+      manuscript (\Cref{chap:bj-envelope-history}).
+\end{enumerate}
+
+Item~(7) is the only one of the seven that is not proved in this book, and
+the distinction is maintained throughout: the supplied manuscript proves
+sufficiency of unibranchness and says nothing about necessity.
+
+\subsection{Roadmap}
+\label{sec:ch45-roadmap}
+
+\Cref{sec:ch45-dependency} displays the dependency chain and
+\Cref{sec:ch45-noncircular} audits it.  \Cref{sec:ch45-proof} proves
+\Cref{thm:bj-final-envelope} with every hypothesis of every input verified,
+and \Cref{sec:ch45-endpoint} isolates the extended-real content of the
+assembly.  \Cref{sec:ch45-nets} develops the increasing-net formulation and
+\Cref{sec:ch45-perturbation} the reduction of classes.
+\Cref{sec:ch45-obstacles,sec:ch45-monotone} build the obstacle calculus.
+\Cref{sec:ch45-characterization} proves the two-directional characterization
+in the ample case, \Cref{sec:ch45-examples} computes the node, the cusp, an
+explicit envelope on a unibranch nonnormal curve, and two examples of what
+the theorem does not give.  \Cref{sec:ch45-failure} lists the failure
+boundaries, \Cref{sec:ch45-dictionary} is the chapter dictionary and
+\Cref{sec:ch45-historical} the historical replacement and source note.
+
+\section{The dependency chain}
+\label{sec:ch45-dependency}
+
+The proof is short because its ingredients were proved in the correct order.
+Their logical dependencies are
+\[
+\begin{gathered}
+ \text{smooth EP}\Longrightarrow\text{normal EP}
+ \Longrightarrow\text{EP on }X^\nu
+ \Longrightarrow\text{EP on unibranch }X,\\
+ \text{Cartier realization}\Longrightarrow
+ \text{birational reflection},\\
+ \text{Frobenius or Roberts--Singh descent}\Longrightarrow
+ \text{normalization reflection}.
+\end{gathered}
+\tag{45.1}\label{eq:bj-final-dependency-diagram}
+\]
+Finite normal descent enters the first row between smooth and normal EP,
+through the Stein factorization of an alteration.
+The characteristic-\(p\) and characteristic-zero normalization arguments
+enter the lower-right vertex.
+
+\subsection{The chain, with attributions}
+\label{sec:ch45-attributions}
+
+It is worth expanding \eqref{eq:bj-final-dependency-diagram} into the exact
+sequence of implications used in \Cref{sec:ch45-proof}, with the chapter of
+proof attached to each arrow.  Read from the top, the chain is a sequence of
+statements about varieties of decreasing regularity: smooth, then normal,
+then unibranch.
+
+\begin{center}
+\begin{tabular}{p{.30\textwidth}p{.28\textwidth}p{.32\textwidth}}
+\toprule
+step & mechanism & proved in\\
+\midrule
+\(\operatorname{EP}_Y(\eta)\) for \(Y\) smooth projective, \(\eta\) real &
+multiplier ideals in characteristic \(0\), asymptotic test ideals in
+characteristic \(p\), with a uniform \(O(m^{-1})\) class error &
+\Cref{thm:bj-smooth-envelope}
+(\Cref{chap:bj-smooth-characteristic})\\
+\(\operatorname{EP}_Y(\beta^*\eta)\Rightarrow
+ \operatorname{EP}_T(\eta)\) for \(\beta:Y\to T\) projective birational,
+ \(Y,T\) normal &
+Cartier realization of anti-effective b-divisors; homogeneous reflection;
+Legendre slices controlled by a homogeneous carrier &
+\Cref{thm:bj-birational-ep-descent}
+(\Cref{chap:bj-cartier-realization,chap:bj-reflection})\\
+\(\operatorname{EP}_T(h^*\eta)\Rightarrow
+ \operatorname{EP}_X(\eta)\) for \(h:T\to X\) finite surjective,
+ \(T,X\) normal &
+analytic openness; Raynaud--Gruson flattening; fibre averages computed by
+determinant norms of a universal weighted linear form &
+\Cref{thm:bj-finite-normal-descent}
+(\Cref{chap:bj-finite-descent})\\
+\(\operatorname{EP}_X(\theta)\) for \(X\) normal projective &
+de Jong alteration, Stein factorization, and the previous three steps &
+\Cref{thm:bj-normal-envelope}
+(\Cref{chap:bj-alterations})\\
+\(\operatorname{EP}_{X^\nu}(\nu^*\theta)\) for arbitrary integral
+projective \(X\) &
+the normalization of an integral projective variety is a normal integral
+projective variety &
+\Cref{cor:bj-normalization-source-ep}
+(\Cref{chap:bj-alterations})\\
+\(\nu^{\An}\) a homeomorphism, for \(X\) unibranch &
+finite \(+\) birational \(+\) radicial \(\Rightarrow\) universal
+homeomorphism &
+\Cref{lem:bj-unibranch-normalization-universal}
+(\Cref{chap:bj-universal-homeomorphisms})\\
+\(\nu^*:\PSH_X(\theta)\xrightarrow{\sim}\PSH_{X^\nu}(\nu^*\theta)\) &
+one uniform Frobenius power in characteristic \(p\); the Roberts--Singh
+additive-power sandwich in characteristic \(0\) &
+\Cref{cor:bj-universal-reflection-all-characteristics}
+(\Cref{chap:bj-universal-homeomorphisms,chap:bj-subintegral-normalization})\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two features of the table are structural rather than incidental.
+
+First, the regularity of the variety decreases along the chain while the
+generality of the class never changes.  Every step is proved for an
+arbitrary real class in \(N^1\) of the variety at hand; no step is proved
+first for ample or rational classes and extended afterwards.  The one
+reduction to rational classes that does occur is internal to
+\Cref{chap:bj-smooth-characteristic} and is discharged there
+(\Cref{lem:ch40-ep-nef-limit,lem:ch40-rational-approximation}); it is
+recorded again, in the form in which the present chapter uses it, in
+\Cref{sec:ch45-perturbation}.
+
+Second, the last two rows are of a different nature from the first five.
+The first five transport the envelope \emph{property} along morphisms; the
+last two transport psh \emph{functions}.  The distinction matters, because
+the envelope property is a statement about all families at once, while the
+reflection statement is a statement about individual functions, and the
+assembly needs both: it needs the property upstairs to know that a
+particular regularized supremum is psh on \(X^\nu\), and it needs the
+reflection to bring that one function down to \(X\).
+
+\subsection{Why the order cannot be permuted}
+\label{sec:ch45-order}
+
+Each of the three implications
+\[
+ \text{smooth}\Longrightarrow\text{normal}\Longrightarrow\text{unibranch}
+\]
+uses a technique that is unavailable at the next stage, and this is why they
+occur in this order and not another.
+
+\emph{Smooth to normal.}  A normal variety need not admit a resolution in
+positive characteristic, so the passage cannot be made by a birational
+morphism from a smooth model.  It is made by an \emph{alteration}, which is
+generically finite of some degree \(\delta>1\) and therefore has to be split
+into a birational part and a finite part.  Both parts are descents, and both
+require normality of source and target: birational descent uses the
+b-divisor calculus of \Cref{chap:bj-homogeneity-bdivisors}, which is set up
+on normal varieties, and finite descent uses fibre averaging, whose
+normalization by the generic degree is meaningful only when the varieties
+are normal, hence the pure transform is flat after a Raynaud--Gruson blowup.
+
+\emph{Normal to unibranch.}  The normalization \(\nu:X^\nu\to X\) is finite
+and birational, so it is a degenerate case of both previous steps, and
+neither applies: birational descent needs a normal target, and finite
+descent needs a normal target.  \(X\) is neither.  What is available instead
+is that \(\nu\) is a \emph{universal homeomorphism}, and hence that psh
+functions can be transported by hand, using the ring-theoretic structure of
+the extension \(\cO_X\subseteq\nu_*\cO_{X^\nu}\): Frobenius in characteristic
+\(p\), subintegrality and additive powers in characteristic zero.
+
+\emph{Why not directly.}  One might hope to descend from a smooth alteration
+of \(X\) itself, bypassing \(X^\nu\).  The composite \(Y\to X\) with \(Y\)
+smooth is generically finite and surjective, but its Stein factorization
+\(Y\to T\to X\) has \(T\) normal and \(T\to X\) finite \emph{surjective with
+nonnormal target}, which is exactly the case that
+\Cref{chap:bj-finite-descent} does not treat and cannot treat: the fibre
+average of a psh function through a nonnormal target is not controlled by a
+determinant norm, because the relevant algebra is not the one of a finite
+flat map after flattening.  The factorization through \(X^\nu\) is what
+splits this difficulty into two solvable ones.
+
+\subsection{The non-circularity audit}
+\label{sec:ch45-noncircular}
+
+No arrow in \eqref{eq:bj-final-dependency-diagram} was proved using
+\Cref{thm:bj-final-envelope}.
+In particular:
+\begin{enumerate}
+\item Cartier realization was constructed from ordered semiample
+      approximations and PSH2;
+\item birational reflection was proved from realization and homogeneous
+      carriers before source EP was used to descend EP;
+\item the smooth theorem was proved independently by multiplier or test
+      ideals;
+\item finite descent used flattening, determinant norms, and the independent
+      carrier-reflection theorem;
+\item universal-homeomorphic reflection used Frobenius or Roberts--Singh
+      additive powers, not an envelope.
+\end{enumerate}
+This is the circularity audit for the final three-line argument.
+
+The audit deserves to be carried out in the form in which it can be checked,
+because the shape of the chain makes one particular circle very short: a
+normal variety is unibranch, so \Cref{thm:bj-final-envelope} applied to a
+normal variety would prove \Cref{thm:bj-normal-envelope} in a line.  The
+following proposition records that this never happens.
+
+\begin{proposition}
+\label{prop:ch45-noncircular}
+Order the chapters of Part~IV by their numbers.  Then each of the seven
+imported statements of \Cref{sec:ch45-inputs} is proved in a chapter that
+uses, in the proof of that statement, only results proved in strictly
+earlier chapters together with results proved earlier in the same chapter.
+In particular no proof of an imported statement uses
+\Cref{thm:bj-final-envelope}, \Cref{def:bj-envelope-property-final},
+\Cref{cor:bj-historical-conjecture}, or any statement of
+\Cref{chap:bj-envelope-consequences}; and the deduction of
+\Cref{thm:bj-final-envelope} in \Cref{sec:ch45-proof} uses the seven
+imported statements only, in the order
+\[
+ \text{(1)}\to\text{(2)},\text{(3)}\to\text{(4)}\to\text{(5)}\to\text{(6)} .
+\]
+\end{proposition}
+
+\begin{proof}
+The verification is a finite check, and we run it item by item using the
+firewall warnings that each chapter carries.
+
+\emph{(1) \Cref{thm:bj-smooth-envelope}.}  Its proof
+(\Cref{chap:bj-smooth-characteristic}) begins with the reduction of
+\Cref{lem:ch40-ep-nef-limit} and \Cref{lem:ch40-rational-approximation},
+which use only \Cref{thm:bj-basic-closure} and
+\Cref{lem:ch34-psh-nonempty} from \Cref{chap:bj-fs-pl-psh}; it then proves
+that \(P_L(\phi_D)\) is psh for a rational PL obstacle on a big rational
+class, by base ideals and multiplier or asymptotic test ideals.  The
+envelope property occurs in that chapter as a \emph{conclusion} only.  The
+obstacle criterion it uses, \Cref{thm:general-obstacle-criterion}, is proved
+in \Cref{chap:bj-envelope-history} from the definition of \(\PSH\) and the
+comparison interface, with no envelope input.
+
+\emph{(2) \Cref{thm:bj-birational-ep-descent}.}  Its proof
+(\Cref{chap:bj-reflection}) uses \Cref{thm:bj-real-cartier-realization} from
+\Cref{chap:bj-cartier-realization}, the homogeneous reflection theorem
+\Cref{thm:bj-homogeneous-reflection}, the carrier theorem
+\Cref{thm:bj-carrier-reflection}, and the canonical carrier
+\Cref{lem:bj-canonical-carrier}.  Of these only the last mentions an
+envelope, and it mentions it as a \emph{hypothesis on the source}: the
+statement is that if the source has the envelope property, then the envelope
+of all sup-normalized psh functions is a homogeneous carrier.  It is never
+applied to a variety whose envelope property has not been established
+independently by an earlier item of the present list.
+
+\emph{(3) \Cref{thm:bj-finite-normal-descent}.}  Its proof
+(\Cref{chap:bj-finite-descent}) uses analytic openness
+(\Cref{lem:bj-finite-normal-open}), flattening
+(\Cref{lem:bj-finite-flatification}), the coefficient-norm construction
+(\Cref{prop:bj-weighted-coefficient-norm}), and the carrier theorem of
+\Cref{chap:bj-reflection}.  As in the previous item, the envelope property
+enters only as a hypothesis on the source of the map.
+
+\emph{(4) \Cref{thm:bj-normal-envelope}.}  Its proof
+(\Cref{chap:bj-alterations}) uses (1), (2) and (3) and nothing else of
+substance; \Cref{warn:ch42-firewall} lists, item by item, what may not be
+used there, and \Cref{prop:bj-alteration-hypothesis-audit} verifies that
+none of it is.  The source of the birational descent is the smooth variety
+\(Y\), whose envelope property comes from (1); the source of the finite
+descent is the normal variety \(T\), whose envelope property comes from (2)
+applied to \(Y\to T\).  Neither appeal is to the theorem being proved.
+
+\emph{(5) \Cref{cor:bj-normalization-source-ep}.}  This is (4) applied to
+\(X^\nu\), which is normal, integral and projective.  No property of \(X\)
+beyond integrality and projectivity is used, and in particular \(X\) is not
+assumed unibranch.
+
+\emph{(6) \Cref{lem:bj-unibranch-normalization-universal} and
+\Cref{cor:bj-universal-reflection-all-characteristics}.}  Their proofs
+(\Cref{chap:bj-universal-homeomorphisms,chap:bj-subintegral-normalization})
+are purely algebraic and topological: bijectivity plus the diagonal
+criterion for radicial morphisms; then, in characteristic \(p\), a single
+uniform Frobenius power (\Cref{lem:bj-uniform-frobenius},
+\Cref{cor:ch43-frobenius-all-affines}) carrying every local section upstairs
+into \(\cO_X\); and in characteristic zero the two-sided valuative sandwich
+of \Cref{prop:ch44-global-sandwich}, obtained from the additive-power
+theorem \Cref{thm:appA-roberts-singh}.  Neither argument forms an envelope,
+and \Cref{prop:ch44-no-birational} records that the characteristic-zero
+argument does not even use birationality.
+
+\emph{(7) \Cref{thm:ep-implies-unibranch}.}  This is quoted from
+\cite[Theorem~5.12]{BJ22} and is not used in the proof of
+\Cref{thm:bj-final-envelope}; it is used only in
+\Cref{thm:bj-final-unibranch-characterization}, and there only in the
+direction opposite to the theorem.
+
+Finally, the deduction in \Cref{sec:ch45-proof} uses (5) to obtain the
+envelope property on \(X^\nu\), (6) to identify the two analytic spaces and
+to reflect the resulting psh function, and nothing else.  Since (5) rests on
+(4), which rests on (1)--(3), the displayed order is the order of use, and
+it is a linear order.
+\end{proof}
+
+\begin{remark}[What acyclicity does and does not certify]
+\label{rem:ch45-audit-scope}
+\Cref{prop:ch45-noncircular} certifies that the \emph{book's} proof of
+\Cref{thm:bj-final-envelope} is not circular.  It does not certify that the
+individual imported statements are correct, and it does not certify that the
+external inputs quoted inside them --- de Jong's alterations, Raynaud--Gruson
+flattening, Canton's log-discrepancy bound, Musta\c t\u a's uniform
+generation, the Roberts--Singh additive-power theorem --- are independent of
+non-Archimedean pluripotential theory.  They are, evidently; but the
+verification of that is a matter of reading their sources, not of the
+ordering used here.  The audit is a statement about the internal edges of the
+dependency graph, and it is exactly what a reader is entitled to demand of a
+nine-chapter proof whose final step is four lines long.
+\end{remark}
+
+\section{Proof of the envelope theorem}
+\label{sec:ch45-proof}
+
+\Cref{chap:bj-envelope-statement} already gave the argument, in the
+compressed form appropriate to a chapter whose purpose was to state the
+theorem.  We repeat it here at the level of detail appropriate to a chapter
+whose purpose is to close the proof: every hypothesis of every input is
+checked, and every identity of extended-real functions is justified by the
+operation that produces it.
+
+\subsection{The three inputs, with their hypotheses verified}
+\label{sec:ch45-three-inputs}
+
+Fix an integral projective unibranch \(k\)-variety \(X\) and a class
+\(\theta\in N^1(X)_{\mathbf R}\), and let
+\[
+                         \nu:X^\nu\longrightarrow X
+\tag{45.2}\label{eq:bj-final-normalization}
+\]
+be the normalization.  Three facts are used, and each carries a hypothesis
+that must be verified for the data at hand.
+
+\begin{lemma}
+\label{lem:ch45-normalization-data}
+Let \(X\) be an integral projective unibranch variety over an algebraically
+closed field \(k\), with normalization \eqref{eq:bj-final-normalization}.
+Then:
+\begin{enumerate}
+\item\label{itm:ch45-nd:normal}
+      \(X^\nu\) is a normal integral projective \(k\)-variety and \(\nu\) is
+      finite, birational and surjective;
+\item\label{itm:ch45-nd:uh}
+      \(\nu\) is a universal homeomorphism, and
+      \(\nu^{\An}:(X^\nu)^{\An}\to X^{\An}\) is a homeomorphism of compact
+      Hausdorff spaces;
+\item\label{itm:ch45-nd:ep}
+      \(\operatorname{EP}_{X^\nu}(\nu^*\theta)\) holds for every
+      \(\theta\in N^1(X)_{\mathbf R}\);
+\item\label{itm:ch45-nd:refl}
+      \(\nu^*:\PSH_X(\theta)\to\PSH_{X^\nu}(\nu^*\theta)\) is a bijection,
+      in every characteristic.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\cref{itm:ch45-nd:normal}.  A scheme of finite type over a field is Nagata,
+so its normalization is finite
+\cite[\href{https://stacks.math.columbia.edu/tag/035S}{Tag 035S}]
+{stacks-project}; a finite morphism is projective, so \(X^\nu\) is projective
+over \(k\).  Normality and integrality hold by construction, birationality
+because the normalization does not change the function field, and
+surjectivity because a finite birational morphism onto an integral scheme is
+surjective.  This is the content of the first paragraph of the proof of
+\Cref{cor:bj-normalization-source-ep}.
+
+\cref{itm:ch45-nd:uh}.  This is
+\Cref{lem:bj-unibranch-normalization-universal}, whose proof uses exactly the
+unibranch hypothesis: unibranchness of the integral \(X\) says that \(\nu\)
+is bijective, and over an algebraically closed field a finite surjective
+bijective morphism is radicial, hence a universal homeomorphism.  The
+analytic consequence is
+\Cref{lem:bj-universal-analytic-homeomorphism}: \(\nu^{\An}\) is a
+homeomorphism.  Compactness and the Hausdorff property of both spaces are
+the standing facts of \Cref{chap:trivial-analytification} for projective
+varieties.
+
+\cref{itm:ch45-nd:ep}.  This is \Cref{cor:bj-normalization-source-ep}, which
+is \Cref{thm:bj-normal-envelope} applied to the normal integral projective
+variety \(X^\nu\) and the real class \(\nu^*\theta\).  Two hypotheses are
+worth naming.  The variety \(X^\nu\) is normal and projective by
+\cref{itm:ch45-nd:normal}, which is what \Cref{thm:bj-normal-envelope}
+requires; and \(\nu^*\theta\) is a genuine element of
+\(N^1(X^\nu)_{\mathbf R}\), numerical pullback of \(\mathbf R\)-Cartier
+classes being defined for an arbitrary morphism of projective varieties by
+\Cref{prop:appF-mixed-cartier}.  No positivity of \(\theta\) is used, and
+none is available.
+
+\cref{itm:ch45-nd:refl}.  This is
+\Cref{cor:bj-universal-reflection-all-characteristics}, applied to the map
+\(\nu\), which by \cref{itm:ch45-nd:normal} and \cref{itm:ch45-nd:uh} is a
+finite birational universal homeomorphism of integral projective varieties
+with \emph{normal source}.  Normality of the source is the hypothesis that
+has to be checked, and it holds by \cref{itm:ch45-nd:normal}; it is used in
+\Cref{chap:bj-subintegral-normalization} to know that
+\(\cO_X\subseteq\nu_*\cO_{X^\nu}\) is the normalization inclusion and hence,
+in characteristic zero, subintegral
+(\Cref{cor:ch44-unibranch-normalization-reflection}\,\cref{itm:ch44-unib:subint}).
+\end{proof}
+
+\subsection{The assembly}
+\label{sec:ch45-assembly}
+
+\begin{proof}[Proof of \Cref{thm:bj-final-envelope}]
+Let \(\nu:X^\nu\to X\) be the normalization
+\eqref{eq:bj-final-normalization}.
+By \Cref{cor:bj-normalization-source-ep}, the normal projective variety
+\(X^\nu\) has the envelope property in the class \(\nu^*\theta\).
+By unibranchness and
+\Cref{lem:bj-unibranch-normalization-universal}, \(\nu\) is a finite
+birational universal homeomorphism.
+Hence \(\nu^{\An}\) is a homeomorphism and
+\Cref{cor:bj-universal-reflection-all-characteristics} applies.
+
+Let \((\varphi_i)_{i\in I}\subset\PSH_X(\theta)\) be nonempty and bounded
+above, and set
+\[
+                         u:=\left(\sup_{i\in I}\varphi_i\right)^*.
+\tag{45.3}\label{eq:bj-final-envelope-u}
+\]
+Dominant pullback preserves psh functions, so
+\(\nu^*\varphi_i\in\PSH_{X^\nu}(\nu^*\theta)\).
+The family remains nonempty and bounded above.
+Because \(\nu^{\An}\) is a homeomorphism,
+\Cref{cor:bj-universal-usc} gives
+\[
+ \begin{aligned}
+ \nu^*u
+ &=\nu^*\left(\sup_i\varphi_i\right)^*\\
+ &=\left(\sup_i\nu^*\varphi_i\right)^*.
+ \end{aligned}
+\tag{45.4}\label{eq:bj-final-pull-envelope}
+\]
+The right-hand side belongs to
+\(\PSH_{X^\nu}(\nu^*\theta)\) by the envelope property on the normalization.
+Universal-homeomorphic reflection now yields
+\[
+                         u\in\PSH_X(\theta).
+\]
+This is exactly the conclusion of \Cref{thm:bj-final-envelope}.
+\end{proof}
+
+\subsection{The same four steps, with each step justified}
+\label{sec:ch45-four-steps}
+
+The proof just given is short enough that its four steps can be hidden by
+the notation.  We separate them.
+
+\emph{Step 1: the family goes up.}  The morphism \(\nu\) is surjective, and
+pullback along a surjective morphism of integral projective varieties maps
+\(\PSH_X(\theta)\) into \(\PSH_{X^\nu}(\nu^*\theta)\); this is the
+functoriality clause of the psh package, recorded in
+\Cref{chap:bj-fs-pl-psh} and used throughout
+\Crefrange{chap:bj-reflection}{chap:bj-subintegral-normalization}.  It is
+important that this is the \emph{easy} direction: it needs no hypothesis
+beyond surjectivity, since it is proved by pulling back an approximating net
+of generically finite Fubini--Study functions term by term, and a generically
+finite Fubini--Study function pulls back to one because \(\nu\) is dominant.
+The family \((\nu^*\varphi_i)\) is nonempty because \((\varphi_i)\) is, and
+bounded above by the same constant \(C\), because \(\nu^{\An}\) is
+surjective.
+
+\emph{Step 2: the envelope is formed upstairs.}  Here
+\Cref{cor:bj-normalization-source-ep} is used, and it is the only place in
+the proof where a genuinely hard theorem is consumed.  Its output is that
+\[
+ v:=\left(\sup_i\nu^*\varphi_i\right)^*
+ \in\PSH_{X^\nu}(\nu^*\theta).
+\]
+Note that the conclusion is about a function on \((X^\nu)^{\An}\), and that
+nothing has yet been said about \(X\).
+
+\emph{Step 3: the two envelopes are identified.}  This is
+\eqref{eq:bj-final-pull-envelope}, and it is a purely topological statement.
+Since \(\nu^{\An}\) is a homeomorphism, it carries the neighbourhood filter
+of a point \(y\in(X^\nu)^{\An}\) onto the neighbourhood filter of
+\(\nu^{\An}(y)\), and both upper semicontinuous regularization and pointwise
+supremum are defined by those filters and by the pointwise order.  Hence
+\(\nu^*\) commutes with both operations, which is
+\Cref{cor:bj-universal-usc} and, in the form used here,
+\Cref{cor:ch43-sup-star}.  No finiteness is required: the identity is an
+identity of \(\Rbar\)-valued functions.  This is the step in which the
+unibranch hypothesis is genuinely consumed for the \emph{topology}; the
+following step consumes it for the \emph{algebra}.
+
+\emph{Step 4: the envelope comes down.}  By Steps 2 and 3 the function
+\(\nu^*u\) lies in \(\PSH_{X^\nu}(\nu^*\theta)\).  By
+\Cref{cor:bj-universal-reflection-all-characteristics} the map \(\nu^*\) is a
+bijection onto \(\PSH_{X^\nu}(\nu^*\theta)\), so there is a unique
+\(w\in\PSH_X(\theta)\) with \(\nu^*w=\nu^*u\).  Since \(\nu^{\An}\) is
+surjective, \(w=u\) pointwise on \(X^{\An}\); hence \(u\in\PSH_X(\theta)\).
+
+\begin{remark}[Where each hypothesis of the theorem is used]
+\label{rem:ch45-hypothesis-use}
+It is instructive to see the four hypotheses of
+\Cref{thm:bj-final-envelope} being consumed.
+\emph{Unibranchness} is used twice, in Steps 3 and 4, and only there.
+\emph{Projectivity} is used in Step 2, through
+\Cref{thm:bj-normal-envelope}, and again implicitly in the compactness of
+\(X^{\An}\), which is what makes the bounded-above hypothesis meaningful.
+\emph{Nonemptiness} is used in Step 2, since the envelope property is a
+statement about nonempty families, and again in Step 4, where a psh function
+must not be identically \(-\infty\).
+\emph{Boundedness above by a constant} is used in Step 2 only.  The
+characteristic of \(k\) is used nowhere in this chapter: it is used inside
+\Cref{cor:bj-universal-reflection-all-characteristics}, where the two
+characteristics receive different proofs, and the corollary is stated so
+that the case distinction does not resurface here.
+\end{remark}
+
+The proof applies to every real numerical class.
+No rationality, bigness, nefness, or ampleness assumption on \(\theta\) was
+introduced.
+If the family in \eqref{eq:bj-final-envelope-u} exists, the psh space is
+automatically nonempty; if the psh space is empty, the envelope property is
+vacuous by definition.
+
+\begin{corollary}\label{cor:bj-conjecture-514}
+For every integral projective unibranch variety over an algebraically closed
+trivially valued field,
+\[
+                         \operatorname{EP}_X(\theta)
+\]
+holds for every \(\theta\in N^1(X)_{\mathbf R}\).
+Thus Conjecture~5.14 of \cite{BJ22} holds in this setting.
+\end{corollary}
+
+\begin{proof}
+Apply \Cref{thm:bj-final-envelope} separately to each real numerical class.
+The conjecture is precisely the class-by-class envelope assertion.
+\end{proof}
+
+\begin{remark}[The empty case is not a gap]
+\label{rem:ch45-empty-case}
+\Cref{cor:bj-conjecture-514} asserts \(\operatorname{EP}_X(\theta)\) for
+\emph{every} real class, including classes for which
+\(\PSH_X(\theta)=\emptyset\).  There is no sleight of hand: by
+\Cref{def:bj-envelope-property} the assertion quantifies over nonempty
+families, and if the psh class is empty there are none, so the assertion
+holds vacuously.  By \Cref{lem:ch34-psh-nonempty} the psh class is empty
+whenever \(\theta\) is not pseudoeffective, so the complement of
+\(\operatorname{Psef}(X)\) lies in the vacuous range.  The converse
+nonemptiness assertion is not supplied by that lemma; inside
+\(\operatorname{Psef}(X)\) the envelope assertion has content whenever the
+psh class is nonempty, whether or not the class is nef.  This is the point of
+\Cref{ex:ch37-empty-class}, and it is the reason
+\Cref{thm:bj-final-envelope} carries no positivity hypothesis.
+\end{remark}
+
+\section{The proper-support endpoint}
+\label{sec:ch45-endpoint}
+
+The equality \eqref{eq:bj-final-pull-envelope} is an equality of
+extended-real functions on the whole analytification.
+Suppose \(x\in X^{\An}\) has support \(Z\subsetneq X\), and let
+\(y\in(X^\nu)^{\An}\) be its unique lift.
+If every function in the family has value \(-\infty\) at \(x\), then
+\[
+           \sup_i\varphi_i(x)=-\infty
+           \quad\text{and}\quad
+           \sup_i\nu^*\varphi_i(y)=-\infty.
+\]
+Upper semicontinuous regularization is compared by the neighborhood filters
+under the homeomorphism; no subtraction occurs.
+Thus \eqref{eq:bj-final-pull-envelope} remains true whether its common value
+is finite or \(-\infty\).
+
+The earlier construction stages protect the same endpoint in four different
+ways:
+\begin{enumerate}
+\item homogeneous Siu division gives a global psh identity in birational
+      reflection;
+\item ideal equalities preserve common zeros in the smooth argument;
+\item the zero determinant polynomial preserves common zeros in finite
+      descent;
+\item Frobenius powers or the two-sided weighted-ideal sandwich preserve the
+      common-zero locus in normalization reflection.
+\end{enumerate}
+The final homeomorphism merely assembles these already exact identities.
+It does not repair a function first defined only on divisorial valuations.
+
+\subsection{Why the endpoint is not a technicality}
+\label{sec:ch45-endpoint-why}
+
+It is tempting to regard the values at proper-support semivaluations as a
+boundary phenomenon that could be handled by fiat --- define the envelope on
+\(X^{\divis}\), where everything is finite, and extend by upper
+semicontinuity.  This does not work, and it is worth saying precisely why,
+because the whole extended-real discipline of
+\Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
+exists to avoid it.
+
+The obstruction is that the extension by upper semicontinuity is not, a
+priori, psh.  A \(\theta\)-psh function is by \Cref{def:bj-psh} a decreasing
+limit of a net of generically finite Fubini--Study functions, and such a
+function has a definite value at every point of \(X^{\An}\), computed from
+the vanishing orders of its defining sections by
+\eqref{eq:divisor-section-pole}.  Two psh functions with the same divisorial
+trace do agree everywhere, by the comparison interface
+\cite[Theorem~4.22]{BJ22} recorded in \Cref{chap:bj-envelope-statement}; but
+that statement presupposes that both functions are psh.  It says nothing
+about a function manufactured from a divisorial trace by regularization, and
+in fact it is exactly the assertion that such a manufactured function is psh
+that the envelope theorem supplies.  Using the comparison interface to
+\emph{define} the extension would therefore assume the conclusion.
+
+The situation is not hypothetical.  \Cref{ex:gf-proper-support-pole}
+exhibits a generically finite Fubini--Study function on \(\mathbf P^1\) whose
+pole locus is the single point \(v_{0,\triv}\), and
+\Cref{ex:ch34-decreasing-to-pole} exhibits a decreasing sequence of
+finite-valued Fubini--Study functions acquiring that pole in the limit.  A
+family of such functions, indexed so that the pole locus moves, has a
+supremum whose behaviour at proper-support points is genuinely new
+information, not determined by the divisorial trace of the individual
+members.
+
+\begin{proposition}\label{prop:bj-final-no-hidden-finiteness}
+The proof of \Cref{thm:bj-final-envelope} never assumes that a GF
+regularization, its limit, or the envelope is finite on all of
+\(X^{\An}\).
+It uses finiteness only at the trivial valuation when PSH2 must exclude its
+identically \(-\infty\) alternative.
+\end{proposition}
+
+\begin{proof}
+Every stagewise identity listed above is meaningful in
+\(\mathbf R\cup\{-\infty\}\).
+The trivial valuation has full support, and every nonzero GF coefficient has
+finite value there.
+A nonempty psh family also supplies a finite lower witness at that point.
+These are exactly the nontriviality checks used in the decreasing-limit
+arguments.
+
+In detail, the four occurrences of a decreasing limit in the chain are the
+following, and each is accompanied by a finite value at \(v_{X,\triv}\).
+In \Cref{chap:bj-cartier-realization} the ordered semiample approximations
+of \Cref{lem:bj-ordered-rational-approximation} are homogeneous, hence
+vanish at \(v_{X,\triv}\) by the homogeneity package of
+\Cref{chap:bj-homogeneity-bdivisors}; the limit therefore has value \(0\)
+there and is not identically \(-\infty\).
+In \Cref{chap:bj-smooth-characteristic} the base-ideal stages
+\(\phi_D+m^{-1}\phi_{\mathfrak a_m}\) have value \(\phi_D(v_{X,\triv})\) at
+the trivial valuation, because the ideals \(\mathfrak a_m\) are nonzero and
+therefore have a generator not vanishing on the generic fibre.
+In \Cref{chap:bj-finite-descent} the descended function is a positively
+weighted average of values of the given function, and the given function is
+finite at the trivial valuation.
+In \Cref{chap:bj-subintegral-normalization} the sandwich
+\eqref{eq:bj-char-zero-gf-approximants} is two-sided with a finite width, so
+finiteness at \(v_{X,\triv}\) upstairs forces it downstairs.
+
+Finally, the assembly of \Cref{sec:ch45-assembly} contains no decreasing
+limit at all: it forms one supremum, regularizes once, transports the result
+through a homeomorphism, and applies a bijection.  A fortiori it introduces
+no finiteness hypothesis.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch45-envelope-can-be-minus-infinity}
+There exist \(X\), \(\theta\), and a nonempty bounded-above family
+\((\varphi_i)\subset\PSH_X(\theta)\) on a unibranch \(X\) such that
+\(\bigl(\sup_i\varphi_i\bigr)^*\) takes the value \(-\infty\) at some point
+of \(X^{\An}\).
+\end{proposition}
+
+\begin{proof}
+Take \(X=\mathbf P^1\), which is smooth, hence unibranch, and
+\(\theta=c_1(\cO(1))\).  Let \(s\in H^0(X,\cO(1))\) vanish exactly at
+\(p=0\) and put \(\varphi:=\log|s|\), a generically finite Fubini--Study
+function, hence an element of \(\PSH_X(\theta)\): the constant net
+\(\phi_i=\varphi\) satisfies \Cref{def:bj-psh}\,(3), and \(\varphi\) is
+upper semicontinuous and generically finite by
+\Cref{prop:ch34-generic-finiteness}.  By
+\Cref{ex:gf-proper-support-pole}, \(\varphi(v_{0,\triv})=-\infty\) while
+\(\varphi\le0\) everywhere.  Apply the theorem to the one-member family
+\(\{\varphi\}\): it is nonempty and bounded above by \(0\), its supremum is
+\(\varphi\), and \(\varphi\) is already upper semicontinuous, so
+\(\bigl(\sup\bigr)^*=\varphi\), which equals \(-\infty\) at
+\(v_{0,\triv}\).
+\end{proof}
+
+The example is trivial but the point it makes is not: the conclusion of
+\Cref{thm:bj-final-envelope} is a membership statement in a class of
+\(\Rbar\)-valued functions, and no clause of it asserts finiteness.  A
+formulation that quietly restricted attention to real-valued psh functions
+would be a different, weaker theorem, and would be useless for the
+applications, since the psh functions produced by Fubini--Study
+approximation are exactly the ones with poles.
+
+\begin{proposition}
+\label{prop:ch45-pole-locus}
+Let \(X\) be integral projective unibranch, \(\theta\in N^1(X)_{\mathbf R}\),
+and let \((\varphi_i)_{i\in I}\subset\PSH_X(\theta)\) be nonempty and
+bounded above, with \(u:=(\sup_i\varphi_i)^*\).  Then
+\[
+ \{u=-\infty\}\ \subseteq\ \bigcap_{i\in I}\{\varphi_i=-\infty\},
+\]
+and the right-hand side is disjoint from \(X^{\lin}\).  If moreover some
+\(\varphi_{i_0}\) is finite at a point \(x\), then \(u(x)>-\infty\).
+\end{proposition}
+
+\begin{proof}
+The pointwise supremum dominates each member, so
+\(\sup_i\varphi_i\ge\varphi_{i_0}\) for every \(i_0\), and upper
+semicontinuous regularization is order preserving; hence
+\(u\ge\varphi_{i_0}\).  If \(u(x)=-\infty\) then
+\(\varphi_{i_0}(x)=-\infty\) for every \(i_0\), which is the displayed
+inclusion, and the last assertion is its contrapositive.  Each set
+\(\{\varphi_i=-\infty\}\) is disjoint from \(X^{\lin}\), because
+\Cref{thm:bj-basic-closure}\,(7), sourced from
+\cite[Corollary~4.17]{BJ22}, guarantees finiteness there.  No such
+finiteness statement holds in general on all of \(X^{\val}\); poles may
+also occur at full-support valuations outside \(X^{\lin}\).
+\end{proof}
+
+\begin{remark}[The intersection may be empty although every member has a pole]
+\label{rem:ch45-pole-strict}
+On \(\mathbf P^1\) with \(\theta=c_1(\cO(1))\), take the family
+\(\{\log|s_q|\}\) indexed by the closed points \(q\), where \(s_q\) vanishes
+exactly at \(q\).  Every member has a pole, at \(v_{q,\triv}\); but at a
+fixed \(v_{q_0,\triv}\) every member with \(q\ne q_0\) takes the value
+\(0\), so the intersection in \Cref{prop:ch45-pole-locus} is empty and the
+supremum is the constant \(0\).  Thus a family of psh functions all of which
+have poles can have an envelope with no pole at all.
+\end{remark}
+
+The inclusion of \Cref{prop:ch45-pole-locus} is strict in general, and the
+mechanism by which it becomes strict is exactly the regularization step.
+The next example makes this concrete, and it is the promised
+psh counterpart of the elementary \Cref{ex:ch36-sup-not-usc}.
+
+\begin{example}[A psh family whose raw supremum is not upper semicontinuous]
+\label{ex:ch45-raw-sup-not-usc}
+Let \(X=\mathbf P^1\) with \(\theta=c_1(\cO(1))\), so \(\deg\theta=1\), and
+let \(p=0\) be a closed point.  For \(a\in(0,1]\) let
+\(\varphi_a:X^{\An}\to\mathbf R\cup\{-\infty\}\) be the function
+\[
+ \varphi_a(t\ord_p)=-at\ \ (t\in[0,+\infty)),
+ \qquad
+ \varphi_a\equiv0\ \text{ off the ray through }\ord_p .
+\]
+By the curve criterion recorded at the end of
+\Cref{sec:ch34-pl-positivity}, \(\varphi_a\in\PSH_X(\theta)\): the
+restriction to each ray is affine, hence convex, and the slope condition
+reads
+\[
+ \deg\theta+\sum_q\varphi_a'{}_{,q}(0^+)=1-a\ \ge\ 0 .
+\]
+For \(a=1\) the function is \(\log|s_p|\) of
+\Cref{ex:gf-proper-support-pole}; for \(a<1\) it is \(\theta\)-psh by the
+criterion, although it need not be a Fubini--Study function for
+\(\cO(1)\) itself.  Each \(\varphi_a\) is bounded above by \(0\), and each
+satisfies
+\[
+ \varphi_a(v_{p,\triv})=\lim_{t\to+\infty}(-at)=-\infty .
+\]
+Now compute the pointwise supremum over the family \((\varphi_a)_{a\in(0,1]}\):
+\[
+ \sup_{a\in(0,1]}\varphi_a(t\ord_p)
+ =\sup_{a\in(0,1]}(-at)=0
+ \quad\text{for every }t\in[0,+\infty),
+\]
+the supremum being approached as \(a\downarrow0\) and not attained, while
+\[
+ \sup_{a\in(0,1]}\varphi_a(v_{p,\triv})=-\infty .
+\]
+So the raw supremum equals \(0\) on all of \(X^{\An}\) except at the single
+point \(v_{p,\triv}\), where it equals \(-\infty\).  It is therefore
+\emph{not} upper semicontinuous: the points \(t\ord_p\) converge to
+\(v_{p,\triv}\) as \(t\to+\infty\), and along them the raw supremum is
+constantly \(0\).  Its upper semicontinuous regularization is the constant
+\(0\), which is \(\theta\)-psh because \(\theta\) is nef
+(\Cref{lem:ch34-psh-nonempty}).
+
+Three lessons are recorded.  First, the star in
+\eqref{eq:bj-envelope-definition} is not cosmetic even for psh families on a
+smooth rational curve.  Second, the inclusion of
+\Cref{prop:ch45-pole-locus} is strict here: every member is \(-\infty\) at
+\(v_{p,\triv}\), while the envelope is \(0\) there.  Third, the failure of
+upper semicontinuity occurs precisely at a semivaluation of proper support,
+which is why the extended-real discipline cannot be confined to a final
+remark.
+\end{example}
+
+\section{Increasing nets and regularized suprema}
+\label{sec:ch45-nets}
+
+The envelope theorem is equivalent to a monotone statement, but nets rather
+than sequences are required.
+No countable-cofinality property of the relevant directed sets or Berkovich
+spaces is assumed.
+
+The reason the monotone form is the useful one is structural.  A
+\(\theta\)-psh function is, by \Cref{def:bj-psh}, a \emph{decreasing} limit;
+every closure property proved before this chapter, namely
+\Cref{thm:bj-basic-closure}, concerns decreasing limits; and a decreasing
+limit of upper semicontinuous functions is upper semicontinuous for free.
+An increasing family is exactly the case in which none of that is available,
+and \Cref{ex:ch45-raw-sup-not-usc} shows that the missing upper
+semicontinuity is a real phenomenon and not a defect of the definition.  The
+envelope theorem is the statement that after the regularization has been
+performed, one is back inside the class.
+
+\subsection{The monotone formulation}
+\label{sec:ch45-monotone-form}
+
+\begin{theorem}\label{thm:bj-final-increasing-nets}
+Let \(X\) be integral, projective, and unibranch, and fix
+\(\theta\in N^1(X)_{\mathbf R}\).
+If \((u_j)_{j\in J}\subset\PSH_X(\theta)\) is an upward-directed net with a
+common finite upper bound, then there is a unique
+\(u\in\PSH_X(\theta)\) whose divisorial trace is
+\[
+                         u(v)=\sup_j u_j(v)
+               \qquad(v\in X^{\divis}).
+\tag{45.5}\label{eq:bj-final-directed-trace}
+\]
+Moreover,
+\[
+                         u=\left(\sup_j u_j\right)^*.
+\tag{45.6}\label{eq:bj-final-directed-envelope}
+\]
+\end{theorem}
+
+\begin{proof}
+\Cref{thm:bj-final-envelope} gives \(\operatorname{EP}_X(\theta)\).
+The increasing-net criterion
+\cite[Theorem~5.11]{BJ22}, recorded in
+\Cref{prop:bj-ep-equivalences}, gives
+\eqref{eq:bj-final-directed-trace} and
+\eqref{eq:bj-final-directed-envelope}.
+Uniqueness follows from psh determination by divisorial values.
+
+We repeat the deduction with the two comparison steps written out, since it
+is used constantly below.  Put \(w:=(\sup_j u_j)^*\).  The family
+\((u_j)_{j\in J}\) is nonempty --- a directed set is nonempty by convention
+--- and bounded above by hypothesis, so
+\(\operatorname{EP}_X(\theta)\) gives \(w\in\PSH_X(\theta)\).
+
+\emph{The divisorial trace of \(w\).}  Every \(u_j\) is \(\theta\)-psh and
+\(w\) is \(\theta\)-psh, and \(u_j\le\sup_ju_j\le w\) everywhere; hence
+\(\sup_ju_j\le w\) on \(X^{\divis}\).  Conversely, \(\sup_ju_j\) is a
+pointwise supremum of an \emph{upward-directed} family of psh functions, so
+by the divisorial nonnegligibility recorded in
+\Cref{thm:bj-envelope-equivalences} its restriction to \(X^{\divis}\)
+already determines its upper semicontinuous regularization: precisely,
+\(w=(\sup_ju_j)^*\) and \(\sup_ju_j\) agree on \(X^{\divis}\).  This gives
+\eqref{eq:bj-final-directed-trace} with \(u:=w\), and
+\eqref{eq:bj-final-directed-envelope} is then the definition of \(w\).
+
+\emph{Uniqueness.}  If \(u'\in\PSH_X(\theta)\) also satisfies
+\eqref{eq:bj-final-directed-trace}, then \(u\) and \(u'\) agree on
+\(X^{\divis}\); by the comparison interface \cite[Theorem~4.22]{BJ22},
+recorded in \Cref{chap:bj-envelope-statement}, two \(\theta\)-psh functions
+agreeing on \(X^{\divis}\) agree on \(X^{\An}\).  Hence \(u=u'\).
+\end{proof}
+
+\begin{corollary}\label{cor:bj-final-finite-maxima}
+For a nonempty bounded-above family
+\((\varphi_i)_{i\in I}\subset\PSH_X(\theta)\), let
+\[
+                         u_F:=\max_{i\in F}\varphi_i
+\tag{45.7}\label{eq:bj-final-finite-maxima}
+\]
+for every finite nonempty \(F\subset I\).
+Then \((u_F)\), ordered by inclusion of \(F\), is an increasing net in
+\(\PSH_X(\theta)\), and its psh limit is
+\[
+                         \left(\sup_i\varphi_i\right)^*.
+\]
+\end{corollary}
+
+\begin{proof}
+Finite maxima in one class are psh.
+The finite nonempty subsets form a directed set, and their raw pointwise
+supremum is \(\sup_i\varphi_i\).
+Apply \Cref{thm:bj-final-increasing-nets}.
+
+For completeness: that finite maxima are \(\theta\)-psh is
+\Cref{thm:bj-basic-closure}\,(2) together with induction on \(\#F\); that
+the finite nonempty subsets of \(I\) form a directed set under inclusion is
+immediate, \(F\cup F'\) dominating both \(F\) and \(F'\); that the net is
+increasing is monotonicity of the maximum; and that
+\(\sup_Fu_F=\sup_i\varphi_i\) holds pointwise, since every \(\varphi_i\)
+occurs as \(u_{\{i\}}\) and every \(u_F\) is a maximum of members of the
+family.  This is \Cref{lem:ch36-directed-reduction}, which was proved in
+\Cref{chap:bj-envelope-history} without any envelope input; what is new here
+is that the limit exists in \(\PSH_X(\theta)\).
+\end{proof}
+
+\begin{corollary}\label{cor:bj-final-usc-increasing-limit}
+In the setting of \Cref{thm:bj-final-increasing-nets}, if the raw pointwise
+supremum \(\sup_j u_j\) is already upper semicontinuous, then
+\[
+                         \sup_j u_j\in\PSH_X(\theta).
+\]
+\end{corollary}
+
+\begin{proof}
+An upper semicontinuous function equals its upper semicontinuous
+regularization, so use \eqref{eq:bj-final-directed-envelope}.
+\end{proof}
+
+\begin{remark}[What the theorem does not say pointwise]
+Without the upper semicontinuity hypothesis in the last corollary, the raw
+supremum need not equal its regularization at every proper-support point.
+The canonical equality before regularization is the divisorial trace
+\eqref{eq:bj-final-directed-trace}.
+The global psh function is \eqref{eq:bj-final-directed-envelope}.
+\end{remark}
+
+\Cref{ex:ch45-raw-sup-not-usc} is the case in point: there the two functions
+differ at exactly one point of \(X^{\An}\), a semivaluation of proper
+support, and agree on \(X^{\divis}\) as
+\eqref{eq:bj-final-directed-trace} predicts.
+
+\subsection{The supremum as a least upper bound}
+\label{sec:ch45-lub}
+
+The next statement is what one actually uses: the psh function produced by
+the theorem is not merely \emph{a} psh function with the right divisorial
+trace, it is the least upper bound of the family inside \(\PSH_X(\theta)\)
+for the pointwise order.
+
+\begin{proposition}
+\label{prop:ch45-lub}
+Let \(X\) be integral projective unibranch and
+\(\theta\in N^1(X)_{\mathbf R}\).  Let
+\((\varphi_i)_{i\in I}\subset\PSH_X(\theta)\) be nonempty and bounded above,
+and put \(u:=(\sup_i\varphi_i)^*\).  Then:
+\begin{enumerate}
+\item\label{itm:ch45-lub:upper}
+      \(u\in\PSH_X(\theta)\) and \(\varphi_i\le u\) on \(X^{\An}\) for every
+      \(i\);
+\item\label{itm:ch45-lub:least}
+      if \(w\in\PSH_X(\theta)\) satisfies \(\varphi_i\le w\) for every
+      \(i\), then \(u\le w\) on \(X^{\An}\);
+\item\label{itm:ch45-lub:usc}
+      more generally, if \(h:X^{\An}\to\Rbar\) is upper semicontinuous and
+      \(\varphi_i\le h\) for every \(i\), then \(u\le h\).
+\end{enumerate}
+In particular \(u\) is the supremum of \((\varphi_i)\) in the partially
+ordered set \(\PSH_X(\theta)\), and it does not depend on the choice of an
+upper bound.
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch45-lub:upper} is \Cref{thm:bj-final-envelope} together with the
+fact that regularization increases a function.
+
+\cref{itm:ch45-lub:usc}.  If \(\varphi_i\le h\) for every \(i\), then
+\(\sup_i\varphi_i\le h\) pointwise.  Since \(h\) is upper semicontinuous and
+\((\sup_i\varphi_i)^*\) is by definition the \emph{least} upper
+semicontinuous majorant of \(\sup_i\varphi_i\), we get \(u\le h\).
+
+\cref{itm:ch45-lub:least} is the special case \(h=w\) of
+\cref{itm:ch45-lub:usc}, a \(\theta\)-psh function being upper
+semicontinuous by \Cref{def:bj-psh}\,(1).
+
+The final sentence is the definition of a least upper bound; the
+independence assertion holds because the construction of \(u\) does not
+mention the constant \(C\) bounding the family, which enters only to
+guarantee that \(\sup_i\varphi_i\not\equiv+\infty\).
+\end{proof}
+
+\begin{remark}[Why the least upper bound is not the naive one]
+\label{rem:ch45-lub-not-naive}
+It is worth insisting that \cref{itm:ch45-lub:least} is not a formality.  In
+a partially ordered set the least upper bound of a family need not exist,
+and here the candidate --- the pointwise supremum --- is in general not a
+member of the set at all.  The content of \Cref{prop:ch45-lub} is that
+\(\PSH_X(\theta)\) nevertheless has all the suprema one could want, and that
+the supremum is computed by the concrete recipe ``take the pointwise
+supremum, then regularize''.  Neither half of that recipe is available
+before \Cref{thm:bj-final-envelope}: the first half because the result is
+not psh, the second because regularization could a priori leave the class.
+\end{remark}
+
+\subsection{Compactness}
+\label{sec:ch45-compactness}
+
+\begin{corollary}
+\label{cor:ch45-compactness}
+Let \(X\) be integral projective unibranch over an algebraically closed
+trivially valued field, and let \(\theta\in N^1(X)_{\mathbf R}\) be
+arbitrary.  Then the normalized space
+\[
+ \PSH_X^{\sup}(\theta)
+ =\{\phi\in\PSH_X(\theta)\ :\ \textstyle\sup_{X^{\An}}\phi=0\}
+\]
+of \eqref{eq:normalized-psh-space} is compact in the topology of pointwise
+convergence on \(X^{\divis}\).
+\end{corollary}
+
+\begin{proof}
+By \Cref{thm:bj-final-envelope} the class \(\theta\) has the envelope
+property, and by \Cref{thm:bj-envelope-equivalences} the envelope property
+is equivalent to the asserted compactness.  Note that
+\eqref{eq:normalized-psh-space} makes sense for an arbitrary real class,
+since \(\sup_{X^{\An}}\phi\) is finite for every \(\theta\)-psh \(\phi\);
+and that the assertion is vacuously true when \(\PSH_X(\theta)=\emptyset\),
+which by \Cref{lem:ch34-psh-nonempty} happens in particular when \(\theta\)
+is not pseudoeffective.  The converse is not needed here.
+\end{proof}
+
+\begin{remark}[Compactness is exactly as strong as the envelope property]
+\label{rem:ch45-compactness-equivalent}
+The implication in \Cref{cor:ch45-compactness} is reversible:
+\Cref{thm:bj-envelope-equivalences} is an equivalence, so compactness of
+\(\PSH^{\sup}_X(\theta)\) implies \(\operatorname{EP}_X(\theta)\).  Combined
+with \Cref{thm:ep-implies-unibranch} this shows that on a variety that is
+\emph{not} unibranch, \(\PSH^{\sup}_X(\omega)\) fails to be compact for every
+ample \(\omega\).  The unibranch hypothesis in
+\Cref{cor:ch45-compactness} is therefore not removable, and compactness of
+the normalized psh space is not a soft consequence of the definitions: it is
+the envelope theorem in another notation.  For nef classes the statement is
+the conditional one recorded in \Cref{warn:ch34-compactness-conditional},
+whose proof is the Tychonoff argument of \cite[Theorem~5.11]{BJ22} run on
+the divisorial coordinates once the envelope property is available; what the
+present corollary adds is that the hypothesis under which that argument
+closes is now a theorem for unibranch \(X\), and that the conclusion holds
+for every real class, nef or not.  The unconditional form is false, as
+\Cref{warn:ch34-compactness-conditional} explains.
+\end{remark}
+
+\subsection{Nets are not a formality}
+\label{sec:ch45-nets-formality}
+
+The formulations above are stated for nets, and
+\Cref{sec:ch36-nets} explained why: the directed set of finite subsets of an
+arbitrary index set need not have a countable cofinal subset
+(\Cref{warn:sequence-insufficient-envelope}), and \(X^{\An}\) is not
+metrizable for \(\dim X\ge1\)
+(\Cref{prop:ch36-no-sequences}).  Two consequences for the present chapter
+should be recorded explicitly.
+
+\begin{warning}{No sequential reduction is available in this chapter}
+\label{warn:ch45-nets}
+The following four statements are for nets and have no sequential
+counterpart under the hypotheses used here:
+\begin{enumerate}
+\item the approximation clause \Cref{def:bj-psh}\,(3) defining
+      \(\PSH_X(\theta)\);
+\item the closure clauses \Cref{thm:bj-basic-closure}\,(4) and~(5);
+\item the increasing-net criterion
+      \Cref{thm:bj-final-increasing-nets};
+\item the compactness statement \Cref{cor:ch45-compactness}, whose proof
+      passes to a \emph{subnet} in the sense of the front matter, that is,
+      along an order-preserving cofinal indexing map.
+\end{enumerate}
+Wherever a sequence appears below --- for instance in
+\Cref{thm:bj-final-decreasing-obstacles} --- it is because the data are
+indexed by \(\mathbf N\) to begin with, never because a net has been
+replaced by a sequence.
+\end{warning}
+
+The reader who wants a concrete instance of the failure of countable
+cofinality may take \(X\) a curve over an uncountable algebraically closed
+field: already the family \((\varphi_a)_{a\in(0,1]}\) of
+\Cref{ex:ch45-raw-sup-not-usc} is indexed by an uncountable totally ordered
+set, and its net of finite maxima is indexed by the finite subsets of
+\((0,1]\).  A cofinal sequence in that directed set would be a sequence of
+finite subsets of \((0,1]\) whose union is cofinal for inclusion, hence a
+countable set meeting every finite subset --- which is possible only if
+\((0,1]\) is countable.  In this particular example a cofinal
+\emph{sequence} does exist in the underlying totally ordered set
+\(\bigl((0,1],\ge\bigr)\), namely \(a=1/n\); the point is that no such
+accident is available in general, and none is used.
+
+\section{Perturbation of the class}
+\label{sec:ch45-perturbation}
+
+\Cref{thm:bj-final-envelope} is stated for an arbitrary real class, and the
+proof in \Cref{sec:ch45-proof} treats an arbitrary real class directly.  It
+is nevertheless useful to record the reduction that allows a proof to be run
+in rational classes only, both because it is the reduction used inside
+\Cref{chap:bj-smooth-characteristic} and because it is the form in which the
+supplied manuscript quotes the perturbation lemma
+\cite[Lemma~5.9]{BJ22}.
+
+\subsection{The perturbation lemma}
+\label{sec:ch45-perturbation-lemma}
+
+The lemma has been proved once, in \Cref{chap:bj-smooth-characteristic}, and
+we restate it here in the language of the present chapter because it will be
+used again in \Cref{sec:ch45-obstacles} and in
+\Crefrange{chap:bj-energy}{chap:bj-stability}.
+
+Its content is the following asymmetry.  If \(\theta'\ge\theta\) in the
+sense that \(\theta'-\theta\) is nef, then
+\[
+ \PSH_X(\theta)\subseteq\PSH_X(\theta'),
+\]
+because \(0\in\PSH_X(\theta'-\theta)\) by \Cref{lem:ch34-psh-nonempty} and
+sums of psh functions add classes, by \Cref{thm:bj-basic-closure}\,(3).  So
+a family in the smaller class is a family in the larger one, with the
+\emph{same} regularized supremum; if the larger class has the envelope
+property, that supremum is \(\theta'\)-psh.  Letting \(\theta'\) run through
+a net converging to \(\theta\) and using the closedness of
+\(\{\eta:\phi\in\PSH_X(\eta)\}\) --- which is
+\Cref{thm:bj-basic-closure}\,(5) --- returns the supremum to
+\(\PSH_X(\theta)\).  This is \Cref{lem:ch40-ep-nef-limit}, and the
+orientation of the inequality is essential: it is the inclusion
+\(\PSH_X(\theta)\subseteq\PSH_X(\theta_j)\), not its reverse, that makes the
+argument run.
+
+\begin{proposition}
+\label{prop:ch45-reduction-big-rational}
+Let \(X\) be an integral projective \(k\)-variety and suppose that
+\[
+ \operatorname{EP}_X(c_1(L))\quad\text{holds for every big }
+ \mathbf Q\text{-line bundle }L\text{ on }X .
+\]
+Then \(\operatorname{EP}_X(\theta)\) holds for every
+\(\theta\in N^1(X)_{\mathbf R}\).
+\end{proposition}
+
+\begin{proof}
+Let \(\theta\in N^1(X)_{\mathbf R}\).  If \(\theta\) is not
+pseudoeffective, then \(\PSH_X(\theta)=\emptyset\) by
+\Cref{lem:ch34-psh-nonempty}, there is no nonempty family, and
+\(\operatorname{EP}_X(\theta)\) holds vacuously.
+
+Assume therefore \(\theta\in\operatorname{Psef}(X)\), and fix a norm on the
+finite-dimensional real vector space \(N^1(X)_{\mathbf R}\).  For each
+\(j\in\mathbf Z_{>0}\), \Cref{lem:ch40-rational-approximation} with
+\(\delta=1/j\) provides a \(\mathbf Q\)-line bundle \(L_j\) with
+\[
+ \lVert c_1(L_j)-\theta\rVert<1/j,
+ \qquad
+ c_1(L_j)-\theta\ \text{ample},
+ \qquad
+ c_1(L_j)\ \text{big}.
+\]
+Set \(\theta_j:=c_1(L_j)\).  By hypothesis \(\operatorname{EP}_X(\theta_j)\)
+holds, since \(L_j\) is a big \(\mathbf Q\)-line bundle.  Moreover
+\(\theta_j-\theta\) is ample, hence nef, and \(\theta_j\to\theta\).
+\Cref{lem:ch40-ep-nef-limit} now gives \(\operatorname{EP}_X(\theta)\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch45-big-rational-suffices}
+For an integral projective unibranch \(X\), the assertion of
+\Cref{thm:bj-final-envelope} for all \(\theta\in N^1(X)_{\mathbf R}\) is
+equivalent to its assertion for all classes of big \(\mathbf Q\)-line
+bundles.
+\end{corollary}
+
+\begin{proof}
+One direction is trivial and the other is
+\Cref{prop:ch45-reduction-big-rational}.
+\end{proof}
+
+\begin{remark}[Why ample classes alone would not suffice]
+\label{rem:ch45-ample-insufficient}
+It is tempting to try to reduce further, to ample classes.  The attempt
+fails at the first step, and the reason is worth recording, since the same
+trap occurs in the energy chapters.  Given a pseudoeffective \(\theta\) and
+an ample \(\alpha\), the perturbed classes \(\theta+\varepsilon\alpha\) do
+converge to \(\theta\) with nef --- indeed ample --- difference, which is what
+\Cref{lem:ch40-ep-nef-limit} requires; but \(\theta+\varepsilon\alpha\) is
+ample only when \(\theta\) is nef, and a pseudoeffective class need not be
+nef.  What \Cref{lem:ch40-rational-approximation} does provide is bigness of
+\(\theta+\varepsilon\alpha\), by an asymptotic Riemann--Roch argument, and
+bigness is exactly the positivity that the obstacle machinery of
+\Cref{chap:bj-smooth-characteristic} needs: a big class has enough sections
+in large multiples to produce Fubini--Study competitors, while an ample class
+would be a strictly stronger and unavailable hypothesis.  So the correct
+reduction is to \emph{big} rational classes, and
+\Cref{prop:ch45-reduction-big-rational} is sharp in that respect.
+\end{remark}
+
+\begin{remark}[The two orientations of a class perturbation]
+\label{rem:ch45-two-orientations}
+\Cref{prop:ch38-drift-ledger}\,\cref{itm:ch38-drift:orient} and
+\Cref{warn:ch38-drift-not-absorbed} distinguish two uses of a small class
+perturbation, and both occur in the envelope proof.  In the reduction just
+performed, the perturbed classes \emph{dominate} the target and the
+functions are lifted from \(\PSH_X(\theta)\) into \(\PSH_X(\theta_j)\); the
+relevant closure clause is \Cref{thm:bj-basic-closure}\,(3).  In the
+approximation arguments of
+\Cref{chap:bj-smooth-characteristic,chap:bj-subintegral-normalization} the
+perturbed classes also dominate the target, but the functions are pushed
+\emph{down} to it along a decreasing net; the relevant clauses are
+\Cref{thm:bj-basic-closure}\,(4) and~(5).  The two are not interchangeable,
+and \Cref{rem:ch40-reduction-orientation} keeps them apart at the point where
+both occur within a page of each other.
+\end{remark}
+
+\begin{remark}[Real classes again]
+\label{rem:ch45-real-again}
+\Cref{rem:ch37-real-classes} explained why a proof valid only for rational
+classes would not suffice: the passage to the limit would require knowing in
+advance that the limit of the envelopes is the envelope of the limit.
+\Cref{prop:ch45-reduction-big-rational} is not a counterexample to that
+remark, and it is worth seeing why.  It does not compare envelopes in
+different classes at all; it observes that one and the same function ---
+the regularized supremum of one and the same family --- lies in
+\(\PSH_X(\theta_j)\) for every \(j\), and then applies the closedness of the
+set of classes for which a \emph{fixed} function is psh.  That closedness is
+\Cref{thm:bj-basic-closure}\,(5), which is a consequence of the
+varying-class convention in \Cref{def:bj-psh}\,(3), and it is available
+precisely because the definition of a psh function was set up with classes
+allowed to vary.
+\end{remark}
+
+\section{Obstacle envelopes in arbitrary real classes}
+\label{sec:ch45-obstacles}
+
+\Cref{chap:bj-envelope-history} introduced the obstacle envelope
+\(P_\theta\) of \Cref{def:bj-obstacle-envelope} and immediately attached a
+warning to it: before the envelope theorem, \(P_\theta\) is a map from
+obstacles to \emph{functions}, not to \(\PSH_X(\theta)\), and writing
+\(P_\theta:\PSH_X(\theta)\to\PSH_X(\theta)\) or composing \(P_\theta\) with
+itself presupposes exactly what is at issue.  This section lifts that
+warning.
+
+\begin{important}{The obstacle envelope is now an operator}
+\label{imp:ch45-obstacle-operator}
+Let \(X\) be integral projective unibranch and
+\(\theta\in N^1(X)_{\mathbf R}\).  For every upper semicontinuous
+\(f:X^{\An}\to\mathbf R\cup\{-\infty\}\) that is bounded above and admits at
+least one \(\theta\)-psh competitor, the function \(P_\theta(f)\) of
+\Cref{def:bj-obstacle-envelope} is \(\theta\)-psh, is already upper
+semicontinuous without regularization, and is the greatest \(\theta\)-psh
+function dominated by \(f\).  From this point on, \(P_\theta\) may be used as
+an operator
+\[
+ P_\theta:\ \{\text{admissible obstacles}\}\longrightarrow\PSH_X(\theta),
+\]
+and in particular as a projection \(P_\theta:\PSH_X(\theta)\to\PSH_X(\theta)\),
+which is the identity.  The warning of \Cref{chap:bj-envelope-history} is
+discharged; the hypotheses ``upper semicontinuous, bounded above, at least
+one competitor'' are not, and are carried in every statement below.
+\end{important}
+
+\subsection{The two definitions agree}
+\label{sec:ch45-two-definitions}
+
+\Cref{chap:bj-envelope-history} defined \(P_\theta(h)\) as a raw supremum,
+without regularization, precisely because at that stage the regularization
+could not be shown to remain psh.  The definition used in the present
+chapter carries a star.  The following lemma shows that for admissible
+obstacles the two agree, so that the notation \(P_\theta\) is unambiguous.
+
+\begin{definition}[Admissible obstacle]
+\label{def:ch45-admissible-obstacle}
+Let \(\theta\in N^1(X)_{\mathbf R}\).  A function
+\(f:X^{\An}\to\mathbf R\cup\{-\infty\}\) is an \emph{admissible obstacle for
+\(\theta\)} if
+\begin{enumerate}
+\item \(f\) is upper semicontinuous;
+\item \(f\) is bounded above by a real constant on \(X^{\An}\);
+\item the competitor family
+      \(\mathcal F_\theta(f):=\{\psi\in\PSH_X(\theta)\mid\psi\le f\}\)
+      is nonempty.
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+\label{lem:ch45-raw-equals-regularized}
+Let \(X\) be integral projective unibranch, \(\theta\in N^1(X)_{\mathbf R}\),
+and let \(f\) be an admissible obstacle for \(\theta\).  Then the raw
+supremum
+\[
+ S:=\sup\mathcal F_\theta(f)
+\]
+is upper semicontinuous, belongs to \(\PSH_X(\theta)\), and satisfies
+\(S=S^*\).  Consequently
+\Cref{def:bj-obstacle-envelope} and
+\Cref{def:bj-final-obstacle-envelope} define the same function, and the
+symbol \(P_\theta(f)\) is unambiguous.
+\end{lemma}
+
+\begin{proof}
+The family \(\mathcal F_\theta(f)\) is nonempty by admissibility and bounded above
+by the constant bounding \(f\).  By \Cref{thm:bj-final-envelope},
+\(S^*\in\PSH_X(\theta)\).
+
+We claim \(S^*\le f\).  Indeed \(S\le f\) pointwise, since every member of
+\(\mathcal F_\theta(f)\) is \(\le f\); and \(f\) is upper semicontinuous, hence an
+upper semicontinuous majorant of \(S\); since \(S^*\) is the \emph{least}
+such majorant, \(S^*\le f\).
+
+Therefore \(S^*\in\mathcal F_\theta(f)\), so \(S^*\le\sup\mathcal F_\theta(f)=S\).  The
+reverse inequality \(S\le S^*\) holds by definition of the regularization.
+Hence \(S=S^*\), which is upper semicontinuous and \(\theta\)-psh.
+
+The last assertion is now immediate: \Cref{def:bj-obstacle-envelope} gives
+\(S\) and \Cref{def:bj-final-obstacle-envelope} gives \(S^*\), and these are
+equal.
+\end{proof}
+
+\begin{remark}[Where admissibility is used, and what fails without it]
+\label{rem:ch45-admissibility}
+Each of the three clauses of \Cref{def:ch45-admissible-obstacle} is used
+exactly once in the proof of \Cref{lem:ch45-raw-equals-regularized}, and
+each fails in a different way if dropped.
+
+Without nonemptiness of \(\mathcal F_\theta(f)\) the supremum of the empty family
+is the constant \(-\infty\), which is not a psh function by
+\Cref{def:bj-psh}\,(2); this is the first alternative of the trichotomy
+\eqref{eq:envelope-trichotomy}.
+
+Without an upper bound the competitors may have suprema tending to
+\(+\infty\), and the regularized supremum is then identically \(+\infty\) by
+the Alexander--Taylor argument recorded in the proof of
+\Cref{thm:general-obstacle-criterion}; this is the second alternative.
+
+Without upper semicontinuity of \(f\) the inequality \(S^*\le f\) may fail,
+and then \(S^*\) is psh but is not a competitor, so the raw and regularized
+envelopes genuinely differ.  Here is the smallest instance.  Take
+\(X=\mathbf P^1\), \(\theta=c_1(\cO(1))\), a closed point \(p\), and let
+\[
+ f(v):=\begin{cases}-1,& v=v_{p,\triv},\\ 0,&\text{otherwise.}\end{cases}
+\]
+Then \(f\) is bounded above and fails upper semicontinuity at
+\(v_{p,\triv}\), since \(f(t\ord_p)=0\) for every finite \(t\) while
+\(t\ord_p\to v_{p,\triv}\).  Its competitor family contains the functions
+\(\max\{-at,-1\}\) of \Cref{ex:ch45-raw-sup-not-usc}, truncated at the level
+\(-1\): explicitly, for \(a\in(0,1]\) let \(\psi_a\) be \(0\) off the ray
+through \(\ord_p\) and \(\psi_a(t\ord_p)=\max\{-at,-1\}\), which is
+\(\theta\)-psh by the curve criterion and satisfies
+\(\psi_a(v_{p,\triv})=-1\le f(v_{p,\triv})\) and \(\psi_a\le0=f\) elsewhere.
+Hence
+\[
+ S=\sup\mathcal F_\theta(f)=\begin{cases}-1,& v=v_{p,\triv},\\ 0,&\text{otherwise,}\end{cases}
+\]
+the value \(0\) off \(v_{p,\triv}\) arising as \(a\downarrow0\); so
+\(S=f\), \(S\) is not upper semicontinuous, and \(S^*\equiv0\).  In
+particular \(S^*\not\le f\), the raw and starred definitions disagree, and
+the starred one produces a function that is not a competitor at all.  Upper
+semicontinuity of the obstacle is thus exactly the hypothesis that makes
+\Cref{lem:ch45-raw-equals-regularized} true, and it is a hypothesis on the
+obstacle, not on the class or on the variety.
+\end{remark}
+
+\subsection{The envelope is psh}
+\label{sec:ch45-obstacle-psh}
+
+\begin{definition}[Obstacle envelope]
+\label{def:bj-final-obstacle-envelope}
+For an upper semicontinuous function
+\(f:X^{\An}\to\mathbf R\cup\{-\infty\}\), bounded above, set
+\[
+ P_\theta(f):=
+ \left(
+   \sup\{\varphi\in\PSH_X(\theta)\mid \varphi\le f\}
+ \right)^*
+\tag{45.8}\label{eq:bj-final-obstacle-envelope}
+\]
+whenever the competitor family is nonempty.
+\end{definition}
+
+\begin{theorem}\label{thm:bj-final-obstacle-psh}
+If \(X\) is unibranch, the function \(P_\theta(f)\) in
+\eqref{eq:bj-final-obstacle-envelope} belongs to \(\PSH_X(\theta)\).
+It satisfies \(P_\theta(f)\le f\) and is the largest
+\(\theta\)-psh function dominated by \(f\).
+\end{theorem}
+
+\begin{proof}
+The competitor family is nonempty by hypothesis and is bounded above by the
+finite global upper bound for \(f\).
+\Cref{thm:bj-final-envelope} makes its regularized supremum psh.
+The raw supremum is at most \(f\), and \(f\) is upper semicontinuous, so its
+upper semicontinuous regularization is still at most \(f\).
+Every competitor is at most the regularized supremum.
+This proves maximality.
+
+In the language of \Cref{def:ch45-admissible-obstacle}, the hypotheses of
+the theorem say exactly that \(f\) is an admissible obstacle for \(\theta\),
+and the conclusion is that \(\mathcal F_\theta(f)\) has a greatest element, namely
+\(P_\theta(f)\).  Existence of a greatest element is a strictly stronger
+assertion than existence of a least upper bound, and it is worth separating
+the two: \Cref{prop:ch45-lub} produces the least upper bound of a family
+inside \(\PSH_X(\theta)\), while the present theorem produces an element of
+the family \(\mathcal F_\theta(f)\) dominating all the others.  The passage from
+one to the other is \Cref{lem:ch45-raw-equals-regularized}: the least upper
+bound of \(\mathcal F_\theta(f)\) happens to be a member of \(\mathcal F_\theta(f)\)
+because \(f\) is upper semicontinuous.
+\end{proof}
+
+\subsection{The calculus of \texorpdfstring{\(P_\theta\)}{P theta}}
+\label{sec:ch45-obstacle-calculus}
+
+\begin{proposition}\label{prop:bj-final-obstacle-calculus}
+Whenever the displayed competitor families are nonempty:
+\begin{enumerate}
+\item if \(f\le g\), then \(P_\theta(f)\le P_\theta(g)\);
+\item for \(c\in\mathbf R\),
+      \(P_\theta(f+c)=P_\theta(f)+c\);
+\item \(P_\theta(P_\theta(f))=P_\theta(f)\);
+\item the construction is valid for every real
+      \(\theta\in N^1(X)_{\mathbf R}\), not only rational line-bundle classes.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+The first assertion follows by inclusion of competitor families.
+Translation by \(c\) gives a bijection between the competitors for \(f\) and
+those for \(f+c\).
+The theorem says that \(P_\theta(f)\) is itself a competitor for its own
+obstacle, which proves idempotence.
+The last assertion is the class range of
+\Cref{thm:bj-final-envelope}.
+
+We write the four arguments out, since \Cref{lem:obstacle-envelope-formal}
+proved the same formal identities for the raw supremum and it is the
+upgrade, not the identities, that is at stake.
+
+\emph{(1) Monotonicity.}  If \(f\le g\) then every competitor for \(f\) is a
+competitor for \(g\), so \(\mathcal F_\theta(f)\subseteq\mathcal F_\theta(g)\) and hence
+\(\sup\mathcal F_\theta(f)\le\sup\mathcal F_\theta(g)\); regularization is order
+preserving, so \(P_\theta(f)\le P_\theta(g)\).  Note that the hypothesis
+that \emph{both} families be nonempty is not needed here: nonemptiness for
+\(f\) implies it for \(g\).
+
+\emph{(2) Constants.}  The map \(\psi\mapsto\psi+c\) is a bijection of
+\(\PSH_X(\theta)\) onto itself, by \Cref{thm:bj-basic-closure}\,(1), and it
+carries \(\mathcal F_\theta(f)\) bijectively onto \(\mathcal F_\theta(f+c)\).  Hence
+\(\sup\mathcal F_\theta(f+c)=\sup\mathcal F_\theta(f)+c\); and
+\((\cdot+c)\) commutes with upper semicontinuous regularization, because
+translation by a real constant is a homeomorphism of \(\Rbar\) fixing
+\(\pm\infty\) and preserving the order.  Thus
+\(P_\theta(f+c)=P_\theta(f)+c\).
+
+\emph{(3) Idempotence.}  Write \(u:=P_\theta(f)\).  By
+\Cref{thm:bj-final-obstacle-psh}, \(u\in\PSH_X(\theta)\) and \(u\le f\), so
+\(u\in\mathcal F_\theta(u)\); on the other hand every \(\psi\in\mathcal F_\theta(u)\)
+satisfies \(\psi\le u\).  Hence \(u\) is the greatest element of
+\(\mathcal F_\theta(u)\), that is, \(\sup\mathcal F_\theta(u)=u\), and \(u\) is upper
+semicontinuous, so \(P_\theta(u)=u\).  This is the assertion, and it is
+exactly the place where \Cref{lem:obstacle-envelope-formal}\,(3) had to
+hedge: composing \(P_\theta\) with itself requires knowing that the inner
+value is again an obstacle of the admissible kind, which is
+\Cref{thm:bj-final-obstacle-psh}.
+
+\emph{(4) Class range.}  \Cref{thm:bj-final-envelope} is proved for an
+arbitrary \(\theta\in N^1(X)_{\mathbf R}\), and no step of (1)--(3) used
+rationality, integrality or positivity of the class.  The only positivity
+that enters is hidden in the nonemptiness hypothesis: by
+\Cref{lem:ch34-psh-nonempty}, \(\mathcal F_\theta(f)\ne\emptyset\) forces
+\(\theta\) to be pseudoeffective, and forces \(\theta\) to be nef as soon as
+some competitor is bounded.
+\end{proof}
+
+The calculus continues.  The next proposition collects the identities that
+are used in \Crefrange{chap:bj-energy}{chap:bj-stability}; all of them are
+false, or meaningless, before \Cref{thm:bj-final-obstacle-psh}.
+
+\begin{proposition}
+\label{prop:ch45-obstacle-calculus-2}
+Let \(X\) be integral projective unibranch,
+\(\theta\in N^1(X)_{\mathbf R}\), and let \(f,g\) be admissible obstacles
+for \(\theta\).  Then:
+\begin{enumerate}
+\item\label{itm:ch45-P:projection}
+      \(P_\theta(u)=u\) for every \(u\in\PSH_X(\theta)\) that is bounded
+      above --- which is every \(u\in\PSH_X(\theta)\); so \(P_\theta\)
+      restricts to the identity on \(\PSH_X(\theta)\);
+\item\label{itm:ch45-P:lipschitz}
+      if \(c\ge0\) and \(f\le g+c\), then
+      \(P_\theta(f)\le P_\theta(g)+c\); consequently, if \(\theta\) is nef
+      and \(f,g\) are real valued and bounded, then \(P_\theta(f)\) and
+      \(P_\theta(g)\) are bounded and
+      \(\lVert P_\theta(f)-P_\theta(g)\rVert_\infty
+        \le\lVert f-g\rVert_\infty\);
+\item\label{itm:ch45-P:divisorial}
+      if \(f\) and \(g\) agree on \(X^{\divis}\), then
+      \(P_\theta(f)=P_\theta(g)\) on all of \(X^{\An}\);
+\item\label{itm:ch45-P:max}
+      \(\max\{f,g\}\) is an admissible obstacle, and
+      \[
+       \max\{P_\theta(f),P_\theta(g)\}
+       \le P_\theta(\max\{f,g\}).
+      \]
+      If \(\min\{f,g\}\) is an admissible obstacle, then
+      \[
+       P_\theta(\min\{f,g\})
+       \le\min\{P_\theta(f),P_\theta(g)\}.
+      \]
+\item\label{itm:ch45-P:normalization}
+      \(\nu^*P_\theta(f)=P_{\nu^*\theta}(\nu^*f)\), where
+      \(\nu:X^\nu\to X\) is the normalization;
+\item\label{itm:ch45-P:envelope-of-family}
+      if \((\varphi_i)_{i\in I}\subset\PSH_X(\theta)\) is nonempty and
+      bounded above, then
+      \(P_\theta\bigl((\sup_i\varphi_i)^*\bigr)=(\sup_i\varphi_i)^*\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch45-P:projection}.  Every \(u\in\PSH_X(\theta)\) is bounded above,
+by the finiteness of \(\sup_{X^{\An}}u\) recorded after
+\eqref{eq:normalized-psh-space}, and is upper semicontinuous by
+\Cref{def:bj-psh}\,(1); and \(u\in\mathcal F_\theta(u)\), so \(u\) is an admissible
+obstacle.  Since \(u\) is the greatest element of \(\mathcal F_\theta(u)\), we get
+\(P_\theta(u)=u\).  This is \Cref{prop:bj-final-obstacle-calculus}\,(3)
+applied to \(f=u\), and it identifies \(P_\theta\) as a projection.
+
+\cref{itm:ch45-P:lipschitz}.  From \(f\le g+c\) and
+\Cref{prop:bj-final-obstacle-calculus}\,(1),(2) we get
+\(P_\theta(f)\le P_\theta(g+c)=P_\theta(g)+c\).  Suppose now that
+\(\theta\) is nef and that \(f,g\) are real valued and bounded.  By
+\Cref{lem:ch34-psh-nonempty} the constants are \(\theta\)-psh, so
+\(\inf f\) is a competitor for \(f\) and \(\inf f\le P_\theta(f)\le\sup f\);
+in particular \(P_\theta(f)\) and \(P_\theta(g)\) are real valued and
+bounded, and their difference is defined everywhere.  Apply the first
+assertion with \(c=\lVert f-g\rVert_\infty\), and then again with \(f\) and
+\(g\) interchanged.
+
+\cref{itm:ch45-P:divisorial}.  Let \(\psi\in\PSH_X(\theta)\).  By the
+comparison interface \cite[Theorem~4.22]{BJ22}, recorded in
+\Cref{chap:bj-envelope-statement}, and since \(f\) is upper semicontinuous,
+\(\psi\le f\) on \(X^{\An}\) if and only if \(\psi\le f\) on
+\(X^{\divis}\).  The same holds for \(g\).  As \(f=g\) on \(X^{\divis}\),
+the two conditions coincide, so \(\mathcal F_\theta(f)=\mathcal F_\theta(g)\) and the two
+envelopes are equal.  This is a genuinely useful statement: it says that an
+obstacle is only ever felt on \(X^{\divis}\), which is where obstacles are
+computed in practice.
+
+\cref{itm:ch45-P:max}.  The function \(\max\{f,g\}\) is upper
+semicontinuous, is bounded above by the maximum of the two bounds, and
+admits a competitor, namely any competitor for \(f\); so it is admissible.
+Both inequalities are then instances of
+\Cref{prop:bj-final-obstacle-calculus}\,(1), since \(f\le\max\{f,g\}\ge g\)
+and \(\min\{f,g\}\le f,g\).  For the first inequality one may argue
+directly: \(\max\{P_\theta(f),P_\theta(g)\}\) is \(\theta\)-psh by
+\Cref{thm:bj-basic-closure}\,(2) and is \(\le\max\{f,g\}\), hence is a
+competitor.  Admissibility of \(\min\{f,g\}\) is not automatic --- its
+competitor family may be empty --- and is therefore hypothesized.
+
+\cref{itm:ch45-P:normalization}.  By
+\Cref{lem:ch45-normalization-data}\,\cref{itm:ch45-nd:uh} the map
+\(\nu^{\An}\) is a homeomorphism, so \(\nu^*f\) is upper semicontinuous and
+bounded above by the same constant.  By
+\Cref{cor:ch44-unibranch-normalization-reflection}\,\cref{itm:ch44-unib:refl}
+the map \(\nu^*\) is an order-preserving and order-reflecting bijection
+\(\PSH_X(\theta)\to\PSH_{X^\nu}(\nu^*\theta)\).  Hence
+\(\nu^*\) carries \(\mathcal F_\theta(f)\) bijectively onto
+\(\mathcal F_{\nu^*\theta}(\nu^*f)\), and greatest elements correspond.  Since
+\(P_\theta(f)\) is the greatest element of \(\mathcal F_\theta(f)\) by
+\Cref{thm:bj-final-obstacle-psh}, its image \(\nu^*P_\theta(f)\) is the
+greatest element of \(\mathcal F_{\nu^*\theta}(\nu^*f)\), which is
+\(P_{\nu^*\theta}(\nu^*f)\).
+
+\cref{itm:ch45-P:envelope-of-family}.  By \Cref{thm:bj-final-envelope} the
+function \(u:=(\sup_i\varphi_i)^*\) lies in \(\PSH_X(\theta)\); apply
+\cref{itm:ch45-P:projection}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch45-extremal}
+Let \(X\) be integral projective unibranch and let
+\(\theta\in N^1(X)_{\mathbf R}\) with \(\PSH_X(\theta)\ne\emptyset\).  Then
+the constant \(0\) is an admissible obstacle for \(\theta\), the function
+\[
+ V_\theta:=P_\theta(0)\in\PSH_X(\theta)
+\]
+is the greatest \(\theta\)-psh function that is \(\le0\), and
+\[
+ V_\theta\equiv0
+ \quad\Longleftrightarrow\quad
+ \theta\in\Nef(X).
+\]
+Moreover \(P_\theta(c)=V_\theta+c\) for every \(c\in\mathbf R\).
+\end{corollary}
+
+\begin{proof}
+Admissibility: the constant \(0\) is continuous, hence upper semicontinuous,
+and bounded; and if \(\psi\in\PSH_X(\theta)\) is arbitrary, then
+\(\psi-\sup_{X^{\An}}\psi\in\PSH_X(\theta)\) is \(\le0\) by
+\eqref{eq:normalized-psh-space} and
+\Cref{thm:bj-basic-closure}\,(1), so \(\mathcal F_\theta(0)\ne\emptyset\).
+\Cref{thm:bj-final-obstacle-psh} then gives the first two assertions.
+
+If \(\theta\) is nef, the constant \(0\) is \(\theta\)-psh by
+\Cref{lem:ch34-psh-nonempty}, hence is itself the greatest element of
+\(\mathcal F_\theta(0)\), so \(V_\theta=0\).  Conversely, if \(V_\theta=0\) then
+\(0\in\PSH_X(\theta)\) is a bounded member, and
+\eqref{eq:psh-existence-cones} gives \(\theta\in\Nef(X)\).
+
+The last identity is \Cref{prop:bj-final-obstacle-calculus}\,(2).
+\end{proof}
+
+\begin{remark}[\texorpdfstring{\(V_\theta\)}{V theta} is where the two positivity thresholds separate]
+\label{rem:ch45-two-thresholds}
+\Cref{lem:ch34-psh-nonempty} recorded two different thresholds:
+\(\PSH_X(\theta)\ne\emptyset\) needs \(\theta\) pseudoeffective, while a
+\emph{bounded} member needs \(\theta\) nef.  \Cref{cor:ch45-extremal} makes
+the gap between them into a single function whenever
+\(\PSH_X(\theta)\ne\emptyset\).  If in addition \(\theta\) is not nef, then
+\(V_\theta\) is a well-defined \(\theta\)-psh function that is \(\le0\), is
+not identically \(0\), and is unbounded below;
+it is the non-Archimedean counterpart of the equilibrium potential of a
+pseudoeffective class.  Its existence is a consequence of the envelope
+theorem and is not available before this chapter.
+\end{remark}
+
+\subsection{The trichotomy, resolved}
+\label{sec:ch45-trichotomy}
+
+\begin{proposition}
+\label{prop:ch45-trichotomy}
+Let \(X\) be integral projective unibranch, \(\theta\in N^1(X)_{\mathbf R}\)
+with \(\PSH_X(\theta)\ne\emptyset\), and let
+\(h:X^{\An}\to\Rbar\) be arbitrary.  Then exactly one of the following holds:
+\begin{enumerate}
+\item \(\mathcal F_\theta(h)=\emptyset\), and \(P_\theta(h)\equiv-\infty\);
+\item \(\mathcal F_\theta(h)\ne\emptyset\) and is not bounded above by any real
+      constant, and \(P_\theta(h)^*\equiv+\infty\);
+\item \(\mathcal F_\theta(h)\ne\emptyset\) and is bounded above, and
+      \(P_\theta(h)^*\in\PSH_X(\theta)\).
+\end{enumerate}
+If moreover \(h\) is upper semicontinuous and bounded above and
+\(\mathcal F_\theta(h)\ne\emptyset\), then the third alternative holds and
+\(P_\theta(h)=P_\theta(h)^*\).
+\end{proposition}
+
+\begin{proof}
+The trichotomy is \Cref{thm:general-obstacle-criterion}\,(1), which is an
+equivalence with \(\operatorname{EP}_X(\theta)\); the latter holds by
+\Cref{thm:bj-final-envelope}.  The three alternatives as stated are mutually
+exclusive and exhaustive by inspection of the two conditions
+``\(\mathcal F_\theta(h)=\emptyset\)'' and ``\(\mathcal F_\theta(h)\) bounded above'', and
+the third case is \Cref{thm:bj-final-envelope} applied to the family
+\(\mathcal F_\theta(h)\).  In the second case the members of \(\mathcal F_\theta(h)\) have
+suprema tending to \(+\infty\), and the Alexander--Taylor bound quoted in
+the proof of \Cref{thm:general-obstacle-criterion} forces the regularization
+to be \(+\infty\) at every divisorial point, hence identically \(+\infty\)
+by density.
+
+For the last sentence: if \(h\) is bounded above by \(C\), then so is
+\(\mathcal F_\theta(h)\), which excludes the second alternative; and
+\(\mathcal F_\theta(h)\ne\emptyset\) is the remaining hypothesis, so the third
+alternative holds.  \Cref{lem:ch45-raw-equals-regularized} then gives
+\(P_\theta(h)=P_\theta(h)^*\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch45-continuity-envelopes}
+Let \(X\) be integral projective unibranch and \(\omega\in\Amp(X)\).  Then
+for every \(h\in C^0(X^{\An})\),
+\[
+ P_\omega(h)\in C^0(X^{\An})\cap\PSH_X(\omega),
+\]
+and \(h\mapsto P_\omega(h)\) is a \(1\)-Lipschitz retraction of
+\(C^0(X^{\An})\) onto \(C^0(X^{\An})\cap\PSH_X(\omega)\).
+\end{corollary}
+
+\begin{proof}
+An ample class is nef, so \(\PSH_X(\omega)\) contains the constants by
+\Cref{lem:ch34-psh-nonempty}; a continuous \(h\) on the compact space
+\(X^{\An}\) is bounded, so the constant \(\inf h\) is a competitor and \(h\)
+is an admissible obstacle.  \Cref{thm:bj-final-obstacle-psh} gives
+\(P_\omega(h)\in\PSH_X(\omega)\).  Continuity is the criterion
+\eqref{eq:continuity-of-envelopes} recorded in
+\Cref{chap:bj-envelope-history}, which for an ample class is equivalent to
+\(\operatorname{EP}_X(\omega)\); the latter holds by
+\Cref{thm:bj-final-envelope}.  The Lipschitz property is
+\Cref{prop:ch45-obstacle-calculus-2}\,\cref{itm:ch45-P:lipschitz}, and the
+retraction property is
+\Cref{prop:ch45-obstacle-calculus-2}\,\cref{itm:ch45-P:projection}
+together with the fact that a continuous \(\omega\)-psh function is its own
+envelope.
+\end{proof}
+
+\begin{warning}{Continuity is an ample-class phenomenon}
+\label{warn:ch45-continuity-ample}
+\Cref{cor:ch45-continuity-envelopes} is stated for an ample class and the
+hypothesis is used, not decorative.  The equivalence
+\eqref{eq:continuity-of-envelopes} is proved in
+\Cref{chap:bj-envelope-history} for \(\omega\) ample, because ampleness is
+what supplies enough finite-valued Fubini--Study approximants.  If
+\(\PSH_X(\theta)\ne\emptyset\) and \(\theta\) is not nef, then the envelope
+of the continuous obstacle \(0\) is \(V_\theta\), which is unbounded below
+by \Cref{cor:ch45-extremal}; in particular it is not continuous or finite
+valued.  The envelope theorem is a
+closure statement and supplies no regularity;
+\Cref{rem:ch37-not-said} said so in advance, and
+\Cref{ex:ch45-no-regularity} says it with a computation.
+\end{warning}
+
+\begin{remark}[Real class drift in the proof]
+The final theorem is stated in one fixed real class, but its proof used GF
+stages in rational classes converging to that class.
+Class promotion in \Cref{chap:bj-universal-homeomorphisms},
+determinant-norm normalization in \Cref{chap:bj-finite-descent},
+and the error term in \eqref{eq:bj-char-zero-gf-approximants} are what make
+that passage legitimate.
+There is no hidden assumption that \(\theta=c_1(L)\) for a rational line
+bundle.
+\end{remark}
+
+\section{Monotone approximation}
+\label{sec:ch45-monotone}
+
+The envelope theorem is a closure statement.  This section converts it into
+a calculus of monotone limits, which is the form in which
+\Crefrange{chap:bj-energy}{chap:bj-stability} consume it.
+
+\subsection{Decreasing obstacles}
+\label{sec:ch45-decreasing-obstacles}
+
+\begin{theorem}\label{thm:bj-final-decreasing-obstacles}
+Let \(f_j\downarrow f\) be a decreasing sequence of bounded-above upper
+semicontinuous obstacles.
+Assume that the competitor family for \(f\) is nonempty.
+Then
+\[
+                         P_\theta(f_j)\downarrow P_\theta(f)
+\tag{45.9}\label{eq:bj-final-decreasing-obstacles}
+\]
+pointwise on \(X^{\An}\).
+\end{theorem}
+
+\begin{proof}
+Monotonicity gives a decreasing sequence \(P_\theta(f_j)\).
+Its classes are all \(\theta\).
+A fixed competitor for \(f\) lies below every term, so the limit is not
+identically \(-\infty\); PSH2 makes the limit \(v\) a
+\(\theta\)-psh function.
+Since \(P_\theta(f_j)\le f_j\), passage to the pointwise limit gives
+\(v\le f\).
+Thus \(v\) is a competitor for \(f\), so \(v\le P_\theta(f)\).
+Conversely, monotonicity gives
+\(P_\theta(f)\le P_\theta(f_j)\) for all \(j\).
+Taking the limit yields the reverse inequality.
+
+For later use we record the four checks that the argument performs, since
+each of them is a hypothesis somewhere.  First, each \(f_j\) is an
+admissible obstacle in the sense of
+\Cref{def:ch45-admissible-obstacle}: it is upper semicontinuous and bounded
+above by hypothesis, and its competitor family contains
+\(\mathcal F_\theta(f)\ne\emptyset\) because \(f\le f_j\).  Second, the sequence
+\(\bigl(P_\theta(f_j)\bigr)_j\) is decreasing by
+\Cref{prop:bj-final-obstacle-calculus}\,(1) and lies in the fixed class
+\(\theta\), so the applicable closure clause is
+\Cref{thm:bj-basic-closure}\,(4) rather than the varying-class
+clause~(5).  Third, the exclusion of the identically \(-\infty\)
+alternative in that clause is supplied by any fixed
+\(\psi\in\mathcal F_\theta(f)\), which satisfies \(\psi\le P_\theta(f)\le
+P_\theta(f_j)\) for every \(j\) and is generically finite.  Fourth, the
+passage to the limit in \(P_\theta(f_j)\le f_j\) is a passage to the limit
+in an inequality between decreasing families, which is legitimate in
+\(\Rbar\) with no subtraction.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch45-decreasing-obstacle-nets}
+Let \(X\) be integral projective unibranch and
+\(\theta\in N^1(X)_{\mathbf R}\).  Let \((f_j)_{j\in J}\) be a downward
+directed net of upper semicontinuous functions
+\(X^{\An}\to\mathbf R\cup\{-\infty\}\), bounded above by one real constant,
+and put \(f:=\inf_jf_j\).  If \(\mathcal F_\theta(f)\ne\emptyset\), then \(f\) is an
+admissible obstacle and
+\[
+ \inf_{j\in J}P_\theta(f_j)=P_\theta(f)
+\]
+pointwise on \(X^{\An}\).
+\end{theorem}
+
+\begin{proof}
+The function \(f\) is an infimum of upper semicontinuous functions, hence
+upper semicontinuous, and is bounded above by the same constant; with the
+hypothesis \(\mathcal F_\theta(f)\ne\emptyset\) it is admissible.  Each \(f_j\) is
+admissible, since \(f\le f_j\) gives
+\(\mathcal F_\theta(f)\subseteq\mathcal F_\theta(f_j)\).
+
+Write \(v:=\inf_jP_\theta(f_j)\).  The net \((P_\theta(f_j))_j\) is
+downward directed in \(\PSH_X(\theta)\) by
+\Cref{prop:bj-final-obstacle-calculus}\,(1), so it is a decreasing net in
+the sense of \Cref{thm:bj-basic-closure}\,(4).  Any fixed
+\(\psi\in\mathcal F_\theta(f)\) satisfies \(\psi\le P_\theta(f_j)\) for all \(j\),
+so \(v\ge\psi\) is generically finite, and
+\Cref{thm:bj-basic-closure}\,(4) gives \(v\in\PSH_X(\theta)\).
+
+Since \(P_\theta(f_j)\le f_j\) for each \(j\), taking infima gives
+\(v\le f\); hence \(v\in\mathcal F_\theta(f)\) and \(v\le P_\theta(f)\).
+Conversely \(f\le f_j\) gives \(P_\theta(f)\le P_\theta(f_j)\) for every
+\(j\), so \(P_\theta(f)\le v\).
+\end{proof}
+
+\begin{remark}[Nets, and why \Cref{thm:bj-final-decreasing-obstacles} is
+stated for sequences]
+\label{rem:ch45-nets-vs-sequences-obstacles}
+\Cref{thm:ch45-decreasing-obstacle-nets} contains
+\Cref{thm:bj-final-decreasing-obstacles} as the special case
+\(J=\mathbf N\) with the reverse order.  The sequential form is retained
+because the obstacles that arise in practice --- base-ideal stages
+\(\phi_D+m^{-1}\phi_{\mathfrak a_m}\), Frobenius stages, additive-power
+blocks --- are indexed by \(\mathbf N\) or by \(\mathbf N\) under
+divisibility, and stating those applications for nets would suggest that a
+net has been chosen where none was needed.  This is the discipline of
+\Cref{warn:ch45-nets}: nets where nets are forced, sequences where the data
+are sequences.
+\end{remark}
+
+\subsection{Increasing obstacles}
+\label{sec:ch45-increasing-obstacles}
+
+\begin{theorem}
+\label{thm:ch45-increasing-obstacles}
+Let \(X\) be integral projective unibranch and
+\(\theta\in N^1(X)_{\mathbf R}\).  Let \((h_j)_{j\in J}\) be an upward
+directed net in \(C^0(X^{\An})\) with \(h:=\sup_jh_j\), and assume that
+\(\mathcal F_\theta(h_{j_0})\ne\emptyset\) for some \(j_0\) and that
+\(\mathcal F_\theta(h)\) is bounded above by a real constant.  Then
+\begin{enumerate}
+\item\label{itm:ch45-inc:psh}
+      \(P_\theta(h_j)\in\PSH_X(\theta)\) for every \(j\ge j_0\), and the net
+      \((P_\theta(h_j))_{j\ge j_0}\) is increasing;
+\item\label{itm:ch45-inc:sup}
+      \(\sup_{j}P_\theta(h_j)=\sup\mathcal F_\theta(h)\) pointwise on
+      \(X^{\An}\);
+\item\label{itm:ch45-inc:star}
+      \(\bigl(\sup_jP_\theta(h_j)\bigr)^*
+       =\bigl(\sup\mathcal F_\theta(h)\bigr)^*\in\PSH_X(\theta)\), and this
+      function is the least upper bound of \(\{P_\theta(h_j)\}_j\) in
+      \(\PSH_X(\theta)\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\cref{itm:ch45-inc:psh}.  A continuous function on the compact space
+\(X^{\An}\) is bounded and upper semicontinuous, and for \(j\ge j_0\) we
+have \(h_{j_0}\le h_j\), so \(\mathcal F_\theta(h_j)\supseteq\mathcal F_\theta(h_{j_0})\)
+is nonempty.  Thus \(h_j\) is an admissible obstacle and
+\Cref{thm:bj-final-obstacle-psh} applies.  Monotonicity is
+\Cref{prop:bj-final-obstacle-calculus}\,(1).
+
+\cref{itm:ch45-inc:sup}.  Each \(h_j\) is continuous, hence lower
+semicontinuous and bounded below, and \(h_j\uparrow h\).
+\Cref{lem:obstacle-envelope-formal}\,(4), proved in
+\Cref{chap:bj-envelope-history} for raw suprema and without any envelope
+input, gives
+\(\sup_jP^{\mathrm{raw}}_\theta(h_j)=P^{\mathrm{raw}}_\theta(h)\), where
+\(P^{\mathrm{raw}}_\theta(\cdot)=\sup\mathcal F_\theta(\cdot)\).  By
+\Cref{lem:ch45-raw-equals-regularized} the raw and starred envelopes agree
+for the admissible obstacles \(h_j\), so the left-hand side is
+\(\sup_jP_\theta(h_j)\).  The right-hand side is \(\sup\mathcal F_\theta(h)\) by
+definition.
+
+\cref{itm:ch45-inc:star}.  The net \((P_\theta(h_j))_{j\ge j_0}\) is an
+upward directed net in \(\PSH_X(\theta)\); it is bounded above, because each
+of its members lies in \(\mathcal F_\theta(h)\), which is bounded above by
+hypothesis.  \Cref{thm:bj-final-increasing-nets} therefore applies and gives
+a psh regularized supremum, which by \cref{itm:ch45-inc:sup} equals
+\(\bigl(\sup\mathcal F_\theta(h)\bigr)^*\).  That it is the least upper bound in
+\(\PSH_X(\theta)\) is \Cref{prop:ch45-lub}\,\cref{itm:ch45-lub:least}.
+\end{proof}
+
+\begin{remark}[Why the increasing case is not symmetric to the decreasing one]
+\label{rem:ch45-increasing-asymmetry}
+\Cref{thm:ch45-decreasing-obstacle-nets} concludes with an equality of
+functions; \Cref{thm:ch45-increasing-obstacles} concludes with an equality
+only after a star.  The asymmetry is not an artefact.  The limit \(h\) of an
+increasing net of continuous functions is lower semicontinuous, not upper
+semicontinuous, so \(h\) is in general \emph{not} an admissible obstacle,
+and \(\sup\mathcal F_\theta(h)\) need not be \(\le h\); one cannot even write
+\(P_\theta(h)\) in the sense of
+\Cref{def:ch45-admissible-obstacle}.  What survives is the identity of
+suprema in \cref{itm:ch45-inc:sup} and the pshness of the regularization in
+\cref{itm:ch45-inc:star}, which is exactly what the applications need.
+\end{remark}
+
+\begin{corollary}
+\label{cor:ch45-uniform-obstacles}
+Let \(X\) be integral projective unibranch, \(\omega\in\Amp(X)\), and let
+\((h_j)\subset C^0(X^{\An})\) be a monotone net --- increasing or
+decreasing --- with continuous limit \(h\in C^0(X^{\An})\).  Then
+\(h_j\to h\) uniformly, and
+\[
+ P_\omega(h_j)\longrightarrow P_\omega(h)
+ \qquad\text{uniformly on }X^{\An}.
+\]
+\end{corollary}
+
+\begin{proof}
+The space \(X^{\An}\) is compact, so a monotone net of continuous functions
+converging pointwise to a continuous limit converges uniformly, by Dini's
+theorem for nets recorded in \Cref{app:nets}.  Each \(h_j\) and \(h\) is an
+admissible obstacle for \(\omega\), since \(\omega\) is nef and the
+constants are therefore \(\omega\)-psh
+(\Cref{lem:ch34-psh-nonempty}).  Now
+\Cref{prop:ch45-obstacle-calculus-2}\,\cref{itm:ch45-P:lipschitz} gives
+\[
+ \lVert P_\omega(h_j)-P_\omega(h)\rVert_\infty
+ \le\lVert h_j-h\rVert_\infty\longrightarrow0 .
+\]
+\end{proof}
+
+\subsection{Approximation of psh functions in a fixed class}
+\label{sec:ch45-fixed-class-approximation}
+
+\Cref{def:bj-psh} approximates a \(\theta\)-psh function by generically
+finite Fubini--Study functions in classes that merely \emph{converge} to
+\(\theta\), and \Cref{rem:ch45-real-again} explained why the varying-class
+convention is indispensable.  For an ample class the envelope theorem
+upgrades this to an approximation by continuous psh functions in the
+\emph{fixed} class.
+
+\begin{theorem}
+\label{thm:ch45-continuous-regularization}
+Let \(X\) be integral projective unibranch, \(\omega\in\Amp(X)\), and
+\(u\in\PSH_X(\omega)\).  Then there is a downward directed net
+\((u_g)_{g\in\mathcal G}\) with
+\[
+ u_g\in C^0(X^{\An})\cap\PSH_X(\omega),
+ \qquad
+ u_g\downarrow u\ \text{ pointwise on }X^{\An}.
+\]
+In particular \(\PSH_X(\omega)\) is the set of pointwise limits of
+decreasing nets of continuous \(\omega\)-psh functions.
+\end{theorem}
+
+\begin{proof}
+The function \(u\) is upper semicontinuous and bounded above by
+\(\sup_{X^{\An}}u\in\mathbf R\).  By
+\Cref{lem:ch35-usc-inf-continuous} the family
+\[
+ \mathcal G:=\{g\in C^0(X^{\An})\mid g\ge u\}
+\]
+is nonempty and downward directed, and \(\inf_{g\in\mathcal G}g=u\)
+pointwise.
+
+For \(g\in\mathcal G\) put \(u_g:=P_\omega(g)\).  Each \(g\) is an
+admissible obstacle: it is continuous, hence bounded and upper
+semicontinuous, and \(u\in\mathcal F_\omega(g)\) by construction.  By
+\Cref{cor:ch45-continuity-envelopes}, \(u_g\in
+C^0(X^{\An})\cap\PSH_X(\omega)\); by
+\Cref{prop:bj-final-obstacle-calculus}\,(1) the assignment
+\(g\mapsto u_g\) is order preserving, so \((u_g)_{g\in\mathcal G}\) is a
+downward directed net.
+
+Finally, \(u\le u_g\le g\) for every \(g\), the first inequality because
+\(u\in\mathcal F_\omega(g)\) and \(u_g\) is the greatest element of that family,
+the second by \Cref{thm:bj-final-obstacle-psh}.  Taking the infimum over
+\(\mathcal G\) gives \(u\le\inf_gu_g\le\inf_gg=u\).  Hence \(u_g\downarrow
+u\).
+
+The last sentence follows: one inclusion is what was just proved, and the
+other is \Cref{thm:bj-basic-closure}\,(4), a decreasing net of
+\(\omega\)-psh functions with generically finite limit having
+\(\omega\)-psh limit.
+\end{proof}
+
+\begin{remark}[What the fixed class buys, and what it costs]
+\label{rem:ch45-fixed-class-cost}
+\Cref{thm:ch45-continuous-regularization} is stated for an ample class, and
+both hypotheses are used: ampleness through
+\Cref{cor:ch45-continuity-envelopes}, which is where continuity of the
+approximants comes from, and unibranchness through the envelope theorem.
+For a merely nef class the argument still produces a decreasing net
+\(u_g=P_\omega(g)\downarrow u\) of \(\omega\)-psh functions in the fixed
+class, but they need not be continuous.  For a pseudoeffective class that is
+not nef, even the constants are unavailable and the obstacle \(g\) may have
+an empty competitor family, so the construction breaks down at the first
+step; the correct general statement remains the varying-class approximation
+of \Cref{def:bj-psh}\,(3).  This is one of the few places in Part~IV where
+the fixed-class and varying-class conventions can be compared directly, and
+it is worth noticing that the comparison is possible only because the
+envelope theorem supplies the missing operator.
+\end{remark}
+
+\subsection{Conditional joins and meets}
+\label{sec:ch45-lattice}
+
+\begin{theorem}
+\label{thm:ch45-lattice}
+Let \(X\) be integral projective unibranch and
+\(\theta\in N^1(X)_{\mathbf R}\).  Order \(\PSH_X(\theta)\) by the pointwise
+order on \(X^{\An}\).  Let \(S\subseteq\PSH_X(\theta)\) be nonempty.
+\begin{enumerate}
+\item\label{itm:ch45-lat:join}
+      If \(S\) is bounded above by a real constant, then \(S\) has a least
+      upper bound in \(\PSH_X(\theta)\), namely
+      \(\bigvee S:=(\sup S)^*\).
+\item\label{itm:ch45-lat:meet}
+      If \(S\) admits at least one lower bound in \(\PSH_X(\theta)\), then
+      \(S\) has a greatest lower bound in \(\PSH_X(\theta)\), namely
+      \(\bigwedge S:=P_\theta(\inf S)\).
+\end{enumerate}
+In particular, \(\max\{u,v\}\) is always the join of \(\{u,v\}\).  When
+\(u,v\) admit a common \(\theta\)-psh lower bound,
+\(P_\theta(\min\{u,v\})\) is their meet.  Without that lower-bound
+hypothesis, \(\PSH_X(\theta)\) need not be a lattice.
+\end{theorem}
+
+\begin{proof}
+\cref{itm:ch45-lat:join} is \Cref{prop:ch45-lub}.
+
+\cref{itm:ch45-lat:meet}.  Put \(f:=\inf S\), an infimum of upper
+semicontinuous functions, hence upper semicontinuous: for \(c\in\mathbf R\)
+the set \(\{f<c\}=\bigcup_{u\in S}\{u<c\}\) is open.  It is bounded above,
+being dominated by any single member of \(S\), each of which is bounded
+above.  Its competitor family is
+\[
+ \mathcal F_\theta(f)=\{\psi\in\PSH_X(\theta)\mid\psi\le u\ \text{for all }u\in S\},
+\]
+the set of \(\theta\)-psh lower bounds of \(S\), which is nonempty by
+hypothesis.  So \(f\) is an admissible obstacle, and
+\Cref{thm:bj-final-obstacle-psh} says that \(\mathcal F_\theta(f)\) has a greatest
+element, namely \(P_\theta(f)\).  A greatest element of the set of lower
+bounds is a greatest lower bound.
+
+For the last sentence, \(\max\{u,v\}\in\PSH_X(\theta)\) by
+\Cref{thm:bj-basic-closure}\,(2) and is evidently the least upper bound;
+and \(\min\{u,v\}\) is upper semicontinuous and bounded above, so
+\cref{itm:ch45-lat:meet} applies to \(S=\{u,v\}\) as soon as some
+\(\theta\)-psh function lies below both.
+\end{proof}
+
+\begin{remark}[The two conditions are genuinely conditions]
+\label{rem:ch45-lattice-conditions}
+Neither hypothesis in \Cref{thm:ch45-lattice} can be dropped.
+
+If \(S\) is not bounded above by a constant, then \(\sup S\) may be
+identically \(+\infty\), as in \Cref{ex:ch37-pointwise-not-uniform}, and
+\(S\) has no upper bound in \(\PSH_X(\theta)\) at all, a \(\theta\)-psh
+function being bounded above.
+
+If \(S\) has no \(\theta\)-psh lower bound, then it has no greatest one
+either, and this occurs.  Take \(X=\mathbf P^1\) over an uncountable
+algebraically closed field, \(\theta=c_1(\cO(1))\), and
+\(S:=\{\log|s_q|\}_q\) indexed by the closed points \(q\), as in
+\Cref{rem:ch45-pole-strict}.  A \(\theta\)-psh lower bound \(\psi\) would
+satisfy \(\psi(v_{q,\triv})\le\log|s_q|(v_{q,\triv})=-\infty\) for every
+\(q\), that is, \(\psi\) would take the value \(-\infty\) at uncountably
+many ray endpoints.  This is impossible: by the curve criterion recorded at
+the end of \Cref{sec:ch34-pl-positivity}, \(t\mapsto\psi(t\ord_q)\) is
+convex with nondecreasing slope, so \(\psi(v_{q,\triv})=-\infty\) forces
+\(\psi'_q(0^+)<0\); and the criterion also asserts that the sum
+\(\sum_q\psi'_q(0^+)\), which is bounded below by \(-\deg\theta\), has only
+countably many nonzero terms.  Hence at most countably many endpoints can
+carry the value \(-\infty\).
+\end{remark}
+
+\section{Geometric characterization in an ample class}
+\label{sec:ch45-characterization}
+
+The sufficiency direction is the theorem just proved.
+The necessity direction is an earlier Boucksom--Jonsson theorem and is not
+part of the supplied envelope proof.
+It was stated with provenance in
+\Cref{thm:ep-implies-unibranch}.
+
+\begin{theorem}\label{thm:bj-final-unibranch-characterization}
+Let \(X\) be an integral projective variety over an algebraically closed
+trivially valued field.
+The following are equivalent:
+\begin{enumerate}
+\item \(X\) is unibranch;
+\item \(\operatorname{EP}_X(\theta)\) holds for every
+      \(\theta\in N^1(X)_{\mathbf R}\);
+\item \(\operatorname{EP}_X(\omega)\) holds for every ample class \(\omega\);
+\item \(\operatorname{EP}_X(\omega)\) holds for at least one ample class
+      \(\omega\).
+\end{enumerate}
+\par
+\end{theorem}
+
+\begin{proof}
+The implication from the first item to the second is
+\Cref{thm:bj-final-envelope}.
+The second implies the third, and the third implies the fourth.
+The fourth implies the first by
+\Cref{thm:ep-implies-unibranch}, whose external source is
+\cite[Theorem~5.12]{BJ22}.
+
+We expand the four steps, since the cycle is the sharpness statement of
+Part~IV and each arrow has a different character.
+
+\emph{(1)\(\Rightarrow\)(2).}  This is exactly
+\Cref{thm:bj-final-envelope}, applied once for each
+\(\theta\in N^1(X)_{\mathbf R}\); equivalently it is
+\Cref{cor:bj-conjecture-514}.  It is the content of nine chapters, and it is
+the only implication of the four that is not immediate.
+
+\emph{(2)\(\Rightarrow\)(3).}  An ample class is an element of
+\(N^1(X)_{\mathbf R}\), so this is a restriction of the quantifier.
+
+\emph{(3)\(\Rightarrow\)(4).}  The variety \(X\) is projective, so
+\(\Amp(X)\ne\emptyset\); pick any \(\omega\) in it.  This is the only place
+where projectivity, as opposed to properness, is used in the cycle.
+
+\emph{(4)\(\Rightarrow\)(1).}  This is \Cref{thm:ep-implies-unibranch}.
+Its mechanism, recalled in \Cref{chap:bj-envelope-history}, is worth keeping
+in view because it explains why an ample class is required: the envelope
+property for \(\omega\) yields, through the birational reflection statement
+\cite[Lemma~5.13]{BJ22} applied to the classes \((1+m^{-1})\omega\), that
+every function in \(\cH_{\mathrm{dom}}(\nu^*\omega)\) descends from
+\((X^\nu)^{\An}\) to \(X^{\An}\).  Since \(\nu\) is finite, \(\nu^*\omega\)
+is ample, so \(\cH_{\mathrm{dom}}(\nu^*\omega)\) spans \(\PL(X^\nu)\) by the
+discussion following \Cref{def:ch34-hdom}; and \(\PL(X^\nu)\) separates the
+points of \((X^\nu)^{\An}\).  A separating family of functions that all
+factor through \(\nu^{\An}\) forces \(\nu^{\An}\) to be injective, and
+non-Archimedean GAGA transfers injectivity to the scheme map.  Ampleness is
+used twice: to know that \(\nu^*\omega\) is ample, and to know that the
+dominating Fubini--Study functions of an ample class span \(\PL\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch45-failure-nonunibranch}
+Let \(X\) be integral projective and not unibranch.  Then:
+\begin{enumerate}
+\item\label{itm:ch45-fail:ep}
+      \(\operatorname{EP}_X(\omega)\) fails for \emph{every} ample class
+      \(\omega\);
+\item\label{itm:ch45-fail:compact}
+      \(\PSH^{\sup}_X(\omega)\) is not compact for the topology of
+      pointwise convergence on \(X^{\divis}\), for every ample \(\omega\);
+\item\label{itm:ch45-fail:operator}
+      for every ample \(\omega\) there is an obstacle
+      \(h\in C^0(X^{\An})\) for which \(P_\omega(h)\notin\PSH_X(\omega)\);
+\item\label{itm:ch45-fail:net}
+      for every ample \(\omega\) there is a bounded-above increasing net in
+      \(\PSH_X(\omega)\) that does not converge in \(\PSH_X(\omega)\).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\cref{itm:ch45-fail:ep} is the contrapositive of
+\Cref{thm:bj-final-unibranch-characterization}\,(4)\(\Rightarrow\)(1).
+\cref{itm:ch45-fail:compact} and \cref{itm:ch45-fail:net} follow from
+\cref{itm:ch45-fail:ep} and the equivalences of
+\Cref{thm:bj-envelope-equivalences}, which hold for an arbitrary class on an
+arbitrary integral projective \(X\) and are proved in
+\Cref{chap:bj-envelope-history} without any envelope input.
+\cref{itm:ch45-fail:operator} follows from \cref{itm:ch45-fail:ep} and
+\Cref{thm:general-obstacle-criterion}\,(2), which for an ample class and a
+continuous obstacle is again an equivalence; here \(\PL(X)\subset
+C^0(X^{\An})\) supplies the obstacle.
+\end{proof}
+
+\begin{warning}{Necessity is proved only in the ample case}
+\label{warn:ch45-necessity-ample}
+\Cref{thm:bj-final-unibranch-characterization} characterizes unibranchness
+by the envelope property in an ample class.  It does \emph{not} assert that
+a variety which is not unibranch fails the envelope property in every class.
+Indeed some classes have an empty psh space, for which the envelope property
+holds vacuously on any variety whatsoever
+(\Cref{rem:ch45-empty-case}); and for a nonzero pseudoeffective class that
+is not ample nothing is claimed here in either direction.  The precise
+scope is: sufficiency of unibranchness for all real classes
+(\Cref{thm:bj-final-envelope}), and necessity of unibranchness for one
+ample class (\Cref{thm:ep-implies-unibranch}).  This is also the scope
+recorded in \Cref{rem:ch37-not-said}.
+\end{warning}
+
+\begin{remark}[The two directions have different provenance]
+\label{rem:ch45-two-provenances}
+The two implications that make
+\Cref{thm:bj-final-unibranch-characterization} a characterization come from
+different places and it is a point of principle in this book to say so.
+Sufficiency is proved in
+\Crefrange{chap:bj-cartier-realization}{chap:bj-envelope-consequences},
+following the supplied unpublished manuscript; necessity is
+\cite[Theorem~5.12]{BJ22}, published, and is quoted, not proved, here.  The
+supplied manuscript states the converse in its introduction as a known
+observation of Boucksom and Jonsson, and does not reprove it.  A reader who
+wishes to use only published results has
+\Cref{thm:ep-implies-unibranch} and the partial results
+\Cref{thm:bj22-nef-envelope} and \Cref{thm:bj-addendum-all-classes};
+everything beyond those rests on the manuscript.
+\end{remark}
+
+\section{Worked examples}
+\label{sec:ch45-examples}
+
+Both directions of \Cref{thm:bj-final-unibranch-characterization} are now
+available, so the node and the cusp can be computed rather than described.
+This section does that, then computes an envelope explicitly on a unibranch
+nonnormal curve, and closes with two examples delimiting what the theorem
+gives.
+
+\subsection{Curves: the computational conventions}
+\label{sec:ch45-curve-conventions}
+
+Throughout this section \(C\) is an integral projective curve over the
+algebraically closed trivially valued field \(k\), with normalization
+\(\nu:C^\nu\to C\), and \(C^\nu\) is a smooth projective curve.  We use the
+following three facts, all established earlier.
+
+\emph{(i) The points.}  The divisorial valuations of \(k(C)=k(C^\nu)\) are
+the \(\ord_q\) for \(q\) a closed point of \(C^\nu\).  For \(t\in[0,+\infty)\)
+the semivaluation \(t\ord_q\) is a point of \(C^{\An}\) with centre
+\(\nu(q)\), and the assignment \(t\mapsto t\ord_q\) extends to a
+homeomorphism of \([0,+\infty]\) onto the closed ray
+\[
+ R_q:=\{t\ord_q\ :\ t\in[0,+\infty]\}\subset C^{\An},
+\]
+with \(0\ord_q=v_{C,\triv}\) and \(+\infty\cdot\ord_q=v_{\nu(q),\triv}\), the
+trivial semivaluation of the closed point \(\nu(q)\).  Distinct \(q\) give
+rays meeting only at \(v_{C,\triv}\), except that \(R_q\) and \(R_{q'}\)
+share the endpoint \(v_{\nu(q),\triv}\) when \(\nu(q)=\nu(q')\).  This is
+the description of \Cref{chap:trivial-analytification} for curves.
+
+\emph{(ii) The criterion on a smooth curve.}  For \(C^\nu\) smooth and
+\(\eta\in N^1(C^\nu)_{\mathbf R}\), a function
+\(\phi:(C^\nu)^{\An}\to\mathbf R\cup\{-\infty\}\) is \(\eta\)-psh if and only
+if \(t\mapsto\phi(t\ord_q)\) is convex on \([0,+\infty)\) for every closed
+point \(q\) and
+\[
+ \deg\eta+\sum_q\phi'_q(0^+)\ \ge\ 0 ,
+\]
+the sum having only countably many nonzero terms.  This is
+\cite[Example~4.13]{BJ22}, recorded at the end of
+\Cref{sec:ch34-pl-positivity} and checked there against two explicit test
+configurations.  The criterion constrains only the restriction of \(\phi\)
+to the open rays; the value at an endpoint is not free, because a
+\(\theta\)-psh function is upper semicontinuous and decreasing, so that
+\[
+ \phi(v_{\nu(q),\triv})=\lim_{t\to+\infty}\phi(t\ord_q)\in[-\infty,+\infty)
+\]
+by the argument of \Cref{lem:ch45-branch-symmetry} below.  Accordingly, when
+we verify the criterion for an explicitly given \(\phi\), we always define
+\(\phi\) at the endpoints by that limit; convexity makes the limit exist,
+the slopes being nondecreasing in \(t\) and hence
+\(\phi|_{R_q}\) nonincreasing.
+
+\emph{(iii) Monotonicity.}  Every \(\theta\)-psh function on any \(X\) is
+decreasing for the order on semivaluations: it is a pointwise limit of
+generically finite Fubini--Study functions, which are decreasing by
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:decreasing}, and the
+property passes to pointwise limits.  In particular
+\(u(v_{C,\triv})=\sup_{C^{\An}}u\).
+
+The first lemma is the mechanism behind the node.
+
+\begin{lemma}
+\label{lem:ch45-branch-symmetry}
+Let \(C\) be an integral projective curve, \(\theta\in N^1(C)_{\mathbf R}\),
+and let \(x\in C\) be a closed point.  Let \(q,q'\) be closed points of
+\(C^\nu\) with \(\nu(q)=\nu(q')=x\).  Then every \(u\in\PSH_C(\theta)\)
+satisfies
+\[
+ u(v_{x,\triv})
+ =\lim_{t\to+\infty}u(t\ord_{q})
+ =\lim_{t\to+\infty}u(t\ord_{q'}) .
+\]
+In particular the two limits are equal.
+\end{lemma}
+
+\begin{proof}
+Fix \(q\) with \(\nu(q)=x\).  For every \(t\in[0,+\infty)\) and every
+\(f\in\cO_{C,x}\) one has \(t\ord_q(f)\le v_{x,\triv}(f)\), the right-hand
+side being \(0\) if \(f(x)\ne0\) and \(+\infty\) otherwise; hence
+\(t\ord_q\le v_{x,\triv}\) for the order on semivaluations
+\eqref{eq:semivaluation-order}.  By (iii) above, \(u\) is decreasing for
+that order, so
+\[
+ u(t\ord_q)\ \ge\ u(v_{x,\triv})
+ \qquad\text{for every }t,
+\]
+and therefore \(\lim_{t\to\infty}u(t\ord_q)\ge u(v_{x,\triv})\), the limit
+existing in \([-\infty,+\infty)\) because \(t\mapsto u(t\ord_q)\) is
+nonincreasing.
+
+Conversely, \(t\ord_q\to v_{x,\triv}\) in \(C^{\An}\) as \(t\to+\infty\), by
+(i); and \(u\) is upper semicontinuous by \Cref{def:bj-psh}\,(1).  Hence
+\[
+ u(v_{x,\triv})\ \ge\ \limsup_{t\to+\infty}u(t\ord_q)
+ =\lim_{t\to+\infty}u(t\ord_q).
+\]
+The two inequalities give equality.  The same computation with \(q'\) in
+place of \(q\) gives the second equality, both limits being equal to the
+single number \(u(v_{x,\triv})\).
+\end{proof}
+
+\begin{remark}[The lemma is about \texorpdfstring{\(C\)}{C}, not about \texorpdfstring{\(C^\nu\)}{C nu}]
+\label{rem:ch45-branch-symmetry-scope}
+\Cref{lem:ch45-branch-symmetry} is a statement about psh functions on the
+possibly singular curve \(C\).  Its whole force comes from the fact that the
+two rays \(R_q\) and \(R_{q'}\) of \(C^{\An}\) share their endpoint, which
+happens exactly when \(q\) and \(q'\) lie over the same point of \(C\).  On
+\(C^\nu\) the corresponding rays have distinct endpoints
+\(v_{q,\triv}\ne v_{q',\triv}\), and no such constraint holds; that is the
+whole difference between the two spaces, and it is why \(\nu^{\An}\) is a
+homeomorphism precisely when no two rays are glued.
+\end{remark}
+
+\subsection{The node, computed}
+\label{sec:ch45-node}
+
+\begin{example}[The nodal cubic]
+\label{ex:ch45-node-computed}
+Let \(\operatorname{char}k\ne2,3\) and let
+\[
+ C=\{\,y^2z=x^2(x+z)\,\}\subset\mathbf P^2_k
+\]
+be the integral nodal cubic, with node \(x_0=[0:0:1]\).  Its normalization is
+\[
+ \nu:\ \mathbf P^1\longrightarrow C,
+ \qquad
+ s\longmapsto[\,s^2-1:\ s(s^2-1):\ 1\,]
+\]
+on the affine chart, so that \(\nu^{-1}(x_0)=\{q_+,q_-\}\) with
+\(q_\pm=\pm1\), and \(\nu\) is an isomorphism elsewhere.  Put
+\(\omega:=c_1(\cO_C(1))\), an ample class with \(\deg\omega=3\); then
+\(\nu^*\omega=c_1(\cO_{\mathbf P^1}(3))\) has degree \(3\) as well.
+
+\emph{The analytic space.}  By \Cref{sec:ch45-curve-conventions}\,(i), the
+map \(\nu^{\An}\) is a bijection except over \(v_{x_0,\triv}\), where it is
+two-to-one: the two distinct points \(v_{q_+,\triv}\) and \(v_{q_-,\triv}\)
+of \((\mathbf P^1)^{\An}\) both map to \(v_{x_0,\triv}\).  Thus \(C^{\An}\)
+is obtained from \((\mathbf P^1)^{\An}\) by gluing the endpoints of the two
+rays \(R_{q_+}\) and \(R_{q_-}\); the union
+\(R_{q_+}\cup R_{q_-}\subset C^{\An}\) is a loop through \(v_{C,\triv}\)
+and \(v_{x_0,\triv}\).  This loop is the analytic trace of the arithmetic
+genus of \(C\), and it is the geometric reason the two branches cannot be
+separated by a function on \(C\).
+
+\emph{A psh function upstairs that does not descend.}  Define
+\(\psi:(\mathbf P^1)^{\An}\to\mathbf R\cup\{-\infty\}\) by
+\[
+ \psi(t\ord_{q_+})=\max\{-t,-1\}\ \ (t\in[0,+\infty]),
+ \qquad
+ \psi\equiv0\ \text{off }R_{q_+} .
+\]
+By the criterion of \Cref{sec:ch45-curve-conventions}\,(ii), \(\psi\) is
+\(\nu^*\omega\)-psh: it is convex on every ray, and
+\(\deg\nu^*\omega+\sum_q\psi'_q(0^+)=3-1=2\ge0\).  Its two branch limits are
+\[
+ \lim_{t\to\infty}\psi(t\ord_{q_+})=-1,
+ \qquad
+ \lim_{t\to\infty}\psi(t\ord_{q_-})=0 .
+\]
+By \Cref{lem:ch45-branch-symmetry}, no \(u\in\PSH_C(\omega)\) has
+\(\nu^*u=\psi\): the pullback of such a \(u\) would have equal branch limits
+at \(q_+\) and \(q_-\), both equal to \(u(v_{x_0,\triv})\).  Hence
+\[
+ \nu^*:\ \PSH_C(\omega)\longrightarrow\PSH_{\mathbf P^1}(\nu^*\omega)
+\]
+is \emph{not} surjective.
+
+\emph{What this shows, and what it does not.}  The failure of surjectivity
+is precisely the failure of
+\Cref{cor:bj-universal-reflection-all-characteristics} for \(\nu\), and it
+is exactly what one expects: \(\nu\) is finite and birational but not a
+universal homeomorphism, since it is not injective.  So the last step of the
+assembly in \Cref{sec:ch45-assembly} is unavailable for \(C\).  This by
+itself does not prove that \(\operatorname{EP}_C(\omega)\) fails --- a
+different proof of the envelope property might not go through the
+normalization --- and that is where the converse is needed:
+\Cref{thm:bj-final-unibranch-characterization}\,(4)\(\Rightarrow\)(1)
+gives, since \(C\) is not unibranch,
+\[
+ \operatorname{EP}_C(\omega)\ \text{fails for every ample }\omega .
+\]
+By \Cref{cor:ch45-failure-nonunibranch} the normalized space
+\(\PSH^{\sup}_C(\omega)\) is not compact, some continuous obstacle has a
+non-psh envelope, and some bounded increasing net of \(\omega\)-psh
+functions fails to converge in \(\PSH_C(\omega)\).
+\end{example}
+
+\begin{remark}[Where a naive computation on the node goes wrong]
+\label{rem:ch45-node-trap}
+It is tempting to compute envelopes on \(C\) by computing them on
+\(\mathbf P^1\) and descending, as will be done for the cusp in
+\Cref{ex:ch45-cuspidal-envelope}.  \Cref{ex:ch45-node-computed} shows why
+this is illegitimate for the node: the two psh classes are not identified,
+so a function produced upstairs need not correspond to anything downstairs,
+and the largest \(\nu^*\omega\)-psh function below a pulled-back obstacle
+need not be the pullback of the largest \(\omega\)-psh function below the
+obstacle.  Concretely, the obstacle \(\nu^*h\) of a continuous \(h\) on
+\(C^{\An}\) automatically satisfies \(\nu^*h(v_{q_+,\triv})
+=\nu^*h(v_{q_-,\triv})\), but its psh envelope upstairs has no reason to,
+and if it does not, it is not a pullback.
+\end{remark}
+
+\subsection{The cusp, computed}
+\label{sec:ch45-cusp}
+
+\begin{example}[The cuspidal cubic]
+\label{ex:ch45-cusp-computed}
+Let \(\operatorname{char}k\ne2,3\) and let
+\(C=\{y^2z=x^3\}\subset\mathbf P^2_k\) be the integral cuspidal cubic, with
+cusp \(x_0=[0:0:1]\).  Its normalization is
+\[
+ \nu:\ \mathbf P^1\longrightarrow C,
+ \qquad
+ s\longmapsto[\,s^2:\ s^3:\ 1\,],
+\]
+a bijection, with \(\nu^{-1}(x_0)=\{\tilde p\}\), \(\tilde p=0\).  On
+completed local rings the inclusion is
+\[
+ \cO^{\wedge}_{C,x_0}=k[[s^2,s^3]]\ \subset\ k[[s]]
+ =\cO^{\wedge}_{\mathbf P^1,\tilde p},
+\]
+so \(C\) is nonnormal and unibranch.  Put
+\(\omega:=c_1(\cO_C(1))\), \(\deg\omega=3\), \(\nu^*\omega=c_1(\cO(3))\).
+
+\emph{The identification.}  \(\nu\) is finite, birational and bijective, so
+by \Cref{lem:bj-unibranch-normalization-universal} it is a universal
+homeomorphism and \(\nu^{\An}\) is a homeomorphism.  By
+\Cref{cor:ch44-unibranch-normalization-reflection}\,\cref{itm:ch44-unib:refl},
+\[
+ \nu^*:\ \PSH_C(\theta)\xrightarrow{\ \sim\ }\PSH_{\mathbf P^1}(\nu^*\theta)
+\]
+for every \(\theta\in N^1(C)_{\mathbf R}\), preserving the order, finite
+maxima, addition of constants and decreasing limits whose limit is not
+identically \(-\infty\).  By
+\Cref{thm:bj-final-envelope} the envelope property holds on \(C\) for every
+real class.
+
+\emph{Nonnormality is invisible to \(\PSH\) but not to sections.}  The
+numerical semigroup of the cusp is
+\[
+ \Gamma:=\{\ord_{\tilde p}(f)\ :\ f\in\cO_{C,x_0}\setminus\{0\}\}
+ =\langle2,3\rangle=\{0,2,3,4,5,\dots\},
+\]
+because \(\cO_{C,x_0}\) is generated over \(k\) by \(u=x/z\) and \(w=y/z\)
+with \(\ord_{\tilde p}(u)=2\) and \(\ord_{\tilde p}(w)=3\).  The value \(1\)
+is missing.  Consequently there is no section of \(\cO_C(m)\) vanishing to
+order exactly \(1\) at \(\tilde p\), and the Fubini--Study function
+\(\log|s|\) of a single section can never have slope \(-1\) along
+\(R_{\tilde p}\) with \(m=1\).  Nevertheless the \(\omega\)-psh function
+with slope \(-1\) exists on \(C\), by the identification above.  Both
+statements are correct, and they illustrate a distinction that the
+reflection theorem makes and that is easy to lose: \(\nu^*\) is a bijection
+of \emph{psh classes}, not of Fubini--Study classes.
+
+\emph{Where the missing slope comes from.}  The resolution is that a
+Fubini--Study presentation carries a Veronese denominator, and the local
+orders available at the cusp are the elements of \(\Gamma\) divided by that
+denominator.  For every \(m\ge2\) one has \(m\in\Gamma\), so
+\(\cO_{C,x_0}\) contains an element \(f\) with
+\(\ord_{\tilde p}(f)=m\), and a presentation with denominator \(m\)
+reproduces the slope \(-1\) at the cusp exactly:
+\(\tfrac1m\log|f|\) has slope \(-\ord_{\tilde p}(f)/m=-1\) along
+\(R_{\tilde p}\).  So the missing slope is realized exactly, and not merely
+approximated, as soon as one is allowed to pass to a multiple; the value
+\(1\) is missing from \(\Gamma\), but \(\Gamma\) contains every integer
+\(\ge2\), so \(\Gamma/m\) contains \(1\) for every \(m\ge2\).  The general
+form of this phenomenon is the Frobenius power of
+\Cref{lem:bj-uniform-frobenius} in characteristic \(p\), and the
+additive-power block of \Cref{lem:bj-local-additive-sandwich} in
+characteristic zero: in both cases the descent of a Fubini--Study function
+along \(\nu\) costs a bounded change of the presentation, not a change of
+the function.
+\end{example}
+
+\begin{remark}[Node versus cusp is a branch count, not a smoothness count]
+\label{rem:ch45-branch-not-smooth}
+Both curves of \Cref{ex:ch45-node-computed} and
+\Cref{ex:ch45-cusp-computed} are singular, both are plane cubics, both have
+normalization \(\mathbf P^1\), and both are nonnormal at one point.  They
+differ in one number, the number of points of the normalization over the
+singular point: two for the node, one for the cusp.  That number is exactly
+what \Cref{thm:bj-final-unibranch-characterization} detects.  A reader
+looking for an invariant that separates the two cases in terms of
+singularity type --- multiplicity, delta invariant, embedding dimension ---
+will not find one: the node and the cusp have the same delta invariant
+\(1\) and the same multiplicity \(2\).
+\end{remark}
+
+\begin{example}[Node and cusp revisited]
+\label{ex:ch45-node-cusp-summary}
+For an integral nodal curve, the normalization has two branches over the
+node.
+\Cref{thm:bj-final-unibranch-characterization} shows that the envelope
+property fails for every ample class.
+For an integral cuspidal curve, the normalization has one branch and is a
+universal homeomorphism.
+The main theorem gives the envelope property for every real numerical class.
+This is a branch distinction, not a smoothness distinction.
+\end{example}
+
+\subsection{An envelope computed on a unibranch nonnormal curve}
+\label{sec:ch45-cuspidal-envelope}
+
+\begin{example}[An explicit obstacle envelope on the cuspidal cubic]
+\label{ex:ch45-cuspidal-envelope}
+Keep the data of \Cref{ex:ch45-cusp-computed}: \(C\) the cuspidal cubic,
+\(\nu:\mathbf P^1\to C\) the normalization with
+\(\nu^{-1}(x_0)=\{\tilde p\}\), and \(\omega=c_1(\cO_C(1))\) of degree
+\(3\).  Define \(h:C^{\An}\to\mathbf R\) by
+\[
+ h(t\ord_{\tilde p}):=-\min\{5t,\,5\}\quad(t\in[0,+\infty]),
+ \qquad
+ h\equiv0\ \text{ off } R_{\tilde p} .
+\]
+
+\emph{\(h\) is a continuous obstacle.}  On the ray \(R_{\tilde p}\), which
+is homeomorphic to \([0,+\infty]\), the formula defines a continuous
+function with \(h(v_{C,\triv})=0\) and \(h(v_{x_0,\triv})=-5\).  Off the ray
+\(h\) is constant.  Continuity at \(v_{C,\triv}\) holds because every
+neighbourhood of the trivial valuation contains all but finitely many
+complete rays, on which \(h=0\), together with an initial segment of
+\(R_{\tilde p}\), on which \(h\) is close to \(0\).  Continuity at
+\(v_{x_0,\triv}\) holds because a neighbourhood of that point meets
+\(C^{\An}\) only in a terminal segment of \(R_{\tilde p}\), on which
+\(h\equiv-5\).  Since \(\omega\) is ample, hence nef, the constants are
+\(\omega\)-psh by \Cref{lem:ch34-psh-nonempty}, and \(-5\le h\); so \(h\) is
+an admissible obstacle in the sense of
+\Cref{def:ch45-admissible-obstacle}.
+
+\emph{Transport to \(\mathbf P^1\).}  By
+\Cref{prop:ch45-obstacle-calculus-2}\,\cref{itm:ch45-P:normalization},
+\[
+ \nu^*P_\omega(h)=P_{\nu^*\omega}(\nu^*h),
+\]
+so it suffices to compute the envelope of \(\nu^*h\) on \(\mathbf P^1\) for
+the class \(\nu^*\omega\) of degree \(3\).  We drop \(\nu^*\) from the
+notation and write \(t\) for the coordinate on \(R_{\tilde p}\).
+
+\emph{An upper bound for the competitors.}  Let \(u\) be a competitor:
+\(u\in\PSH_{\mathbf P^1}(\nu^*\omega)\) with \(u\le h\).  Put
+\(a:=u(v_{\triv})=\sup u\), which is finite.  Every slope
+\(u'_q(0^+)\) is \(\le0\), because \(u\) is nonincreasing along rays, and
+the criterion of \Cref{sec:ch45-curve-conventions}\,(ii) gives
+\(3+\sum_qu'_q(0^+)\ge0\); hence
+\[
+ u'_{\tilde p}(0^+)\ \ge\ -3 .
+\]
+Convexity makes \(t\mapsto u(t\ord_{\tilde p})\) have nondecreasing slope,
+so \(u(t\ord_{\tilde p})\ge a-3t\) for every \(t\).  Taking \(t=1\) and
+using \(u\le h\), that is \(u(1\cdot\ord_{\tilde p})\le h(1\cdot\ord_{\tilde
+p})=-5\), gives
+\[
+ a-3\ \le\ -5,
+ \qquad\text{that is}\qquad
+ a\ \le\ -2 .
+\]
+
+\emph{The candidate.}  Define \(u_0\) by
+\[
+ u_0(t\ord_{\tilde p}):=\max\{-2-3t,\ -5\}\quad(t\in[0,+\infty]),
+ \qquad
+ u_0\equiv-2\ \text{ off }R_{\tilde p}.
+\]
+Then \(u_0\) is convex on every ray, being a maximum of two affine functions
+on \(R_{\tilde p}\) and constant elsewhere; its slopes at the origin are
+\(-3\) on \(R_{\tilde p}\) and \(0\) elsewhere, so
+\[
+ \deg\nu^*\omega+\sum_qu_0'{}_{,q}(0^+)=3-3=0\ \ge\ 0,
+\]
+and \(u_0\in\PSH_{\mathbf P^1}(\nu^*\omega)\) by the criterion.  The case is
+extremal: the whole slope budget of the class is spent on one ray.
+
+\emph{\(u_0\) is a competitor.}  Off \(R_{\tilde p}\) we have
+\(u_0=-2\le0=h\).  On \(R_{\tilde p}\) with \(t\in[0,1]\) we have
+\(h=-5t\), and both \(-2-3t\le-5t\) (equivalent to \(t\le1\)) and
+\(-5\le-5t\) hold, so \(u_0\le h\).  For \(t\ge1\) we have \(-2-3t\le-5\),
+so \(u_0=-5=h\).
+
+\emph{\(u_0\) dominates every competitor.}  Let \(u\) be a competitor, with
+\(a=u(v_{\triv})\le-2\) as shown.  Off \(R_{\tilde p}\), monotonicity gives
+\(u\le a\le-2=u_0\).  On \(R_{\tilde p}\) with \(t\in[0,1]\), convexity on
+\([0,1]\) gives
+\[
+ u(t\ord_{\tilde p})\ \le\ (1-t)\,u(0)+t\,u(1\cdot\ord_{\tilde p})
+ \ \le\ (1-t)(-2)+t(-5)=-2-3t\ \le\ u_0(t\ord_{\tilde p}).
+\]
+For \(t\ge1\), monotonicity and \(u(1\cdot\ord_{\tilde p})\le-5\) give
+\(u(t\ord_{\tilde p})\le-5=u_0(t\ord_{\tilde p})\).
+
+\emph{Conclusion.}  The raw supremum of the competitor family is \(u_0\),
+which is already \(\nu^*\omega\)-psh; hence
+\[
+ P_{\nu^*\omega}(\nu^*h)=u_0,
+ \qquad
+ P_\omega(h)=\bigl(\nu^*\bigr)^{-1}(u_0),
+\]
+the latter being the unique \(\omega\)-psh function on \(C^{\An}\) whose
+pullback is \(u_0\), which exists by
+\Cref{cor:ch44-unibranch-normalization-reflection}\,\cref{itm:ch44-unib:refl}.
+Explicitly, on \(C^{\An}\),
+\[
+ P_\omega(h)(t\ord_{\tilde p})=\max\{-2-3t,-5\},
+ \qquad
+ P_\omega(h)\equiv-2\ \text{ off }R_{\tilde p}.
+\]
+
+\emph{Three readings.}  First, the contact set is
+\[
+ \{P_\omega(h)=h\}=\{t\ord_{\tilde p}\ :\ t\ge1\},
+\]
+a proper closed subset of \(C^{\An}\) containing the proper-support point
+\(v_{x_0,\triv}\); off it the envelope is strictly below the obstacle, by
+\(2\) off the ray and by \(2-2t\) at \(t\in[0,1)\).  Second, the envelope is
+\emph{not} obtained by truncating \(h\): the value at \(v_{C,\triv}\) drops
+from \(0\) to \(-2\), and the drop is forced by the degree of the class
+through the slope inequality, not by the obstacle near \(v_{C,\triv}\).
+Third, the computation used the envelope theorem twice: once through
+\Cref{thm:bj-final-obstacle-psh}, to know that a greatest competitor exists
+at all, and once through
+\Cref{prop:ch45-obstacle-calculus-2}\,\cref{itm:ch45-P:normalization}, to
+transport the problem to the normalization.  On a nodal curve neither move
+is available, as \Cref{rem:ch45-node-trap} explains.
+\end{example}
+
+\begin{remark}[Reading the answer off the degree]
+\label{rem:ch45-cuspidal-degree}
+The two numbers in \Cref{ex:ch45-cuspidal-envelope} are the two data of the
+problem: the slope \(-3\) of \(P_\omega(h)\) at the origin of the ray is
+\(-\deg\omega\), and the drop \(-2\) at \(v_{C,\triv}\) is
+\(-(5-3)\cdot1\), the excess of the obstacle's slope \(5\) over the budget
+\(3\), multiplied by the length \(1\) of the interval on which the obstacle
+falls.  Replacing \(5\) by any \(\lambda>3\) and \(1\) by any \(T>0\) gives,
+by the same computation,
+\[
+ P_\omega(h_{\lambda,T})(t\ord_{\tilde p})
+ =\max\{-(\lambda-3)T-3t,\ -\lambda T\},
+\]
+with contact set \(\{t\ge T\}\); and for \(\lambda\le3\) the obstacle is
+already \(\omega\)-psh and \(P_\omega(h_{\lambda,T})=h_{\lambda,T}\), by
+\Cref{prop:ch45-obstacle-calculus-2}\,\cref{itm:ch45-P:projection}.  The
+transition at \(\lambda=3\) is exactly the transition between an obstacle
+that the class can support and one that it cannot.
+\end{remark}
+
+\subsection{What the theorem does not give}
+\label{sec:ch45-not-given}
+
+\begin{example}[No attainment]
+\label{ex:ch45-no-attainment}
+Let \(X=\mathbf P^1\), \(\theta=c_1(\cO(1))\) of degree \(1\), and let
+\(p\in X\) be a closed point.  For \(c\in(0,1)\) define
+\[
+ \varphi_c(t\ord_p):=\max\{-t,\,-c\}\ \ (t\in[0,+\infty]),
+ \qquad
+ \varphi_c\equiv0\ \text{ off }R_p .
+\]
+Each \(\varphi_c\) is \(\theta\)-psh by the criterion of
+\Cref{sec:ch45-curve-conventions}\,(ii): it is convex on every ray and
+\(1+(-1)=0\ge0\).  The family is bounded above by \(0\) and is increasing as
+\(c\) decreases, with
+\[
+ \sup_{c\in(0,1)}\varphi_c\ \equiv\ 0
+\]
+pointwise on all of \(X^{\An}\) --- including at \(v_{p,\triv}\), where
+\(\varphi_c(v_{p,\triv})=-c\to0\).  The supremum is therefore already upper
+semicontinuous, and \Cref{thm:bj-final-envelope} returns the constant \(0\),
+which is indeed \(\theta\)-psh.
+
+But \(0\ne\varphi_c\) for every \(c\), since \(\varphi_c(v_{p,\triv})=-c<0\).
+So the least upper bound of the family in \(\PSH_X(\theta)\) is not a member
+of the family, and the same holds after passing to any subfamily: the family
+is totally ordered without a greatest element.  The envelope theorem
+produces a supremum, never a maximum.
+\end{example}
+
+\begin{example}[No regularity: a continuous, non-piecewise-linear envelope]
+\label{ex:ch45-no-regularity}
+Let \(X=\mathbf P^1\), \(\theta=c_1(\cO(1))\) of degree \(1\), and
+\(p\in X\) a closed point.  Define \(h\in C^0(X^{\An})\) by
+\[
+ h(t\ord_p):=-2\bigl(1-\rme^{-t}\bigr)\ \ (t\in[0,+\infty]),
+ \qquad
+ h\equiv0\ \text{ off } R_p ,
+\]
+so that \(h(v_{p,\triv})=-2\).  Continuity is checked as in
+\Cref{ex:ch45-cuspidal-envelope}.  The obstacle is admissible: \(\theta\) is
+ample, so the constant \(-2\le h\) is a competitor.
+
+\emph{The envelope.}  Set \(\tau:=\log2\).  We claim
+\[
+ P_\theta(h)(t\ord_p)=
+ \begin{cases}
+  \tau-1-t, & 0\le t\le\tau,\\[2pt]
+  -2\bigl(1-\rme^{-t}\bigr), & \tau\le t\le+\infty,
+ \end{cases}
+ \qquad
+ P_\theta(h)\equiv\tau-1\ \text{ off } R_p .
+\]
+Write \(u_0\) for the right-hand side.  The two formulas agree at
+\(t=\tau\), both giving \(-1\), and their one-sided derivatives there are
+\(-1\) and \(-2\rme^{-\tau}=-1\); so \(u_0\) is of class \(C^1\) along
+\(R_p\), with slope \(-1\) on \([0,\tau]\) and slope
+\(-2\rme^{-t}\in[-1,0)\) increasing on \([\tau,+\infty)\).  Hence \(u_0\) is
+convex on every ray, and
+\(\deg\theta+\sum_qu_0'{}_{,q}(0^+)=1-1=0\ge0\); so
+\(u_0\in\PSH_X(\theta)\).
+
+\emph{\(u_0\) is a competitor.}  Off \(R_p\), \(\tau-1<0=h\).  On \(R_p\)
+with \(t\ge\tau\) one has \(u_0=h\).  For \(t\in[0,\tau]\) the inequality
+\(u_0\le h\) reads \(\tau-1\le g(t):=t-2+2\rme^{-t}\); and
+\(g'(t)=1-2\rme^{-t}\) vanishes only at \(t=\tau\), where \(g\) attains its
+minimum \(g(\tau)=\tau-1\).  So \(u_0\le h\) with equality on
+\(\{t\ge\tau\}\).
+
+\emph{Maximality.}  Let \(u\) be a competitor and \(a:=u(v_{\triv})\).  As
+in \Cref{ex:ch45-cuspidal-envelope}, \(u'_p(0^+)\ge-1\) and convexity give
+\(u(t\ord_p)\ge a-t\); combined with \(u\le h\) this forces
+\(a\le g(t)\) for every \(t\ge0\), hence \(a\le\tau-1\).  Off \(R_p\),
+monotonicity gives \(u\le a\le\tau-1=u_0\).  On \(R_p\) with
+\(t\in[0,\tau]\), convexity on \([0,\tau]\) gives
+\[
+ u(t\ord_p)\le\Bigl(1-\tfrac t\tau\Bigr)a+\tfrac t\tau\,u(\tau\ord_p)
+ \le\Bigl(1-\tfrac t\tau\Bigr)(\tau-1)+\tfrac t\tau(-1)
+ =\tau-1-t=u_0(t\ord_p),
+\]
+using \(u(\tau\ord_p)\le h(\tau\ord_p)=-1\); and for \(t\ge\tau\),
+\(u\le h=u_0\).  Hence \(P_\theta(h)=u_0\).
+
+\emph{What the example shows.}  The class is ample and the obstacle is
+real analytic along the ray, yet the envelope is only \(C^1\): its
+second derivative jumps at \(t=\tau\), from \(0\) to \(2\rme^{-\tau}=1\).
+It is not a PL function, not a Fubini--Study function, and the constant
+\(\tau-1=\log2-1\) is transcendental.  So no algebraic or piecewise-linear
+regularity can be expected of \(P_\theta\), and
+\Cref{cor:ch45-continuity-envelopes} is sharp: continuity is what the
+ample case gives, and nothing better.
+\end{example}
+
+\begin{remark}[Three further things the theorem does not give]
+\label{rem:ch45-not-given-list}
+Beyond \Cref{ex:ch45-no-attainment} and \Cref{ex:ch45-no-regularity}:
+\begin{enumerate}
+\item \emph{No finiteness.}  The envelope may be \(-\infty\) somewhere, by
+      \Cref{prop:ch45-envelope-can-be-minus-infinity}; and by
+      \Cref{cor:ch45-extremal} the envelope of the continuous obstacle \(0\)
+      is unbounded below whenever \(\PSH_X(\theta)\ne\emptyset\) and
+      \(\theta\) is not nef.
+\item \emph{No continuity outside the ample case.}
+      \Cref{cor:ch45-continuity-envelopes} is stated for ample classes and
+      \Cref{warn:ch45-continuity-ample} explains why; outside the ample case,
+      when the competitor family is nonempty, the psh envelope of a
+      continuous obstacle need not be continuous.
+\item \emph{No quantitative comparison of \(\sup_i\varphi_i\) with its
+      regularization.}  The theorem asserts that the regularization is psh;
+      it says nothing about the size of the set where the two differ, beyond
+      the fact --- \Cref{thm:bj-final-increasing-nets} --- that they agree on
+      \(X^{\divis}\).  In \Cref{ex:ch45-raw-sup-not-usc} they differ at one
+      point; there is no statement here bounding that locus in general.
+\end{enumerate}
+\end{remark}
+
+\section{Failure boundaries}
+\label{sec:ch45-failure}
+
+\Cref{prop:bj-final-hypothesis-ledger} recorded the exact scope of the
+hypotheses.  Here we record what happens outside them, so that the theorem
+is not quoted where it does not apply.
+
+\subsection{Dropping unibranchness}
+\label{sec:ch45-failure-unibranch}
+
+This is the only hypothesis for which a converse is available, and
+\Cref{cor:ch45-failure-nonunibranch} states the failure precisely: on an
+integral projective \(X\) that is not unibranch, the envelope property fails
+in \emph{every} ample class, together with its compactness, obstacle and
+increasing-net reformulations.  Nothing is claimed for non-ample classes on
+such an \(X\); see \Cref{warn:ch45-necessity-ample}.
+
+\subsection{Dropping integrality}
+\label{sec:ch45-failure-integral}
+
+The class \(\PSH_X(\theta)\) is defined in \Cref{chap:bj-fs-pl-psh} for a
+projective \(X\) with the generic finiteness condition
+\Cref{def:bj-psh}\,(2) imposed componentwise, so the envelope property makes
+sense for a reducible \(X\).  Nothing in this book proves it there.  Two
+remarks delimit the gap.  First, on a disconnected \(X\) the property is
+componentwise, since both \(\PSH\) and the regularized supremum are formed
+componentwise; so the substantive case is \(X\) connected and reducible.
+Second, on a connected reducible \(X\) the mechanism of
+\Cref{thm:ep-implies-unibranch} still shows that the envelope property in an
+ample class forces \(\nu^{\An}\) to be injective, hence forces \(X\) to be
+irreducible; so on a connected reducible \(X\) the envelope property already
+fails in the ample case.  What is not addressed is the behaviour of the
+non-ample classes, and the whole of the sufficiency direction, whose proof
+uses integrality at every step --- b-divisors, alterations, normalization
+--- and does not obviously survive.
+
+\subsection{Dropping projectivity}
+\label{sec:ch45-failure-projective}
+
+Projectivity is used in four places and each use is essential to the proof
+as written.  It supplies compactness of \(X^{\An}\), without which
+``bounded above'' loses its force; it supplies the ample class in which the
+alterations of \Cref{chap:bj-alterations} and the Stein factorization
+operate; it supplies the semiample approximations in the Cartier realization
+of \Cref{chap:bj-cartier-realization}; and it supplies the very definition
+of \(N^1(X)_{\mathbf R}\) and of Fubini--Study functions, which are built
+from global sections.  For a proper non-projective \(X\) the statement can
+be formulated by Chow's lemma but is not proved here.
+
+\subsection{Dropping the trivial absolute value}
+\label{sec:ch45-failure-trivial}
+
+The whole of Part~IV is set over a trivially valued \(k\), and the objects
+are not the same over a nontrivially valued field: there the relevant theory
+is the BFJ theory of \Cref{part:bfj}, whose envelope statements
+(\Cref{chap:bfj-envelopes}) are proved by different means and under
+different hypotheses.  No statement of this chapter is asserted over a
+nontrivially valued base, and no statement of \Cref{chap:bfj-envelopes} is
+used here.
+
+\subsection{Dropping algebraic closedness}
+\label{sec:ch45-failure-closed}
+
+Algebraic closedness of \(k\) is used in two distinct ways.  It makes
+regularity equivalent to smoothness, which is what allows the de Jong
+alteration of \Cref{thm:bj-de-jong-input} to feed
+\Cref{thm:bj-smooth-envelope}; and it is what makes a finite birational
+bijective morphism radicial in the proof of
+\Cref{lem:bj-unibranch-normalization-universal}, through the diagonal
+criterion and the \(k\)-rationality of closed points.  Over a
+non-algebraically-closed \(k\) both steps require modification, and neither
+modification is carried out here.
+
+\subsection{What is not claimed}
+\label{sec:ch45-failure-notclaimed}
+
+No claim is made that an arbitrary raw supremum is psh without upper
+semicontinuous regularization; \Cref{ex:ch45-raw-sup-not-usc} refutes it.
+No claim is made that the supremum is attained;
+\Cref{ex:ch45-no-attainment} refutes it.  No claim is made about
+regularity; \Cref{ex:ch45-no-regularity} shows that even in the best case
+--- ample class, real analytic obstacle --- the envelope is only \(C^1\) and
+involves transcendental constants.  No claim is made that
+\(P_\theta\) is continuous for the topology of pointwise convergence, nor
+that it commutes with arbitrary limits: what is proved is
+\Cref{thm:ch45-decreasing-obstacle-nets} for decreasing nets and
+\Cref{thm:ch45-increasing-obstacles} for increasing nets of continuous
+obstacles, and those are the two monotone cases.
+
+\section{Chapter dictionary}
+\label{sec:ch45-dictionary}
+
+\begingroup
+\begin{longtable}{p{.29\textwidth}p{.31\textwidth}p{.29\textwidth}}
+\toprule
+statement & content & hypotheses\\
+\midrule
+\endfirsthead
+\toprule
+statement & content & hypotheses\\
+\midrule
+\endhead
+the assembly &
+\(\nu^*\bigl(\sup_i\varphi_i\bigr)^*=\bigl(\sup_i\nu^*\varphi_i\bigr)^*\), psh upstairs,
+reflected downstairs &
+\(X\) integral projective unibranch, \(k=\bar k\) trivially valued,
+\(\theta\) real
+(\Cref{thm:bj-final-envelope}, \Cref{sec:ch45-assembly})\\
+non-circularity &
+each imported statement is proved in a strictly earlier chapter; the
+assembly consumes them in one linear order &
+the ordering of Part~IV
+(\Cref{prop:ch45-noncircular})\\
+increasing nets &
+a bounded-above upward directed net has a psh limit with divisorial trace
+\(\sup_ju_j\) &
+\(X\) unibranch; nets, not sequences
+(\Cref{thm:bj-final-increasing-nets}, \Cref{warn:ch45-nets})\\
+least upper bound &
+\((\sup_i\varphi_i)^*\) is the supremum of the family in
+\(\PSH_X(\theta)\) &
+family nonempty and bounded above
+(\Cref{prop:ch45-lub})\\
+compactness &
+\(\PSH^{\sup}_X(\theta)\) compact for pointwise convergence on
+\(X^{\divis}\) &
+equivalent to \(\operatorname{EP}\); fails if \(X\) not unibranch
+(\Cref{cor:ch45-compactness}, \Cref{rem:ch45-compactness-equivalent})\\
+perturbation of the class &
+\(\operatorname{EP}\) for big rational classes with ample gap implies
+\(\operatorname{EP}\) for all real classes &
+\(\theta_j-\theta\) nef and \(\theta_j\to\theta\); orientation matters
+(\Cref{prop:ch45-reduction-big-rational},
+\Cref{rem:ch45-two-orientations})\\
+obstacle envelope &
+\(P_\theta(f)\) is the greatest \(\theta\)-psh function \(\le f\); raw and
+regularized forms agree &
+\(f\) usc, bounded above, competitor family nonempty
+(\Cref{def:ch45-admissible-obstacle},
+\Cref{thm:bj-final-obstacle-psh},
+\Cref{lem:ch45-raw-equals-regularized})\\
+calculus of \(P_\theta\) &
+monotone, constant-equivariant, idempotent, \(1\)-Lipschitz, determined on
+\(X^{\divis}\), compatible with \(\nu^*\) &
+admissibility of every obstacle displayed
+(\Cref{prop:bj-final-obstacle-calculus},
+\Cref{prop:ch45-obstacle-calculus-2})\\
+extremal function &
+\(V_\theta=P_\theta(0)\); \(V_\theta\equiv0\) iff \(\theta\) nef &
+\(\PSH_X(\theta)\ne\emptyset\), which forces \(\theta\) pseudoeffective
+(\Cref{cor:ch45-extremal})\\
+monotone obstacles &
+\(P_\theta\) commutes with decreasing nets; increasing nets of continuous
+obstacles after a star &
+the stated competitor nonemptiness and constant-bound hypotheses; ample
+class for uniform convergence
+(\Cref{thm:ch45-decreasing-obstacle-nets},
+\Cref{thm:ch45-increasing-obstacles},
+\Cref{cor:ch45-uniform-obstacles})\\
+conditional joins and meets &
+joins for constant-bounded families and meets for families admitting a
+\(\theta\)-psh lower bound &
+\(X\) unibranch
+(\Cref{thm:ch45-lattice})\\
+geometric characterization &
+unibranch \(\Leftrightarrow\) \(\operatorname{EP}\) in one ample class &
+\(X\) integral projective; necessity from \cite[Theorem~5.12]{BJ22}
+(\Cref{thm:bj-final-unibranch-characterization})\\
+node versus cusp &
+two branch rays glued at one endpoint versus one; the branch limits of a
+psh function coincide &
+\(C\) an integral projective curve
+(\Cref{lem:ch45-branch-symmetry},
+\Cref{ex:ch45-node-computed},
+\Cref{ex:ch45-cusp-computed})\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+Four separations should be carried forward.
+
+\emph{Property versus function.}  The envelope property is a statement about
+all bounded-above families at once; the reflection theorem is a statement
+about individual functions.  The assembly needs both, and they enter at
+different steps (\Cref{sec:ch45-attributions},
+\Cref{sec:ch45-four-steps}).
+
+\emph{Supremum versus maximum.}  \Cref{thm:bj-final-envelope} produces a
+least upper bound, which is a member of \(\PSH_X(\theta)\) but need not be a
+member of the given family (\Cref{ex:ch45-no-attainment}).  For obstacle
+envelopes the situation is better: \(P_\theta(f)\) \emph{is} a member of
+\(\mathcal F_\theta(f)\), and that is exactly what upper semicontinuity of the
+obstacle buys (\Cref{lem:ch45-raw-equals-regularized}).
+
+\emph{Raw versus regularized.}  Before this chapter the two obstacle
+envelopes of \Cref{def:bj-obstacle-envelope} and
+\Cref{def:bj-final-obstacle-envelope} were different objects and the
+notation \(P_\theta\) was ambiguous.  They agree for admissible obstacles
+and only for those; \Cref{rem:ch45-admissibility} exhibits an inadmissible
+obstacle for which the starred version is not even a competitor.
+
+\emph{Closure versus regularity.}  Every statement in this chapter is a
+closure statement.  Continuity, in the one case where it is available, comes
+from the separate criterion \eqref{eq:continuity-of-envelopes} for ample
+classes, and even then no better regularity holds
+(\Cref{ex:ch45-no-regularity}).
+
+\section{Historical replacement and provenance}
+\label{sec:ch45-historical}
+
+The first supplied book treated the envelope property as
+Conjecture~5.14 of \cite{BJ22}.
+For integral projective unibranch varieties, that paragraph is now replaced
+by \Cref{thm:bj-final-envelope} and its proof in
+\Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}.
+The theorem covers arbitrary dimension, arbitrary characteristic, every real
+numerical class, and all proper-support values.
+
+The proof of the sufficiency theorem and the assembly
+\eqref{eq:bj-final-pull-envelope} come from the supplied manuscript
+\emph{The envelope property for unibranch projective varieties}.
+The increasing-net formulation is \cite[Theorem~5.11]{BJ22}.
+The necessity of unibranchness in an ample class is the separate result
+\cite[Theorem~5.12]{BJ22}, already recorded in
+\Cref{chap:bj-envelope-history}.
+This provenance split is important:
+the supplied envelope source proves the unibranch sufficiency direction but
+does not itself supply the converse proof.
+
+No claim is made here for reducible schemes, nonprojective spaces, or
+nontrivially valued ground fields.
+No claim is made that an arbitrary raw supremum is psh without upper
+semicontinuous regularization.
+Those are genuine boundaries of the theorem as proved.
+
+\subsection{The conjecture, and what replaces it}
+\label{sec:ch45-conjecture-replaced}
+
+The statement being replaced is the following, quoted in the form in which
+it appears in the source.
+
+\begin{quote}
+\emph{Conjecture 5.14 of \cite{BJ22}.}  If \(X\) is unibranch, then the
+envelope property holds for all \(\theta\in N^1(X)\).
+\end{quote}
+
+Three features of the conjecture should be noted before it is retired.
+First, it is stated for an integral projective variety over an algebraically
+closed trivially valued field, which is the standing setting of that paper
+and of Part~IV; no extension to reducible or nonprojective \(X\) is
+conjectured there.  Second, it asserts the property for \emph{all} classes,
+not merely ample ones; this is why \Cref{thm:bj-final-envelope} is stated
+for an arbitrary \(\theta\in N^1(X)_{\mathbf R}\) and why
+\Cref{sec:ch45-perturbation} takes the reduction of classes seriously.
+Third, its converse in the ample case was already a theorem when the
+conjecture was formulated, namely \cite[Theorem~5.12]{BJ22}; so the
+conjecture and that theorem were designed to fit together into the
+characterization that \Cref{thm:bj-final-unibranch-characterization} now
+records.
+
+What replaces it in this book is:
+
+\begin{itemize}
+\item \Cref{thm:bj-final-envelope} and \Cref{cor:bj-conjecture-514}, the
+      conjecture itself, proved;
+\item \Cref{thm:bj-final-unibranch-characterization}, the resulting
+      characterization of unibranchness by the envelope property in an
+      ample class;
+\item \Cref{cor:ch45-failure-nonunibranch}, the failure statement outside
+      the unibranch case, which is the practical form of the converse.
+\end{itemize}
+
+Every occurrence of the phrase ``conjecturally'' attached to the envelope
+property in the earlier literature, and every hypothesis of the form
+``assume the envelope property'' in
+\Crefrange{chap:bj-energy}{chap:bj-stability}, is discharged for unibranch
+\(X\) by these statements.  The hypothesis is retained in the statements of
+those chapters where the underlying source states it, because the source's
+theorem is the conditional one and the book's policy is to state the theorem
+that was proved and then discharge its hypothesis; it is not retained
+because there is any doubt about the discharge.
+
+\subsection{The line of results}
+\label{sec:ch45-line-of-results}
+
+The following is the chain of statements this chapter completes.
+
+\begin{enumerate}
+\item \emph{The complex prototype.}  Upper envelopes of plurisubharmonic
+      functions on a domain in \(\mathbf C^n\) are plurisubharmonic after
+      upper semicontinuous regularization; this is classical, and the
+      version with the regularization made explicit is Bedford--Taylor
+      \cite{BT82}.  In the complex analytic setting the corresponding
+      statement on a possibly singular space holds when the space is locally
+      irreducible, that is, unibranch; \cite[\S5.2]{BJ22} records this as
+      the motivation for Conjecture~5.14.
+\item \emph{Nef classes on smooth varieties.}  \cite[Theorem~5.20]{BJ22}
+      proves the envelope property for every nef class on a smooth connected
+      \(X\), under the alternative hypothesis
+      \(\operatorname{char}k=0\) or \(\dim X\le2\).  This is
+      \Cref{thm:bj22-nef-envelope}.
+\item \emph{All classes on smooth varieties.}  The addendum
+      \cite{BJ22b} removes the nefness restriction under the same
+      alternative hypothesis; this is \Cref{thm:bj-addendum-all-classes},
+      Theorem~A of that paper.
+\item \emph{All classes on all unibranch varieties, all characteristics.}
+      This is \Cref{thm:bj-final-envelope}, from the supplied manuscript.
+      The three restrictions removed relative to the previous item are:
+      smoothness of \(X\), weakened to unibranchness; the
+      characteristic-or-dimension alternative, removed entirely; and the
+      implicit restriction to the classes for which the earlier obstacle
+      machinery applied.
+\item \emph{The converse.}  \cite[Theorem~5.12]{BJ22}, that the envelope
+      property in one ample class forces \(X\) to be unibranch; this is
+      \Cref{thm:ep-implies-unibranch} and is not part of the supplied
+      manuscript.
+\end{enumerate}
+
+The single technical innovation that makes step~(4) possible in positive
+characteristic is the replacement of asymptotic multiplier ideals by
+asymptotic test ideals, together with Canton's valuative bound
+\cite{Canton} and a relative form of Musta\c t\u a's uniform generation
+theorem \cite{MustataTest}; this is
+\Cref{chap:bj-smooth-characteristic}.  The single innovation that makes the
+passage from normal to unibranch possible is the treatment of the
+normalization as a universal homeomorphism rather than as a finite or
+birational map: Frobenius in characteristic \(p\)
+(\Cref{chap:bj-universal-homeomorphisms}) and the Roberts--Singh
+additive-power theorem \cite{RobertsSingh} in characteristic zero
+(\Cref{chap:bj-subintegral-normalization}).
+
+\subsection{What becomes unconditional}
+\label{sec:ch45-unconditional}
+
+A number of statements in the literature on trivially valued pluripotential
+theory carry the envelope property as an explicit hypothesis.  On an
+integral projective unibranch \(X\) they are now unconditional.  Within this
+book the relevant ones are the following, and each is quoted in its own
+chapter with the hypothesis displayed and then discharged by
+\Cref{thm:bj-final-envelope}:
+
+\begin{itemize}
+\item the equivalences of \Cref{thm:bj-envelope-equivalences} and
+      \Cref{thm:general-obstacle-criterion}, and the continuity criterion
+      \eqref{eq:continuity-of-envelopes} for ample classes, all in
+      \Cref{chap:bj-envelope-history};
+\item the differentiability and orthogonality statements of
+      \Cref{chap:bj-energy} that are proved by envelope perturbation;
+\item the existence of maximizers, and hence the non-Archimedean
+      Calabi--Yau theorem \Cref{cor:bj-cy-unibranch}, in
+      \Cref{chap:bj-finite-energy};
+\item the surjectivity of the Monge--Amp\`ere operator onto finite-energy
+      measures and the identification of negligible with pluripolar sets in
+      \Cref{chap:bj-strong-topologies};
+\item the completeness of \(\cE^1(\omega)\) and the valuative criteria in
+      \Cref{chap:bj-stability}.
+\end{itemize}
+
+We do not assert a blanket statement of the form ``every conditional result
+in the literature is now unconditional''.  Such a statement cannot be
+checked and would be worthless if it could not; each application is
+discharged individually, at the place where its hypothesis is stated.
+
+\section{Source and provenance}
+\label{sec:ch45-source-note}
+
+\subsection{Correspondence with the supplied manuscript}
+\label{sec:ch45-manuscript-correspondence}
+
+This chapter corresponds to \S7 of the supplied manuscript \emph{The
+envelope property for unibranch projective varieties}, together with the
+parts of its \S2 that concern the reformulations of the envelope property.
+The correspondence is:
+
+\begin{center}
+\begin{tabular}{p{.34\textwidth}p{.56\textwidth}}
+\toprule
+manuscript & this chapter\\
+\midrule
+Theorem 7.1 (= Theorem A) &
+\Cref{thm:bj-final-envelope}, restated in \Cref{chap:bj-envelope-statement}
+and proved in \Cref{sec:ch45-assembly}\\
+the displayed chain smooth \(\Rightarrow\) normal \(\Rightarrow\) unibranch
+of its \S1.2 &
+\eqref{eq:bj-final-dependency-diagram} and the table of
+\Cref{sec:ch45-attributions}\\
+Lemma 6.8 &
+\Cref{lem:bj-unibranch-normalization-universal}, proved in
+\Cref{chap:bj-universal-homeomorphisms}; recalled here as
+\Cref{lem:ch45-normalization-data}\,\cref{itm:ch45-nd:uh}\\
+Theorem 6.7 &
+\Cref{cor:bj-universal-reflection-all-characteristics}, proved in
+\Crefrange{chap:bj-universal-homeomorphisms}{chap:bj-subintegral-normalization};
+recalled here as
+\Cref{lem:ch45-normalization-data}\,\cref{itm:ch45-nd:refl}\\
+Corollary 5.6 &
+\Cref{thm:bj-normal-envelope} and
+\Cref{cor:bj-normalization-source-ep}, proved in
+\Cref{chap:bj-alterations}\\
+its equation (7.1) &
+\eqref{eq:bj-final-pull-envelope}\\
+its Remark 7.2 (exactness at proper-support points) &
+\Cref{sec:ch45-endpoint}, \Cref{prop:bj-final-no-hidden-finiteness}\\
+its Remark 7.3 (conditional statements become unconditional) &
+\Cref{sec:ch45-unconditional}\\
+Proposition 2.3 (increasing-net form) &
+\Cref{prop:bj-ep-equivalences} and
+\Cref{thm:bj-final-increasing-nets}\\
+the perturbation lemma quoted in its \S2.2 and \S2.5 &
+\Cref{lem:ch40-ep-nef-limit},
+\Cref{lem:ch40-rational-approximation},
+\Cref{prop:ch45-reduction-big-rational}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The manuscript is an unpublished source supplied for this project.  Results
+proved only there are identified as such throughout Part~IV and are never
+presented as previously published theorems; the policy is stated in the
+front matter and applied here without exception.
+\Cref{app:provenance} records the version and date.
+
+\subsection{What is supplied here and is not in the source}
+\label{sec:ch45-additions}
+
+The following material of this chapter is not in the manuscript in this
+form and is supplied here.
+
+\Cref{prop:ch45-noncircular} and \Cref{rem:ch45-audit-scope}: the
+acyclicity audit.  The manuscript's proof is linear by construction and does
+not need an audit; a book that spends nine chapters on the proof does.
+
+\Cref{lem:ch45-normalization-data} and \Cref{sec:ch45-four-steps}: the
+hypothesis-by-hypothesis verification of the assembly.
+
+\Cref{prop:ch45-lub}, \Cref{cor:ch45-compactness},
+\Cref{prop:ch45-reduction-big-rational},
+\Cref{cor:ch45-big-rational-suffices}: the reformulations, assembled from
+statements that exist separately in \cite{BJ22} and in
+\Cref{chap:bj-smooth-characteristic}.
+
+\Cref{def:ch45-admissible-obstacle},
+\Cref{lem:ch45-raw-equals-regularized},
+\Cref{prop:ch45-obstacle-calculus-2},
+\Cref{cor:ch45-extremal},
+\Cref{prop:ch45-trichotomy},
+\Cref{cor:ch45-continuity-envelopes}: the obstacle calculus.  The
+manuscript uses the obstacle envelope only on smooth varieties and only as
+an intermediate device, so its calculus is not developed there; the raw
+formal identities are \Cref{lem:obstacle-envelope-formal}, quoted in
+\Cref{chap:bj-envelope-history} from \cite[\S5.3]{BJ22}, and what is new is
+that they now hold for an operator with values in \(\PSH_X(\theta)\).
+
+\Cref{thm:ch45-decreasing-obstacle-nets},
+\Cref{thm:ch45-increasing-obstacles},
+\Cref{cor:ch45-uniform-obstacles},
+\Cref{thm:ch45-continuous-regularization},
+\Cref{thm:ch45-lattice}: the monotone calculus and the conditional join--meet
+structure.
+
+\Cref{lem:ch45-branch-symmetry} and the computations
+\Cref{ex:ch45-node-computed},
+\Cref{ex:ch45-cusp-computed},
+\Cref{ex:ch45-cuspidal-envelope},
+\Cref{ex:ch45-raw-sup-not-usc},
+\Cref{ex:ch45-no-attainment},
+\Cref{ex:ch45-no-regularity}: all new.  They are included because the
+chapter's two claims --- that the theorem is exactly as strong as
+unibranchness, and that it is a closure statement and nothing more --- are
+exactly the claims that a plausible reading can appear to establish without
+doing so.  A reader who has computed the branch limits on the node, the
+numerical semigroup on the cusp, and the constant \(\log2-1\) in
+\Cref{ex:ch45-no-regularity} will not confuse a closure theorem with a
+regularity theorem.
+
+\subsection{External attributions}
+\label{sec:ch45-external}
+
+The envelope property was formulated, and its two reformulations proved, in
+\cite[\S5]{BJ22}: the increasing-net and compactness equivalences are
+Theorem~5.11 there, the comparison interface used throughout is
+Theorem~4.22, the perturbation lemma is Lemma~5.9, the obstacle envelope and
+its formal identities are \S5.3, the birational reflection lemma used in the
+converse is Lemma~5.13, and the converse itself is Theorem~5.12.  The
+positive partial results are Theorem~5.20 there and Theorem~A of the
+addendum \cite{BJ22b}.  The complex prototype is \cite{BT82}.  The curve
+criterion used in \Cref{sec:ch45-curve-conventions} is Example~4.13 of
+\cite{BJ22}.  Everything else in this chapter is either proved here or
+proved in
+\Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
+from the supplied manuscript.
+
+\subsection{Historical note}
+\label{sec:ch45-history-note}
+
+The envelope property entered the trivially valued theory as the
+non-Archimedean shadow of a classical fact about plurisubharmonic functions,
+and it was expected to be soft.  It is not.  The reason, visible in
+retrospect in \Cref{lem:ch45-branch-symmetry}, is that the analytification
+of a singular variety over a trivially valued field remembers the branch
+structure of the singularity in a way that the Zariski topology does not: two
+branches through a point produce two rays glued at a single endpoint, and a
+function on the analytification cannot separate them, while a function on
+the normalization can.  The envelope property is precisely the statement
+that this is the only obstruction.
+
+The proof took the form it has because the three natural classes of
+morphisms behave differently.  Birational morphisms are handled by
+b-divisors, which is the classical route and requires the realization
+theorem of \Cref{chap:bj-cartier-realization} to avoid presupposing what is
+to be proved.  Finite morphisms are handled by averaging, which requires a
+norm that is a universal polynomial law rather than a product over sheets,
+so that inseparability and nonreduced fibres cause no loss
+(\Cref{chap:bj-finite-descent}).  The normalization of a unibranch variety
+is both, and neither: it is the degenerate case in which the previous two
+techniques have nothing to bite on, and it is handled by the observation
+that it is a universal homeomorphism, so that the only thing to descend is
+the algebra.  That last observation is what makes the characteristic-free
+statement possible, and it is why the two characteristics receive genuinely
+different arguments --- Frobenius and Roberts--Singh --- rather than a single
+argument with a case distinction.
+
+Finally, a word on the status of the result in this book.  The sufficiency
+direction rests on an unpublished manuscript supplied for this project.  It
+is reproduced here in full, with every hypothesis checked and every external
+input stated in the exact form used, so that a reader can verify it without
+the manuscript; but its provenance is stated wherever it is used, and no
+statement of this book converts it into a published theorem by citation.
+The necessity direction is published and is quoted as such.  The
+characterization \Cref{thm:bj-final-unibranch-characterization} is therefore
+a hybrid, and the two halves are labelled.

@@ -1,0 +1,770 @@
+\chapter{Transcendental non-Archimedean psh functions}
+\index{plurisubharmonic function!Mesquita--Piccione}\index{Monge--Ampere energy!transcendental}
+\label{chap:mp-psh}
+
+The tropical spectrum of \Cref{chap:mp-dual-complexes} carries a pluripotential theory once a
+K\"ahler class is fixed.  In the projective case positivity can be encoded by
+semipositive line-bundle metrics.  On a nonprojective K\"ahler manifold there
+need be no line bundle at all, so positivity must instead be expressed in
+Bott--Chern cohomology on analytic test configurations.  This is the basic
+insight of \cite{MP24}.
+
+Throughout this chapter, \(X\) is a compact K\"ahler manifold of dimension
+\(n\), \(\alpha\in H^{1,1}_{\mathrm{BC}}(X,\mathbf R)\) is a K\"ahler class,
+and
+\[
+                         V_\alpha:=\int_X\alpha^n.
+\tag{60.1}\label{eq:mp-volume}
+\]
+All measures are Radon measures on the compact Hausdorff space
+\(X^{\bethan}\).  We first construct the model theory, then its monotone
+completion, and finally explain its exact interface with complex geodesic
+rays.  The distinction between these three levels is indispensable.
+
+The order is also conceptual.  Relative nefness is finite-dimensional and
+can be tested on a single analytic model.  Energy is obtained by intersecting
+classes on common dominating models.  General psh functions then arise by a
+monotone completion in which no single model controls the entire net.  The
+radial correspondence is a fourth operation: it identifies finite-energy
+data with maximal complex rays, but does not turn every psh ray or every DXZ
+test curve into model data.
+
+\section{Cohomological models and model potentials}
+
+Let \(\mu:\cX\to X\times\mathbf P^1\) be a smooth snc model and let
+\(\pi:\cX\to\mathbf P^1\) be the induced morphism.  Write
+\[
+          \alpha_{\cX}:=\mu^*\operatorname{pr}_1^*\alpha.
+\tag{60.2}\label{eq:mp-pulled-class}
+\]
+If \(D\in\operatorname{VCar}(\cX)_{\mathbf Q}\) is a rational vertical
+Cartier divisor, the pair
+\[
+                         (\cX,\alpha_{\cX}+[D])
+\tag{60.3}\label{eq:mp-cohomological-model}
+\]
+is the analytic counterpart of a model metric.  Its PL function
+\(\phi_D\) is determined by
+\[
+                     \phi_D(v_E)=b_E^{-1}\ord_E(D)
+\tag{60.4}\label{eq:mp-divisor-potential}
+\]
+for \(\cX_0=\sum_Eb_EE\), and then by affine interpolation on
+\(\Delta_{\cX}\).  Pulling \(D\) to a higher model does not change
+\(\phi_D\).
+
+\begin{definition}[Model \(\alpha\)-psh functions]
+\label{def:mp-model-psh}
+A function \(\phi\in\PL(X^{\bethan})\) is \(\alpha\)-psh if, on one
+(equivalently every) model on which \(\phi=\phi_D\),
+\[
+                   \alpha_{\cX}+[D]\in\operatorname{Nef}(\cX/\mathbf P^1).
+\tag{60.5}\label{eq:mp-relative-nef}
+\]
+We write \(\PL\cap\PSH(\alpha)\) for this cone.  We write
+\(\mathcal H(\alpha)\) for the functions represented by a class
+\(\alpha_{\cX}+[D]\) that is relatively K\"ahler.
+\end{definition}
+
+If \(X\) is projective and \(\alpha=c_1(L)\), this definition restricts to
+the usual algebraic semipositive model metrics.  The operations of addition,
+ramified scaling, maxima, and pullback then agree with
+\cite[Proposition~3.6]{BJ22}.  The converse identification with the entire
+analytic cone \(\mathcal H(\alpha)\) is false, as the following warning
+records.
+
+Relative nefness means that the restriction to every compact analytic
+subspace contained in a fiber is nef.  The definition is independent of the
+model because nefness is invariant under pullback by a proper modification.
+Conversely, nefness of the pullback descends under a proper modification by
+the analytic numerical criterion for nef classes (or, equivalently, by
+pushing down arbitrarily small K\"ahler perturbations).  A curve test alone
+would not justify this assertion on a nonprojective K\"ahler space.
+
+\begin{warning}{Not the algebraic Fubini--Study locus}
+\label{warn:mp-h-not-fs}
+Even when \(X\) is projective and \(\alpha=c_1(L)\),
+\(\mathcal H(\alpha)\) is generally larger than the space of algebraic
+non-Archimedean Fubini--Study metrics.  Analytic relatively K\"ahler classes
+need not come from relatively ample line bundles.  This is
+\cite[Remark~4.1.3]{MP24}.  Thus one must not silently replace
+\(\mathcal H(\alpha)\) by \(\mathcal H^{\NA}(L)\).
+\end{warning}
+
+The positive-rational operation below is the scaling action
+\[
+             (q\cdot\phi)(v):=q\,\phi(q^{-1}v),
+\tag{60.5a}\label{eq:mp-scaling-action}
+\]
+not pointwise scalar multiplication.  It is induced by ramified base change
+and fixes \(v_{\triv}\).
+
+\begin{proposition}\label{prop:mp-model-psh-stability}
+The following operations preserve the indicated model psh cones:
+\begin{enumerate}
+\item \(\phi\mapsto\phi+c\) preserves
+      \(\PL\cap\PSH(\alpha)\) for \(c\in\mathbf Q\); for
+      \(c\in\mathbf R\), it preserves the real model cone
+      \(\PL_{\mathbf R}\cap\PSH(\alpha)\);
+\item if \(q\in\mathbf Q_{>0}\), then
+      \(q\cdot\phi\in\PL\cap\PSH(\alpha)\);
+\item \(\max\{\phi,\psi\}\in\PL\cap\PSH(\alpha)\) whenever
+      \(\phi,\psi\in\PL\cap\PSH(\alpha)\);
+\item if \(f:Y\to X\) is finite holomorphic, then
+      \(f^*\phi\in\PL\cap\PSH(f^*\alpha)\).
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+Adding \(c\) replaces \(D\) by \(D+c\cX_0\), which has the same relative
+class.  The divisor remains rational when \(c\in\mathbf Q\), and the same
+argument applies to real vertical divisors when \(c\in\mathbf R\).  For
+integral \(q\), normalize the base change
+\(t\mapsto t^q\); pullback of the relatively nef class represents
+\(q\cdot\phi\).  If \(q=a/b\in\mathbf Q_{>0}\), apply the integral case to
+\(a\), and descend the assertion through the finite base change of degree
+\(b\), using that a class is nef if and only if its pullback by a finite
+surjective map is nef.  This is why the background class remains
+\(\alpha\).  Finite
+pullback preserves nefness.  The maximum statement is deeper: after a common resolution it is
+represented by the normalized blowup of the sum of the two associated
+vertical ideals.  The analytic singularity lemma in
+\cite[Lemma~5.0.2]{MP24} shows that the resulting class is relatively nef.
+The general nef case follows by approximation from relatively K\"ahler
+classes.
+\end{proof}
+
+\begin{remark}[Why rationality matters]
+The fixed-class scaling above is precisely
+\cite[Proposition~4.1.4(2)]{MP24}; it is not the elementary operation
+\(\alpha_{\cX}+[D]\mapsto\alpha_{\cX}+[qD]\) on a fixed model.  It uses the
+change of Gauss normalization under a ramified base change.  The statement
+is made only for \(q\in\mathbf Q_{>0}\); we do not infer arbitrary real
+scaling at the PL level.
+\end{remark}
+
+\begin{theorem}\label{thm:mp-model-closedness}
+Let \((\phi_\lambda)\) be a net in
+\(\PL\cap\PSH(\alpha)\), and suppose that
+\(\phi_\lambda(v)\to\phi(v)\) for every \(v\in X^{\divis}\), where
+\(\phi\in\PL(X^{\bethan})\).  Then
+\(\phi\in\PL\cap\PSH(\alpha)\).
+\end{theorem}
+
+\begin{proof}[Imported analytic-cycle core]
+The imported core is \cite[Theorem~4.1.5]{MP24}, whose statement is exactly
+the present one: \(X\) is compact K\"ahler, \(\alpha\) is K\"ahler,
+\(\phi\) is PL, and a net of model \(\alpha\)-psh functions converges to
+\(\phi\) at every rational divisorial valuation.  We record the mechanism,
+including where the net causes no common-model assumption.
+
+Choose a model \(\cX\) representing \(\phi\).  For each \(\lambda\), pass
+to a common domination of \(\cX\) and one model representing
+\(\phi_\lambda\); no single model dominating the entire net is assumed.
+To prove relative nefness of
+\(\alpha_{\cX}+D\), it is enough, by the Demailly--P\u aun numerical
+criterion, to test intersections
+\[
+ [Y]\cdot(\alpha_{\cX}+D)\cdot\gamma^{d-1}\geq0
+\tag{60.6}\label{eq:mp-nef-test}
+\]
+for irreducible \(d\)-dimensional \(Y\) in a central component and a
+K\"ahler class \(\gamma\) on \(\cX\).  Move \(Y\) to a
+\(\mathbf C^*\)-invariant limiting cycle and blow it up.  A positive current
+supported on the exceptional divisor represents a positive multiple of
+\([Y]\).  After pulling to the common models, the desired intersection is a
+finite linear combination of coefficients
+\(\phi_\lambda(v_E)\).  It is nonnegative for every \(\lambda\), and
+converges to \eqref{eq:mp-nef-test}.  The support theorem for positive
+currents makes the pushed-forward exceptional current a positive multiple
+of \([Y]\), and the projection formula identifies the resulting limit with
+\eqref{eq:mp-nef-test}.  These are the irreducible analytic-cycle and
+current-theoretic steps imported from the cited theorem; they apply one
+index \(\lambda\) at a time, so no model dominating the whole net is used.
+\end{proof}
+
+\section{Model Monge--Amp\`ere measures}
+
+Let \(\beta\in H^{1,1}_{\mathrm{BC}}(X,\mathbf R)\) satisfy
+\(V_\beta:=\int_X\beta^n>0\), and let \(\phi_D\) be represented on an snc
+model \(\cX\).  Define the signed atomic measure
+\[
+ \MA_\beta(\phi_D)
+   :=\sum_{E\subset\cX_0}
+       \frac{b_E}{V_\beta}
+       \left((\beta_{\cX}+[D])|_E\right)^n\delta_{v_E}.
+\tag{60.7}\label{eq:mp-model-ma}
+\]
+The sum is over irreducible components.  Projection formula shows that
+\eqref{eq:mp-model-ma} is unchanged after passing to a dominating model.
+If \(\beta\) is K\"ahler and \(\phi_D\in\mathcal H(\beta)\), every
+coefficient is nonnegative.
+
+\begin{proposition}\label{prop:mp-model-ma-mass}
+For \(\beta\) K\"ahler and \(\phi\in\mathcal H(\beta)\),
+\(\MA_\beta(\phi)\) is a probability measure.
+\end{proposition}
+
+\begin{proof}
+The total mass is
+\[
+ \frac1{V_\beta}\sum_Eb_E
+     (\beta_{\cX}+[D])^n\cdot E
+ =\frac1{V_\beta}(\beta_{\cX}+[D])^n\cdot\cX_0.
+\]
+Since \(\cX_0\) is cohomologous to a general fiber and \(D\) restricts
+trivially there, the last intersection is
+\(\int_X\beta^n=V_\beta\).  Relative K\"ahlerness gives positivity.
+\end{proof}
+
+\begin{example}[A deformation to the normal cone]
+\label{ex:mp-dnc}
+Let \(Z\subset X\) be a smooth submanifold and
+\(\cX=\operatorname{Bl}_{Z\times\{0\}}(X\times\mathbf P^1)\).  Its central
+fiber has the strict transform \(E_0\) and the exceptional component \(E_1\).
+For \(D=-cE_1\) with \(c>0\) sufficiently small,
+\(\alpha_{\cX}+[D]\) is relatively K\"ahler.  Thus
+\(\phi_D\) is affine on the interval \(\Delta_{\cX}\), and
+\[
+ \MA_\alpha(\phi_D)
+   =m_0(c)\delta_{v_{E_0}}+m_1(c)\delta_{v_{E_1}},
+ \qquad m_i(c)\geq0,\quad m_0(c)+m_1(c)=1.
+\tag{60.8}\label{eq:mp-dnc-ma}
+\]
+This construction is meaningful for a transcendental \(\alpha\); no
+polarization of \(X\) is required.
+\end{example}
+
+\section{Mixed energy and the Zariski inequality}
+
+For \(\beta_i\in H^{1,1}_{\mathrm{BC}}(X,\mathbf R)\) and model functions
+\(\phi_i=\phi_{D_i}\) represented on one model, define
+\[
+ (\beta_0,\phi_0)\cdots(\beta_n,\phi_n)
+ :=(\beta_{0,\cX}+[D_0])\cdots(\beta_{n,\cX}+[D_n]).
+\tag{60.9}\label{eq:mp-mixed-pairing}
+\]
+The right side is the Bott--Chern intersection number on the compact
+\((n+1)\)-fold \(\cX\).  It is symmetric, multilinear, and independent of
+the common model.
+
+\begin{proposition}\label{prop:mp-ma-testing}
+If \(\psi\in\PL_{\mathbf R}\), then
+\[
+ \frac1{V_\alpha}(0,\psi)(\alpha,\phi)^n
+     =\int_{X^{\bethan}}\psi\,\MA_\alpha(\phi).
+\tag{60.10}\label{eq:mp-ma-testing}
+\]
+More generally,
+\[
+ (0,\psi)(\beta_1,\phi_1)\cdots(\beta_n,\phi_n)
+ =\sum_{E\subset\cX_0}b_E\psi(v_E)
+      \prod_{j=1}^n(\beta_{j,\cX}+[D_j])|_E .
+\tag{60.11}\label{eq:mp-mixed-testing}
+\]
+\end{proposition}
+
+\begin{proof}
+Write the divisor representing \(\psi\) as
+\(\sum_Eb_E\psi(v_E)E\) after passing to a common model.  Expanding its
+intersection with the remaining \(n\) classes yields
+\eqref{eq:mp-mixed-testing}; the special case is precisely
+\eqref{eq:mp-model-ma}.
+\end{proof}
+
+The vertical intersection form satisfies the Zariski inequality
+\[
+             (0,\psi)^2(\beta_2,\phi_2)\cdots(\beta_n,\phi_n)\leq0
+\tag{60.12}\label{eq:mp-zariski}
+\]
+when the \((\beta_j,\phi_j)\) are relatively nef.  One proof adds a large
+multiple of the central fiber to make the divisor representing \(\psi\)
+effective and uses the Hodge index theorem on its components.  This is
+\cite[Lemma~4.2.6]{MP24}.  It is the finite-dimensional source of concavity
+for the energy.
+
+\begin{definition}[Energy and \(J\)]
+\label{def:mp-energy-j}
+For \(\phi\in\PL\cap\PSH(\alpha)\), set
+\[
+ E_\alpha(\phi)
+   :=\frac1{(n+1)V_\alpha}(\alpha,\phi)^{n+1},
+\qquad
+ J_\alpha(\phi)
+   :=V_\alpha^{-1}(\alpha,\phi)(\alpha,0)^n-E_\alpha(\phi).
+\tag{60.13}\label{eq:mp-energy-j}
+\]
+\end{definition}
+
+\begin{proposition}\label{prop:mp-energy-first-variation}
+For model \(\alpha\)-psh functions \(\phi,\psi\),
+\[
+ \left.\frac{\rd}{\rd t}\right|_{t=0}
+ E_\alpha(\phi+t\psi)
+       =\int\psi\,\MA_\alpha(\phi)
+\tag{60.14}\label{eq:mp-energy-first-variation}
+\]
+whenever the segment remains in the model psh cone.  In particular,
+\(E_\alpha\) is increasing and concave there, and
+\[
+ E_\alpha(\phi)-E_\alpha(\psi)
+ =\frac1{(n+1)V_\alpha}
+   \sum_{j=0}^n
+   (0,\phi-\psi)(\alpha,\phi)^j(\alpha,\psi)^{n-j}.
+\tag{60.15}\label{eq:mp-energy-cocycle}
+\]
+\end{proposition}
+
+\begin{proof}
+Put \(B_t=(\alpha,\phi+t\psi)\).  Multilinearity gives
+\[
+ \frac{\rd}{\rd t}B_t^{n+1}
+      =(n+1)(0,\psi)B_t^n.
+\]
+After division by \((n+1)V_\alpha\),
+\eqref{eq:mp-ma-testing} identifies the right-hand side at \(t=0\) with
+\(\int\psi\,\MA_\alpha(\phi)\), proving
+\eqref{eq:mp-energy-first-variation}.  A second differentiation yields
+\[
+ \frac{\rd^2}{\rd t^2}E_\alpha(\phi+t\psi)
+   =\frac{n}{V_\alpha}(0,\psi)^2B_t^{n-1}\leq0
+\]
+by \eqref{eq:mp-zariski}; hence the energy is concave on every model-psh
+segment.  If \(\psi\geq0\), the first derivative is nonnegative by
+\eqref{eq:mp-mixed-testing}, which proves monotonicity.
+
+For the finite difference, write
+\[
+ (\alpha,\phi)^{n+1}-(\alpha,\psi)^{n+1}
+ =\sum_{j=0}^n
+   (0,\phi-\psi)(\alpha,\phi)^j(\alpha,\psi)^{n-j}.
+\]
+Dividing by \((n+1)V_\alpha\) gives
+\eqref{eq:mp-energy-cocycle} term by term.
+\end{proof}
+
+\section{The monotone completion}
+
+\begin{definition}[Transcendental non-Archimedean psh functions]
+\label{def:mp-general-psh}
+An upper semicontinuous function
+\(\phi:X^{\bethan}\to\mathbf R\cup\{-\infty\}\) is
+\(\alpha\)-psh if it is not identically \(-\infty\) and there exists a
+decreasing net
+\[
+        \phi_\lambda\in\PL\cap\PSH(\alpha),
+        \qquad \phi_\lambda\downarrow\phi
+\tag{60.16}\label{eq:mp-psh-decreasing-net}
+\]
+pointwise on all of \(X^{\bethan}\).  The resulting space is
+\(\PSH(\alpha)\).
+\end{definition}
+
+Nets are part of the definition: the model category and the topology of the
+tropical spectrum need not be countably generated.  A sequence may be used
+only after a separate metrizability or cofinality argument.
+
+The class \(\PSH(\alpha)\) is stable under arbitrary real translations.
+Indeed, approximate a real constant from above by decreasing rational
+constants and use the product directed set together with
+\Cref{prop:mp-model-psh-stability}.  This observation does not turn an
+irrational translate of a rational PL function into a rational PL function;
+it applies only after passage to the monotone completion.
+
+\begin{theorem}\label{thm:mp-psh-divisorial}
+Let \(\phi\in\PSH(\alpha)\).
+\begin{enumerate}
+\item \(\phi(v)>-\infty\) for every \(v\in X^{\divis}\).
+\item If \(\psi:X^{\bethan}\to\mathbf R\cup\{-\infty\}\) is upper
+      semicontinuous, then
+      \[
+        \phi\leq\psi\text{ on }X^{\bethan}
+        \quad\Longleftrightarrow\quad
+        \phi\leq\psi\text{ on }X^{\divis}.
+      \tag{60.17}\label{eq:mp-divisorial-comparison}
+      \]
+\end{enumerate}
+\par
+\end{theorem}
+
+\begin{proof}[Imported finite-dimensional estimate and deduction]
+For the first assertion, subtract a constant so that \(\sup\phi=0\), and
+choose \(\phi_\lambda\downarrow\phi\) as in
+\eqref{eq:mp-psh-decreasing-net}.  Replacing each approximant by
+\(\phi_\lambda-\sup\phi_\lambda\) does not affect its model positivity, and
+the normalized net still converges pointwise to \(\phi\).  Here
+\(\sup\phi_\lambda\downarrow\sup\phi=0\): otherwise compactness applied to
+the decreasing closed superlevel sets would contradict pointwise
+convergence.  Each supremum is a rational model value, so the normalized
+approximant remains in \(\PL\).  Fix
+\(v=v_{E_0}\in X^{\divis}\) and choose an snc model with central fiber
+\(\sum_{j=0}^N b_jE_j\) containing that vertex.  The imported
+finite-dimensional estimate of \cite[Theorem~4.3.3]{MP24} states that for
+every normalized model \(\alpha\)-psh function \(u\),
+\[
+                  |u(v_{E_j})|\leq C(\cX,\alpha,\gamma)
+                  \quad(0\leq j\leq N),
+\]
+where \(\gamma\) is any fixed K\"ahler class on \(\cX\).  Its proof
+intersects the pullback of \(E_j\) with the relatively nef class representing
+\(u\) and \(\gamma^{n-1}\); the relations
+\(E_j\cdot\cX_0\cdot\gamma^{n-1}=0\), positivity of the off-diagonal
+intersections, and connectedness of the central fiber give the uniform
+bound.  Passing to the limit at \(v_{E_0}\) proves
+\(\phi(v)>-\infty\).
+
+For the second assertion, first suppose that \(\psi\in\PL\).
+Proposition~4.3.6 of \cite{MP24} gives a finite set
+\(\Sigma(\psi)\subset X^{\divis}\), depending only on \(\psi\), such that
+\[
+             \sup_{X^{\bethan}}(u-\psi)
+             =\max_{\Sigma(\psi)}(u-\psi)
+             \quad\text{for every }u\in\PSH(\alpha).
+\]
+Hence the divisorial inequality implies \(\phi\leq\psi\) everywhere.
+If \(\psi\) is continuous, choose \(h_j\in\PL\) with
+\(\|h_j-\psi\|_\infty\to0\).  On the divisorial locus one has
+\(\phi\leq h_j+\|h_j-\psi\|_\infty\); the PL case, followed by the uniform
+limit, gives \(\phi\leq\psi\) on all of \(X^{\bethan}\).
+
+Finally, every extended-real upper semicontinuous function on a compact
+Hausdorff space is the pointwise decreasing limit of a net of continuous
+real functions \(\psi_\lambda\).  If \(\phi\leq\psi\) on
+\(X^{\divis}\), then \(\phi\leq\psi_\lambda\) there for every \(\lambda\),
+so the continuous case gives \(\phi\leq\psi_\lambda\) everywhere.  Taking
+the decreasing limit proves \(\phi\leq\psi\).  The reverse implication is
+immediate.  This is \cite[Theorem~4.3.8]{MP24}.
+\end{proof}
+
+\begin{warning}{Scope of divisorial determination}
+In \eqref{eq:mp-divisorial-comparison}, the function \(\phi\) on the left is
+\(\alpha\)-psh.  Density of \(X^{\divis}\) alone does not determine an arbitrary
+upper semicontinuous function: upper semicontinuity gives inequalities in
+the wrong direction.  We use the theorem only with its stated hypothesis.
+\end{warning}
+
+For arbitrary psh inputs the mixed energy pairing is defined by
+\[
+ (\alpha_0,\phi_0)\cdots(\alpha_n,\phi_n)
+ :=\inf_{\substack{\psi_i\in\mathcal H(\alpha_i)\\
+                    \psi_i\geq\phi_i}}
+       (\alpha_0,\psi_0)\cdots(\alpha_n,\psi_n)
+ \in\mathbf R\cup\{-\infty\}.
+\tag{60.18}\label{eq:mp-extended-pairing}
+\]
+The use of dominants, rather than an arbitrarily chosen approximating net,
+makes the definition canonical.  It is increasing in each potential,
+upper semicontinuous, and continuous along decreasing nets
+\cite[Lemma~4.4.1 and the discussion following it]{MP24}.
+
+\begin{definition}[Finite energy]
+\label{def:mp-e1}
+The finite-energy class is
+\[
+ \mathcal E^1(\alpha)
+ :=\{\phi\in\PSH(\alpha)\mid E_\alpha(\phi)>-\infty\}.
+\tag{60.19}\label{eq:mp-e1}
+\]
+Potentials are considered modulo constants when a normalized space is
+needed.
+\end{definition}
+
+Mixed pairings of finite-energy inputs are finite.  If
+\(\beta\in H^{1,1}_{\mathrm{BC}}(X,\mathbf R)\), choose \(C>0\) such that
+\(C\alpha\pm\beta\) are K\"ahler and define the twisted energy
+\[
+ E^\beta_\alpha(\phi)
+ :=\frac1{V_\alpha}(\beta,0)(\alpha,\phi)^n.
+\tag{60.20}\label{eq:mp-twisted-energy}
+\]
+Multilinearity shows independence of the auxiliary \(C\).  The
+Monge--Amp\`ere measure of \(\phi\in\mathcal E^1(\alpha)\) is the unique
+probability measure satisfying
+\[
+ \int\psi\,\MA_\alpha(\phi)
+   =V_\alpha^{-1}(0,\psi)(\alpha,\phi)^n,
+ \qquad \psi\in\PL(X^{\bethan}).
+\tag{60.21}\label{eq:mp-e1-ma}
+\]
+Density of PL functions makes the measure unique; positivity and mass one
+follow by monotone approximation.
+
+\section{Radial limits of complex psh rays}
+
+Fix a K\"ahler form \(\omega\in\alpha\).  An \(S^1\)-invariant psh ray
+\(U=(U_s)_{s>0}\) is viewed as a psh function on
+\(X\times\mathbb D^*\) using
+\[
+                         s=-\log|\tau|^2,
+ \qquad                   \tau=\rme^{-s/2}.
+\]
+Assume linear growth:
+\[
+                      \sup_XU_s=O(s).
+\tag{60.22}\label{eq:mp-ray-linear-growth}
+\]
+For \(v\in X^{\divis}\), take its Gauss extension to
+\(X\times\mathbb D\).  The generic Lelong number of \(U\) along the
+corresponding vertical divisor defines
+\[
+                         U^{\NA}(v):=-\nu_v(U).
+\tag{60.23}\label{eq:mp-ray-na-value}
+\]
+This sign makes a more singular complex ray produce a smaller
+non-Archimedean potential.
+
+This is the squared-norm firewall of
+\Cref{sec:ch51-squared-norm}.  Our Lelong normalization is
+\(\nu_E(\log|f|^2)=\ord_E(f)\), so the Gauss extension is normalized by
+\(v(\tau)=1\) and no extra factor occurs in
+\eqref{eq:mp-ray-na-value}.  If one instead writes \(s'=-\log|\tau|\), then
+\(s=2s'\); both the radial slope and the source's norm-weight convention must
+be converted together.  Replacing only the displayed parametrization would
+multiply every slope in \eqref{eq:mp-basic-slopes} by two.
+
+\begin{theorem}\label{thm:mp-ray-to-na}
+For every psh ray of linear growth, the function
+\eqref{eq:mp-ray-na-value} on \(X^{\divis}\) extends uniquely to an element
+of \(\PSH(\alpha)\).
+\end{theorem}
+
+\begin{proof}[Imported regularization core]
+The imported core is \cite[Theorem~5.1.4]{MP24}, with precisely the
+hypotheses in the statement.  Here is the construction used there.
+Regularize \(U\) on \(X\times\mathbb D\) by analytic singularities, after
+adding a logarithmic pole that controls the linear growth.  Each
+regularization determines a vertical ideal and hence a model
+\(\alpha\)-psh function.  Generic Lelong numbers are monotone under the
+regularization, so the model functions decrease on divisorial valuations.
+Subadditivity of multiplier ideals makes the dyadic subsequence decrease.
+The approximants are initially \((\lambda\alpha)\)-psh for every
+\(\lambda>1\); the identity
+\(\bigcap_{\lambda>1}\PSH(\lambda\alpha)=\PSH(\alpha)\) then gives the
+claimed class.  Generic Lelong numbers converge at every divisorial point,
+and \Cref{thm:mp-psh-divisorial} gives uniqueness.
+\end{proof}
+
+Conversely, a finite-energy potential determines a ray only after a complex
+initial potential is chosen.
+
+\begin{theorem}\label{thm:mp-maximal-ray}
+For \(\phi\in\mathcal E^1(\alpha)\) and
+\(u\in\mathcal E^1(X,\omega)\), there is a unique maximal finite-energy
+geodesic ray \(U\) with \(U_0=u\) and \(U^{\NA}=\phi\).
+\end{theorem}
+
+\begin{proof}[Imported maximal-ray core]
+This is \cite[Theorem~5.1.7]{MP24}; its exact statement allows
+\(\phi\in\mathcal E^1(\alpha)\) and an arbitrary initial value
+\(u\in\mathcal E^1(X,\omega)\).  We record the limiting argument.
+Choose decreasing \(\phi_m\in\mathcal H(\alpha)\).  Associate to each
+\(\phi_m\) a subgeodesic ray compatible with its analytic test
+configuration, then take the maximal geodesic envelope with initial value
+\(u\).  Monotonicity gives a limit ray.  The energy bound
+\(E_\alpha(\phi)>-\infty\) prevents collapse to \(-\infty\).
+Maximality is stable under the limit.  Monotonicity gives
+\(U^{\NA}\leq\phi\), while continuity of energy along the decreasing
+approximants gives \(E_\alpha(U^{\NA})=E_\alpha(\phi)\); the finite-energy
+domination principle forces equality.  The domination principle for
+maximal rays yields uniqueness.
+\end{proof}
+
+\section{Comparison with the test-curve construction}
+
+\Cref{chap:transcendental-metrics} follows the Darvas--Xia--Zhang test-curve language.  There is a
+proved common locus, but the ambient theories are not identified merely by
+notation.
+
+\begin{theorem}\label{thm:mp-dxz-common-locus}
+Let \(\beta\) be a K\"ahler class.  On the finite-energy class of
+\(\mathcal I\)-maximal test curves of \cite{DXZ23}, the Ross--Witt
+Nystr\"om transform gives maximal geodesic rays, and taking radial
+non-Archimedean data gives a bijection with
+\(\mathcal E^1(\beta)\).  Under this correspondence, the energy and mixed
+energy slopes agree.
+\end{theorem}
+
+\begin{proof}[Imported common-locus correspondence]
+The test-curve-to-ray statement is the finite-energy Ross--Witt Nystr\"om
+correspondence of \cite[Theorem~3.17]{DXZ23}, used in
+\cite[Section~5.2]{MP24}.
+\Cref{thm:mp-maximal-ray} gives the inverse after fixing the same initial
+potential.  Equality of the energies is a special case of the slope formula
+\cite[Theorem~5.3.4]{MP24}.  No claim is made here for arbitrary big
+classes, nonmaximal rays, or test curves outside the finite-energy locus.
+\end{proof}
+
+\begin{warning}{No unpublished full equivalence}
+The DXZ construction starts from singularity types and test curves on the
+complex manifold; the MP construction starts from coherent ideals and
+analytic models.  The comparison theorem above identifies the objects only
+after the hypotheses K\"ahler, \(\mathcal I\)-maximal, and finite energy are
+imposed.  We do not assert an equivalence of their full categories, nor do
+we transport operations outside this common locus.  In particular,
+\cite[Theorem~3.14]{DXZ23} gives a broader comparison with the
+Boucksom--Jonsson construction in its projective rational setting; it does
+not identify the unrestricted MP cone on a nonprojective K\"ahler manifold.
+\end{warning}
+
+\section{Slope formulas and stability functionals}
+
+Let \(\eta_i\) be smooth closed real \((1,1)\)-forms.  If
+\(\phi_i\in\PL\), choose smooth rays \(U_i\) compatible with the
+corresponding analytic models.  If
+\(\phi_i\in\mathcal E^1(\alpha)\), choose the maximal rays of
+\Cref{thm:mp-maximal-ray}.
+
+\begin{theorem}\label{thm:mp-mixed-slope}
+Suppose
+\[
+ \phi_0,\ldots,\phi_k\in\PL,
+ \qquad
+ \phi_{k+1},\ldots,\phi_n\in\mathcal E^1(\alpha).
+\]
+With compatible rays as above,
+\[
+ \lim_{s\to+\infty}\frac1s
+   (\eta_0,U_{0,s})\cdots(\eta_n,U_{n,s})
+   =([\eta_0],\phi_0)\cdots([\eta_n],\phi_n).
+\tag{60.24}\label{eq:mp-mixed-slope}
+\]
+\end{theorem}
+
+\begin{proof}[Imported quantitative mixed-energy core]
+The imported result is \cite[Theorem~5.3.4]{MP24}, whose hypotheses and
+normalization are those in the statement.  When every input is PL, it is
+the cohomological intersection formula for
+smooth compatible rays.  Approximate each finite-energy input from above by
+\(\mathcal H(\alpha)\)-potentials.  Monotone continuity of the extended
+pairing gives convergence on the non-Archimedean side.  On the complex side,
+the quantitative mixed-energy estimate controls the error by a fractional
+power of the \(d_1\)-distance.  Maximality turns this distance into an energy
+difference whose asymptotic slope tends to zero.  The quantitative estimate
+has exponent \(2^{-n}\); after division by \(s\), its right side is a
+fractional power of an energy-slope error and therefore tends to zero.
+Iterating over the finite-energy inputs proves the formula.
+\end{proof}
+
+In particular, for the maximal ray \(U\) associated to \(\phi\),
+\[
+ \lim_{s\to\infty}\frac{E_\omega(U_s)}s=E_\alpha(\phi),
+ \quad
+ \lim_{s\to\infty}\frac{E^\eta_\omega(U_s)}s
+       =E^{[\eta]}_\alpha(\phi),
+ \quad
+ \lim_{s\to\infty}\frac{J_\omega(U_s)}s=J_\alpha(\phi).
+\tag{60.25}\label{eq:mp-basic-slopes}
+\]
+
+Define the reduced entropy and non-Archimedean Mabuchi functional by
+\[
+ \Ent_\alpha^{\NA}(\phi)
+   :=\int_{X^{\bethan}}A_X^{\NA}\,\MA_\alpha(\phi),
+\qquad
+ M_\alpha^{\NA}
+   :=\bar S_\alpha E_\alpha+E_\alpha^{-c_1(X)}
+     +\Ent_\alpha^{\NA},
+\tag{60.26}\label{eq:mp-na-mabuchi}
+\]
+where
+\[
+                   \bar S_\alpha
+                  :=n\,\frac{c_1(X)\cdot\alpha^{n-1}}{\alpha^n}.
+\tag{60.27}\label{eq:mp-average-scalar}
+\]
+Our \(A_X^{\NA}=A^{\mathrm{tot}}-1\) is the relative discrepancy convention
+of \Cref{chap:mp-dual-complexes}.  Replacing it by \(A^{\mathrm{tot}}\) adds
+\(1\), since the Monge--Amp\`ere measure has mass one.  Thus, if one
+formally defines a total-discrepancy functional
+\(M_{\alpha,\mathrm{tot}}^{\NA}\), then
+\[
+             M_{\alpha,\mathrm{tot}}^{\NA}
+             =M_\alpha^{\NA}+1.
+\tag{60.27a}\label{eq:mp-total-reduced-mabuchi}
+\]
+The shift is not harmless for slopes: the complex Mabuchi functional is
+invariant under constants, whereas the total-discrepancy expression has
+value \(1\) at the zero non-Archimedean potential.  The function constructed
+in \cite[(3.2.4)]{MP24} is \(A^{\mathrm{tot}}\), while the reduced
+normalization is stated explicitly in \cite[Definition~2.4.1]{MPWN25}.
+
+\begin{warning}{Boundary of the entropy-slope argument}
+Proposition~6.2.2 and Corollary~6.2.3 of \cite{MP24} are printed with
+\(A^{\mathrm{tot}}\).  Their claimed inequality cannot hold in that
+normalization: for \(\phi=0\),
+\[
+ \MA_\alpha(0)=\delta_{v_{\triv}},\qquad
+ M_{\alpha,\mathrm{tot}}^{\NA}(0)=1,
+ \qquad
+ \lim_{s\to+\infty}\frac{M_\omega(0)}s=0.
+\tag{60.28}\label{eq:mp-total-slope-obstruction}
+\]
+The later paper uses reduced discrepancy, but does not state a separate
+corrected entropy-slope theorem.  Replacing the PL approximants in the
+printed proof by \(A^{\mathrm{tot}}\circ p_{\cX}-1\) is the expected repair;
+without an independent verification of all compatibility and integrability
+steps, this book does not promote that repair to a theorem.  Formally, if
+the reduced entropy inequality, with \(H_\mu\) denoting complex entropy
+relative to the normalized volume measure,
+\[
+ \Ent_\alpha^{\NA}(\phi)
+ \leq\liminf_{s\to+\infty}\frac{H_\mu(U_s)}s
+\]
+holds for a maximal ray, then adding the first two proved identities in
+\eqref{eq:mp-basic-slopes} gives the corresponding Mabuchi inequality.
+No later argument in this book uses that formal implication as an
+independently proved result.
+\end{warning}
+
+\begin{definition}[Uniform stability over finite energy]
+\label{def:mp-uniform-e1-stability}
+The pair \((X,\alpha)\) is uniformly K-stable over
+\(\mathcal E^1\) if some \(\delta>0\) satisfies
+\[
+            M_\alpha^{\NA}(\phi)\geq\delta J_\alpha(\phi)
+       \quad\text{for all }\phi\in\mathcal E^1(\alpha).
+\tag{60.29}\label{eq:mp-uniform-e1}
+\]
+\end{definition}
+
+\begin{theorem}\label{thm:mp-e1-stability-csck}
+If a compact K\"ahler pair \((X,\alpha)\) is uniformly K-stable over
+\(\mathcal E^1\), then \(\alpha\) contains a unique cscK metric.
+\end{theorem}
+
+\begin{proof}[Imported later-source theorem]
+This is exactly \cite[Theorem~2.4.3]{MPWN25}.  The normalization check is
+part of the import: \cite[Definition~2.4.1]{MPWN25} defines entropy using
+\(A_{X\times\mathbf P^1}-1\), and its Definition~2.4.2 is
+\eqref{eq:mp-uniform-e1}; the scalar-curvature coefficient is understood
+with the independently verified factor recorded in
+\eqref{eq:mpwn-s-constant}.  Thus the hypotheses and functional in the
+cited theorem coincide with those above, and its conclusion gives the
+claimed cscK metric.  This proof treats the later theorem as a deep imported
+input; it does not derive it from the unverified normalization repair in the
+preceding warning.
+\end{proof}
+
+\section*{Source note}
+
+Model psh functions and their closedness are MP24 Section~4.1.  The atomic
+Monge--Amp\`ere measure, mixed pairing, and energy are Sections~4.2--4.4.
+Their algebraic model-calculus antecedents include
+\cite[Proposition~3.6 and Lemma~3.24]{BJ22}; the analytic maximum theorem and
+closedness argument are MP inputs and are not inferred from that algebraic
+specialization.
+The radial construction, maximal rays, comparison with test curves, and
+mixed slope theorem are Sections~5.1--5.3.  MP24 Sections~6.2--6.3 contain
+the printed entropy-slope argument and cscK implication.  The literal
+discrepancy constructed in MP24 Section~3.2 is total, so
+\eqref{eq:mp-total-reduced-mabuchi} and
+\eqref{eq:mp-total-slope-obstruction} record the exact normalization
+boundary.  Reduced entropy and the finite-energy cscK implication are
+imported from \cite[Definitions~2.4.1--2.4.2 and
+Theorem~2.4.3]{MPWN25}; no independently corrected entropy-slope theorem is
+claimed here.
+\Cref{chap:mpwn-cy} uses later results of \cite{MPWN25} to
+upgrade this theory to a full finite-energy Calabi--Yau correspondence;
+\Cref{chap:mpwn-k-stability} explains why that upgrade is also needed before model test
+configurations can be used as a complete stability test.

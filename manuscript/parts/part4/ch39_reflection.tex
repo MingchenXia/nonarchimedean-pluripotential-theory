@@ -1,0 +1,3720 @@
+\chapter{Birational and carrier reflection}
+\index{reflection!birational}\index{reflection!carrier}
+\label{chap:bj-reflection}
+
+\section{Orientation}
+\label{sec:ch39-orientation}
+
+\subsection{Pullback is formal; reflection is not}
+\label{sec:ch39-what}
+
+Let \(\beta:Y\to X\) be a projective birational morphism of normal integral
+projective varieties over the trivially valued field \(k\), and let
+\(\theta\in N^1(X)_{\mathbf R}\).  Pulling a \(\theta\)-psh function back
+along \(\beta\) is a matter of composing with a continuous map: it moves an
+approximating net of Fubini--Study functions to an approximating net of
+Fubini--Study functions, it preserves every order relation, and it costs
+nothing.  We prove it in \Cref{thm:ch39-pullback} and then never think about
+it again.
+
+The reverse operation is the subject of this chapter, and it is not formal.
+Given \(\psi\in\PSH_Y(\beta^*\theta)\), one asks for
+\(\chi\in\PSH_X(\theta)\) with \(\beta^*\chi=\psi\).  Three obstacles have to
+be cleared, and they are genuinely different from one another.
+
+\emph{First, the candidate has to be produced.}  The map
+\(\beta^{\An}:Y^{\An}\to X^{\An}\) is surjective, so a function on
+\(X^{\An}\) whose pullback is \(\psi\) is unique if it exists, and its values
+are forced: \(\chi(x)=\psi(w)\) for any \(w\) with \(\beta^{\An}(w)=x\).  But
+this is a definition only if \(\psi\) is constant on the fibres of
+\(\beta^{\An}\), and the fibres are large.  Over a point of \(X^{\An}\) whose
+support is a closed point \(p\) blown up by \(\beta\), the fibre is the whole
+analytification of the exceptional divisor above \(p\)
+(\Cref{prop:ch39-fibres}).  Fibrewise constancy is therefore a real
+restriction; it is \emph{false} for a general homogeneous psh function on
+\(Y\) in a class that is not pulled back from \(X\)
+(\Cref{ex:ch39-not-fibre-constant}), and its validity in a pulled-back class
+is a theorem, not a definition (\Cref{cor:ch39-fibre-constant}).
+
+\emph{Second, the class has to be repaired.}  A \(\beta^*\theta\)-psh
+function on \(Y\) is a decreasing limit of Fubini--Study functions whose
+classes converge to \(\beta^*\theta\).  Those classes live in \(N^1(Y)\) and
+there is no reason for them to lie in the image of the injection
+\(\beta^*:N^1(X)\hookrightarrow N^1(Y)\); on a one-point blowup of a surface
+they will in general have a nonzero coefficient along the exceptional class.
+An approximating stage on \(Y\) is therefore \emph{not} the pullback of
+anything on \(X\), and the passage downstairs must first cancel the drift.
+The cancellation is performed in \Cref{lem:ch39-interpolation} by an exact
+identity in \(N^1\), not by an estimate; the reason it must be exact is
+recorded in \Cref{warn:ch38-drift-not-absorbed}.
+
+\emph{Third, the monotonicity has to survive the repair.}  The only limit
+operation available in this chapter is the decreasing one
+(\Cref{warn:ch39-firewall}).  The corrected data must therefore still be
+ordered, and the interpolation that cancels the class drift must not destroy
+the order in which the b-divisors increase.  That this is possible at all
+depends on one inequality, \(\beta^*F-G\ge0\), built into the fixed-pole
+construction of \Cref{lem:ch39-fixed-pole}, and on the choice of the
+interpolation parameter as a square root, \eqref{eq:bj-reflection-delta}.
+
+The chapter proves reflection twice.  The homogeneous statement,
+\Cref{thm:bj-homogeneous-reflection}, is unconditional: pullback is a
+bijection
+\[
+ \beta^*:\PSH_{\mathrm{hom},X}(\theta)
+ \xrightarrow{\ \sim\ }\PSH_{\mathrm{hom},Y}(\beta^*\theta)
+\]
+for every real class \(\theta\), with no positivity hypothesis on
+\(\theta\) and no envelope hypothesis anywhere.  The inhomogeneous
+statement, \Cref{thm:bj-carrier-reflection}, is conditional in a precise and
+usable way: it holds for those \(u\in\PSH_Y(\beta^*\theta)\) that are
+dominated by a homogeneous function of the same class up to an additive
+constant.  Only in \Cref{sec:ch39-descent}, where the envelope property is
+assumed \emph{on the source} \(Y\), is such a dominating function
+manufactured for every \(u\) at once; that is the single place where an
+envelope hypothesis is used, and it is a hypothesis, never a theorem.
+
+\subsection{The firewall}
+\label{sec:ch39-firewall}
+
+\Cref{chap:bj-cartier-realization} stated a firewall in
+\Cref{warn:ch38-firewall} because that chapter is one of the inputs of
+\Cref{thm:bj-final-envelope}.  The present chapter is another such input,
+and the danger is sharper here: \Cref{chap:bj-envelope-statement} cites
+\Cref{thm:bj-birational-ep-descent} in its proof map, and
+\Cref{chap:bj-alterations} cites it in the proof of the normal case.  Any
+appeal here to the envelope theorem, however indirect, would close a loop.
+
+\begin{warning}{The envelope theorem is not available in this chapter}
+\label{warn:ch39-firewall}
+Nothing in \Cref{chap:bj-reflection} may use, directly or transitively:
+\begin{enumerate}
+\item \Cref{thm:bj-final-envelope}, in any of its formulations;
+\item the envelope property \(\operatorname{EP}\) of
+ \Cref{def:bj-envelope-property} as a \emph{theorem} for any class on any
+ variety --- it appears below only as an explicit hypothesis, displayed in
+ the statement of every result that carries it;
+\item closure of \(\PSH_X(\theta)\) under suprema, regularized or not, and
+ in particular any appeal to an increasing net of psh functions having a
+ psh limit;
+\item the obstacle envelope \(P_\theta\) of
+ \Cref{def:bj-obstacle-envelope} regarded as an operator with values in
+ \(\PSH_X(\theta)\);
+\item \Cref{thm:ch35-cartier-psh-criterion} in its direction
+ \(\Leftarrow\), and the consequences
+ \Cref{thm:bj-nef-bdivisor-correspondence} and
+ \Cref{cor:ch35-monotone-approximation} that rest on it;
+\item any statement of \Cref{chap:bj-envelope-consequences}.
+\end{enumerate}
+Every limit taken below is a decreasing limit, and every supremum that
+appears is either a supremum over a \emph{finite} set, or a supremum over a
+compact parameter interval which is immediately rewritten as a decreasing
+limit by \Cref{lem:bj-compact-legendre-window}, or the canonical-carrier
+supremum \eqref{eq:bj-canonical-carrier}, which is psh precisely because the
+envelope property has been \emph{assumed} at that point.
+\end{warning}
+
+Two clarifications keep the firewall usable rather than paralysing.
+
+First, \Cref{prop:bj-increasing-net-criterion} --- the equivalence between
+the family form and the increasing-net form of the envelope property --- is
+\emph{not} forbidden.  It is a formal equivalence between two statements
+about a fixed pair \((X,\theta)\); its proof in
+\Cref{chap:bj-envelope-statement} uses divisorial determination and the
+directedness of the set of finite subsets of an index set, and it does not
+use \Cref{thm:bj-final-envelope}.  We use it in
+\Cref{thm:bj-birational-ep-descent} to convert an assumed envelope property
+upstairs into an assumed-free conclusion downstairs.
+
+Second, the homogeneous Siu decomposition
+\Cref{thm:ch35-homogeneous-siu-general} is not forbidden either.  Its
+statement contains the sentence ``no envelope hypothesis is required'', and
+\Cref{chap:bj-homogeneity-bdivisors} proves the strict case in full and
+imports only the borderline case; the warning printed after it in that
+chapter distinguishes it from the \emph{inhomogeneous} Siu statement, which
+does need the envelope property and which we never use.
+\Cref{ex:ch39-reflection-borderline} shows that the borderline case really
+does occur in the application below, so the distinction is not academic.
+
+\begin{remark}[Why the firewall is not vacuous here]
+\label{rem:ch39-firewall-not-vacuous}
+A reader who knows the finished theory will observe that once
+\Cref{thm:bj-final-envelope} is available, \Cref{thm:bj-carrier-reflection}
+becomes a triviality: every \(u\in\PSH_Y(\beta^*\theta)\) then has the
+canonical carrier of \Cref{lem:bj-canonical-carrier}, and the carrier
+hypothesis is automatic.  This is exactly the reason the hypothesis has to
+be carried explicitly through the present chapter.  The logical order is
+\[
+ \begin{gathered}
+ \text{homogeneous reflection}
+ \ \Rightarrow\
+ \text{carrier reflection}
+ \ \Rightarrow\
+ \operatorname{EP}\text{-descent}\\
+ \Rightarrow\ \cdots\ \Rightarrow\
+ \Cref{thm:bj-final-envelope}
+ \ \Rightarrow\
+ \text{carriers exist always},
+ \end{gathered}
+\]
+and reading the last implication backwards into the second is the standard
+way to produce a circular proof of the envelope theorem.  The same trap in
+its b-divisor form is described in
+\Cref{rem:ch38-firewall-not-vacuous}.
+\end{remark}
+
+\subsection{The five tasks, and where each is discharged}
+\label{sec:ch39-payoff}
+
+\begin{enumerate}
+\item\label{itm:ch39-task:hom}
+ \emph{Homogeneous birational reflection.}  For every
+ \(\theta\in N^1(X)_{\mathbf R}\), pullback is a bijection from
+ \(\PSH_{\mathrm{hom},X}(\theta)\) onto
+ \(\PSH_{\mathrm{hom},Y}(\beta^*\theta)\).  This is
+ \Cref{thm:bj-homogeneous-reflection}, proved in
+ \Cref{sec:ch39-homogeneous} out of the realization theorem
+ \Cref{thm:bj-real-cartier-realization}, the fixed-pole data
+ \Cref{lem:ch39-fixed-pole}, and the exact drift identity
+ \eqref{eq:bj-reflection-total}.  No positivity of \(\theta\) is assumed.
+
+\item\label{itm:ch39-task:carrier}
+ \emph{Legendre carrier reflection.}  If \(u\in\PSH_Y(\beta^*\theta)\)
+ admits a homogeneous carrier in the same class, then \(u\) is a pullback.
+ This is \Cref{thm:bj-carrier-reflection}, proved in
+ \Cref{sec:ch39-legendre}.  The mechanism is the Legendre decomposition
+ \Cref{thm:homogeneous-legendre-decomposition}: the carrier truncates the
+ unbounded parameter interval to a compact window
+ (\Cref{lem:ch35-carrier-tail}), and the compact window is converted from a
+ supremum into a decreasing limit by the summable grid correction of
+ \Cref{lem:bj-compact-legendre-window}.
+
+\item\label{itm:ch39-task:determination}
+ \emph{Equality on divisorial points and psh determination.}  Both proofs
+ end by upgrading an identity on \(X^{\divis}=Y^{\divis}\) to an identity on
+ the whole analytification.  \Cref{sec:ch39-determination} isolates this
+ step, states the exact hypotheses under which it is legitimate
+ (\Cref{prop:ch39-determination-package}), and shows by
+ \Cref{ex:ch39-usc-not-determined-birational} and
+ \Cref{ex:ch39-two-usc-extensions} that dropping either hypothesis makes it
+ false --- and false precisely at the proper-support points.
+
+\item\label{itm:ch39-task:descent}
+ \emph{Descent of the envelope property.}  If
+ \(\operatorname{EP}_Y(\beta^*\theta)\) holds then so does
+ \(\operatorname{EP}_X(\theta)\).  This is
+ \Cref{thm:bj-birational-ep-descent}, proved in \Cref{sec:ch39-descent}
+ through the canonical carrier \Cref{lem:bj-canonical-carrier}.
+
+\item\label{itm:ch39-task:diagram}
+ \emph{The exact functorial diagram.}  \Cref{sec:ch39-diagram} draws the
+ square relating the four psh spaces and the implication chain governing
+ the envelope property, with every arrow labelled as an equivalence, an
+ injection, or a one-way implication, and with the direction that is
+ \emph{not} proved marked as such.
+\end{enumerate}
+
+\subsection{Standing hypotheses and notation}
+\label{sec:ch39-hypotheses}
+
+Throughout the chapter, unless explicitly relaxed,
+\[
+ \begin{gathered}
+ k=\bar k\ \text{trivially valued},\qquad
+ X,\ Y\ \text{normal integral projective over }k,\\
+ \beta:Y\longrightarrow X\ \text{projective birational},\qquad
+ \theta\in N^1(X)_{\mathbf R}\ \text{arbitrary}.
+ \end{gathered}
+\tag{39.1}\label{eq:ch39-standing}
+\]
+We write
+\[
+                         \beta:Y\longrightarrow X
+\tag{39.2}\label{eq:bj-reflection-map}
+\]
+for the map under discussion and \(\beta^{\An}:Y^{\An}\to X^{\An}\) for the
+induced map of analytifications.  Since \(\beta\) is birational, the
+function fields agree, \(k(Y)=k(X)\), and this identification is used
+without comment; it is what makes \(X^{\divis}\) and \(Y^{\divis}\) the same
+set, and Cartier b-divisors over \(X\) and over \(Y\) the same objects
+(\Cref{prop:ch38-evaluation-functorial}\,\cref{itm:ch38-fun:cofinal}).
+
+The word \emph{class} always means a class in \(N^1\) with real
+coefficients.  We emphasise, following the correction recorded in
+\Cref{def:bj-psh} and \Cref{lem:ch34-psh-nonempty}, that
+\[
+ \PSH_X(\theta)\ne\varnothing
+ \ \Longrightarrow\ \theta\in\operatorname{Psef}(X),
+\]
+and that nefness of \(\theta\) is equivalent to the constants being
+\(\theta\)-psh and is therefore available only when a \emph{bounded} psh
+function is in play.  Homogeneous psh functions are never bounded unless
+they vanish (\Cref{prop:ch35-homogeneous-normalization} and the warning
+after it), so \emph{no result of this chapter may assume that \(\theta\) or
+\(\beta^*\theta\) is nef}.  This is not a stylistic scruple: the classes to
+which \Cref{chap:bj-alterations} applies
+\Cref{thm:bj-birational-ep-descent} are arbitrary real classes on a normal
+variety, pulled back along an alteration, and there is no mechanism in that
+argument for making them nef.
+
+Because of this, the closure calculus of \Cref{thm:bj-basic-closure} is
+restated in \Cref{lem:ch39-closure-any-class} without its blanket nefness
+hypothesis, and it is that restatement which is used below.  As in
+\Cref{chap:bj-cartier-realization} we abbreviate by \emph{PSH2} the
+decreasing-limit axiom, \Cref{lem:ch39-closure-any-class}\,(4): a decreasing
+net in \(\PSH_X(\theta)\) whose pointwise limit is generically finite has
+\(\theta\)-psh limit.  Its two hypotheses --- a controlled class and a
+generically finite limit --- are verified explicitly at every application.
+
+\subsection{Dependencies}
+\label{sec:ch39-dependencies}
+
+From \Cref{chap:trivial-analytification}: the support and centre maps
+\Cref{thm:ch32-support-center-maps}, the partition by support
+\Cref{prop:ch32-support-partition}, the scaling action
+\Cref{prop:ch32-scaling-action}, the divisorial points
+\Cref{def:ch32-divisorial}, and the maximum principle
+\Cref{prop:ch32-maximum-principle}.
+
+From \Cref{chap:bj-fs-pl-psh}: the definition \Cref{def:bj-psh}, the
+structure of a Fubini--Study presentation
+\Cref{prop:ch34-generic-finiteness}, the Veronese normalization
+\Cref{lem:ch34-veronese}, the existence thresholds
+\Cref{lem:ch34-psh-nonempty}, and the closure calculus
+\Cref{thm:bj-basic-closure}.
+
+From \Cref{chap:bj-homogeneity-bdivisors}: the scaling calculus
+\Cref{lem:ch35-action-basic}, the normalization
+\Cref{prop:ch35-homogeneous-normalization}, the comparison theorem
+\Cref{thm:ch35-divisorial-comparison} with its corollary
+\Cref{cor:ch35-divisorial-determination}, the Legendre decomposition
+\Cref{thm:homogeneous-legendre-decomposition} with the slice trichotomy
+\Cref{prop:ch35-slice-trichotomy}, the carrier tail estimate
+\Cref{lem:ch35-carrier-tail}, and the homogeneous Siu decomposition
+\Cref{thm:ch35-homogeneous-siu} and
+\Cref{thm:ch35-homogeneous-siu-general}.
+
+From \Cref{chap:bj-cartier-realization}: the evaluation pairing
+\Cref{prop:ch38-evaluation-welldefined} and its functoriality
+\Cref{prop:ch38-evaluation-functorial}, the notion of nef-total class
+\Cref{def:bj-nef-total}, the activation lemma \Cref{lem:ch38-activation},
+the realization theorem \Cref{thm:bj-real-cartier-realization}, the
+approximation package \Cref{cor:ch38-gf-regularization-bdivisor}, and the
+partial pullback statement \Cref{cor:ch38-realization-pullback} whose gap
+this chapter closes (\Cref{rem:ch38-pullback-forward}).
+
+From \Cref{chap:bj-envelope-history} and
+\Cref{chap:bj-envelope-statement}: the two definitions
+\Cref{def:bj-envelope-property} and \Cref{def:bj-obstacle-envelope}, the
+notion of a bounded-above family \Cref{def:bj-bounded-family}, and the
+equivalence \Cref{prop:bj-increasing-net-criterion}.  Nothing else from
+\Cref{chap:bj-envelope-statement} is used, and \Cref{thm:bj-final-envelope}
+is used nowhere.
+
+From the appendices: the extended-real ledger of
+\Cref{sec:extended-arithmetic} and \Cref{lem:extended-real-safe}; the net
+vocabulary of \Cref{app:nets}, in particular the Willard subnet
+\Cref{def:appE-willard-subnet}; the upper-semicontinuous calculus
+\Cref{prop:appE-usc-majorant} and \Cref{lem:appE-usc-calculus}; and the
+birational input \Cref{thm:appB-admissible-domination} used inside
+\Cref{lem:ch38-activation}.
+
+\subsection{Roadmap}
+\label{sec:ch39-roadmap}
+
+\Cref{sec:ch39-analytifications} assembles the elementary birational
+dictionary: what \(\beta^{\An}\) does to supports, fibres, divisorial
+points and the scaling action, and what pullback does to psh functions.  It
+also contains the class-free closure calculus
+\Cref{lem:ch39-closure-any-class}.  \Cref{sec:ch39-homogeneous} proves
+homogeneous reflection.  \Cref{sec:ch39-determination} isolates the
+divisorial-determination step and its failure modes.
+\Cref{sec:ch39-legendre} proves carrier reflection.
+\Cref{sec:ch39-descent} manufactures the canonical carrier under an assumed
+envelope property and descends the envelope property.
+\Cref{sec:ch39-safeguards} audits the extended-real arithmetic.
+\Cref{sec:ch39-diagram} draws the diagrams, and
+\Cref{sec:ch39-dictionary} tabulates the outcome.
+
+A reader interested only in the logical skeleton may read
+\Cref{thm:ch39-pullback}, \Cref{thm:bj-homogeneous-reflection},
+\Cref{thm:bj-carrier-reflection}, \Cref{lem:bj-canonical-carrier} and
+\Cref{thm:bj-birational-ep-descent}, in that order, and consult the diagrams
+of \Cref{sec:ch39-diagram}.
+
+\section{The birational dictionary between the two analytifications}
+\label{sec:ch39-analytifications}
+
+\subsection{The map on analytifications}
+\label{sec:ch39-beta-an}
+
+\begin{lemma}
+\label{lem:ch39-beta-an}
+Let \(\beta:Y\to X\) be as in \eqref{eq:ch39-standing}.  Then the induced
+map \(\beta^{\An}:Y^{\An}\to X^{\An}\), \(w\mapsto w\circ\beta^{\#}\),
+satisfies:
+\begin{enumerate}
+\item\label{itm:ch39-ban:cont} \(\beta^{\An}\) is continuous and
+ surjective, and \(Y^{\An}\), \(X^{\An}\) being compact Hausdorff, it is a
+ closed map and a topological quotient map;
+\item\label{itm:ch39-ban:supp} \(s(\beta^{\An}(w))=\overline{\beta(s(w))}\)
+ for every \(w\in Y^{\An}\); in particular \(\beta^{\An}\) maps points of
+ full support to points of full support and \(\beta^{\An}(v_{Y,\triv})
+ =v_{X,\triv}\);
+\item\label{itm:ch39-ban:val} \(\beta^{\An}\) restricts to a bijection
+ \(Y^{\val}\to X^{\val}\) and to the identity on
+ \(Y^{\divis}=X^{\divis}\), under the identification \(k(Y)=k(X)\);
+\item\label{itm:ch39-ban:scaling} \(\beta^{\An}(tw)=t\,\beta^{\An}(w)\) for
+ every \(t>0\), so \(\beta^{\An}\) is equivariant for the scaling action of
+ \eqref{eq:valuation-scaling};
+\item\label{itm:ch39-ban:sections} for every nonzero
+ \(s\in H^0(X,mL)\), \(\log|\beta^*s|=\beta^*\log|s|\) as functions
+ \(Y^{\An}\to[-\infty,0]\), and for every nonzero coherent ideal
+ \(\mathfrak a\subseteq\cO_X\),
+ \(\log|\mathfrak a\cdot\cO_Y|=\beta^*\log|\mathfrak a|\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We prove \cref{itm:ch39-ban:supp}--\cref{itm:ch39-ban:val} first and deduce
+\cref{itm:ch39-ban:cont} from them.
+
+\cref{itm:ch39-ban:supp}  By definition \(f\in\mathfrak p_{\beta^{\An}(w)}\)
+if and only if \(w(\beta^{\#}f)=+\infty\), that is,
+\(\beta^{\#}f\in\mathfrak p_w\), that is, \(f\) vanishes on \(s(w)\), that
+is, \(f\) vanishes on \(\overline{\beta(s(w))}\).  If \(s(w)=Y\), then
+\(\overline{\beta(Y)}=X\) since \(\beta\) is dominant; and
+\(v_{Y,\triv}\) is the trivial valuation of \(k(Y)=k(X)\), which pushes
+forward to the trivial valuation of \(k(X)\).
+
+\cref{itm:ch39-ban:val}  By \cref{itm:ch39-ban:supp} the map sends
+\(Y^{\val}\) into \(X^{\val}\).  Both sets are, by
+\eqref{eq:triv-full-support-locus}, the set of real valuations of the common
+field \(k(X)=k(Y)\), trivial on \(k\), admitting a centre; and a valuation
+of \(k(X)\) has a centre on \(X\) if and only if it has one on \(Y\),
+because \(X\) and \(Y\) are both proper over \(k\) and the valuative
+criterion of properness \Cref{prop:ch32-valuation-criterion} applies to
+each.  Under this identification \(\beta^{\An}\) is the identity.  A
+divisorial point of \(Y\) is a positive multiple of \(\ord_E\) for a prime
+divisor \(E\) on some model over \(Y\), and models over \(Y\) are cofinal
+among models over \(X\) by
+\Cref{prop:ch38-evaluation-functorial}\,\cref{itm:ch38-fun:cofinal}; hence
+\(Y^{\divis}=X^{\divis}\) as subsets of the set of valuations of \(k(X)\).
+
+\cref{itm:ch39-ban:cont}  Continuity of the analytification of a morphism is
+part of the construction \Cref{def:trivial-analytification}, and
+\(X^{\An}\), \(Y^{\An}\) are compact Hausdorff by
+\Cref{thm:triv-berkovich-compactness}.  Hence
+\(\beta^{\An}(Y^{\An})\) is compact, therefore closed in \(X^{\An}\); by
+\cref{itm:ch39-ban:val} it contains \(X^{\divis}\), which is dense in
+\(X^{\An}\) by \Cref{thm:triv-divisorial-density}.  Therefore
+\(\beta^{\An}\) is surjective.  A continuous map between compact Hausdorff
+spaces is closed, and a surjective closed continuous map is a quotient map.
+
+\cref{itm:ch39-ban:scaling}  \((tw)\circ\beta^{\#}=t\,(w\circ\beta^{\#})\)
+because scaling acts by multiplying values, \eqref{eq:valuation-scaling}.
+
+\cref{itm:ch39-ban:sections}  For \(w\in Y^{\An}\),
+\(\log|\beta^*s|(w)=-w(\beta^*s)=-(\beta^{\An}w)(s)=\log|s|(\beta^{\An}w)\),
+by \eqref{eq:section-log-value} and the definition of \(\beta^{\An}\); the
+computation is valid in \([-\infty,0]\) with no subtraction.  The ideal
+statement follows by applying this to a finite set of local generators and
+using \eqref{eq:ch34-log-ideal}: the ideal generated in \(\cO_Y\) by the
+pullbacks of generators of \(\mathfrak a\) is \(\mathfrak a\cdot\cO_Y\).
+\end{proof}
+
+\begin{remark}[What surjectivity buys, and what it does not]
+\label{rem:ch39-surjectivity}
+Surjectivity of \(\beta^{\An}\) is used constantly below, in exactly two
+ways.  It makes \(\beta^*\) injective on functions, so that an identity
+\(\beta^*\chi_1=\beta^*\chi_2\) forces \(\chi_1=\chi_2\), and it makes
+\(\beta^*\) reflect inequalities: \(\beta^*\chi_1\le\beta^*\chi_2\) implies
+\(\chi_1\le\chi_2\) pointwise.  Both are immediate and both are valid for
+arbitrary extended-real functions, with no positivity or continuity
+hypothesis.  What surjectivity does \emph{not} give is a way to define
+\(\chi\) from \(\psi\); for that one needs \(\psi\) to be constant on fibres,
+which is the content of \Cref{cor:ch39-fibre-constant} and is available only
+after the reflection theorem has been proved.
+\end{remark}
+
+\subsection{Fibres, and where they are large}
+\label{sec:ch39-fibres}
+
+\begin{proposition}
+\label{prop:ch39-fibres}
+Let \(\beta:Y\to X\) be as in \eqref{eq:ch39-standing}.
+\begin{enumerate}
+\item\label{itm:ch39-fib:val} If \(x\in X^{\val}\), that is, if \(s(x)=X\),
+ then \((\beta^{\An})^{-1}(x)\) is a single point.
+\item\label{itm:ch39-fib:triv} For every closed subscheme \(Z\subseteq X\),
+\[
+ (\beta^{\An})^{-1}\bigl(\{x\in X^{\An}:s(x)\subseteq Z\}\bigr)
+ =\{w\in Y^{\An}\ :\ s(w)\subseteq\beta^{-1}(Z)\}
+ =\bigl(\beta^{-1}(Z)\bigr)^{\An},
+\tag{39.3}\label{eq:ch39-fibre-trivial}
+\]
+ a closed subset of \(Y^{\An}\).
+\item\label{itm:ch39-fib:point} If \(p\in X\) is a closed point, with
+ set-theoretic fibre \(F_p:=\beta^{-1}(p)\), then
+\[
+ (\beta^{\An})^{-1}(v_{p,\triv})=F_p^{\An},
+\]
+ which is a nonempty closed subset of \(Y^{\An}\), all of whose points have
+ proper support, and which is infinite as soon as \(\dim F_p>0\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch39-fib:val}  By
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:val} the map \(\beta^{\An}\)
+restricts to a bijection \(Y^{\val}\to X^{\val}\), so it suffices to show
+that a point \(w\in Y^{\An}\) with \(\beta^{\An}(w)\in X^{\val}\) has full
+support.  By \Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:supp} we have
+\(\overline{\beta(s(w))}=X\).  Now \(\beta\) is proper, so
+\(\beta(s(w))\) is closed and hence equals \(X\); since \(\beta\) is
+birational, \(\dim s(w)\ge\dim X=\dim Y\), and \(s(w)\) is an integral
+closed subscheme of the integral scheme \(Y\), so \(s(w)=Y\).
+
+\cref{itm:ch39-fib:triv}  For \(w\in Y^{\An}\) and \(x=\beta^{\An}(w)\),
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:supp} gives
+\(s(x)=\overline{\beta(s(w))}\), which is contained in \(Z\) if and only if
+\(\beta(s(w))\subseteq Z\), that is, if and only if
+\(s(w)\subseteq\beta^{-1}(Z)\).  The second equality in
+\eqref{eq:ch39-fibre-trivial} and the closedness are
+\Cref{prop:ch32-support-partition}\,\cref{itm:ch32-sp:closed}.
+
+\cref{itm:ch39-fib:point}  Take \(Z=\{p\}\) in \cref{itm:ch39-fib:triv}.  The
+only point of \(X^{\An}\) with support \(\{p\}\) is \(v_{p,\triv}\), by
+\Cref{prop:ch32-support-partition}\,\cref{itm:ch32-sp:triv}, so the left-hand
+side of \eqref{eq:ch39-fibre-trivial} is exactly
+\((\beta^{\An})^{-1}(v_{p,\triv})\), and the right-hand side is
+\(F_p^{\An}\).  It is nonempty by surjectivity of \(\beta^{\An}\),
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:cont}.  Every point \(w\) of it
+has \(s(w)\subseteq F_p\subsetneq Y\), hence proper support in the sense of
+\Cref{def:ch32-proper-support}.  If \(\dim F_p>0\), then \(F_p\) has
+infinitely many closed points \(q\), and the points \(v_{q,\triv}\in
+F_p^{\An}\) are pairwise distinct by
+\Cref{prop:ch32-support-partition}.
+\end{proof}
+
+\begin{example}[The fibre over a blown-up point of the plane]
+\label{ex:ch39-fibre-plane}
+Let \(X=\mathbf P^2_k\) with homogeneous coordinates \(x,y,z\), let
+\(p=[0:0:1]\), and let \(\beta:Y=\operatorname{Bl}_pX\to X\) be the blowup
+with exceptional prime \(E\cong\mathbf P^1\).  By
+\Cref{prop:ch39-fibres}\,\cref{itm:ch39-fib:point},
+\[
+ (\beta^{\An})^{-1}(v_{p,\triv})=E^{\An}\cong(\mathbf P^1_k)^{\An},
+\]
+which by \Cref{thm:ch32-p1-classification} is the cone over the set of
+closed points of \(E\), with vertex \(v_{E,\triv}\) and one ray
+\(\{t\,\ord_q:t\ge0\}\) for each closed point \(q\in E\) --- here
+\(\ord_q\) is computed inside \(E\), so these are \emph{not} points of
+\(Y^{\divis}\); they have support contained in \(E\), hence proper support
+in \(Y\).  Every point of this fibre has proper support.  Concretely, the
+fibre consists of \(v_{E,\triv}\), of \(v_{q,\triv}\) for \(q\in E\) a
+closed point, and of the interpolating semivaluations along each ray.
+
+Meanwhile the divisorial point \(\ord_E\in Y^{\divis}\) does \emph{not}
+lie in this fibre: it has full support on \(Y\), and
+\(\beta^{\An}(\ord_E)=\ord_E\in X^{\divis}\), the divisorial valuation of
+\(k(X)\) with centre \(p\).  This is the distinction that
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:val} and
+\Cref{prop:ch39-fibres}\,\cref{itm:ch39-fib:val} record: the exceptional
+divisor of \(\beta\) contributes a \emph{point of \(X^{\divis}\)}, while
+the exceptional fibre of \(\beta^{\An}\) sits entirely in the
+proper-support locus.  Confusing the two is the commonest source of error
+in birational arguments over a trivially valued field.
+\end{example}
+
+\subsection{Closure properties in a class that need not be nef}
+\label{sec:ch39-closure}
+
+\Cref{thm:bj-basic-closure} is stated for nef classes.  Its clauses are
+needed here for arbitrary real classes, since a homogeneous psh function
+can exist in a class that is pseudoeffective but not nef, and since
+\Cref{chap:bj-alterations} applies \Cref{thm:bj-birational-ep-descent} to an
+arbitrary \(\theta\).  We prove the required statements directly from
+\Cref{def:bj-psh}.  The engine is the following monotonicity of the
+Fubini--Study spaces in the line bundle, which is elementary and which we
+have not seen stated elsewhere in this form.
+
+\begin{lemma}
+\label{lem:ch39-hgf-monotone}
+Let \(L,M\in\Pic(X)_{\mathbf Q}\) be such that \(M-L\) is semiample, that
+is, such that \(r(M-L)\) is a globally generated line bundle for some
+\(r\in\mathbf Z_{>0}\).  Then, for every additive subgroup
+\(\Lambda\subseteq\mathbf R\),
+\[
+ \cH^{\mathrm{gf}}_\Lambda(L)\subseteq\cH^{\mathrm{gf}}_\Lambda(M),
+ \qquad
+ \cH_\Lambda(L)\subseteq\cH_\Lambda(M).
+\tag{39.4}\label{eq:ch39-hgf-monotone}
+\]
+\end{lemma}
+
+\begin{proof}
+Let \(\phi=\frac1m\max_j\{\log|s_j|+\lambda_j\}\) with
+\(0\ne s_j\in H^0(X,mL)\), as in \eqref{eq:gf-fs-presentation}.  Replacing
+\(m\) by a multiple by \Cref{lem:ch34-veronese}, which changes neither
+\(\phi\) nor the weights, we may assume that \(r\mid m\), that \(mL\) and
+\(mM\) are honest line bundles, and that \(m(M-L)\) is globally generated.
+Choose global sections \(u_1,\dots,u_N\) generating \(m(M-L)\).  Then
+\(s_ju_k\in H^0(X,mM)\) and \(s_ju_k\ne0\), the sheaf \(m(M-L)\) being a
+line bundle on the integral scheme \(X\) and \(u_k\ne0\).  Since the
+\(u_k\) generate, the ideal they define in any local frame is
+\(\cO_X\), so by \eqref{eq:ch34-log-ideal}
+\[
+ \max_k\log|u_k|=\log|\cO_X|=0
+ \qquad\text{on }X^{\An}.
+\]
+Therefore, using that a finite maximum in \(\Rbar\) distributes over the
+sum with \(\log|s_j|\) --- an addition of elements of \([-\infty,0]\), never
+a subtraction ---
+\[
+ \frac1m\max_{j,k}\{\log|s_ju_k|+\lambda_j\}
+ =\frac1m\max_j\Bigl\{\log|s_j|+\lambda_j+\max_k\log|u_k|\Bigr\}
+ =\phi .
+\]
+The system \((m,(s_ju_k),(\lambda_j))\) is a weighted section system for
+\(M\) with weights in \(\Lambda\), and it is generically finite because the
+\(s_ju_k\) do not all vanish identically: some \(s_j\) does not, and
+\(u_k\ne0\) while \(X\) is integral.  Hence
+\(\phi\in\cH^{\mathrm{gf}}_\Lambda(M)\).  If moreover the \(s_j\) have no
+common zero, then neither do the \(s_ju_k\): at a point where all \(s_j\)
+are nonzero, some \(u_k\) is nonzero as well since the \(u_k\) generate.
+This gives the second inclusion.
+\end{proof}
+
+\begin{warning}{The inclusion is not induced by an inclusion of classes}
+\label{warn:ch39-hgf-monotone}
+\Cref{lem:ch39-hgf-monotone} requires \(M-L\) \emph{semiample}, not merely
+nef, because its proof needs sections, and it is a statement about a fixed
+function belonging to two different Fubini--Study spaces --- not about
+comparing the two spaces as subsets of a common one indexed by classes.
+The corresponding statement at the level of \(\PSH\), namely
+\(\PSH_X(\theta)\subseteq\PSH_X(\theta+\eta)\) for \(\eta\) nef, is
+\Cref{lem:ch39-closure-any-class}\,(5) below, and it does hold for merely
+nef \(\eta\), because there the semiampleness is recovered by an
+arbitrarily small ample perturbation which is then absorbed in the limit of
+classes.
+\end{warning}
+
+\begin{lemma}
+\label{lem:ch39-closure-any-class}
+Let \(X\) be a projective \(k\)-variety and let
+\(\theta,\theta'\in N^1(X)_{\mathbf R}\) be arbitrary.
+\begin{enumerate}
+\item If \(\phi\in\PSH_X(\theta)\) and \(c\in\mathbf R\), then
+ \(\phi+c\in\PSH_X(\theta)\).
+\item If \(\phi,\psi\in\PSH_X(\theta)\), then
+ \(\max\{\phi,\psi\}\in\PSH_X(\theta)\).
+\item If \(\phi\in\PSH_X(\theta)\), \(\psi\in\PSH_X(\theta')\) and
+ \(s,t\ge0\) are not both \(0\), then
+ \(s\phi+t\psi\in\PSH_X(s\theta+t\theta')\), the sum being formed in
+ \(\Rbar\) and unambiguous because both terms are bounded above.
+\item If \(\theta_j\to\theta\) in \(N^1(X)_{\mathbf R}\), if
+ \(\psi_j\in\PSH_X(\theta_j)\) is a decreasing net, and if
+ \(\psi:=\lim_j\psi_j\) is generically finite, then
+ \(\psi\in\PSH_X(\theta)\).  In particular this holds for a constant net of
+ classes, and the set \(\{\theta:\psi\in\PSH_X(\theta)\}\) is closed for
+ every fixed \(\psi\).
+\item If \(\phi\in\PSH_X(\theta)\) and \(\eta\in\Nef(X)\), then
+ \(\phi\in\PSH_X(\theta+\eta)\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1)  If \(\phi=\lim_i\phi_i\) with
+\(\phi_i=\frac1{m_i}\max_j\{\log|s_{ij}|+\lambda_{ij}\}
+\in\cH^{\mathrm{gf}}_{\mathbf R}(L_i)\), then
+\(\phi_i+c=\frac1{m_i}\max_j\{\log|s_{ij}|+\lambda_{ij}+m_ic\}
+\in\cH^{\mathrm{gf}}_{\mathbf R}(L_i)\), the same bundle and the same
+sections.  The net \((\phi_i+c)\) is decreasing with limit \(\phi+c\), which
+is generically finite because \(\phi\) is and \(c\) is finite.
+
+(4)  This is \Cref{thm:bj-basic-closure}\,(4) and~(5), and the only point
+requiring comment is that the nefness hypothesis standing in that theorem
+plays no role in the proof of those two clauses.  It does not: the argument
+there concatenates the approximating nets supplied by \Cref{def:bj-psh},
+indexing the concatenation by
+\(K:=\{(j,i):j\in J,\ i\in I_j\}\) with \((j,i)\le(j',i')\) when
+\(j\le j'\) and \(\psi_{j,i}\ge\psi_{j',i'}\), and its inputs are the
+directedness of the index sets, the fact that an infimum of
+upper-semicontinuous functions is upper semicontinuous
+(\Cref{lem:usc-inf}), the hypothesis of generic finiteness, and the
+convergence \(c_1(L_{j,i})\to\theta_j\to\theta\) of classes in the
+finite-dimensional space \(N^1(X)_{\mathbf R}\).  Positivity of the classes
+is used nowhere, either in the construction of the index set or in the
+verification of \Cref{def:bj-psh} for the limit.  The last assertion is the
+closedness statement in \Cref{thm:bj-basic-closure}\,(5), which is the case
+\(\psi_j=\psi\) for all \(j\).
+
+(2)  Let \((\phi_i)_{i\in I}\) and \((\psi_{i'})_{i'\in I'}\) be
+approximating nets for \(\phi\) and \(\psi\), in classes
+\(\alpha_i:=c_1(L_i)\to\theta\) and
+\(\alpha'_{i'}:=c_1(L'_{i'})\to\theta\).  Fix a very ample line bundle
+\(A\) on \(X\).  For \(n\in\mathbf Z_{>0}\) let
+\[
+ K_n:=\Bigl\{(i,i')\in I\times I'\ :\
+ \tfrac1nc_1(A)-(\alpha'_{i'}-\alpha_i)\ \text{and}\
+ \tfrac1nc_1(A)\ \text{are ample}\Bigr\},
+\]
+which contains a tail of the directed set \(I\times I'\): indeed
+\(\alpha_i\to\theta\) and \(\alpha'_{i'}\to\theta\), so
+\(\alpha'_{i'}-\alpha_i\to0\) in the product order, while the ample cone is
+open and contains \(\frac1nc_1(A)\); hence the condition holds for all
+\((i,i')\) beyond some index.  Set
+\[
+ J:=\{(i,i',n)\ :\ (i,i')\in K_n\},\qquad
+ (i,i',n)\le(\iota,\iota',\nu)\iff i\le\iota,\ i'\le\iota',\ n\le\nu,
+\]
+a directed set, and let \(J\to I\times I'\) be the forgetful map, which is
+order preserving and cofinal; thus indexing by \(J\) passes to a Willard
+subnet in the sense of \Cref{def:appE-willard-subnet} and changes no
+pointwise limit.  For \((i,i',n)\in J\) put
+\[
+ M_{i,i',n}:=L_i+\tfrac1nA\in\Pic(X)_{\mathbf Q}.
+\]
+Then \(M_{i,i',n}-L_i=\frac1nA\) is ample, and
+\(M_{i,i',n}-L'_{i'}\) has class
+\(\frac1nc_1(A)-(\alpha'_{i'}-\alpha_i)\), which is ample by the definition
+of \(K_n\).  An ample \(\mathbf Q\)-line bundle is semiample, so
+\Cref{lem:ch39-hgf-monotone} gives
+\[
+ \phi_i,\ \psi_{i'}\in\cH^{\mathrm{gf}}_{\mathbf R}(M_{i,i',n}).
+\]
+A maximum of two generically finite Fubini--Study functions for the
+\emph{same} bundle is again one: concatenate the two weighted section
+systems after a common Veronese normalization
+(\Cref{lem:ch34-veronese}).  Hence
+\(\max\{\phi_i,\psi_{i'}\}\in\cH^{\mathrm{gf}}_{\mathbf R}(M_{i,i',n})\).
+The net indexed by \(J\) is decreasing, because
+\(\max\) of two decreasing nets is decreasing; its classes
+\(\alpha_i+\frac1nc_1(A)\) converge to \(\theta\); and its pointwise limit
+is \(\max\{\phi,\psi\}\), a maximum of two decreasing limits in \(\Rbar\).
+The limit is generically finite because \(\phi\) is.  Now
+\Cref{def:bj-psh} applies.
+
+(3)  With the same notation, the tensor product of weighted section systems
+gives
+\(s\phi_i+t\psi_{i'}\in\cH^{\mathrm{gf}}_{\mathbf R}(sL_i+tL'_{i'})\) for
+rational \(s,t>0\): if
+\(\phi_i=\frac1m\max_j\{\log|s_{j}|+\lambda_j\}\) and
+\(\psi_{i'}=\frac1m\max_l\{\log|t_l|+\mu_l\}\) after a common Veronese
+normalization, and if \(s=a/m'\), \(t=b/m'\) with \(a,b\in\mathbf Z_{\ge0}\),
+then
+\[
+ s\phi_i+t\psi_{i'}
+ =\frac1{mm'}\max_{j_1,\dots,j_a,l_1,\dots,l_b}
+ \Bigl\{\log\bigl|s_{j_1}\cdots s_{j_a}t_{l_1}\cdots t_{l_b}\bigr|
+ +\textstyle\sum\lambda_{j_\bullet}+\sum\mu_{l_\bullet}\Bigr\},
+\]
+a weighted section system for \(sL_i+tL'_{i'}\); the identity is the
+distributivity of a finite maximum over addition in \([-\infty,+\infty)\),
+\Cref{lem:extended-real-safe}\,(2), and no subtraction occurs.  The
+resulting net is decreasing with classes converging to
+\(s\theta+t\theta'\), and its limit \(s\phi+t\psi\) is generically finite
+because \(\phi\) and \(\psi\) are.
+
+For real \(s,t>0\), normalize first: replacing \(\phi\) by
+\(\phi-\sup\phi\) and \(\psi\) by \(\psi-\sup\psi\), which is legitimate by
+(1) and changes the conclusion by a finite constant, we may assume
+\(\phi\le0\) and \(\psi\le0\).  Choose rationals \(0<s_\nu\uparrow s\) and
+\(0<t_\nu\uparrow t\).  Each \(s_\nu\phi+t_\nu\psi\) is
+\((s_\nu\theta+t_\nu\theta')\)-psh by the rational case, the sequence
+decreases --- multiplying a nonpositive function by an increasing positive
+scalar decreases it --- the classes converge to \(s\theta+t\theta'\), and
+the limit \(s\phi+t\psi\) is generically finite because both summands are
+finite at \(v_{\triv}\).  Now (4) applies.  If one of \(s,t\) vanishes, say
+\(t=0\), the assertion reduces to
+\(s\phi\in\PSH_X(s\theta)\), which is the case just treated together with
+\(0\in\PSH_X(0)\), by \Cref{cor:ch35-zero-class}.
+
+(5)  Let \((\phi_i)\) approximate \(\phi\) in classes \(\alpha_i\to\theta\).
+Fix a very ample \(A\).  For \(n\ge1\) choose a
+\(\mathbf Q\)-line bundle \(N_n\) whose class is ample and satisfies
+\(\|c_1(N_n)-\eta\|\le1/n\); this is possible because \(\eta+\frac1{2n}c_1(A)\)
+is ample, the ample cone is open, and rational classes are dense in
+\(N^1(X)_{\mathbf R}\) and are represented by \(\mathbf Q\)-line bundles.
+Since \(N_n\) is ample it is semiample, so
+\Cref{lem:ch39-hgf-monotone} gives
+\(\phi_i\in\cH^{\mathrm{gf}}_{\mathbf R}(L_i+N_n)\).  Indexing by the pairs
+\((i,n)\in I\times\mathbf Z_{>0}\) with the product order, we obtain a
+decreasing net --- decreasing in \(i\) and constant in \(n\) --- of
+generically finite Fubini--Study functions with classes
+\(\alpha_i+c_1(N_n)\to\theta+\eta\) and limit \(\phi\).  Hence
+\(\phi\in\PSH_X(\theta+\eta)\).
+\end{proof}
+
+\begin{remark}[What was and was not generalized]
+\label{rem:ch39-closure-scope}
+\Cref{lem:ch39-closure-any-class} reproduces clauses (1)--(5) of
+\Cref{thm:bj-basic-closure} without the standing nefness hypothesis of that
+theorem, and adds clause (5), the monotonicity of \(\PSH_X\) in the class.
+It does \emph{not} generalize anything about suprema: there is still no
+statement about increasing families, and \Cref{warn:ch39-firewall} remains
+in force.  Nor does it assert that \(\PSH_X(\theta)\) is nonempty; by
+\Cref{lem:ch34-psh-nonempty} that requires \(\theta\) pseudoeffective, and
+in the pseudoeffective boundary case it may still fail to contain any
+bounded function.  Every application below of ``PSH2'' is an application of
+clause (4).
+\end{remark}
+
+\subsection{Pullback of psh functions}
+\label{sec:ch39-pullback}
+
+\begin{theorem}
+\label{thm:ch39-pullback}
+Let \(\beta:Y\to X\) be as in \eqref{eq:ch39-standing} and let
+\(\theta\in N^1(X)_{\mathbf R}\).  Write
+\(\beta^*u:=u\circ\beta^{\An}\).  Then:
+\begin{enumerate}
+\item\label{itm:ch39-pb:fs} \(\beta^*\) maps
+ \(\cH^{\mathrm{gf}}_\Lambda(L)\) into
+ \(\cH^{\mathrm{gf}}_\Lambda(\beta^*L)\) and \(\cH_\Lambda(L)\) into
+ \(\cH_\Lambda(\beta^*L)\), for every \(\mathbf Q\)-line bundle \(L\) on
+ \(X\) and every additive subgroup \(\Lambda\subseteq\mathbf R\);
+\item\label{itm:ch39-pb:psh} \(\beta^*\) maps \(\PSH_X(\theta)\) into
+ \(\PSH_Y(\beta^*\theta)\) and
+ \(\PSH_{\mathrm{hom},X}(\theta)\) into
+ \(\PSH_{\mathrm{hom},Y}(\beta^*\theta)\);
+\item\label{itm:ch39-pb:order} \(\beta^*\) is injective and reflects the
+ order: for arbitrary functions \(u_1,u_2\) on \(X^{\An}\),
+ \(\beta^*u_1\le\beta^*u_2\) if and only if \(u_1\le u_2\);
+\item\label{itm:ch39-pb:ops} \(\beta^*\) commutes with the addition of
+ real constants and with arbitrary suprema and infima, preserves upper
+ semicontinuity, and commutes with the scaling action:
+ \(\beta^*(t\cdot u)=t\cdot\beta^*u\) for \(t>0\).
+ In particular \(\beta^*\) commutes with the Legendre slices,
+ \(\beta^*(\widehat u_\lambda)=\widehat{(\beta^*u)}_\lambda\);
+\item\label{itm:ch39-pb:sup} \(\sup_{Y^{\An}}\beta^*u=\sup_{X^{\An}}u\) and
+ \(\beta^*u(v_{Y,\triv})=u(v_{X,\triv})\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\cref{itm:ch39-pb:fs}  Let
+\(\phi=\frac1m\max_j\{\log|s_j|+\lambda_j\}\) with
+\(0\ne s_j\in H^0(X,mL)\).  Then \(\beta^*s_j\in H^0(Y,m\beta^*L)\) is
+nonzero, because \(\beta\) is dominant and \(Y\) is integral, and by
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:sections},
+\[
+ \beta^*\phi=\frac1m\max_j\{\log|\beta^*s_j|+\lambda_j\},
+\]
+a weighted section system for \(\beta^*L\) with the same weights.  Generic
+finiteness holds because \(Y\) is integral and some \(\beta^*s_j\) is
+nonzero.  If the \(s_j\) have no common zero on \(X\), then the
+\(\beta^*s_j\) have no common zero on \(Y\), because
+\(\beta\) is surjective.
+
+\cref{itm:ch39-pb:psh}  Let \(u\in\PSH_X(\theta)\) with approximating net
+\(u_i\in\cH^{\mathrm{gf}}_{\mathbf R}(L_i)\), \(c_1(L_i)\to\theta\),
+\(u_i\searrow u\).  By \cref{itm:ch39-pb:fs},
+\(\beta^*u_i\in\cH^{\mathrm{gf}}_{\mathbf R}(\beta^*L_i)\).  The net
+\((\beta^*u_i)\) is decreasing, being the composition of a decreasing net
+with a fixed map, and it converges pointwise to \(\beta^*u\).  Its classes
+satisfy \(\beta^*c_1(L_i)\to\beta^*\theta\), the map
+\(\beta^*:N^1(X)_{\mathbf R}\to N^1(Y)_{\mathbf R}\) being linear on a
+finite-dimensional space, hence continuous.  Finally \(\beta^*u\) is
+generically finite: \(Y\) is integral, and
+\(\beta^*u(v_{Y,\triv})=u(v_{X,\triv})>-\infty\) by
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:supp} and
+\Cref{prop:ch32-maximum-principle}\,\cref{itm:ch32-mp:gf}.  Hence
+\Cref{def:bj-psh} applies to \(\beta^*u\) with the class
+\(\beta^*\theta\).  Homogeneity is preserved by
+\cref{itm:ch39-pb:ops}.
+
+\cref{itm:ch39-pb:order}  Immediate from surjectivity of \(\beta^{\An}\),
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:cont}: for \(x\in X^{\An}\)
+choose \(w\) with \(\beta^{\An}(w)=x\) and evaluate.
+
+\cref{itm:ch39-pb:ops}  Composition with a fixed map commutes with all
+pointwise lattice operations and with the addition of constants.  For the
+scaling action, \Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:scaling} gives
+\[
+ \beta^*(t\cdot u)(w)=(t\cdot u)(\beta^{\An}w)
+ =t\,u\bigl(t^{-1}\beta^{\An}w\bigr)
+ =t\,u\bigl(\beta^{\An}(t^{-1}w)\bigr)
+ =(t\cdot\beta^*u)(w),
+\]
+and the statement about slices follows from
+\eqref{eq:homogeneous-legendre-slice}, an infimum over \(t>0\) of the
+functions \(t\cdot u-t\lambda\), together with the commutation of
+\(\beta^*\) with infima and with the subtraction of the finite constant
+\(t\lambda\).  Upper semicontinuity is preserved because \(\beta^{\An}\) is
+continuous: \(\{\beta^*u\ge c\}=(\beta^{\An})^{-1}\{u\ge c\}\) is closed
+whenever \(\{u\ge c\}\) is.
+
+\cref{itm:ch39-pb:sup}  The first identity is surjectivity; the second is
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:supp}.
+\end{proof}
+
+\begin{warning}{Pullback is injective but not surjective for free}
+\label{warn:ch39-pullback-not-onto}
+\Cref{thm:ch39-pullback} gives an injection
+\(\beta^*:\PSH_X(\theta)\hookrightarrow\PSH_Y(\beta^*\theta)\) and nothing
+more.  Its image is contained in the set of functions constant on the fibres
+of \(\beta^{\An}\), and by \Cref{prop:ch39-fibres} those fibres are large:
+over the trivial semivaluation of a blown-up point they are the
+analytification of the whole exceptional locus.  Constancy along such a
+fibre is a nontrivial condition, and it is \emph{not} implied by
+membership in \(\PSH_Y(\eta)\) for a general \(\eta\); see
+\Cref{ex:ch39-not-fibre-constant}.  That it \emph{is} implied when
+\(\eta=\beta^*\theta\) and the function is homogeneous is the content of
+\Cref{thm:bj-homogeneous-reflection}, and the proof of that theorem does not
+proceed by verifying fibrewise constancy: it constructs the function
+downstairs.
+\end{warning}
+
+\subsection{Numerical classes and total classes}
+\label{sec:ch39-classes}
+
+\begin{lemma}
+\label{lem:ch39-total-class}
+Let \(B\) be a real Cartier b-divisor over \(X\), determined on a model
+\(\pi:Z\to X\) that factors as \(Z\xrightarrow{\ \rho\ }Y
+\xrightarrow{\ \beta\ }X\).  Then, for every
+\(\theta\in N^1(X)_{\mathbf R}\), the total class of \(B\) in the class
+\(\theta\) computed over \(X\) and the total class of \(B\) in the class
+\(\beta^*\theta\) computed over \(Y\) coincide:
+\[
+ \pi^*\theta+B_Z=\rho^*(\beta^*\theta)+B_Z\in N^1(Z)_{\mathbf R}.
+\tag{39.5}\label{eq:ch39-total-class}
+\]
+Consequently \(B\) is nef-total in the class \(\theta\) over \(X\) if and
+only if it is nef-total in the class \(\beta^*\theta\) over \(Y\), and
+\(B\le0\) over \(X\) if and only if \(B\le0\) over \(Y\).
+\end{lemma}
+
+\begin{proof}
+The identity \(\pi=\beta\rho\) gives \(\pi^*\theta=\rho^*\beta^*\theta\),
+which is \eqref{eq:ch39-total-class}.  Nef-totality is by
+\Cref{def:bj-nef-total} a property of the class
+\eqref{eq:ch39-total-class} on a determination, and by
+\Cref{lem:ch38-nef-total-intrinsic}\,\cref{itm:ch38-nt:indep} it does not
+depend on which determination is used; models over \(Y\) are cofinal among
+models over \(X\) by
+\Cref{prop:ch38-evaluation-functorial}\,\cref{itm:ch38-fun:cofinal}.
+Antieffectivity is the condition \(B_W\le0\) for all models \(W\), and the
+two model categories have the same cofinal part, so the two conditions
+agree; this is
+\Cref{lem:ch38-determination-equivalence}\,\cref{itm:ch38-de:order}.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch39-cartier-reflection}
+Let \(B\le0\) be a real Cartier b-divisor over \(X\), determined on a model
+factoring through \(\beta\), and suppose that its total class in \(\theta\)
+is nef.  Then the realizations of \Cref{thm:bj-real-cartier-realization}
+over \(X\) and over \(Y\) exist and satisfy
+\[
+ \beta^*\chi^X_B=\chi^Y_B
+ \qquad\text{on }Y^{\An}.
+\tag{39.6}\label{eq:ch39-cartier-reflection}
+\]
+\end{proposition}
+
+\begin{proof}
+By \Cref{lem:ch39-total-class} the hypotheses of
+\Cref{thm:bj-real-cartier-realization} hold over \(X\) in the class
+\(\theta\) and over \(Y\) in the class \(\beta^*\theta\); let \(\chi^X_B\)
+and \(\chi^Y_B\) be the two realizations.  By
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:psh},
+\(\beta^*\chi^X_B\in\PSH_{\mathrm{hom},Y}(\beta^*\theta)\).  Both
+\(\beta^*\chi^X_B\) and \(\chi^Y_B\) restrict to \(\psi_B\) on
+\(Y^{\divis}=X^{\divis}\): the second by the theorem, the first because
+\(\beta^{\An}\) is the identity on divisorial points,
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:val}, and
+\(\psi_B\) is the same function computed over \(X\) or over \(Y\) by
+\Cref{prop:ch38-evaluation-functorial}\,\cref{itm:ch38-fun:psi}.  Both are
+\(\beta^*\theta\)-psh, so
+\Cref{cor:ch35-divisorial-determination}\,(2) gives
+\eqref{eq:ch39-cartier-reflection}.
+\end{proof}
+
+\begin{remark}[Why \Cref{prop:ch39-cartier-reflection} is not the theorem]
+\label{rem:ch39-cartier-not-enough}
+\Cref{prop:ch39-cartier-reflection} settles reflection for the functions
+\(\psi_B\) attached to Cartier b-divisors, and it does so by a two-line
+argument: the numerical hypothesis is literally the same upstairs and
+downstairs, by \Cref{lem:ch39-total-class}, and divisorial determination
+does the rest.  It even settles surjectivity of \(\beta^*\) on the subset of
+\(\PSH_{\mathrm{hom},Y}(\beta^*\theta)\) consisting of realizations of
+Cartier b-divisors.  This subset is however \emph{not} all of
+\(\PSH_{\mathrm{hom},Y}(\beta^*\theta)\): a general homogeneous psh function
+corresponds to a Weil b-divisor which is Cartier on no single model, by
+\Cref{rem:ch38-cartier-not-weil}, and is only a decreasing limit of Cartier
+data.  The difficulty is that the approximating Cartier data on \(Y\) come
+with classes \(\alpha_i\in N^1(Y)\) converging to \(\beta^*\theta\) but not
+lying in \(\beta^*N^1(X)\), so \Cref{lem:ch39-total-class} does not apply to
+the individual stages.  Removing that discrepancy, in a way compatible with
+the order, is the entire content of \Cref{sec:ch39-homogeneous}.
+\end{remark}
+
+\section{Homogeneous reflection}
+\label{sec:ch39-homogeneous}
+
+\subsection{Reduction to a dominating model}
+\label{sec:ch39-model-replacement}
+
+The fixed-pole construction below produces its data only after replacing
+\(Y\) by a model dominating it.  The following observation makes that
+replacement free of charge, and it is the first place where
+\Cref{thm:ch39-pullback} earns its keep.
+
+\begin{lemma}
+\label{lem:ch39-model-replacement}
+Let \(\rho:Y''\to Y\) be a projective birational morphism with \(Y''\)
+normal, and put \(\beta'':=\beta\rho:Y''\to X\).  If
+\[
+ (\beta'')^*:\PSH_{\mathrm{hom},X}(\theta)
+ \longrightarrow\PSH_{\mathrm{hom},Y''}\bigl((\beta'')^*\theta\bigr)
+\]
+is surjective, then so is
+\(\beta^*:\PSH_{\mathrm{hom},X}(\theta)\to
+\PSH_{\mathrm{hom},Y}(\beta^*\theta)\).  The same implication holds with
+\(\PSH_{\mathrm{hom}}\) replaced by \(\PSH\) throughout.
+\end{lemma}
+
+\begin{proof}
+Let \(\psi\in\PSH_{\mathrm{hom},Y}(\beta^*\theta)\).  By
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:psh} applied to \(\rho\),
+\(\rho^*\psi\in\PSH_{\mathrm{hom},Y''}(\rho^*\beta^*\theta)
+=\PSH_{\mathrm{hom},Y''}((\beta'')^*\theta)\).  By hypothesis there is
+\(\chi\in\PSH_{\mathrm{hom},X}(\theta)\) with
+\((\beta'')^*\chi=\rho^*\psi\), that is,
+\(\rho^*(\beta^*\chi)=\rho^*\psi\).  Since \(\rho^{\An}\) is surjective,
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:order} gives
+\(\beta^*\chi=\psi\).  The inhomogeneous case is verbatim the same.
+\end{proof}
+
+\subsection{The fixed-pole data over a birational base}
+\label{sec:ch39-fixed-pole}
+
+\begin{lemma}
+\label{lem:ch39-fixed-pole}
+Assume \(\dim X>0\).  There exist a projective birational morphism
+\(\rho:Y''\to Y\) with \(Y''\) normal, an effective Cartier divisor \(F\) on
+\(X\) and an effective \(\mathbf Q\)-Cartier divisor \(G\) on \(Y''\) such
+that, writing \(\beta'':=\beta\rho\) and \(\omega:=\theta+[F]\),
+\[
+ \begin{gathered}
+ [F]\ \text{and}\ \omega\ \text{are ample},
+ \qquad
+ Q:=(\beta'')^*\omega-G\ \text{is ample},\\
+ (\beta'')^*F=G+R
+ \quad\text{with}\quad
+ R\ge\tfrac12(\beta'')^*F\ge0 .
+ \end{gathered}
+\tag{39.7}\label{eq:bj-reflection-fixed-pole}
+\]
+No positivity hypothesis on \(\theta\) is used, and no b-divisor enters the
+statement.
+\end{lemma}
+
+\begin{proof}
+This is the content of Steps~1--3 of the proof of
+\Cref{lem:ch38-activation}, applied to the zero b-divisor \(B=0\) on the
+model \(\beta:Y\to X\); we recall the construction because only items
+\cref{itm:ch38-act:ample}, \cref{itm:ch38-act:dominated} and
+\cref{itm:ch38-act:Qample} of that lemma are quoted here, and because we must
+check that those three items are obtained without the nefness of the total
+class --- a hypothesis which is not available to us, \(\theta\) being an
+arbitrary real class.  Indeed Steps~4 and~5 of that proof, which are the
+only steps using the total class, establish exactly the two items
+\cref{itm:ch38-act:total} and \cref{itm:ch38-act:pinef} that we do not use.
+
+\emph{Step 1: a relatively ample exceptional divisor.}
+The morphism \(\beta\) is proper and is an isomorphism over the complement
+of a closed subset \(Z_0\subsetneq X\).  By
+\Cref{thm:appB-admissible-domination} there is a blowup \(X'\to X\) with
+centre contained in \(Z_0\) which factors through \(Y\).  Let \(Y''\) be the
+normalization of \(X'\); it is projective over \(X\) because normalization
+is finite, it is normal, and \(\rho:Y''\to Y\) is projective birational.  If
+\(\mathcal I\subseteq\cO_X\) is the ideal blown up, then
+\(\mathcal I\cdot\cO_{Y''}=\cO_{Y''}(-G_0)\) for an effective Cartier
+divisor \(G_0\) with \(-G_0\) relatively ample over \(X\), by
+\eqref{eq:appB-exceptional-ideal} and the construction
+\eqref{eq:appB-normalized-blowup} of the normalized blowup; moreover
+\(\Supp G_0\subseteq(\beta'')^{-1}(V(\mathcal I))\) with
+\(V(\mathcal I)\subseteq Z_0\subsetneq X\).
+
+\emph{Step 2: the activation divisor \(F\).}
+Set \(Z:=Z_0\cup V(\mathcal I)\), a proper closed subset of \(X\).  Let
+\(A\) be a very ample divisor on \(X\).  Choose \(m\in\mathbf Z_{>0}\) so
+large that \(\mathcal I_Z\otimes\cO_X(mA)\) is globally generated, which is
+possible by Serre's theorem, and so large that \(\theta+m\,c_1(A)\) is
+ample, which is possible because \(\Amp(X)\) is open and contains
+\(m\,c_1(A)+\theta\) for \(m\gg0\).  Let \(F\in|mA|\) be the divisor of
+zeros of a nonzero global section of \(\mathcal I_Z\otimes\cO_X(mA)\).  Then
+\(F\) is an effective Cartier divisor with \(\Supp F\supseteq Z\), the class
+\([F]=m\,c_1(A)\) is ample, and \(\omega=\theta+[F]\) is ample.  This is the
+first assertion of \eqref{eq:bj-reflection-fixed-pole}.
+
+\emph{Step 3: normalizing \(G\).}
+By \Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:relative},
+applied to \(\beta'':Y''\to X\), to the effective Cartier divisor \(G_0\)
+with \(-G_0\) relatively ample, and to the ample class \(\omega\), there is
+\(r_1\ge1\) with \(r(\beta'')^*\omega-G_0\) ample for \(r\ge r_1\); dividing
+by \(r\), the class \((\beta'')^*\omega-r^{-1}G_0\) is ample for
+\(r\ge r_1\).  Next, \(\Supp G_0\subseteq(\beta'')^{-1}(V(\mathcal I))
+\subseteq(\beta'')^{-1}(\Supp F)=\Supp(\beta'')^*F\), and \((\beta'')^*F\)
+has strictly positive coefficient along every component of its support;
+since \(G_0\) has finitely many components, there is \(r_2\ge1\) with
+\(2r_2^{-1}G_0\le(\beta'')^*F\).  Put \(r:=\max\{r_1,r_2\}\) and
+\(G:=r^{-1}G_0\), an effective \(\mathbf Q\)-Cartier divisor.  Then
+\(2G\le(\beta'')^*F\), so \(R:=(\beta'')^*F-G\ge G\ge0\) and in fact
+\(R\ge\frac12(\beta'')^*F\), which is the second assertion; and
+\(Q=(\beta'')^*\omega-G\) is ample, which is the third.
+\end{proof}
+
+\begin{remark}[Each item of \eqref{eq:bj-reflection-fixed-pole}, and what
+it is for]
+\label{rem:ch39-fixed-pole-uses}
+The ampleness of \(\omega\) is what allows the whole reflected family to
+live in a single space \(\PSH_X(\omega)\), so that PSH2 applies with a fixed
+class; without it the drift ledger of
+\Cref{prop:ch38-drift-ledger} could not be oriented, and
+\Cref{warn:ch38-drift-not-absorbed} explains why smallness of the drift
+would not be a substitute.  The ampleness of \([F]\) is what makes
+\(\omega=\theta+[F]\) ample for an arbitrary, possibly very negative,
+\(\theta\); this is the only place where the arbitrariness of \(\theta\) is
+absorbed.  The inequality \((\beta'')^*F-G\ge0\) is what makes the
+interpolation \eqref{eq:bj-reflection-Ei} order preserving, by
+\eqref{eq:bj-reflection-Ei-order}; it is the single inequality on which the
+monotonicity of the whole construction rests, and it is the reason
+\Cref{lem:ch38-activation} was stated with the normalization
+\(2G\le\pi^*F\) rather than merely \(G\ge0\).  The ampleness of \(Q\) is
+what allows a small multiple of the auxiliary ample class \(A\) on \(Y''\)
+to be subtracted without losing nefness, in the last line of
+\eqref{eq:bj-reflection-total}.  Nothing else about \(G\) is used; in
+particular the relative ampleness of \(-G\), which is essential inside
+\Cref{thm:bj-real-cartier-realization}, plays no role in the present
+chapter, because the realization theorem performs its own activation.
+\end{remark}
+
+\subsection{Orienting the class drift}
+\label{sec:ch39-drift}
+
+\begin{lemma}
+\label{lem:ch39-drift-window}
+Let \(Y''\) be a normal projective variety, let \(A\) be an ample class on
+\(Y''\), let \(\gamma\in N^1(Y'')_{\mathbf R}\), and let
+\((\alpha_i)_{i\in I}\) be a net in \(N^1(Y'')_{\mathbf R}\) with
+\(\alpha_i\to\gamma\).  Then there are a directed set \(J\), an
+order-preserving cofinal map \(J\to I\), \(j\mapsto i(j)\), and a
+nonincreasing map \(J\to\mathbf Q_{>0}\), \(j\mapsto\epsilon_j\), such that
+\[
+ \epsilon_j=\delta_j^2\ \text{with}\ \delta_j\in\mathbf Q\cap(0,1),
+ \qquad
+ \lim_j\delta_j=0,
+ \qquad
+ \gamma+\epsilon_jA-\alpha_{i(j)}\ \text{is ample for every }j.
+\tag{39.8}\label{eq:ch39-drift-window}
+\]
+\end{lemma}
+
+\begin{proof}
+For each integer \(n\ge2\) the class \(n^{-2}A\) is ample, so by openness of
+\(\Amp(Y'')\) in the finite-dimensional space \(N^1(Y'')_{\mathbf R}\) there
+is \(\varrho_n>0\) such that every class within distance \(\varrho_n\) of
+\(n^{-2}A\) is ample.  Since \(\alpha_i\to\gamma\), there is \(i_n\in I\)
+with \(\|\gamma-\alpha_i\|<\varrho_n\) for all \(i\ge i_n\); hence
+\(\gamma+n^{-2}A-\alpha_i\) is ample for all \(i\ge i_n\).  Put
+\[
+ J:=\{(i,n)\in I\times\mathbf Z_{\ge2}\ :\ i\ge i_n\},
+\]
+ordered by \((i,n)\le(i',n')\) if and only if \(i\le i'\) and \(n\le n'\).
+This is directed: given \((i,n)\) and \((i',n')\), set
+\(n'':=\max\{n,n'\}\) and choose \(i''\ge i,i',i_{n''}\), which is possible
+because \(I\) is directed; then \((i'',n'')\in J\) dominates both.  The
+forgetful map \((i,n)\mapsto i\) is order preserving and cofinal --- given
+\(i\in I\), choose \(n=2\) and \(i''\ge i,i_2\) --- hence it defines a
+Willard subnet in the sense of \Cref{def:appE-willard-subnet}.  Set
+\(\delta_{(i,n)}:=n^{-1}\in\mathbf Q\cap(0,1)\) and
+\(\epsilon_{(i,n)}:=n^{-2}=\delta_{(i,n)}^2\).  These are nonincreasing
+along \(J\), tend to \(0\), and satisfy the ampleness in
+\eqref{eq:ch39-drift-window} by construction.
+\end{proof}
+
+The class whose ampleness \Cref{lem:ch39-drift-window} arranges,
+\[
+                 (\beta'')^*\theta+\epsilon_jA-\alpha_j,
+\tag{39.9}\label{eq:bj-reflection-class-correction}
+\]
+is the \emph{class correction}: it measures how much auxiliary positivity on
+\(Y''\) has to be spent to dominate the drift \(\alpha_j\to(\beta'')^*\theta\).
+Two features of \eqref{eq:bj-reflection-class-correction} are used below and
+neither is a formality.  It is required to be \emph{ample}, not merely nef,
+because it will be added to a semiample class and the sum must be nef for
+every \(j\) with no compactness argument available; and \(\epsilon_j\) is
+required to tend to \(0\), because otherwise the auxiliary class \(A\),
+which lives on \(Y''\) and is not pulled back from \(X\), would survive into
+the limit and the reflected function would have the wrong divisorial trace.
+
+\begin{remark}[Why a square]
+\label{rem:ch39-why-square}
+The parameter \(\delta_j=\sqrt{\epsilon_j}\) is used in
+\eqref{eq:bj-reflection-Ei} to interpolate between the drifted data and the
+fixed pole.  Two competing demands fix the exponent.  The interpolation
+weight \(\delta_j\) must tend to \(0\), or else the limit b-divisor would
+retain a contribution from \(G\) and the reflected function would not have
+the required divisorial trace.  On the other hand the correction
+\(t_j=(1-\delta_j)\epsilon_j/\delta_j\) subtracted from the ample class
+\(Q\) in \eqref{eq:bj-reflection-total} must stay bounded by the fixed
+margin \(c\) of \(Q\); this forces \(\epsilon_j=O(\delta_j)\).  Taking
+\(\delta_j=\sqrt{\epsilon_j}\) satisfies both with room to spare, since then
+\(t_j=(1-\delta_j)\delta_j\le\frac14\).  Any exponent
+\(\delta_j=\epsilon_j^{s}\) with \(0<s<1\) would do; the square root is
+chosen because it keeps \(\delta_j\) rational when \(\epsilon_j\) is the
+square of a rational, which is what
+\Cref{lem:ch39-drift-window} arranges and what
+\Cref{lem:ch38-ordered-rational-dominated} needs downstream inside the
+realization theorem.
+\end{remark}
+
+\subsection{The interpolated b-divisors}
+\label{sec:ch39-interpolation}
+
+We now assemble the data.  Fix, for the rest of this subsection, the
+following:
+\begin{itemize}
+\item \(\beta'':Y''\to X\), \(F\), \(G\), \(\omega=\theta+[F]\),
+ \(R=(\beta'')^*F-G\) and \(Q=(\beta'')^*\omega-G\) as in
+ \Cref{lem:ch39-fixed-pole};
+\item an ample class \(A\) on \(Y''\) and a rational \(c>0\) with
+ \(Q-cA\) nef, which exists because \(Q\) is ample;
+\item a net of rational Cartier b-divisors \(-D_i\le0\) over \(Y''\) and
+ \(\mathbf Q\)-line bundles \(L_i\) on \(Y''\) with
+ \(\alpha_i:=c_1(L_i)\), such that on a determination of \(D_i\) the class
+ \(\pi^*\alpha_i-D_i\) is semiample, such that \(D_i\) increases, and such
+ that \(\alpha_i\to(\beta'')^*\theta\);
+\item the data \(J\), \(i(j)\), \(\epsilon_j=\delta_j^2\) produced by
+ \Cref{lem:ch39-drift-window} for \(\gamma=(\beta'')^*\theta\), refined so
+ that \(\delta_j\le c\) for every \(j\) --- possible because
+ \(\delta_j\to0\) and the tail of a net is cofinal.
+\end{itemize}
+To lighten the notation we write \(D_j\) for \(D_{i(j)}\) and
+\(\alpha_j\) for \(\alpha_{i(j)}\).
+
+\begin{lemma}
+\label{lem:ch39-interpolation}
+With the data above, define, on a common determination of \(D_j\)
+dominating \(Y''\),
+\[
+ P_j:=(\beta'')^*\theta+\epsilon_jA-D_j,
+\tag{39.10}\label{eq:bj-reflection-Pi}
+\]
+\[
+ t_j:=\frac{(1-\delta_j)\epsilon_j}{\delta_j}=(1-\delta_j)\delta_j\le c,
+\tag{39.11}\label{eq:bj-reflection-delta}
+\]
+\[
+ D'_j:=D_j+\overline F,
+ \qquad
+ E_j:=(1-\delta_j)D'_j+\delta_j\overline G ,
+\tag{39.12}\label{eq:bj-reflection-Ei}
+\]
+where \(\overline F\) and \(\overline G\) are the Cartier b-divisors
+determined by \(F\) on \(X\) and by \(G\) on \(Y''\).  Then:
+\begin{enumerate}
+\item\label{itm:ch39-int:nefP} \(P_j\) is nef;
+\item\label{itm:ch39-int:pos} \(E_j\ge0\), so that \(-E_j\) is an
+ antieffective real Cartier b-divisor over \(X\), determined on a model
+ dominating \(Y''\);
+\item\label{itm:ch39-int:order} the family \((E_j)\) is nondecreasing:
+\[
+ E_{j'}-E_j
+ =(1-\delta_{j'})(D'_{j'}-D'_j)
+  +(\delta_j-\delta_{j'})(D'_j-\overline G)\ \ge\ 0
+ \qquad(j\le j');
+\tag{39.13}\label{eq:bj-reflection-Ei-order}
+\]
+\item\label{itm:ch39-int:total} the total class of \(-E_j\) in the class
+ \(\omega\), computed over \(X\), satisfies the exact identity
+\[
+ \begin{aligned}
+ (\beta'')^*\omega-E_j
+  &=(1-\delta_j)P_j+\delta_jQ-(1-\delta_j)\epsilon_jA\\
+  &=(1-\delta_j)P_j+\delta_j(Q-t_jA),
+ \end{aligned}
+\tag{39.14}\label{eq:bj-reflection-total}
+\]
+and both summands in the last line are nef; in particular \(-E_j\) is
+nef-total in the class \(\omega\);
+\item\label{itm:ch39-int:limit} for every \(v\in X^{\divis}\),
+\[
+ E_j(v)\longrightarrow D(v)+v(F)\in[0,+\infty],
+ \qquad
+ D(v):=\lim_jD_j(v)=\sup_jD_j(v).
+\tag{39.15}\label{eq:bj-reflection-Ei-limit}
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\cref{itm:ch39-int:nefP}  On a determination \(\pi:Z\to Y''\) of \(D_j\),
+\[
+ P_j=\pi^*\bigl((\beta'')^*\theta+\epsilon_jA-\alpha_j\bigr)
+      +\bigl(\pi^*\alpha_j-D_j\bigr).
+\]
+The first summand is the pullback of an ample class, ample by
+\eqref{eq:ch39-drift-window}, hence nef by
+\Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:inj}; the second is
+semiample by hypothesis, hence nef.  A sum of nef classes is nef.
+
+\cref{itm:ch39-int:pos}  \(D_j\ge0\), \(\overline F\ge0\) and
+\(\overline G\ge0\), and \(0<\delta_j<1\); a convex combination of
+effective b-divisors is effective.  That \(E_j\) is Cartier over \(X\)
+follows from
+\Cref{prop:ch38-evaluation-functorial}\,\cref{itm:ch38-fun:cofinal}: it is
+determined on a determination of \(D_j\), which is a model over \(X\) as
+well as over \(Y''\).
+
+\cref{itm:ch39-int:order}  Expand:
+\[
+ \begin{aligned}
+ E_{j'}-E_j
+ &=(1-\delta_{j'})D'_{j'}+\delta_{j'}\overline G
+  -(1-\delta_j)D'_j-\delta_j\overline G\\
+ &=(1-\delta_{j'})\bigl(D'_{j'}-D'_j\bigr)
+  +(\delta_j-\delta_{j'})D'_j
+  -(\delta_j-\delta_{j'})\overline G,
+ \end{aligned}
+\]
+which is the displayed identity.  For \(j\le j'\) we have
+\(D'_{j'}-D'_j=D_{j'}-D_j\ge0\) and
+\(\delta_j-\delta_{j'}\ge0\), the latter because \((\delta_j)\) is
+nonincreasing; and
+\[
+ D'_j-\overline G=D_j+\overline F-\overline G
+ =D_j+\overline R\ \ge\ 0
+\]
+by \eqref{eq:bj-reflection-fixed-pole}, the trace of \(\overline F\) on
+\(Y''\) being \((\beta'')^*F=G+R\).  All three terms are effective, hence so
+is the sum.
+
+\cref{itm:ch39-int:total}  On a determination \(\pi:Z\to Y''\) of \(D_j\),
+write \(\varpi:=\beta''\pi:Z\to X\).  Then, using
+\(\varpi^*\omega=\pi^*(\beta'')^*\omega\),
+\(\overline F_Z=\varpi^*F=\pi^*(\beta'')^*F\) and
+\(\overline G_Z=\pi^*G\),
+\[
+ \begin{aligned}
+ \varpi^*\omega-E_j
+ &=\pi^*(\beta'')^*\omega
+   -(1-\delta_j)\bigl(D_j+\pi^*(\beta'')^*F\bigr)-\delta_j\pi^*G\\
+ &=(1-\delta_j)\bigl[\pi^*(\beta'')^*\omega-\pi^*(\beta'')^*F-D_j\bigr]
+   +\delta_j\pi^*\bigl[(\beta'')^*\omega-G\bigr]\\
+ &=(1-\delta_j)\bigl[\pi^*(\beta'')^*\theta-D_j\bigr]+\delta_j\pi^*Q\\
+ &=(1-\delta_j)\bigl[P_j-\epsilon_j\pi^*A\bigr]+\delta_j\pi^*Q\\
+ &=(1-\delta_j)P_j+\delta_j\pi^*Q-(1-\delta_j)\epsilon_j\pi^*A,
+ \end{aligned}
+\]
+which is the first line of \eqref{eq:bj-reflection-total}, all classes being
+understood on \(Z\) and the pullbacks being suppressed in the display of the
+statement.  The second line follows from
+\((1-\delta_j)\epsilon_j=\delta_jt_j\), which is
+\eqref{eq:bj-reflection-delta}.  Finally \(P_j\) is nef by
+\cref{itm:ch39-int:nefP}, and
+\[
+ Q-t_jA=(Q-cA)+(c-t_j)A
+\]
+is nef, being the sum of a nef class and a nonnegative multiple of an ample
+class; here \(t_j=(1-\delta_j)\delta_j\le\delta_j\le c\).  Pullbacks of nef
+classes are nef, so \(\varpi^*\omega-E_j\) is nef, which by
+\Cref{def:bj-nef-total} is nef-totality of \(-E_j\) in the class
+\(\omega\).
+
+\cref{itm:ch39-int:limit}  Let \(v\in X^{\divis}\).  All three of
+\(D_j(v)\), \(v(F)\) and \(v(G)\) are finite real numbers, by
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:finite}, and
+\[
+ E_j(v)=(1-\delta_j)\bigl(D_j(v)+v(F)\bigr)+\delta_jv(G)
+\]
+by linearity of the evaluation pairing,
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear}.  Here
+\(v(F)\) means the value of \(\overline F\) at \(v\), which is the same
+number whether \(\overline F\) is regarded over \(X\) or over \(Y''\), by
+\Cref{prop:ch38-evaluation-functorial}\,\cref{itm:ch38-fun:psi}.  The net
+\(\bigl(D_j(v)\bigr)_j\) is nondecreasing, hence converges in
+\([0,+\infty]\) to its supremum \(D(v)\), while \(\delta_j\to0\) and
+\(v(G)\) is a fixed real number.  If \(D(v)<\infty\) the limit is
+\(D(v)+v(F)\) by ordinary arithmetic; if \(D(v)=+\infty\) then
+\((1-\delta_j)(D_j(v)+v(F))\to+\infty\) while \(\delta_jv(G)\to0\), so the
+limit is \(+\infty=D(v)+v(F)\).  No indeterminate expression arises, because
+each \(E_j(v)\) is finite and only the limit may be infinite.
+\end{proof}
+
+\subsection{The theorem}
+\label{sec:ch39-homogeneous-theorem}
+
+\begin{theorem}
+\label{thm:bj-homogeneous-reflection}
+Let \(\beta:Y\to X\) be as in \eqref{eq:ch39-standing} and let
+\(\theta\in N^1(X)_{\mathbf R}\) be arbitrary.  Pullback is a bijection
+\[
+ \beta^*:\PSH_{\mathrm{hom},X}(\theta)
+       \xrightarrow{\ \sim\ }
+       \PSH_{\mathrm{hom},Y}(\beta^*\theta).
+\tag{39.16}\label{eq:bj-homogeneous-reflection}
+\]
+No envelope property is assumed.
+\end{theorem}
+
+\begin{proof}
+If \(\dim X=0\) then \(\beta\) is an isomorphism and there is nothing to
+prove; assume \(\dim X>0\).
+
+Pullback lands in the right space by
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:psh}, and it is injective by
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:order}, since \(\beta^{\An}\) is
+surjective.  Only surjectivity has to be proved.
+
+\medskip
+\noindent\emph{Step 0: normalization of the data.}
+Let \(\rho:Y''\to Y\), \(F\), \(G\), \(\omega=\theta+[F]\),
+\(R=(\beta\rho)^*F-G\) and \(Q=(\beta\rho)^*\omega-G\) be as in
+\Cref{lem:ch39-fixed-pole}.  By \Cref{lem:ch39-model-replacement} it
+suffices to prove that \((\beta\rho)^*\) is surjective onto
+\(\PSH_{\mathrm{hom},Y''}((\beta\rho)^*\theta)\).  We therefore rename, and
+assume for the rest of the proof that
+\[
+ Y=Y'',\qquad \beta=\beta\rho,\qquad
+ \text{\(F\) on \(X\) and \(G\) on \(Y\) satisfy
+ \eqref{eq:bj-reflection-fixed-pole}.}
+\]
+Fix an ample class \(A\) on \(Y\) and a rational \(c>0\) with \(Q-cA\) nef,
+which exists because \(Q\) is ample.  Note that \(F\ne0\), its class being
+ample and \(\dim X>0\).
+
+\medskip
+\noindent\emph{Step 1: regularize upstairs.}
+Fix \(\psi\in\PSH_{\mathrm{hom},Y}(\beta^*\theta)\).  Apply
+\Cref{cor:ch38-gf-regularization-bdivisor} on \(Y\) to \(\psi\) and the
+class \(\beta^*\theta\).  It provides a directed set \(I\), rational Cartier
+b-divisors \(C_i=-D_i\le0\) over \(Y\), and \(\mathbf Q\)-line bundles
+\(L_i\) on \(Y\) with \(\alpha_i:=c_1(L_i)\), such that
+\[
+ D_i\ge0,\qquad
+ D_i\le D_{i'}\ \ (i\le i'),\qquad
+ \alpha_i\longrightarrow\beta^*\theta,
+\tag{39.17}\label{eq:bj-homogeneous-regularization-data}
+\]
+such that on a determination of \(D_i\) the class \(\pi^*\alpha_i-D_i\) is
+semiample, and such that
+\(\psi_{C_i}=-D_i(\cdot)\in\cH_{\mathrm{hom}}(L_i)\) decreases pointwise to
+\(\psi\) on \(Y^{\An}\).  The three displayed properties are
+\Cref{cor:ch38-gf-regularization-bdivisor}\,\cref{itm:ch38-pkg:mono},
+\cref{itm:ch38-pkg:class} and \cref{itm:ch38-pkg:neg}.
+
+\medskip
+\noindent\emph{Step 2: correct the classes without losing the order.}
+Apply \Cref{lem:ch39-drift-window} with \(\gamma=\beta^*\theta\) and the net
+\((\alpha_i)\), obtaining a directed set \(J\), a cofinal order-preserving
+map \(J\to I\), and nonincreasing rationals
+\(\epsilon_j=\delta_j^2\downarrow0\) with
+\eqref{eq:bj-reflection-class-correction} ample; refine \(J\) to a tail so
+that \(\delta_j\le c\).  Passing to this Willard subnet changes no pointwise
+limit, by \Cref{def:appE-willard-subnet}, so
+\(\psi_{C_j}\searrow\psi\) still holds along \(J\).  Form
+\(P_j\), \(t_j\), \(D'_j\) and \(E_j\) as in \eqref{eq:bj-reflection-Pi},
+\eqref{eq:bj-reflection-delta} and \eqref{eq:bj-reflection-Ei}.  By
+\Cref{lem:ch39-interpolation}, the b-divisors \(-E_j\) are antieffective
+real Cartier b-divisors over \(X\), they decrease as \(j\) increases, and
+each is nef-total in the class \(\omega\).
+
+\medskip
+\noindent\emph{Step 3: realize downstairs.}
+For each \(j\), \Cref{thm:bj-real-cartier-realization}, applied on the
+normal integral projective variety \(X\) to the antieffective real Cartier
+b-divisor \(-E_j\) with nef total class in \(\omega\), produces a unique
+\[
+ \chi_j\in\PSH_{\mathrm{hom},X}(\omega)
+\]
+whose restriction to \(X^{\divis}\) is \(\psi_{-E_j}=-E_j(\cdot)\).  No
+envelope property is used, by the last sentence of that theorem.  By
+\Cref{lem:ch39-interpolation}\,\cref{itm:ch39-int:order} the traces
+\(-E_j(\cdot)\) decrease on \(X^{\divis}\), so
+\Cref{cor:ch35-divisorial-determination}\,(1) gives
+\(\chi_{j'}\le\chi_j\) on all of \(X^{\An}\) for \(j\le j'\); the net
+\((\chi_j)\) is decreasing.  Each \(\chi_j\) is homogeneous psh, so
+\(\chi_j(v_{\triv})=0\) by
+\Cref{prop:ch35-homogeneous-normalization}; hence the pointwise limit
+\[
+                    \chi:=\lim_j\chi_j
+\]
+satisfies \(\chi(v_{\triv})=0\) and is in particular generically finite.
+The class \(\omega\) is the same at every stage, so PSH2, that is
+\Cref{lem:ch39-closure-any-class}\,(4), gives
+\[
+                    \chi\in\PSH_{\mathrm{hom},X}(\omega),
+\tag{39.18}\label{eq:bj-reflection-chi}
+\]
+homogeneity being preserved because the scaling action commutes with
+decreasing limits, \Cref{lem:ch35-action-basic}\,(4).
+
+\medskip
+\noindent\emph{Step 4: compute the divisorial trace of \(\chi\).}
+Let \(v\in X^{\divis}=Y^{\divis}\) and put \(D(v):=\sup_jD_j(v)\in[0,+\infty]\).
+Since \(\psi_{C_j}(v)=-D_j(v)\) and \(\psi_{C_j}\searrow\psi\),
+\[
+                    \psi(v)=-D(v)\in[-\infty,0].
+\]
+By \Cref{lem:ch39-interpolation}\,\cref{itm:ch39-int:limit},
+\(E_j(v)\to D(v)+v(F)\), so
+\[
+ \chi(v)=\lim_j\bigl(-E_j(v)\bigr)=-D(v)-v(F)
+       =\psi(v)+\log|s_F|(v),
+\tag{39.19}\label{eq:bj-reflection-divisorial-identity}
+\]
+using \(\log|s_F|(v)=-v(F)\) from \eqref{eq:divisor-section-pole}.  Both
+summands on the right lie in \([-\infty,0]\), so the sum is defined without
+appeal to any convention, by ledger entry~(2) of
+\Cref{sec:extended-arithmetic}; the only possibly infinite value is
+\(\psi(v)\), and it is never subtracted.
+
+\medskip
+\noindent\emph{Step 5: upgrade to a global identity.}
+Consider the two functions
+\[
+ \beta^*\chi
+ \qquad\text{and}\qquad
+ \psi+\log|s_{\beta^*F}|
+\]
+on \(Y^{\An}\).  The first is homogeneous \(\beta^*\omega\)-psh by
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:psh} applied to
+\eqref{eq:bj-reflection-chi}.  For the second,
+\(\log|s_{\beta^*F}|=\beta^*\log|s_F|\) by
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:sections}, and this function lies
+in \(\cH_{\mathrm{hom}}(\beta^*F)\subseteq
+\PSH_{\mathrm{hom},Y}(\beta^*[F])\); adding \(\psi\), which is homogeneous
+\(\beta^*\theta\)-psh, gives a homogeneous
+\((\beta^*\theta+\beta^*[F])\)-psh function by
+\Cref{lem:ch39-closure-any-class}\,(3), the sum being generically finite
+because both summands vanish at \(v_{Y,\triv}\).  Since
+\(\beta^*\theta+\beta^*[F]=\beta^*\omega\), the two functions are
+homogeneous psh in the same class.  By
+\eqref{eq:bj-reflection-divisorial-identity} and
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:val}, they agree at every point
+of \(Y^{\divis}=X^{\divis}\).  Therefore
+\Cref{cor:ch35-divisorial-determination}\,(2) gives
+\[
+             \beta^*\chi
+             =\psi+\log|s_{\beta^*F}|
+             \qquad\text{on }Y^{\An}.
+\tag{39.20}\label{eq:bj-reflection-global-identity}
+\]
+This is the step which the audit of \Cref{sec:ch39-determination} isolates;
+its two hypotheses --- both sides psh, and agreement on divisorial points
+--- have just been verified, and \Cref{ex:ch39-usc-not-determined-birational}
+shows that the first cannot be dropped.
+
+\medskip
+\noindent\emph{Step 6: divide out the fixed pole.}
+Every homogeneous psh function is nonpositive
+(\Cref{prop:ch35-homogeneous-normalization}), so \(\psi\le0\) and
+\eqref{eq:bj-reflection-global-identity} gives
+\[
+ \beta^*\chi\le\log|s_{\beta^*F}|=\beta^*\log|s_F|
+ \qquad\text{on }Y^{\An}.
+\]
+By \Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:order} this descends to
+\(\chi\le\log|s_F|\) on \(X^{\An}\).  Since \(X\) is normal and \(F\) is a
+nonzero effective Cartier divisor,
+\Cref{thm:ch35-homogeneous-siu-general} --- which carries no envelope
+hypothesis --- yields a unique
+\[
+ u\in\PSH_{\mathrm{hom},X}(\omega-[F])=\PSH_{\mathrm{hom},X}(\theta)
+ \qquad\text{with}\qquad
+ \chi=\log|s_F|+u .
+\tag{39.21}\label{eq:bj-reflection-siu}
+\]
+The identity \eqref{eq:bj-reflection-siu} is an identity of sums of
+functions with values in \([-\infty,0]\); it is never rearranged into a
+difference, and \Cref{warn:ch39-no-subtraction} records what would go wrong
+if it were.
+
+\medskip
+\noindent\emph{Step 7: conclude.}
+Pulling \eqref{eq:bj-reflection-siu} back along \(\beta\) --- legitimate
+because composition with a map commutes with a pointwise sum of functions
+bounded above --- gives
+\(\beta^*\chi=\log|s_{\beta^*F}|+\beta^*u\).  Comparing with
+\eqref{eq:bj-reflection-global-identity},
+\[
+ \psi+\log|s_{\beta^*F}|=\beta^*u+\log|s_{\beta^*F}|
+ \qquad\text{on }Y^{\An}.
+\]
+At \(v\in Y^{\divis}\) the number \(\log|s_{\beta^*F}|(v)=-v(F)\) is a real
+number, so it may be cancelled: adding a finite constant is injective on
+\([-\infty,+\infty)\).  Hence \(\psi=\beta^*u\) on \(Y^{\divis}\).  Both
+functions are homogeneous \(\beta^*\theta\)-psh --- the second by
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:psh} --- so
+\Cref{cor:ch35-divisorial-determination}\,(2) gives \(\psi=\beta^*u\) on all
+of \(Y^{\An}\).  This proves surjectivity, and with it
+\eqref{eq:bj-homogeneous-reflection}.
+\end{proof}
+
+\begin{warning}{The fixed pole is removed by division, never by subtraction}
+\label{warn:ch39-no-subtraction}
+In Step~6 one is tempted to define \(u:=\chi-\log|s_F|\).  At a
+semivaluation \(x\) whose support is contained in \(\Supp F\) both terms are
+\(-\infty\), and the difference is undefined by ledger entry~(4) of
+\Cref{sec:extended-arithmetic}.  No convention repairs this, because the
+correct value of \(u\) at two such points can differ: in
+\Cref{ex:ch39-blowup-reflection-numbers} the reflected function
+\(u=\log|\mathfrak m_p|\) takes the value \(-\infty\) at \(v_{p,\triv}\) and
+the value \(0\) at \(v_{r,\triv}\) for a point \(r\in F\smallsetminus\{p\}\),
+while \(\chi\) and \(\log|s_F|\) are both \(-\infty\) at both points.  The
+same phenomenon in the b-divisor setting is
+\Cref{warn:ch38-fixed-pole} and \Cref{ex:ch38-naive-realization-fails}.  The
+division of Step~6 is performed by
+\Cref{thm:ch35-homogeneous-siu-general}, which produces the identity
+\(\chi=\log|s_F|+u\) directly and never forms a difference.
+\end{warning}
+
+\begin{remark}[Where each hypothesis enters]
+\label{rem:ch39-hypothesis-map}
+Normality of \(X\) is used twice: in
+\Cref{thm:bj-real-cartier-realization} in Step~3, and in
+\Cref{thm:ch35-homogeneous-siu-general} in Step~6, whose proof needs the
+regularity criterion for a rational section with effective divisor on a
+normal variety.  Normality of \(Y\) is used to have the model category and
+to apply \Cref{cor:ch38-gf-regularization-bdivisor} in Step~1.  Projectivity
+of \(\beta\) is used in \Cref{lem:ch39-fixed-pole}, through
+\Cref{thm:appB-admissible-domination}, and birationality is used
+everywhere: it is what makes \(X^{\divis}=Y^{\divis}\) and what makes
+Cartier b-divisors over the two varieties the same objects.  No hypothesis
+on \(\operatorname{char}k\), on \(\dim X\), on the singularities of \(Y\)
+beyond normality, or on the positivity of \(\theta\) is used anywhere.
+Homogeneity, on the other hand, is used at three separate points: to know
+\(\psi\le0\) in Step~6, to know \(\chi_j(v_{\triv})=0\) in Step~3, and to be
+able to apply the homogeneous, envelope-free, form of Siu division rather
+than its inhomogeneous form, which would be circular
+(\Cref{warn:ch39-firewall}).
+\end{remark}
+
+\begin{remark}[What the proof does not do]
+\label{rem:ch39-proof-negative}
+Three shortcuts are unavailable and are not used.  One cannot define
+\(\chi\) as the function \(x\mapsto\psi(w)\) for a preimage \(w\) of \(x\),
+because fibrewise constancy of \(\psi\) is not known in advance; it is a
+\emph{consequence} of the theorem, \Cref{cor:ch39-fibre-constant}.  One
+cannot define \(\chi\) as the upper-semicontinuous regularization on
+\(X^{\An}\) of the function \(v\mapsto\psi(v)\) on \(X^{\divis}\): that
+function exists, but nothing identifies it as psh, and
+\Cref{ex:ch38-usc-not-psh} shows that in the analogous b-divisor situation
+it need not be.  And one cannot dispense with the fixed pole \(F\) by
+applying \Cref{thm:bj-real-cartier-realization} directly to \(-D_j\) in the
+class \(\theta\): the class \(\beta^*\theta-D_j\) is not nef in general,
+because \(\theta\) itself need not be nef
+(\Cref{warn:ch38-theta-not-nef}) and because the drift
+\(\alpha_j-\beta^*\theta\) has no sign.
+\end{remark}
+
+\subsection{Consequences}
+\label{sec:ch39-homogeneous-consequences}
+
+\begin{corollary}
+\label{cor:ch39-fibre-constant}
+Every \(\psi\in\PSH_{\mathrm{hom},Y}(\beta^*\theta)\) is constant on every
+fibre of \(\beta^{\An}\).  In particular, for a closed point \(p\in X\) over
+which \(\beta\) has positive dimensional fibre \(F_p=\beta^{-1}(p)\),
+\[
+ \psi\ \text{is constant on}\ F_p^{\An},
+ \qquad\text{with value}\ \chi(v_{p,\triv})\in[-\infty,0],
+\]
+where \(\chi\) is the reflection of \(\psi\).
+\end{corollary}
+
+\begin{proof}
+By \Cref{thm:bj-homogeneous-reflection}, \(\psi=\beta^*\chi\) for some
+\(\chi\in\PSH_{\mathrm{hom},X}(\theta)\), and a pullback is constant on
+fibres by definition.  The value on
+\((\beta^{\An})^{-1}(v_{p,\triv})=F_p^{\An}\)
+(\Cref{prop:ch39-fibres}\,\cref{itm:ch39-fib:point}) is
+\(\chi(v_{p,\triv})\), which is \(\le0\) by
+\Cref{prop:ch35-homogeneous-normalization}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch39-hom-structure}
+The bijection \eqref{eq:bj-homogeneous-reflection} is an isomorphism of
+ordered convex cones, compatible with everything in sight:
+\begin{enumerate}
+\item\label{itm:ch39-hs:order} \(\chi_1\le\chi_2\) if and only if
+ \(\beta^*\chi_1\le\beta^*\chi_2\);
+\item\label{itm:ch39-hs:ops} \(\beta^*\max\{\chi_1,\chi_2\}
+ =\max\{\beta^*\chi_1,\beta^*\chi_2\}\),
+ \(\beta^*(s\chi_1+t\chi_2)=s\beta^*\chi_1+t\beta^*\chi_2\), and
+ \(\beta^*(t\cdot\chi)=t\cdot\beta^*\chi=\beta^*\chi\), the last because
+ homogeneous functions are fixed by the scaling action;
+\item\label{itm:ch39-hs:limits} \(\beta^*\) carries decreasing nets to
+ decreasing nets and commutes with their limits, in both directions;
+\item\label{itm:ch39-hs:trace} \(\chi\) and \(\beta^*\chi\) have the same
+ restriction to \(X^{\divis}=Y^{\divis}\), and this restriction determines
+ each of them;
+\item\label{itm:ch39-hs:bdiv} \(\beta^*\) matches the realization functors
+ of \Cref{thm:bj-real-cartier-realization}: for every antieffective real
+ Cartier b-divisor \(B\) over \(X\) with nef total class in \(\theta\), one
+ has \(\beta^*\chi^X_B=\chi^Y_B\).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\cref{itm:ch39-hs:order} is
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:order}, and
+\cref{itm:ch39-hs:ops}, \cref{itm:ch39-hs:limits} are
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:ops}; that the operations land
+back in the homogeneous psh cone is
+\Cref{prop:ch35-homogeneous-normalization} on both sides, and surjectivity
+of \eqref{eq:bj-homogeneous-reflection} transports each operation backwards.
+\cref{itm:ch39-hs:trace} is
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:val} together with
+\Cref{cor:ch35-divisorial-determination}\,(2).  \cref{itm:ch39-hs:bdiv} is
+\Cref{prop:ch39-cartier-reflection}, once one notes that a determination of
+\(B\) may be replaced by one factoring through \(\beta\), by
+\Cref{lem:appB-common-domination} and
+\Cref{lem:ch38-determination-equivalence}\,\cref{itm:ch38-de:family}.
+\end{proof}
+
+\begin{remark}[The gap left open in \Cref{chap:bj-cartier-realization},
+and what actually closes it]
+\label{rem:ch39-closing-the-gap}
+\Cref{cor:ch38-realization-pullback} proved
+\(\chi^{Y}_B\le\beta^*\chi^X_B\) on \(Y^{\An}\) with equality on
+\(Y^{\val}\), and \Cref{rem:ch38-pullback-forward} announced that equality
+extends to \(Y^{\An}\) by \Cref{thm:bj-homogeneous-reflection}.  It is worth
+recording that the extension is in fact cheaper than announced.  What is
+needed is only that \(\beta^*\chi^X_B\) be \(\beta^*\theta\)-psh, and that
+is \Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:psh}, whose proof consists of
+pulling back a Fubini--Study presentation and invoking
+\Cref{def:bj-psh} with the classes \(\beta^*c_1(L_i)\to\beta^*\theta\).
+This is available because \Cref{def:bj-psh} allows the classes to vary; had
+the definition demanded a fixed class, one would have needed the hypothesis
+of \Cref{lem:ch38-pullback-stages}\,\cref{itm:ch38-pb:limit} that
+\(\omega-c_1(L_n)\) be nef, which is exactly what
+\Cref{chap:bj-cartier-realization} had to arrange by hand.  The full
+reflection theorem is needed for the \emph{surjectivity} of \(\beta^*\), not
+for the identity \eqref{eq:ch39-cartier-reflection}.
+\end{remark}
+
+\begin{corollary}
+\label{cor:ch39-model-independence}
+Let \(Y_1,Y_2\) be normal projective models over \(X\).  Then
+\(\PSH_{\mathrm{hom},Y_1}(\beta_1^*\theta)\) and
+\(\PSH_{\mathrm{hom},Y_2}(\beta_2^*\theta)\) are canonically isomorphic,
+compatibly with the identification of both with
+\(\PSH_{\mathrm{hom},X}(\theta)\); the isomorphism is the identity on
+divisorial traces.  Consequently the homogeneous psh cone in a pulled-back
+class is a birational invariant of the pair \((X,\theta)\).
+\end{corollary}
+
+\begin{proof}
+Both are identified with \(\PSH_{\mathrm{hom},X}(\theta)\) by
+\Cref{thm:bj-homogeneous-reflection}, and the identifications preserve
+divisorial traces by
+\Cref{cor:ch39-hom-structure}\,\cref{itm:ch39-hs:trace}.  For a common
+domination \(Y_3\to Y_1,Y_2\) --- which exists by
+\Cref{lem:appB-common-domination} --- the three identifications are
+compatible because pullback is functorial:
+\((\beta_1\rho_1)^*=\rho_1^*\beta_1^*\).
+\end{proof}
+
+\subsection{Worked examples}
+\label{sec:ch39-homogeneous-examples}
+
+\begin{example}[Blowing up one point of the projective plane]
+\label{ex:ch39-blowup-point}
+Let \(X=\mathbf P^2_k\), choose a closed point \(p\), and let
+\(\beta:Y=\operatorname{Bl}_pX\to X\) have exceptional divisor \(E\).
+For \(L=\cO_X(1)\), the sheaf \(L\otimes\mathfrak m_p\) is generated by the
+two linear forms vanishing at \(p\).  Hence
+\[
+             \psi_X:=\log|\mathfrak m_p|
+             \in\cH_{\mathrm{hom},X}(L)
+\]
+by \Cref{prop:hom-fs-ideal}.  Since
+\(\mathfrak m_p\cO_Y=\cO_Y(-E)\), pullback gives
+\[
+       \beta^*\psi_X
+          =\log|\cO_Y(-E)|=:\psi_Y,
+\]
+by \Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:sections}.
+At \(v_c=c\,\ord_E\), one has \(v_c(\mathfrak m_p)=c\), and therefore
+\[
+                  \psi_Y(v_c)=-c,
+       \qquad \psi_Y(v_{\triv})=0.
+\]
+On the exceptional fibre \(E^{\An}=(\beta^{\An})^{-1}(v_{p,\triv})\) of
+\Cref{ex:ch39-fibre-plane}, every point \(w\) has \(s(w)\subseteq E\), so
+\(w(\cO_Y(-E))=+\infty\) and \(\psi_Y\equiv-\infty\) there; correspondingly
+\(\psi_X(v_{p,\triv})=-\infty\), and \Cref{cor:ch39-fibre-constant} is
+visible.
+
+Thus the exceptional pole upstairs is exactly the pullback of the point
+ideal downstairs; it is not an additional psh function created by the
+blowup.  This is the basic local picture behind
+\Cref{thm:bj-homogeneous-reflection}.
+\end{example}
+
+\begin{example}[A birational reflection computed on a blown-up surface]
+\label{ex:ch39-blowup-reflection-numbers}
+\index{reflection!computed on a surface}
+We run the entire proof of \Cref{thm:bj-homogeneous-reflection} with
+explicit numbers, on the simplest example in which the class drift of
+Step~2 is genuinely nonzero.
+
+\emph{The geometry.}  Keep \(X=\mathbf P^2_k\), \(p\), \(\beta:Y\to X\) and
+\(E\) as in \Cref{ex:ch39-blowup-point}, and write
+\(H:=\beta^*c_1(\cO_X(1))\), \(e:=[E]\), so that
+\[
+ H^2=1,\qquad H\cdot e=0,\qquad e^2=-1 .
+\tag{39.22}\label{eq:ch39-surface-intersection}
+\]
+The Mori cone of \(Y\) is generated by \(e\) and by the class \(H-e\) of the
+strict transform of a line through \(p\), these being the only irreducible
+curves of nonpositive self-intersection.  By the Nakai--Moishezon criterion
+\cite[Theorem~1.2.23]{PAG1}, for \(a,s\in\mathbf R\),
+\[
+ aH-se\ \text{is ample}\iff 0<s<a,
+ \qquad
+ aH-se\ \text{is nef}\iff 0\le s\le a .
+\tag{39.23}\label{eq:ch39-surface-ample-test}
+\]
+Indeed \((aH-se)\cdot e=s\), \((aH-se)\cdot(H-e)=a-s\), and
+\((aH-se)^2=a^2-s^2\).
+
+\emph{The datum upstairs.}  Take \(\theta:=c_1(\cO_X(1))\), so that
+\(\beta^*\theta=H\), and let
+\[
+ \psi:=\log|\mathfrak m_p\cO_Y|=\log|\cO_Y(-E)|
+ \in\PSH_{\mathrm{hom},Y}(\beta^*\theta),
+\]
+whose Cartier b-divisor is \(-E\), determined on \(Y\), with total class
+\(H-e\) nef by \eqref{eq:ch39-surface-ample-test}.  We pretend not to know
+the answer and produce it by the algorithm.
+
+\emph{Step 1: an approximating net with drift.}  For an integer \(m\ge2\)
+set
+\[
+ D_m:=(1-m^{-1})E,
+ \qquad
+ L_m:=\beta^*\cO_X(1)-m^{-1}E,
+ \qquad
+ \alpha_m:=c_1(L_m)=H-m^{-1}e .
+\tag{39.24}\label{eq:ch39-surface-stages}
+\]
+On the determination \(Y\) itself the total class is
+\(\alpha_m-[D_m]=H-e\), which is semiample: the pencil of strict transforms
+of lines through \(p\) is base point free.  Hence
+\(\psi_{-D_m}=(1-m^{-1})\log|\cO_Y(-E)|\in\cH_{\mathrm{hom}}(L_m)\) by
+\Cref{prop:ch38-model-fs-dictionary}\,\cref{itm:ch38-dict:backward}.  The
+divisors \(D_m\) increase, \(\psi_{-D_m}\searrow\psi\), and
+\(\alpha_m\to H=\beta^*\theta\); this is exactly the data
+\eqref{eq:bj-homogeneous-regularization-data}.  Note that
+\(\alpha_m\notin\beta^*N^1(X)_{\mathbf R}\) for any \(m\): its coefficient
+along \(e\) is \(-m^{-1}\ne0\).  So no stage is the pullback of anything,
+and \Cref{prop:ch39-cartier-reflection} cannot be applied stagewise.
+
+\emph{Step 0: the fixed-pole data.}  Let \(F=L\subset X\) be a line through
+\(p\), with strict transform \(L'\) on \(Y\), so that
+\(\beta^*F=L'+E\) and \([\beta^*F]=H\).  Then \([F]=c_1(\cO_X(1))\) is ample
+and \(\omega=\theta+[F]=c_1(\cO_X(2))\) is ample.  Put
+\[
+ G:=\tfrac12E,\qquad
+ R:=\beta^*F-G=L'+\tfrac12E\ge0,\qquad
+ Q:=\beta^*\omega-G=2H-\tfrac12e .
+\tag{39.25}\label{eq:ch39-surface-fixed-pole}
+\]
+Then \(2G=E\le L'+E=\beta^*F\), and \(Q\) is ample by
+\eqref{eq:ch39-surface-ample-test} with \(a=2\), \(s=\frac12\).  Take
+\(A:=2H-e\), ample by \eqref{eq:ch39-surface-ample-test}, and \(c:=\frac12\):
+\[
+ Q-cA=(2-2c)H+(c-\tfrac12)e=H,
+\]
+which is nef.  Thus \eqref{eq:bj-reflection-fixed-pole} holds with no model
+replacement, \(\beta\) being already a blowup.
+
+\emph{Step 2: the drift window.}  By
+\eqref{eq:ch39-surface-ample-test}, the class correction
+\eqref{eq:bj-reflection-class-correction} is
+\[
+ \beta^*\theta+\epsilon A-\alpha_m
+ =H+\epsilon(2H-e)-H+m^{-1}e
+ =2\epsilon H-(\epsilon-m^{-1})e,
+\]
+which is ample if and only if \(0<\epsilon-m^{-1}<2\epsilon\), that is, if
+and only if \(\epsilon>1/m\).  This is the whole point of
+\Cref{lem:ch39-drift-window}: the auxiliary parameter must \emph{dominate}
+the drift, and it must still tend to \(0\).  Choose the cofinal subnet
+\(m=n^4\), \(n\ge2\), with
+\[
+ \epsilon_n:=n^{-2}>n^{-4}=1/m,
+ \qquad
+ \delta_n=\sqrt{\epsilon_n}=n^{-1},
+ \qquad
+ t_n=(1-n^{-1})n^{-1}\le\tfrac14\le c .
+\tag{39.26}\label{eq:ch39-surface-window}
+\]
+
+\emph{Step 2, continued: the interpolated b-divisors.}  With
+\(D'_n=D_{n^4}+\overline F\) and
+\(E_n=(1-\delta_n)D'_n+\delta_n\overline G\), the trace on \(Y\) is
+\[
+ E_n=(1-n^{-1})\,L'+f(n)\,E,
+ \qquad
+ f(n):=(1-n^{-1})(2-n^{-4})+\tfrac1{2n}.
+\tag{39.27}\label{eq:ch39-surface-En}
+\]
+Numerically \(f(2)=\frac{39}{32}=1.21875\),
+\(f(3)=\frac{322}{243}+\frac16\approx1.49177\),
+\(f(4)=\frac{1533}{1024}+\frac18\approx1.62207\), increasing to \(2\); and
+the coefficient \(1-n^{-1}\) of \(L'\) increases to \(1\).  Thus
+\(E_n\uparrow L'+2E=\beta^*F+E\), in accordance with
+\eqref{eq:bj-reflection-Ei-limit}.
+
+\emph{The exact total class.}  From \eqref{eq:ch39-surface-En},
+\[
+ \beta^*\omega-[E_n]
+ =2H-(1-n^{-1})(H-e)-f(n)e
+ =(1+n^{-1})H-\bigl(f(n)-1+n^{-1}\bigr)e .
+\tag{39.28}\label{eq:ch39-surface-total}
+\]
+At \(n=2\) this is \(\frac32H-\frac{23}{32}e\), which is ample by
+\eqref{eq:ch39-surface-ample-test}.  The identity
+\eqref{eq:bj-reflection-total} is verified at \(n=2\) as follows:
+\[
+ P_2=\beta^*\theta+\epsilon_2A-D_{16}
+ =H+\tfrac14(2H-e)-\tfrac{15}{16}e=\tfrac32H-\tfrac{19}{16}e,
+ \qquad
+ Q-t_2A=\tfrac32H-\tfrac14e,
+\]
+and
+\[
+ (1-\delta_2)P_2+\delta_2(Q-t_2A)
+ =\tfrac12\Bigl(\tfrac32H-\tfrac{19}{16}e\Bigr)
+ +\tfrac12\Bigl(\tfrac32H-\tfrac14e\Bigr)
+ =\tfrac32H-\tfrac{23}{32}e,
+\]
+which agrees with \eqref{eq:ch39-surface-total}.  Both summands are nef:
+\(P_2=\frac32H-\frac{19}{16}e\) has \(0\le\frac{19}{16}\le\frac32\), and
+\(Q-t_2A=\frac32H-\frac14e\) has \(0\le\frac14\le\frac32\).
+
+\emph{Step 3: realization downstairs.}  Each \(-E_n\) is antieffective,
+Cartier over \(X\), determined on \(Y\), with nef total class in
+\(\omega=c_1(\cO_X(2))\).  \Cref{thm:bj-real-cartier-realization} gives
+\(\chi_n\in\PSH_{\mathrm{hom},X}(\omega)\) with divisorial trace
+\[
+ \chi_n(\ord_L)=-(1-n^{-1}),\qquad
+ \chi_n(\ord_E)=-f(n),\qquad
+ \chi_n(\ord_C)=0
+\]
+for every prime divisor \(C\subset X\) other than \(L\).  These decrease in
+\(n\), and in the limit
+\[
+ \chi(\ord_L)=-1,\qquad \chi(\ord_E)=-2,\qquad \chi(\ord_C)=0 .
+\tag{39.29}\label{eq:ch39-surface-chi-trace}
+\]
+
+\emph{Steps 5--7: identification.}  Let \(\ell\) be the linear form cutting
+out \(L\).  The ideal \(\mathcal J:=\ell\cdot\mathfrak m_p\subset\cO_X\)
+satisfies: \(\cO_X(2)\otimes\mathcal J\) is generated by the two conics
+\(\ell x\) and \(\ell y\), where \(x,y\) are linear forms vanishing at
+\(p\); hence \(\log|\mathcal J|\in\cH_{\mathrm{hom},X}(\cO_X(2))\) by
+\Cref{prop:hom-fs-ideal}.  Its divisorial values are
+\(-\ord_L(\ell\mathfrak m_p)=-1\) at \(\ord_L\),
+\(-\ord_E(\ell\mathfrak m_p)=-(1+1)=-2\) at \(\ord_E\), and \(0\) elsewhere:
+exactly \eqref{eq:ch39-surface-chi-trace}.  By divisorial determination,
+\(\chi=\log|\mathcal J|=\log|s_F|+\log|\mathfrak m_p|\), which is
+\eqref{eq:bj-reflection-siu} with
+\[
+ u=\log|\mathfrak m_p|\in\PSH_{\mathrm{hom},X}(\theta),
+ \qquad
+ \beta^*u=\log|\mathfrak m_p\cO_Y|=\psi .
+\]
+The algorithm has returned the expected answer, and every intermediate
+object was an explicit divisor or an explicit class.
+\end{example}
+
+\begin{example}[The Siu division in
+\Cref{ex:ch39-blowup-reflection-numbers} is borderline]
+\label{ex:ch39-reflection-borderline}
+Continue with the data of \Cref{ex:ch39-blowup-reflection-numbers} and let
+\[
+ K_F=\{v\in X^{\An}:\log|s_F|(v)=-1\}
+\]
+be the compact set \eqref{eq:ch35-siu-slice} attached to \(F=L\).  The
+divisorial point \(\ord_L\) lies in \(K_F\), since
+\(\ord_L(\ell)=1\), and there
+\[
+ \chi(\ord_L)=\log|s_F|(\ord_L)+\log|\mathfrak m_p|(\ord_L)=-1+0=-1 ,
+\]
+because \(\mathfrak m_p\) is the unit ideal at the generic point of \(L\).
+Since \(\chi\le\log|s_F|\) everywhere, this gives
+\[
+ \sup_{K_F}\chi=-1 .
+\]
+Thus the strict hypothesis \eqref{eq:ch35-siu-strict-hypothesis} of
+\Cref{thm:ch35-homogeneous-siu} \emph{fails}, by
+\Cref{lem:ch35-slice-to-cone}, and the borderline form
+\Cref{thm:ch35-homogeneous-siu-general} is the statement actually used in
+Step~6 of the proof.  This is the phenomenon predicted in
+\Cref{ex:ch38-strict-room-fails}: the activation divisor \(F\) is required
+to contain the whole non-isomorphism locus, so its support meets the locus
+where the b-divisor has coefficient zero, and enlarging \(F\) enlarges the
+pole by the same amount.  Since
+\Cref{thm:ch35-homogeneous-siu-general} carries no envelope hypothesis, the
+firewall \Cref{warn:ch39-firewall} is respected.
+\end{example}
+
+\begin{example}[A homogeneous psh function that is not fibrewise constant]
+\label{ex:ch39-not-fibre-constant}
+Keep \(X=\mathbf P^2\), \(\beta:Y=\operatorname{Bl}_pX\to X\) and \(E\), and
+choose a closed point \(q\in E\).  Let \(A\) be an ample line bundle on
+\(Y\) so positive that \(A\otimes\mathcal I_q\) is globally generated, which
+is possible by Serre's theorem.  Then
+\[
+ \psi':=\log|\mathcal I_q|\in\cH_{\mathrm{hom}}(A)
+ \subseteq\PSH_{\mathrm{hom},Y}(c_1(A))
+\]
+by \Cref{prop:hom-fs-ideal}.  Evaluate \(\psi'\) at two points of the fibre
+\(E^{\An}=(\beta^{\An})^{-1}(v_{p,\triv})\) of \Cref{ex:ch39-fibre-plane}:
+\[
+ \psi'(v_{q,\triv})=-v_{q,\triv}(\mathcal I_q)=-\infty,
+ \qquad
+ \psi'(v_{E,\triv})=-v_{E,\triv}(\mathcal I_q)=0,
+\]
+the second because \(\mathcal I_q\) is the unit ideal at the generic point
+of \(E\).  So \(\psi'\) is \emph{not} constant on this fibre, and therefore
+is not the pullback of any function on \(X^{\An}\).
+
+This is consistent with \Cref{cor:ch39-fibre-constant} only because
+\(c_1(A)\notin\beta^*N^1(X)_{\mathbf R}\): a pullback class is trivial on
+the contracted curve \(E\), by
+\Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:notample}, whereas
+\(c_1(A)\cdot E>0\).  The example therefore isolates what
+\Cref{thm:bj-homogeneous-reflection} really asserts.  It is not that
+homogeneous psh functions on \(Y\) descend --- most do not --- but that
+those in a \emph{pulled-back class} do, and the mechanism producing the
+descent is the realization of an interpolated b-divisor downstairs, not any
+visible property of the function upstairs.
+\end{example}
+
+\section{From equality on divisorial points to equality everywhere}
+\label{sec:ch39-determination}
+
+Both proofs of this chapter end with the same manoeuvre: an identity
+verified at every point of \(X^{\divis}=Y^{\divis}\) is promoted to an
+identity on the whole analytification.  The proof map of
+\Cref{chap:bj-envelope-statement} singles this passage out for audit,
+because it is the point at which a statement about a countable-looking set
+of valuations becomes a statement about a compact space containing points of
+proper support, at which psh functions may take the value \(-\infty\) and at
+which evaluation is not continuous
+(\Cref{ex:ch35-evaluation-discontinuous}).  We therefore isolate the step,
+display its hypotheses, and exhibit the failures that occur when they are
+weakened.
+
+\subsection{The package}
+\label{sec:ch39-determination-package}
+
+\begin{proposition}
+\label{prop:ch39-determination-package}
+Let \(X\) be an integral projective \(k\)-variety.
+\begin{enumerate}
+\item\label{itm:ch39-det:compare}
+ \emph{(Comparison.)}  If \(\phi\in\PSH_X(\theta)\) for some
+ \(\theta\in N^1(X)_{\mathbf R}\), and if
+ \(\eta:X^{\An}\to\mathbf R\cup\{-\infty\}\) is upper semicontinuous, then
+ \(\phi\le\eta\) on \(X^{\divis}\) implies \(\phi\le\eta\) on \(X^{\An}\).
+\item\label{itm:ch39-det:equal}
+ \emph{(Determination.)}  If \(\phi\in\PSH_X(\theta)\) and
+ \(\phi'\in\PSH_X(\theta')\), with \(\theta,\theta'\in N^1(X)_{\mathbf R}\)
+ possibly different, and if \(\phi=\phi'\) on \(X^{\divis}\), then
+ \(\phi=\phi'\) on \(X^{\An}\).
+\item\label{itm:ch39-det:minimal}
+ \emph{(Extremality.)}  A \(\theta\)-psh \(\phi\) is the smallest
+ upper-semicontinuous extension of \(\phi|_{X^{\divis}}\) to \(X^{\An}\).
+\item\label{itm:ch39-det:birational}
+ \emph{(Birational form.)}  Let \(\beta:Y\to X\) be as in
+ \eqref{eq:ch39-standing} and identify \(X^{\divis}=Y^{\divis}\).  If
+ \(u\in\PSH_Y(\eta_1)\) and \(u'\in\PSH_Y(\eta_2)\) satisfy \(u=u'\) on
+ \(X^{\divis}\), then \(u=u'\) on \(Y^{\An}\).  In particular, for
+ \(\chi\in\PSH_X(\theta)\) and \(u\in\PSH_Y(\eta)\),
+\[
+ \beta^*\chi=u\ \text{on }X^{\divis}
+ \iff
+ \beta^*\chi=u\ \text{on }Y^{\An},
+\tag{39.30}\label{eq:ch39-determination-birational}
+\]
+ the implication \(\Rightarrow\) using
+ \Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:psh} to know that
+ \(\beta^*\chi\) is psh.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch39-det:compare} is \Cref{thm:ch35-divisorial-comparison},
+\cref{itm:ch39-det:equal} and \cref{itm:ch39-det:minimal} are
+\Cref{cor:ch35-divisorial-determination}\,(2) and the final sentence of
+\Cref{thm:ch35-divisorial-comparison}.  For
+\cref{itm:ch39-det:birational}, apply \cref{itm:ch39-det:equal} on \(Y\),
+using \(X^{\divis}=Y^{\divis}\) from
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:val}; and for
+\eqref{eq:ch39-determination-birational} note that \(\beta^*\chi\) is
+\(\beta^*\theta\)-psh, so that \cref{itm:ch39-det:equal} applies to the pair
+\((\beta^*\chi,u)\), which lies in \(\PSH_Y(\beta^*\theta)\times
+\PSH_Y(\eta)\).
+\end{proof}
+
+Three features of \Cref{prop:ch39-determination-package} deserve emphasis,
+because each is used and each is easy to misremember.
+
+\emph{The two classes may differ.}  In \cref{itm:ch39-det:equal} nothing
+relates \(\theta\) and \(\theta'\).  This is what allows Step~5 of the proof
+of \Cref{thm:bj-homogeneous-reflection} to compare \(\beta^*\chi\), a
+priori only known to be \(\beta^*\omega\)-psh, with
+\(\psi+\log|s_{\beta^*F}|\), and what allows Step~7 to compare
+\(\psi\), which is \(\beta^*\theta\)-psh, with \(\beta^*u\).  Had the
+statement required a common class, each comparison would have needed a
+separate verification that the classes agree --- which they do, but only
+after the very identity being proved.
+
+\emph{The inequality is one-sided in the hypotheses.}  In
+\cref{itm:ch39-det:compare} the \emph{smaller} function must be psh and the
+larger one only upper semicontinuous.  Reversing the roles makes the
+statement false, by \Cref{ex:ch35-usc-not-determined}.  Every application in
+this chapter is checked against this asymmetry; \Cref{rem:ch35-determination-uses}
+lists the applications in \Cref{chap:bj-homogeneity-bdivisors} and the same
+discipline is followed here.
+
+\emph{Density is not the mechanism.}  \(X^{\divis}\) is dense in
+\(X^{\An}\) by \Cref{thm:triv-divisorial-density}, but density gives only
+that a \emph{lower} semicontinuous function is dominated by an
+upper-semicontinuous one, \Cref{lem:ch35-density-gives}, and both functions
+here are upper semicontinuous.  The actual mechanism is the attainment of
+suprema on a finite set of divisorial points,
+\Cref{lem:ch35-finite-attainment} and \Cref{lem:ch35-attainment-psh}, which
+is a genuinely plurisubharmonic input resting on Rees valuations.
+
+\begin{warning}{What ``determined by divisorial values'' does not mean}
+\label{warn:ch39-determination-hypotheses}
+\Cref{prop:ch39-determination-package} asserts that the restriction map
+\[
+ \PSH_X(\theta)\longrightarrow
+ \bigl(\mathbf R\cup\{-\infty\}\bigr)^{X^{\divis}}
+\]
+is injective.  It does not assert that the inverse is continuous, that a
+given function on \(X^{\divis}\) extends, or that pointwise convergence on
+\(X^{\divis}\) implies pointwise convergence on \(X^{\An}\).  All three
+fail: continuity of evaluation at a proper-support point fails by
+\Cref{ex:ch35-evaluation-discontinuous}, and the extension problem is
+precisely what \Cref{thm:bj-real-cartier-realization} solves, and only under
+a numerical hypothesis.  The proper-support locus
+\(\{x\in X^{\An}:s(x)\subsetneq X\}\) of
+\Cref{def:ch32-proper-support} supplies the explicit failure examples used
+here.  In general \Cref{thm:bj-basic-closure}\,(7) guarantees finiteness
+only on \(X^{\lin}\), not on the whole full-support locus
+\(X^{\val}\); no stronger determination statement is used in this
+chapter.
+\end{warning}
+
+\subsection{Two functions with the same divisorial trace}
+\label{sec:ch39-determination-examples}
+
+\begin{example}[An upper-semicontinuous counterexample]
+\label{ex:ch39-usc-not-determined-birational}
+Keep \(X=\mathbf P^2\), \(\beta:Y=\operatorname{Bl}_pX\to X\) with
+exceptional prime \(E\), and let
+\[
+ f_1:=\log|\cO_Y(-E)|=\beta^*\log|\mathfrak m_p|
+ \in\PSH_{\mathrm{hom},Y}(\beta^*\theta),
+ \qquad\theta=c_1(\cO_X(1)),
+\]
+as in \Cref{ex:ch39-blowup-point}.  Fix a closed point \(q\in E\) and set
+\[
+ h:=\begin{cases}-1,&\text{at }v_{q,\triv},\\ -\infty,&\text{elsewhere},
+ \end{cases}
+ \qquad
+ f_2:=\max\{f_1,h\}.
+\tag{39.31}\label{eq:ch39-two-usc}
+\]
+\emph{\(h\) is upper semicontinuous.}  The singleton \(\{v_{q,\triv}\}\) is
+the analytification of the closed subscheme \(\{q\}\subset Y\), hence closed
+in \(Y^{\An}\) by
+\Cref{prop:ch32-support-partition}\,\cref{itm:ch32-sp:closed}; the sets
+\(\{h\ge c\}\) are \(\varnothing\) for \(c>-1\), \(\{v_{q,\triv}\}\) for
+\(-\infty<c\le-1\), and \(Y^{\An}\) for \(c=-\infty\), all closed.  A finite
+maximum of upper-semicontinuous functions is upper semicontinuous, so
+\(f_2\) is upper semicontinuous.
+
+\emph{The two functions have the same divisorial trace.}  Every point of
+\(Y^{\divis}\) has full support, whereas \(s(v_{q,\triv})=\{q\}\); so
+\(h\equiv-\infty\) on \(Y^{\divis}\) and \(f_2=f_1\) there.
+
+\emph{They differ.}  Since \(s(v_{q,\triv})=\{q\}\subseteq E\), the section
+\(s_E\) vanishes identically on the support, so
+\(v_{q,\triv}(\cO_Y(-E))=+\infty\) and
+\(f_1(v_{q,\triv})=-\infty\), while \(f_2(v_{q,\triv})=-1\).
+
+\emph{Consequences.}  First, \(f_2\notin\PSH_Y(\eta)\) for any
+\(\eta\in N^1(Y)_{\mathbf R}\): otherwise
+\Cref{prop:ch39-determination-package}\,\cref{itm:ch39-det:equal} applied to
+the pair \((f_1,f_2)\) would force \(f_1=f_2\).  Second, \(f_2\) is not the
+pullback of any function on \(X^{\An}\): it is not constant on the fibre
+\(E^{\An}=(\beta^{\An})^{-1}(v_{p,\triv})\), taking the value \(-1\) at
+\(v_{q,\triv}\) and \(-\infty\) at \(v_{E,\triv}\).  Third,
+\(f_1\le f_2\) with equality on \(Y^{\divis}\), which is consistent with
+\Cref{prop:ch39-determination-package}\,\cref{itm:ch39-det:minimal}: the psh
+function is the \emph{smallest} upper-semicontinuous extension of its
+divisorial trace, and \(f_2\) is a larger one.
+
+\emph{Which property of psh functions fails.}  The function \(f_2\) is not
+decreasing for the order \eqref{eq:semivaluation-order}.  Indeed
+\(t\,\ord_E\le v_{q,\triv}\) for every \(t>0\): a function \(g\) with
+\(\ord_E(g)=a>0\) lies in the \(a\)-th power of the ideal of \(E\), hence
+vanishes at \(q\), so \(v_{q,\triv}(g)=+\infty\ge ta\); and a function with
+\(\ord_E(g)=0\) has \(v_{q,\triv}(g)\ge0\).  Since
+\(f_2(t\,\ord_E)=f_1(t\,\ord_E)=-t\to-\infty\) while
+\(f_2(v_{q,\triv})=-1\), monotonicity fails.  Every psh function is
+decreasing, by
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:decreasing} and
+passage to decreasing limits, which is why this particular defect cannot
+occur inside the class.  It should not be concluded that upper
+semicontinuity plus monotonicity is the hypothesis of
+\Cref{thm:ch35-divisorial-comparison}: that theorem is proved through the
+finite-attainment lemmas, and its hypothesis is plurisubharmonicity of the
+smaller function.
+\end{example}
+
+\begin{example}[A one-parameter family of upper-semicontinuous extensions]
+\label{ex:ch39-two-usc-extensions}
+Keep the notation of \Cref{ex:ch39-usc-not-determined-birational} and, for
+\(c\in[-\infty,0]\), define
+\[
+ f^{(c)}:=\max\{f_1,\ c\cdot\one_{E^{\An}}\}
+ =\begin{cases}
+   c,&\text{on }E^{\An},\\
+   f_1,&\text{elsewhere},
+ \end{cases}
+\]
+where \(c\cdot\one_{E^{\An}}\) denotes the function equal to \(c\) on
+\(E^{\An}\) and \(-\infty\) off it.  Since \(E^{\An}\) is closed in
+\(Y^{\An}\) by
+\Cref{prop:ch32-support-partition}\,\cref{itm:ch32-sp:closed} and
+\(f_1\equiv-\infty\) on \(E^{\An}\), each \(f^{(c)}\) is upper
+semicontinuous, and all of them restrict to the same function on
+\(Y^{\divis}\), namely \(f_1|_{Y^{\divis}}\), because
+\(E^{\An}\cap Y^{\divis}=\varnothing\).  So a single divisorial datum has a
+continuum of upper-semicontinuous extensions, ordered by \(c\), of which
+exactly one --- the smallest, \(c=-\infty\) --- is psh.
+
+The example also shows that fibrewise constancy is not the missing
+condition: every \(f^{(c)}\) \emph{is} constant on the fibre \(E^{\An}\),
+and \(f^{(c)}=\beta^*\chi^{(c)}\) for the function \(\chi^{(c)}\) on
+\(X^{\An}\) equal to \(c\) at \(v_{p,\triv}\) and to
+\(\log|\mathfrak m_p|\) elsewhere.  Thus \(\chi^{(c)}\) is an
+upper-semicontinuous function on \(X^{\An}\) with the same divisorial trace
+as \(\log|\mathfrak m_p|\) and different values, and the reflection
+statement \eqref{eq:bj-homogeneous-reflection} would be false if
+\(\PSH_{\mathrm{hom}}\) were replaced by ``homogeneous upper-semicontinuous
+with the given trace''.  What distinguishes \(c=-\infty\) is not the
+birational geometry but plurisubharmonicity.
+\end{example}
+
+\begin{remark}[The audit entry]
+\label{rem:ch39-audit-divisorial}
+The proof-audit list of \Cref{chap:bj-envelope-statement} contains the item
+``passage from equality on divisorial points to equality everywhere''.  In
+this chapter that passage occurs exactly four times, and in each case both
+functions are psh and the citation is
+\Cref{prop:ch39-determination-package}\,\cref{itm:ch39-det:equal}:
+\begin{enumerate}
+\item in \Cref{prop:ch39-cartier-reflection}, to identify
+ \(\beta^*\chi^X_B\) with \(\chi^Y_B\);
+\item in Step~5 of the proof of \Cref{thm:bj-homogeneous-reflection}, to
+ obtain \eqref{eq:bj-reflection-global-identity};
+\item in Step~7 of the same proof, to obtain \(\psi=\beta^*u\);
+\item in the uniqueness clause of \Cref{thm:bj-carrier-reflection}.
+\end{enumerate}
+There are two further occurrences of the one-sided comparison
+\cref{itm:ch39-det:compare}, both with a psh function on the small side:
+in Step~3 of the proof of \Cref{thm:bj-homogeneous-reflection}, to convert
+the ordering of divisorial traces into an ordering of the functions
+\(\chi_j\); and in \Cref{cor:ch39-hom-structure}\,\cref{itm:ch39-hs:order}.
+No occurrence compares two merely upper-semicontinuous functions, and
+\Cref{ex:ch39-usc-not-determined-birational} shows why none may.
+\end{remark}
+
+\section{Legendre slices and carriers}
+\label{sec:ch39-legendre}
+
+\subsection{The slices, recalled}
+\label{sec:ch39-slices}
+
+For \(t>0\), the scaling action of \eqref{eq:function-scaling-action} on
+functions is
+\[
+                   (t\mathbin\cdot u)(v):=t\,u(t^{-1}v),
+\tag{39.32}\label{eq:bj-psh-scaling}
+\]
+and, for \(\lambda\in\mathbf R\), the homogeneous Legendre slice of \(u\) is
+\[
+ \widehat u_\lambda
+ :=\inf_{t>0}\{t\mathbin\cdot u-t\lambda\},
+\tag{39.33}\label{eq:bj-legendre-slice}
+\]
+which is the largest homogeneous function \(\psi\) with
+\(\psi+\lambda\le u\), by
+\Cref{lem:ch35-slice-basic}\,(1).  If \(u\in\PSH_X(\theta)\) and
+\(b:=\sup u=u(v_{\triv})\), then \(\widehat u_\lambda\) is homogeneous
+\(\theta\)-psh for every \(\lambda\le b\), including the endpoint
+\(\lambda=b\), and it is identically \(-\infty\) for \(\lambda>b\); this is
+\Cref{prop:ch35-slice-trichotomy}.  Moreover
+\[
+                   u=\sup_{\lambda\le b}
+                       (\widehat u_\lambda+\lambda)
+\tag{39.34}\label{eq:bj-legendre-reconstruction}
+\]
+pointwise on all of \(X^{\An}\), by
+\Cref{thm:homogeneous-legendre-decomposition}\,(3); and
+\(\lambda\mapsto\widehat u_\lambda(v)\) is nonincreasing and concave, by
+\Cref{lem:ch35-slice-basic}\,(6).  All of this is unconditional and uses no
+envelope property.
+
+\begin{definition}[Homogeneous carrier]
+\label{def:bj-homogeneous-carrier}
+A function
+\[
+              p\in\PSH_{\mathrm{hom},Y}(\beta^*\theta)
+\]
+is a \emph{carrier} for \(u\in\PSH_Y(\beta^*\theta)\) if
+\[
+                              u\le p+C
+\tag{39.35}\label{eq:bj-carrier-domination}
+\]
+for some finite \(C\in\mathbf R\).
+\end{definition}
+
+The constant belongs to the inequality, not to \(p\): adding a nonzero
+constant to \(p\) would destroy homogeneity, by
+\Cref{lem:ch35-homogeneity-reformulations}.  This is the case
+\(\eta=\theta\) of the general notion \Cref{def:ch35-carrier}, in which the
+class of the carrier is allowed to differ; the specialization is what makes
+homogeneous reflection applicable to \(p\) itself, and
+\Cref{cor:ch39-carrier-other-class} records the extent to which the class
+may be relaxed.
+
+Inequality \eqref{eq:bj-carrier-domination} is an inequality of functions
+into \([-\infty,+\infty)\) and is meaningful at proper-support points: where
+\(p=-\infty\) it forces \(u=-\infty\).  It is never rewritten as
+\(u-p\le C\), which would be undefined there.
+
+The only consequence of \eqref{eq:bj-carrier-domination} used below is the
+tail estimate of \Cref{lem:ch35-carrier-tail}: for \(\lambda\le C\),
+\(\widehat u_\lambda\le p\), and hence, for
+\(\lambda\le\min\{C,b\}\),
+\(\widehat u_\lambda+\lambda\le p+\lambda\).  Its role is to truncate the
+unbounded parameter interval in
+\eqref{eq:bj-legendre-reconstruction} to a compact one; see
+\Cref{rem:ch35-carrier-purpose}.
+
+\subsection{The compact window}
+\label{sec:ch39-window}
+
+Truncating the interval is not by itself enough.  Even over a compact
+parameter interval, \eqref{eq:bj-legendre-reconstruction} presents \(u\) as
+a \emph{supremum}, and \Cref{warn:ch39-firewall} forbids the use of any
+closure property under suprema.  The following lemma converts an increasing
+family of finite maxima into a decreasing net, at the cost of a summable
+correction.  It is the technical heart of carrier reflection, and it is
+purely a statement about a monotone one-parameter family of homogeneous psh
+functions; no birational geometry enters.
+
+\begin{lemma}
+\label{lem:bj-compact-legendre-window}
+Let
+\[
+ q_\lambda\in\PSH_{\mathrm{hom},X}(\theta),
+ \qquad -M\le\lambda\le b,
+\]
+be decreasing as \(\lambda\) increases, with \(-M\le b\) real, and let
+\(r\in\PSH_X(\theta)\).  Then
+\[
+ \max\left\{r,
+   \sup_{-M\le\lambda\le b}(q_\lambda+\lambda)\right\}
+ \in\PSH_X(\theta).
+\tag{39.36}\label{eq:bj-compact-legendre-window}
+\]
+\end{lemma}
+
+\begin{proof}
+Write \(h_n:=(b+M)2^{-n}\) and let
+\[
+ \Gamma_n:=\{-M+kh_n\ :\ 0\le k\le2^n\}\subset[-M,b]
+\]
+be the dyadic grid of mesh \(h_n\).  The grids are nested,
+\(\Gamma_n\subset\Gamma_{n+1}\), each contains both endpoints, and
+\(h_{n+1}=h_n/2\).  If \(b=-M\) the interval is a point and
+\eqref{eq:bj-compact-legendre-window} is the finite maximum
+\(\max\{r,q_{-M}-M\}\), which is \(\theta\)-psh by
+\Cref{lem:ch39-closure-any-class}\,(1)--(2); so assume \(b>-M\), whence
+\(h_n>0\).
+
+Put
+\[
+ G_n:=\max\left\{r,\ \max_{a\in\Gamma_n}(q_a+a)\right\}.
+\]
+Each \(q_a+a\) lies in \(\PSH_X(\theta)\) by
+\Cref{lem:ch39-closure-any-class}\,(1), and \(\Gamma_n\) is finite, so
+\(G_n\in\PSH_X(\theta)\) by
+\Cref{lem:ch39-closure-any-class}\,(2).
+
+\emph{The grid error.}  Let \(a\in\Gamma_{n+1}\) and let
+\(a^-:=\max\{x\in\Gamma_n:x\le a\}\), which exists because
+\(-M\in\Gamma_n\) and satisfies \(0\le a-a^-\le h_n\).  Since
+\(\lambda\mapsto q_\lambda\) is decreasing and \(a\ge a^-\),
+\[
+                 q_a+a\le q_{a^-}+a^-+h_n\le G_n+h_n,
+\]
+an inequality in \([-\infty,+\infty)\) in which only finite constants are
+added.  Also \(r\le G_n\le G_n+h_n\).  Taking the maximum over
+\(a\in\Gamma_{n+1}\),
+\[
+                         G_n\le G_{n+1}\le G_n+h_n,
+\tag{39.37}\label{eq:bj-grid-error}
+\]
+the first inequality because \(\Gamma_n\subseteq\Gamma_{n+1}\).
+
+\emph{The correction.}  Set \(c_n:=\sum_{k\ge n}h_k=2h_n<\infty\), so that
+\(c_n=h_n+c_{n+1}\).  By \eqref{eq:bj-grid-error},
+\[
+                         G_{n+1}+c_{n+1}\le G_n+h_n+c_{n+1}=G_n+c_n .
+\]
+Thus \((G_n+c_n)_{n\ge0}\) is a decreasing sequence in \(\PSH_X(\theta)\),
+again by \Cref{lem:ch39-closure-any-class}\,(1).
+
+\emph{The limit.}  Since \(c_n\to0\) and \((G_n)\) is nondecreasing,
+\[
+ \lim_n(G_n+c_n)=\lim_nG_n=\sup_nG_n
+ =\max\left\{r,\ \sup_{a\in\Gamma_\infty}(q_a+a)\right\},
+ \qquad
+ \Gamma_\infty:=\bigcup_n\Gamma_n,
+\]
+all limits being pointwise in \(\Rbar\).  We claim that this equals the
+right-hand side of \eqref{eq:bj-compact-legendre-window}.  One inequality is
+clear, \(\Gamma_\infty\subseteq[-M,b]\).  For the other, fix
+\(\lambda\in[-M,b]\) and \(v\in X^{\An}\), and let
+\(a_n:=\max\{x\in\Gamma_n:x\le\lambda\}\), so that
+\(\lambda-h_n\le a_n\le\lambda\).  Monotonicity in \(\lambda\) gives
+\(q_{a_n}\ge q_\lambda\), whence
+\[
+ q_{a_n}(v)+a_n\ \ge\ q_\lambda(v)+\lambda-h_n .
+\]
+If \(q_\lambda(v)=-\infty\) the desired inequality
+\(\sup_{\Gamma_\infty}(q_a+a)(v)\ge q_\lambda(v)+\lambda\) is trivial;
+otherwise let \(n\to\infty\).  This proves the claim.
+
+\emph{Generic finiteness.}  At \(v_{\triv}\) one has
+\(q_a(v_{\triv})=0\) for every \(a\), by
+\Cref{prop:ch35-homogeneous-normalization}, and \(r(v_{\triv})=\sup r\) is
+finite by \Cref{prop:ch32-maximum-principle}\,\cref{itm:ch32-mp:gf}.  Hence
+\(G_n(v_{\triv})=\max\{r(v_{\triv}),b\}\) for every \(n\), and the limit is
+finite there.  Since \(X\) is integral, the limit is generically finite.
+
+Now PSH2, that is \Cref{lem:ch39-closure-any-class}\,(4) applied to the
+decreasing sequence \((G_n+c_n)\) in the fixed class \(\theta\), gives
+\eqref{eq:bj-compact-legendre-window}.  Only finite maxima, additions of
+finite constants and one decreasing limit were used, so the argument is
+literally valid at points where all entries are \(-\infty\).
+\end{proof}
+
+\begin{remark}[Why the correction is needed, and why it is summable]
+\label{rem:ch39-why-correction}
+The family \((G_n)\) increases, and an increasing limit of psh functions is
+exactly what is unavailable before the envelope theorem
+(\Cref{warn:ch39-firewall}).  The device of
+\eqref{eq:bj-grid-error} is to add a decreasing sequence of constants large
+enough to reverse the monotonicity: since the grid refines by halving, the
+error committed at stage \(n\) is at most \(h_n\), and
+\(\sum_nh_n<\infty\), so the constants \(c_n\) can absorb all future errors
+at once.  Two features of the hypotheses are used and neither can be
+dropped.  The parameter interval must be \emph{compact}, or the mesh would
+not be finite; this is what the carrier supplies, through
+\Cref{lem:ch35-carrier-tail}.  And the family \(\lambda\mapsto q_\lambda\)
+must be \emph{monotone}, or the estimate \(q_a\le q_{a^-}\) would fail and
+the grid error would not be controlled by \(h_n\); monotonicity is
+\Cref{lem:ch35-slice-basic}\,(2).  Continuity of
+\(\lambda\mapsto q_\lambda\), which does hold on divisorial points by
+\Cref{lem:ch35-slice-continuity}, is \emph{not} used, and this is
+deliberate: continuity there is proved only on \(X^{\divis}\), whereas the
+conclusion is needed on all of \(X^{\An}\).
+\end{remark}
+
+\begin{example}[The uncorrected grid limit is not visibly psh]
+\label{ex:ch39-grid-correction-needed}
+Take \(X=\mathbf P^1_k\), \(\theta=c_1(\cO(1))\), \(p=[0:1]\), and
+\(q_\lambda:=\max\{0,1+\lambda\}\log|\mathfrak m_p|\) for
+\(-1\le\lambda\le0\), which by \Cref{ex:ch35-legendre-pair-p1} is the family
+of Legendre slices of \(u=\max\{\log|x|,\log|y|-1\}\); it is a decreasing
+family in \(\PSH_{\mathrm{hom},X}(\theta)\).  With \(M=1\), \(b=0\) and
+\(r=q_0-1\), the functions \(G_n\) of the proof are the finite maxima
+\[
+ G_n=\max\Bigl\{\log|\mathfrak m_p|-1,\
+ \max_{a\in\Gamma_n}\bigl((1+a)\log|\mathfrak m_p|+a\bigr)\Bigr\},
+\]
+each a Fubini--Study function.  On the ray through \(p\), writing
+\(s=-\log|\mathfrak m_p|(v)\ge0\), one has
+\(G_n(v)=\max\{-s-1,\max_{a\in\Gamma_n}(a-(1+a)s)\}\), which increases
+strictly in \(n\) whenever \(s\ne1\), the maximum over a finer grid of the
+affine functions \(a\mapsto a-(1+a)s\) being strictly larger.  So
+\((G_n)\) is a genuinely increasing sequence, its limit is
+\(\max\{-s-1,\ \max\{-s,-1\}\}=\max\{-s,-1\}=u(v)\), and no closure property
+available at this stage applies to it directly.  The corrected sequence
+\(G_n+c_n\) with \(c_n=2^{1-n}\) is decreasing, and it is to that sequence
+that PSH2 is applied.  The example is small enough that one can watch the
+two monotonicities compete: at \(s=0\) one has \(G_n\equiv0\) for all
+\(n\), and \(c_n\downarrow0\), so the corrected sequence decreases to the
+correct value \(0\).
+\end{example}
+
+\subsection{Carrier reflection}
+\label{sec:ch39-carrier-reflection}
+
+\begin{theorem}
+\label{thm:bj-carrier-reflection}
+Suppose
+\[
+ u\in\PSH_Y(\beta^*\theta),\qquad
+ p\in\PSH_{\mathrm{hom},Y}(\beta^*\theta),\qquad
+ u\le p+C
+\tag{39.38}\label{eq:bj-carrier-reflection-hypotheses}
+\]
+for some \(C\in\mathbf R\).  Then there is a unique
+\(v\in\PSH_X(\theta)\) satisfying \(\beta^*v=u\).
+\end{theorem}
+
+\begin{proof}
+Put \(b:=\sup_{Y^{\An}}u\).  This is a real number: it equals
+\(u(v_{Y,\triv})\) by
+\Cref{prop:ch32-maximum-principle}\,\cref{itm:ch32-mp:sup}, it is
+\(>-\infty\) by generic finiteness in \Cref{def:bj-psh}, and it is
+\(<+\infty\) because a psh function is bounded above by any member of an
+approximating net, which is upper semicontinuous on the compact space
+\(Y^{\An}\).
+
+\medskip
+\noindent\emph{Step 1: control the Legendre tail.}
+For \(\lambda\le C\), homogeneity of \(p\) and carrier domination give
+\[
+ (t\mathbin\cdot u-t\lambda)(v)
+ \le p(v)+t(C-\lambda)
+\tag{39.39}\label{eq:bj-carrier-slice-estimate}
+\]
+for every \(t>0\).  Indeed \(t\cdot u\le t\cdot(p+C)=t\cdot p+tC=p+tC\) by
+\Cref{lem:ch35-action-basic}\,(2)--(3) and homogeneity of \(p\); subtracting
+the finite number \(t\lambda\) is legitimate by ledger entry~(2) of
+\Cref{sec:extended-arithmetic}.  Taking the infimum over \(t>0\) and then
+letting \(t\downarrow0\) yields
+\[
+                         \widehat u_\lambda\le p
+                         \qquad(\lambda\le C).
+\tag{39.40}\label{eq:bj-slice-below-carrier}
+\]
+If \(p(v)=-\infty\), carrier domination forces
+\(u(t^{-1}v)=-\infty\) for every \(t\), so both sides of
+\eqref{eq:bj-carrier-slice-estimate} are \(-\infty\) and no infinite
+subtraction occurs.  This is \Cref{lem:ch35-carrier-tail}, restated here
+because the constant \(C\) is the one that fixes the window.
+
+Choose \(M\in\mathbf N\) with \(-M\le\min\{C,b\}\).  For \(\lambda<-M\), the
+inequality \eqref{eq:bj-slice-below-carrier} applies, since
+\(\lambda<-M\le C\), and gives
+\[
+                         \widehat u_\lambda+\lambda\le p-M .
+\]
+Combining with \eqref{eq:bj-legendre-reconstruction}, and splitting the
+parameter range at \(-M\),
+\[
+ \max\{u,p-M\}
+ =\max\left\{p-M,
+   \sup_{-M\le\lambda\le b}
+        (\widehat u_\lambda+\lambda)\right\}.
+\tag{39.41}\label{eq:bj-carrier-window}
+\]
+The inequality \(\ge\) holds because each competitor on the right is
+\(\le\max\{u,p-M\}\), using \(\widehat u_\lambda+\lambda\le u\); the
+inequality \(\le\) holds because
+\(u=\sup_{\lambda\le b}(\widehat u_\lambda+\lambda)\) and the part of the
+supremum with \(\lambda<-M\) is dominated by \(p-M\).  On the locus
+\(\{p=-\infty\}\) carrier domination forces every displayed term to equal
+\(-\infty\), so \eqref{eq:bj-carrier-window} holds there as the identity
+\(-\infty=-\infty\).
+
+\medskip
+\noindent\emph{Step 2: reflect the compact window.}
+By \Cref{prop:ch35-slice-trichotomy}\,(2), each
+\(\widehat u_\lambda\) with \(\lambda\le b\) lies in
+\(\PSH_{\mathrm{hom},Y}(\beta^*\theta)\).  By
+\Cref{thm:bj-homogeneous-reflection} there are unique
+\[
+                  q,\ q_\lambda\ \in
+                  \PSH_{\mathrm{hom},X}(\theta)
+                  \qquad(-M\le\lambda\le b)
+\]
+with
+\[
+                  \beta^*q=p,\qquad
+                  \beta^*q_\lambda=\widehat u_\lambda .
+\]
+The family \((q_\lambda)\) is decreasing in \(\lambda\): the slices
+\(\widehat u_\lambda\) are, by \Cref{lem:ch35-slice-basic}\,(2), and
+\(\beta^*\) reflects the order by
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:order}.  Apply
+\Cref{lem:bj-compact-legendre-window} with \(r:=q-M\in\PSH_X(\theta)\),
+which is \(\theta\)-psh by \Cref{lem:ch39-closure-any-class}\,(1), and set
+\[
+ v_M:=\max\left\{q-M,
+   \sup_{-M\le\lambda\le b}(q_\lambda+\lambda)\right\}
+ \in\PSH_X(\theta).
+\tag{39.42}\label{eq:bj-reflected-window}
+\]
+Pullback commutes with finite maxima and with arbitrary suprema, by
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:ops}; applying \(\beta^*\) to
+\eqref{eq:bj-reflected-window} and comparing with
+\eqref{eq:bj-carrier-window},
+\[
+                         \beta^*v_M=\max\{u,p-M\}.
+\tag{39.43}\label{eq:bj-reflected-window-pullback}
+\]
+
+\medskip
+\noindent\emph{Step 3: remove the truncation.}
+Let \(M\) range over the integers \(\ge M_0\), where \(M_0\) is the least
+integer with \(-M_0\le\min\{C,b\}\).  The right-hand side of
+\eqref{eq:bj-reflected-window-pullback} decreases pointwise as \(M\)
+increases, and
+\[
+ \lim_{M\to\infty}\max\{u,p-M\}=u
+\]
+pointwise on \(Y^{\An}\): where \(p\) is finite this is clear, and where
+\(p=-\infty\) carrier domination gives \(u=-\infty\) and both sides equal
+\(-\infty\).  By \Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:order} the
+sequence \((v_M)\) is therefore decreasing.  Moreover, by
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:sup} and
+\(p(v_{\triv})=0\),
+\[
+                         v_M(v_{\triv})=\max\{b,-M\}=b
+\tag{39.44}\label{eq:bj-reflected-trivial-value}
+\]
+for every \(M\ge M_0\ge-b\).  Hence the pointwise limit
+\(v:=\lim_Mv_M\) is finite at \(v_{\triv}\), so generically finite, and
+PSH2 --- \Cref{lem:ch39-closure-any-class}\,(4), with the single fixed class
+\(\theta\) --- gives \(v\in\PSH_X(\theta)\).  Passing to the limit in
+\eqref{eq:bj-reflected-window-pullback} gives \(\beta^*v=u\).
+
+\medskip
+\noindent\emph{Uniqueness.}  If \(\beta^*v_1=\beta^*v_2=u\) with
+\(v_1,v_2\in\PSH_X(\theta)\), then \(v_1=v_2\) by
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:order}; alternatively, the two
+agree on \(X^{\divis}=Y^{\divis}\) and
+\Cref{prop:ch39-determination-package}\,\cref{itm:ch39-det:equal} applies.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch39-carrier-other-class}
+Let \(u\in\PSH_Y(\beta^*\theta)\) and suppose there are
+\(\eta\in N^1(X)_{\mathbf R}\) with \(\theta-\eta\) nef,
+\(p\in\PSH_{\mathrm{hom},Y}(\beta^*\eta)\) and \(C\in\mathbf R\) with
+\(u\le p+C\).  Then \(u=\beta^*v\) for a unique \(v\in\PSH_X(\theta)\).
+\end{corollary}
+
+\begin{proof}
+By \Cref{lem:ch39-closure-any-class}\,(5) applied on \(Y\) with the nef
+class \(\beta^*(\theta-\eta)\) --- nef by
+\Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:inj} --- one has
+\(p\in\PSH_Y(\beta^*\theta)\).  It is still homogeneous, homogeneity being a
+property of the function and not of the class, so
+\(p\in\PSH_{\mathrm{hom},Y}(\beta^*\theta)\) and
+\Cref{thm:bj-carrier-reflection} applies verbatim.
+\end{proof}
+
+\begin{remark}[Exactly where the carrier is used]
+\label{rem:ch39-carrier-where}
+The carrier enters the proof of \Cref{thm:bj-carrier-reflection} at one
+point only: it makes the parameter window compact, in
+\eqref{eq:bj-carrier-window}.  Everything after that is
+\Cref{lem:bj-compact-legendre-window} and homogeneous reflection.  In
+particular the carrier is \emph{not} used to construct \(v\), and \(v\) is
+not obtained as an envelope; it is obtained as a decreasing limit of the
+explicitly constructed functions \eqref{eq:bj-reflected-window}.  A bounded
+\(u\) has the tautological carrier \(0\) whenever \(\beta^*\theta\) is nef
+(\Cref{ex:ch35-bounded-carrier}), which is why bounded psh functions reflect
+without any extra input; the content of the theorem is entirely in the
+unbounded case, and \Cref{ex:ch35-divisorial-carrier} shows that a
+plausible-looking candidate carrier can fail to dominate the slices.
+\end{remark}
+
+\begin{corollary}
+\label{cor:ch39-nef-reflection}
+Suppose \(\theta\in\Nef(X)\), equivalently \(\beta^*\theta\in\Nef(Y)\).
+Then
+\[
+ \beta^*:\PSH_X(\theta)\longrightarrow\PSH_Y(\beta^*\theta)
+\]
+is a bijection, with no further hypothesis.
+\end{corollary}
+
+\begin{proof}
+The two nefness statements are equivalent: \(\beta^*\Nef(X)\subseteq\Nef(Y)\)
+by \Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:inj}, and
+conversely \(\theta\cdot C=\beta^*\theta\cdot\widetilde C\ge0\) for every
+integral curve \(C\subset X\) with strict transform \(\widetilde C\), by the
+projection formula.
+
+Assume them.  By \Cref{lem:ch34-psh-nonempty} the constant \(0\) is
+\(\beta^*\theta\)-psh, and it is homogeneous, so
+\(0\in\PSH_{\mathrm{hom},Y}(\beta^*\theta)\).  For any
+\(u\in\PSH_Y(\beta^*\theta)\), the number \(b=\sup u\) is finite and
+\(u\le0+b\); thus \(0\) is a carrier for \(u\) in the sense of
+\Cref{def:bj-homogeneous-carrier}, with \(C=b\).  Now
+\Cref{thm:bj-carrier-reflection} gives surjectivity, and injectivity is
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:order}.
+\end{proof}
+
+\begin{remark}[Where the carrier hypothesis actually bites]
+\label{rem:ch39-carrier-bites}
+By \Cref{cor:ch39-nef-reflection}, the carrier hypothesis of
+\Cref{thm:bj-carrier-reflection} is vacuous when \(\theta\) is nef.  Its
+content is therefore in the non-nef range where
+\(\PSH_X(\theta)\ne\emptyset\); such a class is pseudoeffective and contains
+no bounded psh function by \Cref{lem:ch34-psh-nonempty}.  This is one more reason
+why the correction of \Cref{def:bj-psh} matters for this chapter: under the
+older convention restricted to bounded PL approximants in a fixed class,
+\(\PSH_X(\theta)\) would have been empty outside the nef cone and
+\Cref{thm:bj-carrier-reflection} would have been a restatement of
+\Cref{cor:ch39-nef-reflection}.  The generically finite, varying-class
+convention admits non-nef pseudoeffective examples, and with it the
+canonical carrier of \Cref{sec:ch39-descent} becomes the working hypothesis
+rather than a formality.
+\end{remark}
+
+\subsection{A Legendre carrier pair, computed}
+\label{sec:ch39-carrier-example}
+
+\begin{example}[Carrier, slices, window and reflection, in numbers]
+\label{ex:ch39-carrier-pair}
+\index{carrier!computed}
+Keep \(X=\mathbf P^2_k\), \(p\in X\), \(\beta:Y=\operatorname{Bl}_pX\to X\)
+and \(E\), and set
+\[
+ \theta:=3\,c_1(\cO_X(1)),\qquad
+ \beta^*\theta=3H,\qquad
+ \psi_Y:=\log|\mathfrak m_p\cO_Y|=\log|\cO_Y(-E)| .
+\]
+Write \(s(w):=-\psi_Y(w)\in[0,+\infty]\), so that \(s(t\,\ord_E)=t\),
+\(s\equiv0\) on every other divisorial ray and at \(v_{Y,\triv}\), and
+\(s\equiv+\infty\) on the fibre \(E^{\An}\) of \Cref{ex:ch39-fibre-plane}.
+Define
+\[
+ u:=\max\{3\psi_Y,\ \psi_Y-1\}
+ \qquad\text{so that}\qquad
+ u=\max\{-3s,\ -s-1\}.
+\tag{39.45}\label{eq:ch39-carrier-u}
+\]
+
+\emph{\(u\) is \(3H\)-psh.}  Indeed \(3\psi_Y\in\PSH_{\mathrm{hom},Y}(3H)\)
+by \Cref{prop:ch35-homogeneous-normalization}, and
+\(\psi_Y\in\PSH_{\mathrm{hom},Y}(H)\subseteq\PSH_Y(3H)\) by
+\Cref{lem:ch39-closure-any-class}\,(5), \(2H\) being nef; adding the
+constant \(-1\) and taking the maximum stays in \(\PSH_Y(3H)\) by
+\Cref{lem:ch39-closure-any-class}\,(1)--(2).  Its supremum is
+\(b=u(v_{Y,\triv})=0\), and \(u\) is unbounded below along the exceptional
+ray.
+
+\emph{The carrier.}  To avoid a clash with the blown-up point \(p\), we
+write \(\varrho\) for the carrier of \Cref{def:bj-homogeneous-carrier} in
+this example.  Take \(\varrho:=\psi_Y\), which lies in
+\(\PSH_{\mathrm{hom},Y}(3H)=\PSH_{\mathrm{hom},Y}(\beta^*\theta)\) by the
+same monotonicity.  Then \(u\le\varrho\), that is,
+\eqref{eq:bj-carrier-domination} holds with \(C=0\): on the exceptional ray
+one checks \(\max\{-3s,-s-1\}\le-s\) separately on \(s\le\frac12\), where
+the maximum is \(-3s\le-s\), and on \(s\ge\frac12\), where it is
+\(-s-1\le-s\); off that ray both sides are \(0\); and on \(E^{\An}\) both
+are \(-\infty\).
+
+\emph{The slices.}  For \(\lambda\le0\) and \(w\) on the exceptional ray
+with \(s=s(w)\),
+\[
+ \widehat u_\lambda(w)
+ =\inf_{t>0}\bigl\{\max\{-3s,\,-s-t\}-t\lambda\bigr\}.
+\]
+The function of \(t\) inside the infimum equals \(-s-t(1+\lambda)\) for
+\(t\le2s\) and \(-3s-t\lambda\) for \(t\ge2s\).  If \(-1\le\lambda\le0\)
+both pieces are minimized at \(t=2s\), with common value
+\(-3s-2s\lambda\); if \(\lambda\le-1\) the first piece increases in \(t\)
+and the infimum is approached as \(t\downarrow0\), with value \(-s\).  Off
+the exceptional ray the infimum is \(\inf_{t>0}(-t\lambda)=0\) for
+\(\lambda\le0\).  Hence
+\[
+ \widehat u_\lambda=c(\lambda)\,\psi_Y,
+ \qquad
+ c(\lambda):=\max\{1,\ 3+2\lambda\}
+ \qquad(\lambda\le0),
+\tag{39.46}\label{eq:ch39-carrier-slices}
+\]
+and \(\widehat u_\lambda\equiv-\infty\) for \(\lambda>0\), in accordance
+with \Cref{prop:ch35-slice-trichotomy}.  Since \(1\le c(\lambda)\le3\), each
+slice lies in \(\PSH_{\mathrm{hom},Y}(c(\lambda)H)\subseteq
+\PSH_{\mathrm{hom},Y}(3H)\); the map \(\lambda\mapsto c(\lambda)\) is
+nondecreasing, so \(\lambda\mapsto\widehat u_\lambda\) is nonincreasing, and
+\(-c(\lambda)\) is concave, as
+\Cref{lem:ch35-slice-basic}\,(6) requires.  The carrier bound
+\eqref{eq:bj-slice-below-carrier} reads \(c(\lambda)\ge1\), which is visible
+in \eqref{eq:ch39-carrier-slices}.
+
+\emph{Reconstruction.}  On the exceptional ray,
+\[
+ \sup_{\lambda\le0}\bigl\{\widehat u_\lambda+\lambda\bigr\}(w)
+ =\sup_{\lambda\le0}\bigl\{-c(\lambda)s+\lambda\bigr\}
+ =\max\Bigl\{\sup_{\lambda\le-1}(-s+\lambda),\
+ \sup_{-1\le\lambda\le0}\bigl(-3s+\lambda(1-2s)\bigr)\Bigr\}.
+\]
+The first supremum is \(-s-1\), attained at \(\lambda=-1\).  The second is a
+supremum of an affine function of \(\lambda\) with slope \(1-2s\), attained
+at \(\lambda=0\) with value \(-3s\) if \(s\le\frac12\) and at
+\(\lambda=-1\) with value \(-s-1\) if \(s\ge\frac12\).  The total is
+\(\max\{-3s,-s-1\}=u(w)\), confirming
+\eqref{eq:bj-legendre-reconstruction}.
+
+\emph{The window.}  Take \(M=1\), which satisfies
+\(-M\le\min\{C,b\}=0\).  For \(\lambda<-1\) one has
+\(\widehat u_\lambda+\lambda=\psi_Y+\lambda\le\psi_Y-1=\varrho-M\), so
+\eqref{eq:bj-carrier-window} holds:
+\[
+ \max\{u,\ \psi_Y-1\}=u
+ =\max\Bigl\{\psi_Y-1,\ \sup_{-1\le\lambda\le0}
+ \bigl(\widehat u_\lambda+\lambda\bigr)\Bigr\},
+\]
+both sides being \(\max\{-3s,-s-1\}\) by the previous paragraph.
+
+\emph{Reflection.}  The homogeneous reflections are
+\[
+ q=\log|\mathfrak m_p|\in\PSH_{\mathrm{hom},X}(\theta),
+ \qquad
+ q_\lambda=c(\lambda)\log|\mathfrak m_p|,
+\]
+with \(\beta^*q=\psi_Y\) and \(\beta^*q_\lambda=\widehat u_\lambda\), by
+\Cref{ex:ch39-blowup-point} and \Cref{thm:bj-homogeneous-reflection}.
+Formula \eqref{eq:bj-reflected-window} gives
+\[
+ v_1=\max\Bigl\{\log|\mathfrak m_p|-1,\
+ \sup_{-1\le\lambda\le0}
+ \bigl(c(\lambda)\log|\mathfrak m_p|+\lambda\bigr)\Bigr\}
+ =\max\bigl\{3\log|\mathfrak m_p|,\ \log|\mathfrak m_p|-1\bigr\},
+\]
+and \(v_M=v_1\) for every \(M\ge1\), because for \(\lambda\le-1\) the
+competitor \(q_\lambda+\lambda=\log|\mathfrak m_p|+\lambda\) is dominated by
+the term \(\log|\mathfrak m_p|-1\) already present.  So the truncation
+removal of Step~3 is instantaneous here, and
+\[
+ v=\max\bigl\{3\log|\mathfrak m_p|,\ \log|\mathfrak m_p|-1\bigr\}
+ \in\PSH_X(\theta),
+ \qquad
+ \beta^*v=u .
+\]
+
+\emph{The proper-support values.}  At \(v_{p,\triv}\in X^{\An}\) one has
+\(\log|\mathfrak m_p|=-\infty\), hence \(v(v_{p,\triv})=-\infty\); and
+\(u\equiv-\infty\) on the fibre \(E^{\An}=(\beta^{\An})^{-1}(v_{p,\triv})\).
+The two are consistent, as \Cref{cor:ch39-fibre-constant} requires.  Note
+that the identity \(\beta^*v=u\) is an identity of extended-real functions
+including at these points; it was obtained without ever writing a difference
+of two infinite values, and the intermediate objects
+\(v_M\) were finite wherever \(\log|\mathfrak m_p|\) is.
+\end{example}
+
+\begin{remark}[A carrier that fails]
+\label{rem:ch39-carrier-fails}
+It is instructive to see the hypothesis fail.  Replace
+\eqref{eq:ch39-carrier-u} by \(u':=\max\{\psi_Y,\ -1\}\), a bounded
+\(H\)-psh function, and ask whether \(\psi_Y\) is a carrier for it.  It is
+not: \(u'\le\psi_Y+C\) would require \(-1\le-s+C\) for every \(s\), which
+fails for \(s>C+1\).  The slices bear this out: by the computation of
+\Cref{ex:ch35-legendre-pair-p1}, transported through
+\Cref{ex:ch39-blowup-point}, one finds
+\(\widehat{u'}_\lambda=\max\{0,1+\lambda\}\psi_Y\), whose coefficient is
+\(<1\) for \(\lambda<0\), so that
+\(\widehat{u'}_\lambda\not\le\psi_Y\) off the vertex, contradicting
+\eqref{eq:bj-slice-below-carrier}.  Of course \(u'\) does have the
+tautological carrier \(0\), \(H\) being nef, and
+\Cref{cor:ch39-nef-reflection} applies; the point is only that not every
+homogeneous psh function dominates a given \(u\), and that
+\Cref{lem:ch35-carrier-tail} is sensitive to which one is chosen.
+\end{remark}
+
+\section{The canonical carrier and descent of the envelope property}
+\label{sec:ch39-descent}
+
+Up to this point no envelope hypothesis has been made.  In this section one
+is made, explicitly and on the source \(Y\), and it is used for exactly one
+purpose: to manufacture a single homogeneous function carrying every
+\(\beta^*\theta\)-psh function at once.  The output,
+\Cref{thm:bj-birational-ep-descent}, carries no hypothesis on \(X\).
+
+\subsection{The canonical carrier}
+\label{sec:ch39-canonical-carrier}
+
+\begin{lemma}
+\label{lem:bj-canonical-carrier}
+Let \(Y\) be normal projective and let
+\(\eta\in N^1(Y)_{\mathbf R}\).  Assume
+\(\PSH_Y(\eta)\ne\varnothing\) and
+\(\operatorname{EP}_Y(\eta)\).  Then
+\[
+ P_Y:=\left(\sup\{w\in\PSH_Y(\eta):\sup w\le0\}\right)^*
+\tag{39.47}\label{eq:bj-canonical-carrier}
+\]
+is homogeneous psh.  Every \(u\in\PSH_Y(\eta)\) satisfies
+\[
+                              u\le P_Y+\sup u.
+\tag{39.48}\label{eq:bj-canonical-carrier-bound}
+\]
+\end{lemma}
+
+\begin{proof}
+Write \(\mathcal F:=\{w\in\PSH_Y(\eta):\sup w\le0\}\).
+
+\emph{\(\mathcal F\) is nonempty and bounded above.}  Choose
+\(u\in\PSH_Y(\eta)\).  Its supremum \(\sup u\) is a real number, by
+\Cref{prop:ch32-maximum-principle}\,\cref{itm:ch32-mp:sup} and generic
+finiteness, so \(u-\sup u\in\PSH_Y(\eta)\) by
+\Cref{lem:ch39-closure-any-class}\,(1) and it has supremum \(0\); hence
+\(u-\sup u\in\mathcal F\).  Every member of \(\mathcal F\) is \(\le0\).
+
+\emph{\(P_Y\) is \(\eta\)-psh.}  This is the hypothesis
+\(\operatorname{EP}_Y(\eta)\) of \Cref{def:bj-envelope-property}, applied to
+the nonempty bounded-above family \(\mathcal F\); it is the only place in
+this chapter where an envelope property is invoked, and it is invoked as an
+assumption.
+
+\emph{\(P_Y\) is homogeneous.}  Let \(t>0\) and let \(\sigma_t:Y^{\An}\to
+Y^{\An}\), \(v\mapsto tv\), which is a homeomorphism by
+\Cref{prop:ch32-scaling-action}\,\cref{itm:ch32-sa:cont}.  The scaling action
+of \eqref{eq:bj-psh-scaling} is \(t\cdot w=t\,(w\circ\sigma_{t^{-1}})\).
+It preserves \(\PSH_Y(\eta)\), by
+\Cref{lem:ch35-action-basic}\,(6) applied to an approximating net together
+with \Cref{def:bj-psh}, and it scales suprema:
+\(\sup(t\cdot w)=t\sup w\), by
+\Cref{lem:ch35-action-basic}\,(4).  Hence \(w\mapsto t\cdot w\) maps
+\(\mathcal F\) bijectively onto itself, with inverse
+\(w\mapsto t^{-1}\cdot w\).  Consequently
+\[
+ t\cdot\Bigl(\sup_{w\in\mathcal F}w\Bigr)
+ =\sup_{w\in\mathcal F}(t\cdot w)=\sup_{w\in\mathcal F}w,
+\]
+by \Cref{lem:ch35-action-basic}\,(4).  Finally the operations
+\(f\mapsto f\circ\sigma_{t^{-1}}\) and \(f\mapsto tf\) both commute with
+upper-semicontinuous regularization --- the first because \(\sigma_{t^{-1}}\)
+is a homeomorphism and \eqref{eq:appE-usc-regularization} is defined by
+neighbourhood filters, the second because multiplication by \(t>0\) is an
+increasing homeomorphism of \(\Rbar\), by
+\Cref{lem:appE-usc-calculus}.  Therefore
+\(t\cdot P_Y=(t\cdot\sup\mathcal F)^*=(\sup\mathcal F)^*=P_Y\), which is
+homogeneity in the sense of \Cref{def:homogeneous-function}.  Since
+\(P_Y\) is \(\eta\)-psh and homogeneous,
+\(P_Y\in\PSH_{\mathrm{hom},Y}(\eta)\).
+
+\emph{The bound.}  For \(u\in\PSH_Y(\eta)\) the function \(u-\sup u\) lies
+in \(\mathcal F\), hence \(u-\sup u\le\sup\mathcal F\le P_Y\), which is
+\eqref{eq:bj-canonical-carrier-bound} after adding the finite constant
+\(\sup u\).
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch39-canonical-carrier-props}
+Under the hypotheses of \Cref{lem:bj-canonical-carrier}:
+\begin{enumerate}
+\item\label{itm:ch39-cc:max} \(P_Y\) is the largest element of
+ \(\PSH_{\mathrm{hom},Y}(\eta)\); in particular
+ \(P_Y(v_{\triv})=0\) and \(P_Y\le0\);
+\item\label{itm:ch39-cc:nef} \(P_Y=0\) if and only if \(\eta\) is nef;
+\item\label{itm:ch39-cc:idem} \(P_Y\) is a carrier for itself, with
+ \(C=0\), and \(t\cdot P_Y=P_Y\) for every \(t>0\);
+\item\label{itm:ch39-cc:pull} if \(\eta=\beta^*\theta\) then
+ \(P_Y=\beta^*P_X\) for a unique
+ \(P_X\in\PSH_{\mathrm{hom},X}(\theta)\), and \(P_X\) is the largest element
+ of \(\PSH_{\mathrm{hom},X}(\theta)\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch39-cc:max}  Every \(\psi\in\PSH_{\mathrm{hom},Y}(\eta)\) has
+\(\sup\psi=\psi(v_{\triv})=0\) by
+\Cref{prop:ch35-homogeneous-normalization}, so \(\psi\in\mathcal F\) and
+\(\psi\le P_Y\); and \(P_Y\) itself lies in
+\(\PSH_{\mathrm{hom},Y}(\eta)\) by \Cref{lem:bj-canonical-carrier}.  Taking
+\(\psi=u-\sup u\) for any \(u\) shows \(P_Y(v_{\triv})\ge0\), while
+\(P_Y\le0\) gives the reverse.
+
+\cref{itm:ch39-cc:nef}  If \(\eta\) is nef then \(0\in\PSH_Y(\eta)\) by
+\Cref{lem:ch34-psh-nonempty} and \(0\) is homogeneous, so \(0\le P_Y\le0\).
+Conversely if \(P_Y=0\) then the constant \(0\) is \(\eta\)-psh, hence
+bounded and \(\eta\)-psh, so \(\eta\) is nef by
+\Cref{lem:ch34-psh-nonempty}.
+
+\cref{itm:ch39-cc:idem} is \eqref{eq:bj-canonical-carrier-bound} with
+\(u=P_Y\), since \(\sup P_Y=0\); homogeneity was proved above.
+
+\cref{itm:ch39-cc:pull} is \Cref{thm:bj-homogeneous-reflection} together with
+\Cref{cor:ch39-hom-structure}\,\cref{itm:ch39-hs:order}, which transports the
+maximality.
+\end{proof}
+
+\begin{warning}{The canonical carrier is an assumption, not a construction}
+\label{warn:ch39-canonical-carrier}
+Formula \eqref{eq:bj-canonical-carrier} makes sense for every
+\(\eta\), and the resulting function is always homogeneous, upper
+semicontinuous and \(\le0\).  What requires
+\(\operatorname{EP}_Y(\eta)\) is the assertion that it is \emph{psh}.
+Without that, \(P_Y\) is one more upper-semicontinuous function with the
+right divisorial trace, and
+\Cref{ex:ch39-two-usc-extensions} shows how little that determines.  The
+temptation to regard \eqref{eq:bj-canonical-carrier} as a construction, and
+hence \Cref{thm:bj-carrier-reflection} as unconditional, is exactly the
+circular step that \Cref{warn:ch39-firewall} forbids: the envelope property
+for \(X\) is what this chapter is helping to prove.
+\end{warning}
+
+\subsection{Descent}
+\label{sec:ch39-ep-descent}
+
+\begin{theorem}
+\label{thm:bj-birational-ep-descent}
+For \eqref{eq:bj-reflection-map},
+\[
+ \operatorname{EP}_Y(\beta^*\theta)
+ \quad\Longrightarrow\quad
+ \operatorname{EP}_X(\theta).
+\tag{39.49}\label{eq:bj-birational-ep-descent}
+\]
+If source EP holds and the upstairs psh space is nonempty, pullback is a
+bijection
+\[
+ \beta^*:\PSH_X(\theta)
+       \xrightarrow{\ \sim\ }\PSH_Y(\beta^*\theta).
+\tag{39.50}\label{eq:bj-ordinary-reflection-under-ep}
+\]
+\end{theorem}
+
+\begin{proof}
+Suppose first that \(\PSH_Y(\beta^*\theta)=\varnothing\).  Then
+\(\PSH_X(\theta)=\varnothing\) as well, because
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:psh} maps the latter into the
+former; so \(\operatorname{EP}_X(\theta)\) holds vacuously, there being no
+nonempty family to test, and \eqref{eq:bj-ordinary-reflection-under-ep} is
+an identity of empty sets.  Assume from now on that
+\(\PSH_Y(\beta^*\theta)\ne\varnothing\).
+
+\emph{The bijection.}  By \Cref{lem:bj-canonical-carrier}, applied on \(Y\)
+with \(\eta=\beta^*\theta\), the function \(P_Y\) of
+\eqref{eq:bj-canonical-carrier} lies in
+\(\PSH_{\mathrm{hom},Y}(\beta^*\theta)\) and satisfies
+\(u\le P_Y+\sup u\) for every \(u\in\PSH_Y(\beta^*\theta)\).  Thus every
+such \(u\) has a homogeneous carrier in the sense of
+\Cref{def:bj-homogeneous-carrier}, with the finite constant \(C=\sup u\),
+and \Cref{thm:bj-carrier-reflection} produces a unique
+\(v\in\PSH_X(\theta)\) with \(\beta^*v=u\).  This is surjectivity in
+\eqref{eq:bj-ordinary-reflection-under-ep}; injectivity is
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:order}.
+
+\emph{The envelope property downstairs.}  By
+\Cref{prop:bj-increasing-net-criterion} it suffices to verify the
+increasing-net form: for every bounded-above upward-directed net
+\((v_j)_{j\in J}\) in \(\PSH_X(\theta)\), the pointwise supremum
+\(\sup_jv_j\) on \(X^{\divis}\) is the divisorial trace of an element of
+\(\PSH_X(\theta)\).  If \(\PSH_X(\theta)=\varnothing\) there is no such net
+and the criterion holds vacuously; assume there is one.
+
+Pull back.  By \Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:psh} and
+\cref{itm:ch39-pb:order}, the family \((\beta^*v_j)\) is an upward-directed
+net in \(\PSH_Y(\beta^*\theta)\), bounded above by the same constant.  The
+hypothesis \(\operatorname{EP}_Y(\beta^*\theta)\), through the equivalence
+\Cref{prop:bj-increasing-net-criterion}, supplies
+\[
+ U_Y\in\PSH_Y(\beta^*\theta),\qquad
+ U_Y(w)=\sup_j\beta^*v_j(w)
+ \quad(w\in Y^{\divis}).
+\tag{39.51}\label{eq:bj-source-net-limit}
+\]
+Reflect \(U_Y\) using its canonical carrier: by the previous paragraph there
+is a unique \(U_X\in\PSH_X(\theta)\) with \(\beta^*U_X=U_Y\).
+
+It remains to compute the divisorial trace of \(U_X\).  The common function
+field identifies \(X^{\divis}\) and \(Y^{\divis}\), and \(\beta^{\An}\)
+restricts to the identity there, by
+\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:val}.  Hence for
+\(v\in X^{\divis}\),
+\[
+ U_X(v)=\beta^*U_X(v)=U_Y(v)
+ =\sup_j\beta^*v_j(v)=\sup_jv_j(v).
+\]
+So \(\sup_jv_j\) on \(X^{\divis}\) is the divisorial trace of
+\(U_X\in\PSH_X(\theta)\), which is the increasing-net criterion; and
+\Cref{prop:bj-increasing-net-criterion} then also identifies
+\(U_X=(\sup_jv_j)^*\).  This proves
+\(\operatorname{EP}_X(\theta)\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch39-ep-tower}
+Let \(X\) be normal integral projective and \(\theta\in N^1(X)_{\mathbf R}\).
+\begin{enumerate}
+\item\label{itm:ch39-tow:comp} If \(Z\xrightarrow{\ \gamma\ }Y
+ \xrightarrow{\ \beta\ }X\) are projective birational morphisms of normal
+ integral projective varieties, then
+ \(\operatorname{EP}_Z((\beta\gamma)^*\theta)\) implies
+ \(\operatorname{EP}_Y(\beta^*\theta)\) and hence
+ \(\operatorname{EP}_X(\theta)\).
+\item\label{itm:ch39-tow:some} If \(\operatorname{EP}_Y(\beta^*\theta)\)
+ holds for \emph{some} normal projective model \(\beta:Y\to X\), then
+ \(\operatorname{EP}_X(\theta)\) holds.
+\item\label{itm:ch39-tow:all} If \(\operatorname{EP}_Y(\beta^*\theta)\)
+ holds for some model \(\beta:Y\to X\), it holds for every model dominated
+ by \(Y\).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\cref{itm:ch39-tow:comp} is \Cref{thm:bj-birational-ep-descent} applied
+twice, to \(\gamma\) with the class \(\beta^*\theta\) and then to
+\(\beta\) with the class \(\theta\); the composite class matches because
+\((\beta\gamma)^*=\gamma^*\beta^*\).  \cref{itm:ch39-tow:some} is the case
+\(Z=Y\), and \cref{itm:ch39-tow:all} is \cref{itm:ch39-tow:comp} with the
+intermediate model in the middle.
+\end{proof}
+
+\begin{remark}[The implication is one-way, as proved here]
+\label{rem:ch39-one-way}
+\Cref{thm:bj-birational-ep-descent} proves
+\(\operatorname{EP}_Y(\beta^*\theta)\Rightarrow\operatorname{EP}_X(\theta)\)
+and says nothing about the converse.  The obstruction is visible: to run the
+argument in the other direction one would need to reflect a family upstairs
+to a family downstairs, that is, to know that every
+\(u\in\PSH_Y(\beta^*\theta)\) is a pullback; and that is
+\eqref{eq:bj-ordinary-reflection-under-ep}, whose proof needs a carrier for
+each \(u\), that is, needs \(\operatorname{EP}_Y\) itself.  After
+\Cref{thm:bj-final-envelope} has been proved, both properties hold for all
+normal projective \(X\) and all real classes, so the converse is true; but
+it is true as a consequence of the theorem, not as an input, and using it
+here would be circular.  The one-way arrow is drawn as such in
+\eqref{eq:bj-ep-reflection-diagram}.
+\end{remark}
+
+\begin{remark}[How \Cref{chap:bj-alterations} and
+\Cref{chap:bj-finite-descent} consume this section]
+\label{rem:ch39-downstream}
+\Cref{chap:bj-alterations} factors an alteration \(f:Y\to X\) as
+\(Y\xrightarrow{g}T\xrightarrow{h}X\) with \(g\) birational and \(h\)
+finite, and applies \Cref{thm:bj-birational-ep-descent} to \(g\) with the
+class \(h^*\theta\) on \(T\); the class \(h^*\theta\) is an arbitrary real
+class on a normal projective variety, which is why the present chapter is
+stated without any positivity hypothesis.
+\Cref{chap:bj-finite-descent} uses instead the two ingredients separately:
+\Cref{lem:bj-canonical-carrier} to produce a homogeneous carrier on the
+source of a finite map, and \Cref{thm:bj-carrier-reflection} to reflect
+along a birational modification appearing in the flattening construction.
+Neither chapter uses \Cref{thm:bj-homogeneous-reflection} directly; they use
+it through \Cref{thm:bj-carrier-reflection}.
+\end{remark}
+
+\section{Proper support and the extended-real audit}
+\label{sec:ch39-safeguards}
+
+Every function produced in this chapter takes values in
+\([-\infty,+\infty)\), and the value \(-\infty\) is attained exactly on a
+subset of the proper-support locus, by
+\eqref{eq:divisor-section-pole} and
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:polar}.  The
+proof-audit list of \Cref{chap:bj-envelope-statement} contains the entries
+``values at proper-support semivaluations'' and ``every use of subtraction
+involving an infinite value''.  We discharge them here.
+
+\subsection{The audit}
+\label{sec:ch39-audit}
+
+\begin{proposition}
+\label{prop:ch39-safeguards}
+In the proofs of \Cref{thm:bj-homogeneous-reflection},
+\Cref{lem:bj-compact-legendre-window},
+\Cref{thm:bj-carrier-reflection},
+\Cref{lem:bj-canonical-carrier} and
+\Cref{thm:bj-birational-ep-descent}, every extended-real operation is one of
+the following, and each is legitimate for the reason stated.
+\begin{enumerate}
+\item\label{itm:ch39-safe:eval}
+ \emph{Evaluation of a Cartier b-divisor.}  The numbers \(D_j(v)\),
+ \(v(F)\), \(v(G)\) and \(E_j(v)\) of
+ \Cref{lem:ch39-interpolation}\,\cref{itm:ch39-int:limit} are finite real
+ numbers for \(v\in X^{\divis}\), by
+ \Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:finite}.  Only
+ the limit \(D(v)=\sup_jD_j(v)\) may equal \(+\infty\), and it is never
+ subtracted; the limit \eqref{eq:bj-reflection-Ei-limit} is computed in
+ \([0,+\infty]\) as a monotone limit.
+\item\label{itm:ch39-safe:sum}
+ \emph{The divisorial identity.}  In
+ \eqref{eq:bj-reflection-divisorial-identity} both summands lie in
+ \([-\infty,0]\), so the sum is defined by ledger entry~(2) of
+ \Cref{sec:extended-arithmetic}.  The identity is asserted as an identity of
+ sums, never solved for \(\psi(v)\) at a point where
+ \(\log|s_F|(v)=-\infty\); at divisorial points the latter is finite and the
+ solution is legitimate.
+\item\label{itm:ch39-safe:cancel}
+ \emph{The cancellation in Step~7.}  From
+ \(\psi+\log|s_{\beta^*F}|=\beta^*u+\log|s_{\beta^*F}|\) one concludes
+ \(\psi=\beta^*u\) only at points of \(Y^{\divis}\), where the common
+ summand is a real number and addition of it is injective on
+ \([-\infty,+\infty)\).  The extension to \(Y^{\An}\) is then made by
+ \Cref{prop:ch39-determination-package}\,\cref{itm:ch39-det:equal}, not by
+ cancelling infinities.
+\item\label{itm:ch39-safe:siu}
+ \emph{Siu division.}  \Cref{thm:ch35-homogeneous-siu-general} outputs the
+ identity \(\chi=\log|s_F|+u\) directly.  It is never rearranged as
+ \(u=\chi-\log|s_F|\); \Cref{warn:ch39-no-subtraction} and
+ \Cref{ex:ch39-subtraction-fails} show that no convention would make the
+ rearrangement correct.
+\item\label{itm:ch39-safe:carrier}
+ \emph{The carrier estimate.}  In
+ \eqref{eq:bj-carrier-slice-estimate} the quantity subtracted is the real
+ number \(t\lambda\), by ledger entry~(2).  Where \(p(v)=-\infty\), carrier
+ domination forces \(u(t^{-1}v)=-\infty\) and both sides are \(-\infty\); no
+ indeterminate difference arises.  The inequality
+ \eqref{eq:bj-carrier-domination} is never rewritten as \(u-p\le C\).
+\item\label{itm:ch39-safe:window}
+ \emph{The window lemma.}  The proof of
+ \Cref{lem:bj-compact-legendre-window} uses only finite maxima, additions of
+ real constants, and one decreasing limit.  All three are defined on
+ \([-\infty,+\infty)\) without convention, by
+ \Cref{lem:extended-real-safe}, so the argument is literal at points where
+ every entry is \(-\infty\).
+\item\label{itm:ch39-safe:truncation}
+ \emph{Removing the truncation.}  The limit
+ \(\max\{u,p-M\}\downarrow u\) of Step~3 of
+ \Cref{thm:bj-carrier-reflection} holds pointwise on all of \(Y^{\An}\),
+ including on \(\{p=-\infty\}\), where both sides are \(-\infty\) by
+ \eqref{eq:bj-carrier-domination}.  It is a monotone limit in \(\Rbar\).
+\item\label{itm:ch39-safe:canonical}
+ \emph{The canonical carrier.}  The bound
+ \eqref{eq:bj-canonical-carrier-bound} is an inequality of functions into
+ \([-\infty,0]\) plus a real constant.  The normalization \(u-\sup u\)
+ subtracts the real number \(\sup u\), finite by
+ \Cref{prop:ch32-maximum-principle}\,\cref{itm:ch32-mp:sup}.
+\item\label{itm:ch39-safe:value}
+ \emph{Values at proper support.}  The value of a reflected function at a
+ point of proper support is never computed by a formula.  It is determined
+ by \Cref{prop:ch39-determination-package}\,\cref{itm:ch39-det:equal}, which
+ fixes it once the divisorial trace and the psh property are known, and
+ \Cref{ex:ch39-two-usc-extensions} shows that the divisorial trace alone
+ does not fix it.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Each item was verified where it occurs; the list is a record, and the
+justifications are those given in the corresponding proofs, together with
+\Cref{lem:extended-real-safe} and the ledger of
+\Cref{sec:extended-arithmetic}.
+\end{proof}
+
+\subsection{What fails if a safeguard is dropped}
+\label{sec:ch39-safeguard-failures}
+
+\begin{example}[The forbidden subtraction, in numbers]
+\label{ex:ch39-subtraction-fails}
+Continue \Cref{ex:ch39-blowup-reflection-numbers}: \(X=\mathbf P^2\),
+\(p\in X\), \(F=L\) a line through \(p\) with equation \(\ell\), and
+\[
+ \chi=\log|\ell\cdot\mathfrak m_p|,\qquad
+ \log|s_F|=\log|\ell|,\qquad
+ u=\log|\mathfrak m_p| ,
+\]
+so that \(\chi=\log|s_F|+u\) is \eqref{eq:bj-reflection-siu}.  Evaluate at
+two points of proper support.
+
+At \(v_{p,\triv}\), the trivial semivaluation of the point \(p\): both
+\(\ell\) and every element of \(\mathfrak m_p\) vanish at \(p\), so
+\[
+ \chi(v_{p,\triv})=-\infty,\quad
+ \log|s_F|(v_{p,\triv})=-\infty,\quad
+ u(v_{p,\triv})=-\infty .
+\]
+
+At \(v_{r,\triv}\) for a closed point \(r\in L\smallsetminus\{p\}\): the
+form \(\ell\) vanishes at \(r\), so \(v_{r,\triv}(\ell)=+\infty\) and
+\(\log|s_F|(v_{r,\triv})=-\infty\), whence also
+\(\chi(v_{r,\triv})=-\infty\); but \(\mathfrak m_p\) is the unit ideal in
+\(\cO_{X,r}\), so
+\[
+ u(v_{r,\triv})=-v_{r,\triv}(\mathfrak m_p)=0 .
+\]
+
+Thus the pair \((\chi,\log|s_F|)\) takes the value
+\((-\infty,-\infty)\) at both points, while the correct value of \(u\) is
+\(-\infty\) at the first and \(0\) at the second.  No rule assigning a value
+to \((-\infty)-(-\infty)\) can produce both.  The subtraction
+\(u:=\chi-\log|s_F|\) is therefore not merely undefined by convention: it is
+undefined because the information required to define it is absent from the
+pair.  This is the exact analogue, on the reflection side, of
+\Cref{ex:ch38-naive-realization-fails}, and it is why Step~6 of the proof of
+\Cref{thm:bj-homogeneous-reflection} is performed by division rather than by
+subtraction.
+\end{example}
+
+\begin{example}[A naive fibrewise definition is inconsistent]
+\label{ex:ch39-naive-fibre-definition}
+Suppose one tried to define the reflection of \(\psi\in\PSH_Y(\eta)\) by
+choosing, for each \(x\in X^{\An}\), a preimage \(w_x\) with
+\(\beta^{\An}(w_x)=x\) and setting \(\chi(x):=\psi(w_x)\).  For
+\(\eta=\beta^*\theta\) this is consistent, by
+\Cref{cor:ch39-fibre-constant} --- but that corollary is a consequence of
+\Cref{thm:bj-homogeneous-reflection} and therefore unavailable at the
+outset.  For a general \(\eta\) the recipe is genuinely inconsistent: with
+\(Y=\operatorname{Bl}_p\mathbf P^2\), \(q\in E\) and
+\(\psi'=\log|\mathcal I_q|\) as in \Cref{ex:ch39-not-fibre-constant}, the
+two preimages \(v_{q,\triv}\) and \(v_{E,\triv}\) of \(v_{p,\triv}\) give
+\[
+ \psi'(v_{q,\triv})=-\infty,
+ \qquad
+ \psi'(v_{E,\triv})=0 ,
+\]
+so the recipe would produce two different values at the single point
+\(v_{p,\triv}\).  The failure is invisible on \(X^{\divis}\), where the
+fibres are singletons by
+\Cref{prop:ch39-fibres}\,\cref{itm:ch39-fib:val}; it is a proper-support
+phenomenon exclusively.
+\end{example}
+
+\begin{warning}{Proper-support values are not recovered by density}
+\label{warn:ch39-proper-support}
+\(X^{\divis}\) is dense in \(X^{\An}\)
+(\Cref{thm:triv-divisorial-density}), and a first instinct is to define the
+missing values by a limit along divisorial points.  This does not work, for
+two independent reasons.  Evaluation at a proper-support point is not
+continuous on \(\PSH_X(\theta)\)
+(\Cref{ex:ch35-evaluation-discontinuous}); and a limit along a net of
+divisorial points computes only an upper bound, since the functions involved
+are upper semicontinuous, so it constrains the value from one side only
+(\Cref{lem:ch35-density-gives} and the discussion after
+\Cref{prop:ch39-determination-package}).  What does fix the value is
+plurisubharmonicity together with the divisorial trace, by
+\Cref{prop:ch39-determination-package}\,\cref{itm:ch39-det:equal}; and that
+is a theorem about psh functions, not about dense subsets.
+\end{warning}
+
+\section{The exact functorial diagram}
+\label{sec:ch39-diagram}
+
+We collect the results as diagrams, and we label every arrow with what has
+actually been proved about it: \(\sim\) for a bijection,
+\(\hookrightarrow\) for an injection that is not asserted to be surjective,
+\(=\) for an identification of objects, and \(\Rightarrow\) for an
+implication of properties.  A dashed arrow marks an implication that is
+\emph{not} proved in this chapter.
+
+\subsection{Notation for the diagram}
+\label{sec:ch39-diagram-notation}
+
+Besides \(\PSH_{\mathrm{hom}}\) and \(\PSH\) we use two further objects.
+First, the carrier-dominated subset
+\[
+ \PSH^{\mathrm{car}}_X(\theta)
+ :=\bigl\{\phi\in\PSH_X(\theta)\ :\
+ \exists\,p\in\PSH_{\mathrm{hom},X}(\theta),\ \exists\,C\in\mathbf R,\
+ \phi\le p+C\bigr\},
+\tag{39.52}\label{eq:ch39-carrier-subset}
+\]
+which contains \(\PSH_{\mathrm{hom},X}(\theta)\) --- take \(p=\phi\),
+\(C=0\) --- and which equals \(\PSH_X(\theta)\) when \(\theta\) is nef, by
+\Cref{cor:ch39-nef-reflection}, or when \(\operatorname{EP}_X(\theta)\)
+holds, by \Cref{lem:bj-canonical-carrier}.  Second, the set
+\[
+ \mathrm{Cart}^{\le0}_{\nef}(X,\theta)
+ :=\bigl\{B\ \text{real Cartier b-divisor over }X\ :\
+ B\le0,\ B\ \text{nef-total in }\theta\bigr\}
+\]
+of \Cref{def:bj-real-cartier-bdivisor} and \Cref{def:bj-nef-total}.
+
+\begin{proposition}
+\label{prop:ch39-carrier-subset}
+\(\beta^*\) restricts to a bijection
+\[
+ \beta^*:\PSH^{\mathrm{car}}_X(\theta)
+ \xrightarrow{\ \sim\ }\PSH^{\mathrm{car}}_Y(\beta^*\theta),
+\]
+and \(\PSH^{\mathrm{car}}_Y(\beta^*\theta)\) is contained in the image of
+\(\beta^*:\PSH_X(\theta)\to\PSH_Y(\beta^*\theta)\).
+\end{proposition}
+
+\begin{proof}
+If \(\phi\le p+C\) on \(X^{\An}\) with
+\(p\in\PSH_{\mathrm{hom},X}(\theta)\), then
+\(\beta^*\phi\le\beta^*p+C\) with
+\(\beta^*p\in\PSH_{\mathrm{hom},Y}(\beta^*\theta)\) by
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:psh}; so \(\beta^*\) maps
+\(\PSH^{\mathrm{car}}_X(\theta)\) into
+\(\PSH^{\mathrm{car}}_Y(\beta^*\theta)\), injectively.
+
+Conversely let \(u\in\PSH^{\mathrm{car}}_Y(\beta^*\theta)\), say
+\(u\le p_Y+C\) with \(p_Y\in\PSH_{\mathrm{hom},Y}(\beta^*\theta)\).  By
+\Cref{thm:bj-homogeneous-reflection} there is
+\(q\in\PSH_{\mathrm{hom},X}(\theta)\) with \(\beta^*q=p_Y\), and by
+\Cref{thm:bj-carrier-reflection} there is \(v\in\PSH_X(\theta)\) with
+\(\beta^*v=u\).  Then \(\beta^*v\le\beta^*(q+C)\), so \(v\le q+C\) by
+\Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:order}, and
+\(v\in\PSH^{\mathrm{car}}_X(\theta)\).  This proves surjectivity and the
+last assertion.
+\end{proof}
+
+\subsection{The unconditional diagrams}
+\label{sec:ch39-diagram-unconditional}
+
+The b-divisor level is the source of everything, and it is where the two
+varieties are literally identified:
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+\mathrm{Cart}^{\le0}_{\nef}(X,\theta)
+ \arrow[r,equal,"\text{same objects}"]
+ \arrow[d,hook,"B\mapsto\chi^X_B"']
+&
+\mathrm{Cart}^{\le0}_{\nef}(Y,\beta^*\theta)
+ \arrow[d,hook,"B\mapsto\chi^Y_B"]
+\\
+\PSH_{\mathrm{hom},X}(\theta)
+ \arrow[r,"\beta^*"," \sim"']
+&
+\PSH_{\mathrm{hom},Y}(\beta^*\theta)
+\end{tikzcd}
+\tag{39.53}\label{eq:ch39-bdivisor-square}
+\]
+The top identification is \Cref{lem:ch39-total-class}: antieffectivity and
+nef-totality of a Cartier b-divisor are computed on a determination and do
+not remember whether the base is \(X\) or \(Y\).  The vertical arrows are
+the realization functors of \Cref{thm:bj-real-cartier-realization}; they are
+injective, because a realization is determined by its divisorial trace and
+distinct b-divisors have distinct traces
+(\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear}), and
+they are \emph{not} surjective, by \Cref{rem:ch38-cartier-not-weil}.  The
+square commutes by \Cref{prop:ch39-cartier-reflection}.  The bottom arrow is
+\Cref{thm:bj-homogeneous-reflection}.
+
+The psh level is the square announced in the introduction:
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+\PSH_{\mathrm{hom},X}(\theta)
+ \arrow[r,"\beta^*"," \sim"']
+ \arrow[d,hook]
+&
+\PSH_{\mathrm{hom},Y}(\beta^*\theta)
+ \arrow[d,hook]
+\\
+\PSH^{\mathrm{car}}_X(\theta)
+ \arrow[r,"\beta^*"," \sim"']
+ \arrow[d,hook]
+&
+\PSH^{\mathrm{car}}_Y(\beta^*\theta)
+ \arrow[d,hook]
+\\
+\PSH_X(\theta)
+ \arrow[r,"\beta^*",hook]
+&
+\PSH_Y(\beta^*\theta).
+\end{tikzcd}
+\tag{39.54}\label{eq:bj-reflection-square}
+\]
+The two upper horizontal arrows are bijections, by
+\Cref{thm:bj-homogeneous-reflection} and
+\Cref{prop:ch39-carrier-subset}.  The bottom horizontal arrow is an
+injection, by \Cref{thm:ch39-pullback}\,\cref{itm:ch39-pb:order}, and it is
+\emph{not} asserted to be surjective: a point of the lower right corner is
+known to lie in the image as soon as it has a homogeneous carrier, which is
+the middle row, and \Cref{ex:ch39-not-fibre-constant} shows that psh
+functions on \(Y\) in other classes may fail to be pullbacks.  The vertical
+arrows are the inclusions of \eqref{eq:ch39-carrier-subset}.  The top pair
+is strict whenever \(\theta\) is nef: the nonzero constants are then
+\(\theta\)-psh by \Cref{lem:ch34-psh-nonempty}, they are carrier-dominated
+by \(0\), and they are not homogeneous, since \(t\cdot c=tc\).  The bottom
+pair is an equality whenever \(\theta\) is nef --- again because \(0\) is
+then a homogeneous carrier for every psh function, as in the proof of
+\Cref{cor:ch39-nef-reflection} --- and whenever
+\(\operatorname{EP}_Y(\beta^*\theta)\) holds, by
+\Cref{lem:bj-canonical-carrier} and \Cref{prop:ch39-carrier-subset}.
+
+\subsection{The conditional diagram}
+\label{sec:ch39-diagram-conditional}
+
+Abbreviate by \((\mathrm C)\) the statement ``the function
+\eqref{eq:bj-canonical-carrier} is a homogeneous \(\beta^*\theta\)-psh
+carrier for every \(u\in\PSH_Y(\beta^*\theta)\)'' and by \((\mathrm B)\) the
+statement ``\(\beta^*:\PSH_X(\theta)\to\PSH_Y(\beta^*\theta)\) is
+bijective''.  Then:
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+\operatorname{EP}_Y(\beta^*\theta)
+ \arrow[r,Rightarrow,"\mathrm{(a)}"]
+&
+(\mathrm C)
+ \arrow[r,Rightarrow,"\mathrm{(b)}"]
+&
+(\mathrm B)
+ \arrow[r,Rightarrow,"\mathrm{(c)}"]
+&
+\operatorname{EP}_X(\theta)
+ \arrow[lll,Rightarrow,dashed,bend left=22,"\text{not proved here}"']
+\end{tikzcd}
+\tag{39.55}\label{eq:bj-ep-reflection-diagram}
+\]
+Implication \(\mathrm{(a)}\) is \Cref{lem:bj-canonical-carrier}; it is the
+only use of an envelope property in this chapter, and it is a use of an
+\emph{assumption}.  Implication \(\mathrm{(b)}\) is
+\Cref{thm:bj-carrier-reflection}, applied to every \(u\) at once, together
+with the injectivity of \Cref{thm:ch39-pullback}.  Implication
+\(\mathrm{(c)}\) is the second half of the proof of
+\Cref{thm:bj-birational-ep-descent}: one reflects the increasing-net limit
+supplied by \(\operatorname{EP}_Y\) and reads off its divisorial trace,
+using \Cref{prop:bj-increasing-net-criterion}.  The dashed arrow is
+discussed in \Cref{rem:ch39-one-way}: it becomes true once
+\Cref{thm:bj-final-envelope} is available, and assuming it here would be
+circular.
+
+\begin{proposition}
+\label{prop:ch39-diagram}
+With the notation above, and for \(\beta:Y\to X\) and
+\(\theta\in N^1(X)_{\mathbf R}\) as in \eqref{eq:ch39-standing}:
+\begin{enumerate}
+\item\label{itm:ch39-diag:hom} the map \(\beta^*\) on homogeneous psh
+ classes is a bijection, unconditionally, and is compatible with order,
+ finite maxima, sums, scaling, Legendre slices and divisorial traces
+ (\Cref{cor:ch39-hom-structure});
+\item\label{itm:ch39-diag:car} the map \(\beta^*\) on carrier-dominated psh
+ classes is a bijection, unconditionally
+ (\Cref{prop:ch39-carrier-subset});
+\item\label{itm:ch39-diag:full} the map \(\beta^*\) on full psh classes is
+ an injection whose image contains
+ \(\PSH^{\mathrm{car}}_Y(\beta^*\theta)\); it is a bijection if
+ \(\theta\in\Nef(X)\) or if \(\operatorname{EP}_Y(\beta^*\theta)\) holds;
+\item\label{itm:ch39-diag:ep} \(\operatorname{EP}_Y(\beta^*\theta)\)
+ implies \(\operatorname{EP}_X(\theta)\), and the converse is not proved
+ here;
+\item\label{itm:ch39-diag:bdiv} the realization functors intertwine
+ \(\beta^*\) with the identity on Cartier b-divisors, and are injective but
+ not surjective.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Each item has been proved above:
+\cref{itm:ch39-diag:hom} is \Cref{thm:bj-homogeneous-reflection} and
+\Cref{cor:ch39-hom-structure}; \cref{itm:ch39-diag:car} is
+\Cref{prop:ch39-carrier-subset}; \cref{itm:ch39-diag:full} combines
+\Cref{thm:ch39-pullback}, \Cref{prop:ch39-carrier-subset},
+\Cref{cor:ch39-nef-reflection} and
+\Cref{thm:bj-birational-ep-descent}; \cref{itm:ch39-diag:ep} is
+\Cref{thm:bj-birational-ep-descent} and \Cref{rem:ch39-one-way}; and
+\cref{itm:ch39-diag:bdiv} is \Cref{lem:ch39-total-class},
+\Cref{prop:ch39-cartier-reflection} and
+\Cref{rem:ch38-cartier-not-weil}.
+\end{proof}
+
+\paragraph{Proof checkpoint.}
+Homogeneous reflection comes from real Cartier realization and the exact
+identity \eqref{eq:bj-reflection-total}, not from an envelope.  This is the
+logical fact that makes \eqref{eq:bj-ep-reflection-diagram} noncircular: the
+horizontal arrows of \eqref{eq:ch39-bdivisor-square} and of the top two rows
+of \eqref{eq:bj-reflection-square} are proved before any envelope hypothesis
+is written down, and implication \(\mathrm{(a)}\) is the only place where
+one appears.
+
+\paragraph{Proof checkpoint.}
+Carrier reflection uses \(u\le p+C\), not a bound by a homogeneous constant
+function.  The carrier controls the far Legendre tail, and the summable grid
+correction turns the compact-window supremum into a decreasing psh limit.
+When \(\theta\) is nef the constant function \(0\) is available as a
+carrier and the hypothesis is vacuous
+(\Cref{cor:ch39-nef-reflection}); the content of
+\Cref{thm:bj-carrier-reflection} lies in the non-nef range where
+\(\PSH_X(\theta)\) is nonempty; there the class is pseudoeffective but
+contains no bounded psh function.
+
+\section{Chapter dictionary}
+\label{sec:ch39-dictionary}
+
+The correspondences established or used in this chapter are the following.
+Each row records a statement together with the hypotheses under which it was
+proved.  Rows one and two are the topological dictionary of
+\Cref{sec:ch39-analytifications}; rows three to six are the reflection
+statements; rows seven and eight record what governs the passage to proper
+support and the direction of the envelope implication.
+
+\begin{center}
+\begin{tabular}{p{.29\textwidth}p{.31\textwidth}p{.29\textwidth}}
+\toprule
+analytic datum & birational datum & hypothesis\\
+\midrule
+\(\beta^{\An}\) on \(Y^{\divis}\) &
+the identity of \(X^{\divis}\) with \(Y^{\divis}\), via \(k(X)=k(Y)\) &
+\(\beta\) projective birational
+(\Cref{lem:ch39-beta-an}\,\cref{itm:ch39-ban:val})\\
+the fibre of \(\beta^{\An}\) over \(v_{p,\triv}\), \(p\in X\) a closed
+point &
+\(\bigl(\beta^{-1}(p)\bigr)^{\An}\), all of whose points have proper
+support &
+\(\beta\) proper birational
+(\Cref{prop:ch39-fibres}\,\cref{itm:ch39-fib:point})\\
+\(\beta^*\) on homogeneous psh classes, a bijection &
+the identity of antieffective Cartier b-divisors with nef total class &
+\(X,Y\) normal integral projective; no positivity of \(\theta\); no
+envelope property
+(\Cref{thm:bj-homogeneous-reflection}, \Cref{lem:ch39-total-class})\\
+\(\beta^*\) on carrier-dominated psh classes, a bijection &
+the compact Legendre window plus homogeneous reflection &
+a homogeneous carrier in the same class
+(\Cref{thm:bj-carrier-reflection}, \Cref{prop:ch39-carrier-subset})\\
+\(\beta^*\) on all psh classes, an injection &
+image contains the carrier-dominated part &
+none
+(\Cref{thm:ch39-pullback}, \Cref{prop:ch39-carrier-subset})\\
+\(\beta^*\) on all psh classes, a bijection &
+--- &
+\(\theta\in\Nef(X)\) (\Cref{cor:ch39-nef-reflection}), or
+\(\operatorname{EP}_Y(\beta^*\theta)\)
+(\Cref{thm:bj-birational-ep-descent})\\
+equality on \(X^{\divis}\) &
+equality on \(X^{\An}\), including at proper support &
+\emph{both} functions psh, in possibly different classes
+(\Cref{prop:ch39-determination-package}\,\cref{itm:ch39-det:equal})\\
+\(\operatorname{EP}_Y(\beta^*\theta)\) &
+\(\operatorname{EP}_X(\theta)\) &
+one-way as proved here
+(\Cref{thm:bj-birational-ep-descent}, \Cref{rem:ch39-one-way})\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Five separations should be carried forward.
+
+\emph{Divisorial point versus exceptional fibre.}  The exceptional divisor
+of \(\beta\) contributes one ray of \(X^{\divis}=Y^{\divis}\), on which
+\(\beta^{\An}\) is a bijection; the exceptional fibre of \(\beta^{\An}\)
+over the trivial semivaluation of the blown-up centre is a different object,
+lying entirely in the proper-support locus
+(\Cref{ex:ch39-fibre-plane}).  Statements proved on \(X^{\divis}\) say
+nothing directly about the latter, and the passage between them is
+\Cref{prop:ch39-determination-package}.
+
+\emph{Pulled-back class versus arbitrary class.}  Homogeneous psh functions
+in a pulled-back class are constant on the fibres of \(\beta^{\An}\)
+(\Cref{cor:ch39-fibre-constant}); in other classes they need not be
+(\Cref{ex:ch39-not-fibre-constant}).  Fibrewise constancy is a conclusion,
+never a hypothesis, and a proof that begins by defining the reflection
+fibrewise is circular (\Cref{ex:ch39-naive-fibre-definition}).
+
+\emph{Orientation of the drift versus its size.}  The approximating classes
+on \(Y\) converge to \(\beta^*\theta\), so the drift is arbitrarily small;
+that is not why it is harmless.  It is harmless because the correction
+\eqref{eq:bj-reflection-class-correction} is arranged to be \emph{ample},
+which lets \eqref{eq:bj-reflection-total} exhibit the total class as a sum
+of two nef classes, and because \(\omega\) is a single fixed class in which
+every stage lives.  The distinction is
+\Cref{warn:ch38-drift-not-absorbed}.
+
+\emph{Division versus subtraction.}  The fixed pole is removed by
+homogeneous Siu division, \Cref{thm:ch35-homogeneous-siu-general}, which
+produces an identity of sums.  The corresponding difference is undefined at
+proper support and cannot be repaired by any convention
+(\Cref{warn:ch39-no-subtraction}, \Cref{ex:ch39-subtraction-fails}).
+
+\emph{Envelope property as hypothesis versus as theorem.}  Every occurrence
+of \(\operatorname{EP}\) in this chapter is a displayed hypothesis on the
+\emph{source} of the morphism.  The conclusion,
+\(\operatorname{EP}_X(\theta)\), carries no hypothesis on \(X\) beyond
+normality and projectivity.  Reading the final theorem
+\Cref{thm:bj-final-envelope} back into
+\Cref{lem:bj-canonical-carrier} would make the whole of
+\Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
+circular (\Cref{warn:ch39-firewall}, \Cref{warn:ch39-canonical-carrier}).
+
+\section{Source note}
+
+This chapter follows the homogeneous reflection, carrier reflection, and
+canonical-carrier sections of the supplied envelope manuscript.  The
+regularization, comparison, Legendre reconstruction, and homogeneous Siu
+division interfaces are from \cite{BJ22}.  We retained the rational-square
+class correction, the exact drift cancellation, the lower-grid argument,
+and the global treatment of proper-support poles.
+
+The precise external attributions are as follows.  The comparison theorem
+used at every promotion from \(X^{\divis}\) to \(X^{\An}\) is
+\cite[Theorem~4.22]{BJ22}, with its determination corollaries
+\cite[Corollaries~4.23 and~4.25]{BJ22}; both are proved in full in
+\Cref{chap:bj-homogeneity-bdivisors} and are quoted here through
+\Cref{prop:ch39-determination-package}.  The Legendre decomposition
+\eqref{eq:bj-legendre-reconstruction} and the behaviour of the slices in the
+parameter are \cite[Lemma~6.23 and Theorem~6.24]{BJ22}.  The homogeneous
+regularization behind \Cref{cor:ch38-gf-regularization-bdivisor} is
+\cite[Corollary~6.17]{BJ22}, and homogeneous Siu division is
+\cite[Theorem~6.21]{BJ22}; the warning after
+\Cref{thm:ch35-homogeneous-siu-general} distinguishes it from the
+inhomogeneous statement \cite[Theorem~6.31]{BJ22}, which does require the
+envelope property and which is therefore not used here.  The envelope
+property was formulated in \cite{BJ22} as Boucksom--Jonsson's
+Conjecture~5.14; \cite{BJ22b} records partial results available in that
+literature.  The proof developed in this book is
+\Cref{thm:bj-final-envelope}, with historical context in
+\Cref{chap:bj-envelope-history}.  The domination of a modification by a blowup, used inside
+\Cref{lem:ch39-fixed-pole} through \Cref{lem:ch38-activation}, is
+\cite[\href{https://stacks.math.columbia.edu/tag/081T}{Tag 081T}]{stacks-project},
+imported as \Cref{thm:appB-admissible-domination}; the twist theorem
+converting relative into absolute ampleness is \cite[4.6.13]{EGAII}, used
+through \Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:relative};
+Zariski's main theorem in the form used for
+\Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:notample} is
+\cite[Corollary~III.11.4]{Har}; and the Nakai--Moishezon criterion used in
+the surface computations of \Cref{ex:ch39-blowup-reflection-numbers} and
+\Cref{ex:ch39-carrier-pair} is \cite[Theorem~1.2.23]{PAG1}.  The b-divisor
+formalism is that of \Cref{app:intersection-bdivisors}, ultimately
+\cite{BFJ09}.
+
+Six things in this chapter are not in the sources in this form and are
+supplied here.  The closure calculus is restated without a nefness
+hypothesis as \Cref{lem:ch39-closure-any-class}, on the basis of the
+elementary monotonicity \Cref{lem:ch39-hgf-monotone} of the Fubini--Study
+spaces in the line bundle; this is needed because the classes to which
+\Cref{chap:bj-alterations} applies the descent theorem are arbitrary real
+classes, and because, after the correction of \Cref{def:bj-psh}, a
+homogeneous psh function can exist in a class that is pseudoeffective but
+not nef.
+The pullback statement \Cref{thm:ch39-pullback} is isolated and proved
+directly from the varying-class form of \Cref{def:bj-psh}, which is what
+makes \Cref{rem:ch39-closing-the-gap} possible.  The fixed-pole data is
+packaged for a birational morphism as a free-standing lemma,
+\Cref{lem:ch39-fixed-pole}, quoting only those items of
+\Cref{lem:ch38-activation} whose proof is independent of the total class.
+The choice of the interpolation parameter is isolated as
+\Cref{lem:ch39-drift-window}, with the subnet formalism of
+\Cref{def:appE-willard-subnet} made explicit.  The
+carrier-dominated subspace \eqref{eq:ch39-carrier-subset} and the
+observation \Cref{cor:ch39-nef-reflection} that the carrier hypothesis is
+vacuous in a nef class do not appear in the sources and are what make the
+diagram \eqref{eq:bj-reflection-square} exact rather than merely suggestive.
+Finally the worked computations
+\Cref{ex:ch39-blowup-reflection-numbers},
+\Cref{ex:ch39-carrier-pair},
+\Cref{ex:ch39-usc-not-determined-birational} and
+\Cref{ex:ch39-subtraction-fails} are new, and are included because the
+audit items attached to this chapter --- the passage from divisorial
+equality to global equality, and the values at proper-support
+semivaluations --- are precisely the points at which a plausible argument
+can be wrong without being visibly wrong.

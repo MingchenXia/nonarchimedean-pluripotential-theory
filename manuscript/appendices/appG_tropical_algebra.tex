@@ -1,0 +1,699 @@
+\chapter{Tropical and idempotent algebra}
+\index{tropical algebra}\index{idempotent algebra}\index{graded reduction}
+\label{app:tropical-algebra}
+
+This appendix fixes the algebra and signs underlying tropical charts,
+tropical spectra, and calibrated polyhedra.
+The two recurring conventions are
+\[
+                       v(f)=-\log|f|
+\]
+and the min-plus semiring.
+Passing from \(u=-\log|f|\) to \(x=\log|f|=-u\) reverses every displayed
+tropical coordinate.  To exchange min and max one also negates the value of
+the tropical polynomial: \(F_{\max}(x)=-F_{\min}(-x)\).
+
+The first uses are \Cref{chap:valuations} for graded reduction,
+\Cref{chap:tropical-spaces} for calibrated polyhedra,
+\Cref{chap:analytic-tropicalization} for analytic multiplicities,
+and \Cref{chap:tropical-spectra-complex} for tropical spectra.
+
+\section{Idempotent semirings}
+\label{sec:appG-idempotent}
+
+\begin{definition}[Idempotent semiring]
+\label{def:appG-idempotent}
+A commutative semiring
+\((S,\oplus,\odot,\mathbb0,\mathbb1)\) is idempotent if
+\[
+                              a\oplus a=a
+\tag{G.1}\label{eq:appG-idempotence}
+\]
+for every \(a\in S\).
+Its natural order is
+\[
+                       a\preceq b
+                       \quad\Longleftrightarrow\quad
+                       a\oplus b=b.
+\tag{G.2}\label{eq:appG-natural-order}
+\]
+\end{definition}
+
+Associativity and idempotence show that \(\preceq\) is a partial order.
+Addition is supremum for this order, and multiplication is order preserving.
+
+\begin{example}[Max-plus and min-plus]
+\label{ex:appG-max-min}
+The max-plus semifield is
+\[
+ \mathbf T_{\max}
+ =(\mathbf R\cup\{-\infty\},\max,+,-\infty,0),
+\tag{G.3}\label{eq:appG-max-plus}
+\]
+and the min-plus semifield is
+\[
+ \mathbf T_{\min}
+ =(\mathbf R\cup\{+\infty\},\min,+,+\infty,0).
+\tag{G.4}\label{eq:appG-min-plus}
+\]
+Negation identifies the two.
+The natural order of \(\mathbf T_{\max}\) is the usual order, while that of
+\(\mathbf T_{\min}\) is the reverse of the usual order.
+\end{example}
+
+\begin{warning}{Do not adjoin both infinities}
+The expression \(+\infty+(-\infty)\) is undefined.
+Thus \(\mathbf R\cup\{-\infty,+\infty\}\), with tropical multiplication
+given by ordinary addition, is not a semifield without an extra convention.
+We use one-sided tropical extensions and handle the other endpoint
+separately.
+\end{warning}
+
+\begin{definition}[Semimodule]
+\label{def:appG-semimodule}
+An \(S\)-semimodule is a commutative idempotent monoid
+\((M,\oplus,\mathbb0)\) with an \(S\)-action satisfying the usual
+distributive and unit axioms.
+A tropical linear combination is a finite sum
+\[
+                         \bigoplus_i a_i\odot x_i.
+\tag{G.5}\label{eq:appG-linear-combination}
+\]
+\end{definition}
+
+Over \(\mathbf T_{\max}\), \eqref{eq:appG-linear-combination} is the
+coordinatewise maximum of translates \(a_i+x_i\).
+There is generally no additive inverse, so kernels and quotients are
+described by congruences rather than by subtracting submodules.
+
+\section{Valuations and tropical characters}
+\label{sec:appG-valuations}
+
+\begin{definition}[Nonnegative semivaluation]
+\label{def:appG-semivaluation}
+Let \(A\) be a ring.
+A nonnegative semivaluation is a map
+\[
+                      v:A\longrightarrow\mathbf R_{\geq0}\cup\{+\infty\}
+\]
+such that
+\[
+\begin{aligned}
+ v(0)&=+\infty,&v(1)&=0,\\
+ v(fg)&=v(f)+v(g),&
+ v(f+g)&\geq\min\{v(f),v(g)\}.
+\end{aligned}
+\tag{G.6}\label{eq:appG-semivaluation}
+\]
+\end{definition}
+
+Its support
+\[
+                         \mathfrak p_v=\{f:v(f)=+\infty\}
+\tag{G.7}\label{eq:appG-support}
+\]
+is prime.
+Indeed, it is an ideal by the ultrametric inequality and nonnegativity, and
+\(fg\in\mathfrak p_v\) forces one of \(v(f),v(g)\) to be infinite.
+The semivaluation descends to a valuation on the fraction field of
+\(A/\mathfrak p_v\) whenever that quotient is a domain.
+
+\begin{definition}[Ideal semiring]
+\label{def:appG-ideal-semiring}
+Let \(\mathscr I_{\mathrm{fg}}(A)\) be the finitely generated ideals of
+\(A\), with
+\[
+                         I\oplus J=I+J,\qquad
+                         I\odot J=IJ.
+\tag{G.8}\label{eq:appG-ideal-semiring}
+\]
+Its additive zero is \((0)\), its multiplicative unit is \(A\), and its
+addition is idempotent.
+\end{definition}
+
+\begin{theorem}\label{thm:appG-ideal-characters}
+The assignments
+\[
+\begin{aligned}
+ v&\longmapsto\chi_v,\qquad
+ \chi_v((f_1,\ldots,f_r))=\min_i v(f_i),\\
+ \chi&\longmapsto v_\chi,\qquad
+ v_\chi(f)=\chi((f))
+\end{aligned}
+\tag{G.9}\label{eq:appG-character-correspondence}
+\]
+give inverse bijections between nonnegative semivaluations on \(A\) and
+unital semiring homomorphisms
+\[
+                 \chi:\mathscr I_{\mathrm{fg}}(A)\longrightarrow
+                 \mathbf T_{\min}.
+\]
+With pointwise topologies on both sides, the bijection is a homeomorphism.
+\end{theorem}
+
+\begin{proof}
+If \(g=\sum_ia_if_i\) and \(v(a_i)\geq0\), then
+\[
+                           v(g)\geq\min_iv(f_i).
+\]
+Thus the minimum in \eqref{eq:appG-character-correspondence} is independent
+of the chosen generators.
+Generators \(f_i g_j\) of \(IJ\) give
+\[
+ \chi_v(IJ)=\min_{i,j}(v(f_i)+v(g_j))
+           =\chi_v(I)+\chi_v(J),
+\]
+while the union of generating sets gives
+\(\chi_v(I+J)=\min\{\chi_v(I),\chi_v(J)\}\).
+
+Conversely,
+\((fg)=(f)(g)\) gives multiplicativity.
+The identity \((f)+A=A\) yields
+\[
+                    0=\min\{v_\chi(f),0\},
+\]
+so \(v_\chi(f)\geq0\).
+Since \((f+g)\subseteq(f,g)\), the natural semiring order gives
+\[
+ v_\chi(f+g)\geq\chi((f,g))
+              =\min\{v_\chi(f),v_\chi(g)\}.
+\]
+The two constructions are inverse because principal ideals generate all
+values in the first formula.
+Finally, every coordinate on either side is one of the evaluation maps in
+\eqref{eq:appG-character-correspondence}, proving the topological claim.
+\end{proof}
+
+\begin{remark}[Noetherian and coherent versions]
+If \(A\) is Noetherian, every ideal is finitely generated.
+For a complex space, coherent ideal sheaves replace finitely generated
+ideals.
+The global tropical spectrum of
+\Cref{chap:tropical-spectra-complex} uses exactly this coherent
+version; it is not obtained by pretending a nonalgebraic complex space has
+one global coordinate ring.
+\end{remark}
+
+\begin{definition}[Tropical spectrum]
+\label{def:appG-tropical-spectrum}
+For an idempotent semiring \(S\), its min-plus tropical spectrum is
+\[
+ \operatorname{tSpec}(S)
+ :=
+ \operatorname{Hom}_{\mathrm{Semiring}}(S,\mathbf T_{\min}),
+\tag{G.10}\label{eq:appG-tropical-spectrum}
+\]
+equipped with the subspace topology from
+\(\mathbf T_{\min}^{S}\).
+\end{definition}
+
+Compactness of a particular tropical spectrum is not formal from this
+definition.
+It requires closedness of the homomorphism equations and compact bounds on
+all evaluation coordinates.
+\Cref{chap:tropical-spectra-complex} proves those facts for coherent
+ideal semirings on compact complex spaces.
+
+\subsection{Extended tropical affine space}
+
+Give \(\mathbf R\cup\{+\infty\}\) the topology transported from
+\([0,+\infty)\) by \(u\mapsto \rme^{-u}\), with \(\rme^{-\infty}=0\).
+The extended tropical affine space is
+\[
+                  \overline{\mathbf R}^{\,r}_{\min}
+                  =(\mathbf R\cup\{+\infty\})^r.
+\tag{G.11}\label{eq:appG-extended-affine}
+\]
+Its stratum indexed by \(J\subseteq\{1,\ldots,r\}\) has
+\(u_j=+\infty\) exactly for \(j\in J\).
+These are support strata: \(u_j=+\infty\) means that the corresponding
+coordinate has seminorm zero.
+
+An integer-affine formula extends across a support stratum only when all
+its extended-real sums are defined there.
+In particular, a Laurent expression containing both positive and negative
+multiples of coordinates equal to \(+\infty\) cannot be evaluated by
+formal cancellation.
+One must restrict to a compatible toric stratum or change charts.
+
+\section{Multiplicative seminorms and graded reduction}
+\label{sec:appG-graded-reduction}
+
+Let \(A\) carry a multiplicative non-Archimedean seminorm
+\(|\cdot|\).
+For \(r>0\), put
+\[
+ A_{\leq r}=\{f:|f|\leq r\},\qquad
+ A_{<r}=\{f:|f|<r\}.
+\tag{G.12}\label{eq:appG-norm-filtration}
+\]
+
+\begin{definition}[Graded reduction]
+\label{def:appG-graded-reduction}
+The graded reduction is
+\[
+ \widetilde A^\bullet
+ =
+ \bigoplus_{r>0}A_{\leq r}/A_{<r}.
+\tag{G.13}\label{eq:appG-graded-reduction}
+\]
+For \(f\) with \(|f|=r>0\), its initial form
+\(\widetilde f\) is its class in degree \(r\).
+\end{definition}
+
+\begin{proposition}\label{prop:appG-initial-calculus}
+If \(|f|,|g|>0\), then
+\[
+                    \widetilde{fg}=\widetilde f\,\widetilde g.
+\tag{G.14}\label{eq:appG-initial-product}
+\]
+If \(|f|=|g|=r\), then
+\[
+ \widetilde{f+g}=
+ \begin{cases}
+ \widetilde f+\widetilde g,&|f+g|=r,\\
+ 0\text{ in degree }r,&|f+g|<r.
+ \end{cases}
+\tag{G.15}\label{eq:appG-initial-sum}
+\]
+\end{proposition}
+
+\begin{proof}
+Multiplicativity gives \(|fg|=|f||g|\), and changing a representative by a
+strictly smaller term changes the product by a strictly smaller term.
+For sums, the ultrametric inequality puts \(f+g\) in \(A_{\leq r}\).
+Its degree-\(r\) class is the sum of the two classes, which vanishes exactly
+when cancellation lowers the norm.
+\end{proof}
+
+In additive notation, for a semivaluation \(v\) with support
+\(\mathfrak p_v\), set
+\[
+\begin{aligned}
+ \mathcal P_\gamma&=\{f:v(f)\geq\gamma\},\\
+ \mathcal P_\gamma^+&=\{f:v(f)>\gamma\}.
+\end{aligned}
+\]
+Then
+\[
+ \operatorname{gr}_v(A/\mathfrak p_v)
+ =
+ \bigoplus_{\gamma}
+ \mathcal P_\gamma/\mathcal P_\gamma^+.
+\tag{G.16}\label{eq:appG-additive-graded}
+\]
+The changes of variables \(r=\rme^{-\gamma}\) and \(v=-\log|\cdot|\) identify
+\eqref{eq:appG-graded-reduction} and
+\eqref{eq:appG-additive-graded}.
+
+\begin{warning}{Ordinary residue loses radii}
+The degree-one part alone records only elements of norm at most one modulo
+elements of norm less than one.
+Different radii, and hence rational ranks used in tropical dimension
+arguments, disappear.
+The analytic multiplicities in
+\Cref{chap:analytic-tropicalization} require the full graded
+reduction, including residue-field degrees.
+\end{warning}
+
+For an analytic point \(x\), the relevant object is the graded residue field
+of the completed residue field \(\mathcal H(x)\).
+Its functorial and dimension-theoretic properties are due to Temkin; see
+\cite{Temkin2004}.
+This appendix uses only the elementary filtration calculus above.
+
+\section{Initial forms and tropical hypersurfaces}
+\label{sec:appG-initial-tropical}
+
+Let \(M\) be a lattice, \(N=M^\vee\), and consider a Laurent polynomial
+\[
+                              f=\sum_{m\in S}a_m\chi^m
+\tag{G.17}\label{eq:appG-laurent}
+\]
+whose finite support \(S\subset M\) has been collected by exponent.
+For \(u\in N_{\mathbf R}\), define
+\[
+ \operatorname{trop}(f)(u)
+ =
+ \min_{m\in S}\{v(a_m)+\langle m,u\rangle\}.
+\tag{G.18}\label{eq:appG-tropical-polynomial}
+\]
+It is a concave piecewise affine function in the min convention.
+
+\begin{definition}[Corner locus]
+\label{def:appG-corner-locus}
+The tropical hypersurface of the expression \(f\) is the locus where the
+minimum in \eqref{eq:appG-tropical-polynomial} is achieved by at least two
+exponents.
+\end{definition}
+
+\begin{proposition}\label{prop:appG-initial-form-test}
+At a weight \(u\), the weighted initial form
+\(\operatorname{in}_u(f)\) is the sum, in the appropriate graded residue
+ring, of the terms achieving the minimum in
+\eqref{eq:appG-tropical-polynomial}.
+The point \(u\) lies in the corner locus if and only if
+\(\operatorname{in}_u(f)\) is not a monomial.
+\end{proposition}
+
+\begin{proof}
+Rescale every term by its weight.
+Terms of strictly larger weight vanish in the leading graded piece, while
+the minimum-weight terms survive.
+Because the polynomial was collected by exponent, one surviving exponent
+gives a monomial and at least two give a nonmonomial initial form.
+\end{proof}
+
+\begin{warning}{Fundamental-theorem boundary}
+\Cref{prop:appG-initial-form-test} is algebraic bookkeeping.
+Identifying the corner locus with the closure of valuations of actual zeros
+is the fundamental theorem of tropical geometry and requires hypotheses on
+the valued field and the chosen closure.
+It is not proved by the initial-form calculation alone.
+\end{warning}
+
+\section{Integer-affine and polyhedral conventions}
+\label{sec:appG-polyhedra}
+
+Let \(\Gamma\subset\mathbf R\) be an additive subgroup containing the value
+group relevant to the chart.
+
+\begin{definition}[Affine conventions]
+\label{def:appG-affine-conventions}
+\begin{enumerate}
+\item An \emph{integer-affine function}, in the sense of
+      Mikhalkin--Rau, is
+      \(u\mapsto\langle m,u\rangle+c\) with \(m\in M\) and
+      \(c\in\mathbf R\).  It is \(\Gamma\)-integer-affine when
+      \(c\in\Gamma\).
+\item A \emph{rational polyhedron} is an intersection of finitely many
+      half-spaces
+      \[
+                         \langle m_i,u\rangle\geq c_i,
+                         \qquad m_i\in M,\ c_i\in\mathbf R.
+\tag{G.19}\label{eq:appG-polyhedron}
+      \]
+      It is \(\Gamma\)-rational when every \(c_i\) lies in \(\Gamma\).
+\item An integer-affine map has lattice-linear part and arbitrary real
+      translation; the prefix \(\Gamma\)- restricts the translation to the
+      stated constant group.
+\end{enumerate}
+\end{definition}
+
+Thus the unqualified terminology in this appendix is exactly that of
+\cite[\S\S1.3 and 2.1]{MR18Tropical}; the qualifier \(\Gamma\) records the
+additional arithmetic condition coming from a valued field.
+
+Clearing denominators permits rational slopes, but it multiplies the raw
+normal vector.  That multiple is not declared primitive: lattice indices
+and calibration weights are always computed after returning to saturated
+integral tangent lattices.
+
+For a polyhedron \(\sigma\), let \(N_\sigma\) be the saturated lattice in
+its tangent space.
+If \(\tau\) is a codimension-one face of \(\sigma\), the primitive vector
+\[
+                         u_{\sigma/\tau}\in N_\sigma/N_\tau
+\tag{G.20}\label{eq:appG-primitive-normal}
+\]
+points from \(\tau\) into \(\sigma\).
+
+\begin{definition}[Weighted balancing]
+\label{def:appG-balancing}
+A pure \(q\)-dimensional weighted complex is balanced when for every
+codimension-one cell \(\tau\),
+\[
+                  \sum_{\sigma\supset\tau}
+                  m_\sigma u_{\sigma/\tau}=0
+                  \quad\text{in }N/N_\tau.
+\tag{G.21}\label{eq:appG-balancing}
+\]
+A tropical \(q\)-cycle is an equivalence class, under common weighted
+refinement, of balanced pure \(q\)-dimensional rational polyhedral
+complexes with nonzero integral weights.  A representative with positive
+weights defines a tropical subspace.
+\end{definition}
+
+\begin{example}[Tropical line]
+\label{ex:appG-tropical-line}
+The rays generated by
+\((1,0)\), \((0,1)\), and \((-1,-1)\), each of weight one, satisfy
+\eqref{eq:appG-balancing}.
+Replacing the last primitive vector by \((-2,-2)\) without changing its
+weight fails the primitive-vector convention.
+\end{example}
+
+\section{Calibrations and signs}
+\label{sec:appG-calibrations}
+
+\begin{definition}[Calibration]
+\label{def:appG-calibration}
+An orientation of a \(q\)-cell \(\sigma\) is a generator of
+\(\bigwedge^qN_\sigma\) up to positive sign.
+A calibration assigns the oriented multivector
+\[
+                              \mu_\sigma=m_\sigma e_\sigma
+\tag{G.22}\label{eq:appG-calibration}
+\]
+to every top cell, compatibly with subdivision.
+\end{definition}
+
+The calibration contains three distinct data:
+the saturated tangent lattice, an orientation, and a multiplicity.
+For an integer-affine map \(F\) that has rank \(q\) on \(\sigma\), the
+pushforward weight on its image contains the lattice index
+\[
+                  [N_{F(\sigma)}:F(N_\sigma)].
+\tag{G.23}\label{eq:appG-lattice-index}
+\]
+Summing these indexed weights over cells mapping to the same image cell is
+the calibrated pushforward.
+
+\begin{proposition}\label{prop:appG-calibration-tests}
+\begin{enumerate}
+\item Subdivision preserves a calibrated integral: new top cells inherit the
+      old calibration, and new internal codimension-one faces cancel in
+      pairs.
+\item Under a generically finite integer-affine map, calibrated pushforward
+      preserves integrals: the source calibration, which already contains
+      its geometric multiplicity, is multiplied once by
+      \eqref{eq:appG-lattice-index}.
+\item Reversing orientation changes a top real form integral by a sign, but
+      does not change the positive measure of a positive \((q,q)\)-form,
+      because the primed and double-primed orientations reverse together.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+On an internal codimension-one face, the primitive normal vectors of the two
+adjacent new cells are opposite.
+For projection, choose lattice bases; the determinant of the lattice map is
+the index \eqref{eq:appG-lattice-index}, which is exactly the Jacobian of
+lattice-normalized measure.
+The last assertion follows because the two exterior factors contribute the
+same orientation sign, whose square is one.
+\end{proof}
+
+\begin{warning}{Inward versus outward}
+Our vector \(u_{\sigma/\tau}\) points into \(\sigma\), as in
+\eqref{eq:appG-primitive-normal}.
+An outward-normal-first Stokes convention uses its negative.
+Changing that boundary sign does not change the balancing equation
+\eqref{eq:appG-balancing}; it changes the translation between balancing and
+the boundary operator.  For the two labelled exterior factors, the exact
+boundary traces are \eqref{eq:superform-boundary-traces}; in particular the
+labelled contraction is determined by bidegree, not by a choice of words
+such as \emph{first} or \emph{second} factor.
+\end{warning}
+
+\begin{example}[Lattice-index test]
+\label{ex:appG-index-test}
+In \(\mathbf R^2\), the primitive directions \((1,0)\) and \((1,2)\)
+span a sublattice of index
+\[
+                         |\det((1,0),(1,2))|=2.
+\]
+Their transverse stable intersection has multiplicity two.
+A calculation giving one has discarded the lattice calibration.
+\end{example}
+
+\section{Analytic tropical multiplicities}
+\label{sec:appG-analytic-multiplicity}
+
+Let \(Z\) be a pure \(q\)-dimensional effective analytic cycle on a good Hausdorff
+boundaryless analytic space, and let
+\(f:U\to\mathbf G_m^r\) be a moment map on a neighborhood of its support.
+Assume that \(f\) has tropical dimension \(q\) along \(Z\); equivalently, on
+each top cell used below a generic integer-affine projection of \(f\) to a
+\(q\)-torus is generically finite on \(Z\).  Denote by \(\Sigma_f(Z)\) the
+\(q\)-dimensional characteristic skeletal locus of the moment map on \(Z\),
+and choose a convenient cellular decomposition of it in the sense of
+\cite[\S14.3.2]{CLD25}.  Let \(C\) be a top cell and put
+\(\sigma=f_{\mathrm{trop}}(C)\).
+Choose a torus homomorphism \(p:\mathbf G_m^r\to\mathbf G_m^q\) whose
+tropicalization is injective on the affine span of \(\sigma\), let
+\(s_p:\mathbf R^q\to\langle\sigma\rangle\) be the resulting affine inverse,
+and let \(e_q\) be the lattice volume vector on \(\mathbf R^q\).  On the
+relative interior of \(C\), the analytic local degree
+\(d_C=\deg_x(p\circ f|_Z)\) is constant, with degree extended additively
+over the effective cycle \(Z\).  The canonical calibration is
+\[
+\begin{aligned}
+ \mu_C&=d_C\,(s_p)_*e_q,\\
+ \text{integer-affine pushforward factor}
+   &=[N_{F(\sigma)}:F(N_\sigma)].
+\end{aligned}
+\tag{G.24}\label{eq:appG-analytic-multiplicity}
+\]
+The first line is independent of \(p\).  The local analytic degree, rather
+than naive cardinality of a fibre, is essential over a nonalgebraically
+closed field or in a non-strict analytic space.  Formula
+\eqref{eq:appG-analytic-multiplicity} makes no additional identification with
+an initial-degeneration multiplicity.  If several source cells map onto the
+same target cell, their pushed-forward calibrations are added.  After choosing
+the lattice orientation \(e_\sigma\), write the resulting target calibration
+as \(\mu_\sigma=m(\sigma)e_\sigma\); these are the positive calibration
+weights used below (and need not be integral without additional strictness and
+ground-field hypotheses).
+
+\begin{theorem}\label{thm:appG-analytic-calibration}
+In the preceding setting, the \(q\)-dimensional tropicalization
+\(\operatorname{Trop}_f(Z)\) is balanced with the
+multiplicities \eqref{eq:appG-analytic-multiplicity}.
+These calibrations are compatible with product refinements and with
+generically finite integer-affine projections on polyhedral subcharts for
+which the induced map on the calibrated support is topologically compact; a
+global pushforward additionally requires properness on the support.
+\end{theorem}
+
+\begin{proof}
+We first state the imported foundational input exactly.  For an analytic
+space of level \(q\), the local-degree construction and its independence of
+the auxiliary torus projection are
+\cite[Proposition~14.3.1 and \S14.3.2]{CLD25}; gluing and uniqueness are
+\cite[Lemma~14.3.4 and Definition~14.3.5]{CLD25}.  For an effective cycle,
+apply the construction to each pure component and add with its cycle
+coefficient.  This gives precisely the first line of
+\eqref{eq:appG-analytic-multiplicity}.  We use this cited construction as an
+input and do not replace it by an unproved initial-degeneration formula.
+
+The imported input for balancing is
+\cite[Theorem~15.6.1]{CLD25}: the interior of an analytic space of level
+\(q\), with the canonical calibration just described, is harmonious.  By the
+definition of harmony, the calibrated discordance vector at every
+codimension-one face \(\tau\) is zero.  Pair that vector with an integer
+covector \(\ell\) vanishing on \(N_\tau\).  Since the outgoing primitive
+normal of a top cell \(\sigma\supset\tau\) is
+\(u_{\sigma/\tau}\), the resulting scalar identity is
+\[
+       \sum_{\sigma\supset\tau}
+       m(\sigma)\,\ell(u_{\sigma/\tau})=0.
+\]
+Since integer covectors span
+\((N/N_\tau)^\vee_{\mathbf R}\), the displayed scalar identities are
+equivalent to the vector balancing equation
+\eqref{eq:appG-balancing}.
+
+Finally replace \(f\) by a product moment map defining a common refinement.
+Both calibrations restrict to the canonical calibration on every common
+top-dimensional subcell, by the uniqueness in
+\cite[Lemma~14.3.4]{CLD25}; summing the refined integrals therefore recovers
+the old integral.  For a generically finite integer-affine projection whose
+map on the calibrated support is topologically compact,
+\cite[Proposition~14.4.2]{CLD25} says that canonical calibrations push forward
+by analytic local degree.  Expressing lattice-normalized measure in source
+and target bases contributes exactly
+\([N_{F(\sigma)}:F(N_\sigma)]\), by
+\Cref{prop:appG-calibration-tests}.  This proves the two asserted
+compatibilities and also explains the properness clause in the statement.
+\end{proof}
+
+The goodness and boundarylessness hypotheses are part of the statement.
+For spaces with boundary or without the goodness assumptions, the chapter
+uses the corresponding local or compact-support formulation rather than
+silently applying this global version.
+
+\section{Global sign and normalization table}
+\label{sec:appG-sign-table}
+
+\begin{center}
+\begin{tabular}{p{.28\textwidth}p{.27\textwidth}p{.34\textwidth}}
+\toprule
+datum & convention & consequence\\
+\midrule
+valuation & \(v(f)=-\log|f|\) & sums tropicalize with \(\min\)\\
+tropical coordinate &
+\(u_i=-\log|f_i|\) &
+monomials become \(\langle m,u\rangle+v(a_m)\)\\
+max-plus coordinate &
+\(\log|f_i|=-u_i\) &
+\(F_{\max}(x)=-F_{\min}(-x)\); coordinate reflection alone does not switch
+min and max\\
+toric support function &
+\(h_P(u)=\sup_{m\in P}\langle m,u\rangle\) &
+metric recession uses \(h_P(-u)\) in
+\eqref{eq:appJ-toric-recession}\\
+tropical-cycle top-cell weight &
+nonzero integer, positive for an effective tropical subspace &
+orientation is separate from the sign of a cycle weight\\
+analytic calibration weight &
+positive real local degree in the general CLD setting &
+integrality requires the additional strictness and ground-field hypotheses
+stated near \eqref{eq:appG-analytic-multiplicity}\\
+stable intersection &
+lattice index times weights &
+nonprimitive determinants are not discarded\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Normalization checks}
+\label{sec:appG-unit-tests}
+
+\begin{enumerate}
+\item In \(\mathbf T_{\min}\),
+      \(3\oplus5=3\), \(3\odot5=8\),
+      \(\mathbb0=+\infty\), and \(\mathbb1=0\).
+\item For a semivaluation,
+      \(\chi_v((f,g))=\min\{v(f),v(g)\}\) and
+      \(\chi_v((f)(g))=v(f)+v(g)\).
+\item If two equal-norm terms cancel, their degree-\(r\) initial forms sum
+      to zero and the norm drops, as in
+      \eqref{eq:appG-initial-sum}.
+\item For \(f=1+T\) over the trivially valued field,
+      \(\operatorname{trop}(f)(u)=\min\{0,u\}\), whose corner is \(u=0\).
+\item The three primitive rays of
+      \Cref{ex:appG-tropical-line} balance.
+\item The determinant-two intersection of
+      \Cref{ex:appG-index-test} must retain multiplicity two after
+      every subdivision.
+\item Replacing \(u=-\log|\chi|\) by \(x=\log|\chi|=-u\), and at the same
+      time replacing \(F_{\min}\) by
+      \(F_{\max}(x)=-F_{\min}(-x)\), exchanges the min and max
+      descriptions.
+\end{enumerate}
+
+The first two computations are the definitions
+\eqref{eq:appG-min-plus} and \eqref{eq:appG-character-correspondence}.
+The third is \Cref{prop:appG-initial-calculus}; the fourth follows by
+substitution in \eqref{eq:appG-tropical-polynomial}; the next two are
+\Cref{ex:appG-tropical-line,ex:appG-index-test}; and the last is the sign
+identity stated at the beginning of the appendix.  Thus these are checked
+normalizations.
+
+\section*{Source note}
+
+Graded reductions in analytic geometry follow Temkin
+\cite{Temkin2004}.
+Polyhedral spaces, canonical calibrations, and analytic balancing follow
+\cite{CLD25}.
+The unqualified integer-affine, rational-polyhedral, weighting, and
+balancing terminology follows
+\cite[\S\S1.3, 2.1 and 4.2]{MR18Tropical}.
+The ideal-semiring tropical spectrum for complex spaces follows
+\cite{MP24}; \Cref{thm:appG-ideal-characters} isolates its elementary
+affine algebra.
+The global comparison with projective trivially valued analytification is
+proved in \Cref{chap:tropical-spectra-complex}, not in the abstract
+semiring formalism.

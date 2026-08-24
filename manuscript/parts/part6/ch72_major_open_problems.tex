@@ -1,0 +1,2009 @@
+\chapter{Major open problems}
+\label{chap:major-open-problems}
+\index{open problem!major list}
+\index{research frontier}
+
+This chapter gives a source-dated list of the main problems left by the
+theories developed in this book.  Its cutoff is 24 August 2026.  The list is
+selective rather than encyclopedic: a problem is included when solving it
+would remove a structural boundary between two parts of the subject, extend a
+core existence theorem to its natural domain, or settle a repeatedly used
+regularization or compactness gap.
+
+Every problem is accompanied by three safeguards.  First, its domain is part
+of its statement.  Second, the strongest known positive cases and negative
+obstructions are recorded before any proposed route.  Third, each proposed
+solution is submitted to the verification protocol of
+\Cref{chap:verified-extensions}.  The status words used below are:
+
+\begin{description}[style=nextline,leftmargin=1.5em,labelindent=0pt,
+  itemsep=.45\baselineskip,font=\normalfont\bfseries]
+\item[Verified] the displayed statement has a complete proof or a controlling
+primary-source theorem;
+\item[Disproved] the displayed signature is impossible, with an explicit
+counterexample or formal obstruction;
+\item[Conditional] the conclusion follows from a precisely stated missing
+input;
+\item[Open] the attempted proof and counterexample search did not close the
+displayed signature.
+\end{description}
+
+The literal inventory is exact.  This chapter contains \(21\) problem
+environments.  Together with the separate projective-rational full-cone
+problem \Cref{prob:pseff-projective-rational-full-link} in the preceding
+chapter, the book-wide frontier inventory contains \(22\) problem
+environments.  Each of those \(22\) has a genuinely open residual domain as
+stated; no environment is wholly resolved, wholly disproved, or merely
+conditional.  Thus the whole-environment count is
+\[
+ \text{resolved }0,\qquad
+ \text{disproved }0,\qquad
+ \text{conditional }0,\qquad
+ \text{genuinely open }22.
+\]
+Verified, disproved, and conditional assertions below are boundary cases or
+subclaims inside those open environments.  A source question that has been
+resolved or disproved in its entirety is recorded for chronology but is not
+silently counted as an active problem.
+
+An open verdict is not a placeholder for a proof.  The accompanying attempted
+route is included so that the next reader begins at the actual obstruction
+rather than repeating a known invalid argument.  New verified results and
+counterexamples are isolated in complete proof blocks either here or in
+\Cref{chap:verified-extensions}; the complete machine-verification receipts
+are recorded in the editorial ledger.
+
+\section{Local positivity and the CLD--Gubler--Rabinoff frontier}
+
+\subsection{Pulling positive PL currents back to curves}
+
+\begin{problem}\label{prob:frontier-current-pullback}
+Let \(K\) be complete and nontrivially valued, \(X\) a good separated strict
+\(K\)-analytic space, and \(h\) a real-valued real PL function.  Does
+\[
+                         \dprimeddprime[h]\geq0
+\]
+on the relative interior imply that \(h|_{\operatorname{Int}(X)}\) is
+residue-nef, equivalently model semipositive?  Equivalently, one may assume
+from the outset that \(X\) is boundaryless and ask for semipositivity on
+\(X\).
+\end{problem}
+
+The converse direction is known: semipositive real PL functions have positive
+current on the relative interior by \cite[Theorem~7.14]{GJR26}.  Model
+semipositivity is equivalent to the functorial classical curve test by
+\cite[Theorem~4.3]{GR25Classical}, and it is detected on sufficiently small
+analytic curves by \cite[Theorem~5.3]{GR25PL}.  Thus the missing step is not a
+one-dimensional positivity theorem; it is a positivity-preserving restriction
+or slicing operation for the singular current \([h]\) along every curve in
+the criterion.  This obstruction is explicitly recorded in
+\cite[Remark~1.8]{GR25PL}.
+
+The completed Rethlas audit gives four separate verdicts.  The main analytic
+converse is still \emph{open}.  It is deliberately not folded into the
+verified equivalence \eqref{eq:verified-pl-psh-equivalence}.  The exact
+conditional reduction is the following restriction statement:
+\[
+ \begin{gathered}
+ \dprimeddprime[h]\geq0
+ \quad\Longrightarrow\quad
+ \dprimeddprime[h\circ f]\geq0,\\
+ f:C\longrightarrow\operatorname{Int}(X)
+ \quad\text{any sufficiently small criterion-curve map}.
+ \end{gathered}
+\tag{R}\label{eq:frontier-restriction-r}
+\]
+where curve test functions are compactly supported away from the boundary.
+Assuming \eqref{eq:frontier-restriction-r}, positivity on each curve says
+that every outgoing-slope sum is nonnegative.  The local curve-detection
+theorem \cite[Theorem~5.3]{GR25PL}, followed by
+\cite[Theorem~4.3]{GR25Classical}, then gives model semipositivity.  Together
+with \cite[Theorem~7.14]{GJR26}, this proves the desired equivalence
+conditionally on \eqref{eq:frontier-restriction-r}.
+
+The naive tropical substitute for \eqref{eq:frontier-restriction-r} is
+\emph{disproved}.  Let
+\[
+ \Sigma=P_{xy}\cup P_{xz}\subset\mathbf R^3,
+ \qquad P_{xy}=\{z=0\},\qquad P_{xz}=\{y=0\},
+\]
+give both planes weight one, and let \(L\) be their common \(x\)-axis.  For
+\(a>b>0\), the continuous PL function
+\[
+ \varphi|_{P_{xy}}=a|y|,
+ \qquad
+ \varphi|_{P_{xz}}=-b|z|
+\]
+has aggregate divisor
+\[
+             \operatorname{div}_{\Sigma}(\varphi)=2(a-b)[L]\geq0,
+\]
+but its restriction to the balanced \(z\)-axis \(C=\{x=y=0\}\) has
+\[
+             \operatorname{div}_{C}(\varphi|_C)=-2b[0]<0.
+\]
+Thus positivity after coarse branch aggregation does not imply positivity on
+a selected tropical curve.  In the evident analytic realization by
+\(\{z=1\}\) and \(\{y=1\}\) inside a torus, however, a refined test on the
+second branch already detects the negative jump.  The ambient CLD current is
+therefore not positive.  This is an obstruction to a proof strategy, not a
+Berkovich counterexample to the problem.
+
+A precise sufficient input for \eqref{eq:frontier-restriction-r} would be a
+positive Thom-form approximation.  Put \(U=\operatorname{Int}(X)\).  For
+every criterion curve \(f:C\to U\)
+and every nonnegative compactly supported smooth curve test function
+\(\psi\), require strongly positive compactly supported ambient
+\((n-1,n-1)\)-forms \(\alpha_j\) such that, with analytic multiplicities,
+\[
+ \bigl\langle\dprimeddprime[h],\alpha_j\bigr\rangle
+ \longrightarrow
+ \bigl\langle\dprimeddprime[h\circ f],\psi\bigr\rangle.
+\]
+Ambient positivity would make the limit nonnegative.  No such approximation
+theorem is presently available in the required singular and excess
+intersection generality.  By contrast, if a finite ambient PL potential is
+convex, its restriction to any balanced tropical curve is subharmonic:
+sublinearity of its directional derivative and
+\(\sum_i m_i u_i=0\) give
+\(\sum_i m_iD\varphi(u_i)\geq D\varphi(0)=0\).  This verifies the convex
+boundary case but does not settle the singular-current problem.
+
+\subsection{Regularizing arbitrary classical psh functions}
+
+\begin{problem}\label{prob:frontier-classical-regularization}
+On which higher-dimensional good strict analytic spaces is every classically
+psh function locally a decreasing limit of semipositive real PL, locally
+Fubini--Study, weakly smooth psh, or CLD-smooth psh functions?
+\end{problem}
+
+The four targets must be separated.  Real PL functions on the relative
+interior satisfy the three-way comparison of
+\Cref{thm:verified-pl-psh-equivalence}.  On smooth boundaryless curves,
+\cite[Proposition~15.11]{GJR26} gives decreasing weakly smooth
+regularization locally on each relatively compact open subset.  Wanner's
+CLD-smooth regularization has the additional
+residue-field or curve hypotheses stated in \cite[Corollary~5.4]{Wanner19};
+weakly smooth harmonic functions need not be CLD-smooth.
+
+The attempted higher-dimensional proof combines local formal models,
+regularized maxima, and harmonic tropicalizations.  Curvewise approximation
+does not by itself glue: the approximants must be compatible on overlapping
+tropical charts and after scalar extension.  Nor may a nonmetrizable net be
+replaced by a sequence without a countable extraction argument.  The general
+problem is \emph{open}; the curve and PL cases are verified boundary cases.
+
+\subsection{Upper-semicontinuous regularization of local envelopes}
+
+\begin{problem}\label{prob:frontier-local-envelope}
+For an upper-semicontinuous obstacle
+\(f:U\to\mathbf R\cup\{-\infty\}\) on a good strict analytic domain \(U\),
+let
+\[
+ P_U^{\mathrm{raw}}f
+ :=\sup\{g:g\text{ is local FS or semipositive real PL on }U,\ g\leq f\}.
+\]
+When is \((P_U^{\mathrm{raw}}f)^*\) classically psh, CLD-v2 psh, or
+continuous?
+\end{problem}
+
+There is a sharp formal reduction.  If the raw supremum is already usc, then
+it is classically psh: direct finite subsets of the family by inclusion, take
+their maxima, and apply the upper-semicontinuous net-closure theorem
+\cite[Theorem~6.5]{GR25Classical}.  The missing assertion is that usc
+regularization commutes with restriction to every analytic curve after every
+scalar extension.  Assuming that commutation, together with the corresponding
+upper-envelope theorem for subharmonic functions on curves, proves the
+classical psh conclusion.
+
+The Rethlas search begins with curves, polystable charts, and domains carrying
+a relatively ample formal model, before testing relative-boundary points.
+Continuity needs barriers or a local capacity estimate in addition to psh
+closure.  The raw-usc case is \emph{verified}; the unrestricted regularized
+envelope remains \emph{open}.
+
+\subsection{A common singular local Monge--Ampère product}
+
+\begin{problem}\label{prob:frontier-local-ma}
+Construct a local product that simultaneously extends the continuous CLD
+Bedford--Taylor product, the bounded formal BFJ measure on a normalized
+valuation link, and the largest justified class of classically psh functions.
+It should have a stated boundary datum, model independence, monotone
+continuity, locality, and functoriality.
+\end{problem}
+
+The two existing endpoints have different signatures.  CLD works on analytic
+opens with tropical charts and compactly supported test forms; the local BFJ
+operator of \Cref{thm:local-formal-ma} takes \(n-1\) potentials on the link
+\(\nu(\mathfrak m)=1\) and uses exceptional intersection theory.  Classical
+psh positivity, by itself, constructs no wedge product.  The following
+result identifies the two products on one explicit model locus and then on a
+jointly realizable bounded monotone closure.  It does not identify either
+product for an arbitrary curve-test psh function.
+
+% RETHLAS-VERIFIED: local-singular-ma-comparison; receipt 20260814T170257Z_923e70de7a01
+Let \((X,0)\) be a smooth complex analytic germ of dimension \(n\geq2\), put
+\(R=\mathcal O_{X,0}\), let \(\mathfrak m\) be its maximal ideal, and set
+\(d=n-1\).  Its normalized valuation link is
+\begin{equation}
+ V_{\mathfrak m}
+ :=\{v:R\longrightarrow[0,+\infty]\mid
+       v\text{ is centered at }0,\ v(\mathfrak m)=1\}.
+ \label{eq:frontier-local-ma-link}
+\end{equation}
+For a prime divisor \(E\) above \(0\), write
+\begin{equation}
+ b_E:=\ord_E(\mathfrak m),
+ \qquad v_E:=b_E^{-1}\ord_E.
+ \label{eq:frontier-local-ma-divisorial-normalization}
+\end{equation}
+Fix \(K=\mathbf C((t))\), normalized by \(|t|=\rme^{-1}\), and regular
+parameters \(z_1,\ldots,z_n\) of \(R\).  We choose a closed good, possibly
+non-strict, \(K\)-analytic polydisc \(B\) of polyradius \(\rho\), where
+\(|t|<\rho<1\).  Taylor series of the chosen complex analytic germs converge
+on \(B\), and the shell below has a collar in \(B\).  For an
+\(\mathfrak m\)-primary ideal
+\(\mathfrak a=(f_1,\ldots,f_N)\), put
+\begin{equation}
+ u_{\mathfrak a}:=\log\max_j|f_j|,
+ \qquad
+ u_{\mathfrak m}:=\log\max_i|z_i|,
+ \qquad
+ \chi_{\mathfrak m}:=\max\{u_{\mathfrak m},-1\}.
+ \label{eq:frontier-local-ma-model-functions}
+\end{equation}
+Changing generators leaves the associated model metric unchanged after a
+common admissible refinement.  Set
+\begin{equation}
+S_{\mathfrak m}:=\{u_{\mathfrak m}=-1\}.
+\label{eq:frontier-local-ma-shell}
+\end{equation}
+In this subsection an \emph{algebraizable log model} means the
+analytification, after shrinking the germ, of a projective modification of a
+Zariski neighborhood \(U\subset\mathbf A^n_{\mathbf C}\), with the relevant
+divisors and line bundles descending to that algebraic model.
+
+For model psh potentials \(u_1,\ldots,u_d\), let
+\(T=\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_d\).  We define
+their swept boundary product by
+\begin{equation}
+ \begin{split}
+ \MA^{\partial}_{\mathrm{CLD},\mathfrak m}
+       (u_1,\ldots,u_d)
+ :={}&T\wedge\dprimeddprime\chi_{\mathfrak m}\\
+ &-\one_{\{u_{\mathfrak m}>-1\}}
+       \bigl(T\wedge\dprimeddprime u_{\mathfrak m}\bigr),
+ \end{split}
+ \label{eq:frontier-local-ma-swept-product}
+\end{equation}
+where the restricted measure in the second line is extended by zero.  The
+two products are the continuous Bedford--Taylor products in the revised CLD
+psh sheaf.  The subtraction and the level \(-1\) are part of the boundary
+datum; in particular, \eqref{eq:frontier-local-ma-swept-product} is neither a
+probability normalization nor the raw \(d\)-fold product of restrictions to
+the shell.
+
+The definition is meaningful for the model potentials above.  Indeed, if
+\(\mathfrak a\) is \(\mathfrak m\)-primary, then
+\(\mathfrak m^p\subset\mathfrak a\subset\mathfrak m^q\) for suitable
+positive integers \(p,q\), so \(u_{\mathfrak a}\) is bounded on a collar of
+\(S_{\mathfrak m}\).  On \(\{u_{\mathfrak m}>-1\}\), locality gives
+\(\dprimeddprime\chi_{\mathfrak m}
+=\dprimeddprime u_{\mathfrak m}\), and the two terms cancel.  On
+\(\{u_{\mathfrak m}<-1\}\), the cutoff is constant and both terms vanish.
+Thus \eqref{eq:frontier-local-ma-swept-product} is supported on the shell.
+This argument does not assert that
+\(\dprimeddprime\chi_{\mathfrak m}\) itself is shell-supported; that
+assertion is false in dimension greater than one.  The reference factor is
+essential: \(u_{\mathfrak m}|_{V_{\mathfrak m}}=-1\), whose intrinsic
+\(\dprimeddprime\) is zero, whereas the local BFJ measure of this datum has
+mass one.
+
+\begin{lemma}\label{lem:frontier-local-ma-gauss}
+There are maps
+\[
+ \iota:V_{\mathfrak m}\hookrightarrow S_{\mathfrak m},
+ \qquad
+ p:S_{\mathfrak m}\longrightarrow V_{\mathfrak m},
+ \qquad p\circ\iota=\mathrm{id},
+\]
+such that, for every \(\mathfrak m\)-primary ideal \(\mathfrak a\),
+\begin{equation}
+             u_{\mathfrak a}(\iota(v))=-v(\mathfrak a).
+ \label{eq:frontier-local-ma-gauss-ideal}
+\end{equation}
+If \(\pi:Y\to X\) is an algebraizable log resolution of finitely many
+\(\mathfrak m\)-primary ideals and
+\(\mathfrak m\mathcal O_Y=\mathcal O_Y(-D)\), then every face
+\begin{equation}
+ \Delta(Y,D)=
+ \left\{\sum_{j=1}^r w_jE_j:\ w_j\geq0,
+                       \ \sum_{j=1}^r b_jw_j=1\right\}
+ \label{eq:frontier-local-ma-dual-face}
+\end{equation}
+of its normalized dual complex is carried by \(\iota\) onto a polyhedral
+skeleton in a formal model of the shell.
+\end{lemma}
+
+\begin{proof}
+For \(v\in V_{\mathfrak m}\), define its Gauss extension on convergent
+Laurent series by
+\begin{equation}
+ \widetilde v\!\left(\sum_{j\geq j_0}t^jf_j\right)
+       :=\min_j\{j+v(f_j)\}.
+ \label{eq:frontier-local-ma-gauss-extension}
+\end{equation}
+The minimum is attained because \(v(f_j)\geq0\) and \(j\to+\infty\).
+Multiplicativity follows by passing to the associated graded domain:
+the initial form of the Laurent polynomial is a nonzero Laurent polynomial
+in a new indeterminate of degree one over \(\operatorname{gr}_vR\), so the
+initial forms of two nonzero factors cannot multiply to zero.  Moreover,
+\(v(z_i)\geq1\), hence the resulting seminorm has
+\(|z_i|\leq|t|<\rho\).  It is bounded on the affinoid algebra of \(B\) and
+therefore extends by continuity from the dense Laurent-polynomial
+subalgebra.
+Its restriction to \(R\) is \(v\), and
+\(\min_i\widetilde v(z_i)=v(\mathfrak m)=1=\widetilde v(t)\), so it defines
+a point \(\iota(v)\) of the shell.  Conversely, restriction of the
+semivaluation of a shell point to \(R\) gives an element of
+\(V_{\mathfrak m}\); this is \(p\).  Formula
+\eqref{eq:frontier-local-ma-gauss-extension} gives
+\(p\circ\iota=\mathrm{id}\), and
+\eqref{eq:frontier-local-ma-gauss-ideal} follows by taking the minimum over
+the generators of \(\mathfrak a\).
+
+On a stratum \(E_1\cap\cdots\cap E_r\), choose local equations
+\(x_j=0\).  A monomial valuation has \(v(x_j)=w_j\).  Since a local
+generator of \(\mathfrak m\mathcal O_Y\) has divisor
+\(D=\sum b_jE_j\), normalization is exactly
+\(\sum b_jw_j=1\).
+
+For the promised formal realization, take the formal completion of
+\(Y\times\Spec K^\circ\) over the chosen neighborhood and the normalized
+admissible blowup of
+\[
+              (t,\mathfrak m\mathcal O_Y)
+              =(t,\mathcal O_Y(-D)).
+\]
+Locally this is the two-generated ideal \((t,s_D)\), and it does not alter
+the generic fibre of the already chosen modification because \(t\) is
+invertible there.  Near the stratum,
+\(s_D=\varepsilon x_1^{b_1}\cdots x_r^{b_r}\) with \(\varepsilon\) a unit,
+so the exceptional skeleton at \(v(t)=1\) is precisely
+\eqref{eq:frontier-local-ma-dual-face}.  Toroidal blowups of strata produce
+common subdivisions.  Formula \eqref{eq:frontier-local-ma-gauss-extension}
+identifies their skeleton points with the Gauss extensions, and every
+principalized ideal function is integral affine on each face.
+Such an algebraizable simultaneous resolution always exists for the finite
+ideal data used here, by the polynomialization argument in
+\Cref{lem:frontier-local-ma-common-model-core}.
+\end{proof}
+
+\begin{lemma}\label{lem:frontier-local-ma-common-model-core}
+Let \(\mathfrak a\) be \(\mathfrak m\)-primary and suppose that
+\(\mathfrak a\mathcal O_Y=\mathcal O_Y(-A)\) on a principalization.  Then
+\(u_{\mathfrak a}\) is a continuous semipositive model function, hence a
+member of the revised CLD psh sheaf on a collar of the shell; its pullback to
+every analytic curve is subharmonic; and its restriction to the Gauss
+section is the BFJ model formal psh function
+\(g_{\mathfrak a}(v)=-v(\mathfrak a)\).  The same conclusion holds for a
+rational semipositive model function associated with a relatively nef
+exceptional \(\mathbf Q\)-Cartier b-divisor carried by an algebraizable
+common log model.
+\end{lemma}
+
+\begin{proof}
+We first record why an admissible algebraic formal model is available for
+the ideal locus, even though the original germs are analytic.  Identify
+\(R\) with \(\mathbf C\{z_1,\ldots,z_n\}\).  Choose \(N\) such that
+\(\mathfrak m^N\subset\mathfrak m\mathfrak a\), and replace each generator
+by its Taylor polynomial modulo \(\mathfrak m^N\).  If \(\mathfrak b\) is
+the ideal generated by these polynomials, then
+\[
+ \mathfrak b\subset\mathfrak a
+ \quad\text{and}\quad
+ \mathfrak a\subset\mathfrak b+\mathfrak m^N
+                 \subset\mathfrak b+\mathfrak m\mathfrak a.
+\]
+Nakayama's lemma applied to \(\mathfrak a/\mathfrak b\) gives
+\(\mathfrak a=\mathfrak b\).  A finite collection of primary ideals can be
+treated with one \(N\).  This replacement also preserves the analytic
+weight.  Indeed, the transition coefficients between two finite generating
+sets lie in \(R\), hence have norm at most one on the polydisc of radius
+\(\rho<1\).  Applying the ultrametric inequality in both directions gives
+equality of the two maxima of generator norms.  We may therefore choose an
+algebraic simultaneous log resolution over a Zariski neighborhood of the
+origin, isomorphic away from the origin, and later take its \(t\)-adic formal
+completion.
+
+On that resolution write locally \(f_j=s_Ah_j\).  The \(h_j\) generate the
+unit ideal.  On every formal affine chart, all \(h_j\) and the coefficients
+of a relation \(1=\sum_jc_jh_j\) are power bounded.  The ultrametric
+inequality consequently gives
+\[
+                    \max_j|h_j|=1,
+ \qquad
+                    \log\max_j|f_j|=\log|s_A|.
+\]
+Thus the weight is exactly the model weight of
+\(\mathcal O_Y(-A)\), not merely a function with the same divisor.  The
+chosen generators also show that this line bundle is relatively generated
+and hence relatively nef.  It is therefore one of the semipositive model
+generators of the revised CLD psh sheaf; no inference from positivity of the
+older current predicate is involved.  After pullback to an analytic curve,
+the sections generate a semipositive model line bundle on a semistable curve
+model.  The outgoing-slope sum at a vertex is its nonnegative degree there,
+proving subharmonicity.  Finally,
+\eqref{eq:frontier-local-ma-gauss-ideal} identifies the Gauss restriction
+with \(-v(\mathfrak a)\), the function of the nef Cartier b-divisor \(-A\).
+Tensor powers, multilinearity, and an algebraizable common model give the
+asserted rational \(\mathbf Q\)-Cartier case.  No comparison is claimed here
+for a model carried only by a nonalgebraizable analytic modification.
+\end{proof}
+
+\begin{theorem}\label{thm:frontier-local-ma-model-comparison}
+Let \(\mathfrak a_1,\ldots,\mathfrak a_d\) be
+\(\mathfrak m\)-primary ideals.  On one log resolution write
+\[
+ \mathfrak m\mathcal O_Y=\mathcal O_Y\!\left(-\sum_Eb_EE\right),
+ \qquad
+ \mathfrak a_i\mathcal O_Y=\mathcal O_Y(-A_i).
+\]
+Then
+\begin{equation}
+ \MA^{\partial}_{\mathrm{CLD},\mathfrak m}
+       (u_{\mathfrak a_1},\ldots,u_{\mathfrak a_d})
+ =\sum_E b_E\bigl((-A_1)\cdots(-A_d)\cdot E\bigr)
+       \delta_{\iota(v_E)}.
+ \label{eq:frontier-local-ma-cld-atomic}
+\end{equation}
+After applying \(p\), this is exactly
+\begin{equation}
+ \MA_{\mathrm{BFJ},\mathfrak m}
+       (g_{\mathfrak a_1},\ldots,g_{\mathfrak a_d})
+ =\sum_E b_E\bigl((-A_1)\cdots(-A_d)\cdot E\bigr)
+       \delta_{v_E}.
+ \label{eq:frontier-local-ma-bfj-atomic}
+\end{equation}
+The same comparison holds for rational semipositive model functions on an
+algebraizable common log model.
+\end{theorem}
+
+\begin{proof}
+By \Cref{lem:frontier-local-ma-common-model-core}, the ideal data may be
+carried by an algebraic simultaneous log resolution
+\(\pi:Y\to U\), where \(U\subset\mathbf A^n_{\mathbf C}\) is a Zariski
+neighborhood of the origin and \(\pi\) is an isomorphism over
+\(U\setminus\{0\}\).  Compactify \(Y\) and the finitely many divisors without changing a
+neighborhood of the proper exceptional fibre.  Let
+\(\mathscr Y_0\) be the \(t\)-adic completion of
+\(Y\times_{\mathbf C}\Spec K^\circ\), set
+\(\mathscr J=(t,\mathcal O_Y(-D))\), and put
+\begin{equation}
+ q:\mathscr Y:=
+ \operatorname{Nor}\!\left(
+       \operatorname{Bl}_{\mathscr J}(\mathscr Y_0)\right)
+       \longrightarrow\mathscr Y_0\longrightarrow Y,
+ \qquad D=\sum_Eb_EE.
+ \label{eq:frontier-local-ma-formal-blowup}
+\end{equation}
+Take a toroidal resolution of this formal model.  The ideal \(\mathscr J\)
+contains \(t\), and every subsequent toroidal centre lies in the special
+fibre.  Thus all these modifications are admissible, their generic fibres
+are unchanged, and the resulting flat formal model has pure relative
+dimension \(n\).  Moreover, \(\pi_K^{\An}\) is an isomorphism over the
+punctured collar of \(S_{\mathfrak m}\).  The products there are therefore
+literally the pullbacks of the products on \(B\); no comparison or
+birational-invariance theorem is being assumed.  Compactification is used
+only to make the special-fibre components proper, as required by the formal
+intersection formula below.  Every component that survives the swept
+difference lies over the original proper exceptional fibre, so its
+coefficient is independent of this compactification.
+
+Let \(\mathscr F\) be the Cartier divisor determined by
+\[
+ (t,\mathcal O_Y(-D))\mathcal O_{\mathscr Y}
+       =\mathcal O_{\mathscr Y}(-\mathscr F).
+\]
+The line bundles producing the \(n\) weights in the first term of
+\eqref{eq:frontier-local-ma-swept-product} are
+\begin{equation}
+ \mathcal L_i=q^*\mathcal O_Y(-A_i)\quad(1\leq i\leq d),
+ \qquad
+ \mathcal L_\chi=\mathcal O_{\mathscr Y}(-\mathscr F).
+ \label{eq:frontier-local-ma-model-line-bundles}
+\end{equation}
+Indeed, the two sections \(t,s_D\) give the weight
+\(\log\max\{|t|,|s_D|\}=\chi_{\mathfrak m}\), while the ideal generators
+give the first \(d\) bundles.  More explicitly, if \(\tau\) locally
+generates \(\mathscr J\mathcal O_{\mathscr Y}\), write
+\(t=\tau a\) and \(s_D=\tau b\).  The pair \((a,b)\) generates the unit
+ideal, hence \(\max\{|a|,|b|\}=1\) on the corresponding formal domain and
+\[
+             \log\max\{|t|,|s_D|\}=\log|\tau|.
+\]
+Thus \(\mathcal L_\chi\) is exactly the tautological model bundle.  The
+factorizations \(f_{ij}=s_{A_i}h_{ij}\) and
+\(\max_j|h_{ij}|=1\), proved in
+\Cref{lem:frontier-local-ma-common-model-core}, similarly identify the
+other model bundles.  This verifies the model metrics, not just their
+Cartier divisors.
+
+We use the formal-model measure formula
+\cite[Theorem~18.5.5 and Proposition~18.5.8]{CLD25}.  In the present
+discretely valued, algebraically closed residue-field setting, if \(G\) is a
+special-fibre component and
+\(m_G=\ord_G(t)\), it reads
+\begin{equation}
+ c_1(\mathcal M_1)\wedge\cdots\wedge c_1(\mathcal M_n)
+ =\sum_Gm_G\deg_G(\mathcal M_1\cdots\mathcal M_n)\,\delta_{\xi_G}.
+ \label{eq:frontier-local-ma-model-measure}
+\end{equation}
+This is also obtained by multilinearity and successive model
+Poincar\'e--Lelong intersections.  The normalization of the analytic point is
+\(\ord_G/\ord_G(t)\), explaining the factor \(m_G\).
+
+At the generic point of a prime \(E\subset D\), write a local equation of
+\(D\) as \(x^{b_E}\).  The normalized blowup of \((t,x^{b_E})\) has one
+boundary component \(\mathscr E_E\) with
+\begin{equation}
+ \ord_{\mathscr E_E}(t)=b_E,
+ \qquad
+ \ord_{\mathscr E_E}(x)=1.
+ \label{eq:frontier-local-ma-boundary-orders}
+\end{equation}
+Here is the local calculation behind both assertions.  Over the function
+field of \(E\), the Rees algebra has the presentation
+\[
+ \mathbf C(E)[x,t][T_0,T_1]/(x^{b_E}T_0-tT_1).
+\]
+Its exceptional fibre is
+\(\Proj\mathbf C(E)[T_0,T_1]=\mathbf P^1_{\mathbf C(E)}\).
+The two affine charts have coordinate rings
+\(\mathbf C(E)[x,u]\), with \(t=x^{b_E}u\), and
+\(\mathbf C(E)[x,t,v]/(x^{b_E}-tv)\).  The second is smooth for \(b_E=1\);
+otherwise it is a hypersurface whose singular locus has codimension two,
+hence is normal.  The first is smooth.
+They show that the exceptional valuation is the primitive monomial valuation
+in \eqref{eq:frontier-local-ma-boundary-orders}, and that normalization does
+not change the generic exceptional curve.  Thus the reduced component
+\(\mathscr E_E\) maps properly to \(E\) and is generically a
+\(\mathbf P^1\)-bundle.  Although
+\(\mathscr F\) has coefficient \(b_E\) along \(\mathscr E_E\), its
+invertible ideal is the pullback of the Rees tautological
+\(\mathcal O(1)\).  Consequently
+\(\mathcal L_\chi|_{p_E^{-1}(\eta_E)}\simeq
+\mathcal O_{\mathbf P^1}(1)\), so its degree is one, not \(b_E\).  The
+other bundles are pulled back from \(Y\), and hence
+\begin{equation}
+ \mathcal L_i|_{\mathscr E_E}
+   =p_E^*\bigl(\mathcal O_Y(-A_i)|_E\bigr).
+ \label{eq:frontier-local-ma-boundary-restrictions}
+\end{equation}
+The projective-bundle pushforward formula therefore gives
+\begin{equation}
+ \deg_{\mathscr E_E}
+       (\mathcal L_1\cdots\mathcal L_d\mathcal L_\chi)
+       =(-A_1)\cdots(-A_d)\cdot E.
+ \label{eq:frontier-local-ma-boundary-degree}
+\end{equation}
+Equations \eqref{eq:frontier-local-ma-model-measure},
+\eqref{eq:frontier-local-ma-boundary-orders}, and
+\eqref{eq:frontier-local-ma-boundary-degree} yield the \(E\)-summand in
+\eqref{eq:frontier-local-ma-cld-atomic} at the point
+\(\iota(v_E)\).
+
+It remains to account for every other component.  Where
+\(u_{\mathfrak m}>-1\), the section \(s_D\) dominates \(t\), so
+\(\mathcal L_\chi\) agrees with the model bundle of
+\(u_{\mathfrak m}\); the second term of
+\eqref{eq:frontier-local-ma-swept-product} cancels its coefficient.  Where
+\(u_{\mathfrak m}<-1\), the section \(t\) dominates and
+\(\mathcal L_\chi\) is trivial, so the coefficient vanishes.  Over the
+generic point of a divisor \(E\), the preceding two-generator Rees
+calculation shows that \(\mathscr E_E\) is the unique component on the
+equality locus; every other ray lies strictly on one of these two sides.
+
+It remains only to exclude equality-locus components above
+higher-codimension strata.  Let \(G\) be such a component, let
+\(Z=q(G)\), and put
+\[
+ \alpha_G:=c_1(\mathcal L_\chi|_G)\cap[G]
+             \in A_{n-1}(G).
+\]
+If \(\operatorname{codim}_Y Z\geq2\), then \(\dim Z\leq n-2\).  By the definition of
+proper pushforward of cycles, \(q_*\alpha_G=0\) in \(A_{n-1}(Y)\).  Since
+the remaining \(d=n-1\) line bundles are pulled back from \(Y\), the
+intersection-theoretic projection formula gives
+\[
+ \deg_G\!\left(\mathcal L_1\cdots\mathcal L_d
+                     \mathcal L_\chi\right)
+ =\deg_Y\!\left(c_1(\mathcal O_Y(-A_1))\cdots
+        c_1(\mathcal O_Y(-A_d))\cap q_*\alpha_G\right)=0.
+\]
+Hence the components \(\mathscr E_E\) are the only survivors.  Relative
+nefness makes every displayed coefficient nonnegative.
+
+On the BFJ side, \(g_{\mathfrak a_i}\) is the function of the nef Cartier
+b-divisor \(-A_i\).  The local model formula
+\cite[Proposition~4.9]{BFJ08}, reproduced as
+\eqref{eq:local-atomic-ma}, assigns to \(v_E\) the coefficient in
+\eqref{eq:frontier-local-ma-bfj-atomic}.  Thus the two formulas agree term by
+term; no comparison theorem is imported.  The proof used only multilinear
+intersection calculations, so it also applies to rational semipositive model
+functions on an algebraizable common log model.
+
+Finally, the common total mass is
+\begin{equation}
+ \sum_Eb_E\bigl((-A_1)\cdots(-A_d)\cdot E\bigr)
+ =(-A_1)\cdots(-A_d)\cdot D,
+ \label{eq:frontier-local-ma-total-mass}
+\end{equation}
+which is the mixed Hilbert--Samuel multiplicity with the fixed reference
+ideal \(\mathfrak m\).  This follows by taking general sections of the
+\(\mathfrak a_i\) and \(\mathfrak m\) and applying the projection formula.
+In particular, all \(\mathfrak a_i=\mathfrak m\) give mass
+\(e(\mathfrak m)=1\).  There is no division by
+\eqref{eq:frontier-local-ma-total-mass}.
+\end{proof}
+
+\begin{proposition}\label{prop:frontier-local-ma-independence}
+The common model measure of
+\Cref{thm:frontier-local-ma-model-comparison} is independent of the log
+resolution, formal model, and tropical charts.  With the boundary datum
+\((\mathfrak m,-1)\) fixed, it is local on \(V_{\mathfrak m}\).  Literal
+restriction to a relatively open subset is restriction of the measure, with
+no renormalization of its mass.
+\end{proposition}
+
+\begin{proof}
+Two resolutions and two formal models admit a common domination.  If
+\(q:Y'\to Y\) is such a domination and \(E'\) is the strict transform of
+\(E\), the projection formula gives
+\[
+ ((-q^*A_1)\cdots(-q^*A_d)\cdot E')
+   =((-A_1)\cdots(-A_d)\cdot E).
+\]
+For a new \(q\)-exceptional prime \(F\), one has \(q_*F=0\) as a divisor
+cycle, and the same projection formula gives zero intersection with the
+pulled-back factors.  Thus refinement adds no mass and preserves every old
+coefficient.  The normalization of the analytic point is also preserved.
+
+Two tropical charts admit a common polyhedral refinement.  On it the
+weights are the same intrinsic model functions and the calculation in
+\eqref{eq:frontier-local-ma-model-line-bundles} is unchanged.  Finally, both
+terms in \eqref{eq:frontier-local-ma-swept-product} are local
+Bedford--Taylor measures, and their difference is shell-supported.  Model
+potentials coming from the germ factor through \(p\) on the shell, so
+agreement near an open subset of the link gives agreement near its inverse
+image.  Pushing forward by \(p\) proves locality.  Restriction of a measure
+already has this property; changing its total mass would destroy it.
+\end{proof}
+
+Define the joint bounded closure \(\mathcal C_b^{\mathrm{com}}\) to consist
+of bounded continuous BFJ formal psh functions \(g\) for which there are
+decreasing semipositive model functions \(g^{(k)}\downarrow g\), each in
+the preceding ideal/algebraizable model locus, whose homogeneous Gauss
+extensions \(u^{(k)}\), on one fixed collar of the shell, satisfy all three
+conditions:
+\begin{enumerate}
+\item they belong to the revised CLD psh sheaf;
+\item they decrease locally boundedly to a continuous revised-CLD psh
+      function \(u\);
+\item their restrictions to all analytic curves are subharmonic.
+\end{enumerate}
+For a finite collection we require a common collar and synchronized common
+algebraizable model refinements.  For a further decreasing sequence,
+``joint'' means that one decreasing two-index array works simultaneously for
+the outer and model indices.
+
+\begin{proposition}\label{prop:frontier-local-ma-bounded-closure}
+For \(g_1,\ldots,g_d\in\mathcal C_b^{\mathrm{com}}\), the limit
+\begin{equation}
+ \MA^{\mathrm{com}}_{\mathfrak m}(g_1,\ldots,g_d)
+ :=\lim_{k\to\infty}
+ p_*\MA^{\partial}_{\mathrm{CLD},\mathfrak m}
+       (u_1^{(k)},\ldots,u_d^{(k)})
+ \label{eq:frontier-local-ma-bounded-limit}
+\end{equation}
+exists, is independent of all approximants, and equals the BFJ mixed local
+intersection measure.  It is continuous along decreasing sequences admitting
+one joint bounded model approximation of the preceding kind.
+\end{proposition}
+
+\begin{proof}
+At every model index,
+\Cref{thm:frontier-local-ma-model-comparison} gives
+\begin{equation}
+ p_*\MA^{\partial}_{\mathrm{CLD},\mathfrak m}
+       (u_1^{(k)},\ldots,u_d^{(k)})
+ =\MA_{\mathrm{BFJ},\mathfrak m}
+       (g_1^{(k)},\ldots,g_d^{(k)}).
+ \label{eq:frontier-local-ma-model-index-equality}
+\end{equation}
+Let \(B\) denote the symmetric \(d\)-linear BFJ measure operator.  Its
+polarization identity is
+\begin{equation}
+ d!B(h_1,\ldots,h_d)
+ =\sum_{J\subset\{1,\ldots,d\}}(-1)^{d-|J|}
+ B\!\left(\sum_{j\in J}h_j,\ldots,
+          \sum_{j\in J}h_j\right).
+ \label{eq:frontier-local-ma-polarization}
+\end{equation}
+For every \(J\), the diagonal input on the right decreases to the
+corresponding sum of the limiting functions.  BFJ bounded monotone
+continuity \cite[Proposition~4.8]{BFJ08}, followed by the finite sum in
+\eqref{eq:frontier-local-ma-polarization}, proves weak convergence of the
+mixed measures.  Together with
+\eqref{eq:frontier-local-ma-model-index-equality}, this proves existence of
+\eqref{eq:frontier-local-ma-bounded-limit}.  Notice that the argument uses
+the swept model measures; it never commutes a characteristic function with a
+weak limit.
+
+The limiting BFJ product depends only on \(g_1,\ldots,g_d\), hence proves
+independence.  For a further decreasing sequence, the joint approximation
+hypothesis supplies an array decreasing in both indices.  Its diagonal is a
+cofinal decreasing sequence converging to the final limit, so the same
+polarization argument proves the asserted continuity.  On curves, the
+submean, equivalently outgoing-slope, inequalities pass to the continuous
+decreasing limit.  No claim is made for a bounded curve-test psh function
+without this joint revised-CLD/BFJ approximation.
+\end{proof}
+
+\begin{proposition}\label{prop:frontier-local-ma-reference-ideal}
+Let \(I\) be an \(\mathfrak m\)-primary ideal.  For ideal functions, and for
+rational semipositive functions carried by an algebraizable common log
+model, the preceding construction and comparison remain valid with the link
+\(V_I=\{v:v(I)=1\}\), the shell \(u_I=-1\), and the cutoff
+\(\max\{u_I,-1\}\).  The joint bounded extension remains valid with the
+same approximation hypothesis.  We denote the resulting measure by
+\(\MA_I^{\mathrm{com}}\).
+\end{proposition}
+
+\begin{proof}
+Polynomialize \(I\) and the finitely many input ideals simultaneously by the
+Nakayama argument in
+\Cref{lem:frontier-local-ma-common-model-core}, and principalize them on one
+algebraic log model.  Write
+\(I\mathcal O_Y=\mathcal O_Y(-D_I)\).  The Gauss extension in
+\eqref{eq:frontier-local-ma-gauss-extension} uses only the normalization
+\(v(I)=\widetilde v(t)=1\), while primaryness bounds all input potentials on
+a fixed collar of the shell.  Replace \(\mathscr J\) in
+\eqref{eq:frontier-local-ma-formal-blowup} by
+\((t,\mathcal O_Y(-D_I))\).  At the generic point of a prime \(E\subset
+D_I\), the same Rees calculation is the normalized blowup of
+\((t,x^{\ord_E(I)})\).  It gives the coefficient
+\[
+ \ord_E(I)\bigl((-A_1)\cdots(-A_d)\cdot E\bigr),
+\]
+which is precisely the \(I\)-normalized BFJ coefficient.  The cancellation
+off the shell and the higher-codimension projection argument are unchanged.
+Finally, the proof of
+\Cref{prop:frontier-local-ma-bounded-closure} uses only this model equality
+and bounded monotone convergence, so it applies verbatim under the stated
+joint approximation hypothesis.
+\end{proof}
+
+\begin{proposition}\label{prop:frontier-local-ma-finite-map}
+Let \(F:(X',0')\to(X,0)\) be a finite map of smooth
+\(n\)-dimensional germs of local degree \(q\), and put
+\(I=\mathfrak m\mathcal O_{X',0'}\).  Normalize the source link first by
+\(I\), and write
+\(F_\#:V_I\to V_{\mathfrak m}\), \(w\mapsto w\circ F^\#\).  For ideal
+model functions, for rational functions whose target models and pulled-back
+source models both lie in the algebraizable model locus, and for members of the joint bounded
+closure whose pullbacks remain in that closure,
+\begin{equation}
+ (F_\#)_*\MA^{\mathrm{com}}_I(F^*g_1,\ldots,F^*g_d)
+ =q\,\MA^{\mathrm{com}}_{\mathfrak m}(g_1,\ldots,g_d).
+ \label{eq:frontier-local-ma-finite-projection}
+\end{equation}
+On the standard source link \(V_{\mathfrak m'}\), set
+\[
+ c(v):=v(I),\qquad R_I(v):=v/c(v),\qquad
+ \widehat F(v):=(v\circ F^\#)/v(I)=F_\#(R_I(v)).
+\]
+For ideal model functions, the exact standard-link formula is
+\begin{equation}
+ \widehat F_*\!\left(
+ c\,\MA^{\mathrm{com}}_{\mathfrak m'}
+   (g_{F^*\mathfrak a_1},\ldots,g_{F^*\mathfrak a_d})\right)
+ =q\,\MA^{\mathrm{com}}_{\mathfrak m}
+   (g_{\mathfrak a_1},\ldots,g_{\mathfrak a_d}).
+ \label{eq:frontier-local-ma-standard-link}
+\end{equation}
+For an \'etale map of pointed complex germs, \(q=1\),
+\(I=\mathfrak m'\), and \(c\equiv1\).
+\end{proposition}
+
+\begin{proof}
+Choose compatible analytic log resolutions, and let \(h:Y'\to Y\) be the
+normalization of the analytic fibre product before resolving the source.
+The normalization is finite of degree \(q\).  Divisors created
+only by the final resolution map to subsets of codimension at least two and
+have zero coefficient by the projection formula.  Let \(E'\) be a prime on
+the normalized source model that dominates a target prime \(E\).  Denote its
+ramification and residue degrees by \(e(E'/E)\) and \(f(E'/E)\).  Then
+\begin{equation}
+ \ord_{E'}(I)=e(E'/E)b_E,
+ \qquad h_*E'=f(E'/E)E,
+ \label{eq:frontier-local-ma-finite-ef}
+\end{equation}
+and, if
+\(\alpha_E=(-A_1)\cdots(-A_d)\cdot E\), the ordinary projection formula
+gives
+\begin{equation}
+ \bigl((-h^*A_1)\cdots(-h^*A_d)\cdot E'\bigr)
+       =f(E'/E)\alpha_E.
+ \label{eq:frontier-local-ma-finite-intersection}
+\end{equation}
+Consequently the source atom over \(E'\) has coefficient
+\(e(E'/E)f(E'/E)b_E\alpha_E\), and its image under \(F_\#\) is
+\(v_E\).  The equality
+\(\sum_{E'\mid E}e(E'/E)f(E'/E)=q\) now gives exactly the coefficient
+\(qb_E\alpha_E\).  This proves
+\eqref{eq:frontier-local-ma-finite-projection} term by term for ideal model
+functions.  Multilinearity proves the algebraizable rational model case;
+here the hypothesis on the pullback is needed because the finite analytic map
+itself need not be algebraic.  For ideal functions, the source and target
+CLD--BFJ comparisons may be computed on their respective algebraic models;
+model independence identifies both with the analytic intersection
+calculation above.  The same reasoning applies to the stated algebraizable
+rational locus.  Joint bounded monotone approximation and continuity of
+pushforward of finite measures prove the bounded extension.
+
+To change the reference ideal, let
+\(v_{E'}=\ord_{E'}/b'_{E'}\in V_{\mathfrak m'}\) and put
+\(c_{E'}=\ord_{E'}(I)\).  Then
+\[
+ c(v_{E'})=c_{E'}/b'_{E'},
+ \qquad
+ R_I(v_{E'})=\ord_{E'}/c_{E'}.
+\]
+Put
+\(\beta_{E'}=(-A'_1)\cdots(-A'_d)\cdot E'\).  The coefficient of this atom
+for the \(\mathfrak m'\)-reference is \(b'_{E'}\beta_{E'}\), whereas its
+coefficient for the \(I\)-reference is \(c_{E'}\beta_{E'}\).  Multiplication
+by \(c(v_{E'})=c_{E'}/b'_{E'}\) therefore gives the latter coefficient
+exactly, and radial normalization changes only the location of the atom.
+For clarity, write
+\(g_{\mathfrak b}^{[J]}(v):=-v(\mathfrak b)\) on \(V_J\).  Hence, for the
+pulled-back ideals \(\mathfrak b_i=\mathfrak a_i\mathcal O_{X',0'}\),
+\begin{equation}
+ \MA^{\mathrm{com}}_I
+   (g_{\mathfrak b_1}^{[I]},\ldots,g_{\mathfrak b_d}^{[I]})
+ =R_{I*}\!\left(c\,\MA^{\mathrm{com}}_{\mathfrak m'}
+   (g_{\mathfrak b_1}^{[\mathfrak m']},\ldots,
+    g_{\mathfrak b_d}^{[\mathfrak m']})\right).
+ \label{eq:frontier-local-ma-reference-change}
+\end{equation}
+Combining \eqref{eq:frontier-local-ma-finite-projection} and
+\eqref{eq:frontier-local-ma-reference-change} gives
+\eqref{eq:frontier-local-ma-standard-link}.  The weight is genuinely
+variable: for
+\(F(z_1,\ldots,z_n)=(z_1^q,z_2,\ldots,z_n)\),
+\[
+ v(\mathfrak m\mathcal O_{X',0'})
+   =\min\{qv(z_1),v(z_2),\ldots,v(z_n)\}
+\]
+is not constant on \(V_{\mathfrak m'}\).
+\end{proof}
+
+\begin{proposition}\label{prop:frontier-local-ma-no-probability}
+No rule can both replace every nonzero literal local restriction of the
+common measure by a probability measure and form a sheaf under literal
+restriction.
+\end{proposition}
+
+\begin{proof}
+Work on \((\mathbf C^2,0)\).  Blow up the origin and then the point of the
+first exceptional curve corresponding to the tangent direction \(y=0\).
+Let \(E_1\) be the strict transform of the first exceptional curve and
+\(E_2\) the second.  Then
+\[
+ E_1^2=-2,\qquad E_2^2=-1,\qquad E_1\cdot E_2=1,
+ \qquad b_{E_1}=b_{E_2}=1.
+\]
+For \(\mathfrak a=(x^3,xy,y^2)\), the divisorial orders are two and three,
+so \(A=2E_1+3E_2\).  Direct intersection gives
+\[
+ (-A)\cdot E_1=-\bigl(2(-2)+3\bigr)=1,
+ \qquad
+ (-A)\cdot E_2=-\bigl(2+3(-1)\bigr)=1.
+\]
+Thus \eqref{eq:frontier-local-ma-bfj-atomic} gives
+\(\mu=\delta_{v_{E_1}}+\delta_{v_{E_2}}\).  Choose an open set \(U\)
+containing both atoms and \(W\subset U\) containing only \(v_{E_1}\).
+Probability normalization on \(U\), followed by restriction to \(W\), gives
+\(\tfrac12\delta_{v_{E_1}}\), whereas direct probability normalization on
+\(W\) gives \(\delta_{v_{E_1}}\).  They differ.  The unnormalized common
+measure itself restricts correctly.
+\end{proof}
+
+The next example shows why the bounded hypothesis cannot simply be deleted.
+
+\begin{example}\label{ex:frontier-local-ma-polar-endpoint}
+On \((\mathbf C^2,0)\), let
+\(v_s(x)=1\), \(v_s(y)=s\) for \(1\leq s<+\infty\), and let
+\(v_\infty\) be the endpoint with \(v_\infty(y)=+\infty\).  For
+\(\mathfrak a_k=(y,x^k)\),
+\begin{equation}
+ g_k(v_s)=-v_s(\mathfrak a_k)=-\min\{s,k\}\downarrow-s=:g(v_s),
+ \label{eq:frontier-local-ma-unbounded-ray}
+\end{equation}
+and \(g(v_\infty)=-\infty\).  Resolving \(\mathfrak a_k\) gives a chain with
+\(v_j(x)=1\), \(v_j(y)=j\), exceptional intersections
+\(E_j^2=-2\) for \(j<k\), \(E_k^2=-1\), and adjacent intersection one.
+The ideal divisor has coefficient \(j\) along \(E_j\).  Hence
+\((-A)\cdot E_j=0\) for \(j<k\) and
+\((-A)\cdot E_k=1\), so
+\begin{equation}
+                  \MA_{\mathrm{BFJ}}(g_k)=\delta_{v_k}.
+ \label{eq:frontier-local-ma-unbounded-atoms}
+\end{equation}
+The full decreasing limit is \(\delta_{v_\infty}\).  On the other hand,
+\(g_k=\max\{g,-k\}\), and the nonpluripolar truncation
+\[
+ \one_{\{g>-k\}}\MA_{\mathrm{BFJ}}(\max\{g,-k\})
+\]
+is zero: the only atom in
+\eqref{eq:frontier-local-ma-unbounded-atoms} lies on \(\{g=-k\}\).  Thus
+full monotone continuation and nonpluripolar continuation disagree by a
+polar endpoint mass.
+\end{example}
+
+\begin{theorem}\label{thm:frontier-common-local-ma}
+For a smooth complex germ and the fixed datum
+\((\mathfrak m,|t|=\rme^{-1},u_{\mathfrak m}=-1)\), the Gauss realization
+of \Cref{lem:frontier-local-ma-gauss} identifies the swept CLD boundary
+measure with the BFJ local measure on ideal functions and on rational
+semipositive functions carried by an algebraizable common log model.  This
+identification is model- and chart-independent within that locus, local
+without probability renormalization, and functorial under finite maps in the
+input domains specified in \Cref{prop:frontier-local-ma-finite-map}, with the
+reference-change factor in \eqref{eq:frontier-local-ma-reference-change}.
+It extends uniquely to
+\(\mathcal C_b^{\mathrm{com}}\) with joint decreasing monotone continuity.
+Without an additional convention governing polar mass, the model comparison
+does not determine an extension to arbitrary unbounded functions.
+\end{theorem}
+
+\begin{proof}
+The actual analytic/polyhedral realization is
+\Cref{lem:frontier-local-ma-gauss}; simultaneous membership in the three
+model positivity classes is
+\Cref{lem:frontier-local-ma-common-model-core}; and the term-by-term
+intersection equality is
+\Cref{thm:frontier-local-ma-model-comparison}.  Independence and locality
+are \Cref{prop:frontier-local-ma-independence}, the bounded extension is
+\Cref{prop:frontier-local-ma-bounded-closure}, and the finite-map formulas
+are \Cref{prop:frontier-local-ma-finite-map}.  The incompatibility of
+probability normalization with restriction is
+\Cref{prop:frontier-local-ma-no-probability}.  Finally,
+\Cref{ex:frontier-local-ma-polar-endpoint} gives a full decreasing limit that
+charges the polar endpoint, whereas nonpluripolar truncation discards that
+mass.  Thus the model comparison alone does not select the treatment of polar
+mass.  These results prove all assertions and the final limitation.
+\end{proof}
+
+Consequently the model-locus comparison and the explicitly defined joint
+bounded closure are \emph{verified}.  The following parts of the problem
+remain \emph{open}: a product for an arbitrary
+bounded classically psh function not known to admit the joint realization; a
+capacity or finite-energy criterion selecting the treatment of polar mass;
+comparison for a rational model carried only by a nonalgebraizable analytic
+modification; and extensions to singular or nonnormal germs.  No primary
+source located by the cutoff states the comparison theorem above; its proof
+is a new Rethlas-verified manuscript argument, not a claim about priority in
+the literature.  The Bingener comparison recorded in
+\Cref{thm:mp-bingener-projective-germs} and based on
+\cite[Aussage~2.8]{Bingener76Stein} algebraizes suitable projective germs over
+a local or Stein algebra; it does not by itself produce a finite-type
+\(\mathbf C\)-model and an admissible CLD formal model for an arbitrary
+analytic modification, so it does not close the stated algebraizability gap.
+
+\subsection{Regularity and orthogonality on balanced polyhedral spaces}
+
+\begin{problem}\label{prob:frontier-polyhedral-regularity}
+Let \(\mathbf X\) be a pure-dimensional balanced rational polyhedral space
+and let \(\gamma\) be a piecewise-affine polyhedrally convex reference
+function positive at infinity.  Characterize the pairs
+\((\mathbf X,\gamma)\) for which the
+regularity and orthogonality properties of Botero--Mazzon--Pille-Schneider
+hold.  Under realizability hypotheses, compare their polyhedral
+Monge--Amp\`ere operator with CLD, delta-form, and non-Archimedean
+Monge--Amp\`ere measures.
+\end{problem}
+
+The bibliographic dates require a correction.  The first arXiv version was
+submitted on 9 March 2026 and the date printed inside the manuscript is
+10 March 2026, not 11 August 2026 \cite{BMPS26}.  We use that version
+throughout.
+
+Here are the conventions needed to compare it with
+\Cref{app:tropical-algebra}.  Normal vectors point from a codimension-one
+face into an adjacent top-dimensional face, as in
+\eqref{eq:appG-primitive-normal}, and a convex bend has positive divisor.
+Botero--Mazzon--Pille-Schneider allow positive real balancing weights; a
+tropical cycle in the narrower Mikhalkin--Rau convention has integral
+weights.  Analytic comparison therefore uses the latter only after the
+saturated tangent lattices and analytic tropical multiplicities have been
+installed.  Finally, their real Monge--Amp\`ere measure is the Alexandrov
+measure of \Cref{thm:appD-alexandrov-measure}, without a factorial.  Their
+polyhedral intersection convention consequently gives
+\begin{equation}
+ \one_{\RelInt(\sigma)}\MA_{\mathrm{poly}}(\varphi)
+ =d![\mathbf X](\sigma)\,
+   \MA_{\mathbf R}(\varphi|_{\RelInt(\sigma)})
+ \label{eq:frontier-polyhedral-real-local}
+\end{equation}
+on the relative interior of every top-dimensional face
+\cite[Propositions~4.12 and~4.20]{BMPS26}.  This is exactly the factorial
+firewall in \Cref{app:normalizations}.
+
+We first separate the source results from the new deduction below.  For a
+piecewise-affine polyhedrally convex reference \(\gamma\) positive at
+infinity, \cite[Theorem~4.13 and Proposition~4.16]{BMPS26} constructs the
+positive mixed operator
+\[
+ \MA_{\mathrm{poly}}:
+ \mathrm{PC}_{\mathrm{reg}}(\mathbf X,\gamma)^d
+ \longrightarrow\mathcal M^+(\mathbf X),
+ \qquad
+ \int_{\mathbf X}\MA_{\mathrm{poly}}=\deg(\gamma),
+\]
+and proves its continuity under uniform, in particular decreasing,
+regularizable approximation.  Its Theorem~6.4 says that regularity is
+equivalent to each of
+\[
+ \begin{split}
+ &P_\gamma(u)\in\mathrm{PC}_{\mathrm{reg}}(\mathbf X,\gamma)
+       \quad\text{for every bounded piecewise-affine }u,\\
+ &\mathrm{PAPC}(\mathbf X,\gamma)
+       \text{ is uniformly dense in }\mathrm{PC}(\mathbf X,\gamma),\\
+ &\mathrm{PC}(\mathbf X,\gamma)
+       =\mathrm{PC}_{\mathrm{reg}}(\mathbf X,\gamma).
+ \end{split}
+\]
+Regularity holds in dimension one, on the complete affine space
+\(N_{\mathbf R}\), and for conical functions in the conical category
+\cite[Proposition~6.13 and Remark~6.6]{BMPS26}.  Orthogonality is the further
+identity
+\begin{equation}
+ \int_{\mathbf X}
+ \bigl(P_\gamma(u)-(\gamma+u)\bigr)
+ \MA_{\mathrm{poly}}(P_\gamma(u))=0.
+ \label{eq:frontier-polyhedral-orthogonality}
+\end{equation}
+The source proves \eqref{eq:frontier-polyhedral-orthogonality} on
+one-dimensional polyhedrally smooth spaces and obtains existence and
+uniqueness, modulo constants, for compactly supported positive measures of
+mass \(\deg(\gamma)\)
+\cite[Proposition~6.21 and Theorem~6.22]{BMPS26}.
+
+The following elementary convex-envelope fact is the missing contact
+mechanism on a complete affine space.
+
+% RETHLAS-VERIFIED: balanced-polyhedral-affine-contact; receipt 20260814T174427Z_438bf42ae745
+\begin{lemma}\label{lem:frontier-polyhedral-affine-contact}
+Let \(f:\mathbf R^d\to\mathbf R\) be continuous and coercive, and let
+\(P\) be its greatest lower-semicontinuous convex minorant.  Suppose that
+\(P\) is polyhedral.  If \(\partial P(x)\) has positive
+\(d\)-dimensional volume, then \(P(x)=f(x)\).
+\end{lemma}
+
+\begin{proof}
+Choose a Euclidean norm and a point \(p\) in the interior of
+\(\partial P(x)\).  For some \(\eta>0\),
+\(p+\eta\overline B^\vee\subset\partial P(x)\).  For \(y\ne x\), choose
+\(q_y\) in the dual unit sphere with
+\(\langle q_y,y-x\rangle=\lVert y-x\rVert\).  Applying the subgradient
+inequality to \(p+\eta q_y\) gives
+\begin{equation}
+ P(y)-\langle p,y\rangle
+ \geq P(x)-\langle p,x\rangle+\eta\lVert y-x\rVert.
+ \label{eq:frontier-polyhedral-exposed-contact}
+\end{equation}
+Thus \(x\) is the unique minimizer of
+\(P-\langle p,\cdot\rangle\).
+
+Set
+\[
+                 m:=\inf_y\{f(y)-\langle p,y\rangle\}.
+\]
+The affine function \(y\mapsto\langle p,y\rangle+m\) is bounded above by
+\(f\); maximality of \(P\) therefore puts it below \(P\).  Since
+\(P\leq f\), the two opposite inequalities between the infima give
+\begin{equation}
+ m=\inf_y\{P(y)-\langle p,y\rangle\}
+  =P(x)-\langle p,x\rangle.
+ \label{eq:frontier-polyhedral-contact-infimum}
+\end{equation}
+By \eqref{eq:frontier-polyhedral-exposed-contact} and \(f\geq P\), the
+function \(f-\langle p,\cdot\rangle\) is coercive, so it attains its
+infimum at some \(y_0\).  Equations
+\eqref{eq:frontier-polyhedral-exposed-contact}--
+\eqref{eq:frontier-polyhedral-contact-infimum} force \(y_0=x\), and equality
+at the minimum gives \(f(x)=P(x)\).
+\end{proof}
+
+% RETHLAS-VERIFIED: balanced-polyhedral-affine-orthogonality; receipt 20260814T174427Z_438bf42ae745
+\begin{theorem}\label{thm:frontier-polyhedral-affine-orthogonality}
+Let \(N\) have rank \(d\), let
+\(\mathbf X=N_{\mathbf R}\) carry the constant balancing weight
+\(c>0\), and let \(\gamma\) be a piecewise-affine polyhedrally convex
+function positive at infinity.  Then
+\((\mathbf X,\gamma)\) has regularity and orthogonality in every dimension.
+No strict-convexity hypothesis beyond positivity at infinity is needed.
+\end{theorem}
+
+\begin{proof}
+Let \(u\) be bounded and piecewise affine, put \(f=\gamma+u\), and choose
+\(C\) with \(|u|\leq C\).  Positivity of \(\gamma\) at infinity and
+boundedness of \(u\) make \(f\) coercive.  On all of
+\(N_{\mathbf R}\), polyhedral
+convexity is ordinary convexity.  The envelope \(P_\gamma(u)\) is therefore
+the greatest lower-semicontinuous convex minorant \(P\) of \(f\): indeed,
+\(\gamma-C\leq f\) is a competitor, while every convex minorant between
+\(\gamma-C\) and \(f\) has the required \(\gamma+O(1)\) growth.
+
+On a common finite rational polyhedral decomposition, the epigraph of
+\(f\) is a finite union of rational polyhedra.  The closed convex hull of a
+finite union of rational polyhedra is a rational polyhedron: this follows,
+for example, by writing each member as the convex hull of finitely many
+rational points plus the cone generated by finitely many rational recession
+directions, and taking the convex hull of the points and the cone generated
+by all recession directions.  Since
+\[
+ \operatorname{epi}(P)
+ =\overline{\operatorname{conv}}\bigl(\operatorname{epi}(f)\bigr),
+\]
+its lower boundary is piecewise affine.  The inequalities
+\(
+ \gamma-C\leq P\leq f\leq\gamma+C
+\)
+show that \(P\in\mathrm{PAPC}(\mathbf X,\gamma)\).  This proves the first
+condition in the source regularity characterization, hence regularity.
+
+For a piecewise-affine convex function on \(N_{\mathbf R}\), apply the
+piecewise-affine version of
+\eqref{eq:frontier-polyhedral-real-local} to the coarsest complex with the
+single face \(N_{\mathbf R}\); the domains of affinity of \(P\) are merely
+an auxiliary refinement.  This gives the global identity
+\begin{equation}
+                  \MA_{\mathrm{poly}}(P)
+                  =d!c\,\MA_{\mathbf R}(P).
+ \label{eq:frontier-polyhedral-affine-global-ma}
+\end{equation}
+The right-hand side is atomic, and its mass at \(x\) is
+\(\operatorname{vol}(\partial P(x))\), by
+\Cref{ex:appD-polyhedral-atom}.  Every atom of positive mass is therefore
+on the contact set \(\{P=f\}\), by
+\Cref{lem:frontier-polyhedral-affine-contact}.  The integrand in
+\eqref{eq:frontier-polyhedral-orthogonality} vanishes on the support of the
+measure, proving orthogonality.
+\end{proof}
+
+The regularity assertion in
+\Cref{thm:frontier-polyhedral-affine-orthogonality} is the complete case of
+\cite[Remark~6.6]{BMPS26}; the all-dimensional orthogonality deduction is
+new in this manuscript and has been independently verified by Rethlas.
+
+The next example shows why completeness of the ambient convex geometry
+cannot be replaced by strict positivity of the reference alone.
+
+\begin{example}\label{ex:frontier-polyhedral-cross-orthogonality}
+Let
+\[
+ \mathbf X=(\mathbf R\times\{0\})\cup(\{0\}\times\mathbf R)
+\]
+with all four ray weights equal to one, and put
+\(\gamma(x,y)=|x|+|y|\) on \(\mathbf X\).  This reference is positive at
+infinity and strictly polyhedrally convex on the four-ray complex.  For
+\(\varepsilon>0\), define the obstacle
+\[
+ f(x,0)=|x|+\varepsilon,
+ \qquad
+ f(0,y)=\bigl||y|-\varepsilon\bigr|,
+ \qquad u=f-\gamma.
+\]
+Then \(u\) is bounded and piecewise affine, and
+\[
+ P_\gamma(u)(x,0)=|x|,
+ \qquad
+ P_\gamma(u)(0,y)=\max\{0,|y|-\varepsilon\}.
+\]
+\end{example}
+
+Indeed, the displayed candidate is the restriction of the ambient convex
+function
+\(
+ \max\{|x|,|y|-\varepsilon,0\}
+\), hence is polyhedrally convex and lies below \(f\).  Conversely, if
+\(q\leq f\) is an admissible polyhedrally convex function, convexity between
+\((0,\varepsilon)\) and \((0,-\varepsilon)\) gives \(q(0,0)\leq0\).
+On either horizontal ray, convexity and the asymptotic slope bound one give
+\(q(x,0)\leq|x|\).  On the positive vertical ray, convexity first gives
+\(q(0,y)\leq0\) for \(0\leq y\leq\varepsilon\), and then the same slope
+bound gives \(q(0,y)\leq y-\varepsilon\) for
+\(y\geq\varepsilon\); the negative ray is identical.  This proves the
+envelope formula.  Its outgoing slopes at the origin have sum two, so
+\[
+ \MA_{\mathrm{poly}}(P_\gamma(u))\{(0,0)\}=2,
+ \qquad P_\gamma(u)(0,0)-f(0,0)=-\varepsilon.
+\]
+All other atoms lie on the contact set, and the orthogonality integral is
+therefore \(-2\varepsilon\).  Finally, a positive local one-cycle at the
+origin has weights \(a,a,b,b>0\) on the two opposing horizontal and two
+opposing vertical rays; intersection with \(\gamma\) has coefficient
+\(2a+2b>0\).  The strict-convexity criterion of
+\cite[Remark~3.9]{BMPS26} applies.  This is the source's Example~6.23 with
+its sign and contact calculation made explicit.
+
+There is a complementary smooth-fan warning in
+\cite[Example~6.24, Claim~6.25, and Remark~6.26]{BMPS26}.  On the Bergman
+fan of the uniform matroid \(U_{3,4}\), assign value zero to the opposite
+rays generated by \(e_{12}\) and \(e_{34}=-e_{12}\), and value one to the
+other primitive ray generators.  The resulting polyhedrally convex
+reference \(\gamma\) admits a bounded piecewise-affine obstacle \(g\geq
+\gamma\) for which
+\[
+ P_\gamma(g-\gamma)=\gamma,
+ \qquad
+ \MA_{\mathrm{poly}}(\gamma)\{0\}=4,
+ \qquad
+ \gamma(0)<g(0).
+\]
+The source proves the envelope identity cone by cone: equality first holds
+on the line \(\mathbf R e_{12}\), then on the original rays by one-variable
+convexity, and finally on each two-dimensional cone by joining its boundary
+to the diagonal ray.  The mass is the direct iterated-divisor computation
+on that fan.  This example is tropically smooth but \(\gamma\) is identically
+zero on \(\mathbf R e_{12}\).  Hence it is neither strictly convex nor
+positive at infinity.  It does not disprove the conjunction of a suitable
+higher-dimensional smoothness condition with the strict growth hypotheses
+in \Cref{prob:frontier-polyhedral-regularity}.
+
+Balancing also does not, by itself, produce an analytic space.  The exact
+formal comparison that is available once a realization has been supplied is
+as follows.
+
+% RETHLAS-VERIFIED: balanced-polyhedral-recursive-realization; receipt 20260814T174427Z_438bf42ae745
+\begin{proposition}\label{prop:frontier-polyhedral-recursive-realization}
+Let \(Y\) be a pure \(d\)-dimensional non-Archimedean analytic space over a
+complete field, and let \(h:Y\to\mathbf X\) be a proper harmonic
+tropicalization.  Equip \(\mathbf X\) with the saturated integral
+lattices and analytic tropical multiplicities induced by \(h\).  Suppose
+that every tropical cycle \(c\) obtained from \([\mathbf X]\) by successive
+rational piecewise-affine divisors has a CLD/delta current \(T_c\) such
+that
+\begin{equation}
+ T_{[\mathbf X]}=[Y],\qquad
+ T_{a\cdot c}=\dprimeddprime[a\circ h]\wedge T_c,
+ \qquad h_*T_c=\delta_c.
+ \label{eq:frontier-polyhedral-recursive-current}
+\end{equation}
+Assume also that regularizable polyhedrally convex weights induce
+semipositive analytic metrics and that their analytic wedge products are
+weakly continuous under the same decreasing uniform piecewise-affine
+approximations as \(\MA_{\mathrm{poly}}\).  Then
+\begin{equation}
+ h_*\bigl(
+  \dprimeddprime[a_1\circ h]\wedge\cdots\wedge
+  \dprimeddprime[a_d\circ h]\wedge[Y]
+ \bigr)
+ =\delta_{a_1\cdots a_d\cdot[\mathbf X]}
+ =\MA_{\mathrm{poly}}(a_1,\ldots,a_d)
+ \label{eq:frontier-polyhedral-realization-comparison}
+\end{equation}
+for rational piecewise-affine polyhedrally convex weights, and the same
+identity holds for regularizable weights.  When the analytic wedge is the
+first-Chern, hence Chambert--Loir, measure of the associated semipositive
+metrics, it is also the non-Archimedean Monge--Amp\`ere measure.
+\end{proposition}
+
+\begin{proof}
+Starting with \(T_{[\mathbf X]}=[Y]\), apply the middle identity in
+\eqref{eq:frontier-polyhedral-recursive-current} successively.  After
+\(j\) steps, the actual analytic wedge is the current attached to the
+iterated divisor cycle; hence after \(d\) steps it is
+\(T_{a_1\cdots a_d\cdot[\mathbf X]}\).  The last identity in
+\eqref{eq:frontier-polyhedral-recursive-current} gives the first equality
+in \eqref{eq:frontier-polyhedral-realization-comparison}.  The second is the
+definition of the mixed polyhedral Monge--Amp\`ere measure on
+piecewise-affine weights.
+
+For regularizable weights, choose decreasing uniform piecewise-affine
+approximations in every entry.  Source continuity gives weak convergence on
+the polyhedral side, while the stated analytic continuity gives weak
+convergence of the wedge currents.  Properness on their supports permits
+pushforward through the limit.  This proves the asserted extension.  The
+last sentence is simply the identification of the analytic wedge with the
+first-Chern/Chambert--Loir measure under the hypothesis stated there.
+\end{proof}
+
+The recursive current identity in
+\eqref{eq:frontier-polyhedral-recursive-current} is essential.  A pushed
+forward one-step Poincar\'e--Lelong formula alone cannot be iterated after the
+first divisor, because it has forgotten the current carried by the
+intermediate cycle.  Likewise, arbitrary positive balancing weights cannot
+replace analytic tropical multiplicities: the latter include the local
+degree and saturated lattice index of
+\eqref{eq:appG-lattice-index}.  Formula
+\eqref{eq:frontier-polyhedral-realization-comparison} commutes with complete
+scalar extension only when the realization, calibration, currents, metrics,
+and both identities in
+\eqref{eq:frontier-polyhedral-recursive-current} do so.
+
+The unconditional analytic result in the source is narrower.  For the
+toric degenerations of Calabi--Yau complete intersections in its
+\S7, let \(\mathbf X\) be the tropicalization, let
+\(\gamma\) be the polarization weight, and let \(\mu_0\) be Lebesgue
+measure on the essential skeleton.  Under the three assumptions
+\[
+ (L^d)=\deg(\gamma),\qquad
+ \varphi\in\mathrm{PC}_{\mathrm{reg}}(\mathbf X,\gamma),
+ \quad\MA_{\mathrm{poly}}(\varphi)=\mu_0,
+\]
+and semipositivity of
+\(
+ \Psi=\varphi_0+(\varphi-\gamma)\circ\operatorname{trop}
+\), Proposition~7.2 of \cite{BMPS26} proves
+\(
+ \MA_{\NA}(\Psi)=\mu_0
+\)
+and, over \(\mathbf C((t))\), the comparison property.  Its Lemma~7.3
+computes every maximal-cell weight as one from analytic degree divided by
+lattice index.  The local equality is then
+\eqref{eq:frontier-polyhedral-real-local} together with Vilsmeier's
+real/non-Archimedean comparison \cite[Theorem~1.1]{Vil20}; equality away
+from lower-dimensional skeleton faces and equality of total masses force
+the global identity.  None of this is a realization theorem for an abstract
+balanced space.
+
+The source itself formulates three sharper tasks that organize this broad
+problem: enlarge the notion of polyhedral smoothness so that higher-dimensional
+regularity and orthogonality hold; characterize polarized Calabi--Yau
+families whose tropicalizations satisfy those properties; and determine
+which matroids have Bergman fans satisfying orthogonality
+\cite[pp.~3--4, \S1.5, and Remark~6.27]{BMPS26}.  By contrast, analytic
+realization of the cross-fan in
+\Cref{prob:frontier-cross-fan} is a diagnostic problem formulated in this
+book, not a question attributed to Botero--Mazzon--Pille--Schneider.
+
+Thus the audit gives four verdicts.  The complete affine case in
+\Cref{thm:frontier-polyhedral-affine-orthogonality} is \emph{verified};
+strict positivity alone is \emph{disproved} by
+\Cref{ex:frontier-polyhedral-cross-orthogonality}; the general analytic
+comparison is \emph{conditional} on the recursive calibrated realization
+of \Cref{prop:frontier-polyhedral-recursive-realization}; and the main
+higher-dimensional local problem remains \emph{open}.  The missing local
+assertion is a contact theorem on singular fans: under an intrinsic
+smoothness and strict-positivity package, positive top intersection mass of
+an envelope should force contact with the obstacle.  Neither a proof nor a
+counterexample satisfying both parts of that package is presently known.
+
+\subsection{Pluriharmonic regularity}
+
+\begin{problem}\label{prob:frontier-pluriharmonic}
+Let \(K\) be complete and nontrivially valued and let \(X\) be a good,
+separated, strict, boundaryless \(K\)-analytic space.  Is every classically
+pluriharmonic function PL without the additional regularity hypotheses in
+\cite[Proposition~7.8]{GR25Classical}?  If a continuous \(h\) satisfies
+\(\dprimeddprime[h]=0\), is \(h\) classically pluriharmonic, or harmonic under
+the hypotheses where a classical harmonic notion is available?  On every
+smooth Berkovich curve, does decreasing regularization hold with
+CLD-smooth---rather than merely weakly smooth---harmonic approximants?
+\end{problem}
+
+Weakly smooth \(\dprimeddprime\)-harmonic functions are harmonic PL by
+\cite[Proposition~10.17]{GJR26}.  Distributional vanishing on cell interiors
+only proves affinity there; it does not supply the face-balancing law or a
+finite harmonic tropicalization.  On curves, weakly smooth and CLD-smooth
+regularity are genuinely different.  The search therefore treats the three
+questions separately.  The weakly smooth statement is \emph{verified}; the
+unrestricted PL, representative, and CLD-smooth claims are \emph{open}.
+
+\subsection{Early collapse of the CLD psh hierarchy}
+\index{plurisubharmonic function!CLD hierarchy}
+\index{CLD hierarchy!early collapse}
+
+\begin{problem}\label{prob:frontier-cld-hierarchy}
+Does the transfinite hierarchy used to generate the CLD sheaf of psh
+functions collapse after its first decreasing-limit stage?  If not, is there
+a finite or otherwise uniformly controlled ordinal at which it collapses on
+every affine tropical space in a natural geometric class?
+\end{problem}
+
+This is not the set-theoretic question of eventual stabilization.  The
+cardinality argument in \cite[Lemma~8.1.4]{CLD25} already proves that the
+hierarchy eventually stabilizes.  Read literally, the sentence in
+\cite[Remark~8.1.6]{CLD25} saying that stationarity is not known conflicts
+with that lemma; the same remark immediately records the intended analytic
+content: in complex geometry the first stage suffices, and every
+non-Archimedean example then known also occurs at the first stage.  CLD call
+first-stage functions locally approachable in their Definition~8.1.13.
+Thus the coherent open question is early collapse, not eventual
+stationarity.  It is distinct from
+\Cref{prob:frontier-classical-regularization}: the latter starts with an
+arbitrary classically psh function and asks whether it enters the CLD class,
+whereas this problem asks how many closure stages are needed after it does.
+
+No example requiring a second stage is known at the cutoff.  A solution must
+either flatten an iterated decreasing-limit diagram into a single local
+decreasing approximation, with its index and topology controlled, or exhibit
+a genuine rank obstruction.  A diagonal argument for sequences is not
+enough on a non-first-countable space, and a cofinal sequence may not exist.
+The problem remains \emph{open}.
+
+\subsection{Local psh metrics versus global psh metrics}
+\index{psh metric!local versus global}
+
+\begin{problem}\label{prob:frontier-cld-global-metric}
+Let \(L\) be a line bundle on a projective non-Archimedean variety.  Is every
+continuous metric whose local weights are CLD-psh globally psh in the
+Fubini--Study or nef-model sense?  More generally, does the corresponding
+global approximation statement hold on a proper strict analytic space that
+admits a formal model with projective special fibre?
+\end{problem}
+
+These are the two questions in \cite[Remark~17.8.10]{CLD25}.  Global
+Fubini--Study approximation, semipositive model approximation, and local CLD
+positivity agree on the common model loci developed earlier in the book, but
+that agreement does not globalize an arbitrary continuous local psh metric.
+The missing input is a global approximation theorem respecting transition
+functions and the numerical line-bundle class.  Existing global
+Fubini--Study and nef-envelope results provide important sufficient cases,
+but do not prove the displayed local-to-global implication.  Both questions
+remain \emph{open}.
+
+\subsection{Three further Gubler--Jell--Rabinoff questions}
+\index{harmonic PL function!semipositive analogue}
+\index{abelian variety!canonical metric}
+
+\begin{problem}\label{prob:frontier-gjr-three}
+Determine the following.
+\begin{enumerate}
+\item Does the local finite integral decomposition of harmonic PL functions
+      admit a semipositive analogue?
+\item For an abelian variety (A), is the canonical injection
+      \(\Lambda^{p,q}M_{\mathbf R}\to H^{p,q}(A)\) an isomorphism?
+\item Is the canonical metric on an abelian variety an ordinary
+      \(\delta\)-metric, rather than only a metric in the larger weakly smooth
+      formalism?
+\end{enumerate}
+\end{problem}
+
+The questions occur, respectively, immediately before
+\cite[Proposition~7.5]{GJR26}, in \cite[\S1.15]{GJR26}, and in
+\cite[Remark~16.4]{GJR26}.  The last warning is substantive: a previously
+used argument relied on smoothness of a canonical tropicalization that fails
+in general.  None of the three questions follows from harmonic
+tropicalization alone.  They remain \emph{open}; the first is the one most
+directly tied to the equivalence problem for local psh definitions.
+
+\section{Valuative singularities and the trivially valued frontier}
+
+\subsection{Do generalized Lelong numbers separate singularities?}
+
+\begin{problem}\label{prob:frontier-lelong-separation}
+Let \(u,v\) be psh germs at a smooth complex point.  If
+\[
+                     \nu_\psi(u)=\nu_\psi(v)
+\]
+for every tame psh weight \(\psi\), must the valuative transforms
+\(\widehat u\) and \(\widehat v\) coincide?
+\end{problem}
+
+Boucksom--Favre--Jonsson prove that equality of all infinitely-near Lelong
+numbers, equality of strong multiplier ideals, and equality of relative types
+are equivalent, and that these conditions imply equality of generalized
+Lelong numbers \cite{BFJ08}.  Strong openness later identifies strong and
+ordinary multiplier ideals \cite{GZ15}, but it does not reverse the final
+implication.  The Zhou-weight results of Bao--Guan--Mi--Yuan
+\href{https://doi.org/10.1016/j.aim.2025.110364}{\emph{Adv. Math.} 477
+(2025), 110364} strengthen the relative-type and multiplier-ideal testing
+language, but do not state this converse for generalized Lelong numbers.
+
+The natural attempted route uses the representation
+\eqref{eq:local-generalized-lelong}: do the mixed local Monge--Ampère
+measures of tame fundamental solutions separate formal psh functions?
+Dimension two and monomial singularities reduce to potential or convex
+duality and are the first test cases.  In higher dimension the required
+nondegeneracy of the intersection pairing is not presently available in the
+needed singular domain.  The converse is \emph{open}.
+
+\subsection{Global Radon--Riesz convergence}
+
+\begin{problem}\label{prob:frontier-bj-radon-riesz}
+Does weak convergence together with convergence of the Boucksom--Jonsson
+exhaustion \(T_\omega\) imply convergence in the strong
+\(d_{\infty,\omega}\)-topology on the full space \(X^{\lin}\)?
+\end{problem}
+
+This is the global content of \cite[Question~11.16]{BJ22}.  On a fixed snc
+dual complex for a smooth projective variety in characteristic zero, strong
+compactness follows from the equi-Lipschitz estimate in
+\cite[Theorem~A.4]{BJ22}; compact-to-Hausdorff comparison then identifies the
+two topologies, as proved in \Cref{thm:verified-fixed-dual-complex}.  This
+argument gives no control uniform in an escaping sequence of models.
+
+The attempted proof seeks a model-independent Izumi estimate and quantitative
+control of the retractions.  The counterexample search concentrates on thin
+exceptional divisors whose weak coordinates stabilize while their strong
+cost escapes.  The fixed-complex case is \emph{verified}; the global
+Radon--Riesz statement remains \emph{open}.  Extending the fixed-complex input
+to arbitrary characteristic is a separate open compactness problem.
+
+\subsection{A functorial local theory on singular germs}
+
+\begin{problem}\label{prob:frontier-singular-local}
+Extend the normalized local theory of
+\Cref{chap:local-valuative-psh} from smooth complex germs to excellent
+singular and nonnormal germs.  Determine the normalizing boundary datum and
+construct, when possible, psh functions, envelopes, bounded products, finite
+energy, and finite-map functoriality.
+\end{problem}
+
+Several choices that coincide in the smooth one-point setting split here.
+The maximal ideal, a boundary divisor, and a chosen ideal of definition can
+cut different links in the valuation cone.  Normalization separates
+branches; descent must remember the conductor.  In positive characteristic,
+alterations replace resolutions but do not automatically carry the local
+intersection product required by \Cref{thm:local-formal-ma}.
+
+The Rethlas programme tests normal crossings, cusps, nodes, quotient
+singularities, and purely inseparable universal homeomorphisms.  Any claim of
+choice-independence must exhibit its comparison maps and scaling law.
+Relative b-divisors can be defined on suitable model systems, but the full
+package above is presently \emph{open}.
+
+\index{local volume!resolved questions}
+Two older local-volume questions should not be carried forward as open.
+For the Boucksom--de Fernex--Favre local volume, Yuchen Zhang proves a
+positive dimension-dependent lower bound for every nonzero volume of an
+isolated Gorenstein singularity and constructs a non-
+\(\mathbf Q\)-Gorenstein isolated singularity of volume zero that admits no
+boundary making the pair log canonical
+\cite{Zhang14LocalVolume}.  Thus the first conjectural
+direction is confirmed and the second implication is disproved.  These
+results delimit the singular theory above; they are resolved history, not
+additional problems.
+
+\subsection{Finite-energy equations on polarized affine cones}
+
+\begin{problem}\label{prob:frontier-affine-cone-ma}
+Let \((X,T;\xi)\) be a normal polarized affine cone over an algebraically
+closed trivially valued field of characteristic zero.  Develop a comparison
+calculus for \(\PSH(\xi)\) and \(\PSH(\xi')\) when \(\xi\) and \(\xi'\) are
+nonproportional Reeb fields, strong enough to prove the required uniform
+differentiability of the energy.  For a fixed \(\xi\), characterize the image
+of
+\[
+ \MA_\xi:\mathcal E^1(\xi)/\mathbf R
+ \longrightarrow \mathcal M^1(\xi),
+\]
+and determine exactly which \(\mu\in\mathcal M^1(\xi)\) admit a solution of
+\(\MA_\xi(\varphi)=\mu\), unique modulo constants.
+\end{problem}
+
+The fixed-polarization theory is already substantial:
+\Cref{thm:local-cone-finite-energy-ma} constructs the mixed operator,
+proves decreasing-net continuity, and makes the single-potential operator
+bi-Lipschitz onto its image.  The proportional-rescaling identities of
+\cite[Proposition~3.3]{Wu24AffineCones} do not compare nonproportional Reeb
+rays.  Rational approximation likewise does not yield constants uniform in
+two varying polarizations.  The introduction of \cite{Wu24AffineCones}
+identifies precisely this missing uniform differentiability input and does
+not claim surjectivity onto \(\mathcal M^1(\xi)\).
+
+The natural strategy is to prove Reeb-uniform Hodge-index and
+\(I\)--\(J\) estimates on a compact slice of the Reeb cone, use them to
+differentiate the energy along rational approximants, and then run the
+finite-energy variational method.  At present the first step is unavailable:
+the known addition formula stays on one Reeb ray, and an irrational output
+measure may already be carried by a genuinely quasimonomial point.  No
+argument in this edition closes either the cross-polarization estimate or the
+image characterization.  Both residuals are therefore \emph{open} and are
+recorded as one coupled, unresolved Rethlas packet in the editorial ledger;
+no verification verdict is claimed for either residual.
+
+\subsection{The formerly listed trace refinement is resolved}
+\label{sec:frontier-trace-p-resolved}
+
+An earlier draft asked whether analytic trace on its natural domain admits
+a map
+\[
+ D_Y/{\sim_P}\longrightarrow
+ \QPSH(\widetilde Y)/{\sim_P}.
+\]
+This is not open.  The trace theorem proves the stronger factorization
+\[
+ D_Y/{\sim_P}
+ \longrightarrow
+ D_Y/{\sim_{\mathcal I}}
+ \longrightarrow
+ \QPSH(\widetilde Y)/{\sim_P}:
+ \qquad
+ [\varphi]_{\mathcal I}\longmapsto[\Tr_Y(\varphi)]_P.
+\]
+Every trace representative is \(\mathcal I\)-good; moreover
+\(\varphi\preceq_{\mathcal I}\psi\) implies
+\(\Tr_Y(\varphi)\preceq_P\Tr_Y(\psi)\).  Thus
+\(\mathcal I\)-equivalent inputs have \(P\)-equivalent traces.  These are
+the comparison and uniqueness statements of \cite{DX24}, reproduced with
+full proofs in the supplied trace chapter of \cite{XiaBook}; see
+\Cref{thm:operations-trace-well-defined,thm:operations-trace-p-descent,thm:verified-trace-factorization}.
+
+This result does not assert that the input relations
+\(\sim_{\mathcal I}\) and \(\sim_P\) coincide.  It says instead that the
+restriction construction improves the target uniqueness.  The old problem
+environment has therefore been removed from the active inventory rather
+than relabelled as a new result of this book.
+
+\section{Pseudoeffective classes and zero volume}
+
+\subsection{Extending the MP realization to every pseudoeffective class}
+
+\begin{problem}\label{prob:frontier-mp-pseff}
+Let \(X\) be a compact Kähler manifold and let
+\(\alpha\in H^{1,1}_{\mathrm{BC}}(X,\mathbf R)\) be pseudoeffective.
+Construct the strongest intrinsic realization on the Mesquita--Piccione
+tropical spectrum of the DXZ inverse-system space
+\(\PSH^{\NA}(X,\alpha)\), and identify its order, homogeneity,
+approximation, energy, and Monge--Ampère structures whenever these exist.
+\end{problem}
+
+The verified core is now \Cref{chap:pseff-mp-dxz}.  Every compatible DXZ
+family defines a perturbation-independent raw ideal-valuative function on
+\(X^\beth\).  Its divisorial restriction is the sourced DXZ
+analytification, which is injective and order-reflecting; no upper
+semicontinuity or MP positivity is inferred at an arbitrary nondivisorial
+point on a general compact K\"ahler manifold.  Translation holds on all
+semivaluations, while the other pointwise operation formulas are retained
+on the rational divisorial locus with the exact endpoint hypotheses of
+\cite{Xia23Operations}.  The K\"ahler finite-energy correspondence with MP
+is proved.  If \(X\) is smooth projective and the class is pseudoeffective
+in the real N\'eron--Severi space, the full DXZ--Boucksom--Jonsson
+correspondence is known; for a \(\mathbf Q\)-line-bundle class, the raw
+ideal-valuative function is exactly the Boucksom--Jonsson psh metric on
+every semivaluation by \cite[formula~(3.8) and Theorem~3.12]{Xia23Operations}.
+Even for an ample \(\mathbf Q\)-class, however, unrestricted identification
+with the MP cone remains open.
+
+The problem remains open in three precise senses: characterize the image of
+the transform intrinsically; decide whether the raw transform is upper
+semicontinuous or MP psh at arbitrary nondivisorial points on a general
+compact K\"ahler manifold; and construct a \(P\)-sensitive positivity,
+measure, and energy theory for big non-nef classes.  One cannot obtain the
+latter by replacing \(P\)-equivalence with \(\mathcal I\)-equivalence.
+
+There is also a sharper published big-class question hidden inside the first
+item.  Darvas--Xia--Zhang conjecture, immediately before their
+Definition~4.4, that filtration test curves are maximal in the big case
+\cite{DXZ23}.  Proving this in the positive-mass range would identify an
+intrinsic part of the image of the realization and remove one envelope
+operation from the comparison with MP.  The zero-mass range also contains
+the separate open problem of recovering an \(\mathcal I\)-model potential
+from data with vanishing top mass, so it must not be treated as a formal
+endpoint of the positive-mass argument.  Both ranges remain \emph{open};
+the candidate-only audit in the editorial ledger produced no Rethlas
+receipt and hence no promoted endpoint theorem.
+
+Two unchanged extensions are excluded by
+\Cref{prop:pseff-relative-nef-obstruction,prop:pseff-zero-volume-boundary}.
+A relatively \emph{nef} total-space class restricts to a nef class on every
+noncentral fibre, so vertical corrections and central modifications that
+remain relatively nef cannot represent a big non-nef generic class.  If
+\(\operatorname{vol}(\alpha)=0\), every top nonpluripolar mass vanishes and
+the existing probability and normalized energy formulas are undefined.
+
+\subsection{Zero-volume energy, measures, and convex bodies}
+
+\begin{problem}\label{prob:frontier-zero-volume}
+After choosing the minimum necessary reference scale, is there a
+path-independent unnormalized energy and Monge--Ampère theory for a
+pseudoeffective zero-volume class?  Is there a \(P\)-sensitive
+transcendental Okounkov body encoding its lower-dimensional numerical data?
+\end{problem}
+
+The unchanged probability signature is \emph{disproved}: total mass zero
+cannot be normalized to mass one.  Kähler perturbations give a family of
+probabilities, not automatically a canonical limit.  Moreover
+\Cref{thm:verified-mass-no-go} proves that a body depending only on
+\(\mathcal I\)-equivalence cannot recover actual nonpluripolar mass.
+
+The attempted positive construction rescales by the first nonzero coefficient
+in \(\operatorname{vol}(\alpha+\varepsilon\omega)\), then tests independence
+of the perturbation path and comparison with numerical dimension.  Nef
+zero-volume classes and toric examples provide the first nontrivial cases.
+Any surviving convex body must use \(P\)-type or richer data.  No general
+path-independent construction is presently verified.
+
+Two source questions give sharper benchmarks.  Xia conjectures that the
+dimension of the partial Okounkov body equals the numerical dimension even
+at zero mass \cite[Conjecture~5.29]{Xia21}, and the same source asks whether
+the Chebyshev transform is independent of its auxiliary positive form
+\cite[p.~34]{Xia21}.  These remain genuine published questions.  The
+\(P\)-sensitive body requested above is a stronger construction formulated
+in this book and should not be attributed to that source.
+
+The third conjecture of that source is the non-toric mixed-volume formula
+\cite[Conjecture~8.8]{Xia21}.  On 24 August 2026, the author supplied the TeX
+proof underlying the unpublished manuscript \cite{XiaMVOB}.  After repairs
+of its positive-Cao-volume reduction, convex sandwich, pointwise potential
+sandwich, rational analytic-resolution step, degenerate finite-level case,
+multigraded saturation step, and effective-shift body inclusion, the exact
+repaired proof received a production \texttt{gpt-5.6-sol}/\texttt{xhigh}
+verdict of \emph{correct}, with no critical error and no gap.  Thus
+\Cref{thm:ok-mvob-metrics} proves Conjecture~8.8 for singular psh metrics on
+big line bundles over a smooth projective complex variety when every Cao
+(equivalently, ideal-model) volume is positive;
+\Cref{thm:ok-mvob-line-bundles} gives the movable-product specialization for
+big line bundles with minimal singularities.  This is an author-supplied,
+repaired, and independently verified proof in an unpublished work in
+progress, not a claim that the result has appeared in the published
+literature.  It asserts a supremum over surjective rank-\(n\) valuations,
+not attainment by one valuation.  Zero volume, transcendental classes,
+singular varieties, and attainment remain outside the theorem; in
+particular, the genuinely different problem
+\Cref{prob:frontier-zero-volume} remains open.
+This source-status item is not an additional problem environment in the
+literal count at the beginning of the chapter.
+
+\section{Existence, degenerations, and numerical dimension}
+
+\subsection{The Monge--Ampère equation beyond the original BFJ domain}
+
+\begin{problem}\label{prob:frontier-general-ma}
+Extend the finite-energy existence and uniqueness theory for the NA
+Monge--Ampère equation beyond the currently proved combinations of smoothness,
+projectivity, residue characteristic, valuation, positivity class, support,
+and algebraizability hypotheses.
+\end{problem}
+
+This is not one yes-or-no assertion.  Positive characteristic, singular or
+unibranch varieties, nondiscrete valuations, big classes, arbitrary support,
+and nonalgebraizable analytic spaces require different inputs.  The known
+variational proofs use compactness, envelope regularity, differentiability of
+energy, and a comparison principle; deleting a geometric hypothesis is valid
+only after replacing every place where it enters.  The relevant positive
+results and their distinct domains are surveyed in
+\Cref{chap:bfj-finite-energy-measures,chap:bfj-continuity}.
+
+One exact source-stated axis is especially clean.  Pille--Schneider observes
+that the finite-energy space can be defined over an arbitrary
+non-Archimedean field, but that the extension of the Monge--Amp\`ere operator
+is not known there in general; the discretely valued characteristic-zero and
+trivially valued cases are the established endpoints
+\cite[Remark~4.4]{PS23Hybrid}.  This should be solved before bundling all
+remaining axes into a single theorem.
+
+\index{Monge--Amp\`ere equation!skeletal factorization}
+There is also a resolved negative regularity chronology.  The first
+skeletal-factorization question of Gubler--Jell--K\"unnemann--Martin already
+fails on their toric surface \cite[Appendix~A]{GJKM19}.
+Boucksom--Jonsson then construct a finite
+atomic Monge--Amp\`ere measure supported on a dual complex whose solution is
+invariant under no retraction attached to any SNC model; they also construct
+a divisorial Green function that is not \(\mathbf Q\)-PL
+\cite[Theorems~A and~B]{BJGreen24}.  Hence support on a dual complex does not
+imply factorization through some refined skeleton.  This is a theorem-level
+obstruction to a proof strategy, not an open regularity expectation.
+
+The Rethlas programme treats each axis separately and first searches the
+post-2020 literature for an existing theorem.  Alterations and universal
+homeomorphisms can address some algebraic descent questions, but they do not
+by themselves supply multiplier ideals or differentiability in positive
+characteristic.  The unrestricted formulation is \emph{open}; several
+strictly delimited axes are already known.
+
+\subsection{Continuity of Monge--Amp\`ere measures over Banach bases}
+
+\begin{problem}\label{prob:frontier-banach-family-ma}
+Let \(A\) be an integral Banach ring, let \(X\) be a flat projective
+\(A\)-scheme of relative dimension \(n\), let \(L_1,\ldots,L_n\) be
+semiample line bundles, and let \(\phi_i\) be continuous psh metrics on
+\(L_i\).  For every \(\psi\in C^0(X^{\mathrm{an}})\), is
+\[
+ x\longmapsto
+ \int_{X_{\mathcal H(x)}^{\mathrm{an}}}\psi\,
+ \operatorname{MA}\bigl((\phi_1)_x,\ldots,(\phi_n)_x\bigr)
+\]
+continuous on \(\mathcal M(A)\)?
+\end{problem}
+
+This is \cite[Question~4.9]{PS23Hybrid}.  Flatness is essential even to keep
+the total
+mixed intersection mass constant.  The answer is affirmative for the hybrid
+base and continuous hybrid psh metrics by
+\cite[Theorem~4.11]{PS23Hybrid}, which reformulates Favre's theorem.  The
+source states that the answer is unclear for a
+general integral Banach ring and expects the arithmetic case of the ring of
+integers of a number field.  Its Chern--Levine--Nirenberg estimate
+\cite[Lemma~4.10]{PS23Hybrid} and density argument
+reduce the question to FS metrics and model test functions.  The Rethlas task
+is to prove that reduced assertion by an intersection-theoretic
+specialization formula, or to produce a non-hybrid Banach base where
+specialization of vertical intersection cycles jumps.  The general problem
+is \emph{open}.
+
+\subsection{Continuity of the hybrid extension}
+
+\begin{problem}\label{prob:frontier-favre-hybrid-extension}
+Let \((X,L)\to\mathbb D^*\) be a polarized projective degeneration.  Let
+\(\phi\) be a continuous semipositive metric with logarithmic growth and
+assume that its associated non-Archimedean metric \(\phi^{\NA}\) is
+continuous.  Is the induced metric \(\phi^{\mathrm{hyb}}\) continuous on the hybrid
+space, and hence a continuous hybrid psh metric?
+\end{problem}
+
+This is Favre's Question~1 as reproduced in
+\cite[Question~3.18]{PS23Hybrid}.  The psh property of the glued metric is
+\cite[Theorem~3.13]{PS23Hybrid}; continuity is the missing assertion.  It is
+proved for degenerations of canonically polarized manifolds admitting
+semistable reduction by \cite[Theorem~5.1]{PS23Hybrid}, and continuous hybrid
+metrics have weakly continuous Monge--Amp\`ere measures by its Theorem~4.11.
+The proposed proof requires a Bergman
+regularization error uniform in the degeneration parameter, equivalently the
+uniform oscillation estimate isolated immediately after the question in the
+primary source.  Continuity of the two endpoint metrics alone does not give
+that estimate.  The general problem remains \emph{open}.
+
+\subsection{Hybrid entropy slopes and the remaining compact-Kähler YTD frontier}
+
+\begin{problem}\label{prob:frontier-hybrid-ytd}
+Prove the entropy-slope, approximation, compactness, and automorphism
+statements needed to pass from model non-Archimedean stability to existence
+of canonical metrics along arbitrary finite-energy weak rays on a compact
+Kähler manifold.
+\end{problem}
+
+The static projective entropy and stability gap must not be listed as wholly
+open at this cutoff.
+Trusiani's version-two preprint of 17 August 2026,
+\cite[Theorem~B and Corollary~A]{Trusiani26}, retains the special Fujita
+approximations for big line bundles and the claimed solution of the
+Boucksom--Jonsson entropy-regularization conjecture; its Theorem~A retains
+the automorphism-relative uniform YTD theorem for smooth polarized
+projective varieties.  Corollary~A also records the resulting equality of
+the Archimedean entropy slope along a maximal finite-energy ray with the
+non-Archimedean entropy, in that projective framework.  The new Appendix by
+S\'ebastien Boucksom supplies a non-Archimedean proof over
+\(\Bbbk((t))\), and Theorem~C adds the weighted-relative correspondence,
+including Calabi extremal metrics when the weight is log-concave.  These are
+recent preprint claims, rather than results independently reproved in this
+book.  Boucksom--Jonsson's 18 September 2025
+preprint \cite{BJ25WeightedYTD} gives a
+non-Archimedean formulation for cscK and weighted extremal metrics on
+polarized projective manifolds.  Darvas--Zhang's 3 November 2025 version-two
+preprint \cite[Theorems~1.6 and~5.5]{DarvasZhang25YTD} gives a uniform
+YTD correspondence for a unique cscK metric on an arbitrary compact
+Kähler manifold using \(K^\beta\)-stability and, in the polarized
+projective case, a reductivity-plus-log-discrepancy-model formulation.
+Mesquita--Piccione--Witt Nyström prove that uniform model stability implies
+existence in a Kähler class and establish the transcendental finite-energy
+Calabi--Yau homeomorphism \cite[Theorems~A and~B]{MPWN25}.  Finally,
+Trusiani's Corollary~B identifies the standard automorphism-relative
+projective stability formulations in the smooth polarized setting
+\cite{Trusiani26}.  Thus the projective entropy slope, the weighted-relative
+correspondence in the stated smooth polarized scope, and comparison of the
+listed projective signatures are no longer open problems.
+
+\Cref{chap:hybrid-spaces,chap:ytd-bridge} separates hybrid convergence from
+entropy and coercivity.  The BHJ erratum is enforced in
+\Cref{chap:rays-filtrations}.  The remaining targets are narrower: direct
+algebraic proofs of the known projective equivalences; \(K^\beta\)-stability
+in the presence of nontrivial automorphisms; equivariant transcendental and
+singular extensions; regularization of rays attached to log-discrepancy
+models; and the genuinely hybrid compactness and measure-continuity
+statements needed to pass through a degenerating family.  Boucksom--Jonsson
+also isolate bounded support size for divisorial test measures, algebraic
+equivariance proofs, and extension to polarized klt pairs
+\cite[Questions and further remarks]{BJ25WeightedYTD}.  Those residual
+problems remain \emph{open}; the smooth polarized projective entropy and
+weighted-relative theorems are dated Trusiani version-two claims, not
+missing inputs.
+
+\subsection{Irrational real toric numerical dimension}
+
+\begin{problem}\label{prob:frontier-real-toric}
+For a torus-invariant positive current \(T\) in a big irrational real
+class on a smooth projective toric variety, does
+\[
+                         \nu(T)=\dim\Delta(T)
+\]
+hold for the numerical dimension defined by real positive products?
+\end{problem}
+
+\Cref{thm:verified-toric-dimension} proves the identity for integral and
+rational toric classes using Guenancia's multiplier-ideal criterion
+\cite[Theorem~1.13]{Guenancia12}, the character decomposition
+\cite[\S4.3]{CLS11}, and Cao's projective numerical criterion
+\cite[Proposition~4.4]{Cao14}.  A real class has no single section algebra to
+which that argument applies.
+
+The attempted extension compares positive products under rational
+class-varying approximation and seeks a purely convex characterization of
+the transcendental numerical dimension.  Uniform control of singularity type
+is essential; convergence of Newton bodies alone does not identify multiplier
+ideals or positive products.  The irrational real statement is
+\emph{open}.
+
+\subsection{Realizing the cross-fan counterexample analytically}
+
+\begin{problem}\label{prob:frontier-cross-fan}
+Can the weighted cross-fan of
+\Cref{prop:verified-cross-fan} be realized by a harmonic tropicalization of a
+good strict analytic space and by a positive closed analytic or delta-current
+with the displayed weights?
+\end{problem}
+
+The abstract calibrated fan counterexample is verified, but analytic
+realization requires more than balancing.  A candidate must construct the
+space, tropical chart, lattice calibration, multiplicities, and current, and
+must show that the ambient convex approximants pull back to the asserted psh
+functions.  Nodal curves, products of annuli, semistable surface skeleta, and
+tropical modifications are the initial tests.  Conversely, analytic
+multiplicity formulas might force the current weights to be proportional to
+the fundamental calibration, which would be a negative realization theorem.
+No such construction or obstruction is presently verified.
+
+\section{How solutions enter the book}
+
+Each problem above is assigned a separate, source-scoped Rethlas input so
+that a solution of one question cannot hide a gap in another.  A queued input
+is not described as an attempted solution until a final verifier receipt
+exists.  A successful proof is first checked
+against its primary sources and boundary cases, then verified in a fresh
+session, and finally reread after integration.  A counterexample is held to
+the same standard: abstract tropical data, analytic realizations, and global
+algebraic examples are not interchangeable.
+
+The current results of this process are already visible:
+
+\begin{enumerate}
+\item the literal equality of smooth, PL, current, classical, and global psh
+      classes is disproved by elementary regularity and polarization
+      obstructions;
+\item the three PL notions in
+      \eqref{eq:verified-pl-psh-equivalence} are verified to coincide on the
+      relative interior;
+\item restriction of a positive aggregate tropical divisor to a balanced
+      curve is disproved in general, while the corresponding analytic CLD
+      converse remains open conditional on
+      \eqref{eq:frontier-restriction-r};
+\item probability-valued local restriction is disproved as a sheaf
+      signature;
+\item unchanged MP models are disproved for a non-Kähler generic class, and
+      unchanged normalized energy is disproved at volume zero;
+\item the \(\mathcal I\)-invariant mass-body proposal is disproved by
+      \Cref{thm:verified-mass-no-go};
+\item support of the right-hand side on a dual complex is disproved as a
+      criterion for invariance under some SNC retraction
+      \cite{BJGreen24};
+\item the two older BdFF local-volume questions are respectively confirmed
+      and disproved by \cite{Zhang14LocalVolume}; and
+\item the fixed-dual-complex, split-trace, rational toric dimension, and
+      cross-fan statements are verified in their displayed domains.
+\end{enumerate}
+
+The unresolved cores remain problems, not promises.  Their attempted routes
+and failed implications are retained so that future revisions can update one
+status at a time without changing the surrounding theory.
+
+\section*{Notes and further reading}
+
+The CLD and Gubler--Rabinoff boundaries use
+\cite{CLD25,GJR26,GR25PL,GR25Classical,Wanner19}; the polyhedral frontier is
+\href{https://arxiv.org/abs/2603.08664}{arXiv:2603.08664v1}.  The local valuative
+questions originate in \cite{BFJ08}; the global strong-topology question is
+\cite[Question~11.16]{BJ22}.  The pseudoeffective inverse system is due to
+\cite{DXZ23}, with operations developed in \cite{Xia23Operations}; the
+Kähler tropical-spectrum theory is \cite{MP24}.  The two exact hybrid questions
+are recorded in \cite{PS23Hybrid}.  Stability status at the cutoff uses
+\cite{Trusiani26,BJ25WeightedYTD,DarvasZhang25YTD}, with their
+different signatures kept separate.  Further routing appears in
+\Cref{chap:hybrid-spaces,chap:ytd-bridge}.  Because this literature is rapidly
+changing, every status in this chapter carries the cutoff date printed at its
+beginning.

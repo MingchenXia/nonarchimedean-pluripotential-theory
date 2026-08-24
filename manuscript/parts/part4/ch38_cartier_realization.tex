@@ -1,0 +1,3771 @@
+\chapter{Cartier b-divisors and homogeneous realization}
+\index{b-divisor@$b$-divisor!Cartier}\index{homogeneous realization}
+\label{chap:bj-cartier-realization}
+
+This chapter constructs the first independent ingredient in the envelope
+proof.  An anti-effective real Cartier b-divisor with nef total class will
+be realized as the divisorial trace of a homogeneous psh function.  The
+construction uses ordered rational approximation, semiample coefficient
+functions, the decreasing-limit axiom, comparison, and homogeneous Siu
+division.  It does not use the envelope property.
+
+Throughout, \(X\) is a normal integral projective variety over the
+algebraically closed trivially valued field \(k\).  A model over \(X\) is a
+normal projective birational morphism.  Inequalities between divisors with
+one fixed finite support are coefficientwise.
+
+\section{Orientation}
+\label{sec:ch38-orientation}
+
+\subsection{What is built here, and for whom}
+\label{sec:ch38-what}
+
+\Cref{chap:bj-homogeneity-bdivisors} established a dictionary between three
+descriptions of the same object: a homogeneous psh function on
+\(X^{\An}\), its divisorial trace, and a b-divisor over \(X\).  At the
+Cartier level that dictionary is a bijection
+(\Cref{prop:cartier-homogeneous-pl}), and the positivity condition
+characterizing the Fubini--Study cone inside it is
+\emph{semiampleness} of the total class \(\pi^*L+B_Y\)
+(\Cref{thm:ch35-semiample-criterion}).  What is not yet available in
+arbitrary characteristic is the corresponding statement with
+\emph{nefness} in place of semiampleness.  That statement,
+\Cref{thm:ch35-cartier-psh-criterion}, was proved in
+\Cref{chap:bj-homogeneity-bdivisors} only under the hypothesis that ample
+classes on \(X\) have the envelope property, and its proof passes through
+an increasing limit.  Since
+\Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
+exist in order to \emph{prove} the envelope property, that route is closed
+to us.
+
+The present chapter supplies the substitute.  Its main theorem,
+\Cref{thm:bj-real-cartier-realization}, says:
+
+\begin{quote}
+if \(B\leq0\) is a \emph{real} Cartier b-divisor over a normal integral
+projective \(X\), determined on a model \(\pi:Y\to X\), and if the total
+class \(\pi^*\theta+B_Y\) is nef, then the coefficient function
+\(\psi_B\) on \(X^{\divis}\) is the divisorial trace of a unique
+homogeneous \(\theta\)-psh function \(\chi_B\) on \(X^{\An}\).
+\end{quote}
+
+The gain over \Cref{thm:ch35-cartier-psh-criterion} is threefold.  The
+coefficients are real, not rational; no smoothness or characteristic
+hypothesis is imposed; and, decisively, no envelope property is used.  The
+price is that the conclusion is stated for \emph{Cartier} b-divisors only.
+An arbitrary Weil b-divisor is not realized here, and
+\Cref{rem:ch38-cartier-not-weil} explains why the Cartier case is
+nevertheless exactly what the later chapters consume.
+
+Three groups of readers use this chapter.
+
+\emph{\Cref{chap:bj-reflection}} uses
+\Cref{thm:bj-real-cartier-realization} twice, once for each of its two
+reflection theorems.  In the homogeneous reflection theorem the b-divisor
+is manufactured on the source of a birational morphism and realized on the
+target; the realization is applied to a whole net of b-divisors at once,
+and the ordering statement \Cref{cor:bj-realization-order} is what keeps
+the resulting net of psh functions decreasing.  The fixed-pole data of
+\Cref{lem:ch38-activation} is quoted there verbatim.
+
+\emph{\Crefrange{chap:bj-smooth-characteristic}{chap:bj-subintegral-normalization}}
+use the approximation package
+\Cref{cor:ch38-gf-regularization-bdivisor}: every homogeneous psh function
+is a decreasing limit of homogeneous Fubini--Study functions whose
+coefficient b-divisors are rational, antieffective, and increasing, and
+whose classes converge.  This is the form in which base ideals and test
+ideals are fed into the argument.
+
+\emph{\Cref{chap:bj-envelope-consequences}} uses
+\Cref{cor:ch38-cartier-psh-criterion-unconditional}, which records that
+after the present chapter the Cartier psh criterion
+\Cref{thm:ch35-cartier-psh-criterion} holds unconditionally and with real
+coefficients.
+
+\subsection{The firewall}
+\label{sec:ch38-firewall}
+
+\Cref{chap:bj-envelope-history} warned, in the discussion following
+\Cref{def:bj-obstacle-envelope}, that before the envelope theorem the
+operator \(P_\theta\) is a map from obstacles to functions and not to
+\(\PSH_X(\theta)\).  The same warning applies here in a stronger form,
+because this chapter is one of the inputs of
+\Cref{thm:bj-final-envelope} and \Cref{chap:bj-envelope-statement}
+cites it in the proof of that theorem.  We therefore state the firewall
+explicitly and once.
+
+\begin{warning}{The envelope theorem is not available in this chapter}
+\label{warn:ch38-firewall}
+Nothing in \Cref{chap:bj-cartier-realization} may use, directly or
+transitively:
+\begin{enumerate}
+\item \Cref{thm:bj-final-envelope}, or the envelope property
+ \(\operatorname{EP}\) of \Cref{def:bj-envelope-property} for any class on
+ any variety;
+\item closure of \(\PSH_X(\theta)\) under suprema, regularized or not, and
+ in particular any appeal to an increasing net of psh functions having a
+ psh limit;
+\item the obstacle envelope \(P_\theta\) regarded as an operator with
+ values in \(\PSH_X(\theta)\);
+\item \Cref{thm:ch35-cartier-psh-criterion} in its nontrivial direction
+ \(\Leftarrow\), whose proof in
+ \Cref{chap:bj-homogeneity-bdivisors} is an increasing limit governed by
+ \(\operatorname{EP}\) for ample classes;
+\item \Cref{thm:bj-nef-bdivisor-correspondence} and
+ \Cref{cor:ch35-monotone-approximation}, which rest on the previous item
+ and on smoothness in characteristic zero;
+\item \Cref{thm:ch34-psh-compactness} in the homogeneous form used in the
+ proof of \Cref{thm:bj-nef-bdivisor-correspondence}.
+\end{enumerate}
+The only limit operation performed below is a decreasing one.  Every
+appearance of the word ``limit'' in this chapter refers to a decreasing
+net or to a convergent net in a finite-dimensional real vector space.
+\end{warning}
+
+It is worth saying what \emph{is} available, since the list is short and
+each item is used.  From \Cref{chap:bj-fs-pl-psh}: the definition
+\Cref{def:bj-psh} of \(\PSH_X(\theta)\), the closure calculus
+\Cref{thm:bj-basic-closure}, the existence statement
+\Cref{lem:ch34-psh-nonempty}, the hierarchy \eqref{eq:ch34-hierarchy}, and
+the Fubini--Study regularization \Cref{thm:ch34-fs-regularization}.  From
+\Cref{chap:bj-homogeneity-bdivisors}: the evaluation pairing
+\Cref{prop:ch35-weil-coefficient-bijection}, its Cartier refinement
+\Cref{prop:ch35-cartier-continuous-extension}, the identification
+\Cref{prop:cartier-homogeneous-pl} of Cartier b-divisors with homogeneous
+PL functions, the semiample criterion
+\Cref{thm:ch35-semiample-criterion}, the normalization
+\Cref{prop:ch35-homogeneous-normalization}, the comparison theorem
+\Cref{thm:ch35-divisorial-comparison} with its corollary
+\Cref{cor:ch35-divisorial-determination}, the homogenization corollary
+\Cref{cor:ch35-homogenization-psh}, and the homogeneous Siu decomposition
+\Cref{thm:ch35-homogeneous-siu} together with its general form
+\Cref{thm:ch35-homogeneous-siu-general}.  Following the usage of
+\Crefrange{chap:bj-reflection}{chap:bj-envelope-consequences}, we
+abbreviate as \emph{PSH2} the decreasing-limit axiom, that is
+\Cref{thm:bj-basic-closure}\,(4): a decreasing net in
+\(\PSH_X(\theta)\) whose pointwise limit is not identically \(-\infty\) on
+a component has \(\theta\)-psh limit.  It is the only limit operation used
+below, and its two hypotheses --- a single fixed class, and a
+generically finite limit --- are checked explicitly at every application.  Each of these is unconditional;
+\Cref{sec:ch35-dependencies} records that the only statement of
+\Cref{chap:bj-homogeneity-bdivisors} carrying an envelope hypothesis is
+\Cref{thm:ch35-cartier-psh-criterion}, which item~(4) of
+\Cref{warn:ch38-firewall} forbids.
+
+\begin{remark}[Why the firewall is not vacuous]
+\label{rem:ch38-firewall-not-vacuous}
+A reader who has met the theory in its finished form will find the
+statement of \Cref{thm:bj-real-cartier-realization} indistinguishable from
+the implication \(\Leftarrow\) of \Cref{thm:ch35-cartier-psh-criterion}
+with real coefficients, and may wonder what there is to prove.  The answer
+is contained in the proof of \Cref{thm:ch35-cartier-psh-criterion}: there
+one perturbs \(B\) by \(\varepsilon H\) with \(H\) relatively ample and
+\emph{negative}, obtains \(\psi_B+\varepsilon\psi_H\in\cH_{\mathrm{hom}}(L)\)
+for each \(\varepsilon>0\), and lets \(\varepsilon\downarrow0\).  Because
+\(\psi_H\leq0\), the resulting family \emph{increases} to \(\psi_B\), and
+an increasing limit of psh functions is psh only by the envelope property.
+The whole point of the construction below is to arrange an approximating
+family that decreases.  This is why the divisor \(B\) is approached from
+below by \(-R_n\) with \(R_n\) increasing, and why the auxiliary positivity
+is inserted as an \emph{ample buffer} whose effect vanishes in the limit
+rather than as a negative perturbation of the b-divisor.
+\end{remark}
+
+\subsection{The five tasks, and where each is discharged}
+\label{sec:ch38-payoff}
+
+\begin{enumerate}
+\item\label{itm:ch38-task:evaluation}
+ \emph{Evaluation of a Cartier b-divisor on valuations.}
+ \Cref{sec:ch38-evaluation} defines
+ \(\psi_B\) on \(X^{\divis}\), proves that the definition is independent
+ of every choice
+ (\Cref{prop:ch38-evaluation-welldefined}), that it is functorial for
+ birational pullback (\Cref{prop:ch38-evaluation-functorial}), and that it
+ extends continuously to the full-support locus but \emph{not} by a
+ formula to all of \(X^{\An}\)
+ (\Cref{prop:ch38-evaluation-domains},
+ \Cref{ex:ch38-evaluation-no-lift}).
+\item\label{itm:ch38-task:fs}
+ \emph{Model and homogeneous Fubini--Study functions.}
+ \Cref{sec:ch38-model-fs} isolates the exact dictionary between rational
+ antieffective Cartier b-divisors with semiample total class and
+ homogeneous Fubini--Study functions
+ (\Cref{prop:ch38-model-fs-dictionary}), separates the two gradings that
+ occur in the underlying Rees and base-ideal constructions
+ (\Cref{prop:ch38-two-gradings}), and computes the correspondence in both
+ directions on an explicit surface
+ (\Cref{ex:ch38-fs-from-bdivisor-and-back}).
+\item\label{itm:ch38-task:realization}
+ \emph{Realization and approximation.}
+ \Cref{sec:ch38-realization} proves
+ \Cref{thm:bj-real-cartier-realization}, and
+ \Cref{sec:ch38-consequences} packages the approximation statements
+ \Cref{cor:ch38-gf-regularization-bdivisor} and
+ \Cref{cor:ch38-realization-pullback} that later chapters consume.
+\item\label{itm:ch38-task:classes}
+ \emph{Passage between numerical classes on birational models.}
+ \Cref{sec:ch38-classes} treats \(\pi^*\), \(\pi_*\), and the total class
+ \(P=\pi^*\theta+B_Y\); it proves the drift ledger
+ \Cref{prop:ch38-drift-ledger}, which tracks the \(O(m^{-1})\) error in
+ numerical class through the construction and shows that what makes the
+ error harmless is not its size but its \emph{sign}
+ (\Cref{warn:ch38-drift-not-absorbed}).
+\item\label{itm:ch38-task:extended}
+ \emph{Extended-real safeguards.}  \Cref{sec:ch38-safeguards} lists every
+ operation in the chapter that could produce the forbidden sum
+ \((+\infty)+(-\infty)\), proves that none of them does
+ (\Cref{prop:ch38-safeguards}), and exhibits a naive realization that
+ fails at a proper-support point
+ (\Cref{ex:ch38-naive-realization-fails}).
+\end{enumerate}
+
+Two negative statements accompany the list.
+\Cref{ex:ch38-usc-not-psh} shows that the coefficient function of an
+antieffective Cartier b-divisor with \emph{non-nef} total class is a
+perfectly good upper-semicontinuous homogeneous function which is not psh
+for any class; so \Cref{thm:bj-real-cartier-realization} is not a
+regularity statement about extending functions, and the nefness hypothesis
+cannot be dropped.  And \Cref{ex:ch38-strict-room-fails} shows that the
+Siu division at the end of the proof genuinely occurs at the boundary of
+the strict regime of \Cref{thm:ch35-homogeneous-siu}, so that the general
+form \Cref{thm:ch35-homogeneous-siu-general} is the correct citation.
+
+\subsection{Standing hypotheses and notation}
+\label{sec:ch38-hypotheses}
+
+Throughout, \(k\) is algebraically closed and carries the trivial absolute
+value, and
+\[
+ X\ \text{is a normal integral projective \(k\)-variety},\qquad
+ n:=\dim X .
+\tag{38.1}\label{eq:ch38-standing}
+\]
+Normality is in force from the first line, because the model category of
+\Cref{sec:appF-models} and the identification
+\(\pi_*\cO_Y=\cO_X\) are used everywhere.  Numerical classes are real,
+\(N^1(X):=N^1(X)_{\mathbf R}\), and \(\Pic(X)_{\mathbf Q}
+=\Pic(X)\otimes_{\mathbf Z}\mathbf Q\).  A \emph{model} of \(X\) is a
+normal projective variety \(Y\) together with a projective birational
+morphism \(\pi:Y\to X\); models form a cofiltered category under
+domination, by \Cref{lem:appF-common-domination}, and no resolution of
+singularities is used.
+
+We write \(X^{\An}\) for the Berkovich analytification,
+\(X^{\val}\) for the full-support locus
+\eqref{eq:triv-full-support-locus}, \(X^{\divis}\subset X^{\val}\) for the
+divisorial locus, and \(v_{\triv}\) for the trivial valuation of
+\(k(X)\), which lies in \(X^{\divis}\) by convention.  A point of
+\(X^{\An}\setminus X^{\val}\) has \emph{proper support}
+(\Cref{def:ch32-proper-support}).  For an \(\mathbf R\)-Cartier divisor
+\(R\) on a model \(Y\) we write \(\overline R\) for the Cartier b-divisor
+determined by the pair \((Y,R)\); when \(Y=X\) this is the notation of
+\Cref{sec:ch35-bdivisors}, and the general case is the same construction
+after \Cref{def:appF-cartier-bdivisor}.  Ordering of b-divisors is
+coefficientwise, and for a Cartier b-divisor determined on \(Y\) it
+suffices to test \(B_Y\leq0\).
+
+Inequalities between extended-real functions are always written in the
+relative form \(\phi\leq\psi+C\) and never as \(\phi-\psi\leq C\),
+following ledger entry~(4) of \Cref{sec:extended-arithmetic} and
+\Cref{rem:ledger-uses}.  The only extended value that occurs is
+\(-\infty\); \(+\infty\) occurs only as the value \(v(f)=+\infty\) of a
+semivaluation on a section vanishing along its support, and the
+translation \eqref{eq:bj-divisor-weight-sign} between the two sign
+conventions is fixed in \Cref{sec:ch38-signs} once and for all.
+
+\subsection{Dependencies}
+\label{sec:ch38-dependencies}
+
+The chapter uses \Cref{chap:trivial-analytification} for the
+analytification, the scaling action, divisorial and quasimonomial points,
+and the density theorem \Cref{thm:triv-divisorial-density};
+\Cref{chap:bj-fs-pl-psh} for Fubini--Study, PL, and psh functions;
+\Cref{chap:bj-homogeneity-bdivisors} for everything homogeneous;
+\Cref{app:birational-geometry} for normalized blowups, relative
+ampleness, and the domination theorem
+\Cref{thm:appB-admissible-domination};
+\Cref{app:intersection-bdivisors} for the b-divisor formalism and the
+projection formula; and \Cref{sec:extended-arithmetic} for the
+extended-real ledger.  It uses nothing from
+\Crefrange{chap:bj-envelope-history}{chap:bj-envelope-consequences}.
+
+\subsection{Roadmap}
+\label{sec:ch38-roadmap}
+
+\Cref{sec:ch38-evaluation} builds the evaluation pairing and settles its
+domain of definition.  \Cref{sec:ch38-model-fs} sets up the dictionary
+between rational Cartier b-divisors and homogeneous Fubini--Study
+functions, and computes it.  \Cref{sec:ch38-classes} does the numerical
+bookkeeping on birational models, including the drift ledger.
+\Cref{sec:ch38-approximation} proves the ordered rational approximation
+lemma in the two forms used later.  \Cref{sec:ch38-activation} constructs
+the fixed-pole data and \Cref{sec:ch38-buffer} the ample buffer;
+these two sections isolate, as free-standing lemmas, the parts of the
+proof of \Cref{thm:bj-real-cartier-realization} that
+\Cref{chap:bj-reflection} quotes.  \Cref{sec:ch38-realization} proves the
+realization theorem.  \Cref{sec:ch38-safeguards} carries out the
+extended-real audit.  \Cref{sec:ch38-consequences} records the
+consequences and the limits of the method, and the chapter closes with a
+dictionary and a source note.
+
+\section{Evaluation of a Cartier b-divisor on valuations}
+\label{sec:ch38-evaluation}
+
+\subsection{Cartier b-divisors and determinations}
+\label{sec:ch38-cartier-bdivisors}
+
+\begin{definition}[Real Cartier b-divisor]
+\label{def:bj-real-cartier-bdivisor}
+A \emph{real Cartier b-divisor} \(B\) over \(X\) is represented by
+\[
+                     (\pi:Y\longrightarrow X,B_Y),
+\]
+where \(\pi\) is a model and \(B_Y\) is an \(\mathbf R\)-Cartier divisor
+on \(Y\).  Two pairs are equivalent if their pullbacks agree on a common
+dominating model.  The pair is a \emph{determination} of \(B\).
+\end{definition}
+
+If \(B_Y\le0\) on one determination, then \(B\le0\).  Pullback preserves
+this inequality on every higher model.
+
+\Cref{def:bj-real-cartier-bdivisor} agrees with
+\Cref{def:appF-cartier-bdivisor}, and the two clauses of the latter --- a
+compatible family in the sense of \eqref{eq:appF-weil-compatibility}, which
+is a pullback of a single divisor on all higher models --- are recovered
+below.  We spell the elementary points out, because the whole chapter rests
+on them and because the difference between a Cartier and a Weil b-divisor
+is exactly the difference between a direct and an inverse limit in
+\eqref{eq:appF-direct-inverse}.
+
+\begin{lemma}
+\label{lem:ch38-determination-equivalence}
+Let \(\mathcal P\) be the class of pairs \((\pi:Y\to X,\,B_Y)\) with \(Y\)
+a model and \(B_Y\in\Div(Y)_{\mathbf R}\) Cartier, and let
+\((Y,B_Y)\sim(Y',B_{Y'})\) mean that there is a model \(Z\) dominating both,
+say \(\mu:Z\to Y\) and \(\mu':Z\to Y'\), with
+\(\mu^*B_Y=\mu'^*B_{Y'}\).  Then:
+\begin{enumerate}
+\item\label{itm:ch38-de:equiv} \(\sim\) is an equivalence relation on
+ \(\mathcal P\), and if \(\mu^*B_Y=\mu'^*B_{Y'}\) on one common domination
+ then the same holds on every common domination;
+\item\label{itm:ch38-de:family} each equivalence class determines a unique
+ Weil b-divisor \(B=(B_{Y''})_{Y''}\) with
+ \(B_{Y''}=\nu^*B_Y\) whenever \(\nu:Y''\to Y\) is a domination of a
+ determination, and \(B_{Y''}=\nu'_*(\nu^*B_Y)\) in general, where
+ \(Z\xrightarrow{\nu}Y\) and \(Z\xrightarrow{\nu'}Y''\) is any common
+ domination;
+\item\label{itm:ch38-de:order} \(B\leq0\) if and only if \(B_Y\leq0\) for
+ one, equivalently every, determination.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{\cref{itm:ch38-de:equiv}.}  Reflexivity and symmetry are immediate.
+For transitivity, let \((Y_1,B_1)\sim(Y_2,B_2)\) via \(Z_{12}\) and
+\((Y_2,B_2)\sim(Y_3,B_3)\) via \(Z_{23}\).  By
+\Cref{lem:appF-common-domination} choose a model \(W\) dominating
+\(Z_{12}\) and \(Z_{23}\); pulling back the two equalities to \(W\) and
+using functoriality of pullback for Cartier divisors along the composites
+gives \(\alpha_1^*B_1=\alpha_2^*B_2=\alpha_3^*B_3\) on \(W\), where
+\(\alpha_i:W\to Y_i\).  Hence \((Y_1,B_1)\sim(Y_3,B_3)\).
+
+For the last clause of \cref{itm:ch38-de:equiv}, suppose
+\(\mu^*B_Y=\mu'^*B_{Y'}\) on \(Z\), and let \(\widetilde Z\) be another
+common domination, with maps \(\widetilde\mu,\widetilde\mu'\).  Choose
+\(W\) dominating \(Z\) and \(\widetilde Z\), with
+\(\beta:W\to Z\), \(\widetilde\beta:W\to\widetilde Z\).  Then
+\(\beta^*\mu^*B_Y=\beta^*\mu'^*B_{Y'}\), that is,
+\(\widetilde\beta^*\widetilde\mu^*B_Y=\widetilde\beta^*\widetilde\mu'^*
+B_{Y'}\), because the two composites \(W\to Y\) agree, both being the
+canonical birational morphism over \(X\), and similarly for \(Y'\).  As
+\(\widetilde\beta\) is birational, \(\widetilde\beta^*\) is injective on
+\(\mathbf R\)-Cartier divisors: a Cartier divisor is determined by its
+local equations, and \(\widetilde\beta^\#\) is injective on function
+fields, both being \(k(X)\).  Hence
+\(\widetilde\mu^*B_Y=\widetilde\mu'^*B_{Y'}\).
+
+\emph{\cref{itm:ch38-de:family}.}  Fix a determination \((Y,B_Y)\).  For an
+arbitrary model \(Y''\), choose a common domination
+\(Z\xrightarrow{\nu}Y\), \(Z\xrightarrow{\nu'}Y''\) and set
+\(B_{Y''}:=\nu'_*\nu^*B_Y\).  Independence of the choice of \(Z\) follows
+from \cref{itm:ch38-de:equiv} together with the projection formula
+\eqref{eq:appF-projection}: if \(W\) dominates two such \(Z\), pushing
+forward from \(W\) factors through either.  Compatibility
+\eqref{eq:appF-weil-compatibility} under a further domination
+\(\lambda:Y_1''\to Y''\) is
+\(\lambda_*B_{Y_1''}=\lambda_*\lambda'_*\nu_1^*B_Y=\nu'_*\nu^*B_Y=B_{Y''}\),
+again by functoriality of pushforward.  If \(Y''\succeq Y\), one may take
+\(Z=Y''\) and \(\nu'=\operatorname{id}\), giving
+\(B_{Y''}=\nu^*B_Y\).
+
+\emph{\cref{itm:ch38-de:order}.}  If \(B_Y\leq0\), then
+\(\nu^*B_Y\leq0\) for every domination \(\nu\), because the pullback of an
+effective Cartier divisor is effective; and pushforward preserves
+effectivity, so \(B_{Y''}\leq0\) for every model, that is, \(B\leq0\).  The
+converse is trivial.
+\end{proof}
+
+\begin{remark}[Cartier is a direct limit, Weil an inverse limit]
+\label{rem:ch38-direct-inverse}
+\Cref{lem:ch38-determination-equivalence}\,\cref{itm:ch38-de:family} is the
+statement that the natural map
+\(\varinjlim_Y\operatorname{CDiv}_{\mathbf R}(Y)
+\to\varprojlim_Y\Div_{\mathbf R}(Y)\) of
+\eqref{eq:appF-direct-inverse} is well defined and injective.  It is not
+surjective: \Cref{ex:appF-non-cartier-bdivisor} produces a Weil b-divisor
+supported on an infinite chain of exceptional primes, which no single
+model determines.  Everything in this chapter takes place in the image, and
+\Cref{rem:ch38-cartier-not-weil} explains why that is the right domain for
+the envelope proof.
+\end{remark}
+
+\subsection{The evaluation pairing on divisorial points}
+\label{sec:ch38-evaluation-divisorial}
+
+For a divisorial valuation \(v=c\ord_E\), choose a model
+\(\rho:Z\to Y\) on which \(E\) appears and define
+\[
+                       B(v):=c\ord_E(\rho^*B_Y).
+\tag{38.2}\label{eq:bj-bdivisor-evaluation}
+\]
+The value is independent of the chosen model.  We denote this coefficient
+function on \(X^{\divis}\) by \(\psi_B\).
+
+We now prove the independence, and record the properties of the pairing
+that are used later.  All of them are elementary, and all of them are used.
+
+\begin{proposition}
+\label{prop:ch38-evaluation-welldefined}
+Let \(B\) be a real Cartier b-divisor over \(X\) with determination
+\((\pi:Y\to X,B_Y)\).
+\begin{enumerate}
+\item\label{itm:ch38-ev:welldef}
+ The right-hand side of \eqref{eq:bj-bdivisor-evaluation} does not depend
+ on the model \(Z\) carrying \(E\), nor on the determination of \(B\);
+ thus \(\psi_B:X^{\divis}\to\mathbf R\) is well defined, and it coincides
+ with the restriction to \(X^{\divis}\) of the coefficient function
+ \eqref{eq:bdivisor-coefficient-function} of the underlying Weil
+ b-divisor.
+\item\label{itm:ch38-ev:linear}
+ \(B\mapsto\psi_B\) is \(\mathbf R\)-linear and order preserving:
+ \(\psi_{aB+a'B'}=a\psi_B+a'\psi_{B'}\) for \(a,a'\in\mathbf R\), and
+ \(B\leq B'\) if and only if \(\psi_B\leq\psi_{B'}\) on \(X^{\divis}\).
+\item\label{itm:ch38-ev:homog}
+ \(\psi_B\) is homogeneous in the sense of
+ \Cref{def:homogeneous-function}, and \(\psi_B(v_{\triv})=0\).
+\item\label{itm:ch38-ev:finite}
+ \(\psi_B\) is finite at every point of \(X^{\divis}\); if \(B\leq0\)
+ then \(\psi_B\leq0\).
+\item\label{itm:ch38-ev:pl}
+ \(\psi_B\) lies in \(\PL_{\mathrm{hom}}(X)\) if \(B\) is rational, and in
+ the real span \(\PL_{\mathrm{hom}}(X)_{\mathbf R}\) in general; if
+ \(B\leq0\) is rational and \(B_Y\) is relatively semiample, then
+ \(\psi_B\in\PL^+_{\mathrm{hom}}(X)\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{\cref{itm:ch38-ev:welldef}.}  We use throughout the following
+description of the evaluation.  If \(C\) is an \(\mathbf R\)-Cartier
+divisor on a normal variety \(W\) and \(v\) is a valuation of \(k(W)\)
+admitting a centre \(c_W(v)\in W\), set
+\(v(C):=v(f)\), where \(f\in k(W)^\times_{\mathbf R}\) is a local equation
+of \(C\) at \(c_W(v)\); this is well defined because two local equations
+differ by a unit of \(\cO_{W,c_W(v)}\), on which \(v\) vanishes.  If
+\(\mu:W'\to W\) is a projective birational morphism of normal varieties and
+\(v\) has a centre on both, then
+\begin{equation*}
+ v(\mu^*C)=v(C),
+\end{equation*}
+because a local equation of \(\mu^*C\) at \(c_{W'}(v)\) is the pullback of
+a local equation of \(C\) at \(c_W(v)=\mu(c_{W'}(v))\), and the pullback of
+a rational function along a birational morphism is the same element of the
+common function field.
+
+Now let \(E\) be a prime divisor over \(X\), let \(v:=c\ord_E\) with
+\(c>0\), and let \(Z\) and \(Z'\) be two models dominating the
+determination \(Y\) and carrying \(E\), with structure morphisms
+\(\rho:Z\to Y\) and \(\rho':Z'\to Y\).  Then
+\(\ord_E(\rho^*B_Y)=\ord_E(B_Y)=\ord_E(\rho'^*B_Y)\) by the displayed
+identity, so \eqref{eq:bj-bdivisor-evaluation} does not depend on the model
+carrying \(E\).  If \((Y',B_{Y'})\) is another determination, choose by
+\Cref{lem:appF-common-domination} a model \(W\) dominating \(Y\) and
+\(Y'\); there the pullbacks of \(B_Y\) and \(B_{Y'}\) agree, by
+\Cref{lem:ch38-determination-equivalence}\,\cref{itm:ch38-de:equiv}, and the
+displayed identity again gives \(\ord_E(B_Y)=\ord_E(B_{Y'})\).  Finally, by
+\Cref{lem:ch38-determination-equivalence}\,\cref{itm:ch38-de:family} the
+coefficient of \(E\) in the trace \(B_Z\) of the underlying Weil b-divisor
+on a model \(Z\) carrying \(E\) is exactly
+\(\ord_E(\rho^*B_Y)\); so \eqref{eq:bj-bdivisor-evaluation} is
+\eqref{eq:bdivisor-coefficient-function}, and
+\Cref{prop:ch35-weil-coefficient-bijection} applies.
+
+\emph{\cref{itm:ch38-ev:linear}.}  Two Cartier b-divisors admit a common
+determination, by \Cref{lem:appF-common-domination}, and on a fixed model
+both pullback and the coefficient \(\ord_E\) are \(\mathbf R\)-linear in
+the divisor.  The order statement is
+\Cref{prop:ch35-weil-coefficient-bijection}, whose proof identifies
+\(B\leq B'\) with the coefficientwise inequality over all primes over
+\(X\), and homogeneity turns the latter into
+\(\psi_B\leq\psi_{B'}\) on \(X^{\divis}\).
+
+\emph{\cref{itm:ch38-ev:homog}.}  By construction
+\(\psi_B(s\cdot c\ord_E)=sc\,\ord_E(\rho^*B_Y)=s\,\psi_B(c\ord_E)\) for
+\(s>0\), which is \eqref{eq:homogeneous-function}; and
+\(\psi_B(v_{\triv})=0\) since \(v_{\triv}\) is the case \(c=0\).
+
+\emph{\cref{itm:ch38-ev:finite}.}  Finiteness is clear from
+\eqref{eq:bj-bdivisor-evaluation}: \(\ord_E(\rho^*B_Y)\) is a real
+coefficient of a divisor.  If \(B\leq0\) then every coefficient is
+\(\leq0\), by
+\Cref{lem:ch38-determination-equivalence}\,\cref{itm:ch38-de:order}.
+
+\emph{\cref{itm:ch38-ev:pl}.}  This is
+\Cref{prop:cartier-homogeneous-pl}; the relatively semiample antieffective
+case is Step~1 of its proof, which exhibits
+\(\psi_B=m^{-1}\log|\mathfrak b|\) for a nonzero coherent ideal
+\(\mathfrak b\subseteq\cO_X\).
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch38-evaluation-functorial}
+Let \(\beta:X'\to X\) be a projective birational morphism of normal
+integral projective varieties, and identify \(k(X')=k(X)\), hence
+\(X'^{\divis}=X^{\divis}\) and \(X'^{\val}=X^{\val}\).  Then:
+\begin{enumerate}
+\item\label{itm:ch38-fun:cofinal} models over \(X'\) are cofinal among
+ models over \(X\), and the induced map
+ \(\operatorname{CDiv}_{\mathbf R}(\mathfrak X)
+ \to\operatorname{CDiv}_{\mathbf R}(\mathfrak X')\),
+ \(B\mapsto B'\), sending a determination \((Y,B_Y)\) with \(Y\succeq X'\)
+ to itself, is an isomorphism;
+\item\label{itm:ch38-fun:psi} \(\psi_{B'}=\psi_B\) as functions on
+ \(X^{\divis}=X'^{\divis}\);
+\item\label{itm:ch38-fun:class} if \((Y,B_Y)\) is a determination with
+ \(\pi:Y\to X\) factoring as \(\pi=\beta\pi'\), then for every
+ \(\theta\in N^1(X)\),
+\[
+ \pi'^*(\beta^*\theta)+B_Y=\pi^*\theta+B_Y,
+\tag{38.3}\label{eq:ch38-functorial-total}
+\]
+ so the total class of \(B\) in the class \(\theta\) over \(X\) and the
+ total class of \(B'\) in the class \(\beta^*\theta\) over \(X'\) are the
+ same class on \(Y\); in particular one is nef if and only if the other
+ is.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{\cref{itm:ch38-fun:cofinal}.}  A model \(\pi':Y\to X'\) composed with
+\(\beta\) is a model of \(X\), since a composite of projective birational
+morphisms of normal projective varieties is one.  Conversely, given a model
+\(\pi:Y\to X\), \Cref{lem:appF-common-domination} applied to \(Y\) and
+\(X'\) produces a model \(Z\) dominating both, and \(Z\to X'\) is a model of
+\(X'\) dominating \(Y\).  Hence models over \(X'\) are cofinal.  A direct
+limit over a cofinal subcategory is the same direct limit, which is
+\eqref{eq:appF-direct-inverse}; explicitly, a Cartier b-divisor over \(X\)
+is determined on some \(Y\), which after passing to a dominating model may
+be taken over \(X'\), and two determinations over \(X'\) are equivalent over
+\(X'\) if and only if they are equivalent over \(X\), since the common
+dominations may be taken over \(X'\).
+
+\emph{\cref{itm:ch38-fun:psi}.}  Both sides are computed by
+\eqref{eq:bj-bdivisor-evaluation} on a model over \(X'\) carrying \(E\),
+and the formula does not refer to the base.
+
+\emph{\cref{itm:ch38-fun:class}.}  Immediate from
+\(\pi'^*\beta^*=(\beta\pi')^*=\pi^*\) on \(N^1\).  Nefness is a property of
+the class on \(Y\).
+\end{proof}
+
+\begin{remark}[Why \Cref{prop:ch38-evaluation-functorial} is stated now]
+\label{rem:ch38-functorial-use}
+\Cref{prop:ch38-evaluation-functorial} is the reason
+\Cref{chap:bj-reflection} can manufacture a b-divisor upstairs and realize
+it downstairs.  In the notation of that chapter, a homogeneous psh function
+on \(Y\) has a coefficient b-divisor which, by
+\cref{itm:ch38-fun:cofinal}, is literally the same object over \(X\); the
+only thing that changes is the class in which one measures positivity, and
+\eqref{eq:ch38-functorial-total} says that the total class does not change
+either.  All the work in \Cref{chap:bj-reflection} therefore goes into
+\emph{correcting} the class \(\beta^*\theta\) back to \(\theta\), not into
+transporting the divisor.
+\end{remark}
+
+\subsection{The three domains of definition}
+\label{sec:ch38-domains}
+
+The coefficient function of a Cartier b-divisor lives naturally on three
+nested spaces, and the difference between them is the source of every
+extended-real difficulty in this chapter.
+
+\begin{proposition}
+\label{prop:ch38-evaluation-domains}
+Let \(B\) be a real Cartier b-divisor with determination \((Y,B_Y)\).
+\begin{enumerate}
+\item\label{itm:ch38-dom:divis} On \(X^{\divis}\) the function
+ \(\psi_B\) is defined by \eqref{eq:bj-bdivisor-evaluation}, is real
+ valued, homogeneous, and determines \(B\).
+\item\label{itm:ch38-dom:val} On \(X^{\val}\) the formula
+ \(\psi_B(v)=v(B_Y)\), computed through the canonical homeomorphism
+ \(Y^{\val}\simeq X^{\val}\), extends \(\psi_B\) to a real-valued
+ continuous function, and the extension is unique.
+\item\label{itm:ch38-dom:an} If \(B\leq0\) is rational and \(B_Y\) is
+ relatively semiample, then \(\psi_B\) extends further to an
+ upper-semicontinuous function
+ \(X^{\An}\to[-\infty,0]\), namely \(m^{-1}\log|\mathfrak b|\) for the
+ ideal \(\mathfrak b=\pi_*\cO_Y(mB_Y)\subseteq\cO_X\) of Step~1 of the
+ proof of \Cref{prop:cartier-homogeneous-pl}; this extension is again
+ unique.
+\item\label{itm:ch38-dom:general} For a general real Cartier b-divisor
+ there is no extension of \(\psi_B\) to \(X^{\An}\) given by a formula in
+ \(B_Y\): the expression \(v(B_Y)\) is not defined at a point of proper
+ support, and even when it is defined after a choice of lift it depends on
+ that choice.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{\cref{itm:ch38-dom:divis}} is
+\Cref{prop:ch38-evaluation-welldefined} together with
+\Cref{prop:ch35-weil-coefficient-bijection}.
+
+\emph{\cref{itm:ch38-dom:val}} is
+\Cref{prop:ch35-cartier-continuous-extension}.  We recall the mechanism,
+because \cref{itm:ch38-dom:general} is its exact failure.  A birational
+morphism \(\pi:Y\to X\) of normal projective varieties induces a bijection
+\(Y^{\val}\to X^{\val}\): both sides are the set of real valuations of the
+common function field \(k(X)=k(Y)\) admitting a centre, and properness
+supplies the centre on either side.  Writing \(B_Y\) locally as a
+difference of two effective Cartier divisors, \(v\mapsto v(B_Y)\) is a
+difference of two ideal evaluations, both finite on \(X^{\val}\) because a
+nonzero ideal is not contained in the ideal of an irreducible component;
+hence the difference is defined and continuous.  Uniqueness of the
+extension follows from density of \(X^{\divis}\) in \(X^{\val}\).
+
+\emph{\cref{itm:ch38-dom:an}.}  With \(m\geq1\) chosen so that \(mB_Y\) is
+integral Cartier and \(\cO_Y(mB_Y)\) is globally generated over \(X\),
+Step~1 of the proof of \Cref{prop:cartier-homogeneous-pl} produces a
+nonzero coherent ideal \(\mathfrak b=\pi_*\cO_Y(mB_Y)\subseteq\cO_X\) with
+\(\mathfrak b\cdot\cO_Y=\cO_Y(mB_Y)\) and
+\(\psi_B=m^{-1}\log|\mathfrak b|\) on \(X^{\val}\).  The right-hand side is
+defined on all of \(X^{\An}\) with values in \([-\infty,0]\) and is upper
+semicontinuous, by \Cref{prop:ch35-hom-pl-semiring}.  Uniqueness follows
+from \Cref{thm:triv-divisorial-density} together with upper
+semicontinuity: two upper-semicontinuous extensions of the same function
+from a dense set need not agree in general, but here both are continuous
+into \([-\infty,0]\), and continuous functions agreeing on a dense subset
+agree.
+
+\emph{\cref{itm:ch38-dom:general}} is
+\Cref{ex:ch38-evaluation-no-lift} and
+\Cref{ex:ch38-fractional-undefined} below.
+\end{proof}
+
+\begin{warning}{Three extensions, three hypotheses}
+\label{warn:ch38-three-extensions}
+The three extensions in \Cref{prop:ch38-evaluation-domains} are genuinely
+different statements and are proved by different means.  The extension to
+\(X^{\val}\) is formal and uses only that \(B_Y\) is Cartier.  The
+extension to \(X^{\An}\) in \cref{itm:ch38-dom:an} uses antieffectivity
+\emph{and} relative semiampleness, and its value at a proper-support point
+is read off from an ideal, not from a divisor.  The extension of
+\(\psi_B\) to \(X^{\An}\) for a general \(B\) with nef total class is not
+available by any formula at all; it is the content of
+\Cref{thm:bj-real-cartier-realization}, which produces it as the unique
+homogeneous psh function with the given divisorial trace.  Confusing the
+second and the third is the standard way of writing a proof of the
+realization theorem that is not a proof.
+\end{warning}
+
+\subsection{The sign convention}
+\label{sec:ch38-signs}
+
+For an effective rational Cartier divisor \(F\), the sign convention is
+\[
+                         \log|s_F|(v)=-v(F).
+\tag{38.4}\label{eq:bj-divisor-weight-sign}
+\]
+Thus the coefficient function of \(-\overline F\) is
+\(\log|s_F|\).
+
+This is \eqref{eq:section-bdivisor-sign}, and the three unit tests
+\eqref{eq:ch35-sign-tests} fix it beyond doubt.  We add the two tests that
+are specific to the present chapter, and which the reader should apply
+whenever a sign is in doubt below.
+
+\begin{lemma}
+\label{lem:ch38-sign-tests}
+Let \(F\geq0\) be an effective \(\mathbf Q\)-Cartier divisor on \(X\) and
+let \(\pi:Y\to X\) be a model.
+\begin{enumerate}
+\item\label{itm:ch38-sign:pole}
+ \(\psi_{-\overline F}=\log|s_F|\leq0\), with value \(-v(F)\) at
+ \(v\in X^{\val}\) and value \(-\infty\) at a semivaluation whose support
+ is contained in \(\Supp F\).
+\item\label{itm:ch38-sign:exceptional}
+ If \(G\geq0\) is an effective Cartier divisor on \(Y\), then
+ \(\psi_{-\overline G}\leq0\), and
+ \(\psi_{-\overline G}(\ord_E)=-\ord_E(G)\) for every prime divisor \(E\)
+ over \(X\); in particular \(\psi_{-\overline G}\) vanishes on the primes
+ of \(X\) itself when \(G\) is \(\pi\)-exceptional.
+\item\label{itm:ch38-sign:total}
+ With \(B\leq0\) determined on \(Y\) and \(D:=-B_Y\geq0\), the total class
+ of \Cref{def:bj-nef-total} is \(P=\pi^*\theta-D\).  Thus a \emph{larger}
+ effective \(D\) makes \(P\) \emph{less} positive and makes \(\psi_B\)
+ \emph{more} negative; the two monotonicities are consistent, and both
+ point the same way as the inclusion of ideals
+ \(\mathfrak b\subseteq\mathfrak b'\Rightarrow\log|\mathfrak b|\leq
+ \log|\mathfrak b'|\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{\cref{itm:ch38-sign:pole}.}  By
+\eqref{eq:bj-bdivisor-evaluation} and
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear},
+\(\psi_{-\overline F}(v)=-v(F)\) on \(X^{\divis}\), which is
+\eqref{eq:bj-divisor-weight-sign}.  The values on \(X^{\val}\) and at
+proper-support points are \eqref{eq:divisor-section-pole}, applied to the
+canonical section \(s_F\) of \(\cO_X(F)\).
+
+\emph{\cref{itm:ch38-sign:exceptional}.}  Apply
+\eqref{eq:bj-bdivisor-evaluation} on a model dominating \(Y\).  If \(G\) is
+\(\pi\)-exceptional and \(E\subset X\) is a prime divisor, then the strict
+transform \(\widetilde E\subset Y\) is not a component of \(G\), so
+\(\ord_E(G)=\operatorname{coeff}_{\widetilde E}(G)=0\).
+
+\emph{\cref{itm:ch38-sign:total}.}  The identity
+\(P=\pi^*\theta+B_Y=\pi^*\theta-D\) is
+\eqref{eq:bj-nef-total} with \(D=-B_Y\).  The monotonicity assertions are
+immediate from \cref{itm:ch38-ev:linear} of
+\Cref{prop:ch38-evaluation-welldefined} and from
+\eqref{eq:ch34-log-ideal-semiring}.
+\end{proof}
+
+\begin{remark}[Trace and analytic extension]
+For \(v\in X^{\divis}\), the number \(v(F)\) is finite.  At a
+semivaluation supported in \(F\), however, \(\log|s_F|=-\infty\).  The
+function \(\psi_B\) is initially only a divisorial trace.  The theorem
+below constructs its psh extension and never defines that extension by
+subtracting divisor functions at a proper-support point.
+\end{remark}
+
+\subsection{Nef total classes}
+\label{sec:ch38-nef-total}
+
+\begin{definition}[Nef total class]
+\label{def:bj-nef-total}
+Let \(\theta\in N^1(X)_{\mathbf R}\), and let \(B\le0\) be determined on
+\(\pi:Y\to X\).  The b-divisor is \emph{nef-total in the class \(\theta\)}
+if
+\[
+                         P:=\pi^*\theta+B_Y
+\tag{38.5}\label{eq:bj-nef-total}
+\]
+is nef on \(Y\).
+\end{definition}
+
+Neither \(\theta\) nor \(B_Y\) is required to be nef separately.
+
+\begin{lemma}
+\label{lem:ch38-nef-total-intrinsic}
+Let \(B\leq0\) be a real Cartier b-divisor with determination
+\((\pi:Y\to X,B_Y)\) and let \(\theta\in N^1(X)\).
+\begin{enumerate}
+\item\label{itm:ch38-nt:indep} Nef-totality in the class \(\theta\) does
+ not depend on the determination: if \(\mu:Y'\to Y\) is a domination, then
+ \(\pi^*\theta+B_Y\) is nef if and only if
+ \((\pi\mu)^*\theta+B_{Y'}\) is.
+\item\label{itm:ch38-nt:exceptional} If \(B\) is nef-total in the class
+ \(\theta\), then the exceptional part \(B-\overline{B_X}\) satisfies
+ \(B-\overline{B_X}\leq0\), and it is nef-total in the class
+ \(\theta+[B_X]\).
+\item\label{itm:ch38-nt:trace} If \(B\) is nef-total in the class
+ \(\theta\), then \(\theta+[B_X]\) is nef on \(X\).  In particular
+ \(\PSH_X(\theta+[B_X])\neq\varnothing\) and the constants are
+ \((\theta+[B_X])\)-psh, by \Cref{lem:ch34-psh-nonempty}.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{\cref{itm:ch38-nt:indep}.}  \(B_{Y'}=\mu^*B_Y\), so
+\((\pi\mu)^*\theta+B_{Y'}=\mu^*(\pi^*\theta+B_Y)\), and nefness of a class
+on \(Y\) is equivalent to nefness of its pullback to a dominating model.
+This is \Cref{lem:appF-nef-determination}; the nontrivial half is that
+\(\mu^*\alpha\) nef implies \(\alpha\) nef, which follows from the
+projection formula \eqref{eq:appF-projection}.  Indeed, let
+\(\Gamma\subset Y\) be an integral curve.  Since \(\mu\) is proper and
+surjective, \(\mu^{-1}(\Gamma)\) has an irreducible component \(T\)
+dominating \(\Gamma\); cutting \(T\) with \(\dim T-1\) general very ample
+divisors on \(Y'\) yields an integral curve \(C\subset Y'\) still
+dominating \(\Gamma\), so that \(\mu_*C=d\,\Gamma\) with
+\(d=\deg(C\to\Gamma)>0\).  Then
+\(d(\alpha\cdot\Gamma)=\alpha\cdot\mu_*C=\mu^*\alpha\cdot C\geq0\).
+
+\emph{\cref{itm:ch38-nt:exceptional}.}  Put \(C:=B-\overline{B_X}\), a
+Cartier b-divisor determined on \(Y\) by \(C_Y=B_Y-\pi^*B_X\), and
+\(\eta:=\theta+[B_X]\).  Then
+\[
+ \pi^*\eta+C_Y=\pi^*\theta+\pi^*[B_X]+B_Y-\pi^*B_X=\pi^*\theta+B_Y=P,
+\]
+which is nef; so \(C\) is nef-total in the class \(\eta\).  Moreover
+\(C_Y\) is \(\pi\)-exceptional, since
+\(\pi_*C_Y=B_X-B_X=0\), and it is \(\pi\)-nef, since
+\(C_Y=P-\pi^*\eta\) with \(P\) nef, hence \(\pi\)-nef, and \(\pi^*\eta\)
+numerically trivial on \(\pi\)-contracted curves.  The negativity lemma
+\cite[Lemma~3.39]{KM08}, applied to the \(\pi\)-exceptional divisor
+\(-C_Y\), whose negative \(C_Y\) is \(\pi\)-nef, gives: \(-C_Y\) is
+effective if and only if \(\pi_*(-C_Y)\) is, and the latter is \(0\).
+Hence \(C_Y\leq0\), that is, \(C\leq0\).
+
+\emph{\cref{itm:ch38-nt:trace}.}  Keep the notation of
+\cref{itm:ch38-nt:exceptional} and let \(\Gamma\subset X\) be an integral
+curve with strict transform \(\widetilde\Gamma\subset Y\), so that
+\(\pi_*\widetilde\Gamma=\Gamma\).  By \eqref{eq:appF-projection},
+\[
+ \eta\cdot\Gamma=\pi^*\eta\cdot\widetilde\Gamma
+ =P\cdot\widetilde\Gamma+(-C_Y)\cdot\widetilde\Gamma .
+\]
+The first term is \(\geq0\) because \(P\) is nef.  For the second,
+\(-C_Y\geq0\) by \cref{itm:ch38-nt:exceptional} and \(-C_Y\) is
+\(\pi\)-exceptional, so its support lies in the exceptional locus of
+\(\pi\), whereas \(\widetilde\Gamma\), being a strict transform, is not
+contained in that locus; the intersection number of an effective divisor
+with an integral curve not contained in its support is \(\geq0\).  Hence
+\(\eta\cdot\Gamma\geq0\) for every integral curve, that is, \(\eta\) is
+nef.
+\end{proof}
+
+\begin{warning}{The hypothesis does not make \(\theta\) nef}
+\label{warn:ch38-theta-not-nef}
+\Cref{lem:ch38-nef-total-intrinsic}\,\cref{itm:ch38-nt:trace} controls
+\(\theta+[B_X]\), and no more.  It does \emph{not} say that \(\theta\) is
+nef, and \(\theta\) need not be.  Let \(X\) be the blowup of
+\(\mathbf P^2\) at a point, with exceptional curve \(E\), let
+\(\theta:=[E]\), and let \(B:=-\overline E\), determined on \(X\) itself.
+Then \(B\leq0\), the total class is
+\(\theta+[B_X]=[E]-[E]=0\), which is nef, and the hypotheses of
+\Cref{thm:bj-real-cartier-realization} are satisfied; but
+\(\theta\cdot E=E^2=-1<0\), so \(\theta\) is not nef.  The corresponding
+coefficient function is \(\psi_B=\log|s_E|\), which is a homogeneous
+Fubini--Study function for the line bundle \(\cO_X(E)\), by
+\Cref{prop:hom-fs-ideal}, since
+\(\cO_X(E)\otimes\cO_X(-E)\simeq\cO_X\) is globally generated.
+
+Three consequences for the reading of this chapter.  First, the hypothesis
+of \Cref{thm:bj-real-cartier-realization} is a positivity statement about
+the \emph{pair} \((\theta,B)\), and the positivity may be entirely consumed
+by the negative part of \(B\).  Second, no step of the proof below may
+quote nefness of \(\theta\) as if it were part of the hypotheses; and none
+does.  All the positivity used in the construction lives in the
+\emph{ample} class \(\omega=\theta+[F]\) manufactured by the activation
+step of \Cref{sec:ch38-activation}, and \(\theta\) itself appears only as
+the target class of the final Siu division.  Third, the reader comparing
+the statement with \Cref{lem:ch34-psh-nonempty} should note that the two
+touch exactly at this point: whether \(\PSH_X(\theta)\) can be nonempty for
+a class which is pseudoeffective but not nef depends on whether the
+approximating family in \Cref{def:bj-psh} is taken among bounded PL
+functions in a fixed class or among generically finite Fubini--Study
+functions in classes tending to \(\theta\), as the table of
+\Cref{sec:ch34-four-classes} does.  In the second reading the example above
+is a genuine member of \(\PSH_{\mathrm{hom},X}([E])\); in the first it is
+not.  Accordingly, no argument in
+\Crefrange{chap:bj-cartier-realization}{chap:bj-envelope-consequences} may
+silently impose nefness on a target class; whenever constants are used as
+psh functions, nefness is stated separately.  A reader auditing
+\Cref{thm:bj-real-cartier-realization} at a non-nef \(\theta\) should read
+its conclusion in the second sense.
+\end{warning}
+
+\begin{example}[The hypothesis is not vacuous and not automatic]
+\label{ex:ch38-usc-not-psh}
+Let \(X=\mathbf P^1_k\), \(p\in X(k)\), and let
+\(B:=-c\,\overline p\) for a real number \(c>0\); this is an antieffective
+real Cartier b-divisor determined on \(X\) itself, and
+\(\psi_B(s\,\ord_p)=-cs\), \(\psi_B(s\,\ord_q)=0\) for \(q\neq p\).  Put
+\(\theta=c_1(\cO(d))\), so \(\deg\theta=d\).  The total class is the
+number \(d-c\), and it is nef exactly when \(c\leq d\).
+
+For \(c\leq d\), \Cref{prop:ch35-curve-classification} shows that
+\(\psi_B\) is the divisorial trace of the homogeneous \(\theta\)-psh
+function \(c\log|s_p|\), which equals \(-cs\) on the ray through \(p\),
+\(0\) on every other ray, and \(-\infty\) at \(v_{p,\triv}\).  This is
+\Cref{thm:bj-real-cartier-realization} in dimension one.
+
+For \(c>d\) the function \(\psi_B\) is still homogeneous, still the
+coefficient function of an antieffective real Cartier b-divisor, and still
+extends to an upper-semicontinuous function on \(X^{\An}\) --- namely
+\(c\log|s_p|\) again.  But it is \(\theta\)-psh for no class \(\theta\) of
+degree \(d<c\), by \Cref{prop:ch35-curve-classification}: the slope
+inequality \(\sum_rc_r\leq\deg\theta\) fails.  Thus
+\Cref{thm:bj-real-cartier-realization} is not an assertion that
+homogeneous PL functions extend, nor that the extension is automatically
+psh; it is an assertion that the numerical hypothesis \eqref{eq:bj-nef-total}
+is exactly what makes the extension psh.  The example also shows that the
+hypothesis cannot be weakened to pseudoeffectivity of \(P\): on a curve,
+pseudoeffective and nef coincide, so already in dimension one nefness is
+sharp.
+\end{example}
+
+\subsection{A Cartier b-divisor on a blown-up surface, evaluated}
+\label{sec:ch38-surface-example}
+
+The next example is carried to explicit numbers and is used four times
+below: in \Cref{ex:ch38-fs-from-bdivisor-and-back} to compute the
+Fubini--Study dictionary in both directions, in
+\Cref{ex:ch38-activation-surface} to exhibit the fixed-pole data, in
+\Cref{ex:ch38-buffer-surface} to exhibit the ample buffer, and in
+\Cref{ex:ch38-drift-irrational} to exhibit an unremovable class drift.
+
+\begin{example}[Evaluation at divisorial and quasimonomial points]
+\label{ex:ch38-blowup-surface-evaluation}
+\index{b-divisor@$b$-divisor!evaluated on a surface}
+Let \(X=\mathbf P^2_k\) with homogeneous coordinates \(x,y,z\), let
+\(p=[0:0:1]\), and work on the affine chart \(z=1\) with coordinates
+\((x,y)\).  Let \(\pi_1:Y_1\to X\) be the blowup of \(p\), with
+exceptional prime \(E_1\); let \(q\in E_1\) be the point corresponding to
+the tangent direction \(y=0\), let \(\pi_2:Y_2\to Y_1\) be the blowup of
+\(q\), with exceptional prime \(E_2\), and let \(E_1'\) be the strict
+transform of \(E_1\) on \(Y_2\).  Write \(\pi=\pi_1\pi_2:Y_2\to X\).  This
+is the tower of \Cref{ex:ch32-blowup-surface} over the affine chart, and
+we use its coordinates: on \(Y_2\) there is a chart \((z_1,z_2)\) with
+\[
+ x=z_1z_2,\qquad y=z_1z_2^2,
+ \qquad
+ E_1'=\{z_1=0\},\quad E_2=\{z_2=0\},
+\]
+which is \eqref{eq:ch32-blowup-coordinates}.  For
+\(\alpha=(\alpha_1,\alpha_2)\in\mathbf R^2_{\geq0}\setminus\{0\}\) let
+\(v_\alpha\) be the quasimonomial valuation at the zero-dimensional
+stratum \(E_1'\cap E_2\) with \(v_\alpha(z_i)=\alpha_i\), as in
+\eqref{eq:quasimonomial-valuation}.  Then
+\(v_{(1,0)}=\ord_{E_1}\) and \(v_{(0,1)}=\ord_{E_2}\), and
+\[
+ v_\alpha(x)=\alpha_1+\alpha_2,
+ \qquad
+ v_\alpha(y)=\alpha_1+2\alpha_2 .
+\tag{38.6}\label{eq:ch38-surface-coordinates}
+\]
+
+\emph{The b-divisor.}  Let \(B\) be the Cartier b-divisor determined on
+\(Y_2\) by
+\[
+ B_{Y_2}:=-2E_1'-3E_2 .
+\tag{38.7}\label{eq:ch38-surface-bdivisor}
+\]
+It is antieffective, and it is genuinely determined on \(Y_2\) and on no
+lower model: its trace on \(Y_1\) is
+\(\pi_{2*}(-2E_1'-3E_2)=-2E_1\), which is nonzero, and
+\(\pi_2^*(-2E_1)=-2E_1'-2E_2\neq B_{Y_2}\); its trace on \(X\) is
+\(\pi_*B_{Y_2}=0\), so \(B\) is exceptional in the sense of
+\Cref{def:ch35-exceptional-bdivisor}.
+
+\emph{Evaluation at divisorial points.}  By
+\eqref{eq:bj-bdivisor-evaluation},
+\[
+ \psi_B(\ord_{E_1})=-2,
+ \qquad
+ \psi_B(\ord_{E_2})=-3,
+ \qquad
+ \psi_B(\ord_C)=0
+\tag{38.8}\label{eq:ch38-surface-divisorial-values}
+\]
+for every prime divisor \(C\subset X\), the last because the strict
+transform of \(C\) on \(Y_2\) is not a component of \(B_{Y_2}\).  For a
+positive real \(s\), homogeneity gives
+\(\psi_B(s\ord_{E_1})=-2s\) and \(\psi_B(s\ord_{E_2})=-3s\).
+
+\emph{Evaluation at quasimonomial points.}  In the chart \((z_1,z_2)\) the
+divisor \(B_{Y_2}\) has local equation \(z_1^{-2}z_2^{-3}\), so
+\[
+ \psi_B(v_\alpha)=v_\alpha(B_{Y_2})=-2\alpha_1-3\alpha_2 .
+\tag{38.9}\label{eq:ch38-surface-quasimonomial-value}
+\]
+This is consistent with \eqref{eq:ch38-surface-divisorial-values} at
+\(\alpha=(1,0)\) and \(\alpha=(0,1)\), and it is linear in \(\alpha\),
+as it must be: on the two-dimensional cone of quasimonomial valuations at
+a fixed zero-dimensional stratum, the evaluation of a Cartier divisor
+determined on that model is the linear function read off from the local
+equation.  At the irrational point
+\(\alpha=(1,\sqrt2)\) of
+\Cref{ex:ch32-blowup-surface}\,\cref{itm:ch32-bs:irrational} the value is
+\(-2-3\sqrt2\), an irrational number attached to a rational b-divisor;
+irrationality of a value is a property of the point, not of the divisor.
+
+\emph{The ideal.}  By
+\Cref{prop:ch38-evaluation-domains}\,\cref{itm:ch38-dom:an}, with
+\(m=1\), the ideal \(\mathfrak b:=\pi_*\cO_{Y_2}(B_{Y_2})\) consists of
+those \(f\in\cO_X\) with \(\ord_{E_1}(f)\geq2\) and
+\(\ord_{E_2}(f)\geq3\).  Since \(\ord_{E_1}(x^iy^j)=i+j\) and
+\(\ord_{E_2}(x^iy^j)=i+2j\), the monomials in \(\mathfrak b\) are those
+with \(i+j\geq2\) and \(i+2j\geq3\), and the minimal ones are
+\(x^3\), \(xy\), \(y^2\).  Hence
+\[
+ \mathfrak b=(x^3,\;xy,\;y^2)
+ \qquad\text{near }p,\qquad
+ \mathfrak b=\cO_X\ \text{elsewhere}.
+\tag{38.10}\label{eq:ch38-surface-ideal}
+\]
+The check that \(\psi_B=\log|\mathfrak b|\) on the quasimonomial cone is
+immediate from \eqref{eq:ch38-surface-coordinates}:
+\[
+ v_\alpha(x^3)=3\alpha_1+3\alpha_2,
+ \quad
+ v_\alpha(xy)=2\alpha_1+3\alpha_2,
+ \quad
+ v_\alpha(y^2)=2\alpha_1+4\alpha_2,
+\]
+whose minimum is \(2\alpha_1+3\alpha_2\), because
+\(3\alpha_1+3\alpha_2-(2\alpha_1+3\alpha_2)=\alpha_1\geq0\) and
+\(2\alpha_1+4\alpha_2-(2\alpha_1+3\alpha_2)=\alpha_2\geq0\).  Thus
+\(\log|\mathfrak b|(v_\alpha)=-2\alpha_1-3\alpha_2=\psi_B(v_\alpha)\),
+in agreement with \eqref{eq:ch38-surface-quasimonomial-value}.  The
+colength of \(\mathfrak b\) at \(p\) is \(4\), the monomials outside
+\(\mathfrak b\) being \(1,x,y,x^2\).
+
+\emph{Total classes.}  On \(Y_2\) write \(H:=\pi^*c_1(\cO(1))\),
+\(e_1:=[\pi_2^*E_1]=[E_1'+E_2]\) and \(e_2:=[E_2]\).  The intersection
+table is
+\[
+ H^2=1,\quad H\cdot e_1=H\cdot e_2=0,\quad
+ e_1^2=e_2^2=-1,\quad e_1\cdot e_2=0,
+\tag{38.11}\label{eq:ch38-surface-intersection}
+\]
+where \(e_1\cdot e_2=\pi_2^*E_1\cdot E_2=E_1\cdot\pi_{2*}E_2=0\) by the
+projection formula \eqref{eq:appF-projection}, and the remaining entries
+are \eqref{eq:appF-blowup-table} applied twice.  Since
+\([E_1']=e_1-e_2\),
+\[
+ [B_{Y_2}]=-2(e_1-e_2)-3e_2=-2e_1-e_2 .
+\]
+Taking \(\theta=c_1(\cO(d))\), the total class of
+\Cref{def:bj-nef-total} is
+\[
+ P=dH-2e_1-e_2 .
+\tag{38.12}\label{eq:ch38-surface-total}
+\]
+The extremal curves of \(Y_2\) are \(E_2\), the \((-2)\)-curve \(E_1'\),
+and the strict transform \(\Lambda\) of the line through \(p\) in the
+direction \(q\), with classes \(e_2\), \(e_1-e_2\) and
+\(H-e_1-e_2\).  Using \eqref{eq:ch38-surface-intersection},
+\[
+ P\cdot E_2=1,\qquad
+ P\cdot E_1'=1,\qquad
+ P\cdot\Lambda=d-3 .
+\tag{38.13}\label{eq:ch38-surface-nef-test}
+\]
+Hence \(P\) is nef if and only if \(d\geq3\), and ample if and only if
+\(d\geq4\).  For \(d=3\) the class \(P\) is nef and not ample, which is
+exactly the situation \Cref{thm:bj-real-cartier-realization} is designed
+for and the situation in which the ample buffer of
+\Cref{sec:ch38-buffer} is needed.  For \(d=3\) the total class is
+moreover semiample, as \Cref{ex:ch38-fs-from-bdivisor-and-back} verifies
+by exhibiting the linear system.
+\end{example}
+
+\begin{example}[A lift is needed, and lifts disagree]
+\label{ex:ch38-evaluation-no-lift}
+Continue with \(X=\mathbf P^2\) and the blowup \(\pi_1:Y_1\to X\) of the
+point \(p\), and let \(v\in X^{\An}\) be a point of proper support, say
+\(v=v_{p,\triv}\), the trivial semivaluation of the residue field at
+\(p\).  The expression \(v(B_{Y_1})\) has no meaning as it stands: \(v\)
+is a semivaluation on \(\cO_X\), and to evaluate it on a local equation of
+a divisor on \(Y_1\) one must first lift \(v\) to a point of
+\(Y_1^{\An}\).  The fibre of \(\pi_1^{\An}:Y_1^{\An}\to X^{\An}\) over
+\(v_{p,\triv}\) consists of the semivaluations \(w\) on \(\cO_{Y_1}\) with
+\(w|_{\cO_X}=v_{p,\triv}\); since
+\(\mathfrak m_p\cdot\cO_{Y_1}=\cO_{Y_1}(-E_1)\), such a \(w\) satisfies
+\(w(\mathcal I_{E_1})=+\infty\), so its support contains \(E_1\), and the
+fibre is the set of semivaluations of \(\cO_{Y_1}\) with support
+\(\mathcal I_{E_1}\) or the maximal ideal of a closed point of \(E_1\).
+The fibre is therefore infinite: it contains
+\(v_{E_1,\triv}\), every \(v_{\eta,\triv}\) with \(\eta\in E_1\) a closed
+point, and all the rays above them.
+
+Now take the Cartier b-divisor \(C\) determined on \(Y_1\) by
+\(C_{Y_1}:=\pi_1^*L-E_1\), where \(L\subset X\) is the line \(y=0\), which
+passes through \(p\).  Let \(\widetilde L\subset Y_1\) be its strict
+transform, so \(C_{Y_1}=\widetilde L\).  Evaluating on lifts of
+\(v_{p,\triv}\):
+\[
+ v_{E_1,\triv}(C_{Y_1})=v_{E_1,\triv}(\widetilde L)=0,
+ \qquad
+ v_{\eta_0,\triv}(C_{Y_1})=+\infty
+ \quad\text{for }\eta_0:=E_1\cap\widetilde L,
+\]
+because \(\widetilde L\) does not contain \(E_1\) but does contain
+\(\eta_0\).  The two lifts of the same point \(v_{p,\triv}\) give the two
+values \(0\) and \(+\infty\).  Hence there is no function
+``\(v\mapsto v(C_{Y_1})\)'' on \(X^{\An}\), and
+\Cref{prop:ch38-evaluation-domains}\,\cref{itm:ch38-dom:general} is proved.
+Note that \(C\) is not antieffective; \Cref{ex:ch38-fractional-undefined}
+shows that antieffectivity alone does not repair the situation either,
+once differences are formed.
+\end{example}
+
+\begin{example}[A fractional difference undefined at a proper-support
+point]
+\label{ex:ch38-fractional-undefined}
+Let \(X=\mathbf P^2\), let \(L_1\) and \(L_2\) be two distinct lines, and
+let \(C:=\overline{L_1}-\overline{L_2}\), a real (indeed integral) Cartier
+b-divisor determined on \(X\) itself.  Its coefficient function on
+\(X^{\val}\) is \(\psi_C(v)=v(L_1)-v(L_2)\), a difference of two finite
+numbers, hence continuous and real valued, in accordance with
+\Cref{prop:ch38-evaluation-domains}\,\cref{itm:ch38-dom:val}.  At the
+proper-support point \(v=v_{\xi,\triv}\) with
+\(\xi\in L_1\cap L_2\), however, both terms equal \(+\infty\) and the
+difference is undefined by ledger entry~(4) of
+\Cref{sec:extended-arithmetic}.  This is the phenomenon recorded in the
+warning after \Cref{prop:ch35-hom-pl-semiring}: a homogeneous PL function
+is a difference of two ideal functions and therefore lives on
+\(X^{\val}\), not on \(X^{\An}\).  It is the reason
+\Cref{thm:bj-real-cartier-realization} is stated with \(B\leq0\) and
+produces its extension by a decreasing limit rather than by a formula, and
+it is the mechanism behind
+\Cref{ex:ch38-naive-realization-fails}.
+\end{example}
+
+\section{Model and homogeneous Fubini--Study functions}
+\label{sec:ch38-model-fs}
+
+\subsection{Rational coefficient functions}
+\label{sec:ch38-rational-coefficients}
+
+Let \(L\in\Pic(X)_{\mathbf Q}\), and let \(C\le0\) be a rational Cartier
+b-divisor determined on \(\pi:Y\to X\).  If the actual rational line bundle
+\(\pi^*L+C_Y\) is absolutely semiample, the Cartier b-divisor description
+of homogeneous PL functions gives
+\[
+ \psi_C\in\cH_{\mathrm{hom}}(L)
+       =\cH^{\mathrm{gf}}_0(L)
+       \subset\PSH_{\mathrm{hom},X}(c_1(L)).
+\tag{38.14}\label{eq:bj-rational-coefficient}
+\]
+The construction is ordered: \(C_1\le C_2\) implies
+\(\psi_{C_1}\le\psi_{C_2}\).  Every homogeneous coefficient function
+vanishes at the trivial valuation.
+
+The first membership in \eqref{eq:bj-rational-coefficient} is
+\Cref{thm:ch35-semiample-criterion}, the equality is
+\Cref{def:homogeneous-fs-psh}, and the inclusion is the same definition
+together with \eqref{eq:ch34-hierarchy}.  In every application below the
+class \(c_1(L)\) is \emph{ample}, so that the last inclusion is used only
+in the range in which \Cref{lem:ch34-psh-nonempty} guarantees that
+\(\PSH_X(c_1(L))\) is nonempty; \Cref{warn:ch38-theta-not-nef} explains why
+this restriction is worth observing.  The ordering statement is
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear}, and the
+value at \(v_{\triv}\) is
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:homog}.
+
+\begin{example}[A fixed divisor]
+\label{ex:bj-fixed-divisor-coefficient}
+Suppose \(F\ge0\) is rational Cartier and \(L-F\) is semiample.  Taking
+\(C=-\overline F\) in \eqref{eq:bj-rational-coefficient} gives
+\(\psi_C=\log|s_F|\).  It is nonpositive, vanishes at the trivial
+valuation, and equals \(-\infty\) at a semivaluation supported in \(F\).
+Thus a generically finite function need not be finite-valued everywhere.
+\end{example}
+
+The example is the smallest instance of the phenomenon that governs the
+whole chapter, and it is worth naming its three features separately.  The
+b-divisor \(-\overline F\) is determined on \(X\) itself, so no birational
+model intervenes.  Its coefficient function is finite on \(X^{\val}\) and
+takes the value \(-\infty\) exactly on the analytic subset
+\(\Supp(F)^{\An}\) of proper-support points, by
+\eqref{eq:divisor-section-pole}.  And, crucially, the value \(-\infty\) is
+\emph{attained}, not approached: \(\log|s_F|\) is a decreasing limit of the
+finite Fubini--Study functions \(\max\{\log|s_F|,-N\}\), and the pole
+appears only in the limit, as in \Cref{ex:ch34-decreasing-to-pole}.  Every
+occurrence of \(-\infty\) in this chapter arises in this way.
+
+\subsection{The dictionary, in both directions}
+\label{sec:ch38-dictionary-fs}
+
+We isolate the statement that the realization theorem applies at every
+rational stage.  Nothing in it is new; the point is to have the two
+directions and their hypotheses displayed together, since the proof of
+\Cref{thm:bj-real-cartier-realization} alternates between them.
+
+\begin{proposition}
+\label{prop:ch38-model-fs-dictionary}
+Let \(X\) be normal integral projective and \(L\in\Pic(X)_{\mathbf Q}\).
+\begin{enumerate}
+\item\label{itm:ch38-dict:forward}
+ Let \(C\) be a rational Cartier b-divisor with determination
+ \(\pi:Y\to X\) such that \(C\leq0\) and \(\pi^*L+C_Y\) is semiample.
+ Choose \(m\geq1\) with \(mC_Y\) integral Cartier, \(mL\) a line bundle
+ and \(m(\pi^*L+C_Y)\) globally generated.  Then
+ \(\mathfrak b_m:=\pi_*\cO_Y(mC_Y)\) is a nonzero coherent ideal of
+ \(\cO_X\), \(mL\otimes\mathfrak b_m\) is globally generated,
+ \(\mathfrak b_m\cdot\cO_Y=\cO_Y(mC_Y)\), and
+\[
+ \psi_C=m^{-1}\log|\mathfrak b_m|\in\cH_{\mathrm{hom}}(L).
+\tag{38.15}\label{eq:ch38-forward-dictionary}
+\]
+\item\label{itm:ch38-dict:backward}
+ Conversely, let \(\psi\in\cH_{\mathrm{hom}}(L)\), and write
+ \(\psi=m^{-1}\log|\mathfrak b|\) with \(0\neq\mathfrak b\subseteq\cO_X\)
+ and \(mL\otimes\mathfrak b\) globally generated, as in
+ \Cref{prop:hom-fs-ideal}.  Let \(\rho:Z\to X\) be the normalized blowup
+ of \(\mathfrak b\), with \(\mathfrak b\cdot\cO_Z=\cO_Z(-E)\).  Then the
+ Cartier b-divisor \(C\) determined on \(Z\) by
+ \(C_Z:=-m^{-1}E\) satisfies \(C\leq0\), \(\rho^*L+C_Z\) is semiample,
+ and \(\psi_C=\psi\).
+\item\label{itm:ch38-dict:unique}
+ The Cartier b-divisor in \cref{itm:ch38-dict:backward} is unique: if
+ \(\psi_{C}=\psi_{C'}\) for two Cartier b-divisors, then \(C=C'\).
+\item\label{itm:ch38-dict:order}
+ Both directions are order preserving, and
+ \(\psi_C\leq0\) with \(\psi_C(v_{\triv})=0\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{\cref{itm:ch38-dict:forward}.}  This is the implication
+\(\Leftarrow\) of \Cref{thm:ch35-semiample-criterion}, whose proof
+produces exactly the ideal \(\mathfrak b_m=\pi_*\cO_Y(mC_Y)\): since
+\(X\) is normal and \(\pi\) is proper birational, Zariski's main theorem
+gives \(\pi_*\cO_Y=\cO_X\), so \(mC_Y\leq0\) forces
+\(\mathfrak b_m\subseteq\cO_X\); it is nonzero because
+\(\cO_Y(mC_Y)\) is generically trivial.  The projection formula identifies
+\(H^0(Y,m(\pi^*L+C_Y))\) with
+\(H^0(X,mL\otimes\mathfrak b_m)\), and global generation of
+\(m(\pi^*L+C_Y)\) on \(Y\) translates into global generation of
+\(mL\otimes\mathfrak b_m\) on \(X\) together with
+\(\mathfrak b_m\cdot\cO_Y=\cO_Y(mC_Y)\).  Evaluating at
+\(v\in X^{\val}\) gives
+\(\psi_C(v)=v(C_Y)=-m^{-1}v(\mathfrak b_m)=m^{-1}\log|\mathfrak b_m|(v)\),
+and \Cref{prop:hom-fs-ideal} places the result in
+\(\cH_{\mathrm{hom}}(L)\).
+
+\emph{\cref{itm:ch38-dict:backward}.}  This is Step~2 of the proof of
+\Cref{prop:cartier-homogeneous-pl} together with the implication
+\(\Rightarrow\) of \Cref{thm:ch35-semiample-criterion}.  On the normalized
+blowup, \(-E\) is \(\rho\)-ample, and global generation of
+\(mL\otimes\mathfrak b\) says that
+\(\rho^*(mL)\otimes\cO_Z(-E)=m(\rho^*L+C_Z)\) is globally generated,
+whence \(\rho^*L+C_Z\) is semiample.  The evaluation
+\(\psi_C(v)=-m^{-1}v(E)=-m^{-1}v(\mathfrak b)=\psi(v)\) holds on
+\(X^{\val}\), hence on \(X^{\divis}\).
+
+\emph{\cref{itm:ch38-dict:unique}} is
+\Cref{prop:ch35-weil-coefficient-bijection}: the coefficient function
+determines all coefficients, and a Cartier b-divisor is a Weil b-divisor.
+
+\emph{\cref{itm:ch38-dict:order}} is
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear} and
+\cref{itm:ch38-ev:homog}, together with
+\Cref{prop:ch35-hom-pl-semiring}, which gives
+\(\log|\mathfrak b|\leq0\) with value \(0\) at \(v_{\triv}\).
+\end{proof}
+
+\begin{remark}[Semiample, not nef, and not ample]
+\label{rem:ch38-semiample-not-nef}
+\Cref{prop:ch38-model-fs-dictionary} is a statement about linear series.
+It is the reason the construction below inserts an ample buffer: the
+hypothesis of \Cref{thm:bj-real-cartier-realization} is that the total
+class \(P\) is \emph{nef}, and a nef class need not be semiample and
+carries no sections.  What the buffer does is replace \(P\) by a family of
+\emph{ample} total classes, for which semiampleness is automatic on the
+rational members, at the cost of a controlled error in the numerical class
+and in the divisor.  The two errors are accounted for in
+\Cref{sec:ch38-classes} and \Cref{sec:ch38-approximation} respectively.
+The corresponding warning in
+\Cref{chap:bj-homogeneity-bdivisors}, after
+\Cref{thm:ch35-semiample-criterion}, says the same thing from the other
+side.
+\end{remark}
+
+\subsection{The two gradings}
+\label{sec:ch38-two-gradings}
+
+A weighted section system \eqref{eq:gf-fs-presentation} carries two
+integers of completely different natures, and the Rees and base-ideal
+arguments of
+\Crefrange{chap:bj-test-configurations}{chap:bj-smooth-characteristic}
+manipulate both.  Confusing them is the commonest arithmetic error in this
+part of the subject, and the homogeneous category is precisely the one in
+which the second becomes trivial.  We record the facts.
+
+\begin{proposition}
+\label{prop:ch38-two-gradings}
+Let \(L\in\Pic(X)_{\mathbf Q}\) and let \(\phi\in\cH^{\mathrm{gf}}_{\mathbf R}(L)\)
+be presented by a weighted section system
+\((m,(s_j)_{1\leq j\leq r},(\lambda_j)_{1\leq j\leq r})\), so that
+\(\phi=\frac1m\max_j\{\log|s_j|+\lambda_j\}\) with
+\(s_j\in H^0(X,mL)\).
+\begin{enumerate}
+\item\label{itm:ch38-grad:weight}
+ \(\phi\) is homogeneous if and only if the weights may be taken all equal
+ to \(0\).  More precisely, if \(\phi\) is homogeneous then, for
+ \emph{every} presentation, \(\max_j\lambda_j=0\) and
+ \(\phi=m^{-1}\max_j\log|s_j|\); so the weights may be deleted from any
+ presentation without changing \(\phi\), and
+ \(\phi=m^{-1}\log|\mathfrak b|\), where
+ \(\mathfrak b\subseteq\cO_X\) is the ideal locally generated by the
+ \(s_j\).
+\item\label{itm:ch38-grad:degree}
+ The degree \(m\) is a Veronese ambiguity: for every \(r\geq1\) one has
+ \(\phi=(rm)^{-1}\log|\mathfrak b^r|\), and \(rmL\otimes\mathfrak b^r\) is
+ globally generated whenever \(mL\otimes\mathfrak b\) is.
+\item\label{itm:ch38-grad:integral}
+ Conversely, if \(m^{-1}\log|\mathfrak b|=m'^{-1}\log|\mathfrak b'|\) with
+ \(\mathfrak b,\mathfrak b'\subseteq\cO_X\) nonzero, then
+ \(\overline{\mathfrak b^{\,m'}}=\overline{\mathfrak b'^{\,m}}\), the bars
+ denoting integral closure.  Thus the pair \((m,\mathfrak b)\) is
+ determined by \(\phi\) only up to Veronese powers and integral closure.
+\item\label{itm:ch38-grad:operations}
+ On homogeneous data the two gradings behave differently under the two
+ basic operations: with
+ \(\psi=m^{-1}\log|\mathfrak b|\in\cH_{\mathrm{hom}}(L)\) and
+ \(\psi'=m'^{-1}\log|\mathfrak b'|\in\cH_{\mathrm{hom}}(L')\),
+\[
+ \begin{aligned}
+ \psi+\psi'&=(mm')^{-1}\log\bigl|\mathfrak b^{m'}\mathfrak b'^{\,m}\bigr|\\
+ &\in\cH_{\mathrm{hom}}(L+L'),\\
+ \max\{\psi,\psi'\}
+ &=(mm')^{-1}\log\bigl|\mathfrak b^{m'}+\mathfrak b'^{\,m}\bigr|,
+ \end{aligned}
+\tag{38.16}\label{eq:ch38-two-gradings-operations}
+\]
+ the second belonging to \(\cH_{\mathrm{hom}}(L)\) when \(L=L'\).
+ Degrees multiply; weights, which are all zero, do not enter.  For
+ inhomogeneous data the weights add in the first formula and are compared
+ in the second, and no formula expresses one grading in terms of the other.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{\cref{itm:ch38-grad:weight}.}  Suppose \(\phi\) is homogeneous.  By
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:decreasing},
+\(\sup_{X^{\An}}\phi=\phi(v_{\triv})=m^{-1}\max_j\lambda_j\), and
+\(\phi(v_{\triv})=0\) by
+\Cref{lem:ch35-homogeneity-reformulations}, \(v_{\triv}\) being a fixed
+point of the scaling action at which \(\phi\) is finite; hence
+\(\max_j\lambda_j=0\) and \(\lambda_j\leq0\) for every \(j\).
+
+Fix \(v\in X^{\val}\) and set \(c_j:=\log|s_j|(v)\in[-\infty,0]\), so that
+\(\phi(v)\) is finite by
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:equiv} and, by
+\Cref{lem:ch34-log-s-properties}\,\cref{itm:ch34-logs:homogeneous},
+\[
+ m\,\phi(tv)=\max_j\{t\,c_j+\lambda_j\}=:f(t)
+ \qquad(t>0).
+\]
+Homogeneity says \(f(t)=t\,f(1)\) for every \(t>0\).  For each \(j\) with
+\(c_j>-\infty\) we have \(t\,f(1)=f(t)\geq t\,c_j+\lambda_j\); dividing by
+\(t\) and letting \(t\to+\infty\) gives \(f(1)\geq c_j\), and this also
+holds trivially when \(c_j=-\infty\).  Hence
+\(f(1)\geq\max_jc_j\).  On the other hand \(\lambda_j\leq0\) gives
+\(f(1)=\max_j\{c_j+\lambda_j\}\leq\max_jc_j\).  Therefore
+\(f(1)=\max_jc_j\), that is,
+\[
+ \phi(v)=\frac1m\max_j\log|s_j|(v)
+ \qquad\text{for every }v\in X^{\val}.
+\]
+Both sides are continuous on \(X^{\An}\) with values in
+\([-\infty,+\infty)\), by
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:cont}, and
+\(X^{\divis}\subseteq X^{\val}\) is dense in \(X^{\An}\) by
+\Cref{thm:triv-divisorial-density}; so the identity holds on all of
+\(X^{\An}\).  Thus \((m,(s_j),(0))\) is a presentation of \(\phi\) with all
+weights zero.  The converse and the identification of \(\mathfrak b\) are
+\Cref{prop:hom-fs-ideal}.
+
+\emph{\cref{itm:ch38-grad:degree}.}  By
+\eqref{eq:ch34-log-ideal-semiring},
+\(\log|\mathfrak b^r|=r\log|\mathfrak b|\), so
+\((rm)^{-1}\log|\mathfrak b^r|=m^{-1}\log|\mathfrak b|=\phi\).  If
+\(mL\otimes\mathfrak b\) is globally generated then so is its \(r\)-th
+tensor power, and the natural surjection
+\((mL\otimes\mathfrak b)^{\otimes r}\twoheadrightarrow
+rmL\otimes\mathfrak b^{r}\) shows that the target is globally generated as
+well.
+
+\emph{\cref{itm:ch38-grad:integral}.}  The hypothesis gives
+\(m'\log|\mathfrak b|=m\log|\mathfrak b'|\), that is,
+\(v(\mathfrak b^{m'})=v(\mathfrak b'^{\,m})\) for every
+\(v\in X^{\val}\), and in particular for every divisorial valuation.  By
+the valuative criterion of integral dependence
+\Cref{thm:appA-valuative-integral-closure}, two ideals with the same
+divisorial valuations have the same integral closure.
+
+\emph{\cref{itm:ch38-grad:operations}.}  The two displayed identities are
+\eqref{eq:ch34-log-ideal-semiring} after passing to the common degree
+\(mm'\), exactly as in the proof of
+\Cref{prop:ch35-hom-pl-semiring}\,(1); the membership statements are
+\Cref{prop:hom-fs-ideal}, using that a product and a sum of globally
+generated sheaves twisted by the corresponding bundles are globally
+generated.  The last sentence is the content of
+\Cref{lem:gf-fs-operations}, where the weights are carried explicitly.
+\end{proof}
+
+\begin{warning}{Degree and weight are not interchangeable}
+\label{warn:ch38-two-gradings}
+In the Rees-algebra picture \eqref{eq:filtration-rees} the first grading is
+the degree \(m\) of the section ring \(R(X,L)=\bigoplus_mR_m\), and the
+second is the filtration index \(\lambda\), which is the
+\(\mathbf G_m\)-weight of the test configuration and the exponent of
+\(\varpi\).  A base ideal carries both indices,
+\(\mathfrak b_{m,\lambda}\), and the flag ideal of
+\eqref{eq:ch33-degree-m-flag} assembles the second index at a fixed value
+of the first.  Two consequences must be kept in view.  First, the
+normalizations differ: passing from \(m\) to \(rm\) replaces
+\(\mathfrak b_{m,\lambda}\) by an ideal comparable to
+\(\mathfrak b_{m,\lambda}^{\,r}\) at index \(r\lambda\), so a quantity
+that is homogeneous of degree one in \(\lambda\) is homogeneous of degree
+\(r\) in the ideal.  Second, an \(O(m^{-1})\) error in the \emph{first}
+grading is a change of numerical class by \(O(m^{-1})\), whereas an
+\(O(m^{-1})\) error in the \emph{second} is a change of the function by an
+additive constant \(O(m^{-1})\).  These are different kinds of error and
+they are corrected by different devices: the first by
+\Cref{prop:ch38-drift-ledger}, the second by the normalization
+\eqref{eq:normalized-psh-space}.  In the homogeneous category the second
+grading is identically zero, by
+\Cref{prop:ch38-two-gradings}\,\cref{itm:ch38-grad:weight}; this is exactly
+why homogeneous data can be transported along birational morphisms without
+an error term, as \Cref{chap:bj-reflection} exploits.
+\end{warning}
+
+\subsection{A homogeneous Fubini--Study function, realized and read back}
+\label{sec:ch38-fs-example}
+
+\begin{example}[The dictionary computed in both directions]
+\label{ex:ch38-fs-from-bdivisor-and-back}
+\index{Fubini--Study function!homogeneous, computed}
+We continue \Cref{ex:ch38-blowup-surface-evaluation} with \(d=3\), so
+\(X=\mathbf P^2\), \(L=\cO(3)\), \(\theta=c_1(L)\), and \(B\) is the
+Cartier b-divisor determined on \(Y_2\) by
+\(B_{Y_2}=-2E_1'-3E_2\).  We check
+\Cref{prop:ch38-model-fs-dictionary} in both directions with explicit
+sections and an explicit ideal.
+
+\emph{From the b-divisor to the ideal.}  Take \(m=1\).  The extension of
+the ideal \(\mathfrak b=(x^3,xy,y^2)\) of
+\eqref{eq:ch38-surface-ideal} to \(Y_2\) is computed chart by chart.  In
+the chart \((z_1,z_2)\) with \(x=z_1z_2\), \(y=z_1z_2^2\),
+\[
+ \mathfrak b\cdot\cO_{Y_2}
+ =(z_1^3z_2^3,\;z_1^2z_2^3,\;z_1^2z_2^4)
+ =z_1^2z_2^3\,(z_1,\;1,\;z_2)
+ =(z_1^2z_2^3),
+\]
+which is \(\cO(-2E_1'-3E_2)\) there.  In the chart of \(Y_1\) with
+\(x=uy\), on which \(\pi_2\) is an isomorphism and
+\(E_1'=\{y=0\}\),
+\[
+ \mathfrak b\cdot\cO
+ =(u^3y^3,\;uy^2,\;y^2)=y^2\,(u^3y,\;u,\;1)=(y^2)
+ =\cO(-2E_1').
+\]
+In the remaining chart, with \(x=w_1\) and \(y=w_1^2w_2\), on which only
+\(E_2=\{w_1=0\}\) is visible,
+\[
+ \mathfrak b\cdot\cO
+ =(w_1^3,\;w_1^3w_2,\;w_1^4w_2^2)=(w_1^3)=\cO(-3E_2).
+\]
+Away from \(p\) the ideal is the unit ideal.  Hence
+\(\mathfrak b\cdot\cO_{Y_2}=\cO_{Y_2}(B_{Y_2})\) is invertible, and
+\(Y_2\) dominates the normalized blowup of \(\mathfrak b\).
+
+\emph{Global generation and membership in \(\cH_{\mathrm{hom}}\).}  The
+space \(H^0(\mathbf P^2,\cO(3)\otimes\mathfrak b)\) consists of the cubic
+forms whose dehomogenization at \(z=1\) lies in \(\mathfrak b\).  Among the
+ten monomials of degree three, six qualify:
+\[
+ x^3,\quad x^2y,\quad xy^2,\quad y^3,\quad xyz,\quad y^2z,
+\tag{38.17}\label{eq:ch38-surface-sections}
+\]
+and the four that do not are \(x^2z\), \(xz^2\), \(yz^2\), \(z^3\), whose
+dehomogenizations \(x^2,x,y,1\) are precisely the four monomials outside
+\(\mathfrak b\).  So \(\mathfrak b\) imposes
+\(4=\operatorname{colength}_p\mathfrak b\) independent conditions and
+\(h^0(\cO(3)\otimes\mathfrak b)=6\).  These six sections generate: away
+from \(p\), if \(x(\xi)\neq0\) then \(x^3\) does not vanish at \(\xi\) and
+if \(y(\xi)\neq0\) then \(y^3\) does not, and \(x=y=0\) defines
+\(p\) alone; at \(p\), the dehomogenizations generate
+\((x^3,x^2y,xy^2,y^3,xy,y^2)=(x^3,xy,y^2)=\mathfrak b\).  Hence
+\(\cO(3)\otimes\mathfrak b\) is globally generated, and
+\Cref{prop:hom-fs-ideal} gives
+\[
+ \begin{aligned}
+ \psi_B&=\log|\mathfrak b|\\
+ &=\max\!\left\{\begin{gathered}
+   \log|x^3|,\ \log|x^2y|,\ \log|xy^2|,\\
+   \log|y^3|,\ \log|xyz|,\ \log|y^2z|
+   \end{gathered}\right\}\\
+ &\in\cH_{\mathrm{hom}}(\cO(3)).
+ \end{aligned}
+\tag{38.18}\label{eq:ch38-surface-fs-presentation}
+\]
+All six weights are zero, in accordance with
+\Cref{prop:ch38-two-gradings}\,\cref{itm:ch38-grad:weight}.
+
+\emph{From the ideal back to the b-divisor.}  Running
+\Cref{prop:ch38-model-fs-dictionary}\,\cref{itm:ch38-dict:backward}
+backwards: the normalized blowup \(\rho:Z\to X\) of \(\mathfrak b\) is
+dominated by \(Y_2\), and on \(Y_2\) the exceptional divisor of
+\(\mathfrak b\) is \(2E_1'+3E_2\); so the Cartier b-divisor produced by
+the backward direction is determined on \(Y_2\) by
+\(-2E_1'-3E_2=B_{Y_2}\).  The round trip closes, as
+\Cref{prop:ch38-model-fs-dictionary}\,\cref{itm:ch38-dict:unique}
+guarantees.
+
+\emph{Consistency with the numerical criterion.}  By
+\eqref{eq:ch38-surface-nef-test} with \(d=3\), the total class
+\(P=3H-2e_1-e_2\) is nef with \(P\cdot\Lambda=0\), so it is not ample.  It
+is nevertheless semiample: \(\pi^*(\cO(3))\otimes(\mathfrak b\cdot\cO_{Y_2})
+=\pi^*(\cO(3)\otimes\mathfrak b)\) is globally generated, being the
+pullback of a globally generated sheaf.  This is exactly the right-hand
+side of \eqref{eq:ch35-semiample-criterion}, and
+\Cref{thm:ch35-semiample-criterion} therefore certifies
+\eqref{eq:ch38-surface-fs-presentation} a second time, without computing
+sections.
+
+\emph{Values.}  Collecting
+\eqref{eq:ch38-surface-divisorial-values},
+\eqref{eq:ch38-surface-quasimonomial-value} and
+\eqref{eq:ch38-surface-ideal}:
+\[
+ \begin{aligned}
+ \psi_B(v_{\triv})&=0,
+ &\psi_B(s\ord_{E_1})&=-2s,\\
+ \psi_B(s\ord_{E_2})&=-3s,
+ &\psi_B(v_\alpha)&=-2\alpha_1-3\alpha_2,
+ \end{aligned}
+\]
+\(\psi_B(\ord_C)=0\) for every curve \(C\subset\mathbf P^2\), and
+\(\psi_B(v_{p,\triv})=-v_{p,\triv}(\mathfrak b)=-\infty\), because
+\(\mathfrak b\subseteq\mathfrak m_p\).  So \(\psi_B\) is a homogeneous
+\(\theta\)-psh function which is finite on \(X^{\val}\), unbounded along
+two of the exceptional rays, and \(-\infty\) at exactly one point of
+proper support, namely \(v_{p,\triv}\); the polar locus is
+\(V(\mathfrak b)^{\An}=\{p\}^{\An}\), by
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:polar}.
+
+\emph{What changes for \(d=4\).}  Then \(P=4H-2e_1-e_2\) has
+\(P\cdot\Lambda=1>0\), so \(P\) is ample and the whole construction of
+\Cref{sec:ch38-buffer} is unnecessary: the b-divisor is already realized by
+a Fubini--Study function in the class \(c_1(\cO(4))\).  The case \(d=3\) is
+the boundary case, and the case \(d=2\) is excluded, \(P\) not being nef.
+\end{example}
+
+\begin{remark}[What the example does not show]
+\label{rem:ch38-example-limits}
+In \Cref{ex:ch38-fs-from-bdivisor-and-back} the b-divisor is rational and
+its total class is semiample, so the dictionary
+\Cref{prop:ch38-model-fs-dictionary} applies directly and no limit is
+needed.  \Cref{thm:bj-real-cartier-realization} is required exactly when
+one of these two features fails: when the coefficients of \(B\) are
+irrational, so that no single ideal computes \(\psi_B\); or when the total
+class is nef and not semiample, so that no linear system is available.
+\Cref{ex:ch38-drift-irrational} exhibits the first failure on the same
+surface, and the nef non-semiample case occurs already for the pullback of
+a nef non-semiample class from a surface with an irrational nef boundary.
+\end{remark}
+
+\section{Passage between numerical classes on birational models}
+\label{sec:ch38-classes}
+
+Three numerical spaces occur in the construction: \(N^1(X)\), where the
+target class \(\theta\) lives; \(N^1(Y)\) for the determination
+\(\pi:Y\to X\), where the total class \(P\) lives; and \(N^1(Z)\) for the
+higher models on which individual divisorial valuations are evaluated.
+This section records how positivity moves between them, and it isolates the
+one place where the passage is not free of charge: the numerical class of
+the approximating stages differs from the target by an error that must be
+tracked and, above all, \emph{oriented}.
+
+\subsection{Pullback, pushforward, and the total class}
+\label{sec:ch38-pullback-pushforward}
+
+\begin{lemma}
+\label{lem:ch38-numerical-birational}
+Let \(\pi:Y\to X\) be a projective birational morphism of normal
+projective varieties of dimension \(n\).
+\begin{enumerate}
+\item\label{itm:ch38-num:inj}
+ \(\pi^*:N^1(X)\to N^1(Y)\) is injective, \(\pi_*\pi^*=\operatorname{id}\)
+ on \(N^1(X)\) under the pairing \eqref{eq:appF-N1-pairing}, and
+ \(\pi^*\Nef(X)\subseteq\Nef(Y)\).
+\item\label{itm:ch38-num:notample}
+ If \(\pi\) is not an isomorphism, then \(\pi^*\alpha\) is \emph{never}
+ ample on \(Y\), for any \(\alpha\in N^1(X)\).
+\item\label{itm:ch38-num:relative}
+ Let \(G\) be an effective Cartier divisor on \(Y\) with \(-G\)
+ \(\pi\)-ample, and let \(\omega\in N^1(X)\) be ample.  Then there is
+ \(r_1\geq1\) such that
+\[
+ r\pi^*\omega-G\ \text{ is ample on }Y
+ \qquad\text{for every real }r\geq r_1 .
+\tag{38.19}\label{eq:ch38-relative-to-absolute}
+\]
+\item\label{itm:ch38-num:total}
+ For \(B\leq0\) determined on \(Y\) and \(\theta\in N^1(X)\), the total
+ class \(P=\pi^*\theta+B_Y\) of \eqref{eq:bj-nef-total} satisfies
+ \(\pi_*P=\theta+[B_X]\), and \(P\) is \(\pi\)-nef if and only if
+ \(B_Y\) is.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{\cref{itm:ch38-num:inj}.}  Injectivity and \(\pi_*\pi^*=\operatorname{id}\)
+follow from the projection formula \eqref{eq:appF-projection} with
+\(\pi_*[Y]=[X]\), as in the proof of
+\Cref{lem:ch35-bclass-splitting}: if \(\pi^*\alpha=0\) then
+\(\alpha\cdot\gamma=\pi^*\alpha\cdot\widetilde\gamma=0\) for every curve
+class \(\gamma\) on \(X\), with \(\widetilde\gamma\) a strict transform, so
+\(\alpha=0\).  For the nef cone, if \(\alpha\) is nef and \(C\subset Y\) is
+an integral curve, then \(\pi^*\alpha\cdot C=\alpha\cdot\pi_*C\), which is
+\(0\) if \(C\) is contracted and \(\geq0\) otherwise.
+
+\emph{\cref{itm:ch38-num:notample}.}  Suppose \(\pi\) is not an
+isomorphism.  If every fibre of \(\pi\) were finite, then \(\pi\), being
+proper and quasi-finite, would be finite; a finite birational morphism onto
+a normal variety is an isomorphism, by Zariski's main theorem
+\cite[Corollary~III.11.4]{Har}, a contradiction.  Hence some fibre has an
+irreducible component \(T\) of positive dimension, and cutting \(T\) with
+\(\dim T-1\) general very ample divisors produces an integral curve
+\(C\subset Y\) contracted by \(\pi\), so that
+\(\pi_*C=0\) and \(\pi^*\alpha\cdot C=\alpha\cdot\pi_*C=0\) by
+\eqref{eq:appF-projection}.  An ample class has strictly positive degree on
+every integral curve.
+
+\emph{\cref{itm:ch38-num:relative}.}  Choose an ample line bundle \(A\) on
+\(X\) and a rational \(c>0\) with \(\omega-c\,c_1(A)\) ample; this is
+possible because \(\Amp(X)\) is open and \(\omega\in\Amp(X)\).  Since
+\(\cO_Y(-G)\) is \(\pi\)-ample and \(A\) is ample on \(X\), the twist
+theorem \cite[4.6.13]{EGAII} provides \(r_0\in\mathbf Z_{>0}\) with
+\(\pi^*A^{\otimes r_0}\otimes\cO_Y(-G)\) ample on \(Y\), that is,
+\(r_0\pi^*c_1(A)-G\in\Amp(Y)\).  Put \(r_1:=r_0/c\).  For \(r\geq r_1\),
+\[
+ r\pi^*\omega-G
+ =\bigl(r_0\pi^*c_1(A)-G\bigr)
+  +\pi^*\bigl(r\omega-r_0c_1(A)\bigr),
+\]
+and \(r\omega-r_0c_1(A)=r\bigl(\omega-(r_0/r)c_1(A)\bigr)\) is ample
+because \(r_0/r\leq c\) and \(\omega-c\,c_1(A)\) is ample, so that
+\(\omega-(r_0/r)c_1(A)
+=(\omega-c\,c_1(A))+(c-r_0/r)c_1(A)\) is a sum of an ample and a nef class.
+Its pullback is nef by \cref{itm:ch38-num:inj}, and the sum of an ample and
+a nef class is ample.
+
+\emph{\cref{itm:ch38-num:total}.}  \(\pi_*P=\pi_*\pi^*\theta+\pi_*[B_Y]
+=\theta+[B_X]\), by \cref{itm:ch38-num:inj} and
+\(\pi_*B_Y=B_X\).  For the second assertion, \(\pi^*\theta\) is
+numerically trivial on \(\pi\)-contracted curves, so
+\(P\cdot C=B_Y\cdot C\) for such \(C\).
+\end{proof}
+
+\begin{warning}{Ampleness cannot be imported from the base}
+\label{warn:ch38-no-ample-from-base}
+\Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:notample} is the
+structural reason for the shape of the proof of
+\Cref{thm:bj-real-cartier-realization}.  The dictionary
+\Cref{prop:ch38-model-fs-dictionary} needs an \emph{ample}, or at least
+semiample, total class on \(Y\); and no amount of positivity on \(X\)
+produces one, because every pullback class is trivial on the contracted
+curves.  The missing positivity must therefore be supplied on \(Y\), by a
+\(\pi\)-ample correction, and \eqref{eq:ch38-relative-to-absolute} is the
+statement that a \(\pi\)-ample correction plus enough pullback positivity
+is ample.  This is the whole content of the ample buffer of
+\Cref{sec:ch38-buffer}: the divisor \(G\) supplies relative positivity, the
+class \(r\pi^*\omega\) supplies absolute positivity, and \(t\) interpolates
+between the nef class \(P\) and the ample class \(r\pi^*\omega-G\).
+\end{warning}
+
+\subsection{The drift ledger}
+\label{sec:ch38-drift}
+
+The approximating stages of the realization theorem are homogeneous
+Fubini--Study functions for \emph{rational} line bundles, whereas the
+target class \(\theta\), and hence the activated class
+\(\omega=\theta+[F]\), is real.  Consequently the class of the stage
+\(n\) differs from \(\omega\).  The next proposition is the exact
+bookkeeping for that difference.  It says two things: that the error may be
+made \(O(n^{-1})\), and --- much more importantly --- that it may be made
+\emph{negative} in the nef order, which is what allows the limit to be
+taken inside a single class.
+
+\begin{proposition}
+\label{prop:ch38-drift-ledger}
+Fix a norm \(\|\cdot\|\) on the finite-dimensional real vector space
+\(N^1(X)\).
+\begin{enumerate}
+\item\label{itm:ch38-drift:dominated}
+ \emph{Dominated drift is harmless.}  Let \((\phi_i)_{i\in I}\) be a
+ decreasing net with \(\phi_i\in\PSH_X(\theta_i)\), and suppose that
+ \(\theta-\theta_i\) is nef for every \(i\).  If the pointwise limit
+ \(\phi:=\lim_i\phi_i\) is not identically \(-\infty\), then
+ \(\phi\in\PSH_X(\theta)\).
+\item\label{itm:ch38-drift:orient}
+ \emph{Drift can be oriented.}  Let \(\omega\in N^1(X)\) be ample and
+ \(\delta>0\).  Then
+\[
+ \bigl\{\omega'\in N^1(X)_{\mathbf Q}\ :\
+ \omega-\omega'\ \text{ample},\ \|\omega-\omega'\|<\delta\bigr\}
+ \neq\varnothing,
+\tag{38.20}\label{eq:ch38-drift-orientable}
+\]
+ and the set is the intersection of a nonempty open subset of
+ \(N^1(X)\) with the dense subgroup \(N^1(X)_{\mathbf Q}\).
+\item\label{itm:ch38-drift:joint}
+ \emph{Orientation is compatible with an ampleness constraint upstairs.}
+ Let \(\pi:Y\to X\) be a model, let \(\omega\in N^1(X)\) be ample, and let
+ \(E\) be an \(\mathbf R\)-Cartier divisor on \(Y\) with
+ \(\pi^*\omega-E\) ample.  Then for every \(\delta>0\) there are
+ \(\omega'\in N^1(X)_{\mathbf Q}\) and a rational Cartier divisor \(R\) on
+ \(Y\) supported on \(\Supp E\) with
+\[
+ \|\omega-\omega'\|<\delta,\qquad
+ \|E-R\|<\delta,\qquad
+ \omega-\omega'\ \text{ample},\qquad
+ \pi^*\omega'-R\ \text{ample}.
+\tag{38.21}\label{eq:ch38-drift-joint}
+\]
+\item\label{itm:ch38-drift:rate}
+ \emph{The rate.}  If in \cref{itm:ch38-drift:joint} one applies the
+ statement with \(\delta=1/n\) for \(n\geq1\), the resulting classes
+ satisfy \(\|\omega-\omega_n\|<1/n\); the drift is \(O(n^{-1})\), and the
+ induced error in the total class on \(Y\) is
+ \(\|\pi^*(\omega-\omega_n)\|=O(n^{-1})\) as well.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{\cref{itm:ch38-drift:dominated}.}  Since \(\theta-\theta_i\) is nef,
+\Cref{lem:ch34-psh-nonempty} gives \(0\in\PSH_X(\theta-\theta_i)\), and
+\Cref{thm:bj-basic-closure}\,(3) with \(s=t=1\) gives
+\[
+ \phi_i=\phi_i+0\in\PSH_X\bigl(\theta_i+(\theta-\theta_i)\bigr)
+ =\PSH_X(\theta).
+\]
+The net \((\phi_i)\) is thus a decreasing net in the single class
+\(\PSH_X(\theta)\), and \Cref{thm:bj-basic-closure}\,(4) applies, its
+hypothesis being exactly that the limit is not identically \(-\infty\) on
+an irreducible component; here \(X\) is irreducible.
+
+\emph{\cref{itm:ch38-drift:orient}.}  Fix an ample class \(\alpha\) on
+\(X\); such a class exists since \(X\) is projective.  For
+\(0<\varepsilon<\delta/\|\alpha\|\) the class
+\(\omega-\varepsilon\alpha\) satisfies
+\(\|\omega-(\omega-\varepsilon\alpha)\|=\varepsilon\|\alpha\|<\delta\) and
+\(\omega-(\omega-\varepsilon\alpha)=\varepsilon\alpha\) is ample.  The two
+conditions ``\(\omega-\omega'\) ample'' and
+``\(\|\omega-\omega'\|<\delta\)'' are open in \(\omega'\), the first
+because \(\Amp(X)\) is open in \(N^1(X)\), so the displayed set is the
+intersection of a nonempty open set with
+\(N^1(X)_{\mathbf Q}\).  Rational classes are dense in \(N^1(X)\) because
+\(N^1(X)=N^1(X)_{\mathbf Q}\otimes_{\mathbf Q}\mathbf R\) by construction.
+
+\emph{\cref{itm:ch38-drift:joint}.}  Let
+\(V\subseteq\Div(Y)_{\mathbf R}\) be the finite-dimensional space of
+\(\mathbf R\)-Cartier divisors supported on the finite set \(S\) of
+components of \(\Supp E\); it is defined over \(\mathbf Q\), because a
+Cartier divisor supported on \(S\) is determined by its coefficients along
+the members of \(S\) once local equations have been fixed.  Consider the
+map
+\[
+ \Phi:N^1(X)\times V\longrightarrow N^1(Y),
+ \qquad
+ \Phi(\omega',R):=\pi^*\omega'-[R],
+\]
+which is \(\mathbf R\)-linear, hence continuous.  By hypothesis
+\(\Phi(\omega,E)\in\Amp(Y)\), an open cone, so there is
+\(\eta>0\) such that \(\Phi(\omega',R)\) is ample whenever
+\(\|\omega-\omega'\|+\|E-R\|<\eta\).  Shrinking \(\eta\) below \(\delta\),
+and intersecting with the nonempty open set produced in
+\cref{itm:ch38-drift:orient}, we obtain a nonempty open subset of
+\(N^1(X)\times V\) on which all four conditions of
+\eqref{eq:ch38-drift-joint} hold; it contains a rational point because
+\(N^1(X)_{\mathbf Q}\times V_{\mathbf Q}\) is dense.
+
+\emph{\cref{itm:ch38-drift:rate}} is immediate, using that
+\(\pi^*\) is a fixed linear map between finite-dimensional spaces and
+hence bounded.
+\end{proof}
+
+\begin{warning}{The drift is not absorbed by its size}
+\label{warn:ch38-drift-not-absorbed}
+It is tempting to argue that since \(\omega_n\to\omega\) the classes are
+``eventually \(\omega\) up to \(O(n^{-1})\)'' and the limit is therefore
+\(\omega\)-psh.  This is not an argument, and the reason is worth stating
+precisely.  The closure calculus available before the envelope theorem
+consists of \Cref{thm:bj-basic-closure}, whose only limit clause,
+part~(4), operates \emph{inside a fixed class}; and of part~(3), which
+enlarges the class along the nef cone.  There is no clause allowing the
+class to move to a limit.  Accordingly the correct statement is
+\Cref{prop:ch38-drift-ledger}\,\cref{itm:ch38-drift:dominated}, whose
+hypothesis is not \(\|\theta-\theta_i\|\to0\) but
+\(\theta-\theta_i\in\Nef(X)\).  What makes the construction below work is
+therefore not that the drift is small but that it points the right way: at
+every stage the approximating class is \emph{dominated} by the target
+class, so all the stages live in the single space
+\(\PSH_X(\omega)\) from the outset.  The smallness of the drift is used
+only at the end, to identify the divisorial trace of the limit, where it
+enters through convergence in a finite-dimensional vector space and no psh
+theory is involved.
+
+The same discipline is applied in
+\Cref{chap:bj-smooth-characteristic}, where the stages carry the classes
+\(L+A/m\) and the \(O(m^{-1})\) error is again dominated rather than
+merely small, and in \Cref{chap:bj-reflection}, where the exact
+drift-cancellation identity \eqref{eq:bj-reflection-total} is used instead
+of an estimate.  A statement of the form ``the class error tends to zero,
+so it may be ignored'' does not occur anywhere in
+\Crefrange{chap:bj-cartier-realization}{chap:bj-envelope-consequences}.
+\end{warning}
+
+\begin{remark}[Where the two kinds of \(O(m^{-1})\) error occur]
+\label{rem:ch38-two-errors}
+Two \(O(m^{-1})\) errors are audited in this part of the book, and they are
+different.  The first is the error in \emph{numerical class} produced when
+a real class is replaced by a rational one, or when a linear series is
+twisted by \(A/m\) to make it globally generated; this is the error of
+\Cref{prop:ch38-drift-ledger} and of the regularization theorem
+\Cref{thm:ch34-fs-regularization}, whose proof produces real weights
+precisely because the twist must be undone.  The second is the error in
+the \emph{value} of a function produced when a weight is divided by \(m\);
+this is an additive constant \(O(m^{-1})\) and is controlled by the
+normalization \eqref{eq:normalized-psh-space}.  In the homogeneous category
+the second error vanishes identically, by
+\Cref{prop:ch38-two-gradings}\,\cref{itm:ch38-grad:weight}, which is one of
+the reasons the envelope proof passes to homogeneous data before doing
+anything delicate.  \Cref{warn:ch38-two-gradings} records the same
+distinction from the algebraic side.
+\end{remark}
+
+\begin{example}[A drift that cannot be removed]
+\label{ex:ch38-drift-irrational}
+Return to \Cref{ex:ch38-blowup-surface-evaluation} and take
+\(\theta:=\sqrt2\,c_1(\cO(3))\), an irrational ample class on
+\(X=\mathbf P^2\), and \(B:=-\sqrt2\,(2\overline{E_1'}+3\overline{E_2})\)
+in the obvious notation, that is, the real Cartier b-divisor determined on
+\(Y_2\) by \(\sqrt2\,B_{Y_2}^{(1)}\) where
+\(B_{Y_2}^{(1)}=-2E_1'-3E_2\).  The total class is
+\(\sqrt2\,P\) with \(P\) as in \eqref{eq:ch38-surface-total} for
+\(d=3\), hence nef.  No rational class equals \(\theta\), and no rational
+Cartier b-divisor equals \(B\); every approximating stage therefore lives
+in a class \(\omega_n\neq\theta\).  There is no way to arrange
+\(\omega_n=\theta\) for a single \(n\), so the drift is genuinely present
+and must be handled, not avoided.
+
+What one \emph{can} arrange, by
+\Cref{prop:ch38-drift-ledger}\,\cref{itm:ch38-drift:orient}, is
+\(\theta-\omega_n\) ample: for instance
+\(\omega_n:=q_n\,c_1(\cO(3))\) with \(q_n\in\mathbf Q\) and
+\(q_n<\sqrt2\), \(q_n\to\sqrt2\), so that
+\(\theta-\omega_n=(\sqrt2-q_n)c_1(\cO(3))\) is ample.  Then every stage in
+the class \(\omega_n\) is automatically a stage in the class \(\theta\),
+by \Cref{thm:bj-basic-closure}\,(3), and
+\Cref{prop:ch38-drift-ledger}\,\cref{itm:ch38-drift:dominated} applies.
+Numerically, with \(q_n=\lfloor n\sqrt2\rfloor/n\) one has
+\(0<\sqrt2-q_n<1/n\), so the drift is \(O(n^{-1})\) and is oriented; both
+features are used, and only the second is essential.
+\end{example}
+
+\section{Ordered rational approximation}
+\label{sec:ch38-approximation}
+
+The real realization theorem requires a decreasing psh system.  For
+coefficient functions, decreasing order corresponds to an increasing
+sequence of effective divisors.  The following finite-dimensional lemma
+provides that order.
+
+Before stating it we record the linear-algebraic fact on which it rests,
+since it is the only reason the approximation can be performed with
+rational data at all.
+
+\begin{lemma}
+\label{lem:ch38-fixed-support-rational}
+Let \(W\) be a normal projective variety and let
+\(S=\{E_1,\ldots,E_s\}\) be a finite set of prime divisors on \(W\).  Let
+\[
+ V:=\Bigl\{\textstyle\sum_{j=1}^sa_jE_j\ :\ a_j\in\mathbf R\Bigr\}
+ \cap\operatorname{CDiv}(W)_{\mathbf R}
+\]
+be the space of \(\mathbf R\)-Cartier divisors supported on \(S\).  Then
+\(V\) is a finite-dimensional real vector space defined over
+\(\mathbf Q\): setting \(V_{\mathbf Q}:=V\cap\bigl(\sum_j\mathbf QE_j\bigr)\),
+one has \(V=V_{\mathbf Q}\otimes_{\mathbf Q}\mathbf R\), and
+\(V_{\mathbf Q}\) is dense in \(V\).  Moreover the coefficientwise partial
+order on \(V\) is defined by the \(\mathbf Q\)-rational linear forms
+\(D\mapsto\operatorname{coeff}_{E_j}(D)\), so that every strict
+coefficientwise inequality defines an open subset of \(V\).
+\end{lemma}
+
+\begin{proof}
+Inside the free abelian group \(\Div(W)_{\mathbf Z}\) on the prime divisors
+of \(W\), let \(M_1\) be the subgroup generated by \(S\), a direct summand
+of rank \(s\), and let \(M_2:=\operatorname{CDiv}(W)_{\mathbf Z}\) be the
+subgroup of Cartier divisors.  Both \(M_1\otimes\mathbf Q\) and
+\(M_2\otimes\mathbf Q\) are \(\mathbf Q\)-subspaces of
+\(\Div(W)_{\mathbf Q}\), and \(V=(M_1\otimes\mathbf R)\cap
+(M_2\otimes\mathbf R)\).  Since \(\mathbf R\) is flat over \(\mathbf Q\),
+the intersection of two \(\mathbf Q\)-subspaces commutes with the base
+change \(\mathbf Q\to\mathbf R\):
+\[
+ (M_1\otimes\mathbf R)\cap(M_2\otimes\mathbf R)
+ =\bigl((M_1\otimes\mathbf Q)\cap(M_2\otimes\mathbf Q)\bigr)
+   \otimes_{\mathbf Q}\mathbf R .
+\]
+Thus \(V=V_{\mathbf Q}\otimes\mathbf R\) with
+\(V_{\mathbf Q}=(M_1\cap M_2)\otimes\mathbf Q\), which is dense in
+\(V\).  Finiteness of the dimension is \(\dim V\leq s\).  The coefficient
+forms are the restrictions to \(V\) of the coordinate forms on
+\(M_1\otimes\mathbf R\), which are rational; and a strict inequality
+between continuous linear forms defines an open set.
+\end{proof}
+
+\begin{lemma}\label{lem:bj-ordered-rational-approximation}
+Let \(\rho:W\to X\) be a projective morphism of normal projective
+varieties.  Let \(E\ge0\) be an \(\mathbf R\)-Cartier divisor on \(W\).
+Suppose that, for all sufficiently small \(t>0\), there are
+\(\mathbf R\)-Cartier divisors \(E_t\) and classes
+\(\Omega_t\in N^1(X)_{\mathbf R}\) such that
+\[
+ 0<E_t<E,\qquad
+ E_t\uparrow E\quad(t\downarrow0),\qquad
+ \Omega_t\longrightarrow\omega,
+\tag{38.22}\label{eq:bj-real-buffer-hypotheses}
+\]
+and \(\rho^*\Omega_t-E_t\) is ample.  Assume that all \(E_t\) and \(E\)
+have a fixed finite support \(S\).  Then there are rational Cartier
+divisors \(R_n\) and rational classes
+\(\omega_n\in N^1(X)_{\mathbf Q}\) satisfying
+\[
+ \begin{gathered}
+ 0\le R_n<R_{n+1}<E,\qquad
+ R_n\longrightarrow E,\qquad
+ \omega_n\longrightarrow\omega,\\
+                       \rho^*\omega_n-R_n\quad\text{ample}.
+ \end{gathered}
+\tag{38.23}\label{eq:bj-ordered-rational-approximation}
+\]
+\end{lemma}
+
+\begin{proof}
+Let \(V\subset\mathbf R^S\) be the vector space of Cartier divisors
+supported on \(S\).  Cartier local equations show that \(V\) is defined
+over \(\mathbf Q\).  Rational points are therefore dense in
+\[
+                       V\times N^1(X)_{\mathbf R}.
+\]
+
+Set \(R_0=0\).  Inductively choose \(t_n>0\) so small that
+\[
+ R_{n-1}<E_{t_n}<E,\qquad
+ \|E_{t_n}-E\|+\|\Omega_{t_n}-\omega\|<\frac1n.
+\tag{38.24}\label{eq:bj-choice-tn}
+\]
+The strict coefficient inequalities and ampleness are open.  We may hence
+choose a rational pair \((R_n,\omega_n)\) sufficiently close to
+\((E_{t_n},\Omega_{t_n})\) that
+\[
+ R_{n-1}<R_n<E,\qquad
+ \rho^*\omega_n-R_n\ \text{is ample},
+\]
+and its distance from \((E_{t_n},\Omega_{t_n})\) is less than \(1/n\).
+This proves all assertions.
+
+We supply the details of the two inductive steps, since the ordering is
+what the whole construction is for.
+
+\emph{Rationality of the ambient space.}  This is
+\Cref{lem:ch38-fixed-support-rational}: the space \(V\) of
+\(\mathbf R\)-Cartier divisors supported on \(S\) is finite dimensional and
+defined over \(\mathbf Q\), and \(N^1(X)_{\mathbf R}\) is defined over
+\(\mathbf Q\) by construction, so \(V_{\mathbf Q}\times N^1(X)_{\mathbf Q}\)
+is dense in \(V\times N^1(X)_{\mathbf R}\).  Fix norms on both factors.
+
+\emph{Choice of \(t_n\).}  Suppose \(R_{n-1}\in V_{\mathbf Q}\) has been
+constructed with \(R_{n-1}<E\) coefficientwise and strictly on
+\(\Supp E\); for \(n=1\) take \(R_0=0\), which satisfies
+\(R_0<E\) provided \(E>0\), and if \(E=0\) the lemma is trivial with
+\(R_n=0\).  Since \(E_t\uparrow E\) as \(t\downarrow0\) inside the
+finite-dimensional space \(V\), the coefficients of \(E_t\) converge to
+those of \(E\), and \(R_{n-1}<E\) strictly, so
+\(R_{n-1}<E_{t}\) for all sufficiently small \(t\).  Together with
+\(\Omega_t\to\omega\) this gives \eqref{eq:bj-choice-tn} for a suitable
+\(t_n\), which we may also take \(\leq t_{n-1}\).
+
+\emph{Choice of the rational pair.}  The conditions
+\[
+ R_{n-1}<R<E,
+ \qquad
+ \rho^*\Omega-R\in\Amp(Y'),
+ \qquad
+ \|(R,\Omega)-(E_{t_n},\Omega_{t_n})\|<1/n
+\]
+on \((R,\Omega)\in V\times N^1(X)_{\mathbf R}\) define an open subset,
+the first two by \Cref{lem:ch38-fixed-support-rational} and by openness of
+the ample cone, and the third trivially.  The point
+\((E_{t_n},\Omega_{t_n})\) satisfies the first two by
+\eqref{eq:bj-choice-tn} and by hypothesis, and the third with strict
+inequality \(0<1/n\); so the open set is nonempty and contains a rational
+point \((R_n,\omega_n)\).  Then
+\(\|E-R_n\|\leq\|E-E_{t_n}\|+\|E_{t_n}-R_n\|<2/n\) and likewise
+\(\|\omega-\omega_n\|<2/n\), which gives \(R_n\to E\) and
+\(\omega_n\to\omega\).  The chain \(R_{n-1}<R_n\) is part of the choice,
+and \(R_n>0\) holds because \(R_n>R_{n-1}\geq0\) for \(n\geq1\).
+\end{proof}
+
+\begin{remark}[Why the support is fixed]
+\label{rem:ch38-fixed-support}
+The proof works in one finite-dimensional rational vector space of Cartier
+divisors.  It does not assert an ordered rational approximation for an
+arbitrary moving-support family of Weil b-divisors.
+\end{remark}
+
+\begin{example}[Fixed support is not a technical convenience]
+\label{ex:ch38-moving-support}
+Let \(X\) be a smooth projective surface and let
+\[
+ \cdots\longrightarrow Y_3\longrightarrow Y_2\longrightarrow Y_1
+ \longrightarrow X
+\]
+be an infinite chain of point blowups, with \(E_j\) the exceptional prime
+introduced on \(Y_j\), as in \Cref{ex:appF-non-cartier-bdivisor}.  Let
+\(B\) be the Weil b-divisor with \(\operatorname{coeff}_{E_j}(B)=-2^{-j}\)
+for every \(j\) and all other coefficients zero.  Its coefficient function
+\(\psi_B\) is homogeneous and locally finite, so
+\Cref{prop:ch35-weil-coefficient-bijection} applies; but \(B\) is not
+Cartier, since a determination would have to carry every \(E_j\).  Any
+sequence of Cartier b-divisors increasing to \(B\) has supports that grow
+without bound, so the finite set \(S\) of
+\Cref{lem:bj-ordered-rational-approximation} does not exist, and the
+lemma says nothing about this situation.  Nor does
+\Cref{thm:bj-real-cartier-realization}: its hypothesis is that \(B\) be
+determined on a single model.  This is the precise sense in which the
+theorem is a statement about Cartier and not about Weil b-divisors, and
+\Cref{rem:ch38-cartier-not-weil} explains why the Cartier statement is
+nonetheless the one the envelope proof needs.
+\end{example}
+
+\subsection{The dominated form}
+\label{sec:ch38-approximation-dominated}
+
+The version of \Cref{lem:bj-ordered-rational-approximation} that is
+actually applied in \Cref{sec:ch38-realization} carries the extra
+conclusion isolated in
+\Cref{prop:ch38-drift-ledger}\,\cref{itm:ch38-drift:orient}: the
+approximating classes are dominated by the target class in the nef order.
+By \Cref{warn:ch38-drift-not-absorbed} this, and not the rate of
+convergence, is what makes the limit legitimate.
+
+\begin{lemma}
+\label{lem:ch38-ordered-rational-dominated}
+Let \(\rho:W\to X\) be a projective morphism of normal projective
+varieties, let \(\omega\in N^1(X)\) be \emph{ample}, and let
+\(E\geq0\) be an \(\mathbf R\)-Cartier divisor on \(W\) with finite
+support \(S\).  Suppose that, for all sufficiently small \(t>0\), there is
+an \(\mathbf R\)-Cartier divisor \(E_t\) supported on \(S\) with
+\[
+ 0<E_t<E,\qquad
+ E_t\uparrow E\quad(t\downarrow0),\qquad
+ \rho^*\omega-E_t\ \text{ample}.
+\tag{38.25}\label{eq:ch38-dominated-hypotheses}
+\]
+Then there are rational Cartier divisors \(R_n\) supported on \(S\) and
+rational classes \(\omega_n\in N^1(X)_{\mathbf Q}\) with
+\[
+ \begin{gathered}
+ 0\leq R_n<R_{n+1}<E,\qquad
+ \|E-R_n\|+\|\omega-\omega_n\|<\tfrac2n,\\
+ \omega-\omega_n\ \text{ample},\qquad
+ \rho^*\omega_n-R_n\ \text{ample}.
+ \end{gathered}
+\tag{38.26}\label{eq:ch38-dominated-conclusion}
+\]
+In particular \(R_n\uparrow E\), \(\omega_n\to\omega\), and every class
+\(\omega_n\) is dominated by \(\omega\) in the nef order.
+\end{lemma}
+
+\begin{proof}
+Apply \Cref{lem:bj-ordered-rational-approximation} with the constant path
+\(\Omega_t:=\omega\), whose hypotheses \eqref{eq:bj-real-buffer-hypotheses}
+are exactly \eqref{eq:ch38-dominated-hypotheses}, and modify the choice of
+the rational pair at each stage as follows.  In the notation of that proof,
+the point \((E_{t_n},\omega)\) lies in the open subset of
+\(V\times N^1(X)\) defined by
+\[
+ R_{n-1}<R<E,\qquad
+ \rho^*\Omega-R\in\Amp(W),\qquad
+ \|(R,\Omega)-(E_{t_n},\omega)\|<1/n .
+\]
+By \Cref{prop:ch38-drift-ledger}\,\cref{itm:ch38-drift:orient} the set
+\(\{\Omega:\omega-\Omega\in\Amp(X)\}\) is open and has \(\omega\) in its
+closure, so its intersection with the displayed open set is a nonempty
+open subset of \(V\times N^1(X)\); it therefore contains a rational point
+\((R_n,\omega_n)\), by \Cref{lem:ch38-fixed-support-rational} and density
+of \(N^1(X)_{\mathbf Q}\).  This is
+\eqref{eq:ch38-dominated-conclusion}, with the estimate obtained as before
+by the triangle inequality through \((E_{t_n},\omega)\), using
+\(\|E-E_{t_n}\|<1/n\) from \eqref{eq:bj-choice-tn}.
+\end{proof}
+
+\begin{remark}[Two forms, two uses]
+\label{rem:ch38-two-approximation-forms}
+\Cref{lem:bj-ordered-rational-approximation} allows the class to move along
+a prescribed path \(\Omega_t\); it is the form to use when the ample buffer
+must be built from an auxiliary ample divisor on \(X\), and it is the form
+quoted in \Cref{chap:bj-reflection}, where the classes are corrected by an
+exact identity rather than by domination.
+\Cref{lem:ch38-ordered-rational-dominated} holds the class fixed along the
+real path and moves only at the rationalization step; it is the form used
+in \Cref{sec:ch38-realization}, because it is the one whose output
+satisfies the hypothesis of
+\Cref{prop:ch38-drift-ledger}\,\cref{itm:ch38-drift:dominated}.  The two
+are not interchangeable: the first requires
+\(\rho^*\Omega_t-E_t\) ample for a moving \(\Omega_t\), which is easy to
+arrange, while the second requires \(\rho^*\omega-E_t\) ample for the fixed
+\(\omega\), which is exactly what the sharpened buffer of
+\Cref{lem:ch38-buffer} delivers.
+\end{remark}
+
+\section{Activation: the fixed-pole construction}
+\label{sec:ch38-activation}
+
+The hypotheses of \Cref{thm:bj-real-cartier-realization} give a nef class
+on \(Y\) and nothing else.  Two deficiencies must be repaired before any
+linear series is available: the class \(\theta\) downstairs need not be
+positive at all (\Cref{warn:ch38-theta-not-nef}), and the support of the
+divisor \(-B_Y\) need not meet the exceptional locus, so that no relative
+positivity is visible along the contracted curves.  Both are repaired by
+one device: a single effective divisor \(F\) on \(X\), chosen large enough
+to make \(\theta+[F]\) ample and to contain every locus that matters, is
+added to the picture.  We call this \emph{activating} the whole support.
+The price is a fixed pole, removed at the very end by homogeneous Siu
+division.
+
+The construction is quoted verbatim in \Cref{chap:bj-reflection}, where it
+is called the fixed-pole construction, so we state it as a free-standing
+lemma with all the properties that are used there.
+
+\begin{lemma}
+\label{lem:ch38-activation}
+Let \(X\) be a normal integral projective variety with
+\(\dim X>0\), let \(\theta\in N^1(X)\), and let \(B\leq0\) be a real
+Cartier b-divisor determined on a model \(\pi:Y\to X\), with
+\[
+                              D:=-B_Y\ge0.
+\tag{38.27}\label{eq:bj-realization-D}
+\]
+Then, after replacing \(Y\) by a model dominating it --- which replaces
+\(D\) by its pullback and does not change \(B\), by
+\Cref{lem:ch38-determination-equivalence} --- there exist an effective
+\(\mathbf Q\)-Cartier divisor \(G\) on \(Y\) and an effective Cartier
+divisor \(F\) on \(X\) with the following properties, where
+\(\omega:=\theta+[F]\), \(B':=B-\overline F\) and \(D':=D+\pi^*F\):
+\begin{enumerate}
+\item\label{itm:ch38-act:ample} \([F]\) is ample and \(\omega\) is ample;
+\item\label{itm:ch38-act:relample} \(-G\) is \(\pi\)-ample;
+\item\label{itm:ch38-act:supports}
+ \(\Supp F\) contains the image of the non-isomorphism locus of \(\pi\),
+ the set \(\pi(\Supp D)\) and the set \(\pi(\Supp G)\); consequently
+\[
+ \Supp D'=\pi^{-1}(\Supp F)\supseteq\Supp G,
+\]
+ and \(\Supp D'\) is a divisor with finitely many components;
+\item\label{itm:ch38-act:dominated} \(2G\leq\pi^*F\); in particular
+ \(R:=\pi^*F-G\) is effective and \(R\geq\tfrac12\pi^*F\), so that
+ \(\pi^*F=G+R\) with \(R\geq0\);
+\item\label{itm:ch38-act:Qample} \(\pi^*\omega-G\) is ample on \(Y\);
+\item\label{itm:ch38-act:total}
+ \(\pi^*\omega+B'_Y=\pi^*\theta+B_Y=P\), so that
+ \(\pi^*\omega-D'=P\) is nef and \(B'\) is nef-total in the class
+ \(\omega\);
+\item\label{itm:ch38-act:pinef} \(-D'\) is \(\pi\)-nef, and
+ \(D'\geq\pi^*F>0\) on every component of \(\Supp D'\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{Step 1: a relatively ample exceptional divisor.}
+By \Cref{thm:appB-admissible-domination}, applied to the projective
+birational morphism \(\pi:Y\to X\), which is an isomorphism over the
+complement of a closed subset \(Z_0\subsetneq X\), there is a blowup
+\(X'\to X\) with centre contained in \(Z_0\) which factors through \(Y\).
+Replace \(Y\) by the normalization of \(X'\), which is again a model
+dominating the original \(Y\), and which is projective over \(X\) since
+normalization is finite; by
+\Cref{lem:ch38-determination-equivalence}\,\cref{itm:ch38-de:family} this
+does not change \(B\), and it replaces \(D\) by its pullback, which is
+again effective.  On the new \(Y\), the ideal \(\mathcal I\subseteq\cO_X\)
+blown up satisfies \(\mathcal I\cdot\cO_Y=\cO_Y(-G_0)\) with \(G_0\) an
+effective Cartier divisor and \(-G_0\) relatively ample, by
+\eqref{eq:appB-exceptional-ideal} and the construction of the normalized
+blowup \eqref{eq:appB-normalized-blowup}.  Moreover
+\(\Supp G_0\subseteq\pi^{-1}(V(\mathcal I))\) with
+\(V(\mathcal I)\subseteq Z_0\subsetneq X\).
+
+\emph{Step 2: the activation divisor.}
+Set \(Z:=Z_0\cup V(\mathcal I)\cup\pi(\Supp D)\), a closed subset of
+\(X\).  It is a proper closed subset: \(Z_0\) and \(V(\mathcal I)\) are,
+by construction, and \(\pi(\Supp D)\) is, because a prime divisor on \(Y\)
+maps either onto a prime divisor of \(X\) or into a subvariety of
+codimension \(\geq2\), \(\pi\) being birational, so its image is nowhere
+dense or a divisor, and in either case not all of \(X\).  Let \(A\) be a
+very ample divisor on \(X\).  Choose \(m\in\mathbf Z_{>0}\) so large that
+\(\mathcal I_Z\otimes\cO_X(mA)\) is globally generated --- possible by
+Serre's theorem --- and that \(\theta+m\,c_1(A)\) is ample --- possible
+because \(\Amp(X)\) is open and contains \(m\,c_1(A)+\theta\) for
+\(m\gg0\).  Choose a nonzero global section of
+\(\mathcal I_Z\otimes\cO_X(mA)\) and let \(F\in|mA|\) be its divisor of
+zeros; then \(F\) is an effective Cartier divisor with
+\(\Supp F\supseteq Z\), \([F]=m\,c_1(A)\) is ample, and
+\(\omega=\theta+[F]\) is ample.  This proves
+\cref{itm:ch38-act:ample} and the first half of
+\cref{itm:ch38-act:supports}.
+
+\emph{Step 3: normalizing \(G\).}
+By \Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:relative} there
+is \(r_1\geq1\) with \(r\pi^*\omega-G_0\) ample for \(r\geq r_1\), that is
+\(\pi^*\omega-r^{-1}G_0\) ample.  Since
+\(\Supp G_0\subseteq\pi^{-1}(V(\mathcal I))\subseteq\pi^{-1}(\Supp F)
+=\Supp\pi^*F\) and \(\pi^*F\) has strictly positive coefficient along every
+component of its support, there is \(r_2\geq1\) with
+\(2r_2^{-1}G_0\leq\pi^*F\).  Put
+\(G:=r^{-1}G_0\) with \(r:=\max\{r_1,r_2\}\).  Then \(G\) is an effective
+\(\mathbf Q\)-Cartier divisor, \(-G\) is \(\pi\)-ample --- relative
+ampleness of an \(\mathbf R\)-divisor class is preserved by positive
+scaling --- and \cref{itm:ch38-act:dominated} and
+\cref{itm:ch38-act:Qample} hold.  This is \cref{itm:ch38-act:relample} as
+well, and \(\Supp G=\Supp G_0\subseteq\pi^{-1}(\Supp F)\) completes
+\cref{itm:ch38-act:supports}, the equality
+\(\Supp D'=\pi^{-1}(\Supp F)\) holding because
+\(\Supp\pi^*F=\pi^{-1}(\Supp F)\) contains \(\Supp D\).
+
+\emph{Step 4: the total class.}
+Since \(\overline F\) is determined on \(X\) by \(F\), its trace on \(Y\)
+is \(\pi^*F\), so \(B'_Y=B_Y-\pi^*F=-D'\) and
+\[
+ \pi^*\omega+B'_Y=\pi^*\theta+\pi^*F-D'=\pi^*\theta-D=\pi^*\theta+B_Y=P,
+\]
+which is \cref{itm:ch38-act:total}; \(B'\leq B\leq0\) because
+\(\overline F\geq0\).
+
+\emph{Step 5: relative nefness of \(-D'\).}
+Let \(C\subset Y\) be an integral curve contracted by \(\pi\).  Then
+\(\pi^*\theta\cdot C=0\) and \(\pi^*F\cdot C=0\), so by
+\cref{itm:ch38-act:total}
+\[
+ (-D')\cdot C=(P-\pi^*\omega)\cdot C=P\cdot C\geq0 ,
+\]
+the last inequality because \(P\) is nef.  Hence \(-D'\) is \(\pi\)-nef.
+The inequality \(D'\geq\pi^*F\) is \(D\geq0\), and \(\pi^*F\) has strictly
+positive coefficients on \(\Supp\pi^*F=\Supp D'\).
+\end{proof}
+
+\begin{remark}[What each hypothesis of \Cref{lem:ch38-activation} is for]
+\label{rem:ch38-activation-uses}
+Property \cref{itm:ch38-act:ample} is what makes
+\Cref{prop:ch38-drift-ledger}\,\cref{itm:ch38-drift:orient} applicable, and
+hence what allows the drift to be oriented; without an ample \(\omega\)
+there is no room below the target class.  Property
+\cref{itm:ch38-act:relample} is the only source of positivity along the
+contracted curves, by \Cref{warn:ch38-no-ample-from-base}.  Property
+\cref{itm:ch38-act:supports} is what makes the support of the whole family
+\(\{E_t\}\) constant, which is the hypothesis of
+\Cref{lem:bj-ordered-rational-approximation} and, by
+\Cref{ex:ch38-moving-support}, cannot be dispensed with.  Property
+\cref{itm:ch38-act:dominated} is the normalization
+\(\pi^*F=G+R\) with \(R\geq0\) quoted in
+\Cref{chap:bj-reflection}; it also makes \(r=1\) admissible in the buffer,
+by \Cref{lem:ch38-buffer}.  Property \cref{itm:ch38-act:Qample} is the
+sharpening that eliminates the class drift from the \emph{real} path, and
+therefore the reason \Cref{lem:ch38-ordered-rational-dominated} applies
+rather than only \Cref{lem:bj-ordered-rational-approximation}.  Property
+\cref{itm:ch38-act:pinef} is used only through the buffer.
+\end{remark}
+
+\begin{warning}{The fixed pole is not removed by subtraction}
+\label{warn:ch38-fixed-pole}
+Activation replaces \(B\) by \(B'=B-\overline F\) and therefore
+\(\psi_B\) by \(\psi_{B'}=\psi_B+\log|s_F|\), an identity of functions
+into \([-\infty,0]\) in which no forbidden sum occurs, both summands being
+\(\leq0\).  At the end of the proof the pole must be removed, and the
+temptation is to define the answer as
+\(\chi_{B}:=\chi'-\log|s_F|\).  At a semivaluation supported in
+\(\Supp F\) both terms are \(-\infty\) and the difference is undefined by
+ledger entry~(4) of \Cref{sec:extended-arithmetic};
+\Cref{ex:ch38-naive-realization-fails} shows that no convention repairs
+this, because the correct value at two such points can be \(0\) at one and
+\(-\infty\) at the other.  The removal is therefore carried out by
+homogeneous Siu division, which produces the identity
+\(\chi'=\log|s_F|+\chi_B\) as an identity of sums and never rearranges it.
+\end{warning}
+
+\begin{example}[Activation on the blown-up plane]
+\label{ex:ch38-activation-surface}
+Continue \Cref{ex:ch38-blowup-surface-evaluation} with \(d=3\), so that
+\(X=\mathbf P^2\), \(Y=Y_2\), \(B_{Y_2}=-2E_1'-3E_2\),
+\(D=2E_1'+3E_2\), \(\theta=c_1(\cO(3))\), and
+\(P=3H-2e_1-e_2\) is nef but not ample.
+
+\emph{The divisor \(F\).}  Here \(\pi\) is already a composite of blowups,
+so Step~1 of \Cref{lem:ch38-activation} does not change \(Y\).  The set
+\(Z\) of Step~2 is the single point \(p\), because the non-isomorphism
+locus, \(\pi(\Supp D)\) and \(\pi(\Supp G_0)\) all equal \(\{p\}\).  Take
+\(A\) a line and \(m=1\): let \(F=L\) be a line through \(p\) other than
+the one in the direction \(q\).  Then \([F]=c_1(\cO(1))\) is ample and
+\(\omega=\theta+[F]=c_1(\cO(4))\) is ample.  With \(L''\) the strict
+transform of \(L\) on \(Y_2\),
+\[
+ \pi^*L=L''+E_1'+E_2,
+ \qquad
+ D'=D+\pi^*L=L''+3E_1'+4E_2 .
+\tag{38.28}\label{eq:ch38-activation-surface-D}
+\]
+Indeed \(\pi_1^*L=L'+E_1\) and \(\pi_2^*L'=L''\), \(L'\) not passing
+through \(q\), while \(\pi_2^*E_1=E_1'+E_2\).  The support of \(D'\) is
+\(\{L'',E_1',E_2\}=\pi^{-1}(L)\), as
+\Cref{lem:ch38-activation}\,\cref{itm:ch38-act:supports} predicts.
+
+\emph{The divisor \(G\).}  A \(\pi\)-ample \(-G_0\) is found by solving two
+inequalities.  Writing \(G_0=aE_1'+bE_2\), the intersection table
+\eqref{eq:ch38-surface-intersection} gives
+\[
+ (-G_0)\cdot E_2=b-a,\qquad (-G_0)\cdot E_1'=2a-b,
+\]
+so \(-G_0\) is \(\pi\)-ample exactly when \(a<b<2a\); take
+\(G_0=2E_1'+3E_2\).  Normalizing as in Step~3 with \(r=6\) gives
+\[
+ G:=\tfrac16G_0=\tfrac13E_1'+\tfrac12E_2,
+ \qquad
+ 2G=\tfrac23E_1'+E_2\leq L''+E_1'+E_2=\pi^*L,
+\]
+so \Cref{lem:ch38-activation}\,\cref{itm:ch38-act:dominated} holds.  For
+\cref{itm:ch38-act:Qample}, the class of \(G\) is
+\(\tfrac13e_1+\tfrac16e_2\), and \eqref{eq:ch38-surface-intersection}
+gives
+\[
+ (\pi^*\omega-G)\cdot E_2=\tfrac16,\quad
+ (\pi^*\omega-G)\cdot E_1'=\tfrac13-\tfrac16=\tfrac16,\quad
+ (\pi^*\omega-G)\cdot\Lambda=4-\tfrac13-\tfrac16=\tfrac72,
+\]
+with \((\pi^*\omega-G)^2=16-\tfrac19-\tfrac1{36}=\tfrac{571}{36}>0\).  The
+Mori cone of \(Y_2\) is generated by the negative curves \(E_1'\),
+\(E_2\) and \(\Lambda\) --- these are the only irreducible curves of
+negative self-intersection on this weak del Pezzo surface of degree
+\(7\) --- so the Nakai--Moishezon criterion gives that
+\(\pi^*\omega-G\) is ample.
+
+\emph{Relative nefness.}  Finally
+\((-D')\cdot E_2=-(L''+3E_1'+4E_2)\cdot E_2=-(0+3-4)=1\) and
+\((-D')\cdot E_1'=-(1-6+4)=1\), both nonnegative, in accordance with
+\Cref{lem:ch38-activation}\,\cref{itm:ch38-act:pinef}; and indeed
+\(P\cdot E_2=P\cdot E_1'=1\) by
+\eqref{eq:ch38-surface-nef-test}, which is the same computation, as it
+must be.
+\end{example}
+
+\section{The ample buffer}
+\label{sec:ch38-buffer}
+
+The total class \(P=\pi^*\omega-D'\) is nef, and
+\Cref{prop:ch38-model-fs-dictionary} needs an ample one.  The buffer is a
+one-parameter family of divisors \(E_t<D'\), supported on
+\(\Supp D'\) and increasing to \(D'\), for which the total class is ample
+for every \(t>0\).  Its construction is a single algebraic identity, and
+it is worth displaying that identity before the lemma: with
+\(Q:=rD'-G\),
+\[
+ \begin{aligned}
+  (1+rt)\bigl(\pi^*\omega-E_t\bigr)
+   &=(1+rt)\pi^*\omega-D'-tG\\
+   &=\bigl(\pi^*\omega-D'\bigr)
+     +t\bigl(r\pi^*\omega-G\bigr)\\
+   &=P+t\bigl(r\pi^*\omega-G\bigr),
+ \end{aligned}
+\]
+so the total class at parameter \(t\) is a convex combination of the nef
+class \(P\) and the ample class \(r\pi^*\omega-G\), rescaled.  Everything
+else is bookkeeping.
+
+\begin{lemma}
+\label{lem:ch38-buffer}
+Keep the notation and conclusions of \Cref{lem:ch38-activation}, and let
+\(H\) be a nef \(\mathbf R\)-Cartier divisor class on \(X\), possibly zero.
+Choose \(r\geq1\) such that
+\[
+                              Q:=rD'-G
+\tag{38.29}\label{eq:bj-buffer-Q}
+\]
+has strictly positive coefficient on every component of \(\Supp D'\) and
+such that
+\[
+                         r\pi^*\omega+\pi^*H-G
+\tag{38.30}\label{eq:bj-buffer-ample-divisor}
+\]
+is ample; both hold for \(r=1\) and \(H=0\), by
+\Cref{lem:ch38-activation}\,\cref{itm:ch38-act:dominated} and
+\cref{itm:ch38-act:Qample}.  For \(t>0\) define
+\[
+ E_t:=\frac{D'+tG}{1+rt},\qquad
+ \Omega_t:=\omega+\frac{t}{1+rt}[H].
+\tag{38.31}\label{eq:bj-buffer-path}
+\]
+Then \(E_t\) is an effective \(\mathbf R\)-Cartier divisor supported on
+\(\Supp D'\), the coefficient margin is
+\[
+                         D'-E_t=\frac{tQ}{1+rt}>0,
+\tag{38.32}\label{eq:bj-buffer-margin}
+\]
+so that \(0<E_t<D'\) and \(E_t\uparrow D'\) as \(t\downarrow0\), and the
+total class is
+\[
+ \pi^*\Omega_t-E_t
+ =\frac{P+t(r\pi^*\omega+\pi^*H-G)}{1+rt},
+\tag{38.33}\label{eq:bj-buffer-ample-total}
+\]
+which is ample for every \(t>0\).  With \(H=0\) one has
+\(\Omega_t=\omega\) for every \(t\), and
+\(\pi^*\omega-E_t\) is ample.
+\end{lemma}
+
+\begin{proof}
+\emph{Admissibility of \(r=1\), \(H=0\).}  By
+\Cref{lem:ch38-activation}\,\cref{itm:ch38-act:dominated} we have
+\(2G\leq\pi^*F\), hence \(\pi^*F-G\geq\tfrac12\pi^*F\); and
+\(D'=D+\pi^*F\) with \(D\geq0\).  Therefore, for every \(r\geq1\),
+\[
+ Q=rD'-G\geq D'-G=D+(\pi^*F-G)\geq D+\tfrac12\pi^*F
+ \geq\tfrac12\pi^*F .
+\]
+Since \(\Supp D'=\Supp\pi^*F\) by
+\Cref{lem:ch38-activation}\,\cref{itm:ch38-act:supports}, the divisor
+\(\tfrac12\pi^*F\) has strictly positive coefficient on every component of
+\(\Supp D'\); hence so does \(Q\), which is the first requirement in
+\eqref{eq:bj-buffer-Q}.  For \eqref{eq:bj-buffer-ample-divisor} with
+\(r=1\) and \(H=0\) the class is \(\pi^*\omega-G\), ample by
+\Cref{lem:ch38-activation}\,\cref{itm:ch38-act:Qample}.  For general
+\(r\geq1\) and nef \(H\),
+\[
+ r\pi^*\omega+\pi^*H-G=(\pi^*\omega-G)+(r-1)\pi^*\omega+\pi^*H
+\]
+is the sum of an ample class and two nef classes, by
+\Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:inj}, hence ample.
+
+\emph{The margin.}  Directly from \eqref{eq:bj-buffer-path},
+\[
+ D'-E_t=\frac{(1+rt)D'-D'-tG}{1+rt}=\frac{t(rD'-G)}{1+rt}
+ =\frac{tQ}{1+rt},
+\]
+which is \eqref{eq:bj-buffer-margin} and is strictly positive on every
+component of \(\Supp D'\) for \(t>0\).  Hence \(E_t<D'\).  Effectivity of
+\(E_t\) is clear from \(D'\geq0\) and \(G\geq0\), and
+\(\Supp E_t\subseteq\Supp D'\cup\Supp G=\Supp D'\).  Since
+\(t\mapsto tQ/(1+rt)\) is strictly increasing on \((0,\infty)\) for each
+coefficient of \(Q\), the family \(D'-E_t\) increases with \(t\); so
+\(E_t\) decreases with \(t\) and increases to \(D'\) as \(t\downarrow0\).
+Finally \(E_t>0\) on every component of \(\Supp D'\) for every \(t>0\),
+because \(E_t\geq D'/(1+rt)\) there and \(D'>0\) on
+\(\Supp D'\).
+
+\emph{The total class.}  Substituting \eqref{eq:bj-buffer-path},
+\[
+ (1+rt)\bigl(\pi^*\Omega_t-E_t\bigr)
+ =(1+rt)\pi^*\omega+t\pi^*H-D'-tG
+ =\bigl(\pi^*\omega-D'\bigr)+t\bigl(r\pi^*\omega+\pi^*H-G\bigr),
+\]
+and \(\pi^*\omega-D'=P\) by
+\Cref{lem:ch38-activation}\,\cref{itm:ch38-act:total}.  This is
+\eqref{eq:bj-buffer-ample-total}.  The right-hand side is a sum of the nef
+class \(P\) and \(t>0\) times the ample class
+\eqref{eq:bj-buffer-ample-divisor}, hence ample; and a positive multiple of
+an ample class is ample.
+\end{proof}
+
+\begin{remark}[The role of \(H\), and why it may be dispensed with]
+\label{rem:ch38-buffer-H}
+The auxiliary class \(H\) in \eqref{eq:bj-buffer-path} is what one is
+forced to introduce if the divisor \(G\) is only known to satisfy
+\(-G\) \(\pi\)-ample: then \(r\pi^*\omega-G\) need not be ample for any
+\(r\), because \(\pi^*\omega\) is never ample
+(\Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:notample}) and
+\(-G\) supplies positivity only along the contracted curves.  Adding
+\(\pi^*H\) with \(H\) ample on \(X\) supplies the missing horizontal
+positivity, at the cost of moving the class along the path
+\(\Omega_t=\omega+\frac t{1+rt}[H]\), which converges to \(\omega\) but is
+never equal to it.  \Cref{lem:ch38-activation}\,\cref{itm:ch38-act:Qample}
+removes this cost by scaling \(G\) down until \(\pi^*\omega-G\) is already
+ample, which is possible precisely because \(\omega\) is ample; the
+resulting path has constant class.  Both versions are stated because
+\Cref{chap:bj-reflection} uses the first, where the class correction is
+cancelled by the exact identity \eqref{eq:bj-reflection-total} rather than
+by domination, and \Cref{sec:ch38-realization} uses the second.
+\end{remark}
+
+\begin{example}[The buffer on the blown-up plane]
+\label{ex:ch38-buffer-surface}
+Continue \Cref{ex:ch38-activation-surface}: \(X=\mathbf P^2\),
+\(Y=Y_2\), \(\omega=c_1(\cO(4))\),
+\(D'=L''+3E_1'+4E_2\), \(G=\tfrac13E_1'+\tfrac12E_2\), and
+\(P=3H-2e_1-e_2\).  Take \(H=0\) and \(r=1\).  Then
+\[
+ Q=D'-G=L''+\tfrac83E_1'+\tfrac72E_2>0
+\]
+on every component of \(\Supp D'\), and
+\[
+ E_t=\frac{D'+tG}{1+t}
+ =\frac{1}{1+t}\Bigl(L''+\bigl(3+\tfrac13t\bigr)E_1'
+ +\bigl(4+\tfrac12t\bigr)E_2\Bigr),
+ \qquad
+ D'-E_t=\frac{t}{1+t}\,Q .
+\]
+The total class is
+\[
+ \pi^*\omega-E_t=\frac{P+t(\pi^*\omega-G)}{1+t}
+ =\frac{1}{1+t}\Bigl(
+   (3+4t)H-\bigl(2+\tfrac13t\bigr)e_1-\bigl(1+\tfrac16t\bigr)e_2\Bigr).
+\]
+Testing on the three negative curves with
+\eqref{eq:ch38-surface-intersection}, and writing
+\(a=3+4t\), \(b=2+\tfrac13t\), \(c=1+\tfrac16t\), so that a class
+\(aH-be_1-ce_2\) has intersection numbers \(c\), \(b-c\) and \(a-b-c\)
+with \(E_2\), \(E_1'\) and \(\Lambda\) respectively:
+\[
+ \begin{aligned}
+  (1+t)(\pi^*\omega-E_t)\cdot E_2&=1+\tfrac16t,\\
+  (1+t)(\pi^*\omega-E_t)\cdot E_1'&=1+\tfrac16t,\\
+  (1+t)(\pi^*\omega-E_t)\cdot\Lambda&=\tfrac72t,
+ \end{aligned}
+\]
+all strictly positive for \(t>0\), whereas at \(t=0\) the third vanishes:
+this is exactly the failure of ampleness of \(P\) recorded in
+\eqref{eq:ch38-surface-nef-test}.  The square is
+\(a^2-b^2-c^2=4+\tfrac{67}3t+\tfrac{571}{36}t^2>0\), so the
+Nakai--Moishezon criterion confirms ampleness for every \(t>0\); at
+\(t=0\) it gives \(P^2=9-4-1=4>0\) with \(P\cdot\Lambda=0\), the
+signature of a nef class on the boundary of the ample cone.  The buffer
+therefore does exactly one thing here: it turns the single vanishing
+intersection number \(P\cdot\Lambda=0\) into the positive number
+\(\tfrac72t/(1+t)\), at the cost of shrinking the divisor \(D'\) by
+\(tQ/(1+t)\).
+\end{example}
+
+\section{The realization theorem}
+\label{sec:ch38-realization}
+
+\begin{theorem}\label{thm:bj-real-cartier-realization}
+Let \(X\) be normal, let \(\theta\in N^1(X)_{\mathbf R}\), and let
+\(B\le0\) be a real Cartier b-divisor determined on a normal projective
+birational model \(\pi:Y\to X\).  If
+\[
+                         \pi^*\theta+B_Y
+\tag{38.34}\label{eq:bj-realization-nef-hypothesis}
+\]
+is nef, then there is a unique
+\[
+                     \chi_B\in\PSH_{\mathrm{hom},X}(\theta)
+\]
+whose restriction to \(X^{\divis}\) is \(\psi_B\).  Moreover,
+\(\chi_B\) admits a decreasing homogeneous rational GF regularization in
+rational classes tending to \(\theta\).  The result does not use the
+envelope property.
+\end{theorem}
+
+\begin{proof}
+We first record the proof architecture.  The obstruction is that the
+hypothesis is numerical and the conclusion is analytic, while the only
+bridge between the two --- the dictionary
+\Cref{prop:ch38-model-fs-dictionary} --- requires a semiample total class
+and rational coefficients.  The proof therefore manufactures a family of
+rational data with ample total class, arranges that family to be
+\emph{increasing in the divisor} and \emph{dominated in the class}, and
+passes to the limit.  The two arrangements are the two nontrivial points:
+increasing divisors give decreasing functions, which is the only limit
+operation available before the envelope theorem
+(\Cref{warn:ch38-firewall}); and dominated classes keep every stage inside
+one fixed space \(\PSH_X(\omega)\), which is the only way
+\Cref{thm:bj-basic-closure} can be applied
+(\Cref{warn:ch38-drift-not-absorbed}).
+If \(\dim X=0\), then \(Y=X\), \(N^1(X)=0\), and \(B=0\).  The zero
+homogeneous function is the unique realization.  Assume \(\dim X>0\), and
+put
+\[
+                              D:=-B_Y\ge0.
+\]
+
+\medskip
+\noindent\emph{Step 1: activate the whole support.}
+Apply \Cref{lem:ch38-activation}.  After replacing \(Y\) by a dominating
+model, which changes neither \(B\) nor the nefness of the total class, by
+\Cref{lem:ch38-determination-equivalence} and
+\Cref{lem:ch38-nef-total-intrinsic}\,\cref{itm:ch38-nt:indep}, we obtain an
+effective \(\mathbf Q\)-Cartier divisor \(G\) on \(Y\) with \(-G\)
+\(\pi\)-ample, and an effective Cartier divisor \(F\) on \(X\) whose
+support contains the non-isomorphism locus of \(\pi\), \(\pi(\Supp D)\),
+and \(\pi(\Supp G)\), such that
+\[
+                              \omega:=\theta+[F]
+\tag{38.35}\label{eq:bj-activated-class}
+\]
+is ample.  Put
+\[
+                         B':=B-\overline F,\qquad
+                         D':=D+\pi^*F.
+\tag{38.36}\label{eq:bj-activated-data}
+\]
+Then
+\[
+ \pi^*\omega+B'_Y=\pi^*\theta+B_Y=P,\qquad
+ \Supp D'=\pi^{-1}(\Supp F).
+\tag{38.37}\label{eq:bj-activated-total}
+\]
+On every \(\pi\)-contracted curve, \(-D'\) has the same intersection
+number as \(P\); hence \(-D'\) is \(\pi\)-nef.  In addition
+\(2G\leq\pi^*F\) and \(\pi^*\omega-G\) is ample, by
+\Cref{lem:ch38-activation}\,\cref{itm:ch38-act:dominated} and
+\cref{itm:ch38-act:Qample}.
+
+\medskip
+\noindent\emph{Step 2: insert an ample buffer.}
+Apply \Cref{lem:ch38-buffer} with \(H=0\) and \(r=1\).  Thus, with
+\(Q:=D'-G\), which has strictly positive coefficient on every component of
+\(\Supp D'\), and with
+\[
+ E_t:=\frac{D'+tG}{1+t}\qquad(t>0),
+\]
+one has \(0<E_t<D'\), \(E_t\uparrow D'\) as \(t\downarrow0\),
+\(\Supp E_t\subseteq\Supp D'\), and
+\[
+ \pi^*\omega-E_t=\frac{P+t(\pi^*\omega-G)}{1+t}
+\]
+is ample for every \(t>0\), being a positive combination of the nef class
+\(P\) and the ample class \(\pi^*\omega-G\).  The class \(\omega\) is the
+same at every value of \(t\): the real path carries no drift.
+
+\medskip
+\noindent\emph{Step 3: choose ordered rational stages.}
+Apply \Cref{lem:ch38-ordered-rational-dominated} with
+\(\rho=\pi\), \(E=D'\) and the ample class \(\omega\); its hypothesis
+\eqref{eq:ch38-dominated-hypotheses} is exactly what Step~2 provides, and
+the support \(S\) of the whole family is the finite set of components of
+\(\pi^{-1}(\Supp F)\).  We obtain rational Cartier divisors \(R_n\)
+supported on \(S\) and rational classes \(\omega_n\) such that
+\[
+ \begin{aligned}
+ 0&\le R_n<R_{n+1}<D',& R_n&\longrightarrow D',\\
+ \omega_n&\longrightarrow\omega,
+ &\pi^*\omega_n-R_n&\quad\text{is ample},
+ \end{aligned}
+\tag{38.38}\label{eq:bj-realization-rational-stages}
+\]
+and, in addition, \(\omega-\omega_n\) is ample for every \(n\).  This last
+property is the drift orientation of
+\Cref{prop:ch38-drift-ledger}\,\cref{itm:ch38-drift:orient}; it is not part
+of \Cref{lem:bj-ordered-rational-approximation} and it is what the rest of
+the proof uses.
+
+Choose \(L_n\in\Pic(X)_{\mathbf Q}\) with \(c_1(L_n)=\omega_n\), possible
+because \(\omega_n\) is a rational numerical class and
+\(N^1(X)_{\mathbf Q}\) is by definition the image of
+\(\Pic(X)_{\mathbf Q}\).  Ampleness is numerical, so the actual rational
+line bundle \(\pi^*L_n-R_n\) is ample, hence semiample.  Formula
+\eqref{eq:bj-rational-coefficient}, that is
+\Cref{prop:ch38-model-fs-dictionary}\,\cref{itm:ch38-dict:forward} applied
+to the rational Cartier b-divisor \(-\overline{R_n}\) determined on
+\(Y\), gives
+\[
+ \chi_n:=\psi_{-\overline{R_n}}
+       \in \cH_{\mathrm{hom}}(L_n)
+       =\cH^{\mathrm{gf}}_0(L_n)
+       \subset\PSH_{\mathrm{hom},X}(\omega_n).
+\tag{38.39}\label{eq:bj-realization-gf-stages}
+\]
+The inequalities \(R_n<R_{n+1}\) imply
+\(\chi_{n+1}\le\chi_n\) on \(X^{\divis}\), and psh comparison extends
+the order to \(X^{\An}\).
+
+In detail: on \(X^{\divis}\) the inequality is
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear}, since
+\(-\overline{R_{n+1}}\leq-\overline{R_n}\); and
+\Cref{cor:ch35-divisorial-determination}\,(1), applied to the two psh
+functions \(\chi_{n+1}\) and \(\chi_n\), promotes it to \(X^{\An}\).
+
+\medskip
+\noindent\emph{Step 3\('\): all stages lie in one class.}
+Since \(\omega-\omega_n\) is ample, hence nef,
+\Cref{lem:ch34-psh-nonempty} gives \(0\in\PSH_X(\omega-\omega_n)\), and
+\Cref{thm:bj-basic-closure}\,(3) with \(s=t=1\) yields
+\[
+ \chi_n\in\PSH_X\bigl(\omega_n+(\omega-\omega_n)\bigr)=\PSH_X(\omega)
+\]
+for every \(n\); homogeneity is unaffected, so
+\(\chi_n\in\PSH_{\mathrm{hom},X}(\omega)\).  This is the step at which the
+class drift is disposed of, and it uses the \emph{orientation} of the
+drift and not its size; see \Cref{warn:ch38-drift-not-absorbed}.
+
+\medskip
+\noindent\emph{Step 4: take the psh limit.}
+Let
+\[
+                              \chi':=\lim_n\chi_n,
+\]
+the pointwise limit of a decreasing sequence in
+\(\mathbf R\cup\{-\infty\}\), which exists in \(\Rbar\) by ledger
+entry~(1) of \Cref{sec:extended-arithmetic} and
+\Cref{lem:monotone-net-converges}, with values in
+\([-\infty,0]\).
+Each homogeneous stage vanishes at the trivial valuation.  Therefore
+\[
+                         \chi'(v_{\triv})=0,
+\tag{38.40}\label{eq:bj-realization-trivial-value}
+\]
+which excludes the identically \(-\infty\) alternative.  Since
+\(\omega_n\to\omega\), PSH2 yields
+\[
+                         \chi'\in\PSH_{\mathrm{hom},X}(\omega).
+\tag{38.41}\label{eq:bj-realization-limit}
+\]
+Precisely: by Step~3\('\) the sequence \((\chi_n)\) is a decreasing
+sequence in the single space \(\PSH_X(\omega)\), and by
+\eqref{eq:bj-realization-trivial-value} its limit is not identically
+\(-\infty\); so \Cref{thm:bj-basic-closure}\,(4) applies.  Homogeneity of
+\(\chi'\) is inherited from the \(\chi_n\), because an infimum of
+homogeneous functions is homogeneous: for \(t>0\),
+\(\chi'(tv)=\inf_n\chi_n(tv)=\inf_nt\chi_n(v)=t\inf_n\chi_n(v)=t\chi'(v)\),
+the third equality by \Cref{lem:extended-real-safe}\,(2).
+
+Fix \(v\in X^{\divis}\), and pull all divisors to a model on which \(v\)
+appears.  Cartier evaluation is linear there, so
+\[
+ R_n(v)\longrightarrow D'(v),\qquad
+ \chi'(v)=B'(v).
+\tag{38.42}\label{eq:bj-realization-trace-limit}
+\]
+Indeed, write \(v=c\,\ord_E\) and choose a model \(\rho:Z\to Y\) carrying
+\(E\).  The map \(R\mapsto v(R)=c\,\ord_E(\rho^*R)\) is a linear form on
+the finite-dimensional space \(V\) of
+\Cref{lem:ch38-fixed-support-rational}, hence continuous; since
+\(R_n\to D'\) in \(V\), we get \(v(R_n)\to v(D')\).  Therefore
+\[
+ \chi'(v)=\lim_n\chi_n(v)=\lim_n\bigl(-v(R_n)\bigr)=-v(D')=v(B'_Y)
+ =\psi_{B'}(v),
+\]
+all the quantities being finite real numbers.
+
+\medskip
+\noindent\emph{Step 5: remove the activation divisor.}
+Because \(B\le0\),
+\[
+                    B'=B-\overline F\le-\overline F.
+\]
+Hence
+\[
+                         \chi'\le\log|s_F|
+\tag{38.43}\label{eq:bj-realization-pole-bound}
+\]
+on \(X^{\divis}\), and then on \(X^{\An}\) by comparison.  Homogeneous
+Siu division gives the global identity
+\[
+ \chi'=\log|s_F|+\chi_B,\qquad
+ \chi_B\in\PSH_{\mathrm{hom},X}(\theta).
+\tag{38.44}\label{eq:bj-realization-siu-division}
+\]
+At a point supported in \(F\), this identity is supplied by the division
+theorem; it is not rearranged into a difference of two \(-\infty\) values.
+At divisorial valuations, \(v(F)<\infty\), and
+\eqref{eq:bj-realization-trace-limit} shows that the trace of \(\chi_B\)
+is \(B\).
+
+We expand the two assertions.  For \eqref{eq:bj-realization-pole-bound}:
+on \(X^{\divis}\),
+\(\psi_{B'}\leq\psi_{-\overline F}=\log|s_F|\) by
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear} and
+\Cref{lem:ch38-sign-tests}\,\cref{itm:ch38-sign:pole}; the function
+\(\log|s_F|\) is upper semicontinuous on \(X^{\An}\) with values in
+\([-\infty,0]\), by \eqref{eq:divisor-section-pole}; and \(\chi'\) is
+\(\omega\)-psh; so \Cref{thm:ch35-divisorial-comparison} promotes the
+inequality from \(X^{\divis}\) to \(X^{\An}\).  For
+\eqref{eq:bj-realization-siu-division}: apply
+\Cref{thm:ch35-homogeneous-siu-general} with the class \(\omega\), the
+nonzero effective \(\mathbf Q\)-Cartier divisor \(E:=F\) and the
+homogeneous \(\omega\)-psh function \(\chi'\); its hypothesis is
+\eqref{eq:bj-realization-pole-bound}, and its conclusion is the existence
+of a unique
+\(\chi_B\in\PSH_{\mathrm{hom},X}(\omega-[F])=\PSH_{\mathrm{hom},X}(\theta)\)
+with \(\chi'=\log|s_F|+\chi_B\) on all of \(X^{\An}\).  The theorem is
+quoted in its general form because the strict hypothesis
+\eqref{eq:ch35-siu-strict-hypothesis} of
+\Cref{thm:ch35-homogeneous-siu} may fail here;
+\Cref{ex:ch38-strict-room-fails} exhibits the failure, and
+\Cref{rem:ch38-siu-room} discusses when the strict form suffices.
+
+Finally the trace.  For \(v\in X^{\divis}\) all three terms of
+\eqref{eq:bj-realization-siu-division} are finite, \(v(F)\) being a real
+number, so the identity may be solved for \(\chi_B(v)\):
+\[
+ \chi_B(v)=\chi'(v)-\log|s_F|(v)
+ =\psi_{B'}(v)+v(F)
+ =\bigl(\psi_B(v)-v(F)\bigr)+v(F)=\psi_B(v).
+\]
+This subtraction is legitimate because it is a subtraction of the finite
+number \(\log|s_F|(v)=-v(F)\); at a point of proper support no such
+manipulation is performed, and \Cref{prop:ch38-safeguards}\,(4) records
+the fact.
+
+\medskip
+\noindent\emph{Step 6: uniqueness and regularization.}
+Homogeneous psh functions are determined by their divisorial traces, which
+proves uniqueness.  The general homogeneous GF regularization theorem gives
+the asserted decreasing rational GF regularization of \(\chi_B\) in
+classes tending to \(\theta\).
+
+In detail: if \(\chi,\chi''\in\PSH_{\mathrm{hom},X}(\theta)\) both restrict
+to \(\psi_B\) on \(X^{\divis}\), then \(\chi=\chi''\) on \(X^{\An}\) by
+\Cref{cor:ch35-divisorial-determination}\,(2).  For the regularization,
+\(\chi_B\) is homogeneous with \(\sup\chi_B=\chi_B(v_{\triv})=0\) by
+\Cref{prop:ch35-homogeneous-normalization}, so it is its own
+homogenization and \Cref{cor:ch35-homogenization-psh} produces a
+decreasing net \((\psi_a)\) with
+\(\psi_a\in\cH_{\mathrm{hom}}(M_a)\), \(c_1(M_a)\to\theta\) and
+\(\psi_a\searrow\chi_B\) pointwise.  Each \(\psi_a\) is a homogeneous
+rational generically finite Fubini--Study function, which is the assertion.
+\end{proof}
+
+\begin{remark}[Where each hypothesis enters]
+\label{rem:ch38-hypothesis-map}
+Normality of \(X\) is used three times: to have the model category of
+\Cref{sec:appF-models} at all; through \(\pi_*\cO_Y=\cO_X\) in
+\Cref{prop:ch38-model-fs-dictionary}\,\cref{itm:ch38-dict:forward}; and in
+the regularity criterion inside the proof of
+\Cref{lem:ch35-fs-division}, which underlies
+\Cref{thm:ch35-homogeneous-siu-general}.  Antieffectivity of \(B\) is used
+twice: to make \(\psi_B\leq0\), which is what
+\Cref{thm:ch35-semiample-criterion} requires at each rational stage, and
+to give \eqref{eq:bj-realization-pole-bound}.  Nefness of the total class
+is used exactly once, in Step~2, to make
+\(P+t(\pi^*\omega-G)\) ample for \(t>0\); it is the only numerical input,
+and \Cref{ex:ch38-usc-not-psh} shows that it cannot be weakened.  That
+\(B\) is Cartier, that is, determined on a single model, is used in
+Step~3, through the fixed-support hypothesis of
+\Cref{lem:ch38-ordered-rational-dominated}; \Cref{ex:ch38-moving-support}
+shows that this is not a technical convenience.  No hypothesis on
+\(\operatorname{char}k\) and no smoothness hypothesis occurs anywhere.
+\end{remark}
+
+\begin{remark}[Strict room and the borderline Siu case]
+\label{rem:ch38-siu-room}
+The division in Step~5 is performed with respect to the divisor \(F\) and
+the constant \(t=1\).  By \Cref{lem:ch35-slice-to-cone}, the strict
+hypothesis \eqref{eq:ch35-siu-strict-hypothesis} of
+\Cref{thm:ch35-homogeneous-siu} amounts to
+\(\sup_{K_F}\chi'<-1\), that is, to
+\(\psi_{B'}\leq-t_0\psi_{\overline F}\) on \(X^{\divis}\) for some
+\(t_0>1\), that is, to
+\[
+ B\leq(1-t_0)\overline F\qquad\text{for some }t_0>1 .
+\]
+Equivalently, \(B\) has coefficient bounded away from \(0\) by a fixed
+negative multiple of the corresponding coefficient of \(\pi^*F\), along
+every component of \(\Supp\pi^*F\).  When this holds --- for instance when
+\(D=-B_Y\geq\varepsilon\pi^*F\) for some \(\varepsilon>0\) --- the strict
+theorem \Cref{thm:ch35-homogeneous-siu}, which is proved in full in
+\Cref{chap:bj-homogeneity-bdivisors}, suffices, and the present chapter
+imports nothing.  When it fails, and it does fail in general by
+\Cref{ex:ch38-strict-room-fails}, the general form
+\Cref{thm:ch35-homogeneous-siu-general} is used.  That theorem carries no
+envelope hypothesis --- this is asserted in its statement and in the
+warning following it --- so the firewall
+\Cref{warn:ch38-firewall} is respected either way.  It is the only
+statement in this chapter that is imported rather than proved.
+\end{remark}
+
+\begin{example}[The strict hypothesis genuinely fails]
+\label{ex:ch38-strict-room-fails}
+Take \(B=0\), which certainly satisfies the hypotheses of
+\Cref{thm:bj-real-cartier-realization} whenever \(\theta\) is nef, with
+\(P=\pi^*\theta\).  Then \(D=0\), \(D'=\pi^*F\), and
+\(B'=-\overline F\), so \(\chi'=\log|s_F|\) exactly and
+\(\sup_{K_F}\chi'=-1\): the inequality
+\eqref{eq:bj-realization-pole-bound} is an equality on the compact set
+\(K_F\) of \eqref{eq:ch35-siu-slice}.  No choice of \(F\) repairs this:
+the activation divisor is required to contain the exceptional locus and
+\(\pi(\Supp D)\), so it can only be enlarged, and enlarging it enlarges
+\(B'\) by the same amount.  The same phenomenon occurs whenever \(B\) has
+coefficient \(0\) along some component of \(\Supp\pi^*F\), which happens
+as soon as \(\Supp D\) does not meet that component --- and \(\Supp F\) is
+in general strictly larger than \(\pi(\Supp D)\), since it must also
+contain the non-isomorphism locus of \(\pi\).  Thus the borderline case of
+homogeneous Siu division is not an artefact of the presentation; it is the
+generic situation for this application.  For \(B=0\) the conclusion is of
+course trivial, \(\chi_0=0\); the point of the example is that no
+hypothesis available at the start of the proof distinguishes this case
+from the general one.
+\end{example}
+
+\begin{remark}[What the proof does not do]
+\label{rem:ch38-proof-negative}
+Three natural-looking shortcuts are unavailable and are not used.  One
+cannot define \(\chi_B\) as the upper-semicontinuous regularization of
+\(\psi_B\) on \(X^{\An}\): that function exists, but nothing identifies it
+as psh, and \Cref{ex:ch38-usc-not-psh} shows that it need not be.  One
+cannot obtain \(\chi_B\) as an increasing limit of the functions
+\(\psi_B+\varepsilon\psi_H\) of the proof of
+\Cref{thm:ch35-cartier-psh-criterion}, since increasing limits are exactly
+what \Cref{warn:ch38-firewall} forbids.  And one cannot avoid the
+activation divisor by working directly with \(P\): the total class is nef,
+carries no linear series, and \(\theta\) itself need not even be nef, by
+\Cref{warn:ch38-theta-not-nef}.
+\end{remark}
+
+\section{Extended-real safeguards}
+\label{sec:ch38-safeguards}
+
+Every function produced in this chapter takes values in
+\(\mathbf R\cup\{-\infty\}\), and the value \(-\infty\) is attained,
+already in \Cref{ex:bj-fixed-divisor-coefficient}.  The forbidden
+operation of ledger entry~(4) of \Cref{sec:extended-arithmetic} is the
+formation of \((+\infty)+(-\infty)\), equivalently of a difference of two
+infinite values of the same sign.  We list every place where such a
+difference could arise, and show that none of them does.  The list is
+complete for this chapter, in the same sense as the corresponding list in
+\Cref{sec:ch34-minus-infinity}.
+
+\subsection{The audit}
+\label{sec:ch38-audit}
+
+\begin{proposition}
+\label{prop:ch38-safeguards}
+In the notation of \Cref{thm:bj-real-cartier-realization} and its proof,
+the following hold.
+\begin{enumerate}
+\item\label{itm:ch38-safe:eval}
+ \emph{Evaluation.}  The expression \(v(B_Y)\) is formed only for
+ \(v\in X^{\val}\), where it is a difference of two \emph{finite}
+ numbers, and for \(v\in X^{\divis}\subseteq X^{\val}\).  It is never
+ formed at a point of proper support.  The extension of
+ \(\psi_C\) to \(X^{\An}\) for an antieffective rational \(C\) with
+ semiample total class is \(m^{-1}\log|\mathfrak b|\), a single function
+ with values in \([-\infty,0]\), and not a difference.
+\item\label{itm:ch38-safe:activation}
+ \emph{Activation.}  The identity
+ \(\psi_{B'}=\psi_B+\log|s_F|\) holds on \(X^{\An}\) with both summands in
+ \([-\infty,0]\); the sum is defined at every point by ledger entry~(2),
+ and no mixed sum occurs.
+\item\label{itm:ch38-safe:limit}
+ \emph{Limits.}  The limit \(\chi'=\lim_n\chi_n\) is the infimum of a
+ decreasing sequence in \([-\infty,0]\); it exists in \(\Rbar\) by ledger
+ entry~(1).  Homogeneity of \(\chi'\) is obtained from
+ \(\inf_n(t\chi_n)=t\inf_n\chi_n\) for \(t>0\)
+ (\Cref{lem:extended-real-safe}\,(2)); the value \(t=0\) is never used,
+ the product \(0\cdot(-\infty)\) being undefined by ledger entry~(3).
+\item\label{itm:ch38-safe:trace}
+ \emph{The trace computation.}  The only subtraction of two possibly
+ infinite quantities that the proof appears to perform is the passage from
+ \eqref{eq:bj-realization-siu-division} to
+ \(\chi_B(v)=\chi'(v)-\log|s_F|(v)\).  It is performed exclusively for
+ \(v\in X^{\divis}\), where \(\log|s_F|(v)=-v(F)\) is a finite real
+ number, so that the operation is the subtraction of a finite constant,
+ legitimate by ledger entry~(2).
+\item\label{itm:ch38-safe:siu}
+ \emph{The Siu identity.}  Equation
+ \eqref{eq:bj-realization-siu-division} is an identity of sums, valid at
+ every point of \(X^{\An}\), with both summands in \([-\infty,0]\).  It is
+ supplied by \Cref{thm:ch35-homogeneous-siu-general} as an identity and is
+ never rearranged.  At a semivaluation \(v\) with
+ \(s(v)\subseteq\Supp F\) both sides equal \(-\infty\), and the value of
+ \(\chi_B\) at such a \(v\) is \emph{not} determined by
+ \eqref{eq:bj-realization-siu-division}; it is determined by
+ \Cref{cor:ch35-divisorial-determination}\,(2), that is, by upper
+ semicontinuity together with the divisorial trace.
+\item\label{itm:ch38-safe:comparison}
+ \emph{Comparisons.}  All inequalities between extended-real functions
+ --- \(\chi_{n+1}\leq\chi_n\), \(\chi'\leq\log|s_F|\),
+ \(\chi_{B_1}\leq\chi_{B_2}\) --- are formulated as inequalities and never
+ as bounds on a difference, following ledger entry~(4) and
+ \Cref{rem:forbidden-cancellations}.
+\item\label{itm:ch38-safe:finite}
+ \emph{Finite-dimensional operations.}  All differences of divisors and of
+ numerical classes, namely \(D'-E_t\), \(R_{n+1}-R_n\),
+ \(\omega-\omega_n\), \(\pi^*\omega-G\), and \(Q=rD'-G\), are formed in
+ finite-dimensional real vector spaces, where no infinite value occurs.
+\item\label{itm:ch38-safe:sup}
+ \emph{Suprema.}  The only supremum formed is
+ \(\sup_{K_F}\chi'\) in \Cref{lem:ch35-slice-to-cone}, which is defined for
+ every family by ledger entry~(5) and is finite or \(-\infty\).  No
+ supremum of a family of psh functions is formed anywhere, by
+ \Cref{warn:ch38-firewall}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{\cref{itm:ch38-safe:eval}} is
+\Cref{prop:ch38-evaluation-domains}: parts
+\cref{itm:ch38-dom:divis} and \cref{itm:ch38-dom:val} confine the formula
+\(v(B_Y)\) to \(X^{\val}\), where the local expression of \(B_Y\) as a
+difference of two effective Cartier divisors evaluates to a difference of
+two finite numbers because a nonzero ideal is not contained in the ideal
+of an irreducible component; part \cref{itm:ch38-dom:an} produces the
+extension to \(X^{\An}\) as a single ideal function.  That the formula
+genuinely fails at proper-support points is
+\Cref{ex:ch38-evaluation-no-lift} and
+\Cref{ex:ch38-fractional-undefined}.
+
+\emph{\cref{itm:ch38-safe:activation}.}  On \(X^{\divis}\) the identity is
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear} applied
+to \(B'=B+(-\overline F)\), together with
+\Cref{lem:ch38-sign-tests}\,\cref{itm:ch38-sign:pole}.  Both
+\(\psi_B\) and \(\log|s_F|\) take values in \([-\infty,0]\): the first by
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:finite} on
+\(X^{\divis}\) and by \Cref{prop:ch35-homogeneous-normalization} for the
+psh extension, the second by \eqref{eq:divisor-section-pole}.  A sum of two
+elements of \([-\infty,0]\) is defined by ledger entry~(2), the mixed sum
+requiring a \(+\infty\).
+
+\emph{\cref{itm:ch38-safe:limit}.}  A decreasing sequence in the complete
+lattice \(\Rbar\) converges to its infimum,
+\Cref{lem:monotone-net-converges}.  The identity
+\(\inf_n(t\chi_n)=t\inf_n\chi_n\) for \(t>0\) is
+\Cref{lem:extended-real-safe}\,(2); it is exactly the statement that
+multiplication by a positive real is an order isomorphism of \(\Rbar\).
+The scaling action of \Cref{chap:trivial-analytification} is by
+\(t>0\) only, so \(t=0\) does not arise.
+
+\emph{\cref{itm:ch38-safe:trace}.}  For \(v\in X^{\divis}\), write
+\(v=c\ord_E\); then \(v(F)=c\ord_E(F)\in[0,\infty)\), a finite number,
+because \(F\) is a divisor on \(X\) and \(\ord_E\) is a divisorial
+valuation of \(k(X)\), which takes finite values on nonzero rational
+functions.  Hence \(\log|s_F|(v)=-v(F)\in(-\infty,0]\), and subtracting it
+from the finite number \(\chi'(v)\) is subtraction of a finite constant.
+That \(\chi'(v)\) is finite is
+\eqref{eq:bj-realization-trace-limit} together with
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:finite}.
+
+\emph{\cref{itm:ch38-safe:siu}.}  The identity and the uniqueness of
+\(\chi_B\) are the content of
+\Cref{thm:ch35-homogeneous-siu-general}.  For the last assertion, let
+\(v\in X^{\An}\) with \(s(v)\subseteq\Supp F\).  Then
+\(\log|s_F|(v)=-\infty\) by \eqref{eq:divisor-section-pole}, and
+\(\chi_B(v)\leq0\) by \Cref{prop:ch35-homogeneous-normalization}, so
+\(\log|s_F|(v)+\chi_B(v)=-\infty=\chi'(v)\) whatever the value of
+\(\chi_B(v)\) may be.  The identity therefore carries no information at
+such a point, and the value there is pinned down instead by
+\Cref{cor:ch35-divisorial-determination}\,(2): two homogeneous psh
+functions with the same divisorial trace coincide.
+\Cref{ex:ch38-naive-realization-fails} shows that this is not a
+pedantic distinction.
+
+\emph{\cref{itm:ch38-safe:comparison}} and
+\emph{\cref{itm:ch38-safe:finite}} are inspection of the proof.
+\emph{\cref{itm:ch38-safe:sup}} is ledger entry~(5) together with
+\Cref{prop:ch35-homogeneous-normalization}, which bounds \(\chi'\) above
+by \(0\).
+\end{proof}
+
+\subsection{A naive realization that fails}
+\label{sec:ch38-naive}
+
+\begin{example}[The naive removal of the fixed pole is not merely
+undefined; it is unrepairable]
+\label{ex:ch38-naive-realization-fails}
+\index{extended real numbers!forbidden subtraction}
+Let \(X=\mathbf P^2_k\), let \(L_1\neq L_2\) be two distinct lines, and
+let
+\[
+ \theta:=c_1(\cO(1)),\qquad
+ B:=-\overline{L_1},
+\]
+a real (indeed integral) antieffective Cartier b-divisor determined on
+\(X\) itself, so that \(\pi=\operatorname{id}\).  The total class is
+\[
+ \pi^*\theta+B_X=c_1(\cO(1))-[L_1]=0,
+\]
+which is nef, so \Cref{thm:bj-real-cartier-realization} applies.  The
+answer is known in advance:
+\(\chi_B=\log|s_{L_1}|\in\cH_{\mathrm{hom}}(\cO(1))\), because
+\(\cO(1)\otimes\cO(-L_1)\simeq\cO_X\) is globally generated and
+\Cref{prop:hom-fs-ideal} applies.
+
+Now run the activation step with \(F:=L_2\).  Then
+\(\omega=\theta+[L_2]=c_1(\cO(2))\) is ample,
+\(B'=B-\overline{L_2}=-\overline{L_1+L_2}\), and
+\[
+ \chi'=\log|s_{L_1+L_2}|=\log|s_{L_1}|+\log|s_{L_2}|,
+\]
+an identity of functions into \([-\infty,0]\), legitimate by
+\Cref{prop:ch38-safeguards}\,\cref{itm:ch38-safe:activation}.
+
+\emph{The naive removal.}  Suppose one attempted to define the answer
+pointwise by
+\[
+ \chi_B^{\mathrm{naive}}(v):=\chi'(v)-\log|s_{L_2}|(v),
+ \qquad v\in X^{\An}.
+\tag{38.45}\label{eq:ch38-naive-difference}
+\]
+Choose two closed points
+\[
+ \xi\in L_2\setminus L_1,
+ \qquad
+ \xi':=L_1\cap L_2,
+\]
+and consider the proper-support points
+\(v_{\xi,\triv}\) and \(v_{\xi',\triv}\) of
+\Cref{ex:ch32-proper-support-trivial}.  At both points
+\(\log|s_{L_2}|=-\infty\), because \(s_{L_2}\) vanishes at every point of
+\(L_2\); and at both points \(\chi'=-\infty\), for the same reason.  So
+\eqref{eq:ch38-naive-difference} reads \((-\infty)-(-\infty)\) at both.
+The correct values, however, differ:
+\[
+ \begin{aligned}
+ \chi_B(v_{\xi,\triv})
+   &=\log|s_{L_1}|(v_{\xi,\triv})
+     =-v_{\xi,\triv}(s_{L_1})=0,\\
+ \chi_B(v_{\xi',\triv})
+   &=\log|s_{L_1}|(v_{\xi',\triv})=-\infty,
+ \end{aligned}
+\]
+the first because \(s_{L_1}\) does not vanish at \(\xi\notin L_1\), the
+second because it does vanish at \(\xi'\in L_1\).  Hence no convention
+assigning a value to \((-\infty)-(-\infty)\) can make
+\eqref{eq:ch38-naive-difference} correct: the same symbol would have to
+denote \(0\) at one point and \(-\infty\) at another.  This is the failure
+predicted by ledger entry~(4) of \Cref{sec:extended-arithmetic} and by
+\Cref{rem:forbidden-cancellations}, in the sharpest possible form.
+
+\emph{What replaces it.}  The proof of
+\Cref{thm:bj-real-cartier-realization} never writes
+\eqref{eq:ch38-naive-difference}.  It obtains
+\(\chi_B\) from \Cref{thm:ch35-homogeneous-siu-general} as a psh function
+satisfying the \emph{additive} identity
+\(\chi'=\log|s_{L_2}|+\chi_B\), and then determines it by its divisorial
+trace.  At \(v_{\xi,\triv}\) the divisorial points nearby are the
+\(t\ord_C\) for curves \(C\) through \(\xi\); on those,
+\(\psi_B(t\ord_C)=-t\ord_C(L_1)=0\) unless \(C=L_1\), which does not pass
+through \(\xi\).  Upper semicontinuity and
+\Cref{thm:ch35-divisorial-comparison} then give
+\(\chi_B(v_{\xi,\triv})=0\), the correct value, without ever forming a
+difference.
+
+\emph{A third point, for contrast.}  At the proper-support point
+\(v_{L_2,\triv}\), the trivial valuation of the curve \(L_2\), the same
+analysis gives \(\chi'=-\infty\), \(\log|s_{L_2}|=-\infty\) and the
+correct value \(\chi_B(v_{L_2,\triv})=0\), because \(s_{L_1}\) does not
+vanish identically along \(L_2\).  The set on which
+\eqref{eq:ch38-naive-difference} is undefined is
+\(\Supp(L_2)^{\An}\), and on it the correct answer takes both the value
+\(0\) and the value \(-\infty\).
+\end{example}
+
+\begin{warning}{Where the value at a proper-support point comes from}
+\label{warn:ch38-proper-support-value}
+\Cref{ex:ch38-naive-realization-fails} isolates the single most
+important structural fact about
+\Cref{thm:bj-real-cartier-realization}: the values of \(\chi_B\) at
+proper-support points are \emph{not} computed from \(B\) by any formula.
+They are determined, and only determined, by the combination of upper
+semicontinuity and the divisorial trace, through
+\Cref{thm:ch35-divisorial-comparison} and
+\Cref{cor:ch35-divisorial-determination}.  This is why the theorem is
+stated as an existence-and-uniqueness statement for a psh function with a
+prescribed trace rather than as the construction of an explicit function,
+and it is why \Cref{sec:ch34-proper-support} had to be developed before
+this chapter.  The same discipline governs
+\Cref{chap:bj-reflection}: the identity
+\eqref{eq:bj-reflection-global-identity} there is likewise proved on
+divisorial points first and extended by determination, never by
+subtraction.
+\end{warning}
+
+\begin{remark}[The ledger entries used, by number]
+\label{rem:ch38-ledger-entries}
+For the record, the entries of \Cref{sec:extended-arithmetic} used in this
+chapter are: (1), for the existence of decreasing limits and of the
+supremum in \Cref{lem:ch35-slice-to-cone}; (2), for the sums
+\(\psi_B+\log|s_F|\) and \(\log|s_F|+\chi_B\), and for the subtraction of
+the finite quantity \(v(F)\) at a divisorial point; (3), for the scaling
+\(t\chi\) with \(t>0\) in the definition of homogeneity, together with the
+explicit exclusion of \(t=0\); (4), for the prohibition that makes
+\Cref{ex:ch38-naive-realization-fails} a failure rather than a convention;
+and (5), for the supremum over \(K_F\).  Entries (6) and (7) are not used:
+no \(\limsup\) of a net and no integral occurs in this chapter.  The
+corresponding audit for \Cref{chap:bj-fs-pl-psh} is
+\Cref{sec:ch34-minus-infinity}, and
+\Cref{rem:ledger-uses} records the global pattern.
+\end{remark}
+
+\section{Consequences and limits}
+\label{sec:ch38-consequences}
+
+\subsection{Order, and the unconditional Cartier criterion}
+\label{sec:ch38-order}
+
+\begin{corollary}\label{cor:bj-realization-order}
+Suppose \(B_1\le B_2\le0\) satisfy the hypotheses of
+\Cref{thm:bj-real-cartier-realization} in the same class \(\theta\).  Then
+\[
+                             \chi_{B_1}\le\chi_{B_2}
+\]
+on all of \(X^{\An}\).
+\end{corollary}
+
+\begin{proof}
+The inequality holds for the divisorial traces.  Both realizations are psh
+in the same class, so comparison extends it to every analytic point.
+
+Explicitly: \(\psi_{B_1}\leq\psi_{B_2}\) on \(X^{\divis}\) by
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear}; the two
+realizations restrict to these traces, by
+\Cref{thm:bj-real-cartier-realization}; and
+\Cref{cor:ch35-divisorial-determination}\,(1), applied to
+\(\chi_{B_1}\in\PSH_X(\theta)\) and \(\chi_{B_2}\in\PSH_X(\theta)\), gives
+the inequality on \(X^{\An}\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch38-realization-monotone}
+Let \((B_i)_{i\in I}\) be a net of real Cartier b-divisors, each
+\(\leq0\), each nef-total in the class \(\theta_i\), with
+\(\theta-\theta_i\) nef for every \(i\).  Suppose the net is decreasing:
+\(B_j\leq B_i\) for \(j\geq i\).  Then \((\chi_{B_i})\) is a decreasing net
+in \(\PSH_{\mathrm{hom},X}(\theta)\), and if
+\(\inf_i\chi_{B_i}\) does not vanish identically \(-\infty\), which holds
+as soon as \(\inf_i\chi_{B_i}(v_{\triv})=0\), the limit lies in
+\(\PSH_{\mathrm{hom},X}(\theta)\).
+\end{corollary}
+
+\begin{proof}
+Each \(\chi_{B_i}\in\PSH_{\mathrm{hom},X}(\theta_i)\) by
+\Cref{thm:bj-real-cartier-realization}, hence in
+\(\PSH_{\mathrm{hom},X}(\theta)\) by
+\Cref{prop:ch38-drift-ledger}\,\cref{itm:ch38-drift:dominated} applied to
+the constant net, that is, by
+\Cref{lem:ch34-psh-nonempty} and \Cref{thm:bj-basic-closure}\,(3).  The net
+is decreasing on \(X^{\divis}\) by
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear} and
+hence on \(X^{\An}\) by
+\Cref{cor:ch35-divisorial-determination}\,(1).  Each \(\chi_{B_i}\)
+vanishes at \(v_{\triv}\) by
+\Cref{prop:ch35-homogeneous-normalization}, so the stated condition holds
+automatically and \Cref{thm:bj-basic-closure}\,(4) applies.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch38-cartier-psh-criterion-unconditional}
+Let \(X\) be normal integral projective, \(\theta\in N^1(X)\), and let
+\(B\) be a \emph{real} Cartier b-divisor with determination
+\(\pi:Y\to X\).  Then
+\[
+ \begin{gathered}
+ \psi_B\ \text{is the divisorial trace of an element}\\
+ \text{of }\PSH_{\mathrm{hom},X}(\theta)
+ \end{gathered}
+ \quad\Longleftrightarrow\quad
+ \begin{gathered}
+ B\leq0,\\
+ \pi^*\theta+B_Y\ \text{is nef}.
+ \end{gathered}
+\tag{38.46}\label{eq:ch38-unconditional-criterion}
+\]
+and the element is then unique.  No envelope hypothesis, no smoothness
+hypothesis and no hypothesis on \(\operatorname{char}k\) is required.  In
+particular \Cref{thm:ch35-cartier-psh-criterion} holds unconditionally.
+\end{corollary}
+
+\begin{proof}
+\(\Leftarrow\) is \Cref{thm:bj-real-cartier-realization}, together with the
+uniqueness proved there.
+
+\(\Rightarrow\) is the unconditional half of
+\Cref{thm:ch35-cartier-psh-criterion}, proved in
+\Cref{chap:bj-homogeneity-bdivisors} without any envelope hypothesis, and
+its proof applies verbatim to real coefficients: if
+\(\chi\in\PSH_{\mathrm{hom},X}(\theta)\) restricts to \(\psi_B\), then
+\(\psi_B\leq0\) by \Cref{prop:ch35-homogeneous-normalization}, hence
+\(B\leq0\) by
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear}; and
+\Cref{cor:ch35-homogenization-psh} produces a decreasing net
+\(\psi_i\in\cH_{\mathrm{hom}}(L_i)\) with \(c_1(L_i)\to\theta\) and
+\(\psi_i\searrow\chi\), whose coefficient b-divisors \(B_i\) satisfy
+\(B_i\leq0\) with \(c_1(L_i)+B_i\) nef, by
+\Cref{prop:ch38-model-fs-dictionary} and
+\Cref{thm:ch35-semiample-criterion}; the net \((B_i)\) is decreasing and
+converges to \(B\) pointwise on \(X^{\divis}\), and
+\Cref{lem:ch35-nef-limit} gives that \(\theta+B\) is nef, that is, that
+\(\pi^*\theta+B_Y\) is nef.  Note that
+\Cref{lem:ch35-nef-limit} is stated for rational \(B_i\) and an arbitrary
+Cartier limit \(B\), which is what is used.
+\end{proof}
+
+\begin{warning}{The corollary does not remove the envelope property from
+\Cref{chap:bj-homogeneity-bdivisors}}
+\label{warn:ch38-criterion-scope}
+\Cref{cor:ch38-cartier-psh-criterion-unconditional} supersedes
+\Cref{thm:ch35-cartier-psh-criterion} logically, but it may not be
+substituted for it inside
+\Cref{chap:bj-homogeneity-bdivisors}: the numerical b-class theorem
+\Cref{thm:bj-nef-bdivisor-correspondence} also uses the compactness
+statement \cite[Corollary~6.22]{BJ22}, whose hypothesis is the envelope
+property for ample classes and which is not addressed here.  What the
+corollary does supply is the Cartier-level criterion in the exact form in
+which \Cref{chap:bj-reflection} and
+\Cref{chap:bj-envelope-consequences} use it, with real coefficients and
+without hypotheses.  The order in which the results are proved --- first
+\Cref{thm:bj-real-cartier-realization}, then the criterion --- is what
+keeps \Cref{warn:ch38-firewall} intact.
+\end{warning}
+
+\subsection{The approximation package}
+\label{sec:ch38-approximation-package}
+
+The next corollary is the form in which
+\Crefrange{chap:bj-reflection}{chap:bj-subintegral-normalization} consume
+the homogeneous theory.  It says that every homogeneous psh function is
+approximated from above by \emph{model} data --- rational antieffective
+Cartier b-divisors with semiample total class --- in a decreasing way, and
+that the b-divisors themselves increase in absolute value.
+
+\begin{corollary}
+\label{cor:ch38-gf-regularization-bdivisor}
+Let \(X\) be normal integral projective, \(\theta\in N^1(X)\), and
+\(\psi\in\PSH_{\mathrm{hom},X}(\theta)\).  Then there are a directed set
+\(A\), rational Cartier b-divisors \(C_a\) over \(X\), and
+\(\mathbf Q\)-line bundles \(L_a\) on \(X\), such that for every
+\(a\in A\):
+\begin{enumerate}
+\item\label{itm:ch38-pkg:neg} \(C_a\leq0\), and on a determination
+ \(\pi_a:Y_a\to X\) of \(C_a\) the line bundle
+ \(\pi_a^*L_a+C_{a,Y_a}\) is semiample;
+\item\label{itm:ch38-pkg:fs} \(\psi_{C_a}\in\cH_{\mathrm{hom}}(L_a)\), so
+ that \(\psi_{C_a}=m_a^{-1}\log|\mathfrak b_a|\) for some
+ \(m_a\geq1\) and some nonzero ideal
+ \(\mathfrak b_a\subseteq\cO_X\) with
+ \(m_aL_a\otimes\mathfrak b_a\) globally generated;
+\item\label{itm:ch38-pkg:mono} the net \((C_a)\) is decreasing, that is,
+ the effective divisors \(D_a:=-C_a\) increase;
+\item\label{itm:ch38-pkg:limit} \(\psi_{C_a}\searrow\psi\) pointwise on
+ \(X^{\An}\);
+\item\label{itm:ch38-pkg:class} \(c_1(L_a)\to\theta\) in \(N^1(X)\).
+\end{enumerate}
+If \(\theta=c_1(L)\) for an ample \(\mathbf Q\)-line bundle \(L\), one may
+take \(L_a=L\) for every \(a\), so that \cref{itm:ch38-pkg:class} becomes
+an equality and no class drift occurs.
+\end{corollary}
+
+\begin{proof}
+By \Cref{prop:ch35-homogeneous-normalization},
+\[
+ \sup_{X^{\An}}\psi=\psi(v_{\triv})=0.
+\]
+Thus \(\psi\) satisfies the hypothesis \(\sup\psi\geq0\) of
+\Cref{cor:ch35-homogenization-psh} and is its own homogenization, by
+\Cref{lem:ch35-homogenization-maximal}.  That corollary provides a directed
+set \(A\), \(\mathbf Q\)-line bundles \(L_a\) with
+\(c_1(L_a)\to\theta\), and a decreasing net
+\(\psi_a\in\cH_{\mathrm{hom}}(L_a)\) with \(\psi_a\searrow\psi\)
+pointwise; and in the ample rational case it provides \(L_a=L\).  This is
+\cref{itm:ch38-pkg:limit} and \cref{itm:ch38-pkg:class}.
+
+By \Cref{prop:ch38-model-fs-dictionary}\,\cref{itm:ch38-dict:backward} and
+\cref{itm:ch38-dict:unique} there is, for each \(a\), a unique rational
+Cartier b-divisor \(C_a\) with \(\psi_{C_a}=\psi_a\); by
+\Cref{thm:ch35-semiample-criterion} it satisfies \(C_a\leq0\) with
+semiample total class, which is \cref{itm:ch38-pkg:neg}, and
+\cref{itm:ch38-pkg:fs} is
+\Cref{prop:hom-fs-ideal}.  Finally
+\cref{itm:ch38-pkg:mono} follows from
+\cref{itm:ch38-pkg:limit} and
+\Cref{prop:ch38-evaluation-welldefined}\,\cref{itm:ch38-ev:linear}: the net
+\((\psi_{C_a})\) is decreasing on \(X^{\divis}\), and the evaluation
+pairing is an order isomorphism onto its image.
+\end{proof}
+
+\begin{remark}[The shape in which the later chapters use it]
+\label{rem:ch38-package-use}
+\Cref{chap:bj-reflection} applies
+\Cref{cor:ch38-gf-regularization-bdivisor} on the source of a birational
+morphism, writes \(-D_i\) for the coefficient b-divisor of the \(i\)-th
+stage and \(\alpha_i=c_1(L_i)\) for its class, and then corrects the
+classes by the exact identity \eqref{eq:bj-reflection-total} before
+applying \Cref{thm:bj-real-cartier-realization} downstairs; the three
+displayed properties \eqref{eq:bj-homogeneous-regularization-data} there
+are \cref{itm:ch38-pkg:mono}, \cref{itm:ch38-pkg:class} and the
+semiampleness in \cref{itm:ch38-pkg:neg}.
+\Cref{chap:bj-smooth-characteristic} uses the presentation
+\cref{itm:ch38-pkg:fs} with the ideals \(\mathfrak b_a\) replaced by
+asymptotic multiplier or test ideals, which is why the corollary is stated
+with the ideal displayed rather than only with the b-divisor.
+\end{remark}
+
+\subsection{Behaviour under a birational base change}
+\label{sec:ch38-base-change}
+
+\begin{lemma}
+\label{lem:ch38-pullback-stages}
+Let \(\beta:X'\to X\) be a projective birational morphism of normal
+integral projective varieties and let \(\beta^{\An}:X'^{\An}\to X^{\An}\)
+be the induced map, which is a continuous surjection restricting to a
+bijection \(X'^{\val}\to X^{\val}\) and to the identity on
+\(X'^{\divis}=X^{\divis}\).  Write \(\beta^*u:=u\circ\beta^{\An}\).
+\begin{enumerate}
+\item\label{itm:ch38-pb:fs} If \(L\in\Pic(X)_{\mathbf Q}\) and
+ \(\psi\in\cH_{\mathrm{hom}}(L)\), then
+ \(\beta^*\psi\in\cH_{\mathrm{hom}}(\beta^*L)\).  Explicitly, if
+ \(\psi=m^{-1}\log|\mathfrak b|\) then
+ \(\beta^*\psi=m^{-1}\log|\mathfrak b\cdot\cO_{X'}|\).
+\item\label{itm:ch38-pb:limit} Let \(\omega\in N^1(X)\) be nef, let
+ \((\psi_n)\) be a decreasing sequence with
+ \(\psi_n\in\cH_{\mathrm{hom}}(L_n)\) and \(\omega-c_1(L_n)\) nef for
+ every \(n\), and let \(\chi:=\lim_n\psi_n\).  If
+ \(\chi(v_{\triv})=0\), then
+ \(\beta^*\chi\in\PSH_{\mathrm{hom},X'}(\beta^*\omega)\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The stated properties of \(\beta^{\An}\) are standard: continuity and
+surjectivity because \(\beta\) is proper and surjective; the bijection on
+full-support loci because both sides are the set of real valuations of the
+common function field \(k(X)=k(X')\) admitting a centre, as in the proof of
+\Cref{prop:ch35-cartier-continuous-extension}; and the identity on
+divisorial points because a prime divisor over \(X'\) is a prime divisor
+over \(X\), by \Cref{prop:ch38-evaluation-functorial}.
+
+\emph{\cref{itm:ch38-pb:fs}.}  If \(0\neq s\in H^0(X,mL)\) then
+\(\beta^*s\in H^0(X',m\beta^*L)\) is nonzero, \(\beta\) being dominant and
+\(X'\) integral, and
+\(\log|\beta^*s|(w)=-w(\beta^*s)=-\beta^{\An}(w)(s)=\log|s|(\beta^{\An}(w))\)
+by the definition of the pushforward semivaluation.  Taking a presentation
+\(\psi=m^{-1}\max_i\log|s_i|\) with all weights zero, as in
+\eqref{eq:homogeneous-fs-presentation}, gives
+\(\beta^*\psi=m^{-1}\max_i\log|\beta^*s_i|\), a presentation with all
+weights zero.  Generic finiteness is preserved because the \(\beta^*s_i\)
+do not all vanish identically.  For the ideal formulation, the ideal
+generated by the \(\beta^*s_i\) in local frames is
+\(\mathfrak b\cdot\cO_{X'}\), and
+\(w(\mathfrak b\cdot\cO_{X'})=\beta^{\An}(w)(\mathfrak b)\).
+
+\emph{\cref{itm:ch38-pb:limit}.}  By
+\Cref{lem:ch34-psh-nonempty} and \Cref{thm:bj-basic-closure}\,(3),
+\(\psi_n\in\PSH_X(\omega)\) for every \(n\).  By
+\cref{itm:ch38-pb:fs}, \(\beta^*\psi_n\in\cH_{\mathrm{hom}}(\beta^*L_n)
+\subseteq\PSH_{X'}(\beta^*c_1(L_n))\).  Moreover
+\(\beta^*\omega-\beta^*c_1(L_n)=\beta^*(\omega-c_1(L_n))\) is nef, being
+the pullback of a nef class
+(\Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:inj}), so
+\Cref{thm:bj-basic-closure}\,(3) again gives
+\(\beta^*\psi_n\in\PSH_{X'}(\beta^*\omega)\).  The sequence
+\((\beta^*\psi_n)\) is decreasing, being the composition of a decreasing
+sequence with a fixed map, and converges pointwise to \(\beta^*\chi\).
+Since \(\beta^{\An}(v_{X',\triv})=v_{X,\triv}\), one has
+\(\beta^*\chi(v_{X',\triv})=\chi(v_{\triv})=0\), so the limit is not
+identically \(-\infty\) and \Cref{thm:bj-basic-closure}\,(4) gives
+\(\beta^*\chi\in\PSH_{X'}(\beta^*\omega)\).  Homogeneity is preserved
+because \(\beta^{\An}\) is equivariant for the scaling action,
+\(\beta^{\An}(tw)=t\,\beta^{\An}(w)\), which is immediate from the
+definition of the pushforward semivaluation.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch38-realization-pullback}
+Let \(\beta:X'\to X\) be a projective birational morphism of normal
+integral projective varieties, let \(\theta\in N^1(X)\), and let
+\(B\leq0\) be a real Cartier b-divisor over \(X\) with a determination
+\(\pi:Y\to X\) factoring through \(\beta\), such that
+\(\pi^*\theta+B_Y\) is nef.  Then \(B\), regarded as a Cartier b-divisor
+over \(X'\) by
+\Cref{prop:ch38-evaluation-functorial}\,\cref{itm:ch38-fun:cofinal}, is
+antieffective and nef-total in the class \(\beta^*\theta\); both
+\(\chi^X_B\in\PSH_{\mathrm{hom},X}(\theta)\) and
+\(\chi^{X'}_B\in\PSH_{\mathrm{hom},X'}(\beta^*\theta)\) exist, and
+\[
+ \chi^{X'}_B\leq\beta^*\chi^X_B\ \text{ on }X'^{\An},
+ \qquad
+ \chi^{X'}_B=\beta^*\chi^X_B\ \text{ on }X'^{\val}.
+\tag{38.47}\label{eq:ch38-realization-pullback}
+\]
+\end{corollary}
+
+\begin{proof}
+Antieffectivity and nef-totality over \(X'\) are
+\Cref{prop:ch38-evaluation-functorial}\,\cref{itm:ch38-fun:class}, and the
+two realizations exist by \Cref{thm:bj-real-cartier-realization}.  Both
+restrict to \(\psi_B\) on \(X'^{\divis}=X^{\divis}\): the first by the
+theorem, the second because
+\(\beta^*\chi^X_B\) restricted to \(X'^{\divis}\) is
+\(\chi^X_B|_{X^{\divis}}=\psi_B\), by
+\Cref{lem:ch38-pullback-stages}.  The function \(\beta^*\chi^X_B\) is
+upper semicontinuous, being the composition of an upper-semicontinuous
+function with a continuous map, so
+\Cref{thm:ch35-divisorial-comparison} applied to the psh function
+\(\chi^{X'}_B\) and the majorant \(\beta^*\chi^X_B\) gives the inequality
+in \eqref{eq:ch38-realization-pullback}.
+
+For the equality on \(X'^{\val}\): run the proof of
+\Cref{thm:bj-real-cartier-realization} on \(X\), producing
+\(\chi'=\lim_n\chi_n\) and \(\chi^X_B\) with
+\(\chi'=\log|s_F|+\chi^X_B\).  By
+\Cref{lem:ch38-pullback-stages}\,\cref{itm:ch38-pb:limit}, applied with
+\(\omega\) and the stages \(\chi_n\), which satisfy
+\(\omega-\omega_n\) ample and hence nef,
+\(\beta^*\chi'\in\PSH_{\mathrm{hom},X'}(\beta^*\omega)\).  Pulling back the
+Siu identity, which is an identity of sums of functions with values in
+\([-\infty,0]\) and therefore commutes with composition,
+\[
+ \beta^*\chi'=\log|s_{\beta^*F}|+\beta^*\chi^X_B .
+\]
+On the other hand \(\beta^*\chi'\leq\log|s_{\beta^*F}|\), so
+\Cref{thm:ch35-homogeneous-siu-general} produces a unique
+\(u\in\PSH_{\mathrm{hom},X'}(\beta^*\omega-[\beta^*F])
+=\PSH_{\mathrm{hom},X'}(\beta^*\theta)\) with
+\(\beta^*\chi'=\log|s_{\beta^*F}|+u\); and \(u\) has divisorial trace
+\(\psi_B\), so \(u=\chi^{X'}_B\) by
+\Cref{cor:ch35-divisorial-determination}\,(2).  At a point
+\(w\in X'^{\val}\) the number \(\log|s_{\beta^*F}|(w)\) is finite, because
+\(\beta^*F\) is a divisor on the integral variety \(X'\) and therefore does
+not contain the support of \(w\); so the two displayed identities may be
+compared and the finite quantity cancelled, giving
+\(\chi^{X'}_B(w)=u(w)=\beta^*\chi^X_B(w)\).
+\end{proof}
+
+\begin{remark}[The full pullback statement is proved later, and is not used
+here]
+\label{rem:ch38-pullback-forward}
+The equality in \eqref{eq:ch38-realization-pullback} extends to all of
+\(X'^{\An}\), because pullback along \(\beta\) is a bijection
+\(\PSH_{\mathrm{hom},X}(\theta)\to\PSH_{\mathrm{hom},X'}(\beta^*\theta)\);
+that is \Cref{thm:bj-homogeneous-reflection}, whose proof uses the present
+chapter.  Nothing below \Cref{chap:bj-reflection} uses the extension, and
+\Cref{cor:ch38-realization-pullback} is stated in the form that is proved
+here so that the dependency runs in one direction only.  The gap between
+the two statements is exactly the gap discussed in
+\Cref{warn:ch38-proper-support-value}: the identity
+\(\beta^*\chi'=\log|s_{\beta^*F}|+\beta^*\chi^X_B\) carries no information
+at a point whose support lies in \(\Supp\beta^*F\), and closing it requires
+knowing that \(\beta^*\chi^X_B\) is psh, which is the reflection theorem.
+\end{remark}
+
+\subsection{The limits of the method}
+\label{sec:ch38-limits}
+
+\begin{remark}[Cartier, not arbitrary Weil]
+\label{rem:ch38-cartier-not-weil}
+The theorem assumes that \(B\) is Cartier on one model.  It does not realize
+an arbitrary Weil b-divisor, and it does not assert that every homogeneous
+psh function is determined on one fixed model.  The stated direction is
+exactly the one used by birational reflection.
+
+Three further points make the scope precise.  First, the restriction is not
+an artefact of the proof: \Cref{ex:ch38-moving-support} shows that the
+ordered rational approximation of \Cref{sec:ch38-approximation}, which
+works in one finite-dimensional space, has no analogue for a b-divisor
+whose support grows with the model.  Second, the Weil statement is
+\emph{true} under stronger hypotheses --- it is
+\Cref{thm:bj-nef-bdivisor-correspondence}, for \(X\) smooth over a field of
+characteristic zero --- and the proof there uses the envelope property for
+ample classes, which is unavailable here.  Third, the Cartier statement is
+what the envelope proof consumes: in
+\Cref{chap:bj-reflection} the b-divisors are the coefficient b-divisors of
+homogeneous Fubini--Study functions, hence rational and Cartier by
+\Cref{prop:ch38-model-fs-dictionary}, and only the \emph{limit} is a
+general real Cartier b-divisor.
+\end{remark}
+
+\begin{remark}[Nef limit and ample stages]
+\label{rem:ch38-nef-limit-ample-stages}
+The total class \(P\) is merely nef.  The path
+\eqref{eq:bj-buffer-path} replaces it by ample totals, which admit rational
+semiample coefficient functions.  The class drift
+\(\omega_n\to\omega=\theta+[F]\) is handled by PSH2, and the fixed divisor
+\(F\) is removed by Siu division.
+
+With the sharpened buffer of \Cref{lem:ch38-buffer} the real path carries
+no drift at all: \(\Omega_t=\omega\) for every \(t\).  The drift enters only
+at the rationalization step, and is then oriented downwards by
+\Cref{lem:ch38-ordered-rational-dominated}, so that ``handled by PSH2''
+means precisely: handled by \Cref{thm:bj-basic-closure}\,(3) and~(4) inside
+the single space \(\PSH_X(\omega)\).  See
+\Cref{warn:ch38-drift-not-absorbed}.
+\end{remark}
+
+\paragraph{Proof checkpoint.}
+Two facts are needed before PSH2 is applied: the numerical classes converge,
+and the pointwise limit has finite value \(0\) at \(v_{\triv}\).  A
+decreasing family alone could converge to the excluded function
+\(-\infty\).
+
+\paragraph{Proof checkpoint.}
+No upper envelope appears anywhere in the construction.  This independence
+is what allows the theorem to be used in \Cref{chap:bj-reflection} to prove homogeneous
+birational reflection before envelope property is descended.
+
+\paragraph{Proof checkpoint.}
+Three inputs to the proof are numerical and one is analytic.  Nefness of
+\(P\), ampleness of \(\omega\), and relative ampleness of \(-G\) are
+numerical, and they combine in the single identity
+\eqref{eq:bj-buffer-ample-total}.  The analytic input is the homogeneous
+Siu division \Cref{thm:ch35-homogeneous-siu-general}, which is the only
+statement of this chapter that is imported rather than proved, and which
+carries no envelope hypothesis.
+
+\section{Chapter dictionary}
+\label{sec:ch38-dictionary}
+
+The correspondences established or used in this chapter are the following.
+Each row is a proved equivalence, with the hypotheses under which it was
+proved in the third column.  The first four rows are the dictionary of
+\Cref{sec:ch38-model-fs}; the fifth is the main theorem; the last two
+record what is \emph{not} proved here.
+
+\begin{center}
+\begin{tabular}{p{.29\textwidth}p{.31\textwidth}p{.29\textwidth}}
+\toprule
+analytic datum & algebraic datum & hypothesis\\
+\midrule
+homogeneous function on \(X^{\divis}\), locally finite &
+Weil b-divisor \(B\) &
+\(X\) normal
+(\Cref{prop:ch35-weil-coefficient-bijection})\\
+continuous homogeneous function on \(X^{\val}\) &
+Cartier b-divisor \(B\) &
+\(X\) normal
+(\Cref{prop:ch38-evaluation-domains}\,\cref{itm:ch38-dom:val})\\
+\(\psi\in\cH_{\mathrm{hom}}(L)\), a single ideal
+\(m^{-1}\log|\mathfrak b|\) &
+\(B\leq0\) rational with \(\pi^*L+B_Y\) semiample &
+\(X\) normal
+(\Cref{prop:ch38-model-fs-dictionary})\\
+weight grading trivial &
+homogeneity; degree grading is a Veronese ambiguity &
+none
+(\Cref{prop:ch38-two-gradings})\\
+\(\chi\in\PSH_{\mathrm{hom},X}(\theta)\) with trace \(\psi_B\) &
+\(B\leq0\) real Cartier with \(\pi^*\theta+B_Y\) nef &
+\(X\) normal integral projective, no envelope property
+(\Cref{thm:bj-real-cartier-realization},
+\Cref{cor:ch38-cartier-psh-criterion-unconditional})\\
+\(\psi\in\PSH_{\mathrm{hom},X}(\theta)\) vanishing on the primes of \(X\)
+&
+nef b-divisor class \(\alpha\) with \(\alpha_X=\theta\) &
+\(X\) smooth, \(\operatorname{char}k=0\), \(\operatorname{EP}\) for ample
+classes (\Cref{thm:bj-nef-bdivisor-correspondence}); \emph{not proved
+here}\\
+\(\beta^*\) a bijection on homogeneous psh classes &
+identity of Cartier b-divisors over \(X\) and over \(X'\) &
+\Cref{thm:bj-homogeneous-reflection}; \emph{not proved here}, see
+\Cref{cor:ch38-realization-pullback}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Four separations should be carried forward.
+
+\emph{Divisorial trace versus function.}  A Cartier b-divisor gives a
+function on \(X^{\divis}\) by \eqref{eq:bj-bdivisor-evaluation}, and on
+\(X^{\val}\) by continuity.  It gives a function on \(X^{\An}\) only when
+it is antieffective with semiample total class, and then through an ideal,
+not through a divisor.  For a general antieffective \(B\) with nef total
+class the function on \(X^{\An}\) exists but is produced by
+\Cref{thm:bj-real-cartier-realization} and is characterized by upper
+semicontinuity plus the trace, never by a formula
+(\Cref{warn:ch38-three-extensions},
+\Cref{warn:ch38-proper-support-value}).
+
+\emph{Semiample versus nef.}  The dictionary of
+\Cref{prop:ch38-model-fs-dictionary} needs semiampleness, a condition on
+linear series; the hypothesis of
+\Cref{thm:bj-real-cartier-realization} is nefness, a numerical condition.
+The ample buffer of \Cref{lem:ch38-buffer} is the bridge, and by
+\Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:notample} it must
+involve a \(\pi\)-ample correction on \(Y\); no positivity imported from
+\(X\) can do the job.
+
+\emph{Size versus orientation of the drift.}  The class error at stage
+\(n\) is \(O(n^{-1})\), but that is not why it is harmless.  It is harmless
+because \(\omega-\omega_n\) is ample, so that
+\Cref{thm:bj-basic-closure}\,(3) places every stage in the single space
+\(\PSH_X(\omega)\).  \Cref{warn:ch38-drift-not-absorbed} states the
+distinction and \Cref{ex:ch38-drift-irrational} shows that the drift cannot
+be avoided.
+
+\emph{Degree versus weight.}  A weighted section system carries a degree
+\(m\) and weights \(\lambda_j\).  Homogeneity is the vanishing of the
+weights; the degree is a Veronese ambiguity, and an \(O(m^{-1})\) error in
+the degree is an error in numerical class, whereas an \(O(m^{-1})\) error
+in the weight is an additive constant
+(\Cref{prop:ch38-two-gradings}, \Cref{warn:ch38-two-gradings},
+\Cref{rem:ch38-two-errors}).
+
+\section{Source note}
+
+\Cref{lem:bj-ordered-rational-approximation,thm:bj-real-cartier-realization}
+follow the Cartier realization section of
+the supplied envelope manuscript.  The coefficient construction,
+homogeneous comparison, regularization, and Siu division are
+\cite[Lemma~6.34, Theorem~4.22, Corollaries~4.23 and~6.17, and
+Theorem~6.21]{BJ22}.  We retained the fixed-support approximation, the
+trivial-valuation test, and the global-identity safeguard at the pole
+divisor.
+
+The remaining attributions are as follows.  The b-divisor formalism, the
+model category and the projection formula are those of
+\Cref{app:intersection-bdivisors}, ultimately \cite{BFJ09}; the
+BFJ citation here is only for birational b-divisor formalism and ordinary
+intersection theory on projective models.  No absolute
+\((n+1)\)-fold pairing of discretely valued BFJ model forms is used in this
+chapter.  The
+identification of Cartier b-divisors with homogeneous PL functions and the
+semiample criterion are \cite[\S6.4]{BJ22}, restated here as
+\Cref{prop:ch38-model-fs-dictionary} in the form used at every rational
+stage.  The domination theorem used to produce a relatively ample
+exceptional divisor in \Cref{lem:ch38-activation} is
+\cite[\href{https://stacks.math.columbia.edu/tag/081T}{Tag 081T}]{stacks-project},
+imported through \Cref{thm:appB-admissible-domination}; the twist theorem
+converting relative ampleness into ampleness,
+\eqref{eq:ch38-relative-to-absolute}, is \cite[4.6.13]{EGAII}; and the
+negativity lemma used in
+\Cref{lem:ch38-nef-total-intrinsic}\,\cref{itm:ch38-nt:exceptional} is
+\cite[Lemma~3.39]{KM08}.  Zariski's main theorem in the form
+\(\pi_*\cO_Y=\cO_X\) for a proper birational morphism onto a normal
+variety, and the regularity criterion for a rational section with effective
+divisor, are \cite[Proposition~II.6.3A and Corollary~III.11.4]{Har}; the
+Nakai--Moishezon criterion used in the surface computations of
+\Cref{ex:ch38-activation-surface} and
+\Cref{ex:ch38-buffer-surface} is \cite[Theorem~1.2.23]{PAG1}.  The
+valuative criterion of integral dependence behind
+\Cref{prop:ch38-two-gradings}\,\cref{itm:ch38-grad:integral} is
+\Cref{thm:appA-valuative-integral-closure}.
+
+Four things in this chapter are not in the sources in this form and are
+supplied here.  The activation data is packaged as a free-standing lemma,
+\Cref{lem:ch38-activation}, with the two normalizations
+\(2G\leq\pi^*F\) and \(\pi^*\omega-G\) ample, because
+\Cref{chap:bj-reflection} quotes the construction and because the second
+normalization is what removes the class drift from the real path.  The
+buffer is likewise isolated, \Cref{lem:ch38-buffer}, and stated so that the
+auxiliary class \(H\) of \eqref{eq:bj-buffer-path} may be taken to be zero.
+The drift ledger \Cref{prop:ch38-drift-ledger} and the dominated form
+\Cref{lem:ch38-ordered-rational-dominated} of the approximation lemma make
+explicit that the approximating classes may be chosen \emph{below} the
+target class, which is what allows
+\Cref{thm:bj-basic-closure}\,(3) and~(4) to be applied inside a single
+class; the sources pass to the limit with a moving class.  And the
+extended-real audit \Cref{prop:ch38-safeguards}, together with the failure
+example \Cref{ex:ch38-naive-realization-fails}, is written out because the
+plan's proof audit asks for every use of subtraction involving an infinite
+value to be exhibited.
+
+Two points of scope deserve a final word.  \Cref{ex:ch38-strict-room-fails}
+shows that the homogeneous Siu division is applied at the boundary of the
+strict regime, so the general form
+\Cref{thm:ch35-homogeneous-siu-general}, that is
+\cite[Theorem~6.21]{BJ22}, is the correct citation; the strict form
+\Cref{thm:ch35-homogeneous-siu}, which
+\Cref{chap:bj-homogeneity-bdivisors} proves in full, suffices only when
+\(B\) is bounded away from zero along every component of
+\(\Supp\pi^*F\).  And \Cref{warn:ch38-theta-not-nef} records that the
+hypothesis of \Cref{thm:bj-real-cartier-realization} constrains
+\(\theta+[B_X]\) and not \(\theta\); the example there, an exceptional
+curve on a blown-up plane, is the smallest one in which the two differ.
+The historical route to these statements ran through nef b-divisor classes
+\cite{BFJ09,DF20} and the divisorial Zariski decomposition
+\cite{Bou04,Nak04}; the transcendental counterpart over \(\mathbf C\) is
+\cite{Xiabdiv,Xiabdiv2}.  The point of the present chapter is that the
+Cartier statement, unlike the Weil one, needs none of that machinery and
+none of the envelope property, and is therefore available as an input to
+\Crefrange{chap:bj-reflection}{chap:bj-subintegral-normalization}.

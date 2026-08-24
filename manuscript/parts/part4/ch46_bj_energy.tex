@@ -1,0 +1,3957 @@
+\chapter{Monge--Amp\`ere energy and mixed measures}
+\index{Monge--Ampere energy!BJ}\index{Monge--Ampere measure!mixed BJ}
+\label{chap:bj-energy}
+
+The envelope theorem changes the scope of the trivially valued theory, but
+not its intersection-theoretic origin.  Energy is first an intersection
+number on one test configuration.  Monotone regularization then extends it
+to singular psh functions, and polarization produces mixed
+Monge--Amp\`ere measures.  This order of construction is important: no
+local wedge product of singular currents is hidden in the definition.
+
+This is also the chapter in which the trivially valued theory becomes
+usable.  \Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
+were forbidden to use the envelope property, because they were proving it;
+\Cref{chap:bj-envelope-consequences} discharged that prohibition
+(\Cref{imp:ch45-firewall-discharged}) and turned the obstacle envelope
+\(P_\theta\) into an operator with values in \(\PSH_X(\theta)\)
+(\Cref{imp:ch45-obstacle-operator}).  From here to the end of
+\Cref{part:bj} both are used without further comment, and the present
+chapter is where the first genuine dividend is collected: the passage from
+a finitary intersection number to a functional on singular psh functions
+requires exactly the fixed-class monotone approximation that only the
+envelope theorem supplies.  \Cref{sec:ch46-where-envelope} isolates the
+four places where it is used, and \Cref{rem:ch46-without-envelope} records
+what would remain without it.
+
+\section{Orientation}
+\label{sec:ch46-orientation}
+
+\subsection{What is constructed, and out of what}
+\label{sec:ch46-what}
+
+The object constructed here is a single symmetric multilinear pairing of
+\(n+1\) pairs \((\theta,\phi)\), a numerical class together with a
+\(\theta\)-psh function.  Everything else in the chapter is a specialization
+or a polarization of it:
+
+\begin{itemize}
+\item taking all \(n+1\) pairs equal to \((\omega,\phi)\) and dividing by
+      \((n+1)V\) gives the \emph{Monge--Amp\`ere energy} \(E_\omega(\phi)\);
+\item taking the first pair to be \((0,f)\) with \(f\) a PL function gives
+      the \emph{mixed Monge--Amp\`ere measure} of the remaining \(n\) pairs,
+      through the Riesz representation theorem;
+\item taking two pairs of the form \((0,f)\) and \((0,g)\) gives the
+      \emph{Dirichlet form}, whose symmetry is integration by parts and
+      whose sign is the Hodge index inequality.
+\end{itemize}
+
+The construction proceeds in two steps, and the two steps use disjoint
+inputs.  The first step is finitary: on PL data the pairing is an
+\((n+1)\)-fold intersection number on a compactified test configuration,
+and every property of it --- symmetry, multilinearity, the behaviour under
+constants, monotonicity, the Lipschitz estimate, the atomic formula for the
+associated measure --- is an identity or an inequality of intersection
+numbers on a projective \((n+1)\)-dimensional \(k\)-scheme.  The inputs are
+\Cref{thm:ch33-compactification,thm:ch33-intersection-invariance} and the
+Hodge index inequality for divisors supported in one fibre.  No analysis
+occurs, and no envelope.
+
+The second step is a monotone extension.  It is here that the analysis, and
+the envelope theorem, enter.  The extension is by an infimum over PL, or
+continuous, psh competitors lying above the given psh functions, and three
+things have to be proved about it: that the competitor family is nonempty,
+that the infimum reproduces the intersection number on PL data, and that
+the resulting functional is continuous along decreasing nets.  The third is
+a compactness statement --- a Dini argument on \(X^{\An}\) --- and the first
+two are where fixed-class approximation is needed.
+
+\subsection{The envelope theorem is available here}
+\label{sec:ch46-envelope-available}
+
+\begin{important}{The two statements imported from \Cref{chap:bj-envelope-consequences}}
+\label{imp:ch46-envelope-imported}
+Throughout this chapter \(X\) is integral projective and \emph{unibranch},
+so that \Cref{thm:bj-final-envelope} applies to every real class.  Two of
+its consequences are used repeatedly and are recorded here in the exact
+form in which they will be quoted.
+\begin{enumerate}
+\item\label{itm:ch46-imp:regularization}
+      \emph{Fixed-class monotone approximation.}  For
+      \(\omega\in\Amp(X)\) and \(u\in\PSH_X(\omega)\) there is a downward
+      directed net \((u_g)\) of \emph{continuous} \(\omega\)-psh functions
+      with \(u_g\downarrow u\) pointwise on \(X^{\An}\)
+      (\Cref{thm:ch45-continuous-regularization}).  The approximants live
+      in the class \(\omega\) itself, not in classes converging to
+      \(\omega\) as in \Cref{def:bj-psh}\,(3).
+\item\label{itm:ch46-imp:compactness}
+      \emph{Compactness.}  The normalized space
+      \(\PSH^{\sup}_X(\theta)\) of \eqref{eq:normalized-psh-space} is
+      compact for pointwise convergence on \(X^{\divis}\), for every real
+      class \(\theta\) (\Cref{cor:ch45-compactness}).  Before
+      \Cref{chap:bj-envelope-consequences} this was the conditional
+      statement of \Cref{warn:ch34-compactness-conditional}.
+\end{enumerate}
+In addition the calculus of \(P_\theta\)
+(\Cref{prop:bj-final-obstacle-calculus,prop:ch45-obstacle-calculus-2}), the
+extremal function \(V_\theta=P_\theta(0)\) of \Cref{cor:ch45-extremal}, and
+the monotone statements
+\Cref{thm:ch45-decreasing-obstacle-nets,thm:ch45-increasing-obstacles,cor:ch45-uniform-obstacles}
+are quoted rather than reproved.
+\end{important}
+
+The reader who wants to see the dependence made explicit should turn to
+\Cref{sec:ch46-where-envelope}, where the four uses are listed with the
+statements they support, and to \Cref{rem:ch46-without-envelope}, which
+describes the theory that survives if the envelope theorem is withheld.
+The short version is: the PL theory and the theory of \emph{bounded} psh
+functions survive intact; the extension to unbounded psh functions, the
+identification of \(\cE^1\), and every compactness statement do not.
+
+\subsection{The five tasks}
+\label{sec:ch46-tasks}
+
+\begin{enumerate}
+\item\label{itm:ch46-task:pl}
+      \emph{Energy of PL metrics via intersection theory.}  Define the
+      pairing on PL data, prove that it is independent of the model,
+      symmetric, multilinear, monotone and Lipschitz, fix the
+      normalization and check it against \Cref{app:normalizations} and
+      against the Duistermaat--Heckman measures of
+      \Cref{chap:bj-test-configurations}.
+      \Cref{sec:ch46-model,sec:ch46-pl-measure}.
+\item\label{itm:ch46-task:extension}
+      \emph{Extension to arbitrary psh metrics.}  Prove that the
+      competitor family is nonempty, that the extension is well defined,
+      that it reproduces the PL pairing, and that it is continuous along
+      decreasing nets and upper semicontinuous for the weak topology.
+      \Cref{sec:ch46-extension}.
+\item\label{itm:ch46-task:mixed}
+      \emph{Mixed Monge--Amp\`ere measures.}  Construct them by Riesz
+      representation, prove symmetry, positivity and total mass, and
+      compute them on models.
+      \Cref{sec:ch46-mixed}.
+\item\label{itm:ch46-task:calculus}
+      \emph{Locality, monotonicity and integration by parts.}  Prove the
+      cocycle formula and the tangent inequalities, prove integration by
+      parts at PL level and extend it, and record locality and the
+      comparison principle.
+      \Cref{sec:ch46-ibp}.
+\item\label{itm:ch46-task:homogeneous}
+      \emph{Compatibility with homogeneous potentials.}  Prove that energy
+      is homogeneous of degree one and that mixed measures are equivariant
+      for the scaling action, and identify the pairing of homogeneous PL
+      potentials with a \(b\)-divisor intersection number.
+      \Cref{sec:ch46-homogeneous}.
+\end{enumerate}
+
+\subsection{Standing hypotheses and notation}
+\label{sec:ch46-hypotheses}
+
+Throughout this chapter \(X\) is an integral projective variety of pure
+dimension \(n\) over an algebraically closed trivially valued field \(k\),
+and \(X\) is unibranch.  We fix an ample numerical class
+
+\[
+                    \omega\in\Amp(X),\qquad V:=(\omega^n)>0.
+\tag{46.1}\label{eq:bj-volume}
+\]
+
+Since \(X\) is fixed we abbreviate \(\PSH(\theta):=\PSH_X(\theta)\) and
+\(\PSH^{\sup}(\theta):=\PSH^{\sup}_X(\theta)\), and we write
+\(\cH_{\mathrm{dom}}(\omega)\) for the set of \Cref{def:ch34-hdom}, that is,
+the PL functions \(\phi_D\) with \(D\in\operatorname{VCar}(\cX)_{\mathbf Q}\)
+on a test configuration \(\cX\) dominating \(X\times\mathbf A^1\) and
+\(\omega_{\cX}+D\) relatively ample.  The subspace of PL functions that are
+\(\theta\)-psh is written
+
+\[
+ \PL^{\theta}(X):=\PL_{\mathbf R}(X)\cap\PSH(\theta),
+\]
+
+which by \Cref{prop:ch34-pl-consistency} is the same thing whether pshness
+is tested by \Cref{def:bj-psh} or by the relative nefness condition
+\eqref{eq:pl-relative-nefness} of \Cref{def:positive-pl-function}.  The
+unibranch hypothesis is used only through
+\Cref{imp:ch46-envelope-imported}; every statement about PL data holds for
+an arbitrary integral projective \(X\), and this is recorded statement by
+statement in \Cref{sec:ch46-hypothesis-use}.
+
+\subsection{The normalization, declared}
+\label{sec:ch46-normalization}
+
+The results through \Cref{thm:bj-mixed-ma} are those of
+\cite[Sections~3 and 7]{BJ22}; the envelope theorem of
+\Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences} is
+not needed for the finitary parts of them, and
+\Cref{sec:ch46-where-envelope} says exactly where it is needed for the
+rest.  BJ normalize the pure Monge--Amp\`ere measure to
+mass \(1\).  Thus in this chapter
+
+\[
+ \MA_\omega(\phi):=V^{-1}(\omega+\ddc\phi)^n,
+ \qquad
+ \MA^{\mathrm{u}}_\omega(\phi):=V\MA_\omega(\phi).
+\tag{46.2}\label{eq:bj-ma-normalizations}
+\]
+
+The superscript ``u'' means unnormalized.  It is the second measure that
+has total mass \(V\), in agreement with the global convention of this book.
+
+\begin{warning}{A declared departure from the global convention}
+\label{warn:ch46-normalization}
+The front matter fixes the total mass of a Monge--Amp\`ere measure to be
+\((L^n)\) unless the word \emph{probability} occurs, and
+\eqref{eq:appJ-model-ma}--\eqref{eq:appJ-prob-ma} record the two
+normalizations side by side.  This chapter departs from that convention in
+the single respect displayed in \eqref{eq:bj-ma-normalizations}: the
+unadorned symbol \(\MA_\omega\) denotes the \emph{probability} measure, and
+the unnormalized measure of mass \(V\) carries the superscript
+\(\mathrm u\).  Consequently the unadorned energy \(E_\omega\) of
+\Cref{def:bj-ma-energy} is the one that satisfies
+\(E_\omega(\phi+c)=E_\omega(\phi)+c\), not
+\(E_\omega(\phi+c)=E_\omega(\phi)+cV\).  Both conventions are legitimate and
+both are recorded in \Cref{sec:appJ-energy}: \eqref{eq:appJ-energy} is the
+unnormalized one used in \Cref{part:bfj}, and the sentence following
+\eqref{eq:appJ-energy-translation} is precisely the licence used here.  The
+translation rules
+
+\[
+ \begin{aligned}
+  E_\omega(\phi+c)&=E_\omega(\phi)+c,\\
+  V\cdot E_\omega(\phi)=E^{\mathrm u}_\omega(\phi)
+   &:=\frac{1}{n+1}\sum_{j=0}^{n}
+     \int_{X^{\An}}\phi\,(\omega+\ddc\phi)^j
+       \wedge\omega^{\,n-j}
+ \end{aligned}
+\]
+
+are the two tests that detect a mixture of the conventions immediately, and
+they are applied in every worked example below.  \emph{The word
+``probability'' is never used with a class of volume zero}, which is why
+\(\omega\) is required to be ample in \eqref{eq:bj-volume}; the pairing
+itself is defined for arbitrary classes and is where zero-volume statements
+are made.
+\end{warning}
+
+Two consistency checks of \eqref{eq:bj-ma-normalizations} against
+\Cref{app:normalizations} are carried out in the text: the model formula
+\eqref{eq:bj-model-ma-atomic} is \eqref{eq:appJ-cl-measure} with
+\(\varpi\)-multiplicities \(b_E\) and normalized divisorial points
+\(v_E=b_E^{-1}\ord_E\) exactly as there
+(\Cref{def:ch33-component-valuation}); and the first-variation test
+\eqref{eq:appJ-energy-variation} is verified in
+\Cref{prop:ch46-first-variation-pl}, in the normalized form
+\(\frac{\rd}{\rd t}E_\omega(\phi_t)=\int\dot\phi_t\,\MA_\omega(\phi_t)\)
+with \(\MA_\omega\) a probability measure.
+
+\subsection{Extended-real ledger}
+\label{sec:ch46-ledger}
+
+Three entries of the extended-real ledger are used, and they are the only
+places where a value \(-\infty\) is manipulated.
+
+\begin{enumerate}
+\item A decreasing net of extended-real functions has a pointwise limit in
+      \(\Rbar\); no hypothesis is needed.  This is what makes
+      \eqref{eq:bj-energy-infimum} an infimum of a genuine family rather
+      than a limit that must be shown to exist.
+\item A \(\theta\)-psh function is bounded above and is finite on
+      \(X^{\divis}\), by \Cref{def:bj-psh}\,(2),
+      \eqref{eq:normalized-psh-space} and \Cref{thm:ch34-psh-compactness};
+      so a difference \(\phi-\psi\) of \(\theta\)-psh functions is defined
+      on \(X^{\divis}\) and is bounded above there, while it may be
+      undefined at a proper-support point where both are \(-\infty\).
+      Every displayed difference below is either restricted to
+      \(X^{\divis}\) or formed between a psh function and a
+      \emph{continuous} one.
+\item Multiplication by a strictly positive real preserves
+      \(\Rbar\)-suprema and infima, which is what makes the scaling action
+      \eqref{eq:function-scaling-action} interact correctly with the
+      pairing in \Cref{sec:ch46-homogeneous}.
+\end{enumerate}
+
+The prohibition on \((-\infty)-(-\infty)\) is the reason
+\Cref{warn:ch46-no-subtraction} exists and is the reason the multilinear
+extension of \Cref{sec:ch46-e1} is asserted on \(\vec\cE^{\,1}(X)\) and
+nowhere else.
+
+\subsection{Relation to \texorpdfstring{\Cref{part:bfj}}{Part III}}
+\label{sec:ch46-part3}
+
+This chapter is the trivially valued counterpart of
+\Cref{chap:bfj-ma,chap:bfj-energy}.  The parallel is close enough that the
+differences are worth tabulating before they are met.
+
+\begin{center}
+\begin{tabular}{p{.28\textwidth}p{.33\textwidth}p{.30\textwidth}}
+\toprule
+& \Cref{part:bfj} (discretely valued) & this chapter (trivially valued)\\
+\midrule
+ambient of the pairing &
+a model \(\cX\) proper over \(\Spec R\), of dimension \(n+1\) &
+a test configuration compactified over \(\mathbf P^1\)
+(\Cref{thm:ch33-compactification})\\
+the ``fibre class'' &
+\(\cX_s\), with \(\varphi_{\cX_s}=1\) and
+\((\cX_s\cdot\theta_1\cdots\theta_n)=(\{\theta_1\}\cdots\{\theta_n\})\) &
+\(\overline\pi^*\{0\}\), with the same two properties, by
+\eqref{eq:ch33-intersection-twist}\\
+energy at model/PL level &
+\(\displaystyle E_\omega(\varphi)-E_\omega(0)
+ =\frac1{n+1}\sum_{j=0}^n
+ (D_\varphi\cdot\omega_\varphi^{\,j}\cdot\omega^{\,n-j})\),
+with \(\varphi=\varphi_{D_\varphi}\) and \(D_\varphi\) vertical
+(\eqref{eq:model-energy}, \eqref{eq:ch20-pairing-as-integral}) &
+\Cref{def:bj-pl-energy-pairing} and \eqref{eq:bj-energy-definition}\\
+normalization &
+unnormalized, \(E(\varphi+c)=E(\varphi)+cV\) &
+normalized, \(E(\phi+c)=E(\phi)+c\)
+(\Cref{warn:ch46-normalization})\\
+Dirichlet form &
+\Cref{prop:ch26-dirichlet-vertical}: minus the vertical intersection form &
+\Cref{prop:ch46-dirichlet-vertical}: the same statement on
+\(\overline\cX\)\\
+extra structure &
+none &
+the \(\mathbf G_m\)-action, hence the scaling action and homogeneity
+(\Cref{sec:ch46-homogeneous})\\
+what forces nets &
+some sequential reductions are legitimate
+(\Cref{rem:ch22-legitimate-sequences}) &
+nets throughout (\Cref{warn:ch45-nets})\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The first four rows are the sense in which the arguments transfer verbatim:
+whenever a proof in \Cref{chap:bfj-energy} uses only multilinearity, the
+fibre-class identity and the Hodge index inequality, the same proof works
+here with \(\cX_s\) replaced by \(\overline\pi^*\{0\}\).  The fifth row is
+the sense in which they do not: the scaling action has no counterpart over
+a discretely valued base, and it produces genuinely new statements ---
+homogeneity of energy, equivariance of mixed measures --- which are proved
+in \Cref{sec:ch46-homogeneous} and have no analogue in
+\Cref{chap:bfj-energy}.  \Cref{ex:ch46-same-number-twice} exhibits one
+energy computed in both regimes and obtains the same number.
+
+\subsection{Roadmap}
+\label{sec:ch46-roadmap}
+
+\Cref{sec:ch46-model} constructs the PL pairing and proves its formal
+properties.  \Cref{sec:ch46-pl-measure} converts it into a measure at PL
+level, proves the atomic formula, integration by parts and the Hodge index
+inequality, and identifies the energy of a PL metric with the first moment
+of a Duistermaat--Heckman measure.  \Cref{sec:ch46-p1} computes a single
+example on \(\mathbf P^1\) in three independent ways.
+\Cref{sec:ch46-extension} performs the monotone extension and proves the
+theorem announced as \Cref{thm:bj-extended-energy-pairing}.
+\Cref{sec:ch46-e1} treats finite energy and polarization,
+\Cref{sec:ch46-mixed} the mixed measures, \Cref{sec:ch46-ibp} locality and
+integration by parts, and \Cref{sec:ch46-homogeneous} the scaling action.
+\Cref{sec:ch46-examples} contains the toric computation, the comparison
+with \Cref{part:bfj}, and the discontinuity example that motivates
+\Cref{chap:bj-strong-topologies}.  \Cref{sec:ch46-scope} audits the
+hypotheses, \Cref{sec:ch46-dictionary} is the chapter dictionary, and
+\Cref{sec:ch46-source} the source note.
+
+\section{The model-level intersection number}
+\label{sec:ch46-model}
+
+\subsection{Common models}
+\label{sec:ch46-common-models}
+
+Let \((\cX_i,\cL_i)\) represent an \(L_i\)-psh PL metric
+function \(\phi_i\), and choose one integrally closed test configuration
+\(\cX\) dominating all \(\cX_i\).  Write
+
+\[
+ \cL_i\simeq\rho_i^*L_i{}_{\mathbf A^1}+D_i,
+ \qquad D_i\in\operatorname{VCar}(\cX)_{\mathbf R}.
+\tag{46.3}\label{eq:bj-common-model-pairs}
+\]
+
+Here and below an expression involving a vertical divisor is pulled to a
+common dominating test configuration before being intersected.  Three
+statements make this legitimate and are used without further comment.
+
+First, the set of test configurations dominating \(X\times\mathbf A^1\) is
+directed under domination, by \Cref{prop:ch33-directed-poset}, so a common
+\(\cX\) exists for any finite family; and it may be taken integrally
+closed by \Cref{prop:ch33-integral-closure-exists}, which changes neither
+the associated PL functions nor the intersection numbers.  Second, the
+correspondence \(\phi\leftrightarrow D\) between PL functions and vertical
+divisors on the limit is bijective, by \Cref{thm:tc-pl-correspondence};
+this is what makes \eqref{eq:bj-common-model-pairs} a statement about the
+functions \(\phi_i\) rather than about a chosen presentation.  Third, a
+test configuration is compactified canonically over \(\mathbf P^1\), and
+the polarizations extend canonically, by \Cref{thm:ch33-compactification};
+this is what makes a degree available.  Nothing is a product:
+\Cref{warn:ch33-compactification-not-product} is worth rereading here,
+because the whole force of \eqref{eq:bj-trivial-energy-zero} below is that
+the \emph{trivial} test configuration is the one case in which the
+compactification is a product.
+
+\begin{definition}[Energy pairing on PL pairs]
+\label{def:bj-pl-energy-pairing}
+For \(\theta_i=c_1(L_i)\in N^1(X)\) and
+\(\phi_i=\phi_{D_i}\in\PL(X)_{\mathbf R}\), set
+
+\[
+ (\theta_0,\phi_0)\cdots(\theta_n,\phi_n)
+ :=(\cL_0\cdots\cL_n)_{\overline{\cX}},
+\tag{46.4}\label{eq:bj-pl-energy-intersection}
+\]
+
+where the test configuration is compactified over \(\mathbf P^1\) using
+the fixed trivialization away from the origin.
+\end{definition}
+
+The right-hand side does not depend on the chosen common model.  Indeed,
+if \(\pi:\cX'\to\cX\) is another dominating model, the
+projection formula gives
+
+\[
+ (\pi^*\cL_0\cdots\pi^*\cL_n)_{\overline{\cX}' }
+       =(\cL_0\cdots\cL_n)_{\overline{\cX}}.
+\tag{46.5}\label{eq:bj-energy-projection}
+\]
+
+Thus \Cref{def:bj-pl-energy-pairing} is intrinsic to the PL
+functions.  It is symmetric and multilinear in the pairs
+\((\theta_i,\phi_i)\).  Translation in one metric variable gives
+
+\[
+ (\theta_0,\phi_0+c)\prod_{i=1}^n(\theta_i,\phi_i)
+ = (\theta_0,\phi_0)\prod_{i=1}^n(\theta_i,\phi_i)
+    +c(\theta_1\cdots\theta_n).
+\tag{46.6}\label{eq:bj-energy-translation-pairing}
+\]
+
+The three assertions just made deserve proof, since everything in the
+chapter rests on them.
+
+\begin{proposition}
+\label{prop:ch46-pairing-wellposed}
+\Cref{def:bj-pl-energy-pairing} depends only on the pairs
+\((\theta_i,\phi_i)\in N^1(X)_{\mathbf R}\times\PL_{\mathbf R}(X)\), not on
+the model, the divisors or the line bundles chosen to present them.  The
+resulting map
+\[
+ \bigl(N^1(X)_{\mathbf R}\times\PL_{\mathbf R}(X)\bigr)^{n+1}
+ \longrightarrow\mathbf R
+\]
+is symmetric and \(\mathbf R\)-multilinear in the \(n+1\) pairs, and
+satisfies \eqref{eq:bj-energy-translation-pairing} and
+\eqref{eq:bj-trivial-energy-zero}.
+\end{proposition}
+
+\begin{proof}
+\emph{Independence of the model.}  Let \(\cX'\to\cX\) be a domination and
+\(\pi:\overline{\cX'}\to\overline\cX\) its unique extension, which exists
+by \Cref{thm:ch33-compactification}\,(3) and satisfies
+\(\overline{\pi^*\cL}=\pi^*\overline\cL\).  The morphism \(\pi\) is
+projective and birational, so \(\pi_*[\overline{\cX'}]=[\overline\cX]\),
+and the projection formula \Cref{thm:appF-projection} gives
+\eqref{eq:bj-energy-projection}; this is
+\eqref{eq:ch33-intersection-domination}.  Given two presentations of the
+same data on models \(\cX_1,\cX_2\), pass to a common domination by
+\Cref{prop:ch33-directed-poset}; the pulled-back divisors agree because
+the map \(D\mapsto\phi_D\) is injective on the limit
+(\Cref{thm:tc-pl-correspondence}, Step~2), and both numbers equal the one
+computed upstairs.
+
+\emph{Multilinearity.}  On a fixed \(\overline\cX\) the number
+\((\cL_0\cdots\cL_n)\) is the mixed intersection number of \(n+1\)
+\(\mathbf R\)-Cartier classes, which is symmetric and multilinear by
+\Cref{prop:appF-mixed-cartier}.  It remains to note that the map
+\((\theta,\phi)\mapsto\cL=\theta_{\cX}+D_\phi\) is additive: for fixed
+\(\cX\), \(\theta\mapsto\theta_{\cX}\) is the linear pullback
+\(N^1(X)_{\mathbf R}\to N^1(\overline\cX)_{\mathbf R}\) along
+\(\overline\cX\to X\), and \(\phi\mapsto D_\phi\) is linear by
+\Cref{thm:tc-pl-correspondence}.  Hence the composite is multilinear in
+the pairs.
+
+\emph{Constants.}  A rational constant \(c\) is the PL function
+\(\phi_{c\,\cX_0}\), because \(\phi_{\cX_0}=1\): indeed
+\(\phi_{\cX_0}(v_E)=b_E^{-1}\ord_E(\cX_0)=1\) for every component \(E\) by
+\eqref{eq:ch33-bE}, and a PL function is determined by its values at the
+\(v_E\) on a model determining it.  On the compactification,
+\(\cO(\cX_0)=\overline\pi^*\cO_{\mathbf P^1}(\{0\})\).  Adding \(c\) to
+\(\phi_0\) therefore replaces \(\cL_0\) by
+\(\cL_0+c\,\overline\pi^*\{0\}\), and
+\[
+\begin{aligned}
+ \bigl((\cL_0+c\,\overline\pi^*\{0\})\cdot\cL_1\cdots\cL_n\bigr)
+ &=(\cL_0\cdots\cL_n)
+   +c\bigl(\overline\pi^*\{0\}\cdot\cL_1\cdots\cL_n\bigr)\\
+ &=(\cL_0\cdots\cL_n)+c(\theta_1\cdots\theta_n),
+\end{aligned}
+\]
+the last equality because \(\overline\pi^*\{0\}\) is a fibre class:
+it is numerically equivalent to \(\overline\pi^*\{\infty\}\), the fibre at
+infinity is \(X\times\{\infty\}\), and \(\cL_i\) restricts there to
+\(L_i\), so the intersection number is \((\theta_1\cdots\theta_n)_X\).
+This is \eqref{eq:ch33-intersection-twist} in polarized form, and it proves
+\eqref{eq:bj-energy-translation-pairing} for rational \(c\); both sides are
+affine in \(c\), so it holds for real \(c\).
+
+\emph{The trivial metric.}  If all \(\phi_i=0\) one may take
+\(\cX=X\times\mathbf A^1\), \(\overline\cX=X\times\mathbf P^1\) and
+\(\cL_i=p_1^*L_i\).  Then
+\((\cL_0\cdots\cL_n)=\bigl(p_1^*(\theta_0\cdots\theta_n)\bigr)\), and
+\(\theta_0\cdots\theta_n\) is a class of dimension \(-1\) on the
+\(n\)-dimensional \(X\); concretely, the product of \(n+1\) classes pulled
+back from an \(n\)-dimensional variety vanishes.  This is
+\eqref{eq:bj-trivial-energy-zero}.
+\end{proof}
+
+\begin{remark}[The fibre class is the whole difference with \Cref{part:bfj}]
+\label{rem:ch46-fibre-class}
+The proof of \eqref{eq:bj-energy-translation-pairing} used exactly one
+property of \(\overline\pi^*\{0\}\): that its model function is the
+constant \(1\) and that
+\((\overline\pi^*\{0\}\cdot\cL_1\cdots\cL_n)=(\theta_1\cdots\theta_n)\).
+Over a discretely valued base, \Cref{sec:ch20-pairing} records the same two
+properties for \(\cX_s\): \(\varphi_{\cX_s}=1\), and taking
+\(D=\cX_s\) in \eqref{eq:ch20-pairing-as-integral} gives the total mass
+\((\{\theta_1\}\cdots\{\theta_n\})\).  Every argument in
+\Cref{chap:bfj-energy} that uses only multilinearity and these two
+properties therefore transfers verbatim, and this is why so much of the
+present section reads like \Cref{sec:ch26-model-energy}.  What does
+\emph{not} transfer is that \(\cX_s\) is the divisor of a uniformizer,
+whereas \(\overline\pi^*\{0\}\) is not principal on \(\overline\cX\); the
+compensating structure on the trivially valued side is the
+\(\mathbf G_m\)-action, and it is exploited in
+\Cref{sec:ch46-homogeneous}.
+\end{remark}
+
+\subsection{Monotonicity and the Hodge index inequality}
+\label{sec:ch46-monotonicity}
+
+The pairing is not merely multilinear: on psh data it is monotone, and the
+mechanism is the negativity of vertical self-intersections.  We isolate
+that mechanism first, because it recurs four times below --- in
+monotonicity, in concavity of energy, in the tangent inequalities, and in
+the Cauchy--Schwarz estimate.
+
+\begin{lemma}
+\label{lem:ch46-vertical-negativity}
+Let \(\cX\) be a test configuration dominating \(X\times\mathbf A^1\), let
+\(F\) be a vertical \(\mathbf R\)-Cartier divisor on \(\cX\), and let
+\(\cL_1,\dots,\cL_{n-1}\) be \(\mathbf R\)-Cartier classes on
+\(\overline\cX\) that are relatively nef over \(\mathbf P^1\).  Then
+\[
+ \bigl(F^2\cdot\cL_1\cdots\cL_{n-1}\bigr)_{\overline\cX}\le0 .
+\]
+Consequently, for vertical \(F,G\),
+\[
+ \bigl|(F\cdot G\cdot\cL_1\cdots\cL_{n-1})\bigr|^2
+ \le
+ \bigl(F^2\cdot\cL_1\cdots\cL_{n-1}\bigr)
+ \bigl(G^2\cdot\cL_1\cdots\cL_{n-1}\bigr).
+\]
+\end{lemma}
+
+\begin{proof}
+\emph{Step 1: reduction to nef classes.}  Let \(A\) be an ample class on
+\(\overline\cX\) and put \(F_m:=\overline\pi^*\{0\}\).  Since \(F\) is
+supported in the fibre \(\overline\pi^{-1}(0)\) and \(F_m\) is numerically
+the fibre over any other point, \(F\cdot F_m=0\) as a cycle class; hence
+for any real numbers \(m_i\),
+\[
+ \bigl(F^2\cdot(\cL_1+m_1F_m)\cdots(\cL_{n-1}+m_{n-1}F_m)\bigr)
+ =\bigl(F^2\cdot\cL_1\cdots\cL_{n-1}\bigr),
+\]
+every term containing an \(F_m\) vanishing.  A class that is relatively nef
+over \(\mathbf P^1\) becomes nef after adding a large multiple of the
+pullback of an ample class from \(\mathbf P^1\); so we may and do assume
+that each \(\cL_i\) is nef on \(\overline\cX\).
+
+\emph{Step 2: the Hodge index inequality for a divisor in one fibre.}  The
+scheme \(\overline\cX\) is projective and integral of dimension \(n+1\) by
+\Cref{lem:ch33-central-fibre-cartier}\,(3) and
+\Cref{thm:ch33-compactification}\,(1), and \(\overline\pi\) maps it onto
+the smooth projective curve \(\mathbf P^1\).  For a divisor supported in a
+single fibre of such a morphism, and nef classes
+\(\cL_1,\dots,\cL_{n-1}\), the inequality
+\((F^2\cdot\cL_1\cdots\cL_{n-1})\le0\) is the mixed relative Hodge index
+inequality; over a discretely valued base it is
+\Cref{thm:ch20-mixed-hodge}, \eqref{eq:ch20-mixed-hodge}, and the proof
+given there uses only that the ambient scheme is projective over a
+one-dimensional base, that \(F\) is supported in one fibre, and that the
+auxiliary classes are nef in the fibre directions.  In the present setting
+it is the vertical negativity inequality of \cite[Lemma~3.15]{BJ22}.
+
+\emph{Step 3: Cauchy--Schwarz.}  By Step~2 the symmetric bilinear form
+\((F,G)\mapsto-(F\cdot G\cdot\cL_1\cdots\cL_{n-1})\) on the finite
+dimensional space of vertical \(\mathbf R\)-Cartier divisors on \(\cX\) is
+positive semidefinite.  The Cauchy--Schwarz inequality for a positive
+semidefinite form gives the second display.
+\end{proof}
+
+\begin{warning}{Relative nefness, not nefness, is what psh gives}
+\label{warn:ch46-relative-nef}
+The class \(\cL_i=\theta_{i,\cX}+D_i\) attached to a \(\theta_i\)-psh PL
+function is relatively nef over \(\mathbf A^1\) by
+\eqref{eq:pl-relative-nefness}, and it is relatively nef over
+\(\mathbf P^1\) because over \(\mathbf P^1\setminus\{0\}\) it is the
+pullback of \(\theta_i\) from \(X\) along a product.  It is \emph{not}
+nef on \(\overline\cX\) in general: a horizontal curve can have negative
+degree if \(\theta_i\) is not nef.  Step~1 of
+\Cref{lem:ch46-vertical-negativity} is the standard device for
+neutralizing this, and it works only because the divisor in the first two
+slots is vertical.  An inequality with a horizontal class in one of the two
+distinguished slots is false in general and is never used.
+\end{warning}
+
+\begin{proposition}\label{prop:bj-model-energy-monotonicity}
+If every pair \((\theta_i,\phi_i)\) is psh at PL level and
+\(\phi_0\leq\psi_0\), then
+
+\[
+ (\theta_0,\phi_0)\prod_{i=1}^n(\theta_i,\phi_i)
+ \leq
+ (\theta_0,\psi_0)\prod_{i=1}^n(\theta_i,\phi_i).
+\tag{46.7}\label{eq:bj-model-monotonicity}
+\]
+\end{proposition}
+
+\begin{proof}
+On a common model, \(\psi_0-\phi_0\) corresponds to a vertical divisor
+whose associated model function is nonnegative.  The intersection of that
+divisor with the nef restrictions of the remaining model line bundles is
+nonnegative.  This is the vertical negativity/positivity calculation of
+\cite[Lemma~3.15]{BJ22}.  Multilinearity reduces the displayed inequality
+to precisely that calculation.
+
+We write the reduction out.  Choose an integrally closed test
+configuration \(\cX\) dominating \(X\times\mathbf A^1\) and determining
+\(\phi_0,\psi_0,\phi_1,\dots,\phi_n\), and let \(D_0,D_0',D_1,\dots,D_n\)
+be the corresponding vertical divisors, so that \(\cL_i=\theta_{i,\cX}+D_i\)
+is relatively nef for \(1\le i\le n\).  Put \(F:=D_0'-D_0\).  By
+multilinearity,
+\[
+ (\theta_0,\psi_0)\prod_{i=1}^n(\theta_i,\phi_i)
+ -(\theta_0,\phi_0)\prod_{i=1}^n(\theta_i,\phi_i)
+ =\bigl(F\cdot\cL_1\cdots\cL_n\bigr)_{\overline\cX}.
+\]
+The function \(\phi_F=\psi_0-\phi_0\) is \(\ge0\), so \(F\) is an effective
+divisor by the effectivity criterion \Cref{lem:ch33-effectivity}, applied
+on the integrally closed \(\cX\).  Write \(F=\sum_Ea_EE\) with
+\(a_E=b_E\phi_F(v_E)\ge0\), the sum over the components of \(\cX_0\).  Each
+\(E\) is a projective \(k\)-scheme contained in a fibre of
+\(\overline\pi\), so \(\cL_i|_E\) is nef, and therefore
+\((\cL_1|_E\cdots\cL_n|_E)\ge0\) by \Cref{prop:appF-mixed-cartier}.  Hence
+\[
+ \bigl(F\cdot\cL_1\cdots\cL_n\bigr)
+ =\sum_Ea_E\bigl(\cL_1|_E\cdots\cL_n|_E\bigr)\ \ge0 .
+\]
+No positivity of \(\theta_0\) was used, and no relation between
+\(\theta_0\) and the other classes; what was used is that the \(n\)
+classes in the \emph{other} slots are relatively nef.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch46-pl-lipschitz}
+Let \((\theta_i,\phi_i)\) and \((\theta_0,\psi_0)\) be psh at PL level.
+Then
+\[
+ \Bigl|(\theta_0,\psi_0)\prod_{i=1}^n(\theta_i,\phi_i)
+      -(\theta_0,\phi_0)\prod_{i=1}^n(\theta_i,\phi_i)\Bigr|
+ \le\lVert\psi_0-\phi_0\rVert_\infty\,(\theta_1\cdots\theta_n).
+\]
+In particular, for \(\phi,\psi\in\PL^{\omega}(X)\),
+\(|E_\omega(\psi)-E_\omega(\phi)|\le\lVert\psi-\phi\rVert_\infty\).
+\end{corollary}
+
+\begin{proof}
+Put \(\delta:=\lVert\psi_0-\phi_0\rVert_\infty\), a finite number since PL
+functions are bounded (\Cref{lem:ch34-pl-lattice}\,\cref{itm:ch34-pl:lattice}).
+Then \(\phi_0-\delta\le\psi_0\le\phi_0+\delta\), and all three functions
+are \(\theta_0\)-psh at PL level, constants being harmless by
+\Cref{prop:ch34-pl-operations}\,\cref{itm:ch34-plop:const}.  Apply
+\Cref{prop:bj-model-energy-monotonicity} twice and then
+\eqref{eq:bj-energy-translation-pairing}:
+\[
+ (\theta_0,\phi_0)\prod-\delta(\theta_1\cdots\theta_n)
+ \le(\theta_0,\psi_0)\prod
+ \le(\theta_0,\phi_0)\prod+\delta(\theta_1\cdots\theta_n).
+\]
+For the last assertion take all pairs equal, use the telescoping identity
+\eqref{eq:ch46-telescope} below \(n+1\) times --- or, more simply, note
+that \Cref{def:bj-ma-energy} divides the pure pairing by \((n+1)V\) and
+apply the first assertion in each of the \(n+1\) slots, each contributing
+at most \(\lVert\psi-\phi\rVert_\infty V\).
+\end{proof}
+
+\begin{example}[The trivial metric]
+\label{ex:ch46-trivial-metric}
+If all \(\phi_i=0\), then the compactified line bundles are pulled back
+from \(X\).  Since \(n+1\) horizontal classes are intersected on
+\(X\times\mathbf P^1\),
+
+\[
+                    (\theta_0,0)\cdots(\theta_n,0)=0.
+\tag{46.8}\label{eq:bj-trivial-energy-zero}
+\]
+
+Formula~\eqref{eq:bj-energy-translation-pairing} is therefore the correct
+way in which constants enter the pairing.  Combining the two,
+\[
+ (\theta_0,c_0)\cdots(\theta_n,c_n)
+ =\Bigl(\sum_{i=0}^nc_i\Bigr)(\theta_0\cdots\theta_n)
+ \quad\text{if }n\ge1\text{ and all }\theta_i\text{ are equal;}
+\]
+in general the expansion of \eqref{eq:bj-energy-translation-pairing} in all
+\(n+1\) slots gives
+\(\sum_{i}c_i(\theta_0\cdots\widehat{\theta_i}\cdots\theta_n)\), the hat
+denoting omission.  Setting all \(c_i=c\) and all \(\theta_i=\omega\)
+recovers \(E_\omega(c)=c\), which is the normalization test of
+\Cref{warn:ch46-normalization}.
+\end{example}
+
+\subsection{The telescoping identity}
+\label{sec:ch46-telescope}
+
+The pure pairing \((\omega,\phi)^{n+1}\) is what the energy is built from,
+and the identity that converts it into integrals is elementary
+multilinearity.  We record it once, in the form used throughout.
+
+\begin{lemma}
+\label{lem:ch46-telescope}
+For pairs \((\theta,\phi)\) and \((\theta,\psi)\) psh at PL level,
+\[
+ (\theta,\phi)^{n+1}-(\theta,\psi)^{n+1}
+ =\sum_{j=0}^{n}(0,\phi-\psi)\,(\theta,\phi)^{j}(\theta,\psi)^{n-j}.
+\tag{46.9}\label{eq:ch46-telescope}
+\]
+In particular, taking \(\psi=0\) and using
+\eqref{eq:bj-trivial-energy-zero},
+\[
+ (\omega,\phi)^{n+1}
+ =\sum_{j=0}^{n}\int_{X^{\An}}\phi\;
+   (\omega+\ddc\phi)^{j}\wedge\omega^{\,n-j},
+\tag{46.10}\label{eq:ch46-pure-pairing-as-integrals}
+\]
+the integrals being those of \Cref{prop:ch46-pl-measure}.
+\end{lemma}
+
+\begin{proof}
+Write \(a:=(\theta,\phi)\) and \(b:=(\theta,\psi)\) as formal symbols in
+the multilinear pairing, and \(f:=(0,\phi-\psi)=a-b\), the last equality
+being multilinearity in the pair together with additivity of
+\(\phi\mapsto D_\phi\).  Then the identity
+\(a^{n+1}-b^{n+1}=(a-b)\sum_{j=0}^na^jb^{n-j}\) holds in the polynomial
+ring generated by the pairs, hence after applying the symmetric
+multilinear form.  The second display follows from
+\eqref{eq:bj-trivial-energy-zero} and the definition
+\eqref{eq:bj-mixed-ma-duality} of the mixed measure, which at PL level is
+\Cref{prop:ch46-pl-measure}.
+\end{proof}
+
+\begin{remark}[The corresponding computation in \Cref{part:bfj}]
+\label{rem:ch46-telescope-part3}
+Over a discretely valued base the corresponding identity is the mixed
+vertical energy difference, not a difference of absolute powers.  Namely,
+if \(u=\phi-\psi=\varphi_U\), where \(U\) is the actual vertical divisor on
+a common model representing \(u\), then
+\[
+ E_\omega(\phi)-E_\omega(\psi)
+ =\frac1{n+1}\sum_{j=0}^n
+   \bigl(U\cdot\omega_\phi^{\,j}\cdot\omega_\psi^{\,n-j}\bigr).
+\]
+Each summand is the vertical-factor pairing of
+\Cref{prop:ch20-intersection-pairing}; by
+\eqref{eq:ch20-pairing-as-integral} this is the cocycle formula
+\eqref{eq:energy-cocycle}, while \Cref{lem:ch26-telescope} supplies its
+stepwise comparison.  Thus the two settings use the same telescoping
+bookkeeping, but only the compactified test-configuration pairing in
+\eqref{eq:ch46-telescope} is an absolute \((n+1)\)-fold intersection.
+\end{remark}
+
+\section{The Monge--Amp\`ere measure of a PL metric}
+\label{sec:ch46-pl-measure}
+
+\subsection{The atomic formula}
+\label{sec:ch46-atomic}
+
+Fix psh PL data \((\theta_i,\phi_i)\), \(1\le i\le n\), determined on an
+integrally closed \(\cX\), and consider the linear functional
+\[
+ \PL_{\mathbf R}(X)\longrightarrow\mathbf R,
+ \qquad
+ f\longmapsto(0,f)\prod_{i=1}^n(\theta_i,\phi_i).
+\]
+It is linear in \(f\) by \Cref{prop:ch46-pairing-wellposed}.  The next
+proposition identifies it with integration against an explicit finite
+atomic measure, and is the model case of \Cref{thm:bj-mixed-ma}.
+
+\begin{proposition}
+\label{prop:ch46-pl-measure}
+Let \(\theta_1,\dots,\theta_n\in N^1(X)_{\mathbf R}\) and
+\(\phi_i=\phi_{D_i}\in\PL_{\mathbf R}(X)\) be determined on an integrally
+closed test configuration \(\cX\) dominating \(X\times\mathbf A^1\), with
+\(\cL_i=\theta_{i,\cX}+D_i\).  Put
+\[
+ \mu:=\sum_{E\subset\cX_0}
+      b_E\bigl(\cL_1|_E\cdots\cL_n|_E\bigr)\,\delta_{v_E},
+\]
+the sum over the irreducible components of the central fibre, with
+\(b_E\) and \(v_E\) as in \Cref{def:ch33-component-valuation}.  Then
+\begin{enumerate}
+\item\label{itm:ch46-pl-ma:duality}
+      \(\displaystyle\int_{X^{\An}}f\,\rd\mu=(0,f)\prod_{i=1}^n(\theta_i,\phi_i)\)
+      for every \(f\in\PL_{\mathbf R}(X)\);
+\item\label{itm:ch46-pl-ma:indep}
+      \(\mu\) is independent of the model \(\cX\) chosen, and is symmetric
+      and multilinear in the \(n\) pairs \((\theta_i,\phi_i)\);
+\item\label{itm:ch46-pl-ma:mass}
+      \(\mu(X^{\An})=(\theta_1\cdots\theta_n)\);
+\item\label{itm:ch46-pl-ma:pos}
+      if every \(\theta_i\) is nef and every \(\phi_i\) is
+      \(\theta_i\)-psh, then \(\mu\ge0\); its support is a finite set of
+      divisorial points, so \(\mu\) gives no mass to \(X^{\An}\setminus
+      X^{\divis}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch46-pl-ma:duality}.  Refine \(\cX\) so that it also determines
+\(f=\phi_F\) with \(F\) vertical.  The pair \((0,f)\) has
+\(\cL_F=0_{\cX}+F=F\), so
+\((0,f)\prod(\theta_i,\phi_i)=(\overline F\cdot\cL_1\cdots\cL_n)\), the
+intersection taken on \(\overline\cX\).  The divisor \(\overline F\) is
+supported in \(\overline\pi^{-1}(0)=\cX_0\), because \(F\) is vertical and
+the compactification adds only the fibre at infinity, on which the
+trivialization identifies everything with the product; so
+\(\overline F=F=\sum_Ea_EE\) with the sum over components of \(\cX_0\).
+By \Cref{lem:ch33-effectivity} and \eqref{eq:ch33-bE},
+\(\phi_F(v_E)=b_E^{-1}a_E\).  Therefore
+\[
+ \begin{aligned}
+  (\overline F\cdot\cL_1\cdots\cL_n)
+   &=\sum_Ea_E\bigl(\cL_1|_E\cdots\cL_n|_E\bigr)\\
+   &=\sum_Eb_E\phi_F(v_E)
+     \bigl(\cL_1|_E\cdots\cL_n|_E\bigr)\\
+   &=\int f\,\rd\mu.
+ \end{aligned}
+\]
+The first equality is the projection formula for the closed immersion
+\(E\hookrightarrow\overline\cX\), \Cref{thm:appF-projection}.
+
+\cref{itm:ch46-pl-ma:indep}.  The functional in
+\cref{itm:ch46-pl-ma:duality} is intrinsic by
+\Cref{prop:ch46-pairing-wellposed}, and \(\PL_{\mathbf R}(X)\) separates
+points of \(X^{\divis}\): given \(v\ne w\) divisorial, some nonzero
+coherent ideal \(\mathfrak b\) has \(v(\mathfrak b)\ne w(\mathfrak b)\),
+both values being finite; choosing a rational
+\(M>\max\{v(\mathfrak b),w(\mathfrak b)\}\), the truncation
+\(\max\{\log|\mathfrak b|,-M\}\) of \eqref{eq:ch34-phi-Z} lies in
+\(\PL^+(X)\) and takes different values at \(v\) and \(w\).  Since both candidate
+measures are finite atomic measures carried by \(X^{\divis}\) and
+integrate every \(f\in\PL_{\mathbf R}(X)\) to the same number, they
+coincide.  Symmetry and multilinearity are those of
+\Cref{prop:ch46-pairing-wellposed}, transported through the same
+uniqueness.
+
+\cref{itm:ch46-pl-ma:mass}.  Take \(f=1\) in
+\cref{itm:ch46-pl-ma:duality} and use
+\eqref{eq:bj-energy-translation-pairing} with \(\phi_0=0\), \(c=1\), which
+gives \((0,1)\prod(\theta_i,\phi_i)=(\theta_1\cdots\theta_n)\).
+Equivalently, \(\phi_1=\phi_{\cX_0}\) and \(\cX_0=\overline\pi^*\{0\}\) is
+a fibre class.
+
+\cref{itm:ch46-pl-ma:pos}.  Each \(E\) is projective over \(k\) and lies in
+a fibre of \(\overline\pi\), and \(\cL_i\) is relatively nef by
+\eqref{eq:pl-relative-nefness}; hence \(\cL_i|_E\) is nef and
+\((\cL_1|_E\cdots\cL_n|_E)\ge0\) by \Cref{prop:appF-mixed-cartier}.  The
+multiplicities \(b_E\) are strictly positive integers by
+\eqref{eq:ch33-bE}.  Finally \(v_E\in X^{\divis}\) by
+\Cref{lem:ch33-gauss-component}, and there are finitely many components.
+\end{proof}
+
+Combining \Cref{prop:ch46-pl-measure} with
+\eqref{eq:bj-ma-normalizations}, the model formula announced in
+\eqref{eq:bj-model-ma-atomic} is proved, and it is exactly
+\eqref{eq:appJ-cl-measure} with the same pairing of the multiplicity
+\(b_E\) with the normalized point \(v_E=b_E^{-1}\ord_E\).  The audit
+demanded there --- ``using \(\ord_E\) in place of \(v_E\) without modifying
+the coefficient moves the measure to a differently scaled valuation cone''
+--- is a real one here, because the scaling action of
+\Cref{sec:ch46-homogeneous} moves points along exactly those rays.
+
+\begin{warning}{Two indexings of the central fibre}
+\label{warn:ch46-two-indexings}
+The components \(E\) of \(\cX_0\) index both the atoms of \(\mu\) and the
+vertices of the dual complex when \(\cX\) is SNC.  The atom is placed at
+\(v_E=b_E^{-1}\ord_E|_{k(X)}\), not at \(\ord_E\), and its mass carries the
+compensating factor \(b_E\).  Both conventions occur in the literature and
+they differ by the scaling action; \Cref{warn:ch33-dh-normalizations} and
+\Cref{rem:ch33-two-indexings} record the same issue for weights and flag
+ideals.  In this chapter the pair \((b_E,v_E)\) is always used together.
+\end{warning}
+
+\subsection{Integration by parts and the Dirichlet form}
+\label{sec:ch46-pl-ibp}
+
+\begin{corollary}
+\label{cor:ch46-pl-ibp}
+For \(f,g\in\PL_{\mathbf R}(X)\) and psh PL pairs
+\((\theta_i,\phi_i)\), \(1\le i\le n-1\),
+\[
+ \begin{aligned}
+  \int_{X^{\An}}f\;\ddc g\wedge
+    \bigwedge_{i=1}^{n-1}(\theta_i+\ddc\phi_i)
+   &=(0,f)(0,g)\prod_{i=1}^{n-1}(\theta_i,\phi_i)\\
+   &=\int_{X^{\An}}g\;\ddc f\wedge
+     \bigwedge_{i=1}^{n-1}(\theta_i+\ddc\phi_i),
+ \end{aligned}
+\]
+where \(\ddc g\) denotes the pair \((0,g)\) in the appropriate slot.
+\end{corollary}
+
+\begin{proof}
+Apply \Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:duality} with the
+\(n\) pairs \((0,g),(\theta_1,\phi_1),\dots,(\theta_{n-1},\phi_{n-1})\) and
+test function \(f\), then with the roles of \(f\) and \(g\) exchanged.  The
+middle term is the same in both cases because the pairing is symmetric
+(\Cref{prop:ch46-pairing-wellposed}).
+\end{proof}
+
+The case \(n=1\) of \Cref{cor:ch46-pl-ibp} deserves a separate statement,
+because it is the exact counterpart of
+\Cref{prop:ch26-dirichlet-vertical}, and because a curve is where every
+sign in this chapter can be checked by hand.
+
+\begin{proposition}
+\label{prop:ch46-dirichlet-vertical}
+\index{Dirichlet form!non-Archimedean}
+Let \(\cX\) be a test configuration dominating \(X\times\mathbf A^1\) and
+let \(\cL_1,\dots,\cL_{n-1}\) be relatively nef.  For
+\(f=\phi_F,g=\phi_G\in\PL_{\mathbf R}(X)\) determined on \(\cX\), set
+\[
+ \langle f,g\rangle_{\mathrm D}
+ :=-\int_{X^{\An}}f\;\ddc g\wedge\cL_1\cdots\cL_{n-1}.
+\]
+Then:
+\begin{enumerate}
+\item\label{itm:ch46-dir:sym}
+      \(\langle f,g\rangle_{\mathrm D}
+        =-\bigl(F\cdot G\cdot\cL_1\cdots\cL_{n-1}\bigr)_{\overline\cX}\)
+      is symmetric;
+\item\label{itm:ch46-dir:pos}
+      \(\langle f,f\rangle_{\mathrm D}\ge0\), and
+      \(|\langle f,g\rangle_{\mathrm D}|^2
+        \le\langle f,f\rangle_{\mathrm D}\langle g,g\rangle_{\mathrm D}\);
+\item\label{itm:ch46-dir:curve}
+      if \(n=1\) no auxiliary classes occur and
+      \(\langle f,g\rangle_{\mathrm D}=-(F\cdot G)_{\overline\cX}\) is
+      minus the intersection form on the divisors of \(\overline\cX\)
+      supported in the fibre over \(0\);
+\item\label{itm:ch46-dir:energy}
+      if \(n=1\), \(\deg\omega=d\) and \(f\) is \(\omega\)-psh, then with
+      \(\mu_0=\MA^{\mathrm u}_\omega(0)=d\,\delta_{v_{\triv}}\),
+      \[
+       E^{\mathrm u}_\omega(f)
+       =\int_{X^{\An}}f\,\rd\mu_0-\tfrac12\langle f,f\rangle_{\mathrm D},
+       \qquad
+       E_\omega(f)=\frac1d\Bigl(\int f\,\rd\mu_0
+                    -\tfrac12\langle f,f\rangle_{\mathrm D}\Bigr).
+      \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch46-dir:sym} is \Cref{cor:ch46-pl-ibp}, the middle term there
+being \((0,f)(0,g)\prod(\theta_i,\phi_i)=(F\cdot G\cdot\cL_1\cdots\cL_{n-1})\)
+by \eqref{eq:bj-pl-energy-intersection}.
+\cref{itm:ch46-dir:pos} is \Cref{lem:ch46-vertical-negativity}.
+\cref{itm:ch46-dir:curve} is the case \(n=1\), in which the product over
+\(i\) is empty.
+
+\cref{itm:ch46-dir:energy}.  For \(n=1\),
+\eqref{eq:ch46-pure-pairing-as-integrals} reads
+\[
+ (\omega,f)^2=\int f\,\omega+\int f\,(\omega+\ddc f)
+ =2\int f\,\rd\mu_0+\int f\,\ddc f,
+\]
+because \(\omega=\MA^{\mathrm u}_\omega(0)=\mu_0\) by
+\Cref{prop:ch46-pl-measure} applied to \(\phi=0\), which puts the whole
+mass \(d\) at \(v_{\triv}=v_{\widetilde X}\), the component of \(\cX_0\)
+dominating \(X\).  Dividing by \(n+1=2\) and using
+\(\int f\,\ddc f=-\langle f,f\rangle_{\mathrm D}\) gives the first identity;
+the second is \eqref{eq:bj-energy-definition} with \(V=d\).
+\end{proof}
+
+\begin{remark}[Thuillier's form, and what changes over a trivial valuation]
+\label{rem:ch46-thuillier}
+\Cref{prop:ch26-dirichlet-vertical}\,\cref{itm:ch26-dir:curve} identified
+the same form with minus the intersection form on vertical divisors of an
+integral model over a discretely valued base, following
+\cite[\S3.5]{Thu05}, and \Cref{rem:ch26-thuillier-dirichlet} discussed the
+consequences.  Every word of that discussion applies here, with
+\(\overline\cX\to\mathbf P^1\) in place of \(\cX\to\Spec R\); the null
+space of the form is again the line of constants, by the equality clause of
+the Hodge index inequality, and \eqref{eq:bj-energy-definition} again
+exhibits the energy of a curve as an affine functional minus half a
+positive quadratic form.  The one structural difference is the one recorded
+in \Cref{rem:ch46-fibre-class}: over a trivial valuation the fibre class is
+not principal, so the affine term \(\int f\,\rd\mu_0\) is genuinely present
+and is what makes \(E_\omega\) fail to be a quadratic form; over a
+discretely valued base the same term is present for the same reason, since
+\Cref{sec:ch20-pairing} gives \(\cX_s\) the same nonzero pairing with the
+horizontal classes.  In both regimes the reader should resist the temptation
+to describe energy on a curve as ``minus the Dirichlet energy''.
+\end{remark}
+
+\subsection{First variation, and the normalization test}
+\label{sec:ch46-first-variation}
+
+\begin{proposition}
+\label{prop:ch46-first-variation-pl}
+Let \(\phi,\psi\in\PL^{\omega}(X)\) and put
+\(\phi_t:=(1-t)\phi+t\psi\) for \(t\in[0,1]\), which lies in
+\(\PL^{\omega}(X)\) because
+\eqref{eq:pl-relative-nefness} defines a convex cone
+(\Cref{prop:ch34-pl-operations}\,\cref{itm:ch34-plop:sum}).  Then
+\(t\mapsto E_\omega(\phi_t)\) is a polynomial of degree \(\le n+1\), it is
+concave, and
+\[
+ \frac{\rd}{\rd t}E_\omega(\phi_t)
+ =\int_{X^{\An}}(\psi-\phi)\,\MA_\omega(\phi_t),
+\]
+with \(\MA_\omega\) the \emph{probability} measure of
+\eqref{eq:bj-ma-normalizations}.
+\end{proposition}
+
+\begin{proof}
+Polynomiality is multilinearity: \((\omega,\phi_t)^{n+1}\) is a polynomial
+of degree \(\le n+1\) in \(t\) because the pair \((\omega,\phi_t)\) is
+affine in \(t\).  Differentiating the expansion, and using symmetry,
+\[
+ \frac{\rd}{\rd t}(\omega,\phi_t)^{n+1}
+ =(n+1)\,(0,\psi-\phi)(\omega,\phi_t)^{n}
+ =(n+1)\int(\psi-\phi)\,\MA^{\mathrm u}_\omega(\phi_t),
+\]
+the last equality by
+\Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:duality}.  Dividing by
+\((n+1)V\) gives the displayed formula, since
+\(\MA_\omega=V^{-1}\MA^{\mathrm u}_\omega\).
+
+For concavity, differentiate once more.  Writing \(h:=\psi-\phi\),
+\[
+ \begin{aligned}
+ \frac{\rd^2}{\rd t^2}E_\omega(\phi_t)
+ &=\frac{n}{V}\,(0,h)(0,h)(\omega,\phi_t)^{n-1}\\
+ &=\frac nV\int h\,\ddc h
+     \wedge(\omega+\ddc\phi_t)^{n-1}\\
+ &=-\frac nV\langle h,h\rangle_{\mathrm D}\le0 .
+ \end{aligned}
+\]
+by \Cref{prop:ch46-dirichlet-vertical}\,\cref{itm:ch46-dir:pos}, the
+auxiliary classes being the relatively nef \(\omega+\ddc\phi_t\).
+\end{proof}
+
+The displayed first variation is exactly
+\eqref{eq:appJ-energy-variation} in the normalized convention, and it is
+the second of the two tests announced in \Cref{warn:ch46-normalization}.
+Together with \(E_\omega(\phi+c)=E_\omega(\phi)+c\) it pins the
+normalization down completely: no other pair of constants
+\((\alpha,\beta)\) makes both
+\(E(\phi+c)=E(\phi)+\alpha c\) and
+\(\frac{\rd}{\rd t}E=\beta\int\dot\phi\,\MA^{\mathrm u}\) hold with
+\(\MA^{\mathrm u}\) of mass \(V\), except \(\alpha=1\),
+\(\beta=V^{-1}\).
+
+\begin{corollary}
+\label{cor:ch46-pl-tangent}
+For \(\phi,\psi\in\PL^{\omega}(X)\):
+\begin{enumerate}
+\item\label{itm:ch46-tan:mono}
+      \(\phi\le\psi\) implies \(E_\omega(\phi)\le E_\omega(\psi)\);
+\item\label{itm:ch46-tan:concave}
+      \(E_\omega\) is concave on \(\PL^{\omega}(X)\);
+\item\label{itm:ch46-tan:tangent}
+      \(\displaystyle\int(\phi-\psi)\,\MA_\omega(\phi)
+        \le E_\omega(\phi)-E_\omega(\psi)
+        \le\int(\phi-\psi)\,\MA_\omega(\psi)\);
+\item\label{itm:ch46-tan:cocycle}
+      \(\displaystyle
+       E_\omega(\phi)-E_\omega(\psi)
+       =\frac1{n+1}\sum_{j=0}^n\int(\phi-\psi)\,
+        V^{-1}(\omega+\ddc\phi)^j\wedge(\omega+\ddc\psi)^{n-j}\).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\cref{itm:ch46-tan:mono} is \Cref{prop:bj-model-energy-monotonicity} applied
+in each of the \(n+1\) slots in turn.
+\cref{itm:ch46-tan:concave} is the second-derivative computation in the
+proof of \Cref{prop:ch46-first-variation-pl}, applied to the segment
+joining any two points.
+\cref{itm:ch46-tan:cocycle} is \eqref{eq:ch46-telescope} divided by
+\((n+1)V\), together with
+\Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:duality}.
+\cref{itm:ch46-tan:tangent}: a concave differentiable function \(h\) on
+\([0,1]\) satisfies \(h(1)-h(0)\le h'(0)\) and \(h(1)-h(0)\ge h'(1)\);
+apply this to \(h(t)=E_\omega((1-t)\psi+t\phi)\) and use
+\Cref{prop:ch46-first-variation-pl} at \(t=0\) and \(t=1\).
+\end{proof}
+
+\subsection{Energy is the first moment of a Duistermaat--Heckman measure}
+\label{sec:ch46-dh}
+
+The normalization \eqref{eq:bj-energy-definition} is not an arbitrary
+choice: it is the one for which the energy of a PL psh metric is a moment
+of a probability measure that was constructed, for entirely different
+reasons, in \Cref{chap:bj-test-configurations}.
+
+\begin{proposition}
+\label{prop:ch46-energy-dh}
+Let \(L\) be an ample \(\mathbf Q\)-line bundle with
+\(\omega=c_1(L)\), let \((\cX,\cL)\) be an integrally closed test
+configuration for \((X,L)\) with \(\cL\) relatively ample, let
+\(\phi=\phi_{\cL}\in\cH_{\mathrm{dom}}(\omega)\) be its PL function, and
+let \(\mathcal F\) be the associated filtration of
+\Cref{def:ch33-tc-filtration}.  Then
+\[
+ E_\omega(\phi)=\int_{\mathbf R}\lambda\,\rd\DHm(\mathcal F)(\lambda)
+ =\lim_{m\to\infty}\frac{w_m}{m\,N_m},
+\]
+where \(\DHm(\mathcal F)\) is the \emph{probability} Duistermaat--Heckman
+measure of \Cref{thm:dh-limit-filtration}, and \(w_m,N_m\) are the total
+weight and the dimension of \(H^0(\cX_0,m\cL_0)\).
+\end{proposition}
+
+\begin{proof}
+By \Cref{def:bj-pl-energy-pairing} with all pairs equal to
+\((\omega,\phi)\) and by \Cref{thm:ch33-compactification}\,(2),
+\((\omega,\phi)^{n+1}=(\overline\cL^{\,n+1})\).  Hence, by
+\eqref{eq:bj-energy-definition},
+\[
+ E_\omega(\phi)=\frac{(\overline\cL^{\,n+1})}{(n+1)V}.
+\]
+By \Cref{thm:ch33-dh-weight-count}\,(3) and the normalization
+\eqref{eq:ch33-dh-unnormalized},
+\[
+ \int\lambda\,\rd\DHm^{\mathrm u}(\mathcal F)
+ =\frac{(\overline\cL^{\,n+1})}{n+1},
+ \qquad
+ \DHm^{\mathrm u}(\mathcal F)=V\cdot\DHm(\mathcal F),
+\]
+so that \(\int\lambda\,\rd\DHm(\mathcal F)
+=(\overline\cL^{\,n+1})/((n+1)V)\).  The two right-hand sides agree.  The
+last equality of the statement is
+\Cref{thm:ch33-dh-weight-count}\,(1),(2).
+\end{proof}
+
+\begin{remark}[What the moment interpretation buys, and what it costs]
+\label{rem:ch46-dh-scope}
+Three consequences are worth naming.  First, the normalization test:
+translating the linearization by \(c\) adds \(c\) to the first moment and
+\((n+1)cV\) to \((\overline\cL^{n+1})\), by
+\eqref{eq:ch33-intersection-twist} and
+\Cref{prop:ch33-dh-transformations}, and both changes are \(+c\) in
+\(E_\omega\); this is \eqref{eq:bj-energy-basic-identities}.  Second,
+degree-\(d\) base change multiplies both by \(d\), by
+\eqref{eq:ch33-intersection-base-change}, which is the homogeneity proved
+in \Cref{thm:ch46-energy-homogeneous} below.  Third, the moment formula
+identifies \(E_\omega(\phi)\) with an asymptotic weight average, which is
+the form in which energy appears in stability theory
+(\Cref{chap:bj-stability}).
+
+The cost is that \Cref{prop:ch46-energy-dh} requires \(\cL\) relatively
+ample and \(L\) ample; the Duistermaat--Heckman measure is not defined for
+an arbitrary PL function, whereas \eqref{eq:bj-energy-definition} is.  The
+proposition is therefore a bridge, not a definition, and
+\Cref{warn:ch33-dh-normalizations} must be consulted before any moment is
+quoted: the three normalizations there differ by the factors \(V\) and
+\(n!\), and only the probability one gives \(E_\omega\) on the nose.
+\end{remark}
+
+\section{A worked example on the projective line}
+\label{sec:ch46-p1}
+
+Before extending anything we compute one example completely, in three
+independent ways, and check every normalization against it.  The example is
+the deformation to the normal cone of a point, whose test configuration was
+built in \Cref{ex:product-dnc-test-configurations}, whose dual complex was
+computed in \Cref{ex:ch34-normal-cone-segment}, whose psh range was
+determined in \Cref{ex:ch34-psh-check}, and whose Duistermaat--Heckman
+measure was computed in \Cref{ex:ch33-dnc-p1}.
+
+\begin{example}[Energy on \(\mathbf P^1\), computed three ways]
+\label{ex:ch46-p1-energy}
+Let \(X=\mathbf P^1_k\), \(p\in X(k)\) a closed point with local parameter
+\(z\), \(\theta=\omega=c_1(\cO(d))\) with \(d\in\mathbf Z_{>0}\), so that
+\(n=1\) and \(V=(\omega)=d\).  Let
+\[
+ \cY=\operatorname{Bl}_{(p,0)}\bigl(\mathbf P^1\times\mathbf A^1\bigr),
+ \qquad
+ \cY_0=\widetilde P+E,\quad b_{\widetilde P}=b_E=1,
+\]
+as in \Cref{ex:ch34-normal-cone-segment}, and let
+\(c\in\mathbf R\) with \(0\le c\le d\).  Put \(D:=-cE\) and
+\(\phi:=\phi_D\), so that by \eqref{eq:ch34-segment-function}
+\[
+ \phi(s\,\ord_q)=
+ \begin{cases}
+  -c\min\{s,1\}, & q=p,\\
+  0, & q\ne p,
+ \end{cases}
+ \qquad
+ \phi(v_{\triv})=0,\quad \phi(\ord_p)=-c .
+\]
+Equivalently \(\phi=c\max\{\log|\mathfrak m_p|,-1\}\).  By
+\eqref{eq:ch34-segment-psh-range}, \(\phi\) is \(\omega\)-psh at PL level
+exactly for \(0\le c\le d\), which is the range fixed above.
+
+\emph{First computation: intersection theory.}  The compactification is
+\(\overline\cY=\operatorname{Bl}_{(p,0)}(\mathbf P^1\times\mathbf P^1)\).
+Write \(H\) for the pullback of \(\cO_{\mathbf P^1}(1)\) from the factor
+\(X\) and \(F=\overline\pi^*\{0\}\) for the fibre class of the base.  Then
+\[
+ H^2=0,\quad F^2=0,\quad H\cdot F=1,\quad
+ E^2=-1,\quad H\cdot E=F\cdot E=0,
+\]
+the last two because \(E\) is contracted by both projections.  With
+\(\cL=\theta_{\overline\cY}+D=dH-cE\),
+\[
+ (\omega,\phi)^2=(\cL^2)=d^2H^2-2dc\,H\cdot E+c^2E^2=-c^2,
+\]
+so that by \eqref{eq:bj-energy-definition}
+\[
+ E_\omega(\phi)=\frac{(\omega,\phi)^2}{(n+1)V}=-\frac{c^2}{2d},
+ \qquad
+ E^{\mathrm u}_\omega(\phi)=-\frac{c^2}{2}.
+\]
+
+\emph{Second computation: from the measure.}  By
+\Cref{prop:ch46-pl-measure}, with \(\widetilde P=F-E\),
+\[
+ \MA^{\mathrm u}_\omega(\phi)
+ =\bigl((dH-cE)\cdot\widetilde P\bigr)\delta_{v_{\triv}}
+  +\bigl((dH-cE)\cdot E\bigr)\delta_{\ord_p}
+ =(d-c)\,\delta_{v_{\triv}}+c\,\delta_{\ord_p},
+\]
+using \(v_{\widetilde P}=v_{X,\triv}\) and \(v_E=\ord_p\) from
+\Cref{ex:ch34-normal-cone-segment}.  The total mass is \(d=V\), confirming
+\Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:mass}, and the measure is
+positive exactly for \(0\le c\le d\), confirming
+\cref{itm:ch46-pl-ma:pos} and matching
+\eqref{eq:ch34-segment-psh-range}.  Also
+\(\MA^{\mathrm u}_\omega(0)=d\,\delta_{v_{\triv}}\).  Now
+\eqref{eq:ch46-pure-pairing-as-integrals} with \(n=1\) gives
+\[
+ (\omega,\phi)^2
+ =\int\phi\,\MA^{\mathrm u}_\omega(0)+\int\phi\,\MA^{\mathrm u}_\omega(\phi)
+ =d\cdot0+\bigl[(d-c)\cdot0+c\cdot(-c)\bigr]
+ =-c^2 ,
+\]
+which is the number found above.
+
+\emph{Third computation: Duistermaat--Heckman.}  For \(d=1\) and
+\(0<c<1\), \Cref{ex:ch33-dnc-p1} computes
+\(\DHm(\mathcal F)=(1-c)\delta_0+\mathbf 1_{[-c,0]}\rd\lambda\), whose
+first moment is
+\(\int_0^1\min\{0,u-c\}\rd u=-c^2/2\).  By
+\Cref{prop:ch46-energy-dh} this must equal \(E_\omega(\phi)\), and indeed
+\(-c^2/(2\cdot1)=-c^2/2\).
+
+\emph{The unit tests.}  Adding a constant \(e\) replaces \(D\) by
+\(D+e\cY_0\), hence \(\cL\) by \(\cL+eF\), and
+\((\cL+eF)^2=(\cL^2)+2e\,H\cdot F\cdot d=-c^2+2ed\); dividing by
+\((n+1)V=2d\) gives \(E_\omega(\phi)+e\), as
+\eqref{eq:bj-energy-basic-identities} requires.  The Dirichlet form is
+\(\langle\phi,\phi\rangle_{\mathrm D}=-(D^2)=c^2\ge0\), as
+\Cref{prop:ch46-dirichlet-vertical}\,\cref{itm:ch46-dir:pos} requires, and
+\Cref{prop:ch46-dirichlet-vertical}\,\cref{itm:ch46-dir:energy} gives
+\(E^{\mathrm u}_\omega(\phi)=\int\phi\,\rd\mu_0-\tfrac12\langle\phi,\phi\rangle
+=0-\tfrac12c^2\), agreeing again.  Finally the graph Laplacian: with the
+sign convention of \Cref{chap:model-calculations}, in which \(\ddc\) at a
+point is the sum of the outgoing slopes, \(\phi\) has slope \(-c\) on
+\([0,1]\) and slope \(0\) beyond, so
+\(\ddc\phi=-c\,\delta_{v_{\triv}}+c\,\delta_{\ord_p}\) and
+\(\omega+\ddc\phi=(d-c)\delta_{v_{\triv}}+c\,\delta_{\ord_p}\), which is
+\eqref{eq:bj-curve-laplacian}.
+\end{example}
+
+\begin{example}[The two-corner function]
+\label{ex:ch46-p1-two-corner}
+Keep \(X=\mathbf P^1\) and take the data of \Cref{ex:ch34-two-corner}:
+\(\cY'=\operatorname{Bl}_\xi\cY\) with \(\cY'_0=\widetilde P'+E'+2G\),
+\(D=cG+eE'\) with \(c=-2\), \(e=-\tfrac32\), and \(\theta=c_1(\cO(2))\),
+so \(d=V=2\).  By \eqref{eq:ch34-two-corner-function} the vertex values are
+\(\phi_D(v_{\triv})=0\), \(\phi_D(\tfrac12\ord_p)=-1\),
+\(\phi_D(\ord_p)=-\tfrac32\), and the slopes on
+\([0,\tfrac12],[\tfrac12,1],[1,\infty)\) are \(-2,-1,0\).
+
+The intersection numbers on \(\cY'\) recorded in
+\Cref{ex:ch34-psh-check} give
+\[
+ \begin{aligned}
+  (\theta_{\cY'}+D)\cdot\widetilde P'&=d+c=0,\\
+  (\theta_{\cY'}+D)\cdot G&=-c+e=\tfrac12,\\
+  (\theta_{\cY'}+D)\cdot E'&=c-2e=1,
+ \end{aligned}
+\]
+so by \Cref{prop:ch46-pl-measure}, remembering \(b_G=2\),
+\[
+ \MA^{\mathrm u}_\omega(\phi_D)
+ =0\cdot\delta_{v_{\triv}}
+  +2\cdot\tfrac12\,\delta_{\frac12\ord_p}
+  +1\cdot\delta_{\ord_p}
+ =\delta_{\frac12\ord_p}+\delta_{\ord_p},
+\]
+of total mass \(2=V\).  The Laplacian check: the outgoing-slope sums are
+\(-2\) at \(v_{\triv}\), \(-1-(-2)=1\) at \(\tfrac12\ord_p\), and
+\(0-(-1)=1\) at \(\ord_p\); adding \(\omega=2\delta_{v_{\triv}}\) gives the
+same measure.  The energy is
+\[
+ E^{\mathrm u}_\omega(\phi_D)
+ =\tfrac12\Bigl(\int\phi_D\,\omega+\int\phi_D\,\MA^{\mathrm u}(\phi_D)\Bigr)
+ =\tfrac12\bigl(0+(-1)+(-\tfrac32)\bigr)=-\tfrac54,
+\]
+so that \(E_\omega(\phi_D)=-\tfrac58\).
+The multiplicity \(b_G=2\) is essential: dropping it would give the atom
+\(\tfrac12\) at \(\tfrac12\ord_p\), a total mass of \(\tfrac32\ne V\), and
+an energy of \(-\tfrac12(1/2+3/2)=-1\).  This is the failure mode against
+which \Cref{warn:ch46-two-indexings} warns.
+\end{example}
+
+\section{Extension by decreasing approximation}
+\label{sec:ch46-extension}
+
+For each \(\omega_i\in\Amp(X)\), every
+\(\phi_i\in\PSH(\omega_i)\) is the limit of a decreasing net in
+\(\cH_{\mathrm{dom}}(\omega_i)\); a sequence is available only after the countable
+regularization theorem.  This leads to the following definition-free
+characterization.
+
+\subsection{Three preparatory statements}
+\label{sec:ch46-preparation}
+
+The extension formula \eqref{eq:bj-energy-infimum} is an infimum over a
+family of competitors, and three things have to be known about that family
+before the formula can be used: that it is not empty, that its members come
+arbitrarily close to \(\phi\) where it matters, and that it interacts
+correctly with decreasing limits.  We prove the three statements
+separately, because they consume different inputs.
+
+\begin{lemma}
+\label{lem:ch46-competitors-nonempty}
+Let \(\omega\in\Amp(X)\) and \(\phi\in\PSH(\omega)\).  Then
+\[
+ \mathcal F_{\mathrm{dom}}(\phi):=
+ \{\psi\in\cH_{\mathrm{dom}}(\omega)\ :\ \psi\ge\phi\}
+\]
+contains every rational constant \(c\ge\sup_{X^{\An}}\phi\), and in
+particular is nonempty.  Moreover
+\(\mathcal F_{\mathrm{dom}}(\phi)+\mathbf Q_{\ge0}\subset\mathcal F_{\mathrm{dom}}(\phi)\).
+\end{lemma}
+
+\begin{proof}
+By \eqref{eq:normalized-psh-space} the number \(\sup_{X^{\An}}\phi\) is
+finite, so rational constants \(c\) above it exist.  A rational constant is
+the PL function \(\phi_{c\,\cX_0}\) on the trivial test configuration
+\(\cX=X\times\mathbf A^1\), by the computation \(\phi_{\cX_0}=1\) carried
+out in the proof of \Cref{prop:ch46-pairing-wellposed}; and
+\(\omega_{\cX}+c\,\cX_0\) is relatively ample over \(\mathbf A^1\) because
+\(\omega\) is ample on \(X\) and \(\cX_0\) is a fibre, hence relatively
+numerically trivial.  So \(c\in\cH_{\mathrm{dom}}(\omega)\) by
+\Cref{def:ch34-hdom}, and \(c\ge\phi\).  The same computation shows that
+adding a nonnegative rational constant to a member of
+\(\cH_{\mathrm{dom}}(\omega)\) keeps it there and only increases it.
+\end{proof}
+
+The next lemma is the technical heart of the extension.  It says that PL
+psh competitors in the \emph{fixed} class \(\omega\) can be found that
+approximate \(\phi\) at any prescribed finite set of divisorial points.
+This is not a formal consequence of \Cref{def:bj-psh}, whose approximants
+live in classes that merely converge to \(\omega\); see
+\Cref{rem:ch46-fixed-class-is-the-point}.
+
+\begin{lemma}
+\label{lem:ch46-pl-domination}
+Let \(L\) be an ample \(\mathbf Q\)-line bundle on \(X\), let
+\(\omega=c_1(L)\), let \(u\in\PSH(\omega)\), let \(S\subset X^{\divis}\) be
+finite and let \(\varepsilon>0\).  Then there is
+\(\psi\in\cH_{\mathrm{dom}}(\omega)\) with
+\[
+ \psi\ge u\ \text{ on }X^{\An},
+ \qquad
+ \psi(v)\le u(v)+\varepsilon\ \text{ for every }v\in S .
+\]
+Consequently
+\(\inf\{\psi(v):\psi\in\mathcal F_{\mathrm{dom}}(u)\}=u(v)\) for every
+\(v\in X^{\divis}\).
+\end{lemma}
+
+\begin{proof}
+\emph{Step 1: a generically finite regularization in the fixed class.}
+The class \(\omega\) is ample, hence nef, and is the class of a
+\(\mathbf Q\)-line bundle; so \Cref{thm:ch34-fs-regularization} applies and
+gives a decreasing net \((\phi_\iota)\) with
+\(\phi_\iota\in\cH^{\mathrm{gf}}_{\mathbf R}(L)\), each \(\phi_\iota\)
+being \(\omega\)-psh, and \(\phi_\iota\downarrow u\) pointwise on
+\(X^{\An}\).  A \(\theta\)-psh function is finite at every divisorial point
+(\Cref{thm:ch34-psh-compactness}), and \(S\) is finite, so there is
+\(\iota\) with
+\[
+ \phi_\iota(v)\le u(v)+\tfrac{\varepsilon}{4}
+ \qquad\text{for every }v\in S .
+\]
+Fix such an \(\iota\) and write, as in \eqref{eq:gf-fs-presentation},
+\[
+ \phi_\iota=\frac1m\max_{1\le j\le r}\{\log|s_j|+\lambda_j\},
+ \qquad
+ 0\ne s_j\in H^0(X,mL),\ \lambda_j\in\mathbf R .
+\]
+
+\emph{Step 2: truncation from below.}  Choose \(c\in\mathbf Q\) with
+\(c\le\min_{v\in S}u(v)\), which is possible because \(S\) is finite and
+\(u\) is finite on \(X^{\divis}\).  Since \(\omega\) is nef, the constant
+\(c\) is \(\omega\)-psh (\Cref{lem:ch34-psh-nonempty}), so
+\(\chi:=\max\{\phi_\iota,c\}\) is \(\omega\)-psh by
+\Cref{thm:bj-basic-closure}\,(2).  It satisfies \(\chi\ge\phi_\iota\ge u\)
+and, for \(v\in S\),
+\(\chi(v)=\max\{\phi_\iota(v),c\}\le\max\{u(v)+\varepsilon/4,u(v)\}
+ =u(v)+\varepsilon/4\).
+
+\emph{Step 3: \(\chi\) is a Fubini--Study function.}  Enlarging \(m\) by a
+Veronese substitution (\Cref{lem:ch34-veronese}) we may assume that \(mL\)
+is an honest globally generated line bundle; let \(t_1,\dots,t_N\) be
+sections of \(mL\) without common zero.  Then
+\(\max_k\log|t_k|\equiv0\), because
+\(\max_k\log|t_k|(v)=-v(\mathfrak b)\) with \(\mathfrak b\) the base ideal,
+which is \(\cO_X\); this is \eqref{eq:ch34-log-ideal}.  Consequently
+\[
+ \chi=\frac1m\max\bigl\{
+   \log|s_1|+\lambda_1,\ \dots,\ \log|s_r|+\lambda_r,\
+   \log|t_1|+mc,\ \dots,\ \log|t_N|+mc\bigr\},
+\]
+a weighted section system for \(L\) whose sections have no common zero.
+Hence \(\chi\in\cH_{\mathbf R}(L)\) by \Cref{def:gf-fs-functions}; in
+particular \(\chi\) is real valued and continuous.
+
+\emph{Step 4: rationalizing the weights.}  Choose rational
+\(\lambda_j'\in[\lambda_j,\lambda_j+m\varepsilon/4]\) and put
+\(\chi':=\frac1m\max\{\log|s_j|+\lambda_j',\ \log|t_k|+mc\}\).  Then
+\(\chi\le\chi'\le\chi+\varepsilon/4\), the weights are rational, and the
+sections still have no common zero, so \(\chi'\in\cH(L)\).  By
+\Cref{thm:tc-pl-correspondence}, \(\chi'\) corresponds to a semiample test
+configuration, hence lies in \(\PL(X)\) and is \(\omega\)-psh at PL level;
+by \Cref{prop:ch34-pl-consistency} the two notions of pshness agree.
+
+\emph{Step 5: entering \(\cH_{\mathrm{dom}}(\omega)\).}  By
+\cite[Proposition~3.10]{BJ22}, recorded after \Cref{def:ch34-hdom}, every
+element of \(\PL_{\mathbf R}(X)\cap\PSH(\omega)\) is a uniform limit of
+elements of \(\cH_{\mathrm{dom}}(\omega)\); choose
+\(\eta\in\cH_{\mathrm{dom}}(\omega)\) with
+\(\lVert\eta-\chi'\rVert_\infty\le\varepsilon/8\) and a rational
+\(\delta\in[\varepsilon/8,\varepsilon/4]\), and set
+\(\psi:=\eta+\delta\).  Then \(\psi\in\cH_{\mathrm{dom}}(\omega)\) by
+\Cref{lem:ch46-competitors-nonempty}, and
+\[
+ \psi\ge\chi'-\tfrac\varepsilon8+\tfrac\varepsilon8=\chi'\ge\chi\ge u,
+ \qquad
+ \psi\le\chi'+\tfrac\varepsilon8+\tfrac\varepsilon4
+   \le\chi+\tfrac\varepsilon4+\tfrac{3\varepsilon}8 .
+\]
+On \(S\) this gives \(\psi\le u+\varepsilon/4+5\varepsilon/8\le
+u+\varepsilon\).  The last assertion of the lemma follows by letting
+\(S=\{v\}\) and \(\varepsilon\downarrow0\), the reverse inequality being
+the definition of \(\mathcal F_{\mathrm{dom}}\).
+\end{proof}
+
+\begin{lemma}
+\label{lem:ch46-dini}
+Let \((f_j)_{j\in J}\) be a downward directed net of upper semicontinuous
+functions \(X^{\An}\to\mathbf R\cup\{-\infty\}\) with pointwise infimum
+\(f\), and let \(g\in C^0(X^{\An})\) satisfy \(f\le g\).  Then there is
+\(j\in J\) with \(f_j\le g\) on all of \(X^{\An}\), provided \(f<g\)
+pointwise; in general, for every \(\varepsilon>0\) there is \(j\) with
+\(f_j\le g+\varepsilon\).
+\end{lemma}
+
+\begin{proof}
+Fix \(\varepsilon>0\) and set \(U_j:=\{f_j<g+\varepsilon\}\).  Each
+\(U_j\) is open, because \(g+\varepsilon-f_j\) is lower semicontinuous.
+The family \((U_j)\) is upward directed, since \((f_j)\) is downward
+directed.  It covers \(X^{\An}\): for \(x\in X^{\An}\),
+\(\inf_jf_j(x)=f(x)\le g(x)<g(x)+\varepsilon\), so some \(j\) has
+\(f_j(x)<g(x)+\varepsilon\).  The space \(X^{\An}\) is compact by
+\Cref{thm:triv-berkovich-compactness}, so finitely many \(U_j\) cover it,
+and by directedness a single one does.  The variant with \(f<g\) and no
+\(\varepsilon\) is the same argument with \(U_j=\{f_j<g\}\).
+\end{proof}
+
+\subsection{The extension theorem}
+\label{sec:ch46-extension-theorem}
+
+\begin{theorem}\label{thm:bj-extended-energy-pairing}
+For ample \(\omega_0,\dots,\omega_n\), there is a unique map
+
+\[
+ \prod_{i=0}^n\PSH(\omega_i)\longrightarrow\mathbf R\cup\{-\infty\},
+ \quad
+ (\phi_i)\longmapsto(\omega_0,\phi_0)\cdots(\omega_n,\phi_n),
+\tag{46.11}\label{eq:bj-extended-energy-map}
+\]
+
+which extends the PL pairing, is increasing in every variable, upper
+semicontinuous for pointwise convergence on \(X^{\divis}\), and continuous
+along decreasing nets.  Explicitly,
+
+\[
+ (\omega_0,\phi_0)\cdots(\omega_n,\phi_n)
+ =\inf_{\substack{\psi_i\in\cH_{\mathrm{dom}}(\omega_i)\\
+                   \psi_i\geq\phi_i}}
+      (\omega_0,\psi_0)\cdots(\omega_n,\psi_n).
+\tag{46.12}\label{eq:bj-energy-infimum}
+\]
+\end{theorem}
+
+\begin{proof}[Proof of the foundational extension]
+Write \(I(\phi_0,\dots,\phi_n)\) for the right-hand side of
+\eqref{eq:bj-energy-infimum} and \(P\) for the PL pairing of
+\Cref{def:bj-pl-energy-pairing}.  Throughout the proof the classes
+\(\omega_i\) are assumed to be classes of ample \(\mathbf Q\)-line bundles,
+which is the case in which \Cref{lem:ch46-pl-domination} is available; the
+passage to arbitrary real ample classes is discussed in
+\Cref{rem:ch46-real-classes} and is part of the statement quoted from
+\cite[Theorem~7.1]{BJ22}.
+
+\emph{Step 1: \(I\) is well defined and increasing.}  The competitor family
+is nonempty by \Cref{lem:ch46-competitors-nonempty}, so the infimum is
+taken over a nonempty set and lies in \(\mathbf R\cup\{-\infty\}\).  If
+\(\phi_0\le\phi_0'\), every competitor for \(\phi_0'\) is one for
+\(\phi_0\), so the infimum for \(\phi_0\) is over a larger set and is
+therefore smaller.  This is monotonicity in each variable, and it uses no
+property of \(P\) at all.
+
+\emph{Step 2: \(I\) extends the PL pairing.}  Let
+\(\phi_i\in\PL_{\mathbf R}(X)\cap\PSH(\omega_i)\).  If
+\(\psi_i\in\cH_{\mathrm{dom}}(\omega_i)\) satisfies \(\psi_i\ge\phi_i\),
+then \(P(\psi)\ge P(\phi)\) by
+\Cref{prop:bj-model-energy-monotonicity} applied in each slot in turn; so
+\(I(\phi)\ge P(\phi)\).  Conversely, by
+\cite[Proposition~3.10]{BJ22} each \(\phi_i\) is a uniform limit of
+elements of \(\cH_{\mathrm{dom}}(\omega_i)\), so for every
+\(\varepsilon>0\) there are \(\psi_i\in\cH_{\mathrm{dom}}(\omega_i)\) with
+\(\phi_i\le\psi_i\le\phi_i+\varepsilon\), after adding a rational constant
+\(\le2\varepsilon\) as in \Cref{lem:ch46-competitors-nonempty}.  By
+\Cref{cor:ch46-pl-lipschitz}, applied in each of the \(n+1\) slots,
+\(P(\psi)\le P(\phi)+\varepsilon\sum_i(\omega_0\cdots\widehat{\omega_i}
+\cdots\omega_n)\).  Letting \(\varepsilon\downarrow0\) gives
+\(I(\phi)\le P(\phi)\).
+
+\emph{Step 3: finiteness on bounded tuples.}  If \(m_i\le\phi_i\le M_i\)
+with \(m_i,M_i\in\mathbf R\), then the constants \(M_i\) are competitors,
+so \(I(\phi)\le P(M_0,\dots,M_n)<\infty\); and \(I\) is increasing, so
+\(I(\phi)\ge I(m_0,\dots,m_n)=P(m_0,\dots,m_n)>-\infty\) by Step~2.  Thus
+\(I\) is real valued on tuples of bounded psh functions.  For unbounded
+\(\phi_i\) the value \(-\infty\) does occur, and
+\Cref{sec:ch46-e1} is devoted to the locus where it does not.
+
+\emph{Step 4: continuity along decreasing nets.}  Let
+\((\phi_{i,j})_{j\in J}\) be downward directed nets in \(\PSH(\omega_i)\)
+with \(\phi_{i,j}\downarrow\phi_i\), indexed by a common directed set.  By
+Step~1 the net \(\bigl(I(\phi_{0,j},\dots,\phi_{n,j})\bigr)_j\) is
+decreasing and bounded below by \(I(\phi_0,\dots,\phi_n)\), so it has a
+limit \(\ell\ge I(\phi)\).  For the reverse inequality, fix
+\(\varepsilon>0\) and competitors \(\psi_i\in\cH_{\mathrm{dom}}(\omega_i)\)
+with \(\psi_i\ge\phi_i\) and \(P(\psi)\le I(\phi)+\varepsilon\), which
+exist by the definition of the infimum unless \(I(\phi)=-\infty\), in which
+case one takes \(P(\psi)\le-1/\varepsilon\).  Each \(\psi_i\) is
+continuous, and \(\phi_i\le\psi_i\); by \Cref{lem:ch46-dini} there is, for
+each \(i\), an index beyond which \(\phi_{i,j}\le\psi_i+\varepsilon\), and
+by directedness of \(J\) a single index \(j_0\) works for all \(i\).  For
+\(j\ge j_0\) the functions \(\psi_i+\varepsilon'\), with
+\(\varepsilon'\in\mathbf Q\cap[\varepsilon,2\varepsilon]\), are competitors
+for \(\phi_{i,j}\), whence by
+\eqref{eq:bj-energy-translation-pairing}
+\[
+ I(\phi_{0,j},\dots,\phi_{n,j})
+ \le P(\psi_0+\varepsilon',\dots,\psi_n+\varepsilon')
+ =P(\psi)+\varepsilon'\sum_{i=0}^n
+   (\omega_0\cdots\widehat{\omega_i}\cdots\omega_n).
+\]
+Hence \(\ell\le I(\phi)+\varepsilon+2\varepsilon C\) with \(C\) the
+displayed sum, or \(\ell\le-1/\varepsilon+2\varepsilon C\) in the infinite
+case.  Letting \(\varepsilon\downarrow0\) gives \(\ell\le I(\phi)\),
+respectively \(\ell=-\infty\).
+
+\emph{Step 5: upper semicontinuity.}  We prove upper semicontinuity in
+each variable separately, which is what the applications use, and record
+in \Cref{rem:ch46-usc-scope} the status of the joint statement.  Fix
+\(\phi_1,\dots,\phi_n\) and let \(\phi_0\) vary.  For competitors
+\(\chi_i\in\cH_{\mathrm{dom}}(\omega_i)\) with \(\chi_i\ge\phi_i\)
+(\(1\le i\le n\)), Step~1 and Step~2 give
+\[
+ I(\phi_0,\phi_1,\dots,\phi_n)\le I(\phi_0,\chi_1,\dots,\chi_n)
+ =\inf_{\chi_0\ge\phi_0}P(\chi_0,\chi_1,\dots,\chi_n),
+\]
+and by multilinearity together with
+\Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:duality},
+\[
+ P(\chi_0,\chi_1,\dots,\chi_n)
+ =P(0,\chi_1,\dots,\chi_n)
+  +\int_{X^{\An}}\chi_0\;
+   \rd\MA^{\mathrm u}(\chi_1,\dots,\chi_n).
+\]
+The measure \(\MA^{\mathrm u}(\chi_1,\dots,\chi_n)\) is a positive finite
+atomic measure supported on a finite subset \(S\) of \(X^{\divis}\), by
+\Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:pos}.  Applying
+\Cref{lem:ch46-pl-domination} to \(\phi_0\) with this \(S\) shows that the
+infimum over \(\chi_0\) of the last integral equals
+\(\int\phi_0\,\rd\MA^{\mathrm u}(\chi_1,\dots,\chi_n)\).  Therefore
+\[
+ I(\phi_0,\phi_1,\dots,\phi_n)
+ =\inf_{\chi_1,\dots,\chi_n}
+  \Bigl[P(0,\chi_1,\dots,\chi_n)
+        +\int\phi_0\;\rd\MA^{\mathrm u}(\chi_1,\dots,\chi_n)\Bigr],
+\]
+the outer infimum being over competitors for \(\phi_1,\dots,\phi_n\); the
+inequality \(\ge\) holds because taking also the infimum over \(\chi_0\)
+recovers \(I(\phi)\).  Each bracket is an affine function of \(\phi_0\)
+that is continuous for pointwise convergence on \(X^{\divis}\), being the
+integral against a measure carried by a \emph{finite} subset of
+\(X^{\divis}\).  An infimum of continuous functions is upper
+semicontinuous.
+
+\emph{Step 6: uniqueness.}  Let \(G\) be any map with the four listed
+properties.  If \(\psi_i\ge\phi_i\) with
+\(\psi_i\in\cH_{\mathrm{dom}}(\omega_i)\), then \(G(\phi)\le
+G(\psi)=P(\psi)\) because \(G\) is increasing and extends \(P\); taking the
+infimum gives \(G\le I\).  For the reverse, index by pairs
+\(\alpha=(S,\varepsilon)\) with \(S\subset X^{\divis}\) finite and
+\(\varepsilon>0\), ordered by inclusion of \(S\) and reverse order of
+\(\varepsilon\), and use \Cref{lem:ch46-pl-domination} to choose
+\(\psi_i^\alpha\in\cH_{\mathrm{dom}}(\omega_i)\) with
+\(\psi_i^\alpha\ge\phi_i\) and \(\psi_i^\alpha\le\phi_i+\varepsilon\) on
+\(S\).  Then \(\psi^\alpha_i\to\phi_i\) pointwise on \(X^{\divis}\), so by
+upper semicontinuity of \(G\),
+\[
+ I(\phi)\le\liminf_\alpha P(\psi^\alpha)
+ =\liminf_\alpha G(\psi^\alpha)
+ \le\limsup_\alpha G(\psi^\alpha)\le G(\phi),
+\]
+the first inequality because each \(\psi^\alpha\) is a competitor.  Hence
+\(G=I\).
+
+This is the proof of \cite[Theorem~7.1]{BJ22}, with nets
+retained throughout.
+\end{proof}
+
+\begin{remark}[Why the fixed class is the whole point]
+\label{rem:ch46-fixed-class-is-the-point}
+\Cref{def:bj-psh}\,(3) approximates a \(\theta\)-psh function by
+Fubini--Study functions in classes \(c_1(L_\iota)\) that merely
+\emph{converge} to \(\theta\), and \Cref{rem:ch45-real-again} explained why
+the varying-class convention cannot be dispensed with in general.  For the
+present chapter that convention is useless: the pairing
+\eqref{eq:bj-pl-energy-intersection} depends on the classes as well as on
+the potentials, so a varying-class approximation would produce a family of
+numbers \(\bigl(c_1(L_{0,\iota}),\phi_{0,\iota}\bigr)\cdots\) whose limit
+would have to be shown independent of the approximating classes before it
+could be called the pairing of \((\omega_i,\phi_i)\).  What
+\Cref{thm:ch34-fs-regularization} and \Cref{thm:ch45-continuous-regularization}
+supply, and what \Cref{def:bj-psh} does not, is a monotone approximation in
+the class \(\omega\) itself.  This is the sense in which
+\Cref{sec:ch46-where-envelope} claims that the envelope theorem is what
+makes the extension possible: for a class that is not the class of a
+\(\mathbf Q\)-line bundle, \Cref{thm:ch45-continuous-regularization} is the
+only fixed-class monotone approximation available in this book.
+\end{remark}
+
+\begin{remark}[Real ample classes]
+\label{rem:ch46-real-classes}
+\Cref{lem:ch46-pl-domination} was proved for \(\omega=c_1(L)\) with \(L\)
+an ample \(\mathbf Q\)-line bundle, because
+\Cref{thm:ch34-fs-regularization} is stated for classes of
+\(\mathbf Q\)-line bundles.  For an arbitrary real ample class \(\omega\)
+the corresponding statement with \(\cH_{\mathrm{dom}}(\omega)\) replaced by
+\(C^0(X^{\An})\cap\PSH(\omega)\) is
+\Cref{thm:ch45-continuous-regularization}, which holds for every real
+ample class on a unibranch \(X\); and the competitor family
+\(\{w\in C^0\cap\PSH(\omega):w\ge u\}\) is then downward directed with
+infimum \(u\), by \Cref{lem:ch46-continuous-competitors} below.  The
+statement of \Cref{thm:bj-extended-energy-pairing} for real ample classes
+is \cite[Theorem~7.1]{BJ22}; the proof given above is complete for classes
+of ample \(\mathbf Q\)-line bundles, and Steps~1, 3, 4 and~6 are valid
+verbatim for real classes once Step~2 and \Cref{lem:ch46-pl-domination}
+are.  No statement later in this book uses the real case in an essential
+way: the polarization of \Cref{sec:ch46-e1} and the measures of
+\Cref{sec:ch46-mixed} are stated for classes in \(N^1(X)\), and their
+proofs proceed by approximating a real class by rational ones inside the
+open ample cone.
+\end{remark}
+
+\begin{lemma}
+\label{lem:ch46-continuous-competitors}
+Let \(\omega\in\Amp(X)\) be a real class and let \(u\in\PSH(\omega)\).
+Then
+\[
+ \mathcal D_u:=\{w\in C^0(X^{\An})\cap\PSH(\omega)\ :\ w\ge u\}
+\]
+is nonempty, downward directed, and satisfies \(\inf\mathcal D_u=u\) pointwise on
+\(X^{\An}\).
+\end{lemma}
+
+\begin{proof}
+Nonemptiness: the constant \(\sup_{X^{\An}}u\) lies in \(\mathcal D_u\), being
+\(\omega\)-psh by \Cref{lem:ch34-psh-nonempty}.
+
+Directedness: let \(w_1,w_2\in\mathcal D_u\) and put
+\(f:=\min\{w_1,w_2\}\in C^0(X^{\An})\).  Then \(f\) is an admissible
+obstacle in the sense of \Cref{def:ch45-admissible-obstacle}: it is
+continuous, hence bounded and upper semicontinuous, and its competitor
+family contains \(u\).  By \Cref{thm:bj-final-obstacle-psh} the function
+\(P_\omega(f)\) is the greatest \(\omega\)-psh function \(\le f\), so
+\(u\le P_\omega(f)\le f\le w_1,w_2\); and \(P_\omega(f)\) is continuous by
+\Cref{cor:ch45-continuity-envelopes}, \(\omega\) being ample.  Hence
+\(P_\omega(f)\in\mathcal D_u\) lies below both.
+
+Infimum: by \Cref{thm:ch45-continuous-regularization} there is a downward
+directed net \((u_g)\subset C^0(X^{\An})\cap\PSH(\omega)\) with
+\(u_g\downarrow u\); each \(u_g\ge u\), so \(u_g\in\mathcal D_u\) and
+\(\inf\mathcal D_u\le\inf_gu_g=u\).  The reverse inequality is the definition of
+\(\mathcal D_u\).
+\end{proof}
+
+\begin{remark}[The scope of Step~5]
+\label{rem:ch46-usc-scope}
+Step~5 of the proof establishes upper semicontinuity of the extended
+pairing in each variable separately.  The pure energy \(E_\omega\) --- all
+\(n+1\) arguments equal --- is upper semicontinuous as a function of the
+single remaining variable, and this is proved again, with the sharper
+concavity statement, in \Cref{prop:ch46-energy-usc}.  Joint upper
+semicontinuity in all \(n+1\) variables is asserted in
+\Cref{thm:bj-extended-energy-pairing} and is
+\cite[Theorem~7.1]{BJ22}; it is not deduced here from the separate
+statements, and no argument below uses it.  The reader should note that the
+mixed pairing is \emph{not} concave as a function of the tuple: already for
+\(n=1\) the function
+\(t\mapsto(\omega,(1-t)\psi_0+t\chi_0)(\omega,(1-t)\psi_1+t\chi_1)\) is a
+quadratic polynomial whose leading coefficient
+\((0,\chi_0-\psi_0)(0,\chi_1-\psi_1)\) can have either sign, so the route
+through concavity that proves \Cref{prop:ch46-energy-usc} is unavailable in
+the mixed case.
+\end{remark}
+
+\begin{definition}[Monge--Amp\`ere energy]
+\label{def:bj-ma-energy}
+For \(\phi\in\PSH(\omega)\), define
+
+\[
+                   E_\omega(\phi)
+       :=\frac{(\omega,\phi)^{n+1}}{(n+1)V}
+       \in\mathbf R\cup\{-\infty\}.
+\tag{46.13}\label{eq:bj-energy-definition}
+\]
+\end{definition}
+
+The normalization has three immediate consequences:
+
+\[
+ E_\omega(0)=0,\qquad E_\omega(\phi+c)=E_\omega(\phi)+c,
+ \qquad E_{t\omega}(t\phi)=tE_\omega(\phi).
+\tag{46.14}\label{eq:bj-energy-basic-identities}
+\]
+
+The functional is increasing, concave, upper semicontinuous, and continuous
+along decreasing nets; these are \cite[Proposition~7.7]{BJ22}.  Concavity
+is the Hodge-index input, first proved for PL functions and then passed to
+decreasing limits.
+
+We prove these four properties, since the argument is short and since the
+representation formula it produces is used again in
+\Cref{chap:bj-finite-energy}.
+
+\begin{proposition}
+\label{prop:ch46-energy-usc}
+Let \(\omega\in\Amp(X)\) be the class of an ample \(\mathbf Q\)-line
+bundle.  Then, on \(\PSH(\omega)\),
+\begin{enumerate}
+\item\label{itm:ch46-Eusc:rep}
+      \(\displaystyle
+       E_\omega(\phi)
+       =\inf_{\psi\in\cH_{\mathrm{dom}}(\omega)}
+        \Bigl[E_\omega(\psi)
+              +\int_{X^{\An}}(\phi-\psi)\,\MA_\omega(\psi)\Bigr];\)
+\item\label{itm:ch46-Eusc:props}
+      \(E_\omega\) is increasing, concave, and upper semicontinuous for
+      pointwise convergence on \(X^{\divis}\);
+\item\label{itm:ch46-Eusc:decreasing}
+      \(E_\omega\) is continuous along decreasing nets;
+\item\label{itm:ch46-Eusc:identities}
+      \eqref{eq:bj-energy-basic-identities} holds, and
+      \(E_\omega(\phi)\le\sup_{X^{\An}}\phi\), with equality when
+      \(\phi\) is constant;
+\item\label{itm:ch46-Eusc:strict}
+      if \(\phi\in\cH_{\mathrm{dom}}(\omega)\) is nonconstant, then
+      \(E_\omega(\phi)<\sup_{X^{\An}}\phi\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch46-Eusc:rep}.  Write \(T_\psi(\phi)\) for the bracket.  For
+\(\psi\in\cH_{\mathrm{dom}}(\omega)\) and a PL competitor
+\(\chi\ge\phi\), \(\chi\in\cH_{\mathrm{dom}}(\omega)\), the tangent
+inequality \Cref{cor:ch46-pl-tangent}\,\cref{itm:ch46-tan:tangent} gives
+\(E_\omega(\chi)\le T_\psi(\chi)\).  The measure
+\(\MA_\omega(\psi)\) is carried by a finite set
+\(S\subset X^{\divis}\), so
+\Cref{lem:ch46-pl-domination} gives
+\(\inf_\chi\int\chi\,\MA_\omega(\psi)=\int\phi\,\MA_\omega(\psi)\), the
+infimum over competitors \(\chi\) for \(\phi\).  Taking that infimum in the
+displayed inequality and using \eqref{eq:bj-energy-infimum} on the left
+yields \(E_\omega(\phi)\le T_\psi(\phi)\), for every \(\psi\).  Conversely,
+for a competitor \(\chi\ge\phi\) one has
+\(T_\chi(\phi)=E_\omega(\chi)+\int(\phi-\chi)\MA_\omega(\chi)
+\le E_\omega(\chi)\), because \(\phi\le\chi\) and \(\MA_\omega(\chi)\ge0\);
+taking the infimum over \(\chi\) gives
+\(\inf_\psi T_\psi(\phi)\le E_\omega(\phi)\).
+
+\cref{itm:ch46-Eusc:props}.  Each \(T_\psi\) is an affine function of
+\(\phi\), and it is continuous for pointwise convergence on
+\(X^{\divis}\), being an integral against a measure carried by a finite
+subset of \(X^{\divis}\).  An infimum of affine continuous functions is
+concave and upper semicontinuous.  Monotonicity is Step~1 of the proof of
+\Cref{thm:bj-extended-energy-pairing}, or again the fact that each
+\(T_\psi\) is increasing.
+
+\cref{itm:ch46-Eusc:decreasing} is Step~4 of the same proof, specialized to
+equal arguments.
+
+\cref{itm:ch46-Eusc:identities}.  The three identities
+\eqref{eq:bj-energy-basic-identities} hold on PL data by
+\eqref{eq:bj-trivial-energy-zero},
+\eqref{eq:bj-energy-translation-pairing} and multilinearity, and pass to
+the infimum \eqref{eq:bj-energy-infimum} because the operations involved
+--- adding a constant, multiplying a class and a potential by \(t>0\) ---
+are bijections of the competitor families.  For the inequality take
+\(\psi:=\sup_{X^{\An}}\phi\), a constant competitor, in
+\cref{itm:ch46-Eusc:rep}:
+\[
+ E_\omega(\phi)\le E_\omega(\psi)+\int(\phi-\psi)\,\MA_\omega(\psi)
+ =\sup\phi+\int(\phi-\sup\phi)\,\MA_\omega(\psi)\le\sup\phi ,
+\]
+since \(\MA_\omega(\psi)=\MA_\omega(0)\) is a probability measure and
+\(\phi\le\sup\phi\).
+
+\cref{itm:ch46-Eusc:strict}.  Let \(\phi\in\cH_{\mathrm{dom}}(\omega)\)
+and put \(u:=\phi-\sup_{X^{\An}}\phi\), so that \(u\le0\) and
+\(u(v_{\triv})=0\); here \(\sup_{X^{\An}}\phi=\phi(v_{\triv})\) by the
+maximum principle
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:decreasing}, which
+passes from Fubini--Study to PL psh functions by
+\Cref{thm:ch34-fs-regularization}.  For \(s\in[0,1]\) the function
+\(su=su+(1-s)\cdot0\) is \(\omega\)-psh at PL level, so
+\(h(s):=E_\omega(su)\) is a polynomial by
+\Cref{prop:ch46-first-variation-pl}, with
+\[
+ h(0)=0,\qquad
+ h'(0)=\int u\,\MA_\omega(0)=u(v_{\triv})=0,
+\]
+the second equality because \(\MA^{\mathrm u}_\omega(0)=V\delta_{v_{\triv}}\)
+by \Cref{prop:ch46-pl-measure} applied on the trivial test configuration.
+The second derivative is
+\(h''(s)=-\tfrac nV\langle u,u\rangle_{\mathrm D}\) computed with the
+auxiliary classes \((\omega+s\ddc u)^{n-1}\), by the computation in the
+proof of \Cref{prop:ch46-first-variation-pl}.  Writing \(D\) for the
+vertical divisor of \(u\) on a test configuration \(\cX\) on which
+\(\omega_{\cX}+D\) is relatively ample, the class
+\(\omega_{\cX}+sD=(1-s)\omega_{\cX}+s(\omega_{\cX}+D)\) is relatively
+ample for \(s\in(0,1]\), being the sum of a relatively nef and a
+relatively ample class; so the equality clause of the Hodge index
+inequality --- \Cref{lem:ch46-vertical-negativity} in the form recorded in
+\Cref{thm:ch20-mixed-hodge} --- gives \(h''(s)<0\) unless \(D\) is
+numerically proportional to \(\cX_0\), that is, unless \(u\) is constant.
+A strictly concave function with \(h(0)=h'(0)=0\) has \(h(1)<0\); hence
+\(E_\omega(u)<0\), which is the assertion after adding back
+\(\sup_{X^{\An}}\phi\).
+\end{proof}
+
+\begin{remark}[Equality for unbounded potentials]
+\label{rem:ch46-equality-scope}
+\Cref{prop:ch46-energy-usc}\,\cref{itm:ch46-Eusc:strict} is stated for
+\(\cH_{\mathrm{dom}}(\omega)\) because its proof uses the equality clause
+of the Hodge index inequality on one model.  The corresponding statement
+for an arbitrary \(\phi\in\PSH(\omega)\) --- that
+\(E_\omega(\phi)=\sup\phi\) forces \(\phi\) constant --- is true, and
+follows from the domination principle of
+\Cref{chap:bj-finite-energy}; it is not proved here, and no statement of
+this chapter uses it.  What the cocycle does give, and what is used, is the
+weaker assertion of \Cref{prop:ch46-cocycle}\,\cref{itm:ch46-coc:mono}:
+equality in a monotonicity comparison forces equality almost everywhere for
+the relevant Monge--Amp\`ere measure.
+\end{remark}
+
+\begin{warning}{No undefined subtraction}
+\label{warn:ch46-no-subtraction}
+The mixed pairing of arbitrary psh functions may be \(-\infty\).  We never
+polarize an identity by subtracting two infinite values.  Multilinear
+extensions and cocycle formulae below are asserted only on the finite-energy
+locus, where every mixed term is finite.
+
+Concretely, three formulae in this chapter would be meaningless without the
+restriction.  The cocycle \eqref{eq:bj-energy-cocycle} contains the
+difference \(\phi-\psi\), which is undefined at a proper-support point
+where both are \(-\infty\); it is asserted for
+\(\phi,\psi\in\cE^1(\omega)\), and even there the integrand is handled on
+\(X^{\lin}\) by \Cref{thm:bj-mixed-ma}.  The multilinear extension
+\eqref{eq:bj-e1-polarized-pairing} is asserted on the vector space
+\(\vec\cE^{\,1}(X)\) and not on \(\PSH\), which is not a vector space.  And
+the integration-by-parts formula \eqref{eq:bj-integration-by-parts} is
+asserted for \(f,g\in\vec\cE^{\,1}(X)\), for the same reason.  The general
+principle is the one stated in the front matter: a displayed identity
+between extended-real quantities is asserted only where both sides are
+defined, and here that locus has been isolated rather than left implicit.
+\end{warning}
+
+\subsection{Where the envelope theorem is used}
+\label{sec:ch46-where-envelope}
+
+It is worth listing, once, the places in this chapter where the results of
+\Cref{chap:bj-envelope-consequences} are genuinely consumed, so that the
+reader can see which parts of the theory are older than the envelope
+theorem and which are not.
+
+\begin{enumerate}
+\item\label{itm:ch46-env:directed}
+      \emph{Directedness of the continuous competitor family.}
+      \Cref{lem:ch46-continuous-competitors} uses
+      \Cref{thm:bj-final-obstacle-psh},
+      \Cref{cor:ch45-continuity-envelopes} and
+      \Cref{thm:ch45-continuous-regularization}, that is, the envelope
+      theorem three times.  It is what makes ``the limit along the
+      competitor family'' a statement about a \emph{net} rather than about
+      an unordered infimum, and it is what
+      \Cref{thm:bj-mixed-ma} needs in order to speak of coordinatewise
+      decreasing nets.
+\item\label{itm:ch46-env:real}
+      \emph{Real ample classes.}  \Cref{thm:ch34-fs-regularization}
+      regularizes in a fixed class only when that class is the class of a
+      \(\mathbf Q\)-line bundle.  For an arbitrary real ample class the
+      only fixed-class monotone approximation available is
+      \Cref{thm:ch45-continuous-regularization}, which is a consequence of
+      the envelope theorem; see \Cref{rem:ch46-real-classes}.
+\item\label{itm:ch46-env:compactness}
+      \emph{Compactness.}  \Cref{cor:ch45-compactness} together with the
+      upper semicontinuity of \Cref{prop:ch46-energy-usc} is what makes
+      \(E_\omega\) attain its supremum on weakly closed subsets of
+      \(\PSH^{\sup}(\omega)\).  Neither statement alone suffices, and the
+      compactness half is exactly the envelope theorem
+      (\Cref{rem:ch45-compactness-equivalent}).  This is the input to the
+      variational method of \Cref{chap:bj-finite-energy}.
+\item\label{itm:ch46-env:obstacles}
+      \emph{Locality, comparison, and the extremal function.}  The
+      arguments of \Cref{sec:ch46-ibp} manipulate
+      \(\max\{\phi,\psi-\varepsilon\}\) and \(P_\omega\), and
+      \Cref{chap:bj-finite-energy} measures energy relative to
+      \(V_\theta=P_\theta(0)\) of \Cref{cor:ch45-extremal}, which is a
+      \(\theta\)-psh function only by the envelope theorem.
+\end{enumerate}
+
+\begin{remark}[What survives without the envelope theorem]
+\label{rem:ch46-without-envelope}
+Everything in \Cref{sec:ch46-model,sec:ch46-pl-measure,sec:ch46-p1}
+survives, for an arbitrary integral projective \(X\) over an arbitrary
+trivially valued field: those sections are intersection theory on a
+projective \((n+1)\)-fold.  So does the extension
+\Cref{thm:bj-extended-energy-pairing} for classes of ample
+\(\mathbf Q\)-line bundles, since \Cref{lem:ch46-pl-domination} was proved
+from \Cref{thm:ch34-fs-regularization}; and so do the mixed measures of
+\Cref{thm:bj-mixed-ma} on \emph{bounded} psh functions, since there the
+competitor family may be replaced by a sandwich between two constants.
+
+What does not survive is the passage to unbounded potentials with a usable
+calculus: without \Cref{cor:ch45-compactness} there is no compactness of
+\(\PSH^{\sup}(\omega)\), hence no attainment of suprema of \(E_\omega\),
+hence no variational solution of the Monge--Amp\`ere equation; without
+\Cref{cor:ch45-extremal} there is no \(V_\theta\), hence no energy relative
+to a non-nef class; and without
+\Cref{thm:ch45-continuous-regularization} there is no fixed-class
+approximation for a real class.  This is the sense in which
+\Cref{chap:bj-envelope-consequences} is the hinge of \Cref{part:bj}: the
+finitary theory was always available, and it is the analytic completion of
+it that had to wait.
+\end{remark}
+
+\section{Finite energy and polarization}
+\label{sec:ch46-e1}
+
+The extended pairing takes the value \(-\infty\), and the mechanism is
+already visible on a curve: a psh function whose graph on a divisorial ray
+decays too fast has infinite Dirichlet energy.  The locus on which this does
+not happen is a convex class that behaves like a vector space, and it is the
+domain on which every multilinear identity of this chapter is asserted.
+
+\begin{definition}[Potential-side finite energy]
+\label{def:bj-e1}
+Set
+
+\[
+ \cE^1(\omega)
+ :=\{\phi\in\PSH(\omega)\mid E_\omega(\phi)>-\infty\}.
+\tag{46.15}\label{eq:bj-e1-definition}
+\]
+\end{definition}
+
+This is a definition about pointwise psh functions.  It is not the
+measure-side synthetic completion discussed in
+\Cref{chap:bfj-finite-energy-measures}.
+
+\begin{theorem}\label{thm:bj-e1-basic}
+The class \(\cE^1(\omega)\) is convex, contains every bounded
+\(\omega\)-psh function, is stable under constants, and is upward closed
+inside \(\PSH(\omega)\).  If \(\omega\leq\omega'\), then
+\(\cE^1(\omega)\subset\cE^1(\omega')\), and
+
+\[
+ \cE^1(\omega)+\cE^1(\omega')
+       \subset\cE^1(\omega+\omega').
+\tag{46.16}\label{eq:bj-e1-addition}
+\]
+
+Every mixed pairing of \(n+1\) psh finite-energy pairs is finite.
+\end{theorem}
+
+\begin{proof}[Proof architecture]
+Convexity and upward closure follow from concavity and monotonicity of
+energy.  For the change of class, normalize the potentials to be
+nonpositive and compare ample classes by
+\(\omega_i\leq t\omega_j\).  Expanding the energy of sums and applying
+the Hodge-type inequalities gives a uniform lower bound for every mixed
+term in terms of the pure energies.  This is
+\cite[Theorem~7.8, Lemmas~7.9--7.10, and Corollary~7.11]{BJ22}.
+The estimates, rather than formal polarization with infinities, prove the
+last assertion.
+
+We give the first three assertions in full, since they are immediate from
+\Cref{prop:ch46-energy-usc} and are used constantly, and indicate precisely
+what the quoted estimates supply.
+
+\emph{Bounded functions.}  If \(\phi\in\PSH(\omega)\) is bounded, then
+\(m\le\phi\le M\) for real \(m,M\), and monotonicity together with
+\(E_\omega(m)=m\) gives \(m\le E_\omega(\phi)\le M\); in particular
+\(E_\omega(\phi)\) is finite.  This is Step~3 of the proof of
+\Cref{thm:bj-extended-energy-pairing}, specialized to equal arguments.
+
+\emph{Constants and upward closure.}
+\(E_\omega(\phi+c)=E_\omega(\phi)+c\) by
+\eqref{eq:bj-energy-basic-identities}, so \(\cE^1(\omega)+\mathbf R
+=\cE^1(\omega)\); and if \(\phi\le\psi\) with
+\(\phi\in\cE^1(\omega)\) and \(\psi\in\PSH(\omega)\), then
+\(E_\omega(\psi)\ge E_\omega(\phi)>-\infty\), so
+\(\psi\in\cE^1(\omega)\).
+
+\emph{Convexity.}  \(\PSH(\omega)\) is convex by
+\Cref{thm:bj-basic-closure}\,(3), and \(E_\omega\) is concave by
+\Cref{prop:ch46-energy-usc}\,\cref{itm:ch46-Eusc:props}; a concave function
+is \(>-\infty\) on the segment joining two points at which it is
+\(>-\infty\).
+
+\emph{Change of class and addition.}  For \eqref{eq:bj-e1-addition} and the
+inclusion \(\cE^1(\omega)\subset\cE^1(\omega')\) one compares energies in
+different classes, and this is where the Hodge-type estimates enter.  The
+mechanism is the following elementary case, which we record because it
+already shows the shape of the argument.  If \(\omega\le\omega'\) are both
+ample and \(\phi\le0\) is \(\omega\)-psh, then \(\phi\) is
+\(\omega'\)-psh by \Cref{thm:bj-basic-closure}\,(3) applied to
+\(0\in\PSH(\omega'-\omega)\), and, with
+\(V=(\omega^n)\), \(V'=(\omega'^n)\),
+\[
+ (n+1)V'E_{\omega'}(\phi)=(\omega',\phi)^{n+1}
+ \ \ge\ (\omega,\phi)^{n+1}=(n+1)VE_\omega(\phi),
+\]
+because expanding \((\omega',\phi)^{n+1}\) in
+\((\omega,\phi)+(\omega'-\omega,0)\) produces, besides
+\((\omega,\phi)^{n+1}\), only terms of the form
+\((\omega'-\omega,0)^{k}(\omega,\phi)^{n+1-k}\) with \(k\ge1\), each of
+which is \(\ge0\) for \(\phi\le0\): indeed such a term equals
+\(\int\) of a nonpositive function against a positive mixed measure times
+\(-1\), or vanishes, by
+\Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:pos} at PL level and by
+monotone approximation in general.  The general statements
+\eqref{eq:bj-e1-addition} and the finiteness of every mixed term require
+the two-sided estimates of \cite[Theorem~7.8, Lemmas~7.9--7.10, and
+Corollary~7.11]{BJ22}, which bound each mixed pairing of finite-energy
+pairs from below by a fixed positive combination of the pure energies; they
+are not deduced here.
+\end{proof}
+
+\begin{example}[A finite-energy potential that is unbounded, and one that is not finite-energy]
+\label{ex:ch46-e1-curve}
+Let \(X=\mathbf P^1\), \(\omega=c_1(\cO(1))\), \(V=1\), and let
+\(p\in X(k)\).  Consider functions \(\phi\) that vanish off the ray of
+\(p\) and are given on it by
+\(\phi(t\,\ord_p)=h(t)\), where \(h:[0,\infty)\to\mathbf R\cup\{-\infty\}\)
+is convex and decreasing with \(h(0)=0\).  By the curve criterion
+\cite[Example~4.13]{BJ22}, recalled at the end of
+\Cref{ex:ch34-psh-check}, such a \(\phi\) is \(\omega\)-psh if and only if
+\(h'(0^+)\ge-1\).
+
+For the measure and the energy, apply the graph Laplacian as in
+\Cref{ex:ch46-p1-energy}: the outgoing slope at \(v_{\triv}\) is
+\(h'(0^+)\) and the second derivative of the convex \(h\) contributes along
+the ray, so
+\[
+ \MA^{\mathrm u}_\omega(\phi)
+ =\bigl(1+h'(0^+)\bigr)\delta_{v_{\triv}}+h''(t)\,\rd t ,
+\]
+a positive measure of total mass \(1+h'(0^+)+\bigl(0-h'(0^+)\bigr)=1\), as
+\Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:mass} requires.  Since
+\(\int\phi\,\MA^{\mathrm u}_\omega(0)=h(0)=0\), the formula
+\eqref{eq:ch46-pure-pairing-as-integrals} with \(n=1\) gives, first for
+the PL truncations \(h_j:=\max\{h,-j\}\) and then in the decreasing limit
+by \Cref{prop:ch46-energy-usc}\,\cref{itm:ch46-Eusc:decreasing},
+\[
+ E_\omega(\phi)
+ =\tfrac12\int_0^\infty h\,h''\,\rd t
+ =-\tfrac12\int_0^\infty|h'(t)|^2\,\rd t ,
+\]
+the integration by parts being legitimate because \(h h'\to0\) at both
+ends for a convex decreasing \(h\) with \(h(0)=0\) and finite Dirichlet
+integral.  So \(\phi\in\cE^1(\omega)\) if and only if
+\(h'\in L^2(0,\infty)\).
+
+Two instances.  For \(h(t)=-\log(1+t)\), which is convex and decreasing
+with \(h'(0^+)=-1\), one has \(\int_0^\infty(1+t)^{-2}\rd t=1\), so
+\(E_\omega(\phi)=-\tfrac12\); this \(\phi\) is unbounded below and has
+finite energy.  For \(h(t)=-t\), which corresponds to
+\(\phi=\log|\mathfrak m_p|\), the integral diverges and
+\(E_\omega(\phi)=-\infty\); so the generically finite Fubini--Study
+function of \Cref{ex:gf-proper-support-pole} is \(\omega\)-psh with
+infinite energy.  Together the two instances show that
+\(\cE^1(\omega)\) lies strictly between the bounded \(\omega\)-psh
+functions and \(\PSH(\omega)\).  The comparison with
+\Cref{ex:ch26-unbounded-finite-energy} and
+\Cref{ex:ch26-infinite-energy}, which make the same two points over a
+discretely valued base, is exact.
+\end{example}
+
+Let \(\vec{\cE}^{\,1}(X)\) be the vector space of functions on
+\(X^{\lin}\) generated by all \(\cE^1(\omega)\).  Restriction to
+\(X^{\lin}\) is necessary: arbitrary psh functions can equal \(-\infty\)
+at proper-support points, while they are finite on every linear-growth
+valuation.  BJ's Theorem~7.14 gives a unique real-valued symmetric
+multilinear extension
+
+\[
+ \bigl(N^1(X)\times\vec{\cE}^{\,1}(X)\bigr)^{n+1}
+       \longrightarrow\mathbf R.
+\tag{46.17}\label{eq:bj-e1-polarized-pairing}
+\]
+
+\begin{remark}[Why \(X^{\lin}\), and why a vector space]
+\label{rem:ch46-vector-space}
+Two separate points are packed into the previous paragraph.
+
+The first is a domain question.  A \(\theta\)-psh function is finite on
+\(X^{\val}\) only if it is a generically finite Fubini--Study function
+(\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:equiv}); a general
+psh function takes the value \(-\infty\) somewhere, and
+\Cref{ex:ch34-decreasing-to-pole} shows that the pole can appear only in
+the limit.  On the linear-growth locus \(X^{\lin}\) of
+\Cref{def:bj-linear-growth}, however, every finite-energy psh function is
+finite, by the estimate \eqref{eq:bj-e1-sublinear-growth}.  Restricting to
+\(X^{\lin}\) therefore removes the extended-real values entirely and makes
+differences legitimate --- which is the requirement of
+\Cref{warn:ch46-no-subtraction}.
+
+The second is an algebraic question.  \(\cE^1(\omega)\) is convex and
+stable under addition of constants, but it is not a vector space: it is not
+stable under multiplication by \(-1\), since \(-\phi\) is
+\((-\omega)\)-psh, and \(-\omega\) is not pseudoeffective.  The vector space
+\(\vec\cE^{\,1}(X)\) generated by the \(\cE^1(\omega)\) inside the
+real vector space of functions on \(X^{\lin}\) is the smallest object on
+which a multilinear extension can be asserted at all.  Its elements are
+differences \(\phi-\psi\) with \(\phi\in\cE^1(\omega)\),
+\(\psi\in\cE^1(\omega')\); the pairing is extended to it by multilinearity,
+and \eqref{eq:bj-e1-polarized-pairing} asserts that this is consistent.
+The consistency is not formal --- it is the finiteness of every mixed term,
+which is the last clause of \Cref{thm:bj-e1-basic}.
+\end{remark}
+
+\section{Mixed Monge--Amp\`ere measures}
+\label{sec:ch46-mixed}
+
+The measure attached to a tuple of psh functions is obtained from the
+pairing by putting a PL function in the zeroth slot and invoking the Riesz
+representation theorem.  Nothing else happens; in particular no wedge
+product of currents is formed, and the positivity of the measure is the
+positivity of an intersection number, not of a local differential form.
+The three properties that make it usable --- symmetry, positivity and total
+mass --- are proved here from \Cref{prop:ch46-pl-measure} and the extension
+theorem.
+
+\begin{theorem}\label{thm:bj-mixed-ma}
+For \((\theta_i,\phi_i)\in
+N^1(X)\times\vec{\cE}^{\,1}(X)\), \(1\leq i\leq n\), there is a
+unique signed Radon measure
+
+\[
+               \bigwedge_{i=1}^n(\theta_i+\ddc\phi_i)
+\tag{46.18}\label{eq:bj-mixed-ma}
+\]
+
+such that, for all \(f\in\PL(X)_{\mathbf R}\),
+
+\[
+ \int_{X^{\An}}f\bigwedge_{i=1}^n(\theta_i+\ddc\phi_i)
+  =(0,f)\prod_{i=1}^n(\theta_i,\phi_i).
+\tag{46.19}\label{eq:bj-mixed-ma-duality}
+\]
+
+It is symmetric and multilinear, has total mass
+\((\theta_1\cdots\theta_n)\), and is positive when every \(\theta_i\) is
+nef and \(\phi_i\in\PSH(\theta_i)\).  On finite-energy psh tuples it is
+continuous along coordinatewise decreasing nets.  Every
+\(f\in\vec{\cE}^{\,1}(X)\) is integrable against it, and
+\eqref{eq:bj-mixed-ma-duality} remains valid.
+\end{theorem}
+
+\begin{proof}[Construction]
+For nef psh pairs, the right-hand side of
+\eqref{eq:bj-mixed-ma-duality} is a positive linear functional of \(f\).
+Its value at \(1\) is the asserted intersection number.  Density of
+\(\PL(X)\) in \(C^0(X^{\An})\) and the Riesz representation theorem give
+the measure.  Multilinearity produces signed measures for arbitrary pairs.
+Continuity and finite-energy integrability follow by decreasing
+approximation and monotone convergence, with finiteness supplied by
+\Cref{thm:bj-e1-basic}.  This is
+\cite[Theorem~7.18 and Proposition~7.19]{BJ22}.
+
+We carry out the four steps, since the positivity, the mass and the
+symmetry are exactly the properties on which every later computation
+depends.
+
+\emph{Step 1: linearity and positivity of the functional.}  Fix nef
+\(\theta_i\) and \(\phi_i\in\cE^1(\theta_i)\), \(1\le i\le n\); the
+finite-energy hypothesis is what makes every mixed pairing below finite, by
+the last clause of \Cref{thm:bj-e1-basic}.  Define
+\[
+ \Lambda(f):=(0,f)\prod_{i=1}^n(\theta_i,\phi_i),
+ \qquad f\in\PL_{\mathbf R}(X),
+\]
+where the pairing is the extended one of
+\Cref{thm:bj-extended-energy-pairing} with the pair \((0,f)\) in the
+zeroth slot.  One caution is needed before this is legitimate: \(f\) need
+not be \(0\)-psh, and \eqref{eq:bj-energy-infimum} was set up for psh
+arguments.  We
+therefore \emph{define} \(\Lambda\) first for \(f\in\PL^+(X)\), writing
+\(f=\phi_{\mathfrak a}/m\), and then extend by linearity using
+\Cref{lem:ch34-pl-lattice}\,\cref{itm:ch34-pl:difference}; for
+\(f\in\PL^+(X)\) the pair \((0,f)\) does occur as a difference
+\((\omega,f)-(\omega,0)\) with \(\omega\) ample chosen so large that
+\(f\) is \(\omega\)-psh, which is possible by
+\Cref{cor:ch34-pl-plus-union}; so
+\(\Lambda(f)=(\omega,f)\prod(\theta_i,\phi_i)
+-(\omega,0)\prod(\theta_i,\phi_i)\) is a difference of two finite
+numbers, finiteness being the last clause of \Cref{thm:bj-e1-basic}
+applied to the two finite-energy tuples.  Linearity in
+\(f\) then follows from multilinearity of the pairing, which holds on
+\(\PL_{\mathbf R}\) by \Cref{prop:ch46-pairing-wellposed} and passes to the
+extension by \eqref{eq:bj-energy-infimum} applied in the remaining slots.
+
+Positivity: if \(f\ge0\), then \(\Lambda(f)\ge\Lambda(0)=0\).  Indeed for
+PL psh \(\phi_i\) this is \Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:pos},
+and in general one applies \eqref{eq:bj-energy-infimum} in the slots
+\(1,\dots,n\): the value of \(\Lambda\) is the infimum, over PL psh
+competitors \(\chi_i\ge\phi_i\), of \(\int f\,\rd\mu_\chi\) with
+\(\mu_\chi\ge0\), by the computation in Step~5 of that proof; an infimum of
+nonnegative numbers is nonnegative.
+
+\emph{Step 2: Riesz.}  By Step~1 and \(\Lambda(1)=(\theta_1\cdots\theta_n)\)
+--- which is \eqref{eq:bj-energy-translation-pairing} again --- the
+functional satisfies \(|\Lambda(f)|\le\lVert
+f\rVert_\infty(\theta_1\cdots\theta_n)\) for every
+\(f\in\PL_{\mathbf R}(X)\), since \(-\lVert f\rVert_\infty\le f\le\lVert
+f\rVert_\infty\).  It therefore extends uniquely to a bounded positive
+linear functional on \(C^0(X^{\An})\), by
+\Cref{thm:ch34-pl-density}, and the Riesz representation theorem on the
+compact Hausdorff space \(X^{\An}\)
+(\Cref{thm:triv-berkovich-compactness}) produces a unique positive Radon
+measure with \eqref{eq:bj-mixed-ma-duality}.  Its total mass is
+\(\Lambda(1)=(\theta_1\cdots\theta_n)\).
+
+\emph{Step 3: symmetry and multilinearity.}  Both are inherited from the
+pairing: symmetry from \Cref{prop:ch46-pairing-wellposed} and its
+extension, multilinearity likewise.  Multilinearity is what produces
+signed measures for pairs that are not nef and psh: writing
+\(\theta_i=\theta_i'-\theta_i''\) and
+\(\phi_i=\phi_i'-\phi_i''\) with all four terms nef, respectively in
+\(\vec\cE^{\,1}\), expands \eqref{eq:bj-mixed-ma} into a
+\(\pm\)-combination of positive measures.  Uniqueness of the resulting
+signed measure follows because \(\PL_{\mathbf R}(X)\) is dense in
+\(C^0(X^{\An})\).
+
+\emph{Step 4: continuity and integrability.}  Let
+\(\phi_{i,j}\downarrow\phi_i\) be coordinatewise decreasing nets of
+finite-energy psh functions.  For a fixed \(f\in\PL_{\mathbf R}(X)\), the
+number \(\int f\,\rd\mu_j\) is the pairing
+\((0,f)\prod(\theta_i,\phi_{i,j})\), which converges to
+\((0,f)\prod(\theta_i,\phi_i)\) by Step~4 of the proof of
+\Cref{thm:bj-extended-energy-pairing} applied in each slot; hence
+\(\mu_j\to\mu\) against \(\PL_{\mathbf R}(X)\), hence weakly by density and
+the uniform mass bound.  The integrability of an arbitrary
+\(f\in\vec\cE^{\,1}(X)\) against \(\mu\), and the validity of
+\eqref{eq:bj-mixed-ma-duality} for such \(f\), require the finiteness
+statement of \Cref{thm:bj-e1-basic} together with monotone convergence
+applied to the truncations \(\max\{f,-j\}\); this is
+\cite[Proposition~7.19]{BJ22}, and it is the one clause of the theorem for
+which the estimates of \cite[Theorem~7.8]{BJ22} are not replaced by an
+argument given here.
+\end{proof}
+
+\begin{remark}[The zeroth slot is not a psh slot]
+\label{rem:ch46-zeroth-slot}
+The awkwardness in Step~1 is real and is worth stating plainly.  The
+extension theorem \Cref{thm:bj-extended-energy-pairing} defines the pairing
+on tuples of \emph{psh} functions, whereas
+\eqref{eq:bj-mixed-ma-duality} evaluates it at a pair \((0,f)\) with
+\(f\) an arbitrary PL function, which is \(0\)-psh only if it is constant:
+\Cref{cor:ch35-zero-class} and the sharper statement
+\(\PSH_X(0)=\mathbf R\) quoted in its proof for connected \(X\) leave no
+room for a nonconstant competitor.  The device used above --- write
+\((0,f)=(\omega,f)-(\omega,0)\) with \(\omega\) ample large enough that
+\(f\) is \(\omega\)-psh, which is possible for \(f\) PL because
+\eqref{eq:pl-relative-nefness} is satisfied after scaling \(\omega\) up ---
+is the standard one and is the reason the pairing was set up as a function
+of \emph{pairs} rather than of potentials alone.  The reader should not
+read \eqref{eq:bj-mixed-ma-duality} as an instance of the extension
+theorem; it is an instance of multilinearity applied to it.
+\end{remark}
+
+On a common integrally closed test configuration, if
+\(\phi_i=\phi_{D_i}\), then
+
+\[
+ \bigwedge_{i=1}^n(\theta_i+\ddc\phi_i)
+   =\sum_{E\subset\cX_0}
+      b_E\bigl((\theta_{1,\cX}+D_1)|_E\cdots
+               (\theta_{n,\cX}+D_n)|_E\bigr)\delta_{v_E},
+\tag{46.20}\label{eq:bj-model-ma-atomic}
+\]
+
+where \(b_E=\ord_E(\cX_0)\).  Thus model products are finite atomic
+measures on divisorial valuations.  This is
+\Cref{prop:ch46-pl-measure}, and the reader should note that the formula
+was proved there \emph{before} the extension theorem: the model case is
+finitary and is the input, not a special case, of
+\Cref{thm:bj-mixed-ma}.
+
+\begin{proposition}
+\label{prop:ch46-no-mass-outside-lin}
+Let \(\theta_i\) be nef and \(\phi_i\in\cE^1(\theta_i)\), and let
+\(\mu=\bigwedge_{i=1}^n(\theta_i+\ddc\phi_i)\), a positive Radon measure of
+mass \((\theta_1\cdots\theta_n)\).  Then every \(u\in\cE^1(\omega)\),
+\(\omega\) ample, is \(\mu\)-integrable; in particular
+\[
+ \mu\bigl(\{u=-\infty\}\bigr)=0
+ \qquad\text{for every }u\in\cE^1(\omega).
+\]
+\end{proposition}
+
+\begin{proof}
+Integrability is the last clause of \Cref{thm:bj-mixed-ma}, quoted there
+from \cite[Proposition~7.19]{BJ22}.  A \(\mu\)-integrable function is
+finite \(\mu\)-almost everywhere, so the polar set of \(u\) is
+\(\mu\)-null.
+\end{proof}
+
+\begin{remark}[Where the mass sits]
+\label{rem:ch46-mass-location}
+\Cref{prop:ch46-no-mass-outside-lin} is the reason no proper-support point
+carries mass for a finite-energy tuple: a proper-support point lies in the
+polar set of the generically finite Fubini--Study function
+\(\log|s|\) of \Cref{ex:gf-proper-support-pole}, and truncating that
+function produces a bounded, hence finite-energy, member of
+\(\cE^1(\omega)\) with the same polar set intersected with any prescribed
+compact piece.  The stronger statement --- that the mass is carried by the
+linear-growth locus \(X^{\lin}\) of \Cref{def:bj-linear-growth} --- is
+\cite[Proposition~7.19]{BJ22} and is taken up in
+\Cref{chap:bj-linear-growth}; the quantitative input is the sublinear
+growth estimate \eqref{eq:bj-e1-sublinear-growth}.  At PL level the
+statement is trivial, the mass being carried by finitely many divisorial
+points (\Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:pos}), and this is
+the correct mental picture: the mass of a mixed measure is a limit of
+finite atomic measures on \(X^{\divis}\), and \(X^{\lin}\) is where such
+limits can live.
+\end{remark}
+
+\begin{example}[A curve]
+\label{ex:ch46-curve-laplacian}
+When \(X\) is a smooth projective curve and \(\deg\omega=d\), the ray
+\(t\mapsto t\ord_p\) carries the convex function
+\(t\mapsto\phi(t\ord_p)\).  With the graph-Laplacian sign of
+\Cref{chap:model-calculations},
+
+\[
+             \omega+\ddc\phi=d\,\delta_{v_{\triv}}+\Delta\phi.
+\tag{46.21}\label{eq:bj-curve-laplacian}
+\]
+
+For \(\phi\in\cE^1\), the measure puts no mass at a proper-support
+endpoint; this is an integrability conclusion, not an omission of those
+points from \(X^{\An}\).
+
+Two things should be checked against \Cref{ex:ch46-p1-energy}.  First the
+mass: \(\Delta\phi\) has total mass \(0\), being the Laplacian of a
+function that is eventually constant on every ray, so
+\eqref{eq:bj-curve-laplacian} has mass \(d=V\).  Second the sign: with
+\(\phi=\phi_{-cE}\) and \(0\le c\le d\) one has
+\(\Delta\phi=-c\,\delta_{v_{\triv}}+c\,\delta_{\ord_p}\), because the
+outgoing slope of \(\phi\) at \(v_{\triv}\) along the ray of \(p\) is
+\(-c\) and along every other ray is \(0\), while at \(\ord_p\) the incoming
+slope is \(-c\) and the outgoing slope is \(0\).  Adding
+\(d\,\delta_{v_{\triv}}\) gives
+\((d-c)\delta_{v_{\triv}}+c\,\delta_{\ord_p}\), which is the measure
+computed by intersection theory in \Cref{ex:ch46-p1-energy}.  A reader who
+obtains \(-\Delta\phi\) here has the sign of \Cref{chap:model-calculations}
+reversed and will obtain a negative energy for the trivial metric.
+\end{example}
+
+\begin{remark}[Comparison with the discretely valued mixed measure]
+\label{rem:ch46-mixed-part3}
+\Cref{def:mixed-model-measure} and \Cref{prop:model-ma-basic} construct the
+mixed Chambert--Loir measure of model metrics over a discretely valued
+base, and \Cref{thm:ch24-mass} computes its mass; the formula
+\eqref{eq:model-mixed-measure} is \eqref{eq:bj-model-ma-atomic} with
+\(\cX_s\) in place of \(\cX_0\), and the mass formula
+\eqref{eq:mixed-total-mass} is
+\Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:mass}.  The extension to
+bounded psh functions is \Cref{thm:bounded-ma-extension} there and Step~4
+above here, and the two proofs use the same monotone-convergence device.
+The place where the two theories diverge is the domain of the extension:
+over a discretely valued base one extends to \emph{bounded} psh metrics and
+then to the finite-energy class of \Cref{def:e1} through
+\Cref{thm:e1-mixed-products}, whereas here the extension to
+\(\vec\cE^{\,1}(X)\) is made in one step because
+\eqref{eq:bj-energy-infimum} is available for unbounded arguments from the
+outset.  This is a consequence of the compactness supplied by the envelope
+theorem, and is item~\cref{itm:ch46-env:compactness} of
+\Cref{sec:ch46-where-envelope}.
+\end{remark}
+
+\section{Locality, monotonicity and integration by parts}
+\label{sec:ch46-ibp}
+
+\subsection{The cocycle formula and its consequences}
+\label{sec:ch46-cocycle}
+
+For \(\phi,\psi\in\cE^1(\omega)\), multilinearity yields
+
+\[
+ E(\phi)-E(\psi)
+  =\frac1{n+1}\sum_{j=0}^n
+       \int(\phi-\psi)
+       V^{-1}(\omega+\ddc\phi)^j
+       \wedge(\omega+\ddc\psi)^{n-j}.
+\tag{46.22}\label{eq:bj-energy-cocycle}
+\]
+
+In particular,
+
+\[
+ \int(\phi-\psi)\MA(\phi)
+ \leq E(\phi)-E(\psi)
+ \leq\int(\phi-\psi)\MA(\psi).
+\tag{46.23}\label{eq:bj-energy-tangent-inequalities}
+\]
+
+Both displays are proved by the same three-line argument, and it is worth
+having it on record.
+
+\begin{proposition}
+\label{prop:ch46-cocycle}
+Let \(\omega\in\Amp(X)\) and \(\phi,\psi\in\cE^1(\omega)\).  Then
+\eqref{eq:bj-energy-cocycle} and
+\eqref{eq:bj-energy-tangent-inequalities} hold, all the integrals being
+finite; consequently
+\begin{enumerate}
+\item\label{itm:ch46-coc:mono}
+      \(E_\omega\) is increasing on \(\cE^1(\omega)\), and strictly
+      increasing in the sense that \(\phi\le\psi\) with
+      \(E_\omega(\phi)=E_\omega(\psi)\) forces \(\phi=\psi\)
+      \(\MA_\omega(\psi)\)-almost everywhere;
+\item\label{itm:ch46-coc:cocycle}
+      the three-term cocycle identity
+      \[
+       \bigl(E_\omega(\phi)-E_\omega(\psi)\bigr)
+       +\bigl(E_\omega(\psi)-E_\omega(\chi)\bigr)
+       +\bigl(E_\omega(\chi)-E_\omega(\phi)\bigr)=0
+      \]
+      holds for \(\phi,\psi,\chi\in\cE^1(\omega)\), which is what the name
+      records;
+\item\label{itm:ch46-coc:lipschitz}
+      \(|E_\omega(\phi)-E_\omega(\psi)|
+        \le\sup_{X^{\divis}}|\phi-\psi|\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+For \(\phi,\psi\in\PL^\omega(X)\), \eqref{eq:bj-energy-cocycle} is
+\Cref{cor:ch46-pl-tangent}\,\cref{itm:ch46-tan:cocycle} and
+\eqref{eq:bj-energy-tangent-inequalities} is
+\Cref{cor:ch46-pl-tangent}\,\cref{itm:ch46-tan:tangent}.  For finite-energy
+\(\phi,\psi\) choose decreasing nets \(\phi_j\downarrow\phi\),
+\(\psi_j\downarrow\psi\) of PL \(\omega\)-psh functions supplied by
+\Cref{lem:ch46-pl-domination}, indexed as in Step~6 of the proof of
+\Cref{thm:bj-extended-energy-pairing}; the left-hand sides converge by
+\Cref{prop:ch46-energy-usc}\,\cref{itm:ch46-Eusc:decreasing} and the
+right-hand sides by the continuity clause of \Cref{thm:bj-mixed-ma}
+together with the integrability of
+\Cref{prop:ch46-no-mass-outside-lin}.  Finiteness of every term is the
+last clause of \Cref{thm:bj-e1-basic}, and this is precisely where
+\Cref{warn:ch46-no-subtraction} is discharged: the difference
+\(\phi-\psi\) is formed on \(X^{\lin}\), where both are finite.
+
+\cref{itm:ch46-coc:mono}.  Monotonicity is
+\eqref{eq:bj-energy-cocycle} with a nonnegative integrand and positive
+measures.  If \(E_\omega(\phi)=E_\omega(\psi)\) with \(\phi\le\psi\), then
+the \(j=0\) term of \eqref{eq:bj-energy-cocycle}, namely
+\(\int(\phi-\psi)\MA_\omega(\psi)\), vanishes; the integrand is
+\(\le0\) and the measure is positive, so \(\phi=\psi\) almost everywhere
+for it.
+
+\cref{itm:ch46-coc:cocycle} is immediate from the fact that each bracket is
+a difference of two finite numbers.
+
+\cref{itm:ch46-coc:lipschitz}.  Apply
+\eqref{eq:bj-energy-tangent-inequalities} and bound each integrand by
+\(\sup_{X^{\divis}}|\phi-\psi|\), using that \(\MA_\omega\) is a
+probability measure and, by \Cref{prop:ch46-no-mass-outside-lin}, carries
+no mass where \(\phi-\psi\) is undefined.  This is the extension of
+\Cref{cor:ch46-pl-lipschitz} from PL to finite-energy potentials, and it
+is what makes \(E_\omega\) continuous for the uniform norm on
+\(\cE^1(\omega)\); it is \emph{not} continuity for the weak topology, as
+\Cref{ex:ch46-energy-not-weakly-continuous} shows.
+\end{proof}
+
+\begin{remark}[The same identity in \Cref{part:bfj}]
+\label{rem:ch46-cocycle-part3}
+\Cref{prop:energy-cocycle} and \Cref{cor:energy-monotone-concave} are
+\eqref{eq:bj-energy-cocycle} and
+\eqref{eq:bj-energy-tangent-inequalities} over a discretely valued base,
+in the unnormalized convention: there the sandwich
+\eqref{eq:energy-sandwich} reads with \(\MA\) of mass \(V\), and the
+factor \(V^{-1}\) that appears in \eqref{eq:bj-energy-cocycle} is exactly
+the conversion of \Cref{warn:ch46-normalization}.  The scopes differ:
+\Cref{prop:ch26-ibp-regimes} distinguishes three regimes over a discretely
+valued base --- model, bounded, finite energy --- because the extension
+there is built in those three stages, whereas here
+\eqref{eq:bj-energy-infimum} covers the unbounded case at once.  The
+compensating cost is that here one must check integrability separately,
+which is \Cref{prop:ch46-no-mass-outside-lin}.
+\end{remark}
+
+\subsection{Integration by parts}
+\label{sec:ch46-ibp-proper}
+
+\begin{proposition}\label{prop:bj-integration-by-parts}
+For \(f,g\in\vec{\cE}^{\,1}(X)\) and finite-energy pairs
+\((\theta_i,\phi_i)\),
+
+\[
+ \int f\,\ddc g\wedge\bigwedge_{i=1}^{n-1}(\theta_i+\ddc\phi_i)
+ =\int g\,\ddc f\wedge\bigwedge_{i=1}^{n-1}(\theta_i+\ddc\phi_i).
+\tag{46.24}\label{eq:bj-integration-by-parts}
+\]
+\end{proposition}
+
+\begin{proof}
+For PL data the two sides are the same symmetric intersection number
+\((0,f)(0,g)\prod(\theta_i,\phi_i)\).  Approximate each psh constituent by
+a decreasing net of PL psh functions.  Proposition~7.19(v) of \cite{BJ22}
+gives integrability and convergence of both sides.  No difference of two
+infinite integrals occurs because all functions belong to
+\(\vec{\cE}^{\,1}\).
+
+The PL case is \Cref{cor:ch46-pl-ibp}, and it is worth repeating why it is
+so short: both sides are values of one symmetric multilinear form, and the
+symmetry in question is the symmetry of an intersection number on
+\(\overline\cX\).  There is no analytic content in the PL case at all.  The
+analytic content of the general case is entirely in the passage to the
+limit, and it consists of two facts: that the mixed measures converge
+weakly along coordinatewise decreasing nets (\Cref{thm:bj-mixed-ma},
+Step~4), and that the test functions \(f,g\) remain integrable in the limit
+(\Cref{prop:ch46-no-mass-outside-lin}).  Neither is available for arbitrary
+psh functions, which is why the statement is confined to
+\(\vec\cE^{\,1}(X)\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch46-dirichlet-e1}
+For \(f,g\in\vec\cE^{\,1}(X)\) and finite-energy pairs
+\((\theta_i,\phi_i)\), \(1\le i\le n-1\), with all \(\theta_i\) nef and
+\(\phi_i\) psh, the pairing
+\[
+ \langle f,g\rangle_{\mathrm D}
+ :=-\int_{X^{\An}}f\;\ddc g\wedge\bigwedge_{i=1}^{n-1}(\theta_i+\ddc\phi_i)
+\]
+is symmetric, positive semidefinite, and satisfies the Cauchy--Schwarz
+inequality
+\(|\langle f,g\rangle_{\mathrm D}|^2\le\langle f,f\rangle_{\mathrm D}
+\langle g,g\rangle_{\mathrm D}\).
+\end{corollary}
+
+\begin{proof}
+Symmetry is \Cref{prop:bj-integration-by-parts}.  For PL data positivity
+and Cauchy--Schwarz are
+\Cref{prop:ch46-dirichlet-vertical}\,\cref{itm:ch46-dir:pos}.  Both survive
+passage to the limit along decreasing nets, an inequality between finite
+numbers being preserved by convergence, and the limits exist by the proof
+of \Cref{prop:bj-integration-by-parts}.
+\end{proof}
+
+\subsection{Locality and the comparison principle}
+\label{sec:ch46-locality}
+
+\begin{theorem}\label{thm:bj-locality-comparison}
+For \(\phi,\psi\in\cE^1(\omega)\),
+
+\[
+ \mathbf1_{\{\phi>\psi\}}\MA(\max\{\phi,\psi\})
+ =\mathbf1_{\{\phi>\psi\}}\MA(\phi),
+\tag{46.25}\label{eq:bj-locality}
+\]
+
+and
+
+\[
+ \int_{\{\phi<\psi\}}\MA(\psi)
+ \leq\int_{\{\phi<\psi\}}\MA(\phi).
+\tag{46.26}\label{eq:bj-comparison-principle}
+\]
+\end{theorem}
+
+\begin{proof}[Proof architecture]
+At PL level, refine the two vertical divisors until their maximum is
+Cartier; equality is then checked component by component on the open locus
+where one divisor dominates.  Decreasing finite-energy approximation and
+the continuity of mixed measures prove locality
+\cite[Theorem~7.40]{BJ22}.  Apply locality to
+\(\max\{\phi,\psi-\varepsilon\}\), integrate, and let
+\(\varepsilon\downarrow0\) to obtain
+\cite[Theorem~7.44]{BJ22}.
+
+The second half of this architecture is a complete argument and we write it
+out, since it is used verbatim in \Cref{chap:bj-finite-energy}; the first
+half is not, and \Cref{rem:ch46-locality-obstruction} explains exactly
+where it stops being one.
+
+\emph{Comparison from locality.}  Assume \eqref{eq:bj-locality}.  Fix
+\(\varepsilon>0\) and put \(u:=\max\{\phi,\psi-\varepsilon\}\), which lies
+in \(\cE^1(\omega)\): it is \(\omega\)-psh by
+\Cref{thm:bj-basic-closure}\,(2) and has finite energy because
+\(u\ge\phi\) and \(\cE^1(\omega)\) is upward closed
+(\Cref{thm:bj-e1-basic}).  Applying \eqref{eq:bj-locality} to the pair
+\((\phi,\psi-\varepsilon)\) on the open set \(\{\phi>\psi-\varepsilon\}\),
+and to the pair \((\psi-\varepsilon,\phi)\) on the open set
+\(\{\phi<\psi-\varepsilon\}\), gives
+\[
+ \mathbf1_{\{\phi>\psi-\varepsilon\}}\MA(u)
+   =\mathbf1_{\{\phi>\psi-\varepsilon\}}\MA(\phi),
+ \qquad
+ \mathbf1_{\{\phi<\psi-\varepsilon\}}\MA(u)
+   =\mathbf1_{\{\phi<\psi-\varepsilon\}}\MA(\psi),
+\]
+the second because \(\MA(\psi-\varepsilon)=\MA(\psi)\), translation by a
+constant not changing the measure.  Since \(\MA(u)\) and \(\MA(\phi)\) are
+both probability measures,
+\[
+ 1=\MA(u)(X^{\An})
+  \ \ge\ \int_{\{\phi>\psi-\varepsilon\}}\MA(\phi)
+        +\int_{\{\phi<\psi-\varepsilon\}}\MA(\psi),
+\]
+while
+\(1=\int_{\{\phi>\psi-\varepsilon\}}\MA(\phi)
+   +\int_{\{\phi\le\psi-\varepsilon\}}\MA(\phi)\).
+Subtracting,
+\[
+ \int_{\{\phi<\psi-\varepsilon\}}\MA(\psi)
+ \ \le\ \int_{\{\phi\le\psi-\varepsilon\}}\MA(\phi).
+\]
+Both sets increase to \(\{\phi<\psi\}\) as \(\varepsilon\downarrow0\), so
+monotone convergence gives \eqref{eq:bj-comparison-principle}.  The
+difference \(\phi-\psi\) occurring in the sets is formed on \(X^{\lin}\),
+where both functions are finite; the loci are measurable because both
+functions are Borel.
+
+\emph{Locality on a curve.}  When \(n=1\) the first half is also a complete
+argument, and it is instructive.  Let \(\phi,\psi\) be PL and
+\(\omega\)-psh, and let \(U:=\{\phi>\psi\}\), an open subset of
+\(X^{\An}\).  On \(U\) one has \(\max\{\phi,\psi\}=\phi\), and by
+\eqref{eq:bj-curve-laplacian} both measures are
+\(\deg\omega\cdot\delta_{v_{\triv}}\) plus the graph Laplacian of the
+respective function.  The graph Laplacian is a local operator: its value at
+a point of \(X^{\An}\) is the sum of the outgoing slopes there, and the
+slopes of \(\max\{\phi,\psi\}\) and of \(\phi\) agree in a neighbourhood of
+any point of the open set \(U\).  The atom
+\(\deg\omega\cdot\delta_{v_{\triv}}\) is the same for both measures.  Hence
+the two measures agree on \(U\), which is \eqref{eq:bj-locality} at PL
+level.  The general finite-energy case on a curve follows by decreasing
+approximation and the continuity clause of \Cref{thm:bj-mixed-ma}.
+\end{proof}
+
+\begin{remark}[Why locality is a theorem and not a computation]
+\label{rem:ch46-locality-obstruction}
+For \(n\ge2\) the argument just given breaks down at a definite point, and
+it is worth identifying it, because the failure is instructive rather than
+technical.  By \Cref{prop:ch46-pl-measure} the coefficient of the mixed
+measure at a divisorial point \(v_E\) is
+\(b_E\bigl(\cL_1|_E\cdots\cL_n|_E\bigr)\), a \emph{global} intersection
+number on the component \(E\).  Knowing that \(\max\{\phi,\psi\}\) and
+\(\phi\) have the same value at \(v_E\), or even at every component whose
+associated valuation lies in \(\{\phi>\psi\}\), does not determine that
+number: it depends on the coefficients of the divisors at all components
+meeting \(E\).  What is needed is a refinement of the model in which the
+locus \(\{\phi=\psi\}\) is a union of components, so that every component
+meeting a component in \(\{\phi>\psi\}\) lies in \(\{\phi\ge\psi\}\); and
+such a refinement requires realizing the crossing locus by blowups, which
+is available when the crossing occurs at divisorial points and is not
+available in general for real PL data, nor without resolution of
+singularities.  This is why \eqref{eq:bj-locality} is
+\cite[Theorem~7.40]{BJ22} and not a corollary of
+\Cref{prop:ch46-pl-measure}.  The corresponding statement over a discretely
+valued base is \Cref{cor:ch24-model-locality-open}, whose proof is subject
+to exactly the same difficulty and is carried out there for model
+functions on a fixed model.
+\end{remark}
+
+\begin{corollary}
+\label{cor:ch46-contact-mass}
+For \(\phi,\psi\in\cE^1(\omega)\) and \(u=\max\{\phi,\psi\}\),
+\[
+ \MA(u)\ \ge\ \mathbf1_{\{\phi>\psi\}}\MA(\phi)
+              +\mathbf1_{\{\psi>\phi\}}\MA(\psi)
+\]
+as measures, and consequently
+\[
+ \int_{\{\phi=\psi\}}\MA(u)
+ \ \ge\ 1-\int_{\{\phi>\psi\}}\MA(\phi)-\int_{\{\psi>\phi\}}\MA(\psi).
+\]
+\end{corollary}
+
+\begin{proof}
+The two open sets \(\{\phi>\psi\}\) and \(\{\psi>\phi\}\) are disjoint, and
+\eqref{eq:bj-locality} identifies \(\MA(u)\) with \(\MA(\phi)\) on the
+first and with \(\MA(\psi)\) on the second; adding the two restrictions and
+discarding the nonnegative remainder on \(\{\phi=\psi\}\) gives the
+inequality.  The second display is the first evaluated on \(X^{\An}\),
+using that \(\MA(u)\) is a probability measure.
+\end{proof}
+
+\begin{remark}[What is not proved here]
+\label{rem:ch46-not-proved-locality}
+Three statements that are often quoted together with
+\Cref{thm:bj-locality-comparison} are \emph{not} proved in this chapter.
+The domination principle --- if \(\phi,\psi\in\cE^1(\omega)\) and
+\(\phi\le\psi\) holds \(\MA_\omega(\phi)\)-almost everywhere then
+\(\phi\le\psi\) everywhere --- and the uniqueness statement --- if
+\(\MA_\omega(\phi)=\MA_\omega(\psi)\) then \(\phi-\psi\) is constant ---
+belong to \Cref{chap:bj-finite-energy}, where they are deduced from the
+comparison principle together with the variational characterization.  The
+orthogonality relation, which compares \(\int(\phi-P_\omega(\phi))\) with
+its Monge--Amp\`ere mass, likewise belongs there.  The reason for the
+division is that all three require the envelope operator \(P_\omega\) to be
+used on \emph{unbounded} obstacles, which is a further step beyond
+\Cref{thm:bj-final-obstacle-psh}; the present chapter uses \(P_\omega\)
+only on continuous obstacles, in
+\Cref{lem:ch46-continuous-competitors}.  Over a discretely valued base the
+same division is made between \Cref{prop:ch24-model-comparison} and
+\Cref{chap:bfj-differentiability}.
+\end{remark}
+
+\section{Homogeneous compatibility and the scaling action}
+\label{sec:ch46-homogeneous}
+
+Nothing said so far has used the \(\mathbf G_m\)-action, and nothing said
+so far has a counterpart over a discretely valued base.  This section is
+where the trivially valued theory acquires a structure that
+\Cref{chap:bfj-energy} does not have.  The scaling action of
+\eqref{eq:valuation-scaling} and \eqref{eq:function-scaling-action} makes
+\(X^{\An}\) a cone, makes \(\PSH(\theta)\) an \(\mathbf R_{>0}\)-set, and
+makes the energy homogeneous of degree one.
+
+\subsection{Energy is homogeneous of degree one}
+\label{sec:ch46-scaling-energy}
+
+\begin{theorem}
+\label{thm:ch46-energy-homogeneous}
+For \(t>0\) and pairs \((\theta_i,\phi_i)\) that are psh at PL level,
+\[
+ (\theta_0,t\cdot\phi_0)\cdots(\theta_n,t\cdot\phi_n)
+ =t\,(\theta_0,\phi_0)\cdots(\theta_n,\phi_n),
+\]
+where \(t\cdot\phi\) is the scaling action
+\eqref{eq:function-scaling-action}.  Consequently
+\[
+ E_\omega(t\cdot\phi)=t\,E_\omega(\phi)
+ \qquad\text{for every }\phi\in\PSH(\omega),
+\]
+and \(\cE^1(\omega)\) is stable under the scaling action.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: integers.}  Let \(t=d\in\mathbf Z_{>0}\).  By
+\eqref{eq:scaling-fs-weights} the action multiplies all weights by \(d\),
+and by the discussion following
+\Cref{thm:ch33-intersection-invariance} this is the effect on the
+associated function of the degree-\(d\) base change \(\cX_d\to\cX\) along
+\(\varpi\mapsto\varpi^d\).  Formula
+\eqref{eq:ch33-intersection-base-change} then gives
+\((\overline{\cL_{0,d}}\cdots\overline{\cL_{n,d}})
+ =d\,(\overline{\cL_0}\cdots\overline{\cL_n})\); the mixed form follows
+from the top self-intersection form by polarization, both sides being
+symmetric multilinear.
+
+\emph{Step 2: rationals.}  For \(t=p/q\) apply Step~1 twice:
+\(q\cdot(t\cdot\phi_i)=p\cdot\phi_i\) by
+\Cref{lem:ch35-action-basic}\,(1), so
+\(q\,(\theta_0,t\cdot\phi_0)\cdots=(\theta_0,p\cdot\phi_0)\cdots
+ =p\,(\theta_0,\phi_0)\cdots\).
+
+\emph{Step 3: reals.}  The map \(t\mapsto t\cdot\phi\) is continuous for
+the sup norm on \(\PL_{\mathbf R}(X)\).  Indeed, writing
+\(\phi=\sum_kc_k\phi_{\mathfrak a_k}\) and using
+\eqref{eq:ch34-flag-weight-form} together with
+\Cref{lem:ch35-action-basic}\,(6),
+\[
+ t\cdot\phi_{\mathfrak a}
+ =\max_{\lambda}\{\log|\mathfrak a_\lambda|+t\lambda\},
+\]
+a finite maximum of functions depending affinely on \(t\) with bounded
+coefficients; hence
+\(\lVert t\cdot\phi-t'\cdot\phi\rVert_\infty
+ \le|t-t'|\sum_k|c_k|\max_\lambda|\lambda|\).  Moreover \(t\cdot\phi_i\) is
+again \(\theta_i\)-psh at PL level, by
+\Cref{lem:ch35-action-basic}\,(6) applied to a Fubini--Study presentation
+and \Cref{prop:ch34-pl-consistency}.  \Cref{cor:ch46-pl-lipschitz}
+therefore makes both sides of the asserted identity continuous functions of
+\(t\), and two continuous functions agreeing on \(\mathbf Q_{>0}\) agree.
+
+\emph{Step 4: psh functions.}  The action preserves \(\PSH(\theta)\), by
+\Cref{lem:ch35-action-basic}\,(6) applied to an approximating net together
+with \Cref{lem:ch35-action-basic}\,(4); it preserves
+\(\cH_{\mathrm{dom}}(\omega)\) up to rational multiples, and it is an order
+isomorphism by \Cref{lem:ch35-action-basic}\,(2).  Hence it carries the
+competitor family of \(\phi\) onto that of \(t\cdot\phi\), and
+\eqref{eq:bj-energy-infimum} gives
+\(E_\omega(t\cdot\phi)=t\,E_\omega(\phi)\) from the PL case, the factor
+\(t>0\) commuting with the infimum by ledger entry~(3).  Since
+\(t>0\), the value \(-\infty\) is preserved, so \(\cE^1(\omega)\) is
+stable.
+\end{proof}
+
+\begin{example}[Homogeneity checked on \(\mathbf P^1\)]
+\label{ex:ch46-homogeneity-p1}
+Keep the data of \Cref{ex:ch46-p1-energy} with \(d=1\), so that
+\(\phi=\phi_{-cE}\) has \(\phi(s\,\ord_p)=-c\min\{s,1\}\) and
+\(E_\omega(\phi)=-c^2/2\).  By \eqref{eq:function-scaling-action},
+\[
+ (t\cdot\phi)(s\,\ord_p)=t\,\phi(t^{-1}s\,\ord_p)
+ =-tc\min\{s/t,1\}=-c\min\{s,t\},
+\]
+so \(t\cdot\phi=\max\{c\log|\mathfrak m_p|,-ct\}\).  Its graph Laplacian
+has outgoing slope \(-c\) at \(v_{\triv}\) and \(+c\) at \(t\,\ord_p\), so
+\[
+ \MA^{\mathrm u}_\omega(t\cdot\phi)
+ =(1-c)\,\delta_{v_{\triv}}+c\,\delta_{t\ord_p}
+ =t_\star\bigl(\MA^{\mathrm u}_\omega(\phi)\bigr),
+\]
+since \(t_\star\) fixes \(v_{\triv}\) and carries \(\ord_p\) to
+\(t\,\ord_p\); this is \eqref{eq:bj-homogeneous-ma-scaling}.  The energy is
+\[
+ E_\omega(t\cdot\phi)
+ =\tfrac12\Bigl[(1-c)\cdot0+c\cdot(-ct)\Bigr]
+ =-\tfrac{tc^2}{2}=t\,E_\omega(\phi),
+\]
+as \Cref{thm:ch46-energy-homogeneous} requires.  Notice what the
+computation does \emph{not} say: the probability measure
+\(\MA_\omega(\phi)\) is not invariant under \(t_\star\), it is
+\emph{transported} by it; the atom moves from \(\ord_p\) to \(t\,\ord_p\)
+while its mass \(c\) is unchanged.
+\end{example}
+
+Let \(\widehat\phi\) be the homogeneous extension of a psh function from
+\Cref{chap:bj-homogeneity-bdivisors}.  The scaling action \(t_\star\) on
+valuations satisfies
+
+\[
+ \widehat\phi(t v)=t\widehat\phi(v),\qquad
+ \bigwedge_i(\theta_i+\ddc(t\cdot\phi_i))
+       =t_\star\bigwedge_i(\theta_i+\ddc\phi_i).
+\tag{46.27}\label{eq:bj-homogeneous-ma-scaling}
+\]
+
+The second identity is \cite[Proposition~7.19(iii)]{BJ22}.  It says that
+homogenization is compatible with the cone geometry of \(X^{\An}\); it does
+not say that a probability measure is invariant under scaling.  Its pushout
+by \(t_\star\) is generally different.
+
+\subsection{Homogeneous potentials have infinite energy}
+\label{sec:ch46-homogeneous-energy}
+
+The first consequence of \Cref{thm:ch46-energy-homogeneous} is a negative
+one, and it explains why the \(b\)-divisor dictionary is a dictionary
+between \emph{mixed measures} and \(b\)-classes rather than between
+energies and \(b\)-classes.
+
+\begin{corollary}
+\label{cor:ch46-homogeneous-infinite-energy}
+Let \(\omega\in\Amp(X)\) and let \(\psi\in\PSH(\omega)\) be homogeneous
+in the sense of \Cref{def:homogeneous-function}, that is,
+\(t\cdot\psi=\psi\) for every \(t>0\).  Then:
+\begin{enumerate}
+\item\label{itm:ch46-hom:dichotomy}
+      \(E_\omega(\psi)\in\{0,-\infty\}\);
+\item\label{itm:ch46-hom:bounded}
+      \(\psi\) is bounded if and only if \(\psi\equiv0\); a nonzero
+      homogeneous \(\omega\)-psh function is unbounded below;
+\item\label{itm:ch46-hom:curve}
+      if \(\dim X=1\), then \(E_\omega(\psi)=-\infty\) for every
+      \(\psi\ne0\); so \(\cE^1(\omega)\) contains no nonzero
+      homogeneous function.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\cref{itm:ch46-hom:dichotomy}.  By \Cref{thm:ch46-energy-homogeneous},
+\(E_\omega(\psi)=E_\omega(t\cdot\psi)=t\,E_\omega(\psi)\) for every
+\(t>0\); a real number equal to all its positive multiples is \(0\), so
+\(E_\omega(\psi)\in\{0,-\infty\}\).
+
+\cref{itm:ch46-hom:bounded}.  A homogeneous \(\omega\)-psh function
+satisfies \(\psi\le0\) and \(\psi(v_{\triv})=0\), by
+\Cref{prop:ch35-homogeneous-normalization}.  Suppose \(\psi\ge-M\) for a
+real \(M\) and let \(v\in X^{\An}\) be a point with \(\psi(v)<0\).
+Homogeneity gives \(\psi(tv)=t\,\psi(v)\to-\infty\) as \(t\to+\infty\),
+contradicting the lower bound.  Hence \(\psi\ge0\), so \(\psi\equiv0\).
+The converse is trivial.
+
+\cref{itm:ch46-hom:curve}.  Let \(\dim X=1\), \(d:=\deg\omega\), and let
+\(\psi\ne0\) be homogeneous \(\omega\)-psh.  By
+\cref{itm:ch46-hom:bounded} there is a closed point \(q\) and a
+\(t_0>0\) with \(\psi(t_0\ord_q)<0\); homogeneity then forces
+\(\psi(t\ord_q)=t\,\psi(\ord_q)=-a_qt\) with
+\(a_q:=-\psi(\ord_q)>0\).  The curve criterion
+\cite[Example~4.13]{BJ22}, recalled at the end of
+\Cref{ex:ch34-psh-check}, gives
+\(d+\sum_{q'}\psi'_{q'}(0^+)\ge0\), that is \(\sum_{q'}a_{q'}\le d\); in
+particular \(a_q\le d\).  The function
+\(\psi_q\) equal to \(-a_qt\) on the ray of \(q\) and to \(0\)
+elsewhere is therefore \(\omega\)-psh, being convex on every ray with
+\(d-a_q\ge0\); and \(\psi\le\psi_q\), the two
+agreeing on the ray of \(q\) while \(\psi\le0=\psi_q\) elsewhere.
+Monotonicity of \(E_\omega\) and the Dirichlet-integral computation of
+\Cref{ex:ch46-e1-curve}, which for \(\deg\omega=d\) carries the extra
+factor \(V^{-1}=d^{-1}\), give for the profile \(h(t)=-a_qt\)
+\[
+ E_\omega(\psi)\le E_\omega(\psi_q)
+ =-\frac1{2d}\int_0^\infty a_q^2\,\rd t=-\infty .
+\]
+\end{proof}
+
+\begin{remark}[The higher-dimensional statement]
+\label{rem:ch46-homogeneous-higher}
+\Cref{cor:ch46-homogeneous-infinite-energy}\,\cref{itm:ch46-hom:curve} is
+proved here only for curves, because the argument uses the explicit
+Dirichlet integral of \Cref{ex:ch46-e1-curve}.  In every dimension the
+dichotomy \cref{itm:ch46-hom:dichotomy} holds, and the alternative
+\(E_\omega(\psi)=0\) can be excluded for \(\psi\ne0\) once the
+domination principle of \Cref{chap:bj-finite-energy} is available: by
+\Cref{prop:ch46-cocycle}\,\cref{itm:ch46-coc:mono} applied to
+\(\psi\le0\), the equality \(E_\omega(\psi)=E_\omega(0)=0\) forces
+\(\psi=0\) almost everywhere for \(\MA_\omega(0)=\delta_{v_{\triv}}\)
+and, running the cocycle \eqref{eq:bj-energy-cocycle} term by term, for
+each of the \(n+1\) mixed measures \(\MA_\omega(0^{(j)},\psi^{(n-j)})\);
+the domination principle upgrades this to \(\psi=0\) everywhere.  Nothing
+in the present chapter needs the upgrade: what is used below is the
+dichotomy and the unboundedness \cref{itm:ch46-hom:bounded}.
+\end{remark}
+
+\begin{example}[Where the mass goes]
+\label{ex:ch46-homogeneous-mass-escapes}
+Let \(X=\mathbf P^1\), \(\omega=c_1(\cO(1))\), \(V=1\), \(p\in X(k)\), and
+\(\psi:=\log|\mathfrak m_p|\), which is homogeneous, \(\omega\)-psh
+(\(h(t)=-t\) has \(h'(0^+)=-1\)), and has \(E_\omega(\psi)=-\infty\) by
+\Cref{ex:ch46-e1-curve}, or by
+\Cref{cor:ch46-homogeneous-infinite-energy}\,\cref{itm:ch46-hom:curve}.  Its truncations
+\(\psi^{(t)}:=\max\{\psi,-t\}=t\cdot\phi_{\{p\}}\) are PL and
+\(\omega\)-psh, and \Cref{ex:ch46-p1-energy} with \(d=1\), \(c=1\) and
+\Cref{ex:ch46-homogeneity-p1} give
+\[
+ \MA^{\mathrm u}_\omega(\psi^{(t)})=\delta_{t\ord_p},
+ \qquad
+ E_\omega(\psi^{(t)})=-\frac t2 .
+\]
+As \(t\to+\infty\) the point \(t\,\ord_p\) converges in \(X^{\An}\) to the
+endpoint of the ray, which is the proper-support semivaluation
+\(v_{p,\triv}\) of \eqref{eq:trivial-endpoints}; hence
+\[
+ \MA^{\mathrm u}_\omega(\psi^{(t)})\longrightarrow\delta_{v_{p,\triv}}
+ \quad\text{weakly},
+ \qquad
+ E_\omega(\psi^{(t)})\longrightarrow-\infty .
+\]
+The total mass \(1=V\) is conserved, but in the limit it sits at a
+proper-support point.  Two lessons.  First, a computation of
+\(\omega+\ddc\psi\) that uses only the graph Laplacian on the ray gives
+\(1\cdot\delta_{v_{\triv}}-1\cdot\delta_{v_{\triv}}=0\) and \emph{loses}
+the mass: the endpoint of an infinite ray must be included, and it is a
+point of \(X^{\An}\), not a boundary artefact.  Second,
+\Cref{prop:ch46-no-mass-outside-lin} is sharp: it is a statement about
+finite-energy tuples, and here the energy is \(-\infty\) and the mass does
+sit outside \(X^{\lin}\).
+\end{example}
+
+\subsection{Invariance and the support of a homogeneous mixed measure}
+\label{sec:ch46-homogeneous-support}
+
+\begin{proposition}
+\label{prop:ch46-homogeneous-support}
+Let \(\theta_1,\dots,\theta_n\) be nef and let
+\(\psi_i\in\PSH(\theta_i)\) be homogeneous, and suppose the mixed measure
+\(\mu=\bigwedge_{i=1}^n(\theta_i+\ddc\psi_i)\) is defined as a positive
+Radon measure --- for instance as the weak limit of the mixed measures of
+the truncations \(t\cdot\psi_i^{\,\mathrm{tr}}\).  Then
+\begin{enumerate}
+\item\label{itm:ch46-homsupp:inv}
+      \(t_\star\mu=\mu\) for every \(t>0\);
+\item\label{itm:ch46-homsupp:supp}
+      \(\mu\) is carried by the set of fixed points of the scaling action,
+      that is, by
+      \(\{v_{Y,\triv}\ :\ Y\subset X\ \text{irreducible closed}\}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch46-homsupp:inv} is \eqref{eq:bj-homogeneous-ma-scaling}
+together with \(t\cdot\psi_i=\psi_i\).
+
+\cref{itm:ch46-homsupp:supp}.  Let \(F\subset X^{\An}\) be the fixed-point
+set of the action, which is closed because the action is continuous
+(\Cref{prop:ch32-scaling-action}) and which equals the set of trivial
+semivaluations \(v_{Y,\triv}\) by \eqref{eq:trivial-endpoints}.  Fix a
+nonzero coherent ideal \(\mathfrak b\subset\cO_X\) and let
+\(g:=\max\{\log|\mathfrak b|,-1\}\in\PL^+(X)\), the function
+\eqref{eq:ch34-phi-Z}, so that \(-1\le g\le0\) and, for \(t>0\),
+\[
+ g(t\,v)=\max\{-t\,v(\mathfrak b),-1\}.
+\]
+By invariance, \(\int g\,\rd\mu=\int g(t\,v)\,\rd\mu(v)\) for every
+\(t>0\).  Letting \(t\to+\infty\) and using dominated convergence, with the
+constant \(1\) as dominating function and \(\mu\) finite,
+\[
+ \int g\,\rd\mu=-\mu\bigl(\{v:v(\mathfrak b)>0\}\bigr).
+\]
+Letting instead \(t\to0^+\) gives
+\(\int g\,\rd\mu=-\mu\bigl(\{v:v(\mathfrak b)=+\infty\}\bigr)\).
+Subtracting,
+\[
+ \mu\bigl(\{v:0<v(\mathfrak b)<+\infty\}\bigr)=0 .
+\]
+Now let \(K\subset X^{\An}\setminus F\) be compact.  Each \(v\in K\) is not
+a trivial semivaluation, so there are a nonzero ideal \(\mathfrak b\) and
+reals \(0<\varepsilon<M\) with \(\varepsilon<v(\mathfrak b)<M\); the set
+\(\{-M<\log|\mathfrak b|<-\varepsilon\}\) is open, contains \(v\), and is
+contained in \(\{0<v(\mathfrak b)<\infty\}\), hence is \(\mu\)-null.
+Finitely many such open sets cover \(K\), so \(\mu(K)=0\).  As \(\mu\) is
+Radon and \(X^{\An}\setminus F\) is open, \(\mu(X^{\An}\setminus F)=0\).
+\end{proof}
+
+\begin{example}[The invariant measure of a homogeneous potential on a curve]
+\label{ex:ch46-homogeneous-curve-bdivisor}
+Keep \(X=\mathbf P^1\), \(\omega=c_1(\cO(1))\) and \(p\in X(k)\), and let
+\(a\in[0,1]\).  The homogeneous function \(\psi_a:=a\log|\mathfrak m_p|\)
+is \(\omega\)-psh, since its profile \(h(t)=-at\) has
+\(h'(0^+)=-a\ge-1\).  Running \Cref{ex:ch46-homogeneous-mass-escapes} with
+the truncations \(\max\{\psi_a,-at\}\) gives
+\[
+ \MA^{\mathrm u}_\omega(\psi_a)=(1-a)\,\delta_{v_{\triv}}
+   +a\,\delta_{v_{p,\triv}} ,
+\]
+a scaling-invariant measure carried by two fixed points, in accordance with
+\Cref{prop:ch46-homogeneous-support}.  Now read the numbers through
+\Cref{prop:cartier-homogeneous-pl}: the Cartier \(b\)-divisor with
+coefficient function \(\psi_a\) is \(B=-a\,\overline{[p]}\), determined
+already on \(X\), and the associated \(b\)-class is
+\(\alpha=\overline{\omega+[B]}\) with
+\(\alpha_X=c_1(\cO(1))-a[p]\), of degree \(1-a\).  Thus
+\[
+ \MA^{\mathrm u}_\omega(\psi_a)\bigl(\{v_{X,\triv}\}\bigr)=1-a
+ =\deg\alpha_X=(\alpha)_{\mathfrak X},
+\]
+while the remaining mass \(a\) has moved to the proper-support fixed point
+\(v_{p,\triv}\).  For \(a=0\) the potential is \(0\) and all the mass is at
+\(v_{X,\triv}\); for \(a=1\) the class \(\alpha\) has degree \(0\) and all
+the mass has left.  This is the numerical content of the bridge
+\eqref{eq:bj-energy-homogeneous-dictionary} below.
+\end{example}
+
+\subsection{The \texorpdfstring{\(b\)}{b}-divisor bridge}
+\label{sec:ch46-bdivisor-bridge}
+
+For a homogeneous PL metric associated to a vertical \(b\)-divisor, the
+pairing of \Cref{def:bj-pl-energy-pairing} is the corresponding
+\(b\)-intersection number.  Pulling to one model proves compatibility, and
+monotone approximation passes it to homogeneous finite-energy potentials.
+This is the precise bridge
+
+\[
+ \text{vertical \(b\)-divisors}\longleftrightarrow
+ \text{homogeneous potentials}\longleftrightarrow
+ \text{mixed Radon measures}.
+\tag{46.28}\label{eq:bj-energy-homogeneous-dictionary}
+\]
+
+The three columns of \eqref{eq:bj-energy-homogeneous-dictionary} have now
+all been constructed, and it is worth saying exactly which arrows are
+theorems and which are definitions.
+
+The left arrow is \Cref{prop:cartier-homogeneous-pl}: coefficient functions
+of real Cartier \(b\)-divisors are exactly the real homogeneous PL
+functions on \(X^{\divis}\), and \Cref{thm:bj-nef-bdivisor-correspondence}
+upgrades this, in the smooth characteristic-zero setting, to a bijection
+between nef \(b\)-classes and pairs \((\theta,\psi)\) with \(\psi\)
+homogeneous \(\theta\)-psh and \(\psi(\ord_E)=0\) for every prime divisor
+\(E\subset X\).  The monotone approximation
+\Cref{cor:ch35-monotone-approximation} is what makes the passage from
+Cartier to Weil \(b\)-divisors compatible with decreasing limits, and hence
+with \Cref{thm:bj-extended-energy-pairing}.
+
+The right arrow is \Cref{thm:bj-mixed-ma}, refined for homogeneous data by
+\Cref{prop:ch46-homogeneous-support}: the measure attached to a homogeneous
+tuple is scaling invariant and carried by the trivial semivaluations.  Its
+total mass is \((\theta_1\cdots\theta_n)\), and the mass at the trivial
+valuation \(v_{X,\triv}\) is the \(b\)-intersection number
+\((\alpha_1\cdots\alpha_n)_{\mathfrak X}\) of
+\Cref{thm:appF-df-nef-intersection}, the difference being the mass carried
+away to proper-support points; this is the computation of
+\Cref{ex:ch46-homogeneous-curve-bdivisor}, and in general it is the
+statement that a nef \(b\)-class loses volume exactly to the exceptional
+directions --- compare \eqref{eq:appF-nef-volume} and
+\Cref{rem:ch35-df-relation}.
+
+\begin{warning}{Energy is not the \(b\)-divisor invariant}
+\label{warn:ch46-energy-not-bdivisor}
+It is tempting to complete \eqref{eq:bj-energy-homogeneous-dictionary} by
+adding a fourth column ``energies'' and matching \(E_\omega(\psi_\alpha)\)
+with the self-intersection \((\alpha^{n+1})\).  That cannot be done, for
+two independent reasons.  First, a \(b\)-divisor on an \(n\)-dimensional
+\(X\) has no \((n+1)\)-fold self-intersection: its determinations are
+\(n\)-dimensional, so \Cref{thm:appF-cartier-bdivisor-intersection}
+produces \(n\)-fold products only.  Second, and more decisively,
+\(E_\omega(\psi_\alpha)\) is never a finite nonzero number: it is
+\(0\) or \(-\infty\) by
+\Cref{cor:ch46-homogeneous-infinite-energy}\,\cref{itm:ch46-hom:dichotomy},
+and it is \(-\infty\) for every nonzero \(\psi_\alpha\) when \(X\) is a
+curve, hence conjecturally always
+(\Cref{rem:ch46-homogeneous-higher}).  The
+correct fourth column is the \emph{mixed measure}, which is what
+\eqref{eq:bj-energy-homogeneous-dictionary} says, and the correct numerical
+invariant is the \(n\)-fold \(b\)-intersection number, not an energy.  This
+is the same distinction as the one between \Cref{chap:bj-homogeneity-bdivisors},
+whose objects are homogeneous, and the present chapter, whose objects are
+not: homogenization and energy are transverse constructions, and the
+Legendre slices of \eqref{eq:homogeneous-legendre-slice} are the device
+that mediates between them.
+\end{warning}
+
+\begin{remark}[Legendre slices and where energy reappears]
+\label{rem:ch46-legendre}
+\Cref{thm:homogeneous-legendre-decomposition} decomposes a homogeneous psh
+function into its Legendre slices
+\(\psi^\tau\), a decreasing family of psh functions in the fixed class,
+and \eqref{eq:legendre-reconstruction-bj} reconstructs \(\psi\) from them.
+Each slice is bounded, hence has finite energy by
+\Cref{thm:bj-e1-basic}, and \(\tau\mapsto E_\omega(\psi^\tau)\) is a
+concave decreasing function of \(\tau\) by
+\Cref{prop:ch46-energy-usc}.  The energy of the homogeneous \(\psi\) itself
+is \(-\infty\), but the \emph{family} of slice energies is a finite
+invariant, and it is the invariant that reappears in
+\Cref{chap:bj-stability} as the Duistermaat--Heckman data of a ray.
+\Cref{prop:ch46-energy-dh} is the degree-zero case of this statement: for a
+PL potential the slices are those of a single test configuration, and the
+first moment of its Duistermaat--Heckman measure is the energy.  The reader
+should keep the two levels apart: homogeneous potentials index rays, and
+energies live on the points of a ray, not on the ray itself.
+\end{remark}
+
+\section{Worked examples}
+\label{sec:ch46-examples}
+
+Three computations close the chapter: a toric surface example in which
+energy and mixed measures are obtained from the polytope and independently
+from intersection theory; a comparison with \Cref{part:bfj} in which the
+same number is produced twice, once over a trivially valued base and once
+over a discretely valued one; and an example showing that energy is not
+continuous for the weak topology, which is the reason
+\Cref{chap:bj-strong-topologies} exists.
+
+\subsection{A toric computation on \texorpdfstring{\(\mathbf P^2\)}{P2}}
+\label{sec:ch46-toric}
+
+\begin{example}[Energy and mixed measures on \(\mathbf P^2\), three ways]
+\label{ex:ch46-toric-p2}
+Let \(X=\mathbf P^2_k\) with homogeneous coordinates \(z_0,z_1,z_2\), let
+\(T=\mathbf G_m^2\) act in the standard way with character lattice \(M\)
+and cocharacter lattice \(N\), and let \(0:=[1:0:0]\) be the torus-fixed
+point of the chart \(\Spec k[x,y]\), \(x=z_1/z_0\), \(y=z_2/z_0\).  Take
+\(\omega=c_1(\cO(1))\), so \(n=2\) and \(V=(\omega^2)=1\).
+
+\emph{The potential.}  Let
+\(\cX:=\operatorname{Bl}_{(0,0)}(\mathbf P^2\times\mathbf A^1)\) with
+exceptional divisor \(E\cong\mathbf P^2\), a smooth test configuration
+whose central fibre is \(\cX_0=\widetilde P+E\) with
+\(b_{\widetilde P}=b_E=1\), where \(\widetilde P\) is the strict transform
+of \(\mathbf P^2\times\{0\}\).  As in \Cref{ex:ch34-normal-cone-segment} one
+has \(v_{\widetilde P}=v_{X,\triv}\) and
+\(v_E=\ord_0\), the multiplicity valuation at \(0\), which in toric terms
+is the monomial valuation \(v_{(1,1)}\).  For \(c\in[0,1]\) put
+\(D:=-cE\) and
+\[
+ \phi_c:=\phi_D=c\max\{\log|\mathfrak m_0|,-1\}
+ =\max\{c\log|\mathfrak m_0|,-c\}.
+\]
+
+\emph{Positivity range.}  On \(\overline\cX
+=\operatorname{Bl}_{(0,0)}(\mathbf P^2\times\mathbf P^1)\) write \(H\) for
+the pullback of the hyperplane class of \(\mathbf P^2\), \(F\) for the
+fibre class \(\overline\pi^*\{0\}\), and \(E\) for the exceptional divisor.
+The only nonzero triple products are
+\[
+ H^2F=1,\qquad E^3=1,
+\]
+all products involving both \(E\) and one of \(H,F\) vanishing because
+\(E\) is contracted by both projections; and \(E^3=1\) because
+\(\cO_E(E)=\cO_{\mathbf P^2}(-1)\).  With \(\cL=H-cE\), the curves in the
+central fibre are the lines of \(E\), the exceptional curve
+\(e=E\cap\widetilde P\) of \(\widetilde P\cong\operatorname{Bl}_0\mathbf P^2\),
+and the strict transforms of curves of \(\mathbf P^2\); testing on a line
+of \(E\) gives \(c\ge0\), and on the strict transform of a line through
+\(0\) gives \(1-c\ge0\).  So \(\phi_c\) is \(\omega\)-psh exactly for
+\(0\le c\le1\).
+
+\emph{First computation: intersection theory.}
+\[
+ (\omega,\phi_c)^3=(H-cE)^3
+ =H^3-3cH^2E+3c^2HE^2-c^3E^3=-c^3,
+\]
+\[
+ E_\omega(\phi_c)=\frac{(\omega,\phi_c)^3}{(n+1)V}=-\frac{c^3}{3}.
+\]
+For the measures, use \(\widetilde P=F-E\) and
+\Cref{prop:ch46-pl-measure}:
+\[
+ (H-cE)^2\cdot\widetilde P=1-c^2,
+ \qquad
+ (H-cE)^2\cdot E=c^2,
+\]
+so that
+\[
+ \MA^{\mathrm u}_\omega(\phi_c)
+ =(1-c^2)\,\delta_{v_{\triv}}+c^2\,\delta_{\ord_0},
+\]
+of total mass \(1=V\) and positive exactly for \(c\in[0,1]\).  The mixed
+measure of two such potentials is
+\[
+ (H-cE)(H-c'E)\cdot\widetilde P=1-cc',
+ \qquad
+ (H-cE)(H-c'E)\cdot E=cc',
+\]
+that is
+\[
+ (\omega+\ddc\phi_c)\wedge(\omega+\ddc\phi_{c'})
+ =(1-cc')\,\delta_{v_{\triv}}+cc'\,\delta_{\ord_0},
+\]
+visibly symmetric in \(c,c'\), positive for \(c,c'\in[0,1]\), of mass
+\(1\), and reducing to the previous display when \(c=c'\).
+
+\emph{Second computation: from the polytope.}  With the conventions of
+\Cref{thm:bj-toric-psh-convex} --- support function
+\(f_P(u)=\sup_{m\in P_{\mathrm{BJ}}}\langle u,m\rangle\), convex function
+\(f_\phi=(\phi+f_P)|_{N_{\mathbf R}}\), and
+\(P_{\mathrm{BJ}}=-P\) --- the polytope of \(\cO(1)\) is
+\(P=\{m_1,m_2\ge0,\ m_1+m_2\le1\}\), so
+\(V_P=\operatorname{vol}(P_{\mathrm{BJ}})=\tfrac12=(\omega^2)/2!\) and
+\[
+ f_P(u)=\max\{0,-u_1,-u_2\}.
+\]
+For a monomial valuation \(v_u\), \(\log|\mathfrak m_0|(v_u)
+=-\max\{0,\min(u_1,u_2)\}\), the outer maximum accounting for the fact that
+\(\mathfrak m_0\) is the unit ideal at the centre of \(v_u\) when
+\(u\notin\sigma_0=\langle e_1,e_2\rangle\).  Hence
+\[
+ \phi_c(v_u)=-c\min\bigl\{1,\max\{0,\min(u_1,u_2)\}\bigr\},
+ \qquad
+ f_{\phi_c}=f_P+\phi_c .
+\]
+Its Legendre transform on \(P_{\mathrm{BJ}}\) is computed by splitting the
+supremum: on \(\sigma_0\) the support function vanishes and the optimum has
+\(u_1=u_2=s\in[0,1]\), while off \(\sigma_0\) the supremum is attained at
+\(u=0\); writing \(m=-p\) with \(p\in P\),
+\[
+ f_{\phi_c}^\vee(m)
+ =\sup_{u}\bigl(\langle u,m\rangle-f_{\phi_c}(u)\bigr)
+ =\max\{0,\ c-p_1-p_2\}
+ =(c+m_1+m_2)_+ .
+\]
+Now \eqref{eq:bj-toric-energy} gives
+\[
+ E_\omega(\phi_c)
+ =-\frac1{V_P}\int_{P_{\mathrm{BJ}}}f_{\phi_c}^\vee\,\rd m
+ =-2\int_P(c-p_1-p_2)_+\,\rd p
+ =-2\int_0^{c}(c-t)\,t\,\rd t
+ =-\frac{c^3}{3},
+\]
+where \(\int_Ph(p_1+p_2)\rd p=\int_0^1h(t)\,t\,\rd t\) because the area of
+\(\{p_1+p_2\le t\}\cap P\) is \(t^2/2\).  This is the number found by
+intersection theory.
+
+For the measure, \eqref{eq:bj-toric-ma} says
+\(\MA^{\mathrm u}_\omega(\phi_c)=n!\,\iota_*\operatorname{MA}_{\mathbf R}
+(f_{\phi_c})\), and the Alexandrov measure of a convex function is the
+pushforward of Lebesgue measure under the gradient of its conjugate.  Here
+\(\nabla f_{\phi_c}^\vee=(1,1)\) on \(\{m_1+m_2>-c\}\) and \(=(0,0)\) on
+\(\{m_1+m_2<-c\}\), so
+\[
+\begin{aligned}
+ \operatorname{MA}_{\mathbf R}(f_{\phi_c})
+ &=\operatorname{vol}\{p\in P:p_1+p_2<c\}\ \delta_{(1,1)}
+  +\operatorname{vol}\{p\in P:p_1+p_2>c\}\ \delta_{(0,0)}\\
+ &=\frac{c^2}{2}\delta_{(1,1)}+\frac{1-c^2}{2}\delta_{(0,0)} .
+\end{aligned}
+\]
+Multiplying by \(n!=2\) and using \(v_{(1,1)}=\ord_0\),
+\(v_{(0,0)}=v_{X,\triv}\) recovers the measure
+\[
+ \MA^{\mathrm u}_\omega(\phi_c)
+  =c^2\,\delta_{\ord_0}+(1-c^2)\,\delta_{v_{\triv}}
+\]
+computed above by intersection theory.
+
+\emph{Third computation: polarization on the polytope.}  The mixed measure
+can also be read off convexly.  The conjugate of \(f_{\phi_c}+f_{\phi_{c'}}\)
+is the infimal convolution
+\(f_{\phi_c}^\vee\square f_{\phi_{c'}}^\vee\), which on \(2P_{\mathrm{BJ}}\)
+equals \((m_1+m_2+c+c')_+\); its gradient is \((1,1)\) on a set of volume
+\((c+c')^2/2\).  Hence
+\[
+ \operatorname{MA}_{\mathbf R}(f_{\phi_c}+f_{\phi_{c'}})
+ =\frac{(c+c')^2}{2}\delta_{(1,1)}+\Bigl(2-\frac{(c+c')^2}{2}\Bigr)
+   \delta_{(0,0)},
+\]
+and the polarization identity
+\(\operatorname{MA}_{\mathbf R}(f+g)=\operatorname{MA}_{\mathbf R}(f)
++2\operatorname{MA}_{\mathbf R}(f,g)+\operatorname{MA}_{\mathbf R}(g)\)
+gives \(\operatorname{MA}_{\mathbf R}(f_{\phi_c},f_{\phi_{c'}})
+=\tfrac12\bigl[\tfrac{(c+c')^2}{2}-\tfrac{c^2}{2}-\tfrac{c'^2}{2}\bigr]
+\delta_{(1,1)}+\cdots=\tfrac{cc'}{2}\delta_{(1,1)}+\cdots\).  Multiplying
+by \(2\) gives the atom \(cc'\) at \(\ord_0\), which is the mixed
+intersection number computed above.
+
+\emph{Unit tests.}  Setting \(c=0\) gives \(E_\omega=0\) and
+\(\MA^{\mathrm u}=\delta_{v_{\triv}}\), which is
+\eqref{eq:bj-trivial-energy-zero} and the trivial-metric measure.  Setting
+\(c=1\) gives \(E_\omega=-\tfrac13\) and
+\(\MA^{\mathrm u}=\delta_{\ord_0}\): all the mass has moved to the single
+divisorial point, which is the boundary of the psh range.  Adding a
+constant \(e\) multiplies nothing and adds \(e\), as
+\eqref{eq:bj-energy-basic-identities} requires; on the polytope side it
+translates \(f_{\phi}^\vee\) by \(-e\) and changes the integral by
+\(eV_P\), giving the same \(+e\).  Finally the scaling action.  The support
+function \(f_P\) is positively homogeneous of degree one, so
+\eqref{eq:function-scaling-action} gives
+\[
+ f_{t\cdot\phi}(u)=f_P(u)+t\,\phi(v_{u/t})
+ =t\bigl[f_P(u/t)+\phi(v_{u/t})\bigr]
+ =t\,f_\phi(u/t),
+ \qquad
+ f_{t\cdot\phi}^\vee=t\,f_\phi^\vee,
+\]
+the second identity by the substitution \(u=tw\) in the definition of the
+Legendre transform.  Formula \eqref{eq:bj-toric-energy} then gives
+\(E_\omega(t\cdot\phi)=t\,E_\omega(\phi)\) at once, which is a second, and
+purely convex-analytic, proof of \Cref{thm:ch46-energy-homogeneous} in the
+toric case.  Concretely
+\((t\cdot\phi_c)(v_u)=-c\min\{t,\max\{0,\min(u_1,u_2)\}\}\), the same
+potential with the truncation level \(1\) replaced by \(t\), and
+\(E_\omega(t\cdot\phi_c)=-tc^3/3\).
+\end{example}
+
+\begin{remark}[Comparison with the toric computation of \Cref{part:bfj}]
+\label{rem:ch46-toric-part3}
+\Cref{thm:ch26-toric-energy} proves the toric energy formula over a
+discretely valued base, in the form
+\(E(F)-E(F_0)=n!\int_P(g_F-g_{F_0})\rd\lambda\) with \(g_F\) the roof
+function of \Cref{def:ch26-roof}, and
+\Cref{ex:ch26-toric-surface} computes it on a toric surface; the mixed
+measure is \Cref{ex:ch24-toric-surface-mixed}.  The two formulae are the
+same up to the normalization of \Cref{warn:ch46-normalization} and the
+reflection \(P_{\mathrm{BJ}}=-P\) of
+\eqref{eq:bj-toric-sign-conversion}: the roof function \(g_F\) and the
+Legendre transform \(f^\vee\) differ by that reflection and a sign, which
+is why one formula carries a plus and the other a minus.  A reader
+comparing the two should carry out the substitution explicitly; mixing them
+produces an energy of the wrong sign, which is detected immediately by the
+trivial metric, for which one formula must give \(0\).
+\end{remark}
+
+\subsection{The same number twice}
+\label{sec:ch46-same-number}
+
+\begin{example}[One energy, computed over a trivial and over a discrete
+                valuation]
+\label{ex:ch46-same-number-twice}
+Let \(d\in\mathbf Z_{>0}\) and \(c\in[0,d]\).
+
+\emph{Over a trivially valued field.}  This is
+\Cref{ex:ch46-p1-energy}: \(X=\mathbf P^1_k\), \(\omega=c_1(\cO(d))\),
+\(V=d\); the test configuration
+\(\cY=\operatorname{Bl}_{(p,0)}(\mathbf P^1\times\mathbf A^1)\) with
+\(\cY_0=\widetilde P+E\); the vertical divisor \(D=-cE\); and
+\[
+ \begin{aligned}
+  (\overline\cL^{\,2})&=(dH-cE)^2=-c^2,\\
+  \MA^{\mathrm u}_\omega(\phi_D)
+    &=(d-c)\delta_{v_{\triv}}+c\,\delta_{\ord_p},\\
+  E_\omega(\phi_D)&=-\frac{c^2}{2d}.
+ \end{aligned}
+\]
+
+\emph{Over a discretely valued field.}  Let \(R\) be a discrete valuation
+ring with \(v_R(\varpi)=1\), fraction field \(K\) and residue field \(k\),
+and let \(X_K=\mathbf P^1_K\) with \(L=\cO(d)\), so that \(V=(L)=d\).  Let
+\(\cX:=\operatorname{Bl}_z\mathbf P^1_R\) be the blowup at a closed point
+\(z\) of the special fibre, with exceptional curve \(E\) and strict
+transform \(\widetilde P\) of \(\mathbf P^1_k\); both have multiplicity
+\(1\), so the dual graph is a segment of length one with vertices
+\(x_0=v_{\widetilde P}\), the Gauss point, and \(x_1=v_E\).  The trivial
+model metric has
+\(\omega=\MA(\varphi_{\mathrm{triv}})=d\,\delta_{x_0}\), since
+\(\mu^*\cO(d)\) has degree \(d\) on \(\widetilde P\) and degree \(0\) on
+\(E\); in the notation of \Cref{ex:ch26-normalization-audit}, \(m_0=d\) and
+\(m_1=0\).  Take \(\varphi:=\varphi_{-cE}\), so that
+\(a=\varphi(x_0)=0\) and \(b=\varphi(x_1)=-c\).  Then
+\eqref{eq:ch26-two-vertex-energy} gives
+\[
+ E^{\mathrm{BFJ}}_\omega(\varphi)-E^{\mathrm{BFJ}}_\omega(0)
+ =m_0a+m_1b-\tfrac12(a-b)^2
+ =-\frac{c^2}{2},
+\]
+and \eqref{eq:model-energy}, read through the vertical-factor pairing
+\eqref{eq:ch20-pairing-as-integral}, gives
+\[
+ 2\bigl(E^{\mathrm{BFJ}}_\omega(\varphi)
+        -E^{\mathrm{BFJ}}_\omega(0)\bigr)
+ =\bigl((-cE)\cdot\omega_\varphi\bigr)
+  +\bigl((-cE)\cdot\omega\bigr)
+ =-c^2 .
+\]
+Here the first slot in each term is the actual vertical divisor \(-cE\);
+the last equality uses \(E^2=-1\) and \((\omega\cdot E)=0\).
+The Monge--Amp\`ere measure is
+\(\omega+\ddc\varphi=(d-c)\delta_{x_0}+c\,\delta_{x_1}\), by the
+two-vertex Laplacian of \Cref{ex:ch24-good-reduction} and
+\Cref{ex:ch26-normalization-audit}.
+
+\emph{The comparison.}  The three displayed objects match term by term:
+the compactified self-intersection on the trivially valued side and the
+mixed vertical sum on the discretely valued side are both \(-c^2\), the
+measures are both
+\((d-c)\delta_{\text{Gauss}}+c\,\delta_{\text{exceptional}}\), and the
+energies agree after the conversion of \Cref{warn:ch46-normalization},
+\[
+ E_\omega(\phi_D)=\frac1V
+ \bigl(E^{\mathrm{BFJ}}_\omega(\varphi)-E^{\mathrm{BFJ}}_\omega(0)\bigr)
+ =-\frac{c^2}{2d}.
+\]
+This is not a coincidence and the reason is
+\Cref{rem:ch46-fibre-class}: in both computations the ambient scheme is a
+projective surface fibred over a smooth curve, the divisor \(-cE\) is
+supported in one fibre, the class \(\theta\) restricts to \(\cO(d)\) on the
+general fibre, and the only intersection numbers used are
+\(E^2=-1\), \(\theta\cdot E=0\), \(\theta\cdot(\text{fibre})=d\).  Those
+four numbers are the same on \(\operatorname{Bl}_{(p,0)}
+(\mathbf P^1\times\mathbf P^1)\) and on \(\operatorname{Bl}_z\mathbf P^1_R\).
+
+\emph{Where the two computations diverge.}  Three places, and they are the
+content of the last two rows of the table in \Cref{sec:ch46-part3}.  First,
+over the discretely valued base the special fibre is the divisor of a
+uniformizer, so \(\varphi+e\) and \(\varphi\) differ by \(e\,\cX_s\); over
+the trivially valued base the fibre class \(\overline\pi^*\{0\}\) is not
+principal, and the corresponding statement is
+\eqref{eq:ch33-intersection-twist}.  The two nevertheless produce the same
+translation rule, because \Cref{sec:ch20-pairing} gives \(\cX_s\) the same
+pairing with the horizontal classes.  Second, the trivially valued side
+carries the scaling action: \(t\cdot\phi_D\) has energy \(-tc^2/(2d)\) by
+\Cref{ex:ch46-homogeneity-p1}, and there is no operation on the discretely
+valued side that does this --- degree-\(d\) base change exists there too,
+but it changes the ground field, whereas here it is an automorphism of the
+situation.  Third, the trivially valued side has proper-support points, and
+\Cref{ex:ch46-homogeneous-mass-escapes} shows that the limit \(c\to\infty\)
+of the family --- meaningless over a discretely valued base, where
+\(c\le d\) is forced by the same inequality but the ray has no endpoint in
+the model --- moves mass to such a point.
+\end{example}
+
+\subsection{Energy is not weakly continuous}
+\label{sec:ch46-not-continuous}
+
+\begin{example}[A weakly convergent sequence whose energies do not converge]
+\label{ex:ch46-energy-not-weakly-continuous}
+Let \(X=\mathbf P^1_k\) and \(\omega=c_1(\cO(1))\), so \(V=1\).  Since
+\(k\) is algebraically closed it is infinite; choose pairwise distinct
+closed points \(p_1,p_2,\dots\in X(k)\) and set
+\[
+ \phi_j:=\max\{\log|\mathfrak m_{p_j}|,-1\}\in\PL^{\omega}(X),
+ \qquad j\ge1 .
+\]
+By \Cref{ex:ch46-p1-energy} with \(d=1\) and \(c=1\),
+\[
+ E_\omega(\phi_j)=-\tfrac12,
+ \qquad
+ \MA^{\mathrm u}_\omega(\phi_j)=\delta_{\ord_{p_j}} .
+\]
+
+\emph{Weak convergence of the potentials.}  Let \(v\in X^{\An}\).  If
+\(v\) lies on the ray of a closed point \(q\), or is a proper-support point
+\(v_{q,\triv}\), then \(\phi_j(v)=0\) unless \(q=p_j\); since the \(p_j\)
+are distinct, this happens for at most one \(j\).  Hence
+\(\phi_j\to0\) pointwise on all of \(X^{\An}\), in particular on
+\(X^{\divis}\); so \(\phi_j\to0\) weakly in \(\PSH(\omega)\).
+
+\emph{Weak convergence of the measures.}  Let
+\(f\in\PL_{\mathbf R}(X)\).  Writing \(f\) as a real combination of
+flag-ideal functions \(\phi_{\mathfrak a}
+=\max_\lambda\{\log|\mathfrak a_\lambda|+\lambda\}\) and using that each
+nonzero \(\mathfrak a_\lambda\) has finite zero locus on the curve \(X\),
+one has \(f(\ord_q)=f(v_{\triv})\) for all but finitely many closed points
+\(q\).  Hence \(\int f\,\rd\MA^{\mathrm u}_\omega(\phi_j)=f(\ord_{p_j})
+=f(v_{\triv})=\int f\,\rd\MA^{\mathrm u}_\omega(0)\) for \(j\) large, and by
+\Cref{thm:ch34-pl-density} and the uniform mass bound,
+\(\MA^{\mathrm u}_\omega(\phi_j)\to\MA^{\mathrm u}_\omega(0)
+=\delta_{v_{\triv}}\) weakly.
+
+\emph{The conclusion.}  Both the potentials and their Monge--Amp\`ere
+measures converge weakly to those of \(\phi=0\), and yet
+\[
+ \lim_jE_\omega(\phi_j)=-\tfrac12\ \ne\ 0=E_\omega(0).
+\]
+So \(E_\omega\) is not continuous for the weak topology on
+\(\PSH(\omega)\), and it is not continuous on \(\cE^1(\omega)\) either,
+every \(\phi_j\) being bounded.  Upper semicontinuity does hold, as
+\Cref{prop:ch46-energy-usc} asserts: \(-\tfrac12\le0\), and the inequality
+is strict.
+\end{example}
+
+\begin{remark}[What the example rules out, and what it motivates]
+\label{rem:ch46-strong-topology-motivation}
+The example rules out three plausible-sounding statements.  It is
+\emph{not} true that weak convergence of psh functions implies convergence
+of energies; it is not true that weak convergence of potentials together
+with weak convergence of their Monge--Amp\`ere measures implies convergence
+of energies; and it is not true that \(E_\omega\) is continuous on the
+bounded part of \(\cE^1(\omega)\) for the weak topology, even along
+sequences.  The failure is not exotic: the sequence \((\phi_j)\) consists
+of the simplest PL psh functions on \(\mathbf P^1\), all with the same
+energy.
+
+What it motivates is the definition of the \emph{strong} topology on
+\(\cE^1(\omega)\) in \Cref{chap:bj-strong-topologies}: the coarsest
+refinement of the weak topology for which \(E_\omega\) is continuous.  In
+that topology the sequence above does not converge, which is the intended
+behaviour, and the theory recovers the continuity statements that the weak
+topology cannot support.  The corresponding phenomenon over a discretely
+valued base is \Cref{ex:ch26-usc-strict} and
+\Cref{prop:ch26-no-strong-compactness}, and the strong topology introduced
+in \Cref{sec:ch26-strong} solves the same problem there; the reader will
+find that the two constructions are formally identical and that the present
+example transports verbatim, with the points \(p_j\) replaced by closed
+points of the special fibre.
+
+One further caution.  \Cref{prop:ch46-energy-usc} shows that \(E_\omega\)
+is upper semicontinuous, and \Cref{cor:ch45-compactness} that
+\(\PSH^{\sup}(\omega)\) is weakly compact.  Together these give existence
+of maximizers of \(E_\omega\) under a weak constraint --- the variational
+method --- and this is not affected by the discontinuity: an upper
+semicontinuous function on a compact space attains its supremum whether or
+not it is continuous.  The discontinuity is an obstruction to identifying
+limits, not to producing them.
+\end{remark}
+
+\section{Scope and hypotheses}
+\label{sec:ch46-scope}
+
+\subsection{Where each hypothesis is used}
+\label{sec:ch46-hypothesis-use}
+
+\begin{center}
+\begin{tabular}{p{.30\textwidth}p{.62\textwidth}}
+\toprule
+hypothesis & where it is used\\
+\midrule
+\(X\) integral projective &
+throughout; projectivity for the compactification
+\Cref{thm:ch33-compactification} and for the existence of degrees,
+integrality for the identification of the pairing with an intersection
+number on the integral \(\overline\cX\)
+(\Cref{thm:ch33-intersection-invariance}\,(1))\\
+\(k\) algebraically closed and trivially valued &
+in the correspondence between test configurations and PL functions
+(\Cref{thm:tc-pl-correspondence}), and in every statement about the
+scaling action\\
+\(X\) unibranch &
+only through \Cref{imp:ch46-envelope-imported}; see
+\Cref{sec:ch46-where-envelope} for the four uses and
+\Cref{rem:ch46-without-envelope} for what survives without it\\
+\(\omega\) ample &
+in \eqref{eq:bj-volume} so that \(V>0\) and the probability normalization
+is legitimate; in \Cref{lem:ch46-competitors-nonempty} so that constants
+are competitors; in \Cref{cor:ch45-continuity-envelopes}, hence in
+\Cref{lem:ch46-continuous-competitors}\\
+\(\omega\) the class of a \(\mathbf Q\)-line bundle &
+in \Cref{lem:ch46-pl-domination}, through
+\Cref{thm:ch34-fs-regularization}; see \Cref{rem:ch46-real-classes}\\
+\(\theta_i\) nef and \(\phi_i\) psh &
+in the positivity clauses
+\Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:pos},
+\Cref{lem:ch46-vertical-negativity}, and
+\Cref{prop:bj-model-energy-monotonicity}; multilinearity removes the
+hypothesis at the cost of signed measures\\
+finite energy &
+in every identity involving a difference: \eqref{eq:bj-energy-cocycle},
+\eqref{eq:bj-integration-by-parts},
+\eqref{eq:bj-e1-polarized-pairing}; see
+\Cref{warn:ch46-no-subtraction}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{What is not claimed}
+\label{sec:ch46-not-claimed}
+
+\begin{enumerate}
+\item No statement here identifies the class \(\PSH(\theta)\) with a class
+      defined by a local differential-geometric condition.  The comparison
+      with the Chambert--Loir--Ducros product, for continuous semipositive
+      metrics, is recorded in \cite[Remark~7.23]{BJ22} and is taken up in
+      \Cref{chap:compare-ma}; nothing in this chapter proves it.
+\item No regularity of \(P_\omega\) beyond continuity in an ample class is
+      claimed, and none is used; \Cref{ex:ch45-no-regularity} shows that
+      none is available.
+\item Joint upper semicontinuity of the mixed pairing is quoted, not
+      proved; see \Cref{rem:ch46-usc-scope}.
+\item The domination principle, the uniqueness of solutions of the
+      Monge--Amp\`ere equation, and orthogonality are deferred to
+      \Cref{chap:bj-finite-energy} (\Cref{rem:ch46-not-proved-locality}).
+\item Nothing is asserted about zero-volume classes.  The pairing is
+      defined for arbitrary classes, but \(E_\omega\), \(\MA_\omega\) and
+      \(\cE^1(\omega)\) all divide by \(V\) and are used only when
+      \(V>0\).  For a merely pseudoeffective \(\theta\) the correct
+      substitute is energy relative to \(V_\theta=P_\theta(0)\), which is
+      \Cref{chap:bj-finite-energy}.
+\end{enumerate}
+
+\section{Chapter dictionary}
+\label{sec:ch46-dictionary}
+
+\begingroup
+\begin{longtable}{p{.26\textwidth}p{.34\textwidth}p{.30\textwidth}}
+\toprule
+object & content & where\\
+\midrule
+\endfirsthead
+\toprule
+object & content & where\\
+\midrule
+\endhead
+PL pairing &
+\((\theta_0,\phi_0)\cdots(\theta_n,\phi_n)
+=(\cL_0\cdots\cL_n)_{\overline\cX}\); symmetric, multilinear, monotone,
+\(1\)-Lipschitz &
+\Cref{def:bj-pl-energy-pairing},
+\Cref{prop:ch46-pairing-wellposed},
+\Cref{prop:bj-model-energy-monotonicity},
+\Cref{cor:ch46-pl-lipschitz}\\
+vertical negativity &
+\((F^2\cdot\cL_1\cdots\cL_{n-1})\le0\) for \(F\) in one fibre and
+\(\cL_i\) relatively nef &
+\Cref{lem:ch46-vertical-negativity}; compare
+\Cref{thm:ch20-mixed-hodge}\\
+model measure &
+\(\sum_Eb_E(\cL_1|_E\cdots\cL_n|_E)\delta_{v_E}\); mass
+\((\theta_1\cdots\theta_n)\); positive for nef psh data &
+\Cref{prop:ch46-pl-measure}, \eqref{eq:bj-model-ma-atomic}\\
+energy &
+\(E_\omega(\phi)=(\omega,\phi)^{n+1}/((n+1)V)\); normalized so that
+\(E(\phi+c)=E(\phi)+c\) &
+\Cref{def:bj-ma-energy}, \Cref{warn:ch46-normalization}\\
+first moment &
+\(E_\omega(\phi_{\cL})=\int\lambda\,\rd\DHm(\mathcal F)\) &
+\Cref{prop:ch46-energy-dh}\\
+extension &
+\(\inf\) over PL psh competitors above \(\phi\); unique with the four
+listed properties &
+\Cref{thm:bj-extended-energy-pairing},
+\Cref{lem:ch46-pl-domination}, \Cref{lem:ch46-dini}\\
+usc and concavity &
+\(E_\omega=\inf_\psi[E_\omega(\psi)+\int(\phi-\psi)\MA_\omega(\psi)]\),
+an infimum of weakly continuous affine functions &
+\Cref{prop:ch46-energy-usc}\\
+finite energy &
+\(\cE^1(\omega)=\{E_\omega>-\infty\}\); convex, upward closed, strictly
+between bounded and psh &
+\Cref{def:bj-e1}, \Cref{thm:bj-e1-basic},
+\Cref{ex:ch46-e1-curve}\\
+mixed measures &
+Riesz representation of \(f\mapsto(0,f)\prod(\theta_i,\phi_i)\); symmetric,
+positive, mass \((\theta_1\cdots\theta_n)\) &
+\Cref{thm:bj-mixed-ma}\\
+integration by parts &
+symmetry of one intersection number, extended by monotone convergence &
+\Cref{cor:ch46-pl-ibp},
+\Cref{prop:bj-integration-by-parts},
+\Cref{cor:ch46-dirichlet-e1}\\
+locality and comparison &
+\(\mathbf1_{\{\phi>\psi\}}\MA(\max)=\mathbf1_{\{\phi>\psi\}}\MA(\phi)\);
+\(\int_{\{\phi<\psi\}}\MA(\psi)\le\int_{\{\phi<\psi\}}\MA(\phi)\) &
+\Cref{thm:bj-locality-comparison},
+\Cref{rem:ch46-locality-obstruction}\\
+homogeneity &
+\(E_\omega(t\cdot\phi)=tE_\omega(\phi)\); mixed measures are
+\(t_\star\)-equivariant &
+\Cref{thm:ch46-energy-homogeneous},
+\eqref{eq:bj-homogeneous-ma-scaling}\\
+homogeneous potentials &
+energy \(0\) or \(-\infty\), and \(-\infty\) unless zero on a curve;
+unbounded unless zero; mixed measure invariant, carried by the
+trivial semivaluations &
+\Cref{cor:ch46-homogeneous-infinite-energy},
+\Cref{prop:ch46-homogeneous-support}\\
+\(b\)-divisor bridge &
+\(b\)-divisors \(\leftrightarrow\) homogeneous potentials
+\(\leftrightarrow\) invariant mixed measures &
+\eqref{eq:bj-energy-homogeneous-dictionary},
+\Cref{warn:ch46-energy-not-bdivisor}\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+Four separations should be carried forward.
+
+\emph{Finitary versus analytic.}  Everything through
+\Cref{sec:ch46-p1} is intersection theory on a projective
+\((n+1)\)-fold and holds for any integral projective \(X\); everything
+after it is analysis and uses the envelope theorem
+(\Cref{sec:ch46-where-envelope}).
+
+\emph{Normalized versus unnormalized.}  \(\MA_\omega\) is a probability
+measure here and has mass \(V\) in \Cref{part:bfj}; \(E_\omega\) translates
+by \(c\) here and by \(cV\) there.  Every displayed comparison between the
+two parts carries the conversion explicitly
+(\Cref{warn:ch46-normalization},
+\Cref{ex:ch46-same-number-twice}).
+
+\emph{Energy versus mass.}  The energy is an \((n+1)\)-fold number and is
+homogeneous of degree one for the scaling action; the mass of a mixed
+measure is an \(n\)-fold number and is scaling invariant.  Confusing them
+produces \Cref{warn:ch46-energy-not-bdivisor}.
+
+\emph{Weak versus strong.}  \(E_\omega\) is upper semicontinuous but not
+continuous for the weak topology
+(\Cref{prop:ch46-energy-usc},
+\Cref{ex:ch46-energy-not-weakly-continuous}); the repair is
+\Cref{chap:bj-strong-topologies}, not a sharper argument here.
+
+\section{Source and provenance}
+\label{sec:ch46-source}
+
+\subsection{Source note}
+\label{sec:ch46-source-note}
+
+The PL pairing is \cite[Definition~3.12 and Proposition~3.14]{BJ22}; its
+singular extension, energy, finite-energy calculus, and mixed measures are
+\cite[Theorem~7.1, Definition~7.6, Theorems~7.8 and~7.18, and
+Proposition~7.19]{BJ22}.  The agreement with the Chambert--Loir--Ducros
+product for continuous semipositive metrics is recorded in
+\cite[Remark~7.23]{BJ22}.  Locality and comparison are
+\cite[Theorems~7.40 and~7.44]{BJ22}.  None of these constructions requires
+the envelope property.
+
+That last sentence has to be read carefully, and the care is the subject of
+\Cref{sec:ch46-where-envelope}.  It is true of the \emph{constructions}:
+the pairing, the measures and their formal properties are intersection
+theory.  It is not true of the \emph{calculus}: the fixed-class monotone
+approximation on which the extension rests is
+\Cref{thm:ch34-fs-regularization} for classes of \(\mathbf Q\)-line
+bundles and \Cref{thm:ch45-continuous-regularization} in general, and the
+compactness that makes the energy usable is
+\Cref{cor:ch45-compactness}.  Both of the latter are consequences of the
+envelope theorem.  The correct summary is that the finitary theory predates
+the envelope theorem and the analytic theory does not.
+
+The Duistermaat--Heckman interpretation \Cref{prop:ch46-energy-dh} rests on
+\Cref{thm:ch33-dh-weight-count}\,(3), quoted there from
+\cite[Corollary~3.4]{BHJ17}.  The toric formulae used in
+\Cref{ex:ch46-toric-p2} are \Cref{thm:bj-toric-ma-energy}, quoted in
+\Cref{chap:bj-linear-growth} from \cite[Appendix~B]{BJ22}; the reflection
+\eqref{eq:bj-toric-sign-conversion} between the polytope conventions of
+\Cref{chap:model-calculations} and of that appendix is applied there and
+must be applied by anyone comparing the two.  The vertical negativity
+inequality \Cref{lem:ch46-vertical-negativity} is
+\cite[Lemma~3.15]{BJ22}; its counterpart over a discretely valued base is
+\Cref{thm:ch20-mixed-hodge}, and the proof recorded there is the one
+sketched in \Cref{lem:ch46-vertical-negativity}.
+
+\subsection{What is supplied here and is not in the source}
+\label{sec:ch46-additions}
+
+The following material is not in \cite{BJ22} in this form and is supplied
+here.
+
+\Cref{prop:ch46-pairing-wellposed}, \Cref{lem:ch46-vertical-negativity},
+\Cref{cor:ch46-pl-lipschitz}, \Cref{lem:ch46-telescope}: the formal
+properties of the PL pairing, assembled from
+\Cref{chap:bj-test-configurations} and
+\Cref{app:intersection-bdivisors} so that the reader can verify each of
+them on a model without consulting the source.  The Lipschitz estimate is
+the one used four times below and is not stated separately in
+\cite{BJ22}.
+
+\Cref{prop:ch46-pl-measure}, \Cref{cor:ch46-pl-ibp},
+\Cref{prop:ch46-dirichlet-vertical},
+\Cref{prop:ch46-first-variation-pl},
+\Cref{cor:ch46-pl-tangent}: the PL-level measure theory, integration by
+parts, Dirichlet form and first variation.  These are the trivially valued
+counterparts of \Cref{prop:ch20-intersection-pairing},
+\Cref{cor:ch20-integration-by-parts} and
+\Cref{prop:ch26-dirichlet-vertical}, and they are written out here because
+the comparison with \Cref{part:bfj} is one of the stated purposes of this
+chapter.
+
+\Cref{prop:ch46-energy-dh}: the identification of the energy of a PL psh
+metric with the first moment of its Duistermaat--Heckman probability
+measure.  The ingredients are in \cite{BHJ17} and in
+\Cref{chap:bj-test-configurations}; the statement in this form is supplied
+here, and it is what fixes the normalization of
+\Cref{warn:ch46-normalization}.
+
+\Cref{lem:ch46-competitors-nonempty},
+\Cref{lem:ch46-pl-domination},
+\Cref{lem:ch46-dini},
+\Cref{lem:ch46-continuous-competitors}: the three preparatory statements
+for the extension, and the directedness of the continuous competitor
+family.  \Cref{lem:ch46-pl-domination} is the technical heart of
+\Cref{thm:bj-extended-energy-pairing} and its proof --- generically finite
+regularization, truncation, Veronese, rationalization, relative ampleness
+--- is written out in five steps because each step consumes a different
+statement of \Cref{chap:bj-fs-pl-psh}.
+
+\Cref{prop:ch46-energy-usc}: the representation of \(E_\omega\) as an
+infimum of weakly continuous affine functions, from which concavity and
+upper semicontinuity follow at once.  The properties are
+\cite[Proposition~7.7]{BJ22}; the representation is supplied here and is
+reused in \Cref{chap:bj-finite-energy}.
+
+\Cref{thm:ch46-energy-homogeneous},
+\Cref{cor:ch46-homogeneous-infinite-energy},
+\Cref{prop:ch46-homogeneous-support}: the interaction with the scaling
+action.  Equivariance of the mixed measures is
+\cite[Proposition~7.19(iii)]{BJ22}; the homogeneity of the energy, the
+dichotomy \(E_\omega(\psi)\in\{0,-\infty\}\) for homogeneous \(\psi\)
+with its curve case, and the identification of the support of an invariant
+mixed measure with the fixed-point set are supplied here.
+
+\Cref{ex:ch46-p1-energy},
+\Cref{ex:ch46-p1-two-corner},
+\Cref{ex:ch46-e1-curve},
+\Cref{ex:ch46-homogeneity-p1},
+\Cref{ex:ch46-homogeneous-mass-escapes},
+\Cref{ex:ch46-homogeneous-curve-bdivisor},
+\Cref{ex:ch46-toric-p2},
+\Cref{ex:ch46-same-number-twice},
+\Cref{ex:ch46-energy-not-weakly-continuous}: all new.  They exist because
+the two claims this chapter makes --- that the theory is intersection
+theory, and that the normalizations are forced --- are exactly the claims
+that a plausible reading can appear to establish without doing so.  A
+reader who has computed \(-c^2/(2d)\) three ways on \(\mathbf P^1\),
+\(-c^3/3\) three ways on \(\mathbf P^2\), and the same \(-c^2\) over both a
+trivial and a discrete valuation, will not mix the two normalizations by
+accident.
+
+\subsection{Historical note}
+\label{sec:ch46-history}
+
+The energy functional of this chapter has three ancestries, and the
+trivially valued theory is where they meet.
+
+The oldest is the Aubin--Mabuchi energy of Kähler geometry, the primitive
+of the complex Monge--Amp\`ere operator, whose non-Archimedean shadow is
+\eqref{eq:appJ-energy}.  Its characteristic properties --- monotone,
+concave, with first variation the Monge--Amp\`ere measure --- are the ones
+verified here in \Cref{prop:ch46-first-variation-pl} and
+\Cref{cor:ch46-pl-tangent}, and they are what any candidate definition must
+reproduce.
+
+The second is the intersection-theoretic one.  Over a discretely valued
+field this is the model-metric formalism of
+\Cref{chap:bfj-model-forms,chap:bfj-energy}, going back to the arithmetic
+intersection theory of Gillet--Soulé and Zhang and made into a
+pluripotential theory by Boucksom--Favre--Jonsson.  On model functions its
+intersection formula is the mixed vertical sum
+\[
+ E_\omega(\varphi)-E_\omega(\psi)
+ =\frac1{n+1}\sum_{j=0}^n
+  \bigl(D_{\varphi-\psi}\cdot
+        \omega_\varphi^{\,j}\cdot\omega_\psi^{\,n-j}\bigr),
+\]
+where \(D_{\varphi-\psi}\) is an actual vertical divisor; this is
+\eqref{eq:model-energy} and \eqref{eq:ch20-pairing-as-integral} in
+energy-difference form.  Over a trivially valued field the corresponding
+number is the absolute intersection on a compactified test configuration
+from \Cref{def:bj-pl-energy-pairing}.  The reader who wants a single
+sentence for the relation between the two should take
+\Cref{rem:ch46-fibre-class}: the fibre class over the origin plays the role
+of the special fibre, and it has the same two properties.
+
+The third is the stability-theoretic one.  For a test configuration the
+number \((\overline\cL^{\,n+1})\) is, up to normalization, the leading term
+of the Donaldson--Futaki weight expansion, and
+\Cref{prop:ch46-energy-dh} says that the energy is the first moment of the
+Duistermaat--Heckman measure of the associated filtration.  That this
+number, arrived at from geometric invariant theory, coincides with the
+non-Archimedean Aubin--Mabuchi energy is the observation that made the
+valuative approach to K-stability possible, and it is developed in
+\Cref{chap:bj-stability}.
+
+What was missing, and what \Cref{chap:bj-envelope-consequences} supplied,
+was the analysis.  The finitary theory --- one test configuration, one
+intersection number --- was available from the beginning and is the content
+of \Cref{sec:ch46-model,sec:ch46-pl-measure}.  Extending it to singular
+potentials requires a monotone approximation in a \emph{fixed} class, and
+the natural definition of the psh class supplies only a varying-class
+approximation (\Cref{rem:ch46-fixed-class-is-the-point}); worse, the
+compactness that makes the resulting functional useful was, until the
+envelope theorem, a conjecture.  The chapter is therefore best read as the
+moment at which an algebraic invariant becomes an analytic functional, and
+the reader should notice that the price of the transition is exactly one
+theorem: the one proved in
+\Crefrange{chap:bj-cartier-realization}{chap:bj-envelope-consequences}.
+
+A final remark on normalization, since it is the commonest source of error
+in this subject.  Three conventions are in circulation: the unnormalized
+energy of \eqref{eq:appJ-energy}, which translates by \(cV\); the
+normalized one used here, which translates by \(c\); and the
+Okounkov-body one of \Cref{warn:ch33-dh-normalizations}, which carries a
+further \(n!\).  They differ by positive constants and nothing else, but a
+statement about moments, about Donaldson--Futaki invariants, or about
+comparison with a complex functional is meaningless until one of the three
+has been named.  Every such statement in this book names it.

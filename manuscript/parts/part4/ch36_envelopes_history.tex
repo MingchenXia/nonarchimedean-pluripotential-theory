@@ -1,0 +1,697 @@
+\chapter{Envelopes before the general theorem}
+\index{envelope property!history}\index{unibranch variety}
+\label{chap:bj-envelope-history}
+
+An upper envelope is the nonlinear closure operation that makes
+pluripotential theory work.  In the trivially valued setting its regularity
+was long the principal missing foundational statement.  This chapter freezes
+the historical picture immediately before the theorem proved in
+\Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}.  We
+establish the formal equivalences that do not depend on
+that theorem, state the cases known from Boucksom--Jonsson and their
+addendum, and isolate exactly what remained open.
+
+Throughout, \(X\) is an integral projective variety over an algebraically
+closed trivially valued field and \(\theta\in N^1(X)\).  For a function
+\(f:X^{\An}\to\mathbf R\cup\{\pm\infty\}\), write
+\[
+ f^*(v):=\limsup_{w\to v}f(w)
+\tag{36.1}\label{eq:bj-usc-regularization}
+\]
+for its upper-semicontinuous regularization.  The limit superior is
+topological and is defined using neighbourhoods, not a chosen sequence.
+
+
+\section{Orientation}
+\label{sec:ch36-orientation}
+
+\subsection{What is at stake}
+
+Every construction in \Cref{chap:bj-fs-pl-psh} produced \(\theta\)-psh
+functions by \emph{decreasing} approximation, and
+\Cref{thm:bj-basic-closure} closed the class under generically finite
+decreasing limits, finite maxima, and convex combinations.  It said nothing
+about suprema.
+That omission is not an oversight of the exposition: it is the precise shape
+of the foundational gap that stood open from 2018 until the theorem proved in
+\Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}.
+
+The reason suprema matter is that essentially every existence argument in
+pluripotential theory is an envelope argument.  One writes down the family of
+all psh competitors below an obstacle, takes the supremum, and needs to know
+that the result is again psh.  Without that, the variational method has no
+output, the projection \(P_\theta\) is not an operator on the psh class, and
+the metric geometry of finite energy has no maximal elements to work with.
+
+\subsection{The three distinctions that organize this chapter}
+
+A single imprecision has caused more confusion in this subject than any
+other: treating the following three operations as interchangeable.
+
+\begin{enumerate}
+\item A \emph{decreasing net} \(\phi_i\searrow\phi\).  The limit is
+      automatically usc, and \Cref{thm:bj-basic-closure}\,(4) keeps it in the
+      class provided it is generically finite; otherwise the closure theorem
+      allows the identically \(-\infty\) alternative.  This is how
+      \(\PSH_X(\theta)\) was defined.
+\item An \emph{increasing net} \(\phi_i\nearrow\phi\), or equivalently the
+      supremum of a directed family.  The pointwise limit need not be usc,
+      and the regularization \((\sup_i\phi_i)^*\) may differ from
+      \(\sup_i\phi_i\) on a nonempty set.  Whether the regularization is psh
+      is the envelope property.
+\item An arbitrary \emph{bounded-above family}, not directed.  Formally more
+      general than~(2), but in fact equivalent to it, because the finite
+      maxima of a family form a directed set with the same supremum and
+      \(\PSH_X(\theta)\) is closed under finite maxima.  This reduction is
+      the content of \Cref{thm:bj-envelope-equivalences} and is the one
+      simplification in this circle of ideas that is free.
+\end{enumerate}
+
+A fourth temptation, replacing nets by sequences throughout, is not
+available at all, and \Cref{sec:ch36-nets} exhibits the obstruction
+concretely rather than asserting it.
+
+\subsection{What this chapter proves, and what it does not}
+
+Proved here, independently of the envelope theorem: the formal calculus of
+the obstacle envelope \(P_\theta\); the equivalence of the envelope
+property with normalized compactness and with an obstacle criterion; the
+implication that the envelope property in an ample class forces
+unibranchness, so that the hypothesis of the main theorem is not an artefact
+of its proof; and the two positive results available by 2023, for nef
+classes on smooth varieties and, after the addendum, for arbitrary classes
+under the same smoothness and characteristic--dimension hypotheses.  The
+addendum also proves a separate energy identity on possibly singular
+varieties under the weak envelope property.
+
+Not proved here, and not used: the envelope theorem itself.  The firewall is
+stated precisely at the end of the chapter, because a circular dependency in
+exactly this place would be easy to introduce and hard to detect.
+
+\section{Two envelope operations}
+
+\begin{definition}[Envelope property]
+\label{def:bj-envelope-property}
+The class \(\theta\) has the envelope property, denoted
+\(\operatorname{EP}_X(\theta)\), if every nonempty bounded-above family
+\((\phi_i)_{i\in I}\subset\PSH_X(\theta)\) satisfies
+\[
+                        \left(\sup_{i\in I}\phi_i\right)^*
+                              \in\PSH_X(\theta).
+\tag{36.2}\label{eq:bj-envelope-property}
+\]
+\end{definition}
+
+Bounded above means bounded by one real constant on all of \(X^{\An}\).
+It does not mean that each \(\phi_i\) is bounded below.  In particular, the
+members may equal \(-\infty\) on proper-support points.
+
+\begin{definition}[Psh obstacle envelope]
+\label{def:bj-obstacle-envelope}
+For \(h:X^{\An}\to\mathbf R\cup\{\pm\infty\}\), define
+\[
+ P_\theta(h):=
+ \sup\{\psi\in\PSH_X(\theta)\mid\psi\leq h\}.
+\tag{36.3}\label{eq:bj-obstacle-envelope}
+\]
+If there is no competitor, \(P_\theta(h)\equiv-\infty\).
+\end{definition}
+
+Despite its name, the raw supremum in \eqref{eq:bj-obstacle-envelope} need
+not be upper semicontinuous or psh without an envelope theorem.  It may also
+be identically \(+\infty\) when the competitors are not uniformly bounded
+above.  These are three distinct alternatives.
+
+\begin{lemma}\label{lem:obstacle-envelope-formal}
+For arbitrary obstacles \(h,g\) and \(c\in\mathbf R\):
+\begin{enumerate}
+\item \(h\leq g\) implies \(P_\theta(h)\leq P_\theta(g)\);
+\item \(P_\theta(h+c)=P_\theta(h)+c\);
+\item \(P_\theta(P_\theta(h))=P_\theta(h)\) whenever the inner expression
+      is used as an obstacle;
+\item if \(h_j\uparrow h\) is an increasing net of bounded-below lower
+      semicontinuous functions, then
+      \(P_\theta(h_j)\uparrow P_\theta(h)\).
+\end{enumerate}
+\par
+\end{lemma}
+
+\begin{proof}
+The first three claims follow by comparing the defining competitor sets.
+For (4), monotonicity gives
+\(\sup_jP_\theta(h_j)\leq P_\theta(h)\).  Let
+\(\psi\in\PSH_X(\theta)\) satisfy \(\psi\leq h\), and fix
+\(\varepsilon>0\).  Since \(\psi\) is usc, \(h_j\) is lsc, and
+\(X^{\An}\) is compact, the increasing-net version of Dini's covering
+argument gives \(\psi<h_j+\varepsilon\) for all sufficiently large \(j\).
+Thus \(\psi-\varepsilon\leq P_\theta(h_j)\).  Taking the supremum over
+\(\psi\), then letting \(\varepsilon\downarrow0\), proves the reverse
+inequality.
+\end{proof}
+
+\section{Increasing nets and normalized compactness}
+
+The finite maximum of two \(\theta\)-psh functions is \(\theta\)-psh.
+Hence any family can be replaced by the increasing net of its finite maxima,
+indexed by the directed set of finite subsets.
+
+\begin{theorem}\label{thm:bj-envelope-equivalences}
+For any \(\theta\in N^1(X)\), the following are equivalent:
+\begin{enumerate}
+\item \(\operatorname{EP}_X(\theta)\);
+\item the normalized space
+\[
+ \PSH_X^{\sup}(\theta)
+   =\{\phi\in\PSH_X(\theta)\mid\sup\phi=0\}
+\]
+is compact for the topology of pointwise convergence on
+\(X^{\divis}\);
+\item every bounded-above increasing net in \(\PSH_X(\theta)\) converges
+      pointwise on \(X^{\divis}\) to the divisorial trace of a unique
+      \(\theta\)-psh function.
+\end{enumerate}
+In case (3), the resulting psh function is the usc regularization of the raw
+pointwise supremum.
+\end{theorem}
+
+\begin{proof}
+Assume (1) and take a net in the normalized space.  The BJ pointwise bounds
+put every divisorial coordinate in a compact interval.  Tychonoff gives a
+pointwise convergent subnet.  For each index \(i\), take the regularized
+supremum of the tail.  By (1) this is psh; the tail envelopes decrease, and
+their limit is psh because its value at \(v_{X,\triv}\) is zero.  The
+nonnegligibility of divisorial points identifies its trace with the
+coordinatewise cluster point.  Thus (2) holds.
+
+Assume (2).  Normalize a bounded-above increasing net by subtracting its
+supremum.  A subnet converges in the normalized compact space, while the
+subtracted real constants converge.  Monotonicity forces the entire net to
+have the same divisorial limit, proving (3).
+
+Finally assume (3), and let \((\phi_i)\) be a nonempty bounded-above family.
+For each finite \(J\subset I\), put
+\(\psi_J=\max_{i\in J}\phi_i\).  The \(\psi_J\) form an increasing
+bounded-above net, so (3) gives \(\psi\in\PSH_X(\theta)\).  On divisorial
+points,
+\[
+             \psi=\sup_J\psi_J=\sup_i\phi_i
+                   =\left(\sup_i\phi_i\right)^*,
+\]
+where the last equality is divisorial nonnegligibility.  Since \(\psi\) is
+psh and the regularized supremum is usc, divisorial comparison gives
+\(\psi\leq(\sup_i\phi_i)^*\).  Conversely, comparison between the psh
+functions \(\phi_i\) and \(\psi\) gives \(\phi_i\leq\psi\) on all of
+\(X^{\An}\).  Taking the raw supremum and then its usc regularization gives
+\((\sup_i\phi_i)^*\leq\psi\).  This proves (1).
+This is \cite[Theorem~5.11]{BJ22}.
+\end{proof}
+
+\begin{warning}{Why a sequence is insufficient}
+\label{warn:sequence-insufficient-envelope}
+The directed set of finite subsets of an arbitrary index set need not have a
+countable cofinal subset.  Nor is \(X^{\An}\) first countable over an
+uncountable field.  Replacing the net \((\psi_J)\) by a sequence therefore
+changes the statement.  A Choquet lemma can produce sequences in some
+metrizable reductions, but no such reduction is part of the general
+definition.
+\end{warning}
+
+\section{Obstacle formulations}
+
+\begin{theorem}\label{thm:general-obstacle-criterion}
+Assume \(\PSH_X(\theta)\ne\varnothing\).  Then
+\(\operatorname{EP}_X(\theta)\) is equivalent to each of the following:
+\begin{enumerate}
+\item for every extended-real obstacle \(h\), one has exactly one of
+\[
+ P_\theta(h)\equiv-\infty,\qquad
+ P_\theta(h)^*\equiv+\infty,\qquad
+ P_\theta(h)^*\in\PSH_X(\theta);
+\tag{36.4}\label{eq:envelope-trichotomy}
+\]
+\item \(P_\theta(h)\in\PSH_X(\theta)\) for every
+      \(h\in\PL(X)\).
+\end{enumerate}
+\par
+\end{theorem}
+
+\begin{proof}
+Under EP, the competitors in \eqref{eq:bj-obstacle-envelope} either are
+uniformly bounded above, in which case their regularized supremum is psh, or
+their suprema tend to \(+\infty\).  The Alexander--Taylor bound then forces
+the regularization to be \(+\infty\) on all divisorial points and hence
+identically \(+\infty\).  This proves \eqref{eq:envelope-trichotomy}.
+
+For a PL obstacle, boundedness and the existence of one psh function rule out
+both infinite alternatives.  Since the obstacle is continuous,
+\(P_\theta(h)^*\leq h\), so the regularization is itself a competitor and
+equals the raw envelope.
+
+Conversely, let \((\phi_i)\) be bounded above and put
+\(h=(\sup_i\phi_i)^*\).  On the compact space \(X^{\An}\), write \(h\) as a
+decreasing net of continuous functions, and use uniform density
+\eqref{eq:pl-stone-weierstrass} to take PL majorants \(h_j\searrow h\).
+Then \(P_\theta(h_j)\) is psh and
+\[
+          \sup_i\phi_i\leq P_\theta(h_j)\leq h_j.
+\]
+The decreasing-limit axiom and the lower bound supplied by one fixed
+\(\phi_i\) at \(v_{X,\triv}\) show that the limit \(\rho\) is psh.  On
+divisorial points, nonnegligibility gives \(\sup_i\phi_i=h\), hence
+\(\rho=h\).  Comparison gives \(\phi_i\leq\rho\) on all of \(X^{\An}\);
+therefore \(h=(\sup_i\phi_i)^*\leq\rho\), since \(\rho\) is usc.  The
+inequalities \(\rho\leq h_j\) for every \(j\) give
+\(\rho\leq h\), so \(\rho=h\).
+This is the criterion of \cite[Lemma~1.3]{BJ22b}.
+\end{proof}
+
+For an ample class \(\omega\), EP is further equivalent to continuity of
+envelopes:
+\[
+ h\in C^0(X^{\An})\quad\Longrightarrow\quad
+                     P_\omega(h)\in C^0(X^{\An})\cap\PSH_X(\omega).
+\tag{36.5}\label{eq:continuity-of-envelopes}
+\]
+One implication uses that the raw envelope is both a supremum of continuous
+psh approximants and usc by EP.  The other uses decreasing continuous
+majorants of a regularized supremum.  Ampleness supplies enough
+finite-valued Fubini--Study approximants.
+
+
+\section{Nets, sequences, and increasing families}
+\label{sec:ch36-nets}
+
+This section makes precise the third and fourth items of
+\Cref{sec:ch36-orientation}, because the envelope theorem is a statement
+about increasing families and every attempted shortcut through sequences has
+failed for a structural reason.
+
+\subsection{Why a sequence will not do}
+
+\begin{proposition}
+\label{prop:ch36-no-sequences}
+Let \(X\) be a projective variety of dimension \(\ge1\) over an
+algebraically closed trivially valued field.  Then \(X^{\An}\) is compact but
+not metrizable, and the directed set of test configurations ordered by
+domination has no countable cofinal subset.  Consequently a decreasing net
+realizing a given \(\phi\in\PSH_X(\theta)\) as in \Cref{def:bj-psh} cannot in
+general be replaced by a decreasing sequence.
+\end{proposition}
+
+\begin{proof}
+Suppose \((\cX_j)_{j\in\mathbf N}\) were cofinal among test configurations.
+Each \(\cX_j\) is determined by finitely many blowup data, so the union over
+\(j\) of the sets of divisorial points appearing on the \(\cX_j\) is
+countable.  But \(X^{\divis}\) is uncountable as soon as \(\dim X\ge1\):
+already for \(X\) a curve it contains \(t\ord_q\) for every closed point
+\(q\) and every \(t>0\), and the closed points of a curve over an
+algebraically closed field form an uncountable set.  A point of
+\(X^{\divis}\) not appearing on any \(\cX_j\) is not separated by the
+corresponding PL functions, contradicting cofinality.  Non-metrizability of
+\(X^{\An}\) follows likewise, since a compact metrizable space has a
+countable basis while the divisorial points form an uncountable discrete-like
+family for the topology of \Cref{chap:trivial-analytification}.
+\end{proof}
+
+The moral is worth stating plainly.  In complex pluripotential theory one may
+almost always work with sequences, because the relevant spaces are second
+countable.  Here that convenience is absent, and every argument that quietly
+extracts a subsequence must be re-examined.  The book's convention, fixed in
+the front matter, is that sequences are used only after first countability,
+metrizability, or a Choquet reduction has been established; the audits in
+\Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences} check
+this at each step.
+
+\subsection{Directedness is free; upper semicontinuity is not}
+
+\begin{lemma}
+\label{lem:ch36-directed-reduction}
+Let \((\phi_\alpha)_{\alpha\in A}\subset\PSH_X(\theta)\) be nonempty and
+bounded above.  Let \(F\) be the set of finite subsets of \(A\), directed by
+inclusion, and for \(S\in F\) put \(\phi_S:=\max_{\alpha\in S}\phi_\alpha\).
+Then \((\phi_S)_{S\in F}\) is an increasing net in \(\PSH_X(\theta)\) with
+\(\sup_S\phi_S=\sup_\alpha\phi_\alpha\), and hence
+\[
+ \Bigl(\sup_{\alpha}\phi_\alpha\Bigr)^*=\Bigl(\sup_{S}\phi_S\Bigr)^* .
+\]
+\end{lemma}
+
+\begin{proof}
+Each \(\phi_S\) is \(\theta\)-psh by \Cref{thm:bj-basic-closure}\,(2) and
+induction on \(\#S\); the net is increasing because \(S\subset S'\) implies
+\(\phi_S\le\phi_{S'}\); and the two suprema agree pointwise since every
+\(\phi_\alpha\) equals \(\phi_{\{\alpha\}}\).  Equality of the
+regularizations follows because they are computed from equal functions.
+\end{proof}
+
+So the passage from an arbitrary family to a directed one costs nothing.
+What is not free is the passage from the raw supremum to its regularization,
+and the following example shows the two genuinely differ.
+
+\begin{example}[Why a regularization step is unavoidable]
+\label{ex:ch36-sup-not-usc}
+The passage from \(\sup_i\phi_i\) to \((\sup_i\phi_i)^*\) in
+\eqref{eq:bj-envelope-property} is not cosmetic: a supremum of upper
+semicontinuous functions need not be upper semicontinuous, already on a
+segment.  On the skeleton \([0,1]\) put \(f_j(t):=\min\{1,jt\}\) for
+\(j\in\mathbf Z_{>0}\).  Each \(f_j\) is continuous, the family is
+increasing, and
+\[
+ \sup_j f_j(t)=\begin{cases}0,&t=0,\\ 1,&t>0,\end{cases}
+\]
+which fails upper semicontinuity at \(t=0\), where the value is \(0\) while
+\(\limsup_{t\to0^+}=1\).  Its regularization is the constant \(1\).
+
+The example is elementary and is not itself about psh functions; it isolates
+the mechanism.  An increasing family can leave a deficit on a closed
+negligible set, and the regularization fills it in.  The envelope property
+asserts that after this filling one is still inside \(\PSH_X(\theta)\) --
+that the filled-in value is attained by a genuine psh competitor rather than
+being an artefact of the limit.  This is why
+\Cref{def:bj-envelope-property} regularizes first and asks for membership
+second, and why no formal argument from
+\Cref{thm:bj-basic-closure} can prove it: that theorem's only limit
+operation is decreasing, and decreasing limits of usc functions are usc for
+free.
+\end{example}
+
+\begin{warning}{The obstacle envelope is not automatically an operator}
+Before the envelope theorem, \(P_\theta\) of
+\Cref{def:bj-obstacle-envelope} is a map from obstacles to
+\emph{functions}, not to \(\PSH_X(\theta)\).  Writing
+\(P_\theta:\PSH_X(\theta)\to\PSH_X(\theta)\), or composing \(P_\theta\) with
+itself as in \Cref{lem:obstacle-envelope-formal}\,(3), presupposes exactly
+what is at issue.  Every occurrence of \(P_\theta\) before
+\Cref{chap:bj-envelope-statement} in this book is therefore accompanied by
+an explicit statement of which of the three alternatives after
+\eqref{eq:bj-obstacle-envelope} is being assumed or proved.
+\end{warning}
+
+\section{Necessary geometry: unibranchness}
+
+Recall that an integral variety is unibranch if its normalization
+\(\nu:X^\nu\to X\) is a homeomorphism on underlying Zariski spaces.
+Normal varieties are unibranch.  Over \(\mathbf C\), this is equivalent to
+local analytic irreducibility.
+
+\begin{theorem}\label{thm:ep-implies-unibranch}
+If \(\operatorname{EP}_X(\omega)\) holds for one ample class
+\(\omega\), then \(X\) is unibranch.
+\end{theorem}
+
+\begin{proof}[Separation mechanism]
+Under EP, \Cref{thm:bj-envelope-equivalences} gives enough
+birational reflection to show that every dominant Fubini--Study function on
+\((X^\nu)^{\An}\) descends to \(X^{\An}\).  Such functions span
+\(\PL(X^\nu)\), which separates analytic points.  Hence
+\(\nu^{\An}\) is injective.  Non-Archimedean GAGA then implies that the
+finite normalization is injective on scheme points, so it is a homeomorphism.
+See \cite[Theorem~5.12]{BJ22}.
+\end{proof}
+
+\begin{example}[The node and the cusp]
+\label{ex:node-cusp-envelope}
+For a nodal curve, normalization has two points above the node.  Their
+proper-support semivaluations are identified in \(X^{\An}\), while PL
+functions upstairs can separate them.  If EP held in an ample class, the
+descent argument above would force every such separator to descend, a
+contradiction.  A cusp is unibranch: normalization is bijective on points,
+though not an isomorphism.  Thus the node is excluded by necessity, while
+the cusp belongs to the class predicted by the historical conjecture.
+\end{example}
+
+\section{The results known by 2023}
+
+The first general positive result was:
+
+\begin{theorem}\label{thm:bj22-nef-envelope}
+Assume that \(X\) is smooth and connected, and that either
+\(\operatorname{char}k=0\) or \(\dim X\leq2\).  Then every nef numerical
+class \(\theta\) has the envelope property.
+\end{theorem}
+
+\begin{proof}
+This is \cite[Theorem~5.20]{BJ22}; we reproduce its reduction and the
+uniform estimate.  By \cite[Lemma~5.9]{BJ22}, it is enough to treat
+\(\theta=c_1(L)\) for an ample \(\mathbf Q\)-line bundle \(L\): indeed, a
+nef real class is the limit of ample rational classes \(\theta_j\geq\theta\),
+and the decreasing-limit axiom passes the envelope property to the limit.
+By the continuity criterion in \eqref{eq:continuity-of-envelopes}, it remains
+to prove that \(P_L(h)\) is continuous for \(h\in C^0(X^{\An})\).  Since
+\[
+ \lVert P_L(h)-P_L(h')\rVert_\infty
+       \leq \lVert h-h'\rVert_\infty,
+\]
+uniform density of \(\PL(X)\) reduces this to \(h\in\PL(X)\).
+
+The test-configuration realization
+\cite[Theorem~2.31]{BJ22} writes \(h=\phi_{\cL}\) for an integrally closed
+test configuration \((\cX,\cL)\) of \((X,L)\).  After clearing
+denominators, let \(\mathfrak a_m\) be the base ideal of \(m\cL\), and put
+\[
+ u_m:=\phi_{\cL}+m^{-1}\phi_{\mathfrak a_m}.
+\]
+The inclusions
+\(\mathfrak a_m\mathfrak a_{m'}\subset\mathfrak a_{m+m'}\) and the
+valuative description of sections give
+\[
+                 u_m\longrightarrow P_L(\phi_{\cL})
+                 \quad\text{pointwise}.
+\tag{36.6a}\label{eq:bj22-nef-base-ideal-limit}
+\]
+This is \cite[Lemma~5.22]{BJ22}.  Resolving the total space, we may assume
+that \(\cX\) is smooth with SNC central fibre; in the positive-characteristic
+case this is where \(\dim\cX\leq3\) is used.
+
+Suppose first that \(\operatorname{char}k=0\), and let
+\(\mathfrak b_m\) be the asymptotic multiplier ideal of the graded sequence
+\(\mathfrak a_\bullet\).  The two foundational ideal inputs are
+\[
+ \mathfrak a_m\subset\mathfrak b_m,
+ \qquad
+ \mathfrak b_{m\ell}\subset\mathfrak b_m^{\,\ell}.
+\tag{36.6b}\label{eq:bj22-nef-multiplier-inclusions}
+\]
+They imply, after letting \(\ell\to\infty\) in
+\eqref{eq:bj22-nef-base-ideal-limit},
+\[
+ P_L(\phi_{\cL})
+ \leq \phi_{\cL}+m^{-1}\phi_{\mathfrak b_m}.
+\tag{36.6c}\label{eq:bj22-nef-multiplier-upper}
+\]
+Uniform global generation supplies an effective vertical
+\(\mathbf Q\)-divisor \(E\), an ample
+\(\mathcal A:=\cL-E\), an integer \(m_0\), and a constant \(C\), independent of
+\(m\), such that
+\[
+ \phi_{\mathfrak b_m}\leq
+ \phi_{\mathfrak a_{m+m_0}}+C.
+\]
+Combining this with \eqref{eq:bj22-nef-multiplier-upper} gives the uniform
+squeeze
+\[
+ u_m\leq P_L(\phi_{\cL})
+ \leq \left(1+\frac{m_0}{m}\right)u_{m+m_0}
+      -\frac{m_0}{m}\phi_{\cL}+\frac Cm.
+\tag{36.6d}\label{eq:bj22-nef-uniform-squeeze}
+\]
+The functions involved are continuous and uniformly bounded, so
+\eqref{eq:bj22-nef-uniform-squeeze} makes the convergence in
+\eqref{eq:bj22-nef-base-ideal-limit} uniform.  Hence the envelope is
+continuous.  When \(\operatorname{char}k>0\), the same inclusions and
+uniform-generation estimate hold for the test ideals used in the proof of
+\cite[Theorem~5.20]{BJ22}; the precise imported test-ideal inputs are
+subadditivity and uniform generation in
+\cite[\S4 and Theorem~4.6]{GJKM19}.  The identical squeeze completes the
+proof.
+\end{proof}
+
+The proof adapts the model-envelope regularity argument from the discretely
+valued setting.  In characteristic zero it uses multiplier ideals; in the
+low-dimensional positive-characteristic range it uses the available test
+ideal technology.  Smoothness and the stated characteristic/dimension
+alternative are part of the theorem, not expository conveniences.
+
+The 2022 preprint addendum, in its revised 2023 form and published in 2024,
+removed the nefness restriction:
+
+\begin{theorem}\label{thm:bj-addendum-all-classes}
+Assume that \(X\) is smooth and that either
+\(\operatorname{char}k=0\) or \(\dim X\leq2\).  Then every
+\(\theta\in N^1(X)\) has the envelope property.
+\end{theorem}
+
+\begin{proof}
+This is Theorem~A of \cite{BJ22b}.  If \(\theta\) is not pseudoeffective,
+then \(\PSH_X(\theta)=\varnothing\), so the assertion is vacuous.  Otherwise
+choose big \(\mathbf Q\)-line bundles \(L_i\) with
+\(c_1(L_i)\geq\theta\) and \(c_1(L_i)\to\theta\).  The same limit argument
+as in \cite[Lemma~5.9]{BJ22} reduces the proof to
+\(\theta=c_1(L)\) with \(L\) big.  By
+\Cref{thm:general-obstacle-criterion}, it is enough to show that
+\(P_L(h)\) is \(L\)-psh for every \(h\in\PL(X)\).
+
+Realize \(h=\phi_{\cL}\) on an integrally closed test configuration
+\((\cX,\cL)\), and clear denominators.  If \(\mathfrak a_m\) is the base
+ideal of \(m\cL\), then \cite[Lemmas~1.6--1.7]{BJ22b} gives
+\[
+ q_m:=\phi_{\cL}+m^{-1}\phi_{\mathfrak a_m}
+       \nearrow Q_L(\phi_{\cL})
+\tag{36.6e}\label{eq:addendum-q-limit}
+\]
+along the divisibility order.  The membership test behind this equality is
+exact: a Laurent section
+\(s=\sum_\lambda s_\lambda\varpi^{-\lambda}\) belongs to
+\(H^0(\cX,m\cL)\) if and only if
+\[
+ \max_\lambda\{\log|s_\lambda|+\lambda\}
+       \leq\phi_{m\cL}
+\]
+on \(X^{\An}\).  Thus every GF competitor below \(\phi_{\cL}\) occurs in
+one of the base-ideal stages, proving \eqref{eq:addendum-q-limit} rather
+than only one inequality.
+
+After resolving \(\cX\), let \(\mathfrak b_m\) denote the asymptotic
+multiplier ideals of \(\mathfrak a_\bullet\) in characteristic zero, and
+the corresponding asymptotic test ideals in positive characteristic.  The
+inclusions
+\[
+ \mathfrak a_m\subset\mathfrak b_m,
+ \qquad
+ \mathfrak b_{m\ell}\subset\mathfrak b_m^{\,\ell}
+\tag{36.6f}\label{eq:addendum-ideal-inclusions}
+\]
+give
+\[
+ Q_L(\phi_{\cL})\leq
+ \psi_m:=\phi_{\cL}+m^{-1}\phi_{\mathfrak b_m}.
+\tag{36.6g}\label{eq:addendum-Q-upper}
+\]
+Uniform global generation provides a \(\mathbf G_m\)-equivariant ample line
+bundle \(\mathcal A\) on \(\cX\) such that
+\(\cO_{\cX}(m\cL+\mathcal A)\otimes\mathfrak b_m\) is globally generated for all
+admissible \(m\).  Adding a multiple of \(\cX_0\), arrange
+\(\phi_{\mathcal A}\geq0\).  Then
+\[
+ \psi'_m:=\psi_m+m^{-1}\phi_{\mathcal A}
+     \in\cH^{\mathrm{gf}}_{\mathbf Q}(L+m^{-1}A)
+\]
+decreases in the divisibility order.  Hence
+\(\psi:=\inf_m\psi'_m\) is \(L\)-psh or identically \(-\infty\).  But
+\eqref{eq:addendum-Q-upper} and global generation give
+\[
+ Q_L(\phi_{\cL})\leq\psi'_m
+       \leq\phi_{\cL}+m^{-1}\phi_{\mathcal A},
+\]
+so
+\[
+                 Q_L(\phi_{\cL})\leq\psi\leq\phi_{\cL};
+\tag{36.6h}\label{eq:addendum-psi-squeeze}
+\]
+in particular, \(\psi\not\equiv-\infty\).
+
+It remains to identify the limit.  By \cite[Lemma~1.5]{BJ22b},
+\(P_L(\phi_{\cL})=Q_L(\phi_{\cL})\) off the augmented base locus.  Thus
+any \(\tau\in\PSH_X(L)\) with \(\tau\leq\phi_{\cL}\) satisfies
+\(\tau\leq\psi\) on \(X^{\divis}\), and divisorial comparison
+\cite[Theorem~4.22]{BJ22} gives the inequality on all of \(X^{\An}\).
+Taking the supremum over \(\tau\) yields
+\(P_L(\phi_{\cL})\leq\psi\).  Conversely,
+\eqref{eq:addendum-psi-squeeze} makes \(\psi\) a competitor, so
+\(\psi\leq P_L(\phi_{\cL})\).  Therefore the obstacle envelope is psh,
+and \Cref{thm:general-obstacle-criterion} proves the theorem.  The only
+imported characteristic-dependent core is precisely the multiplier-ideal or
+test-ideal package \eqref{eq:addendum-ideal-inclusions} with uniform global
+generation, anchored in \cite[\S2.1]{BJ22b}, with the
+positive-characteristic subadditivity and uniform-generation inputs given by
+\cite[\S4 and Theorem~4.6]{GJKM19}.
+\end{proof}
+
+The reduction is exact.  When \(\theta\) is not pseudoeffective,
+\(\PSH_X(\theta)=\varnothing\).  In the pseudoeffective range, the addendum
+reduces EP to PL obstacles.  For a big rational line bundle \(L\) and an
+integrally closed test configuration \((\cX,\cL)\), the base ideals
+\(\mathfrak a_m\) of \(m\cL\) produce an increasing divisibility net
+\[
+ \phi_m:=\phi_{\cL}+\frac1m\phi_{\mathfrak a_m}
+           \nearrow Q_L(\phi_{\cL}),
+\tag{36.6}\label{eq:addendum-base-ideal-net}
+\]
+where
+\[
+ Q_L(h):=\sup\{\psi\in\cH^{\mathrm{gf}}_{\mathbf R}(L)\mid\psi\leq h\}.
+\tag{36.7}\label{eq:fs-envelope}
+\]
+Multiplier or test ideals replace the increasing net by a decreasing GF
+regularization with an \(O(m^{-1})\) class error.  The decreasing-limit axiom
+then proves that the obstacle envelope is psh.  Formula
+\eqref{eq:addendum-base-ideal-net} is a net ordered by divisibility; it is not
+silently replaced by the usual order on integers.
+
+The same addendum proved a separate energy statement on singular varieties.
+If \(\omega\) is ample and \((X,\omega)\) has the weak envelope property
+(there is a birational model with an ample dominating class having EP), then
+for every bounded \(h\),
+\[
+E_\omega(h)=E_\omega(P_\omega(h))
+             =E_\omega(P_\omega(h)^*).
+\tag{36.8}\label{eq:addendum-energy-envelope}
+\]
+Here \(E_\omega\) is the trivially valued Boucksom--Jonsson energy of
+\cite{BJ22,BJ22b}; no discretely valued BFJ model-form pairing is being
+used.
+This does not assert that \(P_\omega(h)^*\) is psh when EP fails.  Equality
+of energy is therefore strictly weaker than envelope regularity.
+
+\section{The historical gap and the proof map ahead}
+
+At the end of the 2022 theory and its addendum, the exact unresolved
+statement was:
+
+\begin{quote}
+\emph{If \(X\) is an integral projective unibranch variety over an
+algebraically closed trivially valued field, then
+\(\operatorname{EP}_X(\theta)\) holds for every
+\(\theta\in N^1(X)_{\mathbf R}\).}
+\end{quote}
+
+This was Conjecture~5.14 of \cite{BJ22}.  It asked simultaneously for
+singular unibranch varieties, arbitrary dimension, arbitrary characteristic,
+and arbitrary real numerical classes.  The smooth theorem above did not
+settle descent through normalization or alterations.  Divisorial equality
+alone was also insufficient: a GF function may be \(-\infty\) on
+proper-support points.
+
+The next chapters prove the statement, without using it as an input.  The
+dependency map is:
+\[
+\begin{array}{c|l}
+\text{Chapter}&\text{new mechanism}\\ \hline
+37&\text{final statement, sharpness, and proof ledger}\\
+38&\text{Cartier b-divisor realization independent of EP}\\
+39&\text{birational and homogeneous-carrier reflection}\\
+40&\text{smooth case in arbitrary characteristic}\\
+41&\text{finite normal descent by determinant norms}\\
+42&\text{alterations and the normal case}\\
+43&\text{universal-homeomorphic descent in characteristic \(p\)}\\
+44&\text{subintegral descent in characteristic zero}\\
+45&\text{assembly and consequences}.
+\end{array}
+\]
+
+The logical firewall is important: none of
+\Crefrange{thm:bj-envelope-equivalences}{thm:bj-addendum-all-classes}
+contains the later general theorem.  This chapter records the historical
+inputs; \Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}
+supplies the missing descent and realization arguments.
+
+\section{Source note}
+
+\Cref{def:bj-envelope-property,def:bj-obstacle-envelope}, and
+\Cref{thm:bj-envelope-equivalences,thm:ep-implies-unibranch,%
+thm:bj22-nef-envelope} are from
+\cite[\S5]{BJ22}.  The PL-obstacle criterion,
+\Cref{thm:bj-addendum-all-classes}, the base-ideal approximation, and
+\eqref{eq:addendum-energy-envelope} are from \cite{BJ22b}.  The conjecture is
+stated here only at its historical location; the complete solution is the
+subject of the following nine chapters.

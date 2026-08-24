@@ -1,0 +1,540 @@
+\chapter{The envelope theorem: statement and sharpness}
+\index{envelope theorem!unibranch projective variety}\index{envelope property!sharpness}
+\label{chap:bj-envelope-statement}
+
+This chapter states the envelope theorem with every hypothesis visible and
+gives its proof immediately after the statement.
+\Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
+establishes, in the
+order in which they are needed, Cartier realization, two reflection
+theorems, smooth regularization, finite descent, alterations, and
+normalization reflection.  The proof below invokes those results in that
+order; \Cref{chap:bj-envelope-consequences} records a second assembly and
+its consequences.
+
+Throughout, \(k\) is algebraically closed and carries the trivial absolute
+value.  The scheme \(X\) is an integral projective \(k\)-variety, and
+\(\theta\in N^1(X)_{\mathbf R}\).  We use the Boucksom--Jonsson class
+\(\PSH_X(\theta)\) fixed in
+\Crefrange{chap:bj-fs-pl-psh}{chap:bj-envelope-history}.  Its members take values in
+\(\mathbf R\cup\{-\infty\}\): they are finite at divisorial valuations but
+may equal \(-\infty\) at semivaluations with proper support.
+
+
+\section{Orientation}
+\label{sec:ch37-orientation}
+
+\subsection{The theorem and its place in the book}
+
+This chapter states the principal theorem of Part~IV and gives its proof.
+The proof is three lines long, because it is an assembly: it reduces the
+general case to the normal case by normalization, and every input it uses is
+established in \Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}.
+The reader who wants the mathematics rather than the bookkeeping should read
+the statement, then \Cref{sec:ch37-proof-map}, and then the chapters in
+order.
+
+What makes the result worth nine chapters is not the final assembly but the
+descent.  Two independent difficulties have to be overcome, and they are
+solved by unrelated techniques:
+
+\begin{itemize}
+\item \emph{the smooth case in arbitrary characteristic}, where multiplier
+      ideals are unavailable in characteristic \(p\) and are replaced by
+      asymptotic test ideals, with the subadditivity and uniform
+      \(O(m^{-1})\) control that this substitution demands
+      (\Cref{chap:bj-smooth-characteristic});
+\item \emph{descent along the normalization}, which is finite and birational
+      but not flat, not separable in general, and not an isomorphism.  In
+      characteristic \(p\) it is handled by Frobenius and universal
+      homeomorphisms (\Cref{chap:bj-universal-homeomorphisms}); in
+      characteristic zero by the Roberts--Singh additive-power sandwich for
+      subintegral extensions (\Cref{chap:bj-subintegral-normalization}).
+\end{itemize}
+
+\subsection{Why the hypotheses are what they are}
+
+Three of the four hypotheses are necessary, and one is a convention:
+
+\begin{itemize}
+\item \emph{unibranch} is necessary in the ample case, by
+      \Cref{thm:ep-implies-unibranch}; the node--cusp test of
+      \Cref{sec:ch37-node-cusp} shows the failure concretely;
+\item \emph{nonempty} excludes the formal supremum \(-\infty\), which is not
+      a psh function under \Cref{def:bj-psh}\,(2);
+\item \emph{bounded above by a constant} cannot be weakened to a pointwise
+      bound, as \Cref{ex:ch37-pointwise-not-uniform} shows;
+\item \emph{integral and projective} is the setting in which
+      \(\PSH_X(\theta)\) was defined; properness is what makes
+      \(X^{\An}\) compact, and compactness is used at every step.
+\end{itemize}
+
+Nothing is assumed about the characteristic, the dimension, the rationality
+of \(\theta\), or the behaviour of the \(\varphi_i\) at proper-support
+semivaluations.  Each of these was a genuine restriction in some earlier
+partial result, and \Cref{sec:ch37-hypothesis-ledger} records which.
+
+\section{The exact statement}
+
+\begin{definition}[Bounded-above family]
+\label{def:bj-bounded-family}
+A family
+\[
+              (\varphi_i)_{i\in I}\subset\PSH_X(\theta)
+\]
+is \emph{bounded above} if there exists \(C\in\mathbf R\) such that
+\(\varphi_i\le C\) on \(X^{\An}\) for every \(i\in I\).  A pointwise
+upper bound depending on the analytic point is not enough.
+\end{definition}
+
+\begin{definition}[Envelope property]
+\label{def:bj-envelope-property-final}
+For a nonempty bounded-above family define
+\[
+ u_0:=\sup_{i\in I}\varphi_i,
+ \qquad
+ P(\varphi_i):=u_0^*,
+\tag{37.1}\label{eq:bj-envelope-definition}
+\]
+where \(u_0^*\) is the least upper semicontinuous majorant of \(u_0\).
+We write \(\operatorname{EP}_X(\theta)\) if
+\[
+                    P(\varphi_i)\in\PSH_X(\theta)
+\]
+for every such family.
+\end{definition}
+
+Nonemptiness excludes the formal supremum \(-\infty\), which is not a psh
+function.  The star cannot be suppressed: an arbitrary supremum of upper
+semicontinuous functions need not be upper semicontinuous.
+
+\begin{theorem}\label{thm:bj-final-envelope}
+Let \(X\) be an integral projective unibranch variety over an algebraically
+closed trivially valued field \(k\), and let
+\(\theta\in N^1(X)_{\mathbf R}\).  If
+\[
+               (\varphi_i)_{i\in I}\subset\PSH_X(\theta)
+\]
+is nonempty and bounded above, then
+\[
+             \left(\sup_{i\in I}\varphi_i\right)^*
+                    \in\PSH_X(\theta).
+\tag{37.2}\label{eq:bj-final-envelope}
+\]
+The assertion holds in arbitrary dimension and characteristic, for every
+real numerical class, and without a finiteness hypothesis at
+proper-support semivaluations.
+\end{theorem}
+
+\begin{proof}
+Let \(\nu:X^\nu\to X\) be the normalization.  Since \(X\) is
+unibranch, \Cref{lem:bj-unibranch-normalization-universal} shows that
+\(\nu\) is a finite birational universal homeomorphism.  In particular,
+\(\nu^{\An}\) is a homeomorphism.  The normal projective variety \(X^\nu\)
+has the envelope property in every real numerical class by
+\Cref{cor:bj-normalization-source-ep}.
+
+Pullback therefore gives a bounded-above nonempty family
+\(\nu^*\varphi_i\in\PSH_{X^\nu}(\nu^*\theta)\), and hence
+\[
+ v:=\left(\sup_i\nu^*\varphi_i\right)^*
+       \in\PSH_{X^\nu}(\nu^*\theta).
+\]
+Because \(\nu^{\An}\) is a homeomorphism, upper semicontinuous
+regularization commutes with pullback by
+\Cref{cor:bj-universal-usc}.  Thus, as an identity of extended-real
+functions on the whole analytification,
+\[
+ v
+ =\nu^*\left(\sup_i\varphi_i\right)^*.
+\]
+This remains valid at proper-support points where both sides may be
+\(-\infty\): it follows by transporting neighborhood filters through the
+homeomorphism, without subtracting extended-real values.  Finally,
+\Cref{cor:bj-universal-reflection-all-characteristics} reflects
+\(\nu^*\)-psh functions through a finite birational universal
+homeomorphism.  It follows that
+\(\left(\sup_i\varphi_i\right)^*\in\PSH_X(\theta)\), as required.
+\end{proof}
+
+\begin{remark}[Logical scope]
+Normality is not assumed.  In particular, the theorem includes unibranch
+nonnormal varieties such as a cuspidal curve.  Conversely, this chapter
+does not assert that every non-unibranch variety fails every envelope
+statement.  The sharpness discussion below concerns the normalization
+reflection required by this proof.
+\end{remark}
+
+\begin{remark}[Empty psh classes]
+If \(\PSH_X(\theta)=\varnothing\), then
+\(\operatorname{EP}_X(\theta)\) is vacuous.  The family in
+\Cref{thm:bj-final-envelope} makes the theorem's instance nonvacuous.
+\end{remark}
+
+\section{Equivalent formulations}
+
+Write \(X^{\divis}\) for the trivial valuation together with the positive
+rational multiples of divisorial valuations.  All these points have full
+support.
+
+We use exactly the comparison interface recorded in the supplied envelope
+manuscript from \cite[Theorem~4.22]{BJ22}: if
+\(u\in\PSH_X(\theta)\) and
+\[
+              h:X^{\An}\longrightarrow\mathbf R\cup\{-\infty\}
+\]
+is upper semicontinuous, then \(u\le h\) on \(X^{\An}\) if and only if
+the inequality holds on \(X^{\divis}\).  In particular, two psh functions
+that agree on \(X^{\divis}\) agree everywhere.
+
+\begin{proposition}\label{prop:bj-increasing-net-criterion}
+\label{prop:bj-ep-equivalences}
+For fixed \(X\) and \(\theta\), the following assertions are equivalent.
+\begin{enumerate}
+\item \(\operatorname{EP}_X(\theta)\) holds.
+\item Every bounded-above upward-directed net
+\[
+                  (u_j)_{j\in J}\subset\PSH_X(\theta)
+\]
+has a pointwise supremum on \(X^{\divis}\) that is the divisorial trace of
+a unique \(u\in\PSH_X(\theta)\); moreover,
+\[
+                         u=\left(\sup_j u_j\right)^*.
+\]
+\item For every nonempty bounded-above family
+\((\varphi_i)_{i\in I}\), the net
+\[
+                 u_F:=\max_{i\in F}\varphi_i
+\tag{37.3}\label{eq:bj-finite-max-net}
+\]
+indexed by the finite nonempty subsets \(F\subset I\) has the limit
+described in the preceding item.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+The equivalence of the first two assertions is
+\cite[Theorem~5.11]{BJ22}.  Finite maxima in one psh class are psh.
+The finite nonempty subsets of \(I\), ordered by inclusion, form a directed
+set, and
+\[
+                        \sup_F u_F=\sup_i\varphi_i.
+\]
+Thus the second assertion implies the third, and the third implies the
+first.
+
+Conversely, if \((u_j)\) is upward directed, every finite maximum of its
+members is dominated by one member of the net.  Its finite-maximum net
+therefore has the same pointwise supremum.  The third assertion then yields
+the second.  Uniqueness follows from divisorial determination.
+\end{proof}
+
+\begin{corollary}\label{cor:bj-historical-conjecture}
+\Cref{thm:bj-final-envelope}, applied separately to every
+\(\theta\in N^1(X)_{\mathbf R}\), is precisely Boucksom--Jonsson
+Conjecture~5.14 for projective unibranch varieties.
+\end{corollary}
+
+\begin{proof}
+Conjecture~5.14 is the assertion of the envelope property in every numerical
+class.  The equivalence between its family and increasing-net forms is
+\Cref{prop:bj-increasing-net-criterion}.
+\end{proof}
+
+\section{The extended-real boundary}
+
+The theorem is an assertion on all of \(X^{\An}\), not only on valuations
+of \(k(X)\).  Let \(x\in X^{\An}\) have proper support \(Z\subsetneq X\).
+If a coherent ideal \(\mathfrak a\) vanishes identically along \(Z\), then
+\[
+                  v_x(\mathfrak a)=+\infty,
+ \qquad
+                  \log|\mathfrak a|(x)=-\infty.
+\tag{37.4}\label{eq:bj-supported-ideal-value}
+\]
+Hence a generically finite Fubini--Study function can have value
+\(-\infty\) at \(x\).
+
+\begin{example}[A common base locus]
+\label{ex:bj-common-base-locus}
+Let
+\[
+ \phi=\frac1m\max_j\{\log|s_j|+\lambda_j\}
+\]
+be a rational GF function.  If all \(s_j\) vanish along a proper closed
+set \(Z\), then \(\phi=-\infty\) at the trivial semivaluation supported on
+\(Z\).  This is not a value to be discarded: determinant norms and
+normalization descent must reproduce it exactly.
+\end{example}
+
+\begin{proposition}\label{prop:bj-safe-interfaces}
+The proof of \Cref{thm:bj-final-envelope} uses the following interfaces.
+\begin{enumerate}
+\item Equalities of ideal values are read before changing signs, so the
+value \(+\infty\) is allowed.
+\item Finite maxima and finite positively weighted sums are read in
+\(\mathbf R\cup\{-\infty\}\).
+\item Divisor identities at proper-support points are global psh identities,
+not rearranged differences of two functions equal to \(-\infty\).
+\item A decreasing psh limit is used only after a finite value at the
+trivial valuation, or an explicit GF lower bound, excludes the identically
+\(-\infty\) alternative.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+The four main constructions exemplify the four rules.  Cartier realization
+uses homogeneous Siu division in the form
+\[
+                     \chi'=\log|s_F|+\chi_B.
+\]
+The smooth proof begins with the ideal identity
+\[
+ J_m\cO_{\mathcal Y}
+     =\mathfrak a_m\cO_{\mathcal Y}(mD).
+\]
+Finite descent uses coefficients of a universal determinant norm, whose
+zero polynomial records a common zero in a fibre.  Characteristic-zero
+normalization uses a two-sided inequality for nonnegative weighted ideal
+values.  None of these steps subtracts two infinite values.
+\end{proof}
+
+\begin{remark}[Why divisorial computation is still enough]
+The construction of a candidate is usually checked first on
+\(X^{\divis}\), where divisor values are finite.  The candidate is then
+known independently to be psh, and comparison determines its values at
+proper-support points.  Thus divisorial density is not being used to impose
+an arbitrary extension by hand.
+\end{remark}
+
+\section{Unibranchness and the node--cusp test}
+\label{sec:ch37-node-cusp}
+
+Let
+\[
+                         \nu:X^\nu\longrightarrow X
+\tag{37.5}\label{eq:bj-normalization-preview}
+\]
+be the normalization.  Since \(X\) is of finite type over a field, \(\nu\)
+is finite.  If \(X\) is unibranch, then there is a unique point of
+\(X^\nu\) over each point of \(X\).  Over algebraically closed \(k\), the
+finite birational map is radicial, hence a universal homeomorphism.  It
+therefore induces a homeomorphism
+\[
+             \nu^{\An}:(X^\nu)^{\An}\xrightarrow{\ \sim\ }X^{\An}.
+\tag{37.6}\label{eq:bj-normalization-analytic-homeomorphism}
+\]
+
+The hypothesis is sharp for this reflection mechanism.  If a normalization
+has two points over one singular point, then a branch-asymmetric function
+upstairs cannot be a pullback from downstairs.  We do not infer from this
+obstruction alone a converse to \Cref{thm:bj-final-envelope}.
+
+\begin{example}[Node versus cusp]
+\label{ex:bj-node-cusp}
+Assume, for the displayed plane equations, that
+\(\operatorname{char}k\ne2,3\).
+\begin{enumerate}
+\item An integral nodal cubic has two points \(p_+\) and \(p_-\) in its
+normalization above the node \(p\).  The two proper-support endpoints
+upstairs are identified downstairs.  Every pulled-back function takes the
+same value at \(p_+\) and \(p_-\), while a GF system on the normalization
+can distinguish them.  Full normalization reflection therefore fails.
+\item The cuspidal cubic \(y^2z=x^3\) has one point in its normalization
+above the cusp.  Its completed local inclusion is
+\[
+                         k[[t^2,t^3]]\subset k[[t]].
+\]
+The curve is nonnormal but unibranch, and its normalization is a finite
+birational universal homeomorphism.  It lies within the theorem.
+\end{enumerate}
+\end{example}
+
+\begin{remark}[Characteristic of the picture]
+In characteristics \(2\) and \(3\), use standard local models of an ordinary
+node and a unibranch cusp.  The proof uses the number of normalization
+branches and the universal-homeomorphism criterion, not the displayed
+complex-analytic equations.
+\end{remark}
+
+
+\section{Testing the hypotheses}
+\label{sec:ch37-testing}
+
+The theorem is stated with four hypotheses.  This section shows by example
+that two of them cannot be relaxed in the obvious way, and explains why the
+other two are conventions rather than restrictions.  The examples are small
+and are meant to be checked by hand.
+
+\begin{example}[A pointwise bound is not enough]
+\label{ex:ch37-pointwise-not-uniform}
+Let \(X=\mathbf P^1\) and \(\theta=c_1(\cO(1))\), so \(\deg\theta=1\).  For
+\(j\in\mathbf Z_{>0}\) let \(\varphi_j\in\PSH_X(\theta)\) be the function
+that is \(0\) off the ray through \(\ord_0\) and satisfies
+\(\varphi_j(t\ord_0)=\max\{-t,-j\}\), translated by \(+j\); that is, put
+\(\psi_j:=\varphi_j+j\), so that
+\[
+ \psi_j(t\ord_0)=\max\{j-t,\,0\},
+ \qquad
+ \psi_j\equiv j\ \text{elsewhere}.
+\]
+Each \(\psi_j\) is \(\theta\)-psh, since adding a constant preserves the
+class by \Cref{thm:bj-basic-closure}\,(1).  At each fixed
+\(v\in X^{\An}\) the family \((\psi_j(v))_j\) is a set of real numbers, so
+the family is bounded pointwise in the trivial sense of being finite at each
+point; but \(\sup_j\psi_j\equiv+\infty\), which is not a psh function and
+whose usc regularization is again \(+\infty\).
+
+The example is deliberately crude, and that is the point:
+\Cref{def:bj-bounded-family} demands a single constant \(C\) with
+\(\varphi_i\le C\) on all of \(X^{\An}\), and no weaker hypothesis phrased
+pointwise can survive translation by constants, because the class is stable
+under such translation.  Any envelope statement must therefore either
+normalize, as in \eqref{eq:normalized-psh-space}, or impose a uniform bound;
+the two devices are interchangeable.
+\end{example}
+
+\begin{example}[Nonemptiness is not automatic]
+\label{ex:ch37-empty-class}
+If \(\theta\notin\operatorname{Psef}(X)\), then
+\(\PSH_X(\theta)=\emptyset\) by
+\Cref{lem:ch34-psh-nonempty}, and there is no family to which the theorem
+could apply.  The hypothesis that the family be nonempty is thus doing two
+things at once: it excludes the empty family, whose supremum is the constant
+\(-\infty\), and, implicitly, it forces \(\theta\) to be pseudoeffective.
+It does not force nefness; that stronger conclusion follows only from the
+existence of a bounded psh member.  This is why
+\Cref{thm:bj-final-envelope} does not need a positivity hypothesis on
+\(\theta\) as a separate item: the nonemptiness of the family supplies it.
+\end{example}
+
+\begin{remark}[Real classes are not a technicality]
+\label{rem:ch37-real-classes}
+\Cref{thm:bj-final-envelope} is stated for
+\(\theta\in N^1(X)_{\mathbf R}\), and the real case is not formally reducible
+to the rational one.  The reason surfaces in
+\Cref{chap:bj-smooth-characteristic}: the approximation that produces
+sections perturbs the numerical class by \(O(m^{-1})\), and clearing that
+perturbation is exactly what moves the Fubini--Study weights out of
+\(\mathbf Q\), as recorded after
+\Cref{thm:ch34-fs-regularization}.  A proof that worked only for rational
+classes and then passed to the limit would have to know in advance that the
+limit of the envelopes is the envelope of the limit, which is a statement of
+the same difficulty as the theorem.
+\end{remark}
+
+\begin{remark}[What the theorem does not say]
+\label{rem:ch37-not-said}
+Three misreadings are worth forestalling.
+
+First, the theorem does not assert that \(\sup_i\varphi_i\) is itself psh; it
+asserts this of the regularization, and
+\Cref{ex:ch36-sup-not-usc} shows the two differ in general.
+
+Second, it does not assert that the supremum is attained, nor that the
+regularization agrees with the supremum off a small set in any quantitative
+sense.  It is a closure statement, not a regularity statement.
+
+Third, it does not assert that non-unibranch varieties fail every envelope
+statement.  What \Cref{thm:ep-implies-unibranch} gives is a converse in the
+\emph{ample} case; for a general class on a non-unibranch variety the
+question is not addressed here, and the descent used in the proof of
+\Cref{thm:bj-final-envelope} simply becomes unavailable.
+\end{remark}
+
+\section{Hypothesis ledger}
+\label{sec:ch37-hypothesis-ledger}
+
+\begin{proposition}\label{prop:bj-final-hypothesis-ledger}
+In \Cref{thm:bj-final-envelope}, the hypotheses have the following exact
+scope.
+\begin{enumerate}
+\item The ground field is algebraically closed and carries the trivial
+      absolute value.
+\item The variety is integral, projective, and unibranch.  It need not be
+      normal or smooth.
+\item The numerical class is an arbitrary element of
+      \(N^1(X)_{\mathbf R}\).  It need not be rational, big, nef, or
+      pseudoeffective.
+\item The family may be uncountable.  It is required only to be nonempty
+      and bounded above; no monotonicity or common finite locus is assumed.
+\item The conclusion concerns the usc regularization of the pointwise
+      supremum on the whole analytic space, including proper-support
+      points where the value may be \(-\infty\).
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+These are precisely the assumptions and conclusion in
+\Cref{thm:bj-final-envelope}.  If the psh space is empty, there is no
+nonempty family and the assertion is vacuous.  No additional case is
+created by a non-pseudoeffective class.
+\end{proof}
+
+\section{Proof map}
+\label{sec:ch37-proof-map}
+
+The order below prevents circularity.
+
+\begin{enumerate}
+\item \emph{Real Cartier realization.}
+\Cref{chap:bj-cartier-realization} realizes every anti-effective real Cartier
+b-divisor \(B\) with
+nef total class \(\pi^*\theta+B_Y\) by a homogeneous psh function.  This
+uses no envelope property.
+\item \emph{Homogeneous reflection.}
+\Cref{chap:bj-reflection} applies the realization theorem to a decreasing homogeneous GF
+regularization on a birational model.  An exact drift-cancellation identity
+keeps all approximants in one fixed downstairs class.
+\item \emph{Carrier reflection.}
+The homogeneous Legendre slices of an ordinary psh function are reflected
+one by one.  A homogeneous carrier controls the omitted tail; a summable
+lower-grid construction preserves decreasing order.
+\item \emph{Smooth arbitrary-characteristic theorem.}
+\Cref{chap:bj-smooth-characteristic} recalls the multiplier-ideal proof in characteristic zero and
+uses asymptotic test ideals on \(X\times\mathbf A^1\) in characteristic
+\(p>0\).  The stages have exact classes \(L+A/m\).
+\item \emph{Finite normal descent.}
+\Cref{chap:bj-finite-descent} proves analytic openness, flattens a finite algebra over a
+birational model, and applies determinant norms of universal weighted
+section systems.
+\item \emph{Normal targets.}
+\Cref{chap:bj-alterations} factors a smooth alteration into a projective birational map
+followed by a finite normal map.  Birational and finite descent then prove
+the envelope property for normal projective varieties.
+\item \emph{Universal-homeomorphic normalization.}
+\Cref{chap:bj-universal-homeomorphisms,chap:bj-subintegral-normalization}
+reflect psh functions through
+\eqref{eq:bj-normalization-preview}: Frobenius powers treat positive
+characteristic, while the Roberts--Singh additive-power sandwich treats
+characteristic zero.
+\item \emph{Assembly.}
+\Cref{chap:bj-envelope-consequences} pulls the envelope to \(X^\nu\), applies normal envelope property,
+and reflects the result through
+\eqref{eq:bj-normalization-analytic-homeomorphism}.
+\end{enumerate}
+
+\paragraph{Proof checkpoint.}
+The proof uses three distinct topological facts.  Compactness bounds each
+individual psh function above.  Openness of a finite analytic map commutes
+pullback with upper semicontinuous regularization.  Homeomorphy of the
+unibranch normalization identifies the final envelope pointwise.
+
+\paragraph{Proof checkpoint.}
+Arbitrary characteristic enters twice.  Test ideals replace multiplier
+ideals on a smooth positive-characteristic source.  The normalization step
+then splits into Frobenius and characteristic-zero subintegral arguments.
+The determinant norm itself is characteristic-free.
+
+\section{Source note}
+
+The theorem and its dependency order are those of the supplied manuscript
+\emph{The envelope property for unibranch projective varieties}.  The
+increasing-net criterion and comparison interface are
+\cite[Theorems~5.11 and~4.22]{BJ22}.  The historical smooth
+characteristic-zero case is \cite{BJ22b}.  We have retained the exact
+hypotheses of the supplied theorem and made no converse claim beyond the
+node--cusp diagnosis of the normalization-reflection step.

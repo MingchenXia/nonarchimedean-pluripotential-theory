@@ -1,0 +1,640 @@
+\chapter{Intersection theory and b-divisors}
+\index{intersection theory!b-divisor@$b$-divisor}\index{b-divisor@$b$-divisor!Cartier and Weil}
+\label{app:intersection-bdivisors}
+
+This appendix records the intersection-theoretic facts used on birational
+models.
+Its central firewall is categorical:
+Cartier b-divisors are eventually pullback data, whereas Weil b-divisors are
+compatible pushforward data.
+Pullback and intersection are therefore automatic for Cartier objects and
+are not automatic for Weil objects.
+
+The first use is the model intersection construction in \cref{part:foundations}.
+\Cref{chap:bj-homogeneity-bdivisors} uses the coefficient functions
+of b-divisors, \Cref{chap:bj-cartier-realization} uses Cartier
+realizations, and \Cref{chap:compare-ma} compares their valid
+intersection products with analytic Monge--Amp\`ere products.
+
+\section{Cycles, Cartier divisors, and numerical classes}
+\label{sec:appF-intersection-basics}
+
+Let \(X\) be a proper integral variety of dimension \(n\) over a field.
+Write \(Z_k(X)\) for \(k\)-cycles with real coefficients and
+\(A_k(X)_{\mathbf R}\) for cycles modulo rational equivalence.
+An \(\mathbf R\)-Cartier divisor is a finite real linear combination of
+Cartier divisors.
+
+\begin{definition}[Numerical equivalence]
+\label{def:appF-numerical}
+Two \(\mathbf R\)-Cartier divisors \(D,D'\) are numerically equivalent if
+\[
+                     (D-D')\cdot C=0
+\]
+for every integral curve \(C\subset X\).
+The quotient is \(N^1(X)\).
+The real vector space of one-cycles modulo numerical equivalence is
+\(N_1(X)\), and intersection gives a pairing
+\[
+                           N^1(X)\times N_1(X)\longrightarrow\mathbf R.
+\tag{F.1}\label{eq:appF-N1-pairing}
+\]
+\end{definition}
+
+A class \(\alpha\in N^1(X)\) is nef if
+\(\alpha\cdot C\geq0\) for every integral curve.
+It is ample only when represented by an ample \(\mathbf R\)-divisor in the
+usual open cone.
+Nefness is numerical; effectivity is not.
+
+\begin{proposition}\label{prop:appF-mixed-cartier}
+For \(\mathbf R\)-Cartier divisors \(D_1,\ldots,D_n\) on \(X\), the degree
+\[
+                              (D_1\cdots D_n)
+\tag{F.2}\label{eq:appF-mixed-intersection}
+\]
+is symmetric and multilinear and depends only on their numerical classes.
+If all \(D_i\) are nef, the number is nonnegative.
+\end{proposition}
+
+\begin{proof}
+For integral Cartier divisors, intersect successively with the fundamental
+cycle in the Chow group.
+Commutativity of Cartier divisor operators gives symmetry, and additivity
+gives multilinearity.
+Intersection with a numerically trivial divisor vanishes after the other
+divisors have reduced the cycle to a one-cycle, proving numerical
+invariance.
+For nonnegativity, first use Chow's lemma to choose a projective
+birational morphism \(\mu:Y\to X\) with \(Y\) projective over the ground
+field.  The pullbacks of the \(D_i\) are nef, and their intersection is
+unchanged by \eqref{eq:appF-degree-formula}.  On the projective variety
+\(Y\), approximate the nef classes by ample classes; positivity of ample
+intersections and continuity give nonnegativity.
+See \cite[Chapters~1 and~19]{Ful}.
+\end{proof}
+
+\begin{warning}{Weil is not Cartier}
+On a normal non-\(\mathbf Q\)-factorial variety, a prime Weil divisor need
+not admit a pullback as a Cartier divisor and need not define an element of
+\(N^1(X)\).
+Notation such as \(f^*D\) or \(D^n\) for an arbitrary Weil divisor is
+therefore undefined unless an additional pullback or intersection theory has
+been specified.
+\end{warning}
+
+\section{The projection formula}
+\label{sec:appF-projection}
+
+\begin{theorem}\label{thm:appF-projection}
+Let \(f:Y\to X\) be proper, let \(D_1,\ldots,D_r\) be Cartier divisors on
+\(X\), and let \(\gamma\in A_k(Y)_{\mathbf R}\).
+Then
+\[
+ f_*\bigl(
+ f^*D_1\cdots f^*D_r\cap\gamma
+ \bigr)
+ =
+ D_1\cdots D_r\cap f_*\gamma.
+\tag{F.3}\label{eq:appF-projection}
+\]
+\end{theorem}
+
+\begin{proof}
+For one Cartier divisor \(D\), a local equation for \(D\) pulls back to a
+local equation for \(f^*D\).
+Orders along components and residue-field degrees are exactly those in the
+definition of proper pushforward of cycles.
+Thus
+\[
+ f_*(f^*D\cap\gamma)=D\cap f_*\gamma.
+\]
+Iterate this identity.
+This is the operational-Chow projection formula
+\cite[Proposition~2.3(c)]{Ful}.
+\end{proof}
+
+\begin{corollary}\label{cor:appF-generically-finite}
+Let \(f:Y\to X\) be a proper generically finite morphism of degree \(d\)
+between proper integral \(n\)-folds.
+For \(\mathbf R\)-Cartier divisors \(D_1,\ldots,D_n\) on \(X\),
+\[
+                   (f^*D_1\cdots f^*D_n)
+                   =d(D_1\cdots D_n).
+\tag{F.4}\label{eq:appF-degree-formula}
+\]
+For a proper birational morphism, \(d=1\).
+\end{corollary}
+
+\begin{proof}
+One has \(f_*[Y]=d[X]\).
+Apply \eqref{eq:appF-projection} and take degrees of the resulting
+zero-cycles.
+\end{proof}
+
+\begin{warning}{Domain of the formula}
+Properness is used to push cycles and take degrees.
+Generic finiteness is used only for \(f_*[Y]=d[X]\).
+Formula \eqref{eq:appF-degree-formula} does not say that an arbitrary
+divisor on \(Y\) is a pullback, and it does not define pullback of a
+non-Cartier Weil divisor on \(X\).
+\end{warning}
+
+\begin{example}[Blowup test]
+\label{ex:appF-blowup}
+Let \(\pi:Y\to\mathbf P^2\) be the blowup of a point, let
+\(H=\pi^*c_1(\mathcal O(1))\), and let \(E\) be the exceptional curve.
+Then
+\[
+                         H^2=1,\qquad H\cdot E=0,\qquad E^2=-1.
+\tag{F.5}\label{eq:appF-blowup-table}
+\]
+The first equality is \eqref{eq:appF-degree-formula}.
+The second holds because a general line avoids the center.
+For the third, \(\mathcal O_E(E)\simeq\mathcal O_{\mathbf P^1}(-1)\).
+This table detects a false assertion that every effective divisor has
+nonnegative self-intersection.
+\end{example}
+
+\section{The birational model category}
+\label{sec:appF-models}
+
+Assume now that \(X\) is normal and projective.
+A model over \(X\) is a proper birational morphism
+\(\pi_Y:Y\to X\) with \(Y\) normal and projective.
+We write \(Y'\succeq Y\) when there is a proper birational morphism
+\(\mu:Y'\to Y\) over \(X\).
+
+\begin{lemma}\label{lem:appF-common-domination}
+Any two models \(Y_1,Y_2\) admit a common normal projective domination.
+\end{lemma}
+
+\begin{proof}
+Take the closure of the graph of the birational map
+\(Y_1\dashrightarrow Y_2\) inside
+\(Y_1\times_XY_2\), choose the irreducible component dominating \(X\), and
+normalize it.
+The two projections are proper and birational.  The graph closure is
+projective over \(X\), and its normalization is finite because it is of
+finite type over a field; hence the normalized graph is again projective
+over \(X\).
+\end{proof}
+
+Thus the model category is cofiltered.
+No resolution of singularities is used in
+\Cref{lem:appF-common-domination}.
+
+\section{Cartier and Weil b-divisors}
+\label{sec:appF-bdivisors}
+
+\begin{definition}[Weil b-divisor]
+\label{def:appF-weil-bdivisor}
+A real Weil b-divisor over \(X\) is a family
+\[
+                B=(B_Y)_Y,\qquad B_Y\in\Div(Y)_{\mathbf R},
+\]
+such that for every domination \(\mu:Y'\to Y\),
+\[
+                              \mu_*B_{Y'}=B_Y.
+\tag{F.6}\label{eq:appF-weil-compatibility}
+\]
+The divisor \(B_Y\) is the trace of \(B\) on \(Y\).
+\end{definition}
+
+\begin{definition}[Cartier b-divisor]
+\label{def:appF-cartier-bdivisor}
+A Cartier b-divisor is a Weil b-divisor \(C\) for which there is a model
+\(Y\) and an \(\mathbf R\)-Cartier divisor \(C_Y\) such that
+\[
+                             C_{Y'}=\mu^*C_Y
+\tag{F.7}\label{eq:appF-cartier-determination}
+\]
+on every \(Y'\succeq Y\).
+The pair \((Y,C_Y)\) is a determination of \(C\).
+\end{definition}
+
+On a model not dominating a chosen determination, take a common domination
+and push down.
+The projection formula shows that the result is independent of the common
+domination.
+Consequently
+\[
+\begin{aligned}
+ \operatorname{CDiv}_{\mathbf R}(\mathfrak X)
+   &=\varinjlim_Y\operatorname{CDiv}_{\mathbf R}(Y)
+     &&\text{under pullback},\\
+ \operatorname{Div}_{\mathbf R}(\mathfrak X)
+   &=\varprojlim_Y\operatorname{Div}_{\mathbf R}(Y)
+     &&\text{under pushforward}.
+\end{aligned}
+\tag{F.8}\label{eq:appF-direct-inverse}
+\]
+
+\begin{proposition}\label{prop:appF-coefficients}
+A Weil b-divisor is equivalent to an assignment \(E\mapsto b_E\in\mathbf R\)
+to every prime divisor over \(X\), subject to the condition that on each
+model only finitely many divisors occurring on that model have nonzero
+coefficient.
+Its trace is
+\[
+                              B_Y=\sum_{E\subset Y}b_EE.
+\tag{F.9}\label{eq:appF-trace-coefficients}
+\]
+\end{proposition}
+
+\begin{proof}
+Pushforward preserves the coefficient of a prime divisor that survives and
+kills exceptional divisors.
+Thus a compatible family gives a model-independent coefficient.
+Conversely, the locally finite trace condition makes
+\eqref{eq:appF-trace-coefficients} a Weil divisor on every model, and the
+traces are compatible under pushforward.
+\end{proof}
+
+\begin{example}[A non-Cartier Weil b-divisor]
+\label{ex:appF-non-cartier-bdivisor}
+On a smooth projective surface, choose an infinite chain of point blowups
+\[
+ \cdots\longrightarrow Y_3\longrightarrow Y_2\longrightarrow Y_1
+ \longrightarrow X
+\]
+and let \(E_j\) be the new exceptional prime on \(Y_j\).
+Assign coefficient one to every \(E_j\) and zero to every other prime over
+\(X\).
+Each fixed trace is a finite sum and the traces push forward compatibly.
+No finite model determines the b-divisor.  Indeed, if its trace on a model
+is zero, the next designated \(E_j\) contradicts pullback determination.
+If the trace is nonzero, blow up a general smooth point on one of its
+nonzero components, away from the designated chain.  Pullback gives the
+new exceptional prime a nonzero coefficient, whereas the assigned
+b-divisor gives it coefficient zero.
+\end{example}
+
+\begin{warning}{Two orders}
+Coefficientwise effectivity of \(B-C\) is an order on Weil b-divisors.
+Pseudo-effectivity of numerical traces is an order on numerical b-divisor
+classes.
+They are not definitions of one another.
+The negativity lemma can relate them for exceptional divisors under stated
+hypotheses, but no such relation is formal.
+\end{warning}
+
+\section{Intersection products on the Cartier locus}
+\label{sec:appF-bdivisor-intersection}
+
+\begin{theorem}\label{thm:appF-cartier-bdivisor-intersection}
+Let \(C_1,\ldots,C_n\) be Cartier b-divisors.
+Choose a common model \(Y\) determining all of them and set
+\[
+                         (C_1\cdots C_n)_{\mathfrak X}
+                         :=(C_{1,Y}\cdots C_{n,Y}).
+\tag{F.10}\label{eq:appF-cartier-bdivisor-product}
+\]
+This number is independent of \(Y\), symmetric, and multilinear.
+\end{theorem}
+
+\begin{proof}
+Common determinations exist by
+\Cref{lem:appF-common-domination}.
+If \(\mu:Y'\to Y\) is a higher model, then every trace on \(Y'\) is the
+pullback of its trace on \(Y\).
+The birational case of
+\eqref{eq:appF-degree-formula} gives equality of the intersections.
+Symmetry and multilinearity follow from
+\Cref{prop:appF-mixed-cartier}.
+\end{proof}
+
+\begin{proposition}\label{prop:appF-one-weil-factor}
+Let \(B\) be a Weil b-divisor and let
+\(C_1,\ldots,C_{n-1}\) be Cartier b-divisors.
+On a common determination \(Y\) of the \(C_i\), define
+\[
+ (B\cdot C_1\cdots C_{n-1})_{\mathfrak X}
+ :=
+ \deg\bigl(
+ C_{1,Y}\cdots C_{n-1,Y}\cap[B_Y]
+ \bigr).
+\tag{F.11}\label{eq:appF-one-weil-product}
+\]
+This is independent of the chosen determination.
+\end{proposition}
+
+\begin{proof}
+On \(\mu:Y'\to Y\), compatibility gives
+\(\mu_*B_{Y'}=B_Y\), while \(C_{i,Y'}=\mu^*C_{i,Y}\).
+Apply \eqref{eq:appF-projection} to the cycle \([B_{Y'}]\) and take degrees.
+\end{proof}
+
+\begin{warning}{Two Weil factors}
+Formula \eqref{eq:appF-one-weil-product} works because every intersection
+operator except the initial cycle is Cartier.
+There is no resulting product
+\(B_1B_2C_3\cdots C_n\) for arbitrary Weil b-divisors.
+On a non-\(\mathbf Q\)-factorial model even the first intersection of the
+two Weil traces may be undefined.
+\end{warning}
+
+\section{Nef Cartier b-divisors}
+\label{sec:appF-nef-cartier}
+
+\begin{definition}[Nef Cartier b-divisor]
+\label{def:appF-nef-cartier}
+A Cartier b-divisor \(C\) is nef if its trace is nef on one determination.
+\end{definition}
+
+\begin{lemma}\label{lem:appF-nef-determination}
+If \(\mu:Y'\to Y\) is a projective birational morphism, then
+\(C_Y\) is nef if and only if \(\mu^*C_Y\) is nef.
+Hence \Cref{def:appF-nef-cartier} is independent of the chosen
+determination.
+\end{lemma}
+
+\begin{proof}
+For an integral curve \(\Gamma\subset Y'\),
+\[
+ (\mu^*C_Y)\cdot\Gamma=C_Y\cdot\mu_*\Gamma\geq0.
+\]
+If \(\Gamma\) is contracted, the right side is zero.
+Conversely, for every integral curve \(C\subset Y\), choose an integral
+curve \(\Gamma\subset Y'\) mapping generically finitely onto \(C\).
+Then
+\[
+ (\mu^*C_Y)\cdot\Gamma
+ =\deg(\Gamma/C)(C_Y\cdot C),
+\]
+so nefness of the pullback implies nefness of \(C_Y\).  Passing to a
+common determination proves the final assertion.
+\end{proof}
+
+\begin{corollary}\label{cor:appF-nef-positive}
+If \(C_1,\ldots,C_n\) are nef Cartier b-divisors, then
+\[
+                          (C_1\cdots C_n)_{\mathfrak X}\geq0.
+\tag{F.12}\label{eq:appF-nef-positive}
+\]
+\end{corollary}
+\begin{proof}
+Choose one projective model $Y$ determining all the $C_i$.  By
+\Cref{lem:appF-nef-determination}, their traces $C_{i,Y}$ are nef.
+Their mixed intersection is nonnegative by
+\Cref{prop:appF-mixed-cartier}.  By
+\eqref{eq:appF-cartier-bdivisor-product}, this is precisely
+\eqref{eq:appF-nef-positive}.
+\end{proof}
+
+\section{Numerical b-divisor classes}
+\label{sec:appF-numerical-bclasses}
+
+There are two additional hypotheses behind the numerical inverse-limit
+language used in the BJ chapters.
+We need a cofinal category on which divisor pushforward stays in the chosen
+numerical divisor space, and we need a topology for taking its inverse
+limit.
+
+Assume for this section that \(X\) is smooth projective over an
+algebraically closed field of characteristic zero, and use smooth projective
+models, which are cofinal by resolution.
+Set
+\[
+ N^1_{\mathrm{Cart}}(\mathfrak X)
+ :=\varinjlim_YN^1(Y),\qquad
+ N^1_{\mathrm{Weil}}(\mathfrak X)
+ :=\varprojlim_YN^1(Y),
+\tag{F.13}\label{eq:appF-numerical-limits}
+\]
+with pullback and divisor pushforward respectively.
+The inverse limit has the projective-limit topology.
+For a numerical b-class \(\alpha\), write \(\alpha\geq0\) when every
+trace \(\alpha_Y\) is pseudoeffective; write \(\alpha\leq\beta\) when
+\(\beta-\alpha\geq0\).  This is the order used in every decreasing-net
+statement below.
+
+\begin{definition}[Nef Weil b-class]
+\label{def:appF-nef-weil-class}
+A nef Weil b-divisor class is a point of
+\(N^1_{\mathrm{Weil}}(\mathfrak X)\) in the closure of the nef Cartier
+b-divisor classes.
+\end{definition}
+
+This definition uses nets.
+It is not equivalent, by formal topology alone, to saying every trace is
+nef; pushforward traces can satisfy weaker movable positivity conditions.
+
+\begin{theorem}\label{thm:appF-df-nef-intersection}
+In the smooth projective characteristic-zero domain above, nef Weil
+b-divisor classes carry a symmetric, multilinear, nonnegative intersection
+product
+\[
+                      (\alpha_1\cdots\alpha_n)_{\mathfrak X}.
+\tag{F.14}\label{eq:appF-df-product}
+\]
+It extends \eqref{eq:appF-cartier-bdivisor-product}, is monotone on the nef
+cone, is upper semicontinuous in the projective-limit topology, and is
+continuous along decreasing nets for which the order and limit are those of
+the nef b-class theory.
+\end{theorem}
+
+\begin{proof}
+Three foundational results are imported here and are not consequences of
+finite-level intersection theory: decreasing nef Cartier approximation
+\cite[Theorem~2.1]{DF20}, existence and independence of the nef intersection
+\cite[Proposition--Definition~3.1]{DF20}, and upper semicontinuity together
+with monotone continuity \cite[Theorem~3.2]{DF20}.  We now derive all the
+properties in the statement from those inputs.
+
+For a nef Weil b-class \(\alpha\), let \(\mathcal A(\alpha)\) be the
+collection of nef Cartier b-classes \(\theta\) with
+\(\theta\geq\alpha\), ordered downwards.  The first foundational input is
+the monotone approximation theorem
+\cite[Theorem~2.1]{DF20}: \(\mathcal A(\alpha)\) contains a decreasing
+net converging to \(\alpha\) in the projective-limit topology.  For
+\(\alpha_1,\ldots,\alpha_n\), put
+\[
+ I(\alpha_1,\ldots,\alpha_n)
+ :=
+ \inf_{\theta_i\in\mathcal A(\alpha_i)}
+       (\theta_1\cdots\theta_n)_{\mathfrak X}.
+\]
+Every number under the infimum is nonnegative by
+\Cref{cor:appF-nef-positive}, so the infimum exists.
+
+We isolate the second foundational input.  The negativity and compactness
+argument of \cite[Proposition--Definition~3.1]{DF20} proves that for
+arbitrary decreasing Cartier approximations
+\(\theta_{i,a}\downarrow\alpha_i\), after passing to the product directed
+set,
+\[
+ I(\alpha_1,\ldots,\alpha_n)
+       =\lim_a(\theta_{1,a}\cdots\theta_{n,a})_{\mathfrak X}.
+\]
+In particular, the limit is independent of every choice.  This is the
+point at which finite-level intersection theory alone is insufficient.
+Define the left side of \eqref{eq:appF-df-product} to be \(I\).
+
+Symmetry and extension of the Cartier product now follow before taking the
+limit.  If \(\alpha_1\leq\beta_1\), then
+\(\mathcal A(\beta_1)\subseteq\mathcal A(\alpha_1)\), so the infimum
+description gives monotonicity.  Nonnegativity was already noted.
+For additivity in the first entry, choose decreasing approximations
+\(\theta_a\downarrow\alpha\), \(\eta_a\downarrow\beta\), and
+\(\theta_{i,a}\downarrow\alpha_i\) for the remaining entries.  Then
+\(\theta_a+\eta_a\downarrow\alpha+\beta\), and finite-level
+multilinearity gives
+\[
+\begin{aligned}
+ I(\alpha+\beta,\alpha_2,\ldots,\alpha_n)
+ &=\lim_a
+   ((\theta_a+\eta_a)\theta_{2,a}\cdots\theta_{n,a})_{\mathfrak X}\\
+ &=I(\alpha,\alpha_2,\ldots,\alpha_n)
+   +I(\beta,\alpha_2,\ldots,\alpha_n).
+\end{aligned}
+\]
+Positive homogeneity is identical, and symmetry gives multilinearity in
+every entry.
+
+If \(\alpha_{i,b}\downarrow\alpha_i\), choose a common product directed
+set of Cartier majorants for all \(\alpha_{i,b}\).  The same infimum
+formula says that the iterated infimum over \(b\) and over the majorants
+equals the infimum defining \(I(\alpha_1,\ldots,\alpha_n)\).  This proves
+continuity along decreasing nets.
+
+It remains only upper semicontinuity for unrestricted
+projective-limit convergence.  This is the other deep half of
+\cite[Theorem~3.2]{DF20}: after normalizing against a fixed ample class,
+compactness of nef traces on each model and the negativity estimate give
+\[
+ \limsup_b I(\alpha_{1,b},\ldots,\alpha_{n,b})
+       \leq I(\alpha_1,\ldots,\alpha_n).
+\]
+Thus all the asserted properties hold.
+\end{proof}
+
+\Cref{thm:appF-df-nef-intersection} is not a definition of products
+of arbitrary Weil b-divisors and is not asserted over a base where the
+required model category and approximation theorem are unavailable.
+Here \(X\) has absolute dimension \(n\), and the Dang--Favre product has
+exactly \(n\) entries.  In particular, it does not define an absolute
+quantity \((\alpha^{n+1})_{\mathfrak X}\).  The \((n+1)\)-fold mixed
+intersection numbers used for non-Archimedean model metrics belong instead
+to the relative theory over a discrete valuation ring: on an
+\((n+1)\)-dimensional model they include an actual vertical divisor factor,
+for example \((D\cdot\mathcal L_1\cdots\mathcal L_n)\).  Such a BFJ
+pairing is not obtained by adding a formal extra copy of an absolute
+b-class to \eqref{eq:appF-df-product}.
+
+\begin{corollary}\label{cor:appF-nef-volume}
+For a nef b-class \(\alpha\) in the domain of
+\Cref{thm:appF-df-nef-intersection}, its b-divisorial volume is
+\[
+                         \operatorname{vol}(\alpha)
+                         =(\alpha^n)_{\mathfrak X}.
+\tag{F.15}\label{eq:appF-nef-volume}
+\]
+If this number is zero, no positive-volume normalization is permitted.
+\end{corollary}
+\begin{proof}
+Apply \Cref{thm:appF-df-nef-intersection} with
+$\alpha_1=\cdots=\alpha_n=\alpha$.  On a nef Cartier approximation
+$\alpha_i\to\alpha$, the resulting number is
+$(\alpha_i^n)$, the usual volume of the nef class $\alpha_i$.  Decreasing
+continuity in \Cref{thm:appF-df-nef-intersection} identifies its limit with
+$(\alpha^n)_{\mathfrak X}$, which is the b-divisorial volume by definition.
+Nonnegativity follows from the same theorem.  If the value is zero, division
+by it is undefined, so none of the probability normalizations used in the
+positive-volume theory applies.
+\end{proof}
+
+\section{Coefficient functions and the metric sign}
+\label{sec:appF-coefficient-functions}
+
+For a prime divisor \(E\) over \(X\), let \(\ord_E\) be its divisorial
+valuation.
+The coefficient function of a Weil b-divisor is
+\[
+                 \psi_B(t\ord_E)=t\,\operatorname{coeff}_E(B),
+                 \qquad t>0.
+\tag{F.16}\label{eq:appF-coefficient-function}
+\]
+It is homogeneous and determines \(B\).
+For an effective Cartier divisor \(D\) with canonical section \(s_D\),
+\[
+                         \log|s_D|(v)=-v(D)=-\psi_{\overline D}(v).
+\tag{F.17}\label{eq:appF-section-sign}
+\]
+Thus the section function and the coefficient function have opposite signs.
+
+On a nontrivially valued model, \Cref{app:normalizations} instead
+associates to a vertical divisor \(D\) the model function
+\[
+                              \phi_D=v(D).
+\]
+Equation \eqref{eq:appF-section-sign} is compatible with that convention:
+the model function uses the inverse local generator of
+\(\mathcal O(D)\), not the canonical section of \(\mathcal O(D)\).
+
+\section{Projection-formula audit}
+\label{sec:appF-audit}
+
+\begin{center}
+\begin{tabular}{p{.30\textwidth}p{.25\textwidth}p{.34\textwidth}}
+\toprule
+expression & valid input & reason\\
+\midrule
+\(f^*D\) &
+\(D\) Cartier or \(\mathbf Q\)-Cartier after clearing denominators &
+pullback of local equations\\
+\((f^*D_1\cdots f^*D_n)\) &
+proper generically finite \(f\), Cartier \(D_i\) &
+Chow projection formula\\
+\((C_1\cdots C_n)_{\mathfrak X}\) &
+Cartier b-divisors &
+common determination\\
+\((B C_1\cdots C_{n-1})_{\mathfrak X}\) &
+one Weil and \(n-1\) Cartier b-divisors &
+cycle projection formula\\
+\((B_1B_2C_3\cdots C_n)_{\mathfrak X}\) &
+not defined in general &
+two Weil traces need not intersect\\
+\((\alpha_1\cdots\alpha_n)_{\mathfrak X}\) &
+nef b-classes in \Cref{thm:appF-df-nef-intersection} &
+Dang--Favre approximation\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Consistency checks}
+\label{sec:appF-unit-tests}
+
+\begin{enumerate}
+\item Pulling all divisors to a higher birational model must leave
+      \eqref{eq:appF-cartier-bdivisor-product} unchanged.
+\item A degree-\(d\) finite map multiplies the top intersection of pulled
+      back Cartier divisors by \(d\), not by \(d^n\).
+\item On the blowup of \(\mathbf P^2\), the table
+      \eqref{eq:appF-blowup-table} must be recovered.
+\item The b-divisor of
+      \Cref{ex:appF-non-cartier-bdivisor} must fail every finite
+      determination test.
+\item A proposed product of two arbitrary Weil b-divisors must identify a
+      theory that defines their intersection; common domination alone is
+      insufficient.
+\item A volume-zero nef b-class has a valid unnormalized self-intersection
+      but no associated probability normalization.
+\end{enumerate}
+
+The first four assertions are respectively
+\Cref{thm:appF-cartier-bdivisor-intersection,cor:appF-generically-finite,ex:appF-blowup,ex:appF-non-cartier-bdivisor}.
+The fifth is the obstruction isolated after
+\eqref{eq:appF-one-weil-product}, and the sixth is
+\Cref{cor:appF-nef-volume}.  Hence the list records already proved
+consequences.
+
+\section*{Source note}
+
+The cycle-level projection formula and Cartier intersections follow
+\cite{Ful}.
+The algebraic b-divisor language and positive products have background in
+\cite{BFJ09}; nef b-divisor intersection theory is \cite{DF20}.
+The homogeneous BJ realization is cited separately in
+\Cref{chap:bj-homogeneity-bdivisors}, because it has additional
+smoothness, characteristic, and envelope hypotheses.

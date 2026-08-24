@@ -1,0 +1,522 @@
+\chapter{Commutative algebra over valuation and graded rings}
+\index{valuation ring!commutative algebra}\index{graded ring}
+\label{app:valuation-algebra}
+
+This appendix collects the algebra used to pass between ideals, valuations,
+blowups, and finite morphisms.  It supplies proofs of elementary facts often
+compressed into an appeal to the Rees algebra, and separates three notions
+that must not be conflated: integral closure, subintegrality, and universal
+homeomorphy.
+
+Unless otherwise stated, rings are commutative with unit and ideals are
+proper.  A domain has fraction field \(K\).  The noetherian hypothesis is
+always displayed when it is used.  Finiteness of normalization is invoked
+only for Nagata rings, in particular for finitely generated algebras over a
+field.
+
+\section{Valuation rings and ideal values}
+\label{sec:appA-valuations}
+
+\begin{definition}[Krull valuation]
+\label{def:appA-krull-valuation}
+Let \(\Gamma\) be a totally ordered abelian group and
+\(\Gamma_\infty=\Gamma\cup\{+\infty\}\).
+A valuation on a field \(K\) is a map
+\[
+ v:K\longrightarrow\Gamma_\infty
+\]
+such that
+\[
+ v(0)=+\infty,\qquad v(fg)=v(f)+v(g),\qquad
+ v(f+g)\geq\min\{v(f),v(g)\}.
+\]
+Its valuation ring and maximal ideal are
+\[
+ R_v=\{f\in K:v(f)\geq0\},\qquad
+ \mathfrak m_v=\{f\in K:v(f)>0\}.
+\]
+\end{definition}
+
+\begin{lemma}\label{lem:appA-valuation-dichotomy}
+A subring \(R\subset K\) is a valuation ring of \(K\) if and only if, for
+each \(f\in K^\times\), either \(f\in R\) or \(f^{-1}\in R\).
+\end{lemma}
+
+\begin{proof}
+For \(R=R_v\), either \(v(f)\geq0\) or \(v(f^{-1})=-v(f)>0\).
+Conversely, the principal fractional ideals of a ring with the stated
+dichotomy are totally ordered: if \(a,b\ne0\), then either \(a/b\in R\) or
+\(b/a\in R\).  The ordered group \(K^\times/R^\times\), with order induced
+by reverse inclusion of principal fractional ideals, yields the valuation.
+\end{proof}
+
+Let \(A\subset K\), and suppose \(v\) is nonnegative on \(A\).  For a
+nonzero finitely generated ideal
+\(\mathfrak a=(f_1,\ldots,f_r)\subset A\), put
+\begin{equation*}
+ v(\mathfrak a):=\min_i v(f_i).
+ \tag{A.1}\label{eq:appA-ideal-value}
+\end{equation*}
+This is independent of the generators.  Every element
+\(\sum a_if_i\) has value at least \(\min_i v(f_i)\), and each \(f_i\)
+belongs to the ideal.
+
+\begin{proposition}\label{prop:appA-ideal-arithmetic}
+For nonzero finitely generated ideals \(\mathfrak a,\mathfrak b\subset A\),
+\[
+ v(\mathfrak a\mathfrak b)=v(\mathfrak a)+v(\mathfrak b),\qquad
+ v(\mathfrak a+\mathfrak b)
+   =\min\{v(\mathfrak a),v(\mathfrak b)\}.
+\]
+If \(\mathfrak a\subset\mathfrak b\), then
+\(v(\mathfrak a)\geq v(\mathfrak b)\).
+\end{proposition}
+
+\begin{proof}
+Generators of the product are the pairwise products of generators, so the
+first identity follows from additivity.  The union of two generating sets
+generates the sum, proving the second identity.  The last assertion follows
+directly from \eqref{eq:appA-ideal-value}.
+\end{proof}
+
+\begin{remark}[Checkpoint]
+The book uses \(\phi_{\mathfrak a}(v)=-v(\mathfrak a)\).  Thus ideal
+inclusion and function order point in opposite directions:
+\[
+ \mathfrak a\subset\mathfrak b
+ \quad\Longrightarrow\quad
+ \phi_{\mathfrak a}\leq\phi_{\mathfrak b}.
+\]
+This sign is first used for flag ideals in
+\Cref{chap:bj-test-configurations} and is essential in
+\Cref{chap:bj-smooth-characteristic}.
+\end{remark}
+
+\section{Integral dependence and integral closure}
+\label{sec:appA-integral-dependence}
+
+\begin{definition}[Integral element and extension]
+\label{def:appA-integral-element}
+An element \(b\) of an \(A\)-algebra \(B\) is integral over \(A\) if
+\[
+ b^d+a_1b^{d-1}+\cdots+a_d=0,\qquad a_i\in A.
+\]
+The extension \(A\to B\) is integral if every element of \(B\) is integral.
+The integral closure of a domain \(A\) in an algebraic extension \(L/K\)
+is the set of elements of \(L\) integral over \(A\).
+\end{definition}
+
+\begin{proposition}\label{prop:appA-finite-module-criterion}
+For \(b\in B\), the following are equivalent:
+\begin{enumerate}
+\item \(b\) is integral over \(A\);
+\item \(A[b]\) is a finite \(A\)-module;
+\item there exists a faithful finite \(A[b]\)-module that is finite as an
+      \(A\)-module.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+A monic equation expresses every \(b^m\), \(m\geq d\), as an
+\(A\)-linear combination of \(1,b,\ldots,b^{d-1}\), proving
+\((1)\Rightarrow(2)\).  The implication \((2)\Rightarrow(3)\) uses
+\(A[b]\).  For \((3)\Rightarrow(1)\), multiplication by \(b\) on a finite
+set of \(A\)-generators and the determinant trick yield a monic polynomial
+that kills the faithful module, hence kills \(b\).
+\end{proof}
+
+\begin{definition}[Integral closure of an ideal]
+\label{def:appA-integral-closure-ideal}
+Let \(\mathfrak a\subset A\).  An element \(f\in A\) is integral over
+\(\mathfrak a\) if
+\[
+ f^d+c_1f^{d-1}+\cdots+c_d=0,
+ \qquad c_i\in\mathfrak a^i.
+\]
+The set of such elements is the integral closure
+\(\overline{\mathfrak a}\).
+\end{definition}
+
+\begin{lemma}\label{lem:appA-rees-translation}
+For an indeterminate \(T\), an element \(f\in A\) is integral over
+\(\mathfrak a\) if and only if \(fT\) is integral over
+\[
+ \mathcal R_A(\mathfrak a)
+   :=A[\mathfrak aT]
+   =\bigoplus_{m\geq0}\mathfrak a^mT^m
+   \subset A[T].
+\]
+\end{lemma}
+
+\begin{proof}
+Multiply an integral equation for \(f\) by \(T^d\).  Conversely, take the
+degree-\(d\) homogeneous part of a monic equation for \(fT\), and set
+\(T=1\).
+\end{proof}
+
+\begin{theorem}\label{thm:appA-valuative-integral-closure}
+Let \(A\) be a noetherian domain with fraction field \(K\), and let
+\(\mathfrak a\ne0\).  Then
+\[
+ \overline{\mathfrak a}
+   =\{f\in A:v(f)\geq v(\mathfrak a)
+       \text{ for every valuation }v\text{ of }K
+       \text{ nonnegative on }A\}.
+\tag{A.2}\label{eq:appA-valuative-integral-closure}
+\]
+It is enough to test the finitely many discrete rank-one Rees valuations of
+\(\mathfrak a\).
+\end{theorem}
+
+\begin{proof}[From the valuative integral-closure input]
+If \(f\) satisfies an integral equation and
+\(v(f)<v(\mathfrak a)\), then
+\[
+ v(f^d)<v(c_if^{d-i})
+\]
+for every \(i\geq1\).  A sum cannot vanish when exactly one summand has
+strictly smallest value, a contradiction.  The converse and finite
+reduction to Rees valuations are the foundational valuative theorem for
+integral dependence; we import precisely this converse and finite-reduction
+statement from \cite[Chapter~VI]{ZariskiSamuelII}.  The Rees valuations
+are the valuations of the prime components of the Cartier divisor cut out
+by \(\mathfrak a\) on the normalized blowup.  Components dominating a
+divisor of \(\Spec A\) need not be exceptional.
+\end{proof}
+
+\begin{corollary}\label{cor:appA-integral-closure-values}
+For every valuation centered on \(A\),
+\[
+ v(\overline{\mathfrak a})=v(\mathfrak a).
+\]
+\end{corollary}
+
+\begin{proof}
+The inclusion \(\mathfrak a\subset\overline{\mathfrak a}\) gives one
+inequality; \Cref{thm:appA-valuative-integral-closure} gives the
+other for each element of \(\overline{\mathfrak a}\).
+\end{proof}
+
+\begin{example}[A monomial computation]
+\label{ex:appA-monomial-integral-closure}
+In \(k[x,y]\), set \(\mathfrak a=(x^2,y^3)\).
+For the monomial valuation \(v_{\alpha,\beta}\),
+\[
+ v_{\alpha,\beta}(x^iy^j)=i\alpha+j\beta.
+\]
+The inequalities against \(v_{\alpha,\beta}(\mathfrak a)\), for all
+\(\alpha,\beta>0\), are equivalent to \(i/2+j/3\geq1\).  Thus
+\[
+ \overline{(x^2,y^3)}=(x^2,xy^2,y^3).
+\]
+The Newton polygon is the convex shadow of
+\eqref{eq:appA-valuative-integral-closure}.
+\end{example}
+
+\section{Rees algebras, filtrations, and blowups}
+\label{sec:appA-rees-algebras}
+
+A multiplicative filtration \(F^\lambda R_m\) becomes algebraic only when
+its Rees algebra is finitely generated.  After clearing denominators one
+meets the bigraded algebra
+\[
+ \mathcal R(F)=
+ \bigoplus_{m\geq0}\ \bigoplus_{\ell\in\mathbf Z}
+ F^\ell R_m\,T^{-\ell}.
+\tag{A.3}\label{eq:appA-filtered-rees}
+\]
+The gradings record section degree and weight.
+
+\begin{proposition}\label{prop:appA-blowup-proj}
+For a finite-type ideal \(\mathcal I\) on \(X\),
+\[
+ \operatorname{Bl}_{\mathcal I}X
+   =\operatorname{Proj}_X
+       \bigoplus_{m\geq0}\mathcal I^m.
+\tag{A.4}\label{eq:appA-blowup-proj}
+\]
+The pullback ideal is invertible, and the blowup is universal among
+morphisms \(g:Y\to X\) for which \(\mathcal I\cO_Y\) is invertible.
+\end{proposition}
+
+\begin{proof}
+On \(X=\Spec A\), the standard chart \(D_+(fT)\), \(f\in\mathfrak a\), is
+\(\Spec A[\mathfrak a/f]\), and the extended ideal is generated by \(f\).
+These charts glue.  Any morphism on which the ideal is locally principal
+factors uniquely through the corresponding charts.
+\end{proof}
+
+\begin{definition}[Normalized blowup]
+\label{def:appA-normalized-blowup}
+If \(X\) is integral, the normalized blowup is the normalization, in the
+unchanged function field \(K(X)\), of
+\(\operatorname{Bl}_{\mathcal I}X\).  If \(X\) is Nagata, normalization is
+finite by
+\cite[\href{https://stacks.math.columbia.edu/tag/035S}{Tag 035S}]
+{stacks-project}.
+\end{definition}
+
+Suppose in addition that \(A\) is normal.  The normalization of the Rees
+algebra in \(K(T)\) is then the graded algebra
+\[
+ \bigoplus_{m\geq0}\overline{\mathfrak a^m}T^m
+ \subset A[T].
+\]
+Hence, on a normal integral scheme,
+\[
+ \operatorname{Bl}_{\mathfrak a}^{\nu}X
+ =\operatorname{Proj}_X
+   \bigoplus_{m\geq0}\overline{\mathfrak a^m}.
+\tag{A.5}\label{eq:appA-normalized-rees}
+\]
+This is the algebra behind normalized flag ideals in
+\Cref{chap:bj-test-configurations}.
+
+If \(A\) is not normal, the degree-zero part of the normalization is
+\(A^\nu\), not \(A\).  Thus \eqref{eq:appA-normalized-rees} is not asserted
+on a nonnormal affine chart.  All later uses of this formula, in particular
+\Cref{thm:appB-rees-valuations}, are over a normal base.
+
+\begin{remark}[Checkpoint]
+Replacing each homogeneous piece by its integral closure is compatible
+with normalization in \eqref{eq:appA-normalized-rees}.  Replacing a Rees
+algebra by an arbitrary saturation is a different operation.  In
+particular, finite generation must be checked before a filtration is
+declared to be a test configuration.
+\end{remark}
+
+\section{Normalization and the conductor}
+\label{sec:appA-normalization-conductor}
+
+Let \(A\) be reduced with total quotient ring \(Q(A)\), and let \(A^\nu\)
+be its normalization.  The conductor is
+\[
+ \mathfrak c_{A^\nu/A}
+ :=\{a\in A:aA^\nu\subset A\}
+ =\operatorname{Ann}_A(A^\nu/A).
+\tag{A.6}\label{eq:appA-conductor}
+\]
+It is an ideal of both \(A\) and \(A^\nu\).
+
+\begin{lemma}\label{lem:appA-conductor-square}
+If \(A^\nu\) is finite over \(A\), and
+\(\mathfrak c=\mathfrak c_{A^\nu/A}\), then
+\[
+\begin{tikzcd}
+A \arrow[r] \arrow[d] &
+A^\nu \arrow[d]\\
+A/\mathfrak c \arrow[r] &
+A^\nu/\mathfrak c
+\end{tikzcd}
+\]
+is cartesian.
+\end{lemma}
+
+\begin{proof}
+If \(b\in A^\nu\) has the same residue as \(a\in A\), then
+\(b-a\in\mathfrak c\subset A\), hence \(b\in A\).  The other inclusion is
+immediate.
+\end{proof}
+
+Away from \(V(\mathfrak c)\), normalization is an isomorphism.  The
+conductor does not imply bijectivity over \(V(\mathfrak c)\); that is a
+separate unibranch or subintegrality issue.
+
+\section{Subintegrality and seminormality}
+\label{sec:appA-subintegrality}
+
+\begin{definition}[Subintegral extension]
+\label{def:appA-subintegral}
+An integral extension \(A\subset B\) is subintegral if
+\(\Spec B\to\Spec A\) is bijective and induces an isomorphism of residue
+fields at corresponding primes.
+\end{definition}
+
+\begin{definition}[Seminormality]
+\label{def:appA-seminormal}
+A reduced ring \(A\) is seminormal in an integral overring \(B\) if
+\[
+ b\in B,\quad b^2,b^3\in A
+ \quad\Longrightarrow\quad b\in A.
+\tag{A.7}\label{eq:appA-square-cube}
+\]
+It is seminormal if it is seminormal in its normalization.
+\end{definition}
+
+\begin{theorem}\label{thm:appA-square-cube}
+For an integral extension \(A\subset B\), subintegrality is equivalent to
+the following finite-stage condition: every finite subset of \(B\) lies in
+a tower of elementary extensions \(C\subset C[b]\) with
+\(b^2,b^3\in C\).  This construction is stable under polynomial base
+change.
+\end{theorem}
+
+\begin{proof}[Foundational input]
+We import exactly this finite-stage characterization from
+\cite[\href{https://stacks.math.columbia.edu/tag/0CND}{Tag 0CND}]
+{stacks-project}, with base-change statement
+\cite[\href{https://stacks.math.columbia.edu/tag/0EUH}{Tag 0EUH}]
+{stacks-project}.  The book uses it for finite subintegral extensions in
+\Cref{chap:bj-subintegral-normalization}.
+\end{proof}
+
+\begin{example}[The cusp]
+\label{ex:appA-cusp-seminormalization}
+For \(A=k[t^2,t^3]\subset B=k[t]\), one has \(t^2,t^3\in A\) but
+\(t\notin A\).  Thus \(A\) is not seminormal.  The normalization map is
+subintegral: it changes the structure sheaf but neither points nor residue
+fields.
+\end{example}
+
+\begin{definition}[Universal homeomorphism]
+\label{def:appA-universal-homeomorphism}
+A morphism is radicial if it is universally injective.  It is a universal
+homeomorphism if every base change induces a homeomorphism of spaces.
+\end{definition}
+
+\begin{theorem}\label{thm:appA-universal-homeomorphism-criterion}
+A morphism is a universal homeomorphism if and only if it is integral,
+surjective, and radicial.
+\end{theorem}
+
+\begin{proof}[Foundational input]
+This equivalence is exactly
+\cite[\href{https://stacks.math.columbia.edu/tag/04DF}{Tag 04DF}]
+{stacks-project}.
+\end{proof}
+
+\begin{remark}[Subintegral is stronger]
+\label{rem:appA-subintegral-stronger}
+A subintegral extension yields a universal homeomorphism.  The converse
+fails: Frobenius in characteristic \(p\) is a universal homeomorphism but
+need not induce identity residue extensions.  In characteristic zero, a
+finite universal homeomorphism has trivial residue extensions and is
+subintegral.
+\end{remark}
+
+\section{Determinants and norm polynomial laws}
+\label{sec:appA-determinant-norms}
+
+Let \(A\to B\) be finite locally free of rank \(d\).  For \(b\in B\), put
+\[
+ \operatorname N_{B/A}(b):=\det(m_b),
+\tag{A.8}\label{eq:appA-element-norm}
+\]
+where \(m_b\) is multiplication by \(b\).
+
+\begin{proposition}\label{prop:appA-norm-identities}
+For \(b,c\in B\),
+\[
+ \operatorname N(1)=1,\qquad
+ \operatorname N(bc)=\operatorname N(b)\operatorname N(c).
+\]
+The norm commutes with arbitrary base change.  For indeterminates
+\(\mathbf T\), the expression
+\[
+ \operatorname N\left(\sum_jT_jb_j\right)
+\]
+is homogeneous of degree \(d\) in \(\mathbf T\).
+\end{proposition}
+
+\begin{proof}
+Use \(m_1=I\), \(m_{bc}=m_bm_c\), and base change for determinants.
+Every matrix entry of \(m_{\sum T_jb_j}\) is linear in the \(T_j\), so the
+determinant has degree \(d\).
+\end{proof}
+
+For finite locally free \(q:W\to Z\) and a line bundle \(M\) on \(W\),
+\[
+ \operatorname N_q(M)
+ =\det(q_*M)\otimes\det(q_*\cO_W)^{-1}.
+\tag{A.9}\label{eq:appA-norm-line}
+\]
+This is multiplicative and base-change compatible; see
+\cite{FerrandNorm} and
+\cite[\href{https://stacks.math.columbia.edu/tag/0BD2}{Tag 0BD2}]
+{stacks-project}.  \Cref{chap:bj-finite-descent} uses the universal
+polynomial in the \(T_j\), not a product over geometric points, because
+fibres may be inseparable or nonreduced.
+
+\begin{remark}[Checkpoint: flatten before taking norms]
+For a merely finite morphism, \(q_*\cO_W\) need not be locally free.
+\Cref{chap:bj-finite-descent} first flattens the finite algebra and
+only then takes determinant norms.  This order is part of the proof.
+\end{remark}
+
+\section{The Roberts--Singh input}
+\label{sec:appA-roberts-singh}
+
+\begin{theorem}\label{thm:appA-roberts-singh}
+Let \(A\subset B\) be a subintegral extension of \(\mathbf Q\)-algebras
+and let \(b\in B\).  There exist \(p,N\geq0\) and
+\(c_1,\ldots,c_p\in B\), independent of \(m\), such that
+\begin{equation*}
+ b^m+\sum_{i=1}^{p}\binom mi c_i b^{m-i}\in A
+ \qquad(m\geq N).
+ \tag{A.10}\label{eq:appA-RS}
+\end{equation*}
+\end{theorem}
+
+\begin{proof}[Foundational input and exact provenance]
+\cite[Theorem~4.17]{RobertsSingh} makes every element subintegral in the
+elementwise sense used there.
+\cite[Proposition~4.2 and Corollary~4.3]{RobertsSingh} identify this with
+the exponent-zero formula \eqref{eq:appA-RS}; exponent zero means precisely
+that the \(c_i\) do not depend on \(m\).
+\end{proof}
+
+\begin{corollary}\label{cor:appA-RS-generic}
+For a finite subintegral extension of \(\mathbf Q\)-algebras and
+\(g_j\in B[u]\), formula \eqref{eq:appA-RS} applies over
+\(A[u,\mathbf z]\) to \(b=\sum_jz_jg_j\).
+\end{corollary}
+
+\begin{proof}
+Polynomial base change preserves subintegrality by
+\Cref{thm:appA-square-cube}; apply
+\Cref{thm:appA-roberts-singh}.
+\end{proof}
+
+Taking homogeneous \(\mathbf z\)-coefficients and finite differences in
+\(m\) produces the sandwich
+\[
+ (g_1,\ldots,g_s)^{n+2p}
+ \subset K_nB[u]\subset(g_1,\ldots,g_s)^n.
+\tag{A.11}\label{eq:appA-RS-sandwich}
+\]
+The calculation, including its two gradings and equivariance, is given in
+\Cref{chap:bj-subintegral-normalization}.  Nothing here asserts
+\eqref{eq:appA-RS} for arbitrary integral extensions.
+
+\section{Dependency map}
+\label{sec:appA-dependency-map}
+
+\begin{center}
+\begin{tabular}{p{0.33\textwidth}p{0.52\textwidth}}
+\toprule
+Tool & First substantial use\\
+\midrule
+Ideal values and integral closure
+ & \Cref{chap:bj-test-configurations}\\
+Normalized Rees algebra
+ & \Cref{chap:bj-cartier-realization}\\
+Finite normalization and conductor
+ & \Cref{chap:bj-finite-descent,chap:bj-subintegral-normalization}\\
+Universal-homeomorphism criterion
+ & \Cref{chap:bj-universal-homeomorphisms}\\
+Determinant norm
+ & \Cref{chap:bj-finite-descent}\\
+Roberts--Singh additive powers
+ & \Cref{chap:bj-subintegral-normalization}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Source note}
+Integral dependence and its valuative criterion follow
+\cite[Chapters~V--VI]{ZariskiSamuelII}; noetherian normalization facts may
+also be found in \cite{Mat89}.  Stable tags are audited in
+\Cref{app:stacks}.  Norm functors are from \cite{FerrandNorm}.
+The additive-power theorem is quoted only in the form proved in
+\cite{RobertsSingh}.

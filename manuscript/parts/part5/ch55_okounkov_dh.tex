@@ -1,0 +1,1632 @@
+\chapter{Partial Okounkov bodies and Duistermaat--Heckman measures}
+\index{Okounkov body!partial}\index{Duistermaat--Heckman measure}\index{numerical dimension!toric}
+\label{chap:transcendental-okounkov-dh}
+
+Okounkov bodies turn asymptotic spaces of sections into convex sets.
+For singular metrics the relevant spaces are cut out by multiplier ideals,
+and for transcendental classes they must be recovered by approximation.
+The resulting body remembers the multiplier-ideal singularity type and its
+Euclidean volume records the volume detected by multiplier ideals.  This is
+not, for an arbitrary singular potential, the same as its raw
+non-pluripolar mass; the distinction from \Cref{chap:complex-prerequisites}
+is essential throughout this chapter.
+Applied level by level to a test curve, these bodies carry a concave test
+function whose distribution is the Duistermaat--Heckman measure.
+
+This chapter follows the construction and proofs of the published paper
+\cite{Xia21}.  The mixed-volume section, \Cref{sec:ok-mixed-volumes}, proves
+the positive-volume formula conjectured in \cite[Conjecture~8.8]{Xia21}.
+The proof begins with the argument in the work in progress \cite{XiaMVOB},
+repairs its convex-sandwich and approximation steps, and records every
+external input at the point where it is used.  Its scope is projective,
+algebraic, and strictly positive-volume; no zero-volume or transcendental
+extension is inferred from it.
+The last section has a different status.
+It records one validated toric zero-volume theorem and one obstruction from the
+research ledger.
+Neither statement extends the positive-volume theory by formal continuity.
+
+Throughout, \(X\) is a connected compact K\"ahler manifold of dimension
+\(n\).
+In algebraic statements \(X\) is smooth and projective.
+Lebesgue measure on \(\mathbf R^n\) is denoted by \(\lambda_n\).
+
+\section{The algebraic partial body}
+
+Let \(L\) be a big line bundle on a smooth projective variety \(X\).
+Choose a smooth Hermitian metric \(h_0\) with curvature \(\theta\), and write
+\[
+                         h=h_0\rme^{-\varphi},
+        \qquad \varphi\in\PSH(X,\theta).
+\tag{55.1}\label{eq:ok-partial-metric}
+\]
+Fix a rank-\(n\) valuation
+\[
+             \nu:\mathbf C(X)^\times\longrightarrow\mathbf Z^n
+\]
+with one-dimensional leaves.
+An admissible flag gives such a valuation by successive orders of vanishing.
+
+\begin{definition}[Multiplier-ideal series]
+\label{def:ok-multiplier-series}
+For \(k\geq1\), put
+\[
+ W_k(\theta,\varphi)
+ :=H^0\!\left(X,L^k\otimes\cI(k\varphi)\right).
+\]
+The valued graded family attached to \((\theta,\varphi)\) is
+\[
+ \Gamma_\nu(\theta,\varphi)
+ :=\{(\nu(s),k):k\geq1,\ s\in W_k(\theta,\varphi)\setminus\{0\}\}.
+\tag{55.2}\label{eq:ok-valued-family}
+\]
+\end{definition}
+
+Multiplier ideals are only submultiplicative in the direction
+\[
+ \cI((k+\ell)\varphi)
+       \subseteq\cI(k\varphi)\cI(\ell\varphi).
+\]
+Thus the product of sections at levels \(k\) and \(\ell\) need not belong
+to level \(k+\ell\).  Consequently \(\Gamma_\nu(\theta,\varphi)\) need not
+be an honest semigroup with all the usual saturation properties.
+The almost-semigroup construction of \cite{Xia21} nevertheless assigns to it
+a compact convex set, continuously with respect to asymptotic section
+counts.
+
+\begin{definition}[Algebraic partial Okounkov body]
+\label{def:ok-algebraic-partial-body}
+Assume \(\vol(\theta,\varphi)>0\), in the sense of
+\Cref{def:complex-current-volume}.
+The partial Okounkov body is
+\[
+ \Delta_\nu(\theta,\varphi)
+       :=\Delta\!\left(\Gamma_\nu(\theta,\varphi)\right)
+       \subset\mathbf R^n.
+\tag{55.3}\label{eq:ok-partial-body}
+\]
+For a flag \(Y_\bullet\) we write \(\Delta_{Y_\bullet}\).
+\end{definition}
+
+The positive-volume assumption is structural here.
+It makes the body full-dimensional and is used by the continuity theorem
+for almost semigroups.
+The definition does not silently assign a full-dimensional body when the
+multiplier-ideal volume is zero.
+
+\begin{theorem}\label{thm:ok-algebraic-volume-order}
+Let \(\varphi,\psi\in\PSH(X,\theta)\) have positive multiplier-ideal
+volume.
+Then
+\[
+ \lambda_n\!\left(\Delta_\nu(\theta,\varphi)\right)
+     =\frac1{n!}\vol(\theta,\varphi).
+\tag{55.4}\label{eq:ok-algebraic-volume}
+\]
+If
+\(\varphi\preceq_{\cI}\psi\), meaning
+\(\cI(k\varphi)\subseteq\cI(k\psi)\) for every \(k>0\), then
+\[
+ \Delta_\nu(\theta,\varphi)
+       \subseteq\Delta_\nu(\theta,\psi).
+\tag{55.5}\label{eq:ok-i-order}
+\]
+In particular the body depends only on the \(\cI\)-singularity type.
+For a potential with minimal singularities it is the usual Okounkov body
+\(\Delta_\nu(L)\).
+\end{theorem}
+
+\begin{proof}[Almost-semigroup source boundary]
+The ideal inclusion gives
+\(W_k(\theta,\varphi)\subseteq W_k(\theta,\psi)\) for every \(k\).
+Monotonicity of the almost-semigroup body gives
+\eqref{eq:ok-i-order}.
+
+The remaining assertion is the central almost-semigroup theorem of
+\cite{Xia21}, reproduced in the supplied Okounkov chapter of
+\cite{XiaBook}.  We record its inputs so that the boundary is visible.
+First, the multiplier-ideal family
+\(\Gamma_\nu(\theta,\varphi)\) is proved to be an almost semigroup, and its
+asymptotic counting volume is
+\[
+ \lim_{k\to\infty}k^{-n}
+ h^0\!\left(X,L^k\otimes\mathcal I(k\varphi)\right)
+ =\frac1{n!}\vol(\theta,\varphi).
+\]
+This is the multiplier-ideal asymptotic Riemann--Roch theorem.  Second, the
+almost-semigroup body construction is continuous for its pseudometric and
+has Euclidean volume equal to the counting volume.
+
+For orientation, the source proves these inputs first for analytic
+singularities defining a K\"ahler current.  On a log resolution
+\[
+                   \pi^*\theta_\varphi=[D]+R,
+\tag{55.6}\label{eq:ok-log-resolution}
+\]
+divisorial valuations translate the ordinary Okounkov body by
+\(\nu(D)\), and asymptotic Riemann--Roch computes the residual volume.  It
+then passes to K\"ahler currents by quasi-equisingular approximation and
+to arbitrary positive-volume potentials by
+\(\varphi_\varepsilon=(1-\varepsilon)\varphi+\varepsilon\chi\).
+Continuity is required both for the almost semigroups and for
+\(\mathcal I\)-model volume.  Applying the two imported inputs to
+\eqref{eq:ok-partial-body} gives
+\eqref{eq:ok-algebraic-volume}.
+\end{proof}
+
+\begin{remark}[Why raw mass cannot occur in \eqref{eq:ok-algebraic-volume}]
+\label{rem:ok-ideal-volume-necessity}
+Every graded space in \eqref{eq:ok-valued-family} depends only on the
+multiplier ideals of \(\varphi\).  Hence the body is constant on an
+\(\mathcal I\)-equivalence class.  Raw non-pluripolar mass is not constant
+on such a class: the Cantor example of
+\Cref{prop:ok-i-invariant-obstruction} has
+\(\varphi\sim_{\mathcal I}0\) but
+\(M_\theta(\varphi)=0<M_\theta(0)\).  Thus replacing
+\(\vol(\theta,\varphi)\) in \eqref{eq:ok-algebraic-volume} by
+\(M_\theta(\varphi)\) would contradict the definition of the body.
+\end{remark}
+
+\begin{remark}[A closure that cannot be deleted formally]
+\label{rem:ok-valuative-closure}
+There is a valuative description of the partial body by valuation vectors of
+positive currents whose singularity type is dominated by
+\(\varphi\).
+The theorem in \cite{Xia21} takes the closure of that set.
+No argument in this chapter removes the closure, and we will never use the
+stronger equality without closure.
+\end{remark}
+
+\section{The transcendental construction}
+
+Let \(\alpha\in H^{1,1}(X,\mathbf R)\) be big, let
+\(\theta\in\alpha\) be smooth, and fix a smooth flag
+\[
+ X=Y_0\supset Y_1\supset\cdots\supset Y_n=\{p\}.
+\]
+For a positive current \(T=\theta+\ddc\varphi\) of positive
+multiplier-ideal volume, write
+\[
+                       \vol(T):=\vol(\theta,\varphi).
+\]
+This is independent of the smooth representative \(\theta\) by
+\Cref{def:complex-current-volume}.  The body
+\(\Delta_{Y_\bullet}(T)\) is defined in three stages.
+
+\paragraph{Analytic singularities.}
+Choose a modification \(\pi:Y\to X\) resolving the singularities and lifting
+the flag.
+Write
+\[
+                         \pi^*T=[D]+R.
+\]
+If \(Z_\bullet\) is the lifted flag and \(g\in\mathrm{GL}_n(\mathbf Z)\)
+is its change-of-valuation matrix, set
+\[
+ \Delta_{Y_\bullet}(T)
+ :=\bigl(\Delta_{Z_\bullet}(\{R\})+\nu_{Z_\bullet}(D)\bigr)g^{-1}.
+\tag{55.7}\label{eq:ok-trans-analytic}
+\]
+A common resolution, functoriality of valuation vectors, and the
+birational transformation rule for ordinary transcendental Okounkov bodies
+show that \eqref{eq:ok-trans-analytic} is independent of all choices.
+
+\paragraph{K\"ahler currents.}
+For a quasi-equisingular approximation \(T_j\) of \(T\), define
+\[
+                     \Delta_{Y_\bullet}(T)
+                     :=\bigcap_{j\geq1}\Delta_{Y_\bullet}(T_j).
+\tag{55.8}\label{eq:ok-trans-kahler}
+\]
+Comparison of two quasi-equisingular approximations gives cofinal
+multiplier-ideal inclusions.
+Thus each resulting intersection contains the other.
+
+\paragraph{General positive currents.}
+Fix a K\"ahler form \(\omega\).
+For a current \(T\) of positive multiplier-ideal volume set
+\[
+ \Delta_{Y_\bullet}(T)
+ :=\bigcap_{j\geq1}
+      \Delta_{Y_\bullet}(T+j^{-1}\omega).
+\tag{55.9}\label{eq:ok-trans-general}
+\]
+Changing \(\omega\) gives mutually cofinal perturbations, so the definition
+does not depend on \(\omega\).
+
+\begin{theorem}\label{thm:ok-transcendental-package}
+On the positive multiplier-ideal-volume locus the construction above has
+the following
+properties.
+\begin{enumerate}
+\item
+\[
+ \lambda_n(\Delta_{Y_\bullet}(T))
+       =\frac1{n!}\vol(T).
+\tag{55.10}\label{eq:ok-trans-volume}
+\]
+\item If \(T\preceq_{\cI}S\), then
+\(\Delta_{Y_\bullet}(T)\subseteq\Delta_{Y_\bullet}(S)\).
+\item The map from \(d_S\)-singularity types to convex bodies is continuous
+for Hausdorff distance.
+\item If \(\pi:Y\to X\) is a modification and \(Z_\bullet\) lifts
+\(Y_\bullet\) with change matrix \(g\), then
+\[
+             \Delta_{Z_\bullet}(\pi^*T)
+             =\Delta_{Y_\bullet}(T)g.
+\tag{55.11}\label{eq:ok-birational-body}
+\]
+\item For positive currents \(T,S\),
+\[
+ \Delta_{Y_\bullet}(T)+\Delta_{Y_\bullet}(S)
+       \subseteq\Delta_{Y_\bullet}(T+S),
+\tag{55.12}\label{eq:ok-minkowski}
+\]
+with the evident interpretation when their classes differ.
+\end{enumerate}
+\par
+\end{theorem}
+
+\begin{proof}[Transcendental source boundary]
+The analytic-singularity construction, its independence of the lifted
+flag, and the K\"ahler-current approximation theorem are imported from
+\cite{Xia21}, in the expanded form of the supplied Okounkov chapter of
+\cite{XiaBook}.  On a common log resolution they reduce to the ordinary
+transcendental Okounkov theorem, translation by divisor valuations, and the
+correction matrix for a lifted flag.  The correction-matrix invariance is
+the nonformal point that makes \eqref{eq:ok-trans-analytic} independent of
+the resolution.
+
+For a general current, the bodies in
+\eqref{eq:ok-trans-general} are nested.  Continuity of
+\(\mathcal I\)-model volume under \(j^{-1}\omega\downarrow0\), together
+with continuity of volume for nested convex bodies, gives
+\eqref{eq:ok-trans-volume}.  Applying the order theorem before taking the
+intersection gives item~2.
+
+For continuity, replace singularities by their \(\cI\)-model
+representatives.
+A \(d_S\)-convergent sequence can be sandwiched, after passing to a
+subsequence, between increasing and decreasing sequences with the same
+limit.
+The order statement traps the bodies.
+Their volumes converge by continuity of multiplier-ideal volume, and equality of
+the limiting volume excludes a proper convex subset.
+
+The Minkowski inclusion, including the almost-semigroup estimates needed
+already for analytic singularities, and its passage through
+quasi-equisingular approximation are part of the imported package from
+\cite{Xia21}.  It is not a formal multiplication argument: multiplier-ideal
+subadditivity has the reverse inclusion from the one such an argument would
+require.
+The correction-matrix identity in the imported analytic-singularity
+construction proves \eqref{eq:ok-birational-body}; approximation then
+gives the stated birational rule.
+\end{proof}
+
+\section{Okounkov test curves}
+
+Let \(\Delta\subset\mathbf R^n\) be a convex body with nonempty interior.
+
+\begin{definition}[Okounkov test curve]
+\label{def:ok-test-curve}
+An Okounkov test curve relative to \(\Delta\) is a decreasing family of convex
+bodies
+\[
+                  (\Delta_\tau)_{\tau<\Delta_{\max}}
+\]
+such that
+\begin{enumerate}
+\item
+\[
+ t\Delta_\tau+(1-t)\Delta_\sigma
+       \subseteq\Delta_{t\tau+(1-t)\sigma}
+\quad(0<t<1);
+\tag{55.13}\label{eq:ok-body-concavity}
+\]
+\item \(\Delta_\tau\to\Delta\) in Hausdorff distance as
+\(\tau\to-\infty\).
+\end{enumerate}
+It is bounded if \(\Delta_\tau=\Delta\) for all sufficiently negative
+\(\tau\).
+\end{definition}
+
+Concavity implies that \(\Delta_\tau\) has positive volume and varies
+continuously for \(\tau<\Delta_{\max}\).
+Indeed, Brunn--Minkowski makes
+\(\tau\mapsto\log\lambda_n(\Delta_\tau)\) concave and finite.
+The left and right limits then agree with \(\Delta_\tau\) by equality of
+positive volumes.
+
+\begin{definition}[Test function]
+\label{def:ok-test-function}
+The test function of \(\Delta_\bullet\) is
+\[
+ G_{\Delta_\bullet}(a)
+ :=\sup\{\tau<\Delta_{\max}:a\in\Delta_\tau\},
+ \qquad a\in\Delta,
+\tag{55.14}\label{eq:ok-legendre-function}
+\]
+with value \(-\infty\) if the set is empty.
+\end{definition}
+
+The function \(G_{\Delta_\bullet}\) is concave, upper semicontinuous, and
+finite on \(\Int\Delta\).
+Conversely, every function \(G:\Delta\to[-\infty,\infty)\) with those three
+properties gives an Okounkov test curve by
+\[
+          \Delta[G]_\tau=\{a\in\Delta:G(a)\geq\tau\},
+       \qquad \tau<\sup_\Delta G.
+\tag{55.15}\label{eq:ok-inverse-legendre}
+\]
+The two constructions are inverse.
+Bounded curves correspond exactly to test functions bounded from below.
+Finite-energy curves correspond to
+\[
+                         \int_\Delta G\,\rd \lambda_n>-\infty.
+\tag{55.16}\label{eq:ok-finite-energy}
+\]
+
+\begin{lemma}\label{lem:ok-i-model-mass-volume}
+If \(u\in\PSH(X,\theta)\) is \(\mathcal I\)-model, then
+\[
+                         \vol(\theta,u)=M_\theta(u).
+\]
+In particular, every interior level of a positive-mass
+\(\mathcal I\)-model test curve lies in the domain of
+\Cref{def:ok-algebraic-partial-body}.
+\end{lemma}
+
+\begin{proof}
+The defining equality \(P_\theta[u]_{\mathcal I}=u\), inserted into
+\eqref{eq:complex-current-volume}, gives
+\[
+ \vol(\theta,u)
+ =\int_X\bigl(\theta+\ddc u\bigr)^n
+ =M_\theta(u).
+\]
+The last assertion follows from the positive-mass condition on the interior
+levels in \Cref{def:rays-test-curve}.
+\end{proof}
+
+\begin{theorem}\label{thm:ok-analytic-to-convex}
+Let \(\Gamma=(\Gamma_\tau)\) be a positive-mass
+\(\cI\)-model test curve in a big class \(\alpha\).
+Then
+\[
+ \tau\longmapsto
+       \Delta_{Y_\bullet}(\theta,\Gamma_\tau)
+\tag{55.17}\label{eq:ok-test-curve-from-gamma}
+\]
+is an Okounkov test curve relative to
+\(\Delta_{Y_\bullet}(\theta,\Gamma_{-\infty})\).
+Boundedness and finite energy are preserved.
+\end{theorem}
+
+\begin{proof}
+The family decreases by the \(\cI\)-order theorem.
+Concavity of the analytic test curve, together with
+\eqref{eq:ok-minkowski}, gives \eqref{eq:ok-body-concavity}.
+As \(\tau\to-\infty\), the level potentials converge in \(d_S\) to
+\(\Gamma_{-\infty}\); hence the bodies converge in Hausdorff distance.
+Finally \eqref{eq:ok-trans-volume} identifies the layer-cake energy of the
+body curve with the relative energy of the analytic test curve.
+\end{proof}
+
+\section{The Duistermaat--Heckman measure}
+
+\begin{definition}
+\label{def:ok-dh-body}
+The Duistermaat--Heckman measure of an Okounkov test curve is
+\[
+        \DHm(\Delta_\bullet)
+           :=(G_{\Delta_\bullet})_*\!
+             \left(\lambda_n|_\Delta\right).
+\tag{55.18}\label{eq:ok-dh-body}
+\]
+It is a Radon measure because \(G_{\Delta_\bullet}\) is finite on the
+interior and the boundary has Lebesgue measure zero.
+\end{definition}
+
+\begin{example}[The interval body of \(\mathbf P^1\)]
+Take \(X=\mathbf P^1\), \(L=\mathcal O(1)\), and use the flag given by a
+point \(p\).  The orders at \(p\) of nonzero sections of \(L^k\) are
+\(0,1,\ldots,k\), so the normalized Okounkov body is
+\[
+                         \Delta=[0,1].
+\]
+Let \(G(x)=x\).  By \eqref{eq:ok-inverse-legendre}, its body curve is
+\[
+ \Delta_\tau=
+ \begin{cases}
+ [0,1],&\tau\leq0,\\
+ [\tau,1],&0<\tau<1,
+ \end{cases}
+ \qquad \Delta_{\max}=1.
+\]
+The function is bounded below, hence the curve is bounded and has finite
+energy.  Its Duistermaat--Heckman measure is
+\[
+                 G_*(\lambda_1|_{[0,1]})
+                    =\mathbf 1_{[0,1]}\,\rd x.
+\]
+In particular, its mass is one and its \(m\)-th moment is
+\[
+                 \int_0^1x^m\,\rd x=\frac1{m+1}.
+\]
+The same number follows directly from \eqref{eq:ok-dh-moment}:
+\[
+ 1+m\int_0^1\tau^{m-1}\bigl((1-\tau)-1\bigr)\,\rd\tau
+       =\frac1{m+1}.
+\]
+This checks the unnormalized Lebesgue-mass convention in dimension one.
+\end{example}
+
+\begin{proposition}\label{prop:ok-dh-body-moments}
+For every integer \(m\geq1\),
+\[
+\begin{split}
+ \int_{\mathbf R}x^m\,\rd \DHm(\Delta_\bullet)(x)
+  ={}&\Delta_{\max}^m\lambda_n(\Delta)\\
+     &+m\int_{-\infty}^{\Delta_{\max}}
+       \tau^{m-1}
+       \bigl(\lambda_n(\Delta_\tau)-\lambda_n(\Delta)\bigr)\,\rd \tau,
+\end{split}
+\tag{55.19}\label{eq:ok-dh-moment}
+\]
+and
+\[
+             \DHm(\Delta_\bullet)(\mathbf R)=\lambda_n(\Delta).
+\tag{55.20}\label{eq:ok-dh-mass}
+\]
+Equation \eqref{eq:ok-dh-moment} is an extended-real identity.
+\end{proposition}
+
+\begin{proof}
+The mass identity is immediate from pushforward.
+If \(G=G_{\Delta_\bullet}\) is bounded below, Fubini's theorem and
+\(\{G\geq\tau\}=\Delta_\tau\) give
+\[
+ G(a)^m=\Delta_{\max}^m
+        -\int_{G(a)}^{\Delta_{\max}}m\tau^{m-1}\,\rd \tau.
+\]
+Integrating yields \eqref{eq:ok-dh-moment}.
+
+For general \(G\), put \(G_A=\max\{G,-A\}\).
+If \(m\) is even, \(G_A^m\uparrow G^m\) after \(A\) passes
+\(\Delta_{\max}\) in absolute value.
+If \(m\) is odd, apply monotone convergence to
+\(\Delta_{\max}^m-G_A^m\).
+This proves the claimed extended interpretation without subtracting
+undefined quantities of the form \(\infty-\infty\).
+\end{proof}
+
+\begin{definition}[DH measure of a transcendental metric]
+\label{def:ok-dh-metric}
+If \(X\) admits a smooth flag and \(\Gamma\) has positive mass, define
+\[
+ \DHm(\Gamma)
+ :=n!\,\DHm\!\left(
+       \tau\mapsto\Delta_{Y_\bullet}(\theta,\Gamma_\tau)
+                  \right).
+\tag{55.21}\label{eq:ok-dh-metric}
+\]
+\end{definition}
+
+Here a positive-mass test curve is regarded as a transcendental metric via
+\eqref{eq:tna-positive-embedding}; consequently
+\[
+ \vol(\Gamma)
+ =M_\theta(\Gamma_{-\infty})
+ =\vol(\theta,\Gamma_{-\infty}),
+\]
+where the last equality is
+\Cref{lem:ok-i-model-mass-volume}.
+
+\begin{theorem}\label{thm:ok-dh-flag-independent}
+The measure \(\DHm(\Gamma)\) is independent of the smooth flag.
+It has mass
+\[
+                         \DHm(\Gamma)(\mathbf R)=\vol(\Gamma),
+\tag{55.22}\label{eq:ok-dh-total-mass}
+\]
+and for \(m\geq1\),
+\[
+\begin{split}
+ \int_{\mathbf R}x^m\,\rd \DHm(\Gamma)(x)
+ ={}&\Gamma_{\max}^m\vol(\Gamma)\\
+ &+m\int_{-\infty}^{\Gamma_{\max}}
+ \tau^{m-1}\!
+ \left(\int_X\langle\theta_{\Gamma_\tau}^n\rangle
+                  -\vol(\Gamma)\right)\,\rd\tau .
+\end{split}
+\tag{55.23}\label{eq:ok-intrinsic-moments}
+\]
+\end{theorem}
+
+\begin{proof}
+Every level of \(\Gamma\) is \(\mathcal I\)-model, so
+\Cref{lem:ok-i-model-mass-volume} turns
+\eqref{eq:ok-trans-volume} into
+\[
+ n!\lambda_n\!\left(
+    \Delta_{Y_\bullet}(\theta,\Gamma_\tau)\right)
+ =\int_X\langle\theta_{\Gamma_\tau}^n\rangle .
+\]
+Substituting this identity into \eqref{eq:ok-dh-moment} gives
+\eqref{eq:ok-intrinsic-moments}.
+Hence every moment is intrinsic.
+
+If \(\Gamma\) is bounded, its DH measure has compact support.
+Two finite compactly supported measures with all moments equal are equal,
+by polynomial density in the continuous functions on a common compact
+interval.
+This proves flag independence in the bounded case.
+
+For general \(\Gamma\), translate so that \(\Gamma_{\max}=0\), and replace it
+by the bounded truncation obtained by joining
+\(\Gamma_{-\infty}\) at \(-\varepsilon^{-1}\) to the original levels.
+These truncations decrease levelwise to \(\Gamma\).
+Continuity of partial bodies and dominated convergence for compactly
+supported test functions give weak convergence of their DH measures.
+The bounded case passes to the limit.
+\end{proof}
+
+If a compact K\"ahler manifold has no smooth flag, choose a modification
+\(\pi:Y\to X\) admitting one and set
+\[
+                         \DHm(\Gamma):=\DHm(\pi^*\Gamma).
+\tag{55.24}\label{eq:ok-dh-modification}
+\]
+The birational rule \eqref{eq:ok-birational-body} and flag independence make
+this independent of \(\pi\).
+Thus \eqref{eq:ok-dh-modification} also proves birational invariance.
+
+\begin{proposition}\label{prop:ok-dh-weak-continuity}
+Let \(\Gamma^j,\Gamma\) have positive mass.
+Then
+\[
+                    \DHm(\Gamma^j)\rightharpoonup\DHm(\Gamma)
+\tag{55.25}\label{eq:ok-dh-weak}
+\]
+in either of the following cases:
+\begin{enumerate}
+\item \(\Gamma^j\searrow\Gamma\) and
+\(\vol(\Gamma^j)\to\vol(\Gamma)\);
+\item \(\Gamma^j\nearrow\Gamma\), where the limit is the upper
+semicontinuous supremum in the test-curve space.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+For each \(\tau<\Gamma_{\max}\), monotone convergence of the
+\(\cI\)-model levels, together with the mass hypothesis in the decreasing
+case, gives \(d_S\)-convergence.
+The partial bodies therefore converge in Hausdorff distance.
+The Legendre test functions converge pointwise on the limiting body in the
+decreasing case and almost everywhere in its interior in the increasing
+case.
+For \(f\in C_c(\mathbf R)\), dominated convergence applied to \(f\circ G_j\)
+proves \eqref{eq:ok-dh-weak}.
+\end{proof}
+
+For a test configuration in a Hodge class, this definition agrees with the
+weight-distribution definition of \cite[Section~3.2]{BHJ17}; see
+\cite[Remark~7.17]{Xia21}.
+
+\section{Mixed volumes of partial Okounkov bodies}
+\label{sec:ok-mixed-volumes}
+\index{Okounkov body!mixed volume}\index{movable product}
+
+Everything so far attached one convex body to one current and matched its
+Euclidean volume with the volume of its \(\mathcal I\)-model envelope.  We
+now prove the corresponding mixed formula.  Throughout this section \(X\)
+is a connected smooth projective variety over \(\mathbf C\) of dimension
+\(n\), and \(\nu\) ranges over the surjective valuations
+\[
+ \nu:\mathbf C(X)^\times\longrightarrow\mathbf Z^n_{\mathrm{lex}}
+ \quad\text{trivial on }\mathbf C^\times ,
+\tag{55.26}\label{eq:ok-mvob-valuations}
+\]
+where \(\mathbf Z^n_{\mathrm{lex}}\) carries the lexicographic order.  Flag
+valuations form a subfamily, but every supremum in this section is over the
+whole family in \eqref{eq:ok-mvob-valuations}.
+
+\begin{lemma}\label{lem:ok-mvob-valuative-leaves}
+Let \(\nu\) be as in \eqref{eq:ok-mvob-valuations}.  Its residue field is
+\(\mathbf C\), every nonzero leaf of its valuation filtration is
+one-dimensional, and for every nonzero finite-dimensional
+\(W\subset\mathbf C(X)\),
+\[
+                         \#\nu(W^\times)=\dim_{\mathbf C}W.
+\tag{55.27}\label{eq:ok-mvob-leaf-count}
+\]
+The valuation has a center on every proper model of \(\mathbf C(X)\).
+Changing a rational trivialization of a line bundle translates its
+normalized partial body and hence leaves all mixed volumes unchanged.
+\end{lemma}
+
+\begin{proof}
+The rational rank of \(\nu\) is \(n\).  Abhyankar's inequality therefore
+forces the residue transcendence degree to be zero.  The residue field is
+an algebraic extension of the algebraically closed field \(\mathbf C\), so
+it is \(\mathbf C\).  After division by any element of value \(a\), the
+nonzero leaf
+\(\mathcal F_{\succeq a}/\mathcal F_{\succ a}\) embeds in the residue
+field.  It is consequently one-dimensional.
+Filtering \(W\) by its finitely many values and summing the dimensions of
+the leaves proves \eqref{eq:ok-mvob-leaf-count}.  The existence of a center
+is the valuative criterion of properness.
+
+If rational frames \(e,e'\) satisfy \(e'=ge\), the functions representing
+sections of \(L^{\otimes k}\) differ by multiplication by \(g^{-k}\).
+Their normalized valuation sets therefore differ by the fixed translation
+\(-\nu(g)\).  Translation invariance of mixed volume proves the last
+assertion.
+\end{proof}
+
+\begin{remark}[Two normalizations that must be converted, not assumed]
+\label{rem:ok-mvob-normalizations}
+Two conversions are needed before the source statements can be read against
+the conventions of this book.
+
+\emph{Mixed volume.}  For convex bodies \(K_1,\dots,K_n\subset\mathbf R^n\)
+this book writes \(V(K_1,\dots,K_n)\) for the coefficient of
+\(t_1\cdots t_n\) normalized by \(V(K,\dots,K)=\lambda_n(K)\), as in
+\Cref{thm:appD-minkowski-polynomial}.  The source writes \(\vol\) for the
+same quantity.  We use \(V\).
+
+\emph{Volume of a metric.}  The source's volume of a psh metric is the one
+detected by multiplier ideals, that is
+\(\vol(\theta,\varphi)=\int_X(\theta+\ddc P_\theta[\varphi]_{\cI})^n\) of
+\Cref{def:complex-current-volume}, and not the bare non-pluripolar mass
+\(M_\theta(\varphi)\) of \eqref{eq:complex-npp-mass}.  By
+\eqref{eq:complex-mass-volume} one has
+\(M_\theta(\varphi)\leq\vol(\theta,\varphi)\), with equality for analytic
+singularities and, more generally, for \(\mathcal I\)-model potentials.
+The hypotheses of \Cref{def:ok-algebraic-partial-body} and
+\Cref{thm:ok-transcendental-package} are therefore exactly the
+positive-volume hypothesis appearing in \eqref{eq:ok-mvob-metrics}.  The
+mixed quantity \(\vol(\ddc h_1,\dots,\ddc h_n)\) is the mixed
+non-pluripolar mass of the \(\cI\)-model envelopes,
+\[
+ \vol(\ddc h_1,\dots,\ddc h_n)
+ =\int_X\bigl(\theta_1+\ddc P_{\theta_1}[\varphi_1]_{\cI}\bigr)
+        \wedge\cdots\wedge
+        \bigl(\theta_n+\ddc P_{\theta_n}[\varphi_n]_{\cI}\bigr),
+\tag{55.28}\label{eq:ok-mvob-mixed-mass}
+\]
+where \(h_i=h_{0,i}\rme^{-\varphi_i}\) as in
+\eqref{eq:ok-partial-metric} and the wedge is the non-pluripolar product
+\eqref{eq:complex-global-npp}.
+\end{remark}
+
+\subsection{Order and the algebraic upper bound}
+
+\begin{proposition}
+\label{prop:ok-mvob-superadditivity}
+Let \(L,L'\) be big line bundles on \(X\), let \(h,h'\) be psh metrics on
+\(L,L'\), and let \(\nu\) satisfy \eqref{eq:ok-mvob-valuations}.  Assume
+that all the partial bodies below are defined, that is, that the relevant
+potentials have positive multiplier-ideal volume.  Then
+\[
+ \Delta_\nu(L,h)+\Delta_\nu(L',h')
+   \subseteq\Delta_\nu(L\otimes L',h\otimes h'),
+\tag{55.29}\label{eq:ok-mvob-superadditivity}
+\]
+and, for one fixed smooth background \(\theta\) and
+\(\varphi,\psi\in\PSH(X,\theta)\),
+\[
+ \varphi\preceq_{\cI}\psi
+   \quad\Longrightarrow\quad
+ \Delta_\nu(\theta,\varphi)\subseteq\Delta_\nu(\theta,\psi).
+\tag{55.30}\label{eq:ok-mvob-i-monotone}
+\]
+\end{proposition}
+
+\begin{proof}
+The general-valuation Minkowski inclusion is
+\cite[Proposition~10.3.10]{XiaBook}; it gives
+\eqref{eq:ok-mvob-superadditivity}.  A naive levelwise product argument
+would not suffice, since subadditivity gives
+\(\cI(k(\varphi+\varphi'))
+ \subseteq\cI(k\varphi)\cI(k\varphi')\), the opposite inclusion.
+The implication \eqref{eq:ok-mvob-i-monotone} follows directly from
+\eqref{eq:ok-i-order} of \Cref{thm:ok-algebraic-volume-order}.
+\end{proof}
+
+\begin{lemma}\label{lem:ok-mvob-finite-level}
+Let \(F/\mathbf C\) be finitely generated of transcendence degree \(n\),
+let \(X_0\) be an integral projective model of \(F\), and let \(\nu\) be as
+in \eqref{eq:ok-mvob-valuations}.  Let
+\(0\ne W_i\subset F\) be finite-dimensional, let \(Y\) be the closure of
+the image of the joint evaluation map
+\[
+ X_0\dashrightarrow\prod_{i=1}^n\mathbf P(W_i^\vee),
+\]
+and suppose that this map is birational onto \(Y\).  If
+\[
+ \operatorname{span}_{\mathbf Z}
+ \{\nu(f)-\nu(g):f,g\in W_i^\times,\ 1\leq i\leq n\}
+ =\mathbf Z^n,
+\tag{55.31}\label{eq:ok-mvob-finite-level-degree}
+\]
+then, with \(P_i=\operatorname{conv}\nu(W_i^\times)\) and with \(H_i\)
+the hyperplane class from the \(i\)-th factor,
+\[
+ n!V(P_1,\ldots,P_n)\leq(H_1\cdots H_n\cdot Y).
+\tag{55.32}\label{eq:ok-mvob-admissible}
+\]
+\end{lemma}
+
+\begin{proof}
+By \Cref{lem:ok-mvob-valuative-leaves}, choose a basis \(f_{ij}\) of each
+\(W_i\), one vector for each value \(a_{ij}=\nu(f_{ij})\).  Choose
+\(u_1,\ldots,u_n\in F^\times\) with \(\nu(u_\ell)=e_\ell\).  The residue
+field calculation in that lemma gives a graded isomorphism
+\[
+ \mathbf C[\mathbf Z^n]\simeq\operatorname{gr}_\nu F,
+ \qquad \chi^a\longmapsto\operatorname{in}_\nu(u^a).
+\]
+After rescaling the \(f_{ij}\), their initial forms are \(\chi^{a_{ij}}\).
+
+Let \(S=\mathbf C[x_{ij}]\), multigraded by \(\deg x_{ij}=e_i\), and let
+\(I\) be the multihomogeneous prime ideal of \(Y\).  Give \(x_{ij}\) the
+lexicographic matrix weight \(a_{ij}\), set
+\(Q=\operatorname{in}_{\mathsf A}(I)\), and put
+\[
+ J=\ker\!\left(S\longrightarrow
+ \mathbf C[\mathbf Z^n][t_1,\ldots,t_n],\quad
+ x_{ij}\longmapsto\chi^{a_{ij}}t_i\right).
+\]
+Taking the least-valuation part of each relation among the \(f_{ij}\) gives
+only the inclusion
+\[
+                              Q\subseteq J.
+\tag{55.33}\label{eq:ok-mvob-initial-inclusion}
+\]
+By \cite[Proposition~8.10]{KM19}, a rational scalar weight realizes the
+matrix initial ideal; clear its denominators.  The resulting flat
+multigraded degeneration preserves every multihomogeneous piece:
+\[
+ \dim(S/I)_{\mathbf d}=\dim(S/Q)_{\mathbf d}
+ \qquad(\mathbf d\in\mathbf N^n).
+\tag{55.34}\label{eq:ok-mvob-hilbert-functions}
+\]
+
+The ideal \(J\) defines the closure \(Z\) of the monomial map
+\[
+ (\mathbf C^\times)^n\longrightarrow
+ \prod_i\mathbf P(W_i^\vee),\qquad
+ z\longmapsto([z^{a_{i0}}:\cdots:z^{a_{ir_i}}])_i.
+\]
+Condition \eqref{eq:ok-mvob-finite-level-degree} says that the exponent
+differences generate the full character lattice.  Thus this map is a
+closed immersion on the torus and \(\dim Z=n\).  By
+\eqref{eq:ok-mvob-initial-inclusion}, \(Z\) lies in
+\(Y_0=\operatorname{MultiProj}(S/Q)\).  Passing to
+\(\operatorname{MultiProj}\) removes only multigraded irrelevant torsion;
+such torsion vanishes in all sufficiently large multidegrees, and hence
+does not change the eventual Hilbert polynomial.  Equation
+\eqref{eq:ok-mvob-hilbert-functions} therefore gives
+\(\dim Y_0=\dim Y=n\), so \(Z\) is a top-dimensional component of \(Y_0\).
+Writing the top-dimensional cycle as
+\([Y_0]_n=\sum_Wm_W[W]\), positivity of the multiplicities and nefness of
+the globally generated \(H_i\) give
+\[
+ (H_1\cdots H_n\cdot Y)
+ =(H_1\cdots H_n\cdot[Y_0]_n)
+ \geq(H_1\cdots H_n\cdot Z).
+\tag{55.35}\label{eq:ok-mvob-toric-component}
+\]
+
+If some \(W_i\) is one-dimensional, then \(P_i\) is a point, so the mixed
+volume in \eqref{eq:ok-mvob-admissible} is zero and the result follows.
+Otherwise, for a fixed point of
+\(Z\setminus(\mathbf C^\times)^n\), requiring one hyperplane in each factor
+to pass through it has total codimension \(n\).  Since the boundary has
+dimension at most \(n-1\), the incidence correspondence shows that general
+hyperplanes have no common boundary point.  Their intersection is computed
+on the dense torus.  The exponent differences generate \(\mathbf Z^n\), so
+the Bernstein--Kushnirenko formula \cite{Ber75} has no lattice-index factor
+and yields
+\[
+                    (H_1\cdots H_n\cdot Z)=n!V(P_1,\ldots,P_n).
+\]
+Together with \eqref{eq:ok-mvob-toric-component}, this proves
+\eqref{eq:ok-mvob-admissible}.
+\end{proof}
+
+\begin{proposition}\label{prop:ok-mvob-movable-upper}
+For big \(\mathbf Q\)-divisors \(D_1,\ldots,D_n\) and every valuation in
+\eqref{eq:ok-mvob-valuations},
+\[
+ n!V(\Delta_\nu(D_1),\ldots,\Delta_\nu(D_n))
+ \leq\langle D_1,\ldots,D_n\rangle.
+\tag{55.36}\label{eq:ok-mvob-movable-upper}
+\]
+\end{proposition}
+
+\begin{proof}
+By homogeneity, clear denominators.  For
+\(W_{i,k}=H^0(X,\mathcal O_X(kD_i))\), use rational trivializations at the
+center of \(\nu\); by \Cref{lem:ok-mvob-valuative-leaves}, this only
+translates normalized bodies.  For a sufficiently divisible \(p\), every
+\(|pD_i|\) is birational.  To obtain the lattice assertion at one common
+degree, use the degree-zero fraction field of the section ring of \(D_1\),
+which is \(\mathbf C(X)\).  Choose rational functions \(g_j\) with
+\(\nu(g_j)=e_j\), and write \(g_j=a_j/b_j\) with \(a_j,b_j\) homogeneous
+sections of the same degree.  After passing to one common degree \(p_0\), put
+\(s_0=\prod_jb_j\) and
+\(s_j=a_j\prod_{\ell\ne j}b_\ell\).  Then all \(s_j\) lie in one
+\(W_{1,p_0}\) and \(\nu(s_j)-\nu(s_0)=e_j\).  Replace the previously chosen
+birational degree by a common multiple \(p=rp_0\), and replace these sections by
+\(s_0^r,s_js_0^{r-1}\).  For \(k=mp\), the sections
+\(s_0^{rm},s_js_0^{rm-1}\) retain the unit differences, while the
+symmetric-power subsystem induces the Veronese of each degree-\(p\) map.
+Thus \Cref{lem:ok-mvob-finite-level} applies at every such \(k\).
+
+Resolve all degree-\(k\) base ideals on one model and write
+\[
+ \mu_k^*(kD_i)=M_{i,k}+F_{i,k},\qquad
+ M_{i,k}\ \text{basepoint free},\quad F_{i,k}\geq0.
+\]
+The projection formula, in the form of \Cref{thm:appF-projection}, gives
+\[
+ n!V(\operatorname{conv}\nu(W_{1,k}^\times),\ldots,
+      \operatorname{conv}\nu(W_{n,k}^\times))
+ \leq M_{1,k}\cdots M_{n,k}.
+\]
+The nef approximants \(k^{-1}M_{i,k}\) lie below the pullbacks of \(D_i\).
+The nef-approximation inequality
+\cite[Propositions~2.12 and~2.13]{BFJ09} therefore gives
+\[
+ M_{1,k}\cdots M_{n,k}
+ \leq k^n\langle D_1,\ldots,D_n\rangle.
+\]
+Divide by \(k^n\).  The normalized finite-level convex hulls converge in
+Hausdorff distance by \cite[Proposition~10.3.4]{XiaBook}; continuity of
+mixed volume in \Cref{thm:appD-minkowski-polynomial} proves
+\eqref{eq:ok-mvob-movable-upper}.
+\end{proof}
+
+\subsection{Uniformity in the valuation}
+
+\begin{lemma}\label{lem:ok-mvob-potential-sandwich}
+Let \(u_j,u\in\PSH(X,\theta)_{>0}\) be normalized model potentials with
+\(u_j\to u\) in \(d_S\).  After passing to a subsequence there are
+increasing normalized model potentials \(\eta_j\) and decreasing normalized
+model potentials \(\psi_j\) such that
+\[
+ \eta_j\leq u_j\leq\psi_j,\qquad
+ \eta_j\leq u\leq\psi_j,\qquad
+ \eta_j,\psi_j\longrightarrow u\quad\text{in }d_S.
+\tag{55.37}\label{eq:ok-mvob-potential-sandwich}
+\]
+For finitely many sequences, the same subsequence may be chosen for all of
+them.
+\end{lemma}
+
+\begin{proof}
+The sandwich theorem \cite[Proposition~6.2.3]{XiaBook} supplies the first
+pair of inequalities and the two convergences.  If its upper sequence is
+not model, replace it by \(P_\theta[\psi_j]\).  Monotonicity preserves
+decrease and the upper inequality, while model projection preserves the
+\(d_S\)-limit.
+
+Fix \(j\).  For \(k\geq j\),
+\(\eta_j\leq\eta_k\leq u_k\).  Closure of the \(P\)-preorder under
+simultaneous \(d_S\)-limits \cite[Proposition~6.2.5]{XiaBook}, applied to
+the constant sequence \(\eta_j\) and the tail \((u_k)_{k\geq j}\), gives
+\(\eta_j\preceq_Pu\).  Since both potentials are normalized and model,
+this is \(\eta_j\leq u\).  Similarly,
+\(u_k\leq\psi_k\leq\psi_j\) for \(k\geq j\), so order closure and modelness
+give \(u\leq\psi_j\).  This proves the missing two inequalities.  For
+finitely many sequences, apply the construction successively and take the
+finite diagonal subsequence.
+\end{proof}
+
+\begin{lemma}\label{lem:ok-mvob-uniform-sandwich}
+For \(1\leq i\leq n\), suppose that nonempty compact convex sets satisfy
+all four inclusions
+\[
+ A_{i,j}\subseteq C_{i,j}\subseteq B_{i,j},\qquad
+ A_{i,j}\subseteq D_{i,j}\subseteq B_{i,j}.
+\tag{55.38}\label{eq:ok-mvob-convex-sandwich}
+\]
+Assume, for constants \(v,M>0\) independent of \(i,j\), that
+\[
+ \lambda_n(A_{i,j})\geq v,\qquad
+ \lambda_n(B_{1,j}+\cdots+B_{n,j})\leq M,\qquad
+ \lambda_n(B_{i,j})-\lambda_n(A_{i,j})\longrightarrow0.
+\]
+Then
+\[
+ \left|V(C_{1,j},\ldots,C_{n,j})
+       -V(D_{1,j},\ldots,D_{n,j})\right|\longrightarrow0.
+\]
+\end{lemma}
+
+\begin{proof}
+For each \(i,j\), translate the whole quadruple so that
+\(0\in A_{i,j}\).  Every body is then contained in
+\(S_j=B_{1,j}+\cdots+B_{n,j}\), and
+\(v\leq\lambda_n(S_j)\leq M\).  Send the John ellipsoid of \(S_j\) to the
+unit ball by an affine map with linear part \(L_j\).  John's theorem
+\cite[Theorem~10.12.2]{Sch14} gives
+\[
+ \mathbf B^n\subseteq L_jS_j+b_j\subseteq n\mathbf B^n,\qquad
+ \frac{\lambda_n(\mathbf B^n)}{M}\leq|\det L_j|
+ \leq\frac{n^n\lambda_n(\mathbf B^n)}{v}.
+\]
+All transformed bodies lie in one compact set, their inner volumes stay
+positive, and their inner--outer volume gaps tend to zero.  From any
+subsequence, Blaschke selection \cite[Theorem~1.8.7]{Sch14} gives a further
+subsequence on which all
+\(4n\) bodies converge.  At the limit, the four inclusions, equality of the
+positive inner and outer volumes, and strict volume monotonicity under a
+proper inclusion of full-dimensional convex bodies imply
+\(\widehat A_i=\widehat B_i=\widehat C_i=\widehat D_i\).  Continuity of
+mixed volume gives the conclusion after transformation.  The lower bound
+for \(|\det L_j|\) transfers it back.  Since every subsequence has such a
+further subsequence, the full sequence converges.
+\end{proof}
+
+\begin{proposition}\label{prop:ok-mvob-uniform-ds}
+For \(1\leq i\leq n\), let \(L_i\) be a big line bundle, choose a smooth
+form \(\theta_i\in c_1(L_i)\), let
+\(\varphi_{i,j},\varphi_i\in\PSH(X,\theta_i)_{>0}\), and assume that
+\(\varphi_{i,j}\to\varphi_i\) in \(d_S\).
+Then
+\[
+ \sup_\nu\left|
+ V(\Delta_\nu(\theta_1,\varphi_{1,j}),\ldots,
+   \Delta_\nu(\theta_n,\varphi_{n,j}))
+ -V(\Delta_\nu(\theta_1,\varphi_1),\ldots,
+   \Delta_\nu(\theta_n,\varphi_n))\right|\longrightarrow0.
+\tag{55.39}\label{eq:ok-mvob-uniform-ds}
+\]
+\end{proposition}
+
+\begin{proof}
+Replace all potentials by normalized model envelopes.  If
+\eqref{eq:ok-mvob-uniform-ds} failed, an approximate maximizer of the
+supremum would give, after a subsequence, valuations \(\nu_j\) and
+\(\delta>0\) for which the displayed difference is at least \(\delta\).
+Use the common subsequence in \Cref{lem:ok-mvob-potential-sandwich} and set
+\[
+ \begin{aligned}
+ A_{i,j}&=\Delta_{\nu_j}(\theta_i,\eta_{i,j}),&
+ B_{i,j}&=\Delta_{\nu_j}(\theta_i,\psi_{i,j}),\\
+ C_{i,j}&=\Delta_{\nu_j}(\theta_i,\varphi_{i,j}),&
+ D_{i,j}&=\Delta_{\nu_j}(\theta_i,\varphi_i).
+ \end{aligned}
+\]
+Discard a finite initial segment.  Continuity of the diagonal masses and
+positivity of the limits then put every one of these bodies on the
+positive-volume locus.  The two sandwiches in
+\eqref{eq:ok-mvob-potential-sandwich} and
+\eqref{eq:ok-mvob-i-monotone} give all four inclusions in
+\eqref{eq:ok-mvob-convex-sandwich}.  The diagonal volume formula and
+\(d_S\)-continuity give
+\[
+ \lambda_n(B_{i,j})-\lambda_n(A_{i,j})\longrightarrow0,\qquad
+ \lambda_n(A_{i,j})\longrightarrow
+ \frac1{n!}\vol(\theta_i,\varphi_i)>0,
+\]
+independently of \(\nu_j\).  Moreover,
+\[
+ B_{1,j}+\cdots+B_{n,j}
+ \subseteq\Delta_{\nu_j}\!\left(\sum_i\theta_i,
+                                  \sum_i\psi_{i,j}\right)
+ \subseteq\Delta_{\nu_j}\!\left(\bigotimes_iL_i\right)
+\]
+by \eqref{eq:ok-mvob-superadditivity} and containment in the complete
+series.  The last body has Euclidean volume
+\(\vol(\bigotimes_iL_i)/n!\), independent of \(j\) and \(\nu_j\).
+\Cref{lem:ok-mvob-uniform-sandwich} now contradicts \(\delta\).  This
+proves \eqref{eq:ok-mvob-uniform-ds}.  Notice that the conclusion concerns
+mixed-volume values uniformly in \(\nu\), not Hausdorff convergence
+uniformly in \(\nu\).
+\end{proof}
+
+\subsection{Rational analytic singularities}
+
+\begin{definition}\label{def:ok-rational-analytic}
+A psh metric has \emph{rational analytic singularities} if locally its
+weight is
+\[
+ c\log\!\left(\sum_j|f_j|^2\right)+O(1),\qquad c\in\mathbf Q_{>0}.
+\]
+This is the rational subcase of
+\Cref{def:complex-analytic-singularities}; the rationality is needed for
+the divisor and section arguments below.
+\end{definition}
+
+\begin{lemma}\label{lem:ok-mvob-effective-shift}
+Let \(A,B\) be big \(\mathbf Q\)-divisors, let \(E\geq0\) be a
+\(\mathbf Q\)-divisor, and suppose
+\(A\sim_{\mathbf Q}aB+bE\) with \(a,b\in\mathbf Q_{\geq0}\).  Then
+\[
+ a\Delta_\nu(B)+b\nu(E)\subseteq\Delta_\nu(A).
+\tag{55.40}\label{eq:ok-mvob-effective-shift}
+\]
+\end{lemma}
+
+\begin{proof}
+Clear the denominators in the divisor relation and in \(a,b\).  Multiplying
+a section of the corresponding multiple of \(B\) by the required power of
+the canonical section of \(E\) produces a section of the corresponding
+multiple of \(A\).  Valuation vectors add under multiplication.  Divide by
+the common multiple and take the closed convex hull to obtain
+\eqref{eq:ok-mvob-effective-shift}.
+\end{proof}
+
+\begin{proposition}\label{prop:ok-mvob-analytic-case}
+Assume that the psh metrics \(h_i\) on the big line bundles \(L_i\) have
+rational analytic singularities and that their curvature currents are
+K\"ahler currents.  Then \eqref{eq:ok-mvob-metrics} holds.
+\end{proposition}
+
+\begin{proof}
+On a common projective log resolution \(\pi:Y\to X\), write
+\[
+ \pi^*c_1(L_i,h_i)=[D_i]+R_i,\qquad
+ A_i:=\pi^*L_i-D_i\in\operatorname{Pic}(Y)_{\mathbf Q},
+\]
+where \(D_i\geq0\) is rational and \(R_i\) has bounded potentials.  The
+class \(\alpha_i=c_1(A_i)=\{R_i\}\) is nef and big.  Birational invariance
+of the non-pluripolar product gives
+\[
+ \int_X\bigwedge_i c_1(L_i,h_i)=\alpha_1\cdots\alpha_n.
+\tag{55.41}\label{eq:ok-mvob-resolution-mass}
+\]
+For every valuation of the common function field, the log-resolution
+formula \cite[Remark~10.3.1, equation~(10.22)]{XiaBook} gives
+\[
+ \Delta_\nu(L_i,h_i)=\Delta_\nu(A_i)+\nu(D_i).
+\tag{55.42}\label{eq:ok-mvob-resolution-body}
+\]
+Translations do not affect mixed volume.  Applying
+\Cref{prop:ok-mvob-movable-upper}, and using nefness, yields
+\[
+ n!V(\Delta_\nu(L_1,h_1),\ldots,\Delta_\nu(L_n,h_n))
+ \leq\alpha_1\cdots\alpha_n.
+\tag{55.43}\label{eq:ok-mvob-analytic-upper}
+\]
+
+For the reverse inequality, fix an ample \(\mathbf Q\)-divisor \(H\) on
+\(Y\).  Choose one rational \(c>0\) such that every \(cA_i-H\) is big, and
+choose \(E_i\geq0\) with \(E_i\sim_{\mathbf Q}cA_i-H\).  For rational
+\(\varepsilon>0\), set \(B_i=A_i+\varepsilon H\).  Then \(B_i\) is ample
+and
+\[
+ A_i\sim_{\mathbf Q}
+ \frac1{1+c\varepsilon}B_i
+ +\frac{\varepsilon}{1+c\varepsilon}E_i.
+\tag{55.44}\label{eq:ok-mvob-kodaira}
+\]
+By \cite[Theorem~1.1]{Wil25}, there is an admissible flag, allowed to depend
+on \(\varepsilon\), whose valuation \(\nu_\varepsilon\) satisfies
+\[
+ n!V(\Delta_{\nu_\varepsilon}(B_1),\ldots,
+      \Delta_{\nu_\varepsilon}(B_n))=B_1\cdots B_n.
+\tag{55.45}\label{eq:ok-mvob-wilms}
+\]
+Apply \Cref{lem:ok-mvob-effective-shift} to
+\eqref{eq:ok-mvob-kodaira}.  Translation invariance and
+\eqref{eq:ok-mvob-wilms} give
+\[
+ \sup_\nu V(\Delta_\nu(A_1),\ldots,\Delta_\nu(A_n))
+ \geq\frac{B_1\cdots B_n}{n!(1+c\varepsilon)^n}.
+\tag{55.46}\label{eq:ok-mvob-analytic-lower}
+\]
+Let rational \(\varepsilon\downarrow0\).  Equations
+\eqref{eq:ok-mvob-resolution-mass}--\eqref{eq:ok-mvob-analytic-lower}
+prove the proposition.  No maximizing valuation was used: at each
+\(\varepsilon\) a possibly different flag supplies the lower bound.
+\end{proof}
+
+\subsection{The positive-volume formula}
+
+\begin{lemma}\label{lem:ok-mvob-i-model-approximation}
+Let \(h=h_0\rme^{-\varphi}\) be a psh metric of positive
+multiplier-ideal volume and put \(u=P_\theta[\varphi]_{\cI}\).  Then
+\(u\sim_{\cI}\varphi\), the partial bodies of \(u\) and \(\varphi\) agree,
+\(u\) is a model potential with
+\(M_\theta(u)=\vol(\theta,\varphi)>0\), and there are rational-analytic
+potentials \(u_j\) such that
+\[
+ u_j\longrightarrow u\quad\text{in }d_S,\qquad
+ \theta+\ddc u_j\ \text{is a K\"ahler current}.
+\tag{55.47}\label{eq:ok-mvob-approximating}
+\]
+\end{lemma}
+
+\begin{proof}
+The first two assertions follow from
+\Cref{thm:complex-i-projection} and the \(\cI\)-invariance of partial
+bodies.  It is also model: the model envelope
+\(P_\theta[u]\) is \(\cI\)-equivalent to \(u\), so maximality of the
+\(\cI\)-envelope gives \(P_\theta[u]\leq u\), while normalized \(u\) is a
+competitor for its model envelope and gives the reverse inequality.  The
+mass--volume identity for an \(\cI\)-model potential is
+\eqref{eq:complex-mass-volume}.  Thus the assumed ideal volume, rather than
+the possibly smaller raw mass of \(\varphi\), is the positive mass of
+\(u\).  The potential \(u\) is \(\cI\)-good, and the rational-analytic
+K\"ahler-current approximation in \cite[Theorem~7.1.1]{XiaBook} gives
+\eqref{eq:ok-mvob-approximating}.
+\end{proof}
+
+\begin{theorem}\label{thm:ok-mvob-metrics}
+Let \(L_i\) be big line bundles on \(X\), and let \(h_i\) be psh metrics
+with \(\vol(\theta_i,\varphi_i)>0\), in the normalization of
+\Cref{rem:ok-mvob-normalizations}.  Then
+\[
+ \vol(\ddc h_1,\dots,\ddc h_n)
+ =n!\,\sup_\nu V\!\left(
+    \Delta_\nu(L_1,h_1),\dots,\Delta_\nu(L_n,h_n)\right).
+\tag{55.48}\label{eq:ok-mvob-metrics}
+\]
+\end{theorem}
+
+\begin{proof}
+For each \(i\), apply \Cref{lem:ok-mvob-i-model-approximation} and write
+\(u_i=P_{\theta_i}[\varphi_i]_{\cI}\).  The replacement preserves every
+body, and by definition \eqref{eq:ok-mvob-mixed-mass} the left side is the
+mixed non-pluripolar mass of the \(u_i\).  Choose the approximants
+\(u_{i,j}\) in \eqref{eq:ok-mvob-approximating}, using one common index for
+the finitely many \(i\).  At every \(j\),
+\Cref{prop:ok-mvob-analytic-case} gives
+\[
+ \int_X\bigwedge_i(\theta_i+\ddc u_{i,j})
+ =n!\sup_\nu V(\Delta_\nu(\theta_1,u_{1,j}),\ldots,
+                    \Delta_\nu(\theta_n,u_{n,j})).
+\]
+The mixed non-pluripolar masses on the left converge by
+\cite[Theorem~6.2.1]{XiaBook}.  The right side converges by
+\Cref{prop:ok-mvob-uniform-ds}; explicitly, for the corresponding functions
+\(f_j,f\) of \(\nu\),
+\[
+ \left|\sup_\nu f_j(\nu)-\sup_\nu f(\nu)\right|
+ \leq\sup_\nu|f_j(\nu)-f(\nu)|\longrightarrow0.
+\]
+Taking the limit proves \eqref{eq:ok-mvob-metrics}.
+\end{proof}
+
+\begin{theorem}\label{thm:ok-mvob-line-bundles}
+For big line bundles \(L_1,\ldots,L_n\) on \(X\),
+\[
+ \langle L_1,\dots,L_n\rangle
+ =n!\,\sup_\nu V\!\left(
+     \Delta_\nu(L_1),\dots,\Delta_\nu(L_n)\right).
+\tag{55.49}\label{eq:ok-mvob-line-bundles}
+\]
+\end{theorem}
+
+\begin{proof}
+Choose psh metrics with minimal singularities in the classes \(c_1(L_i)\).
+Their partial bodies are the ordinary Okounkov bodies by
+\Cref{thm:ok-algebraic-volume-order}.  The mixed non-pluripolar mass of
+minimal currents is the positive intersection number by
+\cite[Definition~1.17]{BEGZ10}; its projective numerical interpretation is
+the movable product of \cite[Propositions~2.12--2.13]{BFJ09}.
+Thus \Cref{thm:ok-mvob-metrics} specializes exactly to
+\eqref{eq:ok-mvob-line-bundles}.
+\end{proof}
+
+\begin{remark}[The supremum is a supremum]
+\label{rem:ok-mvob-supremum}
+The proofs assert no maximizing valuation.  In the analytic lower bound the
+flag may vary with \(\varepsilon\), and the uniformity argument uses only
+approximate maximizers.  When all
+\(L_i=L\) coincide, the supremum is superfluous, since
+\(V(\Delta_\nu(L),\dots,\Delta_\nu(L))=\lambda_n(\Delta_\nu(L))
+ =\vol(L)/n!\) for every \(\nu\), by
+\Cref{thm:appD-minkowski-polynomial} and by
+\eqref{eq:ok-algebraic-volume} applied to a potential with minimal
+singularities.  With genuinely different \(L_i\) the value
+does depend on \(\nu\), which is why the supremum appears.
+\end{remark}
+
+\begin{example}\label{ex:ok-mvob-diagonal}
+Let \(L_1=\cdots=L_n=L\) and \(h_1=\cdots=h_n=h\), with positive ideal
+volume.  For every valuation in \eqref{eq:ok-mvob-valuations},
+\[
+ n!V(\Delta_\nu(L,h),\ldots,\Delta_\nu(L,h))
+ =n!\lambda_n(\Delta_\nu(L,h))
+ =\vol(\ddc h,\ldots,\ddc h).
+\]
+Thus every valuation computes the common value; the supremum is needed only
+for genuinely mixed data.
+\end{example}
+
+\begin{example}\label{ex:ok-mvob-toric-boxes}
+On \(X=(\mathbf P^1)^n\), let
+\(L_i=\mathcal O(a_{i1},\ldots,a_{in})\) with all \(a_{ir}>0\).  The
+standard toric flag gives
+\(\Delta_\nu(L_i)=\prod_r[0,a_{ir}]\).  The polarization formula for boxes
+therefore gives
+\[
+ n!V(\Delta_\nu(L_1),\ldots,\Delta_\nu(L_n))
+ =\operatorname{perm}(a_{ir})=(L_1\cdots L_n).
+\]
+In this case one fixed toric valuation already realizes the supremum in
+\eqref{eq:ok-mvob-line-bundles}.
+\end{example}
+
+\begin{warning}{Scope of the theorem}
+\index{Okounkov body!zero-volume regime}
+The preceding proof carries a strict positivity hypothesis and says nothing
+outside it.
+
+\emph{Zero volume is excluded.}  The metric claim requires
+\(\vol(\theta_i,\varphi_i)>0\) for every \(i\), and
+the line-bundle claim requires every \(L_i\) big.  If one factor
+has zero volume, the corresponding partial body is not defined by
+\Cref{def:ok-algebraic-partial-body}, both sides of
+\eqref{eq:ok-mvob-metrics} leave the stated domain, and no continuity
+argument in this chapter recovers an identity.  That regime is exactly what
+\Cref{prob:frontier-zero-volume} keeps open.
+
+\emph{Transcendental classes are not covered.}  The theorems concern \(n\)
+line bundles on a smooth projective \(X\), not transcendental big
+classes on a compact K\"ahler manifold.  The transcendental bodies of
+\eqref{eq:ok-trans-general} and \Cref{thm:ok-transcendental-package} are
+available, and \eqref{eq:ok-minkowski} is their superadditivity, but no
+transcendental analogue of \eqref{eq:ok-mvob-metrics} is claimed here.
+
+\emph{Attainment is not asserted.}  See \Cref{rem:ok-mvob-supremum}.
+\end{warning}
+
+\begin{remark}[Status]
+\index{Okounkov body!mixed volume!status of Conjecture 8.8}
+The mixed partial-body volume formula was posed as
+\cite[Conjecture~8.8]{Xia21}.  The author-supplied July 2026 proof
+\cite{XiaMVOB}, after the repairs made explicit above, proves it on its
+positive-ideal-volume projective domain.  Its scope means that it is not a
+zero-volume theorem.  The zero-volume questions
+\cite[Conjecture~5.29]{Xia21} and \cite[p.~34]{Xia21} remain separately
+listed in \Cref{prob:frontier-zero-volume}.
+\end{remark}
+
+\section{The zero-volume boundary}
+
+The full-dimensional volume identity cannot simply be continued to
+multiplier-ideal volume zero.
+The next theorem is a separate toric result.
+Here \(\Delta(T)\) is the Newton body defined directly from the convex
+toric potential.  It agrees with the partial Okounkov body on the
+positive-volume locus, but at volume zero it is a separate toric extension
+of \Cref{def:ok-algebraic-partial-body}.
+
+\begin{theorem}\label{thm:ok-toric-zero-mass}
+Let \(X\) be a smooth projective toric variety.
+Let \(T\) be a torus-invariant positive \((1,1)\)-current in an integral or
+rational big toric class, and let
+\[
+                             K=\Delta(T)
+\]
+be its Newton body, in the separate toric zero-volume sense described
+above.  No use of \Cref{def:ok-algebraic-partial-body} at zero volume is
+intended.
+Then Cao's numerical dimension satisfies
+\[
+                         \nu_{\mathrm{Cao}}(T)=\dim K.
+\tag{55.50}\label{eq:ok-toric-numdim}
+\]
+\end{theorem}
+
+\begin{proof}
+Choose a toric \(\mathbf Q\)-divisor \(D\) representing the class of \(T\).
+After multiplication by a common denominator, we may suppose that \(D\) is
+integral and that \(T\) is the curvature current of a torus-invariant
+semipositive singular metric \(h_0\rme^{-\varphi}\) on
+\(\mathcal O_X(D)\).  This operation replaces \(K\) by a positive homothetic
+copy and does not change either \(\dim K\) or Cao's numerical dimension.  Let
+\(M\) and \(N\) be the character and cocharacter lattices.  We normalize
+Lebesgue measure \(\lambda_M\) on \(M_{\mathbf R}\) so that a fundamental
+parallelepiped of \(M\) has measure one.
+
+Choose a very ample integral toric divisor \(A\), with full-dimensional
+moment polytope \(Q\), and a torus-invariant K\"ahler form \(\omega_A\) in
+its class.  We use logarithmic coordinates characterized by
+\(\langle u,\operatorname{Log}z\rangle=\log|\chi^u(z)|\), and let
+\(F_T\) and \(F_A\)
+be the corresponding convex weights of the \emph{norms} on
+\(N_{\mathbf R}\).  Thus a local squared-norm weight in the convention of
+\Cref{sec:ch51-squared-norm} is twice the corresponding norm weight.  The
+Newton body is the closure of the effective domain of the convex conjugate
+of \(F_T\).  Since the conjugate of a sum is the
+lower-semicontinuous infimal convolution, its closed effective domain is the
+Minkowski sum of the two compact effective domains.  Consequently, for
+rational \(\varepsilon>0\),
+\[
+                  \Delta(T+\varepsilon\omega_A)=K+\varepsilon Q.
+\tag{55.51}\label{eq:ok-toric-minkowski}
+\]
+
+We now prove the section-counting identity needed for Cao's criterion.  Put
+\(B_\varepsilon=K+\varepsilon Q\), and take \(m\) sufficiently divisible that
+\(m\varepsilon\in\mathbf Z\).  Set
+\[
+ W_{m,\varepsilon}:=
+ H^0\!\left(X,\mathcal O_X(mD+m\varepsilon A)
+                 \otimes\mathcal I(m\varphi)\right).
+\]
+The multiplier ideal is torus invariant, so \(W_{m,\varepsilon}\) is the
+direct sum of its one-dimensional character spaces.  We determine their
+weights chart by chart.
+
+Let \(\sigma\) be a maximal cone of the smooth fan of \(X\).  Its primitive
+ray generators form a basis of \(N\); let
+\(e_{\sigma,1},\ldots,e_{\sigma,n}\) be the dual basis of \(M\), and put
+\(\kappa_\sigma=\sum_j e_{\sigma,j}\).  Let
+\(d_\sigma,a_\sigma\in M\) be the Cartier data of \(D,A\) on the affine chart
+\(U_\sigma\).  In the corresponding toric frame, the coefficient of the
+character section \(\chi^u\) of
+\(\mathcal O_X(mD+m\varepsilon A)\) is the monomial with exponent
+\[
+       \alpha_\sigma:=u-m d_\sigma-m\varepsilon a_\sigma.
+\]
+Let \(\Phi_\sigma\) be the local squared-norm psh weight of \(T\) in this
+frame, and put \(\psi_\sigma=\Phi_\sigma/2\).  Thus \(\psi_\sigma\) is the
+norm weight used by Guenancia.  The global relative potential \(\varphi\)
+and \(\Phi_\sigma\) differ by a smooth function, and hence
+\[
+ \mathcal I(m\varphi)|_{U_\sigma}
+   =\mathcal I(m\Phi_\sigma)
+   =\mathcal I_{\mathrm G}(m\psi_\sigma),
+\]
+where the last ideal is defined by local integrability against
+\(\rme^{-2m\psi_\sigma}\).  The closure of the local Newton convex set of
+\(\psi_\sigma\) is
+\[
+              \overline{P(\psi_\sigma)}
+                    =K-d_\sigma+\sigma^\vee.
+\]
+Indeed, subtracting the Cartier linear function translates the effective
+domain by \(-d_\sigma\), while allowing holomorphic monomials adds the dual
+cone.  The set \(P(\psi_\sigma)\) is convex and the displayed closure is
+full-dimensional.  A convex set with full-dimensional closure has the same
+interior as its closure, and hence
+\[
+ \operatorname{int}P(m\psi_\sigma)
+   =\operatorname{int}\bigl(m(K-d_\sigma)+\sigma^\vee\bigr).
+\]
+
+Guenancia's toric multiplier-ideal criterion
+\cite[Theorem~1.13]{Guenancia12} says that a holomorphic monomial of exponent
+\(\alpha_\sigma\) belongs to \(\mathcal I_{\mathrm G}(m\psi_\sigma)\)
+exactly when \(\alpha_\sigma+\kappa_\sigma\) lies in this interior.  This
+condition also recovers holomorphicity, so it may be applied to an arbitrary
+character \(\chi^u\).  Indeed, if
+\[
+ P_D:=\bigcap_{\tau\in\Sigma(n)}(d_\tau+\tau^\vee)
+\]
+is the toric polytope of \(D\), extension of the invariant psh metric across
+the toric charts gives \(K\subseteq P_D\).  Hence
+\(m(K-d_\sigma)+\sigma^\vee\subseteq\sigma^\vee\).  Membership of
+\(\alpha_\sigma+\kappa_\sigma\) in its interior implies, in the smooth chart
+basis, \(\alpha_{\sigma,j}+1>0\) for every \(j\).  Since these coordinates
+are integers, \(\alpha_{\sigma,j}\geq0\), as required.
+
+After cancelling \(m d_\sigma\), we obtain
+\[
+ \chi^u\in W_{m,\varepsilon}
+ \quad\Longleftrightarrow\quad
+ u+\kappa_\sigma\in
+ \operatorname{int}(mB_\varepsilon+\sigma^\vee)
+ \quad\text{for every maximal }\sigma.
+\]
+Here we used
+\(Q+\sigma^\vee=a_\sigma+\sigma^\vee\), which holds because \(A\) is
+very ample.  Notice that the criterion includes both the strict interior and
+the fixed anticanonical shift \(\kappa_\sigma\); neither may be discarded at
+finite level.
+
+Let \(E_{m,\varepsilon}\subset M\) be the set on the right.  Then
+\(\dim W_{m,\varepsilon}=\#E_{m,\varepsilon}\) by the toric character
+dictionary \cite[\S4.3]{CLS11}.  Completeness of the fan gives the elementary
+gluing identity
+\[
+ B_\varepsilon
+   =\bigcap_{\sigma\in\Sigma(n)}
+        (B_\varepsilon+\sigma^\vee).
+\]
+To see the reverse inclusion, if \(x\notin B_\varepsilon\), strict separation
+gives \(v\in N_{\mathbf R}\) such that
+\(\langle x,v\rangle<\min_{b\in B_\varepsilon}\langle b,v\rangle\).
+Choose a maximal cone containing \(v\).  Every point of
+\(B_\varepsilon+\sigma^\vee\) has pairing with \(v\) at least that minimum,
+so \(x\) is excluded from that member of the intersection.
+
+After division by \(m\), the exact character conditions cut out
+\[
+ C_{m,\varepsilon}:=
+ \bigcap_{\sigma\in\Sigma(n)}
+ \left(-\frac{\kappa_\sigma}{m}
+       +\operatorname{int}(B_\varepsilon+\sigma^\vee)\right),
+ \qquad
+ E_{m,\varepsilon}=mC_{m,\varepsilon}\cap M.
+\]
+The fan is finite and the shifts are \(O(m^{-1})\).  Hence every compact
+subset of \(\operatorname{int}B_\varepsilon\) lies in
+\(C_{m,\varepsilon}\) for all large \(m\), while
+\(C_{m,\varepsilon}\) lies in any prescribed neighborhood of
+\(B_\varepsilon\) for all large \(m\).  For completeness, the second
+assertion follows by contradiction: the intersection is uniformly bounded
+because cones containing both signs of each coordinate direction give
+uniform upper and lower bounds; a convergent sequence staying a fixed
+distance from \(B_\varepsilon\) would, after passage to the limit, belong to
+every closed set \(B_\varepsilon+\sigma^\vee\), hence to
+\(B_\varepsilon\), a contradiction.
+
+Since \(\varepsilon>0\) and \(Q\) has interior, \(B_\varepsilon\) is
+full-dimensional and its boundary has \(\lambda_M\)-measure zero.  Choose
+\(b\in\operatorname{int}B_\varepsilon\).  The homothetic inner bodies
+\(b+(1-\delta)(B_\varepsilon-b)\) and arbitrarily small outer parallel
+bodies squeeze \(C_{m,\varepsilon}\).  The lattice Riemann-sum formula for a
+bounded convex body \(C\),
+\[
+             \frac{\#(mC\cap M)}{m^n}\longrightarrow\lambda_M(C),
+\]
+therefore yields
+\[
+ \lim_{\substack{m\to\infty\\m\varepsilon\in\mathbf Z}}
+ \frac{\dim W_{m,\varepsilon}}{m^n}
+       =\lambda_M(K+\varepsilon Q).
+\]
+One elementary proof of the Riemann-sum formula surrounds each lattice point
+by its covolume-\(m^{-n}\) fundamental cell; the symmetric difference is
+contained in a shrinking neighborhood of \(\partial C\).  This also explains
+why no factor \(n!\) occurs here.  We have proved an actual limit, not a
+finite-level equality or merely a limsup.
+
+Since the preceding inner limit exists, Cao's projective criterion
+\cite[Proposition~4.4]{Cao14} becomes, in this normalization,
+\[
+ \lim_{\substack{\varepsilon\downarrow0\\
+                  \varepsilon\in\mathbf Q}}
+ \frac{\log\!\left(
+   \displaystyle\lim_{\substack{m\to\infty\\m\varepsilon\in\mathbf Z}}
+   \frac{h^0\!\left(X,\mathcal O_X(mD+m\varepsilon A)
+                    \otimes\mathcal I(m\varphi)\right)}{m^n}
+   \right)}{\log\varepsilon}
+ =n-\nu_{\mathrm{Cao}}(T).
+\]
+The ordinary multiplier ideal in this formula is exactly the one counted
+above; Cao proves that its asymptotics agree with those of the
+upper-regularized ideal used during his proof.
+
+Put \(d=\dim K\).
+After translation, \(K\) contains a \(d\)-dimensional ball in its affine
+span and is contained in a bounded \(d\)-dimensional box.  The body \(Q\)
+contains an \(n\)-dimensional ball and is contained in a bounded
+\(n\)-dimensional box.  Splitting \(M_{\mathbf R}\) into the direction space
+of \(K\) and a complement, and comparing with products of balls and boxes,
+gives constants \(c,C>0\) such that
+\[
+ c\varepsilon^{\,n-d}
+ \leq\lambda_M(K+\varepsilon Q)
+ \leq C\varepsilon^{\,n-d}
+\tag{55.52}\label{eq:ok-toric-tube-growth}
+\]
+for all sufficiently small \(\varepsilon>0\).
+Thus
+\(\log\lambda_M(K+\varepsilon Q)
+ =(n-d)\log\varepsilon+O(1)\).  Substitution in Cao's criterion gives
+\(n-\nu_{\mathrm{Cao}}(T)=n-d\), hence
+\(\nu_{\mathrm{Cao}}(T)=d\).
+\end{proof}
+
+\begin{remark}[Exact scope]
+\label{rem:ok-toric-scope}
+\Cref{thm:ok-toric-zero-mass} does not include an irrational real toric
+class.
+Such an extension needs both a definition of its Newton body and an
+approximation theorem compatible with Cao's numerical dimension.
+Neither is a formal consequence of \eqref{eq:ok-toric-numdim}.
+\end{remark}
+
+\begin{proposition}\label{prop:ok-i-invariant-obstruction}
+There is no assignment
+\[
+              \varphi\longmapsto B(\varphi)\subset\mathbf R^N
+\]
+of measurable sets, invariant under \(\cI\)-equivalence, whose Euclidean
+volume equals the actual non-pluripolar mass of every psh potential.
+\end{proposition}
+
+\begin{proof}
+On \(\mathbf P^1\), let \(K\) be a polar Cantor set carrying an atom-free
+probability measure \(\mu\); such a pair is supplied by \cite[p.~31]{Car83}.
+Write
+\[
+                         \mu=\omega+\ddc\varphi
+\]
+with \(\omega\) Fubini--Study.
+Because \(\mu\) has no atoms, every Lelong number of \(\varphi\) is zero.
+The valuative formula for multiplier ideals therefore gives
+\[
+                              \varphi\sim_{\cI}0.
+\]
+But \(\mu\) is supported on the pluripolar set \(K\), so its
+non-pluripolar mass is zero, whereas
+\[
+                       \int_{\mathbf P^1}\omega=1.
+\]
+An \(\cI\)-invariant assignment would give
+\(B(\varphi)=B(0)\), while the desired volume rule would give these two sets
+different volumes, a contradiction.
+\end{proof}
+
+Convexity played no role in the obstruction.
+It rules out ordinary multiplier-ideal bodies as universal carriers of
+actual mass, but it does not rule out a refinement that retains the finer
+\(P\)-singularity type.
+That \(P\)-sensitive problem remains open.
+
+The source gives two more precise zero-volume benchmarks:
+\cite[Conjecture~5.29]{Xia21} predicts equality between the dimension of the
+partial body and numerical dimension, and the question on p.~34 asks whether
+the Chebyshev transform is independent of its auxiliary positive form.  They
+are recorded, without being conflated with the stronger \(P\)-sensitive
+construction, in \Cref{prob:frontier-zero-volume}.
+Conjecture~8.8 of that source is the positive-volume mixed-body formula
+proved in \Cref{thm:ok-mvob-metrics}.  This closes the conjecture on its
+stated positive-ideal-volume projective domain, but it does not address any
+of the zero-volume problems just listed.
+
+\section{Provenance and safeguards}
+
+The algebraic and transcendental partial-body constructions, Okounkov test
+curves, flag independence, moment formulas, and continuity statements are
+from \cite{Xia21}.
+The proof of \Cref{thm:ok-mvob-metrics} starts from the author-supplied
+argument in \cite{XiaMVOB}.  Its load-bearing external inputs are the
+general-valuation partial-body and \(d_S\) results of \cite{XiaBook}, the
+initial-ideal comparison of \cite{KM19}, the Bernstein--Kushnirenko mixed
+degree formula, the nef-approximation property of positive products, the
+minimal-current identification of \cite{BEGZ10}, and the common-flag theorem
+\cite[Theorem~1.1]{Wil25}.  The proof above supplies the missing
+four-inclusion convex lemma, the tail/order-closure argument, the common
+finite subsequence, the one-dimensional-factor branch, the multigraded
+irrelevant-torsion check, the rational analytic reduction, and the
+canonical-section inclusion.  It was verified in production Rethlas against
+the exact repaired proof object of 24 August 2026 (SHA-256)
+\begin{center}
+\small\texttt{9227826d7ba5c641c5fe32cc4daae9acbb3b57274dcc1b356ba8beadd58cad7b}
+\end{center}
+with verdict correct and no reported gap.
+The complete repaired author source (SHA-256)
+\begin{center}
+\small\texttt{5746eb011417caecfa876c05c6c74fb548e2ae9d086c1441189bbcad02a96594}
+\end{center}
+then received an independent
+source-level verdict correct, again with no reported error or gap.  The
+repaired proof object above remains the controlling mathematical receipt.
+
+\Cref{prop:ok-mvob-superadditivity} holds for every valuation in
+\eqref{eq:ok-mvob-valuations} by \cite[Proposition~10.3.10]{XiaBook}; its
+order assertion is \eqref{eq:ok-i-order}.  The convex-geometric normalization
+of mixed volume is \Cref{thm:appD-minkowski-polynomial}, and the
+multiplier-ideal volume of a metric is
+\Cref{def:complex-current-volume}; \Cref{rem:ok-mvob-normalizations} carries
+out both conversions explicitly rather than assuming them.
+The toric statement \Cref{thm:ok-toric-zero-mass} is the validated
+integral/rational theorem recorded in the research ledger; its proof uses
+Cao's criterion \cite{Cao14}, not an unproved identification with an
+unrelated mixed product.
+The Cantor-set example uses \cite{Car83}.
+
+Four boundaries should be retained.
+The positive-volume continuity theorem is not a zero-volume definition.
+The valuative characterization retains its closure.
+The \(\cI\)-obstruction is not an impossibility theorem for
+\(P\)-sensitive refinements.
+And the mixed-volume identity is an identity on the positive-volume locus
+only: it says nothing at zero volume, which remains
+\Cref{prob:frontier-zero-volume}.  No argument in this dependency chain uses
+a Deligne-pairing Riemann--Roch formula.

@@ -1,0 +1,751 @@
+\chapter{K-stability for K\"ahler models}
+\index{K-stability!Kahler model@K\"ahler model}\index{cscK metric}\index{Mabuchi functional!non-Archimedean}
+\label{chap:mpwn-k-stability}
+
+The preceding chapters provide two ways to test positivity at infinity:
+intersection numbers of analytic degenerations, and coercivity of the
+non-Archimedean Mabuchi functional on all finite-energy potentials.  The
+transcendental Calabi--Yau theorem identifies these tests only after
+\emph{big} models, continuous envelopes, and divisorial measures are allowed.
+This chapter states that bridge with its exact scope.
+
+Throughout, \(X\) is a compact K\"ahler manifold of dimension \(n\),
+\(\alpha\) is a K\"ahler class,
+% RETHLAS-VERIFIED: mpwn-factor-n-correction; receipt 20260814T175959Z_484442fcc393
+\[
+                    V:=\alpha^n,\qquad
+                    s:=-nV^{-1}\alpha^{n-1}\cdot K_X.
+\tag{62.1}\label{eq:mpwn-s-constant}
+\]
+Positive products are written \(\langle\ \rangle\).  They agree with
+ordinary intersections for K\"ahler classes, but not for arbitrary big
+classes.  The factor \(n\) in \(s\) is the scalar-curvature normalization
+compatible with the Donaldson--Futaki coefficient below.  The formula for
+\(s\) printed in \cite[Section~2.4.2]{MPWN25} omits this factor, whereas
+\cite[Definition~1.1.1 and Theorem~9.1.1]{MPWN25}, together with the
+normalization \(E_A=(n+1)^{-1}V^{-1}(A,\phi)^{n+1}\), force the displayed
+value.  Here is the exact coefficient comparison.  On a big model, put
+\[
+ B:=A+D,\qquad C:=\alpha^{n-1}\cdot K_X,\qquad
+ Q:=\langle B^{n+1}\rangle
+\]
+and
+\[
+ R(B):=K^{\log}_{\cX/\mathbf P^1}\cdot\langle B^n\rangle,\qquad
+ K^{\log}_{\cX/\mathbf P^1}
+ :=K_{\cX/\mathbf P^1}-(\cX_0-\cX_{0,\mathrm{red}}).
+\]
+The model formulas for energy, twisted energy, and reduced entropy give
+\[
+ V M_\alpha^{\NA}(P_\alpha(f_D))
+       =R(B)+\frac{s}{n+1}Q,
+\tag{62.1a}\label{eq:mpwn-factor-n-potential-side}
+\]
+whereas the Donaldson--Futaki and model Mabuchi definitions give
+\[
+ M^{\NA}(\cX,B)
+       =R(B)-\frac{nC}{(n+1)V}Q.
+\tag{62.1b}\label{eq:mpwn-factor-n-model-side}
+\]
+Thus the twisted-energy and entropy terms contribute the common term
+\(R(B)\), not another multiple of \(Q\).  To see that coefficient comparison
+is legitimate, take the product model and
+\(D=c\cX_0\) with \(c\geq1\).  Then \(f_D=c\geq1\), the class
+\(A+c[\cX_0]\) is K\"ahler, and
+\[
+       Q=(A+c[\cX_0])^{n+1}=(n+1)cV\ne0.
+\]
+The model identity in Theorem~9.1.1 of \cite{MPWN25} therefore forces
+\(s=-nC/V\), which is \eqref{eq:mpwn-s-constant}.
+
+This source-text correction was independently verified by
+\texttt{gpt-5.6-sol} at \texttt{xhigh} scrutiny.  The receipt has verdict
+\texttt{correct}, with no gaps; its exact identifier, digest, and provenance
+are recorded in the editorial ledger and \Cref{app:provenance}.
+
+\section{Analytic test configurations and big models}
+
+\begin{definition}[Smooth dominating analytic test configuration]
+\label{def:mpwn-analytic-test-configuration}
+A test configuration for \((X,\alpha)\) consists of:
+\begin{enumerate}
+\item a compact K\"ahler manifold \(\cX\) and a
+      \(\mathbf C^*\)-equivariant proper bimeromorphic morphism
+      \[
+            \mu:\cX\longrightarrow X\times\mathbf P^1
+      \tag{62.2}\label{eq:mpwn-model-map}
+      \]
+      that is a biholomorphism away from the zero fiber;
+\item the lifted standard \(\mathbf C^*\)-action;
+\item a class
+      \[
+                 \mathcal A_D:=A+[D]\in H^{1,1}_{\mathrm{BC}}(\cX,\mathbf R),
+          \qquad A:=\mu^*\operatorname{pr}_1^*\alpha,
+      \tag{62.3}\label{eq:mpwn-model-class}
+      \]
+      with \(D\) a real vertical divisor supported on \(\cX_0\).
+\end{enumerate}
+It is a K\"ahler test configuration if \(\mathcal A_D\) is K\"ahler and a big
+test configuration if \(\mathcal A_D\) is big.
+\end{definition}
+
+This is \cite[Definition~1.1.1]{MPWN25}, in the smooth dominating form used
+for intersection computations.  An equivariant resolution makes this
+restriction cofinal.  A class is big when it contains a K\"ahler current;
+it need not be nef.  Therefore a big test configuration does not, by
+itself, define a model psh function.  Its correct potential is the envelope
+\(P_\alpha(f_D)\).
+
+\begin{example}[Deformation to the normal cone]
+\label{ex:mpwn-dnc-stability}
+For a smooth submanifold \(Z\subset X\), blow up
+\(Z\times\{0\}\subset X\times\mathbf P^1\), with exceptional divisor \(E\).
+The classes \(A-c[E]\) are relatively K\"ahler for sufficiently small
+\(c>0\).  Equivalently, after adding a sufficiently large multiple of the
+central fiber, they are K\"ahler on the total space.  At the boundary of
+the relative K\"ahler range they are relatively nef, and beyond it they
+may remain relatively big (again interpreted after this harmless base
+normalization).  Testing only the small-\(c\) interval misses the
+positive-intersection data carried by the big range.
+\end{example}
+
+\section{Donaldson--Futaki, Mabuchi, and
+\texorpdfstring{\(J\)}{J}}
+
+For a big test configuration, define
+\[
+ \DF(\cX,\mathcal A_D)
+ :=K_{\cX/\mathbf P^1}\cdot\langle\mathcal A_D^n\rangle
+   -\frac{n\,\alpha^{n-1}\cdot K_X}{(n+1)\alpha^n}
+       \langle\mathcal A_D^{n+1}\rangle,
+\tag{62.4}\label{eq:mpwn-df}
+\]
+\[
+ M^{\NA}(\cX,\mathcal A_D)
+ :=\DF(\cX,\mathcal A_D)
+   -(\cX_0-\cX_{0,\mathrm{red}})
+          \cdot\langle\mathcal A_D^n\rangle,
+\tag{62.5}\label{eq:mpwn-model-mabuchi}
+\]
+and
+\[
+ J^{\NA}(\cX,\mathcal A_D)
+ :=\langle\mathcal A_D\rangle\cdot A^n
+      -\frac1{n+1}\langle\mathcal A_D^{n+1}\rangle.
+\tag{62.6}\label{eq:mpwn-model-j}
+\]
+All intersections are on \(\cX\).  The correction in
+\eqref{eq:mpwn-model-mabuchi} replaces the central fiber by its reduction;
+it is exactly the geometric manifestation of the reduced discrepancy
+\(A_{X\times\mathbf P^1}-1\).
+
+\begin{proposition}\label{prop:mpwn-invariant-invariance}
+The quantities \eqref{eq:mpwn-df}--\eqref{eq:mpwn-model-j} are unchanged
+under pullback to a dominating smooth model.  Replacing
+\(D\) by \(D+c\cX_0\) translates the associated PL function by \(c\);
+\(M^{\NA}\) and \(J^{\NA}\) are unchanged after the standard normalization.
+\end{proposition}
+
+\begin{proof}
+Let \(\rho:\cX'\to\cX\) be a dominating smooth model.  Birational
+invariance gives
+\(\langle(\rho^*\mathcal A_D)^k\rangle
+ =\rho^*\langle\mathcal A_D^k\rangle\) in every intersection used here,
+and the projection formula pushes each factor back to \(\cX\).  The relative
+canonical divisors differ by a \(\rho\)-exceptional divisor, whose
+intersection with the pulled-back positive product vanishes.  For
+\(M^{\NA}\), combine the canonical term and the nonreduced-fiber correction
+as the log relative divisor
+\(K_{\cX/\mathbf P^1}-(\cX_0-\cX_{0,\mathrm{red}})\); its discrepancy on
+\(\cX'\) is again exceptional and is killed by the same projection formula.
+This proves birational invariance of all three expressions.
+
+Put \(B=\mathcal A_D\).  Since \(\cX_0\) is pulled back from a point of
+\(\mathbf P^1\), every term containing \(\cX_0^2\) vanishes, while
+\(\cX_0\cdot\langle B^n\rangle=V\).  Hence
+\[
+ \langle(B+c\cX_0)^{n+1}\rangle
+   =\langle B^{n+1}\rangle+(n+1)cV.
+\]
+Also
+\[
+ K_{\cX/\mathbf P^1}\cdot
+   \langle(B+c\cX_0)^n\rangle
+ =K_{\cX/\mathbf P^1}\cdot\langle B^n\rangle
+      +nc\,K_X\cdot\alpha^{n-1}.
+\]
+The added term cancels the change of the volume term in
+\eqref{eq:mpwn-df}.  The nonreduced-fiber correction has zero change because
+its additional intersection contains \(\cX_0\) and another vertical divisor.
+Finally, the first term of \eqref{eq:mpwn-model-j} increases by \(cV\), and
+its second term increases by the same amount.  Thus \(M^{\NA}\) and
+\(J^{\NA}\) descend to potentials modulo constants.
+\end{proof}
+
+\begin{definition}[Two uniform stability notions]
+\label{def:mpwn-two-stabilities}
+\begin{enumerate}
+\item \((X,\alpha)\) is \emph{uniformly K-stable} if there is
+      \(\delta>0\) such that
+      \[
+          M^{\NA}(\cX,\mathcal A_D)\geq
+          \delta J^{\NA}(\cX,\mathcal A_D)
+      \tag{62.7}\label{eq:mpwn-ordinary-uniform-k}
+      \]
+      for every K\"ahler test configuration.
+\item It is \emph{uniformly K-stable for models} if
+      \eqref{eq:mpwn-ordinary-uniform-k} holds for every big test
+      configuration.
+\end{enumerate}
+\end{definition}
+
+The second condition is a priori stronger, because every K\"ahler class is
+big.  The word models is not synonymous with ordinary cohomological
+K-stability.  Keeping this distinction visible is essential for the theorem
+boundary at the end of the chapter.
+
+\section{From a big model to a finite-energy potential}
+
+Let \(f_D\in\PL_{\mathbf R}(X^{\bethan})\) be the function associated to
+the real divisor \(D\).
+After adding a multiple of \(\cX_0\), assume
+\[
+                              f_D\geq1.
+\tag{62.8}\label{eq:mpwn-fd-positive}
+\]
+This does not change the normalized invariants.  Since \(A+D\) is big,
+the continuous envelope
+\[
+                              \phi_D:=P_\alpha(f_D)
+\tag{62.9}\label{eq:mpwn-model-envelope}
+\]
+belongs to \(\mathcal E^1(\alpha)\).
+
+\begin{theorem}\label{thm:mpwn-model-intersection-formulas}
+For a big test configuration satisfying
+\eqref{eq:mpwn-fd-positive},
+\[
+ M_\alpha^{\NA}(P_\alpha(f_D))
+      =V^{-1}M^{\NA}(\cX,A+D),
+\qquad
+ J_\alpha(P_\alpha(f_D))
+      =V^{-1}J^{\NA}(\cX,A+D).
+\tag{62.10}\label{eq:mpwn-model-functional-identities}
+\]
+\end{theorem}
+
+\begin{proof}[Imported positive-product core]
+The imported restricted-positive-product core consists of
+\cite[Propositions~9.1.2, 9.1.3, and 9.1.5]{MPWN25}, together with
+\cite[Lemma~9.1.4]{MPWN25}.  Orthogonality and restricted volumes give
+\[
+ \MA_\alpha(P_\alpha(f_D))
+ =V^{-1}\sum_i b_i
+       \langle(A+D)^n\rangle_{\cX\mid E_i}\delta_{v_{E_i}}.
+\tag{62.11}\label{eq:mpwn-big-envelope-ma}
+\]
+The restricted-positive-product theorem gives
+\[
+ \langle(A+D)^n\rangle_{\cX\mid E_i}
+       =\langle(A+D)^n\rangle\cdot E_i.
+\tag{62.12}\label{eq:mpwn-restricted-positive}
+\]
+Integrating reduced discrepancy against
+\eqref{eq:mpwn-big-envelope-ma} produces
+\[
+ V^{-1}\langle(A+D)^n\rangle\cdot
+ K_{\cX/(X\times\mathbf P^1)}^{\log},
+\]
+where the log correction is
+\(\cX_{0,\mathrm{red}}-\cX_0\).  Approximate \(A+D\) by K\"ahler classes
+with the same minimal singularities.  Monotone continuity of energy yields
+\[
+ E_\alpha(P_\alpha(f_D))
+    =\frac{V^{-1}}{n+1}\langle(A+D)^{n+1}\rangle
+\tag{62.13}\label{eq:mpwn-envelope-energy-positive-product}
+\]
+and the analogous twisted-energy identity.  Combining these three formulas
+gives \eqref{eq:mpwn-model-functional-identities}.  This is
+\cite[Theorem~9.1.1]{MPWN25}, with the coefficient correction recorded at
+\eqref{eq:mpwn-s-constant}.
+\end{proof}
+
+\begin{corollary}\label{cor:mpwn-model-stability-pl-envelopes}
+Uniform K-stability for models is equivalent to the existence of
+\(\delta>0\) such that
+\[
+ M_\alpha^{\NA}(P_\alpha(f))
+       \geq\delta J_\alpha(P_\alpha(f))
+\tag{62.14}\label{eq:mpwn-pl-envelope-stability}
+\]
+for every \(f\in\PL_{\mathbf R}(X^{\bethan})\).
+\end{corollary}
+
+\begin{proof}
+For a big test configuration, apply
+\Cref{thm:mpwn-model-intersection-formulas} to its associated PL function
+after adding a constant as in \eqref{eq:mpwn-fd-positive}; the normalized
+functionals are unchanged by that addition.  Conversely, represent a real
+PL function by a vertical real divisor on a smooth dominating model.  Fix
+on that model a vertical divisor \(D_0\) for which \(A+D_0\) is K\"ahler
+after the standard addition of a base class.  For \(c\gg1\), the
+coefficientwise difference \(D+c\cX_0-D_0\) is effective.  Hence
+\[
+ A+D+c\cX_0=(A+D_0)+(D+c\cX_0-D_0)
+\]
+is big, while the PL function has changed only by the constant \(c\).
+The same identities then turn the functional inequality back into the
+model-stability inequality.  Hence the two uniform inequalities are
+equivalent with the same positive constant.
+\end{proof}
+
+\section{Completion from models to all finite energy}
+
+Call uniform stability on the full finite-energy space
+\[
+ M_\alpha^{\NA}(\phi)\geq\delta J_\alpha(\phi),
+ \qquad\phi\in\mathcal E^1(\alpha),
+\tag{62.15}\label{eq:mpwn-bk-stability}
+\]
+uniform \(\widehat K\)-stability (also called uniform
+\(b\)-K-stability in \cite{MP24,MPWN25}).  This is not a definition by
+test configurations; it is coercivity of a functional on the completed
+potential space.
+
+\begin{theorem}\label{thm:mpwn-model-e1-equivalence}
+The following conditions are equivalent:
+\begin{enumerate}
+\item there is \(\delta>0\) such that
+      \eqref{eq:mpwn-bk-stability} holds on all
+      \(\mathcal E^1(\alpha)\);
+\item it holds for every continuous \(\alpha\)-psh \(\phi\) whose
+      Monge--Amp\`ere measure is supported on one dual complex;
+\item it holds for every real PL envelope \(P_\alpha(f)\), with
+      \(f\in\PL_{\mathbf R}\).
+\end{enumerate}
+Consequently, uniform K-stability for models is equivalent to uniform
+\(\widehat K\)-stability.
+\end{theorem}
+
+\begin{proof}[Imported entropy-approximation core]
+The first condition trivially implies the second.  For the converse, take
+\(\phi\in\mathcal E^1(\alpha)\) and put \(\mu=\MA_\alpha(\phi)\).
+By \Cref{thm:mpwn-measure-approximation}, choose measures
+\(\mu_j\), supported on dual complexes, that converge strongly to \(\mu\)
+and satisfy \(\Ent(\mu_j)\to\Ent(\mu)\).  Let
+\(\MA_\alpha(\phi_j)=\mu_j\), with sup normalization.  The Calabi--Yau
+homeomorphism gives \(\phi_j\to\phi\) strongly, dual-complex regularity gives
+\(\phi_j\in C^0\), and entropy convergence yields
+\[
+ J_\alpha(\phi_j)\to J_\alpha(\phi),
+ \qquad
+ M_\alpha^{\NA}(\phi_j)\to M_\alpha^{\NA}(\phi).
+\]
+Pass the assumed inequality to the limit.
+
+It remains to pass from PL envelopes to continuous potentials supported on
+one complex.  If
+\(\operatorname{supp}\MA_\alpha(\phi)\subset\Delta_{\cX}\), locality gives
+\(\phi=P_\alpha(\phi\circ p_{\cX})\).  Approximate the continuous convex
+function \(\phi|_{\Delta_{\cX}}\) uniformly by rational PL functions on
+subdivisions.  Their envelopes converge uniformly, hence strongly, to
+\(\phi\); all their measures remain on the same underlying monomial
+complex.  Weak convergence gives convergence of every fixed
+dual-complex discrepancy integral.  Since all these measures are supported
+on the same monomial complex, reduced discrepancy there equals its affine
+model representative; hence these fixed integrals are their entropies.  The
+functional inequality passes to the limit.
+
+The equivalence of the third condition with model stability is
+\Cref{cor:mpwn-model-stability-pl-envelopes}.  The simultaneous strong and
+entropy approximation and the support formula for envelopes are the
+imported cores from Sections~7--8 of \cite{MPWN25}; the preceding
+deductions prove \cite[Theorem~9.2.1]{MPWN25}.
+\end{proof}
+
+\begin{corollary}\label{cor:mpwn-model-stability-csck}
+If \((X,\alpha)\) is uniformly K-stable for models, then it satisfies the
+finite-energy coercivity condition \eqref{eq:mpwn-bk-stability}; hence the
+later-source cscK theorem produces a unique cscK metric in \(\alpha\).
+\end{corollary}
+
+\begin{proof}[Imported conclusion and formal deduction]
+Apply \Cref{thm:mpwn-model-e1-equivalence}.  It converts model stability
+into finite-energy coercivity.  The conclusion of
+\cite[Theorem~2.4.3]{MPWN25} then yields a unique cscK metric in \(\alpha\).
+Equivalently, the entire implication is stated directly as
+\cite[Corollary~9.2.2]{MPWN25}.  Both cited statements use the reduced
+entropy of \cite[Definition~2.4.1]{MPWN25}; this deduction does not invoke a
+separately corrected version of the entropy-slope argument in MP24.
+\end{proof}
+
+\begin{remark}[Scope of the cited conclusion]
+\cite[Theorem~2.4.3 and Corollary~9.2.2]{MPWN25} state literal uniqueness
+under the ordinary \(J\)-coercive hypotheses used here.
+Automorphism-relative stability is a different statement and is not
+inferred from these passages.
+\end{remark}
+
+\section{The beta invariant on measures}
+
+Let \(K_X\) also denote the tangent direction in the K\"ahler cone.  For
+\(\mu\in\mathcal M^1(\alpha)\), define
+\[
+ \beta_\alpha(\mu)
+ :=\Ent(\mu)+\nabla_{K_X}E_\alpha^\vee(\mu)
+ :=\Ent(\mu)+
+    \left.\frac{\rd}{\rd t}\right|_{t=0}
+       E_{\alpha+tK_X}^\vee(\mu).
+\tag{62.16}\label{eq:mpwn-beta}
+\]
+Differentiability in the class variable is an imported theorem from the
+finite-energy measure formalism.  The entropy uses
+\(A_{X\times\mathbf P^1}-1\), not total discrepancy.
+
+The definition is the transcendental counterpart of the divisorial-measure
+formalism of \cite{BJKS2}.  That source works with polarized projective
+varieties and algebraic norms.  Here the class derivative is taken in the
+K\"ahler cone and the measure space comes from analytic models; no projective
+specialization is used in the proof below.
+
+\begin{theorem}\label{thm:mpwn-beta-mabuchi}
+For every \(\phi\in\mathcal E^1(\alpha)\),
+\[
+ \beta_\alpha(\MA_\alpha(\phi))
+      =M_\alpha^{\NA}(\phi),
+\qquad
+ E_\alpha^\vee(\MA_\alpha(\phi))
+      \asymp J_\alpha(\phi),
+\tag{62.17}\label{eq:mpwn-beta-mabuchi}
+\]
+where the comparison constants depend only on \(n\).
+\end{theorem}
+
+\begin{proof}[Imported class-derivative core]
+For a model potential, write the dual energy as an intersection number and
+differentiate it with respect to the background class.  The derivative equals
+\(sE_\alpha+E_\alpha^{K_X}\); adding entropy gives Mabuchi.  Approximate an
+arbitrary finite-energy potential decreasingly by model potentials and use
+continuity of the class derivative, as in
+\cite[Proposition~4.5]{BJ25FiniteEnergy}.  The second assertion follows from
+\[
+ E_\alpha^\vee(\MA_\alpha(\phi))
+ =E_\alpha(\phi)-\int\phi\,\MA_\alpha(\phi)
+ =J_\alpha(\phi,0)
+\]
+and quasi-symmetry of the Dirichlet energy.  This is
+\cite[Theorem~10.0.1]{MPWN25}.
+\end{proof}
+
+\begin{definition}[Divisorial measures]
+\label{def:mpwn-divisorial-measures}
+Let \(\mathcal M^{\divis}\) consist of probability measures
+\[
+                       \mu=\sum_{i=1}^N a_i\delta_{v_i},
+ \qquad a_i\geq0,\quad\sum_i a_i=1,\quad v_i\in X^{\divis}.
+\tag{62.18}\label{eq:mpwn-divisorial-measure}
+\]
+\end{definition}
+
+\begin{theorem}\label{thm:mpwn-valuative-criterion}
+Uniform K-stability for models is equivalent to the existence of
+\(\delta>0\) such that
+\[
+             \beta_\alpha(\mu)
+             \geq\delta E_\alpha^\vee(\mu)
+        \quad\text{for every }\mu\in\mathcal M^{\divis}.
+\tag{62.19}\label{eq:mpwn-beta-criterion}
+\]
+Equivalently,
+\[
+ \inf_{\substack{\mu\in\mathcal M^{\divis}\\
+                  E_\alpha^\vee(\mu)>0}}
+       \frac{\beta_\alpha(\mu)}{E_\alpha^\vee(\mu)}>0.
+\tag{62.20}\label{eq:mpwn-beta-ratio}
+\]
+\end{theorem}
+
+\begin{proof}
+The Calabi--Yau theorem represents every \(\mu\in\mathcal M^1\) as
+\(\MA_\alpha(\phi)\); \Cref{thm:mpwn-beta-mabuchi} translates
+finite-energy stability into the beta inequality for all finite-energy
+measures.  For a divisorial measure, the solution is a PL envelope by
+\Cref{cor:mpwn-divisorial-envelope}.  Conversely, the
+Monge--Amp\`ere measure of a PL envelope is divisorial.  Thus the PL-envelope
+test of \Cref{thm:mpwn-model-e1-equivalence} is exactly
+\eqref{eq:mpwn-beta-criterion}.  This is
+\cite[Theorem~10.0.4]{MPWN25}.
+\end{proof}
+
+\begin{warning}{Measures, not only single divisors}
+The criterion ranges over finite weighted combinations of divisorial
+valuations.  Positivity only for Dirac masses is a different, generally
+weaker test.  Dreaminess is not assumed in
+\eqref{eq:mpwn-beta-criterion}.
+\end{warning}
+
+\section{Finite-dimensional volume formula}
+
+Let \(F_1,\ldots,F_\ell\) be prime divisors on one modification
+\(\rho:Y\to X\), let \(v_i=\ord_{F_i}\), and take a rational probability
+vector \(\xi=(\xi_i)\).  Put
+\[
+                         \mu_\xi:=\sum_{i=1}^\ell\xi_i\delta_{v_i}.
+\tag{62.21}\label{eq:mpwn-muxi}
+\]
+For \(t=(t_i)\in\mathbf R^\ell\), define the constrained envelope
+\[
+ \phi_t
+ :=\sup\{\phi\in\PSH(\alpha)\mid
+                    \phi(v_i)\leq t_i,\ 1\leq i\leq\ell\},
+\qquad
+ f_\alpha(t):=E_\alpha(\phi_t).
+\tag{62.22}\label{eq:mpwn-constrained-envelope}
+\]
+The supremum means its psh envelope; by the finite-constraint lemma it is
+continuous.  Convex duality gives
+\[
+ E_\alpha^\vee(\mu_\xi)
+    =\sup_{t\in\mathbf R^\ell}
+       \{f_\alpha(t)-\xi\cdot t\}.
+\tag{62.23}\label{eq:mpwn-energy-legendre}
+\]
+
+The probability constraint is visible in the translation direction.  If
+\(\mathbf1=(1,\ldots,1)\), then the candidate sets in
+\eqref{eq:mpwn-constrained-envelope} give
+\[
+            \phi_{t+c\mathbf1}=\phi_t+c,
+ \qquad     f_\alpha(t+c\mathbf1)=f_\alpha(t)+c.
+\]
+Since \(\xi\cdot\mathbf1=1\), the expression
+\(f_\alpha(t)-\xi\cdot t\) is unchanged by the same translation.  Thus the
+Legendre problem has exactly one redundant additive direction, matching the
+normalization of potentials modulo constants.
+
+\begin{theorem}\label{thm:mpwn-volume-formula}
+For any \(\lambda_0<\min_i t_i\),
+\[
+ f_\alpha(t)
+ =\lambda_0+\frac1V\int_{\lambda_0}^{+\infty}
+     \left\langle
+       \left(\rho^*\alpha-
+         \sum_{i=1}^{\ell}(\lambda-t_i)_+F_i\right)^n
+     \right\rangle\,\rd \lambda.
+\tag{62.24}\label{eq:mpwn-volume-formula}
+\]
+The positive product is declared zero after the class ceases to be
+pseudoeffective, so the improper integral is finite.
+\end{theorem}
+
+\begin{proof}[Imported test-curve energy formula]
+The family of maximal \(\omega\)-psh functions
+\[
+ G_\lambda
+ :=\sup\{u\in\PSH_{\sup}(X,\omega)\mid
+              \nu_{F_i}(u)\geq\lambda-t_i\ \forall i\}
+\tag{62.25}\label{eq:mpwn-rwn-test-curve}
+\]
+is a concave \(\mathcal I\)-maximal test curve.  Its Ross--Witt Nystr\"om
+transform is the maximal ray associated to \(\phi_t\)
+\cite[Lemma~10.1.1]{MPWN25}.  The DXZ energy formula
+\cite[Theorem~2.6(iii)]{DXZ23} computes the ray slope by integrating the
+non-pluripolar masses of the \(G_\lambda\).
+Removing their divisorial singularities identifies that mass with
+\[
+ \left\langle
+   \left(\rho^*\alpha-
+       \sum_i(\lambda-t_i)_+F_i\right)^n
+ \right\rangle.
+\]
+Let \(\lambda_{\max}\) be the terminal parameter of the test curve and let
+\(m(\lambda)\) denote the displayed positive product.  The precise DXZ
+identity is
+\[
+ f_\alpha(t)=\lambda_{\max}
+   +\int_{-\infty}^{\lambda_{\max}}
+        \bigl(-1+V^{-1}m(\lambda)\bigr)\,\rd\lambda.
+\]
+For \(\lambda\leq\lambda_0<\min_i t_i\), all positive parts vanish and
+\(m(\lambda)=V\), so the integrand is zero.  Therefore
+\[
+ \begin{split}
+ f_\alpha(t)
+ &=\lambda_{\max}
+   +\int_{\lambda_0}^{\lambda_{\max}}
+       \bigl(-1+V^{-1}m(\lambda)\bigr)\,\rd\lambda\\
+ &=\lambda_0+V^{-1}
+       \int_{\lambda_0}^{\lambda_{\max}}m(\lambda)\,\rd\lambda.
+ \end{split}
+\]
+After \(\lambda_{\max}\) the class is not pseudoeffective and its positive
+product is zero, so extending the upper limit to \(+\infty\) gives
+\eqref{eq:mpwn-volume-formula}.  This is
+\cite[Theorem~10.1.2]{MPWN25}.  This use of \cite{DXZ23} is on the proved
+\(\mathcal I\)-maximal finite-energy locus only.
+\end{proof}
+
+If \(g_\alpha(\xi)\) denotes the Legendre transform in
+\eqref{eq:mpwn-energy-legendre}, then
+\[
+ \beta_\alpha(\mu_\xi)
+ =\sum_{i=1}^{\ell}\xi_iA_X(F_i)
+      +\nabla_{K_X}g_\alpha(\xi).
+\tag{62.26}\label{eq:mpwn-beta-explicit}
+\]
+This is \cite[Corollary~10.1.4]{MPWN25}.
+
+\begin{example}[One divisor]
+\label{ex:mpwn-one-divisor-beta}
+For \(\mu=\delta_{\ord_F}\), translation invariance reduces
+\eqref{eq:mpwn-volume-formula} to
+\[
+ E_\alpha^\vee(\delta_{\ord_F})
+   =\frac1V\int_0^{+\infty}
+          \langle(\rho^*\alpha-\lambda F)^n\rangle\,\rd \lambda.
+\tag{62.27}\label{eq:mpwn-one-divisor-energy}
+\]
+Indeed, normalize the one-point constrained envelope by
+\(\phi_0(\ord_F)=0\).  Orthogonality makes it the variational maximizer for
+\(\delta_{\ord_F}\), so its energy equals the dual energy, and
+\eqref{eq:mpwn-volume-formula} with \(t=0\) gives the displayed integral.
+The integrand vanishes beyond the pseudoeffective threshold.  Formula
+\eqref{eq:mpwn-beta-explicit} then differentiates this integral in the
+\(K_X\)-direction and adds \(A_X(F)\).  The signs match
+\(\rho^*\alpha-\lambda F\): imposing more vanishing consumes positivity.
+\end{example}
+
+\begin{example}[Toric specialization]
+\label{ex:mpwn-toric-beta}
+If \(X\) is a smooth projective toric manifold and the \(F_i\) are toric
+prime divisors on a toric modification, the positive intersection in
+\eqref{eq:mpwn-volume-formula} is \(n!\) times the Euclidean volume of the
+moment polytope cut by the inequalities corresponding to
+\((\lambda-t_i)_+\).  Thus \(f_\alpha\) is an integral of sliced polytope
+volumes, and \eqref{eq:mpwn-energy-legendre} becomes ordinary finite
+dimensional convex duality.  This recovers the toric sign convention of
+\Cref{chap:transcendental-okounkov-dh} without asserting that every analytic model is toric.
+\end{example}
+
+\section{Flag ideals, envelopes, and radial rays}
+
+For a model represented by a flag ideal and vertical divisor \(D\), the
+proved chain of constructions is
+\[
+ \begin{tikzcd}[column sep=large]
+  (\cX,A+D)
+ \arrow[r,mapsto,"f_D"]
+ & f_D\in\PL_{\mathbf R}
+   \arrow[r,mapsto,"P_\alpha"]
+ & \phi_D\in\mathcal E^1(\alpha)
+   \arrow[r,mapsto,"\text{maximal ray}"]
+ & U^{\phi_D}.
+ \end{tikzcd}
+\tag{62.28}\label{eq:mpwn-model-envelope-ray-chain}
+\]
+The first arrow retains the vertical ideal data; the second discards the
+non-nef part by an obstacle problem; the last uses the radial
+correspondence.  The proved numerical bridge to the associated ray is
+\[
+ J^{\NA}(\cX,A+D)
+   =V\,J_\alpha(\phi_D)
+   =V\lim_{s\to\infty}\frac{J_\omega(U^{\phi_D}_s)}s.
+\tag{62.29}\label{eq:mpwn-model-ray-slopes}
+\]
+The model identity
+\(M^{\NA}(\cX,A+D)=V M_\alpha^{\NA}(\phi_D)\) is
+\eqref{eq:mpwn-model-functional-identities}.  Combining it with a radial
+Mabuchi inequality would require the reduced entropy-slope bridge isolated
+in \Cref{chap:mp-psh}.  Since that bridge is not independently reconstructed
+here, it is neither appended to \eqref{eq:mpwn-model-ray-slopes} nor used in
+the proof of \Cref{cor:mpwn-model-stability-csck}; that corollary imports the
+later primary-source theorem directly.
+
+\section{The theorem boundary as of August 2026}
+
+The following distinctions summarize what is used in this book.
+
+\begingroup
+\setlength{\parindent}{0pt}
+
+\textbf{Statement}\par\nopagebreak
+Finite-energy uniform stability
+\(\Rightarrow\) cscK\par\nopagebreak
+
+\textbf{Status used here}\par\nopagebreak
+Imported from \cite[Theorem~2.4.3]{MPWN25}, which explicitly uses reduced
+entropy.  The standalone entropy-slope repair of the MP24 proof is not
+asserted as an independently proved theorem here.\par\nopagebreak
+
+\textbf{What it does not imply}\par\nopagebreak
+No converse; automorphism-relative variants require extra formulation.
+
+\medskip
+\textbf{Statement}\par\nopagebreak
+Model uniform stability
+\(\Leftrightarrow\) finite-energy uniform stability\par\nopagebreak
+
+\textbf{Status used here}\par\nopagebreak
+Proved in \cite[Theorem~9.2.1]{MPWN25}.\par\nopagebreak
+
+\textbf{What it does not imply}\par\nopagebreak
+Does not identify model stability with the weaker test over K\"ahler
+configurations only.
+
+\medskip
+\textbf{Statement}\par\nopagebreak
+Model uniform stability
+\(\Rightarrow\) cscK\par\nopagebreak
+
+\textbf{Status used here}\par\nopagebreak
+Imported from \cite[Corollary~9.2.2]{MPWN25}; its formal reduction uses
+\cite[Theorems~9.2.1 and 2.4.3]{MPWN25}.\par\nopagebreak
+
+\textbf{What it does not imply}\par\nopagebreak
+Not an unrestricted ordinary compact-K\"ahler YTD equivalence.
+
+\medskip
+\textbf{Statement}\par\nopagebreak
+Ordinary uniform stability using only K\"ahler test configurations\par\nopagebreak
+
+\textbf{Status used here}\par\nopagebreak
+A distinct, a priori weaker condition in
+\cite[Definition~1.1.2]{MPWN25}.\par\nopagebreak
+
+\textbf{What it does not imply}\par\nopagebreak
+The model-completion argument cannot be applied without control of big
+configurations.
+
+\endgroup
+
+Two 2026 preprints lie beyond the dependency-checked core above.
+Boucksom--Jonsson's version~2 overview, dated 19 May 2026,
+\cite{BJ26ComplexNA}, describes a broader complex-to-non-Archimedean YTD
+program; we use it for orientation, not as a proof source.  Trusiani's
+version~2 preprint, dated 17 August 2026, \cite{Trusiani26}, retains its
+reported full
+automorphism-relative uniform YTD theorem for smooth polarized
+\emph{projective} varieties together with entropy regularization, and adds
+an appendix by S\'{e}bastien Boucksom.  In the present book draft these are
+recorded as dated research claims: their hypotheses and dependencies have
+not been folded into the proofs above, and even if confirmed they would not
+by themselves establish the corresponding theorem for an arbitrary
+nonprojective compact K\"ahler class.
+
+\section*{Source note}
+
+Definitions and positive-intersection invariants are MPWN25
+Sections~1.1 and 2.1.  The exact envelope/intersection identities are
+Section~9.1, with the independently verified coefficient correction isolated
+at \eqref{eq:mpwn-s-constant}.  Finite-energy stability implies cscK is
+\cite[Theorem~2.4.3]{MPWN25}; equivalence of model and finite-energy
+stability and the model cscK implication are Section~9.2.  These conclusions
+are imported from that later source, not reconstructed from the pending MP24
+entropy-slope repair.  The measure-theoretic beta invariant and valuative
+criterion are Section~10.0; the constrained-envelope volume formula is
+Section~10.1, whose ray-energy input is
+\cite[Theorem~2.6(iii)]{DXZ23}.  In the polarized projective setting, the
+measure-valuative architecture should be compared with \cite{BJKS2}; the
+present theorem remains the analytic compact-K\"ahler statement of
+\cite{MPWN25}.  The final status map is deliberately dated August~2026 and
+separates dependency-audited theorems from recent announcements.

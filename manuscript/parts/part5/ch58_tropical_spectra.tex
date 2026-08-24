@@ -1,0 +1,809 @@
+\chapter{Tropical spectra of complex spaces}
+\index{tropical spectrum}\index{semivaluation!complex space}
+\label{chap:tropical-spectra-complex}
+
+Berkovich analytification begins with a normed ring.
+A compact complex space has no global algebraic coordinate ring and no
+non-Archimedean ground norm from which to start.
+Mesquita-Piccione's construction replaces functions by the idempotent
+semiring of coherent ideals and takes its tropical spectrum
+\cite{MP24}.
+The output is a compact space of semivaluations that is intrinsic to the
+complex space.
+
+This chapter develops only that foundation:
+the semiring, its spectrum, topology, supports, centers, functoriality, and
+the recovery of the usual trivially valued analytification in the proper
+algebraic case.
+The psh and finite-energy theories built on this space require additional
+arguments and are reserved for later chapters.
+
+The min-plus convention is chosen to match the preceding valuative
+chapters.  A larger ideal has a smaller ideal value, multiplication adds
+values, and \(\log|\mathfrak a|=-v(\mathfrak a)\).  Thus ideal sums become
+maxima of logarithmic functions.  Switching to max-plus without changing
+all three conventions would reverse both the topology-generating
+coordinates and the psh order.
+
+\section{The tropical target}
+
+Put
+\[
+ \mathbf T_+:=([0,+\infty],\oplus,\odot),
+ \qquad
+ a\oplus b:=\min\{a,b\},
+ \qquad
+ a\odot b:=a+b.
+\tag{58.1}\label{eq:ts-tropical-semiring}
+\]
+The conventions are
+\[
+                 a+(+\infty)=+\infty,
+ \qquad
+                 \min\{a,+\infty\}=a.
+\]
+Thus the additive zero is \(+\infty\), the multiplicative unit is \(0\),
+and addition is idempotent.
+Endow \([0,+\infty]\) with its compact order topology.
+
+Let \(S\) be an idempotent commutative semiring.
+
+\begin{definition}[Tropical spectrum]
+\label{def:ts-tropical-spectrum}
+The tropical spectrum of \(S\) is
+\[
+ \operatorname{tSpec}(S)
+       :=\operatorname{Hom}_{\mathrm{Semiring}}(S,\mathbf T_+),
+\tag{58.2}\label{eq:ts-tSpec}
+\]
+endowed with the topology of pointwise convergence.
+\end{definition}
+
+Equivalently, view it as a subspace of the product
+\([0,+\infty]^S\).
+
+\begin{remark}[Positive target]
+\label{rem:ts-positive-target}
+For a general semiring, \cite[Definition~1.2.1]{MP24} uses the larger
+target \(((-\infty,+\infty],\min,+)\).  Characters of an ideal semiring are
+automatically nonnegative, so the spectrum relevant to this chapter lands
+in \(\mathbf T_+\).  We build that positivity into
+\Cref{def:ts-tropical-spectrum}; no claim is made that the restricted
+definition agrees with the general tropical spectrum for an arbitrary
+idempotent semiring.
+\end{remark}
+
+\begin{proposition}\label{prop:ts-compact}
+The space \(\operatorname{tSpec}(S)\) is compact Hausdorff.
+\end{proposition}
+
+\begin{proof}
+The ambient product is compact Hausdorff by Tychonoff's theorem.
+The equations
+\[
+\begin{aligned}
+ \chi(0_S)&=+\infty,&
+ \chi(1_S)&=0,\\
+ \chi(a+b)&=\min\{\chi(a),\chi(b)\},&
+ \chi(ab)&=\chi(a)+\chi(b)
+\end{aligned}
+\]
+cut out a closed subset because the operations on
+\([0,+\infty]\) are continuous in the compact order topology.
+For extended addition, the only endpoint to check is \(+\infty\): if
+\(a_i\to+\infty\) and \(b_i\geq0\), then
+\(a_i+b_i\to+\infty\).  Hence multiplication in \(\mathbf T_+\) is
+continuous even at the absorbing element.
+\end{proof}
+
+The order on an idempotent semiring is
+\[
+                         a\leq b\quad\Longleftrightarrow\quad a+b=b.
+\]
+Every tropical character reverses it:
+\[
+                a\leq b\quad\Longrightarrow\quad\chi(a)\geq\chi(b).
+\tag{58.3}\label{eq:ts-order-reversal}
+\]
+
+\section{The ideal semiring of a ring}
+
+Let \(R\) be a commutative ring and
+\(\mathscr I(R)\) its set of finitely generated ideals.
+Set
+\[
+             I\oplus J:=I+J,\qquad I\odot J:=IJ.
+\tag{58.4}\label{eq:ts-ideal-operations}
+\]
+Its additive zero is \((0)\), its multiplicative unit is \(R\), and
+\(I+I=I\).
+
+A nonnegative semivaluation on \(R\) is a map
+\[
+                       v:R\longrightarrow[0,+\infty]
+\]
+such that
+\[
+\begin{aligned}
+ v(0)&=+\infty,&v(1)&=0,\\
+ v(fg)&=v(f)+v(g),&
+ v(f+g)&\geq\min\{v(f),v(g)\}.
+\end{aligned}
+\tag{58.5}\label{eq:ts-semivaluation}
+\]
+It is automatically trivial on every unit.
+
+\begin{theorem}\label{thm:ts-affine-homeomorphism}
+The assignments
+\[
+\begin{aligned}
+ v&\longmapsto
+   \chi_v,\qquad
+   \chi_v((f_1,\ldots,f_r))
+       :=\min_i v(f_i),\\
+ \chi&\longmapsto
+   v_\chi,\qquad
+   v_\chi(f):=\chi((f))
+\end{aligned}
+\tag{58.6}\label{eq:ts-affine-correspondence}
+\]
+are inverse homeomorphisms between the space of nonnegative
+semivaluations on \(R\), with pointwise topology, and
+\(\operatorname{tSpec}\mathscr I(R)\).
+\end{theorem}
+
+\begin{proof}
+The value \(\chi_v(I)\) does not depend on the chosen generators.
+Indeed, if \(g=\sum a_if_i\) and \(v(a_i)\geq0\), then
+\[
+                      v(g)\geq\min_i v(f_i).
+\]
+Applying this in both directions to two generating sets proves equality.
+The identities
+\[
+\begin{aligned}
+ \chi_v(I+J)&=\min\{\chi_v(I),\chi_v(J)\},\\
+ \chi_v(IJ)&=\chi_v(I)+\chi_v(J)
+\end{aligned}
+\]
+show that \(\chi_v\) is a tropical character.
+
+Conversely, multiplicativity of principal ideals gives
+\[
+ v_\chi(fg)=\chi((f)(g))=v_\chi(f)+v_\chi(g).
+\]
+Since \((f+g)\subseteq(f,g)=(f)+(g)\), order reversal gives
+\[
+ v_\chi(f+g)\geq
+ \chi((f,g))
+ =\min\{v_\chi(f),v_\chi(g)\}.
+\]
+Thus \(v_\chi\) is a semivaluation.
+Finally, if \(I=(f_1,\ldots,f_r)\), then
+\[
+ \chi(I)=\chi((f_1)+\cdots+(f_r))
+        =\min_i\chi((f_i)).
+\]
+The maps are inverse.
+Continuity in both directions follows because each ideal has finitely many
+generators and the topology on each side is pointwise.
+\end{proof}
+
+\begin{example}[A one-parameter tropical family on the affine line]
+Let \(R=\mathbf C[x]\).  For \(0\leq\alpha<+\infty\), define
+\[
+ v_\alpha\!\left(\sum_i a_ix^i\right)
+       :=\min_{a_i\ne0}i\alpha.
+\]
+At the endpoint set \(v_\infty(f)=0\) when \(f(0)\ne0\), and
+\(v_\infty(f)=+\infty\) when \(x\mid f\).  These are nonnegative
+semivaluations.  Under \Cref{thm:ts-affine-homeomorphism}, their characters
+satisfy, for positive integers \(r,s,m\),
+\[
+ \chi_\alpha((x^m))=m\alpha,
+ \qquad
+ \chi_\alpha((x^r,x^s))=\min\{r,s\}\alpha.
+\]
+Thus ideal multiplication becomes addition of slopes, while ideal sum takes
+their minimum exactly as in \eqref{eq:ts-ideal-operations}.
+
+For finite \(\alpha\), no nonzero polynomial has value \(+\infty\); at
+\(\alpha=+\infty\), precisely the polynomials in \((x)\) do.  The extended
+ideal function and its bounded truncation are
+\[
+       \log|(x^m)|(v_\alpha)=-m\alpha,
+       \qquad
+       \max\{\log|(x^m)|(v_\alpha),-\ell\}
+          =\max\{-m\alpha,-\ell\}.
+\]
+The second expression is real-valued and continuous even at
+\(\alpha=+\infty\), illustrating why the truncation in
+\eqref{eq:ts-ideal-truncation} belongs to the PL lattice whereas the bare
+ideal function may take \(-\infty\).
+\end{example}
+
+If \(R\) is a finitely generated algebra over a trivially valued field, the
+nonnegative condition is equivalent to boundedness of the multiplicative
+seminorm
+\[
+                              |f|_v:=\rme^{-v(f)}
+\]
+by the trivial norm.
+Thus \Cref{thm:ts-affine-homeomorphism} identifies the affine tropical
+spectrum with the bounded, or centered, part of the usual Berkovich
+spectrum.
+
+\section{The ideal semiring of a complex space}
+
+Let \(X\) be a complex space.
+Denote by \(\mathscr I_X\) the set of globally defined ideal sheaves that
+are locally of finite type.
+For complex spaces these ideals are coherent by Oka's coherence theorem.
+Define
+\[
+             \mathfrak a\oplus\mathfrak b
+                   :=\mathfrak a+\mathfrak b,
+ \qquad
+             \mathfrak a\odot\mathfrak b
+                   :=\mathfrak a\mathfrak b.
+\tag{58.7}\label{eq:ts-sheaf-semiring}
+\]
+
+\begin{definition}[Intrinsic semivaluation space]
+\label{def:ts-complex-beth}
+The intrinsic non-Archimedean space of \(X\) is
+\[
+                     X^\bethan
+                     :=\operatorname{tSpec}(\mathscr I_X).
+\tag{58.8}\label{eq:ts-beth}
+\]
+A point is written \(v\), with
+\[
+ v(\mathfrak a)\in[0,+\infty].
+\]
+\end{definition}
+
+By \Cref{prop:ts-compact}, \(X^\bethan\) is compact Hausdorff.
+Its topology is the coarsest topology for which every evaluation
+\[
+             v\longmapsto v(\mathfrak a)
+\tag{58.9}\label{eq:ts-evaluation}
+\]
+is continuous.
+No choice of coordinates, embedding, polarization, K\"ahler class, or
+resolution enters the definition.
+
+\begin{remark}[Reducedness and irreducibility]
+\label{rem:ts-generality}
+Definition \eqref{eq:ts-beth} makes sense for an arbitrary complex space.
+Statements that identify a point with a valuation of a function field, or
+that speak of a full-support stratum, will assume the relevant irreducible
+reduced subspace.
+We do not silently replace a nonreduced space by its reduction.
+\end{remark}
+
+\section{Tropical PL functions}
+
+Every coherent ideal defines an extended-real function
+\[
+ \log|\mathfrak a|:X^\bethan\longrightarrow[-\infty,0],
+ \qquad
+ \log|\mathfrak a|(v):=-v(\mathfrak a).
+\tag{58.10}\label{eq:ts-ideal-function}
+\]
+The semiring laws become
+\[
+\begin{aligned}
+ \log|\mathfrak a\mathfrak b|
+      &=\log|\mathfrak a|+\log|\mathfrak b|,\\
+ \log|\mathfrak a+\mathfrak b|
+      &=\max\{\log|\mathfrak a|,\log|\mathfrak b|\}.
+\end{aligned}
+\tag{58.11}\label{eq:ts-ideal-function-laws}
+\]
+These equalities retain \(-\infty\) in the usual extended-real sense.
+
+\begin{definition}[Tropical PL lattice]
+\label{def:ts-pl-lattice}
+Let \(\PL^+(X^\bethan)\) be the set of all \emph{real-valued} functions
+of the form
+\[
+ v\longmapsto
+ \frac1m\max_{1\leq i\leq N}
+       \{\log|\mathfrak a_i|(v)+k_i\},
+ \qquad
+ m\in\mathbf Z_{>0},\quad k_i\in\mathbf Z,
+\tag{58.12}\label{eq:ts-pl-positive}
+\]
+where the \(\mathfrak a_i\) are coherent ideals.  The real-valued
+requirement is part of the definition; it excludes a maximum that is
+\(-\infty\) at some support stratum.  Define
+\(\PL_{\mathbf Q}(X^\bethan)\) to be the
+\(\mathbf Q\)-vector space generated by \(\PL^+(X^\bethan)\).
+\end{definition}
+
+The class \(\PL^+\) is stable under finite maxima after clearing
+denominators.  It contains every bounded truncation
+\[
+          \max\{\log|\mathfrak a|,-\ell\},
+          \qquad \ell\in\mathbf Q_{>0},
+\tag{58.13}\label{eq:ts-ideal-truncation}
+\]
+because the second term is obtained from the unit ideal.  Thus the
+definition does not require a bare ideal function to be finite on every
+support stratum.
+
+\begin{proposition}\label{prop:ts-pl-density}
+The lattice \(\PL_{\mathbf Q}(X^\bethan)\) separates points of
+\(X^\bethan\).  Its real scalar extension is uniformly dense in
+\(C(X^\bethan)\).
+\end{proposition}
+
+\begin{proof}
+Distinct characters \(v,w\) differ on some
+\(\mathfrak a\in\mathscr I_X\).  After interchanging them, suppose
+\(w(\mathfrak a)<v(\mathfrak a)\), and choose
+\(\ell\in\mathbf Q\) strictly between these two values (with any finite
+\(\ell>w(\mathfrak a)\) if \(v(\mathfrak a)=+\infty\)).
+Then \eqref{eq:ts-ideal-truncation} has different values at \(v\) and \(w\).
+Hence \(\PL_{\mathbf Q}\) separates points.
+The lattice Stone--Weierstrass theorem on the compact Hausdorff space
+\(X^\bethan\) gives density.
+\end{proof}
+
+The truncation in this proof is a genuine PL function, but it does not
+redefine the extended ideal function
+\eqref{eq:ts-ideal-function}, whose value \(-\infty\) records a genuine
+support condition.
+
+\section{Support and center}
+
+Assume for the rest of this section that \(X\) is a compact reduced
+irreducible complex space.
+We use the strong Noetherian property of coherent ideal sheaves: locally,
+an increasing family of ideals locally of finite type is stationary.
+Consequently the sum of an arbitrary family of coherent ideals is locally a
+finite sum; compactness then makes it a finite sum globally.  This is the
+coherence input in \cite[Lemma~2.1.1 and Remark~2.1.5]{MP24}.  Ordinary
+Noetherianity of one stalk by itself would not justify the uniform
+neighborhood statement, so the strong sheaf-theoretic form is kept as an
+explicit source boundary.
+
+For \(v\in X^\bethan\), define
+\[
+\begin{aligned}
+ \mathfrak p_s(v)
+   &:=\sum_{v(\mathfrak a)=+\infty}\mathfrak a,\\
+ \mathfrak p_c(v)
+   &:=\sum_{v(\mathfrak a)>0}\mathfrak a.
+\end{aligned}
+\tag{58.14}\label{eq:ts-support-center-ideals}
+\]
+These sums are coherent.
+
+\begin{proposition}\label{prop:ts-prime-support-center}
+The ideals \(\mathfrak p_s(v)\) and \(\mathfrak p_c(v)\) are prime.
+Moreover,
+\[
+                         \mathfrak p_s(v)\subseteq\mathfrak p_c(v).
+\tag{58.15}\label{eq:ts-prime-inclusion}
+\]
+\end{proposition}
+
+\begin{proof}
+Finite generation of the sums implies
+\[
+ v(\mathfrak p_s(v))=+\infty,
+ \qquad
+ v(\mathfrak p_c(v))>0.
+\]
+If \(\mathfrak a\mathfrak b\subseteq\mathfrak p_s(v)\), then order reversal
+and multiplicativity give
+\[
+ +\infty=v(\mathfrak p_s(v))
+       \leq v(\mathfrak a\mathfrak b)
+       =v(\mathfrak a)+v(\mathfrak b).
+\]
+Thus one factor has infinite value and is contained in
+\(\mathfrak p_s(v)\).
+The same argument with \(>0\), using nonnegativity of both summands, proves
+primality of \(\mathfrak p_c(v)\).
+The inclusion follows from \(+\infty>0\).
+\end{proof}
+
+\begin{definition}[Support and center]
+\label{def:ts-support-center}
+Set
+\[
+ \Supp(v):=V(\mathfrak p_s(v)),
+ \qquad
+ Z(v):=V(\mathfrak p_c(v)).
+\tag{58.16}\label{eq:ts-support-center}
+\]
+\end{definition}
+
+Both are irreducible analytic subspaces, and
+\[
+                              Z(v)\subseteq\Supp(v).
+\tag{58.17}\label{eq:ts-center-in-support}
+\]
+The support is where the semivaluation actually lives.
+The center is where it is positive.
+
+\begin{proposition}\label{prop:ts-support-stratification}
+There is a disjoint decomposition
+\[
+                X^\bethan
+                =\coprod_{Y\subseteq X}Y^{\val},
+\tag{58.18}\label{eq:ts-support-strata}
+\]
+over irreducible analytic subspaces \(Y\), where \(Y^{\val}\) consists of
+semivaluations with support exactly \(Y\).
+On this stratum, restriction to nonzero ideals of \(Y\) is finite and gives
+a full-support ideal semivaluation on \(Y\).
+\end{proposition}
+
+\begin{proof}
+Every \(v\) has the unique irreducible support
+\(Y=V(\mathfrak p_s(v))\).
+Let \(\mathfrak i_Y=\mathfrak p_s(v)\).  If
+\(\mathfrak b\) is an ideal on \(Y\), choose an ideal
+\(\widetilde{\mathfrak b}\) on \(X\) mapping to it and put
+\[
+                        w(\mathfrak b)
+                        :=v(\widetilde{\mathfrak b}).
+\]
+This is independent of the lift.  Indeed, replacing a lift by its sum with
+\(\mathfrak i_Y\) does not change its value, since
+\[
+ v(\widetilde{\mathfrak b}+\mathfrak i_Y)
+ =\min\{v(\widetilde{\mathfrak b}),+\infty\}
+ =v(\widetilde{\mathfrak b}),
+\]
+and two lifts have the same sum with \(\mathfrak i_Y\).
+The semiring laws descend to \(w\).  Moreover, a nonzero ideal on \(Y\)
+cannot have value \(+\infty\), since its lift would then be contained in
+the maximal infinite-valued ideal \(\mathfrak p_s(v)=\mathfrak i_Y\).
+Thus \(w\in Y^{\val}\), and the closed-embedding map sends \(w\) back to
+\(v\).  Conversely, the pushforward of a full-support character of \(Y\)
+has support exactly \(Y\).  Uniqueness of the support makes the union
+disjoint and proves \eqref{eq:ts-support-strata}.
+\end{proof}
+
+Let \(p\in X\) and let \(\mathfrak m_p\) denote its coherent ideal sheaf.
+
+\begin{proposition}\label{prop:ts-point-criteria}
+For \(v\in X^\bethan\),
+\[
+\begin{aligned}
+ Z(v)=\{p\}
+       &\quad\Longleftrightarrow\quad v(\mathfrak m_p)>0,\\
+ \Supp(v)=\{p\}
+       &\quad\Longleftrightarrow\quad v(\mathfrak m_p)=+\infty.
+\end{aligned}
+\tag{58.19}\label{eq:ts-point-criteria}
+\]
+\end{proposition}
+
+\begin{proof}
+If \(v(\mathfrak m_p)>0\), then
+\(\mathfrak m_p\subseteq\mathfrak p_c(v)\).
+Both ideals are prime and the zero set of the former is the point \(p\), so
+the center is \(p\).
+The converse follows from the radical equality defining that zero set and
+multiplicativity applied to a power of \(\mathfrak m_p\).
+The support statement is identical with \(+\infty\) in place of \(>0\).
+\end{proof}
+
+\begin{proposition}\label{prop:ts-local-global-point}
+The assignment
+\[
+ w\longmapsto v_w,\qquad
+ v_w(\mathfrak a):=w(\mathfrak a_p),
+\]
+is a bijection from nonnegative semivaluations of
+\(\cO_{X,p}\) that are positive on its maximal ideal to the points of
+\(X^\bethan\) centered at \(p\).
+\end{proposition}
+
+\begin{proof}
+Finite stalk generators show that \(v_w\) satisfies the semiring laws, and
+\(v_w(\mathfrak m_p)>0\); hence it is centered at \(p\) by
+\Cref{prop:ts-point-criteria}.
+
+Conversely, let \(v\in X^\bethan\) be centered at \(p\), and put
+\(c:=v(\mathfrak m_p)>0\).  For a germ \(f\in\cO_{X,p}\), let
+\(\mathfrak a_k(f)\) be the global coherent ideal obtained by extending
+\((f)+\mathfrak m_{X,p}^k\) trivially outside \(p\).  Such an extension
+exists because the local ideal equals the unit ideal away from \(p\).
+Define
+\[
+ w(f):=\lim_{k\to\infty}v(\mathfrak a_k(f)).
+\tag{58.19a}\label{eq:ts-local-recovery}
+\]
+The limit exists: the ideals \(\mathfrak a_k(f)\) decrease with \(k\), so
+their values increase, and they are bounded above by \(+\infty\).
+It is independent of the chosen representative of the germ, because two
+representatives agree on a neighborhood of \(p\), while both globalized
+ideals are the unit ideal off that neighborhood.
+
+We verify the semivaluation laws.  Clearly \(w(1)=0\), while
+\[
+ v(\mathfrak a_k(0))=v(\mathfrak m_p^k)=kc\longrightarrow+\infty,
+\]
+so \(w(0)=+\infty\).  For every fixed \(\ell\) and all sufficiently large
+\(k\), the local ideal inclusions
+\[
+\begin{aligned}
+ \mathfrak a_k(f)\mathfrak a_k(g)
+      &\subseteq\mathfrak a_\ell(fg),\\
+ \mathfrak a_{2k}(fg)
+      &\subseteq\mathfrak a_k(f)\mathfrak a_k(g)
+\end{aligned}
+\]
+hold near \(p\); they also hold globally after trivial extension.  The
+first follows because the cross terms \(f\mathfrak m_p^k\) and
+\(g\mathfrak m_p^k\) eventually lie in \(\mathfrak m_p^\ell\), and the
+second from
+\((fg)+\mathfrak m_p^{2k}\subseteq
+ ((f)+\mathfrak m_p^k)((g)+\mathfrak m_p^k)\).
+Order reversal and multiplicativity now give, after first letting
+\(k\to\infty\) and then \(\ell\to\infty\),
+\[
+                         w(fg)=w(f)+w(g).
+\]
+Likewise,
+\[
+ \mathfrak a_k(f+g)
+ \subseteq\mathfrak a_k(f)+\mathfrak a_k(g)
+\]
+gives \(w(f+g)\geq\min\{w(f),w(g)\}\).
+If \(f\) lies in the maximal ideal, then
+\(\mathfrak a_k(f)\subseteq\mathfrak m_p\) for \(k\geq1\), so
+\(w(f)\geq c>0\).  Thus \(w\) is centered at \(p\).
+
+Finally, for a coherent global ideal \(\mathfrak a\), finite generation of
+\(\mathfrak a_p\) and \eqref{eq:ts-local-recovery} give
+\[
+ w(\mathfrak a_p)
+ =\lim_{k\to\infty}v(\mathfrak a+\mathfrak m_p^k)
+ =\lim_{k\to\infty}\min\{v(\mathfrak a),kc\}
+ =v(\mathfrak a).
+\]
+Hence \(v_w=v\).  The reverse composite is immediate from the same formula,
+so the two assignments are inverse.  This is
+\cite[Example~2.1.4]{MP24}, with the monotonicity of the limit made
+explicit.
+\end{proof}
+
+\section{Functoriality}
+
+Let \(f:X\to Y\) be a holomorphic map.
+Pullback of ideal sheaves means the image in \(\cO_X\) of
+\[
+                    f^{-1}\mathfrak a\otimes_{f^{-1}\cO_Y}\cO_X.
+\]
+It respects ideal sums, products, zero, and the unit.
+Therefore it is a semiring homomorphism
+\[
+                         f^*:\mathscr I_Y\longrightarrow\mathscr I_X.
+\]
+
+\begin{definition}
+\label{def:ts-functorial-map}
+Define
+\[
+ f^\bethan:X^\bethan\longrightarrow Y^\bethan,
+ \qquad
+ f^\bethan(v)(\mathfrak a):=v(f^*\mathfrak a).
+\tag{58.20}\label{eq:ts-functorial-map}
+\]
+\end{definition}
+
+\begin{proposition}\label{prop:ts-functoriality}
+The map \(f^\bethan\) is continuous,
+\[
+ (g\circ f)^\bethan=g^\bethan\circ f^\bethan,
+ \qquad
+ (\mathrm{id}_X)^\bethan=\mathrm{id}_{X^\bethan}.
+\tag{58.21}\label{eq:ts-functoriality}
+\]
+If \(f\) is a closed embedding, then \(f^\bethan\) is a topological
+embedding.
+\end{proposition}
+
+\begin{proof}
+For every \(\mathfrak a\in\mathscr I_Y\), evaluation of
+\(f^\bethan(v)\) at \(\mathfrak a\) is evaluation of \(v\) at
+\(f^*\mathfrak a\), hence is continuous.
+The composition identities follow from functoriality of ideal pullback.
+
+For a closed embedding, every coherent ideal on \(X\) is the quotient of a
+coherent ideal on \(Y\).
+Thus \(f^*:\mathscr I_Y\to\mathscr I_X\) is surjective, so precomposition on
+tropical characters is injective.
+It is a continuous injection from a compact space to a Hausdorff space,
+hence a topological embedding.
+\end{proof}
+
+An open embedding does not in general induce an open embedding on tropical
+spectra.
+In particular, \(U^\bethan\) is compact even when \(U\subset X\) is a
+proper noncompact open set.
+The construction is global in coherent ideals, not a naive topological
+gluing of open Berkovich charts.
+
+\begin{proposition}\label{prop:ts-bimeromorphic-valuations}
+Let \(f:X'\to X\) be a proper bimeromorphic morphism of reduced irreducible
+compact complex spaces.
+Then \(f^\bethan\) induces a bijection between the strata of valuations with
+full support \(X'\) and \(X\).
+\end{proposition}
+
+\begin{proof}
+First, a nonzero ideal on \(X\) has nonzero pullback to \(X'\): on any open
+set where the ideal is nonzero, bimeromorphicity prevents its inverse image
+from being contained in the proper zero locus.  Thus \(f^\bethan\) sends a
+full-support character to a full-support character.
+
+We import the relative-ampleness construction of
+\cite[Proposition~2.1.6]{MP24}, but record its formulas.  Suppose first
+that \(X'\) admits an anti-effective \(f\)-ample divisor \(E\).  For every
+coherent ideal \(\mathfrak j\) on \(X'\), relative global generation gives
+an integer \(m_{\mathfrak j}\) and ideals
+\(\mathfrak i_{\mathfrak j},\mathfrak k\) on \(X\) such that
+\[
+\begin{aligned}
+ f^{-1}\mathfrak i_{\mathfrak j}\cdot\cO_{X'}
+   &=\mathfrak j\cdot\cO_{X'}(E)^{m_{\mathfrak j}},\\
+ f^{-1}\mathfrak k\cdot\cO_{X'}
+   &=\cO_{X'}(E).
+\end{aligned}
+\]
+If \(v\in X^{\val}\), define
+\[
+ \widetilde v(\mathfrak j)
+ :=v(\mathfrak i_{\mathfrak j})
+      -m_{\mathfrak j}v(\mathfrak k).
+\]
+All quantities are finite, which is precisely where full support is used.
+Passing two ideals to a common sufficiently large twist and using the
+semiring laws shows that this value is independent of the choices and that
+\(\widetilde v\) is a tropical character.  The displayed pullback
+identities then give
+\[
+ f^\bethan(\widetilde v)=v.
+\]
+They also recover the value of every \(\mathfrak j\) from its pushforward
+data, proving injectivity in this case.
+
+For a general proper bimeromorphic \(f\), the resolution and negativity
+argument in \cite[Proposition~2.1.6]{MP24} produces a smooth space \(Z\)
+dominating both \(X'\) and \(X\), with the morphism \(Z\to X\) a sequence
+of blowups whose anti-effective exceptional divisor is relatively ample.
+The special case gives bijections on full-support strata for the resulting
+morphisms.  In the commutative triangle, surjectivity for \(Z\to X'\) and
+bijectivity for \(Z\to X\) force both injectivity and surjectivity for
+\(f^\bethan:X'^{\val}\to X^{\val}\).
+\end{proof}
+
+We assert only a bijection on the full-support strata.
+A statement about all support strata, or a homeomorphism without additional
+hypotheses, would be stronger and is not used here.
+
+\section{Recovery of projective algebraic analytification}
+
+Let \(X\) now be a complex algebraic variety and
+\(X^{\mathrm{an,triv}}\) its Berkovich analytification with respect to the
+trivial norm on \(\mathbf C\).
+
+\begin{theorem}\label{thm:ts-algebraic-recovery}
+If \(X\) is proper, there is a canonical functorial homeomorphism
+\[
+                         X^\bethan
+                    \xrightarrow{\ \sim\ }
+                         X^{\mathrm{an,triv}}.
+\tag{58.22}\label{eq:ts-algebraic-recovery}
+\]
+\end{theorem}
+
+\begin{proof}
+GAGA identifies algebraic coherent ideals with analytic coherent ideals when
+\(X\) is proper, so passing to the associated complex space does not
+enlarge or shrink the ideal semiring.  For the algebraic locally ringed
+space, \cite[Example~1.3.2(1)]{MP24} identifies the tropical spectrum with
+the subspace of the Berkovich analytification consisting of semivaluations
+centered on \(X\).  Properness makes every semivaluation centered, by the
+valuative criterion of properness.  The construction is functorial, and
+the pointwise topologies agree, proving the claimed homeomorphism.
+
+For a nonproper algebraic scheme the cited result still applies to the
+algebraic ideal semiring.  We do not identify that semiring with the
+semiring of analytic coherent ideals without a GAGA hypothesis.
+\end{proof}
+
+Under \eqref{eq:ts-algebraic-recovery}, the ideal function
+\(\log|\mathfrak a|\) is the usual model ideal function
+\[
+                              v\longmapsto-v(\mathfrak a),
+\]
+and the functorial map \eqref{eq:ts-functorial-map} is ordinary Berkovich
+analytification.
+Thus the tropical construction genuinely extends, rather than replaces, the
+projective algebraic space used in the preceding chapter.
+
+\begin{proposition}
+\label{prop:ts-multiplier-bridge}
+Let \(X\) be smooth and projective, let \(L\) be a pseudo-effective
+\(\mathbf Q\)-line bundle, and let
+\(\varphi\in\PSH(X,c_1(L,h))\).  Under
+\eqref{eq:ts-algebraic-recovery},
+\[
+ \varphi^{\An}(v)
+ =\inf_{j\geq0}2^{-j}
+       \log|\cI(2^j\varphi)|(v).
+\tag{58.23}\label{eq:ts-multiplier-bridge}
+\]
+For a DXZ metric \(\Gamma\), choose any K\"ahler perturbation \(\omega\).
+Its divisorial analytification is therefore
+\[
+ \Gamma^{\An}(v)
+ =\sup_{\tau<\Gamma_{\max}}
+   \left\{\tau+\inf_{j\geq0}2^{-j}
+     \log|\cI(2^j\Gamma^{\theta+\omega}_\tau)|(v)\right\}
+ \quad(v\in X^{\Div}).
+\tag{58.24}\label{eq:ts-test-curve-bridge}
+\]
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:ts-ideal-function},
+\[
+ 2^{-j}\log|\cI(2^j\varphi)|(v)
+ =-2^{-j}v(\cI(2^j\varphi)).
+\]
+Taking the infimum and applying the dyadic multiplier-ideal formula
+\eqref{eq:va-dyadic} proves
+\eqref{eq:ts-multiplier-bridge}.  Substitute that equality level by level
+in the Legendre formula \eqref{eq:comp-legendre} to obtain
+\eqref{eq:ts-test-curve-bridge}.  The second identity is kept on divisorial
+valuations because that is the proved raw Legendre domain before the BJ
+extension theorem is invoked.  It is independent of \(\omega\), since a
+DXZ transition preserves every integer multiplier ideal.  In particular,
+no unperturbed component \(\Gamma^\theta\) has been introduced in the
+zero-volume case.
+\end{proof}
+
+The order of the infimum and supremum in
+\eqref{eq:ts-test-curve-bridge} is part of the construction.  Fekete's
+lemma first completes the multiplier-ideal data of one complex level; only
+then does Legendre duality range over \(\tau\).  No minimax interchange is
+used.
+
+\section{Boundary of this chapter}
+
+The results above are the tropical-spectrum foundations of \cite{MP24}.
+They provide a compact semivaluation space for complex spaces and recover the
+usual projective trivially valued analytification.
+They do not yet define a psh cone, Monge--Amp\`ere energy, entropy, or a
+comparison with the test-curve theory.
+
+In particular, \Cref{thm:ts-algebraic-recovery} identifies the underlying
+spaces and ideal evaluations.
+It does not by itself identify the Mesquita-Piccione psh class with the
+Darvas--Xia--Zhang or Boucksom--Jonsson psh class.
+Those stronger comparison results require positivity and finite-energy
+hypotheses and belong to the later comparison chapter.
+
+\begin{remark}[Primary-source boundary]
+The ideal-semiring tropical spectrum, its PL lattice, support
+stratification, the local--global bijection at a point, functoriality,
+bimeromorphic full-support statement, and proper algebraic recovery are from
+\cite[Sections~1.2--2.1]{MP24}.  The affine ideal-character calculation is
+the elementary semiring argument of
+\Cref{thm:ts-affine-homeomorphism}; GAGA is the additional input in
+\Cref{thm:ts-algebraic-recovery}.  \Cref{prop:ts-multiplier-bridge} only
+rewrites the already proved DXZ
+multiplier-ideal formula in these coordinates.  It does not assert that the
+full MP psh cone equals the BJ cone.
+\end{remark}

@@ -1,0 +1,863 @@
+\chapter{Stability and the Yau--Tian--Donaldson bridge}
+\index{Yau--Tian--Donaldson conjecture}\index{K-stability!comparison bridge}\index{entropy slope}
+\label{chap:ytd-bridge}
+
+The Yau--Tian--Donaldson bridge compares three kinds of data:
+intersection numbers of degenerations, convex functionals on the
+finite-energy space, and non-Archimedean functionals on valuations or
+model metrics. The dictionary is exact on several large domains, but
+the final existence equivalence depends on which degenerations and
+which automorphism group are allowed. This chapter states every bridge
+with its domain and dates the recent claims that have not been
+dependency-audited for this book.
+
+The status ledger in this chapter is frozen at the literature cutoff of
+22 August 2026. A statement labelled as a dated preprint claim remains
+separate from the timeless theorem chain even when its abstract announces a
+stronger result. This separation is especially important here: an existence
+theorem, a slope formula, and a density or regularization theorem solve
+different arrows of the YTD diagram and are not interchangeable.
+
+We begin with a smooth polarized projective manifold \((X,L)\) of
+dimension \(n\), and set
+\[
+                V=(L^n),
+        \qquad
+                \overline S
+        =-\,\frac{n(K_X\cdot L^{n-1})}{V}.
+\tag{68.1}\label{eq:ytd-volume-slope}
+\]
+Later, \(c_1(L)\) is replaced by a K\"ahler class \(\alpha\).
+All potentials are considered modulo constants.
+
+\section{Three functional packages}
+\label{sec:ytd-three-packages}
+
+\subsection{The analytic package}
+
+Fix a smooth K\"ahler form \(\omega\in c_1(L)\). For
+\(\varphi\in\mathcal E^1(X,\omega)\), put
+\[
+ E_\omega(\varphi)
+ =\frac{1}{(n+1)V}
+   \sum_{j=0}^{n}
+    \int_X\varphi\,
+       \omega_\varphi^j\wedge\omega^{n-j},
+\qquad
+ \omega_\varphi=\omega+\ddc\varphi.
+\tag{68.2}\label{eq:ytd-analytic-energy}
+\]
+The \(J\)-functional is
+\[
+                    J_\omega(\varphi)
+       =V^{-1}\int_X\varphi\,\omega^n-E_\omega(\varphi).
+\tag{68.3}\label{eq:ytd-analytic-j}
+\]
+Both extend by monotonicity from bounded potentials to
+\(\mathcal E^1\).
+
+Adding a constant gives a useful normalization check. Since every mixed
+Monge--Amp\`ere measure in \eqref{eq:ytd-analytic-energy} has mass \(V\),
+\[
+ E_\omega(\varphi+c)=E_\omega(\varphi)+c,
+ \qquad
+ J_\omega(\varphi+c)=J_\omega(\varphi).
+\]
+Thus \(E\) records the choice of additive origin, whereas \(J\) descends to
+potentials modulo constants. The same translation ledger will reappear for
+\(E^{\NA}\) and \(J^{\NA}\).
+
+Let
+\[
+                         \mu_\varphi=V^{-1}\omega_\varphi^n
+\]
+and let \(\mu_0=V^{-1}\omega^n\). The entropy is
+\[
+ H_\omega(\varphi)
+  :=\operatorname{Ent}_{\mu_0}(\mu_\varphi)
+  =
+  \begin{cases}
+   \displaystyle
+   \int_X\log\!\left(\frac{\rd\mu_\varphi}{\rd\mu_0}\right)\,\rd\mu_\varphi,
+      &\mu_\varphi\ll\mu_0,\\[6pt]
+   +\infty,&\text{otherwise}.
+  \end{cases}
+\tag{68.4}\label{eq:ytd-analytic-entropy}
+\]
+
+\begin{definition}[Mabuchi functional]
+\label{def:ytd-analytic-mabuchi}
+The Mabuchi functional on \(\mathcal E^1(X,\omega)\) is the
+lower-semicontinuous extension of the classical K-energy, normalized
+by \(M_\omega(0)=0\).  In the book's squared-norm convention it is
+characterized on smooth potentials by
+\[
+ \frac{\rd}{\rd s}M_\omega(\varphi_s)
+   =-\frac{1}{2V}\int_X
+      \dot\varphi_s
+      \bigl(S(\omega_{\varphi_s})-\overline S\bigr)
+      \omega_{\varphi_s}^n.
+\tag{68.5}\label{eq:ytd-mabuchi-variation}
+\]
+Equivalently, if \(R_\omega\) denotes the Ricci-energy term in this
+normalization, then the Chen--Tian decomposition is
+\[
+             M_\omega
+       =H_\omega+\frac{\overline S}{2}E_\omega+R_\omega.
+\]
+\end{definition}
+
+\begin{proposition}\label{prop:ytd-analytic-convexity}
+The functional \(M_\omega\) is convex along finite-energy geodesics.
+A smooth potential is a critical point if and only if
+\(\omega_\varphi\) has constant scalar curvature.
+\end{proposition}
+
+\begin{proof}
+The first variation is \eqref{eq:ytd-mabuchi-variation}. Its vanishing
+against all smooth zero-mean variations says that
+\(S(\omega_\varphi)-\overline S\) is orthogonal to every smooth
+zero-mean function. Hence it is constant; its integral is zero by the
+definition of \(\overline S\), so it vanishes. Conversely, a cscK metric
+makes the first variation zero. Convexity of the extended Mabuchi
+functional along finite-energy geodesics is the imported result
+\cite[Theorem~1.2]{BDL17}; the linear reparametrization from norm weights
+to squared-norm potentials preserves geodesics and convexity.
+\end{proof}
+
+\subsection{The algebraic package}
+
+Let \((\mathcal X,\mathcal L)\) be a normal relatively ample test
+configuration for \((X,L)\), and let
+\((\overline{\mathcal X},\overline{\mathcal L})\) denote its
+\(\mathbf P^1\)-compactification.
+
+\begin{definition}[Donaldson--Futaki invariant]
+\label{def:ytd-df}
+The Donaldson--Futaki invariant in the present normalization is
+\[
+ \DF(\mathcal X,\mathcal L)
+ =V^{-1}
+    \bigl(K_{\overline{\mathcal X}/\mathbf P^1}
+             \cdot\overline{\mathcal L}^{\,n}\bigr)
+ +\frac{\overline S}{(n+1)V}
+        \bigl(\overline{\mathcal L}^{\,n+1}\bigr).
+\tag{68.6}\label{eq:ytd-df}
+\]
+\end{definition}
+
+The sign in the second term agrees with
+\eqref{eq:ytd-volume-slope}. Tensor powers and ramified base change
+scale \(\DF\) according to their standard homogeneity.
+
+The same test configuration gives a finitely generated filtration of
+\[
+                          R(X,L)=\bigoplus_{m\geq0}H^0(X,mL).
+\]
+The total and maximal asymptotic weights define
+\(E^{\NA}\) and \(J^{\NA}\). This filtration viewpoint is independent
+of a chosen resolution.
+
+\subsection{The non-Archimedean package}
+
+The test configuration defines a semipositive model metric
+\(\phi^{\NA}\) on \(L^{\An}\). Put
+\[
+ E^{\NA}(\phi^{\NA})
+    =\frac{1}{(n+1)V}
+         (\overline{\mathcal L}^{\,n+1}).
+\tag{68.7}\label{eq:ytd-na-energy}
+\]
+If \(\lambda_{\max}\) is the maximal asymptotic filtration weight, set
+\[
+                         J^{\NA}(\phi^{\NA})
+             =\lambda_{\max}-E^{\NA}(\phi^{\NA}).
+\tag{68.8}\label{eq:ytd-na-j}
+\]
+This is nonnegative and vanishes precisely for a translated trivial
+metric on the model locus.
+
+Translation by \(c\) adds \(c\) to every asymptotic filtration weight and
+to \(E^{\NA}\). Consequently
+\[
+ E^{\NA}(\phi^{\NA}+c)=E^{\NA}(\phi^{\NA})+c,
+ \qquad
+ J^{\NA}(\phi^{\NA}+c)=J^{\NA}(\phi^{\NA}).
+\]
+This matches the analytic calculation above and is the elementary check
+that the two sides use the same additive quotient.
+
+\begin{definition}[Non-Archimedean entropy and Mabuchi functional]
+\label{def:ytd-na-mabuchi}
+For a semipositive model metric, define
+\[
+ H^{\NA}(\phi^{\NA})
+    =\int_{X^{\An}}A_X(v)\,
+          V^{-1}\operatorname{MA}^{\NA}(\phi^{\NA}),
+\tag{68.9}\label{eq:ytd-na-entropy}
+\]
+and let \(R^{\NA}\) be the Ricci-energy term obtained by intersecting
+with \(K_X\). Then
+\[
+ M^{\NA}
+     =H^{\NA}+\overline S E^{\NA}+R^{\NA}.
+\tag{68.10}\label{eq:ytd-na-mabuchi}
+\]
+Equivalently,
+\[
+ M^{\NA}(\mathcal X,\mathcal L)
+  =\DF(\mathcal X,\mathcal L)
+   +V^{-1}
+     \bigl((\mathcal X_{0,\mathrm{red}}-\mathcal X_0)
+               \cdot\mathcal L^n\bigr).
+\tag{68.11}\label{eq:ytd-mabuchi-df}
+\]
+\end{definition}
+
+\begin{remark}[Why the central-fibre correction is present]
+\label{rem:ytd-central-correction}
+If \(\mathcal X_0\) is nonreduced, the discrepancy integral counts
+the reduced divisorial valuations, while the intersection
+\(\DF\) retains scheme multiplicities. The last term of
+\eqref{eq:ytd-mabuchi-df} reconciles them. Thus
+\(M^{\NA}=\DF\) for reduced central fibre, not in general.
+\end{remark}
+
+\begin{proposition}\label{prop:ytd-birational-invariance}
+The functionals \(E^{\NA},J^{\NA},H^{\NA},R^{\NA}\), and
+\(M^{\NA}\) are unchanged after pulling a normal test configuration to
+a dominating normal model.
+\end{proposition}
+
+\begin{proof}
+Energy and the Ricci term are intersection numbers, so the projection
+formula applies. The Monge--Amp\`ere measure pushes forward under the
+model map; log discrepancy is evaluated at the same divisorial
+valuation, so its integral is unchanged. The formula for \(J^{\NA}\)
+uses the same asymptotic weights after integral closure of the Rees
+algebra. Equation \eqref{eq:ytd-na-mabuchi} gives the last assertion.
+\end{proof}
+
+\section{Slope formulae and their domains}
+\label{sec:ytd-slopes}
+
+Let \((\varphi_s)_{s\geq0}\) be a ray associated to
+\((\mathcal X,\mathcal L)\), with \(s=-\log|t|\).
+The variable \(\varphi_s\) is the book's squared-norm potential.  If
+\(\psi_s=-\log|\cdot|\) denotes the ordinary norm weight used in the
+complex-to-non-Archimedean slope literature, then
+\[
+                         \varphi_s=2\psi_s.
+\]
+Since the two \(\ddc\)-conventions give the same curvature form,
+\[
+ E_\omega(\varphi_s)=2E_{\omega,\mathrm{wt}}(\psi_s),
+ \qquad
+ J_\omega(\varphi_s)=2J_{\omega,\mathrm{wt}}(\psi_s).
+\]
+Accordingly every \(E\)- or \(J\)-slope below that is compared with the
+standard \(E^{\NA}\) or \(J^{\NA}\) has denominator \(2s\).  Bundled
+statements quoted directly from \cite{BHJ19} will keep the source's
+norm-weight notation visible.
+
+The factor two does not multiply every functional. With the curvature form
+held fixed, the Monge--Amp\`ere probability measure is the same for
+\(\varphi_s\) and \(\psi_s\), so
+\[
+ H_\omega(\varphi_s)=H_{\omega,\mathrm{wt}}(\psi_s).
+\]
+The coefficient \(1/2\) in \eqref{eq:ytd-mabuchi-variation} similarly makes
+the book's Mabuchi value equal to the norm-weight Mabuchi value, after the
+common additive normalization. Thus \(E\) and \(J\) use \(2s\), whereas
+entropy, Ricci energy, and Mabuchi use \(s\). Mixing the two denominators
+would create a spurious factor two in the Chen--Tian decomposition.
+
+\begin{theorem}\label{thm:ytd-energy-slopes}
+For the canonical weak geodesic ray of a normal ample test
+configuration,
+\[
+ \lim_{s\to+\infty}\frac{E_\omega(\varphi_s)}{2s}
+       =E^{\NA}(\phi^{\NA}),
+ \qquad
+ \lim_{s\to+\infty}\frac{J_\omega(\varphi_s)}{2s}
+       =J^{\NA}(\phi^{\NA}).
+\tag{68.12}\label{eq:ytd-energy-slopes}
+\]
+\end{theorem}
+
+\begin{proof}
+For the norm-weight ray \(\psi_s\),
+\Cref{thm:rf-energy-slope} gives
+\[
+       \lim_{s\to+\infty}\frac{E_{\mathrm{wt}}(\psi_s)}s
+          =E^{\NA}(\phi^{\NA}).
+\]
+That theorem was proved from the RWN energy identity and the BHJ
+intersection-moment formula, so no Deligne-pairing argument is repeated
+here. Since \(\varphi_s=2\psi_s\), the analytic energy in the squared-norm
+convention is twice the norm-weight energy. Division by \(2s\) proves the
+first equality in \eqref{eq:ytd-energy-slopes}.
+
+The linear term in \(J\) is the maximal asymptotic weight; its radial slope
+is \(\lambda_{\max}\). Subtracting the energy slope gives
+\(\lambda_{\max}-E^{\NA}=J^{\NA}\), proving the second equality. This is
+equivalently the hybrid intersection computation of
+\Cref{prop:hybrid-energy-slope}. Neither step uses entropy regularization.
+\end{proof}
+
+\begin{theorem}\label{thm:ytd-smooth-functional-slopes}
+Assume that an ample test configuration carries a smooth strictly
+positive \(S^1\)-invariant metric near its central fibre, and let
+\((\varphi_s)\) be the corresponding smooth positive ray in the book's
+squared-norm convention.  Put \(\psi_s=\varphi_s/2\).  Under the
+subklt logarithmic-extension hypotheses of
+\cite[Theorem~4.2]{BHJ19},
+\[
+ \lim_{s\to+\infty}\frac{F_{\mathrm{wt}}(\psi_s)}s
+                  =F^{\NA}(\phi^{\NA})
+\]
+for
+\[
+                       F\in\{E,H,I,J,M,R\}.
+\]
+Here \(F_{\mathrm{wt}}\) denotes exactly the source's norm-weight
+normalization.  In particular, its \(E\)- and \(J\)-components translate to
+\[
+ \lim_{s\to+\infty}\frac{E_\omega(\varphi_s)}{2s}
+       =E^{\NA}(\phi^{\NA}),
+ \qquad
+ \lim_{s\to+\infty}\frac{J_\omega(\varphi_s)}{2s}
+       =J^{\NA}(\phi^{\NA}).
+\tag{68.13}\label{eq:ytd-smooth-slopes}
+\]
+\end{theorem}
+
+\begin{proof}
+Apply \Cref{thm:rf-bhj-unaffected-slopes} to the norm-weight ray
+\(\psi_s\). Its expanded proof uses only the Deligne-pairing and snc
+integral estimates from Sections~1--4 of \cite{BHJ19}, whose validity is
+explicitly preserved by \cite{BHJ19err}. It gives
+\[
+ \lim_{s\to+\infty}\frac{F_{\mathrm{wt}}(\psi_s)}s
+        =F^{\NA}(\phi^{\NA})
+ \quad\text{for }F\in\{E,H,I,J,M,R\}.
+\]
+This is the first assertion, with no new slope input.
+
+It remains only to translate conventions. In the book's squared-norm
+normalization \(\varphi_s=2\psi_s\). The factor-two ledger in
+\eqref{eq:rf-factor-two-slope-quotients} gives
+\[
+ \frac{E_\omega(\varphi_s)}{2s}
+       =\frac{E_{\mathrm{wt}}(\psi_s)}s,
+ \qquad
+ \frac{J_\omega(\varphi_s)}{2s}
+       =\frac{J_{\mathrm{wt}}(\psi_s)}s.
+\]
+Taking limits proves \eqref{eq:ytd-smooth-slopes}. No claim about a weak
+finite-energy ray is made in this normalization step.
+\end{proof}
+
+The smooth ray in
+\Cref{thm:ytd-smooth-functional-slopes} is not automatically
+the canonical weak geodesic ray. For weak finite-energy rays, the
+following assembly statement isolates the additional entropy-slope input
+that is required.
+
+\begin{proposition}\label{prop:ytd-mabuchi-liminf}
+Let \((\varphi_s)\) be a weak finite-energy ray with associated
+non-Archimedean metric \(\phi^{\NA}\), and denote by \(R_\omega\) the
+Ricci-energy term normalized so that, in the book's squared-potential
+convention, the Chen--Tian formula reads
+\[
+ M_\omega=H_\omega+\frac{\overline S}{2}E_\omega+R_\omega.
+\]
+Assume that the energy and
+Ricci-energy terms in the Chen--Tian decomposition satisfy
+\[
+ \lim_{s\to+\infty}\frac{E_\omega(\varphi_s)}{2s}
+      =E^{\NA}(\phi^{\NA}),
+ \qquad
+ \lim_{s\to+\infty}\frac{R_\omega(\varphi_s)}s
+      =R^{\NA}(\phi^{\NA}),
+\]
+and, separately, that
+\[
+ H^{\NA}(\phi^{\NA})
+       \leq
+ \liminf_{s\to+\infty}\frac{H_\omega(\varphi_s)}s.
+\]
+Then
+\[
+       M^{\NA}(\phi^{\NA})
+          \leq
+       \liminf_{s\to+\infty}\frac{M_\omega(\varphi_s)}s
+\tag{68.14}\label{eq:ytd-mabuchi-liminf}
+\]
+\end{proposition}
+
+\begin{proof}
+Divide the Chen--Tian decomposition by \(s\). Add the assumed limits of
+the energy terms to the displayed entropy inequality, and use
+\eqref{eq:ytd-na-mabuchi}.
+\end{proof}
+
+\begin{remark}[Why weak convergence alone is insufficient]
+\label{rem:ytd-entropy-slope-firewall}
+\Cref{prop:hybrid-entropy-liminf} concerns ordinary relative
+entropy for weakly converging probability measures. It does not by
+itself identify the rescaled quantity \(s^{-1}H_\omega(\varphi_s)\)
+with the non-Archimedean entropy. To verify the entropy-slope hypothesis
+above by a hybrid argument, one must also construct the relevant varying
+reference measures, control their
+logarithmic densities at radial scale, and identify the central
+functional with \(H^{\NA}\). No unconditional weak-ray Mabuchi
+inequality is deduced here without that separate theorem.
+\end{remark}
+
+\section{The BHJ erratum quarantine}
+\label{sec:ytd-erratum}
+
+\begin{theorem}\label{thm:ytd-erratum-quarantine}
+The following statements of \cite{BHJ19} are not used as established
+results in this book:
+\[
+ \text{Theorem~5.6},\quad
+ \text{Theorem~5.4},\quad
+ \text{Theorem~C},\quad
+ \text{Corollaries~D--E}.
+\tag{68.15}\label{eq:ytd-quarantined-results}
+\]
+Theorem~A, Corollary~B, and all results through Section~4 remain
+available.
+\end{theorem}
+
+\begin{proof}
+The published erratum \cite{BHJ19err} identifies an incorrect
+orbit-closure assertion in the proof of Theorem~5.6 and says that the
+assertion is only possibly true. It lists Theorem~5.4, Theorem~C, and
+Corollaries~D--E as dependent consequences. The same erratum explicitly
+confirms Theorem~A, Corollary~B, and Sections~1--4.
+\end{proof}
+
+\begin{remark}[No laundering through terminology]
+\label{rem:ytd-no-laundering}
+We do not infer coercivity on all rays from a statement about smooth
+test-configuration rays, and we do not call a Bergman-level assertion
+a finite-energy theorem. Any post-erratum implication below comes from
+an independent source.
+\end{remark}
+
+\section{Valuative criteria}
+\label{sec:ytd-valuative}
+
+In a projective Fano setting, the familiar invariants of a prime
+divisor \(F\) over \(X\) are
+\[
+ \beta(F)
+  =A_X(F)V-\int_0^{+\infty}\vol(L-xF)\,\rd x,
+\tag{68.16}\label{eq:ytd-beta-divisor}
+\]
+and
+\[
+ j(F)
+  =\int_0^{+\infty}
+       \bigl(V-\vol(L-xF)\bigr)\,\rd x
+\tag{68.17}\label{eq:ytd-j-divisor}
+\]
+with the integral effectively cut off at the pseudoeffective
+threshold. These formulas require the Fano normalization when used as
+a Ding criterion.
+
+For a general K\"ahler class \(\alpha\), the audited
+measure-theoretic criterion is better suited to model stability.
+Let
+\[
+                \mu=\sum_{i=1}^Na_i\delta_{v_i},
+       \qquad a_i\geq0,\quad\sum_i a_i=1,
+\tag{68.18}\label{eq:ytd-divisorial-measure}
+\]
+be a divisorial probability measure. Define
+\[
+             \beta_\alpha(\mu)
+            :=\Ent(\mu)+\nabla_{K_X}E_\alpha^\vee(\mu).
+\tag{68.19}\label{eq:ytd-beta-measure}
+\]
+
+\begin{theorem}\label{thm:ytd-valuative-measures}
+In the model-stability framework of \cite{MPWN25}, uniform
+K-stability for models is equivalent to the existence of
+\(\delta>0\) such that
+\[
+            \beta_\alpha(\mu)
+               \geq\delta E_\alpha^\vee(\mu)
+\tag{68.20}\label{eq:ytd-valuative-criterion}
+\]
+for every divisorial probability measure \(\mu\) of
+\eqref{eq:ytd-divisorial-measure}.
+\end{theorem}
+
+\begin{proof}
+The non-Archimedean Calabi--Yau theorem identifies a finite-energy
+potential with its Monge--Amp\`ere measure. Under this identification,
+\[
+      \beta_\alpha(\operatorname{MA}_\alpha(\phi))
+             =M_\alpha^{\NA}(\phi),
+      \qquad
+      E_\alpha^\vee(\operatorname{MA}_\alpha(\phi))
+             \asymp J_\alpha(\phi).
+\tag{68.21}\label{eq:ytd-beta-mabuchi}
+\]
+A divisorial measure has a PL-envelope solution, and the
+Monge--Amp\`ere measure of a PL envelope is divisorial. Thus
+\eqref{eq:ytd-valuative-criterion} is exactly the
+model-metric coercivity inequality transported through the
+Calabi--Yau correspondence. This is
+\cite[Theorems~10.0.1 and~10.0.4]{MPWN25}, detailed in
+\Cref{thm:mpwn-valuative-criterion}.
+\end{proof}
+
+\begin{remark}[Not merely one divisor at a time]
+\label{warn:ytd-valuative-measures}
+The criterion tests finite weighted sums of divisorial Dirac masses.
+Checking only \(\delta_v\) is a different condition. No dreaminess
+assumption is part of
+\Cref{thm:ytd-valuative-measures}.
+\end{remark}
+
+\section{Coercivity and automorphisms}
+\label{sec:ytd-coercivity}
+
+\begin{definition}[Analytic coercivity]
+\label{def:ytd-coercivity}
+The Mabuchi functional is \(J\)-coercive if there are
+\(\delta>0\) and \(C\in\mathbf R\) such that
+\[
+                   M_\omega(\varphi)
+          \geq\delta J_\omega(\varphi)-C
+\tag{68.22}\label{eq:ytd-analytic-coercivity}
+\]
+for every \(\varphi\in\mathcal E^1(X,\omega)\).
+\end{definition}
+
+\begin{definition}[Model uniform stability]
+\label{def:ytd-model-uniform}
+A compact K\"ahler pair \((X,\alpha)\) is uniformly K-stable for
+models if there is \(\delta>0\) such that
+\[
+         M^{\NA}(\mathcal X,\mathcal A)
+              \geq\delta J^{\NA}(\mathcal X,\mathcal A)
+\tag{68.23}\label{eq:ytd-model-uniform}
+\]
+for every \emph{big} analytic test configuration in the precise sense
+of \cite{MPWN25}.
+\end{definition}
+
+Testing big models is stronger than testing only K\"ahler test
+configurations. The distinction is essential: the completion argument
+passes through envelopes of big vertical classes.
+
+\begin{proposition}\label{prop:ytd-coercivity-minimizer}
+Assume \eqref{eq:ytd-analytic-coercivity}. Assume moreover that every
+normalized \(J_\omega\)-bounded minimizing sequence has a
+\(d_1\)-convergent subsequence, that \(M_\omega\) is lower semicontinuous
+along this convergence, and that every finite-energy minimizer of
+\(M_\omega\) in the class is smooth. Then \(M_\omega\) attains its minimum,
+and its minimizer is a smooth cscK metric.
+\end{proposition}
+
+\begin{proof}
+Take a minimizing sequence \((\varphi_j)\) with a fixed additive
+normalization. Coercivity gives
+\[
+ \delta J_\omega(\varphi_j)
+       \leq M_\omega(\varphi_j)+C,
+\]
+so \(J_\omega(\varphi_j)\) is bounded. The compactness hypothesis supplies
+a \(d_1\)-convergent subsequence with limit \(\varphi_\infty\). Lower
+semicontinuity gives
+\[
+ M_\omega(\varphi_\infty)
+ \leq\liminf_jM_\omega(\varphi_j)
+ =\inf_{\mathcal E^1}M_\omega,
+\]
+so \(\varphi_\infty\) minimizes \(M_\omega\). The variational
+Euler--Lagrange equation is the weak cscK equation. The stated regularity
+hypothesis makes \(\varphi_\infty\) smooth, and then
+\eqref{eq:ytd-mabuchi-variation} shows that its scalar curvature equals
+\(\overline S\). This proof displays separately the coercivity,
+compactness, lower-semicontinuity, and regularity inputs.
+\end{proof}
+
+\begin{remark}[Automorphism boundary]
+\label{rem:ytd-automorphisms}
+If \(\Aut^0(X,L)\neq\{1\}\), ordinary \(J\)-coercivity cannot hold
+along all automorphism orbits. One replaces \(J\) by a reduced norm
+and uses relative stability. Statements below that are written with
+ordinary \(J\) belong to the unrelative coercive scope, typically with
+discrete automorphism group.
+\end{remark}
+
+\section{Audited existence implications}
+\label{sec:ytd-audited-implications}
+
+\begin{theorem}\label{thm:ytd-fano-bridge}
+Let \(X\) be a smooth projective Fano variety with finite automorphism
+group.  Write \(D\) and \(D^{\NA}\) for the Archimedean and
+non-Archimedean Ding functionals in the normalization of \cite{BBJ21}.
+The following are equivalent:
+\begin{enumerate}
+\item there are \(\delta,C>0\) such that
+      \[
+             D(\varphi)\geq\delta J(\varphi)-C
+             \quad\text{on }\mathcal E^1(X,-K_X);
+      \]
+\item there is \(\delta'>0\) such that
+      \[
+             D^{\NA}(\phi)\geq\delta'J^{\NA}(\phi)
+             \quad\text{for every semipositive model metric }\phi;
+      \]
+\item \(c_1(-K_X)\) contains a K\"ahler--Einstein metric.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+We indicate which implications are slope calculations and which are deep
+variational inputs.
+
+Assume first that (1) holds, and initially let \(\phi\) be represented by
+an ample test configuration carrying a smooth positive invariant metric.
+Its norm weights define a smooth psh ray \((\psi_s)\).  The Ding slope
+formula of \cite[Theorem~4.3]{BHJ19} and the \(J\)-slope formula already
+audited in \Cref{thm:rf-bhj-unaffected-slopes} give
+\[
+ \lim_{s\to+\infty}\frac{D(\psi_s)}s=D^{\NA}(\phi),
+ \qquad
+ \lim_{s\to+\infty}\frac{J(\psi_s)}s=J^{\NA}(\phi).
+\]
+Divide the coercive inequality by \(s\) and let \(s\to+\infty\).  This
+proves the inequality, with \(\delta'=\delta\), for ample model metrics.
+
+For a general semipositive model metric, pass to a common dominating model
+on which a fixed relatively ample model metric \(\phi_A\) is determined,
+and set
+\(\phi_\varepsilon=(1-\varepsilon)\phi+\varepsilon\phi_A\)
+with rational \(0<\varepsilon<1\).  A positive rational combination of a
+relatively nef model line bundle and a relatively ample one is relatively
+ample, so \(\phi_\varepsilon\) is represented by an ample model and
+converges uniformly to \(\phi\).  The energy and
+\(J^{\NA}\) are continuous under this convergence.  Moreover
+\[
+ L^{\NA}(\phi)=\inf_v\bigl(A_X(v)+\phi(v)\bigr)
+\]
+is \(1\)-Lipschitz for the uniform norm; hence
+\(D^{\NA}=L^{\NA}-E^{\NA}\) is continuous as well.  Letting
+\(\varepsilon\downarrow0\) proves (2) for every semipositive model metric.
+The cited Ding slope theorem lies in Section~4 and is outside the
+quarantined part of \cite{BHJ19}.
+
+The converse implication (2)\(\Rightarrow\)(1) is the main compactness
+theorem \cite[Theorem~5.1]{BBJ21}.  Its proof is a foundational imported
+input.  Its architecture is as follows.  If coercivity fails, normalized
+finite-energy geodesic segments are extracted, using \(d_1\)-compactness,
+to a nonconstant geodesic ray.  The ray is maximalized and assigned a
+non-Archimedean metric.  The energy and logarithmic-integral estimates
+compare the radial Ding slope with \(D^{\NA}\), while the normalization
+keeps the \(J^{\NA}\)-size nonzero.  This contradicts the uniform lower
+bound in (2).  The compactness, maximal-ray construction, and singularity
+comparison are the deep content of the cited theorem; they are not
+silently inferred from the smooth slope formula above.
+
+Finally, the finite-energy variational package
+\cite[Lemma~2.8, Theorem~2.19, Lemma~2.20, and
+Corollary~5.2]{BBJ21} identifies coercivity of \(D\), in the present
+finite-automorphism setting, with existence and uniqueness of its minimizer.
+The Euler--Lagrange
+equation of a minimizer is the K\"ahler--Einstein equation, and the
+regularity theorem in the smooth Fano case upgrades the minimizing current
+to a smooth K\"ahler--Einstein metric.  Conversely, uniqueness of the
+K\"ahler--Einstein metric implies Ding coercivity by the same cited
+variational theorem.  Since \(\Aut(X)\) is finite, Bando--Mabuchi
+uniqueness modulo \(\Aut^0(X)\) is ordinary uniqueness.  This proves the
+equivalence of (1)--(3).
+
+When \(\Aut^0(X)\neq\{1\}\), the ordinary inequalities in (1) and (2)
+fail along automorphism directions.  A reduced or relative theorem requires
+additional definitions and inputs and is not asserted by this statement.
+\end{proof}
+
+\begin{theorem}\label{thm:ytd-mpwn-implication}
+As proved in version~1 of \cite{MPWN25}, submitted
+11 September 2025, if a compact K\"ahler pair \((X,\alpha)\) is
+uniformly K-stable for \emph{models} in the sense of
+\Cref{def:ytd-model-uniform}, then the associated
+finite-energy non-Archimedean Mabuchi functional is coercive and the
+existence theorem used there yields a cscK metric in \(\alpha\).
+In the unrelative discrete-automorphism scope, the metric is unique.
+\end{theorem}
+
+\begin{proof}
+\Cref{thm:mpwn-model-e1-equivalence} identifies coercivity on
+big models with coercivity on the completed finite-energy
+non-Archimedean space. Its proof uses entropy-preserving approximation
+of finite-energy measures by measures on dual complexes and the
+non-Archimedean Calabi--Yau homeomorphism. The independent existence
+implication \cite[Theorem~A]{MP24} then produces a cscK metric.
+This is exactly the chain stated in
+\cite[Corollary~9.2.2]{MPWN25}; it does not pass through any
+quarantined result of \cite{BHJ19}.
+\end{proof}
+
+\begin{remark}[Exact scope]
+\label{rem:ytd-mpwn-scope}
+\Cref{thm:ytd-mpwn-implication} begins with stability for all
+big models. It does not prove that ordinary uniform stability tested
+only on relatively K\"ahler or algebraic test configurations implies
+model uniform stability. It is therefore not the unrestricted ordinary
+YTD equivalence.
+\end{remark}
+
+\section{Dated 2026 claims}
+\label{sec:ytd-recent-claims}
+
+The following entries report source versions available at the fixed
+22 August 2026 cutoff. They are not updated silently when a preprint changes
+version, and they do not enlarge the theorem domains in the preceding
+sections.
+
+\begin{remark}[Boucksom--Jonsson, version 2]
+\label{rem:ytd-bj26}
+The preprint \cite{BJ26ComplexNA}, version~2 dated 19 May 2026,
+develops a broad complex-to-non-Archimedean approach to the YTD
+conjecture. In this manuscript it is used for orientation and
+terminology only. Its later bridge claims have not been substituted
+for the dependency-audited theorems above.
+\end{remark}
+
+\begin{remark}[Trusiani, version 2]
+\label{rem:ytd-trusiani26}
+The preprint \cite{Trusiani26}, version~2 dated 17 August 2026, retains its
+automorphism-relative uniform YTD theorem for smooth polarized
+projective varieties and an entropy-regularization theorem; its
+Corollary~B records the equivalence of the smooth projective stability
+signatures stated there.  Its Corollary~A also records the resulting
+projective entropy-slope equality for maximal finite-energy rays.  The new
+appendix by S\'ebastien Boucksom gives a non-Archimedean proof of entropy
+regularization over \(\Bbbk((t))\), while Theorem~C adds the
+weighted-relative correspondence and the log-concave weighted-extremal
+consequence.  This book records those statements as dated recent claims. We
+have not audited every dependency or promoted them to timeless theorems, and
+they do not by themselves treat an arbitrary nonprojective compact K\"ahler
+class or identify separately prescribed canonical approximation sequences
+term by term.
+\end{remark}
+
+\begin{proposition}\label{prop:ytd-status}
+The status used in this book is:
+\begin{enumerate}
+\item \(E,J\)-slopes are theorems for normal ample test
+      configurations.
+\item All smooth-ray slopes are theorems under positivity and the
+      subklt extension hypothesis.
+\item The unrelative Fano Ding equivalence is a theorem for smooth
+      projective Fano varieties with finite automorphism group; the
+      semipositive twisted/logarithmic source has its own stated scope.
+\item Model stability implying cscK is a 2025 theorem for all big
+      models in its unrelative coercive scope.
+\item Ordinary projective uniform YTD, projective entropy regularization and
+      the resulting entropy-slope equality, and the weighted-relative
+      projective correspondence are recorded as Trusiani's dated 2026
+      version-two claims, not as audited theorems here.
+\item Arbitrary compact-K\"ahler ordinary YTD is not asserted.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+The first row is \Cref{thm:ytd-energy-slopes}; the second is
+\Cref{thm:ytd-smooth-functional-slopes}; the third is
+\Cref{thm:ytd-fano-bridge}; and the fourth is
+\Cref{thm:ytd-mpwn-implication}. The final two rows are the
+scope statements of \Cref{rem:ytd-bj26,rem:ytd-trusiani26}.
+\end{proof}
+
+\section{A bridge diagram}
+\label{sec:ytd-diagram}
+
+The audited implications can be displayed without hiding their
+hypotheses:
+\[
+\begin{array}{ccccc}
+\text{big model data}
+ &\longrightarrow&
+\mathcal E^{1,\NA}(\alpha)
+ &\xrightarrow{\operatorname{MA}^{\NA}}&
+\mathcal M^{1,\NA}(\alpha)\\
+\big\downarrow
+ &&
+\big\downarrow{\scriptstyle M^{\NA},J^{\NA}}
+ &&
+\big\downarrow{\scriptstyle\beta_\alpha,E_\alpha^\vee}\\
+\text{DF and model norm}
+ &\longrightarrow&
+\text{finite-energy coercivity}
+ &\longrightarrow&
+\text{cscK metric}.
+\end{array}
+\tag{68.25}\label{eq:ytd-audited-diagram}
+\]
+The left-to-middle completion requires \emph{big} model testing.
+Replacing the upper-left corner by ordinary ample test configurations
+breaks the proved implication.
+
+\begin{example}[Product configuration]
+\label{ex:ytd-product-configuration}
+A one-parameter subgroup of \(\Aut(X,L)\) gives a product test
+configuration. Its non-Archimedean \(J\)-norm can be positive before
+reduction by the automorphism group, while the Mabuchi functional is
+affine along the induced orbit. This is why a stability statement with
+continuous automorphisms must use a reduced norm and a relative
+functional.
+
+For instance, on \((\mathbf P^1,\mathcal O(1))\), the action
+\([x:y]\mapsto[\tau x:\tau^{-1}y]\) gives a nonconstant filtration of
+\(H^0(\mathbf P^1,m\mathcal O(1))\). Its maximal and average weights differ,
+so the unreduced \(J^{\NA}\) is nonzero. Yet the associated ray moves only
+along the automorphism orbit. Taking an infimum over that orbit removes this
+direction; demanding ordinary coercivity without the reduction would test a
+symmetry as though it were a destabilizing degeneration.
+\end{example}
+
+\begin{example}[Nonreduced central fibre]
+\label{ex:ytd-nonreduced-central}
+After a ramified base change, the scheme-theoretic central fibre may
+acquire multiplicity. Formula \eqref{eq:ytd-mabuchi-df} shows that the
+Donaldson--Futaki invariant alone is then not the non-Archimedean
+Mabuchi functional. The reduction correction is required before
+comparing with entropy slopes.
+
+Concretely, if \(\mathcal X_0=mG\) at the generic point of a component,
+then \(\mathcal X_{0,\mathrm{red}}-\mathcal X_0=(1-m)G\). The correction
+therefore records exactly the multiplicity discarded when the discrepancy
+integral replaces the scheme-theoretic component by its normalized
+divisorial valuation. This calculation is also why ramified base change
+must be accompanied by the scaling ledger of
+\Cref{prop:functor-scaling-ledger}.
+\end{example}
+
+\section*{Source notes}
+
+The finite-energy geodesic convexity used above is
+\cite[Theorem~1.2]{BDL17}.  The algebraic and model functionals are from \cite{BHJ17,BHJ19}; only
+the unaffected slope range certified by \cite{BHJ19err} is used.
+The Fano variational theorem and its automorphism refinement are
+\cite[Theorem~A and Corollary~5.2]{BBJ21}. The transcendental
+model, finite-energy, and divisorial-measure bridges are the exact
+results of \cite{MP24,MPWN25} already audited in
+\Cref{chap:mpwn-k-stability}. The energy formula used in the
+valuative construction also uses \cite{DXZ23} on its proved
+\(\mathcal I\)-maximal finite-energy locus. The two 2026 preprints
+\cite{BJ26ComplexNA,Trusiani26} remain explicitly dated context at the
+22 August 2026 cutoff. In particular, no exact identification of a
+canonical entropy approximation or every divisorial-threshold normalization
+is inferred from the broader existence claim.

@@ -1,0 +1,3776 @@
+\chapter{The local Bedford--Taylor product}
+\index{Bedford--Taylor product!CLD}\index{Monge--Ampere measure!local CLD}
+\label{chap:cld-bedford-taylor}
+
+The Poincar\'e--Lelong formula differentiates one singular potential.  A
+Monge--Amp\`ere operator must multiply several such curvatures.  Since
+arbitrary currents cannot be wedged, the product is defined recursively from
+potentials.  In the 2025 CLD theory the basic nonlinear domain is the class
+of \emph{continuous} psh functions.  This is the exact scope adopted below.
+In particular, we do not silently replace ``continuous'' by ``locally
+bounded.''
+
+Throughout, $X$ is a pure $n$-dimensional tropical space, or a
+topologically separated pure $n$-dimensional analytic space with its CLD
+structure, and $X$ has no boundary.  Currents and convergence are in the
+sense of \Cref{chap:cld-currents}.
+
+\section{Orientation: why a recursion, and what it must prove}
+\label{sec:ch16-orientation}
+
+\subsection{The obstruction}
+\label{sec:ch16-obstruction}
+
+Two smooth $(1,1)$-forms may be wedged pointwise.  Two currents may not.  A
+current is a distribution-valued object, and the coefficients of the
+putative wedge would be products of distributions, an operation that does
+not exist: the one-variable instance is the product
+$\delta_0\cdot\delta_0$, which no associative bilinear extension of
+multiplication to distributions can accommodate.  On a tropical space this
+is visible in the model computation of \Cref{chap:cld-currents}: for
+$u(t)=\max\{0,t\}$ on the tropical line one has
+$\dprimeddprime[u]=\delta_0$, and there is no meaning to
+$\delta_0\wedge\delta_0$.  The linear theory of
+\Cref{chap:cld-currents} therefore offers only one product, that of a
+current with a \emph{smooth} form, and nothing in it produces a
+Monge--Amp\`ere measure.
+
+The Bedford--Taylor mechanism circumvents this by never multiplying two
+currents.  It keeps one singular factor as a \emph{function} and lets the
+differential operator act afterwards:
+\begin{equation}
+\label{eq:ch16-recursion-schema}
+ \underbrace{\dprimeddprime u}_{\text{current}}\wedge\;T
+ \;:=\;
+ \dprimeddprime\bigl(\underbrace{u}_{\text{function}}\,T\bigr).
+\end{equation}
+The right-hand side is meaningful whenever $uT$ is: that is, whenever $T$
+has order zero and $u$ is continuous.  Positivity supplies the order-zero
+property (\Cref{prop:current-positivity-calculus}), continuity of $u$
+supplies the multiplication, and the differential of a current is always
+defined.
+
+The price is that the construction is asymmetric and, on the face of it,
+depends on the potential rather than on its curvature.  Both defects have to
+be repaired by theorems, and the repairs are only partial: symmetry holds
+unconditionally (\Cref{thm:bt-symmetry-locality}), whereas independence of
+the potential is a genuine hypothesis on $T$ (\Cref{def:ch16-bt-current}),
+which \Cref{ex:ch16-cross-fan} shows cannot be dispensed with.  A second
+price is that the domain of the construction is restricted: a potential that
+is unbounded on the support of $T$ is not admitted, and
+\Cref{ex:ch16-polar-failure} exhibits a case in which the resulting product,
+computed where it is legitimate, misses the mass that the geometry demands.
+
+What is \emph{not} automatic in \eqref{eq:ch16-recursion-schema} is that the
+outcome is again positive and closed, so that the assignment may be
+iterated; that it is symmetric in the potentials; that it depends only on
+$\dprimeddprime u$ and not on $u$; and that it is continuous along
+approximations.  Those four assertions are the substance of the chapter.
+
+\subsection{Four theorems, and the order in which they are proved}
+\label{sec:ch16-four-theorems}
+
+The construction of \eqref{eq:ch16-recursion-schema} splits cleanly:
+\begin{enumerate}
+\item\label{itm:ch16-plan:pos}
+ \emph{Stability.}  For $T$ positive closed and $u$ continuous psh, the
+ current $\dprimeddprime(uT)$ is positive and closed
+ (\Cref{thm:one-bt-factor}).  This is what allows the recursion to be run
+ $q$ times.
+\item\label{itm:ch16-plan:sym}
+ \emph{Symmetry and locality.}  The $q$-fold product is symmetric in the
+ potentials and local in each of them
+ (\Cref{thm:bt-symmetry-locality}).
+\item\label{itm:ch16-plan:cont}
+ \emph{Continuity.}  The product is jointly continuous for local uniform
+ convergence of the potentials and weak convergence of $T$
+ (\Cref{thm:cld-bt-continuity}).
+\item\label{itm:ch16-plan:cln}
+ \emph{Quantitative control.}  Local masses are bounded by products of
+ local sup-norms, with constants depending only on the geometry
+ (\Cref{thm:cld-cln}).
+\end{enumerate}
+Item \cref{itm:ch16-plan:cln} is logically independent of the others and is
+proved by a self-contained integration by parts; items
+\cref{itm:ch16-plan:pos}--\cref{itm:ch16-plan:cont} are all proved by one
+device, the \emph{sheaf-closure principle} of
+\Cref{lem:ch16-cpsh-induction}, which is isolated once and then used six
+times.  The reader who internalizes that lemma will find the rest of
+\Crefrange{sec:ch16-one-factor}{sec:ch16-continuity} short.
+
+The one point that has no analogue in complex pluripotential theory is
+\cref{itm:ch16-plan:sym} in its sharper form: whether
+$\dprimeddprime(uT)$ depends only on $\dprimeddprime u$.  In the complex
+case this follows from local smoothing.  Here it does not, and CLD respond
+by naming the currents for which it holds; \Cref{sec:ch16-bt-currents}
+develops that notion, and \Cref{sec:ch16-harmonic-ambiguity} analyzes the
+resulting \emph{harmonic ambiguity} in detail.
+
+\subsection{Standing hypotheses}
+\label{sec:ch16-hypotheses}
+
+Unless something else is said:
+\begin{itemize}
+\item $X$ is a tropical space of level $n$ without boundary, in the sense of
+ \Cref{chap:tropical-spaces}, or a topologically separated pure
+ $n$-dimensional $K$-analytic space without boundary, which by
+ \Cref{thm:analytic-is-tropical-space} carries such a structure;
+\item currents, their bidegrees, differentials, positivity cones and weak
+ topology are those of \Cref{chap:cld-currents}; in particular
+ $\langle\dprimeddprime T,\alpha\rangle=\langle T,\dprimeddprime\alpha\rangle$
+ by \Cref{prop:current-differential-calculus};
+\item ``psh'' means CLD-psh in the sense of \Cref{chap:cld-poincare-lelong},
+ and ``continuous psh'' abbreviates ``continuous and CLD-psh'';
+\item \emph{positive} means nonnegative, as fixed in the conventions;
+\item all sign and lattice normalizations are those of
+ \Cref{chap:tropical-integration} and \Cref{app:normalizations}.
+\end{itemize}
+
+Boundarylessness is used in exactly one way: it makes Green's formula
+(\Cref{cor:analytic-stokes-green}) free of boundary terms, so that
+$\langle\dprimeddprime T,\alpha\rangle=\langle T,\dprimeddprime\alpha\rangle$
+may be applied without an extra flux.  Every statement below that is quoted
+for an open domain with boundary carries the corresponding boundary term,
+and \Cref{sec:ch16-local-vs-global} explains why that term, and not any
+subtlety of the recursion, is what separates the local theory from the
+global mass identities of \Cref{part:bfj,part:bj}.
+
+\subsection{What is proved here and what is imported}
+\label{sec:ch16-imported}
+
+Everything in
+\Crefrange{sec:ch16-psh-classes}{sec:ch16-harmonic-ambiguity} is proved.
+The imported inputs are three, and each is quoted with its hypotheses at the
+point of use:
+\begin{enumerate}
+\item the positivity calculus for currents and smooth forms
+ (\Cref{prop:current-positivity-calculus}), proved in
+ \Cref{chap:cld-currents} from \cite[Lemma~5.2.9 and
+ Proposition~3.2.4]{CLD25};
+\item the existence of a smooth psh exhaustion barrier on a good analytic
+ space (\Cref{thm:ch16-barrier}), which is
+ \cite[Proposition~16.9.1]{CLD25} and rests on the affinoid and rational
+ domain theory of \Cref{chap:berkovich};
+\item the structure theory of harmonic charts underlying
+ \Cref{thm:bt-harmonic-compatibility}, namely the vanishing of the boundary
+ current of a harmonically tropicalized $G$-form
+ \cite[Theorem~7.8.5 and Corollary~7.8.8]{CLD25}.
+\end{enumerate}
+No other unproved statement is used.  In particular no local smoothing
+theorem for psh functions on a Berkovich space is invoked anywhere; the
+whole point of the sheaf-closure principle is to avoid one.
+
+\subsection{Plan}
+\label{sec:ch16-plan}
+
+\Cref{sec:ch16-psh-classes} fixes the classes of potentials, records the
+corrected form of the CLD transfinite hierarchy, and proves the composition
+and maximum stability results that will be used to manufacture examples.
+\Cref{sec:ch16-one-factor} constructs $uT$ and proves the one-factor
+theorem.  \Cref{sec:ch16-bt-currents} introduces Bedford--Taylor currents,
+and \Cref{sec:ch16-iteration} the iterated product, its symmetry, its
+extension to differences of psh functions and the resulting local and
+relative Monge--Amp\`ere measures.  \Cref{sec:ch16-continuity} proves the
+continuity theorem and its monotone corollaries.
+\Cref{sec:ch16-cln} proves the Chern--Levine--Nirenberg inequalities with
+explicit constants.  \Cref{sec:ch16-comparison} proves the comparison
+principles that are available, and delimits those that are not.
+\Cref{sec:ch16-worked} carries three computations to numbers.
+\Cref{sec:ch16-skeletal} treats skeletal currents,
+\Cref{sec:ch16-harmonic-charts} harmonic tropicalizations, and
+\Cref{sec:ch16-harmonic-ambiguity} the harmonic ambiguity.
+\Cref{sec:ch16-polar} proves polar negligibility, and
+\Cref{sec:ch16-local-vs-global} draws the boundary with the global
+finite-energy theories.  \Cref{sec:ch16-dictionary} is the chapter
+dictionary.
+
+\section{The classes of potentials}
+\label{sec:ch16-psh-classes}
+
+The Bedford--Taylor recursion is only as good as the class of functions it
+accepts.  This section fixes that class, and separates four properties that
+are often conflated: being psh, being continuous, being a decreasing limit
+of \emph{smooth} psh functions, and being locally bounded.
+
+\subsection{The generated sheaf and its transfinite filtration}
+\label{sec:ch16-hierarchy}
+
+Recall from \Cref{chap:cld-poincare-lelong} that $\PSH_{\mathrm{CLD}}$,
+written $\operatorname{Psh}_X$ when the ambient space must be displayed, is
+the smallest subsheaf of the sheaf of $\mathbf R\cup\{-\infty\}$-valued
+functions on $X$ which contains every smooth $u$ with
+$\dprimeddprime u\geq0$ and is stable under decreasing limits of sequences.
+Being defined by generation, it comes with a transfinite filtration.
+
+\begin{definition}[The CLD filtration]
+\label{def:ch16-psh-filtration}
+\index{plurisubharmonic function!CLD filtration}
+Set $\operatorname{Psh}_{X,0}$ equal to the sheaf of smooth functions $u$
+with $\dprimeddprime u\geq0$.  For an ordinal $\alpha$ let
+$\operatorname{Psh}_{X,\alpha+1}$ be the sheaf of functions that are locally
+decreasing limits of sequences in $\operatorname{Psh}_{X,\alpha}$, and for a
+limit ordinal $\alpha$ let $\operatorname{Psh}_{X,\alpha}$ be the sheaf of
+functions belonging locally to some $\operatorname{Psh}_{X,\beta}$ with
+$\beta<\alpha$.  The corresponding filtration
+$\operatorname{CPsh}_{X,\alpha}$ of the sheaf of \emph{continuous} psh
+functions is defined in the same way with ``decreasing limit'' replaced by
+``local uniform limit.''
+\end{definition}
+
+Three facts about this filtration are used repeatedly, and it is important
+to state them in their correct logical relation.
+
+\begin{proposition}
+\label{prop:ch16-hierarchy-status}
+\begin{enumerate}
+\item\label{itm:ch16-hier:stat}
+ The family $(\operatorname{Psh}_{X,\alpha})_\alpha$ is increasing and there
+ is an ordinal $\alpha_0$ with
+ $\operatorname{Psh}_{X,\alpha}=\operatorname{Psh}_X$ for all
+ $\alpha\geq\alpha_0$.
+\item\label{itm:ch16-hier:cont}
+ For every ordinal $\alpha$,
+ $\operatorname{CPsh}_{X,\alpha}
+   =C^0_X\cap\operatorname{Psh}_{X,\alpha}$.
+\item\label{itm:ch16-hier:approach}
+ A psh function is called \emph{locally approachable} when it is a section
+ of $\operatorname{Psh}_{X,1}$.  Whether every psh function is locally
+ approachable is open.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Assertion \cref{itm:ch16-hier:stat} is
+\cite[Lemma~8.1.4]{CLD25}.  For each open $U$ the sets
+$\operatorname{Psh}_{X,\alpha}(U)$ form an increasing ordinal-indexed chain
+of subsets of the fixed set of functions
+$U\to\mathbf R\cup\{-\infty\}$; such a chain is eventually constant, and one
+takes for $\alpha_0$ the supremum of the stabilization ordinals over a
+basis of opens.  Once the chain is constant from $\alpha_0$ on, the sheaf
+$\operatorname{Psh}_{X,\alpha_0}$ contains the smooth psh functions and is
+stable under decreasing sequential limits, so minimality of
+$\operatorname{Psh}_X$ gives
+$\operatorname{Psh}_X\subseteq\operatorname{Psh}_{X,\alpha_0}$; the reverse
+inclusion is immediate by transfinite induction.  Assertion
+\cref{itm:ch16-hier:cont} is \Cref{prop:cld-psh-calculus}, which is
+\cite[Proposition~8.1.11]{CLD25}.  Assertion
+\cref{itm:ch16-hier:approach} is \cite[Definition~8.1.13]{CLD25} together
+with the status recorded in \Cref{prob:frontier-cld-hierarchy}.
+\end{proof}
+
+\begin{warning}{Stationarity is a theorem; early collapse is the open
+question}
+The literal sentence of \cite[Remark~8.1.6]{CLD25} asserting that
+stationarity of the filtration is unknown is superseded by the same
+authors' \cite[Lemma~8.1.4]{CLD25}, which proves stationarity by the
+cardinality argument reproduced above and is invoked in the proofs of
+\cite[Propositions~8.1.5, 8.1.11 and 8.2.1]{CLD25}.  What is open is
+collapse at a specified early stage---above all at stage one---and CLD
+already name that property: a psh function is \emph{locally approachable}
+precisely when it lies in $\operatorname{Psh}_{X,1}$
+\cite[Definition~8.1.13]{CLD25}.  Every statement in this book about the
+filtration is phrased in that corrected form, and
+\Cref{prob:frontier-cld-hierarchy} records the open question.  A reader
+who repeats the literal remark will misstate the problem.
+\end{warning}
+
+Two elementary observations sharpen the picture.  Neither is a theorem of
+this book, neither carries a priority claim, and both are recorded here
+only because they tell the reader exactly where the difficulty is.
+
+\begin{remark}[Collapse is a single closure property]
+\label{rem:ch16-collapse-reduction}
+For every ordinal $\alpha$ the following are equivalent:
+\begin{enumerate}
+\item $\operatorname{Psh}_{X,\alpha}=\operatorname{Psh}_X$;
+\item $\operatorname{Psh}_{X,\alpha}$ is stable under decreasing limits of
+ sequences.
+\end{enumerate}
+Indeed, (1)$\Rightarrow$(2) is the defining property of
+$\operatorname{Psh}_X$.  Conversely, $\operatorname{Psh}_{X,\alpha}$ is a
+subsheaf containing $\operatorname{Psh}_{X,0}$, hence containing every
+smooth psh function; if it is moreover stable under decreasing sequential
+limits, then minimality of $\operatorname{Psh}_X$ gives
+$\operatorname{Psh}_X\subseteq\operatorname{Psh}_{X,\alpha}$, while the
+reverse inclusion holds by construction.  Two consequences are worth
+recording.  First, the transfinite apparatus is not itself the difficulty:
+the whole question is whether a decreasing limit of approachable functions
+is approachable.  Second, if $\operatorname{Psh}_{X,\alpha}$ fails to be
+stable under decreasing limits for $\alpha=1$, then it fails for every
+finite $\alpha$, since the same argument applies verbatim at each stage.
+Thus collapse at some finite stage is equivalent to collapse at stage one:
+there is no intermediate finite regime.
+\end{remark}
+
+\begin{remark}[Stage-one collapse on a Euclidean chart]
+\label{rem:ch16-collapse-euclidean}
+Let $\Omega\subseteq\mathbf R^n$ be open and convex, viewed as an affine
+tropical space of level $n$.  Then
+$\operatorname{Psh}_{\Omega,1}=\operatorname{Psh}_\Omega$, and a section of
+either sheaf is, on each connected open subset, either a real-valued convex
+function or identically $-\infty$.  The proof is radial mollification.  A
+pointwise decreasing limit of convex functions is convex where it is finite,
+and is $-\infty$ on a whole connected component as soon as it is $-\infty$
+at one point, by the convexity inequality along segments; so every psh
+function on $\Omega$ is of the stated form, in accordance with
+\Cref{thm:ch09-distributional-convexity}.  Conversely, if $u$ is convex and
+real-valued, let $\rho$ be a radial mollifier and
+$u_\varepsilon=u*\rho_\varepsilon$.  By
+\Cref{prop:ch09-radial-mollification} the function $u_\varepsilon$ is smooth
+and convex, dominates $u$, is nondecreasing in $\varepsilon$, and converges
+to $u$ locally uniformly; taking $\varepsilon=1/k$ produces a decreasing
+\emph{sequence} of smooth psh functions with limit $u$, so
+$u\in\operatorname{Psh}_{\Omega,1}$.  The case $u\equiv-\infty$ is the
+decreasing limit of the smooth psh constants $-k$.  The mechanism is
+translation invariance: convolution is available because the additive group
+acts.  On a polyhedral tropical space no group moves one cell into another,
+and by \Cref{rem:ch16-collapse-reduction} the missing ingredient in general
+is exactly a local regularization operator that preserves
+$\dprimeddprime\geq0$, dominates, and is monotone in its parameter.
+\end{remark}
+
+\subsection{Composition, maxima, and tropical convexity}
+\label{sec:ch16-composition}
+
+The next three statements are the working tools for producing psh
+functions.  They are stated with the filtration index because that index is
+what \Cref{sec:ch16-polar} needs.
+
+\begin{proposition}
+\label{prop:ch16-composition}
+Let $u_1,\ldots,u_m$ be psh on $X$, let $\Omega\subseteq\mathbf R^m$ be open
+and convex with $(u_1(x),\ldots,u_m(x))\in\Omega$ for all $x$, and let
+$g:\Omega\to\mathbf R$ be smooth, convex, and nondecreasing in each
+variable.  Then $g(u_1,\ldots,u_m)$ is psh, and it lies in
+$\operatorname{Psh}_{X,\alpha}$ as soon as every $u_i$ does.
+\end{proposition}
+
+\begin{proof}
+Transfinite induction on $\alpha$.  For $\alpha=0$ all $u_i$ are smooth,
+hence so is $u=g(u_1,\ldots,u_m)$, and the chain rule gives
+\begin{equation}
+\label{eq:ch16-composition-hessian}
+ \dprimeddprime u
+ =\sum_{i,j}\frac{\partial^2g}{\partial y_i\partial y_j}(u)\,
+    \dprime u_i\wedge\ddprime u_j
+ +\sum_j\frac{\partial g}{\partial y_j}(u)\,\dprimeddprime u_j .
+\end{equation}
+The first sum is positive because the Hessian of $g$ is positive
+semidefinite: writing that Hessian as $\sum_k\lambda_k w_k\otimes w_k$ with
+$\lambda_k\geq0$, the sum becomes
+$\sum_k\lambda_k\,\dprime\ell_k\wedge\ddprime\ell_k$ with
+$\ell_k=\sum_iw_{k,i}u_i$, and each $\dprime\ell\wedge\ddprime\ell$ is
+positive by \Cref{prop:ch09-positivity-dictionary}.  The second sum is a
+nonnegative combination of the positive forms $\dprimeddprime u_j$.  Hence
+$\dprimeddprime u\geq0$ and $u\in\operatorname{Psh}_{X,0}$.
+
+For a limit ordinal, locality of the filtration reduces to a smaller
+$\beta$.  For a successor $\alpha=\beta+1$, choose locally decreasing
+sequences $v_{i,k}\downarrow u_i$ as $k\to\infty$, with
+$v_{i,k}\in\operatorname{Psh}_{X,\beta}$.  Since $g$ is continuous and
+nondecreasing in each variable, $g(v_{1,k},\ldots,v_{m,k})$ decreases to
+$g(u_1,\ldots,u_m)$, and each term lies in $\operatorname{Psh}_{X,\beta}$ by
+induction.  This is \cite[Proposition~8.2.1]{CLD25}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-max-psh}
+Let $g:\Omega\to\mathbf R$ be convex and nondecreasing in each variable, and
+let $u_1,\ldots,u_m$ be continuous psh with values in $\Omega$.  Then
+$g(u_1,\ldots,u_m)$ is continuous psh, and it lies in
+$\operatorname{CPsh}_{X,\sup(1,\alpha)}$ if all $u_i$ lie in
+$\operatorname{CPsh}_{X,\alpha}$.  In particular
+$\max\{u_1,\ldots,u_m\}$ is continuous psh, and lies in
+$\operatorname{Psh}_{X,\sup(1,\alpha)}$ whenever all $u_i$ lie in
+$\operatorname{Psh}_{X,\alpha}$.
+\end{corollary}
+
+\begin{proof}
+A convex function on an open convex set is continuous, so
+$g(u_1,\ldots,u_m)$ is continuous.  Fix $x$ and a relatively compact convex
+neighbourhood $\Omega'$ of $(u_1(x),\ldots,u_m(x))$ in $\Omega$.  On
+$\Omega'$, convolution with a smooth kernel writes $g$ as a uniform limit of
+smooth functions $g_k$ that are again convex and nondecreasing in each
+variable; that the two properties survive convolution is immediate, since
+both are preserved by averaging translates.  By
+\Cref{prop:ch16-composition} each $g_k(u_1,\ldots,u_m)$ lies in
+$\operatorname{Psh}_{X,\alpha}$, and by
+\Cref{prop:ch16-hierarchy-status}\,\cref{itm:ch16-hier:cont} the uniform
+limit lies in $\operatorname{CPsh}_{X,\sup(1,\alpha)}$.  For the last
+assertion use the smoothing
+\begin{equation}
+\label{eq:ch16-softmax}
+ \max\{y_1,\ldots,y_m\}
+ \;\leq\;
+ a^{-1}\log\bigl(\rme^{ay_1}+\cdots+\rme^{ay_m}\bigr)
+ \;\leq\;
+ \max\{y_1,\ldots,y_m\}+a^{-1}\log m ,
+\end{equation}
+whose middle term is smooth, convex, and nondecreasing in each variable, and
+converges uniformly to the maximum as $a\to+\infty$.  Convexity of the
+log-sum-exp function is the computation recorded after
+\Cref{cor:superform-convex-composition}: its Hessian is $a$ times the
+covariance matrix of the coordinate directions under the probability weights
+$\rme^{ay_k}/\sum_j\rme^{ay_j}$, hence positive semidefinite; monotonicity in
+each variable is clear because each partial derivative is one of those
+weights.  The two inequalities in \eqref{eq:ch16-softmax} are immediate from
+$\rme^{a\max_ky_k}\leq\sum_k\rme^{ay_k}\leq m\,\rme^{a\max_ky_k}$.  The
+resulting statement is \cite[Corollaries~8.2.2--8.2.4]{CLD25}.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch16-tropically-convex}
+\index{tropically convex function}
+Let $f:X\to E$ be a tropical chart, let $P$ be a parlinear subspace of $E$
+containing $f(X)$, and let $v$ be a continuous convex function on $P$.  Then
+$f^*v$ is continuous psh.  A function that is locally of this form is called
+\emph{tropically convex}; a local difference of two such functions is called
+\emph{tropically $d$-convex}.
+\end{proposition}
+
+\begin{proof}
+Consider the subsheaf of the sheaf of continuous functions on $P$ consisting
+of those $v$ for which $f^*v$ is psh.  It contains every smooth $v$ with
+$\dprimeddprime v\geq0$, because pullback along a morphism of $G$-tropical
+spaces preserves smoothness and positivity of the Hessian
+(\Cref{prop:cld-form-pullback}), and it is stable under uniform limits by
+\Cref{prop:ch16-hierarchy-status}\,\cref{itm:ch16-hier:cont}.  Every
+continuous convex function on $P$ is a local uniform limit of smooth convex
+ones by \Cref{cor:ch09-monotone-smooth-approximation}, so the subsheaf
+contains all of them.  This is \cite[Propositions~8.2.5
+and~8.2.6]{CLD25}.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch16-dpsh-smooth}
+Every $G$-smooth function on $X$ is locally a difference of two tropically
+convex functions; in particular it is locally a difference of two continuous
+psh functions.  If it is parlinear, the two summands may be taken
+parlinear.
+\end{proposition}
+
+\begin{proof}
+The assertion is local, so fix $x$, a compact analytic domain $W$ containing
+a neighbourhood of $x$, a tropical chart $f:W\to E$ tropicalizing $u$, and a
+$G$-smooth $v$ near the compact polyhedron $f(W)$ with $u=f^*v$.  On a
+neighbourhood of a compact polyhedron, a smooth function is a difference of
+two smooth convex functions: choose $c>0$ so large that $v+c\|t\|^2$ has
+positive semidefinite Hessian on a neighbourhood of the compact polyhedron,
+which is possible because the Hessian of $v$ is bounded there, and write
+$v=(v+c\|t\|^2)-c\|t\|^2$, both summands being smooth and convex.  Both summands pull back to tropically
+convex functions by \Cref{prop:ch16-tropically-convex}.  The parlinear case
+uses instead the decomposition of a parlinear function into a difference of
+two convex parlinear functions on the convex hull of $f(W)$.  These are
+\cite[Lemma~8.8.1 and Proposition~8.8.2]{CLD25}.
+\end{proof}
+
+\begin{definition}[dpsh functions]
+\label{def:ch16-dpsh}
+\index{dpsh function}
+Let $\operatorname{CPsh}^\pm_X$ denote the subsheaf of $\mathbf R$-vector
+spaces of the sheaf of continuous functions on $X$ generated by
+$\operatorname{CPsh}_X$.  Its sections are called \emph{dpsh}.  By
+\Cref{prop:ch16-dpsh-smooth} every $G$-smooth function is dpsh.
+\end{definition}
+
+\subsection{Four properties that must not be confused}
+\label{sec:ch16-four-properties}
+
+\begin{center}
+\small
+\begin{tabular}{p{.24\textwidth}|p{.36\textwidth}|p{.31\textwidth}}
+\textbf{Property}&\textbf{Definition}&\textbf{Status in this chapter}\\
+\hline
+psh
+ &section of $\operatorname{Psh}_X$
+ &too weak for the recursion: $uT$ need not exist\\
+continuous psh
+ &section of $C^0_X\cap\operatorname{Psh}_X$
+ &the operative class; all of
+  \Crefrange{sec:ch16-one-factor}{sec:ch16-cln}\\
+locally approachable
+ &section of $\operatorname{Psh}_{X,1}$
+ &needed only for polar negligibility,
+  \Cref{thm:cld-polar-negligibility}\\
+locally bounded
+ &bounded on compact sets
+ &\emph{not} used: no locally bounded theory is asserted\\
+\end{tabular}
+\end{center}
+
+The fourth line deserves emphasis.  In complex pluripotential theory the
+Bedford--Taylor product is constructed for locally bounded psh functions
+\cite{BT76,BT82}, and continuity is a convenience, not a hypothesis.  The
+reason is that a locally bounded complex psh function is a decreasing limit
+of smooth psh functions, so the monotone convergence theorem for the product
+applies.  In the CLD setting the analogous smoothing is unavailable
+(\Cref{prop:ch16-hierarchy-status}\,\cref{itm:ch16-hier:approach}), and the
+substitute---the sheaf-closure principle of the next section---requires
+\emph{uniform} rather than merely monotone approximation.  Uniform limits
+preserve continuity.  This is why the CLD product is a product of continuous
+potentials, and why the reader must not import complex statements verbatim.
+
+\begin{warning}{A locally bounded psh function need not be continuous, and
+the recursion does not see it}
+Nothing above forbids a bounded discontinuous psh function.  If $u$ is such
+a function and $T$ a positive closed current, then $uT$ is not defined by
+the order-zero pairing, because the pairing extends $T$ only to
+\emph{continuous} compactly supported forms.  One may of course integrate
+$u$ against the Radon measures that are the coefficients of $T$, but the
+resulting object is not known to be weakly continuous along approximations,
+and none of \Crefrange{thm:one-bt-factor}{thm:cld-cln} is asserted for it.
+In particular the classical convergence theorem of \cite{BT82} for
+decreasing sequences of locally bounded psh functions is \emph{not} being
+transported.
+\end{warning}
+
+\section{Multiplying a positive current by a potential}
+\label{sec:ch16-one-factor}
+
+\subsection{The product \texorpdfstring{$uT$}{uT}}
+\label{sec:ch16-uT}
+
+Let $T$ be a positive current of bidegree $(p,p)$.  By
+\Cref{prop:current-positivity-calculus}, $T$ has order zero on fixed compact
+chart data: for every compact $K$ and every symmetric test form $\alpha$
+supported in $K$ one has
+\begin{equation}
+\label{eq:ch16-order-zero}
+ |\langle T,\alpha\rangle|
+ \leq C_K\,\|\alpha\|_{C^0(K)} .
+\end{equation}
+Hence $T$ extends by continuity from smooth compactly supported test forms
+to \emph{continuous} ones, and for $u$ continuous one may set
+\begin{equation}
+\label{eq:ch16-uT-definition}
+ \langle uT,\alpha\rangle:=\langle T,u\alpha\rangle ,
+\end{equation}
+the right-hand side being evaluated through that order-zero extension, since
+$u\alpha$ need not be smooth.  The resulting current $uT$ has the same
+bidegree as $T$, and is positive whenever $u\geq0$.
+
+There is nothing to prove in \eqref{eq:ch16-uT-definition}, but two remarks
+prevent later confusion.  First, $uT$ depends on the values of $u$ only on
+$\Supp(T)$.  Second, the assignment $u\mapsto uT$ is \emph{not} continuous
+for weak convergence of $u$ against Lebesgue measure; it is continuous for
+local uniform convergence, and that is exactly the topology in which the
+whole chapter operates.
+
+\begin{lemma}
+\label{lem:continuous-times-positive-current}
+Suppose $(T_a)$ is a weakly convergent net of positive currents with limit
+$T$, and $(u_a)$ is a net of continuous functions converging locally
+uniformly to $u$.  Then
+\[
+                              u_aT_a\longrightarrow uT.
+\]
+\end{lemma}
+\begin{proof}
+It suffices to work near the compact support of a test form $\alpha$.  Choose
+a smooth $v$ with $\|u-v\|_\infty<\varepsilon$ and write
+\[
+ u_aT_a-uT=(u_a-v)T_a+v(T_a-T)+(v-u)T.
+\]
+Express $\alpha$ as a difference of two positive test forms.  Positivity
+bounds the first and third terms by the uniform errors times the masses of
+$T_a$ and $T$ on a fixed positive test form; these masses are eventually
+bounded because $T_a\to T$.  The middle term tends to zero by weak
+convergence.  First let $a$ tend along its directed set, then let
+$\varepsilon\to0$.
+\end{proof}
+
+This is \cite[Lemma~8.5.1]{CLD25}.  We spell out the three steps, since the
+same decomposition recurs in
+\Crefrange{thm:cld-bt-continuity}{thm:cld-cln}.
+
+\begin{proof}[Second proof, with the constants displayed]
+Fix a smooth test form $\alpha$ with compact support $S$, and a compact
+neighbourhood $K$ of $S$.  Write $\alpha=\alpha^+-\alpha^-$ with
+$\alpha^\pm$ smooth, positive, supported in the interior of $K$
+(\Cref{prop:ch09-positivity-dictionary} supplies such a decomposition
+chartwise, and a partition of unity globalizes it), and put
+$\beta=\alpha^++\alpha^-$.  For any continuous $w$ and any positive current
+$S'$,
+\begin{equation}
+\label{eq:ch16-positivity-sandwich}
+ |\langle wS',\alpha\rangle|
+ \leq\|w\|_{C^0(K)}\,\langle S',\beta\rangle ,
+\end{equation}
+because $-\|w\|_{C^0(K)}\beta\leq w\alpha\leq\|w\|_{C^0(K)}\beta$ as
+continuous forms and $S'$ is positive.  Now let $\varepsilon>0$ and pick a
+smooth $v$ with $\|u-v\|_{C^0(K)}<\varepsilon$; such a $v$ exists by
+\Cref{thm:cld-smooth-partition} and local uniform density of smooth
+functions on chart data.  Then
+\[
+ |\langle u_aT_a-uT,\alpha\rangle|
+ \leq\underbrace{\|u_a-v\|_{C^0(K)}\langle T_a,\beta\rangle}_{(\mathrm I)}
+   +\underbrace{|\langle T_a-T,v\alpha\rangle|}_{(\mathrm{II})}
+   +\underbrace{\|v-u\|_{C^0(K)}\langle T,\beta\rangle}_{(\mathrm{III})}.
+\]
+Term $(\mathrm{II})$ tends to $0$ because $v\alpha$ is a smooth test form.
+The numbers $\langle T_a,\beta\rangle$ converge to $\langle T,\beta\rangle$,
+so they are eventually bounded by $2\langle T,\beta\rangle+1=:M$.  Since
+$\|u_a-v\|_{C^0(K)}\leq\|u_a-u\|_{C^0(K)}+\varepsilon\to\varepsilon$, we get
+$\limsup_a(\mathrm I)\leq M\varepsilon$ and
+$(\mathrm{III})\leq\varepsilon\langle T,\beta\rangle$.  Hence
+\[
+ \limsup_a|\langle u_aT_a-uT,\alpha\rangle|
+ \leq\varepsilon\bigl(M+\langle T,\beta\rangle\bigr),
+\]
+and $\varepsilon$ was arbitrary.
+\end{proof}
+
+\subsection{The sheaf-closure principle}
+\label{sec:ch16-sheaf-closure}
+
+Almost every statement in
+\Crefrange{sec:ch16-one-factor}{sec:ch16-continuity} is proved by verifying
+a property first for smooth psh potentials and then observing that the set
+of potentials for which it holds is a sheaf stable under local uniform
+limits.  We isolate that observation once.
+
+\begin{lemma}
+\label{lem:ch16-cpsh-induction}
+Let $\mathscr P$ be a subpresheaf of the sheaf $C_X$ of continuous
+real-valued functions on $X$ such that
+\begin{enumerate}
+\item\label{itm:ch16-closure:sheaf} $\mathscr P$ is a sheaf: membership is a
+ local condition;
+\item\label{itm:ch16-closure:smooth} $\mathscr P(U)$ contains every smooth
+ $u$ on $U$ with $\dprimeddprime u\geq0$;
+\item\label{itm:ch16-closure:unif} $\mathscr P(U)$ is stable under local
+ uniform limits.
+\end{enumerate}
+Then $\mathscr P$ contains $\operatorname{CPsh}_X$; that is, every
+continuous psh function on every open subset of $X$ lies in $\mathscr P$.
+\end{lemma}
+
+\begin{proof}
+By definition $\operatorname{CPsh}_X$ is the smallest subsheaf of $C_X$
+satisfying \cref{itm:ch16-closure:smooth} and \cref{itm:ch16-closure:unif}.
+Since $\mathscr P\cap\operatorname{CPsh}_X$ is again a subsheaf of $C_X$
+satisfying both, minimality gives
+$\mathscr P\cap\operatorname{CPsh}_X=\operatorname{CPsh}_X$.
+\end{proof}
+
+\begin{warning}{The principle is not a smoothing theorem}
+\Cref{lem:ch16-cpsh-induction} says that a property propagates \emph{through}
+the generation process.  It does \emph{not} say that a given continuous psh
+function is a uniform limit of smooth psh functions on a fixed neighbourhood.
+The distinction is the content of
+\Cref{prop:ch16-hierarchy-status}\,\cref{itm:ch16-hier:approach}: only the
+functions in $\operatorname{CPsh}_{X,1}$ are known to admit such an
+approximation.  A proof that verified a property for smooth psh functions and
+then said ``approximate an arbitrary continuous psh function by smooth psh
+functions'' would be circular; every proof below instead verifies the three
+hypotheses of the lemma.  Whenever a hypothesis fails to be stable under
+uniform limits---for instance a quantitative statement whose constant is not
+uniform---the principle is unavailable and a different argument is needed.
+This is why \Cref{thm:cld-cln} is proved by an inductive integration by parts
+rather than by closure.
+\end{warning}
+
+\subsection{Symmetric closed currents and smooth factors}
+\label{sec:ch16-symmetric-leibniz}
+
+The base case of every induction is the following Leibniz identity.  It is
+where closedness of $T$ and symmetry of positive currents are consumed.
+
+\begin{lemma}
+\label{lem:ch16-leibniz-closed}
+Let $S$ be a closed symmetric current of bidegree $(p,p)$, let
+$q\leq p-1$, and let $\alpha$ be a smooth symmetric $(q,q)$-form.  Then
+\[
+              \dprimeddprime(\alpha\wedge S)
+              =(\dprimeddprime\alpha)\wedge S .
+\]
+\end{lemma}
+
+\begin{proof}
+Let $\beta$ be a smooth test form of bidegree $(p-q-1,p-q-1)$.  Both
+$(\dprimeddprime\alpha)\wedge S$ and $\alpha\wedge S$ are symmetric, so it
+suffices to treat symmetric $\beta$.  By the definition of the current
+differential and of the wedge with a smooth form,
+\[
+ \langle\dprimeddprime\alpha\wedge S,\beta\rangle
+ -\langle\alpha\wedge S,\dprimeddprime\beta\rangle
+ =\bigl\langle S,\;
+   \dprimeddprime\alpha\wedge\beta-\alpha\wedge\dprimeddprime\beta
+  \bigr\rangle .
+\]
+Now expand
+\[
+ \dprime\bigl(\alpha\wedge\ddprime\beta
+              -\ddprime\alpha\wedge\beta\bigr)
+ =\dprime\alpha\wedge\ddprime\beta
+  +\alpha\wedge\dprimeddprime\beta
+  -\dprimeddprime\alpha\wedge\beta
+  +\ddprime\alpha\wedge\dprime\beta ,
+\]
+using $(\dprime)^2=0$ and the sign rules of \Cref{chap:superforms}.  The
+$(p,p)$-form
+$\dprime\alpha\wedge\ddprime\beta+\ddprime\alpha\wedge\dprime\beta$ is
+\emph{antisymmetric} for the involution $J$: interchanging the two exterior
+factors exchanges the two summands and introduces one sign, exactly as in
+\Cref{lem:ch09-J-conjugation}.  A symmetric current annihilates
+antisymmetric forms, so pairing the displayed identity with $S$ gives
+\[
+ \bigl\langle S,\;
+  \dprime\bigl(\alpha\wedge\ddprime\beta-\ddprime\alpha\wedge\beta\bigr)
+ \bigr\rangle
+ =\bigl\langle S,\;
+   \alpha\wedge\dprimeddprime\beta-\dprimeddprime\alpha\wedge\beta
+  \bigr\rangle .
+\]
+The left-hand side vanishes because $\dprime S=0$.  Hence
+$\langle\dprimeddprime\alpha\wedge S,\beta\rangle
+ =\langle\alpha\wedge S,\dprimeddprime\beta\rangle
+ =\langle\dprimeddprime(\alpha\wedge S),\beta\rangle$.
+This is \cite[Lemma~8.5.3]{CLD25}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-smooth-case}
+If $T$ is positive and closed and $u$ is smooth, then
+\[
+ \dprimeddprime(uT)=\dprimeddprime u\wedge T=T\wedge\dprimeddprime u .
+\]
+In particular, if $u$ is smooth psh then $\dprimeddprime(uT)$ is positive
+and closed.
+\end{corollary}
+
+\begin{proof}
+Apply \Cref{lem:ch16-leibniz-closed} with $q=0$ and $\alpha=u$, noting that
+a positive current is symmetric by definition and that $\dprime T=0$ implies
+$\ddprime T=0$ by symmetry (\Cref{prop:current-positivity-calculus}).
+Positivity of $\dprimeddprime u\wedge T$ is
+\Cref{prop:current-positivity-calculus}\,(1), since $\dprimeddprime u$ is
+strongly positive in bidegree $(1,1)$ when $u$ is smooth psh
+(\Cref{prop:ch09-positivity-inclusions}).  Closedness follows from
+$(\dprime)^2=(\ddprime)^2=0$.
+\end{proof}
+
+\subsection{The one-factor theorem}
+\label{sec:ch16-one-factor-theorem}
+
+\begin{theorem}
+\label{thm:one-bt-factor}
+Let $T$ be positive and closed, and let $u$ be continuous CLD-psh.  Then
+\[
+                         \dprimeddprime(uT)
+\]
+is a positive closed current.  If $u$ is smooth, it equals
+$\dprimeddprime u\wedge T$.
+\end{theorem}
+\begin{proof}
+For smooth $u$, closedness of $T$ and the Leibniz rule give
+$\dprimeddprime(uT)=\dprimeddprime u\wedge T$, which is positive.  The class
+of continuous functions for which $\dprimeddprime(uT)$ is positive is local,
+contains smooth psh functions, and is closed under local uniform limits by
+\Cref{lem:continuous-times-positive-current} and continuity of the
+current differential.  By the defining sheafwise uniform-closure property
+of $\operatorname{CPsh}$, this class therefore contains every continuous
+CLD-psh function.  This argument does not choose a direct smooth
+approximation of a higher-stage function.  Closedness follows from
+$(\dprime)^2=(\ddprime)^2=0$.
+\end{proof}
+
+\begin{proof}[Second proof, verifying
+\Cref{lem:ch16-cpsh-induction} step by step]
+For an open $U\subseteq X$ let
+\[
+ \mathscr P(U)=\bigl\{u\in C(U):\ \dprimeddprime(uT|_U)\geq0\bigr\}.
+\]
+\emph{Sheaf property.}  Positivity of a current is a local condition
+(\Cref{prop:current-positivity-calculus}), and restriction of currents is
+compatible with multiplication by a continuous function, so $u\in\mathscr
+P(U)$ as soon as $u|_{U_i}\in\mathscr P(U_i)$ for an open cover.  Thus
+$\mathscr P$ is a subsheaf of $C_X$.
+
+\emph{Smooth psh functions belong.}  This is
+\Cref{cor:ch16-smooth-case}.
+
+\emph{Stability under local uniform limits.}  Let $u_k\in\mathscr P(U)$
+converge locally uniformly to $u$.  By
+\Cref{lem:continuous-times-positive-current}, applied with the constant net
+$T_a=T|_U$, one has $u_kT|_U\to uT|_U$ weakly.  The operator
+$\dprimeddprime$ is weakly continuous on currents
+(\Cref{prop:current-differential-calculus}), so
+$\dprimeddprime(u_kT|_U)\to\dprimeddprime(uT|_U)$.  A weak limit of positive
+currents is positive, again by
+\Cref{prop:current-positivity-calculus}.  Hence $u\in\mathscr P(U)$.
+
+\Cref{lem:ch16-cpsh-induction} now gives
+$\operatorname{CPsh}_X\subseteq\mathscr P$.  Closedness of
+$\dprimeddprime(uT)$ is formal.
+\end{proof}
+
+This is \cite[Lemma~8.5.5]{CLD25}.  It uses only
+continuous psh potentials; a product with an unbounded potential would
+require a separate integrability theory.
+
+\begin{remark}[Where each hypothesis is used]
+\label{rem:ch16-hypothesis-audit}
+Positivity of $T$ is used twice: to define $uT$ through
+\eqref{eq:ch16-order-zero}, and to make $\dprimeddprime u\wedge T$ positive
+in the smooth case.  Closedness of $T$ is used once, in
+\Cref{lem:ch16-leibniz-closed}, and it is essential: if $\dprime T\neq0$
+then $\dprimeddprime(uT)$ acquires the extra terms
+$\dprime u\wedge\ddprime T$ and $\ddprime u\wedge\dprime T$, which have no
+sign.  Continuity of $u$ is used once, in
+\eqref{eq:ch16-uT-definition}.  Boundarylessness of $X$ is not used in this
+subsection at all; it enters first in
+\Cref{sec:ch16-cln}, through Green's formula.
+\end{remark}
+
+\begin{proposition}
+\label{prop:ch16-smooth-factor}
+Let $T$ be positive closed and let $\gamma$ be a smooth closed positive
+form.  For every continuous psh $u$,
+\[
+ \dprimeddprime\bigl(u\,(T\wedge\gamma)\bigr)
+ =\bigl(\dprimeddprime(uT)\bigr)\wedge\gamma .
+\]
+\end{proposition}
+
+\begin{proof}
+Both sides are weakly continuous in $u$ for local uniform convergence, by
+\Cref{lem:continuous-times-positive-current} and the fact that wedging with
+a fixed smooth form is weakly continuous.  Both are local in $u$.  For
+smooth psh $u$ the identity reads
+$\dprimeddprime u\wedge T\wedge\gamma
+ =(\dprimeddprime u\wedge T)\wedge\gamma$, which is associativity of the
+wedge product with smooth forms.  Apply
+\Cref{lem:ch16-cpsh-induction} to the sheaf of continuous $u$ satisfying
+the identity.
+\end{proof}
+
+\section{Bedford--Taylor currents and harmonic ambiguity}
+\label{sec:ch16-bt-currents}
+
+There is a subtle point.  If $\dprimeddprime u=\dprimeddprime v$, it is not
+formal for a general positive current $T$ that
+$\dprimeddprime(uT)=\dprimeddprime(vT)$.  CLD isolate the currents for which
+this independence holds.
+
+\subsection{The smooth case, and what it does not give}
+\label{sec:ch16-ambiguity-smooth}
+
+Suppose $u,v$ are psh and $h=u-v$ happens to be smooth.  Then, by
+\Cref{cor:ch16-smooth-case},
+\begin{equation}
+\label{eq:ch16-smooth-difference}
+ \dprimeddprime(uT)=\dprimeddprime(hT)+\dprimeddprime(vT)
+ =\dprimeddprime h\wedge T+\dprimeddprime(vT),
+\end{equation}
+so that $\dprimeddprime u=\dprimeddprime v$, which for smooth $h$ means
+$\dprimeddprime h=0$, forces
+$\dprimeddprime(uT)=\dprimeddprime(vT)$.  Nothing in this computation
+survives when $h$ is merely continuous: the first equality of
+\eqref{eq:ch16-smooth-difference} is still valid, since $u\mapsto uT$ is
+linear, but the second is exactly the identity
+$\dprimeddprime(hT)=\dprimeddprime h\wedge T$ whose validity is in question.
+This is \cite[\S8.6.1]{CLD25}, where the authors record that they do not
+know whether the conclusion persists in general.
+
+\begin{definition}
+\label{def:ch16-bt-current}
+\index{Bedford--Taylor current}
+A positive closed current $T$ is a \emph{Bedford--Taylor current} if, on
+every open set and for all continuous psh functions $u,v$ satisfying
+\[
+                     \dprimeddprime[u]=\dprimeddprime[v],
+\]
+one has
+\[
+                     \dprimeddprime(uT)=\dprimeddprime(vT).
+\]
+For such a current it is unambiguous to write
+$\dprimeddprime u\wedge T$ for $\dprimeddprime(uT)$.
+\end{definition}
+
+We shall use the notation $\dprimeddprime u\wedge T$ even when $T$ is not
+known to be Bedford--Taylor, as CLD do; every current constructed in this
+book is Bedford--Taylor by \Cref{prop:bt-current-stability}, so the abuse is
+harmless, but a reader importing a current from elsewhere should check the
+property before using the notation.
+
+\subsection{Stability of the class}
+\label{sec:ch16-bt-stability}
+
+\begin{proposition}
+\label{prop:bt-current-stability}
+The Bedford--Taylor property is local.  The integration current $\delta_X$
+has it.  It is preserved by wedging with a smooth positive closed form, by
+weak limits of positive closed Bedford--Taylor currents, and by
+\[
+                     T\longmapsto\dprimeddprime(uT)
+\]
+for continuous psh $u$.
+\end{proposition}
+\begin{proof}
+Locality is the sheaf property.  For $\delta_X$,
+$\dprimeddprime(u\delta_X)=\dprimeddprime[u]$.  Smooth closed factors commute
+with $\dprimeddprime$ by the Leibniz rule, and the resulting current stays
+positive by \Cref{prop:current-positivity-calculus}.  For a weakly convergent net,
+\Cref{lem:continuous-times-positive-current} permits passage to the
+limit in the defining equality.  For the last assertion, the functions for
+which the claimed current is Bedford--Taylor form a sheaf containing the
+smooth psh functions and stable under uniform limits.  The defining closure
+property of $\operatorname{CPsh}$ gives the result without a direct smooth
+regularization.  These assertions are
+\cite[Definition~8.6.2 and Propositions~8.6.3, 8.6.5--8.6.8]{CLD25}.
+\end{proof}
+
+\begin{proof}[Second proof, item by item]
+\emph{Locality.}  Let $(U_i)$ cover $X$ with $T|_{U_i}$ Bedford--Taylor.  If
+$u,v$ are continuous psh on an open $V$ with
+$\dprimeddprime u=\dprimeddprime v$, then
+$\dprimeddprime(uT)=\dprimeddprime(vT)$ holds on each $U_i\cap V$, hence on
+$V$ because currents form a sheaf (\Cref{chap:cld-currents}).  Conversely
+the restriction of a Bedford--Taylor current is Bedford--Taylor, since the
+defining condition quantifies over all opens.  Thus the Bedford--Taylor
+currents form a subsheaf of the sheaf of positive closed currents.
+
+\emph{The current $\delta_X$.}  For a continuous $u$ one has
+$u\delta_X=[u]$ by definition of the integration current, so
+$\dprimeddprime(u\delta_X)=\dprimeddprime[u]$, which depends only on
+$\dprimeddprime[u]$ tautologically.
+
+\emph{Smooth positive closed factors.}  Let $\gamma$ be smooth, positive and
+closed, and let $u,v$ be continuous psh with
+$\dprimeddprime u=\dprimeddprime v$.  By
+\Cref{prop:ch16-smooth-factor},
+$\dprimeddprime(u(T\wedge\gamma))=\dprimeddprime(uT)\wedge\gamma$ and
+likewise for $v$; the two right-hand sides agree because $T$ is
+Bedford--Taylor.  Positivity of $T\wedge\gamma$ is
+\Cref{prop:current-positivity-calculus}\,(2), and it is closed because
+$\dprime(T\wedge\gamma)=\dprime T\wedge\gamma\pm T\wedge\dprime\gamma=0$.
+
+\emph{Weak limits.}  Let $T_k\to T$ weakly with each $T_k$ Bedford--Taylor.
+The limit is positive and closed by
+\Cref{prop:current-positivity-calculus} and weak continuity of the
+differential.  For continuous psh $u$,
+\Cref{lem:continuous-times-positive-current} gives $uT_k\to uT$, hence
+$\dprimeddprime(uT_k)\to\dprimeddprime(uT)$; the same for $v$.  Passing to
+the limit in $\dprimeddprime(uT_k)=\dprimeddprime(vT_k)$ gives the required
+equality.
+
+\emph{Iteration.}  Fix a Bedford--Taylor current $T$ and let
+\[
+ \mathscr P(U)=\bigl\{f\in C(U):\ \dprimeddprime(fT|_U)
+   \text{ is a Bedford--Taylor current}\bigr\}.
+\]
+This is a sheaf, by locality just proved.  If $f$ is smooth psh, then
+$\dprimeddprime(fT)=\dprimeddprime f\wedge T$ by
+\Cref{cor:ch16-smooth-case}, and $\dprimeddprime f$ is a smooth form that is
+positive and closed, the latter because
+$\dprime\dprimeddprime f=\ddprime\dprimeddprime f=0$; the preceding item
+therefore applies and $\dprimeddprime f\wedge T$ is Bedford--Taylor.
+Stability of $\mathscr P$ under local uniform limits is
+the weak-limit item together with
+\Cref{lem:continuous-times-positive-current}.  Now apply
+\Cref{lem:ch16-cpsh-induction}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-bt-times-function}
+Let $T$ be a Bedford--Taylor current and let $f$ be a nonnegative locally
+constant function.  Then $fT$ is Bedford--Taylor.
+\end{corollary}
+
+\begin{proof}
+Locality (\Cref{prop:bt-current-stability}) reduces to the case of a
+constant $f=c\geq0$, where $cT$ is positive and closed and
+$\dprimeddprime(u\,cT)=c\,\dprimeddprime(uT)$ by linearity.
+\end{proof}
+
+CLD state the stronger \cite[Corollary~8.6.7]{CLD25}, for an arbitrary
+continuous nonnegative $f$ such that $fT$ is again positive and closed; the
+extra input there is a local smooth approximation of $f$ combined with
+\Cref{prop:bt-current-stability}.  Only the locally constant case is used
+below, so we do not reproduce that argument.
+
+\subsection{Reading the definition}
+\label{sec:ch16-reading-bt}
+
+The definition shows exactly what ``harmonic ambiguity'' means here.  For a
+smooth $h$ with $\dprimeddprime h=0$, one always has
+$\dprimeddprime(hT)=0$.  For a merely continuous difference $h=u-v$, the
+same conclusion is guaranteed when $T$ is Bedford--Taylor.  This should not
+be confused with the curve-test definition of pluriharmonicity from
+\Cref{chap:cld-poincare-lelong}.
+
+Three separate conditions on a continuous function $h$ occur in this
+chapter, and they are logically distinct:
+\begin{center}
+\small
+\begin{tabular}{p{.27\textwidth}|p{.36\textwidth}|p{.28\textwidth}}
+\textbf{Condition}&\textbf{Meaning}&\textbf{Implications proved here}\\
+\hline
+$\dprimeddprime[h]=0$
+ &vanishing of one current on $X$
+ &affinity on cell interiors
+  (\Cref{prop:ch16-cell-rigidity})\\
+$h$ harmonic in the CLD sense
+ &locally an $\mathbf R$-combination of parlinear $h_i$ with
+  $\dprimeddprime[h_i]=0$
+ &Stokes has no boundary defect
+  (\Cref{thm:bt-harmonic-compatibility})\\
+$h$ classically pluriharmonic
+ &$h$ and $-h$ pass every analytic curve test
+ &stability under pullback and scalar extension
+  (\Cref{chap:cld-poincare-lelong})\\
+\end{tabular}
+\end{center}
+None of the three implications is reversed anywhere in this book without a
+theorem, and \Cref{sec:ch16-harmonic-ambiguity} exhibits the exact failure
+that separates the first from the second.
+
+\section{The mixed product}
+\label{sec:ch16-iteration}
+
+\subsection{The recursion and its first properties}
+\label{sec:ch16-recursion}
+
+Let $T$ be a positive closed current and let $u_1,\ldots,u_q$ be continuous
+psh functions, with the resulting bidegree not exceeding $(n,n)$.  Define
+recursively
+\[
+ \dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_q\wedge T
+ :=\dprimeddprime\!\left(
+ u_1\,\dprimeddprime u_2\wedge\cdots\wedge
+ \dprimeddprime u_q\wedge T\right).
+\]
+\Cref{thm:one-bt-factor} shows inductively that this is positive and
+closed.  When $T$ is Bedford--Taylor, it depends only on the current factors,
+not the chosen potentials.
+
+\begin{proposition}
+\label{prop:ch16-iterate-basic}
+Let $T$ be positive closed of bidegree $(r,r)$ and let $u_1,\ldots,u_q$ be
+continuous psh with $q+r\leq n$.  Then:
+\begin{enumerate}
+\item\label{itm:ch16-iter:posclosed}
+ $\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_q\wedge T$ is a
+ positive closed current of bidegree $(q+r,q+r)$;
+\item\label{itm:ch16-iter:exact}
+ for $q\geq1$ it is $\dprimeddprime$-exact;
+\item\label{itm:ch16-iter:smooth}
+ if all $u_i$ are smooth, it coincides with the ordinary wedge product
+ $\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_q\wedge T$ of smooth
+ forms with $T$;
+\item\label{itm:ch16-iter:bt}
+ if $T$ is Bedford--Taylor, so is the iterate, and it depends only on the
+ currents $\dprimeddprime u_1,\ldots,\dprimeddprime u_q$ and on $T$;
+\item\label{itm:ch16-iter:delta}
+ for $T=\delta_X$ one has
+ $\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_q\wedge\delta_X
+  =\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_q$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch16-iter:posclosed} is $q$ applications of
+\Cref{thm:one-bt-factor}, each legitimate because the previous stage is
+positive and closed.  \cref{itm:ch16-iter:exact} is immediate from the
+outermost $\dprimeddprime$ in the definition.  \cref{itm:ch16-iter:smooth}
+follows by $q$ applications of \Cref{cor:ch16-smooth-case}, unwinding the
+recursion from the inside out.  \cref{itm:ch16-iter:bt} is the last assertion
+of \Cref{prop:bt-current-stability} applied $q$ times, together with the
+definition of a Bedford--Taylor current for the independence statement.
+\cref{itm:ch16-iter:delta} is \Cref{prop:bt-current-stability} for
+$\delta_X$, since $u\delta_X=[u]$.  These are the assertions collected in
+\cite[\S8.7.1]{CLD25}.
+\end{proof}
+
+\subsection{Symmetry and locality}
+\label{sec:ch16-symmetry}
+
+\begin{theorem}
+\label{thm:bt-symmetry-locality}
+The mixed current is symmetric in $u_1,\ldots,u_q$ and is local in all its
+arguments.  If all $u_i$ are smooth, it is the ordinary wedge product of
+their Hessian forms with $T$.
+\end{theorem}
+\begin{proof}
+Locality follows from restriction of currents and of multiplication by a
+continuous function.  It suffices to interchange two adjacent factors.  Fix
+$v$ and consider the sheaf of continuous psh $u$ for which
+\[
+ \dprimeddprime\bigl(u\,\dprimeddprime(vT)\bigr)
+ =\dprimeddprime\bigl(v\,\dprimeddprime(uT)\bigr).
+\]
+For smooth $u$ this follows from the differential calculus and closedness.
+The class is a sheaf stable under local uniform limits and contains the
+smooth psh functions; the defining closure property of
+$\operatorname{CPsh}$ therefore puts every continuous psh $u$ in it.
+Adjacent transpositions generate the symmetric group.  The smooth formula
+follows at every recursive step from the Leibniz rule.  This is
+\cite[Proposition~8.7.4]{CLD25}.
+\end{proof}
+
+\begin{proof}[Second proof of the transposition step]
+Fix a continuous psh $v$ and set
+\[
+ \mathscr P(U)=\Bigl\{u\in C(U):\
+  \dprimeddprime\bigl(u\,\dprimeddprime(vT|_U)\bigr)
+  =\dprimeddprime\bigl(v\,\dprimeddprime(uT|_U)\bigr)\Bigr\}.
+\]
+\emph{Sheaf.}  Equality of two currents is local.
+
+\emph{Smooth psh functions.}  Let $u$ be smooth psh.  The current
+$S:=\dprimeddprime(vT)$ is positive and closed by
+\Cref{thm:one-bt-factor}, hence symmetric, so
+\Cref{lem:ch16-leibniz-closed} applies and gives
+\[
+ \dprimeddprime\bigl(u\,S\bigr)=\dprimeddprime u\wedge S
+ =\dprimeddprime u\wedge\dprimeddprime(vT).
+\]
+On the other hand $\dprimeddprime u$ is a smooth closed positive
+$(1,1)$-form, so \Cref{prop:ch16-smooth-factor} gives
+\[
+ \dprimeddprime\bigl(v\,\dprimeddprime(uT)\bigr)
+ =\dprimeddprime\bigl(v\,(T\wedge\dprimeddprime u)\bigr)
+ =\dprimeddprime(vT)\wedge\dprimeddprime u .
+\]
+The two right-hand sides agree because the wedge of a current with two
+smooth forms is associative and commutative in even bidegrees.  Hence
+$u\in\mathscr P(U)$.
+
+\emph{Uniform limits.}  If $u_k\to u$ locally uniformly with
+$u_k\in\mathscr P(U)$, then $u_kS\to uS$ and
+$u_kT\to uT$ by \Cref{lem:continuous-times-positive-current}, hence
+$\dprimeddprime(u_kT)\to\dprimeddprime(uT)$; a second application of that
+lemma, with the convergent net of positive closed currents
+$\dprimeddprime(u_kT)$ and the constant net $v$, gives
+$v\,\dprimeddprime(u_kT)\to v\,\dprimeddprime(uT)$.  Applying
+$\dprimeddprime$ once more and using its weak continuity, both sides of the
+defining equality pass to the limit.
+
+By \Cref{lem:ch16-cpsh-induction}, $\mathscr P\supseteq\operatorname{CPsh}$.
+Since the recursion inserts the potentials one at a time, exchanging
+$u_i$ and $u_{i+1}$ in the $q$-fold product is exactly the case just proved
+applied to the positive closed current
+$\dprimeddprime u_{i+2}\wedge\cdots\wedge\dprimeddprime u_q\wedge T$;
+transpositions of adjacent letters generate $\mathfrak S_q$.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch16-vanishing-above-dimension}
+Let $f:Y\to X$ be a morphism of tropical spaces, let
+$p>\dim X$, and let $u_1,\ldots,u_p$ be continuous psh on $X$.  Then
+\[
+ \dprimeddprime(f^*u_1)\wedge\cdots\wedge\dprimeddprime(f^*u_p)=0 .
+\]
+\end{proposition}
+
+\begin{proof}
+Pullbacks of continuous psh functions are continuous psh
+(\Cref{prop:cld-psh-calculus}).  If all $u_i$ are smooth, the product is the
+current associated with the smooth form
+$f^*(\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_p)$; the form
+inside the pullback is a $(p,p)$-form on $X$, whose dimension is $<p$, hence
+is zero, and so therefore is its pullback.  The set
+of $p$-tuples of continuous psh functions for which the conclusion holds is
+a subsheaf of $(\operatorname{CPsh}_X)^p$ containing the smooth tuples and
+stable under local uniform limits, by
+\Cref{thm:cld-bt-continuity} below; applying
+\Cref{lem:ch16-cpsh-induction} in each variable in turn gives the general
+case.  This is \cite[Remark~8.8.9]{CLD25}.
+\end{proof}
+
+\subsection{Extension to differences of psh functions}
+\label{sec:ch16-dpsh-extension}
+
+The recursion produces positive currents from psh potentials.  For the
+comparison theorems of \Cref{chap:cld-metrized-bundles} one needs to insert
+$G$-smooth, in particular parlinear, potentials that are not psh.  The
+extension is by multilinearity, and it is unique.
+
+\begin{theorem}
+\label{thm:ch16-dpsh-product}
+Let $T$ be a positive closed current of bidegree $(r,r)$ and let $p$ satisfy
+$p+r\leq n$.  There is a unique $(p+1)$-linear map
+\[
+\begin{gathered}
+ C^0_X\times\bigl(\operatorname{CPsh}^\pm_X\bigr)^p
+ \longrightarrow
+ D^{p+r,p+r}(X),\\
+ (u_0,u_1,\ldots,u_p)\longmapsto
+   u_0\,\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_p\wedge T,
+\end{gathered}
+\]
+which agrees with the recursive product when $u_1,\ldots,u_p$ are psh and
+$u_0$ is continuous.  It is symmetric in $u_1,\ldots,u_p$, takes values in
+differences of positive currents, and satisfies
+\begin{equation}
+\label{eq:ch16-dpsh-outer}
+ \dprimeddprime\bigl(u_0\,\dprimeddprime u_1\wedge\cdots
+   \wedge\dprimeddprime u_p\wedge T\bigr)
+ =\dprimeddprime u_0\wedge\dprimeddprime u_1\wedge\cdots
+   \wedge\dprimeddprime u_p\wedge T
+\end{equation}
+when $u_0$ is dpsh.  If $T$ is Bedford--Taylor, the value depends only on
+$u_0$ and on the currents $\dprimeddprime u_1,\ldots,\dprimeddprime u_p$.
+Finally, if $h^1,\ldots,h^p$ are smooth with $\dprimeddprime h^i=0$, then
+\begin{equation}
+\label{eq:ch16-harmonic-quotient}
+ u_0\,\dprimeddprime(u_1+h^1)\wedge\cdots
+    \wedge\dprimeddprime(u_p+h^p)\wedge T
+ =u_0\,\dprimeddprime u_1\wedge\cdots
+    \wedge\dprimeddprime u_p\wedge T ,
+\end{equation}
+whether or not $T$ is Bedford--Taylor.
+\end{theorem}
+
+\begin{proof}
+\emph{Uniqueness} is forced: $\operatorname{CPsh}^\pm_X$ is generated as a
+sheaf of $\mathbf R$-vector spaces by $\operatorname{CPsh}_X$, so a
+multilinear map is determined by its values on psh arguments, and
+$C^0_X$ is spanned by its nonnegative sections.
+
+\emph{Existence} requires that the recursive product be additive in each psh
+argument, which is what makes the multilinear extension well defined.
+Additivity in $u_1$ is immediate from linearity of $u\mapsto uT$ and of
+$\dprimeddprime$.  Additivity in $u_i$ for $i\geq2$ follows from that case
+and the symmetry of \Cref{thm:bt-symmetry-locality}.  Compatibility of two
+presentations $u=u'-u''=w'-w''$ of the same dpsh function follows from
+additivity, since $u'+w''=w'+u''$ is an identity between psh functions.
+
+\emph{Positivity structure.}  Expanding each $u_i$ as a difference of psh
+functions writes the value as an alternating sum of $2^p$ positive currents,
+each multiplied by $u_0^+$ or $u_0^-$; hence it is a difference of two
+positive currents.
+
+\emph{Formula \eqref{eq:ch16-dpsh-outer}.}  Both sides are multilinear, so it
+suffices to treat $u_0$ psh, where it is the definition of the recursion
+with one more factor inserted at the outside, together with
+\Cref{thm:bt-symmetry-locality}.
+
+\emph{Formula \eqref{eq:ch16-harmonic-quotient}.}  By multilinearity it
+suffices to insert one $h=h^1$, that is, to prove
+$u_0\,\dprimeddprime h\wedge S=0$ for the positive closed current
+$S=\dprimeddprime u_2\wedge\cdots\wedge\dprimeddprime u_p\wedge T$.  Since
+$h$ is smooth, \Cref{lem:ch16-leibniz-closed} gives
+$\dprimeddprime(hS)=\dprimeddprime h\wedge S=0$, and multiplying by the
+continuous function $u_0$ preserves the vanishing.  Note that no
+Bedford--Taylor hypothesis was used: the point is that $h$ is \emph{smooth},
+not merely $\dprimeddprime$-harmonic.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-harmonic-quotient}
+Let $\operatorname{Harm}_X$ denote the sheaf of smooth functions $h$ with
+$\dprimeddprime h=0$.  The map of \Cref{thm:ch16-dpsh-product} factors
+through
+\[
+ C^0_X\times\bigl(\operatorname{CPsh}^\pm_X/\operatorname{Harm}_X\bigr)^p .
+\]
+\end{corollary}
+
+\begin{proof}
+This is \eqref{eq:ch16-harmonic-quotient}, which is
+\cite[\S8.8.5]{CLD25}.
+\end{proof}
+
+\begin{warning}{The quotient is by \emph{smooth} harmonic functions}
+\Cref{cor:ch16-harmonic-quotient} quotients by $\operatorname{Harm}_X$, the
+sheaf of \emph{smooth} functions killed by $\dprimeddprime$.  It does not
+quotient by the larger sheaf of continuous functions $h$ with
+$\dprimeddprime[h]=0$; for that, one needs $T$ to be a Bedford--Taylor
+current, or the approximation hypothesis of
+\Cref{thm:ch16-pluriharmonic-criterion}.  The whole of
+\Cref{sec:ch16-harmonic-ambiguity} is about the gap between these two
+quotients, and \Cref{ex:ch16-cross-fan} shows that the gap is not empty.
+\end{warning}
+
+\subsection{Local and relative Monge--Amp\`ere measures}
+\label{sec:ch16-ma-measures}
+
+\begin{definition}[Relative Monge--Amp\`ere operator]
+\label{def:ch16-relative-ma}
+If $T$ is positive closed and $u$ is continuous psh, define
+\[
+                         \MA_T(u)=(\dprimeddprime u)^q\wedge T
+\]
+whenever the top degree is reached.  For $T=\delta_X$ and $q=n$, write
+\[
+                         \MA(u)=(\dprimeddprime u)^n.
+\]
+This is a positive Radon measure.
+\end{definition}
+
+No global mass normalization is built into this local definition.  On a
+proper polarized variety the total mass is later fixed by an intersection
+number; on an arbitrary open analytic space it depends on support and
+boundary behavior.
+
+\begin{proposition}
+\label{prop:ch16-ma-elementary}
+Let $u,v$ be continuous psh on $X$ and $T$ positive closed of complementary
+bidegree.
+\begin{enumerate}
+\item\label{itm:ch16-ma:radon}
+ $\MA_T(u)$ is a positive Radon measure, and for $u$ dpsh it is a signed
+ Radon measure of locally finite total variation.
+\item\label{itm:ch16-ma:homog}
+ $\MA_T(\lambda u)=\lambda^q\MA_T(u)$ for $\lambda\geq0$, and
+ $\MA_T(u+c)=\MA_T(u)$ for a constant $c$.
+\item\label{itm:ch16-ma:local}
+ $\MA_T(u)$ depends only on the restriction of $u$ to a neighbourhood of any
+ given point, and $\MA_T(u)=\MA_T(v)$ on any open set where $u-v$ is smooth
+ and $\dprimeddprime$-harmonic.
+\item\label{itm:ch16-ma:mixed}
+ The polarization
+ $(u_1,\ldots,u_q)\mapsto\dprimeddprime u_1\wedge\cdots
+  \wedge\dprimeddprime u_q\wedge T$ is the unique symmetric multilinear form
+ on $\operatorname{CPsh}^\pm_X$ whose diagonal restriction is $\MA_T$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch16-ma:radon}: a positive current of bidimension $(0,0)$ is a
+positive Radon measure (\Cref{chap:cld-currents}); the dpsh case follows from
+\Cref{thm:ch16-dpsh-product}, which writes the value as a difference of two
+positive currents.  \cref{itm:ch16-ma:homog} is multilinearity together with
+$\dprimeddprime c=0$ for a constant.  \cref{itm:ch16-ma:local} is
+\Cref{thm:bt-symmetry-locality} and \eqref{eq:ch16-harmonic-quotient}.
+\cref{itm:ch16-ma:mixed} is the usual polarization identity, valid because
+the form is multilinear over $\mathbf R$ and the characteristic is zero.
+\end{proof}
+
+\subsection{Support on a skeleton}
+\label{sec:ch16-support-skeleton}
+
+The following statement is the reason why every Monge--Amp\`ere measure in
+this book is supported on a polyhedral set of the right dimension.
+
+\begin{proposition}
+\label{prop:ch16-skeletal-support}
+Let $u_1,\ldots,u_p$ be tropically $d$-convex on $X$ and let $\alpha$ be a
+smooth $(n-p,n-p)$-form.  Then
+\[
+ u_0\longmapsto
+ \bigl\langle
+   u_0\,\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_p,\alpha
+ \bigr\rangle
+\]
+is a signed Radon measure on $X$ whose support is locally contained in a
+skeletal subset.  More precisely, if $f:U\to E$ is a tropical chart with
+$u_j=f^*a_j$ for $d$-convex $a_j$ on a parlinear $P\supseteq f(U)$ and
+$\alpha=f^*\omega$, then the support of that measure meets $U$ inside
+$\Sigma_f^{(n)}$.
+\end{proposition}
+
+\begin{proof}
+The measure statement is
+\Cref{prop:ch16-ma-elementary}\,\cref{itm:ch16-ma:radon}.  For the support,
+assume first that the $a_j$ are smooth and convex.  Then the restriction of
+the measure to $U$ is the measure attached to the smooth positive form
+$f^*(\dprimeddprime a_1\wedge\cdots\wedge\dprimeddprime a_p\wedge\omega)$,
+whose support is contained in $\Sigma_f^{(n)}$ by the definition of the
+local skeleton (\Cref{def:trop-local-skeleton}) and the fact that an
+$f$-tropical form vanishes off $\Sigma_f^{(n)}$
+(\Cref{thm:trop-sigma-characterization}).  Containment of a support in a
+fixed closed set is preserved under weak limits, so
+\Cref{thm:cld-bt-continuity} extends the conclusion to all continuous convex
+$a_j$, using \Cref{cor:ch09-monotone-smooth-approximation} to approximate
+them uniformly on compact subsets by smooth convex functions.
+Multilinearity extends it to $d$-convex $a_j$.  This is
+\cite[Remark~8.8.6]{CLD25}.
+\end{proof}
+
+\begin{warning}{The $G$-form and the current do not agree}
+If $u_0,\ldots,u_p$ happen to be $G$-$C^2$, the expression
+$u_0\,\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_p$ can also be
+read as a $G$-form of type $(p,p)$.  The current defined by
+\Cref{thm:ch16-dpsh-product} is in general \emph{not} the current associated
+with that $G$-form: the difference is a boundary term supported on
+codimension-one faces, and it is exactly the term computed in
+\Cref{prop:ch16-skeletal-defect}.  The two objects coincide precisely in the
+harmonic situation of \Cref{thm:bt-harmonic-compatibility}.  This is
+\cite[Remark~8.8.7]{CLD25}, and it is the single most common source of
+error in hand computations.
+\end{warning}
+
+\section{Continuity: the exact theorem}
+\label{sec:ch16-continuity}
+
+\begin{theorem}
+\label{thm:cld-bt-continuity}
+Let $(T_a)$ be a weakly convergent net of positive closed currents with limit
+$T$.  For $i=0,\ldots,q$, let $(u_i^a)$ be a net of continuous functions
+converging locally uniformly to $u_i$, and assume that $u_i^a$ is psh for
+$i\geq1$.  Then
+\[
+ u_0^a\,\dprimeddprime u_1^a\wedge\cdots\wedge
+ \dprimeddprime u_q^a\wedge T_a
+ \longrightarrow
+ u_0\,\dprimeddprime u_1\wedge\cdots\wedge
+ \dprimeddprime u_q\wedge T.
+\]
+\end{theorem}
+\begin{proof}
+Induct on $q$.  The case $q=0$ is
+\Cref{lem:continuous-times-positive-current}.  For the induction step,
+the inner $(q-1)$-fold products converge and remain positive closed.  Multiply
+them by $u_1^a$, apply the lemma, differentiate twice, and then multiply by
+$u_0^a$.  Each operation is weakly continuous under the stated hypotheses.
+\end{proof}
+
+This is \cite[Proposition~8.7.2]{CLD25}.  It is worth writing the induction
+out once, because the order in which the four operations are applied is the
+whole content.
+
+\begin{proof}[Second proof]
+Put
+\[
+\begin{gathered}
+ S_a=\dprimeddprime\bigl(u_2^a\,\dprimeddprime(\cdots
+   \dprimeddprime(u_q^aT_a)\cdots)\bigr),\\
+ S=\dprimeddprime\bigl(u_2\,\dprimeddprime(\cdots
+   \dprimeddprime(u_qT)\cdots)\bigr).
+\end{gathered}
+\]
+By the inductive hypothesis applied with $q-1$ factors and with the constant
+outer function $u_0\equiv1$, the nets $S_a$ and $S$ are positive closed and
+$S_a\to S$ weakly.  Four steps now finish the induction:
+\begin{enumerate}
+\item $u_1^aS_a\to u_1S$, by
+ \Cref{lem:continuous-times-positive-current} applied to the positive net
+ $(S_a)$ and the uniformly convergent net $(u_1^a)$;
+\item $\dprimeddprime(u_1^aS_a)\to\dprimeddprime(u_1S)$, by weak continuity
+ of $\dprimeddprime$ (\Cref{prop:current-differential-calculus});
+\item each $\dprimeddprime(u_1^aS_a)$ is positive and closed by
+ \Cref{thm:one-bt-factor}, hence so is the limit
+ $\dprimeddprime(u_1S)$;
+\item $u_0^a\,\dprimeddprime(u_1^aS_a)\to u_0\,\dprimeddprime(u_1S)$, by a
+ second application of \Cref{lem:continuous-times-positive-current}, this
+ time to the positive net produced in step (3).
+\end{enumerate}
+Step (3) is not decoration: without it, step (4) would multiply a net of
+currents that is not known to be positive, and
+\Cref{lem:continuous-times-positive-current} would not apply.
+\end{proof}
+
+Two useful consequences are worth stating precisely.
+
+\begin{corollary}
+\label{cor:ch16-decreasing-nets}
+If nets $u_i^a\downarrow u_i$ share a directed set and every $u_i^a,u_i$ is
+continuous psh, then the mixed products converge locally weakly.
+\end{corollary}
+\begin{proof}
+On each compact set, the net form of Dini's theorem,
+\Cref{prop:dini-nets}, makes the decreasing convergence uniform; apply
+\Cref{thm:cld-bt-continuity}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-monotone-ma}
+Let $u_k$ be continuous psh with $u_k\downarrow u$ pointwise, $u$
+continuous.  Then $\MA_T(u_k)\to\MA_T(u)$ weakly, and for every open
+relatively compact $U$,
+\[
+ \MA_T(u)(U)\ \leq\ \liminf_k\MA_T(u_k)(U),
+ \qquad
+ \MA_T(u)(\overline U)\ \geq\ \limsup_k\MA_T(u_k)(\overline U).
+\]
+\end{corollary}
+
+\begin{proof}
+Weak convergence is \Cref{cor:ch16-decreasing-nets} with a sequence.  The
+two inequalities are the portmanteau inequalities for weakly convergent
+positive Radon measures, valid for open and for compact sets respectively.
+\end{proof}
+
+\begin{remark}[What is not claimed]
+\label{rem:ch16-not-claimed}
+If the decreasing limit is discontinuous or merely locally bounded, Dini's
+argument fails and \Cref{thm:cld-bt-continuity} does not apply.  Thus
+the classical complex Bedford--Taylor convergence theorem for arbitrary
+locally bounded psh functions is not being asserted in the CLD setting.
+Likewise, the full comparison principle
+\[
+ \int_{\{u<v\}}(\dprimeddprime v)^n
+ \leq\int_{\{u<v\}}(\dprimeddprime u)^n
+\]
+is not a formal consequence of the results quoted here and is not stated in
+this generality in the CLD source.  Global comparison principles used later
+come from the BFJ/BJ energy theories under their own hypotheses.
+\end{remark}
+
+There are nevertheless rigorous comparison statements already available:
+the product is unchanged when a potential is replaced by another with the
+same Hessian against a Bedford--Taylor current; it is compatible with proper
+pushforward; and in harmonic or toric charts it agrees with the corresponding
+real convex product.  These are the interfaces proved below.
+\Cref{sec:ch16-comparison} proves the comparison principle in the case where
+it is a theorem---on a tropical chart, where convexity is available---and
+records exactly what that case does and does not give.
+
+\subsection{A variant adapted to harmonic charts}
+\label{sec:ch16-harmonic-continuity}
+
+The next statement will be needed in \Cref{sec:ch16-harmonic-charts}, where
+the potentials are pullbacks of convex functions under a harmonic chart and
+are therefore \emph{not} psh in general: only their products with a positive
+closed current are positive.
+
+\begin{proposition}
+\label{prop:ch16-harmonic-continuity}
+Let $(T_a)$ be a weakly convergent net of positive closed currents with
+limit $T$, let $f:X\to\mathbf R^m$ be a harmonic chart, and let
+$v_i^a\to v_i$ locally uniformly with all $v_i^a,v_i$ continuous convex on
+$\mathbf R^m$.  Put $u_i^a=f^*v_i^a$ and $u_i=f^*v_i$.  Then
+\[
+ u_0^a\,\dprimeddprime u_1^a\wedge\cdots\wedge\dprimeddprime u_q^a\wedge T_a
+ \longrightarrow
+ u_0\,\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_q\wedge T .
+\]
+\end{proposition}
+
+\begin{proof}
+The proof of \Cref{thm:cld-bt-continuity} is repeated verbatim, with a
+single change at step (3): positivity and closedness of
+$\dprimeddprime(u_1^aS_a)$ are no longer supplied by
+\Cref{thm:one-bt-factor}, whose hypothesis is that $u_1^a$ be psh, but by
+\Cref{cor:ch16-harmonic-convex-positive}, whose hypothesis is that $u_1^a$
+be the pullback of a convex function by a harmonic chart.  All other steps
+use only continuity of the potentials and positivity of the currents.  This
+is \cite[Proposition~8.7.3]{CLD25}; the reader should note the forward
+reference, which is not circular, since
+\Cref{cor:ch16-harmonic-convex-positive} is proved from
+\Cref{thm:bt-harmonic-compatibility} and
+\Cref{thm:cld-bt-continuity}, neither of which uses the present statement.
+\end{proof}
+
+\section{Chern--Levine--Nirenberg estimates}
+\label{sec:ch16-cln}
+
+The Chern--Levine--Nirenberg inequality \cite{CLN69} bounds the local mass of
+a Monge--Amp\`ere current by a product of sup-norms of its potentials.  It is
+the only quantitative statement in the chapter, and the only one whose proof
+does not go through the sheaf-closure principle: the constant produced by the
+induction is uniform in the potentials, and it is that uniformity, not a
+closure property, that lets the estimate pass to limits.
+
+\subsection{The basic inequality}
+\label{sec:ch16-cln-basic}
+
+\begin{theorem}
+\label{thm:cld-cln}
+Let $T$ be positive closed, let $q\geq0$, and let $\omega$ be a smooth test
+form of the complementary bidegree.  For every compact neighborhood $K$ of
+$\Supp(\omega)$ there is a constant $C_{K,\omega}$ such that, for smooth
+functions $u_0,\ldots,u_q$ with $u_1,\ldots,u_q$ psh,
+\[
+ \left|\left\langle
+ u_0\,\dprimeddprime u_1\wedge\cdots\wedge
+ \dprimeddprime u_q\wedge T,\omega\right\rangle\right|
+ \leq C_{K,\omega}\prod_{i=0}^q\|u_i\|_K.
+\]
+The same estimate holds for continuous psh potentials in the CLD product.
+\end{theorem}
+\begin{proof}
+Proceed by induction on $q$.  Write $\omega=\alpha_0-\beta_0$ with
+$\alpha_0,\beta_0$ positive and compactly supported in the interior of $K$,
+and set $\omega_0=\alpha_0+\beta_0$.  Positivity gives
+\[
+ \left|\left\langle
+ u_0\,\dprimeddprime u_1\wedge\cdots\wedge
+ \dprimeddprime u_q\wedge T,\omega\right\rangle\right|
+ \leq \|u_0\|_K
+ \left\langle\dprimeddprime u_1\wedge\cdots\wedge
+ \dprimeddprime u_q\wedge T,\omega_0\right\rangle.
+\]
+Closedness and Green's formula identify the last pairing with
+\[
+ \left\langle
+ u_1\,\dprimeddprime u_2\wedge\cdots\wedge
+ \dprimeddprime u_q\wedge T,\dprimeddprime\omega_0\right\rangle.
+\]
+The induction hypothesis, applied to the fixed test form
+$\dprimeddprime\omega_0$, proves the estimate.  This is the induction in
+\cite[Proposition~8.4.1]{CLD25}.  For the final
+extension, the estimate defines a sheafwise condition stable at each uniform
+limit stage by \Cref{thm:cld-bt-continuity}; transfinite induction
+through the continuous psh hierarchy gives the stated version.  No direct
+smooth approximation of a higher-stage potential is used.
+\end{proof}
+
+The proof produces the constant, and it is worth extracting it, because in
+every later application the dependence on $T$ must be visible.
+
+\begin{proposition}
+\label{prop:ch16-cln-constant}
+Fix a compact $K$ and a smooth $\omega$ supported in the interior of $K$.
+Define smooth compactly supported forms $\Omega_0,\ldots,\Omega_q$ by
+\[
+ \Omega_0=\alpha_0+\beta_0,
+ \qquad
+ \Omega_{j+1}=(\dprimeddprime\Omega_j)^++(\dprimeddprime\Omega_j)^-,
+\]
+where $\gamma=\gamma^+-\gamma^-$ denotes a fixed decomposition of a smooth
+form into positive smooth forms supported in the interior of $K$, and
+$\omega=\alpha_0-\beta_0$ is such a decomposition of $\omega$.  Then one may
+take
+\[
+ C_{K,\omega}=\langle T,\Omega_q\rangle .
+\]
+In particular $C_{K,\omega}$ is linear in $T$, is finite because $T$ has
+order zero, and does not depend on $u_0,\ldots,u_q$.
+\end{proposition}
+
+\begin{proof}
+Induction on $q$.  For $q=0$ the estimate is
+\eqref{eq:ch16-positivity-sandwich} with $S'=T$ and $w=u_0$, whose right-hand
+side is $\|u_0\|_K\langle T,\Omega_0\rangle$.  Assume the statement for
+$q-1$ and all test forms.  With $R:=\dprimeddprime u_1\wedge\cdots
+\wedge\dprimeddprime u_q\wedge T$, positivity of $R$
+(\Cref{prop:ch16-iterate-basic}\,\cref{itm:ch16-iter:posclosed}) and
+\eqref{eq:ch16-positivity-sandwich} give
+\[
+ |\langle u_0R,\omega\rangle|\leq\|u_0\|_K\langle R,\Omega_0\rangle .
+\]
+Since $R=\dprimeddprime\bigl(u_1\,\dprimeddprime u_2\wedge\cdots
+\wedge\dprimeddprime u_q\wedge T\bigr)$ and $X$ is boundaryless, the pairing
+formula of \Cref{prop:current-differential-calculus} gives
+\[
+ \langle R,\Omega_0\rangle
+ =\bigl\langle u_1\,\dprimeddprime u_2\wedge\cdots
+   \wedge\dprimeddprime u_q\wedge T,\ \dprimeddprime\Omega_0\bigr\rangle .
+\]
+Apply the induction hypothesis with $q-1$ factors and the test form
+$\dprimeddprime\Omega_0$, whose associated first form is
+$(\dprimeddprime\Omega_0)^++(\dprimeddprime\Omega_0)^-=\Omega_1$.  The
+constant is $\langle T,\Omega_q\rangle$ and the sup-norm factors multiply.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-cln-oscillation}
+With the notation of \Cref{prop:ch16-cln-constant} and $q\geq1$,
+\[
+ \left|\left\langle
+   u_0\,\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_q\wedge T,
+   \omega\right\rangle\right|
+ \leq 2^{-q}\,\langle T,\Omega_q\rangle\,\|u_0\|_K
+   \prod_{i=1}^q\operatorname{osc}_K(u_i),
+\]
+where $\operatorname{osc}_K(u)=\sup_Ku-\inf_Ku$.  In particular the estimate
+is invariant under adding constants to the psh potentials, as it must be.
+\end{corollary}
+
+\begin{proof}
+For $i\geq1$ the current
+$\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_q\wedge T$ is unchanged
+if $u_i$ is replaced by $u_i+c_i$, by
+\eqref{eq:ch16-harmonic-quotient} applied to the smooth harmonic function
+$c_i$.  Choosing
+$c_i=-\tfrac12(\sup_Ku_i+\inf_Ku_i)$ makes
+$\|u_i+c_i\|_K=\tfrac12\operatorname{osc}_K(u_i)$, and
+\Cref{thm:cld-cln} applies to the shifted potentials.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-cln-mass}
+Let $K\Subset L$ be compact subsets of $X$ with $K$ contained in the
+interior of $L$, and fix $q$.  There is a constant $C=C(K,L,q,T)$ such that
+for all continuous psh $u_1,\ldots,u_q$,
+\[
+ \bigl\|\dprimeddprime u_1\wedge\cdots\wedge
+   \dprimeddprime u_q\wedge T\bigr\|_K
+ \leq C\prod_{i=1}^q\operatorname{osc}_L(u_i).
+\]
+Consequently, if $(u_i^{(k)})_k$ are continuous psh with uniformly bounded
+oscillations on $L$, the corresponding products form a family of positive
+currents with uniformly bounded mass on $K$, and every weak cluster point is
+positive.
+\end{corollary}
+
+\begin{proof}
+Choose a smooth cutoff $\chi$ with $0\leq\chi\leq1$, $\chi=1$ on $K$ and
+$\Supp\chi$ in the interior of $L$
+(\Cref{thm:cld-smooth-partition}), and a smooth strongly positive form
+$\Theta$ of complementary bidegree on a chart neighbourhood.  Apply
+\Cref{cor:ch16-cln-oscillation} with $u_0=1$ and $\omega=\chi\Theta$.  The
+mass of a positive current on $K$ is bounded by a fixed multiple of its
+pairing with $\chi\Theta$, by
+\Cref{prop:positive-current-compactness}.  The last assertion is
+\Cref{prop:positive-current-compactness} again.
+\end{proof}
+
+\subsection{A barrier, and weighted forms}
+\label{sec:ch16-barrier}
+
+The polar theorem of \Cref{sec:ch16-polar} requires a version of the
+estimate in which the outer function is an \emph{unbounded} psh function.
+The device is to replace the cutoff $\chi$ by a family of weights built from
+a psh exhaustion.  We first record the existence of such an exhaustion; this
+is the second of the three imported inputs of \Cref{sec:ch16-imported}.
+
+\begin{theorem}
+\label{thm:ch16-barrier}
+Let $X$ be a good, boundaryless $n$-dimensional $K$-analytic space.  Every
+point of $X$ has a basis of open neighbourhoods $U$ on which there is a
+smooth psh function $\rho:U\to\mathbf R$ with $\rho<0$ and
+$\{\rho\leq0\}$ compact.
+\end{theorem}
+
+\begin{proof}
+This is \cite[Proposition~16.9.1]{CLD25}.  We recall its shape, since the
+hypotheses matter.  Goodness supplies an affinoid neighbourhood $V$ of the
+given point $x$, and inside the relative interior of $V$ a rational
+subdomain $W\ni x$ cut out by $|f_i|\leq\lambda_i|g|$ for analytic
+$f_1,\ldots,f_m,g$ on $V$ with no common zero and $\lambda_i>0$.  On the
+locus $U\subseteq V$ where $g$ is invertible the functions
+$u_i=\log(|f_i/g|/\lambda_i)$ are psh and parlinear off their polar sets,
+and $u=\max_iu_i$ is psh with $\{u\leq t\}$ a compact rational domain for
+every $t\geq0$, because the $f_i$ and $g$ have no common zero.  Smoothing
+$u$ by the regularized maxima of \eqref{eq:ch16-softmax} produces smooth psh
+$u_\varepsilon$ with $u\leq u_\varepsilon\leq u+\varepsilon$; taking
+$\varepsilon=1$ and $\rho=u_1-u_1(x)-1$ gives a smooth psh function with
+$\rho(x)=-1<0$ and $\{\rho\leq0\}\subseteq\{u\leq u_1(x)+1\}$ compact.
+\end{proof}
+
+\begin{definition}[The weight forms]
+\label{def:ch16-weight-forms}
+Let $\rho$ be smooth psh on $X$ with $U=\{\rho<0\}$ relatively compact, put
+$\rho_-=\max\{-\rho,0\}$, and fix a real number $a>1$.  For
+$0\leq k\leq n$ define an $(n-k,n-k)$-form on $U$ by
+\begin{equation}
+\label{eq:ch16-beta-k}
+ \beta_k=\rho_-^{k+a}\,(\dprimeddprime\rho)^{n-k}
+   +(k+a)\,\rho_-^{k+a-1}\,
+     \dprime\rho\wedge\ddprime\rho\wedge(\dprimeddprime\rho)^{n-k-1},
+\end{equation}
+the second term being omitted when $k=n$.
+\end{definition}
+
+\begin{lemma}
+\label{lem:ch16-beta-properties}
+With the notation of \Cref{def:ch16-weight-forms}:
+\begin{enumerate}
+\item\label{itm:ch16-beta:reg}
+ $\beta_k$ has coefficients of class $C^{\lfloor a\rfloor-1}$, is positive,
+ and has compact support contained in $\overline U$;
+\item\label{itm:ch16-beta:dd}
+ $\ddprime\beta_k
+   =-2(k+a)\rho_-^{k+a-1}\ddprime\rho\wedge(\dprimeddprime\rho)^{n-k}$ and
+ \[
+ \begin{aligned}
+  \dprimeddprime\beta_k
+  =2(k+a)\Bigl[&-\rho_-^{k+a-1}(\dprimeddprime\rho)^{n-k+1}\\
+   &+(k+a-1)\rho_-^{k+a-2}
+     \dprime\rho\wedge\ddprime\rho\wedge(\dprimeddprime\rho)^{n-k}\Bigr];
+ \end{aligned}
+ \]
+\item\label{itm:ch16-beta:sandwich}
+ $-2(k+a)\beta_{k-1}\leq\dprimeddprime\beta_k\leq2(k+a)\beta_{k-1}$ for
+ $1\leq k\leq n$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\cref{itm:ch16-beta:reg}  For $a>1$ the function
+$\theta_a(t)=\max\{-t,0\}^a$ is of class $C^{\lfloor a\rfloor}$ with
+$\theta_a'=-a\theta_{a-1}$, whence
+$\dprime\rho_-^{\,b}=-b\rho_-^{\,b-1}\dprime\rho$ and similarly for
+$\ddprime$, valid for $b>1$; since $k+a-1>0$, both terms of
+\eqref{eq:ch16-beta-k} are of class $C^{\lfloor a\rfloor-1}$ and vanish
+where $\rho\geq0$.  Positivity: $\dprimeddprime\rho$ is positive because
+$\rho$ is smooth psh, $\dprime\rho\wedge\ddprime\rho$ is positive by
+\Cref{prop:ch09-positivity-dictionary}, and products of positive forms with
+nonnegative coefficients are positive
+(\Cref{prop:ch09-positivity-products}).
+
+\cref{itm:ch16-beta:dd}  Differentiate \eqref{eq:ch16-beta-k}.  In the first
+term, $\ddprime\rho_-^{k+a}=-(k+a)\rho_-^{k+a-1}\ddprime\rho$.  In the
+second, the coefficient contributes
+$-(k+a)(k+a-1)\rho_-^{k+a-2}\ddprime\rho\wedge\dprime\rho\wedge
+\ddprime\rho\wedge(\cdots)$, which vanishes because
+$\ddprime\rho\wedge\ddprime\rho=0$; and
+$\ddprime(\dprime\rho\wedge\ddprime\rho)
+ =-\dprimeddprime\rho\wedge\ddprime\rho$ by $\ddprime\dprime=-\dprimeddprime$
+and $(\ddprime)^2=0$.  Adding the two contributions gives the stated
+$\ddprime\beta_k$.  Applying $\dprime$ once more and using
+$\dprime\rho_-^{k+a-1}=-(k+a-1)\rho_-^{k+a-2}\dprime\rho$ gives the formula
+for $\dprimeddprime\beta_k$.
+
+\cref{itm:ch16-beta:sandwich}  Write
+$\beta_{k-1}=\rho_-^{k-1+a}(\dprimeddprime\rho)^{n-k+1}
+ +(k-1+a)\rho_-^{k+a-2}\dprime\rho\wedge\ddprime\rho\wedge
+  (\dprimeddprime\rho)^{n-k}$; both summands are positive.  The upper bound
+follows by discarding the negative first term of $\dprimeddprime\beta_k$ and
+comparing the second with $2(k+a)$ times the second summand of
+$\beta_{k-1}$, the coefficients being $(k+a-1)$ and $(k-1+a)$, which are
+equal.  The lower bound follows by discarding the positive second term and
+comparing the first with $-2(k+a)$ times the first summand of
+$\beta_{k-1}$.  This is the computation of \cite[\S8.4.2]{CLD25}.
+\end{proof}
+
+\subsection{The weighted inequality with its constant}
+\label{sec:ch16-cln-weighted}
+
+\begin{theorem}
+\label{thm:ch16-weighted-cln}
+Assume $a\geq3$ and put
+\begin{equation}
+\label{eq:ch16-cln-constant}
+ C(k,a)=(4\rme)^k\,a^{-1}\,(k+a)\,(2+a)(3+a)\cdots(k+1+a).
+\end{equation}
+Let $V$ be a smooth negative psh function on $U=\{\rho<0\}$ and let
+$u_1,\ldots,u_k$ be smooth psh functions on $X$.  Then
+\begin{equation}
+\label{eq:ch16-weighted-cln-main}
+ \int_U\beta_k\wedge(-V)\,\dprimeddprime u_1\wedge\cdots\wedge
+   \dprimeddprime u_k
+ \;\leq\;
+ C(k,a)\,\|u_1\|_U\cdots\|u_k\|_U\int_U(-V)\beta_0 .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Write $J_k$ for the left-hand side and
+$\psi_k=\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_k$, so that
+$J_k=\int_U(-V)\beta_k\wedge\psi_k$ and $J_0=\int_U(-V)\beta_0$.  We prove
+\begin{equation}
+\label{eq:ch16-cln-recursion}
+ J_k\ \leq\ 4\rme\,\frac{(k+a)(k+a+1)}{k+a-1}\,\|u_k\|_U\,J_{k-1},
+ \qquad k\geq1,
+\end{equation}
+from which \eqref{eq:ch16-weighted-cln-main} follows by iteration: the
+telescoping product
+$\prod_{j=1}^k\frac{(j+a)(j+a+1)}{j+a-1}$ equals
+$a^{-1}(k+a)(2+a)(3+a)\cdots(k+1+a)$, because
+$\prod_{j=1}^k(j+a)\big/\prod_{j=1}^k(j+a-1)=(k+a)/a$ and
+$\prod_{j=1}^k(j+a+1)=(2+a)\cdots(k+1+a)$; multiplying by $(4\rme)^k$ gives
+\eqref{eq:ch16-cln-constant}.  For $k=0$ the inequality
+\eqref{eq:ch16-weighted-cln-main} is an equality, and $C(0,a)=1$.
+
+\emph{Step 1: two integrations by parts.}  Since $\beta_k$ vanishes off $U$
+and $X$ is boundaryless, Green's formula
+(\Cref{cor:analytic-stokes-green}) gives
+\[
+ J_k=\int_X(-V\beta_k)\wedge\dprimeddprime(u_k\psi_{k-1})
+    =\int_X\dprimeddprime(-V\beta_k)\wedge u_k\psi_{k-1}.
+\]
+Expanding $\dprimeddprime(V\beta_k)$ by the Leibniz rule and using symmetry
+of $V$, $\beta_k$ and $\psi_{k-1}$ to cancel the two mixed first-order terms
+against each other, then integrating by parts once more in the surviving
+mixed term $2\,\dprime V\wedge\ddprime\beta_k$, one obtains
+\begin{equation}
+\label{eq:ch16-cln-after-parts}
+ J_k=\int_Uu_k\bigl(V\dprimeddprime\beta_k
+     -\dprimeddprime V\wedge\beta_k\bigr)\wedge\psi_{k-1}
+   +2\int_UV\,\dprime u_k\wedge\ddprime\beta_k\wedge\psi_{k-1}.
+\end{equation}
+
+\emph{Step 2: the Cauchy--Schwarz trick.}  For $C^1$ functions $u,v$ and
+$h>0$ the positivity of $(\dprime u-h\dprime v)\wedge(\ddprime u-h\ddprime
+v)$ gives
+\begin{equation}
+\label{eq:ch16-cln-cauchy}
+ \dprime u\wedge\ddprime v+\dprime v\wedge\ddprime u
+ \leq h^{-1}\dprime u\wedge\ddprime u+h\,\dprime v\wedge\ddprime v .
+\end{equation}
+Assume for the moment that $u_k>0$.  Using
+\Cref{lem:ch16-beta-properties}\,\cref{itm:ch16-beta:dd} to expand
+$\ddprime\beta_k$, applying \eqref{eq:ch16-cln-cauchy} with $h=u_k$ and
+$v=\rho$, and using $\dprimeddprime V\geq0$, the two displayed terms of
+\eqref{eq:ch16-cln-after-parts} are dominated by
+\[
+\begin{aligned}
+ &\int_Uu_k(-V)\Bigl[-\dprimeddprime\beta_k
+  +4(k+a)^2\rho_-^{k+a-2}\dprime\rho\wedge\ddprime\rho\wedge
+   (\dprimeddprime\rho)^{n-k}\Bigr]\wedge\psi_{k-1}\\
+ &\qquad+\int_U(-V)\beta_k\wedge\psi_{k-1}\wedge u_k^{-1}
+   \dprime u_k\wedge\ddprime u_k .
+\end{aligned}
+\]
+By \Cref{lem:ch16-beta-properties}\,\cref{itm:ch16-beta:dd} the bracket
+equals
+\[
+ 2(k+a)\rho_-^{k+a-1}(\dprimeddprime\rho)^{n-k+1}
+ +(k+a+1)\,2(k+a)\,\rho_-^{k+a-2}
+   \dprime\rho\wedge\ddprime\rho\wedge(\dprimeddprime\rho)^{n-k},
+\]
+which is at most $c\,\beta_{k-1}$ with
+$c=2(k+a)(k+a+1)/(k+a-1)$.  Hence
+\begin{equation}
+\label{eq:ch16-cln-positive-case}
+ J_k\ \leq\ c\,\|u_k\|_U\,J_{k-1}
+   +\int_U(-V)\beta_k\wedge\psi_{k-1}\wedge
+     u_k^{-1}\dprime u_k\wedge\ddprime u_k ,
+\end{equation}
+valid whenever $u_k$ is strictly positive.
+
+\emph{Step 3: removing the last term by an exponential substitution.}  Let
+$M=\|u_k\|_U$, let $B>0$, and apply \eqref{eq:ch16-cln-positive-case} to
+$v_k=\exp(Bu_k)$, which is smooth, psh by
+\Cref{prop:ch16-composition}, and strictly positive.  From
+$\dprime v_k=Bv_k\dprime u_k$ one gets
+\[
+ \dprimeddprime v_k
+ =v_k^{-1}\dprime v_k\wedge\ddprime v_k+Bv_k\,\dprimeddprime u_k
+ \ \geq\ B\rme^{-BM}\dprimeddprime u_k
+   +v_k^{-1}\dprime v_k\wedge\ddprime v_k ,
+\]
+using $u_k\geq-M$ and positivity of $\dprimeddprime u_k$.  Therefore
+\[
+\begin{aligned}
+ B\rme^{-BM}J_k
+ &\leq\int_U\beta_k\wedge(-V)\psi_{k-1}\wedge\dprimeddprime v_k
+   -\int_U\beta_k\wedge(-V)\psi_{k-1}\wedge
+      v_k^{-1}\dprime v_k\wedge\ddprime v_k\\
+ &\leq c\,\|v_k\|_UJ_{k-1}\ \leq\ c\,\rme^{BM}J_{k-1},
+\end{aligned}
+\]
+the middle inequality being \eqref{eq:ch16-cln-positive-case} applied to
+$v_k$.  Thus $J_k\leq cB^{-1}\rme^{2BM}J_{k-1}$, and the choice
+$B=1/(2M)$ gives $J_k\leq2\rme\,c\,M\,J_{k-1}$, which is
+\eqref{eq:ch16-cln-recursion}.  This is
+\cite[Proposition~8.4.3]{CLD25}.
+\end{proof}
+
+\begin{remark}[Size of the constant]
+\label{rem:ch16-cln-constant-size}
+For the standard choice $a=3$ used in \Cref{sec:ch16-polar} one has
+\[
+ C(k,3)=\frac{(4\rme)^k}{3}\,(k+3)\cdot5\cdot6\cdots(k+4)
+ =\frac{(4\rme)^k(k+3)(k+4)!}{72}.
+\]
+Thus $C(1,3)=4\rme\cdot4\cdot120/72=\tfrac{80}{3}\rme\approx72.5$.  The
+factorial growth in $k$ is an artifact of the exponential substitution in
+Step 3 and is irrelevant for the applications, in which $k\leq n$ is fixed
+and only finiteness matters.  What \emph{is} essential is that $C(k,a)$
+depends on neither $V$ nor the $u_i$; this is what allows both limits in
+\Cref{thm:cld-polar-negligibility} to be taken.
+\end{remark}
+
+The CLN bound is the local mass estimate behind weak compactness and polar
+negligibility.  It does not control energy tails of unbounded potentials;
+that belongs to the global finite-energy theory.
+
+\section{Comparison principles: what holds, and where}
+\label{sec:ch16-comparison}
+
+\Cref{rem:ch16-not-claimed} recorded that the comparison principle is not a
+formal consequence of the CLD construction.  That is a statement about
+\emph{generality}, not a statement that no comparison principle is
+available.  On a tropical chart, where psh means convex
+(\Cref{prop:cld-psh-positive-current} and
+\Cref{thm:ch09-distributional-convexity}), the comparison principle is a
+theorem of convex analysis with a short proof, and it is in that form that
+the book uses it: in \Cref{chap:cld-examples} for toric metrics, and in
+\Cref{part:bfj} as the model for the model-metric maximum principle
+\eqref{eq:model-maximum-principle}.  This section proves the chart case,
+the metric-graph case, and one genuinely global statement---the domination
+of masses---that does hold in the CLD generality.
+
+\subsection{The subgradient lemma}
+\label{sec:ch16-subgradient}
+
+Throughout this subsection $\Omega\subseteq\mathbf R^n$ is a bounded open
+set.  For $u$ convex on $\Omega$ and $E\subseteq\Omega$ write
+$\partial u(E)=\bigcup_{x\in E}\partial u(x)$ for the union of the
+subdifferentials, and recall from \Cref{app:convexity} that
+$E\mapsto|\partial u(E)|$, the Lebesgue measure of the subgradient image, is
+the Alexandrov Monge--Amp\`ere measure $\MA_{\mathbf R}(u)$, and that
+\begin{equation}
+\label{eq:ch16-alexandrov-normalization}
+ (\dprimeddprime u)^n=n!\,\MA_{\mathbf R}(u)
+\end{equation}
+by \Cref{prop:ch09-ma-coordinates} and
+\Cref{thm:appD-alexandrov-measure}.
+
+\begin{lemma}
+\label{lem:ch16-subgradient-inclusion}
+Let $u,v:\overline\Omega\to\mathbf R$ be continuous, with $u\leq v$ on
+$\Omega$ and $u=v$ on $\partial\Omega$.  Then
+$\partial v(\Omega)\subseteq\partial u(\Omega)$.
+\end{lemma}
+
+\begin{proof}
+Let $p\in\partial v(x_0)$ with $x_0\in\Omega$, so that
+$v(x)\geq\ell(x):=v(x_0)+\langle p,x-x_0\rangle$ for all
+$x\in\overline\Omega$.  The continuous function $\ell-u$ attains its maximum
+$m$ on the compact set $\overline\Omega$, say at $x_1$.  Then
+$\ell-m\leq u$ on $\overline\Omega$ with equality at $x_1$; hence
+$p\in\partial u(x_1)$ provided $x_1\in\Omega$.
+
+Suppose instead that $x_1\in\partial\Omega$.  There
+$u(x_1)=v(x_1)\geq\ell(x_1)$, so $m=\ell(x_1)-u(x_1)\leq0$.  On the other
+hand $m\geq\ell(x_0)-u(x_0)=v(x_0)-u(x_0)\geq0$.  Hence $m=0$ and the
+maximum is also attained at $x_0\in\Omega$, so $p\in\partial u(x_0)$.  In
+both cases $p\in\partial u(\Omega)$.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch16-comparison-chart}
+Let $u,v$ be convex and continuous on $\overline\Omega$ with $u\geq v$ on
+$\partial\Omega$, and put $G=\{x\in\Omega:u(x)<v(x)\}$.  Then
+\[
+ \int_G(\dprimeddprime v)^n\ \leq\ \int_G(\dprimeddprime u)^n .
+\]
+\end{theorem}
+
+\begin{proof}
+If $G=\emptyset$ there is nothing to prove.  Otherwise $G$ is open and
+bounded, and $\partial G\subseteq\{u=v\}$: a boundary point of $G$ lying in
+$\Omega$ satisfies $u=v$ by continuity, and a boundary point lying on
+$\partial\Omega$ satisfies $u\geq v$ by hypothesis and $u\leq v$ as a limit
+from $G$.  Apply \Cref{lem:ch16-subgradient-inclusion} on $G$ to get
+$\partial v(G)\subseteq\partial u(G)$, hence
+$\MA_{\mathbf R}(v)(G)\leq\MA_{\mathbf R}(u)(G)$; multiply by $n!$ and use
+\eqref{eq:ch16-alexandrov-normalization}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-domination-chart}
+Let $u,v$ be convex and continuous on $\overline\Omega$ with $u=v$ on
+$\partial\Omega$.  If $(\dprimeddprime u)^n\geq(\dprimeddprime v)^n$ as
+measures on $\Omega$, then $u\leq v$ on $\Omega$.
+\end{corollary}
+
+\begin{proof}
+Suppose not, and let $d=\operatorname{diam}\Omega$.  Choose $x_0\in\Omega$
+with $u(x_0)>v(x_0)$ and $\varepsilon>0$ so small that
+$\varepsilon d^2<u(x_0)-v(x_0)$.  Put
+$u_\varepsilon(x)=u(x)+\varepsilon(|x-x_0|^2-d^2)$, a convex continuous
+function on $\overline\Omega$ with $u_\varepsilon\leq u$ and
+$u_\varepsilon(x_0)>v(x_0)$.  On $\partial\Omega$,
+$v=u\geq u_\varepsilon$, so
+$G=\{x\in\Omega:v(x)<u_\varepsilon(x)\}$ is a nonempty open set with
+$u_\varepsilon=v$ on $\partial G$, and $G$ has positive Lebesgue measure.
+\Cref{lem:ch16-subgradient-inclusion}, applied on $G$ with the smaller
+function $v$ and the larger $u_\varepsilon$, gives
+$\MA_{\mathbf R}(u_\varepsilon)(G)\leq\MA_{\mathbf R}(v)(G)$.  On the other
+hand the Minkowski determinant inequality
+$\det(A+B)\geq\det A+\det B$ for positive semidefinite $A,B$, applied to the
+Hessians and extended to general convex functions by
+\Cref{cor:ch09-monotone-smooth-approximation} and
+\Cref{cor:ch16-monotone-ma}, gives
+\[
+ \MA_{\mathbf R}(u_\varepsilon)\ \geq\ \MA_{\mathbf R}(u)
+   +(2\varepsilon)^n\lambda
+ \ \geq\ \MA_{\mathbf R}(v)+(2\varepsilon)^n\lambda ,
+\]
+$\lambda$ denoting Lebesgue measure.  Evaluating on $G$ yields
+$\MA_{\mathbf R}(v)(G)\geq\MA_{\mathbf R}(v)(G)+(2\varepsilon)^n|G|$, a
+contradiction.
+\end{proof}
+
+\begin{warning}{Two things this does not prove}
+\Cref{thm:ch16-comparison-chart} is a statement about a bounded open subset
+of $\mathbf R^n$ with a genuine boundary, and it is proved by convex
+analysis, not by the Bedford--Taylor recursion.  Two extensions are
+\emph{not} claimed.  First, it does not follow that the same inequality
+holds on an arbitrary boundaryless tropical or analytic $X$ for arbitrary
+continuous psh $u,v$: the hypothesis $u\geq v$ on $\partial\Omega$ has no
+substitute, and a chartwise argument would have to control the transition
+between charts, where the analogue of convexity is not available.  Second,
+it does not extend to unbounded potentials without an integrability
+hypothesis; the corresponding statements in the global theories carry their
+own finite-energy assumptions and are proved in
+\Cref{chap:bfj-ma,chap:bj-finite-energy}.
+\end{warning}
+
+\subsection{Comparison on a metric graph}
+\label{sec:ch16-comparison-graph}
+
+In dimension one the comparison principle is the maximum principle, and it
+holds on any compact metric graph with boundary.
+
+\begin{proposition}
+\label{prop:ch16-comparison-graph}
+Let $\Gamma$ be a compact metric graph, let $\partial\subseteq\Gamma$ be a
+nonempty finite set meeting every connected component, and let $f,g$ be
+continuous, piecewise affine on $\Gamma$.  If $\Delta_\Gamma f\geq
+\Delta_\Gamma g$ on $\Gamma\setminus\partial$ and $f\leq g$ on $\partial$,
+then $f\leq g$ on $\Gamma$.
+\end{proposition}
+
+\begin{proof}
+Put $h=f-g$, a continuous piecewise affine function with
+$\Delta_\Gamma h\geq0$ on $\Gamma\setminus\partial$ and $h\leq0$ on
+$\partial$.  Suppose $m:=\max_\Gamma h>0$, and let $F=\{h=m\}$, a nonempty
+closed set disjoint from $\partial$.  Choose a connected component $C$ of
+$\Gamma$ meeting $F$.  Since $\partial\cap C\neq\emptyset$ and $h\leq0$
+there, $F\cap C$ is a nonempty proper closed subset of the connected space
+$C$, so it has a topological boundary point $p$ in $C$.  Every outgoing
+slope of $h$ at $p$ is $\leq0$, because $h(p)=m$ is the global maximum.
+Moreover some tangent direction $\nu$ at $p$ contains points not in $F$
+arbitrarily close to $p$; since $h$ is affine on the germ of that direction,
+$h(p+t\nu)=m+t\,d_\nu h(p)$ for small $t$, and the existence of points with
+$h<m$ forces $d_\nu h(p)<0$.  Hence
+$\bigl(\Delta_\Gamma h\bigr)(\{p\})<0$ by \eqref{eq:graph-laplacian},
+contradicting $\Delta_\Gamma h\geq0$ off $\partial$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-graph-mass-comparison}
+With $\Gamma$, $\partial$, $f$, $g$ as above, if $f=g$ on $\partial$ and
+$f\leq g$ on $\Gamma$, then
+$\Delta_\Gamma g(\Gamma\setminus\partial)
+ \leq\Delta_\Gamma f(\Gamma\setminus\partial)$.
+\end{corollary}
+
+\begin{proof}
+Total mass vanishes on a compact graph
+(\Cref{thm:ch11-graph-green}\,\cref{itm:ch11-graph:mass}), so the assertion
+is equivalent to
+$\Delta_\Gamma f(\partial)\leq\Delta_\Gamma g(\partial)$, that is, to
+$\Delta_\Gamma(f-g)(\partial)\leq0$.  Since $h=f-g\leq0$ with $h=0$ on
+$\partial$, every outgoing slope of $h$ at a point of $\partial$ is
+$\leq0$, so the sum of outgoing slopes at each such point is $\leq0$.
+\end{proof}
+
+\subsection{What does hold in full CLD generality}
+\label{sec:ch16-comparison-general}
+
+Three statements survive without any convexity or boundary hypothesis.  All
+three are consequences of results already proved, and they are exactly what
+is used in \Cref{chap:cld-metrized-bundles,chap:cld-examples}.
+
+\begin{proposition}
+\label{prop:ch16-mass-monotone}
+Let $T$ be positive closed of bidegree $(r,r)$, let $q+r\leq n$, and fix a
+smooth test form $\omega$ of complementary bidegree with support in the
+interior of a compact $K$.  There is a constant $C=C(K,\omega,q,T)$ such
+that for all continuous psh $u,v$ on $X$,
+\[
+ \Bigl|\bigl\langle
+   (\dprimeddprime u)^q\wedge T-(\dprimeddprime v)^q\wedge T,\ \omega
+ \bigr\rangle\Bigr|
+ \ \leq\ C\,\|u-v\|_{C^0(K)}\,
+   \max\bigl\{\operatorname{osc}_K(u),\operatorname{osc}_K(v)\bigr\}^{q-1}.
+\]
+\end{proposition}
+
+\begin{proof}
+Write the difference as the telescoping sum
+\[
+ \sum_{j=0}^{q-1}(\dprimeddprime u)^j\wedge\dprimeddprime(u-v)\wedge
+   (\dprimeddprime v)^{q-1-j}\wedge T ,
+\]
+each summand being a dpsh product in the sense of
+\Cref{thm:ch16-dpsh-product}.  Since $X$ is boundaryless and every factor
+other than $\dprimeddprime(u-v)$ is closed, the pairing formula of
+\Cref{prop:current-differential-calculus} moves that one differential onto
+the test form:
+\[
+ \begin{aligned}
+ \bigl\langle(\dprimeddprime u)^j\wedge\dprimeddprime(u-v)\wedge
+   (\dprimeddprime v)^{q-1-j}\wedge T,\ \omega\bigr\rangle
+ &=\bigl\langle(u-v)\,(\dprimeddprime u)^j\wedge\\
+ &\qquad
+   (\dprimeddprime v)^{q-1-j}\wedge T,\ \dprimeddprime\omega\bigr\rangle .
+ \end{aligned}
+\]
+Now apply \Cref{cor:ch16-cln-oscillation} with outer function $u-v$, the
+fixed test form $\dprimeddprime\omega$, and the $q-1$ psh potentials
+remaining; summing the $q$ terms gives the estimate.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch16-bt-comparison}
+Let $T$ be positive closed on an open $U$, and let $u,v$ be continuous psh
+on $U$ such that $h=v-u$ is locally a uniform limit of smooth functions
+$h_j$ with $\dprimeddprime h_j\geq0$.  Then
+$\dprimeddprime(uT)\leq\dprimeddprime(vT)$ on $U$.  In particular
+$\dprimeddprime[u]\leq\dprimeddprime[v]$, obtained by taking $T=\delta_U$.
+\end{proposition}
+
+\begin{proof}
+By hypothesis $h_j\to h$ locally uniformly, so $h_jT\to hT$ by
+\Cref{lem:continuous-times-positive-current}; and
+$\dprimeddprime(h_jT)=\dprimeddprime h_j\wedge T\geq0$ by
+\Cref{cor:ch16-smooth-case} together with
+\Cref{prop:current-positivity-calculus}.  Weak continuity of the
+differential and weak closedness of the positive cone give
+$\dprimeddprime(hT)\geq0$.  Linearity of $w\mapsto wT$ gives
+$\dprimeddprime(vT)-\dprimeddprime(uT)=\dprimeddprime(hT)\geq0$.  No
+Bedford--Taylor hypothesis is needed.
+\end{proof}
+
+\begin{warning}{The approximation hypothesis is the whole content}
+\Cref{prop:ch16-bt-comparison} converts an approximation hypothesis on
+$v-u$ into a comparison of products.  The converse implication is not
+available: knowing only $\dprimeddprime[u]\leq\dprimeddprime[v]$ tells one
+that the continuous function $h=v-u$ has $\dprimeddprime[h]\geq0$ as a
+current, and it is not known that such an $h$ is CLD-psh, still less that it
+admits smooth psh approximants.  That gap is the ``classically psh implies
+CLD-psh'' question recorded in \Cref{chap:cld-poincare-lelong}.  The same
+caveat governs \Cref{thm:ch16-pluriharmonic-criterion} below, with the
+inequality replaced by an equality.
+\end{warning}
+
+\section{Worked computations}
+\label{sec:ch16-worked}
+
+Every construction of this chapter is now tested on an explicit object.  The
+computations are carried to numbers, and each number is checked against an
+independent normalization---an intersection number, a lattice volume, or a
+mass identity.
+
+\subsection{A metric graph}
+\label{sec:ch16-worked-graph}
+
+\begin{example}[A metric graph]
+\label{ex:ch16-metric-graph}
+For $n=1$ and a continuous piecewise affine subharmonic function $u$ on a
+metric graph,
+\[
+                   \MA(u)=\dprimeddprime u
+                    =\sum_x\left(\sum_{\nu\text{ at }x}
+                         \partial_\nu u(x)\right)\delta_x.
+\]
+Positivity is precisely nonnegativity of the outgoing-slope sums.  If $h$ is
+harmonic, adding $h$ does not change this measure.  On a compact connected
+graph, total mass is zero for a globally defined function, illustrating why
+local positive curvature and global boundary conditions must be kept
+separate.
+\end{example}
+
+\begin{example}[The tripod, with numbers]
+\label{ex:ch16-tripod-numbers}
+Let $\Gamma$ be the tripod of \Cref{ex:ch11-graph-tripod-check}: a central
+vertex $p$ joined by three edges $e_1,e_2,e_3$ of length $1$ to leaves
+$q_1,q_2,q_3$.  Let $u$ be the piecewise affine
+function with $u(p)=0$ and $u(q_i)=a_i$, affine on each edge.  The outgoing
+slope of $u$ at $p$ along $e_i$ is $a_i$, and at $q_i$ along $e_i$ it is
+$-a_i$.  Hence, by \eqref{eq:graph-laplacian},
+\[
+ \MA(u)=\dprimeddprime u
+ =\Bigl(\sum_ia_i\Bigr)\delta_p-\sum_ia_i\delta_{q_i}.
+\]
+For $(a_1,a_2,a_3)=(1,2,3)$ this is
+$6\delta_p-\delta_{q_1}-2\delta_{q_2}-3\delta_{q_3}$, of total mass $0$, in
+accordance with
+\Cref{thm:ch11-graph-green}\,\cref{itm:ch11-graph:mass}.  The function $u$ is
+psh on the open tripod $\Gamma\setminus\{q_1,q_2,q_3\}$, since the only
+interior slope sum is $6\geq0$; it is not psh at the leaves, and indeed the
+Laplacian is negative there.
+
+Now take $T=\delta_\Gamma$ and compute $\MA_T$ against a second potential.
+Since $\dim\Gamma=1$, the mixed product has only one factor and
+$\MA_{\delta_\Gamma}(u)=\dprimeddprime u$; the recursion terminates
+immediately.  The relative operator becomes interesting only after
+multiplying by a positive closed current of bidegree $(0,0)$, that is, by a
+locally constant nonnegative function.  If $c$ is such a function, then
+$\dprimeddprime(u\,c\delta_\Gamma)=c\,\dprimeddprime u$ on each component,
+which is the trivial case of \Cref{cor:ch16-bt-times-function}.  The point
+of the example is negative: in dimension one the Bedford--Taylor recursion
+has no content beyond the Laplacian, and every phenomenon of this chapter
+that is genuinely nonlinear must be sought in dimension at least two.
+\end{example}
+
+\subsection{A two-dimensional fan}
+\label{sec:ch16-worked-fan}
+
+\begin{example}[The fan of $\mathbf P^2$]
+\label{ex:ch16-fan-p2}
+Regard $\mathbf R^2$ with the lattice $\mathbf Z^2$ as a tropical space of
+level $2$, and set
+\[
+ g(x,y)=\max\{0,x,y\}.
+\]
+By \Cref{cor:ch16-max-psh}, $g$ is continuous psh, and it lies in
+$\operatorname{CPsh}_{\mathbf R^2,1}$ by
+\Cref{rem:ch16-collapse-euclidean}.  Its subdifferential at the origin is
+the convex hull of the gradients of the three affine pieces,
+\[
+ \partial g(0)=\operatorname{conv}\{(0,0),(1,0),(0,1)\},
+\]
+of lattice area $\tfrac12$, and $\partial g(x)$ has measure zero for
+$x\neq0$ because $g$ is affine near such an $x$.  Hence
+$\MA_{\mathbf R}(g)=\tfrac12\delta_0$ and, by
+\eqref{eq:ch16-alexandrov-normalization},
+\begin{equation}
+\label{eq:ch16-fan-p2-mass}
+ \MA(g)=(\dprimeddprime g)^2=2!\cdot\tfrac12\,\delta_0=\delta_0,
+ \qquad\text{total mass }1.
+\end{equation}
+The check: $g$ is the support function of the polytope
+$\operatorname{conv}\{(0,0),(1,0),(0,1)\}$ of $\cO(1)$ on $\mathbf P^2$, and
+$(\cO(1)^2)=1$; \eqref{eq:ch16-fan-p2-mass} agrees with
+\Cref{thm:toric-ma-comparison}.
+
+The same computation may be performed by the recursion, which is
+instructive.  Put $u=\max\{0,x\}$ and $v=\max\{0,y\}$.  Then
+$\dprimeddprime u=\delta_{\{x=0\}}$ and $\dprimeddprime v=\delta_{\{y=0\}}$
+are the integration currents of the two coordinate lines with weight one, in
+the sense of \Cref{def:ch11-integration-current}; each is closed because a
+line with constant weight is balanced
+(\Cref{thm:ch11-current-closed}).  The Bedford--Taylor product is
+\[
+ \dprimeddprime u\wedge\dprimeddprime v
+ =\dprimeddprime\bigl(u\,\delta_{\{y=0\}}\bigr)
+ =\dprimeddprime\bigl(\max\{0,x\}\big|_{\{y=0\}}\bigr)
+ =\delta_{(0,0)},
+\]
+the middle equality because $u\delta_{\{y=0\}}$ is the current of the
+function $x\mapsto\max\{0,x\}$ on the line $\{y=0\}$, whose Laplacian is the
+unit atom at the origin.  Total mass $1$, which is the transverse tropical
+intersection number of the two lines (\Cref{thm:tropical-stable-intersection}).
+
+Polarization now recovers \eqref{eq:ch16-fan-p2-mass}: since
+$\partial u(0)=[0,1]\times\{0\}$ and $\partial v(0)=\{0\}\times[0,1]$ have
+zero area, $(\dprimeddprime u)^2=(\dprimeddprime v)^2=0$, while
+$\partial(u+v)(0)=[0,1]^2$ has area $1$, so
+$(\dprimeddprime(u+v))^2=2\delta_0$.  Expanding the square gives
+$2\,\dprimeddprime u\wedge\dprimeddprime v=2\delta_0$, in agreement with the
+recursion.  On the toric side $u+v$ is the support function of the unit
+square, the polytope of $\cO(1,1)$ on $\mathbf P^1\times\mathbf P^1$, and
+$(\cO(1,1)^2)=2$.
+\end{example}
+
+\begin{example}[A two-dimensional fan that is not a vector space]
+\label{ex:ch16-fan-product}
+Let $L\subset\mathbf R^2$ be the standard tropical line: the union of the
+rays $\mathbf R_{\geq0}v_1$, $\mathbf R_{\geq0}v_2$,
+$\mathbf R_{\geq0}v_3$ with $v_1=(1,0)$, $v_2=(0,1)$, $v_3=(-1,-1)$, all
+weights $1$; it is balanced because $v_1+v_2+v_3=0$
+(\Cref{ex:ch10-standard-line}).  Put
+\[
+ X=L\times\mathbf R\subset\mathbf R^3,
+\]
+a balanced weighted fan of pure dimension $2$, hence a tropical space of
+level $2$.  Define, for $(z,t)\in L\times\mathbf R$,
+\[
+ u(z,t)=\max\{0,x(z),y(z)\},
+ \qquad
+ v(z,t)=|t| ,
+\]
+the restrictions to $X$ of ambient convex functions; both are continuous psh
+by \Cref{prop:ch16-tropically-convex}.
+
+\emph{First factor.}  On the ray $\mathbf R_{\geq0}v_1$ one has
+$u(sv_1)=\max\{0,s,0\}=s$; on $\mathbf R_{\geq0}v_2$, $u(sv_2)=s$; on
+$\mathbf R_{\geq0}v_3$, $u(sv_3)=\max\{0,-s,-s\}=0$.  The outgoing slopes at
+the vertex are therefore $1,1,0$, and $u$ is affine on each ray.  Hence, on
+$L$,
+\[
+ \dprimeddprime\bigl(u|_L\bigr)=(1+1+0)\,\delta_0=2\delta_0 ,
+\]
+so on $X$
+\[
+ \dprimeddprime u=2\,\delta_{\{0\}\times\mathbf R},
+\]
+the integration current of the vertical line with weight $2$.
+
+\emph{Second factor.}  The function $|t|$ has outgoing slopes $1$ and $1$ at
+$t=0$, so $\dprimeddprime v=2\,\delta_{L\times\{0\}}$.
+
+\emph{Product.}  Since $X$ is a product and $u$, $v$ depend on separate
+factors, the recursion gives
+\[
+ \dprimeddprime u\wedge\dprimeddprime v
+ =\dprimeddprime\bigl(u\cdot2\delta_{L\times\{0\}}\bigr)
+ =2\,\dprimeddprime\bigl(u|_{L\times\{0\}}\bigr)
+ =2\cdot2\,\delta_{(0,0)}
+ =4\,\delta_{(0,0)},
+\]
+of total mass $4$.  The check is the product formula for Laplacians: if
+$a$ is psh on $L$ and $b$ is psh on $\mathbf R$, then on $L\times\mathbf R$
+\[
+ \dprimeddprime(a\oplus b)^{\wedge2}
+ =2\,\bigl(\dprimeddprime a\bigr)\otimes\bigl(\dprimeddprime b\bigr),
+\]
+which for $a=u|_L$, $b=v$ gives $2\cdot(2\delta_0)\otimes(2\delta_0)
+=8\delta_{(0,0)}$, that is $\MA(u+v)=8\delta_0$; and
+$\MA(u)=\MA(v)=0$ because each of $u,v$ is affine along the line supporting
+the corresponding current, so expanding $\MA(u+v)$ gives again
+$\dprimeddprime u\wedge\dprimeddprime v=4\delta_0$.
+
+The example is worth keeping because $X$ is not a Euclidean chart: the
+vertex of $L$ is a point at which no local mollification is available, and
+\Cref{rem:ch16-collapse-euclidean} does not apply to $X$.  Nevertheless both
+potentials are restrictions of ambient convex functions, hence lie in
+$\operatorname{CPsh}_{X,1}$ by
+\Cref{prop:ch16-tropically-convex}, and the whole computation stays inside
+the first stage of the filtration.
+\end{example}
+
+\begin{example}[Toric normalization]
+\label{ex:ch16-toric-normalization}
+On a torus chart let $u=F\circ\operatorname{trop}$ with $F$ finite convex.
+For smooth strictly convex $F$,
+\[
+          (\dprimeddprime u)^n
+          =n!\det(D^2F)\,\rd u
+\]
+on the calibrated skeleton.  Uniform approximation by smooth convex
+functions and \Cref{thm:cld-bt-continuity} give
+\[
+          (\dprimeddprime u)^n
+          =n!\operatorname{MA}_{\mathbf R}(F)
+\]
+for continuous convex $F$, with lattice-normalized Lebesgue measure.  This
+agrees with the convention and computations of
+\cref{chap:model-calculations}.  The factor $n!$
+comes from expanding the labelled wedge, not from the definition of the
+Alexandrov measure.
+\end{example}
+
+\subsection{A Chern--Levine--Nirenberg inequality verified}
+\label{sec:ch16-worked-cln}
+
+\begin{example}[The estimate, its constant, and its sharpness in dimension
+one]
+\label{ex:ch16-cln-verified}
+Take $X=\mathbf R$ with its standard lattice, $T=\delta_X$, and $q=1$.  A
+test form of complementary bidegree is a smooth compactly supported
+function $\chi$, and for convex $u_1$ and continuous $u_0$,
+\[
+ \bigl\langle u_0\,\dprimeddprime u_1,\chi\bigr\rangle
+ =\int_{\mathbf R}u_0\,\chi\,\rd\mu,
+ \qquad \mu=\MA(u_1)=u_1''\,\rd t
+\]
+in the distributional sense.  Suppose $\chi\geq0$ and $\Supp\chi\subseteq K$.
+The recipe of \Cref{prop:ch16-cln-constant} gives $\Omega_0=\chi$ and
+$\Omega_1=(\chi'')^++(\chi'')^-=|\chi''|$, hence the constant
+$C_{K,\chi}=\int_{\mathbf R}|\chi''|$.  The estimate asserts
+\[
+ \Bigl|\int u_0\chi\,\rd\mu\Bigr|
+ \leq\|u_0\|_K\|u_1\|_K\int|\chi''| ,
+\]
+and this is verified directly: positivity of $\mu$ and of $\chi$ give
+$|\int u_0\chi\,\rd\mu|\leq\|u_0\|_K\int\chi\,\rd\mu$; two integrations by
+parts give $\int\chi\,\rd\mu=\int u_1\chi''$; and the last integral is at
+most $\|u_1\|_K\int|\chi''|$.  Each step of the general proof is visible.
+
+For a bound not involving a test function, take
+$K=[-1,1]\subset L=[-2,2]$ and apply
+\Cref{cor:ch16-cln-mass}.  Here the constant can be computed by hand:
+for $u$ convex on $L$,
+\[
+ \MA(u)\bigl([-1,1]\bigr)=u'(1)-u'(-1)
+ \leq\bigl(u(2)-u(1)\bigr)-\bigl(u(-1)-u(-2)\bigr)
+ \leq2\operatorname{osc}_L(u),
+\]
+the first inequality by monotonicity of $u'$ and the mean value theorem on
+$[1,2]$ and $[-2,-1]$.  Thus $C(K,L,1,\delta_X)=2$ is admissible.  It is not
+optimal: for $u(t)=\tfrac12|t|$ one has $\operatorname{osc}_L(u)=1$ and
+$\MA(u)([-1,1])=1$, so the best constant lies in $[1,2]$.  The example is a
+reminder that the CLN constants of \Cref{sec:ch16-cln} are structural, not
+sharp; no argument in this book uses their size.
+\end{example}
+
+\subsection{A product that fails to extend across a polar set}
+\label{sec:ch16-worked-polar}
+
+\begin{example}[A Bedford--Taylor product with two extensions]
+\label{ex:ch16-polar-failure}
+Let $K$ be algebraically closed and nontrivially valued, let
+$X=\mathbf A^{2,\An}_K$ with coordinates $z_1,z_2$, and put
+\[
+ u=\log\max\{|z_1|,|z_2|\},
+ \qquad
+ Y=\{z_1=z_2=0\} .
+\]
+The pair $(z_1,z_2)$ is a regular sequence, $u$ is psh, and
+$u=-\infty$ exactly on $Y$.  On $X\setminus Y$ the function $u$ is
+real-valued and continuous, so the Bedford--Taylor product
+$(\dprimeddprime u)^2$ is defined there by
+\Cref{prop:ch16-iterate-basic}.  We claim that
+\begin{equation}
+\label{eq:ch16-polar-vanishes}
+ (\dprimeddprime u)^2=0\qquad\text{on }X\setminus Y .
+\end{equation}
+Indeed, near a point with $z_1\neq0$ set $w=z_2/z_1$ and
+$t_1=\log|z_1|$, $t_2=\log|w|$; these are the coordinates of a tropical
+chart $f$, and
+\[
+ u=t_1+\max\{0,t_2\}=f^*\bigl(t_1\bigr)+p^*\bigl(\max\{0,\cdot\}\bigr),
+\]
+where $p$ is the moment map $-\log|w|$ with one-dimensional target.  The
+first summand is parlinear, so it contributes nothing to
+$\dprimeddprime u$; the second is the pullback of a convex function of one
+variable along a map to $\mathbf R$, so its square vanishes by
+\Cref{prop:ch16-vanishing-above-dimension}.  The region $z_2\neq0$ is
+symmetric.  This proves \eqref{eq:ch16-polar-vanishes}.
+
+The trivial extension of \eqref{eq:ch16-polar-vanishes} across $Y$ is the
+zero current.  It is \emph{not} the canonical extension.  Indeed, by the
+Bochner--Martinelli formula \Cref{thm:cld-local-bochner-martinelli} applied
+with $d=2$, the canonical extension $\Lambda$ of $u\,\dprimeddprime u$
+satisfies
+\[
+ \dprimeddprime\Lambda=\delta_Y ,
+\]
+a positive measure of mass $1$ on any neighbourhood of the origin.  The two
+extensions differ by $\delta_Y$.
+
+The mechanism is transparent in the truncations.  For $r>0$ put
+$u_r=\log\max\{r,|z_1|,|z_2|\}$, a continuous PL psh function with
+$u_r\downarrow u$.  As recalled in the proof of
+\Cref{thm:cld-local-bochner-martinelli}, $(\dprimeddprime u_r)^2$ is the
+integration current over the fibre above the Gauss point of radius $r$, of
+mass $1$ for every $r$; letting $r\downarrow0$ gives $\delta_Y$.  Thus a
+decreasing sequence of continuous psh functions has products of constant
+mass $1$, while the limit function is not real-valued and the products of
+the limit, computed off the polar set, have mass $0$.  There is no
+contradiction with \Cref{thm:cld-bt-continuity}, whose hypothesis---local
+uniform convergence to a \emph{continuous} function---fails here; and there
+is no contradiction with \Cref{thm:cld-polar-negligibility}, which concerns
+integrability of a psh function against a product of \emph{continuous} psh
+potentials, not the definition of a product of unbounded ones.
+
+Two morals.  First, ``the product of $\dprimeddprime u$ with itself'' is not
+determined by the restriction of the product to the complement of the polar
+locus, even when that complement has full measure; the canonical extension
+is extra data supplied by a theorem, as
+\Cref{chap:cld-poincare-lelong} already warned.  Second, the mass that
+disappears is exactly the mass carried by $Y$, which is where the
+nonpluripolar products of \Cref{part:bfj,part:bj} choose the other
+convention: they discard it by construction.  The comparison is made precise
+in \Cref{sec:ch16-local-vs-global}.
+\end{example}
+
+\section{Proper pushforward}
+\label{sec:ch16-pushforward}
+
+\begin{proposition}
+\label{prop:bt-projection-formula}
+Let $j:Y\to X$ be topologically proper, let $S$ be positive closed on $Y$,
+and let $u_1,\ldots,u_q$ be continuous psh on $X$.  Then
+\[
+\begin{split}
+ &\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_q\wedge j_*S\\
+ &\qquad=j_*\bigl(
+ \dprimeddprime(j^*u_1)\wedge\cdots\wedge
+ \dprimeddprime(j^*u_q)\wedge S\bigr).
+\end{split}
+\]
+\end{proposition}
+\begin{proof}
+For one factor, evaluate both sides on a test form and use the definition of
+pushforward together with
+$j^*(u\alpha)=j^*u\,j^*\alpha$.  The current differential commutes with
+pushforward.  Induction gives the formula.  This is
+\cite[Proposition~8.7.5]{CLD25}.
+\end{proof}
+
+\begin{proof}[Second proof of the one-factor case]
+Fix a continuous psh $u$ on $X$ and consider
+\[
+ \mathscr P(U)=\bigl\{f\in C(U):\
+   \dprimeddprime\bigl(f\,j_*S|_U\bigr)
+   =j_*\dprimeddprime\bigl((j^*f)\,S|_{j^{-1}U}\bigr)\bigr\}.
+\]
+This is a sheaf of $\mathbf R$-vector spaces, since pushforward, restriction
+and the differential are all local on the base and compatible with sums.
+It is stable under local uniform limits: if $f_k\to f$ uniformly on
+compacta then $j^*f_k\to j^*f$ uniformly on compacta of $Y$ meeting
+$\Supp S$, because $j$ is topologically proper; now apply
+\Cref{lem:continuous-times-positive-current} on $Y$ and weak continuity of
+$j_*$ (\Cref{prop:current-pushforward-formal}).  Finally, let $f$ be smooth
+psh and let $\omega$ be a smooth compactly supported test form on an open
+$U$.  Then
+\[
+\begin{aligned}
+ \langle\dprimeddprime(fj_*S),\omega\rangle
+ &=\langle fj_*S,\dprimeddprime\omega\rangle
+  =\langle j_*S,f\,\dprimeddprime\omega\rangle
+  =\langle S,\ j^*f\ j^*\dprimeddprime\omega\rangle\\
+ &=\langle (j^*f)S,\ \dprimeddprime j^*\omega\rangle
+  =\langle\dprimeddprime\bigl((j^*f)S\bigr),j^*\omega\rangle\\
+ &=\bigl\langle j_*\dprimeddprime\bigl((j^*f)S\bigr),\omega\bigr\rangle,
+\end{aligned}
+\]
+using $j^*\dprimeddprime=\dprimeddprime j^*$ for smooth forms
+(\Cref{prop:cld-form-pullback}).  Thus $\mathscr P$ satisfies the three
+hypotheses of \Cref{lem:ch16-cpsh-induction}, whence
+$\mathscr P\supseteq\operatorname{CPsh}_X$.  Iterating $q$ times, and using
+that $j^*$ carries continuous psh functions to continuous psh functions
+(\Cref{prop:cld-psh-calculus}), gives the stated formula.
+\end{proof}
+
+This formal formula and \cref{thm:cld-fibre-projection} are complementary.
+The former pushes an
+already defined current; the latter identifies the pushforward of a smooth
+vertical form with actual integration over analytic fibres.
+
+\begin{proposition}
+\label{prop:ch16-degree-formula}
+Let $X$ be a boundaryless good $n$-dimensional $K$-analytic space, let
+$f:Y\to X$ be a topologically compact morphism from a boundaryless
+$n$-dimensional space which is finite over a dense Zariski-open subset, and
+let $\delta:X\to\mathbf R$ extend the local degree function of $f$.  For
+continuous psh $u_1,\ldots,u_m$ that are locally approachable,
+\[
+ f_*\bigl(\dprimeddprime(f^*u_1)\wedge\cdots\wedge
+    \dprimeddprime(f^*u_m)\bigr)
+ =\delta\cdot\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_m .
+\]
+\end{proposition}
+
+\begin{proof}
+The left-hand side is a positive current, being a proper pushforward of one.
+The right-hand side is the product of the positive current
+$\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_m$ by the bounded
+Borel function $\delta$; that this product is again a current requires that
+the measure attached to the product does not charge the locus where
+$\delta$ fails to be locally constant, which is a Zariski-closed set of
+dimension $<n$.  That is exactly
+\Cref{thm:cld-polar-negligibility}.  Off that locus $f$ is finite flat of
+degree $\delta$, and the identity is the projection formula
+\Cref{prop:bt-projection-formula} together with the multiplicity count of
+\Cref{thm:trop-finite-pushforward}.  This is
+\cite[Corollary~16.9.5]{CLD25}; the locally approachable hypothesis enters
+only through the negligibility theorem.
+\end{proof}
+
+\section{Skeletal currents and their products}
+\label{sec:ch16-skeletal}
+
+A current is \emph{skeletal} if, locally in each chart, it is represented by
+integration over a calibrated polyhedral subset.  Smooth CLD forms can be
+multiplied with it directly, whereas nonsmooth potentials require the
+Bedford--Taylor recursion.  This section computes the discrepancy exactly.
+The outcome---\Cref{prop:ch16-skeletal-defect} and
+\Cref{thm:ch16-skeletal-product}---is what makes the Monge--Amp\`ere measures
+of \Cref{chap:cld-examples} computable by hand.
+
+\subsection{Notation for a skeletal current}
+\label{sec:ch16-skeletal-notation}
+
+Let $T$ be a closed skeletal current of bidimension $(p,p)$ on $X$.  For a
+tropical chart $f$ on an open $U$ we write $P^T_f\subseteq U$ for the
+$p$-calibrated skeletal subset representing $T$ against $f$-tropical test
+forms, in the sense of \Cref{chap:analytic-tropicalization}; thus
+\[
+ \langle T,\rho\wedge\omega\rangle=\int_{P^T_f}\rho\wedge\omega
+\]
+for $f$-tropical $\omega$ and smooth $\rho$ with $\rho\omega$ compactly
+supported.  The symbol $\int^{\partial}$ denotes the boundary integral of
+\Cref{chap:tropical-integration}, so that Stokes reads
+$\int_C\dprime\eta=\int^\partial_C\eta$.
+
+\begin{proposition}
+\label{prop:ch16-skeletal-first-derivative}
+Let $T$ be closed skeletal of bidimension $(p,p)$ and let $u$ be $G$-smooth
+on $X$.  Then, for a tropical chart $f$ on $U$, an integer $r\leq p$, an
+$f$-tropical smooth $\omega$ of type $(p-r,p)$ and a compactly supported
+smooth $\rho$ of type $(r,0)$,
+\[
+ \bigl\langle\dprime(uT),\rho\wedge\omega\bigr\rangle
+ =\int_{P^T_f}\dprime u\wedge\rho\wedge\omega .
+\]
+In particular $\dprime(uT)=T\wedge\dprime u=\dprime u\wedge T$.
+\end{proposition}
+
+\begin{proof}
+By the boundary description of the differential of a skeletal current,
+\[
+ \bigl\langle\dprime(uT),\rho\wedge\omega\bigr\rangle
+ =\int_{P^T_f}\dprime u\wedge\rho\wedge\omega
+   -\int^{\partial}_{P^T_f}u\,\rho\wedge\omega .
+\]
+Closedness of $T$ says that
+$\int^\partial_{P^T_f}v\,\rho\wedge\omega=\langle\dprime T,
+ v\rho\wedge\omega\rangle=0$ for every \emph{smooth} $v$, and smooth
+functions are dense in continuous ones for the topology in which the
+boundary integral is continuous; hence the boundary term vanishes for $u$ as
+well.  The last assertion is the case $r=0$.  This is
+\cite[Proposition~8.10.1]{CLD25}.
+\end{proof}
+
+\subsection{The boundary defect of the second derivative}
+\label{sec:ch16-skeletal-defect}
+
+\begin{proposition}
+\label{prop:ch16-skeletal-defect}
+Let $T$ be closed skeletal of type $(p,p)$, let $f:X\to\mathbf R^m$ be a
+tropical chart, let $v$ be $G$-smooth on $\mathbf R^m$ and $u=f^*v$.  For
+every symmetric $f$-tropical smooth $\omega$ of type $(p-1,p-1)$ and every
+smooth $\rho$ with $\rho\omega$ compactly supported,
+\begin{equation}
+\label{eq:ch16-skeletal-defect}
+ \bigl\langle\dprimeddprime(uT),\rho\omega\bigr\rangle
+ =\int_{P^T_f}\dprimeddprime u\wedge\rho\omega
+   -\int^{\partial}_{P^T_f}\ddprime u\wedge\rho\omega .
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Choose a compact domain $W$ containing a neighbourhood of $\Supp(\rho\omega)$
+and a $p$-calibrated skeletal $Q\supseteq P^T_f\cap W$ against which $T$ may
+be integrated for all forms that are tropical for a common refinement of $f$
+and of a chart tropicalizing $\rho$.  Then
+\[
+ \bigl\langle\dprimeddprime(uT),\rho\omega\bigr\rangle
+ =\langle uT,\dprimeddprime(\rho\omega)\rangle
+ =\int_Qu\,\dprimeddprime(\rho\omega).
+\]
+Green's formula on $Q$ (\Cref{thm:balanced-stokes}), legitimate because $u$
+and $\rho\omega$ are symmetric, gives
+\[
+ \int_Qu\,\dprimeddprime(\rho\omega)
+ =\int_Q\dprimeddprime u\wedge\rho\omega
+  +\int^\partial_Q\bigl(u\,\ddprime(\rho\omega)-\ddprime u\wedge\rho\omega
+  \bigr).
+\]
+The first term equals $\int_{P^T_f}\dprimeddprime u\wedge\rho\omega$, since
+$\dprimeddprime u\wedge\omega$ is $f$-tropical of type $(p,p)$.  In the
+boundary terms, $\int^\partial_Qu\,\ddprime(\rho\omega)$ vanishes: for
+smooth $u_k\to u$ locally uniformly one has
+$\int^\partial_Qu_k\ddprime(\rho\omega)
+ =\langle\dprime T,u_k\ddprime(\rho\omega)\rangle=0$ by closedness, and one
+passes to the limit.  The remaining boundary term may be computed on
+$P^T_f$ instead of $Q$, by applying Stokes to
+$\dprime(\ddprime u\wedge\rho\omega)$ on both and comparing the interior
+integrals, all of which are pairings of $T$ with $f$-tropical forms of the
+appropriate types.  This is \cite[Proposition~8.10.2]{CLD25}.
+\end{proof}
+
+The two terms of \eqref{eq:ch16-skeletal-defect} are the two halves of the
+warning after \Cref{prop:ch16-skeletal-support}: the first is the naive
+product of $T$ with the $G$-form $\dprimeddprime u$, and the second is the
+defect.  We now compute the defect for a parlinear potential, where the
+first term vanishes.
+
+\begin{theorem}
+\label{thm:ch16-skeletal-product}
+Let $T$ be a closed skeletal current of bidimension $(p,p)$ and let $u$ be
+parlinear on $X$.  Then $\dprimeddprime(uT)$ is skeletal, of bidimension
+$(p-1,p-1)$.  Explicitly, choose a cellular decomposition $\mathscr C$ of
+$P^T_f$ into $f$-cells on which $u$ is affine.  For a cell
+$D\in\mathscr C_{p-1}$, a $(p-1)$-vector $\nu_D$ and an orientation
+$\varepsilon_D$ of $f(D)$, and for each $p$-cell $C\supseteq D$ the outward
+data $\lambda_C\in\mathbf R$ and $a_C=\partial_{e_C}(u|_C)$ determined by
+$\mu_C=\lambda_C[\,e_C\wedge\nu_D,\varepsilon_C]$ as in
+\Cref{chap:tropical-integration}, the current $\dprimeddprime(uT)$ is
+integration over $\bigcup_{D}D$ with the $(p-1)$-calibration
+\begin{equation}
+\label{eq:ch16-skeletal-weights}
+ \mu_D=\Bigl(\sum_{C\supseteq D}a_C\lambda_C\Bigr)
+        f^*[\,\nu_D,\varepsilon_D\,].
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The assertion is local, so assume $X$ paracompact and $u$ $f$-tropical.
+Since $u$ is parlinear, $\dprimeddprime u=0$ as a $G$-form, and
+\eqref{eq:ch16-skeletal-defect} reduces to
+\[
+ \bigl\langle\dprimeddprime(uT),\rho\omega\bigr\rangle
+ =-\int^\partial_{P^T_f}\ddprime u\wedge\rho\omega
+ =-\sum_{C\in\mathscr C_p}\int^\partial_C\ddprime u\wedge\rho\omega .
+\]
+Each boundary integral is a sum of integrals over $(p-1)$-cells, so the
+functional $\rho\mapsto\langle\dprimeddprime(uT),\rho\omega\rangle$ is a
+measure supported on $\bigcup_{D\in\mathscr C_{p-1}}D$ and absolutely
+continuous with respect to Lebesgue measure on each such cell.  It therefore
+suffices to compute it after restricting to the relative interior of one
+$D$, and we may assume $\Supp\rho$ meets no other $(p-1)$-cell.
+
+Subtracting from $u$ an affine function agreeing with it on $D$ changes
+nothing: an affine $f^*v_D$ is smooth with $\dprimeddprime(f^*v_D)=0$, so
+$\dprimeddprime(f^*v_D\,T)=\dprimeddprime(f^*v_D)\wedge T=0$ by
+\Cref{lem:ch16-leibniz-closed}.  Hence assume $u|_D=0$.
+
+Work in coordinates adapted to a $p$-cell $C\supseteq D$: write
+$D=\{0\}\times\mathbf R^{p-1}$ and $C=\mathbf R_{\leq0}\times\mathbf
+R^{p-1}$, with $\nu_D=e_2\wedge\cdots\wedge e_p$,
+$\nu_C=e_1\wedge\cdots\wedge e_p$, and $u(x)=a_Cx_1$ on $C$.  Decompose
+\[
+ \omega|_C=\omega_0+\dprime x_1\wedge\omega_1
+   +\ddprime x_1\wedge\omega_2
+   +\dprime x_1\wedge\ddprime x_1\wedge\omega_3
+\]
+with $\omega_i$ involving only $x_2,\ldots,x_p$.  Then
+$\ddprime u|_C=a_C\ddprime x_1$, and contracting with
+$\mu_C=\lambda_C[e_1\wedge\nu_D,\varepsilon_C]$ kills every term of
+$\omega|_C$ except $\omega_0$, because $\ddprime x_1\wedge\ddprime x_1=0$
+and because a term containing $\dprime x_1$ pairs to zero against a
+$(p-1)$-vector on $D$.  Since $\omega|_D=\omega_0|_D$, one obtains
+\[
+ \int^\partial_C\langle\ddprime u\wedge\rho\omega,\mu_C\rangle
+ =a_C\lambda_C\int_D\langle\rho\omega|_D,\nu_D\rangle .
+\]
+Summing over the $p$-cells $C\supseteq D$ and reinstating the global sign
+gives \eqref{eq:ch16-skeletal-weights}.  Letting $D$ vary produces a
+$(p-1)$-calibration on the union of the $(p-1)$-cells, which is exactly the
+statement that $\dprimeddprime(uT)$ is skeletal.  This is
+\cite[Theorem~8.10.3]{CLD25}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-skeletal-iterated}
+Let $T$ be closed skeletal and let $u_1,\ldots,u_m$ be parlinear.  Then
+$\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_m\wedge T$ is
+parlinear, in particular skeletal.
+\end{corollary}
+
+\begin{proof}
+Induction on $m$ using \Cref{thm:ch16-skeletal-product} and the definition
+of the iterated product.  This is \cite[Corollary~8.10.5]{CLD25}.
+\end{proof}
+
+\begin{remark}[The $G$-smooth case]
+\label{rem:ch16-skeletal-gsmooth}
+For $u$ merely $G$-smooth the same argument applies with $a_C$ replaced by
+the partial derivative $\partial u/\partial x_1$, which is a smooth function
+on each cell rather than a constant.  The conclusion is that
+$\dprimeddprime(uT)$ is the sum of the parlinear current $T\wedge
+\dprimeddprime u$ and a current supported on the codimension-one skeleton
+carrying a \emph{$G$-smooth calibration}.  This is
+\cite[Remark~8.10.4]{CLD25}, and it is the precise form of the discrepancy
+warned about after \Cref{prop:ch16-skeletal-support}.
+\end{remark}
+
+\begin{example}[Reading \eqref{eq:ch16-skeletal-weights} on a graph]
+\label{ex:ch16-skeletal-weights-graph}
+Take $p=1$, $X$ a metric graph with unit weights, $T=\delta_X$, and $u$
+piecewise affine.  A $0$-cell $D$ is a point $x$; the $1$-cells $C\supseteq
+D$ are the edges at $x$; $\lambda_C=1$ for the canonical calibration; and
+$a_C=\partial_{e_C}(u|_C)$ is the outgoing slope of $u$ along that edge.
+Formula \eqref{eq:ch16-skeletal-weights} becomes
+$\mu_x=\sum_{C\ni x}\partial_{e_C}u$, which is
+\eqref{eq:graph-laplacian}.  The sign bookkeeping of
+\Cref{lem:ch11-graph-trace} is exactly the passage from
+$\int^\partial$ to outgoing slopes.
+\end{example}
+
+\section{Harmonic charts and toric products}
+\label{sec:ch16-harmonic-charts}
+
+\subsection{Harmonic functions and harmonic tropicalizations}
+\label{sec:ch16-harmonic-definitions}
+
+\begin{definition}[Harmonic parlinear function]
+\label{def:ch16-harmonic-function}
+\index{harmonic function!CLD}
+A parlinear function $u$ on $X$ is \emph{harmonic} if $\dprimeddprime[u]=0$
+as a current.  A function is harmonic if it is locally a real linear
+combination of harmonic parlinear functions.  A $G$-tropical chart
+$u=(u_1,\ldots,u_d):X\to\mathbf R^d$ is a \emph{harmonic chart} if every
+$u_i$ is harmonic.  A $G$-form $\alpha$ is \emph{locally harmonically
+tropicalizable} if locally $\alpha=u^*\beta$ for a harmonic parlinear
+$u:X\to\mathbf R^d$ and a smooth $\beta$ near a polyhedron containing
+$u(X)$.
+\end{definition}
+
+Harmonic functions form a sheaf of $\mathbf R$-vector spaces containing the
+affine functions.  The definition is not the naive one: as CLD stress in
+\cite[Remark~7.8.3]{CLD25}, there is no reason in general for a continuous
+$u$ with $\dprimeddprime[u]=0$ to be harmonic in the above sense, and it is
+not even known whether local integrability plus $\dprimeddprime[u]=0$ forces
+continuity.  \Cref{sec:ch16-harmonic-ambiguity} makes the gap explicit.
+
+The point of harmonicity is a Stokes statement: for a harmonically
+tropicalizable $G$-form $\alpha$, the boundary current $[\alpha]^\partial$
+vanishes, so that $\dprime[\alpha]=[\dprime\alpha]$ and
+$\ddprime[\alpha]=[\ddprime\alpha]$.  This is
+\cite[Theorem~7.8.5 and Corollary~7.8.8]{CLD25}, the third of the imported
+inputs listed in \Cref{sec:ch16-imported}, and it is proved in the
+delta-form chapter \Cref{sec:harmonic-trop} in its Gubler--Jell--Rabinoff
+form.
+
+\subsection{The compatibility theorem}
+\label{sec:ch16-harmonic-compatibility}
+
+\begin{theorem}
+\label{thm:bt-harmonic-compatibility}
+Let $T$ be a skeletal Bedford--Taylor current and let $\alpha$ be a $G$-form
+locally tropicalized by harmonic coordinates.  Then
+\[
+ \dprime(T\wedge\alpha)=T\wedge\dprime\alpha,
+ \qquad
+ \ddprime(T\wedge\alpha)=T\wedge\ddprime\alpha.
+\]
+Consequently, if $T$ is locally a difference of skeletal Bedford--Taylor
+currents and $u_1,\ldots,u_q$ are $G$-smooth functions locally tropicalized
+by harmonic coordinates, their recursive Bedford--Taylor product equals the
+direct product with the $G$-form
+$\bigwedge_i\dprimeddprime u_i$.
+\end{theorem}
+\begin{proof}
+Work in a common harmonic tropical chart and subdivide so that the skeletal
+support of $T$ is a calibrated weighted complex $C$.  By the definition of
+the differential of a current, the difference
+$\dprime(T\wedge\alpha)-T\wedge\dprime\alpha$, evaluated on a test form, is
+the sum of the boundary terms obtained by applying Stokes on the facets of
+$C$.  At a codimension-one face $\tau$, this term is contraction with
+\[
+             \sum_{\sigma\supset\tau}
+                    m_\sigma u_{\sigma/\tau}.
+\]
+The Bedford--Taylor property of the skeletal current supplies the weighted
+balancing relation, while harmonicity says that every harmonic coordinate
+has zero total normal slope.  Hence the displayed class vanishes after
+pairing with every coefficient of $\alpha$.  There is no residual boundary
+current, which proves the $\dprime$ identity.  Applying the involution $J$
+gives the $\ddprime$ identity.
+
+For the consequence, start with $T$ and define the recursive product one
+factor at a time.  The two identities just proved allow each differential
+to pass through $T$ and through the previously inserted closed factors.
+Thus inserting $u_i$ by the Bedford--Taylor recursion has the same effect as
+wedging with the harmonic-chart form $\dprimeddprime u_i$.  Induction on $q$
+gives the stated direct product.  Differences are handled by linearity.
+This calibrated Stokes computation is
+\cite[Proposition~8.11.1 and Corollary~8.11.2]{CLD25}.
+\end{proof}
+
+The heart of that proof is a single identity, which we isolate because
+\Cref{sec:ch16-harmonic-ambiguity} shows that it can fail when the
+hypotheses are weakened.
+
+\begin{lemma}
+\label{lem:ch16-normal-slope-vanishes}
+Let $T$ be a skeletal Bedford--Taylor current of type $(p,p)$, let $v$ be a
+harmonic parlinear function on $X$, and fix a cellular decomposition
+$\mathscr C$ of a compact skeletal neighbourhood $\Sigma\subseteq P^T_f$ on
+which $v$ is affine on each cell.  Let $D\in\mathscr C_{p-1}$, and for each
+$p$-cell $C\supseteq D$ let $e_C$ be the primitive vector pointing from $D$
+into $C$ and normalized so that the canonical calibration of $C$ is
+$[\,e_C\wedge\mu_D,\varepsilon_C]$.  Then
+\begin{equation}
+\label{eq:ch16-normal-slope-sum}
+ \sum_{C\supseteq D}\partial_{e_C}\bigl(v|_C\bigr)=0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Harmonicity of $v$ and the Bedford--Taylor property give
+$\dprimeddprime(vT)=\dprimeddprime[v]\wedge T=0$ on the interior of the
+chart domain.  Since $v$ is parlinear, $\dprimeddprime v=0$ as a $G$-form,
+so \eqref{eq:ch16-skeletal-defect} reduces to
+\[
+ 0=\bigl\langle\dprimeddprime(vT),\rho\omega\bigr\rangle
+ =-\int^\partial_\Sigma\ddprime v\wedge\rho\omega
+\]
+for every $f$-tropical symmetric $\omega$ of type $(p-1,p-1)$ and every
+smooth $\rho$ with $\rho\omega$ compactly supported in the chart interior.
+Fix $x$ in the relative interior of $D$ and choose $\omega=f^*q^*\gamma$,
+where $q$ is a torus morphism for which $(q\circ f)_{\mathrm{trop}}$ is a
+piecewise immersion of a neighbourhood of $x$ in $D$ into $\mathbf R^{p-1}$,
+and take $\rho$ supported so as to meet no $p$-cell other than those
+containing $D$.  The computation of
+\Cref{thm:ch16-skeletal-product}, performed with $a_C=\partial_{e_C}(v|_C)$,
+turns the displayed vanishing into
+\[
+ \int_D\Bigl(\sum_{C\supseteq D}\partial_{e_C}(v|_C)\Bigr)
+   \rho\,\langle f^*q^*\gamma,\mu_D\rangle=0 .
+\]
+As $\rho$ and $\gamma$ are arbitrary and $q_*f_*\mu_D\neq0$, the bracket
+vanishes, which is \eqref{eq:ch16-normal-slope-sum}.
+\end{proof}
+
+\begin{proof}[Completion of the proof of
+\Cref{thm:bt-harmonic-compatibility}]
+With $\alpha=u^*\beta$ for a harmonic parlinear $u:W\to\mathbf R^d$, Stokes
+on the cells of $\mathscr C$ gives
+\[
+ \int_{P^T_f}\dprime(\rho\alpha)
+ =\sum_{D\in\mathscr C_{p-1}}\int_D
+   \Bigl(\sum_{C\in\mathscr C_D}\langle(\rho u^*\beta)_C,\mu_C\rangle\Bigr),
+\]
+where $\mathscr C_D$ is the set of $p$-cells $C\supseteq D$ on which
+$u|_C$ is injective; cells on which $u|_C$ is not injective contribute zero
+because $u^*\beta$ vanishes there.  Contracting and pushing forward through
+$u$ turns the inner sum into
+$\rho\circ u_D^{-1}\bigl\langle\beta,\sum_{C\in\mathscr C_D}u_*\mu_C
+\bigr\rangle$, so it suffices to prove
+$\sum_{C\in\mathscr C_D}u_*\mu_C=0$.  Since $\mu_C=e_C\wedge\mu_D$, one has
+$u_*\mu_C=u_*(e_C)\wedge u_*(\mu_D)$ with $u_*(\mu_D)$ independent of $C$;
+and the coordinates of $u_*(e_C)$ are the numbers
+$\partial_{e_C}(v|_C)$ as $v$ runs through the components of $u$.  By
+\Cref{lem:ch16-normal-slope-vanishes} each coordinate of
+$\sum_{C\supseteq D}u_*(e_C)$ vanishes, whence
+$\sum_{C\in\mathscr C_D}u_*\mu_C=0$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-harmonic-convex-positive}
+Let $f:U\to\mathbf R^r$ be a harmonic chart and let $F$ be continuous convex.
+Then $u=F\circ f$ is locally a difference of psh functions and
+$\dprimeddprime u\wedge T$ is positive for every positive closed $T$ for
+which the product is defined.
+\end{corollary}
+\begin{proof}
+On every relatively compact convex subset of the tropical target, choose
+smooth convex functions $F_j$ converging uniformly to $F$.  The Hessian of
+$F_j$ is positive semidefinite, so
+$\dprimeddprime(F_j\circ f)$ is a positive harmonic-chart form.  By the
+first part of \Cref{thm:bt-harmonic-compatibility}, its wedge with the
+positive closed current $T$ is positive.  Bedford--Taylor continuity passes
+to the uniform limit and gives positivity of
+$\dprimeddprime(F\circ f)\wedge T$.
+
+The same local regularization writes $F\circ f$ as a locally approachable
+psh function; in particular it is a difference of psh functions, trivially
+by subtracting the psh constant zero.  If one works with a signed harmonic
+chart presentation, decompose it into the difference of the two convex
+presentations supplied by the chart.  This is
+\cite[Corollary~8.11.3]{CLD25}.  The conclusion concerns convex functions in
+harmonic charts and does not identify arbitrary classically psh functions
+with the CLD approximation sheaf.
+\end{proof}
+
+\section{Harmonic ambiguity}
+\label{sec:ch16-harmonic-ambiguity}
+
+\Cref{def:ch16-bt-current} isolated the property that makes
+$\dprimeddprime u\wedge T$ depend only on $\dprimeddprime u$.  This section
+analyses that property.  It contains one positive result---a sufficient
+criterion in terms of smooth pluriharmonic approximation---one regularity
+statement on cell interiors, and one counterexample showing that the two do
+not combine into a general theorem.  All three are recorded in the audit
+ledger of \Cref{chap:verified-extensions}, which is where the book's
+provenance for them is kept; the proofs are given here because this is where
+they are used.
+
+\subsection{A sufficient criterion}
+\label{sec:ch16-pluriharmonic-criterion}
+
+\begin{theorem}
+\label{thm:ch16-pluriharmonic-criterion}
+Let $U$ be open in $X$, let $T$ be a positive closed current on $U$, and let
+$u,v$ be continuous psh on $U$ with
+\begin{equation}
+\label{eq:ch16-equal-hessians}
+ \dprimeddprime[u]=\dprimeddprime[v].
+\end{equation}
+Put $h=u-v$ and assume that there are smooth functions $h_j$ on $U$ with
+\begin{equation}
+\label{eq:ch16-pluriharmonic-approximation}
+ h_j\longrightarrow h\ \text{locally uniformly},
+ \qquad
+ \dprimeddprime h_j=0 .
+\end{equation}
+Then $\dprimeddprime(hT)=0$; equivalently
+$\dprimeddprime(uT)=\dprimeddprime(vT)$.
+\end{theorem}
+
+\begin{proof}
+Let $\alpha$ be a smooth compactly supported test form of complementary
+bidegree, with support in a compact $K\Subset U$.  Positivity gives
+$T$ finite mass on $K$ in the sense of \eqref{eq:ch16-positivity-sandwich},
+so
+\[
+ \bigl|\langle(h_j-h)T,\alpha\rangle\bigr|
+ \leq\|h_j-h\|_{C^0(K)}\,\langle T,\beta\rangle
+\]
+with $\beta$ as in \eqref{eq:ch16-positivity-sandwich}.  The right-hand side
+tends to zero, so $h_jT\to hT$ as currents.  Differentiation is weakly
+continuous (\Cref{prop:current-differential-calculus}), and for each $j$,
+$h_j$ being smooth and $T$ closed,
+\Cref{lem:ch16-leibniz-closed} gives
+$\dprimeddprime(h_jT)=\dprimeddprime h_j\wedge T=0$.  Passing to the limit,
+$\dprimeddprime(hT)=0$.  Linearity of $w\mapsto wT$ turns this into
+$\dprimeddprime(uT)=\dprimeddprime(vT)$.  This is
+\Cref{thm:verified-cld-criterion}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch16-smooth-h}
+If $h=u-v$ is itself smooth and $\dprimeddprime h=0$, then
+$\dprimeddprime(hT)=0$.
+\end{corollary}
+
+\begin{proof}
+Take $h_j=h$.  This is \Cref{cor:verified-cld-smooth}, and it recovers the
+computation of \Cref{sec:ch16-ambiguity-smooth}.
+\end{proof}
+
+\begin{warning}{The criterion is conditional}
+\Cref{thm:ch16-pluriharmonic-criterion} does not produce the approximants
+$h_j$; \eqref{eq:ch16-equal-hessians} alone does not supply them.  Whether
+every continuous $h$ with $\dprimeddprime[h]=0$ admits smooth
+pluriharmonic approximants is exactly the question left open in
+\Cref{prob:frontier-cld-hierarchy}'s neighbourhood and recorded in
+\Cref{rem:verified-cld-sufficient}.  The criterion is therefore a tool for
+verifying the Bedford--Taylor property in situations where the approximants
+are constructed by hand---harmonic charts, formal models, curve
+skeleta---and not a proof that the property always holds.
+\end{warning}
+
+\subsection{Cell-interior regularity}
+\label{sec:ch16-cell-interior}
+
+On the interior of a cell there is no ambiguity at all: harmonicity in the
+weakest sense already forces affinity.
+
+\begin{proposition}
+\label{prop:ch16-cell-rigidity}
+Let $\sigma$ be a tropical cell of dimension $q$, let $\sigma^\circ$ be its
+relative interior with affine coordinates $x_1,\ldots,x_q$, and let
+$w\in L^1_{\loc}(\sigma^\circ)$ satisfy $\dprimeddprime[w]=0$ as a current
+on $\sigma^\circ$.  Then $w$ agrees almost everywhere with an affine
+function, and that affine function is its unique continuous representative.
+\end{proposition}
+
+\begin{proof}
+In the affine coordinates the coefficients of $\dprimeddprime[w]$ are the
+distributional second derivatives $\partial_i\partial_jw$, so the hypothesis
+reads $\partial_i\partial_jw=0$ for all $i,j$.  Hence each first
+distributional derivative $\partial_iw$ has vanishing distributional
+gradient on the connected open set $\sigma^\circ$ and is therefore a
+constant $a_i$.  The distributional gradient of $w-\sum_ia_ix_i$ vanishes,
+so this difference is almost everywhere equal to a constant.  The resulting
+affine function is continuous, and two continuous functions agreeing almost
+everywhere on $\sigma^\circ$ agree everywhere.  This is
+\Cref{prop:verified-cell-rigidity}.
+\end{proof}
+
+Thus, on a cell interior, the three conditions of the table in
+\Cref{sec:ch16-reading-bt} collapse: $w$ is affine, hence parlinear, hence
+smooth, and \Cref{cor:ch16-smooth-h} applies.  The failure must therefore be
+sought at a face where several cells meet, and this is precisely what the
+next example does.
+
+\subsection{The cross-fan obstruction}
+\label{sec:ch16-cross-fan}
+
+\begin{example}[The cross-fan: cellwise harmonicity is not enough]
+\label{ex:ch16-cross-fan}
+Work on the four-ray fan
+\begin{equation}
+\label{eq:ch16-cross-fan}
+ \Sigma=\mathbf R_{\geq0}e_1\cup\mathbf R_{\geq0}(-e_1)
+   \cup\mathbf R_{\geq0}e_2\cup\mathbf R_{\geq0}(-e_2)
+   \ \subset\ \mathbf R^2,
+\end{equation}
+regarded as an abstract calibrated tropical fan of pure dimension one, and
+put
+\begin{equation}
+\label{eq:ch16-cross-functions}
+ u=2|x_1|,\qquad \gamma=|x_1|+|x_2|,\qquad h=u-\gamma .
+\end{equation}
+
+\emph{Step 1: both potentials are psh for unit weights.}  Give every ray
+weight $1$; this fan is balanced, since opposite rays cancel.  Set
+$u_j(x)=2\sqrt{x_1^2+\varepsilon_j}$ and
+$\gamma_j(x)=\sqrt{x_1^2+\varepsilon_j}+\sqrt{x_2^2+\varepsilon_j}$ for
+$\varepsilon_j\downarrow0$.  These are smooth convex on $\mathbf R^2$, so
+their restrictions to $\Sigma$ are smooth psh, and they decrease locally
+uniformly to $u$ and $\gamma$.  Hence $u,\gamma$ are continuous psh, indeed
+locally approachable.
+
+\emph{Step 2: the two Laplacians agree.}  The outgoing slopes at the origin
+are
+\begin{equation}
+\label{eq:ch16-cross-slopes}
+\begin{array}{c|cccc|c}
+ &+e_1&-e_1&+e_2&-e_2&\text{sum}\\ \hline
+u&2&2&0&0&4\\
+\gamma&1&1&1&1&4\\
+h&1&1&-1&-1&0
+\end{array}
+\end{equation}
+and all three functions are affine on the interior of each ray.  With unit
+weights, \eqref{eq:graph-laplacian} gives
+$\dprimeddprime[u]=\dprimeddprime[\gamma]=4\delta_0$ and
+$\dprimeddprime[h]=0$.  In particular $h$ is harmonic on each cell interior
+in the sense of \Cref{prop:ch16-cell-rigidity}---it is affine there---and its
+unweighted balance at the origin vanishes.
+
+\emph{Step 3: a different weighting.}  Now give each horizontal ray weight
+$2$ and each vertical ray weight $1$.  Opposite rays still carry equal
+weights, so the weighted fan is balanced; its weights are positive, so the
+associated skeletal current $T$ is positive and closed.  For the current
+$hT$, the outgoing defect at the origin is the \emph{weighted} sum of the
+slopes of $h$:
+\begin{equation}
+\label{eq:ch16-cross-weighted-sum}
+ 2\cdot1+2\cdot1+1\cdot(-1)+1\cdot(-1)=2 .
+\end{equation}
+By \Cref{thm:ch16-skeletal-product}, with $p=1$ and the weights of $T$
+entering through $\lambda_C$, this is the total mass of
+$\dprimeddprime(hT)$, and there is no other contribution because $h$ is
+affine on each ray interior.  Hence
+\begin{equation}
+\label{eq:ch16-cross-defect}
+ \dprimeddprime(hT)=2\delta_0\neq0 ,
+\end{equation}
+even though $\dprimeddprime[u]=\dprimeddprime[\gamma]$.  Consequently $T$ is
+\emph{not} a Bedford--Taylor current, and the recursive products
+$\dprimeddprime(uT)$ and $\dprimeddprime(\gamma T)$ differ by $2\delta_0$.
+This is \Cref{prop:verified-cross-fan}; the failed implication is analysed in
+\Cref{rem:verified-cross-failed}.
+\end{example}
+
+\begin{remark}[Exactly which implication fails]
+\label{rem:ch16-cross-reading}
+Nothing in \Cref{ex:ch16-cross-fan} contradicts any theorem above.
+\Cref{prop:ch16-cell-rigidity} remains true on each ray, and it is used.
+What fails is the passage from
+\begin{center}
+``$h$ is affine on every cell and the \emph{unweighted} balance vanishes''
+\end{center}
+to
+\begin{center}
+``the balance weighted by the calibration of $T$ vanishes''.
+\end{center}
+The two balances agree when all weights are equal, and diverge as soon as
+the weighting of $T$ differs from the fundamental calibration.
+\Cref{lem:ch16-normal-slope-vanishes} shows that the second balance is
+exactly what the Bedford--Taylor property supplies, and
+\Cref{thm:ch16-pluriharmonic-criterion} shows that smooth pluriharmonic
+approximants supply it too, because a smooth $h_j$ has
+$\dprimeddprime h_j=0$ as a \emph{form}, an identity that is insensitive to
+weights.  In the example no such approximants exist: a smooth function on
+$\Sigma$ is the restriction of a smooth function on $\mathbf R^2$, and its
+slope vector at the origin along $\pm e_i$ is $\pm\langle\rd F(0),e_i\rangle$,
+so its slope sums are automatically zero for \emph{every} weighting, whereas
+$h$ has weighted slope sum $2$.  Thus $h$ is a limit of smooth functions in
+no way compatible with $\dprimeddprime h_j=0$, which is precisely the
+hypothesis \eqref{eq:ch16-pluriharmonic-approximation} that fails.
+\end{remark}
+
+\begin{warning}{This is an abstract fan, not an analytic space}
+\Cref{ex:ch16-cross-fan} is a counterexample on an abstract calibrated
+tropical fan.  No Berkovich-analytic realization of this weighted
+configuration is asserted; whether one exists is
+\Cref{prob:frontier-cross-fan}.  In particular the example does \emph{not}
+exhibit a positive closed current on an analytic space that fails the
+Bedford--Taylor property, and CLD's remark that every current they construct
+is Bedford--Taylor is not contradicted.  What the example does establish is
+that the property cannot be proved from cellwise harmonicity and balancing
+alone: any proof must use a further input, and
+\Cref{thm:bt-harmonic-compatibility} shows what that input is in the
+harmonic case.
+\end{warning}
+
+\subsection{The three levels of ambiguity}
+\label{sec:ch16-ambiguity-levels}
+
+\begin{center}
+\small
+\begin{tabular}{p{.24\textwidth}|p{.34\textwidth}|p{.33\textwidth}}
+\textbf{Level}&\textbf{Ambiguity is resolved by}&\textbf{Reference}\\
+\hline
+CLD Bedford--Taylor currents
+ &the defining independence from a potential with fixed
+  $\dprimeddprime$
+ &\Cref{def:ch16-bt-current},
+  \Cref{prop:bt-current-stability}\\
+harmonic tropicalizations
+ &cancellation of normal slopes across calibrated faces
+ &\Cref{lem:ch16-normal-slope-vanishes},
+  \Cref{thm:bt-harmonic-compatibility}\\
+global energy theories
+ &a normalization removing constants, and sometimes
+  model-harmonic functions
+ &\Cref{chap:bfj-energy,chap:bj-energy}\\
+\end{tabular}
+\end{center}
+
+The comparison chapters state the hypotheses under which these quotients
+agree; \Cref{chap:master-dictionary} collects them.
+
+\section{Polar sets}
+\label{sec:ch16-polar}
+
+Call a psh function \emph{locally approachable} if locally it is a decreasing
+limit of smooth psh functions; for a continuous such function the convergence
+is locally uniform.  This is a first-stage approximation hypothesis, stronger
+than merely belonging abstractly to the transfinite CLD sheaf.
+
+In the notation of \Cref{def:ch16-psh-filtration}, locally approachable means
+being a section of $\operatorname{Psh}_{X,1}$, which is
+\cite[Definition~8.1.13]{CLD25}.  The hypothesis is used twice in the proof
+below, and in both places it is used for what it literally says: to produce
+a decreasing sequence of \emph{smooth} psh functions to which
+\Cref{thm:ch16-weighted-cln} applies.  Since the collapse of the filtration
+at stage one is open (\Cref{prop:ch16-hierarchy-status}), the hypothesis
+cannot at present be removed.
+
+\begin{theorem}
+\label{thm:cld-polar-negligibility}
+Let $X$ be a good, pure $n$-dimensional boundaryless analytic space.  Let
+$u_1,\ldots,u_m$ be continuous psh functions that are locally approachable,
+let $V$ be locally approachable psh and locally integrable, and let $\alpha$
+be a smooth $(n-m,n-m)$-form.  Then $V$ is locally integrable for the signed
+measure
+\[
+          \dprimeddprime u_1\wedge\cdots\wedge
+          \dprimeddprime u_m\wedge\alpha.
+\]
+If $\alpha$ is positive, this measure does not charge the polar locus
+$\{V=-\infty\}$.  In particular it charges no analytic subset of dimension
+$<n$.
+\end{theorem}
+\begin{proof}
+The assertion is local.  Choose a rational affinoid neighborhood $W$ of a
+point and a smaller neighborhood $W'\Subset W$.  Finitely many functions
+defining $W'$ inside $W$, followed by a smooth regularized maximum of their
+logarithmic absolute values, give a smooth psh barrier $\rho$ whose relevant
+sublevel set is relatively compact in $W$.  This is the barrier construction
+of \cite[Proposition~16.9.1]{CLD25}.
+
+Choose decreasing smooth psh approximants $V_k\downarrow V$ and uniformly
+convergent smooth psh approximants $u_{i,k}\to u_i$ on $W$.  Insert cutoff
+functions obtained from $\rho$.  Repeated integration by parts and positivity
+give the weighted Chern--Levine--Nirenberg estimate
+\begin{equation}\label{eq:cld-weighted-cln}
+ \int_{W'}(-V_k)
+   \dprimeddprime u_{1,k}\wedge\cdots\wedge
+   \dprimeddprime u_{m,k}\wedge\alpha
+ \le C,
+\end{equation}
+after adding a harmless constant so that $V_k\le0$.  The constant depends on
+the compact inclusion, the barrier, the local sup norms of the $u_i$, and
+$\alpha$, but not on $k$.  To see the independence, move one
+$\dprimeddprime$ at a time from $u_{i,k}$ to the fixed cutoff; the boundary
+terms vanish because the cutoff has compact support, and each remaining term
+is bounded by positivity and the fixed oscillation of $u_{i,k}$.  At the last
+step the same operation moves $\dprimeddprime$ from $V_k$ to the barrier.
+
+Uniform Bedford--Taylor continuity sends the mixed measures in
+\eqref{eq:cld-weighted-cln} to
+$\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_m\wedge\alpha$.
+Fatou's lemma and then monotone convergence give local integrability of
+$-V$, hence of $V$, for the resulting signed measure; decompose a general
+smooth $\alpha$ into a difference of positive forms on the fixed compact
+chart.  If $\alpha$ is positive, the measure is positive.  Since an
+integrable extended-real function is finite almost everywhere, it assigns
+zero mass to $\{V=-\infty\}$.
+
+Finally, let $Z$ be an analytic subset of dimension less than $n$.  Locally
+choose an analytic function $f$ vanishing on $Z$ but on no top-dimensional
+component.  The functions
+$\max\{\log|f|,-k\}$ admit decreasing smooth psh regularizations, so
+$\log|f|$ is locally approachable, locally integrable, and equals
+$-\infty$ on $Z$.  The preceding paragraph shows that the mixed measure does
+not charge $Z$.  The estimate and limiting argument are
+\cite[Theorem~16.9.2 and Corollaries~16.9.3--16.9.4]{CLD25}.
+\end{proof}
+
+The barrier is \Cref{thm:ch16-barrier}, and the weighted estimate is
+\Cref{thm:ch16-weighted-cln}.  We record the two limits explicitly, since
+the order in which they are taken is the only delicate point.
+
+\begin{proof}[Second proof of the integrability statement, for
+$m=n$ and $\alpha=1$]
+\leavevmode\par\noindent
+By \Cref{thm:ch16-barrier} we may assume that there is a smooth psh $\rho$
+on $X$ with $U=\{\rho<0\}$ a relatively compact neighbourhood of the given
+point; fix $a=3$ and let $\beta_0,\ldots,\beta_n$ be as in
+\Cref{def:ch16-weight-forms}.  Local approachability gives smooth psh
+$u_{i,\ell}\to u_i$ locally uniformly and smooth psh $V_p\downarrow V$; after
+subtracting constants, $V_p\leq0$.  \Cref{thm:ch16-weighted-cln} gives, for
+all $\ell,p$,
+\[
+ \int_X\beta_n\wedge(-V_p)\,\dprimeddprime u_{1,\ell}\wedge\cdots
+   \wedge\dprimeddprime u_{n,\ell}
+ \ \leq\ C(n,3)\,\|u_{1,\ell}\|_U\cdots\|u_{n,\ell}\|_U
+   \int_U(-V_p)\beta_0 ,
+\]
+the extension of the integral from $U$ to $X$ being harmless because
+$\beta_n$ vanishes off $U$.  Let $\ell\to\infty$ with $p$ fixed: the
+left-hand side converges by \Cref{thm:cld-bt-continuity}, the outer factor
+$\beta_n\wedge(-V_p)$ being a fixed continuous compactly supported weight,
+and the sup-norms on the right converge to $\|u_i\|_U$.  Hence
+\[
+ \int_X\beta_n\wedge(-V_p)\,\dprimeddprime u_1\wedge\cdots
+   \wedge\dprimeddprime u_n
+ \ \leq\ C(n,3)\,\|u_1\|_U\cdots\|u_n\|_U\int_U(-V_p)\beta_0 .
+\]
+Now let $p\to\infty$.  On the left, $-V_p\uparrow-V$ and monotone
+convergence applies to the positive measure
+$\beta_n\wedge\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_n$; on
+the right, monotone convergence applies to the positive measure
+$\beta_0$, and the limit $\int_U(-V)\beta_0$ is finite because $V$ is
+locally integrable and $\beta_0$ has bounded density.  Since $\beta_n$ is
+continuous and strictly positive on $U$, we conclude that $-V$ is locally
+integrable on $U$ for $\dprimeddprime u_1\wedge\cdots\wedge
+\dprimeddprime u_n$.  The general $m$ and general smooth $\alpha$ follow by
+comparing $\alpha$ with $\pm c(\dprimeddprime\|t\|^2)^{n-m}$ in a fixed
+affine chart, as in \cite[Corollary~8.12.2]{CLD25}.
+\end{proof}
+
+The goodness and local approachability assumptions are retained here.  The
+theorem is not a blanket assertion that every pluripolar set is negligible
+for every possible non-Archimedean Monge--Amp\`ere construction.
+
+\begin{warning}{Negligibility of polar sets is not extension across them}
+\Cref{thm:cld-polar-negligibility} says that a \emph{given} product of
+continuous psh potentials assigns no mass to the polar locus of an auxiliary
+psh function.  It says nothing about defining a product of potentials that
+are themselves unbounded, and it does not assert that a product defined off
+a polar set extends canonically across it.
+\Cref{ex:ch16-polar-failure} shows that the second assertion is false as
+stated: there, the product computed off $Y$ is zero, while the canonical
+extension supplied by the Bochner--Martinelli theorem has mass one on $Y$.
+The two statements are compatible because the potentials in the example are
+not continuous on $X$.
+\end{warning}
+
+\section{Local theory versus global finite energy}
+\label{sec:ch16-local-vs-global}
+
+\Cref{part:bfj} and \cref{part:bj} construct Monge--Amp\`ere measures for
+unbounded potentials.  Those constructions and the one of this chapter share
+notation and a name, and they are not the same operation.  Because several
+later theorems consist precisely in identifying them on a restricted locus,
+this section states the delimitation as a table rather than as a slogan.
+
+\subsection{Three levels}
+\label{sec:ch16-three-levels}
+
+It is useful to end by separating three levels.
+\begin{enumerate}
+\item The present CLD product is local and differential.  It treats
+continuous psh potentials and gives local measures, CLN estimates, and the
+polar theorem above.
+\item Model and PL metrics on a proper variety have global intersection
+masses.  Delta-forms make their polyhedral curvature products more explicit;
+\Cref{chap:delta-forms} develops that comparison.
+\item The BFJ and BJ classes $\mathcal E^1$ contain unbounded global
+potentials.  Their Monge--Amp\`ere measures are defined by energy-controlled
+approximation and non-pluripolar extension, not by declaring the local CLD
+continuous product to apply verbatim.
+\end{enumerate}
+Boundary is equally decisive.  Stokes on an open domain produces boundary
+terms; on a proper boundaryless space those terms vanish and total masses can
+be identified with intersection numbers.  Consequently, a local formula
+cannot by itself prove a global mass or comparison principle.
+
+\subsection{The delimitation table}
+\label{sec:ch16-delimitation-table}
+
+\begin{center}
+\small
+\begin{tabular}{p{.14\textwidth}|p{.19\textwidth}|p{.19\textwidth}|p{.16\textwidth}|p{.18\textwidth}}
+\textbf{Feature}&\textbf{CLD product}
+ &\textbf{BFJ $\cE^1$ product}&\textbf{BJ $\cE^1$ product}
+ &\textbf{Where proved}\\ \hline
+ambient space
+ &tropical or analytic, boundaryless, any dimension
+ &proper $X$ over a nontrivially valued $K$, ample $L$
+ &proper $X$ over a trivially valued $K$
+ &\Cref{sec:ch16-hypotheses}; \Cref{chap:bfj-ma}; \Cref{chap:bj-energy}\\
+potentials
+ &continuous psh, locally defined
+ &global $\theta$-psh with finite energy, possibly unbounded
+ &global psh with finite energy, homogeneous
+ &\Cref{sec:ch16-four-properties}; \Cref{def:e1}; \Cref{def:bj-e1}\\
+definition mechanism
+ &recursion \eqref{eq:ch16-recursion-schema} on potentials
+ &monotone extension from bounded potentials, then
+  non-pluripolar truncation
+ &monotone extension and energy limits
+ &\Cref{sec:ch16-recursion}; \Cref{thm:bounded-ma-extension},
+  \Cref{def:nonpluripolar-ma}; \Cref{thm:bj-mixed-ma}\\
+mass control
+ &local, by CLN
+ &global, total mass $(L^n)$
+ &global, total mass fixed by the class
+ &\Cref{thm:cld-cln}; \Cref{chap:bfj-energy}; \Cref{chap:bj-energy}\\
+polar sets
+ &not charged, under local approachability
+ &not charged, by construction
+ &not charged, by construction
+ &\Cref{thm:cld-polar-negligibility};
+  \Cref{prop:bounded-ma-no-polar-mass}; \Cref{thm:bj-quasicontinuity}\\
+continuity
+ &local uniform convergence of potentials
+ &monotone and strong-topology convergence
+ &monotone and strong-topology convergence
+ &\Cref{thm:cld-bt-continuity}; \Cref{prop:e1-monotone-continuity};
+  \Cref{chap:bj-strong-topologies}\\
+comparison principle
+ &chartwise only
+ &available, with energy hypotheses
+ &available, with energy hypotheses
+ &\Cref{thm:ch16-comparison-chart};
+  \eqref{eq:model-maximum-principle}; \eqref{eq:bj-comparison-principle}\\
+\end{tabular}
+\end{center}
+
+\subsection{What transfers, and what does not}
+\label{sec:ch16-transfer}
+
+Three transfers are proved in this book, and each is stated with its
+hypotheses.
+\begin{enumerate}
+\item\label{itm:ch16-transfer:model}
+ For semipositive model metrics, the CLD product of the associated formal
+ Chern currents, the Chambert--Loir measure, and the BFJ intersection measure
+ all agree; and the agreement persists for continuous semipositive metrics
+ obtained by uniform approximation.  This is
+ \Cref{thm:bfj-cld-ma-common-locus}.
+\item\label{itm:ch16-transfer:toric}
+ In the toric case both operators equal $n!$ times the real Alexandrov
+ measure of the associated convex function, by
+ \Cref{thm:toric-ma-comparison} and
+ \Cref{ex:ch16-toric-normalization}.
+\item\label{itm:ch16-transfer:curve}
+ On curves Wanner identifies positivity of the CLD current of a continuous
+ potential with Thuillier subharmonicity; for model or skeletal potentials
+ the curvature is the metric-graph Laplacian.  This is
+ \Cref{thm:wanner-curve-comparison} together with
+ \Cref{prop:skeletal-curvature-curve}.
+\end{enumerate}
+Two failures of transfer must be kept in view.  First, the CLD product is
+local: a bounded global BFJ-psh function need not be locally CLD-psh, and no
+theorem in this book asserts it; this is the local-versus-global metric
+question \Cref{prob:frontier-cld-global-metric}.  Second, the two
+constructions differ on the mass carried by pluripolar sets:
+\Cref{ex:ch16-polar-failure} exhibits a canonical extension of a CLD product
+with mass one on a polar set, whereas the non-pluripolar products of
+\Cref{chap:bfj-energy,chap:bj-finite-energy} discard that mass by
+definition.  Conflating them would produce a wrong total mass in
+\Cref{chap:compare-ma}.
+
+Finally, harmonic ambiguity is resolved differently at the three levels.
+For CLD Bedford--Taylor currents it is encoded by the defining independence
+from a potential with fixed $\dprimeddprime$.  For harmonic tropicalizations
+it is encoded by cancellation of slopes across calibrated faces.  For the
+global energy theories constants, and sometimes model-harmonic functions,
+are removed by a normalization.  The comparison chapters will state the
+hypotheses under which these quotients agree.
+
+\section{Chapter dictionary}
+\label{sec:ch16-dictionary}
+
+\subsection{From the objects of this chapter to their use}
+\label{sec:ch16-dict-forward}
+
+\begin{center}
+\small
+\begin{tabular}{p{.28\textwidth}|p{.34\textwidth}|p{.30\textwidth}}
+\textbf{Object}&\textbf{Established property}&\textbf{First use}\\ \hline
+the product $uT$
+ &defined for $T$ positive, $u$ continuous
+  (\eqref{eq:ch16-uT-definition})
+ &\Cref{thm:one-bt-factor}\\
+sheaf-closure principle
+ &propagates a property from smooth psh to all continuous psh
+  (\Cref{lem:ch16-cpsh-induction})
+ &\Cref{thm:one-bt-factor,thm:bt-symmetry-locality}\\
+one-factor theorem
+ &$\dprimeddprime(uT)$ positive closed
+  (\Cref{thm:one-bt-factor})
+ &the recursion, \Cref{sec:ch16-recursion}\\
+Bedford--Taylor current
+ &independence from the potential
+  (\Cref{def:ch16-bt-current})
+ &\Cref{thm:bt-harmonic-compatibility}\\
+mixed product
+ &symmetric, local, positive closed
+  (\Cref{thm:bt-symmetry-locality})
+ &\Cref{chap:cld-metrized-bundles}\\
+dpsh extension
+ &unique multilinear extension
+  (\Cref{thm:ch16-dpsh-product})
+ &\Cref{thm:cld-fibre-projection}\\
+continuity theorem
+ &joint weak continuity
+  (\Cref{thm:cld-bt-continuity})
+ &\Cref{thm:toric-ma-comparison},
+  \Cref{thm:cld-polar-negligibility}\\
+CLN inequality
+ &local mass $\leq$ product of sup-norms
+  (\Cref{thm:cld-cln})
+ &\Cref{prop:positive-current-compactness}\\
+weighted CLN inequality
+ &constant \eqref{eq:ch16-cln-constant}
+ &\Cref{thm:cld-polar-negligibility}\\
+skeletal product formula
+ &weights \eqref{eq:ch16-skeletal-weights}
+ &\Cref{chap:cld-examples}, \Cref{chap:delta-forms}\\
+harmonic compatibility
+ &recursion equals the naive $G$-form product
+  (\Cref{thm:bt-harmonic-compatibility})
+ &\Cref{sec:harmonic-trop},
+  \Cref{thm:abelian-harmonic-tropicalization}\\
+polar negligibility
+ &no mass on $\{V=-\infty\}$
+  (\Cref{thm:cld-polar-negligibility})
+ &\Cref{prop:ch16-degree-formula},
+  \Cref{chap:compare-ma}\\
+\end{tabular}
+\end{center}
+
+\subsection{From the later theory back to this chapter}
+\label{sec:ch16-dict-backward}
+
+\begin{center}
+\small
+\begin{tabular}{p{.30\textwidth}|p{.32\textwidth}|p{.30\textwidth}}
+\textbf{Later object}&\textbf{Smallest instance}&\textbf{Computed in}\\
+\hline
+Monge--Amp\`ere measure of a toric metric
+ &$\max\{0,x,y\}$ on the fan of $\mathbf P^2$, mass $1$
+ &\Cref{ex:ch16-fan-p2}\\
+mixed Monge--Amp\`ere measure
+ &$\dprimeddprime\max\{0,x\}\wedge\dprimeddprime\max\{0,y\}
+   =\delta_0$
+ &\Cref{ex:ch16-fan-p2}\\
+product on a nonlinear tropical space
+ &$L\times\mathbf R$, mass $4$
+ &\Cref{ex:ch16-fan-product}\\
+Chambert--Loir measure on a curve
+ &tripod, atoms $6,-1,-2,-3$
+ &\Cref{ex:ch16-tripod-numbers}\\
+failure of extension across a polar set
+ &$\log\max\{|z_1|,|z_2|\}$ on
+  $\mathbf A^{2,\An}$
+ &\Cref{ex:ch16-polar-failure}\\
+harmonic ambiguity
+ &cross-fan, defect $2\delta_0$
+ &\Cref{ex:ch16-cross-fan}\\
+CLN constant in practice
+ &$\MA(u)([-1,1])\leq2\operatorname{osc}_{[-2,2]}(u)$
+ &\Cref{ex:ch16-cln-verified}\\
+\end{tabular}
+\end{center}
+
+\subsection{Hypothesis ledger}
+\label{sec:ch16-ledger}
+
+\begin{center}
+\small
+\begin{tabular}{p{.30\textwidth}|p{.62\textwidth}}
+\textbf{Hypothesis}&\textbf{Where it is used, and what fails without it}\\
+\hline
+$T$ positive
+ &defines $uT$ and gives positivity of the product; without it the
+  recursion has no sign and \Cref{lem:continuous-times-positive-current}
+  fails\\
+$T$ closed
+ &\Cref{lem:ch16-leibniz-closed}; otherwise
+  $\dprimeddprime(uT)$ acquires $\dprime u\wedge\ddprime T$ and
+  $\ddprime u\wedge\dprime T$\\
+$u$ continuous
+ &\eqref{eq:ch16-uT-definition}; a locally bounded discontinuous psh
+  function is not admitted, see the warning in
+  \Cref{sec:ch16-four-properties}\\
+$X$ boundaryless
+ &Green's formula in \Cref{thm:cld-cln} and
+  \Cref{thm:ch16-weighted-cln}; with boundary, a flux term survives\\
+$T$ Bedford--Taylor
+ &independence of the potential; \Cref{ex:ch16-cross-fan} shows the
+  conclusion genuinely fails otherwise\\
+harmonic chart
+ &\Cref{thm:bt-harmonic-compatibility}; without harmonicity the boundary
+  current $[\alpha]^\partial$ need not vanish\\
+locally approachable
+ &\Cref{thm:cld-polar-negligibility}; the proof needs decreasing
+  \emph{smooth} approximants and stage-one collapse is open\\
+$X$ good
+ &\Cref{thm:ch16-barrier}; no smooth psh exhaustion is available in
+  general\\
+\end{tabular}
+\end{center}
+
+\section*{Source notes}
+
+\paragraph{The construction.}
+The recursive product, the notion of Bedford--Taylor current, symmetry,
+local uniform continuity, the projection formula, the Chern--Levine--%
+Nirenberg estimates, the skeletal product formulae, harmonic-chart
+compatibility, and the polar theorem all follow
+\cite[\S\S8.1--8.12 and \S16.9]{CLD25}.  Our numbering of the imported
+statements records the 2025 revision: the local results are
+\cite[\S\S8.4--8.12]{CLD25} and their analytic transcriptions are
+\cite[\S16.9]{CLD25}, which is why \Cref{thm:cld-polar-negligibility} is
+cited from the latter while \Cref{thm:ch16-weighted-cln} is cited from the
+former.  The reader comparing with the source will find the same theorems in
+a different order: we have isolated the sheaf-closure principle
+(\Cref{lem:ch16-cpsh-induction}) as a lemma, whereas the source repeats the
+argument at each application; we have made the constant of
+\Cref{thm:cld-cln} explicit as a mass of $T$
+(\Cref{prop:ch16-cln-constant}), which the source does not do; and we have
+placed the harmonic-ambiguity material in one section rather than
+distributing it between \S8.6 and \S8.11.
+
+\paragraph{The complex prototype.}
+The recursion \eqref{eq:ch16-recursion-schema} is Bedford and Taylor's
+\cite{BT76,BT82}, where it is carried out for locally bounded psh functions
+on a domain in $\mathbf C^n$; the convergence theorem for decreasing
+sequences and the capacity that makes it sharp are in \cite{BT82,BT87}.
+Chern, Levine and Nirenberg's inequality \cite{CLN69} predates the product
+and was proved for smooth potentials; its role as the mass estimate behind
+compactness is due to Bedford and Taylor.  Standard modern accounts of the
+complex theory are \cite[Chapter~3]{Kl91}, \cite[Chapter~III]{DemBook} and
+\cite[Chapters~3 and~4]{GZ17}, and the reader is warned that all of them
+prove statements---continuity along decreasing sequences of locally bounded
+potentials, quasicontinuity, the unrestricted comparison principle---whose
+non-Archimedean analogues are \emph{not} available here, for the reason
+displayed in \Cref{sec:ch16-four-properties}: the local smoothing that makes
+the complex arguments work has no counterpart on a Berkovich space.  The
+one-variable prototype of the whole chapter is Lelong's theory of
+plurisubharmonic functions and positive currents \cite{Lel68}.
+
+\paragraph{The psh hierarchy.}
+\Cref{prop:ch16-hierarchy-status} and the warning following it correct a
+frequently repeated misreading.  Eventual stationarity of the filtration is
+proved by a cardinality argument in \cite[Lemma~8.1.4]{CLD25} and is used in
+the proofs of \cite[Propositions~8.1.5, 8.1.11 and 8.2.1]{CLD25}; the
+literal sentence of \cite[Remark~8.1.6]{CLD25} denying it is superseded by
+those authors' own lemma, and the same remark records the intended content,
+namely that no known example lies outside the first stage.  CLD's
+\cite[Definition~8.1.13]{CLD25} names that stage.  The open question is
+therefore early collapse, and it is stated in that form in
+\Cref{prob:frontier-cld-hierarchy}.  \Cref{rem:ch16-collapse-reduction} and
+\Cref{rem:ch16-collapse-euclidean} are elementary observations included for
+orientation only: the first is the remark that collapse at a stage is
+equivalent to one closure property, so that finite collapse at any stage is
+equivalent to collapse at stage one; the second is the standard radial
+mollification argument, whose ingredients are proved in
+\Cref{prop:ch09-radial-mollification}.  Neither is a theorem of this book,
+and no priority is claimed for either.
+
+\paragraph{Harmonic tropicalizations and the curve tests.}
+The harmonic-chart theory used in
+\Cref{sec:ch16-harmonic-charts} is \cite[\S7.8]{CLD25}; its enlargement, in
+which harmonic tropicalizations become charts in their own right and the
+resulting Dolbeault theory is compared with the CLD one, is
+\cite{GJR26}, taken up in \Cref{sec:harmonic-trop}.  Curve-test psh and
+pluriharmonic functions, which are a different notion and are never
+identified with the CLD sheaf without a theorem, are
+\cite{GR25Classical,GR25PL}; the comparison with semipositive PL functions
+is \Cref{thm:gr-pl-comparison}.  The delta-form calculus of
+\cite{GK17,GK19}, in which polyhedral curvature and tropical intersection
+become part of the coefficient algebra, is developed in
+\Cref{chap:delta-forms}; \Cref{thm:ch16-skeletal-product} is the
+Bedford--Taylor shadow of that calculus, and
+\Cref{rem:ch16-skeletal-gsmooth} is exactly the term that delta-forms are
+designed to absorb.
+
+\paragraph{Harmonic ambiguity.}
+\Cref{thm:ch16-pluriharmonic-criterion},
+\Cref{prop:ch16-cell-rigidity} and \Cref{ex:ch16-cross-fan} are the
+audited statements \Cref{thm:verified-cld-criterion},
+\Cref{prop:verified-cell-rigidity} and \Cref{prop:verified-cross-fan} of
+\Cref{chap:verified-extensions}, reproved here because this is where they
+are used.  The cross-fan is a counterexample on an abstract calibrated fan;
+its analytic realizability is \Cref{prob:frontier-cross-fan}.  The
+distinction between the three harmonicity conditions tabulated in
+\Cref{sec:ch16-reading-bt} follows \cite[Remark~7.8.3]{CLD25} for the first
+two and \cite{GR25Classical} for the third.
+
+\paragraph{The convex and real-geometric side.}
+The identification of the top self-product of a convex potential with $n!$
+times the Alexandrov measure is fixed in
+\Cref{prop:ch09-ma-coordinates} and is used in
+\Cref{sec:ch16-comparison} and \Cref{sec:ch16-worked}; the corresponding
+supercurrent formalism, in which convex Bedford--Taylor products and mixed
+volumes are developed intrinsically, is \cite{Ber26Convex}, with the
+convention firewall recorded in \Cref{chap:cld-currents}.  The comparison of
+real and non-Archimedean Monge--Amp\`ere operators in the toric case is
+\cite{Vil20}, and the global invariant tropical version is
+\cite{BGJKK25}.  Villena's comparison and the toric normalization of
+\Cref{chap:model-calculations} agree, and
+\Cref{ex:ch16-toric-normalization} records the factor.
+
+\paragraph{What is new here, and what is not.}
+No theorem of this chapter is new.  The organizational choices that differ
+from the source are the four listed above: the sheaf-closure principle as a
+named lemma, the explicit CLN constant, the single harmonic-ambiguity
+section, and the delimitation table of
+\Cref{sec:ch16-delimitation-table}, which exists because
+\Cref{part:bfj,part:bj,part:comparisons} depend on not conflating the local
+product with the global finite-energy ones.  The worked computations of
+\Cref{sec:ch16-worked} are elementary but are carried to numbers on purpose:
+every mass in this book that is later compared with an intersection number
+is first checked in one of them.

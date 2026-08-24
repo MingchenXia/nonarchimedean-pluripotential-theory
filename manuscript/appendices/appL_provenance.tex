@@ -1,0 +1,1180 @@
+\chapter{Theorem provenance and status ledger}
+\index{provenance ledger}\index{theorem status}
+\label{app:provenance}
+
+This appendix records where the principal theorems of the book come from,
+which hypotheses belong to their original statements, and what has been
+proved inside this text.  Its purpose is logical, not merely historical.
+A theorem imported from the literature remains an imported theorem even when
+we give a detailed proof architecture; a result proved in a manuscript
+supplied by the author is not described as a published theorem; and a new
+argument in this first draft is identified as such.
+
+The literature cut-off for this edition is
+\[
+                         \text{24 August 2026}.
+\tag{L.1}\label{eq:appL-cutoff}
+\]
+Version-sensitive statements are tied to the version and date appearing in
+the bibliography.  Later revisions may strengthen, weaken, or correct them.
+
+% Dense provenance tables are set as full-width records.  Repeating the
+% field names keeps each record intelligible after a page break and avoids
+% the narrow columns that make long citations and hypotheses unreadable.
+\newcommand{\AppLFirstField}{}
+\newcommand{\AppLSecondField}{}
+\newcommand{\AppLThirdField}{}
+\newenvironment{AppLProvenanceLedger}[3]{%
+  \par\medskip
+  \renewcommand{\AppLFirstField}{#1}%
+  \renewcommand{\AppLSecondField}{#2}%
+  \renewcommand{\AppLThirdField}{#3}%
+}{%
+  \par\medskip
+}
+\newcommand{\AppLProvenanceRecord}[3]{%
+  \par\addvspace{.8\baselineskip}%
+  \noindent\textbf{\AppLFirstField.} #1\par\nobreak
+  \noindent\emph{\AppLSecondField.} #2\par\nobreak
+  \noindent\emph{\AppLThirdField.} #3\par
+}
+
+\section{How to read the ledger}
+\label{sec:appL-how}
+
+Each entry has one of five statuses.
+
+\begin{description}
+\item[Proved.]
+The book supplies a complete argument from earlier results in the book or
+from standard algebraic facts explicitly stated at the point of use.
+
+\item[Deep import.]
+The proof is not reproduced in full.  The theorem is stated with its
+source hypotheses and an exact citation or theorem number.
+
+\item[Reconstruction.]
+The book proves the result by reorganizing ingredients from the cited
+source.  The mathematical credit remains with that source.
+
+\item[Supplied manuscript.]
+The argument comes from one of the two TeX archives supplied for this
+project.  The text has been checked and rewritten, but the result is not
+represented as independently published.
+
+\item[First-draft result.]
+The claim is proved in this book and is not assigned to an external source.
+Such a claim is kept separate from the historical theorem stream and is
+accompanied by its exact scope or by a counterexample.
+\end{description}
+
+These labels concern provenance, not importance.  An elementary lemma may
+be a deep dependency if the available proof uses resolution, alteration, or
+test ideals.  Conversely, a long calculation may be proved here from
+definitions.
+
+\subsection{Second-draft verification boundary}
+
+The 22 August 2026 expansion pass reaches every numbered chapter, but this
+does not turn the historical first-pass records into a new whole-book
+mathematical or source audit.  Independent mathematical and source audits,
+an exact-source whole-book build, a log scan, and rendered-page inspection
+are separate release gates.  Their artifact-dependent evidence is recorded
+outside the typeset book in the release summary, so this provenance appendix
+does not make a self-referential build claim.  The earlier trace record R3-19
+is superseded: the complete supplied
+source gives an
+\(\mathcal I\)-input/\(P\)-output theorem, which is recorded as a source
+import rather than as a Rethlas novelty claim.  These are
+verification-status statements, not a change in the provenance of any
+theorem.
+
+Six exact-current production gates now supplement the earlier audits:
+\begin{itemize}
+\item the fixed-skeleton selection in Chapter~23, run:
+  \par\nolinkurl{20260824T044830Z_25024c43d265}
+\item the Chapter~49 truncation-energy and sharpness package, run:
+  \par\nolinkurl{20260824T041218Z_0c95825dbb06}
+\item the source-attested Chapter~55 toric zero-mass block, run:
+  \par\nolinkurl{20260824T052605Z_703e3b501202}
+\item the current metric and line-bundle blocks in
+  \cref{thm:ok-mvob-metrics,thm:ok-mvob-line-bundles}, runs:
+  \par\nolinkurl{20260824T054849Z_57635bfa07f4}
+  \par\nolinkurl{20260824T061508Z_17bf73c6b37c}
+\item the Chapter~69 toric-dimension integration, run:
+  \par\nolinkurl{20260824T070302Z_d706dc98ccca}
+\end{itemize}
+Each run used \texttt{gpt-5.6-sol} at \texttt{xhigh} and returned final
+\texttt{correct}, zero critical errors, and zero gaps.  Their exact byte
+boundaries and digests are recorded in the receipts under
+\nolinkurl{editorial/rethlas_receipts_20260824/}.
+
+The Chapter~23 result is book-local and fixed-skeleton only.  The Chapter~49
+result is confined to the positive-volume probability-normalized BJ energy
+framework.  The toric theorem in Chapters~55 and~69 is a synthesis of the
+published Cao, Guenancia, and toric-character inputs, with no novelty claim,
+and covers only invariant currents in integral or rational big toric classes.
+The author-supplied proof of Xia's Conjecture~8.8 remains unpublished; its
+verified scope is the connected smooth-projective, big-line-bundle,
+positive-Cao-volume framework, excluding zero volume, transcendental classes,
+singular varieties, and attainment of the supremum.
+
+The source-audited repair of \Cref{thm:bj-basic-closure} remains a BJ22 import
+without an exact-current Rethlas receipt.  The standalone reduced
+entropy-slope reconstruction also remains pending and is not asserted as a
+theorem.  Finally, Rethlas audits mathematical correctness but do not certify
+theorem numbers, pages, or editions: every load-bearing locator is separately
+checked against its controlling primary-source version.  Such a source check
+may overturn a locator false positive, but it cannot convert a stale or
+non-final run into a receipt.
+
+\begin{remark}[Citation granularity]
+Chapter source notes contain the exact local theorem numbers.  This appendix
+collects the major dependencies at the level of a theorem family.  When the
+two appear to differ, the narrower hypothesis and the more precise local
+citation govern.
+\end{remark}
+
+\section{Proof boundary of the technical appendices}
+\label{sec:appL-appendix-proof-boundary}
+
+Every theorem, lemma, proposition, and corollary in
+\crefrange{app:valuation-algebra}{app:complex-reference} is followed
+immediately by a proof block.  A block headed \emph{foundational input} is
+not represented as a proof of that input: it states the imported assertion,
+gives its source, and proves only the deductions made from it.  The precise
+irreducible cores are as follows.
+
+\begin{description}[style=nextline,leftmargin=1.5em,labelindent=0pt]
+\item[\Cref{app:valuation-algebra}.]
+The converse and finite Rees-valuation reduction in the valuative criterion
+for integral closure are imported from
+\cite[Chapter~VI]{ZariskiSamuelII}; the square--cube and universal
+homeomorphism criteria are exactly Stacks Project Tags 0CND, 0EUH, and 04DF;
+and the additive-power formula is exactly
+\cite[Theorem~4.17, Proposition~4.2, and Corollary~4.3]{RobertsSingh}.
+
+\item[\Cref{app:birational-geometry}.]
+The imported scheme-theoretic cores are admissible domination (Tag 081T),
+Raynaud--Gruson flattening (Tag 0815), and Noetherian Stein factorization
+(Tag 03H0), together with the normalization statement used for its middle
+term (Tag 035L).  Resolution and simultaneous principalization are the stated
+Hironaka inputs \cite{Hironaka1964I,Hironaka1964II}; the smooth projective
+alteration input is \cite[Theorem~4.1]{deJong1996}.
+
+\item[\Cref{app:ideals}.]
+The analytic inputs are Nadel coherence
+\cite[Theorem~10.20]{Bou17} and strong openness
+\cite[Theorem~1.1]{GZ15}.  The algebraic inputs are local vanishing
+\cite[Theorem~9.4.1]{PAG2}, subadditivity
+\cite[Theorem~2.3]{DEL00}, geometric Skoda division
+\cite[Section~9.6]{PAG2}, and the uniform-generation input used in
+\cite[Theorem~5.20]{BJ22}.  The positive-characteristic inputs are the
+asymptotic test-ideal statements of
+\cite[Section~3 and Proposition~3.1]{MustataTest}, Canton's discrepancy
+estimate \cite[Definition~3.2 and Proposition~4.1]{Canton}, the
+Brian\c con--Skoda theorem
+\cite[Theorem~6.9(iii)]{ST12} (with
+\cite[Theorem~2.1]{HY03}), and the fixed-datum reduction comparison
+\cite[Theorem~6.8]{HY03}.
+
+\item[\Cref{app:convexity}.]
+The Lorentzian signature and solvability of the Alexandrov equation used for
+Alexandrov--Fenchel are exactly
+\cite[Theorems~12.3 and~13.3]{Ber26Convex}, with the classical formulation
+\cite[Theorem~7.3.1]{Sch14}.  Continuity of Bedford--Taylor products for
+convex superpotentials is imported from
+\cite[Theorem~4.2]{Ber26Convex}.  The mixed-subdivision construction is
+anchored at \cite[Theorem~5.1.7]{Sch14}; the finite-dimensional area formula
+used for the smooth Alexandrov density is
+\cite[Theorem~3.8]{EvansGariepy}.  All reductions from those inputs,
+including degenerate bodies and the factor \(n!\), are proved in the
+appendix.
+
+\item[\Cref{app:nets}.]
+The point-set arguments are proved directly.  Compactness of the probability
+measure space uses only Tychonoff compactness
+\cite[Chapter~5]{Kel75} and the Riesz representation theorem
+\cite[Theorem~2.14]{Rud87}; the Portmanteau inequalities are then proved
+from continuous minorants.
+
+\item[\Cref{app:intersection-bdivisors}.]
+Finite-level intersection theory imports the operational Chow projection
+formula \cite[Proposition~2.3(c)]{Ful}.  The extension to nef Weil
+\(b\)-classes imports exactly decreasing approximation
+\cite[Theorem~2.1]{DF20}, existence and independence
+\cite[Proposition--Definition~3.1]{DF20}, and upper semicontinuity and
+monotone continuity \cite[Theorem~3.2]{DF20}.
+
+\item[\Cref{app:tropical-algebra}.]
+The analytic-calibration theorem imports precisely the local-degree and
+gluing statements
+\cite[Proposition~14.3.1, \S14.3.2, Lemma~14.3.4, and
+Definition~14.3.5]{CLD25}, harmony
+\cite[Theorem~15.6.1]{CLD25}, and calibrated pushforward
+\cite[Proposition~14.4.2]{CLD25}.  The balancing and lattice-index
+deductions are proved in the appendix.
+
+\item[\Cref{app:complex-reference}.]
+The nonpluripolar, relative-energy, envelope, strong-openness, geodesic, and
+test-curve inputs are isolated by exact internal anchors to
+\cref{chap:complex-prerequisites,chap:rays-test-curves}; unrestricted
+total-mass monotonicity is imported from
+\cite[Theorem~1.1]{DDNL18mono}, with the small-unbounded-locus predecessor
+\cite[Theorem~1.16]{BEGZ10}.  In particular,
+the analytic-singularity assertion for the ideal envelope uses envelope
+maximality and is not deduced from divisorial orders alone.
+The multiplier-ideal reconstruction uses the uniform-
+\(\eta\) valuative criterion \cite[Corollary~10.18]{Bou17}, not separate
+strict inequalities with a divisor-dependent margin.
+\end{description}
+
+\Cref{app:stacks,app:normalizations,app:notation,app:provenance} contain
+dependency, convention, notation, and provenance ledgers rather than new
+theorem-like environments.  Their displayed formulas are cross-referenced
+to proofs or foundational inputs in the preceding appendices and main
+chapters.
+
+\section{Hypothesis signatures}
+\label{sec:appL-signatures}
+
+The short signatures below are used only in this appendix.
+
+\begin{center}
+\begin{tabular}{@{}p{.16\textwidth}p{.72\textwidth}@{}}
+\toprule
+Code & Meaning \\
+\midrule
+\(\mathrm{CDVF}_0\)
+  & complete discretely valued field with residue characteristic zero \\
+\(\mathrm{CNA}\)
+  & complete nontrivially valued non-Archimedean field \\
+\(\mathrm{TVF}\)
+  & trivially valued field \\
+\(\mathrm{SmProj}\)
+  & smooth projective variety \\
+\(\mathrm{UniProj}\)
+  & integral projective unibranch variety \\
+\(\mathrm{Amp}\)
+  & ample line bundle or ample numerical class \\
+\(\mathrm{Big}\)
+  & big line bundle or big cohomology class \\
+\(\mathrm{Kah}\)
+  & compact Kähler manifold or the stated compact Kähler space \\
+\(\mathrm{Mod}\)
+  & model, formal, or PL regularity \\
+\(\mathrm{Cont}\)
+  & continuous potentials or metrics \\
+\(\mathrm{Bd}\)
+  & bounded psh potentials \\
+\(\mathrm E^1\)
+  & the full-mass finite-energy domain in the relevant theory \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The signatures are reminders, not substitutes for theorem statements.
+For example, \(\mathrm{CDVF}_0+\mathrm{SmProj}+\mathrm{Amp}\) does not record
+the algebraizability or support conditions in the original BFJ equation.
+Those conditions are written separately below and in
+\crefrange{chap:bfj-ma}{chap:bfj-continuity}.
+
+\section{Analytic spaces, models, and metrics}
+\label{sec:appL-foundations}
+
+The foundation chapters synthesize several classical theories rather than
+import one monolithic theorem.
+
+\begin{AppLProvenanceLedger}{Topic}{Anchor source}{Use and status}
+\AppLProvenanceRecord
+  {Berkovich spectra and analytification}
+  {\cite{Berk12}}
+  {Deep import for spectral compactness, affinoid gluing, properness, and
+   completed residue fields; \crefrange{chap:valuations}{chap:berkovich}
+   prove the elementary seminorm
+   and example calculations.}
+\AppLProvenanceRecord
+  {Valuation algebra}
+  {\cite{ZariskiSamuelII,Berk12}}
+  {Reconstruction in \cref{chap:valuations}; the algebraic valuation criteria
+   used later are isolated in \cref{app:valuation-algebra}.}
+\AppLProvenanceRecord
+  {Models and flattening}
+  {\cite{RaynaudGruson1971,deJong1996,stacks-project}}
+  {Deep imports for flattening, alterations, and scheme-theoretic
+   descent; exact Stacks tags appear in \cref{app:stacks}.}
+\AppLProvenanceRecord
+  {Intersection theory}
+  {\cite{Ful}}
+  {Deep import for Chow-theoretic projection formulae; the model
+   special-fibre identities needed here are proved in \cref{chap:models} and
+   \cref{app:intersection-bdivisors}.}
+\AppLProvenanceRecord
+  {Semipositive metrics}
+  {\cite{Zhang1995,GM19}}
+  {Reconstruction of algebraic, formal, PL, and uniform-limit
+   semipositivity in \cref{chap:metrics}.}
+\AppLProvenanceRecord
+  {Model measures}
+  {\cite{CL06}}
+  {Deep import for the original Chambert--Loir intersection measure;
+   agreement with later constructions is proved only on common loci.}
+\end{AppLProvenanceLedger}
+
+The signs of model functions are conventions of this book, checked directly:
+\[
+                       \phi_D=v(f_D),
+               \qquad \phi_{\cX_s}=1.
+\tag{L.2}\label{eq:appL-model-sign}
+\]
+No citation can replace this normalization check, since several sources use
+opposite metric weights.
+
+\section{CLD and the local differential theory}
+\label{sec:appL-cld}
+
+The main source for \cref{part:cld} is version~2 of the
+Chambert--Loir--Ducros manuscript \cite{CLD25}.  The exposition is rebuilt in
+a different order: Euclidean superforms and polyhedral Stokes come first,
+then tropical charts, analytic forms and currents, and finally singular
+products and metrics.
+
+\subsection{Core CLD anchors}
+
+\begin{AppLProvenanceLedger}{Result}{Exact anchor}{Book treatment}
+\AppLProvenanceRecord
+  {Polyhedral Stokes and Green formulae}
+  {\cite[Proposition~5.11.1]{CLD25}}
+  {Reconstructed in \crefrange{chap:tropical-spaces}{chap:analytic-tropicalization}
+   from oriented-cell Stokes and balancing.}
+\AppLProvenanceRecord
+  {Analytic forms and currents}
+  {\cite[Chapters~12--16]{CLD25}}
+  {Deep import for chart independence, analytic balancing, cycles, and
+   fibre integration; the functional-analytic definitions are developed
+   in \crefrange{chap:cld-forms}{chap:cld-currents}.}
+\AppLProvenanceRecord
+  {Poincaré--Lelong}
+  {\cite[Theorem~16.7.3]{CLD25}}
+  {Deep import, stated with boundaryless and pure-dimensional hypotheses
+   in \cref{chap:cld-poincare-lelong}.}
+\AppLProvenanceRecord
+  {Bedford--Taylor continuity}
+  {\cite[\S\S8.4--8.12 and \S16.9]{CLD25}}
+  {Deep import for the stated local approximation class; multilinear
+   algebra and integration by parts are proved in
+   \cref{chap:cld-bedford-taylor}.}
+\AppLProvenanceRecord
+  {Formal curvature product}
+  {\cite[Theorem~18.5.5]{CLD25}}
+  {Deep import in \cref{chap:cld-metrized-bundles}.}
+\AppLProvenanceRecord
+  {Recovery of Chambert--Loir measure}
+  {\cite[Proposition~18.5.8]{CLD25}}
+  {Deep import in \cref{chap:cld-metrized-bundles} and the model comparison
+   of \cref{chap:compare-ma}.}
+\end{AppLProvenanceLedger}
+
+The sign is fixed independently in \cref{app:normalizations}:
+\[
+ \dprimeddprime\log|f|=\delta_{\operatorname{div}(f)},
+ \qquad
+ \dprimeddprime v(f)=-\delta_{\operatorname{div}(f)}.
+\tag{L.3}\label{eq:appL-cld-sign}
+\]
+
+\subsection{Later extensions of the CLD language}
+
+\begin{AppLProvenanceLedger}{Extension}{Source}{Scope used in the book}
+\AppLProvenanceRecord
+  {Delta-forms and tropical intersections}
+  {\cite{GK17}}
+  {Delta-currents, generalized Poincaré--Lelong, formal curvature, and
+   local heights in \cref{chap:delta-forms}.}
+\AppLProvenanceRecord
+  {Positivity comparison}
+  {\cite{GK19}}
+  {Comparison among positive delta-currents, formal psh metrics, and
+   Zhang semipositivity, restricted to the formal/PL domain.}
+\AppLProvenanceRecord
+  {Poincaré lemma}
+  {\cite{Jell16}}
+  {Deep cohomological input for the sheaf of real forms; no global
+   \(\dprimeddprime\)-lemma is inferred.}
+\AppLProvenanceRecord
+  {Curves}
+  {\cite{Wanner19}}
+  {Equality of current-positive continuous functions and Thuillier
+   subharmonic functions on the stated smooth proper curves; passage into
+   the approximation-generated CLD hierarchy is used only under Wanner's
+   supplementary regularization hypotheses.}
+\AppLProvenanceRecord
+  {Skeletal real Monge--Ampère}
+  {\cite{Vil20}}
+  {Comparison on the polystable face and with the degree and factorial
+   appearing in the source.}
+\AppLProvenanceRecord
+  {Tropical toric pluripotential theory}
+  {\cite{BGJKK25}}
+  {Global invariant comparison and Monge--Ampère equations in the toric
+   setting.}
+\AppLProvenanceRecord
+  {Harmonic tropicalizations}
+  {\cite{GJR26}}
+  {Enlarged form sheaves and their cohomological behavior in
+   \cref{chap:delta-forms}.}
+\AppLProvenanceRecord
+  {Curve-test psh}
+  {\cite{GR25PL,GR25Classical}}
+  {Maximum principles and comparison with semipositive PL functions;
+   not identified globally with CLD approximation-psh or BFJ psh.}
+\end{AppLProvenanceLedger}
+
+The Euclidean supercurrent construction attached to a Riemannian
+submanifold is sourced to the corrected journal/arXiv-v2 version
+\cite{Ber19Super}.  The strongly homogeneous convex-current constructions
+are sourced to version~3 of \cite{Ber26Convex}.  Its \(J\)-operator and
+Berezin convention differ from the Lagerberg--CLD convention, so
+\cref{chap:cld-currents,chap:cld-bedford-taylor} translate the formulae
+instead of copying them.
+
+\begin{remark}[No universal CLD--BFJ theorem]
+The model and continuous common loci in
+\cref{chap:bfj-ma,chap:master-dictionary,chap:compare-ma} have proved
+comparison maps.  The ledger contains no theorem identifying every singular
+CLD psh function with every global BFJ psh metric.
+\end{remark}
+
+\section{The original BFJ theory and later extensions}
+\label{sec:appL-bfj}
+
+\subsection{Singular semipositive metrics}
+
+The foundational psh and compactness package is due to
+Boucksom--Favre--Jonsson \cite{BFJ16}.  Its basic signature in this book is
+\[
+       \mathrm{CDVF}_0+\mathrm{SmProj}+\mathrm{Amp}.
+\tag{L.4}\label{eq:appL-bfj-signature}
+\]
+
+\begin{AppLProvenanceLedger}{Result family}{Source}{Treatment}
+\AppLProvenanceRecord
+  {Closed model forms and positivity}
+  {\cite[\S\S2--5]{BFJ16}}
+  {Reconstruction in \cref{chap:bfj-model-forms}.}
+\AppLProvenanceRecord
+  {Skeletal definition of psh}
+  {\cite[\S7]{BFJ16}}
+  {Deep import for the characterization; elementary stability properties
+   are proved in \cref{chap:bfj-psh}.}
+\AppLProvenanceRecord
+  {Equicontinuity and compactness}
+  {\cite[\S\S6--7]{BFJ16}}
+  {Deep import, with the compactness mechanism unpacked in
+   \cref{chap:bfj-compactness}.}
+\AppLProvenanceRecord
+  {Skeletal slope--intersection estimate}
+  {\cite[\S6, display~(6.3)]{BFJ16}}
+  {The dimensional reconstruction in \cref{chap:bfj-compactness} uses
+   \(E_J\cdot\theta\cdot A^{n-|J|}\).  The printed exponent
+   \(n-|J|-1\) leaves a one-cycle rather than a scalar; the correction has
+   an independent Rethlas verification receipt in the editorial ledger.}
+\AppLProvenanceRecord
+  {Multiplier-ideal regularization}
+  {\cite[\S8 and Appendix~B]{BFJ16}}
+  {Deep import; residue characteristic zero and resolution dependencies
+   remain visible.}
+\AppLProvenanceRecord
+  {Envelope continuity}
+  {\cite[\S8]{BFJ16}}
+  {Deep import in \cref{chap:bfj-envelopes} under the original hypotheses.}
+\end{AppLProvenanceLedger}
+
+\subsection{The BFJ Monge--Ampère equation}
+
+The variational package is anchored in \cite{BFJ15}.  The original theorem
+uses a smooth projective variety over a complete discretely valued field of
+residue characteristic zero, an ample class, algebraizability over a
+one-variable function field, and a prescribed measure supported on the dual
+complex of an SNC model.
+
+\begin{AppLProvenanceLedger}{Result family}{Source}{Book location and status}
+\AppLProvenanceRecord
+  {Mixed model and bounded measures}
+  {\cite[\S\S2--3]{BFJ15}}
+  {Reconstructed in \cref{chap:bfj-ma}.}
+\AppLProvenanceRecord
+  {Capacity and quasicontinuity}
+  {\cite[\S4]{BFJ15}}
+  {Deep import with proofs of the formal capacity calculus in
+   \cref{chap:bfj-capacity}.}
+\AppLProvenanceRecord
+  {Energy and \(\cE^1\)}
+  {\cite[\S6]{BFJ15}}
+  {Reconstruction in \cref{chap:bfj-energy}.}
+\AppLProvenanceRecord
+  {Orthogonality and differentiability}
+  {\cite[Appendix~A and \S7]{BFJ15}}
+  {Deep import and proof architecture in \cref{chap:bfj-differentiability}.}
+\AppLProvenanceRecord
+  {Variational solution}
+  {\cite[\S\S7--8]{BFJ15}}
+  {Deep import in \cref{chap:bfj-finite-energy-measures} with the original
+   support assumptions.}
+\AppLProvenanceRecord
+  {Continuity of solutions}
+  {\cite[\S8]{BFJ15}}
+  {Deep import in \cref{chap:bfj-continuity} for the source's support regime.}
+\end{AppLProvenanceLedger}
+
+Later results are not silently folded into the BFJ statements.
+Differentiability and removal of algebraizability in residue characteristic
+zero are sourced to \cite{BGGJKM20}; continuity of envelopes through test
+ideals is sourced to \cite{GJKM19}; and the mixed-characteristic results used
+in \cref{chap:bfj-continuity} are scoped to \cite{FGK25}.  The synthetic
+finite-energy completion in \cref{chap:bfj-finite-energy-measures} is sourced separately to
+\cite{BJ25FiniteEnergy}.
+
+\section{Trivially valued BJ theory}
+\label{sec:appL-bj}
+
+The basic source is Boucksom--Jonsson \cite{BJ22}.  The default signature is
+a projective variety over an algebraically closed trivially valued field,
+with normality, unibranchness, positivity, or characteristic hypotheses
+added theorem by theorem.
+
+\begin{AppLProvenanceLedger}{Result family}{Anchor}{Book treatment}
+\AppLProvenanceRecord
+  {Valuative analytification and compactness}
+  {\cite[\S\S1--2]{BJ22}}
+  {Reconstruction in \cref{chap:trivial-analytification}.}
+\AppLProvenanceRecord
+  {Test configurations, norms, and PL functions}
+  {\cite[\S\S2--4]{BJ22}}
+  {Reconstruction in
+   \crefrange{chap:bj-test-configurations}{chap:bj-fs-pl-psh}.}
+\AppLProvenanceRecord
+  {Homogeneity and \(b\)-divisors}
+  {\cite[\S6]{BJ22}}
+  {Deep imports and model proofs in \cref{chap:bj-homogeneity-bdivisors}.}
+\AppLProvenanceRecord
+  {Envelope formalism}
+  {\cite[\S5]{BJ22}}
+  {Original theorems and historical conjecture separated in
+   \cref{chap:bj-envelope-history}.}
+\AppLProvenanceRecord
+  {Energy and Monge--Ampère}
+  {\cite[\S\S7--10]{BJ22}}
+  {Reconstruction in \crefrange{chap:bj-energy}{chap:bj-finite-energy}.}
+\AppLProvenanceRecord
+  {Strong topologies and finite-energy measures}
+  {\cite[\S\S9--10 and \S\S12--13]{BJ22}}
+  {Deep imports in
+   \crefrange{chap:bj-finite-energy}{chap:bj-strong-topologies}.}
+\AppLProvenanceRecord
+  {Linear-growth valuations}
+  {\cite[\S11]{BJ22}}
+  {Reconstruction in \cref{chap:bj-linear-growth}; the stability results of
+   \cref{chap:bj-stability} have
+   the separate BJKS and BHJ sources named below.}
+\end{AppLProvenanceLedger}
+
+The addendum \cite{BJ22b} proves the envelope property for all numerical
+classes when \(X\) is smooth and either the characteristic is zero or the
+dimension is at most two, together with the stated ample-class identity for
+singular varieties.  These are recorded as the last published stage before
+the supplied proof.
+
+\paragraph{Closure-package repair and verification boundary.}
+The 22 August repair of \Cref{thm:bj-basic-closure} uses the original closure
+package of \cite[Definition~4.1, Theorem~4.5, Lemmas~4.6 and~4.9,
+Theorem~4.7, Corollary~4.17, Theorem~4.22, and Corollaries~4.23 and~4.25]{BJ22}.
+It restricts scalar multiplication to \(a>0\), omits a zero-coefficient
+summand rather than forming \(0(-\infty)\), and replaces the former
+unconditional pointwise-convergence claim by divisorial determination and the
+source-backed decreasing-net conclusion.  The correction in \cite{BJ22b}
+concerns the envelope property and the energy of a regularized envelope; it
+does not replace this basic closure package.  The exact repaired block is
+source-audited, but its production Rethlas review is pending; hence it is not
+described here as a Rethlas-verified new result.
+
+The metric geometry of graded norms and valuations used in
+\cref{chap:bj-test-configurations} and
+\crefrange{chap:bj-strong-topologies}{chap:bj-stability} is sourced to
+\cite{BJKS1}; divisorial stability and openness are
+sourced to \cite{BJKS2}.  The synthetic theory of finite-energy measures is
+\cite{BJ25FiniteEnergy}.  Green functions are used only through the regularity
+warnings and exact citations given in
+\cref{chap:bj-finite-energy,chap:bj-linear-growth}.
+
+\section{The complete envelope theorem}
+\label{sec:appL-envelope}
+
+\Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}
+reconstruct the proof in the user-supplied archive
+\emph{The Envelope Property for Unibranch Projective Varieties}.  At the
+source freeze, the archive has no complete author and publication metadata.
+It is therefore cited in prose as the supplied envelope manuscript rather
+than assigned a fictitious bibliographic entry.
+
+The proved statement in the book is:
+\[
+\begin{gathered}
+k\ \text{algebraically closed and trivially valued},\quad
+X\ \text{integral, projective, and unibranch},\\
+\theta\in N^1(X)_{\mathbf R}
+\quad\Longrightarrow\quad
+\text{the BJ envelope property for }\theta .
+\end{gathered}
+\tag{L.5}\label{eq:appL-envelope-scope}
+\]
+Together with \cite[Theorem~5.12]{BJ22}, this yields the geometric
+characterization by unibranchness in the ample case.  The two directions have
+different provenance: necessity is the published BJ theorem; sufficiency is
+the supplied manuscript.
+
+\begin{AppLProvenanceLedger}{Proof block}{Principal inputs}{Status}
+\AppLProvenanceRecord
+  {Cartier realization}
+  {\cite{BJ22} and supplied manuscript}
+  {Reconstructed in \cref{chap:bj-cartier-realization}.}
+\AppLProvenanceRecord
+  {Homogeneous carrier and reflection}
+  {supplied manuscript}
+  {Reconstructed in \cref{chap:bj-reflection}.}
+\AppLProvenanceRecord
+  {Smooth characteristic cases}
+  {supplied manuscript and \cite{BJ22b,MustataTest,Canton}}
+  {Reconstruction with asymptotic-test-ideal dependencies visible in
+   \cref{chap:bj-smooth-characteristic}.}
+\AppLProvenanceRecord
+  {Finite descent and determinant norms}
+  {supplied manuscript and \cite{stacks-project,FerrandNorm}}
+  {Reconstruction in \cref{chap:bj-finite-descent}.}
+\AppLProvenanceRecord
+  {Alterations}
+  {supplied manuscript and \cite{deJong1996,stacks-project}}
+  {Deep algebraic input in \cref{chap:bj-alterations}.}
+\AppLProvenanceRecord
+  {Universal homeomorphisms}
+  {supplied manuscript and \cite{stacks-project,BJ22}}
+  {Reconstruction in \cref{chap:bj-universal-homeomorphisms}.}
+\AppLProvenanceRecord
+  {Subintegral normalization}
+  {supplied manuscript and \cite{RobertsSingh,stacks-project}}
+  {Deep algebraic input and reconstruction in
+   \cref{chap:bj-subintegral-normalization}.}
+\AppLProvenanceRecord
+  {Assembly and consequences}
+  {supplied manuscript and \cite{BJ22}}
+  {Proved by assembling the audited blocks in
+   \cref{chap:bj-envelope-consequences}.}
+\end{AppLProvenanceLedger}
+
+\cref{app:stacks} states every Stacks Project tag used in this proof and
+records its first application.  This prevents a tag citation from concealing
+an assumption such as finiteness, quasi-compactness, reducedness, or
+excellence.
+
+\section{Complex pluripotential foundations}
+\label{sec:appL-complex}
+
+The complex conventions and preliminary results follow the supplied book
+\cite{XiaBook}, with the primary literature used for the major deep inputs.
+
+\begin{AppLProvenanceLedger}{Theory}{Primary sources}{Use}
+\AppLProvenanceRecord
+  {Local Bedford--Taylor theory}
+  {\cite{BT76,BT82}}
+  {Bounded products, capacity, quasicontinuity, and locality.}
+\AppLProvenanceRecord
+  {Weighted energy classes}
+  {\cite{GZ07}}
+  {Full-mass and \(\cE^p\) classes in the Kähler setting.}
+\AppLProvenanceRecord
+  {Big-class nonpluripolar theory}
+  {\cite{BEGZ10}}
+  {Nonpluripolar products, volume, finite energy, and variational
+   solutions.}
+\AppLProvenanceRecord
+  {Variational energy}
+  {\cite{BBGZ13}}
+  {Dual energy, coercivity, and finite-energy Monge--Ampère equations.}
+\AppLProvenanceRecord
+  {Strong metric geometry}
+  {\cite{Dar15}}
+  {The \(d_1\) completion and geodesic finite-energy geometry.}
+\AppLProvenanceRecord
+  {Test curves and rays}
+  {\cite{RWN14}}
+  {Legendre correspondence and analytic test configurations.}
+\AppLProvenanceRecord
+  {Algebraic DH measures}
+  {\cite{BHJ17}}
+  {Test configurations, filtrations, intersection formulae, and
+   Duistermaat--Heckman distributions.}
+\end{AppLProvenanceLedger}
+
+The normalization is
+\[
+ \ddc=\frac{\rmi}{2\pi}\partial\bar\partial,
+ \qquad
+ \ddc\log|f|^2=[\operatorname{div}(f)].
+\tag{L.6}\label{eq:appL-complex-normalization}
+\]
+The supplied book's multiplier-ideal, \(P\)-type, and \(\cI\)-type
+interfaces are restated in
+\crefrange{chap:complex-prerequisites}{chap:valuative-analytification} and
+summarized in
+\cref{app:complex-reference}.
+
+\begin{remark}[BHJ erratum firewall]
+The proof of Theorem~5.6 of \cite{BHJ19} contains an incorrect claim and
+does not establish that theorem, according to \cite{BHJ19err};
+Theorem~5.4, Theorem~C, and Corollaries~D--E are affected.
+\Cref{chap:rays-filtrations} uses only the unaffected results through
+Section~4 and the
+statements explicitly preserved by the erratum.  No affected slope equality
+is used as a theorem.
+\end{remark}
+
+\section{Complex-to-non-Archimedean theories}
+\label{sec:appL-transcendental}
+
+\Cref{part:complex} develops two constructions that agree only in proved regimes.
+
+\subsection{Test curves and transcendental metrics}
+
+\begin{AppLProvenanceLedger}{Construction}{Source}{Scope used}
+\AppLProvenanceRecord
+  {Relative test curves and NA metrics}
+  {\cite{DXZ23}}
+  {Pseudoeffective classes, inverse systems, finite energy, and the
+   projective comparison in
+   \crefrange{chap:rays-test-curves}{chap:dxz-bj-comparison}.}
+\AppLProvenanceRecord
+  {Operations and trace}
+  {\cite{Xia23Operations}}
+  {Maxima, suprema, rescaling, addition, and restriction on the stated
+   reduced irreducible unibranch compact Kähler spaces.}
+\AppLProvenanceRecord
+  {Trace comparison and uniqueness}
+  {\cite{DX24} and the complete supplied trace chapter}
+  {On the zero-generic-Lelong domain, the input is taken modulo
+   \(\cI\)-equivalence, every trace is \(\cI\)-good, and the output is
+   unique modulo \(P\)-equivalence.}
+\AppLProvenanceRecord
+  {Complex singularity background}
+  {\cite{XiaBook}}
+  {Multiplier ideals, \(P\)- and \(\cI\)-models, quasi-equisingular
+   approximation, and Okounkov-body interfaces.}
+\AppLProvenanceRecord
+  {Mixed volumes of partial Okounkov bodies}
+  {Author-supplied TeX source for \cite{XiaMVOB}, repaired proof packet of
+   24 August 2026, and the two exact-current production receipts}
+  {Reconstruction in \cref{chap:transcendental-okounkov-dh}.  Scope:
+   connected smooth projective complex varieties, big line bundles, and
+   singular psh metrics of positive Cao (equivalently, ideal-model) volume.
+   The repaired proof establishes the supremum formula and its
+   minimal-singularity movable-product specialization; the two installed
+   theorem blocks passed separate final \texttt{correct}, zero-error,
+   zero-gap gates in runs \nolinkurl{20260824T054849Z_57635bfa07f4} and
+   \nolinkurl{20260824T061508Z_17bf73c6b37c}.  The manuscript is
+   unpublished; no zero-volume, transcendental-class, singular-variety, or
+   attainment statement is made.}
+\end{AppLProvenanceLedger}
+
+Positive-volume comparison statements are not extrapolated to zero volume.
+In a zero-volume class the book retains the inverse-system definition and
+does not divide by the volume or manufacture a probability Monge--Ampère
+measure.
+
+\subsection{Tropical spectra of complex spaces}
+
+The compact semivaluation space \(X^{\bethan}\), PL functions, divisorial
+density, inverse limits of dual complexes, log discrepancy, psh and
+finite-energy functions, and the cscK interface are sourced to
+\cite{MP24}.  \Crefrange{chap:tropical-spectra-complex}{chap:mp-psh}
+distinguish:
+
+\begin{enumerate}
+\item topological and algebraic recovery of the complex space;
+\item PL and \(b\)-divisor constructions;
+\item psh and finite-energy completions; and
+\item the Kähler, \(\cI\)-maximal, finite-energy comparison with test-curve
+      data proved in the source.
+\end{enumerate}
+
+The local algebraic--analytic step inside the divisorial comparison has its
+primary provenance in \cite[Aussage~2.8]{Bingener76Stein}.  Its exact
+hypotheses are a proper \(A\)-scheme of finite presentation and a Stein
+compactum.  For the singleton compactum, excellence, analytification,
+coherent algebraization, closed subspaces, and morphisms through graphs are
+tracked through \cite[Corollary~4.4.5, Theorems~5.3.1 and 5.4.4, and
+Corollaries~5.4.12--5.4.14]{XiaStein26}.  This input is used only to turn a
+local algebraic prime-divisor center into an analytic codimension-one center;
+it supplies none of the later positivity or finite-energy statements.
+
+The last item is not a comparison of unrestricted psh cones; the
+topological identification of underlying projective analytifications in
+\cref{chap:tropical-spectra-complex} does not supply such a positivity theorem.
+
+The transcendental non-Archimedean Calabi--Yau theorem, weak and strong
+topologies, measure approximation on dual complexes, and the model-stability
+application are sourced to the 2025 preprint \cite{MPWN25}.  They are dated
+preprint results.  \Cref{chap:mpwn-k-stability} does not turn model uniform K-stability into
+every formulation of ordinary compact-Kähler YTD.
+
+Three source-normalization issues are isolated rather than silently
+attributed to the cited papers.  First, MP24 equation~(3.2.4) constructs
+total discrepancy and Definition~6.2.1 integrates it, but the resulting
+entropy-slope assertion fails the constant-ray test.  The later primary
+source \cite[Definition~2.4.1]{MPWN25} explicitly defines entropy with total
+discrepancy minus one.  \Cref{chap:mp-dual-complexes} imports that convention,
+while \Cref{chap:mp-psh} records the obstruction and does not promote the
+expected repair of the MP24 proof to an independently proved theorem.  The
+finite-energy cscK implication is imported directly from
+\cite[Theorem~2.4.3]{MPWN25}.  Second, MPWN25
+Section~2.4.2 prints the coefficient
+\(s=-V^{-1}\alpha^{n-1}\cdot K_X\), while Definition~1.1.1, equation~(9.1.2),
+and Theorem~9.1.1 force the factor \(n\) used in
+\eqref{eq:mpwn-s-constant}; its verification marker is
+\texttt{mpwn-factor-n-correction}.  This correction is independently
+verified, with verdict \texttt{correct} and no gaps.  Its audit data are
+\begin{description}[style=nextline,leftmargin=1.5em,labelindent=0pt]
+\item[Receipt]
+\texttt{20260814T175959Z\_484442fcc393}.
+\item[Proof digest]
+\texttt{403ac2a601abe51c}\\*
+\texttt{1d0b4a8852f52b42}\\*
+\texttt{004332088236a00b}\\*
+\texttt{e3e8460c80af7527}.
+\end{description}
+Third, the printed proof of
+Theorem~7.1.2 checks a finite vertex set where boundedness of the whole dual
+complex is needed.  The missing convex-geometric boundedness step is supplied
+in \Cref{thm:mpwn-convex-restriction} under marker
+\par\nopagebreak
+\noindent\texttt{mpwn-dual-complex-boundary-repair}.
+\par\nopagebreak
+\noindent This repair is independently
+verified with verdict \texttt{correct} and no gaps.  Its audit data are
+\begin{description}[style=nextline,leftmargin=1.5em,labelindent=0pt]
+\item[Receipt]
+\texttt{20260814T181019Z\_3beefd710782}.
+\item[Statement digest]
+\texttt{3beefd710782d6ed}\\*
+\texttt{51e115d35c392753}\\*
+\texttt{5c15399b064cc149}\\*
+\texttt{9e5d9239f861be54}.
+\item[Proof digest]
+\texttt{95c4ddb6a737d81e}\\*
+\texttt{4feaa7e39862f251}\\*
+\texttt{8b7d63f43235d060}\\*
+\texttt{f351f07d7aa85973}.
+\end{description}
+The standalone reduced entropy-slope bridge remains pending independent
+verification.  It has no \texttt{RETHLAS-NEW} marker and is not used as a
+proved intermediate theorem; only the later source's explicitly stated
+cscK implications are imported.
+
+\section{Hybrid spaces, degenerations, and stability}
+\label{sec:appL-hybrid}
+
+The hybrid topology and convergence results of \cref{chap:hybrid-spaces} have separate
+sources and therefore separate scopes.
+
+\begin{AppLProvenanceLedger}{Result}{Source}{Boundary}
+\AppLProvenanceRecord
+  {Hybrid volume-form limits}
+  {\cite{BJ17Hybrid}}
+  {Degenerating families in the precise snc/model regime of the source.}
+\AppLProvenanceRecord
+  {Hybrid global psh theory}
+  {\cite{PS23Hybrid}}
+  {The hybrid space and classes constructed there; no arbitrary Banach-ring
+   Monge--Ampère theorem is asserted.}
+\AppLProvenanceRecord
+  {Kähler--Einstein measure convergence}
+  {\cite{PS22HybridKE}}
+  {The stated canonically polarized or Kähler--Einstein degeneration
+   setting.}
+\AppLProvenanceRecord
+  {Filtrations and energy slopes}
+  {\cite{BHJ17,BHJ19err}}
+  {Only unaffected slope and DH statements, as audited in
+   \cref{chap:rays-filtrations}.}
+\AppLProvenanceRecord
+  {Fano variational YTD}
+  {\cite{BBJ21}}
+  {Smooth projective ample Fano or log-Fano Ding framework, not a general
+   cscK equivalence.}
+\end{AppLProvenanceLedger}
+
+Version~2 of 19 May 2026 of the overview \cite{BJ26ComplexNA} is used for
+orientation and current-status cross-checks, not as a substitute for proof
+sources.  Version~2 of 17 August 2026 of \cite{Trusiani26} is mentioned only
+with its smooth polarized projective and automorphism-relative hypotheses and
+dependency warnings.  It retains Theorems~A--B and Corollaries~A--B, the
+projective entropy-regularization/YTD claims, and the corresponding
+maximal-ray entropy-slope equality; adds Theorem~C for the weighted-relative
+smooth polarized correspondence and its log-concave weighted-extremal
+consequence; and includes an appendix by S\'ebastien Boucksom proving the
+entropy approximation over \(k((t))\) in the non-Archimedean formalism.  None
+of these dated preprint claims is promoted here to a timeless theorem about
+all compact Kähler manifolds.
+
+\section{Comparison theorems}
+\label{sec:appL-comparisons}
+
+The following table records the status of the main arrows in
+\cref{chap:master-dictionary}.
+
+\begin{AppLProvenanceLedger}{Comparison}{Source or proof}{Exact status}
+\AppLProvenanceRecord
+  {Model intersection \(=\) Chambert--Loir}
+  {\cite{CL06,CLD25}}
+  {Equality for formal/model metrics.}
+\AppLProvenanceRecord
+  {Model intersection \(=\) CLD curvature}
+  {\cite{CLD25,GK17}}
+  {Equality on the formal/delta-form common locus.}
+\AppLProvenanceRecord
+  {BFJ continuous semipositive \(=\) Chambert--Loir}
+  {\cite{BFJ15,CL06}}
+  {Equality under uniform semipositive model approximation on the common
+   continuous locus; no arbitrary bounded CLD product is inferred.}
+\AppLProvenanceRecord
+  {Toric NA \(=\) Alexandrov}
+  {\cite{Vil20,BGJKK25}}
+  {Equality with the displayed lattice, degree, and \(n!\) normalization.}
+\AppLProvenanceRecord
+  {BJ model energy \(=\) intersection energy}
+  {\cite{BJ22}}
+  {Equality for the projective/model locus; finite-energy extension is a
+   separate theorem.}
+\AppLProvenanceRecord
+  {Filtration DH \(=\) ray/test-curve DH}
+  {\cite{BHJ17,RWN14,DXZ23}}
+  {Equality in the quantizable or proved finite-energy regime.}
+\AppLProvenanceRecord
+  {DXZ \(=\) BJ}
+  {\cite{DXZ23}}
+  {Projective comparison with the positivity and singularity hypotheses
+   stated in \cref{chap:dxz-bj-comparison}.}
+\AppLProvenanceRecord
+  {DXZ \(\cI\)-maximal test curves \(=\) MP finite-energy data}
+  {\cite{MP24}}
+  {Bijection in the Kähler, \(\cI\)-maximal, finite-energy regime of
+   \cref{chap:mp-psh}; not an equivalence of the two unrestricted psh cones.}
+\AppLProvenanceRecord
+  {Complex energy slope \(=\) NA energy}
+  {\cite{BHJ17,DXZ23,MP24}}
+  {Equality only for the rays and regularity classes covered by the cited
+   theorem.}
+\end{AppLProvenanceLedger}
+
+No row asserts a universal identification of all psh functions, all
+currents, or all finite-energy spaces.  In particular, the local CLD
+singular-current category has no global equivalence with the BFJ or BJ
+finite-energy category in this edition.
+
+\section{Audited extensions, source reconstructions, and counterexamples}
+\label{sec:appL-new}
+
+\Cref{chap:verified-extensions} contains the first-draft results that survived
+the book's two-pass research audit, together with the separately identified
+Darvas--Xia trace reconstruction.  The two trace rows below are source
+reconstructions and are not novelty or Rethlas-receipt claims.  No external
+priority or publication claim is made.
+
+\begin{AppLProvenanceLedger}{Result}{Location}{Exact scope}
+\AppLProvenanceRecord
+  {CLD multiplication criterion}
+  {\cref{thm:verified-cld-criterion}}
+  {Conditional on locally uniform approximation of the difference by
+   smooth pluriharmonic functions.}
+\AppLProvenanceRecord
+  {Cross-fan obstruction}
+  {\cref{prop:verified-cross-fan}}
+  {Explicit weighted one-dimensional fan; disproves unweighted cellwise
+   gluing after multiplication by a current.}
+\AppLProvenanceRecord
+  {Fixed-dual-complex Radon--Riesz}
+  {\cref{thm:verified-fixed-dual-complex}}
+  {A fixed strongly compact dual complex, not the whole finite-energy
+   space.}
+\AppLProvenanceRecord
+  {Trace factorization}
+  {\cref{thm:verified-trace-factorization}}
+  {The natural zero-generic-Lelong domain; the trace depends only on the
+   input \(\cI\)-class, has \(\cI\)-good representatives, and is unique as
+   an output \(P\)-class.}
+\AppLProvenanceRecord
+  {Split trace solution}
+  {\cref{thm:verified-split-trace}}
+  {Product or stated retraction geometry with a positive transverse
+   splitting; the trace is the \(P\)-class of the canonical
+   \(\cI\)-model representative, and agrees with the prescribed datum in
+   \(P\)-type when that datum is \(\cI\)-good.}
+\AppLProvenanceRecord
+  {Toric numerical dimension}
+  {\cref{thm:verified-toric-dimension}}
+  {Smooth projective toric variety, invariant current, and a big integral
+   or rational toric class.  This is a book-level synthesis of Cao,
+   Guenancia, and the toric character dictionary, not a novelty claim.  The
+   exact Chapter~55 source block passed run
+   \nolinkurl{20260824T052605Z_703e3b501202}, and this separately frozen
+   Chapter~69 statement and proof passed
+   \nolinkurl{20260824T070302Z_d706dc98ccca}; irrational real classes remain
+   open.}
+\AppLProvenanceRecord
+  {\(\cI\)-invariant mass-body no-go}
+  {\cref{thm:verified-mass-no-go}}
+  {Rules depending only on multiplier-ideal type; \(P\)-sensitive
+   constructions are not excluded.}
+\end{AppLProvenanceLedger}
+
+The proofs use only the dependencies displayed in
+\cref{chap:verified-extensions}.  A conditional
+criterion is not advertised as a regularization theorem, a compact-subset
+argument is not promoted globally, and a no-go result for \(\cI\)-invariant
+data says nothing about a genuinely \(P\)-sensitive construction.
+The label ``first-draft result'' is an internal status, not a publication or
+priority claim; only the displayed hypotheses and conclusions in
+\cref{chap:verified-extensions}
+are asserted.
+
+\section{Questions not promoted to theorems}
+\label{sec:appL-open}
+
+The user requested that the first draft attempt the adjacent open questions
+rather than merely list them.  The research pass produced the preceding
+theorems, counterexamples, and restricted solutions.  It did not justify
+positive answers to the following broader questions:
+
+The following thematic list is not the literal problem-environment inventory.
+At the 24 August 2026 cutoff, Chapter~71 contains one and Chapter~72 contains
+21 \texttt{problem} environments, for exactly 22 in the book.  Each has a
+genuinely open residual scope; resolved, disproved, and conditional subclaims
+are recorded as boundaries within those environments, not counted as extra
+active problems.
+
+\begin{enumerate}
+\item unrestricted CLD pluriharmonic regularization and a global
+  CLD--BFJ singular-psh equivalence;
+\item the global BJ Radon--Riesz converse outside strongly compact subsets;
+\item the trace Dirichlet problem without a transverse positivity and class
+  splitting hypothesis;
+\item a zero-mass Okounkov body retaining enough \(P\)-type information to
+  recover actual nonpluripolar mass;
+\item the nontrivially valued Monge--Ampère equation with every support and
+  characteristic restriction removed;
+\item a real-transcendental extension of the toric numerical-dimension
+  theorem without a compatible rational approximation theorem;
+\item a general intrinsic differential positivity theory for
+  non-Archimedean Kähler classes; and
+\item the full ordinary compact-Kähler YTD equivalence, including the
+  passage from model stability and the required automorphism-relative
+  statements.
+\end{enumerate}
+
+These are status statements, not assertions that every item has a positive
+answer.  Some may require new definitions and some may fail.  The first
+draft's mathematical claims stop exactly at the proved boundaries in
+\cref{chap:verified-extensions}.
+
+\section{Chapter-to-source map}
+\label{sec:appL-chapter-map}
+
+\begin{AppLProvenanceLedger}{Book location}{Main subject}{Principal anchors}
+\AppLProvenanceRecord
+  {\crefrange{chap:four-entrances}{chap:model-calculations}}
+  {valuations, models, Berkovich spaces, metrics}
+  {\cite{Berk12,Zhang1995,GM19,CL06} and the Stacks ledger}
+\AppLProvenanceRecord
+  {\crefrange{chap:superforms}{chap:cld-metrized-bundles}}
+  {CLD forms, currents, products, metrics}
+  {\cite{CLD25}}
+\AppLProvenanceRecord
+  {\crefrange{chap:delta-forms}{chap:cld-examples}}
+  {delta-forms, harmonic charts, examples}
+  {\cite{GK17,GK19,GJR26,GR25PL,GR25Classical,BGJKK25}}
+\AppLProvenanceRecord
+  {\crefrange{chap:bfj-model-forms}{chap:bfj-envelopes}}
+  {BFJ psh, compactness, envelopes}
+  {\cite{BFJ16}}
+\AppLProvenanceRecord
+  {\crefrange{chap:bfj-ma}{chap:bfj-examples}}
+  {BFJ Monge--Ampère and variational theory}
+  {\cite{BFJ15,BGGJKM20,GJKM19,FGK25}}
+\AppLProvenanceRecord
+  {\crefrange{chap:trivial-analytification}{chap:bj-envelope-history}}
+  {trivially valued foundations and envelope history}
+  {\cite{BJ22,BJ22b}}
+\AppLProvenanceRecord
+  {\crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}}
+  {complete envelope theorem}
+  {supplied envelope manuscript,
+   \cite{BJ22,BJ22b,deJong1996,RobertsSingh,stacks-project}}
+\AppLProvenanceRecord
+  {\crefrange{chap:bj-energy}{chap:bj-stability}}
+  {BJ energy, topology, valuations, stability}
+  {\cite{BJ22,BJKS1,BJKS2,BJ25FiniteEnergy}}
+\AppLProvenanceRecord
+  {\crefrange{chap:complex-prerequisites}{chap:valuative-analytification}}
+  {complex prerequisites and transcendental metrics}
+  {\cite{XiaBook,BEGZ10,RWN14,DXZ23,Xia23Operations}}
+\AppLProvenanceRecord
+  {\crefrange{chap:dxz-bj-comparison}{chap:mpwn-k-stability}}
+  {projective comparison and MP theory}
+  {\cite{DXZ23,MP24,MPWN25}}
+\AppLProvenanceRecord
+  {\crefrange{chap:master-dictionary}{chap:rays-filtrations}}
+  {master comparison, measures, rays}
+  {the preceding primary sources, \cite{BHJ17,BHJ19err}}
+\AppLProvenanceRecord
+  {\crefrange{chap:hybrid-spaces}{chap:ytd-bridge}}
+  {hybrid geometry, trace, and YTD}
+  {\cite{BJ17Hybrid,PS23Hybrid,PS22HybridKE,MP24,MPWN25,BBJ21}}
+\AppLProvenanceRecord
+  {\cref{chap:verified-extensions}}
+  {verified extensions and obstructions}
+  {first-draft proofs, with background sources named locally}
+\end{AppLProvenanceLedger}
+
+\section{Audit checklist for future editions}
+\label{sec:appL-future}
+
+Before a cited theorem is enlarged in a later edition, the following checks
+must all be repeated:
+
+\begin{enumerate}
+\item verify the latest primary version and any erratum;
+\item compare the base field, characteristic, and singularities of the
+  space;
+\item compare positivity: ample, nef, big, pseudoeffective, or Kähler;
+\item compare regularity: model, smooth, continuous, bounded, or
+  finite-energy;
+\item determine whether the proof is sequential or valid for arbitrary nets;
+\item audit every normalization of valuation, curvature, mass, and energy;
+\item check whether the conclusion is equality, a one-way map, a
+  correspondence, or an analogy;
+\item confirm that zero-volume and infinite-value cases are defined; and
+\item record whether the result is published, a dated preprint, a supplied
+  manuscript, or a new proof in the book.
+\end{enumerate}
+
+This protocol is intentionally conservative.  The subject moves quickly,
+but the logical dependencies of a textbook must remain stable even when the
+literature changes.
+
+\section*{Source note}
+
+Bibliographic metadata and the primary-source routing were checked against
+the literature map frozen on the date in \eqref{eq:appL-cutoff}.  Exact
+Stacks Project statements are in \cref{app:stacks}; sign and factor
+translations are in \cref{app:normalizations}; notation types are in
+\cref{app:notation}.  The supplied complex book is cited as
+\cite{XiaBook}.  The supplied envelope archive is deliberately described
+without invented author, date, journal, or theorem metadata.

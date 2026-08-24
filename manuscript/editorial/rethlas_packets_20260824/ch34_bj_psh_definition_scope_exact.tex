@@ -1,0 +1,100 @@
+\section{The class \texorpdfstring{\(\PSH_X(\theta)\)}{PSH(theta)}}
+\label{sec:ch34-psh}
+
+Everything so far has been finitary: a Fubini--Study function is built from
+finitely many sections, a PL function from a single test configuration.  The
+class of psh functions is obtained by closing up under decreasing limits,
+and it is the smallest class for which this is done.
+
+\begin{definition}
+\label{def:bj-psh}
+Let \(\theta\in N^1(X)\).  A function
+\(\phi:X^{\An}\to\mathbf R\cup\{-\infty\}\) is \emph{\(\theta\)-psh} if
+\begin{enumerate}
+\item \(\phi\) is upper semicontinuous;
+\item \(\phi\) is generically finite, that is, \(\phi\not\equiv-\infty\) on
+      any irreducible component of \(X\); and
+\item there are \(\mathbf Q\)-line bundles \(L_i\) and a decreasing net
+      \(\phi_i\in\cH^{\mathrm{gf}}_{\mathbf R}(L_i)\) with
+      \(\lim_i c_1(L_i)=\theta\) in \(N^1(X)\) and \(\phi=\lim_i\phi_i\)
+      pointwise on \(X^{\An}\).
+\end{enumerate}
+The set of \(\theta\)-psh functions is denoted \(\PSH_X(\theta)\).
+\end{definition}
+
+Three points of the definition deserve comment before anything is proved
+with it.
+
+First, condition~(3) uses a \emph{net}, not a sequence.  This is not
+pedantry: \(X^{\An}\) is compact but not metrizable in general, the index
+set of the natural approximating family is the set of test configurations
+ordered by domination, and that set is directed but not countable.  The
+places where a sequence \emph{may} legitimately be extracted are recorded in
+\Cref{chap:bj-linear-growth}; none of them is available here.
+
+Second, the limit in~(3) is a decreasing limit, so it exists in
+\(\Rbar\) at every point without hypothesis, by ledger entry~(1), and the
+limit function is automatically upper semicontinuous as an infimum of
+continuous functions.  Condition~(1) is therefore redundant given~(3); it is
+retained because it is the condition one verifies in practice when a
+candidate \(\phi\) is presented by other means.
+
+Third, condition~(2) is a genuine nontriviality condition.  It excludes the
+function \(\equiv-\infty\), and on a reducible \(X\) it is imposed
+componentwise: being finite on only some components is not enough.
+
+Fourth, and most importantly, the classes are allowed to \emph{vary}: the
+approximants live in \(\cH^{\mathrm{gf}}_{\mathbf R}(L_i)\) for line bundles
+whose classes merely converge to \(\theta\).  This is not a technical
+convenience: it is part of the closure construction of
+\cite[Definition~4.1]{BJ22} and allows arbitrary numerical limit classes.
+No claim is made that fixed-class approximation would force nefness; GF
+Fubini--Study functions can occur in non-nef effective classes.  For \(E\)
+an effective divisor, \(\log|s_E|\) is \([E]\)-psh, and \([E]\) is only
+pseudoeffective in general.  The precise
+consequence of the varying-class convention is
+\Cref{lem:ch34-psh-nonempty}, which separates the pseudoeffective threshold
+for \(\PSH_X(\theta)\) from the nef threshold for its \emph{bounded}
+members.
+
+\begin{lemma}
+\label{lem:ch34-psh-nonempty}
+Let \(\theta\in N^1(X)\).  Then
+\begin{equation}
+\label{eq:psh-existence-cones}
+ \begin{aligned}
+ \PSH_X(\theta)\ne\emptyset
+ &\implies \theta\in\operatorname{Psef}(X),\\
+ \PSH_X(\theta)\ \text{contains a bounded function}
+ &\implies \theta\in\Nef(X),
+ \end{aligned}
+\end{equation}
+and conversely the constants are \(\theta\)-psh whenever
+\(\theta\in\Nef(X)\).  In particular
+\(\mathbf R\subset\PSH_X(\theta)\) if and only if \(\theta\in\Nef(X)\).
+\end{lemma}
+
+\begin{proof}
+Suppose \(\PSH_X(\theta)\ne\emptyset\) and let \((\phi_i)\) be as in
+\Cref{def:bj-psh}(3).  Each \(\cH^{\mathrm{gf}}_{\mathbf R}(L_i)\) is
+nonempty, so \(L_i\) admits a nonzero section after clearing denominators
+and is therefore effective; hence \(c_1(L_i)\in\operatorname{Psef}(X)\).  The
+pseudoeffective cone is closed, and \(c_1(L_i)\to\theta\), so
+\(\theta\in\operatorname{Psef}(X)\).
+
+Suppose now that some \(\phi\in\PSH_X(\theta)\) is bounded.  Every member
+\(\phi_i\) of a defining decreasing net satisfies \(\phi_i\geq\phi\), so it
+is finite valued, hence
+\(\phi_i\in\cH_{\mathbf R}(L_i)\) and the defining sections have no common
+zero; consequently \(L_i\) is semiample, so \(c_1(L_i)\in\Nef(X)\).  The nef
+cone is closed, whence \(\theta\in\Nef(X)\).
+
+Conversely let \(\theta\in\Nef(X)\) and \(c\in\mathbf R\).  Choose
+\(\mathbf Q\)-line bundles \(L_i\) with \(c_1(L_i)\to\theta\) and \(L_i\)
+ample; for each \(i\) the base-point-free sections of a large multiple
+present the constant \(c\) as an element of \(\cH_{\mathbf R}(L_i)\) after
+translating the weights, and the net may be arranged to decrease to \(c\).
+Hence \(c\in\PSH_X(\theta)\).  Since constants are bounded, the second
+implication of \eqref{eq:psh-existence-cones} shows the converse fails when
+\(\theta\) is not nef.
+\end{proof}

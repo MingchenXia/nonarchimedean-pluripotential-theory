@@ -1,0 +1,669 @@
+\chapter{Projective comparison with Boucksom--Jonsson theory}
+\index{comparison!DXZ--BJ}\index{projective comparison theorem}
+\label{chap:dxz-bj-comparison}
+
+There are now two projective non-Archimedean psh spaces.
+One is built from inverse systems of \(\cI\)-model test curves in K\"ahler
+perturbations of a pseudo-effective class.
+The other consists of extended-real psh metrics on the trivially valued
+Berkovich analytification, defined by decreasing generically finite
+Fubini--Study approximation.
+The analytification constructed in the previous chapter identifies them.
+
+The exact comparison theorem is due to Darvas--Xia--Zhang
+\cite{DXZ23}.
+Compatibility with operations is developed in
+\cite{Xia23Operations}.
+We keep track of which parts are formal and which use the
+Boucksom--Jonsson envelope and approximation theory.
+
+Throughout this chapter,
+\[
+\begin{gathered}
+ X\text{ is a connected projective manifold over }\mathbf C,\\
+ L\text{ is a pseudo-effective }\mathbf Q\text{-line bundle},\\
+ h\text{ is a smooth metric on }L,\qquad \theta=c_1(L,h).
+\end{gathered}
+\tag{57.1}\label{eq:comp-scope}
+\]
+The core theorem below is not stated here for singular \(X\), a merely
+compact K\"ahler \(X\), or an arbitrary transcendental class.
+
+The comparison keeps four normalizations aligned.  A test-curve endpoint
+is the value at the trivial valuation; parameter translation is addition
+of a constant on \(X^{\An}\); an \(\mathcal I\)-envelope does not change
+the valuative function; and the order on test curves becomes pointwise
+order.  These checks prevent the bijection from being only an unnormalized
+correspondence of rays.
+
+\section{The comparison map}
+
+Let \(\PSH^{\NA}_{\mathrm{tc}}(X,\theta)\) denote the test-curve space, and
+let \(\PSH(L^{\An})\) denote the Boucksom--Jonsson space.
+Here
+\[
+ \PSH^{\NA}_{\mathrm{tc}}(X,\theta)
+ :=\PSH^{\NA}(X,\theta)
+\]
+is the DXZ inverse-limit space of
+\Cref{def:tna-pshna}; the subscript only distinguishes this presentation
+from the function-valued BJ presentation and introduces no third space.
+\Cref{chap:valuative-analytification} constructed
+\[
+ \mathfrak A:
+ \PSH^{\NA}_{\mathrm{tc}}(X,\theta)
+       \longrightarrow\PSH(L^{\An}),
+ \qquad
+ \Gamma\longmapsto\Gamma^{\An}.
+\tag{57.2}\label{eq:comp-map}
+\]
+On divisorial valuations,
+\[
+ \Gamma^{\An}(v)
+ =\sup_{\tau\in\mathbf R}
+       \left\{(\Gamma_\tau^{\theta+\omega})^{\An}(v)+\tau\right\},
+\tag{57.3}\label{eq:comp-legendre}
+\]
+where \(\omega\) is any K\"ahler form.
+The \(\cI\)-projection transition maps make this independent of
+\(\omega\).
+At the trivial valuation,
+\[
+                       \Gamma^{\An}(v_{\triv})=\Gamma_{\max}.
+\tag{57.4}\label{eq:comp-max}
+\]
+
+\begin{proposition}\label{prop:comp-order-reflection}
+For \(\Gamma,\Lambda\in\PSH^{\NA}_{\mathrm{tc}}(X,\theta)\),
+\[
+            \Gamma\leq\Lambda
+       \quad\Longleftrightarrow\quad
+            \Gamma^{\An}\leq\Lambda^{\An}
+            \text{ on }X^{\An}.
+\tag{57.5}\label{eq:comp-order-equivalence}
+\]
+In particular, \(\mathfrak A\) is injective.
+\end{proposition}
+
+\begin{proof}
+The forward implication follows term by term from
+\eqref{eq:comp-legendre}.
+
+Conversely, suppose
+\(\Gamma^{\An}\leq\Lambda^{\An}\).
+Fix \(v\in X^{\Div}\) and \(t>0\).
+Homogeneity gives
+\[
+ t\Gamma^{\An}(t^{-1}v)
+   =\sup_{\tau\in\mathbf R}
+       \left\{
+       (\Gamma_\tau^{\theta+\omega})^{\An}(v)+t\tau
+       \right\}.
+\tag{57.6}\label{eq:comp-scaled-legendre}
+\]
+The assumed pointwise inequality therefore gives an inequality between the
+two right sides for every \(t>0\).  For fixed \(v\), the functions
+\(\tau\mapsto-(\Gamma_\tau^{\theta+\omega})^{\An}(v)\) and its
+\(\Lambda\)-analogue are closed convex functions on their effective
+intervals.  Legendre--Fenchel biconjugacy gives
+\[
+ (\Gamma_\tau^{\theta+\omega})^{\An}(v)
+ \leq
+ (\Lambda_\tau^{\theta+\omega})^{\An}(v)
+\tag{57.7}\label{eq:comp-level-valuations}
+\]
+for every \(\tau\) and every divisorial \(v\).
+
+The divisorial multiplier-ideal criterion turns this into
+\[
+ \Gamma_\tau^{\theta+\omega}
+       \preceq_{\cI}
+ \Lambda_\tau^{\theta+\omega}.
+\]
+Both levels are \(\cI\)-model potentials.
+Applying the monotone \(\cI\)-envelope to representatives of the displayed
+\(\cI\)-order shows that an \(\cI\)-model is the maximal normalized
+representative of its constraint.  Hence
+\[
+ \Gamma_\tau^{\theta+\omega}
+       \leq\Lambda_\tau^{\theta+\omega}.
+\]
+This is exactly \(\Gamma\leq\Lambda\).
+\end{proof}
+
+No envelope theorem is used in
+\Cref{prop:comp-order-reflection}.
+Only homogeneous Legendre inversion, the valuative multiplier-ideal
+criterion, and maximality of \(\cI\)-model levels enter.
+
+\section{The generically finite Fubini--Study core}
+
+A rational generically finite Fubini--Study metric has the form
+\[
+ \phi=\frac1m\max_{1\leq j\leq M}
+               \{\log|s_j|+\lambda_j\},
+\tag{57.8}\label{eq:comp-gf}
+\]
+where \(mL\) is integral,
+\(s_j\in H^0(X,mL)\setminus\{0\}\), and
+\(\lambda_j\in\mathbf Q\).
+The sections need not have empty common zero locus.
+At a semivaluation supported in that locus, \(\phi=-\infty\).
+
+\begin{lemma}\label{lem:comp-gf-realization}
+Let \(T\) be an ample \(\mathbf Q\)-line bundle with a smooth positive
+curvature form \(\omega_T\).  Every rational GF metric \(\phi\) of \(L\)
+is \((\Gamma^T)^{\An}\) for a positive-mass
+\(\mathcal I\)-model test curve \(\Gamma^T\) in the class
+\(\theta+\omega_T\).  Its levels can be chosen elementary.
+\end{lemma}
+
+\begin{proof}
+Group the indices in \eqref{eq:comp-gf} by the finitely many values
+\(\tau_i=m^{-1}\lambda_j\).
+At level \(\tau_i\), set
+\[
+ A_{\tau_i}
+   :=\frac1m\max_{\lambda_j/m=\tau_i}
+                    \log|s_j|_{h^m}^2.
+\tag{57.9}\label{eq:comp-elementary-level}
+\]
+Interpolate affinely, make the curve constant below the smallest level, and
+\(-\infty\) above the largest.
+The PL formula gives
+\[
+ A^{\An}
+  =\max_i\{A_{\tau_i}^{\An}+\tau_i\}
+  =\phi.
+\tag{57.10}\label{eq:comp-gf-pl}
+\]
+Upper concavification followed by levelwise
+\(\mathcal I\)-projection in the class \(\theta+\omega_T\) produces a
+genuine \(\Gamma^T\) without changing its divisorial analytification.
+Divisorial determination upgrades equality to all of \(X^{\An}\).
+
+It remains to check positive mass.  Before projection, the
+\(-\infty\)-level \(A_{-\infty}\) is \(\theta\)-psh, hence
+\[
+ \theta+\omega_T+\ddc A_{-\infty}\geq\omega_T.
+\]
+The ordinary model projection preserves its mass, while the
+\(\mathcal I\)-model projection is less singular and cannot decrease mass.
+Consequently
+\[
+ \int_X\left(\theta+\omega_T+
+       \ddc\Gamma^T_{-\infty}\right)^n
+ \geq\int_X\omega_T^n>0.
+\]
+Thus \(\Gamma^T\) belongs to the required positive-mass test-curve space.
+
+The factors \(m^{-1}\) occur both in the complex potential
+\eqref{eq:comp-elementary-level} and in the BJ section function
+\eqref{eq:comp-gf}.  Since our complex convention uses squared norms and
+normalizes \(\nu_E(\log|s|_{h^m}^2)=\ord_E(s)\), analytification gives
+\(m^{-1}\log|s|\) with no additional factor of two.
+
+If all \(s_j\) vanish on the support of \(v\), every term in
+\eqref{eq:comp-gf} and \eqref{eq:comp-gf-pl} is \(-\infty\).
+Thus proper-support behavior is preserved.
+\end{proof}
+
+\begin{example}[Two weighted sections on \(\mathbf P^1\)]
+Let \(L=\mathcal O_{\mathbf P^1}(1)\), write \([x:y]\) for homogeneous
+coordinates, and fix \(a\in\mathbf Q_{>0}\).  The rational GF metric
+\[
+                 \phi=\max\{\log|x|,\log|y|+a\}
+\]
+has no common \(-\infty\)-locus because \(x\) and \(y\) do not vanish
+simultaneously.  The construction in
+\Cref{lem:comp-gf-realization} uses the two parameter levels \(a\) and
+\(0\), interpolates between their single-section potentials, and then
+takes the concave \(\cI\)-model replacement in
+\(c_1(L+T)\), for any chosen ample \(T\).  Equation
+\eqref{eq:comp-gf-pl} gives a positive-mass test curve \(\Gamma^T\) with
+\[
+                         (\Gamma^T)^{\An}=\phi.
+\]
+
+The identity can be checked on the two divisorial rays.  For
+\(v_0=c\,\ord_{\{x=0\}}\) and
+\(v_\infty=c\,\ord_{\{y=0\}}\), with \(c>0\), one obtains
+\[
+       \phi(v_0)=a,
+       \qquad
+       \phi(v_\infty)=\max\{0,a-c\}.
+\]
+At the trivial valuation, \(\phi(v_{\triv})=a\), so
+\((\Gamma^T)_{\max}=a\) by \eqref{eq:comp-max}.  This elementary example checks
+both the sign in the Legendre term and the normalization of the terminal
+parameter.
+\end{example}
+
+\section{Decreasing limits}
+
+The test-curve infimum of a decreasing net is defined under
+\[
+                         \inf_i\Gamma^i_{\max}>-\infty.
+\tag{57.11}\label{eq:comp-noncollapse}
+\]
+This condition is visible on the BJ side by \eqref{eq:comp-max}.
+
+\begin{proposition}\label{prop:comp-decreasing-nets}
+Let \((\Gamma^i)_{i\in I}\) be a decreasing net satisfying
+\eqref{eq:comp-noncollapse}.
+Then
+\[
+                 \left(\inf_i\Gamma^i\right)^{\An}
+                    =\inf_i(\Gamma^i)^{\An}
+\tag{57.12}\label{eq:comp-decreasing}
+\]
+pointwise on \(X^{\An}\).
+\end{proposition}
+
+\begin{proof}
+The componentwise infimum is legitimate because all levels below the
+common terminal parameter have positive mass; the required envelope
+identity is \cite[Proposition~2.8]{Xia23Operations}.  More directly,
+\cite[Lemma~4.10]{Xia23Operations} states for a decreasing net that
+\[
+ \left(\inf_i\Gamma^i\right)^{\An}(v)
+       =\inf_i(\Gamma^i)^{\An}(v)
+\]
+for every divisorial valuation \(v\), and also identifies the terminal
+parameter.  The decreasing limit on the right is a BJ psh metric under
+\eqref{eq:comp-noncollapse}.  Divisorial determination then upgrades the
+identity from divisorial valuations to all of \(X^{\An}\).  This avoids
+any unsourced minimax interchange for an arbitrary directed set.
+\end{proof}
+
+No equality
+\(\vol(\inf_i\Gamma^i)=\lim_i\vol(\Gamma^i)\)
+is assumed.
+That extra hypothesis appeared for DH continuity because convergence of the
+base convex bodies was needed there.
+
+\section{The bijection}
+
+\begin{theorem}\label{thm:comp-dxz}
+Under \eqref{eq:comp-scope}, analytification is an order isomorphism
+\[
+ \mathfrak A:
+ \PSH^{\NA}_{\mathrm{tc}}(X,\theta)
+       \xrightarrow{\ \sim\ }\PSH(L^{\An}).
+\tag{57.13}\label{eq:comp-bijection}
+\]
+\end{theorem}
+
+\begin{proof}
+Injectivity is \Cref{prop:comp-order-reflection}.
+Let \(\phi\in\PSH(L^{\An})\).
+The only nonformal surjectivity input is
+\cite[Theorem~3.12(ii)]{DXZ23}: if \(T\) is ample, every
+\(\phi\in\PSH(L^{\An})\), viewed as an element of
+\(\PSH((L+T)^{\An})\), is the analytification of a positive-mass
+\(\mathcal I\)-model test curve in \(c_1(L+T)\).  Its proof first treats
+rational GF metrics by the construction of
+\Cref{lem:comp-gf-realization}, then uses decreasing GF approximation with
+a uniform positive-mass bound.  We import that realization theorem rather
+than reproduce its analytic compactness argument.
+
+Call a K\"ahler form rational if its class is the first Chern class of an
+ample \(\mathbf Q\)-line bundle.  For every rational K\"ahler form
+\(\omega\), the imported theorem gives a curve
+\[
+ \Gamma^\omega\in
+ \PSH^{\NA}_{\mathrm{tc}}(X,\theta+\omega)_{>0},
+ \qquad
+                         (\Gamma^\omega)^{\An}=\phi.
+\tag{57.14}\label{eq:comp-rational-component}
+\]
+If \(\omega\leq\omega'\) are rational, projection invariance gives
+\[
+ \left(P_{\theta+\omega'}[\Gamma^\omega]_{\mathcal I}\right)^{\An}
+ =\phi=(\Gamma^{\omega'})^{\An}.
+\]
+Injectivity in the big class \(\theta+\omega'\) therefore yields
+\[
+ P_{\theta+\omega'}[\Gamma^\omega]_{\mathcal I}
+ =\Gamma^{\omega'}.
+\tag{57.15}\label{eq:comp-rational-cocycle}
+\]
+
+Now let \(\eta\) be an arbitrary K\"ahler form.  Choose a rational
+K\"ahler form \(\omega\leq\eta\) and set
+\[
+ \Gamma^\eta
+ :=P_{\theta+\eta}[\Gamma^\omega]_{\mathcal I}.
+\tag{57.16}\label{eq:comp-arbitrary-component}
+\]
+This is independent of \(\omega\).  Indeed, for two choices
+\(\omega_1,\omega_2\leq\eta\), choose a sufficiently small positive
+rational multiple \(\omega_0\) of one fixed rational K\"ahler form so that
+\(\omega_0\leq\omega_1,\omega_2\).  Applying
+\eqref{eq:comp-rational-cocycle} twice shows that both candidates in
+\eqref{eq:comp-arbitrary-component} are
+\(P_{\theta+\eta}[\Gamma^{\omega_0}]_{\mathcal I}\).
+The same argument with a common rational lower form proves the transition
+cocycle for arbitrary \(\eta\leq\eta'\).
+Thus \((\Gamma^\eta)_\eta\) is a compatible inverse system.  Projection
+invariance gives \((\Gamma^\eta)^{\An}=\phi\) for every component, hence
+\(\Gamma^{\An}=\phi\).  This is the surjectivity argument of
+\cite[Theorem~3.14]{DXZ23}.
+\end{proof}
+
+\begin{remark}[Where envelopes enter]
+\label{rem:comp-envelope-dependence}
+The map, its well-definedness, order reflection, GF realization, and
+decreasing-limit identity were proved without surjectivity.
+Surjectivity uses the realization theorem
+\cite[Theorem~3.12(ii)]{DXZ23}, whose proof uses sequential GF
+regularization from the Boucksom--Jonsson approximation and envelope
+theory.
+Thus bijectivity is not a formal consequence of the multiplier-ideal
+formula.
+
+For the smooth projective \(X\) considered here, the needed input is
+available in the cited BJ theory.
+The general unibranch envelope theorem proved in
+\Cref{chap:bj-envelope-consequences} supplies the broader algebraic
+envelope statement.
+The hypotheses of a comparison construction must still be checked before
+transporting the bijection to another category.
+\end{remark}
+
+\section{Operations and envelopes}
+
+The order isomorphism transports order-theoretic operations.
+The direct test-curve proofs in \cite{Xia23Operations} show that this
+transport agrees with the operations already constructed on the
+transcendental side.
+
+\begin{theorem}\label{thm:comp-operations}
+Whenever the displayed operations are defined,
+\[
+\begin{aligned}
+ (\Gamma+C)^{\An}
+     &=\Gamma^{\An}+C,\\
+ (\lambda\Gamma)^{\An}
+     &=\lambda\Gamma^{\An}\qquad(\lambda>0),\\
+ (\Gamma+\Lambda)^{\An}
+     &=\Gamma^{\An}+\Lambda^{\An},\\
+ (\Gamma\vee\Lambda)^{\An}
+     &=\max\{\Gamma^{\An},\Lambda^{\An}\}.
+\end{aligned}
+\tag{57.18}\label{eq:comp-elementary-operations}
+\]
+If \((\Gamma^i)\) is nonempty and
+\(\sup_i\Gamma^i_{\max}<+\infty\), then
+\[
+ \left(\uscsup_i\Gamma^i\right)^{\An}
+       =\left(\sup_i(\Gamma^i)^{\An}\right)^*.
+\tag{57.19}\label{eq:comp-sup}
+\]
+For a decreasing net satisfying \eqref{eq:comp-noncollapse},
+\eqref{eq:comp-decreasing} holds.
+\end{theorem}
+
+\begin{proof}
+Translations and finite maxima follow directly from the Legendre formula.
+Positive rescaling follows from
+\eqref{eq:comp-scaled-legendre}.
+Addition follows levelwise from addition of psh singularities and the
+infimal-convolution formula for test curves; analytification of a sum of
+complex singularities adds their divisorial values.
+
+The divisorial maximum identity is
+\cite[Corollary~4.8]{Xia23Operations}; addition and rescaling are
+\cite[Lemma~4.17]{Xia23Operations}.  Since both sides of each identity are
+BJ psh metrics, divisorial determination extends the equality to
+\(X^{\An}\).  This is where the proved projective comparison is used; the
+same sentence would not justify equality on arbitrary nondivisorial points
+of the tropical spectrum of a nonprojective complex space.
+
+For the supremum, the test-curve construction is the levelwise regularized
+supremum followed by \(\cI\)-projection.
+The projection preserves analytification, and the projective envelope
+property makes the upper semicontinuous regularization on the right of
+\eqref{eq:comp-sup} a BJ psh metric.
+Order reflection identifies it with the left side.
+The decreasing statement is
+\Cref{prop:comp-decreasing-nets}.
+\end{proof}
+
+\begin{remark}[Envelope firewall]
+\label{rem:comp-operation-envelope-firewall}
+Equation \eqref{eq:comp-sup} is the operation in which the envelope theorem
+is visible.
+Without the appropriate envelope property, the regularized supremum of a
+bounded-above psh family need not already be known to be psh.
+Finite maxima, translations, sums, positive rescaling, and the admissible
+decreasing infimum do not require that additional assertion.
+\end{remark}
+
+\section{Monotone limits and order topology}
+
+The comparison identifies the natural monotone convergences, but the two
+directions have different endpoint hypotheses.
+
+\begin{proposition}\label{prop:comp-increasing-nets}
+Let \((\Gamma^i)_{i\in I}\) be increasing and assume
+\[
+                         \sup_i\Gamma^i_{\max}<+\infty.
+\]
+Then
+\[
+ \Gamma:=\uscsup_i\Gamma^i
+\]
+is defined and
+\[
+ \Gamma^{\An}
+       =\left(\sup_i(\Gamma^i)^{\An}\right)^*.
+\tag{57.20}\label{eq:comp-increasing}
+\]
+Moreover,
+\[
+                         \vol(\Gamma)=\lim_i\vol(\Gamma^i).
+\tag{57.21}\label{eq:comp-increasing-volume}
+\]
+\end{proposition}
+
+\begin{proof}
+The first identity is \eqref{eq:comp-sup}.
+For the volume statement, project every metric to one fixed K\"ahler
+perturbation.
+The positive-mass test-curve theorem gives monotone continuity there.
+The error introduced by a sufficiently small perturbation is uniformly
+bounded by mixed masses with a fixed K\"ahler class.
+Letting the perturbation tend to zero proves
+\eqref{eq:comp-increasing-volume}.
+The supremum identity itself is
+\cite[Theorem~4.13]{Xia23Operations}; the uniform mixed-mass estimate is
+the same one used in \Cref{thm:operations-volume}.
+\end{proof}
+
+\begin{remark}
+For decreasing nets, the condition is the lower bound
+\eqref{eq:comp-noncollapse}, and the volume may drop:
+\[
+                  \vol(\inf_i\Gamma^i)\leq\lim_i\vol(\Gamma^i).
+\]
+The reverse inequality fails in general.
+Thus order convergence and energy or DH convergence must not be conflated.
+\end{remark}
+
+\section{Projection and envelopes}
+
+For every K\"ahler form \(\omega\), the transition map satisfies
+\[
+ \left(P_{\theta+\omega}[\Gamma]_{\cI}\right)^{\An}
+                   =\Gamma^{\An}.
+\tag{57.22}\label{eq:comp-projection-invariance}
+\]
+This is not injectivity failure:
+the source and target components live in different cohomology classes inside
+the inverse system.
+The comparison forgets the auxiliary perturbation while retaining the
+common valuative metric.
+
+\begin{proposition}\label{prop:comp-perturbed-characterization}
+A compatible family
+\[
+ \Gamma^{\theta+\omega}\in
+       \PSH^{\NA}_{\mathrm{tc}}(X,\theta+\omega)_{>0}
+\]
+defines a metric in class \(\theta\) if and only if for
+\(\omega'\leq\omega''\),
+\[
+ P_{\theta+\omega''}
+       [\Gamma^{\theta+\omega'}]_{\cI}
+       =\Gamma^{\theta+\omega''}.
+\tag{57.23}\label{eq:comp-cocycle}
+\]
+Under comparison, all components in such a family have one common
+analytification.
+\end{proposition}
+
+\begin{proof}
+The first assertion is the inverse-system definition.
+Projection invariance gives equality of analytifications in the forward
+direction.
+Conversely, if the components have a common analytification, the two sides
+of \eqref{eq:comp-cocycle} have the same analytification.
+Order reflection, hence injectivity in the perturbed class, makes them equal.
+\end{proof}
+
+This proposition is the step used in the surjectivity proof after constructing
+\eqref{eq:comp-arbitrary-component}.
+It is important that injectivity had already been proved without assuming
+surjectivity.
+
+\section{Trace and restriction}
+
+Let \(Y\subseteq X\) be an irreducible analytic subset and
+\(\widetilde Y\to Y\) its normalization.
+Denote by \(v_{Y,\triv}\in X^{\An}\) the trivial valuation with support
+\(Y\).
+
+\begin{proposition}\label{prop:comp-restriction-criterion}
+For \(\Gamma\in\PSH^{\NA}_{\mathrm{tc}}(X,\theta)\), the following are
+equivalent:
+\begin{enumerate}
+\item \(\Gamma^{\An}(v_{Y,\triv})>-\infty\);
+\item \(\Gamma^{\An}|_{Y^{\An}}\not\equiv-\infty\);
+\item the test-curve trace \(\Tr_Y(\Gamma)\) is well-defined.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+The maximum principle for BJ psh metrics
+\cite[Lemma~1.4(i)]{BJ22} gives the equivalence of the first two conditions.
+For a complex potential \(\psi\),
+\[
+ \psi^{\An}(v_{Y,\triv})
+ =
+ \begin{cases}
+ -\infty,&\nu(\psi,Y)>0,\\
+ 0,&\nu(\psi,Y)=0.
+ \end{cases}
+\tag{57.24}\label{eq:comp-generic-trivial-value}
+\]
+Applying this to the levels in \eqref{eq:comp-legendre} shows that the first
+condition holds exactly when sufficiently negative levels have zero generic
+Lelong number along \(Y\), which is the definition of the trace domain.
+\end{proof}
+
+\begin{theorem}\label{thm:comp-trace}
+Assume the equivalent conditions of
+\Cref{prop:comp-restriction-criterion}.
+Then
+\[
+ \Tr_Y(\Gamma)^{\An}|_{Y^{\Div}}
+       =\Gamma^{\An}|_{Y^{\Div}}.
+\tag{57.25}\label{eq:comp-trace}
+\]
+\end{theorem}
+
+\begin{proof}
+First apply an \(\cI\)-projection to a K\"ahler perturbation.
+It changes neither side on divisorial valuations and reduces to positive
+mass.
+
+Choose a decreasing GF approximation
+\(\phi_j\searrow\Gamma^{\An}\), realize each \(\phi_j\) by a PL test curve
+\(\Gamma^j\), and project all curves to one fixed larger K\"ahler class.
+\Cref{prop:comp-decreasing-nets} and injectivity show that the projected
+curves decrease to the projection of \(\Gamma\).
+Levelwise their \(\cI\)-model potentials converge in \(d_S\).
+Continuity of the complex trace under decreasing \(d_S\)-limits gives, for
+each divisorial \(v\) over \(Y\),
+\[
+ \Tr_Y(\Gamma)^{\An}(v)
+       =\inf_j\Tr_Y(\Gamma^j)^{\An}(v).
+\tag{57.26}\label{eq:comp-trace-limit}
+\]
+
+It remains to treat a GF metric.
+Its realizing PL curve has levels that are finite maxima of logarithms of
+sections.
+When restriction is nontrivial, restricting these sections to
+\(\widetilde Y\) commutes with divisorial order of vanishing.
+Thus for every level \(A_\tau\),
+\[
+       \Tr_Y(A_\tau)^{\An}(v)=A_\tau^{\An}(v).
+\]
+Taking the finite Legendre maximum proves
+\eqref{eq:comp-trace} for \(\Gamma^j\).
+Passing to the infimum in \eqref{eq:comp-trace-limit} proves the theorem.
+This gives exactly the divisorial trace formula of
+\cite[Section~4.8]{Xia23Operations}; no nondivisorial restriction theorem
+has been inserted in the limiting argument.
+\end{proof}
+
+The conclusion is deliberately stated on \(Y^{\Div}\), exactly as proved by
+the trace comparison.
+It is not a blanket assertion that restriction of every extended-real BJ
+psh function is automatically a BJ psh metric on \(Y^{\An}\).
+The nontriviality criterion and analytic trace are essential.
+
+\section{Scope ledger}
+
+The comparison has four separate layers:
+\begin{enumerate}
+\item the multiplier-ideal formula constructs \(\mathfrak A\) on every
+mass stratum;
+\item homogeneous Legendre inversion makes it an order embedding;
+\item sequential GF approximation, an envelope-theoretic input, makes it
+surjective in the projective rational setting;
+\item the operation theorem and trace continuity identify the extra
+structures.
+\end{enumerate}
+
+The cited paper \cite{DXZ23} also develops the transcendental inverse-system
+theory beyond rational Hodge classes.
+The exact BJ bijection \eqref{eq:comp-bijection}, however, uses the
+projective algebraic analytification and is asserted here only under
+\eqref{eq:comp-scope}.
+No comparison with the tropical-spectrum psh theory of a general complex
+space has been used.
+That requires additional results reserved for later chapters.
+
+For orientation, \Cref{thm:ts-algebraic-recovery} will identify the
+underlying space \(X^{\An}\) with the tropical spectrum of coherent ideals
+when \(X\) is proper.  Under that homeomorphism,
+\(\log|\mathfrak a|=-v(\mathfrak a)\), so the multiplier-ideal formula of
+\Cref{def:va-psh-analytification} is literally an ideal-function formula on
+the tropical spectrum.  This underlying-space dictionary is formal from
+GAGA.  Identification with the Mesquita--Piccione psh cone is a stronger
+positivity statement and is not claimed in this chapter.
+
+\begin{remark}[Primary-source boundary]
+The order isomorphism is \cite[Theorem~3.14]{DXZ23}.  Its source-side
+objects are DXZ inverse systems of \(\mathcal I\)-model test curves, and
+its target is the BJ cone in the projective rational class.  The operation
+formulas, endpoint-bounded monotone limits, and trace comparison are from
+\cite{Xia23Operations}, with the exact theorem numbers recorded at their
+uses above.  None of these statements supplies a compact-K\"ahler BJ
+analytification, a singular-space comparison, or a full MP--BJ
+identification.
+\end{remark}

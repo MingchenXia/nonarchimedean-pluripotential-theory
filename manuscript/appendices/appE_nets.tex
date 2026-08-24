@@ -1,0 +1,640 @@
+\chapter{Nets and compact upper-envelope calculus}
+\index{net}\index{Moore--Smith convergence}\index{upper envelope!net calculus}
+\label{app:nets}
+
+This appendix gives the point-set and extended-real facts used by the
+compactness and envelope arguments.
+It is deliberately formulated for arbitrary directed sets.
+A sequence may replace a net only after a metrizability, first-countability,
+or Choquet-selection argument has been supplied.
+
+The first use is \Cref{chap:topological-tools}.
+The distinction between increasing nets and sequences is essential in
+\Cref{chap:bj-homogeneity-bdivisors} and in the envelope proof.
+Our subnet convention is the Willard tail convention
+\cite[Chapter~4]{Wil70}.
+
+\section{Directed sets, tails, and convergence}
+\label{sec:appE-directed}
+
+\begin{definition}[Directed preorder]
+\label{def:appE-directed}
+A directed set is a nonempty set \(A\) with a reflexive transitive relation
+\(\leq\) such that every pair has a common upper bound.
+Antisymmetry is not required.
+A net in a set \(X\) is a map \(a\mapsto x_a\) from \(A\) to \(X\).
+The tail beginning at \(a_0\) is
+\[
+                         \{x_a:a\geq a_0\}.
+\tag{E.1}\label{eq:appE-tail}
+\]
+\end{definition}
+
+A property holds eventually if it holds on one tail, and frequently if it
+holds at some index beyond every prescribed index.
+Thus \(x_a\) is frequently in \(S\subset X\) if
+\[
+             \forall a_0\in A\ \exists a\geq a_0
+             \quad x_a\in S.
+\tag{E.2}\label{eq:appE-frequently}
+\]
+
+\begin{definition}[Convergence and cluster point]
+\label{def:appE-convergence}
+In a topological space \(X\), the net \(x_a\) converges to \(x\) if it is
+eventually in every neighborhood of \(x\).
+The point \(x\) is a cluster point of the net if the net is frequently in
+every neighborhood of \(x\).
+\end{definition}
+
+\begin{example}[Neighborhood net]
+\label{ex:appE-neighborhood-net}
+Direct the neighborhoods of \(x\) by reverse inclusion:
+\[
+ U\preceq V\quad\Longleftrightarrow\quad V\subseteq U.
+\]
+Choosing \(x_U\in U\) gives a net converging to \(x\).
+This construction, unavailable to sequences without first countability,
+is the basic closure test.
+\end{example}
+
+\section{Willard and Moore--Smith subnets}
+\label{sec:appE-subnets}
+
+\begin{definition}[Willard subnet]
+\label{def:appE-willard-subnet}
+Let \(x:A\to X\) be a net.
+A Willard subnet is \(y_b=x_{\phi(b)}\), indexed by a directed set \(B\),
+where \(\phi:B\to A\) is order preserving and eventually in every tail:
+\[
+ \forall a_0\in A\ \exists b_0\in B\ \forall b\geq b_0,
+ \qquad \phi(b)\geq a_0.
+\tag{E.3}\label{eq:appE-willard}
+\]
+The map \(\phi\) need not be injective.
+\end{definition}
+
+\begin{definition}[Order-preserving Moore--Smith subnet]
+\label{def:appE-ms-subnet}
+In this book an order-preserving Moore--Smith subnet means exactly a
+Willard subnet: \(\phi:B\to A\) is order preserving and satisfies
+\eqref{eq:appE-willard}.
+\end{definition}
+
+Terminology varies between topology texts, so the defining formulas, not the
+name, control every use in this book.
+
+\begin{lemma}\label{lem:appE-tail-subnet}
+If \(x_a\) is eventually in \(S\), every Willard subnet is eventually in
+\(S\).
+Consequently, if \(x_a\to x\), every subnet still converges to \(x\).
+This does not assert uniqueness unless the ambient space is Hausdorff.
+\end{lemma}
+
+\begin{proof}
+Choose \(a_0\) such that \(x_a\in S\) for \(a\geq a_0\).
+Condition \eqref{eq:appE-willard} makes
+\(\phi(b)\geq a_0\) eventually.
+\end{proof}
+
+\begin{theorem}\label{thm:appE-cluster-subnet}
+A point \(x\) is a cluster point of \(x_a\) if and only if some Willard
+subnet converges to \(x\).
+In fact, one may choose an order-preserving Moore--Smith subnet.
+\end{theorem}
+
+\begin{proof}
+The reverse implication follows from
+\Cref{lem:appE-tail-subnet}: if the original net were eventually
+outside a neighborhood \(U\), so would every subnet.
+
+Conversely, let \(B\) consist of triples
+\[
+ (a,U,c),\qquad a\in A,\quad U\ni x,\quad
+ c\geq a,\quad x_c\in U.
+\]
+Clusterhood makes this set nonempty over every pair \((a,U)\).
+Order triples by
+\[
+ (a,U,c)\preceq(a',U',c')
+ \quad\Longleftrightarrow\quad
+ a\leq a',\quad U'\subseteq U,\quad c\leq c'.
+\]
+Given two triples, first dominate their \(a\)- and \(c\)-indices and then use
+clusterhood to choose a still later term in the intersection of their
+neighborhoods.
+Thus \(B\) is directed.
+The map \(\phi(a,U,c)=c\) is order preserving, satisfies
+\eqref{eq:appE-willard}, and its subnet is eventually in every neighborhood
+of \(x\).
+\end{proof}
+
+\begin{proposition}\label{prop:appE-divergence-subnet}
+If \(x_a\) does not converge to \(x\), there is a Willard subnet no subnet of
+which converges to \(x\).
+\end{proposition}
+
+\begin{proof}
+Some neighborhood \(U\) of \(x\) fails to contain a tail.
+Thus the original net is frequently in \(X\setminus U\).
+Let \(B\) consist of pairs \((a,c)\) with
+\(c\geq a\) and \(x_c\in X\setminus U\), ordered coordinatewise.
+Frequency makes \(B\) directed: after dominating two pairs, choose a still
+later index whose term lies outside \(U\).  The map
+\(\phi(a,c)=c\) is order preserving, satisfies
+\eqref{eq:appE-willard}, and produces a subnet entirely in that closed set.
+Every further subnet is also entirely there and cannot converge to \(x\).
+\end{proof}
+
+\section{Moore--Smith tests for topology}
+\label{sec:appE-ms-tests}
+
+\begin{theorem}\label{thm:appE-net-tests}
+Let \(X,Y\) be topological spaces.
+\begin{enumerate}
+\item A point \(x\) lies in \(\overline S\) if and only if a net in \(S\)
+      converges to \(x\).
+\item A subset \(F\subset X\) is closed if and only if it contains the limit
+      of every convergent net in \(F\).
+\item A map \(f:X\to Y\) is continuous if and only if it preserves limits of
+      all nets.
+\item A net in \(\prod_{i\in I}X_i\) converges if and only if every
+      coordinate net converges.
+\end{enumerate}
+\par
+\end{theorem}
+
+\begin{proof}
+If \(x\in\overline S\), use the neighborhood net and choose
+\(x_U\in U\cap S\).
+The converse is immediate.
+This proves the closed-set criterion.
+
+Continuity preserves eventual membership in inverse images of
+neighborhoods.
+Conversely, if \(f\) is not continuous at \(x\), some neighborhood \(V\) of
+\(f(x)\) has \(x\) in the closure of
+\(X\setminus f^{-1}(V)\).
+The first assertion gives a net converging to \(x\) whose image never enters
+\(V\).
+
+For products, necessity follows from continuity of projections.
+A basic product neighborhood restricts only finitely many coordinates.
+Directedness supplies one index beyond the finitely many coordinate
+thresholds, proving sufficiency.
+\end{proof}
+
+\begin{warning}{Sequential shortcuts}
+The closure criterion with sequences characterizes sequential spaces, not
+all spaces.
+Likewise, sequential compactness does not imply compactness in arbitrary
+topological spaces.
+\Cref{thm:appE-net-tests} has no countability hypothesis because it
+uses nets.
+\end{warning}
+
+\section{Compactness}
+\label{sec:appE-compactness}
+
+\begin{theorem}\label{thm:appE-net-compactness}
+A topological space \(K\) is compact if and only if every net in \(K\) has a
+convergent Willard subnet.
+Equivalently, every net has a convergent order-preserving Moore--Smith
+subnet.
+If \(K\) is Hausdorff, the subnet limit is unique once the subnet converges.
+\end{theorem}
+
+\begin{proof}
+For a net \(x_a\), set
+\[
+ F_a=\overline{\{x_b:b\geq a\}}.
+\]
+The family \((F_a)\) has the finite-intersection property.
+If \(K\) is compact, choose \(x\in\bigcap_aF_a\).
+Then \(x_a\) is frequently in every neighborhood of \(x\), so
+\Cref{thm:appE-cluster-subnet} gives a convergent subnet.
+
+Conversely, suppose an open cover \(\mathcal U\) has no finite subcover.
+Direct its finite subfamilies by inclusion and choose
+\[
+ x_{\mathcal V}\notin\bigcup_{U\in\mathcal V}U.
+\]
+If a subnet converged to \(x\), choose \(U\in\mathcal U\) containing \(x\).
+It would eventually lie in \(U\).
+But \eqref{eq:appE-willard} also forces its indices eventually to contain
+\(U\), hence its terms to lie outside \(U\), a contradiction.
+
+If a net converges to two distinct points in a Hausdorff space, it is
+eventually in two disjoint neighborhoods, which is impossible.
+\end{proof}
+
+\begin{corollary}\label{cor:appE-compact-Hausdorff}
+A continuous bijection from a compact space to a Hausdorff space is a
+homeomorphism.
+\end{corollary}
+
+\begin{proof}
+A closed subset of the source is compact, its image is compact, and compact
+subsets of a Hausdorff space are closed.
+Thus the inverse map is continuous.
+\end{proof}
+
+\begin{theorem}\label{thm:appE-dini}
+Let \(K\) be compact and let \(f_a\) be a decreasing net of continuous
+real-valued functions.
+If \(f_a\searrow f\) pointwise and \(f\) is continuous, then
+\(f_a\to f\) uniformly.
+\end{theorem}
+
+\begin{proof}
+For \(\varepsilon>0\), the open sets
+\[
+                  U_a=\{x:f_a(x)<f(x)+\varepsilon\}
+\]
+increase with \(a\) and cover \(K\).
+A finite subcover is dominated by one index \(a_0\).
+For \(a\geq a_0\),
+\[
+                         0\leq f_a-f<\varepsilon
+\]
+on \(K\).
+\end{proof}
+
+\section{Upper-semicontinuous regularization}
+\label{sec:appE-usc}
+
+For \(f:X\to\overline{\mathbf R}\), define
+\[
+ f^*(x)=\inf_{U\ni x}\sup_{y\in U}f(y).
+\tag{E.4}\label{eq:appE-usc-regularization}
+\]
+
+\begin{proposition}\label{prop:appE-usc-majorant}
+The function \(f^*\) is upper semicontinuous, satisfies \(f\leq f^*\), and
+is the smallest upper-semicontinuous majorant of \(f\).
+\end{proposition}
+
+\begin{proof}
+The condition \(f^*(x)<c\) means that
+\(\sup_Uf<c\) for some neighborhood \(U\) of \(x\); it persists throughout
+\(U\).
+Thus \(\{f^*<c\}\) is open.
+Every neighborhood of \(x\) contains \(x\), so \(f\leq f^*\).
+If \(g\) is usc and \(f\leq g\), then for \(c>g(x)\) there is a neighborhood
+on which \(g<c\), giving \(f^*(x)\leq c\).
+Let \(c\downarrow g(x)\).
+\end{proof}
+
+\begin{lemma}\label{lem:appE-usc-calculus}
+\begin{enumerate}
+\item The infimum of any nonempty family of usc functions is usc.
+\item A finite maximum of usc functions is usc.
+\item For a family \(f_i\), the usc upper envelope is
+      \((\sup_i f_i)^*\); regularization is generally necessary.
+\item For \(c\in\mathbf R\) and \(\lambda>0\),
+\[
+ (\sup_i(f_i+c))^*=(\sup_i f_i)^*+c,\qquad
+ (\sup_i\lambda f_i)^*=\lambda(\sup_i f_i)^*.
+\tag{E.5}\label{eq:appE-usc-affine}
+\]
+\end{enumerate}
+\par
+\end{lemma}
+
+\begin{proof}
+For an infimum \(h=\inf_i h_i\),
+\(\{h<c\}=\bigcup_i\{h_i<c\}\).
+For a finite maximum, the same sublevel set is a finite intersection.
+The third assertion is
+\Cref{prop:appE-usc-majorant}.
+Finite translation and positive scaling commute with neighborhood suprema
+and infima in \eqref{eq:appE-usc-regularization}.
+\end{proof}
+
+\begin{warning}{Regularization is not continuity}
+On \([-1,1]\), the function equal to one at \(0\) and zero elsewhere is
+upper semicontinuous but discontinuous.
+Upper-semicontinuous regularization preserves that spike.
+It is an order-theoretic closure, not smoothing.
+\end{warning}
+
+\section{Limsup and liminf of nets}
+\label{sec:appE-limsup}
+
+For an extended-real net \(r_a\), set
+\[
+\begin{aligned}
+ \limsup_a r_a&=\inf_{a_0}\sup_{a\geq a_0}r_a,\\
+ \liminf_a r_a&=\sup_{a_0}\inf_{a\geq a_0}r_a.
+\end{aligned}
+\tag{E.6}\label{eq:appE-limsup}
+\]
+These are extended-real quantities and always satisfy
+\(\liminf r_a\leq\limsup r_a\).
+For a function net \(f_a\), the pointwise upper limit is given by the same
+formula at each point, while the usc upper limit is
+\[
+ \left(\inf_{a_0}\sup_{a\geq a_0}f_a\right)^*.
+\tag{E.7}\label{eq:appE-usc-limsup}
+\]
+
+\begin{proposition}\label{prop:appE-real-cluster}
+If \(r_a\) takes values in a compact interval of \(\mathbf R\), then
+\(\limsup r_a\) and \(\liminf r_a\) are respectively the largest and
+smallest limits of convergent subnets.
+\end{proposition}
+
+\begin{proof}
+Compactness gives subnet cluster values.
+Every subnet limit lies between the two tail bounds in
+\eqref{eq:appE-limsup}.
+For the upper endpoint, the original net is frequently in
+\((\limsup r_a-\varepsilon,\,+\infty)\) for every \(\varepsilon>0\).
+The cluster-subnet construction, directed simultaneously by tails and
+\(\varepsilon\downarrow0\), gives a subnet converging to the limsup.
+The liminf case is analogous.
+\end{proof}
+
+\section{Choquet selection}
+\label{sec:appE-choquet}
+
+\begin{theorem}\label{thm:appE-choquet}
+Let \(X\) be second countable and let \(\mathcal F\) be a nonempty family of
+functions \(X\to\overline{\mathbf R}\).
+There is a countable subfamily \((f_j)\) such that
+\[
+ \left(\sup_{f\in\mathcal F}f\right)^*
+ =
+ \left(\sup_jf_j\right)^*.
+\tag{E.8}\label{eq:appE-choquet}
+\]
+If \(\mathcal F\) is stable under finite maxima, \(f_j\) may be chosen
+increasing.
+\end{theorem}
+
+\begin{proof}
+Choose a countable base \(\mathcal B\).
+For each \(B\in\mathcal B\), let
+\[
+ M_B=\sup\{f(x):f\in\mathcal F,\ x\in B\}.
+\]
+When \(M_B\) is finite, choose for every \(q\geq1\) some \(f_{B,q}\) with
+\(\sup_Bf_{B,q}>M_B-q^{-1}\).
+When \(M_B=+\infty\), choose \(\sup_Bf_{B,q}>q\).
+No choice is needed for \(M_B=-\infty\).
+Adjoin one fixed member of \(\mathcal F\).
+The selected countable family has the same supremum on every basis element,
+so formula \eqref{eq:appE-usc-regularization} gives
+\eqref{eq:appE-choquet}.
+If finite maxima stay in \(\mathcal F\), replace an enumeration \(g_j\) by
+\(f_j=\max_{k\leq j}g_k\).
+\end{proof}
+
+\begin{warning}{What was selected}
+The pointwise suprema in \eqref{eq:appE-choquet} may differ.
+Only their usc regularizations agree.
+Second countability cannot be omitted unless a different countable
+determining family is available.
+\end{warning}
+
+\section{Monotone integration firewalls}
+\label{sec:appE-monotone-integration}
+
+\begin{theorem}\label{thm:appE-lsc-monotone}
+Let \(K\) be compact Hausdorff, let \(\mu\) be a finite Radon measure, and
+let \(f_a:K\to[0,+\infty]\) be an increasing net of lower-semicontinuous
+functions.
+Then
+\[
+ \int_K\sup_af_a\,\rd \mu
+ =
+ \sup_a\int_Kf_a\,\rd \mu.
+\tag{E.9}\label{eq:appE-lsc-monotone}
+\]
+\end{theorem}
+
+\begin{proof}
+Let \(f=\sup_af_a\), which is lsc.
+Radon regularity on compact Hausdorff spaces gives
+\[
+ \int_Kf\,\rd \mu
+ =
+ \sup\left\{\int_Kh\,\rd \mu:
+ h\in C(K),\ 0\leq h\leq f\right\}.
+\]
+Fix such an \(h\) and \(\varepsilon>0\).
+The open sets
+\[
+                         \{f_a>h-\varepsilon\}
+\]
+cover \(K\).
+Compactness and directedness give one \(a\) for which the inequality holds
+everywhere.
+Thus
+\[
+ \int_Kf_a\,\rd \mu
+ \geq\int_Kh\,\rd \mu-\varepsilon\mu(K).
+\]
+Take the supremum over \(h\) and let \(\varepsilon\downarrow0\).
+\end{proof}
+
+\begin{corollary}\label{cor:appE-usc-monotone}
+Let \(f_a:K\to[-\infty,C]\) be a decreasing net of usc functions, with
+\(C\in\mathbf R\).
+Then
+\[
+ \int_K\inf_af_a\,\rd \mu
+ =
+ \inf_a\int_Kf_a\,\rd \mu,
+\tag{E.10}\label{eq:appE-usc-monotone}
+\]
+where both sides may equal \(-\infty\).
+\end{corollary}
+
+\begin{proof}
+Apply \Cref{thm:appE-lsc-monotone} to
+\(C-f_a\), which is an increasing nonnegative lsc net.
+\end{proof}
+
+\begin{example}[Failure for measurable nets]
+\label{ex:appE-measurable-net-failure}
+On \([0,1]\) with Lebesgue measure, direct the finite subsets \(F\) by
+inclusion and set \(f_F=\mathbf 1_F\).
+Then
+\[
+                         f_F\uparrow1
+\]
+pointwise, while \(\int f_F=0\) for every \(F\).
+Thus the sequential monotone convergence theorem does not extend to
+arbitrary measurable nets.
+The functions in this example are not lower semicontinuous, so it does not
+contradict \Cref{thm:appE-lsc-monotone}.
+\end{example}
+
+\begin{warning}{Fatou is also sequential}
+The usual proof of Fatou's lemma invokes countable monotone convergence.
+There is no unrestricted Fatou lemma for arbitrary nets of measurable
+functions.
+In this book a net is integrated only through
+\Cref{thm:appE-lsc-monotone}, its usc dual, uniform convergence,
+or an explicitly selected sequence.
+\end{warning}
+
+\section{Weak convergence of measures}
+\label{sec:appE-weak-measures}
+
+For compact Hausdorff \(K\), write \(C(K)\) for the real-valued continuous
+functions.  A net of finite Radon measures converges weakly if its integrals
+against every \(h\in C(K)\) converge.
+
+\begin{proposition}\label{prop:appE-measure-compactness}
+The probability measures \(\mathcal P(K)\) form a compact Hausdorff space in
+the weak topology.
+If \(\mu_a\to\mu\), then
+\[
+ \liminf_a\int f\,\rd \mu_a\geq\int f\,\rd \mu
+\tag{E.11}\label{eq:appE-portmanteau-lsc}
+\]
+for every bounded-below lsc \(f\), and the reverse limsup inequality holds
+for bounded-above usc functions.
+\end{proposition}
+
+\begin{proof}
+Embed \(\mathcal P(K)\) in
+\[
+ \prod_{h\in C(K)}[-\lVert h\rVert_\infty,\lVert h\rVert_\infty]
+ \quad\text{by}\quad
+ \mu\longmapsto\left(\int_Kh\,\rd\mu\right)_h.
+\]
+The product is compact by the Tychonoff theorem
+\cite[Chapter~5]{Kel75}.  A pointwise limit of these coordinate vectors
+defines a positive linear functional \(F\) on \(C(K)\) with \(F(1)=1\).
+The Riesz representation theorem
+\cite[Theorem~2.14]{Rud87} gives a unique probability measure representing
+\(F\).  Hence the displayed image is closed and is compact.  Continuous
+functions separate Radon measures, so the induced topology is Hausdorff.
+
+For the inequality, first note that a bounded-below lsc function on a
+compact Hausdorff space is the pointwise supremum of its continuous
+minorants.  Indeed, if \(a<f(x)\), choose \(b\) with \(a<b<f(x)\).
+The open set \(\{f>b\}\) contains \(x\); the Urysohn lemma supplies a
+continuous function which equals \(b\) at \(x\), equals a fixed lower
+bound off that open set, and is everywhere at most \(f\).
+
+We shall also use the integral form of this approximation:
+\[
+ \int_K f\,\rd\mu
+ =\sup\left\{\int_Kh\,\rd\mu:\ h\in C(K),\ h\leq f\right\}.
+\tag{E.12}\label{eq:appE-lsc-integral-minorants}
+\]
+Here are the details.  Subtract a lower bound \(m\), truncate
+\(g=f-m\) at height \(N\), and choose a mesh
+\(\delta=N/q\).  For \(1\leq j\leq q\), put
+\(U_j=\{\min(g,N)>j\delta\}\).  Inner regularity gives compact
+\(K_j\subset U_j\), with
+\(\delta\sum_j\mu(U_j\setminus K_j)\) arbitrarily small, and the Urysohn
+lemma gives \(0\leq\chi_j\leq1\), equal to one on \(K_j\) and supported
+in \(U_j\).  Then
+\[
+ h=m+\delta\sum_{j=1}^{q}\chi_j\in C(K),
+ \qquad h\leq f.
+\]
+Indeed, if \(r\) of the summands are nonzero and \(j_0\) is their largest
+index, then \(r\leq j_0\) and \(g>j_0\delta\).  Moreover,
+\[
+ \int_K(h-m)\,\rd\mu
+ \geq\delta\sum_{j=1}^{q}\mu(K_j),
+\]
+whereas \(\delta\sum_j\mu(U_j)\) is a lower layer-cake sum for
+\(\int_K\min(g,N)\,\rd\mu\), with error at most \(\delta\mu(K)\).
+First make the regularity error small, then let \(q\to\infty\) and
+\(N\to\infty\).  This proves
+\eqref{eq:appE-lsc-integral-minorants}.
+
+If \(h\in C(K)\) and \(h\leq f\), then
+\[
+ \liminf_a\int_K f\,\rd\mu_a
+ \geq \lim_a\int_K h\,\rd\mu_a
+ =\int_Kh\,\rd\mu.
+\]
+Taking the supremum over \(h\) and using
+\eqref{eq:appE-lsc-integral-minorants} proves
+\eqref{eq:appE-portmanteau-lsc}.  Changing signs gives the usc statement.
+\end{proof}
+
+If \(K\) is compact metrizable, \(C(K)\) is separable and the weak topology
+on \(\mathcal P(K)\) is metrizable.
+Only in this case may compactness arguments be rewritten automatically with
+subsequences.
+
+\section{Extended-real ledger}
+\label{sec:appE-extended-ledger}
+
+\begin{proposition}\label{prop:appE-safe-identities}
+For a finite constant \(c\), \(\lambda>0\), and a nonempty family
+\((r_i)\subset\overline{\mathbf R}\),
+\[
+\begin{aligned}
+ \sup_i(r_i+c)&=\sup_ir_i+c,&
+ \inf_i(r_i+c)&=\inf_ir_i+c,\\
+ \sup_i(\lambda r_i)&=\lambda\sup_ir_i,&
+ \inf_i(\lambda r_i)&=\lambda\inf_ir_i,\\
+ \sup_i\inf_a r_{i,a}&\leq\inf_a\sup_i r_{i,a}.
+\end{aligned}
+\tag{E.13}\label{eq:appE-safe-identities}
+\]
+The first four formulas use the standard conventions
+\(c+(\pm\infty)=\pm\infty\).
+\end{proposition}
+
+\begin{proof}
+Translation and positive scaling are order automorphisms of
+\(\overline{\mathbf R}\).
+For the last inequality, every \(\inf_a r_{i,a}\) is at most every
+\(\sup_i r_{i,a}\); take the indicated supremum and infimum.
+\end{proof}
+
+\begin{warning}{Forbidden rewrites}
+None of the following is valid without finiteness or integrability:
+\[
+ \sup_i(f_i-g_i)=\sup_if_i-\inf_ig_i,\qquad
+ \int(f-g)=\int f-\int g,
+\]
+when both terms on the right can be infinite.
+Likewise, from a carrier inequality \(f\leq p+C\) one may not form
+\(f-p\) at a point where \(f=p=-\infty\).
+\end{warning}
+
+\section{Unit tests}
+\label{sec:appE-unit-tests}
+
+\begin{enumerate}
+\item A constant net converges to its constant value.
+      Every Willard subnet continues to converge to that value; uniqueness
+      of the limit additionally requires a Hausdorff space.
+\item The neighborhood net of
+      \Cref{ex:appE-neighborhood-net} detects every closure point,
+      even when no sequence does.
+\item In a product with an uncountable index set, convergence is still
+      coordinatewise because a basic neighborhood restricts finitely many
+      coordinates.
+\item The finite-subset net
+      \Cref{ex:appE-measurable-net-failure} is the standard test
+      against an illicit net version of monotone convergence.
+\item A decreasing continuous net on a compact space with continuous limit
+      must pass the uniform estimate of \Cref{thm:appE-dini}.
+\item If \(f_a\searrow f\) through usc functions, \(f\) is usc because an
+      arbitrary infimum of usc functions is usc.
+      The analogous assertion for increasing nets is false without
+      regularization.
+\end{enumerate}
+
+\section*{Source note}
+
+The subnet, compactness, and Moore--Smith convergence facts follow
+\cite[Chapters~4--5]{Wil70}; see also \cite{Kel75}.
+The proofs are included because changing the subnet definition can invalidate
+a compactness argument.
+The envelope and integration statements are elementary consequences of
+compactness, Radon regularity, and the explicitly stated semicontinuity
+hypotheses.

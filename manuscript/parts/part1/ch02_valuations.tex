@@ -1,0 +1,1864 @@
+\chapter{Absolute values, valuations, and graded reduction}
+\index{valuation}\index{graded reduction}
+\label{chap:valuations}
+
+Valuations occur in this book in three roles. They are points of analytic
+spaces, coordinates on skeleta, and probes of singularities. These roles use
+slightly different languages. This chapter fixes the dictionary and, in
+particular, the sign convention that prevents later formulae from changing
+direction unexpectedly.
+
+The chapter proceeds from the elementary to the structural. We first record
+the equivalence between multiplicative seminorms and real semivaluations,
+then introduce monomial and quasimonomial valuations, completed residue
+fields, and graded reduction. Valuation rings, centers, and the extension
+theory of valuations along field extensions follow. The numerical invariants
+of a valuation---rank, rational rank, and residue transcendence
+degree---are then tied together by Abhyankar's inequality, and a gallery of
+fully computed valuations on $k(x,y)$ realizes every phenomenon the
+inequality permits. The chapter closes with the linear-growth condition used
+in \cref{part:bj}, a map from each class of valuations to its later role,
+and the multiplicative--additive dictionary.
+
+Throughout, rings are commutative with unit. Unless an ordered group is
+explicitly mentioned, a valuation is real-valued. We put
+$\overline{\mathbf R}=\mathbf R\cup\{+\infty\}$ with
+$a+(+\infty)=+\infty$.
+
+\section{Absolute values and semivaluations}
+
+\begin{definition}
+An \emph{absolute value} on a field $K$ is a map
+$|\cdot|:K\to\mathbf R_{\geq0}$ satisfying
+\[
+ |a|=0\Longleftrightarrow a=0,\quad |ab|=|a||b|,\quad
+ |a+b|\leq |a|+|b|.
+\]
+It is \emph{non-Archimedean} if
+\[
+                         |a+b|\leq\max\{|a|,|b|\}.
+\]
+The absolute value is \emph{trivial} if $|a|=1$ for every $a\ne0$.
+\end{definition}
+
+\begin{definition}
+Let $A$ be a ring. A \emph{multiplicative seminorm} on $A$ is a map
+$|\cdot|:A\to\mathbf R_{\geq0}$ with $|0|=0$, $|1|=1$,
+$|fg|=|f||g|$, and $|f+g|\leq\max\{|f|,|g|\}$. A
+\emph{real semivaluation} on $A$ is a map
+\[
+                    v:A\longrightarrow\overline{\mathbf R}
+\]
+such that
+\[
+ v(0)=+\infty,\quad v(1)=0,\quad
+ v(fg)=v(f)+v(g),\quad
+ v(f+g)\geq\min\{v(f),v(g)\}.
+\]
+The two notions correspond by
+\[
+                         v=-\log|\cdot|,
+             \qquad |f|=\rme^{-v(f)},
+\]
+where $\rme^{-\infty}=0$.
+\end{definition}
+
+\begin{lemma}\label{lem:seminorm-semivaluation-dictionary}
+\index{seminorm!multiplicative}\index{semivaluation}
+The assignments $v=-\log|\cdot|$ and $|\cdot|=\rme^{-v}$ are mutually
+inverse bijections between multiplicative seminorms and real semivaluations
+on a ring $A$. Under this bijection,
+\[
+ |f|\leq1\Longleftrightarrow v(f)\geq0,
+ \qquad
+ |f|<1\Longleftrightarrow v(f)>0,
+ \qquad
+ |f|=0\Longleftrightarrow v(f)=+\infty.
+\]
+For $s>0$, the seminorm $|\cdot|^s$ corresponds to the semivaluation $sv$.
+\end{lemma}
+\begin{proof}
+The function $-\log:[0,+\infty)\to\overline{\mathbf R}$, with
+$-\log0=+\infty$, is a strictly decreasing bijection converting products
+into sums and $\max$ into $\min$. Each axiom of a multiplicative seminorm is
+carried to the corresponding axiom of a semivaluation and conversely:
+$|0|=0$ becomes $v(0)=+\infty$; $|1|=1$ becomes $v(1)=0$;
+$|fg|=|f||g|$ becomes $v(fg)=v(f)+v(g)$; and
+$|f+g|\leq\max\{|f|,|g|\}$ becomes $v(f+g)\geq\min\{v(f),v(g)\}$. The three
+displayed equivalences and the scaling statement are immediate from
+monotonicity and from $-\log(t^s)=-s\log t$.
+\end{proof}
+
+The base $\rme$ of the exponential is a normalization, not a structure: any
+base $>1$ produces the same theory after rescaling $v$. This innocuous
+observation returns with force over a trivially valued field, where no
+element of the ground field pins the scale down and rescaling becomes the
+positive flow on the analytification; see
+\cref{chap:trivial-analytification}.
+
+The next lemma separates the two regimes in the first definition. It is
+the reason that non-Archimedean behaviour can be detected on the prime
+field alone.
+
+\begin{lemma}\label{lem:ultrametric-integer-bound}
+\index{absolute value!non-Archimedean criterion}
+Let $|\cdot|$ be an absolute value on a field $K$. The following are
+equivalent.
+\begin{enumerate}
+\item $|\cdot|$ is non-Archimedean.
+\item $|n\cdot1_K|\leq1$ for every $n\in\mathbf Z$.
+\item The set $\{|n\cdot1_K|\mid n\in\mathbf Z\}$ is bounded.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(1)$\Rightarrow$(2). By induction,
+$|n\cdot1|=|1+\cdots+1|\leq\max\{|1|,\ldots,|1|\}=1$ for $n\geq0$, and
+$|-a|=|a|$ because $|-1|^2=1$ forces $|-1|=1$.
+
+(2)$\Rightarrow$(3) is trivial.
+
+(3)$\Rightarrow$(1). Let $M$ bound all $|n\cdot1|$ and let $a,b\in K$. For
+every $N\geq1$, the binomial theorem and the triangle inequality give
+\[
+ |a+b|^N=\left|\sum_{i=0}^N\binom{N}{i}a^ib^{N-i}\right|
+ \leq\sum_{i=0}^{N}M|a|^i|b|^{N-i}
+ \leq (N+1)M\max\{|a|,|b|\}^N.
+\]
+Taking $N$-th roots and letting $N\to\infty$ yields
+$|a+b|\leq\max\{|a|,|b|\}$, since $((N+1)M)^{1/N}\to1$.
+\end{proof}
+
+\begin{example}\label{ex:basic-absolute-values}
+\index{absolute value!examples}
+(1) The trivial absolute value exists on every field; its valuation is
+$v(a)=0$ for $a\ne0$. It is complete, since every Cauchy sequence is
+eventually constant.
+
+(2) For a prime $p$, write a nonzero rational number as
+$a=p^{m}u$ with $u$ a quotient of integers prime to $p$; then
+$|a|_p:=p^{-m}$ is a non-Archimedean absolute value on $\mathbf Q$ by
+\cref{lem:ultrametric-integer-bound}, with valuation
+$v_p(a)=m\log p$. The frequent normalization $v_p(p)=1$ replaces the base
+$\rme$ by the base $p$; by the remark above, this changes nothing
+structural.
+
+(3) On the Laurent series field $k((t))$, the assignment
+$v(f)=\operatorname{ord}_t(f)$ is a complete discretely valued absolute
+value $|f|=\rme^{-\operatorname{ord}_t f}$, trivial on $k$. Restricting
+along $k(t)\subset k((t))$ gives the $t$-adic valuation of the rational
+function field. This pair is the algebraic model for all
+equicharacteristic discretely valued fields appearing in our
+degeneration pictures.
+\end{example}
+
+\begin{lemma}\label{lem:strong-triangle-equality}
+If $v(f)\ne v(g)$, then
+\[
+                           v(f+g)=\min\{v(f),v(g)\}.
+\]
+\end{lemma}
+\begin{proof}
+Suppose $v(f)<v(g)$. The ultrametric inequality gives
+$v(f+g)\geq v(f)$. Since $f=(f+g)-g$, it also gives
+\[
+ v(f)\geq\min\{v(f+g),v(g)\}.
+\]
+As $v(g)>v(f)$, the latter minimum can be at most $v(f)$ only if
+$v(f+g)\leq v(f)$. Hence equality holds.
+\end{proof}
+
+The proof uses only the ordered structure of the value set. The lemma and
+its proof therefore apply verbatim to valuations with values in an
+arbitrary totally ordered abelian group, as introduced later in this
+chapter, and we will use it in that generality without further comment. A
+useful reformulation: in a sum of finitely many terms with pairwise
+comparisons available, if exactly one term has strictly smallest value,
+then the sum is nonzero and has that value. Most nonvanishing arguments in
+this chapter are instances of this reformulation.
+
+\begin{definition}
+The \emph{support} of a semivaluation $v$ is
+\[
+                         \operatorname{supp}(v)
+          =\{f\in A\mid v(f)=+\infty\}.
+\]
+\end{definition}
+
+\begin{proposition}
+\label{prop:semivaluation-support-prime}
+The support of a semivaluation is a prime ideal. Moreover, $v$ induces a
+valuation on the fraction field of $A/\operatorname{supp}(v)$.
+\end{proposition}
+\begin{proof}
+The support contains $0$ and not $1$. It is closed under addition by the
+ultrametric inequality and under multiplication by arbitrary elements by
+multiplicativity. If $fg$ lies in the support, then
+$v(f)+v(g)=+\infty$, so at least one of $v(f),v(g)$ is $+\infty$.
+Thus the support is prime.
+
+First the value descends to $A/\operatorname{supp}(v)$.  Indeed, if
+$f-f'$ belongs to the support and one of $v(f),v(f')$ is finite, the strong
+triangle equality applied to $f=f'+(f-f')$ gives $v(f)=v(f')$; if one is
+infinite, then both representatives lie in the support.  All nonzero classes
+therefore have finite value.  Define $v(f/g)=v(f)-v(g)$. If
+$f/g=f'/g'$, then $fg'=f'g$ and multiplicativity shows that the definition
+is independent of the presentation. The valuation axioms extend immediately.
+\end{proof}
+
+\begin{example}
+Evaluation at a point $a$ of an affine $k$-variety gives the semivaluation
+$v_a(f)=0$ if $f(a)\ne0$ and $v_a(f)=+\infty$ if $f(a)=0$, when $k$ is
+trivially valued. Its support is the prime ideal of the Zariski closure of
+$a$. Thus proper-support points cannot be discarded from a trivially valued
+analytification.
+\end{example}
+
+\section{Monomial and quasimonomial valuations}
+
+\begin{definition}
+Let $Y$ be a regular variety over a field, let $\xi$ be the generic point
+of an integral closed subvariety of codimension $r$, and let
+$z_1,\ldots,z_r$ be a regular system of parameters of
+$\mathcal O_{Y,\xi}$. Choose
+$\alpha=(\alpha_1,\ldots,\alpha_r)\in\mathbf R_{>0}^r$.  After choosing a
+coefficient field in the equicharacteristic completion, write
+\[
+ f=\sum_{\beta\in\mathbf N^r}c_\beta z^\beta,
+\]
+with $c_\beta\in\kappa(\xi)$.  Equivalently, read the coefficients from
+the monomial basis of
+$\operatorname{gr}_{(z_1,\ldots,z_r)}\mathcal O_{Y,\xi}
+\simeq\kappa(\xi)[\bar z_1,\ldots,\bar z_r]$.  The
+associated \emph{monomial valuation} is
+\[
+                     v_\alpha(f)=
+       \min_{c_\beta\ne0}\langle\alpha,\beta\rangle.
+\]
+A valuation on $K(X)$ is \emph{quasimonomial} if it becomes monomial on some
+regular birational model in this way.
+\end{definition}
+
+The resulting least weight is independent of the chosen coefficient field:
+changing a lift of a residue coefficient changes it only by terms divisible
+by at least one $z_i$, hence by terms of strictly larger positive weight.
+The minimum exists when all $\alpha_i>0$: below each fixed bound
+only finitely many exponent vectors occur. Cancellation can only raise the
+value of a sum. For multiplicativity, the weighted associated graded ring is
+a polynomial ring over the residue field in the initial forms of the $z_i$,
+hence is a domain. Thus lowest-weight parts have nonzero product.
+
+Two remarks orient the reader. First, the definition depends on the model
+$Y$, the point $\xi$, and the weights, but the resulting valuation on the
+function field is intrinsic: its value group, rank, rational rank, and
+residue field are invariants of the valuation alone and can be computed on
+any model realizing it. These invariants are computed completely, by way of
+graded reduction, in \cref{lem:monomial-invariants} below. Second,
+quasimonomial valuations are exactly the points that live on skeleta: on an
+SNC model, the monomial valuations in the parameters cutting out a stratum
+sweep out a simplex, and these simplices glue into the dual complex. This
+is carried out in \cref{chap:skeleta}, and the same construction over a
+trivially valued field appears in \cref{chap:trivial-analytification}. When
+the weights are rationally independent, the valuation remembers the whole
+simplex direction; when they are commensurable, it degenerates towards a
+divisorial valuation on a blowup. The gallery in
+\cref{sec:valuation-gallery} makes both behaviours explicit.
+
+\begin{example}[Monomial ideals]
+For $A=k[x_1,\ldots,x_n]$ and
+$\alpha\in\mathbf R_{\geq0}^n$, put
+\[
+ v_\alpha\left(\sum_\beta c_\beta x^\beta\right)
+       =\min_{c_\beta\ne0}\langle\alpha,\beta\rangle.
+\]
+If $\mathfrak a=(x^{\beta^{(1)}},\ldots,x^{\beta^{(N)}})$, then
+\[
+                  v_\alpha(\mathfrak a)
+       =\min_j\langle\alpha,\beta^{(j)}\rangle.
+\]
+Thus the valuation of a monomial ideal is the support function, with a
+minimum convention, of its Newton polyhedron.
+\end{example}
+
+The monomial-ideal computation is the germ of the tropical point of view:
+the family of all monomial valuations, evaluated on the semiring of
+monomial ideals, is a compact tropical spectrum. This is proved in
+\cref{ex:monomial-tropical-spectrum} and generalized in
+\cref{app:tropical-algebra} and \cref{chap:tropical-spectra-complex}.
+
+\begin{example}[Valuations on a smooth curve]
+Let $C$ be a smooth projective curve over a trivially valued algebraically
+closed field. If $p\in C$ and $c>0$, then
+$c\operatorname{ord}_p$ is a real valuation centered at $p$. Since every
+proper birational morphism between smooth projective curves is an
+isomorphism, there are no new divisorial valuations on higher smooth models.
+Proper-support semivaluations still add the scheme points themselves.
+\end{example}
+
+\section{Completed residue fields}
+
+Let $A$ be a Banach $K$-algebra and let $x$ be a bounded multiplicative
+seminorm on $A$. Set $\mathfrak p_x=\operatorname{supp}(v_x)$. The induced
+absolute value on the fraction field of $A/\mathfrak p_x$ has a completion.
+
+\begin{definition}
+The resulting complete valued field is the \emph{completed residue field} at
+$x$ and is denoted $\mathcal H(x)$. The composite
+\[
+                    A\longrightarrow A/\mathfrak p_x
+       \longrightarrow\operatorname{Frac}(A/\mathfrak p_x)
+       \longrightarrow\mathcal H(x)
+\]
+is the canonical evaluation map at $x$.
+\end{definition}
+
+\begin{proposition}
+\label{prop:completed-residue-universal}
+For $f\in A$, the norm of the image of $f$ in $\mathcal H(x)$ equals
+$|f(x)|$. The pair consisting of $\mathcal H(x)$ and the evaluation map is
+initial among isometric maps from $A/\mathfrak p_x$ to complete valued fields.
+\end{proposition}
+\begin{proof}
+The first assertion holds by construction before completion and completion
+is isometric. Any isometric map to a field extends uniquely to the fraction
+field and then, by completeness, uniquely to its completion. This gives the
+universal property.
+\end{proof}
+
+\begin{lemma}\label{lem:completion-invariants}
+\index{completed residue field}
+Let $F$ be a field with a rank-one valuation $v$ and let $\widehat F$ be
+its completion. The inclusion $F\subset\widehat F$ induces equalities of
+value groups and an isomorphism of residue fields:
+\[
+ \Gamma_{\widehat F}=\Gamma_F,
+ \qquad
+ \kappa(\widehat F)\simeq\kappa(F).
+\]
+\end{lemma}
+\begin{proof}
+Let $\widehat a\in\widehat F^\times$ and choose $a\in F$ with
+$v(\widehat a-a)>v(\widehat a)$, possible by density. The strong triangle
+equality (\cref{lem:strong-triangle-equality}) applied to
+$\widehat a=a+(\widehat a-a)$ gives $v(a)=v(\widehat a)$. Hence every value
+of $\widehat F$ is a value of $F$, and the value groups agree.
+
+For residue fields, take $\widehat a$ with $v(\widehat a)=0$ and choose
+$a\in F$ with $v(\widehat a-a)>0$. Then $v(a)=0$ and $\widehat a$, $a$ have
+the same image in $\kappa(\widehat F)$. Thus
+$\kappa(F)\to\kappa(\widehat F)$ is surjective; it is injective because
+$\mathfrak m_{\widehat F}\cap R_F=\mathfrak m_F$.
+\end{proof}
+
+Consequently the two classical invariants of a point
+$x\in X^{\mathrm{an}}$---the value group $|\mathcal H(x)^\times|$ and the
+residue field $\widetilde{\mathcal H(x)}$---can be computed before
+completion, on the fraction field of $A/\mathfrak p_x$ itself. The graded
+computations of the next section do exactly this. For points of analytic
+curves, these two invariants distinguish the four types of
+\cref{sec:berk-line}: for instance, a point of type II enlarges the residue
+field, while a point of type III enlarges the value group.
+
+Completed residue fields allow analytic points to be used as genuine base
+fields. For a morphism $Y\to X$ and $x\in X^{\mathrm{an}}$, the analytic
+fibre over $x$ is obtained by base change to $\mathcal H(x)$, not merely to
+the ordinary residue field of the support. The extension theory needed to
+control such base changes---in particular the fact that a finite extension
+of a complete rank-one field carries a unique compatible absolute
+value---is developed in \cref{sec:extension-of-valuations}.
+
+\section{Graded reduction}
+
+An ordinary residue field remembers which elements have value zero and
+forgets all other leading terms. Graded reduction remembers a leading term
+in every value.
+
+\begin{definition}
+Let $v:A\to\Gamma\cup\{+\infty\}$ be a semivaluation. For
+$\gamma\in\Gamma$, set
+\[
+ F^{\geq\gamma}A=\{f\in A\mid v(f)\geq\gamma\},\qquad
+ F^{>\gamma}A=\{f\in A\mid v(f)>\gamma\}.
+\]
+The \emph{associated graded ring} is
+\[
+             \operatorname{gr}_v A=
+       \bigoplus_{\gamma\in\Gamma}
+       F^{\geq\gamma}A/F^{>\gamma}A.
+\]
+For $f$ of finite value, its image in the component of degree $v(f)$ is its
+\emph{initial form} $\operatorname{in}_v(f)$.
+\end{definition}
+
+\begin{proposition}
+\label{prop:graded-domain}
+If $\operatorname{supp}(v)=0$, then $\operatorname{gr}_v A$ is a domain and
+\[
+       \operatorname{in}_v(fg)
+       =\operatorname{in}_v(f)\operatorname{in}_v(g)\ne0
+\]
+for nonzero $f,g\in A$.
+\end{proposition}
+\begin{proof}
+Multiplicativity gives $v(fg)=v(f)+v(g)$, so multiplication of the two
+classes is the class of $fg$ in degree $v(f)+v(g)$. This class cannot vanish,
+for vanishing would mean $v(fg)>v(f)+v(g)$. Every nonzero homogeneous element
+is the initial form of an element of $A$; products of nonzero homogeneous
+elements are therefore nonzero. Ordering the finitely many degrees appearing
+in two arbitrary graded elements and taking their least terms shows that
+their product is nonzero.
+\end{proof}
+
+The next lemma explains why graded reduction computes the two classical
+invariants of a valuation, its value group and its residue field, in one
+stroke. Call a graded ring in which every nonzero homogeneous element is
+invertible a \emph{graded field}, and for a graded domain $G$ write
+$G^{\mathrm{gr}}$ for its homogeneous fraction ring, the localization at
+all nonzero homogeneous elements.
+
+\begin{lemma}\label{lem:graded-residue-field}
+\index{graded reduction!residue field and value group}
+Let $F$ be a field with a valuation $v$, with values in a totally ordered
+abelian group, and let $A\subset F$ be a subring with
+$\operatorname{Frac}(A)=F$. Then:
+\begin{enumerate}
+\item $\operatorname{gr}_vF$ is a graded field, and the natural map
+      $(\operatorname{gr}_vA)^{\mathrm{gr}}\to\operatorname{gr}_vF$ is an
+      isomorphism of graded rings;
+\item the degree-zero component of $\operatorname{gr}_vF$ is the residue
+      field $\kappa(v)$;
+\item the set of degrees in which $\operatorname{gr}_vF$ is nonzero is the
+      value group $\Gamma_v$, which is generated as a group by
+      $v(A\setminus\{0\})$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(1) For $f\in F^\times$, multiplicativity of initial forms gives
+$\operatorname{in}_v(f)\operatorname{in}_v(f^{-1})
+=\operatorname{in}_v(1)=1$, so every initial form is invertible. A nonzero
+homogeneous element of degree $\gamma$ in $\operatorname{gr}_vF$ is the
+class of some $f$ with $v(f)=\gamma$, hence is an initial form. Thus
+$\operatorname{gr}_vF$ is a graded field.
+
+For each $\gamma$, the natural map
+$\{f\in A\mid v(f)\geq\gamma\}/\{f\in A\mid v(f)>\gamma\}
+\to F^{\geq\gamma}/F^{>\gamma}$ is injective, so
+$\operatorname{gr}_vA\to\operatorname{gr}_vF$ is an injective map of graded
+domains. Since $\operatorname{gr}_vF$ is a graded field, the map extends to
+the homogeneous fraction ring. Surjectivity: every element of $F^\times$ is
+$f/g$ with $f,g\in A\setminus\{0\}$, and multiplicativity gives
+$\operatorname{in}_v(f/g)
+=\operatorname{in}_v(f)\operatorname{in}_v(g)^{-1}$, a homogeneous
+fraction from $A$.
+
+(2) By definition, the degree-zero component of $\operatorname{gr}_vF$ is
+$F^{\geq0}/F^{>0}=R_v/\mathfrak m_v=\kappa(v)$.
+
+(3) A degree $\gamma$ occurs iff some $f\in F^\times$ has $v(f)=\gamma$,
+which is the definition of $\Gamma_v$. Writing $f=g/h$ with $g,h\in A$
+exhibits $\gamma=v(g)-v(h)$ as a difference of values on $A$.
+\end{proof}
+
+In practice the lemma is used as follows: one computes
+$\operatorname{gr}_vA$ for a convenient finitely generated $A$---often a
+polynomial ring, where the graded ring is again a polynomial ring with
+shifted degrees---and reads off $\Gamma_v$ as the group generated by the
+degrees and $\kappa(v)$ as the field of degree-zero homogeneous fractions.
+The computations in \cref{ex:graded-gauss} and
+\cref{lem:monomial-invariants} are all of this shape.
+
+For a valued field $K$, the degree-zero fraction of this construction is the
+usual residue field, while all degrees together form Temkin's graded residue
+field. In multiplicative notation one indexes by radii $r>0$ and uses
+$K_{\leq r}/K_{<r}$. The conversion is $r=\rme^{-\gamma}$. Graded reduction is
+the natural coefficient object for tropical initial degenerations and for
+the tropical spectra used later in the complex-analytic construction; see
+\cite{MP24}.
+
+\begin{example}[Initial forms at a Gauss point]
+For the Gauss valuation
+$v_r(\sum a_iT^i)=\min_i(v(a_i)+ir)$, the initial form is the sum of precisely
+those monomials attaining the minimum. A bend of the function
+$r\mapsto v_r(f)$ occurs when at least two monomials have the same initial
+value. This elementary observation is the bridge between valuations and
+tropical hypersurfaces.
+\end{example}
+
+\begin{example}[Graded reduction at Gauss points]\label{ex:graded-gauss}
+\index{graded reduction!of a Gauss point}\index{Gauss valuation}
+Let $K$ be a complete discretely valued field, normalized by
+$v_K(\pi)=1$, with residue field $\widetilde K$. We compute the graded
+reduction of the Gauss valuations
+$v_r(\sum_ia_iT^i)=\min_i(v_K(a_i)+ir)$ on $A=K[T]$, for $r>0$, and read
+off their invariants by \cref{lem:graded-residue-field}.
+
+\emph{Step 1: the graded reduction of $K$.} The component of
+$\operatorname{gr}_{v_K}K$ in degree $\gamma$ is
+$K_{\geq\gamma}/K_{>\gamma}$, which vanishes unless $\gamma\in\mathbf Z$
+and is then isomorphic to $\widetilde K$ via $a\mapsto\overline{a/\pi^m}$
+for $\gamma=m$. Writing $S=\operatorname{in}_{v_K}(\pi)$, in degree $1$,
+multiplicativity of initial forms gives
+$S\cdot\operatorname{in}(\pi^{-1})=1$, so
+\[
+ \operatorname{gr}_{v_K}K=\widetilde K[S,S^{-1}],
+\]
+a Laurent polynomial ring graded by $\deg S=1$.
+
+\emph{Step 2: the graded reduction of $K[T]$.} Because
+$v_r(\sum a_iT^i)=\min_i(v_K(a_i)+ir)$ is computed coefficientwise,
+\[
+ F^{\geq\gamma}A=\bigoplus_{i\geq0}K_{\geq\gamma-ir}\,T^i,
+ \qquad
+ F^{>\gamma}A=\bigoplus_{i\geq0}K_{>\gamma-ir}\,T^i,
+\]
+so the degree-$\gamma$ component of $\operatorname{gr}_{v_r}A$ is
+$\bigoplus_i(K_{\geq\gamma-ir}/K_{>\gamma-ir})$. Setting
+$\Theta=\operatorname{in}_{v_r}(T)$, in degree $r$, we conclude that
+\[
+ \operatorname{gr}_{v_r}K[T]
+ =(\operatorname{gr}_{v_K}K)[\Theta]
+ =\widetilde K[S,S^{-1}][\Theta],
+\]
+a polynomial ring over $\widetilde K[S^{\pm1}]$ with $\deg\Theta=r$; the
+ring structure agrees because initial forms multiply. In particular the
+graded ring is a domain, which reproves multiplicativity of $v_r$, that is,
+the Gauss lemma.
+
+\emph{Step 3: invariants.} By \cref{lem:graded-residue-field}, the value
+group of $v_r$ on $K(T)$ is generated by the degrees:
+$\Gamma_{v_r}=\mathbf Z+r\mathbf Z$. The residue field is the field of
+degree-zero homogeneous fractions of $\widetilde K[S^{\pm1},\Theta]$, and a
+homogeneous fraction of monomials $S^m\Theta^n$ has degree $m+nr$. Two
+cases appear.
+\begin{enumerate}
+\item \emph{$r=a/b$ rational, in lowest terms with $b>0$.} Then
+      $\Gamma_{v_r}=\tfrac1b\mathbf Z$, so the value group index is
+      $[\Gamma_{v_r}:\Gamma_K]=b$. The lattice of pairs $(m,n)$ with
+      $m+nr=0$ is generated by $(-a,b)$, so the degree-zero part is
+      generated over $\widetilde K$ by $u:=S^{-a}\Theta^b$, the class of
+      $T^b/\pi^a$. Distinct powers of $u$ are linearly independent over
+      $\widetilde K$ inside the graded field, so $u$ is transcendental
+      and
+      \[
+       \kappa(v_r)=\widetilde K(u),
+       \qquad
+       \operatorname{trdeg}_{\widetilde K}\kappa(v_r)=1.
+      \]
+\item \emph{$r$ irrational.} Then $m+nr=0$ forces $m=n=0$: the value
+      group is $\Gamma_{v_r}=\mathbf Z\oplus r\mathbf Z$, free of rank
+      two, and
+      \[
+       \kappa(v_r)=\widetilde K,
+       \qquad
+       \operatorname{trdeg}_{\widetilde K}\kappa(v_r)=0.
+      \]
+      Every $f$ has a single monomial as initial form, because the
+      degrees $v_K(a_i)+ir$ are pairwise distinct.
+\end{enumerate}
+In both cases exactly one of the two invariants grows, and
+\[
+ \dim_{\mathbf Q}
+ \bigl((\Gamma_{v_r}/\Gamma_K)\otimes_{\mathbf Z}\mathbf Q\bigr)
+ +\operatorname{trdeg}_{\widetilde K}\kappa(v_r)
+ =1
+ =\operatorname{trdeg}_KK(T),
+\]
+so Gauss points saturate the relative Abhyankar inequality proved in
+\cref{thm:abhyankar-relative} below. After base change to an algebraically
+closed field, the two cases correspond to points of type II and type III on
+the analytic line in the classification of \cref{sec:berk-line}.
+\end{example}
+
+\begin{example}[The tropical spectrum of monomial ideals]
+\label{ex:monomial-tropical-spectrum}
+\index{tropical spectrum!of monomial ideals}
+Graded reduction records one leading term per value; tropical spectra
+record the values themselves, on the idempotent semiring of ideals. We
+compute one tropical spectrum in full. Let $k$ be a field and let
+$\mathscr M$ be the set of monomial ideals of $k[x,y]$, including $(0)$ and
+$(1)$, with the operations
+\[
+ I\oplus J=I+J,\qquad I\odot J=IJ.
+\]
+Sums and products of monomial ideals are monomial, $I+I=I$, and both
+operations are commutative, associative, and distributive; thus
+$\mathscr M$ is an idempotent semiring, a subsemiring of the ideal
+semiring of \cref{def:appG-ideal-semiring}. Following
+\cref{def:appG-tropical-spectrum} and \cref{chap:tropical-spectra-complex},
+its tropical spectrum is the set of semiring homomorphisms
+\[
+ \chi:\mathscr M\longrightarrow([0,+\infty],\min,+),
+ \qquad
+ \chi((0))=+\infty,\quad\chi((1))=0,
+\]
+with the topology of pointwise convergence. We claim that evaluation at the
+two coordinate ideals is a homeomorphism
+\[
+ \operatorname{tSpec}(\mathscr M)\xrightarrow{\ \sim\ }[0,+\infty]^2,
+ \qquad
+ \chi\longmapsto(\chi((x)),\chi((y))).
+\]
+
+\emph{The map is injective.} First,
+$(x^iy^j)=(x)^i(y)^j$, so multiplicativity gives
+$\chi((x^iy^j))=i\chi((x))+j\chi((y))$, where a summand with zero
+exponent is omitted.  Thus, for example, the value of \((y^j)\) is
+\(j\chi((y))\) even when \(\chi((x))=+\infty\); no product
+\(0\cdot(+\infty)\) is formed. Every nonzero monomial ideal is a finite sum of principal
+monomial ideals, so $\chi(I)$ is the minimum of $i\chi((x))+j\chi((y))$
+over a finite generating set of monomials $x^iy^j$ of $I$, with the same
+zero-exponent omission. Hence $\chi$ is
+determined by its values on $(x)$ and $(y)$.
+
+\emph{The map is surjective.} Given $(a,b)\in[0,+\infty]^2$, define
+$\chi_{a,b}(I)=\min\{ia+jb\mid x^iy^j\in I\}$ for $I\ne(0)$, and
+$\chi_{a,b}((0))=+\infty$, again omitting every zero-exponent summand.
+The minimum over all monomials of $I$ equals
+the minimum over any monomial generating set: a monomial lies in a
+monomial ideal precisely when it is divisible by one of the generators---%
+expanding a representation $x^iy^j=\sum f_s\cdot g_s$ with monomial
+generators $g_s$ and comparing coefficients of $x^iy^j$ exhibits a
+monomial factor---and divisibility can only increase the linear form
+$(i,j)\mapsto ia+jb$ since $a,b\geq0$. With this description,
+$\chi_{a,b}(I+J)=\min\{\chi_{a,b}(I),\chi_{a,b}(J)\}$ because the union of
+two generating sets generates the sum, and
+$\chi_{a,b}(IJ)=\chi_{a,b}(I)+\chi_{a,b}(J)$ because the pairwise products
+generate the product and the minimum of $(i+i')a+(j+j')b$ over independent
+pairs splits as the sum of the two minima. Thus $\chi_{a,b}$ is a
+character, and it takes $((x),(y))$ to $(a,b)$.
+
+\emph{Topologies match.} The bijection is continuous in both directions:
+coordinates of the image are evaluations at $(x)$ and $(y)$, while the
+value at any $I$ is the minimum of finitely many continuous functions
+$ia+jb$ of $(a,b)$, using again that a fixed finite generating set
+computes it.
+
+The finite points with $a,b<+\infty$ are precisely the monomial
+semivaluations of the earlier example in this chapter; the boundary strata
+at $+\infty$ are semivaluations with nonzero support, for instance
+$a=+\infty$ corresponds to supports containing $(x)$. The square
+$[0,+\infty]^2$ is the nonnegative part of the extended tropical affine
+plane of \cref{app:tropical-algebra}. This baby case displays the general
+mechanism of \cref{thm:appG-ideal-characters}: characters of an ideal
+semiring are semivaluations, and compactness of the spectrum comes from
+the product topology on a cube of coordinates, exactly as for the
+tropical spectra of complex spaces in
+\cref{chap:tropical-spectra-complex}, following \cite{MP24}.
+\end{example}
+
+\section{Valuation rings and centers}
+
+We briefly allow values in a totally ordered abelian group $\Gamma$. A
+valuation on a field $F$ is a homomorphism
+$v:F^\times\to\Gamma$ satisfying the ultrametric inequality, extended by
+$v(0)=+\infty$.
+
+\begin{definition}
+The \emph{valuation ring}, maximal ideal, and residue field of $v$ are
+\[
+ R_v=\{f\in F\mid v(f)\geq0\},\qquad
+ \mathfrak m_v=\{f\in F\mid v(f)>0\},\qquad
+ \kappa(v)=R_v/\mathfrak m_v.
+\]
+Its value group is $\Gamma_v=v(F^\times)$.
+\end{definition}
+
+\begin{proposition}\label{prop:valuation-ring-characterization}
+For every $f\in F^\times$, either $f\in R_v$ or $f^{-1}\in R_v$. Conversely,
+if a subring $R\subset F$ has this property, then $R$ is a valuation ring of
+$F$ for a valuation with values in a totally ordered abelian group.
+\end{proposition}
+\begin{proof}
+The first assertion follows because either $v(f)\geq0$ or
+$v(f^{-1})=-v(f)\geq0$. For the converse, the group
+$\Gamma=F^\times/R^\times$ becomes totally ordered by
+\[
+       [f]\leq[g]\quad\Longleftrightarrow\quad g/f\in R.
+\]
+The assumed alternative gives totality, and a direct check gives a
+translation-invariant order. The quotient map $F^\times\to\Gamma$, with the
+order reversed if necessary, is a valuation whose nonnegative elements are
+exactly $R$. See \cite[Chapter~VI, \S1]{ZariskiSamuelII} for the full
+ordered-group formulation.
+\end{proof}
+
+\begin{definition}
+Let $X$ be an integral scheme with function field $F$. A valuation $v$ of
+$F$ has \emph{center} $\xi\in X$ if
+\[
+                  \mathcal O_{X,\xi}\subset R_v,
+             \qquad \mathfrak m_\xi=\mathfrak m_v\cap\mathcal O_{X,\xi}.
+\]
+Equivalently, the generic-point morphism $\operatorname{Spec}F\to X$ extends
+to a morphism $\operatorname{Spec}R_v\to X$ carrying the closed point to
+$\xi$.
+\end{definition}
+
+\begin{proposition}\label{prop:centers-proper-separated}
+If $X$ is separated, a valuation of $F$ has at most one center on $X$. If
+$X$ is proper, every valuation of $F$ has a unique center on $X$.
+\end{proposition}
+\begin{proof}
+This is the valuative criterion. Two extensions
+$\operatorname{Spec}R_v\to X$ agreeing at the generic point agree when the
+diagonal of $X$ is closed; this proves uniqueness. Properness gives an
+extension, hence existence. The uniqueness statement is the separatedness
+implication in \cite[Tag 01KZ]{stacks-project}, while existence and
+uniqueness for a proper morphism are given by
+\cite[Tag 0BX5]{stacks-project}.
+\end{proof}
+
+Centers are the algebraic shadow of the analytic reduction maps of
+\cref{sec:berk-reduction}: for a model of a proper variety, sending an
+analytic point to the center of its valuation on the model is exactly the
+specialization map to the special fibre. Divisorial points, whose centers
+are generic points of components of special fibres, are studied in
+\cref{chap:models}.
+
+\section{Extensions of valuations}
+\label{sec:extension-of-valuations}
+\index{valuation!extension of}
+
+Analytic geometry constantly changes the field: to a finite extension, to
+a completed residue field, to a bigger algebraically closed field. This
+section records what happens to valuations under such changes. The
+existence theorem is due to Chevalley, and the numerical bookkeeping is
+the fundamental inequality. Over a complete rank-one field the extension
+is unique, which is the algebraic reason that analytic fibres are
+well-defined spaces rather than sets of choices.
+
+\begin{proposition}
+\label{prop:chevalley-extension}
+\index{Chevalley extension theorem}
+Let $F\subset L$ be a field extension and let $v$ be a valuation on $F$,
+with values in a totally ordered abelian group. Then there is a valuation
+$w$ on $L$ with
+\[
+ R_w\cap F=R_v,
+ \qquad
+ \mathfrak m_w\cap F=\mathfrak m_v.
+\]
+Moreover the inclusion $F^\times\subset L^\times$ induces an
+order-preserving embedding $\Gamma_v\hookrightarrow\Gamma_w$ and an
+embedding of residue fields $\kappa(v)\hookrightarrow\kappa(w)$.
+\end{proposition}
+\begin{proof}
+\emph{Step 1: a maximal dominating local ring.} Consider the set of local
+subrings $(\mathcal O,\mathfrak m_{\mathcal O})$ of $L$ dominating
+$(R_v,\mathfrak m_v)$, that is, containing $R_v$ and satisfying
+$\mathfrak m_{\mathcal O}\cap R_v=\mathfrak m_v$, partially ordered by
+domination. The set contains $R_v$. The union of a chain is a subring
+$\mathcal O$ with ideal $\mathfrak m$ given by the union of the maximal
+ideals; every element outside $\mathfrak m$ lies outside the maximal ideal
+of some member of the chain, hence is invertible there and in
+$\mathcal O$. Thus the union is again a local ring dominating $R_v$, and
+Zorn's lemma provides a maximal element $(\mathcal O,\mathfrak m)$.
+
+\emph{Step 2: $\mathcal O$ is a valuation ring of $L$.} Let $x\in L^\times$.
+We claim that $\mathfrak m\mathcal O[x]\neq\mathcal O[x]$ or
+$\mathfrak m\mathcal O[x^{-1}]\neq\mathcal O[x^{-1}]$. Otherwise there are
+relations
+\[
+ 1=\sum_{i=0}^{m}a_ix^i,
+ \qquad
+ 1=\sum_{j=0}^{n}b_jx^{-j},
+ \qquad a_i,b_j\in\mathfrak m,
+\]
+with $m$ and $n$ chosen minimal, and, exchanging $x$ and $x^{-1}$ if
+necessary, $m\geq n$. Since $1-b_0$ is a unit of $\mathcal O$, the second
+relation gives
+\[
+ x^{n}=\sum_{j=1}^{n}\frac{b_j}{1-b_0}\,x^{n-j},
+\]
+with coefficients in $\mathfrak m$. Substituting
+$x^{m}=x^{m-n}\cdot x^{n}$ into the first relation replaces the term
+$a_mx^m$ by terms of degree at most $m-1$ with coefficients in
+$\mathfrak m$, contradicting minimality of $m$. This proves the claim.
+
+Say $\mathfrak m\mathcal O[x]$ is a proper ideal. Choose a maximal ideal
+$M\supset\mathfrak m\mathcal O[x]$ of $\mathcal O[x]$. Then
+$M\cap\mathcal O$ is a proper ideal containing $\mathfrak m$, hence equals
+$\mathfrak m$, so the local ring $\mathcal O[x]_M$ dominates $\mathcal O$
+and, by transitivity, $R_v$. Maximality forces
+$\mathcal O[x]_M=\mathcal O$, whence $x\in\mathcal O$. Thus for every
+$x\in L^\times$ either $x$ or $x^{-1}$ lies in $\mathcal O$, and
+\Cref{prop:valuation-ring-characterization} makes $\mathcal O$ the
+valuation ring of a valuation $w$ on $L$.
+
+\emph{Step 3: restriction to $F$.} The ring $\mathcal O\cap F$ is a
+valuation ring of $F$ containing $R_v$, with maximal ideal
+$\mathfrak m\cap F$ lying over $\mathfrak m_v$; so $\mathcal O\cap F$
+dominates $R_v$. A valuation ring admits no proper domination inside its
+own field: if $R_v\subsetneq R$ were local rings of $F$ with
+$\mathfrak m_R\cap R_v=\mathfrak m_v$ and $x\in R\setminus R_v$, then
+$x^{-1}\in\mathfrak m_v\subset\mathfrak m_R$, so
+$1=x\cdot x^{-1}\in\mathfrak m_R$, absurd. Hence $\mathcal O\cap F=R_v$
+and $\mathfrak m\cap F=\mathfrak m_v$.
+
+Finally, $F^\times\cap\mathcal O^\times=R_v^\times$, so the natural map
+$\Gamma_v=F^\times/R_v^\times\to L^\times/\mathcal O^\times=\Gamma_w$ is
+an injective homomorphism; it preserves order because nonnegativity means
+membership in the valuation ring on both sides. The residue map
+$R_v\to\kappa(w)$ has kernel $\mathfrak m_w\cap R_v=\mathfrak m_v$,
+embedding $\kappa(v)$ into $\kappa(w)$. This is the existence theorem for
+places of \cite[Chapter~VI, \S4]{ZariskiSamuelII}.
+\end{proof}
+
+\begin{lemma}\label{lem:algebraic-extension-invariants}
+Let $L/F$ be an algebraic extension and let $w$ be a valuation on $L$
+extending $v$ on $F$. Then $\Gamma_w/\Gamma_v$ is a torsion group and
+$\kappa(w)/\kappa(v)$ is an algebraic extension. Moreover intersection
+with $\Gamma_v$ is a bijection between the convex subgroups of $\Gamma_w$
+and those of $\Gamma_v$; in particular $w$ and $v$ have the same rank and
+the same rational rank.
+\end{lemma}
+\begin{proof}
+Let $x\in L^\times$ and let $\sum_{i\in S}c_ix^i=0$ be a polynomial
+relation with all $c_i\in F^\times$ and $S$ a finite set of at least two
+exponents; such a relation exists because $x$ is algebraic and nonzero.
+If the values $v(c_i)+iw(x)$ were pairwise distinct, the term of least
+value would be unique and the sum could not vanish, by the reformulation
+of \cref{lem:strong-triangle-equality}. Hence
+$v(c_i)+iw(x)=v(c_j)+jw(x)$ for some $i\neq j$, so
+$(i-j)w(x)=v(c_j)-v(c_i)\in\Gamma_v$. Thus $\Gamma_w/\Gamma_v$ is
+torsion.
+
+Let $\xi\in R_w$ with residue $\bar\xi$, and let
+$\sum_{i\in S}c_i\xi^i=0$ with $c_i\in F^\times$ as before. Dividing by a
+coefficient of least value we may assume all $c_i\in R_v$ and some
+$c_{i_0}=1$. Reducing modulo $\mathfrak m_w$ gives a nonzero polynomial
+over $\kappa(v)$ vanishing at $\bar\xi$. Hence $\kappa(w)/\kappa(v)$ is
+algebraic, and rational ranks agree because
+$\Gamma_v\otimes\mathbf Q\to\Gamma_w\otimes\mathbf Q$ is an isomorphism
+for a torsion quotient.
+
+For convex subgroups: if $\Delta\subset\Gamma_w$ is convex and
+$\gamma\in\Delta$, choose $n\geq1$ with $n\gamma\in\Gamma_v$; then
+$n\gamma\in\Delta\cap\Gamma_v$, and conversely $0\leq|\gamma|\leq|n\gamma|$
+recovers $\gamma$ from $\Delta\cap\Gamma_v$ by convexity. Thus $\Delta$ is
+determined by its trace, and every convex subgroup of $\Gamma_v$ arises
+from its saturation $\{\gamma\in\Gamma_w\mid n\gamma\in\Delta_0
+\text{ for some }n\geq1\}$, which is convex. Ranks therefore agree.
+\end{proof}
+
+\begin{proposition}
+\label{prop:fundamental-inequality}
+\index{fundamental inequality}
+Let $L/F$ be a finite extension of degree $n$, let $v$ be a valuation on
+$F$, and let $w$ be a valuation on $L$ extending $v$. Set
+\[
+ e=[\Gamma_w:\Gamma_v],
+ \qquad
+ f=[\kappa(w):\kappa(v)].
+\]
+Then $ef\leq n$. More precisely, if $a_1,\ldots,a_r\in L^\times$ have
+values in pairwise distinct cosets of $\Gamma_v$ and
+$b_1,\ldots,b_s\in R_w^\times$ have residues linearly independent over
+$\kappa(v)$, then the products $a_ib_j$ are linearly independent over
+$F$; hence $rs\leq n$.
+\end{proposition}
+\begin{proof}
+Suppose $\sum_{i,j}c_{ij}a_ib_j=0$ with $c_{ij}\in F$ not all zero.
+Fix $i$ with some $c_{ij}\neq0$ and consider
+$u_i:=\sum_jc_{ij}b_j$. Let $j_0$ minimize $v(c_{ij})$ among the nonzero
+coefficients. Then $c_{ij}/c_{ij_0}\in R_v$ for all $j$, and
+\[
+ \frac{u_i}{c_{ij_0}}=\sum_j\frac{c_{ij}}{c_{ij_0}}\,b_j
+\]
+lies in $R_w$ and has residue
+$\sum_j\lambda_j\bar b_j$ with $\lambda_j\in\kappa(v)$ and
+$\lambda_{j_0}=1$. Linear independence of the residues makes this residue
+nonzero, so $w(u_i/c_{ij_0})=0$, that is,
+\[
+ w(u_i)=v(c_{ij_0})\in\Gamma_v .
+\]
+Now consider the outer sum $\sum_iu_ia_i=0$. For those $i$ with
+$u_i\neq0$, the values
+$w(u_ia_i)=w(u_i)+w(a_i)$ lie in the cosets $w(a_i)+\Gamma_v$, which are
+pairwise distinct; so the values are pairwise distinct, the least is
+attained exactly once, and the sum cannot vanish unless every $u_i$
+is zero. But then every row
+$\sum_jc_{ij}b_j=0$ with not all $c_{ij}$ zero contradicts, after the
+same normalization, the nonvanishing of the residue. Hence all $c_{ij}$
+vanish, proving linear independence, and $rs\leq\dim_FL=n$. Taking
+suprema over $r\leq e$ and $s\leq f$ gives $ef\leq n$. The finer
+statement---the sum $\sum_ie_if_i$ over all extensions $w_i$ of $v$ to
+$L$ is at most $n$---is the fundamental inequality of
+\cite[Chapter~VI, \S8]{AC}; we do not use it in this book.
+\end{proof}
+
+For complete rank-one fields the extension is unique. The key is the
+following equivalence of norms, which will also give the completeness of
+finite extensions used tacitly whenever a fibre $\mathcal H(x)$ is
+enlarged.
+
+\begin{lemma}\label{lem:norm-equivalence-complete}
+\index{norm!on a finite-dimensional vector space}
+Let $K$ be a field that is complete with respect to a non-Archimedean
+absolute value $|\cdot|$, possibly trivial, and let $V$ be a
+finite-dimensional $K$-vector space. Then all ultrametric $K$-norms on
+$V$ are equivalent, and $V$ is complete with respect to any of them.
+Here an ultrametric $K$-norm is a function
+$\|\cdot\|:V\to\mathbf R_{\geq0}$ vanishing only at $0$ and satisfying
+$\|\lambda x\|=|\lambda|\,\|x\|$ and
+$\|x+y\|\leq\max\{\|x\|,\|y\|\}$.
+\end{lemma}
+\begin{proof}
+Fix a basis $e_1,\ldots,e_n$ of $V$ and let
+$\|\sum x_ie_i\|_\infty=\max_i|x_i|$ be the associated sup-norm, for
+which $V$ is complete because $K$ is. We show by induction on $n$ that
+every ultrametric norm $\|\cdot\|$ is equivalent to $\|\cdot\|_\infty$.
+
+For $n=1$ the norm is $\|x_1e_1\|=|x_1|\,\|e_1\|$, proportional to the
+sup-norm. Let $n\geq2$ and put $W=\operatorname{span}(e_1,\ldots,e_{n-1})$.
+One inequality is general:
+$\|\sum x_ie_i\|\leq\max_i|x_i|\|e_i\|\leq C_1\|x\|_\infty$ with
+$C_1=\max_i\|e_i\|$.
+
+By induction, $\|\cdot\|$ restricted to $W$ is equivalent to the sup-norm
+of $W$, so $(W,\|\cdot\|)$ is complete. We claim
+$d:=\inf_{w\in W}\|e_n-w\|>0$. If $d=0$, choose $w_m\in W$ with
+$\|e_n-w_m\|\to0$; then
+$\|w_m-w_{m'}\|\leq\max\{\|e_n-w_m\|,\|e_n-w_{m'}\|\}\to0$, so $(w_m)$ is
+Cauchy in $W$, with limit $w\in W$ satisfying $\|e_n-w\|=0$, that is,
+$e_n\in W$, a contradiction.
+
+Now take $x=w+\lambda e_n$ with $w\in W$, $\lambda\in K$. If
+$\lambda\neq0$, then
+$\|x\|=|\lambda|\,\|e_n+\lambda^{-1}w\|\geq|\lambda|d$, so
+$|\lambda|\leq d^{-1}\|x\|$; this holds trivially when $\lambda=0$.
+Consequently
+\[
+ \|w\|\leq\max\{\|x\|,|\lambda|\,\|e_n\|\}
+ \leq\bigl(1+d^{-1}\|e_n\|\bigr)\|x\|,
+\]
+and the induction hypothesis bounds $\|w\|_{\infty}\leq C_2\|w\|$. Hence
+\[
+ \|x\|_\infty=\max\{\|w\|_\infty,|\lambda|\}
+ \leq C_3\|x\|
+\]
+for a constant $C_3$ depending only on the norm and the basis. The two
+displayed inequalities give equivalence, and completeness follows from
+completeness in the sup-norm.
+\end{proof}
+
+\begin{theorem}\label{thm:complete-field-extension}
+\index{valuation!extension to a finite extension}
+Let $K$ be complete with respect to a non-Archimedean absolute value
+$|\cdot|$ and let $L/K$ be a finite extension of degree $n$. Then
+$|\cdot|$ extends to an absolute value on $L$; the extension is unique;
+$L$ is complete; and the extension is given by
+\[
+ |a|_L=\bigl|N_{L/K}(a)\bigr|^{1/n},
+ \qquad a\in L.
+\]
+\end{theorem}
+\begin{proof}
+\emph{Existence.} Let $v=-\log|\cdot|$ be the associated real valuation.
+\Cref{prop:chevalley-extension} provides a valuation $w_0$ on $L$, with
+values in some ordered group, whose ring contracts to $R_v$. By
+\cref{lem:algebraic-extension-invariants}, $\Gamma_{w_0}/\Gamma_v$ is
+torsion, so the assignment
+$\gamma\mapsto\frac1m(m\gamma)$, for any $m\geq1$ with
+$m\gamma\in\Gamma_v\subset\mathbf R$, is a well-defined order-preserving
+embedding $\Gamma_{w_0}\hookrightarrow\mathbf R$ restricting to the
+identity on $\Gamma_v$; well-definedness follows since two choices of
+$m$ agree after multiplication. Composing $w_0$ with this embedding gives
+a real valuation $w$ on $L$ extending $v$, hence an absolute value
+$|\cdot|_1=\rme^{-w}$ extending $|\cdot|$.
+
+\emph{Uniqueness.} Let $|\cdot|_1$ and $|\cdot|_2$ be two extensions.
+Each is an ultrametric $K$-norm on the $n$-dimensional space $L$, so by
+\cref{lem:norm-equivalence-complete} there is $C\geq1$ with
+$C^{-1}|a|_2\leq|a|_1\leq C|a|_2$ for all $a$. Applying this to $a^m$ and
+using multiplicativity,
+\[
+ |a|_1=\bigl(|a^m|_1\bigr)^{1/m}
+ \leq C^{1/m}\bigl(|a^m|_2\bigr)^{1/m}=C^{1/m}|a|_2
+ \xrightarrow[m\to\infty]{}|a|_2,
+\]
+and symmetrically $|a|_2\leq|a|_1$. Hence the extension is unique, and
+$L$ is complete by the same lemma.
+
+\emph{The norm formula.} Let $M$ be a normal closure of $L/K$; it is a
+finite extension of $K$, so it carries a unique extension $|\cdot|_M$,
+and $|\cdot|_M$ restricts on $L$ to the unique extension $|\cdot|_L$.
+For $\sigma\in\operatorname{Aut}(M/K)$, the function
+$|\sigma(\cdot)|_M$ is again an extension of $|\cdot|$ to $M$, so
+$|\sigma a|_M=|a|_M$ for all $a\in M$. Every $K$-embedding
+$\tau:L\to M$ extends to a $K$-automorphism of the normal extension $M$,
+whence $|\tau a|_M=|a|_M$ for $a\in L$. The field norm is
+\[
+ N_{L/K}(a)=\Bigl(\prod_{\tau}\tau(a)\Bigr)^{[L:K]_{\mathrm i}},
+\]
+the product over the distinct $K$-embeddings $\tau:L\to M$, of which
+there are the separable degree $[L:K]_{\mathrm s}$, with
+$[L:K]_{\mathrm s}[L:K]_{\mathrm i}=n$. Taking absolute values,
+\[
+ \bigl|N_{L/K}(a)\bigr|
+ =\prod_\tau|\tau a|_M^{[L:K]_{\mathrm i}}
+ =\bigl(|a|_L\bigr)^{n},
+\]
+which is the displayed formula. For the classical treatment of these
+statements see \cite[Chapter~VI, \S8]{AC}.
+\end{proof}
+
+\begin{remark}
+Two consequences are used constantly. First, the absolute value of a
+complete field $K$ extends uniquely to any algebraic extension, in
+particular to an algebraic closure, by applying the theorem to each
+finite subextension; the completion of the algebraic closure is again a
+complete valued field. Second, for a point $x$ of an analytic space, any
+finite extension of $\mathcal H(x)$ carries a canonical complete absolute
+value; this is what makes fibres of finite morphisms over $x$
+well-defined analytic spaces over $\mathcal H(x)$, as used from
+\cref{chap:berkovich} onwards. When $K$ is trivially valued and $L/K$ is
+algebraic, the theorem also shows that the trivial valuation is the only
+extension: this is the reason closed points of a variety over a trivially
+valued field carry no moduli of semivaluations beyond scaling of their
+supports.
+\end{remark}
+
+\section{Rank and Abhyankar invariants}
+
+\begin{definition}
+The \emph{rank} of $v$ is the Krull dimension of $R_v$, equivalently the
+length of the longest chain of proper convex subgroups of $\Gamma_v$. Its
+\emph{rational rank} is
+\[
+                    \operatorname{rat.rk}(v)
+       =\dim_{\mathbf Q}(\Gamma_v\otimes_{\mathbf Z}\mathbf Q).
+\]
+For an extension $F/k$ on which $v$ is trivial on $k$, its residue
+transcendence degree is
+\[
+                    \operatorname{trdeg}(v)
+       =\operatorname{trdeg}_k\kappa(v).
+\]
+\end{definition}
+
+Every nontrivial real valuation has rank one, but it may have rational rank
+larger than one: a subgroup of $\mathbf R$ can have arbitrarily large
+$\mathbf Q$-dimension. Rank and rational rank must therefore not be
+interchanged.
+
+The two ranks are nevertheless comparable, and the comparison identifies
+rank one with real-valuedness. Recall that a totally ordered abelian group
+$\Gamma$ is \emph{archimedean} if for all $\gamma,\delta>0$ there is
+$n\geq1$ with $\delta\leq n\gamma$.
+
+\begin{lemma}\label{lem:rank-leq-rational-rank}
+For every totally ordered abelian group $\Gamma$,
+\[
+ \operatorname{rank}(\Gamma)\leq
+ \dim_{\mathbf Q}(\Gamma\otimes_{\mathbf Z}\mathbf Q),
+\]
+where the rank is the length of the longest chain of proper convex
+subgroups. In particular
+$\operatorname{rank}(v)\leq\operatorname{rat.rk}(v)$ for every valuation.
+\end{lemma}
+\begin{proof}
+Let $0=\Delta_0\subsetneq\Delta_1\subsetneq\cdots\subsetneq\Delta_r=\Gamma$
+be a chain of convex subgroups and choose
+$\gamma_i\in\Delta_i\setminus\Delta_{i-1}$ for $1\leq i\leq r$. We claim
+the $\gamma_i$ are $\mathbf Q$-linearly independent. A convex subgroup
+$\Delta$ is saturated: if $n\gamma\in\Delta$ with $n\neq0$, then
+$0\leq|\gamma|\leq|n\gamma|$ forces $\gamma\in\Delta$. Suppose
+$\sum_in_i\gamma_i=0$ with integers $n_i$ not all zero, and let $i_\ast$
+be the largest index with $n_{i_\ast}\neq0$. Then
+\[
+ n_{i_\ast}\gamma_{i_\ast}=-\sum_{i<i_\ast}n_i\gamma_i
+ \in\Delta_{i_\ast-1},
+\]
+so saturation gives $\gamma_{i_\ast}\in\Delta_{i_\ast-1}$, a
+contradiction. Hence $r\leq\dim_{\mathbf Q}(\Gamma\otimes\mathbf Q)$.
+\end{proof}
+
+\begin{proposition}\label{prop:rank-one-real-embedding}
+\index{rank!one and real values}\index{Holder theorem@H\"older theorem}
+A nonzero totally ordered abelian group $\Gamma$ has rank one if and only
+if it is archimedean, if and only if it admits an order-preserving
+embedding into $(\mathbf R,+)$. Consequently, a nontrivial valuation
+admits an equivalent real-valued normalization exactly when its rank is
+one.
+\end{proposition}
+\begin{proof}
+\emph{Rank one implies archimedean.} If $\gamma,\delta>0$ and
+$\delta>n\gamma$ for all $n$, then
+$\Delta=\{\beta\mid |\beta|\leq n\gamma\text{ for some }n\}$ is a convex
+subgroup containing $\gamma$ but not $\delta$: it is nonzero and proper,
+so the rank is at least two.
+
+\emph{Archimedean implies embeddable.} Fix $\alpha>0$ and define, for
+$\gamma\in\Gamma$,
+\[
+ \varphi(\gamma)
+ =\sup\Bigl\{\tfrac pq\in\mathbf Q\ \Bigm|\ q\geq1,\ p\alpha\leq q\gamma
+ \Bigr\}.
+\]
+The defining set is nonempty and bounded above: by the archimedean
+property there is $N$ with $|\gamma|\leq N\alpha$, so $-N$ belongs to the
+set and every member is at most $N$. Thus
+$\varphi:\Gamma\to\mathbf R$ is well-defined.
+
+$\varphi$ is superadditive: from $p\alpha\leq q\gamma$ and
+$p'\alpha\leq q\delta$ we get $(p+p')\alpha\leq q(\gamma+\delta)$, and
+rationals with common denominators are cofinal in both defining sets.
+Conversely, suppose
+$\varphi(\gamma+\delta)>\varphi(\gamma)+\varphi(\delta)$. Choose rationals
+$\tfrac pq>\varphi(\gamma)$ and $\tfrac{p'}q>\varphi(\delta)$, with a
+common denominator $q\geq1$, such that
+$\tfrac{p+p'}q<\varphi(\gamma+\delta)$. Since
+$\tfrac pq$ exceeds the supremum, $p\alpha\leq q\gamma$ fails, so
+$p\alpha>q\gamma$ by totality; likewise $p'\alpha>q\delta$. Adding gives
+$(p+p')\alpha>q(\gamma+\delta)$. Now let $\tfrac uw$, with $w\geq1$, be
+any member of the set defining $\varphi(\gamma+\delta)$, so that
+$u\alpha\leq w(\gamma+\delta)$. Multiplying this inequality by $q$ and the
+previous one by $w$ and comparing,
+\[
+ uq\,\alpha\leq wq(\gamma+\delta)<w(p+p')\,\alpha ,
+\]
+whence $(uq-w(p+p'))\alpha<0$ and therefore $uq<w(p+p')$, that is,
+$\tfrac uw<\tfrac{p+p'}q$. Taking the supremum over $\tfrac uw$ yields
+$\varphi(\gamma+\delta)\leq\tfrac{p+p'}q$, contradicting the choice of
+$p,p'$. So $\varphi$ is additive.
+
+$\varphi$ is order-preserving with trivial kernel: if $\gamma>0$, the
+archimedean property yields $n$ with $\alpha\leq n\gamma$, so
+$\varphi(\gamma)\geq\tfrac1n>0$; additivity then gives strict
+monotonicity and injectivity.
+
+\emph{Embeddable implies rank one.} A subgroup of $\mathbf R$ is
+archimedean, and an archimedean group has no nonzero proper convex
+subgroup: if $\Delta\ni\gamma>0$ is convex and $\delta>0$ is arbitrary,
+then $\delta\leq n\gamma$ places $\delta$ in $\Delta$.
+
+The final statement follows by composing a valuation of rank one with the
+embedding $\varphi$; two such normalizations differ by the choice of
+$\alpha$, that is, by a positive scaling. See
+\cite[Chapter~VI, \S10]{ZariskiSamuelII}.
+\end{proof}
+
+The proposition delimits the reach of Berkovich geometry: the points of
+the analytic spaces in this book are real semivaluations, hence valuations
+of rank at most one on their support. Higher-rank valuations are not
+individually visible as points, but they organize limits and boundaries of
+the rank-one locus; \cref{ex:gallery-lex} makes this concrete, and the
+Riemann--Zariski perspective is developed in \cite{Tem11}.
+
+\begin{theorem}\label{thm:abhyankar-inequality}
+Let $F/k$ be a finitely generated field extension of transcendence degree
+$n$, and let $v$ be a valuation of $F$ trivial on $k$. Then
+\[
+       \operatorname{rat.rk}(v)+\operatorname{trdeg}(v)\leq n.
+\]
+\end{theorem}
+\begin{proof}
+Choose elements $f_1,\ldots,f_r\in F^\times$ whose values
+$\gamma_i=v(f_i)$ are linearly independent over $\mathbf Q$ modulo the value
+group of $k$.  Since $v$ is trivial on $k$, the latter group is zero.  Choose
+units $g_1,\ldots,g_s\in R_v^\times$ whose residues
+$\overline g_1,\ldots,\overline g_s$ are algebraically independent over
+$k\subset\kappa(v)$.  We claim that
+\[
+                  f_1,\ldots,f_r,g_1,\ldots,g_s
+\]
+are algebraically independent over $k$.
+
+Indeed, write a purported nonzero polynomial relation as
+\[
+                  \sum_{a\in\mathbf N^r} f^a P_a(g)=0,
+\]
+with only finitely many nonzero polynomials
+$P_a\in k[T_1,\ldots,T_s]$.  Algebraic independence of the residues implies
+$P_a(\overline g)\ne0$ whenever $P_a\ne0$.  Hence
+$v(P_a(g))=0$.  The nonzero summands have values
+$\langle a,\gamma\rangle$, and these values are pairwise distinct because
+the $\gamma_i$ are rationally independent.  The summand of least value is
+therefore unique.  The strong triangle equality
+\Cref{lem:strong-triangle-equality} says that a sum with a unique term of
+least value cannot vanish, a contradiction.
+
+Thus every finite rationally independent family of values, together with
+every finite algebraically independent family of residues, has cardinality
+at most $\operatorname{trdeg}_kF=n$.  Taking families of maximal possible
+sizes gives
+\[
+ \operatorname{rat.rk}(v)+\operatorname{trdeg}(v)\le n.
+\]
+This is the standard independence proof of
+\cite[Chapter~VI, \S10]{ZariskiSamuelII}.
+\end{proof}
+
+The same independence argument proves the version relative to a valued
+ground field, which we need for Gauss points and, later, for skeleta over
+nontrivially valued fields. The equality case carries finiteness
+information that we quote with a precise source.
+
+\begin{theorem}
+\label{thm:abhyankar-relative}
+\index{Abhyankar inequality!relative form}
+Let $L/K$ be a finitely generated field extension of transcendence degree
+$n$, let $w$ be a valuation on $L$, and let $v=w|_K$. Then
+\[
+ \dim_{\mathbf Q}\bigl((\Gamma_w/\Gamma_v)\otimes_{\mathbf Z}\mathbf Q\bigr)
+ +\operatorname{trdeg}_{\kappa(v)}\kappa(w)\leq n .
+\]
+If equality holds, then $\Gamma_w/\Gamma_v$ is a finitely generated
+abelian group and $\kappa(w)$ is a finitely generated field extension of
+$\kappa(v)$.
+\end{theorem}
+\begin{proof}
+Choose $f_1,\ldots,f_r\in L^\times$ whose values are
+$\mathbf Q$-linearly independent modulo $\Gamma_v$, and units
+$g_1,\ldots,g_s\in R_w^\times$ whose residues are algebraically
+independent over $\kappa(v)$. We claim that
+$f_1,\ldots,f_r,g_1,\ldots,g_s$ are algebraically independent over $K$;
+this gives $r+s\leq n$ and hence the inequality.
+
+Suppose there is a nontrivial polynomial relation. Grouping monomials by
+their exponents in the $f_i$, write it as
+\[
+ \sum_{a\in\mathbf N^r}f^aP_a(g)=0,
+ \qquad
+ P_a(g)=\sum_{m\in\mathbf N^s}c_{a,m}\,g^m,
+\]
+with finitely many nonzero coefficients $c_{a,m}\in K$, not all zero.
+Fix $a$ with $P_a$ not identically zero, and let $m_0$ minimize
+$v(c_{a,m})$ over the nonzero coefficients. Then all
+$c_{a,m}/c_{a,m_0}$ lie in $R_v$, and the residue of
+$P_a(g)/c_{a,m_0}$ is a nontrivial polynomial in the residues
+$\bar g_j$ with coefficients in $\kappa(v)$ and one coefficient equal to
+$1$. Algebraic independence of the $\bar g_j$ over $\kappa(v)$ makes this
+residue nonzero, so
+\[
+ w\bigl(P_a(g)\bigr)=v(c_{a,m_0})\in\Gamma_v .
+\]
+Consequently the nonzero summands $f^aP_a(g)$ have values in the cosets
+$\langle a,\gamma\rangle+\Gamma_v$, where $\gamma_i=w(f_i)$; rational
+independence of the $\gamma_i$ modulo $\Gamma_v$ makes these cosets, hence
+the values, pairwise distinct. A sum with a unique term of least value is
+nonzero by \cref{lem:strong-triangle-equality}, a contradiction.
+
+The finite generation of $\Gamma_w/\Gamma_v$ and of
+$\kappa(w)/\kappa(v)$ in the equality case is proved in
+\cite[Chapter~VI, \S10, no.~3]{AC}; we use it as stated and do not
+reproduce the proof.
+\end{proof}
+
+\begin{corollary}\label{cor:rank-plus-trdeg}
+In the setting of \cref{thm:abhyankar-inequality}, one also has
+\[
+ \operatorname{rank}(v)+\operatorname{trdeg}(v)\leq n .
+\]
+\end{corollary}
+\begin{proof}
+Combine \cref{thm:abhyankar-inequality} with
+$\operatorname{rank}(v)\leq\operatorname{rat.rk}(v)$ from
+\cref{lem:rank-leq-rational-rank}.
+\end{proof}
+
+Equality defines an \emph{Abhyankar valuation}.
+
+The refinement in \cref{thm:abhyankar-relative} is not decorative. It
+says that an Abhyankar valuation has value group $\mathbf Z^{\,r}$ for
+some $r$ and a residue field which is again a function field; both facts
+propagate through the gallery of the next section, where the refinement
+is used to compute a residue field that resists direct attack. Every
+quasimonomial valuation is Abhyankar: by
+\cref{lem:monomial-invariants} below, a monomial valuation on an
+$n$-dimensional regular model satisfies
+$\operatorname{rat.rk}+\operatorname{trdeg}=n$, and all four invariants
+depend only on the valuation, not on the model. Over ground fields of
+characteristic zero the converse also holds---Abhyankar valuations of a
+function field are quasimonomial on suitable log smooth models, by
+resolution arguments; see \cite{JM12}---but we never use the converse,
+and no monomialization is asserted in positive characteristic.
+
+\begin{example}[Divisorial valuations]
+Let $X$ be an $n$-dimensional integral variety and let $E$ be a prime divisor
+on a normal birational model $Y\to X$. Then
+$\operatorname{ord}_E$ has rational rank $1$ and residue transcendence degree
+$n-1$. It is therefore Abhyankar. A positive multiple
+$c\operatorname{ord}_E$, $c>0$, is called a divisorial valuation as well.
+\end{example}
+
+This is the classical valuation-theoretic convention, which permits an
+arbitrary positive real rescaling.  In the trivially valued analytic cone
+we use the more restrictive phrase \emph{divisorial point} for a positive
+rational multiple of \(\operatorname{ord}_E\); the scale is then part of
+the analytic point.  The two conventions will always be distinguished.
+
+The assertions in the example are immediate from what we have proved:
+since $Y$ is normal, the local ring $\mathcal O_{Y,\eta_E}$ at the generic
+point of $E$ is a one-dimensional normal noetherian local domain, hence a
+discrete valuation ring, so $\Gamma_{\operatorname{ord}_E}=\mathbf Z$ and
+the rational rank is $1$; the residue field is the function field
+$k(E)$ of the $(n-1)$-dimensional variety $E$, of transcendence degree
+$n-1$ over $k$. Thus divisorial valuations saturate
+\cref{thm:abhyankar-inequality} with the maximal possible residue
+transcendence degree.  The converse characterization of this extreme case
+is a separate theorem of valuation theory and is not needed here.
+Divisorial valuations reappear as the
+component valuations $b_E^{-1}\operatorname{ord}_E$ of models in
+\cref{chap:models}, and, over a trivially valued field, as the divisorial
+points whose density and finite-energy properties drive
+\cref{part:bj}; see \cref{chap:trivial-analytification} and
+\cref{chap:bj-linear-growth}.
+
+\section{A gallery of valuations on
+\texorpdfstring{$k(x,y)$}{k(x,y)}}
+\label{sec:valuation-gallery}
+\index{valuation!gallery of examples}
+
+This section computes every invariant introduced above for four
+valuations of the rational function field $F=k(x,y)$, trivial on an
+algebraically closed ground field $k$. Here $n=2$, so Abhyankar's
+inequality reads
+$\operatorname{rat.rk}(v)+\operatorname{trdeg}(v)\leq2$. The specimens
+realize the possibilities
+\[
+ 1+1,\qquad 2+0,\qquad 2+0\ \text{(rank two)},\qquad 1+0,
+\]
+the last one being the strict inequality. We first compute all monomial
+valuations at once, by graded reduction.
+
+\begin{lemma}
+\label{lem:monomial-invariants}
+\index{monomial valuation!invariants}
+Let $k$ be a field, $A=k[x_1,\ldots,x_n]$, and
+$\alpha\in\mathbf R_{\geq0}^n$. Define
+\[
+ v_\alpha\Bigl(\sum_\beta c_\beta x^\beta\Bigr)
+ =\min_{c_\beta\neq0}\langle\alpha,\beta\rangle ,
+\]
+and let $L_\alpha=\{\beta\in\mathbf Z^n\mid\langle\alpha,\beta\rangle=0\}$
+and $d=\dim_{\mathbf Q}\sum_i\mathbf Q\alpha_i$. Then:
+\begin{enumerate}
+\item $v_\alpha$ extends to a valuation on $k(x_1,\ldots,x_n)$, trivial
+      on $k$, with value group
+      $\Gamma_{v_\alpha}=\sum_i\mathbf Z\alpha_i$ and rational rank $d$;
+\item the graded reduction $\operatorname{gr}_{v_\alpha}A$ is the
+      polynomial ring $k[\bar x_1,\ldots,\bar x_n]$ on the initial forms,
+      graded by $\deg\bar x_i=\alpha_i$;
+\item the residue field is the fraction field of the group algebra
+      $k[L_\alpha]$; it is purely transcendental over $k$, of
+      transcendence degree
+      \[
+       \operatorname{trdeg}(v_\alpha)
+       =\operatorname{rank}_{\mathbf Z}L_\alpha=n-d ;
+      \]
+\item consequently
+      $\operatorname{rat.rk}(v_\alpha)+\operatorname{trdeg}(v_\alpha)=n$:
+      every monomial valuation, and hence every quasimonomial valuation,
+      is Abhyankar.
+\end{enumerate}
+Moreover the center of $v_\alpha$ on $\mathbf A^n$ is the generic point
+of the coordinate subspace $\{x_i=0\mid\alpha_i>0\}$.
+\end{lemma}
+\begin{proof}
+(2) For $\gamma\geq0$, the group
+$F^{\geq\gamma}A/F^{>\gamma}A$ has as a $k$-basis the classes of the
+monomials $x^\beta$ with $\langle\alpha,\beta\rangle=\gamma$, because the
+value of a polynomial is computed monomialwise and distinct monomials are
+linearly independent. Multiplication of classes is induced by
+multiplication of monomials, which adds weights. Hence
+$\operatorname{gr}_{v_\alpha}A$ is the free commutative $k$-algebra on
+$\bar x_i=\operatorname{in}(x_i)$ with the stated grading. In particular
+it is a domain, so initial forms are multiplicative,
+$v_\alpha(fg)=v_\alpha(f)+v_\alpha(g)$, and $v_\alpha$ is a valuation on
+$A$ with zero support, extending to $F$ by differences.
+
+(1) The values on $A\setminus\{0\}$ are the weights
+$\langle\alpha,\mathbf N^n\rangle$, which generate
+$\sum_i\mathbf Z\alpha_i$ as a group; by
+\cref{lem:graded-residue-field}(3) this group is $\Gamma_{v_\alpha}$. Its
+rational rank is $\dim_{\mathbf Q}\sum_i\mathbf Q\alpha_i=d$ by
+definition. Triviality on $k$ is clear.
+
+(3) By \cref{lem:graded-residue-field}(2), $\kappa(v_\alpha)$ is the
+degree-zero part of the homogeneous fraction field of
+$k[\bar x_1,\ldots,\bar x_n]$. A degree-zero homogeneous fraction is a
+quotient $h/g$ of homogeneous elements of equal weight $\gamma$. Fix a
+monomial $x^{\beta_0}$ of weight $\gamma$ occurring in $g$; dividing
+numerator and denominator by $\bar x^{\beta_0}$ writes $h/g$ as a
+quotient of two elements of the group algebra
+$k[L_\alpha]
+=\bigoplus_{\beta\in L_\alpha}k\,\bar x^{\beta}$, embedded in the
+homogeneous fraction field. Conversely every element of
+$k[L_\alpha]$ is a degree-zero fraction. Distinct lattice points give
+linearly independent monomials, so
+$k[L_\alpha]$ is the group algebra of the free abelian group
+$L_\alpha\simeq\mathbf Z^{\,n-d}$: choosing a lattice basis identifies it
+with a Laurent polynomial ring in $n-d$ variables, whose fraction field
+is purely transcendental of degree $n-d$. The rank computation
+$\operatorname{rank}L_\alpha=n-d$ holds because
+$L_\alpha\otimes\mathbf Q$ is the kernel of the linear map
+$\mathbf Q^n\to\mathbf R$, $\beta\mapsto\langle\alpha,\beta\rangle$,
+whose image $\sum_i\mathbf Q\alpha_i$ has dimension $d$.
+
+(4) Add the numbers from (1) and (3). For the quasimonomial case, let
+$v$ be monomial with weights $\alpha_1,\ldots,\alpha_r>0$ in a regular
+system of parameters $z_1,\ldots,z_r$ at a codimension-$r$ point $\xi$ of an
+$n$-dimensional regular model $Y$ with function field $F$, and let
+$d=\dim_{\mathbf Q}\sum_i\mathbf Q\alpha_i$. The graded computation in
+(2) applies verbatim to the monomial expansion from the definition: the
+associated graded is a weighted polynomial ring over
+$\kappa(\xi)$, a domain, so $v$ is a valuation. We now bound its
+invariants on $F$ from below. The values $v(z_i)=\alpha_i$ are realized
+in $F$, so $\operatorname{rat.rk}(v|_F)\geq d$. For residues: units of
+$\mathcal O_{Y,\xi}$ surject onto $\kappa(\xi)$, whose transcendence
+degree over $k$ is $n-r$ because $\xi$ is the generic point of an
+$(n-r)$-dimensional subvariety; and for a basis
+$\beta^{(1)},\ldots,\beta^{(r-d)}$ of the lattice
+$L_\alpha\subset\mathbf Z^r$, the monomial ratios
+$z^{\beta^{(j)}}\in F$ are units of $R_v$ whose residues are
+algebraically independent over $\kappa(\xi)$, by the graded reduction
+argument of (3). Transcendence degrees add in towers, so
+$\operatorname{trdeg}(v|_F)\geq(n-r)+(r-d)$. Hence
+\[
+ \operatorname{rat.rk}(v|_F)+\operatorname{trdeg}(v|_F)
+ \geq d+(n-r)+(r-d)=n ,
+\]
+and \cref{thm:abhyankar-inequality} forces equality. The invariants are
+intrinsic to the valuation on the function field, so the conclusion is
+independent of the chosen model.
+
+For the center: the prime ideal
+$\{f\in A\mid v_\alpha(f)>0\}$ is spanned by the monomials of positive
+weight, and a monomial has positive weight exactly when it is divisible
+by some $x_i$ with $\alpha_i>0$; so this ideal is
+$(x_i\mid\alpha_i>0)$, the generic point of the stated subspace.
+\end{proof}
+
+\begin{example}[A divisorial valuation: $\alpha=(1,1)$]
+\label{ex:gallery-divisorial}
+\index{divisorial valuation!on the plane}
+Let $v=v_{(1,1)}$ on $k(x,y)$, so that $v(f)$ is the order of vanishing
+of $f$ at the origin: the least total degree in $f$. By
+\cref{lem:monomial-invariants}, $\Gamma_v=\mathbf Z$, the graded
+reduction is $k[\bar x,\bar y]$ with the total-degree grading,
+$L_{(1,1)}=\mathbf Z(1,-1)$, and
+\[
+ \kappa(v)=k(\bar x/\bar y),
+ \qquad
+ \operatorname{rat.rk}(v)=1,\quad
+ \operatorname{trdeg}(v)=1,\quad
+ \operatorname{rank}(v)=1 .
+\]
+Abhyankar's inequality is an equality, $1+1=2$.
+
+The valuation is divisorial: let $\rho:Y\to\mathbf A^2$ be the blowup of
+the origin with exceptional divisor $E$. On the chart with coordinates
+$(u,t)$, $\rho(u,t)=(u,ut)$, the divisor $E$ is $\{u=0\}$ and
+\[
+ \operatorname{ord}_E\bigl(f(u,ut)\bigr)
+ =\min_{c_\beta\neq0}\operatorname{ord}_u
+ \bigl(u^{\beta_1}(ut)^{\beta_2}\bigr)
+ =\min_{c_\beta\neq0}(\beta_1+\beta_2)=v(f),
+\]
+where the middle minimum is exact because the terms
+$c_\beta u^{\beta_1+\beta_2}t^{\beta_2}$ of least $u$-order do not cancel:
+their $t$-exponents reproduce the initial form. The residue field
+$k(\bar x/\bar y)$ is the function field of
+$E\simeq\mathbf P^1$, with $\bar x/\bar y$ the standard coordinate, as
+predicted by the divisorial example above. Over a discretely valued
+field the analogous computations produce the component valuations of
+models in \cref{chap:models}; over the trivially valued $k$, the ray
+$c\,v$, $c>0$, is one of the divisorial rays whose density in the
+analytification is proved in \cref{chap:trivial-analytification}.
+\end{example}
+
+\begin{example}[A quasimonomial valuation with irrational weights:
+$\alpha=(1,\sqrt2)$]
+\label{ex:gallery-irrational}
+\index{quasimonomial valuation!irrational weights}
+Let $w=v_{(1,\sqrt2)}$. Since $1$ and $\sqrt2$ are linearly independent
+over $\mathbf Q$, every polynomial has a single monomial as initial
+form, and \cref{lem:monomial-invariants} gives
+\[
+ \Gamma_w=\mathbf Z+\sqrt2\,\mathbf Z\simeq\mathbf Z^2,
+ \qquad
+ L_{(1,\sqrt2)}=0,
+ \qquad
+ \kappa(w)=k,
+\]
+so
+\[
+ \operatorname{rat.rk}(w)=2,\quad
+ \operatorname{trdeg}(w)=0,\quad
+ \operatorname{rank}(w)=1 ,
+\]
+the rank being one because $\Gamma_w\subset\mathbf R$ is archimedean
+(\cref{prop:rank-one-real-embedding}). Abhyankar's inequality is again an
+equality, $2+0=2$, now with the value group carrying all the information.
+
+This valuation is not divisorial, for the intrinsic reason that its
+rational rank is $2$: no blowup can convert it into an
+$\operatorname{ord}_E$. Geometrically, $w$ lies in the one-dimensional
+normalized slice $v(x)=1$ of the two-dimensional monomial cone attached to
+the SNC pair $(\mathbf A^2,\{xy=0\})$: the monomial valuations
+$v_{(1,s)}$, $s>0$, trace that slice between the two divisorial rays of the coordinate
+axes, rational $s$ giving points that become divisorial after rescaling
+and toroidal blowup, irrational $s$ giving points that never do. This is
+the local picture of the skeleta of \cref{chap:skeleta} and of the
+quasimonomial simplices of \cref{chap:trivial-analytification}, and it is
+the two-dimensional analogue of the type II/type III dichotomy of
+\cref{ex:graded-gauss}.
+\end{example}
+
+\begin{example}[A rank-two lexicographic valuation]
+\label{ex:gallery-lex}
+\index{valuation!lexicographic}\index{rank!two example}
+Order $\mathbf Z^2$ lexicographically:
+$(i,j)<(i',j')$ if $i<i'$, or $i=i'$ and $j<j'$. Define
+\[
+ v_{\mathrm{lex}}\Bigl(\sum c_{ij}x^iy^j\Bigr)
+ =\min_{c_{ij}\neq0}{}^{\mathrm{lex}}\ (i,j)\in\mathbf Z^2_{\mathrm{lex}} .
+\]
+Each pair $(i,j)$ is the weight of exactly one monomial, so the graded
+reduction is again $k[\bar x,\bar y]$, now with the
+$\mathbf Z^2$-grading; it is a domain, so $v_{\mathrm{lex}}$ is a
+valuation on $k(x,y)$, trivial on $k$, with value group
+$\mathbf Z^2_{\mathrm{lex}}$.
+
+\emph{Invariants.} The rational rank is $2$. The subgroup
+$\Delta=0\oplus\mathbf Z$ is convex: if
+$|(i,j)|\leq|(0,m)|$ lexicographically, then $i=0$. The chain
+$0\subsetneq\Delta\subsetneq\mathbf Z^2$ shows the rank is $2$; by
+\cref{prop:rank-one-real-embedding} the group
+$\mathbf Z^2_{\mathrm{lex}}$ is not archimedean---indeed
+$n(0,1)<(1,0)$ for every $n$---so $v_{\mathrm{lex}}$ admits no
+real-valued normalization. The degree-zero component of the graded
+reduction is $k$, so $\kappa(v_{\mathrm{lex}})=k$ and the residue
+transcendence degree is $0$. Both inequalities are saturated:
+\[
+ \operatorname{rat.rk}+\operatorname{trdeg}=2+0=2,
+ \qquad
+ \operatorname{rank}+\operatorname{trdeg}=2+0=2 ,
+\]
+the latter being the extreme case of \cref{cor:rank-plus-trdeg}.
+
+\emph{Composite structure.} The valuation factors through the divisor
+$\{x=0\}$: for $f\neq0$, write $f=x^af_1$ with $x\nmid f_1$. Then the
+first component of $v_{\mathrm{lex}}(f)$ is
+$a=\operatorname{ord}_{x=0}(f)$, and the second is the order of vanishing
+at $y=0$ of the restriction
+$f_1|_{x=0}\in k(y)^\times$. Thus $v_{\mathrm{lex}}$ is the composition
+of the divisorial valuation $\operatorname{ord}_{x=0}$ of $k(x,y)$ with
+the valuation $\operatorname{ord}_0$ of its residue field $k(y)$. This is
+an instance of composite valuations, whose ranks add; see
+\cite[Chapter~VI, \S10]{ZariskiSamuelII}.
+
+\emph{Relation to the rank-one world.} The points of our analytic spaces
+are real semivaluations, so $v_{\mathrm{lex}}$ is not a point of
+$(\mathbf A^2)^{\mathrm{an}}$. It is, however, a limit of monomial
+points: for $f=\sum c_{ij}x^iy^j$ and all sufficiently small
+$\varepsilon>0$,
+\[
+ v_{(1,\varepsilon)}(f)=\min_{c_{ij}\neq0}(i+\varepsilon j)
+\]
+is attained at the lexicographic minimum, so
+$v_{(1,\varepsilon)}(f)\to a$, the first component of
+$v_{\mathrm{lex}}(f)$, as $\varepsilon\to0^+$, and the rescaled second
+coordinate $\varepsilon^{-1}(v_{(1,\varepsilon)}(f)-a)$ stabilizes to the
+second component. Higher-rank valuations thus record iterated rates of
+degeneration of rank-one families; the systematic home for them is the
+Riemann--Zariski space \cite{Tem11}, which we use only as a guiding
+picture.
+\end{example}
+
+\begin{example}[An infinitely singular valuation]
+\label{ex:gallery-infsingular}
+\index{valuation!infinitely singular}
+Assume $\operatorname{char}k=0$. We construct a rank-one valuation of
+$k(x,y)$, trivial on $k$, with
+\[
+ \operatorname{rat.rk}(v)=1,
+ \qquad
+ \operatorname{trdeg}(v)=0,
+\]
+so that Abhyankar's inequality is strict, $1+0<2$; its value group is a
+non-finitely-generated subgroup of $\mathbf Q$. In the terminology of the
+two-dimensional valuative classification such valuations are called
+infinitely singular: they are the valuations of transcendental
+``Puiseux series with unbounded denominators.''
+
+\emph{Step 1: a ring of generalized power series.} Let $R$ be the set of
+formal sums $a=\sum_{\gamma\in S_a}c_\gamma t^\gamma$ with coefficients
+in $k$, exponents in $\mathbf Q_{\geq0}$, and \emph{locally finite}
+support: $S_a\cap[0,B]$ is finite for every $B\geq0$. Sums and products are defined by the usual formulae; in a
+product, the coefficient of $t^\gamma$ is a finite sum because each
+factor has only finitely many exponents below $\gamma$. Define
+$\operatorname{ord}_t(a)=\min S_a$ for $a\neq0$. If $a,b\neq0$, the
+exponent $\min S_a+\min S_b$ has exactly one representation as a sum of
+exponents from $S_a$ and $S_b$, so its coefficient in $ab$ is the product
+of the two leading coefficients: thus $R$ is a domain and
+$\operatorname{ord}_t$ is a valuation on it, extending to
+$\operatorname{Frac}(R)$. Compare the examples of generalized power
+series valuations in \cite[Chapter~VI]{ZariskiSamuelII}.
+
+\emph{Step 2: the series and the embedding.} Put
+\[
+ b_j=j+1-2^{1-j}\qquad(j\geq1),
+\]
+so $b_1=1$, the sequence is strictly increasing and unbounded, and $b_j$
+has exact denominator $2^{j-1}$: indeed
+$b_j=\bigl((j+1)2^{j-1}-1\bigr)/2^{j-1}$ with odd numerator for
+$j\geq2$. Let
+\[
+ \hat y=\sum_{j\geq1}t^{b_j}\in R,
+ \qquad
+ s_\ell=\sum_{j\leq\ell}t^{b_j},
+ \qquad
+ r_\ell=\hat y-s_\ell ,
+\]
+so $s_\ell\in k[t^{1/m_\ell}]$ with $m_\ell=2^{\ell-1}$, and
+$\operatorname{ord}_t r_\ell=b_{\ell+1}$.
+
+We claim $\hat y$ is transcendental over $k(t)$. Suppose
+$P(t,Y)\in k[t][Y]$ is nonzero of minimal $Y$-degree $D$ with
+$P(t,\hat y)=0$; then $D\geq1$ and, by minimality and
+$\operatorname{char}k=0$, the polynomial
+$\partial_YP$ does not vanish at $(t,\hat y)$. Set
+$c_i=\operatorname{ord}_t\bigl(\partial_Y^iP(t,\hat y)\bigr)$ for
+$0\leq i\leq D$, so $c_0=+\infty$,
+$\mu:=c_1<+\infty$, and let $C=\min_ic_i$ over the finite values. All
+supports involved lie in the group $\mathbf Z[1/2]$, so
+$\mu$ has some exact denominator $2^{a}$. Taylor expansion in $R$ gives
+the two exact identities
+\[
+ \begin{aligned}
+  0=P(t,\hat y)
+   &=P(t,s_\ell)
+     +\sum_{i\geq1}\tfrac1{i!}\,\partial_Y^iP(t,s_\ell)\,r_\ell^i,\\
+  \partial_Y^iP(t,s_\ell)
+   &=\sum_{l\geq0}\tfrac1{l!}\,
+     \partial_Y^{i+l}P(t,\hat y)(-r_\ell)^l .
+ \end{aligned}
+\]
+From the second identity,
+$\operatorname{ord}_t\partial_Y^iP(t,s_\ell)\geq C$ for all $i,\ell$,
+and for $i=1$ the terms with $l\geq1$ have order at least
+$C+b_{\ell+1}$; since $b_\ell\to\infty$, for all large $\ell$ we get
+$C+b_{\ell+1}>\mu$ and hence
+$\operatorname{ord}_t\partial_YP(t,s_\ell)=\mu$ exactly. In the first
+identity, the term $i=1$ then has order exactly $\mu+b_{\ell+1}$, while
+each term with $i\geq2$ has order at least $C+2b_{\ell+1}>\mu+b_{\ell+1}$
+for large $\ell$. By the strong triangle equality,
+\[
+ \operatorname{ord}_tP(t,s_\ell)=\mu+b_{\ell+1}
+ \qquad\text{for all large }\ell .
+\]
+But $P(t,s_\ell)$ lies in $k[t^{1/m_\ell}]$, so its order lies in
+$2^{-(\ell-1)}\mathbf Z$, whereas $\mu+b_{\ell+1}$ has exact denominator
+$2^{\ell}$ once $2^\ell$ exceeds $2^{a}$: a contradiction. Hence no such
+$P$ exists, and
+\[
+ x\mapsto t,\qquad y\mapsto\hat y
+\]
+embeds $k[x,y]$ into $R$. Let $v$ be the restriction of
+$\operatorname{ord}_t$ along this embedding: a valuation on $k(x,y)$,
+trivial on $k$, with $v(x)=1$ and $v(y)=b_1=1$.
+
+\emph{Step 3: the value group is not finitely generated.} Fix
+$\ell\geq1$, write $q(u)=\sum_{j\leq\ell}u^{e_j}\in k[u]$ with
+$e_j=b_jm_\ell=(j+1)2^{\ell-1}-2^{\ell-j}\in\mathbf N$, so that
+$s_\ell=q(t^{1/m_\ell})$, and set
+\[
+ M_\ell(x,Y)
+ :=\prod_{\zeta^{m_\ell}=1}\bigl(Y-q(\zeta u)\bigr)\Big|_{u^{m_\ell}=x} .
+\]
+The coefficients of the product are polynomials in $u$ invariant under
+$u\mapsto\zeta'u$ for every $m_\ell$-th root of unity $\zeta'$, hence
+polynomials in $u^{m_\ell}$; so $M_\ell\in k[x,Y]$, and
+$M_\ell(x,y)\in k[x,y]$. Evaluating in $R$,
+\[
+ v\bigl(M_\ell(x,y)\bigr)
+ =\sum_{\zeta^{m_\ell}=1}
+ \operatorname{ord}_t\bigl(\hat y-q(\zeta t^{1/m_\ell})\bigr).
+\]
+For $\zeta=1$ the order is $\operatorname{ord}_tr_\ell=b_{\ell+1}$. For
+$\zeta$ a primitive $2^i$-th root of unity, $1\leq i\leq\ell-1$, note
+$e_j\equiv-2^{\ell-j}\pmod{2^i}$, which is nonzero modulo $2^i$ exactly
+when $j>\ell-i$; hence
+\[
+ \hat y-q(\zeta t^{1/m_\ell})
+ =\sum_{j\leq\ell}(1-\zeta^{e_j})t^{b_j}+r_\ell
+\]
+has order $b_{\ell-i+1}$, the smallest $b_j$ whose coefficient survives.
+There are $2^{i-1}$ such roots, so
+\[
+ v\bigl(M_\ell(x,y)\bigr)
+ =b_{\ell+1}+\sum_{i=1}^{\ell-1}2^{i-1}b_{\ell+1-i}.
+\]
+The term $b_{\ell+1}$ has exact denominator $2^{\ell}$, while each
+summand $2^{i-1}b_{\ell+1-i}$ lies in $2^{-(\ell-1)}\mathbf Z$; hence
+$v(M_\ell(x,y))$ has exact denominator $2^{\ell}$. As $\ell$ grows, the
+value group $\Gamma_v\subset\mathbf Z[1/2]$ therefore contains elements
+of unbounded denominator and is not finitely generated. For instance
+$M_1=y-x$ with $v(y-x)=b_2=\tfrac52$, and
+$M_2=(y-x)^2-x^5$ with value $b_3+b_2=\tfrac{15}4+\tfrac52=\tfrac{25}4$.
+
+\emph{Step 4: invariants.} Since
+$\Gamma_v\subset\mathbf Q$, the group is archimedean, so
+$\operatorname{rank}(v)=1$ and $\operatorname{rat.rk}(v)=1$. If the
+residue transcendence degree were $1$, Abhyankar's inequality would be an
+equality and \cref{thm:abhyankar-relative} would force $\Gamma_v$ to be
+finitely generated, contradicting Step 3. Hence
+$\operatorname{trdeg}(v)=0$ and
+\[
+ \operatorname{rat.rk}(v)+\operatorname{trdeg}(v)=1<2 :
+\]
+the valuation is not Abhyankar, hence not quasimonomial on any model, by
+\cref{lem:monomial-invariants}. It is nevertheless a perfectly good
+rank-one point of the analytification. One can show that it is an
+increasing limit of quasimonomial valuations attached to the truncations
+$s_\ell$; we shall not use this. Points of this kind are unavoidable in
+the valuative spaces of this book, and the global theory of
+\cref{part:bj} is designed to handle them through limits along nets
+rather than through models.
+\end{example}
+
+The following table summarizes the gallery; $\Gamma$ denotes the value
+group and the last column records
+$\operatorname{rat.rk}+\operatorname{trdeg}$ against $n=2$.
+\[
+\begin{array}{l|c|c|c|c|c}
+ &\Gamma&\operatorname{rank}&\operatorname{rat.rk}
+ &\operatorname{trdeg}&\text{Abhyankar}\\
+\hline
+ v_{(1,1)}=\operatorname{ord}_E
+ &\mathbf Z&1&1&1&1+1=2\\
+ v_{(1,\sqrt2)}
+ &\mathbf Z+\sqrt2\mathbf Z&1&2&0&2+0=2\\
+ v_{\mathrm{lex}}
+ &\mathbf Z^2_{\mathrm{lex}}&2&2&0&2+0=2\\
+ v_{\text{inf.\ sing.}}
+ &\subset\mathbf Q,\ \text{not f.g.}&1&1&0&1+0<2
+\end{array}
+\]
+The first, second, and fourth rows are rank-one real-valued valuations and
+hence points of the Berkovich analytification with the displayed
+normalizations; only the first is divisorial.  The lexicographic valuation
+is not a Berkovich point because it is not real-valued.  The fourth row is
+not Abhyankar and can be approximated by quasimonomial Berkovich points.
+The third row is only encoded by an iterated asymptotic and is not a limit
+inside the Berkovich space.
+
+\section{Linear growth}
+
+We record a notion needed in the trivially valued theory. Let $X$ be a
+projective integral variety, $L$ an ample line bundle, and $v$ a valuation of
+$K(X)$ trivial on the ground field. Fix a nonzero rational section $\tau$ of
+$L$. For $s\in H^0(X,mL)\setminus\{0\}$ set
+\[
+                            v_\tau(s)=v(s/\tau^m).
+\]
+
+\begin{definition}
+The valuation $v$ has \emph{linear growth with respect to $L$} if
+\[
+  \sup_{m\geq1}\frac{1}{m}
+  \sup_{0\ne s\in H^0(X,mL)}v_\tau(s)<+\infty.
+\]
+\end{definition}
+
+This property is independent of $\tau$: replacing $\tau$ by $g\tau$ subtracts
+$m v(g)$ from every $v_\tau(s)$, changing the displayed normalized quantities
+by the fixed constant $-v(g)$. It is also independent of replacing $L$ by a
+positive tensor power. Divisorial valuations have linear growth; the general
+criterion in terms of finite energy is developed in \cref{part:bj}.
+
+We prove the divisorial case, since it anchors the finite-energy theory of
+\cref{chap:bj-linear-growth} and the proof displays the mechanism: an
+ample class bounds the multiplicity of any effective divisor along a fixed
+prime divisor, linearly in the degree.
+
+\begin{lemma}\label{lem:divisorial-linear-growth}
+\index{linear growth!of divisorial valuations}
+Let $X$ be a projective integral variety of dimension $n$ over a field
+$k$, let $L$ be ample, and let $v=c\operatorname{ord}_E$ be a divisorial
+valuation, where $E$ is a prime divisor on a normal projective birational
+model $\rho:Y\to X$ and $c>0$. Then $v$ has linear growth with respect to
+$L$.
+\end{lemma}
+\begin{proof}
+Fix a nonzero rational section $\tau$ of $L$ and an ample line bundle $A$
+on $Y$. For $0\neq s\in H^0(X,mL)$, the divisor
+$D_s:=\operatorname{div}(s)\in|mL|$ is effective and
+\[
+ v_\tau(s)=v(s/\tau^m)
+ =c\operatorname{ord}_E\bigl(\rho^*D_s\bigr)
+ -mc\operatorname{ord}_E\bigl(\rho^*\operatorname{div}(\tau)\bigr).
+\]
+The second term is $m$ times a constant independent of $s$. For the
+first, write $b=\operatorname{ord}_E(\rho^*D_s)\geq0$. The cycle
+$\rho^*D_s-bE$ is effective, and intersecting with $A^{n-1}$ gives
+\[
+ b\,(A^{n-1}\cdot E)\leq(A^{n-1}\cdot\rho^*D_s)
+ =m\,(A^{n-1}\cdot\rho^*L),
+\]
+where the equality uses that intersection numbers against line bundles
+depend only on the linear equivalence class of $D_s$. The degree
+$(A^{n-1}\cdot E)$ is strictly positive because $E$ is an integral
+$(n-1)$-dimensional projective scheme and $A$ is ample. Hence
+\[
+ b\leq m\,\frac{(A^{n-1}\cdot\rho^*L)}{(A^{n-1}\cdot E)},
+\]
+and $\sup_{s}v_\tau(s)\leq Cm$ for a constant $C$ independent of $m$.
+The intersection theory used is that of proper schemes over a field
+\cite[Chapter~2]{Ful}.
+\end{proof}
+
+\begin{example}[Monomial valuations have linear growth]
+\label{ex:monomial-linear-growth}
+Let $X=\mathbf P^n_k$ with homogeneous coordinates $X_0,\ldots,X_n$, let
+$L=\mathcal O(1)$, and let $v_\alpha$ be the monomial valuation of
+\cref{lem:monomial-invariants} in the affine coordinates $x_i=X_i/X_0$,
+with weights $\alpha\in\mathbf R_{\geq0}^n$. Take
+$\tau=X_0$. A section $s\in H^0(X,m L)$ is a degree-$m$ form, and
+$s/X_0^m$ is a polynomial of degree at most $m$ in $x_1,\ldots,x_n$, so
+\[
+ v_\alpha(s/X_0^m)
+ =\min_{c_\beta\neq0}\langle\alpha,\beta\rangle
+ \leq m\max_i\alpha_i ,
+\]
+since each exponent vector $\beta$ appearing has $|\beta|\leq m$.
+Hence $v_\alpha$ has linear growth, with constant at most
+$\max_i\alpha_i$. The trivial valuation ($\alpha=0$) is the degenerate
+case: all $v_\tau(s)$ vanish. By contrast, let a semivaluation have nonzero
+support and be centered in a chart on which a chosen local frame $\tau$ is
+nonvanishing.  If the local coefficient of a section $s$ belongs to that
+support, then $v(s/\tau^m)=+\infty$, so no finite linear-growth bound can
+hold.  This is the only support-bearing formulation used here; no quotient
+is evaluated when its denominator lies in the support. The finite-energy interpretation of the linear-growth locus
+occupies \cref{chap:bj-linear-growth}.
+\end{example}
+
+\section{A dictionary for later use}
+
+The same object will often be written in two coordinate systems:
+\[
+\begin{array}{c|c}
+\text{multiplicative notation}&\text{additive notation}\\ \hline
+|f(x)|&v_x(f)=-\log|f(x)|\\
+\max(|f|,|g|)&\min(v(f),v(g))\\
+|T(x)|=\rme^{-r}&v_x(T)=r\\
+\text{radius }\rho&\text{value }-\log\rho.
+\end{array}
+\]
+Every later formula involving slopes, model functions, or tropicalization is
+checked against this table.
+
+\section*{Source notes}
+
+The valuation-theoretic foundations are classical; we use
+\cite{ZariskiSamuelII} and the Stacks Project for scheme-theoretic valuative
+criteria. Berkovich points and completed residue fields follow
+\cite[Chapter~1]{Berk12}. Graded reduction in this form is due to Temkin;
+see \cite[\S1]{Temkin2004}.
+Abhyankar valuations and their monomialization are
+subtle in positive characteristic; no local uniformization theorem is being
+asserted here. Quasimonomial means \emph{monomial on an already available
+regular model}; it does not assert monomialization of every Abhyankar
+valuation in every characteristic.

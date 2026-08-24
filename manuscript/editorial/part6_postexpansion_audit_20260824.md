@@ -1,0 +1,248 @@
+# Part VI post-expansion audit (2026-08-24)
+
+## 24 Aug 2026 controlling addendum
+
+The audit below records the state before the author supplied the TeX proof of
+Xia's Conjecture 8.8.  Source and hostile audits repaired the proof, and the
+exact repaired packet, SHA-256
+`9227826d7ba5c641c5fe32cc4daae9acbb3b57274dcc1b356ba8beadd58cad7b`,
+received a final production Rethlas verdict of `correct` from
+`gpt-5.6-sol` at `xhigh`, with zero critical errors and zero gaps.  The
+current Chapter 55 metric and line-bundle statements subsequently passed
+their own exact-current, source-aware runs
+`20260824T054849Z_57635bfa07f4` and
+`20260824T061508Z_17bf73c6b37c`, each final `correct`, with zero critical
+errors and zero gaps.  Thus the repaired packet is no longer the sole
+integration evidence.  In the audited Part VI itself, the current Chapter 69
+toric-dimension statement and proof passed the separate source-aware run
+`20260824T070302Z_d706dc98ccca` with the same final zero/zero verdict.  The
+current Chapter 72 status therefore treats Conjecture 8.8 as proved on the
+smooth-projective, big-line-bundle, positive-Cao/ideal-volume domain and
+retains the author-supplied work as unpublished provenance.  Zero volume,
+transcendental classes, singular varieties, and attainment remain open.  The
+22 problem-environment count is unchanged because the zero-volume problem
+retains those and other genuine residual scopes.  Contrary pre-verification
+sentences in the preserved dated audit below are superseded by this addendum.
+
+## Scope and standard
+
+This audit covers, in order,
+
+- `parts/part6/ch63_master_dictionary.tex`;
+- `parts/part6/ch64_compare_ma.tex`;
+- `parts/part6/ch65_rays_filtrations.tex`;
+- `parts/part6/ch66_hybrid_spaces.tex`;
+- `parts/part6/ch67_functoriality_trace.tex`;
+- `parts/part6/ch68_ytd_bridge.tex`;
+- `parts/part6/ch69_verified_extensions.tex`;
+- `parts/part6/ch70_local_valuative_psh.tex`;
+- `parts/part6/ch71_pseudoeffective_mp_dxz.tex`; and
+- `parts/part6/ch72_major_open_problems.tex`.
+
+Every formal statement, proof, worked example, normalization, framework
+comparison, citation boundary, and cross-reference in this range was read.
+The audit also used the `trace-mass-restricted-ideal-synchronization` research
+card to check the especially delicate trace/restriction statements.  The
+controlling rule was that a sourced theorem may be imported with its exact
+hypotheses, but a genuinely new result may be promoted to a theorem only with
+an exact current Rethlas production receipt.
+
+## Outcome
+
+The range is now suitable for inclusion subject to the residual-risk ledger
+below.  The audit made no new-result promotion.  In particular:
+
+- the exact PL--CLD theorem retains its production receipt, and the current
+  toric-dimension block has the separate exact-current receipt identified in
+  the controlling addendum;
+- the general trace theorem remains a deep source import with an
+  \(\mathcal I\)-class input and a \(P\)-class output, not a newly verified
+  theorem;
+- the projective pseudo-effective MP comparison remains an open problem;
+- the recent mixed-Okounkov-body proof is mathematically verified on its
+  stated positive-volume domain by exact-current book-integration receipts,
+  while remaining unpublished and carrying no priority claim; and
+- the excluded Deligne-pairing paper is neither named nor cited, and no proof
+  or traceable dependency from it is present in the audited range.
+
+Crucially, **no text in `ch69_verified_extensions.tex` was changed**, including
+the statement and proof of `thm:verified-pl-psh-equivalence`.  Its exact
+production receipt `R3-CLD-PL-01` is therefore not made stale by this audit.
+
+## Exact repairs
+
+### Chapter 64: comparison of Monge--Ampère theories
+
+1. The two-component semistable curve example now fixes the unique skeleton
+   edge to have length \(1\).  It also states the general convention that
+   slope differences are divided by the edge length.  This removes a hidden
+   metric normalization from the displayed atomic weights.
+2. The finite-energy ledger now includes the sourced Kähler finite-energy
+   DXZ--MP bijection, with an explicit cross-reference to the theorem where
+   its domain and factor-two convention are recorded.
+3. The adjacent warning was narrowed accordingly: it forbids an unrestricted
+   DXZ--MP cone equivalence, rather than incorrectly suggesting that no
+   finite-energy comparison is known.
+
+### Chapters 65--66: rays, filtrations, and hybrid spaces
+
+4. The Chapter 65 source note now says explicitly that every Deligne-pairing
+   identity used there comes from Sections 1--4 of BHJ's unaffected paper or
+   from already established intersection formulas.  The 2022 erratum states
+   that those sections remain valid.
+5. Chapter 66 now carries the same firewall for the two energy propositions:
+   their Deligne-pairing language is only the unaffected intersection-
+   theoretic BHJ argument.
+6. Both chapters state the independent-source firewall in generic wording:
+   no excluded or derivative source is used.  The excluded paper is not named.
+
+### Chapter 67: functoriality, restriction, and trace
+
+7. An ill-formed analytic strict-transform assertion was removed from a
+   birational proposition whose data did not specify a trace centre.  The
+   text now points separately to the sourced transcendental non-Archimedean
+   trace identity, with its own domain hypotheses.  No label was removed.
+8. The complex finite-map Monge--Ampère proof no longer assumes a global
+   uniform approximation of every continuous semipositive metric by smooth
+   semipositive metrics.  It uses local decreasing smooth psh approximation
+   and Bedford--Taylor monotone continuity.  The non-Archimedean proof keeps
+   the correct uniform semipositive-model approximation.
+9. The analytic-trace definition now records the fixed sufficiently positive
+   target background class required by the positive-mass \(d_S\)-space.
+10. A labeled warning now distinguishes the restricted ambient ideal
+    \[
+      \mathfrak a\mathcal O_Y
+      =\operatorname{im}(\mathfrak a\otimes\mathcal O_Y\to\mathcal O_Y)
+    \]
+    from both the abstract tensor product and the intrinsic multiplier ideal
+    of a naively restricted singularity.  It records only the valid one-sided
+    restriction inclusion
+    \(\mathcal I(m\varphi|_Y)\subseteq
+      \mathcal I(m\varphi)\mathcal O_Y\); no equality is used.
+11. The final operation ledger now has the correct variance: trace depends
+    only on the ambient \(\mathcal I\)-class and produces a canonical
+    \(P\)-class with \(\mathcal I\)-good representatives.  It no longer calls
+    the output merely an \(\mathcal I\)-class.
+12. The source note now distinguishes the audited product calculation at the
+    weaker \(\mathcal I\)-level from the \(P\)-valued output supplied by the
+    sourced trace uniqueness theorem.  It explicitly says that this does not
+    create a new production receipt.
+
+### Chapter 71: pseudo-effective MP/DXZ comparison
+
+13. The comparison table heading was changed from “Status proved here” to
+    “Audited status”.  The rows are a mixture of deep source imports,
+    elementary obstructions, and open boundaries; the old heading overstated
+    what this manuscript itself proves.
+
+### Chapter 72: major open problems
+
+14. A malformed inline-math occurrence `Let (L)` was corrected to `Let \(L\)`.
+15. The mixed-Okounkov-body paragraph was downgraded after inspecting the
+    July 2026 primary manuscript.  It now says that Theorems 1.1--1.2 are an
+    announced claimed resolution for positive volume, that the editorial
+    ledger contains no independent production receipt for the new proof, and
+    that Conjecture 8.8 remains open in the verified corpus pending such an
+    audit.  The genuinely different zero-volume problem remains open.
+
+No change was required in Chapters 63, 68, 69, or 70.
+
+## Framework and normalization findings
+
+| Interface | Audited boundary |
+|---|---|
+| CLD--BFJ | Equality is asserted only on common semipositive formal/model data; singular finite-energy extensions are not silently identified. |
+| BFJ--BJ | The change of ground norm and the different finite-energy completions are kept visible.  No universal identification is claimed. |
+| Complex rays--NA metrics | The algebraic/test-configuration slope theorem is used in the exact unaffected BHJ domain; arbitrary weak-ray convergence is not inferred. |
+| MP--DXZ | The factor-two conversion is retained.  The sourced Kähler finite-energy bijection is separated from the still-open full projective pseudo-effective comparison. |
+| Local valuative psh | The exact PL/Gauss-shell receipt is separated from classical, nonalgebraizable, unbounded, and singular analytic extensions. |
+| Trace/restriction | Domain: generic Lelong number zero.  Input quotient: \(\mathcal I\).  Output quotient: \(P\), represented by \(\mathcal I\)-good potentials.  Restricted ideals are image ideals and only one-sided inclusion is used. |
+| Hybrid bridge | Projective hybrid Monge--Ampère continuity, canonical psh extension, and canonically polarized continuity are sourced at their precise theorem numbers.  Banach-family and general Favre-type continuity questions remain questions. |
+| YTD bridge | Algebraic, smooth-ray, coercivity, and hybrid assertions retain their separate hypotheses; no blanket equivalence is asserted. |
+
+Sign and mass spot checks were repeated for model Monge--Ampère masses,
+probability versus unnormalised conventions, ramified-base-change speed,
+Deligne/intersection slopes, Duistermaat--Heckman first moments, and the
+MP/DXZ factor two.  The two-component curve example was the only place where
+an unstated length normalization required repair.
+
+## Receipt and provenance ledger
+
+| Item | Status after audit |
+|---|---|
+| `thm:verified-pl-psh-equivalence` | Exact current production receipt `R3-CLD-PL-01`; statement and proof untouched. |
+| Fixed-dual-complex characteristic-zero comparison | Within the internally recorded R3-18 boundary; not expanded to arbitrary analytic spaces. |
+| Toric/rational and Gauss-shell local results | Retained only in the domains recorded by R3-20 and R3-26. |
+| Affine-polyhedral regularity/orthogonality | Formal/polyhedral result retained within R3-27; analytic realization remains conditional. |
+| Analytic trace | Deep import from the trace chapter/source; no new production receipt.  The superseded reconstruction receipt is not used to certify more. |
+| Split/retraction trace constructions | Formal consequences under the displayed splitting and positivity hypotheses; no general Dirichlet theorem inferred. |
+| Pseudo-effective MP/DXZ bridge | Sourced Kähler finite-energy bridge only; full projective comparison remains `prob:pseff-projective-rational-full-link`. |
+| Toric/rational numerical dimension | Exact-current Chapter 69 production run `20260824T070302Z_d706dc98ccca`; smooth projective invariant integral/rational toric scope only, with no novelty claim. |
+| July 2026 mixed-volume manuscript | Unpublished author-supplied proof; the current Chapter 55 metric and line-bundle blocks passed separate exact-current runs `20260824T054849Z_57635bfa07f4` and `20260824T061508Z_17bf73c6b37c`; zero-volume and other stated extensions remain open. |
+
+Primary-source checks included BHJ Theorem 3.6 together with its erratum,
+Pille-Schneider's Theorems 3.13, 4.11, 5.1 and Corollary 5.2 (and the two
+questions explicitly left open), and the July 2026 mixed-Okounkov-body
+manuscript.  Internal status was cross-checked against
+`rethlas_verified_results.md`, `rethlas_r3_report.md`, and the hostile source
+audit for the pseudo-effective chapter.
+
+## Excluded-paper firewall
+
+The excluded paper is neither named nor cited anywhere in the audited chapter
+range.  The Deligne-pairing arguments are attributed only to the unaffected
+BHJ sections and established intersection formulas.  The inspected
+bibliography of the July 2026 mixed-volume manuscript contains no reference to
+the excluded paper.  No claim in this range is routed through that paper or
+through an identifiable intermediate dependency on it.
+
+## Mechanical and compilation checks
+
+- All theorem, proposition, lemma, corollary, definition, example, remark,
+  proof, and problem environments in the range have balanced begin/end
+  delimiters.
+- There are exactly 22 literal `problem` environments: one in the
+  pseudo-effective chapter and 21 in the major-open-problems chapter.
+- There are no exercise environments.
+- Label-bearing statements were preserved; the repair in Chapter 67 removed
+  only one enumerated assertion and its proof paragraph, not a label.
+- A post-edit Part VI audit slice compiled successfully to
+  `part6_final_audit.pdf` (238 pages).
+- A separate post-edit Chapters 71--72 slice compiled successfully to
+  `part6_ch71_ch72_slice.pdf` (118 pages).
+- The final logs contain no undefined citations, undefined references,
+  multiply defined labels, fatal errors, or undefined control sequences.
+- The slice builds emit many missing PDF-destination warnings because they
+  import auxiliary data for chapters omitted by `includeonly`; these are not
+  unresolved LaTeX references.  BibTeX also repeats five pre-existing
+  database warnings for `SGA1`, `SGA7I`, and `Der16`, none introduced by or
+  local to the audited chapters.
+
+## Residual risks and hard boundaries
+
+1. There is still no theorem identifying CLD, BFJ, BJ, complex ray, MP, and
+   DXZ theories on one unrestricted finite-energy domain.  The chapter
+   dictionaries must continue to be read row by row.
+2. The full trace theorem is a deep import.  Its \(P\)-valued target is not
+   independently reverified here, and the split/retraction theorems do not
+   imply the unsplit Dirichlet problem.
+3. General local analytic realization beyond the algebraizable rational
+   Gauss-shell/PL receipts, including unbounded and singular settings, remains
+   open.
+4. Analytic realization of the R3-27 affine-polyhedral package remains
+   conditional even though the formal polyhedral calculation is verified.
+5. The full projective pseudo-effective MP comparison, especially at zero
+   volume, remains open.  No mass-only invariant can encode all relevant
+   singularity data.
+6. The July 2026 mixed-volume manuscript is recent and unpublished.  Its
+   bibliography entry `XiaMVOB` now records `YEAR = {2026}` and identifies
+   the item as a July 2026 work in progress whose claims await independent
+   exact-current verification; that metadata does not itself verify the
+   announced results.
+7. Recent hybrid/YTD and Radon--Riesz status statements remain deliberately
+   date-scoped.  They should be rechecked against primary literature in any
+   later edition rather than silently upgraded.
+
+These boundaries are intentionally visible in the manuscript as theorem,
+conditional theorem, obstruction, source-status notice, or open problem,
+rather than being compressed into a single claimed equivalence.

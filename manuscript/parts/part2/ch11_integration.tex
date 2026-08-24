@@ -1,0 +1,3337 @@
+\chapter{Integration and Stokes formulae}
+\index{integration!tropical}\index{Stokes formula!polyhedral}
+\label{chap:tropical-integration}
+
+Integration is where weights, orientations, and balancing become necessary.
+We first prove Stokes on one polyhedron, then show that balancing cancels
+internal faces. This is the mechanism behind the global CLD theorem.
+
+Two chapters of preparation have produced a bigraded algebra of superforms
+(\Cref{chap:superforms}) and a supply of supports on which such forms live
+(\Cref{chap:tropical-spaces}).  Neither chapter has yet produced a number.
+The present chapter produces numbers, and with them the first genuinely
+rigid conventions of the book: once one decides what
+\(\int_\sigma\dprime x\wedge\ddprime x\) means on an oriented unit segment,
+every later sign---the sign in the Poincar\'e--Lelong formula, the sign of a
+Chern current, the sign of the Dirichlet energy, the direction of the
+inequality defining plurisubharmonicity---is determined.  A single misplaced
+\((-1)^{n-1}\) here would propagate silently through
+\Crefrange{chap:cld-forms}{chap:cld-examples} and would reverse the
+positivity statements of \Cref{part:bfj}.  For this reason the chapter is
+written with an unusual density of hand computations, and every convention it
+fixes is recorded twice: once in the sign ledger of
+\Cref{sec:ch11-ledger} and once in \Cref{app:normalizations}.
+
+\section{The normalization problem}
+\label{sec:ch11-normalization}
+
+Ordinary Euclidean integration depends on a choice of Lebesgue measure.
+Tropical integration has a canonical normalization because every cell comes
+with a tangent lattice.  Three invariance tests govern the construction:
+\begin{enumerate}
+\item changing an oriented lattice basis must not change the integral;
+\item subdividing a cell must not change the integral;
+\item pushing a cycle through an integer-affine map must introduce exactly
+  the lattice index of \Cref{prop:tropical-pushforward-balanced}.
+\end{enumerate}
+The reader should keep these tests separate.  The first two concern one
+calibrated support; the third compares different supports.
+
+This chapter proves the polyhedral core of Stokes and Green formulae.  The
+passage to the full CLD category is an imported analytic theorem, stated with
+its hypotheses.  Compact support will always mean compact support in the
+underlying polyhedral or analytic topology.
+
+\subsection{What has to be normalized, and why}
+\label{sec:ch11-what-normalized}
+
+A top-degree superform on an \(n\)-dimensional real affine space is, at each
+point, a real multiple of the Lagerberg orientation \(\tau_n\) of
+\eqref{eq:appJ-lagerberg-orientation}, and to integrate it one needs a
+measure.  A top-degree \emph{ordinary} differential form is a density up to
+orientation and needs nothing further; a superform of bidegree \((n,n)\) is
+a section of the \emph{square} of the determinant line, and squares have no
+orientation.  Hence a superform of top bidegree cannot be integrated without
+supplying a measure, but the measure need not be accompanied by an
+orientation.  The first half of this observation is why weighted lattices are
+indispensable data on a tropical cycle rather than decoration; the second is
+why the word \emph{orientation}, which appears below and throughout the
+classical literature, is a bookkeeping device that
+\Cref{lem:ch11-orientation-drops-out} shows to disappear from every formula
+of the chapter.  In the Lagerberg calculus the canonical orientation of a
+complex manifold is replaced by the canonical squaring, and the lattice
+replaces the complex structure.
+
+The third invariance test is of a different nature.  Tests \((1)\) and
+\((2)\) say that the integral is attached to a calibrated support, so that
+two combinatorial presentations of the same tropical cycle give the same
+number.  Test \((3)\) compares two different supports through a map and is
+therefore a compatibility, not an invariance; it is the tropical shadow of
+the degree of a finite morphism, and it is the only one of the three in which
+a lattice index appears.  Confusing \((2)\) and \((3)\) produces exactly the
+multiplicity errors warned against in \Cref{chap:tropical-spaces}.
+
+\subsection{Prerequisites, dependencies, and what is imported}
+\label{sec:ch11-prerequisites}
+
+The reader needs the superform calculus of \Cref{chap:superforms}---in
+particular the differentials \(\dprime\), \(\ddprime\), the wedge sign
+convention, and the constant \(c_p=(-1)^{p(p-1)/2}\) of
+\eqref{eq:appJ-cp}---and the polyhedral vocabulary of
+\Cref{chap:tropical-spaces}: rational polyhedra, tangent lattices
+\(N_\sigma\), primitive normal generators \(u_{\sigma/\tau}\), weights,
+balancing, calibrations, and integer-affine pushforward.  From ordinary
+analysis we use only Fubini's theorem, the fundamental theorem of calculus,
+the affine change-of-variables formula, and smooth partitions of unity.  No
+measure theory beyond Lebesgue measure on \(\mathbf R^n\) is required, and no
+tropical intersection theory beyond
+\Cref{thm:tropical-stable-intersection} is assumed.
+
+Everything in
+\Crefrange{sec:ch11-normalization}{sec:ch11-tropical-intersection}
+is proved.  Exactly one statement is imported:
+\Cref{thm:cld-global-stokes}, the passage from a single calibrated
+polyhedral complex to a general calibrated parlinear space, uses the
+existence of calibrated chart covers with compatible refinements.  That is
+the substantive analytic content of \cite[\S\S4.6 and 5.11]{CLD25} and we do
+not reprove it.  The reader who is content with skeleta and tropical
+charts---which is all that
+\Crefrange{chap:cld-poincare-lelong}{chap:cld-examples} ever needs in
+practice---may treat \Cref{thm:balanced-stokes} as the operative Stokes
+theorem and read \Cref{thm:cld-global-stokes} as a statement about
+generality.
+
+\subsection{The plan of the chapter}
+\label{sec:ch11-plan}
+
+By the end of the chapter the reader should be able to
+\begin{enumerate}
+\item integrate a top-degree superform over a weighted rational polyhedral
+  complex and check the answer against a lattice normalization;
+\item write down the boundary trace of an \((n-1,n)\)-form across a
+  codimension-one face, with the correct sign, in any dimension;
+\item recognize the balancing condition as the exact vanishing of a boundary
+  defect vector, and hence as the exact hypothesis under which Stokes'
+  formula has no interior terms;
+\item derive the Green and Dirichlet formulae and match their signs against
+  the metric-graph conventions of \Cref{sec:metric-graphs};
+\item push a cycle forward along a proper integer-affine map and verify the
+  projection formula by hand;
+\item state precisely, and prove in the cases used later in this book, the
+  comparison between the tropical intersection product of
+  \Cref{thm:tropical-stable-intersection} and the product of currents.
+\end{enumerate}
+Each of these is tested on an explicit example, and
+\Cref{sec:ch11-ledger} collects the outcomes.
+
+\section{Top-degree integration}
+\label{sec:ch11-top-degree}
+
+Throughout the chapter $N$ is a free abelian group of finite rank $r$,
+$N_{\mathbf R}=N\otimes_{\mathbf Z}\mathbf R$, and
+$M=\operatorname{Hom}(N,\mathbf Z)$, as in \Cref{chap:tropical-spaces}.  A
+weighted complex $(\mathscr C,m)$ is pure of dimension $n\le r$; its set of
+facets is written $\mathscr C_n$ and its set of codimension-one cells
+$\mathscr C_{n-1}$.  For a cell $\sigma$ we write $N_\sigma\subset N$ for its
+saturated tangent lattice and $N_{\sigma,\mathbf R}$ for the corresponding
+real subspace, so that the affine span of $\sigma$ is
+$x_\sigma+N_{\sigma,\mathbf R}$ for any $x_\sigma\in\sigma$.
+
+\subsection{The lattice measure of a cell}
+\label{sec:ch11-lattice-measure}
+
+\begin{definition}
+\label{def:ch11-lattice-measure}
+\index{lattice measure}
+Let $\sigma$ be an $n$-dimensional rational polyhedron in $N_{\mathbf R}$.
+The \emph{lattice measure} $\omega_\sigma$ of $\sigma$ is the unique
+translation-invariant Borel measure on the affine span of $\sigma$ for which
+the parallelotope spanned by one---equivalently any---lattice basis of
+$N_\sigma$ has measure one.
+\end{definition}
+
+Existence and uniqueness are immediate: transport Lebesgue measure from
+$\mathbf R^n$ by a lattice basis.  What has to be checked is that the
+transported measure does not depend on the basis, and this is the first
+of the three invariance tests.
+
+\begin{lemma}
+\label{lem:ch11-lattice-measure-welldefined}
+The measure $\omega_\sigma$ is well defined, and it depends only on the
+lattice $N_\sigma$, not on $\sigma$ itself nor on any orientation.  If
+$\tau\subset\sigma$ is a face of dimension $n-1$, then
+$\omega_\tau$ is the lattice measure of the saturated lattice $N_\tau$, and
+for every $v\in N_\sigma$ whose class generates $N_\sigma/N_\tau$ one has,
+in the affine span of $\sigma$,
+\[
+ \omega_\sigma
+ =\int_{\mathbf R}\bigl(t_*\omega_\tau\bigr)\,\rd t,
+\]
+where $t_*\omega_\tau$ denotes the translate of $\omega_\tau$ by $tv$.  In
+words: the lattice measure of $\sigma$ disintegrates over the lattice
+measure of $\tau$ with unit transverse speed in the direction of a primitive
+transverse generator.
+\end{lemma}
+
+\begin{proof}
+Two lattice bases of $N_\sigma$ differ by a matrix in
+$\operatorname{GL}(n,\mathbf Z)$, whose determinant is $\pm1$; the
+transported Lebesgue measures therefore agree, because Lebesgue measure
+transforms by $|\det|$.  The measure so obtained visibly depends only on
+$N_\sigma$, and it is unsigned, so no orientation enters.
+
+For the disintegration, note that $N_\tau$ is saturated in $N_\sigma$ by
+\Cref{chap:tropical-spaces}, so the quotient $N_\sigma/N_\tau$ is free of
+rank one.  Choose $v\in N_\sigma$ mapping to a generator; then a lattice
+basis $f_1,\ldots,f_{n-1}$ of $N_\tau$ together with $v$ is a lattice basis
+of $N_\sigma$.  In the resulting coordinates $(t,s_1,\ldots,s_{n-1})$ the
+measure $\omega_\sigma$ is $\rd t\,\rd s$ and $\omega_\tau$ is $\rd s$ on
+each slice $t=\text{const}$, which is the assertion.  Replacing $v$ by
+$-v$ or by $v+w$ with $w\in N_\tau$ changes neither side.
+\end{proof}
+
+The disintegration formula is the only fact about lattice measures used in
+the proof of Stokes' theorem, and it is worth isolating the reason it is
+true: the transverse speed is set to one by \emph{primitivity} of the
+transverse generator, not by any metric.  Using a non-primitive generator,
+or a Euclidean unit normal, destroys the identity.  We return to this in
+\Cref{ex:ch11-euclidean-normal-trap}.
+
+\medskip
+
+Let $\sigma\subset N_{\mathbf R}$ be an oriented $n$-dimensional rational
+polyhedron. Choose an oriented lattice basis $e_1,\ldots,e_n$ of $N_\sigma$
+and dual affine coordinates $x_1,\ldots,x_n$.
+
+\begin{definition}
+Put
+\[
+\tau_n=\dprime x_1\wedge \ddprime x_1\wedge\cdots\wedge \dprime x_n\wedge \ddprime x_n.
+\]
+For a compactly supported $(n,n)$-form
+\[
+\alpha=f\tau_n
+\]
+on $\sigma$, set
+\[
+                           \int_\sigma\alpha
+             =\int_\sigma f(x)\,\rd x_1\cdots \rd x_n.
+\]
+For a weighted complex, set
+$\int_{(\mathscr C,m)}\alpha=\sum_{\sigma\in\mathscr C_n}
+m_\sigma\int_\sigma\alpha$.
+\end{definition}
+
+If $\omega_\sigma$ denotes the covolume-one Lebesgue measure determined by
+$N_\sigma$, the definition can be written invariantly as
+\[
+                    \int_\sigma f\tau_n
+                    =\int_\sigma f\,\omega_\sigma.
+\]
+The interlaced orientation $\tau_n$ is crucial: using the grouped order of
+all primed factors followed by all double-primed factors without its
+$(-1)^{n(n-1)/2}$ correction would reverse positivity in dimensions two and
+three.
+
+Before the invariance statements we record the two elementary identities on
+which every sign in this chapter rests.  Both are consequences of the wedge
+convention of \Cref{chap:superforms}, which places all primed factors before
+all double-primed factors, and both are used constantly.
+
+\begin{lemma}
+\label{lem:ch11-interlaced-grouped}
+Write $c_p=(-1)^{p(p-1)/2}$ as in \eqref{eq:appJ-cp}.  For any affine
+coordinates $x_1,\ldots,x_n$,
+\[
+ \tau_n
+ =c_n\,\dprime x_1\wedge\cdots\wedge\dprime x_n
+      \wedge\ddprime x_1\wedge\cdots\wedge\ddprime x_n,
+ \qquad
+ \dprime x_1\wedge\cdots\wedge\ddprime x_n=c_n\tau_n .
+\]
+Moreover $c_nc_{n-1}=(-1)^{n-1}$, and the $2$-forms
+$\dprime x_i\wedge\ddprime x_i$ commute with everything.
+\end{lemma}
+
+\begin{proof}
+The first identity is the displayed count in \Cref{chap:superforms}: moving
+$\ddprime x_i$ to the right past $\dprime x_{i+1},\ldots,\dprime x_n$ costs
+$(-1)^{n-i}$, and $\sum_{i=1}^{n}(n-i)=n(n-1)/2$.  The second follows since
+$c_n^2=1$.  For the third,
+\[
+ c_nc_{n-1}
+ =(-1)^{\frac{n(n-1)}2+\frac{(n-1)(n-2)}2}
+ =(-1)^{\frac{(n-1)(n+n-2)}2}
+ =(-1)^{(n-1)^2}
+ =(-1)^{n-1}.
+\]
+Finally $\dprime x_i\wedge\ddprime x_i$ has total degree two, hence is
+central in the bigraded algebra by the commutation rule of
+\Cref{chap:superforms}.
+\end{proof}
+
+The constant $c_nc_{n-1}=(-1)^{n-1}$ is the single most consequential
+number in this chapter: it is exactly the sign appearing in the boundary
+trace \eqref{eq:superform-boundary-traces}, and every sign error we have
+encountered in drafts of this material was a lost copy of it.
+
+\begin{lemma}
+\label{lem:ch11-orientation-drops-out}
+Let $x_1,\ldots,x_n$ and $y_1,\ldots,y_n$ be affine coordinates dual to two
+lattice bases of $N_\sigma$, not assumed to induce the same orientation.
+Then
+\[
+ \dprime x_1\wedge\ddprime x_1\wedge\cdots
+   \wedge\dprime x_n\wedge\ddprime x_n
+ =\dprime y_1\wedge\ddprime y_1\wedge\cdots
+   \wedge\dprime y_n\wedge\ddprime y_n .
+\]
+Consequently $\tau_n$ depends only on the lattice $N_\sigma$, the integral of
+\Cref{def:ch11-lattice-measure} is unsigned, and no orientation of $\sigma$
+enters $\int_\sigma\alpha$ for $\alpha\in A^{n,n}$.
+\end{lemma}
+
+\begin{proof}
+Let $B\in\operatorname{GL}(n,\mathbf Z)$ be the matrix with
+$y_i=\sum_jB_{ij}x_j$ up to constants.  By
+\Cref{lem:ch11-interlaced-grouped} it suffices to compare the grouped
+products.  Then
+\[
+ \dprime y_1\wedge\cdots\wedge\dprime y_n=\det(B)\,
+ \dprime x_1\wedge\cdots\wedge\dprime x_n,
+\]
+and the same identity holds for the double-primed factors.  Hence the
+grouped product is multiplied by $\det(B)^2=1$, since $\det(B)=\pm1$.  The
+two interlaced products therefore agree.  The remaining assertions follow
+because $\int_\sigma f\tau_n=\int_\sigma f\,\omega_\sigma$ and
+$\omega_\sigma$ is unsigned by
+\Cref{lem:ch11-lattice-measure-welldefined}.
+\end{proof}
+
+This is the precise sense in which the word \emph{oriented} in the
+definitions of this chapter is bookkeeping.  If one integrated an ordinary
+$n$-form the sign $\det(B)=\pm1$ would survive and a global orientation of
+the support would be indispensable.  Tropical cycles are generally not
+orientable in that sense---the tropical line of
+\Cref{fig:tropical-line-balancing} carries three rays meeting at a point and
+admits no coherent orientation---so it is essential that the superform
+calculus does not require one.  This is one of the structural reasons the
+Lagerberg formalism, rather than ordinary differential forms, is the right
+carrier for non-Archimedean curvature.
+
+\begin{proposition}
+\label{prop:integral-subdivision-independent}
+The integral is independent of the oriented lattice basis and of subdivision.
+\end{proposition}
+\begin{proof}
+A change between oriented lattice bases lies in
+$\operatorname{SL}(n,\mathbf Z)$.  Each labelled exterior volume is
+therefore unchanged, as is the covolume-one Lebesgue measure.  Hence the
+integral is basis independent.  Under subdivision,
+maximal cells partition the old cells up to measure-zero faces and inherit
+their weights, so ordinary additivity of Lebesgue integration applies.
+\end{proof}
+
+We spell the second half out, since it is the invariance test that makes the
+integral an invariant of a tropical cycle rather than of a presentation.
+
+\begin{proposition}
+\label{prop:ch11-integral-cycle-invariant}
+Let $(\mathscr C,m)$ and $(\mathscr C',m')$ be pure $n$-dimensional weighted
+rational polyhedral complexes representing the same tropical $n$-cycle, in
+the sense of \Cref{chap:tropical-spaces}.  Then
+$|\mathscr C|=|\mathscr C'|$ and, for every $(n,n)$-form $\alpha$ with
+compact support on that set,
+\[
+ \int_{(\mathscr C,m)}\alpha=\int_{(\mathscr C',m')}\alpha .
+\]
+The common value depends only on the cycle and on the restriction of
+$\alpha$ to the cells.
+\end{proposition}
+
+\begin{proof}
+By definition of equivalence there is a weighted complex
+$(\mathscr D,\ell)$ refining both, with each facet of $\mathscr D$ carrying
+the weight of the unique facet of $\mathscr C$ (respectively of
+$\mathscr C'$) containing it.  It therefore suffices to treat one refinement,
+say $\mathscr D\to\mathscr C$.
+
+Fix a facet $\sigma\in\mathscr C_n$ and let $\delta_1,\ldots,\delta_k$ be the
+facets of $\mathscr D$ contained in $\sigma$.  By the subdivision lemma of
+\Cref{chap:tropical-spaces} their relative interiors are pairwise disjoint
+and their union is $\sigma$ up to a set contained in finitely many affine
+subspaces of dimension $<n$, hence of $\omega_\sigma$-measure zero.  Each
+$\delta_j$ spans the same affine space as $\sigma$, so
+$N_{\delta_j}=N_\sigma$ and therefore
+$\omega_{\delta_j}=\omega_\sigma$; here saturation is what makes the two
+tangent lattices equal, and not merely commensurable.  Writing
+$\alpha=f\tau_n$ in coordinates adapted to $N_\sigma$, countable additivity
+of the Lebesgue integral gives
+\[
+ \int_\sigma f\,\omega_\sigma
+ =\sum_{j=1}^k\int_{\delta_j}f\,\omega_{\delta_j}.
+\]
+Multiplying by $m_\sigma=\ell_{\delta_j}$ and summing over
+$\sigma\in\mathscr C_n$ yields the assertion; the sums are finite because
+$\alpha$ has compact support and the complexes are locally finite.
+
+Finally, the definition of $A^{n,n}$ on a polyhedral support
+(\Cref{chap:tropical-spaces}) already identifies two ambient representatives
+whose restrictions to all cells agree, so the number produced depends only on
+those restrictions.
+\end{proof}
+
+\begin{warning}{Saturation is a hypothesis, not a convenience}
+The proof used $N_{\delta}=N_\sigma$ for a subcell $\delta\subset\sigma$ of
+the same dimension.  This is true because tangent lattices were defined as
+saturations, $N_\sigma=N\cap\operatorname{span}_{\mathbf R}(\sigma-\sigma)$.
+Had one defined $N_\sigma$ as the subgroup generated by integral vectors of
+$\sigma-\sigma$, the two lattices could differ by a finite index and
+subdivision would change the integral.  The same remark explains the
+primitivity requirement on $u_{\sigma/\tau}$.
+\end{warning}
+
+\begin{example}[A non-unimodular parametrization]
+\label{ex:ch11-nonunimodular}
+Let $F:[0,1]\to[0,2]$ be $F(t)=2t$, with lattice $\mathbf Z$ on source and
+target.  The pushforward cell has weight
+$[\mathbf Z:2\mathbf Z]=2$.  For a compactly supported function $g$ on
+$(0,2)$,
+\[
+ \int_{F_*[0,1]} g(x)\,\rd x
+ =2\int_0^2g(x)\,\rd x,
+\]
+where the notation suppresses the two labelled top-degree factors.  For the
+actual superform
+$\alpha=g(x)\,\dprime x\wedge\ddprime x$, one has
+\[
+ F^*\alpha=4g(2t)\,\dprime t\wedge\ddprime t,
+ \qquad
+ \int_{[0,1]}F^*\alpha
+ =2\int_0^2g(x)\,\rd x.
+\]
+The factor four comes from pulling back both labelled copies; the ordinary
+change-of-variables factor removes one copy.  What remains is precisely the
+lattice index in the pushforward weight.
+\end{example}
+
+\begin{example}[Positivity sign test]
+\label{ex:ch11-positivity-sign}
+With $c_n=(-1)^{n(n-1)/2}$,
+\[
+\tau_n=c_n\,\dprime x_1\wedge\cdots\wedge \dprime x_n\wedge
+ \ddprime x_1\wedge\cdots\wedge \ddprime x_n.
+\]
+Thus a compactly supported strongly positive top form has nonnegative
+integral.
+\end{example}
+
+The next example is the promised failure of the naive convention, in the
+smallest dimension in which it can occur.  It should be worked through
+completely; the analogous mistake at the level of boundary traces is
+harder to see and is isolated in \Cref{ex:ch11-square-wrong-sign}.
+
+\begin{example}[The grouped orientation is the wrong normalization]
+\label{ex:ch11-grouped-wrong-sign}
+Work on $\mathbf R^2$ with the standard lattice, and let
+$\chi\ge0$ be a smooth compactly supported function.  Consider
+\[
+ \alpha=\chi\,\dprime x_1\wedge\ddprime x_1
+       \wedge\dprime x_2\wedge\ddprime x_2
+      =\chi\,\tau_2 ,
+\]
+which is strongly positive: it is
+$\eta_1\wedge J\eta_1\wedge\eta_2\wedge J\eta_2$ with
+$\eta_i=\sqrt\chi\,\dprime x_i$ on the set where $\chi>0$, and the positive
+cone is closed.  Its integral is
+$\int\chi\,\rd x_1\rd x_2\ge0$, as it must be.
+
+Suppose instead that one had declared the \emph{grouped} monomial
+\[
+ \gamma=\dprime x_1\wedge\dprime x_2
+       \wedge\ddprime x_1\wedge\ddprime x_2
+\]
+to be the positive top form and set
+$\int(g\gamma)=\int g\,\rd x_1\rd x_2$.  By
+\Cref{lem:ch11-interlaced-grouped}, $\gamma=c_2\tau_2=-\tau_2$, so this
+convention assigns to the strongly positive form $\alpha$ the value
+$-\int\chi\le0$.  Every positivity statement in the book---semipositivity of
+a Chern current, nonnegativity of a Monge--Amp\`ere measure, the sign of the
+Dirichlet form in \Cref{cor:tropical-dirichlet-sign}---would be reversed in
+even dimension and preserved in odd dimension, which is precisely the sort of
+dimension-dependent error that survives a spot check in $n=1$.  The
+one-dimensional test $\tau_1=\gamma$ detects nothing.  The smallest honest
+test is $n=2$.
+\end{example}
+
+\begin{example}[Euclidean normals are not lattice normals]
+\label{ex:ch11-euclidean-normal-trap}
+Let $N=\mathbf Z^2$ and let $\tau$ be the segment from $(1,0)$ to $(0,1)$.
+Its tangent lattice is $N_\tau=\mathbf Z(1,-1)$, so $\omega_\tau$ assigns
+mass one to $\tau$: the lattice length of $\tau$ is $1$, whereas its
+Euclidean length is $\sqrt2$.  Let $\sigma$ be the triangle with vertices
+$(0,0)$, $(1,0)$, $(0,1)$, so that $N_\sigma=\mathbf Z^2$ and
+$\omega_\sigma(\sigma)=\tfrac12$.
+
+The class of $(1,0)$ generates $N_\sigma/N_\tau$, and so does the class of
+$(0,1)$, since $(1,0)-(0,1)=(1,-1)\in N_\tau$.  Either may be used as the
+primitive transverse generator $v$ of
+\Cref{lem:ch11-lattice-measure-welldefined}.  The Euclidean unit normal
+$(1,1)/\sqrt2$ is not an integral vector at all, and the primitive integral
+vector in that direction is $(1,1)$, which represents the class $2v$ in
+$N_\sigma/N_\tau$ because $(1,1)=(1,0)+(0,1)$.  Using it would double every
+boundary contribution across $\tau$.
+
+The disintegration of \Cref{lem:ch11-lattice-measure-welldefined} can be
+checked directly with $v=(1,0)$: the slices of $\sigma$ transverse to
+$N_{\tau,\mathbf R}$ are the segments $\sigma\cap(tv+N_{\tau,\mathbf R})$ for
+$0\le t\le1$, whose lattice lengths are $1-t$, and
+$\int_0^1(1-t)\,\rd t=\tfrac12=\omega_\sigma(\sigma)$.  Had one used
+Euclidean lengths and the Euclidean unit normal the same computation would
+read $\int_0^{1/\sqrt2}\sqrt2\,(1-\sqrt2 t)\,\rd t=\tfrac12$, which is again
+correct---the two errors cancel---but the intermediate quantities are not
+the ones appearing in the balancing condition, and the cancellation fails as
+soon as two cells with different tangent lattices meet along $\tau$.  This is
+why the primitive lattice normal, and not the Euclidean one, is the datum
+carried by a calibration.
+\end{example}
+
+\begin{example}[A unimodular change of chart]
+\label{ex:ch11-gl2z-test}
+Let $C$ be the square $[0,1]^2\subset\mathbf R^2$ with weight $1$ and the
+standard lattice, and let
+$\alpha=\chi(x_1,x_2)\,\tau_2$.  Apply the integer-affine automorphism
+$B(x_1,x_2)=(x_1+x_2,x_2)$, which lies in $\operatorname{SL}(2,\mathbf Z)$.
+Then $B_*C$ is the parallelogram with vertices
+$(0,0),(1,0),(2,1),(1,1)$, with weight one by
+\Cref{prop:tropical-pushforward-balanced}, since $B$ is an isomorphism of
+lattices.  Pulling back,
+\[
+ B^*(\dprime y_1\wedge\ddprime y_1\wedge\dprime y_2\wedge\ddprime y_2)
+ =(\dprime x_1+\dprime x_2)\wedge(\ddprime x_1+\ddprime x_2)
+   \wedge\dprime x_2\wedge\ddprime x_2
+ =\tau_2 ,
+\]
+because the cross terms containing $\dprime x_2$ or $\ddprime x_2$ twice
+vanish.  Hence
+$\int_{B_*C}\alpha=\int_C B^*\alpha$, and both equal
+$\int_{[0,1]^2}\chi(B(x))\,\rd x$.  The Euclidean areas of $C$ and $B(C)$
+are both $1$; but if one repeats the computation with
+$B'(x_1,x_2)=(2x_1,x_2)$, which is not unimodular, the image has Euclidean
+area $2$ while the pushforward weight becomes
+$[\mathbf Z^2:B'(\mathbf Z^2)]=2$ and the two effects again cancel in
+\Cref{prop:ch11-pushforward-integral}.  Test $(1)$ and test $(3)$ of
+\Cref{sec:ch11-normalization} are visible side by side here.
+\end{example}
+
+\section{Boundary orientation and contraction}
+\label{sec:ch11-boundary}
+
+The divergence theorem in $\mathbf R^n$ has three ingredients: a boundary
+measure, an outward normal, and a rule converting a vector field into a
+flux.  In the superform calculus all three are packaged in a single
+operation, contraction in one of the two labelled exterior blocks.  We
+therefore begin by fixing that operation, because its sign convention is not
+the classical one for ordinary forms and the difference is exactly the
+source of the constant $(-1)^{n-1}$.
+
+\subsection{Contraction in a labelled block}
+\label{sec:ch11-contraction}
+
+\begin{definition}
+\label{def:ch11-contractions}
+\index{contraction!in a labelled block}
+Let $v\in V$ be a vector.  On a pure tensor
+$\eta\otimes\xi\in\bigwedge^pV^*\otimes\bigwedge^qV^*$ set
+\[
+ \iota'_v(\eta\otimes\xi)=(\iota_v\eta)\otimes\xi,
+ \qquad
+ \iota''_v(\eta\otimes\xi)=\eta\otimes(\iota_v\xi),
+\]
+where $\iota_v$ is the ordinary interior product, and extend by linearity
+and by $C^\infty$-linearity in the coefficients.  Thus $\iota'_v$ lowers the
+first degree and $\iota''_v$ the second, and \emph{no sign is incurred when
+$\iota''_v$ passes the primed block}.
+\end{definition}
+
+The convention that $\iota''_v$ ignores the primed factors is the one that
+makes the traces below uniform in the dimension; the alternative convention,
+in which $\iota''_v$ is treated as an odd operator on the total degree and
+acquires $(-1)^p$, differs from ours by exactly $(-1)^p$ and would move that
+sign into \eqref{eq:superform-boundary-traces}.  Both are used in the
+literature.  Ours is fixed for the whole book and recorded in
+\Cref{sec:appJ-currents}.
+
+\begin{lemma}
+\label{lem:ch11-contraction-basic}
+The operators $\iota'_v$ and $\iota''_v$ have the following properties.
+\begin{enumerate}
+\item\label{itm:ch11-contr:linear}
+  They are $\mathbf R$-linear in $v$, and
+  $\iota'_v\iota'_v=\iota''_v\iota''_v=0$ and
+  $\iota'_v\iota''_w=\iota''_w\iota'_v$ for all $v,w$.
+\item\label{itm:ch11-contr:coord}
+  In affine coordinates, for
+  $\alpha=\sum_{I,J}\alpha_{IJ}\,\dprime x_I\wedge\ddprime x_J$,
+  \[
+   \iota'_v\alpha
+   =\sum_{I,J}\alpha_{IJ}\,\bigl(\iota_v\dprime x_I\bigr)
+     \wedge\ddprime x_J,
+   \qquad
+   \iota''_v\alpha
+   =\sum_{I,J}\alpha_{IJ}\,\dprime x_I\wedge
+     \bigl(\iota_v\ddprime x_J\bigr),
+  \]
+  where $\iota_v$ denotes the ordinary interior product in the labelled
+  exterior algebra concerned.  In particular each of $\iota'_v$ and
+  $\iota''_v$ is an antiderivation \emph{within its own block}: if
+  $\lambda_1,\ldots,\lambda_k$ are covectors, then
+  \[
+   \iota''_v\bigl(\ddprime\lambda_1\wedge\cdots\wedge\ddprime\lambda_k\bigr)
+   =\sum_{a=1}^k(-1)^{a-1}\langle\lambda_a,v\rangle\,
+     \ddprime\lambda_1\wedge\cdots\widehat{\ddprime\lambda_a}\cdots
+     \wedge\ddprime\lambda_k .
+  \]
+  \item\label{itm:ch11-contr:leibniz}
+  For $\alpha\in A^{p,q}$ and $\beta\in A^{p',q'}$,
+  \[
+   \begin{aligned}
+   \iota'_v(\alpha\wedge\beta)
+     &=(\iota'_v\alpha)\wedge\beta
+       +(-1)^{p+q}\alpha\wedge(\iota'_v\beta),\\
+   \iota''_v(\alpha\wedge\beta)
+     &=(-1)^{p'}(\iota''_v\alpha)\wedge\beta
+       +(-1)^{q}\alpha\wedge(\iota''_v\beta).
+   \end{aligned}
+  \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\cref{itm:ch11-contr:linear} and \cref{itm:ch11-contr:coord} are immediate
+from \Cref{def:ch11-contractions} and the corresponding properties of the
+ordinary interior product, applied in one tensor factor at a time;
+commutation holds because the two operators act on different factors.
+
+\cref{itm:ch11-contr:leibniz}
+Write $\alpha=\eta\otimes\xi$ and $\beta=\eta'\otimes\xi'$ with
+$\deg\eta=p$, $\deg\xi=q$, $\deg\eta'=p'$, $\deg\xi'=q'$, and recall from
+\Cref{chap:superforms} that
+$(\eta\otimes\xi)\wedge(\eta'\otimes\xi')
+=(-1)^{qp'}(\eta\wedge\eta')\otimes(\xi\wedge\xi')$.  Applying $\iota'_v$ and
+the ordinary antiderivation rule in the first factor,
+\[
+ \iota'_v(\alpha\wedge\beta)
+ =(-1)^{qp'}\bigl[(\iota_v\eta)\wedge\eta'
+   +(-1)^p\eta\wedge(\iota_v\eta')\bigr]\otimes(\xi\wedge\xi').
+\]
+Now $(\iota'_v\alpha)\wedge\beta=(-1)^{qp'}((\iota_v\eta)\wedge\eta')
+\otimes(\xi\wedge\xi')$ and
+$\alpha\wedge(\iota'_v\beta)=(-1)^{q(p'-1)}(\eta\wedge(\iota_v\eta'))
+\otimes(\xi\wedge\xi')$, so the second term equals
+$(-1)^{qp'+p-q(p'-1)}\alpha\wedge(\iota'_v\beta)
+=(-1)^{p+q}\alpha\wedge(\iota'_v\beta)$.
+
+For $\iota''_v$ the same computation in the second factor gives
+\[
+ \iota''_v(\alpha\wedge\beta)
+ =(-1)^{qp'}(\eta\wedge\eta')\otimes
+   \bigl[(\iota_v\xi)\wedge\xi'+(-1)^q\xi\wedge(\iota_v\xi')\bigr],
+\]
+while $(\iota''_v\alpha)\wedge\beta=(-1)^{(q-1)p'}(\eta\wedge\eta')
+\otimes((\iota_v\xi)\wedge\xi')$ and
+$\alpha\wedge(\iota''_v\beta)=(-1)^{qp'}(\eta\wedge\eta')
+\otimes(\xi\wedge(\iota_v\xi'))$.  Comparing coefficients gives the
+factors $(-1)^{qp'-(q-1)p'}=(-1)^{p'}$ and $(-1)^{q}$.
+\end{proof}
+
+The asymmetry between the two Leibniz rules in
+\cref{itm:ch11-contr:leibniz} is a consequence of the convention that
+$\iota''_v$ ignores the primed block: an operator acting on the second
+factor of a tensor product cannot be a graded derivation for the total
+degree unless it is given a traversal sign.  Only
+\cref{itm:ch11-contr:linear} and \cref{itm:ch11-contr:coord} are used in the
+proofs below, so nothing depends on the asymmetry; it is recorded because a
+reader who reconstructs the boundary traces with the other convention will
+meet the transposed formulas.
+
+\subsection{The outward normal and the boundary traces}
+\label{sec:ch11-traces}
+
+Let $\tau$ be a codimension-one face of $\sigma$. Choose a lift
+$n_{\sigma,\tau}\in N_\sigma$ of the outward primitive normal class, the
+negative of the inward class $u_{\sigma/\tau}$. Orient $\tau$ by the rule
+\[
+                (n_{\sigma,\tau},\operatorname{or}(\tau))
+                       =\operatorname{or}(\sigma).
+\]
+Write $\iota'_v$ and $\iota''_v$ for contraction in the primed and
+double-primed exterior factors.  The boundary traces compatible with the
+interlaced top-degree orientation are
+\begin{equation}
+\label{eq:superform-boundary-traces}
+\begin{aligned}
+ \operatorname{tr}'_{\sigma,\tau}(\eta)
+   &=(-1)^{n-1}\left.(\iota''_{n_{\sigma,\tau}}\eta)\right|_\tau,
+       &&\eta\in A^{n-1,n},\\
+ \operatorname{tr}''_{\sigma,\tau}(\theta)
+   &=-\left.(\iota'_{n_{\sigma,\tau}}\theta)\right|_\tau,
+       &&\theta\in A^{n,n-1}.
+\end{aligned}
+\end{equation}
+The labelled factor is forced by bidegree: a form of bidegree $(n-1,n)$
+has no spare primed factor to contract.  The traces do not depend on the
+chosen lift.  Indeed, changing it by a vector tangent to $\tau$ gives zero
+after restriction, because the contracted exterior block had degree $n$.
+
+We now prove the three properties of \eqref{eq:superform-boundary-traces}
+that will be used without further comment: they are well defined, they see
+the form only through its restriction to $\sigma$, and they are computed in
+adapted coordinates by a formula with no residual sign.
+
+\begin{lemma}
+\label{lem:ch11-trace-welldefined}
+Let $\tau$ be a codimension-one face of the $n$-dimensional rational
+polyhedron $\sigma$, and let $\eta\in A^{n-1,n}$, $\theta\in A^{n,n-1}$ be
+superforms defined on a neighbourhood of $\tau$ in $N_{\mathbf R}$.  Then:
+\begin{enumerate}
+\item\label{itm:ch11-trace:lift}
+  $\operatorname{tr}'_{\sigma,\tau}(\eta)$ and
+  $\operatorname{tr}''_{\sigma,\tau}(\theta)$ do not depend on the choice of
+  the lift $n_{\sigma,\tau}\in N_\sigma$ of the outward primitive class in
+  $N_\sigma/N_\tau$;
+\item\label{itm:ch11-trace:restriction}
+  they vanish if $\eta$, respectively $\theta$, restricts to zero on
+  $\sigma$; hence they descend to the space of superforms on the polyhedral
+  support in the sense of \Cref{chap:tropical-spaces};
+\item\label{itm:ch11-trace:target}
+  they are $(n-1,n-1)$-forms on $\tau$ and therefore may be integrated
+  against $\omega_\tau$ with no further choice.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\cref{itm:ch11-trace:lift}
+Two lifts differ by a vector $w\in N_\tau$.  By linearity of $\iota''$ in
+the vector, the difference of the two candidate traces is
+$(-1)^{n-1}(\iota''_w\eta)|_\tau$.  Evaluate this $(n-1,n-1)$-form on
+tangent vectors of $\tau$: the result is $\eta$ evaluated on $n-1$ primed
+vectors tangent to $\tau$ and on the $n$ double-primed vectors
+$w,v_1,\ldots,v_{n-1}$, all lying in the space $N_{\tau,\mathbf R}$ of
+dimension $n-1$.  Such an $n$-tuple is linearly dependent, so the
+alternating form vanishes.  The same argument applies to
+$\iota'_w\theta$, where the primed block now has degree $n$.
+
+\cref{itm:ch11-trace:restriction}
+Suppose $\eta|_\sigma=0$, that is, $\eta$ vanishes whenever all its
+arguments are tangent to $\sigma$.  Evaluating
+$(\iota''_{n_{\sigma,\tau}}\eta)|_\tau$ on tangent vectors of $\tau$
+inserts the vectors $v_1,\ldots,v_{n-1}\in N_{\tau,\mathbf R}$ in the primed
+block and $n_{\sigma,\tau},w_1,\ldots,w_{n-1}$ in the double-primed block.
+All of these lie in $N_{\sigma,\mathbf R}$, because the lift was chosen in
+$N_\sigma$ and $N_\tau\subset N_\sigma$.  Hence the value is zero.  Again
+the argument for $\theta$ is identical.  This is exactly the point at which
+the requirement $n_{\sigma,\tau}\in N_\sigma$, rather than merely
+$n_{\sigma,\tau}\in N$, is used.
+
+\cref{itm:ch11-trace:target}
+Contraction lowers one degree, so $\iota''_{n_{\sigma,\tau}}\eta$ has
+bidegree $(n-1,n-1)$ and restricting to $\tau$ preserves the bidegree.  Since
+$\dim\tau=n-1$, this is a top-degree form on $\tau$ and
+\Cref{def:ch11-lattice-measure} applies.
+\end{proof}
+
+\begin{lemma}
+\label{lem:ch11-trace-normal-form}
+Let $e_1,\ldots,e_n$ be a lattice basis of $N_\sigma$ such that
+$e_2,\ldots,e_n$ is a lattice basis of $N_\tau$ and $e_1$ represents the
+outward primitive class, and let $x_1,\ldots,x_n$ be the dual affine
+coordinates, so that $\sigma$ lies in $\{x_1\le0\}$ near $\tau$ and
+$\tau\subset\{x_1=0\}$.  Write
+\[
+ \eta=c_n\sum_{i=1}^n(-1)^{i-1}f_i\,
+   \dprime x_1\wedge\cdots\widehat{\dprime x_i}\cdots\wedge\dprime x_n
+   \wedge\ddprime x_1\wedge\cdots\wedge\ddprime x_n ,
+\]
+\[
+ \theta=c_n\sum_{i=1}^n(-1)^{n+i-1}g_i\,
+   \dprime x_1\wedge\cdots\wedge\dprime x_n
+   \wedge\ddprime x_1\wedge\cdots\widehat{\ddprime x_i}
+        \cdots\wedge\ddprime x_n .
+\]
+Then, with $\tau_{n-1}$ formed from $x_2,\ldots,x_n$,
+\[
+ \dprime\eta=\Bigl(\sum_i\frac{\partial f_i}{\partial x_i}\Bigr)\tau_n,
+ \qquad
+ \ddprime\theta=\Bigl(\sum_i\frac{\partial g_i}{\partial x_i}\Bigr)\tau_n,
+\]
+and
+\[
+ \operatorname{tr}'_{\sigma,\tau}(\eta)=f_1|_\tau\,\tau_{n-1},
+ \qquad
+ \operatorname{tr}''_{\sigma,\tau}(\theta)=g_1|_\tau\,\tau_{n-1}.
+\]
+\end{lemma}
+
+\begin{proof}
+Every $(n-1,n)$-form on the span of $\sigma$ can be written as displayed,
+because the monomials appearing are a basis of
+$\bigwedge^{n-1}\oplus\bigwedge^n$ in these coordinates; the factor
+$c_n(-1)^{i-1}$ is a normalization chosen to make the conclusion clean.
+
+\emph{The differentials.}  By the definition of $\dprime$,
+\[
+ \dprime\eta
+ =c_n\sum_{i,j}(-1)^{i-1}\frac{\partial f_i}{\partial x_j}\,
+   \dprime x_j\wedge\dprime x_1\wedge\cdots\widehat{\dprime x_i}\cdots
+   \wedge\dprime x_n\wedge\ddprime x_1\wedge\cdots\wedge\ddprime x_n .
+\]
+Only $j=i$ survives, and
+$\dprime x_i\wedge\dprime x_1\wedge\cdots\widehat{\dprime x_i}\cdots
+\wedge\dprime x_n=(-1)^{i-1}\dprime x_1\wedge\cdots\wedge\dprime x_n$, so
+the two signs $(-1)^{i-1}$ cancel and
+\[
+ \dprime\eta=c_n\Bigl(\sum_i\frac{\partial f_i}{\partial x_i}\Bigr)
+  \dprime x_1\wedge\cdots\wedge\dprime x_n
+   \wedge\ddprime x_1\wedge\cdots\wedge\ddprime x_n
+  =\Bigl(\sum_i\frac{\partial f_i}{\partial x_i}\Bigr)\tau_n
+\]
+by \Cref{lem:ch11-interlaced-grouped} and $c_n^2=1$.  For $\theta$, the
+defining sign of $\ddprime$ on a form whose primed degree is $n$ contributes
+$(-1)^n$; only $j=i$ survives; and
+$\ddprime x_i\wedge\ddprime x_1\wedge\cdots\widehat{\ddprime x_i}\cdots
+\wedge\ddprime x_n=(-1)^{i-1}\ddprime x_1\wedge\cdots\wedge\ddprime x_n$.
+The total sign is
+$(-1)^n(-1)^{n+i-1}(-1)^{i-1}=(-1)^{2n+2i-2}=1$, whence the second identity.
+
+\emph{The traces.}  Apply $\iota''_{e_1}$ to $\eta$.  By
+\Cref{def:ch11-contractions} the primed block is untouched and
+$\iota_{e_1}(\ddprime x_1\wedge\cdots\wedge\ddprime x_n)
+=\ddprime x_2\wedge\cdots\wedge\ddprime x_n$, so
+\[
+ \iota''_{e_1}\eta
+ =c_n\sum_i(-1)^{i-1}f_i\,
+   \dprime x_1\wedge\cdots\widehat{\dprime x_i}\cdots\wedge\dprime x_n
+   \wedge\ddprime x_2\wedge\cdots\wedge\ddprime x_n .
+\]
+Restricting to $\tau$ annihilates $\dprime x_1$, hence kills every summand
+with $i\ne1$.  There remains
+\[
+ \begin{aligned}
+ (\iota''_{e_1}\eta)|_\tau
+ &=c_nf_1|_\tau\,
+   \dprime x_2\wedge\cdots\wedge\dprime x_n
+   \wedge\ddprime x_2\wedge\cdots\wedge\ddprime x_n\\
+ &=c_nc_{n-1}f_1|_\tau\,\tau_{n-1}
+  =(-1)^{n-1}f_1|_\tau\,\tau_{n-1},
+ \end{aligned}
+\]
+using \Cref{lem:ch11-interlaced-grouped} twice.  Multiplying by the
+prefactor $(-1)^{n-1}$ of \eqref{eq:superform-boundary-traces} gives
+$\operatorname{tr}'_{\sigma,\tau}(\eta)=f_1|_\tau\,\tau_{n-1}$.
+
+For $\theta$, apply $\iota'_{e_1}$; now the primed block loses $\dprime x_1$
+and the restriction to $\tau$ kills every summand containing
+$\ddprime x_1$, that is, every $i\ne1$.  There remains
+  \[
+   \begin{aligned}
+   (\iota'_{e_1}\theta)|_\tau
+   & =c_n(-1)^{n}g_1|_\tau\,
+     \dprime x_2\wedge\cdots\wedge\dprime x_n
+     \wedge\ddprime x_2\wedge\cdots\wedge\ddprime x_n\\
+   & =(-1)^{n-1}(-1)^{n}g_1|_\tau\,\tau_{n-1}
+    =-g_1|_\tau\,\tau_{n-1},
+   \end{aligned}
+  \]
+and the prefactor $-1$ in \eqref{eq:superform-boundary-traces} produces
+$\operatorname{tr}''_{\sigma,\tau}(\theta)=g_1|_\tau\,\tau_{n-1}$.
+\end{proof}
+
+Two consequences deserve to be stated separately, because they are what make
+the formula usable.
+
+\begin{corollary}
+\label{cor:ch11-trace-flux}
+Let $\sigma$ be an $n$-dimensional rational polyhedron with tangent lattice
+ $N_\sigma$.  There are canonical isomorphisms of $C^\infty$-modules
+ \[
+   \begin{aligned}
+   A^{n-1,n}\bigl(N_{\sigma,\mathbf R}\bigr)
+   &\;\xrightarrow{\ \sim\ }\;C^\infty\otimes N_{\sigma,\mathbf R},
+   &\eta&\longmapsto F_\eta,\\
+   A^{n,n-1}\bigl(N_{\sigma,\mathbf R}\bigr)
+   &\;\xrightarrow{\ \sim\ }\;C^\infty\otimes N_{\sigma,\mathbf R},
+   &\theta&\longmapsto G_\theta,
+   \end{aligned}
+ \]
+depending only on the lattice $N_\sigma$ and characterized in the adapted
+coordinates of \Cref{lem:ch11-trace-normal-form} by
+$F_\eta=\sum_if_ie_i$ and $G_\theta=\sum_ig_ie_i$.  With this notation
+\[
+ \dprime\eta=(\operatorname{div}F_\eta)\,\tau_n,
+ \qquad
+ \ddprime\theta=(\operatorname{div}G_\theta)\,\tau_n,
+\]
+and, for a codimension-one face $\tau\prec\sigma$,
+\[
+ \operatorname{tr}'_{\sigma,\tau}(\eta)=\lambda_\eta\,\tau_{n-1},
+ \qquad
+ \operatorname{tr}''_{\sigma,\tau}(\theta)=\lambda_\theta\,\tau_{n-1},
+\]
+where $\lambda_\eta,\lambda_\theta\in C^\infty(\tau)$ are the functions
+determined by
+\[
+ F_\eta\equiv\lambda_\eta\,n_{\sigma,\tau},
+ \qquad
+ G_\theta\equiv\lambda_\theta\,n_{\sigma,\tau}
+ \qquad\text{in }N_{\sigma,\mathbf R}/N_{\tau,\mathbf R}.
+\]
+In particular the two traces obey the \emph{same} rule, and both measure
+outward flux with respect to the primitive lattice normal.
+\end{corollary}
+
+\begin{proof}
+Canonically $A^{n-1,n}(V)=\bigwedge^{n-1}V^*\otimes\bigwedge^nV^*$ and
+$\bigwedge^{n-1}V^*\cong V\otimes\bigwedge^nV^*$, so
+$A^{n-1,n}(V)\cong V\otimes(\bigwedge^nV^*)^{\otimes2}$.  A lattice
+$N_\sigma$ trivializes $(\bigwedge^nV^*)^{\otimes2}$ canonically, since two
+lattice bases differ by a determinant $\pm1$ whose square is $1$; this is
+\Cref{lem:ch11-orientation-drops-out} again, and it produces the first
+isomorphism.  Exchanging the roles of the two exterior factors gives the
+second.  In adapted coordinates the trivializing element is $\tau_n$, and the
+normal forms displayed in \Cref{lem:ch11-trace-normal-form} are exactly the
+images of $\sum_if_ie_i$ and $\sum_ig_ie_i$.
+
+The formulas for $\dprime\eta$ and $\ddprime\theta$ were proved in
+\Cref{lem:ch11-trace-normal-form}.  For the traces, choose adapted
+coordinates with $e_1=n_{\sigma,\tau}$ and $e_2,\ldots,e_n$ a lattice basis
+of $N_\tau$.  Then $F_\eta\equiv f_1e_1$ modulo $N_{\tau,\mathbf R}$, so
+$\lambda_\eta=f_1|_\tau$, and \Cref{lem:ch11-trace-normal-form} gives
+$\operatorname{tr}'_{\sigma,\tau}(\eta)=f_1|_\tau\,\tau_{n-1}$.  Both
+$\lambda_\eta$ and the trace were defined without reference to the adapted
+basis, so the identity holds in general.  The argument for $\theta$ is
+identical.
+\end{proof}
+
+\begin{warning}{The flux coefficient is a quotient, not an inner product}
+The function $\lambda_\eta$ is \emph{not} the Euclidean inner product of
+$F_\eta$ with a unit normal.  It is the coefficient of the class of $F_\eta$
+in the rank-one real vector space $N_{\sigma,\mathbf R}/N_{\tau,\mathbf R}$
+with respect to the basis furnished by the primitive outward class.  In
+particular, replacing $n_{\sigma,\tau}$ by twice itself halves
+$\lambda_\eta$, and no metric intervenes.  On the hypotenuse of the standard
+triangle of \Cref{ex:ch11-euclidean-normal-trap} the two prescriptions differ
+by a factor $\sqrt2$.
+\end{warning}
+
+\begin{corollary}
+\label{cor:ch11-trace-additive}
+Fix $\tau$ and a superform $\eta\in A^{n-1,n}$ defined near $\tau$.  The
+assignment
+\[
+ v\longmapsto (\iota''_v\eta)|_\tau
+\]
+is a linear map from $N_{\mathbf R}$ to the one-dimensional space of
+$(n-1,n-1)$-forms at a point of $\tau$, and it kills
+$N_{\tau,\mathbf R}$.  It therefore factors through
+$N_{\mathbf R}/N_{\tau,\mathbf R}$.
+\end{corollary}
+
+\begin{proof}
+Linearity is \Cref{lem:ch11-contraction-basic}, and the vanishing on
+$N_{\tau,\mathbf R}$ was proved in
+\Cref{lem:ch11-trace-welldefined}\,\cref{itm:ch11-trace:lift}, whose
+argument did not use $v\in N_\sigma$.  The target is one dimensional because
+$\bigwedge^{n-1}N_\tau^*\otimes\bigwedge^{n-1}N_\tau^*$ is.
+\end{proof}
+
+\Cref{cor:ch11-trace-additive} is the technical heart of the balancing
+argument in \Cref{sec:ch11-balancing}: it converts a sum of boundary
+contributions over the facets containing $\tau$ into a single contraction
+against the sum of their weighted normal vectors.
+
+\begin{lemma}
+\label{lem:ch11-segment-stokes}
+For $\sigma=[a,b]$ with its increasing orientation and
+$\eta=f\,\ddprime x$,
+\[
+                       \int_\sigma \dprime\eta=f(b)-f(a).
+\]
+The outward normals at $b$ and $a$ are $+1$ and $-1$ respectively, and the
+right-hand side is the sum of the traces in
+\eqref{eq:superform-boundary-traces}.
+\end{lemma}
+\begin{proof}
+Since $\dprime\eta=f'\,\dprime x\wedge \ddprime x$, the assertion is the fundamental theorem
+of calculus. This fixes all later boundary signs.
+\end{proof}
+
+It is worth carrying out the verification of the last sentence in complete
+detail once, since it is the base case of every induction below.  Take
+$n=1$, so $c_1=1$ and $\tau_1=\dprime x\wedge\ddprime x$, and write
+$\eta=f\,\ddprime x$, which is the normal form of
+\Cref{lem:ch11-trace-normal-form} with $f_1=f$.  The face $\tau=\{b\}$ has
+$N_\tau=0$ and $\tau_0=1$, and the outward primitive normal is
+$n_{\sigma,b}=+1$; hence
+\[
+ \operatorname{tr}'_{\sigma,\{b\}}(\eta)
+ =(-1)^{1-1}\,\iota''_{+1}\bigl(f\,\ddprime x\bigr)\big|_{\{b\}}
+ =f(b).
+\]
+At $\tau=\{a\}$ the outward normal is $-1$ and the same computation gives
+$-f(a)$.  The sum is $f(b)-f(a)$, which is $\int_a^bf'\,\rd x$.  The
+lattice measure of a point is the counting measure of mass one, so
+$\int_{\{b\}}f(b)\tau_0=f(b)$; no length enters.
+
+\begin{example}[A segment with a weight]
+\label{ex:ch11-weighted-segment}
+Let $\Gamma$ be the interval $[0,\ell]\subset\mathbf R$ with the standard
+lattice $\mathbf Z$ and weight $m\in\mathbf Z\setminus\{0\}$.  For
+$\eta=f\,\ddprime x$ one gets
+\[
+ \int_{(\Gamma,m)}\dprime\eta=m\bigl(f(\ell)-f(0)\bigr).
+\]
+Two features of the general theory are already present.  First, the answer is
+insensitive to the Euclidean length $\ell$: only the values at the two
+endpoints appear, because $\dprime\eta$ is an exact top form.  Second, the
+weight multiplies the boundary terms as well as the interior integral;
+this is what allows weights of opposite sign to cancel across a shared
+endpoint, which is the one-dimensional case of balancing.  Concretely, if
+$\Gamma_1=[-\ell,0]$ and $\Gamma_2=[0,\ell]$ carry weights $m_1$ and $m_2$
+and $f$ vanishes near $\pm\ell$, then
+\[
+ \int_{(\Gamma_1,m_1)}\dprime\eta+\int_{(\Gamma_2,m_2)}\dprime\eta
+ =m_1f(0)-m_2f(0)=(m_1-m_2)f(0),
+\]
+which vanishes for all $f$ precisely when $m_1=m_2$.  The primitive outward
+normals at $0$ are $+1$ from $\Gamma_1$ and $-1$ from $\Gamma_2$, so the
+condition $m_1-m_2=0$ is literally $\sum_\sigma m_\sigma n_{\sigma,\tau}=0$:
+the balancing condition of \Cref{chap:tropical-spaces} at the vertex $0$.
+\end{example}
+
+\begin{example}[Boundary signs on a rectangle]
+Give $\sigma=[0,a]\times[0,b]$ the orientation $(\partial_x,\partial_y)$ and
+take
+\[
+ \eta=-f(x,y)\,\dprime y\wedge\ddprime x\wedge\ddprime y.
+\]
+Only the $x$-derivative contributes to
+$\dprime\eta$.  The two vertical faces have outward normals
+$-\partial_x$ and $+\partial_x$, so their boundary integrals occur with
+opposite signs.  The horizontal faces contribute zero because contraction
+in the double-primed block with $\partial_y$ leaves a double-primed factor
+that vanishes on the horizontal tangent line.  The resulting
+identity is the fundamental theorem of calculus in $x$, integrated over
+$y$.
+\end{example}
+
+The next example carries out the same computation with explicit numbers and
+then repeats it with the prefactor $(-1)^{n-1}$ removed.  It is the smallest
+complete demonstration that the prefactor is not cosmetic.
+
+\begin{example}[The naive trace has the wrong sign in even dimension]
+\label{ex:ch11-square-wrong-sign}
+Let $\sigma=[0,1]^2\subset\mathbf R^2$ with $N=\mathbf Z^2$, and take
+\[
+ \eta=-x_1\,\dprime x_2\wedge\ddprime x_1\wedge\ddprime x_2
+ \ \in A^{1,2}.
+\]
+This is the normal form of \Cref{lem:ch11-trace-normal-form} with $n=2$,
+$c_2=-1$, $f_1=x_1$ and $f_2=0$; the associated vector field is
+$F=(x_1,0)$, of divergence $1$.  Accordingly
+\[
+ \dprime\eta=\tau_2,
+ \qquad
+ \int_\sigma\dprime\eta=\omega_\sigma(\sigma)=1 .
+\]
+
+Now compute the four boundary traces from
+\eqref{eq:superform-boundary-traces}, using
+\Cref{cor:ch11-trace-flux}.  The outward primitive normals are
+$-e_1,\;+e_1,\;-e_2,\;+e_2$ on the faces
+$\{x_1=0\}$, $\{x_1=1\}$, $\{x_2=0\}$, $\{x_2=1\}$, and each face has
+lattice length one.  On $\{x_2=1\}$ the tangent lattice is
+$\mathbf Ze_1$ and $F=x_1e_1\equiv0$ modulo it, so $\lambda_\eta=0$; the
+same holds on $\{x_2=0\}$, and the two horizontal faces contribute nothing.
+On $\{x_1=1\}$ the tangent lattice is $\mathbf Ze_2$, the outward primitive
+class is that of $e_1$, and $F=x_1e_1\equiv1\cdot e_1$, so
+$\lambda_\eta=1$.  On $\{x_1=0\}$ the outward class is that of $-e_1$ and
+$F=x_1e_1=0$ there, so $\lambda_\eta=0$.  The total is
+\[
+ \sum_\tau\int_\tau\operatorname{tr}'_{\sigma,\tau}(\eta)=1+0+0+0=1
+ =\int_\sigma\dprime\eta ,
+\]
+as \Cref{thm:polyhedral-stokes} asserts.
+
+Suppose now that one had defined the boundary trace by the naive recipe
+\[
+ \widetilde{\operatorname{tr}}'_{\sigma,\tau}(\eta)
+ =\left.\bigl(\iota''_{n_{\sigma,\tau}}\eta\bigr)\right|_\tau,
+\]
+that is, without the prefactor $(-1)^{n-1}$.  On $\{x_1=1\}$ the
+computation in the proof of \Cref{lem:ch11-trace-normal-form} gives
+$(\iota''_{e_1}\eta)|_\tau=(-1)^{n-1}f_1\tau_{n-1}=-\tau_1$, whence
+\[
+ \sum_\tau\int_\tau\widetilde{\operatorname{tr}}'_{\sigma,\tau}(\eta)
+ =-1\neq1 .
+\]
+Stokes' formula would fail by a sign.  In dimension one the two recipes
+agree, because $(-1)^{n-1}=1$; in dimension three they agree again.  The
+naive convention is therefore consistent with every check performed on
+segments, on curves, and on threefolds, and fails exactly on surfaces---the
+case in which most of the interesting examples of this book live.  We
+record the moral: \emph{a boundary convention must be tested in even
+dimension}.
+
+The same example also separates two other frequently confused choices.  If
+one replaces the outward normal $n_{\sigma,\tau}$ by the inward normal
+$u_{\sigma/\tau}$, every trace changes sign and the total becomes $-1$; if
+one replaces the primitive normal by a Euclidean unit normal on a face
+whose tangent lattice is not generated by a Euclidean unit vector, the
+individual boundary contributions are rescaled by irrational factors and no
+longer combine into the balancing sum, as in
+\Cref{ex:ch11-euclidean-normal-trap}.  Of these three possible errors, only
+the second is visible to a dimension-one test.
+\end{example}
+
+\begin{theorem}\label{thm:polyhedral-stokes}
+Let $\sigma$ be an oriented rational $n$-polytope. For every smooth
+$(n-1,n)$-form $\eta$ defined near $\sigma$,
+\[
+                         \int_\sigma \dprime\eta
+          =\sum_{\substack{\tau\prec\sigma\\
+                           \operatorname{codim}_\sigma\tau=1}}\int_\tau
+             \operatorname{tr}'_{\sigma,\tau}(\eta).
+\]
+For $\theta\in A^{n,n-1}$ the analogous formula holds with $\ddprime$ and
+$\operatorname{tr}''_{\sigma,\tau}(\theta)$.
+\end{theorem}
+\begin{proof}
+By linearity it suffices to write
+\[
+\eta=c_n\sum_{i=1}^n(-1)^{i-1}f_i\,
+\dprime x_1\wedge\cdots\widehat{\dprime x_i}\cdots\wedge \dprime x_n
+\wedge \ddprime x_1\wedge\cdots\wedge \ddprime x_n.
+\]
+Then
+\[
+\dprime\eta=\left(\sum_i\frac{\partial f_i}{\partial x_i}\right)\tau_n.
+\]
+The asserted formula is exactly the divergence theorem for the vector field
+$(f_1,\ldots,f_n)$ with lattice-normalized measure.  The proof has four
+steps: the classical Euclidean divergence theorem, the conversion of
+Euclidean boundary data into lattice boundary data, the identification of
+the resulting expression with the trace
+\eqref{eq:superform-boundary-traces}, and the double-primed variant.  Throughout, $x_1,\ldots,x_n$ are the
+affine coordinates dual to a lattice basis $e_1,\ldots,e_n$ of $N_\sigma$
+fixed once and for all, so that $\omega_\sigma$ is Lebesgue measure
+$\rd x=\rd x_1\cdots\rd x_n$; we equip $N_{\sigma,\mathbf R}$ with the
+auxiliary Euclidean structure making $e_1,\ldots,e_n$ orthonormal.  This
+Euclidean structure is a device: it disappears from the final formula, as
+Step 2 shows.
+
+\smallskip
+\emph{Step 1: the Euclidean divergence theorem.}
+Let $F=(f_1,\ldots,f_n)$, let $\tau$ run over the codimension-one faces of
+$\sigma$, let $\nu_\tau$ be the Euclidean outward unit normal along $\tau$
+and $\mathcal H^{n-1}$ the Euclidean surface measure.  Then
+\begin{equation}
+\label{eq:ch11-euclidean-divergence}
+ \int_\sigma\operatorname{div}F\,\rd x
+ =\sum_\tau\int_\tau\langle F,\nu_\tau\rangle\,\rd\mathcal H^{n-1}.
+\end{equation}
+This is the classical Gauss--Green theorem for a bounded open set with
+Lipschitz boundary, applied to the interior of $\sigma$; see
+\cite[\S5.8]{EvansGariepy}.
+
+We include the reduction to one variable.  On the standard simplex
+\[
+ \Delta_n=\{x_i\geq0,\ \textstyle\sum_i x_i\leq1\},
+\]
+Fubini and the fundamental theorem of calculus give, for each $i$,
+\[
+\begin{split}
+ \int_{\Delta_n}\frac{\partial f_i}{\partial x_i}\,\rd x
+ =\int_{\Delta_{n-1}}
+ \bigl[
+ f_i(x_1,\ldots,1-\!\sum_{j\ne i}x_j,\ldots,x_n)\\
+ {}-f_i(x_1,\ldots,0,\ldots,x_n)
+ \bigr]\,\rd x_{\widehat{\imath}} ,
+\end{split}
+\]
+where $\Delta_{n-1}$ is the image of $\Delta_n$ in the hyperplane
+$\{x_i=0\}$; the interchange of the order of integration is legitimate
+because $f_i$ is smooth near the compact set $\Delta_n$.  The second term is
+the flux across the coordinate face, whose Euclidean outward unit normal is
+$-e_i$ and whose surface measure is $\rd x_{\widehat\imath}$.  On the
+remaining face $\{\sum_jx_j=1\}$ one has
+$\nu=n^{-1/2}(1,\ldots,1)$, and the projection $p_i$ forgetting the $i$th
+coordinate is a bijection onto $\Delta_{n-1}$ with
+$(p_i)_*\mathcal H^{n-1}=n^{1/2}\,\rd x_{\widehat\imath}$, because the angle
+between $\nu$ and $e_i$ has cosine $n^{-1/2}$.  Hence the $i$th first term is
+$\int n^{-1/2}f_i\,\rd\mathcal H^{n-1}$, and summing over $i$ gives
+$\int n^{-1/2}\bigl(\sum_if_i\bigr)\rd\mathcal H^{n-1}
+=\int\langle F,\nu\rangle\,\rd\mathcal H^{n-1}$.  Thus
+\eqref{eq:ch11-euclidean-divergence} holds on $\Delta_n$; the general
+polytope is covered by the cited theorem, and also, for a reader who
+prefers an elementary route, by triangulating and observing that interior
+faces occur twice with opposite Euclidean outward unit normals and equal
+surface measures, so that their contributions cancel.
+
+\smallskip
+\emph{Step 2: from Euclidean to lattice boundary data.}
+Fix a codimension-one face $\tau$ and let $d_\tau>0$ be the covolume of the
+lattice $N_\tau$ inside the hyperplane $N_{\tau,\mathbf R}$ for the auxiliary
+Euclidean structure.  By definition of the lattice measure,
+\[
+ \rd\mathcal H^{n-1}\big|_\tau=d_\tau\,\omega_\tau .
+\]
+Next, $N_\tau\oplus\mathbf Z\,n_{\sigma,\tau}=N_\sigma$, because
+$n_{\sigma,\tau}$ represents a generator of the rank-one group
+$N_\sigma/N_\tau$.  Computing the covolume of $N_\sigma$ in two ways,
+\[
+ 1=\operatorname{covol}(N_\sigma)
+  =\operatorname{covol}(N_\tau)\cdot
+   \bigl|\langle n_{\sigma,\tau},\nu_\tau\rangle\bigr|
+  =d_\tau\,\bigl|\langle n_{\sigma,\tau},\nu_\tau\rangle\bigr|,
+\]
+the middle equality being the base-times-height formula for the
+parallelotope spanned by a lattice basis of $N_\tau$ together with
+$n_{\sigma,\tau}$.  As $n_{\sigma,\tau}$ points outward, the pairing is
+positive and $\langle n_{\sigma,\tau},\nu_\tau\rangle=d_\tau^{-1}$.
+
+Let $\lambda_\eta$ be the flux coefficient of
+\Cref{cor:ch11-trace-flux}, so that $F\equiv\lambda_\eta\,n_{\sigma,\tau}$
+modulo $N_{\tau,\mathbf R}$.  Since $\nu_\tau$ annihilates
+$N_{\tau,\mathbf R}$,
+\[
+ \langle F,\nu_\tau\rangle
+ =\lambda_\eta\,\langle n_{\sigma,\tau},\nu_\tau\rangle
+ =\lambda_\eta\,d_\tau^{-1},
+\]
+whence
+\[
+ \int_\tau\langle F,\nu_\tau\rangle\,\rd\mathcal H^{n-1}
+ =\int_\tau\lambda_\eta\,d_\tau^{-1}\cdot d_\tau\,\omega_\tau
+ =\int_\tau\lambda_\eta\,\omega_\tau .
+\]
+The auxiliary Euclidean structure has cancelled, as it had to: the left-hand
+side of \eqref{eq:ch11-euclidean-divergence} does not depend on it.
+
+\smallskip
+\emph{Step 3: the sign.}
+The factor $(-1)^{n-1}$ in the first trace is the quotient
+$c_n/c_{n-1}$ between the interlaced orientations in dimensions $n$ and
+$n-1$.  This shows directly that the first trace in
+\eqref{eq:superform-boundary-traces} gives the displayed flux terms.
+Precisely, \Cref{cor:ch11-trace-flux} gives
+$\operatorname{tr}'_{\sigma,\tau}(\eta)=\lambda_\eta\,\tau_{n-1}$, and hence
+$\int_\tau\operatorname{tr}'_{\sigma,\tau}(\eta)
+=\int_\tau\lambda_\eta\,\omega_\tau$, which by Step 2 is the flux term of
+\eqref{eq:ch11-euclidean-divergence}.  Combining Steps 1--3 and
+$\int_\sigma\dprime\eta=\int_\sigma\operatorname{div}F\,\rd x$ proves the
+$\dprime$ formula.  This is the only step in which a sign is created; Steps
+1 and 2 involve positive factors only.
+
+\smallskip
+\emph{Step 4: the double-primed formula.}
+For the other differential write
+\[
+ \theta=c_n\sum_{i=1}^n(-1)^{n+i-1}g_i\,
+ \dprime x_1\wedge\cdots\wedge\dprime x_n
+ \wedge\ddprime x_1\wedge\cdots
+       \widehat{\ddprime x_i}\cdots\wedge\ddprime x_n.
+\]
+The defining sign in $\ddprime$ gives
+\[
+ \ddprime\theta=
+ \left(\sum_i\frac{\partial g_i}{\partial x_i}\right)\tau_n.
+\]
+On a face with outward normal $e_i$, primed contraction followed by
+restriction has coefficient $-g_i$ relative to the interlaced boundary
+orientation; hence the minus sign in
+$\operatorname{tr}''_{\sigma,\tau}$ produces the outward flux $g_i$.
+Both assertions are \Cref{lem:ch11-trace-normal-form}, so
+$\operatorname{tr}''_{\sigma,\tau}(\theta)=\lambda_\theta\,\tau_{n-1}$ with
+$G_\theta\equiv\lambda_\theta n_{\sigma,\tau}$, and Steps 1--2 apply
+verbatim with $F$ replaced by $G_\theta$.  Equivalently, apply the
+involution $J$ of \Cref{chap:superforms}: it exchanges $\dprime$ and
+$\ddprime$, carries $A^{n,n-1}$ to $A^{n-1,n}$, fixes $\tau_n$ up to the
+sign $(-1)^n$ and $\tau_{n-1}$ up to $(-1)^{n-1}$, and exchanges $\iota'$
+and $\iota''$; the two normalizations in
+\eqref{eq:superform-boundary-traces} differ by exactly the resulting
+factor.
+\end{proof}
+
+\begin{remark}[Why the interior cancellation of Step~1 is not yet balancing]
+\label{rem:ch11-step4-vs-balancing}
+In the triangulation argument of Step~1 the two simplices adjacent to an
+interior face carry the
+\emph{same} tangent lattice and the \emph{same} weight, namely the weight of
+$\sigma$, so the cancellation is automatic.  On a general weighted complex
+neither is true: adjacent facets may have different weights, and more than
+two facets may meet along a codimension-one cell.  The cancellation then
+becomes a hypothesis, and that hypothesis is balancing.  This is the
+distinction which \Cref{sec:ch11-balancing} makes precise, and it is the
+reason the present theorem is stated for a single polytope.
+\end{remark}
+
+\begin{example}[A triangle computation]
+\label{ex:ch11-triangle}
+Let
+\[
+ \Delta=\{(x,y)\in\mathbf R_{\geq0}^2\mid x+y\leq1\}
+\]
+with the standard lattice and orientation.  For the vector field
+$F=(x,y)$, the divergence is $2$, so
+$\int_\Delta\operatorname{div}(F)\,\rd x\,\rd y=1$.
+The flux across the coordinate faces is zero.  On $x+y=1$, the primitive
+outward normal in the quotient lattice is represented by $(1,0)$, or equally
+by $(0,1)$ modulo the tangent vector $(1,-1)$, and the lattice-normalized
+boundary parameter has length one.  The contraction prescribed above gives
+total flux one.  This illustrates why one uses a primitive quotient normal,
+not the Euclidean unit normal $(1,1)/\sqrt2$.
+\end{example}
+
+The arithmetic of the last example repays a second look, because it is the
+first place where lattice and Euclidean normalizations visibly disagree and
+where their disagreement nevertheless cancels.  With $F=(x,y)$ one has
+$\operatorname{div}F=2$ and $\omega_\Delta(\Delta)=\tfrac12$, so the interior
+integral is $1$.  On the hypotenuse the lattice measure gives mass $1$
+(\Cref{ex:ch11-euclidean-normal-trap}), the outward primitive class is that
+of $e_1$, and on the hypotenuse $F=xe_1+ye_2\equiv(x+y)e_1=1\cdot e_1$, so
+$\lambda_F=1$ and the flux is $1$.  In the Euclidean bookkeeping the
+hypotenuse has length $\sqrt2$, the unit normal is $(1,1)/\sqrt2$, and the
+flux density is $(x+y)/\sqrt2=1/\sqrt2$, giving $\sqrt2\cdot(1/\sqrt2)=1$
+again.  The two computations agree here because the ratio of Euclidean to
+lattice measure on the face is exactly the ratio of the primitive to the
+Euclidean unit normal; that is a general identity for a \emph{single}
+polytope.  It fails as soon as two cells whose tangent lattices sit
+differently inside $N$ meet along $\tau$, because then only the lattice
+version is a sum of comparable terms; see
+\Cref{ex:ch11-tripod-stokes}.
+
+\begin{corollary}
+\label{cor:polyhedral-integration-by-parts}
+Let $\sigma$ be a polytope and suppose that one of the smooth functions
+$f,g$ has support in the relative interior of $\sigma$. Then
+\[
+ \int_\sigma f\,\dprimeddprime g\wedge\alpha
+ =-\int_\sigma \dprime f\wedge\ddprime g\wedge\alpha
+\]
+for every $\dprime$-closed form $\alpha$ of complementary bidegree for which
+the products have top degree.
+\end{corollary}
+\begin{proof}
+Apply \Cref{thm:polyhedral-stokes} to
+$f\,\ddprime g\wedge\alpha$.  The support hypothesis kills every boundary
+term, and $\dprime\alpha=0$ kills the term obtained by differentiating
+$\alpha$.
+\end{proof}
+
+\section{Balancing and global cancellation}
+\label{sec:ch11-balancing}
+
+We have proved a divergence theorem on one polyhedron.  A tropical cycle is
+many polyhedra glued along their faces, each carrying a weight, and the
+boundary terms of adjacent facets must cancel if the total is to be zero.
+The purpose of this section is to isolate the exact obstruction to that
+cancellation and to observe that it is the balancing condition of
+\Cref{chap:tropical-spaces}---not a sufficient condition for cancellation,
+nor a convenient one, but precisely the necessary and sufficient one.  This
+is the conceptual payoff of the chapter: balancing is not an axiom imposed
+because tropicalizations happen to satisfy it, but the unique hypothesis
+under which the calculus of superforms has a Stokes theorem.
+
+Before proving anything we extend the previous theorem to unbounded cells,
+which is needed because tropical cycles are rarely compact.
+
+\begin{corollary}
+\label{cor:ch11-stokes-unbounded}
+Let $\sigma\subset N_{\mathbf R}$ be an $n$-dimensional rational polyhedron,
+not assumed bounded, and let $\eta\in A^{n-1,n}$ be smooth on a
+neighbourhood of $\sigma$ with $\sigma\cap\Supp\eta$ compact.  Then
+\[
+ \int_\sigma\dprime\eta
+ =\sum_{\substack{\tau\prec\sigma\\ \operatorname{codim}_\sigma\tau=1}}
+   \int_\tau\operatorname{tr}'_{\sigma,\tau}(\eta),
+\]
+all but finitely many terms being zero, and similarly for $\ddprime$.
+\end{corollary}
+
+\begin{proof}
+Choose a rational box $B$, that is a product of bounded rational intervals
+in coordinates dual to a lattice basis of $N$, whose interior contains the
+compact set $\sigma\cap\Supp\eta$.  Then $\sigma\cap B$ is a rational
+polytope with $N_{\sigma\cap B}=N_\sigma$, and
+\Cref{thm:polyhedral-stokes} applies to it.  Its codimension-one faces are
+of two kinds: those contained in a codimension-one face $\tau$ of $\sigma$,
+and those contained in $\partial B$.  A face of the second kind is disjoint
+from $\Supp\eta$, because $\Supp\eta\cap\sigma$ lies in the interior of
+$B$, so its trace vanishes.  A face $\rho$ of the first kind satisfies
+$N_\rho=N_\tau$ and lies on the same side of the affine span of $\tau$ as
+$\sigma$ does, so it carries the same outward primitive normal; grouping the
+$\rho$'s inside each $\tau$ and using additivity of $\omega_\tau$ replaces
+$\sum_\rho\int_\rho$ by $\sum_\tau\int_\tau$, since $\eta$ vanishes on
+$\tau\setminus B$.  Finally $\int_{\sigma\cap B}\dprime\eta
+=\int_\sigma\dprime\eta$ for the same support reason.  Local finiteness of
+the face poset of $\sigma$ gives the finiteness assertion.
+\end{proof}
+
+\subsection{The boundary defect of a weighted complex}
+\label{sec:ch11-defect}
+
+\begin{definition}
+\label{def:ch11-defect}
+\index{boundary defect}\index{balancing!as vanishing of a defect}
+Let $(\mathscr C,m)$ be a pure $n$-dimensional weighted rational polyhedral
+complex in $N_{\mathbf R}$ and let $\tau\in\mathscr C_{n-1}$.  The
+\emph{boundary defect} of $(\mathscr C,m)$ along $\tau$ is
+\[
+ \mathbf N(\tau)
+ =\sum_{\substack{\sigma\in\mathscr C_n\\ \sigma\supset\tau}}
+    m_\sigma\,n_{\sigma,\tau}
+ \;=\;-\sum_{\substack{\sigma\in\mathscr C_n\\ \sigma\supset\tau}}
+    m_\sigma\,u_{\sigma/\tau}
+ \qquad\in N/N_\tau .
+\]
+\end{definition}
+
+The defect is well defined because each $n_{\sigma,\tau}=-u_{\sigma/\tau}$
+is a canonical element of $N_\sigma/N_\tau\subset N/N_\tau$, and the sum is
+finite by local finiteness of $\mathscr C$.  Comparing with
+\Cref{chap:tropical-spaces}, the complex is balanced if and only if
+$\mathbf N(\tau)=0$ for every $\tau\in\mathscr C_{n-1}$; the sign of the
+defect is immaterial for that statement, but it matters for the formula
+below, and we have fixed it so that $\mathbf N$ is a sum of \emph{outward}
+normals, matching the outward convention of the boundary traces.
+
+This is exactly Chambert-Loir and Ducros' \emph{discordance} of a calibration
+along a codimension-one face, and their \emph{harmonious} spaces are those
+of vanishing defect; see \cite[\S\S4.6.7--4.6.12]{CLD25}.  The vocabularies
+differ because their calibration is defined on an abstract parlinear space,
+whereas we work with an embedded complex; the content is the same.
+
+\begin{warning}{Two independent sign choices}
+Balancing is usually written with inward primitive generators,
+$\sum_\sigma m_\sigma u_{\sigma/\tau}=0$; boundary traces are written with
+outward normals.  Since the two families differ by a global factor $-1$,
+the \emph{condition} balanced is insensitive to the choice, but the
+\emph{defect} changes sign.  Whenever a residual boundary term is retained,
+as in \Cref{thm:ch11-defect-stokes} and in the metric-graph comparison of
+\Cref{thm:ch11-graph-green}, one must say which convention is in force.  Ours
+is outward, always.
+\end{warning}
+
+\begin{theorem}
+\label{thm:ch11-defect-stokes}
+Let $(\mathscr C,m)$ be a pure $n$-dimensional weighted rational polyhedral
+complex in $N_{\mathbf R}$, not assumed balanced.  For every
+$\eta\in A^{n-1,n}_c(|\mathscr C|)$,
+\begin{equation}
+\label{eq:ch11-defect-stokes}
+ \int_{(\mathscr C,m)}\dprime\eta
+ =(-1)^{n-1}\sum_{\tau\in\mathscr C_{n-1}}
+   \int_\tau\bigl(\iota''_{\mathbf N(\tau)}\eta\bigr)\big|_\tau ,
+\end{equation}
+where $\iota''_{\mathbf N(\tau)}$ means contraction against any lift of
+$\mathbf N(\tau)$ to $N$, and only finitely many terms are nonzero.  The
+analogous formula holds for $\theta\in A^{n,n-1}_c$ with $\ddprime$,
+$\iota'$, and the global prefactor $-1$.
+\end{theorem}
+
+\begin{proof}
+Since $\Supp\eta$ is compact and $\mathscr C$ is locally finite, only
+finitely many cells meet $\Supp\eta$, so every sum below is finite and no
+convergence question arises.
+
+Apply \Cref{cor:ch11-stokes-unbounded} to each facet $\sigma$ and multiply
+by $m_\sigma$:
+\[
+ \int_{(\mathscr C,m)}\dprime\eta
+ =\sum_{\sigma\in\mathscr C_n}m_\sigma
+   \sum_{\substack{\tau\prec\sigma\\ \operatorname{codim}=1}}
+   \int_\tau\operatorname{tr}'_{\sigma,\tau}(\eta).
+\]
+Every codimension-one face of a facet of $\mathscr C$ is again a cell of
+$\mathscr C$, because a polyhedral complex is closed under passage to faces.
+We may therefore exchange the order of summation and group by
+$\tau\in\mathscr C_{n-1}$:
+\[
+ \int_{(\mathscr C,m)}\dprime\eta
+ =\sum_{\tau\in\mathscr C_{n-1}}\ \int_\tau
+  \sum_{\sigma\supset\tau}m_\sigma
+   \operatorname{tr}'_{\sigma,\tau}(\eta).
+\]
+Fix $\tau$.  By definition
+$\operatorname{tr}'_{\sigma,\tau}(\eta)
+=(-1)^{n-1}(\iota''_{n_{\sigma,\tau}}\eta)|_\tau$, and by
+\Cref{cor:ch11-trace-additive} the assignment
+$v\mapsto(\iota''_v\eta)|_\tau$ is linear and factors through
+$N_{\mathbf R}/N_{\tau,\mathbf R}$.  Hence
+\[
+ \sum_{\sigma\supset\tau}m_\sigma\operatorname{tr}'_{\sigma,\tau}(\eta)
+ =(-1)^{n-1}\Bigl(\iota''_{\sum_\sigma m_\sigma n_{\sigma,\tau}}
+    \eta\Bigr)\Big|_\tau
+ =(-1)^{n-1}\bigl(\iota''_{\mathbf N(\tau)}\eta\bigr)\big|_\tau ,
+\]
+which is \eqref{eq:ch11-defect-stokes}.  The argument for $\ddprime$ is
+identical, with $\operatorname{tr}''_{\sigma,\tau}(\theta)
+=-(\iota'_{n_{\sigma,\tau}}\theta)|_\tau$ and with
+\Cref{cor:ch11-trace-additive} applied to $\iota'$, whose proof used only
+that the contracted block has degree $n$.
+\end{proof}
+
+Formula \eqref{eq:ch11-defect-stokes} is the whole mechanism in one line.
+The integral of an exact top form over a weighted complex is a sum of
+codimension-one integrals, one for each codimension-one cell, each of which
+is the contraction of $\eta$ against a single vector: the weighted sum of
+outward normals.  Nothing else survives.  In particular the answer does not
+depend on how the facets are arranged around $\tau$, only on that one
+vector.
+
+\begin{theorem}\label{thm:balanced-stokes}
+Let $(\mathscr C,m)$ be a pure $n$-dimensional balanced rational polyhedral complex
+without boundary. If $\eta\in A^{n-1,n}_c(|\mathscr C|)$, then
+\[
+                         \int_{(\mathscr C,m)}\dprime\eta=0.
+\]
+Similarly $\int \ddprime\theta=0$ for
+$\theta\in A^{n,n-1}_c$.
+\end{theorem}
+\begin{proof}
+Apply \Cref{thm:polyhedral-stokes} cellwise. Compact support makes the
+sum finite. At a codimension-one cell $\tau$, the total boundary contribution is the
+universal sign $(-1)^{n-1}$ times the double-primed contraction of
+$\eta|_\tau$ with
+\[
+                 -\sum_{\sigma\supset\tau}
+                    m_\sigma u_{\sigma/\tau}.
+\]
+This vector vanishes in $N/N_\tau$ by balancing, while tangential ambiguity
+does not affect the contracted boundary class. Hence every internal
+codimension-one contribution vanishes. There are no external boundary
+faces.
+\end{proof}
+
+In the language of \Cref{thm:ch11-defect-stokes} the proof is one line: the
+right-hand side of \eqref{eq:ch11-defect-stokes} is a sum of terms
+$\iota''_{\mathbf N(\tau)}\eta$, and $\mathbf N(\tau)=0$.  The following
+converse shows that nothing weaker will do.
+
+\begin{theorem}
+\label{thm:ch11-balancing-iff-stokes}
+Let $(\mathscr C,m)$ be a pure $n$-dimensional weighted rational polyhedral
+complex in $N_{\mathbf R}$.  The following are equivalent.
+\begin{enumerate}
+\item\label{itm:ch11-bal:balanced}
+  $(\mathscr C,m)$ is balanced.
+\item\label{itm:ch11-bal:dprime}
+  $\displaystyle\int_{(\mathscr C,m)}\dprime\eta=0$ for every
+  $\eta\in A^{n-1,n}_c(|\mathscr C|)$.
+\item\label{itm:ch11-bal:ddprime}
+  $\displaystyle\int_{(\mathscr C,m)}\ddprime\theta=0$ for every
+  $\theta\in A^{n,n-1}_c(|\mathscr C|)$.
+\item\label{itm:ch11-bal:local}
+  For every $\tau\in\mathscr C_{n-1}$ there is a neighbourhood $U$ of a
+  point of the relative interior of $\tau$ in $N_{\mathbf R}$ such that
+  $\int_{(\mathscr C,m)}\dprime\eta=0$ for every $\eta$ which is the
+  restriction to $|\mathscr C|$ of a smooth $(n-1,n)$-form with compact
+  support contained in $U$.
+\end{enumerate}
+In particular it suffices, in \cref{itm:ch11-bal:dprime} and
+\cref{itm:ch11-bal:ddprime}, to test against restrictions of compactly
+supported ambient forms.
+\end{theorem}
+
+\begin{proof}
+\cref{itm:ch11-bal:balanced}$\Rightarrow$\cref{itm:ch11-bal:dprime} and
+\cref{itm:ch11-bal:balanced}$\Rightarrow$\cref{itm:ch11-bal:ddprime} are
+\Cref{thm:balanced-stokes}, and
+\cref{itm:ch11-bal:dprime}$\Rightarrow$\cref{itm:ch11-bal:local} is trivial.
+It remains to prove
+\cref{itm:ch11-bal:local}$\Rightarrow$\cref{itm:ch11-bal:balanced}; the
+implication \cref{itm:ch11-bal:ddprime}$\Rightarrow$\cref{itm:ch11-bal:balanced}
+then follows by the same argument with $\iota'$ in place of $\iota''$, or by
+applying the involution $J$.
+
+Fix $\tau\in\mathscr C_{n-1}$ and a point $x_0$ in its relative interior.
+
+\emph{Step 1: an adapted neighbourhood.}
+We claim that $x_0$ has a neighbourhood $U$ in $N_{\mathbf R}$ meeting no
+cell of $\mathscr C$ except $\tau$ and the facets containing $\tau$.
+Indeed, let $\rho$ be a cell of $\mathscr C$ with $x_0\in\rho$.  Then
+$\rho\cap\tau$ is a common face of $\rho$ and $\tau$ containing $x_0$;
+since $x_0$ lies in the relative interior of $\tau$, the only face of $\tau$
+containing $x_0$ is $\tau$ itself, so $\tau\subset\rho$.  Thus the cells
+through $x_0$ are exactly $\tau$ and the cells containing it, and by purity
+the ones of dimension $n$ are the facets $\sigma\supset\tau$.  The remaining
+cells form a locally finite family of closed sets avoiding $x_0$, so some
+neighbourhood $U$ misses all of them.  Shrinking $U$, we may assume
+$\overline U$ compact.
+
+\emph{Step 2: the local Stokes identity.}
+Let $\eta$ be supported in $U$.  By \Cref{thm:ch11-defect-stokes} only
+$\tau$ contributes, so
+\[
+ 0=\int_{(\mathscr C,m)}\dprime\eta
+  =(-1)^{n-1}\int_\tau\bigl(\iota''_{\mathbf N(\tau)}\eta\bigr)\big|_\tau .
+\]
+
+\emph{Step 3: a test form detecting the defect.}
+Suppose $\mathbf N(\tau)\neq0$ in $N/N_\tau$, and let
+$w\in N$ be a lift, so that $w\notin N_{\tau,\mathbf R}$ because $N_\tau$ is
+saturated.  Choose $\xi\in M_{\mathbf R}$ with
+$\xi|_{N_{\tau,\mathbf R}}=0$ and $\langle\xi,w\rangle=1$; this is possible
+because $w$ is not in the subspace $N_{\tau,\mathbf R}$.  Choose also
+$\xi_2,\ldots,\xi_n\in M_{\mathbf R}$ restricting to the basis of
+$N_\tau^*$ dual to a lattice basis of $N_\tau$.  Finally let
+$\chi\ge0$ be smooth, supported in $U$, with $\chi(x_0)>0$, and set
+\[
+ \eta=\chi\;
+   \dprime\xi_2\wedge\cdots\wedge\dprime\xi_n
+   \wedge\ddprime\xi\wedge\ddprime\xi_2\wedge\cdots\wedge\ddprime\xi_n
+ \;\in A^{n-1,n}_c .
+\]
+Contracting in the double-primed block by
+\Cref{lem:ch11-contraction-basic}\,\cref{itm:ch11-contr:coord},
+\[
+ \iota''_w\eta
+ =\chi\,\langle\xi,w\rangle\,
+   \dprime\xi_2\wedge\cdots\wedge\dprime\xi_n
+   \wedge\ddprime\xi_2\wedge\cdots\wedge\ddprime\xi_n
+  \;+\;\chi\,\dprime\xi_2\wedge\cdots\wedge\dprime\xi_n\wedge
+     \ddprime\xi\wedge R,
+\]
+where $R$ collects the remaining $n-2$ double-primed factors with signs;
+every term of the second group still contains the factor $\ddprime\xi$.  Restricting to $\tau$ annihilates that factor, because
+$\xi$ vanishes on $N_{\tau,\mathbf R}$.  Hence, by
+\Cref{lem:ch11-interlaced-grouped},
+\[
+ \bigl(\iota''_w\eta\bigr)\big|_\tau
+ =\chi\,c_{n-1}\,\tau_{n-1}
+ \quad\text{and}\quad
+ \int_\tau\bigl(\iota''_w\eta\bigr)\big|_\tau
+ =c_{n-1}\int_\tau\chi\,\omega_\tau\neq0,
+\]
+the last integral being strictly positive since $\chi\ge0$ is positive at
+the interior point $x_0$ of $\tau$.  This contradicts Step 2.  Therefore
+$\mathbf N(\tau)=0$, and as $\tau$ was arbitrary the complex is balanced.
+\end{proof}
+
+\begin{remark}[What the converse really says]
+\label{rem:ch11-converse-meaning}
+\Cref{thm:ch11-balancing-iff-stokes} promotes balancing from a combinatorial
+axiom to a characterization.  Three consequences are worth recording.
+
+First, balancing is a \emph{local} condition detected by test forms
+concentrated near one codimension-one cell; this is implication
+\cref{itm:ch11-bal:local}$\Rightarrow$\cref{itm:ch11-bal:balanced}.  Hence one
+cannot repair an unbalanced complex by global cancellation between distant
+cells.
+
+Second, the equivalence is insensitive to the weights being integral: the
+proof of Step 3 only used that $\mathbf N(\tau)$ is a real vector, so the
+same statement holds for $\mathbf R$-weighted complexes.  Integrality of
+weights is needed elsewhere---for lattice indices in pushforward, and for
+the interpretation of weights as multiplicities of analytic
+cycles---but not here.
+
+Third, a codimension-one cell contained in a single facet has
+$\mathbf N(\tau)=m_\sigma n_{\sigma,\tau}\neq0$, since $m_\sigma\neq0$ and
+$n_{\sigma,\tau}$ is primitive.  Thus a balanced complex automatically has
+no boundary in the naive sense, and the hypothesis \emph{without boundary}
+in \Cref{thm:balanced-stokes} is implied by balancing rather than
+independent of it.
+\end{remark}
+
+\subsection{The cancellation computed by hand}
+\label{sec:ch11-hand-cancellation}
+
+The proofs above are short because \Cref{cor:ch11-trace-additive} does the
+work.  It is nevertheless worth seeing the cancellation happen in
+coordinates at least once, in the smallest interesting case: a
+one-dimensional complex.  There $n=1$, so $\tau$ is a point, $N_\tau=0$,
+$\tau_0=1$, $\omega_\tau$ is the unit mass at that point, and
+$\mathbf N(\tau)\in N$ is an honest vector.
+
+\begin{example}[Stokes on a segment]
+\label{ex:ch11-segment-stokes}
+Let $C$ be the interval $[0,\ell]$ in $N_{\mathbf R}=\mathbf R$, with
+$N=\mathbf Z$ and weight $m$.  Let $\eta=f\,\ddprime x$ be smooth.  Then
+$\dprime\eta=f'\tau_1$ and
+\[
+ \int_{(C,m)}\dprime\eta=m\int_0^\ell f'(x)\,\rd x=m\bigl(f(\ell)-f(0)\bigr).
+\]
+The complex has two codimension-one cells, $\{0\}$ and $\{\ell\}$, with
+defects $\mathbf N(\{0\})=-m$ and $\mathbf N(\{\ell\})=+m$.  Formula
+\eqref{eq:ch11-defect-stokes} with $n=1$ reads
+\[
+ \int_{(C,m)}\dprime\eta
+ =\iota''_{-m}\eta\big|_{0}+\iota''_{+m}\eta\big|_{\ell}
+ =-mf(0)+mf(\ell),
+\]
+in agreement.  Neither defect vanishes: a segment is not balanced, and
+Stokes' formula on it retains genuine boundary terms.  This is the correct
+state of affairs; the reader should resist the temptation to call a segment
+a tropical cycle.
+\end{example}
+
+\begin{example}[Stokes on a tripod, and the cancellation]
+\label{ex:ch11-tripod-stokes}
+Let $N=\mathbf Z^2$ and let $C$ be the tropical line of
+\Cref{fig:tropical-line-balancing} truncated at lattice distance $L$: three
+segments
+\[
+ \sigma_j=\{t\,u_j: 0\le t\le L\},
+ \qquad
+ u_1=(1,0),\quad u_2=(0,1),\quad u_3=(-1,-1),
+\]
+each of weight $1$, meeting at the vertex $\tau=\{0\}$, together with the
+three endpoints $p_j=Lu_j$.  Each $u_j$ is primitive, so
+$N_{\sigma_j}=\mathbf Zu_j$ and the lattice coordinate on $\sigma_j$ is the
+parameter $t$.
+
+Let $\eta=a_1\,\ddprime x_1+a_2\,\ddprime x_2$ with $a_i$ smooth on
+$\mathbf R^2$; every element of $A^{0,1}$ near $C$ is of this form.  On
+$\sigma_j$, restriction to the tangent line gives
+$\eta|_{\sigma_j}=\langle a,u_j\rangle\,\ddprime t$, where
+$\langle a,u_j\rangle=\sum_ia_iu_{j,i}$, so
+\[
+ \dprime\eta\big|_{\sigma_j}
+ =\frac{\rd}{\rd t}\langle a(tu_j),u_j\rangle\,\dprime t\wedge\ddprime t,
+ \qquad
+ \int_{\sigma_j}\dprime\eta
+ =\langle a(p_j),u_j\rangle-\langle a(0),u_j\rangle .
+\]
+Summing over $j$,
+\begin{equation}
+\label{eq:ch11-tripod-sum}
+ \int_C\dprime\eta
+ =\sum_{j=1}^3\langle a(p_j),u_j\rangle
+  -\Bigl\langle a(0),\sum_{j=1}^3u_j\Bigr\rangle .
+\end{equation}
+The three primitive directions sum to zero, so the interior term
+disappears and only the three endpoint terms remain.  This is the promised
+cancellation, computed without any machinery: it happened because a single
+vector, $\sum_ju_j$, is zero.
+
+Observe the bookkeeping against
+\Cref{thm:ch11-defect-stokes}.  At the vertex, the outward normal of
+$\sigma_j$ is $n_{\sigma_j,\tau}=-u_j$, so
+$\mathbf N(\tau)=-\sum_ju_j=0$; the interior term of
+\eqref{eq:ch11-tripod-sum} is $-\langle a(0),\sum_ju_j\rangle
+=\langle a(0),\mathbf N(\tau)\rangle$, exactly the contraction predicted by
+\eqref{eq:ch11-defect-stokes} with $n=1$.  At the endpoint $p_j$ the
+outward normal is $+u_j$ and the defect is $u_j$, giving
+$\langle a(p_j),u_j\rangle$.  If $\eta$ is supported in a neighbourhood of
+the vertex, all three endpoint terms vanish and $\int_C\dprime\eta=0$: the
+truncated tripod is balanced at its vertex, which is all that
+\Cref{thm:balanced-stokes} requires of an interior cell.
+\end{example}
+
+\begin{example}[An unbalanced tripod: Stokes fails]
+\label{ex:ch11-tripod-unbalanced}
+Keep the notation of the previous example but replace $u_3$ by
+$u_3'=(1,1)$, so that the three primitive directions are $(1,0)$, $(0,1)$,
+$(1,1)$, all with weight one, and the defect at the vertex is
+\[
+ \mathbf N(\tau)=-\bigl((1,0)+(0,1)+(1,1)\bigr)=(-2,-2).
+\]
+Choose $\eta=\chi(x)\,\ddprime x_1$ with $\chi$ a bump function equal to $1$
+near the origin and supported well inside the truncation.  Then all endpoint
+terms vanish and \eqref{eq:ch11-tripod-sum} gives
+\[
+ \int_C\dprime\eta=\bigl\langle a(0),\mathbf N(\tau)\bigr\rangle=-2\neq0
+\]
+with $a=(\chi,0)$.  Stokes' formula therefore fails on this complex, and it
+fails by exactly the defect.  A second choice, $\eta=\chi\,\ddprime x_2$,
+gives $-2$ as well, and the two computations together determine the whole
+defect vector; this is Step 3 of the proof of
+\Cref{thm:ch11-balancing-iff-stokes} in a concrete case.
+
+Two remarks.  First, the failure is not repaired by rescaling the weights:
+solving $m_1(1,0)+m_2(0,1)+m_3(1,1)=0$ forces
+$m_1=-m_3$, $m_2=-m_3$, $m_3=-m_3$, hence $m_3=0$, which is excluded.  Three
+rays in an open half-plane admit no balancing at all, with any nonzero real
+weights---the assertion made without proof in the vertex-equation example of
+\Cref{chap:tropical-spaces}, which the present computation verifies.
+Second, the same configuration is a perfectly good \emph{support}: one can
+integrate top-degree forms over it, and the integral is subdivision
+invariant by \Cref{prop:ch11-integral-cycle-invariant}.  What one cannot do
+is integrate by parts.  Balancing is a hypothesis about differentiation, not
+about measure.
+\end{example}
+
+\begin{example}[Weights are not determined by the support]
+\label{ex:ch11-weights-not-support}
+Let $C$ be the union of the two coordinate axes in $\mathbf R^2$, a
+one-dimensional polyhedral complex with four rays
+$\pm e_1,\pm e_2$ from the origin.  Assigning the weight $a$ to both
+horizontal rays and $b$ to both vertical rays gives
+$\mathbf N(0)=-(a e_1-ae_1+be_2-be_2)=0$ for all $a,b$, so the complex is
+balanced for every choice, and each choice gives a different tropical
+cycle with the same support.  Consequently
+\[
+ \int_{(C,(a,b))}\alpha
+ =a\int_{\mathbf R\times\{0\}}\alpha+b\int_{\{0\}\times\mathbf R}\alpha
+\]
+genuinely depends on $(a,b)$.  This is the precise sense in which the
+underlying subset of a tropical cycle is insufficient data, as announced at
+the start of \Cref{chap:tropical-spaces}.  It also shows that the balancing
+condition, being linear in the weights, defines a vector space of cycles on
+a given support, of dimension $2$ in this example.
+\end{example}
+
+\subsection{From weighted complexes to calibrated tropical spaces}
+\label{sec:ch11-global-stokes}
+
+The passage from a single balanced complex to a general calibrated space is
+the one place where an analytic input is used.  We state it, indicate how
+the cellwise computation of this chapter is deployed, and identify precisely
+what is imported.
+
+\begin{theorem}\label{thm:cld-global-stokes}
+Let $S$ be a pure $n$-dimensional parlinear space equipped with a calibration
+and with empty boundary in the sense of Chambert--Loir--Ducros. For compactly
+supported forms $\eta\in A^{n-1,n}_c(S)$ and
+$\theta\in A^{n,n-1}_c(S)$,
+\[
+                              \int_S\dprime\eta=0,
+                     \qquad   \int_S\ddprime\theta=0.
+\]
+With boundary, the corresponding integrals equal the calibrated boundary
+integrals.
+\end{theorem}
+
+\begin{proof}
+Choose a locally finite calibrated chart cover and a smooth partition of
+unity subordinate to it.  Compact support leaves only finitely many summands.
+Represent each summand in its chart and refine all overlapping
+representatives to common rational polyhedral complexes.  Compatibility of
+the calibration under refinement identifies their weights and primitive
+normal classes.  Apply \Cref{thm:balanced-stokes} in each refined chart.
+Internal codimension-one contributions cancel by balancing; contributions
+introduced by the partition cancel because the partition functions sum to
+one.  With empty boundary nothing remains.  If a boundary is present, the
+same calculation leaves precisely the outward calibrated faces, with the
+orientation fixed by the one-dimensional sign test.  This proves both
+formulas.
+
+The structural facts used here---existence of the chartwise partition and
+compatibility of calibrated refinements---are the analytic content of
+\cite[Proposition~5.11.1]{CLD25}; the rest of the proof is the cellwise
+calculation above.
+\end{proof}
+
+\begin{warning}{Where the analytic input occurs}
+The divergence theorem is not the deep step.  The substantive CLD input is
+that parlinear charts, calibrations, and their boundaries admit the compatible
+refinements used in the proof.  A single preferred tropicalization would not
+suffice.
+\end{warning}
+
+\section{Green formulae}
+\label{sec:ch11-green}
+
+Stokes' formula is a statement about one form; Green's formula is the
+statement obtained by applying it to a skew-symmetrized product of two.
+Everything in this section is formal once one identity between wedge
+products of symmetric forms is available, and we prove that identity first
+because its sign is the last one the chapter has to fix.
+
+\begin{lemma}
+\label{lem:ch11-mixed-cancellation}
+Let $\alpha\in A^{p,p}$ and $\beta\in A^{q,q}$ be symmetric, with
+$p+q=n-1$.  Then
+\[
+ \dprime\alpha\wedge\ddprime\beta
+ =-\,\ddprime\alpha\wedge\dprime\beta ,
+\]
+and consequently, setting
+$\omega=\alpha\wedge\ddprime\beta-\ddprime\alpha\wedge\beta\in A^{n-1,n}$,
+\[
+ \dprime\omega
+ =\alpha\wedge\dprimeddprime\beta-\dprimeddprime\alpha\wedge\beta .
+\]
+\end{lemma}
+
+\begin{proof}
+Recall from \Cref{chap:superforms} that $J$ is an algebra automorphism with
+$J^2=\operatorname{id}$, that $\ddprime=J\dprime J$, and that a form is
+symmetric of bidegree $(p,p)$ when $J\alpha=(-1)^p\alpha$.  Since
+$\dprime\alpha\wedge\ddprime\beta$ has bidegree
+$(p+1+q,\,p+q+1)=(n,n)$ and $J\tau_n=(-1)^n\tau_n$---each of the $n$
+transpositions $\dprime x_i\wedge\ddprime x_i\mapsto
+\ddprime x_i\wedge\dprime x_i$ contributes a factor $-1$---we have
+\[
+ J\bigl(\dprime\alpha\wedge\ddprime\beta\bigr)
+ =(-1)^n\,\dprime\alpha\wedge\ddprime\beta .
+\]
+On the other hand, using that $J$ is multiplicative,
+\[
+ J\dprime\alpha=\ddprime(J\alpha)=(-1)^p\ddprime\alpha,
+ \qquad
+ J\ddprime\beta=\dprime(J\beta)=(-1)^q\dprime\beta,
+\]
+so that
+$J(\dprime\alpha\wedge\ddprime\beta)
+=(-1)^{p+q}\ddprime\alpha\wedge\dprime\beta
+=(-1)^{n-1}\ddprime\alpha\wedge\dprime\beta$.  Comparing the two
+evaluations gives the first identity.
+
+For the second, apply the Leibniz rule of
+\Cref{prop:superform-differential-identities}.  As $\alpha$ has total degree
+$2p$, which is even,
+\[
+ \dprime(\alpha\wedge\ddprime\beta)
+ =\dprime\alpha\wedge\ddprime\beta+\alpha\wedge\dprimeddprime\beta ,
+\]
+while $\ddprime\alpha$ has total degree $2p+1$, which is odd, so
+\[
+ \dprime(\ddprime\alpha\wedge\beta)
+ =\dprime\ddprime\alpha\wedge\beta-\ddprime\alpha\wedge\dprime\beta
+ =\dprimeddprime\alpha\wedge\beta-\ddprime\alpha\wedge\dprime\beta .
+\]
+Subtracting and using the first identity to cancel
+$\dprime\alpha\wedge\ddprime\beta+\ddprime\alpha\wedge\dprime\beta=0$ gives
+the assertion.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch11-green-defect}
+Let $(\mathscr C,m)$ be a pure $n$-dimensional weighted rational polyhedral
+complex in $N_{\mathbf R}$, not assumed balanced, and let
+$\alpha\in A^{p,p}$, $\beta\in A^{q,q}$ be symmetric of class $C^2$ with
+$p+q=n-1$ and with
+$\Supp\alpha\cap\Supp\beta\cap|\mathscr C|$ compact.  Then
+\begin{equation}
+\label{eq:ch11-green-defect}
+ \int_{(\mathscr C,m)}
+   \bigl(\alpha\wedge\dprimeddprime\beta-\dprimeddprime\alpha\wedge\beta\bigr)
+ =(-1)^{n-1}\sum_{\tau\in\mathscr C_{n-1}}\int_\tau
+   \Bigl(\iota''_{\mathbf N(\tau)}
+     \bigl(\alpha\wedge\ddprime\beta-\ddprime\alpha\wedge\beta\bigr)
+   \Bigr)\Big|_\tau .
+\end{equation}
+If $(\mathscr C,m)$ is balanced the right-hand side vanishes.
+\end{theorem}
+
+\begin{proof}
+Put $\omega=\alpha\wedge\ddprime\beta-\ddprime\alpha\wedge\beta$, an
+$(n-1,n)$-form supported in $\Supp\alpha\cap\Supp\beta$, hence compactly
+supported on $|\mathscr C|$.  By \Cref{lem:ch11-mixed-cancellation},
+$\dprime\omega$ is the integrand on the left.  Now apply
+\Cref{thm:ch11-defect-stokes} to $\omega$.  The last assertion is
+\Cref{thm:balanced-stokes}, or directly $\mathbf N(\tau)=0$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch11-green-symmetry}
+Let $S$ satisfy \Cref{thm:cld-global-stokes}, and let $f,g$ be smooth
+with at least one compactly supported. Then
+\[
+\int_S f\,\dprimeddprime g\wedge\alpha
+=\int_S g\,\dprimeddprime f\wedge\alpha
+\]
+whenever $\alpha$ is a closed form of complementary bidegree.
+\end{corollary}
+\begin{proof}
+Stokes applied first to $f\,\ddprime g\wedge\alpha$ gives
+\[
+ \int_S f\,\dprimeddprime g\wedge\alpha
+ =-\int_S \dprime f\wedge \ddprime g\wedge\alpha.
+\]
+Apply $\ddprime$-Stokes to $g\,\dprime f\wedge\alpha$.  Since
+$\ddprime\dprime=-\dprimeddprime$, it gives
+\[
+ \int_S \dprime f\wedge \ddprime g\wedge\alpha
+ =-\int_S g\,\dprimeddprime f\wedge\alpha.
+\]
+Combining the two identities proves the assertion. If $S$ has boundary, the
+same two applications of Stokes retain their boundary terms and give Green's
+formula.
+\end{proof}
+
+\begin{corollary}
+\label{cor:tropical-dirichlet-sign}
+Under the hypotheses of the Green formula, suppose that $\alpha$ is closed
+and strongly positive and that $f$ has compact support. Then
+\[
+ \int_S f\,\dprimeddprime f\wedge\alpha
+ =-\int_S\dprime f\wedge\ddprime f\wedge\alpha\leq0.
+\]
+\end{corollary}
+\begin{proof}
+The equality is the first integration-by-parts identity with $g=f$.  The
+form $\dprime f\wedge\ddprime f$ is strongly positive, and wedging with
+$\alpha$ gives a nonnegative top form.
+\end{proof}
+
+\begin{example}[The graph energy]
+\label{ex:ch11-graph-energy}
+On a compact metric graph, take $f$ piecewise smooth and affine near each
+vertex.  The right-hand side of
+\Cref{cor:tropical-dirichlet-sign} is the negative of the sum of
+$\int_e|\partial_s f|^2\,\rd s$ over the edges.  The boundary terms at a
+vertex are the sums of outgoing slopes.  They cancel for a harmonic function
+and produce the atomic graph Laplacian otherwise.  Thus the polyhedral Green
+formula contains the usual graph integration by parts as its
+one-dimensional case.
+\end{example}
+
+\subsection{The one-dimensional case: metric graphs}
+\label{sec:ch11-graph-green}
+
+The last example is the shortest possible statement of a comparison that
+deserves to be carried out completely, because \Cref{sec:metric-graphs} fixed
+a Laplacian sign convention that the rest of the book uses constantly, and
+because that convention is \emph{not} the one a careless reading of the
+boundary traces would produce.  This subsection is the sign audit.
+
+Let $\Gamma$ be a compact metric graph in the sense of
+\Cref{sec:metric-graphs}, with a model whose edges $e$ are isometrically
+identified with intervals $[0,\ell_e]$.  We regard $\Gamma$ as a
+one-dimensional polyhedral space with all weights equal to $1$: each edge
+carries the lattice for which the arclength coordinate $s$ is a lattice
+coordinate, so that $\omega_e=\rd s$ and $\tau_1=\dprime s\wedge\ddprime s$
+on $e$.  This is legitimate: the two possible arclength coordinates on $e$
+differ by $s\mapsto\ell_e-s$, and $\dprime s\wedge\ddprime s$ is unchanged,
+by \Cref{lem:ch11-orientation-drops-out}.  For a function $u$ on $\Gamma$
+which is $C^2$ on each edge we write, on the interior of $e$,
+\[
+ \dprime u=u'\,\dprime s,\qquad
+ \ddprime u=u'\,\ddprime s,\qquad
+ \dprimeddprime u=u''\,\dprime s\wedge\ddprime s=u''\,\tau_1 .
+\]
+
+\begin{lemma}
+\label{lem:ch11-graph-trace}
+Let $p$ be an endpoint of an edge $e$ and let $\nu\in T_p\Gamma$ be the
+tangent direction of $e$ at $p$, in the notation of
+\eqref{eq:ch08-outgoing-slope}.  Then, for $u$ of class $C^1$ on $e$ up to
+$p$,
+\[
+ \operatorname{tr}'_{e,p}\bigl(\ddprime u\bigr)
+ =-\,d_\nu u(p)\,\tau_0
+ \qquad\text{and}\qquad
+ \int_{\{p\}}\operatorname{tr}'_{e,p}\bigl(\ddprime u\bigr)=-\,d_\nu u(p).
+\]
+\end{lemma}
+
+\begin{proof}
+Identify $e$ with $[0,\ell_e]$ so that $p$ corresponds to $s=0$; this is
+possible after replacing $s$ by $\ell_e-s$, which changes neither
+$\tau_1$ nor the assertion.  In the notation of
+\Cref{cor:ch11-trace-flux}, $\ddprime u=u'\ddprime s$ corresponds to the
+vector field $G=u'\,\partial_s$.  The face $\{p\}$ has $N_{\{p\}}=0$, and the
+outward primitive normal of $e$ at $p$ is $n_{e,p}=-\partial_s$, since
+$\partial_s$ points into $e$.  Hence $G=u'(0)\partial_s=(-u'(0))\,n_{e,p}$
+and $\lambda=-u'(0)$.  Finally $d_\nu u(p)=u'(0)$ by
+\eqref{eq:ch08-outgoing-slope}, because the unit-speed geodesic
+representing $\nu$ is $s\mapsto s$.  The lattice measure of a point is the
+unit mass, whence the second formula.
+\end{proof}
+
+\begin{warning}{Outgoing slopes point inward}
+The outgoing slope $d_\nu u(p)$ of \Cref{sec:metric-graphs} is the
+derivative of $u$ in the direction leading \emph{away} from $p$ along the
+edge, that is, in the direction of the \emph{inward} normal $u_{e/p}$ of the
+edge along its face $\{p\}$.  The boundary trace of the present chapter uses
+the \emph{outward} normal $n_{e,p}=-u_{e/p}$.  The two conventions therefore
+differ by a sign, and \Cref{lem:ch11-graph-trace} is that sign.  A reader who
+defines the graph Laplacian as the sum of outward boundary traces obtains
+$-\Delta_\Gamma$, and every subsequent statement---positivity of a curvature
+measure at a convex corner, the sign of the Dirichlet form, the direction of
+the maximum principle---is reversed.  This is the promised place where the
+naive orientation convention gives the wrong sign, and it is worth stressing
+that no dimension-two test detects it: it is a one-dimensional error, of the
+kind that \Cref{ex:ch11-square-wrong-sign} does not see, just as
+\Cref{ex:ch11-square-wrong-sign} is invisible in dimension one.
+\end{warning}
+
+\begin{theorem}
+\label{thm:ch11-graph-green}
+Let $\Gamma$ be a compact metric graph and let $f,g\in\PL(\Gamma)$.  Fix a
+model of $\Gamma$ in which both are affine on every edge.  Then:
+\begin{enumerate}
+\item\label{itm:ch11-graph:lap}
+  For every $p\in\Gamma$,
+  \[
+   \bigl(\Delta_\Gamma f\bigr)(\{p\})
+   =-\sum_{e\ni p}\int_{\{p\}}\operatorname{tr}'_{e,p}\bigl(\ddprime f\bigr)
+   =-\int_{\{p\}}\operatorname{tr}'_{\Gamma,p}\bigl(\ddprime f\bigr),
+  \]
+  where the last expression abbreviates the sum of the traces of all edges
+  at $p$.  Equivalently, $\Delta_\Gamma f$ is the negative of the total
+  outward flux of $\ddprime f$.
+\item\label{itm:ch11-graph:mass}
+  $\Delta_\Gamma f(\Gamma)=0$; this is \eqref{eq:lap-mass-zero}.
+\item\label{itm:ch11-graph:parts}
+  $\displaystyle\int_\Gamma f\,\rd\Delta_\Gamma g
+   =-\int_\Gamma\dprime f\wedge\ddprime g$, where the right-hand side is the
+  sum of the edge integrals of $f'g'\,\rd s$; this is the second equality of
+  \eqref{eq:graph-green}.
+\item\label{itm:ch11-graph:sym}
+  $\displaystyle\int_\Gamma f\,\rd\Delta_\Gamma g
+   =\int_\Gamma g\,\rd\Delta_\Gamma f$; this is the first equality of
+  \eqref{eq:graph-green}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Throughout we use the following edgewise form of Stokes.  Each edge $e$ is a
+one-dimensional rational polytope in $\mathbf R$ with $N_e=\mathbf Z$, so
+\Cref{thm:polyhedral-stokes} applies to it and reads
+\begin{equation}
+\label{eq:ch11-graph-edge-stokes}
+ \int_e\dprime\eta
+ =\sum_{p\in\partial e}\int_{\{p\}}\operatorname{tr}'_{e,p}(\eta),
+ \qquad \eta\in A^{0,1}(e).
+\end{equation}
+Summing \eqref{eq:ch11-graph-edge-stokes} over the edges of the model and
+grouping the right-hand side by vertices is the only global step used below;
+no ambient affine space is required, because both sides are computed inside
+individual edges.
+
+\cref{itm:ch11-graph:lap} is \Cref{lem:ch11-graph-trace} summed over the
+edges at $p$, together with the definition
+\eqref{eq:graph-laplacian} of $\Delta_\Gamma$ as the sum of outgoing slopes.
+For a point $p$ interior to an edge the two traces are $-f'$ and $f'$ and
+cancel, in accordance with
+\Cref{lem:ch08-laplacian-well-defined}\,(1).
+
+\cref{itm:ch11-graph:mass}.  Take $\eta=\ddprime f$ in
+\eqref{eq:ch11-graph-edge-stokes}.  Since $f$ is affine on each edge,
+$\dprime\eta=f''\tau_1=0$ there, so every left-hand side vanishes.  Summing
+over edges and grouping by vertices, the total right-hand side is
+$\sum_p\sum_{e\ni p}\int_{\{p\}}\operatorname{tr}'_{e,p}(\ddprime f)$,
+which by \cref{itm:ch11-graph:lap} equals $-\Delta_\Gamma f(\Gamma)$.
+
+\cref{itm:ch11-graph:parts}.  Take $\eta=f\,\ddprime g$ in
+\eqref{eq:ch11-graph-edge-stokes}.  By the Leibniz rule
+$\dprime\eta=\dprime f\wedge\ddprime g+f\,\dprimeddprime g$, and the second
+term vanishes edgewise because $g$ is affine.  On each edge
+$\dprime f\wedge\ddprime g=f'g'\,\tau_1$, so the sum of the left-hand sides
+is $\int_\Gamma f'g'\,\rd s$.  The sum of the right-hand sides is
+$\sum_pf(p)\sum_{e\ni p}\int_{\{p\}}\operatorname{tr}'_{e,p}(\ddprime g)$,
+where $f$ could be taken outside because it is continuous and the trace is
+evaluated at the single point $p$.  By \cref{itm:ch11-graph:lap} this is
+$-\sum_pf(p)\Delta_\Gamma g(\{p\})=-\int_\Gamma f\,\rd\Delta_\Gamma g$.
+Rearranging gives the assertion.
+
+\cref{itm:ch11-graph:sym} follows from \cref{itm:ch11-graph:parts} and the
+symmetry of $(f,g)\mapsto\int_\Gamma f'g'\,\rd s$.  Alternatively it is the
+edgewise Green formula, obtained by taking
+$\eta=f\,\ddprime g-g\,\ddprime f$ in \eqref{eq:ch11-graph-edge-stokes}: the
+left-hand sides vanish because $f$ and $g$ are affine on each edge, and the
+right-hand side is
+$\sum_p\bigl(g(p)\Delta_\Gamma f(\{p\})-f(p)\Delta_\Gamma g(\{p\})\bigr)$ up
+to the global sign of \cref{itm:ch11-graph:lap}.
+\end{proof}
+
+Thus \Cref{prop:graph-green} is exactly the one-dimensional case of the
+polyhedral Green formula, once the sign of
+\Cref{lem:ch11-graph-trace} is inserted.  We record the two sign checks that
+were the point of the exercise.
+
+\begin{example}[A segment, checked against the metric-graph conventions]
+\label{ex:ch11-graph-segment-check}
+Let $\Gamma=[0,\ell]$ and $f(t)=t$.  According to
+\eqref{eq:graph-laplacian}, $\Delta_\Gamma f=\delta_0-\delta_\ell$: at $0$
+the unique outgoing slope is $+1$, at $\ell$ it is $-1$.  According to
+\Cref{lem:ch11-graph-trace}, the outward traces are
+$\operatorname{tr}'_{\Gamma,0}(\ddprime f)=-1$ and
+$\operatorname{tr}'_{\Gamma,\ell}(\ddprime f)=+1$, so their negatives are
+$+1$ and $-1$, in agreement.  As a cross-check,
+\Cref{ex:ch11-segment-stokes} with $m=1$ and $\eta=\ddprime f=\ddprime t$
+gives $\int_\Gamma\dprime\ddprime f=f'(\ell)-f'(0)=0$ and total defect mass
+$-\Delta_\Gamma f(\Gamma)=0$, consistent with
+\eqref{eq:lap-mass-zero}.  Finally
+$\int_\Gamma f\,\rd\Delta_\Gamma f=0-\ell=-\ell$ and
+$-\int_0^\ell|f'|^2\,\rd t=-\ell$; this is the computation recorded after
+\Cref{prop:graph-green}, and it also confirms
+\Cref{cor:tropical-dirichlet-sign} in the case $n=1$, $\alpha=1$: the
+Dirichlet pairing is negative semidefinite, as in
+\Cref{cor:ch08-dirichlet-energy}.
+\end{example}
+
+\begin{example}[A tripod, checked against the model computation of Chapter~8]
+\label{ex:ch11-graph-tripod-check}
+Let $\Gamma$ be the tripod with central vertex $c$ and three legs of length
+one, with tips $q_0,q_1,q_2$.  Fix $a_0,a_1\in\mathbf R$ and let $\varphi$
+be the piecewise affine function vanishing at $c$ and on the third leg,
+affine on each leg, with $\varphi(q_i)=a_i$ for $i=0,1$.  Then the outgoing
+slopes at $c$ are $a_0,a_1,0$, so
+$\Delta_\Gamma\varphi=(a_0+a_1)\delta_c-a_0\delta_{q_0}-a_1\delta_{q_1}$,
+which is the graph computation appearing in \Cref{ex:ch08-p1-tripod}.
+
+Now compute the same measure by boundary traces.  On the $i$th leg,
+parametrized by arclength $s\in[0,1]$ from $c$, one has
+$\ddprime\varphi=a_i\,\ddprime s$ for $i=0,1$ and $0$ on the third leg.  At
+$c$ the outward normal of each leg is $-\partial_s$, so the trace of the
+$i$th leg is $-a_i$ and the total outward flux at $c$ is $-(a_0+a_1)$; its
+negative is $a_0+a_1$, matching.  At $q_i$ the outward normal is
+$+\partial_s$, the trace is $a_i$, and its negative is $-a_i$, again
+matching.  The total mass is $0$.
+
+The tropical content is visible: at $c$ the three primitive inward
+directions, viewed in a chart identifying a neighbourhood of $c$ with the
+tropical line of \Cref{fig:tropical-line-balancing}, sum to zero, so
+$\mathbf N(c)=0$ and $\Gamma$ is balanced at $c$; whereas at each tip
+$\mathbf N(q_i)$ is a primitive vector and $\Gamma$ has genuine boundary
+there.  Correspondingly $\Delta_\Gamma\varphi$ may be nonzero at $c$ only
+because $\varphi$ is not smooth in the chart, while its atoms at the tips
+are boundary terms.  In \Cref{ex:ch08-p1-tripod} the same three atoms
+appeared as the residual degrees of a model line bundle; the two
+computations agree atom by atom, and the mass ledger of
+\Cref{sec:ch08-mass-ledger} records the total.
+\end{example}
+
+\begin{example}[The Green function of a segment]
+\label{ex:ch11-green-function-check}
+For $q\in(0,1)$ let $g_q$ be the function of
+\eqref{eq:segment-green} on $\Gamma=[0,1]$, so that
+$\Delta g_q=(1-q)\delta_0+q\delta_1-\delta_q$.  By
+\Cref{thm:ch11-graph-green}\,\cref{itm:ch11-graph:parts},
+\[
+ \int_\Gamma g_q\,\rd\Delta g_q=-\int_0^1|g_q'|^2\,\rd s=-q(1-q),
+\]
+and the left-hand side computed from the atoms is
+$(1-q)g_q(0)+qg_q(1)-g_q(q)=0+0-q(1-q)$.  The two agree.  This is the sign
+test announced in \Cref{cor:tropical-dirichlet-sign}: the quantity
+$\int f\,\dprimeddprime f$ is $\le0$, while the Dirichlet energy
+$\int|f'|^2$ is $\ge0$.  Reversing the trace convention would produce a
+Green function of the wrong sign and a negative Dirichlet energy.
+\end{example}
+
+\section{Pushforward and the projection formula}
+\label{sec:ch11-pushforward}
+
+For an integer-affine map $F:N_{\mathbf R}\to N'_{\mathbf R}$ that is
+injective on a top cell, the pushforward weight is multiplied by the lattice
+index $[N'_{F(\sigma)}:F(N_\sigma)]$. This is forced by change of variables.
+
+\begin{proposition}
+\label{prop:ch11-pushforward-projection-informal}
+If $F:C\to C'$ is proper on the support of a compactly supported top form
+$\alpha$, then
+\[
+                         \int_C\alpha=\int_{C'}F_*\alpha.
+\]
+For a form $\beta$ on $C'$ and an integrable calibrated current $T$,
+\[
+                         F_*(F^*\beta\wedge T)=\beta\wedge F_*T.
+\]
+\end{proposition}
+\begin{proof}
+Refine so that $F$ is integer-affine of constant rank on every cell. The
+first formula is ordinary change of variables, with exactly the displayed
+lattice index. The second follows cellwise from the defining identity against
+compactly supported test forms; summing is legitimate by properness.
+\end{proof}
+
+We now carry out this argument in detail and in the generality needed later,
+where a facet may be collapsed by $F$.  The plan is: define the pushforward
+cycle, prove the change-of-variables identity, deduce balancing of the
+pushforward from the criterion of \Cref{thm:ch11-balancing-iff-stokes}, and
+finally state the projection formula.
+
+\subsection{Pushforward with collapsing cells}
+\label{sec:ch11-pushforward-def}
+
+\begin{definition}
+\label{def:ch11-proper-pushforward}
+\index{pushforward!of a tropical cycle}
+Let $(\mathscr C,m)$ be a pure $n$-dimensional weighted rational polyhedral
+complex in $N_{\mathbf R}$ and let $F:N_{\mathbf R}\to N'_{\mathbf R}$ be
+integer affine, that is, affine with linear part carrying $N$ into $N'$.
+Assume $F$ is \emph{proper on $|\mathscr C|$}: the preimage in
+$|\mathscr C|$ of every compact subset of $N'_{\mathbf R}$ is compact.  Call
+a facet $\sigma$ \emph{nondegenerate} if $\dim F(\sigma)=n$, equivalently if
+$F$ is injective on $N_{\sigma,\mathbf R}$, and \emph{collapsed} otherwise.
+After a subdivision for which the images of the nondegenerate facets form a
+polyhedral complex $\mathscr C'$ in $N'_{\mathbf R}$, set, for
+$\sigma'\in\mathscr C'_n$,
+\[
+ m'_{\sigma'}
+ =\sum_{\substack{\sigma\in\mathscr C_n\ \text{nondegenerate}\\
+                  F(\sigma)=\sigma'}}
+   m_\sigma\,[N'_{\sigma'}:F(N_\sigma)],
+\]
+and let $F_*(\mathscr C,m)$ be the weighted complex obtained by discarding
+the cells of weight zero.  Collapsed facets contribute nothing.
+\end{definition}
+
+The subdivision exists and the resulting complex is locally finite precisely
+because $F$ is proper: a compact subset of $N'_{\mathbf R}$ meets only
+finitely many image cells, since it pulls back to a compact subset of
+$|\mathscr C|$, which meets only finitely many cells.  When every facet is
+nondegenerate, the weight formula is the one of
+\Cref{chap:tropical-spaces}, and
+\Cref{prop:tropical-pushforward-balanced} applies.
+
+\begin{lemma}
+\label{lem:ch11-cell-change-of-variables}
+Let $\sigma$ be an $n$-dimensional rational polyhedron in $N_{\mathbf R}$,
+let $F$ be integer affine, and let $\alpha$ be an $(n,n)$-form on
+$N'_{\mathbf R}$ whose support meets $F(\sigma)$ in a compact set.
+\begin{enumerate}
+\item\label{itm:ch11-cov:collapse}
+  If $\sigma$ is collapsed, then $(F^*\alpha)|_\sigma=0$.
+\item\label{itm:ch11-cov:nondeg}
+  If $\sigma$ is nondegenerate, with $\sigma'=F(\sigma)$ and
+  $d=[N'_{\sigma'}:F(N_\sigma)]$, then
+  \[
+   \int_\sigma F^*\alpha=d\int_{\sigma'}\alpha .
+  \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\cref{itm:ch11-cov:collapse}
+Let $B$ be the linear part of $F$.  If $\sigma$ is collapsed then
+$B|_{N_{\sigma,\mathbf R}}$ has rank $<n$, so its image has dimension
+$k<n$.  A pullback $F^*\alpha$ evaluated on $n$ primed and $n$
+double-primed vectors tangent to $\sigma$ is $\alpha$ evaluated on their
+images, which span a space of dimension $k<n$; an alternating form of degree
+$n$ in each block vanishes on such a family.  Hence $(F^*\alpha)|_\sigma=0$.
+
+\cref{itm:ch11-cov:nondeg}
+Choose lattice bases of $N_\sigma$ and of $N'_{\sigma'}$ and let
+$D$ be the matrix of $B|_{N_{\sigma,\mathbf R}}$ in these bases, so that
+$|\det D|=d$.  Writing $\alpha=g\,\tau'_n$ in the target coordinates, the
+computation of \Cref{lem:ch11-orientation-drops-out} gives
+$F^*\alpha=(g\circ F)\det(D)^2\,\tau_n$ on the span of $\sigma$, whence
+\[
+ \int_\sigma F^*\alpha
+ =d^2\int_\sigma (g\circ F)\,\omega_\sigma
+ =d^2\cdot d^{-1}\int_{\sigma'}g\,\omega_{\sigma'}
+ =d\int_{\sigma'}\alpha ,
+\]
+the middle equality being the affine change-of-variables formula together
+with $F_*\omega_\sigma=d^{-1}\omega_{\sigma'}$, which holds because the
+image of a lattice basis of $N_\sigma$ spans a parallelotope of
+$\omega_{\sigma'}$-volume $d$.
+\end{proof}
+
+\begin{warning}{Two factors of the index, one removed by the measure}
+The pullback of a top-degree superform acquires $\det(D)^2$, because both
+labelled blocks are pulled back; the change of variables for the measure
+removes one factor $|\det D|$.  What remains is one factor $d$, and that is
+the pushforward weight.  This is the content of
+\Cref{ex:ch11-nonunimodular}, and it is the reason that the tropical
+multiplicity is a degree and not its square.  For an ordinary $n$-form only
+one factor would appear and it would be cancelled entirely, which is why
+ordinary forms cannot see tropical multiplicities.
+\end{warning}
+
+\begin{proposition}
+\label{prop:ch11-pushforward-integral}
+Let $(\mathscr C,m)$ and $F$ be as in
+\Cref{def:ch11-proper-pushforward}, and let $\alpha$ be an $(n,n)$-form with
+compact support on $N'_{\mathbf R}$.  Then $F^*\alpha$ has compact support
+on $|\mathscr C|$ and
+\[
+ \int_{(\mathscr C,m)}F^*\alpha
+ =\int_{F_*(\mathscr C,m)}\alpha .
+\]
+\end{proposition}
+
+\begin{proof}
+Compactness of $\Supp(F^*\alpha)\cap|\mathscr C|$ is properness.  Refine so
+that \Cref{def:ch11-proper-pushforward} applies; by
+\Cref{prop:ch11-integral-cycle-invariant} neither side changes under
+refinement.  By \Cref{lem:ch11-cell-change-of-variables}, collapsed facets
+contribute zero and
+\[
+ \int_{(\mathscr C,m)}F^*\alpha
+ =\sum_{\sigma\ \text{nondeg.}}m_\sigma\int_\sigma F^*\alpha
+ =\sum_{\sigma\ \text{nondeg.}}
+   m_\sigma[N'_{F(\sigma)}:F(N_\sigma)]\int_{F(\sigma)}\alpha .
+\]
+Grouping the terms according to the image cell $\sigma'=F(\sigma)$ produces
+exactly $\sum_{\sigma'}m'_{\sigma'}\int_{\sigma'}\alpha$, which is the
+right-hand side.  All sums are finite by properness.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch11-pushforward-balanced}
+Let $(\mathscr C,m)$ be balanced and let $F$ be integer affine and proper on
+$|\mathscr C|$.  Then $F_*(\mathscr C,m)$ is balanced.
+\end{theorem}
+
+\begin{proof}
+Write $(\mathscr C',m')=F_*(\mathscr C,m)$ and let $\eta$ be a smooth
+$(n-1,n)$-form with compact support on $N'_{\mathbf R}$; by the last
+assertion of \Cref{thm:ch11-balancing-iff-stokes} it suffices to test
+against such forms.  Since the definition of $F_*$ used
+only the images of cells, $|\mathscr C'|\subset F(|\mathscr C|)$, so
+$F^*\eta$ is a smooth $(n-1,n)$-form whose support meets $|\mathscr C|$ in a
+compact set, by properness.  Pullback along an affine map commutes with
+$\dprime$ (\Cref{chap:superforms}), so
+$\dprime(F^*\eta)=F^*(\dprime\eta)$.  Therefore, by
+\Cref{prop:ch11-pushforward-integral} applied to $\alpha=\dprime\eta$ and by
+\Cref{thm:balanced-stokes} applied to $F^*\eta$ on $(\mathscr C,m)$,
+\[
+ \int_{(\mathscr C',m')}\dprime\eta
+ =\int_{(\mathscr C,m)}F^*(\dprime\eta)
+ =\int_{(\mathscr C,m)}\dprime(F^*\eta)
+ =0 .
+\]
+As $\eta$ was arbitrary, criterion
+\cref{itm:ch11-bal:dprime} of
+\Cref{thm:ch11-balancing-iff-stokes} shows that
+$(\mathscr C',m')$ is balanced.
+\end{proof}
+
+\begin{remark}[A proof by analysis of a combinatorial statement]
+\label{rem:ch11-pushforward-proof-style}
+\Cref{thm:ch11-pushforward-balanced} is a statement about lattice indices and
+primitive normal vectors, and \Cref{chap:tropical-spaces} proved it directly
+in the case where no facet is collapsed
+(\Cref{prop:tropical-pushforward-balanced}).  The proof just given instead
+deduces it from the analytic characterization of balancing.  This is not
+merely an economy: the combinatorial proof in the collapsing case requires a
+separate discussion of the cells of $\mathscr C$ of dimension $n-1$ that
+dominate a codimension-one cell of the image, whereas the analytic proof is
+insensitive to that distinction because $\dprime$ and pullback commute
+regardless.  The same technique will reappear whenever a tropical operation
+has to be shown to preserve balancing.  A purely combinatorial treatment,
+valid for arbitrary integer-affine maps, is
+\cite[\S4.6]{MR18Tropical}.
+\end{remark}
+
+\begin{corollary}
+\label{cor:ch11-projection-formula}
+Let $(\mathscr C,m)$ be a pure $n$-dimensional weighted complex and let $F$
+be integer affine and proper on $|\mathscr C|$.  For every smooth
+$(p,p)$-form $\beta$ on $N'_{\mathbf R}$ and every $(n-p,n-p)$-form
+$\gamma$ with compact support on $N'_{\mathbf R}$,
+\[
+ \int_{(\mathscr C,m)}F^*\beta\wedge F^*\gamma
+ =\int_{F_*(\mathscr C,m)}\beta\wedge\gamma .
+\]
+Equivalently, in the notation of \Cref{chap:cld-currents} where
+$\delta_{(\mathscr C,m)}$ is the integration current,
+\[
+ F_*\delta_{(\mathscr C,m)}=\delta_{F_*(\mathscr C,m)}
+ \qquad\text{and}\qquad
+ F_*\bigl(F^*\beta\wedge\delta_{(\mathscr C,m)}\bigr)
+ =\beta\wedge F_*\delta_{(\mathscr C,m)} .
+\]
+\end{corollary}
+
+\begin{proof}
+The first identity is \Cref{prop:ch11-pushforward-integral} applied to
+$\alpha=\beta\wedge\gamma$, using $F^*(\beta\wedge\gamma)
+=F^*\beta\wedge F^*\gamma$.  The identity
+$F_*\delta_{(\mathscr C,m)}=\delta_{F_*(\mathscr C,m)}$ is the case $p=0$,
+$\beta=1$, read as an equality of functionals on compactly supported test
+forms, since $\langle F_*T,\gamma\rangle=\langle T,F^*\gamma\rangle$ by
+\Cref{prop:current-pushforward-formal}.  The last identity then follows by
+evaluating both sides on a test form $\gamma$: the left-hand side gives
+$\int_{(\mathscr C,m)}F^*\beta\wedge F^*\gamma$ and the right-hand side
+gives $\int_{F_*(\mathscr C,m)}\beta\wedge\gamma$.
+\end{proof}
+
+\subsection{A projection computed by hand}
+\label{sec:ch11-projection-example}
+
+\begin{example}[A balanced curve in $\mathbf R^2$ projected to $\mathbf R$]
+\label{ex:ch11-projection-curve}
+Let $N=\mathbf Z^2$ and let $C$ be the one-dimensional fan with three rays
+\[
+ \rho_1=\mathbf R_{\ge0}(2,1),\quad
+ \rho_2=\mathbf R_{\ge0}(2,-1),\quad
+ \rho_3=\mathbf R_{\ge0}(-1,0),
+\]
+of weights $m_1=m_2=1$ and $m_3=4$.  All three direction vectors are
+primitive, and
+\[
+ 1\cdot(2,1)+1\cdot(2,-1)+4\cdot(-1,0)=(0,0),
+\]
+so $C$ is balanced at the origin, its only codimension-one cell.  Let
+$\pi(x,y)=x$, with $N'=\mathbf Z$.
+
+\emph{Properness.}  Parametrize $\rho_1$ by $t\mapsto t(2,1)$ with $t\ge0$;
+then $\pi=2t$, so $\pi^{-1}([-R,R])\cap\rho_1$ is the compact set
+$0\le t\le R/2$.  Similarly for $\rho_2$, while on $\rho_3$ one has
+$\pi=-t$ and the preimage is $0\le t\le R$.  Hence $\pi$ is proper on $|C|$.
+
+\emph{The pushforward.}  No ray is collapsed.  For $\rho_1$,
+$N_{\rho_1}=\mathbf Z(2,1)$ and $\pi(N_{\rho_1})=2\mathbf Z$, so the index is
+$[\mathbf Z:2\mathbf Z]=2$ and the contribution to $\mathbf R_{\ge0}$ is
+$1\cdot2=2$; the same for $\rho_2$.  For $\rho_3$,
+$N_{\rho_3}=\mathbf Z(1,0)$ and $\pi(N_{\rho_3})=\mathbf Z$, index $1$, and
+the contribution to $\mathbf R_{\le0}$ is $4\cdot1=4$.  Therefore
+\[
+ \pi_*C=4\,[\mathbf R_{\ge0}]+4\,[\mathbf R_{\le0}]=4\,[\mathbf R],
+\]
+which is balanced, as \Cref{thm:ch11-pushforward-balanced} predicts:
+$4\cdot(+1)+4\cdot(-1)=0$.
+
+\emph{The projection formula, verified.}  Let
+$\alpha=g(x)\,\dprime x\wedge\ddprime x$ with $g$ smooth and compactly
+supported on $\mathbf R$.  On $\rho_1$, with lattice coordinate $t$, one has
+$\pi\circ(t\mapsto t(2,1))=2t$, so
+ \[
+  \begin{aligned}
+  \pi^*\alpha\big|_{\rho_1}
+    &=g(2t)\,\dprime(2t)\wedge\ddprime(2t)
+      =4\,g(2t)\,\dprime t\wedge\ddprime t,\\
+  \int_{\rho_1}\pi^*\alpha
+    &=4\int_0^\infty g(2t)\,\rd t
+      =2\int_0^\infty g(x)\,\rd x .
+  \end{aligned}
+ \]
+The same computation on $\rho_2$ gives $2\int_0^\infty g$.  On $\rho_3$ the
+lattice coordinate $t$ satisfies $x=-t$, so
+$\pi^*\alpha|_{\rho_3}=g(-t)\,\dprime t\wedge\ddprime t$ and
+$\int_{\rho_3}\pi^*\alpha=\int_{-\infty}^0g(x)\,\rd x$.  Weighting and
+summing,
+\[
+ \int_{(C,m)}\pi^*\alpha
+ =1\cdot2\!\int_0^\infty\! g+1\cdot2\!\int_0^\infty\! g
+   +4\!\int_{-\infty}^0\! g
+ =4\int_{\mathbf R}g
+ =\int_{4[\mathbf R]}\alpha ,
+\]
+in agreement with \Cref{prop:ch11-pushforward-integral}.  Note where the
+factor $4$ in the pullback on $\rho_1$ went: two units of it came from the
+two labelled copies of $\dprime(2t)$ and $\ddprime(2t)$; the change of
+variables $x=2t$ returned one factor $2$; and the surviving factor $2$ is
+the lattice index.  This is the arithmetic of the warning above, made
+concrete.
+
+\emph{A consistency check by Stokes.}  Take
+$\eta=h(x)\,\ddprime x$ with $h$ smooth and compactly supported.  Then
+$\pi^*\eta=h(x)\,\ddprime x$ regarded on $\mathbf R^2$, and
+$\int_{(C,m)}\dprime\pi^*\eta$ must vanish by
+\Cref{thm:balanced-stokes}.  Directly: on $\rho_j$ with primitive direction
+$u_j=(a_j,b_j)$ one has $\pi^*\eta|_{\rho_j}=h(a_jt)a_j\,\ddprime t$, so
+\[
+ \int_{\rho_j}\dprime\pi^*\eta
+ =\bigl[h(a_jt)a_j\bigr]_{t=0}^{\infty}=-a_jh(0),
+\]
+and the weighted sum is $-h(0)\sum_jm_ja_j=-h(0)\cdot0=0$, the vanishing
+being exactly the first coordinate of the balancing relation.  Downstairs,
+$\int_{4[\mathbf R]}\dprime\eta=4\bigl[h\bigr]_{-\infty}^{\infty}=0$, as it
+must be.
+\end{example}
+
+\begin{example}[Properness is not decorative]
+\label{ex:ch11-pushforward-nonproper}
+Let $N=\mathbf Z^2$ and let $C=\bigcup_{k\in\mathbf Z}\mathbf R\times\{k\}$
+be the disjoint union of the integral horizontal lines, each a single
+one-dimensional cell of weight $1$.  There are no codimension-one cells at
+all, so $C$ is balanced vacuously, and it is a locally finite complex.  Let
+$\pi(x,y)=x$.  Every line is nondegenerate and maps isomorphically onto
+$\mathbf R$ with index $1$, so the naive pushforward weight on $\mathbf R$
+would be $\sum_{k\in\mathbf Z}1$, which is not a well-defined integer.
+Correspondingly, for $\alpha=g\,\dprime x\wedge\ddprime x$ with
+$g\ge0$ not identically zero,
+\[
+ \int_C\pi^*\alpha=\sum_{k\in\mathbf Z}\int_{\mathbf R}g(x)\,\rd x=+\infty .
+\]
+The map $\pi$ is not proper on $|C|$: the preimage of $[-1,1]$ is an
+infinite disjoint union of segments.  Both defects are genuine, and both are
+removed by the properness hypothesis of
+\Cref{def:ch11-proper-pushforward}.
+
+By contrast, the tropical line $L$ of
+\Cref{fig:tropical-line-balancing} with $\pi(x,y)=x$ is a case where
+properness fails---the vertical ray has non-compact fibre over the
+origin---and yet every integral converges, because the pullback of a
+top-degree form to a collapsed cell vanishes by
+\Cref{lem:ch11-cell-change-of-variables}\,\cref{itm:ch11-cov:collapse}.  One
+computes $\pi_*L=[\mathbf R]$ and
+$\int_L\pi^*\alpha=\int_{\mathbf R}g$.  Properness is thus sufficient, not
+necessary; but without it there is no general statement, as the first half
+of this example shows.
+\end{example}
+
+\begin{remark}[Functoriality]
+\label{rem:ch11-pushforward-functorial}
+If $F:N_{\mathbf R}\to N'_{\mathbf R}$ and $G:N'_{\mathbf R}\to
+N''_{\mathbf R}$ are integer affine, $F$ is proper on $|\mathscr C|$ and $G$
+is proper on $|F_*\mathscr C|$, then $G\circ F$ is proper on
+$|\mathscr C|$ and $(G\circ F)_*=G_*\circ F_*$.  For the weights this is the
+multiplicativity of lattice indices used in
+\Cref{prop:tropical-pushforward-balanced}, together with the observation
+that a facet collapsed by $G\circ F$ is either collapsed by $F$ or has
+image collapsed by $G$.  Alternatively it follows from
+\Cref{prop:ch11-pushforward-integral} together with the observation that a
+weighted complex is determined by its integration functional: if
+$\int_{(\mathscr C,m)}\alpha=\int_{(\mathscr C,\tilde m)}\alpha$ for all
+compactly supported $\alpha$, then choosing $\alpha=\chi\tau_n$ with $\chi$
+a bump at an interior point of a facet $\sigma$, and noting that only
+$\sigma$ contributes, gives $m_\sigma=\tilde m_\sigma$.
+\end{remark}
+
+\section{Tropical intersection products as current products}
+\label{sec:ch11-tropical-intersection}
+
+\Cref{chap:tropical-spaces} constructed a stable intersection product of
+tropical cycles by a purely combinatorial fan-displacement argument.  The
+present chapter has constructed an integration functional attached to a
+cycle.  The two constructions must be compatible, and the purpose of this
+section is to say in what sense and to prove it in the cases used later.
+
+The difficulty is that the product of two currents has no meaning in
+general, so a literal statement of the form
+$\delta_X\wedge\delta_Y=\delta_{X\cdot Y}$ is not available inside the smooth
+calculus.  What is available, and what we prove, is that the intersection
+current is the limit of products in which one factor has been replaced by a
+smooth approximation.  This is the exact analogue of the classical fact that
+the current of integration over a submanifold is a weak limit of smooth
+bump forms concentrated near it, and it suffices for every application in
+this book.  The enlarged calculus in which the product of two polyhedral
+currents can be formed directly is the delta-form calculus of
+\Cref{chap:delta-forms}; see \Cref{thm:delta-preform-algebra}.
+
+\subsection{Integration currents}
+\label{sec:ch11-integration-current}
+
+\begin{definition}
+\label{def:ch11-integration-current}
+\index{current!of integration over a tropical cycle}
+Let $(\mathscr C,m)$ be a pure $n$-dimensional weighted rational polyhedral
+complex in $N_{\mathbf R}$, $\dim N_{\mathbf R}=r$.  Its \emph{integration
+current} is the linear functional
+\[
+ \bigl\langle\delta_{(\mathscr C,m)},\alpha\bigr\rangle
+ =\int_{(\mathscr C,m)}\alpha ,
+ \qquad \alpha\in A^{n,n}_c(N_{\mathbf R}),
+\]
+a current of bidimension $(n,n)$, that is, of bidegree $(r-n,r-n)$, in the
+sense of \Cref{chap:cld-currents}.
+\end{definition}
+
+By \Cref{prop:ch11-integral-cycle-invariant} the functional depends only on
+the tropical cycle, not on the chosen complex; and it is continuous for the
+test-form topology of \Cref{chap:cld-currents}, since it is bounded by a
+constant times the supremum of the coefficients of $\alpha$ on any fixed
+compact set.
+
+\begin{theorem}
+\label{thm:ch11-current-closed}
+Let $(\mathscr C,m)$ be a pure $n$-dimensional weighted rational polyhedral
+complex.  Then $(\mathscr C,m)$ is balanced if and only if
+$\dprime\delta_{(\mathscr C,m)}=0$, if and only if
+$\ddprime\delta_{(\mathscr C,m)}=0$.
+\end{theorem}
+
+\begin{proof}
+By the sign convention of \Cref{chap:cld-currents}, $\dprime T=0$ means
+$\langle T,\dprime\eta\rangle=0$ for every compactly supported test form
+$\eta$ of the appropriate bidegree, the prefactor $(-1)^{p+q+1}$ being
+invertible.  For $T=\delta_{(\mathscr C,m)}$ this reads
+$\int_{(\mathscr C,m)}\dprime\eta=0$ for all
+$\eta\in A^{n-1,n}_c$, which is condition
+\cref{itm:ch11-bal:dprime} of \Cref{thm:ch11-balancing-iff-stokes}.  The
+double-primed statement is condition \cref{itm:ch11-bal:ddprime}.
+\end{proof}
+
+This is the promised reformulation.  A tropical cycle is exactly a
+polyhedral support with weights whose integration current is closed;
+balancing is closedness.  Combined with \Cref{cor:ch11-projection-formula},
+it yields the current-level projection formula in the form used in
+\Cref{chap:cld-currents,chap:cld-metrized-bundles}.
+
+\subsection{Smoothing the current of an affine cycle}
+\label{sec:ch11-smoothing}
+
+\begin{lemma}
+\label{lem:ch11-linear-regularization}
+Let $A\subset N_{\mathbf R}$ be a rational affine subspace of dimension $k$
+with saturated direction lattice $N_A\subset N$, and let
+$w\in\mathbf Z\setminus\{0\}$ be a weight.  Choose $\xi_{k+1},\ldots,\xi_r
+\in M$ vanishing on $N_A$ and inducing a basis of $(N/N_A)^*$, normalized so
+that $A=\{\xi_{k+1}=\cdots=\xi_r=0\}$.  Let $\rho\ge0$ be smooth with
+compact support on $\mathbf R^{r-k}$ and $\int\rho=1$, put
+$\rho_\varepsilon(u)=\varepsilon^{-(r-k)}\rho(u/\varepsilon)$, and set
+\[
+ \alpha^A_\varepsilon
+ =w\,\rho_\varepsilon(\xi_{k+1},\ldots,\xi_r)\,
+   \bigwedge_{j=k+1}^r\dprime\xi_j\wedge\ddprime\xi_j .
+\]
+Then $\alpha^A_\varepsilon$ is a smooth $(r-k,r-k)$-form which is
+$\dprime$- and $\ddprime$-closed, is strongly positive when $w>0$, has
+support in the set $\{|\xi''|\le C\varepsilon\}$ for some constant $C$, and
+satisfies
+\[
+ \lim_{\varepsilon\to0}\bigl[\alpha^A_\varepsilon\bigr]
+ =\delta_{(A,w)}
+\]
+weakly, that is,
+$\int_{N_{\mathbf R}}\alpha^A_\varepsilon\wedge\beta\to\int_{(A,w)}\beta$
+for every $\beta\in A^{k,k}_c(N_{\mathbf R})$.
+\end{lemma}
+
+\begin{proof}
+Complete $\xi_{k+1},\ldots,\xi_r$ to a basis $\xi_1,\ldots,\xi_r$ of $M$;
+this is possible because $N_A$ is saturated, so $N/N_A$ is free and the
+sequence $0\to(N/N_A)^*\to M\to N_A^*\to0$ splits.  Write
+$\xi''=(\xi_{k+1},\ldots,\xi_r)$.
+
+\emph{Closedness.}  Applying $\dprime$ differentiates only the coefficient,
+producing terms containing $\dprime\xi_j$ for some $j>k$; each such factor
+already occurs in the wedge, so every term vanishes.  The same argument
+applies to $\ddprime$.
+
+\emph{Positivity.}  For $w>0$ the form is a nonnegative function times
+$\bigwedge_j\eta_j\wedge J\eta_j$ with $\eta_j=\dprime\xi_j$, which is
+strongly positive by definition.
+
+\emph{Convergence.}  Let $\beta\in A^{k,k}_c$ and expand it in the monomials
+of the basis $\xi_1,\ldots,\xi_r$.  In the product
+$\alpha^A_\varepsilon\wedge\beta$, a monomial of $\beta$ containing
+$\dprime\xi_j$ or $\ddprime\xi_j$ with $j>k$ is annihilated by repetition,
+and a monomial omitting some $\dprime\xi_i$ or $\ddprime\xi_i$ with
+$i\le k$ cannot reach bidegree $(r,r)$.  Hence only the coefficient $b$ of
+$\bigwedge_{i\le k}\dprime\xi_i\wedge\ddprime\xi_i$ survives, and, the
+factors $\dprime\xi\wedge\ddprime\xi$ being of even total degree and
+therefore central,
+\[
+ \alpha^A_\varepsilon\wedge\beta
+ =w\,\rho_\varepsilon(\xi'')\,b\;\tau_r .
+\]
+Since $\xi_1,\ldots,\xi_r$ is a lattice basis of $M$, the lattice measure
+$\omega_N$ is $\rd\xi_1\cdots\rd\xi_r$ and Fubini gives
+\[
+ \int_{N_{\mathbf R}}\alpha^A_\varepsilon\wedge\beta
+ =w\int_{\mathbf R^{r-k}}\rho_\varepsilon(u)
+   \Bigl(\int_{\{\xi''=u\}}b\,\rd\xi_1\cdots\rd\xi_k\Bigr)\rd u .
+\]
+The inner integral is a continuous compactly supported function of $u$,
+because $b$ is smooth with compact support; as $\rho_\varepsilon$ is an
+approximate identity, the limit is its value at $u=0$, namely
+$w\int_Ab\,\omega_A=\int_{(A,w)}\beta$.
+\end{proof}
+
+\subsection{Transverse intersection as a current product}
+\label{sec:ch11-transverse}
+
+\begin{definition}
+\label{def:ch11-transverse-to-A}
+Let $X$ be a tropical $n$-cycle in $N_{\mathbf R}$, represented by a
+weighted complex $(\mathscr C,m)$, let $A$ be a rational affine subspace of
+dimension $k$ with weight $w$, and let $U\subset N_{\mathbf R}$ be open.  We
+say that $X$ and $(A,w)$ meet \emph{transversally over $U$} if
+\begin{enumerate}
+\item $|X|\cap A\cap U$ is contained in the union of the relative interiors
+  of the facets of $\mathscr C$;
+\item every facet $\sigma$ with $\sigma\cap A\cap U\ne\varnothing$ satisfies
+  $N_{\sigma,\mathbf R}+N_{A,\mathbf R}=N_{\mathbf R}$.
+\end{enumerate}
+In that case the \emph{transverse intersection} $X\cdot(A,w)$ over $U$ is
+the weighted complex whose facets are the sets $\sigma\cap A\cap U$, of pure
+dimension $c=n+k-r$, with weights
+\[
+ m_{\sigma\cap A}=m_\sigma\,w\,[N:N_\sigma+N_A].
+\]
+\end{definition}
+
+This is the transverse case of the weight formula
+\eqref{eq:tropical-stable-weight}, with $Y$ the cycle $(A,w)$; condition
+$(2)$ is the requirement that every facet of the intersection have the
+expected dimension.  Note that $(2)$ forces $n+k\ge r$, so that
+$c=n+k-r\ge0$, unless no facet meets $A$ inside $U$, in which case
+$|X|\cap A\cap U=\varnothing$ and both sides of every formula below vanish.
+When $c=0$ the intersection is a finite set of points with multiplicities,
+and $\int_{X\cdot(A,w)}\beta$ is the corresponding weighted sum of values of
+$\beta$.
+
+\begin{theorem}
+\label{thm:ch11-transverse-current-product}
+Let $X=(\mathscr C,m)$ and $(A,w)$ meet transversally over an open set $U$,
+and let $\alpha^A_\varepsilon$ be as in
+\Cref{lem:ch11-linear-regularization}.  Then, for every
+$\beta\in A^{c,c}_c(U)$ with $c=n+k-r$,
+\[
+ \lim_{\varepsilon\to0}\ \int_{(\mathscr C,m)}\alpha^A_\varepsilon\wedge\beta
+ \;=\;\int_{X\cdot(A,w)}\beta .
+\]
+Equivalently,
+$\delta_X\wedge[\alpha^A_\varepsilon]\to\delta_{X\cdot(A,w)}$ weakly on $U$.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: localization.}  Let $K=|X|\cap\Supp\beta$, a compact subset of
+$U$.  The set $K\cap A$ is compact, and by transversality it is covered by
+the relative interiors of finitely many facets $\sigma_1,\ldots,\sigma_s$
+with $N_{\sigma_i,\mathbf R}+N_{A,\mathbf R}=N_{\mathbf R}$.  If some
+sequence $\varepsilon_\nu\to0$ admitted points
+$x_\nu\in K\cap\Supp\alpha^A_{\varepsilon_\nu}$ outside a fixed
+neighbourhood $W$ of $K\cap A$, then, $K$ being compact, a subsequence would
+converge to a point of $K$ at distance $0$ from $A$, hence to a point of
+$K\cap A$, contradicting $x_\nu\notin W$.  Therefore, for $\varepsilon$
+small, $\Supp\alpha^A_\varepsilon\cap K$ lies in $W$, and we may take $W$ so
+small that it meets only the facets $\sigma_i$ and no cell of $\mathscr C$
+of dimension $<n$.  Consequently
+\[
+ \int_{(\mathscr C,m)}\alpha^A_\varepsilon\wedge\beta
+ =\sum_{i=1}^sm_{\sigma_i}\int_{\sigma_i}
+   \alpha^A_\varepsilon\wedge\beta
+\]
+for all small $\varepsilon$.
+
+\emph{Step 2: one facet.}  Fix $\sigma=\sigma_i$ and write
+$N_\sigma\cap N_A=N_{\sigma\cap A}$, which is saturated in $N_\sigma$ and
+has rank $c$, by the dimension count
+$\dim(\sigma\cap A)=n+k-r$.  Choose a lattice basis $v_1,\ldots,v_n$ of
+$N_\sigma$ whose first $c$ members form a lattice basis of
+$N_{\sigma\cap A}$, and let $s_1,\ldots,s_n$ be the dual affine coordinates
+on the span of $\sigma$, so that $\omega_\sigma=\rd s$ and
+$\sigma\cap A=\{s_{c+1}=\cdots=s_n=0\}$ locally.  The restrictions of
+$\xi_{k+1},\ldots,\xi_r$ to that span vanish on $N_{\sigma\cap A,\mathbf R}$
+and are affine, so
+\[
+ \xi''|_\sigma=D\,(s_{c+1},\ldots,s_n)^{\mathsf T}+\text{const},
+\]
+where $D$ is the square matrix, of size $r-k=n-c$, of the induced
+isomorphism
+$N_\sigma/N_{\sigma\cap A}\to N/N_A$ in the chosen lattice bases.  Its
+determinant satisfies
+\[
+ |\det D|
+ =\bigl[N/N_A:\pi(N_\sigma)\bigr]
+ =\bigl[N:N_\sigma+N_A\bigr],
+\]
+where $\pi:N\to N/N_A$ is the projection; the first equality is the
+definition of the index of the image lattice, and the second follows from
+$\pi(N_\sigma)=(N_\sigma+N_A)/N_A$.
+
+Restricting the form,
+\[
+ \Bigl(\bigwedge_{j>k}\dprime\xi_j\wedge\ddprime\xi_j\Bigr)\Big|_\sigma
+ =\det(D)^2\bigwedge_{i>c}\dprime s_i\wedge\ddprime s_i ,
+\]
+by the computation of \Cref{lem:ch11-orientation-drops-out} applied to $D$.
+As in the proof of \Cref{lem:ch11-linear-regularization}, only the
+coefficient $b$ of $\bigwedge_{i\le c}\dprime s_i\wedge\ddprime s_i$ in
+$\beta|_\sigma$ survives the wedge, so
+\[
+ \int_\sigma\alpha^A_\varepsilon\wedge\beta
+ =w\det(D)^2\int\rho_\varepsilon\bigl(\xi''(s)\bigr)\,b(s)\,\rd s .
+\]
+Substituting $u=\xi''(s)$ in the last $n-c$ variables, whose Jacobian is
+$|\det D|$, and applying Fubini,
+\[
+ \begin{aligned}
+  \int_\sigma\alpha^A_\varepsilon\wedge\beta
+   &=w\,|\det D|\int_{\mathbf R^{n-c}}\rho_\varepsilon(u)
+     \Bigl(\int b\bigl(s',s''(u)\bigr)\,\rd s'\Bigr)\rd u\\
+   &\xrightarrow[\varepsilon\to0]{}
+     w\,|\det D|\int_{\sigma\cap A}\beta ,
+ \end{aligned}
+\]
+since the inner integral is continuous in $u$ with compact support and
+$\int_{\sigma\cap A}\beta=\int b(s',0)\,\rd s'$ by definition of the lattice
+measure of $\sigma\cap A$.
+
+\emph{Step 3: summation.}  Multiplying by $m_\sigma$ and summing over the
+facets gives
+\[
+ \lim_{\varepsilon\to0}\int_{(\mathscr C,m)}\alpha^A_\varepsilon\wedge\beta
+ =\sum_im_{\sigma_i}w\,[N:N_{\sigma_i}+N_A]\int_{\sigma_i\cap A}\beta
+ =\int_{X\cdot(A,w)}\beta ,
+\]
+by \Cref{def:ch11-transverse-to-A}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch11-transverse-balanced}
+In the situation of \Cref{thm:ch11-transverse-current-product}, if $X$ is
+balanced then so is $X\cdot(A,w)$ over $U$.
+\end{corollary}
+
+\begin{proof}
+By \Cref{thm:ch11-current-closed} it suffices to show that
+$\int_{X\cdot(A,w)}\dprime\eta=0$ for every
+$\eta\in A^{c-1,c}_c(U)$.  By the theorem this is
+$\lim_\varepsilon\int_X\alpha^A_\varepsilon\wedge\dprime\eta$.  Since
+$\alpha^A_\varepsilon$ is $\dprime$-closed and of even total degree
+$2(r-k)$, the Leibniz rule gives
+$\dprime(\alpha^A_\varepsilon\wedge\eta)
+=\alpha^A_\varepsilon\wedge\dprime\eta$, and
+$\alpha^A_\varepsilon\wedge\eta$ has compact support on $|X|$ by Step 1 of
+the proof.  \Cref{thm:balanced-stokes} then gives
+$\int_X\alpha^A_\varepsilon\wedge\dprime\eta=0$ for every small
+$\varepsilon$, whence the limit is zero.
+\end{proof}
+
+\subsection{From transverse to stable intersection}
+\label{sec:ch11-stable-current}
+
+\begin{corollary}
+\label{cor:ch11-stable-current-product}
+Let $X$ be a tropical $n$-cycle in $N_{\mathbf R}$ and let $(A,w)$ be a
+weighted rational affine subspace of dimension $k$ with $n+k=r$, so that the
+stable product $X\cdot(A,w)$ of
+\Cref{thm:tropical-stable-intersection} is a $0$-cycle.  Let $v$ be generic
+and let $\Omega$ be a bounded open set.  Then for all sufficiently small
+$t>0$ the cycles $X$ and $(A+tv,w)$ meet transversally over $\Omega$, and
+\[
+ \lim_{t\downarrow0}\ \lim_{\varepsilon\to0}\
+   \delta_X\wedge\bigl[\alpha^{A+tv}_\varepsilon\bigr]
+ =\delta_{X\cdot(A,w)}
+ \qquad\text{weakly on }\Omega .
+\]
+\end{corollary}
+
+\begin{proof}
+Transversality of $X$ with a generic small translate of $A$ is the
+displacement statement recalled in \Cref{chap:tropical-spaces} before
+\eqref{eq:tropical-stable-weight}; by
+\Cref{thm:ch11-transverse-current-product} the inner limit is
+$\delta_{X\cdot(A+tv,w)}$, a finite sum of weighted Dirac masses in
+$\Omega$.
+
+Let $\beta$ be a smooth function with compact support in $\Omega$ and let
+$q_1,\ldots,q_M$ be the points of $|X|\cap A$ lying in $\Omega$, finitely
+many because $\Omega$ is bounded and $\mathscr C$ locally finite.  Fix
+$q=q_j$ and let $\sigma_1,\ldots,\sigma_l$ be the facets of $X$ containing
+$q$ with $\sigma_i\cap(A+tv)\neq\varnothing$ for all small $t>0$.  For small
+$t$ each such $\sigma_i$ meets $A+tv$ in exactly one point $q_i(t)$, lying
+in the relative interior of $\sigma_i$ and tending to $q$ as
+$t\downarrow0$; this is the local picture of the displacement argument.  Its
+multiplicity in $X\cdot(A+tv,w)$ is $m_{\sigma_i}w[N:N_{\sigma_i}+N_A]$, the
+index being unaffected by translation.  By
+\eqref{eq:tropical-stable-weight} the sum of these numbers over $i$ is the
+stable weight of $q$ in $X\cdot(A,w)$.  Facets not meeting $A+tv$ for small
+$t$ contribute nothing, and points of $|X|\cap(A+tv)$ far from $|X|\cap A$
+stay outside $\Supp\beta$ for small $t$.  Hence
+\[
+ \int_{X\cdot(A+tv,w)}\beta
+ =\sum_j\sum_im_{\sigma_i}w[N:N_{\sigma_i}+N_A]\,\beta\bigl(q_i(t)\bigr)
+ \xrightarrow[t\downarrow0]{}
+ \sum_j\omega_{X\cdot(A,w)}(q_j)\,\beta(q_j),
+\]
+by continuity of $\beta$.
+\end{proof}
+
+\begin{remark}
+\label{rem:ch11-stable-positive-dim}
+The same argument applies when $c=n+k-r>0$, with Dirac masses replaced by
+the lattice measures of the facets $\sigma_i\cap(A+tv)$; the only additional
+point to check is that those facets, together with their lattice measures,
+converge to the facets of $X\cdot(A,w)$, which holds because for small $t$
+they are the intersections of the \emph{fixed} polyhedra $\sigma_i$ with
+translates of a fixed affine subspace.  We shall not need this refinement.
+\end{remark}
+
+\begin{example}[Two tropical lines]
+\label{ex:ch11-two-lines-current}
+Let $L\subset\mathbf R^2$ be the tropical line of
+\Cref{fig:tropical-line-balancing} and let $A=\mathbf R(1,0)$ be the
+horizontal line, of weight $1$, a rational affine subspace with
+$N_A=\mathbf Z(1,0)$ and $k=1$, so that $c=1+1-2=0$.  Here $A$ contains the
+horizontal ray of $L$, so the two do not meet transversally and
+\Cref{cor:ch11-stable-current-product} must be used.
+
+Displace $A$ downwards: $A_t=A-t(0,1)$ with $t>0$.  Then $A_t$ meets $|L|$
+in the single point $p_t=(-t,-t)$ on the ray of direction $(-1,-1)$, and
+that intersection is transverse, since
+$\mathbf Z(1,1)+\mathbf Z(1,0)=\mathbf Z^2$.  Its multiplicity is
+\[
+ 1\cdot1\cdot[\mathbf Z^2:\mathbf Z(1,1)+\mathbf Z(1,0)]
+ =\bigl|\det\begin{psmallmatrix}1&1\\1&0\end{psmallmatrix}\bigr|=1 .
+\]
+Hence $L\cdot(A_t,1)=\delta_{p_t}$, and letting $t\downarrow0$ gives
+$L\cdot(A,1)=\delta_0$: one point of multiplicity one at the vertex.  As
+$\varepsilon\to0$ the regularized forms $\alpha^{A_t}_\varepsilon$ converge
+to $\delta_{A_t}$, and the double limit is $\delta_0$, in accordance with
+the stable-intersection computation of \Cref{chap:tropical-spaces}.
+
+Displacing upwards instead, $A_t'=A+t(0,1)$ meets $|L|$ at $(t,t)$ on the
+vertical ray, again with multiplicity
+$|\det\begin{psmallmatrix}0&1\\1&0\end{psmallmatrix}|=1$, and the limit is
+again $\delta_0$.  The independence of the displacement direction, proved in
+general in \Cref{thm:tropical-stable-intersection}, is here the statement
+that the two chambers give the same total weight; balancing at the vertex is
+what makes them agree.
+\end{example}
+
+\begin{example}[The lattice-index test as a limit of currents]
+\label{ex:ch11-index-test-current}
+Let $X$ be the line $\mathbf R(1,2)\subset\mathbf R^2$ with weight $1$,
+which is balanced because it has no codimension-one cell, and let
+$A=\mathbf R(1,0)$ with weight $1$.  They meet transversally at the origin
+and
+\[
+ [N:N_X+N_A]
+ =\bigl|\det\begin{psmallmatrix}1&2\\1&0\end{psmallmatrix}\bigr|=2 ,
+\]
+so $X\cdot(A,1)=2\,\delta_0$.  Let us verify this through
+\Cref{thm:ch11-transverse-current-product}.  Take $\xi_2=x_2$ as the
+defining functional of $A$, so that
+$\alpha^A_\varepsilon=\rho_\varepsilon(x_2)\,\dprime x_2\wedge\ddprime x_2$,
+and let $\beta$ be a compactly supported function.  Parametrize $X$ by its
+lattice coordinate $s\mapsto s(1,2)$; then $x_2=2s$ and
+\[
+ \alpha^A_\varepsilon\big|_X=\rho_\varepsilon(2s)\,
+   \dprime(2s)\wedge\ddprime(2s)
+ =4\rho_\varepsilon(2s)\,\dprime s\wedge\ddprime s,
+\]
+whence
+\[
+ \int_X\alpha^A_\varepsilon\wedge\beta
+ =4\int_{\mathbf R}\rho_\varepsilon(2s)\beta(s(1,2))\,\rd s
+ =2\int_{\mathbf R}\rho_\varepsilon(u)\beta\bigl(\tfrac u2(1,2)\bigr)\,\rd u
+ \longrightarrow 2\beta(0).
+\]
+Once more the factor $4$ from the two labelled copies is halved by the
+change of variables, and what remains is the lattice index $2$.  A
+construction that produced $1$ here would be the one warned against in the
+lattice-index example of \Cref{chap:tropical-spaces}.
+\end{example}
+
+\begin{remark}[What is proved here and what is not]
+\label{rem:ch11-intersection-scope}
+Three limitations should be stated plainly.
+
+First, one factor is a \emph{linear} cycle, that is, a weighted rational
+affine subspace.  This is the case used in
+\Cref{chap:analytic-tropicalization} for dimension and multiplicity
+formulas, in \Cref{chap:cld-currents} for the fibre-integration and
+projection statements
+\Cref{thm:cld-fibre-integration,thm:cld-fibre-projection}, and in
+\Cref{chap:cld-bedford-taylor} for localization of Bedford--Taylor products
+along a coordinate subspace.  The general stable product of two tropical
+cycles is not treated here.
+
+Second, even in that case we prove convergence of a regularized product,
+not the existence of a product of two currents.  The functional
+$\delta_X\wedge\delta_A$ is not defined in the smooth calculus, and no
+choice of regularizing family should be read as defining it.  What the
+theorem asserts is that the answer is independent of the mollifier $\rho$,
+which is visible from the proof.
+
+Third, the extension in which such products do exist intrinsically is the
+delta-form calculus of \Cref{chap:delta-forms}, where
+\Cref{thm:delta-preform-algebra} produces a bigraded algebra whose
+multiplication induces stable tropical intersection on the polyhedral part.
+The comparison between the limit computed here and the delta-form product
+is \Cref{prop:tropical-delta-pl}; the two agree wherever both are defined,
+which is why the present regularized statement suffices for the
+applications.
+\end{remark}
+
+\section{Dictionary and sign ledger}
+\label{sec:ch11-ledger}
+
+\subsection{From this chapter to the general theory}
+\label{sec:ch11-dict-forward}
+
+\begin{center}
+\small
+\begin{tabular}{p{.30\textwidth}|p{.28\textwidth}|p{.32\textwidth}}
+\textbf{Established here}&\textbf{Generalized as}&\textbf{Where}\\ \hline
+lattice measure $\omega_\sigma$
+  &calibration of a parlinear space
+  &\cref{chap:tropical-spaces},
+   \cite[\S4.6]{CLD25}\\
+$\int_\sigma f\tau_n=\int_\sigma f\,\omega_\sigma$
+  &integration of $(n,n)$-forms on a tropical space
+  &\cref{thm:cld-global-stokes},
+   \cref{chap:cld-forms}\\
+boundary trace
+   \eqref{eq:superform-boundary-traces}
+  &boundary integral $\int^\partial$ of CLD
+  &\cref{sec:appJ-currents},
+   \cite[\S5.9]{CLD25}\\
+boundary defect $\mathbf N(\tau)$
+   (\cref{def:ch11-defect})
+  &discordance of a calibration
+  &\cite[\S4.6.7]{CLD25}\\
+balanced $\Leftrightarrow$ Stokes
+   (\cref{thm:ch11-balancing-iff-stokes})
+  &closedness of an integration current
+  &\cref{thm:ch11-current-closed},
+   \cref{thm:current-fundamental-cycle}\\
+Green formula
+   (\cref{thm:ch11-green-defect})
+  &Green formula on a Berkovich space
+  &\cref{chap:cld-forms},
+   \cref{chap:cld-bedford-taylor}\\
+graph Laplacian comparison
+   (\cref{thm:ch11-graph-green})
+  &$\dprimeddprime$ of a model function on a curve
+  &\cref{prop:skeletal-curvature-curve},
+   \eqref{eq:cld-curve-graph-laplacian}\\
+Dirichlet sign
+   (\cref{cor:tropical-dirichlet-sign})
+  &energy pairing and its negativity
+  &\cref{cor:ch08-dirichlet-energy},
+   \cref{chap:cld-bedford-taylor}\\
+pushforward with index
+   (\cref{def:ch11-proper-pushforward})
+  &proper pushforward of currents
+  &\cref{prop:current-pushforward-formal},
+   \cref{thm:cld-fibre-projection}\\
+projection formula
+   (\cref{cor:ch11-projection-formula})
+  &$g_*(T\wedge g^*\alpha)=g_*T\wedge\alpha$
+  &\cref{prop:current-pushforward-formal}\\
+transverse product as a limit
+   (\cref{thm:ch11-transverse-current-product})
+  &delta-form multiplication
+  &\cref{thm:delta-preform-algebra},
+   \cref{prop:tropical-delta-pl}
+\end{tabular}
+\end{center}
+
+\subsection{The sign table}
+\label{sec:ch11-sign-table}
+
+Every convention fixed in this chapter is listed here with the test that
+determines it and the place in \Cref{app:normalizations} where it is
+recorded.  A reader recomputing any formula of
+\Crefrange{chap:cld-forms}{chap:cld-examples} should be able to reconstruct
+each row from its test.
+
+\begin{center}
+\small
+\begin{tabular}{p{.26\textwidth}|p{.30\textwidth}|p{.16\textwidth}|p{.18\textwidth}}
+\textbf{Convention}&\textbf{Fixed by}&\textbf{Value}&\textbf{Recorded in}\\
+\hline
+positive top orientation $\tau_n$
+  &interlaced, not grouped
+  &$\tau_n=c_n\,\dprime x_{[n]}\wedge\ddprime x_{[n]}$
+  &\eqref{eq:appJ-lagerberg-orientation}\\
+grouped-to-interlaced constant
+  &\cref{lem:ch11-interlaced-grouped}
+  &$c_p=(-1)^{p(p-1)/2}$
+  &\eqref{eq:appJ-cp}\\
+measure on a cell
+  &covolume one for $N_\sigma$
+  &$\omega_\sigma$, unsigned
+  &\cref{sec:appJ-cld}\\
+orientation of a cell
+  &drops out of every integral
+  &none needed
+  &\cref{lem:ch11-orientation-drops-out}\\
+contraction $\iota'',\iota'$
+  &acts in one labelled block only
+  &no traversal sign
+  &\cref{sec:appJ-currents}\\
+normal direction
+  &outward, primitive in $N_\sigma/N_\tau$
+  &$n_{\sigma,\tau}=-u_{\sigma/\tau}$
+  &\cref{sec:appJ-currents}\\
+trace prefactor, bidegree $(n-1,n)$
+  &\cref{lem:ch11-trace-normal-form}
+  &$(-1)^{n-1}=c_nc_{n-1}$
+  &\eqref{eq:superform-boundary-traces}\\
+trace prefactor, bidegree $(n,n-1)$
+  &\cref{lem:ch11-trace-normal-form}
+  &$-1$
+  &\eqref{eq:superform-boundary-traces}\\
+boundary defect
+  &sum of outward normals
+  &$\mathbf N(\tau)$
+  &\cref{def:ch11-defect}\\
+graph Laplacian versus trace
+  &outgoing slopes point inward
+  &$\Delta_\Gamma=-\sum\operatorname{tr}'$
+  &\cref{lem:ch11-graph-trace}\\
+Hessian sign
+  &convex gives positive
+  &$\dprimeddprime u=(u_{ij})$
+  &\eqref{eq:appJ-real-hessian}\\
+Dirichlet pairing
+  &$\int f\dprimeddprime f\wedge\alpha\le0$
+  &negative semidefinite
+  &\cref{cor:tropical-dirichlet-sign}\\
+pushforward multiplicity
+  &one surviving lattice index
+  &$[N'_{\sigma'}:F(N_\sigma)]$
+  &\cref{def:ch11-proper-pushforward}\\
+transverse multiplicity
+  &one surviving lattice index
+  &$[N:N_\sigma+N_A]$
+  &\eqref{eq:tropical-stable-weight}
+\end{tabular}
+\end{center}
+
+\subsection{The unit tests}
+\label{sec:ch11-unit-tests}
+
+The chapter contains the following complete numerical checks.  Together they
+exercise every row of the sign table at least once.
+
+\begin{center}
+\small
+\begin{tabular}{p{.34\textwidth}|p{.28\textwidth}|p{.30\textwidth}}
+\textbf{Test}&\textbf{Detects}&\textbf{Where}\\ \hline
+strongly positive form on
+  $\mathbf R^2$ has positive integral
+  &interlaced versus grouped
+  &\cref{ex:ch11-positivity-sign},
+   \cref{ex:ch11-grouped-wrong-sign}\\
+divergence theorem on $[0,1]^2$
+  &prefactor $(-1)^{n-1}$
+  &\cref{ex:ch11-square-wrong-sign}\\
+hypotenuse of the standard triangle
+  &primitive versus Euclidean normal
+  &\cref{ex:ch11-euclidean-normal-trap},
+   \cref{ex:ch11-triangle}\\
+$\operatorname{SL}(2,\mathbf Z)$ chart change
+  &basis independence
+  &\cref{ex:ch11-gl2z-test}\\
+$t\mapsto2t$ on a segment
+  &index appears once, not twice
+  &\cref{ex:ch11-nonunimodular}\\
+Stokes on a segment
+  &outward normal at each end
+  &\cref{ex:ch11-segment-stokes}\\
+Stokes on a tripod
+  &cancellation by balancing
+  &\cref{ex:ch11-tripod-stokes}\\
+tripod with three rays in a half-plane
+  &necessity of balancing
+  &\cref{ex:ch11-tripod-unbalanced}\\
+two weights on crossed lines
+  &weights are extra data
+  &\cref{ex:ch11-weights-not-support}\\
+$f(t)=t$ on $[0,\ell]$
+  &Laplacian sign of
+   \cref{sec:metric-graphs}
+  &\cref{ex:ch11-graph-segment-check}\\
+tripod potential $\varphi_D$
+  &agreement with
+   \cref{ex:ch08-p1-tripod}
+  &\cref{ex:ch11-graph-tripod-check}\\
+Green function $g_q$ on $[0,1]$
+  &sign of the Dirichlet energy
+  &\cref{ex:ch11-green-function-check}\\
+rays $(2,1),(2,-1),(-1,0)$ to $\mathbf R$
+  &projection formula and index
+  &\cref{ex:ch11-projection-curve}\\
+integral horizontal lines
+  &necessity of properness
+  &\cref{ex:ch11-pushforward-nonproper}\\
+two tropical lines
+  &displacement independence
+  &\cref{ex:ch11-two-lines-current}\\
+line of slope $2$ against a coordinate line
+  &transverse lattice index
+  &\cref{ex:ch11-index-test-current}
+\end{tabular}
+\end{center}
+
+Four points are worth memorizing on leaving the chapter.
+\begin{enumerate}
+\item Orientations never survive into an integral; lattices always do.
+\item The only sign created by the boundary formalism is
+  $c_nc_{n-1}=(-1)^{n-1}$, and it must be tested in even dimension.
+\item Outgoing slopes on a graph are inward normals; the graph Laplacian is
+  minus the outward flux.
+\item A lattice index enters once under pushforward and once under
+  transverse intersection, never twice, because the change of variables
+  removes one of the two labelled copies.
+\end{enumerate}
+
+\section*{Source notes}
+
+The Euclidean and balanced-complex proofs above expose the mechanism hidden
+inside the invariant formalism. Calibrated integration, boundary, Stokes, and
+Green formulae in full parlinear generality are from
+\cite[\S5]{CLD25}. Delta-current versions and tropical intersection products
+are postponed to \cref{chap:delta-forms}, after ordinary currents have been defined.
+
+\paragraph{Provenance of the individual statements.}
+The half-space Stokes and Green formulae for superforms on a real vector
+space, which are our \Cref{lem:ch11-segment-stokes} and
+\Cref{lem:ch11-mixed-cancellation} in embryonic form, go back to Lagerberg's
+original paper on superforms and appear as Lemmas~1.5.9 and~1.5.10 of
+\cite{CLD25}; the mixed cancellation
+$\dprime\alpha\wedge\ddprime\beta=-\ddprime\alpha\wedge\dprime\beta$ for
+symmetric forms is their Lemma~1.3.8.  Our proof of it, by evaluating the
+involution $J$ on a top-degree form in two ways, is the one that makes the
+role of symmetry visible.  The calibrated theory on a parlinear space, the
+notion of \emph{discordance} of a calibration along a codimension-one face,
+and the resulting notion of a \emph{harmonious} space are
+\cite[\S\S4.6.7--4.6.14]{CLD25}; our \Cref{def:ch11-defect} is the
+discordance in the embedded situation, and
+\Cref{thm:ch11-balancing-iff-stokes} is the observation, implicit there,
+that harmoniousness is not merely sufficient but necessary.
+\Cref{thm:polyhedral-stokes} and \Cref{thm:balanced-stokes} correspond to
+\cite[Proposition~4.6.15]{CLD25}, and \Cref{thm:cld-global-stokes} to
+\cite[Proposition~5.11.1]{CLD25}.  Their proofs there proceed by a
+partition-of-unity reduction to the half-space lemma and an
+$\varepsilon$-truncation near the codimension-two skeleton; we have instead
+reduced to the standard simplex and transported by an affine map, which
+isolates the lattice-index bookkeeping in one place and makes the
+$c_nc_{n-1}$ constant explicit.  Neither route is shorter than the other; the
+present one is chosen because the index identity it uses,
+$q=ck$ in Step 3, is the same identity that governs pushforward, and the
+reader meets it once instead of twice.
+
+\paragraph{Polyhedral and tropical vocabulary.}
+Balancing, weights, tropical cycles, stable intersection, and the
+lattice-index formula for pushforward follow
+\cite[\S\S4.2--4.3 and 4.6]{MR18Tropical}, as in
+\Cref{chap:tropical-spaces}; that reference also contains the combinatorial
+treatment of pushforward along an arbitrary integer-affine map, which we
+have replaced by the argument of
+\Cref{thm:ch11-pushforward-balanced}.  The systematic development of
+intersection theory on abstract tropical cycles, including pullback,
+rational equivalence, and the projection formula in a form closer to
+classical intersection theory, is due to Allermann and Rau; it is not needed
+here and is not cited by key, since no proof in this book depends on it.
+
+\paragraph{The comparison with metric graphs.}
+\Cref{thm:ch11-graph-green} is a bookkeeping statement rather than a new
+theorem, but it is the kind of statement that is usually left implicit and
+is then the source of sign disputes.  The metric-graph conventions it is
+matched against---outgoing slopes, the atomic Laplacian
+\eqref{eq:graph-laplacian}, Green's identity \eqref{eq:graph-green}, the
+negative semidefiniteness of the Dirichlet pairing
+(\Cref{cor:ch08-dirichlet-energy})---are those of \Cref{sec:metric-graphs},
+which follows the tropical literature represented by
+\cite{MR18Tropical} and the potential theory of Berkovich curves developed
+by Thuillier and, for the projective line, by Baker and Rumely.  The
+identification of the curve-theoretic Laplacian with the
+Chambert-Loir--Ducros operator on a skeleton is carried out in
+\cite{Wanner19}, and in the recent curve-test framework in
+\cite{GR25PL,GR25Classical}; a Poincar\'e lemma for the associated real
+forms is \cite{Jell16}.  The reader should note that the sign in
+\Cref{lem:ch11-graph-trace} is the reason those comparisons are stated with
+a minus sign, and that no source is at fault: outgoing slopes and outward
+normals are genuinely opposite conventions, each natural in its own context.
+
+\paragraph{Intersection products and their limits.}
+The regularization of \Cref{lem:ch11-linear-regularization} is the tropical
+analogue of the classical approximation of a current of integration by
+smooth bump forms; in the superform setting it appears in Lagerberg's
+convolution formalism, recalled in \cite[\S1.6]{CLD25}, and in the
+supercurrent framework of \cite{Ber19Super}, where the metric-dependent
+supercurrent of a real submanifold is compared with calibrated tropical
+currents.  Those two constructions are not the same, and
+\Cref{chap:cld-currents} keeps them apart.  The full multiplicative theory,
+in which stable tropical intersection becomes an honest product of
+delta-forms, is the Gubler--K\"unnemann calculus of \cite{GK17,GK19}, taken
+up in \Cref{chap:delta-forms}; \Cref{rem:ch11-intersection-scope} records
+exactly which of its statements the present chapter does and does not
+anticipate.  The enlargement of the chart category by harmonic
+tropicalizations is \cite{GJR26}, and the comparison of real and
+non-Archimedean Monge--Amp\`ere operators in the toric case, which uses the
+integration theory of this chapter, is \cite{Vil20}; the global invariant
+tropical version is \cite{BGJKK25}.
+
+\paragraph{What is new here, and what is not.}
+No theorem of this chapter is new.  What is not standard is the
+organization: the boundary defect is introduced before the balanced case
+rather than after it, so that
+\Cref{thm:ch11-defect-stokes} covers balanced and unbalanced complexes
+uniformly and the balancing hypothesis appears exactly where it is used;
+the converse implication of \Cref{thm:ch11-balancing-iff-stokes} is proved
+rather than asserted; balancing of a pushforward is deduced from that
+converse instead of from a combinatorial index computation; and every
+convention is tested numerically in \Cref{sec:ch11-unit-tests}.  Readers
+comparing with \cite[\S\S4.6 and 5.9--5.11]{CLD25} should expect the same
+theorems in a different order and with different proofs of the elementary
+steps.

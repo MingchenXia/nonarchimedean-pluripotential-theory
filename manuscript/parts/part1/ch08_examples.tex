@@ -1,0 +1,3318 @@
+\chapter{Model calculations in dimension one and in the toric case}
+\index{metric graph}\index{toric geometry!model calculation}
+\label{chap:model-calculations}
+
+This chapter turns the objects of
+\crefrange{chap:valuations}{chap:topological-tools} into computations.  Curves
+reduce model metrics to functions on metric graphs, while toric varieties
+reduce invariant metrics to convex functions on a real vector space.  These
+two settings will be the test suite for every later sign and normalization.
+
+We retain the global convention $v=-\log|\cdot|$.  When $K$ is discretely
+valued, the running uniformizer is normalized by $v(\pi)=1$.  Monge--Amp\`ere
+measures are not divided by their total mass: a metric on a degree-$d$ line
+bundle on a curve produces a measure of mass $d$.
+
+\subsection*{What this chapter supplies to the rest of the book}
+
+The chapter is deliberately the most concrete in \cref{part:foundations}, and
+almost every statement in it is a computation carried to explicit numbers.
+Four packages of results are assembled here and imported later.
+
+\begin{enumerate}
+\item \emph{The one-dimensional calculus.}  \Cref{sec:metric-graphs}
+constructs the Laplacian of a piecewise affine function on a compact metric
+graph, proves Green's identity, and solves the Poisson and Dirichlet
+problems; \cref{sec:ch08-slope-formula} proves the slope formula relating the
+Laplacian on a skeleton to the retraction of a principal divisor.
+\Cref{part:cld} recovers the same
+operator as $\dprimeddprime$ on a tropical chart
+(\cref{prop:skeletal-curvature-curve}), \cref{part:bfj} uses it to solve the
+Monge--Amp\`ere equation on curves (\cref{prop:graph-ma-solution}), and
+\cref{part:bj} uses its version on the trivially valued tree
+(\eqref{eq:bj-curve-laplacian}).
+
+\item \emph{The projective line.}  \Cref{sec:berkovich-p1} makes the tree
+picture of \cref{sec:berk-line} carry potentials: model metrics on
+$\cO(d)$, their piecewise affine functions, their Chambert--Loir measures,
+and the mass check against the degree.  It is the smallest place in which
+the two computations of a curvature measure---by outgoing slopes and by
+intersection numbers on a model---can be compared in full.
+
+\item \emph{The trivially valued cone.}  \Cref{sec:trivial-valuation-cone}
+computes the cone of semivaluations of a curve and of the affine plane,
+its scaling action, its divisorial points, and the homogeneous potentials
+attached to ideals.  \Cref{part:bj} works on exactly these objects; the
+definitions there (\cref{def:trivial-analytification,def:homogeneous-function})
+are the abstractions of what is computed here.
+
+\item \emph{The toric dictionary.}  \Cref{sec:toric-convex} identifies
+invariant metrics with convex functions on $N_{\mathbf R}$ and the
+Monge--Amp\`ere measure with the real Alexandrov measure, up to the factor
+$n!$ forced by \eqref{eq:appJ-toric-degree}.  Everything is carried out in
+coordinates for $\mathbf P^1\times\mathbf P^1$, a Hirzebruch surface, and a
+weighted projective plane.  \Cref{thm:toric-bfj-alexandrov,thm:bj-toric-psh-convex}
+are the two later avatars.
+\end{enumerate}
+
+A reader who has done the computations below by hand can check any later sign
+without re-deriving it: the four normalization tests collected at the end of
+\cref{sec:model-translation-table} determine every convention in the book.
+
+\subsection*{Dependencies}
+
+\Cref{sec:metric-graphs} is self-contained apart from the model theory of
+\cref{chap:models} and the skeleton theory of \cref{chap:skeleta}, both used
+only in \cref{sec:ch08-slope-formula}.  \Cref{sec:berkovich-p1} uses the
+classification of points of \cref{thm:berk-a1-classification} and the model
+measures of \cref{sec:metrics-cl-measure}.  \Cref{sec:trivial-valuation-cone}
+uses only \cref{sec:berk-trivial}.  \Cref{sec:toric-convex} uses convexity
+in the form recorded in \cref{app:convexity} and the model measures again.
+The three running examples of \cref{sec:ch01-running-examples} are recomputed
+throughout, and are never redefined here: the nodal degeneration is
+\cref{sec:ch01-running-nodal}, the toric line is
+\cref{sec:ch01-running-toric}, and the product test configuration is
+\cref{sec:ch01-running-tc}.
+
+\section{Metric graphs and their Laplacians}
+\label{sec:metric-graphs}
+
+A skeleton of a curve is a finite metric graph, and every model metric on a
+line bundle over that curve becomes a piecewise affine function on it.  This
+section develops the potential theory of such functions from scratch.
+Nothing in it uses algebraic geometry until
+\cref{sec:ch08-slope-formula}.
+
+\subsection{Graphs, models, and piecewise affine functions}
+\label{sec:ch08-graph-basics}
+
+\begin{definition}
+A \emph{compact metric graph} $\Gamma$ is a finite connected graph whose
+edges are assigned positive lengths and realized as closed intervals, with
+the induced path metric.  At $p\in\Gamma$, the finite set of germs of
+nonconstant geodesic segments issuing from $p$ is denoted $T_p\Gamma$ and its
+elements are called tangent directions.
+\end{definition}
+
+The data of a finite graph with edge lengths is called a \emph{model} of the
+topological space $\Gamma$; the space itself, with its metric, does not
+remember which points were declared to be vertices.  Inserting a new vertex
+in the interior of an edge of length $\ell$, at distance $\ell'$ from one of
+its endpoints, replaces that edge by two edges of lengths $\ell'$ and
+$\ell-\ell'$ and changes neither $\Gamma$ nor its path metric; such an
+operation is a \emph{subdivision}.  Two models of the same metric graph
+always admit a common subdivision, obtained by taking the union of the two
+vertex sets.  This trivial remark is the combinatorial shadow of a
+substantial geometric fact: distinct models of a curve may have the same
+skeleton, and models related by vertical blowup subdivide it
+(\cref{ex:snc-chain-models,thm:skeleton-subdivision}).
+
+\begin{example}[Valence and tangent directions]
+\label{ex:ch08-valence}
+If $p$ is a vertex of a model of $\Gamma$, then $\#T_p\Gamma$ is its valence
+in that model.  If $p$ lies in the interior of an edge, then
+$\#T_p\Gamma=2$, whatever model is used, and $p$ is a two-valent vertex of
+any subdivision containing it.  An endpoint of a segment has
+$\#T_p\Gamma=1$.  Thus for $\Gamma=[0,\ell]$ one has $\#T_0\Gamma=1$,
+$\#T_\ell\Gamma=1$, and $\#T_p\Gamma=2$ for $0<p<\ell$; for the circle
+$\mathbf R/\ell\mathbf Z$ every point has exactly two tangent directions.
+\end{example}
+
+A continuous function $f$ on $\Gamma$ is \emph{piecewise affine} if, after a
+finite subdivision, its restriction to each edge is affine.  For
+$\nu\in T_p\Gamma$, let $d_\nu f(p)$ be the outgoing slope of $f$ in the
+direction $\nu$.
+
+Explicitly, if $\gamma:[0,\varepsilon)\to\Gamma$ is the unit-speed geodesic
+representing $\nu$, then
+\begin{equation}
+\label{eq:ch08-outgoing-slope}
+ d_\nu f(p)=\lim_{s\downarrow0}\frac{f(\gamma(s))-f(p)}{s},
+\end{equation}
+which exists for piecewise affine $f$ because $f\circ\gamma$ is affine near
+$0$.  We write $\PL(\Gamma)$ for the real vector space of piecewise affine
+functions on $\Gamma$; it contains the constants and is stable under
+$\max$, $\min$, and sums.
+
+\begin{definition}
+The graph Laplacian of a piecewise affine function is the signed atomic
+measure
+\begin{equation}
+\label{eq:graph-laplacian}
+             \Delta_\Gamma f
+             =\sum_{p\in\Gamma}
+                \left(\sum_{\nu\in T_p\Gamma}d_\nu f(p)\right)\delta_p.
+\end{equation}
+Only vertices and slope-break points contribute.
+\end{definition}
+
+Our sign convention makes a convex corner positive.  For example,
+$f(t)=|t|$ on a neighborhood of $0$ in a line has
+$\Delta f=2\delta_0$.
+
+Formula \eqref{eq:graph-laplacian} is the operator $\ddc$ of
+\cite[\S1.2.1]{Thu05} on an integral polyhedron of dimension at most one,
+specialized to the constant weight $1$.  Thuillier writes
+$\ddc f=\sum_{x}\lambda_x(f)\delta_x$ with
+$\lambda_x(f)=\sum_{t\in\mathrm T_xS}w_x(t)\lambda_{x,t}(f)$, the inner sum
+running over the tangent directions at $x$ and $\lambda_{x,t}(f)$ being the
+outgoing slope of $f$ along $t$; the weights $w_x(t)$ are the residual degrees
+of the nodes when the polyhedron is the reduction graph of a nodal curve
+\cite[Rem.~1.2.4]{Thu05}, and they are all equal to $1$ in the situation of
+\cref{sec:ch08-slope-formula}, where $\widetilde K$ is algebraically closed.
+The whole of \cref{sec:metric-graphs} is his \cite[\S1.2]{Thu05}, and we
+quote his numbering statement by statement below.
+
+Two points must be checked before \eqref{eq:graph-laplacian} can be used:
+that the sum is finite, and that it does not depend on the model chosen to
+compute it.
+
+\begin{lemma}
+\label{lem:ch08-laplacian-well-defined}
+Let $f\in\PL(\Gamma)$.
+\begin{enumerate}
+\item The set of $p\in\Gamma$ with
+$\sum_{\nu\in T_p\Gamma}d_\nu f(p)\neq0$ is finite, so
+\eqref{eq:graph-laplacian} defines a signed atomic measure of finite total
+variation.
+\item The measure $\Delta_\Gamma f$ does not depend on any choice of model:
+it is computed from $f$ and the metric alone.
+\item $\Delta_\Gamma$ is linear, and $\Delta_\Gamma f=0$ if and only if $f$
+is constant.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1)  Fix a model in which $f$ is affine on every edge.  If $p$ lies in the
+interior of an edge $e$ on which $f$ is affine with slope $c$ (computed in
+some orientation of $e$), then $T_p\Gamma$ consists of the two directions
+along $e$, with outgoing slopes $c$ and $-c$; their sum vanishes.  Hence the
+support of $\Delta_\Gamma f$ is contained in the finite vertex set.
+
+(2)  The quantity $\sum_{\nu\in T_p\Gamma}d_\nu f(p)$ is defined by
+\eqref{eq:ch08-outgoing-slope} purely in terms of the metric space
+$\Gamma$, its tangent directions at $p$, and the germ of $f$ at $p$.  No
+model enters.  Part~(1) shows only that a model exhibits the finiteness; by
+the previous paragraph, adding vertices adds only points of zero mass.
+
+(3)  Linearity is clear from \eqref{eq:ch08-outgoing-slope}.  If $f$ is
+constant then every outgoing slope vanishes.  Conversely suppose
+$\Delta_\Gamma f=0$ and let $p_0\in\Gamma$ be a point at which the continuous
+function $f$ attains its maximum; we may take $p_0$ to be a vertex of a model
+in which $f$ is edgewise affine, since the maximum of an affine function on an
+edge is attained at an endpoint.  All outgoing slopes at $p_0$ are
+$\leq0$, and their sum is $0$, so all of them vanish; therefore $f$ is
+constant on every edge issuing from $p_0$, and every neighbouring vertex is
+again a maximum point.  Since $\Gamma$ is connected, $f$ is constant.
+\end{proof}
+
+The last argument is the graph maximum principle, isolated below in the form
+used repeatedly in \cref{part:bfj}.
+
+\begin{proposition}
+\label{prop:ch08-graph-maximum}
+Let $f\in\PL(\Gamma)$ and let $S\subset\Gamma$ be a nonempty finite set
+containing the support of the negative part of $\Delta_\Gamma f$.  Then
+\[
+                 \max_\Gamma f=\max_{S}f .
+\]
+Consequently, if $\Delta_\Gamma f\geq0$ on all of $\Gamma$, then $f$ is
+constant.
+\end{proposition}
+
+\begin{proof}
+Put $M=\max_\Gamma f$ and $U=\{f=M\}$, a nonempty closed subset.  Let
+$p_0\in U\setminus S$.  Choose a model in which $f$ is affine on every edge
+and $S\cup\{p_0\}$ lies in the vertex set.  All outgoing slopes of $f$ at
+$p_0$ are $\leq0$ because $f\leq M=f(p_0)$, while their sum is
+$(\Delta_\Gamma f)(\{p_0\})\geq0$ because $p_0\notin S$.  Hence every
+outgoing slope at $p_0$ vanishes, so $f\equiv M$ on every edge incident to
+$p_0$; that is, $U$ contains the closed star of $p_0$, which is a
+neighbourhood of $p_0$.
+
+Suppose now that $U\cap S=\varnothing$.  The previous paragraph applies at
+every point of $U$, so $U$ is open as well as closed and nonempty; since
+$\Gamma$ is connected, $U=\Gamma$ and $f\equiv M$.  But then
+$U\supseteq S\neq\varnothing$, contradicting $U\cap S=\varnothing$.
+Therefore $U\cap S\neq\varnothing$, which is the assertion.
+
+For the last statement, $\Delta_\Gamma f\geq0$ together with
+$\Delta_\Gamma f(\Gamma)=0$, proved as \eqref{eq:lap-mass-zero} below, forces
+$\Delta_\Gamma f=0$, and \cref{lem:ch08-laplacian-well-defined}\,(3) applies.
+\end{proof}
+
+In the harmonic case $\Delta_\Gamma f=0$ off $S$ this is
+\cite[Prop.~1.2.9]{Thu05}, in the global form \cite[Cor.~1.2.10]{Thu05}; the
+statement above is its subharmonic refinement, obtained by his argument
+verbatim.  The consequence that a harmonic function on a compact connected
+polyhedron with at most one boundary point is constant is
+\cite[Cor.~1.2.11]{Thu05}, and it is the polyhedral shadow of the fact that a
+psh function on a disc is determined by its value at the boundary point of
+the disc.
+
+\begin{proposition}\label{prop:graph-green}
+For piecewise affine $f,g$ on a compact metric graph,
+\begin{align}
+ \Delta_\Gamma f(\Gamma)&=0,\label{eq:lap-mass-zero}\\
+ \int_\Gamma f\,\rd \Delta_\Gamma g
+ &=\int_\Gamma g\,\rd \Delta_\Gamma f
+ =-\int_\Gamma f'g'\,\rd s.\label{eq:graph-green}
+\end{align}
+Here the last integral is the sum of the ordinary edge integrals and is
+independent of the chosen subdivision.
+\end{proposition}
+
+\begin{proof}
+On every oriented edge $e=[a,b]$, the outgoing slope at $a$ is $f'_e$ and
+the outgoing slope at $b$ is $-f'_e$; these contributions cancel in the
+total mass, including after subdivision.  Integration by parts on each
+affine piece gives
+\[
+ -\int_e f'g'\,\rd s
+ =f(a)d_eg(a)+f(b)d_{\bar e}g(b),
+\]
+where $e$ and $\bar e$ are the two outgoing directions.  Summing over all
+pieces yields the first equality in \eqref{eq:graph-green}; symmetry gives
+the second.
+\end{proof}
+
+The symmetry of the pairing, that is the first equality in
+\eqref{eq:graph-green}, is \cite[Prop.~1.2.13]{Thu05}, and the mass identity
+\eqref{eq:lap-mass-zero} is his \cite[Cor.~1.2.14]{Thu05}.  Both are used in
+exactly the same way there as here: symmetry is what allows $\ddc$ to be
+transposed to an operator on distributions, and vanishing of the total mass
+is what forces a curvature measure to have the mass of its line bundle.
+
+\begin{example}[The segment]
+Let $\Gamma=[0,\ell]$ and $f(t)=t$.  The outgoing slopes give
+\[
+                         \Delta_\Gamma f=\delta_0-\delta_\ell.
+\]
+Consequently
+$\int f\,\rd \Delta f=-\ell=-\int_0^\ell|f'|^2\,\rd t$, confirming both the endpoint
+sign and the Green identity.
+\end{example}
+
+\begin{corollary}
+\label{cor:ch08-dirichlet-energy}
+For $f\in\PL(\Gamma)$ set
+\[
+                 D(f)=\int_\Gamma|f'|^2\,\rd s\ \geq 0 .
+\]
+Then $D(f)=-\int_\Gamma f\,\rd\Delta_\Gamma f$, and $D(f)=0$ if and only if
+$f$ is constant.  In particular the symmetric bilinear form
+$(f,g)\mapsto-\int_\Gamma f\,\rd\Delta_\Gamma g$ is positive semidefinite
+with kernel the constants.
+\end{corollary}
+
+\begin{proof}
+Take $g=f$ in \eqref{eq:graph-green}.  The integrand $|f'|^2$ is nonnegative
+and vanishes identically exactly when every edge slope vanishes, that is,
+when $f$ is constant.  Symmetry and bilinearity are
+\eqref{eq:graph-green} again.
+\end{proof}
+
+The sign in \cref{cor:ch08-dirichlet-energy} is worth memorizing.  The
+operator $\Delta_\Gamma$ is \emph{negative} semidefinite, exactly like the
+usual Laplacian $\partial^2/\partial t^2$ on an interval and unlike the
+positive combinatorial graph Laplacian $L=D-A$ of spectral graph theory.
+Our normalization is chosen so that a convex corner carries positive mass,
+because a convex corner of a metric weight is where positive curvature sits.
+
+\begin{remark}[Thuillier's normalization, and the factor that separates it
+from Rumely's]
+\label{rem:ch08-thuillier-normalization}
+Three conventions have to be matched before \cite{Thu05} can be quoted, and
+only the third produces a factor.
+
+\emph{Sign.}  Thuillier's $\ddc$ on a one-dimensional integral polyhedron is
+the sum of outgoing slopes, exactly as in \eqref{eq:graph-laplacian}, and his
+subharmonic functions restrict to \emph{convex} functions on a skeleton
+\cite[Rem.~3.1.7 and Prop.~3.4.6]{Thu05}.  A metric on a line bundle is
+subharmonic for him when $-\log\|s\|$ is subharmonic for every invertible
+local section \cite[Def.~3.4.17]{Thu05}, and its curvature is the unique
+degree-one current restricting to $\ddc(-\log\|s\|)$ on the locus where such
+an $s$ exists, hence $c_1=\ddc(-\log\|s\|)+\delta_{\divis(s)}$ for a
+meromorphic section; that is exactly
+\eqref{eq:appJ-cld-section-pl}, and no sign conversion is needed.  We use
+the convention fixed by the cited definition and curvature computation,
+without asserting an erratum in the source text.
+
+\emph{Edge lengths.}  At a node with formal equation $x_1x_2=a$ the integral
+structure of \cite[\S3.6.3]{Thu05} gives the corresponding edge the length
+$-\log|a|$.  Under the convention $v=-\log|\cdot|$ of
+\cref{app:normalizations} this is $v(a)$, which is the length used in
+\cref{sec:ch08-slope-formula}; with $v(\pi)=1$ the two agree on the nose and
+no rescaling occurs.
+
+\emph{The one genuine factor.}  Rumely's reduction graph of a well adjusted
+model over a finite extension $K/\mathbf Q_p$ gives each edge the length
+$1/e(K/\mathbf Q_p)$ rather than $-\log|a|=e(K/\mathbf Q_p)^{-1}\log p$.
+Consequently Thuillier's operator and Rumely's differ by a constant,
+\[
+   \ddc=(\log p)^{-1}\,\ddc_{\mathrm R},
+\]
+and his smooth Green functions are $(\log p)^{-1}$ times Rumely's; this is
+\cite[\S5.1]{Thu05}.  A reader who takes edge lengths from the
+$p$-adic-normalized literature, where $|p|=p^{-1}$, and Laplacians from this
+book must therefore insert $\log p$ once.  We never do: the absolute value is
+normalized by $v(\pi)=1$ throughout, so $\log p$ never appears.
+\end{remark}
+
+\subsection{Harmonic functions and the Dirichlet problem}
+\label{sec:ch08-harmonic}
+\index{harmonic function!on a metric graph}
+
+\begin{definition}
+Let $S\subset\Gamma$ be a finite set.  A function $f\in\PL(\Gamma)$ is
+\emph{harmonic outside $S$} if $\Delta_\Gamma f$ is supported on $S$, and
+\emph{harmonic} if $\Delta_\Gamma f=0$.
+\end{definition}
+
+By \cref{lem:ch08-laplacian-well-defined}\,(3), the only harmonic functions on
+a compact metric graph are the constants.  The interesting statement is
+therefore the boundary-value problem, in which $S$ plays the role of the
+boundary.
+
+\begin{proposition}
+\label{prop:ch08-dirichlet}
+Let $S=\{p_1,\ldots,p_N\}\subset\Gamma$ be a finite nonempty set and let
+$c_1,\ldots,c_N\in\mathbf R$.  There is exactly one $f\in\PL(\Gamma)$ that is
+harmonic outside $S$ and satisfies $f(p_i)=c_i$ for all $i$.  It satisfies
+\[
+   \min_i c_i\ \leq\ f\ \leq\ \max_i c_i \qquad\text{on }\Gamma,
+\]
+and it minimizes the Dirichlet energy $D$ among all piecewise affine
+functions with the prescribed values on $S$.
+\end{proposition}
+
+\begin{proof}
+Fix a model whose vertex set $V$ contains $S$, and look for $f$ affine on
+every edge.  Such an $f$ is determined by its values on $V$, and for a vertex
+$p\in V\setminus S$ the harmonicity condition reads
+\begin{equation}
+\label{eq:ch08-discrete-harmonic}
+ \sum_{q\sim p}\frac{f(q)-f(p)}{\ell_{pq}}=0 ,
+\end{equation}
+the sum being over the edges at $p$, with $\ell_{pq}$ the length of the edge
+and multiple edges counted with multiplicity.  This is a linear system of
+$\#(V\setminus S)$ equations in the same number of unknowns
+$(f(p))_{p\in V\setminus S}$.  For uniqueness it suffices to prove that the
+homogeneous system has only the zero solution: if $f|_S=0$ and $f$ is
+harmonic outside $S$, then \cref{prop:ch08-graph-maximum} applied to $f$ and
+to $-f$ gives $\max_\Gamma f=\max_Sf=0$ and $\min_\Gamma f=0$, so $f=0$.  A
+square linear system with trivial kernel is invertible, which gives existence
+as well.  Passing to a subdivision does not change the solution, because a
+two-valent vertex with vanishing outgoing-slope sum is exactly a point at
+which the two adjacent affine pieces have equal slopes.
+
+The bound $\min_ic_i\leq f\leq\max_ic_i$ is
+\cref{prop:ch08-graph-maximum} applied to $\pm f$.  For the variational
+characterization, let $g\in\PL(\Gamma)$ agree with $f$ on $S$ and set
+$h=g-f$, so $h|_S=0$.  Then
+\[
+ D(g)=D(f)+2\int_\Gamma f'h'\,\rd s+D(h)
+     =D(f)-2\int_\Gamma h\,\rd\Delta_\Gamma f+D(h)
+\]
+by \eqref{eq:graph-green}.  The middle term vanishes because
+$\Delta_\Gamma f$ is supported on $S$ and $h|_S=0$.  Hence
+$D(g)=D(f)+D(h)\geq D(f)$, with equality if and only if $h$ is constant,
+that is, $h\equiv0$.
+\end{proof}
+
+The bijectivity assertion in \cref{prop:ch08-dirichlet}---the restriction map
+from the space of functions harmonic outside $S$ to $\mathbf R^S$ is an
+isomorphism---is \cite[Prop.~1.2.15]{Thu05}, and the resulting local
+solvability of the Dirichlet problem on an integral polyhedron is
+\cite[Rem.~1.2.16]{Thu05}.  That remark is the combinatorial input from which
+Thuillier deduces the analytic statement: every point of a smooth strictly
+$K$-analytic curve has a fundamental system of neighbourhoods on which the
+Dirichlet problem for continuous boundary data is uniquely solvable
+\cite[\S3.1.1 and Cor.~3.1.21]{Thu05}.  With the maximum principle
+\cite[Prop.~3.1.1]{Thu05} and the Harnack principle
+\cite[Prop.~3.1.2]{Thu05}, this is precisely the axiomatic package of Bauer,
+Brelot and Doob, and Thuillier transcribes Perron's method into it
+\cite[\S3.1.3]{Thu05}, the barriers being supplied at every boundary point of
+type~$\mathrm{II}$, $\mathrm{III}$ or $\mathrm{IV}$ by
+\cite[Prop.~3.1.20]{Thu05}.  Nothing beyond the finite-dimensional linear
+algebra above is needed on a metric graph.
+
+\begin{example}[Two boundary points on a segment]
+\label{ex:ch08-segment-dirichlet}
+Take $\Gamma=[0,\ell]$, $S=\{0,\ell\}$, and prescribed values $A$ and $B$.
+The unique solution is the affine function
+$f(t)=A+(B-A)t/\ell$, whose Laplacian is
+\[
+ \Delta_\Gamma f=\frac{B-A}{\ell}\delta_0+\frac{A-B}{\ell}\delta_\ell ,
+\]
+and whose Dirichlet energy is $D(f)=(B-A)^2/\ell$.  This is the computation
+underlying \cref{ex:edge-mass-transport} below: a long edge transports mass
+cheaply, a short edge expensively.
+\end{example}
+
+Let $\mu_0$ be a positive atomic measure on $\Gamma$ of mass $d$.  A graph
+potential $\varphi$ changes it to
+\begin{equation}
+\label{eq:graph-curvature}
+                         \mu_\varphi=\mu_0+\Delta_\Gamma\varphi.
+\end{equation}
+By \eqref{eq:lap-mass-zero}, the mass remains $d$.  In the model-theoretic
+interpretation, $\mu_0$ is the curvature measure of a reference model metric
+and $\varphi$ is a model function.  Semipositivity is exactly the condition
+$\mu_\varphi\geq0$.
+
+\begin{example}[Moving mass across one edge]
+\label{ex:edge-mass-transport}
+Let $\mu_0=d_0\delta_0+d_1\delta_\ell$ with $d_0,d_1\geq0$.  Prescribe
+$\varphi(0)=A$ and $\varphi(\ell)=B$, and make $\varphi$ affine.  Then
+\[
+ \Delta\varphi=
+ \frac{B-A}{\ell}\delta_0+
+ \frac{A-B}{\ell}\delta_\ell,
+\]
+and hence
+\[
+ \mu_\varphi=
+ \left(d_0+\frac{B-A}{\ell}\right)\delta_0+
+ \left(d_1+\frac{A-B}{\ell}\right)\delta_\ell.
+\]
+The perturbed metric is semipositive if and only if
+\[
+                         -d_0\ell\leq B-A\leq d_1\ell.
+\]
+Thus nefness on the two components becomes a pair of slope inequalities.
+\end{example}
+
+\subsection{Divisors and tropical rational functions}
+\label{sec:ch08-tropical-rational}
+
+An integral piecewise affine function has integral slopes.  Its Laplacian is
+then a divisor of degree zero on $\Gamma$.  The equality
+\[
+                         \operatorname{div}_\Gamma(f)=\Delta_\Gamma f
+\]
+is the graph-theoretic form of the slope formula.  Constants are the kernel
+of $\Delta_\Gamma$ because $\Gamma$ is connected.
+
+\begin{proposition}\label{prop:graph-poisson}
+For every finitely supported signed atomic measure
+$\nu=\sum_pa_p\delta_p$ on a compact metric graph with total mass zero,
+there is a continuous piecewise affine function $f$, unique up to an additive
+constant, such that $\Delta_\Gamma f=\nu$.
+\end{proposition}
+
+\begin{proof}
+Choose a vertex set containing the support of $\nu$.  On a vertex $p$, the
+outgoing-slope operator is
+\[
+ f\longmapsto\sum_{q\sim p}\frac{f(q)-f(p)}{\ell_{pq}},
+\]
+the negative of the usual weighted combinatorial Laplacian.  Its image is
+the hyperplane of vectors with coordinate sum zero, and its kernel consists
+of constants.  Solve the resulting finite linear system and extend the
+solution affinely over each edge.
+\end{proof}
+
+Restated, \cref{prop:graph-poisson} together with \eqref{eq:lap-mass-zero}
+and \cref{lem:ch08-laplacian-well-defined}\,(3) says that
+\[
+ 0\longrightarrow\mathbf R\longrightarrow
+ \{f\in\PL(\Gamma):\Supp\Delta_\Gamma f\subseteq S\}
+ \xrightarrow{\ \Delta_\Gamma\ }
+ \mathrm M(S)\xrightarrow{\ \int_\Gamma\ }\mathbf R\longrightarrow0
+\]
+is exact, $\mathrm M(S)$ denoting the signed measures supported on the finite
+set $S$; this is \cite[Prop.~1.2.17]{Thu05}.  The elementary solutions
+$h_{p_0,p}$ normalized by $h_{p_0,p}(p_0)=0$ and
+$\Delta_\Gamma h_{p_0,p}=\delta_p-\delta_{p_0}$ are
+\cite[Lem.~1.2.18]{Thu05}; they are the Green functions written down in
+closed form in \cref{sec:ch08-green-functions}.
+
+\subsection{Green functions, computed}
+\label{sec:ch08-green-functions}
+\index{Green function!on a metric graph}
+
+\Cref{prop:graph-poisson} is an existence statement; the two cases used
+throughout the book can be written down in closed form.  Both computations
+below are carried out entirely by counting outgoing slopes.
+
+\begin{example}[Green function of a segment]
+\label{ex:ch08-green-segment}
+Let $\Gamma=[0,\ell]$ and fix $q\in(0,\ell)$.  Look for the piecewise affine
+$g$ with $g(0)=0$, affine on $[0,q]$ and on $[q,\ell]$, and with
+\[
+                    \Delta_\Gamma g=\alpha\delta_0+\beta\delta_\ell-\delta_q .
+\]
+Writing $g(q)=c$ and $g(\ell)=b$, the three outgoing-slope sums are
+\[
+ \alpha=\frac{c}{q},\qquad
+ \beta=\frac{c-b}{\ell-q},\qquad
+ -1=\frac{-c}{q}+\frac{b-c}{\ell-q} .
+\]
+The third equation is the sum of the first two with a sign, so
+$\alpha+\beta=1$, as \eqref{eq:lap-mass-zero} requires.  Choosing the
+normalization $b=0$, so that $g$ vanishes at both endpoints, gives
+$c=q(\ell-q)/\ell$ and
+\begin{equation}
+\label{eq:ch08-green-segment}
+ g(s)=
+ \begin{cases}
+  \dfrac{(\ell-q)s}{\ell}, & 0\leq s\leq q,\\[2mm]
+  \dfrac{q(\ell-s)}{\ell}, & q\leq s\leq \ell,
+ \end{cases}
+ \qquad
+ \Delta_\Gamma g=\frac{\ell-q}{\ell}\delta_0+\frac{q}{\ell}\delta_\ell
+                 -\delta_q .
+\end{equation}
+The endpoint weights $(\ell-q)/\ell$ and $q/\ell$ are barycentric: a unit
+charge at $q$ is balanced by the two endpoints in inverse proportion to
+their distances.  The Dirichlet energy is
+\[
+ D(g)=q\left(\frac{\ell-q}{\ell}\right)^2
+      +(\ell-q)\left(\frac{q}{\ell}\right)^2
+     =\frac{q(\ell-q)}{\ell},
+\]
+which agrees with $-\int g\,\rd\Delta_\Gamma g=g(q)=q(\ell-q)/\ell$, as
+\cref{cor:ch08-dirichlet-energy} predicts.  For $\ell=1$ this is
+\eqref{eq:segment-green}, with maximal energy $\tfrac14$ at $q=\tfrac12$.
+\end{example}
+
+\begin{example}[Green function of a circle]
+\label{ex:ch08-green-circle}
+\index{circle!metric graph}
+Let $\Gamma=\mathbf R/\ell\mathbf Z$ be the circle of circumference $\ell$,
+and let $0<c<\ell$.  We solve
+\[
+                 \Delta_\Gamma g=\delta_0-\delta_c
+\]
+with $g$ affine on the two arcs $[0,c]$ and $[c,\ell]$.  Normalize $g(0)=0$
+and put $g(c)=\kappa$.  At the point $0$ the two tangent directions run into
+the two arcs, of lengths $c$ and $\ell-c$, and both reach the value $\kappa$;
+so
+\[
+ (\Delta_\Gamma g)(\{0\})
+   =\frac{\kappa}{c}+\frac{\kappa}{\ell-c}
+   =\kappa\,\frac{\ell}{c(\ell-c)} .
+\]
+Setting this equal to $1$ gives $\kappa=c(\ell-c)/\ell$, and by symmetry the
+mass at $c$ is $-1$.  Hence
+\begin{equation}
+\label{eq:ch08-green-circle}
+ g(s)=
+ \begin{cases}
+  \dfrac{(\ell-c)s}{\ell},& 0\leq s\leq c,\\[2mm]
+  \dfrac{c(\ell-s)}{\ell},& c\leq s\leq\ell,
+ \end{cases}
+ \qquad
+ g(c)=\frac{c(\ell-c)}{\ell},
+ \qquad
+ D(g)=\frac{c(\ell-c)}{\ell} .
+\end{equation}
+The formula is literally the same as \eqref{eq:ch08-green-segment}, but its
+meaning is different: on the circle there are no endpoints to absorb charge,
+so the balancing charge must be a genuine second point mass.  For $\ell=1$
+and $c=\tfrac12$ one gets $g(\tfrac12)=\tfrac14$ and $D(g)=\tfrac14$.  The
+circle is the skeleton of a degenerating elliptic curve
+(\cref{ex:ch08-tate-curve}), and \eqref{eq:ch08-green-circle} is the
+non-Archimedean N\'eron function of the divisor $(0)-(c)$ on it.
+\end{example}
+
+\begin{remark}[Why the answers are rational]
+Both Green functions have values in $\mathbf Q$ whenever the edge lengths and
+the charge positions are rational.  This is a general feature of
+\cref{prop:graph-poisson}: the linear system \eqref{eq:ch08-discrete-harmonic}
+has rational coefficients.  It is the graph reflection of the fact that
+divisorial points, which have rational coordinates on a skeleton, suffice for
+all model computations (\cref{thm:skeleton-pl-realization}).
+\end{remark}
+
+\section{Skeleta of curves, the slope formula, and the retraction}
+\label{sec:ch08-slope-formula}
+\index{slope formula}\index{retraction!and Laplacian}
+
+We now connect \cref{sec:metric-graphs} to geometry.  Throughout this
+section, $K$ is complete and discretely valued with $v(\pi)=1$ and
+algebraically closed residue field $\widetilde K$, $R=K^\circ$, and $C$ is a
+smooth, connected, projective curve over $K$ admitting a regular semistable
+model.  Recall from \cref{chap:models,chap:skeleta} what this means.
+
+\begin{definition}[Semistable model of a curve]
+\label{def:ch08-semistable-curve-model}
+A \emph{regular semistable model} of $C$ is a regular, flat, projective
+$R$-scheme $\cX$ with generic fibre $C$ whose special fibre
+$\cX_s=\sum_YY$ is reduced---so every multiplicity is $b_Y=1$---with smooth
+irreducible components meeting transversally in ordinary double points, at
+which the completed local ring of $\cX$ is $R[[x,y]]/(xy-\pi)$.
+\end{definition}
+
+Such a model is in particular an SNC model in the sense of
+\cref{chap:skeleta}, and its dual complex $\Delta_{\cX}$ is a compact metric
+graph: one vertex $v_Y$ for each component $Y$, one edge of length one for
+each node, and $\Sk(\cX)=\iota_{\cX}(\Delta_\cX)\subset C^{\An}$ by
+\cref{thm:skeleton-embedding}.  We write $\Gamma=\Sk(\cX)$ and
+$r=r_{\cX}:C^{\An}\to\Gamma$ for the retraction of
+\cref{prop:skeleton-retraction}.
+
+Concretely, at a node with formal equation $xy=\pi$ the corresponding edge is
+$\{v_s:0\leq s\leq1\}$ with $v_s(x)=s$ and $v_s(y)=1-s$
+(\cref{sec:ch01-running-nodal}), and $\iota_{\cX}$ identifies it with the
+unit interval; the retraction sends a point $z$ of the corresponding open
+annulus to $v_{v_z(x)}$.  For a node with equation $xy=a$, $a\in R$, the
+edge has length $v(a)$.
+
+\subsection{The retraction is a maximum}
+
+\begin{proposition}
+\label{prop:ch08-retraction-max}
+Let $\cX$ be a regular semistable model of $C$ and let
+$z\in C^{\An}$.  For every $f\in\cO_{\cX,\xi}$, where $\xi$ is the centre of
+$z$ on $\cX$,
+\[
+                  |f(z)|\ \leq\ |f(r(z))| ,
+                  \qquad\text{equivalently}\qquad
+                  v_z(f)\ \geq\ v_{r(z)}(f) .
+\]
+Consequently, for a vertical fractional ideal $\mathfrak a$ on $\cX$,
+$\log|\mathfrak a|(z)\leq\log|\mathfrak a|(r(z))$, and a model function
+$\varphi_D$ determined on $\cX$ satisfies $\varphi_D\circ r=\varphi_D$.
+\end{proposition}
+
+\begin{proof}
+If $\xi$ is the generic point of a component $Y$, then $r(z)=v_Y$ is the
+divisorial point of $Y$, $\cO_{\cX,\xi}$ is a discrete valuation ring with
+uniformizer $\pi$, and $v_{r(z)}(f)=\ord_Y(f)$ is the least $m$ with
+$f\in\pi^m\cO_{\cX,\xi}$.  Since $v_z$ is a semivaluation with
+$v_z(\pi)=1$ and $v_z\geq0$ on $\cO_{\cX,\xi}$, writing $f=\pi^mu$ with $u$ a
+unit gives $v_z(f)=m+v_z(u)\geq m=v_{r(z)}(f)$.
+
+If $\xi$ is a node, then $\cX$ is regular of dimension two at $\xi$, so
+$\widehat{\cO}_{\cX,\xi}\simeq\kappa(\xi)[[x,y]]$ with $\pi=u\,xy$ for a unit
+$u$, as in \cref{sec:skeleton-snc}.  Put
+$\alpha=(v_z(x),v_z(y))$; then $\alpha_1+\alpha_2=v_z(\pi)=1$ and, by
+\cref{prop:skeleton-retraction} and \cref{lem:monomial-valuation}, $r(z)$ is
+the monomial valuation $v_\alpha$, whose value on
+$f=\sum_{\beta\in\mathbf N^2}c_\beta x^{\beta_1}y^{\beta_2}$ is
+\[
+ v_{r(z)}(f)=\min_{c_\beta\neq0}\langle\alpha,\beta\rangle .
+\]
+Since $z$ has centre $\xi$, both coordinates of $\alpha$ are strictly
+positive: if, say, $v_z(x)=0$, then $x$ would be a unit for $z$ and the
+centre of $z$ would not lie on the component $\{x=0\}$.  Hence
+$v_z(\mathfrak m_\xi^n)\geq n\min\{\alpha_1,\alpha_2\}\to+\infty$, so $v_z$
+extends continuously to the $\mathfrak m_\xi$-adic completion.  Applying the
+ultrametric inequality to the partial sums of the series and passing to the
+limit gives
+$v_z(f)\geq\min_{c_\beta\neq0}\langle\alpha,\beta\rangle=v_{r(z)}(f)$.
+
+Finally, if $\mathfrak a$ is generated near $\xi$ by $f_1,\ldots,f_N$, then
+$\log|\mathfrak a|(z)=-\min_\ell v_z(f_\ell)\leq-\min_\ell v_{r(z)}(f_\ell)
+=\log|\mathfrak a|(r(z))$.  For a vertical Cartier divisor the local equation
+is a single element, both inequalities apply to it and to its inverse, and
+equality $\varphi_D\circ r=\varphi_D$ follows; this is also the identity
+recorded in \cref{sec:skeleton-model-functions}.
+\end{proof}
+
+\begin{remark}
+\Cref{prop:ch08-retraction-max} says that $\Gamma$ contains the Shilov
+boundary of every formal fibre: the supremum of $|f|$ over the fibre
+$r^{-1}(p)$ is attained at $p$ itself.  This is the reason that a model
+metric, whose weight is constant on the fibres of $r$, loses no information
+by being restricted to $\Gamma$, and the reason that Chambert--Loir measures
+of model metrics are supported on $\Gamma$.
+\end{remark}
+
+\begin{remark}[The analytic form of \cref{prop:ch08-retraction-max}]
+\label{rem:ch08-retraction-thuillier}
+On the polyhedral side, the statement that a retraction
+$\tau:S\to S'$ onto a polyhedral subdomain induces an isomorphism between the
+harmonic functions on $S'$ and those on $S$ is \cite[Prop.~1.2.20]{Thu05};
+this is what allows the entire potential theory of a curve to be transported
+from its skeleta, and Thuillier's sheaf of harmonic germs is defined by
+$\mathrm H(\mathcal X)=\tau_{\mathcal X}^{*}\,\mathrm
+H\bigl(S(\mathcal X),\partial\mathcal X_\eta\bigr)$
+\cite[Def.~2.3.1 and Def.~2.3.16]{Thu05}.  On the analytic side, the
+inequality of \cref{prop:ch08-retraction-max} holds not only for
+$\log|\mathfrak a|$ but for every subharmonic function: if $u$ is subharmonic
+on $\mathcal X_\eta$ and $U=u|_{S(\mathcal X)}$, then $U$ is continuous and
+convex and $u\leq U\circ\tau_{\mathcal X}$, by
+\cite[Prop.~3.4.6]{Thu05}.  We use only the model-function case, in which
+equality holds.
+\end{remark}
+
+\subsection{The slope formula}
+
+The next theorem is the exact form in which the graph Laplacian will be used
+in \cref{part:cld,part:bfj}.  We write $r_*$ for pushforward of divisors:
+if $\operatorname{div}(f)=\sum_Pm_PP$ with $P$ closed points of $C$, then
+\[
+ r_*\operatorname{div}(f)
+   =\sum_Pm_P\,[\kappa(P):K]\ \delta_{r(P)} ,
+\]
+a signed atomic measure on $\Gamma$ of total mass
+$\deg\operatorname{div}(f)=0$.  The degree factor is invisible when $K$ is
+algebraically closed and is forced in general by the residue-field degrees
+occurring in intersection numbers.
+
+The hypothesis in the next theorem is automatic when
+$\operatorname{supp}\operatorname{div}(f)$ consists of $K$-rational
+points: at a node with local equation $xy=\pi$, a point $P\in C(K)$ has
+$v(x(P))\in v(K^\times)=\mathbf Z$ and $0\leq v(x(P))\leq1$, so
+$v(x(P))\in\{0,1\}$ and $P$ does not reduce to the node.  In general it
+holds after a finite extension of $K$; see
+\cref{rem:ch08-slope-scope}.
+
+\begin{theorem}
+\label{thm:ch08-slope-formula}
+Let $\cX$ be a regular semistable model of $C$ with skeleton $\Gamma$ and
+retraction $r$, and let $f\in K(C)^\times$.  Assume that every point of
+$\operatorname{supp}\operatorname{div}(f)$ reduces to a smooth point of
+$\cX_s$; equivalently, that $r$ maps
+$\operatorname{supp}\operatorname{div}(f)$ into the vertex set of $\Gamma$.
+Write $F=v_\bullet(f)|_\Gamma$, that is, $F(p)=v_p(f)$ for $p\in\Gamma$.
+Then $F$ is affine with integral slope on every edge of $\Gamma$, and
+\begin{equation}
+\label{eq:ch08-slope-formula}
+ \Delta_\Gamma F=-\,r_*\operatorname{div}(f) ,
+ \qquad\text{equivalently}\qquad
+ \Delta_\Gamma\bigl(\log|f|\,\bigr|_\Gamma\bigr)=r_*\operatorname{div}(f) .
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: separating the reductions.}  We first show that both sides of
+\eqref{eq:ch08-slope-formula} are unchanged if $\cX$ is replaced by the
+blowup $\cX'$ of a smooth closed point $p$ of $\cX_s$.  Such a blowup
+inserts an exceptional $E\simeq\mathbf P^1_{\widetilde K}$ with
+$\ord_E(\pi)=\operatorname{mult}_p(\cX_s)=1$, meeting the strict transform of
+the component through $p$ transversally at one point; so $\cX'$ is again
+regular semistable, the hypothesis on reductions is preserved, and $\Gamma'$
+is $\Gamma$ with one pendant edge $T$ attached at the vertex $p'$ carrying
+$p$.  Moreover $\Gamma\subset\Gamma'$ and
+$r_{\cX}=r_{\cX}\circ r_{\cX'}$ by \cref{sec:skeleton-refinement}, and
+$r_\cX|_{\Gamma'}$ collapses $T$ to $p'$.
+
+Write $F'=v_\bullet(f)|_{\Gamma'}$, so $F'|_\Gamma=F$.  The total mass of
+$\Delta_{\Gamma'}F'$ on $T\setminus\{p'\}$ is
+$-\sum_{\nu\in T_{p'}T}d_\nu F'(p')$, since the two contributions of every
+edge interior to $T$ cancel and the edges issuing from $p'$ contribute only
+at their far ends.  Hence
+\[
+ \begin{aligned}
+ \bigl(r_\cX{}_*\Delta_{\Gamma'}F'\bigr)(\{p'\})
+ &=\sum_{\nu\in T_{p'}\Gamma}d_\nu F'(p')
+   +\sum_{\nu\in T_{p'}T}d_\nu F'(p')\\
+ &\quad-\sum_{\nu\in T_{p'}T}d_\nu F'(p')
+  =(\Delta_\Gamma F)(\{p'\}) ,
+ \end{aligned}
+\]
+and at all other points of $\Gamma$ the two measures visibly agree; so
+$r_\cX{}_*\Delta_{\Gamma'}F'=\Delta_\Gamma F$.  On the other side,
+$r_\cX{}_*r_{\cX'}{}_*\operatorname{div}(f)=r_{\cX}{}_*\operatorname{div}(f)$.
+Thus \eqref{eq:ch08-slope-formula} for $\cX'$ implies it for $\cX$.
+
+Since $\operatorname{div}(f)$ is a finite set of closed points, all reducing
+to smooth points of $\cX_s$ by hypothesis, finitely many such blowups make
+their reductions pairwise distinct.  We assume this from now on.
+
+\emph{Step 2: the intersection identity.}  Decompose the principal divisor of
+$f$ on the model:
+\[
+ \operatorname{div}_{\cX}(f)=H+V,
+ \qquad
+ H=\overline{\operatorname{div}(f)},
+ \qquad
+ V=\sum_Yc_YY ,
+\]
+where $H$ is the horizontal part, the Zariski closure in $\cX$ of the divisor
+of $f$ on $C$, and $V$ is vertical.  By definition
+$c_Y=\ord_Y(f)=v_{v_Y}(f)=F(v_Y)$, the multiplicities $b_Y$ all being $1$.
+Since $\operatorname{div}_\cX(f)$ is a principal Cartier divisor and every
+component $Y$ of $\cX_s$ is a proper curve over $\widetilde K$,
+\begin{equation}
+\label{eq:ch08-principal-degree-zero}
+ (H\cdot Y)+(V\cdot Y)=\deg\bigl(\cO_\cX(\operatorname{div}_\cX f)|_Y\bigr)=0 :
+\end{equation}
+the line bundle $\cO_\cX(\operatorname{div}_\cX f)$ is trivial, being
+generated by $f^{-1}$, and the degree of a trivial line bundle on the proper
+$\widetilde K$-curve $Y$ vanishes.  The identification of the intersection
+numbers with residual degrees is
+\cref{lem:vertical-intersection-degree}.
+
+The same identity holds verbatim on any regular semistable model of $C_{K'}$
+over the valuation ring of a finite extension $K'/K$, with $v'$ the extension
+of $v$; only the normalization of the divisorial points changes, namely
+$v_Z=v'(\varpi')\ord_Z$ for a uniformizer $\varpi'$ of $K'^\circ$ when
+$\ord_Z(\varpi')=1$.
+
+\emph{Step 3: $F$ is affine on every edge.}  Fix an edge $e$ of $\Gamma$,
+attached to a node $\xi$ with formal equation $xy=\pi$, parametrized by
+$s=v(x)\in[0,1]$ as in \cref{sec:ch01-running-nodal}.  Fix an integer
+$q\geq1$, put $K_q=K(\pi^{1/q})$ and $\varpi=\pi^{1/q}$, so that the
+extension $v_q$ of $v$ satisfies $v_q(\varpi)=1/q$.  Base changing the node
+gives $xy=\varpi^q$, and by \cref{ex:snc-chain-models} the resolution of this
+$A_{q-1}$-singularity is a regular semistable model over $K_q^\circ$ whose
+special fibre over $e$ is a chain
+\[
+ E_0,E_1,\ldots,E_q ,
+ \qquad
+ (E_j\cdot E_{j\pm1})=1,\quad (E_j\cdot E_j)=-2\ \ (0<j<q),
+\]
+of components of multiplicity one, with $v_{E_j}(x)=j/q$.  The two ends
+$E_0,E_q$ are the strict transforms of the two components of $\cX_s$ through
+$\xi$, and the divisorial point of $E_j$ is $v_{E_j}=q^{-1}\ord_{E_j}$;
+carrying this out for every node produces a regular semistable model $\cX_q$
+of $C_{K_q}$ whose skeleton is again $\Gamma$, now subdivided into edges of
+length $1/q$.
+
+Because every point of $\operatorname{div}(f)$ reduces to a smooth point of
+$\cX_s$, no point of $\operatorname{div}(f)$ lies in the open annulus over
+$e^\circ$; hence the horizontal part $H_q$ over $K_q$ meets no $E_j$ with
+$0<j<q$, so $(H_q\cdot E_j)=0$.  Applying Step~2 on $\cX_q$ with
+$a_j=\ord_{E_j}(f)=qF(j/q)$ gives, for $0<j<q$,
+\[
+ 0=(V_q\cdot E_j)=a_{j-1}-2a_j+a_{j+1}
+  =q\Bigl(F\bigl(\tfrac{j-1}q\bigr)+F\bigl(\tfrac{j+1}q\bigr)
+          -2F\bigl(\tfrac jq\bigr)\Bigr).
+\]
+Thus $j\mapsto F(j/q)$ is an arithmetic progression, that is,
+$F(j/q)=F(0)+\tfrac jq\bigl(F(1)-F(0)\bigr)$ for $0\leq j\leq q$.  Since
+$q$ was arbitrary, $F$ is affine on $\mathbf Q\cap[0,1]$, hence on $[0,1]$ by
+continuity.  Its slope $F(1)-F(0)=\ord_{Y'}(f)-\ord_Y(f)$ is an integer.
+
+\emph{Step 4: the two terms.}  By Step~1 the points of
+$\operatorname{supp}\operatorname{div}(f)$ have distinct smooth reductions.
+The closure $\overline{\{P\}}$ is finite and flat over $R$ of degree
+$[\kappa(P):K]$, so its special fibre has length $[\kappa(P):K]$ over
+$\widetilde K$ and is concentrated at the reduction of $P$; that reduction
+lies on $Y$ exactly when $r(P)=v_Y$.  Hence
+\[
+ (H\cdot Y)=\sum_{P:\,r(P)=v_Y}m_P\,[\kappa(P):K]
+          =\bigl(r_*\operatorname{div}(f)\bigr)(\{v_Y\}) .
+\]
+For the vertical term, use that $\cX_s=\operatorname{div}(\pi)$ is principal,
+so that $(\cX_s\cdot Y)=0$; since $\cX_s=\sum_{Y'}Y'$ with all
+multiplicities one, this reads
+$(Y\cdot Y)=-\sum_{Y'\neq Y}(Y\cdot Y')$.  The number $(Y\cdot Y')$ is the
+number of nodes lying on $Y\cap Y'$, that is, the number of edges of $\Gamma$
+joining $v_Y$ to $v_{Y'}$.  Therefore
+\[
+ (V\cdot Y)=\sum_{Y'}c_{Y'}(Y'\cdot Y)
+          =\sum_{Y'\neq Y}(c_{Y'}-c_Y)(Y\cdot Y')
+          =\sum_{e\ni v_Y}\bigl(F(\text{far end of }e)-F(v_Y)\bigr).
+\]
+Each edge has length one and $F$ is affine on it by Step~3, so the summand is
+precisely the outgoing slope $d_eF(v_Y)$, and
+$(V\cdot Y)=(\Delta_\Gamma F)(\{v_Y\})$.  This computation is a special case
+of the degree bookkeeping recorded in \cref{cor:special-fibre-relation}.
+
+\emph{Step 5: conclusion.}  Substituting Step~4 into
+\eqref{eq:ch08-principal-degree-zero} gives, for every component $Y$,
+\[
+ (\Delta_\Gamma F)(\{v_Y\})
+ =-(r_*\operatorname{div}f)(\{v_Y\}).
+\]
+By Step~3 the measure $\Delta_\Gamma F$ is supported on the
+vertices, and by hypothesis so is $r_*\operatorname{div}(f)$.  This proves
+the first identity in \eqref{eq:ch08-slope-formula}, and the second follows
+from $\log|f|=-v_\bullet(f)$ and linearity of $\Delta_\Gamma$.
+\end{proof}
+
+\begin{remark}[Scope of the hypothesis]
+\label{rem:ch08-slope-scope}
+Suppose a point $P$ of $\operatorname{supp}\operatorname{div}(f)$ reduces to
+a node $\xi$ with equation $xy=\pi$.  Then $c=v(x(P))$ lies in
+$(0,1)\cap\mathbf Q$, because $\kappa(P)$ is finite over $K$; write
+$c=p/q$.  Base changing to $K_q=K(\pi^{1/q})$ and resolving as in Step~3
+produces a regular semistable model of $C_{K_q}$ on which the points of
+$C_{K_q}$ above $P$ reduce into the smooth locus of the component $E_{p}$,
+because they satisfy $v_q(x)=p/q$ exactly.  Doing this for the finitely many
+offending points at once, the hypothesis of
+\cref{thm:ch08-slope-formula} is satisfied over a finite extension of $K$.
+Neither side of \eqref{eq:ch08-slope-formula} changes: the extension $v_q$ of
+$v$ leaves $F$ unchanged, and $r_*\operatorname{div}(f)$ is unchanged because
+the degree $[\kappa(P):K]$ of a closed point is distributed among the points
+above it.  Consequently \eqref{eq:ch08-slope-formula} holds without the
+displayed hypothesis, atoms of $r_*\operatorname{div}(f)$ being then allowed
+in the interiors of the edges of $\Gamma$; we have kept the hypothesis in the
+statement because every application in this book satisfies it, and because
+with it the proof is entirely intersection-theoretic.
+\end{remark}
+
+\begin{corollary}
+\label{cor:ch08-harmonic-away}
+With the notation of \cref{thm:ch08-slope-formula}, the function
+$\log|f|$ restricted to $\Gamma$ is harmonic outside
+$r(\operatorname{supp}\operatorname{div}(f))$.  If $f$ has neither zeros nor
+poles on $C$, then $f$ is constant and $F$ is constant.
+\end{corollary}
+
+\begin{proof}
+The first assertion is \eqref{eq:ch08-slope-formula}.  For the second, a
+regular invertible function on a projective curve is constant, so
+$\operatorname{div}(f)=0$; then $\Delta_\Gamma F=0$ and
+\cref{lem:ch08-laplacian-well-defined}\,(3) applies.
+\end{proof}
+
+\begin{remark}[Scope]
+\Cref{thm:ch08-slope-formula} is stated for a regular semistable model, which
+is all that is used later, and the proof is complete under that hypothesis.
+The same formula, with multiplicities $b_Y$ inserted in the normalization of
+the divisorial points and in the edge lengths, holds on the skeleton of an
+arbitrary SNC model; the harmonic-analysis version valid on all of
+$C^{\An}$, including the type-$\mathrm{IV}$ points and the branches off the
+skeleton, is Thuillier's potential theory on Berkovich curves \cite{Thu05}
+and is compared with the Chambert--Loir--Ducros calculus in
+\cref{chap:cld-examples}, see \cref{thm:wanner-curve-comparison} and
+\cite{Wanner19,GR25PL}.  We do not use that stronger statement in
+\cref{part:foundations}.
+
+Concretely, the two ingredients \cref{thm:ch08-slope-formula} extracts from
+intersection theory are proved sheaf-theoretically in \cite{Thu05}: that
+$\log|f|$ is harmonic wherever $f$ is an invertible section of $\cO_C$
+\cite[Prop.~2.3.20]{Thu05}, and that it is subharmonic wherever $f$ is a
+section invertible on a dense open \cite[Prop.~3.1.6]{Thu05}.  The atoms are
+then produced by the Poincar\'e--Lelong formula \cite[\S3.3.3]{Thu05}.
+\end{remark}
+
+\begin{remark}[Harmonic functions and $\log|\cO^\times|$ are not the same
+sheaf]
+\label{rem:ch08-harmonic-vs-log}
+It is tempting to \emph{define} harmonicity on a curve by ``locally of the
+form $\log|f|$ with $f$ invertible''.  Thuillier shows that this fails, and
+identifies the obstruction exactly.  Write $\mathcal F_C$ for the sheaf of
+$\mathbf R$-vector spaces on $|C^{\An}|$ generated by the germs $\log|f|$,
+$f\in\Gamma(U,\cO_{C^{\An}}^{\times})$, and $\mathcal H_C$ for his sheaf of
+harmonic germs.  Then $\mathcal F_C\subseteq\mathcal H_C$, the quotient is a
+skyscraper sheaf supported on the type-$\mathrm{II}$ points, and at such a
+point $x$ with associated residue curve $C_x$ over $\widetilde K$ one has
+\[
+ (\mathcal H_C/\mathcal F_C)_x\simeq\Pic^0(C_x)\otimes_{\mathbf Z}\mathbf R ,
+\]
+by \cite[Lem.~2.3.22]{Thu05}: an $\mathbf R$-divisor of degree zero on a
+component of the special fibre is the divisor of a harmonic function, but
+need not be principal.  The quotient vanishes---so that the naive definition
+is correct after all---if $\widetilde K$ is algebraic over a finite field, or
+if $C^{\An}$ is locally isomorphic to $\mathbf P^{1,\An}$, that is if $C$ is
+a Mumford curve; this is \cite[Thm.~2.3.21]{Thu05}.  The same two hypotheses
+reappear, for the same reason, in the regularization statements of
+\cref{chap:cld-examples}.
+\end{remark}
+
+\subsection{Model measures on a curve as graph data}
+\label{sec:ch08-curve-cl}
+
+The slope formula makes the Chambert--Loir measure of a model metric on a
+curve into a purely graph-theoretic object.
+
+\begin{proposition}
+\label{prop:ch08-curve-cl}
+Let $\cX$ be a regular semistable model of $C$, let $L$ be a line bundle on
+$C$ of degree $d$, and let $\cL$ be a model of $L$ on $\cX$, with associated
+model metric $\|\cdot\|_{\cL}$ and skeleton $\Gamma=\Sk(\cX)$.  Then
+\begin{equation}
+\label{eq:ch08-curve-cl-measure}
+ c_1(L,\|\cdot\|_{\cL})=\sum_Y\deg(\cL|_Y)\,\delta_{v_Y},
+ \qquad
+ \sum_Y\deg(\cL|_Y)=d .
+\end{equation}
+If $\cL'=\cL\otimes\cO_\cX(D)$ for a vertical divisor $D$ with model function
+$\varphi_D$, then
+\begin{equation}
+\label{eq:ch08-curve-cl-perturbed}
+ c_1(L,\|\cdot\|_{\cL'})
+   =c_1(L,\|\cdot\|_{\cL})+\Delta_\Gamma\bigl(\varphi_D|_\Gamma\bigr),
+\end{equation}
+and the metric $\|\cdot\|_{\cL'}$ is semipositive if and only if the
+right-hand side is a positive measure.
+\end{proposition}
+
+\begin{proof}
+The first formula is the definition of the model measure in
+\cref{sec:metrics-cl-measure} with all $b_Y=1$, and the mass statement is
+\cref{thm:cl-model-properties}.  For the second, note that $\varphi_D$ is
+affine on every edge of $\Gamma$ after subdivision
+(\cref{prop:skeleton-model-pa}), so that $\Delta_\Gamma\varphi_D$ makes
+sense; and by the computation of Step~4 in the proof of
+\cref{thm:ch08-slope-formula}, applied to the vertical divisor
+$D=\sum_Ya_YY$ instead of $V$,
+\[
+ \deg\bigl(\cO_{\cX}(D)|_Y\bigr)=(D\cdot Y)
+ =\sum_{e\ni v_Y}\bigl(\varphi_D(\text{far end of }e)-\varphi_D(v_Y)\bigr)
+ =(\Delta_\Gamma\varphi_D)(\{v_Y\}) ,
+\]
+using $\varphi_D(v_Y)=a_Y$.  If $D$ is not determined on $\cX$, pass to a
+dominating regular semistable model, on which the computation applies and on
+which the measure of $\cL$ is unchanged by
+\cref{thm:cl-model-properties}; the additional atoms of
+$\Delta_\Gamma\varphi_D$ then sit at the new vertices, in the interior of the
+old edges.  Additivity of degrees gives
+\eqref{eq:ch08-curve-cl-perturbed}.  Finally, a model metric on a curve is
+semipositive precisely when all the residual degrees are nonnegative
+(\cref{sec:metrics-semipositive}), which is positivity of the measure.
+\end{proof}
+
+Formula \eqref{eq:ch08-curve-cl-perturbed} is exactly
+\eqref{eq:graph-curvature} with $\mu_0=c_1(L,\|\cdot\|_\cL)$: the model
+picture and the graph picture agree, and the mass $d$ is conserved because
+$\Delta_\Gamma$ kills total mass by \eqref{eq:lap-mass-zero}.  All the
+curve computations of this chapter are instances of this one identity.
+
+\section{The analytic projective line}
+\label{sec:berkovich-p1}
+
+For the rest of this section $K$ is complete and nontrivially valued, with
+value group $v(K^\times)\subseteq\mathbf R$ and residue field $\widetilde K$.
+Two additional hypotheses are used in disjoint places and are never used
+together, since they are incompatible.  In
+\cref{sec:ch08-p1-tree} we assume $K$ algebraically closed, as
+\cref{thm:berk-a1-classification} requires; the reader may keep
+$K=\mathbf C_p$ in mind.  In
+\crefrange{sec:ch08-p1-newton}{sec:ch08-p1-models}, where intersection
+numbers on models are computed, we assume instead that $K$ is discretely
+valued with $v(\pi)=1$ and $R=K^\circ$; there the reader may keep
+$K=\mathbf Q_p$ or $K=k((\pi))$ in mind.
+
+\subsection{The tree and its metric}
+\label{sec:ch08-p1-tree}
+\index{Berkovich projective line!tree}\index{path metric}
+
+\Cref{thm:berk-a1-classification} classifies the points of
+$\mathbf A^{1,\An}_K$ into four types and
+\cref{prop:berk-a1-tree} organizes them into a tree.  We add the metric and
+the branching data, which is what potential theory needs.
+
+\begin{definition}[Path metric]
+\label{def:ch08-path-metric}
+For a point $x$ of type $\mathrm{II}$ or $\mathrm{III}$, corresponding to
+the disc $D(a,r)$, put
+\[
+                       t(x)=-\log r\in\mathbf R .
+\]
+If $x\leq y$ are two such points, the segment $[x,y]$ is the totally ordered
+set $\{z:x\leq z\leq y\}$, which by \cref{prop:berk-a1-tree}\,(1) is the
+family of Gauss points $\zeta_{a,\rho}$ with $r\leq\rho\leq s$; we give it the
+length $|t(x)-t(y)|$.  For arbitrary $x,y$ of type
+$\mathrm{II}$ or $\mathrm{III}$ the path from $x$ to $y$ is
+$[x,x\vee y]\cup[x\vee y,y]$, and
+\begin{equation}
+\label{eq:ch08-path-metric}
+ \rho(x,y)=\bigl(t(x)-t(x\vee y)\bigr)+\bigl(t(y)-t(x\vee y)\bigr) .
+\end{equation}
+\end{definition}
+
+Thus $t$ decreases as discs grow, in accordance with $v=-\log|\cdot|$: the
+Gauss point of the unit disc has $t=0$, the point $\zeta_{0,|\pi|^m}$ has
+$t=m$, and $t\to-\infty$ approaches the point $\infty\in\mathbf P^1$.  This
+is the coordinate already used in \eqref{eq:gauss-disc} below and in
+\cref{sec:ch01-running-toric}.
+
+\begin{example}[A distance computed]
+\label{ex:ch08-path-distance}
+Suppose $p\in K^\times$ has $v(p)=1$ and take
+$x=\zeta_{0,|p|^3}$ and $y=\zeta_{1,|p|^5}$.  Then $|0-1|=1$, so
+\cref{prop:berk-a1-tree}\,(3) gives
+$x\vee y=\zeta_{0,\max\{|p|^3,|p|^5,1\}}=\zeta_{0,1}$, the Gauss point, with
+$t=0$.  Hence $\rho(x,y)=3+5=8$.  The two points lie on different branches
+issuing from $\zeta_{0,1}$, and every path between them passes through it.
+\end{example}
+
+\begin{proposition}
+\label{prop:ch08-branching}
+Let $x=\zeta_{a,r}$ with $r\in|K^\times|$, a point of type $\mathrm{II}$.
+The set of tangent directions at $x$ in $\mathbf P^{1,\An}_K$ is in
+canonical bijection with $\mathbf P^1(\widetilde K)$.  If $r\notin|K^\times|$,
+that is, if $x$ is of type $\mathrm{III}$, there are exactly two tangent
+directions.
+\end{proposition}
+
+\begin{proof}
+After the change of variable $T\mapsto(T-a)/c$ with $|c|=r$, which is an
+automorphism of $\mathbf P^{1,\An}_K$ preserving types and the tree
+structure, we may assume $a=0$ and $r=1$, so $x=\zeta_{0,1}$ is the Gauss
+point of the unit disc.  A tangent direction at $x$ is an equivalence class
+of points $y\neq x$, two points being equivalent when the segments $[x,y]$
+and $[x,y']$ share an initial segment; equivalently, it is a connected
+component of $\mathbf P^{1,\An}_K\setminus\{x\}$.
+
+The components are described by the reduction map
+$\mathrm{red}:\mathbf P^{1,\An}_K\to\mathbf P^1_{\widetilde K}$ attached to
+the model $\mathbf P^1_{K^\circ}$ in \cref{sec:berk-reduction}, whose fibre
+over the generic point of the special fibre is $\{x\}$ by
+\cref{prop:berk-divisorial-fibre}.  If
+$y\neq x$ and $y$ lies in the closed unit disc, then $y\leq\zeta_{0,1}$ and
+$y$ determines a disc $D(b,\rho)$ with $|b|\leq1$ and $\rho<1$; two such
+points lie in the same component of the complement of $x$ exactly when their
+discs have a common point, that is, when the residues
+$\widetilde b\in\widetilde K$ coincide.  This gives one direction for each
+element of $\widetilde K$, and the remaining component, containing all points
+with $|T|>1$ and the point $\infty$, gives the direction of
+$\infty\in\mathbf P^1(\widetilde K)$.  Since $|K^\times|$ is the value group
+and $r=1$ lies in it, all residues $\widetilde b$ are realized.
+
+If $r\notin|K^\times|$, the same argument produces only two components: the
+points strictly below $x$ and the points not below $x$.  Indeed, if
+$y<x$ corresponds to $D(b,\rho)$ with $\rho<r$, and $y'<x$ corresponds to
+$D(b',\rho')$ with $\rho'<r$, then $|b-b'|\leq r$ and $|b-b'|\neq r$ because
+$r\notin|K^\times|$, so $|b-b'|<r$ and the two discs are contained in a
+common disc of radius $<r$; hence $y$ and $y'$ lie in the same component.
+\end{proof}
+
+\begin{remark}[Where the branches go]
+\Cref{prop:ch08-branching} is the analytic form of the statement that
+blowing up a closed point of the special fibre of $\mathbf P^1_R$ creates a
+new component: the closed points of the special fibre
+$\mathbf P^1_{\widetilde K}$ are exactly $\mathbf P^1(\widetilde K)$, and each
+of them is the direction of a branch at the Gauss point.  We compute two such
+blowups in \cref{ex:ch08-p1-tripod}.
+\end{remark}
+
+\subsection{Gauss points, tropical coordinates, and Newton polygons}
+\label{sec:ch08-p1-newton}
+
+Let $K$ be complete and nontrivially valued.  For $r>0$, the Gauss point
+$\zeta_{0,r}$ of the closed disc centered at $0$ is defined by
+\begin{equation}
+\label{eq:gauss-disc}
+ \left|\sum_{i=0}^m a_iT^i\right|_{\zeta_{0,r}}
+ =\max_i|a_i|r^i.
+\end{equation}
+Put $t=-\log r$.  Then
+\[
+                    v_{\zeta_{0,r}}(T)=t,
+\qquad
+ v_{\zeta_{0,r}}\left(\sum_i a_iT^i\right)
+ =\min_i\{v(a_i)+it\}.
+\]
+The points $\zeta_{0,r}$ form the skeleton of the analytic torus
+$\mathbf G_{m,K}^{\mathrm{an}}$, canonically identified with $\mathbf R$ via
+$t$.  Its compactification in $(\mathbf P^1_K)^{\mathrm{an}}$ has endpoints
+$0$ and $\infty$.  The entire Berkovich projective line is a real tree
+obtained by attaching further branches to this apartment.
+
+\begin{example}[A polynomial along the skeleton]
+For $f(T)=a_0+a_1T+\cdots+a_mT^m$,
+\[
+ -\log|f(\zeta_{0,\rme^{-t}})|
+ =\min_i\{v(a_i)+it\}.
+\]
+This is a concave piecewise affine function with integral slopes.  A slope
+changes precisely when two terms have the same Gauss size.  Thus the Newton
+polygon of $f$ is visible as the restriction of $v(f)$ to the skeleton.
+\end{example}
+
+\begin{example}[A cubic, its Newton polygon, and the slope formula]
+\label{ex:ch08-newton-cubic}
+\index{Newton polygon}
+Let $v(p)=1$ and consider
+\[
+                 f(T)=T^3+p^2T^2+p^5T+p^9 .
+\]
+Along the skeleton, with $t=v_t(T)$,
+\[
+ F(t):=v_t(f)=\min\{3t,\ 2+2t,\ 5+t,\ 9\} .
+\]
+The four affine functions have slopes $3,2,1,0$ and are compared pairwise:
+$3t=2+2t$ at $t=2$; $2+2t=5+t$ at $t=3$; $5+t=9$ at $t=4$.  A direct check
+at the three candidate breakpoints confirms that the minimum is attained by
+consecutive terms only:
+\[
+ F(t)=
+ \begin{cases}
+  3t, & t\leq2,\\
+  2+2t, & 2\leq t\leq3,\\
+  5+t, & 3\leq t\leq4,\\
+  9, & t\geq4,
+ \end{cases}
+ \qquad
+ F(2)=6,\quad F(3)=8,\quad F(4)=9 .
+\]
+Thus $F$ is concave with slopes $3,2,1,0$ and slope jumps of size $-1$ at
+$t=2,3,4$.  Each of the three segments of the Newton polygon has horizontal
+length one, so $f$ has exactly one root of valuation $2$, one of valuation
+$3$, and one of valuation $4$, and each of them is a $K$-rational point of
+$\mathbf P^1$; call them $P_2,P_3,P_4$.  (If one prefers not to invoke the
+Newton-polygon factorization, pass to an algebraic closure: neither side of
+the identity below changes.)
+
+We now verify \cref{thm:ch08-slope-formula} by hand on the compact skeleton
+$\Gamma=[\zeta_{0,1},\zeta_{0,|p|^4}]$, that is, on $0\leq t\leq4$; this
+$\Gamma$ is the skeleton of the model of $\mathbf P^1$ obtained from
+$\mathbf P^1_R$ by four successive blowups of the point $T=0$ of the special
+fibre, whose chain of exceptional curves has divisorial points at
+$t=1,2,3,4$.  Compute the outgoing-slope sums of $F$ on $\Gamma$:
+\begin{align*}
+ t=0:&\quad d_\nu F=+3
+   &&\Longrightarrow\quad \text{mass }+3;\\
+ t=1:&\quad d_\nu F=+3\ \text{ and }\ -3
+   &&\Longrightarrow\quad \text{mass }\ \ 0;\\
+ t=2:&\quad d_\nu F=+2\ \text{ and }\ -3
+   &&\Longrightarrow\quad \text{mass }-1;\\
+ t=3:&\quad d_\nu F=+1\ \text{ and }\ -2
+   &&\Longrightarrow\quad \text{mass }-1;\\
+ t=4:&\quad d_\nu F=-1
+   &&\Longrightarrow\quad \text{mass }-1 .
+\end{align*}
+Hence
+\[
+ \Delta_\Gamma F=3\delta_{t=0}-\delta_{t=2}-\delta_{t=3}-\delta_{t=4},
+\]
+of total mass $3-1-1-1=0$, as \eqref{eq:lap-mass-zero} demands.  On the other
+side, $\operatorname{div}(f)=P_2+P_3+P_4-3\,(\infty)$ on $\mathbf P^1$, and
+the retraction onto $\Gamma$ sends $P_j$ to the point $t=j$ for $j=2,3,4$
+and sends $\infty$, which lies outside the unit disc, to the endpoint
+$t=0$.  Therefore
+\[
+ r_*\operatorname{div}(f)
+ =\delta_{t=2}+\delta_{t=3}+\delta_{t=4}-3\delta_{t=0}
+ =-\Delta_\Gamma F ,
+\]
+which is \eqref{eq:ch08-slope-formula}.  Note where each ingredient of the
+proof appears: concavity of $F$ is the ultrametric inequality, the integrality
+of the slopes is the integrality of $\ord$, and the mass $+3$ at the endpoint
+$t=0$ is the pole of order three at infinity, pushed onto the skeleton.
+\end{example}
+
+For a nonzero rational function $f$ on $\mathbf P^1$, the slope formula is
+the Poincar\'e--Lelong identity
+\begin{equation}
+\label{eq:p1-poincare-lelong}
+                 \dprimeddprime[\log|f|]=\delta_{\operatorname{div}(f)}.
+\end{equation}
+In particular,
+\[
+                 \dprimeddprime[\log|T|]=\delta_0-\delta_\infty.
+\]
+Since $v(T)=-\log|T|$, its Laplacian has the opposite sign.  This check will
+prevent sign changes when we pass between valuations and metric weights.
+
+\subsection{The canonical metric on the hyperplane bundle}
+
+Let $[Z_0:Z_1]$ be homogeneous coordinates and $T=Z_1/Z_0$.  The standard
+model metric on $\mathcal O(1)$ satisfies
+\[
+ \|Z_0(x)\|=\frac{|Z_0(x)|}{\max\{|Z_0(x)|,|Z_1(x)|\}}.
+\]
+On the chart $Z_0\neq0$, its weight is
+\begin{equation}
+\label{eq:p1-standard-weight}
+      -\log\|Z_0\|(x)=\log\max\{1,|T(x)|\}.
+\end{equation}
+Along the toric skeleton this becomes
+\[
+                         F(t)=\max\{0,-t\}.
+\]
+It has one unit slope jump, at the Gauss point $\zeta_{0,1}$.  Therefore
+\begin{equation}
+\label{eq:p1-standard-measure}
+ c_1\bigl(\mathcal O(1),\|\cdot\|_{\mathrm{mod}}\bigr)
+ =\delta_{\zeta_{0,1}}.
+\end{equation}
+The total mass is $1=\deg\mathcal O(1)$.  For $\mathcal O(d)$ with the tensor
+power metric, the measure is $d\delta_{\zeta_{0,1}}$.
+
+\begin{remark}
+Formula \eqref{eq:p1-standard-measure} may look singular from the complex
+viewpoint: all curvature is concentrated at one nonclassical point.  It is
+nevertheless the exact non-Archimedean analogue of a semipositive model
+metric.  Smoothness will later refer to smoothness on tropical charts, not
+to diffuseness of the curvature measure.
+\end{remark}
+
+\subsection{Models of the projective line and their Laplacians}
+\label{sec:ch08-p1-models}
+\index{model!of the projective line}
+
+Assume now that $K$ is discretely valued, $R=K^\circ$, $v(\pi)=1$.  The
+simplest model of $X=\mathbf P^1_K$ is $\cX_0=\mathbf P^1_R$; its special
+fibre is the single reduced component $\mathbf P^1_{\widetilde K}$, its
+skeleton is the single point $\zeta_{0,1}$, and its retraction sends
+everything to the Gauss point.  All other models used here are obtained from
+$\cX_0$ by blowing up closed points of special fibres; by
+\cref{prop:ch08-branching}, the possible centres on $\cX_{0,s}$ are indexed
+by $\mathbf P^1(\widetilde K)$, and each blowup extends the skeleton by one
+edge of length one.
+
+We compute three models completely.  In each case the curvature measure of a
+model metric on $\cO(1)$ is obtained twice, from intersection numbers by
+\eqref{eq:ch08-curve-cl-measure} and from outgoing slopes by
+\eqref{eq:ch08-curve-cl-perturbed}, and the two answers are compared.
+
+\begin{example}[One blowup: the interval]
+\label{ex:ch08-p1-interval}
+Let $\cX_1\to\cX_0$ be the blowup of the point $\{T=\pi=0\}$, as in
+\cref{ex:ch01-blowup-model-function}.  Its special fibre is
+$\cX_{1,s}=\widetilde C+E$, both reduced, meeting transversally at one point,
+and
+\[
+ (E\cdot\widetilde C)=1,\qquad (E\cdot E)=-1,\qquad
+ (\widetilde C\cdot\widetilde C)=-1 ,
+\]
+the last two because $\cX_{1,s}=\operatorname{div}(\pi)$ has degree zero on
+each component.  The skeleton is the segment
+$\Gamma_1=[\zeta_{0,1},\zeta_{0,|\pi|}]$, of length one, with $t=0$ at
+$x_{\widetilde C}$ and $t=1$ at $x_E$, and
+$\varphi_E|_{\Gamma_1}(t)=t$ by \eqref{eq:ch01-blowup-model-function}.
+
+Let $\cL_a=\rho^*\cO_{\cX_0}(1)\otimes\cO_{\cX_1}(aE)$ for $a\in\mathbf Z$,
+where $\rho:\cX_1\to\cX_0$ is the blowup.  Its residual degrees are
+\[
+ \deg(\cL_a|_{\widetilde C})=1+a(E\cdot\widetilde C)=1+a,
+ \qquad
+ \deg(\cL_a|_{E})=0+a(E\cdot E)=-a ,
+\]
+using $\deg(\rho^*\cO(1)|_E)=0$ because $\rho$ contracts $E$.  Hence
+\begin{equation}
+\label{eq:ch08-p1-interval-measure}
+ c_1\bigl(\cO(1),\|\cdot\|_{\cL_a}\bigr)
+   =(1+a)\,\delta_{x_{\widetilde C}}-a\,\delta_{x_E},
+\end{equation}
+of total mass $(1+a)+(-a)=1=\deg\cO(1)$.  The metric is semipositive exactly
+when $-1\leq a\leq0$.  The graph computation agrees: the model function of
+$aE$ restricted to $\Gamma_1$ is $at$, whose outgoing-slope sums are $a$ at
+$t=0$ and $-a$ at $t=1$, so
+\[
+ \delta_{x_{\widetilde C}}+\Delta_{\Gamma_1}(at)
+ =(1+a)\delta_{x_{\widetilde C}}-a\delta_{x_E},
+\]
+matching \eqref{eq:ch08-p1-interval-measure}.  For $a=-1$ the whole degree
+has migrated to the new component: the measure is $\delta_{x_E}$, and the
+corresponding metric is the standard model metric transported by the
+automorphism $T\mapsto\pi^{-1}T$.
+\end{example}
+
+\begin{example}[Two blowups: a two-legged tree]
+\label{ex:ch08-p1-tripod}
+\index{tree!two-legged model skeleton}
+Blow up $\cX_0=\mathbf P^1_R$ at the two closed points
+$\{T=\pi=0\}$ and $\{T-1=\pi=0\}$ of the special fibre; they are distinct
+because their residues $0$ and $1$ are distinct in
+$\mathbf P^1(\widetilde K)$.  Call the result $\cX_2$, with exceptional
+curves $E_0$ and $E_1$
+and strict transform $\widetilde C$.  Then
+\[
+ (E_i\cdot\widetilde C)=1,\quad (E_i\cdot E_i)=-1,\quad
+ (E_0\cdot E_1)=0,\quad (\widetilde C\cdot\widetilde C)=-2 .
+\]
+The skeleton is a path of length two: its central vertex
+$x_{\widetilde C}=\zeta_{0,1}$ has two legs of length one ending at
+$x_{E_0}=\zeta_{0,|\pi|}$ and $x_{E_1}=\zeta_{1,|\pi|}$.  Note that the two
+legs really are distinct branches at $\zeta_{0,1}$, by
+\cref{prop:ch08-branching}, since $\widetilde0\neq\widetilde1$; and
+$\rho(x_{E_0},x_{E_1})=2$ by \eqref{eq:ch08-path-metric}, since
+$x_{E_0}\vee x_{E_1}=\zeta_{0,1}$.
+
+Take $D=a_0E_0+a_1E_1$ and
+$\cL=\rho^*\cO_{\cX_0}(1)\otimes\cO_{\cX_2}(D)$.  The residual degrees are
+\[
+ \deg(\cL|_{\widetilde C})=1+a_0+a_1,
+ \qquad
+ \deg(\cL|_{E_0})=-a_0,
+ \qquad
+ \deg(\cL|_{E_1})=-a_1 ,
+\]
+so that
+\begin{equation}
+\label{eq:ch08-p1-tripod-measure}
+ c_1\bigl(\cO(1),\|\cdot\|_{\cL}\bigr)
+ =(1+a_0+a_1)\delta_{x_{\widetilde C}}
+  -a_0\delta_{x_{E_0}}-a_1\delta_{x_{E_1}} ,
+\end{equation}
+of total mass $1$.  Semipositivity holds exactly when $a_0\leq0$,
+$a_1\leq0$, and $a_0+a_1\geq-1$: a triangle in the $(a_0,a_1)$-plane, which
+is the nef cone of this model in the notation of
+\cref{sec:metrics-semipositive}.
+
+The graph computation again agrees.  On this path, $\varphi_{E_i}$ is the
+function equal to the distance from the central vertex along the $i$-th leg
+and to $0$ elsewhere, so $\varphi_D$ takes the value $0$ at the centre and
+$a_i$ at the tip of leg $i$, and is affine on each leg.  The outgoing-slope
+sums are $a_0+a_1$ at the centre and $-a_i$ at the tip of leg $i$, so
+\[
+ \delta_{x_{\widetilde C}}+\Delta_\Gamma\varphi_D
+ =(1+a_0+a_1)\delta_{x_{\widetilde C}}
+   -a_0\delta_{x_{E_0}}-a_1\delta_{x_{E_1}} ,
+\]
+as in \eqref{eq:ch08-p1-tripod-measure}.  A convenient symmetric semipositive
+choice is $a_0=a_1=-\tfrac12$, allowed after passing to
+$\mathbf Q$-model metrics: the measure becomes
+\[
+ 0\cdot\delta_{x_{\widetilde C}}
+ +\tfrac12\delta_{x_{E_0}}+\tfrac12\delta_{x_{E_1}} ,
+\]
+of mass $1$, with no mass at the Gauss point.  The corresponding metric on
+$\cO(1)$ has weight, in the frame $Z_0$,
+\[
+ \log\max\{1,|T|\}
+   -\tfrac12\min\bigl\{\max\{v(T),0\},1\bigr\}
+   -\tfrac12\min\bigl\{\max\{v(T-1),0\},1\bigr\},
+\]
+by \eqref{eq:p1-standard-weight} and
+\eqref{eq:ch01-blowup-model-function}.  It is the exact non-Archimedean
+analogue of a metric whose curvature is half the equilibrium measure of one
+small disc plus half that of another.
+\end{example}
+
+\begin{example}[A Fubini--Study metric and a moving atom]
+\label{ex:ch08-p1-fs}
+Fix $\lambda\in v(K^\times)$ and consider the Fubini--Study metric on
+$\cO(1)$ of \cref{sec:metrics-fs} attached to the two sections $Z_0,Z_1$
+with weights $0$ and $-\lambda$, that is, the metric with weight
+\[
+ \phi_\lambda=\max\{0,\ \log|T|-\lambda\}
+\]
+in the frame $Z_0$.  On the skeleton, with $t=v(T)$, this is
+$\max\{0,-t-\lambda\}$, a convex piecewise affine function with a single
+corner at $t=-\lambda$ and slopes $-1$ and $0$.  Its outgoing-slope sum at
+the corner is $(+1)+0=1$ and vanishes elsewhere, so
+\[
+ c_1\bigl(\cO(1),\|\cdot\|_{\phi_\lambda}\bigr)=\delta_{\zeta_{0,\rme^{\lambda}}} ,
+\]
+a single Dirac mass of mass $1=\deg\cO(1)$ at the Gauss point of the disc of
+radius $\rme^{\lambda}$.  As $\lambda$ varies over $v(K^\times)$, the atom
+sweeps out the integral-model points of the apartment; allowing
+$\lambda\in\mathbf Qv(K^\times)$ and \(\mathbf Q\)-model metrics sweeps out
+all rational divisorial points.  For $\lambda=0$ we
+recover \eqref{eq:p1-standard-measure}.
+\end{example}
+
+\begin{example}[A degree-two metric with two atoms]
+\label{ex:ch08-p1-degree-two}
+Let $L=\cO(2)$, of degree $2$, and take the metric with weight
+\[
+ \psi=\max\{0,-t\}+\max\{0,-t-1\}
+\]
+on the skeleton, in the frame $Z_0^{\otimes2}$; it is the tensor product of
+the standard model metric with the metric $\phi_1$ of
+\cref{ex:ch08-p1-fs}.  Its Laplacian is
+\[
+ \Delta\psi=\delta_{t=0}+\delta_{t=-1},
+\]
+so
+\[
+ c_1\bigl(\cO(2),\|\cdot\|_\psi\bigr)
+   =\delta_{\zeta_{0,1}}+\delta_{\zeta_{0,|\pi|^{-1}}} ,
+\]
+of total mass $2=\deg\cO(2)$, as required by
+\cref{thm:cl-model-properties}.  Contrast this with the $d$-th tensor power
+of a single model metric, whose measure is $d\delta_{\zeta_{0,1}}$: the same
+mass may be distributed over one atom or several, and the possible
+distributions are exactly the positive measures of mass $d$ obtained from
+\cref{prop:graph-poisson}.
+\end{example}
+
+\begin{example}[Mass conservation under refinement]
+\label{ex:ch08-p1-refinement}
+Pull back the standard model metric on $\cO(1)$ from $\cX_0$ to the chain
+model $\cX_4$ with special fibre $\widetilde C+E_1+E_2+E_3+E_4$ used in
+\cref{ex:ch08-newton-cubic}.  Since $\rho$ contracts every $E_j$, the
+residual degrees are $1,0,0,0,0$, and the measure is still
+$\delta_{\zeta_{0,1}}$.  This is \cref{thm:cl-model-properties} in the
+smallest instance: passing to a higher model neither creates nor destroys
+mass, it only creates points at which mass \emph{could} sit.  The four zero
+coefficients are the reason the point $t=1$ contributed nothing in
+\cref{ex:ch08-newton-cubic}.
+\end{example}
+
+\section{The trivially valued cone}
+\label{sec:trivial-valuation-cone}
+
+Over a trivially valued ground field the picture changes in one decisive
+respect: there is no element $\pi$ with $v(\pi)=1$, hence no distinguished
+slice of the space of semivaluations, and the scaling action
+$v\mapsto tv$ becomes part of the structure rather than a normalization to be
+fixed.  This section computes the resulting cone in the two smallest cases,
+a smooth curve and the affine plane, and computes the homogeneous potentials
+that \cref{part:bj} takes as its basic objects.  The general definitions are
+in \cref{chap:trivial-analytification}
+(\cref{def:trivial-analytification,def:normalized-link}) and
+\cref{chap:bj-homogeneity-bdivisors}
+(\cref{def:homogeneous-function}); nothing below presupposes them.
+
+\subsection{The cone over a smooth curve}
+\label{sec:ch08-trivial-curve}
+
+Let $k$ be algebraically closed with the trivial absolute value.  On
+$\mathbf A^1_k$ and for $a\in k$, define
+\[
+ v_{a,t}(f)=t\operatorname{ord}_a(f),\qquad 0\leq t<+\infty.
+\]
+At $t=0$ this is the trivial valuation.  There is also the endpoint
+semivaluation
+\[
+ v_{a,\infty}(f)=
+ \begin{cases}
+  +\infty,&f(a)=0,\\
+  0,&f(a)\neq0,
+ \end{cases}
+\]
+whose support is the maximal ideal of $a$.
+
+\begin{proposition}\label{prop:trivial-p1-tree}
+The analytification of $\mathbf P^1_k$ is obtained by gluing, at their
+$t=0$ endpoints, one closed ray
+$\{v_{a,t}:0\leq t\leq+\infty\}$ for each closed point
+$a\in\mathbf P^1(k)$.  Positive real scaling acts by
+\[
+                         \lambda\cdot v_{a,t}=v_{a,\lambda t}.
+\]
+The common vertex is the trivial valuation and the endpoint of each ray is a
+proper-support semivaluation.
+\end{proposition}
+
+\begin{proof}
+A valuation of the function field of a smooth curve centered at a closed
+point is a nonnegative multiple of the order of vanishing at that point.
+A semivaluation with nonzero support factors through the residue field of a
+closed point and is therefore the displayed endpoint.  Pointwise convergence
+on regular functions gives the asserted topology.  Along a fixed branch it
+is the usual topology of $[0,+\infty]$.  A basic neighborhood of the common
+vertex contains every branch except possibly finitely many, and contains an
+initial interval on each exceptional branch: indeed, a rational function has
+a zero or pole at only finitely many closed points.  As $t\to\infty$, a
+function vanishing at $a$ acquires value $+\infty$, while a unit retains value
+$0$.  Thus the gluing is understood with this compact, evaluation topology,
+not with the noncompact weak-wedge topology on an infinite family of rays.
+\end{proof}
+
+The cone structure is not optional.  Over a nontrivially valued field the
+condition $v(\pi)=1$ cuts out a preferred slice; over a trivially valued field
+there is no such element.  Homogeneous functions satisfy
+\[
+                              \varphi(\lambda v)=\lambda\varphi(v).
+\]
+
+The next proposition makes this precise for the curve and shows exactly what
+is lost by attempting to normalize.
+
+\begin{proposition}
+\label{prop:ch08-trivial-curve-scaling}
+Let $X$ be a smooth connected projective curve over $k$ and let
+$X^{\An}$ carry the trivial absolute value on $k$.
+\begin{enumerate}
+\item The map $(t,v)\mapsto tv$ is a continuous action of
+$\mathbf R_{>0}$ on $X^{\An}$ whose fixed points are exactly the trivial
+valuation $v_\triv$ of $k(X)$ and the proper-support semivaluations
+$v_{a,\infty}$, $a\in X(k)$.
+\item A point $v_{a,t}$ with $0<t<\infty$ is divisorial---that is, of the
+form $c\,\ord_E$ for a divisorial valuation $\ord_E$ and $c\in\mathbf Q_{>0}$
+---if and only if $t\in\mathbf Q_{>0}$.  Divisorial points are dense in
+$X^{\An}$.
+\item The subset $\Lambda=\{\ord_a:a\in X(k)\}$, the normalized link of
+\cref{def:normalized-link} for the log-discrepancy function
+$A(v_{a,t})=t$, is discrete in $X^{\An}$.  It is therefore compact if and
+only if $X(k)$ is finite, which never happens for $k$ algebraically closed.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1)  Continuity of the action is \eqref{eq:valuation-scaling}.  By
+\cref{prop:trivial-p1-tree} and its evident analogue for an arbitrary smooth
+curve---every valuation of $k(X)$ trivial on $k$ and centred at a closed
+point $a$ is a positive multiple of $\ord_a$, and a semivaluation with
+nonzero support factors through a residue field---every point is of the form
+$v_{a,t}$ with $t\in[0,+\infty]$, and $s\cdot v_{a,t}=v_{a,st}$ with
+$s\cdot\infty=\infty$ and $s\cdot0=0$.  Hence the fixed points are those with
+$t\in\{0,\infty\}$, that is, $v_\triv$ and the endpoints.
+
+(2)  On a smooth curve the only divisorial valuations of $k(X)$ are the
+$\ord_a$, $a\in X(k)$, up to positive rational multiples, because a prime
+divisor on a birational model of a curve is a closed point of the curve
+itself.  So $v_{a,t}=t\,\ord_a$ is divisorial precisely when
+$t\in\mathbf Q_{>0}$.  Density holds along each ray, since
+$\mathbf Q_{>0}$ is dense in $(0,\infty)$ and $t\mapsto v_{a,t}$ is
+continuous with $v_{a,0}=v_\triv$ and
+$\lim_{t\to\infty}v_{a,t}=v_{a,\infty}$, and every point lies on such a ray.
+
+(3)  Fix $a\in X(k)$, choose $c\in X(k)$ with $c\neq a$, and put
+$U=X\setminus\{c\}$, an affine open subset.  Every point of $X^{\An}$ other
+than $v_{c,\infty}$ has its support and its centre in $U$, so
+$U^{\An}=X^{\An}\setminus\{v_{c,\infty}\}$, an open subset containing all of
+$\Lambda$.  Let $f_1,\ldots,f_N\in\cO_X(U)$ generate the ideal sheaf
+$\mathfrak m_a$ of $a$ on $U$.  For $v\in U^{\An}$ the local generators at
+$c(v)\in U$ may be taken among the $f_\ell$, so
+\[
+ \theta(v):=v(\mathfrak m_a)=\min_{1\leq\ell\leq N}v(f_\ell) ,
+\]
+which is continuous on $U^{\An}$ with values in $[0,+\infty]$, because each
+$v\mapsto v(f_\ell)=-\log|f_\ell(v)|$ is continuous by the definition of the
+topology of $U^{\An}$.  Now $\theta(v_{b,t})=t$ if $b=a$ and $\theta=0$
+otherwise, since $\mathfrak m_a$ is the unit ideal at every $b\neq a$.
+Therefore
+\[
+ U_a=\bigl\{v\in U^{\An}:\ \tfrac12<\theta(v)<\tfrac32\bigr\}
+\]
+is an open subset of $X^{\An}$ with $\Lambda\cap U_a=\{\ord_a\}$, and
+$\Lambda$ is discrete.  A discrete subset of a Hausdorff space is compact if
+and only if it is finite, and $X(k)$ is infinite because $k$ is
+algebraically closed and $X$ is a curve.
+\end{proof}
+
+\begin{remark}[Why the theory is homogeneous]
+\Cref{prop:ch08-trivial-curve-scaling}\,(3) is the structural reason that
+\cref{part:bj} works on the whole cone $X^{\An}$ and with homogeneous
+functions, rather than on a compact link with ordinary functions as in
+\cref{part:bfj}.  There is no compact slice transverse to the scaling action.
+What replaces it is the pair (homogeneous function on the cone, bounded
+function on the compact space $X^{\An}$), related by the Legendre
+correspondence of \cref{thm:homogeneous-legendre-decomposition}.
+\end{remark}
+
+\subsection{Homogeneous potentials of ideals}
+\label{sec:ch08-trivial-potentials}
+\index{potential!homogeneous}
+
+Let $X$ be a \emph{proper} variety over the trivially valued $k$, so that
+every $v\in X^{\An}$ has a centre $c(v)\in X$
+(\cref{prop:centers-proper-separated}), and let
+$\mathfrak a\subseteq\cO_X$ be a nonzero coherent ideal.  Following
+\eqref{eq:ideal-evaluation-triv}, $v$ evaluates on
+$\mathfrak a$ by
+\[
+ v(\mathfrak a)=\min\{v(f):f\in\mathfrak a_{c(v)}\}\in[0,+\infty] ,
+\]
+the minimum being attained on a finite generating set, and we set
+\begin{equation}
+\label{eq:ch08-ideal-potential}
+ \varphi_{\mathfrak a}(v)=-v(\mathfrak a)\in[-\infty,0] .
+\end{equation}
+
+\begin{proposition}
+\label{prop:ch08-ideal-potential}
+With the notation above,
+\begin{enumerate}
+\item $\varphi_{\mathfrak a}$ is homogeneous:
+$\varphi_{\mathfrak a}(tv)=t\varphi_{\mathfrak a}(v)$ for $t>0$;
+\item $\varphi_{\mathfrak a\mathfrak b}
+      =\varphi_{\mathfrak a}+\varphi_{\mathfrak b}$ and
+      $\varphi_{\mathfrak a+\mathfrak b}
+      =\max\{\varphi_{\mathfrak a},\varphi_{\mathfrak b}\}$;
+\item $\varphi_{\mathfrak a}\leq0$, with equality at $v$ exactly when
+$\mathfrak a$ is trivial at the centre of $v$;
+\item if $X$ is a smooth projective curve and $c\in X(k)$, then
+$\varphi_{\mathfrak a}$ is continuous, with values in $[-\infty,0]$, on the
+open set $X^{\An}\setminus\{v_{c,\infty}\}$; in particular
+$\varphi_{\mathfrak a}$ is continuous at every point of $X^{\An}$ other than
+the proper-support endpoints.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1)  Immediate from $(tv)(f)=t\,v(f)$ and $t\cdot(+\infty)=+\infty$.
+
+(2)  If $\mathfrak a$ is generated by $f_i$ and $\mathfrak b$ by $g_j$ near
+the centre, then $\mathfrak a\mathfrak b$ is generated by the $f_ig_j$ and
+$\min_{i,j}\{v(f_i)+v(g_j)\}=\min_iv(f_i)+\min_jv(g_j)$; likewise
+$\mathfrak a+\mathfrak b$ is generated by the $f_i$ and $g_j$ together, and
+the minimum of the union of two finite sets is the minimum of the two
+minima.  Negating gives the stated identities; these are the tropical
+identities \eqref{eq:ideal-tropical-identities}.
+
+(3)  $v\geq0$ on the local ring at the centre, so $v(\mathfrak a)\geq0$;
+it vanishes exactly when some generator is a unit at the centre, that is,
+when $\mathfrak a_{c(v)}=\cO_{X,c(v)}$.
+
+(4)  This is the computation carried out in the proof of
+\cref{prop:ch08-trivial-curve-scaling}\,(3) for $\mathfrak a=\mathfrak m_a$,
+verbatim for a general $\mathfrak a$: with $U=X\setminus\{c\}$ affine and
+$f_1,\ldots,f_N\in\cO_X(U)$ generating $\mathfrak a|_U$, every point of
+$U^{\An}=X^{\An}\setminus\{v_{c,\infty}\}$ has its centre in $U$, so
+$v(\mathfrak a)=\min_\ell v(f_\ell)$ there; each $v\mapsto v(f_\ell)$ is
+continuous into $[0,+\infty]$, and a minimum of finitely many continuous
+functions is continuous.  Since $c$ was arbitrary, the last assertion
+follows by varying $c$.
+\end{proof}
+
+\begin{example}[A monomial ideal]
+Let $X=\mathbf A^2_k$ and let $v_w$ be the monomial valuation with
+$v_w(x)=w_1$, $v_w(y)=w_2$ for $w\in\mathbf R_{\geq0}^2$.  For
+$\mathfrak a=(x^2,y^3)$,
+\[
+ v_w(\mathfrak a)=\min\{2w_1,3w_2\},
+ \qquad
+ \varphi_{\mathfrak a}(v_w)=-v_w(\mathfrak a)
+ =\max\{-2w_1,-3w_2\}.
+\]
+Thus a coherent ideal gives a homogeneous piecewise affine function on the
+valuation cone.  The wall $2w_1=3w_2$ is the tropical trace of the competition
+between its two generators.
+\end{example}
+
+\subsection{The monomial cone of the affine plane, computed}
+\label{sec:ch08-monomial-cone}
+\index{monomial valuation!cone of}
+
+We continue with $X=\mathbf A^2_k$ and record the structure of the monomial
+part of its valuation space, together with the invariants that
+\cref{part:bj} attaches to a homogeneous potential.
+
+For $w=(w_1,w_2)\in\mathbf R^2_{\geq0}$, let $v_w$ be the monomial valuation
+with $v_w(x)=w_1$, $v_w(y)=w_2$, so that
+\begin{equation}
+\label{eq:ch08-monomial-value}
+ v_w\Bigl(\sum_{\beta\in\mathbf N^2}c_\beta x^{\beta_1}y^{\beta_2}\Bigr)
+ =\min_{c_\beta\neq0}\langle w,\beta\rangle ,
+\end{equation}
+which is a valuation by \cref{lem:monomial-valuation} (or by the direct
+graded-domain argument of \cref{ex:graded-gauss}).  The map $w\mapsto v_w$
+identifies the closed quadrant $\mathbf R^2_{\geq0}$ with a closed subset of
+$(\mathbf A^2_k)^{\An}$, and the scaling action becomes scalar
+multiplication:
+\[
+ t\cdot v_w=v_{tw},\qquad t>0 .
+\]
+The vertex $w=0$ is the trivial valuation.  The two boundary rays are
+$w=(s,0)$, the valuations $s\,\ord_{\{x=0\}}$, and $w=(0,s)$; the interior
+rays are the genuinely two-dimensional monomial valuations.
+
+\begin{proposition}
+\label{prop:ch08-monomial-invariants}
+Let $w\in\mathbf R^2_{>0}$.
+\begin{enumerate}
+\item In the classical valuation-theoretic convention, which permits
+arbitrary positive real rescaling, $v_w$ is divisorial up to scale if and
+only if $w\in\mathbf R_{>0}\cdot\mathbf Q^2$, equivalently
+$w_1/w_2\in\mathbf Q$.  In the rational divisorial-point convention of
+\Cref{prop:ch08-trivial-curve-scaling}, it is divisorial if and only if
+$w\in\mathbf Q_{>0}^2$.  If $w_1/w_2\notin\mathbf Q$, it is quasimonomial
+of rational rank two and is not divisorial in either sense.
+\item The log discrepancy of $v_w$ relative to $\mathbf A^2$ is
+$A(v_w)=w_1+w_2$, and the normalized link
+$\{v_w:w_1+w_2=1\}$ is the closed segment joining
+$\ord_{\{x=0\}}$ to $\ord_{\{y=0\}}$.
+\item For a monomial ideal $\mathfrak a=(x^{p_1}y^{q_1},\ldots,
+x^{p_N}y^{q_N})$,
+\[
+ \varphi_{\mathfrak a}(v_w)=-\min_{\ell}\{p_\ell w_1+q_\ell w_2\}
+   =\max_{\ell}\langle-(p_\ell,q_\ell),w\rangle ,
+\]
+a homogeneous, convex, piecewise linear function of $w$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1)  The value group of $v_w$ is $\mathbf Z w_1+\mathbf Z w_2$.  A divisorial
+valuation has value group of rational rank one, so
+$\mathbf Zw_1+\mathbf Zw_2$ must have rational rank one, which forces
+$w_1/w_2\in\mathbf Q$; conversely, if $w=c(p,q)$ with $p,q$ coprime positive
+integers and $c>0$, then $v_{(p,q)}$ is the divisorial valuation
+$\ord_E$ attached to the exceptional divisor of the weighted blowup of
+weights $(p,q)$, and $v_w=c\,\ord_E$.  This rescaling is rational exactly
+when $c\in\mathbf Q_{>0}$, equivalently when
+$w\in\mathbf Q_{>0}^2$.  The rational-rank computation for
+monomial valuations is \cref{lem:monomial-invariants}; the constraint linking
+rational rank and residue transcendence degree on a surface is Abhyankar's
+inequality \cref{thm:abhyankar-inequality}.
+
+(2)  On the weighted blowup with weights $(p,q)$, coprime, the exceptional
+divisor $E$ satisfies $K_{\cX/\mathbf A^2}=(p+q-1)E$, so
+\eqref{eq:appJ-div-discrepancy} gives
+$A_{\mathbf A^2}(\ord_E)=1+(p+q-1)=p+q$.  Homogeneity
+\eqref{eq:appJ-discrepancy-homogeneous} extends this to all
+$w\in\mathbf R_{>0}\cdot(\mathbf Q^2\cap\mathbf R^2_{>0})$, and continuity to
+the closed quadrant.  The description of the link is then immediate, the
+endpoints being $w=(1,0)$ and $w=(0,1)$.
+
+(3)  Apply \eqref{eq:ch08-monomial-value} to each generator and use
+\cref{prop:ch08-ideal-potential}\,(2): the value of $\mathfrak a$ is the
+minimum of the values of the generators, so its negative is the maximum of
+the negatives.
+\end{proof}
+
+\begin{example}[The multiplicity of $(x^2,y^3)$, computed twice]
+\label{ex:ch08-monomial-multiplicity}
+\index{multiplicity!of a monomial ideal}
+Take $\mathfrak a=(x^2,y^3)$ as in the previous example, so that
+\[
+ \varphi_{\mathfrak a}(v_w)=\max\{-2w_1,\,-3w_2\} ,
+\]
+with wall $2w_1=3w_2$, that is, $w_2=\tfrac23w_1$.  Two computations of the
+same number illustrate the pattern that recurs in the toric case.
+
+\emph{Algebraic side.}  The ideal $\mathfrak a$ is generated by a regular
+sequence, so its Samuel multiplicity equals its colength:
+\[
+ e(\mathfrak a)=\dim_kk[x,y]/(x^2,y^3)=2\cdot3=6 .
+\]
+
+\emph{Convex side.}  The Newton polyhedron of $\mathfrak a$ is
+$\Gamma_+=\operatorname{conv}\bigl(((2,0)+\mathbf R^2_{\geq0})\cup
+((0,3)+\mathbf R^2_{\geq0})\bigr)$, whose boundary staircase in the quadrant
+is the segment from $(2,0)$ to $(0,3)$; the complementary region is
+\[
+ \mathbf R^2_{\geq0}\setminus\Gamma_+
+ =\{(a,b)\geq0:3a+2b<6\} ,
+\]
+the open triangle with vertices $(0,0),(2,0),(0,3)$, of area
+$\tfrac12\cdot2\cdot3=3$.  Hence
+\[
+ 2!\operatorname{vol}\bigl(\mathbf R^2_{\geq0}\setminus\Gamma_+\bigr)
+ =2\cdot3=6=e(\mathfrak a) .
+\]
+The two answers agree.  Here they were both computed; in general the
+identity $e(\mathfrak a)=n!\operatorname{vol}(\mathbf R^n_{\geq0}
+\setminus\Gamma_+)$ for a monomial ideal of finite colength is the classical
+Newton-polyhedron formula of Teissier, which we do not use elsewhere.  The factor $n!=2$ is the same factor that appears in
+\eqref{eq:toric-ma-comparison} and in \eqref{eq:appJ-toric-degree}: a
+Monge--Amp\`ere or multiplicity number is $n!$ times a Euclidean volume.  In
+the language of \cref{part:bj}, $6$ is the mass of the homogeneous
+Monge--Amp\`ere measure of $\varphi_{\mathfrak a}$ in the local setting of
+\cref{chap:local-valuative-psh}.
+\end{example}
+
+\begin{example}[Truncation and boundedness]
+\label{ex:ch08-truncation}
+Homogeneous potentials are unbounded on every scaling orbit unless they
+vanish, by \cref{def:homogeneous-function}.  For $\mathfrak a=(x^2,y^3)$ and
+$c>0$, the truncation
+\[
+ \max\{\varphi_{\mathfrak a},-c\}(v_w)
+ =\max\bigl\{-2w_1,\,-3w_2,\,-c\bigr\}
+\]
+is bounded and continuous.  It equals $\varphi_{\mathfrak a}$ precisely on
+\[
+                  \{\min(2w_1,3w_2)\le c\},
+\]
+and equals $-c$ when $2w_1\ge c$ and $3w_2\ge c$.  Letting
+$c\to+\infty$ recovers $\varphi_{\mathfrak a}$ as a decreasing limit of
+bounded functions.  This is the mechanism used in
+\cref{ex:ch01-cone-ideal,ex:ch01-product-tc}: a test configuration produces a
+truncated homogeneous potential, and the truncation level is the
+normalization of the associated Fubini--Study function.
+\end{example}
+
+\subsection{Monge--Amp\`ere measures on the trivially valued line}
+\label{sec:ch08-trivial-ma}
+
+On a smooth projective curve $X$ over the trivially valued $k$, the
+tree structure of \cref{prop:trivial-p1-tree} makes the Monge--Amp\`ere
+operator of \cref{part:bj} completely explicit: by
+\eqref{eq:bj-curve-laplacian}, for a line bundle $L$ of degree $d$ and a
+piecewise affine $\phi$ on the tree,
+\begin{equation}
+\label{eq:ch08-trivial-curve-ma}
+ \omega_\triv+\ddc\phi=d\,\delta_{v_\triv}+\Delta\phi ,
+\end{equation}
+where $\Delta$ is the sum-of-outgoing-slopes Laplacian of
+\eqref{eq:graph-laplacian}.  The tree itself is not locally finite over an
+algebraically closed field, but the functions considered below have nonzero
+slopes on only finitely many rays, so every displayed slope sum is finite.
+Two computations follow; both should be
+compared with \cref{ex:ch01-product-tc}.
+
+\begin{example}[One attracting fixed point]
+\label{ex:ch08-trivial-one-ray}
+Let $X=\mathbf P^1_k$, $L=\cO(1)$, $d=1$, and fix $c>0$.  Define $\phi$ to be
+$0$ on every ray except the ray through $0=[1:0]$, on which
+\[
+ \phi(v_{0,t})=\max\{-t,-c\} .
+\]
+The function is continuous, and it has exactly two corners.  At $v_\triv$
+the only ray along which $\phi$ is nonconstant is the ray through $0$, with
+outgoing slope $-1$; all other outgoing slopes vanish; so
+$(\Delta\phi)(\{v_\triv\})=-1$.  At $v_{0,c}$ the two outgoing slopes are
+$+1$ towards the vertex and $0$ away from it, so
+$(\Delta\phi)(\{v_{0,c}\})=+1$.  Hence
+\[
+ \omega_\triv+\ddc\phi
+ =1\cdot\delta_{v_\triv}-\delta_{v_\triv}+\delta_{v_{0,c}}
+ =\delta_{c\,\ord_0} ,
+\]
+a single atom of mass $1=\deg\cO(1)$ at the divisorial point $c\,\ord_0$,
+provided $c\in\mathbf Q_{>0}$.  For $c=1$ this is exactly the measure
+computed in \cref{ex:ch01-product-tc} for the running product test
+configuration.
+\end{example}
+
+\begin{example}[Splitting the mass between two rays]
+\label{ex:ch08-trivial-two-rays}
+Keep $X=\mathbf P^1_k$ and $L=\cO(1)$, and now put, for $c>0$,
+\[
+ \phi(v_{0,t})=\max\{-\tfrac t2,-\tfrac c2\},\qquad
+ \phi(v_{\infty,t})=\max\{-\tfrac t2,-\tfrac c2\},\qquad
+ \phi\equiv0\ \text{on all other rays.}
+\]
+At $v_\triv$ there are now two rays with outgoing slope $-\tfrac12$, so
+$(\Delta\phi)(\{v_\triv\})=-1$; at each of $v_{0,c}$ and $v_{\infty,c}$ the
+mass is $+\tfrac12$.  Therefore
+\[
+ \omega_\triv+\ddc\phi
+ =\bigl(1-1\bigr)\delta_{v_\triv}
+   +\tfrac12\delta_{c\,\ord_0}+\tfrac12\delta_{c\,\ord_\infty} ,
+\]
+of total mass $1$, with no mass at the vertex.  Trying instead to use slope
+$-1$ on both rays would give
+$(\Delta\phi)(\{v_\triv\})=-2$ and a total mass of $-1$ at the vertex: the
+resulting function is not $\omega_\triv$-psh.  The correct constraint is
+\begin{equation}
+\label{eq:ch08-trivial-slope-constraint}
+ -\sum_{\text{rays }a}\ d_a\phi(v_\triv)\ \leq\ d ,
+\end{equation}
+where $d_a\phi(v_\triv)\leq0$ are the outgoing slopes at the vertex.  This
+inequality is the trivially valued avatar of the nef-interval condition
+\eqref{eq:running-nef-interval}.
+\end{example}
+
+\subsection{The Gauss extension and the two pictures}
+\label{sec:ch08-gauss-extension}
+
+The trivially valued cone and the nontrivially valued skeleton are not
+unrelated.  Put $K=k((\varpi))$ with $v_K(\varpi)=1$.  The Gauss extension
+\eqref{eq:gauss-extension-triv} sends a full-support $v\in X^{\An}$ to the
+point $\sigma(v)\in X_K^{\An}$ defined by
+\[
+ \sigma(v)\Bigl(\sum_if_i\varpi^i\Bigr)=\min_i\{v(f_i)+i\} .
+\]
+
+\begin{example}[The Gauss extension of a ray]
+\label{ex:ch08-gauss-ray}
+Take $X=\mathbf P^1_k$ and $v=t\,\ord_0$ with $t>0$, in the coordinate $T$
+with $\ord_0(T)=1$.  Then $\sigma(v)$ is the monomial point of
+$(\mathbf P^1_K)^{\An}$ with
+\[
+ \sigma(v)(T)=t,\qquad \sigma(v)(\varpi)=1 ,
+\]
+that is, the Gauss point $\zeta_{0,|\varpi|^t}$ of the disc of radius
+$|\varpi|^t$, at tropical coordinate $t$ in the notation of
+\cref{sec:ch08-p1-tree}.  As $t$ ranges over $[0,\infty)$, the image is the
+half-apartment $\{t\geq0\}$; the vertex $v_\triv$ goes to the Gauss point of
+the unit disc.  Thus the ray of the trivially valued picture is literally the
+segment computed in \cref{ex:ch08-p1-interval,ex:ch08-newton-cubic}, and the
+scaling action becomes the action of rescaling the ground valuation.  The
+homogeneous potential $\varphi_{\mathfrak m_0}(t\,\ord_0)=-t$ of
+\cref{ex:ch01-cone-ideal} becomes the model function $-\varphi_{E}$ of
+\cref{ex:ch01-blowup-model-function} on the corresponding segment.  The
+systematic treatment of this correspondence is
+\cref{chap:trivial-analytification}.
+\end{example}
+
+On the ray $v_{a,t}$, a homogeneous function is determined by its value at
+$t=1$.  General psh functions in the trivially valued theory are not all
+homogeneous; the homogeneous part records $b$-divisorial data, while bounded
+translations and Legendre decompositions carry the remaining information.
+
+\section{Toric skeleta and convex metric functions}
+\label{sec:toric-convex}
+
+Let $N\simeq\mathbf Z^n$ be a lattice, $M=N^\vee$, and
+$\mathbb T=\operatorname{Spec}K[M]$.  The tropicalization map is normalized
+by
+\begin{equation}
+\label{eq:toric-trop}
+ \langle m,\operatorname{trop}(x)\rangle
+ =-\log|\chi^m(x)|,
+ \qquad m\in M.
+\end{equation}
+For $u\in N_{\mathbf R}$, the Gauss section $\iota:N_{\mathbf R}\to
+\mathbb T^{\mathrm{an}}$ is
+\begin{equation}
+\label{eq:toric-gauss-section}
+ \left|\sum_m a_m\chi^m\right|_{\iota(u)}
+ =\max_m |a_m|\rme^{-\langle m,u\rangle}.
+\end{equation}
+Then $\operatorname{trop}\circ\iota$ is the identity.  The image is the
+toric skeleton of the dense torus.  The next lemma proves this and fixes the
+elementary facts used in every computation below.
+
+\begin{lemma}
+\label{lem:ch08-toric-gauss-section}
+Let $K$ be complete and nontrivially valued.
+\begin{enumerate}
+\item For every $u\in N_{\mathbf R}$, formula
+\eqref{eq:toric-gauss-section} defines a multiplicative seminorm on $K[M]$,
+hence a point $\iota(u)\in\mathbb T^{\An}$, and
+$\operatorname{trop}(\iota(u))=u$.
+\item $\iota$ is a continuous section of $\operatorname{trop}$, and it is a
+homeomorphism onto its image.
+\item For $f=\sum_ma_m\chi^m\in K[M]$ one has
+\begin{equation}
+\label{eq:ch08-toric-trop-poly}
+ -\log|f(\iota(u))|
+   =\min_m\bigl\{v(a_m)+\langle m,u\rangle\bigr\} ,
+\end{equation}
+a concave piecewise affine function of $u$ with slopes in $M$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1)  Write $|f|_u=\max_m|a_m|\rme^{-\langle m,u\rangle}$.  The ultrametric
+inequality is clear.  For multiplicativity, put
+$\Lambda=\{m:|a_m|\rme^{-\langle m,u\rangle}=|f|_u\}$ and define $\Lambda'$
+similarly for $g=\sum_mb_m\chi^m$.  In the graded reduction attached to the
+weight $m\mapsto v(a_m)+\langle m,u\rangle$, the initial forms of $f$ and
+$g$ are nonzero elements of a domain, namely the group algebra of $M$ over
+the graded residue field of $K$
+(\cref{lem:graded-residue-field,ex:graded-gauss}), because the group algebra
+of a torsion-free abelian group over a domain is a domain.  Hence the initial
+form of $fg$ is the product of the two initial forms and is nonzero, so
+$|fg|_u=|f|_u|g|_u$.  Applying the definition to $f=\chi^m$ gives
+$|\chi^m(\iota(u))|=\rme^{-\langle m,u\rangle}$, which by
+\eqref{eq:toric-trop} is exactly $\operatorname{trop}(\iota(u))=u$.
+
+(2)  $\iota$ is continuous because each function
+$u\mapsto|f(\iota(u))|$ is a maximum of finitely many continuous functions of
+$u$, and $\operatorname{trop}$ is continuous by \eqref{eq:toric-trop}.  A
+continuous section of a continuous map is a homeomorphism onto its image,
+with inverse the restriction of $\operatorname{trop}$.
+
+(3)  Take $-\log$ of the definition and use $v=-\log|\cdot|$; the minimum of
+finitely many affine functions of $u$ with linear parts $\langle m,\cdot\rangle$
+is concave and piecewise affine with slopes in $M$.
+\end{proof}
+
+For $N=\mathbf Z$, formula \eqref{eq:ch08-toric-trop-poly} is the Newton
+polygon computation of \cref{ex:ch08-newton-cubic}; the general case is the
+tropicalization of a Laurent polynomial, and its corner locus is the
+tropical hypersurface of $f$.
+
+Let $X_\Sigma$ be a proper toric variety and let $L$ be an ample toric line
+bundle.  After choosing a toric section and a sign convention, $L$ is encoded
+by a full-dimensional lattice polytope $P\subset M_{\mathbf R}$.  We use the
+convex support function and its reflection
+\[
+ h_P(u)=\sup_{m\in P}\langle m,u\rangle,
+ \qquad
+ \check h_P(u):=h_P(-u)=\sup_{m\in P}\langle-m,u\rangle.
+\]
+The reflection is forced by our conventions: tropical coordinates are
+$u=-\log|\chi|$, whereas metric weights are $-\log\|s\|$.  Thus the
+recession function of a weight is $\check h_P$, not $h_P$.  For example,
+$P=[0,d]$ gives $\check h_P(u)=\max\{0,-du\}$, in agreement with
+\eqref{eq:p1-standard-weight}.
+
+\begin{definition}
+A \emph{toric convex metric function} for $(L,P)$ is a convex function
+$F:N_{\mathbf R}\to\mathbf R$ such that $F-\check h_P$ is bounded.  It is a
+\emph{model metric function} when it is rational piecewise affine and its
+affine constants lie in the divisible hull of $v(K^\times)$, so that a
+positive multiple is induced by a toric model.
+\end{definition}
+
+Changing the toric section adds an affine function to both $F$ and
+$\check h_P$;
+the metric and its Monge--Amp\`ere measure do not change.  Convexity is the
+toric form of semipositivity, while the bounded-recession condition fixes the
+line bundle.
+
+\subsection{Alexandrov measure}
+
+For a finite convex function $F$ on $N_{\mathbf R}$, its subgradient at $u$
+is
+\[
+ \partial F(u)=
+ \{m\in M_{\mathbf R}:F(w)\geq F(u)+\langle m,w-u\rangle
+   \text{ for all }w\}.
+\]
+The real Alexandrov Monge--Amp\`ere measure is characterized by
+\begin{equation}
+\label{eq:alexandrov-ma}
+                 \operatorname{MA}_{\mathbf R}(F)(E)
+                 =\operatorname{vol}_M(\partial F(E))
+\end{equation}
+for Borel $E$, with the standard disjointification on overlaps of
+subgradients.  Lebesgue measure is normalized so that a fundamental
+parallelepiped of $M$ has volume $1$.
+
+If $F$ is $C^2$ and strictly convex, then
+\begin{equation}
+\label{eq:smooth-real-ma}
+             \operatorname{MA}_{\mathbf R}(F)
+             =\det(D^2F)\,\rd u.
+\end{equation}
+If $F$ is piecewise affine, the measure is atomic and
+\begin{equation}
+\label{eq:pl-real-ma}
+ \operatorname{MA}_{\mathbf R}(F)(\{u\})
+ =\operatorname{vol}_M(\partial F(u)).
+\end{equation}
+
+The word ``disjointification'' in \eqref{eq:alexandrov-ma} deserves an
+explanation, because it is the only point at which the definition could fail
+to produce a measure.
+
+\begin{lemma}
+\label{lem:ch08-alexandrov-polyhedral}
+Let $F=\max_{1\leq i\leq N}\ell_i$ be a finite maximum of affine functions
+$\ell_i(u)=\langle m_i,u\rangle+c_i$ on $N_{\mathbf R}$, with distinct
+$m_i\in M_{\mathbf R}$.  For $u\in N_{\mathbf R}$ put
+$I(u)=\{i:\ell_i(u)=F(u)\}$.
+\begin{enumerate}
+\item $\partial F(u)=\operatorname{conv}\{m_i:i\in I(u)\}$.
+\item If $u\neq u'$, then $\partial F(u)\cap\partial F(u')$ has empty
+interior; hence $\operatorname{vol}_M(\partial F(u))>0$ for at most finitely
+many $u$, and \eqref{eq:pl-real-ma} defines a finite atomic measure.
+\item $\operatorname{vol}_M(\partial F(u))>0$ if and only if
+$\{m_i:i\in I(u)\}$ affinely spans $M_{\mathbf R}$, that is, if and only if
+$u$ is a vertex of the polyhedral decomposition of $N_{\mathbf R}$ into the
+domains of linearity of $F$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1)  If $m=\sum_{i\in I(u)}\lambda_im_i$ with $\lambda_i\geq0$ summing to
+$1$, then for every $w$,
+\[
+ \begin{aligned}
+  F(w)&\geq\sum_{i\in I(u)}\lambda_i\ell_i(w)\\
+      &=\sum_{i\in I(u)}\lambda_i
+        \bigl(\ell_i(u)+\langle m_i,w-u\rangle\bigr)\\
+      &=F(u)+\langle m,w-u\rangle .
+ \end{aligned}
+\]
+so $m\in\partial F(u)$.  Conversely, $\partial F(u)$ is compact and convex,
+and
+\[
+ \partial F(u)\subseteq\operatorname{conv}\{m_1,\ldots,m_N\}.
+\]
+A supporting-hyperplane argument identifies its extreme points among the
+$m_i$ with $i\in I(u)$.  Indeed, if $m\in\partial F(u)$ and
+$\xi\in N_{\mathbf R}$, then
+\[
+ \langle m,\xi\rangle
+ \leq\lim_{s\downarrow0}s^{-1}\bigl(F(u+s\xi)-F(u)\bigr)
+ =\max_{i\in I(u)}\langle m_i,\xi\rangle.
+\]
+Now a compact convex set whose
+support function is dominated by that of
+$\operatorname{conv}\{m_i:i\in I(u)\}$ is contained in it
+\cite[Section~1.7]{Sch14}.
+
+(2)  Suppose $m$ lies in the interior of $\partial F(u)\cap\partial F(u')$.
+Then $F(u')\geq F(u)+\langle m,u'-u\rangle$ and
+$F(u)\geq F(u')+\langle m,u-u'\rangle$, so both are equalities, and
+therefore $m$ is a subgradient at every point of the segment $[u,u']$.
+Choose $\xi=u'-u\neq0$; since $m$ is interior to $\partial F(u)$, also
+$m+\varepsilon\xi^\vee\in\partial F(u)$ for a small $\varepsilon>0$ and any
+$\xi^\vee\in M_{\mathbf R}$ with $\langle\xi^\vee,\xi\rangle>0$, whence
+$F(u')\geq F(u)+\langle m,\xi\rangle+\varepsilon\langle\xi^\vee,\xi\rangle
+>F(u')$, a contradiction.  For the finiteness, the sets
+$\operatorname{conv}\{m_i:i\in I\}$ for $I\subseteq\{1,\ldots,N\}$ are
+finitely many, and $\partial F(u)$ is one of them.
+
+(3)  A polytope in $M_{\mathbf R}\simeq\mathbf R^n$ has positive Lebesgue
+measure exactly when it is $n$-dimensional, that is, when its vertices
+affinely span.
+\end{proof}
+
+\begin{lemma}\label{lem:toric-real-total-mass}
+If $F-\check h_P$ is bounded, then
+\[
+                 \operatorname{MA}_{\mathbf R}(F)(N_{\mathbf R})
+                 =\operatorname{vol}_M(P).
+\]
+\end{lemma}
+
+\begin{proof}
+The bounded difference gives the same recession function for $F$ and
+$\check h_P$.
+Convex duality then shows that the closure of the total subgradient image of
+$F$ is $-P$.  The boundary of $-P$ has Lebesgue measure zero and
+$\operatorname{vol}_M(-P)=\operatorname{vol}_M(P)$, so
+\eqref{eq:alexandrov-ma} gives the formula.
+\end{proof}
+
+The factor relating real and non-Archimedean mass is now forced by toric
+intersection theory.
+
+\begin{theorem}\label{thm:toric-ma-comparison}
+Let $X_\Sigma$ be a proper $n$-dimensional toric variety over a complete
+discretely valued field, let $L$ be ample with polytope $P$, and let a
+semipositive toric $\mathbf Q$-model metric be represented by the model
+metric function $F$.  Then its Monge--Amp\`ere measure is supported on the
+toric skeleton and
+\begin{equation}
+\label{eq:toric-ma-comparison}
+ \operatorname{trop}_*c_1(L,\|\cdot\|)^n
+ =n!\operatorname{MA}_{\mathbf R}(F).
+\end{equation}
+In particular, both sides have mass
+\[
+                         n!\operatorname{vol}_M(P)=(L^n).
+\]
+\end{theorem}
+
+\begin{proof}[Toric measure-comparison input]
+This is \cite[Theorem~5.70]{BGPS14}.  That theorem identifies the pushforward
+of the Chambert--Loir measure of a semipositive algebraic toric metric with
+$n!$ times the real Monge--Amp\`ere measure of its toric metric function.
+Their function is concave; applying their formula to the reflected negative
+of that function gives the convex convention $F$ used here.  Their valuation
+map is our $\operatorname{trop}$, and their lattice-normalized measure is
+$\operatorname{MA}_{\mathbf R}$.  Thus their formula is exactly
+\eqref{eq:toric-ma-comparison}.  Its mass is
+$n!\operatorname{vol}_M(P)=(L^n)$ by toric intersection theory.
+\end{proof}
+
+\begin{corollary}\label{cor:toric-ma-continuous}
+Suppose that semipositive toric model metrics represented by $F_j$ converge
+uniformly to a continuous metric represented by $F$.  Then
+\[
+ \operatorname{trop}_*c_1(L,\|\cdot\|)^n
+ =n!\operatorname{MA}_{\mathbf R}(F).
+\]
+\end{corollary}
+
+\begin{proof}
+With the toric section fixed, uniform convergence of metrics is uniform
+convergence of $F_j-F$.  Alexandrov measures of finite convex functions
+converge weakly under locally uniform convergence.  Chambert--Loir measures
+of semipositive metrics converge weakly under uniform convergence.  Passing
+to the limit in \eqref{eq:toric-ma-comparison} proves the claim.  The
+systematic invariant theory, including the global
+tropical/non-Archimedean comparison beyond this approximation statement, is
+developed in \cite{BGJKK25}.
+\end{proof}
+
+\begin{remark}[Exact scope of the skeletal comparison]
+Vilsmeier's comparison \cite[Corollary~5.10]{Vil20} is local and has a
+different hypothesis.  It starts with a strongly nondegenerate polystable
+formal model, an $n$-dimensional open face $\tau$ of its skeleton with
+corresponding special-fibre stratum $S$, and a convex function $h$ on
+$\tau$.  On the inverse image of $\tau$, the metric
+$\|1\|=\rme^{-h\circ p}$ on the trivial bundle satisfies
+\[
+ c_1(\mathcal O,\|\cdot\|)^n
+ =\deg(S)\,n!\operatorname{MA}_{\mathbf R}(h).
+\]
+The factor $\deg(S)$ belongs to the skeletal calibration.  We use this
+result later on polystable faces; it is not being invoked here as an
+unrestricted global toric comparison theorem.
+\end{remark}
+
+\begin{example}[The support metric]
+For $F=\check h_P$, one has $\partial F(0)=-P$.  Away from
+lower-dimensional cones, the subgradient is contained in a proper face of
+$-P$.  Hence
+\[
+              \operatorname{MA}_{\mathbf R}(\check h_P)
+              =\operatorname{vol}(P)\delta_0
+\]
+and
+\[
+              c_1(L,\|\cdot\|_{\mathrm{can}})^n
+              =n!\operatorname{vol}(P)\delta_{\iota(0)}.
+\]
+For $X=\mathbf P^1$ and $P=[0,d]$, this recovers
+$d\delta_{\zeta_{0,1}}$.
+\end{example}
+
+\begin{example}[A smooth approximation on the toric line]
+For $P=[0,d]$ and $\varepsilon>0$, set
+\[
+                  F_\varepsilon(u)
+                  =\varepsilon\log(1+\rme^{-du/\varepsilon}).
+\]
+Then $F_\varepsilon-\max\{0,-du\}$ is bounded by
+$\varepsilon\log2$, and
+\[
+ F_\varepsilon''(u)
+ =\frac{d^2}{\varepsilon}
+   \frac{\rme^{-du/\varepsilon}}{(1+\rme^{-du/\varepsilon})^2}.
+\]
+The integral of this density is $d$, since
+$F_\varepsilon'$ increases from $-d$ to $0$.  As
+$\varepsilon\downarrow0$, the measures converge weakly to $d\delta_0$.
+This is the real convex model of concentration of a smooth approximation
+onto a model skeleton.
+\end{example}
+
+\begin{example}[The cube]
+Let $P=[0,1]^n$ and
+\[
+             F_\varepsilon(u)
+             =\sum_{j=1}^n\varepsilon\log(1+\rme^{-u_j/\varepsilon}).
+\]
+The Hessian is diagonal, so
+\[
+ \det D^2F_\varepsilon
+ =\prod_{j=1}^n
+   \frac{1}{\varepsilon}
+   \frac{\rme^{-u_j/\varepsilon}}{(1+\rme^{-u_j/\varepsilon})^2}.
+\]
+Its integral is $1=\operatorname{vol}(P)$, and it converges to $\delta_0$.
+The non-Archimedean top wedge has mass $n!$, the degree of the corresponding
+polarization.
+\end{example}
+
+\subsection{Worked examples in coordinates}
+\label{sec:ch08-toric-worked}
+
+We now carry out four computations completely.  In each of them the polytope
+$P$, the reflected support function $\check h_P$, an explicit piecewise
+affine perturbation, its subgradients, the resulting atoms, and the total
+mass are written down, and the mass is checked against $(L^n)$.  The
+governing identities are \eqref{eq:toric-ma-comparison} and
+\[
+ (L_P^n)=n!\operatorname{vol}_M(P),
+\]
+which is \eqref{eq:appJ-toric-degree}.
+
+\begin{example}[Projective space]
+\label{ex:ch08-toric-pn}
+\leavevmode\par\noindent
+Let
+\[
+ N=\mathbf Z^n,\qquad M=N^\vee,
+ \qquad
+ P=\operatorname{conv}\{0,e_1^\vee,\ldots,e_n^\vee\}.
+\]
+Thus $P$ is the standard simplex, the polytope of
+$(\mathbf P^n,\cO(1))$.  Then
+$h_P(u)=\max\{0,u_1,\ldots,u_n\}$ and
+\[
+ \check h_P(u)=\max\{0,-u_1,\ldots,-u_n\} .
+\]
+Its only subgradient of positive volume sits at $u=0$, where
+$\partial\check h_P(0)=-P$, so by \eqref{eq:pl-real-ma}
+\[
+ \MA_{\mathbf R}(\check h_P)=\operatorname{vol}_M(P)\,\delta_0
+ =\frac{1}{n!}\delta_0 ,
+\]
+since the standard simplex has lattice volume $1/n!$.  Multiplying by $n!$,
+\[
+ \operatorname{trop}_*c_1\bigl(\cO(1),\|\cdot\|_{\mathrm{std}}\bigr)^n
+ =\delta_{\iota(0)} ,
+\]
+a Dirac mass of total mass $1=(\cO(1)^n)$ at the Gauss point.  This is
+exactly the good-reduction computation of \cref{chap:metrics}, obtained there
+from the fact that the special fibre of $\mathbf P^n_R$ is irreducible,
+reduced, and of degree one.  The reflected support function is
+\eqref{eq:p1-standard-weight} for $n=1$.
+\end{example}
+
+\begin{example}[$\mathbf P^1\times\mathbf P^1$]
+\label{ex:ch08-toric-p1p1}
+\index{toric geometry!quadric surface}
+Let $n=2$ and $P=[0,a]\times[0,b]$ with $a,b\in\mathbf Z_{>0}$, the polytope
+of $\bigl(\mathbf P^1\times\mathbf P^1,\ \cO(a,b)\bigr)$.  Then
+\[
+ \check h_P(u)=\max\{0,-au_1\}+\max\{0,-bu_2\},
+ \qquad
+ \operatorname{vol}_M(P)=ab ,
+\]
+and
+\[
+ 2!\operatorname{vol}_M(P)=2ab=(aH_1+bH_2)^2 ,
+\]
+the last equality because $H_1^2=H_2^2=0$ and $(H_1\cdot H_2)=1$ on the
+quadric surface.  The canonical model metric therefore has
+$\MA_{\mathbf R}=ab\,\delta_0$ and non-Archimedean measure
+$2ab\,\delta_{\iota(0)}$.
+
+Now take $a=b=1$, so $P=[0,1]^2$ and $(L^2)=2$, and perturb.  For
+$\lambda\geq0$ set
+\[
+ F_\lambda(u)=\max\{\,\ell_0,\ell_1,\ell_2,\ell_3\},
+ \qquad
+ \begin{aligned}
+  \ell_0&=0, &\ell_1&=-u_1,\\
+  \ell_2&=-u_2, &\ell_3&=-u_1-u_2+\lambda .
+ \end{aligned}
+\]
+The four linear parts are $(0,0),(-1,0),(0,-1),(-1,-1)$, the vertices of
+$-P$, so the recession function of $F_\lambda$ is
+$\max\{0,-u_1,-u_2,-u_1-u_2\}=\check h_P(u)$ and
+$0\leq F_\lambda-\check h_P\leq\lambda$: thus $F_\lambda$ is a toric convex
+metric function for $\cO(1,1)$, and a model metric function when
+$\lambda\in v(K^\times)$.
+
+By \cref{lem:ch08-alexandrov-polyhedral}\,(3) the atoms sit at the points
+where at least three of the $\ell_i$ are simultaneously maximal.  There are
+four triples to test, and we test each:
+\[
+\begin{array}{lll}
+ \ell_0=\ell_1=\ell_2:& u=(0,0),
+  &\ell_3(0,0)=\lambda>0=\ell_0:\ \text{not maximal};\\
+ \ell_0=\ell_1=\ell_3:& u=(0,\lambda),
+  &\ell_2(0,\lambda)=-\lambda<0:\ \text{maximal};\\
+ \ell_0=\ell_2=\ell_3:& u=(\lambda,0),
+  &\ell_1(\lambda,0)=-\lambda<0:\ \text{maximal};\\
+ \ell_1=\ell_2=\ell_3:& u=(\lambda,\lambda),
+  &\ell_0=0>-\lambda:\ \text{not maximal}.
+\end{array}
+\]
+(For $\lambda>0$; the degenerate case $\lambda=0$ gives back
+$\check h_P$.)  Hence
+\[
+ \begin{aligned}
+ \partial F_\lambda(0,\lambda)
+   &=\operatorname{conv}\{(0,0),(-1,0),(-1,-1)\},\\
+ \partial F_\lambda(\lambda,0)
+   &=\operatorname{conv}\{(0,0),(0,-1),(-1,-1)\},
+ \end{aligned}
+\]
+two triangles of lattice area $\tfrac12$ each.  Therefore
+\[
+ \MA_{\mathbf R}(F_\lambda)
+ =\tfrac12\delta_{(0,\lambda)}+\tfrac12\delta_{(\lambda,0)},
+ \qquad
+ \MA_{\mathbf R}(F_\lambda)(N_{\mathbf R})=1=\operatorname{vol}_M(P) ,
+\]
+in agreement with \cref{lem:toric-real-total-mass}, and by
+\eqref{eq:toric-ma-comparison}
+\[
+ \operatorname{trop}_*c_1\bigl(\cO(1,1),\|\cdot\|_{F_\lambda}\bigr)^2
+ =2!\left(\tfrac12\delta_{(0,\lambda)}+\tfrac12\delta_{(\lambda,0)}\right)
+ =\delta_{\iota(0,\lambda)}+\delta_{\iota(\lambda,0)} ,
+\]
+of total mass $2=(L^2)$.  The two triangles tile $-P$, which is the
+geometric form of mass conservation: the subgradient polytopes of a convex
+function with recession $\check h_P$ tile $-P$ up to sets of measure zero.
+\end{example}
+
+\begin{example}[A Hirzebruch surface]
+\label{ex:ch08-toric-hirzebruch}
+\index{Hirzebruch surface}
+Let $n=2$ and
+\[
+ \begin{aligned}
+ P&=\{m\in M_{\mathbf R}:m_1\geq0,\ m_2\geq0,\
+       m_2\leq1,\ m_1+m_2\leq2\}\\
+  &=\operatorname{conv}\{(0,0),(2,0),(1,1),(0,1)\} .
+ \end{aligned}
+\]
+Its inner normal fan has rays $(1,0),(0,1),(-1,-1),(0,-1)$; since
+$(0,-1)=(1,0)+(-1,-1)$, this fan is the star subdivision of the fan of
+$\mathbf P^2$ at one maximal cone, so $X_\Sigma$ is the Hirzebruch surface
+$\mathbf F_1=\operatorname{Bl}_p\mathbf P^2$, and $P$ is the polytope of
+$L=2H-E$.  The polytope is a trapezoid with parallel sides of lengths $2$
+and $1$ at distance $1$, so
+\[
+ \operatorname{vol}_M(P)=\frac{2+1}{2}=\frac32 ,
+ \qquad
+ 2!\operatorname{vol}_M(P)=3=(2H-E)^2=4-1 ,
+\]
+a first mass check.  The reflected support function, computed on the four
+vertices of $P$, is
+\[
+ \check h_P(u)=\max\{0,\,-2u_1,\,-u_1-u_2,\,-u_2\} .
+\]
+
+Perturb it by lowering the third and fourth affine pieces.  Set
+\[
+ F=\max\{\ell_0,\ell_1,\ell_2,\ell_3\},\qquad
+ \begin{aligned}
+  \ell_0&=0,           &\ell_1&=-2u_1+2,\\
+  \ell_2&=-u_2+1,      &\ell_3&=-u_1-u_2+1 ,
+ \end{aligned}
+\]
+whose linear parts $(0,0),(-2,0),(0,-1),(-1,-1)$ are the vertices of $-P$;
+hence $F$ has recession function $\check h_P$ and differs from it by a
+bounded amount, so it is a model metric function for $L$ as soon as
+$1,2\in v(K^\times)$.  Testing the four triples:
+\[
+\begin{array}{lll}
+ \ell_0=\ell_1=\ell_2:& u=(1,1),
+  &\ell_3(1,1)=-1<0:\ \text{maximal};\\
+ \ell_0=\ell_1=\ell_3:& u=(1,0),
+  &\ell_2(1,0)=1>0:\ \text{not maximal};\\
+ \ell_0=\ell_2=\ell_3:& u=(0,1),
+  &\ell_1(0,1)=2>0:\ \text{not maximal};\\
+ \ell_1=\ell_2=\ell_3:& u=(0,-1),
+  &\ell_0=0<2=\ell_1(0,-1):\ \text{maximal}.
+\end{array}
+\]
+So there are exactly two atoms, at $u=(1,1)$ and $u=(0,-1)$, with
+\[
+ \begin{aligned}
+ \partial F(1,1)
+   &=\operatorname{conv}\{(0,0),(-2,0),(0,-1)\},\\
+ \partial F(0,-1)
+   &=\operatorname{conv}\{(-2,0),(0,-1),(-1,-1)\} .
+ \end{aligned}
+\]
+Their lattice areas are
+\[
+ \operatorname{vol}_M\bigl(\partial F(1,1)\bigr)
+ =\tfrac12\bigl|\det\begin{psmallmatrix}-2&0\\0&-1\end{psmallmatrix}\bigr|
+ =1,
+ \qquad
+ \operatorname{vol}_M\bigl(\partial F(0,-1)\bigr)
+ =\tfrac12\bigl|\det\begin{psmallmatrix}2&-1\\1&-1\end{psmallmatrix}\bigr|
+ =\tfrac12 ,
+\]
+the second determinant being formed from the edge vectors
+$(0,-1)-(-2,0)=(2,-1)$ and $(-1,-1)-(-2,0)=(1,-1)$.  Hence
+\[
+ \MA_{\mathbf R}(F)=\delta_{(1,1)}+\tfrac12\delta_{(0,-1)},
+ \qquad
+ \text{total mass }\ 1+\tfrac12=\tfrac32=\operatorname{vol}_M(P) ,
+\]
+and by \eqref{eq:toric-ma-comparison}
+\[
+ \operatorname{trop}_*c_1(L,\|\cdot\|_F)^2
+ =2\,\delta_{\iota(1,1)}+1\cdot\delta_{\iota(0,-1)} ,
+ \qquad
+ \text{total mass }\ 3=(L^2) .
+\]
+The corner locus of $F$ is the graph with the two vertices $(1,1)$ and
+$(0,-1)$, joined by the segment on which $\ell_1=\ell_2$, namely
+$u_2=2u_1-1$, together with four unbounded edges; it is the tropical
+skeleton of the corresponding toric model over $K^\circ$, whose special
+fibre has two irreducible surfaces of residual degrees $2$ and $1$.
+\end{example}
+
+\begin{example}[A weighted projective plane and rational masses]
+\label{ex:ch08-toric-weighted}
+\index{weighted projective space}
+Let $X=\mathbf P(1,1,2)$, whose fan has rays $(1,0),(0,1),(-1,-2)$ in
+$N=\mathbf Z^2$.  The ample generator $\cO_X(1)$ of the class group is a
+rank-one reflexive sheaf representing an ample $\mathbf Q$-Cartier class,
+not a line bundle.  Its polytope is
+\[
+ P_1=\operatorname{conv}\{(0,0),(1,0),(0,\tfrac12)\},
+ \qquad
+ \operatorname{vol}_M(P_1)=\tfrac14 ,
+\]
+so that the self-intersection of this $\mathbf Q$-Cartier class is
+$(\cO_X(1)^2)=2!\cdot\tfrac14=\tfrac12$, a rational number, as it
+must be on a singular toric surface.  The Cartier bundle
+$L=\cO_X(2)$ has polytope $P=2P_1
+=\operatorname{conv}\{(0,0),(2,0),(0,1)\}$, of lattice volume $1$, and
+\[
+ (L^2)=2!\cdot1=2 ,
+\]
+consistent with $(\cO_X(2)^2)=4\cdot\tfrac12=2$.  Its reflected support
+function is
+\[
+ \check h_P(u)=\max\{0,\,-2u_1,\,-u_2\} ,
+\]
+with $\MA_{\mathbf R}(\check h_P)=\delta_0$ and non-Archimedean measure
+$2\delta_{\iota(0)}$, of mass $2=(L^2)$.
+
+The interest of this example is the failure of $\cO_X(1)$ to be Cartier.  Its
+reflected support function $\check h_{P_1}=\tfrac12\check h_P$ is not
+integral: at $u=(0,-1)$ it takes the value $\tfrac12$.  Correspondingly, the
+model function is only a $\mathbf Q$-model function in the sense of
+\cref{sec:metrics-model}, and the Monge--Amp\`ere mass
+$2!\operatorname{vol}_M(P_1)=\tfrac12$ is not an integer.  Every statement in
+this book about integral model line bundles is therefore stated for Cartier
+divisors, with rational multiples allowed explicitly and never silently.
+\end{example}
+
+\begin{remark}[Which toric model realizes a given $F$]
+\label{rem:ch08-toric-model}
+A rational polyhedral convex $F$ with recession $\check h_P$ and constants in
+$v(K^\times)$ determines a fan in $N_{\mathbf R}\times\mathbf R_{\geq0}$,
+namely the normal fan of the epigraph-like polyhedron
+$\{(m,s):\langle m,u\rangle\leq -F(u)+s\ \forall u\}$, and hence a toric
+scheme over $K^\circ$ whose generic fibre is $X_\Sigma$ and whose special
+fibre is the union of the toric surfaces dual to the vertices of the corner
+locus of $F$.  In \cref{ex:ch08-toric-hirzebruch} the two vertices $(1,1)$
+and $(0,-1)$ give the two components of the special fibre, and the residual
+degrees $2$ and $1$ computed there are their self-intersection data.  The
+construction is the toric case of \cref{thm:skeleton-subdivision}; a
+systematic treatment is in \cite{BGPS14,CLS11}.
+\end{remark}
+
+\section{The running semistable degeneration}
+\label{sec:running-semistable}
+
+Let $R=K^\circ$ be a discrete valuation ring with $v(\pi)=1$.  The local
+semistable equation
+\begin{equation}
+\label{eq:running-node}
+                              xy=\pi
+\end{equation}
+has analytic generic fibre the annulus
+$|\pi|\leq|x|\leq1$.  Put
+\[
+                   s=v(x)=-\log|x|.
+\]
+Then $0\leq s\leq1$ and $v(y)=1-s$.  The Gauss points with these values form
+the skeleton $\Gamma=[0,1]$.  Retraction sends a point of the annulus to the
+Gauss point having the same value of $|x|$.
+
+The endpoints $v_0,v_1$ correspond to the two irreducible components of the
+special fibre.  More generally, an equation $xy=a$ contributes an edge of
+length $v(a)$.  Replacing a semistable model by a blowup subdivides the edge
+but does not alter its path metric or the associated piecewise affine
+function.
+
+\begin{proposition}
+\label{prop:ch08-annulus-skeleton}
+Let $a\in K^\circ$ with $v(a)=\ell>0$ and let
+\[
+ A(\ell)=\{z\in\mathbf A^{1,\An}_K:0\leq v(z)\leq\ell\}
+\]
+be the corresponding closed annulus, the analytic generic fibre of
+$\Spf R\{x,y\}/(xy-a)$ with $x=z$ and $y=a/z$.  Then:
+\begin{enumerate}
+\item the map $s\mapsto\zeta_{0,\rme^{-s}}$ identifies $[0,\ell]$ with a
+closed subset $\Gamma_{A}\subset A(\ell)$, and the retraction
+$r(z)=\zeta_{0,|z|}$ is a continuous idempotent onto it;
+\item for $f$ in the annulus algebra, $|f(z)|\leq|f(r(z))|$, and
+$s\mapsto-\log|f(\zeta_{0,\rme^{-s}})|$ is concave and piecewise affine with
+integral slopes;
+\item $\Gamma_A$ carries the path metric of \cref{def:ch08-path-metric}, in
+which it has length $\ell=v(a)$; in particular the edge length is the
+valuation of the deformation parameter, and is independent of the model.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1)  The formula $\zeta_{0,\rme^{-s}}$ makes sense for $s\in[0,\ell]$ and
+lands in $A(\ell)$ since $v(z)=s$ at that point.  Continuity and idempotence
+of $r$ are \cref{prop:skeleton-retraction} for the model
+$\Spf R\{x,y\}/(xy-a)$, or directly: $|z|$ is a continuous function on
+$A(\ell)$, and $r$ is the composition of $z\mapsto|z|$ with the continuous
+map $\rho\mapsto\zeta_{0,\rho}$.
+
+(2)  A function on the annulus is a convergent Laurent series
+$f=\sum_{i\in\mathbf Z}c_iz^i$ with $|c_i|\rho^i\to0$ as $|i|\to\infty$ for
+each $\rho\in[\rme^{-\ell},1]$.  The ultrametric inequality gives
+$|f(z)|\leq\max_i|c_i||z|^i=|f(r(z))|$, and
+\[
+ -\log|f(\zeta_{0,\rme^{-s}})|=\min_i\{v(c_i)+is\}
+\]
+is a minimum of affine functions of $s$ with integral slopes, hence concave
+and piecewise affine on the compact interval $[0,\ell]$; the decay condition
+makes the minimum attained.
+
+(3)  By \cref{def:ch08-path-metric} the point $\zeta_{0,\rme^{-s}}$ has
+tropical coordinate $t=s$, so the length of $\Gamma_A$ is $\ell$.  The
+number $\ell=v(a)$ is intrinsic: it is $v$ of the parameter, and a
+different presentation $x'y'=a'$ of the same annulus has $v(a')=v(a)$ because
+the annulus determines its two boundary Gauss points and hence their
+distance.
+\end{proof}
+
+\begin{example}[The $A_{n-1}$ singularity and the length-$n$ edge]
+\label{ex:ch08-An-edge}
+Take $a=\pi^n$, so that the local model is
+$\mathcal U_n=\Spec R[x,y]/(xy-\pi^n)$ and the edge has length $n$.  For $n\geq2$
+the total space is normal but singular at the origin of the special fibre;
+\cref{ex:snc-chain-models} resolves it by $\lfloor n/2\rfloor$ point blowups
+and produces a chain
+\[
+ E_0,E_1,\ldots,E_n
+\]
+of $n+1$ components with all multiplicities one, the divisorial point of
+$E_i$ being the monomial valuation with $v(x)=i$, $v(y)=n-i$.  The dual
+complex is the segment $[0,n]$ subdivided at the integers, in agreement with
+\cref{prop:ch08-annulus-skeleton}\,(3): resolving the singularity subdivides
+the edge but does not change its length.
+\end{example}
+
+\begin{remark}[Edge lengths and base change]
+\label{rem:ch08-base-change-lengths}
+Let $K'=K(\pi^{1/m})$ with $R'=K'^\circ$, and let $v'$ be the unique
+extension of $v$ to $K'$, so that $v'(\pi)=1$ and
+$v'(\pi^{1/m})=1/m$.  The base change $\mathcal U_1\times_RR'$ is
+$\Spec R'[x,y]/(xy-\pi)$, whose skeleton still has length
+$v'(\pi)=1$.  If instead one \emph{renormalizes} the valuation of $K'$ by
+declaring $v''(\pi^{1/m})=1$, then $v''=mv'$ and the same edge has length
+$m$.  Edge lengths therefore depend on the normalization of the ground
+valuation, not on the field; the ratio of two edge lengths in one skeleton
+does not.  This is exactly the ambiguity that disappears over a trivially
+valued field only because there the scaling action is treated as part of the
+structure (\cref{sec:trivial-valuation-cone}).  Throughout this book the
+normalization $v(\pi)=1$ on the base field is in force, and any base change
+is accompanied by an explicit statement of which normalization is used.
+\end{remark}
+
+To compactify the calculation, consider the projective family
+\begin{equation}
+\label{eq:running-conic}
+             \mathcal C=\{XY=\pi Z^2\}\subset\mathbf P^2_R.
+\end{equation}
+Its generic fibre is a smooth conic, while its special fibre is the union
+$C_0\cup C_1$ of two lines meeting transversely.  The line bundle
+$\mathcal L=\mathcal O_{\mathbf P^2_R}(1)|_{\mathcal C}$ has degree $1$ on
+each component and degree $2$ on the generic fibre.
+
+\begin{proposition}\label{prop:running-conic-measure}
+The model metric on $L=\mathcal L|_{C}$ has Chambert--Loir measure
+\begin{equation}
+\label{eq:running-conic-measure}
+                              \mu_0=\delta_{v_0}+\delta_{v_1}.
+\end{equation}
+Its mass is $2=\deg_C L$.
+\end{proposition}
+
+\begin{proof}
+For a semistable curve, the mass at the divisorial point associated to a
+component $E$ is the degree of $\mathcal L|_E$.  Both components occur with
+multiplicity one and both degrees equal one.  This gives
+\eqref{eq:running-conic-measure}; the total degree is preserved in the flat
+family.
+\end{proof}
+
+Let $\varphi$ be affine on $\Gamma$ with
+$\varphi(v_0)=A$, $\varphi(v_1)=B$.  Combining
+\eqref{eq:graph-curvature} with \Cref{ex:edge-mass-transport} yields
+\begin{equation}
+\label{eq:running-perturbed-measure}
+ c_1(L,\|\cdot\|_0\rme^{-\varphi})
+ =(1+B-A)\delta_{v_0}+(1+A-B)\delta_{v_1}.
+\end{equation}
+Thus the metric is semipositive precisely when
+\begin{equation}
+\label{eq:running-nef-interval}
+                               |A-B|\leq1.
+\end{equation}
+Adding a constant to both $A$ and $B$ changes the metric by a constant factor
+but leaves its curvature measure unchanged.
+
+\begin{example}[A boundary metric]
+Take $B-A=1$.  Formula \eqref{eq:running-perturbed-measure} gives
+$2\delta_{v_0}$: all degree has moved to one component.  The metric remains
+semipositive, but it lies on the boundary of the nef cone.  If $B-A>1$, the
+coefficient at $v_1$ becomes negative, so the corresponding model line bundle
+is not nef.
+\end{example}
+
+\subsection{The subdivided model, with numbers}
+\label{sec:ch08-chain-numbers}
+
+Blowing up the node of $\mathcal C$ inserts the midpoint of the skeleton
+(\cref{ex:ch01-node-blowup}); the same computation on the model
+$\mathcal C^{(2)}=\{XY=\pi^2Z^2\}$ produces the chain of three lines
+$C_0,E,C_2$ over the segment $[0,2]$ analysed in
+\cref{ex:chain-nef-functions}.  We record the resulting measures explicitly,
+because they are the smallest example in which mass is redistributed among
+three atoms.
+
+Let $\cL_0$ be the pullback of $\cO_{\mathbf P^2_R}(1)$, with residual
+degrees $1,0,1$ on $C_0,E,C_2$, and let $D=a_0C_0+a_1E+a_2C_2$ be a vertical
+$\mathbf Q$-divisor, so that $\varphi_D$ takes the values $a_0,a_1,a_2$ at
+the three divisorial points $s=0,1,2$ and is affine on the two unit edges.
+The outgoing-slope sums are
+\[
+ (\Delta\varphi_D)(\{0\})=a_1-a_0,\quad
+ (\Delta\varphi_D)(\{1\})=a_0-2a_1+a_2,\quad
+ (\Delta\varphi_D)(\{2\})=a_1-a_2 ,
+\]
+of total mass zero, and therefore
+\begin{equation}
+\label{eq:ch08-chain-measure}
+ c_1\bigl(L,\|\cdot\|_{\cL_0}\rme^{-\varphi_D}\bigr)
+ =(1+a_1-a_0)\delta_{s=0}
+  +(a_0-2a_1+a_2)\delta_{s=1}
+  +(1+a_1-a_2)\delta_{s=2} ,
+\end{equation}
+of total mass
+$(1+a_1-a_0)+(a_0-2a_1+a_2)+(1+a_1-a_2)=2=\deg L$.  These three numbers are
+precisely the intersection numbers
+$(\cL\cdot C_0)$, $(\cL\cdot E)$, $(\cL\cdot C_2)$ computed in
+\cref{ex:chain-nef-functions}, as
+\cref{prop:ch08-curve-cl} guarantees.  Three sample values:
+\[
+\begin{array}{c|c|c}
+ (a_0,a_1,a_2) & \text{measure} & \text{semipositive?}\\ \hline
+ (0,0,0) & \delta_{s=0}+\delta_{s=2} & \text{yes}\\
+ (0,-\tfrac12,0) &
+   \tfrac12\delta_{s=0}+\delta_{s=1}+\tfrac12\delta_{s=2} & \text{yes}\\
+ (0,1,0) & 2\delta_{s=0}-2\delta_{s=1}+2\delta_{s=2} & \text{no}
+\end{array}
+\]
+In every row the masses sum to $2$.  The middle row is a symmetric
+choice putting mass on all three components; more generally
+$(0,a_1,0)$ has that property for every $-1<a_1<0$.  The last row shows that a
+\emph{concave} kink at an interior vertex destroys semipositivity, which is
+the graph form of the requirement that $\varphi_D$ be convex at interior
+vertices.
+
+\subsection{Semistable reduction in two examples}
+\label{sec:ch08-semistable-reduction}
+\index{semistable reduction}
+
+A smooth projective curve over $K$ need not admit a semistable model over
+$R$, but it does after a finite base extension; this is the semistable
+reduction theorem of Deligne and Mumford, whose higher-dimensional
+replacement by alterations is \cite{deJong1996}, and whose abelian-variety
+predecessor is Grothendieck's theorem in \cite{SGA7I}.  We compute the two
+elliptic cases, which are the model for everything later: the skeleton is a
+point precisely when the reduction is potentially good, and a circle
+precisely when it is potentially multiplicative.
+
+\begin{example}[Potentially good reduction: a point as skeleton]
+\label{ex:ch08-potentially-good}
+Assume that the residue characteristic of $K$ is different from $2$ and $3$,
+and let
+\[
+ E:\ y^2=x^3+\pi
+\]
+be the elliptic curve over $K$ with $v(\pi)=1$.  Its discriminant is
+$\Delta=-432\pi^2$, so $v(\Delta)=2$, and its $j$-invariant is $j=0$, so
+$v(j)=0\geq0$.  The Weierstrass model $\{y^2=x^3+\pi\}$ over $R$ has special
+fibre the cuspidal cubic $y^2=x^3$, which is not nodal: this model is not
+semistable, and no semistable model exists over $R$ itself.
+
+Pass to $K'=K(\pi^{1/6})$, and let $v'$ be the extension of $v$, so
+$v'(\pi^{1/6})=\tfrac16$.  Substituting
+\[
+ x=\pi^{1/3}x',\qquad y=\pi^{1/2}y'
+\]
+turns the equation into $\pi y'^2=\pi x'^3+\pi$, that is,
+\[
+ y'^2=x'^3+1 ,
+\]
+whose reduction modulo the maximal ideal of $K'^\circ$ is a smooth plane
+cubic, since $\operatorname{char}\widetilde K\neq2,3$.  Hence $E_{K'}$ has
+good reduction.  The corresponding model has irreducible smooth special
+fibre, its dual complex is a single vertex, and
+$\Sk=\{x_{E}\}$ is one divisorial point; the retraction collapses all of
+$E_{K'}^{\An}$ to it.  For a line bundle $L$ of degree $d$ with the model
+metric, \eqref{eq:ch08-curve-cl-measure} reads
+\[
+ c_1(L,\|\cdot\|)=d\,\delta_{x_E} ,
+\]
+one atom of mass $d$.  The exponent $6$ is forced: the base change must make
+$v(\Delta)$ divisible by $12$, and $12/\gcd(12,2)=6$.
+\end{example}
+
+\begin{example}[Multiplicative reduction: the Tate curve and the circle]
+\label{ex:ch08-tate-curve}
+\index{Tate curve}
+Let $q\in K^\times$ with $\ell:=v(q)>0$ and let
+$E_q=\mathbf G_{m,K}^{\An}/q^{\mathbf Z}$ be the Tate curve.  Its
+$j$-invariant satisfies $v(j)=-\ell<0$, so the reduction is multiplicative.
+The skeleton of $\mathbf G_{m,K}^{\An}$ is the apartment $\mathbf R$ with
+coordinate $t=v(z)$, and the subgroup $q^{\mathbf Z}$ acts on it by
+translation by $\ell$; hence
+\[
+ \Sk(E_q)=\mathbf R/\ell\mathbf Z ,
+\]
+a circle of circumference $\ell$, with the induced retraction
+$r(z)=t(z)\bmod\ell$.
+
+If $\ell=n$ is a positive integer, the corresponding semistable model has
+special fibre a cycle of $n$ projective lines
+$Y_1,\ldots,Y_n$, each meeting the next in one node, and the dual complex is
+the circle of circumference $n$ subdivided into $n$ unit edges; this is the
+computation quoted at the end of \cref{ex:snc-chain-models}.  Let $L$ have
+degree $d$ and let $\cL$ be a model with residual degrees
+$d_1,\ldots,d_n$.  Then \eqref{eq:ch08-curve-cl-measure} gives
+\[
+ c_1(L,\|\cdot\|_{\cL})=\sum_{i=1}^nd_i\,\delta_{v_i},
+ \qquad
+ \sum_{i=1}^nd_i=d ,
+\]
+and semipositivity is $d_i\geq0$ for all $i$.
+
+We now solve a Monge--Amp\`ere equation on the circle by hand.  Take
+$n=3$ and $d=3$ with the balanced model, $d_1=d_2=d_3=1$, so that
+$\mu_0=\delta_{v_1}+\delta_{v_2}+\delta_{v_3}$, and prescribe the target
+measure $\mu=3\delta_{v_1}$, of the same mass $3$.  Parametrize the circle by
+$s\in\mathbf R/3\mathbf Z$ with $v_1,v_2,v_3$ at $s=0,1,2$.  We must solve
+$\Delta\varphi=\mu-\mu_0=2\delta_{s=0}-\delta_{s=1}-\delta_{s=2}$.  By
+\eqref{eq:ch08-green-circle} with $\ell=3$, the function
+$g_{0,c}$ solving $\Delta g=\delta_0-\delta_c$ is
+\[
+ g_{0,1}(s)=\begin{cases}\tfrac23s,&0\leq s\leq1,\\[1mm]
+                          \tfrac13(3-s),&1\leq s\leq3,\end{cases}
+ \qquad
+ g_{0,2}(s)=\begin{cases}\tfrac13s,&0\leq s\leq2,\\[1mm]
+                          \tfrac23(3-s),&2\leq s\leq3.\end{cases}
+\]
+Their sum $\varphi=g_{0,1}+g_{0,2}$ is
+\[
+ \varphi(s)=
+ \begin{cases}
+  s,&0\leq s\leq1,\\
+  1,&1\leq s\leq2,\\
+  3-s,&2\leq s\leq3 ,
+ \end{cases}
+\]
+with $\varphi(0)=0$, $\varphi(1)=\varphi(2)=1$.  Its outgoing-slope sums are
+$1+1=2$ at $s=0$, $-1+0=-1$ at $s=1$, and $0-1=-1$ at $s=2$; total mass $0$,
+as required.  Therefore
+\[
+ \mu_0+\Delta\varphi
+ =(1+2)\delta_{s=0}+(1-1)\delta_{s=1}+(1-1)\delta_{s=2}
+ =3\delta_{v_1}=\mu ,
+\]
+of total mass $3=\deg L$.  The solution $\varphi$ is unique up to an additive
+constant by \cref{prop:graph-poisson}, and it is $\mu_0$-psh because $\mu$ is
+positive; this is \cref{prop:graph-ma-solution} in a case that can be
+checked in three lines.
+\end{example}
+
+\begin{remark}[What the two examples separate]
+The essential skeleton of \cref{sec:essential-skeleton} is a point in
+\cref{ex:ch08-potentially-good} and the whole circle in
+\cref{ex:ch08-tate-curve}.  The dichotomy is detected by $v(j)$, and it is
+the one-dimensional shadow of the general principle that the essential
+skeleton measures the degeneracy of the family, whereas an arbitrary model
+skeleton, such as the subdivided segments of
+\cref{ex:ch08-An-edge,sec:ch08-chain-numbers}, is a computational device that
+can be enlarged at will.
+\end{remark}
+
+\subsection{A Green function on the skeleton}
+
+For $q\in(0,1)$, let
+\[
+ g_q(s)=
+ \begin{cases}
+  (1-q)s,&0\leq s\leq q,\\
+  q(1-s),&q\leq s\leq1.
+ \end{cases}
+\]
+The outgoing slope sum is $-1$ at $q$, $1-q$ at $0$, and $q$ at $1$, so
+\begin{equation}
+\label{eq:segment-green}
+                 \Delta g_q=(1-q)\delta_{v_0}+q\delta_{v_1}-\delta_q.
+\end{equation}
+This is the potential created by a unit point charge at $q$ balanced by the
+endpoint probability measure with barycentric weights.  Formula
+\eqref{eq:graph-green} gives its energy:
+\[
+ -\int_0^1|g_q'|^2\,\rd s=-q(1-q).
+\]
+The sign is consistent with our Laplacian; the positive Dirichlet energy is
+$\int|g_q'|^2=q(1-q)$.
+
+\section{Translation table}
+\label{sec:model-translation-table}
+
+The calculations above will reappear in several languages.  This section is
+the dictionary, and it is meant to be used in both directions: from an
+abstract definition in a later chapter to the computation in this chapter
+that fixes its normalization, and from a computation here to the general
+theorem it anticipates.  Every entry points to an existing statement.
+
+\subsection{From this chapter to the general theory}
+\label{sec:ch08-dict-forward}
+
+\begin{center}
+\small
+\begin{tabular}{p{.30\textwidth}|p{.26\textwidth}|p{.34\textwidth}}
+\textbf{Computed here}&\textbf{Generalized as}&\textbf{Where}\\ \hline
+graph Laplacian \eqref{eq:graph-laplacian}
+  &$\dprimeddprime$ of a model function on a curve
+  &\cref{prop:skeletal-curvature-curve},
+   \eqref{eq:cld-curve-graph-laplacian}\\
+Green identity \eqref{eq:graph-green}
+  &integration by parts and energy pairing
+  &\eqref{eq:graph-dirichlet-sign},
+   \cref{prop:bj-integration-by-parts}\\
+Poisson solution \cref{prop:graph-poisson}
+  &Monge--Amp\`ere equation on a curve
+  &\cref{prop:graph-ma-solution},
+   \eqref{eq:curve-poisson}\\
+slope formula \cref{thm:ch08-slope-formula}
+  &Poincar\'e--Lelong on a Berkovich curve
+  &\cref{chap:cld-poincare-lelong,chap:cld-examples},
+   \cref{thm:wanner-curve-comparison}\\
+retraction bound \cref{prop:ch08-retraction-max}
+  &skeletal characterization of psh functions
+  &\cref{prop:skeleton-retraction},
+   \cref{thm:bfj-skeletal-characterization}\\
+curve model measure \eqref{eq:ch08-curve-cl-measure}
+  &Chambert--Loir measure of a model metric
+  &\cref{sec:metrics-cl-measure},
+   \cref{thm:cl-model-properties}\\
+model function of a vertical divisor
+  &PL functions and vertical $\mathbf Q$-Cartier divisors
+  &\cref{prop:skeleton-model-pa},
+   \cref{thm:skeleton-pl-realization}\\
+two-legged-tree measure \eqref{eq:ch08-p1-tripod-measure}
+  &atomic measures on a dual complex
+  &\cref{chap:bfj-model-forms},
+   \eqref{eq:ch20-graph-laplacian}\\
+trivially valued tree
+   (\cref{prop:trivial-p1-tree})
+  &the analytification $X^{\An}$ over a trivially valued field
+  &\cref{def:trivial-analytification},
+   \cref{ex:triv-p1-tree}\\
+scaling $v\mapsto tv$
+  &the cone structure and normalized links
+  &\eqref{eq:valuation-scaling},
+   \cref{def:normalized-link}\\
+$\varphi_{\mathfrak a}=-v(\mathfrak a)$
+   (\cref{prop:ch08-ideal-potential})
+  &homogeneous functions and b-divisors
+  &\cref{def:homogeneous-function},
+   \cref{prop:cartier-homogeneous-pl}\\
+Gauss extension \cref{ex:ch08-gauss-ray}
+  &the section $\sigma:X^{\An}\to X_K^{\An}$
+  &\eqref{eq:gauss-extension-triv},
+   \eqref{eq:triv-gauss-section}\\
+$\MA_{\mathbf R}$ of a polyhedral $F$
+   (\cref{lem:ch08-alexandrov-polyhedral})
+  &toric Monge--Amp\`ere comparison
+  &\cref{thm:toric-bfj-alexandrov},
+   \eqref{eq:toric-bfj-alexandrov}\\
+toric convexity \cref{sec:toric-convex}
+  &invariant psh functions are convex
+  &\cref{thm:bj-toric-psh-convex},
+   \eqref{eq:bj-toric-ma}\\
+circle skeleton \cref{ex:ch08-tate-curve}
+  &essential skeleta and hybrid limits
+  &\cref{sec:essential-skeleton},
+   \cref{ex:hybrid-nodal-curve}
+\end{tabular}
+\end{center}
+
+\subsection{From the general theory back to this chapter}
+\label{sec:ch08-dict-backward}
+
+The reverse dictionary is the one to consult when a later definition looks
+unmotivated or a sign looks arbitrary.
+
+\begin{center}
+\small
+\begin{tabular}{p{.30\textwidth}|p{.30\textwidth}|p{.30\textwidth}}
+\textbf{Later object}&\textbf{Smallest instance}&\textbf{Computed in}\\ \hline
+$\theta$-psh model function
+  &$\varphi$ affine on $[0,1]$ with $|A-B|\leq1$
+  &\eqref{eq:running-nef-interval},
+   \cref{ex:edge-mass-transport}\\
+Chambert--Loir measure $c_1(L,\|\cdot\|)^n$
+  &$\delta_{\zeta_{0,1}}$ on $\mathbf P^1$
+  &\eqref{eq:p1-standard-measure},
+   \cref{ex:ch08-toric-pn}\\
+mass identity $\int\MA=(L^n)$
+  &$1+1=2$ on the running conic
+  &\cref{prop:running-conic-measure},
+   \cref{ex:degree-conservation-conic}\\
+regularization by model metrics
+  &$\varepsilon\log(1+\rme^{-du/\varepsilon})\to\max\{0,-du\}$
+  &\cref{sec:toric-convex},
+   \cref{ex:ch01-equilibrium-metric}\\
+Fubini--Study function
+  &$\max\{0,\log|T|-\lambda\}$
+  &\cref{ex:ch08-p1-fs},
+   \cref{sec:metrics-fs}\\
+test configuration and its measure
+  &$\delta_{c\,\ord_0}$ on the trivially valued tree
+  &\cref{ex:ch08-trivial-one-ray},
+   \cref{ex:ch01-product-tc}\\
+homogeneous potential of an ideal
+  &$\max\{-2w_1,-3w_2\}$ on the quadrant
+  &\cref{sec:trivial-valuation-cone},
+   \cref{ex:ch08-monomial-multiplicity}\\
+support function and polytope
+  &$\check h_{[0,d]}(u)=\max\{0,-du\}$
+  &\cref{sec:toric-convex},
+   \eqref{eq:appJ-toric-recession}\\
+factor $n!$ between $\MA_{\mathbf R}$ and $\MA$
+  &$2!\cdot\tfrac32=3=(2H-E)^2$
+  &\cref{ex:ch08-toric-hirzebruch},
+   \eqref{eq:appJ-toric-degree}\\
+semistable model and its dual complex
+  &cycle of $n$ lines, circle of circumference $n$
+  &\cref{ex:ch08-tate-curve},
+   \cref{ex:snc-chain-models}\\
+model comparison of two theories
+  &one atom computed by slopes and by degrees
+  &\cref{ex:ch08-p1-interval},
+   \cref{prop:model-core-preview}
+\end{tabular}
+\end{center}
+
+\subsection{The three running examples across the dictionary}
+\label{sec:ch08-dict-running}
+
+\begin{itemize}
+\item \emph{The nodal degeneration} of \cref{sec:ch01-running-nodal} appears
+here as the annulus and its interval skeleton
+(\cref{prop:ch08-annulus-skeleton}), as the conic $\mathcal C$ with measure
+$\delta_{v_0}+\delta_{v_1}$ (\cref{prop:running-conic-measure}), as the
+subdivided chain with the three-atom measure \eqref{eq:ch08-chain-measure},
+and as the Tate curve with a circle skeleton
+(\cref{ex:ch08-tate-curve}).  It returns in
+\cref{chap:cld-examples,chap:bfj-examples}, in
+\cref{ex:cma-semistable-curve}, and in \cref{ex:hybrid-nodal-curve}.
+
+\item \emph{The toric line} of \cref{sec:ch01-running-toric} appears here as
+the apartment of \cref{sec:berkovich-p1}, as
+$\check h_{[0,d]}=\max\{0,-du\}$, and as the one-dimensional case of
+\cref{thm:toric-ma-comparison}; the two-break computation
+\cref{ex:ch01-toric-two-breaks} is the case $n=1$ of
+\cref{lem:ch08-alexandrov-polyhedral}.  Its higher-dimensional companions are
+\cref{ex:ch08-toric-p1p1,ex:ch08-toric-hirzebruch,ex:ch08-toric-weighted},
+and it returns in \cref{thm:toric-bfj-alexandrov,thm:bj-toric-psh-convex} and
+in \cref{ex:verified-toric-segment}.
+
+\item \emph{The product test configuration} of \cref{sec:ch01-running-tc}
+appears here as \cref{ex:ch08-trivial-one-ray} with $c=1$, and its
+homogeneous potential as \cref{ex:ch08-truncation}.  It returns in
+\cref{chap:bj-test-configurations,chap:rays-filtrations} and in
+\cref{ex:dict-product-action}.
+\end{itemize}
+
+\subsection{The mass ledger}
+\label{sec:ch08-mass-ledger}
+
+Every Monge--Amp\`ere computation of this chapter has had its total mass
+checked against a degree.  The checks are collected here, so that a reader
+who has reproduced them knows that all conventions are consistent.
+
+\begin{center}
+\small
+\begin{tabular}{p{.40\textwidth}|p{.24\textwidth}|p{.24\textwidth}}
+\textbf{Computation}&\textbf{Mass}&\textbf{Degree}\\ \hline
+$\cO(1)$ on $\mathbf P^1$, standard metric,
+  \eqref{eq:p1-standard-measure}
+  &$1$&$\deg\cO(1)=1$\\
+$\cO(1)$ on $\mathbf P^1$, one blowup,
+  \eqref{eq:ch08-p1-interval-measure}
+  &$(1+a)+(-a)=1$&$1$\\
+$\cO(1)$ on $\mathbf P^1$, two-legged tree,
+  \eqref{eq:ch08-p1-tripod-measure}
+  &$(1+a_0+a_1)-a_0-a_1=1$&$1$\\
+$\cO(2)$ on $\mathbf P^1$, two atoms,
+  \cref{ex:ch08-p1-degree-two}
+  &$1+1=2$&$2$\\
+running conic, \eqref{eq:running-conic-measure}
+  &$1+1=2$&$\deg_C L=2$\\
+running conic, perturbed,
+  \eqref{eq:running-perturbed-measure}
+  &$(1+B-A)+(1+A-B)=2$&$2$\\
+chain model, \eqref{eq:ch08-chain-measure}
+  &$2$ for all $(a_0,a_1,a_2)$&$2$\\
+Tate curve, $n=3$, \cref{ex:ch08-tate-curve}
+  &$3$&$\deg L=3$\\
+$\mathbf P^n$, \cref{ex:ch08-toric-pn}
+  &$n!\cdot\tfrac1{n!}=1$&$(\cO(1)^n)=1$\\
+$\mathbf P^1\times\mathbf P^1$, $\cO(a,b)$,
+  \cref{ex:ch08-toric-p1p1}
+  &$2!\,ab=2ab$&$(aH_1+bH_2)^2=2ab$\\
+$\mathbf P^1\times\mathbf P^1$, $F_\lambda$,
+  \cref{ex:ch08-toric-p1p1}
+  &$2(\tfrac12+\tfrac12)=2$&$2$\\
+Hirzebruch $\mathbf F_1$, \cref{ex:ch08-toric-hirzebruch}
+  &$2(1+\tfrac12)=3$&$(2H-E)^2=3$\\
+$\mathbf P(1,1,2)$, $\cO(2)$,
+  \cref{ex:ch08-toric-weighted}
+  &$2!\cdot1=2$&$(\cO(2)^2)=2$\\
+$\mathbf P(1,1,2)$, $\cO(1)$,
+  \cref{ex:ch08-toric-weighted}
+  &$2!\cdot\tfrac14=\tfrac12$&$(\cO(1)^2)=\tfrac12$\\
+trivially valued $\mathbf P^1$, one ray,
+  \cref{ex:ch08-trivial-one-ray}
+  &$1$&$\deg\cO(1)=1$\\
+trivially valued $\mathbf P^1$, two rays,
+  \cref{ex:ch08-trivial-two-rays}
+  &$\tfrac12+\tfrac12=1$&$1$\\
+monomial ideal $(x^2,y^3)$,
+  \cref{ex:ch08-monomial-multiplicity}
+  &$2!\cdot3=6$&$e(\mathfrak a)=6$
+\end{tabular}
+\end{center}
+
+Two further checks are of a different type: the slope formula was verified
+atom by atom in \cref{ex:ch08-newton-cubic}, where both sides have total mass
+zero, and the Laplacian of every model function has total mass zero by
+\eqref{eq:lap-mass-zero}, which is what makes the mass of a curvature measure
+depend only on the line bundle.
+
+\subsection{The three-column summary}
+\label{sec:ch08-dict-three-column}
+
+Finally, the compact form of the dictionary.
+\begin{center}
+\small
+\begin{tabular}{p{.27\textwidth}|p{.31\textwidth}|p{.29\textwidth}}
+\textbf{Model or analytic object}&\textbf{Skeleton or tropical object}
+  &\textbf{Curvature object}\\ \hline
+vertical divisor on a curve model
+  &integral PL function on $\Gamma$
+  &$\Delta_\Gamma\varphi$\\
+nef model metric on a curve
+  &$\mu_0+\Delta_\Gamma\varphi\geq0$
+  &positive atomic measure\\
+rational function
+  &$-\log|f|$ with integral slopes
+  &$-\delta_{\operatorname{div}(f)}$\\
+toric semipositive metric
+  &convex $F\sim\check h_P$
+  &$n!\operatorname{MA}_{\mathbf R}(F)$\\
+toric model metric
+  &rational PL convex $F$
+  &atoms of mass $n!\operatorname{vol}(\partial F)$\\
+trivially valued model ideal
+  &$-v(\mathfrak a)$ on the valuation cone
+  &homogeneous PL data
+\end{tabular}
+\end{center}
+
+Four normalization checks should be remembered.
+\begin{enumerate}
+\item $v=-\log|\cdot|$, so $v(f)$ and $\log|f|$ have opposite Laplacians.
+\item The graph Laplacian is the sum of outgoing slopes.
+\item Alexandrov measure has total mass $\operatorname{vol}(P)$, whereas the
+  geometric top wedge has mass $n!\operatorname{vol}(P)=(L^n)$.
+\item No probability normalization is applied unless it is written
+  explicitly.
+\end{enumerate}
+
+\section{Source note}
+
+Potential theory on metric graphs, in the form of
+\cref{sec:metric-graphs}, is classical; the version used here---outgoing
+slopes, Green's identity, the Poisson problem, and the maximum
+principle---is the one that appears in tropical geometry, for which
+\cite{MR18Tropical} is a convenient systematic reference, and in the
+potential theory of Berkovich curves developed by Thuillier \cite{Thu05}
+and, for $\mathbf P^1$, by Baker and Rumely, whose monograph is named rather
+than cited by key because no proof here takes an input from it.
+
+The primary source for \cref{sec:metric-graphs} is Thuillier's
+\cite[\S1.2]{Thu05}, and we have quoted his numbering throughout: the
+Laplacian is his \cite[\S1.2.1]{Thu05}, the maximum principle his
+\cite[Prop.~1.2.9, Cor.~1.2.10]{Thu05}, Green's identity and the vanishing of
+the total mass his \cite[Prop.~1.2.13, Cor.~1.2.14]{Thu05}, the Dirichlet
+problem his \cite[Prop.~1.2.15, Rem.~1.2.16]{Thu05}, the Poisson problem his
+\cite[Prop.~1.2.17, Lem.~1.2.18]{Thu05}, and the invariance under retraction
+his \cite[Prop.~1.2.20]{Thu05}.  His \cite[\S1.2.5]{Thu05} extends $\ddc$ to
+distributions on a polyhedron and identifies the extension with Zhang's
+operator on the space $\mathrm F(S)$ of edgewise smooth functions
+\cite[Prop.~1.2.21]{Thu05}, up to the sign $\ddc=-\Delta$ that his
+comparison records; that is the only sign conversion needed anywhere in the
+comparison, and it does not affect us because we never use Zhang's
+normalization.  What \cite{Thu05} adds beyond
+\cref{sec:metric-graphs}---the sheaves $\mathcal H_C$ and
+$\mathcal{SH}_C$ on the whole of $C^{\An}$, Perron's method, currents, and
+the approximation theorem---is used in \cref{chap:cld-examples}; see
+\cref{rem:ch08-harmonic-vs-log,rem:ch08-thuillier-normalization} for the two
+points at which his theory is sharper than, or normalized differently from,
+what is proved here.
+\Cref{thm:ch08-slope-formula} is the elementary model-theoretic form of the
+slope formula; the analytic statement valid on all of $C^{\An}$, with the
+type-$\mathrm{IV}$ points and the branches off the skeleton, belongs to that
+literature and is compared with the Chambert--Loir--Ducros calculus in
+\cite{Wanner19} and, in the recent curve-test framework, in
+\cite{GR25PL,GR25Classical}; a Poincar\'e lemma for the associated real forms
+is \cite{Jell16}.  The convexity facts used in \cref{sec:toric-convex} are
+standard and may be found in \cite{Roc70,Sch14}; toric background is
+\cite{Fultor,CLS11}, and the arithmetic toric formalism closest to our
+normalization is \cite{BGPS14}.  Semistable reduction for curves is the
+theorem of Deligne and Mumford, resting on Grothendieck's semistable
+reduction for abelian varieties in \cite{SGA7I}; the alteration replacement
+in higher dimension is \cite{deJong1996}.  The Tate curve computation of
+\cref{ex:ch08-tate-curve} is the analytic uniformization of an elliptic curve
+with multiplicative reduction; a formal account in the language used here is
+\cite{BoschLutkebohmert1993}.  Intersection-theoretic inputs are quoted from
+\cite{Ful} through \cref{chap:models}.
+
+The graph calculations are the model core of potential theory on Berkovich
+curves; see also \cite{Berk12}.  Historically the order was the reverse of
+the order of exposition here: Rumely's capacity theory on algebraic curves
+and Kani's potential-theoretic reading of intersection theory on an
+arithmetic surface came first, Thuillier \cite{Thu05} then rebuilt both on
+Berkovich spaces by reducing everything to \cref{sec:metric-graphs} through
+Bosch--L\"utkebohmert semistable reduction \cite[Thm.~2.3.8]{Thu05}, and
+Baker and Rumely afterwards developed the projective line in the same spirit.
+Thuillier's own comparison with these three approaches, and with the
+valuative-tree potential theory of Favre and Jonsson, is
+\cite[\S\S5.1--5.4]{Thu05}; it is summarized in the historical note of
+\cref{chap:cld-examples}.  The equality between the curve-theoretic and
+CLD notions of
+subharmonicity will be discussed in \cref{chap:cld-examples}.  The atomic model measure is
+the construction of Chambert--Loir \cite{CL06}; its recovery from CLD Chern
+currents is treated later using \cite{CLD12}.  The global model/psh framework
+for nontrivially valued fields is developed in \cite{BFJ16}.  The toric
+real/non-Archimedean comparison is represented at three distinct levels:
+the model measure of \cite{CL06}, the calibrated polystable-face theorem of
+\cite{Vil20}, and the global invariant tropical theory of \cite{BGJKK25}.
+The delta-form and tropical-cycle refinements of \cite{GK17,GK19}, and the
+harmonic-tropical enlargement of the form sheaf in \cite{GJR26}, will be
+introduced in \cref{chap:delta-forms} rather than folded silently into the CLD calculus.
+The curve-test theory of \cite{GR25PL,GR25Classical} enters in
+\Cref{chap:cld-poincare-lelong,chap:cld-examples}, where it will be
+compared---not identified by
+definition---with CLD psh functions.  The trivially valued cone and its
+homogeneous psh functions are developed systematically in \cite{BJ22}.

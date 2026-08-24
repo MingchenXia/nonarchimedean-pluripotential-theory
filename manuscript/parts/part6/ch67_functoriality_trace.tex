@@ -1,0 +1,891 @@
+\chapter{Functoriality, restriction, and trace}
+\index{functoriality!comparison theories}\index{restriction!psh function}\index{trace!comparison}
+\label{chap:functoriality-trace}
+
+The comparison dictionary is useful only when it respects geometric
+maps. Birational pullback is usually formal, finite pushforward carries
+a degree, restriction may destroy singular metrics, and analytic trace
+is not literal restriction. This chapter separates these operations and
+proves the two geometric cases in which the trace Dirichlet problem is
+currently controlled.
+
+There are four comparison maps to keep distinct. Pullback acts on
+potentials and currents; pushforward acts on measures and carries the
+generic degree; a determinant norm sends line bundles and their metrics in
+the opposite direction; and analytic trace is a limiting operation on
+singularity types. Only the last map has target
+\(\QPSH(\widetilde Y)/{\sim_P}\), and its representatives are
+\(\mathcal I\)-good. In particular, neither a
+set-theoretic restriction nor a determinant norm can be substituted for it.
+The point of the chapter is to make the input and output of each arrow
+visible before any formula is used.
+
+Unless stated otherwise, complex spaces in this chapter are connected
+compact K\"ahler manifolds. A finite-map statement in the algebraic
+category assumes normal projective varieties. For a closed submanifold
+\(Y\subset X\), write
+\[
+ D_Y:=\{\varphi\in\QPSH(X):\nu(\varphi,Y)=0\}.
+\tag{67.1}\label{eq:functor-trace-domain}
+\]
+This is the natural domain of the analytic trace constructed in
+\Cref{chap:operations-trace}.
+
+\section{Birational pullback}
+\label{sec:functor-birational}
+
+Let \(\pi:X'\to X\) be a proper bimeromorphic morphism between smooth
+compact K\"ahler manifolds. If
+\[
+                         T=\theta+\ddc\varphi\geq0,
+\]
+then
+\[
+             \pi^*T=\pi^*\theta+\ddc(\varphi\circ\pi)\geq0.
+\tag{67.2}\label{eq:functor-current-pullback}
+\]
+
+\begin{proposition}\label{prop:functor-birational-pullback}
+With the notation above:
+\begin{enumerate}
+\item generic Lelong numbers satisfy
+      \(\nu(\pi^*T,E)=\nu(T,v_E)\) for every prime divisor
+      \(E\subset X'\);
+\item multiplier ideals satisfy
+      \[
+       \mathcal I(m\varphi)
+       =
+       \pi_*\!\left(
+          \mathcal O_{X'}(K_{X'/X})
+          \otimes\mathcal I(m\varphi\circ\pi)
+       \right);
+      \tag{67.3}\label{eq:functor-transformation-ideal}
+      \]
+\item nonpluripolar products satisfy
+      \[
+       \pi_*\left\langle(\pi^*T)^p\right\rangle
+                   =\left\langle T^p\right\rangle;
+      \tag{67.4}\label{eq:functor-npp-pullback}
+      \]
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+For the first assertion, choose a local potential for \(T\) and a smooth
+generic point of \(E\) outside all other exceptional components. The
+coefficient of \(\log|s_E|^2\) in \(\varphi\circ\pi\), equivalently the
+generic Lelong number along \(E\), is by definition the value of the
+singularity at the divisorial valuation \(v_E\). Smooth changes of local
+potential do not alter that coefficient.
+
+For the second assertion, factor through a log resolution
+\(\mu:W\to X'\) of the singularities of \(\varphi\circ\pi\). If locally
+\(\varphi\circ\pi\circ\mu=c\log|s_D|^2+O(1)\), membership of a germ \(g\)
+in the multiplier ideal is equivalent to the coefficientwise strict
+integrability inequalities for
+\[
+ \operatorname{div}(g\circ\pi\circ\mu)+K_{W/X}-\lfloor mcD\rfloor.
+\]
+Using
+\[
+ K_{W/X}=K_{W/X'}+\mu^*K_{X'/X}
+\]
+and pushing first by \(\mu\) and then by \(\pi\) gives exactly
+\eqref{eq:functor-transformation-ideal}. Thus the relative canonical
+factor is forced by the Jacobian in the change-of-variables formula; it is
+not an optional correction.
+
+For \eqref{eq:functor-npp-pullback}, truncate \(\varphi\) relative to a
+potential with minimal singularities. On the open set where the
+truncation is locally bounded, Bedford--Taylor products commute with
+pullback and the projection formula applies. Characteristic functions
+of the nonpluripolar locus remove exceptional pluripolar sets. Letting
+the truncation level tend to infinity gives the identity by monotone
+convergence.
+
+\end{proof}
+
+The proposition deliberately contains no analytic strict-transform claim:
+its data do not specify a trace center.  For a transcendental
+non-Archimedean metric satisfying the trace-domain hypotheses, the sourced
+birational identity is the separate statement
+\eqref{eq:operations-na-trace-birational}.
+
+\paragraph{Worked blowup audit.}
+Let \(X=\mathbf C^2\), let \(\pi:X'\to X\) be the blowup of the origin, and
+take
+\[
+                  \varphi=c\log(|x|^2+|y|^2)+O(1),
+                  \qquad c>0.
+\]
+On the chart \(y=xu\), one has
+\[
+ \varphi\circ\pi
+   =c\log|x|^2+c\log(1+|u|^2)+O(1).
+\]
+The second term is locally bounded, so the exceptional divisor \(E=\{x=0\}\)
+has generic Lelong number \(c\). Since \(K_{X'/X}=E\), the extra copy of
+\(E\) in \eqref{eq:functor-transformation-ideal} is precisely the Jacobian
+factor \(|x|^2\) of the blowup chart. This two-dimensional calculation is
+the local model for both the valuation identity and the multiplier-ideal
+transformation rule.
+
+\begin{corollary}\label{cor:functor-full-mass-birational}
+If \(\alpha\) is big and \(T\in\alpha\), then
+\[
+ \int_{X'}\left\langle(\pi^*T)^n\right\rangle
+       =
+ \int_X\left\langle T^n\right\rangle.
+\tag{67.5}\label{eq:functor-full-mass}
+\]
+Thus \(T\) has full Monge--Amp\`ere mass if and only if \(\pi^*T\)
+does.
+\end{corollary}
+
+\begin{proof}
+Take \(p=n\) in \eqref{eq:functor-npp-pullback} and integrate; the
+projection formula gives \eqref{eq:functor-full-mass}.  The volume of a
+big class is birationally invariant, so
+\(\vol(\pi^*\alpha)=\vol(\alpha)\).  Equality of the two masses therefore
+shows that one current has full mass exactly when the other does.
+\end{proof}
+
+\begin{remark}[No inverse pullback]
+\label{rem:functor-no-inverse-pullback}
+A positive current on \(X'\) need not descend to \(X\). Exceptional
+divisorial mass is the first obstruction. Even when its cohomology
+class is pulled back, a potential must be constant on the fibres in
+the appropriate singularity sense before a downstairs potential can
+be recovered.
+\end{remark}
+
+On the non-Archimedean side, a dominating model simply refines the
+same valuation space. If \(f:Y\to X\) is a morphism of projective
+varieties, composition of semivaluations gives
+\[
+                f^{\An}:Y^{\An}\longrightarrow X^{\An}.
+\tag{67.6}\label{eq:functor-analytic-map}
+\]
+A model metric pulls back through the pulled-back model line bundle.
+Intersection numbers then give functoriality of model energies.
+
+\section{Finite maps, degree, and norms}
+\label{sec:functor-finite}
+
+Let \(f:Y\to X\) be finite surjective between normal projective
+varieties, of generic degree
+\[
+                         d=[K(Y):K(X)].
+\tag{67.7}\label{eq:functor-degree}
+\]
+No separability hypothesis is imposed.
+
+\begin{proposition}\label{prop:functor-finite-ma}
+Let \(L\) be ample on \(X\), and let \(\phi\) be a continuous
+semipositive metric on \(L\), either complex or non-Archimedean. In the
+complex case, assume in addition that \(X\) and \(Y\) are projective
+manifolds. Then
+\[
+        f_*\operatorname{MA}(f^*\phi)
+                   =d\,\operatorname{MA}(\phi).
+\tag{67.8}\label{eq:functor-finite-ma}
+\]
+In particular,
+\[
+                  ((f^*L)^n)=d(L^n).
+\tag{67.9}\label{eq:functor-finite-volume}
+\]
+\end{proposition}
+
+\begin{proof}
+For a smooth complex metric and a continuous test function \(a\) on \(X\),
+the definition of pushforward gives
+\[
+ \int_X a\,\rd f_*\operatorname{MA}(f^*\phi)
+   =\int_Y(a\circ f)(f^*c_1(L,\phi))^n.
+\]
+Outside the branch locus, \(f\) is a covering of degree \(d\), while the
+branch locus and its inverse image have measure zero for the smooth top
+wedge. The change-of-variables formula therefore makes the last integral
+equal to \(d\int_Xa\,c_1(L,\phi)^n\). This proves the measure identity;
+taking \(a=1\) gives \eqref{eq:functor-finite-volume}.
+
+For the continuous complex case the argument is local.  After trivializing
+\(L\) on a coordinate ball, approximate its continuous psh weight from
+above on smaller balls by smooth psh weights.  Their pullbacks give the
+corresponding approximants on \(Y\), so the smooth identity just proved
+passes to the limit by Bedford--Taylor monotone continuity.  This avoids
+assuming a global uniform approximation by smooth semipositive metrics.
+
+For a semipositive model metric, the mass at a divisorial point is an
+intersection number on the corresponding component of the special fibre.
+The finite algebraic projection formula, with residue degrees and
+ramification multiplicities included, gives the same factor \(d\) component
+by component. Continuous non-Archimedean semipositive metrics are uniform
+limits of semipositive model metrics, and their Monge--Amp\`ere measures vary
+weakly continuously under that approximation. Testing against \(a\) and
+passing to the limit proves \eqref{eq:functor-finite-ma} in the
+non-Archimedean setting as well.
+\end{proof}
+
+\begin{remark}[Singular metrics]
+\label{rem:functor-finite-singular}
+For singular finite-energy metrics, the same formula requires a
+specified nonpluripolar extension and an approximation theorem.
+Equation~\eqref{eq:functor-finite-ma} is not being asserted for an
+arbitrary extended-real psh function with no mass hypothesis.
+\end{remark}
+
+The reverse direction uses the norm, not an average chosen pointwise.
+Suppose first that \(f\) is finite locally free of rank \(d\). For a
+line bundle \(M\) on \(Y\), define
+\[
+ \operatorname{Nm}_f(M)
+   :=\det(f_*M)\otimes\det(f_*\mathcal O_Y)^{-1}.
+\tag{67.10}\label{eq:functor-norm-line}
+\]
+For a local section \(s\) of \(M\), multiplication by \(s\) induces
+the norm section \(\operatorname{Nm}_f(s)\).
+
+\begin{proposition}\label{prop:functor-determinant-norm}
+Let \(f\) be finite locally free of rank \(d\), and let
+\(\|\cdot\|_M\) be a continuous metric on \(M\). The determinant norm
+defines a continuous metric on \(\operatorname{Nm}_f(M)\). At an
+analytic point \(x\in X^{\An}\),
+\[
+ -\log\|\operatorname{Nm}_f(s)(x)\|
+   =
+ \sum_{y\in f^{-1}(x)}
+       \ell_y\,\bigl(-\log\|s(y)\|_M\bigr),
+\tag{67.11}\label{eq:functor-norm-weight}
+\]
+where
+\[
+   \ell_y=\dim_{\mathcal H(x)}
+          \mathcal O_{Y_x,y}
+\tag{67.12}\label{eq:functor-fibre-length}
+\]
+is the local Artin length after passage to completed residue fields.
+\end{proposition}
+
+\begin{proof}
+Trivialize \(M\) and \(f_*\mathcal O_Y\) locally. Multiplication by
+\(s\) is represented by a \(d\times d\) matrix. Its determinant is the
+norm section. After tensoring with the completed residue field at
+\(x\), the finite algebra decomposes into its local Artin factors.
+Filter each factor by powers of its maximal ideal. On every graded piece,
+multiplication by \(s\) acts by its residue value. The number of copies,
+including the degree of the residue-field extension, is exactly
+\(\ell_y\) as defined in \eqref{eq:functor-fibre-length}. The determinant
+on the factor is therefore the residue value of \(s\), raised to that
+length. Taking logarithms gives
+\eqref{eq:functor-norm-weight}. The determinant is a polynomial in the
+matrix coefficients, so the metric is continuous.
+\end{proof}
+
+\paragraph{Worked radicial fibre.}
+In characteristic \(p>0\), take \(f:\mathbf A^1\to\mathbf A^1\) given by
+\(x=y^p\). Over a point with residue value \(a\), the fibre algebra is
+\(k[y]/(y^p-a)\). It has one geometric point but length \(p\). Hence a
+constant fibre value \(c\) contributes \(p(-\log|c|)\) to
+\eqref{eq:functor-norm-weight}. Counting the unique point with weight one
+would lose the entire generic degree.
+
+\begin{remark}[Inseparability and nilpotents]
+\label{rem:functor-inseparable}
+Formula \eqref{eq:functor-norm-weight} sums lengths, not distinct
+geometric points. It therefore retains purely inseparable
+multiplicity and nonreduced fibre structure. Replacing \(\ell_y\) by
+\(1\) would silently assume reduced separable fibres.
+\end{remark}
+
+For a finite map which is not flat, flattening the finite algebra
+produces a birational square of the form
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+W \arrow[r,"\alpha"] \arrow[d,"q"']&
+Y \arrow[d,"f"]\\
+Z \arrow[r,"\beta"']&
+X ,
+\end{tikzcd}
+\tag{67.13}\label{eq:functor-finite-flat-square}
+\]
+where \(q\) is finite locally free. The determinant norm is formed
+upstairs and then compared birationally. This is the mechanism behind
+the finite descent theorem of
+\Cref{chap:bj-finite-descent}; it is not a claim that \(f\)
+itself becomes flat without modifying \(X\).
+
+\section{Base change and descent}
+\label{sec:functor-base-change}
+
+Consider the ramified base change
+\[
+                         t=s^m.
+\tag{67.14}\label{eq:functor-ramified-base-change}
+\]
+If \(|t|=r\), the compatible norm on the new base has
+\(|s|=r^{1/m}\). A valuation normalized by \(v(t)=1\) pulls back to a
+valuation with \(v(s)=m^{-1}\).
+
+\begin{proposition}\label{prop:functor-scaling-ledger}
+Let a normal test configuration be pulled back by
+\eqref{eq:functor-ramified-base-change} and then normalized.
+\begin{enumerate}
+\item With the original ray parameter \(s_t=-\log|t|\), the associated
+      ray is unchanged.
+\item With the new parameter \(s_s=-\log|s|\), its speed is multiplied
+      by \(m\).
+\item Homogeneous non-Archimedean functionals \(F^{\NA}\) satisfy
+      \[
+             F^{\NA}(\phi^{\NA}_{(m)})
+                    =mF^{\NA}(\phi^{\NA})
+      \tag{67.15}\label{eq:functor-scaling-functional}
+      \]
+      when both metrics are expressed with the same normalization
+      \(v(t)=1\).
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+The identity \(s_t=ms_s\) is immediate from \(t=s^m\).
+Vertical coefficients multiply by \(m\) after expressing the pulled
+back divisor in the \(v(t)=1\) convention. Model functions and every
+degree-one homogeneous intersection functional therefore multiply by
+\(m\). Reparametrizing the ray by \(s_t\) cancels this factor.
+\end{proof}
+
+\begin{remark}[Descent datum]
+\label{rem:functor-descent-datum}
+A metric after finite base change does not automatically descend.
+One needs invariance under the descent relation, or under the Galois
+group when a Galois presentation is available. In positive
+characteristic, a purely inseparable factor has no useful Galois
+group; descent must be formulated through the finite algebra or the
+universal homeomorphism.
+\end{remark}
+
+\begin{proposition}\label{prop:functor-universal-homeomorphism}
+If \(f:Y\to X\) is finite, radicial, and surjective, then
+\[
+                    f^{\An}:Y^{\An}\longrightarrow X^{\An}
+\tag{67.16}\label{eq:functor-universal-homeomorphism}
+\]
+is a homeomorphism. It need not identify line bundles or their model
+structures without a descent datum.
+\end{proposition}
+
+\begin{proof}
+Every support prime has a unique lift. The induced residue extension
+is purely inseparable, and an absolute value has a unique extension. In
+positive characteristic it is given, for a sufficiently large \(e\), by
+\[
+                         |a|=|a^{p^e}|^{1/p^e}
+\]
+after \(a^{p^e}\) has descended to the base residue field; in
+characteristic zero the residue extension is trivial, so there is
+nothing to extend. Thus \eqref{eq:functor-universal-homeomorphism}
+is a continuous bijection. Properness makes the source compact and
+the target Hausdorff, hence it is a homeomorphism. The last statement
+is algebraic: a homeomorphism of analytifications contains no
+linearization or cocycle for a line bundle.
+\end{proof}
+
+\section{Restriction is not trace}
+\label{sec:functor-restriction}
+
+If \(\varphi\) is quasi-psh on \(X\), its literal restriction to
+\(Y\) exists only when \(\varphi|_Y\not\equiv-\infty\). Even then it
+depends on the chosen representative, not merely its singularity
+class. The analytic trace instead restricts a quasi-equisingular
+approximation and takes a strong limit.
+
+The codomain is part of the theorem. Multiplier ideals control the input:
+trace depends only on the \(\mathcal I\)-class of the ambient potential.  The
+restriction theorem then gives the finer output: trace representatives are
+\(\mathcal I\)-good and unique up to \(P\)-equivalence. Thus the quotient map
+\[
+ \{P\text{-classes in }D_Y\}\longrightarrow
+ \{\mathcal I\text{-classes in }D_Y\}
+\]
+may be applied before trace, while the target lies in the \(P\)-quotient.
+
+\begin{definition}[Analytic trace]
+\label{def:functor-analytic-trace}
+For \(\varphi\in D_Y\), choose a quasi-equisingular approximation
+\((\varphi_j)\) with analytic singularities. On the normalization
+\(\nu:\widetilde Y\to Y\), define
+\[
+                   \Tr_Y(\varphi)
+       :=d_S\text{-}\lim_{j\to\infty}
+                   \nu^*(\varphi_j|_Y),
+\tag{67.17}\label{eq:functor-analytic-trace}
+\]
+after fixing one sufficiently positive background class on
+\(\widetilde Y\), as required for the positive-mass \(d_S\)-space,
+where equality of outputs is understood up to
+\(P\)-equivalence.  Every output is \(\mathcal I\)-good.
+\end{definition}
+
+\begin{remark}[Restricted ambient ideals are image ideals]
+\label{rem:functor-restricted-image-ideal}
+If an analytic approximant is represented by an ambient coherent ideal
+\(\mathfrak a\subset\mathcal O_X\), the ideal used after restriction is
+\[
+ \mathfrak a\mathcal O_Y
+ :=\operatorname{im}\!\left(
+   \mathfrak a\otimes_{\mathcal O_X}\mathcal O_Y
+   \longrightarrow\mathcal O_Y\right).
+\]
+It is not the abstract tensor product, and it is not automatically the
+intrinsic multiplier ideal of a naively restricted singularity.  The
+restriction theorem supplies, when literal restriction is defined, only
+the one-sided inclusion
+\[
+ \mathcal I(m\varphi|_Y)
+ \subseteq \mathcal I(m\varphi)\mathcal O_Y;
+\]
+no equality is used in the trace construction.  This is why the
+\(d_S\)-limit and the sourced uniqueness theorem, rather than an
+identification of restricted ideals, determine the output \(P\)-class.
+\end{remark}
+
+\begin{proposition}\label{prop:functor-trace-restriction}
+Let \(Y\subset X\) be a smooth submanifold and
+\(\varphi\in D_Y\).
+\begin{enumerate}
+\item If \(\varphi\) has analytic singularities and
+      \(\varphi|_Y\not\equiv-\infty\), then
+      \[
+                \Tr_Y(\varphi)\sim_P\varphi|_Y.
+      \tag{67.18}\label{eq:functor-trace-analytic}
+      \]
+\item For arbitrary \(\varphi\in D_Y\), literal restriction need not
+      be continuous under quasi-equisingular approximation, whereas
+      the trace is well-defined by
+      \Cref{thm:operations-trace-well-defined}.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+Write the analytic singularity locally as
+\(c\log\sum|f_k|^2+b\), with \(b\) locally bounded. Regularize only the
+bounded term by a sequence \(b_j\) converging in the strong singularity
+topology. The ideal generated by the \(f_k\) and the coefficient \(c\)
+are unchanged, so all multiplier ideals of the approximants agree with
+those of \(\varphi\). Restriction to \(Y\) preserves the same analytic
+ideal because \(\varphi|_Y\not\equiv-\infty\). The restricted sequence
+therefore has strong limit in the \(P\)-class of
+\(\varphi|_Y\), proving \eqref{eq:functor-trace-analytic}.
+
+For the second assertion, the trace theorem makes two choices of
+quasi-equisingular approximation comparable by a diagonal sequence and
+restriction estimates. Literal restriction has no corresponding
+continuity: restrictions of an increasing family can retain poles that
+disappear in the ambient limit, as in
+\Cref{rem:operations-trace-not-increasing}. This is precisely why the
+strong limiting construction, rather than pointwise substitution, is used.
+\end{proof}
+
+The distinction can be summarized by the diagram
+\[
+\begin{tikzcd}[column sep=huge,row sep=large]
+D_Y
+ \arrow[r,"\text{quasi-equisingular approximation}"]
+ \arrow[dr,dashed,"\text{literal restriction}"']
+&
+\{\text{analytic singularities}\}^{\mathbf N}
+ \arrow[d,"\text{restrict termwise}"]\\
+&
+\QPSH(\widetilde Y)^{\mathbf N}
+ \arrow[d,"\text{\(d_S\)-limit}"]\\
+&
+\QPSH(\widetilde Y)/{\sim_P}.
+\end{tikzcd}
+\tag{67.19}\label{eq:functor-trace-diagram}
+\]
+The dashed arrow is unavailable in general.
+
+\paragraph{A zero-Lelong pole.}
+Near a smooth hypersurface \(Y=\{z=0\}\), the function
+\[
+                  \varphi=-\log\bigl(-\log|z|^2\bigr)
+\]
+has generic Lelong number zero but equals \(-\infty\) on \(Y\). It lies in
+the trace domain \(D_Y\), although literal restriction is meaningless. The
+example separates the domain condition in
+\eqref{eq:functor-trace-domain} from pointwise finiteness and shows that
+replacing one by the other would shrink the sourced trace domain.
+
+\section{The split trace Dirichlet theorem}
+\label{sec:functor-split-dirichlet}
+
+The general trace Dirichlet problem asks whether a prescribed K\"ahler
+current on \(Y\) is the analytic trace of a K\"ahler current in a fixed
+class on \(X\). The next theorem is the exact product case validated
+in the research ledger.
+
+\begin{theorem}\label{thm:functor-split-trace}
+Let \(Y\) and \(Z\) be connected compact K\"ahler manifolds, set
+\(X=Y\times Z\), and fix
+\[
+              \alpha=p_Y^*\alpha_Y+p_Z^*\alpha_Z
+\tag{67.20}\label{eq:functor-split-class}
+\]
+with \(\alpha_Y,\alpha_Z\) K\"ahler classes. Let
+\[
+             S=\theta_Y+\ddc\psi\in\alpha_Y
+\tag{67.21}\label{eq:functor-prescribed-current}
+\]
+be a K\"ahler current, and let
+\(\eta\in\alpha_Z\) be a smooth K\"ahler form. Then
+\[
+                    T:=p_Y^*S+p_Z^*\eta
+\tag{67.22}\label{eq:functor-product-current}
+\]
+is a K\"ahler current in \(\alpha\), and for every \(z_0\in Z\),
+the analytic trace satisfies
+\[
+ \Tr_{Y\times\{z_0\}}(T)
+       \sim_P P_{\alpha_Y}[\psi]_{\mathcal I}
+       \sim_{\mathcal I}S.
+\tag{67.23}\label{eq:functor-product-trace}
+\]
+If \(S\) is \(\mathcal I\)-good, then its canonical
+\(\mathcal I\)-model representative satisfies
+\[
+ \Tr_{Y\times\{z_0\}}(T)
+ \sim_P P_{\alpha_Y}[\psi]_{\mathcal I}
+ \sim_P S.
+\tag{67.24}\label{eq:functor-product-p-good}
+\]
+\end{theorem}
+
+\begin{proof}
+\noindent\emph{Step 1: positivity in the fixed class.}
+Choose \(\varepsilon>0\) and a K\"ahler form \(\omega_Y\) such that
+\[
+                         S\geq\varepsilon\omega_Y.
+\]
+Since \(\eta\) is K\"ahler, it dominates
+\(\varepsilon'\omega_Z\) for some \(\varepsilon'>0\). Therefore
+\[
+ T\geq
+ \min\{\varepsilon,\varepsilon'\}
+      (p_Y^*\omega_Y+p_Z^*\omega_Z),
+\tag{67.25}\label{eq:functor-product-positive}
+\]
+so \(T\) is K\"ahler. Its class is \(\alpha\) by
+\eqref{eq:functor-split-class}.
+
+\medskip
+\noindent\emph{Step 2: pull back a quasi-equisingular approximation.}
+Choose a quasi-equisingular approximation
+\((\psi_j)\) of \(\psi\) in \(\alpha_Y\). Thus \(\psi_j\) has analytic
+singularities, converges to \(\psi\) in the prescribed strong
+singularity topology, and its multiplier ideals encode
+\(\mathcal I(m\psi)\) with the usual diagonal errors.
+Set
+\[
+                          \Psi_j:=p_Y^*\psi_j.
+\tag{67.26}\label{eq:functor-product-approximants}
+\]
+The projection \(p_Y\) is smooth. Locally it is the projection
+\(U\times V\to U\); Fubini's theorem gives
+\[
+     \mathcal I(m\Psi_j)
+                =p_Y^{-1}\mathcal I(m\psi_j)\cdot\mathcal O_X
+\tag{67.27}\label{eq:functor-smooth-ideal-pullback}
+\]
+for every \(m>0\). The same identity holds for \(\psi\).
+Consequently \((\Psi_j)\) is quasi-equisingular for \(p_Y^*\psi\).
+
+\medskip
+\noindent\emph{Step 3: restrict the approximants.}
+Let \(i_{z_0}:Y\hookrightarrow X\) be
+\(y\mapsto(y,z_0)\). Then
+\[
+                         i_{z_0}^*\Psi_j=\psi_j,
+          \qquad i_{z_0}^*p_Z^*\eta=0.
+\tag{67.28}\label{eq:functor-product-restriction}
+\]
+Since the smooth term \(p_Z^*\eta\) changes no multiplier ideal, the
+sequence used to compute the trace of \(T\) restricts exactly to the
+chosen sequence for \(S\).
+
+\medskip
+\noindent\emph{Step 4: identify the limit.}
+By the definition of analytic trace,
+\[
+       \Tr_{Y\times\{z_0\}}(T)
+          \sim_P d_S\text{-}\lim_j\psi_j
+          \sim_P P_{\alpha_Y}[\psi]_{\mathcal I}.
+\tag{67.29}\label{eq:functor-product-limit}
+\]
+The \(\mathcal I\)-model envelope is
+\(\mathcal I\)-equivalent to \(\psi\), hence to \(S\). This proves
+\eqref{eq:functor-product-trace}. If \(S\) is \(\mathcal I\)-good,
+its \(P\)-class equals the \(P\)-class of its
+\(\mathcal I\)-model envelope, giving the statement about the canonical
+representative in
+\eqref{eq:functor-product-p-good}.
+\end{proof}
+
+\begin{example}[Why the \(Z\)-term is necessary]
+\label{ex:functor-product-vertical-positivity}
+The current \(p_Y^*S\) vanishes on tangent vectors to the \(Z\)-factor,
+so it is not a K\"ahler current on \(Y\times Z\) when \(\dim Z>0\).
+The term \(p_Z^*\eta\) supplies precisely the missing vertical
+positivity without changing the trace on a horizontal slice.
+\end{example}
+
+\paragraph{Worked product calculation.}
+Take \(Y=Z=\mathbf P^1\), let \(\omega_Y,\omega_Z\) be Fubini--Study forms,
+and let \(S=\omega_Y+\ddc\psi\geq\varepsilon\omega_Y\). Then
+\[
+ T=p_Y^*S+p_Z^*\omega_Z,
+ \qquad
+ T^2=2p_Y^*S\wedge p_Z^*\omega_Z.
+\]
+Thus \(T\) has strictly positive top mass and no horizontal or vertical
+direction is lost. On the slice \(Y\times\{z_0\}\), the second summand
+restricts to zero and every pulled-back approximant restricts to the
+original approximant of \(\psi\). The geometric restriction calculation
+is exact; the final limiting output is canonically determined modulo
+\(P\)-equivalence.
+
+\section{The retraction variant}
+\label{sec:functor-retraction}
+
+\begin{theorem}\label{thm:functor-retraction-trace}
+Let \(r:X\to Y\) be a holomorphic submersion of connected compact
+K\"ahler manifolds with a holomorphic section
+\(i:Y\hookrightarrow X\), so \(r\circ i=\operatorname{id}_Y\). Suppose
+\[
+                         \alpha=r^*\beta+\gamma
+\tag{67.30}\label{eq:functor-retraction-class}
+\]
+where \(\beta\) is K\"ahler and \(\gamma\) has a smooth semipositive
+representative \(\eta\) satisfying
+\[
+ i^*\eta=0,
+ \qquad
+ \eta(\xi,J\xi)>0
+       \quad\text{for }0\neq\xi\in\ker(\rd r).
+\tag{67.31}\label{eq:functor-transverse-positive}
+\]
+If \(S=\theta_Y+\ddc\psi\in\beta\) is a K\"ahler current, then
+\[
+                              T=r^*S+\eta
+\tag{67.32}\label{eq:functor-retraction-current}
+\]
+is a K\"ahler current in \(\alpha\), and
+the analytic trace satisfies
+\[
+                       \Tr_{i(Y)}(T)
+                 \sim_P P_\beta[\psi]_{\mathcal I}
+                 \sim_{\mathcal I}S.
+\tag{67.33}\label{eq:functor-retraction-trace}
+\]
+If \(S\) is \(\mathcal I\)-good, then
+\(\Tr_{i(Y)}(T)\sim_P P_\beta[\psi]_{\mathcal I}\sim_P S\).
+\end{theorem}
+
+\begin{proof}
+Choose a K\"ahler form \(\omega_Y\) and \(c>0\) with
+\(S\geq c\omega_Y\). For a nonzero tangent vector \(\xi\), there are two
+cases. If \(\rd r(\xi)\neq0\), then
+\(r^*S(\xi,J\xi)\geq c\omega_Y(\rd r(\xi),J\rd r(\xi))>0\). If
+\(\rd r(\xi)=0\), then \(\eta(\xi,J\xi)>0\) by
+\eqref{eq:functor-transverse-positive}. Since both summands are
+semipositive, their sum is pointwise positive definite. Compactness of the
+unit tangent bundle supplies a uniform positive lower bound against any
+fixed Hermitian metric. Hence \(T\) is K\"ahler and represents \(\alpha\).
+
+Because \(r\) is a holomorphic submersion, it is locally a smooth
+projection. Thus multiplier ideals commute with pullback exactly as in
+\eqref{eq:functor-smooth-ideal-pullback}. Pull a quasi-equisingular
+approximation \((\psi_j)\) back by \(r\). Since
+\(r\circ i=\operatorname{id}_Y\),
+\[
+                         i^*r^*\psi_j=\psi_j.
+\tag{67.34}\label{eq:functor-retraction-approximation}
+\]
+The condition \(i^*\eta=0\) says that the smooth transverse term
+contributes no form on the section. The trace computation is therefore
+identical to Steps \(3\)--\(4\) in the proof of
+\Cref{thm:functor-split-trace}. This gives
+\eqref{eq:functor-retraction-trace} and the
+\(P\)-equivalence conclusion for \(\mathcal I\)-good data.
+\end{proof}
+
+\begin{remark}[Why a bare retraction is insufficient]
+\label{rem:functor-bare-retraction}
+The identity \(r\circ i=\operatorname{id}_Y\) provides an extension of the
+singularity \(\psi\), but it provides neither a decomposition
+\eqref{eq:functor-retraction-class} nor positive curvature in
+\(\ker(\rd r)\). Thus a bare holomorphic retraction does not solve the
+trace Dirichlet problem in a prescribed K\"ahler class.
+\end{remark}
+
+\section{Descent of trace and its exact sensitivity}
+\label{sec:functor-trace-descent}
+
+The comparison theorem from \Cref{chap:operations-trace} gives
+\[
+ \varphi\preceq_{\mathcal I}\psi
+ \quad\Longrightarrow\quad
+ \Tr_Y(\varphi)\preceq_P\Tr_Y(\psi)
+\tag{67.35}\label{eq:functor-trace-order}
+\]
+on \(D_Y\). Therefore the exact sourced map is
+\[
+\begin{tikzcd}[column sep=large]
+D_Y/{\sim_{\mathcal I}}
+ \arrow[r,"\Tr_Y"]
+&
+\QPSH(\widetilde Y)/{\sim_P}.
+\end{tikzcd}
+\tag{67.36}\label{eq:functor-trace-factorization}
+\]
+
+\begin{proposition}\label{prop:functor-domain-saturation}
+The domain \(D_Y\) is saturated for \(\mathcal I\)-equivalence.
+Consequently,
+\eqref{eq:functor-trace-factorization} is well-defined.
+\end{proposition}
+
+\begin{proof}
+Equality of \(\mathcal I\)-types is equality of generic Lelong numbers
+along divisorial valuations on modifications. If \(Y\) is a divisor,
+use \(\ord_Y\); in higher codimension, the exceptional divisor of the
+blow-up of the smooth center \(Y\) recovers \(\nu(\varphi,Y)\). Hence
+\(\varphi\sim_{\mathcal I}\psi\) implies
+\(\nu(\varphi,Y)=\nu(\psi,Y)\). Applying
+\eqref{eq:functor-trace-order} in both directions proves that the
+arrow in \eqref{eq:functor-trace-factorization} is defined. This is the
+comparison and uniqueness assertion of \cite{DX24}, reproduced in the
+supplied trace chapter of \cite{XiaBook}.
+\end{proof}
+
+The factorization can be read from left to right, but not backwards:
+\[
+ \frac{D_Y}{\sim_P}
+ \longrightarrow
+ \frac{D_Y}{\sim_{\mathcal I}}
+ \xrightarrow{\ \Tr_Y\ }
+ \frac{\QPSH(\widetilde Y)}{\sim_P}.
+\]
+The first arrow forgets information about the ambient input.  The second
+arrow nevertheless has a \(P\)-valued target because restricted
+quasi-equisingular approximants satisfy a finer uniqueness theorem.  This
+does not recover the forgotten input \(P\)-class.
+
+\begin{remark}[What the theorem does not recover]
+\label{rem:functor-not-p-sensitive}
+The source theorem does not assert that \(\sim_{\mathcal I}\) and \(\sim_P\)
+coincide on \(D_Y\), nor does it assign an ordinary singularity type to the
+trace.  Its conclusion is exactly the map in
+\eqref{eq:functor-trace-factorization}: input dependence at the
+\(\mathcal I\)-level, output uniqueness at the \(P\)-level, and
+\(\mathcal I\)-good representatives.
+\end{remark}
+
+\section{Singular and unibranch boundaries}
+\label{sec:functor-singular-boundary}
+
+Algebraic envelope theory behaves well on geometrically unibranch
+projective varieties, and finite normal descent allows inseparable and
+nonreduced fibres. These facts do not supply an analytic trace theorem
+on a singular complex ambient space.
+
+\begin{remark}[Unibranch trace remains open]
+\label{rem:functor-unibranch-open}
+For a reduced irreducible unibranch compact K\"ahler space \(X\), the
+general construction of \(\Tr_Y\) would require:
+\begin{enumerate}
+\item quasi-equisingular regularization on the singular ambient space;
+\item a multiplier-ideal transformation rule compatible with that
+      regularization;
+\item restriction estimates through a resolution independent of the
+      chosen embedding; and
+\item strong-topology completeness on the normalized target.
+\end{enumerate}
+The algebraic envelope property supplies none of these analytic inputs.
+Accordingly, neither \Cref{thm:functor-split-trace} nor
+\Cref{thm:functor-retraction-trace} is stated for a singular
+ambient space.
+\end{remark}
+
+\begin{remark}[No general Dirichlet theorem]
+\label{rem:functor-general-dirichlet-open}
+For an arbitrary inclusion \(Y\subset X\) and an arbitrary K\"ahler
+class \(\alpha\), extending a prescribed singularity while retaining
+strict positivity in \(\alpha\) remains unresolved. The product and
+retraction theorems work because the cohomology class and the tangent
+directions split. They are special cases, not reductions of the
+general problem.
+\end{remark}
+
+\begin{example}[Finite descent does not repair trace]
+\label{ex:functor-finite-does-not-repair}
+Let \(\nu:X^\nu\to X\) be the normalization of a unibranch compact
+complex space. The map on analytifications may have excellent
+topological properties, and determinant norms may descend algebraic
+metrics. Nevertheless, a trace built upstairs is not known to be
+independent of all analytic choices downstairs without the
+equisingular regularization package listed above.
+\end{example}
+
+\section{Functoriality checklist}
+\label{sec:functor-checklist}
+
+\begin{proposition}\label{prop:functor-operation-ledger}
+The valid operations and their inputs are:
+\begin{enumerate}
+\item proper bimeromorphic maps admit pullback of currents and
+      singularity types;
+\item finite pushforward for continuous semipositive metrics gives
+      \(d\,\operatorname{MA}(\phi)\);
+\item finite locally free algebras admit the length-weighted
+      determinant norm;
+\item analytic trace requires \(\nu(\varphi,Y)=0\) and produces a
+      canonical \(P\)-class on \(\widetilde Y\), represented by
+      \(\mathcal I\)-good potentials and depending only on the ambient
+      \(\mathcal I\)-class;
+\item the split Dirichlet solution requires a product splitting or the
+      transverse-positive retraction splitting.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+The rows are respectively
+\Cref{prop:functor-birational-pullback},
+\Cref{prop:functor-finite-ma},
+\Cref{prop:functor-determinant-norm},
+\Cref{def:functor-analytic-trace}, and
+\Crefrange{thm:functor-split-trace}{thm:functor-retraction-trace}.
+Each required hypothesis appears in the proof at the point where its
+omission would invalidate the construction.
+\end{proof}
+
+\section*{Source notes}
+
+Birational transformation, nonpluripolar pullback, and
+quasi-equisingular restriction use the complex prerequisites of
+\Cref{chap:complex-prerequisites}. Finite openness, flattening,
+and determinant norms follow
+\Cref{chap:bj-finite-descent}. The analytic trace and its factorization
+through ambient \(\mathcal I\)-classes with output in \(P\)-classes are
+\Cref{thm:operations-trace-well-defined} and
+\Cref{thm:operations-trace-p-descent}. The product calculation was audited
+at the weaker \(\mathcal I\)-level; the displayed output \(P\)-class is the
+formal application of the sourced trace uniqueness theorem, not a claim of
+a new production receipt.  The retraction argument is the same calculation
+under the explicitly stated splitting and transverse-positivity
+hypotheses. The unibranch and general Dirichlet problems remain outside the
+theorem text.

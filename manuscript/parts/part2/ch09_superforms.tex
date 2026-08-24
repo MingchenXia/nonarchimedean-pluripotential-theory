@@ -1,0 +1,3116 @@
+\chapter{Lagerberg superforms}
+\index{superform}\index{Lagerberg differential}
+\label{chap:superforms}
+
+The local differential calculus of Chambert--Loir and Ducros begins on real
+affine space. Its two differentials are not two derivatives in different
+directions: they are two labelled copies of the same real derivative. This
+simple device retains the bidegrees, positivity, and Hessian calculus familiar
+from complex geometry.
+
+Throughout this chapter $V$ is an $n$-dimensional real vector space and
+$U\subset V$ is open. We first work in affine coordinates and then prove that
+the definitions do not depend on them.
+
+It is worth being precise at once about what the doubling device does and
+does not accomplish, because the analogy with complex geometry is close
+enough to be dangerous.  On a complex manifold the decomposition
+$\rd=\partial+\bar\partial$ is forced by the complex structure: the two
+operators act on genuinely different objects, and a form of type $(1,0)$ is
+not a form of type $(0,1)$.  On a real vector space there is no such
+structure, and none is manufactured here.  What is manufactured is a
+\emph{label}.  We take two copies of the cotangent space, agree to write the
+first with a prime and the second with a double prime, and let one and the
+same partial derivative $\partial/\partial x_i$ produce either
+$\dprime x_i$ or $\ddprime x_i$ according to which copy we have decided to
+feed.  Everything that follows---the bidegrees, the two differentials, the
+involution exchanging them, the three positivity cones---is a consequence of
+that bookkeeping and of nothing else.
+
+The reward for the bookkeeping is that the Hessian of a smooth function
+becomes a $(1,1)$-form,
+\[
+ \dprimeddprime u
+ =\sum_{i,j}\frac{\partial^2u}{\partial x_i\partial x_j}\,
+   \dprime x_i\wedge\ddprime x_j ,
+\]
+and its positivity becomes the positivity of a $(1,1)$-form in exactly the
+sense used in complex pluripotential theory.  The whole of the local theory
+in this part rests on this one identification: \emph{convex functions are the
+plurisubharmonic functions of the real theory}.  The corresponding statement
+is proved twice below, once for $C^2$ functions
+(\Cref{thm:convex-ddc-positive}) and once in the distributional form
+(\Cref{thm:ch09-distributional-convexity}) that the later chapters actually
+use, because in the applications the potentials are piecewise affine and are
+not twice differentiable anywhere along their break loci.
+
+The price for the bookkeeping is that signs proliferate.  A superform of
+bidegree $(p,q)$ has total degree $p+q$ and obeys the commutation rule of an
+exterior algebra in that total degree; but the labels sit in two blocks, and
+moving a double-primed factor past a primed one costs a sign that has nothing
+to do with the bidegree of the form as a whole.  Almost every mistake in this
+calculus is a mistake of that kind.  We therefore prove the sign rules rather
+than assert them, and we test each one on an example in one or two variables
+where the answer can be checked by hand.
+
+\section{Orientation and prerequisites}
+\label{sec:ch09-orientation}
+
+Only three pieces of background are needed: multilinear algebra, the chain
+rule, and the elementary Hessian criterion for convexity.  The two exterior
+algebras below should be regarded as labelled copies.  The labels remember
+which factor a differential occupies; they do not require a complex
+structure on $V$.
+
+By the end of the chapter the reader should be able to
+\begin{enumerate}
+\item compute $\dprime$, $\ddprime$, and $\dprimeddprime$ with all signs;
+\item pull superforms back under affine maps and explain why nonlinear maps
+  fall outside the functorial category;
+\item recognize positivity in bidegree $(1,1)$ as positive semidefiniteness;
+\item translate the Hessian test for convexity into positivity of
+  $\dprimeddprime f$.
+\end{enumerate}
+The discussion is deliberately more explicit than the later analytic
+chapters: every sign used in tropical integration and in the
+Poincar\'e--Lelong formula is already visible on $\mathbf R^n$.
+
+\subsection*{Roadmap}
+
+\Cref{sec:ch09-algebra} constructs the bigraded algebra
+$A^{\bullet,\bullet}(U)$, proves the wedge sign rules from the single
+identity that the algebra is the exterior algebra of $V^*\oplus V^*$,
+introduces $\dprime$, $\ddprime$ and the involution $J$, and proves the four
+identities
+\[
+ (\dprime)^2=(\ddprime)^2=0,
+ \qquad
+ \dprimeddprime=-\ddprime\dprime,
+ \qquad
+ J\dprime J=\ddprime
+\]
+together with the Leibniz rules.  Two short calculations in one and in two
+variables are carried out completely, and the resulting tables of basis
+elements are the ones used in every later verification.
+
+\Cref{sec:ch09-contraction} adds the two contraction operators
+$\iota'_v$ and $\iota''_v$.  They are not needed for the algebra of forms,
+but they are the operators in which the boundary traces of
+\Cref{chap:tropical-integration} and the homogeneity conditions of
+\Cref{sec:appD-supercurrents} are written, and their signs are of exactly the
+kind that this chapter exists to pin down.
+
+\Cref{sec:ch09-pullback} proves that the whole structure is functorial for
+affine maps: pullback commutes with the wedge product, with $J$, and with
+both differentials, whence the calculus is independent of the affine
+coordinates used to define it.  The same computation shows why nonlinear maps
+must be excluded, and this is the algebraic reason that the transition maps
+of a tropical chart in \Cref{chap:tropical-spaces} are required to be
+integral affine.
+
+\Cref{sec:ch09-symmetry} sets up the dictionary between symmetric
+$(p,p)$-forms and symmetric matrices indexed by $p$-element subsets, and
+proves the complementary pairing formula.  This is the technical heart of the
+chapter: once it is available, the three positivity notions of
+\Cref{sec:ch09-positivity} become three familiar conditions on a symmetric
+matrix, their inclusions and their duality become statements about convex
+cones of matrices, and the standard counterexample separating them becomes a
+computation with six coordinates that can be checked line by line.
+
+\Cref{sec:ch09-convexity} identifies positivity of $\dprimeddprime u$ with
+convexity of $u$ and computes the Monge--Amp\`ere form
+$(\dprimeddprime u)^n$ in coordinates.
+\Cref{sec:ch09-regularization} proves the regularization lemma---convolution
+of a convex function with a radial kernel is convex, dominates the function,
+and increases with the parameter---and deduces the distributional
+characterization of convexity.  Both are used repeatedly from
+\Cref{chap:cld-bedford-taylor} onwards.
+\Cref{sec:ch09-dictionary} collects the dictionary and the sign checklist,
+and the closing section separates Lagerberg's original formalism from the
+Chambert--Loir--Ducros development.
+
+\subsection*{What is deliberately absent}
+
+Three things that a reader might expect are not in this chapter, and it is
+better to say so now.
+
+There is no integration theory.  A top-degree superform is not a measure
+until an orientation and a Lebesgue normalization have been chosen, and the
+choice is genuinely additional data: this is
+\Cref{chap:tropical-integration}, where the calibration formalism is
+introduced precisely because the naive Lagerberg integral is not invariant
+under all changes of coordinates.  The present chapter fixes the orientation
+$\tau_n$ and nothing more.
+
+There is no sheaf theory and no cohomology.  Everything here happens on a
+single open subset of a single real vector space.
+
+There is no notion of a superform with singular coefficients.  The
+coefficients are $C^\infty$ throughout, with the single exception of the
+distributional statement in \Cref{sec:ch09-regularization}, where the object
+being differentiated is a function and the derivatives are taken in the sense
+of distributions on an open subset of $\mathbf R^n$.  Currents proper---the
+objects that make $\dprimeddprime\max\{0,x\}$ legitimate---are constructed in
+\Cref{chap:cld-currents}.
+
+\section{The bigraded algebra}
+\label{sec:ch09-algebra}
+
+\begin{definition}
+\label{def:ch09-superform-space}
+The space of superforms of bidegree $(p,q)$ on $U$ is
+\[
+ A^{p,q}(U)=C^\infty(U)\otimes_{\mathbf R}
+             \bigwedge^pV^*\otimes_{\mathbf R}\bigwedge^qV^*.
+\]
+In affine coordinates $x_1,\ldots,x_n$ we denote the two copies of $\rd x_i$ by
+$\dprime x_i$ and $\ddprime x_i$. Thus
+\[
+ \alpha=\sum_{|I|=p,\ |J|=q}\alpha_{IJ}\,
+ \dprime x_I\wedge \ddprime x_J.
+\]
+\end{definition}
+
+Equivalently, a superform assigns to $x\in U$ a multilinear function
+\[
+ \alpha_x:(V^p)\times(V^q)\longrightarrow\mathbf R
+\]
+that is alternating in each block and depends smoothly on $x$.  This
+description makes clear that a primed tangent vector and a double-primed
+tangent vector both belong to $V$, but are inserted in different alternating
+blocks.  In particular,
+\[
+ A^{p,q}(U)=0\quad\text{if}\quad p>n\ \text{or}\ q>n,
+ \qquad
+ A^{0,0}(U)=C^\infty(U).
+\]
+
+Three remarks on the definition are in order before any computation.
+
+First, the two tensor factors $\bigwedge^pV^*$ and $\bigwedge^qV^*$ are the
+same vector space.  Nothing distinguishes them except their position, and the
+prime notation is exactly the device that records the position.  It is
+legitimate, and often clarifying, to read $A^{p,q}(U)$ as the space of smooth
+maps from $U$ to $\bigwedge^pV^*\otimes\bigwedge^qV^*$; the wedge product then
+becomes an operation on the target and the differentials become operations on
+the source.
+
+Second, the definition is affine rather than linear in nature.  If $V$ is an
+$n$-dimensional real \emph{affine} space with direction space
+$\overrightarrow V$, one sets
+\[
+ A^{p,q}(U)
+ =C^\infty(U)\otimes_{\mathbf R}
+   \bigwedge\nolimits^p\overrightarrow V{}^*
+   \otimes_{\mathbf R}
+   \bigwedge\nolimits^q\overrightarrow V{}^*,
+\]
+and every statement below holds verbatim.  We suppress the arrow and treat a
+choice of origin as part of the choice of coordinates; \Cref{sec:ch09-pullback}
+proves that nothing depends on it.  The affine formulation is the one needed
+in \Cref{chap:tropical-spaces}, where the charts of a tropical space are
+open subsets of affine spaces and the transition maps are affine.
+
+Third, the total dimension is
+\[
+ \dim_{\mathbf R}A^{p,q}(V)=\binom np\binom nq,
+ \qquad
+ \sum_{p,q}\dim_{\mathbf R}A^{p,q}(V)=4^n,
+\]
+which is $2^{2n}$, the dimension of the exterior algebra of a $2n$-dimensional
+vector space.  That is not a coincidence, and it is the cleanest way to
+organize the sign rules.
+
+\begin{lemma}
+\label{lem:ch09-exterior-of-double}
+Let $W=V^*\oplus V^*$ and let $\iota',\iota'':V^*\to W$ be the two inclusions.
+Then the assignment
+\[
+ \begin{aligned}
+  \eta\otimes\xi\longmapsto{}&
+  \iota'(\eta_1)\wedge\cdots\wedge\iota'(\eta_p)\\
+  &{}\wedge\iota''(\xi_1)\wedge\cdots\wedge\iota''(\xi_q),\\
+  &\eta=\eta_1\wedge\cdots\wedge\eta_p,
+  \qquad \xi=\xi_1\wedge\cdots\wedge\xi_q,
+ \end{aligned}
+\]
+extends to an isomorphism of graded algebras
+\[
+ \bigoplus_{p,q}A^{p,q}(V)
+ \;\xrightarrow{\ \sim\ }\;
+ \bigwedge\nolimits^{\bullet}W ,
+\]
+where the left side is graded by total degree $p+q$.  Under this
+isomorphism $\dprime x_i$ and $\ddprime x_i$ correspond to
+$\iota'(x_i)$ and $\iota''(x_i)$, and the elements
+$\dprime x_I\wedge\ddprime x_J$, for $I$ and $J$ strictly increasing
+multi-indices, form a basis.
+\end{lemma}
+
+\begin{proof}
+For any two finite-dimensional vector spaces $W_1,W_2$ the exterior algebra
+of the direct sum decomposes canonically as
+\[
+ \bigwedge\nolimits^{m}(W_1\oplus W_2)
+ =\bigoplus_{p+q=m}
+   \bigwedge\nolimits^{p}W_1\otimes\bigwedge\nolimits^{q}W_2 ,
+\]
+the isomorphism from right to left being induced by the multiplication map
+$(\eta,\xi)\mapsto \eta\wedge\xi$ in $\bigwedge^\bullet(W_1\oplus W_2)$; that
+this is an isomorphism is the standard computation with bases, and it is
+clearly compatible with products up to the reordering sign recorded below.
+Applying it with $W_1=W_2=V^*$ and summing over $m$ gives the displayed
+bijection.  If $x_1,\ldots,x_n$ is a basis of $V^*$, then the $2n$ elements
+$\iota'(x_1),\ldots,\iota'(x_n),\iota''(x_1),\ldots,\iota''(x_n)$ form a basis
+of $W$, so the products of strictly increasing subfamilies form a basis of
+$\bigwedge^\bullet W$; sorting each such product into its primed and
+double-primed parts, which costs only a sign, produces exactly the family
+$\dprime x_I\wedge\ddprime x_J$.
+\end{proof}
+
+The lemma is the whole content of the sign calculus: \emph{a superform is an
+exterior form on a doubled space, and the bidegree merely records how many of
+its arguments come from each copy}.  In particular the algebra is
+graded-commutative for the total degree, and every sign question can be
+answered by counting transpositions of degree-one factors.
+
+For pure tensors the wedge product is fixed by
+\[
+(\eta\otimes\xi)\wedge(\eta'\otimes\xi')
+ =(-1)^{q p'}(\eta\wedge\eta')\otimes(\xi\wedge\xi').
+\]
+Equivalently, all primed factors are placed before all double-primed factors.
+It follows directly that
+\[
+             \alpha\wedge\beta=(-1)^{(p+q)(p'+q')}
+             \beta\wedge\alpha.
+\]
+
+Both displayed formulas deserve a proof rather than an assertion, since they
+are the source of every later sign.
+
+\begin{proposition}
+\label{prop:ch09-wedge-signs}
+Let $\alpha\in A^{p,q}(U)$ and $\beta\in A^{p',q'}(U)$.
+\begin{enumerate}
+\item If $\alpha=\eta\otimes\xi$ and
+  $\beta=\eta'\otimes\xi'$ are pure tensors, with
+  $\eta\in\bigwedge^pV^*$, $\xi\in\bigwedge^qV^*$,
+  $\eta'\in\bigwedge^{p'}V^*$, $\xi'\in\bigwedge^{q'}V^*$, then
+  \[
+   \alpha\wedge\beta=(-1)^{qp'}(\eta\wedge\eta')\otimes(\xi\wedge\xi').
+  \]
+\item In general
+  $\alpha\wedge\beta=(-1)^{(p+q)(p'+q')}\beta\wedge\alpha$.
+\item The product is associative and
+  $C^\infty(U)$-bilinear, and $A^{\bullet,\bullet}(U)$ is a bigraded
+  associative algebra with unit $1\in A^{0,0}(U)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By \Cref{lem:ch09-exterior-of-double} we may compute inside
+$\bigwedge^\bullet W$, where the product is the exterior product and
+degree-one elements anticommute.  Write
+$\alpha=\eta\wedge\xi$ and $\beta=\eta'\wedge\xi'$ with $\eta,\eta'$ products
+of primed generators and $\xi,\xi'$ products of double-primed generators.
+Then
+\[
+ \alpha\wedge\beta=\eta\wedge\xi\wedge\eta'\wedge\xi' .
+\]
+To restore the normal form, in which all primed factors precede all
+double-primed ones, move the block $\eta'$, of degree $p'$, to the left past
+the block $\xi$, of degree $q$.  Interchanging two homogeneous elements of
+degrees $a$ and $b$ in an exterior algebra produces the sign $(-1)^{ab}$;
+here this gives $(-1)^{qp'}$ and proves
+(1), since $\eta\wedge\eta'$ and $\xi\wedge\xi'$
+are the primed and double-primed blocks of the result.
+Assertion (2) is the graded commutativity of
+$\bigwedge^\bullet W$ applied to the homogeneous elements $\alpha$ and
+$\beta$ of degrees $p+q$ and $p'+q'$; note that the bidegrees enter only
+through their sum.  Assertion (3) holds because
+the exterior algebra is associative and the identification of
+\Cref{lem:ch09-exterior-of-double} is multiplicative; bilinearity over
+$C^\infty(U)$ is the definition of the coefficientwise product.
+\end{proof}
+
+\begin{warning}{Total degree, not bidegree}
+The commutation sign in \Cref{prop:ch09-wedge-signs}\,(2) is governed by the
+\emph{total} degrees $p+q$ and $p'+q'$, not by the bidegrees separately.
+Thus $(1,1)$-forms commute with everything of even total degree and, in
+particular, with each other; this is what makes powers such as
+$(\dprimeddprime u)^k$ well behaved.  By contrast the internal sign
+$(-1)^{qp'}$ of (1) depends on the bidegrees, and
+it is the sign that is forgotten in hand computations.  A reliable habit:
+never move a labelled block past another without writing down its degree.
+\end{warning}
+
+For later sign checks, if $e_i=\dprime x_i$ and
+$f_i=\ddprime x_i$, then
+\[
+ e_1\wedge f_1\wedge\cdots\wedge e_n\wedge f_n
+ =(-1)^{n(n-1)/2}
+ e_1\wedge\cdots\wedge e_n\wedge f_1\wedge\cdots\wedge f_n.
+\]
+The exponent counts the number of double-primed factors moved past later
+primed factors.
+
+\begin{lemma}
+\label{lem:ch09-interlaced}
+Write $c_k=(-1)^{k(k-1)/2}$ and, for a basis $x_1,\ldots,x_n$ of $V^*$,
+\[
+ \lambda=\dprime x_1\wedge\cdots\wedge\dprime x_n,
+ \qquad
+ \tau_n=\dprime x_1\wedge\ddprime x_1\wedge\cdots\wedge
+        \dprime x_n\wedge\ddprime x_n .
+\]
+Then
+\[
+ \tau_n=c_n\,\dprime x_1\wedge\cdots\wedge\dprime x_n\wedge
+              \ddprime x_1\wedge\cdots\wedge\ddprime x_n .
+\]
+Moreover $c_ac_b(-1)^{ab}=c_{a+b}$ for all $a,b\in\mathbf N$.
+\end{lemma}
+
+\begin{proof}
+Put $e_i=\dprime x_i$ and $f_i=\ddprime x_i$ as above.  Starting from the
+interlaced product $e_1f_1e_2f_2\cdots e_nf_n$, move $f_1$ to the right past
+$e_2,\ldots,e_n$, which costs $(-1)^{n-1}$; then move $f_2$ past
+$e_3,\ldots,e_n$, at a cost of $(-1)^{n-2}$; and so on, the last move being
+free.  The total sign is
+\[
+ (-1)^{(n-1)+(n-2)+\cdots+1+0}=(-1)^{n(n-1)/2}=c_n,
+\]
+and after all moves the product is $e_1\cdots e_nf_1\cdots f_n$ with the
+$f$'s in their original relative order.  Since $c_n^2=1$, the two displayed
+forms of $\tau_n$ are equivalent.
+
+For the numerical identity, compute the exponents modulo $2$:
+\[
+ \frac{a(a-1)}2+\frac{b(b-1)}2+ab
+ =\frac{a^2-a+b^2-b+2ab}2
+ =\frac{(a+b)^2-(a+b)}2 ,
+\]
+and the right-hand side is $\tfrac12(a+b)(a+b-1)$.
+\end{proof}
+
+The innocuous identity $c_ac_b(-1)^{ab}=c_{a+b}$ is used constantly below.
+It is what makes the constants $c_p$ in the positivity generators fit
+together under multiplication, and it is the reason that the complementary
+pairing of \Cref{lem:ch09-complement-pairing} carries no sign at all.  With
+$a=p$ and $b=n-p$ it reads
+\[
+ c_pc_{n-p}(-1)^{p(n-p)}=c_n .
+\]
+
+\begin{example}[Superforms in one variable]
+\label{ex:ch09-line}
+Let $V=\mathbf R$ with coordinate $x$ and let $U\subset\mathbf R$ be open.
+There are exactly four spaces of superforms, of total dimension
+$4=4^1$:
+\[
+ \begin{array}{llll}
+ A^{0,0}(U)=C^\infty(U), &
+ A^{1,0}(U)=C^\infty(U)\,\dprime x, \\[2pt]
+ A^{0,1}(U)=C^\infty(U)\,\ddprime x, &
+ A^{1,1}(U)=C^\infty(U)\,\dprime x\wedge\ddprime x .
+ \end{array}
+\]
+All products of two generators vanish except
+$\dprime x\wedge\ddprime x=-\ddprime x\wedge\dprime x$, and
+$\tau_1=\dprime x\wedge\ddprime x$ with $c_1=1$.  For $f\in C^\infty(U)$,
+\[
+ \dprime f=f'\,\dprime x,\qquad
+ \ddprime f=f'\,\ddprime x,\qquad
+ \dprimeddprime f=f''\,\dprime x\wedge\ddprime x=f''\tau_1 .
+\]
+Thus in one variable the entire calculus reduces to the statement that
+$\dprimeddprime f\geq0$ means $f''\geq0$.  The reader who keeps this case in
+mind will not be misled by the signs in higher dimension: every formula below
+must restrict to it.
+\end{example}
+
+\begin{example}[Superforms in two variables]
+\label{ex:ch09-plane}
+Let $V=\mathbf R^2$ with coordinates $x_1,x_2$.  The bigraded pieces have
+dimensions $\binom2p\binom2q$, displayed as the matrix
+\[
+ \bigl(\dim A^{p,q}\bigr)_{0\le p,q\le2}
+ =\begin{pmatrix}1&2&1\\2&4&2\\1&2&1\end{pmatrix},
+ \qquad\text{total }16=4^2 .
+\]
+A general $(1,1)$-form is
+\[
+ \alpha=a_{11}\,\dprime x_1\wedge\ddprime x_1
+       +a_{12}\,\dprime x_1\wedge\ddprime x_2
+       +a_{21}\,\dprime x_2\wedge\ddprime x_1
+       +a_{22}\,\dprime x_2\wedge\ddprime x_2
+\]
+with $a_{ij}\in C^\infty(U)$, and the top space $A^{2,2}(U)$ is spanned by
+\[
+ \tau_2=\dprime x_1\wedge\ddprime x_1\wedge\dprime x_2\wedge\ddprime x_2
+      =-\,\dprime x_1\wedge\dprime x_2\wedge\ddprime x_1\wedge\ddprime x_2,
+\]
+the sign being $c_2=-1$ as in \Cref{lem:ch09-interlaced}.  Two products are
+worth doing by hand.  First,
+\[
+ \begin{aligned}
+  &\dprime x_1\wedge\ddprime x_2\wedge\dprime x_2\wedge\ddprime x_1\\
+  &\qquad=-\,\dprime x_1\wedge\dprime x_2
+             \wedge\ddprime x_2\wedge\ddprime x_1\\
+  &\qquad=\dprime x_1\wedge\dprime x_2
+             \wedge\ddprime x_1\wedge\ddprime x_2
+   =-\tau_2 ,
+ \end{aligned}
+\]
+where the first step moves $\ddprime x_2$ past $\dprime x_2$ and the second
+transposes the two double-primed factors.  Second, and by the same two moves,
+\[
+ \dprime x_1\wedge\ddprime x_1\wedge\dprime x_2\wedge\ddprime x_2=\tau_2 .
+\]
+Hence for the $(1,1)$-form $\alpha$ above,
+\[
+ \alpha\wedge\alpha=2(a_{11}a_{22}-a_{12}a_{21})\,\tau_2
+ =2\det(a_{ij})\,\tau_2 ,
+\]
+which is the case $n=2$ of \Cref{prop:superform-matrix-wedge}.  The factor
+$2=2!$ is not a normalization one is free to change: it counts the two ways
+of choosing which factor contributes the index $1$.
+\end{example}
+
+\subsection{The two differentials and the involution}
+
+We now differentiate.  There is only one derivative available, the ordinary
+one; what has to be decided is into which labelled block the resulting
+one-form is inserted, and where in the product it is placed.
+
+\begin{definition}
+\label{def:ch09-operators}
+For $\alpha\in A^{p,q}(U)$ define
+\[
+\begin{aligned}
+\dprime\alpha&=\sum_{I,J,i}\frac{\partial\alpha_{IJ}}{\partial x_i}
+ \dprime x_i\wedge \dprime x_I\wedge \ddprime x_J,\\
+\ddprime\alpha&=(-1)^p\sum_{I,J,i}\frac{\partial\alpha_{IJ}}{\partial x_i}
+ \dprime x_I\wedge \ddprime x_i\wedge \ddprime x_J.
+\end{aligned}
+\]
+The involution $J:A^{p,q}\to A^{q,p}$ is the algebra automorphism determined
+by $J(\dprime x_i)=\ddprime x_i$, $J(\ddprime x_i)=\dprime x_i$, and $Jf=f$.
+\end{definition}
+
+Three points about \Cref{def:ch09-operators} should be settled before it is
+used.
+
+The operator $\dprime$ raises the first degree and $\ddprime$ the second, so
+$\dprime:A^{p,q}\to A^{p+1,q}$ and $\ddprime:A^{p,q}\to A^{p,q+1}$.  Both are
+$\mathbf R$-linear but neither is $C^\infty(U)$-linear: they are first-order
+differential operators, and their failure to be linear over functions is
+precisely the Leibniz rule.
+
+The sign $(-1)^p$ in the definition of $\ddprime$ is not decorative.  The new
+factor $\ddprime x_i$ must be inserted at the head of the double-primed block,
+which means moving it past the $p$ primed factors of $\dprime x_I$; the sign
+$(-1)^p$ compensates for exactly that passage.  With this convention
+$\ddprime$ is the antiderivation that one obtains from $\dprime$ by
+conjugating with $J$, as \Cref{lem:ch09-J-conjugation} makes precise, and both
+operators obey the same Leibniz rule with the same sign.  Without it one
+would have to carry an extra $(-1)^p$ through every later formula.
+
+Finally, the involution is well defined.  Indeed the linear map
+$V^*\oplus V^*\to V^*\oplus V^*$ exchanging the two summands extends uniquely
+to an automorphism of the exterior algebra $\bigwedge^\bullet(V^*\oplus V^*)$,
+and \Cref{lem:ch09-exterior-of-double} transports that automorphism to
+$A^{\bullet,\bullet}(U)$; extending it by the identity on coefficients gives
+$J$.  Since the exchange map is an involution of $V^*\oplus V^*$, we get
+\[
+ J^2=\operatorname{id}\quad\text{on }A^{\bullet,\bullet}(U),
+ \qquad
+ J(\alpha\wedge\beta)=J\alpha\wedge J\beta .
+\]
+In coordinates, and with $|I|=p$, $|J|=q$,
+\begin{equation}
+\label{eq:ch09-J-coordinates}
+ J\Bigl(\sum_{I,J}\alpha_{IJ}\,\dprime x_I\wedge\ddprime x_J\Bigr)
+ =\sum_{I,J}\alpha_{IJ}\,\ddprime x_I\wedge\dprime x_J
+ =(-1)^{pq}\sum_{I,J}\alpha_{IJ}\,\dprime x_J\wedge\ddprime x_I ,
+\end{equation}
+the last equality being the passage of the block $\ddprime x_I$, of degree
+$p$, past the block $\dprime x_J$, of degree $q$.
+
+On functions these conventions give
+\[
+ \dprime f=\sum_i f_i\,\dprime x_i,
+ \qquad
+ \ddprime f=\sum_i f_i\,\ddprime x_i,
+ \qquad
+ \dprimeddprime f=\sum_{i,j}f_{ij}\,
+                 \dprime x_i\wedge\ddprime x_j.
+\]
+Thus $\dprimeddprime$ annihilates affine functions.  The order of the two
+differentials matters: $\ddprime\dprime f=-\dprimeddprime f$.
+
+\begin{proposition}
+\label{prop:superform-differential-identities}
+One has
+\[
+(\dprime)^2=(\ddprime)^2=0,\qquad \dprimeddprime+\ddprime\dprime=0,
+\]
+and the graded Leibniz rules
+\[
+\dprime(\alpha\wedge\beta)=\dprime\alpha\wedge\beta+
+ (-1)^{p+q}\alpha\wedge \dprime\beta,
+\]
+with the analogous formula for $\ddprime$.
+\end{proposition}
+\begin{proof}
+It is convenient to record first a reformulation of
+\Cref{def:ch09-operators} that does not presuppose sorted multi-indices.
+Call \emph{monomial} a product $\mu$ of generators $\dprime x_i$ and
+$\ddprime x_j$, in any order, and let $m$ be its total degree.  Every
+superform is a finite sum of terms $a\mu$ with $a\in C^\infty(U)$, and
+\begin{equation}
+\label{eq:ch09-dprime-monomial}
+ \dprime(a\mu)=\sum_i\frac{\partial a}{\partial x_i}\,\dprime x_i\wedge\mu .
+\end{equation}
+This is consistent: re-sorting $\mu$ into the normal form
+$\dprime x_I\wedge\ddprime x_J$ multiplies both sides of
+\eqref{eq:ch09-dprime-monomial} by the same constant sign, and on normal-form
+monomials \eqref{eq:ch09-dprime-monomial} is the first line of
+\Cref{def:ch09-operators}.
+
+\emph{Leibniz rule for $\dprime$.}  By bilinearity it suffices to take
+$\alpha=a\mu$ and $\beta=b\nu$ with $\mu,\nu$ monomials, $\mu$ of total
+degree $m=p+q$.  Then $\alpha\wedge\beta=ab\,\mu\wedge\nu$ and, by
+\eqref{eq:ch09-dprime-monomial} and the product rule for partial derivatives,
+\[
+ \dprime(\alpha\wedge\beta)
+ =\sum_i\Bigl(\frac{\partial a}{\partial x_i}b
+       +a\frac{\partial b}{\partial x_i}\Bigr)
+     \dprime x_i\wedge\mu\wedge\nu .
+\]
+The first group of terms is $\dprime\alpha\wedge\beta$.  In the second,
+moving the degree-one factor $\dprime x_i$ past $\mu$ costs $(-1)^m$, so that
+group equals
+\[
+ (-1)^{m}\,a\mu\wedge\sum_i\frac{\partial b}{\partial x_i}\dprime x_i\wedge\nu
+ =(-1)^{p+q}\alpha\wedge\dprime\beta .
+\]
+This is the asserted rule.
+
+\emph{Vanishing of $(\dprime)^2$.}  With $\alpha=a\mu$,
+\[
+ \dprime\dprime\alpha
+ =\sum_{i,j}\frac{\partial^2a}{\partial x_j\partial x_i}\,
+   \dprime x_j\wedge\dprime x_i\wedge\mu .
+\]
+The coefficients are symmetric in $(i,j)$ by the equality of mixed partial
+derivatives for $C^\infty$ functions, whereas
+$\dprime x_j\wedge\dprime x_i=-\dprime x_i\wedge\dprime x_j$; the terms
+therefore cancel in pairs and the diagonal terms vanish.
+
+\emph{The operators $\ddprime$ and $J\dprime J$.}  Let
+$\alpha=a\,\dprime x_I\wedge\ddprime x_J$ with $|I|=p$ and $|J|=q$.  By
+\eqref{eq:ch09-J-coordinates}, $J\alpha=(-1)^{pq}a\,\dprime x_J\wedge\ddprime x_I$,
+whence
+\[
+ \dprime J\alpha
+ =(-1)^{pq}\sum_i\frac{\partial a}{\partial x_i}\,
+   \dprime x_i\wedge\dprime x_J\wedge\ddprime x_I .
+\]
+The monomial appearing here has a primed block of degree $q+1$ and a
+double-primed block of degree $p$, so applying
+\eqref{eq:ch09-J-coordinates} once more produces the sign $(-1)^{(q+1)p}$ and
+gives
+\[
+\begin{aligned}
+ J\dprime J\alpha
+ &=(-1)^{pq+(q+1)p}\sum_i\frac{\partial a}{\partial x_i}\,
+   \dprime x_I\wedge\ddprime x_i\wedge\ddprime x_J\\
+ &=(-1)^{p}\sum_i\frac{\partial a}{\partial x_i}\,
+   \dprime x_I\wedge\ddprime x_i\wedge\ddprime x_J
+ =\ddprime\alpha,
+\end{aligned}
+\]
+because $(-1)^{2pq}=1$.  Consequently
+$\ddprime=J\dprime J$, and since $J$ is an algebra automorphism preserving
+total degrees, the Leibniz rule for $\ddprime$ follows from that for
+$\dprime$:
+\[
+\begin{aligned}
+ \ddprime(\alpha\wedge\beta)
+ &=J\dprime\bigl(J\alpha\wedge J\beta\bigr)
+ =J\bigl(\dprime J\alpha\wedge J\beta
+   +(-1)^{p+q}J\alpha\wedge\dprime J\beta\bigr)\\
+ &=\ddprime\alpha\wedge\beta+(-1)^{p+q}\alpha\wedge\ddprime\beta .
+\end{aligned}
+\]
+Likewise $(\ddprime)^2=J(\dprime)^2J=0$.
+
+\emph{Anticommutation.}  Again with $\alpha=a\,\dprime x_I\wedge\ddprime x_J$
+of bidegree $(p,q)$,
+\[
+ \dprimeddprime\alpha
+ =(-1)^{p}\sum_{i,j}\frac{\partial^2a}{\partial x_i\partial x_j}\,
+   \dprime x_i\wedge\dprime x_I\wedge\ddprime x_j\wedge\ddprime x_J,
+\]
+while $\dprime\alpha$ has bidegree $(p+1,q)$, so that
+\[
+ \ddprime\dprime\alpha
+ =(-1)^{p+1}\sum_{i,j}\frac{\partial^2a}{\partial x_j\partial x_i}\,
+   \dprime x_i\wedge\dprime x_I\wedge\ddprime x_j\wedge\ddprime x_J .
+\]
+The two sums have the same monomials and, by the equality of mixed partial
+derivatives, the same coefficients; only the prefactors $(-1)^p$ and
+$(-1)^{p+1}$ differ.  Hence $\dprimeddprime\alpha+\ddprime\dprime\alpha=0$.
+\end{proof}
+
+Two features of this proof are worth isolating, because they explain the
+shape of the convention.  The vanishing of $(\dprime)^2$ is a genuine
+analytic fact: it uses the symmetry of second derivatives.  The
+anticommutation $\dprimeddprime=-\ddprime\dprime$, by contrast, is almost
+entirely a matter of the sign $(-1)^p$ built into $\ddprime$; had that sign
+been omitted, the two mixed compositions would have been equal instead of
+opposite, and $\dprimeddprime$ would not be an antiderivation-like operator of
+the type needed for Stokes' formula in
+\Cref{chap:tropical-integration}.
+
+\begin{lemma}
+\label{lem:ch09-J-conjugation}
+On $A^{p,q}(U)$ one has
+\[
+ J\dprime J=\ddprime,\qquad
+ J\ddprime J=\dprime,\qquad
+ J\dprime=\ddprime J,\qquad
+ J\ddprime=\dprime J,
+\]
+and consequently $J\dprimeddprime J=-\dprimeddprime$.  If moreover
+$\alpha\in A^{p,p}(U)$ satisfies $J\alpha=(-1)^p\alpha$, then
+\[
+ J(\dprime\alpha)=(-1)^p\ddprime\alpha,
+ \qquad
+ J(\ddprime\alpha)=(-1)^p\dprime\alpha .
+\]
+\end{lemma}
+
+\begin{proof}
+The identity $J\dprime J=\ddprime$ was proved inside
+\Cref{prop:superform-differential-identities}.  Composing it on both sides
+with $J$ and using $J^2=\operatorname{id}$ gives $\dprime=J\ddprime J$ and the
+two commutation forms.  For the third assertion,
+\[
+ J\dprimeddprime J
+ =(J\dprime J)(J\ddprime J)
+ =\ddprime\dprime
+ =-\dprimeddprime ,
+\]
+where the first equality inserts $J^2=\operatorname{id}$ between the two
+operators and the last is
+\Cref{prop:superform-differential-identities}.  Finally, if
+$J\alpha=(-1)^p\alpha$ then
+$J\dprime\alpha=\ddprime J\alpha=(-1)^p\ddprime\alpha$, and symmetrically.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch09-symmetric-exchange}
+Let $p+q+r=n-1$ and let $\alpha,\beta,\gamma$ be superforms of bidegrees
+$(p,p)$, $(q,q)$, $(r,r)$ with $J\alpha=(-1)^p\alpha$,
+$J\beta=(-1)^q\beta$, $J\gamma=(-1)^r\gamma$.  Then
+\[
+ \dprime\alpha\wedge\ddprime\beta\wedge\gamma
+ =-\,\ddprime\alpha\wedge\dprime\beta\wedge\gamma .
+\]
+\end{corollary}
+
+\begin{proof}
+Both sides are superforms of bidegree
+$(p+q+r+1,p+q+r+1)=(n,n)$.  The space $A^{n,n}(U)$ is free of rank one over
+$C^\infty(U)$, generated by $\tau_n$, and
+\eqref{eq:ch09-J-coordinates} with $I=J=\{1,\ldots,n\}$ gives
+$J\tau_n=(-1)^n\tau_n$; hence every $(n,n)$-form $\omega$ satisfies
+$J\omega=(-1)^n\omega$.  Applying $J$ to the left-hand side and using that
+$J$ is an algebra automorphism together with
+\Cref{lem:ch09-J-conjugation},
+\[
+\begin{aligned}
+ J\bigl(\dprime\alpha\wedge\ddprime\beta\wedge\gamma\bigr)
+ &=J\dprime\alpha\wedge J\ddprime\beta\wedge J\gamma
+ =(-1)^{p}(-1)^{q}(-1)^{r}\,
+   \ddprime\alpha\wedge\dprime\beta\wedge\gamma\\
+ &=(-1)^{n-1}\ddprime\alpha\wedge\dprime\beta\wedge\gamma .
+\end{aligned}
+\]
+Comparing with $J\omega=(-1)^n\omega$ for
+$\omega=\dprime\alpha\wedge\ddprime\beta\wedge\gamma$ yields
+$(-1)^n\omega=(-1)^{n-1}\ddprime\alpha\wedge\dprime\beta\wedge\gamma$, which
+is the assertion.
+\end{proof}
+
+\Cref{cor:ch09-symmetric-exchange} is the exchange rule behind the Green
+formulae of \Cref{chap:tropical-integration}: it is what allows one to move a
+prime from one factor to the other at the cost of a single sign, and it is
+the reason that symmetric forms, rather than arbitrary ones, are the natural
+inputs of the integration theory.
+
+\begin{remark}[Two involutions]
+\label{rem:ch09-two-involutions}
+The revised Chambert--Loir--Ducros manuscript \cite[\S1.1]{CLD25} uses a
+different involution, namely the algebra automorphism $J_{\mathrm{CLD}}$
+determined by
+\[
+ J_{\mathrm{CLD}}(\dprime x)=\ddprime x,
+ \qquad
+ J_{\mathrm{CLD}}(\ddprime x)=-\dprime x
+ \qquad(x\in V^*),
+\]
+which is the doubled analogue of a complex structure rather than an
+involution: one has $J_{\mathrm{CLD}}^2=(-1)^{p+q}$ on $A^{p,q}$.  The
+operator used in this book is Lagerberg's original one, with
+$J(\ddprime x)=\dprime x$ and $J^2=\operatorname{id}$.  The two are related
+by
+\[
+ J_{\mathrm{CLD}}=(-1)^qJ\quad\text{on }A^{p,q},
+\]
+as one checks on generators, and this rescaling is multiplicative because
+$(-1)^{q}(-1)^{q'}=(-1)^{q+q'}$.  Three consequences deserve emphasis.
+\begin{enumerate}
+\item The two conventions define the \emph{same} notion of symmetry: on
+  $A^{p,p}$ the condition $J_{\mathrm{CLD}}\omega=\omega$ is equivalent to
+  $J\omega=(-1)^p\omega$, and both say that the coefficient array satisfies
+  $\omega_{IJ}=\omega_{JI}$ (\Cref{prop:ch09-symmetry-matrix}).
+\item The two conventions agree on $A^{p,0}$, since neither introduces a sign
+  when a primed factor is converted into a double-primed one.  The generators
+  $\eta\wedge J\eta$ of the positivity cones are therefore literally the same
+  in both, and \emph{no positivity statement in this book depends on the
+  choice}.
+\item The commutation rules differ in shape but not in content:
+  \Cref{lem:ch09-J-conjugation} gives $J\dprime=\ddprime J$ and
+  $J\ddprime=\dprime J$, while the same computation with
+  $J_{\mathrm{CLD}}$ gives
+  $J_{\mathrm{CLD}}\dprime=\ddprime J_{\mathrm{CLD}}$ and
+  $J_{\mathrm{CLD}}\ddprime=-\dprime J_{\mathrm{CLD}}$, whence
+  $J_{\mathrm{CLD}}\dprimeddprime=\dprimeddprime J_{\mathrm{CLD}}$ where we
+  have $J\dprimeddprime J=-\dprimeddprime$.
+\end{enumerate}
+The reader consulting \cite{CLD25} alongside this chapter should translate by
+the displayed rule and should expect isolated signs, never a different
+theorem.
+\end{remark}
+
+\subsection{The mixed operator on functions}
+
+The composite $\dprimeddprime$ is the operator of interest in potential
+theory, and its behaviour on functions is elementary but must be recorded
+with care, since the two Leibniz rules interact.
+
+\begin{lemma}
+\label{lem:ch09-ddprime-product}
+For $u,v\in C^\infty(U)$,
+\[
+ \dprimeddprime(uv)
+ =u\,\dprimeddprime v+v\,\dprimeddprime u
+  +\dprime u\wedge\ddprime v+\dprime v\wedge\ddprime u .
+\]
+In particular $\dprimeddprime$ is not a derivation, and the two mixed terms
+do not combine: $\dprime u\wedge\ddprime v$ and $\dprime v\wedge\ddprime u$
+are different superforms unless $u$ and $v$ have proportional differentials.
+\end{lemma}
+
+\begin{proof}
+By the Leibniz rule of \Cref{prop:superform-differential-identities} in
+bidegree $(0,0)$,
+\[
+ \ddprime(uv)=u\,\ddprime v+v\,\ddprime u .
+\]
+Apply $\dprime$ and use the Leibniz rule once more, now with a factor of
+total degree zero in front of a factor of total degree one:
+\[
+ \dprime\bigl(u\,\ddprime v\bigr)
+ =\dprime u\wedge\ddprime v+u\,\dprimeddprime v,
+\]
+and symmetrically for $v\,\ddprime u$.  Adding the two identities gives the
+formula.  For the last sentence, observe that in coordinates the coefficient
+matrix of $\dprime u\wedge\ddprime v$ is
+$(\partial_iu)(\partial_jv)$, whose transpose is the coefficient matrix of
+$\dprime v\wedge\ddprime u$; the two agree exactly when the rank-one matrix
+$\nabla u\,\nabla v^{\mathsf T}$ is symmetric.
+\end{proof}
+
+\begin{lemma}
+\label{lem:superform-composition}
+Let $f\in C^\infty(U)$ and let $\chi$ be smooth on an interval containing
+$f(U)$. Then
+\[
+ \dprimeddprime(\chi\circ f)
+ =\chi'(f)\,\dprimeddprime f
+  +\chi''(f)\,\dprime f\wedge\ddprime f.
+\]
+\end{lemma}
+\begin{proof}
+Apply $\dprime$ to
+$\ddprime(\chi\circ f)=\chi'(f)\ddprime f$ and use the Leibniz rule.  No
+extra sign occurs because $\chi'(f)$ has total degree zero.
+
+In detail: the chain rule for the ordinary derivative gives
+$\partial_i(\chi\circ f)=\chi'(f)\partial_if$, that is,
+$\ddprime(\chi\circ f)=\chi'(f)\,\ddprime f$.  Differentiating again with
+$\dprime$ and using \Cref{prop:superform-differential-identities} with
+$\alpha=\chi'(f)$ of bidegree $(0,0)$,
+\[
+ \dprimeddprime(\chi\circ f)
+ =\dprime\bigl(\chi'(f)\bigr)\wedge\ddprime f
+   +\chi'(f)\,\dprimeddprime f
+ =\chi''(f)\,\dprime f\wedge\ddprime f+\chi'(f)\,\dprimeddprime f,
+\]
+where the last step applies the chain rule to $\chi'\circ f$.  The sign
+$(-1)^{p+q}$ of the Leibniz rule is $+1$ here because $p=q=0$.
+\end{proof}
+
+The two terms in \Cref{lem:superform-composition} have a transparent meaning
+in coordinates: the coefficient matrix of the left-hand side is
+\[
+ \chi'(f)\,\bigl(\partial_i\partial_jf\bigr)
+ +\chi''(f)\,\bigl(\partial_if\bigr)\bigl(\partial_jf\bigr),
+\]
+which is the classical formula for the Hessian of a composition.  The
+superform calculus adds nothing to that computation; what it adds is the
+observation that the second summand is a rank-one form of a special shape,
+namely $\eta\wedge J\eta$ with $\eta=\dprime f$, and such forms are exactly
+the generators of the smallest positivity cone.  This is the mechanism behind
+\Cref{cor:superform-convex-composition}.
+
+\begin{example}
+\label{ex:ch09-hessian-form}
+For $f\in C^\infty(U)$,
+\[
+\dprimeddprime f=\sum_{i,j}\frac{\partial^2f}{\partial x_i\partial x_j}
+                      \dprime x_i\wedge \ddprime x_j.
+\]
+On $\mathbf R$, $\dprimeddprime f=f''\,\dprime x\wedge \ddprime x$. This formula is our first sign
+test and will later identify convex functions with psh functions.
+\end{example}
+
+This is the normalization recorded as \eqref{eq:appJ-real-hessian} in
+\Cref{sec:appJ-cld}, and it is binding for the whole book: there is no factor
+$\tfrac12$, no $2\pi$, and no imaginary unit.  The reader coming from the
+complex side should note that the corresponding complex operator carries the
+normalization $\ddc=\tfrac{\rmi}{2\pi}\partial\bar\partial$ fixed in the
+conventions; the comparison of the two, and the resulting factors in the
+Poincar\'e--Lelong formulae, is made once and for all in
+\Cref{app:normalizations} and is never performed silently.
+
+\begin{example}[A two-variable sign computation]
+\label{ex:ch09-two-variable-sign}
+For $f(x,y)=x^2+xy+2y^2$ one has
+\[
+ \dprimeddprime f
+ =2\,\dprime x\wedge\ddprime x
+  +\dprime x\wedge\ddprime y
+  +\dprime y\wedge\ddprime x
+  +4\,\dprime y\wedge\ddprime y.
+\]
+Its coefficient matrix has determinant $7$.  Expanding the wedge square with
+the interlaced orientation gives
+\[
+ (\dprimeddprime f)^2
+ =14\,\dprime x\wedge\ddprime x\wedge
+       \dprime y\wedge\ddprime y.
+\]
+This is the first instance of the determinant identity proved below.
+\end{example}
+
+It is instructive to expand the last computation by hand, since it exhibits
+every sign of the chapter in miniature.  Write $\alpha=\dprimeddprime f$ and
+abbreviate $e_1=\dprime x$, $e_2=\dprime y$, $f_1=\ddprime x$,
+$f_2=\ddprime y$, so that
+\[
+ \alpha=2e_1f_1+e_1f_2+e_2f_1+4e_2f_2 .
+\]
+Each summand has total degree two, so all summands commute with one another
+and $\alpha\wedge\alpha$ may be expanded as if the factors were scalars.  A
+product $e_if_j\wedge e_kf_l$ vanishes unless $\{i,k\}=\{j,l\}=\{1,2\}$, and
+by \Cref{ex:ch09-plane} we have $e_1f_1\wedge e_2f_2=\tau_2$ and
+$e_1f_2\wedge e_2f_1=-\tau_2$.  Hence
+\[
+ \alpha\wedge\alpha
+ =2\bigl(2\cdot4\bigr)\tau_2+2\bigl(1\cdot1\bigr)(-\tau_2)
+ =\bigl(16-2\bigr)\tau_2=14\,\tau_2,
+\]
+the outer factors $2$ counting the two orders in which the two chosen
+summands can be multiplied.  This is $2!\det\binom{2\ 1}{1\ 4}=2\cdot7$, as
+asserted.  The single minus sign in $e_1f_2\wedge e_2f_1=-\tau_2$ is the
+entire content of the determinant: it converts a naive product of diagonal
+terms into an alternating sum.
+
+\section{Contraction in the two labelled blocks}
+\label{sec:ch09-contraction}
+
+Differentiation raises degrees; contraction lowers them.  Since a superform
+has two blocks, there are two contraction operators, and---as with
+$\dprime$ and $\ddprime$---the one acting on the second block carries a sign
+that records the passage across the first.  These operators are not needed
+for the algebra of forms, but every boundary formula in
+\Cref{chap:tropical-integration} is written in them, as are the homogeneity
+conditions \eqref{eq:appD-strong-homogeneity} for the support currents of
+convex bodies, and their signs are exactly of the kind that this chapter
+exists to pin down.
+
+Recall that for $v\in V$ the interior product
+$\iota_v:\bigwedge^kV^*\to\bigwedge^{k-1}V^*$ is the unique antiderivation of
+degree $-1$ with $\iota_v\xi=\xi(v)$ for $\xi\in V^*$.
+
+\begin{definition}
+\label{def:ch09-contraction}
+For $v\in V$ define $\iota'_v:A^{p,q}(U)\to A^{p-1,q}(U)$ and
+$\iota''_v:A^{p,q}(U)\to A^{p,q-1}(U)$ by
+\[
+ \begin{aligned}
+  \iota'_v\bigl(a\,\dprime x_I\wedge\ddprime x_J\bigr)
+   &=a\,(\iota_v\dprime x_I)\wedge\ddprime x_J,\\
+  \iota''_v\bigl(a\,\dprime x_I\wedge\ddprime x_J\bigr)
+   &=(-1)^{p}\,a\,\dprime x_I\wedge(\iota_v\ddprime x_J),
+ \end{aligned}
+\]
+with $|I|=p$, extended $C^\infty(U)$-linearly.  Here $\iota_v$ acts on the
+primed, respectively double-primed, exterior factor through the
+identification of each with $\bigwedge^\bullet V^*$.
+\end{definition}
+
+\begin{lemma}
+\label{lem:ch09-contraction-basic}
+Let $v,w\in V$.
+\begin{enumerate}
+\item Under the isomorphism of \Cref{lem:ch09-exterior-of-double}, $\iota'_v$
+  and $\iota''_v$ are the interior products of
+  $\bigwedge^\bullet(V^*\oplus V^*)$ by the vectors $(v,0)$ and $(0,v)$ of
+  $V\oplus V$.  In particular both are antiderivations for the total degree:
+  \[
+   \iota'_v(\alpha\wedge\beta)
+   =\iota'_v\alpha\wedge\beta+(-1)^{p+q}\alpha\wedge\iota'_v\beta,
+   \qquad\alpha\in A^{p,q}(U),
+  \]
+  and likewise for $\iota''_v$.
+\item $\iota'_v\iota'_w=-\iota'_w\iota'_v$,
+  $\iota''_v\iota''_w=-\iota''_w\iota''_v$ and
+  $\iota'_v\iota''_w=-\iota''_w\iota'_v$; in particular
+  $(\iota'_v)^2=(\iota''_v)^2=0$.
+\item $J\iota'_vJ=\iota''_v$ and $J\iota''_vJ=\iota'_v$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1)  The interior product of $\bigwedge^\bullet(V^*\oplus V^*)$ by
+$(v,0)$ annihilates every double-primed generator and sends
+$\dprime x$ to $x(v)$.  Being an antiderivation, it therefore satisfies
+\[
+ \iota_{(v,0)}\bigl(\dprime x_I\wedge\ddprime x_J\bigr)
+ =(\iota_v\dprime x_I)\wedge\ddprime x_J
+  +(-1)^{|I|}\dprime x_I\wedge\iota_{(v,0)}\ddprime x_J
+ =(\iota_v\dprime x_I)\wedge\ddprime x_J ,
+\]
+which is $\iota'_v$.  Similarly $\iota_{(0,v)}$ annihilates the primed
+generators, so
+\[
+ \iota_{(0,v)}\bigl(\dprime x_I\wedge\ddprime x_J\bigr)
+ =(-1)^{|I|}\dprime x_I\wedge(\iota_v\ddprime x_J),
+\]
+which is $\iota''_v$; the sign $(-1)^p$ of
+\Cref{def:ch09-contraction} is thus not an extra convention but the
+antiderivation sign incurred in crossing the primed block.  Assertion (2)
+is the standard identity $\iota_a\iota_b=-\iota_b\iota_a$ for interior
+products, applied to $a,b\in V\oplus V$.
+
+(3) Let $\alpha=a\,\dprime x_I\wedge\ddprime x_J$ with $|I|=p$, $|J|=q$.
+By \eqref{eq:ch09-J-coordinates},
+$J\alpha=(-1)^{pq}a\,\dprime x_J\wedge\ddprime x_I$, so
+\[
+ \iota'_vJ\alpha
+ =(-1)^{pq}a\,(\iota_v\dprime x_J)\wedge\ddprime x_I ,
+\]
+a form whose primed block has degree $q-1$ and whose double-primed block has
+degree $p$.  Applying $J$ and using \eqref{eq:ch09-J-coordinates} again
+introduces the sign $(-1)^{(q-1)p}$, so
+\[
+ J\iota'_vJ\alpha
+ =(-1)^{pq+(q-1)p}a\,\dprime x_I\wedge(\iota_v\ddprime x_J)
+ =(-1)^{p}a\,\dprime x_I\wedge(\iota_v\ddprime x_J)
+ =\iota''_v\alpha .
+\]
+The second identity follows on conjugating by $J$ and using
+$J^2=\operatorname{id}$.
+\end{proof}
+
+The interaction with the differentials is the expected Cartan formula, with
+the mixed pairs anticommuting.  For $v\in V$ write $\partial_v$ for the
+directional derivative acting on coefficients, that is,
+$\partial_v(a\mu)=(\partial_va)\mu$ for a monomial $\mu$; this is well
+defined because the generators are constant.
+
+\begin{proposition}
+\label{prop:ch09-cartan}
+For every $v\in V$,
+\[
+ \iota'_v\dprime+\dprime\iota'_v=\partial_v,
+ \qquad
+ \iota''_v\ddprime+\ddprime\iota''_v=\partial_v,
+\]
+\[
+ \iota'_v\ddprime+\ddprime\iota'_v=0,
+ \qquad
+ \iota''_v\dprime+\dprime\iota''_v=0 .
+\]
+\end{proposition}
+
+\begin{proof}
+Let $\alpha=a\mu$ with $\mu$ a monomial of total degree $m$, and write
+$v=\sum_iv_i\partial/\partial x_i$ in the coordinates at hand.  Using
+\eqref{eq:ch09-dprime-monomial} and the antiderivation property of
+$\iota'_v$,
+\[
+ \iota'_v\dprime\alpha
+ =\sum_i\frac{\partial a}{\partial x_i}\,
+   \iota'_v\bigl(\dprime x_i\wedge\mu\bigr)
+ =\sum_i\frac{\partial a}{\partial x_i}
+   \Bigl(v_i\,\mu-\dprime x_i\wedge\iota'_v\mu\Bigr)
+ =\partial_va\cdot\mu
+   -\sum_i\frac{\partial a}{\partial x_i}\dprime x_i\wedge\iota'_v\mu .
+\]
+On the other hand $\iota'_v\alpha=a\,\iota'_v\mu$, so
+\[
+ \dprime\iota'_v\alpha
+ =\sum_i\frac{\partial a}{\partial x_i}\,\dprime x_i\wedge\iota'_v\mu .
+\]
+Adding gives $\partial_v\alpha$, which is the first identity; conjugating by
+$J$ and using \Cref{lem:ch09-J-conjugation} together with
+\Cref{lem:ch09-contraction-basic}(3) gives the second, since $J$ commutes
+with $\partial_v$.
+
+For the third, take $\alpha=a\,\dprime x_I\wedge\ddprime x_J$ with $|I|=p$.
+Then
+\[
+ \iota'_v\ddprime\alpha
+ =(-1)^{p}\sum_j\frac{\partial a}{\partial x_j}\,
+   (\iota_v\dprime x_I)\wedge\ddprime x_j\wedge\ddprime x_J ,
+\]
+whereas $\iota'_v\alpha$ has first degree $p-1$, so
+\[
+ \ddprime\iota'_v\alpha
+ =(-1)^{p-1}\sum_j\frac{\partial a}{\partial x_j}\,
+   (\iota_v\dprime x_I)\wedge\ddprime x_j\wedge\ddprime x_J .
+\]
+These cancel.  The fourth identity is obtained from the third by conjugating
+with $J$.
+\end{proof}
+
+\begin{example}[Contractions of the Hessian form and of the top form]
+\label{ex:ch09-contraction-examples}
+Let $u\in C^\infty(U)$ and $v\in V$.  Contracting
+$\dprimeddprime u=\sum_{i,j}u_{ij}\dprime x_i\wedge\ddprime x_j$ gives
+\[
+ \begin{aligned}
+  \iota'_v\bigl(\dprimeddprime u\bigr)
+   &=\sum_{i,j}u_{ij}v_i\,\ddprime x_j
+     =\ddprime(\partial_vu),\\
+  \iota''_v\bigl(\dprimeddprime u\bigr)
+   &=-\sum_{i,j}u_{ij}v_j\,\dprime x_i
+     =-\dprime(\partial_vu),
+ \end{aligned}
+\]
+the minus sign in the second formula being the factor $(-1)^p$ with $p=1$.
+Both identities also follow from \Cref{prop:ch09-cartan}, since
+$\iota'_v\ddprime u=0$ and $\iota''_v\dprime u=0$.
+
+For the top form, let $n=2$ and $v=\partial/\partial x_2$.  Expanding
+$\iota''_v$ as an antiderivation across the four degree-one factors of
+$\tau_2=\dprime x_1\wedge\ddprime x_1\wedge\dprime x_2\wedge\ddprime x_2$,
+only the last contributes, with sign $(-1)^3$:
+\[
+ \iota''_{\partial/\partial x_2}\tau_2
+ =-\,\dprime x_1\wedge\ddprime x_1\wedge\dprime x_2
+ =\dprime x_1\wedge\dprime x_2\wedge\ddprime x_1 .
+\]
+The reader should compare this with the boundary trace
+\eqref{eq:superform-boundary-traces} of
+\Cref{chap:tropical-integration}: the sign appearing there is precisely the
+one computed here, and the choice of the labelled block to contract is forced
+by the bidegree, a form of bidegree $(n-1,n)$ having no spare primed factor.
+\end{example}
+
+\section{Pullback and coordinate independence}
+\label{sec:ch09-pullback}
+
+Let $F:U\to U'$ be the restriction of an affine map. Define $F^*$ on
+functions ordinarily and set
+\[
+F^*(\dprime y_i)=\dprime(y_i\circ F),\qquad
+F^*(\ddprime y_i)=\ddprime(y_i\circ F),
+\]
+then extend multiplicatively.
+
+More intrinsically: if $F:V\to V'$ is affine with linear part
+$\overrightarrow F$, then the transpose
+$\overrightarrow F{}^*:V'^*\to V^*$ induces a map
+$\bigwedge^p V'^*\to\bigwedge^pV^*$ in each block, and
+\[
+ F^*\bigl(a\otimes\eta\otimes\xi\bigr)
+ =(a\circ F)\otimes
+   \bigl(\textstyle\bigwedge^p\overrightarrow F{}^*\eta\bigr)\otimes
+   \bigl(\textstyle\bigwedge^q\overrightarrow F{}^*\xi\bigr),
+ \qquad a\in C^\infty(U'),
+\]
+on $F^{-1}(U')$.  Under \Cref{lem:ch09-exterior-of-double} this is the map
+induced on $\bigwedge^\bullet$ by
+$\overrightarrow F{}^*\oplus\overrightarrow F{}^*:V'^*\oplus V'^*\to
+V^*\oplus V^*$, so it is well defined and multiplicative before any
+coordinate is chosen.  In particular $F^*$ does not depend on the coordinate
+description, and it preserves bidegrees --- a point on which the whole
+formalism turns, since an arbitrary smooth map would not preserve them in any
+useful sense.
+
+Write $F(x)=Bx+b$ in affine coordinates.  If
+\[
+ \alpha=\sum_{k,l}a_{kl}(y)\,
+               \dprime y_k\wedge\ddprime y_l,
+\]
+then the coefficient matrix of $F^*\alpha$ at $x$ is
+\[
+                         B^{\mathsf T}A(F(x))B.
+\]
+This single formula simultaneously explains preservation of symmetry and of
+positivity in bidegree $(1,1)$.  When $f$ is smooth on $U'$, it also yields
+\[
+ \operatorname{Hess}(f\circ F)
+ =B^{\mathsf T}(\operatorname{Hess}f)\circ F\,B.
+\]
+
+\begin{lemma}
+\label{lem:ch09-pullback-eleven}
+Let $F(x)=Bx+b$ map $U\subset V=\mathbf R^n$ into
+$U'\subset V'=\mathbf R^m$, where $B$ is the $m\times n$ matrix of the linear
+part in the chosen coordinates.  If
+$\alpha=\sum_{k,l}a_{kl}\,\dprime y_k\wedge\ddprime y_l$ has coefficient
+matrix $A$, then
+\[
+ F^*\alpha
+ =\sum_{i,j}\bigl(B^{\mathsf T}A(F(x))B\bigr)_{ij}\,
+   \dprime x_i\wedge\ddprime x_j .
+\]
+Consequently, if $A$ is symmetric, so is $B^{\mathsf T}AB$; if $A$ is
+positive semidefinite, so is $B^{\mathsf T}AB$; and for $f\in C^2(U')$,
+\[
+ \operatorname{Hess}(f\circ F)(x)
+ =B^{\mathsf T}\operatorname{Hess}f(F(x))\,B .
+\]
+\end{lemma}
+
+\begin{proof}
+Since $y_k\circ F=\sum_iB_{ki}x_i+b_k$ and the differentials annihilate
+constants, $F^*(\dprime y_k)=\sum_iB_{ki}\dprime x_i$ and
+$F^*(\ddprime y_l)=\sum_jB_{lj}\ddprime x_j$.  Multiplicativity of $F^*$ and
+bilinearity of the wedge product give
+\[
+ \begin{aligned}
+  F^*\alpha
+   &=\sum_{k,l}a_{kl}(F(x))\sum_{i,j}B_{ki}B_{lj}\,
+     \dprime x_i\wedge\ddprime x_j\\
+   &=\sum_{i,j}\Bigl(\sum_{k,l}B_{ki}a_{kl}(F(x))B_{lj}\Bigr)
+     \dprime x_i\wedge\ddprime x_j,
+ \end{aligned}
+\]
+and the inner sum is the $(i,j)$ entry of $B^{\mathsf T}A(F(x))B$.  The
+matrix $B^{\mathsf T}AB$ is symmetric when $A$ is, and satisfies
+$w^{\mathsf T}B^{\mathsf T}ABw=(Bw)^{\mathsf T}A(Bw)\geq0$ when $A$ is
+positive semidefinite.  The Hessian statement is the case
+$\alpha=\dprimeddprime f$, together with
+\Cref{prop:ch09-pullback-functorial} below, which identifies
+$F^*\dprimeddprime f$ with $\dprimeddprime(f\circ F)$; it is of course also
+the ordinary chain rule applied twice.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch09-pullback-functorial}
+Pullback is functorial and commutes with $\dprime$, $\ddprime$, $J$, and wedge products.
+Consequently the bigraded algebra and its differentials are independent of
+affine coordinates.
+\end{proposition}
+\begin{proof}
+The chain rule gives the assertions on generators, and the derivative of
+$F$ is constant. Since functions together with the $\dprime y_i,\ddprime y_i$ generate
+the algebra, the assertions extend to all forms. Applying this to inverse
+affine coordinate changes proves coordinate independence.
+
+We spell this out, since the argument is the model for every later
+functoriality statement.  Let $F:U\to U'$ and $G:U'\to U''$ be restrictions
+of affine maps, with linear parts $B$ and $C$.
+
+\emph{Functoriality.}  On functions, $(G\circ F)^*a=a\circ G\circ F=F^*G^*a$.
+On generators, $(G\circ F)^*\dprime z_k=\dprime(z_k\circ G\circ F)$, and this
+equals $F^*\dprime(z_k\circ G)$ because $z_k\circ G$ is affine and, by the
+computation in \Cref{lem:ch09-pullback-eleven}, $F^*$ applied to the
+differential of an affine function is the differential of its composite with
+$F$.  Since both $(G\circ F)^*$ and $F^*\circ G^*$ are multiplicative and
+agree on generators of the algebra, they agree.  The identity map pulls back
+to the identity, so $F\mapsto F^*$ is a contravariant functor.
+
+\emph{Wedge products and $J$.}  Multiplicativity holds by construction.  For
+the involution it suffices to check on generators:
+$F^*J\dprime y_k=F^*\ddprime y_k=\ddprime(y_k\circ F)$ and
+$JF^*\dprime y_k=J\dprime(y_k\circ F)=\ddprime(y_k\circ F)$, since
+$J$ and $F^*$ are both algebra maps and $y_k\circ F$ is affine; the case of
+$\ddprime y_k$ is symmetric, and on functions both sides are $a\circ F$.
+
+\emph{Differentials.}  Let $\alpha=a\,\dprime y_K\wedge\ddprime y_L$.  Then
+\[
+ F^*\alpha=(a\circ F)\,F^*(\dprime y_K)\wedge F^*(\ddprime y_L),
+\]
+and the second and third factors have \emph{constant} coefficients, because
+the linear part $B$ of $F$ is constant.  Applying
+\eqref{eq:ch09-dprime-monomial},
+\[
+ \dprime F^*\alpha
+ =\sum_i\frac{\partial (a\circ F)}{\partial x_i}\,
+   \dprime x_i\wedge F^*(\dprime y_K)\wedge F^*(\ddprime y_L).
+\]
+The chain rule gives
+$\partial(a\circ F)/\partial x_i=\sum_kB_{ki}\,(\partial a/\partial y_k)\circ F$,
+so
+\[
+ \sum_i\frac{\partial (a\circ F)}{\partial x_i}\dprime x_i
+ =\sum_k\Bigl(\frac{\partial a}{\partial y_k}\circ F\Bigr)
+   \sum_iB_{ki}\dprime x_i
+ =F^*\Bigl(\sum_k\frac{\partial a}{\partial y_k}\dprime y_k\Bigr),
+\]
+whence $\dprime F^*\alpha=F^*\dprime\alpha$.  The same computation with the
+sign $(-1)^{|K|}$, or alternatively conjugation by $J$ using
+\Cref{lem:ch09-J-conjugation} and the compatibility of $F^*$ with $J$ just
+proved, gives $\ddprime F^*=F^*\ddprime$.
+
+\emph{Coordinate independence.}  Let $x$ and $\tilde x$ be two affine
+coordinate systems on $V$, and let $\Phi$ be the affine automorphism carrying
+one to the other.  The constructions of \Cref{def:ch09-superform-space} and
+\Cref{def:ch09-operators} performed in the two systems are intertwined by
+$\Phi^*$, which is an isomorphism of bigraded algebras commuting with
+$\dprime$, $\ddprime$ and $J$ by what precedes.  Hence the bigraded algebra,
+its two differentials, and its involution depend only on $V$ and $U$, not on
+the coordinates used to write them down.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch09-pullback-top}
+Let $F:V\to V$ be an affine self-map of an $n$-dimensional real vector space
+with linear part $B$, and let $\tau_n$ be the top form attached to a basis as
+in \Cref{lem:ch09-interlaced}.  Then
+\[
+ F^*\tau_n=\bigl(\det B\bigr)^2\,\tau_n .
+\]
+More generally, if $\alpha\in A^{n,n}(U)$ is written $\alpha=g\,\tau_n$, then
+$F^*\alpha=(\det B)^2(g\circ F)\,\tau_n$.
+\end{proposition}
+
+\begin{proof}
+By \Cref{lem:ch09-interlaced}, $\tau_n=c_n\,\lambda\wedge J\lambda$ with
+$\lambda=\dprime x_1\wedge\cdots\wedge\dprime x_n$.  Now $F^*$ acts on the
+primed block through $\bigwedge^n B^{\mathsf T}$, which on the
+one-dimensional space $\bigwedge^nV^*$ is multiplication by $\det B$; hence
+$F^*\lambda=(\det B)\lambda$.  Since $F^*$ commutes with $J$ by
+\Cref{prop:ch09-pullback-functorial}, also $F^*(J\lambda)=(\det B)J\lambda$.
+Multiplicativity gives
+$F^*\tau_n=c_n(\det B)^2\lambda\wedge J\lambda=(\det B)^2\tau_n$.  The last
+statement follows since $F^*(g\tau_n)=(g\circ F)F^*\tau_n$.
+\end{proof}
+
+The square in \Cref{prop:ch09-pullback-top} is the single most consequential
+sign-free fact of the chapter.  It says that top-degree superforms transform
+under affine maps by the \emph{square} of the Jacobian determinant, whereas
+ordinary top-degree differential forms transform by the determinant itself.
+Two consequences follow immediately.  First, positivity of a top form is
+preserved by \emph{every} affine isomorphism, orientation-reversing ones
+included: there is no orientation ambiguity in the positivity of a
+Lagerberg top form.  Second, the naive integral
+$\int_Ug\,\rd x$ attached to $\alpha=g\tau_n$ is \emph{not} invariant, since
+the change of variables formula contributes only one factor $|\det B|$ while
+the form contributes $(\det B)^2$.  The mismatch is a genuine feature, not a
+defect: it is exactly what the calibrations of
+\Cref{chap:tropical-integration} are designed to repair, and the surviving
+factor $|\det B|$ is what becomes a lattice index in the tropical setting.
+
+\begin{example}[A linear pullback computed in full]
+\label{ex:ch09-pullback-explicit}
+Let $F:\mathbf R^2\to\mathbf R^2$ be the linear map with matrix
+\[
+ B=\begin{pmatrix}1&1\\0&2\end{pmatrix},
+ \qquad
+ F(x_1,x_2)=(x_1+x_2,\;2x_2),
+\]
+and use coordinates $y_1,y_2$ on the target.  On generators,
+\[
+ \begin{aligned}
+  F^*\dprime y_1&=\dprime x_1+\dprime x_2,
+  &F^*\dprime y_2&=2\,\dprime x_2,\\
+  F^*\ddprime y_1&=\ddprime x_1+\ddprime x_2,
+  &F^*\ddprime y_2&=2\,\ddprime x_2 .
+ \end{aligned}
+\]
+Take
+\[
+ \alpha=\dprime y_1\wedge\ddprime y_1
+       +3\,\dprime y_2\wedge\ddprime y_2,
+ \qquad
+ A=\begin{pmatrix}1&0\\0&3\end{pmatrix}.
+\]
+Direct substitution gives
+\[
+ F^*\alpha
+ =(\dprime x_1+\dprime x_2)\wedge(\ddprime x_1+\ddprime x_2)
+  +12\,\dprime x_2\wedge\ddprime x_2,
+\]
+that is,
+\[
+ F^*\alpha
+ =\dprime x_1\wedge\ddprime x_1
+  +\dprime x_1\wedge\ddprime x_2
+  +\dprime x_2\wedge\ddprime x_1
+  +13\,\dprime x_2\wedge\ddprime x_2 .
+\]
+The coefficient matrix is $\left(\begin{smallmatrix}1&1\\1&13\end{smallmatrix}\right)$, and indeed
+\[
+ B^{\mathsf T}AB
+ =\begin{pmatrix}1&0\\1&2\end{pmatrix}
+  \begin{pmatrix}1&0\\0&3\end{pmatrix}
+  \begin{pmatrix}1&1\\0&2\end{pmatrix}
+ =\begin{pmatrix}1&1\\1&13\end{pmatrix},
+\]
+confirming \Cref{lem:ch09-pullback-eleven}.  Two checks are worth making.
+The determinant is $\det(B^{\mathsf T}AB)=(\det B)^2\det A=4\cdot3=12$, so by
+\Cref{ex:ch09-plane}
+\[
+ (F^*\alpha)^2=2\cdot12\,\tau_2=24\,\tau_2,
+ \qquad\text{whereas}\qquad
+ \alpha^2=2\det A\,\tau_2=6\,\tau_2 .
+\]
+Since $F^*$ is multiplicative, $(F^*\alpha)^2=F^*(\alpha^2)=6\,F^*\tau_2$,
+and the two computations agree exactly because
+$F^*\tau_2=(\det B)^2\tau_2=4\tau_2$, in agreement with
+\Cref{prop:ch09-pullback-top}.  And $\alpha$ is positive, its matrix
+being diagonal with nonnegative entries; so is $F^*\alpha$, whose matrix has
+positive trace and positive determinant.  Note that $F$ is not an isometry
+and does not preserve the Euclidean structure; positivity, however, is an
+affine notion and survives.
+\end{example}
+
+\begin{example}[Restriction to an affine line]
+\label{ex:ch09-restriction-line}
+Let $F(t)=a+tv$ and let $f\in C^2(U')$.  Pulling back
+$\dprimeddprime f$ gives
+\[
+ F^*(\dprimeddprime f)
+ =v^{\mathsf T}(\operatorname{Hess}f)(a+tv)v\,
+   \dprime t\wedge\ddprime t.
+\]
+Thus positivity of $\dprimeddprime f$ can be tested on affine lines.  This
+calculation will reappear when psh functions are tested on analytic curves.
+\end{example}
+
+\begin{warning}{Why the map must be affine}
+There is an evident algebraic pullback by an arbitrary smooth map if one
+pulls back both labelled one-form factors by its derivative, but it does not
+commute with both differentials.  Indeed, for a nonlinear function
+$F:\mathbf R\to\mathbf R$, one has
+$F^*(\dprimeddprime x)=0$ whereas $\dprimeddprime(F^*x)=F''\dprime x\wedge \ddprime x$.
+The functorial calculus used in tropical geometry is therefore attached to
+affine maps (and, globally, to the integer-affine transition maps of
+tropical charts).
+\end{warning}
+
+The warning concerns functoriality of the differential calculus, not merely
+notation.  A nonlinear change of variables produces second-derivative terms
+even when the original form is zero.  Tropical transition maps are integral
+affine precisely so that these terms never occur.
+
+\section{Symmetry and the coefficient dictionary}
+\label{sec:ch09-symmetry}
+
+Positivity will be defined in \Cref{sec:ch09-positivity} by three conditions
+which look, at first sight, like three unrelated pieces of formalism.  They
+are not: each of them is a familiar condition on a symmetric matrix, once the
+right matrix has been attached to a symmetric $(p,p)$-form.  This section
+constructs that matrix and proves the one formula---the complementary
+pairing---which converts wedge products of complementary bidegree into matrix
+pairings.  Everything in the next section is then a computation with
+symmetric matrices, and the classical counterexamples become explicit.
+
+Throughout, $S_p$ denotes the set of $p$-element subsets of
+$\{1,\ldots,n\}$, written as strictly increasing multi-indices; thus
+$\#S_p=\binom np$ and $\dim A^{p,q}(V)=\#S_p\cdot\#S_q$.  For $I\in S_p$ we
+write $\complement I\in S_{n-p}$ for the complementary multi-index, and
+\[
+ \varepsilon_I\in\{\pm1\}
+\]
+for the signature of the permutation of $\{1,\ldots,n\}$ obtained by listing
+$I$ in increasing order and then $\complement I$ in increasing order.
+Equivalently, $\varepsilon_I$ is defined by
+\[
+ \dprime x_I\wedge\dprime x_{\complement I}=\varepsilon_I\,\lambda,
+ \qquad
+ \lambda=\dprime x_1\wedge\cdots\wedge\dprime x_n .
+\]
+
+Put $c_p=(-1)^{p(p-1)/2}$. A $(p,p)$-form $\alpha$ is
+\emph{symmetric} if $J\alpha=(-1)^p\alpha$.
+
+\begin{proposition}
+\label{prop:ch09-symmetry-matrix}
+Let $\alpha=\sum_{I,J\in S_p}\alpha_{IJ}\,\dprime x_I\wedge\ddprime x_J$ be a
+$(p,p)$-form.  Then:
+\begin{enumerate}
+\item $\alpha$ is symmetric if and only if $\alpha_{IJ}=\alpha_{JI}$ for all
+  $I,J\in S_p$;
+\item the condition in \textup{(1)} does not depend on the affine coordinates
+  used to write $\alpha$;
+\item symmetric forms are stable under products: if $\alpha$ and $\beta$ are
+  symmetric of bidegrees $(p,p)$ and $(q,q)$, then $\alpha\wedge\beta$ is
+  symmetric of bidegree $(p+q,p+q)$;
+\item every $(n,n)$-form is symmetric, and so is $\dprimeddprime u$ for every
+  $u\in C^2(U)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1) By \eqref{eq:ch09-J-coordinates} with $p=q$,
+\[
+ J\alpha=(-1)^{p^2}\sum_{I,J}\alpha_{IJ}\,\dprime x_J\wedge\ddprime x_I
+        =(-1)^{p}\sum_{I,J}\alpha_{JI}\,\dprime x_I\wedge\ddprime x_J,
+\]
+where the second equality exchanges the names of the summation indices and
+uses $(-1)^{p^2}=(-1)^p$.  Since the monomials
+$\dprime x_I\wedge\ddprime x_J$ form a basis, $J\alpha=(-1)^p\alpha$ is
+equivalent to $\alpha_{JI}=\alpha_{IJ}$ for all $I,J$.
+
+(2) The condition $J\alpha=(-1)^p\alpha$ makes no reference to coordinates,
+and $J$ is coordinate-independent by
+\Cref{prop:ch09-pullback-functorial}.
+
+(3) $J$ is an algebra automorphism, so
+$J(\alpha\wedge\beta)=J\alpha\wedge J\beta=(-1)^{p+q}\alpha\wedge\beta$.
+
+(4) The space $A^{n,n}$ is spanned by
+$\dprime x_{\{1,\ldots,n\}}\wedge\ddprime x_{\{1,\ldots,n\}}$, whose single
+coefficient array is trivially symmetric.  For $\dprimeddprime u$ the
+coefficient matrix is the Hessian, symmetric by the equality of mixed partial
+derivatives.
+\end{proof}
+
+Assertion (4) is the reason the whole positivity theory is set up for
+symmetric forms: the objects it is meant to test---Hessians of potentials and
+their products---are symmetric, and no information is lost.  Antisymmetric
+forms are not merely uninteresting here, they are invisible: by
+\Cref{lem:ch09-complement-pairing} below, a $(p,p)$-form with
+$\alpha_{IJ}=-\alpha_{JI}$ pairs to zero with every symmetric
+$(n-p,n-p)$-form.
+
+\begin{definition}
+\label{def:ch09-coefficient-matrix}
+Fix a basis $x_1,\ldots,x_n$ of $V^*$ and let $\alpha\in A^{p,p}(V)$.  The
+\emph{normalized coefficient matrix} of $\alpha$ is the array
+$M(\alpha)=(\alpha_{IJ})_{I,J\in S_p}$ determined by
+\[
+ \alpha=c_p\sum_{I,J\in S_p}\alpha_{IJ}\,\dprime x_I\wedge\ddprime x_J,
+ \qquad c_p=(-1)^{p(p-1)/2}.
+\]
+It is a symmetric matrix precisely when $\alpha$ is a symmetric form, and
+$\alpha\mapsto M(\alpha)$ is a linear isomorphism from $A^{p,p}(V)$ onto the
+space of $\binom np\times\binom np$ matrices.
+\end{definition}
+
+The factor $c_p$ in \Cref{def:ch09-coefficient-matrix} is a normalization and
+nothing more; it is inserted so that the pairing formula below carries no
+sign, and so that the generators of the positivity cones become rank-one
+matrices with no sign attached.  For $p=1$ one has $c_1=1$ and the definition
+reduces to the familiar coefficient matrix of a $(1,1)$-form; for $p=n$ one
+has $M(\alpha)=g$ where $\alpha=g\,\tau_n$, since $c_n\lambda\wedge J\lambda
+=\tau_n$ by \Cref{lem:ch09-interlaced}.
+
+\begin{lemma}
+\label{lem:ch09-complement-pairing}
+Let $0\leq p\leq n$, $\alpha\in A^{p,p}(V)$ and
+$\beta\in A^{n-p,n-p}(V)$.  Then
+\[
+ \alpha\wedge\beta
+ =\Bigl(\sum_{I,J\in S_p}
+    \varepsilon_I\varepsilon_J\,
+    \alpha_{IJ}\,\beta_{\complement I,\complement J}\Bigr)\,\tau_n .
+\]
+Equivalently, defining the \emph{complementation operator}
+\[
+ (\star M)_{IJ}=\varepsilon_I\varepsilon_J\,M_{\complement I,\complement J},
+ \qquad I,J\in S_p,
+\]
+which carries $S_{n-p}$-indexed matrices to $S_p$-indexed ones, one has
+\[
+ \alpha\wedge\beta=\bigl\langle M(\alpha),\star M(\beta)\bigr\rangle\,\tau_n,
+ \qquad
+ \langle A,B\rangle:=\sum_{I,J}A_{IJ}B_{IJ}.
+\]
+The operator $\star$ preserves symmetry of matrices and satisfies
+$\star\star=\operatorname{id}$.
+\end{lemma}
+
+\begin{proof}
+Write $\alpha=c_p\sum_{I,J}\alpha_{IJ}\dprime x_I\wedge\ddprime x_J$ and
+$\beta=c_{n-p}\sum_{K,L}\beta_{KL}\dprime x_K\wedge\ddprime x_L$ with
+$I,J\in S_p$ and $K,L\in S_{n-p}$.  The basic product is
+\[
+ \bigl(\dprime x_I\wedge\ddprime x_J\bigr)\wedge
+ \bigl(\dprime x_K\wedge\ddprime x_L\bigr)
+ =(-1)^{p(n-p)}\,
+   \dprime x_I\wedge\dprime x_K\wedge\ddprime x_J\wedge\ddprime x_L,
+\]
+by \Cref{prop:ch09-wedge-signs}\,(1) applied with $q=p$ and $p'=n-p$: the
+double-primed block $\ddprime x_J$, of degree $p$, is moved past the primed
+block $\dprime x_K$, of degree $n-p$.  Now
+$\dprime x_I\wedge\dprime x_K$ vanishes unless $K=\complement I$, in which
+case it equals $\varepsilon_I\lambda$; similarly
+$\ddprime x_J\wedge\ddprime x_L=\varepsilon_J\,J\lambda$ if
+$L=\complement J$, and vanishes otherwise.  Hence only the terms with
+$K=\complement I$ and $L=\complement J$ survive, and
+\[
+ \alpha\wedge\beta
+ =c_pc_{n-p}(-1)^{p(n-p)}
+   \sum_{I,J}\varepsilon_I\varepsilon_J\,
+   \alpha_{IJ}\beta_{\complement I,\complement J}\;
+   \lambda\wedge J\lambda .
+\]
+By \Cref{lem:ch09-interlaced} we have $\lambda\wedge J\lambda=c_n\tau_n$ and
+$c_pc_{n-p}(-1)^{p(n-p)}=c_n$, so the total constant is $c_n^2=1$.  This is
+the asserted formula.
+
+That $\star$ preserves symmetry is immediate from its definition.  For the
+last claim, note that $\varepsilon_I\varepsilon_{\complement I}
+=(-1)^{p(n-p)}$: indeed
+$\dprime x_I\wedge\dprime x_{\complement I}=\varepsilon_I\lambda$ and
+$\dprime x_{\complement I}\wedge\dprime x_I=\varepsilon_{\complement I}\lambda$,
+while interchanging the two blocks costs $(-1)^{p(n-p)}$.  Therefore
+\[
+ (\star\star M)_{IJ}
+ =\varepsilon_I\varepsilon_J(\star M)_{\complement I,\complement J}
+ =\varepsilon_I\varepsilon_J\varepsilon_{\complement I}
+   \varepsilon_{\complement J}M_{IJ}
+ =(-1)^{2p(n-p)}M_{IJ}=M_{IJ}.
+\]
+\end{proof}
+
+\begin{warning}{The pairing is sign-free only with the normalization $c_p$}
+If the factor $c_p$ is dropped from
+\Cref{def:ch09-coefficient-matrix}, the pairing formula acquires the sign
+$c_pc_{n-p}(-1)^{p(n-p)}c_n$, which equals $1$ only by the identity of
+\Cref{lem:ch09-interlaced}.  This is the sole reason for the constants
+$c_p$ recorded as \eqref{eq:appJ-cp} in \Cref{sec:appJ-cld}.  In particular a
+strongly positive generator carries a single factor $c_p$ in total, not one
+factor per rank-one term; inserting one per term would double the sign in
+even bidegree and reverse the inclusions between the positivity cones.
+\end{warning}
+
+We record the vectorial form of $\star$, which is what the positivity
+criteria use.  For $b=(b_K)_{K\in S_{n-p}}$ set
+\[
+ (\star b)_I=\varepsilon_I\,b_{\complement I},\qquad I\in S_p .
+\]
+Then $\star(bb^{\mathsf T})=(\star b)(\star b)^{\mathsf T}$, directly from the
+definitions.  We identify a vector $(a_I)_{I\in S_p}$ with the element
+$\sum_Ia_I\,\dprime x_I$ of $A^{p,0}(V)=\bigwedge^pV^*$ and call it
+\emph{decomposable} if that element is a product
+$\eta_1\wedge\cdots\wedge\eta_p$ of elements of $V^*$; the zero vector is
+decomposable.  Write $\Gamma_p\subset\bigwedge^pV^*$ for the set of
+decomposable elements.  It is a closed cone, being the zero locus of the
+finitely many quadratic Pl\"ucker relations, or, more elementarily, the image
+of the continuous proper-on-spheres map
+$(V^*)^p\to\bigwedge^pV^*$ restricted to bounded sets; we shall only use that
+it is closed and stable under scaling, both of which are clear from the
+description as an image of a map, together with the fact that a limit of
+decomposable elements is decomposable.
+
+\begin{lemma}
+\label{lem:ch09-star-decomposable}
+For $a\in\bigwedge^pV^*$ and $b\in\bigwedge^{n-p}V^*$ one has
+\[
+ a\wedge b=\langle a,\star b\rangle\,\lambda,
+\]
+where $\langle\cdot,\cdot\rangle$ is the inner product for which the basis
+$(\dprime x_I)_{I\in S_p}$ is orthonormal.  Moreover $\star$ restricts to a
+bijection
+\[
+ \star:\Gamma_{n-p}\xrightarrow{\ \sim\ }\Gamma_p .
+\]
+\end{lemma}
+
+\begin{proof}
+For the first formula, expand
+$a\wedge b=\sum_{I,K}a_Ib_K\,\dprime x_I\wedge\dprime x_K$; only $K=\complement I$
+contributes, giving $\sum_Ia_I\varepsilon_Ib_{\complement I}\lambda
+=\langle a,\star b\rangle\lambda$.
+
+Let now $b\in\Gamma_{n-p}$ be nonzero, say
+$b=\beta_{p+1}\wedge\cdots\wedge\beta_n$ with $\beta_i\in V^*$ linearly
+independent.  Apply the Gram--Schmidt process to
+$\beta_{p+1},\ldots,\beta_n$ and complete to an orthonormal basis
+$\gamma_1,\ldots,\gamma_n$ of $V^*$ such that
+$\gamma_{p+1},\ldots,\gamma_n$ span the same subspace as
+$\beta_{p+1},\ldots,\beta_n$.  Since the base change between the two families
+of that subspace is triangular with nonzero determinant, there is $c\neq0$
+with
+\[
+ b=c\,\gamma_{p+1}\wedge\cdots\wedge\gamma_n .
+\]
+Recall that if $(\gamma_i)$ is orthonormal in $V^*$, then the products
+$\gamma_K$, $K\in S_p$, form an orthonormal basis of $\bigwedge^pV^*$: this is
+the Gram determinant formula
+$\langle\gamma_K,\gamma_L\rangle=\det(\langle\gamma_{k_i},\gamma_{l_j}\rangle)
+=\delta_{KL}$.  Write $d=\pm1$ for the determinant of the base change from
+$(\dprime x_i)$ to $(\gamma_i)$, so that
+$\gamma_1\wedge\cdots\wedge\gamma_n=d\,\lambda$.  Then for every
+$a\in\bigwedge^pV^*$,
+\[
+ a\wedge b
+ =c\,a\wedge\gamma_{p+1}\wedge\cdots\wedge\gamma_n
+ =c\,\bigl\langle a,\gamma_1\wedge\cdots\wedge\gamma_p\bigr\rangle\,
+   \gamma_1\wedge\cdots\wedge\gamma_n
+ =cd\,\bigl\langle a,\gamma_1\wedge\cdots\wedge\gamma_p\bigr\rangle\lambda,
+\]
+the middle equality because, expanding $a$ in the orthonormal basis
+$(\gamma_K)$, only the coefficient along $\gamma_1\wedge\cdots\wedge\gamma_p$
+survives the wedge with $\gamma_{p+1}\wedge\cdots\wedge\gamma_n$.  Comparing
+with the first formula and using that the inner product is nondegenerate, we
+conclude
+\[
+ \star b=cd\,\gamma_1\wedge\cdots\wedge\gamma_p\in\Gamma_p .
+\]
+Thus $\star(\Gamma_{n-p})\subset\Gamma_p$.  The same argument with $p$ and
+$n-p$ exchanged gives $\star(\Gamma_p)\subset\Gamma_{n-p}$ for the
+complementation operator in the other direction, and the two are inverse to
+each other up to the sign computed in
+\Cref{lem:ch09-complement-pairing}, whence the asserted bijection.
+\end{proof}
+
+\section{Positivity}
+\label{sec:ch09-positivity}
+
+\begin{definition}
+\label{def:ch09-positivity}
+A symmetric $(p,p)$-form is \emph{strongly positive} if locally it is a finite
+sum with nonnegative smooth coefficients of forms
+\[
+\eta_1\wedge J\eta_1\wedge\cdots\wedge
+                 \eta_p\wedge J\eta_p,\qquad \eta_i\in A^{1,0}.
+\]
+It is \emph{positive} if it is locally a nonnegative sum of
+$c_p\eta\wedge J\eta$ with $\eta\in A^{p,0}$. It is \emph{weakly positive} if
+$\alpha\wedge\beta$ is a nonnegative top form for every strongly positive
+$(n-p,n-p)$-form $\beta$.
+\end{definition}
+
+Here the Lagerberg orientation associated to an affine basis is
+\[
+\tau_n=\dprime x_1\wedge \ddprime x_1\wedge\cdots\wedge \dprime x_n\wedge \ddprime x_n.
+\]
+A top form is nonnegative when it is $f\tau_n$ with $f\geq0$.
+By \Cref{prop:ch09-pullback-top} this notion is invariant under every affine
+isomorphism, orientation-reversing ones included, so no orientation of $V$
+has been chosen; $\tau_n$ depends on the basis only through the square of the
+determinant of the base change.
+
+\paragraph{Positivity is tested pointwise.}
+Throughout this section we first define three convex cones inside the
+finite-dimensional vector space $A^{p,p}(V)$ and then declare a superform on
+$U$ to be strongly positive, positive, or weakly positive when its value at
+each point of $U$ lies in the corresponding cone.  A superform which is
+locally a finite sum with nonnegative smooth coefficients of the generators
+listed in \Cref{def:ch09-positivity} clearly has this property, so the reading
+adopted here is the weaker and safer one.  The converse question---whether a
+pointwise decomposition into generators can be chosen to depend smoothly on
+the point---is a delicate matter of real analysis; it is never used in this
+book and is not asserted anywhere in it.  Every criterion proved below is
+pointwise, and every application is pointwise.
+
+\begin{definition}
+\label{def:ch09-cones}
+For $0\leq p\leq n$ define subsets of the space
+$A^{p,p}_{\mathrm{sym}}(V)$ of symmetric $(p,p)$-forms on $V$ by
+\[
+\begin{aligned}
+ \mathrm{SP}_p(V)
+ &=\Bigl\{\textstyle\sum_{s}a_s\,
+    \eta_{1,s}\wedge J\eta_{1,s}\wedge\cdots\wedge
+    \eta_{p,s}\wedge J\eta_{p,s}
+   \;:\;a_s\geq0,\ \eta_{i,s}\in A^{1,0}(V)\Bigr\},\\
+ \mathrm{P}_p(V)
+ &=\Bigl\{\textstyle\sum_{s}a_s\,c_p\,\eta_s\wedge J\eta_s
+   \;:\;a_s\geq0,\ \eta_s\in A^{p,0}(V)\Bigr\},\\
+ \mathrm{WP}_p(V)
+ &=\bigl\{\alpha\in A^{p,p}_{\mathrm{sym}}(V)\;:\;
+   \alpha\wedge\beta\in\mathbf R_{\geq0}\,\tau_n
+   \text{ for all }\beta\in\mathrm{SP}_{n-p}(V)\bigr\},
+\end{aligned}
+\]
+all sums being finite.  These are the \emph{strongly positive}, the
+\emph{positive}, and the \emph{weakly positive} cone in bidegree $(p,p)$.
+\end{definition}
+
+That $\mathrm{SP}_p(V)$ and $\mathrm{P}_p(V)$ consist of symmetric forms is
+part of the assertion of the next lemma; that all three are convex cones is
+immediate from the definitions, the last because the defining conditions are
+linear inequalities.
+
+\begin{lemma}
+\label{lem:ch09-generators}
+Let $\eta_1,\ldots,\eta_p\in A^{1,0}(V)$ and put
+$\eta=\eta_1\wedge\cdots\wedge\eta_p\in A^{p,0}(V)$.  Then
+\[
+ \eta_1\wedge J\eta_1\wedge\cdots\wedge\eta_p\wedge J\eta_p
+ =c_p\,\eta\wedge J\eta .
+\]
+More generally, for $\eta\in A^{a,0}(V)$ and $\zeta\in A^{b,0}(V)$,
+\[
+ \bigl(c_a\,\eta\wedge J\eta\bigr)\wedge
+ \bigl(c_b\,\zeta\wedge J\zeta\bigr)
+ =c_{a+b}\,(\eta\wedge\zeta)\wedge J(\eta\wedge\zeta).
+\]
+Every form $c_a\eta\wedge J\eta$ with $\eta\in A^{a,0}(V)$ is symmetric, and
+its normalized coefficient matrix is $vv^{\mathsf T}$, where
+$v=(\eta_I)_{I\in S_a}$ is the coefficient vector of $\eta$.  Consequently
+$\mathrm{SP}_p(V)\subset\mathrm{P}_p(V)$, and both consist of symmetric
+forms.
+\end{lemma}
+
+\begin{proof}
+For the second formula, move the block $J\eta$, of total degree $a$, past the
+block $\zeta$, of total degree $b$, which costs $(-1)^{ab}$, and use that $J$
+is an algebra automorphism:
+\[
+ \eta\wedge J\eta\wedge\zeta\wedge J\zeta
+ =(-1)^{ab}\,\eta\wedge\zeta\wedge J\eta\wedge J\zeta
+ =(-1)^{ab}\,(\eta\wedge\zeta)\wedge J(\eta\wedge\zeta).
+\]
+Multiplying by $c_ac_b$ and invoking the identity
+$c_ac_b(-1)^{ab}=c_{a+b}$ of \Cref{lem:ch09-interlaced} gives the claim.  The
+first formula follows by induction on $p$: it is trivial for $p=1$ since
+$c_1=1$, and the inductive step is the second formula with $a=p-1$, $b=1$.
+
+For the coefficient matrix, write $\eta=\sum_I\eta_I\dprime x_I$ with
+$I\in S_a$.  Then $J\eta=\sum_J\eta_J\ddprime x_J$, so
+\[
+ c_a\,\eta\wedge J\eta
+ =c_a\sum_{I,J}\eta_I\eta_J\,\dprime x_I\wedge\ddprime x_J,
+\]
+which by \Cref{def:ch09-coefficient-matrix} means
+$M(c_a\eta\wedge J\eta)=(\eta_I\eta_J)_{I,J}=vv^{\mathsf T}$.  This matrix is
+symmetric, so the form is symmetric by
+\Cref{prop:ch09-symmetry-matrix}; sums of such forms with nonnegative
+coefficients are then symmetric as well.  Finally, the first formula
+identifies each generator of $\mathrm{SP}_p(V)$ with a generator of
+$\mathrm{P}_p(V)$, whence the inclusion.
+\end{proof}
+
+The lemma already isolates the essential difference between the two cones:
+$\mathrm{SP}_p$ is generated by the matrices $vv^{\mathsf T}$ with $v$
+\emph{decomposable}, while $\mathrm{P}_p$ is generated by all of them.  The
+next proposition turns this observation into a complete dictionary.
+
+\begin{proposition}
+\label{prop:ch09-positivity-dictionary}
+Fix a basis of $V^*$, let $\alpha\in A^{p,p}_{\mathrm{sym}}(V)$ and let
+$M=M(\alpha)$ be its normalized coefficient matrix, a symmetric matrix
+indexed by $S_p$.  Recall $\Gamma_p\subset\bigwedge^pV^*$ from
+\Cref{sec:ch09-symmetry}, identified with a subset of $\mathbf R^{S_p}$ by
+means of the coefficient vectors.  Then:
+\begin{enumerate}
+\item $\alpha\in\mathrm{P}_p(V)$ if and only if $M$ is positive
+  semidefinite;
+\item $\alpha\in\mathrm{SP}_p(V)$ if and only if
+  $M=\sum_sa_sv_sv_s^{\mathsf T}$ for finitely many $a_s\geq0$ and
+  $v_s\in\Gamma_p$;
+\item $\alpha\in\mathrm{WP}_p(V)$ if and only if $w^{\mathsf T}Mw\geq0$ for
+  every $w\in\Gamma_p$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+By \Cref{lem:ch09-generators} the map $\alpha\mapsto M(\alpha)$ carries the
+generators $c_p\eta\wedge J\eta$ of $\mathrm{P}_p(V)$ to the matrices
+$vv^{\mathsf T}$ with $v\in\mathbf R^{S_p}$ arbitrary, and the generators of
+$\mathrm{SP}_p(V)$ to those with $v\in\Gamma_p$.  Since $M$ is a linear
+isomorphism onto the space of matrices, it carries $\mathrm{P}_p(V)$ onto
+the convex cone generated by all $vv^{\mathsf T}$ and $\mathrm{SP}_p(V)$ onto
+the convex cone generated by the $vv^{\mathsf T}$ with $v\in\Gamma_p$.  This
+is (2), and it gives (1) once one recalls that the convex cone generated by
+all rank-one squares is exactly the cone of positive semidefinite matrices:
+one inclusion is clear, and the other is the spectral theorem, which writes a
+positive semidefinite $M$ as $\sum_k\mu_kw_kw_k^{\mathsf T}$ with
+$\mu_k\geq0$.
+
+For (3), let $\beta\in\mathrm{SP}_{n-p}(V)$ and write, by (2) applied in
+bidegree $(n-p,n-p)$, $M(\beta)=\sum_sb_sb_s^{\mathsf T}$ with
+$b_s\in\Gamma_{n-p}$; the nonnegative coefficients have been absorbed into
+the vectors.  By \Cref{lem:ch09-complement-pairing},
+\[
+ \alpha\wedge\beta
+ =\bigl\langle M,\star M(\beta)\bigr\rangle\tau_n
+ =\sum_s\bigl\langle M,(\star b_s)(\star b_s)^{\mathsf T}\bigr\rangle\tau_n
+ =\sum_s(\star b_s)^{\mathsf T}M(\star b_s)\;\tau_n,
+\]
+where we used $\star(bb^{\mathsf T})=(\star b)(\star b)^{\mathsf T}$ and the
+identity $\langle M,ww^{\mathsf T}\rangle=w^{\mathsf T}Mw$.  By
+\Cref{lem:ch09-star-decomposable}, $\star$ maps $\Gamma_{n-p}$ bijectively
+onto $\Gamma_p$.  Hence $\alpha\wedge\beta\in\mathbf R_{\geq0}\tau_n$ for all
+$\beta\in\mathrm{SP}_{n-p}(V)$ if and only if $w^{\mathsf T}Mw\geq0$ for all
+$w\in\Gamma_p$, which is (3).
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch09-positivity-inclusions}
+Strong positivity implies positivity, and positivity implies weak positivity.
+All three cones are convex, closed under multiplication by nonnegative
+functions and under pullback. They coincide for $p=0,1,n-1,n$.
+\end{proposition}
+\begin{proof}
+A decomposable $p$-form
+$\eta=\eta_1\wedge\cdots\wedge\eta_p$ satisfies
+$c_p\eta\wedge J\eta=
+\eta_1\wedge J\eta_1\wedge\cdots\wedge\eta_p\wedge J\eta_p$ after the
+signs are collected, proving the first inclusion. If $\alpha=c_p\eta\wedge
+J\eta$ and $\beta$ is a strongly positive complementary form, their wedge is
+a square of a determinant times the positive oriented volume form, proving
+the second. The stability statements follow from the definitions. The extreme
+bidegrees reduce to nonnegative functions, while for $p=1$ positivity is
+positive semidefiniteness of a symmetric matrix; duality gives $p=n-1$.
+
+We now give the details.  The first inclusion is
+\Cref{lem:ch09-generators}.  For the second, let $\alpha=c_p\eta\wedge J\eta$
+with $\eta\in A^{p,0}(V)$ and let
+$\beta=c_{n-p}\zeta\wedge J\zeta$ with $\zeta\in\Gamma_{n-p}$ be a generator
+of $\mathrm{SP}_{n-p}(V)$, which is legitimate by
+\Cref{lem:ch09-generators}.  By the second formula of that lemma,
+\[
+ \alpha\wedge\beta
+ =c_n\,(\eta\wedge\zeta)\wedge J(\eta\wedge\zeta),
+\]
+and $\eta\wedge\zeta\in\bigwedge^nV^*$ is a multiple $t\lambda$ of the
+generator, so
+$\alpha\wedge\beta=c_nt^2\lambda\wedge J\lambda=t^2\tau_n$ by
+\Cref{lem:ch09-interlaced}.  This is a nonnegative top form; passing to
+nonnegative combinations gives $\mathrm{P}_p(V)\subset\mathrm{WP}_p(V)$.
+Alternatively, and more quickly: a positive semidefinite matrix satisfies
+$w^{\mathsf T}Mw\geq0$ for every $w$, in particular for decomposable $w$, so
+the inclusion is immediate from
+\Cref{prop:ch09-positivity-dictionary}.
+
+Convexity and stability under multiplication by a nonnegative function are
+clear from \Cref{def:ch09-cones}, since each cone is defined by nonnegative
+combinations or by linear inequalities, and since multiplying a generator by
+$a\geq0$ produces a generator.
+
+For stability under pullback, let $F:V\to V'$ be affine with linear part $B$
+and let $\alpha\in A^{p,p}(V')$.  Since $F^*$ is multiplicative and commutes
+with $J$ by \Cref{prop:ch09-pullback-functorial},
+\[
+ F^*\bigl(\eta_1\wedge J\eta_1\wedge\cdots\wedge\eta_p\wedge J\eta_p\bigr)
+ =(F^*\eta_1)\wedge J(F^*\eta_1)\wedge\cdots
+   \wedge(F^*\eta_p)\wedge J(F^*\eta_p),
+\]
+so $F^*$ maps generators of $\mathrm{SP}_p(V')$ to generators of
+$\mathrm{SP}_p(V)$, and similarly for $\mathrm{P}_p$; both cones are
+therefore preserved.  For $\mathrm{WP}_p$ we use the coefficient matrices.
+Writing $C$ for the matrix of $\bigwedge^pB^{\mathsf T}$, whose entries are
+the $p\times p$ minors $C_{I,K}=\det\bigl(B_{K,I}\bigr)$, the identity
+$F^*\dprime y_K=\sum_IC_{I,K}\dprime x_I$ gives
+\[
+ M(F^*\alpha)=C\,M(\alpha)\,C^{\mathsf T},
+\]
+exactly as in \Cref{lem:ch09-pullback-eleven}, of which this is the case
+$p=1$.  Now $C^{\mathsf T}$ maps $\Gamma_p(V)$ into $\Gamma_p(V')$, being the
+matrix of $\bigwedge^pB$ in the corresponding bases and hence sending
+$v_1\wedge\cdots\wedge v_p$ to $Bv_1\wedge\cdots\wedge Bv_p$.  Therefore, for
+$w\in\Gamma_p(V)$,
+\[
+ w^{\mathsf T}M(F^*\alpha)w
+ =\bigl(C^{\mathsf T}w\bigr)^{\mathsf T}M(\alpha)\bigl(C^{\mathsf T}w\bigr)
+ \geq0
+\]
+whenever $\alpha$ is weakly positive, by
+\Cref{prop:ch09-positivity-dictionary}\,(3).  Hence $F^*\alpha$ is weakly
+positive.
+
+Finally, the coincidence in the four extreme bidegrees.  By
+\Cref{prop:ch09-positivity-dictionary} it suffices to prove that
+$\Gamma_p=\bigwedge^pV^*$ for $p\in\{0,1,n-1,n\}$: if every vector is
+decomposable, then the three conditions of that proposition all reduce to
+positive semidefiniteness of $M$.  For $p=0$ and $p=1$ this is trivial, the
+spaces being $\mathbf R$ and $V^*$.  For $p=n$ the space
+$\bigwedge^nV^*$ is one-dimensional, spanned by the decomposable element
+$\lambda$, and multiples of decomposable elements are decomposable.  For
+$p=n-1$, apply \Cref{lem:ch09-star-decomposable}: the operator $\star$ is a
+linear bijection of $\bigwedge^1V^*$ onto $\bigwedge^{n-1}V^*$ carrying
+$\Gamma_1$ onto $\Gamma_{n-1}$, and $\Gamma_1=\bigwedge^1V^*$; hence
+$\Gamma_{n-1}=\bigwedge^{n-1}V^*$.
+\end{proof}
+
+The proof identifies precisely what makes the three notions differ, and it is
+worth stating in one sentence: \emph{the three cones coincide in bidegree
+$(p,p)$ as soon as every $p$-covector is decomposable}.  Every $p$-covector
+on an $n$-dimensional space is decomposable when $p\leq1$ or $p\geq n-1$, as
+the proof just showed, so the first bidegree in which anything can go wrong
+is $p=2$ on a space of dimension $n=4$.  It does go wrong there, as
+\Cref{ex:ch09-weak-not-positive,ex:ch09-positive-not-strong} show by explicit
+computation.  In particular all three notions agree in every bidegree when
+$n\leq3$, which is why the distinction is invisible on curves and surfaces
+and why it is so often mislaid.
+
+\begin{proposition}
+\label{prop:ch09-positivity-products}
+Let $\alpha\in A^{p,p}(V)$ and $\beta\in A^{q,q}(V)$ with $p+q\leq n$.
+\begin{enumerate}
+\item If $\alpha$ and $\beta$ are strongly positive, so is
+  $\alpha\wedge\beta$.
+\item If $\alpha$ and $\beta$ are positive, so is $\alpha\wedge\beta$.
+\item If $\alpha$ is weakly positive and $\beta$ is strongly positive, then
+  $\alpha\wedge\beta$ is weakly positive.
+\end{enumerate}
+In particular the product of finitely many strongly positive forms is
+strongly positive, and a product of weakly positive forms of which at most
+one fails to be strongly positive is weakly positive.
+\end{proposition}
+
+\begin{proof}
+(1)  By bilinearity we may assume $\alpha$ and $\beta$ are generators, say
+$\alpha=\eta_1\wedge J\eta_1\wedge\cdots\wedge\eta_p\wedge J\eta_p$ and
+$\beta=\zeta_1\wedge J\zeta_1\wedge\cdots\wedge\zeta_q\wedge J\zeta_q$.  Each
+factor $\eta_i\wedge J\eta_i$ has total degree two, hence commutes with
+everything by \Cref{prop:ch09-wedge-signs}\,(2), and the concatenated product
+is again a generator, now with $p+q$ factors.
+
+(2)  Again reduce to generators $\alpha=c_p\eta\wedge J\eta$ and
+$\beta=c_q\zeta\wedge J\zeta$; the second formula of
+\Cref{lem:ch09-generators} gives
+$\alpha\wedge\beta=c_{p+q}(\eta\wedge\zeta)\wedge J(\eta\wedge\zeta)$, a
+generator of $\mathrm{P}_{p+q}(V)$.
+
+(3)  The form $\alpha\wedge\beta$ is symmetric by
+\Cref{prop:ch09-symmetry-matrix}\,(3).  Let
+$\gamma\in\mathrm{SP}_{n-p-q}(V)$.  By (1), $\beta\wedge\gamma$ lies in
+$\mathrm{SP}_{n-p}(V)$, so
+\[
+ (\alpha\wedge\beta)\wedge\gamma=\alpha\wedge(\beta\wedge\gamma)
+ \in\mathbf R_{\geq0}\tau_n
+\]
+by weak positivity of $\alpha$.  Hence $\alpha\wedge\beta$ is weakly
+positive.  The final sentence follows by induction, using (1) to combine the
+strongly positive factors first.
+\end{proof}
+
+\begin{warning}{Products of weakly positive forms}
+Assertion (3) of \Cref{prop:ch09-positivity-products} is sharp: the product of
+two weakly positive forms need not be weakly positive, and the product of two
+positive forms is positive but need not be strongly positive.  The reason is
+visible in the proof: only the strongly positive factor can be moved across
+the pairing.  In the applications this is the reason that mixed
+Monge--Amp\`ere products are formed with at most one factor of doubtful
+positivity, and it is one of the sources of the hypotheses in
+\Cref{chap:cld-bedford-taylor}.
+\end{warning}
+
+\begin{theorem}
+\label{thm:ch09-positivity-duality}
+Under the pairing
+\[
+ A^{p,p}_{\mathrm{sym}}(V)\times A^{n-p,n-p}_{\mathrm{sym}}(V)
+ \longrightarrow\mathbf R,
+ \qquad
+ (\alpha,\beta)\longmapsto
+ \langle\alpha,\beta\rangle\ \text{ defined by }\
+ \alpha\wedge\beta=\langle\alpha,\beta\rangle\,\tau_n,
+\]
+which is a perfect pairing of finite-dimensional vector spaces, the three
+cones satisfy
+\[
+ \mathrm{WP}_p(V)=\mathrm{SP}_{n-p}(V)^\vee,
+ \qquad
+ \mathrm{SP}_p(V)=\mathrm{WP}_{n-p}(V)^\vee,
+ \qquad
+ \mathrm{P}_p(V)=\mathrm{P}_{n-p}(V)^\vee,
+\]
+where $C^\vee$ denotes the cone of elements pairing nonnegatively with every
+element of $C$.  In particular the positive cone is self-dual, and the two
+extreme cones are dual to each other.
+\end{theorem}
+
+\begin{proof}
+\emph{The pairing is perfect.}  By
+\Cref{lem:ch09-complement-pairing},
+$\langle\alpha,\beta\rangle=\langle M(\alpha),\star M(\beta)\rangle$ with
+$\langle A,B\rangle=\sum_{I,J}A_{IJ}B_{IJ}$.  The latter is a positive
+definite inner product on the space of matrices, $\star$ is a linear
+involution, and $M$ is a linear isomorphism; so the pairing is nondegenerate,
+and both spaces have the same dimension $\binom np\bigl(\binom np+1\bigr)/2$.
+
+\emph{First identity.}  This is \Cref{def:ch09-cones} restated: a symmetric
+form $\alpha$ is weakly positive precisely when it pairs nonnegatively with
+every strongly positive form of complementary bidegree.
+
+\emph{The cone $\mathrm{SP}_p(V)$ is closed.}  Let
+$K=\{vv^{\mathsf T}:v\in\Gamma_p,\ |v|=1\}$, a subset of the space of
+symmetric matrices.  It is compact, being the image, under a continuous map,
+of the intersection of $\Gamma_p$ with the unit sphere of
+$\mathbf R^{S_p}$; that intersection is compact because $\Gamma_p$ is closed
+and the sphere is compact.  Every element of $K$ has trace
+$|v|^2=1$, so the convex hull $\operatorname{conv}(K)$, which is compact by
+Carath\'eodory's theorem in finite dimension, lies in the affine hyperplane
+$\{\operatorname{tr}=1\}$ and in particular does not contain $0$.  Now
+$M(\mathrm{SP}_p(V))$ is the set of nonnegative multiples of elements of
+$\operatorname{conv}(K)$.  If $t_j\kappa_j\to A$ with $t_j\geq0$ and
+$\kappa_j\in\operatorname{conv}(K)$, then, after passing to a subnet,
+$\kappa_j\to\kappa\in\operatorname{conv}(K)$; since
+$\operatorname{tr}(t_j\kappa_j)=t_j$ converges, $t_j\to t\geq0$ and
+$A=t\kappa$.  Hence $M(\mathrm{SP}_p(V))$ is closed, and so is
+$\mathrm{SP}_p(V)$.
+
+\emph{Second identity.}  For a closed convex cone $C$ in a finite-dimensional
+vector space paired perfectly with another, one has $C^{\vee\vee}=C$: the
+inclusion $C\subset C^{\vee\vee}$ is formal, and if $x\notin C$ then, by the
+separation theorem for a point and a closed convex set, there is a functional
+$\xi$ with $\langle\xi,x\rangle<\inf_{c\in C}\langle\xi,c\rangle$; the
+infimum over a cone is $0$ or $-\infty$, and it is finite, hence $0$, so
+$\xi\in C^\vee$ and $\langle\xi,x\rangle<0$, whence $x\notin C^{\vee\vee}$.
+See \cite[Theorem~14.1]{Roc70} for this statement in the general form.
+Applying it to the closed convex cone $\mathrm{SP}_p(V)$ and using the first
+identity gives
+\[
+ \mathrm{WP}_{n-p}(V)^\vee
+ =\bigl(\mathrm{SP}_{p}(V)^\vee\bigr)^\vee
+ =\mathrm{SP}_p(V).
+\]
+
+\emph{Third identity.}  By
+\Cref{prop:ch09-positivity-dictionary}\,(1), $\mathrm{P}_p(V)$ corresponds
+under $M$ to the cone of positive semidefinite matrices, which is self-dual
+for $\langle\cdot,\cdot\rangle$: if $A=\sum_sv_sv_s^{\mathsf T}$ and $B$ are
+positive semidefinite then
+$\langle A,B\rangle=\sum_sv_s^{\mathsf T}Bv_s\geq0$, and conversely, taking
+$B=ww^{\mathsf T}$ in $\langle A,B\rangle\geq0$ gives
+$w^{\mathsf T}Aw\geq0$ for all $w$.  Since
+$\langle\alpha,\beta\rangle=\langle M(\alpha),\star M(\beta)\rangle$ and
+$\star$ maps positive semidefinite matrices to positive semidefinite matrices
+---because $\star(bb^{\mathsf T})=(\star b)(\star b)^{\mathsf T}$ and $\star$
+is a linear bijection on vectors---the assertion follows.
+\end{proof}
+
+The duality theorem is the reason the middle cone is the good one for many
+purposes: it is the unique self-dual member of the triple, and, as
+\Cref{prop:ch09-positivity-products}\,(2) shows, it is stable under products.
+The extreme cones trade places under duality, which is also why statements
+about weakly positive forms are so often proved by testing against strongly
+positive ones rather than directly.
+
+\begin{proposition}
+\label{prop:superform-matrix-wedge}
+Let
+\[
+ \alpha=\sum_{i,j=1}^n a_{ij}\,
+                    \dprime x_i\wedge\ddprime x_j
+\]
+be a symmetric $(1,1)$-form. Then $A=(a_{ij})$ is symmetric,
+$\alpha$ is positive if and only if $A$ is positive semidefinite, and
+\[
+ \alpha^n=n!\det(A)\,\tau_n.
+\]
+More generally, the coefficient of
+$\alpha_1\wedge\cdots\wedge\alpha_n$ relative to $\tau_n$ is the mixed
+discriminant of their coefficient matrices, with the normalization for which
+the diagonal value is $n!\det(A)$.
+\end{proposition}
+\begin{proof}
+Applying $J$ to a basis term and moving the double-primed factor past the
+primed factor shows that the symmetry condition is $a_{ij}=a_{ji}$.  Every
+positive semidefinite matrix is a finite sum of rank-one matrices
+$vv^{\mathsf T}$.  The corresponding form is a sum of
+$\eta\wedge J\eta$ with $\eta=\sum_i v_i\dprime x_i$, proving the positivity
+criterion.  Conversely, each such rank-one summand is positive
+semidefinite.  Expanding $\alpha^n$, only terms using every primed and every
+double-primed index survive.  The alternating sum is $n!\det(A)$; the sign
+needed to group the two labelled blocks is exactly cancelled by the sign
+relating the grouped and interlaced orientations.  Polarization gives the
+mixed statement.
+
+We now supply the two computations in full.
+
+\emph{Symmetry and positivity.}  These are the cases $p=1$ of
+\Cref{prop:ch09-symmetry-matrix} and
+\Cref{prop:ch09-positivity-dictionary}, since $c_1=1$ and every element of
+$\bigwedge^1V^*$ is decomposable; in this bidegree all three positivity
+notions agree by \Cref{prop:ch09-positivity-inclusions}.
+
+\emph{The top power.}  Write $e_i=\dprime x_i$ and $f_j=\ddprime x_j$, so
+that $\alpha=\sum_{i,j}a_{ij}e_i\wedge f_j$.  Each summand has total degree
+two and therefore commutes with every other, so
+\[
+ \alpha^n
+ =\sum_{i_1,\ldots,i_n}\ \sum_{j_1,\ldots,j_n}
+   a_{i_1j_1}\cdots a_{i_nj_n}\,
+   (e_{i_1}\wedge f_{j_1})\wedge\cdots\wedge(e_{i_n}\wedge f_{j_n}).
+\]
+A term vanishes unless the $i_k$ are pairwise distinct and the $j_k$ are
+pairwise distinct, that is, unless $k\mapsto i_k$ and $k\mapsto j_k$ are
+permutations $\sigma$ and $\pi$ of $\{1,\ldots,n\}$.  Since the factors
+commute we may reorder them so that the primed indices appear in increasing
+order; this replaces $\pi$ by $\rho=\pi\sigma^{-1}$ and leaves the coefficient
+$\prod_ka_{\sigma(k)\pi(k)}=\prod_ka_{k\rho(k)}$ unchanged.  It remains to
+evaluate
+\[
+ (e_1\wedge f_{\rho(1)})\wedge\cdots\wedge(e_n\wedge f_{\rho(n)}).
+\]
+Moving all the primed factors to the front costs $c_n$ by the computation of
+\Cref{lem:ch09-interlaced}, and reordering
+$f_{\rho(1)},\ldots,f_{\rho(n)}$ into increasing order costs
+$\operatorname{sgn}(\rho)$; hence the displayed product equals
+$c_n\operatorname{sgn}(\rho)\,\lambda\wedge J\lambda
+=\operatorname{sgn}(\rho)\,\tau_n$, again by
+\Cref{lem:ch09-interlaced}.  For each $\rho$ there are exactly $n!$ pairs
+$(\sigma,\pi)$ with $\pi\sigma^{-1}=\rho$, so
+\[
+ \alpha^n
+ =n!\sum_{\rho}\operatorname{sgn}(\rho)\prod_{k=1}^na_{k\rho(k)}\;\tau_n
+ =n!\det(A)\,\tau_n .
+\]
+
+\emph{The mixed statement.}  Recall that the mixed discriminant
+$D(A_1,\ldots,A_n)$ of $n$ symmetric matrices is the unique symmetric
+multilinear function with
+\[
+ \det\Bigl(\sum_{i}t_iA_i\Bigr)
+ =\sum_{i_1,\ldots,i_n}t_{i_1}\cdots t_{i_n}D(A_{i_1},\ldots,A_{i_n}),
+ \qquad t_i\in\mathbf R,
+\]
+so that $D(A,\ldots,A)=\det A$.  Let $\alpha_1,\ldots,\alpha_n$ be
+$(1,1)$-forms with coefficient matrices $A_1,\ldots,A_n$ and put
+$\alpha=\sum_it_i\alpha_i$, whose coefficient matrix is $\sum_it_iA_i$.  The
+map $(\alpha_1,\ldots,\alpha_n)\mapsto\alpha_1\wedge\cdots\wedge\alpha_n$ is
+symmetric and multilinear, because $(1,1)$-forms commute.  Expanding
+$\alpha^n$ multilinearly and comparing with
+$\alpha^n=n!\det(\sum t_iA_i)\tau_n$ term by term in the monomials
+$t_{i_1}\cdots t_{i_n}$ yields
+\[
+ \alpha_{i_1}\wedge\cdots\wedge\alpha_{i_n}
+ =n!\,D(A_{i_1},\ldots,A_{i_n})\,\tau_n ,
+\]
+which is the assertion, with the stated normalization: on the diagonal it
+returns $n!\det(A)\tau_n$.
+\end{proof}
+
+\begin{example}[Weakly positive but not positive, in the first case where
+this occurs]
+\label{ex:ch09-weak-not-positive}
+Let $n=4$ and $p=2$, so that $S_2$ has six elements and
+$\bigwedge^2V^*$ has dimension six.  For
+$w=\sum_{I\in S_2}w_I\,\dprime x_I$ one computes
+\[
+ w\wedge w
+ =2\bigl(w_{12}w_{34}-w_{13}w_{24}+w_{14}w_{23}\bigr)\lambda,
+\]
+because the only surviving products are those of complementary indices, and
+because
+\[
+ \varepsilon_{12}=\varepsilon_{34}=+1,\quad
+ \varepsilon_{13}=\varepsilon_{24}=-1,\quad
+ \varepsilon_{14}=\varepsilon_{23}=+1 .
+\]
+Write $P(w)=w_{12}w_{34}-w_{13}w_{24}+w_{14}w_{23}$ for the resulting
+quadratic form, the \emph{Pl\"ucker form}.  If $w=\eta_1\wedge\eta_2$ is
+decomposable then $w\wedge w=0$, hence
+\[
+ w\in\Gamma_2\ \Longrightarrow\ P(w)=0 .
+\]
+Only this implication will be used.  Now let $\beta\in A^{2,2}(V)$ be the
+symmetric form whose normalized coefficient matrix is
+\[
+ M(\beta)=\mathrm{Id}-4\widehat P,
+ \qquad\text{that is,}\qquad
+ w^{\mathsf T}M(\beta)w=|w|^2-4P(w),
+\]
+where $\widehat P$ is the symmetric matrix of $P$; explicitly,
+\[
+\begin{aligned}
+ \beta=&-\sum_{I\in S_2}\dprime x_I\wedge\ddprime x_I
+   +2\bigl(\dprime x_{12}\wedge\ddprime x_{34}
+          +\dprime x_{34}\wedge\ddprime x_{12}\bigr)\\
+  &-2\bigl(\dprime x_{13}\wedge\ddprime x_{24}
+          +\dprime x_{24}\wedge\ddprime x_{13}\bigr)
+   +2\bigl(\dprime x_{14}\wedge\ddprime x_{23}
+          +\dprime x_{23}\wedge\ddprime x_{14}\bigr),
+\end{aligned}
+\]
+the overall minus sign being $c_2=-1$.  Then:
+\begin{enumerate}
+\item $\beta$ is weakly positive.  Indeed, for $w\in\Gamma_2$ we have
+  $P(w)=0$, hence $w^{\mathsf T}M(\beta)w=|w|^2\geq0$, and
+  \Cref{prop:ch09-positivity-dictionary}\,(3) applies.
+\item $\beta$ is not positive.  Take
+  $w_0=\dprime x_{12}+\dprime x_{34}$, that is, the coefficient vector with
+  $w_{12}=w_{34}=1$ and all other entries zero.  Then $|w_0|^2=2$ and
+  $P(w_0)=1$, so
+  \[
+   w_0^{\mathsf T}M(\beta)w_0=2-4=-2<0,
+  \]
+  and $M(\beta)$ is not positive semidefinite.
+\end{enumerate}
+Observe that $w_0$ is not decomposable, precisely because $P(w_0)=1\neq0$;
+this is the smallest instance of a nondecomposable exterior square, and it is
+the entire source of the phenomenon.
+\end{example}
+
+\begin{example}[Positive but not strongly positive]
+\label{ex:ch09-positive-not-strong}
+Keep $n=4$, $p=2$ and $w_0=\dprime x_{12}+\dprime x_{34}$ as in
+\Cref{ex:ch09-weak-not-positive}, and set
+\[
+ \omega=c_2\,\eta\wedge J\eta,
+ \qquad
+ \eta=\dprime x_1\wedge\dprime x_2+\dprime x_3\wedge\dprime x_4
+     \in A^{2,0}(V),
+\]
+so that $M(\omega)=w_0w_0^{\mathsf T}$ by \Cref{lem:ch09-generators}.
+Explicitly,
+\[
+ \omega=-\bigl(\dprime x_{12}+\dprime x_{34}\bigr)
+        \wedge\bigl(\ddprime x_{12}+\ddprime x_{34}\bigr).
+\]
+By construction $\omega$ is positive; its coefficient matrix is a rank-one
+square, hence positive semidefinite, in accordance with
+\Cref{prop:ch09-positivity-dictionary}\,(1).  It is \emph{not} strongly
+positive.  Indeed, let $\beta$ be the weakly positive form of
+\Cref{ex:ch09-weak-not-positive}.  By
+\Cref{lem:ch09-complement-pairing} and
+$\star(w_0w_0^{\mathsf T})=(\star w_0)(\star w_0)^{\mathsf T}$, together with
+$(\star w_0)_{12}=\varepsilon_{12}(w_0)_{34}=1$ and
+$(\star w_0)_{34}=\varepsilon_{34}(w_0)_{12}=1$, all other entries vanishing,
+we get $\star w_0=w_0$ and therefore
+\[
+ \omega\wedge\beta
+ =\bigl\langle M(\omega),\star M(\beta)\bigr\rangle\tau_4
+ =\bigl(\star w_0\bigr)^{\mathsf T}M(\beta)\bigl(\star w_0\bigr)\,\tau_4
+ =w_0^{\mathsf T}M(\beta)w_0\,\tau_4=-2\,\tau_4 .
+\]
+If $\omega$ were strongly positive, then $\omega\wedge\beta$ would be a
+nonnegative top form, by the definition of weak positivity applied to
+$\beta$ and by the commutativity
+$\omega\wedge\beta=\beta\wedge\omega$ of forms of even total degree.  It is
+not.  Hence
+\[
+ \mathrm{SP}_2(\mathbf R^4)\subsetneq\mathrm{P}_2(\mathbf R^4)
+ \subsetneq\mathrm{WP}_2(\mathbf R^4),
+\]
+the second inclusion being strict by \Cref{ex:ch09-weak-not-positive}.
+\end{example}
+
+The pair of examples repays a second reading, because the mechanism is
+easily stated and easily forgotten.  All three cones are described, through
+\Cref{prop:ch09-positivity-dictionary}, by one and the same matrix $M$:
+strong positivity asks that $M$ be a nonnegative combination of squares
+$vv^{\mathsf T}$ with $v$ \emph{decomposable}; positivity asks that $M$ be a
+nonnegative combination of squares with $v$ arbitrary; weak positivity asks
+only that the quadratic form $M$ be nonnegative \emph{on} decomposable
+vectors.  When every vector is decomposable the three conditions collapse to
+one.  When they do not, the middle condition is strictly between the other
+two, and the two examples exhibit both gaps with the same six-dimensional
+computation.  The same phenomenon occurs for every $n\geq4$ and every $p$
+with $2\leq p\leq n-2$, by taking products with strongly positive forms in
+the remaining variables; we shall not need this and do not prove it.
+
+A last remark on terminology, since it is a standing source of confusion.  In
+complex geometry the cone called \emph{weakly positive} here is usually
+called simply \emph{positive}, and what is called positive here is sometimes
+called \emph{strongly positive} there; see \cite[Chapter~III]{DemBook} for
+the complex conventions.  The names used in this book are those of Lagerberg
+and of \cite{CLD25}, and they are used consistently: \emph{strongly
+positive} always means a nonnegative combination of the products
+$\eta_1\wedge J\eta_1\wedge\cdots\wedge\eta_p\wedge J\eta_p$.  When a
+statement is imported from the complex literature, the translation is made
+explicitly.
+
+\begin{example}[Rank and vanishing of top powers]
+\label{ex:ch09-rank-one}
+For a linear functional $\ell$ and a one-variable function $g$,
+\Cref{lem:superform-composition} gives
+\[
+ \dprimeddprime(g\circ\ell)=g''(\ell)\,
+                 \dprime\ell\wedge\ddprime\ell.
+\]
+Its matrix has rank at most one, so its square vanishes.  When $g''\geq0$
+the form is positive.  This elementary rank calculation is the local model
+for Monge--Amp\`ere measures supported on lower-dimensional tropical strata.
+\end{example}
+
+\section{Convexity as local plurisubharmonicity}
+\label{sec:ch09-convexity}
+
+We come to the statement for whose sake the formalism was built.  In complex
+pluripotential theory a psh function is one whose $\ddc$ is a positive
+$(1,1)$-current; in the Lagerberg calculus the corresponding class is
+described by an entirely classical condition, and the whole of Part~II may be
+read as the systematic exploitation of the following identification.
+
+Recall the notation: for $f\in C^2(U)$ we write $f_i=\partial f/\partial x_i$
+and $f_{ij}=\partial^2f/\partial x_i\partial x_j$, and
+$\operatorname{Hess}f=(f_{ij})$.
+
+\begin{theorem}
+\label{thm:convex-ddc-positive}
+Assume that $U$ is convex. For $f\in C^2(U)$ the following are equivalent:
+\begin{enumerate}
+\item $f$ is convex;
+\item the Hessian matrix $(f_{ij})$ is positive semidefinite;
+\item $\dprimeddprime f$ is a positive $(1,1)$-form.
+\end{enumerate}
+\par
+\end{theorem}
+\begin{proof}
+The equivalence of (1) and (2) follows by restricting $f$ to affine lines:
+the second derivative along $a+tv$ is $v^T(\operatorname{Hess}f)v$.
+The displayed formula for $\dprimeddprime f$ identifies its coefficient matrix with
+the Hessian. The definition of positivity in bidegree $(1,1)$ is exactly
+positive semidefiniteness of that matrix.
+
+In detail.  Suppose (1).  Fix $a\in U$ and $v\in V$ and let
+$I=\{t\in\mathbf R:a+tv\in U\}$, an open interval since $U$ is convex and
+open.  The function $g(t)=f(a+tv)$ is convex on $I$, being the restriction of
+a convex function to a segment, and it is $C^2$; hence $g''\geq0$.  By the
+chain rule,
+\[
+ g''(t)=\sum_{i,j}f_{ij}(a+tv)v_iv_j
+ =v^{\mathsf T}\operatorname{Hess}f(a+tv)\,v .
+\]
+Taking $t=0$ and letting $a$ and $v$ vary gives (2).  Conversely, assume (2)
+and let $a,b\in U$.  Applying the one-variable Taylor formula with integral
+remainder to $g(t)=f\bigl(a+t(b-a)\bigr)$ on $[0,1]$, which is legitimate
+because the segment lies in $U$,
+\[
+ f(b)=f(a)+\sum_if_i(a)(b_i-a_i)
+   +\int_0^1(1-t)\,g''(t)\,\rd t
+ \geq f(a)+\langle\nabla f(a),b-a\rangle .
+\]
+Thus $f$ lies above each of its tangent affine functions, which for a
+differentiable function is equivalent to convexity: given
+$b_0,b_1\in U$ and $s\in[0,1]$, apply the inequality at
+$a=(1-s)b_0+sb_1$ to $b=b_0$ and to $b=b_1$ and combine the two with weights
+$1-s$ and $s$; the gradient terms cancel and one obtains
+$f(a)\leq(1-s)f(b_0)+sf(b_1)$.  This proves (1).
+
+The equivalence of (2) and (3) is now a matter of reading
+\Cref{ex:ch09-hessian-form}: the normalized coefficient matrix of
+$\dprimeddprime f$ is $\operatorname{Hess}f$, since $c_1=1$, and by
+\Cref{prop:superform-matrix-wedge} a $(1,1)$-form is positive exactly when
+that matrix is positive semidefinite at every point.  By
+\Cref{prop:ch09-positivity-inclusions} the three positivity notions agree in
+bidegree $(1,1)$, so it is immaterial which of them is meant in (3).
+\end{proof}
+
+If $U$ is not convex, the same proof gives a local statement: positivity of
+$\dprimeddprime f$ is equivalent to convexity on every sufficiently small
+convex open subset of $U$.  One should not define global convexity on a
+nonconvex domain by comparing values across a line segment that leaves the
+domain.
+
+This is the first appearance of a distinction which will recur throughout
+Part~II.  Positivity of $\dprimeddprime f$ is a \emph{local} condition: it is
+checked at each point separately, and it is preserved under restriction to
+open subsets.  Convexity is a \emph{global} condition on the domain: it
+compares values at pairs of points, and it is meaningful only when the domain
+contains the segment joining them.  On a convex domain the two agree.  On a
+general domain the correct statement is that positivity of
+$\dprimeddprime f$ is equivalent to \emph{local convexity}, that is, to
+convexity in a neighbourhood of each point.  The passage from local to global
+is exactly the content of the maximum principles of
+\Cref{chap:cld-bedford-taylor}, and it is not automatic; on a tropical space
+with nontrivial topology it can fail.
+
+\begin{warning}{Convexity is not preserved by nonaffine coordinate changes}
+Positivity of $\dprimeddprime f$ is preserved by affine pullback, by
+\Cref{prop:ch09-positivity-inclusions} and
+\Cref{prop:ch09-pullback-functorial}, and by nothing more.  If
+$F:\mathbf R\to\mathbf R$ is a nonaffine diffeomorphism, then $f\circ F$
+need not be convex when $f$ is: take $f(x)=x$, which is convex, and
+$F(x)=-x^2$ on $x>0$, so that $f\circ F=-x^2$ is concave.  This is not a
+defect of the calculus; it is the reason that the transition maps of the
+tropical charts in \Cref{chap:tropical-spaces} are required to be integral
+affine, and the reason that a psh function on a Berkovich space cannot be
+defined by pulling back convex functions along arbitrary maps.
+\end{warning}
+
+\begin{corollary}
+\label{cor:superform-convex-composition}
+Let $f$ be smooth and convex on a convex open set, and let $\chi$ be smooth,
+convex, and nondecreasing on an interval containing $f(U)$. Then
+$\chi\circ f$ is convex and $\dprimeddprime(\chi\circ f)$ is positive.
+\end{corollary}
+\begin{proof}
+In \Cref{lem:superform-composition}, both coefficients are nonnegative,
+$\dprimeddprime f$ is positive by \Cref{thm:convex-ddc-positive}, and
+$\dprime f\wedge\ddprime f$ is strongly positive.  The conclusion follows
+from stability of the positive cone under addition and multiplication by
+nonnegative functions.
+\end{proof}
+
+\begin{example}[Log-sum-exp]
+For affine functions $\ell_1,\ldots,\ell_N$ and $\varepsilon>0$, put
+\[
+ L_\varepsilon(x)=\varepsilon\log
+       \left(\sum_{k=1}^N\rme^{\ell_k(x)/\varepsilon}\right).
+\]
+If
+\[
+ p_k(x)=\frac{\rme^{\ell_k(x)/\varepsilon}}
+               {\sum_j\rme^{\ell_j(x)/\varepsilon}},
+\]
+then the Hessian is $\varepsilon^{-1}$ times the covariance matrix of the
+linear parts of the $\ell_k$ with probabilities $p_k(x)$.  It is therefore
+positive semidefinite.  Moreover,
+\[
+ \max_k\ell_k\leq L_\varepsilon
+ \leq\max_k\ell_k+\varepsilon\log N.
+\]
+Thus maxima of finitely many affine functions admit explicit smooth convex
+approximants.  The same regularization is used later to pass from real PL psh
+functions to smooth CLD-psh functions.
+\end{example}
+
+\subsection{The Monge--Amp\`ere form in coordinates}
+
+\begin{proposition}
+\label{prop:ch09-ma-coordinates}
+Let $u,u_1,\ldots,u_n\in C^2(U)$.  Then
+\[
+ \bigl(\dprimeddprime u\bigr)^n
+ =n!\,\det\bigl(\operatorname{Hess}u\bigr)\,\tau_n,
+\]
+\[
+ \dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_n
+ =n!\,D\bigl(\operatorname{Hess}u_1,\ldots,
+             \operatorname{Hess}u_n\bigr)\,\tau_n,
+\]
+where $D$ is the mixed discriminant.  If $u$ is convex, then
+$(\dprimeddprime u)^k$ is a strongly positive $(k,k)$-form for
+$0\leq k\leq n$; in particular $\det(\operatorname{Hess}u)\geq0$.  If
+$u_1,\ldots,u_n$ are convex, then
+$D(\operatorname{Hess}u_1,\ldots,\operatorname{Hess}u_n)\geq0$.
+\end{proposition}
+
+\begin{proof}
+The two displayed identities are
+\Cref{prop:superform-matrix-wedge} applied to the $(1,1)$-forms
+$\dprimeddprime u_i$, whose coefficient matrices are the Hessians by
+\Cref{ex:ch09-hessian-form}.  If $u$ is convex then
+$\dprimeddprime u$ is positive by \Cref{thm:convex-ddc-positive}, hence
+strongly positive because the three cones coincide in bidegree $(1,1)$
+(\Cref{prop:ch09-positivity-inclusions}); so
+$(\dprimeddprime u)^k$ is strongly positive by
+\Cref{prop:ch09-positivity-products}\,(1).  For $k=n$ a strongly positive
+top form is a nonnegative multiple of $\tau_n$, whence
+$n!\det(\operatorname{Hess}u)\geq0$.  The mixed statement follows in the same
+way, the product of $n$ strongly positive $(1,1)$-forms being a strongly
+positive top form.
+\end{proof}
+
+The factor $n!$ is not removable and is not a matter of taste.  It is the
+same factor that appears in the mass ledger of
+\Cref{sec:ch08-dict-three-column} and in the identity
+$\tfrac1{n!}(\dprimeddprime u)^n=\det(D^2u)\,\rd x$ recorded in
+\Cref{sec:appD-supercurrents}: with the integration convention fixed in
+\Cref{chap:tropical-integration}, for which $\int f\,\tau_n=\int f\,\rd x$
+against the covolume-one Lebesgue measure, the top wedge power of
+$\dprimeddprime u$ has total mass $n!$ times the Alexandrov measure of
+\Cref{thm:appD-alexandrov-measure}.  Whenever a Monge--Amp\`ere measure is
+compared with a geometric intersection number, that factor must be visible;
+the convention of this book is never to hide it.
+
+\begin{example}[Monge--Amp\`ere of a convex function in two variables]
+\label{ex:ch09-ma-plane}
+Let $n=2$.
+
+\emph{A quadratic potential.}  For
+$u(x,y)=\tfrac12\bigl(ax^2+2bxy+cy^2\bigr)$ one has
+\[
+ \dprimeddprime u
+ =a\,\dprime x\wedge\ddprime x
+  +b\bigl(\dprime x\wedge\ddprime y+\dprime y\wedge\ddprime x\bigr)
+  +c\,\dprime y\wedge\ddprime y,
+\]
+and by \Cref{ex:ch09-plane},
+\[
+ \bigl(\dprimeddprime u\bigr)^2=2\bigl(ac-b^2\bigr)\,\tau_2 .
+\]
+The function is convex exactly when $a\geq0$, $c\geq0$ and $ac\geq b^2$; the
+Monge--Amp\`ere form is then a nonnegative constant multiple of $\tau_2$, as
+\Cref{prop:ch09-ma-coordinates} requires.  Note that $ac-b^2\geq0$ alone does
+\emph{not} imply convexity: the matrix $-\mathrm{Id}$ has determinant $1$.
+Positivity of a $(1,1)$-form is positive semidefiniteness, not
+nonnegativity of the top power.
+
+\emph{A degenerate potential.}  Let
+\[
+ u(x,y)=\log\bigl(\rme^{x}+\rme^{y}\bigr),
+\]
+which is the case $\varepsilon=1$, $N=2$, $\ell_1=x$, $\ell_2=y$ of the
+log-sum-exp example above, hence convex.  Writing
+$p=\rme^{x}/(\rme^{x}+\rme^{y})$ and $q=1-p$, a direct computation gives
+\[
+ u_{xx}=pq,\qquad u_{xy}=u_{yx}=-pq,\qquad u_{yy}=pq,
+\]
+so that
+\[
+ \dprimeddprime u
+ =pq\,\bigl(\dprime x-\dprime y\bigr)\wedge
+        \bigl(\ddprime x-\ddprime y\bigr)
+ =pq\;\dprime\ell\wedge\ddprime\ell,
+ \qquad \ell=x-y,
+\]
+a positive form of rank one, and
+\[
+ \bigl(\dprimeddprime u\bigr)^2=2\bigl((pq)^2-(pq)^2\bigr)\tau_2=0 .
+\]
+The Monge--Amp\`ere form vanishes identically.  This is the analytic shadow of
+an elementary fact: $u(x,y)=x+\log(1+\rme^{y-x})$ is an affine function plus a
+function of the single variable $y-x$, so its Hessian has rank at most one
+everywhere, exactly as in \Cref{ex:ch09-rank-one}.
+
+\emph{Where the mass goes.}  As $\varepsilon\downarrow0$ the functions
+$\varepsilon\log(\rme^{x/\varepsilon}+\rme^{y/\varepsilon})$ decrease to
+$\max\{x,y\}$, whose Monge--Amp\`ere measure in the sense of
+\Cref{thm:appD-alexandrov-measure} is again zero, the subgradient image
+being the segment joining $(1,0)$ and $(0,1)$, of planar measure zero.  The
+picture changes for $\max\{0,x,y\}$: there the subgradient image at the
+origin is the full triangle with vertices $(0,0)$, $(1,0)$, $(0,1)$, of area
+$\tfrac12$, and the Monge--Amp\`ere measure is an atom, as computed in
+\Cref{ex:appD-polyhedral-atom}.  No smooth superform can be that measure,
+which is why \Cref{chap:cld-currents} is needed; the corresponding
+smooth-form statement is simply that
+$(\dprimeddprime u_\varepsilon)^2$ concentrates near the origin as
+$\varepsilon\downarrow0$ while keeping total mass $2!\cdot\tfrac12=1$.
+\end{example}
+
+\section{Local regularization and compactness tests}
+\label{sec:ch09-regularization}
+
+Fix an auxiliary Euclidean norm on $V$ and a nonnegative smooth function
+$\rho$ supported in the unit ball with integral one.  Write
+$\rho_\varepsilon(x)=\varepsilon^{-n}\rho(x/\varepsilon)$.  If
+$K\Subset U$ and $\varepsilon<\operatorname{dist}(K,V\setminus U)$, the
+convolution
+\[
+                       f_\varepsilon=f*\rho_\varepsilon
+\]
+is defined near $K$.
+
+\begin{proposition}
+\label{prop:superform-convex-mollification}
+If $f$ is continuous and convex on a convex open set $U$, then
+$f_\varepsilon$ is smooth and convex wherever it is defined, and
+$f_\varepsilon\to f$ locally uniformly.  No monotonicity in $\varepsilon$ is
+asserted.
+\end{proposition}
+\begin{proof}
+For fixed $y$, the translate $x\mapsto f(x-y)$ is convex.  A positive average
+of convex functions is convex, so $f_\varepsilon$ is convex.  Smoothness is
+the standard differentiation-under-convolution argument.  On a compact
+subset of $U$, continuity of a convex function is uniform; hence
+\[
+ |f_\varepsilon(x)-f(x)|
+ \leq\sup_{|y|\leq\varepsilon}|f(x-y)-f(x)|
+\]
+tends uniformly to zero.  The final warning is essential: ordinary
+mollifications need not form a decreasing family.
+\end{proof}
+
+This elementary proposition isolates two recurring themes.  Positivity is
+stable under averaging, but a monotone approximation requires an additional
+construction.  Also, the Euclidean norm used for convolution is auxiliary;
+the limiting notion of convexity and the superform calculus are affine
+invariant.
+
+The additional construction is not elaborate: it is enough to choose the
+kernel radial.  The resulting statement is used so often in
+\Cref{chap:cld-bedford-taylor} and in \Cref{part:bj} --- every time a
+Bedford--Taylor product is defined by regularization, and every time a
+monotone family is needed to justify an interchange of limits --- that it is
+worth proving here once, with all four assertions.
+
+\begin{proposition}
+\label{prop:ch09-radial-mollification}
+Assume in addition that $\rho$ is \emph{radial}, that is,
+$\rho(y)$ depends only on $|y|$; in particular $\rho(-y)=\rho(y)$.  Let $U$
+be convex and open, let $f:U\to\mathbf R$ be convex, and for $\varepsilon>0$
+put
+\[
+ U_\varepsilon=\{x\in U:\ x+\varepsilon\overline B\subset U\},
+\]
+a convex open set, with $U_\varepsilon\uparrow U$ as
+$\varepsilon\downarrow0$.  Then, on $U_\varepsilon$:
+\begin{enumerate}
+\item $f_\varepsilon=f*\rho_\varepsilon$ is smooth and convex;
+\item $f_\varepsilon\geq f$;
+\item if $0<\varepsilon\leq\varepsilon'$ then
+  $f_\varepsilon\leq f_{\varepsilon'}$ on $U_{\varepsilon'}$;
+\item $f_\varepsilon\downarrow f$ pointwise as $\varepsilon\downarrow0$, and
+  the convergence is locally uniform.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+That $U_\varepsilon$ is convex follows from the description
+$U_\varepsilon=\bigcap_{|y|\leq\varepsilon}(U-y)$ as an intersection of
+convex sets, and it is open because $U$ is open and $\overline B$ compact.
+Assertion (1) is \Cref{prop:superform-convex-mollification}.
+
+Fix $x\in U_{\varepsilon_0}$ and define, for $|t|\leq\varepsilon_0$,
+\[
+ g_x(t)=\int_Vf(x+ty)\,\rho(y)\,\rd y .
+\]
+The integrand is defined because $x+ty\in U$ whenever $|t|\leq\varepsilon_0$
+and $y\in\operatorname{supp}\rho\subset\overline B$.  Substituting
+$y\mapsto-y$ and using $\rho(-y)=\rho(y)$ gives
+\[
+ f_\varepsilon(x)=\int_Vf(x-\varepsilon y)\rho(y)\,\rd y=g_x(\varepsilon),
+ \qquad 0\leq\varepsilon\leq\varepsilon_0,
+\]
+and in particular $g_x(0)=f(x)$.  Two properties of $g_x$ are immediate.  It
+is convex, being an average with the nonnegative weights $\rho(y)\rd y$ of
+the convex functions $t\mapsto f(x+ty)$.  And it is even:
+\[
+ g_x(-t)=\int f(x-ty)\rho(y)\rd y=\int f(x+ty)\rho(-y)\rd y=g_x(t).
+\]
+
+A convex even function on $[-\varepsilon_0,\varepsilon_0]$ is nondecreasing
+on $[0,\varepsilon_0]$.  Indeed, for $0\leq s<t\leq\varepsilon_0$ write
+\[
+ s=\frac{t-s}{2t}\,(-t)+\frac{t+s}{2t}\,(t),
+\]
+a convex combination since the two weights are nonnegative and sum to $1$;
+convexity and evenness give
+\[
+ g_x(s)\leq\frac{t-s}{2t}g_x(-t)+\frac{t+s}{2t}g_x(t)=g_x(t).
+\]
+Taking $s=0$ and $t=\varepsilon$ yields
+$f(x)=g_x(0)\leq g_x(\varepsilon)=f_\varepsilon(x)$, which is (2); taking
+$s=\varepsilon$ and $t=\varepsilon'$ yields (3), valid at every
+$x\in U_{\varepsilon'}$.
+
+Finally, (4).  By (3) the family $(f_\varepsilon)$ decreases pointwise as
+$\varepsilon\downarrow0$, and by
+\Cref{prop:superform-convex-mollification} it converges to $f$ locally
+uniformly; a decreasing family converging in any sense to $f$ converges to
+$f$ pointwise.
+\end{proof}
+
+\begin{example}[Both extra conclusions fail for a general kernel]
+\label{ex:ch09-nonradial-kernel}
+Radiality is not a convenience.  Take $n=1$, let $\rho\geq0$ be smooth with
+integral one and support contained in the interval $(0,1)$, and put
+$m=\int y\rho(y)\rd y\in(0,1)$.  For the affine, hence convex, function
+$f(x)=x$ one computes
+\[
+ f_\varepsilon(x)=\int(x-\varepsilon y)\rho(y)\,\rd y=x-\varepsilon m .
+\]
+Thus $f_\varepsilon<f$ everywhere, so (2) of
+\Cref{prop:ch09-radial-mollification} fails, and
+$\varepsilon\mapsto f_\varepsilon$ is strictly \emph{decreasing}, so (3)
+fails as well.  Inspecting the proof shows exactly which hypothesis is
+responsible for which conclusion: the domination $f_\varepsilon\geq f$ needs
+only that the kernel have barycentre $0$, that is
+$\int y\rho(y)\rd y=0$, which is Jensen's inequality; the monotonicity in
+$\varepsilon$ needs the evenness $\rho(-y)=\rho(y)$.  A radial kernel has
+both properties, and this is the only reason to insist on one.
+\end{example}
+
+\subsection{The distributional statement}
+
+The functions to which the theory is applied---piecewise affine potentials,
+maxima of finitely many affine functions, limits of model
+metrics---are almost never of class $C^2$.  What is needed is therefore the
+distributional form of \Cref{thm:convex-ddc-positive}.  We state it on an
+open subset of $\mathbf R^n$, in the language of distributions rather than of
+currents: the current-theoretic version, which is the one used from
+\Cref{chap:cld-currents} onwards, has the same proof once the duality
+formalism is available.
+
+For $u\in L^1_{\loc}(U)$ the coefficients of $\dprimeddprime u$ are the
+distributional second derivatives $\partial_i\partial_ju$, and \emph{$\dprimeddprime u\geq0$
+in the sense of distributions} means, in accordance with
+\Cref{thm:convex-ddc-positive}\,(3) and
+\Cref{prop:ch09-positivity-dictionary}, that
+\begin{equation}
+\label{eq:ch09-distributional-positivity}
+ \sum_{i,j}v_iv_j\int_Uu\,\frac{\partial^2\chi}{\partial x_i\partial x_j}
+   \,\rd x\;\geq\;0
+ \qquad\text{for all }v\in\mathbf R^n
+ \text{ and all }\chi\in C_c^\infty(U),\ \chi\geq0 .
+\end{equation}
+
+\begin{theorem}
+\label{thm:ch09-distributional-convexity}
+Let $U\subset\mathbf R^n$ be open and convex and let $u\in L^1_{\loc}(U)$.
+The following are equivalent:
+\begin{enumerate}
+\item $\dprimeddprime u\geq0$ in the sense of
+  \eqref{eq:ch09-distributional-positivity};
+\item there is a convex function $\tilde u:U\to\mathbf R$ with
+  $\tilde u=u$ almost everywhere.
+\end{enumerate}
+The function $\tilde u$ is then unique, and, for a radial kernel $\rho$ as in
+\Cref{prop:ch09-radial-mollification},
+\[
+ \tilde u(x)=\lim_{\varepsilon\downarrow0}\,u*\rho_\varepsilon(x)
+ \qquad\text{for every }x\in U,
+\]
+the family $u*\rho_\varepsilon$ being convex and nonincreasing as
+$\varepsilon\downarrow0$.
+\end{theorem}
+
+\begin{proof}
+Throughout, $\rho$ is radial and $u_\varepsilon=u*\rho_\varepsilon$, defined
+and smooth on $U_\varepsilon$.  We use two standard properties of mollifiers,
+for which we refer to \cite{EvansGariepy}: $u_\varepsilon\to u$ in
+$L^1_{\loc}(U)$ as $\varepsilon\downarrow0$, and $u_\varepsilon\to u$
+locally uniformly if $u$ is continuous.
+
+\emph{(2) $\Rightarrow$ (1).}  A finite convex function on an open convex
+subset of $\mathbf R^n$ is locally Lipschitz, hence continuous and locally
+integrable; see \cite[\S10]{Roc70}.  Replacing $u$ by $\tilde u$ changes
+neither side of \eqref{eq:ch09-distributional-positivity}, so we may assume
+$u=\tilde u$ is convex.  By
+\Cref{prop:ch09-radial-mollification}\,(1) each $u_\varepsilon$ is smooth and
+convex on $U_\varepsilon$, so its Hessian is positive semidefinite by
+\Cref{thm:convex-ddc-positive}.  Let $\chi\in C^\infty_c(U)$ be nonnegative
+and $v\in\mathbf R^n$.  For $\varepsilon$ small the support of $\chi$ lies in
+$U_\varepsilon$, and integrating by parts twice,
+\[
+ \sum_{i,j}v_iv_j\int u_\varepsilon\,\partial_i\partial_j\chi\,\rd x
+ =\int\Bigl(\sum_{i,j}v_iv_j\partial_i\partial_ju_\varepsilon\Bigr)
+   \chi\,\rd x\geq0 .
+\]
+Letting $\varepsilon\downarrow0$ and using $u_\varepsilon\to u$ in
+$L^1_{\loc}$ gives \eqref{eq:ch09-distributional-positivity}.
+
+\emph{(1) $\Rightarrow$ (2).}  Fix $\varepsilon>0$ and $x\in U_\varepsilon$.
+The function $y\mapsto\rho_\varepsilon(x-y)$ is nonnegative, smooth and
+compactly supported in $U$, so \eqref{eq:ch09-distributional-positivity}
+applies to it.  Since
+$\partial^2_{v,y}\bigl[\rho_\varepsilon(x-y)\bigr]
+=(\partial_v^2\rho_\varepsilon)(x-y)$, differentiating under the integral
+sign gives
+\[
+ \sum_{i,j}v_iv_j\,\partial_i\partial_ju_\varepsilon(x)
+ =\int_Uu(y)\,(\partial_v^2\rho_\varepsilon)(x-y)\,\rd y\;\geq\;0 .
+\]
+Hence $u_\varepsilon$ has positive semidefinite Hessian on the convex open
+set $U_\varepsilon$, and is convex there by
+\Cref{thm:convex-ddc-positive}.
+
+Next we show that $\varepsilon\mapsto u_\varepsilon(x)$ is nondecreasing.
+Let $0<\varepsilon\leq\varepsilon'$ and let $x$ be a point at which both are
+defined, say $x\in U_{\varepsilon'+\delta_0}$ for some $\delta_0>0$.  For
+$0<\delta\leq\delta_0$ the function $u_\delta$ is convex on $U_\delta$, so
+\Cref{prop:ch09-radial-mollification}\,(3) applied to it gives
+\[
+ (u_\delta)_{\varepsilon}(x)\leq(u_\delta)_{\varepsilon'}(x).
+\]
+Convolution is commutative and associative, so
+$(u_\delta)_{t}=u*\rho_\delta*\rho_{t}=(u_{t})_\delta$ for $t\in\{\varepsilon,\varepsilon'\}$.
+As $\delta\downarrow0$ we have $(u_t)_\delta(x)\to u_t(x)$, because $u_t$ is
+continuous.  Passing to the limit in the displayed inequality yields
+$u_\varepsilon(x)\leq u_{\varepsilon'}(x)$.
+
+Therefore the limit
+$\tilde u(x)=\lim_{\varepsilon\downarrow0}u_\varepsilon(x)$ exists in
+$[-\infty,+\infty)$ for every $x\in U$, the family being nonincreasing as
+$\varepsilon\downarrow0$ and defined for all small $\varepsilon$.  Being a
+pointwise decreasing limit of convex functions, $\tilde u$ satisfies the
+convexity inequality
+$\tilde u((1-s)x_0+sx_1)\leq(1-s)\tilde u(x_0)+s\tilde u(x_1)$, all terms
+being limits of decreasing real sequences and hence well defined in
+$[-\infty,+\infty)$.
+
+We claim $\tilde u$ is finite.  Since $u_\varepsilon\to u$ in
+$L^1_{\loc}$, some sequence $\varepsilon_k\downarrow0$ satisfies
+$u_{\varepsilon_k}\to u$ almost everywhere; combined with the pointwise
+monotone convergence this gives $\tilde u=u$ almost everywhere, so
+$\tilde u>-\infty$ outside a null set.  Suppose $\tilde u(x_0)=-\infty$ for
+some $x_0\in U$ and choose $r>0$ with $B(x_0,r)\subset U$.  The reflection
+$y\mapsto2x_0-y$ preserves $B(x_0,r)$ and Lebesgue measure, so the set
+$Z=\{y\in B(x_0,r):\tilde u(y)=-\infty\}$, which is null, has null
+reflection; hence there is $y\in B(x_0,r)$ with $\tilde u(y)$ and
+$\tilde u(2x_0-y)$ both finite.  The convexity inequality at the midpoint
+$x_0$ then gives
+$\tilde u(x_0)\leq\tfrac12(\tilde u(y)+\tilde u(2x_0-y))>-\infty$, a
+contradiction.  Thus $\tilde u$ is a finite convex function equal to $u$
+almost everywhere, which is (2), and the displayed formula for $\tilde u$ has
+been proved along the way.
+
+\emph{Uniqueness.}  Two finite convex functions on an open convex set which
+agree almost everywhere are equal, both being continuous by
+\cite[\S10]{Roc70}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch09-monotone-smooth-approximation}
+Let $U$ be convex and open and let $u:U\to\mathbf R$ be convex.  Then there
+exists a family $(u_\varepsilon)_{\varepsilon>0}$ of smooth convex functions,
+each defined on $U_\varepsilon$, such that
+\[
+ u_\varepsilon\downarrow u\quad\text{pointwise and locally uniformly as }
+ \varepsilon\downarrow0,
+ \qquad
+ \dprimeddprime u_\varepsilon\geq0 .
+\]
+In particular every convex function on a convex open subset of $V$ is a
+decreasing limit of smooth functions with positive $\dprimeddprime$.
+\end{corollary}
+
+\begin{proof}
+Take $u_\varepsilon=u*\rho_\varepsilon$ with $\rho$ radial and apply
+\Cref{prop:ch09-radial-mollification} together with
+\Cref{thm:convex-ddc-positive}.
+\end{proof}
+
+\Cref{cor:ch09-monotone-smooth-approximation} is the local prototype of every
+approximation theorem in this book.  It should be compared with the two
+places where the analogous statement is hard or false.  On a Berkovich space
+the psh functions of \Cref{chap:cld-bedford-taylor} are \emph{defined} by an
+approximation property, precisely because no convolution is available;
+and in the global theories of \Cref{part:bfj,part:bj} the approximating
+objects are model functions, whose existence is a theorem about models rather
+than an integral formula.  What survives from the present section is the
+shape of the statement: a decreasing family of regular objects, converging
+locally uniformly, each of which is positive.
+
+\begin{remark}[The boundary of the smooth category]
+The function $\max\{0,x\}$ is convex but not smooth; its second derivative is
+a Dirac mass. Hence curvature of a piecewise affine model metric is generally
+not a smooth superform. \Cref{chap:cld-currents} treats it as a current, while
+\Cref{chap:delta-forms} introduces delta-forms, where such polyhedral
+curvature can be multiplied.
+Harmonic tropicalizations enlarge the chart category for a different reason:
+they repair cohomological limitations of the original smooth sheaf. These two
+extensions solve different problems and will not be conflated.
+\end{remark}
+
+\section{Dictionary and sign checklist}
+\label{sec:ch09-dictionary}
+
+\subsection{The three-column dictionary}
+
+The following table is the translation key between the three languages that
+meet in this chapter.  It is not a theorem; each row abbreviates a statement
+proved above or, in the middle column, a statement of complex geometry that
+is recalled for orientation only.
+
+\begin{center}
+\small
+\begin{tabular}{p{.30\textwidth}|p{.30\textwidth}|p{.30\textwidth}}
+\textbf{Superform calculus}&\textbf{Complex analogue}
+  &\textbf{Convex-analytic content}\\ \hline
+$A^{p,q}(U)$, bidegree $(p,q)$
+  &forms of type $(p,q)$
+  &---\\
+$\dprime,\ \ddprime$
+  &$\partial,\ \bar\partial$
+  &one and the same real derivative, twice labelled\\
+$J$, $J^2=\operatorname{id}$
+  &complex conjugation
+  &transposition of the coefficient array\\
+$\dprimeddprime u$
+  &$\ddc u$, up to \Cref{app:normalizations}
+  &the Hessian $\operatorname{Hess}u$\\
+symmetric $(p,p)$-form
+  &real $(p,p)$-form
+  &symmetric matrix indexed by $S_p$\\
+strongly positive
+  &strongly positive
+  &$\sum_sa_sv_sv_s^{\mathsf T}$, $v_s$ decomposable\\
+positive
+  &self-dual cone, no standard name
+  &$M$ positive semidefinite\\
+weakly positive
+  &positive, in \cite[Ch.~III]{DemBook}
+  &$w^{\mathsf T}Mw\geq0$ for $w$ decomposable\\
+$\tau_n$ positive
+  &positive volume form
+  &nonnegative density\\
+$\dprimeddprime u\geq0$
+  &$u$ plurisubharmonic
+  &$u$ convex\\
+$\tfrac1{n!}(\dprimeddprime u)^n$
+  &Monge--Amp\`ere measure
+  &$\det(D^2u)\,\rd x$, the Alexandrov measure\\
+$F^*$ for $F$ affine
+  &pullback by a holomorphic map
+  &affine change of variables\\
+$\iota'_v,\ \iota''_v$
+  &contraction by a $(1,0)$- or $(0,1)$-vector
+  &directional derivative after
+   \Cref{prop:ch09-cartan}
+\end{tabular}
+\end{center}
+
+\subsection{The sign checklist}
+
+Seven signs govern everything above.  Each has been proved; each is worth
+memorizing in the form of the test that detects an error.
+
+\begin{enumerate}
+\item \emph{The constants.}  $c_p=(-1)^{p(p-1)/2}$ and
+  $c_ac_b(-1)^{ab}=c_{a+b}$
+  (\Cref{lem:ch09-interlaced}).  \emph{Test:} $c_0=c_1=1$, $c_2=c_3=-1$,
+  $c_4=1$.
+\item \emph{The orientation.}
+  $\tau_n=c_n\,\dprime x_1\wedge\cdots\wedge\dprime x_n\wedge
+   \ddprime x_1\wedge\cdots\wedge\ddprime x_n$
+  (\Cref{lem:ch09-interlaced}).  \emph{Test:} for $n=2$ the grouped product
+  is $-\tau_2$.
+\item \emph{The block sign.}  Moving a double-primed block of degree $q$
+  past a primed block of degree $p'$ costs $(-1)^{qp'}$
+  (\Cref{prop:ch09-wedge-signs}).  \emph{Test:} the commutation of two
+  forms depends only on total degrees.
+\item \emph{The operator sign.}  $\ddprime$ and $\iota''_v$ carry $(-1)^p$
+  on $A^{p,q}$; $\dprime$ and $\iota'_v$ carry none
+  (\Cref{def:ch09-operators}, \Cref{def:ch09-contraction}).  \emph{Test:}
+  $\ddprime=J\dprime J$ and $\iota''_v=J\iota'_vJ$.
+\item \emph{The involution.}  Here $J\ddprime x=\dprime x$ and symmetry is
+  $J\alpha=(-1)^p\alpha$; in \cite{CLD25} the involution differs by
+  $(-1)^q$ on $A^{p,q}$ and symmetry reads $J\alpha=\alpha$
+  (\Cref{rem:ch09-two-involutions}).  \emph{Test:} both conventions agree on
+  $A^{p,0}$, so the positivity cones are the same.
+\item \emph{The Hessian normalization.}
+  $\dprimeddprime u=\sum_{i,j}u_{ij}\dprime x_i\wedge\ddprime x_j$, with no
+  factor $\tfrac12$, $2\pi$, or $\rmi$
+  (\Cref{ex:ch09-hessian-form} and \eqref{eq:appJ-real-hessian}).
+  \emph{Test:} on $\mathbf R$, $\dprimeddprime u=u''\tau_1$.
+\item \emph{The determinant.}  $(\dprimeddprime u)^n=n!\det(\operatorname{Hess}u)\tau_n$
+  and $F^*\tau_n=(\det B)^2\tau_n$
+  (\Cref{prop:ch09-ma-coordinates,prop:ch09-pullback-top}).  \emph{Test:}
+  the factor $n!$ is present in every mass computation, and the square in
+  every change of variables.
+\end{enumerate}
+
+\subsection*{Statements exported to later chapters}
+
+The following are the results of this chapter that are quoted elsewhere, with
+their first use.
+\begin{itemize}
+\item The sign rules
+  \Cref{prop:ch09-wedge-signs,lem:ch09-interlaced} and the differential
+  identities \Cref{prop:superform-differential-identities}: used throughout
+  \Cref{chap:tropical-spaces,chap:tropical-integration,chap:cld-forms}.
+\item The contraction calculus
+  \Cref{def:ch09-contraction,lem:ch09-contraction-basic,prop:ch09-cartan}:
+  used for the boundary traces \eqref{eq:superform-boundary-traces} in
+  \Cref{chap:tropical-integration} and for the homogeneity conditions
+  \eqref{eq:appD-strong-homogeneity}.
+\item Affine functoriality
+  \Cref{prop:ch09-pullback-functorial,prop:ch09-pullback-top}: the reason
+  tropical transition maps are integral affine
+  (\Cref{chap:tropical-spaces}) and the source of the lattice factors in
+  \Cref{chap:tropical-integration}.
+\item The positivity dictionary and duality
+  \Cref{prop:ch09-positivity-dictionary,thm:ch09-positivity-duality} and the
+  product rules \Cref{prop:ch09-positivity-products}: used for positive
+  currents in \Cref{chap:cld-currents} and for the Bedford--Taylor products
+  of \Cref{chap:cld-bedford-taylor}.
+\item The convexity criteria
+  \Cref{thm:convex-ddc-positive,thm:ch09-distributional-convexity} and the
+  regularization results
+  \Cref{prop:ch09-radial-mollification,cor:ch09-monotone-smooth-approximation}:
+  used in \Cref{chap:cld-bedford-taylor} and, in their global counterparts,
+  in \Cref{part:bfj,part:bj}.
+\item The Monge--Amp\`ere normalization
+  \Cref{prop:ch09-ma-coordinates}: the factor $n!$ that reappears in every
+  comparison between a Monge--Amp\`ere mass and an intersection number.
+\end{itemize}
+
+\section{Source notes}
+
+Superforms were introduced by Lagerberg. Our signs and positivity cones agree
+with the 2025 revision of Chambert--Loir--Ducros
+\cite[\S\S1--2]{CLD25}. The presentation begins with the Hessian test because
+this is the portion used most frequently in pluripotential theory.
+
+The bigraded algebra $A^{\bullet,\bullet}$, the operators $\dprime$ and
+$\ddprime$, the involution, the three positivity cones, and the associated
+supercurrents are due to A.~Lagerberg, in his paper on super currents and
+tropical geometry (\emph{Math.\ Z.}, 2012).  That work is not in the
+bibliography of this book, because no proof here takes an unproved statement
+from it; it is named rather than cited, and the reader who wishes to consult
+it will find its results reproved above with the conventions of this book.
+Two of Lagerberg's contributions should be attributed precisely: the
+observation that the doubled differential calculus reproduces the formal
+apparatus of complex geometry over $\mathbf R$, and the definition of the
+three positivity cones, which are the real analogues of the cones of
+\cite[Ch.~III]{DemBook}.  The example of a nonzero weakly positive
+$(2,2)$-form on $\mathbf R^4$ orthogonal to every strongly positive form is
+also his; our
+\Cref{ex:ch09-weak-not-positive,ex:ch09-positive-not-strong} are a variant,
+arranged so that both strictness assertions follow from a single
+six-dimensional computation.
+
+The development of that algebra into a theory of forms and currents on
+Berkovich spaces is due to Chambert-Loir and Ducros
+\cite{CLD12}, in the revised form \cite{CLD25}.  The distinction matters at
+three points in this chapter.  First, the involution: \cite{CLD25} normalizes
+$J$ so that $J^2=(-1)^{p+q}$, an almost-complex-structure convention, whereas
+we keep Lagerberg's involution with $J^2=\operatorname{id}$; the translation
+is \Cref{rem:ch09-two-involutions} and it affects no positivity statement.
+Second, the terminology: what is called \emph{weakly positive} by Lagerberg
+and by \cite{CLD25}, and here, is what most of the complex literature calls
+positive; the warning after
+\Cref{ex:ch09-positive-not-strong} records this.  Third, the ordering:
+\cite{CLD25} develops the pointwise algebra, then differential superforms,
+then integration; we have inserted the contraction operators and the
+coefficient-matrix dictionary early, because they make the positivity theory
+a matter of symmetric matrices, and we have postponed integration entirely to
+\Cref{chap:tropical-integration}, where the noninvariance of the naive
+Lagerberg integral is the motivation for calibrations.
+
+The linear algebra of the positivity cones is classical in its complex form;
+\cite[Ch.~III]{DemBook} is the standard reference for the complex cones,
+their duality, and the failure of the inclusions to be equalities.  The
+convex-analytic inputs---the bipolar theorem for closed convex cones, the
+continuity of finite convex functions on open sets, and the subgradient
+description of the Monge--Amp\`ere measure---are quoted from \cite{Roc70},
+and the convex-body material that reappears in
+\Cref{chap:tropical-spaces} may be found in \cite{Sch14}.  Standard
+properties of mollifiers are used as in \cite{EvansGariepy}.
+The finite-dimensional statements we import are collected, with their exact
+forms, in \Cref{app:convexity}.
+
+Two later reworkings of the same formalism are worth naming here, since they
+change the emphasis rather than the content.  Berndtsson
+\cite{Ber19Super,Ber26Convex} develops superforms and supercurrents with a
+Riemannian and convex-geometric emphasis, obtaining in particular the
+supercurrent formulation of mixed volumes used in
+\Cref{sec:appD-supercurrents}; his metric-dependent supercurrent of a real
+submanifold is a genuinely different object from the calibrated tropical
+currents of \Cref{chap:tropical-integration}, and the two are not identified
+in this book.  Gubler and K\"unnemann \cite{GK17,GK19} enlarge the category
+of forms so that polyhedral curvature can be multiplied, and Gubler, Jell and
+Rabinoff \cite{GJR26} enlarge the category of charts to repair the
+cohomological behaviour of the smooth sheaf; a Poincar\'e lemma for the
+associated real forms is \cite{Jell16}.  These extensions solve different
+problems and are treated separately in \Cref{chap:delta-forms}.  The
+tropical-geometric background for the polyhedral chapters is
+\cite{MR18Tropical}.
+
+Finally, a word on what this chapter deliberately does not do.  It does not
+define superforms with coefficients in a subsheaf, a refinement that
+\cite{CLD25} uses systematically and that is needed for piecewise linear and
+$G$-rational structures; that material is developed where it is used, in
+\Cref{chap:tropical-spaces} and \Cref{app:tropical-algebra}.  It does not
+treat integration, currents, or any singular object.  And it does not assert
+that a pointwise conic decomposition of a smooth positive form can be chosen
+smoothly; the pointwise convention adopted in
+\Cref{sec:ch09-positivity} is the one used throughout the book, and no
+argument anywhere depends on the stronger reading.

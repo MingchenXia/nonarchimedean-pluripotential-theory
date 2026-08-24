@@ -1,0 +1,138 @@
+\begin{proposition}\label{prop:ch23-fixed-skeleton-selection}
+Let \(\mathcal F\subset\PSH(X,\theta)\) be nonempty and uniformly bounded
+above, and fix a determining dual complex \(\Delta\).  Then
+\begin{equation}\label{eq:ch23-fixed-skeleton-sup}
+                    u:=\sup_{\psi\in\mathcal F}\psi|_\Delta
+\end{equation}
+is continuous.  There is an increasing sequence \(u_j\), each the
+restriction of a finite maximum of members of \(\mathcal F\), such that
+\(u_j\to u\) uniformly on \(\Delta\).
+\end{proposition}
+
+\begin{proof}
+Write \(\Delta=\Delta_{\mathcal X}\), fix \(\psi_0\in\mathcal F\), and let
+\(C_0\in\mathbf R\) be such that \(\psi\leq C_0\) on \(X^{\An}\) for every
+\(\psi\in\mathcal F\).
+
+\emph{Step 1: the exact skeletal inputs and a common global modulus.}
+We use the following two earlier BFJ statements, specialized to the fixed
+determining SNC model \(\mathcal X\).  First, clause~(1) of
+\Cref{thm:bfj-skeletal-characterization} says that, for every
+\(\psi\in\PSH(X,\theta)\), the restriction \(\psi|_\Delta\) is a finite
+real-valued continuous function.  Second, clause~(1) of
+\Cref{thm:bfj-skeletal-equicontinuity} says the following more precise
+uniform statement.  Fix, on each face \(\sigma\) of \(\Delta\), a norm
+\(|\cdot|_\sigma\) compatible with its integral affine lattice.  There is a
+constant \(L=L(\mathcal X,\theta)>0\), independent of \(\psi\), such that
+\begin{equation}\label{eq:ch23-selection-facewise}
+ |\psi(x)-\psi(y)|\leq L|x-y|_\sigma,
+ \qquad x,y\in\sigma,
+ \quad \psi\in\PSH(X,\theta).
+\end{equation}
+
+We now pass from \eqref{eq:ch23-selection-facewise} to one metric on the
+whole complex, including the topology check needed below.  For
+\(x,y\in\Delta\), define
+\begin{equation}\label{eq:ch23-selection-path-metric}
+ d(x,y):=\inf\left\{
+   \sum_{i=1}^{N}|x_i-x_{i-1}|_{\sigma_i}:
+   x_0=x,\ x_N=y,\ [x_{i-1},x_i]\subset\sigma_i
+ \right\}.
+\end{equation}
+In each summand we take \(\sigma_i\) to be the smallest face containing the
+segment.  The set of chains in \eqref{eq:ch23-selection-path-metric} is
+nonempty: \Cref{lem:dual-complex-simplicial} says in this setting that
+\(\Delta\) is a connected finite simplicial complex, and such a complex is
+joined by chains of segments lying in single faces.  Reversing and
+concatenating chains show, respectively, that \(d\) is symmetric and
+satisfies the triangle inequality, while \(d(x,x)=0\).
+
+To verify that \(d\) is compatible with the simplicial topology, choose a
+geometric realization of \(\Delta\) in a Euclidean space and denote its
+Euclidean distance by \(\rho\).  Norm equivalence on the finitely many faces
+gives constants \(a,b>0\) such that
+\begin{equation}\label{eq:ch23-selection-norm-comparison}
+ a\rho(p,q)\leq |p-q|_\sigma\leq b\rho(p,q)
+ \qquad(p,q\in\sigma)
+\end{equation}
+for every face \(\sigma\).  The triangle inequality for \(\rho\), applied to
+every admissible chain, yields \(d(x,y)\geq a\rho(x,y)\); hence \(d\) is
+nondegenerate.  Conversely, for fixed \(x\), the union of the faces not
+containing \(x\) is compact and misses \(x\).  Thus every sufficiently
+\(\rho\)-close point \(y\) lies with \(x\) in one face \(\sigma\), and the
+one-segment chain together with \eqref{eq:ch23-selection-norm-comparison}
+gives \(d(x,y)\leq b\rho(x,y)\).  Therefore \(d\) induces precisely the
+simplicial topology; in particular \((\Delta,d)\) is compact.
+
+Apply \eqref{eq:ch23-selection-facewise} to every segment of a chain, sum,
+and take the infimum in \eqref{eq:ch23-selection-path-metric}.  We obtain
+\begin{equation}\label{eq:ch23-selection-modulus}
+ |\psi(x)-\psi(y)|\leq L\,d(x,y),
+ \qquad x,y\in\Delta,
+ \quad \psi\in\PSH(X,\theta).
+\end{equation}
+We write \(\omega(t)=Lt\).  If \(f_1,\ldots,f_r\) satisfy this modulus, then
+\[
+ |\max_i f_i(x)-\max_i f_i(y)|
+ \leq\max_i|f_i(x)-f_i(y)|
+ \leq\omega(d(x,y)).
+\]
+Thus every finite maximum of restrictions of members of \(\mathcal F\) has
+the same modulus.  No psh stability of that maximum is needed here.
+
+\emph{Step 2: the supremum is finite and continuous.}
+For \(x\in\Delta\) we have
+\(\psi_0(x)\leq u(x)\leq C_0\).  The first exact skeletal input recorded in
+Step~1 makes \(\psi_0(x)\) finite, so \(u\) is real valued.  For
+\(x,y\in\Delta\) and \(\psi\in\mathcal F\),
+\eqref{eq:ch23-selection-modulus} gives
+\(\psi(x)\leq\psi(y)+\omega(d(x,y))\leq u(y)+\omega(d(x,y))\); taking the
+supremum over \(\psi\) gives \(u(x)\leq u(y)+\omega(d(x,y))\), and
+exchanging \(x\) and \(y\) gives the reverse.  Thus \(u\) itself satisfies
+\eqref{eq:ch23-selection-modulus} and is in particular continuous.
+
+\emph{Step 3: the dense-set selection.}
+The dual complex is a finite simplicial complex, hence a compact metrizable,
+and therefore separable, space; choose a countable dense subset
+\((x_k)_{k\geq1}\subset\Delta\).  For every pair \(k,m\geq1\) use the
+definition of the pointwise supremum \(u(x_k)\), which is a finite real
+number by Step~2, to select \(\psi_{k,m}\in\mathcal F\) with
+\begin{equation}\label{eq:ch23-dense-selection}
+                     \psi_{k,m}(x_k)>u(x_k)-m^{-1}.
+\end{equation}
+Fix a bijection \(j\mapsto(k_j,m_j)\) from \(\mathbf N_{>0}\) to
+\(\mathbf N_{>0}^2\), put \(\psi^{(j)}:=\psi_{k_j,m_j}\), and set
+\begin{equation}\label{eq:ch23-selection-finite-maxima}
+ u_j:=\bigl(\max\{\psi^{(1)},\ldots,\psi^{(j)}\}\bigr)\big|_\Delta,
+ \qquad j\geq1 .
+\end{equation}
+Each \(u_j\) is by construction the restriction to \(\Delta\) of a finite
+maximum of members of \(\mathcal F\); the sequence \((u_j)\) is increasing,
+and \(u_j\leq u\) for every \(j\) because each \(\psi^{(i)}\leq u\) on
+\(\Delta\).
+
+\emph{Step 4: the limit is \(u\).}
+Let \(w:=\lim_ju_j=\sup_ju_j\), a pointwise increasing limit, so
+\(w\leq u\).  Each \(u_j\) satisfies \eqref{eq:ch23-selection-modulus} by
+Step~1, hence so does \(w\), by the argument of Step~2 applied to the
+countable family \(\{u_j\}\); in particular \(w\) is continuous.  At a point
+\(x_k\) of the dense set, \eqref{eq:ch23-dense-selection} gives
+\(u_j(x_k)>u(x_k)-m^{-1}\) as soon as \(j\) is large enough that
+\(\psi_{k,m}\) occurs among \(\psi^{(1)},\ldots,\psi^{(j)}\); letting first
+\(j\to\infty\) and then \(m\to\infty\) yields \(w(x_k)=u(x_k)\).  Two
+continuous functions on \(\Delta\) that agree on a dense subset agree
+everywhere, so \(w=u\).
+
+\emph{Step 5: uniformity.}
+We include the sequential Dini argument in the form needed here.  Fix
+\(\varepsilon>0\) and set
+\[
+ V_j:=\{x\in\Delta:u_j(x)>u(x)-\varepsilon\}.
+\]
+The sets \(V_j\) are open because \(u_j-u\) is continuous, they increase
+with \(j\), and they cover \(\Delta\) because \(u_j(x)\nearrow u(x)\) at
+every point.  Compactness gives a finite subcover; since the sets are nested,
+one of them, say \(V_N\), already equals \(\Delta\).  Consequently
+\(0\leq u-u_j<\varepsilon\) on \(\Delta\) for every \(j\geq N\).  Hence
+\(\|u-u_j\|_\infty\to0\), as asserted.
+\end{proof}

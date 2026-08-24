@@ -1,0 +1,1947 @@
+\chapter{Berkovich spectra and analytification}
+\index{Berkovich space}\index{analytification!Berkovich}
+\label{chap:berkovich}
+
+The Zariski topology remembers specialization very well, but it is too coarse
+for potential theory. The topology on the set of points of a non-Archimedean
+field has the opposite defect: it has many clopen subsets and generally has
+too few paths. Berkovich's construction adds seminorms, not merely points
+over field extensions. The resulting spaces are Hausdorff, proper varieties
+become compact, and degenerations acquire genuine polyhedral subsets.
+
+This chapter develops the part of the construction needed in the rest of the
+book. The reader only needs the valuation theory of \cref{chap:valuations}
+and the language of models from \cref{chap:models}. We first study the
+spectrum of a Banach algebra and prove its compactness in full,
+then analytify schemes by gluing, establish the universal property of
+analytification at the level we use it, explain centers on models, and
+prove the complete classification of the points of the analytic affine
+line over an algebraically closed field. Reduction maps are computed
+explicitly on the projective line over \(\mathbf Q_p\) and over
+\(\mathbf C(\!(t)\!)\). The final section emphasizes that the same
+definition works over a trivially valued field, where we illustrate the
+affine line and its rescaling rays. We construct the underlying
+topological spaces carefully, but cite the general theory for structure
+sheaves, relative properness, and analytic GAGA.
+
+Throughout this chapter, \(K\) is a complete field with a non-Archimedean
+absolute value \(|\cdot|\), possibly the trivial one. We use
+\[
+                         v(a)=-\log |a|.
+\]
+Thus \(v(0)=+\infty\). A multiplicative seminorm is allowed to have a
+nonzero kernel.
+
+\section{The spectrum of a Banach algebra}
+\label{sec:berk-spectrum}
+
+Let \(A\) be a commutative unital Banach \(K\)-algebra, with a
+submultiplicative norm \(\|\cdot\|\).
+
+\begin{definition}[Berkovich spectrum]
+The \emph{Berkovich spectrum} \(\mathcal M(A)\) is the set of maps
+\[
+ |\cdot|_x:A\longrightarrow \mathbf R_{\geq 0}
+\]
+such that, for \(f,g\in A\),
+\[
+\begin{split}
+ |0|_x&=0,\qquad |1|_x=1,\qquad |fg|_x=|f|_x|g|_x,\\
+ |f+g|_x&\leq\max\{|f|_x,|g|_x\},\qquad
+ |a|_x=|a|\quad(a\in K),\\
+ |f|_x&\leq\|f\|.
+\end{split}
+\]
+It is endowed with the weakest topology for which every evaluation map
+\[
+       x\longmapsto |f(x)|:=|f|_x,\qquad f\in A,
+\]
+is continuous.
+\end{definition}
+
+Some authors initially require only \( |f|_x\leq C\|f\| \) for one constant
+\(C\). The following lemma shows that multiplicativity upgrades the weaker
+inequality to the normalized one, and in fact to a bound by the spectral
+seminorm.  Recall that the \emph{spectral seminorm}\index{spectral seminorm}
+of \(f\in A\) is
+\[
+                     \rho(f)=\lim_{m\to\infty}\|f^m\|^{1/m}.
+\]
+
+\begin{lemma}\label{lem:berk-spectral-bound}
+The limit defining \(\rho(f)\) exists and equals
+\(\inf_{m\geq1}\|f^m\|^{1/m}\leq\|f\|\).  Moreover, if
+\(|\cdot|_x:A\to\mathbf R_{\geq0}\) is multiplicative with \(|1|_x=1\) and
+satisfies \(|f|_x\leq C\|f\|\) for all \(f\) and one constant \(C\geq1\),
+then
+\[
+                     |f|_x\leq\rho(f)\leq\|f\|
+                     \qquad(f\in A).
+\]
+\end{lemma}
+
+\begin{proof}
+Set \(a_m=\log\|f^m\|\in[-\infty,\infty)\), with the convention that all
+assertions are trivial if some power of \(f\) is zero.  Submultiplicativity
+of the norm gives \(a_{m+n}\leq a_m+a_n\).  Fekete's subadditivity argument
+applies: fix \(n\geq1\), write \(m=qn+s\) with \(0\leq s<n\), and estimate
+\[
+ \frac{a_m}{m}\leq\frac{q\,a_n+a_s}{m}
+ \xrightarrow[m\to\infty]{}\frac{a_n}{n},
+\]
+where \(a_0:=0\).  Hence \(\limsup_m a_m/m\leq\inf_n a_n/n\leq\liminf_m
+a_m/m\), so the limit exists and equals the infimum; taking \(n=1\) gives
+\(\rho(f)\leq\|f\|\).
+
+For the second assertion, apply the assumed inequality to \(f^m\):
+\[
+ |f|_x^m=|f^m|_x\leq C\|f^m\|,
+ \qquad\text{so}\qquad
+ |f|_x\leq C^{1/m}\|f^m\|^{1/m}.
+\]
+Letting \(m\to\infty\) gives \(|f|_x\leq\rho(f)\).
+\end{proof}
+
+In particular, replacing the requirement \(|f|_x\le\|f\|\) in the
+definition by boundedness with any constant changes nothing, and every
+point of \(\mathcal M(A)\) automatically satisfies the finer inequality
+\(|f|_x\le\rho(f)\).  Berkovich's spectral radius formula asserts that
+\(\rho(f)=\max_{x\in\mathcal M(A)}|f(x)|\); we use only the elementary
+inequality just proved and cite the formula, when needed, from
+\cite[Theorem~1.3.1]{Berk12}.
+
+\begin{proposition}\label{prop:berk-compact-spectrum}
+The space \(\mathcal M(A)\) is compact and Hausdorff. If \(A\) is a nonzero
+\(K\)-affinoid algebra, then \(\mathcal M(A)\) is nonempty.
+\end{proposition}
+
+\begin{proof}
+We give the weak-\(*\) compactness argument in full.  Consider the product
+\[
+                     P=\prod_{f\in A}[0,\|f\|],
+\]
+equipped with the product topology; it is compact by Tychonoff's theorem
+\cite[Chapter~5]{Kel75} and its topology is that of pointwise convergence
+of \([0,\infty)\)-valued functions on \(A\) obeying the norm bound.  A
+point of \(\mathcal M(A)\) is by definition such a function, so there is a
+natural injection
+\[
+ \iota:\mathcal M(A)\longrightarrow P,
+ \qquad
+ \iota(x)=\bigl(|f|_x\bigr)_{f\in A}.
+\]
+Injectivity holds because a seminorm is its family of values.  The
+topology of \(\mathcal M(A)\) was defined as the weakest one making every
+evaluation \(x\mapsto|f|_x\) continuous; the subspace topology induced by
+\(P\) has exactly the same description, since the projections
+\(\mathrm{pr}_f\) generate the product topology.  Hence \(\iota\) is a
+homeomorphism onto its image, and it suffices to prove that this image is
+closed in \(P\).
+
+Let \(\varphi\in P\) be adherent to \(\iota(\mathcal M(A))\); we check
+each axiom.  Fix \(f,g\in A\) and \(a\in K\).  The maps
+\[
+ \varphi\longmapsto\varphi(fg)-\varphi(f)\varphi(g),
+ \qquad
+ \varphi\longmapsto\varphi(f+g)-\max\{\varphi(f),\varphi(g)\}
+\]
+are continuous on \(P\), because each involves only the three coordinates
+indexed by \(f\), \(g\), and their sum or product, together with
+ continuous operations on real numbers.  The conditions
+ \[
+ \begin{gathered}
+ \varphi(0)=0,\qquad \varphi(1)=1,
+ \qquad \varphi(fg)=\varphi(f)\varphi(g),\\
+ \varphi(f+g)\leq\max\{\varphi(f),\varphi(g)\},
+ \qquad \varphi(a\cdot1)=|a|
+ \end{gathered}
+ \]
+are therefore equalities and weak inequalities between continuous
+functions, and each cuts out a closed subset of \(P\).  The image of
+\(\iota\) is the intersection of these closed subsets over all \(f\),
+\(g\), and \(a\), hence is closed.  A closed subspace of a compact space
+is compact, so \(\mathcal M(A)\) is compact.
+
+For the Hausdorff property, let \(x\neq y\) in \(\mathcal M(A)\).  Some
+\(f\in A\) has \(|f|_x\neq|f|_y\); choose disjoint open intervals
+\(I\ni|f|_x\) and \(J\ni|f|_y\) in \(\mathbf R\).  The sets
+\(\{z:|f|_z\in I\}\) and \(\{z:|f|_z\in J\}\) are disjoint open
+neighborhoods.
+
+Nonemptiness holds in much greater generality: the spectrum of every
+nonzero commutative Banach ring is nonempty.  This is the non-Archimedean
+spectral existence theorem, \cite[Theorem~1.2.1]{Berk12}; its proof
+produces a bounded multiplicative seminorm through a maximal ideal of
+\(A\) and an extension of the ground field, and we do not reproduce it.
+A nonzero \(K\)-affinoid algebra is in particular a nonzero Banach ring,
+which gives the stated case.
+\end{proof}
+
+Each point has both an algebraic residue field and an analytic residue field.
+They should not be confused.
+
+\begin{definition}[Support and completed residue field]
+For \(x\in\mathcal M(A)\), set
+\[
+ \mathfrak p_x=\{f\in A:|f(x)|=0\}.
+\]
+This is a prime ideal, called the \emph{support} of \(x\). The seminorm
+induces an absolute value on the fraction field of \(A/\mathfrak p_x\). Its
+completion is denoted by \(\mathcal H(x)\) and called the \emph{completed
+residue field} of \(x\).
+\end{definition}
+
+The point \(x\) can equivalently be viewed as the bounded homomorphism
+\(A\to\mathcal H(x)\) together with the absolute value of
+\(\mathcal H(x)\). This formulation makes residue fields and base change
+natural.
+
+\begin{example}\label{ex:berk-tate-disc}
+The spectrum \(\mathcal M(K)\) consists of one point: a multiplicative
+seminorm on a field extending \(|\cdot|\) has zero kernel and is determined
+on \(K\) by the extension requirement. More interestingly,
+for \(r>0\) let
+\[
+ K\langle r^{-1}T\rangle
+ =\left\{\sum_{i\geq0}a_iT^i:\ |a_i|r^i\longrightarrow0\right\},
+ \qquad
+ \left\|\sum_i a_iT^i\right\|_r=\max_i|a_i|r^i.
+\]
+Its spectrum is the closed analytic disc of radius \(r\) about \(0\); this
+identification is proved in \Cref{lem:berk-polydisc-exhaustion} below. The
+norm itself defines a point: the seminorm
+\[
+             \left|\sum_i a_iT^i\right|_{\zeta_{0,r}}
+             =\max_i |a_i|r^i
+\]
+is the \emph{Gauss point}\index{Gauss point} of that disc.  All axioms
+except multiplicativity are immediate, and multiplicativity is the Gauss
+lemma.  Here is the complete argument in the graded language of
+\cref{chap:valuations}.  Write \(t=-\log r\) and
+\[
+ v_r\Bigl(\sum_i a_iT^i\Bigr)
+ =-\log\Bigl\|\sum_i a_iT^i\Bigr\|_r
+ =\min_i\{v(a_i)+it\}.
+\]
+The minimum is attained at finitely many indices, because
+\(v(a_i)+it\to+\infty\).  Declare \(a_iT^i\) to have weight
+\(v(a_i)+it\), and let \(\operatorname{in}(f)\) be the sum of the terms of
+\(f\) of minimal weight \(v_r(f)\), viewed as an element of degree
+\(v_r(f)\) in \(\operatorname{gr}_vK[\tau]\), where \(\tau\) is an
+indeterminate of degree \(t\) representing the initial form of \(T\) and
+each coefficient is replaced by its initial form in
+\(\operatorname{gr}_vK\).  Collecting terms of least total weight in the
+Cauchy product shows that either
+\(\operatorname{in}(fg)=\operatorname{in}(f)\operatorname{in}(g)\), or the
+polynomial product \(\operatorname{in}(f)\operatorname{in}(g)\) vanishes
+and \(v_r(fg)>v_r(f)+v_r(g)\).  By
+\cref{chap:valuations}, \(\operatorname{gr}_vK\) is a graded domain, so
+the polynomial ring \(\operatorname{gr}_vK[\tau]\) is a domain and the
+product of the two nonzero initial forms cannot vanish.  Hence
+\(v_r(fg)=v_r(f)+v_r(g)\), which is multiplicativity of
+\(\|\cdot\|_r\).
+\end{example}
+
+\section{Affinoid domains and gluing}
+\label{sec:berk-affinoid-gluing}
+
+The compact space \(\mathcal M(A)\) carries a sheaf of analytic functions.
+One cannot obtain that sheaf by treating every ordinary open subset as an
+affinoid chart. Instead one uses analytic domains and a Grothendieck
+topology. We record one class of domains that is sufficient for intuition.
+
+Suppose \(A\) is affinoid and \(f_1,\ldots,f_m,g\in A\) generate the unit
+ideal. The associated \emph{rational domain} is
+\[
+ U=\{x\in\mathcal M(A): |f_i(x)|\leq |g(x)|,\ 1\leq i\leq m\}.
+\]
+It is represented by the affinoid algebra
+\[
+ A_U=A\langle T_1,\ldots,T_m\rangle/(gT_1-f_1,\ldots,gT_m-f_m),
+\]
+with the quotient Banach structure. Here
+\(A\langle T_1,\ldots,T_m\rangle\) is the relative Tate
+algebra\index{Tate algebra} of series \(\sum_\nu a_\nu T^\nu\) with
+\(a_\nu\in A\) and \(\|a_\nu\|\to0\), normed by
+\(\|\sum_\nu a_\nu T^\nu\|=\max_\nu\|a_\nu\|\).  The representation means
+that bounded maps out of \(A\) for which the displayed inequalities hold
+factor uniquely through this algebra. Rational domains form a basis for the
+admissible topology, and Tate acyclicity makes their rings of functions
+glue; for the sheaf-theoretic assertions we cite
+\cite[\S2.2]{Berk12} and \cite{BoschLutkebohmert1993}.  At the level of
+points, however, the meaning of ``represented'' admits a complete
+elementary proof, which we now give because the same computation recurs
+for polydisc exhaustions and for fibres of base change.
+
+\begin{proposition}
+\label{prop:berk-rational-domain}
+Let \(A\) be a \(K\)-affinoid algebra, let \(f_1,\ldots,f_m,g\in A\)
+generate the unit ideal, and let \(U\) and \(A_U\) be as above. The
+bounded homomorphism \(A\to A_U\) induces a homeomorphism
+\[
+             \mathcal M(A_U)\xrightarrow{\ \sim\ }U.
+\]
+In particular \(U\) is a compact subset of \(\mathcal M(A)\), closed in
+\(\mathcal M(A)\).
+\end{proposition}
+
+\begin{proof}
+Write \(\varphi:A\to A_U\) for the structure map and
+\(\pi:\mathcal M(A_U)\to\mathcal M(A)\), \(\pi(x)=x\circ\varphi\), for
+the induced map; it is continuous because each evaluation
+\(x\mapsto|\varphi(f)(x)|\) is.
+
+\emph{The image lies in \(U\).}
+Let \(x\in\mathcal M(A_U)\).  In \(A_U\) one has \(gT_i=f_i\), and
+\(\|T_i\|\leq1\) in the Tate algebra, hence also in the quotient norm; by
+\Cref{lem:berk-spectral-bound}, \(|T_i(x)|\leq1\).  Therefore
+\[
+ |f_i(x)|=|g(x)|\,|T_i(x)|\leq|g(x)|,
+\]
+so \(\pi(x)\in U\), provided we also know \(U\)-membership makes sense,
+i.e.\ nothing further vanishes.  Note in passing that \(|g(x)|\neq0\):
+choose \(a,b_1,\ldots,b_m\in A\) with \(ag+\sum_ib_if_i=1\); if
+\(|g(x)|=0\), then every \(|f_i(x)|\leq|g(x)|=0\), and the ultrametric
+inequality would give \(1=|1(x)|\leq\max\{|ag(x)|,|b_if_i(x)|\}=0\), a
+contradiction.  The same argument shows \(|g(y)|\neq0\) for every
+\(y\in U\).
+
+\emph{Surjectivity.}
+Let \(y\in U\), with character \(\chi_y:A\to\mathcal H(y)\).  Since
+\(g(y)\neq0\) in the field \(\mathcal H(y)\), the elements
+\(c_i=f_i(y)/g(y)\in\mathcal H(y)\) are defined, and \(|c_i|\leq1\) by the
+definition of \(U\).  Define
+\[
+ \Phi:A\langle T_1,\ldots,T_m\rangle\longrightarrow\mathcal H(y),
+ \qquad
+ \Phi\Bigl(\sum_\nu a_\nu T^\nu\Bigr)=\sum_\nu a_\nu(y)\,c^\nu.
+\]
+The series on the right converges in the complete field
+\(\mathcal H(y)\) because \(|a_\nu(y)c^\nu|\leq\|a_\nu\|\to0\), and
+\(|\Phi(h)|\leq\|h\|\), so \(\Phi\) is a bounded homomorphism.  It kills
+each \(gT_i-f_i\), hence factors through \(A_U\).  Composing with the
+absolute value of \(\mathcal H(y)\) yields a point
+\(x\in\mathcal M(A_U)\) with \(\pi(x)=y\).
+
+\emph{Injectivity.}
+Let \(x\in\mathcal M(A_U)\) with \(\pi(x)=y\), and let
+\(\chi_x:A_U\to\mathcal H(x)\) be its character.  On the image of \(A\),
+the seminorm of \(x\) equals that of \(y\); in particular
+\(\ker(\chi_x|_A)=\mathfrak p_y\), and the induced absolute value on
+\(\operatorname{Frac}(A/\mathfrak p_y)\) is the one determined by \(y\).
+In the field \(\mathcal H(x)\) the relation
+\(\chi_x(g)\chi_x(T_i)=\chi_x(f_i)\) holds with \(\chi_x(g)\neq0\), so
+\(\chi_x(T_i)=\chi_x(f_i)/\chi_x(g)\) lies in the subfield
+\(\operatorname{Frac}(\chi_x(A))\).  Consequently, for every polynomial
+\(P\in A[T_1,\ldots,T_m]\), the value \(|P(T)(x)|\) equals the absolute
+value of the corresponding element of
+\(\operatorname{Frac}(A/\mathfrak p_y)\), which is determined by \(y\)
+alone.  The image of \(A[T_1,\ldots,T_m]\) is dense in \(A_U\), since
+polynomials are dense in the Tate algebra and quotient maps preserve
+density.  Two bounded seminorms agreeing on a dense subalgebra agree,
+because
+\(\bigl||h|_x-|h'|_x\bigr|\leq|h-h'|_x\leq\|h-h'\|\) for the ultrametric
+seminorm.  Hence \(x\) is unique over \(y\).
+
+\emph{Homeomorphism.}
+The map \(\pi\) is a continuous bijection from the compact space
+\(\mathcal M(A_U)\) (\Cref{prop:berk-compact-spectrum}) onto \(U\), which
+is Hausdorff as a subspace of \(\mathcal M(A)\).  A continuous bijection
+from a compact space to a Hausdorff space is a homeomorphism.  Finally
+\(U\) is defined by the weak inequalities \(|f_i(x)|\leq|g(x)|\) between
+continuous functions of \(x\), hence is closed in \(\mathcal M(A)\), and
+compact.
+\end{proof}
+
+\begin{example}[Weierstrass and Laurent domains]
+\label{ex:berk-weierstrass-laurent}
+Two special cases occur constantly.  Taking \(g=1\) gives the
+\emph{Weierstrass domain}\index{Weierstrass domain}
+\[
+ \{x:|f_i(x)|\leq1,\ i=1,\ldots,m\},
+ \qquad\text{represented by}\qquad
+ A\langle T_1,\ldots,T_m\rangle/(T_i-f_i).
+\]
+Combining a Weierstrass condition with inequalities
+\(|g_j(x)|\geq1\) gives a \emph{Laurent domain}\index{Laurent domain},
+represented by adjoining inverse variables \(S_j\) with relations
+\(g_jS_j=1\); the argument of \Cref{prop:berk-rational-domain} applies
+verbatim, the character sending \(S_j\) to \(g_j(y)^{-1}\).  For instance,
+inside the closed unit disc \(\mathcal M(K\langle T\rangle)\) over a
+discretely valued field with uniformizer \(\pi\), the closed annulus
+\[
+ \{x:|\pi|\leq|T(x)|\leq1\}
+ =\mathcal M\bigl(K\langle T,S\rangle/(TS-\pi)\bigr)
+\]
+is a Laurent domain: the relation forces \(|T(x)||S(x)|=|\pi|\) with both
+factors at most \(1\), which is exactly the displayed inequality.  This
+annulus reappears as the local model of a node in
+\cref{sec:berk-line,chap:skeleta}.
+\end{example}
+
+\begin{remark}[Topology versus analytic domains]
+A rational domain is compact, but need not be open in the ordinary topology.
+It is nevertheless an analytic domain. This distinction is indispensable
+for the structure sheaf, but most of pluripotential theory uses the ordinary
+Hausdorff topology for upper semicontinuity, compactness, and measures.
+\end{remark}
+
+An affinoid \(K\)-analytic space is, by definition, a space locally modeled
+on spectra \(\mathcal M(A)\), with the above sheaves. General Berkovich
+analytic spaces are obtained by gluing affinoids along analytic domains. We
+will use this construction, but no later proof depends on the full list of
+sheaf axioms.
+
+\section{Analytification of schemes}
+\label{sec:berk-analytification}
+
+Let \(X=\operatorname{Spec}A\) be an affine scheme of finite type over \(K\).
+No Banach norm is chosen on \(A\).
+
+\begin{definition}[Affine analytification]
+The set \(X^{\mathrm{an}}\) consists of all multiplicative seminorms on \(A\)
+extending the absolute value of \(K\). It has the topology of pointwise
+convergence: the maps \(x\mapsto |f(x)|\), \(f\in A\), are required to be
+continuous.
+\end{definition}
+
+The affine definition admits a useful scheme-theoretic reformulation.
+
+\begin{proposition}\label{prop:berk-pair-description}
+There is a natural bijection between \(X^{\mathrm{an}}\) and pairs
+\((\xi,|\cdot|_\xi)\), where \(\xi\in X\) and \(|\cdot|_\xi\) is an absolute
+value on the residue field \(\kappa(\xi)\) extending that of \(K\).
+\end{proposition}
+
+\begin{proof}
+Given a seminorm \(x\), its kernel \(\mathfrak p_x\) is prime and hence
+defines \(\xi\in X\). The seminorm descends to \(A/\mathfrak p_x\), is
+nonzero on every nonzero element, and therefore extends uniquely to
+\(\operatorname{Frac}(A/\mathfrak p_x)=\kappa(\xi)\).
+
+Conversely, compose \(A\to\kappa(\xi)\) with the chosen absolute value.
+The two operations are inverse to one another.
+\end{proof}
+
+Gluing along Zariski open subsets requires knowing that the
+analytification of a basic open subscheme sits inside the affine
+analytification as an open subspace.  This is the content of the next
+lemma.
+
+\begin{lemma}\label{lem:berk-localization}
+Let \(X=\Spec A\) be affine of finite type over \(K\) and let \(f\in A\).
+Restriction of seminorms defines a homeomorphism
+\[
+ (\Spec A_f)^{\mathrm{an}}
+ \xrightarrow{\ \sim\ }
+ \{x\in X^{\mathrm{an}}:|f(x)|\neq0\},
+\]
+and the target is open in \(X^{\mathrm{an}}\).
+\end{lemma}
+
+\begin{proof}
+The target is the preimage of the open set
+\(\mathbf R_{>0}\) under the continuous map \(x\mapsto|f(x)|\), hence
+open.
+
+A point \(y\) of \((\Spec A_f)^{\mathrm{an}}\) restricts along
+\(A\to A_f\) to a multiplicative seminorm \(x\) on \(A\); since
+\(f\) becomes invertible, \(|f(x)|=|f(y)|\neq0\).  Conversely, let
+\(x\in X^{\mathrm{an}}\) with \(|f(x)|\neq0\).  Any extension \(y\) of
+\(x\) to \(A_f\) must satisfy
+\[
+ |(a/f^m)(y)|=|a(x)|\,|f(x)|^{-m},
+\]
+by multiplicativity, so an extension is unique if it exists.  For
+existence, take the displayed formula as a definition.  It is well
+defined: if \(a/f^m=b/f^n\) in \(A_f\), then \(f^N(af^n-bf^m)=0\) in
+\(A\) for some \(N\), so
+\(|f(x)|^N|a(x)||f(x)|^n=|f(x)|^N|b(x)||f(x)|^m\); dividing by
+\(|f(x)|^{N}\neq0\) gives the required equality.  Multiplicativity is
+clear.  For the ultrametric inequality, bring two fractions to a common
+denominator:
+\[
+ \Bigl|\frac{a}{f^m}+\frac{b}{f^n}\Bigr|_y
+ =\frac{|af^n+bf^m|_x}{|f(x)|^{m+n}}
+ \leq\max\Bigl\{\frac{|a(x)|}{|f(x)|^m},
+                \frac{|b(x)|}{|f(x)|^n}\Bigr\}.
+\]
+Thus restriction is a bijection onto the displayed set.  The topology of
+\((\Spec A_f)^{\mathrm{an}}\) is generated by the evaluations at elements
+\(a/f^m\), whose absolute values are quotients of continuous functions of
+\(x\) with nonvanishing denominator; conversely, evaluations at elements
+of \(A\) are among the evaluations at elements of \(A_f\).  The two
+topologies therefore coincide, and the bijection is a homeomorphism.
+\end{proof}
+
+For a general finite-type \(K\)-scheme, affine analytifications glue along
+Zariski open subsets: \Cref{lem:berk-localization} identifies the
+analytification of a principal open subscheme with an open subspace, the
+identifications are compatible on triple overlaps because all of them are
+restriction maps of seminorms, and principal opens form a basis. This
+gives a functor
+\[
+              X\longmapsto X^{\mathrm{an}}.
+\]
+There is a continuous support map
+\[
+ \rho_X:X^{\mathrm{an}}\longrightarrow X,
+ \qquad
+ \rho_X(x)=\{f:|f(x)|=0\}
+\]
+when \(X\) is viewed with its Zariski topology. Its fiber above \(\xi\) is
+the set of absolute values on \(\kappa(\xi)\) that extend the one on \(K\).
+For a \(K\)-rational point, the given absolute value supplies a canonical
+analytic point.
+
+\begin{proposition}
+\label{prop:berk-support-surjective}
+For every finite-type \(K\)-scheme \(X\), the map
+\(\rho_X:X^{\mathrm{an}}\to X\) is surjective.
+\end{proposition}
+
+\begin{proof}
+By \Cref{prop:berk-pair-description}, surjectivity means that every
+residue field \(\kappa(\xi)\), \(\xi\in X\), carries an absolute value
+extending that of \(K\).  The field \(\kappa(\xi)\) is a finitely
+generated extension of \(K\).  Choose a transcendence basis
+\(t_1,\ldots,t_d\), so that \(\kappa(\xi)\) is a finite extension of
+\(F=K(t_1,\ldots,t_d)\).
+
+First extend the absolute value to \(F\) by the iterated Gauss norm: on
+\(K[t_1]\) put \(|\sum a_it_1^i|=\max|a_i|\); this is multiplicative by
+the graded-domain argument of \Cref{ex:berk-tate-disc} with \(r=1\), and
+extends to the fraction field \(K(t_1)\) by multiplicativity.  Iterating
+in the variables \(t_2,\ldots,t_d\) extends it to \(F\).
+
+Next extend from \(F\) to the finite extension \(\kappa(\xi)\).  By
+Chevalley's extension theorem
+\cite[Chapter~VI]{ZariskiSamuelII}, the valuation
+\(v=-\log|\cdot|\) of \(F\) extends to a valuation \(w\) of
+\(\kappa(\xi)\) with values in some totally ordered abelian group
+\(\Gamma\supset v(F^\times)\).  Because \(\kappa(\xi)/F\) is algebraic,
+the quotient \(\Gamma_w/v(F^\times)\) is a torsion group: for
+\(h\in\kappa(\xi)^\times\) with minimal equation
+\(h^n+c_{n-1}h^{n-1}+\cdots+c_0=0\), \(c_0\ne0\), two of the terms
+\(c_ih^i\) must share the minimal value---otherwise the unique term of
+strictly minimal value could not cancel against the others, exactly as in
+\cref{lem:strong-triangle-equality}.  Equating the values of two such
+terms gives \((i-j)\,w(h)=v(c_j)-v(c_i)\in v(F^\times)\) with
+\(i\neq j\), so some nonzero multiple \(kw(h)\) lies in
+\(v(F^\times)\).  A torsion extension of a subgroup of \(\mathbf R\)
+order-embeds into \(\mathbf R\): send \(\gamma\) with
+\(n\gamma\in v(F^\times)\subset\mathbf R\) to \(n^{-1}(n\gamma)\); this
+is well defined, order preserving, and additive.  Hence \(w\) may be
+taken real-valued, and \(\exp(-w)\) is an absolute value on
+\(\kappa(\xi)\) extending the given one on \(K\).
+\end{proof}
+
+The next lemma explains how the noncompact space \(X^{\mathrm{an}}\) is
+exhausted by the compact spectra of \Cref{sec:berk-spectrum}.  It also
+completes the identification promised in \Cref{ex:berk-tate-disc}.
+
+\begin{lemma}\label{lem:berk-polydisc-exhaustion}
+Let \(X=\Spec A\) with \(A=K[S_1,\ldots,S_n]/I\), and for \(r>0\) put
+\[
+ X^{\mathrm{an}}_{\leq r}
+ =\{x\in X^{\mathrm{an}}:|S_i(x)|\leq r,\ i=1,\ldots,n\}.
+\]
+Then restriction of seminorms defines a homeomorphism
+\[
+ \mathcal M\bigl(K\langle r^{-1}S_1,\ldots,r^{-1}S_n\rangle/
+ I\cdot K\langle r^{-1}S\rangle\bigr)
+ \xrightarrow{\ \sim\ }
+ X^{\mathrm{an}}_{\leq r}.
+\]
+Consequently \(X^{\mathrm{an}}=\bigcup_{r>0}X^{\mathrm{an}}_{\leq r}\) is
+an increasing union of compact subsets, every point of
+\(X^{\mathrm{an}}_{\leq r}\) is interior to \(X^{\mathrm{an}}_{\leq r'}\)
+for \(r'>r\), and \(X^{\mathrm{an}}\) is locally compact and Hausdorff.
+In particular \(\mathbf A^{1,\mathrm{an}}_K\) is the increasing union of
+the closed discs \(\mathcal M(K\langle r^{-1}T\rangle)\).
+\end{lemma}
+
+\begin{proof}
+Write \(B_r=K\langle r^{-1}S\rangle/I\cdot K\langle r^{-1}S\rangle\); the
+ideal is closed and \(B_r\) is a generalized \(K\)-affinoid algebra,
+allowing the arbitrary polyradius \(r\), with the quotient
+norm \cite[\S2.1]{Berk12}.  A point of \(\mathcal M(B_r)\) is the same
+thing as a bounded multiplicative seminorm on
+\(K\langle r^{-1}S\rangle\) vanishing on \(I\); restricting to the dense
+subring \(K[S]\) and passing to the quotient \(A\) gives a point of
+\(X^{\mathrm{an}}\) with \(|S_i(x)|\leq\|S_i\|_r=r\).
+
+Conversely, let \(x\in X^{\mathrm{an}}_{\leq r}\), viewed as a seminorm
+on \(K[S]\) vanishing on \(I\).  For a polynomial
+\(F=\sum_\beta a_\beta S^\beta\), the ultrametric inequality and
+multiplicativity give
+\[
+ |F(x)|\leq\max_\beta|a_\beta|\,r^{|\beta|}=\|F\|_r,
+\]
+so \(x\) is norm-bounded on \(K[S]\).  Given
+\(F\in K\langle r^{-1}S\rangle\) with polynomial truncations \(F_N\),
+the real sequence \(|F_N(x)|\) satisfies
+\(\bigl||F_N(x)|-|F_M(x)|\bigr|\leq|F_N-F_M|_x\leq\|F_N-F_M\|_r\to0\), so
+it converges; define \(|F(x)|\) as the limit.  The limit does not depend
+on the chosen approximating sequence, again by the displayed bound.
+Multiplicativity passes to the limit because
+\(\|FG-F_NG_N\|_r\to0\) and products of convergent real sequences
+converge to the product of the limits; the ultrametric inequality and the
+values on \(K\) pass to the limit for the same reason.  The extended
+seminorm vanishes on \(I\cdot K\langle r^{-1}S\rangle\): it vanishes on
+finite combinations \(\sum g_jh_j\) with \(g_j\in I\) by the ultrametric
+inequality and multiplicativity, hence on their closure by continuity.
+This produces the inverse map, so restriction is a bijection.
+
+Both topologies are initial topologies: for
+\(\mathcal M(B_r)\) with respect to all \(|F(\cdot)|\),
+\(F\in K\langle r^{-1}S\rangle\), and for
+\(X^{\mathrm{an}}_{\leq r}\) with respect to polynomials only.  The
+identity map from the first to the second is continuous.  For the
+converse, each \(|F(\cdot)|\) is the uniform limit on
+\(\mathcal M(B_r)\) of \(|F_N(\cdot)|\), since
+\(\bigl||F(x)|-|F_N(x)|\bigr|\leq\|F-F_N\|_r\); a uniform limit of
+continuous functions is continuous, so the polynomial evaluations already
+generate the finer topology.  Hence the bijection is a homeomorphism, and
+compactness follows from \Cref{prop:berk-compact-spectrum}.
+
+The exhaustion statement is clear since every point has
+\(\max_i|S_i(x)|<\infty\).  If \(x\in X^{\mathrm{an}}_{\leq r}\) and
+\(r'>r\), then the open set \(\{|S_i|<r'\}\) contains \(x\) and is
+contained in \(X^{\mathrm{an}}_{\leq r'}\); thus compact neighborhoods
+exist, and Hausdorffness is inherited from the seminorm description as in
+\Cref{prop:berk-compact-spectrum}.
+\end{proof}
+
+We can now state the universal property of analytification.  The affine
+case is a complete triviality once the definitions are in place, and we
+prove it; the general case involves the structure sheaves and is cited.
+
+\begin{proposition}
+\label{prop:berk-universal-affine}
+Let \(X=\Spec A\) be affine of finite type over \(K\).  For every
+\(K\)-affinoid algebra \(B\) and every \(K\)-algebra homomorphism
+\(\varphi:A\to B\), there is a unique continuous map
+\[
+ \varphi^{\mathrm{an}}:\mathcal M(B)\longrightarrow X^{\mathrm{an}}
+ \qquad\text{with}\qquad
+ |f(\varphi^{\mathrm{an}}(y))|=|\varphi(f)(y)|
+ \quad(f\in A,\ y\in\mathcal M(B)).
+\]
+The assignment \(\varphi\mapsto\varphi^{\mathrm{an}}\) respects identities
+and compositions.
+\end{proposition}
+
+\begin{proof}
+Uniqueness is immediate: the displayed identity prescribes every value of
+the seminorm \(\varphi^{\mathrm{an}}(y)\), and a point of
+\(X^{\mathrm{an}}\) is nothing but its family of values.  For existence,
+set \(\varphi^{\mathrm{an}}(y)=|\cdot|_y\circ\varphi\).  Each axiom of a
+multiplicative seminorm extending \(|\cdot|_K\) is inherited directly
+from \(y\), because \(\varphi\) is a \(K\)-algebra homomorphism.
+Continuity holds because the composite of
+\(y\mapsto\varphi^{\mathrm{an}}(y)\) with each generating evaluation
+\(x\mapsto|f(x)|\) is the continuous map \(y\mapsto|\varphi(f)(y)|\).
+Functoriality is a direct computation with composites.
+\end{proof}
+
+\begin{theorem}
+\label{thm:berk-universal-property}
+Let \(X\) be a scheme locally of finite type over \(K\).  There exist a
+\(K\)-analytic space \(X^{\mathrm{an}}\) and a morphism of locally ringed
+spaces \(\pi:X^{\mathrm{an}}\to X\) with the following universal
+property: every morphism \(Y\to X\) from a good \(K\)-analytic space
+\(Y\) factors uniquely through \(\pi\).  The underlying topological space
+of \(X^{\mathrm{an}}\) is the glued seminorm space constructed above, and
+\(\pi\) is the support map \(\rho_X\).
+\end{theorem}
+
+\begin{proof}[Foundational analytic-space input]
+This is Berkovich's theorem, and we use it as stated.  What this book
+actually needs is the topological content, which is already established:
+the point-set space, its local compactness
+(\Cref{lem:berk-polydisc-exhaustion}), the continuous support map, and
+the affine factorization of \Cref{prop:berk-universal-affine}, which is
+the universal property evaluated on affinoid building blocks.  The
+verification that the structure sheaves assemble compatibly is
+\cite[Theorem~3.4.1]{Berk12}.
+\end{proof}
+
+\begin{theorem}\label{thm:berk-proper-compact}
+Let \(X\) be a finite-type \(K\)-scheme.
+\begin{enumerate}
+\item If \(X\) is separated, then \(X^{\mathrm{an}}\) is Hausdorff.
+\item If \(X\) is proper, then \(X^{\mathrm{an}}\) is compact.
+\item More precisely, analytification carries proper morphisms of finite-type
+schemes to proper morphisms of analytic spaces.
+\end{enumerate}
+\end{theorem}
+\begin{proof}[Foundational analytification input]
+This is \cite[Theorem~3.4.8]{Berk12}.  That theorem states that
+analytification preserves separated and proper morphisms; its properness
+conclusion includes compactness after analytic base change and the absence
+of relative boundary.  Apply it to the structure morphism
+\(X\to\operatorname{Spec}K\) to obtain (1) and (2), and to an arbitrary
+proper morphism to obtain (3).
+\end{proof}
+
+\begin{remark}
+When \(K\) is algebraically closed and nontrivially valued, classical points
+are dense in \(X^{\mathrm{an}}\) for a finite-type \(K\)-scheme \(X\); this
+is the density of rigid points on each member of the polydisc exhaustion
+\cite[Proposition~2.1.15]{Berk12}. They
+are usually far from being all the points. The added nonclassical points are
+what connect discs and carry model-theoretic measures.  On the affine line
+the phenomenon is visible directly: by the classification of
+\cref{sec:berk-line}, a Gauss point \(\zeta_{a,r}\) is the supremum of the
+evaluation seminorms over the classical points of its disc, and every
+basic neighborhood of \(\zeta_{a,r}\) prescribes finitely many values
+\(|f_j(x)|\), which classical points of the disc realize up to any
+\(\varepsilon\).  Over a trivially valued field the classical points are
+the \(k\)-points and are generally not dense; see
+\cref{sec:berk-trivial}.
+\end{remark}
+
+\section{Centers and reduction maps}
+\label{sec:berk-reduction}
+
+Write
+\[
+ K^\circ=\{a\in K:|a|\leq1\},\qquad
+ K^{\circ\circ}=\{a\in K:|a|<1\},\qquad
+ \widetilde K=K^\circ/K^{\circ\circ}.
+\]
+Let \(X\) be a proper \(K\)-scheme and let \(\mathcal X\) be a proper flat
+\(K^\circ\)-model of \(X\). For \(x\in X^{\mathrm{an}}\), the absolute value
+on \(\kappa(\rho_X(x))\) has valuation ring
+\[
+ R_x=\{h\in\kappa(\rho_X(x)):|h(x)|\leq1\}.
+\]
+The morphism \(\operatorname{Spec}\kappa(\rho_X(x))\to X\) extends uniquely
+to \(\operatorname{Spec}R_x\to\mathcal X\) by the valuative criterion of
+properness.
+
+\begin{definition}[Center and reduction]
+The image in \(\mathcal X_s\) of the closed point of
+\(\operatorname{Spec}R_x\) is the \emph{center} of \(x\) on \(\mathcal X\),
+denoted \(c_{\mathcal X}(x)\). The map
+\[
+             \operatorname{red}_{\mathcal X}:X^{\mathrm{an}}
+             \longrightarrow\mathcal X_s,
+             \qquad x\longmapsto c_{\mathcal X}(x),
+\]
+is the \emph{reduction map}.
+\end{definition}
+
+On an affine open \(\mathcal U=\operatorname{Spec}B\subset\mathcal X\), the
+construction is concrete. A point has center in \(\mathcal U\) precisely
+when \(|f(x)|\leq1\) for every \(f\in B\); its center then corresponds to
+\[
+                   \{f\in B:|f(x)|<1\}.
+\]
+This description also shows the characteristic reversal of topologies.
+
+\begin{proposition}
+\label{prop:berk-reduction-anticontinuous}
+The reduction map is anticontinuous: inverse images of Zariski open subsets
+are closed, and inverse images of Zariski closed subsets are open, relative
+to the appropriate formal generic fiber.
+\end{proposition}
+
+\begin{proof}
+We first make the chart-relative statement precise and then prove it.
+Let \(\mathcal U=\Spec B\subset\mathcal X\) be an affine open, and set
+\[
+ X^{\mathrm{an}}_{\mathcal U}
+ =\{x\in X^{\mathrm{an}}:
+   c_{\mathcal X}(x)\in\mathcal U_s\},
+\]
+the generic fiber of the formal completion of \(\mathcal U\).  We claim
+\[
+ X^{\mathrm{an}}_{\mathcal U}
+ =\{x\in X^{\mathrm{an}}:\rho_X(x)\in\mathcal U_K
+   \text{ and }|f(x)|\leq1\ \text{for all }f\in B\},
+\]
+where \(\mathcal U_K=\mathcal U\cap X\).  Indeed, if
+\(c_{\mathcal X}(x)\in\mathcal U\), then the support
+\(\xi=\rho_X(x)\), being a generization of the center, also lies in the
+open set \(\mathcal U\); and the composite
+\(B\to\mathcal O_{\mathcal X,c(x)}\to R_x\) shows \(|f(x)|\leq1\) for
+\(f\in B\).  Conversely, if \(\xi\in\mathcal U_K\) and every \(f\in B\)
+satisfies \(|f(x)|\leq1\), then \(B\to\kappa(\xi)\) lands in \(R_x\), so
+\(\operatorname{Spec}R_x\to\mathcal U\subset\mathcal X\) extends the
+generic-point morphism; by separatedness this is the unique extension, and
+its closed point lies in \(\mathcal U_s\).  The set
+\(X^{\mathrm{an}}_{\mathcal U}\) is compact: choosing finitely many
+\(K^\circ\)-algebra generators \(b_1,\ldots,b_N\) of \(B\), it is the
+subset \(\{|b_j(x)|\leq1,\ j=1,\ldots,N\}\) of
+\((\Spec B_K)^{\mathrm{an}}\), which is compact by
+\Cref{lem:berk-polydisc-exhaustion} applied to the presentation by the
+\(b_j\) with \(r=1\).
+
+Now fix \(\tilde f\in\widetilde B=B\otimes_{K^\circ}\widetilde K\) and a
+lift \(f\in B\).  For \(x\in X^{\mathrm{an}}_{\mathcal U}\), the center
+corresponds to the prime \(\{g\in B:|g(x)|<1\}\), so
+\[
+ \operatorname{red}_{\mathcal X}(x)\in V(\tilde f)
+ \iff|f(x)|<1,
+ \qquad
+ \operatorname{red}_{\mathcal X}(x)\in D(\tilde f)
+ \iff|f(x)|=1 .
+\]
+The condition is independent of the lift: two lifts differ by an element
+\(g=\sum_ja_jb_j'\) with \(a_j\in K^{\circ\circ}\) and \(b_j'\in B\), so
+\(|g(x)|\leq\max_j|a_j|<1\), and \cref{lem:strong-triangle-equality}
+shows that the conditions \(|f(x)|<1\) and \(|f(x)|=1\) are unaffected.
+On \(X^{\mathrm{an}}_{\mathcal U}\), the first displayed condition is a
+strict inequality between continuous functions, hence defines a
+relatively open subset; the second is the weak inequality
+\(|f(x)|\geq1\) inside the region \(|f(x)|\leq1\), hence defines a
+relatively closed subset.
+
+The special fiber \(\mathcal U_s=\Spec\widetilde B\) is noetherian
+because \(\widetilde B\) is a finite-type \(\widetilde K\)-algebra.  A
+Zariski closed subset is \(V(\tilde f_1,\ldots,\tilde f_k)
+=\bigcap_jV(\tilde f_j)\), whose inverse image is a finite intersection
+of relatively open sets, hence relatively open.  A Zariski open subset is
+the complement of a closed one; since
+\(\operatorname{red}_{\mathcal X}^{-1}\) turns complements in
+\(\mathcal U_s\) into complements in \(X^{\mathrm{an}}_{\mathcal U}\),
+its inverse image is relatively closed.  This proves the chart-relative
+statement.
+
+Finally, for a proper model the assertion globalizes.  Choose a finite
+affine cover \(\mathcal U_1,\ldots,\mathcal U_m\) of \(\mathcal X\); the
+compact sets \(X^{\mathrm{an}}_{\mathcal U_i}\) cover
+\(X^{\mathrm{an}}\), since every point has a center.  If
+\(W\subset\mathcal X_s\) is Zariski open, then
+\(\operatorname{red}_{\mathcal X}^{-1}(W)\cap
+X^{\mathrm{an}}_{\mathcal U_i}\) is closed in the compact set
+\(X^{\mathrm{an}}_{\mathcal U_i}\), hence compact; the union of these
+finitely many compact sets is compact, hence closed in the Hausdorff
+space \(X^{\mathrm{an}}\).  Taking complements shows that inverse images
+of Zariski closed subsets of \(\mathcal X_s\) are open in
+\(X^{\mathrm{an}}\).
+\end{proof}
+
+Assume now that \(K\) is discretely valued, choose a uniformizer \(\pi\), and
+normalize \(v(\pi)=1\). Let \(\mathcal X\) be normal and write
+\[
+                        \mathcal X_s=\sum_E b_EE.
+\]
+At the generic point of \(E\), the local ring is a discrete valuation ring
+and \(\operatorname{ord}_E(\pi)=b_E\). Hence
+\[
+                  v_E=\frac{1}{b_E}\operatorname{ord}_E
+\]
+extends \(v\) on \(K\). It defines a point \(x_E\in X^{\mathrm{an}}\), called
+the \emph{divisorial point} associated to \(E\). Its reduction is the
+generic point of \(E\). Normality implies that it is the unique analytic
+point reducing to that generic point.  Because the model Monge--Amp\`ere
+measures of \cref{chap:metrics} are supported at divisorial points, this
+uniqueness deserves a complete proof.
+
+\begin{proposition}
+\label{prop:berk-divisorial-fibre}
+Let \(K\) be discretely valued, let \(X\) be an integral proper
+\(K\)-scheme, and let \(\mathcal X\) be a normal proper flat model.  For
+every irreducible component \(E\) of \(\mathcal X_s\), with generic point
+\(\xi_E\),
+\[
+ \operatorname{red}_{\mathcal X}^{-1}(\xi_E)=\{x_E\}.
+\]
+\end{proposition}
+
+\begin{proof}
+That \(\operatorname{red}_{\mathcal X}(x_E)=\xi_E\) is
+\Cref{prop:component-valuation}: the valuation ring of \(v_E\) dominates
+the local ring at \(\xi_E\).
+
+Conversely, let \(x\in X^{\mathrm{an}}\) with
+\(\operatorname{red}_{\mathcal X}(x)=\xi_E\), and write
+\(\xi=\rho_X(x)\in X\) for its support and
+\(\mathcal O=\mathcal O_{\mathcal X,\xi_E}\).
+
+\emph{The support is the generic point of \(X\).}
+Since \(X\) is integral and \(\mathcal X\) is a normal model with
+irreducible generic fiber, \(\mathcal X\) is integral: flatness forces
+every irreducible component of \(\mathcal X\) to meet the generic fiber
+in a nonempty open subset of the irreducible space \(X\), and normality
+of the connected components then leaves a single component.  The point
+\(\xi_E\) is a minimal prime over the principal ideal \((\pi)\), so Krull's
+principal ideal theorem gives \(\dim\mathcal O\le 1\); as \(\xi_E\) is not
+the generic point of \(\mathcal X\), we get \(\dim\mathcal O=1\).  The
+center \(\xi_E\) is a specialization of \(\xi\), so \(\xi\) corresponds
+to a prime \(\mathfrak q\) of the one-dimensional local ring
+\(\mathcal O\), namely \(\mathfrak q=0\) or the maximal ideal.  Since
+\(\xi\) lies in the generic fiber, \(\pi\notin\mathfrak q\), while
+\(\pi\) lies in the maximal ideal; hence \(\mathfrak q=0\) and \(\xi\)
+is the generic point of \(\mathcal X\), that is, of \(X\).  In
+particular \(x\) has support zero and is a genuine valuation on
+\(K(X)\).
+
+\emph{Rigidity of the dominated ring.}
+The ring \(\mathcal O\) is a one-dimensional normal noetherian local
+domain, hence a discrete valuation ring with fraction field \(K(X)\).
+The valuation ring \(R_x\subset K(X)\) dominates \(\mathcal O\) by the
+definition of the center.  We claim that any ring \(R\) with
+\(\mathcal O\subseteq R\subseteq K(X)\) equals \(\mathcal O\) or
+\(K(X)\).  Let \(u\in R\setminus\mathcal O\), and let
+\(\varpi\in\mathcal O\) be a uniformizer of \(\mathcal O\).  Then
+\(u=w\varpi^{-k}\) with \(w\in\mathcal O^\times\) and \(k\geq1\), so
+\(\varpi^{-k}=uw^{-1}\in R\) and
+\(\varpi^{-1}=\varpi^{k-1}\varpi^{-k}\in R\); therefore
+\(R\supseteq\mathcal O[\varpi^{-1}]=K(X)\).  Since \(R_x\) dominates
+\(\mathcal O\), its maximal ideal meets \(\mathcal O\) in the maximal
+ideal, so \(R_x\neq K(X)\); hence \(R_x=\mathcal O\).
+
+\emph{Normalization.}
+Equality of valuation rings inside \(K(X)\) with value groups in
+\(\mathbf R\) means \(v_x=c\operatorname{ord}_E\) for some \(c>0\).
+Evaluating at \(\pi\) gives
+\(1=v_x(\pi)=c\operatorname{ord}_E(\pi)=cb_E\), so \(c=b_E^{-1}\) and
+\(v_x=v_E\), that is, \(x=x_E\).
+\end{proof}
+
+\begin{remark}[Surjectivity of reduction]
+\label{rem:berk-reduction-surjective}
+For a strictly \(K\)-affinoid algebra \(A\), the reduction map
+\(\mathcal M(A)\to\Spec\widetilde A\) to the spectrum of the canonical
+reduction is surjective; this is \cite[Proposition~2.4.4]{Berk12} and
+uses the theory of the spectral seminorm.  Combined with the valuative
+criterion, it implies that the reduction map of a proper flat model hits
+every closed point of the special fiber.  We use surjectivity only
+through the divisorial points, whose existence was proved by hand above,
+so the deep input is quarantined in this remark.
+\end{remark}
+
+Divisorial points will support the model Monge--Amp\`ere measures of
+\cref{chap:metrics}. The passage from a component to \(x_E\) explains the factor
+\(b_E^{-1}\) in the valuation and the factor \(b_E\) in the corresponding
+measure.  We close the section with two fully computed reduction maps;
+the second also previews the skeleta of \cref{chap:skeleta}.
+
+\begin{example}[Reduction on \(\mathbf P^1\) over \(\mathbf Q_p\)]
+\label{ex:berk-reduction-p1-qp}
+Let \(K=\mathbf Q_p\) with \(|p|=p^{-1}\), let
+\(X=\mathbf P^1_{\mathbf Q_p}\), and let
+\(\mathcal X=\mathbf P^1_{\mathbf Z_p}\), covered by the two affine
+charts \(\Spec\mathbf Z_p[T]\) and \(\Spec\mathbf Z_p[T^{-1}]\).  The
+special fiber is \(\mathbf P^1_{\mathbf F_p}\), reduced and irreducible,
+with \(b=1\).
+
+\emph{Points with \(|T(x)|\leq1\)} have center in the first chart, and
+the center is the prime \(\{f\in\mathbf Z_p[T]:|f(x)|<1\}\).
+\begin{enumerate}
+\item For the evaluation point at \(a\in\mathbf Z_p\), one has
+  \(|f(x)|=|f(a)|<1\) exactly when \(f(a)\in p\mathbf Z_p\), i.e.\ when
+  \(\tilde f(\tilde a)=0\).  The center is the closed point
+  \(\tilde a\in\mathbf A^1_{\mathbf F_p}\).
+\item For the Gauss point \(\zeta_{0,1}\),
+  \(|\sum a_iT^i|=\max|a_i|<1\) means that all coefficients lie in
+  \(p\mathbf Z_p\), i.e.\ \(\tilde f=0\).  The center is the generic
+  point of the special fiber, as
+  \Cref{prop:berk-divisorial-fibre} predicts: \(\zeta_{0,1}\) is the
+  divisorial point of the unique component.
+\item For \(\zeta_{a,r}\) with \(a\in\mathbf Z_p\) and \(0<r<1\),
+  compute with \(f=\sum c_i(T-a)^i\), \(c_i\in\mathbf Z_p\):
+  \(|f(\zeta_{a,r})|=\max_i|c_i|r^i\).  For \(i\ge1\) each term is at
+  most \(r<1\), so \(|f(\zeta_{a,r})|<1\) if and only if \(|c_0|<1\),
+  i.e.\ \(\tilde f(\tilde a)=0\).  The center is again \(\tilde a\).
+\item For a point with support at a nonrational closed point, such as the
+  evaluation at \(\alpha=\sqrt p\) (the seminorm
+  \(f\mapsto|f(\alpha)|\) with kernel \((T^2-p)\)), one has
+  \(|\alpha|=p^{-1/2}<1\), so \(|f(\alpha)|<1\) exactly when the reduction
+  of \(f\) vanishes at \(\tilde\alpha=0\); the center is
+  \(\tilde 0\).  Closed points of higher residue degree occur as well:
+  if \(q\in\mathbf Z_p[T]\) is monic with irreducible reduction
+  \(\tilde q\) of degree \(d\ge2\), the evaluation points at the roots
+  of \(q\) reduce to the degree-\(d\) closed point \(\{\tilde q=0\}\)
+  of \(\mathbf A^1_{\mathbf F_p}\).
+\end{enumerate}
+\emph{Points with \(|T(x)|>1\)} have center in the second chart at the
+point \(\widetilde\infty\), since \(|T^{-1}(x)|<1\).
+
+Assembling these computations,
+\[
+ \operatorname{red}^{-1}(\text{generic point})=\{\zeta_{0,1}\},
+ \qquad
+ \operatorname{red}^{-1}(\tilde a)
+ =\{x:|(T-a)(x)|<1\}
+ \quad(a\in\mathbf Z_p),
+\]
+and similarly for \(\widetilde\infty\) and for closed points of higher
+degree.  The fiber over each closed point is an open disc-like domain,
+open in \(X^{\mathrm{an}}\), while the fiber over the generic point is the
+single Gauss point, and its complement is the disjoint union of the open
+fibers: anticontinuity (\Cref{prop:berk-reduction-anticontinuous}) is
+visible in every clause.
+\end{example}
+
+\begin{example}[Reduction to a two-component model over
+\(\mathbf C(\!(t)\!)\)]
+\label{ex:berk-reduction-p1-cct}
+Let \(K=\mathbf C(\!(t)\!)\) with \(v(t)=1\), so
+\(K^\circ=\mathbf C[\![t]\!]\) and \(\widetilde K=\mathbf C\).  Let
+\(X=\mathbf P^1_K\) and let
+\(\mathcal X\to\mathbf P^1_{K^\circ}\) be the blowup at the origin of the
+special fiber.  Around the blown-up point, \(\mathcal X\) is covered by
+the two charts
+\[
+ \mathcal U_A=\Spec K^\circ[u],\quad T=tu,
+ \qquad
+ \mathcal U_B=\Spec K^\circ[T,w]/(t-Tw),
+\]
+with \(u=T/t\) and \(w=t/T=u^{-1}\) on overlaps.  The special fiber
+\(\{t=0\}\) has two components, both reduced: the exceptional line \(E\),
+with coordinate \(u\) (equivalently \(1/w\)), and the strict transform
+\(\widetilde E\) of the original special fiber, with coordinate \(T\);
+they meet at the node \(T=w=0\) of chart \(\mathcal U_B\).
+
+Both components have multiplicity one, since
+\(\operatorname{div}_{\mathcal X}(t)=E+\widetilde E\) by the equation
+\(t=Tw\).  The divisorial points are computed from
+\(\operatorname{ord}\): along \(\widetilde E\) one has
+\(\operatorname{ord}_{\widetilde E}(T)=0\) and
+\(\operatorname{ord}_{\widetilde E}(t)=1\), so
+\(x_{\widetilde E}=\zeta_{0,1}\) is the Gauss point of the unit disc;
+along \(E\) one has \(\operatorname{ord}_E(T)=1\) and
+\(\operatorname{ord}_E(t)=1\), so \(x_E=\zeta_{0,|t|}\) is the Gauss
+point of the disc of radius \(|t|=\rme^{-1}\).
+
+The reduction map on the region \(|t|\leq|T(x)|\leq1\) is now completely
+described by the chart criterion of
+\Cref{prop:berk-reduction-anticontinuous}:
+\begin{enumerate}
+\item \(\operatorname{red}^{-1}(\text{generic point of }\widetilde E)
+      =\{\zeta_{0,1}\}\) and
+      \(\operatorname{red}^{-1}(\text{generic point of }E)
+      =\{\zeta_{0,|t|}\}\), by
+      \Cref{prop:berk-divisorial-fibre}.
+\item The fiber over the node is the set of points centered at
+      \(T=w=0\) in chart \(\mathcal U_B\), i.e.\ satisfying
+      \(|T(x)|<1\) and \(|w(x)|=|t|/|T(x)|<1\):
+      \[
+       \operatorname{red}^{-1}(\text{node})
+       =\{x:|t|<|T(x)|<1\},
+      \]
+      the open annulus.  In particular the whole open segment of Gauss
+      points \(\zeta_{0,r}\), \(|t|<r<1\), reduces to the node.  This
+      open annulus retracts onto that segment, which becomes an edge of
+      the dual complex in \cref{chap:skeleta}; compare the standard
+      annulus of \Cref{ex:berk-standard-annulus} via \(x=T\),
+      \(y=t/T\).
+\item The fiber over a closed point \(\tilde u=\tilde c\) of
+      \(E\setminus\{\text{node}\}\), with \(c\in(K^\circ)^\times\), is
+      \(\{x:|(T-ct)(x)|<|t|\}\), an open disc of radius \(|t|\); the
+      fiber over the origin \(\tilde u=0\) of \(E\) is
+      \(\{x:|T(x)|<|t|\}\).
+\item The fiber over a closed point \(\tilde a\neq\tilde 0\) of
+      \(\widetilde E\setminus\{\text{node}\}\), with \(|a|=1\), is
+      \(\{x:|(T-a)(x)|<1\}\), exactly as on the unblown model.
+\end{enumerate}
+Blowing up has therefore split the old fiber over \(\tilde 0\) into the
+divisorial point \(\zeta_{0,|t|}\), the annulus over the node, the discs
+of radius \(|t|\) over the new closed points, and the disc
+\(\{|T|<|t|\}\); refining the model refines the reduction.
+\end{example}
+
+\section{The analytic affine and projective lines}
+\label{sec:berk-line}
+
+The set \(\mathbf A^{1,\mathrm{an}}_K\) consists of multiplicative seminorms
+on \(K[T]\). For \(a\in K\) and \(r\geq0\), define
+\[
+ \left|\sum_{i=0}^d c_i(T-a)^i\right|_{a,r}
+       =\max_i |c_i|r^i.
+\]
+For \(r=0\) this is evaluation at \(a\); for \(r>0\) it is the Gauss norm of
+the closed disc
+\[
+ D(a,r)=\{c\in K:|c-a|\leq r\}.
+\]
+Two discs give the same seminorm precisely when
+they are the same disc.  This assertion, and everything else in this
+section, rests on the elementary combinatorics of ultrametric discs,
+which we record once and for all.  We write \(x\leq y\) for points of
+\(\mathbf A^{1,\mathrm{an}}_K\) if \(|f(x)|\leq|f(y)|\) for every
+\(f\in K[T]\).\index{Berkovich affine line!partial order}
+
+\begin{lemma}\label{lem:berk-disc-combinatorics}
+Let \(a,b\in K\) and \(r,s\geq0\).
+\begin{enumerate}
+\item If \(b\in D(a,r)\), then \(D(b,r)=D(a,r)\): every point of an
+      ultrametric disc is a center.
+\item Two discs are either disjoint or nested.
+\item \(\zeta_{a,r}\leq\zeta_{b,s}\) if and only if
+      \(D(a,r)\subseteq D(b,s)\), if and only if \(|a-b|\leq s\) and
+      \(r\leq s\).  In particular \(\zeta_{a,r}=\zeta_{b,s}\) if and
+      only if \(D(a,r)=D(b,s)\).
+\item \(|(T-c)(\zeta_{a,r})|=\max\{|a-c|,r\}\) for every \(c\in K\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) If \(|c-b|\leq r\) and \(|b-a|\leq r\), then
+\(|c-a|\leq\max\{|c-b|,|b-a|\}\leq r\), and symmetrically.
+
+(2) If \(c\in D(a,r)\cap D(b,s)\) with, say, \(r\leq s\), then by (1)
+\(D(a,r)=D(c,r)\subseteq D(c,s)=D(b,s)\).
+
+(4) Expand \(T-c=(T-a)+(a-c)\); the definition of \(\zeta_{a,r}\) gives
+\(|(T-c)(\zeta_{a,r})|=\max\{r,|a-c|\}\).
+
+(3) Suppose \(|a-b|\leq s\) and \(r\leq s\).  For
+\(f=\sum_ic_i(T-b)^i\), rewrite around \(a\):
+\(f=\sum_jc_j'(T-a)^j\) with
+\(c_j'=\sum_{i\geq j}\binom{i}{j}c_i(a-b)^{i-j}\), so
+\(|c_j'|\leq\max_{i\geq j}|c_i|s^{i-j}\), using \(|a-b|\le s\) and
+\(|\binom ij|\le1\).  Hence
+\[
+ |f(\zeta_{a,r})|=\max_j|c_j'|r^j
+ \leq\max_{i\geq j}|c_i|s^{i-j}r^j
+ \leq\max_i|c_i|s^i=|f(\zeta_{b,s})|,
+\]
+using \(r\leq s\).  Conversely, if \(\zeta_{a,r}\leq\zeta_{b,s}\), then
+by (4)
+\[
+ \max\{|a-b|,r\}=|(T-b)(\zeta_{a,r})|\leq|(T-b)(\zeta_{b,s})|=s,
+\]
+which gives both inequalities.  The inclusion
+\(D(a,r)\subseteq D(b,s)\) is equivalent to the same two inequalities by
+(1) and (2).  For the final statement, equality of seminorms gives
+mutual inclusion of discs by the above; conversely equal discs have
+equal Gauss seminorms by (3) applied twice.
+\end{proof}
+
+Suppose in the rest of this section that \(K\) is algebraically closed and
+nontrivially valued. Every point of the analytic affine line is of one of
+the following four types.
+\begin{enumerate}
+\item Type I: an evaluation point \(a\in K\), equivalently \(r=0\).
+\item Type II: a disc point \(\zeta_{a,r}\) with
+      \(r\in |K^\times|\).
+\item Type III: a disc point \(\zeta_{a,r}\) with
+      \(r\notin |K^\times|\).
+\item Type IV: the limit of a decreasing family of closed discs with empty
+      intersection.
+\end{enumerate}
+Type IV points occur only when \(K\) is not spherically complete. They are
+not an artificial addition: without them the space need not be complete or
+compact in the relevant topology.  We now prove the classification in
+full; it is the pedagogical cornerstone of this chapter.  The hypotheses
+in force are: \(K\) complete, algebraically closed, and nontrivially
+valued.  Completeness enters only once, algebraic closedness enters
+through factorization into linear polynomials, and nontriviality is never
+used; the trivially valued case is discussed in
+\cref{sec:berk-trivial}.
+
+\begin{theorem}
+\label{thm:berk-a1-classification}
+\index{Berkovich affine line!classification of points}
+For \(x\in\mathbf A^{1,\mathrm{an}}_K\) and \(a\in K\), set
+\[
+ r_a(x)=|(T-a)(x)|,\qquad
+ D_a(x)=D\bigl(a,r_a(x)\bigr),\qquad
+ E(x)=\{D_a(x):a\in K\}.
+\]
+\begin{enumerate}
+\item\label{itm:berk-class:nested}
+  The family \(E(x)\) is totally ordered by inclusion, \(x\leq\zeta_D\)
+  for every \(D\in E(x)\), and
+  \(|f(x)|=\inf_{D\in E(x)}|f(\zeta_D)|\) for every \(f\in K[T]\).
+\item\label{itm:berk-class:nonempty}
+  If \(\bigcap E(x)\neq\varnothing\), then
+  \(\bigcap E(x)=D(b,r)\) for every \(b\in\bigcap E(x)\), where
+  \(r=\min_{a\in K}r_a(x)=r_b(x)\), and \(x=\zeta_{b,r}\).  Thus \(x\)
+  is of type I if \(r=0\), of type II if \(r\in|K^\times|\), and of
+  type III otherwise.
+\item\label{itm:berk-class:empty}
+  If \(\bigcap E(x)=\varnothing\), then
+  \(r_\infty(x):=\inf_ar_a(x)\) is strictly positive and not attained;
+  for every fixed \(f\in K[T]\), the value \(|f(\zeta_D)|\) is
+  independent of \(D\in E(x)\) once \(D\) is small enough, and equals
+  \(|f(x)|\).  In particular the net \((\zeta_D)_{D\in E(x)}\), indexed
+  by \(E(x)\) ordered by reverse inclusion, converges to \(x\), and
+  \(x\) is of type IV.
+\item\label{itm:berk-class:exclusive}
+  The four types are mutually exclusive, so every point of
+  \(\mathbf A^{1,\mathrm{an}}_K\) is of exactly one type.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the one-sided bound.}
+Fix \(a\in K\) and expand \(f=\sum_ic_i(T-a)^i\).  Multiplicativity
+gives \(|(T-a)^i(x)|=r_a(x)^i\), so the ultrametric inequality yields
+\[
+ |f(x)|\leq\max_i|c_i|\,r_a(x)^i=|f(\zeta_{a,r_a(x)})|.
+\]
+Hence \(x\leq\zeta_D\) for every \(D\in E(x)\), and
+\(|f(x)|\le\inf_{D\in E(x)}|f(\zeta_D)|\).
+
+\emph{Step 2: nestedness.}
+Let \(a,c\in K\).  If \(|a-c|\leq r_a(x)\), then
+\(r_c(x)\leq\max\{r_a(x),|a-c|\}=r_a(x)\) and \(c\in D_a(x)\), so
+\(D_c(x)\subseteq D(c,r_a(x))=D_a(x)\) by part~(1) of
+\Cref{lem:berk-disc-combinatorics}.
+If \(|a-c|>r_a(x)\), the strong triangle equality
+(\cref{lem:strong-triangle-equality}) gives \(r_c(x)=|a-c|\), so
+\(D_c(x)=D(c,|a-c|)\ni a\) and
+\(D_a(x)\subseteq D(a,|a-c|)=D_c(x)\).  Any two members of \(E(x)\) are
+therefore nested.
+
+\emph{Step 3: the case of a common point.}
+Assume \(b\in\bigcap E(x)\).  For every \(a\), membership
+\(|b-a|\leq r_a(x)\) gives
+\(r_b(x)\leq\max\{r_a(x),|a-b|\}=r_a(x)\); hence
+\(r:=r_b(x)=\min_ar_a(x)\).  We claim \(x=\zeta_{b,r}\).  Since both
+seminorms are multiplicative and every monic polynomial splits into
+linear factors over the algebraically closed field \(K\), it suffices to
+prove \(|(T-c)(x)|=|(T-c)(\zeta_{b,r})|\) for every \(c\in K\).  If
+\(|b-c|>r\), the strong triangle equality applied to
+\((T-c)=(T-b)+(b-c)\) gives \(r_c(x)=|b-c|\), while
+\Cref{lem:berk-disc-combinatorics} gives
+\(|(T-c)(\zeta_{b,r})|=\max\{|b-c|,r\}=|b-c|\).  If \(|b-c|\leq r\),
+then \(c\in D(b,r)\subseteq D_a(x)\) for every \(a\), so \(c\) is
+itself a common point; the minimality just proved, applied to \(c\),
+gives \(r_c(x)=r\), while
+\(|(T-c)(\zeta_{b,r})|=\max\{|b-c|,r\}=r\).  In both cases the values
+agree, so \(x=\zeta_{b,r}\).  Finally
+\(D(b,r)\subseteq\bigcap E(x)\subseteq D_b(x)=D(b,r)\), which
+identifies the intersection.
+
+\emph{Step 4: the case of empty intersection.}
+Assume \(\bigcap E(x)=\varnothing\), and set
+\(r_\infty=\inf_ar_a(x)\).
+
+First, \(r_\infty>0\).  Otherwise choose \(a_n\) with
+\(r_{a_n}(x)\to0\).  For \(m,n\), nestedness gives
+\(|a_n-a_m|\leq\max\{r_{a_n}(x),r_{a_m}(x)\}\), so \((a_n)\) is Cauchy;
+by completeness of \(K\) it converges to some \(a_*\in K\).  Then
+\[
+ r_{a_*}(x)\leq\max\{r_{a_n}(x),|a_n-a_*|\}\longrightarrow0,
+\]
+so \(r_{a_*}(x)=0\) and \(D_{a_*}(x)=\{a_*\}\); by nestedness
+\(a_*\in D_a(x)\) for every \(a\), contradicting empty intersection.
+This is the one use of completeness.
+
+Second, the infimum is not attained.  If \(r_a(x)=r_\infty\), take any
+\(c\): the discs \(D_a(x)\) and \(D_c(x)\) are nested; if
+\(D_c(x)\subseteq D_a(x)\) then \(r_c(x)\ge r_\infty=r_a(x)\) forces
+equal radii, hence \(D_c(x)=D_a(x)\ni a\); if
+\(D_a(x)\subseteq D_c(x)\) then \(a\in D_c(x)\) directly.  Either way
+\(a\in\bigcap E(x)\), a contradiction.  Consequently, for every
+\(D\in E(x)\) there is \(D'\in E(x)\) with \(D'\subsetneq D\) and
+strictly smaller radius.
+
+Third, eventual constancy.  Fix \(c\in K\).  Since the intersection is
+empty, there is \(a\) with \(c\notin D_a(x)\), i.e.\
+\(|c-a|>r_a(x)\); then \(r_c(x)=|c-a|\) by the strong triangle
+equality.  For any \(a'\) with \(D_{a'}(x)\subseteq D_a(x)\) we get
+\(|a-a'|\leq r_a(x)<|c-a|\), hence \(|c-a'|=|c-a|>r_a(x)\ge
+r_{a'}(x)\), and therefore
+\[
+ |(T-c)(\zeta_{D_{a'}(x)})|
+ =\max\{|c-a'|,r_{a'}(x)\}
+ =|c-a|
+ =r_c(x)
+ =|(T-c)(x)|.
+\]
+So the value of every linear polynomial along the net stabilizes at its
+value at \(x\).  For a general
+\(f=u\prod_{j=1}^d(T-c_j)\), choose for each \(j\) a disc
+\(D_j\in E(x)\) beyond which the factor \(T-c_j\) has stabilized, and
+let \(D_*\) be the smallest of the finitely many \(D_j\) (they are
+nested).  For every \(D\subseteq D_*\) in \(E(x)\), multiplicativity of
+Gauss seminorms and of \(x\) gives
+\[
+ |f(\zeta_D)|=|u|\prod_j|(T-c_j)(\zeta_D)|
+            =|u|\prod_j|(T-c_j)(x)|=|f(x)|.
+\]
+Combined with Step 1, this proves the displayed infimum formula of
+part~(1) in this case, shows that the net
+\((\zeta_D)_D\) converges pointwise, hence in
+\(\mathbf A^{1,\mathrm{an}}_K\), to \(x\), and exhibits \(x\) as the
+limit of the strictly decreasing family \(E(x)\) with empty
+intersection: \(x\) is of type IV.  In the case of Step 3 the infimum
+formula holds as well, because the infimum is attained at
+\(D_b(x)\) and \(x=\zeta_{D_b(x)}\).
+
+\emph{Step 5: exclusivity.}
+If \(x=\zeta_{b,s}\) is of type I, II, or III, then
+\(b\in\bigcap E(x)\): indeed
+\(r_a(\zeta_{b,s})=\max\{|a-b|,s\}\geq|a-b|\) for every \(a\), so
+\(b\in D_a(x)\).  Hence points with \(\bigcap E(x)=\varnothing\) are of
+none of the first three types, and conversely.  Within the first three
+types, \(x=\zeta_{b,s}\) determines its disc: by
+\Cref{lem:berk-disc-combinatorics}, \(\zeta_{b,s}=\zeta_{b',s'}\)
+implies \(D(b,s)=D(b',s')\), so the radius \(s=\min_ar_a(x)\) is an
+invariant of the point, and the three conditions \(s=0\),
+\(s\in|K^\times|\), and \(s>0\), \(s\notin|K^\times|\) are mutually
+exclusive.
+\end{proof}
+
+\begin{corollary}
+\label{cor:berk-gauss-sup}
+For every \(f\in K[T]\), \(a\in K\), and \(r>0\),
+\[
+ |f(\zeta_{a,r})|=\sup_{c\in D(a,r)}|f(c)|,
+\]
+and the supremum is attained whenever \(r\in|K^\times|\).  Moreover the
+classical points of \(D(a,r)\) are dense in the analytic closed disc
+\(\{x\in\mathbf A^{1,\mathrm{an}}_K:r_a(x)\leq r\}
+=\{x:x\leq\zeta_{a,r}\}\).
+\end{corollary}
+
+\begin{proof}
+The equality of the two descriptions of the analytic disc follows from
+\Cref{thm:berk-a1-classification}: if \(r_a(x)\leq r\) then
+\(x\leq\zeta_{a,r_a(x)}\leq\zeta_{a,r}\), and conversely
+\(x\le\zeta_{a,r}\) gives
+\(r_a(x)\le|(T-a)(\zeta_{a,r})|=r\).
+
+For \(c\in D(a,r)\), the evaluation point satisfies
+\(\zeta_{c,0}\leq\zeta_{a,r}\) by \Cref{lem:berk-disc-combinatorics},
+which proves the inequality \(\geq\) in the display.  For \(\leq\),
+factor \(f=u\prod_{j=1}^d(T-c_j)\), so that
+\(|f(\zeta_{a,r})|=|u|\prod_j\max\{|a-c_j|,r\}\).  Since \(K\) is
+algebraically closed, the group \(|K^\times|\) is divisible, hence dense
+in \(\mathbf R_{>0}\).  Choose \(s=|\varrho|\in|K^\times|\) with
+\(s\leq r\), and test points \(c=a+\varrho\theta\) with
+\(\theta\in K^\circ\), \(|\theta|=1\).  For a root with \(|a-c_j|>s\),
+\(|c-c_j|=|a-c_j|\) for every such \(\theta\).  For a root with
+\(|a-c_j|\leq s\), put \(d_j=(c_j-a)/\varrho\in K^\circ\); then
+\(|c-c_j|=s|\theta-d_j|\), which equals \(s\) as soon as the residue
+\(\tilde\theta\) differs from \(\tilde d_j\).  The residue field of an
+algebraically closed valued field is infinite, so a residue avoiding
+the finitely many \(\tilde d_j\) exists, giving
+\[
+ |f(c)|=|u|\prod_j\max\{|a-c_j|,s\}.
+\]
+If \(r\in|K^\times|\), take \(s=r\): the supremum is attained.  In
+general, letting \(s\uparrow r\) through \(|K^\times|\) makes the right
+side converge to \(|f(\zeta_{a,r})|\), which proves the supremum
+formula.
+
+For density, let \(x\leq\zeta_{a,r}\) and let
+\(U=\{y:\alpha_i<|f_i(y)|<\beta_i,\ i=1,\ldots,k\}\) be a basic
+neighborhood of \(x\).  If \(x\) is of type IV, the net of Gauss points
+of \(E(x)\) converges to \(x\) by
+\Cref{thm:berk-a1-classification}, and its deep members lie below
+\(\zeta_{a,r}\); replacing \(x\) by one of them, we may assume
+\(x=\zeta_{b,s_0}\) with \(D(b,s_0)\subseteq D(a,r)\), the type-I case
+being trivial.  Run the previous paragraph simultaneously for the
+finitely many \(f_i\), with one \(\theta\) whose residue avoids the
+finitely many excluded residues of all \(f_i\) at once: for
+\(s\in|K^\times|\), \(s\le s_0\), we obtain classical
+\(c\in D(b,s_0)\subseteq D(a,r)\) with
+\(|f_i(c)|=|u_i|\prod_j\max\{|b-c_{ij}|,s\}\).  As \(s\uparrow s_0\)
+these values increase to \(|f_i(x)|<\beta_i\), so for \(s\) close
+enough to \(s_0\) they lie in \((\alpha_i,\beta_i)\) for every \(i\).
+Then \(c\in U\).
+\end{proof}
+
+The four types can be told apart by intrinsic invariants of the
+completed residue field, without reference to a family of discs.  The
+statement uses the Abhyankar inequality in a version with a valued
+ground field; the proof is the same independence argument as in
+\Cref{thm:abhyankar-inequality}, and we spell it out.
+
+\begin{lemma}
+\label{lem:berk-abhyankar-valued}
+Let \(K\) be a non-Archimedean valued field with residue field
+\(\widetilde K\) and value group \(\Gamma_K=v(K^\times)\subset\mathbf R\).
+Let \(F/K\) be a finitely generated field extension of transcendence
+degree \(n\), and let \(w\) be a real valuation of \(F\) extending
+\(v\).  Then
+\[
+ \dim_{\mathbf Q}
+ \bigl((\Gamma_w/\Gamma_K)\otimes_{\mathbf Z}\mathbf Q\bigr)
+ +\operatorname{trdeg}_{\widetilde K}\,\kappa(w)
+ \;\leq\;n,
+\]
+where \(\Gamma_w=w(F^\times)\) and \(\kappa(w)\) is the residue field of
+\(w\).
+\end{lemma}
+
+\begin{proof}
+Choose \(f_1,\ldots,f_r\in F^\times\) whose values
+\(\gamma_i=w(f_i)\) are \(\mathbf Q\)-linearly independent modulo
+\(\Gamma_K\otimes\mathbf Q\), and units \(g_1,\ldots,g_s\in R_w^\times\)
+whose residues are algebraically independent over \(\widetilde K\).  It
+suffices to show that \(f_1,\ldots,f_r,g_1,\ldots,g_s\) are
+algebraically independent over \(K\); the claim then follows by taking
+families of maximal size, since
+\(\operatorname{trdeg}_KF=n\).
+
+Suppose there is a nonzero polynomial relation.  Group its monomials
+according to the exponents of the \(f_i\):
+\[
+ \sum_{\alpha\in\mathbf N^r}f^\alpha P_\alpha(g)=0,
+\]
+with finitely many nonzero \(P_\alpha\in K[T_1,\ldots,T_s]\).  Fix
+\(\alpha\) with \(P_\alpha\neq0\), and factor out a coefficient
+\(c_\alpha\in K^\times\) of maximal absolute value:
+\(P_\alpha=c_\alpha Q_\alpha\), where \(Q_\alpha\) has coefficients in
+\(K^\circ\), at least one of absolute value \(1\).  The reduction
+\(\widetilde Q_\alpha\in\widetilde K[T]\) is nonzero, and the residues
+\(\tilde g_j\) are algebraically independent, so
+\(\widetilde Q_\alpha(\tilde g)\neq0\); hence
+\(w(Q_\alpha(g))=0\) and
+\[
+ w\bigl(f^\alpha P_\alpha(g)\bigr)
+ =\langle\alpha,\gamma\rangle+v(c_\alpha).
+\]
+For \(\alpha\neq\alpha'\), equality of these values would give
+\(\langle\alpha-\alpha',\gamma\rangle=v(c_{\alpha'})-v(c_\alpha)
+\in\Gamma_K\), contradicting the independence of the \(\gamma_i\)
+modulo \(\Gamma_K\otimes\mathbf Q\).  The finitely many nonzero
+summands therefore have pairwise distinct values, and each is a nonzero
+element of the field \(F\), of finite value.  A finite sum with a
+unique term of strictly minimal value cannot vanish, by
+\cref{lem:strong-triangle-equality}.  This contradiction proves the
+independence.
+\end{proof}
+
+\begin{proposition}
+\label{prop:berk-type-invariants}
+\index{Berkovich affine line!type invariants}
+For \(x\in\mathbf A^{1,\mathrm{an}}_K\), let
+\(\widetilde{\mathcal H(x)}\) be the residue field and
+\(|\mathcal H(x)^\times|\) the value group of the completed residue
+field, and set
+\[
+ s(x)=\operatorname{trdeg}_{\widetilde K}\widetilde{\mathcal H(x)},
+ \qquad
+ t(x)=\dim_{\mathbf Q}
+ \Bigl(\bigl(|\mathcal H(x)^\times|/|K^\times|\bigr)
+ \otimes_{\mathbf Z}\mathbf Q\Bigr).
+\]
+Then \(s(x)+t(x)\leq1\), and:
+\begin{enumerate}
+\item \(x\) is of type I if and only if \(\mathcal H(x)=K\);
+\item \(x\) is of type II if and only if \(s(x)=1\); in that case
+      \(t(x)=0\), \(|\mathcal H(x)^\times|=|K^\times|\), and, for
+      \(x=\zeta_{a,r}\) with \(r=|c|\),
+      \(\widetilde{\mathcal H(x)}=\widetilde K(\tilde u)\) is a rational
+      function field, generated by the residue \(\tilde u\) of
+      \(u=(T-a)/c\);
+\item \(x\) is of type III if and only if \(t(x)=1\); in that case
+      \(s(x)=0\) and, for \(x=\zeta_{a,r}\),
+      \(|\mathcal H(x)^\times|=|K^\times|\cdot r^{\mathbf Z}\);
+\item \(x\) is of type IV if and only if \(s(x)=t(x)=0\) and
+      \(\mathcal H(x)\neq K\); in that case \(\mathcal H(x)\) is a
+      proper immediate extension of \(K\): it is complete with the same
+      value group and the same residue field.
+\end{enumerate}
+In particular the type of a point is intrinsic.
+\end{proposition}
+
+\begin{proof}
+Throughout, note that completion changes neither value group nor
+residue field: if \(y_n\to y\neq0\) in a valued field, then eventually
+\(|y_n-y|<|y|\), so \(|y_n|=|y|\) by the strong triangle equality; and
+if \(|y|=1\), the elements \(y_n\) eventually have the same residue as
+\(y\).  It therefore suffices to compute with the valued field
+\(\bigl(K(T),|\cdot|_x\bigr)\) for points of support zero.  The
+inequality \(s+t\leq1\) is \Cref{lem:berk-abhyankar-valued} with
+\(F=K(T)\) and \(n=1\).
+
+(1) If \(x\) is the evaluation at \(a\in K\), the character
+\(K[T]\to K\), \(T\mapsto a\), identifies
+\(\operatorname{Frac}(K[T]/(T-a))=K\), which is already complete, so
+\(\mathcal H(x)=K\).  Conversely, if \(\mathcal H(x)=K\), the image
+\(a\in K\) of \(T\) satisfies \(|f(x)|=|f(a)|\) for all \(f\), so
+\(x\) is the evaluation at \(a\), of type I.
+
+(2) Let \(x=\zeta_{a,r}\) with \(r=|c|\in|K^\times|\), and
+\(u=(T-a)/c\).  Every value
+\(|f(x)|=\max_i|c_i|r^i\) lies in \(|K^\times|\), and values of
+quotients likewise, so \(|\mathcal H(x)^\times|=|K^\times|\) and
+\(t(x)=0\).  For a polynomial \(P=\sum b_iS^i\in K^\circ[S]\),
+\[
+ |P(u)(x)|=\Bigl|\sum_ib_ic^{-i}(T-a)^i\Bigr|_x=\max_i|b_i|,
+\]
+so \(|P(u)(x)|=1\) exactly when \(\widetilde P\neq0\), and then the
+residue of \(P(u)\) is \(\widetilde P(\tilde u)\), as one sees by
+discarding the terms of absolute value less than one.  Hence
+\(\tilde u\) is transcendental over \(\widetilde K\) and \(s(x)=1\).
+For the reverse inclusion, let \(h=f/g\) with \(|h(x)|=1\).  Factor
+\(f\) and \(g\) into linear factors.  A factor \(T-c_j\) with
+\(|a-c_j|\leq r\) equals \(c\,(u-d_j)\) with
+\(d_j=(c_j-a)/c\in K^\circ\), and \((u-d_j)\) has residue
+\(\tilde u-\tilde d_j\in\widetilde K(\tilde u)\).  A factor \(T-c_j\)
+with \(|a-c_j|>r\) equals
+\((a-c_j)\bigl(1-(T-a)/(a-c_j)\bigr)\), whose second factor has
+absolute value \(1\) at \(x\) and residue \(1\).  Multiplying the
+normalizations, \(h\) is a constant of absolute value \(1\) times a
+product of factors with residues in \(\widetilde K(\tilde u)\); its
+residue lies in \(\widetilde K(\tilde u)\).  Thus
+\(\widetilde{\mathcal H(x)}=\widetilde K(\tilde u)\).
+
+(3) Let \(x=\zeta_{a,r}\) with \(r\notin|K^\times|\), \(r>0\).  Every
+value \(\max_i|c_i|r^i\) lies in \(|K^\times|r^{\mathbf N}\), and the
+maximum is attained at a unique index because
+\(|c_i|r^i=|c_j|r^j\) with \(i\neq j\) would force
+\(r^{i-j}\in|K^\times|\).  Values of quotients lie in
+\(|K^\times|r^{\mathbf Z}\), and \(r=|(T-a)(x)|\) is a value, so
+\(|\mathcal H(x)^\times|=|K^\times|r^{\mathbf Z}\) and
+\(t(x)\geq1\).  By the Abhyankar inequality, \(t(x)=1\) and
+\(s(x)=0\).
+
+(4) Let \(x\) be of type IV with defining family \(E(x)\).  By Step 4
+of the proof of \Cref{thm:berk-a1-classification}, for every
+\(f\in K[T]\) there are \(a'\in K\) and a linear factorization with
+\(|f(x)|=|u|\prod_j|c_j-a'|\in|K^\times|\); values of quotients
+likewise, so \(t(x)=0\) and \(|\mathcal H(x)^\times|=|K^\times|\).
+Next let \(f\in K[T]\) with \(|f(x)|=1\); we claim its residue lies in
+\(\widetilde K\).  Choose \(a\in K\) beyond which the value of \(f\)
+along \(E(x)\) has stabilized, and choose a strictly smaller disc
+\(D_{a'}(x)\subsetneq D_a(x)\) with \(r_{a'}(x)<r_a(x)\), which exists
+by Step 4.  Write \(f=\sum_ib_i'(T-a')^i\).  Since
+\(\zeta_{a,r_a(x)}=\zeta_{a',r_a(x)}\) and
+\(|f(\zeta_{a,r_a(x)})|=1\), we get \(|b_i'|\,r_a(x)^i\leq1\), so
+\[
+ |f-b_0'|_x=\Bigl|\sum_{i\geq1}b_i'(T-a')^i\Bigr|_x
+ \leq\max_{i\geq1}\,r_a(x)^{-i}\,r_{a'}(x)^i
+ =\frac{r_{a'}(x)}{r_a(x)}<1 .
+\]
+By the strong triangle equality, \(|b_0'|=1\) and \(f\) has the same
+residue as the constant \(b_0'=f(a')\).  For a general element
+\(h=f/g\) of absolute value \(1\), normalize \(f\) and \(g\) by
+constants so that \(|f(x)|=|g(x)|=1\), which is possible because the
+value group is \(|K^\times|\); then the residue of \(h\) is a quotient
+of residues of constants, hence lies in \(\widetilde K\).  So
+\(s(x)=0\), and \(\mathcal H(x)\) is an immediate extension of \(K\).
+It is proper: \(\mathcal H(x)=K\) would make \(x\) of type I by (1),
+contradicting exclusivity in \Cref{thm:berk-a1-classification}.
+
+Finally, the four patterns
+\(\bigl(\mathcal H(x)=K\bigr)\), \(\bigl(s=1\bigr)\),
+\(\bigl(t=1\bigr)\), and
+\(\bigl(s=t=0,\ \mathcal H(x)\neq K\bigr)\) are mutually exclusive and
+cover the four types, so the type can be read off from
+\(\mathcal H(x)\).
+\end{proof}
+
+\begin{definition}[Spherical completeness]
+\index{spherically complete field}
+A non-Archimedean field \(K\) is \emph{spherically complete} if every
+chain of closed discs in \(K\), totally ordered by inclusion, has
+nonempty intersection.  A chain of discs contains a countable
+subfamily that is cofinal for reverse inclusion, because radii are real
+numbers; so it is equivalent to impose the condition on decreasing
+sequences of discs.
+\end{definition}
+
+\begin{proposition}
+\label{prop:berk-type4-spherical}
+Let \(K\) be complete, algebraically closed, and nontrivially valued.
+Then \(\mathbf A^{1,\mathrm{an}}_K\) contains a point of type IV if and
+only if \(K\) is not spherically complete.
+\end{proposition}
+
+\begin{proof}
+If \(x\) is of type IV, then \(E(x)\) is a chain of closed discs with
+empty intersection, so \(K\) is not spherically complete.
+
+Conversely, suppose some chain of closed discs has empty intersection;
+by the countable cofinality just observed we may take a decreasing
+sequence \(D_n=D(a_n,r_n)\) with
+\(\bigcap_nD_n=\varnothing\).  Define
+\[
+ |f(x)|:=\lim_{n\to\infty}|f(\zeta_{D_n})|
+        =\inf_n|f(\zeta_{D_n})|,
+\]
+the limit of a nonincreasing bounded sequence
+(\Cref{lem:berk-disc-combinatorics}).  Each defining property of a
+point of \(\mathbf A^{1,\mathrm{an}}_K\) passes to the limit:
+multiplicativity because a product of convergent sequences converges to
+the product of the limits, the ultrametric inequality and the values on
+\(K\) because weak inequalities and equalities survive limits.  So
+\(x\in\mathbf A^{1,\mathrm{an}}_K\).
+
+It remains to check \(\bigcap E(x)=\varnothing\); the classification
+then makes \(x\) of type IV.  Suppose \(b\in\bigcap E(x)\).  For each
+\(n\), and all \(m\geq n\), the center \(a_m\) lies in \(D_n\), so
+\[
+ r_{a_n}(x)=\lim_m\max\{|a_n-a_m|,r_m\}\leq r_n .
+\]
+Then \(|b-a_n|\leq r_{a_n}(x)\leq r_n\) shows \(b\in D_n\) for every
+\(n\), contradicting \(\bigcap_nD_n=\varnothing\).
+\end{proof}
+
+\begin{example}[The four types over \(\mathbf C_p\)]
+\label{ex:berk-types-cp}
+Let \(\mathbf C_p\) be the completed algebraic closure of
+\(\mathbf Q_p\); its value group is \(p^{\mathbf Q}\) and its residue
+field is \(\overline{\mathbf F}_p\).  Then:
+evaluation at any \(a\in\mathbf C_p\) is a type-I point;
+\(\zeta_{0,1}\) is a type-II point, whose completed residue field has
+residue field \(\overline{\mathbf F}_p(\tilde u)\) and value group
+\(p^{\mathbf Q}\); and the point \(\zeta_{0,p^{-\lambda}}\) for
+irrational \(\lambda\) is a type-III point, with value group
+\(p^{\mathbf Q+\lambda\mathbf Z}\).  It is a classical fact, which we
+neither prove nor use, that \(\mathbf C_p\) is not spherically
+complete, so that type-IV points exist there as well.  The next
+example carries out a completely explicit construction in equal
+characteristic instead.
+\end{example}
+
+\begin{example}[An explicit type IV point]
+\label{ex:berk-type4-puiseux}
+Let \(K_0=\mathbf C(\!(t)\!)\) with \(v(t)=1\), let
+\(P=\bigcup_{m\geq1}\mathbf C(\!(t^{1/m})\!)\) be the field of Puiseux
+series, an algebraic closure of \(K_0\), and let \(K=\widehat P\) be its
+completion, a complete algebraically closed field.
+
+\emph{Description of \(K\).}  Every element of \(K\) is a series
+\(y=\sum_{i\geq0}c_it^{q_i}\) with \(c_i\in\mathbf C^\times\) and
+\(q_i\in\mathbf Q\) strictly increasing, the sequence being finite or
+satisfying \(q_i\to+\infty\); and every such series converges in
+\(K\).  Indeed, the partial sums of such a series lie in \(P\) and form
+a Cauchy sequence, so the series converges.  Conversely, let
+\(y\in K\) and choose \(y_n\in P\) with \(v(y-y_n)\geq n\).  For
+\(q\in\mathbf Q\), the coefficient of \(t^q\) in \(y_n\) is independent
+of \(n\) once \(n>q\): two Puiseux series whose difference has
+valuation greater than \(q\) share all coefficients in degrees at most
+\(q\).  Call this stable value \(c_q(y)\).  For fixed \(N\), the
+support \(\{q\leq N:c_q(y)\neq0\}\) is contained in the support of a
+single Puiseux series \(y_n\), \(n>N\), hence is finite.  Therefore
+the support of \(y\) is a strictly increasing sequence, finite or
+tending to \(+\infty\), and
+\(v\bigl(y-\sum_{q\leq N}c_q(y)t^q\bigr)>N\) for every \(N\), so the
+series converges to \(y\).
+
+\emph{The nested discs.}  Define
+\[
+ x_n=\sum_{k=1}^{n}t^{\,1-\frac1k}
+ =1+t^{1/2}+t^{2/3}+\cdots+t^{1-\frac1n},
+ \qquad
+ s_n=\rme^{-\left(1-\frac1{n+1}\right)},
+\]
+so \(s_n=|t^{1-\frac1{n+1}}|\) is strictly decreasing with limit
+\(\rme^{-1}>0\).  Since \(|x_{n+1}-x_n|=|t^{1-\frac1{n+1}}|=s_n\), the
+discs \(D_n=D(x_n,s_n)\) satisfy \(D_{n+1}\subseteq D_n\).
+
+\emph{Empty intersection.}  Suppose \(y\in\bigcap_nD_n\).  Then
+\(v(y-x_n)\geq1-\frac1{n+1}\) for every \(n\), so the series of \(y\)
+agrees with \(x_n\) in all degrees \(q<1-\frac1{n+1}\); in particular
+the coefficient of \(t^{1-\frac1k}\) in \(y\) equals \(1\) for every
+\(k\leq n\).  As \(n\) is arbitrary, the support of \(y\) contains the
+infinite set \(\{1-\frac1k:k\geq1\}\), which is bounded above by \(1\).
+This contradicts the description of \(K\): an infinite support must
+tend to \(+\infty\).  Hence \(\bigcap_nD_n=\varnothing\), \(K\) is not
+spherically complete, and \Cref{prop:berk-type4-spherical} produces
+from \((D_n)\) an explicit type-IV point of
+\(\mathbf A^{1,\mathrm{an}}_K\), namely
+\(|f(x)|=\lim_n|f(\zeta_{D_n})|\).
+\end{example}
+
+We now assemble the tree structure.  Inclusion of discs gives a partial
+order on Gauss points, by \Cref{lem:berk-disc-combinatorics}; the
+following proposition extends the picture to all points.
+
+\begin{proposition}
+\label{prop:berk-a1-tree}
+\index{Berkovich affine line!tree structure}
+Order \(\mathbf A^{1,\mathrm{an}}_K\) by \(x\leq y\) as above.
+\begin{enumerate}
+\item For every \(x\), the set \(A_x=\{y:y\geq x\}\) is totally
+      ordered.  For a point \(x\) of type I, II, or III with disc
+      \(D(b,r)\), one has \(A_x=\{\zeta_{b,s}:s\geq r\}\); for a point
+      \(x\) of type IV, one has
+      \(A_x=\{x\}\cup\{\zeta_{b,s}:b\in K,\ s\geq r_b(x)\}\), and
+      \(A_x\setminus\{x\}\) consists of Gauss points of radii filling
+      \((r_\infty(x),\infty)\).  In all cases the radius map is an
+      order isomorphism from \(A_x\) onto \([\,r(x),\infty)\), where
+      \(r(x)=\min_ar_a(x)\) in the first case and
+      \(r(x)=r_\infty(x)\) in the second.
+\item Points of types I and IV are minimal: \(y\leq x\) implies
+      \(y=x\).
+\item Any two points \(x,y\) have a least upper bound \(x\vee y\).
+      If \(x=\zeta_{a,r}\) and \(y=\zeta_{b,u}\) are of types I--III,
+      then
+      \[
+       x\vee y=\zeta_{a,m},\qquad m=\max\{r,u,|a-b|\}.
+      \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+We first record two facts.  For any \(b,u\),
+\begin{equation}
+ \zeta_{b,u}\geq x
+ \iff u\geq r_b(x).
+ \tag{4.1}\label{eq:berk-upper-bound-criterion}
+\end{equation}
+Indeed, if \(\zeta_{b,u}\geq x\) then
+\(u=|(T-b)(\zeta_{b,u})|\geq r_b(x)\); conversely, if
+\(u\geq r_b(x)\), then
+\(x\leq\zeta_{b,r_b(x)}\leq\zeta_{b,u}\), by Step 1 of the proof of
+\Cref{thm:berk-a1-classification} and by
+\Cref{lem:berk-disc-combinatorics}.  Second, a strict upper bound of
+any point is a Gauss point: suppose \(y\geq x\) and \(y\) is of type I
+or IV.  If \(y\) is the evaluation at \(b\), then
+\(r_b(x)\leq r_b(y)=0\), so \(x\) is the evaluation at \(b\) and
+\(x=y\).  If \(y\) is of type IV, let \(c\in K\) be arbitrary; since
+\(\bigcap E(y)=\varnothing\), there is \(a\) with
+\(|c-a|>r_a(y)\geq r_a(x)\), and the strong triangle equality gives
+\(r_c(x)=|c-a|=r_c(y)\).  Thus \(x\) and \(y\) agree on all linear
+polynomials, hence on all of \(K[T]\) by multiplicativity and
+factorization: \(x=y\).  This proves (2), and shows
+\(A_x\subseteq\{x\}\cup\{\text{Gauss points}\}\).
+
+(1) By \eqref{eq:berk-upper-bound-criterion},
+\(A_x\setminus\{x\}\subseteq\{\zeta_{b,u}:u\geq r_b(x)\}\), with
+equality of sets as stated; for \(x\) of type I--III with disc
+\(D(b,r)\), the criterion \(u\geq r_{b'}(x)=\max\{|b-b'|,r\}\) says
+exactly \(D(b',u)\supseteq D(b,r)\), so
+\(A_x=\{\zeta_{b,s}:s\geq r\}\).  Total order: let
+\(\zeta_{b,u},\zeta_{b',u'}\in A_x\), so \(D(b,u)\supseteq D_b(x)\)
+and \(D(b',u')\supseteq D_{b'}(x)\).  The members \(D_b(x)\) and
+\(D_{b'}(x)\) of \(E(x)\) are nested, say
+\(D_b(x)\subseteq D_{b'}(x)\); then \(D(b,u)\) and \(D(b',u')\) both
+contain \(D_b(x)\), hence intersect, hence are nested by
+\Cref{lem:berk-disc-combinatorics}, and Gauss points of nested discs
+are comparable.  The radius is strictly monotone on \(A_x\): nested
+discs with equal radii coincide.  Its image is
+\([r(x),\infty)\) for types I--III.  For type IV, every
+\(u>r_\infty(x)\) occurs: choose \(a\) with \(r_a(x)<u\); then
+\(\zeta_{a,u}\in A_x\).  The radius \(r_\infty(x)\) itself does not
+occur: a disc \(D(b,r_\infty(x))\) containing some \(D_a(x)\) would
+have radius at least \(r_a(x)>r_\infty(x)\).  Assigning to \(x\) the
+parameter \(r(x)\) completes the order isomorphism in both cases.
+
+(3) The set of common upper bounds is
+\(A_x\cap A_y\), which is totally ordered by (1) and upward closed.
+It is nonempty: by
+\eqref{eq:berk-upper-bound-criterion}, \(\zeta_{b,u}\) with any
+\(b\) and \(u\geq\max\{r_b(x),r_b(y)\}\) works.  If \(x=y\) the least
+upper bound is \(x\).  Assume \(x\neq y\); we must produce a minimum.
+For each \(b\in K\), the smallest upper bound with center \(b\) is
+\(\zeta_{b,u_b}\) with \(u_b=\max\{r_b(x),r_b(y)\}\); set
+\(\sigma=\inf_bu_b\), and choose \(b_n\) with
+\(u_{b_n}\downarrow\sigma\).  The Gauss points
+\(\zeta_{b_n,u_{b_n}}\) are pairwise comparable, so the discs
+\(D(b_n,u_{b_n})\) contain a nested cofinal subsequence with radii
+decreasing to \(\sigma\).  If some \(b_*\in\bigcap_nD(b_n,u_{b_n})\),
+then
+\[
+ r_{b_*}(x)\leq\max\{r_{b_n}(x),|b_*-b_n|\}\leq u_{b_n}
+ \longrightarrow\sigma,
+\]
+and similarly for \(y\), so \(u_{b_*}\leq\sigma\); by definition of
+\(\sigma\), \(u_{b_*}=\sigma\), and
+\(\zeta_{b_*,\sigma}\) is an upper bound of minimal radius, hence the
+minimum of the totally ordered set \(A_x\cap A_y\).  If the
+intersection is empty, the chain \((D(b_n,u_{b_n}))\) defines, by the
+recipe of \Cref{prop:berk-type4-spherical}, a point \(z\) with
+\(|f(z)|=\inf_n|f(\zeta_{b_n,u_{b_n}})|\geq|f(x)|\) for every \(f\),
+i.e.\ a type-IV upper bound of \(x\) and of \(y\).  By (2) and the
+second fact above, a type-IV upper bound forces \(z=x\) and \(z=y\),
+contradicting \(x\neq y\).  So the minimum exists.
+
+For the explicit formula, let \(x=\zeta_{a,r}\), \(y=\zeta_{b,u}\), and
+\(m=\max\{r,u,|a-b|\}\).  Then
+\(r_a(y)=\max\{|a-b|,u\}\le m\) and \(r_a(x)=r\leq m\), so
+\(\zeta_{a,m}\) is an upper bound by
+\eqref{eq:berk-upper-bound-criterion}.  Any upper bound
+\(\zeta_{c,w}\) satisfies \(w\geq r_c(x)=\max\{|c-a|,r\}\) and
+\(w\geq r_c(y)=\max\{|c-b|,u\}\); hence \(a\in D(c,w)\), \(w\geq r\),
+\(w\geq u\), and \(w\geq|a-b|\) by the ultrametric inequality
+\(|a-b|\le\max\{|c-a|,|c-b|\}\); so
+\(D(a,m)\subseteq D(a,w)=D(c,w)\) and
+\(\zeta_{a,m}\leq\zeta_{c,w}\).
+\end{proof}
+
+Two points have a least common
+disc above them, and the chains between points supply
+\(\mathbf P^{1,\mathrm{an}}_K\) with the structure of a topological tree.
+The projective line is obtained by adding the classical point at infinity;
+it is compact and uniquely path connected. This tree is the
+one-dimensional prototype for the skeleta of \cref{chap:skeleta}.  A small
+portion of the tree, including the passage from affine to projective space,
+is shown in \cref{fig:berk-p1-tree}.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth,
+  discpoint/.style={circle,draw,fill=white,inner sep=1.8pt},
+  endpoint/.style={circle,draw,fill=black,inner sep=1.5pt}]
+  \coordinate (join) at (0,1.05);
+  \coordinate (za) at (-1.45,0.15);
+  \coordinate (zb) at (1.45,0.15);
+  \coordinate (a) at (-2.65,-0.95);
+  \coordinate (b) at (2.65,-0.95);
+  \coordinate (inf) at (0,3.05);
+  \coordinate (ziv) at (3.15,1.75);
+  \coordinate (xiv) at (4.15,2.35);
+
+  \draw[very thick] (a)--(za)--(join)--(zb)--(b);
+  \draw[very thick] (join)--(inf);
+  \draw[very thick] (join)--(ziv);
+  \draw[very thick,dashed] (ziv)--(xiv);
+
+  \node[discpoint,label={[font=\small]above left:$\zeta_D$}] at (join) {};
+  \node[discpoint,label={[font=\small]above left:$\zeta_{a,r}$}] at (za) {};
+  \node[discpoint,label={[font=\small]above right:$\zeta_{b,s}$}] at (zb) {};
+  \node[endpoint,label={[font=\small]below left:$a$}] at (a) {};
+  \node[endpoint,label={[font=\small]below right:$b$}] at (b) {};
+  \node[endpoint,label={[font=\small]above:$\infty$}] at (inf) {};
+  \node[discpoint] at (ziv) {};
+  \node[rectangle,draw,fill=white,inner sep=1.8pt,
+    label={[font=\small]right:$x_{\mathrm{IV}}$}] at (xiv) {};
+
+  \draw[-{Stealth[length=2mm]},thin]
+    (-2.18,-0.65) to[bend left=12] (-0.35,0.83);
+  \node[font=\scriptsize,fill=white,inner sep=1pt] at (-1.45,0.78)
+    {increasing discs};
+  \node[font=\scriptsize,align=left] at (3.55,1.12)
+    {decreasing discs\\with empty intersection};
+\end{tikzpicture}
+\caption{A schematic finite subtree of \(\mathbf P^{1,\mathrm{an}}_K\).
+The disc point \(\zeta_D\) is the least common disc above the two displayed
+affine branches.  Solid circular endpoints represent type-I points; the square
+endpoint of the dashed terminal branch represents a possible type-IV limit.
+The drawing records incidence, not edge lengths.}
+\label{fig:berk-p1-tree}
+\end{figure}
+
+\begin{example}[The standard annulus]\label{ex:berk-standard-annulus}
+Assume \(K\) is discretely valued with \(v(\pi)=1\). In
+\[
+ \{x\in\mathbf A^{1,\mathrm{an}}_K:|\pi|\leq |T(x)|\leq1\},
+\]
+the seminorms
+\[
+ \left|\sum_i a_iT^i\right|_t
+ =\max_i |a_i|\rme^{-it},\qquad 0\leq t\leq1,
+\]
+form a closed interval. The coordinate \(t=v_t(T)\) is affine along it.
+The annulus retracts onto this interval; open discs are attached along its
+points. The local model \(xy=\pi\) identifies \(t=v(x)\) and
+\(1-t=v(y)\).
+\end{example}
+
+\section{Functoriality, base change, and GAGA}
+\label{sec:berk-functoriality}
+
+A morphism \(f:X\to Y\) of finite-type \(K\)-schemes induces
+\[
+ f^{\mathrm{an}}:X^{\mathrm{an}}\longrightarrow Y^{\mathrm{an}},
+ \qquad
+ |g(f^{\mathrm{an}}(x))|=|f^\#g(x)|.
+\]
+This construction respects identities and compositions. Closed and open
+immersions, finite morphisms, and proper morphisms analytify to their
+analytic counterparts.
+
+Let \(L/K\) be a complete extension. Base change gives a continuous map
+\[
+ \pi_{L/K}:(X_L)^{\mathrm{an}}\longrightarrow X^{\mathrm{an}}.
+\]
+It is surjective. The analytic fiber over \(x\in X^{\mathrm{an}}\) is
+canonically the spectrum of the completed scalar extension of the completed
+residue field:
+\[
+              \pi_{L/K}^{-1}(x)\simeq
+              \mathcal M\bigl(\mathcal H(x)\widehat\otimes_K L\bigr).
+\]
+The formula warns us that a base-changed point need not be unique. It also
+explains why completed residue fields, rather than only algebraic residue
+fields, belong to the basic language.
+
+For proper schemes, Berkovich GAGA identifies coherent algebraic and
+analytic sheaves and their cohomology. In particular, algebraic line
+bundles and morphisms between proper schemes can be recovered from their
+analytifications. We cite these results from \cite[Section~3.4]{Berk12}; the
+metric constructions of \cref{chap:metrics} use them implicitly.
+
+\section{The trivially valued case}
+\label{sec:berk-trivial}
+
+Let \(k\) now carry the trivial absolute value. Nothing in the affine
+definition of \(X^{\mathrm{an}}\) changes. A point is equivalently a real
+semivaluation
+\[
+ v_x:A\longrightarrow\mathbf R\cup\{+\infty\}
+\]
+that vanishes on \(k^\times\). The support
+\(\{v_x=+\infty\}\) must be retained; it can be a nonzero prime ideal.
+
+For \(t>0\), rescaling defines another point with the same support:
+\[
+                v_{t\cdot x}(f)=t\,v_x(f),
+       \qquad |f(t\cdot x)|=|f(x)|^t.
+\]
+This is a continuous \(\mathbf R_{>0}\)-action. Along a fixed ray, the limit
+as \(t\downarrow0\) is the trivial absolute value on
+\(\kappa(\rho_X(x))\). More explicitly, as a seminorm on \(A\), the limit is
+\(0\) on the fixed support \(\mathfrak p_x\) and \(1\) on
+\(A\setminus\mathfrak p_x\); after passage to
+\(\kappa(\mathfrak p_x)\), it is an absolute value and has zero kernel.
+
+\begin{remark}[Cone terminology needs qualification]
+If \(x\) has support zero on an integral affine scheme, its ray ends at the
+trivial valuation of the function field. If the support is nonzero, it ends
+at the trivial valuation of a proper subvariety. Thus the whole
+analytification is stratified by cone-like pieces; it is not generally one
+cone with one vertex. Moreover \(0\cdot(+\infty)\) is never used as an
+extended-real arithmetic operation. The endpoint is defined by its
+multiplicative seminorm.
+\end{remark}
+
+\begin{example}[The trivially valued affine line]
+For \(r>0\), the formula
+\[
+ \left|\sum_i a_iT^i\right|_r=\max_{a_i\neq0}r^i
+\]
+defines a point of \(\mathbf A^{1,\mathrm{an}}_k\). In additive notation,
+\(v_r(T)=-\log r\). The points with \(r<1\) have center at the origin on
+\(\mathbf A^1_k\). For \(r=1\), the seminorm is trivial on \(k(T)\) and its
+center is the generic point of \(\mathbf A^1_k\). When \(r>1\), the point
+has no center on the affine model and is centered at infinity after passing
+to \(\mathbf P^1_k\). This elementary example already shows why properness
+matters for centers.
+\end{example}
+
+If \(X\) is proper over \(k\), \Cref{thm:berk-proper-compact} still
+makes \(X^{\mathrm{an}}\) compact. What disappears is not the analytic
+space, but the distinguished scale \(v(\pi)=1\). Homogeneity replaces that
+normalization in the Boucksom--Jonsson theory of \cref{part:bj}.
+
+\section{Dictionary established in this chapter}
+
+The following correspondences will be used without further comment:
+\[
+\begin{array}{ccl}
+\text{analytic point }x
+ &\longleftrightarrow&
+ \text{seminorm }|\cdot|_x
+ \longleftrightarrow \text{ semivaluation }v_x,\\[1mm]
+\text{support of }x
+ &\longleftrightarrow&
+ \ker|\cdot|_x\in\operatorname{Spec}A,\\[1mm]
+\text{component }E\subset\mathcal X_s
+ &\longleftrightarrow&
+ x_E\text{ with }v_{x_E}=b_E^{-1}\operatorname{ord}_E,\\[1mm]
+\text{proper algebraic variety}
+ &\longrightarrow&
+ \text{compact Hausdorff analytic space}.
+\end{array}
+\]
+The next chapter places many divisorial and monomial points into finite
+polyhedral subsets and constructs canonical retractions onto them.
+
+\section*{Source notes}
+
+The spectrum, analytic gluing, properness theorem, completed residue fields,
+and GAGA are due to Berkovich; our principal reference is \cite{Berk12}.
+Reduction maps and divisorial points in the precise model-theoretic form used
+later are reviewed in \cite[Sections~2--3]{BFJ16}. The description of
+\(\mathbf P^{1,\mathrm{an}}\) is standard; a supplementary source is
+Baker--Rumely's monograph. This chapter deliberately separates the elementary
+point-set construction from the deeper sheaf-theoretic results that are
+cited.

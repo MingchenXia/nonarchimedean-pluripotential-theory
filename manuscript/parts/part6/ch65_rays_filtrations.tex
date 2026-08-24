@@ -1,0 +1,1079 @@
+\chapter{Rays, filtrations, and Legendre transforms}
+\index{geodesic ray!filtration correspondence}\index{filtration!geodesic ray}\index{Legendre transform!comparison}
+\label{chap:rays-filtrations}
+
+A test configuration has four useful shadows.
+It defines a filtration of the section ring, a Fubini--Study metric on the
+trivially valued analytification, a curve of complex singularity types, and
+a weak geodesic ray.
+For algebraic input these constructions commute.
+For general filtrations only some arrows remain, because finite generation
+is exactly what reconstructs a test configuration.
+
+This chapter fixes one sign convention and then proves the commutative
+diagram.
+It also audits the asymptotic-slope literature against the published 2022
+erratum to \cite{BHJ19}.
+No result depending on the flawed Theorem~5.6 of that paper is used.
+
+Throughout the algebraic part, \(X\) is a projective complex manifold of
+dimension \(n\), \(L\) is ample, and
+\[
+                       R(X,L)=\bigoplus_{m\geq0}R_m,
+ \qquad R_m=H^0(X,mL).
+\tag{65.1}\label{eq:rf-section-ring}
+\]
+We pass to sufficiently divisible \(m\) whenever \(L\) or a test
+configuration polarization is rational.
+
+\section{From a test configuration to a filtration}
+
+Let \((\mathcal X,\mathcal L)\) be a normal relatively ample test
+configuration for \((X,L)\).
+Its punctured-product trivialization identifies a section
+\(s\in R_m\) with an equivariant rational section \(\bar s\) over
+\(\mathcal X\setminus\mathcal X_0\).
+
+\begin{definition}[Filtration sign convention]
+\label{def:rf-tc-filtration}
+For \(\lambda\in\mathbf R\), set
+\[
+ \mathcal F^\lambda R_m
+ :=\left\{s\in R_m\ \middle|\
+       \varpi^{-\lceil\lambda\rceil}\bar s
+       \text{ extends to a regular section of }m\mathcal L
+       \text{ on }\mathcal X\right\}.
+\tag{65.2}\label{eq:rf-tc-filtration}
+\]
+We take the left-continuous extension in \(\lambda\).
+\end{definition}
+
+Thus \(\mathcal F^\lambda R_m\) decreases as \(\lambda\) increases.
+The additive weight of \(0\ne s\in R_m\) is
+\[
+               \chi_m(s)=\sup\{\lambda\mid
+                                  s\in\mathcal F^\lambda R_m\}.
+\tag{65.3}\label{eq:rf-additive-weight}
+\]
+With this sign, twisting the linearization by weight \(c\) sends
+\(\chi_m\) to \(\chi_m+mc\).
+
+\begin{proposition}\label{prop:rf-filtration-properties}
+The filtration \(\mathcal F\) is decreasing, left-continuous,
+multiplicative, and linearly bounded.
+Its rational Rees algebra is finitely generated after a Veronese change.
+\end{proposition}
+
+\begin{proof}
+Decreasingness follows from
+\(\varpi^{-(\lambda+1)}\bar s
+ =\varpi^{-1}(\varpi^{-\lambda}\bar s)\): extending after a larger pole
+order is a stronger condition.
+Left-continuity is imposed at the finitely many integer jumps.
+
+If \(s\in\mathcal F^\lambda R_m\) and
+\(s'\in\mathcal F^\mu R_{m'}\), the product of their extending sections is
+regular in \((m+m')\mathcal L\), giving
+\[
+ \mathcal F^\lambda R_m\cdot\mathcal F^\mu R_{m'}
+       \subset\mathcal F^{\lambda+\mu}R_{m+m'}.
+\tag{65.4}\label{eq:rf-multiplicativity}
+\]
+Relative ampleness embeds \(\mathcal X\) equivariantly using one multiple of
+\(\mathcal L\).
+The finitely many generator weights give constants \(C_-<C_+\) such that
+\[
+ \mathcal F^{mC_-}R_m=R_m,
+ \qquad
+ \mathcal F^{mC_+}R_m=0.
+\tag{65.5}\label{eq:rf-linear-bounds}
+\]
+The homogeneous coordinate algebra of that embedding is the required
+finitely generated Rees algebra after taking a suitable Veronese.
+\end{proof}
+
+Conversely, a rational finitely generated multiplicative filtration has
+Rees algebra
+\[
+ \mathcal R(\mathcal F)
+ =\bigoplus_{m\geq0}\bigoplus_{\lambda\in\mathbf Z}
+       \mathcal F^\lambda R_m\,\varpi^{-\lambda}.
+\tag{65.6}\label{eq:rf-rees-algebra}
+\]
+
+\begin{theorem}\label{thm:rf-rees-reconstruction}
+After a Veronese change, relative \(\Proj\) of
+\(\mathcal R(\mathcal F)\), followed by integral closure in the generic
+fibre, reconstructs an integrally closed semiample test configuration.
+Starting from a normal relatively ample test configuration and applying
+this construction returns an equivalent test configuration.
+Write \(\mathsf{TC}^{\mathrm{n,ra}}\) for the normal relatively ample
+objects modulo equivariant domination and Veronese change, and write
+\(\mathsf{Fil}^{\mathrm{fg},\mathbf Q}\) for finitely generated rational
+filtrations with fixed linearization.
+In the usual semiample equivalence class, there is an equivalence
+\begin{equation}
+ \mathsf{TC}^{\mathrm{n,ra}}
+ \xleftrightarrow{\ \sim\ }
+ \mathsf{Fil}^{\mathrm{fg},\mathbf Q}.
+\tag{65.7}\label{eq:rf-rees-equivalence}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Finite generation makes relative \(\Proj\) projective and flat after
+discarding irrelevant torsion; the degree-zero parameter supplies the map
+to \(\mathbf A^1\).
+Localization at \(\varpi\) gives
+\(R(X,L)[\varpi,\varpi^{-1}]\), hence the punctured product.
+The grading gives the \(\mathbf G_m\)-action and polarization.
+
+Integral closure does not change any filtration weight: a valuation is
+nonnegative on an algebra precisely when it is nonnegative on its integral
+closure.
+Starting with a normal test configuration, equivariant global generation of
+a large multiple of \(\mathcal L\) identifies its homogeneous coordinate
+algebra with the corresponding Veronese Rees algebra.
+Relative \(\Proj\) therefore returns a common domination of the original
+configuration.
+\end{proof}
+
+\begin{warning}{Infinite generation}
+\label{warn:rf-infinite-generation}
+A linearly bounded multiplicative filtration need not be finitely generated.
+It still defines asymptotic metrics and a DH measure, but
+\Cref{thm:rf-rees-reconstruction} does not produce a finite-type test
+configuration from it.
+\end{warning}
+
+\section{The Fubini--Study metric}
+
+Let \(v\in X^{\An}\) be a semivaluation for the trivial norm on
+\(\mathbf C\).
+For a local frame of \(mL\), write \(v(s)\in[0,+\infty]\) for the value of a
+section.
+
+\begin{definition}[Asymptotic FS metric]
+\label{def:rf-fs-metric}
+The FS metric of a linearly bounded multiplicative filtration is
+\[
+ \phi_{\mathcal F}(v)
+ :=\sup_{m\geq1}\ \sup_{0\ne s\in R_m}
+             \frac{\chi_m(s)-v(s)}{m}.
+\tag{65.8}\label{eq:rf-fs-metric}
+\]
+If \(v(s)=+\infty\), that term is \(-\infty\).
+\end{definition}
+
+No subtraction of two infinite quantities occurs in
+\eqref{eq:rf-fs-metric} because \(\chi_m(s)\) is finite for \(s\ne0\).
+If the support of \(v\) lies in every relevant base ideal, the supremum may
+be \(-\infty\).
+This proper-support behavior is part of the metric.
+
+\begin{proposition}\label{prop:rf-fg-pl}
+If \(\mathcal F\) is finitely generated and rational, then after a Veronese
+change \(\phi_{\mathcal F}\) is a finite maximum
+\[
+          \phi_{\mathcal F}(v)
+          =\frac1r\max_{1\leq j\leq N}
+                     \{\chi_r(s_j)-v(s_j)\}.
+\tag{65.9}\label{eq:rf-finite-fs}
+\]
+It is the rational PL metric of the reconstructed test configuration.
+\end{proposition}
+
+\begin{proof}
+Choose homogeneous generators \(s_j\varpi^{-\chi_r(s_j)}\) in one
+Veronese degree \(r\).
+Multiplicativity shows that every monomial quotient in
+\eqref{eq:rf-fs-metric} is a convex combination of the generator
+quotients.
+The non-Archimedean triangle inequality shows that sums cannot exceed their
+maximum.
+Thus the full supremum equals \eqref{eq:rf-finite-fs}.
+The flag-ideal construction of the relative \(\Proj\) attaches the same
+maximum to its vertical Cartier divisor.
+\end{proof}
+
+Integral closure leaves \(\phi_{\mathcal F}\) unchanged.
+The metric therefore remembers the integrally closed test-configuration
+class rather than a chosen nonnormal presentation.
+
+\section{The finite-level algebra behind the metric}
+\label{sec:rf-finite-level-algebra}
+
+The passage from a filtration to a metric is easiest to audit before taking
+the supremum over \(m\).  For each \(m\) and \(\lambda\), let
+\(\mathfrak a_{m,\lambda}\) be the base ideal of
+\(\mathcal F^\lambda R_m\), namely the image of
+\[
+ \mathcal F^\lambda R_m\otimes\mathcal O_X(-mL)
+                  \longrightarrow\mathcal O_X.
+\tag{65.10}\label{eq:rf-filtered-base-ideal}
+\]
+Multiplicativity of \(\mathcal F\) gives
+\[
+ \mathfrak a_{m,\lambda}\mathfrak a_{m',\mu}
+       \subset
+ \mathfrak a_{m+m',\lambda+\mu}.
+\tag{65.11}\label{eq:rf-base-ideal-multiplicativity}
+\]
+If \(s_1,\ldots,s_N\) generate the filtered piece and \(v\) is a
+semivaluation, then
+\[
+ v(\mathfrak a_{m,\lambda})
+       =\min_jv(s_j),
+ \qquad
+ \phi_{m,\lambda}(v)
+       =\frac{\lambda-v(\mathfrak a_{m,\lambda})}{m}.
+\tag{65.12}\label{eq:rf-base-ideal-fs-level}
+\]
+Taking the supremum over all nonzero levels recovers
+\eqref{eq:rf-fs-metric}.  Thus the filtration-to-FS arrow factors as
+\[
+ \mathcal F
+ \longmapsto
+ \{\mathfrak a_{m,\lambda}\}_{m,\lambda}
+ \longmapsto
+ \left(v\mapsto
+   \sup_{m,\lambda}
+   \frac{\lambda-v(\mathfrak a_{m,\lambda})}{m}\right).
+\tag{65.13}\label{eq:rf-filtration-ideal-metric-factorization}
+\]
+This factorization is the common algebraic input for the BJ metric and the
+complex partial Bergman obstacles: the non-Archimedean side evaluates the
+base ideals by \(v\), while the complex side evaluates their sections by
+logarithmic squared norms and then takes maximal envelopes.
+
+The role of integral closure is now transparent.  A semivaluation has the
+same infimum on an ideal and its integral closure.  Consequently replacing
+the bigraded Rees algebra by its integral closure changes neither
+\(v(\mathfrak a_{m,\lambda})\) nor the right side of
+\eqref{eq:rf-filtration-ideal-metric-factorization}.  What can change is the
+chosen finite-type presentation, not the metric.
+
+\subsection{A three-check reconstruction audit}
+
+Given a proposed finitely generated filtration/test-configuration
+correspondence, one can verify it in three finite computations.
+
+\begin{enumerate}
+\item Localizing the Rees algebra at the parameter must give
+\(R(X,L)[\varpi,\varpi^{-1}]\).  Otherwise the generic fibre is not the
+punctured product.
+
+\item The degree-\(m\) weight of a section must equal its maximal allowed
+pole order along the central fibre, with the sign in
+\eqref{eq:rf-tc-filtration}.  Otherwise the FS maximum is reflected.
+
+\item Twisting the linearization by \(c\) must add \(mc\) in degree \(m\),
+translate the FS metric by \(c\), and translate the DH measure by \(c\).
+If only two of these changes occur, the linearization was lost in one of the
+arrows.
+\end{enumerate}
+
+\paragraph{Source boundary for the finite-level factorization.}
+The filtration, base-ideal, Rees, and FS constructions are the projective
+trivially valued constructions of \cite[Sections~1--2]{BJ22}.  Equations
+\eqref{eq:rf-filtered-base-ideal}--
+\eqref{eq:rf-filtration-ideal-metric-factorization} merely expand the
+finite-generator calculation used in \Cref{prop:rf-fg-pl}; they do not
+assert finite generation for a general filtration.
+
+\section{Filtered sections and test curves}
+
+Fix a smooth positive metric \(h\) on \(L\) and let
+\(\theta=c_1(L,h)\).
+For \(\tau\in\mathbf R\), define the degree-\(m\) partial Bergman obstacle
+\[
+ B_{m,\tau}
+ :=\uscsup\left\{
+       \frac1m\log|s|_{h^m}^2\ \middle|\
+       s\in\mathcal F^{m\tau}R_m,
+       \sup_X|s|_{h^m}^2\leq1
+       \right\}.
+\tag{65.14}\label{eq:rf-partial-bergman}
+\]
+When the filtered space is zero, \(B_{m,\tau}=-\infty\).
+Put
+\[
+ g_\tau^{\mathcal F}
+ :=\uscsup_{m\geq1}B_{m,\tau},
+ \qquad
+ \Gamma_\tau^{\mathcal F}
+ :=P_\theta[g_\tau^{\mathcal F}].
+\tag{65.15}\label{eq:rf-filtration-test-curve}
+\]
+
+\begin{theorem}\label{thm:rf-filtration-test-curve}
+Let \(\mathcal F\) be decreasing, left-continuous, multiplicative, and
+linearly bounded.
+Then \(\Gamma^{\mathcal F}\) is a bounded maximal test curve.
+Its Legendre transform
+\[
+                    \ell_t^{\mathcal F}
+       :=\uscsup_{\tau\in\mathbf R}
+          \bigl(\Gamma_\tau^{\mathcal F}+t\tau\bigr),
+       \qquad t>0,
+\tag{65.16}\label{eq:rf-filtration-ray}
+\]
+is a weak geodesic ray from the chosen reference potential.
+Here \(t\) is the radial parameter for squared-norm potentials.  Thus, if
+\(\zeta\) is the punctured-disc coordinate and
+\(s=-\log|\zeta|\), then
+\[
+                         t=-\log|\zeta|^2=2s.
+\]
+For ample \(L\), the maximal-envelope construction agrees with
+\cite[Theorems~1.1--1.2]{RWN14}; in the more general big setting the outer
+\(P_\theta\) is retained.
+\end{theorem}
+
+\begin{proof}
+Multiplicativity of the filtration gives
+\[
+ \frac{m}{m+m'}B_{m,\tau}
+ +\frac{m'}{m+m'}B_{m',\tau'}
+ \leq B_{m+m',\frac{m\tau+m'\tau'}{m+m'}}
+\]
+after multiplying normalized sections.
+Fekete's lemma and upper regularization yield concavity in \(\tau\).
+The linear bounds \eqref{eq:rf-linear-bounds} make the curve equal to the
+reference envelope for \(\tau\ll0\) and identically \(-\infty\) for
+\(\tau\gg0\).
+
+Maximalization by \(P_\theta\) preserves concavity and produces maximal
+singularity types level by level.
+The Ross--Witt Nystr\"om theorem says that the Legendre transform of a
+maximal test curve is a weak geodesic ray.
+The usc regularization in \eqref{eq:rf-filtration-ray} is harmless in the
+published convention; in the convention of \Cref{chap:rays-test-curves} the resulting
+supremum is already psh and the same ray is obtained.
+\end{proof}
+
+The inverse transform is
+\[
+             \Gamma_\tau^{\mathcal F}
+             =\inf_{t>0}(\ell_t^{\mathcal F}-t\tau).
+\tag{65.17}\label{eq:rf-inverse-legendre}
+\]
+The value \(-\infty\) is retained when the infimum diverges downward.
+
+\begin{proposition}\label{prop:rf-legendre-biconjugacy}
+On bounded maximal test curves and the corresponding weak geodesic rays,
+\eqref{eq:rf-filtration-ray} and
+\eqref{eq:rf-inverse-legendre} are inverse.
+Translation of filtration weights by \(mc\) gives
+\[
+ \Gamma_\tau\longmapsto\Gamma_{\tau-c},
+ \qquad
+ \ell_t\longmapsto\ell_t+ct.
+\tag{65.18}\label{eq:rf-translation}
+\]
+\end{proposition}
+
+\begin{proof}
+For each \(x\) outside the common polar set,
+\(\tau\mapsto\Gamma_\tau(x)\) is a closed concave extended-real function.
+Fenchel--Moreau duality with the sign
+\(+t\tau\) gives pointwise biconjugacy.
+Maximality ensures that the psh regularizations do not enlarge a level after
+the inverse transform.
+Replacing \(\tau\) by \(\tau-c\) in the supremum gives
+\eqref{eq:rf-translation} directly.
+\end{proof}
+
+\section{The factor-two firewall}
+\label{sec:rf-factor-two-firewall}
+
+The complex literature uses both norm weights and squared-norm potentials.
+They must not share the same radial parameter without conversion.  Let
+\[
+       s=-\log|\zeta|,
+       \qquad t=-\log|\zeta|^2=2s,
+       \qquad \varphi_t=2\psi_s,
+\tag{65.19}\label{eq:rf-factor-two-basic}
+\]
+where \(\psi_s=-\log|\cdot|\) is an ordinary norm weight and
+\(\varphi_t=-\log|\cdot|^2\) is the book's squared-norm potential.
+For a section of filtration weight \(\lambda\), the group action contributes
+\[
+        |\zeta|^{-2\lambda}
+             =\rme^{2s\lambda}
+             =\rme^{t\lambda}.
+\tag{65.20}\label{eq:rf-factor-two-section-weight}
+\]
+This is exactly the exponential in
+\eqref{eq:rf-bergman-ray}.  Replacing it by
+\(\rme^{2t\lambda}\) would count the passage to squared norms twice.
+
+The translation test makes the same point at the level of rays.  A shift
+\(\chi_m\mapsto\chi_m+mc\) gives
+\[
+       \psi_s\longmapsto\psi_s+cs,
+       \qquad
+       \varphi_t\longmapsto\varphi_t+ct,
+       \qquad t=2s.
+\tag{65.21}\label{eq:rf-factor-two-translation}
+\]
+Hence the following three quotients encode the same slope:
+\[
+ \lim_{s\to\infty}\frac{\psi_s}{s},
+ \qquad
+ \lim_{s\to\infty}\frac{\varphi_{2s}}{2s},
+ \qquad
+ \lim_{t\to\infty}\frac{\varphi_t}{t}.
+\tag{65.22}\label{eq:rf-factor-two-slope-quotients}
+\]
+A denominator \(s\) under a squared-norm potential doubles every
+non-Archimedean slope.  This applies simultaneously to energy, \(J\), and
+the affine translation term.  It does not alter the DH measure, whose
+coordinate \(\lambda\) was fixed by the filtration before a complex norm
+convention was chosen.
+
+\paragraph{Firewall boundary.}
+Statements quoted verbatim from \cite{BHJ19} retain that paper's ordinary
+norm-weight convention, as in
+\Cref{thm:rf-bhj-unaffected-slopes}.  Statements formulated in the book's
+squared-norm convention use \(t=2s\) and the quotients in
+\eqref{eq:rf-factor-two-slope-quotients}.  No line below converts one
+convention by changing only the numerator or only the radial parameter.
+
+\section{Algebraic test configurations and the Phong--Sturm ray}
+
+For a test configuration, choose an orthonormal basis
+\(s_{m,1},\ldots,s_{m,N_m}\) adapted to the filtration, with weights
+\(\lambda_{m,j}=\chi_m(s_{m,j})\).
+The weighted Bergman ray is
+\[
+ \Phi_{m,t}
+ :=\frac1m\log\left(
+       \sum_{j=1}^{N_m}\rme^{t\lambda_{m,j}}
+                 |s_{m,j}|_{h^m}^2\right).
+\tag{65.23}\label{eq:rf-bergman-ray}
+\]
+Our use of squared norms and the exponential in
+\eqref{eq:rf-bergman-ray} is fixed together; changing either convention
+requires changing the weights.
+
+\begin{theorem}\label{thm:rf-phong-sturm}
+Let \((\mathcal X,\mathcal L)\) be a normal relatively ample test
+configuration.
+The usc tail envelope
+\[
+ \Phi_t
+ :=\lim_{k\to\infty}
+       \left(\sup_{m\geq k}\Phi_{m,t}\right)^*
+\tag{65.24}\label{eq:rf-bergman-limit}
+\]
+is the Phong--Sturm weak geodesic ray.
+It equals the Legendre ray \(\ell_t^{\mathcal F}\) of the filtration
+defined by \eqref{eq:rf-tc-filtration}.
+\end{theorem}
+
+\begin{proof}
+For fixed \(m\), the elementary identity
+\[
+ \frac1m\log\sum_j \rme^{t\lambda_{m,j}}|s_{m,j}|^2
+ \quad\text{is a logarithmic regularization of}\quad
+ \sup_\tau\{B_{m,\tau}+t\tau\}
+\]
+has error at most \(m^{-1}\log N_m\).
+Since \(N_m=O(m^n)\), the error tends to zero.
+Taking usc tail envelopes commutes with the asymptotic maximal envelope of
+the partial Bergman levels.
+Thus \eqref{eq:rf-bergman-limit} is the Legendre transform of
+\(\Gamma^{\mathcal F}\).
+Ross--Witt Nystr\"om
+\cite[Theorem~9.2]{RWN14} identifies this ray with the Phong--Sturm
+construction of \cite{PS07}.
+\end{proof}
+
+The theorem gives convergence to a weak ray.
+It does not assert smooth convergence, uniform Hessian bounds, or regularity
+beyond that supplied by the cited construction.
+
+\section{The exact commutative diagrams}
+
+There are two useful diagrams for finitely generated rational
+filtrations.
+The first is algebraic and lives over the trivially valued field:
+\[
+\begin{array}{ccc}
+\left.
+ \begin{array}{c}
+ \text{normal relatively ample}\\[-1mm]
+ (\mathcal X,\mathcal L)
+ \end{array}
+\right\}
+&\xrightarrow{\ \eqref{eq:rf-tc-filtration}\ }&
+\mathcal F
+\\[3mm]
+\downarrow&&\downarrow
+\\[-1mm]
+\phi_{(\mathcal X,\mathcal L)}
+&=&
+\phi_{\mathcal F}.
+\end{array}
+\tag{65.25}\label{eq:rf-algebraic-square}
+\]
+The lower equality is an equality of rational PL metrics on
+\(X^{\An}\), including at proper-support semivaluations.
+
+The second diagram requires the projective complex hypotheses of
+\Cref{chap:dxz-bj-comparison}:
+\[
+\begin{array}{ccccc}
+\mathcal F
+&\longrightarrow&
+\Gamma^{\mathcal F}
+&\xleftrightarrow{\ \mathrm{Legendre}\ }&
+\ell^{\mathcal F}
+\\[2mm]
+\downarrow&&\downarrow\mathfrak A&&\Vert
+\\[-1mm]
+\phi_{\mathcal F}
+&=&
+(\Gamma^{\mathcal F})^{\An}
+&&\ell^{\mathcal F}.
+\end{array}
+\tag{65.26}\label{eq:rf-analytic-square}
+\]
+
+\begin{theorem}\label{thm:rf-commutativity}
+Diagram \eqref{eq:rf-algebraic-square} commutes for every finitely generated
+rational filtration.
+Diagram \eqref{eq:rf-analytic-square} commutes for such a filtration on a
+projective complex manifold with an ample \(\mathbf Q\)-line bundle.
+For a test-configuration filtration, its right-hand ray is the
+Phong--Sturm ray.
+\end{theorem}
+
+\begin{proof}
+For \eqref{eq:rf-algebraic-square}, take homogeneous Rees generators.
+Both lower paths give the finite maximum
+\eqref{eq:rf-finite-fs}; integral closure changes neither side.
+
+For \eqref{eq:rf-analytic-square}, the valuative analytification of the
+partial Bergman level records the base ideal of
+\(\mathcal F^{m\tau}R_m\).
+Taking the supremum over \(m\), then the maximal envelope, gives
+\[
+ (\Gamma^{\mathcal F})^{\An}(v)
+ =\sup_{m,s\ne0}\frac{\chi_m(s)-v(s)}m
+ =\phi_{\mathcal F}(v)
+\]
+first on divisorial valuations.
+Divisorial determination extends equality to all semivaluations, preserving
+the value \(-\infty\) on common support strata.
+The right square is the Ross--Witt Nystr\"om correspondence.
+The final assertion is \Cref{thm:rf-phong-sturm}.
+\end{proof}
+
+\begin{remark}[Scope of the vertical equality]
+The equality involving \(\mathfrak A\) uses the projective DXZ--BJ
+comparison.
+It is not asserted for an arbitrary compact K\"ahler class.
+It also does not pass through a Mesquita--Piccione psh equivalence.
+\end{remark}
+
+\section{Duistermaat--Heckman quantization}
+
+Let
+\(\lambda_{m,1}\geq\cdots\geq\lambda_{m,N_m}\)
+be the filtration jumping numbers and set
+\[
+ \nu_m=\frac1{N_m}\sum_{j=1}^{N_m}
+                 \delta_{\lambda_{m,j}/m}.
+\tag{65.27}\label{eq:rf-spectral-measure}
+\]
+
+\begin{theorem}\label{thm:rf-dh-quantization}
+For a linearly bounded multiplicative filtration of the ample section ring,
+the probability measures \(\nu_m\) converge weakly, along sufficiently
+divisible \(m\), to a compactly supported probability measure
+\(\DHm^{\mathrm{prob}}(\mathcal F)\).
+For a test-configuration filtration this is the BHJ
+Duistermaat--Heckman measure.
+The unnormalized measure of the associated test curve is
+\[
+                    \DHm(\Gamma^{\mathcal F})
+                    =V\DHm^{\mathrm{prob}}(\mathcal F).
+\tag{65.28}\label{eq:rf-dh-mass-conversion}
+\]
+\end{theorem}
+
+\begin{proof}
+Linear boundedness puts all supports in a fixed compact interval.
+For a continuity point \(\tau\), the tail distribution of \(\nu_m\) is
+\[
+ \nu_m([\tau,+\infty))
+ =\frac{\dim\mathcal F^{m\tau}R_m}{N_m}.
+\]
+The volume theorem for the multiplicative filtered subseries gives the
+limit of the right side; this is the filtered Okounkov-body limit
+\cite[Theorem~A]{BC11}.
+Compactness upgrades convergence of distribution functions to weak
+convergence.
+For test configurations this is
+\cite[Corollary~3.4]{BHJ17}.
+
+The filtered Okounkov body has Euclidean volume \(V/n!\).
+Its concave transform has the same tail distribution, and the book's factor
+\(n!\) makes its pushforward have mass \(V\).
+This proves \eqref{eq:rf-dh-mass-conversion}.
+\end{proof}
+
+The Bergman rays \eqref{eq:rf-bergman-ray} and spectral measures
+\eqref{eq:rf-spectral-measure} are two quantizations of the same filtration.
+The first converges to a weak geodesic ray, the second to its asymptotic
+slope distribution.
+Neither convergence alone implies convergence of curvature tensors.
+
+\subsection{Finite-level moment checks}
+
+For the action in \Cref{ex:rf-p1-complete}, the degree-\(m\) weights are
+\(0,1,\ldots,m\).  Before taking a limit one already has
+\[
+ \int\lambda\,\rd\nu_m
+       =\frac1{m+1}\sum_{j=0}^m\frac jm=\frac12,
+ \qquad
+ \int\lambda^2\,\rd\nu_m
+       =\frac{2m+1}{6m}\longrightarrow\frac13.
+\tag{65.29}\label{eq:rf-p1-finite-moments}
+\]
+The first equality is exact at every level; the second records the first
+nontrivial convergence error.  Since the supports remain in \([0,1]\),
+these moment limits agree with Lebesgue measure on that interval.
+
+The associated Bergman expression can also be audited directly.  On the
+chart \(y\ne0\), put \(z=x/y\) and ignore the fixed smooth reference term.
+Then
+\[
+ \frac1m\log\sum_{j=0}^m
+      \rme^{tj}|z|^{2j}
+ \longrightarrow
+ \max\{0,t+\log|z|^2\},
+\tag{65.30}\label{eq:rf-p1-log-sum-limit}
+\]
+because the logarithm of a sum lies between the largest logarithm and that
+largest logarithm plus \(\log(m+1)\).  Formula
+\eqref{eq:rf-p1-log-sum-limit} checks the sign in the Legendre transform and
+the exponent in the squared-norm convention without invoking a regularity
+theorem.
+
+For the induced action on \(\mathcal O(d)\), the degree-\(m\) weights are
+\(0,1,\ldots,dm\).  The probability DH limit has density \(d^{-1}\) on
+\([0,d]\), whereas the unnormalized test-curve measure has mass
+\(V=d\) and is ordinary Lebesgue measure on \([0,d]\).  Thus
+\[
+ \int\lambda\,\rd\DHm^{\mathrm{prob}}=\frac d2,
+ \qquad
+ \int\lambda\,\rd\DHm=\frac{d^2}{2}.
+\tag{65.31}\label{eq:rf-od-mass-moment-check}
+\]
+The example separates the support scale \(d\) from the total-mass factor
+\(V=d\); they happen to be numerically equal here but enter for different
+reasons.
+
+\section{Radial energy slopes}
+
+Normalize the complex Monge--Amp\`ere energy by its mass, so
+\(E(\varphi+c)=E(\varphi)+c\).
+Let \(E^{\mathrm u}=VE\) denote the unnormalized energy.
+
+\begin{theorem}\label{thm:rf-energy-slope}
+Let \(\mathcal F\) be a linearly bounded filtration whose test curve has
+finite energy, and let \(\ell^{\mathcal F}\) be its Legendre ray.
+Then
+\[
+ \lim_{t\to\infty}\frac{E^{\mathrm u}(\ell_t^{\mathcal F})}{t}
+ =\int_{\mathbf R}\lambda\,
+          \rd\DHm(\Gamma^{\mathcal F})(\lambda),
+\tag{65.32}\label{eq:rf-energy-first-moment}
+\]
+or equivalently
+\[
+ \lim_{t\to\infty}\frac{E(\ell_t^{\mathcal F})}{t}
+ =\int_{\mathbf R}\lambda\,
+          \rd\DHm^{\mathrm{prob}}(\mathcal F)(\lambda).
+\tag{65.33}\label{eq:rf-normalized-energy-slope}
+\]
+For a normal ample test configuration,
+\[
+ \lim_{t\to\infty}\frac{E^{\mathrm u}(\ell_t)}t
+ =\frac{(\overline{\mathcal L}^{n+1})}{n+1}.
+\tag{65.34}\label{eq:rf-energy-intersection-slope}
+\]
+\end{theorem}
+
+\begin{proof}
+The Ross--Witt Nystr\"om energy identity identifies the radial energy slope
+with the layer-cake energy of the test curve.
+The first-moment formula
+\eqref{eq:cma-first-moment} identifies that layer-cake energy with the
+unnormalized DH first moment.
+Divide by \(V\) to obtain
+\eqref{eq:rf-normalized-energy-slope}.
+For a test configuration, the BHJ intersection-moment formula
+\eqref{eq:cma-dh-first-intersection} gives
+\eqref{eq:rf-energy-intersection-slope}.
+\end{proof}
+
+These energy identities use the RWN correspondence and the unaffected DH
+intersection theorem of \cite{BHJ17}.
+They do not depend on \cite[Theorem~5.6]{BHJ19}.
+
+\begin{theorem}\label{thm:rf-bhj-unaffected-slopes}
+Let \((\mathcal X,\mathcal L)\) be an ample test configuration for a
+polarized complex manifold \((X,L)\).
+Let \(\Phi\) be a smooth strictly positive \(S^1\)-invariant metric on
+\(\mathcal L\) near the central fibre, and let \((\psi_s)\) be the
+corresponding smooth positive ray in the ordinary norm-weight convention of
+\cite{BHJ19}.
+Then the asymptotic formulas of
+\cite[Theorem~3.6]{BHJ19} identify the slopes of
+\(E,H,I,J,M,R\) with
+\(E^{\NA},H^{\NA},I^{\NA},J^{\NA},M^{\NA},R^{\NA}\), respectively.
+In the logarithmic setting, the same identifications hold under the
+subklt and positivity hypotheses of \cite[Theorem~4.2]{BHJ19}.
+\end{theorem}
+
+\begin{proof}
+We reconstruct the proof of \cite[Theorem~3.6]{BHJ19}, keeping the
+source's norm-weight convention throughout.  Two results proved in that
+paper are foundational imported inputs for this reconstruction:
+
+\begin{enumerate}
+\item the Deligne-pairing asymptotic formula
+      \cite[Lemma~3.9]{BHJ19};
+\item the local simple-normal-crossings integral estimates
+      \cite[Lemmas~3.10--3.11]{BHJ19}.
+\end{enumerate}
+
+Neither input belongs to Section~5.  We now explain how they give every
+functional in the statement.
+
+\smallskip
+\noindent\emph{Step 1: reduction to a smooth dominating model.}
+After an equivariant resolution and equivariant compactification over
+\(\mathbf P^1\), we may suppose that the total space is smooth, dominates
+\(X\times\mathbf P^1\), and has simple-normal-crossings central fibre.
+All six non-Archimedean functionals in the statement are invariant under
+this pullback.  On the complex side the induced ray does not change,
+because it is read on the common general fibre.  It is therefore enough to
+work on this model.
+
+\smallskip
+\noindent\emph{Step 2: the Deligne-pairing slope.}
+Let \(\mathcal M_0,\ldots,\mathcal M_n\) be equivariant line bundles on
+the compactified model, supplied with smooth invariant metrics near the
+central fibre, and let \(m_{j,s}\) be their induced metrics on the general
+fibre.  Lemma~3.9 of the source gives, in its normalization,
+\[
+ \lim_{s\to+\infty}\frac1s
+ \bigl\langle m_{0,s},\ldots,m_{n,s}\bigr\rangle
+ =
+ \bigl(\overline{\mathcal M}_0\cdots
+       \overline{\mathcal M}_n\bigr).
+\tag{65.35}\label{eq:rf-deligne-basic-slope}
+\]
+Here the left-hand side denotes the logarithmic change of the metric on
+the Deligne pairing relative to fixed reference metrics, and the right-hand
+side is the compactified intersection number.  To see why the dependence
+is linear in \(s\), choose a meromorphic trivialization of the Deligne
+pairing over the disk.  Equivariance writes it as a power of the base
+parameter times a nowhere-vanishing local frame.  With
+\(s=-\log|t|\), the power of \(t\) contributes the linear term, while the
+logarithm of the norm of the nonvanishing frame is bounded.  The projection
+formula identifies the coefficient with the intersection number in
+\eqref{eq:rf-deligne-basic-slope}.  This argument also fixes the sign: the
+same equivariant trivialization is used in the definitions of the
+non-Archimedean intersections.
+
+The Deligne-pairing expressions for \(E,I,J\), and \(R\), recalled in
+\cite[Lemma~1.2]{BHJ19}, are finite linear combinations of terms of the
+form appearing in \eqref{eq:rf-deligne-basic-slope}.  Applying
+\eqref{eq:rf-deligne-basic-slope} term by term gives
+\[
+ \lim_{s\to+\infty}\frac{F_{\mathrm{wt}}(\psi_s)}s
+     =F^{\NA}(\phi^{\NA}),
+ \qquad F\in\{E,I,J,R\}.
+\tag{65.36}\label{eq:rf-deligne-functional-slopes}
+\]
+No interchange of an infinite limit with a Monge--Amp\`ere expansion occurs
+here: all pairings are multilinear expressions with exactly \(n+1\)
+entries.
+
+\smallskip
+\noindent\emph{Step 3: entropy.}
+The source first treats \(H+R\), because that sum has a direct
+Deligne-pairing expression.  Choose a smooth invariant metric
+\(\Psi_{\mathrm{ref}}\) on the logarithmic relative canonical bundle of
+the resolved total space, and denote its fibrewise metric by
+\(\psi_{\mathrm{ref}}^s\).  The Deligne identity used in the source is
+\[
+\begin{aligned}
+ V\bigl(H(\psi_s)+R(\psi_s)\bigr)
+  ={}&
+ \left\langle\frac12\log\MA(\psi_s),
+       \psi_s,\ldots,\psi_s\right\rangle_X \\
+ &-\left\langle\psi_{\mathrm{ref}},
+       \psi_{\mathrm{ref},L},\ldots,
+       \psi_{\mathrm{ref},L}\right\rangle_X .
+\end{aligned}
+\tag{65.37}\label{eq:rf-entropy-deligne-decomposition}
+\]
+The names \(\psi_{\mathrm{ref}}\) and
+\(\psi_{\mathrm{ref},L}\) in the second line denote fixed reference
+metrics on \(K_X\) and \(L\), respectively.  Replacing the first entry in
+the first pairing by \(\psi_{\mathrm{ref}}^s\),
+\eqref{eq:rf-deligne-basic-slope} gives the intersection
+\[
+       \bigl(K^{\log}_{\overline{\mathcal X}/\mathbf P^1}
+              \cdot\overline{\mathcal L}^{n}\bigr).
+\]
+The error made by this replacement is exactly
+\[
+ \frac12\int_X
+   \log\!\left[
+      \frac{\MA(\psi_s)}
+           {\rme^{2\psi_{\mathrm{ref}}^s}}
+   \right](\ddc\psi_s)^n .
+\tag{65.38}\label{eq:rf-entropy-replacement-error}
+\]
+
+We spell out why \eqref{eq:rf-entropy-replacement-error} is \(o(s)\).
+On an snc chart with
+\(t=u z_0^{b_0}\cdots z_p^{b_p}\), logarithmic polar coordinates identify
+the relevant part of the fibre with a fixed simplex, a compact angular
+group, and a transverse polydisc.  The logarithmic canonical volume form
+then has mass comparable to \(s^p\).  After summing finitely many charts,
+\cite[Lemma~3.11]{BHJ19} gives
+\[
+ C^{-1}s^d\leq
+       \int_{X_t}\rme^{2\psi_{\mathrm{ref}}^s}
+       \leq Cs^d,
+ \qquad 0\leq d\leq n,
+\tag{65.39}\label{eq:rf-entropy-polynomial-bound}
+\]
+where \(d\) is the dimension of the dual complex of the snc central
+fibre.  Normalize this volume form to a probability measure.  Positivity
+of relative entropy and \eqref{eq:rf-entropy-polynomial-bound} give the
+lower bound \(-O(\log s)\) for twice
+\eqref{eq:rf-entropy-replacement-error}.
+
+For the upper bound, put
+\[
+ g_t:=
+ \frac{(\ddc\Phi|_{X_t})^n}
+      {\rme^{2\Psi_{\mathrm{ref}}|_{X_t}}}.
+\]
+Smooth semipositivity gives \(\ddc\Phi\leq C\Omega\) on each of the
+finitely many charts.  The same logarithmic-coordinate calculation shows
+that \((\Omega|_{X_t})^n/
+\rme^{2\Psi_{\mathrm{ref}}|_{X_t}}\) is uniformly bounded.  Hence \(g_t\)
+is uniformly bounded above.  Since \((\ddc\Phi|_{X_t})^n\) has fixed mass
+\(V\), the integral in \eqref{eq:rf-entropy-replacement-error} is uniformly
+bounded above.  Together with the lower bound, this is exactly the
+\(O(\log s)\) estimate of \cite[Lemma~3.10]{BHJ19}.
+
+It follows from \eqref{eq:rf-entropy-deligne-decomposition} that the slope
+of \(H+R\) equals the non-Archimedean slope of \(H^{\NA}+R^{\NA}\).
+Subtracting the already established \(R\)-identity in
+\eqref{eq:rf-deligne-functional-slopes} yields
+\[
+       \lim_{s\to+\infty}\frac{H_{\mathrm{wt}}(\psi_s)}s
+          =H^{\NA}(\phi^{\NA}).
+\tag{65.40}\label{eq:rf-entropy-smooth-slope}
+\]
+In the logarithmic version, the subklt hypothesis is what makes the local
+power singularities integrable.  The analogous conclusion without that
+hypothesis is not asserted here.
+
+\smallskip
+\noindent\emph{Step 4: Mabuchi energy.}
+The Chen--Tian decomposition in the source convention expresses \(M\) as
+the sum of \(H\), \(R\), and the appropriate scalar multiple of \(E\).
+Combining \eqref{eq:rf-deligne-functional-slopes} and
+\eqref{eq:rf-entropy-smooth-slope}, with the identical decomposition on
+the non-Archimedean side, proves the formula for \(M\).  This completes the
+six slope calculations.
+
+Finally, the authors' erratum \cite{BHJ19err} explicitly states that
+Theorem~A, Corollary~B, and all results through Section~4 are independent
+of the flawed Theorem~5.6.  The construction above uses only material from
+Sections~1--4.  It therefore gives the claimed formulas without invoking
+any quarantined statement.
+\end{proof}
+
+\Cref{thm:rf-bhj-unaffected-slopes} concerns the smooth ray induced
+by a smooth metric near the central fibre.
+Transporting every functional slope to an arbitrary weak finite-energy ray
+requires an additional extension theorem for that functional.
+Only the energy extension proved in
+\Cref{thm:rf-energy-slope} is used here without further hypotheses.
+
+\section{The BHJ 2019 erratum quarantine}
+
+The dependency graph used in this chapter is
+\[
+\begin{array}{ccc}
+\cite{BHJ17}\text{ DH/intersections}
+ &\longrightarrow&
+\text{energy moments and slopes}
+\\[1mm]
+\cite{RWN14}\text{ Legendre energy}
+ &\longrightarrow&
+\text{energy moments and slopes}
+\\[1mm]
+\begin{array}{c}
+\cite[Sections~3--4]{BHJ19}\\[-1mm]
+\text{unaffected}
+\end{array}
+ &\longrightarrow&
+\text{smooth-ray asymptotics}
+\\[1mm]
+\cite[Theorem~5.6]{BHJ19}
+ &\dashrightarrow&
+\begin{array}{c}
+\text{Theorem~5.4 and Theorem~C}\\[-1mm]
+\text{Corollaries~D--E}
+\end{array}.
+\end{array}
+\tag{65.41}\label{eq:rf-erratum-dependency-graph}
+\]
+The dashed bottom row is quarantined.  No path in either solid row passes
+through it.
+
+The precise unsafe zone is short enough to record verbatim as a dependency
+ledger.
+
+\begin{theorem}\label{thm:rf-erratum-audit}
+The following results of \cite{BHJ19} are not used as proved statements in
+this book:
+\[
+ \text{Theorem~5.6},\qquad
+ \text{Theorem~5.4},\qquad
+ \text{Theorem~C},\qquad
+ \text{Corollaries~D and~E}.
+\tag{65.42}\label{eq:rf-quarantined-results}
+\]
+The proof of Theorem~5.6 contains an incorrect claim.
+The published erratum says that its statement may still be true, but is
+unproved by that argument.
+Theorem~5.4 and the last three results depend on it.
+
+Theorem~A, Corollary~B, and every result through Section~4 remain valid
+according to the erratum.
+\end{theorem}
+
+\begin{proof}
+This is exactly the dependency statement in Section~2 of
+\cite{BHJ19err}.
+The erratum identifies the false proof step: for a one-parameter subgroup
+\(\lambda\) and a \(K\)-point \(\xi\), the reduction of
+\(\lambda\cdot\xi\) need not depend only on the reduction of \(\xi\).
+Consequently the proposed orbit-closure argument does not establish
+Theorem~5.6.
+The same erratum lists Theorem~5.4, Theorem~C, and Corollaries~D--E as
+affected, and separately confirms the unaffected results stated above.
+\end{proof}
+
+\begin{warning}{No surrogate use}
+\label{warn:rf-no-surrogate}
+We do not use a reformulation of a quarantined result under another name.
+In particular, no implication from uniform K-stability to coercivity on all
+Bergman levels is deduced from Theorem~C or Corollaries~D--E of
+\cite{BHJ19}.
+Any later theorem with a similar conclusion must carry an independent
+post-erratum source and its own hypotheses.
+\end{warning}
+
+\section{A complete example on \texorpdfstring{\(\mathbf P^1\)}{P1}}
+
+\begin{example}
+\label{ex:rf-p1-complete}
+Let \(X=\mathbf P^1\), \(L=\mathcal O(1)\), and let
+\(a\cdot[x:y]=[ax:y]\).
+Choose the linearization for which
+\(x^jy^{m-j}\) has weight \(j\).
+Then
+\[
+ \mathcal F^\lambda R_m
+ =\operatorname{span}\{x^jy^{m-j}\mid j\geq\lambda\}.
+\tag{65.43}\label{eq:rf-p1-filtration}
+\]
+The normalized spectral measures are
+\[
+ \nu_m=\frac1{m+1}\sum_{j=0}^m\delta_{j/m}
+        \rightharpoonup\mathbf 1_{[0,1]}\,\rd \lambda.
+\tag{65.44}\label{eq:rf-p1-dh}
+\]
+Since \(V=1\), probability and unnormalized DH measures coincide.
+The normalized energy slope is
+\[
+                 \int_0^1\lambda\,\rd \lambda=\frac12.
+\tag{65.45}\label{eq:rf-p1-energy-slope}
+\]
+
+The partial Bergman space at level \(\tau\) is spanned asymptotically by
+monomials with \(j/m\geq\tau\).
+Its maximal envelope is constant at the reference level for \(\tau\leq0\),
+decreases for \(0<\tau<1\), and is \(-\infty\) for \(\tau>1\).
+Legendre transform gives the product weak ray.
+
+Twisting the linearization by \(c\) changes every weight to \(j+mc\).
+Equations \eqref{eq:rf-translation} and
+\eqref{eq:rf-p1-dh} then give
+\[
+ \ell_t\mapsto\ell_t+ct,
+ \qquad
+ \DHm\mapsto(\lambda\mapsto\lambda+c)_*\DHm,
+ \qquad
+ \frac12\mapsto\frac12+c.
+\]
+This simultaneously checks the Legendre sign, the DH translation, and the
+energy normalization.
+\end{example}
+
+\section{What the diagram does not say}
+
+The construction diagram has four strict boundaries.
+
+\begin{enumerate}
+\item A general linearly bounded filtration defines a ray, but need not
+define a finite-type test configuration.
+
+\item In a merely big class, the outer maximal envelope in
+\eqref{eq:rf-filtration-test-curve} is part of the construction.
+The ample theorem \cite[Proposition~7.11]{RWN14} does not remove it in full
+generality.
+
+\item Weak convergence of Bergman rays and spectral measures does not imply
+smooth convergence or convergence of all energy functionals.
+
+\item The projective DXZ--BJ vertical arrow in
+\eqref{eq:rf-analytic-square} is not an MP comparison theorem and is not
+extended to an arbitrary compact K\"ahler class here.
+\end{enumerate}
+
+\section*{Source note}
+
+The filtration, Rees algebra, and trivially valued FS dictionary are
+\cite[Sections~1--2]{BJ22} and \Cref{chap:bj-test-configurations}.
+The algebraic DH limit and intersection moments are \cite{BHJ17}.
+Analytic test curves, their maximal envelopes, filtration rays, and the
+identification with the Phong--Sturm ray are
+\cite[Theorems~1.1, 1.2, and~9.2]{RWN14}; the original Bergman-ray
+construction is \cite{PS07}.
+The projective analytification arrow is \cite{DXZ23} in the exact domain of
+\Cref{chap:dxz-bj-comparison}.
+The asymptotic functional theorem used above is the unaffected
+\cite[Theorem~3.6]{BHJ19}.
+The quarantine \eqref{eq:rf-quarantined-results} follows
+\cite{BHJ19err} and is a hard boundary for every later slope argument.
+All Deligne-pairing identities used in this chapter come from the cited
+unaffected Sections~1--4 of \cite{BHJ19} or from the already established
+intersection formulas.  No excluded or derivative source is used.

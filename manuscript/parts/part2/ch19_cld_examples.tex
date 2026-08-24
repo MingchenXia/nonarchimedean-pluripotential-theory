@@ -1,0 +1,3944 @@
+\chapter{Curves, toric varieties, and abelian varieties}
+\index{curve!CLD calculus}\index{toric variety!CLD calculus}\index{abelian variety!canonical metric}
+\label{chap:cld-examples}
+
+This chapter is a test suite for the local differential theory.  Curves turn
+curvature into a graph Laplacian, toric varieties turn it into a real
+Monge--Amp\`ere operator, and abelian varieties turn Raynaud uniformization
+into a tropical real torus.  In each case one can see precisely which local
+and global notions agree.
+
+We retain the conventions
+\[
+           v=-\log|\cdot|,\qquad \dc=\ddprime,\qquad \ddc=\dprimeddprime,
+           \qquad \phi_e=-\log\|e\|.
+\]
+In particular, \(\dprimeddprime[\log|f|]=\delta_{\operatorname{div}(f)}\).
+The normalization of Lebesgue measure on \(N_{\mathbf R}\) is the one for
+which a fundamental parallelepiped of the lattice \(N\) has volume one.
+
+\section{Orientation}
+\label{sec:ch19-orientation}
+
+\subsection{What is being tested}
+\label{sec:ch19-what-tested}
+
+\Crefrange{chap:superforms}{chap:delta-forms} construct a calculus.  A
+calculus is only as good as the answers it returns on objects that were
+already understood by other means, and this chapter runs that check on the
+three families of varieties for which the answers were known before the
+calculus existed.
+
+\begin{itemize}
+\item On a \emph{smooth proper curve} the classical answer is potential
+theory on a metric graph: Laplacians, Green functions, and the slope formula
+of \Cref{thm:ch08-slope-formula}.  We verify that
+\(\dprimeddprime\) of a model function is the graph Laplacian
+\eqref{eq:graph-laplacian}, that the Poincar\'e--Lelong formula
+\Cref{thm:cld-poincare-lelong} retracts to the slope formula, and that the
+two competing local definitions of subharmonicity---Thuillier's
+\cite[Def.~3.1.5]{Thu05}, by comparison, and Wanner's current-theoretic
+condition \(\dprimeddprime[u]\ge0\)---define the same class of continuous
+functions.  We keep that current-theoretic class distinct from the
+approximation-generated CLD hierarchy of \Cref{def:ch15-hierarchy}.
+\item On a \emph{toric variety} the classical answer is convex analysis:
+invariant metrics are convex functions on \(N_{\mathbf R}\) and their
+Monge--Amp\`ere measures are Alexandrov measures, with the factor \(n!\)
+recorded in \eqref{eq:appJ-toric-degree}.  We verify that CLD positivity,
+delta-form positivity, and functorial positivity all collapse to convexity,
+and that the tropical pushforward of the CLD product is the real
+Monge--Amp\`ere operator with no hidden normalization.
+\item On an \emph{abelian variety} the classical answer is Raynaud
+uniformization together with the theorem of the cube: the canonical metric
+is rigid, its curvature is translation invariant, and its top power is a
+Haar measure on a real torus.  We verify that the canonical tropicalization
+is a harmonic tropicalization in the sense of \Cref{sec:harmonic-trop}, so
+that the Bedford--Taylor compatibility theorem
+\Cref{thm:bt-harmonic-compatibility} applies, and we compute the resulting
+measures.
+\end{itemize}
+
+Two further items are not verifications but delimitations, and they are the
+reason this chapter closes the part rather than opening it.  The first is
+\Cref{sec:ch19-cld-bfj}: the earliest point at which the local calculus of
+this part and the global model theory of \Cref{part:bfj} can be compared,
+together with a precise statement of the locus on which they agree.  The
+second is \Cref{sec:ch19-limitations}: a table of assertions that are true,
+or at least meaningful, for model and continuous psh objects and that are
+\emph{not} known, or not even meaningful, for arbitrary singular psh
+functions.  \Cref{part:bfj,part:comparisons} refer back to that table
+whenever a hypothesis looks unnecessarily strong.
+
+\subsection{Prerequisites}
+\label{sec:ch19-prerequisites}
+
+The chapter is deliberately thin on new machinery and thick on
+cross-reference.  The following are used constantly and are not restated.
+
+\begin{center}
+\small
+\begin{tabular}{p{.32\textwidth}|p{.25\textwidth}|p{.28\textwidth}}
+\textbf{Input}&\textbf{Statement}&\textbf{Used in}\\ \hline
+metric graphs, graph Laplacian, Green functions
+ &\Cref{sec:metric-graphs}, \eqref{eq:graph-laplacian},
+  \eqref{eq:graph-green}
+ &\Cref{sec:ch19-curves}\\
+slope formula on a semistable model
+ &\Cref{thm:ch08-slope-formula}
+ &\Cref{thm:ch19-curve-slope-formula}\\
+Tate curve and its circle skeleton
+ &\Cref{ex:ch08-tate-curve,ex:tate-degeneration}
+ &\Cref{ex:ch19-tate-slope,ex:ch19-tate-canonical}\\
+toric skeleton, Gauss section, Alexandrov measure
+ &\Cref{lem:ch08-toric-gauss-section},
+  \eqref{eq:alexandrov-ma}, \Cref{lem:toric-real-total-mass}
+ &\Cref{sec:ch19-toric}\\
+model metrics and Chambert--Loir measures
+ &\Cref{sec:metrics-model,sec:metrics-cl-measure},
+  \Cref{thm:cl-model-properties}
+ &\Cref{sec:ch19-models,sec:ch19-cld-bfj}\\
+Stokes and Green formulae
+ &\Cref{thm:cld-global-stokes,thm:ch11-graph-green},
+  \Cref{cor:analytic-stokes-green}
+ &\Crefrange{sec:ch19-curves}{sec:ch19-abelian}\\
+Poincar\'e--Lelong and the vertex atom
+ &\Cref{thm:cld-poincare-lelong,lem:ch15-vertex-atom}
+ &\Cref{sec:ch19-curves}\\
+Bedford--Taylor products and harmonic compatibility
+ &\Cref{thm:bt-symmetry-locality,thm:bt-harmonic-compatibility}
+ &\Cref{sec:ch19-abelian,sec:ch19-canonical}\\
+delta-forms, formal positivity, harmonic tropicalizations
+ &\Cref{thm:gk-tropical-frame-positivity,%
+        thm:gk-formal-positivity-comparison,thm:harmonic-balancing}
+ &\Crefrange{sec:ch19-toric}{sec:ch19-canonical}
+\end{tabular}
+\end{center}
+
+\subsection{Four normalizations in force}
+\label{sec:ch19-normalizations}
+
+Every numerical claim below depends on the following four choices, all fixed
+in \Cref{app:normalizations} and none of them optional.
+
+\begin{enumerate}
+\item\label{itm:ch19-norm:val} \emph{Valuation versus logarithm.}
+\(v=-\log|\cdot|\); a metric weight is \(\phi_e=-\log\|e\|\); and
+\(\dprimeddprime[\log|f|]=+\delta_{\divis(f)}\), hence
+\(\dprimeddprime[v(f)]=-\delta_{\divis(f)}\).  See
+\eqref{eq:appJ-cld-pl} and \eqref{eq:appJ-valuation-pl}.
+\item\label{itm:ch19-norm:lap} \emph{The graph Laplacian is the sum of
+outgoing slopes}, \eqref{eq:graph-laplacian}; a convex kink therefore has
+positive mass, and a harmonic function has vanishing outgoing-slope sums.
+\item\label{itm:ch19-norm:lattice} \emph{Lebesgue measure on
+\(N_{\mathbf R}\) is lattice-normalized}: a fundamental parallelepiped of
+\(N\) has volume \(1\), and lengths on a skeleton are lattice lengths, not
+Euclidean ones (\Cref{def:ch11-lattice-measure},
+\Cref{rem:lattice-length}).
+\item\label{itm:ch19-norm:factorial} \emph{No probability normalization.}
+The top wedge of \(n\) Chern currents of an ample \(L\) has mass \((L^n)\),
+which in the toric case is \(n!\vol_M(P)\), not \(\vol_M(P)\); the factor
+\(n!\) is \eqref{eq:appJ-toric-degree} and is displayed in every mass check
+below.
+\end{enumerate}
+
+A reader who reproduces a computation of this chapter and obtains a mass off
+by \(n!\), by a sign, or by a lattice index has almost certainly departed
+from one of \Cref{sec:ch19-normalizations}\,\cref{itm:ch19-norm:val}--\cref{itm:ch19-norm:factorial}; the
+mass ledger of \Cref{sec:ch19-mass-ledger} lists every check in the chapter
+together with the degree it is checked against.
+
+\subsection{Plan}
+\label{sec:ch19-plan}
+
+\Cref{sec:ch19-curves} treats curves: the graph Laplacian, the slope
+formula, and a completely worked elliptic curve with multiplicative
+reduction.  \Cref{sec:ch19-wanner} proves Wanner's comparison theorem and
+delimits its regularization corollary.  \Cref{sec:ch19-toric} treats toric
+metrics, tropical Monge--Amp\`ere measures, and three worked surfaces.
+\Cref{sec:ch19-models} records the model and good-reduction computations in
+arbitrary dimension.  \Cref{sec:ch19-abelian} sets up Raynaud
+uniformization and proves that the canonical tropicalization is harmonic;
+\Cref{sec:ch19-canonical} constructs canonical metrics, computes their
+currents and Monge--Amp\`ere measures, and carries the Tate curve and an
+abelian surface to explicit numbers.  \Cref{sec:ch19-cld-bfj} proves the
+first CLD--BFJ comparison theorem.  \Cref{sec:ch19-limitations} is the
+limitations table, \Cref{sec:ch19-ledger} the comparison ledger, and
+\Cref{sec:ch19-dictionary} the chapter dictionary.
+
+\section{Curves and graph Laplacians}
+\label{sec:ch19-curves}
+
+Let \(C\) be a smooth proper curve over a complete nontrivially valued field,
+and suppose first that a finite extension of the ground field gives a strictly
+semistable model \(\mathfrak C\).  Its skeleton \(\Gamma\) is a finite metric
+graph, and the retraction is denoted
+\(\tau:C^{\mathrm{an}}\to\Gamma\).
+
+\subsection{The geometry behind the two-line answer}
+\label{sec:ch19-curve-geometry}
+
+Before any formula, it is worth saying what makes dimension one special, and
+why the answer is a graph Laplacian rather than something more elaborate.
+
+A smooth proper curve has, by semistable reduction
+(\Cref{thm:skeleton-deformation} and the discussion of
+\Cref{sec:ch08-semistable-reduction}), a canonical deformation retraction
+onto a finite metric graph.  Away from that graph, \(C^{\An}\) is a disjoint
+union of open discs.  For a model function, or more generally a function
+that factors through this retraction, the disc fibres contribute nothing to
+curvature, so its curvature lives on \(\Gamma\).  This restriction is
+essential: a general subharmonic function on a curve need not factor through
+one fixed finite skeleton.  For skeletal functions the whole of
+\Cref{chap:cld-currents,chap:cld-poincare-lelong} collapses to the vertex
+computation of \Cref{lem:ch15-vertex-atom}: a \((1,1)\)-current is a
+measure, and its atom at a vertex is the weighted sum of outgoing slopes.
+
+Two consequences are used repeatedly below.  First, positivity of the
+curvature of a model or piecewise affine skeletal function becomes finitely
+many numerical inequalities, one per vertex.  Second, the maximum principle
+\Cref{thm:ch15-max-onedim} is available for the curve-test class, which is
+what enters the comparison theorem of \Cref{sec:ch19-wanner}.
+
+\subsection{The graph Laplacian}
+\label{sec:ch19-graph-laplacian}
+
+For a continuous piecewise affine function \(F\) on \(\Gamma\), define
+\begin{equation}
+ \Delta_\Gamma F
+     =\sum_{v\in\Gamma}
+        \left(\sum_{e\ni v}m_e
+          \frac{\partial F}{\partial n_{v,e}}\right)\delta_v.
+\label{eq:cld-curve-graph-laplacian}
+\end{equation}
+After inserting vertices at all break points, the sum is finite.  An interior
+point of an edge is treated as a two-valent vertex; its mass is the jump of
+the derivative.  The sign in \eqref{eq:cld-curve-graph-laplacian} is chosen so that a
+convex kink has positive mass.
+
+Here \(m_e\) is the calibration weight of the edge \(e\), equal to \(1\) for
+the skeleton of a strictly semistable model but not in general
+(\Cref{def:trop-canonical-calibration}), and
+\(\partial F/\partial n_{v,e}\) is the outgoing slope measured in the lattice
+length of \(e\).  With those two conventions,
+\eqref{eq:cld-curve-graph-laplacian} is verbatim
+\eqref{eq:graph-laplacian}, and the total mass vanishes:
+\begin{equation}
+\label{eq:ch19-lap-mass-zero}
+ \Delta_\Gamma F(\Gamma)=0
+\end{equation}
+for every continuous piecewise affine \(F\), because each edge contributes
+its two endpoint slopes with opposite signs.  Identity
+\eqref{eq:ch19-lap-mass-zero} is \eqref{eq:lap-mass-zero}; it is the reason
+the mass of a curvature measure depends only on the line bundle and not on
+the metric.
+
+\begin{proposition}\label{prop:skeletal-curvature-curve}
+If \(u=F\circ\tau\) is a model function, then
+\[
+                              \dprimeddprime[u]=\Delta_\Gamma F.
+\]
+If \(u=-\log\|1\|\) is induced by a vertical line bundle
+\(\mathfrak M\) on \(\mathfrak C\), the coefficient at the vertex
+corresponding to a component \(Y\) of \(\mathfrak C_s\) is the degree of
+\(\mathfrak M|_Y\), with the special-fibre multiplicity included in the
+nonreduced case.
+\end{proposition}
+\begin{proof}
+\emph{Step 1: reduction to the skeleton.}  Let $\varphi$ be a smooth test
+function on $C^{\An}$ with compact support.  Since $u=F\circ\tau$ is constant
+on the fibres of $\tau$ and $\tau$ is the retraction of a strictly semistable
+skeleton, the current $[u]$ is the pushforward of a current on $\Gamma$; by
+\Cref{prop:ch13-skeletal-faithful} the pairing
+$\langle\dprimeddprime[u],\varphi\rangle$ equals the corresponding pairing on
+$\Gamma$ against $\tau_*\varphi$, and the open discs of
+$C^{\An}\setminus\Gamma$ contribute nothing, because a smooth $(1,1)$-form on
+a disc pairs to zero against a function pulled back from a point.  Thus the
+computation may be carried out on the metric graph $\Gamma$, which is a
+boundaryless one-dimensional tropical space with unit weights
+(\Cref{ex:ch10-circle} for the circle, and the same argument in general).
+
+\emph{Step 2: the vertex atom.}  Insert vertices at every break point of $F$,
+so that $F$ is affine on each closed edge.  On the interior of an edge, the
+edgewise second derivative of $F$ vanishes, so by \Cref{lem:ch15-vertex-atom}
+the current $\dprimeddprime[u]$ is the purely atomic measure
+\[
+ \sum_{v}\Bigl(\sum_{e\ni v}m_e\,d_eF(v)\Bigr)\delta_v ,
+\]
+where $d_eF(v)$ is the outgoing slope at $v$ along $e$.  Balancing of
+$\Gamma$---automatic, since $\Gamma$ is boundaryless---is what removes the
+extra term $-F(v)\langle\rd\Psi(v),\mathbf N(v)\rangle$ recorded in that
+lemma.  This is \eqref{eq:cld-curve-graph-laplacian}.
+
+\emph{Step 3: the coefficient at a component.}  Let now
+$u=-\log\|1\|_{\mathfrak M}$ be the model function of a vertical line bundle
+$\mathfrak M$ on $\mathfrak C$, and let $Y$ be a component of
+$\mathfrak C_s$ with multiplicity $b_Y$.  By
+\Cref{prop:metrics-divisor-model-function} the function $u$ is the model
+function $\varphi_D$ of the vertical Cartier divisor $D$ with
+$\mathcal O(D)\simeq\mathfrak M$, so $u(x_Y)=b_Y^{-1}\ord_Y(D)$, and $u$ is
+affine on every edge by \Cref{lem:model-function-affine}.  By
+\Cref{lem:vertical-intersection-degree},
+\[
+ \deg\bigl(\mathfrak M|_Y\bigr)=(D\cdot Y)
+   =\sum_{Y'}\ord_{Y'}(D)\,(Y'\cdot Y).
+\]
+Using $(\mathfrak C_s\cdot Y)=0$ to eliminate the self-intersection, exactly
+as in Step~4 of the proof of \Cref{thm:ch08-slope-formula}, this becomes
+$\sum_{e\ni v_Y}m_e\,d_eu(v_Y)$, which is the coefficient in
+\eqref{eq:cld-curve-graph-laplacian}.  When $b_Y>1$ the divisorial point is
+normalized by $v_{x_Y}=b_Y^{-1}\ord_Y$, and the same computation carries the
+factor $b_Y$; this is the special-fibre multiplicity referred to in the
+statement.
+
+\emph{Step 4: consistency.}  Equivalently, Steps~2 and~3 are the
+one-dimensional case of \Cref{thm:cld-recovers-cl}: the Chambert--Loir
+measure of a formal metric on a curve is
+$\sum_Yb_Y\deg(\mathcal L|_Y)\delta_{x_Y}$, and the two computations of the
+coefficient---by slopes and by residual degrees---agree by the vertical
+intersection formula just used.
+\end{proof}
+
+Thus \(u\) is harmonic precisely when all interior outgoing-slope sums are
+zero, and it is subharmonic precisely when \(\Delta_\Gamma F\) is positive.
+For a formal metric on a line bundle \(L\), its Chern measure is
+\begin{equation}
+\label{eq:ch19-curve-formal-measure}
+ c_1(\overline L)=
+     \sum_Y b_Y\deg(\mathcal L|_Y)\delta_{x_Y}
+\end{equation}
+after the tensor-power denominator has been divided out.  Its total mass is
+\(\deg_CL\) by \Cref{cor:special-fibre-relation}, and it is positive exactly
+when every residual degree is nonnegative, that is, exactly when
+\(\mathcal L\) is relatively nef.  Formula
+\eqref{eq:ch19-curve-formal-measure} is
+\eqref{eq:ch08-curve-cl-measure}; nothing in the CLD calculus changes it.
+
+\begin{proposition}
+\label{prop:ch19-curve-model-curvature}
+Let \(\overline L_0\) be a formal metric on \(L\) with Chern measure
+\(\mu_0\) as in \eqref{eq:ch19-curve-formal-measure}, and let
+\(\varphi=F\circ\tau\) be a model function, \(F\) piecewise affine on
+\(\Gamma\).  Write \(\overline L_\varphi\) for the metric
+\(\|\cdot\|_\varphi=\rme^{-\varphi}\|\cdot\|_0\).  Then
+\[
+ c_1(\overline L_\varphi)=\mu_0+\Delta_\Gamma F ,
+\]
+a signed measure of total mass \(\deg_CL\), independent of \(\varphi\).  It
+is positive if and only if
+\[
+ \mu_0(\{v\})+\sum_{e\ni v}m_e\,d_eF(v)\ \geq\ 0
+ \qquad\text{for every }v\in\Gamma ,
+\]
+a finite list of linear inequalities in the vertex values of \(F\).
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:cld-pl-section-sign} applied to a local frame,
+$c_1(\overline L_\varphi)=c_1(\overline L_0)+\dprimeddprime[\varphi]$, and
+$\dprimeddprime[\varphi]=\Delta_\Gamma F$ by
+\Cref{prop:skeletal-curvature-curve}.  The mass statement is
+\eqref{eq:ch19-lap-mass-zero}.  Positivity of an atomic measure on $\Gamma$
+is nonnegativity of each atom, and inserting vertices at the break points of
+$F$ makes the list finite; at a two-valent point interior to an edge of the
+model, $\mu_0$ has no mass, and the condition reads that the slope of $F$ is
+nondecreasing there, that is, that $F$ is convex across that point.
+\end{proof}
+
+\begin{remark}[Why the list of inequalities is the whole story]
+\label{rem:ch19-curve-finite-test}
+\Cref{prop:ch19-curve-model-curvature} is the reason curves are a complete
+test case.  Every question about positivity of a model or PL metric on a
+curve---semipositivity of the model, positivity of the Chern current,
+positivity of the Chern delta-form, functorial psh---reduces to the same
+finite list of linear inequalities, so all these notions coincide before any
+theorem is proved.  What requires proof is the passage from PL to
+\emph{continuous} potentials, which is \Cref{sec:ch19-wanner}, and the
+passage from continuous to \emph{singular} potentials, which is not carried
+out in this part at all; see \Cref{sec:ch19-limitations}.
+\end{remark}
+
+\begin{example}[Blowing up a point of the special fibre]
+Let \(\mathcal C=\mathbf P^1_{K^\circ}\), and blow up a closed smooth point
+of its special fibre.  Write \(Y\) for the strict transform and \(E\) for
+the exceptional component.  Both have multiplicity one and
+\[
+                             E\cdot Y=1,\qquad E^2=-1.
+\]
+The vertical line bundle \(\mathcal O(E)\) is generically trivial.  Its model
+function \(\varphi_E\) satisfies
+\begin{equation}
+                     \dprimeddprime\varphi_E=\delta_{x_Y}-\delta_{x_E}.
+\label{eq:exceptional-model-laplacian}
+\end{equation}
+The total mass is zero, as it must be for a metric on the trivial generic
+line bundle.  This example simultaneously checks the sign convention and
+shows that a general model function is dsh, not psh.
+
+In coordinates: the skeleton of the blown-up model is the segment
+\([0,1]\) with \(x_Y\) at \(0\) and \(x_E\) at \(1\), and
+\(\varphi_E\) is the function \(F(s)=s\).  Its outgoing-slope sums are
+\(+1\) at \(s=0\) and \(-1\) at \(s=1\), which is
+\eqref{eq:exceptional-model-laplacian}.  Compare
+\Cref{ex:metrics-p1-blowup} and \eqref{eq:metrics-p1-blowup-laplacian},
+where the same computation is made from the divisor side.
+\end{example}
+
+\subsection{The slope formula as a Poincar\'e--Lelong formula}
+\label{sec:ch19-slope}
+
+The slope formula of \Cref{thm:ch08-slope-formula} was proved in
+\Cref{chap:model-calculations} by intersection theory on a semistable model,
+before any current existed.  We now recover it as the retraction of the CLD
+Poincar\'e--Lelong formula, which is the first genuine consistency check of
+the part.
+
+\begin{theorem}
+\label{thm:ch19-curve-slope-formula}
+Let \(K\) be complete and nontrivially valued, let \(C\) be a smooth proper
+\(K\)-curve, let \(\mathfrak C\) be a strictly semistable model with
+skeleton \(\Gamma\) and retraction \(\tau\), and let \(f\in K(C)^\times\) be
+such that every point of \(\Supp\divis(f)\) retracts to a vertex of
+\(\Gamma\).  Put \(F=v_\bullet(f)|_\Gamma\).  Then
+\begin{equation}
+\label{eq:ch19-slope-from-pl}
+ \tau_*\bigl(\dprimeddprime[\log|f|]\bigr)
+ =\tau_*\delta_{\divis(f)}
+ =\tau_*\divis(f),
+ \qquad\text{equivalently}\qquad
+ \Delta_\Gamma F=-\tau_*\divis(f).
+\end{equation}
+In particular, \(\log|f|\) is harmonic on \(C^{\An}\setminus\Supp\divis(f)\),
+and \(F\) is affine with integral slope on every edge of \(\Gamma\).
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the current identity.}  The function $f$ is a nonzero
+meromorphic function on the boundaryless pure-dimensional space $C^{\An}$, so
+\Cref{thm:cld-poincare-lelong} gives
+$\dprimeddprime[\log|f|]=\delta_{\divis(f)}$ as currents on $C^{\An}$.  Both
+sides are measures, since $C^{\An}$ has dimension one.
+
+\emph{Step 2: pushing forward.}  The retraction $\tau$ is proper (it is a
+map from a compact space), so pushforward of currents is defined
+(\Cref{prop:current-pushforward-formal}) and commutes with the pairing
+against functions pulled back from $\Gamma$.  Applying $\tau_*$ to Step~1
+gives the first equality of \eqref{eq:ch19-slope-from-pl}; the second is the
+definition of the cycle current
+(\Cref{prop:ch14-delta-Y-current}), a divisor on a curve being a
+zero-cycle.
+
+\emph{Step 3: identifying the left-hand side.}  We claim
+$\tau_*\dprimeddprime[\log|f|]=\Delta_\Gamma(\log|f|\,|_\Gamma)$.  Away from
+$\Supp\divis(f)$, the function $\log|f|$ is harmonic on every open disc of
+$C^{\An}\setminus\Gamma$: on such a disc $f$ is invertible, so
+$|f|$ is constant on the disc by the maximum modulus principle for
+Berkovich discs, and hence $\log|f|=\log|f|\circ\tau$ there.  By hypothesis
+no point of $\Supp\divis(f)$ lies over the interior of an edge, so each disc
+attached to an interior edge point carries an invertible $f$.  Over a vertex
+$v$, the fibre $\tau^{-1}(v)$ may contain zeros and poles of $f$, and their
+total contribution to the pushforward is exactly
+$(\tau_*\divis f)(\{v\})$, which is the right-hand side.  Subtracting, the
+remaining part of the pushforward is the atomic measure computed from
+$F=v_\bullet(f)|_\Gamma$ by \Cref{lem:ch15-vertex-atom}, and
+$\log|f|\,|_\Gamma=-F$.  This proves the displayed equivalence, with the sign
+of normalization~\cref{itm:ch19-norm:val}.
+
+\emph{Step 4: affineness and integrality.}  Both are now consequences.  On
+the interior of an edge, $\Delta_\Gamma F$ vanishes by
+\eqref{eq:ch19-slope-from-pl}, so $F$ is affine there; and its slope is the
+difference of the orders $\ord_{Y'}(f)-\ord_Y(f)$ of $f$ along the two
+adjacent components, an integer.  This reproves Step~3 of the proof of
+\Cref{thm:ch08-slope-formula}, now without base change to $K(\pi^{1/q})$.
+\end{proof}
+
+\begin{remark}[Two proofs, two hypotheses]
+\label{rem:ch19-slope-two-proofs}
+The model-theoretic proof of \Cref{thm:ch08-slope-formula} uses regularity
+and semistability of $\mathfrak C$ and a base change to make the edges
+arbitrarily finely subdivided; it produces the integrality of the slopes as
+part of its output.  The proof just given uses instead the full
+Poincar\'e--Lelong theorem, whose own proof
+(\Cref{sec:ch15-pl-proof-detail}) requires boundarylessness and purity of
+the relative dimension but no semistability.  The two proofs therefore have
+genuinely different hypotheses, and it is the model-theoretic one that
+extends to the higher-dimensional statements of
+\Cref{sec:ch19-models}, whereas it is the current-theoretic one that extends
+to nonalgebraic $f$ and to $\mathbf R$-coefficients.
+\end{remark}
+
+\subsection{An elliptic curve with multiplicative reduction}
+\label{sec:ch19-tate-slope}
+
+We now carry a complete example to numbers.  It is the Tate curve of
+\Cref{ex:ch08-tate-curve}, with the same numerical data, so that every
+intermediate quantity can be compared with \Cref{chap:model-calculations}.
+
+\begin{example}[The slope formula on a Tate curve]
+\label{ex:ch19-tate-slope}
+\index{Tate curve!slope formula}
+Let \(K\) be algebraically closed, complete and nontrivially valued, let
+\(q\in K^\times\) with
+\[
+                     \ell:=v(q)=3,
+\]
+and let \(E=E_q=\mathbf G_{m,K}^{\An}/q^{\mathbf Z}\) be the Tate curve.  By
+\Cref{ex:ch08-tate-curve} its skeleton is the circle
+\(\Gamma=\mathbf R/3\mathbf Z\) with coordinate \(t=v(z)\), the semistable
+model has special fibre a cycle of three projective lines meeting in three
+nodes, and the vertices are \(v_1,v_2,v_3\) at \(t=0,1,2\).
+
+\emph{The theta function.}  Put
+\[
+ \theta(z)=\prod_{n\geq0}\bigl(1-q^nz\bigr)
+           \prod_{n\geq1}\bigl(1-q^nz^{-1}\bigr),
+\]
+a convergent product on \(\mathbf G_{m,K}^{\An}\) with
+\(\divis(\theta)=\sum_{n\in\mathbf Z}(q^n)\), simple zeros, and the
+functional equation
+\begin{equation}
+\label{eq:ch19-theta-functional}
+ \theta(qz)=-z^{-1}\theta(z).
+\end{equation}
+Write \(\eta_t\in\mathbf G_{m,K}^{\An}\) for the point of the apartment with
+\(v(z)=t\), that is, the Gauss point of the circle \(|z|=\rme^{-t}\).  Since
+the valuation of a convergent Laurent series at \(\eta_t\) is the minimum of
+the valuations of its monomials,
+\[
+ v_{\eta_t}(1-q^nz)=\min\{0,\,n\ell+t\},
+ \qquad
+ v_{\eta_t}(1-q^nz^{-1})=\min\{0,\,n\ell-t\},
+\]
+whence
+\begin{equation}
+\label{eq:ch19-theta-valuation}
+ V(t):=v_{\eta_t}(\theta)
+      =\sum_{n\geq0}\min\{0,n\ell+t\}
+       +\sum_{n\geq1}\min\{0,n\ell-t\}.
+\end{equation}
+Thus \(V\) is the concave piecewise affine function on \(\mathbf R\) with
+\[
+ V\equiv0\ \text{on}\ [0,\ell],\qquad
+ V(t)=t\ \text{on}\ [-\ell,0],\qquad
+ V(t)=\ell-t\ \text{on}\ [\ell,2\ell],
+\]
+and in general slope \(-k\) on \([k\ell,(k+1)\ell]\) for \(k\geq0\) and
+slope \(k+1\) on \([-(k+1)\ell,-k\ell]\).  Its outgoing-slope sum at
+\(t=k\ell\) is \(-1\) for every \(k\in\mathbf Z\), so
+\(\Delta_{\mathbf R}V=-\sum_k\delta_{k\ell}\); with
+\(\log|\theta|=-V\) this is \eqref{eq:ch19-slope-from-pl} for \(\theta\) on
+\(\mathbf G_m^{\An}\), whose divisor retracts to
+\(\sum_k\delta_{k\ell}\).  This is the first check.
+
+\emph{A rational function on \(E\).}  Fix \(a\in K^\times\) with
+\(\alpha:=v(a)=1\) and set
+\[
+ f(z)=\frac{\theta(z/a)\,\theta(za)}{\theta(z)^2}.
+\]
+By \eqref{eq:ch19-theta-functional},
+\[
+ \frac{\theta(qz/a)\theta(qza)}{\theta(qz)^2}
+ =\frac{\bigl(-(z/a)^{-1}\bigr)\bigl(-(za)^{-1}\bigr)}{(-z^{-1})^2}
+   \cdot\frac{\theta(z/a)\theta(za)}{\theta(z)^2}
+ =f(z),
+\]
+so \(f\) descends to a rational function on \(E\), with
+\[
+ \divis_E(f)=(P_a)+(P_{a^{-1}})-2(O),
+\]
+where \(P_b\) denotes the class of \(b\in K^\times\) and \(O=P_1\).  The
+three points are distinct because \(a^{\pm1}\notin q^{\mathbf Z}\).
+
+\emph{The retraction of the divisor.}  We have \(\tau(P_b)=v(b)\bmod3\), so
+\[
+ \tau_*\divis_E(f)=\delta_{t=1}+\delta_{t=2}-2\delta_{t=0}.
+\]
+Every one of the three points lies over a vertex of \(\Gamma\), so the
+hypothesis of \Cref{thm:ch19-curve-slope-formula} holds.
+
+\emph{The potential.}  The automorphism \(z\mapsto z/b\) of
+\(\mathbf G_m^{\An}\) carries \(\eta_t\) to \(\eta_{t-v(b)}\), so
+\(v_{\eta_t}(\theta(z/a))=V(t-1)\) and
+\(v_{\eta_t}(\theta(za))=V(t+1)\).  Hence
+\[
+ F(t)=v_{\eta_t}(f)=V(t-1)+V(t+1)-2V(t).
+\]
+On the fundamental domain \(t\in[0,3]\) we have \(V(t)=0\); moreover
+\(V(t-1)=t-1\) for \(t\in[0,1]\) and \(V(t-1)=0\) for \(t\in[1,3]\), while
+\(V(t+1)=0\) for \(t\in[0,2]\) and \(V(t+1)=2-t\) for \(t\in[2,3]\).
+Therefore
+\begin{equation}
+\label{eq:ch19-tate-slope-potential}
+ F(t)=
+ \begin{cases}
+  t-1, & 0\leq t\leq1,\\
+  0,   & 1\leq t\leq2,\\
+  2-t, & 2\leq t\leq3,
+ \end{cases}
+\end{equation}
+with \(F(0)=F(3)=-1\), consistent with periodicity.
+
+\emph{The check.}  The slopes of \(F\) are \(+1\) on \((0,1)\), \(0\) on
+\((1,2)\), and \(-1\) on \((2,3)\).  Outgoing-slope sums:
+\[
+\begin{array}{lcl}
+ t=0: & \ (+1)+(+1)=+2, &\text{(right slope $+1$; left slope $-1$, outgoing $+1$)}\\
+ t=1: & \ (-1)+(0)=-1,  &\\
+ t=2: & \ (0)+(-1)=-1.  &
+\end{array}
+\]
+Hence
+\[
+ \Delta_\Gamma F=2\delta_{t=0}-\delta_{t=1}-\delta_{t=2}
+   =-\bigl(\delta_{t=1}+\delta_{t=2}-2\delta_{t=0}\bigr)
+   =-\tau_*\divis_E(f),
+\]
+which is exactly \eqref{eq:ch19-slope-from-pl}.  Total mass on both sides is
+\(0\), as \eqref{eq:ch19-lap-mass-zero} and
+\eqref{eq:ch08-principal-degree-zero} require.
+
+\emph{What has been checked.}  Three independent normalizations:
+the sign of normalization~\cref{itm:ch19-norm:val}, since the same computation with
+\(\log|f|\) instead of \(v(f)\) reverses both sides; the Laplacian
+convention~\cref{itm:ch19-norm:lap}, since a maximum of \(F\) would otherwise
+produce a positive atom; and the lattice length of the edges, since the
+slopes \(\pm1\) are computed in the coordinate \(t=v(z)\), which is the
+lattice arclength of \(\Gamma\) by \Cref{prop:ch08-annulus-skeleton}.
+\end{example}
+
+\begin{example}[The same computation seen on a model]
+\label{ex:ch19-tate-slope-model}
+It is instructive to redo \Cref{ex:ch19-tate-slope} by intersection theory,
+which is the route of \Cref{thm:ch08-slope-formula}.  On the \(3\)-cycle
+model \(\mathfrak C\), write \(Y_0,Y_1,Y_2\) for the components at
+\(t=0,1,2\), so that \((Y_i\cdot Y_{i\pm1})=1\) and \((Y_i^2)=-2\).  The
+divisor of \(f\) on \(\mathfrak C\) is \(H+V\) with
+\[
+ H=\overline{(P_a)}+\overline{(P_{a^{-1}})}-2\overline{(O)},
+ \qquad
+ V=\sum_ic_iY_i,\quad c_i=F(i)=(-1,0,0),
+\]
+by \eqref{eq:ch19-tate-slope-potential}.  Then
+\[
+ (H\cdot Y_0)=-2,\quad (H\cdot Y_1)=1,\quad (H\cdot Y_2)=1,
+\]
+because the closures of the three rational points meet the components over
+which they retract, transversally and once each, while
+\[
+ (V\cdot Y_0)=c_0(Y_0^2)+c_1+c_2=2,
+ \qquad
+ (V\cdot Y_1)=c_0+c_1(Y_1^2)+c_2=-1,
+\]
+and \((V\cdot Y_2)=-1\) by symmetry.  Each of the three sums
+\((H\cdot Y_i)+(V\cdot Y_i)\) vanishes, which is
+\eqref{eq:ch08-principal-degree-zero}, and the vertical intersection numbers
+\((2,-1,-1)\) are precisely the atoms of \(\Delta_\Gamma F\) computed above.
+The two routes agree atom by atom.
+\end{example}
+
+\section{Wanner's comparison theorem}
+\label{sec:ch19-wanner}
+
+There are two a priori different local notions on a curve.  Thuillier calls
+an upper semicontinuous function subharmonic if it satisfies comparison with
+harmonic functions on affinoid domains \cite[Def.~3.1.5]{Thu05}.  In the
+original CLD setting, a continuous function is psh if its current
+\(\dprimeddprime[u]\) is positive.
+
+\subsection{The two definitions}
+\label{sec:ch19-wanner-definitions}
+
+The contrast is the one drawn in \Cref{sec:ch15-classical} between
+definitions from below and definitions from above, in the single case where
+both can be pushed through to a theorem.
+
+\emph{From above.}  Fix a smooth strictly \(K\)-analytic curve \(C\) and an
+open \(W\subseteq C^{\An}\).  A continuous function \(h\) on an affinoid
+domain \(V\subseteq W\) is \emph{harmonic} if it is piecewise affine on
+every skeleton of \(V\) and its outgoing-slope sums vanish at every interior
+point; this is the notion of \Cref{sec:ch08-harmonic} and
+\Cref{prop:ch08-dirichlet}, transported to \(V\) by retraction.  An upper
+semicontinuous \(u:W\to[-\infty,\infty)\) is
+\emph{Thuillier-subharmonic} if for every strictly affinoid \(V\Subset W\)
+and every harmonic \(h\) on \(V\) with \(u\leq h\) on \(\partial V\), one
+has \(u\leq h\) on \(V\).  Membership is proved by verifying comparisons;
+nothing is approximated, and no extension of \(K\) is used.
+
+Both halves of that definition are \cite{Thu05}, and it is worth recording
+how they are set up there, because the construction is what makes the class
+usable.  The sheaf \(\mathcal H_C\) of harmonic germs is built from the
+skeleta \(S(\mathcal X)\) of simply semistable formal models, with their
+retractions \(\tau_{\mathcal X}\), by
+\(\mathrm H(\mathcal X)=\tau_{\mathcal X}^{*}\mathrm H(S(\mathcal
+X),\partial\mathcal X_\eta)\)
+\cite[Def.~2.3.1, Def.~2.3.12, Def.~2.3.16]{Thu05}; that this defines a sheaf
+on every smooth strictly \(K\)-analytic curve, and not merely on the
+generic fibre of one model, uses the rigid-analytic semistable reduction
+theorem of Bosch and L\"utkebohmert in the form \cite[Thm.~2.3.8]{Thu05}.
+The condition displayed above is his \cite[Def.~3.1.5]{Thu05}, and the cone
+of subharmonic germs it defines is a sheaf \(\mathcal{SH}_C\) by
+\cite[Cor.~3.1.13]{Thu05}.  The class is nonempty for the expected reason:
+\(\log|f|\) is harmonic when \(f\) is invertible \cite[Prop.~2.3.20]{Thu05}
+and subharmonic when \(f\) is invertible on a dense open
+\cite[Prop.~3.1.6]{Thu05}.  \Cref{rem:ch08-harmonic-vs-log} records that
+\(\mathcal H_C\) is strictly larger than the sheaf generated by the
+\(\log|f|\), and identifies the obstruction.
+
+\emph{From the current.}  Wanner calls a continuous function \(u\) on \(W\)
+\emph{psh} when \(\dprimeddprime[u]\) is a positive current.  This is not the
+definition of CLD-psh adopted in \Cref{def:ch15-hierarchy}: membership in
+that hierarchy implies positivity of the current by
+\Cref{prop:cld-psh-positive-current}, but the converse is a separate
+regularization question.  The terminology must therefore be kept explicit
+in the comparison theorem.
+
+\subsection{The theorem}
+\label{sec:ch19-wanner-theorem}
+
+\begin{theorem}\label{thm:wanner-curve-comparison}
+Let \(K\) be algebraically closed, complete, and nontrivially valued, let
+\(C\) be a smooth proper algebraic curve, and let \(W\subset C^{\mathrm{an}}\)
+be open.  For a continuous function \(u:W\to\mathbf R\),
+\[
+                  \dprimeddprime[u]\geq0
+        \quad\Longleftrightarrow\quad
+                  u\text{ is Thuillier-subharmonic}.
+\]
+Consequently every continuous CLD-psh function on \(W\) is
+Thuillier-subharmonic.
+\end{theorem}
+\begin{proof}
+This is imported from \cite[Theorem~4.7 and Corollary~4.8]{Wanner19}; no
+proof is claimed here.  In that source, ``psh'' is defined by positivity of
+the current $\dprimeddprime[u]$.  The forward implication in the final
+sentence is \Cref{prop:cld-psh-positive-current} followed by the imported
+equivalence.  It is deliberately not reversed: \cite{Wanner19} does not
+identify current positivity with the approximation-generated hierarchy of
+\Cref{def:ch15-hierarchy} without a separate regularization input.
+\end{proof}
+
+\subsection{What the theorem does and does not give}
+\label{sec:ch19-wanner-scope}
+
+\begin{corollary}
+\label{cor:ch19-curve-three-classes}
+Under the hypotheses of \Cref{thm:wanner-curve-comparison}, every continuous
+CLD-psh function \(u\) on \(W\subseteq C^{\An}\) is
+Thuillier-subharmonic and classically psh in the sense of
+\Cref{sec:ch15-classical}.  In particular, the maximum principle of
+\Cref{cor:ch15-cld-curve-max} is available for every continuous CLD-psh
+function on a curve.  The converse implication from either of the two larger
+classes to the CLD hierarchy is not asserted here.
+\end{corollary}
+
+\begin{proof}
+CLD-psh implies positivity of $\dprimeddprime[u]$ by
+\Cref{prop:cld-psh-positive-current}, hence Thuillier-subharmonic by
+\Cref{thm:wanner-curve-comparison}; it is classically psh independently by
+\Cref{thm:cld-to-classical-psh}.  The maximum principle is the one available
+for the curve-test class.
+\end{proof}
+
+The regularization statement has a smaller scope, and the gap is the first
+example in this book of a property that holds for continuous
+current-psh functions only under supplementary hypotheses.  Such a function
+is locally a decreasing limit of smooth psh functions when the
+residue field is algebraic over a finite field, or when \(C=\mathbf P^1\),
+or when \(C\) is a Mumford curve
+\cite[Corollary~5.4]{Wanner19}.  This is not asserted for every curve.  The
+weakly smooth theory later gives a regularization by weakly smooth psh
+functions on rig-smooth curves under the hypotheses of
+\cite[Theorem~15.11]{GJR26}.
+
+\begin{warning}{Three statements that look alike}
+On a curve, the following are three different assertions.
+\begin{enumerate}
+\item A continuous function has positive \(\dprimeddprime\) if and only if
+ it is Thuillier-subharmonic (\Cref{thm:wanner-curve-comparison}).
+\item A continuous CLD-psh function has positive \(\dprimeddprime\)
+ (\Cref{prop:cld-psh-positive-current}).
+\item A continuous current-psh function belongs to the CLD hierarchy.  This
+ follows from CLD-smooth regularization under the three hypotheses of
+ \cite[Corollary~5.4]{Wanner19}, but is not asserted for every curve.
+\end{enumerate}
+The first statement compares two definitions from above; the third is the
+additional approximation statement and must not be folded into it.
+\end{warning}
+
+\subsection{Currents on a curve, and Thuillier's approximation theorem}
+\label{sec:ch19-thuillier-currents}
+
+The three assertions just separated are separated for a reason, and the
+reason is visible already in \cite{Thu05}, where a complete
+current-theoretic potential theory on curves is built and an unconditional
+approximation theorem is proved---for \emph{his} notion of smoothness, which
+is not the CLD one.  This subsection records the two statements of that
+theory that sharpen what is said above, and then says precisely where the
+two notions of smoothness part company.
+
+We first fix Thuillier's vocabulary.  Let \(k\) be a complete
+non-Archimedean field with nontrivial absolute value and let \(X\) be a
+smooth strictly \(k\)-analytic curve.  Write \(\mathrm I(X)\) for the set of
+points of \(X\) of type~\(\mathrm{II}\) or~\(\mathrm{III}\), equivalently the
+set of Shilov points of the \(k\)-affinoid domains of \(X\).  For an open
+\(\Omega\subseteq X\):
+\begin{itemize}
+\item \(\mathrm A^0(\Omega)\) is the space of \emph{smooth} functions in the
+sense of \cite[Def.~3.2.1(i)]{Thu05}: continuous real functions \(\varphi\)
+on \(\Omega\) admitting a locally finite cover of \(\Omega\) by
+\(k\)-affinoid domains \(Y\) with \(\varphi|_Y\) harmonic on the interior of
+\(Y\);
+\item \(\mathrm A^1(\Omega)\) is the space of \emph{smooth forms}: real
+measures on \(\Omega\) whose support is a locally finite subset of
+\(\mathrm I(\Omega)\) \cite[Def.~3.2.1(ii)]{Thu05};
+\item \(\mathrm D^0(\Omega)=\mathrm A^1_c(\Omega)'\) and
+\(\mathrm D^1(\Omega)=\mathrm A^0_c(\Omega)'\) are the currents of degree
+\(0\) and \(1\), with the weak topology \cite[Def.~3.3.1]{Thu05}.
+\end{itemize}
+There is exactly one operator \(\ddc:\mathrm A^0_X\to\mathrm A^1_X\)
+compatible with base change and with the discrete Laplacian
+\eqref{eq:graph-laplacian} on every skeleton, that is with
+\(\ddc(\Phi\circ\tau_{\mathcal Y})=\Delta_{S(\mathcal Y)}\Phi\), and its
+kernel is the sheaf of harmonic germs
+\cite[Thm.~3.2.10 and Cor.~3.2.11(i)]{Thu05}.  It is symmetric,
+\(\int\varphi_1\,\ddc\varphi_2=\int\varphi_2\,\ddc\varphi_1\)
+\cite[Prop.~3.2.12]{Thu05}, hence transposes to a continuous operator
+\(\ddc:\mathrm D^0\to\mathrm D^1\).  Two structural facts make it behave like
+an elliptic operator: it is \emph{regular}, in that
+\(\mathrm A^0(X)\subset\mathrm D^0(X)\) is exactly the set of degree-zero
+currents \(T\) with \(\ddc T\in\mathrm A^1(X)\)
+\cite[Prop.~3.3.11]{Thu05}, and for \(X\) connected and proper its image is
+the hyperplane \(\{\rho\in\mathrm D^1(X):\langle\rho,1\rangle=0\}\)
+of degree-one currents orthogonal to the constants
+\cite[Thm.~3.3.13]{Thu05}.
+
+\refstepcounter{theorem}\label{thm:ch19-thuillier-sh-currents}
+\begin{quote}
+\textbf{Foundational input \thetheorem\ (Thuillier's current-theoretic
+characterization; source boundary).}
+Let \(k\) be a complete non-Archimedean field with nontrivial absolute value
+and let \(X\) be a smooth strictly \(k\)-analytic curve.
+\begin{enumerate}
+\item\label{itm:ch19-thu:inject}
+Restriction to \(\mathrm I(X)\) identifies a subharmonic function on \(X\)
+with a degree-zero current, and the map
+\(\mathcal{SH}(X)\hookrightarrow\mathrm D^0(X)\) so obtained is injective.
+\item\label{itm:ch19-thu:measures}
+A degree-one current on \(X\) is positive if and only if it is a positive
+Radon measure on the locally compact space \(|X|\).
+\item\label{itm:ch19-thu:cone}
+Under \cref{itm:ch19-thu:inject}, the real cone \(\mathcal{SH}(X)\) is exactly
+the set of \(T\in\mathrm D^0(X)\) such that \(\ddc T\) is positive, that is
+such that \(\langle T,\ddc\varphi\rangle\geq0\) for every
+\(\varphi\in\mathrm A^0_c(X)\) with \(\varphi\geq0\).
+\item\label{itm:ch19-thu:bijection}
+If moreover \(X\) is connected and is either the analytification of an affine
+algebraic curve or a connected component of the interior of a \(k\)-affinoid
+space, then \(T\mapsto\ddc T\) induces a bijection from
+\(\mathcal{SH}(X)/\Gamma(X,\mathcal H_X)\) onto the positive Radon measures
+on \(|X|\).
+\item\label{itm:ch19-thu:X0}
+A subharmonic function on \(X\) is determined by its restriction to
+\(X_0=\{x\in X:[\kappa(x):k]<\infty\}\).
+\end{enumerate}
+Items \cref{itm:ch19-thu:inject}--\cref{itm:ch19-thu:X0} are imported,
+respectively, from \cite[Lem.~3.4.1, Thm.~3.4.12, Cor.~3.4.13,
+Thm.~3.6.26]{Thu05}; no proof is claimed here.
+\end{quote}
+
+Item~\cref{itm:ch19-thu:cone} is the curve prototype of the whole CLD
+picture: a potential is a current, and semipositivity of the potential is
+positivity of its curvature current, with no regularity hypothesis
+whatsoever.  It is the exact analogue of the classical statement that a
+subharmonic function on a domain in \(\mathbf C\) is a distribution with
+positive Laplacian, and it is what the CLD calculus reproduces in higher
+dimension only for the continuous---or at best the locally bounded---part of
+the theory; see \Cref{sec:ch19-limitations}.  Item~\cref{itm:ch19-thu:X0} has
+no CLD counterpart at all: it says that the rigid points, a set that is not
+even dense for the Berkovich topology, already determine a subharmonic
+function, and its proof runs through the capacity theory of
+\cite[\S3.6]{Thu05}.
+
+\refstepcounter{theorem}\label{thm:ch19-thuillier-approximation}
+\begin{quote}
+\textbf{Foundational input \thetheorem\ (Thuillier's approximation
+theorem; source boundary).}
+Let \(k\) be a complete non-Archimedean field with nontrivial absolute value,
+let \(X\) be a smooth strictly \(k\)-analytic curve, let
+\(\Omega\subseteq X\) be open and let \(u\in\mathcal{SH}(\Omega)\).  Then for
+every relatively compact open \(\Omega'\Subset\Omega\) the restriction
+\(u|_{\Omega'}\) is the lower envelope of a decreasing family of
+\emph{smooth} subharmonic functions on \(\Omega'\), smooth being understood
+in the sense of \(\mathrm A^0\) above.  Moreover a smooth function
+\(\varphi\in\mathrm A^0(X)\) is subharmonic if and only if
+\(\ddc\varphi\geq0\).
+
+No hypothesis is placed on \(k\), on its residue field, or on \(X\) beyond
+those displayed, and the approximating family may be taken to be indexed by
+the finite subsets \(S\subseteq\mathrm I(Y)\) containing \(\partial Y\), for
+a compact \(k\)-analytic \(Y\) with \(\Omega'=Y\smallsetminus\partial Y\),
+by taking \(u_S\) harmonic on \(Y\smallsetminus S\) and equal to \(u\) on
+\(S\).
+The approximation and the smooth characterization are imported from
+\cite[Thm.~3.4.2, Prop.~3.4.4]{Thu05}; no proof is claimed here.
+\end{quote}
+
+The statement for metrics rather than functions is
+\cite[Thm.~3.4.19]{Thu05}: on a proper smooth curve a subharmonic metric on
+a line bundle is the \emph{increasing} upper envelope of a family of smooth
+subharmonic metrics, the direction being reversed because the weight
+\(-\log\|s\|\) reverses it.  Both directions are used in
+\cite[\S4.3.3]{Thu05} to deduce an arithmetic Hilbert--Samuel statement.
+
+\begin{remark}[Thuillier-smooth is not CLD-smooth]
+\label{rem:ch19-thuillier-smooth-vs-cld}
+\Cref{thm:ch19-thuillier-approximation} and item~(3) of the warning above are
+not in conflict, and the reason is a genuine difference of vocabulary that it
+is worth stating once and for all.
+
+A Thuillier-smooth function is one that is locally harmonic on affinoid
+pieces; equivalently, by \cite[Prop.~3.2.4]{Thu05}, one that is locally of
+the form \(\Phi\circ\tau_{\mathcal Y}\) with \(\Phi\) continuous and
+piecewise affine on the skeleton \(S(\mathcal Y)\).  In the language of this
+book these are exactly the \(\mathbf R\)-PL functions that factor through a
+skeleton, and their \(\ddc\) is an atomic measure, by construction.  A
+CLD-smooth function is locally \(F\circ\trop\) with \(F\) a \(C^\infty\)
+function on \(N_{\mathbf R}\); its \(\dprimeddprime\) is absolutely
+continuous along the edges of a skeleton and, as \Cref{rem:ch19-thuillier-balanced}
+records, carries no atom at all.  The two classes are therefore
+incomparable in an essential way, and neither contains the other:
+\(\max\{0,-u\}\) of \Cref{ex:ch19-p1-standard} is Thuillier-smooth and not
+CLD-smooth, and \(F_\varepsilon\circ\trop\) of \Cref{ex:ch19-p1-nonpl} is
+CLD-smooth and not Thuillier-smooth.
+
+Consequently \Cref{thm:ch19-thuillier-approximation} gives a decreasing net
+of Thuillier-smooth, hence skeletal piecewise affine, subharmonic functions
+for arbitrary upper semicontinuous subharmonic \(u\).  It does not prove
+item~(3) of the warning, because that item is a statement about the
+CLD-smooth sheaf and about the approximation-generated CLD hierarchy.  The
+passage from a piecewise affine current-psh function to a decreasing family
+of CLD-smooth psh functions is exactly where
+\cite[Cor.~5.4]{Wanner19} needs its three hypotheses.  Those hypotheses are
+Thuillier's own \cite[Thm.~2.3.21]{Thu05}: \(\widetilde K\) algebraic over a
+finite field, or \(C\) locally isomorphic to \(\mathbf P^1\), are precisely
+the two conditions under which \(\mathcal H_C\) is generated by the germs
+\(\log|f|\) and the residual Picard groups of
+\Cref{rem:ch08-harmonic-vs-log} are torsion.  The coincidence is not an
+accident: an atom that a CLD-smooth function cannot produce has to be
+produced by a \(\log|f|\), and that requires a degree-zero residual divisor
+to be principal.
+\end{remark}
+
+\begin{remark}[The vanishing vertex atom of a smooth function on a balanced
+space]
+\label{rem:ch19-thuillier-balanced}
+Here is the one-line computation behind the previous remark, in the tropical
+language of \Cref{chap:tropical-spaces,chap:cld-poincare-lelong}.  Let
+\(X\) be a one-dimensional balanced weighted tropical space, let \(p\) be a
+vertex with tangent directions \(\sigma\in T_pX\), weights \(m_\sigma\) and
+primitive generators \(u_{\sigma/p}\), and let \(F\) be smooth near the image
+of \(p\), so that \(u=F\circ\trop\) is CLD-smooth.  The atom of
+\(\dprimeddprime[u]\) at \(p\) is, by \Cref{lem:ch15-vertex-atom},
+\[
+ \sum_{\sigma\in T_pX}m_\sigma\,d_\sigma u(p)
+ =\sum_{\sigma\in T_pX}m_\sigma\bigl\langle\rd F,u_{\sigma/p}\bigr\rangle
+ =\Bigl\langle\rd F,\sum_{\sigma\in T_pX}m_\sigma u_{\sigma/p}\Bigr\rangle
+ =0 ,
+\]
+the last equality being the balancing condition
+\Cref{def:ch10-weighted-balanced}.  So on a balanced one-dimensional space
+every CLD-smooth function has vanishing vertex atoms, and
+\(\dprimeddprime[F\circ\trop]\) is the edgewise measure \(F''\rd s\).  A
+function with a strictly positive vertex atom---for instance the model
+function of \Cref{ex:ch19-p1-standard}---is therefore never CLD-smooth, yet
+under the hypotheses of \cite[Cor.~5.4]{Wanner19} it is a decreasing limit of
+CLD-smooth psh functions, the curvature of the approximants concentrating at
+the vertex as in \Cref{ex:ch19-p1-nonpl}.  \Cref{thm:ch19-thuillier-approximation}
+is the analytic counterpart of exactly this phenomenon, with the roles of the
+two smooth classes exchanged: Thuillier's smooth functions are the ones that
+carry the atoms, so his approximation is unconditional, and the difficulty is
+displaced onto the comparison of the two notions of smoothness rather than
+onto the approximation itself.
+\end{remark}
+
+\begin{example}[The standard metric on \(\mathbf P^1\)]
+\label{ex:ch19-p1-standard}
+On the chart \([1:T]\), the standard model metric on \(\mathcal O(1)\)
+satisfies
+\[
+              -\log\|X_0\|=\log\max\{1,|T|\}.
+\]
+Put \(u=-\log|T|\).  On the toric skeleton this weight is
+\(\max\{0,-u\}\), with one unit kink at \(u=0\).  Hence
+\[
+                   c_1(\mathcal O(1),\|\cdot\|_{\mathrm{st}})
+                          =\delta_{\zeta_G},
+\]
+where \(\zeta_G\) is the Gauss point.  Its mass is one, the degree of
+\(\mathcal O(1)\).
+
+The same statement read through \Cref{thm:wanner-curve-comparison}: the
+function \(\max\{0,-u\}\) is convex, hence Thuillier-subharmonic on the
+apartment, hence has positive curvature current, and its Laplacian is the
+unit atom at the kink.  Its CLD-psh membership here comes instead from the
+toric approximation statement \Cref{thm:toric-positivity}.
+Read through \Cref{sec:toric-convex}, it is the case \(n=1\), \(P=[0,1]\) of
+the recession identity \(F=\check h_P\), whose Alexandrov measure is
+\(\vol_M(P)\delta_0=\delta_0\) and whose non-Archimedean mass is
+\(1!\cdot1=1\).  Three languages, one atom.
+\end{example}
+
+\begin{example}[A continuous psh weight that is not PL]
+\label{ex:ch19-p1-nonpl}
+Keep \(X=\mathbf P^1\), \(L=\cO(1)\), and let \(u=v(T)\) be the coordinate on
+the apartment \(\mathbf R\).  For \(\varepsilon>0\) put
+\[
+ F_\varepsilon(u)=\varepsilon\log\bigl(1+\rme^{-u/\varepsilon}\bigr),
+\]
+as in \Cref{sec:toric-convex}.  Then \(F_\varepsilon\) is smooth, strictly
+convex, and \(0\leq F_\varepsilon-\max\{0,-u\}\leq\varepsilon\log2\), so
+\(F_\varepsilon\circ\trop\) is a continuous semipositive metric on
+\(\cO(1)\), and
+\[
+ c_1\bigl(\cO(1),\|\cdot\|_{F_\varepsilon}\bigr)
+ =F_\varepsilon''(u)\,\rd u
+ =\frac{1}{\varepsilon}
+   \frac{\rme^{-u/\varepsilon}}{\bigl(1+\rme^{-u/\varepsilon}\bigr)^2}\,\rd u,
+\]
+a measure with smooth positive density on the apartment and total mass
+\(\int_{\mathbf R}F_\varepsilon''=F_\varepsilon'(+\infty)-F_\varepsilon'(-\infty)
+=0-(-1)=1=\deg\cO(1)\).  As \(\varepsilon\downarrow0\) these measures
+converge weakly to \(\delta_{\zeta_G}\), recovering
+\Cref{ex:ch19-p1-standard}.  The example shows that even on
+\(\mathbf P^1\) the curvature of a continuous semipositive metric need not
+be atomic, so \eqref{eq:ch19-curve-formal-measure} is genuinely a statement
+about \emph{model} metrics.
+\end{example}
+
+\section{Toric metrics and convex functions}
+\label{sec:ch19-toric}
+
+\subsection{Setup and the two dictionaries}
+\label{sec:ch19-toric-setup}
+
+Let \(T=\operatorname{Spec}K[M]\) be a split torus, with cocharacter lattice
+\(N\), and let \(X_\Sigma\) be the toric variety of a fan \(\Sigma\).  The
+extended tropicalization is
+\[
+                  \operatorname{trop}:X_\Sigma^{\mathrm{an}}\longrightarrow N_\Sigma,
+\]
+where \(N_\Sigma\) is the tropical toric partial compactification.
+
+A toric line bundle \(L\), together with a toric meromorphic section \(s\),
+is encoded by an integral piecewise linear support function on \(\Sigma\).
+A torus-invariant metric is encoded on the dense torus by a function
+\(\phi:N_{\mathbf R}\to\mathbf R\) satisfying
+\begin{equation}
+                       -\log\|s(x)\|=\phi(\operatorname{trop}(x)).
+\label{eq:toric-metric-potential}
+\end{equation}
+The boundary growth of \(\phi\) is prescribed by \(L\); it is not an
+arbitrary convex function on \(N_{\mathbf R}\).
+
+Two dictionaries are in play and must not be confused.  The first is between
+\emph{toric geometry} and \emph{convex geometry}: the line bundle \(L\) with
+its toric section corresponds to a polytope \(P\subset M_{\mathbf R}\), and
+by \Cref{sec:toric-convex} the correct recession function of the weight
+\(\phi\) is the reflected support function
+\[
+ \check h_P(u)=\sup_{m\in P}\langle-m,u\rangle,
+\]
+the reflection being forced by \eqref{eq:toric-trop}.  A toric metric on
+\(L\) is thus a function \(\phi\) with \(\phi-\check h_P\) bounded, and
+different toric sections change \(\phi\) and \(\check h_P\) by the same
+affine function, so nothing below depends on the choice.  The second
+dictionary is between \emph{convex geometry} and \emph{tropical differential
+calculus}: \(\dprimeddprime\phi\) is the Hessian superform, its top power is
+\(n!\) times the Monge--Amp\`ere determinant by
+\eqref{eq:appJ-real-hessian}, and the factor \(n!\) is the one recorded in
+normalization~\cref{itm:ch19-norm:factorial}.
+
+The following lemma is the elementary reason why the two dictionaries are
+compatible; it is the toric case of \Cref{prop:cld-local-normal-form}.
+
+\begin{lemma}
+\label{lem:ch19-toric-chart}
+Let \(\iota:N_{\mathbf R}\to T^{\An}\) be the Gauss section
+\eqref{eq:toric-gauss-section}.  Then:
+\begin{enumerate}
+\item \(\trop\circ\iota=\operatorname{id}\), \(\iota\) is a homeomorphism onto the toric
+ skeleton \(\Sk(T)\subseteq T^{\An}\), and \(\trop\) restricted to
+ \(\Sk(T)\) is its inverse;
+\item a choice of basis of \(M\) makes \(\trop\) a smooth tropicalization
+ in the sense of \Cref{chap:analytic-tropicalization}, with all coordinates
+ of the form \(-\log|\chi^{m}|\) for invertible \(\chi^m\);
+\item for a continuous function \(\phi\) on \(N_{\mathbf R}\), the pullback
+ \(\phi\circ\trop\) is CLD-smooth on \(T^{\An}\) exactly when \(\phi\) is
+ smooth on \(N_{\mathbf R}\), and then
+ \(\dprimeddprime[\phi\circ\trop]=\trop^*\dprimeddprime\phi\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Part~(1) is \Cref{lem:ch08-toric-gauss-section}.  For (2), the coordinates
+$u_i=-\log|\chi^{m_i}|$ for a basis $(m_i)$ of $M$ are moment coordinates of
+invertible functions on $T$, hence a smooth tropicalization by
+\Cref{def:trop-local-skeleton}; the image is all of $N_{\mathbf R}$ and the
+canonical calibration is the constant weight $1$ by
+\Cref{thm:trop-calibration-canonical}, since $\trop$ is the standard torus
+tropicalization of \Cref{prop:trop-torus-skeleton}.  Part (3) is then the
+definition of a CLD-smooth function on a tropical chart
+(\Cref{def:ch13-cld-form}) together with the compatibility of $\dprime$ and
+$\ddprime$ with chart pullback, \Cref{prop:cld-intrinsic-calculus}.  Because
+the calibration is trivial, no lattice index intervenes; this is what makes
+the toric case free of the correction factors of
+\Cref{thm:trop-multiplicity-formula}.
+\end{proof}
+
+\begin{lemma}
+\label{lem:ch19-toric-recession}
+Let \(\phi,\phi'\) be convex functions on \(N_{\mathbf R}\) whose difference
+is bounded.  Then their recession functions agree, their subgradient images
+have the same closure, and
+\[
+ \MA_{\mathbf R}(\phi)(N_{\mathbf R})=\MA_{\mathbf R}(\phi')(N_{\mathbf R}).
+\]
+If moreover \(\phi-\check h_P\) is bounded for a lattice polytope \(P\), then
+that common mass is \(\vol_M(P)\).
+\end{lemma}
+
+\begin{proof}
+The recession function of a convex $\phi$ is
+$\lim_{t\to\infty}t^{-1}\phi(u_0+tw)$, which is unchanged by a bounded
+perturbation.  By convex duality
+(\Cref{thm:appD-fenchel-moreau} and \eqref{eq:appD-support}), the closure of
+$\bigcup_u\partial\phi(u)$ is the domain of the Legendre transform
+$\phi^*$, and the recession function of $\phi$ is the support function of
+that domain; hence equal recession functions give the same closed subgradient
+image.  The total Alexandrov mass is the Lebesgue measure of that image by
+\eqref{eq:alexandrov-ma}.  The last assertion is
+\Cref{lem:toric-real-total-mass}.
+\end{proof}
+
+\begin{theorem}\label{thm:toric-positivity}
+For a piecewise smooth toric metric, psh, functorial psh, and functorial
+delta-psh are equivalent to convexity of \(\phi\).  For a formal toric metric,
+this is also equivalent to semipositivity of the formal model.
+\end{theorem}
+\begin{proof}
+Choose a toric polyhedral subdivision on which the metric weight is smooth
+on every cell.  In the toric tropical frame, the Chern delta-current is the
+sum of the facewise Hessian of $\phi$ and its corner cycle.  By
+\Cref{thm:gk-tropical-frame-positivity}, it is positive exactly when the
+Hessian is positive semidefinite on every cell and every corner weight is
+nonnegative.  These two conditions are precisely convexity of the
+piecewise-smooth function $\phi$.  Toric pullback is integer affine, so the
+same condition is preserved by every pullback; psh, functorial psh, and
+functorial delta-psh are therefore equivalent.  This is
+\cite[Proposition~8.13]{GK19}.
+
+For a formal toric metric, $\phi$ is rational piecewise affine.  Its corner
+weights are the degrees of the residual toric line bundle on invariant
+curves.  Nonnegativity of all those weights is equivalent to relative
+nefness of the formal toric model, since the cone of curves of a complete
+toric stratum is generated by invariant curves.  Thus convexity is also
+equivalent to formal semipositivity, as in
+\cite[Corollary~8.14]{GK19}.  With the alternative potential
+$\psi=\log\|s\|=-\phi$, the same condition is concavity of $\psi$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch19-toric-convexity-test}
+Let \(\phi\) be a piecewise smooth toric metric weight for \(L\) on the
+dense torus.  Then \(\overline L\) is psh over \(T^{\An}\) if and only if
+\(\phi\) is convex on \(N_{\mathbf R}\); and if \(\Sigma\) is complete, so
+that \(\phi-\check h_P\) is bounded, this holds if and only if
+\(\phi=\check h_P+\psi\) with \(\check h_P+\psi\) convex, in which case
+\(\phi\) is automatically the supremum of the affine functions it dominates.
+\end{corollary}
+
+\begin{proof}
+The first assertion is \Cref{thm:toric-positivity}.  For the second, a
+finite convex function on $N_{\mathbf R}$ is the supremum of its affine
+minorants by \Cref{thm:appD-fenchel-moreau}, and the boundedness of
+$\phi-\check h_P$ restricts the slopes of those minorants to $-P$ by
+\Cref{lem:ch19-toric-recession}.
+\end{proof}
+
+\begin{remark}[Why toric positivity has no hidden content]
+\label{rem:ch19-toric-no-content}
+The equivalences of \Cref{thm:toric-positivity} are, in this one family, not
+deep: every notion of positivity in this book is stable under pullback by
+integral affine maps, and on a toric variety the invariant metrics form a
+family parametrized by functions on \(N_{\mathbf R}\) on which every such
+notion is a convexity condition.  The value of the statement is exactly its
+role as a normalization check.  If a new positivity notion were introduced
+and failed to reduce to convexity here, it would be wrong; if it reduced to
+convexity but produced a mass other than \(n!\vol_M(P)\), its normalization
+would be wrong.  Both failures have occurred in the literature, which is why
+\Cref{sec:ch19-mass-ledger} records the masses explicitly.
+\end{remark}
+
+\subsection{Continuous and singular invariant metrics}
+\label{sec:ch19-toric-continuous}
+
+The continuous and singular toric comparison is more extensive.  Fix a
+continuous reference Green function and let \(\theta\) be its tropical Chern
+current.  A function \(\varphi\) on an open subset \(U\subset N_\Sigma\) is
+\(\theta\)-psh precisely when \(\varphi\circ\operatorname{trop}\) defines a
+continuous invariant psh metric on
+\(\operatorname{trop}^{-1}(U)\).  For finite continuous potentials, this is
+also equivalent to local uniform approximation by smooth psh metrics.  If
+\(\Sigma\) is complete and the valuation is nontrivial, these conditions are
+equivalent to global Zhang semipositivity.  This is the exact statement of
+\cite[Theorem~5.3.11]{BGJKK25}.
+
+Three features of this statement deserve emphasis, because they are the
+features that the general theory does \emph{not} have.
+
+\begin{enumerate}
+\item\label{itm:ch19-toric-inv} \emph{Invariance is a hypothesis, not a
+conclusion.}  The equivalence is asserted for torus-invariant metrics.  A
+noninvariant continuous metric on a toric variety is not covered, and no
+averaging argument reduces the general case to the invariant one, because
+averaging over the compact torus does not preserve the class of psh metrics
+in an obvious way; see \Cref{sec:ch19-limitations}.
+\item\label{itm:ch19-toric-sing} \emph{Singular potentials are allowed on
+the tropical side.}  A \(\theta\)-psh \(\varphi\) may take the value
+\(-\infty\), and the correspondence with invariant metrics persists.  What
+does not persist without further hypotheses is the existence of
+Bedford--Taylor products; those require local boundedness, exactly as in
+\Cref{chap:cld-bedford-taylor}.
+\item\label{itm:ch19-toric-global} \emph{The last equivalence is global.}
+Zhang semipositivity is a statement about uniform approximation by
+semipositive \emph{model} metrics on a proper variety; that it agrees with a
+local convexity condition is special to the invariant toric setting, and it
+is the toric shadow of the comparison proved in
+\Cref{sec:ch19-cld-bfj}.
+\end{enumerate}
+
+\subsection{The Monge--Amp\`ere comparison}
+\label{sec:ch19-toric-ma}
+
+Let \(\overline L_1,\ldots,\overline L_q\) be locally psh-approximable toric
+metrics corresponding to tropical potentials \(\varphi_i\) and reference
+currents \(\theta_i\).  Then
+\begin{equation}
+ \operatorname{trop}_*\left(
+      c_1(\overline L_1)\wedge\cdots\wedge c_1(\overline L_q)
+                         \right)
+       =\bigwedge_{i=1}^q\bigl(\dprimeddprime[\varphi_i]+\theta_i\bigr).
+\label{eq:cld-toric-ma-comparison}
+\end{equation}
+This is \cite[Theorem~6.1.1]{BGJKK25}.  The right-hand side is the tropical
+Bedford--Taylor product, so \eqref{eq:cld-toric-ma-comparison} is an equality of
+currents, and of measures when \(q=\dim X_\Sigma\).
+
+On an open subset of \(N_{\mathbf R}\), if \(\phi\) is \(C^2\) and convex,
+then
+\begin{equation}
+                  (\dprimeddprime\phi)^n
+                    =n!\det\bigl(\partial_i\partial_j\phi\bigr)\,\rd x.
+\label{eq:real-ma-density}
+\end{equation}
+For a nonsmooth convex \(\phi\), the right-hand side extends to
+\(n!\) times its Alexandrov Monge--Amp\`ere measure.  Hence the
+non-Archimedean toric measure is literally a real Monge--Amp\`ere measure
+after tropical pushforward, with no hidden normalization.
+
+We record the top-degree case in the form used in every computation below.
+
+\begin{theorem}
+\label{thm:ch19-toric-ma}
+Let \(X_\Sigma\) be a proper toric variety of dimension \(n\) over a
+complete nontrivially valued field, let \(L\) be an ample toric line bundle
+with polytope \(P\subset M_{\mathbf R}\), and let \(\|\cdot\|_\phi\) be a
+continuous invariant semipositive metric with weight \(\phi\), so that
+\(\phi\) is convex and \(\phi-\check h_P\) is bounded.  Then
+\(c_1(L,\|\cdot\|_\phi)^n\) is supported on the toric skeleton,
+\begin{equation}
+\label{eq:ch19-toric-ma}
+ \trop_*\,c_1\bigl(L,\|\cdot\|_\phi\bigr)^n
+ =n!\,\MA_{\mathbf R}(\phi),
+\end{equation}
+and both sides have total mass
+\[
+                     n!\vol_M(P)=(L^n).
+\]
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the model case.}  If $\phi$ is a rational piecewise affine
+convex function, \eqref{eq:ch19-toric-ma} is
+\Cref{thm:toric-ma-comparison}, whose proof identifies the coefficient of
+the Chambert--Loir measure at a vertex $u$ of the domain-of-affinity
+decomposition with $n!\vol_M(\partial\phi(u))$.  That the CLD product agrees
+with the Chambert--Loir measure for formal metrics is
+\Cref{thm:cld-recovers-cl}, and that it agrees with the delta-form product
+is \Cref{thm:gk-delta-cl-measure}.
+
+\emph{Step 2: support.}  The metric weight $\phi\circ\trop$ is constant on
+the fibres of $\trop$, so by \Cref{prop:ch16-skeletal-support} the
+Bedford--Taylor product $c_1(L,\|\cdot\|_\phi)^n$ has support contained in
+the toric skeleton $\iota(N_{\mathbf R})$ of $X_\Sigma$; concretely, on the
+inverse image of a cone of $\Sigma$ the weight factors through the
+tropicalization, and by \Cref{lem:ch19-toric-chart}\,(3) the product is the
+pullback of a top-degree superform, which is a measure carried by the
+skeleton.
+
+\emph{Step 3: continuity in $\phi$.}  Semipositive rational piecewise affine
+convex functions with recession function $\check h_P$ are uniformly dense in
+the continuous ones: given $\phi$ and $\varepsilon>0$, take the piecewise
+affine convex function $\phi_\varepsilon$ obtained as the supremum of finitely
+many affine minorants of $\phi$ with slopes in $-P\cap\frac1kM$, chosen so
+that the supremum is within $\varepsilon$ of $\phi$ on a large ball and has
+the same recession function.  On the non-Archimedean side, uniform
+convergence of weights is uniform convergence of metrics, so
+\Cref{thm:cld-bt-continuity} gives weak convergence of the products; on the
+convex side, Alexandrov measures converge weakly under locally uniform
+convergence of finite convex functions.  Passing to the limit in Step~1
+proves \eqref{eq:ch19-toric-ma} in general.  This is
+\Cref{cor:toric-ma-continuous}.
+
+\emph{Step 4: the mass.}  By \Cref{lem:ch19-toric-recession} the total
+Alexandrov mass is $\vol_M(P)$, so the left-hand side has mass
+$n!\vol_M(P)$; and $n!\vol_M(P)=(L^n)$ is the toric degree formula
+\eqref{eq:appJ-toric-degree}.  Independently, the mass of the top wedge of
+Chern currents of any continuous semipositive metric on an ample $L$ is
+$(L^n)$ by \Cref{prop:ch16-degree-formula}; the two computations agree, which
+is the check.
+\end{proof}
+
+\begin{example}[A polyhedral toric measure]
+\label{ex:ch19-toric-polyhedral}
+Let
+\[
+                  \phi(u)=\max_{1\leq j\leq r}
+                              \{\langle m_j,u\rangle+c_j\}
+\]
+be a convex polyhedral function whose boundary behavior defines a metric on
+a proper toric \(n\)-fold.  At a vertex \(u_0\), let
+\(P_{u_0}\subset M_{\mathbf R}\) be the convex hull of the active slopes
+\(m_j\).  Then the Alexandrov mass at \(u_0\) is
+\[
+                            \operatorname{vol}_M(P_{u_0}).
+\]
+Consequently the normalized superform, and hence non-Archimedean,
+Monge--Amp\`ere measure has an atom of mass
+\(n!\operatorname{vol}_M(P_{u_0})\) at the canonical skeletal point over
+\(u_0\).  For rational slopes this is the normalized lattice volume that
+appears as a special-fibre intersection number on the associated toric
+model.
+\end{example}
+
+\subsection{Three toric surfaces, computed}
+\label{sec:ch19-toric-worked}
+
+The next three examples exhibit, on surfaces, the three types of measure
+that a tropical Monge--Amp\`ere operator can produce: purely atomic, carried
+by a segment, and absolutely continuous.  In each case the total mass is
+verified against the top self-intersection number.  All three use
+\Cref{thm:ch19-toric-ma} and
+normalization~\cref{itm:ch19-norm:factorial}; the reader who reproduces them
+has verified the factor \(n!=2\) three times over.
+
+\begin{example}[Two atoms on \(\mathbf P^1\times\mathbf P^1\)]
+\label{ex:ch19-toric-two-atoms}
+\index{toric variety!Monge--Ampere measure computed}
+Let \(X=\mathbf P^1\times\mathbf P^1\), \(N=\mathbf Z^2\),
+\(L=\cO(1,1)\), with polytope \(P=[0,1]^2\), so that
+\[
+ \vol_M(P)=1,
+ \qquad
+ (L^2)=2!\cdot1=2=(H_1+H_2)^2 .
+\]
+The reflected support function is
+\[
+ \check h_P(u)=\max\{0,-u_1\}+\max\{0,-u_2\}
+              =\max\{0,-u_1,-u_2,-u_1-u_2\}.
+\]
+
+Consider instead
+\[
+ \phi=\max\{\ell_0,\ell_1,\ell_2,\ell_3\},
+ \qquad
+ \begin{aligned}
+  \ell_0&=0, &\ell_1&=-u_1,\\
+  \ell_2&=-u_2, &\ell_3&=-u_1-u_2-1 .
+ \end{aligned}
+\]
+The slopes \((0,0),(-1,0),(0,-1),(-1,-1)\) are the four vertices of
+\(-P\), so \(\phi-\check h_P\) is bounded (indeed \(-1\leq\phi-\check
+h_P\leq0\)) and \(\phi\) is a model metric weight for \(L\) as soon as
+\(1\in v(K^\times)\).  Note that \(\phi\) is \emph{not} a sum of functions of
+\(u_1\) and of \(u_2\) separately, because of the constant \(-1\).
+
+\emph{Locating the atoms.}  By
+\Cref{lem:ch08-alexandrov-polyhedral}\,(3), an atom sits exactly at a point
+where three of the four affine functions agree and are maximal.  The four
+triples give
+\[
+\begin{array}{lll}
+ \ell_0=\ell_1=\ell_2:& u=(0,0),
+  &\ell_3=-1<0:\ \text{maximal};\\
+ \ell_1=\ell_2=\ell_3:& u=(-1,-1),
+  &\ell_0=0<1=\ell_1:\ \text{maximal};\\
+ \ell_0=\ell_1=\ell_3:& u=(0,-1),
+  &\ell_2=1>0:\ \text{not maximal};\\
+ \ell_0=\ell_2=\ell_3:& u=(-1,0),
+  &\ell_1=1>0:\ \text{not maximal},
+\end{array}
+\]
+each value in the third column being taken at the point in the second.
+\emph{The masses.}  By \Cref{lem:ch08-alexandrov-polyhedral}\,(1),
+\[
+ \partial\phi(0,0)=\operatorname{conv}\{(0,0),(-1,0),(0,-1)\},
+\]
+\[
+ \partial\phi(-1,-1)=\operatorname{conv}\{(-1,0),(0,-1),(-1,-1)\},
+\]
+two triangles, each half of the unit square \(-P\), of lattice area
+\(\tfrac12\).  Hence
+\[
+ \MA_{\mathbf R}(\phi)
+ =\tfrac12\delta_{(0,0)}+\tfrac12\delta_{(-1,-1)},
+ \qquad\text{mass }1=\vol_M(P),
+\]
+and by \eqref{eq:ch19-toric-ma}
+\[
+ \trop_*c_1\bigl(L,\|\cdot\|_\phi\bigr)^2
+ =2!\left(\tfrac12\delta_{(0,0)}+\tfrac12\delta_{(-1,-1)}\right)
+ =\delta_{\iota(0,0)}+\delta_{\iota(-1,-1)},
+\]
+of total mass \(2=(L^2)\).
+
+The two subgradient triangles meet along the segment from \((-1,0)\) to
+\((0,-1)\), which has empty interior, so the disjointification in
+\eqref{eq:alexandrov-ma} costs nothing; this is
+\Cref{lem:ch08-alexandrov-polyhedral}\,(2) in action.
+
+\emph{Reading the answer geometrically.}  The corner locus of \(\phi\) is
+the tropical curve consisting of the segment \(\{u_1=u_2\in[-1,0]\}\)
+joining the two atoms, together with four unbounded rays.  It is the
+skeleton of the toric model whose special fibre has two irreducible
+surfaces, each of residual self-intersection \(1\), matching the two unit
+atoms.
+\end{example}
+
+\begin{example}[A measure carried by a segment]
+\label{ex:ch19-toric-segment}
+Keep \(X=\mathbf P^1\times\mathbf P^1\) and \(L=\cO(1,1)\).  Define
+\[
+ B(t)=\begin{cases}
+        0, & t\geq0,\\
+        \tfrac12t^2, & -1\leq t\leq0,\\
+        -t-\tfrac12, & t\leq-1,
+      \end{cases}
+\]
+a \(C^1\) convex function with \(B''=\one_{[-1,0]}\) in the sense of
+measures, and put
+\[
+ \phi(u)=\max\{0,-u_1\}+B(u_2).
+\]
+Then \(B(t)-\max\{0,-t\}\) is bounded by \(\tfrac12\), so
+\(\phi-\check h_P\) is bounded and \(\phi\) is a continuous semipositive
+toric weight for \(L\).  Since \(\phi\) splits as a sum of a function of
+\(u_1\) and a function of \(u_2\), its subgradient is the product
+\(\partial\phi(u)=\partial\max\{0,-\cdot\}(u_1)\times\{B'(u_2)\}\) and its
+Alexandrov measure is the product measure
+\[
+ \MA_{\mathbf R}(\phi)
+ =\delta_{u_1=0}\otimes\one_{[-1,0]}(u_2)\,\rd u_2 ,
+\]
+the uniform measure of mass \(1\) on the segment
+\(S=\{0\}\times[-1,0]\subset N_{\mathbf R}\).  Its total mass is
+\(1\cdot1=1=\vol_M(P)\), and
+\[
+ \trop_*c_1\bigl(L,\|\cdot\|_\phi\bigr)^2
+ =2\,\one_S\cdot(\text{lattice length on }S),
+ \qquad\text{mass }2=(L^2).
+\]
+Thus the Monge--Amp\`ere measure of a perfectly ordinary continuous
+semipositive toric metric on a surface can be carried by a
+one-dimensional polyhedron and be neither atomic nor absolutely continuous.
+This is the toric prototype of the phenomenon that
+\Cref{sec:ch19-canonical} meets again on abelian varieties, where the
+canonical measure decomposes into pieces of several dimensions.
+\end{example}
+
+\begin{example}[An absolutely continuous measure on \(\mathbf P^2\)]
+\label{ex:ch19-toric-p2-smooth}
+Let \(X=\mathbf P^2\), \(L=\cO(1)\), with polytope
+\(P=\operatorname{conv}\{0,e_1,e_2\}\), so that
+\[
+ \vol_M(P)=\tfrac12,
+ \qquad
+ (L^2)=2!\cdot\tfrac12=1 .
+\]
+The reflected support function is
+\(\check h_P(u)=\max\{0,-u_1,-u_2\}\).  For \(\varepsilon>0\) put
+\[
+ \phi_\varepsilon(u)
+ =\varepsilon\log\bigl(1+\rme^{-u_1/\varepsilon}+\rme^{-u_2/\varepsilon}\bigr),
+\]
+so that \(0\leq\phi_\varepsilon-\check h_P\leq\varepsilon\log3\).  Write
+\[
+ s_0=1,\quad s_1=\rme^{-u_1/\varepsilon},\quad s_2=\rme^{-u_2/\varepsilon},
+ \qquad S=s_0+s_1+s_2,\qquad p_i=s_i/S ,
+\]
+so that \(p_0+p_1+p_2=1\) and \(p_i>0\).  Then
+\[
+ \nabla\phi_\varepsilon=(-p_1,-p_2),
+\]
+which is a diffeomorphism from \(N_{\mathbf R}\) onto the interior of
+\(-P=\{(x,y):x\leq0,\ y\leq0,\ x+y\geq-1\}\); this already gives the total
+mass \(\vol_M(-P)=\tfrac12\) by \eqref{eq:alexandrov-ma}.  Differentiating,
+\(\partial p_i/\partial u_i=-\varepsilon^{-1}p_i(1-p_i)\) and
+\(\partial p_i/\partial u_j=\varepsilon^{-1}p_ip_j\) for \(i\neq j\), so the
+Hessian is
+\[
+ D^2\phi_\varepsilon
+ =\frac1\varepsilon
+   \begin{pmatrix}
+     p_1(1-p_1) & -p_1p_2\\
+     -p_1p_2    & p_2(1-p_2)
+   \end{pmatrix},
+\]
+a positive definite matrix, and
+\[
+ \det D^2\phi_\varepsilon
+ =\frac{p_1p_2}{\varepsilon^2}
+   \bigl[(1-p_1)(1-p_2)-p_1p_2\bigr]
+ =\frac{p_1p_2}{\varepsilon^2}\bigl[1-p_1-p_2\bigr]
+ =\frac{p_0p_1p_2}{\varepsilon^2}.
+\]
+Therefore, by \eqref{eq:smooth-real-ma} and \eqref{eq:ch19-toric-ma},
+\begin{equation}
+\label{eq:ch19-p2-density}
+ \MA_{\mathbf R}(\phi_\varepsilon)
+ =\frac{p_0p_1p_2}{\varepsilon^2}\,\rd u,
+ \qquad
+ \trop_*c_1\bigl(\cO(1),\|\cdot\|_{\phi_\varepsilon}\bigr)^2
+ =\frac{2\,p_0p_1p_2}{\varepsilon^2}\,\rd u .
+\end{equation}
+\emph{Mass check, twice.}  Substituting \(p=(p_1,p_2)\) as coordinates,
+\(\rd p=\det D^2\phi_\varepsilon\,\rd u\), so
+\[
+ \int_{N_{\mathbf R}}\det D^2\phi_\varepsilon\,\rd u
+ =\int_{\{p_1,p_2>0,\ p_1+p_2<1\}}\rd p=\tfrac12 ,
+\]
+which is \(\vol_M(P)\); the non-Archimedean mass is
+\(2\cdot\tfrac12=1=(\cO(1)^2)\).  Independently, the total mass is
+\(\vol_M\) of the closure of the gradient image, which is \(-P\), by
+\Cref{lem:ch19-toric-recession}.
+
+\emph{Degeneration.}  As \(\varepsilon\downarrow0\), the functions
+\(\phi_\varepsilon\) decrease uniformly to \(\check h_P\) and the measures
+\eqref{eq:ch19-p2-density} converge weakly to
+\(\delta_{\iota(0)}\), of mass \(1=(\cO(1)^2)\), which is the standard
+model metric of \Cref{ex:ch08-toric-pn}.  The example therefore also
+illustrates \Cref{thm:cld-bt-continuity}: a family of smooth psh metrics
+whose curvature measures concentrate on a point of the skeleton.
+\end{example}
+
+\begin{example}[The Hirzebruch surface, revisited as a mass check]
+\label{ex:ch19-toric-hirzebruch}
+\Cref{ex:ch08-toric-hirzebruch} computed, for
+\(\mathbf F_1=\operatorname{Bl}_p\mathbf P^2\) and \(L=2H-E\), the Alexandrov measure
+\(\MA_{\mathbf R}(F)=\delta_{(1,1)}+\tfrac12\delta_{(0,-1)}\) of a certain
+model metric function \(F\), with total mass
+\(\tfrac32=\vol_M(P)\).  By \eqref{eq:ch19-toric-ma} the associated
+non-Archimedean measure is
+\[
+ \trop_*c_1(L,\|\cdot\|_F)^2
+ =2\delta_{\iota(1,1)}+\delta_{\iota(0,-1)},
+ \qquad\text{mass }3=(2H-E)^2=4-1 .
+\]
+The point of repeating this here is that in \Cref{chap:model-calculations}
+the identity was derived from the toric intersection formula on a model,
+whereas \Cref{thm:ch19-toric-ma} derives it from the Bedford--Taylor product
+of Chern currents.  The two atoms, \(2\) and \(1\), are the residual
+self-intersection numbers of the two special-fibre surfaces of that model.
+Agreement of these two computations is one of the three transfers listed in
+\Cref{sec:ch16-transfer}.
+\end{example}
+
+\subsection{Invariant Monge--Amp\`ere equations}
+\label{sec:ch19-toric-equation}
+
+The theory in \cite{BGJKK25} also solves invariant Monge--Amp\`ere equations.
+For an ample toric line bundle on a proper toric variety and a positive
+measure of the correct mass supported on the canonical skeleton, with no
+mass on its tropical boundary, there is a toric continuous singular psh
+metric solving the equation, unique up to scaling
+\cite[Theorem~6.3.13]{BGJKK25}.  This statement goes beyond bounded
+potentials; its invariant hypotheses should not be dropped.
+
+\begin{example}[Solving the equation in dimension one]
+\label{ex:ch19-toric-solve-p1}
+For \(X=\mathbf P^1\), \(L=\cO(d)\), and \(P=[0,d]\), the equation reads
+\(1!\,\MA_{\mathbf R}(\phi)=\mu\) for a positive measure \(\mu\) of mass
+\(d\) on \(\mathbf R\).  A convex \(\phi\) with \(\phi''=\mu\) exists and is
+unique up to an affine function; the recession condition
+\(\phi-\check h_{[0,d]}\) bounded selects the affine normalization up to a
+constant, namely \(\phi'(-\infty)=-d\) and \(\phi'(+\infty)=0\), which is
+exactly the requirement that \(\mu\) have mass \(d\).  This three-line
+argument is the entire content of the theorem in dimension one, and it shows
+where the hypotheses come from: mass \(d\) is forced by
+\Cref{lem:ch19-toric-recession}, and ``no mass at the tropical boundary'' is
+the statement that \(\mu\) is a measure on \(\mathbf R\) and not on
+\([-\infty,+\infty]\).  Compare \Cref{prop:graph-ma-solution} and
+\eqref{eq:curve-poisson}, which solve the same problem on a compact metric
+graph.
+\end{example}
+
+\section{Model and good-reduction examples}
+\label{sec:ch19-models}
+
+Curves and toric varieties are the two families in which the local calculus
+can be reduced entirely to convex analysis.  In arbitrary dimension no such
+reduction is available, but for \emph{model} metrics the answer is still
+completely explicit: the measure is atomic, carried by the finitely many
+divisorial points over the generic points of the special fibre, and its
+coefficients are residual intersection numbers.  This section records that
+computation and its immediate consequences, in the exact form used in
+\Cref{sec:ch19-cld-bfj}.
+
+\begin{example}[Good reduction in every dimension]
+\label{ex:ch19-good-reduction}
+Let \(\mathcal X\) be a proper flat model of a smooth projective
+\(n\)-fold with irreducible reduced special fibre, and let \(\mathcal L\)
+extend \(L\).  The formal metric has
+\[
+                       c_1(\overline L)^n=(L^n)\delta_{x_s},
+\]
+where \(x_s\) is the divisorial point reducing to the generic point of
+\(\mathcal X_s\).  For
+\((\mathbf P^n,\mathcal O(1))\) with its standard model, this is
+\(\delta_{\zeta_G}\).  This is simultaneously the CLD product, the
+Gubler--K\"unnemann delta-form product, and the Chambert--Loir measure.
+
+Three separate theorems are being used, and it is worth naming them: the CLD
+product is computed by \Cref{thm:cld-formal-intersection}, the delta-form
+product by \Cref{thm:gk-delta-cl-measure}, and the identification of both
+with Chambert--Loir's construction by \Cref{thm:cld-recovers-cl}.  The mass
+is \((L^n)\) because \(\mathcal L|_{\mathcal X_s}\) has the same top
+self-intersection as \(L\), by flatness and specialization invariance
+(\Cref{thm:model-projection-formula}).
+\end{example}
+
+\begin{example}[Several special-fibre components]
+\label{ex:ch19-several-components}
+Let \(\mathcal X_s=\sum_Yb_YY\) and let
+\(\mathcal L_i\) extend \(L_i\).  Then
+\begin{equation}
+\label{eq:ch19-model-mixed-measure}
+ \bigwedge_{i=1}^n c_1(\overline L_i)
+    =\sum_Y b_Y
+       \bigl(c_1(\mathcal L_1|_Y)\cdots
+             c_1(\mathcal L_n|_Y)\bigr)\delta_{x_Y}.
+\end{equation}
+If all \(\mathcal L_i\) are relatively nef, every coefficient is
+nonnegative.  If one metric is changed by a vertical divisor, multilinearity
+turns the change of measure into the corresponding special-fibre
+intersection with that divisor.  This is the higher-dimensional analogue of
+\eqref{eq:exceptional-model-laplacian}.
+
+Formula \eqref{eq:ch19-model-mixed-measure} is
+\eqref{eq:cld-chambert-loir-formula}, and it is also the BFJ mixed model
+measure \eqref{eq:model-mixed-measure}; the coincidence of these three
+expressions is the algebraic half of \Cref{thm:ch19-cld-bfj-comparison}.
+\end{example}
+
+\begin{proposition}
+\label{prop:ch19-model-basic}
+With the notation of \Cref{ex:ch19-several-components}, assume
+\(\mathcal X\) proper over \(K^\circ\).  Then:
+\begin{enumerate}
+\item\label{itm:ch19-model:mass} the total mass of
+ \eqref{eq:ch19-model-mixed-measure} is \((L_1\cdots L_n)_X\);
+\item\label{itm:ch19-model:pos} if every \(\mathcal L_i\) is relatively nef,
+ the measure is positive;
+\item\label{itm:ch19-model:vert} if \(\mathcal L_1\) is replaced by
+ \(\mathcal L_1(D)\) for a vertical Cartier divisor \(D\), the measure
+ changes by
+ \(\sum_Yb_Y\bigl(\cO(D)|_Y\cdot c_1(\mathcal L_2|_Y)\cdots
+   c_1(\mathcal L_n|_Y)\bigr)\delta_{x_Y}\), a signed measure of total mass
+ zero.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch19-model:mass} Summing \eqref{eq:ch19-model-mixed-measure} over
+$Y$ computes the mixed intersection number of the $\mathcal L_i$ against the
+fundamental cycle $\sum_Yb_Y[Y]=[\mathcal X_s]$, which by flatness and
+\Cref{thm:model-projection-formula} equals $(L_1\cdots L_n)_X$.
+
+\cref{itm:ch19-model:pos} If each $\mathcal L_i$ is relatively nef, then each
+restriction $\mathcal L_i|_Y$ is nef on the proper $\widetilde K$-variety
+$Y$, and a mixed intersection of nef classes is nonnegative; the
+multiplicities $b_Y$ are positive.  No converse is asserted: positivity of
+the top mixed measure alone does not characterize relative nefness, and the
+correct characterization is by restriction to residual curves, which is
+\Cref{thm:common-model-core}.
+
+\cref{itm:ch19-model:vert} Multilinearity of the intersection product gives
+the displayed difference, and its total mass is
+$(\cO(D)|_X\cdot L_2\cdots L_n)=0$ because $\cO(D)$ is trivial on the generic
+fibre; this is \Cref{cor:special-fibre-relation}.
+\end{proof}
+
+\begin{example}[Migration of mass under a vertical blowup]
+\label{ex:ch19-mass-migration}
+Take \(X=\mathbf P^2_K\) with \(K\) discretely valued, \(v(\pi)=1\),
+\(L=\cO(1)\), and compare two model metrics.  The standard model
+\(\mathbf P^2_{K^\circ}\) with \(\cL=\cO(1)\) gives
+\(c_1(\overline L)^2=\delta_{\zeta_G}\), the Gauss point, of mass
+\(1=(L^2)\).  Blowing up the closed point \(p\) of the special fibre, as in
+\Cref{ex:metrics-cl-toric-surface}, produces a model with two components
+\(\widetilde{X_s}\) and \(E\), multiplicities both one, and the model bundle
+\(\cL'=\rho^*\cO(1)\otimes\cO(-E)\); its restrictions have
+\((\cL'|_E)^2=1\) and \((\cL'|_{\widetilde{X_s}})^2=0\), so
+\[
+ c_1(\overline L')^2=\delta_{x_E},
+\]
+again of mass \(1\).  The unit of mass has moved from the Gauss point
+\(u=(0,0)\) to the monomial point \(u=(1,1)\).  This is
+\eqref{eq:metrics-toric-measure}, and it is the two-dimensional analogue of
+\eqref{eq:exceptional-model-laplacian}: a vertical modification cannot change
+the total mass, only its distribution.
+\end{example}
+
+\begin{example}[A nonreduced special fibre]
+\label{ex:ch19-nonreduced}
+The multiplicities \(b_Y\) in \eqref{eq:ch19-model-mixed-measure} are not
+cosmetic.  Let \(K\) be discretely valued with \(v(\pi)=1\), and let
+\(\mathcal C\to\Spec K^\circ\) be a model of \(\mathbf P^1\) whose special
+fibre is \(2Y\) with \(Y\simeq\mathbf P^1_{\widetilde K}\); such a model is
+obtained from \(\mathbf P^1_{K^\circ}\) by a degree-two base change followed
+by normalization, or directly as the closure of \(\mathbf P^1\) in a suitable
+weighted projective space.  Let \(\mathcal L\) extend \(\cO(1)\) with
+\(\deg(\mathcal L|_Y)=e\).  Then
+\[
+ c_1(\overline L)=2e\,\delta_{x_Y},
+\]
+and the total mass must be \(\deg\cO(1)=1\), forcing \(e=\tfrac12\); that
+is, \(\mathcal L\) is only a \(\mathbf Q\)-model bundle, and the associated
+metric is a rational formal metric in the sense of
+\Cref{thm:cld-recovers-cl}.  Dropping either the factor \(b_Y=2\) or the
+denominator would give the wrong mass.  The corresponding normalization of
+the divisorial point is \(v_{x_Y}=\tfrac12\ord_Y\), as in
+\Cref{rem:divisorial-normalization}.
+\end{example}
+
+\begin{remark}[What the model case does not give]
+\label{rem:ch19-model-scope}
+\Cref{ex:ch19-good-reduction,ex:ch19-several-components} determine the
+measure attached to a model metric completely, and by uniform approximation
+they determine it for continuous semipositive metrics as well
+(\Cref{thm:cl-continuous-extension}).  They say nothing about three
+questions that occupy the rest of this book.  First, whether an arbitrary
+positive measure of the right mass arises this way---the Monge--Amp\`ere
+existence problem, taken up in \Cref{chap:bfj-ma}.  Second, whether an
+arbitrary positive CLD current is the curvature of some metric---there is no
+representation theorem, and none is claimed.  Third, what happens when the
+potential is unbounded, where \eqref{eq:ch19-model-mixed-measure} has no
+analogue at all; this is the first row of the table in
+\Cref{sec:ch19-limitations}.
+\end{remark}
+
+\section{Raynaud uniformization of abelian varieties}
+\label{sec:ch19-abelian}
+
+Abelian varieties are the third and last family of this chapter, and the
+one where the local calculus is genuinely needed: neither the curve
+reduction nor the toric reduction applies, and the answer---a Haar measure
+on a real torus of dimension the torus rank---is not visible from any single
+model.
+
+\subsection{The uniformization}
+\label{sec:ch19-raynaud}
+
+Let \(A\) be an abelian variety over a complete nontrivially valued field.
+After a finite separable extension, Raynaud uniformization gives
+\begin{equation}
+                  0\longrightarrow T\longrightarrow E
+                    \stackrel{q}{\longrightarrow}B\longrightarrow0,
+             \qquad A^{\mathrm{an}}=E^{\mathrm{an}}/\Lambda,
+\label{eq:raynaud-uniformization}
+\end{equation}
+where \(T\) is a split torus, \(B\) has good reduction, and \(\Lambda\) is
+a discrete cocompact subgroup.  If \(N\) is the cocharacter lattice of
+\(T\), the canonical tropicalization descends to
+\[
+                  \operatorname{trop}_A:A^{\mathrm{an}}\longrightarrow
+                                      N_{\mathbf R}/\operatorname{trop}(\Lambda).
+\]
+
+We fix once and for all the notation that will be used for the rest of the
+chapter.  Write
+\[
+ g=\dim A,\qquad r=\dim T,\qquad b=\dim B,\qquad g=b+r,
+\]
+and call \(r\) the \emph{torus rank} of \(A\).  We say the situation is
+\emph{split} when \(B\) has good reduction over \(K\) itself and \(T\) is a
+split torus, so that \(\Lambda\simeq\mathbf Z^r\); this is achieved after a
+finite separable extension of \(K\), and every statement below is made in
+the split case.  The two extreme cases have names:
+\[
+ r=0:\ \text{good reduction};
+ \qquad
+ r=g\ (\text{i.e.\ }b=0):\ \text{totally degenerate reduction}.
+\]
+Every intermediate value \(0<r<g\) is called \emph{mixed reduction}, and it
+is exactly there that the delicate questions of
+\Cref{rem:ch19-canonical-delta-scope} live.
+
+\begin{theorem}
+\label{thm:ch19-raynaud}
+Let \(K\) be complete and nontrivially valued and let \(A\) be an abelian
+variety over \(K\).  There exist a finite separable extension \(K'/K\), an
+abelian variety \(B\) over \(K'\) with good reduction, a split torus \(T\)
+over \(K'\), an extension \(E\) of \(B\) by \(T\) in the category of
+algebraic groups, and a discrete subgroup \(\Lambda\subseteq E(K')\) free of
+rank \(r=\dim T\), such that
+\eqref{eq:raynaud-uniformization} holds as analytic groups over \(K'\).
+Moreover:
+\begin{enumerate}
+\item\label{itm:ch19-ray:neron} \(E\) contains a canonical compact analytic
+ subgroup \(N_{\mathrm{er}}\), the \emph{N\'eron domain} of \(A\), which is
+ an extension of \(B^{\An}\) by the affinoid torus \(T_1=\{|\chi^m|=1\}\)
+ and is a formal analytic group with semiabelian reduction;
+\item\label{itm:ch19-ray:trop} the map
+ \(\tau:E^{\An}\to N_{\mathbf R}\) obtained by trivializing
+ \(E\to B^{\An}\) over a formal affinoid cover and tropicalizing the torus
+ factor is well defined, surjective, proper, piecewise linear, and
+ \(G\)-smooth;
+\item\label{itm:ch19-ray:lattice} \(\tau(\Lambda)\) is a cocompact lattice
+ in \(N_{\mathbf R}\), and \(\tau\) descends to a surjection
+ \(\trop_A:A^{\An}\to N_{\mathbf R}/\tau(\Lambda)\);
+\item\label{itm:ch19-ray:skeleton} there is a canonical deformation
+ retraction of \(E^{\An}\) onto a closed subset \(S(E)\) which \(\tau\)
+ identifies with \(N_{\mathbf R}\), and it descends to a deformation
+ retraction of \(A^{\An}\) onto the \emph{skeleton}
+ \(S(A)=S(E)/\Lambda\simeq N_{\mathbf R}/\tau(\Lambda)\), a real torus of
+ dimension \(r\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+This is a theorem of Raynaud, in the form written out by Bosch and
+L\"utkebohmert; we quote it as
+\cite[Theorem~B.5.7, \S\S B.5.8--B.5.12 and \S19.2.1--19.2.2]{CLD25}, whose
+sources are \cite{BoschLutkebohmert1993}, and refer to
+\cite[Chapter~6]{Berk12} for the retraction in
+\cref{itm:ch19-ray:skeleton}.  We indicate only where each assertion comes
+from.
+
+The existence of $(B,T,E,\Lambda)$ after a finite separable extension is the
+uniformization theorem itself; the N\'eron domain of
+\cref{itm:ch19-ray:neron} is the unique maximal compact analytic subgroup
+that is formal analytic with semiabelian reduction, and its uniqueness makes
+its formation commute with base change.
+
+For \cref{itm:ch19-ray:trop}: let $\mathcal V$ be a formal affinoid cover of
+$B$ trivializing the extension $N_{\mathrm{er}}\to B^{\An}$, with sections
+$f_V$.  On $V\cap W$ the sections differ by a morphism
+$f_{VW}:V\cap W\to T_1$ with values in the \emph{unit} torus, so the
+composites $q^{-1}(V)\simeq V\times T\to T\to N_{\mathbf R}$ agree on
+overlaps and glue to a global map $\tau$.  Each local expression is
+$-\log|\chi^m|$ for a character $\chi^m$, hence $G$-smooth and piecewise
+linear.  Restricted to a fibre of $q$, $\tau$ is the ordinary
+tropicalization of a torus, which is proper; since $B^{\An}$ is compact,
+$\tau$ is proper and surjective.
+
+Assertion \cref{itm:ch19-ray:lattice} is the statement that the composite
+$\Lambda\to E(K')\to N_{\mathbf R}$ has cocompact image, which is part of
+the uniformization theorem; \cref{itm:ch19-ray:skeleton} is Berkovich's
+retraction of $E^{\An}$ onto the skeleton of the torus fibre over the Gauss
+point of $B$, which is $\Lambda$-equivariant because $\Lambda$ acts by
+translations fixing that point.
+\end{proof}
+
+\begin{remark}[The skeleton is intrinsic; the uniformization is not]
+\label{rem:ch19-skeleton-intrinsic}
+The data \((B,T,E,\Lambda)\) require a field extension and are not unique
+before it, but the skeleton \(S(A)\) and the map \(\trop_A\) are intrinsic:
+\(S(A)\) is the image of the canonical deformation retraction of
+\(A^{\An}\), and \(\trop_A\) is determined by
+\Cref{thm:ch19-raynaud}\,\cref{itm:ch19-ray:skeleton}.  In particular the
+torus rank \(r\) is an invariant of \(A\), equal to the dimension of the
+skeleton, and by \Cref{sec:essential-skeleton} it is also the dimension of
+the essential skeleton when \(A\) has a polarization.  For \(g=1\) this is
+the dichotomy of \Cref{ex:ch08-tate-curve}: \(r=0\) is potentially good
+reduction, \(r=1\) is multiplicative reduction, and the two are separated by
+the sign of \(v(j)\).
+\end{remark}
+
+\subsection{The canonical tropicalization is harmonic}
+\label{sec:ch19-abelian-harmonic}
+
+\begin{theorem}\label{thm:abelian-harmonic-tropicalization}
+The coordinate functions of the canonical tropicalization on
+\(E^{\mathrm{an}}\) are integral harmonic functions.  Hence
+\(\operatorname{trop}_A\) is a harmonic tropicalization in the sense of
+\Cref{chap:delta-forms}.
+\end{theorem}
+\begin{proof}
+Let $\chi$ be a character of the split torus $T$.  The pushout of the
+Raynaud extension by $\chi:T\to\mathbf G_m$ is a
+$\mathbf G_m$-torsor over $B$, hence a rigidified translation-invariant line
+bundle $M_\chi$ on $B$.  Because $B$ has good reduction, $M_\chi$ extends to
+a formal line bundle whose restriction to the special fibre is numerically
+trivial.  Its canonical formal metric pulls back to the torsor, and the
+logarithmic norm of the tautological section is
+\[
+                         -\log|\chi|.
+\]
+This is exactly the tropical coordinate associated to $\chi$.  The residual
+line bundle of this PL function is therefore numerically trivial; by
+definition, the coordinate is integral harmonic.
+
+A lattice basis of the character group gives all coordinates of the
+canonical map $E^{\mathrm{an}}\to N_{\mathbf R}$.  Each is integral harmonic,
+so this map is a harmonic tropicalization.  Translation by an element of
+$\Lambda$ adds the integral affine constant determined by its character
+values.  Hence the map descends to
+$N_{\mathbf R}/\operatorname{trop}(\Lambda)$ on the quotient
+$A^{\mathrm{an}}$.  This is \cite[Proposition~16.2]{GJR26}.
+\end{proof}
+
+The proof deserves to be unwound once, because the same three-step pattern
+recurs in \Cref{sec:ch19-canonical}: an analytic object on \(E\) is
+identified with a line bundle on \(B\); the good reduction of \(B\) turns
+that line bundle into a formal one; and the numerical triviality of its
+residual bundle is what produces harmonicity.
+
+\begin{proposition}
+\label{prop:ch19-tau-coordinates}
+Keep the notation of \Cref{thm:ch19-raynaud} and let
+\(\chi^{m}\), \(m\in M=N^\vee\), be a character of \(T\).  Let \(Q_m\) be the
+line bundle on \(B\) obtained by pushing out the extension
+\(N_{\mathrm{er}}\to B^{\An}\) along \(\chi^m:T_1\to\mathbf G_{m,1}\), and
+let \(\mathcal Q_m\) be its canonical formal extension to the abelian formal
+scheme \(\mathcal B\) over \(K^\circ\).  Then:
+\begin{enumerate}
+\item\label{itm:ch19-tau:torsor} \(E\) is an open subset of the total space
+ of \(Q_m\) fibrewise in \(m\), and \(\langle\tau(\cdot),m\rangle\) is the
+ logarithmic norm of the tautological section of \(Q_m\) for the formal
+ metric of \(\mathcal Q_m\);
+\item\label{itm:ch19-tau:numtriv} \(Q_{m,s}\) is algebraically equivalent to
+ zero on the abelian variety \(\mathcal B_s\), hence numerically trivial;
+\item\label{itm:ch19-tau:harmonic}
+ \(\dprimeddprime\bigl[\langle\tau(\cdot),m\rangle\bigr]=0\) for every
+ \(m\in M\), that is, all coordinates of \(\tau\) are harmonic in the sense
+ of \Cref{def:ch16-harmonic-function} and integral harmonic in the sense of
+ \Cref{sec:harmonic-trop}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch19-tau:torsor} An extension of $B$ by $\mathbf G_m$ is the
+complement of the zero section in the total space of a line bundle
+algebraically equivalent to zero; pushing out along $\chi^m$ realizes the
+$T$-torsor $E\to B$ as the fibre product of the $\mathbf G_m$-torsors
+attached to a basis of $M$.  Since $\mathcal B$ is a formal abelian scheme,
+$Q_m$ extends to $\mathcal Q_m$ and the extension is unique up to a unit
+\cite[Lemma~B.2.2 and Remark~19.2.3]{CLD25}; the associated formal metric,
+read as a function on the total space of $Q_m$ minus the zero section, is
+exactly $\langle\tau(\cdot),m\rangle$ by the construction of $\tau$ in
+\Cref{thm:ch19-raynaud}\,\cref{itm:ch19-ray:trop}.
+
+\cref{itm:ch19-tau:numtriv} The line bundle $Q_m$ classifies an extension,
+hence lies in $\Pic^0(B)$; the same is true of its formal extension
+restricted to the special fibre, because algebraic equivalence to zero is
+detected by triviality of the associated Mumford bundle and specializes.  A
+line bundle algebraically equivalent to zero on an abelian variety is
+numerically trivial.
+
+\cref{itm:ch19-tau:harmonic} By \Cref{thm:cld-recovers-cl}, the curvature
+current of a formal metric is the atomic measure with coefficients the
+residual mixed degrees; numerical triviality of $\mathcal Q_{m,s}$ makes all
+of them vanish, in every bidegree, so $c_1(\overline{Q_m})=0$.  Applying
+\eqref{eq:cld-pl-section-sign} to the tautological section, whose divisor is
+empty on $E$, gives
+$\dprimeddprime[\langle\tau(\cdot),m\rangle]=c_1(\overline{Q_m})=0$.  This
+is harmonicity.  Integrality is the statement that the model of the trivial
+bundle inducing the coordinate has numerically trivial residual bundle,
+which is what has just been proved.
+\end{proof}
+
+\subsection{When is the canonical tropicalization smooth?}
+\label{sec:ch19-tau-smooth}
+
+Harmonicity is strictly weaker than smoothness in the CLD sense, and the
+gap is the whole subject of \Cref{sec:harmonic-trop}.  On abelian varieties
+the gap can be described exactly.
+
+\begin{proposition}
+\label{prop:ch19-tau-smooth}
+Keep the notation above.
+\begin{enumerate}
+\item\label{itm:ch19-smooth:rank1} For \(r=1\), the function \(\tau\) is
+ CLD-smooth if and only if the residual line bundle \(Q_s\) on the abelian
+ variety \(\mathcal B_s\) is torsion in \(\Pic(\mathcal B_s)\).
+\item\label{itm:ch19-smooth:general} In general, all coordinates of \(\tau\)
+ are CLD-smooth if and only if the residual extension of \(\mathcal B_s\) by
+ \(T_{\widetilde K}\) is isotrivial.
+\item\label{itm:ch19-smooth:finite} If the residue field \(\widetilde K\) is
+ algebraic over a finite field, condition
+ \cref{itm:ch19-smooth:general} holds automatically.
+\item\label{itm:ch19-smooth:degenerate} If \(A\) is totally degenerate,
+ that is \(b=0\), then \(\tau\) is the tropicalization of a split torus and
+ is CLD-smooth; if \(A\) has good reduction, that is \(r=0\), then \(\tau\)
+ is constant and the statement is vacuous.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch19-smooth:rank1} By
+\Cref{prop:ch19-tau-coordinates}\,\cref{itm:ch19-tau:torsor}, $\tau$ is the
+logarithmic norm of the tautological section for the formal metric of
+$\mathcal Q$.  A formal metric is CLD-smooth exactly when, locally, it is
+induced by a formal model of the \emph{trivial} bundle after a finite
+tensor power; on a formal abelian scheme this says that $\mathcal Q$ becomes
+trivial on some integral subvariety after a power, that is, that
+$\mathcal Q_s$ is torsion on every integral subvariety of $\mathcal B_s$.
+Since $\mathcal B_s$ is an abelian variety and $\mathcal Q_s\in\Pic^0$, the
+condition on $\mathcal B_s$ itself is the binding one.  This is
+\cite[Proposition~17.4.13 and Remark~19.2.3]{CLD25}.
+
+\cref{itm:ch19-smooth:general} Identify $T\simeq\mathbf G_m^r$ so that
+$\tau=(\tau_1,\ldots,\tau_r)$.  By the previous item each $\tau_i$ is
+CLD-smooth exactly when the corresponding residual bundle is torsion, and
+the family of residual bundles $(Q_{i,s})$ classifies the residual extension
+of $\mathcal B_s$ by $T_{\widetilde K}$; simultaneous torsion of all of them
+is precisely isotriviality of that extension, meaning that the extension is
+split after a finite \'etale isogeny.  This is
+\cite[Remark~19.2.3]{CLD25}.
+
+\cref{itm:ch19-smooth:finite} If $\widetilde K$ is algebraic over a finite
+field, then $\Pic^0$ of an abelian variety over $\widetilde K$ is a torsion
+group, because it is the group of $\widetilde K$-points of the dual abelian
+variety and every point of an abelian variety over $\overline{\mathbf F}_p$
+is torsion, the group of points over a finite field being finite.  Hence
+every $Q_{i,s}$ is torsion and \cref{itm:ch19-smooth:general} applies.
+
+\cref{itm:ch19-smooth:degenerate} If $b=0$ then $B$ is a point, $E=T$, and
+$\tau$ is the ordinary tropicalization of a split torus, which is a smooth
+tropicalization by \Cref{lem:ch19-toric-chart}\,(2).  If $r=0$ then
+$N_{\mathbf R}=0$.
+\end{proof}
+
+\subsection{Invariant potentials and the polarization form}
+\label{sec:ch19-abelian-invariant}
+
+For a polarization, the quotient real torus carries a positive translation
+invariant Lagerberg \((1,1)\)-form \(\omega\).  In the totally degenerate
+split case, pullback by \(\operatorname{trop}_A\) gives the canonical form on
+\(A^{\mathrm{an}}\), and invariant \(\omega\)-psh potentials correspond to
+invariant psh potentials on the abelian variety
+\cite[Proposition~7.4.5]{BGJKK25}.  Their Monge--Amp\`ere measures correspond
+under tropicalization.
+
+For an arbitrary polarized abelian variety, the good-reduction part in
+\eqref{eq:raynaud-uniformization} contributes an algebraic degree factor,
+while the torus rank determines the dimension of the tropical real torus.
+If \(L\) is ample and \(\mu\) is a positive measure of mass \((L^g)\)
+supported on the canonical skeleton, there is a continuous semipositive
+metric solving
+\[
+                              c_1(L,\|\cdot\|)^g=\mu,
+\]
+unique up to scaling; over an algebraically closed nontrivially valued field
+this is \cite[Theorem~8.3.3]{BGJKK25}, and descent to an arbitrary
+nontrivially valued ground field is carried out in its Section~8.4.
+
+\begin{warning}{Canonical metrics and ordinary delta-forms}
+An earlier claim that the canonical metric on every line bundle of an
+abelian variety is locally a tensor product of a smooth metric and a formal
+metric used the incorrect assumption that the canonical tropicalization is
+always a smooth tropicalization.  Gubler--Jell--Rabinoff exhibit a mixed
+reduction abelian threefold for which it is not smooth and explicitly leave
+ordinary delta-metricity of general canonical metrics open
+\cite[Remark~16.4 and \S17]{GJR26}.  The proved statement is harmonic
+tropicalizability.  None of the abelian comparison results above uses the
+retracted ordinary-delta claim.
+\end{warning}
+
+The same source leaves two further structural questions that matter for this
+chapter: whether the canonical map from invariant Lagerberg forms to
+\(H^{p,q}(A)\) is an isomorphism, and whether the local finite integral
+description of harmonic PL functions has a semipositive analogue.  Their
+exact formulations are grouped with the canonical-metric question in
+\Cref{prob:frontier-gjr-three}.
+
+\begin{remark}[Exact scope of the delta-metricity question]
+\label{rem:ch19-canonical-delta-scope}
+\index{abelian variety!canonical metric!delta-metricity}
+It is worth separating the cases in which the question of the preceding
+warning is settled from the one in which it is not.  Let \(A\) be a
+polarized abelian variety with Raynaud data \((B,T,E,\Lambda)\) as above,
+let \(L\) be a line bundle on \(A\), and give \(L\) its canonical
+(cubical) metric of \Cref{sec:ch19-canonical}.  By
+\Cref{thm:ch19-canonical-structure} below, the pullback of that metric to
+\(E\) is the product of the formal metric of a line bundle \(M\) on \(B\)
+and the metric with weight \(f\circ\tau\), where \(f\) is a quadratic
+function on \(N_{\mathbf R}\).  Hence:
+\begin{enumerate}
+\item\label{itm:ch19-scope:good} If \(A\) has \emph{good reduction}
+ (\(r=0\)), then \(N_{\mathbf R}=0\), the second factor is trivial, and the
+ canonical metric is an honest formal metric, hence a delta-metric in the
+ sense of \Cref{chap:delta-forms} by \cite[Proposition~8.11]{GK17}.
+\item\label{itm:ch19-scope:degenerate} If \(A\) is \emph{totally
+ degenerate} (\(b=0\)), then \(B\) is a point, the first factor is trivial,
+ and by
+ \Cref{prop:ch19-tau-smooth}\,\cref{itm:ch19-smooth:degenerate} the map
+ \(\tau\) is a smooth tropicalization; so \(f\circ\tau\) is a CLD-smooth
+ function on the skeleton and the canonical metric is smooth there.  It is a
+ delta-metric, the delta-form being an ordinary smooth form.
+\item\label{itm:ch19-scope:finite} If the residue field \(\widetilde K\) is
+ algebraic over a finite field, then by
+ \Cref{prop:ch19-tau-smooth}\,\cref{itm:ch19-smooth:finite} the residual
+ extension is automatically isotrivial, \(\tau\) is a smooth
+ tropicalization, and the same conclusion as in
+ \cref{itm:ch19-scope:degenerate} holds for arbitrary reduction type: the
+ canonical metric is locally the tensor product of a formal metric and a
+ CLD-smooth metric.
+\item\label{itm:ch19-scope:mixed} The remaining case is \emph{non-isotrivial
+ mixed reduction}: \(0<r<g\), residue field not algebraic over a finite
+ field, and residual extension not isotrivial.  There \(\tau\) is harmonic
+ but need not be smooth, so the argument of
+ \cref{itm:ch19-scope:degenerate} is unavailable, and whether the canonical
+ metric is an ordinary delta-metric is \emph{open}.  It is left open in
+ \cite[Remark~16.4 and \S17]{GJR26}, where a mixed-reduction abelian
+ threefold with non-smooth canonical tropicalization is exhibited.
+\end{enumerate}
+No result of this book is stated for case \cref{itm:ch19-scope:mixed}; the
+proved input everywhere is harmonic tropicalizability, which suffices for
+the Bedford--Taylor compatibility \Cref{thm:bt-harmonic-compatibility} and
+hence for all the measure computations of \Cref{sec:ch19-canonical}.
+\end{remark}
+
+\section{Canonical metrics and their currents}
+\label{sec:ch19-canonical}
+
+The canonical metric on a line bundle over an abelian variety is the
+rigidity statement that makes abelian varieties computable: it is unique up
+to a scalar, its curvature is translation invariant, and its top power is a
+Haar measure.  This section states the construction, computes the currents,
+and carries two examples to numbers.
+
+\subsection{Cubical metrics}
+\label{sec:ch19-cubical}
+
+Let \(A\) be an abelian variety over \(K\), and for \(I\subseteq\{1,2,3\}\)
+let \(q_I:A^3\to A\) be the sum of the coordinates indexed by \(I\).  The
+theorem of the cube asserts that
+\begin{equation}
+\label{eq:ch19-cube-bundle}
+ D_3(L)=\bigotimes_{I\subseteq\{1,2,3\}}q_I^*L^{\otimes(-1)^{\#I+1}}
+\end{equation}
+is trivial on \(A^3\), and canonically so: there is a distinguished
+trivialization \(\tau_L\), compatible with pullback, tensor product and
+duality, and restricting to the evident trivialization on
+\(A\times A\times\{0\}\).
+
+\begin{definition}[Cubical metric]
+\label{def:ch19-cubical}
+\index{cubical metric}\index{canonical metric!abelian variety}
+A continuous metric on \(L\) is \emph{cubical}, or \emph{canonical}, if the
+induced metric on \(D_3(L)\) gives the canonical trivialization
+\(\tau_L\) constant norm one.
+\end{definition}
+
+\begin{theorem}
+\label{thm:ch19-cubical-exists}
+Let \(A\) be an abelian variety over a complete non-Archimedean field and
+let \(L\) be a line bundle on \(A\).
+\begin{enumerate}
+\item\label{itm:ch19-cub:exist} \(L\) carries a cubical metric, and two
+ cubical metrics on \(L\) differ by a positive real scalar; fixing a
+ rigidification \(\varepsilon\) of \(L\) at the origin, there is a unique
+ cubical metric with \(\|\varepsilon\|=1\).
+\item\label{itm:ch19-cub:tensor} Cubical metrics are stable under tensor
+ product and duality, and pull back to cubical metrics under homomorphisms
+ of abelian varieties.
+\item\label{itm:ch19-cub:isom} If \(L\) is symmetric, respectively
+ antisymmetric, and \(w=2\), respectively \(w=1\), then for \(n\geq2\) the
+ canonical isomorphism \([n]^*L\simeq L^{n^w}\) is an isometry for the
+ cubical metric; conversely a metric for which one such isomorphism has
+ constant norm is cubical.
+\item\label{itm:ch19-cub:goodred} If \(A\) extends to a formal abelian
+ scheme \(\mathcal A\) over \(K^\circ\), then \(L\) extends to a formal line
+ bundle \(\mathcal L\) on \(\mathcal A\) and the associated formal metric is
+ cubical.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+All four assertions are \cite[Lemmas~19.1.4, 19.1.6 and
+Proposition~19.1.8]{CLD25}, whose proofs we summarize.
+
+For \cref{itm:ch19-cub:exist}, a contraction argument does the work.  If
+$\iota:[n]^*L\simeq L^{n^w}$ is one of the isomorphisms of
+\cref{itm:ch19-cub:isom}, then the assignment
+$\|\cdot\|\mapsto\|\cdot\|'$, where $\|\cdot\|'$ is the unique metric making
+$\iota$ an isometry, is a contraction of the space of continuous metrics for
+the uniform distance $d_\infty$ of \eqref{eq:metrics-dinfty-sup}, with
+contraction factor $n^{-w}$; by
+\Cref{lem:metrics-dinfty-complete} it has a unique fixed point, which is the
+sought metric, and iteration from any starting metric converges uniformly to
+it.  The general $L$ is handled by writing
+$L^2=(L\otimes[-1]^*L)\otimes(L\otimes[-1]^*L^{-1})$ as a product of a
+symmetric and an antisymmetric bundle and taking a square root.  Uniqueness
+reduces, by taking the quotient of two cubical metrics, to showing that a
+cubical metric on $\cO_A$ with $\|1\|=1$ is trivial, which is the same
+contraction argument.
+
+Assertion \cref{itm:ch19-cub:tensor} follows from the natural isometries
+$D_3(L)\otimes D_3(M)\simeq D_3(L\otimes M)$ and
+$D_3(L^{-1})\simeq D_3(L)^{-1}$, both compatible with the canonical
+trivializations.
+
+For \cref{itm:ch19-cub:goodred}, the formal line bundle $\mathcal L$ exists
+and is unique up to a unit; $D_3(\mathcal L)$ is then a formal model of the
+trivial bundle $D_3(L)$, its restriction to $\mathcal A^2\times\{0\}$ carries
+the evident trivialization, and the unique extension of that trivialization
+to $D_3(\mathcal L)$ restricts on the generic fibre to $\tau_L$ and has norm
+one.
+\end{proof}
+
+\begin{remark}[Two things ``canonical'' can mean]
+\label{rem:ch19-canonical-two-meanings}
+On an abelian variety with good reduction, the cubical metric is the formal
+metric of the N\'eron model, by
+\Cref{thm:ch19-cubical-exists}\,\cref{itm:ch19-cub:goodred}; this is what
+``canonical'' means in Arakelov theory at a place of good reduction.  On a
+general abelian variety the two notions separate: there is no distinguished
+model, and the cubical metric is characterized by the cube relation, not by
+any model.  \Cref{thm:ch19-canonical-structure} makes the difference
+explicit by writing the cubical metric as a formal metric \emph{times} a
+quadratic tropical correction.
+\end{remark}
+
+\subsection{The structure of the canonical metric}
+\label{sec:ch19-canonical-structure}
+
+We now use \eqref{eq:raynaud-uniformization}.  Keep
+\(p:E^{\An}\to A^{\An}\) and \(q:E\to B\), and fix a line bundle \(L\) on
+\(A\) with cubical metric normalized at the origin.  The pullback
+\(p^*L\) descends from \(B\): there are a line bundle \(M\) on \(B\) and an
+isomorphism \(\epsilon:p^*L\simeq q^*M\), normalized to carry the
+tautological trivializations at the identity to one another, and a descent
+datum \(c=(c_\lambda)_{\lambda\in\Lambda}\).  We write \(q_L\) for the
+quadratic form on \(N_{\mathbf R}\) attached to \(L\) by the bilinear
+pairing
+\begin{equation}
+\label{eq:ch19-qL}
+ q_L\bigl(\tau(\lambda)\bigr)=\log\bigl\|\langle\lambda,u(\lambda)\rangle\bigr\| ,
+ \qquad \lambda\in\Lambda,
+\end{equation}
+where \(u:\Lambda\to\Lambda'\) is the polarization-type map into the lattice
+of the dual uniformization and \(\langle\cdot,\cdot\rangle\) is the
+canonical section of the Poincar\'e bundle with its formal metric; this is
+the notation of \cite[\S B.6.3]{CLD25}.
+
+\begin{theorem}
+\label{thm:ch19-canonical-structure}
+With the notation above, there is a unique real-valued function \(f\) on
+\(N_{\mathbf R}\) such that
+\begin{equation}
+\label{eq:ch19-canonical-weight}
+ -\log\|s\|+\log\|\epsilon(s)\|=f\circ\tau
+\end{equation}
+for every local invertible section \(s\) of \(p^*L\), where the first norm
+is the cubical metric on \(L\) pulled back and the second is the formal
+metric of a formal model \(\mathcal M\) of \(M\) on \(\mathcal B\).  The
+function \(f\) is quadratic, and its homogeneous part of degree two is
+\(\tfrac12q_L\).  Consequently
+\begin{equation}
+\label{eq:ch19-canonical-curvature}
+ c_1(p^*\overline L)=c_1(q^*\overline M)
+   +\tau^*\dprimeddprime\bigl(\tfrac12q_L\bigr),
+\end{equation}
+the cubical metric is dpsh, and \(c_1(\overline L)\) is translation
+invariant on \(A^{\An}\) and vanishes if \(L\) is translation invariant.
+\end{theorem}
+
+\begin{proof}
+Existence and uniqueness of $f$, and quadraticity, are
+\cite[Proposition~19.2.5]{CLD25}; we recall the mechanism.  The descent
+datum satisfies
+$\log\|c_\lambda\|=\log\|r(\lambda)\otimes r(0)^{-1}\|
+ +\langle\tau(t),u(\lambda)\rangle$ at a point $t\in E$, where $r$ is the
+trivialization datum of the descent, and the cocycle relation
+$r(\lambda+\mu)\otimes r(\lambda)^{-1}\otimes r(\mu)^{-1}\otimes r(0)
+ =\langle\lambda,u(\mu)\rangle$ shows that
+$\lambda\mapsto\log\|r(\lambda)\|$ is a quadratic function on $\Lambda$ with
+degree-two part $\lambda\mapsto\tfrac12\log\|\langle\lambda,u(\lambda)\rangle\|$.
+Since $\tau(\Lambda)$ is a lattice in $N_{\mathbf R}$, there is a unique
+quadratic $f$ on $N_{\mathbf R}$ with $\log\|r(\lambda)\|=f(\tau(\lambda))$,
+and multiplying the formal metric of $q^*\mathcal M$ by $\rme^{-f\circ\tau}$
+makes the descent datum have norm one; the resulting metric on $L$ is
+cubical, hence equals the given one up to the normalizing scalar.
+Uniqueness of $f$ follows from surjectivity of $\tau$.
+
+For \eqref{eq:ch19-canonical-curvature}, apply
+\eqref{eq:cld-pl-section-sign} to a local invertible section: the divisor
+terms cancel and
+$c_1(p^*\overline L)=c_1(q^*\overline M)+\dprimeddprime[f\circ\tau]$.  Since
+$\tau$ is harmonic by
+\Cref{prop:ch19-tau-coordinates}\,\cref{itm:ch19-tau:harmonic} and $f$ is
+smooth, \Cref{thm:bt-harmonic-compatibility} gives
+$\dprimeddprime[f\circ\tau]=\tau^*\dprimeddprime f$, and
+$\dprimeddprime f=\dprimeddprime(\tfrac12q_L)$ because the affine part of a
+quadratic function is annihilated by $\dprimeddprime$.
+
+The cubical metric is dpsh because \eqref{eq:ch19-canonical-weight} writes
+it as the product of a formal metric and a $G$-smooth one, and dpsh
+functions are closed under sums (\Cref{def:ch16-dpsh}).  Translation
+invariance: for $a\in A(K)$, the bundle $t_a^*L\otimes L^{-1}$ is
+algebraically equivalent to zero, so by \cite[Proposition~B.6.7]{CLD25} its
+quadratic form vanishes and its bundle $M$ on $B$ is translation invariant,
+whence $\mathcal M_s$ is numerically trivial and
+$c_1(\overline M)=0$ by \Cref{thm:cld-recovers-cl}; therefore
+$c_1(t_a^*\overline L)=c_1(\overline L)$.  The same computation with
+$L$ itself translation invariant gives $c_1(\overline L)=0$.  This is
+\cite[Corollary~19.2.6]{CLD25}.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch19-canonical-positivity}
+Assume the absolute value of \(K\) is nontrivial and keep the notation
+above.  The following are equivalent:
+\begin{enumerate}
+\item\label{itm:ch19-pos:psh} the cubical metric of \(L\) is psh;
+\item\label{itm:ch19-pos:current} \(c_1(\overline L)\geq0\);
+\item\label{itm:ch19-pos:data} the quadratic form \(q_L\) is positive
+ semidefinite and the residual line bundle \(\mathcal M_s\) is nef on the
+ abelian variety \(\mathcal B_s\);
+\item\label{itm:ch19-pos:nef} \(L\) is nef.
+\end{enumerate}
+Moreover \(c_1(\overline L)=0\) if and only if \(L\) is translation
+invariant, if and only if \(q_L=0\) and \(\mathcal M_s\) is numerically
+trivial; and \(L\) is ample if and only if \(\mathcal M_s\) is ample and
+\(q_L\) is positive definite.
+\end{theorem}
+
+\begin{proof}
+This is \cite[Proposition~19.3.1, Corollary~19.3.2 and
+Theorem~B.6.4]{CLD25}.  The implication
+\cref{itm:ch19-pos:psh}$\Rightarrow$\cref{itm:ch19-pos:current} is
+\Cref{prop:cld-psh-positive-current}.  For
+\cref{itm:ch19-pos:data}$\Rightarrow$\cref{itm:ch19-pos:psh}: nefness of
+$\mathcal M_s$ makes $q^*\overline M$ psh by
+\Cref{thm:gk-formal-positivity-comparison}; the function $\tau$ is harmonic
+and piecewise linear and $q_L$ is convex, so $\tau^*(\tfrac12q_L)$ is psh by
+\Cref{cor:ch16-harmonic-convex-positive}; and $p^*\overline L$ is the
+product of these two psh metrics by
+\eqref{eq:ch19-canonical-weight}.  Since $p$ has local sections,
+$\overline L$ is psh.
+
+For \cref{itm:ch19-pos:current}$\Rightarrow$\cref{itm:ch19-pos:data}, two
+separate arguments are needed.  Over a rigid point $b\in B$ the residual
+bundle of $M$ is trivial, so on a neighbourhood $U$ of $b$ the metrized
+bundle $q^*\overline M$ is trivial and $E$ is trivialized, whence
+$c_1(p^*\overline L)=\tau^*(\tfrac12\dprimeddprime q_L)$ there; positivity
+of a form pulled back by a surjection onto $N_{\mathbf R}$ forces
+$\dprimeddprime q_L\geq0$, that is, $q_L$ positive semidefinite.  For the
+residual nefness, let $\omega$ be the standard invariant $(1,1)$-form on
+$N_{\mathbf R}$; then $\tau^*\omega^r$ kills the second term of
+\eqref{eq:ch19-canonical-curvature} for dimension reasons, so
+$c_1(q^*\overline M)\wedge\tau^*\omega^r\geq0$, and the fibre-integration
+projection formula \Cref{thm:cld-fibre-projection} converts this into
+$\langle c_1(\overline M),\alpha\rangle\geq0$ for every positive smooth
+$\alpha$ on $B$, hence $c_1(\overline M)\geq0$ and $\mathcal M_s$ is nef by
+\Cref{thm:gk-formal-positivity-comparison}.
+
+Equivalence with \cref{itm:ch19-pos:nef} in the algebraic case: if $L$ is nef,
+split $L^2=L_+\otimes L_-$ with $L_+$ symmetric and $L_-$ antisymmetric, so
+$c_1(\overline{L_-})=0$; for an ample symmetric $N$ the bundle
+$L_+^{t}\otimes N$ is ample for all $t\geq0$ by Nakai--Moishezon and its
+cubical metric is psh, whence $tc_1(\overline{L_+})+c_1(\overline N)\geq0$
+and, dividing by $t\to\infty$, $c_1(\overline{L_+})\geq0$.  Conversely if
+the metric is psh then for every irreducible curve $C\subset A$ one has
+$(L\cdot C)=\int_{C^{\An}}c_1(\overline L|_{C^{\An}})\geq0$ by
+\Cref{prop:ch16-degree-formula}, so $L$ is nef.  The statements about
+triviality and ampleness are the cited corollary and theorem.
+\end{proof}
+
+\subsection{The canonical measure}
+\label{sec:ch19-canonical-measure}
+
+\begin{theorem}
+\label{thm:ch19-canonical-ma}
+Let \(A\) be a \(g\)-dimensional abelian variety over a complete
+nontrivially valued field with split Raynaud data, and let \(L\) be an ample
+line bundle with its cubical metric.  Then:
+\begin{enumerate}
+\item\label{itm:ch19-ma:E} \(c_1(p^*\overline L)^g\) is a Haar measure on
+ \(S(E)\simeq N_{\mathbf R}\);
+\item\label{itm:ch19-ma:A} \(c_1(\overline L)^g\) is the unique Haar
+ measure on the skeleton \(S(A)\simeq N_{\mathbf R}/\tau(\Lambda)\) of total
+ mass \((L^g)\);
+\item\label{itm:ch19-ma:formula} explicitly, writing
+ \(\omega_L\) for the unique \(G\)-form on \(A^{\An}\) with
+ \(p^*\omega_L=\tau^*\dprimeddprime(\tfrac12q_L)\),
+ \[
+   c_1(\overline L)^g=\binom{g}{r}\,S_b\wedge\omega_L^{\,r},
+ \]
+ where \(S_b\) is the descent of \(c_1(q^*\overline M)^b\) and
+ \(b=g-r\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+This is \cite[Corollary~19.2.8]{CLD25}; we give the computation, since the
+bookkeeping of which terms survive is exactly what the reader needs in the
+examples below.
+
+\emph{Step 1: expanding the binomial.}  By
+\eqref{eq:ch19-canonical-curvature}, $c_1(p^*\overline L)$ is the sum of the
+closed current $c_1(q^*\overline M)$ and the $G$-form
+$\widetilde\omega_L:=\tau^*\dprimeddprime(\tfrac12q_L)$, which is locally
+harmonically tropicalizable because $\tau$ is harmonic
+(\Cref{prop:ch19-tau-coordinates}).  Both are obtained by applying
+$\dprimeddprime$ to dpsh weights, so the Bedford--Taylor product is
+multilinear by \Cref{thm:ch16-dpsh-product}, and
+\[
+ c_1(p^*\overline L)^g
+ =\sum_{d=0}^{g}\binom{g}{d}
+   c_1(q^*\overline M)^{g-d}\wedge\widetilde\omega_L^{\,d}.
+\]
+By \Cref{thm:bt-harmonic-compatibility} the recursive product with the
+harmonically tropicalizable $G$-form $\widetilde\omega_L$ agrees with the
+naive product, so each term is unambiguous.
+
+\emph{Step 2: only one term survives.}  The form
+$\widetilde\omega_L^{\,d}$ vanishes for $d>r$, being pulled back from
+$N_{\mathbf R}$, which has dimension $r$.  The current
+$c_1(q^*\overline M)^{g-d}$ vanishes for $g-d>b$, because $q^*\overline M$
+has dimension of definition at most $b=\dim B$ at every point
+(\Cref{thm:ch14-support-dimension}).  Since $g=b+r$, both constraints are
+equalities only for $d=r$, and
+\[
+ c_1(p^*\overline L)^g
+ =\binom{g}{r}c_1(q^*\overline M)^{b}\wedge\widetilde\omega_L^{\,r}.
+\]
+
+\emph{Step 3: the fibre computation.}  Let $\beta$ be the Gauss point of
+$B$, that is, the divisorial point over the generic point of
+$\mathcal B_s$.  Since $\mathcal B_s$ is irreducible of dimension $b$,
+\Cref{thm:cld-recovers-cl} gives
+$c_1(q^*\overline M)^{b}=c\,\delta_{q^{-1}(\beta)}$ for a constant $c>0$.
+Identify $q^{-1}(\beta)$ with the torus fibre over $\beta$, on which $\tau$
+is the usual tropicalization; then for a test function $u$,
+\[
+ \bigl\langle c_1(p^*\overline L)^g,u\bigr\rangle
+ =c\binom{g}{r}\int_{q^{-1}(\beta)}u\,\tau^*\bigl(\dprimeddprime\tfrac12q_L\bigr)^r ,
+\]
+and $\bigl(\dprimeddprime\tfrac12q_L\bigr)^r$ is a translation-invariant
+$(r,r)$-form on $N_{\mathbf R}$ because $q_L$ is quadratic.  Contracting
+against the canonical calibration of $S(E)$ turns this into a
+translation-invariant $r$-form, that is, a multiple of Lebesgue measure.
+This proves \cref{itm:ch19-ma:E}.
+
+\emph{Step 4: descent and mass.}  The map $p$ is a covering, so currents
+pull back along it and $p^*c_1(\overline L)^g=c_1(p^*\overline L)^g$.  A
+Haar measure on $S(E)$ invariant under $\tau(\Lambda)$ descends to a Haar
+measure on $S(A)$; equality of the two pullbacks gives equality of the
+descended currents.  The total mass is $(L^g)$ by
+\Cref{prop:ch16-degree-formula}, and a Haar measure on a compact real torus
+is determined by its mass.  This is \cref{itm:ch19-ma:A}, and Step~2 with the
+descent of $\widetilde\omega_L$ to $\omega_L$ is
+\cref{itm:ch19-ma:formula}.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch19-canonical-subvariety}
+Let \(U\subseteq A^{\An}\) be open, let \(X\subseteq U\) be a closed
+irreducible analytic subspace of dimension \(d\), and let \(L\) be a line
+bundle on \(A\) with its cubical metric.  For \(j\in\mathbf N\), the
+current \(c_1(q^*\overline M|_{p^{-1}(X)})^j\) descends to a current
+\(S_j\) on \(X\) of bidimension \((d-j,d-j)\), and
+\begin{equation}
+\label{eq:ch19-canonical-subvariety}
+ c_1\bigl(\overline L|_X\bigr)^{e}
+ =\sum_{j=\max(e-b,0)}^{\min(r,e)}\binom{e}{j}S_{e-j}\wedge\omega_L^{\,j},
+ \qquad 0\leq e\leq d .
+\end{equation}
+In particular \(c_1(\overline L|_X)^d\) is a finite sum of measures
+\(\mu_j\), each carried by a calibrated polyhedral subspace \(P_j\) of
+dimension \(j\) on which \(\tau\) is a piecewise immersion, and each locally
+a constant multiple of Lebesgue measure on \(P_j\).
+\end{proposition}
+
+\begin{proof}
+Expand $c_1(p^*\overline L|_{p^{-1}X})^{e}$ as in Step~1 above and use the
+two vanishing statements of Step~2, now with $\dim X=d$ in place of $g$: the
+term of index $j$ vanishes if $e-j>b$ or if $e-j>d$ or if $j>r$.  Each
+$c_1(q^*\overline M|_{p^{-1}X})^{i}$ is a difference of Bedford--Taylor
+currents and descends because $c_1(p^*\overline L|_{p^{-1}X})$ and
+$\widetilde\omega_L$ do.  The last assertion follows by applying the
+structure theorem for pairings of a closed current against a $G$-form,
+\Cref{thm:ch14-support-pushforward} and
+\Cref{prop:ch11-pushforward-integral}, which produce calibrated polyhedra
+$P_j$; the measures $\omega_L^{\,j}|_{P_j}$ are locally constant multiples
+of Lebesgue measure because $\omega_L$ is pulled back by the piecewise
+linear $\tau$ from a translation-invariant form.  This is
+\cite[Corollary~19.2.9 and Remark~19.3.4]{CLD25}.
+\end{proof}
+
+\begin{remark}[All the pieces can be nonzero]
+\label{rem:ch19-canonical-pieces}
+The range of \(j\) in \eqref{eq:ch19-canonical-subvariety} is not merely a
+bookkeeping device.  Gubler has constructed a subvariety of an abelian
+variety for which none of the measures \(\mu_j\) vanishes, for any
+\(j\) in the admissible range \cite[Remark~19.3.4\,c)]{CLD25}.  Moreover, if
+\(L\) and \(L'\) are both ample, the supports of \(\mu_j(L)\) and
+\(\mu_j(L')\) coincide for every \(j\): choosing \(p\geq1\) with
+\(L^p\otimes(L')^{-1}\) ample gives
+\(p\,c_1(\overline L|_X)\geq c_1(\overline{L'}|_X)\), so each measure
+dominates a multiple of the other, and the polyhedral decomposition into
+pieces of distinct dimensions forces the supports to agree piece by piece.
+Thus the polyhedral decomposition is an invariant of \(X\), not of the
+polarization.
+\end{remark}
+
+\subsection{The Tate curve, completely}
+\label{sec:ch19-tate-canonical}
+
+\begin{example}[Canonical metric and canonical measure on a Tate curve]
+\label{ex:ch19-tate-canonical}
+\index{Tate curve!canonical metric}
+Let \(q\in K^\times\) with \(\ell=v(q)>0\), let
+\(E_q=\mathbf G_{m,K}^{\An}/q^{\mathbf Z}\), and keep \(\theta\),
+\(V=v_{\eta_\bullet}(\theta)\), and \(\tau(z)=v(z)\) from
+\Cref{ex:ch19-tate-slope}.  Here \(g=r=1\), \(b=0\), \(B\) is a point,
+\(T=\mathbf G_m\), \(E=\mathbf G_m\), \(\Lambda=q^{\mathbf Z}\), and
+\(\tau(\Lambda)=\ell\mathbf Z\); the skeleton is
+\(S(E_q)=\mathbf R/\ell\mathbf Z\), a circle of circumference \(\ell\).
+
+\emph{The line bundle.}  Let \(L=\cO_{E_q}(d\cdot(O))\), of degree \(d>0\),
+where \(O\) is the image of \(z=1\).  Then
+\(p^*L=\cO_{\mathbf G_m}(D)\) with \(D=d\sum_{n\in\mathbf Z}(q^n)\), and the
+tautological section \(s_D\) has \(\divis(s_D)=D\).  A metric on
+\(p^*L\) is determined by the weight \(\phi=-\log\|s_D\|\).
+
+\emph{The functional equation.}  Because \(p\circ t_q=p\), the canonical
+identification \(t_q^*p^*L=p^*L\) is the identity on divisors, and a metric
+descends to \(E_q\) exactly when \(\phi\) is \(q\)-periodic:
+\(\phi(qz)=\phi(z)\).  Writing
+\[
+ \phi=dV+g\circ\tau
+\]
+with \(g:\mathbf R\to\mathbf R\) continuous---legitimate because
+\(dV=-d\log|\theta|\) has the right polar behaviour along \(D\)---and using
+\(V(qz)=V(z)-\tau(z)\), which is \eqref{eq:ch19-theta-functional} read
+through \(v=-\log|\cdot|\), periodicity becomes
+\begin{equation}
+\label{eq:ch19-tate-cocycle}
+ g(t+\ell)-g(t)=d\,t,\qquad t\in\mathbf R .
+\end{equation}
+Its solutions differ by \(\ell\)-periodic functions; the \emph{quadratic}
+solution is unique up to a constant, namely
+\begin{equation}
+\label{eq:ch19-tate-g}
+ g(t)=\frac{d}{2\ell}t^2-\frac{d}{2}t
+     =\frac{d}{2\ell}\,t\,(t-\ell),
+\end{equation}
+as one checks:
+\(g(t+\ell)-g(t)=\frac{d}{2\ell}(2t\ell+\ell^2)-\frac d2\ell=dt\).
+By \Cref{thm:ch19-canonical-structure} this is the canonical metric:
+\(f=g\), and its degree-two part is \(\tfrac12q_L\) with
+\begin{equation}
+\label{eq:ch19-tate-qL}
+ q_L(t)=\frac d\ell t^2,
+ \qquad
+ q_L(\tau(q))=q_L(\ell)=d\ell=\log\bigl\|\langle q,u(q)\rangle\bigr\| ,
+\end{equation}
+the last equality because the polarization attached to \(d\cdot(O)\) is
+\(d\) times the principal one, whose Poincar\'e pairing on
+\(\Lambda=q^{\mathbf Z}\) is \(v(q)=\ell\).  This is the check of
+\eqref{eq:ch19-qL}.
+
+\emph{The weight on the skeleton.}  Since \(V\equiv0\) on \([0,\ell]\), the
+canonical weight restricted to the fundamental domain is simply
+\begin{equation}
+\label{eq:ch19-tate-weight}
+ \phi(\eta_t)=\frac{d}{2\ell}\,t(t-\ell),
+ \qquad 0\leq t\leq\ell,
+\end{equation}
+a concave-down parabola in appearance but a \emph{convex} function of
+\(t\), with minimum \(-d\ell/8\) at \(t=\ell/2\) and
+\(\phi(0)=\phi(\ell)=0\).  Up to the additive constant \(d\ell/12\) this is
+\(\tfrac{d\ell}{2}B_2(t/\ell)\) with \(B_2(x)=x^2-x+\tfrac16\) the second
+Bernoulli polynomial; it is the non-Archimedean N\'eron function of
+\(d\cdot(O)\), and it is \eqref{eq:ch08-green-circle} integrated twice.
+
+\emph{The curvature.}  On \(\mathbf G_m^{\An}\),
+\[
+ c_1(p^*\overline L)
+ =\dprimeddprime[\phi]+\delta_D
+ =\underbrace{-d\,\delta_D}_{\dprimeddprime[dV]}
+   +\tau^*\dprimeddprime g+\delta_D
+ =\tau^*\dprimeddprime g,
+\]
+using \Cref{thm:cld-poincare-lelong} for the first term and harmonicity of
+\(\tau\) for the second.  Since \(g''=d/\ell\),
+\begin{equation}
+\label{eq:ch19-tate-measure}
+ c_1(\overline L)=\frac d\ell\,\rd t
+ \quad\text{on }S(E_q)=\mathbf R/\ell\mathbf Z,
+ \qquad\text{total mass }\frac d\ell\cdot\ell=d=\deg L .
+\end{equation}
+This is \Cref{thm:ch19-canonical-ma} in the case \(g=r=1\): a Haar measure
+on the circle of the correct mass.  It can also be read off directly, since
+on the circle
+\[
+ \Delta_\Gamma\bigl(\phi|_\Gamma\bigr)
+ =\frac d\ell\,\rd t-d\,\delta_{t=0},
+\]
+the atom at \(t=0\) coming from the slope jump
+\(g'(0^+)-g'(\ell^-)=-\tfrac d2-\tfrac d2=-d\), and adding
+\(\tau_*\delta_{d\cdot(O)}=d\delta_{t=0}\) restores
+\eqref{eq:ch19-tate-measure}.
+
+\emph{Comparison with the model metrics of \Cref{chap:model-calculations}.}
+Subdivide the circle into \(N\) arcs of equal length \(h=\ell/N\) with
+endpoints \(t_i=ih\), and let \(\phi_N\) be the piecewise affine
+interpolation of \(\phi|_\Gamma\) at the \(t_i\).  For \(i\neq0\) the slope
+jump of \(\phi_N\) at \(t_i\) is
+\[
+ \frac{\phi(t_{i+1})-2\phi(t_i)+\phi(t_{i-1})}{h}
+ =\frac{g''h^2}{h}=\frac d\ell\,h=\frac dN ,
+\]
+exactly, since \(g\) is a quadratic polynomial; and at \(t_0=0\) it is
+\[
+ \frac{g(h)+g(\ell-h)}{h}
+ =\frac{d}{2\ell}\bigl[(h-\ell)-(\ell-h)\bigr]
+ =\frac dN-d .
+\]
+Adding \(d\delta_{t=0}\) gives
+\begin{equation}
+\label{eq:ch19-tate-model-approx}
+ c_1\bigl(\overline L_{\phi_N}\bigr)
+ =\frac dN\sum_{i=0}^{N-1}\delta_{t_i},
+ \qquad\text{mass }d .
+\end{equation}
+For \(\ell=N=d=3\) this is
+\(\delta_{v_1}+\delta_{v_2}+\delta_{v_3}\), which is exactly the balanced
+model metric of \Cref{ex:ch08-tate-curve}.  As \(N\to\infty\) the measures
+\eqref{eq:ch19-tate-model-approx} converge weakly to
+\eqref{eq:ch19-tate-measure}; and since \(\phi_N\geq\phi\) with
+\(\|\phi_N-\phi\|_\infty\leq\tfrac{d}{8\ell}h^2\to0\), the canonical metric
+is a uniform decreasing limit of semipositive model metrics, hence a
+continuous semipositive metric in the sense of
+\Cref{sec:metrics-semipositive}.  Every step is consistent with
+\Cref{thm:cld-bt-continuity}.
+
+\emph{Three checks recorded.}  The mass \(d\); the identification
+\(q_L(\ell)=d\ell\) with the Poincar\'e pairing; and the exact agreement of
+\eqref{eq:ch19-tate-model-approx} with the model computation of
+\Cref{chap:model-calculations}.
+\end{example}
+
+\subsection{An abelian surface}
+\label{sec:ch19-abelian-surface}
+
+\begin{example}[A totally degenerate abelian surface]
+\label{ex:ch19-abelian-surface-degenerate}
+\index{abelian variety!abelian surface}
+Let \(K\) be algebraically closed, complete, nontrivially valued, and let
+\(q\in K^\times\) with \(v(q)=1\).  Take \(T=\mathbf G_m^2\),
+\(N=\mathbf Z^2\), \(B=\Spec K\), so \(E=T\), \(b=0\), \(r=g=2\): totally
+degenerate reduction.  Let
+\[
+ \Lambda=\langle\lambda_1,\lambda_2\rangle,
+ \qquad \lambda_1=(q,1),\quad \lambda_2=(1,q),
+\]
+so that \(\tau(\lambda_1)=(1,0)\), \(\tau(\lambda_2)=(0,1)\), and
+\(\tau(\Lambda)=\mathbf Z^2=N\).  The skeleton is the real torus
+\(S(A)=\mathbf R^2/\mathbf Z^2\), of lattice-normalized volume \(1\).
+
+\emph{The polarization data.}  Choose the symmetric bilinear form
+\[
+ b(\lambda_i,\lambda_j)=B_{ij},
+ \qquad
+ B=\begin{pmatrix}2&1\\1&2\end{pmatrix},
+\]
+positive definite with \(\det B=3\).  By \cite[Theorem~B.6.4]{CLD25} the
+data \((\Lambda,u)\) with this pairing define an ample line bundle \(L\) on
+the abelian surface \(A=E^{\An}/\Lambda\), and by \eqref{eq:ch19-qL} the
+quadratic form on \(N_{\mathbf R}=\mathbf R^2\) is
+\[
+ q_L(x)=x^{\mathsf T}Bx,
+ \qquad
+ \tfrac12q_L(x)=\tfrac12x^{\mathsf T}Bx .
+\]
+
+\emph{The canonical measure.}  Here \(M\) is the trivial bundle on a point,
+so \(S_0=1\) and \Cref{thm:ch19-canonical-ma}\,\cref{itm:ch19-ma:formula}
+reads \(c_1(\overline L)^2=\binom22\omega_L^2=\omega_L^2\).  By
+\eqref{eq:real-ma-density},
+\[
+ \Bigl(\dprimeddprime\tfrac12q_L\Bigr)^2
+ =2!\det\bigl(D^2(\tfrac12q_L)\bigr)\,\rd x
+ =2\det(B)\,\rd x
+ =6\,\rd x ,
+\]
+so
+\begin{equation}
+\label{eq:ch19-abelian-surface-measure}
+ c_1(\overline L)^2=6\,\rd x
+ \quad\text{on }\mathbf R^2/\mathbf Z^2,
+ \qquad\text{total mass }6\cdot1=6 .
+\end{equation}
+
+\emph{The check against the polarization type.}  For a polarization of type
+\((d_1,d_2)\) one has \(\chi(L)=d_1d_2\) and \((L^2)=2!\,d_1d_2\).  The
+elementary divisors of \(B\) over \(\mathbf Z\) are \(1\) and \(3\), since
+\(\gcd\) of the entries is \(1\) and \(\det B=3\); hence \(L\) has type
+\((1,3)\), \(\chi(L)=3\), and \((L^2)=2\cdot3=6\), in agreement with
+\eqref{eq:ch19-abelian-surface-measure}.  Had we taken \(B=I\), the
+principal polarization, the measure would be \(2\,\rd x\) of mass \(2\),
+which is \((L^2)=2!\cdot1\) for a principally polarized abelian surface.
+
+\emph{A subvariety.}  Let \(X\subset A\) be a curve, so \(d=1\).  In
+\eqref{eq:ch19-canonical-subvariety} with \(b=0\) only \(j=e=1\) survives,
+so \(c_1(\overline L|_X)\) is the restriction of \(\omega_L\) to the
+calibrated one-dimensional polyhedron \(\trop_A(X)\), weighted by its
+tropical multiplicities, and its total mass is \((L\cdot X)\).  Suppose
+\(\trop_A(X)\) is the image of the line \(\mathbf Rw\) with
+\(w\in\mathbf Z^2\) primitive, carrying tropical multiplicity \(m\).
+Parametrize that line by lattice arclength \(s\), so the point is \(sw\) and
+the closed geodesic has lattice length \(1\).  Then
+\[
+ \tfrac12q_L(sw)=\tfrac12s^2\,w^{\mathsf T}Bw,
+ \qquad
+ \frac{\rd^2}{\rd s^2}\Bigl(\tfrac12q_L(sw)\Bigr)=w^{\mathsf T}Bw,
+\]
+so the density of \(\omega_L\) along the geodesic is the constant
+\(w^{\mathsf T}Bw\) and
+\[
+ (L\cdot X)=m\,w^{\mathsf T}Bw .
+\]
+For \(w=(1,0)\) and \(m=1\) this gives \(B_{11}=2\); for \(w=(1,1)\) and
+\(m=1\) it gives \(2+2\cdot1+2=6\).
+\end{example}
+
+\begin{example}[An abelian surface of mixed reduction]
+\label{ex:ch19-abelian-surface-mixed}
+Now take \(g=2\) with \(b=r=1\): mixed reduction, the case singled out in
+\Cref{rem:ch19-canonical-delta-scope}.  Let \(B\) be an elliptic curve over
+\(K\) with good reduction and formal model \(\mathcal B\), let
+\(T=\mathbf G_m\), and let \(E\) be an extension of \(B\) by \(T\)
+corresponding to a point \(Q\in\Pic^0(B)=B^\vee(K)\).  Let
+\(\Lambda=\lambda^{\mathbf Z}\) with \(\tau(\lambda)=\ell>0\), so that the
+skeleton \(S(A)=\mathbf R/\ell\mathbf Z\) is a circle of circumference
+\(\ell\).  Assume the polarization data are chosen so that
+\(\mathcal M_s\) has degree \(m>0\) on the elliptic curve \(\mathcal B_s\)
+and \(q_L(t)=ct^2\) with \(c>0\); ampleness of \(L\) is then
+\Cref{thm:ch19-canonical-positivity}, and existence of such data is
+\cite[Theorem~B.6.4 and Remark~B.6.6]{CLD25}.
+
+\emph{The measure.}  Here \(b=r=1\), so
+\Cref{thm:ch19-canonical-ma}\,\cref{itm:ch19-ma:formula} gives
+\[
+ c_1(\overline L)^2=\binom21S_1\wedge\omega_L=2\,S_1\wedge\omega_L,
+\]
+where \(S_1\) is the descent of \(c_1(q^*\overline M)\).  By
+\Cref{thm:cld-recovers-cl}, \(c_1(\overline M)=m\,\delta_\beta\) with
+\(\beta\) the Gauss point of \(B\), so \(S_1\) is \(m\) times the current of
+integration over the fibre \(q^{-1}(\beta)\), whose image in \(S(A)\) is the
+whole circle.  Since
+\(\dprimeddprime(\tfrac12q_L)=c\,\dprime t\wedge\ddprime t\), we get
+\[
+ c_1(\overline L)^2=2mc\,\rd t
+ \quad\text{on }\mathbf R/\ell\mathbf Z,
+ \qquad\text{total mass }(L^2)=2mc\ell .
+\]
+With \(\ell=1\), \(c=1\), \(m=3\) this is \((L^2)=6\), so \(\chi(L)=3\) and
+\(L\) has type \((1,3)\), the same numerical polarization as in
+\Cref{ex:ch19-abelian-surface-degenerate}; the two surfaces have the same
+degree and totally different skeleta, of dimensions \(2\) and \(1\).  The
+canonical measure remembers the reduction type through the \emph{dimension}
+of its support, not through its mass.
+
+\emph{Where the open case enters.}  The metric here is, by
+\eqref{eq:ch19-canonical-weight}, the product of the formal metric of
+\(\mathcal M\) and the weight \(f\circ\tau\).  By
+\Cref{prop:ch19-tau-smooth}\,\cref{itm:ch19-smooth:rank1}, \(\tau\) is
+CLD-smooth if and only if \(Q_s\in\Pic^0(\mathcal B_s)\) is torsion.  If
+\(\widetilde K\) is algebraic over a finite field this is automatic; for a
+general residue field it is a genuine condition on the extension class, and
+when it fails the canonical metric is not exhibited as a product of a formal
+and a CLD-smooth metric.  All the measure computations above are unaffected,
+because they use only harmonicity of \(\tau\) through
+\Cref{thm:bt-harmonic-compatibility}; what is not available in that case is
+the ordinary delta-form description, which is the open question of
+\Cref{rem:ch19-canonical-delta-scope}\,\cref{itm:ch19-scope:mixed}.
+\end{example}
+
+\section{The local--global common core}
+\label{sec:ch19-common-core}
+
+Curves, toric varieties and abelian varieties have now each been computed in
+several languages, and each time the languages agreed.  The remaining two
+sections say precisely why, and precisely how far the agreement extends.
+This one packages the domain on which the local approaches of
+\Cref{part:cld} coincide; \Cref{sec:ch19-cld-bfj} then compares that domain
+with the global theory of \Cref{part:bfj}.
+
+The following theorem packages the domain on which the principal
+approaches genuinely coincide.
+
+\begin{theorem}\label{thm:common-model-core}
+Let \(K\) be algebraically closed, complete, and nontrivially valued, let
+\(X\) be a proper algebraic variety, and let \(\overline L\) be a formal
+metric.  Then the following are equivalent:
+\begin{enumerate}
+\item the residual formal line bundle is nef;
+\item the metric is semipositive in the local model sense;
+\item its Chern delta-form is positive;
+\item its local weights are functorially psh;
+\item its restrictions to closed algebraic curves are psh.
+\end{enumerate}
+If the local weights are viewed as \(\mathbf R\)-PL functions, these
+conditions are also equivalent to classical psh under the hypotheses of
+\Cref{thm:gr-classical-pl}.  For \(n\) such formal metrics, the CLD
+curvature product, the delta-form wedge product, and the Chambert--Loir
+special-fibre measure agree.
+\end{theorem}
+\begin{proof}
+The first five equivalences are
+\Cref{thm:gk-formal-positivity-comparison}.  The equivalence with
+classical psh is \Cref{thm:gr-classical-pl}, applied in local
+trivializations.  Equality of measures follows respectively from
+the general formal intersection formula in
+\Cref{thm:cld-formal-intersection} and from
+\Cref{thm:gk-delta-cl-measure}.
+\end{proof}
+
+Over a discretely valued field of residue characteristic zero, on a smooth
+projective variety, this model core is also the starting locus of the BFJ
+global theory: semipositivity means relative nefness of the model line
+bundle, and the BFJ model Monge--Amp\`ere measure is the same
+special-fibre measure.  The assertion is deliberately confined to model
+metrics.  The later BFJ extension to singular psh functions uses global
+compactness, envelopes, and energy, not the local CLD definition alone.
+
+\section{A first CLD--BFJ comparison}
+\label{sec:ch19-cld-bfj}
+
+\Cref{thm:common-model-core} compares notions that are all local and all
+defined inside \Cref{part:cld}.  We now make the first comparison with a
+theory that is not: the global model theory of Boucksom--Favre--Jonsson,
+constructed in \Cref{part:bfj}.  This is the theorem that
+\Cref{part:comparisons} will cite whenever a statement has to be transported
+across the two frameworks, so its scope is stated with more care than its
+proof requires.
+
+\subsection{The two frameworks side by side}
+\label{sec:ch19-cld-bfj-setup}
+
+Throughout this section, and \emph{only} in this section, we adopt the
+original BFJ hypotheses of \Cref{chap:bfj-model-forms}:
+\begin{equation}
+\label{eq:ch19-bfj-hypotheses}
+\left\{
+\begin{aligned}
+ &K\ \text{complete discretely valued, residue characteristic }0,\
+   v(\pi)=1;\\
+ &X\ \text{smooth, connected, projective over }K,\ \dim X=n;\\
+ &\text{models normal, flat and projective over }R=K^\circ .
+\end{aligned}
+\right.
+\end{equation}
+These are needed on the BFJ side for resolution of singularities and for the
+model-envelope machinery; nothing in \Cref{part:cld} requires them.  Where a
+statement below survives without \eqref{eq:ch19-bfj-hypotheses}, we say so.
+
+The two frameworks assign different names to the same underlying data, and
+the first task is to align them.
+
+\begin{center}
+\small
+\begin{tabular}{p{.25\textwidth}|p{.29\textwidth}|p{.30\textwidth}}
+\textbf{Datum}&\textbf{CLD name (\Cref{part:cld})}
+ &\textbf{BFJ name (\Cref{part:bfj})}\\ \hline
+a model \((\cX,\cL)\) of \((X,L)\)
+ &formal metric \(\|\cdot\|_{\cL}\) on \(L^{\An}\)
+ &closed model form \(\theta\in\mathcal Z^{1,1}(X)\)
+  determined on \(\cX\)\\
+a vertical \(\mathbf Q\)-Cartier divisor \(D\)
+ &model function \(\varphi_D=-\log|f_D|\), a PL weight
+ &model function, with
+  \(\varphi_D(x_E)=b_E^{-1}\ord_E(D)\)\\
+change of metric
+ &\(\|\cdot\|_\varphi=\rme^{-\varphi}\|\cdot\|_0\)
+ &\(\theta+\ddc\varphi\)\\
+positivity
+ &\(c_1(\overline L)\geq0\) as a CLD current
+ &\(\theta+\ddc\varphi\) semipositive, i.e.\ relatively nef\\
+the measure
+ &\(c_1(\overline L_1)\wedge\cdots\wedge c_1(\overline L_n)\),
+  \Cref{thm:cld-formal-intersection}
+ &\(\theta_1\wedge\cdots\wedge\theta_n\),
+  \eqref{eq:model-mixed-measure}\\
+continuous potentials
+ &uniform limits of PL psh weights
+ &uniform limits of \(\theta\)-psh model functions\\
+singular potentials
+ &the sheaf \(\operatorname{Psh}\) of
+  \Cref{def:ch15-hierarchy}, local
+ &\(\PSH(X,\theta)\) of \Cref{chap:bfj-psh}, global\\
+\end{tabular}
+\end{center}
+
+The last row is where the two theories part company, and it is the reason
+the comparison theorem has the shape it has.  The CLD class is a
+\emph{sheaf}: membership is a local condition, and there is no reference to
+a global class \(\theta\).  The BFJ class is defined by a condition on
+\emph{all models} of a fixed projective \(X\) and is not local in any
+obvious sense.  A theorem comparing them must therefore either restrict to
+potentials for which both descriptions are computable---model and
+continuous---or prove a genuinely new statement.  Only the first is
+available, and that is the content of what follows.
+
+\subsection{The comparison theorem}
+\label{sec:ch19-cld-bfj-theorem}
+
+\begin{theorem}
+\label{thm:ch19-cld-bfj-comparison}
+Assume \eqref{eq:ch19-bfj-hypotheses}.  Let \(L\) be an ample line bundle on
+\(X\), let \((\cX_0,\cL_0)\) be a model of \((X,L)\) with associated formal
+metric \(\|\cdot\|_0\) and closed model form \(\theta\), and let
+\(V=(\{\theta\}^n)=(L^n)>0\).
+
+\emph{\textbf{(A) Model locus.}}  For a model function \(\varphi\) on
+\(X^{\An}\), the following are equivalent:
+\begin{enumerate}
+\item\label{itm:ch19-cb:bfj} \(\varphi\) is \(\theta\)-psh in the BFJ sense,
+ that is, some determination of \(\theta+\ddc\varphi\) on a model is
+ relatively nef;
+\item\label{itm:ch19-cb:zhang} the model metric
+ \(\|\cdot\|_\varphi=\rme^{-\varphi}\|\cdot\|_0\) on \(L\) is semipositive
+ in the sense of \Cref{sec:metrics-semipositive};
+\item\label{itm:ch19-cb:cld} the CLD Chern current
+ \(c_1(L,\|\cdot\|_\varphi)\) is a positive current;
+\item\label{itm:ch19-cb:delta} the Chern delta-form
+ \(c_1^\delta(L,\|\cdot\|_\varphi)\) is a positive delta-form;
+\item\label{itm:ch19-cb:funct} the local weights of \(\|\cdot\|_\varphi\)
+ are functorially psh;
+\item\label{itm:ch19-cb:curve} for every closed integral curve
+ \(C\subseteq X\), the restriction of \(\|\cdot\|_\varphi\) to
+ \(C^{\An}\) is psh.
+\end{enumerate}
+When these hold, and more generally for any \(n\)-tuple of model functions,
+the BFJ mixed model measure and the CLD Bedford--Taylor product agree:
+\begin{equation}
+\label{eq:ch19-cld-bfj-model}
+ \begin{aligned}
+  \MA_\theta(\varphi_1,\ldots,\varphi_n)
+   &=c_1\bigl(L,\|\cdot\|_{\varphi_1}\bigr)\wedge\cdots\wedge
+     c_1\bigl(L,\|\cdot\|_{\varphi_n}\bigr)\\
+   &=\sum_Eb_E
+     \bigl(\cL_{\varphi_1}|_E\cdots\cL_{\varphi_n}|_E\bigr)
+     \delta_{x_E},
+ \end{aligned}
+\end{equation}
+and this common measure is the Chambert--Loir measure of the same models.
+Its total mass is \(V\).
+
+\emph{\textbf{(B) Continuous locus.}}  Let \(\varphi\in C^0(X^{\An})\) be a
+uniform limit of \(\theta\)-psh model functions.  Then
+\(\|\cdot\|_\varphi\) is a continuous semipositive metric on \(L\) in the
+sense of Zhang, \(c_1(L,\|\cdot\|_\varphi)\) is a positive CLD current, and
+\begin{equation}
+\label{eq:ch19-cld-bfj-continuous}
+ \MA_\theta(\varphi)=c_1\bigl(L,\|\cdot\|_\varphi\bigr)^n
+\end{equation}
+as measures of mass \(V\) on \(X^{\An}\).  The same holds for mixed products
+of \(n\) such potentials.
+
+\emph{\textbf{(C) Scope.}}  Neither \eqref{eq:ch19-cld-bfj-model} nor
+\eqref{eq:ch19-cld-bfj-continuous} is asserted outside the model and
+continuous loci.  Specifically, this book proves no statement of the
+following four forms:
+\begin{enumerate}[resume]
+\item\label{itm:ch19-cb:scope1} that a bounded \(\theta\)-psh function is
+ locally CLD-psh;
+\item\label{itm:ch19-cb:scope2} that a locally CLD-psh function on
+ \(X^{\An}\) is \(\theta\)-psh for some closed model form \(\theta\);
+\item\label{itm:ch19-cb:scope3} that the BFJ monotone Monge--Amp\`ere
+ measure of an unbounded \(\theta\)-psh function equals a CLD
+ Bedford--Taylor product;
+\item\label{itm:ch19-cb:scope4} that the two constructions assign the same
+ mass to a pluripolar set.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the equivalences in (A).}  The implications among
+\cref{itm:ch19-cb:zhang}--\cref{itm:ch19-cb:curve} are
+\Cref{thm:gk-formal-positivity-comparison}, applied to the PL metric
+$\|\cdot\|_\varphi$, together with
+\Cref{thm:gk-tropical-frame-positivity}, which is what identifies
+positivity of the Chern \emph{current} \cref{itm:ch19-cb:cld} with positivity
+of the Chern \emph{delta-form} \cref{itm:ch19-cb:delta} for a piecewise
+smooth metric.  The cited theorems are stated over an algebraically closed
+field, so we first pass to $\widehat{K^a}$.  All six conditions are stable
+under that base change: \cref{itm:ch19-cb:zhang} because relative nefness of
+a model line bundle may be tested after a faithfully flat base change of the
+valuation ring, and is therefore both preserved and reflected;
+\cref{itm:ch19-cb:cld} and \cref{itm:ch19-cb:funct} by
+\Cref{cor:ch15-pullback-cases}\,\cref{itm:ch15-pb-ext}; and
+\cref{itm:ch19-cb:delta} because delta-forms and their positivity are defined
+chartwise.  The same faithful-flatness statement permits the descent.
+
+It remains to identify \cref{itm:ch19-cb:bfj} with
+\cref{itm:ch19-cb:zhang}.  Choose a model $\cX$ dominating $\cX_0$ on which
+$\varphi=\varphi_D$ for a vertical $\mathbf Q$-Cartier divisor $D$, and let
+$\cL_\varphi=\rho^*\cL_0\otimes\cO_{\cX}(D)$.  By
+\Cref{prop:metrics-divisor-model-function} and the sign convention
+\eqref{eq:appJ-model-divisor}, the model metric of $\cL_\varphi$ is exactly
+$\|\cdot\|_\varphi$, and by \eqref{eq:ch20-sign} the closed model form
+determined by $\cL_\varphi$ is $\theta+\ddc\varphi$.  Semipositivity in
+\Cref{sec:metrics-semipositive} is by definition relative nefness of
+$\cL_\varphi$, which is the BFJ definition of $\theta$-psh; and both are
+independent of the chosen dominating model by
+\Cref{lem:metrics-nef-independence} and \Cref{prop:nef-pullback}.  Hence
+\cref{itm:ch19-cb:bfj}$\Leftrightarrow$\cref{itm:ch19-cb:zhang}.
+
+\emph{Step 2: the measures in (A).}  The right-hand equality of
+\eqref{eq:ch19-cld-bfj-model} is the definition
+\eqref{eq:model-mixed-measure} of the BFJ mixed model measure, once one
+observes that the divisorial-point normalization used there,
+$\varphi_D(x_E)=b_E^{-1}\ord_E(D)$, is the same as the CLD one; this is
+\Cref{rem:divisorial-normalization}.  The middle equality is
+\Cref{thm:cld-recovers-cl}, whose hypotheses---$K$ discretely valued, $X$
+proper and reduced, $\cX$ relatively normal---are implied by
+\eqref{eq:ch19-bfj-hypotheses}.  That the same measure is the
+Chambert--Loir measure is the last sentence of that theorem, and that it is
+also the delta-form product is \Cref{thm:gk-delta-cl-measure}.  The total
+mass is $(L^n)=V$ by \Cref{prop:ch19-model-basic}\,\cref{itm:ch19-model:mass}.
+
+\emph{Step 3: reduction of (B) to a decreasing sequence.}  Let
+$\varphi_m$ be $\theta$-psh model functions with
+$\|\varphi_m-\varphi\|_\infty\leq\varepsilon_m$ and
+$\sum_m\varepsilon_m<\infty$; such a sequence exists after passing to a
+subsequence.  Put
+\[
+ d_m:=\sum_{j\geq m}(\varepsilon_j+\varepsilon_{j+1}),
+ \qquad \psi_m:=\varphi_m+d_m .
+\]
+Then $\psi_m$ is again a $\theta$-psh model function, since adding a
+constant does not change $\ddc\varphi_m$; and
+\[
+ \psi_m-\psi_{m+1}
+ =\varphi_m-\varphi_{m+1}+(\varepsilon_m+\varepsilon_{m+1})\geq0 ,
+\]
+because $\|\varphi_m-\varphi_{m+1}\|_\infty\leq\varepsilon_m+\varepsilon_{m+1}$.
+Finally $\psi_m\geq\varphi$ and $\psi_m-\varphi\leq\varepsilon_m+d_m\to0$,
+so $\psi_m\searrow\varphi$ uniformly.  This is
+\Cref{lem:ch15-shift} in the form used repeatedly in
+\Cref{chap:cld-bedford-taylor}.
+
+\emph{Step 4: passing to the limit on both sides.}  On the BFJ side,
+$\MA_\theta$ is continuous along decreasing sequences of bounded
+$\theta$-psh functions by \Cref{prop:e1-monotone-continuity}, so
+$\MA_\theta(\psi_m)\to\MA_\theta(\varphi)$ weakly.  On the CLD side, the
+metrics $\|\cdot\|_{\psi_m}$ converge uniformly to $\|\cdot\|_\varphi$, so
+$c_1(L,\|\cdot\|_{\psi_m})^n\to c_1(L,\|\cdot\|_\varphi)^n$ weakly by
+\Cref{thm:cld-bt-continuity}; the hypotheses of that theorem are met because
+each $\psi_m$ is continuous psh, and the products are taken with all $n$
+factors equal.  By Step~2 the two sequences of measures are equal term by
+term, hence so are their limits.  This is
+\eqref{eq:ch19-cld-bfj-continuous}.  That $\|\cdot\|_\varphi$ is a
+continuous semipositive metric in Zhang's sense is the definition, given
+Step~1; that $c_1(L,\|\cdot\|_\varphi)$ is positive follows from
+\Cref{prop:bt-current-stability}, positivity being closed under weak limits.
+The mixed case is identical, using the multilinear version of both
+continuity statements.  The whole of (B) is
+\Cref{thm:bfj-cld-ma-common-locus}, restated here with its proof so that
+the scope in (C) can be read off.
+
+\emph{Step 5: (C).}  Nothing is to be proved; the assertion is that the
+four displayed statements are not proved.  We record why each is out of
+reach of the argument above.  Items \cref{itm:ch19-cb:scope1} and
+\cref{itm:ch19-cb:scope2} concern classes that are not both local: Steps~1--2
+identify \emph{model} objects, and the identification propagates in Step~4
+only along uniformly convergent sequences, whereas a bounded $\theta$-psh
+function is only a \emph{decreasing pointwise} limit of model functions and
+need not be continuous.  Item \cref{itm:ch19-cb:scope3} fails to follow
+because \Cref{thm:cld-bt-continuity} requires local boundedness and
+\emph{uniform} convergence, which decreasing sequences of unbounded
+potentials do not provide; the BFJ monotone extension of
+\Cref{thm:bounded-ma-extension} is constructed by a different mechanism.
+Item \cref{itm:ch19-cb:scope4} is not a gap in the proof but a genuine
+difference: \Cref{ex:ch16-polar-failure} exhibits a canonical extension of a
+CLD product carrying mass one on a polar set, whereas the non-pluripolar
+products of \Cref{def:nonpluripolar-ma} discard that mass by construction.
+\end{proof}
+
+\begin{remark}[What the hypotheses are doing]
+\label{rem:ch19-cld-bfj-hypotheses}
+It is worth separating the roles of the assumptions
+\eqref{eq:ch19-bfj-hypotheses}.
+\begin{itemize}
+\item \emph{Discreteness} is used in Step~2, through
+\Cref{thm:cld-recovers-cl}, to make the defect factor of
+\Cref{thm:cld-formal-intersection} equal to the scheme-theoretic
+multiplicity \(b_E\).  Over a general nontrivially valued field the CLD
+formula still holds, with the defect factor written out; what changes is the
+BFJ side, which has no theory of models over a non-discrete valuation ring
+in the form used in \Cref{part:bfj}.
+\item \emph{Residue characteristic zero} is not used anywhere in the proof
+above.  It is used in \Cref{part:bfj} for continuity of envelopes, and
+therefore for everything beyond bounded potentials; the removal of that
+hypothesis by test ideals is discussed in
+\Cref{chap:bfj-envelopes}.
+\item \emph{Smoothness and projectivity of \(X\)} enter only through the
+existence of the models used in \Cref{part:bfj}.  Statement (A) holds for
+any proper reduced \(X\), by
+\Cref{thm:common-model-core}; statement (B) needs the density of model
+functions, \Cref{prop:metrics-model-function-density}, which holds for
+proper \(X\) over any complete nontrivially valued field.
+\item \emph{Ampleness of \(L\)} is used for the mass statement and for the
+BFJ theory's standing hypothesis that \(\{\theta\}\) be ample.  For a
+general \(L\), equality \eqref{eq:ch19-cld-bfj-model} of signed measures
+still holds, since both sides are given by the same intersection numbers.
+\end{itemize}
+\end{remark}
+
+\begin{corollary}
+\label{cor:ch19-transfer}
+Assume \eqref{eq:ch19-bfj-hypotheses}.
+\begin{enumerate}
+\item\label{itm:ch19-tr:curve} If \(\dim X=1\), then for every continuous
+ semipositive metric the BFJ measure, the Chambert--Loir measure and the CLD
+ curvature all equal \(\mu_0+\Delta_\Gamma F\) of
+ \Cref{prop:ch19-curve-model-curvature} and its uniform limits.
+\item\label{itm:ch19-tr:toric} If \(X\) is toric and the metric is
+ invariant, all three equal \(n!\MA_{\mathbf R}(\phi)\) after tropical
+ pushforward, by \Cref{thm:ch19-toric-ma}.
+\item\label{itm:ch19-tr:abelian} If \(X=A\) is abelian with split Raynaud
+ data and the metric is canonical, all three equal the Haar measure of
+ \Cref{thm:ch19-canonical-ma}, of mass \((L^g)\).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+In each case the metric is a uniform limit of semipositive model metrics:
+for \cref{itm:ch19-tr:curve} by density of model functions
+(\Cref{prop:metrics-model-function-density}) together with
+\Cref{prop:ch19-curve-model-curvature}; for \cref{itm:ch19-tr:toric} by
+Step~3 of the proof of \Cref{thm:ch19-toric-ma}; for
+\cref{itm:ch19-tr:abelian} by the explicit approximation
+\eqref{eq:ch19-tate-model-approx} in dimension one, and in general because
+the cubical metric is a product of a formal metric and a $G$-smooth psh
+weight by \eqref{eq:ch19-canonical-weight}, and the latter is a uniform
+limit of PL psh weights by piecewise affine interpolation of the quadratic
+$f$ on a fine enough subdivision of $N_{\mathbf R}$.  Now apply
+\Cref{thm:ch19-cld-bfj-comparison}\,(B).
+\end{proof}
+
+\begin{warning}{The comparison is about measures, not about classes}
+\Cref{thm:ch19-cld-bfj-comparison} identifies two \emph{operators} on a
+common domain.  It does not identify the two \emph{classes} of psh objects,
+and the difference is not a technicality.  On the CLD side the class is a
+sheaf with no global positivity reference; on the BFJ side it is a global
+class attached to a fixed \(\theta\).  Already for \(X=\mathbf P^1\) the
+constant function \(0\) is CLD-psh on every open set but is
+\(\theta\)-psh only when \(\theta\) is semipositive, and a CLD-psh function
+on a small open set need not extend to \(X^{\An}\) at all.  The local versus
+global metric question is \Cref{prob:frontier-cld-global-metric}; the
+present theorem does not touch it.
+\end{warning}
+
+\section{What is not known for singular psh functions}
+\label{sec:ch19-limitations}
+
+Every theorem of this chapter has been stated for a model metric, a
+continuous metric, or a locally bounded potential.  That is not an
+accident of exposition, and it is not conservatism.  For each of the
+assertions below, either the statement is false for arbitrary singular psh
+functions, or it is not known, or it has no meaning at all until an extra
+construction is supplied.  The purpose of this section is to say which of
+the three, and where the book resolves the matter.
+
+\Cref{part:bfj,part:comparisons} use this table as a scope-discipline
+device: a hypothesis in a later chapter that looks unnecessarily strong
+should be checked against it before being weakened.
+
+\subsection{The table}
+\label{sec:ch19-limitations-table}
+
+In the third column, \emph{false} means a counterexample is available in
+this book; \emph{undefined} means the expression on which the assertion
+depends is not defined; and \emph{open} means the assertion is meaningful
+and neither proved nor disproved here.  In the second column, ``model'' and
+``continuous'' refer to the loci of
+\Cref{thm:ch19-cld-bfj-comparison}\,(A) and~(B).
+
+\begingroup
+\footnotesize
+\begin{longtable}{p{.195\textwidth}|p{.135\textwidth}|p{.275\textwidth}|p{.205\textwidth}}
+\toprule
+\textbf{Assertion}&\textbf{Model / cont.}
+ &\textbf{Status and precise reason for arbitrary singular \(u\)}
+ &\textbf{Resolved or left open at}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Assertion}&\textbf{Model / cont.}
+ &\textbf{Status and precise reason for arbitrary singular \(u\)}
+ &\textbf{Resolved or left open at}\\
+\midrule
+\endhead
+
+(L1) The Bedford--Taylor product \((\dprimeddprime u)^n\) exists as a
+ current.
+ &Yes,
+  \Cref{thm:bt-symmetry-locality}
+ &\emph{Undefined.}  The recursion \eqref{eq:ch16-recursion-schema} needs
+  the product \(uT\) of \eqref{eq:ch16-uT-definition}, which is constructed
+  in \Cref{lem:continuous-times-positive-current} for \(u\) continuous and
+  \(T\) positive; for \(u\) unbounded, \(uT\) is not a current of finite
+  order and no canonical extension is available.
+ &Global substitutes:
+  \Cref{thm:bounded-ma-extension},
+  \Cref{def:nonpluripolar-ma}.  A local product is
+  \Cref{prob:frontier-local-ma}.\\
+
+(L2) The total mass is \((L^n)\).
+ &Yes, \eqref{eq:ch19-cld-bfj-model},
+  \Cref{prop:ch16-degree-formula}
+ &\emph{False in general.}  Even where a product is defined by monotone or
+  non-pluripolar extension, mass can drop: the non-pluripolar product of
+  \Cref{def:nonpluripolar-ma} has mass \(\leq(L^n)\), with equality
+  characterizing the full-mass class.
+ &\Cref{chap:bfj-energy};
+  \Cref{def:e1}.\\
+
+(L3) The measure puts no mass on the polar locus \(\{u=-\infty\}\).
+ &Yes; vacuous for continuous \(u\)
+ &\emph{Depends on the construction, and the two answers differ.}
+  \Cref{thm:cld-polar-negligibility} gives negligibility for locally
+  approachable \(u\) that are locally bounded off the polar set; without
+  that hypothesis the canonical extension of a CLD product can carry mass on
+  a polar set, whereas non-pluripolar products discard it by definition.
+ &\Cref{ex:ch16-polar-failure};
+  \Cref{prop:bounded-ma-no-polar-mass},
+  \Cref{def:nonpluripolar-ma}.\\
+
+(L4) Positivity of \(\dprimeddprime[u]\) implies that \(u\) belongs to the
+ approximation-generated CLD hierarchy.
+ &Known on curves only under the regularization hypotheses of (L5)
+ &\emph{Open in general, already as a regularization question on curves.}
+  Positivity of the current is a condition from above, whereas the CLD
+  class is generated from below by decreasing limits of smooth psh
+  functions.  Wanner identifies current positivity on a curve with
+  Thuillier subharmonicity, not automatically with this CLD hierarchy.  For
+  \(\mathbf R\)-PL functions on a boundaryless space the converse is
+  available.
+ &\Cref{thm:verified-pl-psh-equivalence};
+  \Cref{prob:frontier-current-pullback}.\\
+
+(L5) \(u\) is a local decreasing limit of \emph{smooth} psh functions.
+ &Known only under extra hypotheses even for continuous \(u\)
+ &\emph{Open.}  This is the collapse of the transfinite hierarchy at stage
+  one.  Eventual stabilization is a theorem
+  (\Cref{prop:ch15-hierarchy-stabilizes}); collapse is not.  On curves it
+  holds when the residue field is algebraic over a finite field, or for
+  \(\mathbf P^1\), or for Mumford curves, and not otherwise proved.
+ &\Cref{prob:frontier-cld-hierarchy};
+  \cite[Corollary~5.4]{Wanner19}.\\
+
+(L6) A maximum principle holds.
+ &Yes in dimension one,
+  \Cref{thm:ch15-max-onedim}
+ &\emph{Open for CLD-psh functions in dimension \(\geq2\).}  The
+  one-dimensional proof converts positivity of a current into finitely many
+  numerical inequalities; in higher dimension there is no such finite list.
+  A maximum principle is available for the curve-test class, hence for
+  CLD-psh functions through \Cref{thm:cld-to-classical-psh}.
+ &\Cref{cor:ch15-cld-curve-max};
+  \cite[\S0.3.5]{CLD25}.\\
+
+(L7) The comparison principle
+ \(\int_{\{u<w\}}\MA(w)\leq\)\newline
+ \(\int_{\{u<w\}}\MA(u)\).
+ &Chartwise for bounded \(u,w\),
+  \Cref{thm:ch16-comparison-chart}
+ &\emph{Undefined, then unavailable.}  The statement presupposes (L1); and
+  the chartwise proof uses the subgradient inclusion
+  \Cref{lem:ch16-subgradient-inclusion}, which is a statement about finite
+  convex functions.  Globally the comparison principle needs finite energy,
+  not local positivity.
+ &\eqref{eq:model-maximum-principle};
+  \eqref{eq:bj-comparison-principle}.\\
+
+(L8) Restriction to a closed subvariety \(Z\) is psh and its curvature is
+ the restriction.
+ &Yes,
+  \Cref{cor:ch15-pullback-cases};\newline
+  \cref{itm:ch15-pb-closed}
+ &\emph{Meaningless when \(Z\subseteq\{u=-\infty\}\).}  Then
+  \(u|_Z\equiv-\infty\) is not a psh function in the sense used here, the
+  current \([u|_Z]\) is not defined, and no restriction formula holds.  The
+  same failure affects pullback along a morphism whose image lies in the
+  polar locus.
+ &\Cref{prop:ch15-pl-pullback}; see also the warning after that result.\\
+
+(L9) The metric is a delta-metric, so that \(c_1^\delta\) is an ordinary
+ delta-form.
+ &Yes for formal and PL metrics,
+  \cite[Proposition~8.11]{GK17}
+ &\emph{Open already for continuous canonical metrics in the
+  non-isotrivial mixed-reduction case.}  The canonical tropicalization is
+  harmonic but need not be a \emph{smooth} tropicalization; the smooth case
+  covers good reduction, totally degenerate reduction, and residue field
+  algebraic over a finite field.
+ &\Cref{rem:ch19-canonical-delta-scope};
+  \Cref{prob:frontier-gjr-three}.\\
+
+(L10) The CLD-psh class coincides with a global \(\theta\)-psh class.
+ &Compared only on model and continuous loci
+ &\emph{Open, and not merely technical.}  The CLD class is a sheaf with no
+  reference to a global positivity datum, and a CLD-psh function on a small
+  open set need not extend.  No unrestricted singular BFJ--CLD equivalence
+  is proved anywhere.
+ &\Cref{thm:ch19-cld-bfj-comparison}\,(C);
+  \Cref{prob:frontier-cld-global-metric}.\\
+
+(L11) The Monge--Amp\`ere equation \(\MA(u)=\mu\) is solvable for the
+ relevant \(\mu\).
+ &Yes for invariant toric and abelian data,
+  \cite[Theorems~6.3.13, 8.3.3]{BGJKK25}
+ &\emph{Not a local statement at all.}  Solvability is proved by global
+  variational methods requiring energy, an ample class, and---in the
+  original setting---discreteness and residue characteristic zero.  No local
+  CLD existence theorem is available.
+ &\Cref{chap:bfj-ma};
+  \Cref{prob:frontier-general-ma}.\\
+
+(L12) The curvature current determines the potential up to an additive
+ constant.
+ &Up to harmonic ambiguity, \Cref{sec:ch16-ambiguity-levels}
+ &\emph{False without global hypotheses.}  Locally, any harmonic function
+  may be added.  On a compact space, and for the CLD class, the ambiguity is
+  reduced but not to constants unless a maximum principle is available,
+  which by (L6) is open in dimension \(\geq2\).
+ &\Cref{thm:ch16-pluriharmonic-criterion};
+  \Cref{prob:frontier-pluriharmonic}.\\
+
+(L13) Smooth decreasing regularization can be arranged so that the
+ curvature measures converge weakly.
+ &Yes under uniform convergence,
+  \Cref{thm:cld-bt-continuity}
+ &\emph{Undefined, then unproved.}  Weak continuity of the CLD product is
+  proved for locally bounded psh functions converging locally uniformly, and
+  for decreasing nets of continuous psh functions.  For decreasing nets of
+  unbounded psh functions the products of (L1) do not exist, so there is
+  nothing to converge.
+ &\Cref{cor:ch16-decreasing-nets},
+  \Cref{rem:ch16-not-claimed}.\\
+
+(L14) The Chern--Levine--Nirenberg estimate bounds the local mass.
+ &Yes,
+  \Cref{thm:cld-cln}
+ &\emph{Fails as stated.}  The constant in \Cref{thm:cld-cln} is a product
+  of sup-norms, which is infinite for unbounded potentials.  The weighted
+  form \Cref{thm:ch16-weighted-cln} replaces sup-norms by weights and is what
+  survives; it is the tool used to prove (L3) in its stated scope.
+ &\eqref{eq:ch16-weighted-cln-main};
+  \eqref{eq:cld-weighted-cln}.\\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\subsection{How to read the table}
+\label{sec:ch19-limitations-reading}
+
+Three structural remarks make the fourteen rows less arbitrary than they
+look.
+
+\emph{First, most failures come from one place.}  Rows (L1), (L7), (L13) and
+(L14) are all consequences of the single fact that the recursion defining
+Bedford--Taylor products multiplies a function by a current, and that
+operation needs local boundedness.  Everything downstream of the recursion
+inherits the hypothesis.  The global theories evade it not by improving the
+local product but by replacing it: BFJ by monotone extension from bounded
+potentials (\Cref{thm:bounded-ma-extension}), and the non-pluripolar
+formalism by truncation (\Cref{def:nonpluripolar-ma}).  Consequently rows
+(L2) and (L3) record genuine \emph{differences} between the resulting
+operators, not gaps.
+
+\emph{Second, two failures come from the definition of the class.}  Rows
+(L4) and (L5) are the two halves of the same question: the CLD class is
+generated from below, so membership is proved by exhibiting approximants,
+and any statement asserting membership from a property of the current is a
+converse that must be proved.  Wanner's curve theorem compares current
+positivity with Thuillier's comparison class; it supplies the required
+CLD-smooth regularization only under the extra hypotheses of (L5).  In
+higher dimension the only converse recorded here is for
+\(\mathbf R\)-PL functions.
+
+\emph{Third, one failure is geometric.}  Row (L9) is not about singular
+functions at all: it concerns a perfectly continuous, even canonical, metric
+on an abelian variety, and the obstruction is that a harmonic
+tropicalization need not be smooth.  It is included because it is the row
+most likely to be misremembered as settled, and because it delimits exactly
+what \Cref{sec:ch19-canonical} proves.
+
+\begin{warning}{Three phrases that are not interchangeable}
+The table distinguishes them and so does the rest of the book.
+\begin{itemize}
+\item \emph{``Not known''} means the assertion is meaningful, and neither a
+ proof nor a counterexample is given here.  Rows (L4), (L5), (L6), (L9),
+ (L10), (L11).
+\item \emph{``Not defined''} means the expression itself has no referent
+ until a further construction is supplied.  Rows (L1), (L7), (L8), (L13).
+\item \emph{``Different''} means both sides exist and are not equal.  Rows
+ (L2), (L3), (L12), (L14).
+\end{itemize}
+Conflating the second with the first produces false open problems;
+conflating the third with either produces false theorems.
+\end{warning}
+
+\section{Comparison and limitations ledger}
+\label{sec:ch19-ledger}
+
+\Cref{sec:ch19-limitations} lists what fails.  This section lists, in the
+complementary direction, what has been proved and against which precise
+hypotheses, one entry per class of object met in this chapter.  Each entry
+has two halves: what is established, with its source, and the boundary of
+that establishment.  The list is meant to be quotable, and later chapters
+quote it.
+
+\begin{description}[style=nextline,leftmargin=0pt,labelindent=0pt,
+  labelsep=0pt,itemsep=.8\baselineskip,font=\normalfont\bfseries]
+\item[Model metric on a curve]
+\emph{Proved.} The Chern current is \(\mu_0+\Delta_\Gamma F\), an atomic
+signed measure of mass \(\deg_CL\), positive exactly when a finite list of
+outgoing-slope inequalities holds
+(\Cref{prop:ch19-curve-model-curvature}); the slope formula is the
+retraction of Poincar\'e--Lelong
+(\Cref{thm:ch19-curve-slope-formula}).
+\par\emph{Boundary.} Both statements are for potentials that factor through
+a skeleton; a continuous semipositive metric on a curve has a nonatomic
+curvature in general (\Cref{ex:ch19-p1-nonpl}).
+
+\item[Formal metric on a proper algebraic variety]
+\emph{Proved.} Nef model, positive Chern delta-form, functorial psh, and curve
+positivity are equivalent \cite[Theorem~6.10]{GK19}.
+\par\emph{Boundary.} There is no representation theorem for arbitrary
+positive currents by formal metrics.
+
+\item[Continuous function on a smooth proper curve]
+\emph{Proved.} Positivity of \(\dprimeddprime[u]\) is equivalent to
+Thuillier subharmonicity \cite[Def.~3.1.5]{Thu05} over an algebraically
+closed complete nontrivially valued field
+\cite[Theorem~4.7 and Corollary~4.8]{Wanner19}; continuous CLD-psh functions
+belong to both classes.
+\par\emph{Boundary.} The converse from current positivity or Thuillier
+subharmonicity into the approximation-generated CLD hierarchy requires an
+additional CLD-smooth regularization theorem and is not claimed for every
+curve.  Decreasing regularization by Thuillier-smooth, that is by
+\(\mathbf R\)-PL, subharmonic functions is unconditional and holds for
+arbitrary upper semicontinuous subharmonic functions
+(\Cref{thm:ch19-thuillier-approximation}).
+
+\item[Subharmonic function on a smooth strictly analytic curve]
+\emph{Proved.} Subharmonic functions are exactly the degree-zero currents
+with positive \(\ddc\), positive degree-one currents are exactly the positive
+Radon measures, and a subharmonic function is determined by its values at the
+points with residue field finite over the base
+(\Cref{thm:ch19-thuillier-sh-currents}, from
+\cite[Thm.~3.4.12, Cor.~3.4.13, Thm.~3.6.26]{Thu05}); no algebraic closedness
+and no properness is required.
+\par\emph{Boundary.} The statement is one-dimensional.  No corresponding
+description of the singular psh class by a positivity property of a current
+is available in higher dimension; that is the first row of
+\Cref{sec:ch19-limitations}.
+
+\item[\(\mathbf R\)-PL function on a good strict analytic space]
+\emph{Proved.} Residue-nef semipositivity equals classically psh
+\cite[Theorem~4.3]{GR25Classical}; on the relative interior it also equals
+CLD-v2 psh by \Cref{thm:verified-pl-psh-equivalence}.
+\par\emph{Boundary.} The CLD-v2 reverse implication at a relative-boundary
+point is not proved, and no Monge--Amp\`ere operator is asserted for every
+classically psh function.
+
+\item[Toric continuous invariant metric]
+\emph{Proved.} Tropical psh, local psh approximation, and, on a complete fan,
+Zhang semipositivity agree under \cite[Theorem~5.3.11]{BGJKK25}.
+\par\emph{Boundary.} No corresponding equivalence is asserted for arbitrary
+noninvariant metrics.
+
+\item[Toric Bedford--Taylor product]
+\emph{Proved.} Pushforward equals the tropical product
+\cite[Theorem~6.1.1]{BGJKK25}.
+\par\emph{Boundary.} The formula requires the locally psh-approximable class
+stated there.
+
+\item[Canonical abelian tropicalization]
+\emph{Proved.} The canonical tropicalization is a harmonic tropicalization
+\cite[Proposition~16.2]{GJR26}.
+\par\emph{Boundary.} It need not be a smooth tropicalization.
+
+\item[Canonical abelian metrics]
+\emph{Proved.} Invariant semipositive metrics and skeletal Monge--Amp\`ere
+equations are handled in \cite[\S\S7--8]{BGJKK25}.
+\par\emph{Boundary.} Ordinary delta-metricity in full generality is not used
+and is open in \cite[Remark~16.4]{GJR26}.
+
+\item[Continuous Zhang-semipositive limit]
+\emph{Proved.} The first Chern current is positive under the local formal
+approximation hypotheses of \cite[Theorem~1.3]{GJR26}.
+\par\emph{Boundary.} A positive first Chern current alone does not
+automatically define all higher Bedford--Taylor products.
+
+\item[BFJ singular psh metric]
+\emph{Proved.} Global Monge--Amp\`ere and energy are available under the BFJ
+hypotheses developed in \cref{part:bfj}.
+\par\emph{Boundary.} No equality is asserted between the entire BFJ singular
+class and the entire local CLD or classical-psh class.
+
+\item[CLD versus BFJ on the model and continuous loci]
+\emph{Proved.} Under \eqref{eq:ch19-bfj-hypotheses}, the BFJ notion of
+\(\theta\)-psh model function, Zhang semipositivity of the associated model
+metric, positivity of the CLD Chern current, positivity of the Chern
+delta-form, functorial psh, and the curve test all agree; and the BFJ model
+measure, the Chambert--Loir measure, the delta-form product and the CLD
+Bedford--Taylor product all agree, in the model case and after uniform
+approximation in the continuous case
+(\Cref{thm:ch19-cld-bfj-comparison}).
+\par\emph{Boundary.} Four statements are explicitly not asserted:
+that bounded \(\theta\)-psh functions are locally CLD-psh; that locally
+CLD-psh functions are \(\theta\)-psh for some \(\theta\); that the two
+operators agree on unbounded potentials; and that they assign the same mass
+to a pluripolar set.  See \Cref{thm:ch19-cld-bfj-comparison}\,(C) and
+\Cref{sec:ch19-limitations}.
+\end{description}
+
+\section{Chapter dictionary}
+\label{sec:ch19-dictionary}
+
+\subsection{From this chapter to the rest of the book}
+\label{sec:ch19-dict-forward}
+
+\begin{center}
+\small
+\begin{tabular}{p{.28\textwidth}|p{.26\textwidth}|p{.28\textwidth}}
+\textbf{Computed here}&\textbf{Used as}&\textbf{Where}\\ \hline
+graph Laplacian of a model function
+ &curvature of a model metric on a curve
+ &\Cref{prop:skeletal-curvature-curve},
+  \eqref{eq:ch19-curve-formal-measure}\\
+slope formula from Poincar\'e--Lelong
+ &consistency of \Cref{part:cld} with
+  \Cref{chap:model-calculations}
+ &\Cref{thm:ch19-curve-slope-formula},
+  \Cref{ex:ch19-tate-slope}\\
+Wanner's comparison
+ &identification of current positivity with Thuillier subharmonicity on
+  curves
+ &\Cref{thm:wanner-curve-comparison},
+  \Cref{cor:ch19-curve-three-classes}\\
+convexity is toric positivity
+ &normalization check for every later positivity notion
+ &\Cref{thm:toric-positivity},
+  \Cref{rem:ch19-toric-no-content}\\
+tropical Monge--Amp\`ere
+ &\(n!\MA_{\mathbf R}\) with mass \((L^n)\)
+ &\Cref{thm:ch19-toric-ma},
+  \Cref{thm:toric-bfj-alexandrov}\\
+atomic, segment, and smooth toric measures
+ &the three shapes a Monge--Amp\`ere measure can take
+ &\Cref{ex:ch19-toric-two-atoms,ex:ch19-toric-segment,%
+        ex:ch19-toric-p2-smooth}\\
+model mixed measure in dimension \(n\)
+ &the BFJ model measure and the Chambert--Loir measure
+ &\eqref{eq:ch19-model-mixed-measure},
+  \eqref{eq:model-mixed-measure}\\
+harmonic canonical tropicalization
+ &input to Bedford--Taylor compatibility on abelian varieties
+ &\Cref{thm:abelian-harmonic-tropicalization},
+  \Cref{thm:bt-harmonic-compatibility}\\
+smoothness of \(\tau\)
+ &delimits ordinary delta-metricity of canonical metrics
+ &\Cref{prop:ch19-tau-smooth},
+  \Cref{rem:ch19-canonical-delta-scope}\\
+cubical metric and its curvature
+ &translation-invariant currents and Haar measures
+ &\Cref{thm:ch19-canonical-structure,thm:ch19-canonical-ma}\\
+Tate curve canonical metric
+ &the smallest complete example of the abelian theory
+ &\Cref{ex:ch19-tate-canonical}\\
+CLD--BFJ comparison
+ &the transfer used throughout \Cref{part:comparisons}
+ &\Cref{thm:ch19-cld-bfj-comparison},
+  \Cref{thm:bfj-cld-ma-common-locus}\\
+the limitations table
+ &scope discipline for hypotheses in later parts
+ &\Cref{sec:ch19-limitations},
+  \Cref{sec:ch16-delimitation-table}
+\end{tabular}
+\end{center}
+
+\subsection{From the general theory back to this chapter}
+\label{sec:ch19-dict-backward}
+
+\begin{center}
+\small
+\begin{tabular}{p{.28\textwidth}|p{.28\textwidth}|p{.26\textwidth}}
+\textbf{Later object}&\textbf{Smallest instance here}
+ &\textbf{Computed in}\\ \hline
+\(\MA_\theta(\varphi)\) for a model function
+ &\(\mu_0+\Delta_\Gamma F\) on a metric graph
+ &\Cref{prop:ch19-curve-model-curvature},
+  \Cref{ex:two-vertex-ma}\\
+uniform approximation by model metrics
+ &interpolation of a quadratic on a circle
+ &\eqref{eq:ch19-tate-model-approx}\\
+the factor \(n!\)
+ &\(2!\cdot\tfrac12=1=(\cO_{\mathbf P^2}(1)^2)\)
+ &\Cref{ex:ch19-toric-p2-smooth}\\
+a Monge--Amp\`ere measure of intermediate dimension
+ &uniform measure on a segment in \(\mathbf R^2\)
+ &\Cref{ex:ch19-toric-segment}\\
+translation-invariant curvature
+ &\(\tfrac d\ell\,\rd t\) on a circle
+ &\eqref{eq:ch19-tate-measure}\\
+a polarization of type \((1,3)\)
+ &\(B=\begin{psmallmatrix}2&1\\1&2\end{psmallmatrix}\),
+  \(\det B=3\)
+ &\Cref{ex:ch19-abelian-surface-degenerate}\\
+mixed reduction
+ &\(b=r=1\), skeleton a circle, mass \(2mc\ell\)
+ &\Cref{ex:ch19-abelian-surface-mixed}\\
+a harmonic but nonsmooth coordinate
+ &\(-\log|\chi|\) on a nonisotrivial extension
+ &\Cref{prop:ch19-tau-smooth}\,\cref{itm:ch19-smooth:rank1}\\
+the model versus continuous distinction
+ &an atom versus a smooth density on \(\mathbf P^1\)
+ &\Cref{ex:ch19-p1-standard,ex:ch19-p1-nonpl}
+\end{tabular}
+\end{center}
+
+\subsection{The mass ledger}
+\label{sec:ch19-mass-ledger}
+
+Every Monge--Amp\`ere computation of this chapter has had its total mass
+checked against a degree, in the manner of
+\Cref{sec:ch08-mass-ledger}.  The checks are collected here.
+
+\begin{center}
+\small
+\begin{tabular}{p{.36\textwidth}|p{.24\textwidth}|p{.24\textwidth}}
+\textbf{Computation}&\textbf{Mass}&\textbf{Degree}\\ \hline
+model metric on a curve,
+ \eqref{eq:ch19-curve-formal-measure}
+ &\(\sum_Yb_Y\deg(\cL|_Y)\)&\(\deg_CL\)\\
+slope formula on the Tate curve,
+ \Cref{ex:ch19-tate-slope}
+ &\(2-1-1=0\)&\(\deg\divis(f)=0\)\\
+model intersection check,
+ \Cref{ex:ch19-tate-slope-model}
+ &\((H\cdot Y_i)+(V\cdot Y_i)=0\)&\(0\)\\
+\(\cO(1)\) on \(\mathbf P^1\), standard,
+ \Cref{ex:ch19-p1-standard}
+ &\(1\)&\(1\)\\
+\(\cO(1)\) on \(\mathbf P^1\), smoothed,
+ \Cref{ex:ch19-p1-nonpl}
+ &\(0-(-1)=1\)&\(1\)\\
+\(\cO(1,1)\) on \(\mathbf P^1\times\mathbf P^1\), two atoms,
+ \Cref{ex:ch19-toric-two-atoms}
+ &\(2(\tfrac12+\tfrac12)=2\)&\((H_1+H_2)^2=2\)\\
+\(\cO(1,1)\), segment measure,
+ \Cref{ex:ch19-toric-segment}
+ &\(2\cdot1\cdot1=2\)&\(2\)\\
+\(\cO(1)\) on \(\mathbf P^2\), log-sum-exp,
+ \Cref{ex:ch19-toric-p2-smooth}
+ &\(2\cdot\tfrac12=1\)&\((\cO(1)^2)=1\)\\
+\(\mathbf F_1\), \(2H-E\),
+ \Cref{ex:ch19-toric-hirzebruch}
+ &\(2+1=3\)&\((2H-E)^2=3\)\\
+good reduction in dimension \(n\),
+ \Cref{ex:ch19-good-reduction}
+ &\((L^n)\)&\((L^n)\)\\
+nonreduced fibre,
+ \Cref{ex:ch19-nonreduced}
+ &\(2\cdot\tfrac12=1\)&\(\deg\cO(1)=1\)\\
+Tate curve, canonical metric,
+ \eqref{eq:ch19-tate-measure}
+ &\(\tfrac d\ell\cdot\ell=d\)&\(\deg L=d\)\\
+Tate curve, \(N\)-fold interpolation,
+ \eqref{eq:ch19-tate-model-approx}
+ &\(N\cdot\tfrac dN=d\)&\(d\)\\
+totally degenerate abelian surface,
+ \Cref{ex:ch19-abelian-surface-degenerate}
+ &\(2!\det B\cdot1=6\)&\((L^2)=2!\cdot3=6\)\\
+mixed abelian surface,
+ \Cref{ex:ch19-abelian-surface-mixed}
+ &\(2mc\ell=6\)&\((L^2)=6\)
+\end{tabular}
+\end{center}
+
+Two entries deserve a comment.  The two abelian surfaces have the same
+degree \(6\) and the same polarization type \((1,3)\) but skeleta of
+dimensions \(2\) and \(1\); the mass therefore does \emph{not} detect the
+reduction type, whereas the dimension of the support does.  And the two
+Tate-curve entries are the same measure computed twice, once as a Haar
+measure and once as a limit of atomic model measures; their agreement is the
+one-dimensional instance of
+\Cref{thm:ch19-cld-bfj-comparison}\,(B).
+
+\subsection{Four checks to run on any new computation}
+\label{sec:ch19-checks}
+
+\begin{enumerate}
+\item \emph{Sign.}  Is the potential \(\log|f|\) or \(v(f)=-\log|f|\)?  The
+ two have opposite Laplacians, \eqref{eq:appJ-cld-pl} against
+ \eqref{eq:appJ-valuation-pl}.  On a curve, a convex kink must carry
+ positive mass.
+\item \emph{Factorial.}  In dimension \(n\), is the answer the Alexandrov
+ measure or \(n!\) times it?  The geometric mass is \(n!\vol_M(P)=(L^n)\),
+ \eqref{eq:appJ-toric-degree}.
+\item \emph{Lattice.}  Are lengths and volumes lattice-normalized?  A
+ Euclidean length on a skeleton is meaningless; see
+ \Cref{rem:lattice-length} and \Cref{def:ch11-lattice-measure}.
+\item \emph{Mass against degree.}  Does the total mass equal the
+ intersection number it must?  Every row of
+ \Cref{sec:ch19-mass-ledger} is such a check, and any discrepancy is a sign
+ error in one of the first three.
+\end{enumerate}
+
+\section*{Source notes}
+
+\paragraph{Attributions.}
+The potential theory of Berkovich curves underlying
+\Cref{sec:ch19-curves,sec:ch19-wanner,sec:ch19-thuillier-currents}---the
+sheaves of harmonic and subharmonic germs, the operator \(\ddc\), the
+current spaces, the description of subharmonicity by positivity of \(\ddc\),
+and the approximation theorem---is Thuillier's \cite{Thu05}.
+The curve comparison and its restricted regularization theorem are from
+\cite{Wanner19}.  Delta-form positivity, toric convexity, and formal curve
+tests are from \cite{GK19}.  The invariant toric and abelian
+pluripotential theory, including the exact tropical pushforward formula, is
+from \cite{BGJKK25}.  Harmonic canonical tropicalizations and the correction
+to the ordinary delta-metric claim are from \cite{GJR26}.  The common model
+measure is traced independently to \cite{CL06,CLD25,GK17}.  These examples
+will be reused in later parts as normalization checks for every global
+Monge--Amp\`ere construction.
+
+In detail: \Cref{thm:wanner-curve-comparison} is
+\cite[Theorem~4.7 and Corollary~4.8]{Wanner19}, with the functoriality
+statement \cite[Corollary~5.1]{Wanner19} and the restricted regularization
+\cite[Corollary~5.4]{Wanner19}.  The comparison theorem is imported at a
+source boundary because its proof uses Wanner's current-positive meaning of
+``psh'', not the approximation-generated CLD hierarchy of this book.
+\Cref{thm:toric-positivity} is
+\cite[Proposition~8.13 and Corollary~8.14]{GK19}, and
+\eqref{eq:cld-toric-ma-comparison} is \cite[Theorem~6.1.1]{BGJKK25}, whose
+invariant psh comparison is \cite[Theorem~5.3.11]{BGJKK25} and whose
+existence theorems are \cite[Theorems~6.3.13 and~8.3.3]{BGJKK25}.
+\Cref{thm:ch19-raynaud} is the uniformization theorem of Raynaud in the
+form of \cite[Appendix~B.5]{CLD25}, resting on
+\cite{BoschLutkebohmert1993}, with the deformation retraction of
+\cite[Chapter~6]{Berk12}.  \Cref{thm:ch19-cubical-exists},
+\Cref{thm:ch19-canonical-structure},
+\Cref{thm:ch19-canonical-positivity},
+\Cref{thm:ch19-canonical-ma} and
+\Cref{prop:ch19-canonical-subvariety} are, respectively,
+\cite[Lemmas~19.1.4 and~19.1.6, Proposition~19.1.8; Proposition~19.2.5;
+Proposition~19.3.1 with Corollary~19.3.2 and Theorem~B.6.4;
+Corollary~19.2.8; Corollary~19.2.9 with Remark~19.3.4]{CLD25}.
+\Cref{prop:ch19-tau-smooth} is \cite[Remarks~19.2.3 and
+Proposition~17.4.13]{CLD25}.  \Cref{thm:abelian-harmonic-tropicalization} is
+\cite[Proposition~16.2]{GJR26}, and the mixed-reduction example behind
+\Cref{rem:ch19-canonical-delta-scope} is \cite[Remark~16.4 and \S17]{GJR26}.
+\Cref{thm:ch19-cld-bfj-comparison} assembles
+\Cref{thm:gk-formal-positivity-comparison},
+\Cref{thm:cld-recovers-cl}, \Cref{thm:gk-delta-cl-measure} and the BFJ
+monotone continuity of \cite[\S\S2.7 and~3]{BFJ15}; its part~(B) is
+\Cref{thm:bfj-cld-ma-common-locus}, proved again here so that the scope
+in part~(C) can be stated with the proof in view.
+
+\paragraph{What is new in the presentation.}
+Five things are arranged differently from the sources.
+
+First, the slope formula is derived twice.  \Cref{chap:model-calculations}
+proves it by intersection theory on a semistable model;
+\Cref{thm:ch19-curve-slope-formula} rederives it as the retraction of
+Poincar\'e--Lelong, and \Cref{rem:ch19-slope-two-proofs} records that the
+two arguments have genuinely different hypotheses.  This is done because
+the identity is used in both directions later.
+
+Second, \Cref{ex:ch19-tate-slope} and \Cref{ex:ch19-tate-slope-model} carry
+one rational function on a Tate curve of circumference three through both
+routes and check them atom by atom.  The numerical data are those of
+\Cref{ex:ch08-tate-curve}, so the reader can compare the three computations
+directly.
+
+Third, the toric section is organized around the three shapes a
+Monge--Amp\`ere measure can take.  \Cref{ex:ch19-toric-two-atoms} is
+atomic, \Cref{ex:ch19-toric-segment} is carried by a segment, and
+\Cref{ex:ch19-toric-p2-smooth} is absolutely continuous with the explicit
+density \(\varepsilon^{-2}p_0p_1p_2\).  The last of these is written out
+because it makes the factor \(n!\) and the total mass \(\vol_M(P)\) visible
+in a single change of variables, and because the same family reappears as
+the toric Fubini--Study degeneration in
+\Cref{sec:metrics-fs}.
+
+Fourth, the canonical metric on a Tate curve is computed from scratch in
+\Cref{ex:ch19-tate-canonical}, including the functional equation
+\eqref{eq:ch19-tate-cocycle}, its quadratic solution
+\eqref{eq:ch19-tate-g}, the identification
+\(q_L(\ell)=d\ell\) with the Poincar\'e pairing, and the exact
+piecewise affine interpolation \eqref{eq:ch19-tate-model-approx} that
+recovers the balanced model metric of
+\Cref{chap:model-calculations}.  The general theory of
+\Cref{sec:ch19-canonical} is stated so that every step of this example is an
+instance of it.
+
+Fifth, \Cref{sec:ch19-limitations} is a device rather than an exposition.
+Its fourteen rows are the assertions that later chapters are most tempted to
+apply outside their range, and the three-way classification into \emph{not
+known}, \emph{not defined}, and \emph{different} is used consistently from
+here on.
+
+\paragraph{A note on the delta-metricity question.}
+\index{abelian variety!canonical metric!scope of results}
+The statement that a canonical metric on an abelian variety is locally the
+tensor product of a formal metric and a smooth metric is correct in three
+situations---good reduction, totally degenerate reduction, and residue field
+algebraic over a finite field---and each has a one-line reason, given in
+\Cref{rem:ch19-canonical-delta-scope}.  In the good-reduction case the
+canonical metric \emph{is} a formal metric
+(\Cref{thm:ch19-cubical-exists}\,\cref{itm:ch19-cub:goodred}); in the totally
+degenerate case the canonical tropicalization is the tropicalization of a
+split torus and the metric is CLD-smooth on the skeleton; and over a residue
+field algebraic over a finite field, \(\Pic^0\) of the residual abelian
+variety is torsion, so the residual extension is automatically isotrivial
+and the canonical tropicalization is smooth.  What is genuinely open is the
+remaining case, non-isotrivial mixed reduction, where the canonical
+tropicalization is harmonic but need not be smooth; the mixed-reduction
+threefold of \cite[\S17]{GJR26} shows that this case is nonempty.  The
+present chapter therefore proves the abelian measure computations from
+harmonicity alone, using
+\Cref{thm:bt-harmonic-compatibility}, and asserts nothing about ordinary
+delta-metricity outside the three settled cases.
+
+\paragraph{Historical note.}
+Potential theory on Berkovich curves, in the form used in
+\Cref{sec:ch19-curves,sec:ch19-wanner}, was built by Thuillier
+\cite{Thu05}; for the projective line the parallel development is Baker and
+Rumely's, whose monograph is named here rather than cited by key because no
+proof of this chapter takes an input from it.  The two statements of
+\Cref{sec:ch19-thuillier-currents} are quoted from \cite{Thu05} with his
+numbering, and they are the only inputs of this chapter taken from him that
+are not also proved in \Cref{chap:model-calculations}.
+
+Thuillier's own account of how his theory sits relative to its neighbours is
+\cite[\S\S5.1--5.4]{Thu05}, and it is worth summarizing because the four
+comparisons are of four different kinds.
+\begin{itemize}
+\item \emph{Rumely.}  Rumely's capacity theory on algebraic curves works with
+the rigid points \(X_1=X(k)\) and with lemniscate domains
+\(\{|f|\leq1\}\); \cite[\S5.1]{Thu05} shows that these are the traces on
+\(X_1\) of strictly affinoid domains, that Rumely's algebraic capacity is
+Thuillier's Choquet capacity of the Berkovich closure
+\cite[Thm.~5.1.2]{Thu05}, and---the point relevant to us---that Rumely's
+smooth functions and Laplacian on a reduction graph differ from Thuillier's
+by a single constant, \(\ddc=(\log p)^{-1}\ddc_{\mathrm R}\), because the
+two normalize edge lengths differently.  This is the factor discussed in
+\Cref{rem:ch08-thuillier-normalization}; it never appears in this book.
+\item \emph{Baker--Rumely.}  Their Hsia kernel \(\delta_\infty\) on
+\(\mathbf P^{1,\An}\) is recovered as \(\rme^{-g}\), \(g\) being the
+symmetric continuous Green function attached by
+\cite[Thm.~5.1.5]{Thu05} to the point \(\infty\); see
+\cite[\S5.2]{Thu05}.  Their theory is thus the projective-line specialization
+of his, with a kernel constructed by nested discs rather than by solving
+\(\ddc T=\delta_x-\delta_\infty\).
+\item \emph{Kani.}  Kani's potential-theoretic reading of intersection theory
+on an arithmetic surface is what \cite{Thu05} identifies as the origin of the
+whole subject; \cite[\S5.3]{Thu05} explains that Kani's ``local potential
+theories'' are the linear algebra of harmonic functions restricted to
+skeleta, and that his admissible measures are the Dirac measures at points of
+\(\mathrm I(X)\).
+\item \emph{Favre--Jonsson.}  The valuative tree of Favre and Jonsson carries
+a Laplacian \(\Delta\) defined by a choice of root \(t_0\);
+\cite[Prop.~5.4.2]{Thu05} shows that \(\ddc g=g(t_0)\delta_{t_0}-\Delta g\)
+for every complex potential \(g\), so that the root dependence is exactly the
+difference between a Laplacian and a Laplacian normalized to kill a marked
+point, and \cite[\S5.4]{Thu05} then removes the root by sheafifying over
+distinguished open subsets of a metrized real graph.  This is the same
+bookkeeping that reappears in \Cref{part:bj} as the choice of base point on
+the trivially valued cone.
+\end{itemize}
+
+Chambert-Loir and Ducros come after all of this and in a different spirit:
+they construct a calculus of forms and currents in every dimension, at the
+cost of a smooth sheaf that, already on curves, is too small to contain the
+potentials with atomic curvature (\Cref{rem:ch19-thuillier-smooth-vs-cld}).
+The identification of the two notions of subharmonicity on curves---
+comparison against harmonic functions, and positivity of a
+Chambert--Loir--Ducros current---is Wanner's \cite{Wanner19}, and it remains
+the basic comparison between these two current-theoretic notions.  It does
+not identify the current-positive class with the approximation-generated
+CLD hierarchy without the separate regularization hypotheses stated above.
+What
+\Cref{thm:ch19-thuillier-sh-currents} adds is that on the Thuillier side the
+identification of subharmonic functions with positive-\(\ddc\) currents was
+already unconditional, for arbitrary upper semicontinuous potentials and over
+an arbitrary base field.
+
+The toric picture has three independent origins.  Arithmetic toric geometry,
+in which invariant metrics correspond to concave functions and heights to
+integrals over polytopes, is due to Burgos Gil, Philippon and Sombra
+\cite{BGPS14}, with the underlying toric geometry in \cite{Fultor,CLS11} and
+the convexity in \cite{Roc70,Sch14}.  The model-theoretic measure is
+Chambert-Loir's \cite{CL06}.  The systematic invariant tropical
+pluripotential theory, including singular potentials and the solution of
+invariant Monge--Amp\`ere equations, is
+Burgos Gil--Gubler--Jell--K\"unnemann--Kramer \cite{BGJKK25}; Vilsmeier's
+polystable-face comparison \cite{Vil20} is a different, local statement
+carrying its own calibration factor and is used in this book only in that
+form.
+
+The abelian theory begins with Tate's uniformization of elliptic curves with
+multiplicative reduction, extended by Raynaud to abeloid varieties and
+written out in detail by Bosch and L\"utkebohmert
+\cite{BoschLutkebohmert1993}; Berkovich's deformation retraction
+\cite{Berk12} supplies the skeleton.  Cubical metrics are the
+non-Archimedean form of the theorem of the cube, and their curvature
+currents were computed by Chambert-Loir and Ducros
+\cite[Chapter~19]{CLD25}; the structural description
+\eqref{eq:ch19-canonical-weight}, splitting the canonical metric into a
+formal factor and a quadratic tropical factor, is theirs, as is the
+observation that the canonical tropicalization is smooth exactly when the
+residual extension is isotrivial.  Gubler's earlier work on canonical
+measures on abelian varieties supplied the polyhedral decomposition recorded
+in \Cref{rem:ch19-canonical-pieces} and the example showing that every piece
+can be nonzero.  Gubler, Jell and Rabinoff \cite{GJR26} then isolated
+harmonic tropicalizations as the right enlargement of the chart category,
+which is what makes the Bedford--Taylor computations of
+\Cref{sec:ch19-canonical} legitimate without any smoothness assumption on
+\(\tau\).
+
+Finally, the comparison of \Cref{sec:ch19-cld-bfj} has a longer prehistory
+than its statement suggests.  Zhang's semipositive metrics \cite{Zhang1995}
+and Chambert-Loir's measures \cite{CL06} already contained the model half;
+what the Chambert-Loir--Ducros calculus \cite{CLD12,CLD25} adds is that the
+same measure is a wedge product of currents, and what
+Boucksom--Favre--Jonsson \cite{BFJ15,BFJ16} add is a global variational
+theory that extends the operator far beyond the continuous locus.  The
+theorem proved here is the precise statement of where those two extensions
+overlap, and its part~(C) is the list of places where they do not.  Later
+comparisons, in particular those of \cite{BE21} under semiample and CLD
+hypotheses, enlarge the overlap but do not close it; see
+\Cref{chap:compare-ma}.

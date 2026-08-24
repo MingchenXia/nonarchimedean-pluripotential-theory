@@ -1,0 +1,1347 @@
+\chapter{Hybrid spaces and degeneration}
+\index{hybrid space}\index{degeneration!hybrid convergence}
+\label{chap:hybrid-spaces}
+
+Hybrid geometry places a punctured complex family and its
+non-Archimedean limit in one topological space. It is tempting to read
+this slogan as an automatic convergence theorem. That is false:
+topological convergence of points, convergence of metrics, convergence
+of Monge--Amp\`ere measures, and convergence of entropy are four
+different assertions. This chapter records the construction and then
+states the published convergence theorems with their actual hypotheses.
+
+Throughout, \(\Delta\) is a complex disc with coordinate \(t\),
+\(\Delta^*=\Delta\setminus\{0\}\), and
+\[
+                         K=\mathbf C((t)).
+\tag{66.1}\label{eq:hybrid-base-field}
+\]
+We fix \(0<r<1\) and give \(K\) the \(t\)-adic absolute value
+\(|t|_K=r\). A degeneration is assumed projective whenever a
+Monge--Amp\`ere theorem is invoked. Merely proper analytic families
+do not enter such a statement below.
+
+The book's additive valuation is \(v_x=-\log|\cdot|_x\), so
+\(v_K(t)=-\log r\).  For integral-affine coordinates on skeleta we also
+use the normalized valuation
+\[
+                    \widehat v_x:=\frac{v_x}{-\log r},
+                    \qquad \widehat v_K(t)=1.
+\]
+Thus formulas involving \(b_E^{-1}\ord_E\) or
+\(\sum b_iw_i=1\) use \(\widehat v\); metric values written with the
+book's \(-\log\)-weight retain the factor \(-\log r\).
+
+\section{The hybrid base}
+\label{sec:hybrid-base}
+
+\begin{definition}[Hybrid norm]
+\label{def:hybrid-norm}
+On \(\mathbf C\), put
+\[
+             \lVert a\rVert_{\mathrm{hyb}}
+             :=\max\{|a|_\infty,|a|_0\},
+\tag{66.2}\label{eq:hybrid-norm}
+\]
+where \(|a|_0=1\) for \(a\neq0\) and \(|0|_0=0\).
+The Berkovich spectrum of this Banach ring is denoted
+\(\mathcal M(\mathbf C_{\mathrm{hyb}})\).
+\end{definition}
+
+For \(0<\lambda\leq1\), the seminorm
+\[
+                            a\longmapsto |a|_\infty^\lambda
+\tag{66.3}\label{eq:hybrid-seminorm}
+\]
+is bounded by \(\lVert\cdot\rVert_{\mathrm{hyb}}\). At
+\(\lambda=0\) it becomes the trivial absolute value. Thus
+\[
+       [0,1]\longrightarrow\mathcal M(\mathbf C_{\mathrm{hyb}}),
+       \qquad
+       \lambda\longmapsto|\cdot|_\infty^\lambda
+\tag{66.4}\label{eq:hybrid-spectrum-parametrization}
+\]
+is a homeomorphism. The endpoint \(0\) is not an extra complex
+point: it is the trivially valued fibre.
+
+To see a \(t\)-adic central fibre, one works over a hybrid annulus.
+Let \(A_r\) be the Banach \(\mathbf C\)-algebra of Laurent series in
+\(t\) converging for the hybrid norm of radius \(r\). Its spectrum is
+homeomorphic to a closed disc. A nonzero complex number
+\(t\in\Delta^*\) gives an Archimedean point, while the centre gives
+\((K,|\cdot|_K)\).
+
+\begin{remark}[Normalization]
+\label{rem:hybrid-normalization}
+On the fibre over \(t\neq0\), the scalar absolute value is a positive
+power of \(|\cdot|_\infty\). One commonly chooses the parameter so
+that
+\[
+                 \lambda(t)=\frac{\log r}{\log|t|}.
+\tag{66.5}\label{eq:hybrid-lambda}
+\]
+Changing \(r\) reparametrizes the same limiting geometry. Formulas
+for weights must use the same choice of \(|t|_K\); otherwise an
+unnoticed factor \(\log r\) appears.
+\end{remark}
+
+\begin{definition}[Hybrid analytification]
+\label{def:hybrid-analytification}
+Let \(\pi:\mathcal X\to\Delta\) be projective and flat, with generic
+fibre \(X_K\). Its hybrid analytification is the compact Hausdorff
+space
+\[
+                         \mathcal X^{\mathrm{hyb}}
+\tag{66.6}\label{eq:hybrid-analytification}
+\]
+obtained by analytifying \(\mathcal X\) over the hybrid Banach base.
+It comes with a continuous map
+\[
+                \pi^{\mathrm{hyb}}:\mathcal X^{\mathrm{hyb}}
+                \longrightarrow\overline\Delta_r
+\tag{66.7}\label{eq:hybrid-projection}
+\]
+such that
+\[
+ \begin{aligned}
+   (\pi^{\mathrm{hyb}})^{-1}(t)&\simeq X_t^{\mathrm{an}},
+                      &&t\neq0,\\
+   (\pi^{\mathrm{hyb}})^{-1}(0)&\simeq X_K^{\mathrm{an}}.
+ \end{aligned}
+\tag{66.8}\label{eq:hybrid-fibres}
+\]
+\end{definition}
+
+Here \(X_t^{\mathrm{an}}\) means the usual complex analytic space.
+The second line means Berkovich analytification over \(K\). In
+particular, it is not the complex analytic space associated to the
+scheme-theoretic special fibre \(\mathcal X_0\).  This distinction is
+summarized along a radial path in the hybrid base in
+\cref{fig:hybrid-fibres}.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth]
+  \draw[thick] (0.65,0)--(10.65,0);
+  \node[below,font=\small] at (5.65,-0.15) {$\overline\Delta_r$ (radial path)};
+  \fill (1.15,0) circle (1.6pt);
+  \fill (4.25,0) circle (1.4pt);
+  \fill (7.25,0) circle (1.4pt);
+  \fill (9.75,0) circle (1.4pt);
+  \node[below,font=\small] at (1.15,-0.02) {$0$};
+  \node[below,font=\small] at (4.25,-0.02) {$t_3$};
+  \node[below,font=\small] at (7.25,-0.02) {$t_2$};
+  \node[below,font=\small] at (9.75,-0.02) {$t_1$};
+  \draw[-{Stealth[length=2mm]},thin] (9.25,-0.75)--(2.0,-0.75)
+    node[midway,below,font=\scriptsize] {$t_i\longrightarrow0$};
+
+  % Non-Archimedean central fibre.
+  \coordinate (na) at (1.15,2.25);
+  \draw[very thick] (na)--(0.35,3.05);
+  \draw[very thick] (na)--(1.15,3.35);
+  \draw[very thick] (na)--(2.0,3.0);
+  \draw[very thick] (na)--(0.55,1.58);
+  \fill (na) circle (1.5pt);
+  \node[font=\small,align=center] at (1.15,3.72) {$X_K^{\mathrm{an}}$\\Berkovich fibre};
+
+  % Archimedean fibres over nonzero points.
+  \foreach \xx/\tt in {4.25/t_3,7.25/t_2,9.75/t_1}{
+    \draw[very thick] (\xx,2.42) ellipse (0.92 and 0.48);
+    \draw[thin] (\xx-0.72,2.42) .. controls (\xx-0.25,2.82) and
+      (\xx+0.25,2.02) .. (\xx+0.72,2.42);
+    \node[font=\small] at (\xx,3.18) {$X_{\tt}^{\mathrm{an}}$};
+  }
+
+  \draw[-{Stealth[length=2mm]},thin] (1.15,1.5)--(1.15,0.18);
+  \draw[-{Stealth[length=2mm]},thin] (4.25,1.92)--(4.25,0.18);
+  \draw[-{Stealth[length=2mm]},thin] (7.25,1.92)--(7.25,0.18);
+  \draw[-{Stealth[length=2mm]},thin] (9.75,1.92)--(9.75,0.18);
+  \node[font=\small,fill=white,inner sep=1pt] at (5.65,1.35)
+    {$\pi^{\mathrm{hyb}}$};
+  \node[font=\small] at (5.65,4.0) {$\mathcal X^{\mathrm{hyb}}$};
+\end{tikzpicture}
+\caption{Fibres of the hybrid projection along a radial path.  The nonzero
+fibres are complex analytic spaces.  The fibre over the centre is the
+Berkovich space \(X_K^{\mathrm{an}}\) over \(\mathbf C((t))\), not the complex
+analytic space of the scheme-theoretic fibre \(\mathcal X_0\).  The shapes of
+the fibres are schematic.}
+\label{fig:hybrid-fibres}
+\end{figure}
+
+\begin{example}[The affine line]
+\label{ex:hybrid-affine-line}
+For the trivial family \(\mathbf A^1\times\Delta^*\), a complex point
+\((z_t,t)\) can converge to an analytic point \(x\) of the central fibre.
+For every
+polynomial \(f\in K[z]\), hybrid convergence reads
+\[
+      \lambda(t)\log|f_t(z_t)|_\infty
+        \longrightarrow \log|f(x)|_K
+        =-v_x(f)=\widehat v_x(f)\log r.
+\tag{66.9}\label{eq:hybrid-polynomial-test}
+\]
+The formula explains why a sequence with \(|z_t|\) growing as a power
+of \(|t|^{-1}\) can have a finite non-Archimedean limit.
+\end{example}
+
+\section{Chartwise convergence and normalized valuations}
+\label{sec:hybrid-chartwise-convergence}
+
+The topology becomes concrete on a normal-crossings chart.  Start with the
+nodal model
+\[
+                         xy=t.
+\tag{66.10}\label{eq:hybrid-node-chart}
+\]
+Choose complex points with
+\(|x_t|=|t|^\alpha\) and
+\(|y_t|=|t|^{1-\alpha}\), where \(0\leq\alpha\leq1\).  Since
+\(\lambda(t)=\log r/\log|t|\),
+\[
+ \lambda(t)\log|x_t|=\alpha\log r,
+ \qquad
+ \lambda(t)\log|y_t|=(1-\alpha)\log r.
+\tag{66.11}\label{eq:hybrid-node-evaluation}
+\]
+The limit point is the monomial valuation satisfying
+\[
+ \widehat v_\alpha(x)=\alpha,
+ \qquad
+ \widehat v_\alpha(y)=1-\alpha,
+ \qquad
+ \widehat v_\alpha(t)=1.
+\tag{66.12}\label{eq:hybrid-node-monomial-valuation}
+\]
+As \(\alpha\) runs from \(0\) to \(1\), these points trace the edge of the
+dual graph.  Thus an interval in the non-Archimedean central fibre is built
+from rates at which complex points approach the node; it is not a set of
+ordinary points of the scheme-theoretic fibre.
+
+For a general SNC chart
+\[
+                    t=u z_0^{b_0}\cdots z_p^{b_p},
+                  \qquad |u|\asymp1,
+\tag{66.13}\label{eq:hybrid-general-snc-chart}
+\]
+put \(w_i=\log|z_i|/\log|t|\).  Taking logarithms and dividing by
+\(\log|t|\) yields
+\[
+                     \sum_{i=0}^pb_iw_i=1+o(1).
+\tag{66.14}\label{eq:hybrid-chart-barycentric-limit}
+\]
+This is the barycentric equation
+\eqref{eq:hybrid-simplex}.  The factor \(b_i\) belongs in the affine
+constraint, while \(b_i^{-1}\) belongs in the normalized divisorial
+valuation at the \(i\)-th vertex.  They cannot both be suppressed by saying
+that the model is ``essentially reduced.''
+
+\subsection{A polynomial convergence test on the node}
+
+Let
+\(f=\sum_{a,b}c_{ab}(t)x^ay^b\) be a Laurent polynomial on the generic
+fibre of \eqref{eq:hybrid-node-chart}.  Along a sequence with no cancellation
+among the terms of least value,
+\[
+ \lambda(t)\log|f(x_t,y_t)|
+ \longrightarrow
+ -(-\log r)\min_{a,b}
+ \left\{\widehat v_t(c_{ab})+a\alpha+b(1-\alpha)\right\}.
+\tag{66.15}\label{eq:hybrid-node-polynomial-limit}
+\]
+When least terms cancel, one must evaluate the full polynomial rather than
+the displayed minimum; this is why hybrid convergence is defined by all
+regular functions, not only by coordinatewise rates.  Passing through all
+dominating models in \Cref{prop:hybrid-model-criterion} is the
+coordinate-free replacement for choosing enough such tests.
+
+\paragraph{Source boundary for chart convergence.}
+The hybrid topology and its logarithmic-coordinate criterion are those of
+\cite{BJ17Hybrid}.  Equations \eqref{eq:hybrid-node-chart}--
+\eqref{eq:hybrid-node-polynomial-limit} are chart calculations inside that
+construction.  They do not assert convergence of metrics or measures.
+
+\begin{proposition}\label{prop:hybrid-model-criterion}
+Let \(\mathcal X\) be a projective model. A net
+\(x_i\in X_{t_i}^{\mathrm{an}}\), with \(t_i\to0\), converges to
+\(x\in X_K^{\mathrm{an}}\) if the values of every vertical model
+function, after passage through every dominating model, converge to
+their values at \(x\). The converse always holds.
+\end{proposition}
+
+\begin{proof}
+Hybrid analytification is initial for evaluation of regular functions
+with the bounded hybrid seminorm. A vertical Cartier divisor gives
+such an evaluation function. On a fixed SNC model, finitely many
+vertical divisors give barycentric coordinates on the dual complex.
+Dominating models detect the remaining valuations. Hence convergence
+of all model evaluations is sufficient. Necessity follows from their
+continuity.
+\end{proof}
+
+\begin{remark}[Central-fibre convention]
+The phrase \emph{central fibre} will always mean
+\(X_K^{\mathrm{an}}\) in a hybrid statement. When the
+scheme-theoretic fibre \(\mathcal X_0\) is meant, it is written
+explicitly.
+\end{remark}
+
+\section{Hybrid line bundles and metrics}
+\label{sec:hybrid-metrics}
+
+Let \(\mathcal L\) be relatively ample on \(\mathcal X\).
+Its restrictions are denoted \(L_t\) and \(L_K\).
+
+\begin{definition}[Hybrid metric]
+\label{def:hybrid-metric}
+A continuous hybrid metric \(\Phi\) on \(\mathcal L\) is a continuous
+metric on the analytification of \(\mathcal L\) over
+\(\mathcal X^{\mathrm{hyb}}\). Its restrictions are written
+\[
+                   \phi_t:=\Phi|_{X_t^{\mathrm{an}}},
+        \qquad
+                   \phi^{\NA}:=\Phi|_{X_K^{\mathrm{an}}}.
+\tag{66.16}\label{eq:hybrid-metric-restrictions}
+\]
+It is semipositive if it is a uniform limit of relatively nef model
+metrics, equivalently psh in the hybrid sense used below.
+\end{definition}
+
+The complex normalization hidden in this definition is important.
+If a local frame \(s\) has norm weight
+\(\psi_t=-\log|s|_{\phi_t}\), then the continuous hybrid quantity is
+\[
+                         \lambda(t)\psi_t,
+\tag{66.17}\label{eq:hybrid-weight-normalization}
+\]
+up to the fixed convention \(|t|_K=r\). Thus ordinary locally uniform
+convergence of the unscaled \(\psi_t\) is not the relevant notion.  In the
+book's squared-norm convention the complex potential is
+\(\varphi_t=2\psi_t=-\log|s|_{\phi_t}^{2}\), and its curvature is
+\(\ddc\varphi_t\).  This factor of two will be kept visible below.
+
+The three scales that occur later can now be written on one line:
+\[
+ \psi_t=-\log|s|_{\phi_t},
+ \qquad
+ \varphi_t=-\log|s|_{\phi_t}^{2}=2\psi_t,
+ \qquad
+ \phi_t^{\mathrm{hyb}}=\lambda(t)\psi_t
+       =\frac{\lambda(t)}2\varphi_t.
+\tag{66.18}\label{eq:hybrid-three-weight-scales}
+\]
+Thus a squared-norm potential with asymptotic form
+\[
+             \varphi_t=2a\log_r|t|+O(1)
+\tag{66.19}\label{eq:hybrid-squared-norm-asymptotic}
+\]
+has central non-Archimedean weight \(a\), not \(2a\).  Dividing
+\eqref{eq:hybrid-squared-norm-asymptotic} by \(\log_r|t|\) rather than by
+\(2\log_r|t|\) is the forbidden factor-two conversion.  Equivalently, with
+\(s=-\log|t|\), the denominator for the squared-norm ray is \(2s\), exactly
+as in \Cref{sec:rf-factor-two-firewall}.
+
+\begin{definition}[Logarithmic growth]
+\label{def:hybrid-log-growth}
+A family of psh metrics \((\phi_t)_{t\in\Delta^*}\) has logarithmic
+growth if, after choosing a projective model metric
+\(\phi_{\mathcal L,t}\), there is \(C>0\) such that
+\[
+   -C\log|t|^{-1}-C
+   \leq \phi_t-\phi_{\mathcal L,t}
+   \leq C\log|t|^{-1}+C
+\tag{66.20}\label{eq:hybrid-log-growth}
+\]
+locally on the total space.
+\end{definition}
+
+This estimate is invariant under replacing \(\mathcal X\) by a
+dominating projective model. It makes the rescaled weights bounded on
+compact hybrid charts.
+
+\begin{theorem}\label{thm:hybrid-psh-extension}
+Let \(\mathcal X\to\Delta\) be a polarized projective degeneration and
+let \(\mathcal L\) be relatively ample. A psh metric on
+\(\mathcal L|_{\Delta^*}\) with logarithmic growth determines a
+canonical hybrid psh metric. If the resulting metric is continuous,
+its restrictions in \eqref{eq:hybrid-metric-restrictions} form one
+continuous metric on \(\mathcal X^{\mathrm{hyb}}\).
+\end{theorem}
+
+\begin{proof}
+This is \cite[Theorem~3.13]{PS23Hybrid}.  We reconstruct the proof far
+enough to exhibit the common approximation on the complex and
+non-Archimedean fibres.  The multiplier-ideal regularization theorem and
+the convergence of the associated ideal functions, proved in the appendix
+of that paper and in the references cited there, remain foundational
+imported inputs.
+
+\smallskip
+\noindent\emph{The model case.}
+Suppose first that the metric is induced by a model
+\((\mathscr X,\mathscr L+\mathscr D)\), with \(\mathscr D\) vertical.
+The same model line bundle over the hybrid base gives a single hybrid
+Fubini--Study metric.  Its restriction to \(t\neq0\) is the given complex
+model metric, while its restriction to \(t=0\) is the model metric whose
+value at \(v_E\) is computed in \eqref{eq:hybrid-model-value}.  Thus no
+limit exchange is needed in this case.
+
+\smallskip
+\noindent\emph{A synchronized Bergman approximation.}
+For a general logarithmic-growth metric, twist by a multiple of
+\(\log|t|\) and choose an ample model \((\mathscr X,\mathscr L)\) on which
+the twisted metric extends as a psh metric.  Put
+\(\mathscr I_m=\mathscr I(m\phi)\).  The uniform global-generation result
+used in \cite[Section~3.3]{PS23Hybrid} supplies one integer \(m_0\),
+independent of \(m\), such that
+\[
+ \mathcal O_{\mathscr X}
+   \bigl((m+m_0)\mathscr L\bigr)\otimes\mathscr I_m
+\tag{66.20a}\label{eq:hybrid-uniform-global-generation}
+\]
+is generated over a fixed slightly larger disk for every \(m\geq1\).
+Choose a Hilbert basis \((s_{m,\ell})_{\ell\geq1}\) of its square-integrable
+sections.  The complex Bergman metric and the non-Archimedean ideal metric
+are, in compatible additive conventions,
+\[
+\begin{aligned}
+ \phi_m
+  &=\frac{1}{2(m+m_0)}
+       \log\!\sum_{\ell\geq1}|s_{m,\ell}|^2,\\
+ \phi_m^{\NA}
+  &=\phi_{\mathscr L}
+       +\frac{1}{m+m_0}\phi_{\mathscr I_m}.
+\end{aligned}
+\tag{66.20b}\label{eq:hybrid-synchronized-bergman}
+\]
+
+For a finite partial sum in \eqref{eq:hybrid-synchronized-bergman}, the
+complex logarithm of a sum and the non-Archimedean maximum are the two
+fibre restrictions of one hybrid Fubini--Study metric.  As the number of
+sections tends to infinity, the complex partial sums converge uniformly on
+the chosen model.  On the central fibre, the ideals generated by the first
+\(q\) sections stabilize to \(\mathscr I_m\) by noetherianity and global
+generation; Dini's lemma then gives uniform convergence there as well.
+Consequently, for each fixed \(m\), the pair
+\((\phi_m,\phi_m^{\NA})\) is the restriction of one hybrid psh metric
+\(\Phi_m\).  This is the first place where the error must be uniform over
+both kinds of fibres: separate fibrewise convergence would not suffice.
+
+\smallskip
+\noindent\emph{The common decreasing limit.}
+The imported Demailly regularization theorem permits a common subsequence
+for which the complex restrictions of \(\Phi_m\) decrease to \(\phi\).
+The ideal-function convergence theorem shows, for that same subsequence,
+that the central restrictions decrease to the metric \(\phi^{\NA}\)
+defined by generic Lelong numbers.  Hence the pointwise decreasing limit
+of the \(\Phi_m\) has restrictions
+\[
+        \Phi|_{X_t}=\phi_t\quad(t\neq0),
+        \qquad
+        \Phi|_{X_K^{\mathrm{an}}}=\phi^{\NA}.
+\tag{66.20c}\label{eq:hybrid-extension-restrictions-proof}
+\]
+The class of hybrid psh metrics is closed under such decreasing limits, so
+\(\Phi\) is the desired canonical hybrid psh extension.  Notice that the
+argument exchanges no unrelated limits: first the finite-section limit is
+uniform for fixed \(m\), and only afterwards is the synchronized decreasing
+\(m\)-limit taken.
+
+If \(\Phi\) is continuous, the two restrictions in
+\eqref{eq:hybrid-extension-restrictions-proof} are automatically one
+continuous metric on the total hybrid space.  This last implication is
+formal.  The preceding decreasing approximation does not provide a
+quantity \(\varepsilon_m\to0\) that is uniform at the scale
+\(|\log|t||^{-1}\); such an estimate is precisely the missing regularity
+in \cite[Question~3.18]{PS23Hybrid}.
+\end{proof}
+
+\begin{remark}[What the theorem does not say]
+\label{rem:hybrid-extension-not-continuity}
+Logarithmic growth produces a canonical psh extension; it does not by
+itself prove that the extension is continuous. Continuity is a
+separate regularity statement and is known in important geometric
+families, including the canonically polarized case stated below; the
+general upgrade is isolated in \cite[Question~3.18]{PS23Hybrid}.
+\end{remark}
+
+\begin{example}[A model metric]
+\label{ex:hybrid-model-metric}
+Let \(\mathcal D\) be a vertical Cartier divisor on a model
+\(\mathcal X'\to\mathcal X\). The model metric
+\(\phi_{\mathcal D}^{\NA}\) on \(L_K\) is the central restriction of
+the hybrid metric induced by \(\mathcal L+\mathcal D\). If
+\(\mathcal X'_0=\sum_E b_EE\), then the normalized divisorial valuation is
+\(\widehat v_E=b_E^{-1}\ord_E\), while the corresponding analytic
+valuation is \(v_E=(-\log r)\widehat v_E\).  At that analytic point,
+\[
+             \phi_{\mathcal D}^{\NA}(v_E)
+             =(-\log r)b_E^{-1}\ord_E(\mathcal D),
+\tag{66.21}\label{eq:hybrid-model-value}
+\]
+with the sign determined by the metric convention.
+\end{example}
+
+\section{Monge--Amp\`ere measures}
+\label{sec:hybrid-ma}
+
+Put \(n=\dim X_t\) and \(V=(L_t^n)\), independent of \(t\).
+For a continuous semipositive metric \(\phi_t\), let \(\varphi_t\) denote
+its complex squared-norm potential, as fixed after
+\eqref{eq:hybrid-weight-normalization}, and write
+\[
+          \mu_t:=V^{-1}(\ddc\varphi_t)^n.
+\tag{66.22}\label{eq:hybrid-complex-ma}
+\]
+For a continuous semipositive non-Archimedean metric, write
+\[
+          \mu_0:=V^{-1}\operatorname{MA}^{\NA}(\phi^{\NA}).
+\tag{66.23}\label{eq:hybrid-na-ma}
+\]
+Both are probability measures.
+
+\begin{theorem}\label{thm:hybrid-ma-continuity}
+Let \(\mathcal X\to\Delta\) be a projective degeneration of
+\(n\)-dimensional complex projective manifolds, polarized by a
+relatively ample line bundle \(\mathcal L\). Let \(\Phi\) be a
+continuous semipositive metric on the hybrid line bundle. Then the
+fibrewise measures
+\[
+        \mu_t=V^{-1}(\ddc\varphi_t)^n
+        \quad(t\neq0),
+        \qquad
+        \mu_0=V^{-1}\operatorname{MA}^{\NA}(\phi^{\NA})
+\tag{66.24}\label{eq:hybrid-ma-family}
+\]
+are weakly continuous on \(\mathcal X^{\mathrm{hyb}}\). Equivalently,
+for every continuous \(F:\mathcal X^{\mathrm{hyb}}\to\mathbf R\),
+\[
+              \lim_{t\to0}\int_{X_t}F\,\rd \mu_t
+                    =\int_{X_K^{\mathrm{an}}}F\,\rd \mu_0.
+\tag{66.25}\label{eq:hybrid-ma-test}
+\]
+\end{theorem}
+
+\begin{proof}
+This is \cite[Theorem~4.11]{PS23Hybrid}, where the result is obtained by
+translating Favre's projective continuity theorem into the hybrid language.
+We give the complete limiting argument and isolate the one foundational
+model calculation imported through that theorem.
+
+\smallskip
+\noindent\emph{Step 1: model metrics and model tests.}
+Suppose first that \(\Phi\) is a pure hybrid Fubini--Study metric and that
+\(F\) is a model function.  After passing to one dominating snc model, all
+sections defining \(\Phi\) and \(F\) extend and their vertical ideals become
+Cartier.  On a nonzero fibre, Bedford--Taylor products of the resulting
+maximum metrics are computed by the corresponding intersection cycles.
+On the central fibre, the Chambert--Loir measure is computed by the same
+cycles and is supported at the associated divisorial points.  Specializing
+the cycles to the central fibre and applying the projection formula gives
+\eqref{eq:hybrid-ma-test} for this pair \((F,\Phi)\).
+
+This specialization identity, including the treatment of maxima by
+admissible data, is the foundational imported model calculation in the
+proof of \cite[Theorem~4.11]{PS23Hybrid}.  The dictionary showing that the
+model functions and uniform functions in Favre's theorem are respectively
+hybrid Fubini--Study functions and their uniform limits is proved in
+\cite[Section~4.4]{PS23Hybrid}.  We do not replace this model calculation
+by a formally asserted projection formula on an unspecified Banach family.
+
+\smallskip
+\noindent\emph{Step 2: a fibre-independent error estimate.}
+Choose pure hybrid Fubini--Study metrics \(\Phi^{(k)}\) with
+\[
+            \delta_k:=
+            \|\Phi^{(k)}-\Phi\|_{\mathcal X^{\mathrm{hyb}}}
+            \longrightarrow0,
+\tag{66.25a}\label{eq:hybrid-ma-uniform-metric-error}
+\]
+and model functions \(F^{(j)}\) converging uniformly to \(F\).  The
+Chern--Levine--Nirenberg estimate used in
+\cite[Lemma~4.10 and Theorem~4.11]{PS23Hybrid}, applied after polarization,
+gives for each fixed \(j\) a constant \(C_j\), independent of the fibre,
+such that
+\[
+ \left|
+  \int F^{(j)}\,\rd\mu_t-
+  \int F^{(j)}\,\rd\mu_t^{(k)}
+ \right|
+ \leq C_j\delta_k,
+ \qquad t\in\overline\Delta_r.
+\tag{66.25b}\label{eq:hybrid-ma-uniform-cln-error}
+\]
+Here \(\mu_t^{(k)}\) is the normalized Monge--Amp\`ere measure of
+\(\Phi^{(k)}|_{X_t}\), with the same definition at \(t=0\).  The point of
+\eqref{eq:hybrid-ma-uniform-cln-error} is that \(k\) can be chosen before
+\(t\) tends to zero.  A merely fibrewise continuity theorem would not give
+this order of quantifiers.
+
+All the measures have mass one, so the test-function error satisfies
+\[
+ \left|
+  \int(F-F^{(j)})\,\rd\mu_t
+ \right|
+ \leq\|F-F^{(j)}\|_\infty
+\tag{66.25c}\label{eq:hybrid-ma-uniform-test-error}
+\]
+uniformly for \(t\), and the same estimate holds for \(\mu_t^{(k)}\).
+
+\smallskip
+\noindent\emph{Step 3: the order of the limits.}
+Fix \(\varepsilon>0\).  First choose \(j\) so that the right-hand side of
+\eqref{eq:hybrid-ma-uniform-test-error} is less than
+\(\varepsilon\).  With this \(j\) fixed, choose \(k\) so that
+\(C_j\delta_k<\varepsilon\).  For this fixed model pair
+\((F^{(j)},\Phi^{(k)})\), Step~1 supplies \(t_0\) such that the difference
+between its nonzero-fibre and central integrals is less than
+\(\varepsilon\) whenever \(0<|t|<t_0\).  Insert the two approximating
+integrals between the two sides of \eqref{eq:hybrid-ma-test}.  The triangle
+inequality and
+\eqref{eq:hybrid-ma-uniform-cln-error}--
+\eqref{eq:hybrid-ma-uniform-test-error} bound the resulting five terms by
+a fixed multiple of \(\varepsilon\).  Since \(\varepsilon\) was arbitrary,
+\eqref{eq:hybrid-ma-test} follows.
+
+Thus the model limit is taken only after the two approximants have been
+fixed; the uniform estimates then permit removal of those approximants.
+This is the required limit exchange.
+\end{proof}
+
+\begin{remark}[No unrestricted Banach-family theorem]
+\label{fire:hybrid-general-ma}
+\Cref{thm:hybrid-ma-continuity} assumes a projective
+degeneration and a continuous hybrid psh metric. The corresponding
+continuity statement for an arbitrary flat projective family over an
+arbitrary Banach ring is posed in
+\cite[Question~4.9]{PS23Hybrid}. We do not
+promote that question to a theorem, and we do not replace continuity
+of \(\Phi\) by fibrewise continuity of the separate \(\phi_t\).
+\end{remark}
+
+\begin{corollary}\label{cor:hybrid-model-ma}
+If \(\Phi\) is induced by a relatively nef model
+\((\mathcal X',\mathcal L')\), then
+\(\operatorname{MA}^{\NA}(\phi^{\NA})\) is supported on the divisorial
+points associated to irreducible components of \(\mathcal X'_0\), and
+\[
+ \operatorname{MA}^{\NA}(\phi^{\NA})
+   =\sum_E b_E\bigl(c_1(\mathcal L'|_E)^n\bigr)\delta_{v_E}.
+\tag{66.26}\label{eq:hybrid-model-ma}
+\]
+The sum has total mass \(V\).
+\end{corollary}
+
+\begin{proof}
+This is the definition of the Chambert--Loir measure of a semipositive
+model metric. The total mass is \((L_K^n)=V\) by flatness and the
+projection formula. This proves the stated support and coefficient
+formula directly; \Cref{thm:hybrid-ma-continuity} additionally
+identifies it as the weak limit of the complex fibre measures.
+\end{proof}
+
+\section{What is actually converging}
+\label{sec:hybrid-what-converges}
+
+Four measures appear in degeneration problems and should be kept in
+separate columns:
+\[
+\begin{array}{c|c}
+\text{input and normalization}&\text{central support and mechanism}\\
+\hline
+\begin{array}{c}
+\text{continuous hybrid psh metric}\\[-1mm]V^{-1}\MA
+\end{array}
+&
+\begin{array}{c}
+X_K^{\mathrm{an}}\\[-1mm]\text{hybrid MA continuity}
+\end{array}\\[3mm]
+\begin{array}{c}
+\text{model metric}\\[-1mm]\text{mass }V
+\end{array}
+&
+\begin{array}{c}
+\text{divisorial vertices}\\[-1mm]\text{intersection formula}
+\end{array}\\[3mm]
+\begin{array}{c}
+\text{pluricanonical volume form}\\[-1mm]
+|t|^{-2\kappa_{\min}}(2\pi\log|t|^{-1})^{-d}
+\end{array}
+&
+\begin{array}{c}
+\text{top minimum faces}\\[-1mm]\text{residue calculation}
+\end{array}\\[3mm]
+\begin{array}{c}
+\text{K\"ahler--Einstein metric}\\[-1mm]V^{-1}\MA
+\end{array}
+&
+\begin{array}{c}
+\text{canonical-model vertices}\\[-1mm]
+\text{hybrid regularity plus MA}
+\end{array}.
+\end{array}
+\tag{66.27}\label{eq:hybrid-four-measure-ledger}
+\]
+The first row is a continuity theorem for a metric already defined on the
+whole hybrid space.  The second is its finite model core.  The third begins
+with a volume form and uses a different, dimension-dependent renormalizing
+factor.  The fourth requires a geometric regularity theorem before it enters
+the first row.  Equality of their supports in a special example does not
+identify their coefficients.
+
+\subsection{A model calculation on the nodal chart}
+
+Suppose a semistable curve has two components \(E_x,E_y\) meeting at the
+node \eqref{eq:hybrid-node-chart}, and a relatively nef model line bundle
+has degrees \(d_x,d_y\).  Its unnormalized central Monge--Amp\`ere measure is
+\[
+                     d_x\delta_{v_x}+d_y\delta_{v_y},
+                 \qquad d_x+d_y=\deg L.
+\tag{66.28}\label{eq:hybrid-node-model-measure}
+\]
+The points \(v_x,v_y\) are the endpoints \(\alpha=0,1\) of
+\eqref{eq:hybrid-node-monomial-valuation}.  By contrast, a normalized
+pluricanonical volume form whose weight is constant along the edge can
+converge to a multiple of affine length measure on the whole interval.
+Both limits live on the same skeleton, but one is atomic and the other is
+one-dimensional.  This is the smallest example in which the two entries in
+\eqref{eq:hybrid-four-measure-ledger} prevent a false
+identification.
+
+The mass test remains decisive.  In the model case
+\[
+ \int1\,\rd\MA^{\NA}(\phi^{\NA})=d_x+d_y=\deg L,
+\tag{66.29}\label{eq:hybrid-node-mass-test}
+\]
+whereas the pluricanonical residue measure acquires its mass only after the
+normalization displayed in the third row of
+\eqref{eq:hybrid-four-measure-ledger}.  There is no reason for the two
+unnormalized masses to agree.
+
+\paragraph{Source boundary for measure convergence.}
+The first row of \eqref{eq:hybrid-four-measure-ledger} is exactly
+\cite[Theorem~4.11]{PS23Hybrid}; the third is
+\cite{BJ17Hybrid} under the log-smooth and subklt hypotheses stated in
+\Cref{thm:hybrid-volume-forms}; and the fourth uses
+\cite{PS22HybridKE,PS23Hybrid} under the hypotheses of
+\Cref{thm:hybrid-ke}.  The table is a separation ledger, not a new theorem
+identifying these measures.
+
+\section{Skeleta and canonical measures}
+\label{sec:hybrid-skeleta}
+
+Assume now that \(\mathcal X\) is an SNC model. Write
+\[
+                         \mathcal X_0=\sum_{i\in I}b_iE_i.
+\tag{66.30}\label{eq:hybrid-snc-fibre}
+\]
+The dual complex \(\Delta_{\mathcal X}\) embeds in
+\(X_K^{\mathrm{an}}\). A face indexed by a stratum
+\(E_J:=\bigcap_{j\in J}E_j\neq\varnothing\) parametrizes monomial
+valuations with barycentric coordinates \((w_j)_{j\in J}\) satisfying
+\[
+                         w_j\geq0,
+             \qquad \sum_{j\in J}b_jw_j=1.
+\tag{66.31}\label{eq:hybrid-simplex}
+\]
+
+\begin{definition}[Skeleton and retraction]
+\label{def:hybrid-skeleton}
+The skeleton of the SNC model is
+\[
+                     \Sk(\mathcal X):=\Delta_{\mathcal X}
+                     \subset X_K^{\mathrm{an}}.
+\tag{66.32}\label{eq:hybrid-skeleton}
+\]
+The monomial retraction
+\[
+               \rho_{\mathcal X}:X_K^{\mathrm{an}}
+                    \longrightarrow\Sk(\mathcal X)
+\tag{66.33}\label{eq:hybrid-retraction}
+\]
+records the values of the vertical components \(E_i\).
+\end{definition}
+
+A model Monge--Amp\`ere measure is atomic at vertices. Canonical
+degenerating volume forms can instead limit to Lebesgue measure on
+higher-dimensional faces. These are different constructions.
+
+\begin{definition}[Essential skeleton]
+\label{def:hybrid-essential-skeleton}
+Let \(\Omega\) be a nonzero pluricanonical form on the generic fibre.
+Its weight function \(\mathrm{wt}_\Omega\) on divisorial valuations
+extends to a piecewise affine function on every SNC skeleton. The
+essential skeleton is
+\[
+       \Sk(X_K,\Omega)
+        :=\{x\in X_K^{\mathrm{an}}:
+             \mathrm{wt}_\Omega(x)=
+             \min\mathrm{wt}_\Omega\}.
+\tag{66.34}\label{eq:hybrid-essential-skeleton}
+\]
+\end{definition}
+
+\begin{theorem}\label{thm:hybrid-volume-forms}
+Let \((X,\mathcal B)\to\Delta^*\) be a projective meromorphic log-smooth
+pair: \(X\to\Delta^*\) is smooth, the support of \(\mathcal B\) has relative
+simple normal crossings, and every coefficient of \(\mathcal B\) is less
+than one.  Let \(\psi\) be a continuous metric on the relative
+\(\mathbf Q\)-line bundle \(K_{(X,\mathcal B)/\Delta^*}\), with analytic
+singularities at the origin.  Choose a log-smooth model
+\((\mathcal X,\overline{\mathcal B})\to\Delta\) and a
+\(\mathbf Q\)-line bundle \(\mathcal L\) extending
+\(K_{(X,\mathcal B)/\Delta^*}\) such that \(\psi\) extends continuously to
+\(\mathcal L\), and write
+\[
+ \mathcal X_0=\sum_i b_iE_i,\qquad
+ K^{\log}_{(\mathcal X,\overline{\mathcal B})/\Delta}
+       =\mathcal L+\sum_i a_iE_i,
+\]
+and let \(\Delta(\mathcal L)\) be the subcomplex of
+\(\Sk(\mathcal X)\) spanned by the vertices corresponding to the indices
+where \(a_i/b_i\) is minimal.  Put
+\[
+ \kappa_i=\frac{a_i}{b_i},\qquad
+ \kappa_{\min}=\min_i\kappa_i,\qquad
+ d=\dim\Delta(\mathcal L),
+\]
+and let
+\[
+ \nu_t=\rme^{2(\psi_t-\phi_{\mathcal B_t})}
+\]
+be the fibrewise volume measure, where \(\phi_{\mathcal B_t}\) is the
+divisor metric of \(\mathcal B_t\).  When \(\mathcal B=0\) and \(\psi\) is
+induced by an \(m\)-pluricanonical form \(\Omega\), this is
+\(\nu_t=|\Omega_t|^{2/m}\), and \(\Delta(\mathcal L)\) is the essential
+skeleton \(\Sk(X_K,\Omega)\).  Then
+\[
+ \mu_t:=
+ \frac{\nu_t}
+ {|t|^{2\kappa_{\min}}
+  (2\pi\log|t|^{-1})^d}
+ \ \longrightarrow\
+ \mu_0:=
+ \sum_{\dim\sigma=d}
+ \left(\int_{Y_\sigma}\operatorname{Res}_{Y_\sigma}(\psi)\right)
+ b_\sigma^{-1}\lambda_\sigma
+\]
+weakly on the hybrid space.  Here \(\sigma\) runs over the
+top-dimensional faces of \(\Delta(\mathcal L)\), \(Y_\sigma\) is the
+corresponding stratum,
+\(b_\sigma=\gcd\{b_i:E_i\supset Y_\sigma\}\), and
+\(\lambda_\sigma\) is integral affine Lebesgue measure.
+\end{theorem}
+
+\begin{proof}
+The weight function on the simplex
+\(\sum_i b_iw_i=1\) is the affine interpolation of the numbers
+\(\kappa_i=a_i/b_i\).  Its minimum locus is therefore exactly the
+subcomplex spanned by the vertices with
+\(\kappa_i=\kappa_{\min}\), namely \(\Delta(\mathcal L)\).
+
+We now compute on one coordinate chart meeting the stratum
+\(E_0\cap\cdots\cap E_p\).  After absorbing a unit into one coordinate,
+\[
+                 t=z_0^{b_0}\cdots z_p^{b_p}.
+\]
+After increasing the coordinate system if necessary, the horizontal
+components of \(\overline{\mathcal B}\) through the chart are
+\(B_j=\{z_j=0\}\), \(p<j\leq m\), with coefficients \(c_j<1\).
+Order the vertical components so that
+\[
+ \kappa_0=\cdots=\kappa_q
+       =\min_{0\leq i\leq p}\kappa_i,
+ \qquad
+ \kappa_i>\kappa_0\quad(q<i\leq p).
+\]
+The logarithmic
+coordinates
+\[
+              w_i=\frac{\log|z_i|}{\log|t|}
+\]
+lie in \(\sum b_iw_i=1\).  The relative logarithmic canonical form is
+obtained by contracting
+\[
+ \frac{\rd z_0}{z_0}\wedge\cdots\wedge
+ \frac{\rd z_p}{z_p}\wedge
+ \rd z_{p+1}\wedge\cdots\wedge\rd z_n
+\]
+with \(\rd t/t\).  The boundary contributes the additional density
+\(\prod_{j=p+1}^{m}|z_j|^{-2c_j}\).  Integrating the \(p\) independent
+angular variables contributes \((2\pi)^p\), while the radial logarithmic
+coordinates contribute the corresponding power of \(\log|t|^{-1}\).
+With Haar probability on the possibly disconnected kernel of
+\((\mathbf R/\mathbf Z)^{p+1}\to\mathbf R/\mathbf Z\),
+\((\theta_i)\mapsto\sum b_i\theta_i\), the logarithmic-coordinate Jacobian
+relative to integral affine measure is \(b_\sigma^{-1}\).  Thus the
+arithmetic factor occurs exactly once.
+
+Write \(\lambda(t)=(\log|t|^{-1})^{-1}\).  After division by the
+normalizing factor in the statement, the remaining radial integral has
+mass
+\[
+ O\!\left(
+   |t|^{2(\kappa_0-\kappa_{\min})}
+   \lambda(t)^{d-q}\right).
+\]
+Thus the chart contributes zero if its least weight is larger than
+\(\kappa_{\min}\), or if its minimum face has dimension \(q<d\).
+When \(q=d\), the changes of variables
+\[
+ w_i=\lambda(t)x_i\quad(q<i\leq p)
+\]
+separate the normal variables from the minimum face.  Dominated
+convergence gives, for every compactly supported test function \(\chi\),
+\[
+ (\operatorname{Log}_{\mathcal X})_*(\chi\mu_t)
+ \longrightarrow
+ \left(\int_{Y_\sigma}
+       \chi\,\operatorname{Res}_{Y_\sigma}(\psi)\right)
+ b_\sigma^{-1}\lambda_\sigma .
+\]
+The inequalities \(c_j<1\) are exactly what makes the horizontal normal
+integrals and the residual measure finite.  The logarithmic
+polar-coordinate estimate
+and this dominated-convergence step are the foundational local input
+\cite[Lemma~3.5]{BJ17Hybrid}; its subklt extension is carried out in
+\cite[Theorem~8.4]{BJ17Hybrid}.
+
+Choose a partition of unity by such charts.  Faces of dimension less than
+\(d\) have zero \(\lambda_\sigma\)-measure, so overlaps introduce no
+extra mass.  Summing the local limits yields the formula for \(\mu_0\).
+Finally, convergence of the logarithmic pushforwards is equivalent to
+weak convergence on the hybrid model by the hybrid
+Stone--Weierstrass argument of
+\cite[Theorem~3.4 and Lemma~3.6]{BJ17Hybrid}.  This proves the asserted
+weak convergence and its support statement.
+\end{proof}
+
+\begin{remark}[Hypotheses are part of the result]
+\label{rem:hybrid-volume-hypotheses}
+\Cref{thm:hybrid-volume-forms} is not a theorem about every
+family of smooth volume forms. The logarithmic pluricanonical origin,
+the log-smooth model, the singularity condition, and the stated
+normalization are all used to identify the weight-minimizing faces and
+their residual coefficients.
+\end{remark}
+
+\begin{example}[A nodal curve]
+\label{ex:hybrid-nodal-curve}
+For a semistable curve, \(\Sk(\mathcal X)\) is the metric dual graph.
+A logarithmic differential has an affine weight on every edge.
+The essential skeleton consists of the subgraph on which that weight
+is minimal. A normalized family of canonical measures can therefore
+converge to edge length measure, while a model metric on the same
+family has an atomic Chambert--Loir measure at vertices.
+\end{example}
+
+\section{Canonically polarized degenerations}
+\label{sec:hybrid-ke}
+
+\begin{theorem}\label{thm:hybrid-ke}
+Let \(X\to\Delta^*\) be a meromorphic degeneration of
+\(n\)-dimensional canonically polarized manifolds. Assume that the
+family admits semistable reduction. The fibrewise negatively curved
+K\"ahler--Einstein metrics define a continuous semipositive hybrid
+metric on the relative canonical bundle. Their normalized
+K\"ahler--Einstein measures converge weakly to
+\[
+              V^{-1}\operatorname{MA}^{\NA}
+                     (\phi_{\mathrm{can}}^{\NA}),
+\tag{66.35}\label{eq:hybrid-ke-limit}
+\]
+where \(\phi_{\mathrm{can}}^{\NA}\) is the model metric determined by
+the relative canonical model. The limit is a finite sum of Dirac
+masses at the divisorial points corresponding to components of that
+canonical model.
+\end{theorem}
+
+\begin{proof}
+We separate the birational, analytic, and pluripotential inputs.
+
+\smallskip
+\noindent\emph{Step 1: the canonical model.}
+After the finite base change implicit in semistable reduction, finite
+generation of the relative canonical ring produces the unique relative
+canonical model
+\[
+ \mathscr X_{\mathrm{can}}
+   =\operatorname{Proj}_{\Delta}
+       \bigoplus_{m\geq0}
+       \pi_*\mathcal O_{\mathscr X}
+                    (mK_{\mathscr X/\Delta}),
+\tag{66.35a}\label{eq:hybrid-relative-canonical-model}
+\]
+and \(K_{\mathscr X_{\mathrm{can}}/\Delta}\) is relatively ample.  The
+finite-generation and singularity assertions are deep Minimal Model
+Program inputs, recalled in \cite[Theorem~5.3]{PS23Hybrid}; they are not
+reproved here.  The relatively ample canonical bundle defines the model
+metric \(\phi_{\mathrm{can}}^{\NA}\) on the central Berkovich fibre.
+
+\smallskip
+\noindent\emph{Step 2: the radial-scale estimate.}
+Choose a hybrid Fubini--Study reference metric \(\Phi_{\mathrm{FS}}\) from
+a relative pluricanonical embedding of the canonical model.  Denote its
+ordinary norm weight on a nonzero fibre by \(\phi_{\mathrm{FS},t}\), and
+write
+\[
+             \phi_{\mathrm{KE},t}
+             =\phi_{\mathrm{FS},t}+\psi_t,
+ \qquad
+             \varphi_{\mathrm{KE},t}=2\phi_{\mathrm{KE},t}.
+\tag{66.35b}\label{eq:hybrid-ke-reference-potential}
+\]
+Thus \(\varphi_{\mathrm{KE},t}\) is the squared-norm potential used by the
+complex Monge--Amp\`ere convention in \eqref{eq:hybrid-complex-ma}.
+Schumacher's theorem gives psh variation and logarithmic growth.  Work on
+a chart meeting the strict transform \(\widetilde D_{i_0}\) of one
+component of the canonical central fibre.  Write \(\varrho_i\) for
+divisorial weights along the other strict transforms and \(\eta_j\) for
+divisorial weights along the exceptional components meeting
+\(\widetilde D_{i_0}\).  The additional estimates of Song, in the form
+recorded in \cite[Proposition~5.7]{PS23Hybrid}, give a constant \(C\) with
+\(\sup_{X_t}\psi_t\leq C\), and, for every \(\varepsilon>0\), a lower
+bound
+\[
+ \psi_t\geq
+ \varepsilon\!\left(
+    \sum_{i\neq i_0}\varrho_i+
+    \sum_{j\in J_{i_0}}\eta_j
+ \right)-C_\varepsilon.
+\tag{66.35c}\label{eq:hybrid-ke-song-bound}
+\]
+The sum of the weights of all components of the reduced semistable central
+fibre is \(\log|t|+O(1)\).  On the chosen chart the omitted exceptional
+components have bounded weights, while \(\varrho_{i_0}\) is bounded above.
+Consequently the parenthesis in \eqref{eq:hybrid-ke-song-bound} is bounded
+below by \(\log|t|-O(1)\).  This is the only direction of the comparison
+needed below; the partial product in Song's estimate is not being
+identified with the base parameter.
+
+Divide the upper bound and \eqref{eq:hybrid-ke-song-bound} by
+\(|\log|t||\).  The upper error tends to zero, while the lower error has
+liminf at least \(-C'\varepsilon\).  Since \(\varepsilon\) is arbitrary
+and finitely many charts cover the central fibre, we obtain the uniform
+radial estimate
+\[
+       \sup_{X_t}
+       \frac{|\psi_t|}{|\log|t||}
+             \longrightarrow0.
+\tag{66.35d}\label{eq:hybrid-ke-radial-error}
+\]
+The Song--Sturm--Wang estimates underlying
+\eqref{eq:hybrid-ke-song-bound} are the foundational analytic input; the
+deduction of \eqref{eq:hybrid-ke-radial-error} is the normalization
+argument just given.
+
+By the chart criterion for the hybrid topology,
+\eqref{eq:hybrid-ke-radial-error} says precisely that the metric obtained
+by placing \(\phi_{\mathrm{can}}^{\NA}\) on the central fibre and
+\(\phi_{\mathrm{KE},t}\) on the nonzero fibres is continuous.
+\Cref{thm:hybrid-psh-extension} and the continuity criterion in
+\cite[Proposition~3.16]{PS23Hybrid} then make it a continuous semipositive
+hybrid metric.  This is the regularity theorem
+\cite[Theorem~5.1]{PS23Hybrid}; no measure limit has yet been taken.
+
+\smallskip
+\noindent\emph{Step 3: pass to Monge--Amp\`ere measures.}
+The hypotheses of \Cref{thm:hybrid-ma-continuity} now hold, so for every
+continuous hybrid test function \(F\),
+\[
+ \lim_{t\to0}
+ \frac1V\int_{X_t}F\,(\ddc\varphi_{\mathrm{KE},t})^n
+ =
+ \frac1V\int_{X_K^{\mathrm{an}}}F\,
+       \MA^{\NA}(\phi_{\mathrm{can}}^{\NA}).
+\tag{66.35e}\label{eq:hybrid-ke-limit-test}
+\]
+This proves \eqref{eq:hybrid-ke-limit}; the limit exchange is exactly the
+one justified in the proof of \Cref{thm:hybrid-ma-continuity} and is not
+repeated with a fibre-dependent approximation.
+
+Finally write
+\(\mathscr X_{\mathrm{can},0}=\sum_E b_EE\).  Since the central metric is a
+model metric, \eqref{eq:hybrid-model-ma} gives
+\[
+ \frac1V\MA^{\NA}(\phi_{\mathrm{can}}^{\NA})
+  =\frac1V\sum_E
+       b_E\bigl(c_1(K_{\mathscr X_{\mathrm{can}}/\Delta}|_E)^n\bigr)
+       \delta_{v_E}.
+\tag{66.35f}\label{eq:hybrid-ke-atomic-formula}
+\]
+Thus the limiting measure is the asserted finite atomic probability
+measure.  This last step is intersection theory; the hard PDE regularity
+has already been isolated in Step~2.
+\end{proof}
+
+\begin{example}[Weights for stable curves]
+\label{ex:hybrid-ke-curves}
+Let the stable central fibre have components \(C_i\). At the
+divisorial point associated to \(C_i\), the unnormalized limiting mass
+is
+\[
+                    2g(C_i)-2+\operatorname{val}(C_i),
+\tag{66.36}\label{eq:hybrid-stable-curve-weight}
+\]
+where \(\operatorname{val}(C_i)\) is the number of branches of the
+double locus meeting \(C_i\). Unstable rational components have been
+contracted in the canonical model, so no negative coefficient occurs.
+\end{example}
+
+\begin{remark}[Two kinds of limiting measure]
+The skeletal measure of
+\Cref{thm:hybrid-volume-forms} and the atomic measure of
+\Cref{thm:hybrid-ke} answer different normalization problems.
+One should not identify them merely because both live on
+\(X_K^{\mathrm{an}}\).
+\end{remark}
+
+\section{Energy and entropy along the hybrid parameter}
+\label{sec:hybrid-energy-entropy}
+
+Let \(\phi_{\mathrm{ref},t}\) be a reference metric induced by a
+projective model, and let \(\varphi_{\mathrm{ref},t}\) be its complex
+squared-norm potential. The relative complex Monge--Amp\`ere energy is
+\[
+ E_t(\varphi_t)
+ =\frac{1}{(n+1)V}
+   \sum_{j=0}^{n}
+   \int_{X_t}
+     (\varphi_t-\varphi_{\mathrm{ref},t})
+     (\ddc\varphi_t)^j
+     (\ddc\varphi_{\mathrm{ref},t})^{n-j}.
+\tag{66.37}\label{eq:hybrid-energy}
+\]
+For model metrics this has an intersection-theoretic central value
+\(E^{\NA}(\phi^{\NA})\).
+
+\begin{proposition}\label{prop:hybrid-energy-continuity}
+Under the hypotheses of
+\Cref{thm:hybrid-ma-continuity}, assume in addition that
+\(\Phi\) and the reference metric are uniform limits of semipositive
+hybrid model metrics. Then
+\[
+ \lim_{t\to0}
+ \frac{E_t(\varphi_t)}{2\log_r|t|}
+ =E^{\NA}(\phi^{\NA}).
+\tag{66.38}\label{eq:hybrid-energy-limit}
+\]
+The same conclusion holds for mixed energies obtained by polarization.
+\end{proposition}
+
+\begin{proof}
+For model metrics, every term in \eqref{eq:hybrid-energy} is the logarithm
+of a Deligne-pairing norm.  Its coefficient of \(\log|t|^{-1}\) is the
+intersection number defining the non-Archimedean energy.  Since
+\(\log_r|t|=\log|t|^{-1}/\log r^{-1}\), and since the complex potential is
+twice the norm weight, division by \(2\log_r|t|\) gives exactly
+\(E^{\NA}(\phi^{\NA})\).
+
+Uniform approximation passes this model identity to the limit.  Indeed,
+monotonicity and the cocycle formula give
+\[
+        |E_t(\varphi_t)-E_t(\vartheta_t)|
+                  \leq\|\varphi_t-\vartheta_t\|_\infty,
+\tag{66.39}\label{eq:hybrid-energy-lipschitz}
+\]
+where \(\vartheta_t\) is another squared-norm potential.  If the
+corresponding hybrid metrics differ by at most \(\varepsilon\), then the
+right-hand side is at most \(2\log_r|t|\varepsilon\); after the division in
+\eqref{eq:hybrid-energy-limit}, the error is at most \(\varepsilon\).  The
+same Lipschitz estimate on the central fibre completes the passage to the
+uniform limit.
+\end{proof}
+
+\begin{proposition}\label{prop:hybrid-energy-slope}
+Let \((\mathcal X,\mathcal L)\) be a normal relatively ample test
+configuration for a polarized projective manifold, and let
+\((\varphi_s)_{s\geq0}\) be its associated weak geodesic ray in the
+book's squared-norm convention, normalized with \(s=-\log|t|\).  Write
+\(\widehat\phi_{\mathcal L}^{\NA}=(-\log r)^{-1}
+\phi_{\mathcal L}^{\NA}\) for the same model metric in the normalization
+\(\widehat v(t)=1\). Then
+\[
+       \lim_{s\to+\infty}\frac{E(\varphi_s)}{2s}
+             =E^{\NA}(\widehat\phi_{\mathcal L}^{\NA}),
+       \qquad
+       \lim_{s\to+\infty}\frac{J(\varphi_s)}{2s}
+             =J^{\NA}(\widehat\phi_{\mathcal L}^{\NA}).
+\tag{66.40}\label{eq:hybrid-ej-slopes}
+\]
+\end{proposition}
+
+\begin{proof}
+For a smooth dominating compactification, the Deligne pairing of
+\(\mathcal L\) has logarithmic norm whose Lelong number at \(0\) is
+the intersection number defining \(E^{\NA}\). Dividing its squared-norm
+potential by \(2s=-2\log|t|\) extracts this coefficient. The
+\(J\)-formula follows
+from its expression as a fixed linear combination of energy and a
+linear term. Normalization and pullback invariance remove the chosen
+compactification. This slope computation belongs to the unaffected
+intersection-theoretic part of \cite{BHJ19}.
+\end{proof}
+
+\subsection{Compatibility with the ray parameter}
+
+For a test configuration, the punctured-disc coordinate gives
+\(s=-\log|t|\).  If \(\psi_s\) is the ordinary norm weight used in the
+source slope formula and \(\varphi_s=2\psi_s\) is the book's squared-norm
+potential, then
+\[
+ \frac{E(\varphi_s)}{2s}
+ =\frac{E(2\psi_s)}{2s}
+ \quad\text{has the same affine translation test as}\quad
+ \frac{E(\psi_s)}s.
+\tag{66.41}\label{eq:hybrid-ray-factor-two-test}
+\]
+Here the notation \(E(2\psi_s)\) means the energy evaluated in the
+squared-norm convention fixed in \Cref{app:normalizations}; it is not a
+claim that one can double a K\"ahler potential while holding its reference
+form fixed.  The point is the conversion of metric conventions.
+
+Adding weight \(c\) to the non-Archimedean metric adds \(2cs\) to the
+squared-norm ray.  Since normalized energy translates by constants,
+\[
+ \frac{E(\varphi_s+2cs)-E(\varphi_s)}{2s}=c,
+\tag{66.42}\label{eq:hybrid-energy-translation-test}
+\]
+matching \(E^{\NA}(\phi^{\NA}+c)=E^{\NA}(\phi^{\NA})+c\).
+Equation \eqref{eq:hybrid-energy-translation-test} is the fastest check that
+the factor two and the additive normalization have both been transported.
+
+Entropy is more delicate. Fix a smooth probability measure
+\(\nu_t\) on \(X_t\) and put
+\[
+  \operatorname{Ent}_{\nu_t}(\mu_t)
+      :=
+      \begin{cases}
+       \displaystyle\int_{X_t}
+          \log\!\left(\frac{\rd\mu_t}{\rd\nu_t}\right)\,\rd\mu_t,
+          &\mu_t\ll\nu_t,\\[6pt]
+       +\infty,&\text{otherwise}.
+      \end{cases}
+\tag{66.43}\label{eq:hybrid-entropy}
+\]
+Weak convergence of \(\mu_t\) alone does not imply convergence of
+\eqref{eq:hybrid-entropy}.
+
+\begin{proposition}\label{prop:hybrid-entropy-liminf}
+Suppose that the hybrid reference measures \(\nu_t\) converge and that
+their logarithmic densities are uniformly controlled so that relative
+entropy is lower semicontinuous on the resulting compact hybrid space.
+If \(\mu_t\to\mu_0\) weakly, then
+\[
+       \operatorname{Ent}_{\nu_0}(\mu_0)
+          \leq
+       \liminf_{t\to0}
+          \operatorname{Ent}_{\nu_t}(\mu_t).
+\tag{66.44}\label{eq:hybrid-entropy-liminf}
+\]
+\end{proposition}
+
+\begin{proof}
+Use the variational formula
+\[
+ \operatorname{Ent}_{\nu}(\mu)
+   =\sup_{f\in C^0}
+       \left\{
+          \int f\,\rd \mu-\log\int \rme^f\,\rd \nu
+       \right\}.
+\tag{66.45}\label{eq:hybrid-entropy-dual}
+\]
+For a fixed continuous hybrid test function \(f\), both integrals in
+braces converge. Taking the lower limit and then the supremum over
+\(f\) gives \eqref{eq:hybrid-entropy-liminf}. The density hypothesis
+ensures that the central expression is the intended relative entropy,
+rather than an unrelated limit functional.
+\end{proof}
+
+\begin{remark}[No entropy equality from weak measure convergence]
+\label{fire:hybrid-entropy}
+Neither \Cref{thm:hybrid-ma-continuity} nor
+\Cref{prop:hybrid-entropy-liminf} proves entropy
+convergence. Equality requires recovery sequences or uniform
+integrability of the logarithmic densities. We will not use the
+disputed entropy-regularization step attached to
+\cite[Theorem~5.6]{BHJ19}; its published erratum is discussed in
+\Cref{chap:ytd-bridge}.
+\end{remark}
+
+\section{A convergence checklist}
+\label{sec:hybrid-checklist}
+
+\begin{proposition}\label{prop:hybrid-four-layers}
+For a degenerating family of metrics, the following implications are
+valid only with the indicated additional inputs:
+\begin{enumerate}
+\item regularity upgrades a hybrid psh extension to a continuous
+      hybrid metric;
+\item the projective Monge--Amp\`ere theorem then gives weak measure
+      convergence;
+\item uniform model approximation separately gives energy
+      convergence; and
+\item entropy convergence needs its own density or recovery input.
+\end{enumerate}
+There is no downward implication from weak Monge--Amp\`ere
+convergence to entropy convergence.
+\end{proposition}
+
+\begin{proof}
+The first horizontal arrow is
+\Cref{rem:hybrid-extension-not-continuity}; the second is
+\Cref{thm:hybrid-ma-continuity}. Uniform model approximation
+gives energy convergence by
+\Cref{prop:hybrid-energy-continuity}. Entropy convergence
+is an additional scalar assertion about a family whose weak convergence
+has already been obtained in the second layer; convergence of entropy
+values alone would not determine a weak limit. The failure of the
+implication from weak convergence to entropy convergence is classical:
+approximating a measure by densities with increasingly concentrated
+oscillations can preserve weak limits while entropy diverges.
+\end{proof}
+
+\begin{example}[A safe theorem-selection procedure]
+\label{ex:hybrid-safe-procedure}
+Given a family \((\phi_t)\), verify in order:
+\begin{enumerate}
+\item a projective model and a relatively ample polarization;
+\item logarithmic growth of the weights;
+\item continuity of the canonical hybrid extension;
+\item semipositivity on the whole hybrid space;
+\item uniform model approximation if energy is required;
+\item a separate density or recovery theorem if entropy is required.
+\end{enumerate}
+Stopping after item \(2\) yields a psh extension, not measure
+convergence. Stopping after item \(4\) yields weak Monge--Amp\`ere
+convergence, not entropy equality.
+\end{example}
+
+\section*{Source notes}
+
+The hybrid topology and the skeletal limits of logarithmic volume
+forms are taken from \cite{BJ17Hybrid}. The K\"ahler--Einstein
+measure theorem is \cite[Theorem~A]{PS22HybridKE}; the continuous hybrid
+psh formalism, projective Monge--Amp\`ere continuity, and continuity of
+the canonically polarized hybrid metric are respectively
+\cite[Theorems~3.13, 4.11, and~5.1]{PS23Hybrid}; the last measure
+convergence is also \cite[Corollary~5.2]{PS23Hybrid}.
+Energy slopes for test configurations use only the
+intersection-theoretic portion of \cite{BHJ19}. The general
+Banach-family Monge--Amp\`ere question
+\cite[Question~4.9]{PS23Hybrid}, Favre's hybrid-continuity question
+\cite[Question~3.18]{PS23Hybrid}, and entropy equality have been left
+outside the theorem statements deliberately.
+The Deligne-pairing language in the two energy propositions is only the
+intersection-theoretic argument from the unaffected part of \cite{BHJ19};
+no excluded or derivative source is used.
+
+The source imports in this chapter have four disjoint boundaries.
+\cite{BJ17Hybrid} supplies the hybrid topology and the residue-theoretic
+volume-form limit; \cite{PS23Hybrid} supplies the canonical psh extension,
+projective Monge--Amp\`ere continuity, and the canonically polarized
+regularity statement at the theorem numbers listed above;
+\cite{PS22HybridKE} supplies the K\"ahler--Einstein measure limit; and the
+energy slope uses only the intersection-theoretic range of \cite{BHJ19}
+certified as unaffected by \cite{BHJ19err}.  None of these imports supplies
+entropy equality, an arbitrary Banach-family Monge--Amp\`ere theorem, or a
+replacement for continuity of the hybrid metric.

@@ -1,0 +1,3416 @@
+\chapter{Test configurations, norms, and filtrations}
+\index{test configuration}\index{filtration}\index{non-Archimedean norm}
+\label{chap:bj-test-configurations}
+
+Test configurations are one-parameter degenerations, but three equivalent
+encodings are useful for different purposes.  The total space is best for
+intersection theory, the Rees algebra is best for finite generation, and the
+induced filtration of the section ring is best for asymptotics.  This chapter
+builds the dictionary carefully and fixes its signs.
+
+\section{Orientation}
+\label{sec:ch33-orientation}
+
+\subsection{One degeneration, three languages}
+\label{sec:ch33-three-languages}
+
+A test configuration is a flat family over the affine line whose fibre over
+\(1\) is the given variety and which is equivariant for the multiplicative
+group.  That single object is presented in this chapter in three ways, and
+each presentation makes a different question easy.
+
+\emph{The total space.}  Writing the degeneration as a scheme
+\(\pi:\cX\to\mathbf A^1\) makes divisors, blowups, and intersection numbers
+available.  Everything numerical in
+\Crefrange{chap:bj-energy}{chap:bj-stability}---energies, the
+Donaldson--Futaki invariant, the norms \(J\) and \(I\)---is ultimately an
+intersection number on a compactification of \(\cX\).  The total space is
+also where the passage to the trivially valued analytification happens: by
+\Cref{chap:trivial-analytification}, the Gauss section realizes
+\(X^{\An}\) inside \(\cX^{\An}\) as the locus of invariant semivaluations
+with \(v(\varpi)=1\), so that a vertical divisor on \(\cX\) becomes a
+function on \(X^{\An}\).
+
+\emph{The graded algebra.}  Writing the same degeneration as a Rees algebra
+turns questions about existence of a model into questions about finite
+generation of an algebra.  The flag-ideal presentation
+\eqref{eq:flag-ideal} makes the semiring structure
+\eqref{eq:flag-semiring} visible, and it is the presentation under which
+maxima and sums of the associated functions become sums and products of
+ideals.  When we later need to know that a given continuous function is
+piecewise linear, this is the language in which the check is finite.
+
+\emph{The filtration.}  Writing the degeneration as a decreasing filtration
+of the section ring \(R(X,L)\) discards the model entirely and keeps only
+the weights.  This is the language in which asymptotics live: the
+Duistermaat--Heckman measure of \Cref{sec:ch33-dh} is a limit of empirical
+weight distributions, and it is defined for filtrations far more general
+than those coming from a model.  It is also the language that survives the
+passage to the complex side in \Cref{chap:rays-filtrations}.
+
+The three languages are not equivalent in the same sense.  Total spaces and
+Rees algebras are equivalent after fixing an integral-closure convention;
+this is \Cref{thm:ch33-flag-tc-equivalence} and
+\Cref{thm:ch33-fg-filtration-tc}.  Filtrations are strictly more general:
+\Cref{ex:ch33-harmonic-not-fg} exhibits a perfectly good multiplicative
+linearly bounded filtration whose Rees algebra is not finitely generated,
+so that no test configuration produces it.  A large part of the chapter is
+devoted to saying precisely where the equivalence stops.
+
+\subsection{What is proved here and what is deferred}
+\label{sec:ch33-scope}
+
+The following are proved in this chapter.
+
+\begin{enumerate}
+\item\label{itm:ch33-scope:tc}
+ Test configurations form a directed poset under domination, the
+ compactification \(\overline\cX\to\mathbf P^1\) exists and is projective,
+ the extension \(\overline\cL\) is unique, and the intersection numbers
+ computed on \(\overline\cX\) are invariant under domination
+ (\Cref{prop:ch33-directed-poset,thm:ch33-compactification,thm:ch33-intersection-invariance}).
+\item\label{itm:ch33-scope:flag}
+ Flag ideals and integrally closed test configurations dominating the
+ trivial one correspond to each other in both directions, the passage in
+ either direction being computed by a Rees algebra
+ (\Cref{thm:ch33-flag-tc-equivalence}).
+\item\label{itm:ch33-scope:norm}
+ A test configuration induces a multiplicative, linearly bounded,
+ finitely generated filtration after the integral-closure convention below.
+ Conversely a finitely generated filtration produces its saturated
+integral-closure class; the exact qualification is stated in
+ \Cref{thm:ch33-fg-filtration-tc}.
+\item\label{itm:ch33-scope:base}
+ Base ideals compute both the flag ideal and the associated function on
+ \(X^{\An}\), and the associated function is unchanged by integral closure
+ (\Cref{prop:ch33-base-ideal-flag,prop:tc-valuative-invariance}).
+\item\label{itm:ch33-scope:dh}
+ The Duistermaat--Heckman measure exists for every linearly bounded
+ multiplicative filtration of an ample section ring, is a probability
+ measure with compact support, is the push-forward of Lebesgue measure on
+ an Okounkov body by a concave transform, and transforms in the expected
+ way under translation, scaling, and base change
+ (\Cref{thm:dh-limit-filtration,thm:ch33-dh-concave-transform,prop:ch33-dh-transformations}).
+ For a test configuration it is the asymptotic weight distribution of the
+ central-fibre representation
+ (\Cref{thm:ch33-dh-weight-count}).
+\end{enumerate}
+
+The following are \emph{not} proved here.
+
+\begin{enumerate}
+\item The identification of \(\PL(X)\) with the direct limit of vertical
+ Cartier divisors, and of Fubini--Study functions with semiample test
+ configurations, belongs to \Cref{chap:bj-fs-pl-psh}; see
+ \Cref{thm:tc-pl-correspondence} there.  We use only the construction of
+ the function attached to a flag ideal, which is elementary.
+\item The correspondence with geodesic rays in the space of positively
+ curved metrics over \(\mathbf C\) is stated in
+ \Cref{sec:ch33-geodesic-deferred} and motivated there, but its proof
+ requires complex Monge--Amp\`ere theory and is given only in
+ \Cref{chap:rays-filtrations}.  Nothing in this chapter depends on it.
+\item No asymptotic-slope statement relating a complex energy functional
+ along a ray to a non-Archimedean functional is proved or used here.  The
+ published sources for such statements, and the exact boundary imposed by
+ the 2022 erratum to the Boucksom--Hisamoto--Jonsson energy asymptotics,
+ are recorded in \Cref{thm:rf-erratum-audit}; see also
+ \Cref{sec:ch33-geodesic-deferred}.
+\end{enumerate}
+
+\subsection{Standing hypotheses}
+\label{sec:ch33-hypotheses}
+
+Throughout, \(X\) is a projective \(k\)-variety in the sense of
+\cite[\S1]{BJ22}, and \(L\) is a
+\(\mathbf Q\)-line bundle.  When Hilbert and weight asymptotics are used,
+\(X\) is integral of dimension \(n\) and \(L\) is ample.  We write
+\(R(X,L)=\bigoplus_{m\geq0}R_m\), where
+\(R_m=H^0(X,mL)\) for sufficiently divisible \(m\).
+
+The ground field \(k\) is algebraically closed and carries the trivial
+absolute value, as in \Cref{chap:trivial-analytification}.  We write
+\(\varpi\) for the standard coordinate on \(\mathbf A^1_k\), so that
+\(\mathbf G_m=\Spec k[\varpi^{\pm1}]\) and the standard action of
+\(\mathbf G_m\) on \(\mathbf A^1\) is
+\(t\cdot\varpi=t\varpi\).  When \(L\) is ample of dimension \(n\), we set
+\begin{equation}
+\label{eq:ch33-volume}
+ V:=(L^n)=\lim_{m\to\infty}\frac{n!}{m^n}\,h^0(X,mL)>0 .
+\end{equation}
+Degrees \(m\) are always taken sufficiently divisible; the phrase
+\emph{along the sufficiently divisible integers} means along the directed
+set \(\{m\in\mathbf Z_{>0}:mL\text{ is an honest line bundle}\}\) ordered by
+divisibility, which is cofinal in a fixed arithmetic progression.
+
+\subsection{Conventions on weights and linearizations}
+\label{sec:ch33-weight-conventions}
+
+Two sign choices are made once and used everywhere.
+
+\emph{Weights of a representation.}  If \(W\) is a
+\(k\)-vector space with a \(\mathbf G_m\)-action, then
+\(W=\bigoplus_{\lambda\in\mathbf Z}W_\lambda\), where \(t\in\mathbf G_m\)
+acts on \(W_\lambda\) by \(t^\lambda\).  The elements of \(W_\lambda\) are
+said to have weight \(\lambda\).  This is the standard convention and is
+forced on us by the identification of a graded algebra with a
+\(\mathbf G_m\)-scheme.
+
+\emph{Weights of a filtration.}  The filtration attached to a test
+configuration in \Cref{def:ch33-tc-filtration} is normalized so that
+\emph{larger weight means harder to extend}:
+\(s\in\mathcal F^\lambda R_m\) requires \(\varpi^{-\lambda}\bar s\) to be
+regular, and \(\varpi^{-\lambda}\) has a pole of order \(\lambda\) along the
+central fibre.  With this normalization the associated norm is
+\(\lVert s\rVert_\chi=\rme^{-\chi_m(s)}\), consistently with the global rule
+\(v_K(a)=-\log|a|\) of the Conventions, and twisting the linearization by
+the character of weight \(c\) sends \(\chi_m\) to \(\chi_m+mc\) and the
+associated function on \(X^{\An}\) to itself plus \(c\).
+
+\emph{Vertical divisors.}  The sign of \(\phi_D\) for a vertical divisor
+\(D\) is that of the Conventions and of
+\eqref{eq:appJ-model-divisor}: an effective vertical divisor gives a
+nonnegative function, and \(\phi_{\cX_0}=1\).  The two unit tests
+\eqref{eq:appJ-special-fibre-test} and the translation test of
+\Cref{sec:appJ-rays} are applied to every formula of this chapter at the
+point where it is proved, and the worked examples of
+\Cref{sec:ch33-examples} check all of them numerically at least once.
+
+\section{Test configurations and compactification}
+\label{sec:ch33-test-configurations}
+
+\begin{definition}
+\label{def:bj-test-configuration}
+A test configuration for \(X\) consists of a flat projective morphism
+\(\pi:\cX\to\mathbf A^1_k\), a \(\mathbf G_m\)-action on \(\cX\) lifting
+the standard action on \(\mathbf A^1\), and a
+\(\mathbf G_m\)-equivariant isomorphism
+\begin{equation}
+\label{eq:tc-punctured-trivialization}
+ \cX\setminus\cX_0\simeq X\times\mathbf G_m.
+\end{equation}
+A test configuration \((\cX,\cL)\) for \((X,L)\) additionally carries a
+\(\mathbf G_m\)-linearized \(\mathbf Q\)-line bundle whose restriction over
+\(1\in\mathbf G_m\) is \(L\).
+\end{definition}
+
+Some authors package the last datum as an isomorphism
+\(\cX_1\simeq X\) rather than as
+\eqref{eq:tc-punctured-trivialization}.  The two are equivalent: an
+isomorphism of the fibre over \(1\) propagates over
+\(\mathbf G_m\) by equivariance, and conversely
+\eqref{eq:tc-punctured-trivialization} restricts to an isomorphism over
+\(1\).  We use the trivialized form because every weight computation below
+is a comparison of two extensions of the \emph{same} object over the
+punctured line.
+
+\subsection{Elementary structure of the total space}
+\label{sec:ch33-tc-structure}
+
+\begin{lemma}\label{lem:ch33-central-fibre-cartier}
+Let \(\pi:\cX\to\mathbf A^1\) be a test configuration for \(X\).  Then:
+\begin{enumerate}
+\item the central fibre \(\cX_0\) is the principal Cartier divisor
+ \(\{\pi^\ast\varpi=0\}\), and \(\pi^\ast\varpi\) is a nonzerodivisor in
+ \(\cO_{\cX}\);
+\item \(\cX\setminus\cX_0\) is Zariski dense in \(\cX\), and every
+ irreducible component of \(\cX\) meets it;
+\item \(\dim\cX=\dim X+1\), and \(\cX\) is reduced;
+\item for every irreducible closed subvariety \(Y\subset X\), the closure
+ in \(\cX\) of the image of \(Y\times\mathbf G_m\) under
+ \eqref{eq:tc-punctured-trivialization} is a test configuration for \(Y\),
+ and this construction induces a bijection between the irreducible
+ components of \(X\) and those of \(\cX\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1)  Flatness of \(\pi\) over the regular one-dimensional base
+\(\mathbf A^1\) means exactly that \(\cO_{\cX}\) is a torsion-free
+\(k[\varpi]\)-module, by \Cref{lem:torsion-free-flat-valuation} applied
+locally at each point of \(\mathbf A^1\); torsion-freeness says that
+\(\pi^\ast\varpi\) is a nonzerodivisor on every affine chart.  A
+nonzerodivisor cuts out an effective Cartier divisor, whose underlying
+closed subscheme is \(\pi^{-1}(0)=\cX_0\).
+
+(2)  If \(Z\subset\cX\) were an irreducible component contained in
+\(\cX_0\), its generic point \(\xi\) would satisfy
+\((\pi^\ast\varpi)_\xi=0\) in \(\cO_{\cX,\xi}\), while \(\xi\) being a
+generic point makes \(\cO_{\cX,\xi}\) a zero-dimensional local ring, so
+\(\pi^\ast\varpi\) would be nilpotent there, hence a zerodivisor,
+contradicting (1).  Thus every component meets the open set
+\(\cX\setminus\cX_0\), which is therefore dense.
+
+(3)  By \eqref{eq:tc-punctured-trivialization} the dense open subset
+\(\cX\setminus\cX_0\) has dimension \(\dim X+1\).  Reducedness is
+\cite[Proposition~2.6]{BHJ17}: the scheme \(\cX\) is reduced because it is
+flat over \(\mathbf A^1\) with reduced generic fibre and its associated
+points all lie over the generic point of \(\mathbf A^1\), the latter being
+a consequence of (1) as in \cite[\S1.2]{BJ22}.
+
+(4)  Under \eqref{eq:tc-punctured-trivialization} the subscheme
+\(Y\times\mathbf G_m\) is \(\mathbf G_m\)-invariant, so its closure
+\(\cY\subset\cX\) is invariant, and \(\cY\to\mathbf A^1\) is projective.
+It is flat because \(\cY\) is the scheme-theoretic closure of a subscheme
+of the generic fibre, hence has no \(\varpi\)-torsion
+(\Cref{lem:flat-closure-generic-fibre}).  Its restriction over
+\(\mathbf G_m\) is \(Y\times\mathbf G_m\) by construction.  Applying this to
+the irreducible components \(X_\alpha\) of \(X\) produces invariant closed
+subschemes \(\cX_\alpha\subset\cX\) whose union contains the dense open set
+\(\cX\setminus\cX_0\); since each \(\cX_\alpha\) is irreducible of
+dimension \(\dim X_\alpha+1\) and they are pairwise distinct, they are
+exactly the irreducible components of \(\cX\).
+\end{proof}
+
+\begin{remark}
+\label{rem:ch33-flatness-role}
+Flatness enters exactly twice: to make \(\cX_0\) a Cartier divisor, and to
+make the total space the flat closure of its generic fibre.  Both uses are
+recorded in \Cref{lem:ch33-central-fibre-cartier}, and neither requires
+normality or irreducibility.  A family over \(\mathbf A^1\) with an embedded
+component in the central fibre is not a test configuration in our sense,
+and \Cref{thm:ch33-integrally-closed-criterion} identifies the exact
+condition---absence of embedded points in \(\cX_0\)---as one half of
+integral closedness.
+\end{remark}
+
+The equivariant structure gives every quasi-coherent invariant sheaf a
+weight decomposition.  We record the version used repeatedly below.
+
+\begin{lemma}
+\label{lem:ch33-weight-decomposition}
+Let \(A\) be a \(k\)-algebra with a \(\mathbf G_m\)-action, that is, a
+\(\mathbf Z\)-grading \(A=\bigoplus_{\lambda\in\mathbf Z}A_\lambda\), and
+let \(M\) be an \(A\)-module with a compatible \(\mathbf G_m\)-action.
+Then \(M=\bigoplus_{\lambda\in\mathbf Z}M_\lambda\) with
+\(A_\mu M_\lambda\subset M_{\lambda+\mu}\), and a submodule of \(M\) is
+invariant if and only if it is the direct sum of its weight pieces.  The
+same statements hold for quasi-coherent invariant subsheaves of an
+equivariant quasi-coherent sheaf on an equivariant scheme.
+\end{lemma}
+
+\begin{proof}
+An action of \(\mathbf G_m=\Spec k[t^{\pm1}]\) on \(M\) is a comodule
+structure \(\rho:M\to M\otimes_kk[t^{\pm1}]\); writing
+\(\rho(x)=\sum_\lambda x_\lambda\otimes t^\lambda\) and using the counit and
+coassociativity axioms gives \(x=\sum_\lambda x_\lambda\) and
+\(\rho(x_\lambda)=x_\lambda\otimes t^\lambda\), which is the asserted
+decomposition; compatibility of \(\rho\) with the module structure gives
+\(A_\mu M_\lambda\subset M_{\lambda+\mu}\).  If \(N\subset M\) is invariant
+then \(\rho(N)\subset N\otimes k[t^{\pm1}]\), so each component
+\(x_\lambda\) of \(x\in N\) lies in \(N\); the converse is clear.  Sheafify
+by covering with invariant affines, which exist because the action is
+locally linearizable on a quasi-projective scheme.
+\end{proof}
+
+\subsection{Morphisms, domination, and the directed poset}
+\label{sec:ch33-domination}
+
+A morphism of test configurations \(\mu:\cX'\to\cX\) is a
+\(\mathbf G_m\)-equivariant morphism over \(\mathbf A^1\) compatible with
+the trivializations \eqref{eq:tc-punctured-trivialization}.  We say that
+\(\cX'\) \emph{dominates} \(\cX\) when such a morphism exists.
+
+\begin{proposition}\label{prop:ch33-directed-poset}
+Let \(\cX,\cX'\) be test configurations for \(X\).
+\begin{enumerate}
+\item There is at most one morphism \(\cX'\to\cX\).
+\item If \(\cX'\) dominates \(\cX\) and \(\cX\) dominates \(\cX'\), the two
+ morphisms are mutually inverse isomorphisms.
+\item There is a test configuration \(\cX''\) dominating both \(\cX\) and
+ \(\cX'\), obtained as the flat closure in \(\cX\times_{\mathbf A^1}\cX'\)
+ of the diagonally embedded \(X\times\mathbf G_m\).
+\end{enumerate}
+Consequently the isomorphism classes of test configurations for \(X\) form
+a directed poset.
+\end{proposition}
+
+\begin{proof}
+(1)  Two morphisms \(\mu_1,\mu_2:\cX'\to\cX\) agree on the dense open set
+\(\cX'\setminus\cX'_0\) by compatibility with the trivializations.  The
+locus where they agree is closed in \(\cX'\) because \(\cX\) is separated,
+and it contains a dense subset, hence equals \(\cX'\).  Here we use that
+\(\cX'\) is reduced, by \Cref{lem:ch33-central-fibre-cartier}\,(3), so
+that a closed subscheme containing a dense open subscheme is everything.
+
+(2)  By (1), the two composites are the identity, since the identity is one
+morphism from each configuration to itself.
+
+(3)  Let \(\mathcal Z\subset\cX\times_{\mathbf A^1}\cX'\) be the scheme-theoretic
+closure of the image of \(X\times\mathbf G_m\) under the diagonal of the two
+trivializations.  It is invariant, projective over \(\mathbf A^1\), and flat
+by \Cref{lem:flat-closure-generic-fibre}, so it is a test configuration; the
+two projections are morphisms of test configurations by construction.
+Directedness follows, the poset structure being given by (1) and (2).
+\end{proof}
+
+\begin{remark}
+\label{rem:ch33-domination-rigid}
+Assertion (1) is what makes the whole formalism rigid: the identification
+over \(\mathbf G_m\) is part of the data, and it removes all automorphisms.
+Without it, the product configuration \(X\times\mathbf A^1\) would dominate
+itself in as many ways as \(X\) has automorphisms, and no directed limit of
+vertical divisor groups would be well defined.  This rigidity is used
+silently in \Cref{chap:bj-fs-pl-psh} whenever a PL function is presented on
+``a'' determination.
+\end{remark}
+
+\subsection{The compactification and its role}
+\label{sec:ch33-compactification}
+
+The central fibre \(\cX_0\) is the principal Cartier divisor
+\((\varpi=0)\).  Gluing \eqref{eq:tc-punctured-trivialization} to
+\(X\times(\mathbf P^1\setminus\{0\})\) gives a canonical equivariant
+compactification
+\begin{equation}
+\label{eq:tc-compactification}
+              \overline\pi:\overline\cX\longrightarrow\mathbf P^1,
+\end{equation}
+and \(\cL\) extends uniquely using the fixed trivialization near infinity.
+This compactification is what enters intersection numbers.  Both assertions
+require proof, and they are the content of the next two statements.
+
+\begin{theorem}
+\label{thm:ch33-compactification}
+Let \((\cX,\cL)\) be a test configuration for \((X,L)\).
+\begin{enumerate}
+\item The scheme \(\overline\cX\) obtained by gluing \(\cX\) to
+ \(X\times(\mathbf P^1\setminus\{0\})\) along
+ \eqref{eq:tc-punctured-trivialization} is a projective
+ \(k\)-scheme carrying a \(\mathbf G_m\)-action and a projective
+ equivariant morphism \(\overline\pi\) to \(\mathbf P^1\) restricting to
+ \(\pi\) over \(\mathbf A^1\).
+\item There is a unique \(\mathbf G_m\)-linearized \(\mathbf Q\)-line bundle
+ \(\overline\cL\) on \(\overline\cX\) restricting to \(\cL\) on \(\cX\) and
+ to the pullback of \(L\) on \(X\times(\mathbf P^1\setminus\{0\})\).
+\item If \(\mu:\cX'\to\cX\) is a morphism of test configurations, it extends
+ uniquely to \(\overline\mu:\overline{\cX'}\to\overline\cX\), and
+ \(\overline{\mu^\ast\cL}=\overline\mu^\ast\overline\cL\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1)  The two open pieces \(\cX\) and \(X\times(\mathbf P^1\setminus\{0\})\)
+are glued along the common open subscheme \(X\times\mathbf G_m\), the
+gluing datum being \eqref{eq:tc-punctured-trivialization}; the result is a
+scheme \(\overline\cX\) with a morphism \(\overline\pi\) to
+\(\mathbf P^1\) obtained by gluing \(\pi\) and the second projection, which
+agree over \(\mathbf G_m\).  Properness is local on the target:
+\(\overline\pi\) is proper over \(\mathbf A^1\) because \(\pi\) is, and
+proper over \(\mathbf P^1\setminus\{0\}\) because \(X\) is proper.  A proper
+morphism to \(\mathbf P^1\) which is projective over each member of an
+affine open cover of the base is projective, and \(\mathbf P^1\) is
+projective over \(k\); hence \(\overline\cX\) is projective over \(k\).
+The \(\mathbf G_m\)-action glues because the gluing datum is equivariant
+and the action on \(\mathbf P^1\setminus\{0\}\) is the one induced from
+\(\mathbf A^1\) by \(\varpi\mapsto\varpi^{-1}\) on the second chart.
+
+(2)  Existence: glue \(\cL\) to \(p_1^\ast L\) on
+\(X\times(\mathbf P^1\setminus\{0\})\) using the isomorphism supplied by
+the definition of a test configuration for \((X,L)\).  Uniqueness: if
+\(\overline\cL_1,\overline\cL_2\) are two such extensions, then
+\(\overline\cL_1-\overline\cL_2\) is a \(\mathbf Q\)-line bundle equipped
+with a trivialization over each of the two glueing charts; the two
+trivializations agree over \(X\times\mathbf G_m\) by hypothesis, so they
+glue to a global trivialization.  For the linearizations, the same argument
+applies to the difference of the two \(\mathbf G_m\)-linearizations, which
+is a character of \(\mathbf G_m\) that is trivial over \(\mathbf G_m\),
+hence trivial.
+
+(3)  Extend \(\mu\) by the identity of
+\(X\times(\mathbf P^1\setminus\{0\})\); the two definitions agree over
+\(X\times\mathbf G_m\) because \(\mu\) is compatible with the
+trivializations.  Uniqueness follows as in
+\Cref{prop:ch33-directed-poset}\,(1).  The last assertion is the
+uniqueness in (2) applied to \(\overline\mu^\ast\overline\cL\).
+\end{proof}
+
+\begin{warning}{The compactification is not \(X\times\mathbf P^1\)}
+\label{warn:ch33-compactification-not-product}
+Only the chart at infinity is a product.  The scheme \(\overline\cX\)
+contains the possibly very singular central fibre \(\cX_0\) and, in
+general, is not birational to \(X\times\mathbf P^1\) by a morphism in the
+wrong direction.  What is canonical is the pair
+\((\overline\cX,\overline\cL)\) together with the isomorphism over
+\(\mathbf P^1\setminus\{0\}\); this is what makes the intersection numbers
+of \Cref{thm:ch33-intersection-invariance} well defined.
+\end{warning}
+
+Why compactify at all?  Because the numerical invariants of the
+degeneration are top intersection numbers, and on the noncompact
+\(\cX\) there is no degree map.  The next theorem is the precise statement
+that the compactification does its job.
+
+\begin{theorem}
+\label{thm:ch33-intersection-invariance}
+Assume \(X\) is integral of dimension \(n\) and let \((\cX,\cL)\) be a test
+configuration for \((X,L)\).
+\begin{enumerate}
+\item The number \((\overline\cL^{\,n+1})\) is a well-defined rational
+ number, computed on the projective \((n+1)\)-dimensional scheme
+ \(\overline\cX\).
+\item If \(\mu:\cX'\to\cX\) is a morphism of test configurations and
+ \(\cL'=\mu^\ast\cL\), then
+ \(({\overline{\cL'}}^{\,n+1})=(\overline\cL^{\,n+1})\).  More generally,
+ for \(\mathbf Q\)-line bundles \(\cL_0,\dots,\cL_n\) determined on
+ \(\cX\),
+ \begin{equation}
+ \label{eq:ch33-intersection-domination}
+  (\overline{\mu^\ast\cL_0}\cdots\overline{\mu^\ast\cL_n})
+  =(\overline{\cL_0}\cdots\overline{\cL_n}).
+ \end{equation}
+\item Twisting the linearization of \(\cL\) by the character of weight
+ \(c\in\mathbf Q\) replaces \(\overline\cL\) by
+ \(\overline\cL+c\,\overline\pi^\ast\{0\}\) and gives
+ \begin{equation}
+ \label{eq:ch33-intersection-twist}
+  \bigl((\overline\cL+c\,\overline\pi^\ast\{0\})^{n+1}\bigr)
+  =(\overline\cL^{\,n+1})+(n+1)c\,(L^n).
+ \end{equation}
+\item If \(\cX_d\to\mathbf A^1\) denotes the normalized base change along
+ \(\varpi\mapsto\varpi^d\) and \(\cL_d\) the pullback of \(\cL\), then
+ \begin{equation}
+ \label{eq:ch33-intersection-base-change}
+  (\overline{\cL_d}^{\,n+1})=d\,(\overline\cL^{\,n+1}).
+ \end{equation}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1)  By \Cref{thm:ch33-compactification}\,(1), \(\overline\cX\) is a
+projective \(k\)-scheme; by
+\Cref{lem:ch33-central-fibre-cartier}\,(3) it is integral of dimension
+\(n+1\).  Top self-intersection of a \(\mathbf Q\)-line bundle on a
+projective scheme is defined by \(\mathbf Q\)-linear extension of the
+Snapper polynomial \cite[Ch.~2]{Ful}, so \((\overline\cL^{\,n+1})\) is a
+well-defined rational number.
+
+(2)  The morphism \(\overline\mu\) of
+\Cref{thm:ch33-compactification}\,(3) is projective, and it is an
+isomorphism over \(\mathbf P^1\setminus\{0\}\), hence birational.  The
+projection formula \Cref{thm:model-projection-formula} gives
+\eqref{eq:ch33-intersection-domination}, since
+\(\overline\mu_\ast[\overline{\cX'}]=[\overline\cX]\).
+
+(3)  A \(\mathbf G_m\)-linearization of \(\cL\) is determined up to the
+character group of \(\mathbf G_m\), which is \(\mathbf Z\); the twist by
+weight \(c\) changes the glueing of \(\cL\) to \(p_1^\ast L\) at infinity by
+\(\varpi^{c}\), hence changes \(\overline\cL\) by the divisor
+\(c\,\overline\pi^\ast\{0\}\), the fibre over \(0\in\mathbf P^1\).  Since
+\(\overline\pi^\ast\{0\}\) is a fibre class, we have
+\((\overline\pi^\ast\{0\})^2=0\) and
+\((\overline\cL^{\,j}\cdot\overline\pi^\ast\{0\})=0\) for \(j\le n-1\) by
+dimension count on the fibre, while
+\((\overline\cL^{\,n}\cdot\overline\pi^\ast\{0\})=(L^n)\) because
+\(\overline\cL\) restricts to \(L\) on the general fibre and intersection
+numbers are constant in a flat family.  The binomial expansion of
+\((\overline\cL+c\,\overline\pi^\ast\{0\})^{n+1}\) therefore has exactly two
+surviving terms, giving \eqref{eq:ch33-intersection-twist}.
+
+(4)  The morphism \(\overline{\cX_d}\to\overline\cX\) induced by base change
+is finite of degree \(d\) onto its image, and
+\(\overline{\cL_d}\) is its pullback, so
+\eqref{eq:ch33-intersection-base-change} is the degree formula for a finite
+morphism of degree \(d\), again \Cref{thm:model-projection-formula}.
+\end{proof}
+
+\begin{remark}
+\label{rem:ch33-two-unit-tests}
+Formulas \eqref{eq:ch33-intersection-twist} and
+\eqref{eq:ch33-intersection-base-change} are the intersection-theoretic
+shadow of the translation and dilation rules for Duistermaat--Heckman
+measures proved in \Cref{prop:ch33-dh-transformations}.  The consistency of
+the three statements is checked explicitly on a nontrivial example in
+\Cref{ex:ch33-dnc-p1}; the numerical check there is
+\((\overline\cL^{2})=-c^2\) against a first moment \(-c^2/2\), in agreement
+with \eqref{eq:cma-dh-first-intersection}.
+\end{remark}
+
+A morphism of test configurations is equivariant over \(\mathbf A^1\) and
+the identity on the punctured product.  Two test configurations for
+\((X,L)\) are \emph{equivalent} if their polarizations agree after pulling
+back to a third test configuration dominating both; this is
+\cite[Definition~6.1]{BHJ17}, and it is the equivalence relation under
+which the associated function on \(X^{\An}\) is a complete invariant
+(\Cref{prop:tc-valuative-invariance}).  Pulling back by
+\(\varpi\mapsto\varpi^d\), and then taking integral closure, is the
+degree-\(d\) base change.  It rescales all weights by \(d\).
+
+\subsection{Integrally closed test configurations}
+\label{sec:ch33-integral-closure}
+
+\begin{definition}
+\label{def:integrally-closed-tc}
+A test configuration \(\cX\) is \emph{integrally closed} if it is integrally
+closed in its generic fibre \(X_{k(\varpi)}\).  Equivalently, on each affine
+chart \(\Spec A\), the \(k[\varpi]\)-algebra \(A\) is integrally closed in
+\(A\otimes_{k[\varpi]}k(\varpi)\).
+\end{definition}
+
+This condition is weaker than normality when \(X\) is not normal.  The
+integral closure of any test configuration in its generic fibre is finite
+and is characterized as the unique integrally closed finite domination.
+Thus replacing a test configuration by its integral closure loses no
+valuation-theoretic information.  We now prove the three facts about
+integral closure that are used below.
+
+\begin{proposition}\label{prop:ch33-integral-closure-exists}
+Let \(\cX\) be a test configuration for \(X\).
+\begin{enumerate}
+\item The integral closure of \(\cO_{\cX}\) in the sheaf of rational
+ functions on the generic fibre defines a finite,
+ \(\mathbf G_m\)-equivariant morphism
+ \(\widetilde\cX\to\cX\) which is an isomorphism over
+ \(\mathbf G_m\); the scheme \(\widetilde\cX\) is an integrally closed test
+ configuration for \(X\).
+\item \(\widetilde\cX\) is the unique integrally closed test configuration
+ dominating \(\cX\) by a finite morphism.
+\item Integrally closed test configurations are cofinal in the directed
+ poset of \Cref{prop:ch33-directed-poset}.
+\item If \(\cX\) is integrally closed and \(\mu:\cX'\to\cX\) is any
+ morphism of test configurations, then \(\mu_\ast\cO_{\cX'}=\cO_{\cX}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1)  The scheme \(\cX\) is of finite type over a field, hence Nagata and
+excellent, so the integral closure of \(\cO_{\cX}\) in the total ring of
+fractions of the generic fibre is a coherent \(\cO_{\cX}\)-algebra, by the
+finiteness statement recorded in \Cref{def:appA-normalized-blowup} and
+\cite[\href{https://stacks.math.columbia.edu/tag/035S}{Tag 035S}]
+{stacks-project}.  Its relative \(\Spec\) is finite over \(\cX\), hence
+projective over \(\mathbf A^1\); it is flat over \(\mathbf A^1\) because it
+is a subsheaf of a sheaf of \(k(\varpi)\)-algebras, hence torsion free.  The
+construction is canonical, so it inherits the \(\mathbf G_m\)-action, and
+it is an isomorphism over \(\mathbf G_m\) because \(\cX\) restricted there
+is \(X\times\mathbf G_m\), whose structure sheaf is already integrally
+closed in itself along the generic fibre.
+
+(2)  If \(\cX'\to\cX\) is finite with \(\cX'\) integrally closed and an
+isomorphism on generic fibres, then \(\cO_{\cX'}\) is a finite
+\(\cO_{\cX}\)-algebra inside the generic-fibre function sheaf and is
+integrally closed; hence it contains the integral closure and is contained
+in it.
+
+(3)  Given \(\cX\), the configuration \(\widetilde\cX\) dominates it and is
+integrally closed.  Directedness then makes the integrally closed ones
+cofinal.
+
+(4)  This is Zariski's main theorem in the form used by
+\cite[Lemma~1.12]{BJ22}, and the proof is short enough to give: by
+properness of \(\mu\) and coherence of higher direct images,
+\(\mu_\ast\cO_{\cX'}\) is a coherent \(\cO_{\cX}\)-algebra.  A section over
+an open \(U\subset\cX\) is a rational function on \(U\), regular on the
+generic fibre, and integral over \(\cO_U\); integral closedness of \(\cX\)
+forces it to lie in \(\cO_U\).
+\end{proof}
+
+\refstepcounter{theorem}\label{thm:ch33-integrally-closed-criterion}
+\begin{quote}
+\textbf{Foundational input \thetheorem\ (vertical Serre criterion; source
+boundary).}
+A test configuration \(\cX\) is integrally closed if and only if it is
+\emph{vertically \(R_1\)}, meaning that \(\cX\) is regular at each generic
+point of \(\cX_0\), and \emph{vertically \(S_2\)}, meaning that
+\(\operatorname{depth}\cO_{\cX,\xi}\geq\min\{2,\dim\cO_{\cX,\xi}\}\) for
+every \(\xi\in\cX_0\).  Moreover \(\cX\) is vertically \(S_2\) if and only
+if \(\cX_0\) has no embedded points, and \(\cX_0\) is reduced if and only if
+\(\cX\) is integrally closed with generically reduced central fibre.
+This is imported in full from \cite[Theorem~1.13]{BJ22}; no proof is
+claimed here.  The statement is used only through its first consequence, that
+the local ring of \(\cX\) at a generic point of \(\cX_0\) is a discrete
+valuation ring.  That consequence is what attaches divisorial valuations to
+components of the central fibre.
+\end{quote}
+
+\begin{definition}
+\label{def:ch33-component-valuation}
+Let \(\cX\) be an integrally closed test configuration for an integral
+\(X\), and let \(E\) be an irreducible component of \(\cX_0\).  By
+\Cref{thm:ch33-integrally-closed-criterion} the local ring of \(\cX\) at
+the generic point of \(E\) is a discrete valuation ring, defining
+\(\ord_E\) on \(k(\cX)^\times\).  Set
+\begin{equation}
+\label{eq:ch33-bE}
+ b_E:=\ord_E(\varpi)=\ord_E(\cX_0)\in\mathbf Z_{>0},
+ \qquad
+ w_E:=b_E^{-1}\ord_E ,
+\end{equation}
+and let \(v_E\in X^{\divis}\) be the restriction of \(w_E\) to
+\(k(X)\subset k(X)(\varpi)=k(\cX)\).
+\end{definition}
+
+\begin{lemma}\label{lem:ch33-gauss-component}
+With the notation of \Cref{def:ch33-component-valuation}, the Gauss
+extension \eqref{eq:gauss-extension-triv} satisfies
+\(\sigma(v_E)=w_E\).  Conversely, a valuation \(v\) on \(X\) is divisorial
+if and only if \(v=v_E\) for some irreducible component \(E\) of the central
+fibre of some integrally closed test configuration.
+\end{lemma}
+
+\begin{proof}
+The valuation \(w_E\) is invariant under the \(\mathbf G_m(k)\)-action, since
+\(E\) is invariant, and \(w_E(\varpi)=1\) by construction.  By
+\Cref{chap:trivial-analytification}, the Gauss extension is characterized
+as the unique invariant extension of \(v\) with value \(1\) on \(\varpi\);
+this is \cite[Lemma~4.2]{BHJ17} as quoted in \cite[\S1.3]{BJ22}.  Both
+\(w_E\) and \(\sigma(v_E)\) restrict to \(v_E\) on \(k(X)\), are invariant,
+and take the value \(1\) at \(\varpi\); hence they agree.  The converse
+statement is \cite[Theorem~4.6]{BHJ17}, quoted in
+\cite[Lemma~1.20]{BJ22}; it rests on Zariski's theorem that a divisorial
+valuation is realized on a projective birational model.
+\end{proof}
+
+\begin{lemma}
+\label{lem:ch33-effectivity}
+Let \(\cX\) be an integrally closed test configuration and let
+\(\mathfrak a\) be a vertical fractional ideal on \(\cX\), that is, a
+coherent \(\mathbf G_m\)-invariant fractional ideal sheaf that is trivial
+outside \(\cX_0\).  Then
+\(\mathfrak a\subset\cO_{\cX}\) if and only if \(\ord_E(\mathfrak a)\geq0\)
+for every irreducible component \(E\) of \(\cX_0\).  Consequently a vertical
+\(\mathbf Q\)-Cartier divisor \(D\) on \(\cX\) is effective if and only if
+\(\phi_D(v_E)\geq0\) for every such \(E\).
+\end{lemma}
+
+\begin{proof}
+Necessity is clear.  For sufficiency, let
+\(\mathfrak p=\{f\in\cO_{\cX}\mid f\mathfrak a\subset\cO_{\cX}\}\) be the
+ideal of poles and let \(P=V(\mathfrak p)\) be the polar scheme, which is
+supported in \(\cX_0\).  If \(P\ne\varnothing\), pick an associated point
+\(\xi\) of \(P\).  The key point, proved in \cite[Lemma~1.19]{BJ22} by the
+determinant trick, is that for an integrally closed \(\cX\) every associated
+point of a polar scheme is a generic point of \(\cX_0\); we reproduce the
+argument.  By definition of an associated point there is
+\(f\in\cO_{\cX,\xi}\) with \(f\notin\mathfrak p_\xi\) and
+\(f\mathfrak m_\xi\subset\mathfrak p_\xi\).  Then
+\(f\mathfrak m_\xi\mathfrak a_\xi\) is an ideal of \(\cO_{\cX,\xi}\), so it
+is contained in \(\mathfrak m_\xi\) or equal to \(\cO_{\cX,\xi}\).  In the
+first case the determinant trick shows that \(f\mathfrak a_\xi\) is integral
+over \(\cO_{\cX,\xi}\), hence contained in it by integral closedness,
+contradicting \(f\notin\mathfrak p_\xi\).  In the second case
+\(\mathfrak m_\xi\) is invertible and \(\cO_{\cX,\xi}\) is a discrete
+valuation ring, so \(\xi\) is a generic point of \(\cX_0\), that is,
+\(\xi\) is the generic point of some component \(E\).  But then
+\(\ord_E(\mathfrak a)\geq0\) gives
+\(\mathfrak a_\xi\subset\cO_{\cX,\xi}\), so \(\xi\notin P\), a
+contradiction.  Hence \(P=\varnothing\) and
+\(\mathfrak a\subset\cO_{\cX}\).
+
+For the last assertion, pass to a multiple so that \(D\) is Cartier and
+apply the first part to \(\mathfrak a=\cO_{\cX}(-D)\), using
+\(\sigma(v_E)=w_E\) from \Cref{lem:ch33-gauss-component} and
+\(\phi_D(v_E)=\sigma(v_E)(D)=-b_E^{-1}\ord_E(\cO_{\cX}(-D))\).
+\end{proof}
+
+\begin{remark}
+\label{rem:ch33-normalization-vs-integral-closure}
+If \(X\) is normal, then a test configuration is integrally closed if and
+only if it is normal, and the integral closure coincides with the
+normalization.  In general the normalization \(\cX^\nu\) is a test
+configuration for the normalization \(X^\nu\), not for \(X\); the morphism
+\(\cX^\nu\to\cX\) factors through \(\widetilde\cX\), and
+\(\cX^\nu\to\widetilde\cX\) is an isomorphism over each generic point of
+\(\widetilde\cX_0\).  Consequently the components of \(\widetilde\cX_0\) and
+of \(\cX^\nu_0\) define the same set of divisorial valuations
+(\cite[Remark~1.22]{BJ22}), which is why no statement below is sensitive to
+the choice.
+\end{remark}
+
+\begin{example}
+\label{ex:product-dnc-test-configurations}
+The product \(X\times\mathbf A^1\), with trivial action on \(X\), is the
+trivial test configuration.  If \(\mathfrak a\subset\cO_X\) defines a closed
+subscheme \(Z\), the blowup of
+\(\mathfrak a+(\varpi)\subset\cO_{X\times\mathbf A^1}\) is the deformation to
+the normal cone of \(Z\).  Its central fibre contains the strict transform of
+\(X\times\{0\}\) and the exceptional divisor.  Choosing a sufficiently small
+rational multiple of the exceptional divisor produces a relatively ample
+polarization.
+
+We record the standard supplement, which we use in
+\Cref{ex:ch33-dnc-p1}.  The exceptional divisor of this blowup is the
+projective completion \(\mathbf P(C_{Z/X}\oplus1)\) of the normal cone
+\(C_{Z/X}=\Spec_Z\bigoplus_{q\geq0}\mathfrak a^q/\mathfrak a^{q+1}\), the
+strict transform of \(X\times\{0\}\) is the blowup of \(Z\) in \(X\), and
+the central fibre is the sum of these two effective Cartier divisors
+\cite[\S1.2]{BJ22}.  When \(X\) is smooth and \(Z\) is a smooth point of a
+smooth curve, both components are copies of \(\mathbf P^1\) meeting
+transversally.
+\end{example}
+
+\begin{example}
+\label{ex:ch33-product-nontrivial-action}
+Let \(\rho:\mathbf G_m\to\Aut(X,L)\) be a one-parameter subgroup, and let
+\(\cX=X\times\mathbf A^1\) with the action
+\(t\cdot(x,\varpi)=(\rho(t)x,t\varpi)\), and
+\(\cL=p_1^\ast L\) with the linearization induced by \(\rho\).  The
+underlying scheme is a product, but the test configuration is not the
+trivial one: the trivialization
+\eqref{eq:tc-punctured-trivialization} is the equivariant one, which
+differs from the naive product trivialization by \(\rho\).  This is the
+first place where forgetting the trivialization would collapse a nontrivial
+degeneration to a trivial one; the resulting filtration and
+Duistermaat--Heckman measure are computed in \Cref{ex:p1-product-dh}.
+\end{example}
+
+\section{Flag ideals and Rees algebras}
+\label{sec:ch33-flag-ideals}
+
+We now replace the total space by an ideal.  The gain is that ideals form a
+semiring, that their behaviour under valuations is completely understood
+(\Cref{sec:appA-integral-dependence}), and that finite generation of a Rees
+algebra is a checkable condition.  The loss is that only test configurations
+dominating the trivial one are visible; by
+\Cref{prop:ch33-directed-poset} this is no loss at all, since every test
+configuration is dominated by one that dominates the trivial one.
+
+\subsection{Vertical fractional ideals}
+\label{sec:ch33-vertical-ideals}
+
+\begin{definition}
+\label{def:bj-flag-ideal}
+A flag ideal on \(X\times\mathbf A^1\) is a coherent,
+\(\mathbf G_m\)-invariant fractional ideal, trivial over
+\(\mathbf G_m\).  After multiplying by a power of \(\varpi\), it has a
+finite expression
+\begin{equation}
+\label{eq:flag-ideal}
+ \mathfrak a=\mathfrak a_0+
+ \mathfrak a_1\varpi+\cdots+\mathfrak a_N\varpi^N,
+ \qquad
+ \mathfrak a_0\subset\mathfrak a_1\subset\cdots\subset
+ \mathfrak a_N=\cO_X .
+\end{equation}
+\end{definition}
+
+The finite expression is not an extra hypothesis but a consequence of the
+definition; we prove it, since the argument fixes the indexing used in every
+computation below.
+
+\begin{lemma}
+\label{lem:ch33-flag-weight-decomposition}
+Let \(\mathfrak a\) be a coherent \(\mathbf G_m\)-invariant fractional ideal
+on \(X_{\triv}:=X\times\mathbf A^1\), trivial over \(\mathbf G_m\).  Then
+there is a unique decreasing family of coherent fractional ideals
+\(\mathfrak a_\lambda\subset\cO_X\), indexed by \(\lambda\in\mathbf Z\),
+such that
+\begin{equation}
+\label{eq:ch33-flag-weight}
+ \mathfrak a=\sum_{\lambda\in\mathbf Z}\mathfrak a_\lambda\varpi^{-\lambda},
+ \qquad
+ \mathfrak a_\lambda=\cO_X\ (\lambda\ll0),
+ \qquad
+ \mathfrak a_\lambda=0\ (\lambda\gg0).
+\end{equation}
+For every \(v\in X^{\An}\) with Gauss extension \(\sigma(v)\) as in
+\eqref{eq:gauss-extension-triv},
+\begin{equation}
+\label{eq:ch33-sigma-flag}
+ \sigma(v)(\mathfrak a)=\min_{\lambda}\{v(\mathfrak a_\lambda)-\lambda\}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Work on an affine chart \(\Spec A\subset X\), so that
+\(\Spec A[\varpi]\subset X_{\triv}\), and let \(I\subset A[\varpi,\varpi^{-1}]\)
+be the corresponding fractional ideal.  The \(\mathbf G_m\)-action is the
+grading of \(A[\varpi^{\pm1}]\) by powers of \(\varpi\), with \(A\) in
+weight \(0\).  By \Cref{lem:ch33-weight-decomposition}, \(I\) is the direct
+sum of its weight pieces, and the piece of weight \(-\lambda\) has the form
+\(\mathfrak a_\lambda\varpi^{-\lambda}\) for a unique \(A\)-submodule
+\(\mathfrak a_\lambda\subset\operatorname{Frac}(A)\); it is an \(A\)-module
+because \(A\) has weight \(0\).  Multiplication by \(\varpi\) maps
+\(I\) into \(I\), and it shifts weights by one; concretely,
+\(\varpi\cdot\mathfrak a_\lambda\varpi^{-\lambda}
+=\mathfrak a_\lambda\varpi^{-(\lambda-1)}\subset I\) gives
+\(\mathfrak a_\lambda\subset\mathfrak a_{\lambda-1}\), so the family is
+decreasing in \(\lambda\).  Coherence of \(\mathfrak a\) forces finitely
+many generators, whose weights are bounded, so
+\(\mathfrak a_\lambda=0\) for \(\lambda\gg0\); triviality over
+\(\mathbf G_m\) means that \(I\) generates the unit ideal after inverting
+\(\varpi\), which combined with the decreasing property gives
+\(\mathfrak a_\lambda=\cO_X\) for \(\lambda\ll0\).  The decomposition is
+independent of the chart because it is the weight decomposition, so the
+\(\mathfrak a_\lambda\) glue.  Setting \(j=-\lambda\) and multiplying by
+\(\varpi^{N}\) for \(N\) large yields \eqref{eq:flag-ideal}.
+
+For \eqref{eq:ch33-sigma-flag}, a local generating set of \(\mathfrak a\) at
+the center of \(\sigma(v)\) may be taken to consist of elements
+\(f\varpi^{-\lambda}\) with \(f\) in a local generating set of
+\(\mathfrak a_\lambda\), by the weight decomposition.  Then
+\(\sigma(v)(f\varpi^{-\lambda})=v(f)-\lambda\) by
+\eqref{eq:gauss-extension-triv}, and the value of the ideal is the minimum
+over generators, by \eqref{eq:ideal-evaluation-triv}.
+\end{proof}
+
+\begin{remark}
+\label{rem:ch33-two-indexings}
+Formula \eqref{eq:flag-ideal} indexes by \(j\geq0\) with
+\(\mathfrak a_N=\cO_X\), while \eqref{eq:ch33-flag-weight} indexes by
+\(\lambda\in\mathbf Z\) with \(\mathfrak a_\lambda=\cO_X\) for
+\(\lambda\ll0\).  They are related by \(j=-\lambda\) and a global shift by a
+power of \(\varpi\), which shifts the associated function by a constant.  We
+use whichever is more convenient and always display the convention in
+force.
+\end{remark}
+
+\subsection{The function of a flag ideal}
+\label{sec:ch33-flag-function}
+
+The blowup of a flag ideal, followed by integral closure in its unchanged
+generic fibre, is an integrally closed test configuration dominating the
+trivial one.  When \(X\) is normal this is the usual normalized blowup.
+Conversely, an integrally closed test configuration that dominates the
+trivial one, together with a relatively semiample vertical divisor on it,
+is recovered from a flag ideal; this is the content of
+\Cref{thm:ch33-flag-tc-equivalence}.  For integral \(X\), the passage from
+the ideal to the model runs through the normalized Rees algebra
+\begin{equation}
+\label{eq:flag-rees-algebra}
+   \mathcal R(\mathfrak a)
+      :=\bigoplus_{q\geq0}\overline{\mathfrak a^q}\,u^q ,
+\end{equation}
+whose relative \(\Proj\) over \(X_{\triv}\) is the normalized blowup, by
+\eqref{eq:appA-normalized-rees}.  The bar is essential: valuations see
+integral closure, since
+\begin{equation}
+\label{eq:valuative-integral-closure}
+ \overline{\mathfrak a}
+   =\{f\mid w(f)\geq w(\mathfrak a)
+             \text{ for every centered divisorial }w\}.
+\end{equation}
+Here \(w\) ranges over the divisorial valuations of \(k(X)(\varpi)\)
+centered on \(X\times\mathbf A^1\), not merely over valuations of \(k(X)\).
+Equation \eqref{eq:valuative-integral-closure} is
+\Cref{thm:appA-valuative-integral-closure}, applied on the excellent scheme
+\(X_{\triv}\).
+
+For the sign convention of this book, define the flag-ideal function by
+\begin{equation}
+\label{eq:flag-ideal-function}
+ \phi_{\mathfrak a}(v)
+   :=-\sigma(v)(\mathfrak a)
+   =\max_{0\leq j\leq N}
+        \{\log|\mathfrak a_j|(v)-j\},
+\end{equation}
+where \(\log|\mathfrak b|(v)=-v(\mathfrak b)\).  If one writes the weight
+decomposition with \(\varpi^{-\lambda}\), the last term becomes
+\(\log|\mathfrak a_\lambda|+\lambda\).  Formula
+\eqref{eq:flag-ideal-function}, rather than an isolated sign, is our
+definition.
+
+Three unit tests confirm the sign.  For \(\mathfrak a=\cO_X\) one gets
+\(\phi_{\mathfrak a}=0\).  For \(\mathfrak a=(\varpi)\), the weight
+decomposition has the single term \(\mathfrak a_1=\cO_X\), giving
+\(\phi_{\mathfrak a}=-1\); since the blowup of \((\varpi)\) is the trivial
+configuration with the vertical divisor \(-\cX_0\), this agrees with
+\(\phi_{\cX_0}=1\) of \eqref{eq:appJ-special-fibre-test}.  For
+\(\mathfrak a=\mathfrak b+(\varpi)\) with \(\mathfrak b\subset\cO_X\) an
+honest ideal, one gets
+\(\phi_{\mathfrak a}=\max\{\log|\mathfrak b|,-1\}\), a bounded continuous
+function which is \(0\) off \(V(\mathfrak b)\); this is the standard
+truncation used in the density argument of
+\Cref{thm:triv-divisorial-density}.
+
+\begin{lemma}\label{lem:ch33-flag-continuity}
+For every flag ideal \(\mathfrak a\), the function \(\phi_{\mathfrak a}\) is
+a bounded continuous real-valued function on \(X^{\An}\), homogeneous of
+degree one for the scaling action \eqref{eq:valuation-scaling} up to the
+weight shift, in the sense that
+\begin{equation}
+\label{eq:ch33-flag-scaling}
+ \phi_{\mathfrak a}(tv)
+ =\max_\lambda\{t\log|\mathfrak a_\lambda|(v)+\lambda\},
+ \qquad t>0 ,
+\end{equation}
+in the indexing of \eqref{eq:ch33-flag-weight}.
+\end{lemma}
+
+\begin{proof}
+Each \(v\mapsto\log|\mathfrak a_\lambda|(v)=-v(\mathfrak a_\lambda)\) is
+continuous with values in \([-\infty,0]\) by
+\eqref{eq:ideal-tropical-identities}, and the maximum in
+\eqref{eq:flag-ideal-function} is finite because the top term
+\(\mathfrak a_N=\cO_X\) contributes the finite value \(-N\); the maximum is
+bounded above by \(0\) and below by \(-N\).  A finite maximum of continuous
+extended-real functions with one finite member is continuous and finite.
+Formula \eqref{eq:ch33-flag-scaling} is immediate from
+\((tv)(\mathfrak a_\lambda)=t\,v(\mathfrak a_\lambda)\).
+\end{proof}
+
+For a flag-ideal model dominating the product, the geometric and algebraic
+constructions fit together as in \cref{fig:tc-rees-geometry}.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth,
+  box/.style={draw,rounded corners=3pt,align=center,inner sep=5pt,font=\small}]
+  \node[box] (flag) at (-2.75,3.45)
+    {$\mathfrak a=\sum_{j=0}^{N}\mathfrak a_j\varpi^j$\\flag ideal};
+  \node[box] (rees) at (2.75,3.45)
+    {$\mathcal R(\mathfrak a)
+      =\displaystyle\bigoplus_{q\geq0}\overline{\mathfrak a^q}\,u^q$\\
+      normalized Rees algebra};
+  \node[box] (tc) at (2.75,1.75)
+    {$\mathcal X_{\mathfrak a}
+      =\operatorname{Proj}_{X\times\mathbf A^1}\mathcal R(\mathfrak a)$\\
+      test configuration};
+  \node[box] (product) at (2.75,0) {$X\times\mathbf A^1$};
+  \node[box] (base) at (-2.75,0) {$\mathbf A^1$};
+
+  \draw[-{Stealth[length=2.2mm]},thick] (flag)--(rees)
+    node[midway,above,font=\scriptsize] {powers and integral closure};
+  \draw[-{Stealth[length=2.2mm]},thick] (rees)--(tc)
+    node[midway,right,font=\scriptsize] {relative $\operatorname{Proj}$};
+  \draw[-{Stealth[length=2.2mm]},thick] (tc)--(product)
+    node[midway,right,font=\small] {$\nu$};
+  \draw[-{Stealth[length=2.2mm]},thick] (product)--(base)
+    node[midway,above,font=\small] {$\operatorname{pr}_2$};
+
+  \draw[decorate,decoration={brace,amplitude=4pt},thick]
+    (1.5,-0.48)--(4.0,-0.48)
+    node[midway,below=5pt,font=\scriptsize,align=center]
+      {$\nu$ is an isomorphism over $\mathbf G_m$;\\
+       exceptional components lie over $0$};
+\end{tikzpicture}
+\caption{The normalized Rees construction for a flag ideal.  Integral
+closure leaves the punctured product unchanged, while relative
+$\operatorname{Proj}$ records the vertical modification over $0$.  The
+diagram is scoped to the flag-ideal test configurations discussed in this
+section.}
+\label{fig:tc-rees-geometry}
+\end{figure}
+
+\begin{lemma}\label{lem:flag-semiring-identities}
+For flag ideals \(\mathfrak a,\mathfrak b\),
+\begin{equation}
+\label{eq:flag-semiring}
+ \phi_{\mathfrak a\mathfrak b}
+   =\phi_{\mathfrak a}+\phi_{\mathfrak b},
+ \qquad
+ \phi_{\mathfrak a+\mathfrak b}
+   =\max\{\phi_{\mathfrak a},\phi_{\mathfrak b}\}.
+\end{equation}
+The associated function is unchanged by integral closure.
+\end{lemma}
+
+\begin{proof}
+Gauss extension is a valuation.  Hence it sends products of ideals to sums
+and sums of ideals to minima.  Multiplication by \(-1\) turns the latter
+minimum into a maximum.  Equality after integral closure follows from
+\eqref{eq:valuative-integral-closure}.
+
+In detail: by \Cref{prop:appA-ideal-arithmetic}, applied to the valuation
+\(\sigma(v)\) on \(X_{\triv}\), one has
+\(\sigma(v)(\mathfrak a\mathfrak b)
+=\sigma(v)(\mathfrak a)+\sigma(v)(\mathfrak b)\) and
+\(\sigma(v)(\mathfrak a+\mathfrak b)
+=\min\{\sigma(v)(\mathfrak a),\sigma(v)(\mathfrak b)\}\); negating gives
+\eqref{eq:flag-semiring}.  For the last assertion, integral closure does not
+change the value of any divisorial valuation centered on \(X_{\triv}\), by
+\Cref{cor:appA-integral-closure-values}, and every Gauss extension
+\(\sigma(v)\) with \(v\in X^{\divis}\) is such a valuation, by
+\Cref{lem:ch33-gauss-component}; two continuous functions agreeing on the
+dense set \(X^{\divis}\) of \Cref{thm:triv-divisorial-density} agree
+everywhere.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch33-flag-faithful}
+Let \(\mathfrak a,\mathfrak b\) be flag ideals on \(X_{\triv}\) with
+\(X\) integral.  Then
+\begin{equation}
+\label{eq:ch33-flag-faithful}
+ \phi_{\mathfrak a}\leq\phi_{\mathfrak b}
+ \iff \mathfrak a\subset\overline{\mathfrak b},
+ \qquad
+ \phi_{\mathfrak a}=\phi_{\mathfrak b}
+ \iff \overline{\mathfrak a}=\overline{\mathfrak b}.
+\end{equation}
+In particular \(\mathfrak a\mapsto\phi_{\mathfrak a}\) is injective on
+integrally closed flag ideals.
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:flag-ideal-function}, \(\phi_{\mathfrak a}\leq\phi_{\mathfrak b}\)
+on \(X^{\An}\) is the same as
+\(\sigma(v)(\mathfrak a)\geq\sigma(v)(\mathfrak b)\) for all
+\(v\in X^{\An}\).  To apply the divisorial valuative criterion on
+\(X_{\triv}\), let \(w\) be any divisorial valuation centered there.  If
+\(w(\varpi)=0\), both flag ideals have value zero, since they become trivial
+after inverting \(\varpi\).  If \(w(\varpi)>0\), rescale to
+\(w(\varpi)=1\) and put \(v=w|_{k(X)}\in X^{\An}\).  Writing a flag ideal in
+weight form gives directly
+\[
+ w(\mathfrak a)=\min_\lambda
+   \{v(\mathfrak a_\lambda)-\lambda\}
+ =\sigma(v)(\mathfrak a),
+\]
+and similarly for \(\mathfrak b\).  Thus the assumed inequality on all
+\(v\in X^{\An}\) yields the required inequality for every divisorial \(w\),
+without any orbit-closure assertion.  Now
+\eqref{eq:valuative-integral-closure} translates the resulting inequality
+into \(\mathfrak a\subset\overline{\mathfrak b}\).  The second equivalence
+follows by symmetry, and injectivity is the case
+\(\mathfrak a=\overline{\mathfrak a}\),
+\(\mathfrak b=\overline{\mathfrak b}\).
+\end{proof}
+
+\subsection{The dictionary in both directions}
+\label{sec:ch33-flag-dictionary}
+
+\begin{theorem}
+\label{thm:ch33-flag-tc-equivalence}
+Let \(X\) be a projective \(k\)-variety.
+\begin{enumerate}
+\item\label{itm:ch33-flag-tc:blowup}
+ Let \(\mathfrak a\) be a flag ideal on \(X_{\triv}\).  The blowup
+ \(\operatorname{Bl}_{\mathfrak a}X_{\triv}\), followed by integral closure
+ in its generic fibre, is an integrally closed test configuration
+ \(\cX_{\mathfrak a}\) dominating \(X_{\triv}\), and
+ \(\mathfrak a\cO_{\cX_{\mathfrak a}}=\cO_{\cX_{\mathfrak a}}(D)\) for a
+ vertical Cartier divisor \(D\) that is relatively ample over
+ \(X_{\triv}\).  Moreover \(\phi_D=\phi_{\mathfrak a}\).
+\item\label{itm:ch33-flag-tc:pushforward}
+ Conversely, let \(\mu:\cX\to X_{\triv}\) be a test configuration
+ dominating the trivial one, and let \(D\) be a vertical Cartier divisor on
+ \(\cX\) with \(\cO_{\cX}(D)\) \(\mu\)-globally generated.  Then
+ \(\mathfrak a:=\mu_\ast\cO_{\cX}(D)\) is a flag ideal,
+ \(\mathfrak a\cO_{\cX}=\cO_{\cX}(D)\), and
+ \(\phi_{\mathfrak a}=\phi_D\).
+\item\label{itm:ch33-flag-tc:bijection}
+ The two constructions are mutually inverse up to integral closure: the
+ flag ideal produced in (2) from the
+ datum produced in (1) has the same integral
+ closure as \(\mathfrak a\), and the pair
+ \((\cX_{\mathfrak a},D)\) produced in
+ (1) from the datum produced in
+ (2) is dominated by \(\cX\)
+ compatibly with \(D\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1)
+By \Cref{prop:appA-blowup-proj}, the blowup of \(\mathfrak a\) is the
+relative \(\Proj\) of \(\bigoplus_q\mathfrak a^q\), it is projective over
+\(X_{\triv}\), and the pullback ideal \(\mathfrak a\cO\) is invertible,
+say equal to \(\cO(D)\).  With this convention \(D\) is anti-effective for
+an ordinary ideal, up to the global \(\varpi\)-shift of
+\Cref{rem:ch33-two-indexings}.  The divisor
+\(D\) is vertical because \(\mathfrak a\) is trivial over
+\(\mathbf G_m\), and it is invariant because \(\mathfrak a\) is.  Relative
+ampleness of \(D\), equivalently of \(\cO(1)\) for the \(\Proj\)
+presentation, is the standard property of a blowup.  Taking integral
+closure in the generic fibre changes neither the generic fibre nor the
+invertibility of \(\mathfrak a\cO\), by
+\Cref{prop:ch33-integral-closure-exists}\,(1), and produces an integrally
+closed test configuration.  Finally, for any \(v\in X^{\An}\), the Gauss
+extension \(\sigma(v)\) has a center on \(\cX_{\mathfrak a}\) by
+properness, and \(\sigma(v)(\mathfrak a)=\sigma(v)(\mathfrak a\cO)
+=\sigma(v)(\cO(-D))\), so \(\phi_{\mathfrak a}=\phi_D\) by the definition
+of \(\phi_D\) recalled in \Cref{sec:ch33-weight-conventions}.
+
+(2)
+The sheaf \(\mu_\ast\cO_{\cX}(D)\) is coherent because \(\mu\) is
+projective, invariant because everything in sight is, and trivial over
+\(\mathbf G_m\) because \(\mu\) is an isomorphism there and \(D\) is
+vertical.  It is a fractional ideal because \(\cO_{\cX}(D)\) is a
+subsheaf of the sheaf of rational functions.  Hence it is a flag ideal.
+Global generation of \(\cO_{\cX}(D)\) relative to \(\mu\) means precisely
+that the evaluation map
+\(\mu^\ast\mu_\ast\cO_{\cX}(D)\to\cO_{\cX}(D)\) is surjective, that is,
+\(\mathfrak a\cO_{\cX}=\cO_{\cX}(D)\).  Applying
+\(\sigma(v)\) to both sides gives \(\phi_{\mathfrak a}=\phi_D\), as in the
+previous paragraph.
+
+(3)
+In the first direction, \(\mathfrak b:=\mu_\ast\cO(D)\) satisfies
+\(\phi_{\mathfrak b}=\phi_D=\phi_{\mathfrak a}\), so
+\(\overline{\mathfrak b}=\overline{\mathfrak a}\) by
+\Cref{prop:ch33-flag-faithful}.  In the second direction, \(\cO_{\cX}(D)\)
+is the invertible pullback of \(\mathfrak a\), so the universal property of
+the blowup in \Cref{prop:appA-blowup-proj} yields a unique morphism
+\(\cX\to\operatorname{Bl}_{\mathfrak a}X_{\triv}\) over \(X_{\triv}\) with
+\(D\) pulled back from the exceptional divisor; composing with the finite
+morphism to the integral closure and using
+\Cref{prop:ch33-integral-closure-exists}\,(2) gives the domination.
+\end{proof}
+
+\begin{remark}
+\label{rem:ch33-semiample-hypothesis}
+Part (2) needs relative global
+generation, not merely relative semiampleness of \(D\); one passes from one
+to the other by replacing \(D\) with a multiple, which replaces
+\(\phi_D\) by a positive multiple.  This is exactly why the flag-ideal
+description of \Cref{chap:bj-fs-pl-psh} is by
+\(m^{-1}\phi_{\mathfrak a}\) rather than by \(\phi_{\mathfrak a}\), and why
+the resulting cone is \(\PL^+(X)\) rather than a group.  Nothing is lost:
+by \Cref{lem:flag-semiring-identities} the assignment is additive, so
+rescaling is harmless.
+\end{remark}
+
+\begin{definition}
+\label{def:ch33-rees-valuations}
+For a flag ideal \(\mathfrak a\), the set \(\Sigma_{\mathfrak a}\subset
+X^{\divis}\) of \emph{Rees valuations} of \(\mathfrak a\) is the finite set
+\(\{v_E\}\), where \(E\) runs over the irreducible components of the central
+fibre of the integrally closed test configuration
+\(\cX_{\mathfrak a}\) of
+\Cref{thm:ch33-flag-tc-equivalence}\,(1).
+\end{definition}
+
+Since the blowup of an ideal is canonically isomorphic to the blowup of any
+of its powers, \(\Sigma_{\mathfrak a^r}=\Sigma_{\mathfrak a}\) for
+\(r\geq1\).
+
+\begin{lemma}\label{lem:ch33-rees-valuations-cover}
+Every divisorial valuation on \(X\) is a Rees valuation of some flag ideal;
+more generally, for every finite \(\Sigma\subset X^{\divis}\) there is a
+flag ideal \(\mathfrak a\) with \(\Sigma\subset\Sigma_{\mathfrak a}\).
+\end{lemma}
+
+\begin{proof}
+It suffices to treat a single \(v\in X^{\divis}\), since a product of flag
+ideals has the union of the Rees valuation sets among its Rees valuations
+after passing to a common determination.  By
+\Cref{lem:ch33-gauss-component} there is an integrally closed test
+configuration \(\cX\) with a component \(E\) of \(\cX_0\) such that
+\(v=v_E\).  Passing to a higher test configuration, which by
+\Cref{prop:ch33-directed-poset} may be taken to dominate \(X_{\triv}\), and
+using \Cref{lem:ch33-projective-blowup-presentation} below, we may assume
+that \(\cX\) is the integral closure of the blowup of a flag ideal
+\(\mathfrak a\); then \(v\in\Sigma_{\mathfrak a}\).  This is
+\cite[Lemma~2.12]{BJ22}.
+\end{proof}
+
+\begin{lemma}\label{lem:ch33-projective-blowup-presentation}
+Let \(\mu:\cX\to X_{\triv}\) be a test configuration.  There is a
+\(\mu\)-ample vertical \(\mathbf Q\)-Cartier divisor \(D\); after taking a
+multiple and setting \(\mathfrak a=\mu_*\cO_{\cX}(D)\), the induced map is
+\[
+                 \cX\longrightarrow\operatorname{Bl}_{\mathfrak a}X_{\triv}.
+\]
+If \(\cX\) is integrally closed, it is the integral closure of this blowup
+in the common generic fibre.
+\end{lemma}
+
+\begin{proof}
+Write \(\mu:\cX\to X_{\triv}\).  By \cite[Lemma~1.8]{BJ22}, restated: since
+\(\pi:\cX\to\mathbf A^1\) is projective and equivariant, there is a
+\(\mathbf G_m\)-linearized ample line bundle \(\cM\) on \(\cX\); letting
+\(M\) be its restriction to \(\cX_1\simeq X\) and \(M_{\triv}\) the pullback
+of \(M\) to \(X_{\triv}\), the difference
+\(D:=\cM-\mu^\ast M_{\triv}\) is a vertical \(\mathbf Q\)-Cartier divisor
+which is \(\mu\)-ample.  After replacing \(D\) by a positive multiple,
+\(\cO_{\cX}(D)\) is \(\mu\)-globally generated, so
+\Cref{thm:ch33-flag-tc-equivalence}\,(2)
+produces a flag ideal \(\mathfrak a\) with
+\(\mathfrak a\cO_{\cX}=\cO_{\cX}(D)\) invertible.  The universal property
+of the blowup gives a morphism \(\cX\to\operatorname{Bl}_{\mathfrak a}
+X_{\triv}\), which is proper and birational; since \(D\) is
+\(\mu\)-ample and pulled back from the exceptional divisor, relative
+\(\Proj\) reconstruction identifies \(\cX\) with the integral closure of
+that blowup when \(\cX\) is integrally closed.  The direction of the
+displayed morphism is important: \(\cX\) dominates the blowup.
+\end{proof}
+
+\section{Graded norms and multiplicative filtrations}
+\label{sec:ch33-norms}
+
+We now pass from a degeneration to linear algebra.  A decreasing
+\(\mathbf R\)-filtration of \(R_m\) is a family
+\(\mathcal F^\lambda R_m\) with
+\begin{equation}
+\label{eq:decreasing-filtration}
+ \lambda\leq\mu\Longrightarrow
+ \mathcal F^\lambda R_m\supset\mathcal F^\mu R_m,
+ \quad
+ \bigcup_\lambda\mathcal F^\lambda R_m=R_m,
+ \quad
+ \bigcap_\lambda\mathcal F^\lambda R_m=0.
+\end{equation}
+It is multiplicative when
+\begin{equation}
+\label{eq:multiplicative-filtration}
+ \mathcal F^\lambda R_m\cdot\mathcal F^\mu R_{m'}
+       \subset\mathcal F^{\lambda+\mu}R_{m+m'}.
+\end{equation}
+
+Equivalently, define the additive weight
+\begin{equation}
+\label{eq:additive-graded-norm}
+ \chi_m(s):=\sup\{\lambda\mid s\in\mathcal F^\lambda R_m\},
+ \qquad \chi_m(0)=+\infty .
+\end{equation}
+Then
+\begin{equation}
+\label{eq:graded-norm-inequalities}
+ \chi_m(s+s')\geq\min\{\chi_m(s),\chi_m(s')\},\qquad
+ \chi_{m+m'}(ss')\geq\chi_m(s)+\chi_{m'}(s').
+\end{equation}
+The multiplicative norm is \(\|s\|_\chi=\rme^{-\chi_m(s)}\).  Since \(k\) is
+trivially valued, scalar multiplication by \(k^\times\) does not change
+\(\chi_m\).
+
+\subsection{Filtrations, norms, and jumping numbers}
+\label{sec:ch33-norm-dictionary}
+
+The passage between \eqref{eq:decreasing-filtration} and
+\eqref{eq:additive-graded-norm} is a bijection once the filtration is
+normalized to be left continuous, and it is worth doing carefully, because
+every later argument uses one of the two languages without comment.
+
+\begin{lemma}
+\label{lem:ch33-filtration-norm-bijection}
+Let \(W\) be a finite-dimensional \(k\)-vector space.
+\begin{enumerate}
+\item If \((\mathcal F^\lambda W)_{\lambda\in\mathbf R}\) satisfies
+ \eqref{eq:decreasing-filtration}, then
+ \(\chi(s):=\sup\{\lambda\mid s\in\mathcal F^\lambda W\}\) is finite for
+ \(s\ne0\), satisfies \(\chi(as)=\chi(s)\) for \(a\in k^\times\) and
+ \(\chi(s+s')\geq\min\{\chi(s),\chi(s')\}\), and
+ \(\{s\mid\chi(s)\geq\lambda\}=\bigcap_{\mu<\lambda}\mathcal F^\mu W\) is
+ the left-continuous modification of \(\mathcal F\).
+\item Conversely such a \(\chi\) determines the left-continuous filtration
+ \(\mathcal F^\lambda W:=\{s\mid\chi(s)\geq\lambda\}\), and the two
+ constructions are mutually inverse on left-continuous filtrations.
+\item The function \(\lambda\mapsto\dim\mathcal F^\lambda W\) is decreasing,
+ left continuous, integer valued, and takes the value \(\dim W\) for
+ \(\lambda\ll0\) and \(0\) for \(\lambda\gg0\).  There are exactly
+ \(\dim W\) jumping numbers, counted with the multiplicities
+ \(\dim\operatorname{gr}^\lambda_{\mathcal F}W\), where
+ \(\operatorname{gr}^\lambda_{\mathcal F}W
+ =\mathcal F^\lambda W/\bigcup_{\mu>\lambda}\mathcal F^\mu W\).
+\item There is a basis \(e_1,\dots,e_N\) of \(W\) adapted to
+ \(\mathcal F\), meaning that \(\mathcal F^\lambda W\) is spanned by those
+ \(e_i\) with \(\chi(e_i)\geq\lambda\), for every \(\lambda\).  For such a
+ basis, \(\chi\bigl(\sum a_ie_i\bigr)=\min\{\chi(e_i)\mid a_i\ne0\}\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1)  Finiteness of \(\chi(s)\) for \(s\ne0\) is the union and intersection
+condition in \eqref{eq:decreasing-filtration}.  Invariance under
+\(k^\times\) holds because each \(\mathcal F^\lambda W\) is a subspace.  If
+\(\chi(s),\chi(s')\geq\lambda\) then \(s,s'\in\mathcal F^\mu W\) for all
+\(\mu<\lambda\), hence so is \(s+s'\), giving \(\chi(s+s')\geq\lambda\).
+The description of the superlevel set is immediate from the definition of a
+supremum.
+
+(2)  Clear from (1).
+
+(3)  Monotonicity is inherited.  Left continuity holds because
+\(\mathcal F^\lambda W=\bigcap_{\mu<\lambda}\mathcal F^\mu W\) and a
+decreasing intersection of subspaces of a finite-dimensional space
+stabilizes.  The count of jumping numbers is the telescoping identity
+\(\dim W=\sum_\lambda\dim\operatorname{gr}^\lambda_{\mathcal F}W\), the sum being finite.
+
+(4)  Induct on \(\dim W\).  Let \(\lambda_1\) be the largest jumping number
+and choose \(e_1,\dots,e_r\) mapping to a basis of
+\(\operatorname{gr}^{\lambda_1}_{\mathcal F}W=\mathcal F^{\lambda_1}W\); apply the
+inductive hypothesis to a complement.  The displayed formula follows because
+\(\sum a_ie_i\) lies in \(\mathcal F^\lambda W\) exactly when every
+\(e_i\) with \(a_i\ne0\) does.
+\end{proof}
+
+We write
+\begin{equation}
+\label{eq:ch33-jumping-list}
+ \lambda_{m,1}\geq\lambda_{m,2}\geq\cdots\geq\lambda_{m,N_m},
+ \qquad N_m=\dim_kR_m ,
+\end{equation}
+for the jumping numbers of \(\mathcal F\) on \(R_m\), repeated with
+multiplicity, as produced by
+\Cref{lem:ch33-filtration-norm-bijection}\,(3).
+
+\begin{definition}
+\label{def:linearly-bounded-filtration}
+A filtration is linearly bounded if there are \(C_-,C_+\in\mathbf R\) such
+that, for all sufficiently divisible \(m\),
+\begin{equation}
+\label{eq:linear-bounds-filtration}
+ \mathcal F^{mC_-}R_m=R_m,\qquad
+ \mathcal F^{mC_+}R_m=0.
+\end{equation}
+\end{definition}
+
+\begin{lemma}
+\label{lem:ch33-linear-bounded-equivalents}
+For a multiplicative filtration of \(R(X,L)\) with \(L\) ample and \(X\)
+integral, the following are equivalent:
+\begin{enumerate}
+\item \(\mathcal F\) is linearly bounded;
+\item \(\sup_{m}\,m^{-1}\max_j|\lambda_{m,j}|<\infty\);
+\item \(\lambda_{\max}(m):=\lambda_{m,1}\) satisfies
+ \(\lambda_{\max}(m)\leq Cm\) for some \(C\) and all \(m\), and
+ \(\mathcal F^{-Cm}R_m=R_m\) for the same \(C\).
+\end{enumerate}
+Moreover, for a multiplicative filtration the limits
+\begin{equation}
+\label{eq:ch33-fekete-limits}
+ \lambda_{\max}:=\lim_{m\to\infty}\frac{\lambda_{\max}(m)}{m}
+ =\sup_m\frac{\lambda_{\max}(m)}{m}
+\end{equation}
+exist in \((-\infty,+\infty]\).  The limit is finite exactly when the
+filtration is linearly bounded \emph{above}; full linear boundedness also
+requires the independent uniform lower bound in
+\eqref{eq:linear-bounds-filtration}.
+\end{lemma}
+
+\begin{proof}
+The equivalence of (1), (2), (3) is a restatement, since the jumping numbers
+of \(R_m\) lie in \([\,mC_-,mC_+\,]\) exactly under
+\eqref{eq:linear-bounds-filtration}.  For the last assertion,
+multiplicativity gives
+\(\lambda_{\max}(m+m')\geq\lambda_{\max}(m)+\lambda_{\max}(m')\), because
+the product of two sections realizing the maxima is nonzero, \(R(X,L)\)
+being a domain, and has weight at least the sum.  Fekete's subadditivity
+lemma applied to \(-\lambda_{\max}\) gives
+\eqref{eq:ch33-fekete-limits}.
+\end{proof}
+
+Finite generation implies linear boundedness.  The converse is false: a
+general filtration may have infinitely many new generators.  It is therefore
+important not to identify an arbitrary graded norm with a test
+configuration.  The precise statements are
+\Cref{thm:ch33-fg-filtration-tc} and \Cref{ex:ch33-harmonic-not-fg}.
+
+\subsection{From a test configuration to a filtration}
+\label{sec:ch33-tc-to-filtration}
+
+A test configuration determines such a filtration.  After clearing
+denominators, a section \(s\in H^0(X,mL)\) belongs to
+\(\mathcal F^\lambda R_m\) precisely when
+\(\varpi^{-\lambda}\bar s\) extends to a regular section of \(m\cL\) on
+\(\cX\).  Equivariant multiplication proves
+\eqref{eq:multiplicative-filtration}.  We state this as a definition, with
+the rounding convention that makes it work for real \(\lambda\).
+
+\begin{definition}
+\label{def:ch33-tc-filtration}
+Let \((\cX,\cL)\) be a test configuration for \((X,L)\) and let \(m\) be
+sufficiently divisible.  In this definition first replace \((\cX,\cL)\) by
+its integral closure in the generic fibre; this makes the convention
+invariant under equivalence.  Under
+\eqref{eq:tc-punctured-trivialization}, a section \(s\in R_m\) determines an
+equivariant rational section \(\bar s\) of \(m\cL\) over \(\cX\), regular
+away from \(\cX_0\).  For \(\lambda\in\mathbf R\) set
+\begin{equation}
+\label{eq:ch33-tc-filtration}
+ \mathcal F^\lambda R_m
+ :=\bigl\{s\in R_m\ \bigm|\
+   \varpi^{-\lceil\lambda\rceil}\bar s\in
+   H^0(\cX,m\cL)\bigr\}.
+\end{equation}
+\end{definition}
+
+\begin{theorem}
+\label{thm:ch33-tc-filtration-properties}
+Let \((\cX,\cL)\) be a test configuration for \((X,L)\) with \(X\) integral
+projective and \(L\) ample.
+\begin{enumerate}
+\item \eqref{eq:ch33-tc-filtration} defines a decreasing, left-continuous,
+ \(\mathbf Z\)-graded filtration of each \(R_m\), and the associated weight
+ \(\chi_m\) takes integer values.
+\item The filtration is multiplicative.
+\item If \(\cL\) is relatively semiample it is linearly bounded, and one may
+ take
+ \(C_\pm\) to be the extreme weights of a finite equivariant generating set.
+\item The filtration only depends on the equivalence class of
+ \((\cX,\cL)\): it is unchanged by pullback along a morphism of test
+ configurations and by passage to the integral closure.
+\item As a \(k[\varpi]\)-module inside \(R_m\otimes_kk[\varpi^{\pm1}]\),
+\begin{equation}
+\label{eq:ch33-h0-weight-decomposition}
+ H^0(\cX,m\cL)
+ =\bigoplus_{\lambda\in\mathbf Z}
+    \mathcal F^\lambda R_m\cdot\varpi^{-\lambda},
+\end{equation}
+ the summand indexed by \(\lambda\) being the weight-\(\lambda\) subspace
+ for the \(\mathbf G_m\)-action.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1)  If \(\lambda\leq\mu\) then \(\lceil\lambda\rceil\leq\lceil\mu\rceil\),
+and \(\varpi^{-\lceil\mu\rceil}\bar s
+=\varpi^{-(\lceil\mu\rceil-\lceil\lambda\rceil)}
+ \varpi^{-\lceil\lambda\rceil}\bar s\); multiplying a regular section by a
+negative power of \(\varpi\) is a stronger requirement, so
+\(\mathcal F^\mu R_m\subset\mathcal F^\lambda R_m\).  Each
+\(\mathcal F^\lambda R_m\) is a \(k\)-subspace because
+\(H^0(\cX,m\cL)\) is.  The union over \(\lambda\ll0\) is all of \(R_m\)
+because \(\bar s\) is a rational section with poles only along the finitely
+many components of \(\cX_0\), so a sufficiently large power of \(\varpi\)
+clears them; the intersection over \(\lambda\gg0\) is zero because
+\(\varpi^{-N}\bar s\) has a pole along every component of \(\cX_0\) for
+\(N\) large.  Since \(\lceil\cdot\rceil\) is left continuous and integer
+valued, so is \(\mathcal F\), and \(\chi_m\) takes integer values.
+
+(2)  If \(\varpi^{-\lambda}\bar s\) and \(\varpi^{-\mu}\bar s'\) are regular
+sections of \(m\cL\) and \(m'\cL\), their product is a regular section of
+\((m+m')\cL\) and equals \(\varpi^{-(\lambda+\mu)}\overline{ss'}\), because
+the trivialization \eqref{eq:tc-punctured-trivialization} is compatible with
+multiplication of sections.  This is
+\eqref{eq:multiplicative-filtration} for integer \(\lambda,\mu\), and the
+general case follows from
+\(\lceil\lambda\rceil+\lceil\mu\rceil\geq\lceil\lambda+\mu\rceil\).
+
+(3)  Relative semiampleness makes the section algebra
+\(\bigoplus_mH^0(\cX,m\cL)\) finitely generated over \(k[\varpi]\) after a
+Veronese change.  Choose finitely many equivariant homogeneous generators,
+of degrees \(d_i>0\) and weights \(\lambda_i\).  Every homogeneous section
+is a \(k[\varpi]\)-linear combination of monomials in these generators.
+The ratios \(\lambda_i/d_i\), together with finitely many low degrees, give
+uniform upper and lower linear bounds.  This proves
+\eqref{eq:linear-bounds-filtration} without assuming generation in degree
+one.
+
+(4)  By the convention in \Cref{def:ch33-tc-filtration}, both sides are
+first replaced by their common integrally closed representative.  If
+\(\mu:\cX'\to\cX\) is then a morphism and \(\cL'=\mu^\ast\cL\), then
+\(H^0(\cX',m\cL')=H^0(\cX,m\cL)\) because
+\(\mu_\ast\cO_{\cX'}=\cO_{\cX}\) whenever \(\cX\) is integrally closed
+(\Cref{prop:ch33-integral-closure-exists}\,(4)) and the projection formula
+applies.  Hence the filtration is unchanged.  Since equivalence
+of test configurations is generated by such pullbacks, (4) follows.
+
+(5)  Write \(u\in R_m\otimes_kk[\varpi^{\pm1}]\) as
+\(u=\sum_\lambda s_\lambda\varpi^{-\lambda}\), a finite sum with
+\(s_\lambda\in R_m\).  This is the weight decomposition of
+\Cref{lem:ch33-weight-decomposition} for the equivariant module
+\(R_m\otimes k[\varpi^{\pm1}]\), the weight of \(s\varpi^{-\lambda}\) being
+declared to be \(\lambda\).  By \Cref{lem:ch33-weight-decomposition} again,
+\(u\) is a section of \(m\cL\) over \(\cX\) if and only if every weight
+component is, and \(s_\lambda\varpi^{-\lambda}\in H^0(\cX,m\cL)\) means
+exactly \(s_\lambda\in\mathcal F^\lambda R_m\).
+\end{proof}
+
+\begin{remark}
+\label{rem:ch33-weight-sign}
+Assertion (5) is the definition of the weight labeling used throughout the
+book: the weight of \(s\varpi^{-\lambda}\) is \(\lambda\), so that the
+weight-\(\lambda\) subspace of \(H^0(\cX,m\cL)\) is
+\(\mathcal F^\lambda R_m\varpi^{-\lambda}\).  With this labeling, larger
+weight means deeper in the filtration, and the twist rule of
+\Cref{prop:ch33-transformations} holds with a plus sign.  A source that lets
+a one-parameter subgroup act on \emph{points} rather than on homogeneous
+coordinates obtains the opposite sign; the reflection is detected
+immediately by the position of the support of the Duistermaat--Heckman
+measure, and this is one of the unit tests carried out in
+\Cref{ex:p1-product-dh}.
+\end{remark}
+
+\begin{proposition}
+\label{prop:ch33-central-fibre-weights}
+Let \((\cX,\cL)\) be a test configuration for \((X,L)\) with \(\cL\)
+relatively ample and \(\cX\) integrally closed, and let \(\cL_0\) be the
+restriction of \(\cL\) to \(\cX_0\).  Then for all sufficiently divisible
+\(m\gg0\):
+\begin{enumerate}
+\item \(H^0(\cX,m\cL)\) is a free \(k[\varpi]\)-module of rank
+ \(N_m=h^0(X,mL)\);
+\item the restriction map
+ \(H^0(\cX,m\cL)\to H^0(\cX_0,m\cL_0)\) is surjective with kernel
+ \(\varpi H^0(\cX,m\cL)\), so that
+\begin{equation}
+\label{eq:ch33-central-fibre-graded}
+ H^0(\cX_0,m\cL_0)
+ \simeq
+ \bigoplus_{\lambda\in\mathbf Z}\operatorname{gr}^\lambda_{\mathcal F}R_m ,
+\end{equation}
+ the summand indexed by \(\lambda\) being the weight-\(\lambda\) subspace;
+\item consequently the weights of the \(\mathbf G_m\)-representation
+ \(H^0(\cX_0,m\cL_0)\), listed with multiplicity, are exactly the jumping
+ numbers \(\lambda_{m,1}\geq\cdots\geq\lambda_{m,N_m}\) of
+ \eqref{eq:ch33-jumping-list}, and the total weight is
+\begin{equation}
+\label{eq:ch33-total-weight}
+ w_m:=\sum_{\lambda}\lambda\dim\operatorname{gr}^\lambda_{\mathcal F}R_m
+     =\sum_{j=1}^{N_m}\lambda_{m,j}.
+\end{equation}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1)  Serre vanishing for the \(\pi\)-ample \(\cL\) gives
+\(R^1\pi_\ast(m\cL)=0\) for \(m\gg0\), and \(\pi_\ast(m\cL)\) is a coherent
+\(k[\varpi]\)-module.  It is torsion free, being a submodule of
+\(R_m\otimes k[\varpi^{\pm1}]\) by
+\eqref{eq:ch33-h0-weight-decomposition}, hence free, \(k[\varpi]\) being a
+principal ideal domain.  Its rank is the dimension of its generic fibre,
+which is \(h^0(X_{k(\varpi)},mL_{k(\varpi)})=N_m\).
+
+(2)  Vanishing of \(R^1\pi_\ast(m\cL)\) makes
+\(\pi_\ast(m\cL)\otimes_{k[\varpi]}k[\varpi]/(\varpi)
+\to H^0(\cX_0,m\cL_0)\) an isomorphism, by cohomology and base change for
+the flat morphism \(\pi\).  Reducing
+\eqref{eq:ch33-h0-weight-decomposition} modulo \(\varpi\) and using
+\(\varpi\cdot\mathcal F^\lambda R_m\varpi^{-\lambda}
+=\mathcal F^\lambda R_m\varpi^{-(\lambda-1)}\subset
+\mathcal F^{\lambda-1}R_m\varpi^{-(\lambda-1)}\) identifies the quotient
+with \(\bigoplus_\lambda(\mathcal F^\lambda R_m/\mathcal F^{\lambda+1}R_m)\),
+which is \eqref{eq:ch33-central-fibre-graded}.
+
+(3)  Immediate from (2) and
+\Cref{lem:ch33-filtration-norm-bijection}\,(3), the sum of the
+multiplicities being \(N_m\) by (1).
+\end{proof}
+
+\begin{remark}
+\label{rem:ch33-ampleness-needed}
+Only assertion (2) uses relative ampleness, and it uses it only through the
+vanishing of \(R^1\pi_\ast\).  For a merely semiample \(\cL\) the
+filtration of \Cref{def:ch33-tc-filtration} is still defined and still
+multiplicative, and \eqref{eq:ch33-h0-weight-decomposition} still holds; what
+may fail is the identification of \(\operatorname{gr}_{\mathcal F}R_m\) with sections on
+the central fibre.  Since the Duistermaat--Heckman measure of
+\Cref{sec:ch33-dh} is defined from the filtration and not from the central
+fibre, nothing in this chapter breaks; only the interpretation
+\eqref{eq:ch33-central-fibre-graded} does.
+\end{remark}
+
+\subsection{From a filtration to a test configuration}
+\label{sec:ch33-filtration-to-tc}
+
+Conversely, a finitely generated rational filtration has Rees algebra
+\begin{equation}
+\label{eq:filtration-rees}
+ \mathcal R(\mathcal F)
+   :=\bigoplus_{m\geq0}\ \bigoplus_{\lambda\in\mathbf Z}
+       \mathcal F^\lambda R_m\,\varpi^{-\lambda},
+\end{equation}
+and its relative \(\Proj\) gives a test configuration after taking integral
+closure.  Changing all weights by \(cm\) twists the linearization by the
+character of weight \(c\); analytically it adds the constant \(c\).
+
+\begin{definition}
+\label{def:ch33-fg-filtration}
+A multiplicative filtration \(\mathcal F\) of \(R(X,L)\) is
+\emph{rational} if all its jumping numbers are integers, after replacing
+\(L\) by a multiple, and \emph{finitely generated} if the bigraded algebra
+\eqref{eq:filtration-rees} is a finitely generated \(k\)-algebra.
+\end{definition}
+
+Note that \eqref{eq:filtration-rees} always contains
+\(k[\varpi]\) in bidegree \((0,\ast)\), and that its localization at
+\(\varpi\) is \(R(X,L)\otimes_kk[\varpi^{\pm1}]\); the whole point of the
+next theorem is that finite generation upgrades these two elementary
+observations to a geometric statement.
+
+\begin{theorem}
+\label{thm:ch33-fg-filtration-tc}
+Let \(X\) be integral projective and \(L\) ample.
+\begin{enumerate}
+\item If \((\cX,\cL)\) is a test configuration for \((X,L)\) with \(\cL\)
+ relatively semiample and rational, then the filtration
+ \eqref{eq:ch33-tc-filtration} is multiplicative, linearly bounded,
+ rational, and finitely generated.
+\item Conversely, let \(\mathcal F\) be a multiplicative, linearly bounded,
+ rational, finitely generated filtration.  Then for a suitable Veronese
+ index \(r\), the relative \(\Proj\) over \(\mathbf A^1\) of the
+ \(\varpi\)-graded algebra \eqref{eq:filtration-rees} in Veronese degrees
+ divisible by \(r\), followed by integral closure in its generic fibre, is
+ an integrally closed test configuration \((\cX_{\mathcal F},\cL_{\mathcal
+ F})\) for \((X,rL)\) with \(\cL_{\mathcal F}\) relatively semiample.  Its
+ filtration is the Rees/irrelevant saturation of \(\mathcal F\), followed
+ by integral closure; these operations may enlarge the original filtered
+ pieces.
+\item The two constructions are mutually inverse: starting from a
+ relatively semiample \((\cX,\cL)\) with \(\cX\) integrally closed and
+ applying (1) then (2) returns a test configuration equivalent to
+ \((\cX,\cL)\).  Starting from \(\mathcal F\) and applying (2) then (1)
+ returns \(\mathcal F\) precisely when its Veronese Rees algebra is already
+ irrelevant-saturated and integrally closed.
+\end{enumerate}
+Thus, with the identifications above, integrally closed semiample test
+configurations for \((X,L)\) modulo equivalence and Veronese change
+correspond bijectively to multiplicative, linearly bounded, rational,
+finitely generated filtrations of \(R(X,L)\) with a fixed linearization,
+modulo passage to a common saturated integral closure of their Rees
+algebras.
+\end{theorem}
+
+\begin{proof}
+(1)  Multiplicativity, linear boundedness, and rationality are
+\Cref{thm:ch33-tc-filtration-properties}\,(1)--(3).  For finite generation,
+replace \(\cL\) by a multiple so that it is an honest relatively globally
+generated line bundle; then the relative homogeneous coordinate algebra
+\(\bigoplus_{m\geq0}H^0(\cX,m\cL)\) is a finitely generated
+\(k[\varpi]\)-algebra, because \(\cX\) is projective over
+\(\mathbf A^1\) and \(\cL\) is relatively semiample, so that a large
+multiple embeds \(\cX\) into a projective bundle over \(\mathbf A^1\).  By
+\eqref{eq:ch33-h0-weight-decomposition} this algebra is exactly
+\eqref{eq:filtration-rees}, whence finite generation over
+\(k[\varpi]\); adding \(\varpi\) to the generators gives finite generation
+over \(k\).
+
+(2)  Let \(\mathcal A=\mathcal R(\mathcal F)\).  Finite generation lets us
+choose a Veronese index \(r\) such that the \(r\)-th Veronese subalgebra
+\(\mathcal A^{(r)}=\bigoplus_{m\geq0}\mathcal A_{rm}\) is generated in
+degree one over \(\mathcal A_0=k[\varpi]\); this is the standard fact that
+a finitely generated graded algebra becomes generated in degree one after
+passing to a Veronese subalgebra.  Set
+\(\cX_{\mathcal F}:=\Proj_{\mathbf A^1}\mathcal A^{(r)}\) with the
+tautological \(\cO(1)=\cL_{\mathcal F}\).  Then:
+\emph{projectivity} holds because \(\mathcal A^{(r)}\) is generated in
+degree one by a finite-dimensional \(k[\varpi]\)-module;
+\emph{flatness} holds because each graded piece
+\(\mathcal A_{rm}=\bigoplus_\lambda\mathcal F^\lambda R_{rm}
+\varpi^{-\lambda}\) is a torsion-free \(k[\varpi]\)-module, being a
+submodule of \(R_{rm}\otimes k[\varpi^{\pm1}]\);
+the \emph{\(\mathbf G_m\)-action} is the second grading, and it lifts the
+standard action on \(\mathbf A^1=\Spec k[\varpi]\) because
+\(\varpi\) has weight \(-1\) in \eqref{eq:filtration-rees};
+the \emph{trivialization} \eqref{eq:tc-punctured-trivialization} comes from
+\(\mathcal A^{(r)}[\varpi^{-1}]=R^{(r)}(X,L)\otimes k[\varpi^{\pm1}]\),
+whose relative \(\Proj\) is \(X\times\mathbf G_m\);
+and \(\cL_{\mathcal F}\) is relatively semiample by construction, restricting
+to \(rL\) over \(1\).  Taking integral closure in the generic fibre changes
+none of this, by
+\Cref{prop:ch33-integral-closure-exists}\,(1).  Finally, by
+\eqref{eq:ch33-h0-weight-decomposition} applied to
+\(\cX_{\mathcal F}\), its sections in degree \(m\) are the irrelevant
+saturation of \(\mathcal A_{rm}\).  Passing to the integral closure can
+enlarge them further.  Thus the returned filtration is exactly the
+saturated integral-closure filtration stated in (2), not necessarily the
+original \(\mathcal F\).
+
+(3)  For the first composite, (1) produces \(\mathcal F\) with
+\(\mathcal R(\mathcal F)=\bigoplus_mH^0(\cX,m\cL)\) by
+\eqref{eq:ch33-h0-weight-decomposition}, and relative \(\Proj\) of a
+relatively globally generated homogeneous coordinate algebra returns the
+original scheme with its polarization; the integral closure step is
+absorbed by the hypothesis that \(\cX\) is integrally closed.  For the
+second composite, (2) shows that the filtration returned is \(\mathcal F\)
+exactly under the stated saturation and integral-closure hypotheses.  The
+final sentence collects (1)--(3) and the uniqueness
+statement of \cite[Proposition~2.30]{BJ22}, which says that a semiample test
+configuration for an ample \(L\) is equivalent to a unique ample integrally
+closed one.
+\end{proof}
+
+\begin{warning}{Veronese change is not optional}
+\label{warn:ch33-veronese}
+The bijection of \Cref{thm:ch33-fg-filtration-tc} is stated modulo Veronese
+change, and it must be.  A finitely generated bigraded algebra need not be
+generated in degree one, and its relative \(\Proj\) is computed only after a
+Veronese subalgebra has been chosen; different choices give canonically
+isomorphic test configurations, but the polarization changes by the
+corresponding multiple.  In \Cref{chap:bj-stability} this is what allows
+norms to be identified only after passing to a common Veronese index.
+\end{warning}
+
+\begin{proposition}
+\label{prop:ch33-transformations}
+Let \(\mathcal F\) be a multiplicative linearly bounded filtration with
+weights \(\chi_m\), let \(c\in\mathbf R\) and \(d\in\mathbf Z_{>0}\).
+\begin{enumerate}
+\item \emph{Twist.}  \(\chi_m^{(c)}:=\chi_m+mc\) is again multiplicative and
+ linearly bounded, and if \(\mathcal F\) comes from \((\cX,\cL)\) then
+ \(\chi^{(c)}\) comes from \((\cX,\cL)\) with the linearization twisted by
+ the character of weight \(c\), that is, from
+ \(\overline\cL+c\,\overline\pi^\ast\{0\}\) after compactification.
+\item \emph{Base change.}  \(\chi_m^{[d]}:=d\chi_m\) is again multiplicative
+ and linearly bounded, and if \(\mathcal F\) comes from \((\cX,\cL)\) then
+ \(\chi^{[d]}\) comes from the normalized base change
+ \((\cX_d,\cL_d)\) along \(\varpi\mapsto\varpi^d\).
+\item \emph{Veronese.}  The restriction of \(\mathcal F\) to
+ \(R^{(r)}=\bigoplus_mR_{rm}\), with weights \(\chi_{rm}\), determines
+ \(\mathcal F\) up to the same equivalence, and produces the test
+ configuration \((\cX,r\cL)\).
+\item \emph{Scaling of the analytic side.}  On the associated function of
+ \Cref{sec:ch33-base-ideals} these three operations act by
+ \(\phi\mapsto\phi+c\), \(\phi\mapsto d\cdot\phi\) in the sense of the
+ scaling action \eqref{eq:valuation-scaling}, and \(\phi\mapsto r\phi\)
+ with the class \(L\) replaced by \(rL\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1)  Multiplicativity of \(\chi+mc\) is immediate.  Twisting the
+linearization by the character of weight \(c\) multiplies the identification
+\eqref{eq:tc-punctured-trivialization} on sections of \(m\cL\) by
+\(\varpi^{-mc}\), which replaces \(\bar s\) by \(\varpi^{-mc}\bar s\) and
+hence \(\chi_m\) by \(\chi_m+mc\).  The compactified description is
+\Cref{thm:ch33-intersection-invariance}\,(3).
+
+(2)  Multiplicativity is immediate.  For the geometric statement, base
+change along \(\varpi\mapsto\varpi^d\) replaces \(\varpi\) by
+\(\varpi^d\) in \eqref{eq:ch33-tc-filtration}: a section
+\(\varpi^{-\lambda}\bar s\) becomes \(\varpi^{-d\lambda}\bar s\), so the
+weights are multiplied by \(d\).  Integral closure does not change weights,
+by \Cref{thm:ch33-tc-filtration-properties}\,(4).
+
+(3)  Both assertions are formal consequences of the definitions.
+
+(4)  Substituting into the formula \eqref{eq:norm-fs-function} for the
+associated function gives \(\phi+c\) in case (1); in case (2) it gives
+\(\phi_{\chi^{[d]}}(v)=\sup(d\chi_m(s)-v(s))/m
+=d\sup(\chi_m(s)-d^{-1}v(s))/m=d\,\phi_\chi(d^{-1}v)\), which is the scaling
+action; in case (3) the class is multiplied by \(r\) and so is the
+function.
+\end{proof}
+
+\section{Base ideals and the associated analytic function}
+\label{sec:ch33-base-ideals}
+
+Given a filtered linear series, the image of
+\[
+ \mathcal F^\lambda R_m\otimes\cO_X(-mL)\longrightarrow\cO_X
+\]
+is its base ideal \(\mathfrak b_{m,\lambda}\).  Multiplicativity gives
+\begin{equation}
+\label{eq:filtered-base-ideals}
+ \mathfrak b_{m,\lambda}\mathfrak b_{m',\mu}
+       \subset\mathfrak b_{m+m',\lambda+\mu}.
+\end{equation}
+For a test configuration, these ideals recover its flag ideal in each
+degree.  The associated function can be read in either language:
+\begin{equation}
+\label{eq:norm-fs-function}
+ \phi_\chi(v)
+   =\sup_{\substack{m\geq1\\0\ne s\in R_m}}
+        \frac{\chi_m(s)-v(s)}{m}.
+\end{equation}
+Here \(v(s)\) is defined by choosing a local frame of \(mL\) at \(c(v)\).
+Two frames differ by a unit \(u\), and domination by the valuation ring gives
+\(v(u)=v(u^{-1})=0\); hence the value is independent of the frame.  If a
+section vanishes identically on the support \(s(v)\), its value is
+\(+\infty\).
+For a finitely generated filtration the supremum reduces, after a Veronese
+subalgebra, to a finite maximum; this is the Fubini--Study function of the
+test configuration.  At a semivaluation whose support lies in every relevant
+base ideal, all \(v(s)\) are \(+\infty\), and the value in
+\eqref{eq:norm-fs-function} is \(-\infty\).  No cancellation of infinities is
+being performed.
+
+\subsection{Base ideals compute the flag ideal}
+\label{sec:ch33-base-ideal-flag}
+
+\begin{proposition}\label{prop:ch33-base-ideal-flag}
+Let \(\mathcal F\) be a multiplicative filtration of \(R(X,L)\) with
+\(mL\) globally generated for \(m\) sufficiently divisible.
+\begin{enumerate}
+\item The base ideals satisfy \eqref{eq:filtered-base-ideals}, they are
+ decreasing in \(\lambda\), and \(\mathfrak b_{m,\lambda}=\cO_X\) for
+ \(\lambda\leq mC_-\) if \(\mathcal F\) is linearly bounded with
+ \(\mathcal F^{mC_-}R_m=R_m\).
+\item In each degree \(m\), the vertical fractional ideal
+\begin{equation}
+\label{eq:ch33-degree-m-flag}
+ \mathfrak a_{(m)}
+ :=\sum_{\lambda\in\mathbf Z}\mathfrak b_{m,\lambda}\varpi^{-\lambda}
+\end{equation}
+ is a flag ideal on \(X_{\triv}\), and
+\begin{equation}
+\label{eq:ch33-flag-vs-norm}
+ \frac1m\phi_{\mathfrak a_{(m)}}(v)
+ =\frac1m\max_{\lambda}\bigl\{\log|\mathfrak b_{m,\lambda}|(v)+\lambda\bigr\}
+ =\sup_{0\ne s\in R_m}\frac{\chi_m(s)-v(s)}{m}
+\end{equation}
+ for every \(v\in X^{\An}\).
+\item Consequently
+\begin{equation}
+\label{eq:ch33-phi-sup-of-flags}
+ \phi_\chi=\sup_{m}\ \frac1m\,\phi_{\mathfrak a_{(m)}},
+\end{equation}
+ an increasing supremum along the sufficiently divisible integers.
+\item If \(\mathcal F\) is the filtration of a test configuration
+ \((\cX,\cL)\) with \(\cL\) relatively globally generated and \(\cX\)
+ dominating \(X_{\triv}\), then for \(m\) sufficiently divisible
+ \(\mathfrak a_{(m)}\) is, up to integral closure, the \(m\)-th power of the
+ flag ideal produced by
+ \Cref{thm:ch33-flag-tc-equivalence}\,(2).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(1)  Base ideals are decreasing because the filtration is.  The product
+inclusion follows from \eqref{eq:multiplicative-filtration}: the image of
+the product of the two evaluation maps is contained in the image of the
+evaluation map in degree \(m+m'\) and weight \(\lambda+\mu\).  If
+\(\mathcal F^{mC_-}R_m=R_m\) then \(\mathfrak b_{m,mC_-}\) is the base ideal
+of the complete linear system \(|mL|\), which is \(\cO_X\) by global
+generation.
+
+(2)  Each \(\mathfrak b_{m,\lambda}\) is a coherent ideal, equal to
+\(\cO_X\) for \(\lambda\ll0\) and to \(0\) for \(\lambda\gg0\) by linear
+boundedness, and they decrease in \(\lambda\); so
+\eqref{eq:ch33-degree-m-flag} is a flag ideal by
+\Cref{lem:ch33-flag-weight-decomposition}.  The first equality in
+\eqref{eq:ch33-flag-vs-norm} is \eqref{eq:flag-ideal-function} in the
+indexing of \eqref{eq:ch33-flag-weight}.  For the second, fix
+\(v\in X^{\An}\).  By definition
+\(\log|\mathfrak b_{m,\lambda}|(v)=-v(\mathfrak b_{m,\lambda})
+=\max\{-v(s)\mid s\in\mathcal F^\lambda R_m\}\), because a local generating
+set of \(\mathfrak b_{m,\lambda}\) at \(c(v)\) is obtained from a basis of
+\(\mathcal F^\lambda R_m\) written in a local frame, and the value of an
+ideal is the minimum over generators
+\eqref{eq:ideal-evaluation-triv}.  Hence
+\[
+ \max_\lambda\{\log|\mathfrak b_{m,\lambda}|(v)+\lambda\}
+ =\max_\lambda\max_{s\in\mathcal F^\lambda R_m\setminus0}
+          \{\lambda-v(s)\}
+ =\max_{0\ne s\in R_m}\{\chi_m(s)-v(s)\},
+\]
+the last step because for fixed \(s\ne0\) the largest admissible
+\(\lambda\) is \(\chi_m(s)\).
+
+(3)  Combine (2) with \eqref{eq:norm-fs-function}.  The supremum is
+increasing along divisibility because
+\(\phi_{\mathfrak a_{(m)}}+\phi_{\mathfrak a_{(m')}}
+\leq\phi_{\mathfrak a_{(m+m')}}\), by \eqref{eq:filtered-base-ideals} and
+\Cref{lem:flag-semiring-identities}; in particular
+\(m^{-1}\phi_{\mathfrak a_{(m)}}\leq
+(rm)^{-1}\phi_{\mathfrak a_{(rm)}}\) for \(r\geq1\).
+
+(4)  Let \(\mathfrak a=\mu_\ast\cO_{\cX}(D)\) be the flag ideal of
+\Cref{thm:ch33-flag-tc-equivalence}\,(2), where
+\(D=\cL-\mu^\ast L_{\triv}\).  For \(m\) large, \(m\cL\) is globally
+generated on \(\cX\), and the sections of \(m\cL\) generate
+\(\mathfrak a^m\cO_{\cX}=\cO_{\cX}(mD)\); pushing forward, the ideal
+generated by \(H^0(\cX,m\cL)\) inside \(\mu_\ast\cO(mD)\) is
+\(\mathfrak a_{(m)}\) by \eqref{eq:ch33-h0-weight-decomposition} and the
+definition of base ideals.  Both \(\mathfrak a_{(m)}\) and
+\(\mathfrak a^m\) pull back to \(\cO_{\cX}(mD)\), so they have the same
+integral closure by
+\eqref{eq:valuative-integral-closure} and
+\Cref{prop:ch33-flag-faithful}.
+\end{proof}
+
+\begin{corollary}\label{cor:ch33-fg-finite-max}
+If \(\mathcal F\) is rational and finitely generated, then after passing to
+a Veronese index \(r\) as in \Cref{thm:ch33-fg-filtration-tc}\,(2), the
+supremum \eqref{eq:norm-fs-function} is attained at \(m=r\), so that
+\begin{equation}
+\label{eq:ch33-finite-max}
+ \phi_\chi(v)
+ =\frac1r\max_{1\leq i\leq N}\{\chi_r(s_i)-v(s_i)\}
+\end{equation}
+for any basis \(s_1,\dots,s_N\) of \(R_r\) adapted to \(\mathcal F\).  In
+particular \(\phi_\chi\) is a rational Fubini--Study function for \(L\) in
+the sense of \Cref{def:gf-fs-functions}, and it is continuous and
+real-valued as soon as the sections \(s_i\) have no common zero.
+\end{corollary}
+
+\begin{proof}
+By \Cref{thm:ch33-fg-filtration-tc}\,(2), \(\mathcal R(\mathcal F)^{(r)}\)
+is generated in degree one over \(k[\varpi]\).  Let
+\(s_i\varpi^{-\chi_r(s_i)}\) be the corresponding generators, \(s_i\)
+running over an adapted basis of \(R_r\) as in
+\Cref{lem:ch33-filtration-norm-bijection}\,(4).  Any element of
+\(\mathcal F^\lambda R_{rm}\) is a \(k[\varpi]\)-linear combination of
+products of \(m\) generators, so it is a sum of terms
+\(a\,s_{i_1}\cdots s_{i_m}\) with
+\(\sum_j\chi_r(s_{i_j})\geq\lambda\).  Evaluating a nonzero such element
+\(s\) at \(v\) and using the ultrametric inequality
+\(v(\sum)\geq\min v\) gives
+\[
+ \chi_{rm}(s)-v(s)
+ \leq\max\Bigl\{\sum_j\bigl(\chi_r(s_{i_j})-v(s_{i_j})\bigr)\Bigr\}
+ \leq m\max_i\{\chi_r(s_i)-v(s_i)\},
+\]
+so the quotient by \(rm\) never exceeds the right-hand side of
+\eqref{eq:ch33-finite-max}.  The reverse inequality is the case \(m=1\).
+The identification with a Fubini--Study function is
+\eqref{eq:gf-fs-presentation} with \(\lambda_i=\chi_r(s_i)\).
+\end{proof}
+
+\begin{proposition}\label{prop:tc-valuative-invariance}
+Integral closure of the Rees algebra does not change
+\(\phi_\chi\).  Two integrally closed test configurations determine the same
+analytic function if and only if they are equivalent.
+\end{proposition}
+
+\begin{proof}
+The first assertion follows from the valuative criterion
+\eqref{eq:valuative-integral-closure} degree by degree.  The second assertion
+is made with \(L\), the punctured-product trivialization, and the
+linearizations fixed, and is the injectivity in
+\cite[Theorem~2.31(i)]{BJ22}.  On a common domination, values at the
+central-fibre divisorial points recover the vertical Cartier divisor.
+Without fixing the linearization, a character twist adds a constant and the
+assertion would be false as stated.
+
+In more detail: by
+\Cref{prop:ch33-base-ideal-flag}\,(2), the function \(\phi_\chi\) in each
+degree is the function of a flag ideal, and by
+\Cref{lem:flag-semiring-identities} the latter is unchanged by integral
+closure; taking the supremum \eqref{eq:ch33-phi-sup-of-flags} gives the
+first assertion.  For the second, present both configurations on a common
+domination \(\cX''\) as in
+\Cref{prop:ch33-directed-poset}\,(3); the difference of the two pullbacks is
+a vertical \(\mathbf Q\)-Cartier divisor \(D\) with \(\phi_D=0\).  Applying
+\Cref{lem:ch33-effectivity} to \(D\) and to \(-D\) gives \(D=0\), so the two
+polarizations agree on \(\cX''\) and the configurations are equivalent.
+\end{proof}
+
+\subsection{A finite-generation criterion}
+\label{sec:ch33-fg-criterion}
+
+Deciding whether a given filtration is finitely generated is in general
+hard; \Cref{chap:bj-stability} records the deep finite-generation theorems
+of \cite{LXZ22} for filtrations computing stability thresholds.  For the
+diagonalizable filtrations occurring in our examples, however, there is a
+completely elementary criterion, which we isolate because it is what makes
+\Cref{ex:ch33-harmonic-not-fg} a proof rather than an assertion.
+
+\begin{proposition}
+\label{prop:ch33-monomial-fg-criterion}
+Let \(S\subset\mathbf Z^N\) be a subsemigroup containing \(0\), and let
+\(k[S]\subset k[T_1^{\pm1},\dots,T_N^{\pm1}]\) be the corresponding
+semigroup algebra.  If \(k[S]\) is a finitely generated \(k\)-algebra, then
+\(S\) is a finitely generated semigroup and the convex cone
+\(\operatorname{Cone}(S)\subset\mathbf R^N\) generated by \(S\) is
+rational polyhedral.
+
+Now let \(C\subset\mathbf R^{N-1}\) be a rational polyhedral cone, let
+\(\Psi:C\to\mathbf R\) be concave and positively homogeneous of degree one,
+and let
+\begin{equation}
+\label{eq:ch33-hypograph-semigroup}
+ S_\Psi:=\{(a,\lambda)\in(C\cap\mathbf Z^{N-1})\times\mathbf Z
+            \mid\lambda\leq\Psi(a)\}.
+\end{equation}
+Then \(S_\Psi\) is a subsemigroup of \(\mathbf Z^N\), and
+\(k[S_\Psi]\) is a finitely generated \(k\)-algebra if and only if the
+hypograph
+\begin{equation}
+\label{eq:ch33-hypograph}
+ \operatorname{hypo}(\Psi)
+ :=\{(x,\tau)\in C\times\mathbf R\mid\tau\leq\Psi(x)\}
+\end{equation}
+is a rational polyhedral cone, that is, if and only if \(\Psi\) is the
+minimum of finitely many linear forms with rational coefficients.
+\end{proposition}
+
+\begin{proof}
+For the first paragraph: a finite set of algebra generators of \(k[S]\)
+may be taken to be monomials, because \(k[S]\) is spanned by monomials and
+a monomial appearing in a generator with nonzero coefficient must itself be
+a product of generators once one refines a generating set to the finitely
+many monomials occurring in it.  Hence \(S\) is generated as a semigroup by
+finitely many elements \(s_1,\dots,s_p\), and
+\(\operatorname{Cone}(S)=\sum_i\mathbf R_{\geq0}s_i\) is rational
+polyhedral, in particular closed.
+
+For the second paragraph, first note that \(S_\Psi\) is a semigroup:
+concavity and homogeneity of \(\Psi\) give superadditivity,
+\(\Psi(a+a')\geq\Psi(a)+\Psi(a')\), so
+\(\lambda+\lambda'\leq\Psi(a+a')\) whenever
+\(\lambda\leq\Psi(a)\) and \(\lambda'\leq\Psi(a')\).
+
+Assume \(k[S_\Psi]\) is finitely generated.  By the first paragraph,
+\(\operatorname{Cone}(S_\Psi)\) is a rational polyhedral cone, hence
+closed.  We claim it equals \(\operatorname{hypo}(\Psi)\).  The inclusion
+\(\subset\) holds because \(\operatorname{hypo}(\Psi)\) is a convex cone
+containing \(S_\Psi\), by concavity and homogeneity.  For \(\supset\), let
+\((x,\tau)\in\operatorname{hypo}(\Psi)\) be rational.  Choose
+\(M\in\mathbf Z_{>0}\) with \(Mx\in\mathbf Z^{N-1}\) and
+\(M\tau\in\mathbf Z\); homogeneity gives
+\(M\tau\leq M\Psi(x)=\Psi(Mx)\), so \((Mx,M\tau)\in S_\Psi\) and therefore
+\((x,\tau)\in\operatorname{Cone}(S_\Psi)\).  Rational points are dense in
+\(\operatorname{hypo}(\Psi)\), which is convex with nonempty interior in
+its span, so density and closedness give
+\(\operatorname{hypo}(\Psi)\subset\operatorname{Cone}(S_\Psi)\).  Thus
+\(\operatorname{hypo}(\Psi)\) is rational polyhedral; writing it as a finite
+intersection of rational half-spaces and using that it is a hypograph over
+\(C\) presents \(\Psi\) as a minimum of finitely many rational linear
+forms.
+
+Conversely, if \(\operatorname{hypo}(\Psi)\) is a rational polyhedral cone,
+then \(S_\Psi=\operatorname{hypo}(\Psi)\cap\mathbf Z^N\) is a finitely
+generated semigroup by Gordan's lemma, so \(k[S_\Psi]\) is a finitely
+generated \(k\)-algebra.
+\end{proof}
+
+\begin{warning}{Irrationality is not the only obstruction}
+\label{warn:ch33-not-only-irrationality}
+It is tempting to believe that a filtration fails to be finitely generated
+only because its jumping numbers are irrational.  This is false.  In
+\Cref{ex:ch33-harmonic-not-fg} every normalized jumping number is rational,
+every weight is a rational number, and yet the Rees algebra is not finitely
+generated, because the relevant hypograph is a strictly convex cone.  The
+obstruction is polyhedrality, not rationality.
+\end{warning}
+
+\section{Duistermaat--Heckman measures}
+\label{sec:ch33-dh}
+
+Assume \(X\) is integral, \(L\) ample, and \(\mathcal F\) linearly bounded
+and multiplicative.  Let
+\begin{equation}
+\label{eq:jumping-numbers}
+ \lambda_{m,1}\geq\cdots\geq\lambda_{m,N_m},
+ \qquad N_m=h^0(X,mL),
+\end{equation}
+be the jumping numbers of \(\mathcal F\), repeated with multiplicity.  Define
+\begin{equation}
+\label{eq:empirical-weight-measure}
+ \nu_m:=\frac1{N_m}\sum_{j=1}^{N_m}
+                    \delta_{\lambda_{m,j}/m}.
+\end{equation}
+
+\refstepcounter{theorem}\label{thm:dh-limit-filtration}
+\begin{quote}
+\textbf{Foundational input \thetheorem\ (Boucksom--Chen convergence of
+weight distributions; source boundary).}
+The measures \(\nu_m\) converge weakly, along the sufficiently divisible
+integers, to a compactly supported probability measure
+\(\DHm(\mathcal F)\).  For a test configuration, this is the asymptotic
+weight distribution of the \(\mathbf G_m\)-representation on the central
+fibre.  It depends only on the corresponding graded norm.
+This is the normalized measure statement of \cite[Theorem~A]{BC11}, with
+the test-configuration identification supplied by
+\Cref{prop:ch33-central-fibre-weights}; the convergence theorem itself is
+imported and no proof is claimed here.
+\end{quote}
+
+Before recording its normalization and consequences we fix
+the normalization, because three different normalizations of the same object
+occur in the literature and in this book.
+
+\begin{warning}{Three normalizations}
+\label{warn:ch33-dh-normalizations}
+The measure \(\DHm(\mathcal F)\) of \Cref{thm:dh-limit-filtration} is a
+\emph{probability} measure.  It coincides with the Duistermaat--Heckman
+measure of \cite{BHJ17} and with \(\DHm^{\mathrm{prob}}\) of
+\Cref{thm:rf-dh-quantization}.  The \emph{unnormalized} measure of
+\Cref{sec:appJ-rays}, of total mass \(V=(L^n)\), is
+\begin{equation}
+\label{eq:ch33-dh-unnormalized}
+ \DHm^{\mathrm u}(\mathcal F):=V\cdot\DHm(\mathcal F),
+\end{equation}
+which is the convention of \eqref{eq:cma-dh-normalization}.  Finally, the
+Okounkov-body normalization of \Cref{sec:dh-preview} has total mass
+\(\vol(\Delta)=V/n!\).  The three differ by the positive constants \(V\)
+and \(n!\), and we always display which one is in force.  A statement about
+moments is meaningless until this has been done.
+\end{warning}
+
+\subsection{Existence of the limit}
+\label{sec:ch33-dh-existence}
+
+Fix once and for all a valuation
+\(\nu:k(X)^\times\to\mathbf Z^n\), of rank \(n\) with one-dimensional
+leaves, for the lexicographic order; such valuations exist on any integral
+projective variety of dimension \(n\), for instance from a flag of
+subvarieties through a regular closed point of a birational model
+\cite{Oko03,LM09,KK12}.  For a graded linear series
+\(W_\bullet\subset R(X,L)\), let
+\(\Gamma(W_\bullet)\subset\mathbf N\times\mathbf Z^n\) be the associated
+graded semigroup and \(\Delta(W_\bullet)\) its Okounkov body, the compact
+convex set obtained by intersecting the closed cone generated by
+\(\Gamma(W_\bullet)\) with the slice at level one.  We write
+\(\Delta:=\Delta(R(X,L))\), so that
+\begin{equation}
+\label{eq:ch33-okounkov-volume}
+ \vol(\Delta)=\frac{V}{n!},
+ \qquad
+ \lim_{m\to\infty}\frac{\dim W_m}{m^n}
+ =\vol(\Delta(W_\bullet)),
+\end{equation}
+the second identity holding for every graded linear series containing an
+ample series in the sense of \cite{LM09,KK12}.
+
+\refstepcounter{theorem}\label{thm:ch33-dh-concave-transform}
+\begin{quote}
+\textbf{Foundational input \thetheorem\ (Boucksom--Chen concave transform;
+source boundary).}
+Let \(\mathcal F\) be a multiplicative, linearly bounded filtration of
+\(R(X,L)\) with \(L\) ample and \(X\) integral of dimension \(n\).  Define,
+for \(\tau\in\mathbf R\), the filtered graded linear series
+\begin{equation}
+\label{eq:ch33-filtered-series}
+ W^{(\tau)}_m:=\mathcal F^{m\tau}R_m .
+\end{equation}
+Then:
+\begin{enumerate}
+\item each \(W^{(\tau)}_\bullet\) is a graded linear subseries of
+ \(R(X,L)\), and
+ \(\tau\mapsto\vol\bigl(\Delta(W^{(\tau)}_\bullet)\bigr)\) is decreasing,
+ equal to \(\vol(\Delta)\) for \(\tau\leq C_-\) and to \(0\) for
+ \(\tau>C_+\);
+\item there is a bounded, upper semicontinuous, concave function
+ \(G_{\mathcal F}:\Delta\to\mathbf R\), the \emph{concave transform} of
+ \(\mathcal F\), such that
+\begin{equation}
+\label{eq:ch33-concave-transform-levels}
+ \vol\bigl(\Delta(W^{(\tau)}_\bullet)\bigr)
+ =\vol\{x\in\Delta\mid G_{\mathcal F}(x)\geq\tau\}
+\end{equation}
+ for all but countably many \(\tau\);
+\item the empirical measures \eqref{eq:empirical-weight-measure} converge
+ weakly, along the sufficiently divisible integers, to
+\begin{equation}
+\label{eq:ch33-dh-is-pushforward}
+ \DHm(\mathcal F)
+ =\frac{n!}{V}\,(G_{\mathcal F})_\ast\lambda_\Delta
+ =\frac{1}{\vol(\Delta)}\DHm_{\Delta,G_{\mathcal F}} ,
+\end{equation}
+ in the notation of \Cref{sec:dh-preview}.
+\end{enumerate}
+Items (1)--(3), including existence and weak convergence, are imported from
+\cite[Theorem~A]{BC11}; no proof is claimed here.
+\end{quote}
+
+\paragraph{Normalization and mechanism.}
+(1)  Multiplicativity \eqref{eq:multiplicative-filtration} gives
+\(W^{(\tau)}_m\cdot W^{(\tau)}_{m'}\subset W^{(\tau)}_{m+m'}\), since
+\(m\tau+m'\tau=(m+m')\tau\); so \(W^{(\tau)}_\bullet\) is a graded
+subalgebra of \(R(X,L)\), that is, a graded linear series.  It is decreasing
+in \(\tau\) because \(\mathcal F\) is.  Linear boundedness
+\eqref{eq:linear-bounds-filtration} gives
+\(W^{(\tau)}_m=R_m\) for \(\tau\leq C_-\) and \(W^{(\tau)}_m=0\) for
+\(\tau>C_+\).  Existence of the relevant volumes and the treatment of
+possibly small filtered subseries are part of the filtered-series theorem
+\cite[Theorem~A]{BC11}.  Mere containment in the ample section ring would
+not by itself imply the needed volume statement.
+
+(2) and (3)  This is the main theorem of \cite[Theorem~A]{BC11}, whose
+statement we now match to ours.  Boucksom and Chen attach to a
+multiplicative, linearly bounded filtration of a graded linear series the
+concave transform
+\begin{equation}
+\label{eq:ch33-concave-transform-formula}
+ G_{\mathcal F}(x)
+ =\sup\Bigl\{\tau\in\mathbf R\ \Bigm|\
+    x\in\Delta\bigl(W^{(\tau)}_\bullet\bigr)\Bigr\},
+\end{equation}
+show that it is concave and bounded on \(\Delta\) with the level-set
+property \eqref{eq:ch33-concave-transform-levels}, and prove that the
+normalized empirical measures of the jumping numbers converge weakly to the
+push-forward of normalized Lebesgue measure on \(\Delta\) by
+\(G_{\mathcal F}\).  Concavity of \eqref{eq:ch33-concave-transform-formula}
+is the geometric shadow of multiplicativity: if
+\(x_i\in\Delta(W^{(\tau_i)})\) for \(i=0,1\) and \(t\in[0,1]\), then
+\((1-t)x_0+tx_1\in\Delta(W^{((1-t)\tau_0+t\tau_1)})\), because the product
+of sections realizing the two Okounkov data has \(\nu\)-value the sum and
+weight at least the sum.  Upper semicontinuity is obtained by replacing
+\(G_{\mathcal F}\) by its usc regularization, which changes it only on a
+Lebesgue-null set since a concave function on a convex body is continuous on
+the relative interior of its effective domain, by
+\Cref{lem:concave-on-body}\,(3); the push-forward is therefore unchanged.
+Finally, dividing by \(\vol(\Delta)=V/n!\) converts the push-forward of
+Lebesgue measure into a probability measure, which is
+\eqref{eq:ch33-dh-is-pushforward}.
+\paragraph{Consequences and normalization checks.}
+Existence of the weak limit and its identification as a probability measure
+is \Cref{thm:ch33-dh-concave-transform}\,(3).  We give the two elementary
+steps separately, since they are used again below.
+
+\emph{Compact support.}  By linear boundedness, every normalized jumping
+number \(\lambda_{m,j}/m\) lies in the fixed compact interval
+\(I=[C_-,C_+]\), so every \(\nu_m\) is a probability measure supported in
+\(I\); hence so is any weak limit.  In particular the family
+\((\nu_m)\) is tight, and by \Cref{prop:measure-compactness} it has weak
+cluster points; \Cref{thm:ch33-dh-concave-transform} identifies the unique
+one.
+
+\emph{Tail description.}  For \(\tau\in\mathbf R\),
+\begin{equation}
+\label{eq:ch33-nu-tail}
+ \nu_m\bigl([\tau,+\infty)\bigr)
+ =\frac{\#\{j\mid\lambda_{m,j}\geq m\tau\}}{N_m}
+ =\frac{\dim\mathcal F^{m\tau}R_m}{N_m}
+ =\frac{\dim W^{(\tau)}_m}{N_m},
+\end{equation}
+by \Cref{lem:ch33-filtration-norm-bijection}\,(3).  Dividing numerator and
+denominator by \(m^n\) and using \eqref{eq:ch33-okounkov-volume} gives
+\[
+ \lim_{m}\nu_m\bigl([\tau,+\infty)\bigr)
+ =\frac{\vol\bigl(\Delta(W^{(\tau)}_\bullet)\bigr)}{\vol(\Delta)} ,
+\]
+which by \eqref{eq:ch33-concave-transform-levels} and
+\Cref{prop:dh-tail} is the tail of the right-hand side of
+\eqref{eq:ch33-dh-is-pushforward}, for all but countably many \(\tau\).
+Convergence of distribution functions at all continuity points, together
+with the uniform compact support, upgrades to weak convergence by the
+portmanteau theorem \Cref{prop:portmanteau}.
+
+For the second sentence of the statement, let \(\mathcal F\) be the
+filtration of a relatively ample test configuration with integrally closed
+total space.  By \Cref{prop:ch33-central-fibre-weights}\,(3), the weights of
+the \(\mathbf G_m\)-representation \(H^0(\cX_0,m\cL_0)\), listed with
+multiplicity, are exactly the numbers \(\lambda_{m,j}\); hence \(\nu_m\) is
+the normalized weight distribution of that representation and
+\(\DHm(\mathcal F)\) is its asymptotic distribution.
+
+For the third sentence, the filtration determines \(\lambda_{m,j}\) and
+therefore \(\nu_m\); conversely, by
+\Cref{thm:ch33-tc-filtration-properties}\,(4), equivalent test
+configurations, and in particular a test configuration and its integral
+closure, give the same filtration.
+
+\begin{corollary}
+\label{cor:ch33-dh-structure}
+Let \(\mathcal F\) be multiplicative and linearly bounded.  Then
+\(\DHm(\mathcal F)\) is a compactly supported probability measure on
+\(\mathbf R\) satisfying:
+\begin{enumerate}
+\item \(\DHm(\mathcal F)\bigl((\tau,+\infty)\bigr)
+ =\vol(\Delta)^{-1}\vol\{G_{\mathcal F}>\tau\}\), and its atoms are exactly
+ the levels \(\tau\) with \(\vol\{G_{\mathcal F}=\tau\}>0\);
+\item \(\tau\mapsto\vol\{G_{\mathcal F}\geq\tau\}^{1/n}\) is concave on the
+ interval where it is positive; in particular, for \(n=1\) the measure
+ \(\DHm(\mathcal F)\) has a nondecreasing density on the interior of its
+ support, away from atoms;
+\item \(\max\operatorname{supp}\DHm(\mathcal F)=\lambda_{\max}\) of
+ \eqref{eq:ch33-fekete-limits}, and
+ \(\min\operatorname{supp}\DHm(\mathcal F)\geq C_-\) for any admissible
+ lower bound \(C_-\);
+\item for every bounded Borel function \(\chi\) on \(\mathbf R\),
+\begin{equation}
+\label{eq:ch33-dh-moment-formula}
+ \int_{\mathbf R}\chi\,\rd\DHm(\mathcal F)
+ =\frac{1}{\vol(\Delta)}\int_\Delta\chi\bigl(G_{\mathcal F}(x)\bigr)\rd x .
+\end{equation}
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+All four are the corresponding statements of \Cref{sec:dh-preview} applied
+to the pair \((\Delta,G_{\mathcal F})\) and divided by
+\(\vol(\Delta)\): (1) is \Cref{prop:dh-tail}, (2) is
+\Cref{prop:dh-brunn-minkowski}, (4) is \Cref{lem:dh-moments}.  For (3), the
+upper end of the support is
+\(\max_\Delta G_{\mathcal F}\), which equals \(\lambda_{\max}\) because
+\eqref{eq:ch33-nu-tail} shows that \(\nu_m\) charges
+\([\tau,\infty)\) for some \(m\) exactly when \(W^{(\tau)}_m\ne0\), and the
+Fekete limit \eqref{eq:ch33-fekete-limits} is the supremum of the
+corresponding \(\tau\).
+\end{proof}
+
+\Cref{cor:ch33-dh-structure}\,(2) is the statement announced in
+\Cref{rem:dh-log-concavity}: it is the Brunn--Minkowski concavity of the
+tail volumes of a concave transform.  It is not a log-concavity assertion
+for the density of the measure.
+
+\subsection{Weight counting}
+\label{sec:ch33-dh-weights}
+
+\begin{theorem}
+\label{thm:ch33-dh-weight-count}
+Let \((\cX,\cL)\) be a test configuration for \((X,L)\) with \(\cL\)
+relatively ample and \(\cX\) integrally closed, and let
+\(\mathcal F\) be its filtration.  Write
+\(N_m=\dim_kH^0(\cX_0,m\cL_0)=h^0(X,mL)\) and let \(w_m\) be the total
+weight \eqref{eq:ch33-total-weight} of the \(\mathbf G_m\)-representation
+\(H^0(\cX_0,m\cL_0)\).  Then, for \(m\) sufficiently divisible and large:
+\begin{enumerate}
+\item \(\displaystyle
+ \int_{\mathbf R}\lambda\,\rd\nu_m(\lambda)=\frac{w_m}{mN_m}\);
+\item \(N_m=\dfrac{V}{n!}m^n+O(m^{n-1})\) and
+ \(w_m=a_0m^{n+1}+O(m^n)\) for a rational number \(a_0\), and
+\begin{equation}
+\label{eq:ch33-first-moment-limit}
+ \int_{\mathbf R}\lambda\,\rd\DHm(\mathcal F)(\lambda)
+ =\lim_{m\to\infty}\frac{w_m}{mN_m}
+ =\frac{n!\,a_0}{V};
+\end{equation}
+\item with the unnormalized convention
+ \eqref{eq:ch33-dh-unnormalized},
+\begin{equation}
+\label{eq:ch33-first-moment-intersection}
+ \int_{\mathbf R}\lambda\,\rd\DHm^{\mathrm u}(\mathcal F)(\lambda)
+ =\frac{(\overline\cL^{\,n+1})}{n+1},
+\end{equation}
+ and more generally the \(q\)-th moment of \(\DHm(\mathcal F)\) is the
+ normalized intersection number of
+ \cite[Corollary~3.4]{BHJ17}, as recorded in
+ \eqref{eq:cma-bhj-moments}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1)  By \Cref{prop:ch33-central-fibre-weights}\,(3) the weights of
+\(H^0(\cX_0,m\cL_0)\) with multiplicity are \(\lambda_{m,1},\dots,
+\lambda_{m,N_m}\); hence
+\(\int\lambda\,\rd\nu_m=N_m^{-1}\sum_j\lambda_{m,j}/m=w_m/(mN_m)\).
+
+(2)  The asymptotics of \(N_m\) are Hilbert--Samuel asymptotics for the
+ample \(L\), giving \eqref{eq:ch33-volume}.  For \(w_m\), the total weight
+of the representation on \(H^0(\cX_0,m\cL_0)\) is a polynomial in \(m\) of
+degree at most \(n+1\) for \(m\gg0\); this is the equivariant
+Riemann--Roch statement of \cite[\S3]{BHJ17}, and it is also visible from
+\eqref{eq:ch33-first-moment-intersection}, proved below.  Since all
+normalized weights lie in the fixed compact interval \(I\), the function
+\(\lambda\mapsto\lambda\) is bounded on the supports of all \(\nu_m\) and
+of the limit, so weak convergence gives convergence of first moments; this
+is the only place where uniform compact support is used, and it is exactly
+what \Cref{rem:dh-moments-not-continuous} shows cannot be dispensed with in
+general.
+
+(3)  This is \cite[Corollary~3.4]{BHJ17}, restated in the normalization of
+this book in \eqref{eq:cma-bhj-moments} and
+\eqref{eq:cma-dh-first-intersection}.  The paper \cite{BHJ17} is not
+affected by the erratum discussed in
+\Cref{thm:rf-erratum-audit}, which concerns the later
+Kähler-geometric asymptotics of a different paper; the identity
+\eqref{eq:ch33-first-moment-intersection} is purely algebraic and is proved
+there by comparing the equivariant Riemann--Roch expansion of \(w_m\) with
+the intersection number on \(\overline\cX\).
+\end{proof}
+
+\begin{remark}
+\label{rem:ch33-dh-unit-tests}
+Formula \eqref{eq:ch33-first-moment-intersection} is compatible with the
+twist and base-change rules of
+\Cref{thm:ch33-intersection-invariance}\,(3),(4) and
+\Cref{prop:ch33-dh-transformations}: twisting by \(c\) adds \(c\) to the
+first moment of \(\DHm\) and \((n+1)cV\) to \((\overline\cL^{\,n+1})\),
+hence \(cV\) to the left-hand side of
+\eqref{eq:ch33-first-moment-intersection} after multiplication by \(V\);
+degree-\(d\) base change multiplies both sides by \(d\).  Both tests are
+carried out numerically in \Cref{ex:ch33-dnc-p1}.
+\end{remark}
+
+\subsection{Behaviour under the basic operations}
+\label{sec:ch33-dh-operations}
+
+Adding \(cm\) to all weights translates \(\DHm(\mathcal F)\) by \(c\);
+base change of degree \(d\) dilates it by \(d\).  Thus one must fix both the
+linearization and the normalization before comparing moments.
+
+\begin{proposition}
+\label{prop:ch33-dh-transformations}
+Let \(\mathcal F\) be multiplicative and linearly bounded, and write
+\(T_c(\lambda)=\lambda+c\), \(m_d(\lambda)=d\lambda\).  Then
+\begin{equation}
+\label{eq:ch33-dh-transform}
+\begin{gathered}
+ \DHm(\mathcal F^{(c)})=(T_c)_\ast\DHm(\mathcal F),
+ \qquad
+ \DHm(\mathcal F^{[d]})=(m_d)_\ast\DHm(\mathcal F),\\
+ \DHm(\mathcal F^{(r)}_{\mathrm{Ver}})=\DHm(\mathcal F),
+\end{gathered}
+\end{equation}
+where \(\mathcal F^{(c)}\), \(\mathcal F^{[d]}\) and
+\(\mathcal F^{(r)}_{\mathrm{Ver}}\) are the twist, base change, and
+Veronese restriction of \Cref{prop:ch33-transformations}.  All three
+operations preserve total mass, and the first moment transforms by
+\(\mu\mapsto\mu+c\), \(\mu\mapsto d\mu\), \(\mu\mapsto\mu\) respectively.
+\end{proposition}
+
+\begin{proof}
+The jumping numbers of \(\mathcal F^{(c)}\) in degree \(m\) are
+\(\lambda_{m,j}+mc\), so the normalized ones are
+\(\lambda_{m,j}/m+c\) and \(\nu_m\) is replaced by
+\((T_c)_\ast\nu_m\); pass to the limit.  Similarly base change multiplies
+all weights by \(d\).  Veronese restriction only replaces the index set of
+degrees by a cofinal subset, so the limit is unchanged.  The statements
+about mass and first moment follow from
+\Cref{cor:dh-affine} applied to the underlying pair
+\((\Delta,G_{\mathcal F})\), the supports being uniformly compact.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch33-dh-continuity}
+For graded norms \(\chi,\chi'\) on \(R(X,L)\), set
+\begin{equation}
+\label{eq:ch33-dinfty}
+ d_\infty(\chi,\chi')
+ :=\sup_{m\geq1}\ \sup_{0\ne s\in R_m}
+        \frac{|\chi_m(s)-\chi'_m(s)|}{m}.
+\end{equation}
+If \(d_\infty(\chi,\chi')\leq\varepsilon\), then for every \(m\) and every
+\(j\),
+\begin{equation}
+\label{eq:ch33-jumping-comparison}
+ |\lambda_{m,j}-\lambda'_{m,j}|\leq\varepsilon m ,
+\end{equation}
+and consequently, for every \(1\)-Lipschitz function \(f\) on
+\(\mathbf R\),
+\begin{equation}
+\label{eq:ch33-dh-lipschitz}
+ \Bigl|\int f\,\rd\DHm(\chi)-\int f\,\rd\DHm(\chi')\Bigr|
+ \leq\varepsilon .
+\end{equation}
+In particular \(\chi\mapsto\DHm(\chi)\) is \(1\)-Lipschitz for
+\(d_\infty\) and the Kantorovich--Rubinstein distance, hence continuous for
+the weak topology; and if \(d_\infty(\chi_j,\chi)\to0\) with all
+\(\chi_j\) linearly bounded by the same constants, then all moments of
+\(\DHm(\chi_j)\) converge to those of \(\DHm(\chi)\).
+\end{proposition}
+
+\begin{proof}
+Write \(\delta=\varepsilon m\).  The hypothesis gives, for every
+\(\lambda\),
+\[
+ \{s\ne0\mid\chi'_m(s)\geq\lambda\}
+ \subset\{s\ne0\mid\chi_m(s)\geq\lambda-\delta\},
+\]
+whence \(\dim\mathcal F'^\lambda R_m\leq\dim\mathcal F^{\lambda-\delta}R_m\),
+and symmetrically.  Since
+\(\lambda_{m,j}=\sup\{\lambda\mid\dim\mathcal F^\lambda R_m\geq j\}\), these
+two inequalities give
+\(\lambda'_{m,j}\leq\lambda_{m,j}+\delta\) and
+\(\lambda_{m,j}\leq\lambda'_{m,j}+\delta\), which is
+\eqref{eq:ch33-jumping-comparison}.  For a \(1\)-Lipschitz \(f\),
+\[
+ \Bigl|\int f\,\rd\nu_m-\int f\,\rd\nu'_m\Bigr|
+ \leq\frac1{N_m}\sum_{j=1}^{N_m}
+      \Bigl|f\Bigl(\frac{\lambda_{m,j}}m\Bigr)
+            -f\Bigl(\frac{\lambda'_{m,j}}m\Bigr)\Bigr|
+ \leq\frac{\delta}{m}=\varepsilon,
+\]
+using the matching of the two decreasing lists.  Letting \(m\to\infty\)
+gives \eqref{eq:ch33-dh-lipschitz}, since a bounded Lipschitz function is a
+legitimate test function for weak convergence.  The final assertion follows
+because all the measures are then supported in one compact interval, on
+which every polynomial is Lipschitz.
+\end{proof}
+
+\begin{warning}{No continuity for pointwise convergence}
+\label{warn:ch33-dh-no-pointwise-continuity}
+\Cref{prop:ch33-dh-continuity} is a statement about the uniform metric
+\eqref{eq:ch33-dinfty} only.  Pointwise convergence of norms, or
+convergence of the associated functions \(\phi_{\chi_j}\) at each point of
+\(X^{\An}\), does not imply weak convergence of the Duistermaat--Heckman
+measures: the empirical measures involve all degrees simultaneously, and a
+perturbation invisible at any fixed degree can move a positive proportion of
+the weights.  Nor does weak convergence of measures imply convergence of
+moments once uniform linear bounds are dropped;
+\Cref{rem:dh-moments-not-continuous} contains an explicit counterexample in
+which the barycenter is constant equal to \(-1/2\) while the measures
+converge weakly to \(\delta_0\).  The metric geometry of the space of norms,
+including the finer distances \(d_p\) for which the assignment is also
+continuous, belongs to \Cref{chap:bj-stability}.
+\end{warning}
+
+\section{Worked examples}
+\label{sec:ch33-examples}
+
+Every construction of this chapter is carried out to explicit numbers in the
+four examples below.  The first two are test configurations on
+\(\mathbf P^1\), presented simultaneously as a total space, a flag ideal, a
+Rees algebra, a filtration, a Fubini--Study function, and a
+Duistermaat--Heckman measure; each of them is checked against the
+intersection formula \eqref{eq:ch33-first-moment-intersection}.  The third is
+a filtration that is not of finite type, with a complete proof of that
+failure.  The fourth computes the whole dictionary on a toric variety
+directly from the polytope.
+
+\subsection{A product configuration}
+\label{sec:ch33-example-product}
+
+\begin{example}
+\label{ex:p1-product-dh}
+Let \(X=\mathbf P^1\), \(L=\cO(1)\), and let
+\(\mathbf G_m\) act by \(a\cdot[x:y]=[ax:y]\).  Choose the linearization for
+which \(x^jy^{m-j}\) has weight \(j\).  Then
+\[
+ \nu_m=\frac1{m+1}\sum_{j=0}^m\delta_{j/m}
+       \longrightarrow \mathbf 1_{[0,1]}\,\rd \lambda .
+\]
+Although the family is a product as a scheme, its nontrivial linearization
+produces a nonconstant norm and a nontrivial Duistermaat--Heckman measure.
+
+We now record all the associated data, in order to have one completely
+computed model of the dictionary.  Here \(R_m=H^0(\mathbf P^1,\cO(m))\) has
+the monomial basis \(x^jy^{m-j}\), \(0\leq j\leq m\), and \(N_m=m+1\),
+\(V=(L)=1\), \(n=1\).
+
+\emph{The filtration.}  By hypothesis \(\chi_m(x^jy^{m-j})=j\), and since
+the configuration is equivariant for the torus fixing \([0:1]\) and
+\([1:0]\), the filtration is monomial:
+\begin{equation}
+\label{eq:ch33-p1-product-filtration}
+ \mathcal F^\lambda R_m
+ =\operatorname{span}\{x^jy^{m-j}\mid j\geq\lambda\},
+ \qquad
+ \chi_m\Bigl(\sum_j c_jx^jy^{m-j}\Bigr)=\min\{j\mid c_j\ne0\}.
+\end{equation}
+Multiplicativity is the identity \(j+j'=j+j'\) together with the fact that
+the support of a product of two polynomials in one variable is contained in
+the sum of the supports; linear boundedness holds with \(C_-=0\),
+\(C_+=1\).
+
+\emph{The Rees algebra.}  By \eqref{eq:filtration-rees}, \(\mathcal
+R(\mathcal F)\) is spanned by the monomials
+\(x^jy^{m-j}\varpi^{-\lambda}\) with \(\lambda\leq j\), so
+\begin{equation}
+\label{eq:ch33-p1-product-rees}
+ \mathcal R(\mathcal F)=k[\,x\varpi^{-1},\ y,\ \varpi\,],
+\end{equation}
+a polynomial ring in three variables:
+\(x^jy^{m-j}\varpi^{-\lambda}
+=(x\varpi^{-1})^{j}y^{m-j}\varpi^{\,j-\lambda}\) with \(j-\lambda\geq0\).
+It is generated in degree one over \(k[\varpi]\), so no Veronese change is
+needed, and
+\(\Proj_{\mathbf A^1}\mathcal R(\mathcal F)=\mathbf P^1\times\mathbf A^1\).
+As a scheme this is the product; as a test configuration it is not the
+trivial one, because the trivialization
+\eqref{eq:tc-punctured-trivialization} is
+\([x':y]=[\varpi^{-1}x:y]\), not the identity.  This is
+\Cref{ex:ch33-product-nontrivial-action} in coordinates.
+
+\emph{The Fubini--Study function.}  By \Cref{cor:ch33-fg-finite-max} with
+\(r=1\) and the adapted basis \(x,y\),
+\begin{equation}
+\label{eq:ch33-p1-product-fs}
+ \phi_\chi(v)=\max\{\log|x|(v)+1,\ \log|y|(v)\}.
+\end{equation}
+On the ray \(t\ord_{[0:1]}\), where \(v(x)=t\) and \(v(y)=0\), this is
+\(\max\{1-t,0\}\); on the ray \(t\ord_{[1:0]}\) it is
+\(\max\{1,-t\}=1\); at every other point of \((\mathbf P^1)^{\An}\) it is
+\(1\).  Thus \(\phi_\chi\) is continuous, equal to \(1\) away from one ray,
+and equal to \(1+\phi_{\mathfrak a}\) for the flag ideal
+\(\mathfrak a=\mathfrak m_{[0:1]}+(\varpi)\), whose function is
+\(\max\{\log|\mathfrak m_{[0:1]}|,-1\}\).
+
+\emph{The Duistermaat--Heckman measure and its checks.}  The jumping numbers
+in degree \(m\) are \(0,1,\dots,m\), each once, so the displayed limit is
+correct and
+\begin{equation}
+\label{eq:ch33-p1-product-dh}
+ \DHm(\mathcal F)=\mathbf 1_{[0,1]}\,\rd\lambda,
+ \qquad
+ \int\lambda\,\rd\DHm(\mathcal F)=\tfrac12 .
+\end{equation}
+Since \(V=1\), the probability and unnormalized measures coincide, and
+\eqref{eq:ch33-first-moment-intersection} predicts
+\((\overline\cL^{2})=2\cdot\tfrac12=1\).  This is confirmed in two
+independent ways.  First, by \Cref{ex:ch33-dnc-p1} below the configuration
+with Fubini--Study function \(\phi_{\mathfrak a}\) has
+\((\overline\cL^2)=-1\), and twisting by the character of weight \(1\) adds
+\((n+1)cV=2\) by \eqref{eq:ch33-intersection-twist}, giving \(-1+2=1\).
+Second, the compactification \(\overline\cX\) is the Hirzebruch surface
+\(\mathbf P(\cO\oplus\cO(-1))\) over \(\mathbf P^1\): the two charts are
+glued by \([x':y]=[\varpi^{-1}x:y]\), a transition cocycle of degree
+\(-1\).  Writing \(\xi\) for the tautological class and \(f\) for the fibre
+class, one has \(\xi^2=-1\), \(\xi\cdot f=1\), \(f^2=0\), and the
+normalization above gives \(\overline\cL=\xi+f\), so
+\((\overline\cL^2)=-1+2=1\).
+
+\emph{Concave transform.}  Taking \(\nu=\ord_{[0:1]}\) as the flag
+valuation, the Okounkov body of \((\mathbf P^1,\cO(1))\) is
+\(\Delta=[0,1]\) with \(\vol(\Delta)=1=V/1!\), and the concave transform of
+\eqref{eq:ch33-p1-product-filtration} is
+\(G_{\mathcal F}(u)=u\).  Then
+\eqref{eq:ch33-dh-is-pushforward} reads
+\(\DHm(\mathcal F)=(\operatorname{id})_\ast\lambda_{[0,1]}\), which is
+\eqref{eq:ch33-p1-product-dh}.
+
+\emph{The reflection test.}  Replacing the one-parameter subgroup by its
+inverse replaces \(\chi_m\) by \(-\chi_m\) up to a twist, reflects
+\(\DHm\), and changes the first moment from \(1/2\) to \(-1/2\); by
+\eqref{eq:ch33-first-moment-intersection} it changes
+\((\overline\cL^2)\) from \(1\) to \(-1\).  This is the unit test announced
+in \Cref{rem:ch33-weight-sign}.
+\end{example}
+
+\subsection{A nontrivial configuration on the projective line}
+\label{sec:ch33-example-dnc}
+
+\begin{example}
+\label{ex:ch33-dnc-p1}
+Let \(X=\mathbf P^1\), \(L=\cO(1)\), \(p=[0:1]\), and let \(z=x/y\) be the
+affine coordinate near \(p\).  Fix \(c\in\mathbf Q\) with \(0<c<1\).
+
+\emph{The flag ideal and its Rees algebra.}  Let
+\begin{equation}
+\label{eq:ch33-dnc-flag}
+ \mathfrak a:=\mathfrak m_p+(\varpi)\subset\cO_{X_{\triv}} ,
+\end{equation}
+which in the local coordinates at \((p,0)\) is the maximal ideal
+\((z,\varpi)\) and is the unit ideal elsewhere.  In the indexing
+\eqref{eq:ch33-flag-weight} its weight decomposition is
+\(\mathfrak a_0=\mathfrak m_p\) and \(\mathfrak a_{-1}=\cO_X\), so
+\begin{equation}
+\label{eq:ch33-dnc-phi-a}
+ \phi_{\mathfrak a}=\max\{\log|\mathfrak m_p|,\,-1\},
+ \qquad
+ \phi_{\mathfrak a}(t\ord_p)=\max\{-t,-1\}=-\min\{t,1\},
+\end{equation}
+and \(\phi_{\mathfrak a}=0\) at every point of
+\((\mathbf P^1)^{\An}\) not on the ray through \(p\).  Every power
+\(\mathfrak a^q\) is integrally closed, being locally the \(q\)-th power of
+the maximal ideal of a two-dimensional regular local ring, so the normalized
+Rees algebra \eqref{eq:flag-rees-algebra} is the ordinary one:
+\begin{equation}
+\label{eq:ch33-dnc-rees}
+ \mathcal R(\mathfrak a)=\bigoplus_{q\geq0}(\mathfrak m_p+(\varpi))^q u^q .
+\end{equation}
+
+\emph{The total space.}  By
+\Cref{thm:ch33-flag-tc-equivalence}\,(1), \(\cX:=\Proj_{X_{\triv}}\mathcal
+R(\mathfrak a)\) is the blowup of \(X_{\triv}=\mathbf P^1\times\mathbf A^1\)
+at the point \((p,0)\), an integrally closed---indeed smooth---test
+configuration dominating the trivial one.  This is the deformation to the
+normal cone of \Cref{ex:product-dnc-test-configurations}.  Its central
+fibre is \(\cX_0=\widetilde E+E\), where \(E\) is the exceptional
+\((-1)\)-curve and \(\widetilde E\) is the strict transform of
+\(\mathbf P^1\times\{0\}\), which is also a \((-1)\)-curve since
+\(\cX_0^2=0\), \(\widetilde E\cdot E=1\).  Both \(b_{E}\) and
+\(b_{\widetilde E}\) of \eqref{eq:ch33-bE} equal \(1\).
+
+\emph{The polarization.}  Set
+\(\cL_c:=\mu^\ast p_1^\ast\cO(1)-cE\).  Then
+\[
+ \cL_c\cdot E=c>0,
+ \qquad
+ \cL_c\cdot\widetilde E=1-c>0 ,
+\]
+so \(\cL_c\) is relatively ample for \(0<c<1\), semiample for \(c=1\).  Its
+Fubini--Study function is \(\phi_{\cL_c}=c\,\phi_{\mathfrak a}\), by
+\Cref{thm:ch33-flag-tc-equivalence}\,(1) and linearity, so
+\begin{equation}
+\label{eq:ch33-dnc-phi}
+ \phi_{\cL_c}(t\ord_p)=-c\min\{t,1\},
+ \qquad
+ \phi_{\cL_c}=0\ \text{elsewhere}.
+\end{equation}
+
+\emph{The filtration.}  A section \(x^ay^{m-a}\) of \(mL\) has
+\(\operatorname{div}=a\,[p]+(m-a)\,[\infty]\), so on \(\cX\)
+\[
+ \operatorname{div}_{\mu^\ast(mL_{\triv})}(\bar s)
+ =aH_0+(m-a)H_\infty+aE ,
+\]
+where \(H_0,H_\infty\) are the strict transforms of the two horizontal
+sections; the coefficient \(a\) on \(E\) appears because
+\(\ord_E(z)=1\).  Viewing \(\bar s\) as a section of
+\(m\cL_c=\mu^\ast(mL_{\triv})-mcE\) subtracts \(mcE\), and
+\(\operatorname{div}(\varpi)=\widetilde E+E\) subtracts \(\lambda\) from
+both central components.  Hence
+\(\varpi^{-\lambda}\bar s\) is regular if and only if
+\(\lambda\leq0\) and \(\lambda\leq a-mc\), that is,
+\begin{equation}
+\label{eq:ch33-dnc-weights}
+ \chi_m(x^ay^{m-a})=\min\{0,\ a-mc\} .
+\end{equation}
+Again the filtration is monomial, by torus equivariance of the whole
+construction.  For \(c=1/2\) and \(m=2\) the weights are
+\(\chi_2(x^2)=\chi_2(xy)=0\) and \(\chi_2(y^2)=-1\).
+
+\emph{Base ideals recover the flag ideal.}  For \(c=1/2\) and \(m=2\):
+\(\mathcal F^{-1}R_2=R_2\), so \(\mathfrak b_{2,-1}=\cO_X\);
+\(\mathcal F^0R_2=\langle x^2,xy\rangle\), whose base ideal is
+\((z^2,z)=\mathfrak m_p\); and \(\mathcal F^\lambda R_2=0\) for
+\(\lambda\geq1\).  Therefore
+\(\mathfrak a_{(2)}=\mathfrak m_p+\cO_X\varpi=\mathfrak a\), confirming
+\Cref{prop:ch33-base-ideal-flag}\,(2) and
+\eqref{eq:ch33-flag-vs-norm}:
+\(\tfrac12\phi_{\mathfrak a}=\phi_{\cL_{1/2}}\).
+
+\emph{The Rees algebra of the filtration.}  Still for \(c=1/2\), the
+Veronese index \(r=2\) works and
+\begin{equation}
+\label{eq:ch33-dnc-filtration-rees}
+ \mathcal R(\mathcal F)^{(2)}
+ =k[\,x^2,\ xy,\ y^2\varpi,\ \varpi\,]
+ \;\simeq\;
+ k[U,W,T,\varpi]/(UT-\varpi W^2).
+\end{equation}
+Indeed a monomial \(x^ay^{2m-a}\varpi^{-\lambda}\) lies in
+\(\mathcal R(\mathcal F)^{(2)}\) exactly when
+\(\lambda\leq\min\{0,a-m\}\); putting \(k'=\max\{0,m-a\}\),
+\(i=\max\{a-m,0\}\), \(j=2m-a-2k'\), one has \(i+j+k'=m\), \(2i+j=a\) and
+\[
+ x^ay^{2m-a}\varpi^{-\lambda}
+ =(x^2)^{i}(xy)^{j}(y^2\varpi)^{k'}\varpi^{-\lambda-k'},
+ \qquad-\lambda-k'\geq0 .
+\]
+The relation \(UT=\varpi W^2\) is \(x^2\cdot y^2\varpi=\varpi(xy)^2\).  The
+relative \(\Proj\) is the family of conics
+\(\{UT=\varpi W^2\}\subset\mathbf P^2\times\mathbf A^1\), smooth as a
+surface, with smooth conics over \(\varpi\ne0\) and the union of the two
+lines \(\{U=0\}\), \(\{T=0\}\) over \(\varpi=0\): exactly
+\(\widetilde E\cup E\).
+
+\emph{The Duistermaat--Heckman measure.}  By
+\eqref{eq:ch33-dnc-weights} the normalized jumping numbers in degree \(m\)
+are \(\min\{0,a/m-c\}\) for \(0\leq a\leq m\), each occurring once, so
+\begin{equation}
+\label{eq:ch33-dnc-dh}
+ \DHm(\mathcal F)
+ =(1-c)\,\delta_0+\mathbf 1_{[-c,0]}\,\rd\lambda ,
+\end{equation}
+a probability measure, in agreement with
+\Cref{cor:ch33-dh-structure}: the concave transform on
+\(\Delta=[0,1]\) is \(G_{\mathcal F}(u)=\min\{0,u-c\}\), whose level set
+\(\{G_{\mathcal F}=0\}\) has length \(1-c\), which is the atom.
+
+\emph{The two numerical checks.}  The first moment is
+\[
+ \int\lambda\,\rd\DHm(\mathcal F)
+ =\int_0^1\min\{0,u-c\}\,\rd u
+ =\int_0^c(u-c)\,\rd u=-\frac{c^2}{2}.
+\]
+On the other side, \(\overline\cX\) is the blowup of
+\(\mathbf P^1\times\mathbf P^1\) at \((p,0)\) and
+\(\overline\cL_c=\mu^\ast p_1^\ast\cO(1)-cE\), so
+\[
+ (\overline\cL_c^2)
+ =(p_1^\ast\cO(1))^2-2c\,(\mu^\ast p_1^\ast\cO(1)\cdot E)+c^2(E^2)
+ =0-0-c^2=-c^2 ,
+\]
+and \((\overline\cL_c^2)/((n+1)V)=-c^2/2\), confirming
+\eqref{eq:ch33-first-moment-intersection} with \(V=1\).  Twisting the
+linearization by \(c'\) adds \(c'\) to the first moment and
+\(2c'\) to \((\overline\cL_c^2)\), by
+\eqref{eq:ch33-intersection-twist}; base change of degree \(d\) multiplies
+both by \(d\), by \eqref{eq:ch33-intersection-base-change}.  This is the
+unit test of \Cref{rem:ch33-dh-unit-tests}.
+
+\emph{The boundary case.}  For \(c=1\) the polarization is only semiample:
+it contracts \(\widetilde E\), and the resulting configuration is the
+product configuration of \Cref{ex:p1-product-dh} twisted by the character of
+weight \(-1\).  Indeed \eqref{eq:ch33-dnc-weights} with \(c=1\) gives
+\(\chi_m(x^ay^{m-a})=a-m\), which is
+\eqref{eq:ch33-p1-product-filtration} shifted by \(-m\), and
+\eqref{eq:ch33-dnc-dh} becomes \(\mathbf 1_{[-1,0]}\rd\lambda\), which is
+\eqref{eq:ch33-p1-product-dh} translated by \(-1\).
+\end{example}
+
+\subsection{A filtration that is not of finite type}
+\label{sec:ch33-example-not-fg}
+
+Before the example we record the notion that fails, and the criterion used
+to detect the failure.
+
+\begin{definition}
+\label{def:ch33-finite-type}
+A multiplicative filtration \(\mathcal F\) of \(R(X,L)\) is of
+\emph{finite type} if there are \(r\geq1\) and finitely many nonzero
+sections \(s_1,\dots,s_N\in R_r\) such that, for every \(m\geq1\) and every
+\(\lambda\), the space \(\mathcal F^\lambda R_{rm}\) is spanned by the
+products \(s_{i_1}\cdots s_{i_m}\) with
+\(\sum_{j}\chi_r(s_{i_j})\geq\lambda\).
+\end{definition}
+
+By \Cref{thm:ch33-fg-filtration-tc}, a rational finitely generated
+filtration is of finite type, and a filtration of finite type with integer
+weights is rational and finitely generated.  The point of
+\Cref{def:ch33-finite-type} is that it also makes sense for real weights,
+where it is the notion of an \(\mathbf R\)-test configuration.
+
+\begin{lemma}\label{lem:ch33-finite-type-pl}
+If \(\mathcal F\) is of finite type, then
+\begin{equation}
+\label{eq:ch33-finite-type-max}
+ \phi_\chi(v)=\frac1r\max_{1\leq i\leq N}\{\chi_r(s_i)-v(s_i)\}
+\end{equation}
+for all \(v\in X^{\An}\).  In particular, along any divisorial ray
+\(t\mapsto\phi_\chi(t\,\ord_F)\) the function \(\phi_\chi\) is a finite
+maximum of affine functions of \(t\), hence convex and piecewise affine with
+at most \(N\) pieces.
+\end{lemma}
+
+\begin{proof}
+The proof of \Cref{cor:ch33-fg-finite-max} used only the spanning property
+of \Cref{def:ch33-finite-type}, and it applies verbatim.  For the last
+assertion, \(\ord_F(s_i)\) is a fixed nonnegative number for each \(i\), so
+\(t\mapsto\chi_r(s_i)-t\ord_F(s_i)\) is affine.
+\end{proof}
+
+\begin{example}
+\label{ex:ch33-harmonic-not-fg}
+Let \(X=\mathbf P^1\), \(L=\cO(1)\), and \(R_m=H^0(X,\cO(m))\) with basis
+\(x^ay^b\), \(a+b=m\).  Define
+\begin{equation}
+\label{eq:ch33-harmonic-weights}
+ \Psi(a,b):=\frac{ab}{a+b}\quad\bigl((a,b)\ne(0,0)\bigr),
+ \qquad \Psi(0,0):=0 ,
+\end{equation}
+and set
+\begin{equation}
+\label{eq:ch33-harmonic-filtration}
+\begin{gathered}
+ \chi_m\Bigl(\sum_{a+b=m}c_{a}x^ay^b\Bigr)
+ :=\min\{\Psi(a,b)\mid c_a\ne0\},\\
+ \mathcal F^\lambda R_m
+ =\operatorname{span}\{x^ay^b\mid\Psi(a,b)\geq\lambda\}.
+\end{gathered}
+\end{equation}
+
+\emph{This is a legitimate multiplicative, linearly bounded filtration.}
+The function \(\Psi\) is, up to the factor \(2\), the harmonic mean, hence
+concave on \(\mathbf R^2_{\geq0}\), and it is positively homogeneous of
+degree one.  A concave, positively homogeneous function on a convex cone is
+superadditive, so
+\[
+ \Psi(a+a',b+b')\geq\Psi(a,b)+\Psi(a',b') .
+\]
+Given \(s\in R_m\) and \(s'\in R_{m'}\), every monomial occurring in
+\(ss'\) is a product of a monomial of \(s\) and a monomial of \(s'\)---the
+coefficient of \(x^{\ell}y^{m+m'-\ell}\) in \(ss'\) is a sum of products
+\(c_ac'_{a'}\) with \(a+a'=\ell\), and it is nonzero only if some summand
+is---so
+\(\chi_{m+m'}(ss')\geq\chi_m(s)+\chi_{m'}(s')\).  Since
+\(0\leq\Psi(a,b)\leq(a+b)/4\), the filtration is linearly bounded with
+\(C_-=0\) and \(C_+=1/4\).  Note that every weight
+\(\Psi(a,m-a)=a(m-a)/m\) is a rational number.
+
+\emph{Its Fubini--Study function.}  As in the previous examples the
+filtration is monomial, so
+\[
+ \phi_\chi(t\ord_p)
+ =\sup_{m\geq1}\max_{0\leq a\leq m}
+    \frac{a(m-a)/m-ta}{m}
+ =\sup_{u\in[0,1]}\bigl\{u(1-u)-tu\bigr\},
+\]
+where \(p=[0:1]\) and we used \(v(x^ay^{m-a})=ta\) in the frame \(y^m\); the
+supremum over all sections reduces to the supremum over monomials because
+both \(\chi_m\) and \(v\) are computed as minima over the monomial support.
+The quadratic \(u\mapsto u(1-t-u)\) has its maximum on \([0,1]\) at
+\(u=(1-t)/2\) when \(0\leq t\leq1\), and at \(u=0\) when \(t\geq1\).  Hence
+\begin{equation}
+\label{eq:ch33-harmonic-fs}
+ \phi_\chi(t\ord_p)=
+ \begin{cases}
+  \dfrac{(1-t)^2}{4}, & 0\leq t\leq1,\\[2mm]
+  0,& t\geq1,
+ \end{cases}
+\end{equation}
+and by symmetry the same formula holds on the ray through \([1:0]\); on
+every other ray, and at the trivial valuation, \(\phi_\chi=1/4\).  The
+function \eqref{eq:ch33-harmonic-fs} is continuously differentiable,
+convex, and decreasing, as it must be for a psh function on a curve, and it
+takes the value \(1/4\) at \(t=0\).
+
+\emph{It is not of finite type.}  Suppose it were.  By
+\Cref{lem:ch33-finite-type-pl}, \(t\mapsto\phi_\chi(t\ord_p)\) would be
+piecewise affine on \([0,\infty)\).  But \eqref{eq:ch33-harmonic-fs} is
+strictly convex on \([0,1]\), hence affine on no subinterval.  This
+contradiction proves that \(\mathcal F\) is not of finite type; a fortiori
+it is not rational and finitely generated, and by
+\Cref{thm:ch33-fg-filtration-tc} there is no test configuration inducing
+it.
+
+\emph{What exactly fails.}  Three separate things, and it is worth keeping
+them apart.
+\begin{enumerate}
+\item \emph{No finite generating set.}  In the semigroup language of
+ \Cref{prop:ch33-monomial-fg-criterion}, the relevant object is the
+ hypograph of \(\Psi\) inside \(\mathbf R^2_{\geq0}\times\mathbf R\).  It is
+ a closed convex cone, but it is not polyhedral: its boundary contains the
+ strictly convex curve \(\{(a,b,\Psi(a,b))\}\).  Consequently no finite set
+ of monomials generates the Rees semigroup.
+\item \emph{Unbounded denominators, not irrational weights.}  Every jumping
+ number \(a(m-a)/m\) in degree \(m\) is rational, and the normalized ones
+ \(a(m-a)/m^2\) are rational as well.  What fails is that no single \(r\)
+ makes all weights lie in \(r^{-1}\mathbf Z\): in degree \(m\) the
+ denominators are of size \(m\).  This is a strictly weaker failure than
+ irrationality, and it already destroys finite generation.
+ \item \emph{Nothing else fails.}  The filtration is multiplicative,
+ linearly bounded, and left continuous; its Fubini--Study function is a
+ perfectly good continuous function on \((\mathbf P^1)^{\An}\), indeed a
+ psh function for \(c_1(\cO(1))\) by the curve criterion
+ \cite[Example~4.13]{BJ22}: the two nonconstant rays have initial slopes
+ \(-\tfrac12\) and \(-\tfrac12\), all other initial slopes vanish, and
+ \(1+(-\tfrac12)+(-\tfrac12)=0\), while every ray restriction is convex.
+ Its Duistermaat--Heckman measure exists.  This is the precise sense in
+ which filtrations are a strictly larger category than test configurations.
+\end{enumerate}
+
+\emph{Its Duistermaat--Heckman measure.}  The concave transform on
+\(\Delta=[0,1]\) is \(G_{\mathcal F}(u)=u(1-u)\), so by
+\eqref{eq:ch33-dh-is-pushforward} the measure is the push-forward of
+Lebesgue measure on \([0,1]\) by \(u\mapsto u(1-u)\).  For
+\(0<\tau<1/4\) the superlevel set \(\{G_{\mathcal F}>\tau\}\) is the
+interval of length \(\sqrt{1-4\tau}\) centred at \(1/2\); hence, by
+\Cref{prop:dh-tail},
+\begin{equation}
+\label{eq:ch33-harmonic-dh}
+ \DHm(\mathcal F)
+ =\frac{2}{\sqrt{1-4\tau}}\,\mathbf 1_{[0,1/4)}(\tau)\,\rd\tau ,
+\end{equation}
+of total mass \(\int_0^{1/4}2(1-4\tau)^{-1/2}\rd\tau=1\), with no atom and
+with unbounded density at the right endpoint.  Its first moment is
+\(\int_0^1u(1-u)\rd u=1/6\).  Note that the density is \emph{increasing};
+this is consistent with \Cref{cor:ch33-dh-structure}\,(2), which for
+\(n=1\) asserts concavity of \(\tau\mapsto\vol\{G_{\mathcal F}\geq\tau\}\),
+and \(\tau\mapsto\sqrt{1-4\tau}\) is indeed concave.
+\end{example}
+
+\begin{remark}
+\label{rem:ch33-harmonic-reverse}
+The measure \eqref{eq:ch33-harmonic-dh} has a continuous density that is not
+piecewise constant, whereas the Duistermaat--Heckman measure of a finite-type
+filtration on a curve is the push-forward of Lebesgue measure on an interval
+by a piecewise affine concave function, hence a finite sum of uniform
+measures and atoms.  This gives a second, independent proof that
+\Cref{ex:ch33-harmonic-not-fg} is not of finite type, and it illustrates
+that the Duistermaat--Heckman measure, although far from a complete
+invariant, does see the difference.
+\end{remark}
+
+\subsection{Toric test configurations}
+\label{sec:ch33-example-toric}
+
+On a toric variety every object in the dictionary is a convex-geometric
+object, and the whole chapter can be read off from a polytope and a concave
+function on it.  We use the toric conventions of
+\Cref{sec:toric-convex} and \eqref{eq:appJ-toric-coordinate}: the
+tropical coordinate of a point of the dense torus is
+\(u\) with \(\langle m,u\rangle=-\log|\chi^m|\), and the monomial
+semivaluation \(v_u\) satisfies \(v_u(\chi^m)=\langle m,u\rangle\).
+
+\begin{theorem}
+\label{thm:ch33-toric}
+Let \(X_\Sigma\) be a proper toric variety over \(k\) of dimension \(n\),
+with lattice \(N\), dual lattice \(M\), and let \(L\) be an ample toric
+line bundle with polytope \(P\subset M_{\mathbf R}\), so that
+\(R_m=\bigoplus_{u\in mP\cap M}k\,\chi^u\) and
+\(V=(L^n)=n!\vol(P)\).  Let \(g:P\to\mathbf R\) be continuous and concave.
+Define
+\begin{equation}
+\label{eq:ch33-toric-filtration}
+ \chi_m\Bigl(\sum_{u\in mP\cap M}c_u\chi^u\Bigr)
+ :=\min\{m\,g(u/m)\mid c_u\ne0\} .
+\end{equation}
+Then:
+\begin{enumerate}
+\item \(\chi\) is a multiplicative, linearly bounded graded norm, and the
+ corresponding filtration is spanned by characters in each degree;
+\item its Duistermaat--Heckman measure is
+\begin{equation}
+\label{eq:ch33-toric-dh}
+ \DHm(\mathcal F)=g_\ast\Bigl(\frac{\lambda_P}{\vol(P)}\Bigr),
+ \qquad
+ \int\lambda\,\rd\DHm(\mathcal F)
+ =\frac1{\vol(P)}\int_Pg(x)\,\rd x ;
+\end{equation}
+\item for every \(u\in N_{\mathbf R}\),
+\begin{equation}
+\label{eq:ch33-toric-fs}
+ \phi_\chi(v_u)
+ =\sup_{x\in P}\bigl\{g(x)-\langle x,u\rangle\bigr\}
+   -\check h_P(u),
+ \qquad
+ \check h_P(u)=\sup_{x\in P}\langle x,-u\rangle ;
+\end{equation}
+\item \(\mathcal F\) is of finite type if and only if \(g\) is affine on
+ the cells of a finite rational polyhedral subdivision of \(P\); it is
+ rational and finitely generated if and only if, in addition, the affine
+ data are rational;
+\item if \(g\geq0\) is piecewise affine with rational data, then the
+ unnormalized first moment is
+\begin{equation}
+\label{eq:ch33-toric-intersection}
+ \int\lambda\,\rd\DHm^{\mathrm u}(\mathcal F)
+ =n!\int_Pg(x)\,\rd x
+ =n!\,\vol(Q),
+ \qquad
+ (\overline\cL^{\,n+1})=(n+1)!\,\vol(Q),
+\end{equation}
+ where \(Q=\{(x,\tau)\in P\times\mathbf R\mid 0\leq\tau\leq g(x)\}\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(1)  Concavity of \(g\) means that
+\(\Psi(u,m):=m\,g(u/m)\) is concave and positively homogeneous of degree one
+on the cone \(C:=\operatorname{Cone}(P\times\{1\})\subset M_{\mathbf
+R}\times\mathbf R\), hence superadditive; the argument of
+\Cref{ex:ch33-harmonic-not-fg} then gives
+\eqref{eq:graded-norm-inequalities}, using that the coefficient of a
+character in a product is a sum of products of coefficients.  Boundedness of
+\(g\) on the compact \(P\) gives linear boundedness.  The filtered pieces
+are spanned by characters by construction.
+
+(2)  Let \(f\) be continuous and bounded on \(\mathbf R\).  Then
+\[
+ \int f\,\rd\nu_m
+ =\frac1{\#(mP\cap M)}\sum_{u\in mP\cap M}f\bigl(g(u/m)\bigr),
+\]
+a Riemann sum for \(\vol(P)^{-1}\int_Pf(g(x))\rd x\) over the lattice
+\(m^{-1}M\).  Precisely, \(m^{-n}\#(mP\cap M)\to\vol(P)\) and
+\(m^{-n}\sum_{u\in mP\cap M}h(u/m)\to\int_Ph\) for every continuous \(h\)
+on \(P\), by uniform continuity of \(h\) and the fact that the cells
+\(u/m+m^{-1}[0,1)^n\) tile a neighbourhood of \(P\) with volume
+\(m^{-n}\); apply this to \(h=f\circ g\).  Hence
+\(\nu_m\to g_\ast(\lambda_P/\vol(P))\) weakly, which is
+\eqref{eq:ch33-toric-dh}; the moment formula is \Cref{lem:dh-moments}.
+
+(3)  Let \(u\in N_{\mathbf R}\) and let \(\sigma\) be a cone of the normal
+fan containing \(u\), with corresponding vertex \(u_\sigma\) of \(P\), so
+that \(\langle u_\sigma,u\rangle=\min_{x\in P}\langle x,u\rangle\).  On the
+affine chart \(U_\sigma\), which contains the center of \(v_u\), the
+line bundle \(mL\) is trivialized by \(\chi^{mu_\sigma}\), and the section
+\(\chi^{u'}\) becomes the function \(\chi^{u'-mu_\sigma}\); hence
+\(v_u(\chi^{u'})=\langle u'-mu_\sigma,u\rangle\).  Therefore
+\[
+ \frac{\chi_m(\chi^{u'})-v_u(\chi^{u'})}{m}
+ =g(u'/m)-\bigl\langle u'/m-u_\sigma,u\bigr\rangle ,
+\]
+and taking the supremum over \(m\) and over \(u'\in mP\cap M\), which is a
+supremum over a dense subset of \(P\) of a continuous function, gives
+\[
+ \phi_\chi(v_u)=\sup_{x\in P}\{g(x)-\langle x,u\rangle\}
+   +\langle u_\sigma,u\rangle .
+\]
+Since \(\langle u_\sigma,u\rangle=\min_{x\in P}\langle x,u\rangle
+=-\check h_P(u)\), this is \eqref{eq:ch33-toric-fs}.  As in the previous
+examples, restricting the supremum in \eqref{eq:norm-fs-function} to
+characters is harmless, because both \(\chi_m\) and \(v_u\) are minima over
+the character support.
+
+(4)  If \(\mathcal F\) is of finite type then, by
+\Cref{lem:ch33-finite-type-pl}, \(\phi_\chi\) is a finite maximum of the
+functions \(v\mapsto r^{-1}(\chi_r(s_i)-v(s_i))\); on the monomial locus
+each of these is affine on every cone of the normal fan, so
+\(\phi_\chi(v_u)\) is piecewise affine in \(u\).  Adding the piecewise
+affine \(\check h_P\), we find that
+\(g^\ast(u):=\sup_{x\in P}\{g(x)-\langle x,u\rangle\}\) is piecewise affine
+and convex.  By the Fenchel--Moreau theorem
+\Cref{thm:appD-fenchel-moreau}, applied in the concave form of
+\Cref{def:appD-conjugate}, one recovers
+\(g(x)=\inf_u\{g^\ast(u)+\langle x,u\rangle\}\) on \(P\), which is a finite
+infimum of affine functions when \(g^\ast\) is piecewise affine.  Because
+the slopes come from finitely many lattice characters, this yields a finite
+rational polyhedral subdivision of \(P\).  Conversely, if \(g\) is
+piecewise affine on such a subdivision with rational data, then \(\Psi\) is
+a minimum of finitely many rational linear forms on
+\(C\), so its hypograph is a rational polyhedral cone and
+\Cref{prop:ch33-monomial-fg-criterion} applies to the semigroup
+\[
+ S=\bigl\{(u,m,\lambda)\in M\times\mathbf Z\times\mathbf Z
+   \mid u\in mP,\ \lambda\leq\Psi(u,m)\bigr\},
+\]
+whose semigroup algebra is exactly \(\mathcal R(\mathcal F)\), the monomial
+\((u,m,\lambda)\) corresponding to \(\chi^u\varpi^{-\lambda}\) in degree
+\(m\).  Hence \(\mathcal R(\mathcal F)\) is finitely generated.  If the
+affine data are real, choose finite Hilbert bases for the lattice semigroups
+over the cells of the rational subdivision and give each basis monomial its
+real \(g\)-weight.  Every lattice point then decomposes inside one cell,
+where homogeneity is additive, so these finitely many weighted monomials
+generate the filtration in the sense of \Cref{def:ch33-finite-type}.  No
+clearing of real denominators is involved.
+
+(5)  The first equality is \eqref{eq:ch33-toric-dh} multiplied by
+\(V=n!\vol(P)\); the second is Fubini for the region under the graph of
+\(g\).  The last is
+\eqref{eq:ch33-first-moment-intersection}.  The polytope \(Q\) is the
+moment polytope of the compactified toric test configuration in the sense of
+\cite{Don02}.
+\end{proof}
+
+\begin{example}
+\label{ex:ch33-toric-p2}
+Let \(X=\mathbf P^2\), \(L=\cO(1)\), so that
+\(P=\Delta=\operatorname{conv}\{(0,0),(1,0),(0,1)\}\),
+\(\vol(\Delta)=1/2\), \(n=2\) and \(V=2!\cdot\tfrac12=1=(\cO(1)^2)\).  Fix
+\(c\in\mathbf Q\) with \(0<c<1/2\) and put
+\[
+ g(x_1,x_2)=\min\{x_1,\ x_2,\ c\} ,
+\]
+which is concave, continuous, and nonnegative, with values in \([0,c]\).
+Identify \(R_m=H^0(\mathbf P^2,\cO(m))\) with the span of the monomials
+\(X^aY^bZ^{m-a-b}\), \((a,b)\in m\Delta\cap\mathbf Z^2\).
+
+\emph{The filtration and its base ideals.}  By
+\eqref{eq:ch33-toric-filtration},
+\[
+ \chi_m(X^aY^bZ^{m-a-b})=\min\{a,\ b,\ mc\} ,
+\]
+so that for \(0\leq\lambda\leq mc\) the space
+\(\mathcal F^\lambda R_m\) is spanned by the monomials with
+\(a\geq\lambda\) and \(b\geq\lambda\), and
+\(\mathcal F^\lambda R_m=0\) for \(\lambda>mc\).  For
+\(c=1/4\) and \(m=4\) this reads
+\[
+\begin{gathered}
+ \mathcal F^0R_4=R_4,\qquad
+ \mathcal F^2R_4=0 ,\\
+ \mathcal F^1R_4=\langle X^aY^bZ^{4-a-b}\mid a,b\geq1\rangle
+ =H^0\bigl(\mathbf P^2,\cO(4)\bigr)\cap(XY),
+\end{gathered}
+\]
+with base ideals \(\mathfrak b_{4,0}=\cO_X\),
+\(\mathfrak b_{4,1}=\cO_X(-D_X-D_Y)\), where \(D_X=\{X=0\}\) and
+\(D_Y=\{Y=0\}\).  The flag ideal of
+\eqref{eq:ch33-degree-m-flag} is therefore
+\begin{equation}
+\label{eq:ch33-toric-flag}
+ \mathfrak a_{(4)}
+ =\cO_X+\cO_X(-D_X-D_Y)\,\varpi^{-1},
+ \qquad
+ \tfrac14\phi_{\mathfrak a_{(4)}}
+ =\tfrac14\max\bigl\{0,\ \log|\cO(-D_X-D_Y)|+1\bigr\} .
+\end{equation}
+
+\emph{The Fubini--Study function, twice.}  By \eqref{eq:ch33-toric-flag},
+\(\phi_\chi(v)=\tfrac14\max\{0,1-v(D_X)-v(D_Y)\}\).  On the other hand
+\eqref{eq:ch33-toric-fs} gives, for \(u\) in the cone
+\(\sigma_0=\mathbf R_{\geq0}^2\) of the normal fan, where
+\(\check h_\Delta(u)=0\) and \(v_u(D_X)=u_1\), \(v_u(D_Y)=u_2\),
+\[
+ \phi_\chi(v_u)
+ =\sup_{x\in\Delta}\bigl\{\min\{x_1,x_2,\tfrac14\}
+      -x_1u_1-x_2u_2\bigr\}
+ =\tfrac14\max\{0,\ 1-u_1-u_2\} .
+\]
+For instance \(\phi_\chi(v_{(0,0)})=1/4\),
+\(\phi_\chi(v_{(1,0)})=0\), and
+\(\phi_\chi(v_{(1/4,1/4)})=1/8\), the last being attained at
+\(x=(1/4,1/4)\).  The two computations agree, which checks
+\eqref{eq:ch33-flag-vs-norm} in a two-dimensional example.  A point of the
+cone \(\operatorname{Cone}((-1,-1),(0,1))\), say \(u=(-1,0)\), has
+\(\check h_\Delta(u)=1\) and \(\sup_{x}\{g(x)+x_1\}=1\), attained at
+\(x=(1,0)\); so \(\phi_\chi(v_{(-1,0)})=0\), in agreement with the
+flag-ideal formula, since in the corresponding chart \(D_X\) is not
+visible while \(D_Y\) has local equation \(\chi^{(-1,1)}\), whence
+\(v_u(D_X)=0\) and \(v_u(D_Y)=1\).
+
+\emph{The Duistermaat--Heckman measure.}  The pair \((\Delta,g)\) is exactly
+the one computed in \Cref{ex:dh-simplex}, where
+\(\DHm_{\Delta,g}
+=2(1-2\tau)\mathbf 1_{[0,c)}\rd\tau+\tfrac12(1-2c)^2\delta_c\).  Dividing by
+\(\vol(\Delta)=1/2\) gives the probability normalization used here:
+\begin{equation}
+\label{eq:ch33-toric-p2-dh}
+ \DHm(\mathcal F)
+ =4(1-2\tau)\,\mathbf 1_{[0,c)}(\tau)\,\rd\tau
+   +(1-2c)^2\,\delta_c ,
+\end{equation}
+of total mass \(4(c-c^2)+1-4c+4c^2=1\).  The atom at \(\tau=c\) is
+\(\vol\{g=c\}/\vol(\Delta)\), which is the truncation locus of \(g\); the
+density \(4(1-2\tau)\) is decreasing, as
+\Cref{cor:ch33-dh-structure}\,(2) requires, since
+\(\vol\{g\geq\tau\}^{1/2}=2^{-1/2}(1-2\tau)\) is affine.
+
+\emph{Moments and intersection numbers.}  By the layer-cake formula
+\(\int_\Delta g=\int_0^c\vol\{g>\tau\}\rd\tau
+=\int_0^c\tfrac12(1-2\tau)^2\rd\tau=\tfrac1{12}\bigl(1-(1-2c)^3\bigr)\), so
+\[
+ \int\lambda\,\rd\DHm(\mathcal F)=\frac16\bigl(1-(1-2c)^3\bigr),
+ \qquad
+ (\overline\cL^{\,3})
+ =3\int\lambda\,\rd\DHm^{\mathrm u}(\mathcal F)
+ =\frac12\bigl(1-(1-2c)^3\bigr),
+\]
+using \(V=1\) and \eqref{eq:ch33-toric-intersection}.  For \(c=1/4\) this is
+\(\int\lambda\,\rd\DHm=\tfrac7{48}\) and
+\((\overline\cL^{\,3})=\tfrac7{16}\).  As \(c\to0\) both tend to \(0\), and
+the configuration degenerates to the trivial one; as \(c\to1/2\) the atom
+disappears and \(\DHm\) becomes \(4(1-2\tau)\mathbf 1_{[0,1/2)}\rd\tau\).
+
+\emph{Finite generation.}  The function \(g=\min\{x_1,x_2,c\}\) is a minimum
+of three rational affine functions, so
+\Cref{thm:ch33-toric}\,(4) applies: \(\mathcal F\) is rational and finitely
+generated, and by \Cref{thm:ch33-fg-filtration-tc} it comes from an
+integrally closed semiample test configuration, namely the one obtained by
+blowing up the flag ideal \eqref{eq:ch33-toric-flag}.  Replacing \(g\) by a
+strictly concave function such as
+\(\min\{c,\ \sqrt{x_1x_2}\}\) destroys finite generation for exactly the
+reason isolated in \Cref{ex:ch33-harmonic-not-fg}, while leaving
+\eqref{eq:ch33-toric-dh} and \eqref{eq:ch33-toric-fs} intact.
+\end{example}
+
+\section{The deferred geodesic dictionary}
+\label{sec:ch33-geodesic-deferred}
+
+Over \(\mathbf C\), a test configuration produces a weak geodesic ray in the
+space of positively curved metrics.  Its filtration records asymptotic
+singularity data, while \(\DHm(\mathcal F)\) records the distribution of
+ray slopes.  The precise correspondences require complex Monge--Amp\`ere
+theory and are proved only in
+\Crefrange{chap:master-dictionary}{chap:major-open-problems}.  At this stage
+we use merely
+\[
+\begin{array}{c|c|c}
+\text{degeneration}&\text{graded algebra}&\text{analytic function}\\ \hline
+(\cX,\cL)&\mathcal R(\mathcal F)&\phi_\chi\\
+\text{base change}&\text{weight dilation}&\text{scaling}\\
+\text{twist by a character}&\chi_m\mapsto\chi_m+cm&
+                                  \phi_\chi\mapsto\phi_\chi+c .
+\end{array}
+\]
+
+\subsection{What the correspondence says, and why one expects it}
+\label{sec:ch33-geodesic-motivation}
+
+It is worth stating the correspondence precisely here, if only so that the
+reader knows which arrows of the eventual diagram are already available and
+which are not.  Assume \(k=\mathbf C\), let \(X\) be a projective complex
+manifold, and let \(L\) be ample.  Fix a smooth positively curved metric on
+\(L\) as reference.
+
+A linearly bounded multiplicative filtration \(\mathcal F\) determines, for
+each \(\tau\in\mathbf R\), a partial Bergman function built from the
+\(L^2\)-normalized sections of \(\mathcal F^{m\tau}R_m\); the family of
+their asymptotic maximal envelopes is a decreasing concave family of
+singularity types, and its Legendre transform in \(\tau\) is a ray of
+positive metrics.  The three assertions of the correspondence are then:
+\begin{enumerate}
+\item the ray is a weak geodesic ray, and for a test configuration it is the
+ Phong--Sturm ray of \cite{PS07};
+\item its non-Archimedean shadow is the function \(\phi_\chi\) of
+ \eqref{eq:norm-fs-function};
+\item the distribution of its slopes is \(\DHm(\mathcal F)\).
+\end{enumerate}
+
+The heuristic for (3) is entirely algebraic and can be seen already in this
+chapter.  A section \(s\in\mathcal F^\lambda R_m\), transported along the
+degeneration by \(\varpi^{-\lambda}\), acquires the factor
+\(|\varpi|^{-\lambda}=\rme^{\lambda t}\) when \(|\varpi|=\rme^{-t}\); a
+weighted Bergman sum over an adapted basis therefore behaves like
+\(m^{-1}\log\sum_j\rme^{t\lambda_{m,j}}\lVert s_{m,j}\rVert^2\), whose
+\(t\)-derivative at large \(t\) is dominated by the largest weights and
+whose average over the spectrum is the first moment of \(\nu_m\).  The
+passage from this heuristic to a theorem is the content of
+\Cref{thm:rf-phong-sturm} and \Cref{thm:rf-energy-slope}, and it requires
+complex pluripotential theory that is not available here: partial Bergman
+kernels, maximal envelopes, and the Ross--Witt Nystr\"om correspondence
+between test curves and geodesic rays.  We do not use any of it in
+\Crefrange{chap:bj-fs-pl-psh}{chap:bj-stability}.
+
+\begin{warning}{Nothing in Part IV depends on the complex side}
+\label{warn:ch33-no-complex-input}
+Every statement proved in this chapter is algebraic and valid over an
+arbitrary algebraically closed trivially valued field, of arbitrary
+characteristic.  In particular
+\Cref{thm:dh-limit-filtration,thm:ch33-dh-weight-count} do not use complex
+geometry, and the energy functionals of \Cref{chap:bj-energy} are
+constructed from the non-Archimedean side alone.  A reader interested only
+in Part IV may stop at the table above.
+\end{warning}
+
+\subsection{The erratum boundary}
+\label{sec:ch33-erratum-boundary}
+
+Asymptotic slope statements---identifications of the limit as
+\(t\to\infty\) of \(t^{-1}\) times a complex energy functional along a ray
+with a non-Archimedean functional---must be handled with care, because part
+of the published literature on them was retracted.  The precise dependency
+ledger is \Cref{thm:rf-erratum-audit}, which we adopt verbatim as a standing
+constraint.
+
+\begin{warning}{No erratum-affected input}
+\label{warn:ch33-erratum-firewall}
+No statement of this chapter uses, directly or transitively, any of the
+results listed in \eqref{eq:rf-quarantined-results}, nor any reformulation
+of one of them under another name; the prohibition of
+\Cref{warn:rf-no-surrogate} is in force here as well.  The only asymptotic
+identity used above is the purely algebraic moment formula
+\eqref{eq:ch33-first-moment-intersection}, which comes from
+\cite[Corollary~3.4]{BHJ17}: a different paper, concerned with
+Duistermaat--Heckman measures of test configurations over an arbitrary
+field, and unaffected by the erratum.  No statement of this chapter asserts
+that a complex energy slope equals a non-Archimedean energy; such
+statements appear only in \Cref{chap:rays-filtrations}, each with its own
+post-erratum source.
+\end{warning}
+
+\section{Chapter dictionary and source note}
+\label{sec:ch33-dictionary}
+
+The following table collects the correspondences proved above.  Each row is
+an equivalence of data, not merely a construction in one direction; the
+rightmost column gives the statement in which it is proved.
+
+\[
+\renewcommand{\arraystretch}{1.25}
+\begin{array}{l|l|l}
+\text{degeneration}&\text{algebra}&\text{proved in}\\ \hline
+\text{test configuration }\cX
+ &\text{integrally closed model}
+ &\Cref{prop:ch33-integral-closure-exists}\\
+\text{compactification }\overline\cX\to\mathbf P^1
+ &\text{intersection numbers}
+ &\Cref{thm:ch33-intersection-invariance}\\
+\text{flag ideal }\mathfrak a
+ &\text{normalized Rees algebra}
+ &\Cref{thm:ch33-flag-tc-equivalence}\\
+\text{vertical divisor }D
+ &\text{function }\phi_D=\phi_{\mathfrak a}
+ &\Cref{lem:ch33-effectivity}\\
+\text{semiample }(\cX,\cL)
+ &\text{f.g.\ rational filtration}
+ &\Cref{thm:ch33-fg-filtration-tc}\\
+\text{central-fibre weights}
+ &\operatorname{gr}_{\mathcal F}R_m
+ &\Cref{prop:ch33-central-fibre-weights}\\
+\text{base change of degree }d
+ &\chi_m\mapsto d\chi_m
+ &\Cref{prop:ch33-transformations}\\
+\text{twist by a character}
+ &\chi_m\mapsto\chi_m+cm
+ &\Cref{prop:ch33-transformations}\\
+\text{weight distribution}
+ &\DHm(\mathcal F)=G_{\mathcal F\ast}\lambda_\Delta
+ &\Cref{thm:ch33-dh-concave-transform}\\
+\text{first moment}
+ &(\overline\cL^{\,n+1})/(n+1)
+ &\Cref{thm:ch33-dh-weight-count}
+\end{array}
+\]
+
+Three boundaries of the dictionary should be kept in mind.  Filtrations that
+are not of finite type have no model
+(\Cref{ex:ch33-harmonic-not-fg}); the associated function determines the
+test configuration only after the linearization and the integral closure
+have been fixed (\Cref{prop:tc-valuative-invariance}); and the
+Duistermaat--Heckman measure, while a genuine invariant, is far from a
+complete one, since it depends only on the jumping numbers and not on the
+position of the filtered subspaces.
+
+\section*{Source note}
+
+The test-configuration and Fubini--Study dictionary is
+\cite[\S\S1--2]{BJ22}; the filtration and Duistermaat--Heckman viewpoint is
+developed in \cite{BHJ17}.  The definitions above retain the integral
+closure and the linearization, since forgetting either makes the dictionary
+noninjective.
+
+In more detail: \Cref{def:bj-test-configuration} and the structure results
+of \Cref{sec:ch33-tc-structure} follow \cite[\S1.2]{BJ22}, which in turn
+rests on \cite[\S2]{BHJ17}; reducedness of the total space is
+\cite[Proposition~2.6]{BHJ17}.  Integrally closed test configurations, the
+vertical Serre criterion \Cref{thm:ch33-integrally-closed-criterion}, and
+the polar-scheme argument in \Cref{lem:ch33-effectivity} are
+\cite[\S1.4]{BJ22}; the notion goes back to the ``partially normal''
+configurations of \cite{Od13}, and its use in K-stability to
+\cite{Od13,Od13b}.  The correspondence between components of the central
+fibre and divisorial valuations is \cite[Theorem~4.6]{BHJ17}, quoted as
+\cite[Lemma~1.20]{BJ22}.  Flag ideals are due to \cite{Od13}; their
+semiring calculus \eqref{eq:flag-semiring} and the associated PL functions
+are \cite[\S2.1]{BJ22}, and Rees valuations are
+\cite[Definition~2.10]{BJ22}.  The equivalence of
+\Cref{thm:ch33-flag-tc-equivalence} is the content of
+\cite[Lemmas~2.9 and~2.12]{BJ22}, and
+\Cref{lem:ch33-projective-blowup-presentation} uses
+\cite[Lemma~1.8]{BJ22} together with relative \(\Proj\) reconstruction.
+\cite[Proposition~2.30]{BJ22} supplies only the uniqueness of the ample
+integrally closed representative of a semiample test configuration; it does
+not identify an arbitrary finitely generated filtration with its saturated
+integral closure.  The latter quotient is stated explicitly in
+\Cref{thm:ch33-fg-filtration-tc}.
+
+Filtrations of section rings entered K-stability through
+\cite{Sze15}, whose appendix by Boucksom relates general filtrations to
+test configurations; the systematic treatment in the form used here is
+\cite[\S2]{BHJ17}.  The Duistermaat--Heckman measure of a test
+configuration, its moments, and the intersection formula
+\eqref{eq:ch33-first-moment-intersection} are \cite[\S3]{BHJ17},
+specifically Corollary~3.4 there.  The existence of the limit for an
+arbitrary linearly bounded multiplicative filtration, and its description as
+the push-forward of Lebesgue measure on an Okounkov body by a concave
+transform, is \cite[Theorem~A]{BC11}, resting on the Okounkov-body
+construction of \cite{Oko03,LM09,KK12}; the relation between test
+configurations and Okounkov bodies was first exploited in \cite{WN12}.  The
+convexity properties recorded in \Cref{cor:ch33-dh-structure} are the
+general convex-geometric statements of \Cref{sec:dh-preview}, in particular
+Brunn--Minkowski concavity of the tail volumes.  Toric test configurations in the form of
+\Cref{thm:ch33-toric} go back to \cite{Don02}.  Metric properties of the space
+of graded norms, including the distances \(d_p\) for which
+\Cref{prop:ch33-dh-continuity} is one endpoint, are developed in
+\cite{BJKS1} and used in \Cref{chap:bj-stability}.  Finite generation for
+the filtrations that compute stability thresholds is the theorem of
+\cite{LXZ22}; nothing in this chapter depends on it.
+
+Two normalizations deserve a final word.  The Duistermaat--Heckman measure
+of \Cref{thm:dh-limit-filtration} is a probability measure, matching
+\cite{BHJ17} and \Cref{thm:rf-dh-quantization}, while
+\Cref{sec:appJ-rays} and \Cref{chap:transcendental-okounkov-dh} use the
+unnormalized measure of mass \(V\); the conversion is
+\eqref{eq:ch33-dh-unnormalized}.  And the sign of the filtration weight is
+fixed by \Cref{def:ch33-tc-filtration} and
+\Cref{rem:ch33-weight-sign}, not by an appeal to a one-parameter subgroup;
+a source that lets the subgroup act on points rather than on homogeneous
+coordinates obtains the reflected measure.

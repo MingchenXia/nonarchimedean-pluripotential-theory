@@ -1,0 +1,2961 @@
+\chapter{Topological, convex, and measure-theoretic tools}
+\index{net}\index{upper envelope}\index{Radon measure}
+\label{chap:topological-tools}
+
+The spaces of metrics used later are seldom finite-dimensional and are not
+always metrizable.  Suprema of plurisubharmonic functions need not be upper
+semicontinuous, weak convergence of measures is topological rather than
+pointwise, and several natural functionals take the value $-\infty$ or
+$+\infty$.  These elementary facts account for a surprising number of gaps in
+informal arguments.  The purpose of this chapter is to isolate the tools that
+will be used repeatedly and to fix safe conventions once and for all.
+
+Three failures recur, and it is worth naming them before any definition is
+given.
+
+\emph{First, sequences do not see the topology.}  A Berkovich analytification
+of a proper variety is compact and Hausdorff, but it is metrizable only under
+countability hypotheses on the ground field and the variety.  A compact space
+that is not metrizable can contain a sequence with no convergent subsequence;
+\cref{ex:net-no-subsequence} exhibits one explicitly.  Any argument of the
+shape ``by compactness, pass to a convergent subsequence'' is therefore not a
+proof until metrizability, first countability, or a Choquet reduction has been
+established.  We consistently argue with nets, and we mark each place where a
+sequence is legitimately recovered.
+
+\emph{Second, suprema destroy upper semicontinuity.}  Plurisubharmonic
+functions are upper semicontinuous by definition, and every envelope
+construction in this book forms the supremum of a family of them.  That
+supremum is in general not upper semicontinuous, as
+\cref{ex:sup-not-usc,ex:sup-not-usc-log} show, and the correct object is its
+upper semicontinuous regularization.  The whole content of the envelope
+theorem of \cref{part:bj} is that this regularization stays inside the psh
+class; the regularization itself is a purely topological operation, developed
+here.
+
+\emph{Third, the natural functionals are extended-real.}  Potentials take the
+value $-\infty$, energies of unbounded potentials may be $-\infty$, dual
+energies may be $+\infty$, and differences of two such quantities are
+routinely written down in the literature.  \cref{sec:extended-arithmetic}
+fixes a ledger for these operations, justifies each entry, and shows by
+explicit example what fails if the entry is dropped.
+
+The chapter depends only on elementary topology and measure theory; no
+Berkovich geometry is used in the proofs, although the examples are chosen so
+that their later incarnations are visible.  The
+capacity language in \cref{sec:capacity-preview} is a preview: concrete
+Monge--Amp\`ere capacities will be constructed in
+\cref{part:bfj,part:bj}.  Likewise,
+the concave transforms in \cref{sec:dh-preview} anticipate filtrations and
+test curves without presupposing them.
+
+\subsection*{Relation to the appendices}
+
+Two appendices carry the same material at a different level of generality, and
+the division of labour is deliberate.
+\Cref{app:nets} is a reference sheet on directed sets: it distinguishes
+Willard subnets from order-preserving Moore--Smith subnets, proves the
+cluster-point and compactness equivalences for both, and records the
+extended-real identities in their most general form.
+\Cref{app:convexity} is a reference sheet on convex analysis: closed convex
+functions on a finite-dimensional vector space, Legendre--Fenchel duality,
+mixed volumes, and Alexandrov Monge--Amp\`ere measures.
+
+The present chapter is not a summary of either.  It states, in the exact form
+in which they will be quoted, the finitely many statements that the main
+narrative uses; it proves those statements; and it supplies the worked
+examples and counterexamples that show why the hypotheses cannot be weakened.
+When a variant is needed only once, or only in a technical step, the
+statement is quoted from the appendix rather than reproved.  In particular we
+use the Willard subnet convention of \Cref{def:appE-willard-subnet}
+throughout, and we use the finite-dimensional biconjugation theorem
+\Cref{thm:appD-fenchel-moreau} as the one imported convex-analytic input of
+\cref{sec:radon-weak}.
+
+\subsection*{Roadmap}
+
+\Cref{sec:nets-compactness} develops Moore--Smith convergence: nets, subnets,
+the net characterizations of closure, continuity, and compactness, the net
+description of semicontinuity, monotone nets, and Dini's theorem in the two
+forms that occur later.
+\Cref{sec:usc-envelopes} treats upper semicontinuous regularization, proves
+the identities that the envelope calculus uses without comment, and proves the
+Choquet selection lemma together with a sharp analysis of the countability
+hypothesis.
+\Cref{sec:radon-weak} states the Riesz representation interface precisely,
+develops weak convergence of Radon measures, and proves the finite-dimensional
+energy duality and Legendre transform statements that the variational chapters
+imitate in infinite dimensions.
+\Cref{sec:capacity-preview} sets up capacities, quasicontinuity, and polar
+sets axiomatically, at exactly the level of generality that \cref{part:bfj}
+and \cref{part:bj} will import.
+\Cref{sec:dh-preview} treats concave functions on convex bodies and their
+Duistermaat--Heckman distributions.
+\Cref{sec:extended-arithmetic} contains the extended-real ledger.
+The closing section collects the dictionary and the sources.
+
+\section{Nets and compactness}
+\label{sec:nets-compactness}
+
+\begin{definition}
+A \emph{directed set} is a partially ordered set $(A,\leq)$ such that for any
+$a_1,a_2\in A$ there exists $a_3\in A$ with $a_1,a_2\leq a_3$.  A \emph{net}
+in a set $X$ indexed by $A$ is a map $A\to X$, written $(x_a)_{a\in A}$.
+If $X$ is a topological space, the net converges to $x\in X$ if for every
+neighborhood $U$ of $x$ there exists $a_0\in A$ such that $x_a\in U$ whenever
+$a\geq a_0$.
+\end{definition}
+
+Sequences are nets indexed by $\mathbf N$, but they do not detect the topology
+of an arbitrary space.  We will therefore state compactness and continuity in
+terms of nets unless a metrizability or countability argument has already
+reduced the discussion to sequences.
+
+Antisymmetry of $\leq$ is never used below, and \Cref{def:appE-directed}
+drops it; a directed preorder is enough, and some of the index sets occurring
+in this book are naturally preordered rather than ordered.  Two pieces of
+vocabulary shorten every later statement.  A property $P(a)$ holds
+\emph{eventually} if there is $a_0$ with $P(a)$ for all $a\geq a_0$, and it
+holds \emph{frequently} if for every $a_0$ there is $a\geq a_0$ with $P(a)$.
+Thus $x_a\to x$ means that $x_a$ is eventually in every neighborhood of $x$,
+and $x$ is a \emph{cluster point} of $(x_a)$ if $x_a$ is frequently in every
+neighborhood of $x$.  Negating ``eventually'' gives ``frequently not'', a
+rewriting used repeatedly and silently.
+
+The directed sets that actually occur in this book are worth listing once,
+because their directedness is exactly the property that makes the later
+arguments work.
+
+\begin{example}[The directed sets used in this book]
+\label{ex:directed-sets-of-the-book}
+Each of the following is directed, for the stated reason.
+\begin{enumerate}
+\item The natural numbers with their usual order.  Nets indexed by $\mathbf N$ are
+  sequences.
+\item The neighborhoods of a point $x$ of a topological space, ordered by reverse
+  inclusion.  Two neighborhoods have their intersection as a common upper
+  bound.  This is the index set of the neighborhood net of
+  \Cref{ex:appE-neighborhood-net}, and it is the device that replaces
+  ``choose a sequence tending to $x$'' in a space with no countable
+  neighborhood basis.
+\item The finite subsets of a set $S$, ordered by inclusion.  Two finite subsets
+  have their union as an upper bound.  This index set produces the standard
+  counterexamples of \cref{sec:extended-arithmetic} and of
+  \Cref{ex:appE-measurable-net-failure}.
+\item The models of a fixed variety over a valuation ring, ordered by domination
+  as in \cref{chap:models}.  Two models are dominated by a common third one,
+  obtained by normalizing the closure of the diagonal in their fibre product.
+  Model functions and model metrics are indexed by this directed set, and
+  \cref{chap:bfj-psh} takes limits along it.
+\item A family $\mathcal F$ of functions that is stable under finite maxima,
+  ordered pointwise.  The maximum of two members is a common upper bound.
+  Every envelope in this book is the supremum over such a family, and
+  directedness is what converts a supremum into an increasing limit.
+\item The pairs $(a,\varepsilon)\in A\times\mathbf R_{>0}$, where $A$ is directed,
+  ordered by $a\leq a'$ and $\varepsilon\geq\varepsilon'$.  This is the index
+  set of every diagonal argument in which one index is refined while a
+  tolerance is decreased.
+\end{enumerate}
+Directedness fails, by contrast, for the family of \emph{all} subsets of $S$
+of cardinality exactly one, and for the family of compact subsets of a
+noncompact space ordered by \emph{reverse} inclusion; neither is used as an
+index set.
+\end{example}
+
+\begin{definition}
+Let $(x_a)_{a\in A}$ be a net.  A \emph{subnet} is a net
+$(x_{\sigma(b)})_{b\in B}$, where $B$ is directed and
+$\sigma:B\to A$ is order preserving and cofinal.  For an order-preserving
+map, cofinality is equivalent to the following tail condition: for every
+$a_0\in A$ there exists $b_0\in B$ such that
+\[
+                   b\geq b_0\quad\Longrightarrow\quad
+                   \sigma(b)\geq a_0.
+\]
+No injectivity of $\sigma$ is required.
+\end{definition}
+
+The eventual-cofinality condition is essential.  Merely choosing infinitely
+many terms of a net can discard an entire tail and does not give a subnet in
+the topological sense.
+
+\begin{remark}[Which subnet convention is in force]
+\label{rem:subnet-conventions}
+Three inequivalent definitions of ``subnet'' circulate.  The most restrictive
+requires $\sigma$ to be order preserving \emph{and} cofinal, as above; the
+Willard convention of \Cref{def:appE-willard-subnet} requires only that
+$\sigma$ be eventually in every tail, without order preservation; the
+Kelley convention requires cofinality of the image in a weaker sense.  All
+three yield the same class of \emph{convergent-subnet} statements, because
+\Cref{thm:appE-cluster-subnet} produces an order-preserving Moore--Smith
+subnet whenever a Willard subnet exists.  We therefore use the definition
+above in the main text and quote the appendix when the more flexible Willard
+form is convenient.  What is never permissible is to replace a subnet by a
+subsequence: a subsequence of a net indexed by $A$ is not even defined unless
+a cofinal map $\mathbf N\to A$ exists, and \cref{ex:no-cofinal-sequence} shows
+that such a map need not exist.
+\end{remark}
+
+\begin{example}[A directed set with no cofinal sequence]
+\label{ex:no-cofinal-sequence}
+Let $S$ be an uncountable set and let $A$ be the collection of finite subsets
+of $S$, directed by inclusion as in
+\Cref{ex:directed-sets-of-the-book}.  Suppose $\sigma:\mathbf N\to A$ were
+cofinal, so that every $F\in A$ satisfies $F\subseteq\sigma(n)$ for some $n$.
+Then $S=\bigcup_{n}\sigma(n)$ is a countable union of finite sets, hence
+countable, contradicting the choice of $S$.  Consequently a net indexed by
+$A$ has no subnet indexed by $\mathbf N$, and every statement about such a net
+must be proved for nets.  This directed set is not exotic: it is the index set
+of the finite-subset net in \Cref{ex:appE-measurable-net-failure} and, in
+\cref{part:bj}, of the family of finite maxima of Fubini--Study functions
+attached to a possibly uncountable family of sections.
+\end{example}
+
+\begin{proposition}\label{prop:net-criterion}
+Let $X$ and $Y$ be topological spaces.
+\begin{enumerate}
+\item A subset $F\subset X$ is closed if and only if every convergent net in
+  $F$ has its limit in $F$.
+\item A map $f:X\to Y$ is continuous if and only if $x_a\to x$ implies
+  $f(x_a)\to f(x)$ for every net $(x_a)$.
+\item The space $X$ is compact if and only if every net in $X$ has a
+  convergent subnet.
+\item If $X$ is Hausdorff, a convergent net has a unique limit.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+We prove all four assertions; the neighborhood net of
+\Cref{ex:appE-neighborhood-net} is the only construction used in the first
+two.
+
+\emph{(1).}  Suppose $F$ is closed, let $(x_a)$ be a net in $F$, and let
+$x_a\to x$.  If $x\notin F$, then $X\setminus F$ is a neighborhood of $x$, so
+the net is eventually in $X\setminus F$; but every term lies in $F$, a
+contradiction.  Conversely, suppose $F$ is not closed and choose
+$x\in\overline F\setminus F$.  Direct the neighborhoods of $x$ by reverse
+inclusion; since $x\in\overline F$, every neighborhood $U$ meets $F$, so we
+may choose $x_U\in F\cap U$.  Given a neighborhood $V$ of $x$, every
+$U\preceq$-larger than $V$ satisfies $U\subseteq V$ and hence $x_U\in V$.
+Thus $x_U\to x$, and this convergent net in $F$ has its limit outside $F$.
+
+\emph{(2).}  Let $f$ be continuous, let $x_a\to x$, and let $V$ be a
+neighborhood of $f(x)$.  Then $f^{-1}(V)$ is a neighborhood of $x$, so $x_a$
+is eventually in it and $f(x_a)$ is eventually in $V$.  Conversely, suppose
+$f$ is not continuous at $x$: some neighborhood $V$ of $f(x)$ has the property
+that no neighborhood $U$ of $x$ satisfies $f(U)\subseteq V$.  Equivalently,
+every neighborhood $U$ of $x$ contains a point $x_U$ with
+$f(x_U)\notin V$.  The resulting neighborhood net converges to $x$ by the
+argument in (1), while $f(x_U)$ never enters $V$ and so does not converge to
+$f(x)$.
+
+\emph{(3).}  Suppose first that $X$ is compact and let $(x_a)_{a\in A}$ be a
+net.  Direct the tails of the net together with their closures:
+\[
+                  F_a=\overline{\{x_b:b\geq a\}}.
+\]
+Directedness gives the finite-intersection property, so compactness yields
+$x\in\bigcap_aF_a$.  For every pair $(a,U)$, with $U$ a neighborhood of
+$x$, there is some $b\geq a$ such that $x_b\in U$.  Let $B$ consist of all
+triples $(a,U,b)$ with these properties, and declare
+\[
+ (a,U,b)\leq(a',U',b')
+ \quad\Longleftrightarrow\quad
+ a\leq a',\quad U'\subseteq U,\quad b\leq b'.
+\]
+The cluster-point property shows that $B$ is directed: first dominate the
+two $a$- and $b$-indices, intersect the two neighborhoods, and then choose a
+later term in that intersection.  The map
+$\sigma(a,U,b)=b$ is order preserving and cofinal, and the associated subnet
+converges to $x$.
+
+We spell out the last three assertions of that paragraph, since they are the
+only delicate point.  The set $B$ is nonempty over each pair $(a,U)$ precisely
+because $x\in F_a$ for every $a$, so the tail $\{x_b:b\geq a\}$ meets $U$.
+Given $(a_1,U_1,b_1)$ and $(a_2,U_2,b_2)$, choose $a_3\geq a_1,a_2,b_1,b_2$ in
+$A$, put $U_3=U_1\cap U_2$, and use $x\in F_{a_3}$ to find $b_3\geq a_3$ with
+$x_{b_3}\in U_3$; then $(a_3,U_3,b_3)$ dominates both triples.  The map
+$\sigma(a,U,b)=b$ is order preserving by construction.  It is cofinal in the
+tail sense: given $a_0\in A$, pick any $U_0\ni x$ and $b_0\geq a_0$ with
+$x_{b_0}\in U_0$; every triple $\geq(a_0,U_0,b_0)$ has last entry
+$\geq b_0\geq a_0$.  Finally the subnet converges to $x$: given a neighborhood
+$V$ of $x$, choose $b_V$ with $x_{b_V}\in V$ and consider triples
+$\geq(b_V,V,b_V)$; their neighborhood entry $U$ satisfies $U\subseteq V$, and
+the defining condition $x_b\in U$ gives $x_b\in V$.
+
+Conversely, if an open cover $\mathcal U$ has no finite
+subcover, direct its finite subfamilies by inclusion and choose
+\[
+                  x_{\mathcal V}\notin\bigcup_{U\in\mathcal V}U.
+\]
+No subnet can converge: a limit belongs to some $U\in\mathcal U$, whereas
+eventual cofinality forces the subnet eventually to have indices containing
+$U$ and hence to lie outside $U$.
+
+\emph{(4).}  Let $X$ be Hausdorff and suppose $x_a\to x$ and $x_a\to y$ with
+$x\neq y$.  Choose disjoint neighborhoods $U\ni x$ and $V\ni y$.  The net is
+eventually in $U$ and eventually in $V$; directedness produces one index
+beyond both thresholds, and the corresponding term lies in $U\cap
+V=\varnothing$.
+\end{proof}
+
+\begin{remark}
+On a first-countable space, limits are detected by sequences, and on a metric
+space compactness is equivalent to sequential compactness.  Berkovich spaces
+that occur in this book are compact Hausdorff under properness hypotheses,
+but they need not come with a preferred metric.  The net formulation is
+therefore the safe default.
+\end{remark}
+
+The following example is the reason the previous sentence is not a stylistic
+preference.  It shows that a compact Hausdorff space can carry a sequence with
+no convergent subsequence, so that the phrase ``extract a convergent
+subsequence'' has no content there, while
+\Cref{prop:net-criterion} still supplies a convergent subnet.
+
+\begin{example}[A sequence in a compact space with no convergent subsequence]
+\label{ex:net-no-subsequence}
+Let
+\[
+ X=\{0,1\}^{[0,1]}
+ =\bigl\{\text{all maps }[0,1]\to\{0,1\}\bigr\},
+\]
+with the product topology, where $\{0,1\}$ is discrete.  By the Tychonoff
+theorem \cite[Chapter~5]{Kel75}, $X$ is compact; it is Hausdorff because two
+distinct maps differ at some $t$, and the corresponding coordinate projections
+separate them.  Convergence in $X$ is exactly pointwise convergence:
+a basic neighborhood constrains finitely many coordinates.
+
+For $t\in[0,1)$ let
+\[
+ t=\sum_{n\geq1}\beta_n(t)2^{-n},\qquad\beta_n(t)\in\{0,1\},
+\]
+be the binary expansion, chosen to be the one that is eventually $0$ when $t$
+is a dyadic rational.  Define $\beta_n(1)=0$ for every $n$; then $\beta_n$
+is a well-defined map $[0,1]\to\{0,1\}$.  Set $x_n=\beta_n\in X$.
+
+We claim that no subsequence of $(x_n)$ converges.  Let
+$n_1<n_2<n_3<\cdots$ be any strictly increasing sequence of indices and put
+\[
+ t_0=\sum_{k\geq1}2^{-n_{2k}}\in[0,1].
+\]
+Since the exponents $n_2<n_4<n_6<\cdots$ are strictly increasing, this series
+is a binary expansion that is not eventually $1$, so it is the chosen
+expansion of $t_0$ and
+\[
+ \beta_{n_{2k}}(t_0)=1,\qquad \beta_{n_{2k-1}}(t_0)=0
+ \qquad(k\geq1).
+\]
+Thus the coordinate of $x_{n_j}$ at $t_0$ alternates between $0$ and $1$ and
+does not converge.  Since convergence in $X$ is coordinatewise, the
+subsequence $(x_{n_j})$ does not converge.
+
+By \Cref{prop:net-criterion}\,(3) the sequence $(x_n)$ nevertheless has a
+convergent subnet; concretely, $\{0,1\}^{[0,1]}$ being compact, the closed
+tails $\overline{\{x_m:m\geq n\}}$ have a common point $x$, and the
+construction in the proof produces a subnet converging to $x$.  No such subnet
+is indexed by $\mathbf N$ in an order-preserving cofinal way, by the argument
+just given.
+
+The example is not pathological from the point of view of this book.  The
+space $X$ is the space of $\{0,1\}$-valued functions on an uncountable set;
+spaces of the same nature arise as spaces of semivaluations, and
+$\mathcal P(X)$ with its weak topology, studied in \cref{sec:radon-weak}, is a
+compact convex set that is metrizable only when $C(X)$ is separable.
+\end{example}
+
+Semicontinuity is the property that the book tests most often, and it too has
+a clean net formulation.  Recall that $f:X\to\Rbar$ is \emph{upper
+semicontinuous}, abbreviated usc, if $\{f<c\}$ is open for every
+$c\in\mathbf R$, and \emph{lower semicontinuous}, abbreviated lsc, if $-f$ is
+usc.
+
+\begin{proposition}\label{prop:net-semicontinuity}
+Let $X$ be a topological space and $f:X\to\Rbar$.  Then $f$ is upper
+semicontinuous if and only if
+\begin{equation}
+\label{eq:net-usc-test}
+ \limsup_a f(x_a)\leq f(x)
+\end{equation}
+for every net $(x_a)$ in $X$ with $x_a\to x$.  Dually, $f$ is lower
+semicontinuous if and only if $\liminf_a f(x_a)\geq f(x)$ for every such net.
+\end{proposition}
+
+\begin{proof}
+Assume $f$ is usc and let $x_a\to x$.  If $f(x)=+\infty$ there is nothing to
+prove, so let $c>f(x)$ be real.  Then $\{f<c\}$ is an open neighborhood of
+$x$, so $f(x_a)<c$ eventually, whence $\limsup_af(x_a)\leq c$.  Letting
+$c\downarrow f(x)$ gives \eqref{eq:net-usc-test}; if $f(x)=-\infty$ the same
+argument with $c\downarrow-\infty$ gives $\limsup_af(x_a)=-\infty$.
+
+Conversely, suppose $f$ is not usc.  Then $\{f<c\}$ fails to be open for some
+real $c$, so there is $x$ with $f(x)<c$ such that every neighborhood $U$ of
+$x$ contains a point $x_U$ with $f(x_U)\geq c$.  The neighborhood net
+$(x_U)$ converges to $x$ by the proof of \Cref{prop:net-criterion}\,(1),
+while
+\[
+ \limsup_U f(x_U)\geq c>f(x),
+\]
+contradicting \eqref{eq:net-usc-test}.  The lower semicontinuous case follows
+by replacing $f$ with $-f$ and using
+$\liminf_a(-r_a)=-\limsup_a r_a$, which is immediate from the definitions in
+\cref{sec:extended-arithmetic}.
+\end{proof}
+
+\begin{corollary}\label{cor:usc-attains-max}
+Let $K$ be a nonempty compact space and let
+$f:K\to\mathbf R\cup\{-\infty\}$ be upper semicontinuous.  Then $f$ attains
+its supremum; in particular $f$ is bounded above.
+\end{corollary}
+
+\begin{proof}
+Put $M=\sup_Kf\in\mathbf R\cup\{\pm\infty\}$.  If $M=-\infty$ then
+$f\equiv-\infty$ and every point is a maximizer, so assume $M>-\infty$ and let
+$A=\{m\in\mathbf R:m<M\}$, directed by the usual order and nonempty.  For
+$m\in A$ choose $x_m\in K$ with $f(x_m)>m$, which is possible by the
+definition of a supremum.  For $m\geq m_0$ we get $f(x_m)>m_0$, so
+\[
+ \liminf_{m}f(x_m)\geq\sup_{m_0\in A}m_0=M,
+\]
+while $\limsup_mf(x_m)\leq M$ trivially; hence $f(x_m)\to M$.  By
+\Cref{prop:net-criterion}\,(3) there is a subnet $x_{\sigma(b)}\to x\in K$,
+and by \Cref{lem:appE-tail-subnet} the corresponding subnet of values still
+converges to $M$.  \Cref{prop:net-semicontinuity} gives
+\[
+ f(x)\geq\limsup_bf(x_{\sigma(b)})=M .
+\]
+Since $f\leq M$ everywhere, $f(x)=M$.  As $f$ does not take the value
+$+\infty$, this forces $M\in\mathbf R$, so $f$ is bounded above.
+\end{proof}
+
+\subsection{Monotone nets of functions}
+
+Let $S$ be a set.  A net $(f_a)$ of extended-real functions on $S$ is
+\emph{increasing} if $a\leq b$ implies $f_a\leq f_b$ pointwise, and
+\emph{decreasing} if $a\leq b$ implies $f_a\geq f_b$.  We then write
+$f_a\nearrow f$ or $f_a\searrow f$ for the pointwise supremum or infimum.
+
+A monotone net of extended-real numbers always converges in $\Rbar$, to its
+supremum or infimum; this is the one convergence statement that never needs a
+compactness hypothesis, and we record it because it is used at almost every
+occurrence of a monotone family.
+
+\begin{lemma}\label{lem:monotone-net-converges}
+Let $(r_a)_{a\in A}$ be an increasing net in $\Rbar$ and let $r=\sup_ar_a$.
+Then $r_a\to r$ in the order topology of $\Rbar$.  The analogous statement
+holds for decreasing nets and infima.  Consequently, for a monotone net
+$(f_a)$ of extended-real functions on a set $S$, the pointwise limit exists at
+every point and equals the pointwise supremum, respectively infimum.
+\end{lemma}
+
+\begin{proof}
+A neighborhood basis of $r$ in $\Rbar$ consists of the sets $(c,d)$ with
+$c<r<d$ when $r$ is finite, of the sets $(c,+\infty]$ with $c<r$ when
+$r=+\infty$, and of the sets $[-\infty,d)$ with $d>r$ when $r=-\infty$.  In
+all three cases it suffices to show that for $c<r$ the net is eventually in
+$(c,+\infty]$ and that for $d>r$ it is eventually in $[-\infty,d)$.  The
+second statement holds for every index, since $r_a\leq r<d$.  For the first,
+$c<r=\sup_ar_a$ produces $a_0$ with $r_{a_0}>c$, and monotonicity gives
+$r_a\geq r_{a_0}>c$ for $a\geq a_0$.  The decreasing case follows by applying
+this to $(-r_a)$, and the pointwise statement is the numerical statement at
+each point of $S$.
+\end{proof}
+
+\begin{proposition}\label{prop:dini-nets}
+Let $K$ be compact, and let $(f_a)$ be a decreasing net of continuous
+real-valued functions on $K$.  If $f_a\searrow f$ and $f$ is continuous,
+then $f_a\to f$ uniformly.
+\end{proposition}
+
+\begin{proof}
+Fix $\varepsilon>0$.  The sets
+\[
+                     U_a=\{x\in K:f_a(x)<f(x)+\varepsilon\}
+\]
+are open, increasing with $a$, and cover $K$.  A finite subcover is dominated
+by one index $a_0$.  Hence $0\leq f_a-f<\varepsilon$ on $K$ for all
+$a\geq a_0$.
+\end{proof}
+
+Three points in this proof deserve to be isolated, because the form of Dini's
+theorem actually used later weakens the hypotheses in exactly these places.
+The sets $U_a$ are open because $f_a-f$ is continuous; they increase because
+the net decreases; and they cover $K$ because $\inf_af_a=f$ pointwise.  The
+finite subcover is dominated by a single index because the family $(U_a)$ is
+directed, so that a finite union $U_{a_1}\cup\cdots\cup U_{a_k}$ is contained
+in $U_{a_0}$ for any $a_0\geq a_1,\dots,a_k$.  Openness of $U_a$ survives if
+$f_a$ is merely usc and $f$ is merely lsc, since then $f_a-f$ is usc where the
+difference is defined.  This gives the version we shall quote.
+
+\begin{proposition}
+\label{prop:dini-usc}
+Let $K$ be compact, let $(f_a)$ be a decreasing net of upper semicontinuous
+functions $K\to\mathbf R\cup\{-\infty\}$, and let $f=\inf_af_a$.
+\begin{enumerate}
+\item If $f$ is lower semicontinuous and real valued, then $f_a\to f$
+  uniformly on $K$, and in particular $f$ is continuous and $f_a$ is
+  eventually real valued and bounded.
+\item Without further hypotheses, and for every real $c$,
+\[
+ f<c\ \text{ on }K
+ \quad\Longrightarrow\quad
+ f_a<c\ \text{ on }K\ \text{ eventually}.
+\]
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+\emph{(2).}  The sets $V_a=\{f_a<c\}$ are open because $f_a$ is usc, and they
+increase with $a$ because the net decreases.  If $f<c$ everywhere, then for
+each $x$ there is $a$ with $f_a(x)<c$, so the $V_a$ cover $K$.  Compactness
+gives a finite subcover, and directedness gives one index $a_0$ with
+$V_{a_0}=K$.  Monotonicity gives $V_a=K$ for $a\geq a_0$.
+
+\emph{(1).}  Fix $\varepsilon>0$ and set
+\[
+ U_a=\{x\in K:f_a(x)<f(x)+\varepsilon\}.
+\]
+Since $f$ is lsc and real valued and $f_a$ is usc, the function $f_a-f$ is
+usc, so $U_a$ is open; the sets increase with $a$; and they cover $K$ because
+$\inf_af_a=f$ pointwise with $f(x)$ finite.  As before, compactness and
+directedness give $a_0$ with $U_{a_0}=K$, and then
+\[
+ 0\leq f_a-f<\varepsilon\qquad\text{on }K,\ a\geq a_0 .
+\]
+In particular $f_{a_0}$ is real valued, and $f$, being a uniform limit of the
+usc functions $f_a$, is usc; being lsc by hypothesis, it is continuous.
+\end{proof}
+
+\begin{remark}
+\label{rem:dini-hypotheses-sharp}
+Both hypotheses in \Cref{prop:dini-usc}\,(1) are needed.  Compactness cannot
+be dropped: on $\mathbf R$ the sequence $f_n(x)=\max(0,1-|x-n|)$ decreases to
+$0$ after replacing $f_n$ by $g_n=\sup_{m\geq n}f_m$, and $g_n\searrow0$
+pointwise while $\sup|g_n|=1$ for every $n$.  Semicontinuity of the limit
+cannot be dropped: on $K=[0,1]$ the functions
+$f_n(x)=\min(1,nx)$ form an increasing sequence of continuous functions, so
+$h_n=1-f_n$ decreases to $h=\mathbf 1_{\{0\}}$, which is usc but not lsc, and
+$\sup_K(h_n-h)=1$ for every $n$.  In the second example, part (2) of the
+proposition still holds, since $h<c$ on $K$ forces $c>1\geq h_n$; it is
+therefore part (2) that the book uses whenever the limit is not known in
+advance to be continuous.  In the first example part (2) fails as well, which
+shows that compactness is used in both parts and not merely in the uniform
+estimate.
+\end{remark}
+
+\begin{remark}[Warning]
+The measure-theoretic monotone convergence theorem does not hold for
+arbitrary nets of measurable functions.  Let $X=[0,1]$ with Lebesgue measure,
+direct the finite subsets $F\subset X$ by inclusion, and put
+$f_F=\mathbf 1_F$.  Then $f_F\nearrow1$ pointwise, while
+$\int f_F=0$ for every $F$.  Whenever an argument integrates a monotone net,
+it must use additional regularity or first reduce to a sequence.
+\end{remark}
+
+The following regular version is often sufficient in pluripotential theory.
+
+\begin{proposition}\label{prop:lsc-net-monotone}
+Let $K$ be compact Hausdorff, let $\mu$ be a finite Radon measure, and let
+$(f_a)$ be an increasing net of nonnegative lower semicontinuous functions.
+Then
+\[
+             \int_K\sup_a f_a\,\rd \mu
+             =\sup_a\int_K f_a\,\rd \mu.
+\]
+\end{proposition}
+
+\begin{proof}
+Write $f=\sup_a f_a$, which is lower semicontinuous.  For a nonnegative lower
+semicontinuous function on a compact Hausdorff space,
+\[
+ \int_K f\,\rd \mu
+ =\sup\left\{\int_K h\,\rd \mu:h\in C(K),\ 0\leq h\leq f\right\}.
+\]
+Fix such an $h$ and $\varepsilon>0$.  The open sets
+$\{f_a>h-\varepsilon\}$ cover $K$.  Compactness and directedness give one
+index $a$ for which $f_a>h-\varepsilon$ everywhere.  Thus
+\[
+ \sup_a\int_K f_a\,\rd \mu
+ \geq\int_Kh\,\rd \mu-\varepsilon\mu(K).
+\]
+Taking the supremum over $h$ and then letting $\varepsilon\downarrow0$ proves
+the nontrivial inequality.
+\end{proof}
+
+Two comments make the proof reusable.  First, the inequality $\leq$ is the
+easy one: each $f_a\leq f$ gives $\int f_a\leq\int f$, so the supremum on the
+right is at most the left-hand side.  Second, the displayed characterization
+of $\int f$ by continuous minorants is the Radon regularity statement proved
+in detail as \eqref{eq:appE-lsc-integral-minorants}; it is where the
+hypothesis that $\mu$ be Radon, rather than merely Borel, is used.  The
+covering step then uses only that $\{f_a>h-\varepsilon\}$ is open, which is
+lower semicontinuity of $f_a$, and that the family is directed.
+
+The form in which we shall usually quote this statement is the dual one, for
+decreasing nets of upper semicontinuous functions.  Since potentials are usc
+and decreasing approximations are the standard regularization device, this is
+the version that appears in the construction of Monge--Amp\`ere measures and
+energies.
+
+\begin{corollary}\label{cor:usc-net-monotone-integral}
+Let $K$ be compact Hausdorff, let $\mu$ be a finite Radon measure on $K$, and
+let $(f_a)$ be a decreasing net of upper semicontinuous functions
+$K\to\mathbf R\cup\{-\infty\}$ that are uniformly bounded above by a constant
+$C$.  Then
+\[
+ \int_K\inf_af_a\,\rd\mu=\inf_a\int_Kf_a\,\rd\mu,
+\]
+both sides being well defined in $[-\infty,+\infty)$ and possibly equal to
+$-\infty$.
+\end{corollary}
+
+\begin{proof}
+The functions $g_a=C-f_a$ take values in $[0,+\infty]$, are lower
+semicontinuous, and form an increasing net with
+$\sup_ag_a=C-\inf_af_a$.  \Cref{prop:lsc-net-monotone} gives
+\[
+ \int_K\bigl(C-\inf_af_a\bigr)\rd\mu=\sup_a\int_K(C-f_a)\,\rd\mu .
+\]
+Each $f_a$ is bounded above by $C$, so $\int_Kf_a\,\rd\mu$ is well defined in
+$[-\infty,+\infty)$ and
+$\int_K(C-f_a)\,\rd\mu=C\mu(K)-\int_Kf_a\,\rd\mu$ as an identity in
+$[0,+\infty]$; the same applies to $\inf_af_a$.  Subtracting the finite
+number $C\mu(K)$ and changing signs, which is legitimate because only one
+infinite value can occur and it occurs on the same side of each equation,
+yields the assertion.  This is the statement recorded as
+\Cref{cor:appE-usc-monotone}.
+\end{proof}
+
+The next example shows that a decreasing net of usc functions can converge to
+its infimum in a way that no sequence extracted from the net reproduces.  It
+is the exact counterpart, for infima, of the fact that suprema require
+regularization, and it explains why the monotone approximation theorems of
+\cref{part:bfj,part:bj} are stated for nets and why their sequential
+corollaries always carry a countability hypothesis.
+
+\begin{example}[A decreasing net of usc functions with no cofinal sequence]
+\label{ex:decreasing-net-not-sequential}
+Let $S$ be an uncountable set and let
+\[
+ X=S\cup\{\infty\}
+\]
+be its one-point compactification: every subset of $S$ is open, and the
+neighborhoods of $\infty$ are the complements of the finite subsets of $S$.
+Then $X$ is compact, since a cover of $X$ contains a member $U\ni\infty$ whose
+complement is finite, and Hausdorff, since two points of $S$ are separated by
+singletons and a point $s\in S$ is separated from $\infty$ by $\{s\}$ and
+$X\setminus\{s\}$.  It is not first countable at $\infty$: a countable family
+of neighborhoods of $\infty$ has complements with countable union, so any
+$s\in S$ outside that union gives a neighborhood $X\setminus\{s\}$ containing
+no member of the family.
+
+Direct the finite subsets $F\subset S$ by inclusion and put
+\[
+ f_F=\mathbf 1_{X\setminus F}.
+\]
+Each $F$ is open, so $X\setminus F$ is closed and $f_F$ is upper
+semicontinuous: for $c\leq0$ the set $\{f_F<c\}$ is empty, for $0<c\leq1$ it
+is $F$, which is open, and for $c>1$ it is $X$.  The net is decreasing,
+because $F\subseteq F'$ gives $f_{F'}\leq f_F$.  Its pointwise infimum is
+\[
+ f=\inf_Ff_F=\mathbf 1_{\{\infty\}},
+\]
+since $f_{\{s\}}(s)=0$ for $s\in S$ while $f_F(\infty)=1$ for every finite
+$F\subset S$.  The limit $f$ is usc, in agreement with
+\Cref{lem:usc-inf}.
+
+Now let $(F_j)_{j\geq1}$ be any sequence of indices.  The union
+$\bigcup_jF_j$ is countable, so there exists $s\in S$ with $s\notin F_j$ for
+all $j$, and then
+\[
+ \inf_jf_{F_j}(s)=1\neq0=f(s).
+\]
+Thus no sequence extracted from the net decreases to $f$, and by
+\Cref{ex:no-cofinal-sequence} the index set admits no cofinal sequence at all.
+Note also that $f_F\searrow f$ while $\sup_X(f_F-f)=1$ for every $F$, so the
+uniform conclusion of \Cref{prop:dini-usc}\,(1) genuinely fails here; indeed
+$f=\mathbf 1_{\{\infty\}}$ is not lower semicontinuous, because
+$\{f>1/2\}=\{\infty\}$ is not open.
+\end{example}
+
+\begin{remark}
+\label{rem:net-vs-sequence-checklist}
+\Cref{ex:net-no-subsequence,ex:no-cofinal-sequence,ex:decreasing-net-not-sequential}
+form the standard test battery for the phrase ``pass to a subsequence''.  A
+sequential reduction in this book is always justified by exactly one of three
+mechanisms: metrizability or second countability of the underlying space, as
+in \Cref{prop:measure-compactness}; the Choquet selection lemma
+\Cref{lem:choquet-selection}, which replaces a family by a countable
+subfamily with the same regularized supremum; or an explicit cofinal sequence
+in the index set, as when models are indexed by a countable system of blowups.
+No other mechanism is used.
+\end{remark}
+
+\section{Upper semicontinuous envelopes}
+\label{sec:usc-envelopes}
+
+Let $X$ be a topological space and
+$f:X\to\overline{\mathbf R}:=\mathbf R\cup\{-\infty,+\infty\}$.  Its
+\emph{upper semicontinuous regularization} is
+\begin{equation}
+\label{eq:usc-regularization}
+ f^*(x)=\inf_{U\ni x}\ \sup_{y\in U}f(y),
+\end{equation}
+where $U$ runs over the neighborhoods of $x$.  The infimum is over a directed
+family, decreasing as $U$ shrinks, so it is a monotone limit in the sense of
+\Cref{lem:monotone-net-converges}; in particular it always exists in $\Rbar$
+and no measurability or finiteness assumption is needed.  It suffices to let
+$U$ run over any neighborhood basis of $x$.
+
+\begin{proposition}
+\label{prop:usc-majorant}
+The function $f^*$ is upper semicontinuous, satisfies $f\leq f^*$, and is the
+smallest upper semicontinuous function majorizing $f$.  In particular,
+$f=f^*$ if and only if $f$ is upper semicontinuous.
+\end{proposition}
+
+\begin{proof}
+For $c\in\mathbf R$, the condition $f^*(x)<c$ means that
+$\sup_U f<c$ for some neighborhood $U$ of $x$; it therefore persists on $U$.
+Thus $\{f^*<c\}$ is open.  Since every neighborhood of $x$ contains $x$, we
+have $f(x)\leq f^*(x)$.  If $g$ is upper semicontinuous and $f\leq g$, then
+for every $c>g(x)$ there is a neighborhood $U$ of $x$ on which $g<c$.
+Consequently $f^*(x)\leq c$, and $f^*(x)\leq g(x)$ after $c\downarrow g(x)$.
+
+For the last sentence: if $f=f^*$ then $f$ is usc by the first assertion,
+and if $f$ is usc then $f$ is an usc majorant of itself, so minimality gives
+$f^*\leq f$, whence equality.
+\end{proof}
+
+The regularization has an equivalent description in terms of upper limits,
+which is the form used whenever a potential is estimated along an approaching
+net.
+
+\begin{proposition}
+\label{prop:usc-limsup-description}
+Let $X$ be a topological space, $f:X\to\Rbar$, and $x\in X$.  Then
+\begin{equation}
+\label{eq:usc-limsup-description}
+ f^*(x)=\max\Bigl\{f(x),\ \sup\bigl\{\limsup_a f(x_a):
+ (x_a)\text{ a net in }X,\ x_a\to x\bigr\}\Bigr\},
+\end{equation}
+and the inner supremum is attained by the neighborhood net of
+\Cref{ex:appE-neighborhood-net}.  If $x$ is not isolated and $f$ is arbitrary,
+\eqref{eq:usc-limsup-description} may be rewritten as
+\[
+ f^*(x)=\max\Bigl\{f(x),\ \limsup_{y\to x}f(y)\Bigr\},
+ \qquad
+ \limsup_{y\to x}f(y):=\inf_{U\ni x}\ \sup_{y\in U\setminus\{x\}}f(y).
+\]
+\end{proposition}
+
+\begin{proof}
+Write $L$ for the right-hand side of \eqref{eq:usc-limsup-description}.
+
+We first prove $f^*(x)\geq L$.  Certainly $f^*(x)\geq f(x)$.  Let $x_a\to x$
+be a net and let $U$ be a neighborhood of $x$.  Then $x_a\in U$ eventually, so
+$\sup_{b\geq a_0}f(x_b)\leq\sup_Uf$ for suitable $a_0$, whence
+$\limsup_af(x_a)\leq\sup_Uf$.  Taking the infimum over $U$ gives
+$\limsup_af(x_a)\leq f^*(x)$.
+
+For $f^*(x)\leq L$ we may assume $f^*(x)>-\infty$, the case
+$f^*(x)=-\infty$ being trivial.  Then $\sup_Uf\geq f^*(x)>-\infty$ for every
+neighborhood $U$ of $x$, so the choices below are possible.  Index a net by
+the pairs $(U,\varepsilon)$, where $U$ is a neighborhood of $x$ and
+$\varepsilon>0$, ordered by reverse inclusion in $U$ and by $\geq$ in
+$\varepsilon$; this is directed by
+\Cref{ex:directed-sets-of-the-book}.  Choose
+$y_{U,\varepsilon}\in U$ with
+\[
+ f(y_{U,\varepsilon})>
+ \begin{cases}
+ \sup_Uf-\varepsilon, & \sup_Uf<+\infty,\\
+ 1/\varepsilon, & \sup_Uf=+\infty .
+ \end{cases}
+\]
+The net $y_{U,\varepsilon}$ converges to $x$, because it
+lies in $U$ and the neighborhoods are cofinal.  Fix a neighborhood $V$ of $x$
+and $\delta>0$.  For $(U,\varepsilon)\geq(V,\delta)$ we have $U\subseteq V$
+and $\varepsilon\leq\delta$, hence
+\[
+ f(y_{U,\varepsilon})>\min\Bigl\{\sup_Uf-\delta,\ 1/\delta\Bigr\}
+ \geq\min\Bigl\{f^*(x)-\delta,\ 1/\delta\Bigr\},
+\]
+using $\sup_Uf\geq f^*(x)$.  Therefore
+$\limsup f(y_{U,\varepsilon})\geq\min\{f^*(x)-\delta,1/\delta\}$, and letting
+$\delta\downarrow0$ gives $\limsup f(y_{U,\varepsilon})\geq f^*(x)$.  Hence
+$L\geq f^*(x)$.
+
+For the final formula, note that $\sup_Uf=\max\{f(x),\sup_{U\setminus\{x\}}f\}$
+for every neighborhood $U$ of $x$, and that the infimum over $U$ of a maximum
+with the constant $f(x)$ is the maximum of $f(x)$ with the infimum, since
+$\Rbar$ is totally ordered and the family is directed.
+\end{proof}
+
+If $(f_i)_{i\in I}$ is a family of upper semicontinuous functions, its
+pointwise supremum need not be upper semicontinuous.  The natural envelope is
+therefore
+\[
+                       \left(\sup_{i\in I}f_i\right)^*.
+\]
+This operation occurs in every construction of a psh obstacle envelope.
+
+\begin{example}
+On $[-1,1]$, let $f_n$ be the continuous triangular function supported in
+$[-1/n,1/n]$ with $f_n(0)=1$.  The supremum of the tail family
+$\{f_n:n\geq N\}$ is upper semicontinuous, but the pointwise limsup is the
+function equal to $1$ at $0$ and $0$ elsewhere.  This function is upper
+semicontinuous but not continuous.  Regularization preserves the spike; it
+does not mean continuous regularization.
+\end{example}
+
+The next two examples are the ones to keep in mind whenever the star in
+$(\sup_i\varphi_i)^*$ is about to be dropped.  In the first, the family is an
+increasing sequence of continuous functions; in the second, it is an
+increasing sequence of subharmonic functions, and the failure locus is exactly
+the polar set on which the limit is $-\infty$ before regularization.  The
+second is the local model of every phenomenon studied in
+\cref{chap:bj-envelope-statement}.
+
+\begin{example}[An increasing family whose supremum is not upper semicontinuous]
+\label{ex:sup-not-usc}
+On $X=[-1,1]$ put
+\[
+ f_j(x)=\min\bigl(1,\max(0,jx)\bigr),\qquad j\geq1 .
+\]
+Each $f_j$ is continuous, hence usc, and $f_j\leq f_{j+1}$: indeed
+$\max(0,jx)$ increases in $j$ for $x\geq0$ and vanishes for $x\leq0$.  The
+pointwise supremum is
+\[
+ g=\sup_jf_j=\mathbf 1_{(0,1]} .
+\]
+This function is not upper semicontinuous: $\{g<1/2\}=[-1,0]$ is not open in
+$X$, since $0$ has no neighborhood contained in it.  By
+\Cref{prop:usc-limsup-description},
+\[
+ g^*(0)=\max\Bigl\{g(0),\limsup_{y\to0}g(y)\Bigr\}=\max\{0,1\}=1,
+\]
+and $g^*=g$ elsewhere, so $g^*=\mathbf 1_{[0,1]}$.  Thus the regularization
+changes the function at exactly one point.  Note that
+$g^*$ is usc but not continuous, in accordance with the preceding example: the
+star is an order-theoretic closure, not a smoothing operator.
+\end{example}
+
+\begin{example}[Regularization of an increasing family of subharmonic functions]
+\label{ex:sup-not-usc-log}
+On the unit disc $D\subset\mathbf C$ put
+\[
+ u_j(z)=\tfrac1j\log|z|,\qquad j\geq1 .
+\]
+Each $u_j$ is subharmonic, hence usc, with values in
+$\mathbf R\cup\{-\infty\}$, and $u_j\leq u_{j+1}$ because $\log|z|\leq0$ on
+$D$.  The pointwise supremum is
+\[
+ u=\sup_ju_j=
+ \begin{cases}
+ 0,& z\neq0,\\
+ -\infty,& z=0,
+ \end{cases}
+\]
+since $\tfrac1j\log|z|\to0$ for $z\neq0$ while $u_j(0)=-\infty$ for every $j$.
+This $u$ is not upper semicontinuous at the origin: $\{u<-1\}=\{0\}$ is not
+open.  Its regularization is
+\[
+ u^*\equiv0
+\]
+by \Cref{prop:usc-limsup-description}, because
+$\limsup_{z\to0}u(z)=0$.  The exceptional set $\{u<u^*\}=\{0\}$ is polar,
+which is the general phenomenon: for an increasing family of psh functions the
+regularization changes the supremum only on a small set, and quantifying
+``small'' is the subject of \cref{sec:capacity-preview} and of
+\cref{chap:bfj-capacity}.  Observe also that $u^*=0$ is again subharmonic;
+the corresponding statement for arbitrary bounded-above families in the
+non-Archimedean setting is precisely the envelope theorem of
+\cref{chap:bj-envelope-statement}, and it is not a formality.
+\end{example}
+
+The following identities are used constantly and without comment in envelope
+computations.  We prove them once.
+
+\begin{lemma}
+\label{lem:usc-star-calculus}
+Let $X$ be a topological space, let $f,g:X\to\Rbar$, let $(f_i)_{i\in I}$ be a
+nonempty family of functions $X\to\Rbar$, let $c\in\mathbf R$, and let
+$\lambda>0$.  Then:
+\begin{enumerate}
+\item $f\leq g$ implies $f^*\leq g^*$, and $(f^*)^*=f^*$;
+\item $(f+c)^*=f^*+c$ and $(\lambda f)^*=\lambda f^*$;
+\item $\bigl(\sup_if_i\bigr)^*=\bigl(\sup_if_i^*\bigr)^*$;
+\item $(\max(f,g))^*=\max(f^*,g^*)$, and more generally the regularization of
+  a maximum of finitely many functions is the maximum of the
+  regularizations;
+\item $(\inf_if_i)^*\leq\inf_if_i^*$, and the inequality can be strict;
+\item if $h$ is upper semicontinuous, then $(\sup_i f_i)^*\leq h$ if and only
+  if $f_i\leq h$ for every $i$.
+\end{enumerate}
+\par
+\end{lemma}
+
+\begin{proof}
+\emph{(1).}  Monotonicity is immediate from \eqref{eq:usc-regularization},
+since $\sup_Uf\leq\sup_Ug$ for every $U$.  Idempotence holds because $f^*$ is
+usc by \Cref{prop:usc-majorant}, and an usc function equals its own
+regularization by the last assertion of that proposition.
+
+\emph{(2).}  For a neighborhood $U$ of $x$ we have
+$\sup_U(f+c)=\sup_Uf+c$ and $\sup_U(\lambda f)=\lambda\sup_Uf$ in $\Rbar$,
+by \Cref{prop:appE-safe-identities}; taking the infimum over $U$, which
+commutes with adding a finite constant and with multiplying by $\lambda>0$
+for the same reason, gives the claim.
+
+\emph{(3).}  Since $f_i\leq f_i^*$, part (1) gives ``$\leq$''.  Conversely,
+$(\sup_if_i)^*$ is an usc majorant of each $f_i$, hence of each $f_i^*$ by
+minimality in \Cref{prop:usc-majorant}, hence of $\sup_if_i^*$; minimality
+once more gives $(\sup_if_i^*)^*\leq(\sup_if_i)^*$.
+
+\emph{(4).}  Both sides are usc majorants of $\max(f,g)$: for the right-hand
+side, a maximum of two usc functions is usc because
+$\{\max(f^*,g^*)<c\}=\{f^*<c\}\cap\{g^*<c\}$ is open.  Minimality gives
+$(\max(f,g))^*\leq\max(f^*,g^*)$.  The reverse inequality follows from (1),
+since $f\leq\max(f,g)$ gives $f^*\leq(\max(f,g))^*$ and similarly for $g$.
+The finite case follows by induction.
+
+\emph{(5).}  From $\inf_if_i\leq f_j$ and (1) we get
+$(\inf_if_i)^*\leq f_j^*$ for every $j$.  For strictness take $X=\mathbf R$,
+$f_1=\mathbf 1_{\mathbf Q}$ and $f_2=\mathbf 1_{\mathbf R\setminus\mathbf Q}$.
+Then $\min(f_1,f_2)=0$, so the left side is $0$, while $f_1^*=f_2^*=1$ and the
+right side is $1$.
+
+\emph{(6).}  If $(\sup_if_i)^*\leq h$ then $f_i\leq\sup_if_i\leq h$.
+Conversely, if $f_i\leq h$ for all $i$ then $\sup_if_i\leq h$, and $h$ being
+usc, minimality in \Cref{prop:usc-majorant} gives $(\sup_if_i)^*\leq h$.
+\end{proof}
+
+\begin{remark}
+\label{rem:usc-star-not-lattice}
+Part (5) is the reason that decreasing regularizations are never written with
+a star in this book: for infima, the correct operation is the pointwise
+infimum, which is already usc by \Cref{lem:usc-inf}.  Part (6) is the
+statement that $f\mapsto(\sup_i f_i)^*$ is the least usc majorant in the
+categorical sense, and it is the form in which the envelope property is
+verified in \cref{chap:bj-envelope-statement}: one checks the inequality
+against every usc competitor rather than computing the star pointwise.
+\end{remark}
+
+\begin{lemma}
+\label{lem:usc-inf}
+The infimum of any family of upper semicontinuous functions is upper
+semicontinuous.  In particular, a decreasing net of upper semicontinuous
+functions has an upper semicontinuous pointwise limit.
+\end{lemma}
+
+\begin{proof}
+For $f=\inf_i f_i$ one has
+$\{f<c\}=\bigcup_i\{f_i<c\}$, which is open.
+\end{proof}
+
+By contrast, the supremum of an \emph{arbitrary} family of usc functions is
+usc as soon as the family is finite, by
+\Cref{lem:usc-star-calculus}\,(4), and in no other generality: the two
+examples above use increasing sequences, which are as well behaved as an
+infinite family can be.  The asymmetry between $\sup$ and $\inf$ recorded in
+the last two statements is the source of every star in this book.
+
+\subsection{Choquet selection}
+
+The next elementary lemma explains why sequences often reappear after the
+topological statements have been made with nets.  It is the single most
+frequently used reduction in this book, and it is also the one whose
+hypothesis is most often left unchecked in the literature, so we prove it
+carefully, isolate the exact property of the space that it uses, and show by
+an explicit example that this property cannot be dropped.
+
+\begin{lemma}\label{lem:choquet-selection}
+Let $X$ be second countable and let $\mathcal F$ be a nonempty family of
+functions $X\to\overline{\mathbf R}$.  There is a countable subfamily
+$\{f_j\}_{j\geq1}\subset\mathcal F$ such that
+\[
+       \left(\sup_{f\in\mathcal F}f\right)^*
+       =\left(\sup_{j\geq1}f_j\right)^*.
+\]
+If $\mathcal F$ is stable under finite maxima, the sequence may be chosen
+increasing.
+\end{lemma}
+
+\begin{proof}
+Choose a countable base $\mathcal B$, and fix $f_0\in\mathcal F$.  For each
+$B\in\mathcal B$, set
+\[
+       M_B=\sup\{f(x):f\in\mathcal F,\ x\in B\}.
+\]
+If $M_B$ is finite, choose for every $m\geq1$ a function $f_{B,m}$ with
+$\sup_Bf_{B,m}>M_B-1/m$; if $M_B=+\infty$, choose
+$\sup_Bf_{B,m}>m$.  The cases $M_B=-\infty$ need no choice.  Adjoin $f_0$ to
+the selected family.  The resulting family is nonempty and countable and has
+the same supremum on every basis element as
+$\mathcal F$.  Formula \eqref{eq:usc-regularization} then gives equality of
+the regularizations.  If $\mathcal F$ is stable under finite maxima, replace
+an enumeration $(g_j)$ of the selected family by
+$f_j=g_1\vee\cdots\vee g_j$.
+
+We spell out the two steps that were compressed.  Write
+$F=\sup_{f\in\mathcal F}f$ and $G=\sup_jf_j$ for the pointwise suprema of the
+full and the selected family, so that $G\leq F$ and hence $G^*\leq F^*$ by
+\Cref{lem:usc-star-calculus}\,(1).  For every $B\in\mathcal B$ the two
+families have the same supremum over $B$:
+\[
+ \sup_BG=\sup_j\sup_Bf_j=M_B=\sup_BF,
+\]
+where the middle equality holds because the selected functions realize $M_B$
+in the limit by construction, in the finite case through
+$\sup_Bf_{B,m}>M_B-1/m$ and in the infinite case through
+$\sup_Bf_{B,m}>m$, while $\sup_Bf_{B,m}\leq M_B$ always.  Since
+$\mathcal B$ is a base, every point has a neighborhood basis inside
+$\mathcal B$, and \eqref{eq:usc-regularization} may be computed along
+$\mathcal B$ alone:
+\[
+ F^*(x)=\inf_{B\in\mathcal B,\ x\in B}\sup_BF
+ =\inf_{B\in\mathcal B,\ x\in B}\sup_BG=G^*(x).
+\]
+Finally, if $\mathcal F$ is stable under finite maxima then
+$f_j=g_1\vee\cdots\vee g_j$ lies in $\mathcal F$, the sequence $(f_j)$ is
+increasing, and $\sup_jf_j=\sup_jg_j$, so the conclusion is unchanged.  The
+function $f_0$ was adjoined only to guarantee that the selected family is
+nonempty when every $M_B$ equals $-\infty$.
+\end{proof}
+
+\begin{remark}
+The lemma does not assert pointwise equality of the two suprema.  It selects
+the same upper semicontinuous envelope, which is exactly what is required in
+envelope arguments.  Second countability, or a substitute providing a
+countable determining family, must be checked rather than assumed.
+\end{remark}
+
+\begin{example}[The two suprema really differ]
+\label{ex:choquet-pointwise-fails}
+Let $X=\mathbf R$, which is second countable, and let $\mathcal F$ be the
+family of functions $\mathbf 1_F$ with $F\subset\mathbf R$ finite.  This family
+is stable under finite maxima, since
+$\mathbf 1_F\vee\mathbf 1_{F'}=\mathbf 1_{F\cup F'}$, and each member is usc.
+Its pointwise supremum is the constant $1$.  Choose an increasing sequence
+of finite sets $F_j$ whose union is a countable dense subset
+$C\subset\mathbf R$, for example $C=\mathbf Q$.  The selected pointwise
+supremum is $\mathbf 1_C$, which differs from $1$ at every point of
+$\mathbf R\setminus C$.  Nevertheless both regularizations equal the
+constant $1$, because every nonempty open set meets this chosen dense set
+$C$.  The lemma is therefore sharp: it delivers equality of
+regularizations and nothing more.
+\end{example}
+
+The proof used second countability only through the following property, and it
+is worth isolating it, because several spaces occurring later are not second
+countable while still admitting a countable family along which
+regularizations may be computed.
+
+\begin{definition}[Countably regularizing family]
+\label{def:countably-regularizing}
+A countable family $\mathcal B$ of nonempty open subsets of a topological
+space $X$ is \emph{regularizing} if for every $f:X\to\Rbar$ and every $x\in X$,
+\begin{equation}
+\label{eq:countably-regularizing}
+ f^*(x)=\inf\bigl\{\textstyle\sup_Bf:\ B\in\mathcal B,\ x\in B\bigr\},
+\end{equation}
+with the convention $\inf\varnothing=+\infty$ when no member of $\mathcal B$
+contains $x$.
+\end{definition}
+
+\begin{lemma}\label{lem:regularizing-criterion}
+A countable family $\mathcal B$ of nonempty open sets is regularizing if and
+only if the members of $\mathcal B$ containing a given point $x$ form a
+neighborhood basis at $x$, for every $x\in X$.  In particular a countable base
+of the topology is regularizing.
+\end{lemma}
+
+\begin{proof}
+Suppose the stated basis property holds at $x$.  Every $B\in\mathcal B$
+containing $x$ is a neighborhood of $x$, so the right-hand side of
+\eqref{eq:countably-regularizing} is at least $f^*(x)$; conversely every
+neighborhood $U$ of $x$ contains some $B\in\mathcal B$ with $x\in B$, and then
+$\sup_Bf\leq\sup_Uf$, so the right-hand side is at most $f^*(x)$.
+
+Conversely, suppose the basis property fails at some $x$: there is a
+neighborhood $U$ of $x$ containing no member of $\mathcal B$ that contains
+$x$.  Apply \eqref{eq:countably-regularizing} to
+$f=\mathbf 1_{X\setminus U}$.  Then $f(x)=0$, and $f^*(x)=0$ provided $x$ has
+a neighborhood, namely the interior of $U$, on which $f$ vanishes; on the
+other hand every $B\in\mathcal B$ with $x\in B$ meets $X\setminus U$ by
+assumption, so $\sup_Bf=1$ and the right-hand side of
+\eqref{eq:countably-regularizing} equals $1$, or equals $+\infty$ if no member
+of $\mathcal B$ contains $x$.  In either case it differs from $f^*(x)=0$, so
+$\mathcal B$ is not regularizing.
+\end{proof}
+
+\begin{proposition}
+\label{prop:choquet-regularizing}
+Let $X$ be a topological space admitting a countable regularizing family
+$\mathcal B$, and let $\mathcal F$ be a nonempty family of functions
+$X\to\Rbar$.  Then there is a countable subfamily
+$\{f_j\}_{j\geq1}\subseteq\mathcal F$ with
+\[
+ \Bigl(\sup_{f\in\mathcal F}f\Bigr)^*=\Bigl(\sup_{j\geq1}f_j\Bigr)^* ,
+\]
+and the sequence may be chosen increasing if $\mathcal F$ is stable under
+finite maxima.
+\end{proposition}
+
+\begin{proof}
+Repeat the proof of \Cref{lem:choquet-selection} verbatim with $\mathcal B$ in
+place of a countable base.  Only two properties of $\mathcal B$ were used:
+that it is countable, so that the selected family is countable; and that
+\eqref{eq:countably-regularizing} computes the regularization, which is the
+defining property.  The reduction to an increasing sequence is unchanged.
+\end{proof}
+
+The hypothesis is genuinely necessary, and not merely an artifact of the
+proof.
+
+\begin{example}[Failure of Choquet selection without countability]
+\label{ex:choquet-fails-uncountable}
+Let $S$ be an uncountable set and let $X=S\cup\{\infty\}$ be its one-point
+compactification, as in \Cref{ex:decreasing-net-not-sequential}: a compact
+Hausdorff space.  Let
+\[
+ \mathcal F=\bigl\{\mathbf 1_F:\ F\subset S\ \text{finite}\bigr\},
+\]
+a family of usc functions stable under finite maxima, as in
+\Cref{ex:choquet-pointwise-fails}.  Its pointwise supremum is
+$\mathbf 1_S=\mathbf 1_{X\setminus\{\infty\}}$, whose regularization is the
+constant $1$: indeed every neighborhood of $\infty$ is the complement of a
+finite subset of $S$ and therefore meets $S$, so the supremum of
+$\mathbf 1_S$ over it is $1$.
+
+Let $\{f_j\}_{j\geq1}=\{\mathbf 1_{F_j}\}_{j\geq1}$ be any countable
+subfamily and put $C=\bigcup_jF_j$, a countable subset of $S$.  Then
+$\sup_jf_j=\mathbf 1_C$.  Choose $s\in S\setminus C$, which exists because $S$
+is uncountable.  Since $\{s\}$ is open in $X$ and $\mathbf 1_C(s)=0$,
+\[
+ \Bigl(\sup_jf_j\Bigr)^*(s)=0\neq1=\Bigl(\sup_{f\in\mathcal F}f\Bigr)^*(s).
+\]
+So no countable subfamily has the same regularized supremum, and
+\Cref{lem:choquet-selection} fails on $X$.  Consistently with
+\Cref{lem:regularizing-criterion}, $X$ admits no countable regularizing
+family: such a family would have to contain a neighborhood basis at
+$\infty$, hence countably many cofinite sets whose complements have countable
+union $C$, and then $X\setminus\{s\}$ for $s\in S\setminus C$ would be a
+neighborhood of $\infty$ containing no member of the family.
+\end{example}
+
+\begin{remark}[Where the countability hypothesis is actually met]
+\label{rem:choquet-where-countable}
+In the applications the hypothesis is verified in one of three ways.  On a
+dual complex, which is a finite polyhedral complex and hence a compact
+metrizable space, second countability is automatic; this is the situation of
+\cref{chap:skeleta} and of the compactness arguments of
+\cref{chap:bfj-compactness}.  On a Berkovich analytification over a field with
+a countable dense subfield, the analytification of a variety is metrizable,
+and again second countability holds.  In the remaining cases the selection is
+performed on a dual complex after the potentials have been shown to be
+determined by their restrictions to the skeleta of a cofinal system of
+models, using the retractions of \cref{chap:skeleta}; the countable family is
+then supplied on the complex, not on the ambient analytification.  What is
+never done is to assume metrizability of an arbitrary Berkovich space.
+\end{remark}
+
+\section{Radon measures and weak convergence}
+\label{sec:radon-weak}
+
+Throughout this section, $X$ is locally compact Hausdorff.  A positive Borel
+measure $\mu$ is \emph{Radon} if it is finite on compact sets, inner regular
+on open sets, and outer regular on Borel sets.  When $X$ is compact we write
+$\mathcal M^+(X)$ for the cone of finite positive Radon measures and
+$\mathcal P(X)$ for the probability measures.
+
+Spelled out, the two regularity requirements are
+\begin{equation}
+\label{eq:radon-regularity}
+\begin{aligned}
+ \mu(U)&=\sup\{\mu(K):K\subseteq U\ \text{compact}\}
+ &&(U\ \text{open}),\\
+ \mu(B)&=\inf\{\mu(U):U\supseteq B\ \text{open}\}
+ &&(B\ \text{Borel}).
+\end{aligned}
+\end{equation}
+On a compact Hausdorff space these conditions are not automatic for a finite
+Borel measure, and they are exactly what is used in every approximation
+argument below; we therefore never say ``measure'' when we mean ``Radon
+measure''.  A useful consequence of \eqref{eq:radon-regularity}, obtained by
+complementation inside a compact $X$, is that $\mu$ is also inner regular on
+all Borel sets when $\mu(X)<\infty$: given a Borel set $B$ and
+$\varepsilon>0$, choose an open $U\supseteq X\setminus B$ with
+$\mu(U)\leq\mu(X\setminus B)+\varepsilon$; then $K=X\setminus U$ is a closed,
+hence compact, subset of $B$ with $\mu(K)\geq\mu(B)-\varepsilon$.
+
+\subsection{The Riesz representation interface}
+
+Radon measures enter this book only through duality with continuous functions,
+and the exact form of that duality is the following imported statement.  We
+use it as a black box and state it precisely once.
+
+\begin{theorem}
+\label{thm:riesz-interface}
+Let $X$ be locally compact Hausdorff and let
+$\Lambda:C_c(X)\to\mathbf R$ be a positive linear functional, that is, a
+linear map with $\Lambda(h)\geq0$ whenever $h\geq0$.  Then there is a unique
+Radon measure $\mu$ on $X$ with
+\begin{equation}
+\label{eq:riesz}
+ \Lambda(h)=\int_Xh\,\rd\mu\qquad\text{for all }h\in C_c(X).
+\end{equation}
+If $X$ is compact, so that $C_c(X)=C(X)$, the correspondence
+$\mu\mapsto\bigl(h\mapsto\int h\,\rd\mu\bigr)$ is a bijection from
+$\mathcal M^+(X)$ onto the positive linear functionals on $C(X)$, and it
+carries $\mathcal P(X)$ onto those with $\Lambda(1)=1$.  Moreover the
+continuous linear functionals on $C(X)$, with the supremum norm, are exactly
+the differences of two such integrals, and $\lVert\Lambda\rVert$ is the total
+variation of the representing signed measure.
+\end{theorem}
+
+\begin{proof}[Foundational measure-theoretic input]
+This is \cite[Theorem~2.14]{Rud87} for the existence and uniqueness of $\mu$,
+and \cite[Theorem~6.19]{Rud87} for the identification of the dual Banach space
+in the compact case; see also \cite[Chapter~7]{Fol99} for the same statements
+with the regularity hypotheses displayed in the form
+\eqref{eq:radon-regularity}.  We do not reproduce the construction.
+\end{proof}
+
+\begin{remark}[What the interface is used for]
+\label{rem:riesz-uses}
+\Cref{thm:riesz-interface} is invoked in exactly three ways.  First, to
+\emph{define} a measure from a functional: this is how Chambert--Loir measures
+are constructed in \cref{chap:metrics} and how mixed Monge--Amp\`ere measures
+are constructed in \cref{chap:bfj-ma} and \cref{chap:bj-energy}, in each case
+by exhibiting a positive linear functional on $C(X)$.  Second, to prove
+\emph{uniqueness}: two Radon measures with the same integrals against
+continuous functions coincide, which is \Cref{cor:riesz-uniqueness} below.
+Third, to obtain \emph{compactness} of $\mathcal P(X)$, in
+\Cref{prop:measure-compactness}.  No finer measure theory is required
+anywhere in this book, and in particular no completion, no Radon--Nikodym
+theorem on a Berkovich space, and no disintegration are used.
+\end{remark}
+
+\begin{corollary}\label{cor:riesz-uniqueness}
+Let $X$ be compact Hausdorff and let $\mu,\nu\in\mathcal M^+(X)$ satisfy
+$\int_Xh\,\rd\mu=\int_Xh\,\rd\nu$ for every $h\in C(X)$.  Then $\mu=\nu$.
+\end{corollary}
+
+\begin{proof}
+The common functional is positive and linear on $C(X)$, and both $\mu$ and
+$\nu$ represent it.  Uniqueness in \Cref{thm:riesz-interface} gives
+$\mu=\nu$.  For the reader who prefers a direct argument: by
+\eqref{eq:radon-regularity} it suffices to prove $\mu(K)=\nu(K)$ for compact
+$K$.  Given $\varepsilon>0$, outer regularity supplies an open $U\supseteq K$
+with $\mu(U)+\nu(U)\leq\mu(K)+\nu(K)+\varepsilon$, and Urysohn's lemma
+supplies $h\in C(X)$ with $\mathbf 1_K\leq h\leq\mathbf 1_U$.  Then
+\[
+ \mu(K)\leq\int h\,\rd\mu=\int h\,\rd\nu\leq\nu(U)\leq\nu(K)+\varepsilon,
+\]
+and symmetrically.  Let $\varepsilon\downarrow0$.
+\end{proof}
+
+For a continuous proper map $p:X\to Y$, the pushforward is
+\[
+                       p_*\mu(B)=\mu(p^{-1}(B)),
+\]
+or equivalently
+\[
+                       \int_Y g\,\rd(p_*\mu)=\int_X g\circ p\,\rd \mu.
+\]
+Dirac mass at $x$ is denoted by $\delta_x$.
+
+\begin{lemma}\label{lem:pushforward-radon}
+Let $p:X\to Y$ be a continuous proper map of locally compact Hausdorff spaces
+and let $\mu$ be a Radon measure on $X$.  Then $p_*\mu$ is a Radon measure on
+$Y$, the displayed change-of-variables identity holds for every bounded Borel
+function $g$ and for every nonnegative Borel function $g$, and
+$p_*\delta_x=\delta_{p(x)}$.  If $X$ is compact then
+$p_*\mu(Y)=\mu(X)$, so pushforward preserves total mass.
+\end{lemma}
+
+\begin{proof}
+Borel measurability of $p$ makes $p_*\mu$ a Borel measure, and
+$p_*\mu(L)=\mu(p^{-1}L)<\infty$ for compact $L\subseteq Y$ because $p$ is
+proper.  For outer regularity, let $B\subseteq Y$ be Borel and
+$\varepsilon>0$; outer regularity of $\mu$ gives an open
+$V\supseteq p^{-1}(B)$ in $X$ with $\mu(V)\leq\mu(p^{-1}B)+\varepsilon$, but
+we need an open set in $Y$.  Properness makes $p$ a closed map, so
+$U=Y\setminus p(X\setminus V)$ is open, contains $B$, and satisfies
+$p^{-1}(U)\subseteq V$; hence
+$p_*\mu(U)\leq\mu(V)\leq p_*\mu(B)+\varepsilon$.  For inner regularity on an
+open $U\subseteq Y$, inner regularity of $\mu$ on $p^{-1}(U)$ gives a compact
+$K\subseteq p^{-1}(U)$ with $\mu(K)\geq p_*\mu(U)-\varepsilon$, and $p(K)$ is
+a compact subset of $U$ with $p_*\mu(p(K))=\mu(p^{-1}p(K))\geq\mu(K)$.
+
+The change-of-variables identity holds for $g=\mathbf 1_B$ by definition,
+hence for simple functions by linearity, hence for nonnegative Borel $g$ by
+monotone convergence along an increasing sequence of simple functions, hence
+for bounded Borel $g$ by decomposition into positive and negative parts.  The
+identity $p_*\delta_x=\delta_{p(x)}$ is the case $\mu=\delta_x$ of the
+definition, and the mass statement is the case $B=Y$.
+\end{proof}
+
+\subsection{Weak convergence}
+
+\begin{definition}
+A net $(\mu_a)$ of finite Radon measures on a compact Hausdorff space $X$
+\emph{converges weakly} to $\mu$ if
+\[
+                         \int_X f\,\rd \mu_a\longrightarrow
+                         \int_X f\,\rd \mu
+\]
+for every $f\in C(X)$.
+\end{definition}
+
+By \Cref{cor:riesz-uniqueness} the weak limit, if it exists, is unique; the
+weak topology on $\mathcal M^+(X)$ is the initial topology for the maps
+$\mu\mapsto\int f\,\rd\mu$, $f\in C(X)$, and it is Hausdorff for the same
+reason.  Testing against $f=1$ shows that the total mass
+$\mu\mapsto\mu(X)$ is weakly continuous on a compact $X$.  On a noncompact
+locally compact space the constant $1$ is not a legitimate test function, and
+mass can escape to infinity; the resulting topology, defined by testing
+against $C_c(X)$, is the \emph{vague} topology, and it is not the same
+notion.  We reserve the word ``weak'' for the compact case and mark every
+vague statement explicitly.
+
+\begin{proposition}\label{prop:measure-compactness}
+If $X$ is compact Hausdorff, then $\mathcal P(X)$ is compact for the weak
+topology.  If $X$ is compact metrizable, this topology is metrizable and every
+sequence in $\mathcal P(X)$ has a weakly convergent subsequence.
+\end{proposition}
+
+\begin{proof}
+By the Riesz representation theorem, finite signed Radon measures form the
+dual of $C(X)$.  Probability measures constitute a weak-* closed subset of
+the unit ball, hence are compact by Banach--Alaoglu.  When $C(X)$ is separable,
+the weak-* topology on its dual unit ball is metrizable; compact metrizable
+$X$ makes $C(X)$ separable.
+
+We give the argument again in the net language of this chapter, since only
+this form is used later and since it avoids invoking Banach--Alaoglu.
+Consider the map
+\[
+ \iota:\mathcal P(X)\longrightarrow
+ P:=\prod_{f\in C(X)}\bigl[-\lVert f\rVert_\infty,\lVert f\rVert_\infty\bigr],
+ \qquad
+ \iota(\mu)=\Bigl(\int_Xf\,\rd\mu\Bigr)_{f\in C(X)} .
+\]
+It is injective by \Cref{cor:riesz-uniqueness}, and by definition of the weak
+topology it is a homeomorphism onto its image, the product carrying the
+topology of pointwise convergence.  The product $P$ is compact by the
+Tychonoff theorem \cite[Chapter~5]{Kel75}.  The image of $\iota$ is closed:
+if $\Phi\in P$ lies in the closure, then for $f,g\in C(X)$ and
+$s,t\in\mathbf R$ the conditions
+\[
+ \Phi(sf+tg)=s\Phi(f)+t\Phi(g),
+ \qquad
+ \Phi(f)\geq0\ \text{ for }f\geq0,
+ \qquad
+ \Phi(1)=1
+\]
+each involve only finitely many coordinates and are closed conditions, and
+each holds on $\iota(\mathcal P(X))$; hence they hold for $\Phi$.  Thus $\Phi$
+is a positive linear functional with $\Phi(1)=1$, and
+\Cref{thm:riesz-interface} produces $\mu\in\mathcal P(X)$ with
+$\iota(\mu)=\Phi$.  A closed subspace of a compact space is compact, so
+$\mathcal P(X)$ is compact, and by \Cref{prop:net-criterion}\,(3) every net of
+probability measures has a weakly convergent subnet.
+
+For the metrizable case, let $X$ be compact metrizable.  Then $C(X)$ is
+separable in the supremum norm by the Stone--Weierstrass theorem applied to
+the algebra generated by a countable family of distance functions
+$x\mapsto d(x,x_j)$ for a countable dense set $\{x_j\}$.  Let $(h_k)$ be a
+countable dense subset of $C(X)$ and put
+\[
+ d_{\mathcal P}(\mu,\nu)
+ =\sum_{k\geq1}2^{-k}
+ \frac{\bigl|\int h_k\,\rd\mu-\int h_k\,\rd\nu\bigr|}
+      {1+\lVert h_k\rVert_\infty}.
+\]
+This is a metric: it vanishes only if $\mu$ and $\nu$ agree against a dense
+family of test functions, hence against all of $C(X)$ by uniform
+approximation and the uniform mass bound, hence are equal by
+\Cref{cor:riesz-uniqueness}.  Its topology is the weak one, again by uniform
+approximation.  A compact metric space is sequentially compact, which gives
+the last assertion.
+\end{proof}
+
+\begin{remark}[Metrizability is a hypothesis, not a convenience]
+\label{rem:weak-metrizability}
+Only the last sentence of \Cref{prop:measure-compactness} produces
+subsequences, and it requires $X$ to be compact metrizable.  For a general
+compact Hausdorff $X$ the space $\mathcal P(X)$ is compact but need not be
+sequentially compact; the space $X=\{0,1\}^{[0,1]}$ of
+\Cref{ex:net-no-subsequence} already gives a sequence $\delta_{x_n}$ with no
+weakly convergent subsequence, because $\delta_{x_{n_j}}\to\delta_x$ would
+force $x_{n_j}\to x$ by \Cref{ex:moving-atoms} below.  This is the reason that
+the compactness theorems of \cref{chap:bfj-compactness} and
+\cref{chap:bj-strong-topologies} are formulated with nets, and that their
+sequential corollaries carry explicit countability hypotheses.
+\end{remark}
+
+\begin{proposition}\label{prop:portmanteau}
+If $\mu_a\to\mu$ weakly in $\mathcal P(X)$, then
+\[
+ \liminf_a\int_X f\,\rd \mu_a\geq\int_Xf\,\rd \mu
+\]
+for every lower semicontinuous function $f:X\to\mathbf R\cup\{+\infty\}$
+that is bounded below.  Dually,
+\[
+ \limsup_a\int_X g\,\rd \mu_a\leq\int_Xg\,\rd \mu
+\]
+for every upper semicontinuous $g:X\to\mathbf R\cup\{-\infty\}$ bounded
+above.  Consequently,
+\[
+ \liminf_a\mu_a(U)\geq\mu(U),\qquad
+ \limsup_a\mu_a(F)\leq\mu(F)
+\]
+for open $U$ and closed $F$.
+\end{proposition}
+
+\begin{proof}
+A bounded-below lower semicontinuous function is the pointwise supremum of
+continuous functions lying below it.  Apply weak convergence to these
+continuous minorants and take their supremum.  The upper semicontinuous case
+follows by changing signs.  Approximate the indicators of an open set from
+below and of a closed set from above.
+
+In detail, let $f$ be lsc with $f\geq m$ for a real constant $m$.  The
+integral form of the approximation by continuous minorants,
+\[
+ \int_Xf\,\rd\nu=\sup\Bigl\{\int_Xh\,\rd\nu:\ h\in C(X),\ h\leq f\Bigr\}
+ \qquad(\nu\in\mathcal P(X)),
+\]
+is proved as \eqref{eq:appE-lsc-integral-minorants}; it uses inner regularity
+of $\nu$ and Urysohn's lemma.  For $h\in C(X)$ with $h\leq f$,
+\[
+ \liminf_a\int_Xf\,\rd\mu_a\geq\liminf_a\int_Xh\,\rd\mu_a
+ =\int_Xh\,\rd\mu,
+\]
+and taking the supremum over $h$ gives the first inequality.  Applying it to
+$-g$ gives the second.  For the set statements, let $U$ be open.  The function
+$\mathbf 1_U$ is lsc and bounded below, so
+$\liminf_a\mu_a(U)\geq\mu(U)$; for closed $F$, the function
+$\mathbf 1_F$ is usc and bounded above, so
+$\limsup_a\mu_a(F)\leq\mu(F)$.
+\end{proof}
+
+\begin{remark}[No convergence on arbitrary Borel sets]
+\label{rem:portmanteau-sharp}
+Neither inequality in \Cref{prop:portmanteau} can be improved to an equality
+for general Borel sets.  On $X=[0,1]$, the measures $\delta_{1/n}$ converge
+weakly to $\delta_0$, while
+\[
+ \delta_{1/n}(\{0\})=0\not\to1=\delta_0(\{0\}),
+ \qquad
+ \delta_{1/n}\bigl((0,1]\bigr)=1\not\to0=\delta_0\bigl((0,1]\bigr).
+\]
+The first displays failure for a closed set on which the limsup inequality is
+strict, and the second failure for an open set on which the liminf inequality
+is strict.  Equality does hold for a Borel set $B$ whose topological boundary
+is $\mu$-null, by applying both inequalities to $\Int B$ and $\overline B$;
+this is the only form of set convergence used in this book, and it is invoked
+only after the boundary has been shown to be negligible.
+\end{remark}
+
+\begin{example}[Moving atoms]
+\label{ex:moving-atoms}
+If $x_a\to x$ in $X$, then $\delta_{x_a}\to\delta_x$ weakly.  Conversely, if
+$X$ is compact Hausdorff and $\delta_{x_a}\to\delta_x$, then $x_a\to x$:
+continuous functions separate $x$ from every closed set not containing it.
+Thus the Dirac embedding $x\mapsto\delta_x$ is a topological embedding.
+\end{example}
+
+For the converse direction the argument is the following.  Suppose
+$x_a\not\to x$; then some open $U\ni x$ fails to contain a tail, so the net is
+frequently in the closed set $F=X\setminus U$.  A compact Hausdorff space is
+normal, so Urysohn's lemma gives $h\in C(X)$ with $h(x)=1$ and $h\equiv0$ on
+$F$.  Then $\int h\,\rd\delta_{x_a}=h(x_a)$ is frequently $0$, while
+$\int h\,\rd\delta_x=1$; hence $\delta_{x_a}\not\to\delta_x$.  Injectivity of
+$x\mapsto\delta_x$ follows from the same separation property, and continuity
+in the forward direction is \Cref{prop:net-criterion}\,(2) applied to each
+$h\in C(X)$.
+
+\begin{example}[Escape of mass in the noncompact case]
+\label{ex:vague-escape}
+On $X=\mathbf R$, which is locally compact Hausdorff but not compact, the
+measures $\delta_n$ satisfy $\int h\,\rd\delta_n=h(n)\to0$ for every
+$h\in C_c(\mathbf R)$, so $\delta_n\to0$ vaguely, while $\delta_n(\mathbf R)=1$
+for every $n$.  Total mass is therefore not vaguely continuous, and a vague
+limit of probability measures need not be a probability measure.  Compactifying
+$\mathbf R$ to $[-\infty,+\infty]$ repairs this: there $\delta_n\to
+\delta_{+\infty}$ weakly, and no mass is lost.  The corresponding phenomenon
+in this book is the compactness of $X^{\An}$ for proper $X$, established in
+\cref{chap:berkovich}; it is what allows every Monge--Amp\`ere measure to be
+treated as a measure of fixed total mass.
+\end{example}
+
+The following two statements are the ones actually applied when a
+Monge--Amp\`ere measure and a potential vary simultaneously.
+
+\begin{lemma}
+\label{lem:joint-weak-uniform}
+Let $X$ be compact Hausdorff, let $\mu_a\to\mu$ weakly in
+$\mathcal M^+(X)$ with $\sup_a\mu_a(X)=:C<\infty$, and let $(g_a)$ be a net in
+$C(X)$, indexed by the same directed set, converging uniformly to $g\in C(X)$.
+Then
+\[
+ \int_Xg_a\,\rd\mu_a\longrightarrow\int_Xg\,\rd\mu .
+\]
+\end{lemma}
+
+\begin{proof}
+Write
+\[
+ \int_Xg_a\,\rd\mu_a-\int_Xg\,\rd\mu
+ =\int_X(g_a-g)\,\rd\mu_a+\Bigl(\int_Xg\,\rd\mu_a-\int_Xg\,\rd\mu\Bigr).
+\]
+The first term is bounded in absolute value by
+$C\lVert g_a-g\rVert_\infty$, which tends to $0$; the second tends to $0$ by
+weak convergence.  Given $\varepsilon>0$, choose an index beyond which each
+term is at most $\varepsilon/2$ in absolute value, using directedness to
+combine the two thresholds.
+\end{proof}
+
+\begin{lemma}
+\label{lem:usc-along-decreasing-net}
+Let $X$ be compact Hausdorff, let $\mu_a\to\mu$ weakly in $\mathcal P(X)$, and
+let $(g_b)_{b\in B}$ be a decreasing net of upper semicontinuous functions
+$X\to\mathbf R\cup\{-\infty\}$, uniformly bounded above, with
+$g=\inf_bg_b$.  Then
+\[
+ \limsup_a\int_Xg\,\rd\mu_a\leq\int_Xg\,\rd\mu ,
+\]
+and moreover
+\[
+ \inf_b\ \limsup_a\int_Xg_b\,\rd\mu_a\leq\int_Xg\,\rd\mu .
+\]
+\end{lemma}
+
+\begin{proof}
+The first inequality is \Cref{prop:portmanteau} applied to the usc function
+$g$, which is usc by \Cref{lem:usc-inf} and bounded above by hypothesis.  For
+the second, \Cref{prop:portmanteau} applied to each $g_b$ gives
+$\limsup_a\int g_b\,\rd\mu_a\leq\int g_b\,\rd\mu$; taking the infimum over $b$
+and using \Cref{cor:usc-net-monotone-integral} for the measure $\mu$ yields
+\[
+ \inf_b\limsup_a\int_Xg_b\,\rd\mu_a
+ \leq\inf_b\int_Xg_b\,\rd\mu=\int_Xg\,\rd\mu .
+\]
+\end{proof}
+
+\begin{remark}
+\label{rem:no-reverse-inequality}
+The inequalities of \Cref{prop:portmanteau} and
+\Cref{lem:usc-along-decreasing-net} are strict in general, and no reverse
+inequality is available.  On $X=[0,1]$ take $\mu_m=\delta_{1/m}$, which
+converges weakly to $\mu=\delta_0$, and $g=\mathbf 1_{\{0\}}$, which is upper
+semicontinuous and bounded.  Then
+\[
+ \limsup_m\int_Xg\,\rd\mu_m=0<1=\int_Xg\,\rd\mu .
+\]
+Every place in this book where a \emph{limit} of integrals is asserted,
+rather than an inequality, therefore rests on a separate continuity theorem:
+uniform convergence, as in \Cref{lem:joint-weak-uniform}; monotone convergence
+with a fixed measure, as in \Cref{cor:usc-net-monotone-integral}; or a
+capacity estimate, as in \cref{chap:bfj-capacity}.
+\end{remark}
+
+\subsection{Concave energy and its dual}
+
+The variational theories later in the book fit the following elementary
+pattern.  Let $\mathcal H$ be a convex set of real-valued functions on a
+compact space $X$, stable under addition of constants, and let
+$E:\mathcal H\to\mathbf R\cup\{-\infty\}$ be concave.  Assume that for a
+fixed number $M>0$,
+\begin{equation}
+\label{eq:energy-translation}
+                         E(\varphi+c)=E(\varphi)+Mc.
+\end{equation}
+For a finite positive measure $\mu$, define the dual energy
+\begin{equation}
+\label{eq:dual-energy-abstract}
+ E^\vee(\mu)=
+ \sup_{\varphi\in\mathcal H}
+ \left(E(\varphi)-\int_X\varphi\,\rd \mu\right).
+\end{equation}
+
+\begin{lemma}\label{lem:dual-mass}
+If \eqref{eq:energy-translation} holds and $E(\varphi_0)$ is finite for some
+$\varphi_0\in\mathcal H$, then $E^\vee(\mu)<+\infty$ is possible only when
+$\mu(X)=M$.
+\end{lemma}
+
+\begin{proof}
+Fix such a $\varphi_0$ and replace it by $\varphi_0+c$.  The expression in
+\eqref{eq:dual-energy-abstract} changes by
+$c(M-\mu(X))$.  Its supremum over $c\in\mathbf R$ is infinite unless the
+coefficient vanishes.
+\end{proof}
+
+For a measure of the correct mass, the definition immediately gives the
+Fenchel inequality
+\begin{equation}
+\label{eq:fenchel-energy}
+                E(\varphi)-\int_X\varphi\,\rd \mu\leq E^\vee(\mu).
+\end{equation}
+Equality is the variational form of the Monge--Amp\`ere equation.  No
+biconjugacy statement is implicit here; such a statement requires the
+topology, semicontinuity, and compactness hypotheses proved later in each
+particular theory.
+
+\subsection{Legendre duality in finite dimension}
+\label{subsec:legendre-finite}
+
+The reason for the caution in the last paragraph becomes visible once the
+finite-dimensional model is written out.  There the duality is complete, and
+we prove it, because every later variational statement is an attempt to
+reproduce it in a space of potentials.
+
+Let $V$ be a finite-dimensional real vector space with dual $V^\vee$ and
+pairing $\langle\cdot,\cdot\rangle$.  For
+$F:V\to\mathbf R\cup\{-\infty\}$ concave, define its \emph{concave conjugate}
+\begin{equation}
+\label{eq:concave-conjugate}
+ F^\vee(\ell)=\sup_{v\in V}\bigl(F(v)-\langle\ell,v\rangle\bigr),
+ \qquad \ell\in V^\vee ,
+\end{equation}
+a function $V^\vee\to\mathbf R\cup\{+\infty\}$.  This is the sign convention
+of \eqref{eq:dual-energy-abstract}: $F$ plays the role of the energy $E$, the
+variable $v$ the role of the potential $\varphi$, and $\ell$ the role of the
+measure $\mu$ through $\varphi\mapsto\int\varphi\,\rd\mu$.
+
+\begin{proposition}
+\label{prop:concave-biconjugation}
+Let $F:V\to\mathbf R\cup\{-\infty\}$ be concave and not identically
+$-\infty$.  Then:
+\begin{enumerate}
+\item $F^\vee$ is convex and lower semicontinuous, and
+\begin{equation}
+\label{eq:fenchel-young-concave}
+ F(v)-\langle\ell,v\rangle\leq F^\vee(\ell)
+ \qquad(v\in V,\ \ell\in V^\vee);
+\end{equation}
+\item $F^{\vee\vee}(v):=\inf_{\ell\in V^\vee}
+  \bigl(F^\vee(\ell)+\langle\ell,v\rangle\bigr)$
+  is the smallest upper semicontinuous concave majorant of $F$; in particular
+  $F^{\vee\vee}=F$ if and only if $F$ is upper semicontinuous;
+\item equality holds in \eqref{eq:fenchel-young-concave} for a given pair
+  $(v,\ell)$ if and only if $\ell$ is a supergradient of $F$ at $v$, that is
+\[
+ F(w)\leq F(v)+\langle\ell,w-v\rangle\qquad\text{for all }w\in V .
+\]
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+Put $f=-F$, a convex function $V\to\mathbf R\cup\{+\infty\}$ that is proper in
+the sense of \Cref{def:appD-proper-closed}, since $F\not\equiv-\infty$ and $F$
+never takes the value $+\infty$.  Then
+\[
+ F^\vee(\ell)=\sup_v\bigl(-f(v)-\langle\ell,v\rangle\bigr)
+ =\sup_v\bigl(\langle-\ell,v\rangle-f(v)\bigr)=f^*(-\ell),
+\]
+with $f^*$ the convex conjugate \eqref{eq:appD-conjugate}.  Assertion (1) is
+therefore the statement that $f^*$ is convex and lsc, which holds because
+$f^*$ is a supremum of continuous affine functions, together with the
+Fenchel--Young inequality \eqref{eq:appD-fenchel} of
+\Cref{prop:appD-fenchel-equality}.
+
+For (2), the same substitution gives
+\[
+ F^{\vee\vee}(v)=\inf_\ell\bigl(f^*(-\ell)+\langle\ell,v\rangle\bigr)
+ =-\sup_{m\in V^\vee}\bigl(\langle m,v\rangle-f^*(m)\bigr)
+ =-f^{**}(v),
+\]
+after the substitution $m=-\ell$.  The Fenchel--Moreau theorem
+\Cref{thm:appD-fenchel-moreau} identifies $f^{**}$ with the lower
+semicontinuous convex closure $\overline f$, that is, the largest lsc convex
+minorant of $f$.  Negating, $F^{\vee\vee}$ is the smallest usc concave
+majorant of $F$, and it equals $F$ exactly when $F$ is usc.
+
+For (3), equality in \eqref{eq:fenchel-young-concave} says
+$F(v)-\langle\ell,v\rangle=\sup_w(F(w)-\langle\ell,w\rangle)$, that is,
+$F(w)-\langle\ell,w\rangle\leq F(v)-\langle\ell,v\rangle$ for every $w$, which
+rearranges to the supergradient inequality.
+\end{proof}
+
+\begin{remark}[What the infinite-dimensional theory must supply]
+\label{rem:legendre-infinite-dimensional}
+\Cref{prop:concave-biconjugation} uses finite-dimensionality only through
+\Cref{thm:appD-fenchel-moreau}, whose proof separates a point from a closed
+convex epigraph.  In the variational chapters the role of $V$ is played by a
+space of potentials, which is not a finite-dimensional vector space and is not
+even a topological vector space in any useful sense; the separation step must
+then be replaced by a compactness and semicontinuity argument specific to the
+theory at hand.  This is why \eqref{eq:fenchel-energy} is stated as an
+inequality and why the corresponding equality is proved only after
+differentiability of the energy, in \cref{chap:bfj-differentiability} and
+\cref{chap:bj-finite-energy}.  The finite-dimensional statement is the
+template, not a lemma that can be quoted.
+\end{remark}
+
+The next example is a complete computation of a Legendre pair.  It is the
+finite model of the free-energy/entropy duality that reappears as the
+Ding and Mabuchi functionals in \cref{chap:bj-stability}, and it exhibits both
+the translation identity \eqref{eq:energy-translation} and the mass constraint
+of \Cref{lem:dual-mass}.
+
+\begin{example}[A Legendre pair: free energy and relative entropy]
+\label{ex:legendre-entropy-pair}
+Let $X=\{1,\dots,N\}$ be a finite set, let $p=(p_1,\dots,p_N)$ be a
+probability measure on $X$ with $p_i\geq0$ and $\sum_ip_i=1$, and let
+$\mathcal H=\mathbf R^N$ be the space of all real functions
+$\varphi=(\varphi_i)$ on $X$.  Define the \emph{free energy}
+\[
+ E(\varphi)=-\log Z(\varphi),
+ \qquad
+ Z(\varphi)=\sum_{i=1}^Np_i\rme^{-\varphi_i}.
+\]
+We compute $E^\vee$ completely.
+
+\emph{Step 1: $E$ is concave and satisfies \eqref{eq:energy-translation} with
+$M=1$.}  The function $\psi\mapsto\log\sum_ip_i\rme^{\psi_i}$ is convex, by
+H\"older's inequality: for $s\in[0,1]$,
+\[
+ \sum_ip_i\rme^{(1-s)\psi_i+s\chi_i}
+ \leq\Bigl(\sum_ip_i\rme^{\psi_i}\Bigr)^{1-s}
+     \Bigl(\sum_ip_i\rme^{\chi_i}\Bigr)^{s}.
+\]
+Hence $E(\varphi)=-\log\sum_ip_i\rme^{-\varphi_i}$ is concave in $\varphi$.
+Replacing $\varphi$ by $\varphi+c$ multiplies $Z$ by $\rme^{-c}$, so
+$E(\varphi+c)=E(\varphi)+c$.
+
+\emph{Step 2: the mass constraint.}  By \Cref{lem:dual-mass}, applied with
+$M=1$ and $\varphi_0=0$, for which $E(0)=0$ is finite, the dual energy
+$E^\vee(\mu)$ is $+\infty$ unless $\mu(X)=\sum_i\mu_i=1$.  We may therefore
+assume that $\mu$ is a probability measure on $X$.
+
+\emph{Step 3: the key identity.}  Fix $\varphi\in\mathbf R^N$ and set
+\[
+ \nu_i=\frac{p_i\rme^{-\varphi_i}}{Z(\varphi)},
+\]
+the associated Gibbs measure, a probability measure on $X$ with $\nu_i=0$
+exactly when $p_i=0$.  Let $\mu$ be a probability measure with
+$\mu_i=0$ whenever $p_i=0$, and write
+\[
+ H(\mu\mid\lambda)=\sum_{i:\,\mu_i>0}\mu_i\log\frac{\mu_i}{\lambda_i}
+ \in[0,+\infty]
+\]
+for the relative entropy of $\mu$ with respect to a probability measure
+$\lambda$, with the convention that the sum is $+\infty$ if $\lambda_i=0$ for
+some $i$ with $\mu_i>0$.  For $i$ with $\mu_i>0$ we have $p_i>0$ and
+$\nu_i>0$, and
+$\varphi_i=\log p_i-\log\nu_i-\log Z(\varphi)$; therefore
+\[
+ E(\varphi)-\sum_i\varphi_i\mu_i
+ =-\log Z-\sum_{i:\,\mu_i>0}\mu_i
+   \bigl(\log p_i-\log\nu_i-\log Z\bigr)
+ =\sum_{i:\,\mu_i>0}\mu_i\log\frac{\nu_i}{p_i},
+\]
+using $\sum_i\mu_i=1$.  Adding and subtracting $\mu_i\log\mu_i$ gives
+\begin{equation}
+\label{eq:gibbs-identity}
+ E(\varphi)-\sum_i\varphi_i\mu_i
+ =H(\mu\mid p)-H(\mu\mid\nu).
+\end{equation}
+
+\emph{Step 4: nonnegativity of relative entropy.}  For probability measures
+$\mu,\lambda$ with $\mu\ll\lambda$, Jensen's inequality applied to the strictly
+convex function $t\mapsto t\log t$ and the measure $\lambda$ gives
+\[
+ H(\mu\mid\lambda)=\sum_i\lambda_i\,
+ \frac{\mu_i}{\lambda_i}\log\frac{\mu_i}{\lambda_i}
+ \geq\Bigl(\sum_i\mu_i\Bigr)\log\Bigl(\sum_i\mu_i\Bigr)=0,
+\]
+with equality if and only if $\mu_i/\lambda_i$ is constant, that is
+$\mu=\lambda$.
+
+\emph{Step 5: conclusion.}  Combining \eqref{eq:gibbs-identity} with Step 4,
+\[
+ E(\varphi)-\sum_i\varphi_i\mu_i\leq H(\mu\mid p)
+\]
+for every $\varphi$, with equality if and only if $\mu=\nu$, that is, if and
+only if $\varphi_i=-\log(\mu_i/p_i)+\mathrm{const}$ on $\{p_i>0\}$.  Such a
+$\varphi$ exists precisely when $\mu_i>0$ for every $i$ with $p_i>0$.  In
+general, take $\varphi_i=-\log(\mu_i/p_i)$ where $\mu_i>0$ and
+$\varphi_i=T>0$ elsewhere; then $Z=1+\rme^{-T}\sum_{i:\,\mu_i=0}p_i$, and
+$\nu_i=\mu_i/Z$ for $\mu_i>0$, so $H(\mu\mid\nu)=\log Z\to0$ as
+$T\to+\infty$.  Hence the supremum equals $H(\mu\mid p)$ in all cases.
+Finally, if $\mu_i>0=p_i$ for some $i$, let $\varphi_i\to-\infty$ at that
+index alone: $Z$ is unchanged, while $-\sum_j\varphi_j\mu_j\to+\infty$, so
+$E^\vee(\mu)=+\infty=H(\mu\mid p)$.  We conclude
+\begin{equation}
+\label{eq:free-energy-dual}
+ E^\vee(\mu)=
+ \begin{cases}
+ H(\mu\mid p), & \mu\ \text{a probability measure on }X,\\
+ +\infty, & \text{otherwise}.
+ \end{cases}
+\end{equation}
+
+\emph{Step 6: biconjugation.}  Since $E$ is concave and continuous on
+$\mathbf R^N$, \Cref{prop:concave-biconjugation}\,(2) gives
+$E^{\vee\vee}=E$, that is
+\[
+ -\log\sum_ip_i\rme^{-\varphi_i}
+ =\inf_{\mu\in\mathcal P(X)}
+ \Bigl(H(\mu\mid p)+\sum_i\varphi_i\mu_i\Bigr),
+\]
+which is the Gibbs variational principle.  The minimizer is the Gibbs measure
+$\nu$ of Step 3, in agreement with
+\Cref{prop:concave-biconjugation}\,(3): the function $E$ is differentiable
+with
+\[
+ \frac{\partial E}{\partial\varphi_i}(\varphi)
+ =-\frac1{Z(\varphi)}\frac{\partial Z}{\partial\varphi_i}(\varphi)
+ =\frac{p_i\rme^{-\varphi_i}}{Z(\varphi)}=\nu_i ,
+\]
+so its unique supergradient at $\varphi$ is the linear form
+$\psi\mapsto\sum_i\psi_i\nu_i$, that is, the measure $\nu$.  Consistently with
+Step 1, the derivatives sum to $1=M$.
+
+The dictionary with the later chapters is exact: $E$ is the energy, $E^\vee$
+is the entropy of a measure relative to a reference, the mass constraint of
+Step 2 is the statement that only measures of total mass $(L^n)$ have finite
+dual energy, and the equality case of Step 5 is the Euler--Lagrange equation
+of the variational problem, that is, the Monge--Amp\`ere equation.
+\end{example}
+
+\begin{example}[A one-variable Legendre pair and its inverse]
+\label{ex:legendre-one-variable}
+The transform used for test curves in \cref{chap:rays-test-curves} is
+\eqref{eq:appD-concave-transform}:
+$\mathcal Lg(t)=\sup_{\tau\in\mathbf R}\{g(\tau)+t\tau\}$ for $t\geq0$.  Take
+\[
+ g(\tau)=
+ \begin{cases}
+ 0,&\tau\leq0,\\
+ -\tau,&0\leq\tau\leq1,\\
+ -\infty,&\tau>1 .
+ \end{cases}
+\]
+This $g$ is concave, upper semicontinuous, and nonincreasing, so
+\Cref{thm:appD-concave-duality} applies.  We compute both directions
+explicitly.
+
+For $t\geq0$, split the supremum.  On $\tau\leq0$ the expression $g+t\tau$
+equals $t\tau\leq0$, with supremum $0$ attained at $\tau=0$.  On
+$0\leq\tau\leq1$ it equals $(t-1)\tau$, with supremum $\max\{0,t-1\}$.  On
+$\tau>1$ it is $-\infty$.  Hence
+\[
+ \mathcal Lg(t)=\max\{0,t-1\}=(t-1)_+ ,
+\]
+a convex, piecewise affine, nondecreasing function with a single break at
+$t=1$ and slopes $0$ and $1$; these are exactly the endpoints of the interval
+$[0,1]$ on which $g$ is finite and affine.
+
+For the inverse transform, compute
+$\inf_{t\geq0}\{(t-1)_+-t\tau\}$.  If $\tau\leq0$, both terms are
+nonnegative, and the value $0$ is attained at $t=0$; the infimum is
+$0=g(\tau)$.  If $0\leq\tau\leq1$, then on $0\leq t\leq1$ the expression is
+$-t\tau$, decreasing, with minimum $-\tau$ at $t=1$, and on $t\geq1$ it is
+$t(1-\tau)-1$, nondecreasing, with value $-\tau$ at $t=1$; the infimum is
+$-\tau=g(\tau)$.  If $\tau>1$, then on $t\geq1$ the expression
+$t(1-\tau)-1$ tends to $-\infty$; the infimum is $-\infty=g(\tau)$.  Thus
+\eqref{eq:appD-concave-inversion} holds, as it must.
+
+Two features of this computation recur.  First, the break points of
+$\mathcal Lg$ record the slopes of $g$, and conversely; this is the mechanism
+by which a test curve determines a ray and vice versa.  Second, the value
+$-\infty$ of $g$ for $\tau>1$ is what makes $\mathcal Lg$ finite, and dropping
+it would make $\mathcal Lg\equiv+\infty$ for $t>1$.  Extended-real values are
+not a blemish on the theory; they carry the information.
+\end{example}
+
+\section{Capacities, quasicontinuity, and polar sets: a preview}
+\label{sec:capacity-preview}
+
+Measures are well suited to integration, but sets negligible for one measure
+need not be negligible for all Monge--Amp\`ere measures.  A capacity records
+uniform negligibility.
+
+This section is axiomatic on purpose.  In \cref{chap:bfj-capacity} and
+\cref{chap:bj-strong-topologies} several different capacities are constructed
+from Monge--Amp\`ere operators, and each of them has its own analytic
+input; what the later chapters import from here is only the formal calculus of
+a capacity, its polar sets, and its quasicontinuous functions.  Isolating that
+calculus once prevents the same argument from being rewritten in each theory,
+and it makes visible which of the axioms each application actually uses.  In
+particular, countable subadditivity is stated separately every time, because
+it is the axiom that fails most easily and the one on which the useful
+statements depend.
+
+\begin{definition}
+Let $X$ be a topological space.  A \emph{Choquet capacity} is a function
+\[
+                 \operatorname{Cap}:2^X\longrightarrow[0,+\infty]
+\]
+such that:
+\begin{enumerate}
+\item $\operatorname{Cap}(\varnothing)=0$ and
+  $A\subset B$ implies $\operatorname{Cap}(A)\leq\operatorname{Cap}(B)$;
+\item if $A_j\nearrow A$, then
+  $\operatorname{Cap}(A_j)\nearrow\operatorname{Cap}(A)$;
+\item if $K_j\searrow K$ are compact, then
+  $\operatorname{Cap}(K_j)\searrow\operatorname{Cap}(K)$.
+\end{enumerate}
+We will additionally state countable subadditivity whenever it is available;
+it is not part of every author's minimal definition of a Choquet capacity.
+\end{definition}
+
+A set $P$ is \emph{polar} for the capacity if
+$\operatorname{Cap}(P)=0$.  A function $f:X\to\overline{\mathbf R}$ is
+\emph{quasicontinuous} if for every $\varepsilon>0$ there is an open set $U$
+with $\operatorname{Cap}(U)<\varepsilon$ such that
+$f|_{X\setminus U}$ is continuous.
+
+Three remarks on the definition.  The continuity required of
+$f|_{X\setminus U}$ is continuity of the restriction for the subspace
+topology, which is weaker than continuity of $f$ at the points of
+$X\setminus U$.  The exceptional set is required to be \emph{open}; requiring
+only a Borel set of small capacity gives a formally weaker notion, and the two
+agree whenever $\Capa$ is outer regular in the sense that
+$\Capa(A)=\inf\{\Capa(U):U\supseteq A\ \text{open}\}$, which holds for every
+capacity constructed later.  Finally, a quasicontinuous function may take the
+values $\pm\infty$; on the complement of the exceptional set it is then
+continuous as a map into $\Rbar$ with its order topology.
+
+\begin{example}[A Choquet capacity that is not countably subadditive]
+\label{ex:capacity-not-subadditive}
+Let $X=\{0,1\}$ with the discrete topology and define
+$\Capa(A)=|A|^2$.  Monotonicity and normalization are immediate.  Every
+increasing or decreasing sequence of subsets is eventually constant, so
+axioms (2) and (3) hold.  Thus $\Capa$ is a Choquet capacity.  It is not
+subadditive, since
+\[
+ \Capa(\{0,1\})=4>2=\Capa(\{0\})+\Capa(\{1\}).
+\]
+The point is that countable subadditivity does not follow from axioms
+(1)--(3).  Whenever a capacity is
+constructed in this book, countable subadditivity is proved, not assumed.
+\end{example}
+
+\begin{proposition}
+\label{prop:polar-sigma-ideal}
+Let $\Capa$ be a countably subadditive Choquet capacity on $X$.  Then:
+\begin{enumerate}
+\item a subset of a polar set is polar;
+\item a countable union of polar sets is polar;
+\item if $\mu$ is a positive Borel measure on $X$ which is inner regular on
+  Borel sets and satisfies $\mu(K)\leq C\,\Capa(K)$ for every compact
+  $K\subseteq X$ and some constant $C$, then every Borel polar set is
+  $\mu$-null.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+\emph{(1)} is monotonicity, axiom (1).  \emph{(2)} If
+$\Capa(P_j)=0$ for $j\geq1$, then
+$\Capa\bigl(\bigcup_jP_j\bigr)\leq\sum_j\Capa(P_j)=0$.
+\emph{(3)} Let $P$ be Borel with $\Capa(P)=0$.  For compact $K\subseteq P$,
+monotonicity gives $\Capa(K)=0$, hence $\mu(K)=0$.  Inner regularity gives
+$\mu(P)=\sup\{\mu(K):K\subseteq P\ \text{compact}\}=0$.
+\end{proof}
+
+\begin{remark}[The interface used later]
+\label{rem:capacity-interface}
+Part (3) of \Cref{prop:polar-sigma-ideal} is the exact form in which
+capacities are used to compare null sets.  In \cref{chap:bfj-capacity} the
+measures $\mu$ are Monge--Amp\`ere measures of bounded potentials, the
+constant $C$ comes from a Chern--Levine--Nirenberg type estimate, and the
+conclusion is that a bounded potential is determined outside a polar set.  The
+hypothesis of inner regularity is automatic for Radon measures by
+\eqref{eq:radon-regularity}.  No statement about \emph{non}polar sets is
+imported from this section; those require the specific capacity.
+\end{remark}
+
+\begin{proposition}
+\label{prop:quasicontinuity-calculus}
+Let $\Capa$ be a countably subadditive Choquet capacity on $X$.
+\begin{enumerate}
+\item If $f_1,\dots,f_k$ are quasicontinuous, then for every $\varepsilon>0$
+  there is a single open $U$ with $\Capa(U)<\varepsilon$ such that every
+  $f_i|_{X\setminus U}$ is continuous.  The same holds for a countable family.
+\item Finite sums, whenever defined, finite maxima, finite minima, and
+  products of real-valued quasicontinuous functions are quasicontinuous, as is
+  $\chi\circ f$ for $\chi:\Rbar\to\Rbar$ continuous.
+\item A uniform limit of quasicontinuous functions is quasicontinuous.
+\item If $f_j$ is quasicontinuous for each $j$ and $f_j\to f$ uniformly
+  outside a set of arbitrarily small capacity, in the sense that for every
+  $\varepsilon>0$ there is an open $U$ with $\Capa(U)<\varepsilon$ and
+  $f_j\to f$ uniformly on $X\setminus U$, then $f$ is quasicontinuous.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+\emph{(1).}  Given $\varepsilon>0$ and a countable family $(f_j)_{j\geq1}$,
+choose open $U_j$ with $\Capa(U_j)<2^{-j}\varepsilon$ such that
+$f_j|_{X\setminus U_j}$ is continuous, and put $U=\bigcup_jU_j$, which is open
+with $\Capa(U)\leq\sum_j\Capa(U_j)<\varepsilon$ by countable subadditivity.
+For each $j$, the set $X\setminus U$ is a subspace of $X\setminus U_j$, and a
+restriction of a continuous map to a subspace is continuous.
+
+\emph{(2).}  By (1) there is one open $U$ of capacity $<\varepsilon$ outside
+which all the given functions are continuous.  Sums, maxima, minima, and
+products of continuous real-valued functions on the subspace $X\setminus U$
+are continuous there, and so is $\chi\circ f$ for continuous $\chi$.
+
+\emph{(3).}  Let $f_j\to f$ uniformly with each $f_j$ quasicontinuous.  By (1)
+choose an open $U$ with $\Capa(U)<\varepsilon$ outside which every $f_j$ is
+continuous.  On $X\setminus U$, the function $f$ is a uniform limit of
+continuous functions, hence continuous.
+
+\emph{(4).}  Given $\varepsilon>0$, choose an open $U'$ with
+$\Capa(U')<\varepsilon/2$ on whose complement $f_j\to f$ uniformly, and by (1)
+an open $U''$ with $\Capa(U'')<\varepsilon/2$ on whose complement every $f_j$
+is continuous.  Then $U=U'\cup U''$ is open with $\Capa(U)<\varepsilon$, and
+on $X\setminus U$ the function $f$ is a uniform limit of continuous functions,
+hence continuous.
+\end{proof}
+
+\begin{remark}[What is not proved here]
+\label{rem:quasicontinuity-limits}
+Two statements that look similar to
+\Cref{prop:quasicontinuity-calculus} are \emph{not} available at this level of
+generality, and each is proved separately in the theory where it is used.
+The first is that a decreasing limit of quasicontinuous functions is
+quasicontinuous; the proof requires convergence in capacity, not merely
+pointwise convergence.  The second is that two quasicontinuous functions
+agreeing outside a polar set agree quasi-everywhere in the strong sense that
+their difference has quasi-open sublevel sets; this needs a quasi-Lindel\"of
+property of the capacity, which holds for the Monge--Amp\`ere capacities of
+\cref{chap:bfj-capacity} but is not a consequence of axioms (1)--(3) together
+with countable subadditivity.  We do not use either statement before it has
+been proved for the capacity at hand.
+\end{remark}
+
+\begin{definition}
+Let the capacity be finite.  A sequence $f_j$ converges to $f$ in capacity if
+for every $\varepsilon>0$,
+\[
+ \operatorname{Cap}\bigl(\{|f_j-f|>\varepsilon\}\bigr)\longrightarrow0,
+\]
+where the difference is considered only when both functions are finite.  In
+applications, the polar sets on which a potential is $-\infty$ are handled
+separately.
+\end{definition}
+
+\begin{proposition}\label{prop:capacity-subsequence}
+Assume that $\operatorname{Cap}$ is countably subadditive.  If
+$f_j\to f$ in capacity, then some subsequence converges pointwise to $f$
+outside a polar set.
+\end{proposition}
+
+\begin{proof}
+Choose $j_m$ so that
+\[
+ \operatorname{Cap}\bigl(\{|f_{j_m}-f|>2^{-m}\}\bigr)<2^{-m}.
+\]
+The limsup of these exceptional sets has capacity zero, since for every $N$
+it is contained in their union over $m\geq N$, whose capacity is at most
+$2^{1-N}$.  Outside the limsup, the desired convergence holds.
+\end{proof}
+
+\begin{remark}
+The proposition is deliberately sequential.  A convergent net in capacity
+need not contain a useful sequence unless the directed set or the capacity
+space has an additional countability property.  Later compactness theorems
+will provide exactly the required reductions.
+\end{remark}
+
+Both hypotheses of \Cref{prop:capacity-subsequence} are used: countable
+subadditivity bounds the capacity of the union $\bigcup_{m\geq N}$, and the
+sequential indexing makes that union countable.  Neither is available for a
+net, which is why the statement is not upgraded.  The reduction from a net to
+a sequence, when it is possible at all, is performed before this proposition
+is applied, by \Cref{lem:choquet-selection} or by an explicit cofinal
+sequence.
+
+\section{Concave transforms and Duistermaat--Heckman distributions}
+\label{sec:dh-preview}
+
+Let $\Delta\subset\mathbf R^n$ be a compact convex body and let
+$\lambda_\Delta$ denote Lebesgue measure restricted to $\Delta$.  We do not
+normalize it: its total mass is $\operatorname{vol}(\Delta)$.  Let
+\[
+               G:\Delta\longrightarrow\mathbf R\cup\{-\infty\}
+\]
+be a proper upper semicontinuous concave function.  Its effective domain
+$\{G> -\infty\}$ is convex.
+
+We first record the facts about concave functions on a convex body that make
+the construction legitimate.  Here \emph{proper} means, as in
+\Cref{def:appD-proper-closed} applied to $-G$, that $G$ is finite at some
+point and never equal to $+\infty$.
+
+\begin{lemma}
+\label{lem:concave-on-body}
+Let $\Delta\subset\mathbf R^n$ be a compact convex body and let
+$G:\Delta\to\mathbf R\cup\{-\infty\}$ be proper, concave, and upper
+semicontinuous.  Then:
+\begin{enumerate}
+\item every superlevel set $\{G\geq\tau\}$ and every strict superlevel set
+  $\{G>\tau\}$ is convex, the former being closed;
+\item $G$ is bounded above and attains its maximum;
+\item $G$ is Borel measurable, and it is continuous on the relative interior
+  of its effective domain $D=\{G>-\infty\}$;
+\item $G$ is Lebesgue integrable on $\Delta$ if and only if
+  $\int_\Delta\max(-G,0)\,\rd x<\infty$, and in that case
+  $\lambda_\Delta(\{G=-\infty\})=0$.
+\end{enumerate}
+\par
+\end{lemma}
+
+\begin{proof}
+\emph{(1).}  If $G(x),G(y)\geq\tau$ and $s\in[0,1]$, concavity gives
+$G((1-s)x+sy)\geq(1-s)G(x)+sG(y)\geq\tau$, and the same computation with
+strict inequalities gives the second assertion.  The set $\{G\geq\tau\}$ is
+closed because $\{G<\tau\}$ is open, $G$ being usc.
+
+\emph{(2).}  This is \Cref{cor:usc-attains-max}, since $\Delta$ is compact and
+nonempty and $G$ takes values in $\mathbf R\cup\{-\infty\}$.
+
+\emph{(3).}  Upper semicontinuity makes every $\{G<\tau\}$ open, hence Borel,
+so $G$ is Borel measurable.  For continuity on the relative interior of $D$,
+extend $G$ by $-\infty$ outside $\Delta$, so that $-G$ becomes a proper convex
+function on $\mathbf R^n$ with effective domain $D$.  A convex function is
+continuous relative to any relatively open convex subset of its effective
+domain, by \cite[Theorem~10.1]{Roc70}; applying this to $\RelInt D$ gives the
+assertion.
+
+\emph{(4).}  Write $G=G^+-G^-$ with $G^+=\max(G,0)$ and $G^-=\max(-G,0)$.
+By (2), $G^+$ is bounded, hence integrable on the bounded set $\Delta$, so
+integrability of $G$ is equivalent to integrability of $G^-$.  If $G^-$ is
+integrable then $\{G^-=+\infty\}=\{G=-\infty\}$ is Lebesgue-null.
+\end{proof}
+
+\begin{remark}
+\label{rem:concave-boundary}
+Part (3) says nothing about the boundary of $D$, and nothing can be said: on
+$\Delta=[0,1]$ the function $G(x)=\sqrt{x}$ is concave, continuous, and
+finite, while $G(x)=\log x$ for $x>0$ with $G(0)=-\infty$ is concave and usc
+with $D=(0,1]$, and it is unbounded below at the boundary point $0$.  Both are
+integrable, so both define Duistermaat--Heckman distributions; only the second
+has a nontrivial tail near $-\infty$, namely
+$\DHm_{[0,1],\log}\bigl((-\infty,\tau]\bigr)=\rme^{\tau}$ for $\tau\leq0$.  In
+\cref{chap:transcendental-okounkov-dh}, where $G$ arises as a concave
+transform, exactly this boundary behaviour encodes the singularities of a
+potential.
+\end{remark}
+
+\begin{definition}
+Assume that $G$ is finite almost everywhere, and let
+$N=\{G=-\infty\}$, a null set.  Choose any finite-valued Borel function
+$\widetilde G$ that agrees with $G$ on $\Delta\setminus N$.  The
+\emph{Duistermaat--Heckman distribution} of the pair $(\Delta,G)$ is
+\[
+                        \operatorname{DH}_{\Delta,G}
+                        :=\widetilde G_*\lambda_\Delta.
+\]
+It is a positive Radon measure on $\mathbf R$ of total mass
+$\operatorname{vol}(\Delta)$ and is independent of the chosen values on
+$N$, because $N$ is null.
+\end{definition}
+
+This normalization is designed for later Okounkov-body constructions.  If
+the total Monge--Amp\`ere mass is $(L^n)=n!\operatorname{vol}(\Delta)$, the
+corresponding unnormalized geometric distribution is
+$n!\operatorname{DH}_{\Delta,G}$.
+
+\begin{proposition}\label{prop:dh-tail}
+For every $\tau\in\mathbf R$,
+\[
+ \operatorname{DH}_{\Delta,G}((\tau,+\infty))
+ =\operatorname{vol}\{x\in\Delta:G(x)>\tau\}.
+\]
+If
+$V(\tau)=\operatorname{vol}\{G>\tau\}$, then $V$ is decreasing and
+right-continuous, and $\operatorname{DH}_{\Delta,G}$ is its negative
+Stieltjes derivative.  Atoms record jumps of $V$.
+\end{proposition}
+
+\begin{proof}
+The first identity is the definition of pushforward.  The second is the
+standard correspondence between a finite measure on $\mathbf R$ and its tail
+function.
+
+In detail, choose the finite Borel representative $\widetilde G$ from the
+definition.  Then
+$\widetilde G_*\lambda_\Delta\bigl((\tau,+\infty)\bigr)
+=\lambda_\Delta\bigl(\widetilde G^{-1}(\tau,+\infty)\bigr)
+=\vol\{x\in\Delta:G(x)>\tau\}$: the two inverse images can differ only on
+the null set $\{G=-\infty\}$, and the last set is Borel by
+\Cref{lem:concave-on-body}\,(3).  The function $V$ is
+nonincreasing because the sets $\{G>\tau\}$ decrease with $\tau$.  It is
+right-continuous because
+$\{G>\tau\}=\bigcup_{m\geq1}\{G>\tau+1/m\}$ is an increasing union, so
+$V(\tau)=\lim_mV(\tau+1/m)$ by continuity of a finite measure along increasing
+sequences.  Consequently $V$ is the tail function of the finite Borel measure
+$\DHm_{\Delta,G}$ on $\mathbf R$, which is therefore determined by $V$: the
+measure of an interval $(\tau_0,\tau_1]$ is $V(\tau_0)-V(\tau_1)$, and these
+intervals generate the Borel $\sigma$-algebra.  Left limits are given by
+\[
+ V(\tau^-)=\lim_{m}V(\tau-1/m)=\vol\{G\geq\tau\},
+\]
+because $\{G\geq\tau\}=\bigcap_m\{G>\tau-1/m\}$ is a decreasing intersection
+of sets of finite measure.  Hence
+\[
+ \DHm_{\Delta,G}(\{\tau\})=V(\tau^-)-V(\tau)
+ =\vol\{G\geq\tau\}-\vol\{G>\tau\}=\vol\{G=\tau\},
+\]
+which is the assertion about atoms.
+\end{proof}
+
+\begin{corollary}
+\label{cor:dh-affine}
+Let $c\in\mathbf R$ and $\lambda>0$.  Writing $T_c(t)=t+c$ and
+$m_\lambda(t)=\lambda t$ for the corresponding maps $\mathbf R\to\mathbf R$,
+\[
+ \DHm_{\Delta,G+c}=(T_c)_*\DHm_{\Delta,G},
+ \qquad
+ \DHm_{\Delta,\lambda G}=(m_\lambda)_*\DHm_{\Delta,G}.
+\]
+Both operations preserve the total mass $\vol(\Delta)$.
+\end{corollary}
+
+\begin{proof}
+For a Borel set $B\subseteq\mathbf R$,
+\[
+ \DHm_{\Delta,G+c}(B)=\vol\{x:G(x)+c\in B\}
+ =\vol\{x:G(x)\in B-c\}=\DHm_{\Delta,G}(T_c^{-1}B),
+\]
+and similarly for $\lambda G$.  The mass statement is the case
+$B=\mathbf R$, using that $T_c$ and $m_\lambda$ are bijections of
+$\mathbf R$.
+\end{proof}
+
+The Duistermaat--Heckman distribution is weakly continuous under uniform
+convergence of the concave transform.  This is the only continuity statement
+used in \cref{chap:transcendental-okounkov-dh}, and it is elementary; the
+delicate continuity statements there concern the dependence of $G$ itself on
+the geometric data.
+
+\begin{proposition}
+\label{prop:dh-continuity}
+Let $\Delta$ be a compact convex body and let $G_j,G:\Delta\to\mathbf R$ be
+bounded functions with $G_j\to G$ uniformly on $\Delta$.  Then
+$\DHm_{\Delta,G_j}\to\DHm_{\Delta,G}$ weakly on $\mathbf R$, that is,
+\[
+ \int_{\mathbf R}\chi\,\rd\DHm_{\Delta,G_j}
+ \longrightarrow
+ \int_{\mathbf R}\chi\,\rd\DHm_{\Delta,G}
+\]
+for every bounded continuous $\chi:\mathbf R\to\mathbf R$.
+\end{proposition}
+
+\begin{proof}
+All the measures are supported in a fixed compact interval $I\subseteq\mathbf
+R$: indeed $\lVert G_j\rVert_\infty\leq\lVert G\rVert_\infty+1$ for $j$ large.
+Let $\chi$ be bounded and continuous; on the compact interval $I$ it is
+uniformly continuous, so given $\varepsilon>0$ there is $\delta>0$ with
+$|\chi(s)-\chi(t)|<\varepsilon$ whenever $s,t\in I$ and $|s-t|<\delta$.  By
+\Cref{lem:dh-moments}, applied to the bounded Borel function $\chi$,
+\[
+ \Bigl|\int_{\mathbf R}\chi\,\rd\DHm_{\Delta,G_j}
+ -\int_{\mathbf R}\chi\,\rd\DHm_{\Delta,G}\Bigr|
+ =\Bigl|\int_\Delta\bigl(\chi(G_j(x))-\chi(G(x))\bigr)\rd x\Bigr|
+ \leq\varepsilon\vol(\Delta)
+\]
+as soon as $\lVert G_j-G\rVert_\infty<\delta$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:dh-continuity-ae}
+Let $G_j,G:\Delta\to\mathbf R$ be Borel functions with $G_j\to G$ Lebesgue
+almost everywhere on $\Delta$.  Then
+$\DHm_{\Delta,G_j}\to\DHm_{\Delta,G}$ weakly on $\mathbf R$.
+\end{corollary}
+
+\begin{proof}
+Let $\chi:\mathbf R\to\mathbf R$ be bounded and continuous.  Then
+$\chi\circ G_j\to\chi\circ G$ almost everywhere on $\Delta$, and
+$|\chi\circ G_j|\leq\lVert\chi\rVert_\infty$, which is integrable on the
+bounded set $\Delta$.  Dominated convergence and \Cref{lem:dh-moments} give
+\[
+ \int_{\mathbf R}\chi\,\rd\DHm_{\Delta,G_j}
+ =\int_\Delta\chi(G_j)\,\rd x
+ \longrightarrow\int_\Delta\chi(G)\,\rd x
+ =\int_{\mathbf R}\chi\,\rd\DHm_{\Delta,G}.
+\]
+Since $\chi$ was arbitrary, this is weak convergence.
+\end{proof}
+
+\begin{remark}[Weak convergence does not give convergence of moments]
+\label{rem:dh-moments-not-continuous}
+Weak convergence of Duistermaat--Heckman distributions controls only bounded
+continuous test functions, and the unbounded test function $\chi(t)=t$, whose
+integral is the barycenter, is genuinely not continuous for it.  On
+$\Delta=[0,1]$ put
+\[
+ G_j(x)=\min\bigl(0,\,-j^2+j^4x\bigr),\qquad j\geq1 ,
+\]
+a minimum of two affine functions, hence concave, with $G_j(0)=-j^2$ and
+$G_j\equiv0$ on $[j^{-2},1]$.  Then $G_j\to0$ pointwise on $(0,1]$, so
+$\DHm_{[0,1],G_j}\to\delta_0$ weakly by \Cref{cor:dh-continuity-ae}.
+Explicitly, $\DHm_{[0,1],G_j}$ is the sum of an atom of mass $1-j^{-2}$ at
+$0$ and the uniform measure of density $j^{-4}$ on $[-j^2,0]$.  Its barycenter
+is
+\[
+ \int_{\mathbf R}t\,\rd\DHm_{[0,1],G_j}(t)
+ =\int_0^1G_j(x)\,\rd x=-\tfrac12
+\]
+for every $j$, whereas the barycenter of $\delta_0$ is $0$.  Mass escapes to
+$-\infty$ while carrying a fixed first moment.  This is the reason that
+\cref{chap:transcendental-okounkov-dh} states energy and entropy statements
+with explicit uniform integrability or monotonicity hypotheses, and never
+deduces convergence of a moment from weak convergence alone.
+\end{remark}
+
+\begin{proposition}\label{prop:dh-brunn-minkowski}
+Assume $\Delta$ has nonempty interior.  On the interval where it is positive,
+the function
+\[
+               \tau\longmapsto
+               \operatorname{vol}\{G\geq\tau\}^{1/n}
+\]
+is concave.
+\end{proposition}
+
+\begin{proof}
+Concavity of $G$ gives
+\[
+ (1-t)\{G\geq\tau_0\}+t\{G\geq\tau_1\}
+ \subseteq
+ \{G\geq(1-t)\tau_0+t\tau_1\}.
+\]
+Apply the Brunn--Minkowski inequality.
+
+The inclusion is immediate: if $G(x_0)\geq\tau_0$ and $G(x_1)\geq\tau_1$ then
+concavity gives
+$G((1-t)x_0+tx_1)\geq(1-t)G(x_0)+tG(x_1)\geq(1-t)\tau_0+t\tau_1$.  The sets
+$\{G\geq\tau_i\}$ are compact and convex by
+\Cref{lem:concave-on-body}\,(1), and they are nonempty on the interval where
+the volume is positive.  \Cref{cor:appD-brunn-minkowski}, applied to the
+convex bodies $(1-t)\{G\geq\tau_0\}$ and $t\{G\geq\tau_1\}$ and combined with
+monotonicity of volume under the displayed inclusion, gives
+\[
+ \vol\{G\geq(1-t)\tau_0+t\tau_1\}^{1/n}
+ \geq(1-t)\vol\{G\geq\tau_0\}^{1/n}+t\,\vol\{G\geq\tau_1\}^{1/n},
+\]
+using the homogeneity $\vol(sK)=s^n\vol(K)$.  This is the asserted concavity.
+\end{proof}
+
+\begin{remark}
+\label{rem:dh-log-concavity}
+\Cref{prop:dh-brunn-minkowski} is the source of every log-concavity statement
+about Duistermaat--Heckman measures in this book.  It says that the tail
+function $V(\tau)=\vol\{G>\tau\}$, which differs from
+$\vol\{G\geq\tau\}$ only at the countably many atoms of $\DHm_{\Delta,G}$, has
+a concave $n$-th root; in dimension $n=1$ this is exactly concavity of $V$,
+that is, monotonicity of the density of $\DHm_{\Delta,G}$.  The corresponding
+statement in \cref{chap:bj-test-configurations} for Duistermaat--Heckman
+measures of test configurations is proved by the same Brunn--Minkowski
+mechanism after passing to Okounkov bodies, not by a separate argument.
+\end{remark}
+
+\begin{example}[Affine transform]
+For $\Delta=[a,b]$ and $G(x)=x$, one has
+$\operatorname{DH}_{\Delta,G}=\mathbf 1_{[a,b]}\,\rd t$.  If instead
+$\Delta=[0,1]$ and $G(x)=\min\{x,1-x\}$, then
+\[
+ \operatorname{DH}_{\Delta,G}=2\mathbf 1_{[0,1/2]}\,\rd t.
+\]
+Indeed, the superlevel interval has length $1-2\tau$ for
+$0\leq\tau\leq1/2$.
+\end{example}
+
+\begin{example}[A piecewise affine transform on a simplex]
+\label{ex:dh-simplex}
+Let $\Delta\subset\mathbf R^2$ be the standard simplex with vertices
+$(0,0)$, $(1,0)$, $(0,1)$, so that $\vol(\Delta)=1/2$, and let
+\[
+ G(x_1,x_2)=\min\{x_1,\ x_2,\ c\},\qquad 0<c<1/2 .
+\]
+As a minimum of affine functions, $G$ is concave and continuous on $\Delta$,
+with values in $[0,c]$.  We compute $\DHm_{\Delta,G}$ from
+\Cref{prop:dh-tail}.
+
+For $0\leq\tau<c$ the superlevel set is
+\[
+ \{G>\tau\}=\{x\in\Delta:x_1>\tau,\ x_2>\tau\},
+\]
+a triangle similar to $\Delta$ with ratio $1-2\tau$, so
+\[
+ V(\tau)=\vol\{G>\tau\}=\tfrac12(1-2\tau)^2 .
+\]
+For $\tau\geq c$ we have $\{G>\tau\}=\varnothing$ and $V(\tau)=0$.  Hence $V$
+is smooth on $[0,c)$ with $V'(\tau)=-2(1-2\tau)$, and it jumps at $\tau=c$
+from $V(c^-)=\tfrac12(1-2c)^2$ to $0$.  By \Cref{prop:dh-tail},
+\[
+ \DHm_{\Delta,G}
+ =2(1-2\tau)\,\mathbf 1_{[0,c)}(\tau)\,\rd\tau
+ +\tfrac12(1-2c)^2\,\delta_c .
+\]
+The total mass is as it must be:
+\[
+ \int_0^c2(1-2\tau)\,\rd\tau+\tfrac12(1-2c)^2
+ =(2c-2c^2)+\bigl(\tfrac12-2c+2c^2\bigr)=\tfrac12=\vol(\Delta).
+\]
+
+Three features are worth recording, because all three recur in
+\cref{chap:bj-test-configurations} and
+\cref{chap:transcendental-okounkov-dh}.  The atom at $\tau=c$ has mass
+$\vol\{G=c\}$, in accordance with the atom formula in the proof of
+\Cref{prop:dh-tail}; it appears exactly because $G$ is constant on a set of
+positive measure, which is what a truncation $\min(\cdot,c)$ produces.  The
+density $2(1-2\tau)$ is decreasing, in accordance with
+\Cref{prop:dh-brunn-minkowski} in dimension $n=2$: indeed
+$V(\tau)^{1/2}=2^{-1/2}(1-2\tau)$ is affine, the extremal case of concavity.
+Finally, replacing $G$ by $G+c'$ translates the whole picture, by
+\Cref{cor:dh-affine}, and does not change the shape of the distribution.
+\end{example}
+
+\begin{lemma}\label{lem:dh-moments}
+Let $\widetilde G$ be any finite Borel representative used in the definition
+of $\operatorname{DH}_{\Delta,G}$.  For every Borel function $\chi$ that is
+integrable on the right-hand side,
+\[
+ \int_{\mathbf R}\chi(t)\,\rd \operatorname{DH}_{\Delta,G}(t)
+ =\int_\Delta\chi(\widetilde G(x))\,\rd x.
+\]
+In particular, if $G$ is integrable, the barycenter is
+\[
+ \frac{1}{\operatorname{vol}(\Delta)}
+ \int_\Delta G(x)\,\rd x.
+\]
+\end{lemma}
+
+\begin{proof}
+This is the change-of-variables identity defining a pushforward measure.
+Changing $\widetilde G$ on the null set $\{G=-\infty\}$ changes neither
+side.  When $G$ is integrable, its extended Lebesgue integral is likewise
+unchanged by the chosen finite values on that null set.
+\end{proof}
+
+\section{Extended-real arithmetic}
+\label{sec:extended-arithmetic}
+
+Potentials may equal $-\infty$, energies may equal $-\infty$, and dual
+energies may equal $+\infty$.  We use the following ledger throughout.
+
+The ledger below is not a list of conventions chosen for convenience.  Each
+entry is forced, in the sense that the alternative destroys a statement the
+book needs; and each entry is used, in the sense that some later proof would
+be false without it.  After stating the ledger we go through it entry by
+entry, giving the justification and an explicit example of what goes wrong if
+the entry is dropped.  The reader who wants the short version may consult
+\Cref{tab:extended-real-ledger}.
+
+\begin{enumerate}
+\item The order on $\overline{\mathbf R}$ is
+  $-\infty<a<+\infty$ for $a\in\mathbf R$.
+\item For $a\in\mathbf R$,
+  \[
+  a+(+\infty)=+\infty,\qquad a+(-\infty)=-\infty.
+  \]
+  We also set $(+\infty)+(+\infty)=+\infty$ and
+  $(-\infty)+(-\infty)=-\infty$; the mixed sum
+  $(+\infty)+(-\infty)$ is undefined.
+\item For $c>0$, set $c(+\infty)=+\infty$ and
+  $c(-\infty)=-\infty$.  The expressions $0(\pm\infty)$ are undefined unless
+  an explicit recession convention has been introduced.
+\item A difference $a-b$ means $a+(-b)$ only when this does not form
+  $(+\infty)+(-\infty)$.  In particular, $(-\infty)-(-\infty)$ and
+  $(+\infty)-(+\infty)$ are undefined.
+\item We set
+  \[
+             \sup\varnothing=-\infty,\qquad
+             \inf\varnothing=+\infty.
+  \]
+\item For a net $(a_i)$ in $\overline{\mathbf R}$,
+  \[
+  \limsup_i a_i=\inf_{i_0}\sup_{i\geq i_0}a_i,\qquad
+  \liminf_i a_i=\sup_{i_0}\inf_{i\geq i_0}a_i.
+  \]
+\item The integral of an extended-real function is used only when at least
+  one of its positive and negative parts has finite integral.  We never
+  assign a value to $+\infty-\infty$.
+\end{enumerate}
+
+\begin{table}
+\caption{The extended-real ledger, with the failure that each entry prevents.}
+\label{tab:extended-real-ledger}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Operation & Convention & Failure without it\\
+\midrule
+order & $-\infty<a<+\infty$ &
+  no monotone limits, no $\sup$/$\inf$\\
+$a+(\pm\infty)$, $a$ finite & $\pm\infty$ &
+  $\varphi+c$ undefined on the polar locus\\
+$(+\infty)+(-\infty)$ & undefined &
+  $0=\infty$ by associativity\\
+$c\cdot(\pm\infty)$, $c>0$ & $\pm\infty$ &
+  $\lambda\varphi$ undefined for a psh $\varphi$\\
+$0\cdot(\pm\infty)$ & undefined outside integrals &
+  discontinuity of $\lambda\mapsto\lambda\varphi$ hidden\\
+$0\cdot(+\infty)$ inside an integral & $0$ &
+  null sets could carry mass\\
+$a-b$ & only if not $(+\infty)+(-\infty)$ &
+  $\varphi-\psi=0$ on a polar set gives $\varphi=\psi$\\
+$\sup\varnothing$, $\inf\varnothing$ & $-\infty$, $+\infty$ &
+  envelopes over empty families undefined\\
+$\limsup$, $\liminf$ of a net & tail $\inf\sup$, $\sup\inf$ &
+  no upper limit for a divergent net\\
+$\int f\,\rd\mu$ & one of $f^\pm$ integrable &
+  $+\infty-\infty$ in an energy identity\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The ledger entry by entry}
+\label{subsec:ledger-commentary}
+
+\emph{(1) The order.}  The order makes $\Rbar$ a complete lattice: every
+subset has a supremum and an infimum.  This is what guarantees that
+$\sup_i\varphi_i$, $\inf_a f_a$, $f^*$, $\limsup$, and $\liminf$ are defined
+without any hypothesis, and it is used in
+\Cref{lem:monotone-net-converges} and in every appearance of
+\eqref{eq:usc-regularization}.  The order topology on $\Rbar$ is compact and
+metrizable; a homeomorphism onto $[-1,1]$ is given by
+$t\mapsto t/(1+|t|)$ extended by $\pm1$, which shows in particular that a
+monotone net of extended reals converges and that
+\Cref{prop:appE-real-cluster} applies to arbitrary $\Rbar$-valued nets.
+Without the order, none of the envelope calculus of
+\cref{sec:usc-envelopes} exists.
+
+\emph{(2) Addition.}  Setting $a+(-\infty)=-\infty$ for finite $a$ is forced
+by monotonicity: adding a constant must be an order isomorphism of $\Rbar$,
+and it is the reason that
+$\varphi\mapsto\varphi+c$ is well defined on potentials that are $-\infty$
+somewhere, which is used already in the normalization of energies.  The mixed
+sum must be left undefined.  Suppose one declared
+$(+\infty)+(-\infty)=s$ for some $s\in\Rbar$.  Associativity would then give
+\[
+ s=\bigl((+\infty)+(-\infty)\bigr)+(-\infty)
+  =(+\infty)+\bigl((-\infty)+(-\infty)\bigr)=(+\infty)+(-\infty)=s,
+\]
+which is harmless, but the same computation with $1+(+\infty)=+\infty$ gives
+\[
+ s=(+\infty)+(-\infty)=\bigl(1+(+\infty)\bigr)+(-\infty)
+  =1+\bigl((+\infty)+(-\infty)\bigr)=1+s ,
+\]
+which forces $s=\pm\infty$; and then the same argument with the roles of
+$+\infty$ and $-\infty$ exchanged forces the opposite sign.  No consistent
+choice exists.
+
+\emph{(3) Positive scaling and the case $c=0$.}  For $c>0$, multiplication by
+$c$ is an order isomorphism of $\Rbar$, which is what makes
+\Cref{lem:usc-star-calculus}\,(2) and
+\Cref{prop:appE-safe-identities} true.  The product $0\cdot(-\infty)$ is left
+undefined because the two natural values disagree.  Concretely, let
+$\varphi(z)=\log|z|$ on the unit disc.  For $\lambda>0$ the function
+$\lambda\varphi$ is subharmonic with $\lambda\varphi(0)=-\infty$, so the
+pointwise limit as $\lambda\downarrow0$ is
+\[
+ \lim_{\lambda\downarrow0}\lambda\varphi(z)=
+ \begin{cases}0,&z\neq0,\\ -\infty,&z=0,\end{cases}
+\]
+whereas the regularized limit is the constant $0$, and the ``value at
+$\lambda=0$'' suggested by continuity of the scaling action is again $0$.
+Declaring $0\cdot(-\infty)=0$ would make the pointwise limit disagree with the
+pointwise value, and declaring $0\cdot(-\infty)=-\infty$ would make the
+scaling action of \cref{chap:trivial-analytification} discontinuous at the
+origin of the cone.  We therefore leave the product undefined and state the
+scaling limit as a statement about regularized limits, exactly as in
+\Cref{ex:sup-not-usc-log}.
+
+\emph{(4) Differences.}  A difference is formed only when it is not of the
+shape $(+\infty)+(-\infty)$.  The failure this prevents is the most common
+error in the subject.  Let $\varphi(z)=\log|z|$ and $\psi(z)=2\log|z|$ on the
+unit disc.  These are distinct subharmonic functions, yet at the origin
+``$\varphi-\psi$'' would be $(-\infty)-(-\infty)$, and a reader who set that
+equal to $0$ would conclude $\varphi=\psi$ at the origin from
+$\varphi-\psi=0$ there.  The same mechanism invalidates the naive proof that
+two potentials with the same Monge--Amp\`ere measure differ by a constant, and
+it is the reason \cref{chap:bfj-energy} normalizes potentials before
+subtracting.  See \Cref{rem:forbidden-cancellations} for the three
+cancellations that fail.
+
+\emph{(5) Empty suprema and infima.}  The conventions
+$\sup\varnothing=-\infty$ and $\inf\varnothing=+\infty$ are forced by
+monotonicity of $\sup$ and $\inf$ under inclusion of index sets, and they are
+used whenever an envelope is formed over a family that may be empty:
+\[
+ P(\varphi)=\Bigl(\sup\bigl\{\psi\in\PSH(X,\theta):\psi\leq\varphi\bigr\}\Bigr)^*
+\]
+is then defined even when no psh function lies below $\varphi$, with value
+$-\infty$, which is the correct answer.  Without the convention, the obstacle
+envelope of \cref{chap:bfj-envelopes} would be undefined precisely in the
+degenerate cases that its monotonicity statements have to cover, and an
+induction on a decreasing family of nonempty competitor sets could not pass to
+the limit.
+
+\emph{(6) Upper and lower limits of nets.}  These are defined by the tail
+formulas, which make sense for every net because of entry (1).  They are
+\emph{not} defined as limits of subnets, although
+\Cref{prop:appE-real-cluster} identifies them with the extreme subnet limits
+when the net is bounded.  The tail definition is what makes
+\eqref{eq:net-usc-test} an equivalence rather than an implication and what
+makes $\limsup$ monotone under passage to subnets.
+
+\emph{(7) Integrals.}  An integral is formed only when at least one of
+$\int f^+$ and $\int f^-$ is finite.  Inside integrals, and only there, we use
+$0\cdot(+\infty)=0$, justified by monotone truncation: if $\mu(A)=0$ then
+\[
+ \int_A f\,\rd\mu=\lim_{M\to\infty}\int_A\min(f,M)\,\rd\mu=0
+\]
+for $f\geq0$, by \Cref{prop:lsc-net-monotone} applied on the measure space or
+by ordinary monotone convergence, since each truncated integral vanishes.
+Without this convention a set of measure zero on which a potential equals
+$-\infty$ would contribute an undefined term to
+$\int\varphi\,\rd\mu$, and the finite-energy classes of
+\cref{chap:bfj-energy} could not be defined by finiteness of that integral.
+The convention is confined to integrals: outside them,
+$0\cdot(\pm\infty)$ remains undefined by entry (3), and the difference
+between the two regimes is exactly the content of the conventions sheet.
+
+\begin{lemma}
+\label{lem:extended-real-safe}
+Let $(r_i)_{i\in I}$ be a nonempty family in $\Rbar$, let $c\in\mathbf R$, and
+let $\lambda>0$.  Then, with all expressions defined by the ledger:
+\begin{enumerate}
+\item $\sup_i(r_i+c)=\sup_ir_i+c$ and $\inf_i(r_i+c)=\inf_ir_i+c$;
+\item $\sup_i(\lambda r_i)=\lambda\sup_ir_i$ and
+  $\inf_i(\lambda r_i)=\lambda\inf_ir_i$;
+\item $\sup_i(-r_i)=-\inf_ir_i$;
+\item for nets $(r_a)$, $(s_a)$ in $\mathbf R\cup\{-\infty\}$ indexed by the
+  same directed set, and provided the right-hand side is not of the form
+  $(+\infty)+(-\infty)$,
+\[
+ \limsup_a(r_a+s_a)\leq\limsup_ar_a+\limsup_as_a ,
+\]
+  and the inequality may be strict;
+\item if $r_a\to r$ in $\Rbar$ with $r$ finite and $s_a\to s$ in $\Rbar$, then
+  $r_a+s_a\to r+s$, the sum being defined.
+\end{enumerate}
+\par
+\end{lemma}
+
+\begin{proof}
+\emph{(1)--(3)} are \Cref{prop:appE-safe-identities}: translation by a finite
+constant, multiplication by $\lambda>0$, and negation are order isomorphisms
+of $\Rbar$, hence commute with suprema and infima, negation exchanging the
+two.
+
+\emph{(4).}  Fix $a_0$ and write $R_{a_0}=\sup_{b\geq a_0}r_b$ and
+$S_{a_0}=\sup_{b\geq a_0}s_b$, both in $\mathbf R\cup\{\pm\infty\}$.  If
+either is $-\infty$, then the corresponding net is identically $-\infty$ on
+that tail, hence $\sup_{a\geq a_0}(r_a+s_a)=-\infty$ and the inequality is
+trivial.  Otherwise $R_{a_0}+S_{a_0}$ is defined and
+$r_a+s_a\leq R_{a_0}+S_{a_0}$ for $a\geq a_0$, so
+$\sup_{a\geq a_0}(r_a+s_a)\leq R_{a_0}+S_{a_0}$.  Both $R_{a_0}$ and
+$S_{a_0}$ decrease as $a_0$ increases, with infima $\limsup_ar_a$ and
+$\limsup_as_a$; taking $\inf_{a_0}$ and using continuity of addition along
+decreasing nets, which is \Cref{lem:monotone-net-converges} together with part
+(5) whenever the limit sum is defined, gives the inequality.  For strictness
+take $r_n=(-1)^n$ and $s_n=(-1)^{n+1}$ in $\mathbf R$: the left side is $0$
+and the right side is $2$.
+
+\emph{(5).}  If $s$ is finite this is continuity of addition on
+$\mathbf R\times\mathbf R$ together with the observation that both nets are
+eventually finite.  If $s=+\infty$, then for every $M$ the net $s_a$ is
+eventually $>M+1-r$ and $r_a$ is eventually $>r-1$, so $r_a+s_a>M$ eventually,
+whence $r_a+s_a\to+\infty=r+s$.  The case $s=-\infty$ is symmetric.  Note that
+finiteness of $r$ is essential: entry (2) of the ledger leaves $r+s$ undefined
+otherwise, and the conclusion fails, as $r_n=n$, $s_n=-n$ shows.
+\end{proof}
+
+\begin{lemma}\label{lem:safe-supremum}
+Let $(a_i)$ and $(b_j)$ be families in
+$\mathbf R\cup\{-\infty\}$, both bounded above by real numbers.  Then
+\[
+ \sup_{i,j}(a_i+b_j)=\sup_i a_i+\sup_j b_j.
+\]
+If $c>0$, then $\sup_i(ca_i)=c\sup_i a_i$.  The same statements hold with
+infima in $\mathbf R\cup\{+\infty\}$ and families bounded below.
+\end{lemma}
+
+\begin{proof}
+The inequality $\leq$ is immediate.  Approximate each finite supremum from
+below; if one supremum is $-\infty$, every member of that family is
+$-\infty$ and both sides equal $-\infty$.  Positive homogeneity is equally
+direct.  The infimum statements follow by changing signs.
+\end{proof}
+
+\begin{remark}[Three forbidden cancellations]
+\label{rem:forbidden-cancellations}
+The following implications are invalid without finiteness hypotheses:
+\[
+ a+c=b+c\Longrightarrow a=b,
+ \qquad
+ a-b=0\Longrightarrow a=b,
+ \qquad
+ \lim(a_i-b_i)=\lim a_i-\lim b_i.
+\]
+For example, the first implication carries no information when
+$c=+\infty$.  Later energy proofs will normalize potentials before
+subtracting quantities that may be infinite.
+\end{remark}
+
+Explicit witnesses for the three failures, in the form in which they arise
+later, are the following.  For the first, take $a=0$, $b=1$, $c=+\infty$: then
+$a+c=b+c=+\infty$ while $a\neq b$.  In context, this is the observation that
+two potentials with the same infinite energy cannot be compared by cancelling
+the energy.  For the second, take $a=b=-\infty$ and read $a-b$ as $0$: this is
+the failure discussed in entry (4) of the ledger, and it is the reason that
+$\varphi\leq\psi$ and $\psi\leq\varphi$ are proved separately rather than
+through $\varphi-\psi=0$.  For the third, take $a_i=b_i=-i$ in $\mathbf R$:
+then $a_i-b_i=0$ for every $i$, so the left side is $0$, while the right side
+is $(-\infty)-(-\infty)$ and is undefined.  In context, this is the reason
+that slopes of energies along rays are defined by a single limit of
+differences rather than as a difference of two limits, as in
+\cref{chap:rays-filtrations}.
+
+\begin{lemma}
+\label{lem:integration-ledger}
+Let $(X,\mu)$ be a finite measure space and let $f,g:X\to\Rbar$ be
+measurable.
+\begin{enumerate}
+\item If $f$ is bounded above by a real constant, then
+  $\int_Xf\,\rd\mu$ is well defined in $[-\infty,+\infty)$, and
+  $\int_X(f+c)\,\rd\mu=\int_Xf\,\rd\mu+c\,\mu(X)$ for every $c\in\mathbf R$.
+\item If $f$ is bounded above, then
+  $\int_X\max(f,-M)\,\rd\mu\searrow\int_Xf\,\rd\mu$ as $M\to+\infty$, both
+  sides possibly being $-\infty$.
+\item If $\mu(A)=0$, then $\int_Af\,\rd\mu=0$ for every measurable $f$,
+  including $f\equiv-\infty$ on $A$.
+\item If $f\leq g$ and both integrals are defined, then
+  $\int_Xf\,\rd\mu\leq\int_Xg\,\rd\mu$.  If moreover
+  $\int_Xg\,\rd\mu$ is finite, then $\int_X(g-f)\,\rd\mu$ is defined and
+  equals $\int_Xg\,\rd\mu-\int_Xf\,\rd\mu$.
+\end{enumerate}
+\par
+\end{lemma}
+
+\begin{proof}
+\emph{(1).}  Boundedness above by a constant $C$ gives
+$f^+\leq\max(C,0)$, so that
+\[
+ \int_Xf^+\,\rd\mu\leq\max(C,0)\,\mu(X)<\infty,
+\]
+and the integral is defined in $[-\infty,+\infty)$ by ledger entry (7).  The
+translation identity holds for bounded $f$ by ordinary linearity; in general
+apply it to $\max(f,-M)$ and let $M\to\infty$, using (2).
+
+\emph{(2).}  Write $f_M=\max(f,-M)$.  The functions $f_M^-$ increase to
+$f^-$ as $M\to\infty$, so that $\int_Xf_M^-\,\rd\mu$ increases to
+$\int_Xf^-\,\rd\mu$ in $[0,+\infty]$ by monotone convergence, while
+$f_M^+=f^+$ has finite integral.  Subtracting a
+finite quantity from an increasing one gives the assertion.
+
+\emph{(3).}  Write $f=f^+-f^-$.  For $h\geq0$ measurable,
+$\int_Ah\,\rd\mu=\sup\{\int_A s\,\rd\mu: 0\leq s\leq h\ \text{simple}\}$, and
+every simple $s$ has $\int_As\,\rd\mu=0$ because $\mu(A)=0$; monotone
+truncation therefore gives $\int_Ah\,\rd\mu=0$ even where $h=+\infty$.  This
+is exactly the convention $0\cdot(+\infty)=0$ of ledger entry (7), and it
+applies to $f^+$ and $f^-$ separately.
+
+\emph{(4).}  Monotonicity holds because $f^+\leq g^+$ and $f^-\geq g^-$,
+by monotonicity of the integral of nonnegative functions.  For the difference,
+finiteness of $\int_Xg\,\rd\mu$ forces both $\int_Xg^+\,\rd\mu$ and
+$\int_Xg^-\,\rd\mu$ to be finite, so $g$ is finite $\mu$-almost everywhere and
+$\int_Xf^+\,\rd\mu\leq\int_Xg^+\,\rd\mu$ is finite.  Hence $g-f\geq0$ is
+defined outside a $\mu$-null set, on which (3) applies, and it is measurable.
+If $\int_Xf\,\rd\mu=-\infty$, then $f=-\infty$ on a set of positive measure or
+$\int f^-=+\infty$, and in either case $\int_X(g-f)\,\rd\mu=+\infty$, which
+agrees with $\int_Xg\,\rd\mu-\int_Xf\,\rd\mu=+\infty$.  If
+$\int_Xf\,\rd\mu$ is finite, then $f$ is finite almost everywhere and
+$g=f+(g-f)$ almost everywhere, so additivity of the integral for functions
+with finite integral gives the identity.
+\end{proof}
+
+\begin{remark}[Where the ledger is invoked]
+\label{rem:ledger-uses}
+The entries are used as follows.  Entry (1) underlies every monotone limit
+in this chapter.  Entry (2) makes the normalization
+$\varphi\mapsto\varphi+c$ of \cref{chap:bfj-energy} legitimate on potentials
+with polar singularities.  Entry (3) is what allows a potential to be scaled
+in \cref{chap:trivial-analytification} and \cref{chap:bj-homogeneity-bdivisors}
+without a case distinction, once the scaling limit is stated for regularized
+limits.  Entry (4) is invoked at every comparison of two singular potentials
+and is the reason for the relative formulation
+$\varphi\leq\psi+C$ rather than $\varphi-\psi\leq C$.  Entry (5) makes
+envelopes total operations.  Entry (6) is the definition behind
+\Cref{prop:net-semicontinuity}.  Entry (7), with
+\Cref{lem:integration-ledger}, is what makes the finite-energy classes
+$\cE^1$ well defined.
+\end{remark}
+
+\section{Dictionary and source note}
+
+The recurring correspondences established in this chapter are
+\[
+\begin{array}{ccl}
+\text{compactness} &\longleftrightarrow&
+   \text{convergent subnets},\\
+\text{supremum of potentials} &\longmapsto&
+   \text{usc-regularized envelope},\\
+\text{second countability} &\longmapsto&
+   \text{Choquet sequence selection},\\
+\text{continuous test functions} &\longleftrightarrow&
+   \text{weak convergence of Radon measures},\\
+\text{concave energy} &\longmapsto&
+   \text{convex dual energy of measures},\\
+\text{concave transform on a body} &\longmapsto&
+   \text{Duistermaat--Heckman distribution}.
+\end{array}
+\]
+
+The list continues with the correspondences added in this second layer of the
+chapter:
+\[
+\begin{array}{ccl}
+\text{upper semicontinuity} &\longleftrightarrow&
+   \limsup_a f(x_a)\leq f(x)\ \text{along nets},\\[1mm]
+\text{decreasing net of usc functions} &\longmapsto&
+   \text{usc infimum, monotone integral},\\[1mm]
+\text{positive linear functional on }C(X) &\longleftrightarrow&
+   \text{Radon measure},\\[1mm]
+\text{concave function on }\mathbf R^n &\longleftrightarrow&
+   \text{convex conjugate on }(\mathbf R^n)^\vee,\\[1mm]
+\text{free energy} &\longleftrightarrow&
+   \text{relative entropy},\\[1mm]
+\text{countably subadditive capacity} &\longmapsto&
+   \sigma\text{-ideal of polar sets},\\[1mm]
+\text{atom of }\DHm_{\Delta,G} &\longleftrightarrow&
+   \text{level set of }G\text{ of positive volume}.
+\end{array}
+\]
+
+\subsection*{Checklist of statements exported to later chapters}
+
+For convenience of reference, the statements of this chapter that are quoted
+elsewhere are the following.  Compactness and convergence:
+\Cref{prop:net-criterion}, \Cref{prop:net-semicontinuity},
+\Cref{cor:usc-attains-max}, \Cref{lem:monotone-net-converges}.  Dini:
+\Cref{prop:dini-nets} and \Cref{prop:dini-usc}, the latter in part (2) more
+often than in part (1).  Regularization:
+\Cref{prop:usc-majorant}, \Cref{prop:usc-limsup-description},
+\Cref{lem:usc-star-calculus}, \Cref{lem:usc-inf}.  Selection:
+\Cref{lem:choquet-selection} and \Cref{prop:choquet-regularizing}.  Measures:
+\Cref{thm:riesz-interface}, \Cref{cor:riesz-uniqueness},
+\Cref{lem:pushforward-radon}, \Cref{prop:measure-compactness},
+\Cref{prop:portmanteau}, \Cref{lem:joint-weak-uniform},
+\Cref{cor:usc-net-monotone-integral}.  Duality:
+\Cref{lem:dual-mass}, \eqref{eq:fenchel-energy},
+\Cref{prop:concave-biconjugation}.  Capacity:
+\Cref{prop:polar-sigma-ideal}, \Cref{prop:quasicontinuity-calculus},
+\Cref{prop:capacity-subsequence}.  Distributions:
+\Cref{prop:dh-tail}, \Cref{prop:dh-brunn-minkowski},
+\Cref{prop:dh-continuity}, \Cref{lem:dh-moments}.  Arithmetic:
+\Cref{lem:extended-real-safe}, \Cref{lem:safe-supremum},
+\Cref{lem:integration-ledger}.
+
+\subsection*{Source note}
+
+The net and upper-envelope conventions are the ones used in the BFJ and BJ
+global theories; see \cite{BFJ16,BJ22}.  The unnormalized
+Duistermaat--Heckman convention agrees with the intersection-theoretic
+normalization in \cite{BHJ17}.  Concrete capacities and their
+quasicontinuity theorems will be proved only after the corresponding
+Monge--Amp\`ere operators have been constructed.
+
+The point-set material is classical.  Moore--Smith convergence, subnets, and
+the equivalence between compactness and the existence of convergent subnets go
+back to the 1920s and 1930s; the treatment we follow, including the tail
+formulation of subnets, is Willard's \cite[Chapters~4--5]{Wil70}, with
+Kelley \cite{Kel75} as a second reference and as the source of the Tychonoff
+theorem in the form used in \Cref{ex:net-no-subsequence} and
+\Cref{prop:measure-compactness}.  The distinction between Willard and
+Moore--Smith subnets is developed in \cref{app:nets}; the reader should be
+aware that the three standard definitions are not equivalent as definitions,
+even though they generate the same convergence theory.  The compact space
+$\{0,1\}^{[0,1]}$ of \Cref{ex:net-no-subsequence} and the one-point
+compactification of an uncountable discrete set used in
+\Cref{ex:decreasing-net-not-sequential} and
+\Cref{ex:choquet-fails-uncountable} are the two standard test spaces for
+sequential arguments, and both are found in the topology literature; we have
+given complete proofs of the properties we use rather than citing them,
+because the details are exactly what the later chapters must check.
+
+Upper semicontinuous regularization and the selection lemma of
+\Cref{lem:choquet-selection} are, in the complex pluripotential setting, part
+of the standard toolkit; a textbook account with the same conventions is
+\cite[Chapter~1 and Chapter~4]{GZ17}, and the classical source for the
+regularization theorem in potential theory is Brelot's study of subharmonic
+functions at a singular point \cite{Bre49}.  The name ``Choquet lemma'' is
+standard in the pluripotential literature.  Our
+\Cref{prop:choquet-regularizing} isolates the countability hypothesis; the
+form in which it is used in the non-Archimedean setting, where the ambient
+space may fail to be metrizable, is the reason for that isolation, and the
+corresponding discussion in the trivially valued theory appears in
+\cite{BJ22}.
+
+The Riesz representation theorem is quoted from
+\cite[Theorems~2.14 and~6.19]{Rud87}; \cite[Chapter~7]{Fol99} gives the same
+material with the regularity hypotheses displayed as in
+\eqref{eq:radon-regularity}, and is the reference we recommend for the reader
+who wants the construction rather than the statement.  Weak convergence of
+measures, the portmanteau inequalities, and the compactness of
+$\mathcal P(X)$ are classical; the proof given here is the direct
+Tychonoff--Riesz argument, deliberately avoiding Banach--Alaoglu, so that no
+functional-analytic apparatus beyond \Cref{thm:riesz-interface} is needed
+anywhere in this book.
+
+Finite-dimensional convex duality follows \cite[Chapters~10, 12, and~23]{Roc70},
+and we have kept the sign conventions of \cref{app:convexity} so that the
+concave conjugate \eqref{eq:concave-conjugate} matches
+\eqref{eq:appD-conjugate} after a change of sign.  The Brunn--Minkowski
+inequality used in \Cref{prop:dh-brunn-minkowski} is
+\Cref{cor:appD-brunn-minkowski}, proved in \cref{app:convexity} from the
+Alexandrov--Fenchel inequality, for which the reference is \cite{Sch14}.  The
+free-energy/relative-entropy pair of \Cref{ex:legendre-entropy-pair} is the
+finite model of the Gibbs variational principle; in the pluripotential
+literature it is the finite-dimensional shadow of the energy/entropy duality
+that governs the variational approach to Monge--Amp\`ere equations, developed
+in \cite{BBGZ13} in the complex setting and imitated in the non-Archimedean
+setting in \cite{BFJ15,BJ22}.  We have chosen the finite model because it can
+be computed completely, and because every hypothesis of the general theory is
+visible in it as a nondegeneracy of the finite computation.
+
+Capacities in the sense used here go back to Choquet; the axioms we state are
+the ones needed for the Monge--Amp\`ere capacities of \cref{part:bfj} and
+\cref{part:bj}, whose complex ancestor is the Bedford--Taylor capacity of
+\cite{BT82}, with the quasicontinuity theory developed there and in
+\cite{GZ17}.  We have kept the treatment axiomatic because the several
+capacities constructed later satisfy the axioms for different reasons, and
+because the statements that fail without countable subadditivity, as in
+\Cref{ex:capacity-not-subadditive}, are exactly the ones most often used
+without comment.
+
+Duistermaat--Heckman measures entered this circle of ideas through
+\cite{BHJ17}, whose normalization we follow; the concave-transform description
+used here, and the corresponding Okounkov-body constructions, are treated in
+\cref{chap:transcendental-okounkov-dh}.  The interaction between atoms,
+truncations, and log concavity illustrated in
+\Cref{ex:dh-simplex,rem:dh-moments-not-continuous} is the elementary shadow of
+the phenomena studied there.
+
+Finally, a word on the extended-real ledger.  Conventions for arithmetic on
+$\Rbar$ are usually left implicit, and the resulting errors are not exotic:
+the failures collected in \Cref{rem:forbidden-cancellations} and in the
+commentary of \cref{subsec:ledger-commentary} all occur in the literature.  We
+have therefore fixed the conventions in the frontmatter, repeated them here in
+full, and given for each entry an explicit example of what its omission
+destroys.  The general-purpose safe identities are collected once more, in
+their most general form, in \Cref{prop:appE-safe-identities}.

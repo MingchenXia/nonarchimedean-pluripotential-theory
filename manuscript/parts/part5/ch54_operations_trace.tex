@@ -1,0 +1,694 @@
+\chapter{Operations, limits, and traces}
+\index{trace!complex singularity}\index{monotone limit!transcendental metric}
+\label{chap:operations-trace}
+
+The inverse-limit definition of
+\(\PSH^{\NA}(X,\theta)\) is useful only if the elementary operations on
+positive-mass test curves descend through every K\"ahler transition.
+They do, but the formulas carry hypotheses: suprema require an upper
+bound on terminal parameters, decreasing infima require a lower bound,
+and trace exists only on a Lelong-zero domain.  This chapter records
+those hypotheses as part of the statements.
+
+In \Crefrange{sec:operations-basic}{sec:operations-volume},
+\(X\) is a connected compact K\"ahler manifold, and
+\(\theta,\theta'\) are smooth closed forms in pseudoeffective classes.
+The operations themselves extend to reduced, irreducible, unibranch
+compact K\"ahler spaces with nonempty psh classes by
+\cite{Xia23Operations}; the smooth setting is retained here so that the
+components use \Cref{chap:complex-prerequisites} directly.
+
+The operations are typed.  Addition sends the pair of classes
+\((\theta,\theta')\) to \(\theta+\theta'\); translation and maximum stay
+in the original class; positive rescaling sends \(\theta\) to
+\(\lambda\theta\); and trace replaces \(X\) by the normalization of the
+chosen analytic subspace.  These target changes are part of the formulas,
+not suppressed identifications.  Likewise, analytic trace outputs are
+\(\mathcal I\)-good potentials determined up to \(P\)-equivalence.  The
+input dependence is coarser: the resulting \(P\)-class depends only on the
+\(\mathcal I\)-class of the ambient potential.  Keeping these two
+quotients distinct is essential in the trace formulas below.
+
+\section{Order, addition, translation, and maximum}
+\label{sec:operations-basic}
+
+\begin{definition}[Order]
+\label{def:operations-order}
+For \(\Gamma,\Gamma'\in\PSH^{\NA}(X,\theta)\), write
+\(\Gamma\leq\Gamma'\) if, for one equivalently every K\"ahler form
+\(\omega\),
+\[
+ \Gamma_\tau^{\theta+\omega}
+ \leq\Gamma_\tau'{}^{\theta+\omega}
+ \quad\text{for all }\tau\in\mathbf R.
+\tag{54.1}\label{eq:operations-order}
+\]
+Here both extended curves are used, so the condition also compares
+different terminal parameters.
+\end{definition}
+
+The independence of \(\omega\) follows from transition compatibility and
+levelwise monotonicity of the \(\mathcal I\)-envelope.  Antisymmetry is
+checked in one component and then propagated to all components.
+
+\begin{definition}[Addition]
+\label{def:operations-addition}
+For
+\(\Gamma\in\PSH^{\NA}(X,\theta)\) and
+\(\Gamma'\in\PSH^{\NA}(X,\theta')\), their sum is the unique element of
+\(\PSH^{\NA}(X,\theta+\theta')\) such that
+\[
+ (\Gamma+\Gamma')^{\theta+\theta'+2\omega}
+ =\Gamma^{\theta+\omega}+\Gamma'{}^{\theta'+\omega}
+\tag{54.2}\label{eq:operations-addition}
+\]
+for every K\"ahler form \(\omega\), where the right side is the
+test-curve sum \eqref{eq:rays-test-sum}.
+\end{definition}
+
+More generally, for positive smooth forms \(\eta,\eta'\),
+\[
+ P_{\theta+\eta+\theta'+\eta'}
+       [\Gamma+\Gamma']_{\mathcal I}
+ =
+ P_{\theta+\eta}[\Gamma]_{\mathcal I}
+ +P_{\theta'+\eta'}[\Gamma']_{\mathcal I}.
+\tag{54.3}\label{eq:operations-addition-components}
+\]
+This formula proves that the symmetric choice \(2\omega\) in
+\eqref{eq:operations-addition} does not affect the result.
+
+\begin{definition}[Translation]
+\label{def:operations-translation}
+For \(C\in\mathbf R\), define \(\Gamma+C\) componentwise by
+\[
+             (\Gamma+C)^{\theta+\omega}
+             :=\Gamma^{\theta+\omega}+C.
+\tag{54.4}\label{eq:operations-translation}
+\]
+On test curves the right side is the parameter translation
+\((\Gamma+C)_\tau=\Gamma_{\tau-C}\); on the associated ray it adds
+\(Ct\).
+\end{definition}
+
+\begin{definition}[Maximum]
+\label{def:operations-maximum}
+For \(\Gamma,\Gamma'\in\PSH^{\NA}(X,\theta)\), define
+\(\Gamma\vee\Gamma'\) by
+\[
+ (\Gamma\vee\Gamma')^{\theta+\omega}
+ :=\Gamma^{\theta+\omega}\vee
+       \Gamma'{}^{\theta+\omega}.
+\tag{54.5}\label{eq:operations-maximum}
+\]
+\end{definition}
+
+The right side of \eqref{eq:operations-maximum} is the concave,
+\(\mathcal I\)-model envelope of the two test curves, not the raw
+pointwise maximum of their levels.  Its Legendre transform is the
+pointwise maximum of the corresponding rays.  This distinction is what
+makes \eqref{eq:operations-maximum} compatible with transition.
+
+\begin{proposition}\label{prop:operations-algebra}
+Addition and maximum are commutative and associative.  Translation
+satisfies
+\[
+ \begin{split}
+ (\Gamma+\Gamma')+C
+   &=(\Gamma+C)+\Gamma'=\Gamma+(\Gamma'+C),\\
+ (\Gamma+C)+C'&=\Gamma+(C+C'),\\
+ (\Gamma\vee\Gamma')+C
+   &=(\Gamma+C)\vee(\Gamma'+C).
+ \end{split}
+\tag{54.6}\label{eq:operations-algebra}
+\]
+All identities are equalities of inverse systems, not merely equality
+up to \(P\)-equivalence.
+\end{proposition}
+
+\begin{proof}
+Project all inputs to one common K\"ahler perturbation.  On dual rays,
+addition is ordinary addition, translation adds \(Ct\), and maximum is
+pointwise maximum.  Ordinary addition and maximum are commutative and
+associative, and
+\[
+ \max\{u_t+Ct,v_t+Ct\}=\max\{u_t,v_t\}+Ct.
+\]
+Legendre biconjugacy transports these identities back to test curves.
+Each output is already the unique normalized \(\mathcal I\)-model
+representative of its multiplier-ideal data.  Hence equality at every
+component gives equality of the compatible inverse systems.
+\end{proof}
+
+\begin{example}[Translating the standard action on \(\mathbf P^1\)]
+Let \(\Gamma\) be the non-Archimedean metric determined by the action
+\(a\cdot[x:y]=[ax:y]\) on
+\((\mathbf P^1,\mathcal O(1))\), with the linearization for which
+\(x^jy^{m-j}\) has weight \(j\).  The complete calculation is given in
+\Cref{ex:rf-p1-complete}; in particular, \(\Gamma_{\max}=1\).
+
+For \(C\in\mathbf Q\), pass to the Veronese degrees for which \(mC\) is an
+integer.  Twisting the linearization by \(C\) then changes the degree-\(m\)
+weights to \(j+mC\).  Thus the filtration threshold changes by \(mC\), and
+the associated test curve and ray satisfy
+\[
+             (\Gamma+C)_\tau=\Gamma_{\tau-C},
+             \qquad
+             \ell_t^{\Gamma+C}=\ell_t^\Gamma+Ct,
+             \qquad
+             (\Gamma+C)_{\max}=1+C.
+\]
+If \(C,C'\in\mathbf Q\), translating twice changes the weights to
+\(j+m(C+C')\), so
+\[
+                       (\Gamma+C)+C'=\Gamma+(C+C').
+\]
+Moreover, since \(t\geq0\), the ray description of maximum gives
+\[
+ \max\{\ell_t^\Gamma+Ct,\ell_t^\Gamma+C't\}
+       =\ell_t^\Gamma+\max\{C,C'\}t,
+\]
+and hence
+\[
+             (\Gamma+C)\vee(\Gamma+C')
+                =\Gamma+\max\{C,C'\}.
+\]
+This verifies the translation and maximum identities in
+\Cref{prop:operations-algebra} on a nonconstant, explicitly weighted
+example.  The formulas for arbitrary real \(C,C'\) follow directly from
+the definitions.
+\end{example}
+
+\section{Regularized suprema and Choquet reduction}
+
+\begin{definition}[Regularized supremum]
+\label{def:operations-supremum}
+Let \((\Gamma^i)_{i\in I}\) be a nonempty family in
+\(\PSH^{\NA}(X,\theta)\) satisfying
+\[
+                   \sup_{i\in I}\Gamma^i_{\max}<+\infty.
+\tag{54.7}\label{eq:operations-sup-bound}
+\]
+Its regularized supremum is the unique object with components
+\[
+ \left(\uscsup_{i\in I}\Gamma^i\right)^{\theta+\omega}
+ :=\uscsup_{i\in I}\Gamma^{i,\theta+\omega}.
+\tag{54.8}\label{eq:operations-supremum}
+\]
+\end{definition}
+
+At each component, the right side means the regularized test-curve
+supremum: finite maxima are first replaced by their concave
+\(\mathcal I\)-model envelopes, then an increasing limit is taken.
+Condition \eqref{eq:operations-sup-bound} gives a common upper bound on
+the effective domains.
+
+\begin{theorem}\label{thm:operations-choquet}
+Under \eqref{eq:operations-sup-bound}, there is a countable
+\(I_0\subseteq I\) such that
+\[
+                   \uscsup_{i\in I}\Gamma^i
+                   =\uscsup_{i\in I_0}\Gamma^i.
+\tag{54.9}\label{eq:operations-choquet}
+\]
+\end{theorem}
+
+\begin{proof}
+Fix a K\"ahler form \(\omega_0\).  For every \(m\geq1\), apply the
+test-curve Choquet lemma in the class
+\(\theta+m^{-1}\omega_0\), obtaining a countable subfamily \(I_m\).
+Put \(I_0=\bigcup_mI_m\).  If \(\omega\) is arbitrary, choose \(m\)
+with \(\omega\geq m^{-1}\omega_0\).  Projecting the equality in the
+\(m\)-th component to \(\theta+\omega\), and using commutation of the
+\(\mathcal I\)-envelope with regularized suprema, proves equality in
+the \(\omega\)-component.  Hence all inverse-system components agree.
+\end{proof}
+
+\begin{corollary}\label{cor:operations-increasing-net}
+If \((\Gamma^i)_{i\in I}\) is an increasing net satisfying
+\eqref{eq:operations-sup-bound}, then its limit is
+\(\uscsup_i\Gamma^i\), computed componentwise as in
+\eqref{eq:operations-supremum}.
+\end{corollary}
+
+\begin{proof}
+Every term lies below the regularized supremum.  Conversely, any upper
+bound for the increasing net is an upper bound for each finite maximum
+and hence for their increasing regularized limit.  Thus the object in
+\eqref{eq:operations-supremum} is precisely the order limit, component by
+component.
+\end{proof}
+
+\begin{remark}[Why nets remain visible]
+\label{rem:operations-nets}
+Choquet reduction gives a countable subfamily representing one
+supremum.  It does not make the directed set of K\"ahler perturbations
+sequential, nor does it convert every monotone-continuity statement into
+a sequential statement.  We therefore retain nets in the monotone
+operation statements for which the cited source proves net-level
+continuity.  The analytic trace has the separate sequential scope stated
+in \Cref{prop:operations-trace-calculus}.
+\end{remark}
+
+\section{Decreasing infima and rescaling}
+
+\begin{definition}[Decreasing infimum]
+\label{def:operations-infimum}
+Let \((\Gamma^i)_{i\in I}\) be a decreasing net satisfying
+\[
+                   \inf_{i\in I}\Gamma^i_{\max}>-\infty.
+\tag{54.10}\label{eq:operations-inf-bound}
+\]
+Define its infimum by
+\[
+ \left(\inf_{i\in I}\Gamma^i\right)^{\theta+\omega}
+ :=\inf_{i\in I}\Gamma^{i,\theta+\omega}.
+\tag{54.11}\label{eq:operations-infimum}
+\]
+\end{definition}
+
+The pointwise infimum on the right is a test curve after the standard
+endpoint extension.  The lower bound in
+\eqref{eq:operations-inf-bound} prevents the effective interval from
+escaping to \(-\infty\).  The transition identity is
+\[
+ P_{\theta+\eta}
+       \left[\inf_i\Gamma^i\right]_{\mathcal I}
+ =\inf_iP_{\theta+\eta}[\Gamma^i]_{\mathcal I}.
+\tag{54.12}\label{eq:operations-inf-transition}
+\]
+Here the positive mass of every level below the common terminal
+parameter is essential: the identity is
+\cite[Proposition~2.8]{Xia23Operations}, applied levelwise.  It is not an
+interchange of an envelope with an arbitrary infimum.
+
+\begin{definition}[Positive rescaling]
+\label{def:operations-rescaling}
+For \(\lambda>0\), define
+\(\lambda\Gamma\in\PSH^{\NA}(X,\lambda\theta)\) by
+\[
+ (\lambda\Gamma)^{\lambda\theta+\omega}
+ :=\lambda\Gamma^{\theta+\lambda^{-1}\omega}.
+\tag{54.13}\label{eq:operations-rescaling}
+\]
+\end{definition}
+
+This scales both potentials and the Legendre parameter.  It satisfies
+\[
+ \begin{split}
+ \lambda(\Gamma+\Gamma')&=\lambda\Gamma+\lambda\Gamma',\\
+ (\lambda\lambda')\Gamma&=\lambda(\lambda'\Gamma),\\
+ \lambda(\Gamma+C)&=\lambda\Gamma+\lambda C,\\
+ \lambda\uscsup_i\Gamma^i&=\uscsup_i\lambda\Gamma^i,\\
+ \lambda\inf_i\Gamma^i&=\inf_i\lambda\Gamma^i.
+ \end{split}
+\tag{54.14}\label{eq:operations-rescaling-rules}
+\]
+No operation with \(\lambda=0\) is defined by
+\eqref{eq:operations-rescaling}.
+
+\section{Volume under operations}
+\label{sec:operations-volume}
+
+\begin{theorem}\label{thm:operations-volume}
+Let the displayed operations be defined.
+\begin{enumerate}
+\item If \(\Gamma\leq\Gamma'\), then
+      \[
+                         \vol(\Gamma)\leq\vol(\Gamma').
+      \tag{54.15}\label{eq:operations-volume-order}
+      \]
+\item For \(C\in\mathbf R\),
+      \[
+                         \vol(\Gamma+C)=\vol(\Gamma).
+      \tag{54.16}\label{eq:operations-volume-translation}
+      \]
+\item For \(\lambda>0\),
+      \[
+                         \vol(\lambda\Gamma)
+                         =\lambda^n\vol(\Gamma).
+      \tag{54.17}\label{eq:operations-volume-scale}
+      \]
+\item If \((\Gamma^i)\) is increasing and satisfies
+      \eqref{eq:operations-sup-bound}, then
+      \[
+      \vol\!\left(\uscsup_i\Gamma^i\right)
+                       =\lim_i\vol(\Gamma^i).
+      \tag{54.18}\label{eq:operations-volume-increasing}
+      \]
+\item If \((\Gamma^i)\) is decreasing and satisfies
+      \eqref{eq:operations-inf-bound}, only
+      \[
+      \vol\!\left(\inf_i\Gamma^i\right)
+                       \leq\lim_i\vol(\Gamma^i)
+      \tag{54.19}\label{eq:operations-volume-decreasing}
+      \]
+      holds in general.
+\end{enumerate}
+\par
+\end{theorem}
+
+\begin{proof}
+The first three assertions follow componentwise from mass monotonicity,
+translation invariance, and homogeneity, then from the perturbation
+limit defining volume.  For \eqref{eq:operations-volume-increasing},
+increasing continuity holds in every positive-mass component.  The
+remaining issue is uniformity as \(\omega\to0\).  Fix a K\"ahler form
+\(\omega_0\) and a K\"ahler form \(\Omega\geq\theta+\omega_0\).
+For \(0<\delta<1\), the binomial expansion bounds, uniformly in \(i\),
+the mass change from a smaller perturbation to
+\(\delta\omega_0\) by
+\[
+ \sum_{a=0}^{n-1}\binom na
+     \int_X\Omega^a\wedge(\delta\omega_0)^{n-a},
+\tag{54.20}\label{eq:operations-uniform-mass-error}
+\]
+which tends to zero with \(\delta\).  This permits interchange of the
+two increasing limits.  Monotonicity gives
+\eqref{eq:operations-volume-decreasing}; examples with a mass drop show
+that equality is not formal and is not asserted.
+\end{proof}
+
+\section{The analytic trace and its natural domain}
+
+We now return to a smooth compact K\"ahler manifold \(X\) and let
+\(Y\subseteq X\) be an irreducible analytic subset.  Let
+\(\nu_Y:\widetilde Y\to Y\) be its normalization.  The normalization is
+a normal compact K\"ahler space; when a smooth model is needed,
+all constructions are made on a resolution and are independent of that
+choice.
+
+\begin{definition}[Natural trace domain]
+\label{def:operations-trace-domain}
+Set
+\[
+ D_Y
+ :=\{\varphi\in\QPSH(X)\mid\nu(\varphi,Y)=0\},
+\tag{54.21}\label{eq:operations-trace-domain}
+\]
+where \(\nu(\varphi,Y)\) is the generic Lelong number along \(Y\).
+\end{definition}
+
+The condition in \eqref{eq:operations-trace-domain} is weaker than
+\(\varphi|_Y\not\equiv-\infty\).  For a log--log pole, the Lelong number
+can vanish while the pointwise restriction to a point is
+\(-\infty\).  This is why trace is not naive restriction.
+
+We use the strong singularity pseudometric \(d_S\) of
+Darvas--Di~Nezza--Lu.  It is defined on singularity types in a fixed big
+class and is complete on its positive-mass part.  Its use below is always
+in a fixed background class; no metric is being placed directly on the
+set of all quasi-psh functions.
+
+\begin{definition}[Analytic trace]
+\label{def:operations-analytic-trace}
+Let \(\varphi\in D_Y\), and choose a quasi-equisingular approximation
+\((\varphi_j)\) with analytic singularities.  A trace of \(\varphi\)
+along \(Y\) is a \(d_S\)-limit
+\[
+                 \varphi_j|_{\widetilde Y}
+                 \xrightarrow{d_S}\psi.
+\tag{54.22}\label{eq:operations-analytic-trace}
+\]
+We write \(\Tr_Y(\varphi)\) for any such \(\psi\).
+The output is understood up to \(P\)-equivalence.
+\end{definition}
+
+\begin{theorem}\label{thm:operations-trace-well-defined}
+For every \(\varphi\in D_Y\), the limit
+\eqref{eq:operations-analytic-trace} exists after choosing a sufficiently
+positive background class on \(\widetilde Y\).  Every such limit is
+\(\mathcal I\)-good, any two such limits are \(P\)-equivalent, and their
+common \(P\)-class depends only on the \(\mathcal I\)-class of
+\(\varphi\).
+\end{theorem}
+
+\begin{proof}[Source boundary and the deductions used here]
+Choose a decreasing quasi-equisingular approximation with analytic
+singularities.  Vanishing of the generic Lelong number along \(Y\) ensures
+that no approximant is identically \(-\infty\) at the generic point of
+\(\widetilde Y\).  After adding one sufficiently positive background form,
+the restrictions therefore lie in a common positive-mass singularity
+space on \(\widetilde Y\).
+
+The deep restriction estimate---that two quasi-equisingular
+approximations have restricted tails at \(d_S\)-distance tending to
+zero---is the imported input.  It is the trace comparison theorem of
+\cite{DX24}, reproduced in the supplied trace chapter of \cite{XiaBook};
+its proof uses the characterization of
+quasi-equisingular approximation by multiplier ideals and completeness of
+the positive-mass \(d_S\)-space.  It makes the restricted sequence Cauchy,
+so completeness gives the limit in
+\eqref{eq:operations-analytic-trace}, and it gives the same limit
+\(d_S\)-class for any second approximation.
+
+Each restricted approximant has analytic singularities.  The
+characterization of \(\mathcal I\)-good potentials as the \(d_S\)-closure
+of analytic singularity types therefore shows that the limit is
+\(\mathcal I\)-good.  Finally, zero \(d_S\)-distance is equivalent to
+\(P\)-equivalence, so two limits are \(P\)-equivalent.  If
+\(\varphi\sim_{\mathcal I}\varphi'\), the canonical multiplier-ideal
+approximants of the two inputs have the same singularity type at every
+stage; applying the imported restriction estimate again shows that their
+traces have zero \(d_S\)-distance.  This proves the asserted dependence on
+the input \(\mathcal I\)-class and yields the finer output \(P\)-class, not
+merely the coarser output \(\mathcal I\)-class.
+\end{proof}
+
+\begin{proposition}\label{prop:operations-trace-calculus}
+Let \(\varphi,\psi\in D_Y\) and \(\lambda>0\).  Whenever the displayed
+sum belongs to \(D_Y\),
+\[
+ \begin{split}
+ \varphi\preceq_{\mathcal I}\psi
+ &\Longrightarrow
+ \Tr_Y(\varphi)\preceq_P\Tr_Y(\psi),\\
+ \Tr_Y(\varphi+\psi)
+ &\sim_P\Tr_Y(\varphi)+\Tr_Y(\psi),\\
+ \Tr_Y(\lambda\varphi)
+ &\sim_P\lambda\Tr_Y(\varphi),\\
+ \Tr_Y(\varphi\vee\psi)
+ &\sim_P\Tr_Y(\varphi)\vee\Tr_Y(\psi).
+ \end{split}
+\tag{54.23}\label{eq:operations-trace-calculus}
+\]
+If \((\varphi_j)_{j\in J}\) is a decreasing net in one common psh class,
+\(\varphi_j\xrightarrow{d_S}\varphi\), and \(\varphi\in D_Y\), then
+\[
+                  \Tr_Y(\varphi_j)
+                  \xrightarrow{d_S}\Tr_Y(\varphi).
+\tag{54.24}\label{eq:operations-trace-decreasing}
+\]
+\end{proposition}
+
+\begin{proof}[Source boundary and quotient check]
+Choose analytic-singularity approximants for \(\varphi\) and \(\psi\) on
+one common index sequence.  Restriction commutes with addition, positive
+scaling, and finite maximum at this analytic stage; order of singularities
+is preserved as well.  Passing to the \(d_S\)-limits gives the first four
+relations in \(P\)-order or \(P\)-equivalence, since those are respectively
+closed order and equality in the \(d_S\)-space.  Compatible canonical
+approximants show that the first relation depends only on
+\(\mathcal I\)-order of the inputs.
+
+The decreasing-net assertion is the trace continuity theorem of
+\cite{DX24}, reproduced in the supplied trace chapter of \cite{XiaBook}.
+Its nonformal input is the same uniform restriction estimate used in
+\Cref{thm:operations-trace-well-defined}.  The source first proves the
+sequential assertion by diagonal approximation.  If the net statement
+failed, a positive \(d_S\)-gap from the alleged limit would allow one to
+choose recursively an increasing sequence of indices that retains that
+gap.  The corresponding decreasing sequence still converges to
+\(\varphi\) in \(d_S\), contradicting the sequential assertion.  This
+reduces the net conclusion to the imported sequential estimate.
+\end{proof}
+
+\begin{remark}[No increasing-continuity claim]
+\label{rem:operations-trace-not-increasing}
+Trace is not continuous along arbitrary increasing sequences.  Locally,
+\[
+ \varphi_j(z,w)
+ =\log|z|^2\vee j^{-1}\log|w|^2+O(1)
+\]
+increases almost everywhere to a bounded singularity, while on
+\(Y=\{w=0\}\) every restriction retains the pole \(\log|z|^2\).
+\end{remark}
+
+This example also explains why zero generic Lelong number, rather than
+pointwise finiteness on \(Y\), is the natural domain condition.  A local
+log--log pole can equal \(-\infty\) on \(Y\) while its generic Lelong
+number is zero; analytic trace is defined by equisingular approximation
+and still makes sense.  Naive substitution on \(Y\) would discard that
+case.
+
+\section{Descent to multiplier-ideal classes}
+
+The quotient in the next statement is the one used in the source.
+
+\begin{theorem}\label{thm:operations-trace-p-descent}
+The assignment
+\[
+ [\varphi]_{\mathcal I}\longmapsto
+ [\Tr_Y(\varphi)]_P
+\tag{54.25}\label{eq:operations-trace-p-map}
+\]
+defines a map
+\[
+ D_Y/{\sim_{\mathcal I}}
+ \longrightarrow
+ \QPSH(\widetilde Y)/{\sim_P}.
+\tag{54.26}\label{eq:operations-trace-p-descent}
+\]
+\end{theorem}
+
+\begin{proof}
+First, \(D_Y\) is saturated for \(\mathcal I\)-equivalence.  Indeed,
+\(\mathcal I\)-equivalence is equality of Lelong numbers on every
+modification.  Blowing up the generic point of \(Y\) recovers the
+generic Lelong number along \(Y\), so
+\[
+ \varphi\sim_{\mathcal I}\psi
+ \quad\Longrightarrow\quad
+ \nu(\varphi,Y)=\nu(\psi,Y).
+\tag{54.27}\label{eq:operations-domain-saturated}
+\]
+Applying the first line of \eqref{eq:operations-trace-calculus} in both
+directions shows that \(\mathcal I\)-equivalent inputs have
+\(P\)-equivalent traces.  This proves
+\eqref{eq:operations-trace-p-descent}; it is also the dependence assertion
+of \cite{DX24}, reproduced in the supplied trace chapter of
+\cite{XiaBook}.
+\end{proof}
+
+\begin{remark}[Two different quotients]
+\label{rem:operations-trace-p-boundary}
+\Cref{thm:operations-trace-p-descent} has an
+\(\mathcal I\)-class as input and a \(P\)-class as output.  Since
+\(P\)-equivalence implies \(\mathcal I\)-equivalence, it also yields a map
+from ambient \(P\)-classes, but that is a weaker input statement.  Since
+output \(P\)-equivalence implies output \(\mathcal I\)-equivalence, one may
+also forget to the coarser output quotient.  The content of the theorem is
+the stronger cross-quotient map displayed in
+\eqref{eq:operations-trace-p-descent}; it does not choose a distinguished
+potential inside the output \(P\)-class.
+\end{remark}
+
+Because every analytic trace is \(\mathcal I\)-good,
+\[
+ P_\beta[\Tr_Y(\varphi)]
+ =P_\beta[\Tr_Y(\varphi)]_{\mathcal I}
+\]
+whenever either side is defined in the positive-mass
+\(\beta\)-psh space.  Thus the two envelope notations agree on trace
+outputs even though they do not agree on arbitrary quasi-psh functions.
+
+\section{Trace of a transcendental metric}
+
+\begin{definition}[Natural domain for NA trace]
+\label{def:operations-na-trace-domain}
+Let \(\Gamma\in\PSH^{\NA}(X,\theta)\).  Its trace along \(Y\) is defined
+when
+\[
+ \nu(\Gamma_\tau^{\theta+\omega},Y)=0
+\tag{54.28}\label{eq:operations-na-trace-domain}
+\]
+for every K\"ahler form \(\omega\) and all sufficiently negative
+\(\tau\).  In that case put
+\[
+ (\Tr_Y\Gamma)_{\max}
+ :=\sup\{\tau<\Gamma_{\max}\mid
+          \nu(\Gamma_\tau^{\theta+\omega},Y)=0\}.
+\tag{54.29}\label{eq:operations-na-trace-max}
+\]
+This value is independent of \(\omega\).
+\end{definition}
+
+For a K\"ahler form \(\eta\) on \(\widetilde Y\), choose a K\"ahler
+form \(\widetilde\omega\) on \(X\) with
+\(\eta\geq\widetilde\omega|_{\widetilde Y}\).  For
+\(\tau<(\Tr_Y\Gamma)_{\max}\), set
+\[
+ (\Tr_Y\Gamma)_\tau^{\theta|_{\widetilde Y}+\eta}
+ :=
+ P_{\theta|_{\widetilde Y}+\eta}
+ \left[
+ \Tr_Y^{\theta+\widetilde\omega}
+   \bigl(\Gamma_\tau^{\theta+\widetilde\omega}\bigr)
+ \right]_{\mathcal I}.
+\tag{54.30}\label{eq:operations-na-trace}
+\]
+
+\begin{proposition}\label{prop:operations-na-trace}
+Formula \eqref{eq:operations-na-trace} is independent of all choices and
+defines
+\[
+ \Tr_Y\Gamma\in
+ \PSH^{\NA}(\widetilde Y,\theta|_{\widetilde Y}).
+\tag{54.31}\label{eq:operations-na-trace-target}
+\]
+If \(\pi:X'\to X\) is proper bimeromorphic, \(Y\) is not contained in
+its non-isomorphism locus, and \(Y'\) is the strict transform, then
+\[
+ \widetilde\pi^*\Tr_Y\Gamma
+ =\Tr_{Y'}(\pi^*\Gamma)
+\tag{54.32}\label{eq:operations-na-trace-birational}
+\]
+on the normalizations.
+\end{proposition}
+
+\begin{proof}
+If two ambient perturbations are admissible in
+\eqref{eq:operations-na-trace}, move both to a common larger perturbation.
+Compatibility of the DXZ components makes the input levels
+\(\mathcal I\)-equivalent.  By
+\Cref{thm:operations-trace-well-defined}, their analytic traces are
+\(P\)-equivalent, hence also \(\mathcal I\)-equivalent; taking the
+displayed \(\mathcal I\)-envelope in one
+target class makes the normalized levels equal.  Repeating the argument
+for two target perturbations proves the inverse-system cocycle.  Order and
+concavity follow from \Cref{prop:operations-trace-calculus}, and the domain
+condition ensures the required positive-mass interior levels after target
+perturbation.  Since analytic traces are \(\mathcal I\)-good, the displayed
+\(\mathcal I\)-envelopes agree with their \(P\)-envelopes.  Hence the
+levels form the metric of
+\eqref{eq:operations-na-trace-target}.  This is
+\cite[Definition~4.20]{Xia23Operations}.
+
+For \eqref{eq:operations-na-trace-birational}, pull back
+quasi-equisingular approximants.  Away from the non-isomorphism locus their
+restrictions to the strict transform agree with the pullbacks of the
+original restrictions.  Passing first to \(d_S\)-limits and then to the
+normalized envelopes proves the identity level by level, as in
+\cite[Section~4.8]{Xia23Operations}.
+\end{proof}
+
+\begin{remark}[Trace domain firewall]
+\label{rem:operations-trace-firewall}
+Condition \eqref{eq:operations-na-trace-domain} is part of the
+definition.  It is not enough to check one terminal level, nor may one
+replace it by nontrivial pointwise restriction.  The supremum in
+\eqref{eq:operations-na-trace-max} may be strictly smaller than
+\(\Gamma_{\max}\), and levels at or above it are governed by the
+extended convention rather than by analytic restriction.
+\end{remark}
+
+\begin{remark}[Source note]
+\label{rem:operations-source-note}
+The componentwise operations, Choquet theorem, monotone-limit rules,
+volume identities, and transcendental trace follow the supplied operations
+chapter and \cite{Xia23Operations}.  The analytic trace, its comparison
+calculus, and its continuity follow \cite{DX24} and the complete supplied
+trace chapter.  The hypotheses
+used there are retained: broad operations extend to reduced,
+irreducible, unibranch compact K\"ahler spaces, whereas the analytic
+trace and \Cref{thm:operations-trace-p-descent} are stated here on the
+smooth ambient manifold and on the natural domain \(D_Y\).  In
+particular, the supplied trace chapter proves that every trace is
+\(\mathcal I\)-good, that two choices are \(P\)-equivalent, and that the
+resulting \(P\)-class depends only on the ambient \(\mathcal I\)-class.  Its
+continuity theorem is stated for decreasing nets under the common-class,
+\(d_S\)-convergence, and zero-generic-Lelong-number hypotheses recorded in
+\Cref{prop:operations-trace-calculus}.  These source-level distinctions are
+not weakened here to an \(\mathcal I\)-valued trace or strengthened beyond
+the stated net theorem.
+\end{remark}

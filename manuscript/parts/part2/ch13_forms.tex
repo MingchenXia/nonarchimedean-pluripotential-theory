@@ -1,0 +1,2540 @@
+\chapter{Differential forms on Berkovich spaces}
+\index{differential form!CLD}\index{Berkovich space!differential forms}
+\label{chap:cld-forms}
+
+The preceding chapters built the real differential calculus in three stages:
+superforms on affine spaces, forms on calibrated tropical spaces, and
+tropicalizations of analytic spaces.  We now assemble these stages into the
+Chambert--Loir--Ducros sheaf of forms on a Berkovich space.  The main point is
+not a new coordinate formula.  It is the proof that the chartwise formulae are
+independent of the moment map and therefore belong intrinsically to the
+analytic space.
+
+It is worth stating at the outset exactly what has to be done, because the
+construction looks deceptively short.  \Cref{chap:analytic-tropicalization}
+produced, for every moment map $f$ on an analytic domain $V$ of $X$, a
+continuous map $f_{\mathrm{trop}}:V\to N_{\mathbf R}$ with polyhedral image,
+a distinguished locus $\Sigma_f\subset V$ where the coordinates attain
+maximal rank, and a canonical calibration on $\Sigma_f^{(n)}$ that does not
+depend on $f$.  \Cref{chap:superforms,chap:tropical-spaces,chap:tropical-integration}
+produced a complete differential calculus --- wedge products, $\dprime$,
+$\ddprime$, positivity cones, integration, Stokes' formula --- on polyhedral
+supports.  The obvious move is to declare a form on $X$ to be, locally, the
+pullback of a superform along a tropicalization.  Three things then have to
+be proved, and none of them is formal.
+
+First, \emph{the pullback notation is a fiction}.  The map
+$f_{\mathrm{trop}}$ is only continuous; $X$ is not a manifold; there is no
+differential of $f_{\mathrm{trop}}$ and no classical pullback of forms.  What
+the notation abbreviates is a class in a filtered colimit taken over the
+category of tropical charts.  Everything therefore depends on knowing exactly
+when two chart representatives define the same object, that is, on computing
+the kernel of $\alpha\mapsto f_{\mathrm{trop}}^*\alpha$.  That computation is
+\Cref{prop:ch13-nullity}, and its polyhedral engine is
+\Cref{lem:ch13-surjective-pullback-injective}: a superform on a polyhedron
+is determined by its pullback along any surjective integer-affine map onto
+it.
+
+Second, \emph{the resulting presheaf is not a sheaf, and is not even
+separated}.  The failure is not pathological bookkeeping: it is visible on a
+discrete tropical space, as the warning following \Cref{prop:ch13-nullity}
+records.  One must sheafify, and one must then check that the sheafification
+is still described by charts.  This is \Cref{thm:ch13-sheaf}.
+
+Third, \emph{the invariant that integration needs is not the tropical image
+but the calibration}.  Two charts see the same analytic space through
+different polyhedra of possibly different dimensions, related only through
+their product.  The reason $\int_X\omega$ is well defined is not that the
+polyhedra agree --- they do not --- but that the canonical calibrations of
+\Cref{def:trop-canonical-calibration} agree, which is
+\Cref{thm:trop-calibration-chart-independent}.  All of
+\Cref{sec:ch13-integration,sec:ch13-stokes} is an unfolding of that one
+theorem.
+
+Once these three points are settled, the chapter's structural statement is
+that a topologically separated $K$-analytic space purely of dimension $n$,
+equipped with its analytic boundary, \emph{is} a calibrated tropical space of
+level $n$ (\Cref{thm:analytic-is-tropical-space}).  Stokes' formula on $X$ is
+then not a new theorem but the tropical Stokes formula
+\Cref{thm:cld-global-stokes} read through that identification, and the
+substance lies in identifying the analytic boundary with the tropical one.
+
+\paragraph{Roadmap.}
+\Cref{sec:ch13-charts} constructs the sheaves $A_X^{p,q}$, proves the
+nullity criterion and the sheaf property, compares ordinary forms with
+$G$-forms, and computes the first examples on the Berkovich affine line and
+on an annulus.  \Cref{sec:ch13-operations} descends the algebraic and
+differential operations, proves their locality, constructs the pullback along
+an analytic morphism, and then devotes a subsection to the question of what
+that pullback is and is not.  \Cref{sec:ch13-topology} fixes the topology on
+test forms; \Cref{sec:ch13-positivity} the positivity cones.
+\Cref{sec:ch13-integration} integrates top-degree forms on a pure-dimensional
+space, deducing well-definedness from the chart independence of
+\Cref{chap:analytic-tropicalization}, and identifies $X$ as a tropical space.
+\Cref{sec:ch13-stokes} states and proves Stokes' formula on analytic domains
+with boundary, with the hypotheses spelled out, and verifies it on an annulus
+with explicit numbers.  \Cref{sec:ch13-skeleton} compares forms on $X$ with
+forms on a skeleton and computes the Tate curve completely.
+\Cref{sec:ch13-properness} isolates where properness and boundarylessness are
+genuinely required.  \Cref{sec:ch13-partitions} records the partition of
+unity theorem in the exact form used later, and
+\Cref{sec:ch13-dictionary} collects the dictionary.
+
+\paragraph{Dependencies.}
+From \Cref{chap:superforms}: the superform algebra, the operators of
+\Cref{def:ch09-operators}, the identities of
+\Cref{prop:superform-differential-identities}, contraction
+(\Cref{def:ch09-contraction}), affine pullback
+(\Cref{prop:ch09-pullback-functorial}), and the positivity cones of
+\Cref{def:ch09-cones}.  From \Cref{chap:tropical-spaces}: forms on a
+polyhedral support (\Cref{def:ch10-forms-on-support}) with their kernel
+\eqref{eq:ch10-form-kernel}, the sheaf property
+(\Cref{lem:ch10-forms-sheaf}), presentation independence
+(\Cref{thm:ch10-forms-presentation-independent}) and its product form
+(\Cref{cor:ch10-forms-graph}), common refinements
+(\Cref{prop:tropical-common-refinement}), and calibrations
+(\Cref{def:ch10-calibration}).  From \Cref{chap:tropical-integration}:
+lattice-normalized integration (\Cref{def:ch11-lattice-measure}), subdivision
+independence (\Cref{prop:integral-subdivision-independent}), boundary traces
+\eqref{eq:superform-boundary-traces}, the defect formula
+\eqref{eq:ch11-defect-stokes}, and the Stokes and Green theorems
+\Cref{thm:balanced-stokes,thm:cld-global-stokes,thm:ch11-green-defect}.  From
+\Cref{chap:analytic-tropicalization}: moment maps
+(\Cref{def:trop-moment-invariant}), tropical charts and products
+(\Cref{lem:product-moment-map,lem:trop-refinement-calculus}), local skeleta
+(\Cref{def:trop-local-skeleton,thm:trop-sigma-characterization}), the
+canonical calibration and its chart independence
+(\Cref{def:trop-canonical-calibration,thm:trop-calibration-chart-independent,cor:trop-calibration-glue}),
+tropical polyhedra and multiplicities
+(\Cref{def:trop-tropical-polyhedron,thm:trop-multiplicity-formula}), thinness
+of boundaries (\Cref{prop:trop-boundary-thin,cor:trop-boundary-negligible}),
+and partitions of unity (\Cref{thm:cld-partitions-unity}).
+
+\paragraph{Standing hypotheses.}
+Throughout this chapter, $K$ is a complete non-Archimedean field and $X$ is a
+topologically separated $K$-analytic space.  When integration is used, $X$ is
+purely $n$-dimensional.  We distinguish ordinary open covers from
+$G$-covers by analytic domains whenever this distinction matters.
+$K$ is not assumed algebraically closed, nontrivially valued, or of residue
+characteristic zero; $X$ is not assumed good, reduced, or boundaryless unless
+this is said.  Each of goodness, paracompactness, holomorphic separation,
+boundarylessness and purity of dimension is a genuine hypothesis somewhere
+below, and \Cref{sec:ch13-properness} lists which statement needs which.
+
+\paragraph{What is imported.}
+Four analytic facts are used without proof, each with an exact reference: the
+comparison of ordinary and $G$-germs on an almost good space
+(\cite[Proposition~15.1.3]{CLD25}, used in
+\Cref{prop:cld-local-normal-form}); the vanishing of a form of bidegree
+$(p,q)$ off the locus $d_K\ge\max(p,q)$
+(\cite[Proposition~15.2.1]{CLD25}); the holomorphic separation and
+Stone--Weierstrass package
+(\cite[Corollary~15.2.5, Theorem~15.2.6, Proposition~15.2.8]{CLD25}, used in
+\Cref{thm:cld-smooth-partition}); and the identification of the analytic
+boundary with the parlinear boundary
+(\cite[Theorems~15.6.1 and~15.7.1]{CLD25}, used in
+\Cref{thm:analytic-is-tropical-space}).  Everything else in the chapter is
+proved here or reduced to a statement proved in
+\Cref{chap:superforms,chap:tropical-spaces,chap:tropical-integration,chap:analytic-tropicalization}.
+
+\section{From tropical charts to a sheaf of forms}
+\label{sec:ch13-charts}
+
+\subsection{The presheaf of chart representatives}
+\label{sec:ch13-presheaf}
+
+Let $V$ be an analytic domain of $X$ and let
+\[
+             f=(f_1,\ldots,f_r):V\longrightarrow\mathbf G_{m,K}^r
+\]
+be a moment map.  We use the convention
+\[
+ f_{\mathrm{trop}}(x)=(-\log|f_1(x)|,\ldots,-\log|f_r(x)|).
+\]
+A smooth superform $\alpha$ on a polyhedral neighborhood of
+$f_{\mathrm{trop}}(V)$ determines a form denoted
+$f_{\mathrm{trop}}^*\alpha$.  As in \Cref{chap:analytic-tropicalization},
+this notation denotes a chart representative, not the classical pullback by
+an everywhere differentiable map.
+
+We make the bookkeeping explicit, because the whole construction is a
+colimit and the reader must know over what.
+
+\begin{definition}[The chart category]
+\label{def:ch13-chart-category}
+\index{tropical chart!category of}
+Let $V$ be an analytic domain of $X$.  A \emph{tropical chart datum} on $V$
+is a pair $(f,P)$ consisting of a moment map $f:V\to T$ and a closed
+polyhedral subset $P\subset T_{\mathrm{trop}}$ containing
+$\Trop_f(V)=f_{\mathrm{trop}}(V)$.  A morphism
+$(f,P)\to(f',P')$ is an integer-affine map
+$F:T_{\mathrm{trop}}\to T'_{\mathrm{trop}}$ with
+\[
+ f'_{\mathrm{trop}}=F\circ f_{\mathrm{trop}}
+ \quad\text{on }V,
+ \qquad F(P)\subset P'.
+\]
+The resulting category is denoted $\mathscr T(V)$.  We say that $(f,P)$
+\emph{dominates} $(f',P')$ when such an $F$ exists; this is the refinement
+relation of \Cref{lem:trop-refinement-calculus} with the polyhedral targets
+made explicit.
+\end{definition}
+
+\begin{lemma}
+\label{lem:ch13-charts-filtered}
+Let $V$ be an analytic domain of $X$.
+\begin{enumerate}
+\item\label{itm:ch13-cf:final} $\mathscr T(V)$ has a terminal object, namely
+  the constant moment map to the trivial torus with $P$ a point.
+\item\label{itm:ch13-cf:prod} Any two objects $(f,P)$ and $(f',P')$ of
+  $\mathscr T(V)$ are dominated by a common object, namely
+  $\bigl((f,f'),P\times P'\bigr)$, through the two coordinate projections.
+\item\label{itm:ch13-cf:equal} Suppose $V$ is compact and let
+  $F_1,F_2:(f,P)\to(f',P')$ be two morphisms.  Then $F_1$ and $F_2$ agree on
+  $\Trop_f(V)$, and there is an object of $\mathscr T(V)$ admitting a
+  morphism to $(f,P)$ on which the pullbacks $F_1^*$ and $F_2^*$ agree.
+\end{enumerate}
+Consequently, for $V$ compact, the opposite category
+$\mathscr T(V)^{\mathrm{op}}$ is filtered, and colimits indexed by it may be
+computed with single representatives.
+\end{lemma}
+
+\begin{proof}
+\cref{itm:ch13-cf:final} The trivial torus $T=\Spec K$ has
+$T_{\mathrm{trop}}=\{0\}$, and any $(f,P)$ receives the unique affine map
+to $\{0\}$; there is nothing to check.
+
+\cref{itm:ch13-cf:prod} By \Cref{lem:product-moment-map} the pair
+$(f,f'):V\to T\times T'$ is a moment map, and by
+\Cref{lem:trop-moment-basic}\,\cref{itm:trop-moment:prod} its tropicalization
+is $(f_{\mathrm{trop}},f'_{\mathrm{trop}})$.  Hence
+$\Trop_{(f,f')}(V)\subset P\times P'$, and the two coordinate projections
+are integer-linear maps carrying $P\times P'$ into $P$ and $P'$ and
+satisfying the required identities.
+
+\cref{itm:ch13-cf:equal} For $x\in V$,
+$F_1(f_{\mathrm{trop}}(x))=f'_{\mathrm{trop}}(x)=F_2(f_{\mathrm{trop}}(x))$,
+so $F_1=F_2$ on $\Trop_f(V)$.  This does not yet make $F_1^*=F_2^*$ as maps
+$A^{p,q}(P')\to A^{p,q}(P)$, since $P$ may be strictly larger than
+$\Trop_f(V)$.  But $V$ is compact, so $\Trop_f(V)$ is itself a compact
+polyhedral subset of $T_{\mathrm{trop}}$
+(\Cref{thm:analytic-tropical-polyhedrality}), and
+$\bigl(f,\Trop_f(V)\bigr)$ is an object of $\mathscr T(V)$ mapping to
+$(f,P)$ by the identity of $T_{\mathrm{trop}}$.  On it the
+two pullbacks agree.  Indeed, let $x$ lie in a cell $\sigma$ of
+$\Trop_f(V)$ and let $v$ belong to the cone of directions along which
+$\sigma$ is entered at $x$; that cone spans $N_{\sigma,\mathbf R}$, since
+$\sigma$ is convex of full dimension in its affine span.  For such $v$ the
+points $x+tv$ lie in $\Trop_f(V)$ for small $t>0$, so the difference
+quotients $t^{-1}\bigl(F_i(x+tv)-F_i(x)\bigr)$ are independent of
+$i\in\{1,2\}$, and by linearity the linear parts $DF_1$ and $DF_2$ agree on
+$N_{\sigma,\mathbf R}$.  Hence $F_1^*\alpha$ and $F_2^*\alpha$ have the same
+evaluations on cell tangent vectors at every point of $\Trop_f(V)$, that is,
+they differ by an element of the kernel \eqref{eq:ch10-form-kernel}.  This is
+the argument of Step~3 of the proof of
+\Cref{thm:ch10-forms-presentation-independent}.
+
+Filteredness of the opposite category is exactly
+\cref{itm:ch13-cf:prod} and \cref{itm:ch13-cf:equal}.
+\end{proof}
+
+\begin{warning}{Compactness enters already in the bookkeeping}
+Without compactness of $V$ the tropical image $\Trop_f(V)$ need not be a
+polyhedral subset, two morphisms of chart data need not induce the same
+transition map, and the indexing category is then a preorder without a
+canonical transition system.  This is the mildest appearance of the
+phenomenon that becomes the failure of separatedness recorded after
+\Cref{prop:ch13-nullity}.  It is harmless in practice, because forms are
+defined by local representability and every comparison made below is carried
+out on compact analytic domains; but it is the reason the definitions that
+follow are phrased through germs rather than through a global colimit.
+\end{warning}
+
+\begin{definition}[Chart representatives]
+\label{def:ch13-presheaf}
+For $p,q\ge0$ and an analytic domain $V$ of $X$, set
+\[
+ A^{p,q}_{\mathrm{pf}}(V)
+ =\varinjlim_{(f,P)\in\mathscr T(V)^{\mathrm{op}}}A^{p,q}(P),
+\]
+the colimit being taken along the pullback maps $F^*$ and $A^{p,q}(P)$
+denoting superforms on the polyhedral support $P$ in the sense of
+\Cref{def:ch10-forms-on-support}.  The class of $\alpha\in A^{p,q}(P)$ is
+written $f_{\mathrm{trop}}^*\alpha$.  Restriction along an inclusion of
+analytic domains makes $V\mapsto A^{p,q}_{\mathrm{pf}}(V)$ a presheaf on the
+$G$-topology of $X$, and its restriction to open subsets a presheaf on the
+topological space $X$.  For $V$ compact the colimit is filtered by
+\Cref{lem:ch13-charts-filtered}; in general we use it only through the
+compact case and through germs.
+\end{definition}
+
+For $V$ compact, by \Cref{lem:ch13-charts-filtered} the colimit is filtered,
+so every element
+of $A^{p,q}_{\mathrm{pf}}(V)$ is of the form $f_{\mathrm{trop}}^*\alpha$ for
+a single chart, and
+$f_{\mathrm{trop}}^*\alpha=g_{\mathrm{trop}}^*\beta$ if and only if the two
+pullbacks agree in some chart dominating both --- equivalently, by
+\cref{itm:ch13-cf:prod}, in the product chart.  This is precisely the
+identification used in the definition below.  What is \emph{not} yet visible
+is how large the kernel of $\alpha\mapsto f_{\mathrm{trop}}^*\alpha$ is, and
+that is the next point.
+
+\begin{lemma}
+\label{lem:ch13-surjective-pullback-injective}
+Let $Q\subset N'_{\mathbf R}$ and $P\subset N_{\mathbf R}$ be closed
+polyhedral subsets, and let $F:N'_{\mathbf R}\to N_{\mathbf R}$ be an
+integer-affine map with $F(Q)=P$.  Then
+\[
+ F^*:A^{p,q}(P)\longrightarrow A^{p,q}(Q)
+\]
+is injective for all $p,q$.
+\end{lemma}
+
+\begin{proof}
+Choose locally finite polyhedral decompositions $\mathscr D$ of $Q$ and
+$\mathscr E_0$ of $P$.  The images $F(D)$, $D\in\mathscr D$, are polyhedra
+contained in $P$, and by \Cref{prop:tropical-common-refinement} there is a
+polyhedral decomposition $\mathscr E$ of $P$ refining $\mathscr E_0$ such
+that each $F(D)$ is a union of cells of $\mathscr E$.  (Locally finitely many
+cells are involved near any given point, so the construction is legitimate
+in the locally finite setting.)
+
+Let $\alpha\in A^{p,q}(P)$ with $F^*\alpha=0$; we must show that $\alpha$
+lies in the kernel \eqref{eq:ch10-form-kernel} computed for $\mathscr E_0$.
+By the subdivision invariance recorded after
+\Cref{def:ch10-forms-on-support} it is enough to prove it for
+$\mathscr E$.
+
+Fix a cell $\sigma\in\mathscr E$ and a point $x\in\RelInt(\sigma)$.  Since
+$F(Q)=P$, there is $D\in\mathscr D$ with $x\in F(D)$; as $F(D)$ is a union
+of cells of $\mathscr E$ and contains the point $x$ of $\RelInt(\sigma)$, it
+contains $\sigma$.  Hence the affine span of $\sigma$ is contained in the
+affine span of $F(D)$, and therefore
+\[
+ N_{\sigma,\mathbf R}
+ \subset\ \text{direction space of }F(D)
+ \ =\ DF\bigl(N_{D,\mathbf R}\bigr),
+\]
+where $DF$ is the linear part of $F$; the last equality holds because $F$ is
+affine and $D$ has $N_{D,\mathbf R}$ as direction space.
+
+Now let $v_1,\ldots,v_p,w_1,\ldots,w_q\in N_{\sigma,\mathbf R}$ and choose
+$\widetilde v_i,\widetilde w_j\in N_{D,\mathbf R}$ with
+$DF(\widetilde v_i)=v_i$ and $DF(\widetilde w_j)=w_j$.  Pick $y\in D$ with
+$F(y)=x$.  Evaluating the ambient representative of $F^*\alpha$ at $y$ on
+these tangent vectors of $D$ gives
+\[
+ (F^*\alpha)_y(\widetilde v_1,\ldots;\widetilde w_1,\ldots)
+ =\alpha_{x}(v_1,\ldots;w_1,\ldots),
+\]
+and the left-hand side vanishes because $F^*\alpha=0$ in $A^{p,q}(Q)$, that
+is, because its ambient representative lies in the kernel
+\eqref{eq:ch10-form-kernel} for $\mathscr D$.  Therefore
+$\alpha_x(v_1,\ldots;w_1,\ldots)=0$ for every $x\in\RelInt(\sigma)$, and by
+continuity of the coefficients for every $x\in\sigma$.  As $\sigma$ was
+arbitrary, $\alpha=0$ in $A^{p,q}(P)$.
+\end{proof}
+
+\begin{warning}{Surjectivity is essential, injectivity is irrelevant}
+\Cref{lem:ch13-surjective-pullback-injective} says nothing about
+injectivity of $F$ and everything about surjectivity onto $P$.  A projection
+$\mathbf R^2\to\mathbf R$ restricted to a square is far from injective, yet
+pullback of forms along it is injective, because every tangent direction
+downstairs is hit.  Conversely, if $F(Q)$ is a proper polyhedral subset of
+$P$, then every $\alpha$ supported away from $F(Q)$ dies, and the kernel is
+enormous.  This is why \Cref{def:ch13-chart-category} insists that $P$
+contain $\Trop_f(V)$ but does not insist that it equal it: the freedom is
+convenient, and the nullity criterion below removes it.
+\end{warning}
+
+\begin{proposition}
+\label{prop:ch13-nullity}
+Let $V$ be a \emph{compact} analytic domain of $X$, let $(f,P)$ be a
+tropical chart datum on $V$, and let $\alpha\in A^{p,q}(P)$.  Then
+\[
+ f_{\mathrm{trop}}^*\alpha=0\ \text{ in }A^{p,q}_{\mathrm{pf}}(V)
+ \iff
+ \alpha|_{\Trop_f(V)}=0\ \text{ in }A^{p,q}\bigl(\Trop_f(V)\bigr).
+\]
+Consequently $\alpha\mapsto f_{\mathrm{trop}}^*\alpha$ induces an injection
+\[
+ A^{p,q}\bigl(\Trop_f(V)\bigr)\lhook\joinrel\longrightarrow
+ A^{p,q}_{\mathrm{pf}}(V),
+\]
+whose image consists of the classes representable in the chart $f$.
+\end{proposition}
+
+\begin{proof}
+Since $V$ is compact, $\Trop_f(V)$ is a compact polyhedral subset of
+$T_{\mathrm{trop}}$ by \Cref{thm:analytic-tropical-polyhedrality}, and
+$\bigl(f,\Trop_f(V)\bigr)$ is an object of $\mathscr T(V)$ dominating
+$(f,P)$ through the identity.  Replacing $P$ by $\Trop_f(V)$ changes neither
+side of the asserted equivalence, so we may and do assume
+$P=\Trop_f(V)$.
+
+If $\alpha=0$ in $A^{p,q}(P)$ then its class is zero, which is the trivial
+implication.  Conversely, suppose $f_{\mathrm{trop}}^*\alpha=0$.  By
+filteredness (\Cref{lem:ch13-charts-filtered}) there is an object $(g,Q)$ of
+$\mathscr T(V)$ dominating $(f,P)$ through an integer-affine $F$, with
+$F^*\alpha=0$ in $A^{p,q}(Q)$.  Replacing $Q$ by $\Trop_g(V)$, which again
+only shrinks, we may assume $Q=\Trop_g(V)$.  Then
+\[
+ F(Q)=F\bigl(g_{\mathrm{trop}}(V)\bigr)=f_{\mathrm{trop}}(V)=P,
+\]
+so $F|_Q$ is a surjection of compact polyhedral sets and
+\Cref{lem:ch13-surjective-pullback-injective} gives $\alpha=0$.
+\end{proof}
+
+\begin{warning}{The presheaf $A^{p,q}_{\mathrm{pf}}$ is not separated}
+Compactness in \Cref{prop:ch13-nullity} cannot be dropped, and the failure
+is not a technicality about closures.  Chambert-Loir and Ducros exhibit a
+$G$-tropical space whose underlying set is $\mathbf R$ with the
+\emph{discrete} topology, tropicalized by the identity chart
+\cite[Remark~3.4.3]{CLD25}.  For $\alpha=\dprime x$ one has
+$\alpha|_{\{t\}}=0$ for every singleton domain $\{t\}$, since a point has no
+tangent vectors, so the class of $\alpha$ restricts to zero on each member of
+a $G$-cover; but $\alpha$ itself is not zero in the colimit, because every
+chart dominating the identity does so through a \emph{surjective} affine map
+and \Cref{lem:ch13-surjective-pullback-injective} applies.  Hence
+$A^{1,0}_{\mathrm{pf}}$ is not a separated presheaf, and sheafification in
+\Cref{thm:ch13-sheaf} is not cosmetic.  The moral for Berkovich spaces is
+that a chart may fail to see any tangent direction over a piece of $X$
+without the corresponding form being zero on that piece; only compactness of
+the domain forces the tropical image to be large enough to detect it.
+\end{warning}
+
+\subsection{The sheaves \texorpdfstring{$A^{p,q}$}{Apq}}
+\label{sec:ch13-sheaves}
+
+\begin{definition}[CLD form]
+\label{def:ch13-cld-form}
+For $p,q\geq0$, a \emph{smooth form of bidegree $(p,q)$} on an open set
+$U\subset X$ is a section locally representable as
+\[
+                    \omega|_V=f_{\mathrm{trop}}^*\alpha,
+\]
+where $V\subset U$ is open, $f$ is a moment map on an analytic neighborhood
+of $V$, and $\alpha$ is a smooth superform of bidegree $(p,q)$ near
+$f_{\mathrm{trop}}(V)$.  Representatives are identified when their pullbacks
+agree after passage to a common product moment map.  The resulting sheaf is
+denoted $A_X^{p,q}$; compactly supported sections are denoted
+$A_{X,c}^{p,q}$.
+\end{definition}
+
+Unravelled, \Cref{def:ch13-cld-form} says that $A^{p,q}_X$ is the sheaf on
+the topological space $X$ associated to the presheaf
+$U\mapsto A^{p,q}_{\mathrm{pf}}(U)$ of \Cref{def:ch13-presheaf}.  The
+following theorem says that the sheafification does not destroy the chart
+description, and identifies the stalks.
+
+\begin{theorem}
+\label{thm:ch13-sheaf}
+Let $X$ be a topologically separated $K$-analytic space and $p,q\ge0$.
+\begin{enumerate}
+\item\label{itm:ch13-sheaf:stalk} For $x\in X$ the stalk is
+  \[
+   A^{p,q}_{X,x}
+   =\varinjlim_{(V,f,P)}A^{p,q}(P),
+  \]
+  the filtered colimit over tropical chart data on analytic neighbourhoods
+  $V$ of $x$.
+\item\label{itm:ch13-sheaf:sections} For $U\subset X$ open,
+  $A^{p,q}_X(U)$ is the set of families $(\omega_x)_{x\in U}$ with
+  $\omega_x\in A^{p,q}_{X,x}$ which are locally represented by a single
+  chart datum; the assignment $U\mapsto A^{p,q}_X(U)$ is a sheaf of
+  $\mathbf R$-vector spaces, and
+  $A^{\bullet,\bullet}_X=\bigoplus_{p,q}A^{p,q}_X$ is a sheaf of bigraded
+  $\mathbf R$-algebras.
+\item\label{itm:ch13-sheaf:faithful} If $V$ is a compact analytic domain of
+  $X$ and $(f,P)$ is a chart datum on $V$, the map
+  $\alpha\mapsto f_{\mathrm{trop}}^*\alpha$ induces an injection
+  $A^{p,q}(\Trop_f(V))\hookrightarrow A^{p,q}_{X,G}(V)$.
+\item\label{itm:ch13-sheaf:GvsO} The natural map
+  $A^{p,q}_X(U)\to A^{p,q}_{X,G}(U)$ is injective for every open
+  $U\subset X$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\cref{itm:ch13-sheaf:stalk} Sheafification does not change stalks, and the
+stalk of the presheaf at $x$ is the colimit of $A^{p,q}_{\mathrm{pf}}(V)$
+over neighbourhoods $V$ of $x$, hence the displayed double colimit.  It is
+filtered: neighbourhoods of $x$ are directed under inclusion, and the chart
+data on each are directed by \Cref{lem:ch13-charts-filtered}, the
+compactness hypothesis there being met because every point of a good space
+has a basis of compact analytic neighbourhoods and, in general, one may
+compute the stalk on a $G$-basis of compact analytic domains.
+
+\cref{itm:ch13-sheaf:sections} This is the standard description of the
+sheafification as the sheaf of locally coherent families of germs.  That the
+sections form an $\mathbf R$-vector space is clear.  For the algebra
+structure, given $\omega,\eta$ represented near $x$ in charts $(f,P)$,
+$(g,Q)$, pass to the product chart of
+\Cref{lem:ch13-charts-filtered}\,\cref{itm:ch13-cf:prod} and take the wedge
+product of the two pullbacks there; the result is independent of the choices
+because pullback along an integer-affine map is an algebra homomorphism
+(\Cref{prop:ch09-pullback-functorial}) and because the colimit is
+filtered.
+
+\cref{itm:ch13-sheaf:faithful} By \Cref{prop:ch13-nullity} the map
+$A^{p,q}(\Trop_f(V))\to A^{p,q}_{\mathrm{pf}}(V)$ is injective, so it
+suffices to prove that
+$A^{p,q}_{\mathrm{pf}}(V)\to A^{p,q}_{X,G}(V)$ is injective on the image,
+that is, that a chart representative which is $G$-locally zero is zero.  Let
+$f_{\mathrm{trop}}^*\alpha$ restrict to zero on each member of a $G$-cover of
+the compact domain $V$; refining, we may take the cover to consist of
+finitely many compact analytic domains $V_1,\ldots,V_m$.  By
+\Cref{prop:ch13-nullity} applied on $V_i$, we get
+$\alpha|_{\Trop_f(V_i)}=0$ for every $i$.  Now
+$\Trop_f(V)=\bigcup_i\Trop_f(V_i)$, a finite union of compact polyhedral
+subsets; choose a polyhedral decomposition of $\Trop_f(V)$ in which each
+$\Trop_f(V_i)$ is a union of cells (\Cref{prop:tropical-common-refinement}).
+For a cell $\sigma$ of that decomposition, pick $i$ with
+$\sigma\subset\Trop_f(V_i)$; the vanishing condition
+\eqref{eq:ch10-form-kernel} for $\alpha$ along $\sigma$ is then part of
+$\alpha|_{\Trop_f(V_i)}=0$.  Since the kernel is defined by a pointwise
+cellwise condition and is unchanged by subdivision, $\alpha|_{\Trop_f(V)}=0$,
+whence $f_{\mathrm{trop}}^*\alpha=0$.
+
+\cref{itm:ch13-sheaf:GvsO} Injectivity may be checked on germs, and even on
+compact analytic neighbourhoods.  Let $\omega\in A^{p,q}_X(U)$ have zero
+image.  Near a point $x$ write $\omega=f_{\mathrm{trop}}^*\alpha$ on an open
+$W\ni x$, and choose a compact analytic neighbourhood $V\subset W$ of $x$;
+then $f_{\mathrm{trop}}^*(\alpha)|_V$ is zero as a $G$-form, so
+$\alpha|_{\Trop_f(V)}=0$ by \cref{itm:ch13-sheaf:faithful}, so
+$\omega|_{\Int(V)}=0$.  As $x$ was arbitrary, $\omega=0$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch13-recognition}
+Let $V$ be a compact analytic domain of $X$ and let $f:V\to T$ be a moment
+map.  A $G$-form $\omega\in A^{p,q}_{X,G}(V)$ which is tropicalized by $f$
+is of the form $f_{\mathrm{trop}}^*\alpha$ for a unique
+$\alpha\in A^{p,q}(\Trop_f(V))$.  In particular, if $f_{\mathrm{trop}}$ is
+injective on $V$ --- for instance if $V$ is a local skeleton on which the
+chart is an isomorphism onto its image --- then $\omega$ determines and is
+determined by an ordinary superform on the polyhedron $\Trop_f(V)$.
+\end{corollary}
+
+\begin{proof}
+Existence is the hypothesis and uniqueness is
+\Cref{thm:ch13-sheaf}\,\cref{itm:ch13-sheaf:faithful}.
+\end{proof}
+
+There is an analogous sheaf $A_{X,G}^{p,q}$ in which one uses analytic
+domains and $G$-covers.  Ordinary forms are the objects used against the
+usual topology of $X$; $G$-forms are indispensable for compact analytic
+domains and boundary formulae.  On a good space, local questions can usually
+be reduced to either language, but the two sheaves should not be identified
+without stating the required comparison.
+
+The precise relation is the one just proved: $A^{p,q}_X\to A^{p,q}_{X,G}$ is
+injective, so an ordinary form is a $G$-form and nothing is lost by working
+$G$-locally; but the map is not surjective, because a $G$-cover of an open
+set by compact analytic domains need not refine to an open cover, and a
+$G$-form assembled from charts on such domains need not be representable on
+any ordinary neighbourhood of a boundary point.  This is exactly the
+situation on a closed annulus viewed inside the affine line: the two Shilov
+points have no ordinary neighbourhood inside the annulus, so a $G$-form built
+from the annulus chart is not, without further argument, an ordinary form of
+the ambient space.  The distinction is invisible for boundaryless spaces and
+unavoidable for boundary formulae, which is why
+\Cref{sec:ch13-stokes} is stated for $G$-forms.
+
+\begin{proposition}\label{prop:cld-local-normal-form}
+Every form $\omega\in A_X^{p,q}(U)$ admits an open cover $(V_i)$ and
+representations
+\[
+                  \omega|_{V_i}=f_{i,\mathrm{trop}}^*\alpha_i.
+\]
+For a smooth function $u$ this says, more concretely, that near each point
+there are invertible analytic functions $f_1,\ldots,f_r$ and a smooth real
+function $\varphi$ such that
+\[
+ u=\varphi(-\log|f_1|,\ldots,-\log|f_r|).
+\]
+\end{proposition}
+\begin{proof}
+A section of $A_X^{p,q}$ is, by construction, locally an equivalence class
+of a pair consisting of a moment map and a superform.  Choose one pair at
+each point and shrink its analytic domain to an ordinary open neighborhood;
+these neighborhoods give the asserted cover and representations.  In
+bidegree $(0,0)$ the superform is an ordinary smooth function $\varphi$ on
+the tropical target, which gives the displayed formula.
+
+For the $G$-version, make the same choice on analytic domains.  If two such
+pairs represent the same germ, their pullbacks coincide on a product moment
+map by the equivalence relation, so the construction is independent of the
+choice.  Finally, an invertible analytic function and its absolute value are
+unchanged after passing to the reduction of the analytic structure sheaf;
+the moment maps and all their superform representatives therefore factor
+through $X_{\mathrm{red}}$.  This proves the reduced-space assertion under
+the goodness hypotheses that allow ordinary and $G$-germs to be compared.
+The precise comparison is
+\cite[Proposition~15.1.1 and Corollary~15.1.2]{CLD25}.
+\end{proof}
+
+\begin{example}[An annulus]
+\label{ex:ch13-annulus-radial}
+Let $A=\{r<|T|<R\}$ and put $t=-\log|T|$.  In the chart given by $T$,
+\[
+ u=\varphi(t),\qquad
+ \dprime u=\varphi'(t)\dprime t,\qquad
+ \ddprime u=\varphi'(t)\ddprime t,
+\]
+and
+\[
+                    \dprimeddprime u
+                     =\varphi''(t)\dprime t\wedge\ddprime t.
+\]
+Thus a smooth radial function is psh precisely when $\varphi$ is convex.
+The formula also fixes the sign used in
+\Cref{chap:cld-poincare-lelong,chap:cld-bedford-taylor}.
+\end{example}
+
+\subsection{Forms on the Berkovich affine line}
+\label{sec:ch13-line}
+
+Before any general theory is used, it is worth writing out every sheaf
+$A^{p,q}$ on the simplest Berkovich space.  The computation is short and it
+fixes the intuition for the rest of the chapter: forms live on the tree, not
+on the disc.
+
+\begin{example}[The sheaves $A^{p,q}$ on $\mathbf A^{1,\An}$]
+\label{ex:ch13-affine-line}
+Let $K$ be algebraically closed and nontrivially valued and let
+$X=\mathbf A^{1,\An}_K$, of pure dimension $1$, with coordinate $T$.  We use
+the classification of \Cref{thm:berk-a1-classification} and the tree
+structure of \Cref{prop:berk-a1-tree}.
+
+\emph{Vanishing.} $A^{p,q}_X=0$ as soon as $\max(p,q)\ge2$.  Indeed a form
+of bidegree $(p,q)$ vanishes at every point $x$ with $d_K(x)<\max(p,q)$, and
+$d_K(x)\le\dim_xX=1$ everywhere; alternatively, in any chart $f$ the tropical
+image has dimension $\le1$ by \Cref{thm:trop-dimension-formula}, so a
+superform of bidegree $(p,q)$ with $\max(p,q)\ge2$ has zero class in
+$A^{p,q}(\Trop_f(V))$ by \eqref{eq:ch10-form-kernel}.  So only
+$(0,0),(1,0),(0,1),(1,1)$ occur.
+
+\emph{Functions.} Let $u$ be a smooth function near a point $x$.  By
+\Cref{prop:cld-local-normal-form} there are invertible analytic functions
+$f_1,\ldots,f_r$ near $x$ and a smooth $\varphi$ on $\mathbf R^r$ with
+$u=\varphi(-\log|f_1|,\ldots,-\log|f_r|)$.  Each generator
+$-\log|f_i|=v(f_i)$ is, on the skeleton of an affinoid domain on which $f_i$
+is invertible, piecewise affine with integer slopes, by the slope formula
+\Cref{thm:ch08-slope-formula}; so the local model of a smooth function on the
+line is a smooth function of finitely many piecewise affine coordinates,
+exactly as in the tropical picture.
+
+\emph{Constancy on discs.} If $D=\{|T-a|\le\varrho\}$ is a closed disc
+contained in the domain of definition of an invertible analytic function $f$,
+then $|f|$ is constant on $D$.  Indeed $f$ has no zero on $D$, so writing
+$f=c(1+h)$ with $c=f(\eta_{a,\varrho})$ and $\|h\|_D<1$ --- possible because
+$K$ is algebraically closed, by Weierstrass division on the disc --- gives
+$|f(y)|=|c|$ for all $y\in D$.  Consequently a smooth function is constant on
+every closed disc contained in a single chart domain.  This is the
+one-dimensional shadow of the skeletal comparison of
+\Cref{sec:ch13-skeleton}, and it is why the sheaf $A^{0,0}$ is much smaller
+than the sheaf of continuous functions: the function $x\mapsto|T(x)|$ is
+continuous on $\mathbf A^{1,\An}$ but is \emph{not} smooth at the origin,
+since it is not constant on any disc $\{|T|\le\varrho\}$ around it.  Away
+from the origin it is smooth, being $\rme^{-t}$ in the chart $t=-\log|T|$.
+The same example, in the $G$-topology, is
+\cite[\S3.4.8]{CLD25}.
+
+\emph{Bidegree $(1,1)$.} On the open subset
+$\{0<|T|<\infty\}=\mathbf G_{m}^{\An}$ take the chart $f=T$, so
+$t=-\log|T|$ is an affine coordinate on $\Trop_f(\mathbf G_m^{\An})
+=\mathbf R$.  Then
+\[
+ A^{1,1}_X\big|_{\mathbf G_m^{\An}}
+ =\{\rho(t)\,\dprime t\wedge\ddprime t\},
+\]
+with $\rho$ smooth; and the integral of a compactly supported such form is
+$\int_{\mathbf R}\rho(t)\,\rd t$, the canonical calibration of the skeleton
+$S(\mathbf G_m)$ being the constant $1$-vector
+(\Cref{ex:trop-torus-explicit}).  A type-$1$ point contributes nothing:
+$d_K=0$ there, and the tropical image of a small disc around it is a point.
+\end{example}
+
+The last computation deserves to be repeated at a point where the tree
+branches, because that is where the difference between an analytic space and
+a real interval becomes visible.
+
+\begin{example}[A form supported near a type-$2$ point]
+\label{ex:ch13-type-two}
+Keep $K$ algebraically closed and nontrivially valued, and let
+$X=\mathbf P^{1,\An}_K$.  Let $\eta$ be the Gauss point, that is, the
+type-$2$ point corresponding to the closed unit disc.  Work on the open
+subset
+\[
+ U=\mathbf P^{1,\An}\setminus\{0,1,\infty\}
+\]
+with the moment map $f=(T,\,T-1):U\to\mathbf G_m^2$, so that
+\[
+ f_{\mathrm{trop}}=(-\log|T|,\,-\log|T-1|).
+\]
+The image $\Trop_f(U)$ is the tropical line of
+\Cref{ex:ch10-standard-line}: the union of the three rays
+\[
+ \mathbf R_{\ge0}u_1,\quad \mathbf R_{\ge0}u_2,\quad \mathbf R_{\ge0}u_3,
+ \qquad
+ u_1=(1,0),\ u_2=(0,1),\ u_3=(-1,-1),
+\]
+emanating from the origin, and $f_{\mathrm{trop}}(\eta)=(0,0)$.  Indeed if
+$|T(x)|>1$ then $|T(x)-1|=|T(x)|$, giving the ray in direction
+$(-1,-1)$; if $|T(x)|<1$ then $|T(x)-1|=1$, giving the ray $u_1$; and if
+$|T(x)|=1$ then $|T(x)-1|\le1$, giving the ray $u_2$.  The three rays
+correspond to the three ends of $U$, namely $\infty$, $0$ and $1$.
+
+By \Cref{thm:trop-sigma-characterization} the local skeleton $\Sigma_f$ is the
+set of $x\in U$ at which one of the initial forms $\widetilde{T(x)}$,
+$\widetilde{(T-1)(x)}$ is transcendental over $\widetilde K$.  This is
+exactly the tripod: the union of the three paths in the tree
+$\mathbf P^{1,\An}$ joining $\eta$ to the ends $0$, $1$ and $\infty$, with
+the three ends removed.  Indeed a point of the path from $\eta$ towards $0$
+is $\eta_{0,\varrho}$ with $0<\varrho<1$, and then $\widetilde{T(x)}$ is
+transcendental of degree $\varrho$; symmetrically for the other two paths,
+using $T-1$ on the branch towards $1$.  Conversely, if $x=\eta_{a,\varrho}$
+lies off the tripod, then $|a|=|a-1|=1$ and $\varrho<1$, so
+$\widetilde{T(x)}=\widetilde a$ and
+$\widetilde{(T-1)(x)}=\widetilde{a-1}$ both lie in $\widetilde K$, and
+$d_x(f)=0$.  Type-$1$ and type-$4$ points have $d_K=0$ and are excluded as
+well.
+
+The map $f_{\mathrm{trop}}$ carries the tripod homeomorphically onto the
+tropical line, with vertex $\eta\mapsto(0,0)$.  All calibration weights are
+$1$: on the branch towards $\infty$ or $0$ the projection $q=\mathrm{pr}_1$
+gives $q\circ f=T$, which realizes $U$ as an open subspace of
+$\mathbf G_m^{\An}$ and is therefore of local degree $1$; on the branch
+towards $1$ one uses $q=\mathrm{pr}_2$ and $T-1$ instead.  Hence
+$\Pi_f$ is the tropical line with all weights $1$, which is balanced ---
+this is \Cref{ex:ch10-standard-line} --- as
+\Cref{thm:analytic-tropical-balancing} demands.
+
+Now let $\chi$ be a smooth function on $\mathbf R^2$, supported in the ball
+of radius $\varepsilon<\tfrac12$ about the origin, with $\chi\equiv1$ near
+the origin, and set
+\[
+ \theta=f_{\mathrm{trop}}^*\bigl(\chi\,\ddprime x_1\bigr)
+ \ \in A^{0,1}_{X}(U).
+\]
+Its support is the union of the three initial segments of the tripod of
+lattice length $\varepsilon$, together with all the discs retracting onto
+them.  So a form ``supported near $\eta$'' is not supported on a
+neighbourhood of $\eta$ in any real chart: it is supported on a neighbourhood
+of $\eta$ in $X$, whose tropical shadow is a \emph{star with three branches},
+not an interval.
+
+This support is a compact subset of $U$: on the branch in direction $u_1$ it
+is $\{\rme^{-\varepsilon}\le|T|\le1,\ |T-1|=1\}$, and similarly for the other
+two, each of which is a compact analytic domain of $\mathbf P^{1,\An}$ not
+meeting $\{0,1,\infty\}$.  Hence $\theta$ extends by zero to an element of
+$A^{0,1}_{X,c}(\mathbf P^{1,\An})$, and the integrals below are integrals
+over the whole of $X$.
+
+The Stokes computation is now the tripod computation of
+\Cref{ex:ch11-tripod-stokes} verbatim.  Restricting to the ray $\sigma_j$
+with lattice parameter $t$ gives
+$\theta|_{\sigma_j}=\langle(\chi,0),u_j\rangle\,\ddprime t
+=\chi(tu_j)u_{j,1}\,\ddprime t$, so
+\[
+ \int_{\sigma_j}\dprime\theta
+ =\bigl[\chi u_{j,1}\bigr]_{t=0}^{t=\infty}
+ =-\chi(0)\,u_{j,1},
+\]
+and summing over $j$,
+\[
+ \int_X\dprime\theta
+ =-\chi(0)\sum_{j=1}^3u_{j,1}
+ =-\chi(0)\bigl(1+0-1\bigr)=0 .
+\]
+The cancellation is the balancing relation $u_1+u_2+u_3=0$ at the vertex,
+which here is the statement that the three ends of $U$ carry total slope
+zero --- the degree-zero divisor formula for $T$ on $\mathbf P^1$, in the
+guise of \Cref{thm:analytic-tropical-balancing}.  Had we used a punctured
+space with an unbalanced star, Stokes would have failed, exactly as in
+\Cref{ex:ch11-tripod-unbalanced}; but no such star arises from an analytic
+space, and that is the content of interior harmony.
+\end{example}
+
+\section{Operations, locality, and pullback}
+\label{sec:ch13-operations}
+
+All algebraic operations are defined on a representative and then descended:
+\[
+ \omega\wedge\eta=f_{\mathrm{trop}}^*(\alpha\wedge\beta),\quad
+ \dprime\omega=f_{\mathrm{trop}}^*(\dprime\alpha),\quad
+ \ddprime\omega=f_{\mathrm{trop}}^*(\ddprime\alpha).
+\]
+If the representatives initially use different charts, one first replaces
+them by their product chart.
+
+For the wedge product and the involution $J$ this is unproblematic, because
+those operations are $C^\infty$-multilinear and pullback along an affine map
+commutes with them tautologically.  The differentials require one extra
+verification, which is easy to overlook: the definition of a form on a
+polyhedral support is a quotient by the cellwise kernel
+\eqref{eq:ch10-form-kernel}, and it must be checked that this kernel is
+stable under $\dprime$ and $\ddprime$.  If it were not, the differentials
+would not even be defined on $A^{p,q}(P)$, let alone on $A^{p,q}_X$.
+
+\begin{lemma}
+\label{lem:ch13-kernel-differential}
+Let $\mathscr C$ be a rational polyhedral complex in $N_{\mathbf R}$, let
+$W\subset N_{\mathbf R}$ be open, and let $K^{p,q}=K^{p,q}(W,\mathscr C)$ be
+the kernel \eqref{eq:ch10-form-kernel}.  Then
+\[
+ \dprime K^{p,q}\subset K^{p+1,q},
+ \qquad
+ \ddprime K^{p,q}\subset K^{p,q+1},
+ \qquad
+ JK^{p,q}=K^{q,p},
+\]
+and $K^{\bullet,\bullet}$ is a two-sided ideal of $A^{\bullet,\bullet}(W)$.
+Consequently $\dprime$, $\ddprime$, $J$ and the wedge product descend to
+$A^{\bullet,\bullet}(\Omega)$ for every open $\Omega\subset|\mathscr C|$.
+\end{lemma}
+
+\begin{proof}
+The ideal property and the statement about $J$ are immediate from the
+pointwise definition: the condition in \eqref{eq:ch10-form-kernel} is the
+vanishing of all evaluations on cell tangent vectors, which is preserved by
+multiplying by an arbitrary superform and by exchanging the two exterior
+factors.
+
+For $\dprime$, fix a cell $\sigma\in\mathscr C$ of dimension $d$ and a point
+$x_0\in\Omega\cap\sigma$.  Choose affine coordinates $x_1,\ldots,x_m$ on
+$N_{\mathbf R}$ such that $x_1,\ldots,x_d$ restrict to coordinates on the
+affine span of $\sigma$ and $x_{d+1},\ldots,x_m$ vanish on that span; this is
+possible because $N_{\sigma,\mathbf R}$ is a direct summand of
+$N_{\mathbf R}$ as a real vector space.  Write
+$\alpha=\sum_{I,J}\alpha_{IJ}\,\dprime x_I\wedge\ddprime x_J$ with $I,J$
+increasing multi-indices in $\{1,\ldots,m\}$.  The condition
+$\alpha\in K^{p,q}$ says exactly that
+\begin{equation}
+\label{eq:ch13-kernel-coordinates}
+ \alpha_{IJ}\equiv0\ \text{ on }\Omega\cap\sigma
+ \qquad\text{whenever }I\cup J\subset\{1,\ldots,d\},
+\end{equation}
+since evaluating $\alpha$ on tangent vectors of $\sigma$ picks out precisely
+the coefficients whose indices lie in $\{1,\ldots,d\}$.
+
+Now
+$\dprime\alpha
+=\sum_{I,J}\sum_{i=1}^m\partial_i\alpha_{IJ}\,
+\dprime x_i\wedge\dprime x_I\wedge\ddprime x_J$, and its coefficient
+attached to a pair of multi-indices contained in $\{1,\ldots,d\}$ is, up to
+sign, a partial derivative $\partial_i\alpha_{IJ}$ with $i\le d$ and
+$I\cup J\subset\{1,\ldots,d\}$.  For such indices, $\alpha_{IJ}$ vanishes
+identically on the relatively open subset $\Omega\cap\sigma$ of the affine
+span of $\sigma$, and $\partial_i$ with $i\le d$ differentiates along that
+span; hence $\partial_i\alpha_{IJ}=0$ on $\Omega\cap\RelInt(\sigma)$, and by
+continuity on $\Omega\cap\sigma$.  Thus $\dprime\alpha$ satisfies
+\eqref{eq:ch13-kernel-coordinates} for $\sigma$.  As $\sigma$ was arbitrary,
+$\dprime\alpha\in K^{p+1,q}$.  The assertion for $\ddprime$ follows from
+$\ddprime=J\dprime J$ (\Cref{lem:ch09-J-conjugation}) together with
+$JK^{p,q}=K^{q,p}$.
+\end{proof}
+
+\begin{warning}{Why a differential operator needs the tangent lattice}
+\Cref{lem:ch13-kernel-differential} is the reason a form on a polyhedral
+support may be differentiated at all, and it also shows the exact price:
+only derivatives \emph{along} cells survive.  A superform whose coefficients
+vary rapidly in a normal direction represents the zero form, and so does its
+differential.  In particular $\dprime$ on $A^{p,q}(\Omega)$ is not computed
+by an ambient gradient; it is computed by the gradient tangential to each
+cell, and the two disagree at every point of a cell of positive
+codimension.  On a Berkovich space this is why $\dprimeddprime u$ of a
+smooth function is supported on the local skeleta and not on the whole
+space.
+\end{warning}
+
+\begin{proposition}\label{prop:cld-intrinsic-calculus}
+Wedge product, the involution $J$, $\dprime$, and $\ddprime$ are independent
+of the chosen representatives.  They satisfy
+\[
+ (\dprime)^2=(\ddprime)^2=0,
+ \qquad \dprime\ddprime+\ddprime\dprime=0,
+\]
+the graded Leibniz rules, and restriction to open subsets.  Hence
+$A_X^{\bullet,\bullet}$ is a sheaf of bidifferential bigraded algebras.
+\end{proposition}
+\begin{proof}
+Two representatives are equal precisely after pullback to a common
+refinement.  Pullback of superforms by an affine map commutes with wedge,
+$J$, $\dprime$, and $\ddprime$.  The asserted identities therefore follow
+from their affine counterparts in \Cref{chap:superforms}.  Locality
+and gluing follow from the definition of equality in refinements.
+\end{proof}
+
+\subsection{Locality}
+\label{sec:ch13-locality}
+
+The word ``local'' is used in three different senses in this subject, and the
+proposition below separates them.  A sheaf-theoretic operator is local if it
+commutes with restriction; a differential operator is local if it does not
+increase supports; and an operator is $C^\infty$-linear if it is a
+morphism of $A^{0,0}$-modules.  The differentials $\dprime$ and $\ddprime$
+have the first two properties and not the third.
+
+\begin{proposition}
+\label{prop:ch13-locality}
+Let $U\subset X$ be open and $\omega\in A^{p,q}_X(U)$.
+\begin{enumerate}
+\item\label{itm:ch13-loc:restrict} For every open $U'\subset U$ and every
+  analytic domain $V\subset U$ one has
+  $\dprime(\omega|_{U'})=(\dprime\omega)|_{U'}$ and
+  $\dprime(\omega|_{V})=(\dprime\omega)|_{V}$ in $A^{p+1,q}_{X,G}(V)$, and
+  likewise for $\ddprime$, $J$ and $\wedge$.  Thus $\dprime,\ddprime$ are
+  morphisms of sheaves of $\mathbf R$-vector spaces.
+\item\label{itm:ch13-loc:support} $\Supp(\dprime\omega)\subset\Supp\omega$
+  and $\Supp(\ddprime\omega)\subset\Supp\omega$; more generally
+  $\Supp(\omega\wedge\eta)\subset\Supp\omega\cap\Supp\eta$.
+\item\label{itm:ch13-loc:leibniz} For $u\in A^{0,0}_X(U)$,
+  \[
+   \dprime(u\omega)=\dprime u\wedge\omega+u\,\dprime\omega,
+  \]
+  so $\dprime$ is not $A^{0,0}_X$-linear; it is a first-order differential
+  operator, and its symbol is $u\mapsto\dprime u$.
+\item\label{itm:ch13-loc:dim} $\Supp\omega\subset\{x\in U:d_K(x)\ge\max(p,q)\}$
+  in the notation of \Cref{def:trop-residual-degree}; in particular
+  $A^{p,q}_X=0$ as soon as $\dim X<\max(p,q)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch13-loc:restrict} All four operations are defined chartwise, and a
+chart datum on $U$ restricts to a chart datum on $U'$ or on $V$ by
+restricting the moment map, with the same target polyhedron.  Since the
+operations on $A^{p,q}(P)$ do not involve the domain, the two computations
+agree.  Independence of the representative is
+\Cref{prop:cld-intrinsic-calculus}.
+
+\cref{itm:ch13-loc:support} If $\omega|_{U'}=0$ then
+$(\dprime\omega)|_{U'}=\dprime(\omega|_{U'})=0$ by
+\cref{itm:ch13-loc:restrict}; taking $U'$ to be the complement of
+$\Supp\omega$ gives the inclusion.  The statement for $\wedge$ is the same
+argument applied to the two factors separately.
+
+\cref{itm:ch13-loc:leibniz} Represent $u$ and $\omega$ in a common chart, so
+$u=f_{\mathrm{trop}}^*\varphi$ and $\omega=f_{\mathrm{trop}}^*\alpha$.  The
+Leibniz rule of \Cref{prop:superform-differential-identities} in bidegree
+$(0,0)$ gives $\dprime(\varphi\alpha)=\dprime\varphi\wedge\alpha
++\varphi\,\dprime\alpha$ on the target polyhedron; pulling back preserves it.
+Failure of $A^{0,0}$-linearity is exhibited by any nonconstant $u$ and
+$\omega=1$.
+
+\cref{itm:ch13-loc:dim} Let $x\in U$ with $d_K(x)<\max(p,q)$ and represent
+$\omega=f_{\mathrm{trop}}^*\alpha$ on a neighbourhood $V_0$ of $x$, with
+$\xi=f_{\mathrm{trop}}(x)$.  The dimension chain
+\eqref{eq:trop-dimension-chain} gives
+$\dim_{\mathrm{trop},x}(f)\le d_x(f)\le d_K(x)<\max(p,q)$, so
+$\dim_\xi f_{\mathrm{trop}}(V_0)<\max(p,q)$ after shrinking $V_0$, by
+\Cref{def:trop-tropical-dimension} and
+\Cref{thm:trop-local-germ}\,\cref{itm:trop-germ:germ}.  Since
+$f_{\mathrm{trop}}$ is continuous, there is a compact analytic neighbourhood
+$V\subset V_0$ of $x$ with $f_{\mathrm{trop}}(V)$ contained in a ball about
+$\xi$ so small that
+$\dim\Trop_f(V)=\dim_\xi f_{\mathrm{trop}}(V_0)<\max(p,q)$.  Every cell of
+$\Trop_f(V)$ then has dimension $<\max(p,q)$, so its tangent space cannot
+carry $\max(p,q)$ linearly independent vectors, and $\alpha$ lies in the
+kernel \eqref{eq:ch10-form-kernel}; hence $\omega|_{V}=0$ and
+$x\notin\Supp\omega$.  Since $d_K(x)\le\dim_xX$ by
+\eqref{eq:trop-dimension-chain}, the last assertion follows.
+\end{proof}
+
+Statement \cref{itm:ch13-loc:dim} is the vanishing recorded in the remark
+following \Cref{prop:cld-form-pullback}; the proof just given derives it from
+the dimension chain of \Cref{chap:analytic-tropicalization} rather than
+importing it, and it shows where the improvement from the tropical dimension
+to $d_K$ comes from: one is allowed to shrink the chart domain, and the germ
+theorem \Cref{thm:trop-local-germ} says the germ of the tropicalization then
+stabilizes at the value predicted by the graded residue field.
+
+\subsection{Pullback along an analytic morphism}
+\label{sec:ch13-pullback}
+
+\begin{proposition}\label{prop:cld-form-pullback}
+Let $g:Y\to X$ be a morphism of topologically separated analytic spaces.
+There is a functorial morphism
+\[
+                 g^*:A_X^{p,q}\longrightarrow g_*A_Y^{p,q}
+\]
+commuting with wedge, $J$, $\dprime$, and $\ddprime$.
+\end{proposition}
+\begin{proof}
+If $\omega=f_{\mathrm{trop}}^*\alpha$, then on the inverse image of the
+chart set put $g^*\omega=(f\circ g)_{\mathrm{trop}}^*\alpha$.  A common
+refinement for two representatives pulls back to a common refinement on
+$Y$, proving independence.  Functoriality and compatibility with the
+operators are chartwise identities.
+\end{proof}
+
+\begin{remark}[Vanishing by dimension]
+At a point $x$, a form of bidegree $(p,q)$ vanishes if the local tropical
+dimension is smaller than $\max\{p,q\}$; see
+\cite[Proposition~15.2.1]{CLD25}.  More generally, if an analytic subspace
+$i:Z\hookrightarrow X$ has local dimension smaller than $\max\{p,q\}$,
+then $i^*\omega=0$ for every $\omega\in A_X^{p,q}$.  This is a statement
+about restriction to $Z$: the ambient support of $\omega$ may meet, or even
+contain, $Z$.  In particular, dimension vanishing alone gives no
+removability or uniqueness theorem for currents across $Z$.
+\end{remark}
+
+We record the further formal properties of $g^*$, since they are the ones
+used in \Cref{chap:cld-currents,chap:cld-metrized-bundles} and since one of
+them --- compatibility with extension of scalars --- is what makes the theory
+insensitive to enlarging $K$.
+
+\begin{proposition}
+\label{prop:ch13-pullback-properties}
+Let $g:Y\to X$ and $h:Z\to Y$ be morphisms of topologically separated
+$K$-analytic spaces.
+\begin{enumerate}
+\item\label{itm:ch13-pb:funct} $(g\circ h)^*=h^*\circ g^*$ and
+  $\mathrm{id}^*=\mathrm{id}$; in particular $A^{p,q}_{(-)}$ is a
+  contravariant functor to sheaves.
+\item\label{itm:ch13-pb:domain} If $g$ is the inclusion of an analytic
+  domain, $g^*$ is the restriction map $A^{p,q}_{X,G}\to A^{p,q}_{Y,G}$.
+\item\label{itm:ch13-pb:supp} $\Supp(g^*\omega)\subset g^{-1}(\Supp\omega)$.
+\item\label{itm:ch13-pb:base} If $L/K$ is a complete valued extension and
+  $p:X_L\to X$ the base-change morphism, then
+  $p^*:A^{p,q}_X\to p_*A^{p,q}_{X_L}$ is injective, and every chart datum on
+  $X$ pulls back to a chart datum on $X_L$ with the same target polyhedron.
+\item\label{itm:ch13-pb:red} The canonical map
+  $A^{p,q}_X\to A^{p,q}_{X_{\mathrm{red}}}$ induced by the closed immersion
+  $X_{\mathrm{red}}\hookrightarrow X$ is an isomorphism on a good space.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch13-pb:funct} On representatives, $(f\circ g\circ h)_{\mathrm{trop}}
+=((f\circ g)\circ h)_{\mathrm{trop}}$, since composing a moment map with a
+morphism of analytic spaces is associative and tropicalization is functorial
+(\Cref{lem:trop-moment-basic}\,\cref{itm:trop-moment:funct}).  The identity
+morphism carries a chart to itself.
+
+\cref{itm:ch13-pb:domain} If $f$ is a moment map on an analytic domain $W$ of
+$X$, then $f\circ g$ is its restriction to $W\cap Y$, with the same target
+and the same tropical map; the induced map on colimits is the restriction map
+of \Cref{def:ch13-presheaf}.
+
+\cref{itm:ch13-pb:supp} If $\omega$ vanishes on an open $U$, then
+$g^*\omega$ vanishes on $g^{-1}(U)$ by \cref{itm:ch13-pb:funct} and
+\cref{itm:ch13-pb:domain}.
+
+\cref{itm:ch13-pb:base} Tropicalization commutes with base change
+(\Cref{lem:trop-moment-basic}\,\cref{itm:trop-moment:base}), and
+$\Trop_{f_L}(V_L)=\Trop_f(V)$ for a compact analytic domain, since $p$ is
+surjective and $|f_i(x_L)|=|f_i(p(x_L))|$.  Thus a chart datum pulls back to
+one with the same polyhedron, and if $p^*\omega=0$ then, computing on a
+compact analytic domain and applying
+\Cref{thm:ch13-sheaf}\,\cref{itm:ch13-sheaf:faithful} over $L$, the
+representative $\alpha$ vanishes on $\Trop_{f_L}(V_L)=\Trop_f(V)$, whence
+$\omega=0$.
+
+\cref{itm:ch13-pb:red} An invertible analytic function on $V$ and its image
+in $\mathcal O(V_{\mathrm{red}})^\times$ have the same absolute value at
+every point, and $X$ and $X_{\mathrm{red}}$ have the same underlying
+topological space; so chart data correspond, with equal tropical images, and
+the two colimits agree.  Surjectivity --- that a chart on
+$V_{\mathrm{red}}$ lifts to a chart on some analytic neighbourhood in $X$
+--- is the almost-goodness statement
+\cite[Proposition~15.1.3]{CLD25}, whose proof lifts each $f_i$ through the
+nilpotent thickening after a Gerritzen--Grauert decomposition.
+\end{proof}
+
+\subsection{What is, and what is not, a pullback}
+\label{sec:ch13-what-is-pullback}
+
+The symbol $f_{\mathrm{trop}}^*$ and the symbol $g^*$ of
+\Cref{prop:cld-form-pullback} are both called pullbacks, and they are not the
+same kind of object.  Confusing them is the commonest source of false
+statements in this theory, so we separate them explicitly.
+
+\paragraph{$g^*$ is a genuine sheaf-theoretic pullback.}
+For a morphism $g:Y\to X$ of analytic spaces,
+\Cref{prop:cld-form-pullback} produces a map of sheaves
+$A^{p,q}_X\to g_*A^{p,q}_Y$ on $X$, equivalently a map
+$g^{-1}A^{p,q}_X\to A^{p,q}_Y$ on $Y$ by the adjunction between $g^{-1}$ and
+$g_*$.  It is functorial, compatible with all operations, and local.  In this
+respect the sheaves $A^{p,q}$ behave exactly like sheaves of differential
+forms on manifolds.  Nothing more is claimed, and in particular:
+
+\begin{warning}{Three things $g^*$ is not}
+\emph{It is not a map of $\mathcal O$-modules.}  The sheaves $A^{p,q}_X$ are
+sheaves of $\mathbf R$-vector spaces and of $A^{0,0}_X$-modules only;
+$\mathcal O_X$ does not act on them, and there is no coherent sheaf whose
+inverse image they compute.  Consequently there is no ``$g^*$ of a module''
+in the sense of $g^{-1}(-)\otimes_{g^{-1}\mathcal O_X}\mathcal O_Y$, and no
+base-change spectral sequence.
+
+\emph{It is neither injective nor surjective in general.}  Injectivity fails
+for any $g$ whose image misses part of the support: if $Z\subset X$ is a
+closed analytic subspace with $\dim Z<\max(p,q)$ and $i:Z\to X$ is the
+inclusion, then $i^*\omega=0$ for every $\omega\in A^{p,q}_X$ by
+\Cref{prop:ch13-locality}\,\cref{itm:ch13-loc:dim} applied on $Z$, no matter
+how large $\Supp\omega$ is.  Surjectivity fails already for a closed
+immersion of a point, and for the normalization of a nodal curve.
+
+\emph{There is no pushforward of forms.}  A map $g_*:A^{p,q}_Y\to
+A^{p,q}_X$ does not exist, not even for finite $g$: a form on $Y$ has no
+canonical trace to $X$ because the chart data on $Y$ have no reason to come
+from $X$.  What does exist is a pushforward of \emph{measures} and of
+\emph{currents}, and only under properness hypotheses; see
+\Cref{prop:ch13-finite-integral} and \Cref{chap:cld-currents}.
+\end{warning}
+
+\paragraph{$f_{\mathrm{trop}}^*$ is not a pullback at all.}
+There is no map of ringed spaces, and no differentiable map, whose pullback
+$f_{\mathrm{trop}}^*$ could be.  The map $f_{\mathrm{trop}}:V\to
+T_{\mathrm{trop}}$ is merely continuous, its source is not a manifold, and it
+has no differential.  What $f_{\mathrm{trop}}^*\alpha$ denotes is the class
+of $\alpha$ in the filtered colimit of \Cref{def:ch13-presheaf}; the notation
+is chosen because the resulting assignment is functorial in the chart,
+$(F\circ f)_{\mathrm{trop}}^*\alpha=f_{\mathrm{trop}}^*(F^*\alpha)$, which is
+the only property ever used.  \Cref{prop:ch13-nullity} measures exactly how
+far it is from being injective, and the answer --- that the kernel is
+$\{\alpha:\alpha|_{\Trop_f(V)}=0\}$ and nothing more --- is a theorem, not a
+definition.
+
+\begin{warning}{Two failures of the pullback intuition}
+\emph{The image of a chart is not a submanifold.}  A tropical chart is not a
+homeomorphism onto its image and its fibres are large: over an interior point
+of $\Trop_f(V)$ sits an entire analytic fibre.  A form is therefore not
+determined by its values ``at points of $X$'' in any naive sense; it is
+determined by its restriction to the local skeleta, which is the content of
+\Cref{prop:ch13-skeletal-faithful}.
+
+\emph{Composition of charts is not composition of maps.}  If $(V',\psi)$
+refines $(V,\varphi)$ through $F$, then $F$ relates the two \emph{targets},
+not the two domains, and the refinement relation is directed and not
+symmetric (\Cref{lem:trop-refinement-calculus}).  Two charts are compared by
+passing up to their product, never down to a common coarsening, and the
+resulting weight comparisons are pushforward statements carrying the lattice
+index \eqref{eq:appG-lattice-index}.
+\end{warning}
+
+\section{The test-form topology}
+\label{sec:ch13-topology}
+
+Currents require more than the vector space $A_{X,c}^{p,q}$: they require its
+locally convex topology.  We spell it out because weak convergence of
+currents always refers to this choice.
+
+Fix a compact set $C\subset X$ and finitely many tropical charts covering
+$C$.  Refine their tropical images by finite polyhedral complexes and choose
+affine coordinates on all cells.  For a chartwise representative $\alpha$,
+let
+\[
+ \|\alpha\|_{C,r}
+ =\max\bigl\{|\partial^I\alpha_{KL}(x)|:
+      |I|\leq r,\ x\text{ in a relevant cell},\ K,L\bigr\}.
+\]
+Changing the finite refinement or affine coordinates gives an equivalent
+family of seminorms.  The fixed-support, fixed-chart space is given the
+$C^\infty$ topology generated by all $\|\cdot\|_{C,r}$.  Finally,
+$A_{X,c}^{p,q}$ is given the final locally convex topology as the support and
+finite chart data vary.
+
+\begin{proposition}\label{prop:test-form-continuity-criterion}
+A linear functional $T$ on $A_{X,c}^{p,q}$ is continuous if and only if its
+restriction to every fixed compact-support, finite-chart space is continuous.
+Equivalently, for each such datum there exist $C>0$, an integer $r$, and
+finitely many compact chart domains $W_i$ such that
+\[
+                |\langle T,\omega\rangle|
+               \leq C\max_i\|\omega\|_{W_i,r}.
+\]
+The integer $r$ may depend on both the compact set and the chart datum.
+\end{proposition}
+\begin{proof}
+This is the defining universal property of the final topology.  A continuous
+linear functional on a locally convex space controlled by a family of
+seminorms is bounded by a finite maximum of those seminorms.  Conversely,
+such bounds on every member of the final system imply continuity there and
+hence on the final space.
+\end{proof}
+
+The dependence on the chart datum is real: even on a compact tropical space,
+a current need not have one globally bounded distributional order.  This is
+why later compactness assertions are stated in the weak topology rather than
+in a fixed-order norm.
+
+Two features of this topology deserve to be stated as a proposition, because
+they are what make the operations of \Cref{sec:ch13-operations} usable
+against currents.
+
+\begin{proposition}
+\label{prop:ch13-test-continuity}
+Let $X$ be topologically separated.
+\begin{enumerate}
+\item\label{itm:ch13-tc:mult} For $u\in A^{0,0}_X(X)$ and
+  $\gamma\in A^{r,s}_X(X)$, the maps $\omega\mapsto u\omega$ and
+  $\omega\mapsto\omega\wedge\gamma$ are continuous
+  $A^{p,q}_{X,c}\to A^{p,q}_{X,c}$, respectively
+  $A^{p,q}_{X,c}\to A^{p+r,q+s}_{X,c}$.
+\item\label{itm:ch13-tc:diff} $\dprime:A^{p,q}_{X,c}\to A^{p+1,q}_{X,c}$
+  and $\ddprime$ are continuous, and increase by at most one the integer $r$
+  occurring in \Cref{prop:test-form-continuity-criterion}.
+\item\label{itm:ch13-tc:pullback} If $g:Y\to X$ is a morphism which is
+  topologically proper, then $g^*:A^{p,q}_{X,c}\to A^{p,q}_{Y,c}$ is
+  continuous.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch13-tc:mult} On a fixed compact support and a fixed chart datum,
+after enlarging the chart to a product tropicalizing $u$ or $\gamma$ as well,
+multiplication is multiplication of superform coefficients on finitely many
+cells; the Leibniz estimate
+$\|ab\|_{C,r}\le c(r)\|a\|_{C,r}\|b\|_{C,r}$ gives continuity on each member
+of the inductive system, hence on the limit.
+
+\cref{itm:ch13-tc:diff} In the same fixed chart datum,
+$\|\dprime\alpha\|_{C,r}\le\|\alpha\|_{C,r+1}$ by
+\Cref{def:ch09-operators}, since the coefficients of $\dprime\alpha$ are
+first partial derivatives of those of $\alpha$ in the chosen affine
+coordinates.  The support does not grow, by
+\Cref{prop:ch13-locality}\,\cref{itm:ch13-loc:support}.
+
+\cref{itm:ch13-tc:pullback} Properness ensures that $g^{-1}$ of a compact set
+is compact, so $g^*$ maps the fixed-support subspaces into fixed-support
+subspaces.  In a chart, $g^*$ replaces the moment map $f$ by $f\circ g$
+without changing the target polyhedron or the representative, so all the
+seminorms $\|\cdot\|_{C,r}$ are literally unchanged.
+\end{proof}
+
+\begin{warning}{The order is not uniform}
+\Cref{prop:test-form-continuity-criterion} permits the integer $r$ to depend
+on the chart datum as well as on the compact set, and this cannot be
+improved.  The reason is the same as in the real-analytic setting: the space
+$A^{p,q}_{X,c}$ is an inductive limit over an uncountable directed family of
+chart data, not merely over compact subsets, and the finite subfamilies grow
+in two independent directions --- more coordinates, and finer cells.  A
+functional bounded by $\|\cdot\|_{C,r}$ for a fixed $r$ on every chart datum
+is much more special than a continuous one, and no compactness theorem below
+produces such a bound.  The distinction is not academic: it is why weak
+limits of currents are taken in the weak-$*$ topology and why the mass
+bounds of \Cref{chap:cld-bedford-taylor} are stated as bounds on measures
+rather than as bounds on distributional orders.
+\end{warning}
+
+\section{Positivity of analytic forms}
+\label{sec:ch13-positivity}
+
+Positivity of superforms was analysed in
+\Cref{sec:ch09-positivity}: three cones
+$A^{p,p}_{+,\mathrm s}\subset A^{p,p}_+\subset A^{p,p}_{+,\mathrm w}$,
+mutually dual in the sense of \Cref{thm:ch09-positivity-duality}, coinciding
+for $p\in\{0,1,n-1,n\}$ and distinct in between
+(\Cref{ex:ch09-weak-not-positive,ex:ch09-positive-not-strong}).  Transporting
+them to a Berkovich space requires only that each cone be preserved by
+pullback along an integer-affine map, which is
+\Cref{prop:ch09-positivity-inclusions} together with
+\Cref{lem:ch09-pullback-eleven}.  The definition below is therefore
+legitimate, and the verification is the same product-chart argument as
+everywhere else in this chapter.
+
+\begin{definition}
+\label{def:ch13-positivity}
+A symmetric $(p,p)$-form on $X$ is strongly positive, positive, or weakly
+positive if it has that property in every tropical chart.  We write
+\[
+ A_{X,+,\mathrm{s}}^{p,p}\subset
+ A_{X,+}^{p,p}\subset
+ A_{X,+,\mathrm{w}}^{p,p}.
+\]
+\end{definition}
+
+\begin{proposition}
+\label{prop:ch13-positivity-basic}
+The positivity cones are well defined, local, convex, closed under
+multiplication by nonnegative smooth functions, and preserved by analytic
+pullback.  A smooth function $u$ is psh in the smooth CLD sense exactly when
+$\dprimeddprime u$ is a positive $(1,1)$-form.
+\end{proposition}
+\begin{proof}
+Affine pullback preserves each positivity cone of superforms.  Common
+refinements therefore prove chart independence and locality.  The remaining
+claims follow from the corresponding linear-algebra statements for
+superforms.  The last assertion is the definition of smooth psh.
+\end{proof}
+
+\begin{example}[Toric Hessian]
+On an analytic torus, let $u=F\circ\operatorname{trop}$ with $F$ smooth.
+Then
+\[
+ \dprimeddprime u
+ =\sum_{i,j}F_{ij}\,
+      \dprime x_i\wedge\ddprime x_j.
+\]
+It is positive exactly when the real Hessian $(F_{ij})$ is positive
+semidefinite.  This is the smooth part of the toric real
+Monge--Amp\`ere dictionary; nonsmooth convex $F$ require currents.
+\end{example}
+
+\begin{example}[Positivity on a curve is positivity of one coefficient]
+\label{ex:ch13-positivity-curve}
+Let $X$ be purely one-dimensional and let $\omega\in A^{1,1}_X(U)$ be
+symmetric.  In a chart with tropical coordinate $t$ on a one-dimensional
+cell, $\omega=\varrho(t)\,\dprime t\wedge\ddprime t$, and the three
+positivity notions of \Cref{def:ch13-positivity} coincide and amount to
+$\varrho\ge0$; this is the case $p=1=n$ of
+\Cref{prop:ch09-positivity-inclusions}, in which the three cones agree.  On
+the Berkovich affine line with the chart $t=-\log|T|$ this says that a smooth
+function $u=\varphi(t)$ has $\dprimeddprime u\ge0$ exactly when $\varphi$ is
+convex, recovering \Cref{ex:ch13-annulus-radial}, and the associated Radon
+measure of \Cref{cor:ch13-measure} is $\varphi''(t)\,\rd t$ on the skeleton.
+The atomic measures produced by piecewise affine $\varphi$ are not of this
+form and are the first genuine currents of \Cref{chap:cld-currents}.
+\end{example}
+
+\section{Integration on the analytic space}
+\label{sec:ch13-integration}
+
+Assume now that $X$ is pure of dimension $n$.  Its tropicalizations carry
+canonical calibrations, including analytic multiplicities and residue-field
+degrees.
+
+Before writing the definition we isolate the computation in a single chart,
+because it is the formula used in every example and because it makes visible
+which of the three inputs --- the polyhedron, the weights, the lattice
+measure --- carries which piece of information.  Recall from
+\Cref{def:trop-tropical-polyhedron} that a moment map $f$ on a space of level
+$n$ is \emph{skeletally proper} if $f_{\mathrm{trop}}|_{\Sigma_f^{(n)}}$ is
+topologically proper, which holds automatically for compact $X$, and that
+$\Pi_f=f_{\mathrm{trop}}(\Sigma_f^{(n)})$ carries the pushforward of the
+canonical calibration, with weights $m_D$ given by
+\eqref{eq:trop-multiplicity-formula}.
+
+\begin{proposition}
+\label{prop:ch13-chart-integral}
+Let $X$ be of level $n$ and let $f:X\to T$ be a skeletally proper moment map.
+Let $\mathscr D$ be a polyhedral decomposition of $\Pi_f$ with weights
+$(m_D)_{D\in\mathscr D_n}$ as in \Cref{thm:trop-multiplicity-formula}, and
+let $\alpha$ be an $(n,n)$-superform on a polyhedral subset $P$ containing
+$\Trop_f(X)$, whose support meets $\Pi_f$ in a compact set.  Then the
+quantity
+\begin{equation}
+\label{eq:ch13-chart-integral}
+ I_f(\alpha)
+ \ =\ \int_{(\mathscr D,m)}\alpha
+ \ =\ \sum_{D\in\mathscr D_n}m_D\int_D\alpha ,
+\end{equation}
+in which $\int_D\alpha=\int_Da\,\omega_D$ for $\alpha|_D=a\,\tau_n$ written
+in lattice coordinates on $D$, as in \Cref{sec:ch11-top-degree},
+depends only on the class $f_{\mathrm{trop}}^*\alpha\in A^{n,n}_{X,G}(X)$,
+not on $P$, on $\alpha$, or on $\mathscr D$.  It is nonnegative if $\alpha$
+is a positive $(n,n)$-form, and it vanishes if $\Supp\alpha$ does not meet
+$\Pi_f$.
+\end{proposition}
+
+\begin{proof}
+Independence of $\mathscr D$ is \Cref{prop:integral-subdivision-independent}
+together with \Cref{lem:trop-calibration-subdivision}: a subdivision of
+$\mathscr D$ inherits the same weights and the same lattice measures on
+$n$-cells, by \Cref{lem:ch10-subdivision-lattices}.
+
+Independence of $P$ and $\alpha$: suppose $f_{\mathrm{trop}}^*\alpha=0$.
+Working $G$-locally on compact analytic domains and applying
+\Cref{prop:ch13-nullity}, we get $\alpha|_{\Trop_f(V)}=0$ for every compact
+analytic domain $V$, hence $\alpha|_{\Pi_f}=0$ because $\Pi_f$ is covered by
+the $\Trop_f(V)$.  A cell $D\in\mathscr D_n$ has dimension $n$, so the
+condition \eqref{eq:ch10-form-kernel} at a point of $D$ with tangent vectors
+in $N_{D,\mathbf R}$ says precisely that the coefficient of $\alpha$ against
+$\tau_n$ in lattice coordinates on $D$ vanishes; hence each summand of
+\eqref{eq:ch13-chart-integral} is zero.  Linearity gives the general
+statement.
+
+Positivity: a positive $(n,n)$-form has nonnegative coefficient against
+$\tau_n$ in every choice of coordinates (\Cref{prop:ch09-positivity-dictionary}),
+and $m_D>0$ by \Cref{thm:trop-multiplicity-formula}.  The last assertion is
+clear, since only cells of $\Pi_f$ contribute.
+\end{proof}
+
+\begin{remark}[What each factor in \eqref{eq:ch13-chart-integral} does]
+\label{rem:ch13-three-factors}
+The polyhedron $\Pi_f$ says \emph{where}; the lattice measure $\omega_D$
+of \Cref{def:ch11-lattice-measure} says \emph{with what normalization}; and
+the weight $m_D$ says \emph{how many times}.  Only the first is visible to
+the naked eye, and it is the least canonical of the three: two charts have
+different $\Pi_f$.  The lattice measure depends on the integral affine
+structure and not on any Euclidean metric, which is why
+\Cref{ex:ch11-nonunimodular} and \Cref{ex:ch11-euclidean-normal-trap} must be
+kept in mind.  The weight is where the analytic geometry enters, through the
+local degree of a finite flat projection
+(\Cref{def:trop-canonical-calibration}); over a non-algebraically closed
+field or a nonreduced space it is not a number of points, as
+\Cref{ex:trop-multiplicity-two} and \Cref{ex:trop-length-factor} show.
+\end{remark}
+
+For $\omega\in A_{X,c}^{n,n}$, choose finitely many chart domains
+$V_i$, a smooth partition of unity $(\rho_i)$, and representations
+$\rho_i\omega=f_{i,\mathrm{trop}}^*\alpha_i$.  Define
+\[
+                       \int_X\omega
+                  =\sum_i\int_{f_{i,\mathrm{trop}}(V_i)}
+                            \alpha_i
+\]
+with the canonical calibrations.
+
+Each summand is \eqref{eq:ch13-chart-integral} for the chart $f_i$; the sum
+is finite because $\Supp\omega$ is compact and the partition is locally
+finite (\Cref{thm:cld-partitions-unity}).  The theorem below is the assertion
+that nothing in this recipe was a choice.
+
+\begin{theorem}\label{thm:cld-analytic-integration}
+The integral is independent of the cover, partition of unity, moment maps,
+and subdivisions.  A locally integrable $(n,n)$-form defines a Radon measure.
+Formation of this measure is compatible with complete extension of the
+ground field.
+\end{theorem}
+\begin{proof}
+Take two choices of covers, partitions, and moment maps.  Compact support
+leaves finitely many chart pieces.  Intersect the two covers and replace the
+two moment maps on every intersection by their product moment map.  After a
+common rational polyhedral subdivision, all representatives live on one
+finite family of calibrated complexes.  The tropical projection formula
+\eqref{eq:analytic-tropical-pushforward} identifies the integral before and
+after each projection from a product chart, while
+\Cref{prop:integral-subdivision-independent} removes the subdivision.  The
+two partitions disappear because their products form a common partition and
+\(
+                 \sum_{i,j}\rho_i\rho'_j=1.
+\)
+This proves independence.
+
+We spell out the comparison step, since it is the one that uses the results
+of \Cref{chap:analytic-tropicalization} rather than formal manipulation.
+Let $V$ be a compact analytic domain carrying two moment maps $f:V\to T$ and
+$g:V\to T'$, both tropicalizing $\omega$, and let $h=(f,g):V\to T\times T'$
+be the product, with projections $p,p'$.  Then $h$ is again skeletally
+proper and $\Sigma_f\cap V\subset\Sigma_h$ by
+\Cref{lem:trop-refinement-calculus}\,\cref{itm:trop-ref:sigma}, so
+$\Sigma_h^{(n)}=\Sigma_f^{(n)}\cap V$ by
+\Cref{thm:trop-sigma-characterization}, both being the locus $d_x=n$.  By
+\Cref{thm:trop-calibration-chart-independent} the canonical calibrations of
+this common local skeleton computed with $f$ and with $h$ coincide.
+Pushing forward along $f_{\mathrm{trop}}$, respectively
+$h_{\mathrm{trop}}$, and using
+$f_{\mathrm{trop}}=p_{\mathrm{trop}}\circ h_{\mathrm{trop}}$, we get
+$p_{\mathrm{trop},*}\mu_{\Pi_h}=\mu_{\Pi_f}$, which is exactly
+\eqref{eq:analytic-tropical-pushforward} with the lattice index appearing
+once.  Since $\omega|_V=f_{\mathrm{trop}}^*\alpha
+=h_{\mathrm{trop}}^*(p_{\mathrm{trop}}^*\alpha)$, the change-of-variables
+identity for a piecewise immersion (\Cref{lem:ch11-cell-change-of-variables}
+and \Cref{prop:ch11-pushforward-integral}) gives
+\[
+ \int_{(\mathscr D_h,m_h)}p_{\mathrm{trop}}^*\alpha
+ =\int_{(\mathscr D_f,m_f)}\alpha ,
+\]
+that is, $I_h(p_{\mathrm{trop}}^*\alpha)=I_f(\alpha)$ in the notation of
+\eqref{eq:ch13-chart-integral}.  The same computation with $g$ and $p'$ gives
+$I_h((p')_{\mathrm{trop}}^*\beta)=I_g(\beta)$, and the two left-hand sides
+agree because $p_{\mathrm{trop}}^*\alpha$ and $(p')_{\mathrm{trop}}^*\beta$
+have the same class in the chart $h$, by
+\Cref{prop:ch13-chart-integral}.  This is the required comparison.
+
+In a chart, a locally integrable top form is a locally integrable density
+with respect to lattice-normalized Lebesgue measure on finitely many
+polyhedra.  Multiplication by the positive calibration weights and summation
+therefore give a Radon measure.  The preceding independence shows that these
+chartwise measures glue.  Explicitly, for $u$ a continuous function with
+compact support and $\omega$ a smooth $(n,n)$-form, the assignment
+\[
+ u\longmapsto\int_Xu\,\omega
+\]
+is linear, and nonnegative when $u\ge0$ and $\omega$ is positive, by the last
+clause of \Cref{prop:ch13-chart-integral}; the Riesz representation theorem
+of \Cref{chap:topological-tools} then produces the measure, which is Radon
+because $X$ is locally compact Hausdorff and the functional is locally
+bounded by \Cref{prop:test-form-continuity-criterion}.  The measure does not
+charge $\partial X$, by \Cref{cor:trop-boundary-negligible}.
+
+Let $K'/K$ be a complete extension.  Refine a chart after base change so
+that every target facet maps onto a facet of the original tropicalization.
+Conservation of degree for graded reductions says that the sum of the
+residue degrees and component lengths over a source facet equals its
+original calibration.  Applying the tropical projection formula cellwise
+therefore identifies the pushforward of the base-changed measure with the
+original measure.  This proves scalar-extension compatibility.  The graded
+degree statement and its non-strict-field formulation are
+\cite[Propositions~15.3.1--15.3.2]{CLD25}.  In the language of
+\Cref{chap:analytic-tropicalization} the mechanism is
+\Cref{prop:trop-calibration-base-change}: the base-change morphism
+$p:X_{K'}\to X$ satisfies $p_*\mu_{\Sigma_{K'}}=\mu_\Sigma$ on every
+polyhedral subspace, and the tropical targets are literally unchanged, so
+pairing with a form gives $p_*\bigl((p^*\omega)_{\mathrm{Rad}}\bigr)
+=\omega_{\mathrm{Rad}}$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch13-measure}
+Let $X$ be topologically separated of pure dimension $n$ and let
+$\omega\in A^{n,n}_{X,G}(X)$ be a $G$-form with locally integrable
+coefficients.  Then there is a unique Radon measure $\omega_{\mathrm{Rad}}$
+on $X$ with
+\[
+ \int_Xu\,\omega_{\mathrm{Rad}}=\int_Xu\,\omega
+\]
+for every smooth compactly supported $u$; it is positive when $\omega$ is
+positive, its total mass on a compact analytic domain $V$ tropicalized by $f$
+is computed by \eqref{eq:ch13-chart-integral}, and it gives no mass to
+$\partial X$ nor to any weakly analytic subset of dimension $<n$.
+\end{corollary}
+
+\begin{proof}
+Uniqueness holds because smooth compactly supported functions are dense in
+$C_c(X)$ for a locally holomorphically separated space, by the
+Stone--Weierstrass theorem \cite[Theorem~15.2.6]{CLD25}; existence and
+positivity are contained in the proof of
+\Cref{thm:cld-analytic-integration}.  For the last clause,
+\Cref{prop:trop-weakly-analytic-image} shows that such a subset has tropical
+image of dimension $<n$ in every chart, and a subset of dimension $<n$ is
+$\omega_D$-null in each $n$-cell; the boundary case is
+\Cref{cor:trop-boundary-negligible}.
+\end{proof}
+
+The last compatibility of the integral is with finite morphisms.  It is the
+analytic counterpart of the projection formula of
+\Cref{cor:ch11-projection-formula} and it is where the calibrated degree of
+\Cref{sec:trop-graded} appears in analysis rather than in combinatorics.
+
+\begin{proposition}
+\label{prop:ch13-finite-integral}
+Let $p:Y\to X$ be a morphism of topologically separated $K$-analytic spaces
+of level $n$, finite above the complement of a Zariski-closed subset of $X$
+of dimension $<n$, and let $\mathrm{dc}(p)$ be the calibrated degree of
+\Cref{thm:trop-finite-pushforward}.  Then for every $\omega\in
+A^{n,n}_{X,G}(X)$ with compact support and locally integrable coefficients,
+$p^*\omega$ is again such a form on $Y$ and
+\[
+ p_*\bigl((p^*\omega)_{\mathrm{Rad}}\bigr)
+ =\mathrm{dc}(p)\,\omega_{\mathrm{Rad}} .
+\]
+In particular, if $p$ is finite and flat of degree $d$ then
+$\int_Yp^*\omega=d\int_X\omega$.
+\end{proposition}
+
+\begin{proof}
+Both sides are Radon measures, so it suffices to test against smooth
+compactly supported functions and, by a partition of unity, to work on a
+compact analytic domain $V\subset X$ carrying a moment map $f$ with
+$\Sigma\subset\Sigma_f$, replacing $Y$ by a compact analytic neighbourhood
+$W$ of $p^{-1}(\Sigma)$.  Set $\Sigma=\Sigma_f^{(n)}\cap V$ and
+$\mathrm T=p^{-1}(\Sigma)$.  Then $\mathrm T$ is a polyhedral subspace of $W$
+with canonical calibration $\mu_{\mathrm T}$, and
+\Cref{thm:trop-finite-pushforward} gives
+$p_*\mu_{\mathrm T}=\mathrm{dc}(p)\,\mu_\Sigma$.  Now
+$p^*\omega|_{\mathrm T}=(p|_{\mathrm T})^*(\omega|_\Sigma)$, because
+restriction of forms to polyhedral subspaces commutes with pullback along a
+morphism carrying one into the other.  Pairing the two sides of the
+calibration identity with $\omega|_\Sigma$ and integrating, using the
+change-of-variables formula \Cref{prop:ch11-pushforward-integral} for the
+piecewise immersion $p|_{\mathrm T}$, gives the asserted equality of
+measures.  The flat case is the statement that
+$\mathrm{dc}_x(p)=d$ for every $x$
+(\Cref{prop:trop-calibrated-degree}\,\cref{itm:trop-dc:flat}).  The general
+statement, including the case where $p$ is not flat, is
+\cite[Proposition~15.4.3]{CLD25}.
+\end{proof}
+
+\begin{theorem}\label{thm:analytic-is-tropical-space}
+Let $X$ be topologically separated and pure of dimension $n$.  With its
+analytic boundary and canonical calibration, $X$ is a tropical space of
+level $n$ in the sense of CLD.  Its analytic interior is harmonic.
+\end{theorem}
+\begin{proof}
+Choose a point of $X$ and a moment map whose tropicalization has dimension
+$n$ near that point.  After an integer-affine generic projection, we may
+assume that the tropicalization is generically finite over an open subset of
+$\mathbf R^n$.  At a codimension-one cell $\tau$, take a small transversal
+interval.  The corresponding analytic restriction is a finite morphism of
+one-dimensional affinoid germs.  Generic flatness makes its degree constant
+on each connected side.  Conservation of degree at the point over $\tau$
+therefore gives
+\[
+              \sum_{\sigma\supset\tau}
+                 m_\sigma u_{\sigma/\tau}=0
+                 \quad\text{in }N/N_\tau,
+\]
+which is the balancing equation.  Equivalently, pairing with every character
+reduces the identity to the degree-zero divisor formula on the transversal
+analytic curve, as in the proof of
+\Cref{thm:analytic-tropical-balancing}.  Product moment maps show that the
+result is independent of the chart and that the canonical calibrations agree
+under transitions.  Thus the analytic interior has the required harmonic
+balanced tropical charts.
+
+For a point on the analytic boundary, the same local finite map is made over
+a half-polyhedron.  A face contributes to the calibrated tropical boundary
+exactly when the corresponding affinoid germ has nonempty relative analytic
+boundary; interior faces occur in opposite pairs and cancel.  This identifies
+the parlinear boundary with the analytic boundary and completes the tropical
+space axioms.  The finite-flat degree argument and the boundary comparison
+are \cite[Theorems~15.6.1 and 15.7.1]{CLD25}.
+\end{proof}
+
+\begin{remark}[What \Cref{thm:analytic-is-tropical-space} actually supplies]
+\label{rem:ch13-tropical-structure-contents}
+The statement bundles five separate properties, and it is worth listing them
+because different later results use different ones.
+\begin{enumerate}
+\item\label{itm:ch13-ts:charts} \emph{Charts.} Every point has a
+  neighbourhood carried by a tropical chart, so forms and calibrations are
+  defined; this is \Cref{lem:trop-charts-basis} and it needs goodness, which
+  is automatic in the interior.
+\item\label{itm:ch13-ts:calib} \emph{A canonical calibration.} Provided by
+  \Cref{cor:trop-calibration-glue}, and it is the unique piece of data that
+  is genuinely global.
+\item\label{itm:ch13-ts:harm} \emph{Interior harmony.} The defect
+  $\mathbf N(\tau)$ of \Cref{def:ch11-defect} vanishes at every
+  codimension-one cell not meeting $\partial X$.  This is the substantive
+  input, and the two proofs of it --- the curve-slope route of
+  \Cref{thm:analytic-tropical-balancing} and the finite-flat degree count of
+  \cite[Theorem~15.6.1]{CLD25} --- are compared in
+  \Cref{rem:trop-balancing-two-routes}.
+\item\label{itm:ch13-ts:bdry} \emph{Boundary identification.} The parlinear
+  boundary of the calibrated structure is the analytic boundary $\partial X$.
+\item\label{itm:ch13-ts:thin} \emph{Thinness of the boundary.} $\partial X$
+  is weakly analytic of dimension $\le n-1$
+  (\Cref{prop:trop-boundary-thin}), so it is negligible for $n$-dimensional
+  integration but carries the $(n-1)$-dimensional boundary measure.
+\end{enumerate}
+Purity of dimension is not decoration: if $X$ has a nonempty compact analytic
+domain of dimension $<n$, then that domain has empty local skeleton, its
+constant tropicalization is covered by no skeleton, and $X$ is not rich in
+the sense required.  This is \cite[Remark~15.7.3]{CLD25}, and it is the
+reason every statement in \Cref{sec:ch13-integration,sec:ch13-stokes} says
+\emph{purely} of dimension $n$.
+\end{remark}
+
+\section{Stokes' formula on analytic domains}
+\label{sec:ch13-stokes}
+
+We now have all the ingredients for the boundary formula.  The tropical
+theorem is \Cref{thm:cld-global-stokes}; the analytic content is entirely in
+\Cref{thm:analytic-is-tropical-space}, and specifically in items
+\cref{itm:ch13-ts:harm} and \cref{itm:ch13-ts:bdry} of
+\Cref{rem:ch13-tropical-structure-contents}.  What remains is to say exactly
+what the right-hand side of the formula is, to record the hypotheses, and to
+check the result on an example where every number can be computed.
+
+\subsection{The boundary integral}
+\label{sec:ch13-boundary-integral}
+
+\begin{definition}[Boundary measure of an $(n-1,n)$-form]
+\label{def:ch13-boundary-integral}
+\index{boundary measure}
+Let $X$ be topologically separated of pure dimension $n$, and let
+$\omega\in A^{n-1,n}_{X,G}(X)$ have compact support and $C^1$ coefficients.
+Choose a finite family of compact analytic domains $V_i$ covering
+$\Supp\omega$, moment maps $f_i$ tropicalizing $\omega|_{V_i}$ with
+representatives $\alpha_i$, cell decompositions $\mathscr D_i$ of
+$\Pi_{f_i}$ adapted to the canonical calibration, and a smooth partition of
+unity $(\rho_i)$ with $\sum_i\rho_i=1$ near $\Supp\omega$.  Enlarging each
+$f_i$ to a product chart, we may and do assume that $f_i$ tropicalizes
+$\rho_i$ as well as $\omega|_{V_i}$, so that $\rho_i\alpha_i$ is again a
+superform on $\Pi_{f_i}$.  Set
+\begin{equation}
+\label{eq:ch13-boundary-integral}
+ \int_X^{\partial}\omega
+ =(-1)^{n-1}\sum_i\ \sum_{\tau\in(\mathscr D_i)_{n-1}}
+   \int_\tau\bigl(\iota''_{\mathbf N(\tau)}(\rho_i\alpha_i)\bigr)\big|_\tau ,
+\end{equation}
+where $\mathbf N(\tau)\in N/N_\tau$ is the boundary defect
+(\Cref{def:ch11-defect}) of the calibrated complex
+$(\mathscr D_i,m_i)$ and $\iota''$ is contraction in the double-primed block
+(\Cref{def:ch09-contraction}).  For $\theta\in A^{n,n-1}_{X,G}(X)$ with
+compact support and $C^1$ coefficients, set
+\[
+ \int_X^{\partial}\theta
+ =-\sum_i\ \sum_{\tau\in(\mathscr D_i)_{n-1}}
+   \int_\tau\bigl(\iota'_{\mathbf N(\tau)}(\rho_i\alpha_i)\bigr)\big|_\tau .
+\]
+\end{definition}
+
+\begin{proposition}
+\label{prop:ch13-boundary-welldefined}
+The quantity \eqref{eq:ch13-boundary-integral} is independent of all the
+choices, and
+\[
+ \int_X^{\partial}\omega=\int_X\dprime\omega .
+\]
+Moreover only those $\tau$ whose preimage in $\Sigma_{f_i}^{(n)}$ meets
+$\partial X$ contribute; in particular $\int^\partial_X\omega=0$ whenever
+$\Supp\omega\cap\partial X=\varnothing$.  The analogous statements hold for
+$\theta$ with $\ddprime$.
+\end{proposition}
+
+\begin{proof}
+Fix the data and apply \Cref{thm:ch11-defect-stokes} to the calibrated
+complex $(\mathscr D_i,m_i)$ and to the compactly supported form
+$\rho_i\alpha_i$; the theorem is applicable because
+$(\mathscr D_i,m_i)$ is a pure $n$-dimensional weighted rational polyhedral
+complex and $\rho_i\alpha_i$ has compact support in $|\mathscr D_i|$.  It
+gives
+\[
+ \int_{(\mathscr D_i,m_i)}\dprime(\rho_i\alpha_i)
+ =(-1)^{n-1}\sum_{\tau\in(\mathscr D_i)_{n-1}}
+   \int_\tau\bigl(\iota''_{\mathbf N(\tau)}(\rho_i\alpha_i)\bigr)\big|_\tau .
+\]
+Summing over $i$, the left-hand side is
+$\sum_i\int_X\dprime(\rho_i\omega)$ by \Cref{prop:ch13-chart-integral} and
+the fact that $\dprime$ commutes with the chart representation
+(\Cref{prop:cld-intrinsic-calculus}).  Now $\sum_i\rho_i\omega=\omega$ on all
+of $X$, because the $\rho_i$ sum to $1$ near $\Supp\omega$ and each
+$\rho_i\omega$ vanishes off $\Supp\omega$; applying the $\mathbf R$-linear
+operator $\dprime$ to this finite sum gives
+$\sum_i\dprime(\rho_i\omega)=\dprime\omega$, and hence
+$\sum_i\int_X\dprime(\rho_i\omega)=\int_X\dprime\omega$.  The right-hand
+side is \eqref{eq:ch13-boundary-integral}.  Hence
+the two agree, and since the left-hand side is independent of all choices by
+\Cref{thm:cld-analytic-integration}, so is the right-hand side.
+
+For the localization on $\partial X$: by
+\Cref{rem:ch13-tropical-structure-contents}\,\cref{itm:ch13-ts:harm}, the
+defect $\mathbf N(\tau)$ vanishes for every codimension-one cell $\tau$
+whose preimage in $\Sigma^{(n)}_{f_i}$ lies in $\Int(X)$, so those terms
+drop out of \eqref{eq:ch13-boundary-integral}; and the contraction
+$\iota''_{0}=0$.  If $\Supp\omega$ misses $\partial X$ altogether, every
+surviving $\tau$ is disjoint from the support and the whole sum vanishes.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch13-stokes}
+\index{Stokes formula@Stokes' formula!on an analytic space}
+Let $K$ be a complete non-Archimedean field and let $X$ be a topologically
+separated $K$-analytic space, purely of dimension $n$.  Let
+$\omega\in A^{n-1,n}_{X,G}(X)$ be a $G$-form with $C^1$ coefficients and
+compact support, and let $\theta\in A^{n,n-1}_{X,G}(X)$ be one of complementary
+type.  Then
+\[
+ \int_X\dprime\omega=\int_X^{\partial}\omega,
+ \qquad
+ \int_X\ddprime\theta=\int_X^{\partial}\theta ,
+\]
+with the boundary integrals of \Cref{def:ch13-boundary-integral}.  In
+particular:
+\begin{enumerate}
+\item\label{itm:ch13-stokes:bdryless} if $\partial X=\varnothing$, then
+  $\int_X\dprime\omega=0$ and $\int_X\ddprime\theta=0$;
+\item\label{itm:ch13-stokes:interior} the same conclusion holds without
+  assuming $\partial X=\varnothing$ provided
+  $\Supp\omega\subset\Int(X)$, respectively
+  $\Supp\theta\subset\Int(X)$;
+\item\label{itm:ch13-stokes:domain} if $V$ is an analytic domain of a
+  boundaryless $X$ and $\omega$ is supported in a compact subset of $V$, then
+  \[
+   \int_V\dprime\omega=\int^{\partial}_{V}\omega,
+  \]
+  the boundary measure of $V$ being carried by the relative boundary
+  $\partial(V/X)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The two displayed identities are \Cref{prop:ch13-boundary-welldefined}.
+Assertion \cref{itm:ch13-stokes:bdryless} follows because a boundaryless $X$
+has $\mathbf N(\tau)=0$ everywhere by interior harmony, so all boundary terms
+vanish; equivalently one may quote \Cref{thm:cld-global-stokes} for the
+calibrated tropical space of \Cref{thm:analytic-is-tropical-space}.
+Assertion \cref{itm:ch13-stokes:interior} is the last clause of
+\Cref{prop:ch13-boundary-welldefined}.
+
+For \cref{itm:ch13-stokes:domain}, note first that $V$ carries two a priori
+different structures of calibrated tropical space of level $n$: one as an
+analytic space in its own right, one as a domain of the tropical space $X$.
+These coincide, because the boundaries agree:
+\[
+ \partial V=(\partial X\cap V)\cup\partial(V/X)=\partial(V/X)
+\]
+when $\partial X=\varnothing$, and the canonical calibrations agree by
+\Cref{cor:trop-calibration-restriction}.  Applying the first identity on
+$V$ therefore gives $\int_V\dprime\omega=\int^\partial_V\omega$, and
+\Cref{prop:ch13-boundary-welldefined} localizes the right-hand side on
+$\partial V=\partial(V/X)$.
+\end{proof}
+
+\begin{warning}{Every hypothesis in \Cref{thm:ch13-stokes} is used}
+\emph{Purity of dimension} is needed for the calibrated structure to exist at
+all (\Cref{rem:ch13-tropical-structure-contents}).  \emph{Compact support} is
+needed twice: to make the sums finite, and because
+\Cref{thm:ch11-defect-stokes} is false for forms with noncompact support ---
+already on $\mathbf R$ with $\eta=\ddprime x$ one has
+$\int\dprime\eta=0$ but no boundary term to absorb it, and the correct
+statement requires either compact support or a limiting hypothesis.
+\emph{The $G$-form hypothesis} matters when $\partial X\ne\varnothing$:
+boundary points of a compact analytic domain have no ordinary neighbourhood
+in the domain, and an ordinary form would not see them.  \emph{Topological
+separation} is what makes supports and partitions of unity behave.  What is
+\emph{not} needed is goodness of $X$, algebraic closedness of $K$, or
+nontriviality of the valuation.
+\end{warning}
+
+\begin{corollary}\label{cor:analytic-stokes-green}
+If $X$ is pure $n$-dimensional and boundaryless, then
+\[
+ \int_X\dprime\eta=0,
+ \qquad \int_X\ddprime\theta=0
+\]
+for $\eta\in A_{X,c}^{n-1,n}$ and
+$\theta\in A_{X,c}^{n,n-1}$.  Consequently, for closed complementary
+$\gamma$ and smooth $u,v$ with compact intersection of supports,
+\[
+ \int_Xu\,\dprimeddprime v\wedge\gamma
+ =\int_Xv\,\dprimeddprime u\wedge\gamma.
+\]
+\end{corollary}
+\begin{proof}
+Apply the CLD Stokes and Green formulae
+\cite[Proposition~5.11.1]{CLD25} to the tropical space supplied by
+\Cref{thm:analytic-is-tropical-space}.  For clarity, the Green
+identity uses integration by parts twice: first move $\dprime$ from
+$\ddprime v\wedge\gamma$ to $u$, and then move $\ddprime$ from $v$ to
+$\dprime u\wedge\gamma$.  The signs cancel because $\gamma$ is closed.
+The same calculation with $u$ and $v$ interchanged gives the displayed
+symmetry.  Applying Stokes once to the difference would leave cross terms
+and is not, by itself, a proof.
+\end{proof}
+
+The boundary version is obtained by keeping the boundary terms rather than
+discarding them; it is the identity that produces Dirichlet problems and
+capacities in \Cref{chap:cld-bedford-taylor}.
+
+\begin{theorem}
+\label{thm:ch13-green-boundary}
+Let $X$ be topologically separated of pure dimension $n$, and let $\alpha$
+and $\beta$ be symmetric $G$-forms with $C^2$ coefficients, of bidegrees
+$(p,p)$ and $(q,q)$ with $p+q=n-1$, whose supports have compact
+intersection.  Then
+\[
+ \int_X\bigl(\alpha\wedge\dprimeddprime\beta
+              -\dprimeddprime\alpha\wedge\beta\bigr)
+ =\int_X^{\partial}\bigl(\alpha\wedge\ddprime\beta
+                          -\ddprime\alpha\wedge\beta\bigr).
+\]
+If $\partial X=\varnothing$, or if the intersection of the supports lies in
+$\Int(X)$, the right-hand side vanishes.
+\end{theorem}
+
+\begin{proof}
+Put $\omega=\alpha\wedge\ddprime\beta-\ddprime\alpha\wedge\beta$, a $G$-form
+of bidegree $(n-1,n)$ with $C^1$ coefficients, whose support is contained in
+$\Supp\alpha\cap\Supp\beta$ and hence compact.  The Leibniz rule
+(\Cref{prop:superform-differential-identities}) gives
+\[
+ \dprime\omega
+ =\dprime\alpha\wedge\ddprime\beta
+  +(-1)^{2p}\alpha\wedge\dprimeddprime\beta
+  -\dprimeddprime\alpha\wedge\beta
+  -(-1)^{2p+1}\ddprime\alpha\wedge\dprime\beta,
+\]
+and the two mixed terms cancel by the identity
+$\dprime\alpha\wedge\ddprime\beta=-\ddprime\alpha\wedge\dprime\beta$ for
+symmetric forms of complementary bidegree, which is
+\Cref{lem:ch11-mixed-cancellation}.  Hence
+$\dprime\omega=\alpha\wedge\dprimeddprime\beta-\dprimeddprime\alpha\wedge\beta$
+and the assertion is \Cref{thm:ch13-stokes} applied to $\omega$, together
+with \Cref{prop:ch13-boundary-welldefined} for the vanishing statements.
+\end{proof}
+
+\subsection{Stokes on an analytic annulus, with numbers}
+\label{sec:ch13-stokes-annulus}
+
+The following example is the one-dimensional unit test.  Every ingredient of
+\Cref{thm:ch13-stokes} --- the calibration, the outward normal, the two
+signs, the boundary measure --- occurs, and each can be evaluated by hand.
+
+\begin{example}[Stokes on a closed annulus in $\mathbf P^{1,\An}$]
+\label{ex:ch13-stokes-annulus}
+Let $K$ be complete and nontrivially valued, let $q\in K^\times$ with
+$0<|q|<1$, and put $\lambda=v(q)=-\log|q|>0$.  Inside the boundaryless space
+$X=\mathbf P^{1,\An}_K$ consider the compact analytic domain
+\[
+ V=\{x\in X:\ |q|\le|T(x)|\le1\},
+\]
+a closed annulus.  We take $n=1$ throughout, so $c_1=1$ and
+$\tau_1=\dprime t\wedge\ddprime t$.
+
+\emph{Chart, skeleton, calibration.}  The function $T$ is invertible on $V$,
+so $f=T:V\to\mathbf G_m$ is a moment map, and
+\[
+ t=f_{\mathrm{trop}}=-\log|T|=v(T)
+\]
+takes values in $[0,\lambda]$.  By \Cref{ex:trop-torus-explicit} the local
+skeleton is $\Sigma_f=\Sigma_f^{(1)}=\{\eta_t:0\le t\le\lambda\}$, the
+segment of Gauss points, mapped by $f_{\mathrm{trop}}$ isomorphically onto
+$\Pi_f=[0,\lambda]\subset\mathbf R$.  The map $f$ is injective on
+$\Sigma_f$ and finite flat of degree one over each Gauss point, so the
+canonical calibration is the constant primitive $1$-vector: in the notation
+of \eqref{eq:trop-multiplicity-formula}, $\mathscr D=\{[0,\lambda]\}$ with
+weight $m=1$, and the lattice measure $\omega_{[0,\lambda]}$ is $\rd t$.
+The total lattice length of $\Pi_f$ is $\lambda=v(q)$, matching
+\Cref{prop:ch08-annulus-skeleton} and the edge-length convention of
+\Cref{ex:ch08-An-edge}.
+
+\emph{Boundary.}  Since $X$ is boundaryless,
+$\partial V=\partial(V/X)$ consists of the two Shilov points $\eta_0$ and
+$\eta_\lambda$, corresponding to $t=0$ and $t=\lambda$.  In the tropical
+picture, $\mathscr D_0=\{\{0\},\{\lambda\}\}$ and the boundary defects of
+\Cref{def:ch11-defect} are
+\[
+ \mathbf N(\{\lambda\})=m\cdot n_{\sigma,\{\lambda\}}=+1,
+ \qquad
+ \mathbf N(\{0\})=m\cdot n_{\sigma,\{0\}}=-1,
+\]
+because the outward primitive normal of $\sigma=[0,\lambda]$ at its right
+endpoint is $+1$ and at its left endpoint is $-1$.
+
+\emph{The form and both sides.}  Take
+\[
+ \omega=f_{\mathrm{trop}}^*\bigl(\varphi(t)\,\ddprime t\bigr)
+ \in A^{0,1}_{X,G}(V),
+ \qquad \varphi\in C^\infty(\mathbf R).
+\]
+Then $\dprime\omega=f_{\mathrm{trop}}^*(\varphi'(t)\,\dprime t\wedge\ddprime t)$,
+so by \eqref{eq:ch13-chart-integral}
+\[
+ \int_V\dprime\omega
+ =1\cdot\int_0^\lambda\varphi'(t)\,\rd t
+ =\varphi(\lambda)-\varphi(0).
+\]
+On the other side, $n=1$ makes the prefactor $(-1)^{n-1}=+1$, and
+$\iota''_{c}\bigl(\varphi\,\ddprime t\bigr)=c\,\varphi$, so
+\eqref{eq:ch13-boundary-integral} reads
+\[
+ \int_V^\partial\omega
+ =\bigl(+1\bigr)\varphi(\lambda)+\bigl(-1\bigr)\varphi(0)
+ =\varphi(\lambda)-\varphi(0),
+\]
+the lattice measure of a point being counting measure of mass one.  The two
+sides agree, as \Cref{thm:ch13-stokes}\,\cref{itm:ch13-stokes:domain}
+predicts, and the computation is \Cref{lem:ch11-segment-stokes} transported
+through one chart.
+
+\emph{Numbers.}  Let $K=\mathbf C_p$ with $|p|=p^{-1}$, take $q=p^{3}$, so
+$\lambda=v(q)=3\log p$, and take $\varphi(t)=t^2$.  Then
+\[
+ \int_V\dprime\omega=\lambda^2=9(\log p)^2,
+ \qquad
+ \int_V^{\partial}\omega=\varphi(\lambda)-\varphi(0)=9(\log p)^2 .
+\]
+If instead we normalize the valuation by $v(p)=1$, that is, replace
+$-\log|\cdot|$ by $\log_p|\cdot|^{-1}$, then $\lambda=3$ and both sides
+equal $9$.  Both sides scale in the same way, as they must: rescaling the
+valuation by $c>0$ replaces $t$ by $ct$ and hence $\varphi$ by
+$\varphi(\cdot/c)$, so the boundary values are unchanged, and the interior
+integral is unchanged because $\rd t$ scales by $c$ while $\varphi'$ scales
+by $c^{-1}$.  This is the one-dimensional case of the statement that a
+lattice-normalized integral depends on the integral affine structure and not
+on any choice of unit.
+
+\emph{Two failures.}  First, drop compact support: take $\varphi\equiv1$ on
+all of $\mathbf R$ and regard $\omega$ as a form on the open annulus
+$\mathring V=\{|q|<|T|<1\}$, which is boundaryless as an analytic space.
+Then $\dprime\omega=0$, so $\int_{\mathring V}\dprime\omega=0$, whereas the
+naive ``boundary'' contribution $\varphi(\lambda)-\varphi(0)$ is also $0$;
+but for $\varphi(t)=t$ one gets $\int_{\mathring V}\dprime\omega
+=\int_0^\lambda\rd t=\lambda\ne0$ even though $\mathring V$ has no boundary.
+There is no contradiction with
+\Cref{thm:ch13-stokes}\,\cref{itm:ch13-stokes:bdryless}: the form
+$t\,\ddprime t$ does not have compact support on $\mathring V$, since its
+tropical support is all of $(0,\lambda)$ whose closure meets the two removed
+Shilov points.  Second, forget that $V$ is compact and try to work with
+ordinary forms: the Shilov points $\eta_0,\eta_\lambda$ have no ordinary
+neighbourhood inside $V$, and the ordinary sheaf $A^{0,1}_V$ does not see
+them.  This is exactly why \Cref{thm:ch13-stokes} is stated for $G$-forms.
+\end{example}
+
+\begin{example}[The same annulus after a degree-$m$ cover: the index appears
+exactly once]
+\label{ex:ch13-stokes-annulus-weight}
+Keep $V$ and $\omega=f_{\mathrm{trop}}^*(\varphi(t)\,\ddprime t)$ as in
+\Cref{ex:ch13-stokes-annulus}, assume $K$ algebraically closed, let $m\ge1$
+be an integer, and let
+\[
+ V'=\{x:\ |q|^{1/m}\le|S(x)|\le1\},
+ \qquad
+ p:V'\longrightarrow V,\quad T=S^m,
+\]
+a finite flat morphism of degree $m$.  We compute
+$\int_{V'}p^*\dprime\omega$ in two different charts on $V'$ and check that
+the answers agree and equal $m\int_V\dprime\omega$, as
+\Cref{prop:ch13-finite-integral} requires.
+
+\emph{Chart $S$.}  Here $t'=v(S)$ ranges over $[0,\lambda/m]$, the moment map
+$S$ is injective on the skeleton of $V'$ and finite flat of degree $1$ over
+each Gauss point, so $\Pi_S=[0,\lambda/m]$ carries weight $1$ and lattice
+measure $\rd t'$.  Since $t=v(T)=m\,v(S)=mt'$,
+\[
+ p^*\dprime\omega
+ =\varphi'(mt')\,\dprime(mt')\wedge\ddprime(mt')
+ =m^2\varphi'(mt')\,\dprime t'\wedge\ddprime t',
+\]
+so by \eqref{eq:ch13-chart-integral}
+\[
+ \int_{V'}p^*\dprime\omega
+ =1\cdot\int_0^{\lambda/m}m^2\varphi'(mt')\,\rd t'
+ =m\int_0^\lambda\varphi'(t)\,\rd t
+ =m\bigl(\varphi(\lambda)-\varphi(0)\bigr).
+\]
+
+\emph{Chart $T\circ p=S^m$.}  Here the tropical coordinate is
+$u=v(S^m)=mt'$, ranging over $[0,\lambda]$; the moment map $S^m:V'\to
+\mathbf G_m$ is finite flat of degree $m$, so
+\Cref{thm:trop-multiplicity-formula} gives $\Pi=[0,\lambda]$ with weight
+$m_D=m$ and lattice measure $\rd u$.  Now
+$p^*\dprime\omega=\varphi'(u)\,\dprime u\wedge\ddprime u$, whence
+\[
+ \int_{V'}p^*\dprime\omega
+ =m\int_0^\lambda\varphi'(u)\,\rd u
+ =m\bigl(\varphi(\lambda)-\varphi(0)\bigr).
+\]
+
+The two computations agree, and the factor $m$ appears once in each: in the
+first chart through the square of the linear part of $u\mapsto mu$ against
+the single lattice measure $\rd t'$ on a segment of lattice length
+$\lambda/m$; in the second chart through the calibration weight.  This is the
+lattice-index bookkeeping of the example following
+\Cref{lem:trop-refinement-calculus}, carried out on an integral rather than
+on a weight.  Finally,
+$\int_{V'}p^*\dprime\omega=m\int_V\dprime\omega$ is
+\Cref{prop:ch13-finite-integral} for the flat morphism $p$, and by
+\Cref{thm:ch13-stokes} both sides equal $m$ times a difference of boundary
+values --- the boundary of $V'$ being again two Shilov points, now at
+$t'=0$ and $t'=\lambda/m$.
+\end{example}
+
+\section{Comparison with forms on a skeleton}
+\label{sec:ch13-skeleton}
+
+A form on $X$ is, by construction, a chartwise object; the calibrated
+integration theory says that in top bidegree only its restriction to local
+skeleta matters.  This section makes that precise, in the two directions
+that get used: a faithfulness statement, which says forms are determined by
+their skeletal restrictions, and a comparison statement, which identifies
+$A^{p,q}_X$ with forms on a skeleton in favourable cases.  The Tate curve is
+computed completely.
+
+\subsection{Restriction to a polyhedral subspace}
+
+Let $\Sigma\subset X$ be a polyhedral subspace in the sense of
+\Cref{cor:trop-calibration-glue}, and let $j:\Sigma\to X$ denote the
+inclusion.  A chart datum $(f,P)$ on an analytic domain $V$ restricts to the
+polyhedral map $f_{\mathrm{trop}}|_{\Sigma\cap V}$, whose image lies in $P$;
+pulling back a superform along it gives a form on the polyhedral space
+$\Sigma\cap V$ in the sense of \Cref{def:ch10-forms-on-support}.  Since the
+construction is compatible with morphisms of chart data, it descends to a
+restriction morphism
+\[
+ \omega\longmapsto\omega|_\Sigma,
+ \qquad
+ A^{p,q}_{X,G}\longrightarrow j_*A^{p,q}_\Sigma ,
+\]
+compatible with $\wedge$, $J$, $\dprime$, $\ddprime$ and with further
+restriction to a polyhedral subspace of $\Sigma$.  This is the analytic
+instance of \cite[\S3.3.13]{CLD25}.
+
+\begin{proposition}
+\label{prop:ch13-skeletal-faithful}
+Let $X$ be of level $n$ and let $\omega\in A^{p,q}_{X,G}(V)$ with
+$\max(p,q)=n$, where $V$ is a compact analytic domain tropicalized by a
+moment map $f$.  Then
+\[
+ \omega=0
+ \iff
+ \omega|_{\Sigma_f^{(n)}}=0
+ \iff
+ \alpha|_{\Pi_f}=0,
+\]
+where $\omega=f_{\mathrm{trop}}^*\alpha$.  Consequently a form of bidegree
+$(n,n)$ or $(n-1,n)$ on $X$ is zero as soon as its restriction to every
+top-dimensional local skeleton vanishes.
+\end{proposition}
+
+\begin{proof}
+By \Cref{prop:ch13-nullity} we have $\omega=0$ if and only if
+$\alpha|_{\Trop_f(V)}=0$.  Decompose $\Trop_f(V)$ into cells; a cell $C$ of
+dimension $<n$ has $\dim N_{C,\mathbf R}<n=\max(p,q)$, so the condition
+\eqref{eq:ch10-form-kernel} at points of $C$ is vacuous, since an
+alternating form of degree $n$ vanishes on any $n$-tuple of vectors from a
+space of dimension $<n$.  Hence $\alpha|_{\Trop_f(V)}=0$ if and only if
+$\alpha$ vanishes on the $n$-dimensional cells, that is, on
+$\Trop_f(V)^{(n)}=\Pi_f$ (\Cref{def:trop-tropical-polyhedron}, using that
+$V$ is compact).  Finally
+$f_{\mathrm{trop}}:\Sigma_f^{(n)}\to\Pi_f$ is a surjective piecewise
+immersion, so $\alpha|_{\Pi_f}=0$ if and only if
+$\omega|_{\Sigma_f^{(n)}}=(f_{\mathrm{trop}}|_{\Sigma_f^{(n)}})^*
+(\alpha|_{\Pi_f})=0$, by
+\Cref{lem:ch13-surjective-pullback-injective} applied cellwise.
+
+For the global statement, a form vanishing on all local skeleta vanishes on
+each member of a $G$-cover by compact analytic domains, hence vanishes.
+\end{proof}
+
+\begin{warning}{Faithfulness fails below the top bidegree}
+\Cref{prop:ch13-skeletal-faithful} is stated for $\max(p,q)=n$ and is false
+in general otherwise.  A function, that is a form of bidegree $(0,0)$, is
+certainly not determined by its restriction to the $n$-dimensional local
+skeleta of a single chart: on the Berkovich affine line, $\Sigma_T$ is the
+real line of Gauss points $\eta_t$, and a smooth function is constant on
+every disc, so it \emph{is} determined by its restriction there; but that is
+a one-dimensional accident.  In general one must use all local skeleta, of
+all dimensions, and the correct statement in low bidegree is that a form is
+determined by its restrictions to the loci $\Sigma_f$ of all moment maps.
+The reason integration only needs the top-dimensional part is precisely the
+dimension count in the proof above.
+\end{warning}
+
+\subsection{A skeleton that carries all the forms: the Tate curve}
+
+\begin{example}[Forms on a Tate curve]
+\label{ex:ch13-tate-forms}
+Let $K$ be complete, algebraically closed and nontrivially valued, let
+$q\in K^\times$ with $0<|q|<1$, put $\lambda=v(q)$, and let
+\[
+ E=\mathbf G_{m,K}^{\An}\big/q^{\mathbf Z}
+\]
+be the Tate curve, with quotient map $\pi:\mathbf G_m^{\An}\to E$ and
+skeleton
+\[
+ \Sk(E)=\pi\bigl(S(\mathbf G_m)\bigr)\simeq\mathbf R/\lambda\mathbf Z,
+\]
+a circle of lattice circumference $\lambda$, as computed in
+\Cref{ex:trop-tate-curve} and, from the model side, in
+\Cref{ex:ch08-tate-curve}.  Write $\rho:E\to\Sk(E)$ for the retraction.  We
+claim:
+\[
+ A^{p,q}_E(E)\ \simeq\ A^{p,q}\bigl(\mathbf R/\lambda\mathbf Z\bigr)
+ \qquad\text{for all }p,q,
+\]
+the right-hand side being superforms on the circle with its integral affine
+structure; explicitly $A^{0,0}=C^\infty(\mathbf R/\lambda\mathbf Z)$,
+$A^{1,0}=C^\infty\cdot\dprime s$, $A^{0,1}=C^\infty\cdot\ddprime s$,
+$A^{1,1}=C^\infty\cdot\dprime s\wedge\ddprime s$, and $A^{p,q}=0$ when
+$\max(p,q)\ge2$.
+
+\emph{Injectivity.}  $E$ is purely of dimension $1$ and $\Sk(E)$ is the
+top-dimensional local skeleton of the two charts $f_1,f_2$ of
+\Cref{ex:trop-tate-curve}.  For $\max(p,q)=1$ this is
+\Cref{prop:ch13-skeletal-faithful}.  For $p=q=0$ we argue by differentiating.
+Let $u$ be a smooth function on $E$ with $u|_{\Sk(E)}=0$.  Restriction to a
+polyhedral subspace commutes with $\dprime$, so
+\[
+ (\dprime u)|_{\Sk(E)}=\dprime\bigl(u|_{\Sk(E)}\bigr)=0,
+\]
+and $\dprime u$ has bidegree $(1,0)$ with $\max(1,0)=1=\dim E$, so
+$\dprime u=0$ by \Cref{prop:ch13-skeletal-faithful}.  Now let $V\subset E$ be
+a connected open set on which $u=\varphi\circ f_{\mathrm{trop}}$ for a moment
+map $f$ and a smooth $\varphi$.  Then $f_{\mathrm{trop}}^*(\dprime\varphi)=0$,
+so $\dprime\varphi$ vanishes in $A^{1,0}(\Trop_f(V))$ by
+\Cref{prop:ch13-nullity} applied on compact analytic domains exhausting $V$;
+that is, all tangential derivatives of $\varphi$ along the cells of
+$\Trop_f(V)$ vanish.  Since $\Trop_f(V)$ is the continuous image of a
+connected set, it is connected, and a polyhedral set is path-connected by
+paths lying in its cells, so $\varphi$ is constant on $\Trop_f(V)$ and $u$ is
+constant on $V$.  Hence $u$ is locally constant on $E$; as $E$ is connected,
+$u$ is constant, and $u|_{\Sk(E)}=0$ forces $u=0$.
+
+\emph{Surjectivity.}  Let $\psi$ be smooth on $\mathbf R/\lambda\mathbf Z$
+and lift it to a $\lambda$-periodic $\widetilde\psi$ on $\mathbf R$.  On the
+chart domain $U_1=\pi(\{0<v(T)<\lambda\})$ the moment map $f_1$ has
+$f_{1,\mathrm{trop}}=v(T)\circ s_1$, and on $U_2$ likewise, with
+$f_{2,\mathrm{trop}}=f_{1,\mathrm{trop}}+\lambda$ on one of the two
+components of $U_1\cap U_2$ (\Cref{ex:trop-tate-curve}).  Since
+$\widetilde\psi$ is $\lambda$-periodic, the two local forms
+$f_{j,\mathrm{trop}}^*\bigl(\text{expression in }\widetilde\psi\bigr)$ agree
+on the overlap, so they glue to a global form on $E$ restricting to the
+given one on $\Sk(E)$.  This is a second, concrete instance of refinement
+independence: the transition is a translation, and translations act
+trivially on the local skeleton and on its calibration by
+\Cref{cor:trop-sigma-translation} and
+\Cref{thm:trop-degree-translation}.
+
+\emph{Vanishing above bidegree one} is
+\Cref{prop:ch13-locality}\,\cref{itm:ch13-loc:dim}, since
+$\dim E=1$.
+\end{example}
+
+\begin{example}[Integration over the skeleton of a Tate curve, against the
+conventions of \Cref{chap:model-calculations}]
+\label{ex:ch13-tate-integration}
+Keep the notation of \Cref{ex:ch13-tate-forms}, and let $s$ be the affine
+coordinate on $\Sk(E)=\mathbf R/\lambda\mathbf Z$ induced by $v(T)$.  Every
+$(1,1)$-form on $E$ is $\omega=\varrho(s)\,\dprime s\wedge\ddprime s$ with
+$\varrho$ smooth and $\lambda$-periodic, the canonical calibration is the
+constant primitive $1$-vector (all local degrees are $1$, by
+\Cref{ex:trop-tate-curve}), and \eqref{eq:ch13-chart-integral} gives
+\begin{equation}
+\label{eq:ch13-tate-integral}
+ \int_E\omega=\int_0^\lambda\varrho(s)\,\rd s .
+\end{equation}
+Three consistency checks follow.
+
+\emph{(i) Exact forms integrate to zero.}  $E$ is proper, hence
+boundaryless, so \Cref{thm:ch13-stokes}\,\cref{itm:ch13-stokes:bdryless}
+gives $\int_E\dprimeddprime u=0$ for every smooth $u$.  Directly: with
+$u=\psi(s)$, \eqref{eq:ch13-tate-integral} gives
+$\int_0^\lambda\psi''(s)\,\rd s=\psi'(\lambda)-\psi'(0)=0$ by periodicity.
+The two computations agree, and the second exhibits the boundarylessness of
+$E$ as the periodicity of the skeleton.
+
+\emph{(ii) Total mass.}  Let $d\ge1$ and put $\varrho\equiv d/\lambda$, so
+that $\int_E\omega=d$.  This is the CLD-side normalization of a form of total
+mass $d$; on the model side, \Cref{ex:ch08-tate-curve} computes, for a line
+bundle $L$ of degree $d$ on $E$ and a model $\cL$ with residual degrees
+$d_1,\ldots,d_r$ on the components of a semistable model, the measure
+$\sum_id_i\delta_{v_i}$, of total mass $\sum_id_i=d$.  The two agree in
+total mass, as they must, and they differ in kind: a smooth CLD form produces
+an \emph{absolutely continuous} measure with respect to the lattice length
+$\rd s$, whereas a model metric produces an \emph{atomic} measure at the
+divisorial points.  Neither is a smooth approximation of the other in the
+sense of forms; the correct comparison passes through currents
+(\Cref{chap:cld-currents}) and metrics
+(\Cref{chap:cld-metrized-bundles,chap:compare-ma}).
+
+\emph{(iii) Normalization of the circumference.}  The lattice length of
+$\Sk(E)$ is $\lambda=v(q)$, not $1$ and not the number of components of a
+model.  If $\lambda=r$ is a positive integer, the standard semistable model
+has a cycle of $r$ projective lines and dual complex a circle subdivided into
+$r$ unit edges (\Cref{ex:ch08-tate-curve}); the lattice length of each edge
+is $1$, by the convention of \Cref{ex:ch08-An-edge} that a node with local
+equation $xy=\pi^m$ contributes an edge of lattice length $m$.  Summing gives
+$r=\lambda$, so the tropical and model normalizations agree with no
+correction factor.  That they agree is a consequence of all the calibration
+weights being $1$ here; \Cref{rem:ch08-base-change-lengths} records the
+bookkeeping when a base change scales the valuation, and
+\Cref{ex:trop-tate-curve} records the same statement on the tropical side.
+Taking $\varrho\equiv d/\lambda$ and $\lambda=r=3$, $d=3$ gives
+$\int_E\omega=3$, the same number as the total mass
+$\delta_{v_1}+\delta_{v_2}+\delta_{v_3}$ computed in
+\Cref{ex:ch08-tate-curve}.
+\end{example}
+
+\section{Where properness and boundarylessness are needed}
+\label{sec:ch13-properness}
+
+Several statements of this chapter and of the next have hypotheses that are
+easy to lose track of, because in the applications one usually works with a
+proper $X$, where all of them hold.  This section lists them and says which
+conclusion each protects.
+
+\paragraph{Boundarylessness is needed for Stokes without boundary terms, and
+for nothing else.}
+\Cref{thm:ch13-stokes} holds with no hypothesis on $\partial X$; it is only
+the vanishing of the right-hand side that requires
+$\partial X=\varnothing$, or the weaker condition
+$\Supp\omega\subset\Int(X)$.  Consequently every ``integration by parts''
+statement --- \Cref{cor:analytic-stokes-green},
+\Cref{thm:ch13-green-boundary} with vanishing right-hand side, and the
+symmetry of the Dirichlet pairing --- is a statement about the interior.  A
+proper $K$-analytic space, for instance the analytification of a proper
+scheme, is boundaryless, which is why the global theory of
+\Cref{chap:cld-metrized-bundles} is free of boundary terms.
+
+\paragraph{Properness of a moment map is needed for the global calibrated
+tropical pushforward.}
+\Cref{def:trop-tropical-polyhedron} requires
+$f_{\mathrm{trop}}|_{\Sigma_f^{(n)}}$ to be topologically proper; otherwise
+the global pushforward calibration used in
+\eqref{eq:ch13-chart-integral} is not defined.  This is automatic on a
+compact analytic domain, which is why every chartwise computation in this
+chapter is made on compact domains and then assembled by a partition of
+unity.  It is \emph{not} automatic on an open subset: on
+$\mathbf G_m^{\An}$ the chart $T$ is skeletally proper, but on the open unit
+disc minus the origin the same chart is not proper onto its image once one
+allows the radius to tend to $0$, and integrals of non-compactly-supported
+forms genuinely diverge.
+
+\paragraph{Compactness of supports is needed for every integral formula.}
+Both \Cref{thm:cld-analytic-integration} and \Cref{thm:ch13-stokes} fail
+without it, as the second failure recorded in
+\Cref{ex:ch13-stokes-annulus} shows.  Where a noncompact statement is wanted
+--- for instance for the Monge--Amp\`ere measure of a psh function on a
+noncompact space --- one either passes to Radon measures, as in
+\Cref{cor:ch13-measure}, or imposes a growth condition, and the two are not
+interchangeable.
+
+\paragraph{Purity of dimension is needed for the calibrated structure.}
+See \Cref{rem:ch13-tropical-structure-contents}.  On a space with components
+of different dimensions there is no level-$n$ calibrated structure, and one
+must work component by component; the integral of an $(n,n)$-form then
+ignores the components of dimension $<n$, which is consistent but is a
+convention, not a theorem.
+
+\paragraph{Properness of a morphism is needed for pushforward, never for
+pullback.}
+\Cref{prop:cld-form-pullback} has no properness hypothesis: pullback of forms
+along any morphism exists.  Pushforward does not exist for forms at all, and
+for measures and currents it requires properness of the morphism on the
+support: \Cref{prop:ch13-finite-integral} assumes finiteness away from a
+thin set, and the fibre-integration and projection formulae of
+\Cref{chap:cld-currents} assume relative properness of the support together
+with density of the flat locus.  Dropping the flatness hypothesis makes the
+projection formula false, the defect being measured by generic
+multiplicities; the precise statement and counterexample are
+\cite[Theorem~16.5.4 and Remark~16.5.6]{CLD25}.
+
+\paragraph{Goodness, holomorphic separation and paracompactness are needed
+for partitions of unity.}
+This is the subject of the next section.  They are used to produce bump
+functions and hence to globalize chartwise constructions; without them the
+statements of this chapter remain true chartwise and on explicitly given
+finite covers, and only the assembly step is lost.
+
+\section{Partitions of unity and precise hypotheses}
+\label{sec:ch13-partitions}
+
+The topology of Berkovich spaces is not automatically second countable, and
+smooth bump functions are not available without separation assumptions.
+The version used throughout the book is the following.
+
+\begin{theorem}\label{thm:cld-smooth-partition}
+If $X$ is locally holomorphically separated and paracompact, every open cover
+admits a subordinate smooth partition of unity.  Consequently the sheaves
+$A_X^{p,q}$ are fine.
+\end{theorem}
+\begin{proof}
+Local holomorphic separation gives, near every point, finitely many
+invertible analytic functions whose logarithmic absolute values separate a
+chosen compact neighborhood from a prescribed disjoint closed set.  Smooth
+functions of these logarithms form an algebra containing constants and
+separating the two compact sets.  Smooth Stone--Weierstrass approximation,
+followed by a one-variable cutoff, produces a smooth function $\chi$ equal
+to one on the smaller compact set and supported in the chosen open set.
+Thus smooth compactly supported bump functions exist.
+
+Paracompactness refines an arbitrary open cover to a locally finite family
+of pairs $W_i\Subset V_i$, with the $W_i$ covering and each $V_i$ contained
+in a member of the original cover.  Choose bumps $0\le\chi_i\le1$ satisfying
+$\chi_i=1$ on $W_i$ and $\operatorname{supp}\chi_i\subset V_i$.  The sum
+$s=\sum_i\chi_i$ is locally finite, smooth, and at least one.  Hence
+\[
+                         \rho_i=\chi_i/s
+\]
+is a locally finite subordinate smooth partition of unity.  Multiplication
+by $(\rho_i)$ gives the usual sheaf-theoretic endomorphisms with locally
+finite supports, so each $A_X^{p,q}$ is fine.  The separation and
+approximation steps are
+\cite[Proposition~15.2.8 and Corollary~15.2.10]{CLD25}.
+
+Without the stated separation and paracompactness hypotheses, the argument
+does not apply; later uses are then chartwise or use an explicitly given
+finite cover.
+\end{proof}
+
+\begin{warning}{Fineness is not softness of the chart data}
+\Cref{thm:cld-smooth-partition} makes $A^{p,q}_X$ a fine sheaf, so its higher
+cohomology vanishes on a paracompact $X$.  This says nothing about the
+cohomology of the complex $(A^{\bullet,q}_X,\dprime)$, which is the object of
+interest and whose local exactness --- a Poincar\'e lemma --- is a separate
+theorem, true for $\dprime$ and $\ddprime$ on smooth $K$-analytic spaces by
+\cite{Jell16} and delicate in general.  Fineness of the terms of a complex
+is a statement about partitions of unity; exactness is a statement about
+the differentials.  We use only the former in this chapter, and return to the
+latter in \Cref{chap:delta-forms}, where the enlargement of the sheaf by
+harmonic tropicalizations is motivated precisely by the failure of the
+smooth complex to compute the expected cohomology.
+\end{warning}
+
+\section{Dictionary established in this chapter}
+\label{sec:ch13-dictionary}
+
+The following correspondences are used without further comment from
+\Cref{chap:cld-currents} onwards.
+\[
+\begin{array}{ccl}
+\text{tropical chart datum }(f,P)
+ &\longleftrightarrow&
+ \text{object of }\mathscr T(V),\\[1mm]
+\text{product moment map}
+ &\longleftrightarrow&
+ \text{common domination in }\mathscr T(V),\\[1mm]
+f_{\mathrm{trop}}^*\alpha
+ &\longleftrightarrow&
+ \text{class in a filtered colimit, not a pullback},\\[1mm]
+\alpha|_{\Trop_f(V)}=0
+ &\longleftrightarrow&
+ f_{\mathrm{trop}}^*\alpha=0\ (V\text{ compact}),\\[1mm]
+\text{sheafification}
+ &\longleftrightarrow&
+ \text{passage from }A^{p,q}_{\mathrm{pf}}\text{ to }A^{p,q}_X,\\[1mm]
+\text{cellwise kernel }K^{p,q}
+ &\longleftrightarrow&
+ \text{differential ideal},\\[1mm]
+\text{morphism }g:Y\to X
+ &\longleftrightarrow&
+ g^*:A^{p,q}_X\to g_*A^{p,q}_Y,\\[1mm]
+\text{local skeleton }\Sigma_f^{(n)}
+ &\longleftrightarrow&
+ \text{domain of integration},\\[1mm]
+\text{canonical calibration}
+ &\longleftrightarrow&
+ \text{weights }m_D\text{ in }\eqref{eq:ch13-chart-integral},\\[1mm]
+\text{lattice measure }\omega_D
+ &\longleftrightarrow&
+ \text{normalization of }\int_D,\\[1mm]
+\text{boundary defect }\mathbf N(\tau)
+ &\longleftrightarrow&
+ \text{boundary measure }\textstyle\int^\partial,\\[1mm]
+\text{analytic boundary }\partial X
+ &\longleftrightarrow&
+ \text{support of }\textstyle\int^\partial,\\[1mm]
+\text{interior harmony}
+ &\longleftrightarrow&
+ \mathbf N(\tau)=0\text{ off }\partial X,\\[1mm]
+\text{pure }n\text{-dimensional }X
+ &\longrightarrow&
+ \text{tropical space of level }n,\\[1mm]
+\text{calibrated degree }\mathrm{dc}(p)
+ &\longleftrightarrow&
+ \text{factor in }p_*(p^*\omega)_{\mathrm{Rad}} .
+\end{array}
+\]
+The second line is
+\Cref{lem:ch13-charts-filtered}\,\cref{itm:ch13-cf:prod}; the fourth is
+\Cref{prop:ch13-nullity}; the fifth and sixth are \Cref{thm:ch13-sheaf} and
+\Cref{lem:ch13-kernel-differential}; the seventh is
+\Cref{prop:cld-form-pullback}; the ninth and tenth are
+\eqref{eq:ch13-chart-integral} and \Cref{def:ch11-lattice-measure}; the
+eleventh through thirteenth are
+\Cref{def:ch13-boundary-integral,prop:ch13-boundary-welldefined}; the
+fourteenth is \Cref{thm:analytic-is-tropical-space}; and the last is
+\Cref{prop:ch13-finite-integral}.
+
+Five separations belong to the dictionary as much as the correspondences do,
+and each is a place where a plausible-sounding statement is false.
+
+First, \emph{$f_{\mathrm{trop}}^*$ is not a pullback and $g^*$ is}.  The
+first is a colimit label with a computable kernel
+(\Cref{prop:ch13-nullity}); the second is a genuine morphism of sheaves with
+no kernel computation available in general
+(\Cref{sec:ch13-what-is-pullback}).
+
+Second, \emph{a form is not determined by pointwise values}.  It is
+determined by its restrictions to local skeleta, and in top bidegree by the
+top-dimensional ones only (\Cref{prop:ch13-skeletal-faithful}).  Below the
+top bidegree, restriction to the top-dimensional skeleta loses information.
+
+Third, \emph{ordinary forms are not $G$-forms}.  The comparison map is
+injective and not surjective
+(\Cref{thm:ch13-sheaf}\,\cref{itm:ch13-sheaf:GvsO}), and the difference is
+carried by the boundary of a compact analytic domain.  All boundary formulae
+are stated for $G$-forms.
+
+Fourth, \emph{fineness is not exactness}.  The sheaves $A^{p,q}_X$ are fine
+on a paracompact locally holomorphically separated space, but the complexes
+they form need not be locally exact; see the warning above.
+
+Fifth, \emph{the measure of a smooth form is not the measure of a model
+metric}.  On the Tate curve the first is absolutely continuous on the
+skeleton and the second is atomic
+(\Cref{ex:ch13-tate-integration}); they agree in total mass and nowhere else.
+The comparison of the two is the subject of
+\Cref{chap:cld-metrized-bundles,chap:compare-ma} and requires currents.
+
+\section*{Source notes}
+
+The intrinsic analytic theory in this chapter follows
+\cite[Chapters~15--16]{CLD25}; the affine superform calculus is due to
+Lagerberg and was reconstructed in \Cref{chap:superforms}.  The
+distinction between ordinary and $G$-forms, and between the ordinary and
+$G$-topologies, is retained because it becomes essential for currents,
+boundary terms, and fibre integration.
+
+\paragraph{Provenance of the individual statements.}
+The description of a form by moment maps and superforms is
+\cite[Proposition~15.1.1 and Corollary~15.1.2]{CLD25}, which is our
+\Cref{prop:cld-local-normal-form}; the invariance under passage to the
+reduction is their Proposition~15.1.3.  The filtered category of tropical
+charts and the associated presheaf are \cite[\S3.3]{CLD25}; the nullity
+criterion \Cref{prop:ch13-nullity} is their Propositions~3.4.1 and~3.4.4, and
+the failure of separatedness recorded in the warning after it is their
+Remark~3.4.3.  Our proof differs in one respect worth naming: Chambert-Loir
+and Ducros deduce the criterion from the existence of piecewise affine
+sections of a surjective affine map of polyhedra, whereas
+\Cref{lem:ch13-surjective-pullback-injective} avoids sections entirely and
+argues pointwise with the tangent spaces of a compatible decomposition.  The
+two routes give the same theorem; the present one is chosen because the
+same tangent-space computation reappears in
+\Cref{lem:ch13-kernel-differential} and in
+\Cref{prop:ch13-skeletal-faithful}, so the reader meets it once.
+
+The vanishing of a form off the locus $d_K\ge\max(p,q)$ is
+\cite[Proposition~15.2.1]{CLD25}; our \Cref{prop:ch13-locality} derives it
+from the dimension chain of \Cref{chap:analytic-tropicalization} instead.
+Holomorphic separation, the Stone--Weierstrass theorem for smooth functions,
+the existence of smooth bump functions and of partitions of unity, and the
+fineness of $A^{p,q}_X$ are \cite[\S15.2]{CLD25}, quoted in
+\Cref{thm:cld-smooth-partition}.  Compatibility of integration with
+extension of scalars is \cite[Propositions~15.3.1--15.3.2]{CLD25}, resting on
+the base-change compatibility of the canonical calibration proved in
+\Cref{prop:trop-calibration-base-change}.  Integration against a finite
+morphism and the calibrated degree are \cite[\S15.4]{CLD25}, our
+\Cref{prop:ch13-finite-integral}.  Interior harmony is
+\cite[Theorem~15.6.1]{CLD25} and the identification of an analytic space with
+a tropical space of level $n$ is \cite[Theorem~15.7.1]{CLD25}; both are quoted
+in \Cref{thm:analytic-is-tropical-space}, whose statement and proof are those
+of the first draft of this chapter and are not modified here.  The remark
+that purity of dimension is necessary is their Remark~15.7.3.  The Stokes and
+Green formulae for a calibrated $G$-tropical space are
+\cite[Proposition~5.11.1]{CLD25}; our \Cref{thm:ch13-stokes} is that
+statement transported through \Cref{thm:analytic-is-tropical-space}, with the
+boundary measure defined by the defect formula of
+\Cref{thm:ch11-defect-stokes} rather than by the abstract
+$(n-1)$-dimensional volume forms of \cite[\S\S4.6, 5.9]{CLD25}.  The two
+definitions agree, and the elementary one has the advantage that
+\Cref{ex:ch13-stokes-annulus} can be evaluated without any further theory.
+The projection formula and its flatness hypothesis, which we quote only to
+delimit \Cref{sec:ch13-properness}, are \cite[Theorem~16.5.4 and
+Remark~16.5.6]{CLD25}.
+
+\paragraph{Two lineages, again.}
+As in \Cref{chap:analytic-tropicalization}, the material has two ancestries.
+The polyhedral one is Lagerberg's superform calculus, recalled in
+\cite[\S1]{CLD25} and developed here in \Cref{chap:superforms}; the
+convolution and regularization formalism of that calculus is what makes the
+smooth theory usable, and its supercurrent counterpart is developed
+independently by Berndtsson \cite{Ber19Super}, whose metric-dependent
+supercurrent of a real submanifold is a different object from a calibrated
+tropical current and is kept apart in \Cref{chap:cld-currents}.  The
+analytic one is Berkovich's theory \cite{Berk12} together with Temkin's
+graded reduction \cite{Temkin2004,Tem16}, which is what makes the local
+skeleta of \Cref{chap:analytic-tropicalization} --- and hence the domains of
+integration of this chapter --- intrinsic.  The tropical conventions,
+including the lattice-index normalization used in
+\Cref{ex:ch13-stokes-annulus-weight}, follow Mikhalkin--Rau
+\cite[\S\S4.2, 4.6]{MR18Tropical}.
+
+\paragraph{Later developments and their relation to this chapter.}
+The sheaves constructed here are the smallest reasonable category of real
+forms on a Berkovich space, and three enlargements are known.
+Gubler--K\"unnemann delta-forms \cite{GK17,GK19} adjoin the curvature of
+piecewise affine metrics and make tropical intersection an honest product;
+they are the subject of \Cref{chap:delta-forms}.  Gubler--Jell--Rabinoff
+forms based on harmonic tropicalizations \cite{GJR26} enlarge the supply of
+charts by allowing harmonic rather than merely invertible coordinate
+functions, with better cohomological behaviour; the Poincar\'e lemma for the
+smooth sheaves, in the cases where it holds, is \cite{Jell16}.  The
+curve-test theory of Gubler--Rabinoff \cite{GR25PL,GR25Classical} provides a
+local criterion for semipositivity of piecewise linear functions which is
+compared with the CLD notion only under stated hypotheses.  None of these is
+used in the present chapter, and the comparison theorems are deferred to
+\Cref{chap:delta-forms} so that the boundaries between the theories remain
+visible.  For the identification of the CLD operator on a curve skeleton with
+the classical Laplacian of \Cref{chap:model-calculations}, see
+\cite{Wanner19}; the sign discrepancy there is the outward-versus-outgoing
+convention discussed in \Cref{chap:tropical-integration} and not a
+disagreement between sources.
+
+\paragraph{What is not proved here.}
+Three natural questions are outside the scope of this chapter and are
+recorded so that they are not mistaken for consequences of what is proved.
+The local exactness of $(A^{\bullet,\bullet}_X,\dprime,\ddprime)$ is not
+established; the relation between $H^{p,q}$ of these sheaves and any
+cohomology of $X$ is not discussed; and the surjectivity of the comparison
+map $A^{p,q}_X\to A^{p,q}_{X,G}$, which fails, is not repaired by passing to
+a larger class of charts.  Each of these is addressed, in the cases where an
+answer is known, in \Cref{chap:delta-forms}.

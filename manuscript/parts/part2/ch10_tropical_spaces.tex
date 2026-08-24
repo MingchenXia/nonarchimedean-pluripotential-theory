@@ -1,0 +1,3248 @@
+\chapter{Polyhedral and tropical spaces}
+\index{tropical space}\index{polyhedral space}
+\label{chap:tropical-spaces}
+
+Tropical spaces are assembled from weighted rational polyhedra. The weights
+are not decoration: they are precisely what makes integration independent of
+subdivision and makes boundary terms cancel. We therefore develop balancing
+before introducing abstract charts.
+
+\Cref{chap:superforms} produced a differential calculus on a real vector
+space.  That calculus is affine invariant, but it lives on a vector space,
+whereas the objects that occur in non-Archimedean geometry---skeleta of
+models, tropicalizations of analytic domains, dual complexes---are neither
+vector spaces nor manifolds.  They are finite unions of polyhedra, glued
+along faces, and the gluing is exactly where the arithmetic enters: a cell
+carries a lattice, a top-dimensional cell carries a multiplicity, and a
+codimension-one wall carries a relation between the multiplicities of the
+cells meeting along it.  The purpose of this chapter is to install that
+combinatorial layer, and to prove that the superform calculus survives it.
+
+\section{What the combinatorics must remember}
+
+The underlying subset of a tropical cycle is not enough.  At a point of a
+top-dimensional cell one must remember its tangent lattice and multiplicity;
+at a codimension-one face one must remember primitive normal vectors.  These
+data control, respectively, normalized volume, change of variables, and
+Stokes cancellation.
+
+The chapter has four goals:
+\begin{enumerate}
+\item pass cleanly between lattices, affine spaces, and polyhedral complexes;
+\item formulate balancing intrinsically in a quotient lattice;
+\item define smooth forms on a polyhedral support by restriction from an
+  ambient affine space;
+\item distinguish a weighted support, a calibration, and a tropical
+  intersection multiplicity.
+\end{enumerate}
+The reader only needs elementary convex geometry and the superform calculus
+of \Cref{chap:superforms}.  The stable-intersection argument is the
+fan-displacement proof, written out in \Cref{thm:tropical-stable-intersection}.
+
+\subsection*{What this chapter supplies to the rest of the book}
+
+Five packages of results are assembled here and used repeatedly.
+
+\begin{enumerate}
+\item \emph{Polyhedral bookkeeping.}
+\Cref{sec:ch10-polyhedra} fixes what a rational polyhedron, its tangent
+lattice, its recession cone, its star, and its primitive normal vectors are,
+and proves that two polyhedral structures on the same set admit a common
+refinement (\Cref{prop:tropical-common-refinement}).  Every later
+``after refining the two charts'' is an appeal to that proposition.
+
+\item \emph{Balancing, and what it is equivalent to.}
+\Cref{sec:ch10-balancing} defines weights and balancing and then proves that
+balancing is equivalent to the vanishing of a boundary in an explicit chain
+complex (\Cref{thm:ch10-balancing-boundary}) and, in the one-dimensional
+case, to the validity of Stokes' formula
+(\Cref{thm:ch10-balancing-stokes-fan}); a third equivalent, the
+displacement-independence of the intersection product, appears in
+\Cref{ex:ch10-unbalanced} and in the proof of
+\Cref{thm:tropical-stable-intersection}.  The second equivalence is the
+reason balancing appears at all: it is the exact hypothesis under which the
+cancellation in \Cref{thm:balanced-stokes} takes place.
+
+\item \emph{Forms on a support.}
+\Cref{sec:ch10-forms} defines $A^{p,q}$ on an open subset of a polyhedral
+support by restriction from an ambient affine space and proves that the
+answer does not depend on that ambient space
+(\Cref{thm:ch10-forms-presentation-independent}).  This is what allows
+\Cref{chap:analytic-tropicalization} to define forms on a Berkovich space by
+a limit over tropical charts.
+
+\item \emph{Charts and calibrations.}
+\Cref{sec:ch10-tropical-spaces,sec:ch10-calibrations} define tropical spaces
+and calibrations and prove that an integer-affine transition map transports
+the sheaf of superforms, the two differentials, the tangent lattices, and the
+calibration (\Cref{thm:ch10-transition-transport}).  This is the structure
+integrated in \Cref{chap:tropical-integration} and the structure carried by
+the analytic tropicalizations of \Cref{chap:analytic-tropicalization}.
+
+\item \emph{Stable intersection.}
+\Cref{sec:ch10-stable-intersection,sec:ch10-gysin} construct the intersection
+product of tropical cycles, first by hand in three examples, then in general
+(\Cref{thm:tropical-stable-intersection}), and identify it with a Gysin
+pullback along the diagonal
+(\Cref{thm:ch10-diagonal-gysin}).  \Cref{chap:delta-forms} uses precisely
+this product to multiply delta-forms
+(\Cref{thm:delta-preform-algebra}).
+\end{enumerate}
+
+\subsection*{Dependencies}
+
+\Cref{sec:ch10-polyhedra,sec:ch10-balancing} are pure convex geometry and
+lattice algebra; they use nothing from earlier chapters except the polyhedral
+vocabulary recorded in \Cref{sec:appG-polyhedra}.
+\Cref{sec:ch10-forms} uses the superform algebra of
+\Cref{chap:superforms}, in particular the pullback formula there and
+\Cref{prop:superform-differential-identities}.
+\Cref{sec:ch10-calibrations} uses the sign conventions of
+\Cref{sec:appG-calibrations} and anticipates the integration of
+\Cref{chap:tropical-integration}; a reader who wants to see the calibration
+in action before reading its axioms may go directly to
+\Cref{prop:integral-subdivision-independent}.
+\Cref{sec:ch10-stable-intersection} is again self-contained convex geometry.
+No analytic geometry is used anywhere in the chapter: the analytic origin of
+the weights is the subject of \Cref{chap:analytic-tropicalization} and of
+\Cref{thm:appG-analytic-calibration}.
+
+The running toric example of \Cref{sec:ch01-running-toric} and the metric
+graphs of \Cref{sec:metric-graphs} are the two smallest instances of
+everything below, and they are used as consistency checks rather than
+redeveloped.
+
+\begin{warning}{Max-plus and valuation coordinates}
+Mikhalkin--Rau use
+$\mathbf T=\mathbf R\cup\{-\infty\}$ with tropical addition $\max$ and write
+integer-affine functions in coordinates analogous to $\log|z_i|$.  Our
+analytic chapters use valuation coordinates
+$u_i=-\log|z_i|$.  Thus the translation is $x_i=-u_i$: max-plus polynomials
+and min-plus valuation polynomials are related by
+\[
+                         F_{\max}(x)=-F_{\min}(-x).
+\]
+Thus changing the coordinate sign alone does \emph{not} exchange maximum
+and minimum; one must also negate the value of the tropical polynomial.  We
+use the Mikhalkin--Rau
+max-plus terminology in this abstract tropical chapter and display the sign
+change whenever an analytic tropicalization enters.  No geometric assertion
+depends on choosing one of the two isomorphic semifields.
+\end{warning}
+
+The warning is not pedantry.  Both conventions occur in the sources this
+chapter draws on, and the two errors they invite---forgetting the sign of the
+coordinate, and forgetting the sign of the function---cancel each other in
+some formulas and reinforce each other in others.  The safe procedure, used
+throughout, is to record the tropical \emph{cycle} in whichever coordinate is
+convenient, since a balanced complex remains balanced under $x\mapsto-x$
+(the reflection is an integer-linear isomorphism), and to display the
+translation explicitly whenever a tropical \emph{function} crosses between
+the two pictures.
+
+\section{Integer-affine polyhedra}
+\label{sec:ch10-polyhedra}
+\index{polyhedron!rational}\index{polyhedral complex}\index{primitive normal vector}\index{tangent lattice}
+
+Let $N$ be a free abelian group of rank $r$, put
+$N_{\mathbf R}=N\otimes_{\mathbf Z}\mathbf R$, and let
+$M=\operatorname{Hom}(N,\mathbf Z)$.  We write
+$\langle\cdot,\cdot\rangle$ for the pairing between $M$ and $N_{\mathbf R}$.
+All polyhedra in this chapter are subsets of such an $N_{\mathbf R}$, or of
+an affine space under it; the lattice is part of the data and is never
+suppressed.
+
+\begin{definition}
+An \emph{integer-affine function} on $N_{\mathbf R}$ is $x\mapsto
+\langle m,x\rangle+c$ with $m\in M$ and $c\in\mathbf R$. A
+\emph{rational polyhedron} is an intersection of finitely many half-spaces
+$\langle m_i,x\rangle\geq c_i$, with $m_i\in M$. A \emph{polyhedral complex}
+$\mathscr C$ is a locally finite collection of polyhedra, closed under faces,
+such that the intersection of two members is a face of each.
+\end{definition}
+
+This follows the terminology of Mikhalkin--Rau
+\cite[\S\S1.3 and 2.1]{MR18Tropical}: 'rational' refers to the integral, or
+equivalently rational, linear parts of the bounding inequalities; the
+constants may be arbitrary real numbers.  CLD often says \emph{integral
+affine} where tropical geometry says \emph{integer affine}; the two phrases
+are synonyms in this book.  When every $c_i$ lies in a subgroup
+$\Gamma\subset\mathbf R$, we add the qualifier $\Gamma$-rational.  None of
+the balancing arguments below depends on the constants.
+
+Following the same reference, a \emph{facet} of a pure polyhedral complex
+means a top-dimensional cell.  For a face of codimension one in an individual
+polyhedron we always write \emph{codimension-one face}; this prevents the two
+common meanings of 'facet' from being confused.
+
+A \emph{face} of a polyhedron $\sigma$ is a subset of the form
+$\sigma\cap\{\langle m,\cdot\rangle=c\}$ for an integer covector $m$ with
+$\langle m,\cdot\rangle\geq c$ on $\sigma$, together with $\sigma$ itself.
+Faces of rational polyhedra are rational polyhedra, and the faces of a
+polyhedron form a finite lattice under inclusion; we use these two facts
+without further comment, referring to \cite[\S1.3]{MR18Tropical} or to any
+standard account of convexity such as \cite{Roc70,Sch14}.  The
+\emph{relative interior} $\RelInt(\sigma)$ is the interior of $\sigma$ inside
+its affine span; a polyhedron is the disjoint union of the relative interiors
+of its faces.
+
+The \emph{recession cone} of a polyhedron $\sigma$ is
+\[
+ \operatorname{rec}(\sigma)
+ =\{v\in N_{\mathbf R}\mid x+tv\in\sigma
+           \text{ for every }x\in\sigma,\ t\geq0\}.
+\]
+Its affine span is $x_0+N_{\sigma,\mathbf R}$, where
+$N_\sigma=N\cap\operatorname{span}_{\mathbf R}(\sigma-\sigma)$ is saturated.
+The quotient by $N_\sigma$ records transverse integral directions.
+
+Two elementary facts about this lattice are used constantly, and we record
+them once.
+
+\begin{lemma}
+\label{lem:ch10-tangent-lattice}
+Let $\sigma\subset N_{\mathbf R}$ be a rational polyhedron of dimension $d$
+and let $N_\sigma=N\cap\operatorname{span}_{\mathbf R}(\sigma-\sigma)$.
+\begin{enumerate}
+\item $N_\sigma$ is a saturated subgroup of $N$ of rank $d$, and
+      $N_{\sigma,\mathbf R}=\operatorname{span}_{\mathbf R}(\sigma-\sigma)$.
+\item $N/N_\sigma$ is a free abelian group of rank $r-d$, and
+      $\bigwedge^dN_\sigma$ is free of rank one.
+\item If $\tau$ is a face of $\sigma$, then $N_\tau\subseteq N_\sigma$ and
+      $N_\sigma/N_\tau$ is saturated in $N/N_\tau$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1)  By definition $N_\sigma$ is the intersection of $N$ with a real subspace,
+hence saturated: if $kv\in N_\sigma$ with $k\geq1$ and $v\in N$, then $v$ lies
+in the same real subspace and hence in $N_\sigma$.  Rationality of $\sigma$
+means that its affine span is cut out by equations $\langle m_i,\cdot\rangle
+=c_i$ with $m_i\in M$; therefore
+$\operatorname{span}_{\mathbf R}(\sigma-\sigma)$ is the real span of the
+rational subspace $\{v:\langle m_i,v\rangle=0\}$, and a rational subspace is
+spanned by its lattice points.  Hence $N_\sigma$ has rank $d$ and spans it.
+
+(2)  A quotient of a finitely generated free abelian group by a saturated
+subgroup is torsion free, hence free.  The rank count is additive, and the
+top exterior power of a free module of rank $d$ is free of rank one.
+
+(3)  $N_\tau\subseteq N_\sigma$ because $\tau-\tau\subseteq\sigma-\sigma$.
+If $k\bar v\in N_\sigma/N_\tau$ with $\bar v\in N/N_\tau$ and $k\geq1$, lift
+$\bar v$ to $v\in N$; then $kv\in N_\sigma+N_\tau=N_\sigma$, so $v\in
+N_\sigma$ by (1) and $\bar v\in N_\sigma/N_\tau$.
+\end{proof}
+
+If $\tau$ is a codimension-one face of $\sigma$, then by
+\Cref{lem:ch10-tangent-lattice} the
+quotient $N_\sigma/N_\tau$ is free of rank one. Its primitive generator pointing
+from $\tau$ into $\sigma$ is denoted $u_{\sigma/\tau}$.  Explicitly, $u_{\sigma/\tau}$
+is the unique generator of $N_\sigma/N_\tau$ represented by a vector
+$v\in N_\sigma$ with $x+\varepsilon v\in\sigma$ for some (equivalently, for
+every) $x\in\RelInt(\tau)$ and all small $\varepsilon>0$.  We refer to it as
+the \emph{primitive normal} of $\sigma$ along $\tau$, or as the
+\emph{inward} primitive vector; the corresponding outward vector is
+$-u_{\sigma/\tau}$, and \Cref{chap:tropical-integration} uses the outward
+convention for boundary traces.  The two conventions are compared in the
+warning at \eqref{eq:appG-primitive-normal}.
+
+\begin{example}[Primitive means lattice primitive]
+In $N=\mathbf Z^2$, let $\tau$ be the origin and let $\sigma$ be the ray
+generated by $(2,2)$.  Its tangent lattice is not
+$\mathbf Z(2,2)$ but the saturation $\mathbf Z(1,1)$.  Hence
+$u_{\sigma/\tau}=(1,1)$.  Using $(2,2)$ would double every boundary
+contribution and would destroy invariance under a change of parametrization.
+\end{example}
+
+\begin{example}[A primitive normal that is not a primitive vector of $N$]
+\label{ex:ch10-primitive-quotient}
+In $N=\mathbf Z^2$ let $\tau=\mathbf R(1,1)$ and let
+$\sigma=\{(x,y):y\geq x\}$, so that $\tau$ is a codimension-one face of
+$\sigma$.  Then $N_\tau=\mathbf Z(1,1)$ and
+$N_\sigma=\mathbf Z^2$, so $N_\sigma/N_\tau\cong\mathbf Z$ and the class of
+$(0,1)$ is a generator pointing into $\sigma$; hence
+$u_{\sigma/\tau}=\overline{(0,1)}$.  The class of $(-1,0)$ is the same
+element of the quotient, because $(0,1)-(-1,0)=(1,1)\in N_\tau$.  There is
+therefore no preferred representative in $N$, and any formula that uses one
+must be checked to be insensitive to the ambiguity.  The Stokes traces
+\eqref{eq:superform-boundary-traces} are so checked: contracting with a
+vector tangent to $\tau$ kills the form after restriction.
+\end{example}
+
+\begin{definition}
+\label{def:ch10-star}
+For a face $\tau$ of a complex $\mathscr C$, the \emph{star} of $\tau$ is the
+fan in $N_{\mathbf R}/N_{\tau,\mathbf R}$ obtained by projecting the cones of
+local directions of all $\sigma\supset\tau$.  It carries the weights of the
+corresponding maximal cells.
+\end{definition}
+
+Concretely, fix $x\in\RelInt(\tau)$.  For $\sigma\supset\tau$ the set
+\[
+ \operatorname{cone}_x(\sigma)
+ =\{v\in N_{\mathbf R}\mid x+\varepsilon v\in\sigma
+    \text{ for all sufficiently small }\varepsilon>0\}
+\]
+is a rational polyhedral cone containing $N_{\tau,\mathbf R}$, and it does
+not depend on the choice of $x\in\RelInt(\tau)$.  The image of
+$\operatorname{cone}_x(\sigma)$ in $N_{\mathbf R}/N_{\tau,\mathbf R}$ is the
+cone of $\operatorname{Star}_{\mathscr C}(\tau)$ attached to $\sigma$; its
+tangent lattice is $N_\sigma/N_\tau$, which is saturated in $N/N_\tau$ by
+\Cref{lem:ch10-tangent-lattice}.  The star is a fan because the local cones
+of two cells meet in the local cone of their intersection.  Note that
+$\dim\operatorname{Star}(\tau)=\dim\mathscr C-\dim\tau$: passing to the star
+trades a cell for a cone through the origin and lowers the dimension by
+exactly the dimension of $\tau$.
+
+Balancing at a codimension-one cell says exactly that the one-dimensional weighted star has
+zero vector sum.  Formulating the condition in the quotient makes it
+independent of any choice of a complementary subspace.  This is worth
+emphasizing, because the alternative---choosing a complement to
+$N_{\tau,\mathbf R}$ and reading the normal vectors there---produces a
+condition that appears to depend on the complement and, worse, tempts one to
+normalize by a Euclidean length.  Neither the complement nor a Euclidean
+structure exists canonically, and the balancing equation must not use one.
+
+\begin{definition}
+\label{def:ch10-subdivision}
+A polyhedral complex $\mathscr C'$ \emph{subdivides} $\mathscr C$, and
+$\mathscr C'$ is called a \emph{refinement} of $\mathscr C$, if
+$|\mathscr C'|=|\mathscr C|$ and every cell of $\mathscr C'$ is contained in
+a cell of $\mathscr C$.  Two complexes with the same support are
+\emph{equivalent} if they admit a common refinement.
+\end{definition}
+
+Because a cell of $\mathscr C'$ has a relative interior, and because the
+relative interiors of the cells of $\mathscr C$ partition $|\mathscr C|$,
+each cell $\sigma'\in\mathscr C'$ is contained in a unique smallest cell of
+$\mathscr C$, namely the one whose relative interior meets
+$\RelInt(\sigma')$.  We call it the \emph{carrier} of $\sigma'$.  Two
+subdivisions of the same complex need not be comparable, which is why
+\Cref{prop:tropical-common-refinement} is needed.
+
+\begin{lemma}\label{lem:ch10-subdivision-dimension}If $\mathscr C'$ subdivides $\mathscr C$, then each point has the same local
+pure dimension in both complexes, and the relative interiors of the maximal
+cells of $\mathscr C'$ partition those of $\mathscr C$ up to lower-dimensional
+sets.
+\end{lemma}
+\begin{proof}
+Every cell of the subdivision lies in a cell of the original complex and the
+union is unchanged. A maximal-dimensional cell cannot be covered by finitely
+many lower-dimensional affine subsets, so it is partitioned by cells of the
+same dimension together with their proper faces. Local finiteness gives the
+same assertion locally when the complexes are infinite.
+\end{proof}
+
+\begin{proposition}
+\label{prop:tropical-common-refinement}
+Let $\mathscr C_1$ and $\mathscr C_2$ be finite polyhedral complexes in the
+same affine space.  The faces of the nonempty intersections
+$\sigma_1\cap\sigma_2$ generate a common polyhedral refinement on
+$|\mathscr C_1|\cap|\mathscr C_2|$.  If both complexes have integer slopes,
+so does the refinement.
+\end{proposition}
+\begin{proof}
+An intersection of finitely many affine half-spaces is a polyhedron, and an
+intersection of two such polyhedra retains integral normal directions.
+Taking all faces makes the collection face-closed.  If two intersections
+meet, their intersection is obtained by imposing simultaneously the active
+equalities from both descriptions; after passage to the face-closed
+collection it is a common face.  Finiteness is immediate.  The inclusion of
+each new cell in an old cell gives the two refinement maps.
+\end{proof}
+
+For locally finite complexes the same construction is made on relatively
+compact open subsets.  This is the elementary combinatorial reason that
+forms or integrals represented in two charts can be compared after
+refinement; analytic tropical charts require the product construction of
+\Cref{chap:analytic-tropicalization} in addition.
+
+The next lemma is the reason that subdivision does not disturb any of the
+lattice data.  It is used silently in almost every proof of the chapter, and
+it is the precise content of the slogan ``subdivision changes cells, not
+lattices''.
+
+\begin{lemma}
+\label{lem:ch10-subdivision-lattices}
+Let $\mathscr C'$ subdivide $\mathscr C$ and let $\sigma'\in\mathscr C'$ have
+carrier $\sigma\in\mathscr C$.  Then
+$\dim\sigma'=\dim\sigma$ implies $N_{\sigma'}=N_\sigma$.  If moreover $\tau'$
+is a codimension-one face of $\sigma'$ whose relative interior meets
+$\RelInt(\tau)$ for a codimension-one face $\tau$ of $\sigma$, then
+$N_{\tau'}=N_\tau$ and $u_{\sigma'/\tau'}=u_{\sigma/\tau}$ under the
+resulting identification $N_{\sigma'}/N_{\tau'}=N_\sigma/N_\tau$.
+\end{lemma}
+
+\begin{proof}
+If $\dim\sigma'=\dim\sigma$ and $\sigma'\subseteq\sigma$, the two affine
+spans coincide, since a $d$-dimensional convex set spans a $d$-dimensional
+affine space and $\RelInt(\sigma')$ is open in that span.  Hence
+$N_{\sigma'}=N\cap\operatorname{span}_{\mathbf R}(\sigma'-\sigma')
+=N\cap\operatorname{span}_{\mathbf R}(\sigma-\sigma)=N_\sigma$.  The same
+argument applied to $\tau'\subseteq\tau$ gives $N_{\tau'}=N_\tau$, because
+$\RelInt(\tau')$ meets $\RelInt(\tau)$ and both have dimension
+$\dim\sigma-1$.  Finally $u_{\sigma'/\tau'}$ is characterized by the property
+that it is the generator of $N_{\sigma'}/N_{\tau'}$ represented by a vector
+pointing from $\RelInt(\tau')$ into $\sigma'$.  Near a point of
+$\RelInt(\tau')\cap\RelInt(\tau)$ the sets $\sigma'$ and $\sigma$ have the
+same germ on the $\tau$ side, so the two characterizations select the same
+generator.
+\end{proof}
+
+\begin{example}[Two incomparable subdivisions]
+\label{ex:ch10-incomparable}
+Let $\mathscr C$ consist of the unit square $[0,1]^2\subset\mathbf R^2$ and
+its faces.  Cutting along the diagonal $y=x$ gives a subdivision
+$\mathscr C_1$ into two triangles; cutting along $y=1-x$ gives another
+subdivision $\mathscr C_2$.  Neither refines the other, and their common
+refinement, produced by \Cref{prop:tropical-common-refinement}, consists of
+the four small triangles obtained by cutting along both diagonals.  All of
+these complexes have the same support and the same tangent lattice
+$\mathbf Z^2$ on every two-dimensional cell, illustrating
+\Cref{lem:ch10-subdivision-lattices}.  The new interior edges are the ones
+whose contributions will have to cancel in
+\Cref{thm:balanced-stokes}.
+\end{example}
+
+\section{Weights and balancing}
+\label{sec:ch10-balancing}
+\index{balancing condition}\index{tropical cycle}\index{weight!on a polyhedral cell}
+
+A weighted complex is a polyhedral complex together with one integer per
+top-dimensional cell.  Balancing is a linear condition on those integers,
+imposed at every codimension-one cell.  We give the definition, then three
+proofs that it is the right condition: it is the vanishing of a boundary
+(\Cref{thm:ch10-balancing-boundary}); it is exactly what makes Stokes'
+formula hold (\Cref{thm:ch10-balancing-stokes-fan}); and it is exactly what
+makes the stable intersection product of
+\Cref{sec:ch10-stable-intersection} independent of the displacement
+direction.
+
+\begin{definition}
+\label{def:ch10-weighted-balanced}
+A pure $n$-dimensional weighted complex $(\mathscr C,m)$ assigns an integer
+$m_\sigma\neq0$ to every facet $\sigma$.  We also write
+$\omega(\sigma)=m_\sigma$, as in \cite[\S4.2]{MR18Tropical}. It is
+\emph{balanced} if for every
+$(n-1)$-cell $\tau$,
+\[
+                  \sum_{\sigma\supset\tau}
+                    m_\sigma u_{\sigma/\tau}=0
+                    \quad\text{in }N/N_\tau.
+\]
+Two weighted complexes are \emph{equivalent} if they have a common weighted
+refinement.  A \emph{tropical $n$-cycle} is an equivalence class of balanced
+pure $n$-dimensional weighted rational polyhedral complexes.  A tropical
+cycle represented by positive weights is a \emph{tropical subspace}; a cycle
+represented by a fan is a \emph{tropical fan cycle}.
+\end{definition}
+
+Thus negative coefficients are allowed in the group of tropical cycles.
+The analytic tropicalizations used later carry positive multiplicities and
+hence define tropical subspaces.  Cells of weight zero are omitted from the
+support.  These conventions agree with
+\cite[Definitions~4.2.1--4.2.3]{MR18Tropical}.
+
+Four remarks on the definition are worth making before any example.
+
+First, the sum in the balancing equation is finite, because a locally finite
+complex has only finitely many facets containing a given cell.
+
+Second, the equation is imposed on \emph{every} codimension-one cell, including
+those that lie in the topological boundary of the support.  A complex with a
+free edge---say the single segment $[0,1]\subset\mathbf R$ with weight
+one---is therefore \emph{not} balanced: at the vertex $0$ there is one
+incoming facet and the sum is the nonzero class $u_{[0,1]/\{0\}}=+1$.  This
+is not a defect of the definition.  Balanced complexes are the objects
+without boundary, and the boundary theory is developed separately in
+\Cref{chap:tropical-integration}.
+
+Third, weights are attached to facets, not to points.  Two facets may share a
+point without sharing a weight, and the value of the weight function at a
+point of a codimension-one cell is not defined.
+
+Fourth, the support of a weighted complex, as a topological space, does not
+determine the weights.  A tropical cycle is the pair, and two cycles with the
+same support and different weights are different cycles.  The following
+statement records the additive structure that this remark makes possible.
+
+\begin{proposition}
+\label{prop:ch10-cycle-group}
+Fix $n$ and $N$.  The set $Z_n(N_{\mathbf R})$ of tropical $n$-cycles in
+$N_{\mathbf R}$, together with the zero cycle, is an abelian group under the
+following operation: given cycles represented by $(\mathscr C_1,m_1)$ and
+$(\mathscr C_2,m_2)$, pass to a common refinement $\mathscr C$ of
+$\mathscr C_1$ and $\mathscr C_2$ that also refines the complex generated by
+$|\mathscr C_1|\cup|\mathscr C_2|$, and put
+\[
+ (m_1+m_2)_\sigma
+ =\begin{cases}
+   m_{1,\sigma}+m_{2,\sigma},&\sigma\subseteq|\mathscr C_1|\cap|\mathscr C_2|,\\
+   m_{1,\sigma},&\sigma\subseteq|\mathscr C_1|\setminus|\mathscr C_2|,\\
+   m_{2,\sigma},&\sigma\subseteq|\mathscr C_2|\setminus|\mathscr C_1|,
+  \end{cases}
+\]
+discarding the cells of weight zero.  The inverse of $(\mathscr C,m)$ is
+$(\mathscr C,-m)$.
+\end{proposition}
+
+\begin{proof}
+\emph{Step 1: a complex covering both supports.}
+Assume first that $\mathscr C_1$ and $\mathscr C_2$ are finite.  Each of
+their cells is an intersection of finitely many rational half-spaces, and
+each affine hull of a cell is an intersection of finitely many rational
+hyperplanes.  Let $\mathscr H$ be the finite set of all rational hyperplanes
+occurring in such descriptions, and let $\mathscr A$ be the polyhedral
+complex of $N_{\mathbf R}$ whose cells are the closures of the nonempty sets
+obtained by prescribing, for each $H\in\mathscr H$, one of the three
+conditions ``on $H$'', ``strictly on one side'', ``strictly on the other
+side''.  This is a rational polyhedral complex: the sets in question are
+relatively open convex polyhedra, their closures are rational polyhedra
+whose faces are again of the same form, and two of them meet in a common
+face.  By construction every cell of $\mathscr C_1$ and of $\mathscr C_2$ is
+a union of cells of $\mathscr A$.  Let $\mathscr C$ be the subcomplex of
+$\mathscr A$ consisting of the cells contained in
+$|\mathscr C_1|\cup|\mathscr C_2|$, together with their faces, and discard
+cells not contained in an $n$-cell; then $\mathscr C$ is pure of dimension
+$n$, refines $\mathscr C_1$ over $|\mathscr C_1|$ and $\mathscr C_2$ over
+$|\mathscr C_2|$, and has support $|\mathscr C_1|\cup|\mathscr C_2|$.  For
+locally finite complexes the same construction is carried out on relatively
+compact open sets and glued, the resulting complexes agreeing on overlaps.
+
+\emph{Step 2: the weights are well defined and balanced.}
+A facet $\sigma$ of $\mathscr C$ has $\RelInt(\sigma)$ contained in
+$|\mathscr C_1|$ or in its complement, and likewise for $|\mathscr C_2|$;
+hence exactly one of the three cases of the displayed formula occurs, and
+$m_{i,\sigma}$ means the weight of the unique facet of $\mathscr C_i$
+containing $\sigma$, which exists by
+\Cref{lem:ch10-subdivision-dimension}.  Extend $m_i$ by zero to all facets of
+$\mathscr C$, obtaining $\widehat m_i$.  We claim $\widehat m_i$ is balanced
+on $\mathscr C$.  Let $\tau$ be a codimension-one cell of $\mathscr C$.  If
+$\tau\not\subseteq|\mathscr C_i|$, then no facet of $\mathscr C$ containing
+$\tau$ lies in $|\mathscr C_i|$, since such a facet would contain $\tau$;
+so the balancing sum is empty.  If $\tau\subseteq|\mathscr C_i|$, the facets
+of $\mathscr C$ containing $\tau$ and contained in $|\mathscr C_i|$ are
+exactly the facets of the refinement of $\mathscr C_i$ containing $\tau$, and
+the balancing sum is the one furnished by
+\Cref{prop:ch10-balancing-subdivision}.  Thus
+$\widehat m_1+\widehat m_2$ is balanced, by
+\Cref{cor:ch10-balancing-consequences}\,\cref{itm:ch10-bal-linear}, and it is
+the weighting displayed in the statement.
+
+\emph{Step 3: group axioms.}
+Associativity, commutativity, and the inverse assertion are immediate on a
+common refinement of all complexes involved, produced by Step 1 applied
+repeatedly.  Discarding weight-zero cells changes neither the balancing
+equations, in which those cells contribute nothing, nor the equivalence
+class; and the result is independent of the refinement used, because two
+refinements admit a common further refinement on which the two answers agree
+facet by facet.
+\end{proof}
+
+\begin{example}[The one-dimensional vertex equation]
+Let $u_1,\ldots,u_s$ be the primitive outgoing directions of a weighted
+one-dimensional complex at a vertex.  Since the tangent lattice of the
+vertex is zero,
+balancing is simply
+\[
+                         \sum_{j=1}^s m_j u_j=0
+                         \quad\text{in }N.
+\]
+For two rays with positive weights this forces them to lie on the same line
+with opposite primitive directions and equal weights.  A genuine branch
+point therefore needs at least three directions.
+\end{example}
+
+\begin{example}[The tropical line]
+The three rays in $\mathbf R^2$ generated by
+$(1,0)$, $(0,1)$, and $(-1,-1)$, each with weight one, are balanced at the
+origin because their primitive vectors sum to zero. Two rays pointing in the
+same half-plane cannot form a balanced one-cycle with positive weights.
+\end{example}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth]
+  \coordinate (xzero) at (-3,0);
+  \coordinate (uzero) at (3,0);
+
+  \node[font=\small] at (-3,2.62) {max-plus coordinates $x$};
+  \draw[-{Stealth[length=2.2mm]},very thick] (xzero)--(-0.85,0)
+    node[pos=0.82,above,font=\small] {$(1,0)$};
+  \draw[-{Stealth[length=2.2mm]},very thick] (xzero)--(-3,2.15)
+    node[above,font=\small] {$(0,1)$};
+  \draw[-{Stealth[length=2.2mm]},very thick] (xzero)--(-4.55,-1.55)
+    node[below left,font=\small] {$(-1,-1)$};
+  \fill (xzero) circle (1.5pt);
+  \node[above right,font=\small] at (-2.9,0.08) {$0$};
+
+  \node[font=\small] at (3,2.62) {min-plus valuation coordinates $u$};
+  \draw[-{Stealth[length=2.2mm]},very thick] (uzero)--(0.85,0)
+    node[pos=0.82,below,font=\small] {$(-1,0)$};
+  \draw[-{Stealth[length=2.2mm]},very thick] (uzero)--(3,-2.15)
+    node[below,font=\small] {$(0,-1)$};
+  \draw[-{Stealth[length=2.2mm]},very thick] (uzero)--(4.55,1.55)
+    node[above right,font=\small] {$(1,1)$};
+  \fill (uzero) circle (1.5pt);
+  \node[above right,font=\small] at (3.08,0.08) {$0$};
+
+  \draw[{Stealth[length=2mm]}-{Stealth[length=2mm]},thin]
+    (-0.82,2.05)--(0.82,2.05)
+    node[midway,above,font=\small] {$x=-u$};
+  \node[font=\scriptsize,fill=white,inner sep=1pt] at (-3,-2.32)
+    {$F_{\max}(x)=\max\{0,-x_1,-x_2\}$};
+  \node[font=\scriptsize,fill=white,inner sep=1pt] at (3,-2.72)
+    {$F_{\min}(u)=\min\{0,-u_1,-u_2\}$};
+  \node[font=\scriptsize] at (0,-1.45)
+    {$F_{\max}(x)=-F_{\min}(-x)$};
+\end{tikzpicture}
+\caption{The tropical line and the convention firewall.  On the left the
+three weight-one primitive directions sum to zero.  The change $x=-u$ sends
+them to the three directions on the right, whose sum is again zero; negating
+the function as well gives $F_{\max}(x)=-F_{\min}(-x)$.}
+\label{fig:tropical-line-balancing}
+\end{figure}
+
+With the max convention, the corner locus of
+$F_{\max}(x)=\max\{0,-x_1,-x_2\}$ is the left-hand cycle in
+\Cref{fig:tropical-line-balancing}.  In valuation coordinates the paired
+min-plus function is
+$F_{\min}(u)=\min\{0,-u_1,-u_2\}$; both the coordinate and the function value
+are negated, exactly as prescribed in the warning above.
+
+\begin{proposition}
+\label{prop:ch10-balancing-subdivision}
+Balancing is preserved by subdivision when each new maximal cell inherits the
+weight of the old cell containing it.
+\end{proposition}
+\begin{proof}
+At a new codimension-one cell lying inside an old facet, exactly two new facets meet
+and their primitive normal vectors are opposite, so their contributions
+cancel. At a codimension-one cell contained in an old codimension-one cell,
+group the new facets according to their old facets.  Because subdivision
+does not change the tangent lattice of a facet or of a relatively open piece
+of the old codimension-one cell, the new
+primitive normals project to the old primitive normals.  The grouped sum is
+therefore precisely the old balancing sum.
+\end{proof}
+
+The two assertions in that proof deserve to be separated, since only the
+second uses \Cref{lem:ch10-subdivision-lattices}.  Let $\mathscr C'$ subdivide
+$\mathscr C$ and let $\tau'$ be a codimension-one cell of $\mathscr C'$, with
+carrier $\sigma$ or $\tau$ in $\mathscr C$.
+
+If the carrier of $\tau'$ is an $n$-cell $\sigma$ of $\mathscr C$, then a
+neighbourhood of a point of $\RelInt(\tau')$ inside $|\mathscr C|$ is an
+$n$-dimensional convex set contained in $\sigma$, cut by $\tau'$ into two
+pieces.  Exactly two facets $\sigma_1',\sigma_2'$ of $\mathscr C'$ contain
+$\tau'$, both with carrier $\sigma$, hence both with weight $m_\sigma$ and
+tangent lattice $N_\sigma$; and
+$u_{\sigma_1'/\tau'}=-u_{\sigma_2'/\tau'}$ because the two germs lie on
+opposite sides of the hyperplane $\operatorname{span}(\tau'-\tau')$ in
+$N_{\sigma,\mathbf R}$.  The balancing sum at $\tau'$ is therefore
+$m_\sigma(u_{\sigma_1'/\tau'}+u_{\sigma_2'/\tau'})=0$.
+
+If instead the carrier of $\tau'$ is a codimension-one cell $\tau$ of
+$\mathscr C$, then $N_{\tau'}=N_\tau$ by
+\Cref{lem:ch10-subdivision-lattices}, and the facets $\sigma'\supset\tau'$
+are partitioned according to their carriers $\sigma\supset\tau$; for each
+$\sigma$ there is exactly one such $\sigma'$ near a fixed point of
+$\RelInt(\tau')$, with $m_{\sigma'}=m_\sigma$ and
+$u_{\sigma'/\tau'}=u_{\sigma/\tau}$.  The two balancing sums coincide term by
+term.
+
+\subsection{Balancing as the vanishing of a boundary}
+\label{sec:ch10-balancing-boundary}
+
+The balancing equation was written above as a relation among primitive normal
+vectors.  That is the form one computes with, but it hides the reason the
+condition is stable under everything in sight.  We now show that balancing is
+the statement that an explicit chain is a cycle, in an explicit chain complex
+attached to $\mathscr C$.  The complex is the cellular chain complex of
+$\mathscr C$ with constant coefficients in $\bigwedge^nN$; the weights enter
+through the requirement that the coefficient of a cell $\sigma$ lie in the
+line $\bigwedge^nN_\sigma$.
+
+Fix a pure $n$-dimensional rational polyhedral complex $\mathscr C$ in
+$N_{\mathbf R}$.  For $k\leq n$ let $\mathscr C_k$ denote its set of
+$k$-cells.  Choose, once and for all, an orientation of every cell of
+dimension $n$ and $n-1$, that is, a generator
+\[
+                  e_\sigma\in\textstyle\bigwedge^{\dim\sigma}N_\sigma,
+\]
+which is possible by \Cref{lem:ch10-tangent-lattice}\,(2).  For a facet
+$\sigma$ and a codimension-one face $\tau\prec\sigma$ define the
+\emph{incidence number} $[\sigma:\tau]\in\{\pm1\}$ by
+\begin{equation}
+\label{eq:ch10-incidence}
+ \widetilde u_{\sigma/\tau}\wedge e_\tau
+ =-[\sigma:\tau]\,e_\sigma
+ \quad\text{in }\textstyle\bigwedge^nN_\sigma,
+\end{equation}
+where $\widetilde u_{\sigma/\tau}\in N_\sigma$ is any lift of the primitive
+normal.  The left-hand side does not depend on the lift, since two lifts
+differ by an element $w\in N_\tau$ and $w\wedge e_\tau=0$, the element
+$e_\tau$ being a top exterior power of $N_\tau$; and it is a generator of
+$\bigwedge^nN_\sigma$,
+because a lift $\widetilde u_{\sigma/\tau}$ together with a lattice basis of
+$N_\tau$ representing $e_\tau$ is a lattice basis of $N_\sigma$.  The sign in
+\eqref{eq:ch10-incidence} is chosen so that $[\sigma:\tau]$ is the usual
+incidence number for the \emph{outward} normal $-u_{\sigma/\tau}$, matching
+the boundary convention of \Cref{chap:tropical-integration}.
+
+\begin{definition}
+\label{def:ch10-calibrated-chain}
+Set
+\[
+ C_n(\mathscr C)=\bigoplus_{\sigma\in\mathscr C_n}\textstyle\bigwedge^nN_\sigma,
+ \qquad
+ C_{n-1}(\mathscr C)=\bigoplus_{\tau\in\mathscr C_{n-1}}\textstyle\bigwedge^nN,
+\]
+and define $\partial:C_n(\mathscr C)\to C_{n-1}(\mathscr C)$ by
+\begin{equation}
+\label{eq:ch10-boundary}
+ (\partial\mu)_\tau
+ =\sum_{\sigma\supset\tau}[\sigma:\tau]\,\mu_\sigma
+ \qquad(\tau\in\mathscr C_{n-1}),
+\end{equation}
+using the inclusions $\bigwedge^nN_\sigma\subset\bigwedge^nN$.  Given weights
+$m$, the associated \emph{calibrated chain} is
+$\mu(m)=(m_\sigma e_\sigma)_{\sigma\in\mathscr C_n}$.
+\end{definition}
+
+The inclusions used in \eqref{eq:ch10-boundary} are genuinely injective:
+$N_\sigma$ is saturated in $N$ by \Cref{lem:ch10-tangent-lattice}, so
+$N/N_\sigma$ is free and $N\cong N_\sigma\oplus(N/N_\sigma)$; taking exterior
+powers exhibits $\bigwedge^nN_\sigma$ as a direct summand of
+$\bigwedge^nN$.  This is where saturation is used, and it is the reason the
+convention of \Cref{sec:appG-polyhedra}---compute lattice data only after
+saturating---cannot be relaxed.
+
+\begin{theorem}
+\label{thm:ch10-balancing-boundary}
+Let $(\mathscr C,m)$ be a pure $n$-dimensional weighted rational polyhedral
+complex in $N_{\mathbf R}$.  Then
+\[
+ (\mathscr C,m)\text{ is balanced}
+ \quad\Longleftrightarrow\quad
+ \partial\mu(m)=0 .
+\]
+More precisely, for every codimension-one cell $\tau$ one has
+\begin{equation}
+\label{eq:ch10-boundary-vs-balancing}
+ (\partial\mu(m))_\tau
+ =-\Bigl(\sum_{\sigma\supset\tau}m_\sigma\widetilde u_{\sigma/\tau}\Bigr)
+   \wedge e_\tau,
+\end{equation}
+and the map $N/N_\tau\to\bigwedge^nN$, $\bar v\mapsto\widetilde v\wedge
+e_\tau$, is injective.  The conclusion does not depend on the chosen
+orientations $e_\sigma,e_\tau$.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the displayed formula.}
+Fix $\tau\in\mathscr C_{n-1}$ and a facet $\sigma\supset\tau$.  By
+\eqref{eq:ch10-incidence},
+\[
+ [\sigma:\tau]\,e_\sigma
+ =-\widetilde u_{\sigma/\tau}\wedge e_\tau .
+\]
+Multiplying by $m_\sigma$ and summing over $\sigma\supset\tau$ gives
+\eqref{eq:ch10-boundary-vs-balancing}.  Note that the right-hand side is
+computed in $\bigwedge^nN$, where all the individual terms live, and that it
+does not depend on the choice of lifts $\widetilde u_{\sigma/\tau}$, since
+changing one of them alters the bracket by an element of $N_\tau$, which
+dies against $e_\tau$.
+
+\emph{Step 2: injectivity of $\bar v\mapsto\widetilde v\wedge e_\tau$.}
+The map $N\to\bigwedge^nN$, $v\mapsto v\wedge e_\tau$, is $\mathbf Z$-linear
+and kills $N_\tau$, hence descends to $N/N_\tau$.  Suppose
+$\widetilde v\wedge e_\tau=0$ with $\widetilde v\in N$.  Extend $e_\tau$ to
+$\bigwedge^{n-1}N_{\tau,\mathbf R}$ and work in $\bigwedge^nN_{\mathbf R}$,
+where the same relation holds.  Choosing a real basis $f_1,\ldots,f_{n-1}$ of
+$N_{\tau,\mathbf R}$ with $e_\tau=f_1\wedge\cdots\wedge f_{n-1}$, the
+vanishing of $\widetilde v\wedge f_1\wedge\cdots\wedge f_{n-1}$ in the
+exterior algebra of $N_{\mathbf R}$ forces
+$\widetilde v\in\operatorname{span}_{\mathbf R}(f_1,\ldots,f_{n-1})
+=N_{\tau,\mathbf R}$.  Since $N_\tau$ is saturated
+(\Cref{lem:ch10-tangent-lattice}), $\widetilde v\in N_\tau$, that is,
+$\bar v=0$.
+
+\emph{Step 3: conclusion.}
+By Steps 1 and 2, $(\partial\mu(m))_\tau=0$ if and only if
+$\sum_{\sigma\supset\tau}m_\sigma u_{\sigma/\tau}=0$ in $N/N_\tau$, which is
+the balancing equation at $\tau$.  Ranging over $\tau$ gives the
+equivalence.
+
+\emph{Step 4: independence of orientations.}
+Replacing $e_\sigma$ by $-e_\sigma$ replaces $\mu(m)_\sigma$ by its negative
+and, by \eqref{eq:ch10-incidence}, $[\sigma:\tau]$ by its negative for every
+$\tau$; the product $[\sigma:\tau]\mu(m)_\sigma$ is unchanged.  Replacing
+$e_\tau$ by $-e_\tau$ replaces every $[\sigma:\tau]$ with $\sigma\supset\tau$
+by its negative, hence multiplies $(\partial\mu(m))_\tau$ by $-1$ and does
+not affect its vanishing.
+\end{proof}
+
+The formulation \eqref{eq:ch10-boundary} is not merely cosmetic.  Three
+consequences that were proved by hand above, or will be needed below, are
+now visible at once.
+
+\begin{corollary}
+\label{cor:ch10-balancing-consequences}
+Let $(\mathscr C,m)$ be a pure $n$-dimensional weighted rational polyhedral
+complex.
+\begin{enumerate}
+\item\label{itm:ch10-bal-linear} The balanced weightings form a subgroup of
+      $\prod_{\sigma\in\mathscr C_n}\mathbf Z$; in particular sums and
+      integer multiples of balanced weightings are balanced.
+\item\label{itm:ch10-bal-local} $(\mathscr C,m)$ is balanced if and only if
+      $\operatorname{Star}_{\mathscr C}(\tau)$, with the inherited weights,
+      is balanced for every cell $\tau$ of $\mathscr C$ of dimension at most
+      $n-1$.
+\item\label{itm:ch10-bal-affine} If $\mathscr C$ consists of a single
+      $n$-dimensional affine subspace and its faces, then every weighting is
+      balanced, because $\mathscr C_{n-1}=\varnothing$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+\cref{itm:ch10-bal-linear} The chain $\mu(m)$ depends
+$\mathbf Z$-linearly on $m$ once the orientations are fixed, and $\partial$
+is $\mathbf Z$-linear.
+
+\cref{itm:ch10-bal-local} It suffices to treat $\dim\tau=n-1$, since a
+codimension-one cell of $\operatorname{Star}(\tau)$ for $\dim\tau<n-1$
+corresponds to a codimension-one cell $\tau'$ of $\mathscr C$ containing
+$\tau$, and the two balancing equations agree.  For $\dim\tau=n-1$ the star
+is the fan in $N_{\mathbf R}/N_{\tau,\mathbf R}$ whose rays are the classes
+$\mathbf R_{\geq0}u_{\sigma/\tau}$, with tangent lattices
+$N_\sigma/N_\tau\subset N/N_\tau$; the balancing equation of the star at its
+unique zero-dimensional cell is literally the balancing equation of
+$\mathscr C$ at $\tau$.
+
+\cref{itm:ch10-bal-affine} An affine subspace, viewed as a complex with
+one $n$-cell and no proper faces of dimension $n-1$ inside the complex, has
+an empty set of codimension-one cells, so the condition is vacuous.
+\end{proof}
+
+The reader should note that
+\Cref{cor:ch10-balancing-consequences}\,\cref{itm:ch10-bal-affine} is a
+statement about the \emph{complex}, not about the set: if one artificially
+subdivides an affine subspace, codimension-one cells appear, and
+\Cref{prop:ch10-balancing-subdivision} guarantees that the equations at those
+new cells hold automatically.  This is the first place where it matters that
+balancing is a property of the equivalence class and not of a chosen
+polyhedral structure.
+
+\begin{warning}{The boundary complex is not a homology theory here}
+We use only the single map \eqref{eq:ch10-boundary}.  Extending the picture
+to a full chain complex, with $\partial^2=0$ and coefficient systems varying
+by dimension, is the starting point of tropical homology.  Nothing below
+requires that theory, and we do not develop it.  What we do use is precisely
+that $\partial$ is defined on the nose, before any choice of orientation, up
+to the sign bookkeeping of Step~4 above.
+\end{warning}
+
+\subsection{Balancing as Stokes' formula}
+\label{sec:ch10-balancing-stokes}
+
+The chain-level statement explains why balancing is stable.  The next
+theorem explains why one wants it at all: on a one-dimensional fan,
+balancing is \emph{equivalent} to the vanishing of the integral of an exact
+top-degree form.  This is the whole mechanism of
+\Cref{thm:balanced-stokes}, isolated in the smallest case where it can be
+computed in closed form.
+
+\begin{theorem}
+\label{thm:ch10-balancing-stokes-fan}
+Let $u_1,\ldots,u_s\in N$ be primitive vectors spanning pairwise distinct
+rays, let $m_1,\ldots,m_s$ be nonzero integers, and let
+$X=\bigcup_k\mathbf R_{\geq0}u_k$ with the weights $m_k$.  For a superform
+$\eta=\sum_{i}a_i\,\ddprime x_i\in A^{0,1}_c(N_{\mathbf R})$ with compact
+support, write $a(0)=(a_1(0),\ldots,a_r(0))$.  Then
+\begin{equation}
+\label{eq:ch10-fan-stokes}
+ \int_X\dprime\eta
+ =-\Bigl\langle a(0),\ \sum_{k=1}^sm_ku_k\Bigr\rangle,
+\end{equation}
+where the left-hand side is the calibrated integral of
+\Cref{chap:tropical-integration}.  Consequently $X$ is balanced if and only
+if $\int_X\dprime\eta=0$ for every compactly supported
+$\eta\in A^{0,1}$.
+\end{theorem}
+
+\begin{proof}
+Fix $k$ and parametrize the ray $\mathbf R_{\geq0}u_k$ by $s\mapsto su_k$.
+This is an integer-affine isomorphism from $\mathbf R_{\geq0}$, with its
+standard lattice $\mathbf Z$, onto the ray with its tangent lattice
+$\mathbf Z u_k$, because $u_k$ is primitive.  Hence $s$ is a dual affine
+coordinate attached to an oriented lattice basis of that tangent lattice, and
+the definition of the calibrated integral in
+\Cref{chap:tropical-integration} reads it as $m_k$ times the ordinary
+integral in the variable $s$; that this does not depend on the chosen basis
+is \Cref{prop:integral-subdivision-independent}.
+
+Pulling back, the primed and double-primed one-forms become
+$\dprime x_i\mapsto u_{k,i}\dprime s$ and
+$\ddprime x_i\mapsto u_{k,i}\ddprime s$.  Hence
+\[
+ \dprime\eta
+ =\sum_{i,j}\frac{\partial a_i}{\partial x_j}\,
+   \dprime x_j\wedge\ddprime x_i
+\]
+pulls back to
+\[
+ \Bigl(\sum_{i,j}\frac{\partial a_i}{\partial x_j}(su_k)\,
+   u_{k,j}u_{k,i}\Bigr)\dprime s\wedge\ddprime s
+ =\frac{\rd}{\rd s}\Bigl[\sum_ia_i(su_k)u_{k,i}\Bigr]\,
+   \dprime s\wedge\ddprime s,
+\]
+by the chain rule.  The bracket is $\langle a(su_k),u_k\rangle$.  Since
+$\eta$ has compact support, the fundamental theorem of calculus gives
+\[
+ \int_{\mathbf R_{\geq0}u_k}\dprime\eta
+ =\int_0^{\infty}\frac{\rd}{\rd s}
+   \langle a(su_k),u_k\rangle\,\rd s
+ =-\langle a(0),u_k\rangle .
+\]
+Multiplying by $m_k$ and summing over $k$ gives
+\eqref{eq:ch10-fan-stokes}.
+
+If $X$ is balanced then $\sum_km_ku_k=0$, since the tangent lattice of the
+vertex is zero, and the right-hand side of \eqref{eq:ch10-fan-stokes}
+vanishes for every $\eta$.  Conversely, if the right-hand side vanishes for
+every $\eta$, choose $\eta=\chi\,\ddprime x_i$ with $\chi$ compactly
+supported and equal to $1$ near the origin; then $a(0)$ is the $i$th standard
+covector and \eqref{eq:ch10-fan-stokes} gives the $i$th coordinate of
+$\sum_km_ku_k$.  Letting $i$ vary gives $\sum_km_ku_k=0$.
+\end{proof}
+
+The identity \eqref{eq:ch10-fan-stokes} deserves a name: the vector
+$\sum_km_ku_k$ is the \emph{discordance} of the weighted fan at its vertex,
+and \Cref{thm:ch10-balancing-stokes-fan} says that the discordance is
+precisely the obstruction to Stokes' formula.  Chambert--Loir and Ducros
+build this obstruction into the axioms of their calibrated theory under the
+name of harmony; the identification of harmony with balancing, in the
+analytic setting, is recorded in \Cref{thm:appG-analytic-calibration}.
+
+\subsection{A gallery of fans}
+\label{sec:ch10-fan-gallery}
+
+We now compute.  The examples in this subsection are the ones referred to
+throughout the rest of \Cref{part:cld}, and each of them is verified
+completely.  Throughout, $e_1,\ldots,e_r$ is the standard basis of
+$N=\mathbf Z^r$ and we set
+\[
+                 e_0=-(e_1+\cdots+e_r),
+\]
+so that $e_0+e_1+\cdots+e_r=0$.
+
+\begin{example}[The standard tropical line in $\mathbf R^r$]
+\label{ex:ch10-standard-line}
+Let $L_r\subset\mathbf R^r$ be the union of the $r+1$ rays
+$\mathbf R_{\geq0}e_i$, $i=0,\ldots,r$, each with weight one.  It is a
+one-dimensional fan, and it is balanced: the tangent lattice of its unique
+vertex is zero, and $\sum_{i=0}^re_i=0$ by construction.  For $r=2$ this is
+the picture of \Cref{fig:tropical-line-balancing}; for $r=1$ it is the whole
+line $\mathbf R$, subdivided at the origin.
+
+For $r=2$, and only for $r=2$, the fan $L_r$ is the corner locus, in the
+sense of \Cref{def:appG-corner-locus}, of the max-plus polynomial
+\[
+ F_{\max}(x)=\max\{0,-x_1,\ldots,-x_r\}.
+\]
+Indeed, the maximum in $F_{\max}$ is attained twice on a set of pure
+codimension one, whereas $\dim L_r=1$; the two dimensions agree exactly when
+$r=2$.  For $r=2$ the corner locus is the union of
+\[
+ \{x_1=0\leq x_2\},\qquad
+ \{x_2=0\leq x_1\},\qquad
+ \{x_1=x_2\leq0\},
+\]
+which are the three rays $\mathbf R_{\geq0}e_2$,
+$\mathbf R_{\geq0}e_1$, and $\mathbf R_{\geq0}e_0$.  For $r\geq3$ the corner
+locus is the standard tropical hyperplane, of which
+\Cref{ex:ch10-standard-plane} is the case $r=3$, and $L_r$ has codimension
+$r-1$.
+
+Deleting any one of the $r+1$ rays destroys balancing: the remaining $r$
+primitive vectors are linearly independent, so no nonzero integer
+combination of them vanishes.  Deleting a ray and reweighting the others
+does not help either, for the same reason.
+\end{example}
+
+\begin{example}[The standard tropical plane in $\mathbf R^3$]
+\label{ex:ch10-standard-plane}
+Let
+\[
+ H=\bigcup_{0\leq i<j\leq3}\operatorname{cone}(e_i,e_j)
+ \subset\mathbf R^3,
+\]
+with $e_0=-(e_1+e_2+e_3)$ and weight one on each of the six
+two-dimensional cones.  Then $H$ is a balanced two-dimensional fan, and it is
+the corner locus of $F_{\max}(x)=\max\{0,-x_1,-x_2,-x_3\}$.
+
+\emph{Balancing.}  The codimension-one cells of $H$ are the four rays
+$\rho_i=\mathbf R_{\geq0}e_i$.  The facets containing $\rho_i$ are the three
+cones $\operatorname{cone}(e_i,e_j)$ with $j\neq i$.  For $i\neq j$ the pair
+$\{e_i,e_j\}$ extends to a lattice basis of $\mathbf Z^3$: for
+$i,j\geq1$ this is clear, and for $i=0$, $j=1$ one computes
+\[
+ \bigl|\det\bigl(e_0,e_1,e_2\bigr)\bigr|
+ =\bigl|\det\bigl((-1,-1,-1),(1,0,0),(0,1,0)\bigr)\bigr|=1,
+\]
+the remaining cases following by permuting the coordinates.  Hence the
+tangent lattice of $\operatorname{cone}(e_i,e_j)$ is
+$\mathbf Ze_i+\mathbf Ze_j$, this group being saturated, and
+the primitive normal along $\rho_i$ is the class of $e_j$ in
+$\mathbf Z^3/\mathbf Ze_i$.  The balancing equation at $\rho_i$ therefore
+reads
+\[
+ \sum_{j\neq i}\overline{e_j}
+ =\overline{\textstyle\sum_{j\neq i}e_j}
+ =\overline{-e_i}=0
+ \quad\text{in }\mathbf Z^3/\mathbf Ze_i,
+\]
+which holds.  Note how the computation used only the relation
+$\sum_ie_i=0$; the same argument proves balancing of the analogous fan in
+$\mathbf R^r$ in every codimension.
+
+\emph{Corner locus.}  On the cone $\operatorname{cone}(e_2,e_3)$ one has
+$x_1=0$ and $x_2,x_3\geq0$, so $0=-x_1\geq-x_2,-x_3$ and the maximum is
+attained twice; on $\operatorname{cone}(e_0,e_3)$ one has $x_1=x_2\leq0$ and
+$x_3\geq x_1$, so $-x_1=-x_2\geq0,-x_3$.  The remaining four cones are
+obtained by permuting indices.  Conversely, a point at which the maximum is
+attained twice satisfies one of these two systems.
+\end{example}
+
+The next example is the first one whose balancing is not visible from a
+tropical polynomial, because the fan has codimension two.
+
+\begin{example}[A balanced fan of codimension two]
+\label{ex:ch10-codim-two-fan}
+In $N=\mathbf Z^3$ consider the five primitive vectors
+\[
+\begin{aligned}
+ w_1&=(1,0,0), & w_2&=(0,1,0), & w_3&=(0,0,1),\\
+ w_4&=(1,-1,0), & w_5&=(-2,0,-1),
+\end{aligned}
+\]
+and let $W=\bigcup_{k=1}^5\mathbf R_{\geq0}w_k$ with all weights equal to
+one.  Each $w_k$ is primitive: the greatest common divisor of its
+coordinates is one.  The five rays are pairwise distinct, and
+\[
+ w_1+w_2+w_3+w_4+w_5
+ =(1+0+0+1-2,\,0+1+0-1+0,\,0+0+1+0-1)
+ =(0,0,0),
+\]
+so $W$ is balanced at its unique vertex.
+
+$W$ is not the corner locus of a tropical polynomial, for the trivial reason
+that such a locus has codimension one in $\mathbf R^3$ whereas $\dim W=1$.
+It is also indecomposable, in the following precise sense: $W$ is not the
+sum, in the group $Z_1(\mathbf R^3)$ of
+\Cref{prop:ch10-cycle-group}, of two nonzero effective cycles supported on
+subsets of its rays.  Indeed, in such a decomposition the two weightings are
+positive integers adding up to $1$ on each ray, so each ray belongs to
+exactly one summand, with weight one; the summands are then the fans on a
+partition of $\{w_1,\ldots,w_5\}$ into two nonempty subfamilies, and
+balancing of each summand says that each subfamily sums to zero.  A direct
+check eliminates this.  No two of the $w_k$ are
+negatives of each other, and no $w_k$ is zero.  For triples one computes
+\[
+\begin{aligned}
+ w_1{+}w_2{+}w_3&=(1,1,1), &
+ w_1{+}w_2{+}w_4&=(2,0,0), &
+ w_1{+}w_2{+}w_5&=(-1,1,-1),\\
+ w_1{+}w_3{+}w_4&=(2,-1,1), &
+ w_1{+}w_3{+}w_5&=(-1,0,0), &
+ w_1{+}w_4{+}w_5&=(0,-1,-1),\\
+ w_2{+}w_3{+}w_4&=(1,0,1), &
+ w_2{+}w_3{+}w_5&=(-2,1,0), &
+ w_2{+}w_4{+}w_5&=(-1,0,-1),\\
+ w_3{+}w_4{+}w_5&=(-1,-1,0), & & & &
+\end{aligned}
+\]
+none of which vanishes, and each four-element subfamily sums to the negative
+of the remaining $w_k$, hence is nonzero.
+
+So $W$ is a genuinely five-valent balanced curve in $\mathbf R^3$, not
+assembled from lines and not read off a tropical polynomial.  Whether $W$ is
+the tropicalization of an algebraic curve in the three-dimensional torus over
+some valued field is a separate and much harder question, to which balancing
+gives no answer; \Cref{chap:analytic-tropicalization} proves that
+tropicalizations are balanced, not that balanced cycles are
+tropicalizations.
+\end{example}
+
+\begin{example}[A weighted fan that fails balancing, and what goes wrong]
+\label{ex:ch10-unbalanced}
+In $N=\mathbf Z^2$ let $X=\mathbf R_{\geq0}e_1\cup\mathbf R_{\geq0}e_2$, with
+weight one on each ray.  The discordance at the origin is
+$e_1+e_2=(1,1)\neq0$, so $X$ is not balanced.  Three separate failures
+follow, and it is instructive to see all three, because they are the three
+places where balancing is used later.
+
+\emph{Stokes fails.}  Take $\eta=\chi\,\ddprime x_1$ with $\chi$ smooth,
+compactly supported, and equal to $1$ near the origin.  By
+\eqref{eq:ch10-fan-stokes},
+\[
+ \int_X\dprime\eta
+ =-\langle(1,0),\,e_1+e_2\rangle=-1\neq0 .
+\]
+Thus the current of integration over $X$ is not $\dprime$-closed, and no
+Green formula of the type of
+\Cref{cor:polyhedral-integration-by-parts} can hold on $X$.
+
+\emph{The calibrated chain is not a cycle.}  With
+$e_{\mathbf R_{\geq0}e_1}=e_1$, $e_{\mathbf R_{\geq0}e_2}=e_2$ and
+$e_{\{0\}}=1\in\bigwedge^0N$, the boundary
+\eqref{eq:ch10-boundary} at the vertex is $-(e_1+e_2)\neq0$, in accordance
+with \Cref{thm:ch10-balancing-boundary}.
+
+\emph{Stable intersection is not well defined.}  Let $Y=\mathbf Re_2$, the
+whole vertical line, with weight one; it is balanced.  Displace $Y$ by
+$\varepsilon v$ with $v=(v_1,v_2)$ and $\varepsilon>0$ small.  The displaced
+line is $\{x_1=\varepsilon v_1\}$.  If $v_1>0$, it meets $X$ in the single
+point $(\varepsilon v_1,0)$, lying in the relative interior of
+$\mathbf R_{\geq0}e_1$; the intersection is transverse and the lattice index
+$[\mathbf Z^2:\mathbf Ze_1+\mathbf Ze_2]$ equals one, so the count is $1$.
+If $v_1<0$, the displaced line meets neither ray and the count is $0$.  The
+two answers disagree, so no displacement-independent product exists.
+Comparing with the wall-crossing step in the proof of
+\Cref{thm:tropical-stable-intersection}: there $H=N_{\tau,\mathbf R}+
+N'_{\mathbf R}=\mathbf Re_2$ is a hyperplane, the classes of $e_1$ and $e_2$
+in $N/(N\cap H)\cong\mathbf Z$ are $\lambda_1=1$ and $\lambda_2=0$, and the
+quantity $\sum_k m_k\lambda_k$, which balancing would force to vanish, equals
+$1$.  The discrepancy between the two counts is exactly that number.
+\end{example}
+
+\begin{example}[Balancing with unequal weights]
+\label{ex:ch10-weights-234}
+In $\mathbf Z^2$ take the rays generated by $(1,0)$, $(0,1)$, $(-2,-3)$ with
+weights $2$, $3$, $1$.  Then
+\[
+ 2(1,0)+3(0,1)+1\cdot(-2,-3)=(0,0),
+\]
+so the fan is balanced.  All three vectors are primitive, and no reweighting
+by a common factor is possible, so this is not a multiple of the tropical
+line.  The example shows that the weight of a facet is not determined by its
+tangent lattice: the ray $\mathbf R_{\geq0}(1,0)$ carries weight $2$ here and
+weight $1$ in \Cref{ex:ch10-standard-line}, with the same lattice
+$\mathbf Z(1,0)$.
+\end{example}
+
+\subsection{Bergman fans of matroids}
+\label{sec:ch10-bergman}
+\index{Bergman fan}\index{matroid}
+
+The last family of examples is the standard source of balanced fans that are
+not visibly tropicalizations of hypersurfaces, and it is the one the reader
+is most likely to meet again.  We record the definition, verify balancing in
+the case used as an anchor, and are explicit about what we do not prove.
+
+Let $E=\{1,\ldots,n\}$ and let $M$ be a matroid on $E$ of rank $\rho$, given
+by its rank function $\operatorname{rk}$.  A \emph{flat} of $M$ is a subset
+$F\subseteq E$ with $\operatorname{rk}(F\cup\{i\})>\operatorname{rk}(F)$ for
+every $i\notin F$.  In $\mathbf R^E$ write $e_S=\sum_{i\in S}e_i$ and work in
+the quotient
+\[
+ N_M=\mathbf Z^E/\mathbf Ze_E,
+ \qquad
+ N_{M,\mathbf R}=\mathbf R^E/\mathbf Re_E,
+\]
+a lattice of rank $n-1$; the quotient is by a primitive vector, so $N_M$ is
+free.
+
+\begin{definition}
+\label{def:ch10-bergman-fan}
+The \emph{Bergman fan} $B(M)\subset N_{M,\mathbf R}$ is the fan whose cones
+are
+\[
+ \sigma_{\mathscr F}
+ =\operatorname{cone}
+   \bigl(\overline{e_{F_1}},\ldots,\overline{e_{F_k}}\bigr),
+\]
+one for each chain $\mathscr F:\varnothing\subsetneq F_1\subsetneq\cdots
+\subsetneq F_k\subsetneq E$ of proper nonempty flats of $M$, together with
+the zero cone.  Every maximal cone is given weight one.
+\end{definition}
+
+Since a chain of proper nonempty flats has at most $\rho-1$ members---the
+ranks $\operatorname{rk}(F_1)<\cdots<\operatorname{rk}(F_k)$ are distinct
+integers strictly between $0$ and $\rho$---the fan $B(M)$ has dimension at
+most $\rho-1$, and it is pure of dimension exactly $\rho-1$ when the maximal
+chains are the complete flags of flats.  We use only the rank-two case,
+where everything can be checked by hand.
+
+\begin{proposition}
+\label{prop:ch10-bergman-rank-two}
+Let $M$ be a matroid of rank two on $E$ with no loops, and let
+$F_1,\ldots,F_s$ be its rank-one flats.  Then
+$B(M)=\bigcup_{k}\mathbf R_{\geq0}\overline{e_{F_k}}$ is a one-dimensional
+fan in $N_{M,\mathbf R}$, the vectors $\overline{e_{F_k}}$ are primitive,
+and $B(M)$ is balanced with all weights equal to one.
+\end{proposition}
+
+\begin{proof}
+A chain of proper nonempty flats of a rank-two matroid consists of a single
+rank-one flat, so the cones of $B(M)$ are the rays
+$\mathbf R_{\geq0}\overline{e_{F_k}}$ together with $\{0\}$; the fan is
+one-dimensional, that is, of dimension $\rho-1=1$.
+
+The rank-one flats of a loopless matroid partition $E$: every $i\in E$ lies
+in the closure of $\{i\}$, which is a rank-one flat since $i$ is not a loop,
+and two rank-one flats that meet are equal because a common element already
+has rank one and flats of equal rank containing a common rank-one set
+coincide.  Hence
+\[
+ \sum_{k=1}^se_{F_k}=e_E,
+ \qquad\text{so}\qquad
+ \sum_{k=1}^s\overline{e_{F_k}}=0
+ \quad\text{in }N_M .
+\]
+Since the tangent lattice of the vertex $\{0\}$ is zero, this is precisely
+the balancing equation.
+
+It remains to check primitivity of $\overline{e_{F}}$ for a rank-one flat
+$F$.  Suppose $\overline{e_F}=d\,\overline v$ with $v\in\mathbf Z^E$ and
+$d\geq1$; then $e_F=dv+ce_E$ for some $c\in\mathbf Z$.  Reading coordinate
+$i\in F$ gives $1=dv_i+c$ and coordinate $j\notin F$ gives $0=dv_j+c$; such
+$j$ exists because $F$ is a proper subset, $M$ having rank two.  Subtracting,
+$1=d(v_i-v_j)$, so $d=1$.
+\end{proof}
+
+\begin{example}[The Bergman fan of $U_{2,3}$ is the tripod]
+\label{ex:ch10-bergman-u23}
+Let $M=U_{2,3}$ be the uniform matroid of rank two on $E=\{1,2,3\}$: every
+subset of size at most two is independent, and the bases are the three
+two-element subsets.  Its flats are $\varnothing$, the three singletons, and
+$E$; so the proper nonempty flats are $\{1\},\{2\},\{3\}$ and
+\Cref{prop:ch10-bergman-rank-two} applies with $s=3$.  Thus
+\[
+ B(U_{2,3})
+ =\mathbf R_{\geq0}\overline{e_1}\cup
+  \mathbf R_{\geq0}\overline{e_2}\cup
+  \mathbf R_{\geq0}\overline{e_3}
+ \subset\mathbf Z^3/\mathbf Ze_E\otimes\mathbf R,
+\]
+a one-dimensional balanced fan with three rays: the tripod.  Choosing the
+lattice isomorphism $\mathbf Z^3/\mathbf Ze_E\cong\mathbf Z^2$ that sends
+$\overline{e_1}\mapsto(1,0)$ and $\overline{e_2}\mapsto(0,1)$, one gets
+$\overline{e_3}=-\overline{e_1}-\overline{e_2}\mapsto(-1,-1)$, so
+$B(U_{2,3})$ is carried to the standard tropical line $L_2$ of
+\Cref{ex:ch10-standard-line}.
+
+Two sanity checks.  The dimension is $\rho-1=1$, as it must be for a rank-two
+matroid.  And $U_{2,3}$ is the matroid of three pairwise independent vectors
+spanning a plane, for instance the columns of
+$\left(\begin{smallmatrix}1&0&-1\\0&1&-1\end{smallmatrix}\right)$; the
+corresponding linear subspace of the torus is
+$\{z_1z_2^{-1}\text{-type relations}\}$, concretely the line
+$\{x_1+x_2+x_3=0\}$ in $\mathbf P^2$ intersected with the torus, whose
+tropicalization is again $L_2$.  So in this case the Bergman fan is
+visibly a tropicalization.
+\end{example}
+
+\begin{example}[A Bergman fan that is a subdivided plane]
+\label{ex:ch10-bergman-boolean}
+Let $M$ be the Boolean matroid of rank three on $E=\{1,2,3\}$, that is, the
+matroid of a basis of a three-dimensional space.  Every subset is a flat, so
+the proper nonempty flats are the three singletons and the three pairs, and
+the maximal chains are the six flags $\{i\}\subsetneq\{i,j\}$.  Hence $B(M)$
+has six two-dimensional cones inside the rank-two lattice
+$\mathbf Z^3/\mathbf Ze_E$.  Under the isomorphism of
+\Cref{ex:ch10-bergman-u23}, the six rays are
+\[
+ \overline{e_1}=(1,0),\quad
+ \overline{e_2}=(0,1),\quad
+ \overline{e_3}=(-1,-1),
+\]
+\[
+ \overline{e_{\{1,2\}}}=(1,1),\quad
+ \overline{e_{\{2,3\}}}=(-1,0),\quad
+ \overline{e_{\{1,3\}}}=(0,-1),
+\]
+and the six cones are
+\[
+\begin{gathered}
+ \operatorname{cone}((1,0),(1,1)),\quad
+ \operatorname{cone}((0,1),(1,1)),\quad
+ \operatorname{cone}((0,1),(-1,0)),\\
+ \operatorname{cone}((-1,-1),(-1,0)),\quad
+ \operatorname{cone}((-1,-1),(0,-1)),\quad
+ \operatorname{cone}((1,0),(0,-1)),
+\end{gathered}
+\]
+listed by the angular sectors they occupy.
+Their union is all of $\mathbf R^2$, and consecutive cones share exactly one
+ray.  Thus $B(M)$ is a subdivision of the plane with weight one, which is
+balanced by \Cref{prop:ch10-balancing-subdivision} and
+\Cref{cor:ch10-balancing-consequences}\,\cref{itm:ch10-bal-affine}.  The
+example is a useful check on the dimension formula: a rank-three matroid
+gives a two-dimensional fan.
+\end{example}
+
+The general fact behind these computations---that $B(M)$ is a balanced pure
+$(\rho-1)$-dimensional fan for every loopless matroid $M$ of rank $\rho$, and
+that it is the tropicalization of a linear subspace exactly when $M$ is
+realizable over the relevant field---is due to Ardila and Klivans and to
+Sturmfels; it is not proved here and is not used anywhere below.  We record
+it because it is the standard source of the statement, made in
+\Cref{ex:ch10-codim-two-fan}, that balancing is much weaker than
+realizability: matroids that are not realizable over any field produce
+balanced fans that are not tropicalizations of anything.
+
+\begin{warning}{Subdivision versus pushforward}
+Under subdivision, a top-dimensional cell keeps its tangent lattice and its
+weight.  Lattice-index factors enter a different operation: pushforward under
+an integer-affine map.  Mixing the two rules is a common source of incorrect
+multiplicities.
+\end{warning}
+
+\section{Forms on a polyhedral support}
+\label{sec:ch10-forms}
+\index{superform!on a polyhedral support}
+
+A polyhedral support is not a manifold, and there is no intrinsic notion of a
+smooth function on it.  The definition below solves the problem in the only
+way compatible with the calculus of \Cref{chap:superforms}: a form is
+something that extends to the ambient affine space.  The work then consists
+of proving that the resulting object does not remember the ambient space,
+only the support and its cell structure.  That proof is
+\Cref{thm:ch10-forms-presentation-independent}, and it is the technical
+heart of the passage from tropical charts to Berkovich spaces in
+\Cref{chap:analytic-tropicalization}.
+
+Let $|\mathscr C|$ be the support. A smooth superform on an open subset
+$\Omega\subset|\mathscr C|$ is represented by a smooth superform on a
+neighborhood in $N_{\mathbf R}$.
+
+\begin{definition}
+\label{def:ch10-forms-on-support}
+Two ambient forms represent the same form on $\Omega$ if their evaluations
+agree on tangent vectors to every cell. Equivalently their difference lies,
+cellwise, in the ideal generated by covectors annihilating the cell tangent
+space. The quotient is denoted $A^{p,q}(\Omega)$.
+\end{definition}
+
+Spelled out, let $W\subset N_{\mathbf R}$ be open with
+$W\cap|\mathscr C|=\Omega$, and set
+\begin{equation}
+\label{eq:ch10-form-kernel}
+\begin{gathered}
+ K^{p,q}(W,\mathscr C)
+ =\bigl\{\alpha\in A^{p,q}(W)\ \bigm|\
+   \alpha_x(v_1,\ldots,v_p;w_1,\ldots,w_q)=0\bigr\},\\
+ \text{imposed for all }\sigma\in\mathscr C,\
+   x\in\Omega\cap\sigma
+   \text{ and } v_i,w_j\in N_{\sigma,\mathbf R},
+\end{gathered}
+\end{equation}
+so that $A^{p,q}(\Omega)=A^{p,q}(W)/K^{p,q}(W,\mathscr C)$.  Two points
+deserve emphasis.  First, the condition is imposed cell by cell: at a point
+$x$ lying in several cells, one tests separately with tangent vectors of each
+cell containing $x$, not with vectors from different cells simultaneously.
+Second, the quotient depends only on the collection of pairs
+$(x,N_{\sigma,\mathbf R})$ with $x\in\Omega\cap\sigma$, that is, on the
+support together with its local tangent data.  In particular a subdivision of
+$\mathscr C$ does not change $A^{p,q}(\Omega)$, since by
+\Cref{lem:ch10-subdivision-lattices} the top-dimensional tangent spaces are
+unchanged and the tangent space of a smaller cell is contained in that of a
+cell of the original complex which contains it.
+
+The quotient is local in $\Omega$.  A form may be represented on different
+open subsets by different ambient extensions, provided their restrictions
+agree on every cell.  For a single $d$-dimensional cell, choosing affine
+coordinates along its span identifies this quotient with the ordinary
+superform algebra on an open subset of $\mathbf R^d$; normal covectors
+disappear.
+
+\begin{lemma}
+\label{lem:ch10-forms-sheaf}
+The assignment $\Omega\mapsto A^{p,q}(\Omega)$, with the evident restriction
+maps, is a sheaf on $|\mathscr C|$.
+\end{lemma}
+
+\begin{proof}
+Restriction maps exist because $K^{p,q}$ is defined by a pointwise condition,
+so an ambient representative on $W$ restricts to one on a smaller open set.
+Separatedness is the pointwise nature of the condition again: if a form
+vanishes on a cover, its ambient representative lies in
+$K^{p,q}$ at every point of $\Omega$, hence in $K^{p,q}(W,\mathscr C)$.
+
+For gluing, let $\Omega=\bigcup_i\Omega_i$ and let $\alpha_i$ be forms on
+$\Omega_i$ agreeing on overlaps.  Choose ambient open sets $W_i$ with
+$W_i\cap|\mathscr C|=\Omega_i$ and ambient representatives
+$\widetilde\alpha_i\in A^{p,q}(W_i)$.  Shrinking, we may assume the cover
+$(W_i)$ of $W=\bigcup W_i$ is locally finite; take a smooth partition of
+unity $(\chi_i)$ on $W$ subordinate to it and set
+$\widetilde\alpha=\sum_i\chi_i\widetilde\alpha_i$.  At a point
+$x\in\Omega\cap\sigma$ and tangent vectors of $\sigma$, the value of
+$\widetilde\alpha$ is $\sum_i\chi_i(x)$ times the common value of the
+$\alpha_i$ at $x$, that is, the required value, because the $\alpha_i$
+defined near $x$ agree there and $\sum_i\chi_i(x)=1$.  Hence
+$\widetilde\alpha$ represents a form restricting to $\alpha_i$ on
+$\Omega_i$.
+\end{proof}
+
+The partition-of-unity argument is worth pausing on: it uses smooth bump
+functions on the \emph{ambient} affine space, not on $|\mathscr C|$.  This is
+the recurring pattern of the chapter.  Ambient smoothness is a tool;
+the statements proved with it are about the support.
+
+\subsection{Independence of the ambient presentation}
+\label{sec:ch10-presentation}
+
+A polyhedral support arises in practice as the image of a tropicalization
+map, and different maps give different ambient spaces.  We must know that the
+form algebra does not depend on the choice.  The precise statement is the
+following.  Recall that an integer-affine map $F:N_{\mathbf R}\to
+N'_{\mathbf R}$ has linear part carrying $N$ into $N'$ and an arbitrary real
+translation, as in \Cref{def:appG-affine-conventions}.
+
+\begin{theorem}
+\label{thm:ch10-forms-presentation-independent}
+Let $\mathscr C$ and $\mathscr C'$ be rational polyhedral complexes in
+$N_{\mathbf R}$ and $N'_{\mathbf R}$, let $\Omega\subseteq|\mathscr C|$ and
+$\Omega'\subseteq|\mathscr C'|$ be open, and let
+$\varphi:\Omega\to\Omega'$ be a homeomorphism.  Assume:
+\begin{enumerate}
+\item\label{itm:ch10-pres-local} every point of $\Omega$ has a neighbourhood
+      on which $\varphi$ is the restriction of an integer-affine map
+      $N_{\mathbf R}\to N'_{\mathbf R}$, and every point of $\Omega'$ has a
+      neighbourhood on which $\varphi^{-1}$ is the restriction of an
+      integer-affine map $N'_{\mathbf R}\to N_{\mathbf R}$;
+\item\label{itm:ch10-pres-cells} after refining $\mathscr C$ and
+      $\mathscr C'$, the map $\varphi$ carries $\Omega\cap\sigma$ onto
+      $\Omega'\cap\sigma'$ for a bijection $\sigma\mapsto\sigma'$ of the
+      cells meeting $\Omega$ with those meeting $\Omega'$.
+\end{enumerate}
+Then $\varphi^*:A^{p,q}(\Omega')\to A^{p,q}(\Omega)$ is a well-defined
+isomorphism of bigraded algebras, compatible with $\dprime$, $\ddprime$, and
+the involution $J$.  Moreover the linear part of $\varphi$ induces
+isomorphisms $N_{\sigma}\cong N'_{\sigma'}$ of tangent lattices.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: reduction to a local statement.}
+Both sides are sheaves on $\Omega$ by \Cref{lem:ch10-forms-sheaf}, and the
+construction of $\varphi^*$ below is local; so by
+\Cref{lem:ch10-forms-sheaf} it suffices to construct compatible
+isomorphisms over a cover of $\Omega$ by open sets on which $\varphi$ and
+$\varphi^{-1}$ are restrictions of integer-affine maps.  Fix such an open
+set $\Omega_0$ and integer-affine maps $F:N_{\mathbf R}\to N'_{\mathbf R}$
+and $G:N'_{\mathbf R}\to N_{\mathbf R}$ with $F|_{\Omega_0}=\varphi$ and
+$G|_{\varphi(\Omega_0)}=\varphi^{-1}$.
+
+\emph{Step 2: $\varphi^*$ is well defined.}
+The map $F$ is affine, so $F^*$ carries $A^{p,q}$ of a neighbourhood of
+$\varphi(\Omega_0)$ in $N'_{\mathbf R}$ to $A^{p,q}$ of a neighbourhood of
+$\Omega_0$ in $N_{\mathbf R}$, and commutes with wedge, $\dprime$,
+$\ddprime$, and $J$; this is the pullback of \Cref{chap:superforms}.  We
+must check that $F^*$ carries $K^{p,q}$ into $K^{p,q}$.  Let
+$\alpha'\in K^{p,q}$ and let $x\in\Omega_0\cap\sigma$ with tangent vectors
+$v_i,w_j\in N_{\sigma,\mathbf R}$.  Writing $DF$ for the linear part,
+\[
+ (F^*\alpha')_x(v_1,\ldots;w_1,\ldots)
+ =\alpha'_{F(x)}(DF(v_1),\ldots;DF(w_1),\ldots).
+\]
+By hypothesis \cref{itm:ch10-pres-cells}, $F$ maps a neighbourhood of $x$ in
+$\sigma$ into $\sigma'$.  The cone of directions $v$ with $x+tv\in\sigma$ for
+small $t>0$ has nonempty interior in $N_{\sigma,\mathbf R}$, because $\sigma$
+is convex of full dimension in its affine span and $x\in\sigma$; hence that
+cone spans $N_{\sigma,\mathbf R}$.  For $v$ in the cone,
+$DF(v)=\lim_{t\downarrow0}t^{-1}(F(x+tv)-F(x))$ lies in
+$N'_{\sigma',\mathbf R}$, and by linearity
+$DF(N_{\sigma,\mathbf R})\subseteq N'_{\sigma',\mathbf R}$.  Hence the
+right-hand side vanishes, and $F^*\alpha'\in K^{p,q}$.
+
+\emph{Step 3: $\varphi^*$ is independent of the chosen extension.}
+If $F_1,F_2$ both restrict to $\varphi$ on $\Omega_0$, then for
+$x\in\Omega_0\cap\sigma$ and $v\in N_{\sigma,\mathbf R}$ one has
+$DF_1(v)=DF_2(v)$: this holds for $v$ in the spanning cone of feasible
+directions of Step 2, because $F_1=F_2$ on $\Omega_0$ and both differ from
+their common value at $x$ by the same difference quotients, and it then holds
+on $N_{\sigma,\mathbf R}$ by linearity.  Thus $F_1^*\alpha'$ and
+$F_2^*\alpha'$ have the same evaluations on cell tangent vectors at points of
+$\Omega_0$, that is, they differ by an element of $K^{p,q}$.  Consequently
+the induced map on quotients depends only on $\varphi$, and the local maps
+agree on overlaps and glue.
+
+\emph{Step 4: $\varphi^*$ is bijective.}
+By Steps 2 and 3 applied to $\varphi^{-1}$ we get a map
+$(\varphi^{-1})^*:A^{p,q}(\Omega)\to A^{p,q}(\Omega')$, and locally it is
+induced by $G^*$.  Now $G\circ F$ restricts to the identity on $\Omega_0$,
+so by Step 3, $(G\circ F)^*=F^*\circ G^*$ induces the identity on
+$A^{p,q}(\Omega_0)$; symmetrically for $F\circ G$.  Hence $\varphi^*$ and
+$(\varphi^{-1})^*$ are mutually inverse.
+
+\emph{Step 5: tangent lattices.}
+Fix a cell $\sigma$ meeting $\Omega$ and a point
+$x\in\RelInt(\sigma)\cap\Omega$.  As in Step 2, $DF$ maps
+$N_{\sigma,\mathbf R}$ into $N'_{\sigma',\mathbf R}$, and $DG$ maps back;
+since $G\circ F$ and $F\circ G$ restrict to identities near $x$ and near
+$F(x)$, the two linear maps are mutually inverse isomorphisms
+$N_{\sigma,\mathbf R}\cong N'_{\sigma',\mathbf R}$.  Because $DF(N)\subseteq
+N'$ and $DG(N')\subseteq N$, they restrict to mutually inverse maps
+$N\cap N_{\sigma,\mathbf R}\to N'\cap N'_{\sigma',\mathbf R}$, that is, to an
+isomorphism $N_\sigma\cong N'_{\sigma'}$.
+\end{proof}
+
+The theorem is stated for a homeomorphism because that is the form needed for
+charts.  The case that occurs when one enlarges the ambient space---replacing
+a tropicalization by a finer one with more coordinates---is worth extracting
+separately, since it is the one used to compare two charts through their
+product.
+
+\begin{corollary}
+\label{cor:ch10-forms-graph}
+Let $\mathscr C_1,\mathscr C_2$ be rational polyhedral complexes in
+$N_{1,\mathbf R}$, $N_{2,\mathbf R}$, let
+$\Omega_i\subseteq|\mathscr C_i|$ be open, and let
+$\varphi:\Omega_1\to\Omega_2$ satisfy the hypotheses of
+\Cref{thm:ch10-forms-presentation-independent}.  Let
+\[
+ \Gamma=\{(x,\varphi(x))\mid x\in\Omega_1\}
+ \subset N_{1,\mathbf R}\oplus N_{2,\mathbf R},
+\]
+with the polyhedral structure induced by
+\cref{itm:ch10-pres-cells}, and let $p_1,p_2$ be the two projections.  Then
+$p_1$ and $p_2$ restrict to homeomorphisms $\Gamma\to\Omega_1$ and
+$\Gamma\to\Omega_2$ satisfying the same hypotheses, and
+\[
+ p_1^*:A^{p,q}(\Omega_1)\longrightarrow A^{p,q}(\Gamma),
+ \qquad
+ p_2^*:A^{p,q}(\Omega_2)\longrightarrow A^{p,q}(\Gamma)
+\]
+are isomorphisms with $p_1^*=p_2^*\circ\varphi_*$, where
+$\varphi_*=(\varphi^{-1})^*$.
+\end{corollary}
+
+\begin{proof}
+The projections are restrictions of the linear maps
+$N_{1,\mathbf R}\oplus N_{2,\mathbf R}\to N_{i,\mathbf R}$, which are integer
+linear; their inverses on $\Gamma$ are $x\mapsto(x,\varphi(x))$ and
+$y\mapsto(\varphi^{-1}(y),y)$, which are locally integer affine because
+$\varphi$ and $\varphi^{-1}$ are.  The cell correspondence is
+$\sigma\leftrightarrow(\sigma\times\sigma')\cap\Gamma$.  Hence
+\Cref{thm:ch10-forms-presentation-independent} applies to $p_1|_\Gamma$ and
+$p_2|_\Gamma$ and gives the two isomorphisms.  The identity
+$p_1|_\Gamma=\varphi^{-1}\circ p_2|_\Gamma$ gives the last assertion after
+applying the functoriality established in Step 4 of that proof.
+\end{proof}
+
+The graph construction is exactly how one compares two tropicalizations of
+the same analytic domain: the product moment map has the graph as its image,
+and \Cref{cor:ch10-forms-graph} says that the form algebra computed in either
+factor is the same.  \Cref{chap:analytic-tropicalization} runs this argument
+with analytic charts, where the extra input is that the product of two moment
+maps is a moment map.
+
+\begin{proposition}
+\label{prop:ch10-forms-quotient-operations}
+Wedge products, $\dprime$, $\ddprime$, and pullback by integer-affine maps descend to
+the quotient.
+\end{proposition}
+\begin{proof}
+If a covector annihilates a cell tangent space, its wedge with any form still
+vanishes on tangent vectors. For the differential assertion, restrict first
+to the relative interior of a cell: restriction commutes with ordinary
+differentiation. Continuity extends equality to its faces. The chain rule
+proves the pullback statement.
+\end{proof}
+
+We expand the differential assertion, since it is the only one that is not
+purely algebraic.  Let $\alpha\in K^{p,q}(W,\mathscr C)$; we must show
+$\dprime\alpha\in K^{p+1,q}(W,\mathscr C)$.  Fix a cell $\sigma$ and a point
+$x\in\RelInt(\sigma)\cap\Omega$.  Choose affine coordinates
+$y_1,\ldots,y_d,z_1,\ldots,z_{r-d}$ on $N_{\mathbf R}$ adapted to $\sigma$,
+so that $\operatorname{span}(\sigma-\sigma)=\{z=0\}$ after translating $x$ to
+the origin.  In these coordinates the condition $\alpha\in K^{p,q}$ says that
+every coefficient of $\alpha$ involving only $\dprime y$ and $\ddprime y$
+factors vanishes identically on $\RelInt(\sigma)\cap\Omega$, that is, on a
+relatively open subset of $\{z=0\}$.  Differentiating such a coefficient in
+the directions $y_1,\ldots,y_d$ therefore gives zero there; and the terms of
+$\dprime\alpha$ obtained by differentiating in a $z$-direction carry a factor
+$\dprime z_i$, which annihilates $N_{\sigma,\mathbf R}$.  Hence
+$\dprime\alpha$ evaluates to zero on tangent vectors of $\sigma$ at points of
+$\RelInt(\sigma)\cap\Omega$.  For a point $x$ in a face of $\sigma$ the same
+conclusion follows by continuity of $\dprime\alpha$, since $x$ is a limit of
+points of $\RelInt(\sigma)$ and the tangent space does not jump upward along
+such a limit.  The argument for $\ddprime$ is identical, and $J$ is an
+algebra automorphism preserving the defining condition.
+
+The upshot is that $\bigoplus_{p,q}A^{p,q}(\Omega)$ is a bigraded
+differential algebra with all the identities of
+\Cref{prop:superform-differential-identities}, since those identities hold
+before passing to the quotient.
+
+\begin{example}[Smoothness at a tropical vertex]
+\label{ex:ch10-smooth-at-vertex}
+Consider the tropical line of \Cref{fig:tropical-line-balancing}.  On the
+relative interior of each ray, a smooth function is just a smooth
+one-variable function.  At the vertex, however, a smooth function in the
+present sheaf must be the restriction of one ambient smooth function.
+If its outgoing derivatives are $s_1,s_2,s_3$, then
+\[
+ s_j=\langle \nabla f(0),u_j\rangle,
+ \qquad
+                         s_1+s_2+s_3=0.
+\]
+Thus three arbitrary edgewise derivatives do not define a smooth germ at the
+vertex.  Piecewise affine functions violating this relation are still
+continuous, but their curvature is a delta-current supported at the vertex.
+\end{example}
+
+The relation $s_1+s_2+s_3=0$ in that example is not an accident of the
+tropical line: it is \eqref{eq:ch10-fan-stokes} in bidegree $(0,0)$.  Indeed,
+for a balanced one-dimensional fan with rays $\mathbf R_{\geq0}u_k$ and
+weights $m_k$, and for an ambient smooth $f$, the outgoing derivative along
+the $k$th ray is $s_k=\langle\nabla f(0),u_k\rangle$, so
+\[
+ \sum_km_ks_k
+ =\Bigl\langle\nabla f(0),\sum_km_ku_k\Bigr\rangle=0 .
+\]
+Balancing is therefore visible already in the sheaf $A^{0,0}$: it is the
+single linear relation satisfied by the edgewise derivatives of every smooth
+function at a vertex.  Conversely, the space of germs of ambient smooth
+functions at the vertex surjects onto the hyperplane of slope vectors
+$(s_k)$ satisfying that relation, since $\nabla f(0)$ can be prescribed
+arbitrarily.  Thus the sheaf $A^{0,0}$ knows the weighted fan up to
+balancing, and no more.
+
+\begin{example}[A form supported on one ray]
+\label{ex:ch10-form-one-ray}
+On the tropical line $L_2\subset\mathbf R^2$ let $\Omega$ be the complement
+of the origin, a disjoint union of three open rays.  By
+\Cref{lem:ch10-forms-sheaf}, a form on $\Omega$ is a triple of forms, one on
+each ray, with no compatibility condition.  Taking a bump function $\chi$
+supported in the relative interior of $\mathbf R_{>0}e_1$ and
+$\alpha=\chi\,\dprime x_1\wedge\ddprime x_1$, we get a nonzero element of
+$A^{1,1}_c(\Omega)$, which extends by zero to $A^{1,1}_c(L_2)$.  Its integral
+against the calibration of weight one is $\int_0^\infty\chi\,\rd s>0$.  This
+shows both that $A^{1,1}(L_2)\neq0$ and that the integral of a positive top
+form detects the weight of a single ray, as it must if
+\Cref{prop:integral-subdivision-independent} is to be sharp.
+\end{example}
+
+\section{Tropical spaces and charts}
+\label{sec:ch10-tropical-spaces}
+\index{tropical space!charts}\index{tropical chart}
+
+Everything so far took place inside one affine space.  A skeleton of a model,
+or the tropicalization of an analytic space, is not naturally a subset of a
+single $N_{\mathbf R}$: it is covered by pieces that are, and the pieces are
+glued by integer-affine maps.  The following definition abstracts that
+situation.  \Cref{thm:ch10-forms-presentation-independent} is what makes the
+definition usable, because it says that the local data assembled below do not
+depend on the chart in which they are read.
+
+\begin{definition}
+\label{def:ch10-tropical-space}
+A \emph{tropical space} is a Hausdorff space $S$ with an atlas of homeomorphisms
+$\varphi_i:U_i\to\Omega_i$, where $\Omega_i$ is open in the support of a
+weighted balanced rational polyhedral complex, such that transition maps are
+locally restrictions of integer-affine maps and preserve the weighted
+cycles. A superform on $S$ is a compatible family of superforms in these
+charts.
+\end{definition}
+
+Let us unwind the definition.  An \emph{atlas} is a family
+$(U_i,\varphi_i,(\mathscr C_i,m_i))$ with $(U_i)$ an open cover of $S$,
+$\varphi_i:U_i\to\Omega_i\subseteq|\mathscr C_i|$ a homeomorphism onto an
+open subset, and $(\mathscr C_i,m_i)$ a balanced weighted rational polyhedral
+complex in some $N_{i,\mathbf R}$.  The transition map on $U_i\cap U_j$ is
+\[
+ \varphi_{ji}
+ =\varphi_j\circ\varphi_i^{-1}:
+ \varphi_i(U_i\cap U_j)\longrightarrow\varphi_j(U_i\cap U_j),
+\]
+and the requirement is that $\varphi_{ji}$ and $\varphi_{ij}$ satisfy
+hypotheses \cref{itm:ch10-pres-local} and \cref{itm:ch10-pres-cells} of
+\Cref{thm:ch10-forms-presentation-independent}, and in addition that the
+bijection of cells there matches weights:
+\begin{equation}
+\label{eq:ch10-transition-weights}
+ m_j(\sigma')=m_i(\sigma)
+ \qquad\text{whenever }
+ \varphi_{ji}\bigl(\varphi_i(U_i\cap U_j)\cap\sigma\bigr)
+ =\varphi_j(U_i\cap U_j)\cap\sigma'
+\end{equation}
+for a top-dimensional cell $\sigma$ of the refinement of $\mathscr C_i$
+supplied by hypothesis \cref{itm:ch10-pres-cells}, with the weights of a
+refinement inherited from their carriers as in
+\Cref{prop:ch10-balancing-subdivision}.  Two atlases are equivalent if their
+union is again an atlas; a tropical space is a space with an equivalence
+class of atlases.  Its \emph{level} or \emph{dimension} is the common
+dimension $n$ of the complexes $\mathscr C_i$, which is well defined because
+a transition map is a homeomorphism carrying cells to cells.
+
+The following theorem is the verification that
+\Cref{def:ch10-tropical-space} defines something: that every structure used
+later is transported by transitions, and hence globalizes.
+
+\begin{theorem}
+\label{thm:ch10-transition-transport}
+Let $S$ be a tropical space of dimension $n$ with atlas
+$(U_i,\varphi_i,(\mathscr C_i,m_i))$.
+\begin{enumerate}
+\item\label{itm:ch10-tr-forms} The presheaves $U\mapsto A^{p,q}(\varphi_i(U))$
+      glue to a sheaf $A^{p,q}_S$ of bigraded algebras on $S$, equipped with
+      operators $\dprime,\ddprime$ and an involution $J$ satisfying the
+      identities of
+      \Cref{prop:superform-differential-identities}.
+\item\label{itm:ch10-tr-lattice} For $x\in S$ the tangent lattices of the
+      cells through $\varphi_i(x)$, together with their inclusions, are
+      independent of $i$ up to canonical isomorphism.  In particular the
+      \emph{local weighted star} of $x$ is a well-defined balanced weighted
+      fan up to integer-linear isomorphism.
+\item\label{itm:ch10-tr-calib} The calibrations $\mu_i$ of
+      \Cref{def:ch10-calibration} attached to the charts agree on overlaps up
+      to the sign of the orientation, and the associated positive measure on
+      $(n,n)$-forms is chart independent.
+\item\label{itm:ch10-tr-positivity} Positivity, strong positivity, and weak
+      positivity of a $(p,p)$-form are chart independent.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\cref{itm:ch10-tr-forms}
+By \Cref{thm:ch10-forms-presentation-independent} applied to $\varphi_{ji}$,
+there are isomorphisms
+$\varphi_{ji}^*:A^{p,q}(\varphi_j(U_i\cap U_j))\to
+A^{p,q}(\varphi_i(U_i\cap U_j))$ compatible with the algebra structure,
+$\dprime$, $\ddprime$ and $J$.  Step 4 of that proof shows
+$\varphi_{ii}^*=\mathrm{id}$ and, applied to a triple overlap,
+$\varphi_{ki}^*=\varphi_{ji}^*\circ\varphi_{kj}^*$, since on
+$U_i\cap U_j\cap U_k$ the two composites are induced by integer-affine
+extensions restricting to the same map.  This is a descent datum for the
+sheaves of \Cref{lem:ch10-forms-sheaf}, so they glue.  The identities of
+\Cref{prop:superform-differential-identities} hold in each chart, hence
+globally.
+
+\cref{itm:ch10-tr-lattice}
+This is Step 5 of the proof of
+\Cref{thm:ch10-forms-presentation-independent}: the linear part of a local
+integer-affine extension of $\varphi_{ji}$ restricts to an isomorphism
+$N_{\sigma}\to N'_{\sigma'}$ for corresponding cells, and the cocycle
+condition again holds on triple overlaps.  The isomorphisms are compatible
+with the inclusions $N_\tau\subseteq N_\sigma$ for $\tau\prec\sigma$, because
+they are restrictions of one linear map.  Consequently the primitive normals
+$u_{\sigma/\tau}$ correspond, and by \eqref{eq:ch10-transition-weights} the
+weights correspond; the local star of $x$ therefore has a chart-independent
+description, and it is balanced because each $(\mathscr C_i,m_i)$ is
+balanced and by
+\Cref{cor:ch10-balancing-consequences}\,\cref{itm:ch10-bal-local}.
+
+\cref{itm:ch10-tr-calib}
+Let $\sigma\leftrightarrow\sigma'$ correspond under $\varphi_{ji}$, with
+linear part $A$.  By \cref{itm:ch10-tr-lattice}, $A$ restricts to an
+isomorphism $N_\sigma\to N'_{\sigma'}$, so
+$\bigwedge^nA$ carries a generator of $\bigwedge^nN_\sigma$ to a generator of
+$\bigwedge^nN'_{\sigma'}$, that is,
+$\bigwedge^nA(e_\sigma)=\pm e_{\sigma'}$.  Hence
+$\bigwedge^nA(\mu_\sigma)=\pm\mu_{\sigma'}$ by
+\eqref{eq:ch10-transition-weights}.  The sign is the sign of the determinant
+of $A$ in oriented lattice bases and is $+1$ precisely when the two chosen
+orientations correspond.  For the measure attached to an $(n,n)$-form, note
+that $A$ restricts to an isomorphism of \emph{lattices}
+$N_\sigma\to N'_{\sigma'}$, so its determinant computed in lattice bases is
+$\pm1$; the pullback of the interlaced volume form $\tau_n$ therefore
+acquires the factor $\det(A)^2=1$ from the two labelled exterior blocks, the
+lattice-normalized Lebesgue measures correspond, and the weight is
+unchanged.  The resulting measure is thus chart independent.  This is
+\Cref{prop:appG-calibration-tests} in the present notation, and it is the
+precise sense in which an orientation is bookkeeping while a weight is not.
+
+\cref{itm:ch10-tr-positivity}
+All three positivity cones are stable under pullback by an affine map, by the
+corresponding statement in \Cref{chap:superforms}; and by Step 3 of the proof
+of \Cref{thm:ch10-forms-presentation-independent} the pullback on
+$A^{p,q}(\Omega)$ does not depend on the affine extension chosen.  Since
+$\varphi_{ji}^*$ and $\varphi_{ij}^*$ are mutually inverse, each cone is
+carried onto the corresponding cone.
+\end{proof}
+
+\begin{definition}
+\label{def:ch10-tropical-morphism}
+A \emph{morphism} of tropical spaces $f:S\to T$ is a continuous map such
+that, for every $x\in S$, there are charts $\varphi_i$ near $x$ and $\psi_j$
+near $f(x)$ for which $\psi_j\circ f\circ\varphi_i^{-1}$ is the restriction
+of an integer-affine map.  A morphism is \emph{compact} if it is proper on
+supports, and \emph{generically finite on a cell} if its linear part is
+injective on the tangent space of that cell.
+\end{definition}
+
+Pullback of forms along a morphism is defined chartwise by
+\Cref{thm:ch10-forms-presentation-independent}, Step 2, and is independent of
+the charts by Step 3.  Pushforward of cycles requires the lattice indices of
+\Cref{sec:ch10-pushforward}, and it is not defined for arbitrary morphisms.
+
+\begin{example}[The tropical line as a tropical space]
+\label{ex:ch10-line-as-space}
+The support $L_2\subset\mathbf R^2$ of \Cref{ex:ch10-standard-line} is a
+tropical space with a one-chart atlas.  It also has a three-chart atlas whose
+charts are the three open rays, each mapped to an open subset of $\mathbf R$
+with weight one: for the ray $\mathbf R_{>0}e_1$, use $x\mapsto x_1$; for
+$\mathbf R_{>0}e_2$, use $x\mapsto x_2$; for $\mathbf R_{>0}e_0$, use
+$x\mapsto-x_1$.  These three charts cover $L_2\setminus\{0\}$ only, so a
+fourth chart, namely the identity on a neighbourhood of the vertex, is
+needed.  The transition between the fourth chart and the first is
+$x\mapsto x_1$ on $\{x_2=0,\,x_1>0\}$, an integer-linear map carrying the
+tangent lattice $\mathbf Z e_1$ isomorphically onto $\mathbf Z$ and the
+weight one to the weight one.  Thus the two atlases are equivalent, as
+\Cref{thm:ch10-transition-transport} requires.
+\end{example}
+
+\begin{example}[A tropical space that is not a polyhedral subset]
+\label{ex:ch10-circle}
+Let $\ell>0$ and let $S=\mathbf R/\ell\mathbf Z$, covered by the images of
+three open intervals of length $2\ell/3$; each is mapped isomorphically to an
+open subset of $\mathbf R$, carrying the standard lattice $\mathbf Z$ and
+weight one, and the transitions are translations, which are integer affine
+with integral linear part $+1$.  So $S$ is a one-dimensional tropical space.
+
+It is not homeomorphic to the support of any balanced weighted complex with
+positive weights, in any $N_{\mathbf R}$.  We prove more: such a support is
+never nonempty and compact.
+
+Suppose $(\mathscr C,m)$ is balanced, pure of dimension one, with $m_\sigma>0$
+for every facet, and with $|\mathscr C|$ compact and nonempty.  Local
+finiteness and compactness give finitely many cells, each compact; write
+$\sigma=[x_\sigma,x_\sigma+\lambda_\sigma u_\sigma]$ with $u_\sigma$ a
+primitive generator of $N_\sigma$ and $\lambda_\sigma>0$ its lattice length.
+Fix $m\in M$, set $\ell=\langle m,\cdot\rangle$, and choose
+$\chi\in C_c^\infty(N_{\mathbf R})$ equal to $1$ on a neighbourhood of
+$|\mathscr C|$.  The superform
+\[
+ \eta=\ell\,\chi\,\ddprime\ell\in A^{0,1}_c(N_{\mathbf R})
+\]
+has compact support, and since $\ell$ is affine,
+\[
+ \dprime\eta
+ =\chi\,\dprime\ell\wedge\ddprime\ell
+  +\ell\,\dprime\chi\wedge\ddprime\ell .
+\]
+On the neighbourhood where $\chi\equiv1$ the second term vanishes and the
+first equals $\dprime\ell\wedge\ddprime\ell$.  By
+\Cref{thm:balanced-stokes}, $\int_{(\mathscr C,m)}\dprime\eta=0$; on the
+other hand, parametrizing $\sigma$ by $x_\sigma+su_\sigma$ gives
+$\dprime\ell\wedge\ddprime\ell=\langle m,u_\sigma\rangle^2\,
+\dprime s\wedge\ddprime s$, so
+\[
+ 0=\int_{(\mathscr C,m)}\dprime\eta
+  =\sum_{\sigma}m_\sigma\,\langle m,u_\sigma\rangle^2\,\lambda_\sigma .
+\]
+Every summand is nonnegative, so $\langle m,u_\sigma\rangle=0$ for every
+$\sigma$.  Letting $m$ run over $M$ gives $u_\sigma=0$, contradicting
+primitivity.  Hence no such complex exists, and in particular the circle is
+not such a support.
+
+The hypothesis of positive weights is used, and is not decorative: with
+weights of mixed sign a vertex of the convex hull of the support can satisfy
+the balancing equation, as the primitive vectors $(-1,0)$, $(-1,1)$,
+$(-1,-1)$ with weights $-2,1,1$ show.  Tropicalizations of analytic spaces
+carry positive multiplicities
+(\Cref{thm:appG-analytic-calibration}), so the effective case is the
+relevant one.
+
+The circle $\mathbf R/\ell\mathbf Z$ is exactly the skeleton of a Tate curve
+computed in \Cref{ex:ch08-tate-curve}, with $\ell$ the valuation of the Tate
+parameter.  Thus the smallest interesting non-Archimedean example already
+forces the abstract definition: skeleta of curves with bad reduction are
+tropical spaces that are not tropical subsets of $\mathbf R^r$.
+\end{example}
+
+This economical definition suffices for the smooth calculus. CLD's parlinear
+and piecewise-linear spaces retain additional sheaf data needed for maximum
+generality. We invoke that formalism only when a theorem genuinely requires
+it.  The relation is the following: a parlinear space carries, in addition to
+the topological and chart data above, a sheaf of parlinear functions, and the
+tropical charts are required to be sections of it; the balancing condition is
+replaced by the harmony condition on the calibration.  For the theorems of
+\Cref{chap:tropical-integration,chap:cld-forms} the two formalisms give the
+same integrals, and we use whichever is lighter.  The maximally general
+version, together with the vertebrate and chorded variants needed for spaces
+with boundary, is \cite[\S\S3--6]{CLD25}; a précis is
+\Cref{sec:appG-polyhedra}.
+
+\section{Calibrations, orientations, and multiplicities}
+\label{sec:ch10-calibrations}
+\index{calibration}\index{orientation!of a polyhedral cell}
+
+The weights of a balanced complex were introduced as integers attached to
+facets.  For integration one needs slightly more: an integer attached to a
+facet is not enough to integrate an $n$-form, because an $n$-form must be
+paired with an oriented $n$-vector.  The calibration is the object that
+packages the tangent lattice, the orientation, and the weight in one place,
+so that the three can be transported by a chart change all at once, as in
+\Cref{thm:ch10-transition-transport}\,\cref{itm:ch10-tr-calib}.  We introduce
+it here, immediately before the pushforward and intersection theory that
+consume it, and immediately before the integration of
+\Cref{chap:tropical-integration} where its purpose is visible.
+
+\begin{definition}
+\label{def:ch10-calibration}
+An orientation of an $n$-cell is a generator of
+$\bigwedge^nN_\sigma$ up to positive sign.  After choosing the primitive
+oriented generator $e_\sigma$, a \emph{calibration} assigns to each maximal
+cell the multivector
+\[
+                              \mu_\sigma=m_\sigma e_\sigma,
+\]
+compatibly with subdivision.  For a positive cycle its magnitude is the
+positive weight; for a signed cycle the sign remains part of the calibrated
+multivector.
+\end{definition}
+
+A calibration packages three items that must not be mixed: tangent lattice,
+orientation, and multiplicity. Reversing orientation changes integrals of
+single $n$-forms; it does not change the positive measure attached to an
+$(n,n)$-form because both labelled copies reverse.
+
+\begin{proposition}
+\label{prop:ch10-calibration-basics}
+Let $\mathscr C$ be a pure $n$-dimensional rational polyhedral complex in
+$N_{\mathbf R}$.
+\begin{enumerate}
+\item\label{itm:ch10-cal-bijection} A pair consisting of a weighting $m$ and
+      a choice of orientations determines the family
+      $\mu_\sigma=m_\sigma e_\sigma$ of nonzero elements of
+      $\bigwedge^nN_\sigma$, and every such family arises from exactly two
+      pairs, differing by a simultaneous sign change of $m_\sigma$ and
+      $e_\sigma$ on each cell.  In particular the calibration determines
+      $|m_\sigma|$ but not the sign of $m_\sigma$; that sign is the datum
+      which distinguishes a cycle from its negative.
+\item\label{itm:ch10-cal-subdivision} If $\mathscr C'$ subdivides
+      $\mathscr C$ and each facet $\sigma'$ of $\mathscr C'$ receives
+      $\mu_{\sigma'}=\mu_\sigma$ for its carrier $\sigma$, then the
+      assignment is a calibration on $\mathscr C'$, and the two calibrations
+      define the same integral of any compactly supported $(n,n)$-form.
+\item\label{itm:ch10-cal-balancing} With the incidence numbers
+      \eqref{eq:ch10-incidence} computed from the same orientations, the
+      complex is balanced if and only if
+      $\sum_{\sigma\supset\tau}[\sigma:\tau]\mu_\sigma=0$ in
+      $\bigwedge^nN$ for every codimension-one cell $\tau$.  Each product
+      $[\sigma:\tau]\mu_\sigma$ is independent of the orientation
+      $e_\sigma$, the weighting $m$ being held fixed.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch10-cal-bijection} By \Cref{lem:ch10-tangent-lattice}\,(2) the
+group $\bigwedge^nN_\sigma$ is free of rank one, with exactly two
+generators $\pm e_\sigma$; a nonzero element of it is therefore
+$m_\sigma e_\sigma$ for a unique nonzero integer $m_\sigma$ once a
+generator has been chosen, and the only ambiguity is replacing
+$(e_\sigma,m_\sigma)$ by $(-e_\sigma,-m_\sigma)$.  Hence $|m_\sigma|$ is
+determined by $\mu_\sigma$ and its sign is not.
+
+\cref{itm:ch10-cal-subdivision} The assignment makes sense because
+$N_{\sigma'}=N_\sigma$ by \Cref{lem:ch10-subdivision-lattices}, so
+$\mu_\sigma$ lies in $\bigwedge^nN_{\sigma'}$.  The integral statement is
+\Cref{prop:integral-subdivision-independent}: the relative interiors of the
+$\sigma'$ with carrier $\sigma$ partition $\RelInt(\sigma)$ up to a set of
+measure zero, and the lattice-normalized measures agree.
+
+\cref{itm:ch10-cal-balancing} This is
+\Cref{thm:ch10-balancing-boundary} rewritten with
+$\mu_\sigma=m_\sigma e_\sigma$; the independence of the products from the
+orientation is Step~4 of that proof, in which $m$ is held fixed and both
+$[\sigma:\tau]$ and $\mu_\sigma$ change sign together.
+\end{proof}
+
+\subsection{The sign conventions, tested}
+\label{sec:ch10-sign-test}
+
+Sign conventions are only trustworthy after being run on an example in which
+every choice is made explicitly.  We do that now, on the smallest example in
+which orientation, weight, and lattice all appear.
+
+\begin{example}[Orientation reversal on a segment]
+\label{ex:ch10-sign-test-segment}
+Work in $N=\mathbf Z$, $N_{\mathbf R}=\mathbf R$, on the cell
+$\sigma=[0,2]$ with weight $m_\sigma=3$.  Choose the orientation
+$e_\sigma=+1\in\bigwedge^1\mathbf Z=\mathbf Z$, so that
+$\mu_\sigma=3$.  Let $\alpha=f(x)\,\dprime x\wedge\ddprime x$ with $f\geq0$
+smooth.  With the conventions of
+\Cref{chap:tropical-integration},
+\[
+ \int_{(\sigma,\mu_\sigma)}\alpha
+ =3\int_0^2f(x)\,\rd x\geq0 .
+\]
+Now reverse the orientation, keeping the weight: $e_\sigma'=-1$,
+$m_\sigma=3$, $\mu_\sigma'=-3$.  The integral is unchanged.  Indeed, in the
+reversed coordinate $y=-x$ one has
+$\dprime y\wedge\ddprime y=(-\dprime x)\wedge(-\ddprime x)
+=\dprime x\wedge\ddprime x$, so the interlaced volume form $\tau_1$ is the
+same and the lattice-normalized Lebesgue measure is the same.  This is
+\Cref{prop:appG-calibration-tests}\,(3): an $(n,n)$-form does not see an
+orientation, because the two labelled exterior blocks reverse together.
+
+Next let $\eta=g(x)\,\ddprime x$ be a form of bidegree $(0,1)$.  The
+boundary traces \eqref{eq:superform-boundary-traces} with $n=1$ read
+$\operatorname{tr}'_{\sigma,\tau}(\eta)=(\iota''_{n_{\sigma,\tau}}\eta)|_\tau$
+with $n_{\sigma,\tau}$ the outward normal, that is, $+1$ at $x=2$ and $-1$ at
+$x=0$.  Hence
+\[
+ \int_\sigma\dprime\eta
+ =\int_0^2g'(x)\,\rd x
+ =g(2)-g(0)
+ =\operatorname{tr}'_{\sigma,\{2\}}(\eta)
+  +\operatorname{tr}'_{\sigma,\{0\}}(\eta),
+\]
+in agreement with \Cref{thm:polyhedral-stokes}.  Reversing the orientation of
+$\sigma$ reverses the induced orientations of both endpoints, so both
+boundary terms change sign, and the identity is preserved.  This is the
+assertion that orientation reversal is invisible to a $(1,1)$-form and
+visible, coherently on both sides, to the Stokes pairing.
+\end{example}
+
+\begin{example}[The three orientations of the tropical line]
+\label{ex:ch10-sign-test-line}
+On $L_2\subset\mathbf R^2$ take the three rays with weights $1$ and the
+orientations $e_1$, $e_2$, $e_0=-e_1-e_2$ pointing away from the vertex, so
+that $\mu_k=e_k$ for $k=0,1,2$.  The incidence numbers
+\eqref{eq:ch10-incidence} at the vertex $\tau=\{0\}$ are all $-1$: with
+$e_\tau=1\in\bigwedge^0N$ and $\widetilde u_{\sigma_k/\tau}=e_k=e_{\sigma_k}$,
+the defining relation
+$\widetilde u_{\sigma_k/\tau}\wedge e_\tau=-[\sigma_k:\tau]e_{\sigma_k}$
+gives $[\sigma_k:\tau]=-1$.  Hence
+\[
+ \sum_{k=0}^2[\sigma_k:\tau]\mu_k
+ =-(e_0+e_1+e_2)=0,
+\]
+confirming \Cref{prop:ch10-calibration-basics}\,\cref{itm:ch10-cal-balancing}.
+
+Now reverse the orientation of the ray $\mathbf R_{\geq0}e_0$ only, keeping
+the weight $m_0=1$: the new data are $e_{\sigma_0}'=-e_0$,
+$\mu_0'=-e_0$, and the new incidence number is
+$[\sigma_0:\tau]'=+1$, because
+$\widetilde u_{\sigma_0/\tau}\wedge e_\tau=e_0
+=-[\sigma_0:\tau]'\,(-e_0)$.  The product is
+$[\sigma_0:\tau]'\mu_0'=-e_0$, exactly what it was before; the calibrated
+balancing sum is therefore unchanged, as
+\Cref{prop:ch10-calibration-basics}\,\cref{itm:ch10-cal-balancing}
+predicts.  The uncalibrated sum $\sum_km_ku_{\sigma_k/\tau}$ never involved
+the orientations at all, and is likewise unchanged.
+
+Contrast this with changing the \emph{weight} of that ray from $1$ to $-1$,
+keeping the orientation $e_0$.  Now $\mu_0=-e_0$ and
+$[\sigma_0:\tau]=-1$, so the calibrated sum becomes
+$e_0-e_1-e_2=2e_0\neq0$, while the uncalibrated sum becomes
+$-e_0+e_1+e_2=-2e_0\neq0$.  Both detect the failure, as they must: the
+weighting $(1,1,-1)$ is a different tropical cycle, and it is not balanced.
+
+The moral is the one recorded in the warning below.  Reversing an orientation
+is invisible to every geometric quantity---the calibrated balancing equation,
+the integral of an $(n,n)$-form, the measure attached to a positive
+form---whereas changing the sign of a weight changes the cycle.  When a
+computation produces an unexpected factor of $-1$, the first question is
+which of the two has happened.
+\end{example}
+
+\begin{warning}{Three different signs}
+Three signs occur in this chapter and must be kept apart: the sign of a
+weight $m_\sigma$, which distinguishes a cycle from its negative; the sign of
+an orientation $e_\sigma$, which is a bookkeeping choice; and the sign of an
+incidence number $[\sigma:\tau]$, which is determined by the orientations.
+Only the first has geometric content.  Flipping $e_\sigma$ flips both
+$\mu_\sigma$ and $[\sigma:\tau]$, so it leaves the products
+$[\sigma:\tau]\mu_\sigma$---and hence the balancing equation, the boundary
+\eqref{eq:ch10-boundary}, and all integrals of $(n,n)$-forms---unchanged.
+Flipping $m_\sigma$ does not.  Note also that the calibration $\mu_\sigma$
+alone determines $|m_\sigma|$ but not its sign, so a calibration is not by
+itself enough to test balancing; the weighting must be specified as well.
+For an effective cycle this ambiguity disappears once one agrees that all
+weights are positive.
+\end{warning}
+
+\section{Integer-affine pushforward}
+\label{sec:ch10-pushforward}
+\index{pushforward!of tropical cycles}\index{lattice index}
+
+Pushforward is the operation in which lattice indices first appear, and it is
+the operation most often mishandled.  We isolate the index algebra in a
+lemma, prove the pushforward statement, and then test it on examples where
+the answer can be checked independently.
+
+\begin{lemma}
+\label{lem:ch10-index}
+Let $N$ be a free abelian group of finite rank and let $A,B,C\subseteq N$ be
+subgroups of finite index in their saturations.
+\begin{enumerate}
+\item\label{itm:ch10-idx-tower} If $A\subseteq B\subseteq C$ have equal
+      ranks, then $[C:A]=[C:B][B:A]$.
+\item\label{itm:ch10-idx-quotient} If $A$ and $B$ are saturated with
+      $A+B$ of finite index in $N$, then the natural map
+      $N/(A+B)\to(N/A)/\overline B$ is an isomorphism, where $\overline B$ is
+      the image of $B$; in particular
+      $[N:A+B]=[N/A:\overline B]$.
+\item\label{itm:ch10-idx-kernel-cokernel} If $A,B,C\subseteq N$ are saturated
+      and $A+B$, $B+C$, $(A\cap B)+C$ all have finite index in $N$, then
+      \[
+       [N:(A\cap B)+C]
+       =[N:B+C]\,\bigl[B:(A\cap B)+(B\cap C)\bigr].
+      \]
+\item\label{itm:ch10-idx-diagonal} Let $\Delta=\{(a,a):a\in N\}\subseteq
+      N\oplus N$ and let $A,B\subseteq N$ be saturated.  Then
+      \[
+       \bigl[N\oplus N:(A\oplus B)+\Delta\bigr]=[N:A+B].
+      \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\cref{itm:ch10-idx-tower} is the multiplicativity of indices in a tower of
+finite-index subgroups.
+
+\cref{itm:ch10-idx-quotient} The composite $N\to N/A\to(N/A)/\overline B$ is
+surjective with kernel $A+B$, giving the isomorphism, and the index
+statement is the resulting equality of orders.
+
+\cref{itm:ch10-idx-kernel-cokernel} Consider the homomorphism
+\[
+ \theta:B\longrightarrow N/\bigl((A\cap B)+C\bigr)
+\]
+induced by the inclusion $B\subseteq N$.  Its kernel is
+$B\cap((A\cap B)+C)$, which contains $(A\cap B)+(B\cap C)$; conversely, if
+$b=a'+c$ with $a'\in A\cap B$ and $c\in C$, then $c=b-a'\in B\cap C$, so the
+kernel is exactly $(A\cap B)+(B\cap C)$.  Its cokernel is
+$N/\bigl((A\cap B)+C+B\bigr)=N/(B+C)$, since $A\cap B\subseteq B$.  Hence
+there is an exact sequence
+\[
+ 0\to(A\cap B)+(B\cap C)\to B\to N/\bigl((A\cap B)+C\bigr)\to N/(B+C)\to0
+\]
+of abelian groups in which the first and last quotients are finite; comparing
+orders in the induced short exact sequence
+\[
+ 0\to B/\bigl((A\cap B)+(B\cap C)\bigr)\to
+ N/\bigl((A\cap B)+C\bigr)\to N/(B+C)\to0
+\]
+gives the asserted identity.
+
+\cref{itm:ch10-idx-diagonal} The map $\delta:N\oplus N\to N$,
+$\delta(a,b)=a-b$, is surjective with kernel $\Delta$, and
+$\delta(A\oplus B)=A+B$.  Hence $\delta$ induces an isomorphism
+$(N\oplus N)/\bigl((A\oplus B)+\Delta\bigr)\cong N/(A+B)$, and the orders
+agree.
+\end{proof}
+
+Let $F:N_{\mathbf R}\to N'_{\mathbf R}$ be integer affine.  Suppose that
+$F$ is injective on the span of every maximal cell of a pure
+$n$-dimensional weighted complex $C$.  After subdivision, the images of the
+maximal cells form a complex.  For an image cell $\sigma'$ define
+\[
+ m_{\sigma'}(F_*C)
+ =\sum_{\substack{\sigma\in C_n\\F(\sigma)=\sigma'}}
+   m_\sigma\,[N_{\sigma'}:F(N_\sigma)].
+\]
+The equality $F(\sigma)=\sigma'$ here means equality after restricting to the
+relative interiors of suitably subdivided cells.
+
+\begin{proposition}
+\label{prop:tropical-pushforward-balanced}
+If $C$ is balanced, then $F_*C$ is balanced.  The construction is unchanged
+by subdivision and is functorial for compositions satisfying the same
+dimension hypothesis.
+\end{proposition}
+\begin{proof}
+Subdivision invariance follows by grouping cells having the same image.
+For balancing, fix a codimension-one cell $\tau'$ of the image and group the
+source codimension-one cells and facets lying over it.  The homomorphism on
+quotient lattices sends
+each primitive source normal to a positive integral multiple of the
+corresponding primitive target normal.  Multiplying this integer by the
+index $[N_{\sigma'}:F(N_\sigma)]$ and using the elementary index formula in
+the exact sequence of tangent lattices gives the target weight above.
+Applying $F$ to each source balancing equation and grouping its terms
+therefore gives the target balancing equation.  For a composite $G\circ F$,
+the equality
+\[
+ [N_{\sigma''}:G(F(N_\sigma))]
+ =[N_{\sigma''}:G(N_{\sigma'})]\,
+   [N_{\sigma'}:F(N_\sigma)]
+\]
+gives functoriality.
+\end{proof}
+
+For the reader who wants the balancing step of that proof written out, here
+it is.  Fix a codimension-one cell $\tau'$ of $F_*C$ and a facet
+$\sigma'\supset\tau'$.  Let $\tau\subseteq F^{-1}(\tau')$ be a
+codimension-one cell of $C$ with $F(\tau)=\tau'$, and let
+$\sigma\supset\tau$ be a facet with $F(\sigma)=\sigma'$.  Because $F$ is
+injective on $N_{\sigma,\mathbf R}$, the induced map
+\[
+ \bar F:N_\sigma/N_\tau\longrightarrow N'_{\sigma'}/N'_{\tau'}
+\]
+is injective between free groups of rank one; hence
+$\bar F(u_{\sigma/\tau})=\lambda_{\sigma}\,u_{\sigma'/\tau'}$ for a positive
+integer $\lambda_\sigma$, the sign being positive because $F$ maps the
+$\sigma$ side of $\tau$ into the $\sigma'$ side of $\tau'$.  Applying
+\Cref{lem:ch10-index}\,\cref{itm:ch10-idx-tower} to the inclusions
+$F(N_\sigma)\subseteq F(N_\sigma)+N'_{\tau'}\subseteq N'_{\sigma'}$ and
+comparing the induced rank-one quotients gives
+\[
+ [N'_{\sigma'}:F(N_\sigma)]\,\lambda_\sigma^{-1}
+ =[N'_{\tau'}:F(N_\tau)],
+\]
+that is, $[N'_{\sigma'}:F(N_\sigma)]=\lambda_\sigma[N'_{\tau'}:F(N_\tau)]$.
+Now apply $\bar F$ to the source balancing equation at $\tau$ and multiply by
+$[N'_{\tau'}:F(N_\tau)]$:
+\[
+ 0=[N'_{\tau'}:F(N_\tau)]\sum_{\sigma\supset\tau}m_\sigma
+     \bar F(u_{\sigma/\tau})
+  =\sum_{\sigma\supset\tau}m_\sigma
+     [N'_{\sigma'(\sigma)}:F(N_\sigma)]
+       u_{\sigma'(\sigma)/\tau'},
+\]
+where $\sigma'(\sigma)=F(\sigma)$; summing over the finitely many $\tau$
+lying over $\tau'$ regroups the left-hand side into the balancing sum of
+$F_*C$ at $\tau'$, whose coefficients are exactly the pushforward weights.
+
+\begin{example}[A degree-two lattice map]
+\label{ex:ch10-degree-two}
+Let $F:\mathbf R\to\mathbf R$ be $t\mapsto2t$, with source and target lattice
+$\mathbf Z$.  The image ray has the same underlying set, but
+$[\mathbf Z:2\mathbf Z]=2$.  A source ray of weight one therefore pushes
+forward to a ray of weight two.  This index is the tropical counterpart of a
+degree in the analytic projection formula.
+\end{example}
+
+\begin{example}[Projecting the tropical line]
+\label{ex:ch10-project-line}
+Let $L_2\subset\mathbf R^2$ be the standard tropical line with weights one
+and let $F:\mathbf R^2\to\mathbf R$ be $F(x_1,x_2)=x_1$.  The map $F$ is
+injective on the tangent line of the ray $\mathbf R_{\geq0}e_1$ and on that
+of $\mathbf R_{\geq0}e_0$, but it kills the tangent line of
+$\mathbf R_{\geq0}e_2$.  The hypothesis of
+\Cref{prop:tropical-pushforward-balanced} therefore fails, and indeed the
+naive image of $L_2$ is all of $\mathbf R$ with the ray
+$\mathbf R_{\geq0}e_2$ collapsing to the origin.
+
+Delete the offending ray and instead push forward the balanced one-cycle
+$Z=\mathbf R_{\geq0}e_1\cup\mathbf R_{\geq0}(-e_1)$, with weights one; here
+$F$ is injective on both tangent lines, $[\mathbf Z:F(\mathbf Ze_1)]=1$, and
+$F_*Z=\mathbf R$ with weight one, which is balanced.  If instead one pushes
+forward $Z'=\mathbf R_{\geq0}(2e_1)\cup\mathbf R_{\geq0}(-2e_1)$---the same
+set, but presented with the nonsaturated lattice $\mathbf Z(2e_1)$, which is
+\emph{not} allowed by our conventions---one obtains weight two.  This is the
+error against which the warning after \Cref{def:appG-affine-conventions}
+guards: primitivity is computed in the saturated lattice.
+\end{example}
+
+\begin{example}[Pushing forward a tropical plane to a line]
+\label{ex:ch10-project-plane}
+Let $H\subset\mathbf R^3$ be the standard tropical plane of
+\Cref{ex:ch10-standard-plane} and let $F:\mathbf R^3\to\mathbf R^2$ be the
+projection $(x_1,x_2,x_3)\mapsto(x_1,x_2)$.  The linear part is injective on
+the tangent plane of $\operatorname{cone}(e_1,e_2)$, of
+$\operatorname{cone}(e_1,e_0)$ and of $\operatorname{cone}(e_2,e_0)$, and it
+kills $e_3$, so it is not injective on the three cones containing $e_3$.  The
+hypothesis of \Cref{prop:tropical-pushforward-balanced} fails, and no
+pushforward of $H$ in dimension two is defined.  In terms of
+\Cref{chap:tropical-integration}, the top-degree integral would diverge
+along the collapsed direction.  This is the polyhedral shadow of the
+properness hypothesis in the analytic projection formula.
+\end{example}
+
+\section{Stable intersections}
+\label{sec:ch10-stable-intersection}
+\index{stable intersection}\index{fan displacement rule}
+
+Two tropical cycles rarely meet in the expected dimension.  The tropical line
+$L_2$ and its translate by a vector along the ray $\mathbf R_{\geq0}e_0$
+share a whole ray, whereas the expected dimension of an intersection of two
+curves in the plane is zero.  Classical intersection theory solves this by
+moving one cycle; the tropical theory does the same, and the surprise is that
+the answer is independent of how one moves, provided the cycles are balanced.
+That is the content of \Cref{thm:tropical-stable-intersection}, and it is the
+only place where balancing is used as an input rather than proved as an
+output.
+
+Following the organizing principle of \Cref{part:cld}, we do the computations
+first.  \Cref{sec:ch10-transverse} defines the transverse multiplicity, which
+requires no displacement.  \Cref{sec:ch10-three-computations} works out three
+intersections completely by hand, two in $\mathbf R^2$ and one in
+$\mathbf R^3$, and verifies in each case that the count does not depend on
+the displacement direction.  Only then, in
+\Cref{sec:ch10-general-stable}, is the general construction stated and
+proved.
+
+\subsection{Transverse intersections}
+\label{sec:ch10-transverse}
+
+Let $X$ and $Y$ be tropical cycles of pure dimensions $k$ and $l$ in
+$N_{\mathbf R}$, initially represented by finite complexes.  They meet
+\emph{transversally} if every facet of $X\cap Y$ has dimension
+$k+l-r$ and is uniquely an intersection $\sigma\cap\sigma'$ of facets of
+$X$ and $Y$.  Its weight is
+\[
+ \omega(\sigma\cap\sigma')
+ =\omega_X(\sigma)\omega_Y(\sigma')
+   [N:N_\sigma+N_{\sigma'}].
+\]
+
+The index $[N:N_\sigma+N_{\sigma'}]$ is finite exactly when
+$N_{\sigma,\mathbf R}+N_{\sigma',\mathbf R}=N_{\mathbf R}$, which is the
+linear-algebra form of transversality; and it equals one exactly when
+$N_\sigma$ and $N_{\sigma'}$ together generate $N$.  The next example shows
+that the second condition is strictly stronger, so the index cannot be
+dropped.
+
+\begin{example}[The lattice-index test]
+\label{ex:ch10-lattice-index-test}
+The coordinate axes in $\mathbf R^2$ meet with multiplicity one. The rays
+generated by $(1,0)$ and $(1,2)$ meet transversely with multiplicity
+$|\det((1,0),(1,2))|=2$. Any definition that gives one in the second example
+has forgotten the lattice calibration.
+\end{example}
+
+In $\mathbf R^r$, when $\dim\sigma+\dim\sigma'=r$, the index is computed as an
+absolute determinant: if $a_1,\ldots,a_k$ is a lattice basis of $N_\sigma$ and
+$b_1,\ldots,b_{r-k}$ one of $N_{\sigma'}$, then
+\begin{equation}
+\label{eq:ch10-index-determinant}
+ [N:N_\sigma+N_{\sigma'}]
+ =\bigl|\det(a_1,\ldots,a_k,b_1,\ldots,b_{r-k})\bigr|,
+\end{equation}
+the determinant being taken in a lattice basis of $N$.  Indeed, the columns
+listed generate $N_\sigma+N_{\sigma'}$, and the index of a finite-index
+subgroup of $\mathbf Z^r$ is the absolute value of the determinant of a
+generating matrix.  This is the formula used in every computation below.
+
+\subsection{Three computations}
+\label{sec:ch10-three-computations}
+
+\begin{example}[Two tropical lines in general position]
+\label{ex:ch10-two-lines-generic}
+Let $L=L_2$ be the standard tropical line in $\mathbf R^2$, with rays
+\[
+ R_1=\mathbf R_{\geq0}(1,0),\quad
+ R_2=\mathbf R_{\geq0}(0,1),\quad
+ R_0=\mathbf R_{\geq0}(-1,-1),
+\]
+all of weight one, and let $L'=L+(3,1)$, the translate with vertex $(3,1)$
+and rays $R_i'=R_i+(3,1)$.  We claim that $L$ and $L'$ meet transversally in
+the single point $(2,0)$, with multiplicity one.
+
+Write the rays as sets:
+\[
+\begin{aligned}
+ R_1&=\{(t,0):t\geq0\}, & R_2&=\{(0,t):t\geq0\}, &
+ R_0&=\{(s,s):s\leq0\},\\
+ R_1'&=\{(3+t,1):t\geq0\}, & R_2'&=\{(3,1+t):t\geq0\}, &
+ R_0'&=\{(s,s-2):s\leq3\}.
+\end{aligned}
+\]
+We test the nine pairs.  The pairs $(R_1,R_1')$ and $(R_2,R_2')$ have
+parallel tangent lines and disjoint supports.  For $(R_1,R_2')$ one needs
+$x_1=3$ and $x_2=0$, but $R_2'$ has $x_2\geq1$.  For $(R_2,R_1')$ one needs
+$x_1=0$ and $x_1\geq3$.  For $(R_0,R_0')$ one needs $s=s-2$.  The pair
+$(R_1,R_0')$ gives $x_2=0$, hence $s=2$ and the point $(2,0)$, which lies in
+$R_1$ because $2\geq0$ and in $R_0'$ because $2\leq3$.  The pair
+$(R_2,R_0')$ gives $x_1=0$, hence $s=0$ and the point $(0,-2)$, which is not
+in $R_2$.  The pair $(R_0,R_1')$ gives $x_2=1$ and $x_1=x_2$, that is
+$(1,1)$, which is not in $R_0$; the pair $(R_0,R_2')$ gives $x_1=3$, hence
+the point $(3,3)$, again not in $R_0$.
+
+So $L\cap L'=\{(2,0)\}$, a single point, of the expected dimension
+$1+1-2=0$, arising from exactly one pair of facets; the intersection is
+transverse.  Its multiplicity is
+\[
+ 1\cdot1\cdot\bigl|\det\bigl((1,0),(-1,-1)\bigr)\bigr|
+ =\bigl|1\cdot(-1)-0\cdot(-1)\bigr|=1,
+\]
+using \eqref{eq:ch10-index-determinant} with the primitive generators
+$(1,0)$ of $N_{R_1}$ and $(-1,-1)$ of $N_{R_0'}$.  The total multiplicity is
+therefore $1$, which is the tropical Bézout count for two lines.
+\end{example}
+
+\begin{example}[Two tropical lines in degenerate position]
+\label{ex:ch10-two-lines-degenerate}
+Keep $L$ as above and let $a>0$, $L'=L+(a,a)$.  Now
+\[
+ R_0=\{(s,s):s\leq0\}\subset R_0'=\{(s,s):s\leq a\},
+\]
+so $L\cap L'\supseteq R_0$ is one-dimensional: the intersection is not
+transverse, and the naive count is not defined.  We displace.
+
+Let $v\in\mathbf R^2$ and $\varepsilon>0$, and intersect $L$ with
+$L'+\varepsilon v$, the tropical line with vertex
+$p_\varepsilon=(a+\varepsilon v_1,\,a+\varepsilon v_2)$.  We compute for
+three choices of $v$.
+
+\emph{The direction $v=(1,0)$.}  The vertex is $(a+\varepsilon,a)$ and the
+three rays are $\{(a+\varepsilon+t,a)\}$, $\{(a+\varepsilon,a+t)\}$, and
+$\{(s+\varepsilon,s):s\leq a\}$.  Intersecting with $R_1=\{(t,0)\}$: the
+first ray has $x_2=a>0$; the second has $x_1=a+\varepsilon>0$ and $x_2\geq
+a>0$; the third gives $s=0$, hence the point $(\varepsilon,0)$, which lies in
+$R_1$.  Intersecting with $R_2=\{(0,t)\}$: the third ray gives
+$s=-\varepsilon$, hence $x_2=-\varepsilon<0$, not in $R_2$; the first two
+rays have $x_1>0$.  Intersecting with $R_0=\{(s,s):s\leq0\}$: the first ray
+forces $s=a>0$; the second forces $s=a+\varepsilon>0$; the third has
+$x_1-x_2=\varepsilon\neq0$.  So the only intersection point is
+$(\varepsilon,0)$, transverse, with multiplicity
+$|\det((1,0),(-1,-1))|=1$.  Total: $1$.
+
+\emph{The direction $v=(0,1)$.}  Symmetrically, the vertex is
+$(a,a+\varepsilon)$, the third ray is $\{(s,s+\varepsilon):s\leq a\}$, and
+the only intersection with $L$ is at $(0,\varepsilon)\in R_2$, with
+multiplicity $|\det((0,1),(-1,-1))|=|0\cdot(-1)-1\cdot(-1)|=1$.  Total: $1$.
+
+\emph{The direction $v=(1,-1)$.}  The vertex is
+$(a+\varepsilon,a-\varepsilon)$ and the third ray is
+$\{(s+2\varepsilon,s):s\leq a-\varepsilon\}$.  Intersecting with $R_1$ gives
+$s=0$ and the point $(2\varepsilon,0)$, which lies in $R_1$; intersecting
+with $R_2$ gives $s=-2\varepsilon$, hence $x_2<0$; intersecting with $R_0$
+gives $x_1-x_2=2\varepsilon\neq0$ for the third ray, and $s>0$ for the other
+two.  Multiplicity $|\det((1,0),(-1,-1))|=1$.  Total: $1$.
+
+In all three cases the total is $1$, and the intersection point tends to the
+origin as $\varepsilon\to0$.  The stable intersection is therefore
+$L\cdot L'=1\cdot[(0,0)]$, supported at the vertex of $L$, which indeed lies
+in $|L|\cap|L'|=R_0$.  The count matches the transverse count of
+\Cref{ex:ch10-two-lines-generic}, as it must, since $L'$ can be moved from
+$(a,a)$ to $(3,1)$ through translations.
+
+\emph{The excluded direction.}  For $v=(-1,-1)$ the translate
+$L'+\varepsilon v=L+(a-\varepsilon)(1,1)$ is again a diagonal translate, and
+the intersection remains one-dimensional for every $\varepsilon$.  Thus
+$v=(-1,-1)$, and likewise $v=(1,1)$, are not generic.  The nongeneric set is
+the line $\mathbf R(1,1)$, a proper rational subspace; this is the
+finite union of proper subspaces appearing in the proof of
+\Cref{thm:tropical-stable-intersection}.  In the language of that proof,
+$\tau=\{0\}$ is the codimension-one cell of $L$ at which the displacement
+must cross a wall, and $H=N_{\tau,\mathbf R}+N_{R_0'}=\mathbf R(1,1)$ is the
+hyperplane.  Crossing it in the direction of the class of $(1,0)$ picks out
+the facets $R_1$ with $\lambda=1$; crossing in the opposite direction picks
+out $R_2$ with $\lambda=-1$, after writing the primitive normals of $L$ at
+its vertex modulo $H$:
+\[
+ (1,0)\equiv w,\qquad (0,1)\equiv-w,\qquad (-1,-1)\equiv0
+ \pmod{\mathbf R(1,1)},
+\]
+where $w$ generates $N/(N\cap H)$.  The balancing relation
+$1\cdot1+1\cdot(-1)+1\cdot0=0$ is exactly the equality of the two counts.
+\end{example}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[x=1cm,y=1cm,>=Stealth]
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (1.3,1.3);
+  \coordinate (B) at (1.9,1.3);
+  \coordinate (P) at (0.6,0);
+
+  % L
+  \draw[very thick] (O)--(3.0,0);
+  \draw[very thick] (O)--(0,3.0);
+  \draw[very thick] (O)--(-1.9,-1.9);
+  \fill (O) circle (1.6pt);
+  \node[below left,font=\small] at (-0.05,-0.05) {$0$};
+  \node[font=\small] at (3.35,0) {$L$};
+
+  % L' = L + (a,a)
+  \draw[thick,gray,dash pattern=on 3pt off 2pt] (A)--(3.6,1.3);
+  \draw[thick,gray,dash pattern=on 3pt off 2pt] (A)--(1.3,3.6);
+  \draw[thick,gray,dash pattern=on 3pt off 2pt] (A)--(-1.9,-1.9);
+  \fill[gray] (A) circle (1.6pt);
+  \node[gray,font=\small] at (3.95,1.3) {$L'$};
+
+  % displaced L' + eps v, v = (1,0)
+  \draw[thin,dash pattern=on 1pt off 1.6pt] (B)--(3.9,1.3);
+  \draw[thin,dash pattern=on 1pt off 1.6pt] (B)--(1.9,3.6);
+  \draw[thin,dash pattern=on 1pt off 1.6pt] (B)--(-1.4,-2.0);
+  \fill (B) circle (1.2pt);
+  \node[font=\scriptsize] at (2.55,3.35) {$L'+\varepsilon v$};
+
+  % intersection point
+  \fill (P) circle (2.2pt);
+  \draw[->,thin] (1.15,-0.95)--(0.68,-0.12);
+  \node[font=\scriptsize,anchor=north] at (1.15,-1.0)
+    {multiplicity $1$ at $(\varepsilon,0)$};
+
+  % overlapping ray highlight
+  \draw[line width=3pt,black!18] (O)--(-1.9,-1.9);
+  \draw[very thick] (O)--(-1.9,-1.9);
+  \node[font=\scriptsize,anchor=east] at (-1.95,-1.75) {$|L|\cap|L'|$};
+\end{tikzpicture}
+\caption{Two tropical lines in degenerate position.  The supports share the
+whole ray $\mathbf R_{\geq0}(-1,-1)$, so the set-theoretic intersection has
+the wrong dimension.  After an arbitrarily small generic displacement the
+two curves meet in one transverse point of multiplicity one, which tends to
+the vertex of $L$.  Displacing in the direction $(0,1)$ instead produces the
+point $(0,\varepsilon)$ on the vertical ray, again with multiplicity one.}
+\label{fig:ch10-stable-lines}
+\end{figure}
+
+\begin{example}[A plane and a line in $\mathbf R^3$]
+\label{ex:ch10-plane-line-r3}
+Let $H\subset\mathbf R^3$ be the standard tropical plane of
+\Cref{ex:ch10-standard-plane}, with weight one on each of its six cones, and
+let $L_3\subset\mathbf R^3$ be the standard tropical line of
+\Cref{ex:ch10-standard-line}, with rays $\mathbf R_{\geq0}e_i$,
+$i=0,1,2,3$, and weight one.  Since every ray of $L_3$ is a face of a cone of
+$H$, we have $L_3\subseteq H$, so $H\cap L_3=L_3$ has dimension $1$, whereas
+the expected dimension is $2+1-3=0$.  Again we displace.
+
+It is convenient to use the description of $H$ as the corner locus of
+$F(x)=\max\{0,-x_1,-x_2,-x_3\}$, proved in
+\Cref{ex:ch10-standard-plane}: a point $x$ lies in $H$ if and only if the
+maximum defining $F(x)$ is attained at least twice.
+
+\emph{The direction $v=(3,2,1)$.}  The displaced line has vertex
+$p=\varepsilon(3,2,1)$ and rays $p+\mathbf R_{\geq0}e_i$.  Along
+$p+te_1=(3\varepsilon+t,2\varepsilon,\varepsilon)$ we get
+$F=\max\{0,-3\varepsilon-t,-2\varepsilon,-\varepsilon\}=0$, attained only by
+the constant term, so this ray misses $H$; the same computation applies to
+$p+te_2$ and $p+te_3$.  Along
+\[
+ p+te_0=(3\varepsilon-t,\,2\varepsilon-t,\,\varepsilon-t),
+\]
+the four candidates are $0$, $t-3\varepsilon$, $t-2\varepsilon$,
+$t-\varepsilon$, whose maximum is $\max\{0,t-\varepsilon\}$; it is attained
+twice exactly when $t=\varepsilon$, giving the point
+$q=(2\varepsilon,\varepsilon,0)$.  At $q$ the maximum is attained by $0$ and
+$-x_3$, so $q$ lies in the relative interior of
+$\operatorname{cone}(e_1,e_2)=\{x_3=0,\ x_1,x_2\geq0\}$.  The intersection
+is transverse, with tangent lattices $\mathbf Ze_1+\mathbf Ze_2$ and
+$\mathbf Ze_0=\mathbf Z(1,1,1)$, and the multiplicity is
+\[
+ 1\cdot1\cdot
+ \bigl|\det\bigl((1,0,0),(0,1,0),(1,1,1)\bigr)\bigr|
+ =1 .
+\]
+Total: $1$.
+
+\emph{The direction $v=(1,2,3)$.}  Now $p=\varepsilon(1,2,3)$, the three rays
+$p+te_i$ with $i\geq1$ again miss $H$, and along $p+te_0$ the maximum is
+$\max\{0,t-\varepsilon\}$, attained twice at $t=\varepsilon$, giving
+$q'=(0,\varepsilon,2\varepsilon)$.  At $q'$ the maximum is attained by $0$
+and $-x_1$, so $q'$ lies in $\operatorname{cone}(e_2,e_3)$, and the
+multiplicity is
+$|\det((0,1,0),(0,0,1),(1,1,1))|=1$.  Total: $1$, in agreement with the
+previous direction, although the intersection point has moved to a different
+cone of $H$.
+
+\emph{An excluded direction.}  For $v=e_0=(-1,-1,-1)$ the vertex is
+$-\varepsilon(1,1,1)$ and along the ray $p+te_0$ one has
+$x_1=x_2=x_3=-\varepsilon-t$, so $F=\varepsilon+t$ is attained by three
+terms at once; the whole ray lies in $H$ and the intersection stays
+one-dimensional.  As in the planar case, the nongeneric directions form a
+proper closed subset, here containing the line $\mathbf Re_0$.
+
+As $\varepsilon\to0$ the intersection point tends to the origin in both
+generic computations, so $H\cdot L_3=1\cdot[(0,0,0)]$.
+\end{example}
+
+The three computations exhibit the two phenomena that
+\Cref{thm:tropical-stable-intersection} must explain: the count is the same
+for all generic displacement directions, and the support of the answer is
+contained in---but usually much smaller than---the set-theoretic
+intersection.  \Cref{ex:ch10-unbalanced} showed that both fail without
+balancing.
+
+\subsection{The general construction}
+\label{sec:ch10-general-stable}
+
+For a generic vector $v$, the cycles $X$ and $Y+\varepsilon v$ meet
+transversally for every sufficiently small $\varepsilon>0$.  The
+\emph{stable intersection} $X\cdot Y$ is supported on the
+$(k+l-r)$-dimensional part of $X\cap Y$.  When $k+l<r$, this means the zero
+cycle.  If $k+l\geq r$ and $\tau$ is one of its facets, set
+\begin{equation}
+\label{eq:tropical-stable-weight}
+ \omega_{X\cdot Y}(\tau)
+ =\sum_{\sigma,\sigma'}
+   \omega_X(\sigma)\omega_Y(\sigma')
+   [N:N_\sigma+N_{\sigma'}].
+\end{equation}
+where the sum is over pairs of facets for which
+$\tau\subset\sigma\cap\sigma'$ and
+$\sigma\cap(\sigma'+\varepsilon v)\neq\varnothing$ for all sufficiently
+small $\varepsilon>0$.  Locally finite complexes are handled on relatively
+compact sets; the resulting local cycles agree on overlaps.
+
+Two points about this definition are easy to misread.  The condition
+``$\sigma\cap(\sigma'+\varepsilon v)\neq\varnothing$ for all sufficiently
+small $\varepsilon>0$'' selects the pairs of facets that continue to meet
+after the displacement; a pair whose intersection is destroyed by an
+arbitrarily small push contributes nothing, even if $\sigma\cap\sigma'$ is
+nonempty.  And the sum is indexed by pairs of facets, not by points: several
+pairs may contribute to the same cell $\tau$, and their contributions add.
+\Cref{ex:ch10-two-lines-degenerate} exhibits both features, since there
+exactly one of the three pairs through the origin survives each
+displacement.
+
+\begin{theorem}
+\label{thm:tropical-stable-intersection}
+The weight in \eqref{eq:tropical-stable-weight} is independent of the generic
+vector and of all polyhedral refinements.  It defines a balanced tropical
+cycle.  Stable intersection is bilinear, commutative, associative, and has
+$N_{\mathbf R}$ with weight one as unit.  Moreover,
+$|X\cdot Y|\subset |X|\cap|Y|$.
+\end{theorem}
+\begin{proof}
+We give the fan-displacement proof, following
+\cite[\S4.3]{MR18Tropical}.  Refining either complex merely partitions the
+relative interiors of its facets.  At a generic displaced intersection,
+each contributing old pair contains a unique contributing refined pair, and
+subdivision does not change either tangent lattice.  Hence the summand and
+the total weight in \eqref{eq:tropical-stable-weight} are unchanged.
+
+We next prove independence of $v$.  The set of nongeneric translation
+vectors is contained in a finite union of proper rational affine subspaces.
+Within one chamber of the complement, the intersecting pairs of facets do
+not change.  It remains to cross one wall.  Quotienting by the common tangent
+space reduces the change to the following local configuration: $Y$ is a
+linear cycle with tangent lattice $N'$, while $X$ is a fan whose facets
+$\sigma_i$ meet along one codimension-one linear face with tangent lattice
+$N_\tau$.  Put $H=N_{\tau,\mathbf R}+N'_{\mathbf R}$.  If $H$ has codimension
+at least two, a generic translate misses the configuration on both sides and
+there is nothing to prove.  Otherwise $H$ is a hyperplane.  Choose a
+primitive generator $w$ of $N/(N\cap H)$ and write
+\[
+ u_{\sigma_i/\tau}=\lambda_iw\pmod H,
+ \qquad \lambda_i\in\mathbf Z.
+\]
+Balancing gives
+\[
+                         \sum_i\omega_X(\sigma_i)\lambda_i=0.
+\]
+There is an index $q$, independent of $i$, such that
+\[
+ [N:N_{\sigma_i}+N']
+ =|\lambda_i|q.
+\]
+Indeed, both sides measure successively the index inside $N\cap H$ and then
+in the rank-one quotient $N/(N\cap H)$.  A translate crossing the wall in
+the $w$-direction meets exactly the facets with $\lambda_i>0$; crossing in
+the opposite direction meets those with $\lambda_i<0$.  Their total
+contributions are
+\[
+ q\sum_{\lambda_i>0}\omega_X(\sigma_i)\lambda_i
+ \quad\text{and}\quad
+ -q\sum_{\lambda_i<0}\omega_X(\sigma_i)\lambda_i,
+\]
+which are equal by the displayed balancing equation.  Any two generic
+vectors can be joined by a path crossing finitely many walls, proving
+independence.
+
+The construction is local.  More precisely, quotienting by the tangent
+lattice of a cell $\tau$ preserves every index in
+\eqref{eq:tropical-stable-weight} and gives
+\[
+ \operatorname{Star}_{X\cdot Y}(\tau)
+ =\operatorname{Star}_X(\tau)\cdot\operatorname{Star}_Y(\tau).
+\]
+We first check balancing for a transverse product.  A codimension-one cell of
+that product has the form $\rho=\tau\cap\sigma'$, where $\tau$ is a
+codimension-one cell of $X$ and $\sigma'$ is a facet of $Y$, or the same
+description with the factors exchanged.  Let $\sigma_i\supset\tau$ be the
+facets of $X$, let $u_i$ be their primitive normal classes, and let $w_i$ be
+the primitive normal classes of
+$\sigma_i\cap\sigma'$ along $\rho$.  From the definitions of primitive
+generators and multiplicativity of lattice indices,
+\[
+ [N:N_{\sigma_i}+N_{\sigma'}]\,w_i
+ =[N:N_\tau+N_{\sigma'}]\,u_i
+ \pmod {N_\tau}.
+\]
+Indeed, the coefficient relating $w_i$ to $u_i$ is
+\[
+ [N_{\sigma_i}:
+   (N_{\sigma_i}\cap N_{\sigma'})+N_\tau],
+\]
+and multiplying it by $[N:N_{\sigma_i}+N_{\sigma'}]$ gives the common index
+$[N:N_\tau+N_{\sigma'}]$.  Consequently the weighted sum of the $w_i$ is,
+modulo $N_\tau$, the common factor
+$\omega_Y(\sigma')[N:N_\tau+N_{\sigma'}]$ times
+$\sum_i\omega_X(\sigma_i)u_i$, hence is zero modulo $N_\tau$.  The same sum
+lies in $N_{\sigma'}$, because every $w_i$ does.  It therefore lies in
+$N_\tau\cap N_{\sigma'}=N_\rho$, which is precisely the balancing condition
+for the transverse product.
+
+To check balancing of the stable product, quotient by a codimension-one cell
+and use the star identity.  We are reduced to a one-dimensional fan obtained
+as the recession fan of a generic transverse product.  Truncate that
+one-cycle by a large polytope and sum the balancing equations at all its
+vertices.  Contributions from bounded edges cancel in opposite pairs,
+leaving the weighted sum of the recession rays equal to zero.  The weights
+of those rays are exactly the stable weights in
+\eqref{eq:tropical-stable-weight}.  Hence the stable product is balanced.
+
+Bilinearity follows from the sum in
+\eqref{eq:tropical-stable-weight}; commutativity follows by exchanging the
+two factors.  The full affine space has tangent lattice $N$, so its
+intersection index with any facet is one, proving the unit assertion.
+The definition also gives the support inclusion.
+
+It remains to prove associativity.  First choose simultaneous generic
+translations so that all pairwise and triple intersections are transverse.
+For tangent lattices $A,B,C\subset N$ of three participating facets, the
+weight in $(X\cdot Y)\cdot Z$ contains
+\[
+ [N:A+B]\,[N:(A\cap B)+C].
+\]
+The elementary index identity
+\[
+ [N:(A\cap B)+C]
+ =[N:B+C]\,[B:(A\cap B)+(B\cap C)]
+\]
+shows that the product equals
+\[
+ [N:A+B]\,[N:B+C]\,
+ [B:(A\cap B)+(B\cap C)],
+\]
+which is unchanged when $A$ and $C$ are exchanged.  To verify the identity,
+map $B$ into $N/((A\cap B)+C)$: its kernel is
+$(A\cap B)+(B\cap C)$, and its cokernel is $N/(B+C)$; multiplicativity of
+orders in this finite kernel--cokernel sequence gives the formula.
+Thus the two parenthesizations have the same weight in the transverse case.
+In general, compute both sides after two independent arbitrarily small
+generic translations.  The wall-crossing independence already proved lets
+both translations tend to zero, yielding
+$(X\cdot Y)\cdot Z=X\cdot(Y\cdot Z)$.
+\end{proof}
+
+This is the convention and proof of
+\cite[Propositions~4.3.6--4.3.7]{MR18Tropical}.  The CLD formulation is
+\cite[\S6]{CLD25}. \Cref{chap:delta-forms} upgrades the product to
+delta-forms and compares it with analytic divisor intersections.
+
+It is worth naming the four uses of balancing in that proof, since they are
+of different kinds.  Balancing was used once to prove independence of the
+generic vector, in the wall-crossing step; that is where the hypothesis is
+genuinely needed, and \Cref{ex:ch10-unbalanced} shows the conclusion fails
+without it.  Balancing was used a second time to prove that the transverse
+product is again balanced---a conclusion, not a hypothesis.  It was used a
+third time, through the star identity, to reduce the balancing of the stable
+product to a one-dimensional statement.  And it was used a fourth time in the
+truncation argument, where summing the vertex equations of a bounded piece of
+a one-cycle leaves only the recession contributions.  The reader who wants a
+single mnemonic may take the following: balancing is exactly the condition
+under which a weighted complex has no boundary, and a cycle without boundary
+can be moved freely.
+
+The following corollary is the form in which the theorem is applied in
+\Cref{chap:delta-forms}.
+
+\begin{corollary}
+\label{cor:ch10-stable-star}
+For tropical cycles $X,Y$ in $N_{\mathbf R}$ and a cell $\tau$ of a common
+refinement,
+\[
+ \operatorname{Star}_{X\cdot Y}(\tau)
+ =\operatorname{Star}_X(\tau)\cdot\operatorname{Star}_Y(\tau)
+\]
+as tropical fan cycles in $N_{\mathbf R}/N_{\tau,\mathbf R}$.  In particular
+the stable intersection is local: the germ of $X\cdot Y$ at a point depends
+only on the germs of $X$ and $Y$ at that point.
+\end{corollary}
+
+\begin{proof}
+The identity is proved as part of
+\Cref{thm:tropical-stable-intersection}; we record why it gives locality.  A
+germ at a point $x$ determines the star of the smallest cell containing $x$
+in its relative interior, and conversely the star determines the germ up to
+an integer-affine change that fixes $x$.  Since the displayed identity
+expresses the star of the product in terms of the stars of the factors, two
+pairs of cycles with the same germs at $x$ have products with the same germ
+at $x$.
+\end{proof}
+
+\begin{example}[Two tropical lines]
+Take the tropical line in \Cref{fig:tropical-line-balancing} and a sufficiently
+small generic translate.  A local pair of transverse rays has primitive
+directions forming a lattice basis, so its determinant has absolute value
+one.  The stable intersection is therefore one point of multiplicity one.
+If one line is pulled back by the lattice map $(x,y)\mapsto(2x,y)$, the
+relevant determinant can become two; this is exactly the index appearing in
+the lattice test and in \Cref{prop:tropical-pushforward-balanced}.
+\end{example}
+
+\begin{remark}[Why ordinary smooth forms are not enough]
+A continuous piecewise affine function has well-defined slopes on cells, but
+$\dprimeddprime$ of the function is supported on codimension-one faces and is not an
+ordinary smooth superform. Delta-forms adjoin exactly these weighted
+polyhedral currents. Harmonic tropicalizations, by contrast, enlarge the
+allowed chart functions and improve the resulting sheaf cohomology. Both
+extensions preserve the superform calculus developed here and are compared
+systematically in \Cref{chap:delta-forms}.
+\end{remark}
+
+\section{Products, graphs, and Gysin maps}
+\label{sec:ch10-gysin}
+\index{Gysin map!tropical}\index{product!of tropical cycles}
+
+Stable intersection was defined by a displacement.  There is a second,
+equivalent, description, in which the displacement is replaced by a
+pullback along the diagonal.  It has three advantages: it makes the
+symmetry of the product manifest, it explains why lattice indices appear
+multiplicatively, and it is the form that survives the passage to currents in
+\Cref{chap:cld-currents,chap:delta-forms}, where displacement is unavailable.
+The Chambert--Loir--Ducros construction of tropical intersection is of this
+second kind, carried out at the level of positive closed currents; the
+comparison is discussed at the end of the section.
+
+\subsection{Products of cycles}
+
+\begin{proposition}
+\label{prop:ch10-product-cycle}
+Let $(\mathscr C,m)$ and $(\mathscr C',m')$ be balanced weighted rational
+polyhedral complexes in $N_{\mathbf R}$ and $N'_{\mathbf R}$, of pure
+dimensions $n$ and $n'$.  Then the cells $\sigma\times\sigma'$ with the
+weights $m_\sigma m'_{\sigma'}$ form a balanced weighted rational polyhedral
+complex $\mathscr C\times\mathscr C'$ in $N_{\mathbf R}\oplus
+N'_{\mathbf R}$, of pure dimension $n+n'$, with tangent lattices
+$N_{\sigma}\oplus N'_{\sigma'}$.  The construction descends to tropical
+cycles and is bilinear; we write $X\boxtimes Y$ for the resulting cycle.
+\end{proposition}
+
+\begin{proof}
+A product of rational polyhedra is a rational polyhedron, its faces are the
+products of faces, and the tangent space of a product is the product of the
+tangent spaces; intersecting with the lattice $N\oplus N'$ gives
+$N_\sigma\oplus N'_{\sigma'}$, which is saturated because each factor is.
+Face-closedness and the intersection axiom follow factorwise, and the
+dimension is additive.
+
+For balancing, let $\rho$ be a codimension-one cell of the product.  Since
+$\dim(\sigma\times\sigma')=\dim\sigma+\dim\sigma'$ and cells of the product
+are products of cells, $\rho=\tau\times\sigma'$ with $\tau$ of codimension
+one in $\mathscr C$ and $\sigma'$ a facet of $\mathscr C'$, or
+$\rho=\sigma\times\tau'$ symmetrically.  Treat the first case.  The facets of
+the product containing $\rho$ are the $\sigma\times\sigma'$ with
+$\sigma\supset\tau$, their weights are $m_\sigma m'_{\sigma'}$, and the
+primitive normal of $\sigma\times\sigma'$ along $\rho$ is the image of
+$u_{\sigma/\tau}$ under
+\[
+ N_\sigma/N_\tau
+ \hookrightarrow
+ (N\oplus N')/(N_\tau\oplus N'_{\sigma'}),
+\]
+which is injective because $N_\sigma\cap(N_\tau\oplus N'_{\sigma'})$, computed
+inside $N\oplus 0$, equals $N_\tau$.  Hence the balancing sum at $\rho$ is
+$m'_{\sigma'}$ times the image of $\sum_{\sigma\supset\tau}m_\sigma
+u_{\sigma/\tau}=0$, hence zero.  The second case is symmetric.  Bilinearity
+and compatibility with refinement are immediate, since a common refinement of
+the factors induces one of the product.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch10-graph-cycle}
+Let $F:N_{\mathbf R}\to N'_{\mathbf R}$ be integer affine with linear part
+$A$, and let
+\[
+ \Gamma_F=\{(x,F(x))\mid x\in N_{\mathbf R}\}
+ \subset N_{\mathbf R}\oplus N'_{\mathbf R}.
+\]
+Then $\Gamma_F$ is a translate of the saturated sublattice
+$N_{\Gamma}=\{(a,A(a)):a\in N\}$ of $N\oplus N'$, and, with weight one, it is
+a tropical cycle of dimension $\operatorname{rank}N$.  The projection
+$p:N_{\mathbf R}\oplus N'_{\mathbf R}\to N_{\mathbf R}$ restricts to an
+integer-affine isomorphism $\Gamma_F\to N_{\mathbf R}$ carrying $N_\Gamma$
+isomorphically onto $N$.
+\end{proposition}
+
+\begin{proof}
+$\Gamma_F$ is the translate by $(0,F(0))$ of the graph of $A$, which is the
+kernel of the surjection $N_{\mathbf R}\oplus N'_{\mathbf R}\to
+N'_{\mathbf R}$, $(a,b)\mapsto b-A(a)$.  A kernel of a lattice homomorphism
+is saturated: if $k(a,b)\in N_\Gamma$ then $kb=kA(a)$, so $b=A(a)$.  A
+translate of a saturated sublattice, with weight one, is balanced by
+\Cref{cor:ch10-balancing-consequences}\,\cref{itm:ch10-bal-affine}.  The
+projection $p$ restricted to $\Gamma_F$ has the integer-affine inverse
+$x\mapsto(x,F(x))$, and it carries $(a,A(a))$ to $a$, hence maps $N_\Gamma$
+isomorphically onto $N$.
+\end{proof}
+
+\subsection{The Gysin pullback}
+
+\begin{definition}
+\label{def:ch10-gysin}
+Let $F:N_{\mathbf R}\to N'_{\mathbf R}$ be integer affine, with graph
+inclusion $j:N_{\mathbf R}\to N_{\mathbf R}\oplus N'_{\mathbf R}$,
+$j(x)=(x,F(x))$, and first projection $p$.  For a tropical cycle $S$ on
+$N_{\mathbf R}\oplus N'_{\mathbf R}$ put
+\[
+ j^!S=p_*\bigl(S\cdot[\Gamma_F]\bigr),
+\]
+where $\cdot$ is the stable intersection of
+\Cref{thm:tropical-stable-intersection} and $p_*$ is the pushforward of
+\Cref{sec:ch10-pushforward}.
+\end{definition}
+
+\begin{lemma}
+\label{lem:ch10-gysin-defined}
+The right-hand side of \Cref{def:ch10-gysin} is defined, and $p_*$ introduces
+no lattice index: if $\rho$ is a facet of $S\cdot[\Gamma_F]$ then
+$[N_{p(\rho)}:p(N_\rho)]=1$ and $p$ is injective on $\rho$.  Consequently
+$j^!S$ is a tropical cycle of dimension $\dim S-\operatorname{rank}N'$.
+\end{lemma}
+
+\begin{proof}
+By \Cref{thm:tropical-stable-intersection}, $S\cdot[\Gamma_F]$ is a tropical
+cycle supported in $|S|\cap\Gamma_F\subseteq\Gamma_F$, of dimension
+$\dim S+\operatorname{rank}N-(\operatorname{rank}N+\operatorname{rank}N')
+=\dim S-\operatorname{rank}N'$.  Every facet $\rho$ of it lies in
+$\Gamma_F$, so $N_\rho\subseteq N_\Gamma$ and $p|_\rho$ is injective, being
+the restriction of the isomorphism $p|_{\Gamma_F}$ of
+\Cref{prop:ch10-graph-cycle}.  That isomorphism carries $N_\Gamma$ onto $N$,
+hence carries the saturated subgroup $N_\rho\subseteq N_\Gamma$ onto the
+saturated subgroup $p(N_\rho)=N_{p(\rho)}\subseteq N$, so the index is one.
+\Cref{prop:tropical-pushforward-balanced} now applies.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch10-diagonal-gysin}
+Let $X$ and $Y$ be tropical cycles in $N_{\mathbf R}$, let
+$\delta:N_{\mathbf R}\to N_{\mathbf R}\oplus N_{\mathbf R}$ be the diagonal
+$\delta(x)=(x,x)$, and let $j=\delta$ be the graph inclusion of
+$F=\mathrm{id}$.  Then
+\[
+ X\cdot Y=j^!\,(X\boxtimes Y).
+\]
+More generally, for an integer-affine $F:N_{\mathbf R}\to N'_{\mathbf R}$ and
+cycles $X$ on $N_{\mathbf R}$, $Z$ on $N'_{\mathbf R}$, the cycle
+$j^!(X\boxtimes Z)$ is supported in $|X|\cap F^{-1}(|Z|)$ and equals
+$X\cdot F^*Z$ whenever $F$ is an isomorphism, where
+$F^*Z=(F^{-1})_*Z$.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: displacing the diagonal.}
+By the commutativity in \Cref{thm:tropical-stable-intersection} we may
+displace either factor of $(X\boxtimes Y)\cdot[\Delta]$; we displace the
+diagonal.  Fix a generic $v\in N_{\mathbf R}$ and replace $\Delta$ by
+$\Delta+\varepsilon(0,-v)$.  Then
+\[
+ (X\boxtimes Y)\cap\bigl(\Delta+\varepsilon(0,-v)\bigr)
+ =\{(x,x-\varepsilon v)\mid x\in|X|,\ x-\varepsilon v\in|Y|\},
+\]
+which is carried by $p$ onto $|X|\cap(|Y|+\varepsilon v)$.  Thus the
+displaced set-theoretic intersections on the two sides correspond, and a
+vector $v$ is generic for one problem exactly when it is generic for the
+other, since the two families of walls correspond under the same
+isomorphism.
+
+\emph{Step 2: matching the multiplicities.}
+Let $\sigma$ be a facet of $X$ and $\sigma'$ a facet of $Y$ whose displaced
+intersection is nonempty and transverse.  The corresponding facet of
+$X\boxtimes Y$ is $\sigma\times\sigma'$ with weight
+$\omega_X(\sigma)\omega_Y(\sigma')$ and tangent lattice
+$N_\sigma\oplus N_{\sigma'}$, by \Cref{prop:ch10-product-cycle}.  Its
+transverse multiplicity against $\Delta$, whose weight is one and whose
+tangent lattice is $N_\Delta=\{(a,a)\}$, is
+\[
+ \omega_X(\sigma)\omega_Y(\sigma')
+ \bigl[N\oplus N:(N_\sigma\oplus N_{\sigma'})+N_\Delta\bigr]
+ =\omega_X(\sigma)\omega_Y(\sigma')\,[N:N_\sigma+N_{\sigma'}],
+\]
+by \Cref{lem:ch10-index}\,\cref{itm:ch10-idx-diagonal}.  This is exactly the
+summand of \eqref{eq:tropical-stable-weight}.
+
+\emph{Step 3: the projection.}
+By \Cref{lem:ch10-gysin-defined}, $p_*$ neither changes weights nor merges
+distinct facets, since $p|_\Delta$ is an isomorphism.  Hence, letting
+$\varepsilon\to0$, the two constructions produce the same weight on every
+facet of the limit, and by
+\Cref{thm:tropical-stable-intersection} both limits exist and are independent
+of $v$.  Therefore $X\cdot Y=j^!(X\boxtimes Y)$.
+
+\emph{Step 4: the general graph.}
+For arbitrary $F$, the set $|X\boxtimes Z|\cap\Gamma_F$ consists of the
+points $(x,F(x))$ with $x\in|X|$ and $F(x)\in|Z|$, whose image under $p$ is
+$|X|\cap F^{-1}(|Z|)$; the support statement follows from
+$|S\cdot T|\subseteq|S|\cap|T|$.  If $F$ is an isomorphism, meaning that its
+linear part carries $N$ isomorphically onto $N'$, then the integer-affine
+isomorphism
+$(\mathrm{id}\oplus F^{-1}):N_{\mathbf R}\oplus N'_{\mathbf R}\to
+N_{\mathbf R}\oplus N_{\mathbf R}$ carries $\Gamma_F$ to $\Delta$ and
+$X\boxtimes Z$ to $X\boxtimes F^*Z$, both integer-linearly and preserving all
+weights and lattices by
+\Cref{prop:tropical-pushforward-balanced}; Steps 1--3 then give
+$j^!(X\boxtimes Z)=X\cdot F^*Z$.
+\end{proof}
+
+\begin{example}[The two tropical lines, recomputed on the diagonal]
+\label{ex:ch10-lines-via-diagonal}
+Take $X=L$ and $Y=L'=L+(3,1)$ as in
+\Cref{ex:ch10-two-lines-generic}.  The product $X\boxtimes Y$ is a
+two-dimensional cycle in $\mathbf R^4$ with nine facets
+$R_i\times R_j'$, all of weight one.  The diagonal
+$\Delta\subset\mathbf R^2\oplus\mathbf R^2$ is two-dimensional, so the
+expected dimension of $(X\boxtimes Y)\cdot\Delta$ is $2+2-4=0$.  The unique
+facet meeting $\Delta$ is $R_1\times R_0'$, at the point
+$((2,0),(2,0))$, and the multiplicity is
+\[
+ \bigl[\mathbf Z^4:(\mathbf Z(1,0)\oplus\mathbf Z(-1,-1))+N_\Delta\bigr]
+ =\bigl[\mathbf Z^2:\mathbf Z(1,0)+\mathbf Z(-1,-1)\bigr]=1,
+\]
+by \Cref{lem:ch10-index}\,\cref{itm:ch10-idx-diagonal}.  Projecting back gives
+the point $(2,0)$ with multiplicity one, in agreement with the direct
+computation.  The gain is conceptual rather than computational: the
+symmetric roles of $X$ and $Y$ are now built into the construction, and the
+only lattice index that occurs is the diagonal index of
+\Cref{lem:ch10-index}.
+\end{example}
+
+\begin{proposition}
+\label{prop:ch10-gysin-projection}
+In the setting of \Cref{def:ch10-gysin}, let $S$ be a tropical cycle on
+$N_{\mathbf R}\oplus N'_{\mathbf R}$ and let $\beta$ be a smooth superform on
+$N_{\mathbf R}$ of complementary bidegree, with $j^!S$ of compact support.
+Then
+\[
+ \int_{j^!S}\beta
+ =\int_{S\cdot[\Gamma_F]}p^*\beta .
+\]
+\end{proposition}
+
+\begin{proof}
+This is the change-of-variables statement of
+\Cref{chap:tropical-integration} applied to the integer-affine map $p$,
+which by \Cref{lem:ch10-gysin-defined} is injective on every facet of
+$S\cdot[\Gamma_F]$ with lattice index one.  Properness holds because the
+support of $S\cdot[\Gamma_F]$ lies in $\Gamma_F$, on which $p$ is a
+homeomorphism, and $j^!S$ was assumed compactly supported.
+\end{proof}
+
+\begin{warning}{Two Gysin maps}
+The map $j^!$ above is defined on \emph{cycles} by displacement.  The
+Chambert--Loir--Ducros Gysin map is defined on positive closed
+\emph{currents}, by intersecting with the graph through iterated
+Bedford--Taylor products of the parlinear functions
+$u_i(x,y)=\max\{F_i(x),y_i\}$ and then pushing forward; see
+\cite[\S9.5]{CLD25}.  The two constructions agree on cycles, and the
+comparison is carried out in \Cref{chap:delta-forms} after currents are
+available.  Until then, no statement about currents should be inferred from
+the cycle-level construction, and in particular the harmonicity hypotheses
+that CLD impose on $F$ have no counterpart here, where $F$ is integer affine
+by assumption.
+\end{warning}
+
+\section{Dictionary}
+\label{sec:ch10-dictionary}
+
+The following table records what has been established, in the form in which
+it is used later.  The left column is the object introduced here; the middle
+column is the property that makes it usable; the right column is the first
+place of use.
+
+\begin{center}
+\small
+\begin{tabular}{p{.29\textwidth}|p{.33\textwidth}|p{.28\textwidth}}
+\textbf{Object of this chapter}&\textbf{Established property}
+  &\textbf{First use}\\ \hline
+tangent lattice $N_\sigma$
+  &saturated, of rank $\dim\sigma$
+   (\cref{lem:ch10-tangent-lattice})
+  &\cref{prop:integral-subdivision-independent}\\
+primitive normal $u_{\sigma/\tau}$
+  &canonical in $N_\sigma/N_\tau$, insensitive to lifts
+   (\cref{ex:ch10-primitive-quotient})
+  &\eqref{eq:superform-boundary-traces}\\
+weight $m_\sigma$
+  &unchanged by subdivision
+   (\cref{lem:ch10-subdivision-lattices})
+  &\cref{prop:integral-subdivision-independent}\\
+balancing
+  &vanishing of $\partial\mu$
+   (\cref{thm:ch10-balancing-boundary})
+  &\cref{thm:balanced-stokes}\\
+balancing, second form
+  &equivalent to Stokes on a fan
+   (\cref{thm:ch10-balancing-stokes-fan})
+  &\cref{thm:cld-global-stokes}\\
+star of a cell
+  &balanced, and computes local data
+   (\cref{cor:ch10-balancing-consequences})
+  &\cref{cor:ch10-stable-star}\\
+$A^{p,q}(\Omega)$
+  &sheaf, independent of the ambient presentation
+   (\cref{thm:ch10-forms-presentation-independent})
+  &\cref{chap:analytic-tropicalization}\\
+tropical space
+  &transitions transport forms, lattices, calibration
+   (\cref{thm:ch10-transition-transport})
+  &\cref{thm:cld-global-stokes}\\
+calibration $\mu_\sigma$
+  &lattice, orientation, and weight in one datum
+   (\cref{prop:ch10-calibration-basics})
+  &\cref{prop:appG-calibration-tests}\\
+pushforward index
+  &$[N'_{\sigma'}:F(N_\sigma)]$, multiplicative
+   (\cref{prop:tropical-pushforward-balanced})
+  &\cref{thm:appG-analytic-calibration}\\
+stable intersection
+  &independent of displacement; local
+   (\cref{thm:tropical-stable-intersection},
+    \cref{cor:ch10-stable-star})
+  &\cref{thm:delta-preform-algebra}\\
+diagonal description
+  &$X\cdot Y=j^!(X\boxtimes Y)$
+   (\cref{thm:ch10-diagonal-gysin})
+  &\cref{chap:delta-forms}
+\end{tabular}
+\end{center}
+
+\subsection{From the general theory back to this chapter}
+
+The reverse dictionary lists, for each later abstraction, the smallest
+instance computed here.
+
+\begin{center}
+\small
+\begin{tabular}{p{.30\textwidth}|p{.32\textwidth}|p{.28\textwidth}}
+\textbf{Later object}&\textbf{Smallest instance}&\textbf{Computed in}\\ \hline
+calibrated skeleton of an analytic space
+  &tropical line $L_2$, weights $1$
+  &\cref{ex:ch10-standard-line}\\
+balanced tropicalization of a hypersurface
+  &standard plane $H\subset\mathbf R^3$
+  &\cref{ex:ch10-standard-plane}\\
+balanced but not obviously analytic
+  &five-ray fan $W\subset\mathbf R^3$
+  &\cref{ex:ch10-codim-two-fan}\\
+failure of Stokes without harmony
+  &$\mathbf R_{\geq0}e_1\cup\mathbf R_{\geq0}e_2$
+  &\cref{ex:ch10-unbalanced}\\
+matroidal fan
+  &tripod $B(U_{2,3})$
+  &\cref{ex:ch10-bergman-u23}\\
+abstract chart, not embeddable
+  &circle $\mathbf R/\ell\mathbf Z$
+  &\cref{ex:ch10-circle}\\
+tropical multiplicity
+  &$|\det((1,0),(1,2))|=2$
+  &\cref{ex:ch10-lattice-index-test}\\
+stable intersection of currents
+  &two tropical lines, one point
+  &\cref{ex:ch10-two-lines-generic},
+   \cref{ex:ch10-two-lines-degenerate}\\
+intersection in codimension two
+  &$H\cdot L_3=[0]$ in $\mathbf R^3$
+  &\cref{ex:ch10-plane-line-r3}\\
+degree of a finite morphism
+  &$[\mathbf Z:2\mathbf Z]=2$
+  &\cref{ex:ch10-degree-two}
+\end{tabular}
+\end{center}
+
+\subsection{Normalization checks}
+
+The following computations have been carried out explicitly and should be
+reproducible by the reader; together they pin down every convention of the
+chapter.
+
+\begin{enumerate}
+\item $\sum_{i=0}^re_i=0$ is the balancing equation of the standard tropical
+      line, and of the standard tropical plane on each of its rays
+      (\cref{ex:ch10-standard-line,ex:ch10-standard-plane}).
+\item $2(1,0)+3(0,1)+(-2,-3)=0$: balancing does not require equal weights
+      (\cref{ex:ch10-weights-234}).
+\item $\int_X\dprime\eta=-\langle a(0),\sum_km_ku_k\rangle$, which equals
+      $-1$ for the unbalanced pair of rays
+      (\cref{thm:ch10-balancing-stokes-fan},
+       \cref{ex:ch10-unbalanced}).
+\item $|\det((1,0),(1,2))|=2$ and $|\det((1,0),(-1,-1))|=1$: the two
+      transverse multiplicities used throughout
+      (\cref{ex:ch10-lattice-index-test,ex:ch10-two-lines-generic}).
+\item $\bigl[\mathbf Z^4:(A\oplus B)+N_\Delta\bigr]=[\mathbf Z^2:A+B]$: the
+      diagonal index
+      (\cref{lem:ch10-index}\,\cref{itm:ch10-idx-diagonal}).
+\item Two tropical lines meet with total multiplicity $1$, in general and in
+      degenerate position, for every generic displacement
+      (\cref{ex:ch10-two-lines-generic,ex:ch10-two-lines-degenerate}).
+\item A tropical plane and a tropical line in $\mathbf R^3$ meet with total
+      multiplicity $1$ (\cref{ex:ch10-plane-line-r3}).
+\item Reversing the orientation of a cell, with the weight held fixed, flips
+      $e_\sigma$, $\mu_\sigma$ and $[\sigma:\tau]$, and leaves the integral
+      of an $(n,n)$-form and the calibrated balancing equation unchanged;
+      flipping the weight instead changes the cycle and breaks balancing
+      (\cref{ex:ch10-sign-test-segment,ex:ch10-sign-test-line}).
+\end{enumerate}
+
+\section*{Source notes}
+
+Our terms \emph{integer affine}, \emph{rational polyhedron}, \emph{facet},
+\emph{tropical cycle}, and \emph{stable intersection}, as well as the
+lattice-index formula for pushforward, follow
+\cite[\S\S1.3, 2.1, 4.2--4.3 and 4.6]{MR18Tropical}.  The abstract
+max-plus coordinate $x$ is related to the analytic valuation coordinate by
+$x=-u$.  Calibrated tropical and parlinear spaces follow
+\cite[\S\S3--6]{CLD25}. The later delta-form interface follows
+Gubler--Künnemann, while harmonic-chart refinements follow
+Gubler--Jell--Rabinoff; their exact bibliography keys are recorded in
+\Cref{chap:delta-forms}.
+
+\subsection*{Provenance of the individual statements}
+
+The convex-geometric facts of \Cref{sec:ch10-polyhedra} are classical; the
+two standard references for the polyhedral part are \cite{Roc70} and
+\cite{Sch14}, and the lattice-theoretic part is elementary.  Nothing there is
+special to tropical geometry, and the only nonstandard convention is that a
+tangent lattice is always saturated
+(\Cref{lem:ch10-tangent-lattice}); this is what makes primitive normal
+vectors well defined and is the point at which a careless clearing of
+denominators produces wrong multiplicities.
+
+Balancing goes back, in the guise of the vanishing of a residue, to the
+earliest tropical literature and appears in essentially the present form in
+\cite[\S4.2]{MR18Tropical}, from which \Cref{def:ch10-weighted-balanced} is
+taken verbatim.  The reformulation of balancing as the vanishing of a
+boundary (\Cref{thm:ch10-balancing-boundary}) is the elementary shadow of the
+chain-level description used in tropical homology, developed by Itenberg,
+Katzarkov, Mikhalkin, and Zharkov; we have proved only the piece required
+here and have deliberately not built the surrounding homology theory.  The
+equivalence between balancing and Stokes' formula on a fan
+(\Cref{thm:ch10-balancing-stokes-fan}) is a calculation, but the point of
+view---that balancing is exactly the harmony of a calibration---is that of
+Chambert--Loir and Ducros, whose condition d'harmonie is
+\cite[Theorem~6.6.8 and \S15.6]{CLD25}; the analytic form of the equivalence
+is \Cref{thm:appG-analytic-calibration}.
+
+The Bergman fan of a matroid (\Cref{def:ch10-bergman-fan}) was introduced by
+Sturmfels, and the description by chains of flats used here, together with
+the general balancing theorem, is due to Ardila and Klivans.  We prove only
+the rank-two case (\Cref{prop:ch10-bergman-rank-two}), which suffices for the
+anchor example $U_{2,3}$ and is entirely self-contained; the general theorem
+is not used anywhere in this book, and no bibliography key is assigned to it
+here.  The reader who wants the systematic treatment, including the
+identification of $B(M)$ with the tropicalization of a realization and the
+relation to the Chow ring of a matroid, should consult the tropical-geometry
+literature; \cite{MR18Tropical} is again the closest systematic reference in
+our bibliography, and its \S4.2 contains the fan examples we have adapted.
+
+The stable intersection product and the fan-displacement proof are
+\cite[\S4.3]{MR18Tropical}; the same product occurs in the toric literature
+under the name of the fan displacement rule.  The identification of stable
+intersection with a Gysin pullback along the diagonal
+(\Cref{thm:ch10-diagonal-gysin}) is the cycle-level shadow of the
+current-level construction of \cite[\S\S9.5--9.6]{CLD25}, which builds the
+product from iterated Bedford--Taylor products of the parlinear functions
+$\max\{F_i(x),y_i\}$; that construction requires harmonicity hypotheses that
+are automatic in our integer-affine setting.  Chambert--Loir and Ducros note
+that the same product was obtained independently by other authors, and that
+their own approach follows the tropical-intersection literature; we have kept
+the elementary route because the book needs the product only on cycles until
+\Cref{chap:delta-forms}.  The delta-form upgrade, in which the product is
+extended to forms with polyhedral coefficients, is
+\cite{GK17,GK19}; the harmonic-tropicalization enlargement of the chart
+category is \cite{GJR26}; the toric global theory that uses these
+multiplicities systematically is \cite{BGJKK25}.
+
+Two omissions are deliberate.  We have not developed the theory of tropical
+cycles with rational or real weights, which is what analytic calibrations
+produce in the general Chambert--Loir--Ducros setting
+(see the discussion after \eqref{eq:appG-analytic-multiplicity}); integrality
+is an extra hypothesis, and every statement above that mentions a lattice
+index has been formulated so that it survives the passage to real weights.
+And we have not discussed realizability: the question of which balanced
+cycles are tropicalizations is, as \Cref{ex:ch10-codim-two-fan} was designed
+to make visible, not settled by anything in this chapter, and it plays no
+role in the sequel, where the tropicalizations are given and the balancing is
+a theorem about them rather than a characterization of them.

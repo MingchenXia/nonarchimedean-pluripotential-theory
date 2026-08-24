@@ -1,0 +1,3579 @@
+\chapter{Tropicalization of analytic spaces}
+\index{tropicalization!analytic space}\index{moment map}
+\label{chap:analytic-tropicalization}
+
+% The global operator \trop denotes the tropicalization map; the canonical
+% section below is chapter-local.  Upright operator names avoid confusion
+% with the polyhedral image, which is written \Trop.
+\newcommand{\sq}{\operatorname{sq}}
+
+We now explain how the real calculus enters a Berkovich space. Four notions
+must remain distinct. A moment map supplies analytic functions; its
+tropicalization supplies real coordinates; a tropical chart specifies where
+those coordinates are used; and a calibration records the multiplicities
+needed for integration.
+
+Throughout, $K$ is a complete non-Archimedean field and $X$ is a good,
+boundaryless $K$-analytic space of pure dimension $n$, unless explicitly
+stated otherwise.
+
+It is worth saying at the outset what problem this chapter solves.
+\Cref{chap:superforms,chap:tropical-spaces,chap:tropical-integration} built a
+complete differential calculus on the support of a balanced weighted
+polyhedral complex: superforms, the operators $\dprime$ and $\ddprime$,
+calibrated integration, and Stokes' formula. None of it applies to a
+Berkovich space directly, because a Berkovich space is not a real manifold
+and carries no atlas of charts modelled on $\mathbf R^m$. What it does carry
+is an enormous supply of invertible analytic functions, and the map
+\[
+ x\longmapsto\bigl(-\log|f_1(x)|,\ldots,-\log|f_r(x)|\bigr)
+\]
+is continuous into $\mathbf R^r$ for any such family $f_1,\ldots,f_r$. The
+image is locally rational polyhedral; on a compact analytic domain it is a
+finite rational polyhedral set, not necessarily a single polyhedron.  So
+Berkovich spaces do not have real charts, but they have real \emph{shadows},
+and there are enough shadows to see everything: the whole difficulty is that
+a shadow is not injective, that different families of functions cast
+different shadows, and that a
+$\mathbf R$-linear functional pulled back along a shadow remembers only part
+of the analytic geometry above it.
+
+The resolution has three layers, and this chapter is organized around them.
+
+First, one identifies, inside $X$, the locus on which a given moment map
+$f$ has \emph{maximal} tropical rank. This is the local skeleton, or
+characteristic polyhedron, $\Sigma_f$. On it, and only on it, the
+tropicalization map is a piecewise immersion of polyhedral spaces, so it is
+the correct domain of integration. Its intrinsic characterization
+(\Cref{thm:trop-sigma-characterization}) is purely graded-residue-theoretic:
+$x\in\Sigma_f$ if and only if $n$ of the initial forms
+$\widetilde{f_i(x)}$ are algebraically independent over $\widetilde K$.
+
+Second, one attaches to each facet of $\Sigma_f$ a positive number, the
+local analytic degree of a suitable finite flat projection. This is the
+calibration. Its construction involves an auxiliary torus projection $q$,
+and the whole content of \Cref{thm:trop-calibration-canonical} is that the
+answer does not depend on $q$: the degree and the lattice normalization of
+the affine section move by reciprocal factors.
+
+Third, one shows that the resulting calibration on a local skeleton is
+independent of the moment map used to see the skeleton
+(\Cref{thm:trop-calibration-chart-independent}). This is the technical heart
+of the chapter. Two moment maps have no common refinement in any naive
+sense; what they have is a \emph{product}, and the argument is that both
+calibrations agree with the product calibration cell by cell.
+
+Once these three layers are in place, the chapter's final structural
+statement (\Cref{cor:trop-calibration-glue}) says that every analytic space
+of pure dimension $n$ carries a canonical calibrated tropical structure, and
+the real calculus of
+\Cref{chap:superforms,chap:tropical-spaces,chap:tropical-integration} can be
+transported to it. That is the input to
+\Cref{chap:cld-forms,chap:cld-currents}.
+
+\paragraph{Roadmap.}
+\Cref{sec:trop-dictionary} fixes the sign conventions relating the max-plus
+terminology of abstract tropical geometry to the valuation conventions of
+this book; nothing later works without it. \Cref{sec:trop-moment} defines
+moment maps and proves their elementary functoriality, together with the
+polyhedrality theorem. \Cref{sec:trop-torus} computes the fundamental
+example completely: the canonical skeleton $S(\mathbf G_m^n)$ of a torus, its
+intrinsic characterizations, and its behaviour under monomial maps. Every
+later multiplicity is measured against this example.
+\Cref{sec:trop-charts} introduces tropical charts, refinement, and the
+product construction. \Cref{sec:trop-local-skeleta} constructs local skeleta
+$\Sigma_f$ and proves their basic properties;
+\Cref{sec:trop-dimension} proves the dimension formula in the chain
+\[
+ \dim_{\mathrm{trop},x}(f)\le d_x(f)\le d_K(x)\le\dim_xX,
+\]
+identifying each inequality and each case of equality.
+\Cref{sec:trop-calibration} constructs the canonical calibration and proves
+it canonical; \Cref{sec:trop-refinement} proves refinement independence and
+glues. \Cref{sec:trop-multiplicities} derives balancing, the multiplicity
+formula for a tropical polyhedron, and independence of integration.
+\Cref{sec:trop-graded} isolates the graded reduction as the source of the
+multiplicities: a local degree factors as a length, a graded residue degree,
+and a defect, and the last is trivial in residue characteristic zero.
+\Cref{sec:trop-supports} treats weak analytic structures, boundaries, and
+partitions of unity at the level that
+\Cref{chap:cld-forms,chap:cld-currents,chap:cld-bedford-taylor} import.
+\Cref{sec:trop-worked} carries out five complete computations.
+
+\paragraph{Dependencies.}
+The reader needs, from \Cref{chap:valuations}, graded reduction
+(\Cref{lem:graded-residue-field}) and the Abhyankar inequality
+(\Cref{thm:abhyankar-relative}); from \Cref{chap:berkovich}, analytification,
+affinoid domains, the completed residue field $\mathcal H(x)$, the boundary
+$\partial X$, and the classification of points on the analytic line
+(\Cref{thm:berk-a1-classification}); from \Cref{chap:skeleta}, skeleta of SNC
+models, integral affine structures (\Cref{def:integral-affine}), and
+retractions; and from
+\Cref{chap:tropical-spaces,chap:tropical-integration}, weighted balanced
+complexes, calibrations, integer-affine pushforward
+(\Cref{prop:tropical-pushforward-balanced}), and subdivision independence of
+integrals (\Cref{prop:integral-subdivision-independent}). The polyhedral and
+graded conventions are collected in \Cref{app:tropical-algebra}, whose
+\Cref{sec:appG-analytic-multiplicity} states the multiplicity formula in the
+form used here.
+
+Conversely, this chapter is used in \Cref{chap:cld-forms} to define the
+sheaves $A^{p,q}_X$, in \Cref{chap:cld-currents} to define currents and
+cycle classes, in \Cref{chap:cld-poincare-lelong,chap:cld-bedford-taylor} to
+localize potential theory, in \Cref{chap:delta-forms} as the base on which
+delta-forms and harmonic tropicalizations are built, and in
+\Cref{chap:compare-ma} for the comparison with model metrics.
+
+\paragraph{Standing hypotheses.}
+Unless a statement says otherwise, $K$ is a complete non-Archimedean field,
+not assumed algebraically closed, not assumed nontrivially valued, and not
+assumed of residue characteristic zero. Analytic spaces are $K$-analytic in
+the sense of \Cref{chap:berkovich}, Hausdorff, and of pure dimension $n$;
+following the terminology of \cite[\S12.4]{CLD25} we say that $X$ is
+\emph{of level $n$} when $\dim X\le n$, since all constructions below refer
+to a fixed integer $n$ and simply return nothing on components of smaller
+dimension. Goodness --- the existence of affinoid neighbourhoods --- is
+assumed wherever local invertible functions must be produced, and is
+recalled explicitly in those statements. Boundarylessness is a genuine
+hypothesis: several equalities below degrade to inequalities on
+$\partial X$, and we mark each occurrence.
+
+Five inputs are imported rather than proved, each with an exact reference
+and a description of its mechanism: the polyhedrality of a compact
+tropicalization (\Cref{thm:analytic-tropical-polyhedrality}); the local
+structure of tropicalization germs (\Cref{thm:trop-local-germ}); the
+polyhedrality of local skeleta (\Cref{thm:trop-sigma-polyhedral}); the
+dimension, flatness and semicontinuity properties of analytic morphisms
+collected in \Cref{prop:trop-analytic-inputs}; and the invariance of local
+degrees under a tropical translation
+(\Cref{thm:trop-degree-translation}). Everything else --- in particular
+every independence, gluing and multiplicity statement --- is proved here.
+The only place where an alternative to the curve-slope proof of balancing is
+needed is recorded in \Cref{rem:trop-balancing-two-routes}.
+
+\section{The analytic--tropical dictionary}
+\label{sec:trop-dictionary}
+
+The constructions in this chapter have two convention layers.  Abstract
+tropical geometry follows Mikhalkin--Rau: max-plus arithmetic,
+integer-affine maps, facets as top-dimensional cells, and tropical cycles as
+equivalence classes of balanced weighted complexes
+\cite[\S\S1.2--1.3, 4.2]{MR18Tropical}.  Analytic geometry follows the
+valuation convention
+\[
+                         u(f)=-\log|f|.
+\]
+Thus an abstract max-plus coordinate is $x=\log|f|=-u(f)$.  If
+\[
+ F_{\min}(u)=\min_m\{v(a_m)+\langle m,u\rangle\},
+\]
+then the corresponding Mikhalkin--Rau polynomial is
+\begin{equation}
+\label{eq:analytic-max-min-firewall}
+ F_{\max}(x)=-F_{\min}(-x)
+ =\max_m\{\log|a_m|+\langle m,x\rangle\}.
+\end{equation}
+Coordinate reflection and value negation are both present.  Reflection
+alone leaves a minimum a minimum, so we never describe it as a change of
+semiring convention.
+
+By the end of the chapter the reader should be able to distinguish:
+\begin{enumerate}
+\item the analytic morphism furnishing invertible functions;
+\item its continuous tropicalization map;
+\item its rational polyhedral image and, in full analytic rank, the
+  weighted $n$-cycle carried by its $n$-dimensional part;
+\item a tropical chart used to represent a differential form;
+\item the calibration that records analytic multiplicity.
+\end{enumerate}
+These distinctions are needed even on an annulus: the map, its interval
+image, the skeletal section, and the weight-one calibration are four
+different objects.
+
+We record the translation once and for all, in the form in which it is used
+below. Let $N=\mathbf Z^r$ and $M=N^\vee$ with the pairing
+$\langle\cdot,\cdot\rangle$. A Laurent monomial $\chi^m$ on
+$\mathbf G_{m,K}^r$, $m\in M$, has
+\begin{equation}
+\label{eq:trop-monomial-affine}
+ -\log|\chi^m(x)|=\langle m,u\rangle,
+ \qquad u=\bigl(-\log|T_1(x)|,\ldots,-\log|T_r(x)|\bigr),
+\end{equation}
+so monomials become integral linear forms, and a Laurent polynomial
+$f=\sum_ma_m\chi^m$ satisfies the ultrametric bound
+\begin{equation}
+\label{eq:trop-ultrametric-bound}
+ -\log|f(x)|\ \ge\ \min_m\bigl\{v_K(a_m)+\langle m,u\rangle\bigr\}
+ =\operatorname{trop}(f)(u),
+\end{equation}
+in the notation of \eqref{eq:appG-tropical-polynomial}. Three things must be
+kept apart in \eqref{eq:trop-ultrametric-bound}. The inequality is always
+true and is the ultrametric inequality. Equality for \emph{all} $f$
+characterizes the points of the canonical skeleton
+(\Cref{prop:trop-torus-skeleton}). Failure of equality for some $f$ is
+exactly cancellation of leading terms, and the locus of $u$ where
+cancellation is possible is the corner locus of
+\Cref{def:appG-corner-locus}. The passage from the last to the
+Mikhalkin--Rau max-plus corner locus is \eqref{eq:analytic-max-min-firewall}
+and nothing else.
+
+\begin{warning}{Two reflections, not one}
+The change from $\min$ to $\max$ and the change from $u$ to $x=-u$ are
+independent operations. Performing only one of them turns a convex function
+into a concave one but leaves a minimum a minimum; performing both returns a
+maximum, which is what Mikhalkin--Rau write. In particular the balanced
+cycle underlying a tropical hypersurface is carried between the two
+conventions by the linear involution $u\mapsto-u$ of $N_{\mathbf R}$, which
+preserves lattices, primitive vectors, and lattice indices. Hence every
+weight computed below is the same in both conventions; only the pictures are
+reflected.
+\end{warning}
+
+A last orientation remark. In this book \emph{tropicalization} always names
+a map out of an analytic space, never an abstract combinatorial object. The
+abstract objects are the ones of \Cref{chap:tropical-spaces}: polyhedral
+complexes, weights, balancing, calibrations. The content of the present
+chapter is a functor from analytic geometry to that category, and the
+theorems are about the functor being well defined.
+
+\section{Moment maps}
+\label{sec:trop-moment}
+
+\begin{definition}
+Let $U\subset X$ be an analytic domain. A \emph{moment map} is an analytic
+morphism
+\[
+                         \varphi:U\longrightarrow\mathbf G_{m,K}^r.
+\]
+Writing $\varphi=(f_1,\ldots,f_r)$ with $f_i\in\mathcal O(U)^\times$, its
+\emph{tropicalization} is
+\[
+\varphi_{\mathrm{trop}}:U\longrightarrow\mathbf R^r,\qquad
+x\longmapsto(-\log|f_1(x)|,\ldots,-\log|f_r(x)|).
+\]
+Its image is denoted $\operatorname{Trop}_\varphi(U)$.
+\end{definition}
+
+The minus sign agrees with $v=-\log|\cdot|$. If
+$g=c f_1^{a_1}\cdots f_r^{a_r}$, then
+\[
+                         -\log|g(x)|
+=\sum_i a_i(-\log|f_i(x)|)-\log|c|,
+\]
+so monomial changes of moment map become integer-affine maps.
+
+In the terminology fixed in \Cref{chap:tropical-spaces}, these are
+integer-affine maps.  If one instead uses the Mikhalkin--Rau coordinate
+$x_i=\log|f_i|$, the same formula has the max-plus sign convention.
+
+It is convenient, and for the invariance statements essential, to phrase the
+definition without a choice of coordinates on the target.
+
+\begin{definition}[Invariant form]
+\label{def:trop-moment-invariant}
+Let $T$ be a $K$-split torus with character lattice $M=X^*(T)$ and
+cocharacter lattice $N=M^\vee$. Set
+\[
+ T_{\mathrm{trop}}=\operatorname{Hom}(M,\mathbf R)=N_{\mathbf R}.
+\]
+A \emph{moment map} on $X$ is a morphism of $K$-analytic spaces
+$f:X\to T$, and its \emph{tropicalization} is
+\[
+ f_{\mathrm{trop}}:X\longrightarrow T_{\mathrm{trop}},
+ \qquad
+ \langle m,f_{\mathrm{trop}}(x)\rangle=-\log\bigl|\chi^m(f(x))\bigr|
+ \quad(m\in M).
+\]
+A trivialization $T\simeq\mathbf G_{m,K}^r$ identifies
+$T_{\mathrm{trop}}$ with $\mathbf R^r$ and $f$ with an $r$-tuple of
+invertible analytic functions, recovering the coordinate description above.
+\end{definition}
+
+That $f_{\mathrm{trop}}(x)$ is a well-defined element of
+$\operatorname{Hom}(M,\mathbf R)$, and not merely a function on $M$, is
+multiplicativity of the seminorm $|\cdot|_x$: for $m,m'\in M$ one has
+$\chi^{m+m'}=\chi^m\chi^{m'}$, hence
+$-\log|\chi^{m+m'}(f(x))|=-\log|\chi^m(f(x))|-\log|\chi^{m'}(f(x))|$.
+This is the first and most elementary point at which the multiplicativity of
+Berkovich seminorms --- as opposed to submultiplicativity --- is used; it is
+what makes tropicalization linear rather than merely subadditive.
+
+\begin{lemma}
+\label{lem:trop-moment-basic}
+Let $f:X\to T$ be a moment map.
+\begin{enumerate}
+\item\label{itm:trop-moment:cont} $f_{\mathrm{trop}}$ is continuous.
+\item\label{itm:trop-moment:funct} If $g:Y\to X$ is a morphism of
+  $K$-analytic spaces, then $f\circ g$ is a moment map on $Y$ and
+  $(f\circ g)_{\mathrm{trop}}=f_{\mathrm{trop}}\circ g$.
+\item\label{itm:trop-moment:torus} If $q:T\to T'$ is a homomorphism of tori,
+  then $q\circ f$ is a moment map and
+  $(q\circ f)_{\mathrm{trop}}=q_{\mathrm{trop}}\circ f_{\mathrm{trop}}$,
+  where $q_{\mathrm{trop}}=\operatorname{Hom}(q^*,\mathbf R):N_{\mathbf R}\to
+  N'_{\mathbf R}$ is the integer-linear map induced by
+  $q^*:M'\to M$. A translation of $q$ by a point of $T'(K)$ changes
+  $q_{\mathrm{trop}}$ by the constant vector $\Trop(t)$ of that point, so an
+  arbitrary morphism of tori induces an integer-\emph{affine} map with
+  integral linear part.
+\item\label{itm:trop-moment:prod} If $f:X\to T$ and $f':X\to T'$ are moment
+  maps, then $(f,f'):X\to T\times T'$ is a moment map with
+  $(f,f')_{\mathrm{trop}}=(f_{\mathrm{trop}},f'_{\mathrm{trop}})$, and the
+  two projections induce $q_{\mathrm{trop}}$, $q'_{\mathrm{trop}}$ recovering
+  $f_{\mathrm{trop}}$ and $f'_{\mathrm{trop}}$.
+\item\label{itm:trop-moment:base} If $L/K$ is a complete valued extension and
+  $p:X_L\to X$ the base-change morphism, then
+  $(f_L)_{\mathrm{trop}}=f_{\mathrm{trop}}\circ p$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\cref{itm:trop-moment:cont} In a trivialization, $f_{\mathrm{trop}}$ has
+components $-\log|f_i|$ with $f_i\in\mathcal O(X)^\times$. The function
+$x\mapsto|f_i(x)|$ is continuous by the definition of the topology on a
+Berkovich space, and takes values in $(0,+\infty)$ because $f_i$ is
+invertible, on which $-\log$ is continuous.
+
+\cref{itm:trop-moment:funct} The composition of morphisms of analytic
+spaces is a morphism, and $|f_i(g(y))|=|(f_i\circ g)(y)|$ by definition of
+the seminorm at $g(y)$.
+
+\cref{itm:trop-moment:torus} For $m'\in M'$ one has
+$\chi^{m'}\circ q=\chi^{q^*m'}$, hence
+\[
+ \langle m',(q\circ f)_{\mathrm{trop}}(x)\rangle
+ =-\log\bigl|\chi^{q^*m'}(f(x))\bigr|
+ =\langle q^*m',f_{\mathrm{trop}}(x)\rangle
+ =\langle m',q_{\mathrm{trop}}(f_{\mathrm{trop}}(x))\rangle .
+\]
+Since $q^*$ is a homomorphism of lattices, $q_{\mathrm{trop}}$ has integral
+matrix in any pair of bases. If $q$ is composed with translation by
+$t\in T'(K)$, then $\chi^{m'}$ acquires the constant factor $\chi^{m'}(t)$,
+whose $-\log|\cdot|$ is $\langle m',\Trop(t)\rangle$; this adds the constant
+$\Trop(t)$.
+
+\cref{itm:trop-moment:prod} $X^*(T\times T')=M\oplus M'$, and the
+displayed formula for $(f,f')_{\mathrm{trop}}$ is the definition applied to
+each summand. The projections induce the two inclusions on characters,
+hence the two coordinate projections on tropicalizations.
+
+\cref{itm:trop-moment:base} The completed residue field of $x_L\in X_L$
+receives $\mathcal H(p(x_L))$ isometrically, so
+$|f_i(x_L)|=|f_i(p(x_L))|$.
+\end{proof}
+
+Assertion \cref{itm:trop-moment:torus} is the reason that lattice indices
+appear later: an integral linear map between lattices of the same rank need
+not be an isomorphism of lattices even when it is an isomorphism of real
+vector spaces, and the discrepancy $[N':q(N)]$ is precisely the
+normalization factor \eqref{eq:appG-lattice-index}. Assertion
+\cref{itm:trop-moment:prod} is the only construction available for
+comparing two unrelated moment maps; there is no notion of a common
+\emph{sub}moment map, and this asymmetry shapes every refinement argument in
+the chapter.
+
+\begin{lemma}
+\label{lem:trop-moment-local-existence}
+Let $X$ be a $K$-analytic space, $x\in X$, and suppose $X$ is good at $x$.
+Let $a_1,\ldots,a_d$ be homogeneous elements of the graded residue field
+$\widetilde{\mathcal H(x)}$ that are algebraically independent over
+$\widetilde K$. Then there are a compact analytic neighbourhood $V$ of $x$
+and invertible analytic functions $f_1,\ldots,f_d$ on $V$ with
+$\widetilde{f_i(x)}=a_i$ for every $i$. In particular $x$ lies in the local
+skeleton of the moment map $f=(f_1,\ldots,f_d)$ once $d=n$.
+\end{lemma}
+
+\begin{proof}
+Fix $i$ and let $r_i$ be the degree of $a_i$, so $r_i>0$. Choose
+$\alpha_i\in\mathcal H(x)$ with $|\alpha_i|=r_i$ representing $a_i$.
+Goodness at $x$ gives an affinoid neighbourhood $W=\mathcal M(A)$ of $x$.
+By construction $\mathcal H(x)$ is the completion of
+$\kappa(x)=\operatorname{Frac}(A/\mathfrak p_x)$, so $\kappa(x)$ is dense in
+$\mathcal H(x)$ and there is an element of $\kappa(x)$ within distance
+$<r_i$ of $\alpha_i$; writing it as a fraction of two elements of $A$ whose
+denominator does not vanish at $x$, we obtain an analytic function $g_i$ on
+an open neighbourhood of $x$ in $W$ with
+\[
+ |g_i(x)-\alpha_i|<r_i .
+\]
+Then $|g_i(x)|=r_i$ by the ultrametric equality case
+(\Cref{lem:strong-triangle-equality}), and $\widetilde{g_i(x)}=a_i$, since
+$g_i(x)$ and $\alpha_i$ differ by an element of strictly smaller absolute
+value, which dies in the graded piece of degree $r_i$ by
+\Cref{prop:appG-initial-calculus}.
+
+Now fix $r_i'$ with $0<r_i'<r_i$ and set
+\[
+ V=\{y\in W'\mid |g_i(y)|\ge r_i'\text{ for }1\le i\le d\},
+\]
+where $W'\subset W$ is an affinoid neighbourhood of $x$ on which all the
+$g_i$ are defined. Then $V$ is a Laurent domain in $W'$
+(\Cref{ex:berk-weierstrass-laurent}), hence compact and analytic; it
+contains the open set $\{|g_i|>r_i'\ \forall i\}\ni x$, hence is a
+neighbourhood of $x$; and every $g_i$ is invertible on $V$, since it does
+not vanish there. Set $f_i=g_i|_V$. The last assertion is
+\Cref{thm:trop-sigma-characterization} below.
+\end{proof}
+
+The germ of a tropicalization near a point is more rigid than its global
+image, and this local rigidity is what makes the notion of tropical
+dimension well behaved. We import the statement.
+
+\begin{theorem}
+\label{thm:trop-local-germ}
+Let $X$ be a $K$-analytic space, $f:X\to T$ a moment map, $x\in X$, and
+$\xi=f_{\mathrm{trop}}(x)$. Let $d_x(f)$ denote the transcendence degree
+over $\widetilde K$ of the graded subfield of $\widetilde{\mathcal H(x)}$
+generated by $\widetilde K$ and the initial forms
+$\widetilde{\chi^m(f(x))}$, $m\in M$. Then there is a compact analytic
+neighbourhood $U$ of $x$ such that for every compact analytic
+neighbourhood $V\subset U$ of $x$:
+\begin{enumerate}
+\item\label{itm:trop-germ:germ} the germs at $\xi$ of
+  $f_{\mathrm{trop}}(U)$ and of $f_{\mathrm{trop}}(V)$ coincide; we write
+  $f_{\mathrm{trop}}(X,x)$ for this germ;
+\item\label{itm:trop-germ:bound}
+  $\dim_\xi f_{\mathrm{trop}}(V)\le d_x(f)$;
+\item\label{itm:trop-germ:interior} if $x\notin\partial X$, then
+  $f_{\mathrm{trop}}(V)$ is purely of dimension $d_x(f)$ at $\xi$; if
+  moreover $d_x(f)=\dim T$, then $f_{\mathrm{trop}}(V)$ is a neighbourhood of
+  $\xi$ in $T_{\mathrm{trop}}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Foundational local tropicalization input]
+This is the local germ theorem of Ducros, quoted in the present form as
+\cite[Proposition~12.2.8 and Remark~12.2.9]{CLD25}; the proof there reduces
+the assertion to Temkin's graded reduction of the germ $(X,x)$, in which the
+germ of the tropicalization is the rational cone cut out by the
+monomial inequalities defining the graded reduction, and then invokes the
+dimension theory of graded fields recalled in \Cref{sec:appG-graded-reduction}.
+We use \cref{itm:trop-germ:germ}--\cref{itm:trop-germ:interior} as
+stated and prove everything else.
+\end{proof}
+
+The number $d_x(f)$ of \Cref{thm:trop-local-germ} is the \emph{residual
+transcendence degree of $f$ at $x$}. It is defined without reference to any
+trivialization: a change of basis of $M$ replaces the family
+$(\widetilde{f_i(x)})$ by a family of invertible monomials in it, which
+generates the same graded subfield. We record this and the comparison with
+the invariant $d_K(x)$ of \Cref{chap:berkovich}.
+
+\begin{definition}
+\label{def:trop-residual-degree}
+For a moment map $f:X\to T$ and $x\in X$, write $F_x(f)\subset
+\widetilde{\mathcal H(x)}$ for the graded subfield generated by
+$\widetilde K$ and the elements $\widetilde{\chi^m(f(x))}$, $m\in M$, and
+\[
+ d_x(f)=\operatorname{trdeg}_{\widetilde K}F_x(f),
+ \qquad
+ d_K(x)=\operatorname{trdeg}_{\widetilde K}\widetilde{\mathcal H(x)} .
+\]
+Here transcendence degrees are taken in the graded sense of
+\Cref{sec:appG-graded-reduction}; for $X$ a curve, $d_K(x)=s(x)+t(x)$ in the
+notation of \Cref{prop:berk-type-invariants}.
+\end{definition}
+
+\begin{lemma}
+\label{lem:trop-residual-degree-bounds}
+For every moment map $f:X\to T$ and every $x\in X$,
+\[
+ d_x(f)\ \le\ \min\{\dim T,\ d_K(x)\},
+ \qquad
+ d_K(x)\ \le\ \dim_xX .
+\]
+Moreover $d_x(f)$ is unchanged when $f$ is replaced by $f\cdot t$ for a
+$K$-point $t$ of $T$, and $d_x(q\circ f)\le d_x(f)$ for every homomorphism
+of tori $q$, with equality whenever $q$ is an isogeny.
+\end{lemma}
+
+\begin{proof}
+The subfield $F_x(f)$ is generated over $\widetilde K$ by the $\dim T$
+elements $\widetilde{f_i(x)}$ in any trivialization, whence
+$d_x(f)\le\dim T$; and it is a subfield of $\widetilde{\mathcal H(x)}$,
+whence $d_x(f)\le d_K(x)$. The inequality $d_K(x)\le\dim_xX$ is the
+Abhyankar inequality for the graded residue field of an analytic point, in
+the graded formulation of \Cref{sec:appG-graded-reduction}; it is
+\Cref{thm:abhyankar-relative} applied to an irreducible component through
+$x$.
+
+For the last two assertions: multiplying $f$ by a $K$-point multiplies each
+$\chi^m(f(x))$ by a nonzero scalar of $K$, whose initial form is a unit of
+$\widetilde K$, so $F_x(f)$ is unchanged. Composing with $q$ replaces the
+generating family by the subfamily of monomials $\chi^{q^*m'}$, so
+$F_x(q\circ f)\subset F_x(f)$ and $d_x(q\circ f)\le d_x(f)$. If $q$ is
+an isogeny then $q^*$ is injective with finite cokernel, so $F_x(q\circ f)$
+and $F_x(f)$ have the same algebraic closure in
+$\widetilde{\mathcal H(x)}$ --- every generator of the larger has a power
+lying in the smaller --- and the transcendence degrees agree.
+\end{proof}
+
+\begin{example}[The annulus]
+Assume here that $v_K(\pi)=1$.  On
+$U=\{|\pi|\leq|T|\leq1\}$ the moment map $T:U\to\mathbf G_m$ has tropical
+image $[0,1]$. Its canonical section is the family of Gauss points $v_r$ with
+$v_r(T)=r$. Thus tropicalization retracts the annulus onto the interval
+skeleton studied in \Cref{chap:four-entrances}.
+\end{example}
+
+\begin{example}[A Laurent polynomial and the max/min firewall]
+Let $f=a_0+a_1T+a_2S$ on the two-dimensional torus and put
+$u=(-\log|T|,-\log|S|)$.  Away from cancellation, the ultrametric inequality
+gives
+\[
+ -\log|f|
+ =\min\{-\log|a_0|,\,-\log|a_1|+u_1,\,
+                       -\log|a_2|+u_2\}.
+\]
+The tropical hypersurface is the locus where the minimum occurs at least
+twice.  After $x=-u$ and multiplication by $-1$, this is the corner locus of
+the max-plus polynomial used by Mikhalkin--Rau.  The underlying balanced
+cycle is carried to the other convention by the reflection $u\mapsto-u$.
+\end{example}
+
+\begin{theorem}\label{thm:analytic-tropical-polyhedrality}
+For a compact analytic domain $U$ and a moment map $\varphi$, the tropical
+image has a locally finite rational polyhedral structure of dimension at most
+$\dim U$. If $U$ is pure of dimension $n$, its $n$-dimensional cells carry
+canonical positive integral multiplicities.  If no such cell occurs, the
+dimension-$n$ tropical pushforward cycle is zero.
+\end{theorem}
+\begin{proof}
+Compactness gives a finite cover by affinoid domains on which the coordinates
+of $\varphi$ and their inverses belong to the affinoid algebra.  We first
+work on one such domain $\mathcal M(A)$.  Choose a topologically finite
+presentation of $A$ and add Laurent variables for the invertible functions
+$f_1,\ldots,f_r$.  For $u\in\mathbf R^r$, give those Laurent variables Gauss
+weight $u$.  A multiplicative seminorm on $A$ with
+$-\log|f_i|=u_i$ exists exactly when the corresponding weighted initial
+ideal does not contain a monomial.  This is the initial-form criterion of
+\Cref{sec:appG-initial-tropical}, applied to the graph presentation.
+
+The possible $u$ lie in a compact box because each $f_i$ and $f_i^{-1}$ is
+bounded on $\mathcal M(A)$.  On that box, only finitely many terms of each
+convergent power series can be initial.  Noetherianity of the affinoid
+algebra then gives finitely many initial generators.  The region on which a
+fixed collection of their terms is initial is cut out by inequalities
+\[
+                    \langle m-m',u\rangle
+                    \leq v(a_{m'})-v(a_m),
+\]
+whose linear parts are integral.  There are finitely many such regions, and
+the monomial-free regions form a rational polyhedral complex.  In the
+non-strict case the same argument is made in the graded reduction; the
+degrees record the relevant value-group constants.  Taking a common
+refinement over the finite affinoid cover gives the asserted locally finite
+structure on $\operatorname{Trop}_\varphi(U)$.
+
+Let $\sigma$ be a cell of dimension $d$ and choose a point in its relative
+interior.  Varying the $d$ independent affine coordinates on $\sigma$
+produces $d$ rationally independent value parameters in the associated
+graded residue field.  The Abhyankar inequality bounds their rational rank
+by the analytic dimension of $A$, so $d\leq\dim U$.
+
+Assume now that $U$ is pure of dimension $n$, and let $\sigma$ be an
+$n$-dimensional cell.  On its relative interior the weighted initial algebra
+is constant.  Define the
+multiplicity to be the sum, over its top-dimensional irreducible components,
+of the component length times its graded residue-field degree.  Each summand
+is a positive integer.  Constancy of the initial algebra on the cell makes
+the multiplicity locally constant, and additivity of lengths shows that it
+is preserved under subdivision.  These are the canonical tropical
+multiplicities.
+
+The affinoid initial-ideal and graded-reduction steps are the substantive
+analytic inputs; their full invariant formulation is
+\cite[\S\S12--15]{CLD25}.  The argument also shows why the conclusion is a
+polyhedral complex rather than necessarily one polyhedron.
+\end{proof}
+
+\section{The canonical skeleton of a torus}
+\label{sec:trop-torus}
+
+Every multiplicity in this chapter is measured against one example, which we
+therefore compute completely. Let $T=\mathbf G_{m,K}^n$ with coordinates
+$T_1,\ldots,T_n$, character lattice $M=\mathbf Z^n$, and
+$T_{\mathrm{trop}}=\mathbf R^n$. Write $u=(u_1,\ldots,u_n)$ for the
+tropical coordinate and $r_i=\rme^{-u_i}$, so that $r^m=\rme^{-\langle
+m,u\rangle}$ for $m\in M$.
+
+\begin{definition}[Gauss points of a torus]
+\label{def:trop-gauss-point}
+\index{Gauss point!of a torus}
+For $u\in\mathbf R^n$ define $\eta_u$ on the Laurent polynomial ring
+$K[T_1^{\pm1},\ldots,T_n^{\pm1}]$ by
+\begin{equation}
+\label{eq:trop-gauss-seminorm}
+ \Bigl|\sum_ma_mT^m\Bigr|_{\eta_u}
+ =\max_m|a_m|\,\rme^{-\langle m,u\rangle}.
+\end{equation}
+\end{definition}
+
+\begin{lemma}
+\label{lem:trop-gauss-multiplicative}
+Formula \eqref{eq:trop-gauss-seminorm} defines a multiplicative norm on
+$K[T^{\pm1}]$ extending the absolute value of $K$; hence, by
+\Cref{prop:berk-pair-description}, a point
+$\eta_u\in T^{\An}=\mathbf G_{m,K}^{n,\An}$. It satisfies
+$\trop(\eta_u)=u$, where $\trop=\mathrm{id}_{\mathrm{trop}}$.
+\end{lemma}
+
+\begin{proof}
+The right-hand side of \eqref{eq:trop-gauss-seminorm} is a maximum of
+finitely many nonnegative numbers, vanishing only if all $a_m$ vanish;
+it is $\le$-subadditive for the maximum because
+$|a_m+b_m|\le\max\{|a_m|,|b_m|\}$, and restricts to $|\cdot|$ on $K$ since
+only $m=0$ occurs. It remains to prove multiplicativity.
+
+Let $f=\sum_ma_mT^m$ and $g=\sum_mb_mT^m$ be nonzero, and put
+$\rho=|f|_{\eta_u}$, $\sigma=|g|_{\eta_u}$. Every coefficient of $fg$ is a
+finite sum $\sum_{m+m'=\ell}a_mb_{m'}$, so
+$|fg|_{\eta_u}\le\rho\sigma$ by the ultrametric inequality. For the reverse
+inequality, let
+\[
+ S=\{m:|a_m|r^m=\rho\},\qquad S'=\{m':|b_{m'}|r^{m'}=\sigma\};
+\]
+both are nonempty and finite. Fix the lexicographic total order on
+$M=\mathbf Z^n$; it is compatible with addition. Let $m_0=\max_{\mathrm{lex}}S$
+and $m_0'=\max_{\mathrm{lex}}S'$, and set $\ell=m_0+m_0'$. The coefficient
+of $T^\ell$ in $fg$ is
+\[
+ c_\ell=a_{m_0}b_{m_0'}+\sum_{\substack{m+m'=\ell\\(m,m')\ne(m_0,m_0')}}
+ a_mb_{m'} .
+\]
+Consider a pair $(m,m')\ne(m_0,m_0')$ with $m+m'=\ell$. If $m\notin S$ or
+$m'\notin S'$, then $|a_mb_{m'}|r^\ell<\rho\sigma$. If $m\in S$ and
+$m'\in S'$, then $m\le_{\mathrm{lex}}m_0$ and $m'\le_{\mathrm{lex}}m_0'$
+by maximality; since $m+m'=m_0+m_0'$ and the order is translation
+invariant, both inequalities must be equalities, contradicting
+$(m,m')\ne(m_0,m_0')$. Hence exactly one term of $c_\ell$ has absolute value
+$\rho\sigma r^{-\ell}$ and the others are strictly smaller, so
+$|c_\ell|r^\ell=\rho\sigma$ by the ultrametric equality case
+(\Cref{lem:strong-triangle-equality}), and $|fg|_{\eta_u}\ge\rho\sigma$.
+
+Finally $|T_i|_{\eta_u}=\rme^{-u_i}$, so $\trop(\eta_u)=u$.
+\end{proof}
+
+\begin{definition}
+\label{def:trop-torus-skeleton}
+\index{skeleton!canonical, of a torus}
+The map $\sq:T_{\mathrm{trop}}\to T^{\An}$, $u\mapsto\eta_u$, is the
+\emph{canonical section} of $\trop$. Its image
+\[
+ S(T)=\sq(T_{\mathrm{trop}})\subset T^{\An}
+\]
+is the \emph{canonical skeleton} of $T$.
+\end{definition}
+
+The following proposition collects the three characterizations of $S(T)$
+used below: an equality of norms, an extremality property, and a
+graded-reduction condition. The third is the one that generalizes, and it
+is the reason graded reduction is unavoidable in this theory.
+
+\begin{proposition}
+\label{prop:trop-torus-skeleton}
+Let $x\in T^{\An}=\mathbf G_{m,K}^{n,\An}$ and put
+$u=\trop(x)$. The following are equivalent.
+\begin{enumerate}
+\item\label{itm:trop-sk:eq} For every Laurent polynomial
+  $f=\sum_ma_mT^m$ one has
+  \[
+   |f(x)|=\max_m|a_m|\rme^{-\langle m,u\rangle};
+  \]
+  that is, $x=\eta_u$.
+\item\label{itm:trop-sk:max} $x$ is maximal for the partial order on
+  $T^{\An}$ defined by $y\le z$ if and only if $|f(y)|\le|f(z)|$ for every
+  analytic function $f$ on $T^{\An}$.
+\item\label{itm:trop-sk:graded} The initial forms
+  $\widetilde{T_1(x)},\ldots,\widetilde{T_n(x)}$ are algebraically
+  independent over $\widetilde K$ in the graded residue field
+  $\widetilde{\mathcal H(x)}$; equivalently $d_x(\mathrm{id}_T)=n$.
+\end{enumerate}
+Moreover $\sq$ is continuous, $S(T)$ is closed in $T^{\An}$, and $\sq$ is a
+homeomorphism of $T_{\mathrm{trop}}$ onto $S(T)$ inverse to
+$\trop|_{S(T)}$. When $x\in S(T)$ one has $d_K(x)=n$.
+\end{proposition}
+
+\begin{proof}
+\emph{\cref{itm:trop-sk:eq} $\Rightarrow$ \cref{itm:trop-sk:max}.} Suppose
+$x=\eta_u$ and $\eta_u\le z$. Put $s_i=|T_i(z)|$ and $s=(s_1,\ldots,s_n)$,
+$w=-\log s$. Applying $\eta_u\le z$ to $T_i$ and to $T_i^{-1}$ gives
+$r_i\le s_i$ and $r_i^{-1}\le s_i^{-1}$, hence $s=r$ and $w=u$. On the other
+hand, for any $y\in T^{\An}$ with $\trop(y)=u$ the ultrametric inequality
+gives $|f(y)|\le\max_m|a_m|r^m=|f(\eta_u)|$ for every Laurent polynomial
+$f$, and hence for every analytic function by density; so $z\le\eta_u$.
+Therefore $z=\eta_u$: any $z$ dominating $\eta_u$ equals it.
+
+\emph{\cref{itm:trop-sk:max} $\Rightarrow$ \cref{itm:trop-sk:eq}.} Let
+$x$ be arbitrary and $u=\trop(x)$. The computation just made shows
+$x\le\eta_u$. If $x$ is maximal, then $x=\eta_u$.
+
+\emph{\cref{itm:trop-sk:eq} $\Rightarrow$ \cref{itm:trop-sk:graded}.} Let
+$P=\sum_ma_mS^m$ be a nonzero graded polynomial relation over
+$\widetilde K$ among the $\widetilde{T_i(x)}$; here the monomial $S^m$ has
+degree $r^m$, and we may assume $P$ homogeneous of some degree $\rho$,
+since the graded components of a relation are again relations. Homogeneity
+of degree $\rho$ means that only exponents $m$ with $|a_m|r^m=\rho$ occur,
+where $a_m\in K$ represents $\widetilde{a_m}$. Lifting, $f=\sum a_mT^m$
+satisfies $|f|_{\eta_u}=\rho$, whereas $P(\widetilde{T(x)})=0$ says
+precisely $|f(x)|<\rho$. This contradicts \cref{itm:trop-sk:eq}. Hence no
+nontrivial relation exists.
+
+\emph{\cref{itm:trop-sk:graded} $\Rightarrow$ \cref{itm:trop-sk:eq}.}
+Let $f=\sum_ma_mT^m$ and let $\rho=\max_m|a_m|r^m$. Only the exponents $m$
+with $|a_m|r^m=\rho$ contribute to the degree-$\rho$ part; by
+\Cref{prop:appG-initial-calculus} the class of $f(x)$ in degree $\rho$ is
+$\sum_{|a_m|r^m=\rho}\widetilde{a_m}\,\widetilde{T(x)}^m$, a nonzero graded
+polynomial expression in algebraically independent elements, hence nonzero.
+So $|f(x)|=\rho$.
+
+\emph{Topology.} Continuity of $\sq$: for a Laurent polynomial $f$, the
+function $u\mapsto|f(\eta_u)|=\max_m|a_m|\rme^{-\langle m,u\rangle}$ is
+continuous on $\mathbf R^n$, and these functions generate the topology of
+$T^{\An}$. Since $\trop\circ\sq=\mathrm{id}$, the map $\sq$ is injective and
+$\trop|_{S(T)}$ is a continuous inverse; therefore $\sq$ is a homeomorphism
+onto its image. Closedness: if $x\notin S(T)$, then by
+\cref{itm:trop-sk:eq} there is a Laurent polynomial $f$ with
+$|f(x)|<|f(\eta_{\trop(x)})|$; the set of $y$ with
+$|f(y)|<|f(\eta_{\trop(y)})|$ is open, because $y\mapsto|f(y)|$ is
+continuous and $y\mapsto|f(\eta_{\trop(y)})|$ is continuous by the previous
+sentence, and it avoids $S(T)$.
+
+\emph{The invariant $d_K(x)$.} If $x\in S(T)$ then
+$d_K(x)\ge d_x(\mathrm{id}_T)=n$ by \cref{itm:trop-sk:graded}, while
+$d_K(x)\le\dim_xT^{\An}=n$ by \Cref{lem:trop-residual-degree-bounds}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:trop-skeleton-intrinsic}
+Let $T$ be any $K$-split torus of dimension $n$. The subset
+$S(T)\subset T^{\An}$ obtained from \Cref{def:trop-torus-skeleton} through
+one trivialization $T\simeq\mathbf G_{m,K}^n$ is independent of the
+trivialization, and $\trop$ restricts to a homeomorphism
+$S(T)\to T_{\mathrm{trop}}$. Transporting the group law of
+$T_{\mathrm{trop}}$ makes $S(T)$ a topological group, and the composite
+$T(K)\to T_{\mathrm{trop}}\xrightarrow{\ \sq\ }S(T)$ is a group
+homomorphism.
+\end{corollary}
+
+\begin{proof}
+Characterizations \cref{itm:trop-sk:max} and \cref{itm:trop-sk:graded} of
+\Cref{prop:trop-torus-skeleton} do not mention the coordinates: the former
+is stated with all analytic functions, and the latter says
+$d_x(\mathrm{id}_T)=n$, which by
+\Cref{lem:trop-residual-degree-bounds} is unchanged under a monomial change
+of basis of $M$, since such a change replaces the generating family
+$(\widetilde{T_i(x)})$ by a family of Laurent monomials in it generating the
+same graded subfield. The remaining statements are immediate from the
+homeomorphism $\sq$ and the identity $\trop(st)=\trop(s)+\trop(t)$, which is
+multiplicativity of the absolute values of characters.
+\end{proof}
+
+The next lemma is the model computation for every tropical multiplicity in
+this chapter. Note that both the analytic degree and the lattice index occur,
+and that they occur on opposite sides.
+
+\begin{lemma}
+\label{lem:trop-monomial-degree}
+Let $A\in M_n(\mathbf Z)$ with $\delta=|\det A|\ne0$, let
+$c=(c_1,\ldots,c_n)\in(K^\times)^n$, and let
+$\varphi:\mathbf G_{m,K}^n\to\mathbf G_{m,K}^n$ be the homomorphism
+followed by translation given by $\varphi^*(T_i)=c_iT^{A_i}$, where $A_i$
+is the $i$-th row of $A$. Then:
+\begin{enumerate}
+\item\label{itm:trop-mono:affine} $\varphi_{\mathrm{trop}}(u)=Au+v_K(c)$ is
+  integer affine with linear part $A$, and
+  $[\mathbf Z^n:A\mathbf Z^n]=\delta$;
+\item\label{itm:trop-mono:finflat} $\varphi$ is finite and flat of degree
+  $\delta$;
+\item\label{itm:trop-mono:preimage}
+  $\varphi^{-1}(S(\mathbf G_m^n))=S(\mathbf G_m^n)$, and $\varphi$ induces a
+  homeomorphism of $S(\mathbf G_m^n)$ onto itself;
+\item\label{itm:trop-mono:degree} for $x\in S(\mathbf G_m^n)$ the fibre
+  $\varphi^{-1}(\varphi(x))$ is the single reduced point
+  $\mathcal M(\mathcal H(x))$, the graded residue extension
+  $\widetilde{\mathcal H(x)}/\widetilde{\mathcal H(\varphi(x))}$ has degree
+  $\delta$, and $\deg_x(\varphi)=\delta$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\cref{itm:trop-mono:affine} is \Cref{lem:trop-moment-basic}
+\cref{itm:trop-moment:torus} together with the elementary identity
+$[\mathbf Z^n:A\mathbf Z^n]=|\det A|$ for an injective integral matrix,
+which follows from the Smith normal form.
+
+\cref{itm:trop-mono:finflat} After translating we may take $c=1$. Writing
+$A=UDV$ with $U,V\in\mathrm{GL}_n(\mathbf Z)$ and $D$ diagonal with entries
+$d_1,\ldots,d_n$, the map $\varphi$ becomes the composition of two
+automorphisms of $\mathbf G_m^n$ with the map
+$(t_i)\mapsto(t_i^{d_i})$; the latter corresponds to the ring extension
+$K[T^{\pm1}]\subset K[T^{\pm1}]$, $T_i\mapsto T_i^{d_i}$, which is free of
+rank $\prod|d_i|=\delta$. Freeness gives finiteness and flatness, and the
+degree is $\delta$.
+
+\cref{itm:trop-mono:preimage} and \cref{itm:trop-mono:degree}. Let
+$x\in\mathbf G_m^{n,\An}$ and $t=\varphi(x)$. The initial forms
+$\widetilde{T_i(t)}=\widetilde{c_i}\,\widetilde{T(x)}^{A_i}$ are Laurent
+monomials in the $\widetilde{T_j(x)}$ with exponent matrix $A$. Since $A$
+is invertible over $\mathbf Q$, some power of each $\widetilde{T_j(x)}$
+is a monomial in the $\widetilde{T_i(t)}$ up to a unit of $\widetilde K$;
+hence the two families are simultaneously algebraically independent over
+$\widetilde K$. By \Cref{prop:trop-torus-skeleton}
+\cref{itm:trop-sk:graded}, $x\in S$ if and only if $t\in S$. Since
+$\varphi_{\mathrm{trop}}=A$ is bijective on $\mathbf R^n$, the induced map
+on skeleta is a homeomorphism.
+
+Suppose now $x\in S$ and let $E\subset\widetilde{\mathcal H(x)}$ be the
+graded subfield generated by $\widetilde K$ and the $\widetilde{T_j(x)}$,
+and $F\subset E$ the graded subfield generated by $\widetilde K$ and the
+$\widetilde{T_i(t)}$. Both are graded Laurent polynomial fields in $n$
+independent variables, and $E/F$ is the extension of graded fraction fields
+determined by the lattice inclusion $A\mathbf Z^n\subset\mathbf Z^n$, so
+$[E:F]=[\mathbf Z^n:A\mathbf Z^n]=\delta$. Now $E=\widetilde{\mathcal H(x)}$
+and $F=\widetilde{\mathcal H(t)}$: indeed $x=\eta_u$ and $t=\eta_{Au+v_K(c)}$
+lie on the skeleton, $K[T^{\pm1}]$ is dense in $\mathcal H(\eta_u)$, and if
+$|g-h|<|h|$ then $\widetilde g=\widetilde h$
+(\Cref{prop:appG-initial-calculus}), so every initial form in
+$\widetilde{\mathcal H(\eta_u)}$ is the initial form of a Laurent
+polynomial, that is, a $\widetilde K$-linear combination of monomials in the
+$\widetilde{T_j(x)}$. Therefore
+$[\widetilde{\mathcal H(x)}:\widetilde{\mathcal H(t)}]=\delta$. Since the
+graded residue degree of an extension of complete valued fields is the
+product $ef$ of its ramification index and residue degree, the fundamental
+inequality (\Cref{prop:fundamental-inequality}) gives
+$[\mathcal H(x):\mathcal H(t)]\ge\delta$, once we know that this degree is
+finite; and it is, because $\varphi$ is finite. As $\varphi$ is finite
+and flat of degree $\delta$ by \cref{itm:trop-mono:finflat}, the fibre
+$\varphi^{-1}(t)$ is an $\mathcal H(t)$-algebra of dimension $\delta$
+containing $\mathcal H(x)$ as a residue field of one of its local factors;
+comparing dimensions forces the fibre to be the single reduced point
+$\mathcal M(\mathcal H(x))$ and $\deg_x(\varphi)=\delta$.
+\end{proof}
+
+\begin{example}[The tropicalization of a torus, computed]
+\label{ex:trop-torus-explicit}
+Take $X=T=\mathbf G_{m,K}^n$ and the identity moment map $f=\mathrm{id}$.
+Then:
+\begin{enumerate}
+\item $\Trop_f(T^{\An})=\mathbf R^n$. Indeed $\trop(\eta_u)=u$ for all $u$
+  by \Cref{lem:trop-gauss-multiplicative}, so $\trop$ is surjective; and
+  $\Trop_f\subset\mathbf R^n$ trivially. Thus the tropicalization of a
+  torus is all of $N_{\mathbf R}$, with no polyhedral boundary.
+\item The fibre of $\trop$ over $u$ is the set of $x$ with $x\le\eta_u$,
+  by the argument in the proof of \Cref{prop:trop-torus-skeleton}; it is a
+  compact connected set with a unique maximal point. For $n=1$ and
+  $K$ algebraically closed and nontrivially valued it is the set of points
+  of the analytic circle $\{|T|=\rme^{-u}\}$, whose unique maximal element
+  is the type-II or type-III point $\zeta_{0,\rme^{-u}}$ of
+  \Cref{thm:berk-a1-classification}; the description of the fibre as the set
+  of points dominated by a Gauss point is \Cref{cor:berk-gauss-sup}.
+\item The local skeleton is $\Sigma_{\mathrm{id}}=S(T)$, by
+  \Cref{prop:trop-torus-skeleton} and the definition
+  \eqref{eq:trop-sigma-def} below, and $\trop|_{S(T)}$ is an isomorphism of
+  integer-affine spaces onto $\mathbf R^n$.
+\item The canonical calibration of $S(T)$ is
+  $\mu=1\cdot|e_1\wedge\cdots\wedge e_n|$: taking $q=\mathrm{id}$ in
+  \Cref{def:trop-canonical-calibration}, the map $q\circ f=\mathrm{id}$ is
+  finite flat of degree $1$, and the affine section $\sigma_q$ is the
+  identity. In particular the tropical multiplicity of a torus is $1$, and
+  every multiplicity computed later is a comparison with this one.
+\item The map $\rho=\sq\circ\trop:T^{\An}\to S(T)$ is a continuous
+  retraction. It is the toric case of the skeletal retractions of
+  \Cref{prop:skeleton-retraction}; the comparison with the retraction
+  attached to a toric model, and with the support-function calculus, is the
+  content of \Cref{sec:toric-convex}, whose coordinate
+  \eqref{eq:toric-trop} agrees with $\trop$ here.
+\end{enumerate}
+\end{example}
+
+\begin{example}[Why naive fibre counting fails]
+\label{ex:trop-fibre-counting}
+Let $K=\mathbf Q_p$, $n=1$, and $\varphi(T)=T^p$. By
+\Cref{lem:trop-monomial-degree}, $\varphi$ is finite flat of degree $p$
+and, for every $u$, the fibre $\varphi^{-1}(\eta_{pu})$ inside
+$\mathbf G_m^{\An}$ meets $S(\mathbf G_m)$ in the single point $\eta_u$,
+with $\deg_{\eta_u}(\varphi)=p$. Counting points of the fibre would give
+$1$; the correct answer $p$ is the degree of the graded residue extension
+$\widetilde{\mathcal H(\eta_u)}/\widetilde{\mathcal H(\eta_{pu})}$, which is
+generated by an element $\widetilde{T}$ with
+$\widetilde T^{\,p}=\widetilde{T^p}$ in the appropriate degree. Over an
+algebraically closed field the same map has, over a classical point,
+$p$ distinct preimages when $p\ne\operatorname{char}\widetilde K$ and one
+preimage of multiplicity $p$ otherwise; the analytic degree is $p$ in every
+case. This is why \Cref{def:trop-canonical-calibration} is phrased with the
+local degree of a finite flat morphism and never with a cardinality.
+\end{example}
+
+\section{Tropical charts}
+\label{sec:trop-charts}
+
+\begin{definition}
+A \emph{tropical chart} on $X$ is a pair $(V,\varphi)$ consisting of a moment
+map on an analytic domain $U$ and an open subset
+$\Omega\subset\operatorname{Trop}_\varphi(U)$ such that
+\[
+                         V=\varphi_{\mathrm{trop}}^{-1}(\Omega).
+\]
+A superform on $V$ represented in this chart is the pullback
+$\varphi_{\mathrm{trop}}^*\alpha$ of a superform $\alpha$ on $\Omega$.
+\end{definition}
+
+The notation is symbolic at this stage: $\varphi_{\mathrm{trop}}$ is only
+continuous, so pullback means the equivalence class represented by the chart,
+not classical differentiation of a map between manifolds.
+
+Two structural facts about charts are used constantly and are best isolated
+now: the domains of charts form a basis of the topology near any good point,
+and the intersection of two chart domains is again covered by chart domains.
+
+\begin{lemma}
+\label{lem:trop-charts-basis}
+Let $X$ be a $K$-analytic space, let $x\in X$ be a point at which $X$ is
+good, and let $W\ni x$ be open. Then there is a tropical chart
+$(V,\varphi)$ with $x\in V\subset W$. If moreover $d_K(x)=n$, the moment map
+$\varphi$ may be chosen with $d_x(\varphi)=n$.
+\end{lemma}
+
+\begin{proof}
+Goodness gives an affinoid neighbourhood $\mathcal M(A)\subset W$ of $x$.
+Choose finitely many $g_1,\ldots,g_r\in A$ generating $A$ topologically,
+and let $J=\{i:|g_i(x)|>0\}$. On the Laurent domain
+$U=\{y:|g_i(y)|\ge\varepsilon_i,\ i\in J\}$ with
+$0<\varepsilon_i<|g_i(x)|$, the functions $g_i$, $i\in J$, are invertible,
+so $\varphi=(g_i)_{i\in J}$ is a moment map on $U$. The set
+\[
+ \Omega=\{w\in\Trop_\varphi(U):w_i<-\log\varepsilon_i\ \text{for }i\in J\}
+\]
+is open in $\Trop_\varphi(U)$ and contains $\varphi_{\mathrm{trop}}(x)$, and
+$V=\varphi_{\mathrm{trop}}^{-1}(\Omega)$ is the open subset
+$\{y\in U:|g_i(y)|>\varepsilon_i\ \forall i\in J\}$ of $U$, hence contained
+in $\mathcal M(A)\subset W$. This is a tropical chart containing $x$.
+
+For the refinement, suppose $d_K(x)=n$ and choose a graded transcendence
+basis $a_1,\ldots,a_n$ of $\widetilde{\mathcal H(x)}$ over $\widetilde K$.
+\Cref{lem:trop-moment-local-existence} produces invertible
+$f_1,\ldots,f_n$ near $x$ with $\widetilde{f_j(x)}=a_j$. Replacing
+$\varphi$ by $(\varphi,f_1,\ldots,f_n)$ --- a moment map on the
+intersection of the two domains, by \Cref{lem:trop-moment-basic}
+\cref{itm:trop-moment:prod} --- gives $d_x(\varphi)\ge n$, hence $=n$ by
+\Cref{lem:trop-residual-degree-bounds}.
+\end{proof}
+
+\begin{definition}
+A chart $(V',\psi)$ \emph{refines} $(V,\varphi)$ if $V'\subset V$ and there is
+an integer-affine map $F$ between tropical targets with
+\[
+                         \varphi_{\mathrm{trop}}|_{V'}
+                         =F\circ\psi_{\mathrm{trop}}.
+\]
+Then a representative $\alpha$ in the first chart is represented by
+$F^*\alpha$ in the refinement.
+\end{definition}
+
+\begin{lemma}\label{lem:product-moment-map}
+If $(V_1,\varphi)$ and $(V_2,\psi)$ are two charts, then on every suitable
+analytic domain contained in $V_1\cap V_2$ the product
+\[
+                     (\varphi,\psi):U\longrightarrow\mathbf G_m^{r+s}
+\]
+is a moment map refining both charts through the coordinate projections.
+\end{lemma}
+\begin{proof}
+The union of the invertible analytic coordinate functions of $\varphi$ and
+$\psi$ defines the product moment map. Tropicalization of the product is the
+ordered pair of the two tropicalizations. The coordinate projections are
+integer linear and give the required factorization.
+\end{proof}
+
+We spell out the two properties of refinement that the independence proofs
+use, together with the warning that refinement is not a symmetric relation
+and that a product refinement genuinely enlarges the target dimension.
+
+\begin{lemma}
+\label{lem:trop-refinement-calculus}
+\begin{enumerate}
+\item\label{itm:trop-ref:trans} Refinement is transitive: if
+  $(V'',\chi)$ refines $(V',\psi)$ through $G$ and $(V',\psi)$ refines
+  $(V,\varphi)$ through $F$, then $(V'',\chi)$ refines $(V,\varphi)$ through
+  $F\circ G$.
+\item\label{itm:trop-ref:prod} For moment maps $\varphi:U\to T$ and
+  $\psi:U\to T'$ on the same domain, the product $(\varphi,\psi)$ refines
+  both through the projections $p:T\times T'\to T$, $p':T\times T'\to T'$,
+  and $p_{\mathrm{trop}}$, $p'_{\mathrm{trop}}$ are surjective integral
+  linear maps.
+\item\label{itm:trop-ref:sigma} If $(V',\psi)$ refines $(V,\varphi)$ through
+  $F$, then $d_x(\varphi)\le d_x(\psi)$ for every $x\in V'$; in particular
+  $\Sigma^{(n)}_{\varphi}\cap V'\subset\Sigma^{(n)}_{\psi}$ in the notation
+  of \Cref{sec:trop-local-skeleta}.
+\item\label{itm:trop-ref:trans2} If $\varphi_{\mathrm{trop}}$ and
+  $\varphi'_{\mathrm{trop}}$ differ by a constant on $V$, then each of the
+  two charts refines the other through a translation.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\cref{itm:trop-ref:trans} A composition of integer-affine maps is integer
+affine, and
+$\varphi_{\mathrm{trop}}|_{V''}=F\circ\psi_{\mathrm{trop}}|_{V''}
+=F\circ G\circ\chi_{\mathrm{trop}}$.
+
+\cref{itm:trop-ref:prod} is \Cref{lem:trop-moment-basic}
+\cref{itm:trop-moment:prod}; the projections induce the inclusions
+$M\hookrightarrow M\oplus M'$ on characters, whose duals are the coordinate
+projections, which are surjective with $\mathbf Z$-saturated image.
+
+\cref{itm:trop-ref:sigma} Composition with a homomorphism of tori shrinks the
+generated graded subfield, so $F_x(\varphi)\subset F_x(\psi)$ by
+\Cref{lem:trop-residual-degree-bounds}; hence
+$d_x(\varphi)\le d_x(\psi)$.
+
+\cref{itm:trop-ref:trans2} A translation is integer affine with linear part
+the identity, and is invertible with integer-affine inverse.
+\end{proof}
+
+\begin{warning}{Refinement is directed, not symmetric}
+If $(V',\psi)$ refines $(V,\varphi)$, the coordinates of $\varphi$ are
+recovered from those of $\psi$ but not conversely: information is lost, not
+gained, along $F$. Two arbitrary charts therefore have no common
+\emph{coarsening}; the only universal construction is the product, which
+refines both. Consequently every comparison of two charts below proceeds by
+passing \emph{up} to the product, never down, and the corresponding
+statements about weights are pushforward statements, carrying the lattice
+index \eqref{eq:appG-lattice-index}.
+\end{warning}
+
+\begin{example}[A common refinement with a nontrivial index]
+Let $A=\{r\leq |T|\leq1\}$ be a closed annulus and fix an integer
+$m\geq1$.  The two moment maps $T$ and $T^m$ have tropical coordinates
+$u=-\log|T|$ and $u'=mu$.  Their product has image
+\[
+             \{(u,mu):0\leq u\leq-\log r\}\subset\mathbf R^2,
+\]
+whose primitive tangent vector is $(1,m)$.  Projection to the first factor
+has lattice index $1$, whereas projection to the second has lattice index
+$m$.  Thus the product chart has weight $1$, the $T$-chart has weight $1$,
+and the $T^m$-chart has weight $m$.  Formula
+\eqref{eq:analytic-tropical-pushforward} therefore reproduces the analytic
+degree of $T\mapsto T^m$ exactly once.  This one-dimensional calculation is
+a useful normalization test for every chart-refinement formula below.
+\end{example}
+
+\begin{proposition}\label{prop:tropical-form-refinement}
+Suppose representatives $\alpha$ and $\beta$ in two tropical charts have
+equal pullbacks to a common product refinement. Then equality is preserved
+under further refinement, wedge products, $\dprime$, $\ddprime$, and pullback by an
+analytic morphism. Hence compatible representatives define a sheaf
+$A_X^{p,q}$.
+\end{proposition}
+\begin{proof}
+Further pullback preserves equality. The compatibility with wedge and the
+differentials was proved for affine pullback in \Cref{chap:superforms}. An
+analytic morphism pulls a moment map back by composing its invertible
+coordinates; product refinements commute with this operation. The sheaf
+axioms follow by taking common refinements on overlaps and using locality of
+smooth forms on polyhedral supports.
+\end{proof}
+
+\section{Local skeleta}
+\label{sec:trop-local-skeleta}
+
+Tropicalization is not usually injective, and its image is not usually of the
+right dimension. Inside $X$ there is, however, a canonical closed subset on
+which the moment coordinates attain maximal rank. It is a polyhedral space,
+tropicalization restricts to a piecewise immersion on its top-dimensional
+part, and it is the correct domain of integration. Following
+\cite[\S12.6]{CLD25} we call it the characteristic polyhedron of the moment
+map; because it plays the role that skeleta of models play in
+\Cref{chap:skeleta}, and because it is defined only relative to a moment map
+on a domain, we also call it a \emph{local skeleton}.
+
+\begin{definition}[Local skeleton]
+\label{def:trop-local-skeleton}
+\index{skeleton!local, of a moment map}\index{characteristic polyhedron}
+Let $X$ be a $K$-analytic space of level $n$ and let $f:V\to T$ be a moment
+map on an analytic domain $V\subset X$. The \emph{local skeleton} of $f$ is
+\begin{equation}
+\label{eq:trop-sigma-def}
+ \Sigma_f=\bigcup_q\,(q\circ f)^{-1}\bigl(S(\mathbf G_{m}^n)\bigr)
+ \subset V,
+\end{equation}
+the union being over all homomorphisms of tori $q:T\to\mathbf G_{m}^n$. We
+write $\Sigma_f^{(n)}$ for the union of the local components of $\Sigma_f$ of
+dimension $n$, that is, the set of $x\in\Sigma_f$ with
+$\dim_x\Sigma_f=n$.
+\end{definition}
+
+Two remarks before the theorem. First, \eqref{eq:trop-sigma-def} is a union
+over an infinite set, so it is not obviously closed; the theorem shows it is
+a finite union. Second, the number $n$ in \eqref{eq:trop-sigma-def} is the
+level, not $\dim T$: one always projects to a torus of dimension exactly $n$,
+and $\Sigma_f=\varnothing$ as soon as $\dim T<n$.
+
+\begin{theorem}
+\label{thm:trop-sigma-characterization}
+Let $X$ be of level $n$, let $f:V\to T$ be a moment map, and fix a
+trivialization $T\simeq\mathbf G_{m}^m$, so that $f=(f_1,\ldots,f_m)$ with
+$f_i\in\mathcal O(V)^\times$. For $x\in V$ the following are equivalent.
+\begin{enumerate}
+\item\label{itm:trop-sigmachar:def} $x\in\Sigma_f$.
+\item\label{itm:trop-sigmachar:deg} $d_x(f)=n$.
+\item\label{itm:trop-sigmachar:coord} There is a subset
+  $I\subset\{1,\ldots,m\}$ with $\#I=n$ such that the initial forms
+  $\bigl(\widetilde{f_i(x)}\bigr)_{i\in I}$ are algebraically independent
+  over $\widetilde K$.
+\item\label{itm:trop-sigmachar:proj} There is $I\subset\{1,\ldots,m\}$ with
+  $\#I=n$ such that $x\in(q_I\circ f)^{-1}(S(\mathbf G_m^n))$, where
+  $q_I:\mathbf G_m^m\to\mathbf G_m^n$ is the projection onto the coordinates
+  indexed by $I$.
+\end{enumerate}
+Consequently
+\begin{equation}
+\label{eq:trop-sigma-finite-union}
+ \Sigma_f=\bigcup_{\#I=n}(q_I\circ f)^{-1}\bigl(S(\mathbf G_m^n)\bigr),
+\end{equation}
+a finite union of closed subsets; in particular $\Sigma_f$ is closed in $V$,
+and $\Sigma_f=\varnothing$ if $\dim T<n$.
+\end{theorem}
+
+\begin{proof}
+\cref{itm:trop-sigmachar:def} $\Rightarrow$ \cref{itm:trop-sigmachar:deg}.
+Suppose $q\circ f(x)\in S(\mathbf G_m^n)$ for some $q$. By
+\Cref{prop:trop-torus-skeleton} \cref{itm:trop-sk:graded} applied to
+$\mathbf G_m^n$ at the point $q(f(x))$ we get $d_x(q\circ f)=n$, and
+$d_x(q\circ f)\le d_x(f)$ by \Cref{lem:trop-residual-degree-bounds}. On the
+other hand $d_x(f)\le d_K(x)\le\dim_xX\le n$ by the same lemma and the
+level hypothesis. Hence $d_x(f)=n$.
+
+\cref{itm:trop-sigmachar:deg} $\Rightarrow$ \cref{itm:trop-sigmachar:coord}.
+The graded field $F_x(f)$ is generated over $\widetilde K$ by the family
+$\bigl(\widetilde{f_i(x)}\bigr)_{1\le i\le m}$, since the initial form of
+$f_i^{-1}$ is the inverse of that of $f_i$
+(\Cref{prop:appG-initial-calculus}) and every $\chi^m\circ f$ is a monomial
+in the $f_i^{\pm1}$. A generating family of a field extension of
+transcendence degree $n$ contains a transcendence basis; the graded case is
+identical, because a graded field extension is algebraic exactly when its
+homogeneous generators are, and the exchange lemma holds verbatim for
+homogeneous elements. Choose $I$ indexing such a basis.
+
+\cref{itm:trop-sigmachar:coord} $\Rightarrow$ \cref{itm:trop-sigmachar:proj}.
+The subfield $F_x(q_I\circ f)$ is generated by the
+$\widetilde{f_i(x)}$, $i\in I$, so $d_x(q_I\circ f)=n$, and
+\Cref{prop:trop-torus-skeleton} \cref{itm:trop-sk:graded} applied at
+$q_I(f(x))\in\mathbf G_m^{n,\An}$ gives $q_I(f(x))\in S(\mathbf G_m^n)$.
+
+\cref{itm:trop-sigmachar:proj} $\Rightarrow$ \cref{itm:trop-sigmachar:def} is
+trivial, the $q_I$ being particular homomorphisms of tori. Equation
+\eqref{eq:trop-sigma-finite-union} restates the equivalence
+\cref{itm:trop-sigmachar:def} $\Leftrightarrow$
+\cref{itm:trop-sigmachar:proj}. Each set in the union is closed, since
+$S(\mathbf G_m^n)$ is closed by \Cref{prop:trop-torus-skeleton} and
+$q_I\circ f$ is continuous; the union is finite. If $\dim T=m<n$ there is
+no admissible $I$, so $\Sigma_f=\varnothing$.
+\end{proof}
+
+The characterization is worth restating in words: \emph{a point lies in the
+local skeleton of a moment map exactly when $n$ of the moment coordinates
+have algebraically independent initial forms there}. No cardinality, no
+fibre, no model is involved. This is the precise sense in which graded
+reduction, and not any counting procedure, controls the theory.
+
+\begin{corollary}
+\label{cor:trop-sigma-abhyankar}
+Let $x\in\Sigma_f$. Then
+\[
+ d_x(f)=d_K(x)=\dim_xX=n .
+\]
+Moreover $x$ belongs to no Zariski-closed subset of dimension $<n$ of any
+analytic domain of $X$ containing it. In particular $x$ lies on exactly one
+irreducible component of $X$, in which it is Zariski dense, and
+$\Sigma_f\subset X^{(n)}$, the union of the $n$-dimensional irreducible
+components.
+\end{corollary}
+
+\begin{proof}
+The chain $n=d_x(f)\le d_K(x)\le\dim_xX\le n$ of
+\Cref{thm:trop-sigma-characterization} and
+\Cref{lem:trop-residual-degree-bounds} forces equality throughout. Suppose
+$x\in Y$ with $Y$ Zariski closed in an analytic domain $W\ni x$ and
+$\dim_xY<n$. The completed residue field $\mathcal H(x)$ computed in $Y$ and
+in $W$ is the same, so $d_K(x)$ is the same; applying
+$d_K(x)\le\dim_xY$ (\Cref{lem:trop-residual-degree-bounds} on $Y$) gives
+$n\le\dim_xY<n$, absurd. If $x$ lay on two irreducible components, it would
+lie on their intersection, a Zariski-closed subset of dimension $<n$;
+similarly the closure of $\{x\}$ inside its component must be everything.
+\end{proof}
+
+The polyhedral structure of $\Sigma_f$ is the one substantial import of this
+section. We state it once, in the form used below, and reference it
+explicitly at each use.
+
+\begin{theorem}
+\label{thm:trop-sigma-polyhedral}
+Let $X$ be a topologically separated $K$-analytic space of level $n$ and let
+$f:V\to T$ be a moment map on an analytic domain. Then:
+\begin{enumerate}
+\item\label{itm:trop-poly:para} $\Sigma_f$ is a closed polyhedral subspace of
+  $V$ of dimension at most $n$, in the sense of the tropical spaces of
+  \Cref{chap:tropical-spaces};
+\item\label{itm:trop-poly:top} $\Sigma_f^{(n)}$ is a closed polyhedral
+  subspace, purely of dimension $n$, and $f_{\mathrm{trop}}$ restricts on it
+  to a piecewise immersion of polyhedral spaces;
+\item\label{itm:trop-poly:union} local skeleta are stable under
+  restriction to analytic domains, $\Sigma_{f|_W}=\Sigma_f\cap W$, and under
+  preimage, $\Sigma_{f\circ p}=p^{-1}(\Sigma_f)$ for a morphism $p$ of
+  spaces of level $n$; a locally finite union of local skeleta is again
+  $G$-locally contained in one.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Assertions \cref{itm:trop-poly:para} and \cref{itm:trop-poly:top} are proved
+in \cite[\S\S12.6 and 12.9]{CLD25}; the argument
+there proceeds by a toric Noether normalization reducing $\dim T$ to $n$
+and then by induction on $n$ using
+\Cref{thm:trop-local-germ}. The two stability assertions of
+\cref{itm:trop-poly:union} are elementary and we prove them. Write
+$S=S(\mathbf G_m^n)$. For a domain $W\subset V$, a morphism $p:Y\to V$, and
+any $q$, one has
+\[
+ (q\circ f|_W)^{-1}(S)=(q\circ f)^{-1}(S)\cap W,
+ \qquad
+ (q\circ f\circ p)^{-1}(S)=p^{-1}\bigl((q\circ f)^{-1}(S)\bigr),
+\]
+and the union over $q$ commutes with intersection and with preimage. The
+last assertion of
+\cref{itm:trop-poly:union} is \cite[Proposition~12.6.7]{CLD25}.
+\end{proof}
+
+\begin{example}[Local skeleta in dimension one]
+\label{ex:trop-sigma-dim-one}
+Let $K$ be nontrivially valued and let $X=\mathbf G_{m,K}^{\An}$, of level
+$1$.
+\begin{enumerate}
+\item For $f=T$ one has $\Sigma_f=S(\mathbf G_m)=\{\eta_u:u\in\mathbf R\}$,
+  a closed real line inside $X$; this is the skeleton of the annulus
+  computation of \Cref{ex:berk-standard-annulus} and of
+  \Cref{ex:retraction-annulus}, extended to the whole punctured line.
+\item For $f=T^m$ with $m\ne0$, \Cref{lem:trop-monomial-degree}
+  \cref{itm:trop-mono:preimage} gives $\Sigma_{T^m}=\Sigma_T$: the local
+  skeleton does not see the exponent. What does see it is the calibration,
+  computed in \Cref{ex:trop-two-charts}.
+\item For $f=(T,1+T)$ on the domain $V=\{|T|<1\}\cap\mathbf G_m^{\An}$, one
+  has $|1+T|=1$ on $V$, so $\widetilde{(1+T)(x)}=1$ and the pair
+  $\bigl(\widetilde{T(x)},\widetilde{(1+T)(x)}\bigr)$ has the same
+  graded span as $\widetilde{T(x)}$ alone. By
+  \Cref{thm:trop-sigma-characterization},
+  $\Sigma_{(T,1+T)}=\Sigma_T\cap V$.
+\item Take $X=\mathcal M(K)$ or, more generally, $X$ of dimension $0$ and
+  level $1$. Then $\dim_xX=0<1$, so $\Sigma_f=\varnothing$ for every moment
+  map, by \Cref{cor:trop-sigma-abhyankar}. Nothing is integrated over a
+  space of the wrong dimension, and no convention is needed to say so.
+\end{enumerate}
+\end{example}
+
+\section{Dimension formulae}
+\label{sec:trop-dimension}
+
+The tropical dimension of a moment map at a point measures how much of the
+local geometry survives tropicalization. It is defined as an infimum over
+shrinking neighbourhoods precisely because a global tropical image can be
+larger than any germ suggests.
+
+\begin{definition}
+\label{def:trop-tropical-dimension}
+\index{tropical dimension}
+Let $f:X\to T$ be a moment map and $x\in X$. The \emph{tropical dimension}
+of $f$ at $x$ is
+\[
+ \dim_{\mathrm{trop},x}(f)
+ =\inf_V\ \dim_{f_{\mathrm{trop}}(x)}f_{\mathrm{trop}}(V),
+\]
+the infimum over compact analytic neighbourhoods $V$ of $x$ in $X$. By
+\Cref{thm:trop-local-germ} \cref{itm:trop-germ:germ} the infimum is attained
+on every sufficiently small $V$.
+\end{definition}
+
+\begin{theorem}
+\label{thm:trop-dimension-formula}
+Let $X$ be a $K$-analytic space, $f:X\to T$ a moment map, and $x\in X$.
+Then
+\begin{equation}
+\label{eq:trop-dimension-chain}
+ \dim_{\mathrm{trop},x}(f)\ \le\ d_x(f)\ \le\ d_K(x)\ \le\ \dim_xX .
+\end{equation}
+The first inequality is an equality if $x\notin\partial X$. The second is an
+equality if and only if the graded subfield $F_x(f)$ generated by the moment
+coordinates is a graded transcendence basis of
+$\widetilde{\mathcal H(x)}$ up to algebraic extension. The third is an
+equality if and only if $x$ is an Abhyankar point of $X$, and then
+$\mathcal H(x)$ is an Abhyankar extension of $K$ in the sense of
+\Cref{sec:trop-graded}. If $X$ is compact,
+\begin{equation}
+\label{eq:trop-dimension-sup}
+ \dim\Trop_f(X)=\sup_{x\in X}\dim_{\mathrm{trop},x}(f).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The middle and right inequalities of \eqref{eq:trop-dimension-chain} are
+\Cref{lem:trop-residual-degree-bounds}, together with their equality cases,
+which are the definitions of transcendence basis and of an Abhyankar point.
+The left inequality is \Cref{thm:trop-local-germ}
+\cref{itm:trop-germ:bound}, and the equality for interior $x$ is
+\Cref{thm:trop-local-germ} \cref{itm:trop-germ:interior}: there
+$f_{\mathrm{trop}}(V)$ is purely of dimension $d_x(f)$ at
+$f_{\mathrm{trop}}(x)$ for every small $V$, so the infimum equals
+$d_x(f)$.
+
+For \eqref{eq:trop-dimension-sup}: the inequality $\ge$ is clear because
+$f_{\mathrm{trop}}(V)\subset\Trop_f(X)$ for every $V$. For $\le$, let
+$\xi\in\Trop_f(X)$ be a point at which the polyhedron $\Trop_f(X)$ --- which
+is a polyhedron by \Cref{thm:analytic-tropical-polyhedrality} --- has its
+maximal dimension $\delta$, and choose a $\delta$-dimensional cell $C$ of it
+containing $\xi$ in its relative interior. Since $X$ is compact,
+$f_{\mathrm{trop}}^{-1}(C)$ is a compact analytic domain whose tropical image
+is $C$; covering it by finitely many small compact neighbourhoods $V_j$ and
+using that a finite union of sets of dimension $<\delta$ cannot equal $C$,
+some $V_j$ has $\dim f_{\mathrm{trop}}(V_j)=\delta$, and then some point of
+$V_j$ has tropical dimension $\delta$ by the same argument applied inside
+$V_j$ and \Cref{thm:trop-local-germ} \cref{itm:trop-germ:germ}.
+\end{proof}
+
+We now connect the tropical dimension to the local skeleton. The next lemma
+is the geometric heart: a top-dimensional piece of the tropical image is
+always \emph{hit} by the canonical section, so top-dimensional tropical
+behaviour is genuinely present in the analytic space.
+
+\begin{lemma}
+\label{lem:trop-skeleton-attained}
+Let $X$ be a compact $K$-analytic space and $f:X\to T$ a moment map with
+$\dim T=n$. Then
+\[
+ f(X)\ \supset\ \sq\bigl(\Trop_f(X)^{(n)}\bigr),
+\]
+where $\Trop_f(X)^{(n)}$ denotes the union of the $n$-dimensional local
+components of the polyhedron $\Trop_f(X)$.
+\end{lemma}
+
+\begin{proof}
+First let $C\subset\Trop_f(X)$ be a compact $n$-dimensional polyhedron; we
+show that $f^{-1}(\sq(C))\ne\varnothing$. Writing $C$ as a finite
+intersection of half-spaces $\langle m_i,u\rangle\le c_i$ with
+$m_i\in M$, the set
+$W=f_{\mathrm{trop}}^{-1}(C)=\{x:|\chi^{m_i}(f(x))|\ge\rme^{-c_i}\}$ is a
+compact analytic domain of $X$ with $f_{\mathrm{trop}}(W)=C$. Since
+$\dim f_{\mathrm{trop}}(W)=n$ and $W$ is compact,
+\eqref{eq:trop-dimension-sup} gives a point $x\in W$ with
+$\dim_{\mathrm{trop},x}(f|_W)=n$. By \eqref{eq:trop-dimension-chain},
+$d_x(f)=n=\dim T$, so $f(x)\in S(T)$ by
+\Cref{prop:trop-torus-skeleton} \cref{itm:trop-sk:graded}. As
+$\trop(f(x))\in C$, we get $f(x)\in\sq(C)$.
+
+Now let $s\in\Trop_f(X)^{(n)}$ and let $(C_\alpha)$ be a basis of compact
+neighbourhoods of $s$ in $\Trop_f(X)$ consisting of $n$-dimensional
+polyhedra. By the previous paragraph $f(X)$ meets each $\sq(C_\alpha)$, and
+$(\sq(C_\alpha))$ is a basis of neighbourhoods of $\sq(s)$ in $S(T)$ because
+$\sq$ is a homeomorphism onto $S(T)$
+(\Cref{prop:trop-torus-skeleton}). Hence $\sq(s)$ lies in the closure of
+$f(X)$; and $f(X)$ is compact, hence closed.
+\end{proof}
+
+\begin{theorem}
+\label{thm:trop-dimension-sigma}
+Let $X$ be of level $n$ and $f:X\to T$ a moment map.
+\begin{enumerate}
+\item\label{itm:trop-dimsig:a} For every $x\in X$ one has
+  $\dim_{\mathrm{trop},x}(f)\le n$, with equality if and only if
+  $x\in\Sigma_f^{(n)}$.
+\item\label{itm:trop-dimsig:b} If $x\in\Int(X)$, the three conditions
+  $x\in\Sigma_f$, $\dim_{\mathrm{trop},x}(f)=n$, and
+  $x\in\Sigma_f^{(n)}$ are equivalent.
+\item\label{itm:trop-dimsig:c} If $X$ is compact, or more generally if
+  $f_{\mathrm{trop}}$ is topologically proper, then
+  $\Trop_f(X)^{(n)}=f_{\mathrm{trop}}\bigl(\Sigma_f^{(n)}\bigr)$.
+\item\label{itm:trop-dimsig:d} If $X$ is boundaryless, then
+  $\Sigma_f=\Sigma_f^{(n)}$, and $\Sigma_f$ depends only on the map
+  $f_{\mathrm{trop}}$, not on $f$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\cref{itm:trop-dimsig:a} The bound $\dim_{\mathrm{trop},x}(f)\le d_x(f)\le n$
+is \eqref{eq:trop-dimension-chain} and the level hypothesis.
+
+Suppose $\dim_{\mathrm{trop},x}(f)=n$. Then $d_x(f)=n$, so $x\in\Sigma_f$
+by \Cref{thm:trop-sigma-characterization}. We must show
+$\dim_x\Sigma_f=n$. Let $V$ be any compact analytic neighbourhood of $x$;
+then $\dim f_{\mathrm{trop}}(V)=n$. Choose an $n$-dimensional cell
+$C\subset f_{\mathrm{trop}}(V)$ and a homomorphism $q:T\to\mathbf G_m^n$
+with $q_{\mathrm{trop}}$ injective on the affine span $\langle C\rangle$;
+such a $q$ exists because $\langle C\rangle$ is a $\mathbf Q$-rational
+affine subspace of $N_{\mathbf R}$, so a generic projection $M\to\mathbf Z^n$
+restricts to an injection on its direction lattice. Then
+$\dim(q\circ f)_{\mathrm{trop}}(V)=n$, and
+\Cref{lem:trop-skeleton-attained} applied to $q\circ f$ on $V$ gives
+\[
+ \sq\bigl((q\circ f)_{\mathrm{trop}}(V)^{(n)}\bigr)\subset(q\circ f)(V).
+\]
+Every point of $V$ mapping into $S(\mathbf G_m^n)$ under $q\circ f$ lies in
+$\Sigma_f$ by \eqref{eq:trop-sigma-def}; hence $(q\circ f)(\Sigma_f\cap V)$
+contains an $n$-dimensional subset of $S(\mathbf G_m^n)$, so
+$\dim(\Sigma_f\cap V)\ge n$. Combined with
+\Cref{thm:trop-sigma-polyhedral} \cref{itm:trop-poly:para} this gives
+$\dim(\Sigma_f\cap V)=n$ for every $V$, that is $\dim_x\Sigma_f=n$.
+
+Conversely let $x\in\Sigma_f^{(n)}$ and let $V$ be a compact neighbourhood
+of $x$. Then $V\cap\Sigma_f^{(n)}$ is a neighbourhood of $x$ in
+$\Sigma_f^{(n)}$, hence contains an $n$-dimensional cell; since
+$f_{\mathrm{trop}}$ restricted to $\Sigma_f^{(n)}$ is a piecewise immersion
+(\Cref{thm:trop-sigma-polyhedral} \cref{itm:trop-poly:top}), the image
+$f_{\mathrm{trop}}(V)$ has dimension at least $n$, hence exactly $n$.
+Therefore $\dim_{\mathrm{trop},x}(f)=n$.
+
+\cref{itm:trop-dimsig:b} Let $x\in\Int(X)$ and $x\in\Sigma_f$. Then
+$d_x(f)=n$ by \Cref{thm:trop-sigma-characterization}, and since
+$x\notin\partial X$ the first inequality of \eqref{eq:trop-dimension-chain}
+is an equality, so $\dim_{\mathrm{trop},x}(f)=n$. By
+\cref{itm:trop-dimsig:a} this gives $x\in\Sigma_f^{(n)}$. The implications
+$\Sigma_f^{(n)}\subset\Sigma_f$ and \cref{itm:trop-dimsig:a} close the
+circle.
+
+\cref{itm:trop-dimsig:c} Since $f_{\mathrm{trop}}|_{\Sigma_f^{(n)}}$ is a
+piecewise immersion from a space purely of dimension $n$, its image is
+purely of dimension $n$ and is closed when $f_{\mathrm{trop}}$ is proper;
+hence it is contained in $\Trop_f(X)^{(n)}$. Conversely let
+$\xi\in\Trop_f(X)$ not lie in $f_{\mathrm{trop}}(\Sigma_f^{(n)})$ and let
+$x$ be any preimage. Then $x\notin\Sigma_f^{(n)}$, so
+$\dim_{\mathrm{trop},x}(f)<n$ by \cref{itm:trop-dimsig:a}. Properness gives a
+compact analytic neighbourhood $V$ of $f_{\mathrm{trop}}^{-1}(\xi)$ and a
+polyhedral neighbourhood $U$ of $\xi$ in $\Trop_f(X)$ with
+$f_{\mathrm{trop}}^{-1}(U)\subset V$ and
+$\dim f_{\mathrm{trop}}(V)\le n-1$; then $U$ has dimension $\le n-1$ and
+$\xi\notin\Trop_f(X)^{(n)}$.
+
+\cref{itm:trop-dimsig:d} If $X$ is boundaryless then $X=\Int(X)$ and
+\cref{itm:trop-dimsig:b} gives $\Sigma_f=\Sigma_f^{(n)}$. By
+\cref{itm:trop-dimsig:a}, $\Sigma_f^{(n)}$ is the locus where
+$\dim_{\mathrm{trop},x}(f)=n$, and $\dim_{\mathrm{trop},x}$ is computed
+from the images $f_{\mathrm{trop}}(V)$ alone.
+\end{proof}
+
+\begin{warning}{$\Sigma_f$ itself is not a tropical invariant}
+Without the boundarylessness hypothesis, $\Sigma_f$ genuinely depends on $f$
+and not only on $f_{\mathrm{trop}}$. Let $X=\{x\in\mathbf G_m^{\An}:|T(x)|=1\}$,
+of level $1$, and let $f=T$. Then $f_{\mathrm{trop}}\equiv0$ is the same map
+as the tropicalization of the constant moment map $1$, yet
+$\Sigma_f=\{\eta_0\}$ is the Gauss point while $\Sigma_1=\varnothing$. The
+discrepancy lives entirely on $\partial X$: here $X$ is affinoid and
+$\eta_0$ is its Shilov boundary point. This is why every subsequent
+statement about calibrations is made on $\Sigma_f^{(n)}$, or on interiors of
+cells, and never on $\Sigma_f$ as a whole.
+\end{warning}
+
+\begin{corollary}
+\label{cor:trop-sigma-translation}
+Let $X$ be of level $n$ and let $f,f':X\to\mathbf G_m^n$ be moment maps such
+that $f'_{\mathrm{trop}}-f_{\mathrm{trop}}$ is constant on $X$. Then
+\[
+ \Sigma_f\cap\Int(X)=\Sigma_{f'}\cap\Int(X)
+ =\Sigma_f^{(n)}\cap\Int(X)=\Sigma_{f'}^{(n)}\cap\Int(X).
+\]
+\end{corollary}
+
+\begin{proof}
+A translation of $\mathbf R^n$ preserves dimensions of germs, so
+$\dim_{\mathrm{trop},x}(f)=\dim_{\mathrm{trop},x}(f')$ for every $x$. Now
+apply \Cref{thm:trop-dimension-sigma} \cref{itm:trop-dimsig:a} and
+\cref{itm:trop-dimsig:b}.
+\end{proof}
+
+We can now place the original dimension statement of this chapter, which
+concerns cycles rather than spaces, in its context.
+
+\begin{proposition}
+\label{prop:analytic-tropical-dimension}
+Let $Z$ be an irreducible analytic cycle of dimension $d$. Every tropical
+image of $Z$ has dimension at most $d$. A $d$-cell occurs precisely where the
+chosen moment functions have rational rank $d$ in the associated graded
+residue field.
+\end{proposition}
+\begin{proof}
+Choose a point $x$ mapping to the relative interior of a cell $\sigma$ and
+let $\Gamma_x$ be the value group of the completed residue field
+$\mathcal H(x)$.  The slopes of the moment coordinates generate a subgroup
+of $\Gamma_x/\Gamma_K$.  If $\dim\sigma=q$, then $q$ independent
+integer-linear combinations of the coordinate values vary on $\sigma$;
+their classes are rationally independent in the graded residue data at a
+generic point.  Thus
+\[
+ q\leq
+ \operatorname{rat.rank}(\Gamma_x/\Gamma_K).
+\]
+The Abhyankar inequality bounds the right-hand side, together with the
+residue transcendence degree, by the local analytic dimension of $Z$, which
+is $d$ at its generic points.  Hence $q\leq d$.
+
+Conversely, if the chosen moment functions have rational rank $d$, select
+$d$ integer-linear combinations with independent value classes.  In the
+weighted initial presentation used in the proof of
+\Cref{thm:analytic-tropical-polyhedrality}, no nontrivial rational affine
+relation can hold among their weights on a neighborhood of the generic
+initial stratum.  Their projection therefore contains a $d$-dimensional
+polyhedron.  Since the first part forbids larger dimension, the cell has
+dimension $d$.  The argument takes place in the graded residue field and is
+therefore invariant under extension of the ground-field value group.
+\end{proof}
+
+\begin{remark}
+\label{rem:trop-dimension-two-halves}
+\Cref{prop:analytic-tropical-dimension} and
+\Cref{thm:trop-dimension-formula} split the same statement along different
+seams. The former isolates the rational-rank half of the graded transcendence
+degree, which is the half visible in the value group and hence the half that
+a purely valuative argument sees; the latter keeps the two halves together in
+the single invariant $d_K(x)$. The identity relating them is the graded
+Abhyankar equality
+\[
+ d_K(x)=\operatorname{trdeg}_{\widetilde K}\widetilde{\mathcal H(x)}
+ +\dim_{\mathbf Q}\Bigl(\bigl(|\mathcal H(x)^\times|/|K^\times|\bigr)
+ \otimes_{\mathbf Z}\mathbf Q\Bigr),
+\]
+which for curves is the equality $d_K(x)=s(x)+t(x)$ of
+\Cref{prop:berk-type-invariants}. Points of type II contribute through the
+residue field, points of type III through the value group, and both give a
+one-dimensional tropical germ; a type-IV point has $d_K(x)=0$ and never lies
+on a local skeleton.
+\end{remark}
+
+\section{The canonical calibration}
+\label{sec:trop-calibration}
+
+A local skeleton is a polyhedral space; to integrate over it we must
+calibrate it, that is, attach to each of its facets an $n$-vector in the
+sense of \Cref{def:appG-calibration}. The recipe is short to state: project
+the moment map to an $n$-dimensional torus so that the projection is
+injective on the facet, take the local degree of the resulting finite flat
+morphism, and multiply it by the volume vector transported through the
+inverse of the projection. Everything in this section is the verification
+that the recipe is well posed.
+
+\subsection{Cells and the local degree}
+
+\begin{definition}[Cells of a local skeleton]
+\label{def:trop-f-cell}
+Let $X$ be of level $n$ and $f:X\to T$ a moment map. An \emph{$f$-cell} is a
+compact polyhedral subspace $C\subset\Sigma_f$ such that
+$f_{\mathrm{trop}}|_C$ is an isomorphism of polyhedral spaces onto a cell of
+$T_{\mathrm{trop}}$. An $f$-cell $C$ of dimension $n$ is \emph{convenient}
+if its relative interior $\mathring C$ is open in $\Sigma_f^{(n)}$, is
+connected, and does not meet $\partial X$.
+\end{definition}
+
+The existence of decompositions of $\Sigma_f^{(n)}$ into convenient
+$f$-cells is part of \Cref{thm:trop-sigma-polyhedral}
+\cref{itm:trop-poly:top}: $f_{\mathrm{trop}}$ is a piecewise immersion there,
+so a sufficiently fine polyhedral decomposition has cells on which it is
+injective, and $f_{\mathrm{trop}}(\partial X\cap\Sigma_f^{(n)})$ is
+contained in the $(n-1)$-skeleton of a suitable decomposition, by
+\Cref{prop:trop-boundary-thin} below. We refer to
+\cite[Lemma~14.1.5 and Proposition~14.1.12]{CLD25} for the combinatorial
+bookkeeping.
+
+\begin{definition}[Local degree]
+\label{def:trop-local-degree}
+\index{degree!local, of an analytic morphism}
+Let $g:Y\to Z$ be a morphism of $K$-analytic spaces, $y\in Y$, and
+$z=g(y)$. If $\dim_yg^{-1}(z)>0$ we set $\deg_y(g)=+\infty$. Otherwise $y$
+is isolated in $g^{-1}(z)$, the local ring $\mathcal O_{g^{-1}(z),y}$ is a
+finite-dimensional $\mathcal H(z)$-algebra, and we set
+\[
+ \deg_y(g)=\dim_{\mathcal H(z)}\mathcal O_{g^{-1}(z),y},
+ \qquad
+ \deg^z(g)=\sum_{y\in g^{-1}(z)}\deg_y(g).
+\]
+When $g$ is finite and flat these agree with the usual degrees, and
+$\deg^z(g)$ is then locally constant in $z$.
+\end{definition}
+
+The local degree is insensitive to shrinking: if $V\ni y$ and $U\supset g(V)$
+are analytic domains and $g'=g|_V:V\to U$, then $\deg_y(g)=\deg_y(g')$,
+because the local rings of $g^{-1}(z)$ and of $(g')^{-1}(z)$ at $y$
+coincide. This is what allows the definition to be made cell by cell.
+
+We isolate the analytic inputs, each with an exact reference.
+
+\begin{proposition}
+\label{prop:trop-analytic-inputs}
+Let $X$ be a $K$-analytic space of level $n$.
+\begin{enumerate}
+\item\label{itm:trop-input:qf} \emph{(Quasi-finiteness.)} If
+  $g:X\to Y$ is a morphism, $x\in X$ and $d_K(g(x))=n=\dim_xX$, then $g$ is
+  quasi-finite at $x$: $x$ is isolated in $g^{-1}(g(x))$.
+\item\label{itm:trop-input:flat} \emph{(Finiteness and flatness.)} If in
+  addition $Y$ is reduced and $x\in\Int(X/Y)$, then $g$ is finite and flat
+  at $x$; in particular $\deg_x(g)$ is a positive integer and $g$ induces a
+  finite flat morphism of a compact neighbourhood of $x$ onto a
+  neighbourhood of $g(x)$, of that degree.
+\item\label{itm:trop-input:sc} \emph{(Semicontinuity.)} If $g$ is compact
+  and separated, then $y\mapsto\deg^y(g)$ is upper semicontinuous.
+\item\label{itm:trop-input:mult} \emph{(Multiplicativity.)} If
+  $h:Z\to Y$ and $g:Y\to X$ are morphisms, $z\in Z$ is isolated in its
+  fibre for $g\circ h$, and $g^{-1}(g(h(z)))$ is reduced at $h(z)$, then
+  $\deg_z(g\circ h)=\deg_{h(z)}(g)\deg_z(h)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+These are \cite[Lemma~11.5.1, Lemma~11.6.5, Proposition~13.4.2 and
+Proposition~13.3.10]{CLD25}. Assertion \cref{itm:trop-input:qf} is the
+fibre-dimension inequality
+$\dim_xg^{-1}(g(x))\le\dim_xX-d_K(g(x))$ of Ducros; \cref{itm:trop-input:flat}
+combines quasi-finiteness at an interior point with the local criterion of
+flatness over a reduced base; \cref{itm:trop-input:sc} is proved by
+Nakayama's lemma after a local factorization of $g$ into a finite morphism
+followed by a quasi-\'etale one; \cref{itm:trop-input:mult} is the
+composition rule for calibrated degrees, discussed again in
+\Cref{sec:trop-graded}.
+\end{proof}
+
+\begin{lemma}
+\label{lem:trop-quasifinite-flat}
+Let $X$ be of level $n$ and $f:X\to\mathbf G_m^n$ a moment map. Then $f$ is
+quasi-finite at every point of $\Sigma_f$, and finite and flat at every
+point of $\Sigma_f\setminus\partial X$.
+\end{lemma}
+
+\begin{proof}
+Let $x\in\Sigma_f$. Since the target is already $n$-dimensional, the
+equivalence \cref{itm:trop-sigmachar:def} $\Leftrightarrow$
+\cref{itm:trop-sigmachar:proj} of
+\Cref{thm:trop-sigma-characterization} applies with $I=\{1,\ldots,n\}$ and
+gives $f(x)\in S(\mathbf G_m^n)$, so
+$d_K(f(x))=n$ by \Cref{prop:trop-torus-skeleton}, and $\dim_xX=n$ by
+\Cref{cor:trop-sigma-abhyankar}. \Cref{prop:trop-analytic-inputs}
+\cref{itm:trop-input:qf} gives quasi-finiteness. If moreover
+$x\notin\partial X$, then $x\in\Int(X)\subset\Int(X/\mathbf G_m^n)$, and
+$\mathbf G_m^n$ is reduced, so \cref{itm:trop-input:flat} applies.
+\end{proof}
+
+\begin{proposition}
+\label{prop:trop-degree-constant}
+Let $X$ be of level $n$, let $f:X\to T$ be a moment map, let $C$ be a
+convenient $f$-cell of dimension $n$, and let $q:T\to\mathbf G_m^n$ be a
+homomorphism of tori such that $q_{\mathrm{trop}}$ is injective on
+$f_{\mathrm{trop}}(C)$. Then $q\circ f$ has relative dimension zero at every
+point of $C$, and there is a unique integer $d_C(q)>0$ such that $q\circ f$
+is finite and flat of degree $d_C(q)$ at every point of $\mathring C$.
+\end{proposition}
+
+\begin{proof}
+\emph{Step 1: $C\subset\Sigma_{q\circ f}$.} Because $C$ is an $f$-cell of
+dimension $n$ and $q_{\mathrm{trop}}$ is injective on
+$f_{\mathrm{trop}}(C)$, the composite
+$(q\circ f)_{\mathrm{trop}}|_C=q_{\mathrm{trop}}\circ f_{\mathrm{trop}}|_C$
+is injective, so $(q\circ f)_{\mathrm{trop}}(C)$ is $n$-dimensional and
+$\dim_{\mathrm{trop},x}(q\circ f)=n$ for $x\in C$. Hence
+$d_x(q\circ f)=n$ by \eqref{eq:trop-dimension-chain}, so
+$(q\circ f)(x)\in S(\mathbf G_m^n)$ by
+\Cref{prop:trop-torus-skeleton}, that is $x\in\Sigma_{q\circ f}$.
+
+\emph{Step 2: finiteness and flatness on $\mathring C$.} By
+\Cref{lem:trop-quasifinite-flat}, $q\circ f$ is quasi-finite at every point
+of $C$ --- this is the assertion on relative dimension --- and, since
+$\mathring C\cap\partial X=\varnothing$, finite and flat at every point of
+$\mathring C$. Write $\delta(x)=\deg_x(q\circ f)$, a positive integer for
+$x\in\mathring C$.
+
+\emph{Step 3: local constancy.} Let $D=\sq\bigl(q_{\mathrm{trop}}
+(f_{\mathrm{trop}}(C))\bigr)\subset\mathbf G_m^n$, an $n$-cell of the
+canonical skeleton. If $y\in\Int(X)$ satisfies $(q\circ f)(y)\in\mathring D$,
+then $q\circ f$ has tropical dimension $n$ at $y$, hence so does $f$, so
+$y\in\Sigma_f^{(n)}$ by \Cref{thm:trop-dimension-sigma}
+\cref{itm:trop-dimsig:a}. Thus
+\[
+ \mathring C\ \subset\ (q\circ f)^{-1}(\mathring D)\cap\Int(X)
+ \ \subset\ \Sigma_f^{(n)} .
+\]
+Fix $x\in\mathring C$. By hypothesis $\mathring C$ is open in
+$\Sigma_f^{(n)}$, hence open in $(q\circ f)^{-1}(\mathring D)\cap\Int(X)$.
+As $q\circ f$ is finite and flat at $x$, there are an open neighbourhood
+$U\ni x$ in $\Int(X)$ and an open $W\ni(q\circ f)(x)$ such that $q\circ f$
+induces a finite flat morphism $U\to W$ of degree $\delta(x)$ and
+$(q\circ f)^{-1}(\mathring D)\cap U\subset\mathring C$. Any
+$y\in\mathring C\cap U$ is then the unique preimage in $U$ of
+$(q\circ f)(y)$, whence $\delta(y)=\delta(x)$. So $\delta$ is locally
+constant on $\mathring C$.
+
+\emph{Step 4: constancy.} $\mathring C$ is connected by the definition of a
+convenient cell, so $\delta$ is constant; call the value $d_C(q)$.
+\end{proof}
+
+\subsection{Independence of the auxiliary projection}
+
+We now prove that the product
+\[
+ d_C(q)\cdot\sigma_{q,*}(e)
+\]
+does not depend on $q$. Here $e=|e_1\wedge\cdots\wedge e_n|$ is the standard
+volume $n$-vector of $\mathbf R^n$ and $\sigma_q$ is defined as follows.
+
+\begin{definition}
+\label{def:trop-affine-section}
+Let $C$ be an $n$-dimensional $f$-cell, put
+$C_f=f_{\mathrm{trop}}(C)\subset T_{\mathrm{trop}}$, and let
+$\langle C_f\rangle$ be its affine span, an $n$-dimensional
+$\mathbf Q$-rational affine subspace of $N_{\mathbf R}$. For a homomorphism
+of tori $q:T\to\mathbf G_m^n$ with $q_{\mathrm{trop}}$ injective on $C_f$,
+the restriction $q_{\mathrm{trop}}|_{\langle C_f\rangle}$ is an affine
+isomorphism onto $\mathbf R^n$; its inverse
+\[
+ \sigma_q:\mathbf R^n\longrightarrow\langle C_f\rangle\subset N_{\mathbf R}
+\]
+is the unique affine section of $q_{\mathrm{trop}}$ with image
+$\langle C_f\rangle$. We write $\sigma_{q,*}(e)$ for the image of $e$ under
+$\bigwedge^n$ of the linear part of $\sigma_q$; it is an $n$-vector on
+$\langle C_f\rangle$.
+\end{definition}
+
+The rationality of $\langle C_f\rangle$ is what makes the argument work, and
+it holds because $C_f$ is a rational polyhedron: its affine span is cut out
+by integral linear equations.
+
+The following theorem is the reason the word \emph{canonical} is used. Its
+proof is a two-case reduction that we carry out in full, because the pattern
+--- separate a monomial change of projection from a translation, then
+interpolate by a rational linear map --- recurs in
+\Cref{sec:trop-refinement}.
+
+\begin{theorem}
+\label{thm:trop-calibration-canonical}
+Let $X$ be of level $n$, let $f:X\to T$ be a moment map, let $C$ be a
+convenient $f$-cell of dimension $n$, and let $q,q':T\to\mathbf G_m^n$ be
+homomorphisms of tori such that $q_{\mathrm{trop}}$ and
+$q'_{\mathrm{trop}}$ are both injective on $C_f=f_{\mathrm{trop}}(C)$. Then
+\begin{equation}
+\label{eq:trop-calibration-canonical}
+ d_C(q)\,\sigma_{q,*}(e)=d_C(q')\,\sigma_{q',*}(e)
+\end{equation}
+as $n$-vectors on $\langle C_f\rangle$.
+\end{theorem}
+
+\begin{proof}
+\emph{Case 1: $q'=\phi\circ q$ with $\phi:\mathbf G_m^n\to\mathbf G_m^n$ a
+surjective homomorphism of tori.} Let $A\in M_n(\mathbf Z)$ be the matrix of
+$\phi$, so $\delta:=|\det A|=\deg\phi$ by
+\Cref{lem:trop-monomial-degree} \cref{itm:trop-mono:finflat}. For
+$x\in\mathring C$ we have $(q\circ f)(x)\in S(\mathbf G_m^n)$ by Step 1 of
+the proof of \Cref{prop:trop-degree-constant}, so
+\Cref{lem:trop-monomial-degree} \cref{itm:trop-mono:degree} gives
+$\deg_{(q\circ f)(x)}(\phi)=\delta$ and tells us that the fibre of $\phi$
+through that point is reduced. \Cref{prop:trop-analytic-inputs}
+\cref{itm:trop-input:mult} therefore applies and yields
+\[
+ d_C(q')=\deg_x(\phi\circ q\circ f)
+ =\deg_{(q\circ f)(x)}(\phi)\cdot\deg_x(q\circ f)
+ =\delta\,d_C(q).
+\]
+On the tropical side, $\phi_{\mathrm{trop}}=A$ is a linear automorphism of
+$\mathbf R^n$ with $|\det A|=\delta$, and
+$q'_{\mathrm{trop}}=A\circ q_{\mathrm{trop}}$, so the affine section with
+image $\langle C_f\rangle$ satisfies
+$\sigma_{q'}=\sigma_q\circ A^{-1}$. Hence
+\[
+ \sigma_{q',*}(e)=\sigma_{q,*}\bigl((A^{-1})_*e\bigr)
+ =\delta^{-1}\,\sigma_{q,*}(e),
+\]
+since $\bigwedge^n$ of $A^{-1}$ multiplies the volume vector by
+$|\det A^{-1}|=\delta^{-1}$. The two factors are reciprocal, so
+\eqref{eq:trop-calibration-canonical} holds.
+
+\emph{Case 2: $q'_{\mathrm{trop}}-q_{\mathrm{trop}}$ is constant on $C_f$.}
+Then $\sigma_q$ and $\sigma_{q'}$ differ by a translation of
+$\mathbf R^n$, so they have the same linear part and
+$\sigma_{q,*}(e)=\sigma_{q',*}(e)$. It remains to see that
+$d_C(q)=d_C(q')$. Both $q\circ f$ and $q'\circ f$ are moment maps
+$V\to\mathbf G_m^n$ on the analytic domain
+$V=f_{\mathrm{trop}}^{-1}(C_f)$, whose tropicalizations differ by a
+constant on $V$, and $\mathring C\subset\Int(V)$. Now apply
+\Cref{thm:trop-degree-translation} below.
+
+\emph{General case.} Let $\psi$ be the unique linear self-map of
+$\mathbf R^n$ such that $\psi\circ q_{\mathrm{trop}}$ and
+$q'_{\mathrm{trop}}$ differ by a translation on $C_f$; it exists and is
+invertible because both $q_{\mathrm{trop}}$ and $q'_{\mathrm{trop}}$ restrict
+to affine isomorphisms $\langle C_f\rangle\to\mathbf R^n$, and one may take
+$\psi$ to be the linear part of
+$q'_{\mathrm{trop}}|_{\langle C_f\rangle}\circ
+ \bigl(q_{\mathrm{trop}}|_{\langle C_f\rangle}\bigr)^{-1}$.
+Since $\langle C_f\rangle$ is $\mathbf Q$-rational and both restrictions are
+defined by integral matrices, $\psi\in\mathrm{GL}_n(\mathbf Q)$. Choose an
+integer $\nu\ge1$ clearing the denominators of $\psi$, and let
+$\phi,\phi':\mathbf G_m^n\to\mathbf G_m^n$ be the surjective homomorphisms
+with $\phi_{\mathrm{trop}}=\nu\psi$ and
+$\phi'_{\mathrm{trop}}=\nu\,\mathrm{id}$; both matrices are integral, and
+$\phi'_{\mathrm{trop}}\circ\psi=\phi_{\mathrm{trop}}$.
+
+Consider the four projections $q$, $\phi\circ q$, $q'$, $\phi'\circ q'$. By
+construction
+\[
+ (\phi'\circ q')_{\mathrm{trop}}
+ =\nu\,q'_{\mathrm{trop}}
+ =\nu\psi\circ q_{\mathrm{trop}}+\text{const}
+ =(\phi\circ q)_{\mathrm{trop}}+\text{const}
+\]
+on $C_f$. Case 1 gives
+\[
+ \begin{aligned}
+  d_C(\phi\circ q)\,\sigma_{\phi\circ q,*}(e)
+   &=d_C(q)\,\sigma_{q,*}(e),\\
+  d_C(\phi'\circ q')\,\sigma_{\phi'\circ q',*}(e)
+   &=d_C(q')\,\sigma_{q',*}(e),
+ \end{aligned}
+\]
+and Case 2, applied to the pair $\phi\circ q$ and $\phi'\circ q'$, gives
+\[
+ d_C(\phi\circ q)\,\sigma_{\phi\circ q,*}(e)
+ =d_C(\phi'\circ q')\,\sigma_{\phi'\circ q',*}(e).
+\]
+Chaining the three equalities proves
+\eqref{eq:trop-calibration-canonical}.
+\end{proof}
+
+The one ingredient of the proof that we did not establish is the invariance
+of the local degree under a translation of the tropicalization. It is a
+genuine theorem, and it is where the analytic geometry, rather than the
+combinatorics, does the work.
+
+\begin{theorem}
+\label{thm:trop-degree-translation}
+Let $X$ be a $K$-analytic space of level $n$ and let
+$f,f':X\to\mathbf G_m^n$ be moment maps such that
+$f'_{\mathrm{trop}}-f_{\mathrm{trop}}$ is constant on $X$. Then $f$ and
+$f'$ are finite and flat at every point $x$ of
+$\Sigma_f\cap\Int(X)=\Sigma_{f'}\cap\Int(X)$, and
+\[
+ \deg_x(f)=\deg_x(f')\qquad\text{for every such }x.
+\]
+\end{theorem}
+
+\begin{proof}
+The identification of the two skeleta is
+\Cref{cor:trop-sigma-translation}, and finiteness and flatness are
+\Cref{lem:trop-quasifinite-flat}. The equality of degrees is
+\cite[Theorem~14.2.7]{CLD25}. We indicate the mechanism, which is
+instructive. One first reduces to $K$ algebraically closed, using that a
+point of $S(\mathbf G_m^n)$ has a unique preimage in
+$S(\mathbf G_{m,\widehat{K^{\mathrm{alg}}}}^n)$ --- visible on the defining
+formula \eqref{eq:trop-gauss-seminorm}, which is invariant under
+$\mathrm{Aut}(\widehat{K^{\mathrm{alg}}}/K)$ --- together with the base-change
+additivity of degrees. Over an algebraically closed field, constancy of
+$|f_i'/f_i|$ near an interior point forces
+$f_i'=(1+g_i)\lambda_if_i$ with $\lambda_i\in K^\times$ and $|g_i|<1$; after
+translating $f$ one may take $\lambda_i=1$. One then interpolates by the
+family
+\[
+ h_t=\bigl((1+tg_1)f_1,\ldots,(1+tg_n)f_n\bigr),\qquad t\in D(0,R),
+\]
+with $R>1$ chosen so that $R|g_i|<1$, on a Cohen--Macaulay affinoid
+neighbourhood of $x$. Since $R|g_i|<1$, the tropicalization of $h_t$ is
+independent of $t$; one checks that $h$ is finite and flat over an open
+polydisc-shaped piece of the canonical skeleton of
+$\mathbf G_m^n\times D(0,R)$, and the degree of a finite flat morphism is
+constant over a connected base. Specializing to $t=0$ and $t=1$ gives
+$\deg_x(f)=\deg_x(f')$.
+\end{proof}
+
+\begin{warning}{The two factors move in opposite directions}
+Case 1 of \Cref{thm:trop-calibration-canonical} is the whole normalization
+story of this book in one line. Enlarging the projection by a monomial map of
+degree $\delta$ multiplies the analytic degree by $\delta$ and divides the
+lattice normalization of the section by $\delta$. A construction that keeps
+only one of the two factors --- for instance one that defines the weight as
+the analytic degree of a fixed coordinate projection, or one that defines it
+as a lattice index and forgets the analytic geometry --- is not invariant and
+will contradict the projection formula. \Cref{ex:appG-index-test} and
+\Cref{ex:trop-two-charts} are the two smallest tests of this.
+\end{warning}
+
+\subsection{The canonical calibration of a local skeleton}
+
+\begin{definition}[Canonical calibration]
+\label{def:trop-canonical-calibration}
+\index{calibration!canonical}
+Let $X$ be of level $n$, let $f:V\to T$ be a moment map on an analytic
+domain, and let $\Sigma\subset\Sigma_f$ be a paracompact polyhedral
+subspace. Choose a decomposition $\mathscr C$ of $\Sigma$ into convenient
+$f$-cells. For an $n$-dimensional $C\in\mathscr C$ choose $q$ as in
+\Cref{prop:trop-degree-constant} and set
+\begin{equation}
+\label{eq:trop-canonical-calibration}
+ \mu_C=d_C(q)\,\bigl(f_{\mathrm{trop}}|_C\bigr)^*\sigma_{q,*}(e),
+\end{equation}
+an $n$-vector on $C$; by \Cref{thm:trop-calibration-canonical} it does not
+depend on $q$. The family $(\mu_C)$ is the \emph{canonical calibration}
+$\mu_{\Sigma,f,\mathscr C}$ of $\Sigma$ relative to the data
+$(V,f,\mathscr C)$.
+\end{definition}
+
+Three checks remain: that $\mu_{\Sigma,f,\mathscr C}$ is compatible with
+subdivision of $\mathscr C$, that it does not depend on $(V,f)$, and that
+the resulting local objects glue. The first is immediate and we do it now;
+the other two occupy \Cref{sec:trop-refinement}.
+
+\begin{lemma}
+\label{lem:trop-calibration-subdivision}
+If $\mathscr C'$ subdivides $\mathscr C$, then
+$\mu_{\Sigma,f,\mathscr C'}=\mu_{\Sigma,f,\mathscr C}$.
+\end{lemma}
+
+\begin{proof}
+Let $C'\in\mathscr C'$ be $n$-dimensional and let $C\in\mathscr C$ be the
+cell with $\mathring{C'}\subset\mathring C$; such a $C$ exists and is unique
+because the relative interiors of the $n$-cells of $\mathscr C$ partition
+those of $\mathscr C'$ up to lower-dimensional sets. The affine spans agree,
+$\langle f_{\mathrm{trop}}(C')\rangle=\langle f_{\mathrm{trop}}(C)\rangle$,
+so a projection $q$ admissible for $C$ is admissible for $C'$ and gives the
+same $\sigma_q$. Moreover $d_{C'}(q)=d_C(q)$ because both are the value of
+$x\mapsto\deg_x(q\circ f)$ on the nonempty open subset
+$\mathring{C'}\subset\mathring C$, on which that function is constant by
+\Cref{prop:trop-degree-constant}. Hence $\mu_{C'}=\mu_C|_{C'}$.
+\end{proof}
+
+\section{Independence under refinement of tropical charts}
+\label{sec:trop-refinement}
+
+This is the technical heart of the chapter. We must show that the
+calibration of \Cref{def:trop-canonical-calibration} depends only on the
+polyhedral subspace $\Sigma\subset X$, not on the moment map used to see it.
+The obstacle is that two moment maps have nothing in common except their
+product, and that the product lives on a torus of larger dimension, where
+the projections $q$ available are different. The proof is a cell-by-cell
+comparison with the product, using the freedom in
+\Cref{thm:trop-calibration-canonical} to choose $q$ conveniently.
+
+\begin{theorem}
+\label{thm:trop-calibration-chart-independent}
+Let $X$ be a topologically separated $K$-analytic space of level $n$, and
+let $\Sigma\subset X$ be a paracompact polyhedral subspace. Suppose given
+two sets of data
+\[
+ (V,f:V\to T,\mathscr C),\qquad (V',f':V'\to T',\mathscr C'),
+\]
+where $V,V'$ are analytic domains containing $\Sigma$, $f,f'$ are moment
+maps with $\Sigma\subset\Sigma_f$ and $\Sigma\subset\Sigma_{f'}$, and
+$\mathscr C,\mathscr C'$ are decompositions of $\Sigma$ into convenient
+$f$-, respectively $f'$-cells. Then
+\[
+ \mu_{\Sigma,f,\mathscr C}=\mu_{\Sigma,f',\mathscr C'}.
+\]
+\end{theorem}
+
+\begin{proof}
+Put $W=V\cap V'$, an analytic domain containing $\Sigma$, and let
+\[
+ g=(f|_W,f'|_W):W\longrightarrow T\times T'
+\]
+be the product moment map (\Cref{lem:product-moment-map}). By
+\Cref{lem:trop-refinement-calculus} \cref{itm:trop-ref:sigma},
+$d_x(g)\ge\max\{d_x(f),d_x(f')\}=n$ for $x\in\Sigma$, so
+$\Sigma\subset\Sigma_g$ by \Cref{thm:trop-sigma-characterization}. Choose a
+decomposition $\mathscr D$ of $\Sigma$ into convenient $g$-cells refining
+both $\mathscr C$ and $\mathscr C'$; this is possible because the three
+decompositions are polyhedral and admit a common refinement
+(\Cref{prop:tropical-common-refinement}), and a subdivision of a convenient
+cell into cells with connected interiors again consists of convenient cells.
+By \Cref{lem:trop-calibration-subdivision} it suffices to prove
+\begin{equation}
+\label{eq:trop-chart-indep-goal}
+ \mu_{\Sigma,f,\mathscr D}=\mu_{\Sigma,g,\mathscr D},
+\end{equation}
+since the same argument applied to $f'$ then gives
+$\mu_{\Sigma,f',\mathscr D}=\mu_{\Sigma,g,\mathscr D}$, and both sides of
+the theorem equal $\mu_{\Sigma,g,\mathscr D}$ after subdivision.
+
+Fix an $n$-dimensional cell $D\in\mathscr D$ and let $C\in\mathscr C$ be the
+cell containing $D$. Let $p:T\times T'\to T$ be the first projection, so
+that $p\circ g=f|_W$ and $p_{\mathrm{trop}}\circ g_{\mathrm{trop}}
+=f_{\mathrm{trop}}|_W$.
+
+\emph{Step 1: an admissible projection for both.} Choose
+$q:T\to\mathbf G_m^n$ with $q_{\mathrm{trop}}$ injective on
+$f_{\mathrm{trop}}(D)$; this is possible because
+$\langle f_{\mathrm{trop}}(D)\rangle$ is a $\mathbf Q$-rational
+$n$-dimensional affine subspace of $N_{\mathbf R}$. Then
+$(q\circ p)_{\mathrm{trop}}=q_{\mathrm{trop}}\circ p_{\mathrm{trop}}$ is
+injective on $g_{\mathrm{trop}}(D)$, because
+$g_{\mathrm{trop}}|_D$ is injective with
+$p_{\mathrm{trop}}(g_{\mathrm{trop}}(D))=f_{\mathrm{trop}}(D)$ and the
+composite $(q\circ p)_{\mathrm{trop}}\circ g_{\mathrm{trop}}|_D
+=q_{\mathrm{trop}}\circ f_{\mathrm{trop}}|_D$ is injective. So $q\circ p$ is
+admissible for $D$ as a $g$-cell, and $q$ is admissible for $D$ viewed
+inside the $f$-cell $C$.
+
+\emph{Step 2: the two degrees coincide.} By construction
+$(q\circ p)\circ g=q\circ f|_W$ as morphisms $W\to\mathbf G_m^n$. Now
+$\mathring D$ does not meet $\partial W$, because $D$ is a convenient
+$g$-cell; hence $\mathring D\subset\Int(W/V)$ and, for $x\in\mathring D$,
+the local degree of $q\circ f$ at $x$ computed on $W$ equals the one
+computed on $V$ (the local rings of the fibres coincide, as recorded after
+\Cref{def:trop-local-degree}). \Cref{prop:trop-degree-constant} applied to
+the $g$-cell $D$ and the projection $q\circ p$ gives an integer $d_D>0$ with
+$\deg_x\bigl((q\circ p)\circ g\bigr)=d_D$ on $\mathring D$; applied to the
+$f$-cell $C$ and the projection $q$ it gives
+$\deg_x(q\circ f)=d_C(q)$ on $\mathring C\supset\mathring D$. Since the two
+morphisms are equal, $d_D=d_C(q)$.
+
+\emph{Step 3: the two sections coincide.} The affine section
+$\sigma_{q\circ p}$ of $(q\circ p)_{\mathrm{trop}}$ with image
+$\langle g_{\mathrm{trop}}(D)\rangle$ satisfies
+$p_{\mathrm{trop}}\circ\sigma_{q\circ p}=\sigma_q$, because both sides are
+affine sections of $q_{\mathrm{trop}}$ with image
+$\langle f_{\mathrm{trop}}(D)\rangle=\langle f_{\mathrm{trop}}(C)\rangle$,
+and such a section is unique. Pulling back along the isomorphisms
+$g_{\mathrm{trop}}|_D$ and $f_{\mathrm{trop}}|_D$ and using
+$f_{\mathrm{trop}}|_D=p_{\mathrm{trop}}\circ g_{\mathrm{trop}}|_D$ therefore
+gives
+\[
+ \bigl(g_{\mathrm{trop}}|_D\bigr)^*\sigma_{q\circ p,*}(e)
+ =\bigl(f_{\mathrm{trop}}|_D\bigr)^*\sigma_{q,*}(e)
+\]
+as $n$-vectors on $D$. Indeed, both are the unique $n$-vector on $D$ whose
+image under $\bigwedge^n$ of $(q\circ f)_{\mathrm{trop}}|_D$ is $e$.
+
+\emph{Conclusion.} Combining Steps 2 and 3,
+\[
+ \mu^{g}_D=d_D\,\bigl(g_{\mathrm{trop}}|_D\bigr)^*\sigma_{q\circ p,*}(e)
+ =d_C(q)\,\bigl(f_{\mathrm{trop}}|_D\bigr)^*\sigma_{q,*}(e)
+ =\mu^{f}_C\bigl|_D,
+\]
+which is \eqref{eq:trop-chart-indep-goal}.
+\end{proof}
+
+\begin{remark}
+\label{rem:trop-chart-indep-anatomy}
+The proof contains exactly one nontrivial idea, and it is worth naming.
+The product moment map $g$ has a larger target, so a priori it admits more
+projections $q$; the point is that among them one may choose
+$q\circ p$, which \emph{factors through the projection to the smaller
+torus}. For that particular choice, the composite $(q\circ p)\circ g$ is
+literally the same analytic morphism as $q\circ f$, so no comparison of
+degrees is needed at all --- Step 2 is a tautology once the domains are
+matched --- and the entire content is transferred to
+\Cref{thm:trop-calibration-canonical}, which frees us to make that choice.
+This is the precise sense in which the canonicity theorem is logically prior
+to the refinement theorem, and why the two must not be proved in the other
+order.
+\end{remark}
+
+\begin{corollary}
+\label{cor:trop-calibration-restriction}
+With the notation of \Cref{def:trop-canonical-calibration}, if
+$\Sigma'\subset\Sigma$ is a polyhedral subspace, then
+$\mu_\Sigma|_{\Sigma'}=\mu_{\Sigma'}$. If $\Sigma$ is contained in an
+analytic domain $V\subset X$, the canonical calibration of $\Sigma$ computed
+in $V$ agrees with the one computed in $X$.
+\end{corollary}
+
+\begin{proof}
+Choose a decomposition $\mathscr C'$ of $\Sigma$ into convenient $f$-cells
+refining the trace on $\Sigma$ of a decomposition of $\Sigma'$; then
+\Cref{def:trop-canonical-calibration} computes $\mu_{\Sigma'}$ from the
+cells contained in $\Sigma'$, with the same $q$ and the same degrees, and
+\Cref{lem:trop-calibration-subdivision} removes the dependence on the
+decomposition. For the second assertion, note that
+$\Sigma_{f|_V}=\Sigma_f\cap V$ (\Cref{thm:trop-sigma-polyhedral}
+\cref{itm:trop-poly:union}) and that local degrees are computed in local
+rings, hence unchanged by restriction to a domain.
+\end{proof}
+
+\begin{corollary}
+\label{cor:trop-calibration-glue}
+Let $X$ be a topologically separated $K$-analytic space of level $n$ and let
+$\Sigma\subset X$ be a polyhedral subspace, that is, a subset which is
+$G$-locally a closed polyhedral subspace of a local skeleton. Then there is a
+unique calibration $\mu_\Sigma$ of $\Sigma$ such that for every analytic
+domain $V$, every moment map $f$ on $V$, and every paracompact polyhedral
+subspace $\Sigma'\subset\Sigma\cap\Sigma_f$, one has
+$\mu_\Sigma|_{\Sigma'}=\mu_{\Sigma'}$ in the sense of
+\Cref{def:trop-canonical-calibration}. In particular every $K$-analytic
+space of pure dimension $n$ carries a canonical structure of calibrated
+tropical space of dimension $n$, and the calculus of
+\Cref{chap:tropical-spaces,chap:tropical-integration} applies to it.
+\end{corollary}
+
+\begin{proof}
+By definition of a polyhedral subspace, $\Sigma$ is $G$-covered by
+subspaces $\Sigma'$ of the stated form. Calibrations form a $G$-sheaf
+(\Cref{def:appG-calibration}), so there is at most one such $\mu_\Sigma$.
+For existence one must check the cocycle condition on overlaps: if
+$\Sigma'$ and $\Sigma''$ are two such subspaces, then
+$\Sigma'\cap\Sigma''$ is again one, and
+\Cref{cor:trop-calibration-restriction} gives
+\[
+ \mu_{\Sigma'}|_{\Sigma'\cap\Sigma''}
+ =\mu_{\Sigma'\cap\Sigma''}
+ =\mu_{\Sigma''}|_{\Sigma'\cap\Sigma''},
+\]
+where the outer equalities use \Cref{cor:trop-calibration-restriction} and
+the inner one uses \Cref{thm:trop-calibration-chart-independent} to identify
+the two computations of $\mu_{\Sigma'\cap\Sigma''}$, made with the moment
+maps of $\Sigma'$ and of $\Sigma''$ respectively.
+\end{proof}
+
+\begin{proposition}
+\label{prop:trop-calibration-base-change}
+Let $L/K$ be a complete valued extension, $p:X_L\to X$ the base-change
+morphism, $\Sigma\subset X$ a polyhedral subspace, and $\Sigma_L\subset X_L$
+its preimage. Then $\Sigma_L$ is a polyhedral subspace of $X_L$ and
+$p_*\mu_{\Sigma_L}=\mu_\Sigma$.
+\end{proposition}
+
+\begin{proof}
+We may assume $X$ compact and $\Sigma=\Sigma_f$ for a moment map
+$f:X\to\mathbf G_m^n$; then $\Sigma_L=\Sigma_{f_L}$ by
+\Cref{lem:trop-moment-basic} \cref{itm:trop-moment:base} and
+\Cref{thm:trop-sigma-polyhedral} \cref{itm:trop-poly:union}. Choose adapted
+decompositions $\mathscr C$ of $\Sigma$ and $\mathscr D$ of $\Sigma_L$ into
+convenient cells so that $p$ maps cells to cells. Let $C$ be an $n$-cell of
+$\mathscr C$, let $q$ be admissible for it, let $x\in\mathring C$ and
+$t=(q\circ f)(x)\in S(\mathbf G_m^n)$. By
+\Cref{prop:trop-torus-skeleton} the point $t$ has a unique preimage
+$t_L\in S(\mathbf G_{m,L}^n)$, since both are described by the same formula
+\eqref{eq:trop-gauss-seminorm}. Base-change additivity of degrees
+(\Cref{prop:trop-analytic-inputs}, and \cite[Lemma~13.3.3]{CLD25}) gives
+\[
+ \deg_x(q\circ f)=\sum_{y\in p^{-1}(x)\cap(q\circ f_L)^{-1}(t_L)}
+ \deg_y(q\circ f_L)
+ =\sum_{y\in p^{-1}(x)\cap\Sigma_{f_L}}\deg_y(q\circ f_L),
+\]
+the second equality because any $y\in\Sigma_{f_L}$ over $x$ has
+$(q\circ f_L)_{\mathrm{trop}}(y)=(q\circ f)_{\mathrm{trop}}(x)=\trop(t)$ and
+$(q\circ f_L)(y)\in S(\mathbf G_{m,L}^n)$, hence $(q\circ f_L)(y)=t_L$ by
+uniqueness. Since $q_{\mathrm{trop}}$ and the sections $\sigma_q$ are
+unchanged by base change, summing the cellwise identities gives
+$p_*\mu_{\Sigma_L}=\mu_\Sigma$.
+\end{proof}
+
+\section{Calibrations and tropical multiplicities}
+\label{sec:trop-multiplicities}
+
+The calibration of \Cref{sec:trop-calibration} lives upstairs, on the local
+skeleton inside $X$. What tropical geometry manipulates is its image
+downstairs, in $N_{\mathbf R}$. Pushing forward is where the several cells
+lying over one polyhedron get added, and where the multiplicities of
+\Cref{chap:tropical-spaces} appear.
+
+\begin{definition}[Tropical polyhedron of a moment map]
+\label{def:trop-tropical-polyhedron}
+\index{tropical polyhedron}
+A moment map $f:X\to T$ on a space of level $n$ is \emph{skeletally proper}
+if $f_{\mathrm{trop}}$ restricted to $\Sigma_f^{(n)}$ is topologically
+proper; this holds automatically when $X$ is compact. For such an $f$, the
+\emph{tropical polyhedron} of $f$ is
+\[
+ \Pi_f=f_{\mathrm{trop}}\bigl(\Sigma_f^{(n)}\bigr)\subset T_{\mathrm{trop}},
+\]
+equipped with the pushforward $f_{\mathrm{trop},*}\mu_{\Sigma_f^{(n)}}$ of
+the canonical calibration.
+\end{definition}
+
+Pushforward is legitimate here: $f_{\mathrm{trop}}$ restricted to
+$\Sigma_f^{(n)}$ is a piecewise immersion by
+\Cref{thm:trop-sigma-polyhedral} \cref{itm:trop-poly:top}, and it is proper
+by hypothesis, so the pushforward calibration of
+\Cref{prop:appG-calibration-tests} is defined. When $X$ is compact,
+$\Pi_f=\Trop_f(X)^{(n)}$ by \Cref{thm:trop-dimension-sigma}
+\cref{itm:trop-dimsig:c}: the tropical polyhedron is exactly the
+top-dimensional part of the naive tropical image.
+
+\begin{theorem}
+\label{thm:trop-multiplicity-formula}
+Let $X$ be of level $n$ and $f:X\to T$ a skeletally proper moment map. Let
+$\mathscr C$ be a decomposition of $\Sigma_f^{(n)}$ into convenient
+$f$-cells such that $\mathscr D=\{f_{\mathrm{trop}}(C):C\in\mathscr C\}$ is a
+polyhedral decomposition of $\Pi_f$. Let $D\in\mathscr D$ be
+$n$-dimensional, let $q:T\to\mathbf G_m^n$ have $q_{\mathrm{trop}}|_D$
+injective, and let $\sigma_D:\mathbf R^n\to\langle D\rangle$ be the affine
+section of $q_{\mathrm{trop}}$ with image $\langle D\rangle$. Then
+\begin{equation}
+\label{eq:trop-multiplicity-formula}
+ \mu_{\Pi_f,D}=d_D\,\sigma_{D,*}(e),
+ \qquad
+ d_D=\sum_{\substack{C\in\mathscr C\\ f_{\mathrm{trop}}(C)=D}}d_C(q),
+\end{equation}
+where $d_C(q)$ is the constant value of $x\mapsto\deg_x(q\circ f)$ on
+$\mathring C$. Writing $e_D$ for the primitive integral volume vector of the
+tangent lattice $N_D$, the tropical weight of $D$ is the positive real
+number $m_D$ with $\mu_{\Pi_f,D}=m_De_D$.
+\end{theorem}
+
+\begin{proof}
+By \Cref{def:trop-canonical-calibration} the calibration of a cell
+$C\in\mathscr C$ with $f_{\mathrm{trop}}(C)=D$ is
+$\mu_C=d_C(q)(f_{\mathrm{trop}}|_C)^*\sigma_{D,*}(e)$, the projection $q$
+being admissible for $C$ precisely because it is admissible for
+$D=f_{\mathrm{trop}}(C)$. The pushforward of a calibration under a piecewise
+immersion is, by definition, the sum over the cells lying above a given
+target cell of the images of their calibrations
+(\Cref{prop:appG-calibration-tests}); since $f_{\mathrm{trop}}|_C$ is an
+isomorphism onto $D$, the image of $\mu_C$ is $d_C(q)\sigma_{D,*}(e)$.
+Summing gives \eqref{eq:trop-multiplicity-formula}. Positivity of $m_D$ is
+positivity of each $d_C(q)$, which is \Cref{prop:trop-degree-constant}.
+\end{proof}
+
+\begin{proposition}
+\label{prop:trop-multiplicity-local}
+Let $X$ be of level $n$, let $f:X\to T$ be a skeletally proper moment map,
+and let $x\in\Pi_f$ have an open neighbourhood $V$ in $\Pi_f$ which is an
+$n$-cell of $T_{\mathrm{trop}}$. Let $q:T\to\mathbf G_m^n$ have
+$q_{\mathrm{trop}}|_V$ injective, and suppose that the restriction of
+$q\circ f$ to $f_{\mathrm{trop}}^{-1}(V)$ is finite and flat over
+$\sq(q_{\mathrm{trop}}(x))$, of degree $d_x$. Then the canonical calibration
+of $\Pi_f$ is constant equal to $d_x\sigma_{q,*}(e)$ near $x$.
+\end{proposition}
+
+\begin{proof}
+Let $D\in\mathscr D$ be an $n$-cell containing $x$; then
+$\langle D\rangle=\langle V\rangle$, and $q_{\mathrm{trop}}$ is injective on
+$D$. By \Cref{thm:trop-multiplicity-formula} it suffices to prove
+$d_D=d_x$.
+
+Shrink to an open $W\ni\sq(q_{\mathrm{trop}}(x))$ over which
+$q\circ f|_{f_{\mathrm{trop}}^{-1}(V)}$ is finite and flat of degree $d_x$,
+and choose an $n$-cell $\Delta\subset D$ containing $x$ with
+$\sq(q_{\mathrm{trop}}(\Delta))\subset W$. Fix
+$y\in\mathring\Delta$. We claim that the preimages of
+$\sq(q_{\mathrm{trop}}(y))$ under $q\circ f|_{f_{\mathrm{trop}}^{-1}(V)}$
+are exactly the preimages of $y$ in $\Sigma_f^{(n)}$ under
+$f_{\mathrm{trop}}$.
+
+If $z\in f_{\mathrm{trop}}^{-1}(V)$ has
+$(q\circ f)(z)=\sq(q_{\mathrm{trop}}(y))$, then applying $\trop$ and using
+injectivity of $\sq\circ q_{\mathrm{trop}}$ on $V$ gives
+$f_{\mathrm{trop}}(z)=y$; moreover $z\in\Sigma_f$ by
+\eqref{eq:trop-sigma-def}, and $q\circ f$ is open near $z$ because it is
+finite and flat there, so the image of any neighbourhood of $z$ contains a
+neighbourhood of $\sq(q_{\mathrm{trop}}(y))$, whence
+$\dim_{\mathrm{trop},z}(q\circ f)=n$ and a fortiori
+$\dim_{\mathrm{trop},z}(f)=n$; thus $z\in\Sigma_f^{(n)}$ by
+\Cref{thm:trop-dimension-sigma} \cref{itm:trop-dimsig:a}. Conversely, if
+$z\in\Sigma_f^{(n)}$ has $f_{\mathrm{trop}}(z)=y$, let $C\in\mathscr C$ be
+the cell with $z\in\mathring C$; then $f_{\mathrm{trop}}$ maps $C$
+isomorphically onto $D$ and $q\circ f$ has tropical dimension $n$ at $z$, so
+$(q\circ f)(z)\in S(\mathbf G_m^n)$; as its tropicalization is
+$q_{\mathrm{trop}}(y)$, it equals $\sq(q_{\mathrm{trop}}(y))$.
+
+Summing local degrees over the common set of preimages and using
+\Cref{prop:trop-degree-constant} on each cell gives
+$d_x=\sum_Cd_C(q)=d_D$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:trop-weights-integral}
+In the situation of \Cref{thm:trop-multiplicity-formula}, let $N_D$ be the
+tangent lattice of $D$ in $N$ and let $e_D$ be its primitive volume vector.
+Then $q_{\mathrm{trop}}(N_D)\subset\mathbf Z^n$ has finite index and
+\begin{equation}
+\label{eq:trop-weight-index}
+ m_D=\frac{d_D}{\bigl[\mathbf Z^n:q_{\mathrm{trop}}(N_D)\bigr]} .
+\end{equation}
+Since $N_D$ is saturated in $N$, there exist admissible $q$ with
+$q_{\mathrm{trop}}(N_D)=\mathbf Z^n$; for any such choice
+$m_D=d_D\in\mathbf Z_{>0}$.
+\end{corollary}
+
+\begin{proof}
+Because $\sigma_q$ is a section of $q_{\mathrm{trop}}$ and
+$q_{\mathrm{trop}}|_{N_{D,\mathbf R}}$ is injective, the lattice
+$\Lambda=\sigma_q(\mathbf Z^n)$ contains $N_D$, with
+$[\Lambda:N_D]=[\mathbf Z^n:q_{\mathrm{trop}}(N_D)]=:j$. Taking
+$\bigwedge^n$ of an inclusion of lattices of index $j$ multiplies the
+primitive volume vector by $j$, so $e_D=j\,\sigma_{q,*}(e)$, that is
+$\sigma_{q,*}(e)=j^{-1}e_D$. Substituting in
+\eqref{eq:trop-multiplicity-formula} gives
+\eqref{eq:trop-weight-index}.
+
+For the last assertion, $N_D=N\cap\operatorname{span}_{\mathbf R}(D-D)$ is
+saturated, so $N/N_D$ is free and the exact sequence
+$0\to N_D\to N\to N/N_D\to0$ splits; the resulting projection $N\to N_D$,
+composed with an isomorphism $N_D\simeq\mathbf Z^n$, is an integral linear
+map, hence the tropicalization of a homomorphism of tori
+$q:T\to\mathbf G_m^n$, and it is injective on $N_{D,\mathbf R}$, hence on
+$\langle D\rangle$. For this $q$ one has $j=1$. Positivity and integrality
+of $d_D$ are \Cref{prop:trop-degree-constant}.
+\end{proof}
+
+\begin{warning}{The scalar weight is not the invariant}
+\Cref{cor:trop-weights-integral} shows that the number $m_D$ depends on the
+ambient lattice $N$ and on the embedding of $D$ into $N_{\mathbf R}$; only
+the $n$-vector $\mu_D$ is intrinsic. Three situations produce
+non-integral scalars and are the reason
+\Cref{def:appG-calibration} packages the lattice, the orientation and the
+multiplicity together rather than recording a number. First, a
+non-saturated ambient lattice --- for instance after restricting attention
+to a sublattice of $N$ that does not contain $N_D$ --- makes
+$j>1$ unavoidable and $m_D$ a fraction. Second, the calibrated degrees of
+\Cref{sec:trop-graded} are rational whenever the source is nonreduced, by
+\Cref{prop:trop-calibrated-degree} \cref{itm:trop-dc:red}, so
+\eqref{eq:trop-finite-pushforward} produces rational coefficients. Third,
+cycles with rational coefficients occur naturally in
+\Cref{chap:cld-currents}. The balancing condition
+\eqref{eq:appG-balancing} and the whole integration theory are insensitive
+to all of this, because they use $\mu_D$ and never $m_D$ alone; compare the
+caveat in \Cref{sec:appG-analytic-multiplicity}.
+\end{warning}
+
+We can now restate the multiplicity in the language of cycles, which is the
+form in which \Cref{chap:cld-currents} uses it. Let $Z$ be an irreducible
+$n$-dimensional analytic cycle in $U$. On the relative interior of an
+$n$-dimensional cell $\sigma$ of $\operatorname{Trop}_\varphi(Z)$, the
+tropicalization is generically finite in the graded-reduction sense, by
+\Cref{prop:trop-degree-constant} applied to the components of $Z$.
+
+\begin{definition}
+The \emph{tropical multiplicity} $m_\sigma(Z,\varphi)$ is the degree of the
+corresponding initial degeneration, counted with lengths of its irreducible
+components and residue-field degrees. The associated oriented tangent
+$n$-vector, multiplied by $m_\sigma$, is the \emph{canonical calibration} of
+$Z$ in the chart.
+\end{definition}
+
+This definition is intentionally conceptual. In non-strict or non-algebraically
+closed settings, naive counting of inverse images is wrong; graded reduction
+and residue degrees are indispensable.
+
+\begin{theorem}\label{thm:analytic-tropical-balancing}
+The weighted $n$-dimensional part of the tropicalization of an
+$n$-dimensional analytic cycle is balanced; it is zero if no
+$n$-dimensional cell occurs.  Suppose that a moment map $\psi$ refines a moment map $\varphi$
+through an integer-affine map $F$, so that
+$\varphi_{\mathrm{trop}}=F\circ\psi_{\mathrm{trop}}$, and that $F$ is
+generically finite on each relevant source facet.  Then the weight on a
+target facet is
+\begin{equation}\label{eq:analytic-tropical-pushforward}
+ m_{\sigma'}\bigl(F_*\operatorname{Trop}_{\psi}(Z)\bigr)
+ =\sum_{F(\sigma)=\sigma'}
+   [N_{\sigma'}:F(N_\sigma)]\,m_\sigma.
+\end{equation}
+If an analytic morphism $g:Z\to Z'$ of generic degree $\delta$ induces this
+projection and $Z'$ is given its reduced cycle structure, the left-hand side
+of \eqref{eq:analytic-tropical-pushforward} is
+$\delta m_{\sigma'}(\operatorname{Trop}_{\varphi}(Z'))$.
+\end{theorem}
+\begin{proof}
+Let $\tau$ be a codimension-one cell and let
+$\sigma_1,\ldots,\sigma_s$ be the facets containing it.  Balancing is an
+identity in $N/N_\tau$, so it suffices to pair it with every integral
+covector $m$ annihilating $N_\tau$.  Choose a point in the relative interior
+of $\tau$ and a sufficiently small transversal polyhedral neighborhood.
+After fixing $n-1$ generic monomial coordinates parallel to $\tau$, the
+corresponding analytic fiber is one-dimensional.  Its tropicalization has
+outgoing branches indexed by the $\sigma_i$; the degree of the branch is
+exactly the initial-degeneration multiplicity $m_{\sigma_i}$.
+
+The character $\chi^m$ restricts to an invertible analytic function on this
+fiber.  Along the branch indexed by $\sigma_i$, its outgoing slope is
+$\langle m,u_{\sigma_i/\tau}\rangle$.  The non-Archimedean slope formula on
+the compactified analytic curve (\Cref{thm:ch08-slope-formula}, in the form
+\eqref{eq:ch08-slope-formula}) says that the sum of the outgoing slopes,
+weighted by the branch degrees, equals the degree of the divisor of
+$\chi^m$.  The divisor has degree zero.  Hence
+\[
+ \sum_i m_{\sigma_i}
+       \langle m,u_{\sigma_i/\tau}\rangle=0.
+\]
+Since the integral covectors annihilating $N_\tau$ span the dual of
+$N/N_\tau$, this is the balancing equation.
+
+Now let $F:N\to N'$ be the linear part of the integer-affine projection.
+Refine so that $F$ has constant rank on every facet.  On a facet on which it
+is generically finite, the induced map of initial degenerations is finite.
+Localize at a generic point of the target initial component.  The source
+coordinate algebra is then a finite module, and additivity of length gives
+\begin{equation*}
+ m_{\sigma'}\bigl(F_*\operatorname{Trop}_{\psi}(Z)\bigr)
+ =\sum_{F(\sigma)=\sigma'}
+   [N_{\sigma'}:F(N_\sigma)]\,m_\sigma.
+\end{equation*}
+The lattice index is the degree contributed by the monomial torus map.
+The coefficient of the cycle-theoretic pushforward of the tropical cycle
+already contains the degree of the finite analytic map; inserting a second
+analytic-degree factor would count that degree twice.  Equivalently, for the
+analytic morphism in the statement one has $g_*[Z]=\delta[Z']$ over the
+generic locus.  Taking initial degenerations commutes with this finite
+pushforward, and additivity of length gives the second formulation.
+This is precisely the pushforward rule for weighted tropical cycles.
+Conservation of rank in a tower of finite modules proves functoriality under
+composition.
+
+The two analytic ingredients used in this reduction are the slope formula
+and conservation of degree for graded reductions; their invariant
+construction, including non-strict fields and residue-degree factors, is
+proved in \cite[\S\S12--15]{CLD25}.
+\end{proof}
+
+\begin{remark}[Two routes to balancing]
+\label{rem:trop-balancing-two-routes}
+The proof just given is the curve-slope route: one cuts down to a
+one-dimensional analytic fibre transverse to a codimension-one cell and
+applies the slope formula there. It is the shortest route and the one that
+shows why balancing is a residue theorem in disguise. There is a second,
+invariant route, which does not choose transversal coordinates: one proves
+that the interior of an analytic space of level $n$, equipped with its
+canonical calibration, is \emph{harmonious}, meaning that the calibrated
+discordance vector at every codimension-one face vanishes; pairing that
+vector with integral covectors annihilating $N_\tau$ gives back the scalar
+identities above. This is \cite[Theorem~15.6.1]{CLD25}, quoted in this book
+as \Cref{thm:appG-analytic-calibration}. The two routes give the same
+weights, because both compute the calibration of
+\Cref{def:trop-canonical-calibration}, whose uniqueness is
+\Cref{cor:trop-calibration-glue}. The harmony route is the one that extends
+to the boundary statements and to fibre integration in
+\Cref{chap:cld-currents}; the curve route is the one that generalizes to the
+curve-test criteria of \Cref{chap:delta-forms}.
+\end{remark}
+
+The projection formula is exactly what makes calibrations compatible under
+the product refinements of \Cref{lem:product-moment-map}.
+
+\begin{corollary}\label{cor:analytic-integration-independent}
+Let $\alpha$ be a compactly supported $(n,n)$-form on $X$. Compute its
+integral in any finite family of tropical charts using the canonical
+calibrations and a partition of unity. The result is independent of all
+charts, common refinements, subdivisions, and the partition of unity.
+\end{corollary}
+\begin{proof}
+On a common product refinement, the projection formula of
+\Cref{thm:analytic-tropical-balancing} identifies the two calibrated
+integrals. Subdivision independence is
+\Cref{prop:integral-subdivision-independent}. Additivity and the
+identity $\sum\rho_i=1$ give independence of the partition. Compact support
+reduces the comparison to finitely many charts.
+\end{proof}
+
+The last compatibility needed downstream concerns not a change of chart but
+a change of space: an analytic morphism with finite fibres over a local
+skeleton. This is the analytic counterpart of the integer-affine pushforward
+of \Cref{prop:tropical-pushforward-balanced}, and it is the statement that
+enters the projection formula for currents in \Cref{chap:cld-currents}.
+
+\begin{theorem}
+\label{thm:trop-finite-pushforward}
+Let $p:Y\to X$ be a morphism of $K$-analytic spaces of level $n$, let
+$\Sigma\subset X$ be a polyhedral subspace with canonical calibration
+$\mu_\Sigma$, and let $\mathrm T=p^{-1}(\Sigma)$, a polyhedral subspace of
+$Y$ with canonical calibration $\mu_{\mathrm T}$. Assume that $p$ has finite
+fibres over $\Sigma$ and that $p_\Sigma:\mathrm T\to\Sigma$ is
+topologically compact. Then
+\begin{equation}
+\label{eq:trop-finite-pushforward}
+ p_*\mu_{\mathrm T}=\mathrm{dc}(p)\,\mu_\Sigma,
+\end{equation}
+where $\mathrm{dc}_x(p)=\sum_{y\in p^{-1}(x)}\mathrm{dc}_y(p)$ is the
+calibrated degree of \Cref{sec:trop-graded}, a function which is locally
+constant on $\Sigma$ off a polyhedral subset of dimension $<n$.
+\end{theorem}
+
+\begin{proof}
+That $\mathrm T$ is polyhedral is
+\Cref{thm:trop-sigma-polyhedral} \cref{itm:trop-poly:union}. Both sides of
+\eqref{eq:trop-finite-pushforward} are calibrations, and calibrations form a
+$G$-sheaf, so we may work $G$-locally: replace $X$ by a compact analytic
+domain $V$ carrying a moment map $f:V\to\mathbf G_m^n$ with
+$\Sigma\subset\Sigma_f$, and $Y$ by a compact analytic neighbourhood of
+$p^{-1}(\Sigma)$; this is legitimate because canonical calibrations and
+local degrees commute with restriction to analytic domains
+(\Cref{cor:trop-calibration-restriction} and the remark after
+\Cref{def:trop-local-degree}).
+
+Both $f$ and $f\circ p$ are then skeletally proper, and
+$\Sigma_{f\circ p}=p^{-1}(\Sigma_f)$,
+$\Sigma_{f\circ p}^{(n)}=p^{-1}(\Sigma_f^{(n)})$. Choose adapted
+decompositions: $\mathscr C$ of $\Sigma_f^{(n)}$ into convenient $f$-cells,
+$\mathscr D$ of $\Sigma_{f\circ p}^{(n)}$ into convenient
+$(f\circ p)$-cells, such that $p$ carries cells to cells.
+
+Let $C\in\mathscr C$ be an $n$-cell and let $D_1,\ldots,D_r$ be the
+$n$-cells of $\mathscr D$ mapping onto $C$; over $\mathring C$ the map
+$p_\Sigma$ is a finite topological covering with sheets
+$\mathring D_1,\ldots,\mathring D_r$. Fix $x\in\mathring C$ and let $y_i$ be
+its unique preimage in $\mathring D_i$. By convenience of the cells,
+$x\in\Int(X)$ and $y_i\in\Int(Y)$, so $f$ is finite and flat at $x$ and
+$f\circ p$ is finite and flat at each $y_i$
+(\Cref{lem:trop-quasifinite-flat}). For a morphism finite and flat at a
+point, the calibrated degree equals the local degree
+(\Cref{prop:trop-calibrated-degree} \cref{itm:trop-dc:flat}), so
+$\deg_{y_i}(f\circ p)=\mathrm{dc}_{y_i}(f\circ p)$; multiplicativity of
+calibrated degrees (\Cref{prop:trop-calibrated-degree}
+\cref{itm:trop-dc:mult}) gives
+\[
+ \deg_{y_i}(f\circ p)=\mathrm{dc}_{y_i}(p)\,\mathrm{dc}_x(f)
+ =\mathrm{dc}_{y_i}(p)\,\deg_x(f).
+\]
+Summing over $i$,
+\[
+ \sum_{i=1}^r\deg_{y_i}(f\circ p)
+ =\Bigl(\sum_{i=1}^r\mathrm{dc}_{y_i}(p)\Bigr)\deg_x(f)
+ =\mathrm{dc}_x(p)\,\deg_x(f).
+\]
+The left-hand side is, by \Cref{thm:trop-multiplicity-formula} applied to
+$f\circ p$ and by \Cref{def:trop-canonical-calibration}, the coefficient
+appearing in $p_*\mu_{\mathrm T}$ on $C$, while $\deg_x(f)$ is the
+coefficient of $\mu_\Sigma$ on $C$; the affine sections are the same because
+$(f\circ p)_{\mathrm{trop}}=f_{\mathrm{trop}}\circ p$ and $p$ maps
+$\mathring D_i$ isomorphically onto $\mathring C$. This is
+\eqref{eq:trop-finite-pushforward} on $\mathring C$. Local constancy of
+$\mathrm{dc}(p)$ off a lower-dimensional polyhedral set follows, since the
+two sides are cellwise constant on a common decomposition. The full
+statement, including the case where $p$ is not flat, is
+\cite[Proposition~14.4.2]{CLD25}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:trop-finite-field-extension}
+Let $F/K$ be a finite extension of complete valued fields and let $X$ be an
+$F$-analytic space of level $n$; write $X_0$ for $X$ regarded as a
+$K$-analytic space. A subset of $X$ is a polyhedral subspace for $F$ if and
+only if it is one for $K$, and the two canonical calibrations satisfy
+\[
+ \mu_0=[F:K]\,\mu .
+\]
+\end{corollary}
+
+\begin{proof}
+The canonical skeleton $S(\mathbf G_{m,F}^n)$ is the preimage of
+$S(\mathbf G_{m,K}^n)$ under the projection
+$\mathbf G_{m,F}^n\to\mathbf G_{m,K}^n$, and surjects onto it: indeed the
+graded transcendence degree of the $\widetilde{T_i(x)}$ over
+$\widetilde F$ equals that over $\widetilde K$, since
+$\widetilde F/\widetilde K$ is algebraic. Hence the two notions of local
+skeleton agree, by \Cref{thm:trop-sigma-characterization}. The projection
+$\mathbf G_{m,F}^n\to\mathbf G_{m,K}^n$ is finite and flat of degree
+$[F:K]$, so applying \Cref{def:trop-canonical-calibration} with the
+$K$-moment map obtained by composition multiplies every local degree by
+$[F:K]$ while leaving the affine sections unchanged.
+\end{proof}
+
+\section{Graded reduction, cycles, and the source of the multiplicities}
+\label{sec:trop-graded}
+
+Everything so far has used the local degree of a finite flat morphism as a
+black box. The purpose of this section is to open it. We show that the
+local degree factors as
+\[
+ \deg_x(g)=\underbrace{\ell_x(g)}_{\text{length}}\cdot
+ \underbrace{[\widetilde{\mathcal H(x)}:\widetilde{\mathcal H(g(x))}]}
+ _{\text{graded residue degree}}\cdot
+ \underbrace{\mathrm{def}(\mathcal H(x)/\mathcal H(g(x)))}_{\text{defect}},
+\]
+that the defect is $1$ in residue characteristic zero, and that the
+resulting multiplicities are additive over analytic cycles. This makes
+graded reduction, and not any auxiliary combinatorial recipe, the source of
+the tropical multiplicities --- which is how the theory is used in
+\Cref{chap:cld-currents,chap:cld-metrized-bundles}.
+
+\subsection{Calibrated degrees}
+
+The bookkeeping is cleanest in terms of a rational refinement of the local
+degree, which divides out the generic multiplicity of the source.
+
+\begin{definition}[Calibrated degree]
+\label{def:trop-calibrated-degree}
+\index{degree!calibrated}
+For a local artinian ring $A$ and a finite-length $A$-module $N$, put
+$\delta_A(N)=\ell_A(N)/\ell_A(A)\in\mathbf Q_{>0}$. Let $g:Y\to X$ be a
+morphism of $K$-analytic spaces, $y\in Y$, $x=g(y)$, and suppose $g$ is
+quasi-finite at $y$ and that the local ring $\mathcal O_{X_G,x}$ is
+artinian. The \emph{calibrated degree} of $g$ at $y$ is
+\[
+ \mathrm{dc}_y(g)=\delta_{\mathcal O_{X_G,x}}(\mathcal O_{Y_G,y}),
+ \qquad
+ \mathrm{dc}_x(g)=\sum_{y\in g^{-1}(x)}\mathrm{dc}_y(g).
+\]
+\end{definition}
+
+\begin{proposition}
+\label{prop:trop-calibrated-degree}
+With the notation of \Cref{def:trop-calibrated-degree}:
+\begin{enumerate}
+\item\label{itm:trop-dc:flat} if $g$ is quasi-finite and flat at $y$ and
+  $\mathcal O_{X_G,x}$ is artinian, then
+  $\mathrm{dc}_y(g)=\deg_y(g)$;
+\item\label{itm:trop-dc:mult} calibrated degrees are multiplicative: for
+  $h:Z\to Y$ and $z\in h^{-1}(y)$ with $\dim_zh=0$,
+  $\mathrm{dc}_z(g\circ h)=\mathrm{dc}_y(g)\,\mathrm{dc}_z(h)$;
+\item\label{itm:trop-dc:red} for the closed immersion
+  $\iota:X_{\mathrm{red}}\to X$ one has
+  $\mathrm{dc}_x(\iota)=1/\ell(\mathcal O_{X_G,x})$, the reciprocal of the
+  generic multiplicity of $X$ along the unique irreducible component through
+  $x$;
+\item\label{itm:trop-dc:factor} if $A\to B$ is a finite local homomorphism
+  of artinian local rings with residue fields $\kappa$ and $\lambda$, then
+  \[
+   \delta_A(B)=\frac{\ell_B(B)}{\ell_A(A)}\,[\lambda:\kappa].
+  \]
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:trop-dc:flat} A flat module of finite type over a local ring is
+free, of rank $r$ say; then $\ell_A(B)=r\ell_A(A)$ and
+$\delta_A(B)=r=\deg_y(g)$.
+
+\cref{itm:trop-dc:factor} Choose a composition series of $B$ as a
+$B$-module; it has $\ell_B(B)$ successive quotients, each isomorphic to
+$\lambda$. As an $A$-module, $\lambda$ has length $\dim_\kappa\lambda$, so
+$\ell_A(B)=\ell_B(B)[\lambda:\kappa]$ and the assertion follows on dividing
+by $\ell_A(A)$.
+
+\cref{itm:trop-dc:mult} Apply \cref{itm:trop-dc:factor} twice, to
+$A\to B\to C$ with residue fields $\kappa,\lambda,\mu$:
+\[
+ \delta_A(C)=\frac{\ell_C(C)}{\ell_A(A)}[\mu:\kappa]
+ =\frac{\ell_C(C)}{\ell_B(B)}[\mu:\lambda]\cdot
+  \frac{\ell_B(B)}{\ell_A(A)}[\lambda:\kappa]
+ =\delta_B(C)\,\delta_A(B).
+\]
+
+\cref{itm:trop-dc:red} Here $B=A_{\mathrm{red}}$, so $\ell_B(B)=1$ and
+$\lambda=\kappa$, giving $\delta_A(B)=1/\ell_A(A)$; the identification of
+$\ell(\mathcal O_{X_G,x})$ with the generic multiplicity along the component
+through $x$ is the definition of the latter.
+\end{proof}
+
+Assertion \cref{itm:trop-dc:factor} already displays the two ingredients
+promised in the chapter's title claim: a \emph{length}, which is the
+scheme-theoretic multiplicity, and a \emph{residue degree}. On a local
+skeleton the residue degree can be computed in the graded world, and that is
+the content of the next theorem.
+
+\subsection{Abhyankar points, defect, and the graded residue degree}
+
+\begin{definition}
+\label{def:trop-abhyankar-defect}
+\index{Abhyankar extension}\index{defect}
+A complete valued extension $L/K$ is an \emph{Abhyankar extension} if there
+are a $K$-analytic space $X$ and a point $x$ with $d_K(x)=\dim_xX$ and
+$\mathcal H(x)\simeq L$ over $K$; equivalently, if
+$\operatorname{trdeg}_{\widetilde K}\widetilde L$ attains the Abhyankar
+bound. A family $t=(t_1,\ldots,t_d)$ in $L$ is an \emph{Abhyankar basis} if
+the $\widetilde{t_i}$ form a graded transcendence basis of $\widetilde L$
+over $\widetilde K$; equivalently if
+\[
+ \Bigl|\sum_Ia_It^I\Bigr|=\max_I|a_I|\,|t|^I
+ \qquad(a_I\in K,\ \text{almost all zero}),
+\]
+so that $\widehat{K(t)}\simeq\mathcal H(\eta_r)$ with
+$r=(|t_1|,\ldots,|t_d|)$. The \emph{defect} of $L$ is
+\[
+ \mathrm{def}_K(L)
+ =\frac{[L:\widehat{K(t)}]}
+ {\bigl[\widetilde L:\widetilde{\widehat{K(t)}}\bigr]},
+\]
+which is independent of the Abhyankar basis $t$.
+\end{definition}
+
+That $L$ is finite over $\widehat{K(t)}$, and that the quotient above does
+not depend on $t$, is \cite[Lemma~13.8.6 and Theorem~13.8.10]{CLD25}. For
+$d=0$ the definition specializes to the classical defect of a finite
+extension of complete valued fields. We use two standard facts, quoted for
+reference: the defect is a positive integer, and it is a power of the
+residue characteristic; in particular
+\begin{equation}
+\label{eq:trop-defect-trivial}
+ \mathrm{def}_K(L)=1
+ \qquad\text{whenever }\operatorname{char}\widetilde K=0,
+\end{equation}
+by Ostrowski's lemma for complete rank-one valued fields, see
+\cite[Ch.~VI]{ZariskiSamuelII} and \cite[\S13.8]{CLD25}.
+
+\begin{theorem}
+\label{thm:trop-degree-graded}
+Let $X$ be of level $n$, let $f:X\to\mathbf G_m^n$ be a moment map, and let
+$x\in\Sigma_f\setminus\partial X$, so that $f$ is finite and flat at $x$
+(\Cref{lem:trop-quasifinite-flat}). Put $t=f(x)\in S(\mathbf G_m^n)$. Then
+\begin{equation}
+\label{eq:trop-degree-graded}
+ \deg_x(f)
+ =\ell\bigl(\mathcal O_{f^{-1}(t),x}\bigr)\cdot
+  \bigl[\widetilde{\mathcal H(x)}:\widetilde{\mathcal H(t)}\bigr]\cdot
+  \mathrm{def}_{\mathcal H(t)}\bigl(\mathcal H(x)\bigr).
+\end{equation}
+In particular, if $\operatorname{char}\widetilde K=0$ the local degree is the
+product of a length and a graded residue degree; and if in addition
+$f^{-1}(t)$ is reduced at $x$, it is exactly the graded residue degree
+$[\widetilde{\mathcal H(x)}:\widetilde{\mathcal H(t)}]$.
+\end{theorem}
+
+\begin{proof}
+Since $x$ is isolated in the fibre $f^{-1}(t)$, the local ring
+$A=\mathcal O_{f^{-1}(t),x}$ is an artinian local
+$\mathcal H(t)$-algebra of finite dimension, and by definition
+$\deg_x(f)=\dim_{\mathcal H(t)}A$. Its residue field is a finite extension
+of $\mathcal H(t)$, hence complete, hence equal to $\mathcal H(x)$: indeed
+$\mathcal H(x)$ is by construction the completion of the residue field of
+$A$, and a finite extension of a complete field is complete. Applying
+\Cref{prop:trop-calibrated-degree} \cref{itm:trop-dc:factor} with
+$A_0=\mathcal H(t)$ --- a field, so $\ell(A_0)=1$ --- gives
+\[
+ \deg_x(f)=\dim_{\mathcal H(t)}A
+ =\ell(A)\cdot[\mathcal H(x):\mathcal H(t)].
+\]
+It remains to factor the field degree. By
+\Cref{cor:trop-sigma-abhyankar}, $d_K(x)=n$, and $d_K(t)=n$ by
+\Cref{prop:trop-torus-skeleton}; so $\mathcal H(x)$ and $\mathcal H(t)$ are
+Abhyankar extensions of $K$ of the same graded transcendence degree, and
+$\mathcal H(x)/\mathcal H(t)$ is a finite extension of Abhyankar type with
+graded transcendence degree zero. \Cref{def:trop-abhyankar-defect} applied
+with $d=0$ over the base $\mathcal H(t)$ is exactly the classical
+multiplicativity
+\[
+ [\mathcal H(x):\mathcal H(t)]
+ =\bigl[\widetilde{\mathcal H(x)}:\widetilde{\mathcal H(t)}\bigr]\cdot
+  \mathrm{def}_{\mathcal H(t)}(\mathcal H(x)),
+\]
+the graded residue degree being the product of the classical residue degree
+and the ramification index, by \Cref{lem:graded-residue-field}. Substituting
+gives \eqref{eq:trop-degree-graded}, and
+\eqref{eq:trop-defect-trivial} gives the residue-characteristic-zero
+statement. If $f^{-1}(t)$ is reduced at $x$ then $A$ is a field and
+$\ell(A)=1$.
+\end{proof}
+
+\begin{remark}
+\label{rem:trop-degree-graded-reading}
+\Cref{thm:trop-degree-graded} is the promised identification. Reading
+\eqref{eq:trop-degree-graded} from right to left: the defect is an
+arithmetic pathology absent in residue characteristic zero; the graded
+residue degree is the size of the extension of graded reductions, that is,
+of initial-form data; and the length is the scheme-theoretic multiplicity of
+the fibre. \Cref{prop:trop-calibrated-degree} \cref{itm:trop-dc:red} adds the
+fourth ingredient present for nonreduced ambient spaces: the generic
+multiplicity of $X$ itself, which is divided out by the calibrated degree.
+Thus the tropical weight of a facet is
+\[
+ m_D=\Bigl[\text{lattice index}\Bigr]^{-1}
+ \sum_{C\mapsto D}\ \bigl(\text{length}\bigr)\cdot
+ \bigl(\text{graded residue degree}\bigr)\cdot\bigl(\text{defect}\bigr),
+\]
+each factor coming from a different source, and none of them a cardinality.
+\Cref{ex:trop-multiplicity-two} exhibits a weight produced entirely by the
+graded residue degree, and \Cref{ex:trop-length-factor} one produced
+entirely by the length; \Cref{ex:trop-two-charts} exhibits the lattice
+index; and the defect is invisible in residue characteristic zero by
+\eqref{eq:trop-defect-trivial}.
+\end{remark}
+
+\subsection{Cycles}
+
+Everything above was stated for a space. Analytic cycles enter by
+additivity.
+
+\begin{definition}
+\label{def:trop-cycle-calibration}
+Let $X$ be a $K$-analytic space and let $Z=\sum_j n_j[Z_j]$ be an effective
+analytic cycle of pure dimension $n$ on $X$, the $Z_j$ being the reduced
+irreducible closed analytic subspaces of dimension $n$ and $n_j>0$. For a
+moment map $f$ defined near the support of $Z$, put
+\[
+ \Sigma_f(Z)=\bigcup_j\Sigma_{f|_{Z_j}},
+ \qquad
+ \mu_{\Sigma_f(Z)}=\sum_jn_j\,\mu_{\Sigma_{f|_{Z_j}}},
+\]
+the sum being taken after extending each calibration by zero. The
+\emph{tropicalization of the cycle} is the pushforward
+$\Trop_f(Z)=f_{\mathrm{trop},*}\mu_{\Sigma_f(Z)}$.
+\end{definition}
+
+\begin{proposition}
+\label{prop:trop-cycle-additive}
+The assignment $Z\mapsto\Trop_f(Z)$ is additive in $Z$, compatible with
+restriction to analytic domains and with extension of the base field, and
+satisfies
+\[
+ \Trop_{q\circ f}(Z)=q_{\mathrm{trop},*}\Trop_f(Z)
+\]
+for every homomorphism of tori $q$ that is generically finite on each facet
+of $\Trop_f(Z)$. If $g:Z\to Z'$ is a finite morphism of pure
+$n$-dimensional reduced analytic spaces with $g_*[Z]=\delta[Z']$ generically,
+and $f'$ is a moment map on $Z'$, then
+$\Trop_{f'\circ g}(Z)=\delta\,\Trop_{f'}(Z')$ over the locus where $g$ has
+constant calibrated degree $\delta$.
+\end{proposition}
+
+\begin{proof}
+Additivity is \Cref{def:trop-cycle-calibration}, and the compatibilities are
+\Cref{cor:trop-calibration-restriction} and
+\Cref{prop:trop-calibration-base-change} applied componentwise. The formula
+for $q\circ f$ is \Cref{thm:trop-multiplicity-formula} together with the
+transitivity of pushforward of calibrations
+(\Cref{prop:appG-calibration-tests}), the lattice index
+\eqref{eq:appG-lattice-index} being exactly the discrepancy between
+$\sigma_q$ computed upstairs and downstairs. The last assertion is
+\Cref{thm:trop-finite-pushforward} applied to $g$, together with
+\Cref{prop:trop-calibrated-degree} \cref{itm:trop-dc:mult}, which converts
+the calibrated degree of $g$ into the cycle-theoretic coefficient $\delta$.
+\end{proof}
+
+\begin{warning}{Do not count the analytic degree twice}
+In \Cref{prop:trop-cycle-additive} the coefficient $\delta$ appears exactly
+once. The calibration $\mu_{\Sigma_f(Z)}$ upstairs already contains the local
+degrees of $Z$ over the torus; pushing forward along $g$ multiplies them by
+the calibrated degree of $g$ and by nothing else. Multiplying again by
+$\deg g$, as one is tempted to do when thinking of
+\eqref{eq:analytic-tropical-pushforward} as a set-theoretic count, produces
+$\delta^2$ and contradicts the one-dimensional test of
+\Cref{ex:trop-two-charts}. The same warning appears at
+\eqref{eq:analytic-tropical-pushforward} itself and in
+\Cref{prop:appG-calibration-tests}.
+\end{warning}
+
+\section{Compact supports, weak analytic structures, and partitions of unity}
+\label{sec:trop-supports}
+
+Three technical facts are exported from this chapter to the rest of Part~II.
+The first says that certain subsets which are not analytic spaces --- most
+importantly, boundaries --- still have polyhedral tropicalizations of the
+expected dimension; without it one cannot even assert that a boundary is
+negligible for integration. The second is the existence of partitions of
+unity, which is what makes chartwise definitions global. The third is that
+compactly supported forms need only finitely many charts.
+
+\subsection{Weak analytic structures}
+
+\begin{definition}[Weakly analytic subset]
+\label{def:trop-weakly-analytic}
+\index{weakly analytic subset}
+Let $X$ be a $K$-analytic space, $A\subset X$ a closed subset, and
+$d\in\mathbf N$. We say that $A$ is \emph{weakly analytic of dimension at
+most $d$} if for every compact analytic domain $V\subset X$ there are a
+finite family of morphisms of $K$-analytic spaces $g_i:V_i\to W_i$, defined
+on compact analytic domains $V_i\subset V$, and points $w_i\in W_i$, with
+\[
+ A\cap V=\bigcup_ig_i^{-1}(w_i),
+ \qquad
+ \dim_{g_i}(x)\le d\ \text{ for all }x\in A\cap V_i,
+\]
+where $\dim_{g_i}(x)$ denotes the dimension at $x$ of the fibre of $g_i$
+through $x$. This is a $G$-local property, and a locally finite union of
+weakly analytic subsets is weakly analytic.
+\end{definition}
+
+The point of the definition is that a fibre of a morphism carries enough
+structure to be tropicalized, even though it may fail to be an analytic
+space over $K$: base change along $\mathcal H(w_i)$ turns it into an
+$\mathcal H(w_i)$-analytic space, and a moment map on the ambient space
+restricts to one on it. This suffices for the polyhedrality statement.
+
+\begin{proposition}
+\label{prop:trop-weakly-analytic-image}
+Let $X$ be a compact $K$-analytic space, let $A\subset X$ be weakly analytic
+of dimension at most $d$, and let $f:X\to T$ be a moment map. Then
+$f_{\mathrm{trop}}(A)$ is a polyhedral subset of $T_{\mathrm{trop}}$ of
+dimension at most $d$.
+\end{proposition}
+
+\begin{proof}
+Since $X$ is compact and the condition is $G$-local and stable under finite
+unions, we may assume $A=g^{-1}(w)$ for a morphism $g:X\to W$ of
+$K$-analytic spaces and a point $w\in W$, with all fibre dimensions along
+$A$ at most $d$. The fibre product $X\times_W\mathcal M(\mathcal H(w))$
+realizes $A$ as a compact $\mathcal H(w)$-analytic space of dimension at most
+$d$, and $f|_A$ as a moment map on it with values in
+$T_{\mathcal H(w)}$. Tropicalization is unchanged by this base change
+(\Cref{lem:trop-moment-basic} \cref{itm:trop-moment:base}). Now apply
+\Cref{thm:analytic-tropical-polyhedrality} over the field
+$\mathcal H(w)$: the image is a polyhedron of dimension at most
+$\dim A\le d$.
+\end{proof}
+
+\begin{proposition}
+\label{prop:trop-boundary-thin}
+Let $X$ be a compact $K$-analytic space of dimension $n$ and $f:X\to T$ a
+moment map. Then $\partial X$ is weakly analytic of dimension at most
+$n-1$, and $f_{\mathrm{trop}}(\partial X)$ is contained in a polyhedral
+subset of $T_{\mathrm{trop}}$ of dimension at most $n-1$. If $X$ is
+affinoid, $f_{\mathrm{trop}}(\partial X)$ is itself such a subset.
+\end{proposition}
+
+\begin{proof}
+For $X=\mathcal M(\mathcal A)$ affinoid with graded reduction
+$\widetilde{\mathcal A}$ and reduction map
+$\pi:X\to\Spec\widetilde{\mathcal A}$, the locus
+$\{x:\dim\pi(x)\ge d\}$ is weakly analytic of dimension at most
+$\dim X-d$: choosing $h_1,\ldots,h_N\in\mathcal A$ with nonzero spectral
+norms whose initial forms generate $\widetilde{\mathcal A}$, the condition
+$\dim\pi(x)\ge d$ says that some $d$-element subfamily of the
+$\widetilde{h_i(\pi(x))}$ is algebraically independent over $\widetilde K$,
+which is a finite union of conditions of the required shape; this is
+\cite[Proposition~11.10.4]{CLD25}. Taking $d=\dim X$ identifies the locus
+with the Shilov boundary, and the boundary $\partial X$ of an affinoid space
+is weakly analytic of dimension at most $\dim X-1$
+(\cite[Example~11.10.2]{CLD25}). In general $\partial X$ is a locally finite
+union of such boundaries taken in an affinoid $G$-cover, so it is weakly
+analytic of dimension at most $n-1$. The assertions about
+$f_{\mathrm{trop}}(\partial X)$ now follow from
+\Cref{prop:trop-weakly-analytic-image}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:trop-boundary-negligible}
+Let $X$ be of level $n$ and $f:X\to T$ a skeletally proper moment map. Then
+$f_{\mathrm{trop}}(\partial X\cap\Sigma_f^{(n)})$ is a closed polyhedral
+subset of $\Pi_f$ of dimension at most $n-1$. Consequently, the integral of
+a compactly supported $(n,n)$-form against the canonical calibration is
+unchanged if $\partial X$ is removed from the domain of integration, and the
+degree functions of \Cref{prop:trop-degree-constant} may be computed on
+relative interiors of cells only.
+\end{corollary}
+
+\begin{proof}
+The first assertion is \Cref{prop:trop-boundary-thin} applied $G$-locally
+combined with the local finiteness of a cell decomposition; the second is
+\Cref{prop:integral-subdivision-independent}, a subset of dimension at most
+$n-1$ carrying no mass for a calibrated $n$-dimensional integral.
+\end{proof}
+
+\subsection{Partitions of unity}
+
+\begin{theorem}\label{thm:cld-partitions-unity}
+On a good paracompact Berkovich analytic space, every locally finite cover by
+suitable analytic domains admits a subordinate smooth partition of unity in
+the CLD sheaf. Compactly supported forms can therefore be integrated using
+finitely many tropical charts.
+\end{theorem}
+\begin{proof}
+Goodness gives neighborhoods modeled on affinoid domains, hence local
+compactness.  Paracompactness allows the given cover to be refined by a
+locally finite family of pairs
+\[
+                         W_i\Subset V_i
+\]
+such that the $W_i$ still cover $X$ and each $V_i$ lies in one member of the
+original cover and in one tropical chart.
+
+We recall the chartwise bump construction.  A compact subset of a good
+analytic domain can be separated from its complement by finitely many strict
+inequalities among absolute values of invertible analytic functions.  After
+applying $-\log$, these become strict affine inequalities on a tropical
+chart.  Choose ordinary $C^\infty$ cutoff functions on $\mathbf R$ that are
+one on the smaller closed intervals and zero outside the larger open
+intervals; take finite products of their pullbacks.  This produces a smooth
+function $\chi_i$ with
+\[
+ 0\leq\chi_i\leq1,\qquad
+ \chi_i=1\ \text{on }W_i,\qquad
+ \operatorname{supp}\chi_i\subset V_i.
+\]
+Product-moment refinements show that this construction is independent of the
+chosen finite list of tropical coordinates.
+
+The locally finite sum $s=\sum_i\chi_i$ is smooth and satisfies $s\geq1$,
+because the $W_i$ cover.  Therefore
+\[
+                         \rho_i=\frac{\chi_i}{s}
+\]
+is smooth, subordinate to $V_i$, locally finite, and
+$\sum_i\rho_i=1$.  This is the desired partition.  A compact set meets only
+finitely many supports, so a compactly supported form is integrated using
+finitely many charts.
+
+The separation and bump-function step in the full parlinear category is
+proved in \cite[\S15]{CLD25}; the normalization argument above is the usual
+locally finite partition construction.
+\end{proof}
+
+For spaces not satisfying goodness or paracompactness, we do not silently use
+partitions of unity; compact-support statements are made chartwise or after
+imposing the needed topology.
+
+\section{Worked examples}
+\label{sec:trop-worked}
+
+We now compute five examples in full. The first two are the standard tests
+of the multiplicity conventions; the third exhibits refinement independence
+concretely; the fourth is the running degeneration of Parts~I and~II; the
+fifth produces a weight different from one and traces it back to graded
+reduction. Throughout, $K$ is complete and nontrivially valued, and we say
+explicitly when it is assumed algebraically closed.
+
+\subsection{A line in a two-dimensional torus}
+
+\begin{example}[Tropicalization of a line in $\mathbf G_m^2$]
+\label{ex:trop-line-in-torus}
+Assume $K$ algebraically closed. Let
+\[
+ Z=\{1+T_1+T_2=0\}\subset\mathbf G_{m,K}^2,
+\]
+a smooth affine curve, and let $X=Z^{\An}$, of level $1$. Take the moment
+map $f=(T_1,T_2)|_Z$ into $T=\mathbf G_m^2$, so $M=\mathbf Z^2$ and
+$T_{\mathrm{trop}}=\mathbf R^2$. Put $s=T_1|_Z$; then $T_2|_Z=-1-s$ and
+\[
+ Z\ \simeq\ \mathbf A^1_K\setminus\{0,-1\},
+ \qquad t\longmapsto(t,-1-t),
+\]
+so $X$ is the analytic line with two points removed. We compute all of
+$\Trop_f$, $\Sigma_f$, and the calibration.
+
+\emph{The tropical image.} Write $u=(u_1,u_2)=(v(s),v(1+s))$ where
+$v=-\log|\cdot|$. If $v(s)>0$ then $|s|<1$, so $|1+s|=1$ and $u=(u_1,0)$ with
+$u_1>0$. If $v(s)<0$ then $|s|>1$, so $|1+s|=|s|$ and $u=(u_1,u_1)$ with
+$u_1<0$. If $v(s)=0$ then $u=(0,u_2)$ with $u_2\ge0$, and every such $u_2$
+occurs, for instance at $s$ close to $-1$. Hence
+\[
+ \Trop_f(X)=\mathbf R_{\ge0}(1,0)\ \cup\ \mathbf R_{\ge0}(0,1)
+ \ \cup\ \mathbf R_{\ge0}(-1,-1),
+\]
+the tropical line of \Cref{ex:appG-tropical-line} and
+\Cref{fig:tropical-line-balancing}, in the valuation convention.
+
+\emph{The local skeleton.} By \Cref{thm:trop-sigma-characterization},
+$x\in\Sigma_f$ if and only if $\widetilde{T_1(x)}$ or $\widetilde{T_2(x)}$ is
+transcendental over $\widetilde K$. In the coordinate $s$ this says that $x$
+is a point of type II or III of $\mathbf A^{1,\An}_K$
+(\Cref{prop:berk-type-invariants}) lying on one of the three segments
+joining the Gauss point $\zeta_{0,1}$ to the three punctures
+$s=0$, $s=-1$, $s=\infty$. Thus $\Sigma_f$ is the open tripod
+\[
+ \Sigma_f=\{\zeta_{0,\rho}:0<\rho<1\}\cup\{\zeta_{-1,\rho}:0<\rho<1\}
+ \cup\{\zeta_{0,\rho}:\rho>1\}\cup\{\zeta_{0,1}\},
+\]
+and $f_{\mathrm{trop}}$ restricts to a bijection $\Sigma_f\to\Trop_f(X)$
+carrying $\zeta_{0,\rho}$ with $\rho<1$ to $(-\log\rho,0)$, carrying
+$\zeta_{-1,\rho}$ to $(0,-\log\rho)$, and carrying $\zeta_{0,\rho}$ with
+$\rho>1$ to $(-\log\rho,-\log\rho)$. Here tropicalization is injective on
+the local skeleton --- a happy accident of this example, not a general
+phenomenon.
+
+\emph{The calibration.} We treat the three rays separately.
+
+On $\sigma_1=\mathbf R_{\ge0}(1,0)$ take $q=\mathrm{pr}_1$, so
+$q_{\mathrm{trop}}(u)=u_1$ is injective on $\sigma_1$. Then
+$q\circ f=s:X\to\mathbf G_m^{\An}$ is the open immersion onto
+$\mathbf G_m^{\An}\setminus\{-1\}$; a point of $X$ is the only point of its
+fibre and $\mathcal H(x)=\mathcal H(s(x))$, so $\deg_x(q\circ f)=1$. The
+affine section with image $\langle\sigma_1\rangle=\mathbf R\times\{0\}$ is
+$\sigma_q(a)=(a,0)$, whence $\sigma_{q,*}(e)=|(1,0)|$ and
+$\mu_{\sigma_1}=1\cdot|(1,0)|$: weight $1$.
+
+On $\sigma_2=\mathbf R_{\ge0}(0,1)$ take $q=\mathrm{pr}_2$; then
+$q\circ f=-1-s$ is again an open immersion, $\sigma_q(a)=(0,a)$, and
+$\mu_{\sigma_2}=1\cdot|(0,1)|$: weight $1$.
+
+On $\sigma_3=\mathbf R_{\ge0}(-1,-1)$ take $q=\mathrm{pr}_1$, injective on
+$\sigma_3$; the section with image $\langle\sigma_3\rangle$ is
+$\sigma_q(a)=(a,a)$, so $\sigma_{q,*}(e)=|(1,1)|$, which is the primitive
+volume vector of $N_{\sigma_3}=\mathbf Z(1,1)$. Again $\deg=1$, so the weight
+is $1$. Choosing instead $q=\mathrm{pr}_2$ gives the same section and the
+same degree, as \Cref{thm:trop-calibration-canonical} predicts.
+
+\emph{Balancing.} The primitive outgoing directions at the origin are
+$(1,0)$, $(0,1)$, $(-1,-1)$ with weights $1,1,1$, and
+$(1,0)+(0,1)+(-1,-1)=0$; this is the balancing condition
+\eqref{eq:appG-balancing}, verified by hand, and predicted by
+\Cref{thm:analytic-tropical-balancing}.
+
+\emph{A projection test.} Push forward along $\mathrm{pr}_1$. The ray
+$\sigma_2$ is contracted and drops out. The rays $\sigma_1$ and $\sigma_3$
+map onto $\mathbf R_{\ge0}$ and $\mathbf R_{\le0}$ with lattice indices
+$[\mathbf Z:\mathrm{pr}_1(\mathbf Z(1,0))]=1$ and
+$[\mathbf Z:\mathrm{pr}_1(\mathbf Z(1,1))]=1$, so
+$\mathrm{pr}_{1,*}\Trop_f(X)=\mathbf R$ with weight $1$. This is
+$\Trop(\mathbf G_m)$ with its canonical calibration
+(\Cref{ex:trop-torus-explicit}), consistent with the fact that
+$s:X\to\mathbf G_m^{\An}$ is generically of degree $1$. Multiplying by a
+further factor $\deg(s)=1$ would be harmless here; the next example shows
+that in general it is not.
+\end{example}
+
+\subsection{Two charts with the same local skeleton}
+
+\begin{example}[Refinement independence, exhibited]
+\label{ex:trop-two-charts}
+Let $X=\mathbf G_{m,K}^{\An}$, of level $1$, with coordinate $T$.
+
+\emph{(a) A monomial pair.} Consider the moment maps
+\[
+ f=T:X\to\mathbf G_m,
+ \qquad
+ g=(T,T^2):X\to\mathbf G_m^2 .
+\]
+By \Cref{lem:trop-monomial-degree} \cref{itm:trop-mono:preimage} and
+\Cref{thm:trop-sigma-characterization},
+\[
+ \Sigma_f=\Sigma_g=S(\mathbf G_m)=\{\eta_u:u\in\mathbf R\}
+\]
+--- the two charts see exactly the same subset of $X$, although their targets
+have different dimensions and neither refines the other in the naive sense.
+The tropical polyhedra are different: $\Pi_f=\mathbf R$ while
+$\Pi_g=\{(a,2a):a\in\mathbf R\}\subset\mathbf R^2$.
+
+Compute the calibration of $\Sigma:=S(\mathbf G_m)$ in the chart $g$, using
+each of the two admissible projections in turn. With $q=\mathrm{pr}_1$ one
+has $q\circ g=T$, which is the identity, of degree $1$; the affine section
+of $\mathrm{pr}_1$ with image $\langle\Pi_g\rangle$ is
+$\sigma_q(a)=(a,2a)$, so
+\[
+ \mu=1\cdot|(1,2)| .
+\]
+With $q=\mathrm{pr}_2$ one has $q\circ g=T^2$, of degree $2$ by
+\Cref{lem:trop-monomial-degree} \cref{itm:trop-mono:degree}, and the section
+is $\sigma_{q}(a)=(a/2,a)$, so
+\[
+ \mu=2\cdot\bigl|(\tfrac12,1)\bigr|=1\cdot|(1,2)| .
+\]
+The two agree, as they must by
+\Cref{thm:trop-calibration-canonical}. Note that the agreement is a
+cancellation between a degree and a lattice normalization: the analytic
+degree $2$ is exactly compensated by the halving of the section.
+
+Finally compare with the chart $f$. Here
+$\mu=1\cdot|e_1|$ on $\Pi_f=\mathbf R$, and
+$g_{\mathrm{trop}}=(1,2)\circ f_{\mathrm{trop}}$ carries $|e_1|$ to
+$|(1,2)|$: the two calibrations of $\Sigma$ coincide, which is
+\Cref{thm:trop-calibration-chart-independent} in its smallest nontrivial
+instance. The weight of $\Sigma$ is $1$ in both charts, because $|(1,2)|$ is
+the primitive volume vector of the tangent lattice
+$\mathbf Z(1,2)$ of $\Pi_g$.
+
+\emph{(b) A non-monomial pair.} Let $V=\{x:0<|T(x)|<1\}$ and consider
+\[
+ f=T|_V,\qquad h=T(1-T)|_V .
+\]
+On $V$ one has $|1-T|=1$, so $h_{\mathrm{trop}}=f_{\mathrm{trop}}$
+\emph{exactly}, not merely up to refinement.
+\Cref{cor:trop-sigma-translation} gives $\Sigma_f\cap V=\Sigma_h\cap V$, and
+\Cref{thm:trop-degree-translation} with zero constant gives equality of the
+local degrees, hence of the calibrations. One can also see this by hand:
+if $t,t'\in V$ satisfy $t-t^2=t'-t'^2$, then $(t-t')(1-t-t')=0$, and
+$|t+t'|<1$ forces $t=t'$; so $h$ is injective on $V$ and induces an
+isomorphism onto its image, of degree $1$ --- the same degree as $f$. The
+two charts therefore carry the same canonical calibration on the common
+local skeleton $\{\eta_u:u>0\}$, even though $h$ is not a monomial in $T$
+and neither chart refines the other.
+
+\emph{(c) The product test.} The product moment map $(f,h)$ on $V$ has
+tropical image the diagonal $\{(a,a):a>0\}$, and both projections have
+lattice index $1$; the calibration computed in the product chart is
+$1\cdot|(1,1)|$, and pushes forward to $1\cdot|e_1|$ in either factor. This
+is the mechanism of the proof of
+\Cref{thm:trop-calibration-chart-independent} in miniature: one goes up to
+the product, where the comparison is a tautology, and comes back down twice.
+\end{example}
+
+\subsection{An elliptic curve with multiplicative reduction}
+
+\begin{example}[The Tate curve]
+\label{ex:trop-tate-curve}
+Let $q\in K^\times$ with $0<|q|<1$ and let
+\[
+ E=\mathbf G_{m,K}^{\An}\big/q^{\mathbf Z}
+\]
+be the associated Tate curve, an elliptic curve over $K$ with split
+multiplicative reduction, studied as a degeneration in
+\Cref{ex:tate-degeneration} and \Cref{sec:worked-tate}, and metrically in
+\Cref{ex:ch08-tate-curve}. Write $\lambda=v(q)=-\log|q|>0$ and let
+$p:\mathbf G_{m}^{\An}\to E$ be the quotient map, a local isomorphism
+because $q^{\mathbf Z}$ acts freely and discontinuously.
+
+\emph{No global moment map.} $E$ is proper, so
+$\mathcal O(E)^\times=K^\times$ and every global moment map on $E$ has
+constant tropicalization, hence $\Sigma=\varnothing$ for it. Local skeleta
+are genuinely local objects; this example is the reason
+\Cref{cor:trop-calibration-glue} is stated as a gluing theorem and not as a
+single chart.
+
+\emph{Two charts.} Set
+\[
+ U_1=p\bigl(\{0<v(T)<\lambda\}\bigr),
+ \qquad
+ U_2=p\bigl(\{\tfrac\lambda2<v(T)<\tfrac{3\lambda}2\}\bigr),
+\]
+two open subsets covering $E$: the first omits the locus $v(T)\equiv0$ and
+the second the locus $v(T)\equiv\lambda/2$ modulo $\lambda$. On each of them
+$p$ admits a section $s_j$, and we let $f_j=T\circ s_j:U_j\to\mathbf G_m$ be
+the resulting moment maps.
+
+The overlap $U_1\cap U_2$ has two connected components, corresponding to
+$v(T)\bmod\lambda\in(0,\lambda/2)$ and to
+$v(T)\bmod\lambda\in(\lambda/2,\lambda)$. On the second, $s_1$ and $s_2$
+have the same image $\{\lambda/2<v(T)<\lambda\}$ and coincide, so
+$f_2=f_1$ there. On the first, $s_1$ lands in
+$\{0<v(T)<\lambda/2\}$ while $s_2$ lands in
+$\{\lambda<v(T)<3\lambda/2\}$, so $s_2=q\,s_1$ and
+\[
+ f_2=q\,f_1,
+ \qquad
+ f_{2,\mathrm{trop}}=f_{1,\mathrm{trop}}+\lambda .
+\]
+Thus the two tropicalizations differ by a constant on each connected
+component of the overlap. By \Cref{cor:trop-sigma-translation} the two local
+skeleta agree there, and by \Cref{thm:trop-degree-translation} so do the
+local degrees, hence the calibrations. This is a second concrete instance of
+refinement independence, and the one that makes the global object exist.
+
+\emph{The skeleton and its calibration.} Since
+$\Sigma_{f_j}=p\bigl(S(\mathbf G_m)\cap\{\cdots\}\bigr)$ and $S(\mathbf G_m)$
+is the line $\{\eta_u:u\in\mathbf R\}$, the local skeleta glue to
+\[
+ \Sk(E)=p\bigl(S(\mathbf G_m)\bigr)\ \simeq\ \mathbf R/\lambda\mathbf Z,
+\]
+a circle. Each $f_j$ is an isomorphism onto its image, so every local degree
+is $1$ and $\sigma_{q}$ is the identity for $q=\mathrm{id}$; the canonical
+calibration is therefore the constant $1$-vector $|e|$ of the integral
+affine structure in which $v(T)$ is an affine coordinate. The total lattice
+length of $\Sk(E)$ is $\lambda=v(q)$.
+
+\emph{Consistency with Parts I and II.} The circle of circumference $v(q)$
+is exactly the dual complex of the standard semistable model of $E$ computed
+in \Cref{ex:tate-degeneration}, with the integral affine structure of
+\Cref{def:integral-affine}; the retraction $E\to\Sk(E)$ is the skeletal
+retraction of \Cref{prop:skeleton-retraction}; and the total mass computation
+of \Cref{ex:ch08-tate-curve} uses the same normalization, the lattice length
+of an edge being the valuation of the corresponding node parameter, as
+recorded in \Cref{ex:ch08-An-edge}. There is no discrepancy factor between
+the model-theoretic and tropical normalizations here, and that is a
+consequence of the weight being $1$: for a curve with a node whose local
+equation is $xy=\pi^m$ the corresponding edge has lattice length $m$, and
+the extra factor is absorbed by the integral affine structure, not by the
+calibration. See \Cref{rem:ch08-base-change-lengths} for the base-change
+bookkeeping.
+\end{example}
+
+\subsection{A multiplicity different from one}
+
+\begin{example}[A weight-two ray, computed from graded reduction]
+\label{ex:trop-multiplicity-two}
+Assume $\operatorname{char}\widetilde K\ne2$ and let
+\[
+ Z=\{1+T_1+T_2^2=0\}\subset\mathbf G_{m,K}^2,
+ \qquad X=Z^{\An},
+\]
+of level $1$, with moment map $f=(T_1,T_2)|_Z$. Put $s=T_2|_Z$, so
+$T_1|_Z=-1-s^2$ and $Z\simeq\{s:s\ne0,\ 1+s^2\ne0\}$.
+
+\emph{The tropical image.} With $u=(v(-1-s^2),v(s))$ one finds, exactly as
+in \Cref{ex:trop-line-in-torus}:
+\[
+ \Trop_f(X)=\mathbf R_{\ge0}(1,0)\ \cup\ \mathbf R_{\ge0}(0,1)
+ \ \cup\ \mathbf R_{\ge0}(-2,-1).
+\]
+Indeed $v(s)>0$ gives $v(1+s^2)=0$; $v(s)<0$ gives $v(1+s^2)=2v(s)$; and
+$v(s)=0$ gives $v(1+s^2)\ge0$ arbitrary.
+
+\emph{Balancing forces a weight two.} The primitive outgoing directions are
+$(1,0)$, $(0,1)$, $(-2,-1)$. The only positive solution of
+$m_1(1,0)+m_2(0,1)+m_3(-2,-1)=0$ up to scale is
+$(m_1,m_2,m_3)=(2,1,1)$. So if the tropicalization is balanced --- which it
+is, by \Cref{thm:analytic-tropical-balancing} --- the horizontal ray must
+carry weight $2$. We verify this from the definition, twice, over two
+different base fields.
+
+\emph{The rays of weight one.} On $\mathbf R_{\ge0}(0,1)$ take
+$q=\mathrm{pr}_2$: then $q\circ f=s$ is an open immersion, of degree $1$, and
+$\sigma_q(a)=(0,a)$, so the weight is $1$. On
+$\mathbf R_{\ge0}(-2,-1)$ take $q=\mathrm{pr}_2$ again: the section with
+image the line $\{(2a,a)\}$ is $\sigma_q(a)=(2a,a)$, giving
+$\sigma_{q,*}(e)=|(2,1)|$, the primitive volume vector of the tangent
+lattice; the degree is again $1$, so the weight is $1$.
+
+\emph{The horizontal ray over an algebraically closed field.} Assume first
+$K$ algebraically closed and let $\rho\in(0,1)$. The fibre of
+$f_{\mathrm{trop}}$ over $(-\log\rho,0)$ meets $\Sigma_f$ in the points $x$
+with $|s(x)|=1$, $|(1+s^2)(x)|=\rho$, and $\widetilde{T_1(x)}$ transcendental
+over $\widetilde K$. Factor $1+s^2=(s-\rmi)(s+\rmi)$ with $\rmi^2=-1$. Since
+$|2\rmi|=1$ and $|(s+\rmi)-(s-\rmi)|=|2\rmi|$, the two factors cannot both
+have absolute value $<1$; so either $|s-\rmi|=\rho$ and $|s+\rmi|=1$, or the
+other way round. There are therefore exactly two points of $\Sigma_f$ over
+$(-\log\rho,0)$, namely $\zeta_{\rmi,\rho}$ and $\zeta_{-\rmi,\rho}$, and
+near each of them $-1-s^2$ is a unit times $(s\mp\rmi)$, so
+$q\circ f=T_1|_Z$ has local degree $1$ at each. By
+\Cref{thm:trop-multiplicity-formula} the weight of the ray is
+\[
+ d_D=1+1=2 .
+\]
+
+\emph{The horizontal ray over $\mathbf Q_p$.} Now take $K=\mathbf Q_p$ with
+$p\equiv3\pmod4$, so that $-1$ is not a square in $\mathbf F_p$, and let
+$\eta$ be the point of $\mathbf G_m^{\An}$ with $|T_1(\eta)|=\rho<1$ and
+Gauss seminorm, that is $\eta=\eta_{-\log\rho}$. The fibre of
+$q\circ f=T_1|_Z$ over $\eta$ is
+\[
+ \mathcal M\bigl(\mathcal H(\eta)[s]/(s^2+1+T_1)\bigr).
+\]
+Because $|T_1|<1$ and $p\ne2$, Hensel's lemma provides
+$c\in\mathcal H(\eta)$ with $c^2=1+T_1$, so the algebra is
+$\mathcal H(\eta)[\sqrt{-1}]$. The residue field of $\mathcal H(\eta)$ is
+$\mathbf F_p$ when $\rho\notin|K^\times|$ and $\mathbf F_p(\bar\theta)$
+otherwise; in both cases $-1$ is not a square in it, because $\mathbf F_p$ is
+relatively algebraically closed in $\mathbf F_p(\bar\theta)$; and a square
+in $\mathcal H(\eta)$ of absolute value $1$ reduces to a square in the
+residue field. So $\mathcal H(\eta)[\sqrt{-1}]$ is a field, the fibre is the
+single point $x=\mathcal M(\mathcal H(x))$ with
+$\mathcal H(x)=\mathcal H(\eta)(\sqrt{-1})$, and
+\[
+ \deg_x(q\circ f)=\dim_{\mathcal H(\eta)}\mathcal H(x)=2 .
+\]
+Now read off the three factors of \Cref{thm:trop-degree-graded}. The fibre is
+reduced, so the length is $1$. The extension
+$\mathcal H(x)/\mathcal H(\eta)$ is unramified with residue extension
+$\mathbf F_{p^2}/\mathbf F_p$, so the graded residue degree
+$[\widetilde{\mathcal H(x)}:\widetilde{\mathcal H(\eta)}]$ is $2$. The
+residue characteristic is $p\ne0$, but the extension is unramified, hence
+defectless, so the defect is $1$. Therefore
+\[
+ \deg_x(q\circ f)=1\cdot2\cdot1=2,
+\]
+and the weight of the horizontal ray is again $2$, this time supplied
+entirely by a graded residue degree rather than by a count of sheets.
+
+\emph{Compatibility of the two computations.} The two answers must agree,
+and they do so through
+\Cref{prop:trop-calibration-base-change}: base change from $\mathbf Q_p$ to
+$\widehat{\overline{\mathbf Q_p}}$ splits the single point $x$ of degree $2$
+into two points of degree $1$, and pushforward adds them. This is the
+cleanest illustration of the warning in
+\Cref{sec:appG-analytic-multiplicity} that a tropical multiplicity is never
+a cardinality: over $\mathbf Q_p$ the fibre has one point, over
+$\mathbf C_p$ it has two, and the multiplicity is $2$ in both cases.
+\end{example}
+
+\begin{example}[A nonreduced source: where the length appears]
+\label{ex:trop-length-factor}
+Let $K$ be algebraically closed and let $X$ be the analytic space attached to
+the nonreduced affine curve $\Spec K[T^{\pm1},\varepsilon]/(\varepsilon^2)$
+--- that is, the double of $\mathbf G_m$ in the $\varepsilon$-direction ---
+with the moment map $f=T$. Then $X_{\mathrm{red}}=\mathbf G_m^{\An}$, and
+$\Sigma_f=\Sigma_{f_{\mathrm{red}}}=S(\mathbf G_m)$, since $\Sigma_f$ depends
+only on the reduction (the graded residue field of a point of $X$ is that of
+the corresponding point of $X_{\mathrm{red}}$). For $x=\eta_u$ the fibre of
+$f$ is $\mathcal M\bigl(\mathcal H(x)[\varepsilon]/(\varepsilon^2)\bigr)$,
+a single point whose local ring has length $2$ and residue field
+$\mathcal H(x)$; so
+\[
+ \deg_x(f)=2=\underbrace{2}_{\text{length}}\cdot
+ \underbrace{1}_{\text{graded residue degree}}\cdot
+ \underbrace{1}_{\text{defect}},
+\]
+and the weight of $\Pi_f=\mathbf R$ is $2$. The calibrated degree of the
+closed immersion $X_{\mathrm{red}}\hookrightarrow X$ is
+$\tfrac12$ by \Cref{prop:trop-calibrated-degree} \cref{itm:trop-dc:red},
+which is exactly what is needed for
+$\Trop_f(X)=2\,\Trop_f(X_{\mathrm{red}})$ to be consistent with
+\Cref{def:trop-cycle-calibration}, in which the cycle $[X]$ of the
+nonreduced space is $2[X_{\mathrm{red}}]$.
+\end{example}
+
+\section{Interfaces with later extensions}
+
+Ordinary CLD charts use tropicalizations by invertible analytic functions.
+Two later enlargements begin from the present construction.
+\begin{enumerate}
+\item Delta-forms retain the same calibrated tropical cycles but allow
+  coefficients supported on polyhedra. They contain the curvature of
+  piecewise affine model metrics and support tropical intersection products.
+\item Harmonic tropicalizations allow suitable harmonic coordinate functions,
+  producing a larger sheaf with better Poincaré-lemma and cohomological
+  behavior. They do not turn every polyhedral current into a smooth form.
+\item Curve-test semipositivity studies restrictions to analytic curves and
+  gives a local positivity criterion for PL functions. Its comparison with
+  CLD-psh functions is a theorem with hypotheses, not a definition.
+\end{enumerate}
+These constructions are developed together in \Cref{chap:delta-forms} so that their
+overlap and their different purposes remain visible.
+
+\section{Dictionary established in this chapter}
+\label{sec:trop-dictionary-closing}
+
+The following correspondences are used without further comment from
+\Cref{chap:cld-forms} onwards.
+\[
+\begin{array}{ccl}
+\text{invertible functions }f_1,\ldots,f_r
+ &\longleftrightarrow&
+ \text{moment map }f:X\to\mathbf G_m^r,\\[1mm]
+\text{monomial change of the }f_i
+ &\longleftrightarrow&
+ \text{integer-affine chart change},\\[1mm]
+\text{graded independence of }\widetilde{f_i(x)}
+ &\longleftrightarrow&
+ x\in\Sigma_f,\\[1mm]
+\text{Abhyankar point, }d_K(x)=\dim_xX
+ &\longleftrightarrow&
+ \text{point of some local skeleton},\\[1mm]
+\text{Gauss point }\eta_u\text{ of a torus}
+ &\longleftrightarrow&
+ \text{point of }S(T),\ \trop(\eta_u)=u,\\[1mm]
+\text{local degree of }q\circ f
+ &\longleftrightarrow&
+ \text{calibration }\mu_C,\\[1mm]
+\text{length}\cdot\text{res.\ degree}\cdot\text{defect}
+ &\longleftrightarrow&
+ \deg_x(f),\\[1mm]
+\text{finite analytic morphism}
+ &\longleftrightarrow&
+ \text{one degree factor in pushforward},\\[1mm]
+\text{boundary }\partial X
+ &\longleftrightarrow&
+ \text{tropically thin, weakly analytic set},\\[1mm]
+\text{pure-dimensional analytic space}
+ &\longrightarrow&
+ \text{calibrated tropical space}.
+\end{array}
+\]
+The third line is \Cref{thm:trop-sigma-characterization}. The fourth and
+fifth lines are
+\Cref{cor:trop-sigma-abhyankar} and \Cref{prop:trop-torus-skeleton}; the
+sixth is \Cref{def:trop-canonical-calibration}; the seventh is
+\Cref{thm:trop-degree-graded}; the eighth is
+\Cref{thm:trop-finite-pushforward}; the ninth is
+\Cref{prop:trop-boundary-thin}; and the last is
+\Cref{cor:trop-calibration-glue}.
+
+Four separations are equally part of the dictionary, and each of them is a
+place where the literature is easy to misread.
+
+First, \emph{the tropical image is not the local skeleton}. The image
+$\Trop_f(X)$ lives in $N_{\mathbf R}$ and may have pieces of every dimension
+$\le n$; the local skeleton $\Sigma_f$ lives in $X$, and only its
+top-dimensional part $\Sigma_f^{(n)}$ carries a calibration. The two are
+related by $\Pi_f=f_{\mathrm{trop}}(\Sigma_f^{(n)})=\Trop_f(X)^{(n)}$ in the
+proper case (\Cref{thm:trop-dimension-sigma} \cref{itm:trop-dimsig:c}), and
+not otherwise.
+
+Second, \emph{the multiplicity is not a number of points}. It is a local
+degree, which over a nonalgebraically closed field can be a residue degree
+and over a nonreduced space can be a length
+(\Cref{ex:trop-multiplicity-two,ex:trop-length-factor}). The scalar weight
+$m_D$ is moreover only defined after a lattice has been chosen, and it is
+rational rather than integral in general
+(\Cref{cor:trop-weights-integral}).
+
+Third, \emph{refinement is not symmetric}. Charts are compared by passing up
+to a product, and a comparison of weights is therefore always a pushforward
+statement, with the lattice index \eqref{eq:appG-lattice-index} present
+exactly once.
+
+Fourth, \emph{a skeleton of a model and a local skeleton of a moment map are
+different constructions with a common intersection}. The former, from
+\Cref{chap:skeleta}, is global, defined by a model over the valuation ring,
+and comes with a retraction; the latter is local, defined by analytic
+functions, and comes with a calibration. They agree in the cases computed in
+\Cref{ex:trop-torus-explicit} and \Cref{ex:trop-tate-curve}, and the general
+comparison --- model metrics against CLD currents --- is the subject of
+\Cref{chap:compare-ma}, not of a definition.
+
+\section*{Source notes}
+
+\paragraph{Two lineages.}
+The material of this chapter has two independent ancestries, and it is worth
+keeping them apart because they answer different questions.
+
+The \emph{Berkovich-analytic} lineage asks what a point of an analytic space
+knows about a family of invertible functions. Its objects are completed
+residue fields, graded reductions, and the invariants $d_K(x)$, $s(x)$,
+$t(x)$. Berkovich introduced the spectrum and the analytification
+\cite{Berk12}, together with the invariants and the local structure theory
+that make $d_K(x)$ meaningful \cite{Berk93}. Temkin's graded reduction of a
+germ \cite{Temkin2004}, and the associated Riemann--Zariski picture
+\cite{Tem11}, are what turn the naive residue field into an object rich
+enough to detect radii and rational ranks: \Cref{prop:trop-torus-skeleton}
+and \Cref{thm:trop-sigma-characterization} are statements in that language
+and have no formulation in terms of the ordinary residue field, as the
+warning in \Cref{sec:appG-graded-reduction} records. Ducros supplied the
+local structure of tropicalization germs (\Cref{thm:trop-local-germ}) and the
+family reduction theory \cite{Duc21} used in the polyhedrality statements.
+The theory of defect and Abhyankar extensions used in
+\Cref{thm:trop-degree-graded} is classical valuation theory; Ostrowski's
+lemma, in the form that the defect of a finite extension of complete
+rank-one valued fields is a power of the residue characteristic, is in
+\cite[Ch.~VI]{ZariskiSamuelII}, and the analytic packaging is
+\cite[\S13.8]{CLD25}.
+
+The \emph{tropical-geometric} lineage asks what a balanced weighted
+polyhedral complex is, independently of any analytic space. Its objects are
+lattices, primitive normal vectors, weights, balancing, stable intersection,
+and pushforward with lattice indices. We follow Mikhalkin--Rau
+\cite[\S\S1.3, 2.1, 4.2, 4.6 and 6.2]{MR18Tropical} for terminology and for
+the lattice-index convention; in particular the coefficient in
+\eqref{eq:analytic-tropical-pushforward} is the index appearing in their
+formula~(4.9), with no additional degree factor. Equation
+\eqref{eq:analytic-max-min-firewall} records the exact isomorphism between
+their max-plus convention and the valuation convention used here. The
+foundational results of this lineage --- balancing of tropicalizations of
+subvarieties of tori, the structure theorem, the fundamental theorem of
+tropical geometry --- were obtained independently of Berkovich theory, and
+they remain valid statements about polyhedral complexes; what the
+Berkovich-analytic route adds is that the weights have an intrinsic
+definition, valid without strictness, without algebraic closure, and for
+spaces that are not algebraizable. The warning in
+\Cref{sec:appG-initial-tropical} marks the exact point at which the two
+lineages must not be conflated: the initial-form calculus is bookkeeping,
+whereas the identification of a corner locus with valuations of actual zeros
+is a theorem with hypotheses.
+
+\paragraph{Attributions in this chapter.}
+Moment maps, tropical charts, characteristic polyhedra, canonical
+calibrations, integration, and refinement independence follow the 2025
+Chambert-Loir--Ducros manuscript \cite[\S\S12--15]{CLD25}, of which the 2012
+version is \cite{CLD12}; the numbered correspondences are as follows.
+\Cref{prop:trop-torus-skeleton} and \Cref{lem:trop-monomial-degree} are
+\cite[Lemma~12.1.6 and Corollary~12.1.7]{CLD25};
+\Cref{thm:trop-local-germ} is \cite[Proposition~12.2.8]{CLD25};
+\Cref{thm:analytic-tropical-polyhedrality} is \cite[Theorem~12.2.4]{CLD25},
+whose algebraizable case is due to Berkovich \cite[Corollary~6.2.2]{Berk93};
+\Cref{thm:trop-sigma-characterization} and
+\Cref{thm:trop-sigma-polyhedral} are \cite[\S\S12.6 and 12.9]{CLD25};
+\Cref{thm:trop-dimension-sigma} is \cite[Theorem~12.8.2]{CLD25};
+\Cref{prop:trop-degree-constant} is \cite[Proposition~14.2.2]{CLD25};
+\Cref{thm:trop-degree-translation} is \cite[Theorem~14.2.7]{CLD25};
+\Cref{thm:trop-calibration-canonical} is
+\cite[Proposition~14.3.1]{CLD25};
+\Cref{thm:trop-calibration-chart-independent} and
+\Cref{cor:trop-calibration-glue} are \cite[\S14.3 and Lemma~14.3.4]{CLD25};
+\Cref{thm:trop-multiplicity-formula} is \cite[\S14.5]{CLD25};
+\Cref{thm:trop-finite-pushforward} is \cite[Proposition~14.4.2]{CLD25}; and
+\Cref{prop:trop-weakly-analytic-image} together with
+\Cref{prop:trop-boundary-thin} is \cite[\S11.10]{CLD25}, whose
+affinoid-boundary case goes back to Ducros. The proofs given here are our
+own arrangement; those of
+\Cref{thm:trop-sigma-characterization},
+\Cref{cor:trop-sigma-abhyankar},
+\Cref{thm:trop-dimension-formula},
+\Cref{lem:trop-skeleton-attained},
+\Cref{thm:trop-dimension-sigma},
+\Cref{prop:trop-degree-constant},
+\Cref{thm:trop-calibration-canonical},
+\Cref{thm:trop-calibration-chart-independent},
+\Cref{thm:trop-degree-graded} and all examples are complete, whereas
+\Cref{thm:trop-local-germ},
+\Cref{thm:trop-sigma-polyhedral},
+\Cref{prop:trop-analytic-inputs} and
+\Cref{thm:trop-degree-translation} are imported with exact references and a
+description of the mechanism.
+
+\paragraph{Adjacent literature not used as a hypothesis.}
+Several treatments of tropicalization on Berkovich spaces run parallel to
+this one and are not needed here, but a reader will meet them. Gubler's
+tropical analytic geometry and his work with K\"unnemann
+\cite{GK17,GK19} develop the same calculus with an eye to Arakelov theory,
+and are the source of the delta-form extension of \Cref{chap:delta-forms};
+Gubler--Rabinoff--Werner relate skeleta of semistable models to
+tropicalizations and prove that faithful tropicalizations exist, which is a
+sharper statement than anything used above; Gubler--Jell--Rabinoff
+\cite{GJR26} enlarge the supply of charts by allowing harmonic functions;
+Jell \cite{Jell16} proves the Poincar\'e lemma in this calculus;
+and Burgos Gil--Gubler--Jell--K\"unnemann \cite{BGJKK25} develop the toric
+tropical pluripotential theory that \Cref{chap:cld-examples} compares with
+ours. On the purely tropical side, the standard textbook treatments of
+balancing and of the structure theorem are those of Maclagan--Sturmfels and
+of Mikhalkin--Rau, the latter being our reference \cite{MR18Tropical}; the
+fundamental theorem of tropical geometry in the form relating corner loci to
+valuations of points is due to Kapranov in the hypersurface case and to
+Einsiedler--Kapranov--Lind and Speyer--Sturmfels in general. Those three
+sources are cited here in prose only, since they are not part of any proof
+above.
+
+\Cref{chap:delta-forms} cites Gubler--K\"unnemann for delta-forms,
+Gubler--Jell--Rabinoff for harmonic tropicalizations, and
+Gubler--Rabinoff for curve-test psh functions.

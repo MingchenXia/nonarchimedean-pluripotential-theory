@@ -1,0 +1,4169 @@
+\chapter{Homogeneity, Legendre duality, and b-divisors}
+\index{homogeneity!BJ}\index{Legendre transform!homogeneous psh function}\index{b-divisor@$b$-divisor}
+\label{chap:bj-homogeneity-bdivisors}
+
+The scaling action separates a psh function into homogeneous pieces.
+Algebraically, those pieces are recorded on every birational model at once
+by b-divisors.  The two descriptions are complementary: Legendre duality
+recovers an inhomogeneous function from its homogeneous slices, while
+b-divisors turn divisorial values into numerical classes.
+
+We first work on an integral projective variety.  The b-divisor discussion
+assumes normality, and the full historical correspondence with nef
+b-divisor classes is stated under the smooth characteristic-zero hypotheses
+used in \cite[\S6.5]{BJ22}.  The stronger realization needed for the general
+envelope theorem is not invoked here; it is proved in
+\Cref{chap:bj-cartier-realization}.
+
+\section{Orientation}
+\label{sec:ch35-orientation}
+
+\subsection{Three descriptions of one object}
+\label{sec:ch35-three-descriptions}
+
+A \(\theta\)-psh function on the trivially valued analytification is an
+extended-real function on a space which is a cone: \(X^{\An}\) carries the
+scaling action \eqref{eq:valuation-scaling}, and no slice transverse to that
+action is compact
+(\Cref{prop:ch08-trivial-curve-scaling}\,(3)).  Three descriptions of
+such a function are used in \Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences},
+and this chapter constructs the translations among them.
+
+\emph{The analytic description.}  A function
+\(\phi:X^{\An}\to\mathbf R\cup\{-\infty\}\) which is upper semicontinuous,
+generically finite, and a decreasing limit of generically finite
+Fubini--Study functions in classes converging to \(\theta\).  This is
+\Cref{def:bj-psh}.  It is the description in which the envelope property
+\eqref{eq:bj-envelope-property} is stated, and it is the only one of the
+three in which values at proper-support semivaluations are visible.
+
+\emph{The homogeneous description.}  A one-parameter family
+\((\widehat\phi_\lambda)_\lambda\) of \emph{homogeneous} \(\theta\)-psh
+functions, concave and decreasing in the parameter \(\lambda\), from which
+\(\phi\) is recovered by the pointwise formula
+\eqref{eq:legendre-reconstruction-bj}.  Each member of the family is
+determined by one homogeneous function on the cone, so all the
+inhomogeneous information has been moved into the parameter.  This is the
+description used by the reflection arguments of
+\Cref{chap:bj-reflection}, because a homogeneous function pulls back and
+pushes forward along a birational morphism without an error term, whereas an
+inhomogeneous one does not.
+
+\emph{The algebraic description.}  A compatible family of divisors on all
+birational models of \(X\), that is, a b-divisor, together with a numerical
+class on \(X\).  This is the description in which positivity becomes a
+finite-dimensional condition on each model, namely nefness of
+\(\pi^*\theta+B_Y\), and in which the whole apparatus of
+\Cref{app:intersection-bdivisors} applies.
+
+The chapter proves that these descriptions determine each other, and it
+records exactly where each translation is defined.  The last point is not
+pedantry.  The forward translation from analytic to homogeneous data is
+defined on all of \(\PSH_X(\theta)\); the backward translation is defined
+only on the image, and asking whether the image is everything is an
+envelope question, not a formal one.  Similarly, the translation from
+homogeneous psh functions to b-divisors is a bijection at the Cartier level
+and requires an extra positivity hypothesis in one direction; at the
+non-Cartier level the correspondence has been proved only under smoothness
+and characteristic-zero hypotheses, which is why
+\Cref{chap:bj-cartier-realization} proves a different and weaker
+realization statement for use in arbitrary characteristic.
+
+\subsection{The payoff, stated in advance}
+\label{sec:ch35-payoff}
+
+Eight statements proved below are used in
+\Crefrange{chap:bj-cartier-realization}{chap:bj-envelope-consequences}, and
+the reader may wish to see them before the constructions.
+
+\begin{enumerate}
+\item\label{itm:ch35-payoff:convexity}
+ \emph{For each fixed analytic point, the scaling orbit of a psh function
+ is a convex function of the scaling parameter}
+ (\Cref{prop:ch35-scaling-convex}).  Everything Legendre in this chapter is
+ the one-variable duality of \Cref{subsec:legendre-finite} applied to that
+ convex function.
+\item\label{itm:ch35-payoff:homogenization}
+ \emph{Homogenization preserves the generically finite Fubini--Study class}
+ (\Cref{prop:homogenization-gf}), by a finite polyhedral elimination
+ (\Cref{lem:ch35-elimination}) which produces explicit monomial sections.
+ This is what makes the homogeneous category as computable as the
+ inhomogeneous one.
+\item\label{itm:ch35-payoff:legendre}
+ \emph{Every \(\theta\)-psh function is the pointwise supremum of its
+ Legendre slices, with no upper-semicontinuous regularization}
+ (\Cref{thm:homogeneous-legendre-decomposition}).  The absence of a star in
+ \eqref{eq:legendre-reconstruction-bj} is the reason the reconstruction may
+ be used before the envelope theorem.
+\item\label{itm:ch35-payoff:carrier}
+ \emph{A homogeneous carrier bounds every Legendre slice}
+ (\Cref{lem:ch35-carrier-tail}), and the homogeneous Siu decomposition
+ \Cref{thm:ch35-homogeneous-siu} turns the bound
+ \(\psi\leq\log|s_E|\) into an exact splitting in the class
+ \(\theta-E\).  \Cref{chap:bj-cartier-realization} calls the latter
+ \emph{homogeneous Siu division}.
+\item\label{itm:ch35-payoff:pairing}
+ \emph{The evaluation pairing \(B\mapsto\psi_B\) identifies Weil
+ b-divisors with locally finite homogeneous functions on
+ \(X^{\divis}\), and Cartier b-divisors with homogeneous PL functions}
+ (\Cref{prop:ch35-weil-coefficient-bijection},
+ \Cref{prop:cartier-homogeneous-pl}).
+\item\label{itm:ch35-payoff:semiample}
+ \emph{A Cartier b-divisor has homogeneous Fubini--Study coefficient
+ function exactly when it is antieffective with semiample total class}
+ (\Cref{thm:ch35-semiample-criterion}).  This is the statement that
+ \Cref{chap:bj-cartier-realization} uses at every rational stage.
+\item\label{itm:ch35-payoff:determination}
+ \emph{A \(\theta\)-psh function lies below an upper-semicontinuous
+ function on all of \(X^{\An}\) as soon as it does so on \(X^{\divis}\)}
+ (\Cref{thm:ch35-divisorial-comparison}).  Consequently psh functions are
+ determined by their divisorial traces
+ (\Cref{cor:ch35-divisorial-determination}).  This is the step by which
+ equality on divisorial points is upgraded to equality everywhere in
+ \Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}.
+\item\label{itm:ch35-payoff:translation}
+ \emph{The translation between the homogeneous and the inhomogeneous
+ categories is injective with an explicit inverse on its image}
+ (\Cref{thm:ch35-translation}), and the image is not described by the
+ concavity axioms alone.
+\end{enumerate}
+
+Two negative statements are worth flagging with the others.
+\Cref{ex:ch35-usc-not-determined} exhibits an upper-semicontinuous function
+which is not determined by its restriction to \(X^{\divis}\), so
+\Cref{thm:ch35-divisorial-comparison} genuinely uses plurisubharmonicity and
+is not a consequence of the density theorem
+\Cref{thm:triv-divisorial-density}.  And
+\Cref{ex:ch35-evaluation-discontinuous} exhibits a sequence of
+\(\mathcal O(1)\)-psh functions on \(\mathbf P^1\) converging to zero at
+every divisorial point while remaining equal to \(-1\) at a proper-support
+point; determination is therefore not continuity of evaluation.
+
+\subsection{Standing hypotheses and notation}
+\label{sec:ch35-hypotheses}
+
+Throughout the chapter \(k\) is an algebraically closed field equipped with
+the trivial absolute value, and
+\begin{equation}
+\label{eq:ch35-standing}
+ X\ \text{is an integral projective \(k\)-variety},\qquad n:=\dim X .
+\end{equation}
+Irreducibility is assumed from the outset; it is the hypothesis under which
+\cite[\S6]{BJ22} works, and it costs nothing, because
+\Cref{thm:bj-basic-closure}\,(6) restricts psh functions to irreducible
+components.  We write \(v_{\triv}:=v_{X,\triv}\) for the trivial valuation of
+\(k(X)\), \(X^{\val}\) for the full-support locus
+\eqref{eq:triv-full-support-locus}, and \(X^{\divis}\subset X^{\val}\) for
+the divisorial locus of \Cref{chap:trivial-analytification}, which by
+convention contains \(v_{\triv}\).  Numerical classes are real:
+\(N^1(X):=N^1(X)_{\mathbf R}\).
+
+Two further hypotheses are imposed section by section and never silently.
+
+\begin{enumerate}
+\item \emph{Normality} is assumed from \Cref{sec:ch35-bdivisors} onwards.
+ It is what makes the birational model category of
+ \Cref{sec:appF-models} available and what makes
+ \(\pi_*\cO_Y=\cO_X\) true, which is used in
+ \Cref{thm:ch35-semiample-criterion}.
+\item \emph{Smoothness and \(\operatorname{char}k=0\)} are assumed only in
+ \Cref{sec:ch35-nef-bclasses}, where numerical b-divisor classes are formed
+ as an inverse limit over \emph{smooth} models.  This is the hypothesis
+ under which \Cref{app:intersection-bdivisors} constructs
+ \(N^1_{\mathrm{Weil}}(\mathfrak X)\) at all; see the discussion preceding
+ \eqref{eq:appF-numerical-limits}.
+\end{enumerate}
+
+We never form \((-\infty)-(-\infty)\).  Every inequality between
+extended-real functions in this chapter is written in the relative form
+\(\phi\leq\psi+C\) rather than \(\phi-\psi\leq C\), following ledger entry
+(4) of \Cref{sec:extended-arithmetic} and
+\Cref{rem:ledger-uses}.  Suprema and infima of families of extended-real
+functions are always defined, by ledger entry (5), and interact with finite
+translations and positive scalings as recorded in
+\Cref{lem:extended-real-safe} and \Cref{lem:safe-supremum}; those two lemmas
+are used so often below that we cite them only where the reader might
+hesitate.
+
+\subsection{Dependencies}
+\label{sec:ch35-dependencies}
+
+The chapter uses: the analytification, the scaling action, the divisorial
+locus and its density from \Cref{chap:trivial-analytification}; flag ideals
+and the test-configuration description of PL functions from
+\Cref{chap:bj-test-configurations}; the Fubini--Study and psh classes from
+\Cref{chap:bj-fs-pl-psh}; the one-variable Legendre duality of
+\Cref{subsec:legendre-finite} and \Cref{sec:appD-test-curves}; the
+extended-real ledger of \Cref{sec:extended-arithmetic}; and the b-divisor
+formalism of \Cref{app:intersection-bdivisors}.  Nothing in
+\Crefrange{chap:bj-envelope-history}{chap:bj-envelope-consequences} is used,
+with one exception which is flagged wherever it occurs: the correspondence
+between nef b-divisor \emph{classes} and homogeneous psh functions in
+\Cref{sec:ch35-nef-bclasses} rests, through
+\Cref{thm:ch35-cartier-psh-criterion}, on the envelope property for ample
+classes, which in the smooth characteristic-zero domain of that section was
+already available historically.  The general envelope theorem is not used
+anywhere in this chapter, and this chapter is used in its proof.
+
+\section{The scaling action on functions}
+\label{sec:ch35-scaling}
+
+\subsection{The action and its normalization}
+\label{sec:ch35-action}
+
+Recall from \eqref{eq:valuation-scaling} that \(\mathbf R_{>0}\) acts
+continuously on \(X^{\An}\) by \(v\mapsto tv\), where
+\((tv)(f)=t\,v(f)\) with \(t\cdot(+\infty)=+\infty\).  The fixed points are
+the trivial semivaluations \(v_{Y,\triv}\) attached to irreducible
+subvarieties \(Y\subset X\), by \eqref{eq:trivial-endpoints} and the
+discussion following it.
+
+The valuation scaling \(v\mapsto tv\) induces an action on extended-real
+functions:
+\begin{equation}
+\label{eq:function-scaling-action}
+                  (t\cdot\phi)(v):=t\,\phi(t^{-1}v),
+                  \qquad t>0.
+\end{equation}
+The prefactor is chosen so that section functions behave well:
+\begin{equation}
+\label{eq:scaling-fs-weights}
+ t\cdot\left(\frac1m\max_i\{\log|s_i|+\lambda_i\}\right)
+   =\frac1m\max_i\{\log|s_i|+t\lambda_i\}.
+\end{equation}
+
+Two remarks on \eqref{eq:function-scaling-action} are needed before anything
+is proved with it.
+
+First, the formula makes sense for extended-real \(\phi\): if
+\(\phi(t^{-1}v)=-\infty\) then \(t\,\phi(t^{-1}v)=-\infty\) by ledger entry
+(3) of \Cref{sec:extended-arithmetic}, since \(t>0\).  No case distinction
+is required, and this is exactly the use of that entry recorded in
+\Cref{rem:ledger-uses}.
+
+Second, the outer factor \(t\) is not a normalization one is free to drop.
+Without it, the map \(\phi\mapsto\phi(t^{-1}\cdot)\) would still be a group
+action, but it would not carry Fubini--Study functions to Fubini--Study
+functions.  Identity \eqref{eq:scaling-fs-weights} is the reason: the outer
+\(t\) cancels the \(t^{-1}\) that appears in the section values, leaving the
+weights \(\lambda_i\) as the only quantities that move.  Since the weights
+are exactly the inhomogeneous part of a presentation
+\eqref{eq:gf-fs-presentation}, the action \eqref{eq:function-scaling-action}
+is the one that dilates the inhomogeneity while fixing the algebraic data.
+
+\begin{lemma}
+\label{lem:ch35-action-basic}
+Let \(\phi,\phi',\phi_i:X^{\An}\to\mathbf R\cup\{-\infty\}\) and
+\(s,t>0\), \(c\in\mathbf R\), \(a>0\).  Then, with all expressions defined
+by the ledger of \Cref{sec:extended-arithmetic}:
+\begin{enumerate}
+\item \(1\cdot\phi=\phi\) and \(s\cdot(t\cdot\phi)=(st)\cdot\phi\);
+\item \(\phi\leq\phi'\) implies \(t\cdot\phi\leq t\cdot\phi'\);
+\item \(t\cdot(\phi+c)=t\cdot\phi+tc\) and
+ \(t\cdot(a\phi)=a(t\cdot\phi)\);
+\item \(t\cdot\bigl(\sup_i\phi_i\bigr)=\sup_i(t\cdot\phi_i)\) and
+ \(t\cdot\bigl(\inf_i\phi_i\bigr)=\inf_i(t\cdot\phi_i)\); in particular the
+ action commutes with finite maxima and with decreasing limits;
+\item if \(\phi\) is upper semicontinuous, so is \(t\cdot\phi\);
+\item \eqref{eq:scaling-fs-weights} holds, and more generally
+ \(t\cdot\phi\in\cH^{\mathrm{gf}}_{\mathbf R}(L)\) whenever
+ \(\phi\in\cH^{\mathrm{gf}}_{\mathbf R}(L)\).
+\end{enumerate}
+\par
+\end{lemma}
+
+\begin{proof}
+(1)  For \(t=1\) there is nothing to prove.  In general
+\[
+ \bigl(s\cdot(t\cdot\phi)\bigr)(v)
+ =s\,(t\cdot\phi)(s^{-1}v)
+ =s\,t\,\phi(t^{-1}s^{-1}v)
+ =(st)\,\phi\bigl((st)^{-1}v\bigr),
+\]
+where the middle equality uses associativity of the scaling action on
+\(X^{\An}\) and the outer equality uses \(s(t\,r)=(st)r\) in \(\Rbar\) for
+\(s,t>0\) and \(r\in\mathbf R\cup\{-\infty\}\), which is ledger entry (3).
+
+(2)  Multiplication by \(t>0\) is an order isomorphism of
+\(\mathbf R\cup\{-\infty\}\); this is part of
+\Cref{lem:extended-real-safe}\,(2).
+
+(3)  The first identity is
+\(t(\phi(t^{-1}v)+c)=t\phi(t^{-1}v)+tc\), valid also when
+\(\phi(t^{-1}v)=-\infty\) because both sides are then \(-\infty\).  The
+second is associativity of positive scalar multiplication.
+
+(4)  Both identities are \Cref{lem:extended-real-safe}\,(2) applied
+pointwise at \(t^{-1}v\): multiplication by \(t>0\) commutes with suprema
+and infima in \(\Rbar\).  A decreasing net is an infimum, by
+\Cref{lem:monotone-net-converges}.
+
+(5)  The map \(v\mapsto t^{-1}v\) is a homeomorphism of \(X^{\An}\), being
+continuous with continuous inverse \(v\mapsto tv\) by
+\eqref{eq:valuation-scaling}.  Composition with a homeomorphism preserves
+upper semicontinuity, and multiplication by \(t>0\) is an increasing
+homeomorphism of \(\Rbar\).
+
+(6)  For a nonzero section \(s\) of \(mL\), the function
+\(\log|s|(v)=-v(s)\) of \eqref{eq:section-log-value} satisfies
+\(\log|s|(t^{-1}v)=t^{-1}\log|s|(v)\), because \(v\mapsto v(s)\) is
+positively homogeneous.  Hence
+\[
+ t\cdot\Bigl(\tfrac1m\max_i\{\log|s_i|+\lambda_i\}\Bigr)(v)
+ =\tfrac tm\max_i\{t^{-1}\log|s_i|(v)+\lambda_i\}
+ =\tfrac1m\max_i\{\log|s_i|(v)+t\lambda_i\},
+\]
+which is \eqref{eq:scaling-fs-weights}; the middle step uses
+\Cref{lem:extended-real-safe}\,(2) once more, since a maximum is a supremum
+over a finite index set.  The right-hand side is again a presentation of the
+form \eqref{eq:gf-fs-presentation} with the same sections, so the generic
+finiteness condition of \Cref{def:gf-fs-functions} is unchanged.
+\end{proof}
+
+\begin{warning}{The action is not by translation}
+Assertion (3) of \Cref{lem:ch35-action-basic} says that
+\(t\cdot(\phi+c)=t\cdot\phi+tc\), not \(t\cdot\phi+c\).  Consequently the
+scaling action does not commute with the normalization
+\(\sup\phi=0\) of \eqref{eq:normalized-psh-space} unless
+\(\sup\phi=0\) already.  Since \(\sup\phi=\phi(v_{\triv})\) for
+\(\phi\in\PSH_X(\theta)\), the correct bookkeeping is
+\(\sup(t\cdot\phi)=t\sup\phi\), and every normalization statement below
+records which of the two conventions is in force.
+\end{warning}
+
+\subsection{Homogeneous functions}
+\label{sec:ch35-homogeneous-functions}
+
+\begin{definition}[Homogeneous function]
+\label{def:homogeneous-function}
+A function \(\psi:X^{\An}\to\mathbf R\cup\{-\infty\}\) is homogeneous if
+\begin{equation}
+\label{eq:homogeneous-function}
+                         \psi(tv)=t\psi(v)
+\end{equation}
+for every \(t>0\), with \(t(-\infty)=-\infty\).
+\end{definition}
+
+\begin{lemma}
+\label{lem:ch35-homogeneity-reformulations}
+For \(\psi:X^{\An}\to\mathbf R\cup\{-\infty\}\) the following are
+equivalent:
+\begin{enumerate}
+\item \(\psi\) is homogeneous in the sense of
+ \Cref{def:homogeneous-function};
+\item \(t\cdot\psi=\psi\) for every \(t>0\);
+\item \(t\cdot\psi=\psi\) for every \(t\) in some subset of
+ \(\mathbf R_{>0}\) generating a dense subgroup, and \(\psi\) is continuous
+ along scaling orbits.
+\end{enumerate}
+Moreover a homogeneous \(\psi\) satisfies
+\(\psi(v_{Y,\triv})\in\{0,-\infty\}\) for every irreducible
+\(Y\subseteq X\), and \(\psi\equiv0\) on \(X^{\An}\) as soon as \(\psi\) is
+bounded on one scaling orbit through a point where it is nonzero.
+\end{lemma}
+
+\begin{proof}
+(1)\(\Leftrightarrow\)(2).  By definition
+\((t\cdot\psi)(v)=t\psi(t^{-1}v)\); this equals \(\psi(v)\) for all \(v\) and
+all \(t>0\) if and only if \(\psi(t^{-1}v)=t^{-1}\psi(v)\) for all \(v,t\),
+which is \eqref{eq:homogeneous-function} after renaming \(t^{-1}\) as
+\(t\).  The manipulation is legitimate at points where \(\psi=-\infty\)
+because both sides are then \(-\infty\).
+
+(2)\(\Rightarrow\)(3) is trivial.  For (3)\(\Rightarrow\)(2), the set
+\(\{t>0:t\cdot\psi=\psi\}\) is a subgroup of \(\mathbf R_{>0}\), by
+\Cref{lem:ch35-action-basic}\,(1); if it is dense and
+\(t\mapsto\psi(tv)\) is continuous for each \(v\), then the identity
+\(\psi(tv)=t\psi(v)\) passes to the closure, the two sides being continuous
+in \(t\) for fixed \(v\).
+
+For the value at a fixed point, \(tv_{Y,\triv}=v_{Y,\triv}\) gives
+\(\psi(v_{Y,\triv})=t\psi(v_{Y,\triv})\) for every \(t>0\); the only
+elements of \(\mathbf R\cup\{-\infty\}\) fixed by every positive dilation are
+\(0\) and \(-\infty\).
+
+Finally, suppose \(\psi(v_0)=:c\neq0\) for some \(v_0\).  If
+\(c\in\mathbf R\setminus\{0\}\) then \(\psi(tv_0)=tc\) is unbounded as
+\(t\to+\infty\); if \(c=-\infty\) then \(\psi\equiv-\infty\) on the orbit.
+In either case \(\psi\) is unbounded on that orbit, which proves the
+contrapositive of the last assertion.
+\end{proof}
+
+A finite homogeneous function vanishes at the fixed point
+\(v_{X,\triv}\).  Nonzero homogeneous functions cannot be bounded on a full
+scaling orbit.  This explains why homogeneous PL functions, defined below
+on \(X^{\val}\), are generally not ordinary bounded PL functions on
+\(X^{\An}\).
+
+\begin{definition}[Homogeneous FS and psh functions]
+\label{def:homogeneous-fs-psh}
+For \(L\in\Pic(X)_{\mathbf Q}\), set
+\[
+ \cH_{\mathrm{hom}}(L):=\cH^{\mathrm{gf}}_0(L).
+\]
+Thus its elements have presentations
+\begin{equation}
+\label{eq:homogeneous-fs-presentation}
+                  \psi=\frac1m\max_i\log|s_i|.
+\end{equation}
+For \(\theta\in N^1(X)\), let
+\begin{equation}
+\label{eq:homogeneous-psh-space}
+ \PSH_{\mathrm{hom},X}(\theta)
+ :=\{\psi\in\PSH_X(\theta)\mid\psi\text{ is homogeneous}\}.
+\end{equation}
+\end{definition}
+
+Thus \(\cH_{\mathrm{hom}}(L)\) is the subclass of
+\Cref{def:gf-fs-functions} in which all weights vanish, and the containment
+\(\cH_{\mathrm{hom}}(L)\subset\PSH_{\mathrm{hom},X}(c_1(L))\) is immediate
+from \Cref{def:bj-psh} with the constant net.  Weight zero is exactly
+homogeneity: by \eqref{eq:scaling-fs-weights} the action fixes a
+presentation \eqref{eq:gf-fs-presentation} if and only if it fixes its
+weight vector up to the ambiguity of the presentation, and the weight vector
+is scaled by \(t\).
+
+\begin{proposition}
+\label{prop:ch35-homogeneous-normalization}
+Let \(\theta\in N^1(X)\) and \(\psi\in\PSH_{\mathrm{hom},X}(\theta)\).
+Then
+\begin{equation}
+\label{eq:ch35-homogeneous-normalized}
+                     \psi(v_{\triv})=0,\qquad \psi\leq0
+                     \quad\text{on }X^{\An},
+\end{equation}
+and \(\PSH_{\mathrm{hom},X}(\theta)\subset\PSH^{\sup}_X(\theta)\).
+Moreover each \(\PSH_{\mathrm{hom},X}(\theta)\) is stable under finite
+maxima, while, as \(\theta\) varies, the collection of pairs
+\((\theta,\psi)\) with
+\(\psi\in\PSH_{\mathrm{hom},X}(\theta)\) is a graded convex cone under
+positive scalar multiplication and sums, whenever the result is generically
+finite.  At an endpoint of a convex combination, a zero-coefficient term is
+omitted, never evaluated as \(0\cdot(-\infty)\).
+\end{proposition}
+
+\begin{proof}
+A \(\theta\)-psh function is finite at \(v_{\triv}\) by generic finiteness in
+\Cref{def:bj-psh}, so \Cref{lem:ch35-homogeneity-reformulations} forces
+\(\psi(v_{\triv})=0\).  A \(\theta\)-psh function is decreasing for the
+order \eqref{eq:semivaluation-order} and satisfies the maximum principle
+\(\sup_{X^{\An}}\psi=\psi(v_{\triv})\); this is
+\cite[Proposition~4.12]{BJ22}, and for our purposes it follows already from
+the presentation \eqref{eq:gf-fs-presentation}: for a generically finite
+Fubini--Study function \(\phi=\frac1m\max_i\{\log|s_i|+\lambda_i\}\) one has
+\(\log|s_i|(v)=-v(s_i)\leq0=\log|s_i|(v_{\triv})\), so
+\(\sup\phi=\phi(v_{\triv})=\frac1m\max_i\lambda_i\), and the property
+survives decreasing limits.  Hence \(\sup\psi=\psi(v_{\triv})=0\), which is
+\eqref{eq:ch35-homogeneous-normalized} and the inclusion into
+\eqref{eq:normalized-psh-space}.
+
+For the cone statement, \Cref{thm:bj-basic-closure}\,(2)--(3) gives the psh part
+of each assertion, and homogeneity is preserved because
+\(t\cdot\) commutes with finite maxima and positive linear combinations by
+\Cref{lem:ch35-action-basic}\,(3)--(4).
+\end{proof}
+
+\begin{warning}{Homogeneous means \(\leq0\), not bounded}
+\Cref{prop:ch35-homogeneous-normalization} says that a homogeneous psh
+function is nonpositive.  It does not say it is bounded: by
+\Cref{lem:ch35-homogeneity-reformulations} a nonzero homogeneous function is
+unbounded below along some scaling ray, and it may equal \(-\infty\) at a
+proper-support point.  Consequently \(\PSH_{\mathrm{hom},X}(\theta)\) is
+\emph{not} contained in \(C^0(X^{\An})\) and is not contained in the space
+\(\cE^\infty\) of bounded potentials.  This is the single most common source
+of a false step in this part: an estimate proved for bounded psh functions
+does not transfer to homogeneous ones without an argument.
+\end{warning}
+
+\subsection{Convexity along orbits}
+\label{sec:ch35-convexity}
+
+The next proposition is the analytic engine of the whole chapter.  Once it
+is available, every Legendre statement below is the one-variable duality of
+\Cref{prop:concave-biconjugation} applied at a fixed analytic point.
+
+\begin{proposition}
+\label{prop:ch35-scaling-convex}
+Let \(\theta\in N^1(X)\), \(\phi\in\PSH_X(\theta)\), and \(v\in X^{\An}\).
+Then
+\begin{equation}
+\label{eq:ch35-orbit-convex}
+ t\longmapsto(t\cdot\phi)(v)=t\,\phi(t^{-1}v)
+\end{equation}
+is a convex function of \(t\in\mathbf R_{>0}\) with values in
+\(\mathbf R\cup\{-\infty\}\); it is nonincreasing if \(\phi\leq0\), and
+more generally
+\begin{equation}
+\label{eq:ch35-orbit-slope-bound}
+ (t\cdot\phi)(v)\leq t\sup\phi
+ \qquad\text{for every }t>0 .
+\end{equation}
+Furthermore \(s\mapsto\phi(sv)\) is convex and nonincreasing on
+\([0,+\infty)\).
+\end{proposition}
+
+\begin{proof}
+\emph{Step 1: the Fubini--Study case.}
+Let \(\phi=\frac1m\max_i\{\log|s_i|+\lambda_i\}\) belong to
+\(\cH^{\mathrm{gf}}_{\mathbf R}(L)\).  By
+\eqref{eq:scaling-fs-weights},
+\[
+ (t\cdot\phi)(v)=\frac1m\max_i\{\log|s_i|(v)+t\lambda_i\},
+\]
+which for fixed \(v\) is the maximum of finitely many affine functions of
+\(t\), with the convention that a term with
+\(\log|s_i|(v)=-\infty\) contributes the constant \(-\infty\).  A maximum of
+finitely many affine functions with values in
+\(\mathbf R\cup\{-\infty\}\) is convex: on the set where at least one term
+is finite the assertion is the usual one, and if all terms are
+\(-\infty\) at some \(v\) the function is identically \(-\infty\) in
+\(t\), which is convex.  If moreover \(\phi\leq0\), then
+\(\sup\phi=\frac1m\max_i\lambda_i\leq0\) by the computation in the proof of
+\Cref{prop:ch35-homogeneous-normalization}, so every slope
+\(\lambda_i/m\) that is attained in the maximum is nonpositive and
+\(t\mapsto(t\cdot\phi)(v)\) is nonincreasing.  Estimate
+\eqref{eq:ch35-orbit-slope-bound} holds because
+\(\log|s_i|\leq0\) pointwise, whence
+\((t\cdot\phi)(v)\leq\frac tm\max_i\lambda_i=t\sup\phi\).
+
+\emph{Step 2: decreasing limits.}
+Let \(\phi_a\searrow\phi\) be a decreasing net as in
+\eqref{eq:bj-psh-regularization}.  By
+\Cref{lem:ch35-action-basic}\,(4), \(t\cdot\phi_a\searrow t\cdot\phi\)
+pointwise for each fixed \(t\).  Thus, for fixed \(v\), the functions
+\(t\mapsto(t\cdot\phi_a)(v)\) are convex and decrease pointwise in \(t\) to
+\(t\mapsto(t\cdot\phi)(v)\).  A pointwise limit of a decreasing net of
+convex \(\mathbf R\cup\{-\infty\}\)-valued functions on an interval is
+convex: for \(0<\sigma<1\) and
+\(t=(1-\sigma)t_0+\sigma t_1\) one has
+\[
+ (t\cdot\phi_a)(v)
+ \leq(1-\sigma)(t_0\cdot\phi_a)(v)+\sigma(t_1\cdot\phi_a)(v),
+\]
+and both sides converge monotonically, the right-hand side being a sum of
+two decreasing nets and hence, by
+\Cref{lem:extended-real-safe}\,(5) applied whenever one summand is finite
+and by inspection when both are \(-\infty\), converging to
+\((1-\sigma)(t_0\cdot\phi)(v)+\sigma(t_1\cdot\phi)(v)\).  Monotonicity
+under \(\phi\leq0\) and the bound
+\eqref{eq:ch35-orbit-slope-bound} pass to the limit in the same way, using
+\(\sup\phi_a\geq\sup\phi\).  The endpoint cases
+\(\sigma\in\{0,1\}\) are tautological and are kept separate, so no
+coefficient \(0\) is ever multiplied by \(-\infty\).
+
+\emph{Step 3: the second parametrization.}
+Fix \(v\) and put \(g(s):=\phi(sv)\) for \(s>0\).  Then
+\((t\cdot\phi)(v)=t\,g(t^{-1})\), so \(g(s)=s^{-1}\cdot\bigl(\)the value at
+\(t=s^{-1}\bigr)\); more usefully, apply Step 1 to the point \(sv\) in place
+of \(v\).  For the Fubini--Study case,
+\(g(s)=\frac1m\max_i\{-s\,v(s_i)+\lambda_i\}\) is again a finite maximum of
+affine functions of \(s\), hence convex, and its slopes
+\(-v(s_i)/m\) are nonpositive because \(v(s_i)\geq0\); so \(g\) is
+nonincreasing.  Decreasing limits preserve both properties as in Step 2,
+and \(g\) extends to \(s=0\) with value \(\phi(v_{s(v),\triv})\), by
+continuity of the action \eqref{eq:valuation-scaling} together with upper
+semicontinuity and monotonicity of \(\phi\).
+\end{proof}
+
+\begin{remark}[Where convexity comes from]
+\label{rem:ch35-convexity-source}
+Convexity in \eqref{eq:ch35-orbit-convex} is not a soft consequence of
+plurisubharmonicity.  It is inherited, through the definition of
+\(\PSH_X(\theta)\) as a class of decreasing limits, from the elementary fact
+that a maximum of affine functions is convex, and the affine functions in
+question are indexed by the sections in a Fubini--Study presentation.  This
+is the same mechanism that makes tropical objects convex, and it is why the
+Legendre transform below is a genuinely finite-dimensional operation at
+each fixed analytic point even though \(\PSH_X(\theta)\) is
+infinite-dimensional.
+\end{remark}
+
+\begin{example}[The orbit of a Fubini--Study function on \(\mathbf P^1\)]
+\label{ex:ch35-p1-orbit}
+Let \(X=\mathbf P^1_k\), \(L=\cO(1)\) with homogeneous coordinates
+\(x,y\), and let
+\(\phi=\max\{\log|x|+a,\log|y|+b\}\) be the function
+\eqref{eq:p1-fs} of \Cref{ex:p1-fs-function}.  Write \(p=[0:1]\) and
+\(v=s\,\ord_p\).  Trivializing \(L\) near \(p\) by \(y\), one has
+\(\log|y|(v)=0\) and \(\log|x|(v)=-s\), so
+\[
+ \phi(s\,\ord_p)=\max\{-s+a,\ b\},
+ \qquad
+ (t\cdot\phi)(\ord_p)=\max\{-1+ta,\ tb\}.
+\]
+Both displayed functions are maxima of two affine functions, in \(s\) and
+in \(t\) respectively, in accordance with
+\Cref{prop:ch35-scaling-convex}.  The first is nonincreasing in \(s\), as it
+must be; the second is nonincreasing in \(t\) precisely when
+\(\max\{a,b\}\leq0\), that is, when \(\sup\phi\leq0\).  With \(a=0\) and
+\(b=-1\), for instance,
+\[
+ \phi(s\,\ord_p)=\max\{-s,-1\},
+ \qquad
+ (t\cdot\phi)(\ord_p)=\max\{-1,-t\},
+\]
+and the break occurs at \(s=1\), respectively \(t=1\).
+\end{example}
+
+\section{Homogeneous PL and Fubini--Study functions}
+\label{sec:ch35-hom-pl-fs}
+
+\subsection{Ideal functions and the homogeneous PL cone}
+\label{sec:ch35-hom-pl}
+
+If \(\mathfrak b\subset\cO_X\) is a nonzero ideal, then
+\(\log|\mathfrak b|=-v(\mathfrak b)\) is homogeneous.  The cone
+\begin{equation}
+\label{eq:positive-homogeneous-pl}
+ \PL_{\mathrm{hom}}^+(X)
+ :=\{m^{-1}\log|\mathfrak b|\mid m\geq1,\ 0\ne\mathfrak b\subset\cO_X\}
+\end{equation}
+is stable under addition, positive rational scaling, and finite maxima.
+The vector space it spans on \(X^{\val}\) is
+\(\PL_{\mathrm{hom}}(X)\).  Except for zero, its elements are unbounded
+along some ray and hence do not belong to the ordinary \(\PL(X)\).
+
+Each of these assertions is proved in the next proposition, together with
+the one fact that makes \(\PL_{\mathrm{hom}}(X)\) usable as a linear space
+rather than a mere cone.
+
+\begin{proposition}
+\label{prop:ch35-hom-pl-semiring}
+Let \(\mathfrak b,\mathfrak b'\subset\cO_X\) be nonzero coherent ideals.
+Then, on all of \(X^{\An}\),
+\begin{equation}
+\label{eq:ch35-ideal-tropical}
+ \log|\mathfrak b\mathfrak b'|
+   =\log|\mathfrak b|+\log|\mathfrak b'|,
+ \qquad
+ \log|\mathfrak b+\mathfrak b'|
+   =\max\{\log|\mathfrak b|,\log|\mathfrak b'|\},
+\end{equation}
+and each \(\log|\mathfrak b|\) is homogeneous, nonpositive, upper
+semicontinuous, and finite on \(X^{\val}\).  Consequently:
+\begin{enumerate}
+\item \(\PL_{\mathrm{hom}}^+(X)\) is stable under sums, under finite maxima,
+ and under multiplication by \(\mathbf Q_{>0}\), and it contains \(0\);
+\item every element of the \(\mathbf Q\)-vector space
+ \(\PL_{\mathrm{hom}}(X)\) spanned by
+ \(\PL_{\mathrm{hom}}^+(X)\) inside \(C^0(X^{\val})\) is a difference of two
+ elements of \(\PL_{\mathrm{hom}}^+(X)\);
+\item \(\PL_{\mathrm{hom}}(X)\cap\PL(X)=\{0\}\);
+\item \(\PL_{\mathrm{hom}}^+(X)\) is stable under the scaling action, which
+ acts on it trivially.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+The two identities in \eqref{eq:ch35-ideal-tropical} are
+\eqref{eq:ideal-tropical-identities} of
+\Cref{chap:trivial-analytification} after multiplication by \(-1\), which
+exchanges minima and maxima and sums with sums; the third identity there
+says that \(\log|\mathfrak b|(v)=-\infty\) exactly when
+\(s(v)\subset V(\mathfrak b)\), so \(\log|\mathfrak b|\) is finite at every
+point of full support, in particular on \(X^{\val}\), because
+\(\mathfrak b\neq0\).  Homogeneity is
+\((tv)(\mathfrak b)=t\,v(\mathfrak b)\), which follows from
+\eqref{eq:ideal-evaluation-triv} because the minimum defining
+\(v(\mathfrak b)\) is taken over a fixed finite generating set at the centre
+and the centre is unchanged by scaling.  Nonpositivity is
+\(v(\mathfrak b)\geq0\), valid because \(v\) is nonnegative on the local
+ring at its centre.  Continuity of \(v\mapsto v(\mathfrak b)\) into
+\([0,+\infty]\) is part of \Cref{chap:trivial-analytification}; upper
+semicontinuity of \(\log|\mathfrak b|\) into
+\([-\infty,0]\) follows.
+
+(1)  Stability under sums and finite maxima is
+\eqref{eq:ch35-ideal-tropical} applied to products and sums of ideals, after
+passing to a common denominator: if
+\(\psi=m^{-1}\log|\mathfrak b|\) and
+\(\psi'=(m')^{-1}\log|\mathfrak b'|\), then
+\(\psi+\psi'=(mm')^{-1}\log|\mathfrak b^{m'}(\mathfrak b')^{m}|\) and
+\(\max\{\psi,\psi'\}=(mm')^{-1}\log|\mathfrak b^{m'}+(\mathfrak b')^{m}|\).
+For \(c=p/q\in\mathbf Q_{>0}\), \(c\psi=(qm)^{-1}\log|\mathfrak b^{p}|\).
+Finally \(0=\log|\cO_X|\).
+
+(2)  By definition \(\PL_{\mathrm{hom}}(X)\) is the set of finite
+\(\mathbf Q\)-linear combinations \(\sum_ic_i\psi_i\) with
+\(\psi_i\in\PL_{\mathrm{hom}}^+(X)\).  Splitting the coefficients according
+to sign and using (1) writes such a combination as
+\(\psi'-\psi''\) with \(\psi',\psi''\in\PL_{\mathrm{hom}}^+(X)\).  The
+difference is unambiguous on \(X^{\val}\), where both terms are finite; it
+is for this reason that \(\PL_{\mathrm{hom}}(X)\) is defined as a space of
+functions on \(X^{\val}\) and not on \(X^{\An}\).
+
+(3)  A function in \(\PL(X)\) is bounded, being continuous on the compact
+space \(X^{\An}\) by \Cref{def:bj-pl-function} and
+\Cref{thm:triv-berkovich-compactness}.  A homogeneous function that is
+bounded on a scaling orbit vanishes on it, by
+\Cref{lem:ch35-homogeneity-reformulations}.  Since every point lies on an
+orbit, the intersection is \(\{0\}\).
+
+(4)  Immediate from homogeneity and
+\Cref{lem:ch35-homogeneity-reformulations}.
+\end{proof}
+
+\begin{warning}{Fractional ideals are allowed, arbitrary quotients are not}
+Assertion (2) says that a homogeneous PL function is a difference of two
+ideal functions.  Equivalently, it is \(\log|\mathfrak a|\) for a nonzero
+\emph{fractional} ideal \(\mathfrak a\): put
+\(\mathfrak b=\{f\in\cO_X\mid f\mathfrak a\subset\cO_X\}\) and
+\(\mathfrak b'=\mathfrak b\mathfrak a\subset\cO_X\), so that
+\(\log|\mathfrak a|=\log|\mathfrak b'|-\log|\mathfrak b|\).  What is
+\emph{not} true is that the difference extends continuously to
+\(X^{\An}\): at a point supported in \(V(\mathfrak b)\cap V(\mathfrak b')\)
+both terms are \(-\infty\) and the difference is undefined by ledger entry
+(4) of \Cref{sec:extended-arithmetic}.  This is the reason
+\(\PL_{\mathrm{hom}}(X)\subset C^0(X^{\val})\) and not
+\(C^0(X^{\An})\), and the reason \Cref{chap:bj-cartier-realization} is
+careful never to rearrange a homogeneous identity into a difference at a
+proper-support point.
+\end{warning}
+
+\begin{example}[Homogeneous PL functions on the trivially valued line]
+\label{ex:ch35-p1-hom-pl}
+Let \(X=\mathbf P^1_k\), so that \(X^{\An}\) is the star-shaped cone of
+\Cref{ex:triv-p1-tree}, with one ray \(\{t\ord_p\}_{t\in[0,\infty]}\) for
+each \(p\in X(k)\).  Every nonzero ideal of \(\cO_X\) has the form
+\(\mathfrak b=\cO_X(-\sum_ia_ip_i)\) with \(a_i\in\mathbf Z_{>0}\) and the
+\(p_i\) distinct closed points, so
+\[
+ \log|\mathfrak b|(t\,\ord_p)=
+ \begin{cases}
+  -a_it,&p=p_i,\\
+  0,&p\notin\{p_1,\ldots,p_r\}.
+ \end{cases}
+\]
+Hence \(\PL_{\mathrm{hom}}^+(X)\) consists of the functions that are linear
+with nonpositive rational slope on finitely many rays and zero on all the
+others, and \(\PL_{\mathrm{hom}}(X)\) is the same description with slopes of
+arbitrary sign.  In particular the only element that is bounded is \(0\),
+confirming \Cref{prop:ch35-hom-pl-semiring}\,(3), and the value at the
+endpoint \(v_{p_i,\triv}\) of a ray with \(a_i>0\) is \(-\infty\).
+\end{example}
+
+\subsection{Homogeneous Fubini--Study functions}
+\label{sec:ch35-hom-fs}
+
+\begin{proposition}\label{prop:hom-fs-ideal}
+For a \(\mathbf Q\)-line bundle \(L\), a function \(\psi\) lies in
+\(\cH_{\mathrm{hom}}(L)\) if and only if
+\begin{equation}
+\label{eq:hom-fs-ideal}
+                    \psi=m^{-1}\log|\mathfrak b|
+\end{equation}
+for a nonzero ideal \(\mathfrak b\) such that \(mL\) is a line bundle and
+\(mL\otimes\mathfrak b\) is globally generated.
+\end{proposition}
+
+\begin{proof}
+The sections in \eqref{eq:homogeneous-fs-presentation}, expressed in local
+frames, generate an ideal \(\mathfrak b\), and evaluation of a finite set of
+generators gives
+\(\max_i\log|s_i|=\log|\mathfrak b|\).  Conversely, choose global
+generators of \(mL\otimes\mathfrak b\) and reverse the construction.
+Nonzeroness of \(\mathfrak b\) is exactly generic finiteness.
+
+In detail, suppose first \(\psi\in\cH_{\mathrm{hom}}(L)\) and write
+\(\psi=\frac1m\max_{1\leq i\leq r}\log|s_i|\) with
+\(0\neq s_i\in H^0(X,mL)\) and \(mL\) an honest line bundle, as in
+\eqref{eq:homogeneous-fs-presentation}.  Fix a point \(\xi\in X\) and a
+local trivialization \(e\) of \(mL\) near \(\xi\); write
+\(s_i=f_ie\) with \(f_i\in\cO_{X,\xi}\).  Let
+\(\mathfrak b\subset\cO_X\) be the ideal locally generated by the \(f_i\).
+This is independent of the trivialization, since a change of frame
+multiplies all \(f_i\) by one unit, and it is coherent because it is
+generated by the images of the finite-dimensional space spanned by the
+\(s_i\) under the evaluation map
+\(H^0(X,mL)\otimes\cO_X\to mL\), twisted by \(-mL\).  It is nonzero because
+some \(s_i\) is nonzero and \(X\) is integral.  Now for
+\(v\in X^{\An}\) with centre \(c(v)=\xi\) we have, by
+\eqref{eq:section-log-value} and \eqref{eq:ideal-evaluation-triv},
+\[
+ \max_i\log|s_i|(v)=-\min_iv(f_i)=-v(\mathfrak b)
+ =\log|\mathfrak b|(v),
+\]
+which is \eqref{eq:hom-fs-ideal}.  Moreover
+\(mL\otimes\mathfrak b\) is globally generated, because the \(s_i\)
+themselves are global sections of \(mL\otimes\mathfrak b\) generating it by
+construction.
+
+Conversely, assume \eqref{eq:hom-fs-ideal} with
+\(mL\otimes\mathfrak b\) globally generated and \(\mathfrak b\neq0\).
+Choose finitely many global sections \(\sigma_1,\ldots,\sigma_r\) of
+\(mL\otimes\mathfrak b\) generating it, and let \(s_i\) be their images
+under the inclusion \(mL\otimes\mathfrak b\hookrightarrow mL\).  Then the
+\(s_i\) are nonzero sections of \(mL\), they generate
+\(\mathfrak b\) in every local frame, and the computation above reversed
+gives \(\frac1m\max_i\log|s_i|=m^{-1}\log|\mathfrak b|=\psi\).  Since
+\(\mathfrak b\neq0\), not all \(s_i\) vanish identically, which is the
+generic finiteness condition of \Cref{def:gf-fs-functions}.  All weights are
+zero, so \(\psi\in\cH^{\mathrm{gf}}_0(L)=\cH_{\mathrm{hom}}(L)\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch35-ample-exhausts}
+For every ample \(L\in\Pic(X)_{\mathbf Q}\),
+\begin{equation}
+\label{eq:ch35-ample-exhausts}
+ \mathbf Q_{>0}\cdot\cH_{\mathrm{hom}}(L)=\PL^+_{\mathrm{hom}}(X),
+\end{equation}
+and \(\cH_{\mathrm{hom}}(L)\) spans the \(\mathbf Q\)-vector space
+\(\PL_{\mathrm{hom}}(X)\).  Moreover
+\[
+ \PL^+_{\mathrm{hom}}(X)
+   =\bigcup_{L\ \mathrm{ample}}\cH_{\mathrm{hom}}(L).
+\]
+\end{corollary}
+
+\begin{proof}
+The inclusion \(\subseteq\) in \eqref{eq:ch35-ample-exhausts} is
+\Cref{prop:hom-fs-ideal} together with
+\Cref{prop:ch35-hom-pl-semiring}\,(1).  For \(\supseteq\), let
+\(\psi=m^{-1}\log|\mathfrak b|\in\PL^+_{\mathrm{hom}}(X)\).  Since \(L\) is
+ample, there is \(q\geq1\) such that \(qmL\) is an honest line bundle and
+\(qmL\otimes\mathfrak b\) is globally generated; this is Serre vanishing and
+global generation applied to the coherent sheaf \(\mathfrak b\).  Then
+\Cref{prop:hom-fs-ideal} gives
+\((qm)^{-1}\log|\mathfrak b|\in\cH_{\mathrm{hom}}(L)\), so
+\(\psi=q\cdot(qm)^{-1}\log|\mathfrak b|\) lies in
+\(\mathbf Q_{>0}\cH_{\mathrm{hom}}(L)\).  The spanning assertion follows
+from \Cref{prop:ch35-hom-pl-semiring}\,(2), and the last assertion is the
+same argument with \(L\) allowed to vary, using that
+\(\cH_{\mathrm{hom}}(L)\subseteq\cH_{\mathrm{hom}}(L')\) whenever
+\(L'-L\) is ample, by \Cref{lem:gf-fs-operations}\,(1) applied to a
+homogeneous Fubini--Study function for \(L'-L\).
+\end{proof}
+
+\begin{example}[A point ideal on the projective line]
+\label{ex:ch35-point-ideal-p1}
+Let \(X=\mathbf P^1_k\), let \(p\in X\) be a closed point, and take
+\(L=\mathcal O_X(1)\).  The ideal sheaf
+\(\mathfrak m_p=\mathcal O_X(-p)\) satisfies
+\[
+       L\otimes\mathfrak m_p\simeq\mathcal O_X,
+\]
+so it is globally generated.  Thus \Cref{prop:hom-fs-ideal} gives the
+homogeneous Fubini--Study function
+\[
+                 \psi=\log|\mathfrak m_p|.
+\]
+For the divisorial valuation \(v_c=c\,\ord_p\), with \(c>0\), one has
+\[
+       \psi(v_c)=-v_c(\mathfrak m_p)=-c,
+       \qquad
+       \psi(tv_c)=t\psi(v_c)\quad(t>0).
+\]
+At the trivial valuation the value is zero.  Hence this one-dimensional
+calculation displays both conventions at once: homogeneous functions vanish
+at the vertex of the valuation cone, but a nonzero one is unbounded below
+along a divisorial ray.
+
+Concretely, in homogeneous coordinates with \(p=[0:1]\) one may take
+\(m=1\) and the single section \(s=x\in H^0(X,\cO(1))\); then
+\(\psi=\log|x|\), and the presentation
+\eqref{eq:homogeneous-fs-presentation} has one term and no weight.  This is
+the function obtained from \eqref{eq:p1-fs} by deleting the section \(y\),
+as noted at the end of \Cref{ex:p1-fs-function}, and it equals \(-\infty\)
+at the proper-support point \(v_{p,\triv}\).
+\end{example}
+
+\begin{example}[A monomial homogeneous function]
+\label{ex:ch35-monomial-hom-fs}
+Let \(X=\mathbf P^2_k\) with homogeneous coordinates \(x,y,z\), let
+\(L=\cO(1)\), and put
+\(\psi=\tfrac12\max\{\log|x^2|,\ \log|xy|,\ \log|y^2|\}\).  The three
+displayed sections of \(2L=\cO(2)\) have common zero locus the single point
+\(q=[0:0:1]\), and in a local frame they generate the ideal
+\(\mathfrak b=\mathfrak m_q^2\); thus \(2L\otimes\mathfrak b\) is globally
+generated and \Cref{prop:hom-fs-ideal} gives
+\(\psi=\tfrac12\log|\mathfrak m_q^2|\in\cH_{\mathrm{hom}}(L)\).
+On the chart \(z=1\) with affine coordinates \(u=x/z\),
+\(w=y/z\), and for the monomial valuation \(v_\alpha\) of
+\eqref{eq:quasimonomial-valuation} with
+\(v_\alpha(u)=\alpha_1\), \(v_\alpha(w)=\alpha_2\), one gets
+\[
+ \psi(v_\alpha)=-\tfrac12\min\{2\alpha_1,\ \alpha_1+\alpha_2,\ 2\alpha_2\}
+ =-\min\{\alpha_1,\alpha_2\},
+\]
+because \(\alpha_1+\alpha_2\geq2\min\{\alpha_1,\alpha_2\}\).  Thus
+\(\psi=\log|\mathfrak m_q|\) on the monomial cone, in agreement with the
+identity \(\tfrac12\log|\mathfrak b^2|=\log|\mathfrak b|\) of
+\eqref{eq:ch35-ideal-tropical}.  The example shows that a homogeneous
+Fubini--Study presentation is not unique and that the associated ideal is
+well defined only up to powers and integral closure; the function
+\(\psi\) is the same for \(\mathfrak b=\mathfrak m_q\) with \(m=1\),
+provided one checks that \(\cO(1)\otimes\mathfrak m_q\) is globally
+generated, which it is, by the sections \(x\) and \(y\).
+\end{example}
+
+\section{Homogenization and Legendre slices}
+\label{sec:ch35-homogenization}
+
+\begin{definition}[Homogenization]
+\label{def:bj-homogenization}
+For any \(\phi:X^{\An}\to\mathbf R\cup\{-\infty\}\), define
+\begin{equation}
+\label{eq:bj-homogenization}
+                 \widehat\phi(v):=\inf_{t>0}(t\cdot\phi)(v).
+\end{equation}
+\end{definition}
+
+The function \(\widehat\phi\) is the largest homogeneous function below
+\(\phi\).  Indeed, it is homogeneous by the substitution \(t=su\), and
+\(\widehat\phi\leq\phi\) by taking \(t=1\).  If \(\psi\leq\phi\) is
+homogeneous, then \(\psi=t\cdot\psi\leq t\cdot\phi\) for every \(t\), hence
+\(\psi\leq\widehat\phi\).
+
+We record the verification, because the second step is the one place where
+the ledger of \Cref{sec:extended-arithmetic} is used without comment
+elsewhere.
+
+\begin{lemma}
+\label{lem:ch35-homogenization-maximal}
+Let \(\phi,\phi':X^{\An}\to\mathbf R\cup\{-\infty\}\).  Then:
+\begin{enumerate}
+\item \(\widehat\phi\) is homogeneous and \(\widehat\phi\leq\phi\);
+\item if \(\psi\) is homogeneous and \(\psi\leq\phi\), then
+ \(\psi\leq\widehat\phi\);
+\item \(\phi\leq\phi'\) implies \(\widehat\phi\leq\widehat{\phi'}\), and
+ \(\widehat{\widehat\phi}=\widehat\phi\);
+\item if \((\phi_a)\) is a decreasing net with pointwise limit \(\phi\),
+ then \(\widehat{\phi_a}\) is decreasing with pointwise limit
+ \(\widehat\phi\);
+\item for \(s>0\) one has \(\widehat{s\cdot\phi}=\widehat\phi\), and
+ \(\widehat{a\phi}=a\widehat\phi\) for \(a>0\).
+\end{enumerate}
+\par
+\end{lemma}
+
+\begin{proof}
+(1)  For \(s>0\),
+\[
+ \widehat\phi(sv)=\inf_{t>0}t\,\phi(t^{-1}sv)
+ =\inf_{u>0}su\,\phi(u^{-1}v)=s\,\widehat\phi(v),
+\]
+by the substitution \(t=su\) and
+\Cref{lem:extended-real-safe}\,(2), which allows the factor \(s>0\) to be
+pulled out of an infimum in \(\Rbar\).  Taking \(t=1\) in
+\eqref{eq:bj-homogenization} gives \(\widehat\phi\leq\phi\).
+
+(2)  If \(\psi\) is homogeneous then \(t\cdot\psi=\psi\) for every \(t>0\)
+by \Cref{lem:ch35-homogeneity-reformulations}, so
+\(\psi=t\cdot\psi\leq t\cdot\phi\) by
+\Cref{lem:ch35-action-basic}\,(2).  Taking the infimum over \(t\) gives
+\(\psi\leq\widehat\phi\).
+
+(3)  Monotonicity follows from
+\Cref{lem:ch35-action-basic}\,(2) and monotonicity of infima.  Idempotence
+follows from (1) and (2): \(\widehat\phi\) is homogeneous and lies below
+\(\phi\), so it lies below \(\widehat\phi\) by (2), and above by (1).
+
+(4)  Each \(\widehat{\phi_a}\) is homogeneous, and the net is decreasing by
+(3).  Let \(\chi:=\inf_a\widehat{\phi_a}\), an infimum of homogeneous
+functions and therefore homogeneous, again by
+\Cref{lem:extended-real-safe}\,(2).  Since \(\phi\leq\phi_a\) we get
+\(\widehat\phi\leq\widehat{\phi_a}\) for all \(a\), so
+\(\widehat\phi\leq\chi\).  Conversely
+\(\chi\leq\widehat{\phi_a}\leq\phi_a\) for all \(a\), so \(\chi\leq\phi\),
+and (2) gives \(\chi\leq\widehat\phi\).  Thus \(\chi=\widehat\phi\).  This
+is \cite[Lemma~6.13]{BJ22}.
+
+(5)  By \Cref{lem:ch35-action-basic}\,(1),
+\(\widehat{s\cdot\phi}=\inf_{t>0}\bigl(t\cdot(s\cdot\phi)\bigr)
+=\inf_{t>0}\bigl((ts)\cdot\phi\bigr)=\widehat\phi\), the last equality
+because \(t\mapsto ts\) is a bijection of \(\mathbf R_{>0}\).  The second
+identity is \Cref{lem:ch35-action-basic}\,(3) and
+\Cref{lem:extended-real-safe}\,(2).
+\end{proof}
+
+At a fixed trivial semivaluation \(v_{Y,\triv}\),
+\begin{equation}
+\label{eq:homogenization-fixed-point}
+ \widehat\phi(v_{Y,\triv})=
+ \begin{cases}
+ 0,&\phi(v_{Y,\triv})\geq0,\\
+ -\infty,&\phi(v_{Y,\triv})<0.
+ \end{cases}
+\end{equation}
+This is why one checks the supremum before homogenizing.
+
+Indeed, \(t^{-1}v_{Y,\triv}=v_{Y,\triv}\), so the quantity being minimized
+in \eqref{eq:bj-homogenization} is \(t\,\phi(v_{Y,\triv})\); its infimum
+over \(t>0\) is \(0\) if \(\phi(v_{Y,\triv})\geq0\) and \(-\infty\)
+otherwise.  This is \cite[Example~6.12]{BJ22}.  Applying it at
+\(Y=X\) and using the maximum principle
+\(\sup\phi=\phi(v_{\triv})\) of
+\Cref{prop:ch35-homogeneous-normalization} yields the dichotomy that governs
+the rest of the section.
+
+\begin{corollary}
+\label{cor:ch35-homogenization-alternative}
+Let \(\phi:X^{\An}\to\mathbf R\cup\{-\infty\}\) be decreasing for the order
+\eqref{eq:semivaluation-order}.  Then \(\widehat\phi\) is decreasing, and
+\[
+ \widehat\phi\not\equiv-\infty
+ \iff\sup_{X^{\An}}\phi\geq0 .
+\]
+In particular this applies to every \(\phi\in\PSH_X(\theta)\) and to every
+\(\phi\in\cH^{\mathrm{gf}}_{\mathbf R}(L)\), for which
+\(\sup\phi=\phi(v_{\triv})\).
+\end{corollary}
+
+\begin{proof}
+If \(v\geq w\) then \(t^{-1}v\geq t^{-1}w\) for every \(t>0\), because the
+order \eqref{eq:semivaluation-order} is tested on ideals and scaling
+multiplies all ideal values by \(t^{-1}\).  Hence each \(t\cdot\phi\) is
+decreasing and so is the infimum.
+
+If \(\sup\phi<0\), then \(\phi(v_{\triv})\leq\sup\phi<0\), and
+\eqref{eq:homogenization-fixed-point} gives
+\(\widehat\phi(v_{\triv})=-\infty\).  Since \(\widehat\phi\) is decreasing
+and \(v_{\triv}\) is the maximum of \(X^{\An}\) for
+\eqref{eq:semivaluation-order} on an integral \(X\), it follows that
+\(\widehat\phi\equiv-\infty\).  Conversely, if \(\sup\phi\geq0\) then
+\(\phi(v_{\triv})\geq0\) when \(\phi\) is decreasing, whence
+\(\widehat\phi(v_{\triv})=0\) by
+\eqref{eq:homogenization-fixed-point}, so \(\widehat\phi\not\equiv-\infty\).
+This is \cite[Lemma~6.14]{BJ22}.
+\end{proof}
+
+\subsection{The elimination lemma}
+\label{sec:ch35-elimination}
+
+The content of \Cref{prop:homogenization-gf} is that the infimum over
+\(t>0\) of a finite maximum of affine functions is again a finite maximum of
+\emph{linear} functions, with rational coefficients when the data are
+rational.  We isolate this as a statement about \(\mathbf R^r\), where it is
+elementary convex geometry, and then transport it.
+
+\begin{lemma}
+\label{lem:ch35-elimination}
+Let \(\lambda_1,\ldots,\lambda_r\in\mathbf R\) with
+\(\max_i\lambda_i\geq0\), and define
+\begin{equation}
+\label{eq:ch35-elimination-g}
+ g(x):=\inf_{t>0}\max_{1\leq i\leq r}\{x_i+\lambda_it\},
+ \qquad x\in\mathbf R^r .
+\end{equation}
+Then:
+\begin{enumerate}
+\item \(g(x)\geq\min_ix_i\); in particular \(g\) is real valued;
+\item if \(\max_i\lambda_i=0\), then \(g(x)=\max_{\lambda_i=0}x_i\); if
+ \(\min_i\lambda_i\geq0\), then \(g(x)=\max_ix_i\);
+\item in general there is a finite set \(W\) contained in the simplex
+\begin{equation}
+\label{eq:ch35-elimination-simplex}
+ \sigma:=\Bigl\{w\in\mathbf R^r_{\geq0}\ \Bigm|\ \sum_iw_i=1\Bigr\}
+\end{equation}
+ such that \(g(x)=\max_{w\in W}\langle w,x\rangle\) for all
+ \(x\in\mathbf R^r\);
+\item if all \(\lambda_i\in\mathbf Q\), then \(W\) may be chosen inside
+ \(\sigma\cap\mathbf Q^r\).
+\end{enumerate}
+\par
+\end{lemma}
+
+\begin{proof}
+\emph{(1).}  Choose \(i_0\) with \(\lambda_{i_0}=\max_i\lambda_i\geq0\).
+For every \(t>0\),
+\(\max_i\{x_i+\lambda_it\}\geq x_{i_0}+\lambda_{i_0}t\geq x_{i_0}\geq\min_ix_i\).
+Taking the infimum gives (1).  Since also
+\(g(x)\leq\max_i\{x_i+\lambda_i\}<+\infty\) by taking \(t=1\), \(g\) is real
+valued.
+
+\emph{(2).}  Suppose \(\max_i\lambda_i=0\).  For \(t>0\) and any \(i\) with
+\(\lambda_i=0\) we get \(\max_j\{x_j+\lambda_jt\}\geq x_i\), so
+\(g(x)\geq\max_{\lambda_i=0}x_i\).  Conversely, if \(\lambda_i<0\) then
+\(x_i+\lambda_it\leq\max_{\lambda_j=0}x_j\) once
+\(t\geq(x_i-\max_{\lambda_j=0}x_j)/(-\lambda_i)\); taking \(t\) larger than
+the finitely many such thresholds gives
+\(\max_j\{x_j+\lambda_jt\}=\max_{\lambda_j=0}x_j\), whence
+\(g(x)\leq\max_{\lambda_j=0}x_j\).  If \(\min_i\lambda_i\geq0\), then
+\(t\mapsto\max_i\{x_i+\lambda_it\}\) is nondecreasing and its infimum over
+\(t>0\) is its limit as \(t\downarrow0\), namely \(\max_ix_i\).
+
+\emph{(3).}  Set
+\(f(x,t):=\max_i\{x_i+\lambda_it\}\) on
+\(\mathbf R^r\times\mathbf R_{\geq0}\).  It is convex, being a maximum of
+finitely many affine functions, and positively homogeneous of degree one,
+because each \(x_i+\lambda_it\) is linear in \((x,t)\).  Its epigraph
+\[
+ \mathcal E:=\{(x,t,s)\in\mathbf R^r\times\mathbf R_{\geq0}\times\mathbf R
+ \mid s\geq f(x,t)\}
+\]
+is a rational-if-the-\(\lambda_i\)-are polyhedral convex cone, being the
+intersection of the \(r\) half-spaces \(s\geq x_i+\lambda_it\) with
+\(t\geq0\).  The image of \(\mathcal E\) under the projection
+\((x,t,s)\mapsto(x,s)\), which forgets \(t\), is again a polyhedral convex
+cone, by Fourier--Motzkin elimination, and it is rational if
+\(\mathcal E\) is.  By (1) that image is exactly the epigraph of \(g\), and
+\(g\) is real valued.  Hence \(g\) is a positively homogeneous, convex,
+piecewise linear function on \(\mathbf R^r\).
+
+A positively homogeneous convex function is the support function of the
+closed convex set
+\[
+ P:=\{w\in\mathbf R^r\mid\langle w,x\rangle\leq g(x)
+ \ \text{for all }x\in\mathbf R^r\},
+\]
+by \Cref{thm:appD-fenchel-moreau} applied to \(-g\), or directly by
+\Cref{ex:appD-indicator-support}: the conjugate of a positively homogeneous
+proper convex function is the indicator of \(P\), and biconjugation gives
+\(g=h_P\) in the notation of \eqref{eq:appD-support}.  Since \(g\) is
+piecewise linear with finitely many pieces, \(P\) is a polytope, and a
+support function is the maximum over the vertex set \(W\) of \(P\).
+
+It remains to prove \(P\subset\sigma\).  Each \(x\mapsto\max_i\{x_i+\lambda_it\}\)
+is nondecreasing in every coordinate of \(x\), hence so is \(g\); therefore
+\(\langle w,\cdot\rangle\leq g\) forces \(w\geq0\), since otherwise
+\(w_j<0\) for some \(j\) and letting \(x_j\to-\infty\) with the other
+coordinates fixed would make \(\langle w,x\rangle\to+\infty\) while
+\(g(x)\) stays bounded above by
+\(\max_{i\neq j}\{x_i+\lambda_i\}\) whenever \(r\geq2\), and the case
+\(r=1\) is trivial.  Moreover, adding \(c\in\mathbf R\) to all coordinates
+adds \(c\) to \(f(x,t)\) and hence to \(g\):
+\(g(x+c\mathbf 1)=g(x)+c\).  If \(w\in P\), then for all \(x\) and all
+\(c\),
+\[
+ \langle w,x\rangle+c\sum_iw_i=\langle w,x+c\mathbf 1\rangle
+ \leq g(x)+c ,
+\]
+so \(c(\sum_iw_i-1)\leq g(x)-\langle w,x\rangle\) for every
+\(c\in\mathbf R\); letting \(c\to\pm\infty\) forces \(\sum_iw_i=1\).  Thus
+\(P\subset\sigma\) and \(W\subset\sigma\).
+
+\emph{(4).}  If all \(\lambda_i\) are rational, then \(\mathcal E\) is a
+rational polyhedral cone, so its projection is rational and \(g\) is a
+rational piecewise linear function; then \(P\) is a rational polytope and
+its vertices lie in \(\mathbf Q^r\).
+\end{proof}
+
+\begin{remark}[Reading the elimination lemma tropically]
+\label{rem:ch35-elimination-tropical}
+Formula \eqref{eq:ch35-elimination-g} is a max-plus expression, and the
+lemma says that eliminating the variable \(t\) from a max-plus polynomial
+with a nonnegative exponent produces a max-plus polynomial with the same
+variables and exponents in the simplex \(\sigma\).  The exponents
+\(w\in W\) are precisely the barycentric weights that occur when the
+inhomogeneous system \((s_i,\lambda_i)\) is replaced by the homogeneous
+system of monomials \(\prod_is_i^{bw_i}\); this is the substance of the
+proof of \Cref{prop:homogenization-gf} below and it is the reason that
+homogenization of a Fubini--Study function does not leave the algebraic
+category.
+\end{remark}
+
+\begin{proposition}\label{prop:homogenization-gf}
+If \(\phi\in\cH^{\mathrm{gf}}_{\mathbf Q}(L)\), then
+\(\widehat\phi\in\cH_{\mathrm{hom}}(L)\) when
+\(\sup\phi\geq0\), while \(\widehat\phi\equiv-\infty\) when
+\(\sup\phi<0\).  Consequently every homogeneous psh function has a
+decreasing homogeneous GF regularization.
+\end{proposition}
+
+\begin{proof}[Polyhedral elimination]
+Write \(m\phi=\max_i\{\log|s_i|+\lambda_i\}\).  Formula
+\eqref{eq:scaling-fs-weights} gives
+\[
+ m\widehat\phi
+  =\inf_{t>0}\max_i\{\log|s_i|+t\lambda_i\}.
+\]
+The right side is a rational, convex, homogeneous piecewise linear function
+of the finitely many variables \(\log|s_i|\); it is therefore a finite
+maximum of rational convex combinations
+\(\sum_i a_i\log|s_i|\).  Clearing denominators turns each such combination
+into the logarithm of a monomial in the \(s_i\), giving
+\eqref{eq:homogeneous-fs-presentation}.  If all relevant weights are
+negative, the infimum is \(-\infty\).  Homogenization commutes with
+decreasing nets by its maximal characterization, which proves the last
+assertion.  This is \cite[Theorem~6.15 and Corollary~6.17]{BJ22}.
+
+We now carry out the four steps in detail.
+
+\emph{Step 1: the alternative.}  A generically finite Fubini--Study
+function is decreasing, by the computation in the proof of
+\Cref{prop:ch35-homogeneous-normalization}, so
+\Cref{cor:ch35-homogenization-alternative} applies: if
+\(\sup\phi<0\) then \(\widehat\phi\equiv-\infty\), and there is nothing more
+to prove.  Assume therefore \(\sup\phi\geq0\).  Fix a presentation
+\begin{equation}
+\label{eq:ch35-gf-presentation-fixed}
+ \phi=\frac1m\max_{1\leq i\leq r}\{\log|s_i|+\lambda_i\},
+ \qquad 0\neq s_i\in H^0(X,mL),\ \lambda_i\in\mathbf Q,
+\end{equation}
+as in \eqref{eq:gf-fs-presentation}.  Since
+\(\sup\phi=\frac1m\max_i\lambda_i\), the hypothesis of
+\Cref{lem:ch35-elimination} is met: \(\max_i\lambda_i\geq0\).
+
+\emph{Step 2: elimination.}  By \eqref{eq:scaling-fs-weights},
+\[
+ m\,\widehat\phi(v)=\inf_{t>0}\max_i\{\log|s_i|(v)+t\lambda_i\}.
+\]
+Suppose first that \(v\in X^{\An}\) is such that all the numbers
+\(x_i:=\log|s_i|(v)\) are finite.  Then the displayed quantity is
+\(g(x)\) for the function \(g\) of \eqref{eq:ch35-elimination-g}, and
+\Cref{lem:ch35-elimination}\,(3)--(4) supply a finite set
+\(W\subset\sigma\cap\mathbf Q^r\) with
+\begin{equation}
+\label{eq:ch35-elimination-applied}
+ m\,\widehat\phi(v)=\max_{w\in W}\sum_iw_i\log|s_i|(v).
+\end{equation}
+If some \(x_i=-\infty\), the same identity holds with both sides read in
+\(\mathbf R\cup\{-\infty\}\): the left side is the infimum over \(t\) of the
+maximum of the finite terms, which is the value of \(g\) at the truncated
+vector, and the right side loses exactly the \(w\in W\) whose support meets
+\(\{i:x_i=-\infty\}\); both operations amount to the same
+Fourier--Motzkin projection performed on the face of the polyhedral cone
+where the corresponding coordinates are \(-\infty\).  More simply: replace
+each \(x_i=-\infty\) by \(-N\) and let \(N\to+\infty\).  Both sides of
+\eqref{eq:ch35-elimination-applied} are nondecreasing continuous functions
+of \(x\in\mathbf R^r\) and are equal there, so their monotone limits agree.
+
+\emph{Step 3: monomials.}  Choose \(b\in\mathbf Z_{>0}\) with
+\(bw\in\mathbf N^r\) for every \(w\in W\), possible because \(W\) is finite
+and rational.  For \(w\in W\) put
+\[
+ s_w:=\prod_{i=1}^rs_i^{bw_i}\in H^0(X,mbL),
+\]
+which is nonzero because \(X\) is integral and each \(s_i\neq0\), and which
+has degree \(\sum_ibw_i=b\) in the \(s_i\), matching the line bundle
+\(mbL\) since \(\sum_iw_i=1\).  Multiplicativity of \(v\mapsto v(\cdot)\)
+gives \(\log|s_w|=\sum_ibw_i\log|s_i|\), so
+\eqref{eq:ch35-elimination-applied} becomes
+\[
+ \widehat\phi=\frac1{mb}\max_{w\in W}\log|s_w| .
+\]
+This is a presentation \eqref{eq:homogeneous-fs-presentation} with all
+weights zero, and it is generically finite because each \(s_w\neq0\).
+Hence \(\widehat\phi\in\cH^{\mathrm{gf}}_0(L)=\cH_{\mathrm{hom}}(L)\).
+
+\emph{Step 4: the psh consequence.}  Let
+\(\psi\in\PSH_{\mathrm{hom},X}(\theta)\), and let
+\(\phi_a\searrow\psi\) be a decreasing net with
+\(\phi_a\in\cH^{\mathrm{gf}}_{\mathbf Q}(L_a)\) and
+\(c_1(L_a)\to\theta\), as furnished by \Cref{def:bj-psh} and
+\cite[Theorem~4.15]{BJ22}, which allows the approximants to be taken with
+rational weights.  Then \(\sup\phi_a\geq\sup\psi=0\) by
+\Cref{prop:ch35-homogeneous-normalization}, so
+\(\widehat{\phi_a}\in\cH_{\mathrm{hom}}(L_a)\) by Steps 1--3.  By
+\Cref{lem:ch35-homogenization-maximal}\,(4), the net
+\(\widehat{\phi_a}\) is decreasing with pointwise limit
+\(\widehat\psi=\psi\), the last equality by
+\Cref{lem:ch35-homogenization-maximal}\,(3) since \(\psi\) is homogeneous.
+Thus \(\psi\) has a decreasing regularization by homogeneous Fubini--Study
+functions in classes tending to \(\theta\).  If \(\theta=c_1(L)\) with
+\(L\) ample, \cite[Theorem~4.15\,(iii)]{BJ22} allows \(L_a=L\) for all
+\(a\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch35-homogenization-psh}
+Let \(\theta\in N^1(X)\) and \(\phi\in\PSH_X(\theta)\) with
+\(\sup\phi\geq0\).  Then
+\(\widehat\phi\in\PSH_{\mathrm{hom},X}(\theta)\), and \(\widehat\phi\) is
+the pointwise limit of a decreasing net \(\psi_a\in\cH_{\mathrm{hom}}(L_a)\)
+with \(c_1(L_a)\to\theta\).  If \(\theta\) is the class of an ample
+\(\mathbf Q\)-line bundle \(L\), one may take \(L_a=L\) throughout.
+\end{corollary}
+
+\begin{proof}
+Choose a decreasing regularization \(\phi_a\searrow\phi\) with
+\(\phi_a\in\cH^{\mathrm{gf}}_{\mathbf Q}(L_a)\) and
+\(c_1(L_a)\to\theta\), using \cite[Theorem~4.15]{BJ22} to make the weights
+rational; in the ample case the same theorem gives \(L_a=L\).  Then
+\(\sup\phi_a\geq\sup\phi\geq0\), so
+\(\psi_a:=\widehat{\phi_a}\in\cH_{\mathrm{hom}}(L_a)\) by
+\Cref{prop:homogenization-gf}, and \(\psi_a\searrow\widehat\phi\) by
+\Cref{lem:ch35-homogenization-maximal}\,(4).  The limit is finite at
+\(v_{\triv}\), being \(0\) by
+\eqref{eq:homogenization-fixed-point}, hence generically finite; so
+\Cref{thm:bj-basic-closure}\,(5) gives
+\(\widehat\phi\in\PSH_X(\theta)\), and it is homogeneous by
+\Cref{lem:ch35-homogenization-maximal}\,(1).  This is
+\cite[Corollary~6.17]{BJ22}.
+\end{proof}
+
+\begin{warning}{The hypothesis \(\sup\phi\geq0\) is not cosmetic}
+If \(\sup\phi<0\), then \(\widehat\phi\equiv-\infty\), which is not a psh
+function: \Cref{def:bj-psh} excludes it by generic finiteness.  Since
+\(\sup(\phi+c)=\sup\phi+c\), the hypothesis can always be arranged by
+adding a constant, but the resulting homogenization then depends on the
+constant: by \Cref{lem:ch35-action-basic}\,(3),
+\(\widehat{\phi+c}=\widehat\phi_{-c}\) in the notation
+\eqref{eq:homogeneous-legendre-slice} below, and these are genuinely
+different homogeneous functions.  The one-parameter family of Legendre
+slices exists precisely to keep track of that dependence.
+\end{warning}
+
+\begin{example}[Homogenizing a Fubini--Study function on \(\mathbf P^1\)]
+\label{ex:ch35-homogenize-p1}
+Continue \Cref{ex:ch35-p1-orbit} with
+\(\phi=\max\{\log|x|+a,\log|y|+b\}\) on \(X=\mathbf P^1\),
+\(L=\cO(1)\), and \(a,b\in\mathbf Q\).  Then \(m=1\),
+\(r=2\), \((\lambda_1,\lambda_2)=(a,b)\), and
+\(\sup\phi=\max\{a,b\}\).
+
+If \(a=b\), then \(\phi=\max\{\log|x|,\log|y|\}+a\) and
+\Cref{lem:ch35-elimination}\,(2) with \(\max\lambda_i=a\) applies after
+subtracting \(a\); one finds
+\(\widehat\phi=\max\{\log|x|,\log|y|\}=0\), since \(x,y\) have no common
+zero.  So the homogenization of a Fubini--Study function with equal weights
+is the zero function.
+
+If \(a>b\geq0\), then \(\min_i\lambda_i\geq0\).  Hence
+\Cref{lem:ch35-elimination}\,(2) gives
+\[
+ \widehat\phi=\max\{\log|x|,\log|y|\}=0
+\]
+again.
+
+The interesting case is \(a>0>b\).  Here
+\(g(x_1,x_2)=\inf_{t>0}\max\{x_1+at,\ x_2+bt\}\).  The two affine functions
+of \(t\) cross at \(t^*=(x_2-x_1)/(a-b)\), which is positive exactly when
+\(x_2>x_1\); since \(a>0>b\), the maximum is decreasing to the left of the
+crossing and increasing to its right, so
+\[
+ g(x)=
+ \begin{cases}
+  \dfrac{-b\,x_1+a\,x_2}{a-b},&x_2>x_1,\\[2mm]
+  x_1,&x_2\leq x_1 .
+ \end{cases}
+\]
+Both branches are linear with nonnegative coefficients summing to one, and
+\(g(x)=\max\bigl\{x_1,\ \tfrac{-b}{a-b}x_1+\tfrac{a}{a-b}x_2\bigr\}\), so
+\(W=\{(1,0),(\tfrac{-b}{a-b},\tfrac{a}{a-b})\}\subset\sigma\cap\mathbf Q^2\),
+confirming \Cref{lem:ch35-elimination}\,(3)--(4).  With
+\(a-b=:q\) and \(b=-p\), so that \(p,q>0\) and
+\(\tfrac{-b}{a-b}=p/q\), \(\tfrac a{a-b}=(q-p)/q\), Step 3 of the proof of
+\Cref{prop:homogenization-gf} produces the monomial sections
+\(s_1=x^q\) and \(s_2=x^{p}y^{q-p}\) in \(H^0(X,\cO(q))\) and
+\[
+ \widehat\phi=\tfrac1q\max\{\log|x^q|,\ \log|x^py^{q-p}|\}
+ =\max\bigl\{\log|x|,\ \tfrac pq\log|x|+\tfrac{q-p}q\log|y|\bigr\}.
+\]
+Evaluating on the ray \(s\,\ord_{[0:1]}\), where \(\log|x|=-s\) and
+\(\log|y|=0\), gives \(\widehat\phi(s\,\ord_{[0:1]})=-\tfrac pqs\), a linear
+function of \(s\) with slope \(-p/q=b/(a-b)\), whereas
+\(\phi(s\,\ord_{[0:1]})=\max\{-s+a,b\}\) is only piecewise affine.  The
+homogenization has replaced the broken graph by the linear function through
+the origin that lies below it and has the largest possible slope; this is
+exactly the geometric content of
+\Cref{lem:ch35-homogenization-maximal}\,(2).
+\end{example}
+
+\section{Determination by divisorial points}
+\label{sec:ch35-determination}
+
+Everything that follows --- the Legendre calculus, the b-divisor
+correspondence, and the reflection arguments of
+\Cref{chap:bj-reflection} --- rests on the ability to promote an inequality
+verified on the divisorial locus to an inequality on the whole
+analytification.  We prove that promotion here, isolate its single cited
+input, and show by example that it fails without plurisubharmonicity.
+
+\subsection{Why density is not enough}
+\label{sec:ch35-density-insufficient}
+
+\Cref{thm:triv-divisorial-density} says that \(X^{\divis}\) is dense in
+\(X^{\An}\).  Density gives the following implication, and no more.
+
+\begin{lemma}
+\label{lem:ch35-density-gives}
+Let \(D\subset Z\) be dense in a topological space \(Z\), let
+\(f:Z\to\Rbar\) be lower semicontinuous and \(g:Z\to\Rbar\) upper
+semicontinuous.  If \(f\leq g\) on \(D\), then \(f\leq g\) on \(Z\).
+\end{lemma}
+
+\begin{proof}
+Fix \(z\in Z\) and a net \((z_a)\) in \(D\) with \(z_a\to z\), which exists
+by density.  Then
+\[
+ f(z)\leq\liminf_af(z_a)\leq\liminf_ag(z_a)
+ \leq\limsup_ag(z_a)\leq g(z),
+\]
+by \Cref{prop:net-semicontinuity} applied to \(f\) and to \(g\).
+\end{proof}
+
+The hypothesis of \Cref{lem:ch35-density-gives} is the wrong way round for
+our purposes.  A psh function is upper semicontinuous, not lower
+semicontinuous, and we wish to compare it \emph{from below} against another
+upper-semicontinuous function.  The following example shows that the
+implication then fails outright, so
+\Cref{thm:ch35-divisorial-comparison} below is not a corollary of density.
+
+\begin{example}[An usc function not determined on \(X^{\divis}\)]
+\label{ex:ch35-usc-not-determined}
+Let \(X=\mathbf P^1_k\) and fix a closed point \(p\).  Recall from
+\Cref{ex:triv-p1-tree} that \(v_{p,\triv}\), the trivial semivaluation with
+support \(p\), is the endpoint of the ray through \(p\) and does not belong
+to \(X^{\divis}\).  Define
+\[
+ f:=\one_{\{v_{p,\triv}\}},
+ \qquad
+ g:=0 .
+\]
+Then \(f\) is upper semicontinuous: the set \(\{f\geq c\}\) is
+\(\{v_{p,\triv}\}\) for \(0<c\leq1\), which is closed because
+\(X^{\An}\) is Hausdorff by \Cref{thm:triv-berkovich-compactness}, it is
+\(X^{\An}\) for \(c\leq0\), and it is empty for \(c>1\).  Both \(f\) and
+\(g\) are upper semicontinuous, and \(f\leq g\) on
+\(X^{\divis}\), indeed \(f=0=g\) there.  Yet \(f(v_{p,\triv})=1>0=g(v_{p,\triv})\).
+
+Thus two upper-semicontinuous functions agreeing on the dense set
+\(X^{\divis}\) need not agree on \(X^{\An}\).  What fails for \(f\) is
+plurisubharmonicity: by
+\Cref{prop:ch35-homogeneous-normalization} a \(\theta\)-psh function attains
+its supremum at \(v_{\triv}\), whereas
+\(\sup f=1>0=f(v_{\triv})\).  Equivalently, \(f\) is not decreasing for the
+order \eqref{eq:semivaluation-order}, since
+\(v_{p,\triv}\geq v_{\triv}\) is false and in fact
+\(v_{\triv}\geq v_{p,\triv}\).
+\end{example}
+
+\subsection{The cited input}
+\label{sec:ch35-cited-input}
+
+One statement is imported.  It is proved in
+\Cref{chap:bj-test-configurations} at the level of test configurations, and
+it was already used in the proof of
+\Cref{thm:triv-divisorial-density}; we restate it here with its exact
+hypotheses so that the logical dependence of this section is visible.
+
+\begin{definition}[Rees valuations of a flag ideal]
+\label{def:ch35-rees-valuations}
+Let \(\mathfrak a\) be a flag ideal on \(X_{\triv}=X\times\mathbf A^1\), in
+the sense of \Cref{def:bj-flag-ideal}, and let
+\(\cX\to X_{\triv}\) be the normalized blowup of \(\mathfrak a\), an
+integrally closed test configuration.  The finite set
+\begin{equation}
+\label{eq:ch35-rees-set}
+ \Sigma_{\mathfrak a}
+ :=\{v_E\mid E\ \text{an irreducible component of}\ \cX_0\}
+ \subset X^{\divis}
+\end{equation}
+of divisorial points obtained from the components of the central fibre by
+Gauss extension \eqref{eq:triv-gauss-section} is the set of \emph{Rees
+valuations} of \(\mathfrak a\).
+\end{definition}
+
+\begin{proposition}
+\label{inp:ch35-effectivity}
+Let \(\cX\) be an integrally closed test configuration for \(X\) and let
+\(D\) be a vertical \(\mathbf Q\)-Cartier divisor on \(\cX\).  Then
+\(D\geq0\) if and only if \(\phi_D(v_E)\geq0\) for every irreducible
+component \(E\) of \(\cX_0\).
+\end{proposition}
+
+\begin{proof}
+This is \cite[Lemmas~1.23 and~2.8]{BJ22}; the argument is the one recalled
+in the proof of \Cref{thm:triv-divisorial-density}, namely that
+\(\sigma_{\cX}(v_E)=\ord_E(\cX_0)^{-1}\ord_E\), so that nonnegativity of
+\(\phi_D\) at the \(v_E\) is exactly the containment
+\(\cO_{\cX}(-D)\subset\cO_{\cX}\), which for an integrally closed
+\(\cX\) is equivalent to effectivity of \(D\).  Integral closedness is used
+and cannot be dropped: on a non-normal test configuration the ideal
+\(\cO(-D)\) need not be recovered from its valuative data.
+\end{proof}
+
+\subsection{Attainment of suprema on a finite set}
+\label{sec:ch35-attainment}
+
+\begin{lemma}
+\label{lem:ch35-finite-attainment}
+Let \(\mathfrak a\) be a flag ideal on \(X_{\triv}\) with associated PL
+function \(\phi_{\mathfrak a}\), and let
+\(\Sigma_{\mathfrak a}\subset X^{\divis}\) be its set of Rees valuations.
+Then
+\begin{equation}
+\label{eq:ch35-finite-attainment}
+ \sup_{X^{\An}}(\chi-\phi_{\mathfrak a})
+ =\max_{\Sigma_{\mathfrak a}}(\chi-\phi_{\mathfrak a})
+\end{equation}
+for every \(\chi\in\PL^+(X)\).  Consequently, for every
+\(\eta\in\PL(X)\) there is a finite set \(\Sigma\subset X^{\divis}\) such
+that
+\begin{equation}
+\label{eq:ch35-finite-attainment-general}
+ \sup_{X^{\An}}(\chi-\eta)=\max_\Sigma(\chi-\eta)
+ \qquad\text{for every }\chi\in\PL^+(X).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\emph{Step 1: reduction.}  Write \(\chi=m^{-1}\phi_{\mathfrak a'}\) for a
+flag ideal \(\mathfrak a'\) and \(m\in\mathbf Z_{>0}\), which is possible by
+the definition \eqref{eq:flag-ideal-function} of \(\PL^+(X)\).  Then
+\(\chi-\phi_{\mathfrak a}=m^{-1}(\phi_{\mathfrak a'}-\phi_{\mathfrak a^m})\)
+by the semiring identities \eqref{eq:flag-semiring}, and the Rees valuations
+of \(\mathfrak a^m\) coincide with those of \(\mathfrak a\), because the
+normalized blowups of \(\mathfrak a\) and \(\mathfrak a^m\) agree.  Since
+\(m^{-1}>0\) commutes with suprema by
+\Cref{lem:safe-supremum}, we may assume \(m=1\).
+
+\emph{Step 2: the value of the maximum.}  Let \(\cX\) be an integrally
+closed test configuration dominating the normalized blowups of both
+\(\mathfrak a\) and \(\mathfrak a'\), with components
+\((E_i)\) of \(\cX_0\).  Write
+\(\mathfrak a\cdot\cO_{\cX}=\cO_{\cX}(-D)\) with \(D\) a vertical
+\(\mathbf Q\)-Cartier divisor, so that
+\(\phi_{\mathfrak a}=\phi_D\) by \Cref{thm:tc-pl-correspondence}.  Since
+\(\sigma_{\cX}(v_{E_i})=\ord_{E_i}(\cX_0)^{-1}\ord_{E_i}\),
+\[
+ c:=\max_{\Sigma_{\mathfrak a}}(\phi_{\mathfrak a'}-\phi_{\mathfrak a})
+ =\max_i\frac{\ord_{E_i}(D)-\ord_{E_i}(\mathfrak a')}{\ord_{E_i}(\cX_0)} .
+\]
+Only the components of \(\cX_0\) that lie over the normalized blowup of
+\(\mathfrak a\) contribute; those are the members of
+\(\Sigma_{\mathfrak a}\) by \Cref{def:ch35-rees-valuations}, and the
+remaining components give the same value after pullback because
+\(\phi_{\mathfrak a}\) and \(\phi_{\mathfrak a'}\) are pulled back from
+lower models.
+
+\emph{Step 3: effectivity.}  Choose \(r\in\mathbf Z_{>0}\) with
+\(rc\in\mathbf Z\).  By construction
+\(\ord_{E_i}\bigl((\mathfrak a')^r\cdot(rc\,\cX_0-rD)\bigr)\geq0\) for every
+\(i\), so \Cref{inp:ch35-effectivity} applied to the vertical divisor
+\(rD-rc\,\cX_0-r\operatorname{div}(\mathfrak a')\) --- more precisely, the
+containment of ideals it expresses --- gives
+\[
+ (\mathfrak a')^r\cdot\bigl(rc\,\cX_0-rD\bigr)\subseteq\cO_{\cX}.
+\]
+Evaluating this containment at an arbitrary \(v\in X^{\An}\) through the
+Gauss extension \(\sigma_{\cX}(v)\), and using
+\(\sigma_{\cX}(v)(\cX_0)=1\), yields
+\[
+ r\,\sigma_{\cX}(v)(\mathfrak a')+rc\geq r\,\sigma_{\cX}(v)(\mathfrak a),
+\]
+that is, \(\phi_{\mathfrak a'}(v)-\phi_{\mathfrak a}(v)\leq c\).  Hence
+\(\sup_{X^{\An}}(\chi-\phi_{\mathfrak a})\leq c\), and the reverse
+inequality is trivial because
+\(\Sigma_{\mathfrak a}\subset X^{\An}\).  This proves
+\eqref{eq:ch35-finite-attainment}; it is
+\cite[Lemma~2.13]{BJ22}.
+
+\emph{Step 4: general \(\eta\in\PL(X)\).}  By
+\Cref{def:bj-pl-function} and the semiring identities
+\eqref{eq:flag-semiring}, we may write
+\(\eta=r(\phi_{\mathfrak a}-\rho)\) with \(r\in\mathbf Q_{>0}\),
+\(\mathfrak a\) a flag ideal, and \(\rho\in\PL^+(X)\).  Then, for
+\(\chi\in\PL^+(X)\),
+\[
+ \chi-\eta=r\bigl((r^{-1}\chi+\rho)-\phi_{\mathfrak a}\bigr),
+\]
+and \(r^{-1}\chi+\rho\in\PL^+(X)\) because \(\PL^+(X)\) is stable under
+sums and under multiplication by positive rationals.  Applying
+\eqref{eq:ch35-finite-attainment} with \(\Sigma:=\Sigma_{\mathfrak a}\) and
+using \Cref{lem:safe-supremum} once more gives
+\eqref{eq:ch35-finite-attainment-general}.
+\end{proof}
+
+\begin{lemma}
+\label{lem:ch35-attainment-psh}
+Let \(\eta\in\PL(X)\) and let \(\Sigma\subset X^{\divis}\) be as in
+\Cref{lem:ch35-finite-attainment}.  Then
+\begin{equation}
+\label{eq:ch35-attainment-psh}
+ \sup_{X^{\An}}(\phi-\eta)=\max_\Sigma(\phi-\eta)
+\end{equation}
+for every \(\theta\in N^1(X)\) and every \(\phi\in\PSH_X(\theta)\).
+\end{lemma}
+
+\begin{proof}
+Choose \(\omega\in\Amp(X)\) with \(\omega-\theta\) nef.  Then
+\(0\in\PSH_X(\omega-\theta)\) by \eqref{eq:psh-existence-cones}, and
+\Cref{thm:bj-basic-closure}\,(3) gives
+\(\PSH_X(\theta)\subseteq\PSH_X(\omega)\); so we may assume
+\(\theta=\omega\) is ample.  By \cite[Theorem~4.15\,(iii)]{BJ22} there is a
+decreasing net \((\phi_a)\) in
+\(\cH_{\mathrm{dom}}(\omega)\subset\PL(X)\cap\PSH_X(\omega)\) with
+\(\phi_a\searrow\phi\) pointwise, and
+\(\cH_{\mathrm{dom}}(\omega)\subset\PL^+(X)\) by
+\cite[(3.2)]{BJ22}.
+
+Fix \(v\in X^{\An}\).  For each \(a\),
+\Cref{lem:ch35-finite-attainment} gives
+\(\phi_a(v)-\eta(v)\leq\max_\Sigma(\phi_a-\eta)\).  Since
+\(\phi_a\searrow\phi\) pointwise and \(\Sigma\) is finite,
+\(\max_\Sigma(\phi_a-\eta)\searrow\max_\Sigma(\phi-\eta)\); the interchange
+of a decreasing limit with a maximum over a finite set is legitimate in
+\(\Rbar\) by \Cref{lem:extended-real-safe}\,(1) applied finitely often.
+Letting \(a\) increase gives
+\(\phi(v)-\eta(v)\leq\max_\Sigma(\phi-\eta)\), where the difference is
+defined because \(\eta\) is real valued.  Taking the supremum over
+\(v\) proves \(\leq\) in \eqref{eq:ch35-attainment-psh}, and \(\geq\) is
+trivial.
+\end{proof}
+
+\subsection{The comparison theorem}
+\label{sec:ch35-comparison}
+
+\begin{lemma}
+\label{lem:ch35-usc-inf-continuous}
+Let \(Z\) be a compact Hausdorff space and let
+\(h:Z\to[-\infty,C]\) be upper semicontinuous, \(C\in\mathbf R\).  Then the
+family
+\[
+ \mathcal G:=\{g\in C^0(Z)\mid g\geq h\}
+\]
+is nonempty, downward directed, and satisfies
+\(\inf_{g\in\mathcal G}g=h\) pointwise.  In particular \(h\) is the limit of
+a decreasing net of continuous functions.
+\end{lemma}
+
+\begin{proof}
+The constant \(C\) belongs to \(\mathcal G\), which is therefore nonempty,
+and \(\min\{g_1,g_2\}\in\mathcal G\) for \(g_1,g_2\in\mathcal G\), so
+\(\mathcal G\) is downward directed.  Clearly \(\inf\mathcal G\geq h\).
+
+For the reverse inequality fix \(z\in Z\) and \(c>h(z)\); we may assume
+\(c\leq C\), replacing \(c\) by \(\min\{c,C\}\) if necessary, which is still
+\(>h(z)\) unless \(h(z)=C\), in which case there is nothing to prove.  By
+upper semicontinuity there is an open \(U\ni z\) with \(h<c\) on \(U\).  A
+compact Hausdorff space is normal, so Urysohn's lemma provides a continuous
+\(u:Z\to[0,1]\) with \(u(z)=1\) and \(u=0\) on \(Z\setminus U\).  Put
+\[
+ g:=C+(c-C)u\in C^0(Z).
+\]
+On \(Z\setminus U\) we have \(g=C\geq h\).  On \(U\), \(u\in[0,1]\) and
+\(c\leq C\) give \(g\in[c,C]\), so \(g\geq c>h\).  Hence
+\(g\in\mathcal G\), and \(g(z)=c\).  Letting \(c\downarrow h(z)\) gives
+\(\inf_{\mathcal G}g\leq h(z)\).
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch35-divisorial-comparison}
+Let \(\theta\in N^1(X)\), let \(\phi\in\PSH_X(\theta)\), and let
+\(\eta:X^{\An}\to\mathbf R\cup\{-\infty\}\) be upper semicontinuous.  Then
+\begin{equation}
+\label{eq:ch35-divisorial-comparison}
+ \phi\leq\eta\ \text{on }X^{\divis}
+ \iff
+ \phi\leq\eta\ \text{on }X^{\An}.
+\end{equation}
+Equivalently, \(\phi\) is the smallest upper-semicontinuous extension of
+\(\phi|_{X^{\divis}}\) to \(X^{\An}\).
+\end{theorem}
+
+\begin{proof}
+The implication \(\Leftarrow\) is trivial.  We prove \(\Rightarrow\) in
+three steps of increasing generality.
+
+\emph{Step 1: \(\eta\in\PL(X)\).}  Let \(\Sigma\subset X^{\divis}\) be the
+finite set provided by \Cref{lem:ch35-finite-attainment} for \(\eta\).  By
+\Cref{lem:ch35-attainment-psh},
+\[
+ \sup_{X^{\An}}(\phi-\eta)=\max_\Sigma(\phi-\eta)\leq0,
+\]
+the last inequality because \(\Sigma\subset X^{\divis}\) and
+\(\phi\leq\eta\) there.  Hence \(\phi\leq\eta\) on \(X^{\An}\).
+
+\emph{Step 2: \(\eta\in C^0(X^{\An})\).}  By
+\eqref{eq:pl-stone-weierstrass}, \(\PL_{\mathbf R}(X)\) is uniformly dense
+in \(C^0(X^{\An})\); after multiplying by a suitable positive rational and
+using that \(\PL(X)\) is a \(\mathbf Q\)-vector space, we may pick
+\(\eta_j\in\PL(X)\) with \(\|\eta_j-\eta\|_\infty\leq1/j\).  Then
+\(\phi\leq\eta\leq\eta_j+1/j\) on \(X^{\divis}\), and
+\(\eta_j+1/j\in\PL(X)\); Step 1 gives
+\(\phi\leq\eta_j+1/j\) on \(X^{\An}\).  Letting \(j\to\infty\) gives
+\(\phi\leq\eta\) on \(X^{\An}\).
+
+\emph{Step 3: \(\eta\) upper semicontinuous.}  The function \(\eta\) is
+bounded above on the compact space \(X^{\An}\) by
+\Cref{cor:usc-attains-max}; if \(\eta\equiv-\infty\) then
+\(\phi\equiv-\infty\) on \(X^{\divis}\), which contradicts
+\Cref{thm:bj-basic-closure}\,(7), so this case does not occur unless
+\(\PSH_X(\theta)=\varnothing\).  By
+\Cref{lem:ch35-usc-inf-continuous} there is a decreasing net
+\((g_a)\) in \(C^0(X^{\An})\) with \(g_a\searrow\eta\) pointwise.  For each
+\(a\) we have \(\phi\leq\eta\leq g_a\) on \(X^{\divis}\), so Step 2 gives
+\(\phi\leq g_a\) on \(X^{\An}\).  Taking the infimum over \(a\) gives
+\(\phi\leq\eta\) on \(X^{\An}\).
+
+For the final sentence, let \(\eta\) be any upper-semicontinuous function on
+\(X^{\An}\) with \(\eta=\phi\) on \(X^{\divis}\).  Then
+\(\phi\leq\eta\) on \(X^{\An}\) by the theorem, so \(\phi\) is the smallest
+such extension.  This is \cite[Theorem~4.22]{BJ22}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch35-divisorial-determination}
+Let \(\theta,\theta'\in N^1(X)\), \(\phi\in\PSH_X(\theta)\),
+\(\phi'\in\PSH_X(\theta')\).  Then:
+\begin{enumerate}
+\item if \(\phi\leq\phi'\) on \(X^{\divis}\), then \(\phi\leq\phi'\) on
+ \(X^{\An}\);
+\item if \(\phi=\phi'\) on \(X^{\divis}\), then \(\phi=\phi'\) on
+ \(X^{\An}\);
+\item the topology on \(\PSH_X(\theta)\) of pointwise convergence on
+ \(X^{\divis}\) is Hausdorff;
+\item if \((\phi_a)\) is a net in \(\PSH_X(\theta)\) which is decreasing on
+ \(X^{\divis}\), then it is decreasing on \(X^{\An}\), and if its pointwise
+ limit on \(X^{\divis}\) is the restriction of some
+ \(\phi\in\PSH_X(\theta)\), then \(\phi_a\to\phi\) pointwise on
+ \(X^{\An}\).
+\end{enumerate}
+\par
+\end{corollary}
+
+\begin{proof}
+(1)  A \(\theta'\)-psh function is upper semicontinuous by
+\Cref{def:bj-psh}, so \Cref{thm:ch35-divisorial-comparison} applies with
+\(\eta=\phi'\).
+
+(2)  Apply (1) twice.
+
+(3)  Two distinct elements of \(\PSH_X(\theta)\) differ at some point of
+\(X^{\divis}\) by (2), and the evaluation maps at those points separate
+them; a topology of pointwise convergence for a separating family of maps
+into the Hausdorff space \(\Rbar\) is Hausdorff.
+
+(4)  Monotonicity of the net on \(X^{\An}\) is (1) applied to each pair
+\(a\leq a'\).  Let \(\chi\) be the pointwise limit on \(X^{\An}\); it is
+upper semicontinuous by \Cref{lem:usc-inf}, agrees with \(\phi\) on
+\(X^{\divis}\), and is therefore \(\geq\phi\) nowhere and \(\leq\) nowhere
+a priori.  Precisely: \(\chi\leq\phi_a\) for all \(a\), and
+\(\chi=\phi\) on \(X^{\divis}\), so \(\phi\leq\chi\) on \(X^{\An}\) by
+\Cref{thm:ch35-divisorial-comparison} applied with \(\eta=\chi\); on the
+other hand \(\chi\) is generically finite because
+\(\chi(v_{\triv})=\phi(v_{\triv})\) is finite, so
+\Cref{thm:bj-basic-closure}\,(4) gives \(\chi\in\PSH_X(\theta)\) and
+\(\chi\leq\phi\) on \(X^{\An}\) by
+\Cref{thm:ch35-divisorial-comparison} with the roles exchanged.  Hence
+\(\chi=\phi\).  This is \cite[Corollaries~4.23 and~4.25]{BJ22}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch35-zero-class}
+\(\PSH_{\mathrm{hom},X}(0)=\{0\}\).
+\end{corollary}
+
+\begin{proof}
+The function \(0\) is \(0\)-psh and homogeneous, so
+\(\{0\}\subseteq\PSH_{\mathrm{hom},X}(0)\).  Conversely let
+\(\psi\in\PSH_{\mathrm{hom},X}(0)\), so that \(\psi\leq0\) and
+\(\psi(v_{\triv})=0\) by
+\Cref{prop:ch35-homogeneous-normalization}.  For every integer
+\(m\geq1\), \Cref{thm:bj-basic-closure}\,(3) gives
+\(m\psi\in\PSH_X(m\cdot0)=\PSH_X(0)\), and \(m\psi\) is homogeneous.  The
+sequence \((m\psi)_m\) is decreasing, because \(\psi\leq0\), and its
+pointwise limit \(\chi:=\inf_m m\psi\) satisfies
+\(\chi(v_{\triv})=0\), hence is generically finite; so
+\(\chi\in\PSH_X(0)\) by \Cref{thm:bj-basic-closure}\,(4).
+
+By \Cref{thm:bj-basic-closure}\,(7), \(\chi\) is finite at every point of
+\(X^{\divis}\).  But \(\chi(v)=-\infty\) at any \(v\) with
+\(\psi(v)<0\).  Hence \(\psi=0\) on \(X^{\divis}\), and
+\Cref{cor:ch35-divisorial-determination}\,(2) gives \(\psi=0\) on
+\(X^{\An}\).  Compare \cite[Corollary~4.24]{BJ22}, which proves the stronger
+statement \(\PSH_X(0)=\mathbf R\) for connected \(X\).
+\end{proof}
+
+\begin{warning}{Determination is not continuity of evaluation}
+\Cref{cor:ch35-divisorial-determination} says that the restriction map
+\(\PSH_X(\theta)\to\Rbar^{X^{\divis}}\) is injective.  It does not say that
+the inverse is continuous, and it does not say that convergence on
+\(X^{\divis}\) implies convergence at every analytic point.  The distinction
+matters at proper-support points, where a limit of psh functions may drop.
+\end{warning}
+
+\begin{example}[Evaluation is not continuous]
+\label{ex:ch35-evaluation-discontinuous}
+Let \(X=\mathbf P^1_k\), \(L=\cO(1)\) with homogeneous coordinates
+\(x,y\), and \(p=[0:1]\), so that \(p\) is the zero of \(x\).  For
+\(m\geq1\) set
+\[
+ \phi_m:=\max\bigl\{\tfrac1m\log|x|,\ -1\bigr\}
+ \in\cH_{\mathbf Q}\bigl(\tfrac1mL\bigr)
+ \subset\PSH_X\bigl(\tfrac1m c_1(L)\bigr)
+ \subset\PSH_X(c_1(L)),
+\]
+the last inclusion by \eqref{eq:psh-existence-cones} because
+\((1-\tfrac1m)c_1(L)\) is ample and \(0\) is psh for it.
+
+On the ray through \(p\) one has
+\(\phi_m(s\,\ord_p)=\max\{-s/m,-1\}\to0\) as \(m\to\infty\), for each fixed
+\(s<\infty\); on every other ray \(\phi_m=\max\{0,-1\}=0\); and
+\(\phi_m(v_{\triv})=0\).  Hence \(\phi_m\to0\) pointwise on
+\(X^{\divis}\), that is, \(\phi_m\to0\) in \(\PSH_X(c_1(L))\).
+
+At the proper-support point \(v_{p,\triv}\), however,
+\(\log|x|(v_{p,\triv})=-\infty\) because \(x\) lies in the support ideal,
+so
+\[
+ \phi_m(v_{p,\triv})=\max\{-\infty,-1\}=-1
+ \qquad\text{for every }m .
+\]
+Thus \(\phi_m\to0\) in \(\PSH_X(c_1(L))\) while
+\(\lim_m\phi_m(v_{p,\triv})=-1\neq0\).  Evaluation at
+\(v_{p,\triv}\) is therefore not continuous.  It is upper semicontinuous, in
+accordance with \cite[Corollary~4.29]{BJ22}: the limit \(0\) dominates
+\(\limsup_m\phi_m=-1\) at that point.
+
+The example also shows that the sequence \((\phi_m)\) is \emph{not}
+monotone; had it been decreasing,
+\Cref{cor:ch35-divisorial-determination}\,(4) would have forced pointwise
+convergence everywhere.  Indeed \(\phi_m\) increases with \(m\), and
+increasing nets are exactly what the envelope property is about.
+\end{example}
+
+\begin{remark}[Where the theorem is used]
+\label{rem:ch35-determination-uses}
+\Cref{thm:ch35-divisorial-comparison} is invoked at the following places in
+this part, and each use should be read as a use of
+plurisubharmonicity, not of density.  In
+\Cref{thm:ch35-homogeneous-siu} it upgrades
+\eqref{eq:ch35-siu-slice-bound} and the final identity from
+\(X^{\divis}\) to \(X^{\An}\).  In
+\Cref{thm:bj-real-cartier-realization} it extends the ordering of the
+rational stages and identifies the realization.  In
+\Cref{thm:bj-homogeneous-reflection} and
+\Cref{thm:bj-carrier-reflection} it converts equalities of divisorial traces
+into equalities of functions.  In
+\Cref{thm:ch35-cartier-psh-criterion} and
+\Cref{thm:bj-nef-bdivisor-correspondence} it identifies the coefficient
+function of a b-divisor with an honest psh function on the analytification.
+In each case the smaller function is psh and the larger one is merely upper
+semicontinuous, which is the exact shape of
+\eqref{eq:ch35-divisorial-comparison}.
+\end{remark}
+
+\section{Legendre slices, test curves, and carriers}
+\label{sec:ch35-legendre}
+
+\subsection{The slices}
+\label{sec:ch35-slices}
+
+For \(\lambda\in\mathbf R\), define the homogeneous Legendre slice
+\begin{equation}
+\label{eq:homogeneous-legendre-slice}
+ \widehat\phi_\lambda
+   :=\inf_{t>0}\{t\cdot\phi-t\lambda\}.
+\end{equation}
+It is the largest homogeneous \(\psi\) satisfying
+\(\psi+\lambda\leq\phi\).
+
+\begin{lemma}
+\label{lem:ch35-slice-basic}
+Let \(\phi,\phi':X^{\An}\to\mathbf R\cup\{-\infty\}\), let
+\(\lambda,\mu,c\in\mathbf R\), and let \(s,a>0\).  Then:
+\begin{enumerate}
+\item \(\widehat\phi_\lambda=\widehat{\phi-\lambda}\) whenever
+ \(\phi-\lambda\) is defined, and in all cases
+ \(\widehat\phi_\lambda\) is homogeneous and is the largest homogeneous
+ function \(\psi\) with \(\psi+\lambda\leq\phi\);
+\item \(\widehat\phi_0=\widehat\phi\), and \(\lambda\mapsto\widehat\phi_\lambda\)
+ is nonincreasing;
+\item \(\widehat{\phi+c}_{\,\lambda}=\widehat\phi_{\lambda-c}\) and
+ \(\widehat{a\phi}_{\,\lambda}=a\,\widehat\phi_{\lambda/a}\);
+\item \(\widehat{s\cdot\phi}_{\,\lambda}=\widehat\phi_{\lambda/s}\);
+\item \(\phi\leq\phi'\) implies
+ \(\widehat\phi_\lambda\leq\widehat{\phi'}_\lambda\), and
+ \(\phi_a\searrow\phi\) implies
+ \(\widehat{(\phi_a)}_\lambda\searrow\widehat\phi_\lambda\);
+\item for each \(v\in X^{\An}\), the map
+ \(\lambda\mapsto\widehat\phi_\lambda(v)\) is concave and nonincreasing on
+ \(\mathbf R\), with values in \(\mathbf R\cup\{-\infty\}\).
+\end{enumerate}
+\par
+\end{lemma}
+
+\begin{proof}
+(1)  If \(\phi-\lambda\) is defined, that is, if \(\lambda\) is finite,
+then \(t\cdot(\phi-\lambda)=t\cdot\phi-t\lambda\) by
+\Cref{lem:ch35-action-basic}\,(3); taking the infimum over \(t\) gives
+\(\widehat{\phi-\lambda}=\widehat\phi_\lambda\).  Since
+\(\lambda\in\mathbf R\) always, this is the general case, and the extremal
+description follows from
+\Cref{lem:ch35-homogenization-maximal}\,(1)--(2) applied to
+\(\phi-\lambda\): a homogeneous \(\psi\) satisfies \(\psi+\lambda\leq\phi\)
+if and only if \(\psi\leq\phi-\lambda\), a legitimate rearrangement because
+\(\lambda\) is finite, and this is ledger entry (2) of
+\Cref{sec:extended-arithmetic}.
+
+(2)  Immediate from (1) and monotonicity of
+\(\lambda\mapsto\phi-\lambda\) together with
+\Cref{lem:ch35-homogenization-maximal}\,(3).
+
+(3)  \(\widehat{\phi+c}_{\,\lambda}=\widehat{\phi+c-\lambda}
+=\widehat{\phi-(\lambda-c)}=\widehat\phi_{\lambda-c}\).  For the second,
+\(\widehat{a\phi}_{\,\lambda}=\widehat{a\phi-\lambda}
+=\widehat{a(\phi-\lambda/a)}=a\widehat{\phi-\lambda/a}
+=a\widehat\phi_{\lambda/a}\), using
+\Cref{lem:ch35-homogenization-maximal}\,(5).
+
+(4)  By \Cref{lem:ch35-action-basic}\,(1) and (3),
+\[
+ \widehat{s\cdot\phi}_{\,\lambda}
+ =\inf_{t>0}\{t\cdot(s\cdot\phi)-t\lambda\}
+ =\inf_{t>0}\{(ts)\cdot\phi-t\lambda\}
+ =\inf_{u>0}\{u\cdot\phi-u(\lambda/s)\}
+ =\widehat\phi_{\lambda/s},
+\]
+substituting \(u=ts\).
+
+(5)  Both follow from (1) and
+\Cref{lem:ch35-homogenization-maximal}\,(3)--(4).
+
+(6)  For fixed \(v\) and \(t>0\), the map
+\(\lambda\mapsto(t\cdot\phi)(v)-t\lambda\) is affine and nonincreasing, with
+values in \(\mathbf R\cup\{-\infty\}\).  An infimum of a family of
+nonincreasing affine functions is concave and nonincreasing; concavity is
+the statement that, for \(0<\sigma<1\) and
+\(\lambda=(1-\sigma)\lambda_0+\sigma\lambda_1\),
+\[
+ (t\cdot\phi)(v)-t\lambda
+ =(1-\sigma)\bigl[(t\cdot\phi)(v)-t\lambda_0\bigr]
+ +\sigma\bigl[(t\cdot\phi)(v)-t\lambda_1\bigr]
+ \geq(1-\sigma)\widehat\phi_{\lambda_0}(v)+\sigma\widehat\phi_{\lambda_1}(v),
+\]
+after which one takes the infimum over \(t\).  The manipulation is valid in
+\(\mathbf R\cup\{-\infty\}\): if \((t\cdot\phi)(v)=-\infty\) all three
+displayed quantities are \(-\infty\), and if one of
+\(\widehat\phi_{\lambda_j}(v)\) is \(-\infty\) then the right-hand side is
+\(-\infty\) and the inequality is trivial.  The endpoint cases are
+tautological; treating them separately avoids the undefined product
+\(0\cdot(-\infty)\).
+\end{proof}
+
+\subsection{The trichotomy and the endpoint}
+\label{sec:ch35-trichotomy}
+
+\begin{proposition}
+\label{prop:ch35-slice-trichotomy}
+Let \(\theta\in N^1(X)\), \(\phi\in\PSH_X(\theta)\), and
+\(b:=\sup\phi=\phi(v_{\triv})\in\mathbf R\).  Then:
+\begin{enumerate}
+\item if \(\lambda\leq\inf_{X^{\An}}\phi\), then \(\widehat\phi_\lambda=0\);
+\item if \(\lambda\leq b\), then
+ \(\widehat\phi_\lambda\in\PSH_{\mathrm{hom},X}(\theta)\), and it admits a
+ decreasing regularization by functions in \(\cH_{\mathrm{hom}}(L_a)\) with
+ \(c_1(L_a)\to\theta\);
+\item if \(\lambda>b\), then \(\widehat\phi_\lambda\equiv-\infty\).
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+(1)  If \(\lambda\leq\inf\phi\), then \(0+\lambda\leq\phi\) and \(0\) is
+homogeneous, so \(0\leq\widehat\phi_\lambda\) by the extremal
+characterization in \Cref{lem:ch35-slice-basic}\,(1).  On the other hand
+\(\widehat\phi_\lambda\leq0\) always, because
+\(\widehat\phi_\lambda(v_{\triv})\in\{0,-\infty\}\) by homogeneity and
+\(\widehat\phi_\lambda\) is decreasing by
+\Cref{cor:ch35-homogenization-alternative} applied to \(\phi-\lambda\).
+
+(2)  By \Cref{lem:ch35-slice-basic}\,(1),
+\(\widehat\phi_\lambda=\widehat{\phi-\lambda}\), and
+\(\phi-\lambda\in\PSH_X(\theta)\) with
+\(\sup(\phi-\lambda)=b-\lambda\geq0\).  Now apply
+\Cref{cor:ch35-homogenization-psh}.
+
+(3)  If \(\lambda>b\), then \(\sup(\phi-\lambda)=b-\lambda<0\) and
+\Cref{cor:ch35-homogenization-alternative} gives
+\(\widehat{\phi-\lambda}\equiv-\infty\).
+\end{proof}
+
+\begin{lemma}
+\label{lem:ch35-slice-continuity}
+Let \(\theta\in N^1(X)\), \(\phi\in\PSH_X(\theta)\) and \(b=\sup\phi\).
+Then for every \(v\in X^{\divis}\) the map
+\(\lambda\mapsto\widehat\phi_\lambda(v)\) is real valued, concave and
+nonincreasing on \((-\infty,b]\), and continuous there; in particular
+\begin{equation}
+\label{eq:ch35-endpoint-continuity}
+ \widehat\phi_b=\inf_{\lambda<b}\widehat\phi_\lambda
+ =\lim_{\lambda\uparrow b}\widehat\phi_\lambda
+\end{equation}
+pointwise on \(X^{\divis}\), and hence, by
+\Cref{cor:ch35-divisorial-determination}, on all of \(X^{\An}\).
+\end{lemma}
+
+\begin{proof}
+Finiteness on \(X^{\divis}\) is \Cref{thm:bj-basic-closure}\,(7) applied to
+\(\widehat\phi_\lambda\in\PSH_{\mathrm{hom},X}(\theta)\), which is available
+for \(\lambda\leq b\) by \Cref{prop:ch35-slice-trichotomy}\,(2).  Concavity
+and monotonicity are \Cref{lem:ch35-slice-basic}\,(6).  Applying
+\Cref{lem:concave-on-body}\,(3) on each compact interval
+\(\Delta=[c,b]\subset\mathbf R\), whose relative interior is \((c,b)\), and
+letting \(c\to-\infty\) shows that
+\(\lambda\mapsto\widehat\phi_\lambda(v)\) is continuous on
+\((-\infty,b)\); the hypotheses of that lemma are met because the function
+is finite there and concave, hence proper and, being finite and concave on
+an open interval, upper semicontinuous.
+
+Only the endpoint \(\lambda=b\) remains.  Put
+\(\psi:=\inf_{\lambda<b}\widehat\phi_\lambda\), a decreasing limit of
+functions in \(\PSH_{\mathrm{hom},X}(\theta)\) by
+\Cref{lem:ch35-slice-basic}\,(2).  Each of them vanishes at
+\(v_{\triv}\) by \Cref{prop:ch35-homogeneous-normalization}, hence so does
+\(\psi\); in particular \(\psi\) is generically finite and
+\Cref{thm:bj-basic-closure}\,(4) gives \(\psi\in\PSH_X(\theta)\).  It is
+homogeneous, being an infimum of homogeneous functions.  Thus
+\(\psi\in\PSH_{\mathrm{hom},X}(\theta)\).
+
+Clearly \(\widehat\phi_b\leq\psi\) by monotonicity.  For the reverse
+inequality, note that for every \(\lambda<b\) we have
+\(\psi\leq\widehat\phi_\lambda\leq\phi-\lambda\), whence
+\(\psi\leq\phi-\lambda\) for all \(\lambda<b\) and therefore
+\(\psi\leq\phi-b\).  Here the subtraction is legitimate because
+\(\lambda,b\in\mathbf R\).  Since \(\psi\) is homogeneous, the extremal
+characterization of \Cref{lem:ch35-slice-basic}\,(1) gives
+\(\psi\leq\widehat\phi_b\).  Hence \(\psi=\widehat\phi_b\), which is
+\eqref{eq:ch35-endpoint-continuity} and the asserted continuity at the
+endpoint.  This is \cite[Lemma~6.23]{BJ22}.
+\end{proof}
+
+\begin{theorem}\label{thm:homogeneous-legendre-decomposition}
+Let \(\phi\in\PSH_X(\theta)\) and \(b=\sup\phi\).  Then:
+\begin{enumerate}
+\item \(\widehat\phi_\lambda\in
+      \PSH_{\mathrm{hom},X}(\theta)\) for \(\lambda\leq b\), and it is
+      identically \(-\infty\) for \(\lambda>b\);
+\item \(\lambda\mapsto\widehat\phi_\lambda(v)\) is decreasing and concave,
+      and is continuous on \((-\infty,b]\) on divisorial points;
+\item pointwise on all of \(X^{\An}\),
+\begin{equation}
+\label{eq:legendre-reconstruction-bj}
+                   \phi=\sup_{\lambda\leq b}
+                         \{\widehat\phi_\lambda+\lambda\}.
+\end{equation}
+\end{enumerate}
+\par
+\end{theorem}
+
+\begin{proof}[Scalar Legendre duality]
+For fixed \(v\), the map \(t\mapsto(t\cdot\phi)(v)\) is convex; this follows
+first from the finite maximum \eqref{eq:scaling-fs-weights}, then by
+decreasing regularization.  Its negative Legendre transform is
+\(\lambda\mapsto\widehat\phi_\lambda(v)\).  Fenchel--Moreau duality at
+\(t=1\) gives \eqref{eq:legendre-reconstruction-bj}.  Concavity and
+monotonicity are immediate from the infimum of affine functions of
+\(\lambda\).  The psh statement follows by applying
+\Cref{prop:homogenization-gf} to a decreasing GF regularization
+of \(\phi-\lambda\), using the decreasing-limit axiom and the value zero at
+\(v_{X,\triv}\) to exclude the identically \(-\infty\) alternative at the
+endpoint.  See \cite[Lemma~6.23 and Theorem~6.24]{BJ22}.
+
+In detail, (1) is \Cref{prop:ch35-slice-trichotomy}\,(2)--(3), and (2) is
+\Cref{lem:ch35-slice-basic}\,(6) together with
+\Cref{lem:ch35-slice-continuity}.  We prove (3).
+
+Fix \(v\in X^{\An}\) and set
+\[
+ F(t):=(t\cdot\phi)(v)=t\,\phi(t^{-1}v),\qquad t>0 .
+\]
+By \Cref{prop:ch35-scaling-convex}, \(F\) is convex on
+\(\mathbf R_{>0}\) with values in \(\mathbf R\cup\{-\infty\}\), and by
+\eqref{eq:ch35-orbit-slope-bound} it satisfies \(F(t)\leq bt\).  Extend
+\(F\) to \(\mathbf R\) by \(F(t):=+\infty\) for \(t\leq0\).  Two cases
+occur.
+
+\emph{Case A: \(F\equiv-\infty\) on \(\mathbf R_{>0}\).}  Then
+\(\phi(t^{-1}v)=-\infty\) for every \(t>0\); taking \(t=1\) gives
+\(\phi(v)=-\infty\).  On the other hand
+\(\widehat\phi_\lambda(v)\leq F(1)-\lambda=-\infty\) for every
+\(\lambda\), so both sides of
+\eqref{eq:legendre-reconstruction-bj} equal \(-\infty\) at \(v\), the
+right-hand side by \Cref{lem:extended-real-safe}\,(1).
+
+\emph{Case B: \(F(t_0)>-\infty\) for some \(t_0>0\).}  Then \(-F\) is a
+proper concave function on \(\mathbf R\) in the sense of
+\Cref{def:appD-proper-closed}, that is, \(F\) is a proper convex function.
+By \eqref{eq:homogeneous-legendre-slice},
+\[
+ \widehat\phi_\lambda(v)=\inf_{t>0}\{F(t)-t\lambda\}
+ =-\sup_{t>0}\{t\lambda-F(t)\}=-F^*(\lambda),
+\]
+with \(F^*\) the convex conjugate \eqref{eq:appD-conjugate}; the extension
+of \(F\) by \(+\infty\) on \(t\leq0\) does not change the supremum,
+because for \(t\leq0\) the quantity \(t\lambda-F(t)=-\infty\).  Hence
+\[
+ \sup_{\lambda\in\mathbf R}\{\widehat\phi_\lambda(v)+\lambda\}
+ =\sup_{\lambda\in\mathbf R}\{\lambda\cdot1-F^*(\lambda)\}
+ =F^{**}(1).
+\]
+The function \(F\) is convex and, by
+\Cref{prop:ch35-scaling-convex} once more, its restriction to
+\(\mathbf R_{>0}\) is the decreasing limit of the convex functions
+\(t\mapsto(t\cdot\phi_a)(v)\) attached to a regularizing net, each of which
+is a finite maximum of affine functions and hence lower semicontinuous;
+being a decreasing limit of lower semicontinuous convex functions, \(F\) is
+convex, and it is lower semicontinuous at every point of
+\(\mathbf R_{>0}\) because a convex function that is finite somewhere on an
+open interval is continuous on the interior of its effective domain and its
+effective domain is an interval.  A closer look is needed only where the
+effective domain meets its boundary, and the point \(t=1\) is interior to
+\(\mathbf R_{>0}\); by \Cref{thm:appD-fenchel-moreau},
+\(F^{**}=\overline F\), and \(\overline F(1)=F(1)\) whenever \(F\) is lower
+semicontinuous at \(1\), which holds because \(1\) lies in the interior of
+\(\mathbf R_{>0}\) and \(\overline F\) agrees with \(F\) on the relative
+interior of the effective domain of \(F\), all boundary values being at
+worst decreased.  Therefore
+\[
+ \sup_{\lambda\in\mathbf R}\{\widehat\phi_\lambda(v)+\lambda\}
+ =F(1)=\phi(v).
+\]
+Finally, the supremum over all \(\lambda\in\mathbf R\) may be restricted to
+\(\lambda\leq b\), because \(\widehat\phi_\lambda\equiv-\infty\) for
+\(\lambda>b\) by (1), and such terms do not contribute to a supremum in
+\(\mathbf R\cup\{-\infty\}\).  This proves
+\eqref{eq:legendre-reconstruction-bj} at \(v\).
+
+Since \(v\) was arbitrary, \eqref{eq:legendre-reconstruction-bj} holds
+pointwise on all of \(X^{\An}\), including at proper-support
+semivaluations, and no upper-semicontinuous regularization has been applied
+to the right-hand side.
+\end{proof}
+
+\begin{warning}{No star, and why that matters}
+The right-hand side of \eqref{eq:legendre-reconstruction-bj} is a supremum
+of a family of \(\theta\)-psh functions, and such a supremum is in general
+neither upper semicontinuous nor psh: that is the content of the envelope
+problem, \Cref{def:bj-envelope-property}.  What
+\Cref{thm:homogeneous-legendre-decomposition} asserts is that for
+\emph{this particular} family the supremum is already equal to
+\(\phi\) pointwise, hence automatically upper semicontinuous and psh.  The
+reason is visible in the proof: each competitor satisfies
+\(\widehat\phi_\lambda+\lambda\leq\phi\) by construction, so the supremum is
+squeezed between a family of minorants and \(\phi\), and scalar
+biconjugation shows there is no gap.  No envelope theorem is used, and this
+is why \Cref{chap:bj-reflection} may use the decomposition inside the proof
+of the envelope theorem itself.
+\end{warning}
+
+\begin{remark}[The family is a concave test curve]
+\label{rem:ch35-test-curve}
+Let \(\mathcal C\) be the ordered convex cone
+\(\PSH_{\mathrm{hom},X}(\theta)\cup\{-\infty\}\) of extended-real functions
+on \(X=X^{\An}\), with the pointwise order.  By
+\Cref{lem:ch35-slice-basic}\,(6) and
+\Cref{prop:ch35-slice-trichotomy}, the family
+\[
+ \lambda\longmapsto\psi_\lambda:=\widehat\phi_\lambda,
+ \qquad\lambda\in\mathbf R,
+\]
+is nonincreasing, concave in the sense of
+\eqref{eq:appD-test-curve-concavity}, and pointwise upper semicontinuous in
+\(\lambda\), by \Cref{lem:ch35-slice-continuity} at the only place where
+semicontinuity is at issue.  It is therefore a concave test curve in the
+sense of \Cref{def:appD-test-curve}, and
+\eqref{eq:legendre-reconstruction-bj} is the value at \(t=1\) of its formal
+Legendre ray \eqref{eq:appD-test-curve-ray}
+\[
+ \ell_t=\sup_{\lambda\in\mathbf R}\{\psi_\lambda+t\lambda\}.
+\]
+Indeed \(\ell_t=t\cdot\phi\) for every \(t>0\): apply
+\eqref{eq:legendre-reconstruction-bj} to \(t\cdot\phi\), whose slices are
+\(\widehat{t\cdot\phi}_{\,\mu}=\widehat\phi_{\mu/t}\) by
+\Cref{lem:ch35-slice-basic}\,(4), and substitute \(\mu=t\lambda\).  Thus the
+scaling orbit of \(\phi\) \emph{is} the Legendre ray of its slice family,
+which is the precise form of the analogy with the Ross--Witt Nystr\"om
+correspondence between test curves and geodesic rays
+\cite{RWN14}; see \Cref{chap:rays-test-curves} for the complex
+counterpart and \Cref{chap:rays-filtrations} for the comparison.
+\end{remark}
+
+\begin{proposition}
+\label{prop:ch35-phimax}
+Let \(\phi\in\PSH_X(\theta)\), \(b=\sup\phi\), and set
+\begin{equation}
+\label{eq:ch35-phimax}
+ \widehat\phi_{\max}:=\widehat\phi_b\in\PSH_{\mathrm{hom},X}(\theta).
+\end{equation}
+Then:
+\begin{enumerate}
+\item \(\widehat\phi_{\max}\) is the largest homogeneous function
+ \(\psi\) with \(\psi\leq\phi-b\), and
+ \(\widehat{(\phi+c)}_{\max}=\widehat\phi_{\max}\) for every
+ \(c\in\mathbf R\);
+\item \(\widehat\phi_{\max}=0\) if and only if \(\phi\) is constant;
+\item for every \(v\in X^{\An}\),
+\begin{equation}
+\label{eq:ch35-gateaux}
+ \widehat\phi_{\max}(v)
+ =\lim_{s\downarrow0}\frac{\phi(sv)-\phi(v_{\triv})}{s},
+\end{equation}
+the limit existing in \(\mathbf R\cup\{-\infty\}\) and being monotone.
+\end{enumerate}
+\par
+\end{proposition}
+
+\begin{proof}
+(1)  The first assertion is \Cref{lem:ch35-slice-basic}\,(1) at
+\(\lambda=b\).  For the second,
+\(\sup(\phi+c)=b+c\) and
+\(\widehat{(\phi+c)}_{\,b+c}=\widehat\phi_{(b+c)-c}=\widehat\phi_b\) by
+\Cref{lem:ch35-slice-basic}\,(3).
+
+(2)  If \(\phi\) is constant, then \(\phi-b=0\) and the largest homogeneous
+minorant of \(0\) is \(0\).  Conversely, if
+\(\widehat\phi_{\max}=0\), then \(0\leq\phi-b\), that is,
+\(\phi\geq b=\sup\phi\), so \(\phi\equiv b\).
+
+(3)  Replacing \(\phi\) by \(\phi-b\) changes neither side, by (1) and by
+\(\phi(v_{\triv})=b\); so assume \(b=0\), that is,
+\(\phi\leq0\) and \(\phi(v_{\triv})=0\).  By
+\Cref{prop:ch35-scaling-convex}, \(t\mapsto(t\cdot\phi)(v)\) is then
+nonincreasing, so
+\[
+ \widehat\phi_{\max}(v)=\widehat\phi_0(v)=\widehat\phi(v)
+ =\inf_{t>0}(t\cdot\phi)(v)=\lim_{t\to+\infty}t\,\phi(t^{-1}v)
+ =\lim_{s\downarrow0}\frac{\phi(sv)}{s},
+\]
+with \(s=t^{-1}\); the middle equality is
+\Cref{lem:monotone-net-converges}.  Since \(\phi(v_{\triv})=0\), this is
+\eqref{eq:ch35-gateaux}.  This is \cite[Lemma~6.29]{BJ22}.
+\end{proof}
+
+\begin{example}[A Legendre pair computed on \(\mathbf P^1\)]
+\label{ex:ch35-legendre-pair-p1}
+Let \(X=\mathbf P^1_k\), \(L=\cO(1)\), \(\theta=c_1(L)\), and
+\[
+ \phi=\max\{\log|x|,\ \log|y|-1\}
+ \in\cH_{\mathbf Q}(L)\subset\PSH_X(\theta),
+\]
+the function \eqref{eq:p1-fs} with \(a=0\), \(b=-1\).  Write
+\(p=[0:1]\) and \(q=[1:0]\).  In the trivialization by \(y\) near \(p\) one
+has \(\log|x|(s\,\ord_p)=-s\) and \(\log|y|=0\); in the trivialization by
+\(x\) near \(q\) one has \(\log|y|(s\,\ord_q)=-s\) and \(\log|x|=0\).
+Hence
+\[
+ \phi(s\,\ord_p)=\max\{-s,-1\},
+ \qquad
+ \phi(s\,\ord_q)=\max\{0,-s-1\}=0,
+\]
+and \(\phi\equiv0\) on every other ray.  Thus \(\sup\phi=0=b\),
+\(\inf\phi=-1\).
+
+\emph{The slices.}  Fix \(\lambda\leq0\).  A homogeneous function
+\(\psi\) on \(X^{\An}\) is determined by its slopes
+\(c_r:=-\psi(\ord_r)\geq0\) on each ray, and
+\(\psi+\lambda\leq\phi\) reads
+\[
+ -c_ps+\lambda\leq\max\{-s,-1\}\ \ (s\geq0),
+ \qquad
+ -c_rs+\lambda\leq0\ \ (r\neq p,\ s\geq0).
+\]
+For \(r\neq p\) the constraint at \(s=0\) gives \(\lambda\leq0\), which
+holds, and for \(s>0\) it is implied; the largest admissible slope is
+therefore \(c_r=0\), so \(\widehat\phi_\lambda\) vanishes off the ray
+through \(p\).  On that ray, the constraint at \(s\geq1\) reads
+\(-c_ps+\lambda\leq-1\), that is,
+\(c_p\geq(\lambda+1)/s\) for all \(s\geq1\), i.e.
+\(c_p\geq\lambda+1\) when \(\lambda\geq-1\) and no constraint when
+\(\lambda<-1\); the constraint for \(0\leq s\leq1\) reads
+\(-c_ps+\lambda\leq-s\), that is,
+\((1-c_p)s\leq-\lambda\) for \(0\leq s\leq1\), which is implied by
+\(1-c_p\leq-\lambda\), i.e. \(c_p\geq1+\lambda\), the same condition.
+Taking the smallest admissible \(c_p\), that is, the largest
+\(\psi\),
+\[
+ \widehat\phi_\lambda(s\,\ord_p)=-\max\{0,\ 1+\lambda\}\,s,
+ \qquad
+ \widehat\phi_\lambda=0\ \text{on all other rays},
+\]
+for \(\lambda\leq0\); and \(\widehat\phi_\lambda\equiv-\infty\) for
+\(\lambda>0\).  In particular
+\[
+ \widehat\phi_\lambda=0\ (\lambda\leq-1),
+ \qquad
+ \widehat\phi_{\max}=\widehat\phi_0=\log|\mathfrak m_p|
+\]
+in the notation of \Cref{ex:ch35-point-ideal-p1}.  The function
+\(\lambda\mapsto\widehat\phi_\lambda(\ord_p)=-\max\{0,1+\lambda\}\) is
+concave, nonincreasing, continuous on \((-\infty,0]\), and identically zero
+for \(\lambda\leq-1=\inf\phi\), as
+\Cref{prop:ch35-slice-trichotomy}\,(1) and
+\Cref{lem:ch35-slice-continuity} require.
+
+\emph{The reconstruction.}  On the ray through \(p\),
+\[
+ \sup_{\lambda\leq0}\{\widehat\phi_\lambda(s\,\ord_p)+\lambda\}
+ =\sup_{\lambda\leq0}\{-\max\{0,1+\lambda\}s+\lambda\} .
+\]
+For \(\lambda\leq-1\) the expression is \(\lambda\), maximized at
+\(\lambda=-1\) with value \(-1\); for \(-1\leq\lambda\leq0\) it is
+\(-(1+\lambda)s+\lambda\), an affine function of \(\lambda\) with slope
+\(1-s\), maximized at \(\lambda=0\) with value \(-s\) if \(s\leq1\) and at
+\(\lambda=-1\) with value \(-1\) if \(s\geq1\).  The overall supremum is
+\(\max\{-s,-1\}=\phi(s\,\ord_p)\), confirming
+\eqref{eq:legendre-reconstruction-bj}.  On every other ray both sides are
+\(0\).
+
+\emph{The Legendre ray.}  Consistently with
+\Cref{rem:ch35-test-curve}, one computes
+\(\ell_t=\sup_\lambda\{\widehat\phi_\lambda+t\lambda\}\) on the ray through
+\(p\) to be \(\max\{-s,-t\}\), which is exactly
+\((t\cdot\phi)(s\,\ord_p)=t\,\phi(t^{-1}s\,\ord_p)
+=t\max\{-s/t,-1\}=\max\{-s,-t\}\).
+\end{example}
+
+\begin{example}[A test curve with an infinite value]
+\label{ex:ch35-test-curve-infinite}
+Keep \(X=\mathbf P^1\) and \(L=\cO(1)\) but take
+\(\phi=\log|x|\in\cH_{\mathrm{hom}}(L)\), which is already homogeneous, with
+\(\sup\phi=0\) and \(\phi(v_{p,\triv})=-\infty\) at \(p=[0:1]\).  Then
+\(t\cdot\phi=\phi\) for all \(t\), so
+\[
+ \widehat\phi_\lambda=\inf_{t>0}\{\phi-t\lambda\}=
+ \begin{cases}
+  \phi,&\lambda\leq0,\\
+  -\infty,&\lambda>0,
+ \end{cases}
+\]
+and the reconstruction \eqref{eq:legendre-reconstruction-bj} reads
+\(\phi=\sup_{\lambda\leq0}\{\phi+\lambda\}=\phi\), attained at
+\(\lambda=0\).  At the proper-support point \(v_{p,\triv}\) every entry of
+the family equals \(-\infty\) and the identity is the tautology
+\(-\infty=-\infty\).  This is the smallest example in which
+\eqref{eq:legendre-reconstruction-bj} would be destroyed by rewriting it as
+a statement about \(\phi-\widehat\phi_\lambda\): that difference is
+undefined at \(v_{p,\triv}\) by ledger entry (4) of
+\Cref{sec:extended-arithmetic}.
+\end{example}
+
+\subsection{Carrier functions}
+\label{sec:ch35-carriers}
+
+A homogeneous carrier is a function
+\(p\in\PSH_{\mathrm{hom},X}(\eta)\) controlling the radial tail of an
+inhomogeneous function:
+\begin{equation}
+\label{eq:homogeneous-carrier}
+                         \phi\leq p+C.
+\end{equation}
+The inequality is meaningful at proper-support points: if \(p=-\infty\),
+it forces \(\phi=-\infty\) there.  It is not rewritten as
+\(\phi-p\leq C\), since \((-\infty)-(-\infty)\) is undefined.
+
+\begin{definition}[Carrier]
+\label{def:ch35-carrier}
+Let \(\theta,\eta\in N^1(X)\), let \(\phi\in\PSH_X(\theta)\), and let
+\(p\in\PSH_{\mathrm{hom},X}(\eta)\).  We say that \(p\) is a
+\emph{carrier} for \(\phi\) if \eqref{eq:homogeneous-carrier} holds for some
+finite constant \(C\in\mathbf R\).
+\end{definition}
+
+The constant belongs to the inequality, not to \(p\): by
+\Cref{lem:ch35-homogeneity-reformulations}, adding a nonzero constant to a
+homogeneous function destroys homogeneity.  The class \(\eta\) is allowed to
+differ from \(\theta\); in \Cref{chap:bj-reflection} it is
+\(\theta\) itself, whereas in the applications of
+\Cref{chap:bj-finite-descent} it is an ample class chosen for convenience.
+
+\begin{lemma}
+\label{lem:ch35-carrier-tail}
+Let \(\phi\in\PSH_X(\theta)\) and let
+\(p\in\PSH_{\mathrm{hom},X}(\eta)\) satisfy
+\(\phi\leq p+C\) with \(C\in\mathbf R\).  Then
+\begin{equation}
+\label{eq:ch35-slice-below-carrier}
+ \widehat\phi_\lambda\leq p
+ \qquad\text{for every }\lambda\leq C .
+\end{equation}
+Consequently, for \(\lambda\leq\min\{C,\sup\phi\}\),
+\begin{equation}
+\label{eq:ch35-tail-decay}
+ \widehat\phi_\lambda+\lambda\leq p+\lambda,
+\end{equation}
+so the part of the family \eqref{eq:legendre-reconstruction-bj} with
+\(\lambda\leq-M\) is dominated by \(p-M\) for every
+\(M\geq-\min\{C,\sup\phi\}\).
+\end{lemma}
+
+\begin{proof}
+Fix \(\lambda\leq C\) and \(t>0\).  Applying
+\Cref{lem:ch35-action-basic}\,(2) and (3) to
+\(\phi\leq p+C\) gives
+\[
+ t\cdot\phi\leq t\cdot(p+C)=t\cdot p+tC=p+tC,
+\]
+the last equality because \(p\) is homogeneous.  Hence
+\[
+ t\cdot\phi-t\lambda\leq p+t(C-\lambda),
+\]
+an inequality in \(\mathbf R\cup\{-\infty\}\); the subtraction of the finite
+number \(t\lambda\) is legitimate by ledger entry (2) of
+\Cref{sec:extended-arithmetic}, and if \(p(v)=-\infty\) at some \(v\), then
+\(\phi\leq p+C\) forces \(\phi(t^{-1}v)=-\infty\) and both sides are
+\(-\infty\).  Taking the infimum over \(t>0\) and using
+\(C-\lambda\geq0\), let \(t\downarrow0\): the right-hand side tends to
+\(p(v)\) when \(p(v)\) is finite, and equals \(-\infty\) otherwise.  Thus
+\[
+ \widehat\phi_\lambda(v)\leq\inf_{t>0}\{p(v)+t(C-\lambda)\}=p(v),
+\]
+which is \eqref{eq:ch35-slice-below-carrier}.  Inequality
+\eqref{eq:ch35-tail-decay} is \eqref{eq:ch35-slice-below-carrier} plus the
+finite constant \(\lambda\).
+\end{proof}
+
+\begin{remark}[What the carrier is for]
+\label{rem:ch35-carrier-purpose}
+The reconstruction \eqref{eq:legendre-reconstruction-bj} is a supremum over
+an unbounded parameter interval \((-\infty,b]\).
+\Cref{lem:ch35-carrier-tail} says that a carrier truncates that interval:
+outside a compact window \([-M,b]\) the competitors are dominated by the
+single function \(p-M\).  Since \(\PSH_X(\theta)\) is stable under finite
+maxima but not under arbitrary suprema before the envelope theorem, this
+truncation is what turns \eqref{eq:legendre-reconstruction-bj} into a
+statement that can be manipulated with the closure properties of
+\Cref{thm:bj-basic-closure} alone.  The construction is carried out in
+\Cref{lem:bj-compact-legendre-window} and used in
+\Cref{thm:bj-carrier-reflection}; we do not repeat it here.
+\end{remark}
+
+\begin{example}[The tautological carrier of a bounded function]
+\label{ex:ch35-bounded-carrier}
+If \(\phi\in\PSH_X(\theta)\) is bounded, say \(\phi\geq-M\) and
+\(\phi\leq b\), then \(p=0\in\PSH_{\mathrm{hom},X}(\eta)\) is a carrier for
+every nef \(\eta\), with \(C=b\); indeed \(0\) is \(\eta\)-psh for nef
+\(\eta\) by \eqref{eq:psh-existence-cones}.  In that case
+\eqref{eq:ch35-slice-below-carrier} says \(\widehat\phi_\lambda\leq0\),
+which we already know.  A carrier carries information only when \(\phi\) is
+unbounded, and the interesting case is \(p=\log|s_E|\) for an effective
+divisor \(E\).
+\end{example}
+
+\begin{example}[A divisorial carrier]
+\label{ex:ch35-divisorial-carrier}
+Let \(E\geq0\) be an effective \(\mathbf Q\)-Cartier divisor on \(X\) and
+let \(\log|s_E|\) be its section function
+\eqref{eq:divisor-section-pole}, an element of
+\(\cH_{\mathrm{hom}}(E)\subset\PSH_{\mathrm{hom},X}([E])\) by
+\Cref{ex:gf-proper-support-pole}.  A function
+\(\phi\in\PSH_X(\theta)\) admits \(\log|s_E|\) as a carrier if and only if
+\(\phi\leq\log|s_E|+C\) for some \(C\), that is, if and only if the
+singularity of \(\phi\) along \(E\) is at least that of the divisor.
+
+On \(\mathbf P^1\) with \(E=p=[0:1]\), so that \(\log|s_E|=\log|x|\), the
+function \(\phi=\max\{\log|x|,\log|y|-1\}\) of
+\Cref{ex:ch35-legendre-pair-p1} does \emph{not} admit \(\log|x|\) as a
+carrier: at the proper-support point \(v_{p,\triv}\) one has
+\(\phi(v_{p,\triv})=-1\) while \(\log|x|(v_{p,\triv})=-\infty\), so no
+finite \(C\) satisfies \eqref{eq:homogeneous-carrier}.  The conclusion of
+\Cref{lem:ch35-carrier-tail} fails accordingly: by
+\Cref{ex:ch35-legendre-pair-p1} the slices are
+\(\widehat\phi_\lambda=\max\{0,1+\lambda\}\log|x|\), and since
+\(\log|x|\leq0\) with strict inequality off the vertex, the inequality
+\(\widehat\phi_\lambda\leq\log|x|\) holds only when
+\(\max\{0,1+\lambda\}\geq1\), that is, only at the endpoint
+\(\lambda=0=\sup\phi\).  For every \(\lambda<0\) the slice lies strictly
+above \(\log|x|\) on each divisorial ray through \(p\).  Thus the carrier
+hypothesis in \eqref{eq:ch35-slice-below-carrier} cannot be dropped.
+
+By contrast, the homogeneous function
+\(\psi:=\log|x|\) itself has \(\log|x|\) as a carrier with \(C=0\), and
+\Cref{thm:ch35-homogeneous-siu} splits it as
+\(\psi=\log|s_E|+0\) with \(0\in\PSH_{\mathrm{hom},X}(c_1(\cO(1))-[p])=
+\PSH_{\mathrm{hom},X}(0)\); the residual class is trivial and the residual
+function is the zero function, in agreement with
+\Cref{cor:ch35-zero-class}.
+\end{example}
+
+\subsection{Homogeneous Siu decomposition}
+\label{sec:ch35-siu}
+
+The next results convert the inequality \(\psi\leq\log|s_E|\) into an
+identity.  This is the statement that \Cref{chap:bj-cartier-realization}
+calls homogeneous Siu division.  It belongs to the homogeneous calculus and
+uses no envelope property, and we prove it in the form in which the later
+chapters apply it.
+
+Throughout the subsection \(X\) is normal, \(E\) is an effective
+\(\mathbf Q\)-Cartier divisor on \(X\), and \(\log|s_E|\) is its section
+function \eqref{eq:divisor-section-pole}.  We write
+\begin{equation}
+\label{eq:ch35-siu-slice}
+ K_E:=\{v\in X^{\An}\mid\log|s_E|(v)=-1\},
+\end{equation}
+a compact subset of \(X^{\An}\): the function \(\log|s_E|\) is continuous
+into \([-\infty,0]\) by \Cref{prop:ch35-hom-pl-semiring}, so \(K_E\) is
+closed in the compact space \(X^{\An}\).  We assume \(E\neq0\), so that
+\(K_E\neq\varnothing\).
+
+\begin{lemma}
+\label{lem:ch35-slice-to-cone}
+Let \(\eta\in N^1(X)\), let \(\chi\in\PSH_{\mathrm{hom},X}(\eta)\), and let
+\(t\in\mathbf R_{>0}\).  Then
+\begin{equation}
+\label{eq:ch35-slice-to-cone}
+ \chi\leq t\log|s_E|\ \text{ on }X^{\An}
+ \iff
+ \sup_{K_E}\chi\leq-t .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\(\Rightarrow\) is immediate, since \(t\log|s_E|=-t\) on \(K_E\), which is
+nonempty: if \(F\) is a component of \(E\) with coefficient \(a_F>0\), then
+\(a_F^{-1}\ord_F\in K_E\).
+
+For \(\Leftarrow\) we first check the inequality on \(X^{\divis}\), where
+\(c:=v(E)\) is finite.  If \(0<c<\infty\), then \(c^{-1}v\in K_E\), so
+homogeneity of \(\chi\) gives
+\[
+ \chi(v)=c\,\chi(c^{-1}v)\leq-tc=t\log|s_E|(v).
+\]
+If \(c=0\), then \(t\log|s_E|(v)=0\geq\chi(v)\), the last inequality by
+\Cref{prop:ch35-homogeneous-normalization}.
+
+Thus \(\chi\leq t\log|s_E|\) on \(X^{\divis}\).  The function
+\(t\log|s_E|\) is upper semicontinuous on \(X^{\An}\), by
+\Cref{prop:ch35-hom-pl-semiring}, and \(\chi\) is \(\eta\)-psh; so
+\Cref{thm:ch35-divisorial-comparison} promotes the inequality to all of
+\(X^{\An}\).
+\end{proof}
+
+\begin{lemma}
+\label{lem:ch35-fs-division}
+Let \(X\) be normal, \(L\in\Pic(X)_{\mathbf Q}\),
+\(\psi\in\cH_{\mathrm{hom}}(L)\), and \(t\in\mathbf Q_{>0}\).  If
+\(\psi\leq t\log|s_E|\), then
+\begin{equation}
+\label{eq:ch35-fs-division}
+ \psi-t\log|s_E|=\psi-\log|s_{tE}|
+ \in\cH_{\mathrm{hom}}(L-tE).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Choose \(m\in\mathbf Z_{>0}\) so divisible that \(mL\) is a line bundle,
+\(mtE\) is an integral Cartier divisor, and
+\(\psi=m^{-1}\max_i\log|\sigma_i|\) with
+\(0\neq\sigma_i\in H^0(X,mL)\), as in
+\eqref{eq:homogeneous-fs-presentation}.  Then
+\(\log|s_{tE}|=m^{-1}\log|s_{mtE}|\), with
+\(s_{mtE}\in H^0(X,\cO_X(mtE))\) the canonical section, and the hypothesis
+reads
+\[
+ \log|\sigma_i|\leq\log|s_{mtE}|\qquad\text{for every }i,
+\]
+that is, \(v(\sigma_i)\geq v(mtE)\) for every \(v\in X^{\An}\).  Taking
+\(v=\ord_F\) for the prime divisors \(F\subset X\) gives
+\(\operatorname{div}(\sigma_i)\geq mtE\) as Weil divisors on \(X\).
+
+Since \(X\) is normal and \(mtE\) is Cartier, the quotient
+\(\tau_i:=\sigma_i/s_{mtE}\) is a rational section of
+\(m(L-tE)\) whose divisor \(\operatorname{div}(\sigma_i)-mtE\) is effective;
+by normality a rational section of a line bundle with effective divisor is
+regular.  Indeed, in a local trivialization the section is a rational
+function \(f\) on the normal variety \(X\) with
+\(\ord_F(f)\geq0\) for every prime divisor \(F\); since a noetherian normal
+domain is the intersection of its localizations at height-one primes, each
+of which is a discrete valuation ring, \(f\) is regular
+\cite[Proposition~II.6.3A]{Har}.  Hence
+\(\tau_i\in H^0(X,m(L-tE))\), and \(\tau_i\neq0\) because
+\(\sigma_i\neq0\).  Finally
+\[
+ \psi-\log|s_{tE}|
+ =m^{-1}\max_i\bigl(\log|\sigma_i|-\log|s_{mtE}|\bigr)
+ =m^{-1}\max_i\log|\tau_i|,
+\]
+the cancellation being legitimate because at any point where
+\(\log|s_{mtE}|=-\infty\) both sides are read through the regular section
+\(\tau_i\) rather than as a difference; concretely, the identity
+\(\sigma_i=\tau_i\,s_{mtE}\) of regular sections gives
+\(v(\sigma_i)=v(\tau_i)+v(mtE)\) for every \(v\), and one divides by \(m\).
+Thus \eqref{eq:ch35-fs-division} holds and the right-hand side lies in
+\(\cH_{\mathrm{hom}}(L-tE)\).
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch35-homogeneous-siu}
+Assume \(X\) is normal.  Let \(\theta\in N^1(X)\), let \(E\neq0\) be an
+effective \(\mathbf Q\)-Cartier divisor on \(X\), and let
+\(\psi\in\PSH_{\mathrm{hom},X}(\theta)\) satisfy
+\begin{equation}
+\label{eq:ch35-siu-strict-hypothesis}
+ \psi\leq t_0\log|s_E|\qquad\text{for some }t_0>1 .
+\end{equation}
+Then
+\begin{equation}
+\label{eq:ch35-homogeneous-siu}
+ \psi=\log|s_E|+\psi'
+ \qquad\text{with }\psi'\in\PSH_{\mathrm{hom},X}(\theta-[E]),
+\end{equation}
+and \(\psi'\) is unique.  The identity is asserted pointwise on all of
+\(X^{\An}\), both sides being \(-\infty\) at every semivaluation supported
+in \(E\).  Conversely, if \(\psi=\log|s_E|+\psi'\) with
+\(\psi'\in\PSH_{\mathrm{hom},X}(\theta-[E])\), then
+\(\psi\leq\log|s_E|\).
+\end{theorem}
+
+\begin{proof}
+\emph{The converse.}  If \(\psi=\log|s_E|+\psi'\) with \(\psi'\) homogeneous
+\((\theta-[E])\)-psh, then \(\psi'\leq0\) by
+\Cref{prop:ch35-homogeneous-normalization}, so \(\psi\leq\log|s_E|\); the
+sum is defined everywhere because \(\psi'\) never takes the value
+\(+\infty\).
+
+\medskip
+\noindent\emph{Step 1: a homogeneous regularization.}
+By \Cref{cor:ch35-homogenization-psh} applied to \(\psi\), which is its own
+homogenization, there are a decreasing net \((\psi_a)\), rational line
+bundles \(L_a\) with \(c_1(L_a)\to\theta\), and
+\(\psi_a\in\cH_{\mathrm{hom}}(L_a)\) with \(\psi_a\searrow\psi\)
+pointwise.
+
+\medskip
+\noindent\emph{Step 2: the strict hypothesis makes Dini's theorem
+effective.}
+By \Cref{lem:ch35-slice-to-cone}, hypothesis
+\eqref{eq:ch35-siu-strict-hypothesis} says \(\sup_{K_E}\psi\leq-t_0<-1\).
+Each \(\psi_a\) is continuous on the open set
+\(\{\log|s_E|>-\infty\}\supset K_E\), by
+\Cref{prop:ch35-hom-pl-semiring}, and \(\psi_a\searrow\psi\) there.  Dini's
+theorem in net form, \Cref{prop:dini-usc}, applied on the compact set
+\(K_E\) to the decreasing net of continuous functions \(\psi_a\) with upper
+semicontinuous limit \(\psi\), gives
+\[
+ \sup_{K_E}\psi_a\longrightarrow\sup_{K_E}\psi\leq-t_0 .
+\]
+Since \(t_0>1\), there is an index \(a_0\) with
+\(\sup_{K_E}\psi_a\leq-1\) for all \(a\geq a_0\).  Replacing the directed
+set by its cofinal subset \(\{a\geq a_0\}\), we may assume this for every
+\(a\).  \emph{The constant \(t=1\) is now fixed once and for all}; this is
+the point at which the strict hypothesis is used, and
+\Cref{rem:ch35-siu-boundary} explains what happens without it.
+
+\medskip
+\noindent\emph{Step 3: division.}
+By \Cref{lem:ch35-slice-to-cone} again,
+\begin{equation}
+\label{eq:ch35-siu-slice-bound}
+ \psi_a\leq\log|s_E|
+ \qquad\text{on }X^{\An},\text{ for every }a .
+\end{equation}
+The inequality is first obtained on \(X^{\divis}\), where the slice
+computation of \Cref{lem:ch35-slice-to-cone} takes place, and is then valid
+on all of \(X^{\An}\) by \Cref{thm:ch35-divisorial-comparison}.  By \Cref{lem:ch35-fs-division} with
+\(t=1\),
+\[
+ \psi'_a:=\psi_a-\log|s_E|\in\cH_{\mathrm{hom}}(L_a-E).
+\]
+
+\medskip
+\noindent\emph{Step 4: pass to the limit.}
+On \(X^{\divis}\) the function \(\log|s_E|\) is finite, so
+\(\psi'_a=\psi_a-\log|s_E|\) is a decreasing net there, the subtracted
+function being independent of \(a\); by
+\Cref{cor:ch35-divisorial-determination}\,(1) the net is decreasing on all
+of \(X^{\An}\).  Each \(\psi'_a\) vanishes at \(v_{\triv}\), being
+homogeneous psh, so the pointwise limit
+\(\psi':=\lim_a\psi'_a\) is generically finite.  Since
+\(c_1(L_a)-[E]\to\theta-[E]\), \Cref{thm:bj-basic-closure}\,(5) gives
+\(\psi'\in\PSH_X(\theta-[E])\), and \(\psi'\) is homogeneous as an infimum
+of homogeneous functions.
+
+On \(X^{\divis}\), all terms being finite,
+\[
+ \psi=\lim_a\psi_a=\lim_a\bigl(\psi'_a+\log|s_E|\bigr)
+ =\psi'+\log|s_E| .
+\]
+Both \(\psi\) and \(\psi'+\log|s_E|\) are upper semicontinuous on
+\(X^{\An}\) and both are \(\theta\)-psh, so
+\Cref{cor:ch35-divisorial-determination}\,(2) upgrades the identity to
+\(X^{\An}\).  At a semivaluation supported in \(E\), both sides are
+\(-\infty\), and no difference of infinite values has been formed anywhere
+in the argument.
+
+\emph{Uniqueness.}  If \(\psi'_1,\psi'_2\) both satisfy
+\eqref{eq:ch35-homogeneous-siu}, they agree on \(X^{\divis}\), where
+\(\log|s_E|\) is finite and may be cancelled; then
+\Cref{cor:ch35-divisorial-determination}\,(2) gives \(\psi'_1=\psi'_2\).
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch35-homogeneous-siu-general}
+Assume \(X\) is normal.  Let \(\theta\in N^1(X)\), let \(E\) be an effective
+\(\mathbf Q\)-Cartier divisor on \(X\), and let
+\(\psi\in\PSH_{\mathrm{hom},X}(\theta)\).  Then
+\begin{equation}
+\label{eq:ch35-homogeneous-siu-general}
+ \psi\leq\log|s_E|
+ \iff
+ \psi=\log|s_E|+\psi'\ \text{ for some }
+ \psi'\in\PSH_{\mathrm{hom},X}(\theta-[E]),
+\end{equation}
+and \(\psi'\) is then unique.  No envelope hypothesis is required.
+\end{theorem}
+
+\begin{proof}
+If \(E=0\), then \(\log|s_E|=0\), and the assertion follows from
+\(\psi\leq0\), \Cref{prop:ch35-homogeneous-normalization}.  Assume henceforth
+that \(E\neq0\).  The implication \(\Leftarrow\) and uniqueness were proved
+in \Cref{thm:ch35-homogeneous-siu}; the same theorem proves
+\(\Rightarrow\) whenever
+\(\sup_{K_E}\psi<-1\).  It remains to identify precisely the input used at
+the endpoint
+\begin{equation}
+\label{eq:ch35-siu-critical-sup}
+ \sup_{K_E}\psi=-1.
+\end{equation}
+That endpoint is \cite[Theorem~6.21]{BJ22}, and we use it as a foundational
+input.  Here is the complete reconstruction of the approximation appearing
+in its published proof.
+
+Choose, by \Cref{cor:ch35-homogenization-psh}, a decreasing net
+\(\psi_a\in\cH_{\mathrm{hom}}(L_a)\) such that
+\(c_1(L_a)\to\theta\) and \(\psi_a\searrow\psi\).  Dini's lemma on the
+compact set \(K_E\) gives rational numbers \(t_a>0\), after passage to a
+cofinal subnet, such that
+\begin{equation}
+\label{eq:ch35-siu-source-ta}
+ t_a\longrightarrow1,
+ \qquad
+ \sup_{K_E}\psi_a\leq-t_a.
+\end{equation}
+By \Cref{lem:ch35-slice-to-cone,lem:ch35-fs-division},
+\begin{equation}
+\label{eq:ch35-siu-source-residual}
+ \rho_a:=\psi_a-t_a\log|s_E|
+ \in\cH_{\mathrm{hom}}(L_a-t_aE),
+ \qquad
+ c_1(L_a)-t_a[E]\longrightarrow\theta-[E].
+\end{equation}
+On \(X^{\divis}\) one has
+\(\rho_a\to\psi-\log|s_E|\), and this limit vanishes at
+\(v_{\triv}\), hence is generically finite.  The remaining assertion of
+\cite[Theorem~6.21]{BJ22} is exactly that the residual can be admitted by
+the decreasing-closure axiom in this endpoint situation; applying that
+assertion to \eqref{eq:ch35-siu-source-residual} yields
+\(\psi-\log|s_E|\in\PSH_{\mathrm{hom},X}(\theta-[E])\).  Divisorial
+determination then gives the identity on all of \(X^{\An}\), as in Step~4
+of \Cref{thm:ch35-homogeneous-siu}.
+
+The last paragraph is deliberately not presented as a consequence of
+\eqref{eq:ch35-siu-source-ta} alone.  Indeed, for \(b\geq a\), monotonicity
+of the residuals would require
+\begin{equation}
+\label{eq:ch35-siu-residual-monotonicity-test}
+ t_b-t_a
+ \leq\inf_{K_E}(\psi_a-\psi_b),
+\end{equation}
+which is not implied by \eqref{eq:ch35-siu-source-ta}.  Thus the
+foundational input is the full endpoint of \cite[Theorem~6.21]{BJ22}, not
+an unproved claim in this book that arbitrary choices of \(t_a\) make
+\((\rho_a)\) decreasing.  After the envelope property has independently
+been established, the endpoint also follows from the fixed-\(t<1\)
+argument and increasing-envelope closure; this later proof is written in
+\cite[Proposition~17]{BJGreen24} under its smooth characteristic-zero
+hypotheses.  It cannot replace the present foundational input in the proof
+of the envelope theorem.
+\end{proof}
+
+\begin{remark}[Where the borderline case is delicate]
+\label{rem:ch35-siu-boundary}
+Write \(u:=-\sup_{K_E}\psi\geq1\).  If \(u>1\), the proof of
+\Cref{thm:ch35-homogeneous-siu} applies verbatim.  If \(u=1\), Dini's
+theorem still gives \(\sup_{K_E}\psi_a\to-1\), but possibly with
+\(\sup_{K_E}\psi_a>-1\) for every \(a\); the source approximation then
+divides by \(\log|s_{t_aE}|\), with rational \(t_a<1\) tending to \(1\),
+and produces the residual family
+\[
+ \psi'_a=\psi_a-t_a\log|s_E|=\psi_a+t_a\,v(E)
+\]
+as a sum of a decreasing and an increasing family.  The exact obstruction
+is \eqref{eq:ch35-siu-residual-monotonicity-test}; it is why the endpoint is
+imported as the full theorem rather than derived from Dini's lemma alone.
+Equivalently, one may
+run the argument for each fixed rational \(t<1\), obtaining
+\[
+ \psi-t\log|s_E|\in\PSH_{\mathrm{hom},X}(\theta-t[E])
+ \qquad(0<t<1,\ t\in\mathbf Q),
+\]
+but this family \emph{increases} to \(\psi-\log|s_E|\) as \(t\uparrow1\),
+and increasing limits are exactly what the envelope property governs.  The
+one-dimensional case shows that the conclusion is nevertheless correct: on
+\(X=\mathbf P^1\) a homogeneous \(\theta\)-psh function is recorded by its
+slopes \(c_r\geq0\) at the closed points, subject to
+\(\sum_rc_r\leq\deg\theta\) with finitely many nonzero terms
+(\Cref{ex:ch35-p1-hom-pl} and \Cref{prop:ch35-curve-classification}), and
+the inequality \(\psi\leq\log|s_E|\) with \(E=\sum_ra_rr\) reads
+\(c_r\geq a_r\); the residual slopes \(c_r-a_r\) are nonnegative and sum to
+at most \(\deg\theta-\deg E\), which is exactly membership in
+\(\PSH_{\mathrm{hom},X}(\theta-[E])\).  The strict theorem
+\Cref{thm:ch35-homogeneous-siu} is the part proved entirely from the closure
+calculus developed in this book.  The general endpoint
+\Cref{thm:ch35-homogeneous-siu-general} is genuinely needed in
+\Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}:
+\Cref{ex:ch38-strict-room-fails,ex:ch39-reflection-borderline} exhibit the
+failure of strict room in the actual reflection construction.  Those uses
+therefore inherit the foundational input \cite[Theorem~6.21]{BJ22}; they are
+not applications of the strict proof under a hidden stronger hypothesis.
+\end{remark}
+
+\begin{warning}{Only the homogeneous statement is unconditional}
+\Cref{thm:ch35-homogeneous-siu} is stated for \emph{homogeneous}
+\(\theta\)-psh functions and requires no envelope hypothesis.  The
+corresponding statement for an arbitrary \(\phi\in\PSH_X(\theta+[E])\),
+namely
+\[
+ \phi\leq\log|s_E|+O(1)\iff\phi-\log|s_E|\in\PSH_X(\theta),
+\]
+is \emph{not} unconditional: its proof passes through
+\eqref{eq:legendre-reconstruction-bj} and requires the envelope property for
+\(\theta\) in order to know that the reassembled supremum is psh.  That
+version is \cite[Theorem~6.31]{BJ22}; it belongs among the deductions from
+the envelope theorem collected in
+\Cref{chap:bj-envelope-consequences}, not among its inputs.  Confusing the
+two is the commonest way to produce a circular argument in this part of the
+book.
+\end{warning}
+
+\section{Cartier and Weil b-divisors}
+\label{sec:ch35-bdivisors}
+
+Assume \(X\) normal.  A model of \(X\) is a normal projective variety
+\(\pi:Y\to X\) birational over \(X\).  Models form a cofiltered system under
+domination.
+
+The word \emph{cofiltered} is a theorem, not a convention: any two models
+are dominated by a third, by
+\Cref{lem:appF-common-domination}, and the proof there uses no resolution of
+singularities.  This is what allows every construction below to be performed
+after passing to a single sufficiently high model.
+
+\begin{definition}[b-divisors]
+\label{def:algebraic-bdivisors}
+A real Weil b-divisor \(B\) over \(X\) is a compatible family
+\begin{equation}
+\label{eq:weil-bdivisor}
+ B=(B_Y)_Y,\qquad B_Y\in\Div(Y)_{\mathbf R},\qquad
+ \mu_*B_{Y'}=B_Y
+\end{equation}
+for every domination \(\mu:Y'\to Y\).  It is Cartier if it is determined on
+one model \(Y\): \(B_{Y'}=\mu^*B_Y\) on every higher model.
+\end{definition}
+
+Thus Weil b-divisors form an inverse limit under pushforward, while Cartier
+b-divisors form a direct limit under pullback.  A Cartier b-divisor is nef if
+its trace on one, equivalently every, determination is nef.  It is
+relatively semiample if the trace is semiample over \(X\).
+
+These are \Cref{def:appF-weil-bdivisor} and
+\Cref{def:appF-cartier-bdivisor}, and the two limit descriptions are
+\eqref{eq:appF-direct-inverse}.  Independence of the determination in the
+nef case is \Cref{lem:appF-nef-determination}.  We write
+\(\operatorname{Div}_{\mathbf R}(\mathfrak X)\) and
+\(\operatorname{CDiv}_{\mathbf R}(\mathfrak X)\) for the two spaces, and
+\(\overline F\) for the Cartier b-divisor determined on \(X\) itself by an
+\(\mathbf R\)-Cartier divisor \(F\) on \(X\).  Ordering is coefficientwise:
+\(B\leq0\) means \(B_Y\leq0\) for every model \(Y\), which by
+\Cref{prop:appF-coefficients} is the same as
+\(\operatorname{coeff}_E(B)\leq0\) for every prime divisor \(E\) over
+\(X\).  For a Cartier b-divisor determined on \(Y\), it suffices to check
+\(B_Y\leq0\), because pullback of an antieffective Cartier divisor is
+antieffective.
+
+\subsection{The evaluation pairing}
+\label{sec:ch35-evaluation-pairing}
+
+Each b-divisor has a coefficient function on divisorial points:
+\begin{equation}
+\label{eq:bdivisor-coefficient-function}
+                  \psi_B(t\ord_E):=t\,\ord_E(B_Y),
+\end{equation}
+where \(Y\) carries \(E\).  Pushforward compatibility makes this
+well-defined, and it is homogeneous.  Coefficientwise convergence of
+b-divisors is exactly pointwise convergence on \(X^{\divis}\).
+
+We now prove these three assertions and identify the image of the pairing
+exactly.  Recall that a prime divisor \emph{over} \(X\) is a prime divisor
+\(E\subset Y\) on some model \(Y\), two such being identified when they
+induce the same valuation \(\ord_E\) of \(k(X)\); this identification is
+consistent with \Cref{prop:appF-coefficients}.
+
+\begin{proposition}
+\label{prop:ch35-weil-coefficient-bijection}
+Let \(X\) be normal and projective.  The assignment
+\(B\mapsto\psi_B\) of \eqref{eq:bdivisor-coefficient-function} is a
+well-defined \(\mathbf R\)-linear bijection from
+\(\operatorname{Div}_{\mathbf R}(\mathfrak X)\) onto the set of functions
+\begin{equation}
+\label{eq:ch35-locally-finite-homogeneous}
+ \mathcal W:=\left\{\psi:X^{\divis}\to\mathbf R
+ \ \middle|\
+ \begin{array}{l}
+ \psi\ \text{homogeneous},\ \psi(v_{\triv})=0,\ \text{and for every}\\
+ \text{model }Y\ \text{only finitely many prime divisors}\\
+ E\subset Y\ \text{have}\ \psi(\ord_E)\neq0
+ \end{array}
+ \right\}.
+\end{equation}
+It is order preserving in the sense that \(B\leq B'\) if and only if
+\(\psi_B\leq\psi_{B'}\), and a net \(B_i\) converges to \(B\) in the inverse
+limit topology of \eqref{eq:appF-direct-inverse} if and only if
+\(\psi_{B_i}\to\psi_B\) pointwise on \(X^{\divis}\).
+\end{proposition}
+
+\begin{proof}
+\emph{Well-definedness.}  Let \(v=t\ord_E\in X^{\divis}\) with \(t>0\) and
+\(E\) a prime divisor on a model \(Y\).  If \(E\) also occurs on a model
+\(Y'\), choose a common domination \(Y''\succeq Y,Y'\), which exists by
+\Cref{lem:appF-common-domination}.  The strict transform of \(E\) on
+\(Y''\) is a prime divisor \(\widetilde E\) with
+\(\ord_{\widetilde E}=\ord_E\), and pushforward to \(Y\) and to \(Y'\)
+preserves the coefficient of \(\widetilde E\) by
+\Cref{prop:appF-coefficients}.  Hence
+\(\ord_E(B_Y)=\operatorname{coeff}_{\widetilde E}(B_{Y''})=\ord_E(B_{Y'})\),
+so \eqref{eq:bdivisor-coefficient-function} does not depend on the model.
+At \(v_{\triv}\) we set \(\psi_B(v_{\triv})=0\), consistently with the case
+\(t=0\).
+
+\emph{Homogeneity and local finiteness.}  Homogeneity is built into
+\eqref{eq:bdivisor-coefficient-function}: \(\psi_B(s\cdot t\ord_E)
+=st\,\ord_E(B_Y)=s\,\psi_B(t\ord_E)\).  Local finiteness is the statement
+that \(B_Y\) is a divisor, that is, a locally finite --- here finite, since
+\(Y\) is noetherian --- sum of prime divisors.
+
+\emph{Injectivity and surjectivity.}  If \(\psi_B=0\), then every
+coefficient of every trace vanishes, so \(B=0\); linearity is clear.
+Conversely, given \(\psi\in\mathcal W\), define
+\(B_Y:=\sum_{E\subset Y}\psi(\ord_E)\,E\), a finite sum by hypothesis.  For a
+domination \(\mu:Y'\to Y\), pushforward kills \(\mu\)-exceptional primes and
+preserves the coefficient of a prime whose strict transform is taken, so
+\(\mu_*B_{Y'}=B_Y\); this is exactly the computation in
+\Cref{prop:appF-coefficients}.  Hence \(B=(B_Y)_Y\) is a Weil b-divisor with
+\(\psi_B=\psi\).
+
+\emph{Order and topology.}  Both statements are coefficientwise
+reformulations: \(B\leq B'\) means
+\(\operatorname{coeff}_E(B)\leq\operatorname{coeff}_E(B')\) for every prime
+\(E\) over \(X\), which by homogeneity is
+\(\psi_B\leq\psi_{B'}\) on \(X^{\divis}\); and the inverse limit topology on
+\(\varprojlim_Y\operatorname{Div}_{\mathbf R}(Y)\) is the topology of
+pointwise convergence of all coefficients, each
+\(\operatorname{Div}_{\mathbf R}(Y)\) carrying its finite-dimensional
+topology on the finitely many relevant coordinates.
+\end{proof}
+
+\begin{warning}{The pairing is defined on \(X^{\divis}\) only}
+\Cref{prop:ch35-weil-coefficient-bijection} produces a function on
+\(X^{\divis}\).  For a general Weil b-divisor there is no canonical
+extension of \(\psi_B\) to \(X^{\An}\), and none is used.  For a
+\emph{Cartier} b-divisor there is one, by
+\Cref{prop:ch35-cartier-continuous-extension}, and for the coefficient
+function of a homogeneous psh function there is one, by
+\Cref{cor:ch35-divisorial-determination}.  These are three different
+statements and the difference is exactly the content of
+\Cref{ex:appF-non-cartier-bdivisor}: a Weil b-divisor supported on an
+infinite chain of exceptional primes has a perfectly good coefficient
+function and no continuous extension.
+\end{warning}
+
+\begin{proposition}
+\label{prop:ch35-cartier-continuous-extension}
+Let \(C\) be a real Cartier b-divisor with determination
+\(\pi:Y\to X\).  Then \(\psi_C\) extends uniquely to a continuous function
+\begin{equation}
+\label{eq:ch35-cartier-extension}
+ \psi_C:X^{\val}\longrightarrow\mathbf R,
+ \qquad
+ \psi_C(v)=v(C_Y),
+\end{equation}
+where the right-hand side is computed on \(Y^{\val}\simeq X^{\val}\), and
+the resulting map
+\(\operatorname{CDiv}_{\mathbf R}(\mathfrak X)\to C^0(X^{\val})\) is an
+injective \(\mathbf R\)-linear map.
+\end{proposition}
+
+\begin{proof}
+A birational morphism of normal projective varieties induces a bijection
+\(Y^{\val}\to X^{\val}\), because both sides are the set of real valuations
+of the common function field \(k(X)=k(Y)\) admitting a centre, and
+properness supplies the centre on either side; the bijection is a
+homeomorphism by \Cref{thm:triv-berkovich-compactness} applied to
+\(\pi\) and to the valuative criterion.  Writing \(C_Y\) locally as a
+difference of two effective Cartier divisors, \(v\mapsto v(C_Y)\) is a
+difference of two ideal evaluations and is therefore continuous and real
+valued on \(Y^{\val}\), by
+\Cref{prop:ch35-hom-pl-semiring}.  If \(Y'\succeq Y\) is higher, then
+\(C_{Y'}=\mu^*C_Y\) and \(v(\mu^*C_Y)=v(C_Y)\) for
+\(v\in Y'^{\val}=Y^{\val}\), because pullback of a Cartier divisor pulls
+back local equations.  Hence \eqref{eq:ch35-cartier-extension} is
+independent of the determination.  It restricts to
+\eqref{eq:bdivisor-coefficient-function} on \(X^{\divis}\), because
+\(\ord_E(C_Y)\) is by definition the coefficient of \(E\) in
+\(C_{Y'}\) for any \(Y'\) carrying \(E\).  Uniqueness of the extension
+follows from density of \(X^{\divis}\) in \(X^{\val}\), which is a
+consequence of \Cref{thm:triv-divisorial-density}, and injectivity from
+\Cref{prop:ch35-weil-coefficient-bijection}.
+\end{proof}
+
+\subsection{The sign convention}
+\label{sec:ch35-sign}
+
+The sign is worth fixing.  If \(F\geq0\) is a Cartier divisor on \(X\), the
+section function satisfies
+\begin{equation}
+\label{eq:section-bdivisor-sign}
+                    \log|s_F|(v)=-v(F),
+\end{equation}
+whereas the coefficient function of the b-divisor \(\overline F\) is
+\(\psi_{\overline F}(v)=v(F)\).  Hence
+\(\log|s_F|=-\psi_{\overline F}\) on divisorial valuations.
+
+This is \eqref{eq:appF-section-sign}, and it is the source of the
+antieffectivity convention that pervades this chapter and
+\Cref{chap:bj-cartier-realization}: a \emph{nonpositive} homogeneous
+function corresponds to an \emph{antieffective} b-divisor.  Explicitly, if
+\(\psi\in\PL^+_{\mathrm{hom}}(X)\) then \(\psi\leq0\), and the Cartier
+b-divisor \(B\) with \(\psi_B=\psi\) satisfies \(B\leq0\).  Three unit tests
+fix the convention beyond doubt:
+\begin{equation}
+\label{eq:ch35-sign-tests}
+\begin{aligned}
+ \psi_{\overline F}(\ord_E)&=\ord_E(F)\geq0
+ &&\text{for }F\geq0\text{ effective},\\
+ \log|s_F|(\ord_E)&=-\ord_E(F)\leq0,\\
+ \log|\mathfrak b|(\ord_E)&=-\ord_E(\mathfrak b)\leq0
+ &&\text{for }\mathfrak b\subseteq\cO_X .
+\end{aligned}
+\end{equation}
+The conventions sheet fixes the same sign in the nontrivially valued
+setting: an effective vertical divisor gives a \emph{nonnegative} model
+function, because \(\cO(D)\) is generated by the inverse of a local
+equation.  \Cref{app:normalizations} records the translation, and the two
+conventions are consistent because
+\(\log|s_F|\) uses the canonical section of \(\cO(F)\) whereas
+\(\varphi_D\) uses the inverse local generator of \(\cO(D)\).
+
+\subsection{Cartier b-divisors and homogeneous PL functions}
+\label{sec:ch35-cartier-pl}
+
+\begin{proposition}\label{prop:cartier-homogeneous-pl}
+The coefficient functions of real Cartier b-divisors are precisely the real
+homogeneous PL functions on \(X^{\divis}\).  If \(B\leq0\) is rational and
+relatively semiample, then \(\psi_B\) is the restriction of a homogeneous
+Fubini--Study function.
+\end{proposition}
+
+\begin{proof}
+On a model where \(B\) is Cartier, a local equation gives a fractional ideal,
+and its valuation is a difference of logarithms of coherent ideals.  This
+places \(\psi_B\) in \(\PL_{\mathrm{hom}}(X)\).  Conversely, clear
+denominators in a difference of ideal functions and take normalized blowups;
+the resulting Cartier divisors glue on a common domination.  Relative
+semiampleness and antieffectivity yield global generators as in
+\Cref{prop:hom-fs-ideal}.
+
+We give the argument in full, treating the rational antieffective
+relatively semiample case first, since it is the one used in
+\Cref{chap:bj-cartier-realization}.
+
+\medskip
+\noindent\emph{Step 1: from \(B\in\operatorname{CDiv}^+_{\mathbf Q}\) to
+\(\PL^+_{\mathrm{hom}}\).}
+Let \(B\) be a rational Cartier b-divisor with
+\(B\leq0\) and \(B_Y\) relatively semiample for a determination
+\(\pi:Y\to X\).  Choose \(m\in\mathbf Z_{>0}\) with \(mB_Y\) an integral
+Cartier divisor and \(\cO_Y(mB_Y)\) globally generated over \(X\), that is,
+\(\pi^*\pi_*\cO_Y(mB_Y)\to\cO_Y(mB_Y)\) surjective.  Since
+\(mB_Y\leq0\), the sheaf \(\cO_Y(mB_Y)\) is a subsheaf of \(\cO_Y\), and it
+is generically trivial because \(B_Y\) is \(\pi\)-exceptional in the
+relevant sense: on the open locus where \(\pi\) is an isomorphism its
+coefficients are those of \(B_X\), and after subtracting
+\(\overline{B_X}\) --- an operation which changes \(\psi_B\) by the
+homogeneous PL function \(\psi_{\overline{B_X}}\) --- we may assume
+\(B_X=0\).  Put
+\(\mathfrak b:=\pi_*\cO_Y(mB_Y)\subseteq\pi_*\cO_Y=\cO_X\), the last
+equality by Zariski's main theorem, \(X\) being normal and \(\pi\)
+birational and proper.  Then \(\mathfrak b\) is a nonzero coherent ideal
+with \(\mathfrak b\cdot\cO_Y=\cO_Y(mB_Y)\), by global generation, and hence
+for \(v\in X^{\val}\),
+\[
+ v(\mathfrak b)=v\bigl(\mathfrak b\cdot\cO_Y\bigr)=-v(mB_Y)=-m\,\psi_B(v).
+\]
+Therefore \(\psi_B=m^{-1}\log|\mathfrak b|\in\PL^+_{\mathrm{hom}}(X)\).
+
+\medskip
+\noindent\emph{Step 2: the converse in the antieffective semiample case.}
+Let \(\psi=m^{-1}\log|\mathfrak b|\in\PL^+_{\mathrm{hom}}(X)\) with
+\(0\neq\mathfrak b\subseteq\cO_X\).  Let \(\pi:Y\to X\) be the normalized
+blowup of \(\mathfrak b\), so that
+\(\mathfrak b\cdot\cO_Y=\cO_Y(-E)\) for an effective Cartier divisor \(E\)
+on \(Y\), with \(-E\) relatively ample, hence relatively semiample.  Let
+\(B\) be the Cartier b-divisor determined on \(Y\) by
+\(B_Y:=-m^{-1}E\leq0\).  For \(v\in X^{\val}\),
+\[
+ \psi_B(v)=v(B_Y)=-m^{-1}v(E)=-m^{-1}v(\mathfrak b)=\psi(v).
+\]
+Thus \(\psi=\psi_B\) with \(B\) rational, antieffective, and relatively
+semiample.
+
+\medskip
+\noindent\emph{Step 3: the general Cartier case.}
+Let \(B\) be an arbitrary real Cartier b-divisor with determination
+\(\pi:Y\to X\).  Choose a \(\pi\)-ample effective Cartier divisor \(A\) on
+\(Y\); since \(\pi\) is projective, such \(A\) exists, and by adding a
+multiple of a relatively ample divisor we may write
+\[
+ B_Y=B_Y^{(1)}-B_Y^{(2)},\qquad
+ B_Y^{(i)}\ \text{relatively semiample and}\ \leq0,
+\]
+after passing to \(\mathbf R\)-coefficients and possibly enlarging \(Y\).
+Concretely, take \(B_Y^{(2)}:=-cA\) for \(c>0\) large enough that
+\(B_Y^{(1)}:=B_Y-cA\) is relatively semiample and antieffective, which is
+possible because relative semiampleness is preserved by adding a relatively
+ample divisor and antieffectivity by subtracting an effective one.  Step 1
+applies to each \(B^{(i)}\) after clearing denominators, so
+\(\psi_{B^{(i)}}\in\mathbf R_{>0}\PL^+_{\mathrm{hom}}(X)\) and
+\(\psi_B=\psi_{B^{(1)}}-\psi_{B^{(2)}}\in\PL_{\mathrm{hom},\mathbf R}(X)\).
+Conversely, given a real homogeneous PL function, write it as a difference
+of two elements of \(\PL^+_{\mathrm{hom}}(X)\) using
+\Cref{prop:ch35-hom-pl-semiring}\,(2), realize each by Step 2, and take the
+difference of the two Cartier b-divisors after passing to a common
+determination, which exists by \Cref{lem:appF-common-domination}.
+
+\medskip
+\noindent\emph{Step 4: the Fubini--Study assertion.}
+If \(B\leq0\) is rational and relatively semiample, Step 1 gives
+\(\psi_B=m^{-1}\log|\mathfrak b|\).  By
+\Cref{prop:hom-fs-ideal}, this lies in
+\(\cH_{\mathrm{hom}}(L)\) for any \(\mathbf Q\)-line bundle \(L\) with
+\(mL\) a line bundle and \(mL\otimes\mathfrak b\) globally generated, and
+such \(L\) exists, for instance any sufficiently positive multiple of an
+ample bundle.  This is \cite[Theorem~6.32]{BJ22}.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch35-semiample-criterion}
+Let \(X\) be normal, \(L\in\Pic(X)_{\mathbf Q}\), and \(B\) a rational
+Cartier b-divisor with determination \(\pi:Y\to X\).  Then
+\begin{equation}
+\label{eq:ch35-semiample-criterion}
+ \psi_B\in\cH_{\mathrm{hom}}(L)
+ \iff
+ B\leq0\ \text{ and }\ \pi^*L+B_Y\ \text{ is semiample on }Y .
+\end{equation}
+The right-hand condition is independent of the determination.
+\end{theorem}
+
+\begin{proof}
+\emph{Independence of the determination.}  If \(\mu:Y'\to Y\) is a higher
+model, then \(\mu^*(\pi^*L+B_Y)=(\pi\mu)^*L+B_{Y'}\), and semiampleness is
+preserved by pullback along a projective birational morphism and detected by
+it, because a globally generated multiple pulls back to a globally generated
+multiple and pushforward along \(\mu\) with \(\mu_*\cO_{Y'}=\cO_Y\) recovers
+the sections.
+
+\emph{The implication \(\Rightarrow\).}  If
+\(\psi_B\in\cH_{\mathrm{hom}}(L)\), then \(\psi_B\leq0\) by
+\Cref{prop:ch35-homogeneous-normalization}, hence \(B\leq0\).  By
+\Cref{prop:hom-fs-ideal} there are \(m\geq1\) and a nonzero ideal
+\(\mathfrak b\subseteq\cO_X\) with \(mL\) a line bundle,
+\(mL\otimes\mathfrak b\) globally generated, and
+\(\psi_B=m^{-1}\log|\mathfrak b|\).  Let \(\rho:Z\to X\) be the normalized
+blowup of \(\mathfrak b\), with \(\mathfrak b\cdot\cO_Z=\cO_Z(-E)\).  By
+Step 2 of the proof of \Cref{prop:cartier-homogeneous-pl},
+\(B\) is determined on \(Z\) by \(-m^{-1}E\).  Global generation of
+\(mL\otimes\mathfrak b\) says exactly that
+\(\rho^*(mL)\otimes\cO_Z(-E)=m(\rho^*L+B_Z)\) is globally generated, hence
+\(\rho^*L+B_Z\) is semiample.  By independence of the determination the
+same holds on \(Y\).
+
+\emph{The implication \(\Leftarrow\).}  Assume \(B\leq0\) and
+\(\pi^*L+B_Y\) semiample.  Choose \(m\in\mathbf Z_{>0}\) with
+\(m(\pi^*L+B_Y)\) a globally generated line bundle and \(mB_Y\) integral
+Cartier.  Since \(X\) is normal, \(\pi\) is proper birational, and
+\(mB_Y\leq0\), Zariski's main theorem gives
+\[
+ \pi_*\cO_Y(mB_Y)\subseteq\pi_*\cO_Y=\cO_X,
+\]
+so \(\mathfrak b_m:=\pi_*\cO_Y(mB_Y)\) is a nonzero coherent ideal on
+\(X\).  The projection formula gives
+\[
+ \begin{aligned}
+ H^0\bigl(Y,m(\pi^*L+B_Y)\bigr)
+ &\simeq H^0\bigl(X,mL\otimes\pi_*\cO_Y(mB_Y)\bigr),\\
+ &=H^0\bigl(X,mL\otimes\mathfrak b_m\bigr)
+ \hookrightarrow H^0(X,mL),
+ \end{aligned}
+\]
+and the image of the evaluation map generates
+\(\mathfrak b_m\cdot\cO_Y=\cO_Y(mB_Y)\) because
+\(m(\pi^*L+B_Y)\) is globally generated on \(Y\).  Hence
+\(mL\otimes\mathfrak b_m\) is globally generated on \(X\) and
+\(\mathfrak b_m\cdot\cO_Y=\cO_Y(mB_Y)\), which gives
+\[
+ \psi_B(v)=v(B_Y)=-m^{-1}v(\mathfrak b_m)=m^{-1}\log|\mathfrak b_m|(v)
+\]
+for \(v\in X^{\val}\).  By \Cref{prop:hom-fs-ideal},
+\(\psi_B\in\cH_{\mathrm{hom}}(L)\).  This is
+\cite[Lemma~6.34]{BJ22}.
+\end{proof}
+
+\begin{warning}{Semiample, not nef}
+\Cref{thm:ch35-semiample-criterion} characterizes membership in the
+Fubini--Study cone by \emph{semiampleness} of the total class, an
+algebro-geometric condition on an actual line bundle.  Replacing semiample
+by nef changes the statement and its proof: the characterization of
+\(\PSH_{\mathrm{hom},X}(\theta)\) by nefness of \(\theta+B\) is
+\Cref{thm:ch35-cartier-psh-criterion}, and its proof uses the envelope
+property for ample classes.  The gap between the two is the usual gap
+between a linear-series condition and a numerical one, and it is the reason
+\Cref{chap:bj-cartier-realization} inserts an ample buffer
+\eqref{eq:bj-buffer-path} before invoking any Fubini--Study statement.
+\end{warning}
+
+\subsection{Worked examples}
+\label{sec:ch35-bdivisor-examples}
+
+\begin{proposition}
+\label{prop:ch35-curve-classification}
+Let \(X\) be a smooth connected projective curve over \(k\) and
+\(\theta\in N^1(X)=\mathbf R\), identified with \(\deg\theta\).  Then
+\(\psi:X^{\An}\to\mathbf R\cup\{-\infty\}\) belongs to
+\(\PSH_{\mathrm{hom},X}(\theta)\) if and only if there are numbers
+\(c_r\geq0\), indexed by the closed points \(r\in X(k)\), all but finitely
+many zero, with
+\begin{equation}
+\label{eq:ch35-curve-classification}
+ \sum_{r\in X(k)}c_r\leq\deg\theta,
+ \qquad
+ \psi(s\,\ord_r)=-c_rs\quad(s\geq0),
+\end{equation}
+and \(\psi(v_{r,\triv})=-\infty\) when \(c_r>0\), \(\psi(v_{r,\triv})=0\)
+when \(c_r=0\).  The corresponding Cartier b-divisor is
+\(B=-\sum_rc_r\overline r\), and every b-divisor over \(X\) is Cartier,
+determined on \(X\) itself.
+\end{proposition}
+
+\begin{proof}
+Every normal projective variety birational to a smooth projective curve is
+that curve, so \(X\) is the unique model and every b-divisor is Cartier,
+determined on \(X\); this proves the last assertion and shows that
+\(\operatorname{Div}_{\mathbf R}(\mathfrak X)=\Div(X)_{\mathbf R}\).  By
+\Cref{prop:trivial-p1-tree} and its analogue for an arbitrary smooth curve,
+recorded in \Cref{prop:ch08-trivial-curve-scaling}, the space
+\(X^{\An}\) is the union of the rays \(\{s\,\ord_r\}_{s\in[0,\infty]}\) glued
+at \(v_{\triv}\), and \(X^{\divis}\) consists of \(v_{\triv}\) together with
+the points \(s\,\ord_r\) with \(s\in\mathbf Q_{>0}\).  A homogeneous
+function is therefore determined by the numbers
+\(c_r:=-\psi(\ord_r)\), and \(c_r\geq0\) because
+\(\psi\leq0\) by \Cref{prop:ch35-homogeneous-normalization}.
+
+The characterization of \(\theta\)-psh functions on a smooth curve is
+\cite[Example~4.13]{BJ22}: an upper-semicontinuous
+\(\psi:X^{\An}\to\mathbf R\cup\{-\infty\}\) is \(\theta\)-psh if and only if
+\(s\mapsto\psi(s\,\ord_r)\) is convex on \([0,+\infty)\) for every \(r\) and
+\[
+ \deg\theta+\sum_{r\in X(k)}\frac{\rd}{\rd s}\Big|_{s=0^+}\psi(s\,\ord_r)
+ \geq0 .
+\]
+For a homogeneous \(\psi\) the functions \(s\mapsto-c_rs\) are linear, hence
+convex, with right derivative \(-c_r\) at \(s=0\); the displayed condition
+becomes \(\sum_rc_r\leq\deg\theta\), and it forces all but countably many
+\(c_r\) to vanish.  Finiteness of the number of nonzero \(c_r\) then follows
+because \(\psi\) must be the coefficient function of a divisor, or directly
+because a convergent sum of nonnegative reals indexed by an uncountable set
+has only countably many nonzero terms while local finiteness on the single
+model \(X\) requires finiteness.  Finally the value at the endpoint
+\(v_{r,\triv}=\lim_{s\to\infty}s\,\ord_r\) is
+\(\lim_{s\to\infty}(-c_rs)\), which is \(-\infty\) if \(c_r>0\) and \(0\) if
+\(c_r=0\); this is consistent with
+\Cref{lem:ch35-homogeneity-reformulations}, the endpoints being fixed points
+of the scaling action.
+\end{proof}
+
+\begin{example}[A homogeneous potential on the cone over
+             \(\mathbf P^1\), with its b-divisor]
+\label{ex:ch35-p1-bdivisor}
+Let \(X=\mathbf P^1_k\) with homogeneous coordinates \(x,y\), let
+\(p=[0:1]\), \(q=[1:0]\), \(r_0=[1:1]\), and let
+\(\theta=c_1(\cO(3))\), so \(\deg\theta=3\).  Consider
+\begin{equation}
+\label{eq:ch35-p1-example-psi}
+ \psi:=\tfrac32\log|\mathfrak m_p|+\tfrac12\log|\mathfrak m_q|
+ +\tfrac12\log|\mathfrak m_{r_0}| .
+\end{equation}
+By \Cref{prop:ch35-hom-pl-semiring} this is a homogeneous PL function; by
+\Cref{prop:ch35-curve-classification} it is \(\theta\)-psh, because its
+slopes are
+\[
+ c_p=\tfrac32,\qquad c_q=\tfrac12,\qquad c_{r_0}=\tfrac12,
+ \qquad c_r=0\ \text{otherwise},
+\]
+and \(\tfrac32+\tfrac12+\tfrac12=\tfrac52\leq3\).  Its values are
+\[
+ \begin{aligned}
+ \psi(s\,\ord_p)&=-\tfrac32s,
+ &\psi(s\,\ord_q)&=-\tfrac12s,\\
+ \psi(s\,\ord_{r_0})&=-\tfrac12s,
+ &\psi(s\,\ord_r)&=0\quad(r\neq p,q,r_0),
+ \end{aligned}
+\]
+with \(\psi(v_{\triv})=0\) and
+\(\psi(v_{p,\triv})=\psi(v_{q,\triv})=\psi(v_{r_0,\triv})=-\infty\).
+
+Its b-divisor is the Cartier b-divisor determined on \(X\) by
+\begin{equation}
+\label{eq:ch35-p1-example-B}
+ B=-\tfrac32\,\overline p-\tfrac12\,\overline q
+   -\tfrac12\,\overline{r_0},
+ \qquad
+ B_X=-\tfrac32p-\tfrac12q-\tfrac12r_0,
+\end{equation}
+an antieffective real Cartier b-divisor of degree \(-\tfrac52\).  The total
+class is
+\[
+ \theta+B_X=3-\tfrac52=\tfrac12>0,
+\]
+so \(\theta+B\) is nef --- on a curve, nef means nonnegative degree ---
+in accordance with \Cref{thm:ch35-cartier-psh-criterion}.  Since
+\(\tfrac12>0\), the total class is in fact ample, so
+\(\psi\in\cH_{\mathrm{hom}}(L)\) for suitable \(L\), by
+\Cref{thm:ch35-semiample-criterion}: taking \(m=2\) and
+\(L=\cO(3)\), the ideal \(\mathfrak b=\mathfrak m_p^3\mathfrak m_q
+\mathfrak m_{r_0}\) has \(\deg\cO(6)\otimes\mathfrak b=6-5=1\geq0\) and
+\(\cO(6)\otimes\mathfrak b\simeq\cO(1)\) is globally generated, so
+\(\psi=\tfrac12\log|\mathfrak b|\in\cH_{\mathrm{hom}}(\cO(3))\).
+
+Finally the boundary case: if instead \(c_p=2\), \(c_q=\tfrac12\),
+\(c_{r_0}=\tfrac12\), the slopes sum to \(3=\deg\theta\), the total class
+\(\theta+B_X\) is \(0\), still nef but no longer ample, and the associated
+ideal \(\mathfrak b=\mathfrak m_p^4\mathfrak m_q\mathfrak m_{r_0}\) satisfies
+\(\cO(6)\otimes\mathfrak b\simeq\cO_X\), which is still globally generated;
+so \(\psi\) remains a homogeneous Fubini--Study function.  If one increases
+\(c_p\) to \(\tfrac52\), the sum exceeds \(3\), the total class becomes
+negative, and \(\psi\) is no longer \(\theta\)-psh: on the model \(X\) the
+class \(\theta+B_X\) has degree \(-\tfrac12<0\) and no globally generated
+multiple.
+\end{example}
+
+\begin{example}[A b-divisor genuinely spread over a model]
+\label{ex:ch35-blowup-bdivisor}
+Let \(X=\mathbf P^2_k\), let \(q\in X\) be a closed point, and let
+\(\pi:Y\to X\) be the blowup at \(q\), with exceptional curve \(E\).  Take
+\(\psi:=\log|\mathfrak m_q|\), which lies in
+\(\cH_{\mathrm{hom}}(\cO(1))\) by \Cref{prop:hom-fs-ideal}, since
+\(\cO(1)\otimes\mathfrak m_q\) is globally generated by the two linear forms
+vanishing at \(q\).  The normalized blowup of \(\mathfrak m_q\) is
+\(\pi:Y\to X\) and \(\mathfrak m_q\cdot\cO_Y=\cO_Y(-E)\); so by Step 2 of
+the proof of \Cref{prop:cartier-homogeneous-pl}, the corresponding Cartier
+b-divisor is
+\[
+ B\ \text{determined on }Y\text{ by }B_Y=-E,
+ \qquad B_X=\pi_*(-E)=0 .
+\]
+Thus \(B\) is a nonzero Cartier b-divisor whose trace on \(X\) vanishes: it
+is \emph{exceptional} in the sense of
+\Cref{def:ch35-exceptional-bdivisor}.  Its coefficient function is
+\[
+ \psi_B(t\,\ord_E)=-t,
+ \qquad
+ \psi_B(\ord_F)=0\ \text{ for every prime divisor }F\subset X,
+\]
+and more generally \(\psi_B(v)=-v(\mathfrak m_q)\) for
+\(v\in X^{\val}\), which is the multiplicity function of the point \(q\).
+The total class is
+\(\pi^*c_1(\cO(1))-[E]=H-E\) in the notation of
+\Cref{ex:appF-blowup}, which is nef with
+\((H-E)^2=1-1=0\); it is semiample but not ample, being the pullback of
+\(\cO(1)\) under the map to \(\mathbf P^2\) contracting nothing but with
+\(E\) in the boundary of the nef cone.  Consistently,
+\Cref{thm:ch35-semiample-criterion} certifies
+\(\psi_B\in\cH_{\mathrm{hom}}(\cO(1))\).
+
+The example also shows why the model matters: \(B\) is \emph{not} determined
+on \(X\).  A determination must carry \(E\), and \(E\) does not appear on
+\(X\).
+\end{example}
+
+\section{Nef b-divisor classes}
+\label{sec:ch35-nef-bclasses}
+
+\subsection{The Cartier criterion}
+\label{sec:ch35-cartier-criterion}
+
+The proof of the criterion will use the following closedness statement.
+
+\begin{lemma}
+\label{lem:ch35-nef-limit}
+Let \(X\) be normal and projective, let \((B_i)\) be a decreasing net of
+rational Cartier b-divisors converging pointwise on \(X^{\divis}\) to a
+Cartier b-divisor \(B\), and let \(\theta_i\to\theta\) in \(N^1(X)\).  If
+\(B_i\leq0\) and \(\theta_i+B_i\) is nef for every \(i\), then
+\(\theta+B\) is nef.
+\end{lemma}
+
+\begin{proof}
+Let \(\pi:Y\to X\) determine \(B\).  It suffices to show
+\((\pi^*\theta+B_Y)\cdot\Gamma\geq0\) for every integral curve
+\(\Gamma\subset Y\).
+
+Let \(\mu:Z\to Y\) be the normalized blowup of \(\Gamma\), with exceptional
+divisor \(F\), and fix an ample class \(A\) on \(Z\).  Then
+\(\mu_*(F\cdot A^{n-2})=a\,\Gamma\) in \(N_1(Y)\) for some \(a>0\), where
+\(n=\dim X\); this is the standard fact that the exceptional divisor of the
+blowup of a curve, cut by \(n-2\) general ample divisors, pushes forward to
+a positive multiple of that curve.  By the projection formula
+\eqref{eq:appF-projection}, it therefore suffices to prove
+\[
+ (\mu^*\pi^*\theta+B_Z)\cdot F\cdot A^{n-2}\geq0 .
+\]
+For each \(i\), nefness of \(\theta_i+B_i\) and the projection formula give
+\((\mu^*\pi^*\theta_i+B_{i,Z})\cdot F\cdot A^{n-2}\geq0\), because
+\(B_{i,Z}\) is the pullback of a determination of \(B_i\) and nefness is
+preserved by pullback, \Cref{lem:appF-nef-determination}.
+
+It remains to pass to the limit.  Since \(B\leq B_i\leq0\) for all
+\(i\) --- the first inequality because the net is decreasing with limit
+\(B\) --- every \(B_{i,Z}\) is supported on the finitely many prime
+components \((E_\beta)\) of \(B_Z\).  Hence
+\[
+ \begin{aligned}
+ B_{i,Z}\cdot F\cdot A^{n-2}
+ &=\sum_\beta\operatorname{coeff}_{E_\beta}(B_i)\,
+   (E_\beta\cdot F\cdot A^{n-2})\\
+ &\longrightarrow
+ \sum_\beta\operatorname{coeff}_{E_\beta}(B)\,
+   (E_\beta\cdot F\cdot A^{n-2})\\
+ &=B_Z\cdot F\cdot A^{n-2},
+ \end{aligned}
+\]
+a finite sum of convergent scalar factors, using that
+\(\operatorname{coeff}_{E_\beta}(B_i)\to\operatorname{coeff}_{E_\beta}(B)\)
+by \Cref{prop:ch35-weil-coefficient-bijection}.  Together with
+\(\theta_i\to\theta\) in the finite-dimensional space \(N^1(X)\), this gives
+the required inequality in the limit.  This is
+\cite[Lemma~6.37]{BJ22}.
+\end{proof}
+
+Before restricting to smooth models we record the criterion that replaces
+semiampleness by nefness.  It is stated for normal \(X\), with the envelope
+hypothesis displayed, because it is the only statement in this chapter that
+has one.
+
+\begin{theorem}
+\label{thm:ch35-cartier-psh-criterion}
+Let \(X\) be normal and projective, and assume that every ample class on
+\(X\) has the envelope property \(\operatorname{EP}\) of
+\Cref{def:bj-envelope-property}.  Let \(\theta\in N^1(X)\) and let \(B\) be a
+rational Cartier b-divisor with determination \(\pi:Y\to X\).  Then
+\begin{equation}
+\label{eq:ch35-cartier-psh-criterion}
+ \psi_B\in\PSH_{\mathrm{hom},X}(\theta)
+ \iff
+ B\leq0\ \text{ and }\ \pi^*\theta+B_Y\ \text{ is nef}.
+\end{equation}
+Here the left-hand side means that \(\psi_B|_{X^{\divis}}\) is the
+restriction of a (necessarily unique, by
+\Cref{cor:ch35-divisorial-determination}) homogeneous \(\theta\)-psh
+function.
+\end{theorem}
+
+\begin{proof}
+This is \cite[Theorem~6.35]{BJ22}.  The hypothesis holds when \(X\) is
+smooth and \(\operatorname{char}k=0\), by \cite[Corollary~5.21]{BJ22}, and it
+holds unconditionally for integral projective unibranch \(X\) once
+\Cref{thm:bj-final-envelope} is available; but that theorem is proved in
+\Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
+using the present chapter, so \Cref{thm:ch35-cartier-psh-criterion} is never
+invoked there.  We prove the implication \(\Rightarrow\), which is
+unconditional, and the reduction of \(\Leftarrow\) to the ample case, and we
+cite the ample case.
+
+Assume \(\psi_B\in\PSH_{\mathrm{hom},X}(\theta)\).  Then
+\(\psi_B\leq0\) by \Cref{prop:ch35-homogeneous-normalization}, so
+\(B\leq0\) by \Cref{prop:ch35-weil-coefficient-bijection}.  By
+\Cref{cor:ch35-homogenization-psh} there is a decreasing net
+\(\psi_i\in\cH_{\mathrm{hom}}(L_i)\) with
+\(c_1(L_i)\to\theta\) and \(\psi_i\searrow\psi_B\) pointwise.  Let
+\(B_i\) be the rational Cartier b-divisor with \(\psi_{B_i}=\psi_i\), which
+exists by \Cref{prop:cartier-homogeneous-pl}.  By
+\Cref{thm:ch35-semiample-criterion}, \(B_i\leq0\) and
+\(L_i+B_i\) is semiample, hence \(c_1(L_i)+B_i\) is nef.  The net
+\((B_i)\) is decreasing and converges pointwise on \(X^{\divis}\) to
+\(B\), by \Cref{prop:ch35-weil-coefficient-bijection}.  Now
+\Cref{lem:ch35-nef-limit} gives that \(\theta+B\) is nef, that is,
+\(\pi^*\theta+B_Y\) is nef.
+
+For the converse, we reduce to the ample case.  Choose an effective Cartier
+divisor \(F\) on \(X\) with \(\omega:=\theta+[F]\) ample, possible because
+\(N^1(X)\) is spanned by ample classes and \(\theta\) may be corrected by a
+sufficiently positive multiple of a very ample divisor.  Put
+\(B':=B-\overline F\), a rational Cartier b-divisor with the same
+determination \(Y\), and note
+\[
+ \pi^*\omega+B'_Y=\pi^*\theta+\pi^*[F]+B_Y-\pi^*[F]=\pi^*\theta+B_Y,
+\]
+which is nef by hypothesis; also \(B'\leq B\leq0\).  Moreover
+\(\psi_{\overline F}(v)=v(F)=-\log|s_F|(v)\) by
+\eqref{eq:section-bdivisor-sign}, so
+\(\psi_{B'}=\psi_B+\log|s_F|\) on \(X^{\val}\).  Granting the ample case for
+\((\omega,B')\), we obtain
+\(\psi_{B'}\in\PSH_{\mathrm{hom},X}(\omega)\), and then
+\(\psi_{B'}\leq\log|s_F|\) because \(\psi_B\leq0\).
+\Cref{thm:ch35-homogeneous-siu-general} yields
+\(\psi_B=\psi_{B'}-\log|s_F|\in\PSH_{\mathrm{hom},X}(\omega-[F])
+=\PSH_{\mathrm{hom},X}(\theta)\), as required.
+
+The ample case itself is \cite[Theorem~6.35]{BJ22}: with
+\(\theta=\omega\) ample, one chooses a \(\pi\)-ample divisor \(H\leq0\) on
+\(Y\) and \(L\in\Pic(X)_{\mathbf Q}\) with \(c_1(L)-\omega\) ample, so that
+\(\pi^*L+(B_Y+\varepsilon H)\) is ample for small
+\(\varepsilon\in\mathbf Q_{>0}\); \Cref{thm:ch35-semiample-criterion} then
+gives \(\psi_B+\varepsilon\psi_H\in\cH_{\mathrm{hom}}(L)\), and letting
+\(\varepsilon\downarrow0\) produces an \emph{increasing} net converging to
+\(\psi_B\) on \(X^{\divis}\).  It is exactly at this point that the envelope
+property for the ample class \(c_1(L)\) is used, through
+\cite[Lemma~5.9]{BJ22}, to conclude that the increasing limit is again psh.
+Letting \(L\) vary and applying
+\Cref{thm:bj-basic-closure}\,(5) gives
+\(\psi_B\in\PSH_{\mathrm{hom},X}(\omega)\).
+\end{proof}
+
+\begin{warning}{Two criteria, two hypotheses}
+\Cref{thm:ch35-semiample-criterion} is unconditional and characterizes
+\(\cH_{\mathrm{hom}}(L)\); \Cref{thm:ch35-cartier-psh-criterion}
+characterizes \(\PSH_{\mathrm{hom},X}(\theta)\) and uses the envelope
+property for ample classes.  The difference is one increasing limit.  Since
+\Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
+are proving the envelope property, they may use the first and must not use
+the second.  \Cref{thm:bj-real-cartier-realization} is precisely the
+substitute: it realizes an antieffective real Cartier b-divisor with nef
+total class as a homogeneous psh function \emph{without} an increasing
+limit, by inserting an ample buffer and taking a decreasing net of rational
+stages.
+\end{warning}
+
+\subsection{Numerical b-divisor classes}
+\label{sec:ch35-numerical-bclasses}
+
+We state the original numerical theorem in its actual range.  Assume in this
+section that \(X\) is smooth and \(\operatorname{char}k=0\), and let smooth
+models be cofinal.  Set
+\begin{equation}
+\label{eq:bdivisor-class-space}
+ N_b^1(X):=\varprojlim_Y N^1(Y),
+\end{equation}
+where transition maps are pushforwards.  The nef cone
+\(\Nef_b(X)\) is the closure, in the projective-limit topology, of the nef
+Cartier b-divisor classes.  Nets, rather than sequences, occur in this
+definition.
+
+The two hypotheses are exactly those isolated in
+\Cref{sec:appF-numerical-bclasses}: one needs a cofinal category of models on
+which divisor pushforward stays inside the chosen numerical space, and a
+topology in which to take the inverse limit.  Resolution of singularities in
+characteristic zero supplies the first, by making smooth models cofinal, and
+the projective-limit topology supplies the second.  In the notation of
+\eqref{eq:appF-numerical-limits}, \(N^1_b(X)=N^1_{\mathrm{Weil}}(\mathfrak X)\)
+and \Cref{def:appF-nef-weil-class} is the definition of \(\Nef_b(X)\) used
+here.  Beyond this section we do not use \(N^1_b(X)\); the envelope proof
+works with Cartier b-divisors and one fixed model at a time.
+
+\begin{definition}[Exceptional b-divisor]
+\label{def:ch35-exceptional-bdivisor}
+A real Weil b-divisor \(B\) over \(X\) is \emph{exceptional} if
+\(B_X=0\).  Equivalently, by
+\Cref{prop:ch35-weil-coefficient-bijection}, its coefficient function
+satisfies \(\psi_B(\ord_E)=0\) for every prime divisor \(E\subset X\).  We
+write \(\mathcal E\) for the real vector space of homogeneous functions
+\(\psi:X^{\divis}\to\mathbf R\) with this property, topologized by pointwise
+convergence.
+\end{definition}
+
+For \(\alpha=(\alpha_Y)_Y\in N_b^1(X)\), there is a unique exceptional
+b-divisor \(B_\alpha\), with \((B_\alpha)_X=0\), such that
+\begin{equation}
+\label{eq:exceptional-bdivisor-class}
+ [(B_\alpha)_Y]=\alpha_Y-\pi^*\alpha_X.
+\end{equation}
+The negativity lemma gives uniqueness.  Write
+\(\psi_\alpha:=\psi_{B_\alpha}\).
+
+\begin{lemma}
+\label{lem:ch35-bclass-splitting}
+Under the hypotheses of this section, the map
+\begin{equation}
+\label{eq:ch35-bclass-splitting}
+ \alpha\longmapsto(\alpha_X,\psi_\alpha)
+\end{equation}
+is an isomorphism of topological real vector spaces
+\(N^1_b(X)\xrightarrow{\ \sim\ }N^1(X)\times\mathcal E\).
+\end{lemma}
+
+\begin{proof}
+\emph{Existence and uniqueness of \(B_\alpha\).}  Fix
+\(\alpha\in N^1_b(X)\) and a smooth model \(\pi:Y\to X\).  The class
+\(\gamma:=\alpha_Y-\pi^*\alpha_X\in N^1(Y)\) satisfies
+\(\pi_*\gamma=\alpha_X-\alpha_X=0\), because divisor pushforward is the
+transition map in \eqref{eq:bdivisor-class-space} and
+\(\pi_*\pi^*=\operatorname{id}\) on \(N^1(X)\) by the projection formula
+\eqref{eq:appF-projection} with \(\pi_*[Y]=[X]\).
+
+\emph{Existence.}  Represent \(\gamma\) by an \(\mathbf R\)-divisor \(D\) on
+\(Y\) and set \(F:=D-\pi^*\pi_*D\).  Then
+\(\pi_*F=\pi_*D-\pi_*D=0\), so \(F\) is \(\pi\)-exceptional, and
+\([F]=\gamma-\pi^*[\pi_*D]=\gamma\) since \([\pi_*D]=\pi_*\gamma=0\).
+
+\emph{Uniqueness.}  If \(F,F'\) are \(\pi\)-exceptional \(\mathbf R\)-divisors
+with \([F]=[F']\), then \(G:=F-F'\) is \(\pi\)-exceptional and numerically
+trivial on \(Y\); in particular \(G\cdot C=0\) for every \(\pi\)-contracted
+curve \(C\), so both \(G\) and \(-G\) are \(\pi\)-nef.  The negativity
+lemma \cite[Lemma~3.39]{KM08} applied to each of them gives \(G\geq0\) and
+\(G\leq0\), whence \(G=0\).
+
+Compatibility of the resulting divisors under pushforward follows from
+uniqueness on each model: if \(\mu:Y'\to Y\), then \(\mu_*F_{Y'}\) is
+\(\pi\)-exceptional with class \(\mu_*(\alpha_{Y'}-\mu^*\pi^*\alpha_X)
+=\alpha_Y-\pi^*\alpha_X\), so it equals \(F_Y\).  Hence \(B_\alpha\)
+exists, is unique, and is exceptional.
+
+\emph{Injectivity.}  If \(\alpha_X=0\) and \(\psi_\alpha=0\), then
+\(B_\alpha=0\) by \Cref{prop:ch35-weil-coefficient-bijection}, so
+\(\alpha_Y=\pi^*\alpha_X=0\) for every \(Y\), that is, \(\alpha=0\).
+
+\emph{Surjectivity.}  Given \(\theta\in N^1(X)\) and \(\psi\in\mathcal E\),
+let \(B\) be the exceptional Weil b-divisor with \(\psi_B=\psi\) and set
+\(\alpha_Y:=\pi^*\theta+[B_Y]\).  Compatibility under pushforward is
+\(\mu_*\bigl(\mu^*\pi^*\theta+[B_{Y'}]\bigr)=\pi^*\theta+[B_Y]\), again by
+the projection formula and \(\mu_*B_{Y'}=B_Y\).  Thus
+\(\alpha\in N^1_b(X)\) with \(\alpha_X=\theta\) and
+\(B_\alpha=B\).
+
+\emph{Topologies.}  The projective-limit topology on \(N^1_b(X)\) is that of
+convergence of every trace \(\alpha_Y\); by
+\eqref{eq:exceptional-bdivisor-class} this is equivalent to convergence of
+\(\alpha_X\) in \(N^1(X)\) together with convergence of the exceptional
+divisor classes on every model.  On a fixed \(Y\) the exceptional divisors
+form a finite-dimensional space on which, by the uniqueness just proved, the
+class map is injective and hence a linear homeomorphism onto its image; so
+convergence of classes is equivalent to coefficientwise convergence, that
+is, to pointwise convergence of \(\psi_\alpha\) on \(X^{\divis}\), by
+\Cref{prop:ch35-weil-coefficient-bijection}.  This is
+\cite[Lemma~6.39]{BJ22}.
+\end{proof}
+
+\begin{theorem}\label{thm:bj-nef-bdivisor-correspondence}
+Under the smooth characteristic-zero hypotheses above, the map
+\begin{equation}
+\label{eq:nef-bdivisor-psh-map}
+ \alpha\longmapsto(\alpha_X,\psi_\alpha)
+\end{equation}
+identifies \(\Nef_b(X)\) with the pairs \((\theta,\psi)\) such that
+\begin{equation}
+\label{eq:nef-bdivisor-psh-pairs}
+ \psi\in\PSH_{\mathrm{hom},X}(\theta),\qquad
+ \psi(\ord_E)=0
+ \quad\text{for every prime divisor }E\subset X.
+\end{equation}
+Every nef b-divisor class is the limit of a decreasing net of nef Cartier
+b-divisors.
+\end{theorem}
+
+\begin{proof}[Proof architecture and historical dependency]
+For a nef Cartier b-divisor, relative semiampleness after a small ample
+perturbation produces homogeneous FS approximants to its coefficient
+function.  Passing to a general nef class uses projective-limit compactness
+and decreasing Cartier approximation.  Conversely, a decreasing homogeneous
+GF regularization of \(\psi\) yields nef Cartier b-divisor classes; their
+traces converge on every model and reconstruct \(\alpha\).
+
+In the original proof, the intermediate Cartier criterion
+\(\psi_B\in\PSH_{\mathrm{hom}}(\theta)\) iff
+\(B\leq0\) and \(\pi^*\theta+B_Y\) is nef uses the envelope property for
+ample classes.  That property was available here because \(X\) is smooth in
+characteristic zero.  Thus the theorem is not being asserted in arbitrary
+characteristic by this proof.  See \cite[Theorems~6.35 and~6.40,
+Corollary~6.41]{BJ22}.  \Cref{chap:bj-cartier-realization} supplies a
+different realization lemma
+for the later general argument.
+
+We now give the argument in the four steps it decomposes into.  Throughout,
+\(\operatorname{EP}\) for ample classes on \(X\) is available, by
+\cite[Corollary~5.21]{BJ22}, because \(X\) is smooth over a field of
+characteristic zero; so
+\Cref{thm:ch35-cartier-psh-criterion} may be used.
+
+\medskip
+\noindent\emph{Step 1: nef Cartier b-divisors.}
+Let \(B\) be a nef Cartier b-divisor with determination
+\(\pi:Y\to X\), and let \(\alpha:=[B]\), that is,
+\(\alpha_{Y'}:=[B_{Y'}]\) for all \(Y'\).  Set
+\(\theta:=\alpha_X=[B_X]\).  The exceptional b-divisor of
+\eqref{eq:exceptional-bdivisor-class} is the Cartier b-divisor determined on
+\(Y\) by \(B_Y-\pi^*B_X\), which is \(\pi\)-exceptional, so
+\[
+ \psi_\alpha=\psi_{B}-\psi_{\overline{B_X}}\in\PL_{\mathrm{hom},\mathbf R}(X)
+\]
+by \Cref{prop:cartier-homogeneous-pl}, and the total class of the
+exceptional b-divisor in the class \(\theta\) is
+\(\pi^*\theta+[B_Y-\pi^*B_X]=[B_Y]\), which is nef by hypothesis.  Applying
+\Cref{thm:ch35-cartier-psh-criterion} to the b-divisor
+\(B-\overline{B_X}\) --- which is \(\leq0\), since it is exceptional and
+its total class is nef, whence its trace is antieffective by the negativity
+lemma --- gives \(\psi_\alpha\in\PSH_{\mathrm{hom},X}(\theta)\).  By
+construction \(\psi_\alpha(\ord_E)=0\) for prime divisors \(E\subset X\).
+
+\medskip
+\noindent\emph{Step 2: general nef classes.}
+Let \(\alpha\in\Nef_b(X)\) and choose a net \((B_i)\) of nef Cartier
+b-divisors with \(\alpha_i:=[B_i]\to\alpha\) in \(N^1_b(X)\); by
+\Cref{lem:ch35-bclass-splitting} this means
+\(\theta_i:=(\alpha_i)_X\to\theta:=\alpha_X\) in \(N^1(X)\) and
+\(\psi_{\alpha_i}\to\psi_\alpha\) pointwise on \(X^{\divis}\).  Fix
+\(\omega\in\Amp(X)\).  For \(i\) large, \(\theta+\omega-\theta_i\) is ample,
+so by Step 1 and \Cref{thm:bj-basic-closure}\,(3),
+\[
+ \psi_{\alpha_i}\in\PSH_{\mathrm{hom},X}(\theta_i)
+ \subseteq\PSH_{\mathrm{hom},X}(\theta+\omega).
+\]
+The space \(\PSH_{\mathrm{hom},X}(\theta+\omega)\) is compact for the
+topology of pointwise convergence on \(X^{\divis}\), by
+\cite[Corollary~6.22]{BJ22}, whose hypothesis --- \(\operatorname{EP}\) for
+ample classes --- is available here.  Passing to a subnet, we may assume
+\(\psi_{\alpha_i}\to\psi\in\PSH_{\mathrm{hom},X}(\theta+\omega)\)
+pointwise on \(X^{\divis}\); since also
+\(\psi_{\alpha_i}\to\psi_\alpha\) there, we get
+\(\psi_\alpha=\psi\in\PSH_{\mathrm{hom},X}(\theta+\omega)\).  As
+\(\omega\in\Amp(X)\) was arbitrary and
+\(\theta+\omega\to\theta\) along a net of ample classes,
+\Cref{thm:bj-basic-closure}\,(5) gives
+\(\psi_\alpha\in\PSH_{\mathrm{hom},X}(\theta)\).  Vanishing on the prime
+divisors of \(X\) passes to the limit.
+
+\medskip
+\noindent\emph{Step 3: the converse.}
+Let \(\theta\in N^1(X)\) and \(\psi\in\PSH_{\mathrm{hom},X}(\theta)\) with
+\(\psi(\ord_E)=0\) for every prime divisor \(E\subset X\).  Its restriction
+to \(X^{\divis}\) lies in \(\mathcal E\), by
+\Cref{def:ch35-exceptional-bdivisor}, so by
+\Cref{prop:ch35-weil-coefficient-bijection} there is an exceptional real
+Weil b-divisor \(B\) with \(\psi_B=\psi\); define
+\(\alpha\in N^1_b(X)\) by \(\alpha_Y:=\pi^*\theta+[B_Y]\), as in the
+surjectivity part of \Cref{lem:ch35-bclass-splitting}.
+
+By \Cref{cor:ch35-homogenization-psh} write
+\(\psi_i\searrow\psi\) with \(\psi_i\in\cH_{\mathrm{hom}}(L_i)\) and
+\(c_1(L_i)\to\theta\).  Since \(\psi\leq\psi_i\leq0\) and
+\(\psi(\ord_E)=0\) for prime divisors \(E\subset X\), also
+\(\psi_i(\ord_E)=0\) for such \(E\); hence the Cartier b-divisor \(B_i\)
+with \(\psi_{B_i}=\psi_i\), furnished by
+\Cref{prop:cartier-homogeneous-pl}, satisfies \((B_i)_X=0\).  Choose a
+\(\mathbf Q\)-Cartier divisor \(D_i\) on \(X\) with
+\([D_i]=c_1(L_i)\) and set \(B_i':=\overline{D_i}+B_i\).  By
+\Cref{thm:ch35-semiample-criterion}, \(L_i+B_i\) is semiample, so
+\(B_i'\) is a semiample, hence nef, Cartier b-divisor.  Its class satisfies
+\((\,[B_i']\,)_X=c_1(L_i)\to\theta\) and
+\(\psi_{[B_i']}=\psi_{B_i}=\psi_i\to\psi\) pointwise on \(X^{\divis}\), so
+\Cref{lem:ch35-bclass-splitting} gives \([B_i']\to\alpha\) in
+\(N^1_b(X)\).  Therefore \(\alpha\in\Nef_b(X)\).
+
+\medskip
+\noindent\emph{Step 4: monotone approximation.}
+This is \Cref{cor:ch35-monotone-approximation} below.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch35-monotone-approximation}
+Under the hypotheses of
+\Cref{thm:bj-nef-bdivisor-correspondence}, every
+\(\alpha\in\Nef_b(X)\) is the limit of a \emph{decreasing} net \((B_i)\) of
+nef Cartier b-divisors, \([B_i]\to\alpha\) in \(N^1_b(X)\).
+\end{corollary}
+
+\begin{proof}
+Write \(\alpha_X=[D]\) for an \(\mathbf R\)-divisor \(D\) on \(X\) and
+choose an effective ample \(\mathbf R\)-divisor \(H\) on \(X\) such that
+\(L:=D+H\) is an ample \(\mathbf Q\)-divisor.  By
+\Cref{thm:bj-nef-bdivisor-correspondence},
+\(\psi_\alpha\in\PSH_{\mathrm{hom},X}(\alpha_X)\), and adding the
+homogeneous Fubini--Study function \(\psi_{-\overline H}=\log|s_H|\)
+--- interpreted through \eqref{eq:section-bdivisor-sign} --- gives
+\[
+ \psi_\alpha+\log|s_H|\in\PSH_{\mathrm{hom},X}(c_1(L)).
+\]
+By \Cref{cor:ch35-homogenization-psh} in its ample form, there is a
+decreasing net \((\psi_i)\) in \(\cH_{\mathrm{hom}}(L)\) with
+\(\psi_i\searrow\psi_\alpha+\log|s_H|\) pointwise on \(X^{\divis}\).  Write
+\(\psi_i=\psi_{C_i}\) with \(C_i\in\operatorname{CDiv}_{\mathbf Q}(\mathfrak X)\)
+by \Cref{prop:cartier-homogeneous-pl}.  By
+\Cref{thm:ch35-semiample-criterion}, \(B_i:=C_i+\overline L\) is a semiample,
+hence nef, Cartier b-divisor.  The net \((C_i)\) is decreasing, by
+\Cref{prop:ch35-weil-coefficient-bijection}, hence so is \((B_i)\); and by
+construction \(\psi_{B_i}\to\psi_\alpha\) pointwise on \(X^{\divis}\) with
+\((\,[B_i]\,)_X=c_1(L)-[H]=\alpha_X\).  \Cref{lem:ch35-bclass-splitting}
+gives \([B_i]\to\alpha\).  This recovers
+\cite[Theorem~A]{DF20}; see \cite[Corollary~6.41]{BJ22}.
+\end{proof}
+
+\begin{remark}[Relation to the intersection theory of
+             \Cref{app:intersection-bdivisors}]
+\label{rem:ch35-df-relation}
+\Cref{cor:ch35-monotone-approximation} is the monotone approximation input
+\cite[Theorem~2.1]{DF20} on which
+\Cref{thm:appF-df-nef-intersection} rests, and the derivation just given is
+logically independent of that appendix: the appendix imports the statement
+from \cite{DF20} and builds the intersection product on it, whereas here it
+is deduced from the psh correspondence.  Neither derivation is circular,
+because \Cref{app:intersection-bdivisors} nowhere uses
+\Cref{thm:bj-nef-bdivisor-correspondence}.  The reader who wants the
+intersection numbers \((\alpha_1\cdots\alpha_n)_{\mathfrak X}\) of nef
+b-classes, and the volume \eqref{eq:appF-nef-volume}, should read the
+appendix; the reader who wants the analytic meaning of a nef b-class should
+read the present section.  The standard supply of nef b-classes is the
+positive part of a divisorial Zariski decomposition
+\cite{Bou04,Nak04,BFJ09}.
+\end{remark}
+
+\begin{example}[Nef b-classes on a curve and on a surface]
+\label{ex:ch35-nef-bclass-examples}
+On a smooth projective curve \(X\), every model is \(X\), so
+\(N^1_b(X)=N^1(X)=\mathbf R\), \(\mathcal E=0\), and
+\(\Nef_b(X)=\mathbf R_{\geq0}\).  \Cref{thm:bj-nef-bdivisor-correspondence}
+then says that for \(\theta\geq0\) the only homogeneous \(\theta\)-psh
+function vanishing on all prime divisors of \(X\) is \(0\), which is
+\Cref{prop:ch35-curve-classification} with all \(c_r=0\).  The content of the
+theorem is therefore entirely two-dimensional and higher.
+
+On \(X=\mathbf P^2\), take \(\alpha:=[B]\) for the b-divisor \(B\) of
+\Cref{ex:ch35-blowup-bdivisor}, twisted into a nef class: put
+\(\theta=c_1(\cO(1))\) and \(\alpha_Y:=\pi^*\theta-[E]=H-E\) on the blowup
+\(Y\) at \(q\), and \(\alpha_{Y'}\) the corresponding pullback on higher
+models.  Then \(\alpha_X=\theta\), \(\psi_\alpha=\log|\mathfrak m_q|\), and
+\eqref{eq:nef-bdivisor-psh-pairs} is satisfied:
+\(\log|\mathfrak m_q|\in\PSH_{\mathrm{hom},X}(\theta)\) and it vanishes on
+every prime divisor of \(\mathbf P^2\), since a curve in \(\mathbf P^2\) has
+\(\ord_C(\mathfrak m_q)=0\) unless \(C\) passes through \(q\), and even then
+\(\ord_C(\mathfrak m_q)=0\) because a prime divisor on \(X\) itself is not
+exceptional.  The corresponding b-volume is
+\((\alpha^2)_{\mathfrak X}=(H-E)^2=0\) by
+\eqref{eq:appF-blowup-table}, so by
+\Cref{cor:appF-nef-volume} no probability normalization is available for
+this class.
+\end{example}
+
+\section{Translation between the homogeneous and inhomogeneous categories}
+\label{sec:ch35-translation}
+
+\subsection{The two functors}
+\label{sec:ch35-two-functors}
+
+We now assemble the results of
+\Cref{sec:ch35-homogenization,sec:ch35-legendre} into a single statement
+with its domain of definition made explicit.  This is the form in which the
+translation is used in
+\Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization},
+and it is the step in the plan's proof architecture that the audit singles
+out.
+
+\begin{definition}[The Legendre category]
+\label{def:ch35-legendre-category}
+Fix \(\theta\in N^1(X)\).  A \emph{concave homogeneous family} in the class
+\(\theta\) is a pair \((b,\psi)\) consisting of a real number
+\(b\in\mathbf R\) and a family
+\(\psi=(\psi_\lambda)_{\lambda\leq b}\) such that
+\begin{enumerate}
+\item \(\psi_\lambda\in\PSH_{\mathrm{hom},X}(\theta)\) for every
+ \(\lambda\leq b\);
+\item for every \(v\in X^{\divis}\), the function
+ \(\lambda\mapsto\psi_\lambda(v)\) is concave and nonincreasing on
+ \((-\infty,b]\).
+\end{enumerate}
+We write \(\mathfrak L_X(\theta)\) for the set of such pairs, ordered by
+\((b,\psi)\leq(b',\psi')\) when \(b\leq b'\) and
+\(\psi_\lambda\leq\psi'_\lambda\) for all \(\lambda\leq b\).
+\end{definition}
+
+Condition (2) is imposed on \(X^{\divis}\) only.  By
+\Cref{cor:ch35-divisorial-determination} this is no loss: a concave
+inequality between homogeneous psh functions that holds on
+\(X^{\divis}\) holds on \(X^{\An}\).  Condition (1) already forces
+\(\psi_\lambda\leq0\), by
+\Cref{prop:ch35-homogeneous-normalization}.
+
+\begin{theorem}
+\label{thm:ch35-translation}
+Fix \(\theta\in N^1(X)\).  Define
+\[
+ \Lambda:\PSH_X(\theta)\longrightarrow\mathfrak L_X(\theta),
+ \qquad
+ \Lambda(\phi):=\bigl(\sup\phi,\ (\widehat\phi_\lambda)_{\lambda\leq\sup\phi}\bigr),
+\]
+and, for \((b,\psi)\in\mathfrak L_X(\theta)\),
+\[
+ \Sigma(b,\psi):=\sup_{\lambda\leq b}\{\psi_\lambda+\lambda\}
+ \qquad\text{pointwise on }X^{\An}.
+\]
+Then:
+\begin{enumerate}
+\item \(\Lambda\) is well defined: for
+ \(\phi\in\PSH_X(\theta)\), the pair \(\Lambda(\phi)\) satisfies
+ \Cref{def:ch35-legendre-category}, and moreover
+ \(\lambda\mapsto\widehat\phi_\lambda(v)\) is continuous on
+ \((-\infty,\sup\phi]\) for every \(v\in X^{\divis}\);
+\item \(\Sigma\circ\Lambda=\operatorname{id}\) on
+ \(\PSH_X(\theta)\); in particular \(\Lambda\) is injective and
+ \(\Sigma\) is surjective onto \(\PSH_X(\theta)\) when restricted to the
+ image of \(\Lambda\);
+\item \(\Lambda\circ\Sigma=\operatorname{id}\) on the image of
+ \(\Lambda\); more precisely, if
+ \((b,\psi)\in\mathfrak L_X(\theta)\) and
+ \(\phi:=\Sigma(b,\psi)\) happens to satisfy
+ \(\phi\in\PSH_X(\theta)\) with \(\sup\phi=b\), then
+ \(\psi_\lambda=\widehat\phi_\lambda\) for every \(\lambda<b\);
+\item \(\Lambda\) and \(\Sigma\) are order preserving, and
+ \(\Lambda(\phi+c)=\bigl(\sup\phi+c,\ (\widehat\phi_{\lambda-c})_{\lambda}\bigr)\)
+ for \(c\in\mathbf R\), while
+ \(\Lambda(t\cdot\phi)=\bigl(t\sup\phi,\ (\widehat\phi_{\lambda/t})_\lambda\bigr)\)
+ for \(t>0\).
+\end{enumerate}
+\par
+\end{theorem}
+
+\begin{proof}
+(1)  Membership in \(\PSH_{\mathrm{hom},X}(\theta)\) for
+\(\lambda\leq b:=\sup\phi\) is
+\Cref{prop:ch35-slice-trichotomy}\,(2); concavity and monotonicity in
+\(\lambda\) are \Cref{lem:ch35-slice-basic}\,(6); continuity on
+\((-\infty,b]\) at divisorial points is
+\Cref{lem:ch35-slice-continuity}.
+
+(2)  This is exactly
+\Cref{thm:homogeneous-legendre-decomposition}\,(3).
+
+(3)  Assume \(\phi=\Sigma(b,\psi)\) lies in
+\(\PSH_X(\theta)\) with \(\sup\phi=b\).  Fix \(v\in X^{\An}\) and
+\(t>0\).  Apply the scaling action to the defining identity: by
+\Cref{lem:ch35-action-basic}\,(3)--(4) and homogeneity of each
+\(\psi_\lambda\),
+\[
+ (t\cdot\phi)(v)
+ =\sup_{\lambda\leq b}\bigl(t\cdot(\psi_\lambda+\lambda)\bigr)(v)
+ =\sup_{\lambda\leq b}\{\psi_\lambda(v)+t\lambda\}.
+\]
+Thus, for each fixed \(v\), the function
+\(F(t):=(t\cdot\phi)(v)\) is the supremum of the affine functions
+\(t\mapsto\psi_\lambda(v)+t\lambda\), that is, \(F=\mathcal Lg\) in the
+notation \eqref{eq:appD-concave-transform}, where
+\(g(\lambda):=\psi_\lambda(v)\) for \(\lambda\leq b\) and
+\(g(\lambda):=-\infty\) for \(\lambda>b\).  The function \(g\) is concave
+and nonincreasing by hypothesis, and it is upper semicontinuous on
+\((-\infty,b]\) when \(v\in X^{\divis}\), being finite and concave there;
+at \(\lambda=b\) the value is the limit from the left because a finite
+concave function on \((-\infty,b]\) is continuous at \(b\) from the left
+whenever it is finite at \(b\), which holds by
+\Cref{thm:bj-basic-closure}\,(7).  Hence \(g\) is proper, closed, concave,
+and nonincreasing, and \Cref{thm:appD-concave-duality} gives
+\[
+ \psi_\lambda(v)=g(\lambda)=\inf_{t>0}\{F(t)-t\lambda\}
+ =\widehat\phi_\lambda(v)
+\]
+for every \(\lambda<b\) and every \(v\in X^{\divis}\).  Both
+\(\psi_\lambda\) and \(\widehat\phi_\lambda\) are \(\theta\)-psh, so
+\Cref{cor:ch35-divisorial-determination} upgrades the identity to
+\(X^{\An}\).  This is the converse half of
+\cite[Theorem~6.24]{BJ22}.
+
+(4)  Order preservation of \(\Lambda\) is
+\Cref{lem:ch35-slice-basic}\,(5) together with monotonicity of
+\(\phi\mapsto\sup\phi\); order preservation of \(\Sigma\) is immediate from
+the definition.  The two equivariance formulas are
+\Cref{lem:ch35-slice-basic}\,(3) and (4), together with
+\(\sup(\phi+c)=\sup\phi+c\) and
+\(\sup(t\cdot\phi)=t\sup\phi\).
+\end{proof}
+
+\subsection{The exact domain of the backward direction}
+\label{sec:ch35-domain}
+
+\begin{warning}{\(\Sigma\) is not defined on all of \(\mathfrak L_X(\theta)\)}
+\Cref{thm:ch35-translation}\,(3) is stated with the hypothesis
+\(\Sigma(b,\psi)\in\PSH_X(\theta)\).  That hypothesis is not automatic.  The
+expression \(\Sigma(b,\psi)=\sup_{\lambda\leq b}\{\psi_\lambda+\lambda\}\)
+is a supremum of a family of \(\theta\)-psh functions.  By
+\Cref{lem:usc-star-calculus} such a supremum need not be upper
+semicontinuous, and even when it is, membership in
+\(\PSH_X(\theta)\) is the envelope property
+\eqref{eq:bj-envelope-property} for the family in question.  Consequently:
+\begin{enumerate}
+\item \(\Lambda\) is a bijection from \(\PSH_X(\theta)\) onto its image
+ inside \(\mathfrak L_X(\theta)\), with inverse \(\Sigma\);
+\item the image of \(\Lambda\) is contained in, but not known in general to
+ equal, the set of \((b,\psi)\in\mathfrak L_X(\theta)\) for which
+ \(\Sigma(b,\psi)\) is \(\theta\)-psh with supremum \(b\);
+\item if \(\theta\) has the envelope property, then the two sets in (2)
+ coincide up to the normalization \(\sup\Sigma(b,\psi)=b\), because the
+ usc regularization of \(\Sigma(b,\psi)\) is then \(\theta\)-psh.
+\end{enumerate}
+No statement in
+\Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
+uses the backward direction outside the image of \(\Lambda\); this is
+precisely why the envelope proof is not circular.
+\end{warning}
+
+\begin{example}[A concave homogeneous family whose supremum is a
+             regularization]
+\label{ex:ch35-translation-needs-star}
+Let \(X=\mathbf P^1_k\), \(\theta=c_1(\cO(1))\), and let
+\((p_j)_{j\geq1}\) be an enumeration of a countably infinite set of distinct
+closed points.  For \(\lambda\leq0\) set
+\[
+ \psi_\lambda:=\max\{0,1+\lambda\}\cdot\log|\mathfrak m_{p_1}| .
+\]
+This is the family computed in \Cref{ex:ch35-legendre-pair-p1}; it lies in
+\(\mathfrak L_X(\theta)\) and its \(\Sigma\) is the psh function
+\(\max\{\log|x|,\log|y|-1\}\).  Now modify it: for \(\lambda\leq0\) put
+\[
+ \psi'_\lambda:=\max\{0,1+\lambda\}\cdot
+ \log\bigl|\mathfrak m_{p_1}\cdots\mathfrak m_{p_{j(\lambda)}}\bigr|,
+ \qquad j(\lambda):=\lceil-1/\lambda\rceil\ (\lambda<0),
+ \quad j(0):=1 .
+\]
+Each \(\psi'_\lambda\) is homogeneous \(\theta_j\)-psh only for
+\(\theta_j=c_1(\cO(j))\), not for a fixed \(\theta\); the family therefore
+fails condition (1) of \Cref{def:ch35-legendre-category}, and the failure is
+visible as an escape of the numerical class.  This is the mechanism by which
+concavity axioms alone do not characterize the image of \(\Lambda\): they
+control the parameter direction but not the class.  A genuine example of a
+family satisfying all the axioms and having non-psh supremum would be a
+counterexample to the envelope property for \(\theta\), and by
+\Cref{thm:bj-final-envelope} none exists when \(X\) is unibranch; on a
+non-unibranch variety the node computation of
+\Cref{ex:bj-node-cusp} produces one.
+\end{example}
+
+\subsection{Chapter dictionary}
+\label{sec:ch35-dictionary}
+
+The Legendre slices in \eqref{eq:homogeneous-legendre-slice} give the
+translation between categories:
+\[
+\begin{array}{c|c}
+\text{inhomogeneous datum}&\text{homogeneous datum}\\ \hline
+\phi\in\PSH_X(\theta)&
+(\widehat\phi_\lambda)_{\lambda\leq\sup\phi}\\
+\text{finite maximum of weighted sections}&
+\text{weight-zero coefficient systems}\\
+\text{radial upper bound }\phi\leq p+C&
+\text{tail controlled by the carrier }p\\
+\text{values on all of }X^{\An}&
+\text{b-divisor coefficients and }\lambda.
+\end{array}
+\]
+
+The last row is not a claim that arbitrary functions are determined by
+b-divisors.  Psh functions are determined by their divisorial trace; the
+homogeneous Legendre family is what retains the inhomogeneous information.
+This distinction is central to the reflection arguments of
+\Crefrange{chap:bj-cartier-realization}{chap:bj-reflection}.
+
+The full dictionary established in this chapter is the following.  Each row
+is a proved equivalence, with the hypothesis under which it was proved
+listed in the third column.
+
+\begin{center}
+\begin{tabular}{p{.29\textwidth}p{.32\textwidth}p{.28\textwidth}}
+\toprule
+analytic object & algebraic object & hypothesis\\
+\midrule
+\(\psi\in\PL^+_{\mathrm{hom}}(X)\) &
+antieffective relatively semiample Cartier b-divisor &
+\(X\) normal
+(\Cref{prop:cartier-homogeneous-pl})\\
+\(\psi\in\PL_{\mathrm{hom}}(X)\) &
+Cartier b-divisor &
+\(X\) normal
+(\Cref{prop:cartier-homogeneous-pl})\\
+\(\psi\in\cH_{\mathrm{hom}}(L)\) &
+\(B\leq0\) with \(L+B\) semiample &
+\(X\) normal
+(\Cref{thm:ch35-semiample-criterion})\\
+\(\psi_B\in\PSH_{\mathrm{hom},X}(\theta)\) &
+\(B\leq0\) with \(\theta+B\) nef &
+\(X\) normal, \(\operatorname{EP}\) for ample classes
+(\Cref{thm:ch35-cartier-psh-criterion})\\
+\(\psi\in\PSH_{\mathrm{hom},X}(\theta)\), \(\psi(\ord_E)=0\) on \(X\) &
+nef b-divisor class \(\alpha\) with \(\alpha_X=\theta\) &
+\(X\) smooth, \(\operatorname{char}k=0\)
+(\Cref{thm:bj-nef-bdivisor-correspondence})\\
+arbitrary Weil b-divisor &
+locally finite homogeneous function on \(X^{\divis}\) &
+\(X\) normal
+(\Cref{prop:ch35-weil-coefficient-bijection})\\
+\(\phi\in\PSH_X(\theta)\) &
+concave homogeneous family \((\widehat\phi_\lambda)\) &
+none beyond \eqref{eq:ch35-standing}
+(\Cref{thm:ch35-translation})\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Three separations are recorded alongside the dictionary and should be
+carried forward.
+
+\emph{Cartier versus Weil.}  Pullback and intersection are automatic for
+Cartier b-divisors and are not automatic for Weil ones; this is the firewall
+of \Cref{app:intersection-bdivisors}, and it is why
+\Cref{chap:bj-cartier-realization} realizes \emph{Cartier} b-divisors and
+does not attempt an arbitrary Weil realization.
+
+\emph{Divisor versus class.}  A Weil b-divisor is coefficient data on every
+model; a numerical b-divisor class is inverse-limit data in
+\(N^1\).  \Cref{lem:ch35-bclass-splitting} relates them, and the relation
+uses the negativity lemma and therefore normality and a suitable model
+category.
+
+\emph{Trace versus function.}  A homogeneous psh function is an
+extended-real function on \(X^{\An}\); its restriction to
+\(X^{\divis}\) determines it, by
+\Cref{cor:ch35-divisorial-determination}, but the restriction map is not a
+homeomorphism for the natural topologies, by
+\Cref{ex:ch35-evaluation-discontinuous}.
+
+\section{Source note}
+
+Homogeneous FS functions, homogenization, and Legendre reconstruction are
+from \cite[\S\S6.1--6.3]{BJ22}.  The b-divisor material follows
+\cite[\S\S6.4--6.5]{BJ22}, with background from \cite{BFJ09,DF20}.  We have
+kept three objects separate: a Weil b-divisor is coefficient data on every
+model, a b-divisor class is numerical inverse-limit data, and a homogeneous
+psh function is an extended-real analytic function determined by its
+divisorial values.
+
+More precisely, the attributions are as follows.  The scaling action on
+functions and the notion of homogeneity are
+\cite[\S1.1.4]{BJ22}; homogeneous PL and Fubini--Study functions, including
+\Cref{prop:hom-fs-ideal} and \Cref{cor:ch35-ample-exhausts}, are
+\cite[\S6.1]{BJ22}, with the tropical spectrum interpretation of
+\Cref{rem:ch35-elimination-tropical} going back to
+\cite{JM12}.  Homogenization, the elimination lemma
+\Cref{lem:ch35-elimination}, and \Cref{prop:homogenization-gf} are
+\cite[\S6.2]{BJ22}; we have given the Fourier--Motzkin argument explicitly
+and referred the biconjugation step to
+\Cref{thm:appD-fenchel-moreau} rather than to convex analysis in general.
+The Legendre decomposition
+\Cref{thm:homogeneous-legendre-decomposition}, the continuity
+\Cref{lem:ch35-slice-continuity}, the maximal slice
+\Cref{prop:ch35-phimax}, and the homogeneous Siu decomposition
+\Cref{thm:ch35-homogeneous-siu} are \cite[\S6.3]{BJ22}; the idea of encoding
+an inhomogeneous potential by a concave family of homogeneous ones is due to
+Ross and Witt Nystr\"om \cite{RWN14} in the complex setting, and the
+comparison is made in \Cref{chap:rays-filtrations}.  The identification of
+Cartier b-divisors with homogeneous PL functions,
+\Cref{prop:cartier-homogeneous-pl}, and the semiample and nef criteria
+\Cref{thm:ch35-semiample-criterion} and
+\Cref{thm:ch35-cartier-psh-criterion}, are \cite[\S6.4]{BJ22}.  The nef
+b-class correspondence \Cref{thm:bj-nef-bdivisor-correspondence} and the
+monotone approximation \Cref{cor:ch35-monotone-approximation} are
+\cite[\S6.5]{BJ22}; the approximation theorem was first proved by a
+different and more direct route in \cite{DF20}, whose intersection theory of
+nef b-classes is developed in \Cref{app:intersection-bdivisors}.  The
+underlying b-divisor formalism goes back to \cite{BFJ09}, and the
+divisorial Zariski decomposition that furnishes the standard examples of nef
+b-classes is \cite{Bou04,Nak04}.  For the analogous transcendental theory
+over \(\mathbf C\) see \cite{Xiabdiv,Xiabdiv2}.
+
+The comparison theorem \Cref{thm:ch35-divisorial-comparison} and its
+corollaries are \cite[Theorem~4.22 and Corollary~4.23]{BJ22}.  We have
+isolated the valuative criterion of effectivity as the single cited input
+\Cref{inp:ch35-effectivity} and derived the rest, because this is the point
+at which the plan's proof audit asks for equality on divisorial points to be
+upgraded to equality everywhere, and because
+\Cref{ex:ch35-usc-not-determined} shows that the upgrade is false without
+plurisubharmonicity.

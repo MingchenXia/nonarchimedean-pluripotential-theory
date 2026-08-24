@@ -1,0 +1,861 @@
+\chapter{Convex analysis and Legendre duality}
+\index{convex analysis}\index{Legendre--Fenchel transform}\index{Alexandrov measure}
+\label{app:convexity}
+
+This appendix is a reference sheet for the convex operations used throughout
+the book.
+It fixes three boundaries that are easy to blur.
+Legendre--Fenchel duality requires closedness for exact recovery;
+Alexandrov Monge--Amp\`ere measure is not multiplied by \(n!\);
+and Alexandrov--Fenchel is invoked only for finite-dimensional convex bodies.
+The algebraic factor \(n!\) is restored by
+\Cref{app:normalizations}.
+
+The first uses occur in \Cref{chap:topological-tools} for energy
+duality, \Cref{chap:bj-homogeneity-bdivisors} for test curves, and
+\Cref{chap:transcendental-okounkov-dh} for concave transforms and
+Duistermaat--Heckman measures.
+
+\section{Closed convex functions}
+\label{sec:appD-closed-convex}
+
+Let \(N\) be a finite-dimensional real vector space, let
+\(M=N^\vee\), and write the pairing as \(\langle m,x\rangle\).
+The extended real line is
+\[
+ \overline{\mathbf R}=\mathbf R\cup\{-\infty,+\infty\}.
+\]
+Undefined expressions such as \(+\infty-\infty\) are never formed.
+
+\begin{definition}[Proper closed convex function]
+\label{def:appD-proper-closed}
+A function \(f:N\to\mathbf R\cup\{+\infty\}\) is proper if it is never
+\(-\infty\) and is finite somewhere.
+It is closed convex if its epigraph
+\[
+ \operatorname{epi}(f)
+ :=\{(x,r)\in N\times\mathbf R:r\geq f(x)\}
+\tag{D.1}\label{eq:appD-epigraph}
+\]
+is closed and convex.
+Its effective domain is
+\(\operatorname{dom}(f)=\{f<+\infty\}\).
+\end{definition}
+
+For a proper convex function, its lower semicontinuous closure
+\(\overline f\) is the function whose epigraph is the closure of
+\(\operatorname{epi}(f)\).
+
+\begin{lemma}\label{lem:appD-closure-rules}
+The supremum of any nonempty family of convex functions is convex.
+The pointwise limit of a decreasing net of convex functions is convex,
+provided it never takes the value \(-\infty\).
+The maximum of finitely many closed convex functions is closed convex.
+\end{lemma}
+
+\begin{proof}
+An epigraph of a supremum is the intersection of the epigraphs.
+For the decreasing-net assertion, let \(f=\inf_a f_a\).
+Given \(x,y\), \(s\in[0,1]\), and \(\varepsilon>0\), directedness supplies
+one index \(a\) such that
+\[
+ f_a(x)<f(x)+\varepsilon,\qquad
+ f_a(y)<f(y)+\varepsilon.
+\]
+Here there is something to prove only when both \(f(x)\) and \(f(y)\) are
+finite; otherwise the convexity inequality has right-hand side
+\(+\infty\).
+Convexity of \(f_a\), followed by \(\varepsilon\downarrow0\), gives convexity
+of \(f\).
+Finally, the epigraph of a finite maximum is a finite intersection of closed
+convex sets.
+\end{proof}
+
+\begin{warning}{Infima}
+An arbitrary infimum of convex functions need not be convex.
+For example, the minimum of
+\(x\mapsto(x-1)^2\) and \(x\mapsto(x+1)^2\) has two wells.
+Whenever the main text takes a convex rooftop, it means the largest closed
+convex minorant of the pointwise infimum.
+\end{warning}
+
+\section{Legendre--Fenchel duality}
+\label{sec:appD-legendre}
+
+\begin{definition}[Conjugate and subgradient]
+\label{def:appD-conjugate}
+For \(f:N\to\mathbf R\cup\{+\infty\}\), define
+\[
+ f^*(m)=\sup_{x\in N}\{\langle m,x\rangle-f(x)\}.
+\tag{D.2}\label{eq:appD-conjugate}
+\]
+If \(f(x)\) is finite, its subdifferential at \(x\) is
+\[
+ \partial f(x)
+ :=\{m\in M:
+ f(y)\geq f(x)+\langle m,y-x\rangle\ \text{for every }y\in N\}.
+\tag{D.3}\label{eq:appD-subgradient}
+\]
+\end{definition}
+
+\begin{proposition}\label{prop:appD-fenchel-equality}
+If \(f\) is proper, then for every \(x\in N\) and \(m\in M\),
+\[
+                       f(x)+f^*(m)\geq\langle m,x\rangle.
+\tag{D.4}\label{eq:appD-fenchel}
+\]
+Equality holds if and only if
+\(m\in\partial f(x)\), and then also \(x\in\partial f^*(m)\).
+\end{proposition}
+
+\begin{proof}
+The inequality follows by retaining \(x\) among the competitors in
+\eqref{eq:appD-conjugate}.
+Equality says
+\[
+ \langle m,y\rangle-f(y)
+ \leq \langle m,x\rangle-f(x)
+\]
+for every \(y\), which rearranges to \eqref{eq:appD-subgradient}.
+The same equality, read with the variables reversed, gives the last claim.
+\end{proof}
+
+\begin{theorem}\label{thm:appD-fenchel-moreau}
+Let \(f:N\to\mathbf R\cup\{+\infty\}\) be proper and convex.
+Then \(f^*\) is closed convex and
+\[
+                          f^{**}=\overline f.
+\tag{D.5}\label{eq:appD-biconjugate}
+\]
+In particular, \(f^{**}=f\) exactly when \(f\) is lower semicontinuous.
+\end{theorem}
+
+\begin{proof}
+The function \(f^*\) is a supremum of continuous affine functions.
+Fenchel's inequality gives \(f^{**}\leq f\), hence
+\(f^{**}\leq\overline f\).
+Fix \(x_0\) and \(a<\overline f(x_0)\).
+The point \((x_0,a)\) lies strictly below the closed convex epigraph of
+\(\overline f\).
+The affine-minorant form of strict epigraph separation produces
+\(m\in M\) and \(c\in\mathbf R\) such that
+\[
+ \langle m,x\rangle-c\leq\overline f(x)
+ \quad\text{for all }x,\qquad
+ \langle m,x_0\rangle-c>a.
+\]
+For completeness, this form follows from ordinary strong separation as
+follows.  Upward closedness forces the vertical coefficient, with the
+orientation chosen so that the epigraph lies above the separating
+hyperplane, to be nonnegative.  If it is positive, normalize it to one.  If
+it is zero, combine the horizontal separator with a positive-vertical
+supporting hyperplane at a relative-interior point of the proper epigraph;
+a sufficiently small positive multiple preserves strictness at
+\((x_0,a)\), and normalization again gives the displayed affine minorant.
+The first inequality says \(f^*(m)\leq c\), so \(f^{**}(x_0)>a\).
+Let \(a\uparrow\overline f(x_0)\).
+This is the finite-dimensional argument behind
+\cite[Theorem~12.2]{Roc70}.
+\end{proof}
+
+\begin{example}[Indicator and support function]
+\label{ex:appD-indicator-support}
+For a nonempty closed convex set \(P\subset M\), let
+\(\iota_P=0\) on \(P\) and \(+\infty\) off \(P\).
+Its conjugate is
+\[
+ h_P(x)=\sup_{m\in P}\langle m,x\rangle.
+\tag{D.6}\label{eq:appD-support}
+\]
+\Cref{thm:appD-fenchel-moreau} gives
+\[
+                         h_P^*=\iota_P.
+\tag{D.7}\label{eq:appD-support-dual}
+\]
+Compactness of \(P\) is equivalent to finiteness of \(h_P\) everywhere.
+\end{example}
+
+\begin{proposition}\label{prop:appD-legendre-tests}
+For proper functions \(f,g\) and \(c\in\mathbf R\),
+\[
+\begin{aligned}
+ f\leq g&\Longrightarrow f^*\geq g^*,\\
+ (f+c)^*&=f^*-c,\\
+ (f(\,\cdot-x_0))^*(m)&=f^*(m)+\langle m,x_0\rangle.
+\end{aligned}
+\tag{D.8}\label{eq:appD-legendre-tests}
+\]
+\end{proposition}
+
+\begin{proof}
+All three statements follow directly from
+\eqref{eq:appD-conjugate}.
+Only finite \(c\) is allowed.
+\end{proof}
+
+\section{Concave test curves and rays}
+\label{sec:appD-test-curves}
+
+For \(g:\mathbf R\to\mathbf R\cup\{-\infty\}\), closed concavity means that
+\(-g\) is closed convex.
+Set
+\[
+ \mathcal Lg(t)=\sup_{\tau\in\mathbf R}\{g(\tau)+t\tau\},
+ \qquad t\geq0.
+\tag{D.9}\label{eq:appD-concave-transform}
+\]
+
+\begin{theorem}\label{thm:appD-concave-duality}
+Let \(g\) be proper, upper semicontinuous, concave, and nonincreasing.
+Then \(\mathcal Lg\) is convex on \([0,+\infty)\) and
+\[
+                  g(\tau)=\inf_{t\geq0}
+                    \{\mathcal Lg(t)-t\tau\}.
+\tag{D.10}\label{eq:appD-concave-inversion}
+\]
+Conversely, if \(\ell\) is proper closed convex on \([0,+\infty)\), extended by
+\(+\infty\) to \(t<0\), then
+\[
+ g(\tau)=\inf_{t\geq0}\{\ell(t)-t\tau\}
+\]
+is closed concave and nonincreasing, and \(\mathcal Lg=\ell\).
+\end{theorem}
+
+\begin{proof}
+Apply \Cref{thm:appD-fenchel-moreau} to \(f=-g\).
+Because \(g\) is nonincreasing, all slopes of \(f\) are nonnegative, so
+the effective domain of \(f^*\) lies in \([0,+\infty)\).
+Now
+\[
+ f^*(t)=\sup_\tau\{t\tau+g(\tau)\}=\mathcal Lg(t),
+\]
+and biconjugation gives \eqref{eq:appD-concave-inversion}.
+The converse is the same computation in reverse.
+\end{proof}
+
+\begin{definition}[Abstract test curve]
+\label{def:appD-test-curve}
+Let \(\mathcal C\) be an ordered convex cone of extended-real functions on a
+set \(X\).
+A concave test curve is a family
+\(\psi=(\psi_\tau)_{\tau\in\mathbf R}\subset\mathcal C\) satisfying
+\[
+ \psi_{(1-s)\tau_0+s\tau_1}
+ \geq(1-s)\psi_{\tau_0}+s\psi_{\tau_1},
+ \qquad 0<s<1,
+\tag{D.11}\label{eq:appD-test-curve-concavity}
+\]
+that is nonincreasing and pointwise upper semicontinuous in \(\tau\).
+Its formal Legendre ray is
+\[
+ \ell_t(x)=
+ \sup_{\tau\in\mathbf R}\{\psi_\tau(x)+t\tau\},
+ \qquad t\geq0.
+\tag{D.12}\label{eq:appD-test-curve-ray}
+\]
+\end{definition}
+
+\begin{proposition}\label{prop:appD-test-curve-order}
+If \(\tau\mapsto\psi_\tau(x)\) is proper, then
+\[
+ \psi_\tau(x)=\inf_{t\geq0}\{\ell_t(x)-t\tau\}.
+\tag{D.13}\label{eq:appD-pointwise-inversion}
+\]
+Moreover, \(\psi\leq\chi\) implies
+\(\mathcal L\psi\leq\mathcal L\chi\).
+\end{proposition}
+
+\begin{proof}
+The identity is \Cref{thm:appD-concave-duality} at \(x\).
+The order assertion follows by taking suprema in
+\eqref{eq:appD-test-curve-ray}.
+\end{proof}
+
+\begin{warning}{Analytic regularization}
+Formula \eqref{eq:appD-pointwise-inversion} is scalar convex analysis.
+If \(\ell_t\) is replaced by an upper-semicontinuous or psh regularization
+in \(x\), exact inversion is an additional maximality theorem.
+\Cref{chap:rays-filtrations} supplies it only on the stated analytic
+domain.
+\end{warning}
+
+\begin{example}[Single break]
+\label{ex:appD-single-break}
+Let \(a<b\), \(c>0\), and
+\[
+ g(\tau)=
+ \begin{cases}
+ 0,&\tau\leq a,\\
+ -c(\tau-a),&a\leq\tau\leq b,\\
+ -\infty,&\tau>b.
+ \end{cases}
+\]
+This is closed, concave, and nonincreasing.
+Direct maximization gives a convex piecewise affine \(\mathcal Lg\) whose
+slopes lie in \([a,b]\).
+\end{example}
+
+\section{Convex bodies and mixed volume}
+\label{sec:appD-mixed-volume}
+
+Assume that \(N\) carries a lattice and normalize Lebesgue measure so a
+fundamental parallelepiped has volume one.
+A convex body is a nonempty compact convex subset.
+For \(s,t\geq0\),
+\[
+ sK+tL=\{sx+ty:x\in K,\ y\in L\}.
+\tag{D.14}\label{eq:appD-minkowski-sum}
+\]
+
+\begin{lemma}\label{lem:appD-support-calculus}
+For convex bodies \(K,L\), \(s,t\geq0\), and \(a\in N_{\mathbf R}\),
+\[
+\begin{aligned}
+ h_{sK+tL}&=s h_K+t h_L,\\
+ h_{K+a}(u)&=h_K(u)+\langle u,a\rangle,\\
+ K\subseteq L&\Longleftrightarrow h_K\leq h_L.
+\end{aligned}
+\tag{D.15}\label{eq:appD-support-calculus}
+\]
+\end{lemma}
+
+\begin{proof}
+The first two formulas follow by separating suprema.
+If \(K\not\subset L\), strict separation of a point of \(K\setminus L\)
+from \(L\) gives \(u\) with \(h_K(u)>h_L(u)\).
+\end{proof}
+
+\begin{theorem}\label{thm:appD-minkowski-polynomial}
+For convex bodies \(K_1,\ldots,K_r\subset N_{\mathbf R}\),
+\[
+ \operatorname{vol}\!\left(\sum_{i=1}^r t_iK_i\right)
+ =
+ \sum_{\substack{\alpha\in\mathbf N^r\\|\alpha|=n}}
+ \frac{n!}{\alpha_1!\cdots\alpha_r!}
+ V(K_1[\alpha_1],\ldots,K_r[\alpha_r])
+ \prod_{i=1}^r t_i^{\alpha_i}.
+\tag{D.16}\label{eq:appD-minkowski-polynomial}
+\]
+The coefficient \(V(K_1,\ldots,K_n)\) is symmetric, nonnegative,
+translation invariant, monotone, and Hausdorff-continuous, with
+\(V(K,\ldots,K)=\operatorname{vol}(K)\).
+\end{theorem}
+
+\begin{proof}
+We first treat polytopes.  A fine mixed subdivision of
+\(t_1K_1+\cdots+t_rK_r\), obtained from a triangulation of the Cayley
+polytope, has top-dimensional cells
+\[
+                     t_1F_1+\cdots+t_rF_r
+\]
+with the direction spaces of the simplices \(F_i\) independent and
+\(\sum_i\dim F_i=n\).  If \(\alpha_i=\dim F_i\), lattice-normalized
+ambient volume and a linear change of variables on the direct sum of these
+direction spaces give
+\[
+ \operatorname{vol}(t_1F_1+\cdots+t_rF_r)
+       =c_F\prod_i t_i^{\alpha_i},\qquad c_F\geq0.
+\]
+The same subdivision works throughout the positive orthant: changing the
+positive \(t_i\) only rescales the summands in every mixed cell.  Summing
+over the top cells proves that the volume is a homogeneous polynomial of
+degree \(n\), with nonnegative coefficients.  This mixed-subdivision
+construction is the combinatorial core of
+\cite[Theorem~5.1.7]{Sch14}.
+
+For arbitrary convex bodies choose polytopes \(K_{i,j}\) converging to
+\(K_i\) in Hausdorff distance.  Minkowski addition and volume are
+Hausdorff-continuous, so the corresponding volume polynomials converge at
+every point of \(\mathbf R_{\geq0}^r\).  The coefficients of a polynomial
+of degree at most \(n\) are fixed linear combinations of its values on any
+unisolvent finite grid.  They therefore converge, and their limits remain
+nonnegative.  Denote the coefficient of
+\(t_1^{\alpha_1}\cdots t_r^{\alpha_r}\) by
+\[
+       \frac{n!}{\alpha_1!\cdots\alpha_r!}
+       V(K_1[\alpha_1],\ldots,K_r[\alpha_r]).
+\]
+This proves \eqref{eq:appD-minkowski-polynomial} and Hausdorff
+continuity.
+
+The coefficient of \(t_1\cdots t_n\) is unchanged by permuting the
+bodies, which gives symmetry.  Replacing the first body by \(sK+tL\) and
+comparing that coefficient on the two sides of the already proved volume
+polynomial gives
+\[
+ V(sK+tL,K_2,\ldots,K_n)
+ =sV(K,K_2,\ldots,K_n)+tV(L,K_2,\ldots,K_n).
+\]
+Thus mixed volume is Minkowski-multilinear.  Translating one body merely
+translates every Minkowski sum, hence leaves the coefficient unchanged.
+Taking every body equal to \(K\) and comparing with
+\(\operatorname{vol}((\sum t_i)K)\) gives
+\(V(K,\ldots,K)=\operatorname{vol}(K)\).
+
+It remains to record monotonicity.  Polarizing the facet formula
+\[
+ n\operatorname{vol}(P)
+    =\sum_F h_P(u_F)\operatorname{vol}_{n-1}(F)
+\]
+in its last \(n-1\) entries gives, first for polytopes,
+\[
+ nV(K,K_2,\ldots,K_n)
+   =\int_{S^{n-1}}h_K\,\rd S(K_2,\ldots,K_n),
+\]
+where the mixed area measure is positive: on each common normal cone its
+mass is the \((n-1)\)-dimensional mixed-cell coefficient already
+constructed above.  Thus \(K\subseteq L\) implies \(h_K\leq h_L\) and
+\(V(K,K_2,\ldots,K_n)\leq V(L,K_2,\ldots,K_n)\).
+Approximating an inclusion from inside and outside by polytopes and using
+the continuity just proved gives the assertion for convex bodies.  This
+also completes the proof when some bodies are lower-dimensional.
+\end{proof}
+
+The theorem asserts nothing about infinite-dimensional mixed volumes.
+
+\begin{theorem}\label{thm:appD-af}
+\leavevmode\par
+Assume \(n\geq2\).  For convex bodies \(K,L,K_3,\ldots,K_n\),
+\[
+ V(K,L,K_3,\ldots,K_n)^2
+ \geq
+ V(K,K,K_3,\ldots,K_n)
+ V(L,L,K_3,\ldots,K_n).
+\tag{D.17}\label{eq:appD-af}
+\]
+No nonempty-interior hypothesis is needed for the inequality.
+Division by a mixed volume or an equality criterion requires the relevant
+nondegeneracy hypotheses.
+\end{theorem}
+
+\begin{proof}
+We give the complete reduction to one imported finite-dimensional core.
+First suppose that all bodies have smooth strictly convex support
+functions \(h_1,\ldots,h_n\).  Fix \(h_3,\ldots,h_n\) and, on the unit
+sphere, set
+\[
+ Q(f,g):=\frac1{n!}\int_{S^{n-1}}
+       f\,\dprimeddprime g\wedge
+       \dprimeddprime h_3\wedge\cdots\wedge
+       \dprimeddprime h_n\wedge\ddprime\lVert x\rVert .
+\]
+Stokes' formula makes \(Q\) symmetric, and the mixed-volume integral
+formula gives
+\[
+                 Q(h_K,h_L)=V(K,L,K_3,\ldots,K_n).
+\]
+The imported input is exactly the following Lorentzian assertion: if
+\(Q(p,p)>0\), then \(Q\) is nonpositive on
+\(\{f:Q(f,p)=0\}\), with the kernel supplied by the solvability theory for
+the self-adjoint Alexandrov equation.  The signature statement is
+\cite[Theorem~12.3]{Ber26Convex}, and the kernel and solvability statement is
+\cite[Theorem~13.3]{Ber26Convex}; the classical convex-body formulation is
+\cite[Theorem~7.3.1]{Sch14}.  We use that foundational input and prove every
+remaining deduction below.
+
+Apply the Lorentzian assertion with \(p=h_L\).  When \(Q(h_L,h_L)>0\), put
+\[
+       f=h_K-\frac{Q(h_K,h_L)}{Q(h_L,h_L)}h_L.
+\]
+Then \(Q(f,h_L)=0\), hence \(Q(f,f)\leq0\).  Expanding this inequality
+gives
+\[
+                 Q(h_K,h_L)^2
+                 \geq Q(h_K,h_K)Q(h_L,h_L),
+\]
+which is \eqref{eq:appD-af}.  The same conclusion when the denominator
+vanishes follows by replacing every body by its Minkowski sum with
+\(\varepsilon B\).
+
+Finally, every convex body is a Hausdorff limit of smooth strictly convex
+bodies, for example after adding \(\varepsilon B\) and smoothing the
+support function.  Mixed-volume continuity from
+\Cref{thm:appD-minkowski-polynomial} lets \(\varepsilon\downarrow0\) and
+proves the stated degenerate case without any division.
+\end{proof}
+
+\begin{corollary}\label{cor:appD-brunn-minkowski}
+For convex bodies \(K,L\),
+\[
+ \operatorname{vol}(K+L)^{1/n}
+ \geq
+ \operatorname{vol}(K)^{1/n}
+ +\operatorname{vol}(L)^{1/n}.
+\tag{D.18}\label{eq:appD-brunn-minkowski}
+\]
+The usual homothety equality criterion requires nonempty interiors.
+\end{corollary}
+
+\begin{proof}
+Put
+\[
+ a_j=V(K[n-j],L[j]),\qquad 0\leq j\leq n.
+\]
+Alexandrov--Fenchel says that \((a_j)\) is log concave.
+After adding a small ball, all \(a_j\) are positive, and log concavity gives
+\[
+ a_j\geq a_0^{(n-j)/n}a_n^{j/n}.
+\]
+Insert this estimate in the Minkowski polynomial for
+\(\operatorname{vol}(K+L)\) and apply the binomial theorem.
+Letting the radius of the added ball tend to zero proves
+\eqref{eq:appD-brunn-minkowski}.
+\end{proof}
+
+\section{Alexandrov Monge--Amp\`ere measure}
+\label{sec:appD-real-ma}
+
+Let \(\Omega\subset N_{\mathbf R}\) be open and convex and
+\(u:\Omega\to\mathbf R\) convex.
+For \(E\subset\Omega\), put
+\(\partial u(E)=\bigcup_{x\in E}\partial u(x)\).
+
+\begin{theorem}\label{thm:appD-alexandrov-measure}
+The assignment
+\[
+ \MA_{\mathbf R}(u)(E)
+ =\operatorname{Leb}_M(\partial u(E))
+\tag{D.19}\label{eq:appD-alexandrov-measure}
+\]
+defines a positive Borel measure.
+If \(u\in C^2(\Omega)\), then
+\[
+ \MA_{\mathbf R}(u)=\det(D^2u)\,\rd x.
+\tag{D.20}\label{eq:appD-smooth-real-ma}
+\]
+If finite convex \(u_j\to u\) locally uniformly, then
+\(\MA_{\mathbf R}(u_j)\) converges weakly on relatively compact subsets to
+\(\MA_{\mathbf R}(u)\).
+\end{theorem}
+
+\begin{proof}
+The subgradient graph is relatively closed in \(\Omega\times M\): this
+follows immediately by passing to the limit in the subgradient inequality.
+Hence the image
+\(\partial u(E)\) of a Borel set is analytic and therefore Lebesgue
+measurable.  If \(E_1,E_2\) are disjoint and
+\(m\in\partial u(E_1)\cap\partial u(E_2)\), then there are distinct
+\(x_i\in E_i\) with
+\[
+ m\in\partial u(x_i)
+ \quad\Longleftrightarrow\quad
+ x_i\in\partial u^*(m).
+\]
+Thus \(u^*\) is not differentiable at \(m\).  A finite convex function on
+the relative interior of its domain is differentiable almost everywhere;
+the boundary of a full-dimensional convex domain, and every
+lower-dimensional domain, has \(n\)-dimensional Lebesgue measure zero.
+It follows that subgradient images of disjoint Borel sets overlap only on
+a null set.  Since
+\(\partial u(\bigcup_jE_j)=\bigcup_j\partial u(E_j)\), the assignment in
+\eqref{eq:appD-alexandrov-measure} is countably additive.
+
+It is locally finite.  Indeed, if \(K\Subset\Omega\), choose
+\(\rho>0\) with \(K+\rho B\Subset\Omega\).  For \(x\in K\),
+\(m\in\partial u(x)\), and a unit vector \(e\), the subgradient inequality
+at \(x\pm\rho e\) bounds \(|\langle m,e\rangle|\) by
+\(2\rho^{-1}\sup_{K+\rho B}|u|\).  Hence \(\partial u(K)\) is bounded.
+This proves that \(\MA_{\mathbf R}(u)\) is a positive Borel measure.
+
+Assume next that \(u\in C^2\).  Then
+\(\partial u(x)=\{\nabla u(x)\}\).  The area formula
+\cite[Theorem~3.8]{EvansGariepy} gives
+\[
+ \int_E\det D^2u\,\rd x
+ =\int_M N(\nabla u,E,m)\,\rd m.
+\]
+For almost every \(m\), the conjugate is differentiable and the displayed
+subgradient equivalence shows that \(\nabla u(x)=m\) has at most one
+solution.  The right side is therefore
+\(\operatorname{Leb}_M(\nabla u(E))\), which proves
+\eqref{eq:appD-smooth-real-ma}, including the possibly degenerate Hessian
+case.
+
+Finally suppose \(u_j\to u\) locally uniformly.  On each
+\(K\Subset\Omega\), the preceding slope bound is uniform in \(j\).
+Closedness of the subgradient inequality then gives
+\[
+ x_j\to x,\quad m_j\in\partial u_j(x_j),\quad m_j\to m
+       \quad\Longrightarrow\quad m\in\partial u(x).
+\]
+Consequently, for compact \(K\), every \(\partial u_j(K)\) is eventually
+contained in any prescribed neighborhood of \(\partial u(K)\), and hence
+\[
+ \limsup_j\MA_{\mathbf R}(u_j)(K)
+       \leq\MA_{\mathbf R}(u)(K).
+\]
+For an open \(G\Subset\Omega\), take an \(m\in\partial u(G)\) at which
+\(u^*\) is differentiable.  The function
+\(x\mapsto u(x)-\langle m,x\rangle\) then has a unique minimizer
+\(x\in G\).  Choose a closed ball \(D\Subset G\) centred at \(x\).
+Uniqueness and compactness give a positive gap between the value at \(x\)
+and the values on \(\partial D\).  Local uniform convergence therefore
+puts every minimizer on \(D\) of
+\(u_j-\langle m,\cdot\rangle\) in the interior of \(D\) for all large
+\(j\).  Such a local minimum says \(m\in\partial u_j(G)\).  Fatou's
+lemma, after discarding the null
+nondifferentiability set of \(u^*\), yields
+\[
+ \MA_{\mathbf R}(u)(G)
+       \leq\liminf_j\MA_{\mathbf R}(u_j)(G).
+\]
+The two Portmanteau inequalities prove weak convergence on relatively
+compact subsets.  The subgradient and differentiability inputs used above
+are precisely \cite[Theorems~24.5 and~25.5]{Roc70}.
+\end{proof}
+
+\begin{example}[Polyhedral atom]
+\label{ex:appD-polyhedral-atom}
+If
+\[
+ u(x)=\max_i\{\langle m_i,x\rangle+c_i\},
+\]
+then at a vertex \(x_0\),
+\[
+ \MA_{\mathbf R}(u)(\{x_0\})
+ =
+ \operatorname{vol}_M
+ \operatorname{conv}\{m_i:
+ \langle m_i,x_0\rangle+c_i=u(x_0)\}.
+\tag{D.21}\label{eq:appD-polyhedral-atom}
+\]
+Only full-dimensional subdifferentials contribute.
+\end{example}
+
+\begin{proposition}\label{prop:appD-legendre-pushforward}
+Let \(u:N_{\mathbf R}\to\mathbf R\) be closed convex and suppose
+\[
+ P=\overline{\partial u(N_{\mathbf R})}
+\]
+is compact.
+Then, with \(\nabla u^*\) defined at its almost-everywhere differentiability
+points in \(P\),
+\[
+ \MA_{\mathbf R}(u)(N_{\mathbf R})=\operatorname{vol}_M(P).
+\tag{D.22}\label{eq:appD-real-ma-mass}
+\]
+After defining \(\nabla u^*\) arbitrarily on the Lebesgue-null subset of
+\(P\) where it is not finite and differentiable, one has
+\[
+ (\nabla u^*)_*(\operatorname{Leb}_M|_P)
+ =\MA_{\mathbf R}(u).
+\tag{D.23}\label{eq:appD-legendre-pushforward}
+\]
+\end{proposition}
+
+\begin{proof}
+For finite convex \(u\) on all of \(N_{\mathbf R}\), the subgradient
+equivalence gives
+\[
+ \partial u(N_{\mathbf R})=\operatorname{dom}(\partial u^*).
+\]
+The latter contains the relative interior of \(\operatorname{dom}(u^*)\),
+and its closure is the closure of \(\operatorname{dom}(u^*)\); this closed
+convex set is also \(P\).
+The omitted relative boundary is Lebesgue-null, including when the domain is
+lower-dimensional.  Thus the definition of Alexandrov measure gives the
+first identity.  At every differentiability point of \(u^*\), the
+subgradient equivalence says
+\[
+ \nabla u^*(m)\in E\quad\Longleftrightarrow\quad m\in\partial u(E).
+\]
+The nondifferentiability set is Lebesgue-null.  Applying the preceding
+equivalence to Borel sets \(E\) proves the pushforward identity.
+\end{proof}
+
+\begin{warning}{The \(n!\)-test}
+Our \(\MA_{\mathbf R}\) is exactly
+\eqref{eq:appD-alexandrov-measure}.
+For a toric line bundle,
+\((L_P^n)=n!\operatorname{vol}(P)\) by
+\eqref{eq:appJ-toric-degree}.
+Any real-to-algebraic comparison must visibly insert \(n!\).
+\end{warning}
+
+\section{Moment measures and layer cake}
+\label{sec:appD-moments}
+
+Let \((P,\lambda)\) be a finite measure space and
+\(G:P\to\mathbf R\cup\{-\infty\}\) measurable.
+Its unnormalized distribution is
+\[
+                             \nu_G=G_*\lambda.
+\tag{D.24}\label{eq:appD-pushforward-distribution}
+\]
+Here \(\nu_G\) is initially a measure on
+\(\mathbf R\cup\{-\infty\}\).
+It has mass \(\lambda(P)\) and is a probability only after division by a
+positive mass.
+
+\begin{proposition}\label{prop:appD-moment-tail}
+For every nonnegative Borel
+\(F:\mathbf R\cup\{-\infty\}\to[0,+\infty]\),
+\[
+ \int_{\mathbf R\cup\{-\infty\}}F(\tau)\,\rd \nu_G(\tau)
+ =\int_PF(G(x))\,\rd \lambda(x).
+\tag{D.25}\label{eq:appD-pushforward-test}
+\]
+If \(G\geq0\) and \(q>0\), then
+\[
+ \int_{\mathbf R}\tau^q\,\rd \nu_G(\tau)
+ =
+ q\int_0^\infty
+ t^{q-1}\lambda\{G>t\}\,\rd t
+\tag{D.26}\label{eq:appD-layer-cake}
+\]
+as an extended-real identity.
+\end{proposition}
+
+\begin{proof}
+The first equality defines pushforward.
+For \(a\geq0\),
+\[
+ a^q=q\int_0^\infty t^{q-1}\mathbf 1_{\{a>t\}}\,\rd t.
+\]
+Tonelli's theorem proves the second equality, including \(+\infty\).
+\end{proof}
+
+For an Okounkov concave transform, take
+\(\lambda=n!\operatorname{Leb}\) to obtain the book's unnormalized
+Duistermaat--Heckman measure.
+Flag independence is a geometric theorem of
+\Cref{chap:transcendental-okounkov-dh}, not a formal pushforward fact.
+
+\begin{warning}{Zero mass and signed moments}
+If \(\lambda(P)=0\), no probability normalization is defined.
+If \(G=-\infty\) on a set of positive measure, then \(\nu_G\) has an atom at
+\(-\infty\); it is not silently regarded as a Radon measure on
+\(\mathbf R\), and ordinary polynomial moments are not defined.
+For signed moments, treat positive and negative parts separately and never
+subtract \(+\infty\) from \(+\infty\).
+\end{warning}
+
+\section{Mixed Monge--Amp\`ere and homogeneous supercurrents}
+\label{sec:appD-supercurrents}
+
+Polarization gives a symmetric positive measure
+\(\MA_{\mathbf R}(u_1,\ldots,u_n)\) characterized by
+\[
+ \MA_{\mathbf R}\!\left(\sum_i t_i u_i\right)
+ =
+ \sum_{i_1,\ldots,i_n}
+ t_{i_1}\cdots t_{i_n}
+ \MA_{\mathbf R}(u_{i_1},\ldots,u_{i_n}),
+\tag{D.27}\label{eq:appD-mixed-ma-polarization}
+\]
+for \(t_i\geq0\).
+In the smooth case its density is the mixed discriminant of the Hessians.
+Positivity and weak continuity extend it to finite convex functions.
+
+For a convex body \(K\), put
+\[
+                             T_K=\dprimeddprime h_K
+\tag{D.28}\label{eq:appD-support-current}
+\]
+in the Lagerberg convention of \Cref{chap:cld-currents}.
+If \(s_t(x)=tx\) and \(E\) is radial, Euler's identity gives
+\[
+ s_t^*T_K=tT_K,\qquad
+ \iota_E'T_K=0,\qquad
+ \iota_E''T_K=0.
+\tag{D.29}\label{eq:appD-strong-homogeneity}
+\]
+These closed positive currents are strongly homogeneous.
+The phrase does not license products of arbitrary weakly positive currents.
+
+\begin{theorem}\label{thm:appD-support-current-mixed-volume}
+With lattice-normalized integration and the book's Lagerberg signs,
+\[
+ \frac1{n!}\,
+ T_{K_1}\wedge\cdots\wedge T_{K_n}
+ =
+ V(K_1,\ldots,K_n)\,\delta_0.
+\tag{D.30}\label{eq:appD-current-mixed-volume}
+\]
+The Alexandrov--Fenchel inequality is the reversed Cauchy--Schwarz
+inequality for the Lorentzian form obtained after fixing
+\(T_{K_3},\ldots,T_{K_n}\).
+\end{theorem}
+
+\begin{proof}
+The only imported analytic input in this proof is
+\cite[Theorem~4.2]{Ber26Convex}: the Bedford--Taylor product for convex
+superpotentials is defined by smooth convex regularization and is continuous
+under local uniform convergence.  With the book's
+Berezin sign, its smooth normalization is
+\[
+       \frac1{n!}(\dprimeddprime u)^n
+       =\det(D^2u)\,\rd x,
+\]
+so \Cref{thm:appD-alexandrov-measure} identifies the left side with
+\(\MA_{\mathbf R}(u)\) for every finite convex \(u\).
+
+For a support function,
+\(\partial h_K(0)=K\).  If \(x\neq0\), then \(\partial h_K(x)\) is the
+exposed face on which \(\langle x,\cdot\rangle\) is maximal.  If \(K\)
+is full-dimensional, every such face is proper and contained in
+\(\partial K\); if \(K\) is lower-dimensional, their union is contained
+in \(K\).  In either case the union has Lebesgue measure zero.  Therefore
+\[
+               \frac1{n!}T_K^n
+               =\MA_{\mathbf R}(h_K)
+               =\operatorname{vol}(K)\delta_0.
+\]
+Now use \Cref{lem:appD-support-calculus}:
+\(T_{\sum_i t_iK_i}=\sum_i t_iT_{K_i}\).  Apply the equal-body identity
+to \(\sum_i t_iK_i\), expand the current power, and compare the coefficient
+of \(t_1\cdots t_n\) with
+\eqref{eq:appD-minkowski-polynomial}.  The coefficient on the current side
+is \(T_{K_1}\wedge\cdots\wedge T_{K_n}\), while the coefficient on the
+volume side is \(n!V(K_1,\ldots,K_n)\delta_0\).  This proves
+\eqref{eq:appD-current-mixed-volume}.  The construction and the equivalent
+mixed-volume identity are recorded in
+\cite[Sections~5--7]{Ber26Convex}; that source's \(J\) and Berezin signs
+have here been translated to
+\Cref{chap:tropical-spaces,chap:cld-currents}.
+
+After fixing \(K_3,\ldots,K_n\), the bilinear form represented by wedging
+with \(T_{K_3}\wedge\cdots\wedge T_{K_n}\) is exactly \(n!\) times the
+mixed-volume form \(Q\) used in the proof of \Cref{thm:appD-af}.
+Its Lorentzian signature therefore turns \eqref{eq:appD-af} into the
+reversed Cauchy--Schwarz inequality claimed in the theorem.
+\end{proof}
+
+\section{Normalization checks}
+\label{sec:appD-unit-tests}
+
+\begin{enumerate}
+\item For \(f(x)=x^2/2\), one has
+      \(f^*(p)=p^2/2\), \(\partial f(x)=\{x\}\), and
+      \(\MA_{\mathbf R}(f)=\rd x\).
+\item For \(f(x)=|x|\),
+      \(f^*=\iota_{[-1,1]}\) and
+      \(\MA_{\mathbf R}(f)=2\delta_0\).
+\item For \(K=[0,a]\), \(L=[0,b]\),
+      \(\operatorname{vol}(sK+tL)=sa+tb\).
+\item Translating \(G\) by \(c\) preserves mass and changes its first moment
+      by \(c\,\lambda(P)\).
+\item If \(P\) has zero volume, both
+      \(\MA_{\mathbf R}(h_P)\) and the unnormalized moment measure have zero
+      mass, and neither can be normalized to a probability.
+\end{enumerate}
+
+The first two identities follow directly from
+\eqref{eq:appD-conjugate} and \eqref{eq:appD-alexandrov-measure}; for
+\(|x|\), the subdifferential at the origin is \([-1,1]\) and all other
+subdifferentials are singletons.  The interval formula is ordinary
+one-dimensional length.  The fourth assertion follows by testing the
+pushforward against \(1\) and against the identity function.  The last
+assertion is \eqref{eq:appD-real-ma-mass} together with the definition of
+probability normalization.  Thus every item is a proved consequence of the
+normalizations above.
+
+\section*{Source note}
+
+Closed convex duality and subgradients follow
+\cite[Chapters~7, 12, and~23--25]{Roc70}.
+Mixed volumes and Alexandrov--Fenchel follow \cite{Sch14}.
+Strongly homogeneous supercurrents follow \cite{Ber26Convex}, after the sign
+translation above.
+Geometric realization as psh test curves or rays belongs to the cited main
+chapters.

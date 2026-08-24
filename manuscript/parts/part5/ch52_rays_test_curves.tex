@@ -1,0 +1,666 @@
+\chapter{Geodesic rays and test curves}
+\index{geodesic ray}\index{test curve}\index{Legendre transform!ray--test-curve}
+\label{chap:rays-test-curves}
+
+Test curves turn the convex geometry of geodesic rays into a calculus of
+singularity types.  The transform is pointwise Legendre duality, but its
+analytic content is much stronger: model envelopes are exactly what make
+the transform produce weak geodesics rather than arbitrary
+subgeodesics.  This chapter develops that bridge and then records the
+operations needed for the inverse-limit construction of
+\Cref{chap:transcendental-metrics}.
+
+Throughout, \(X\) is a connected compact K\"ahler manifold,
+\(\theta\) represents a big class, and
+\(\phi\in\PSH(X,\theta)_{>0}\) is a model potential.  We write
+\[
+ \mathcal E(X,\theta;\phi)
+ :=\{\varphi\in\PSH(X,\theta)\mid P_\theta[\varphi]=\phi\}
+\tag{52.1}\label{eq:rays-relative-full-mass}
+\]
+for the relative full-mass class.  Additive normalization is not included
+in this notation.  For the ray formulas below we choose the representative
+of the model type with
+\[
+                              \sup_X\phi=0.
+\]
+This choice is indispensable in \eqref{eq:rays-linear-supremum}; replacing
+\(\phi\) by \(\phi+C\) translates every potential by \(C\), whereas
+translating the test-curve parameter by \(C\) adds \(Ct\) to the ray.  The
+two operations have different types and will never be identified.
+
+We use the squared-norm radial variable
+\[
+                              t=-\log|z|^2.
+\]
+Thus the Legendre term is \(+t\tau\).  If a source uses
+\(-\log|z|\), then its radial parameter is \(t/2\); one must change the
+parameter and the normalization of generic Lelong numbers together.  No
+factor of two is inserted into the formulas of this chapter.
+
+\section{Weak geodesics and rays}
+
+Let \(S_{a,b}=\{z\in\mathbf C\mid a<\Re z<b\}\) and let
+\(p_1:X\times S_{a,b}\to X\) be projection.
+
+\begin{definition}[Subgeodesic]
+\label{def:rays-subgeodesic}
+A family \((u_t)_{a<t<b}\subset\PSH(X,\theta)\) is a subgeodesic if
+\[
+                 U(x,z):=u_{\Re z}(x)
+\tag{52.2}\label{eq:rays-complexification}
+\]
+is \(p_1^*\theta\)-psh.  On a closed interval we additionally require
+the prescribed endpoint values in \(L^1\).
+\end{definition}
+
+For each \(x\), the map \(t\mapsto u_t(x)\) is convex or identically
+\(-\infty\).  Hence a subgeodesic has rigid one-sided limits.  Adding an
+affine function of \(t\), or changing \(\theta\) by \(\ddc f\) and
+replacing every \(u_t\) by \(u_t-f\), preserves the notion.
+
+\begin{definition}[Weak geodesic segment]
+\label{def:rays-geodesic-segment}
+For \(u_0,u_1\in\PSH(X,\theta)\), their weak geodesic is the Perron
+envelope of all subgeodesics with boundary values at most \(u_0,u_1\):
+\[
+ u_t=\uscsup\{v_t\mid (v_s)_{0<s<1}\text{ is such a subgeodesic}\}.
+\tag{52.3}\label{eq:rays-perron-geodesic}
+\]
+\end{definition}
+
+The envelope can be \(-\infty\) without a common lower barrier.  In the
+relative full-mass class the barrier is supplied by the rooftop.
+
+\begin{theorem}\label{thm:rays-relative-geodesic}
+If \(u_0,u_1\in\mathcal E(X,\theta;\phi)\), then
+\eqref{eq:rays-perron-geodesic} is a subgeodesic with the correct
+\(L^1\)-boundary values, every \(u_t\) lies in
+\(\mathcal E(X,\theta;\phi)\), and each restriction to a subinterval is
+again the Perron geodesic between its endpoints.
+\end{theorem}
+
+\begin{proof}[Imported inputs and Perron deductions]
+We use two deep results from the relative pluripotential theory developed in
+the supplied ray chapter of \cite{XiaBook}: relative rooftop stability in
+\(\mathcal E(X,\theta;\phi)\), and the Perron boundary theorem for endpoints
+in that class.  We spell out how they enter.
+
+After adding endpoint constants, assume \(u_0,u_1\leq\phi\).  Relative
+rooftop stability gives
+\[
+                    u_0\wedge_\theta u_1\in
+                    \mathcal E(X,\theta;\phi),
+\]
+so the constant family at the rooftop is a Perron competitor.  The
+maximum principle for \(p_1^*\theta\)-psh functions proves that the usc
+Perron envelope is a subgeodesic.  To identify the boundary at \(0\),
+replace \(u_0\) by \(u_0\wedge_\theta(u_1+C)\), use the affine barrier,
+and let \(C\to\infty\); relative full-mass rooftop convergence gives
+\(L^1\)-convergence to \(u_0\).  The argument at \(1\) is symmetric.
+Balayage on a smaller strip proves the final assertion.
+The rooftop convergence and boundary passage are the imported analytic
+steps; the maximum-principle and balayage deductions above are formal once
+those inputs are available.
+\end{proof}
+
+\begin{definition}[Geodesic ray]
+\label{def:rays-geodesic-ray}
+A geodesic ray from \(\phi\) is a family
+\(\ell=(\ell_t)_{t\geq0}\subset\mathcal E(X,\theta;\phi)\) with
+\(\ell_0=\phi\), whose restriction to each compact interval is a weak
+geodesic.  Denote the set of such rays by
+\(\mathcal R(X,\theta;\phi)\).
+\end{definition}
+
+\begin{lemma}\label{lem:rays-linear-supremum}
+Every ray has linear supremum:
+\[
+                    \sup_X\ell_t=t\sup_X\ell_1.
+\tag{52.4}\label{eq:rays-linear-supremum}
+\]
+\end{lemma}
+
+\begin{proof}
+Put
+\(a(t):=\sup_{\{\phi>-\infty\}}(\ell_t-\phi)\).  The maximum principle
+for a relative weak geodesic segment says that \(a\) is affine on every
+compact interval on which the ray is geodesic.  Since \(\ell_0=\phi\),
+we have \(a(0)=0\), and compatibility of the affine functions on nested
+intervals gives \(a(t)=ta(1)\).  We now use the model-potential supremum
+identity from the supplied ray chapter of \cite{XiaBook},
+\[
+ \sup_{\{\phi>-\infty\}}(u-\phi)=\sup_Xu
+\quad(u\preceq\phi).
+\tag{52.5}\label{eq:rays-model-supremum}
+\]
+This identity uses the chosen normalization \(\sup_X\phi=0\).  Applying it to
+\(u=\ell_t\) and \(u=\ell_1\) proves
+\eqref{eq:rays-linear-supremum}.
+\end{proof}
+
+\section{Test curves}
+
+\begin{definition}[Test curve]
+\label{def:rays-test-curve}
+A test curve \(\Gamma\) consists of
+\(\Gamma_{\max}\in\mathbf R\) and a map
+\[
+ (-\infty,\Gamma_{\max})\longrightarrow\PSH(X,\theta),
+ \qquad \tau\longmapsto\Gamma_\tau ,
+\]
+such that:
+\begin{enumerate}
+\item \(\tau\mapsto\Gamma_\tau\) is decreasing and concave;
+\item every level is model:
+      \(P_\theta[\Gamma_\tau]=\Gamma_\tau\);
+\item
+      \[
+      \Gamma_{-\infty}
+      :=\uscsup_{\tau<\Gamma_{\max}}\Gamma_\tau
+      \quad\text{satisfies}\quad
+      \int_X\theta_{\Gamma_{-\infty}}^n>0.
+      \tag{52.6}\label{eq:rays-test-minus-infinity}
+      \]
+\end{enumerate}
+Write \(\mathcal{TC}(X,\theta;\phi)\) when
+\(\Gamma_{-\infty}=\phi\).
+\end{definition}
+
+Extend a test curve by
+\[
+ \Gamma_\tau=-\infty\quad(\tau>\Gamma_{\max}),\qquad
+ \Gamma_{\Gamma_{\max}}
+ =\inf_{\tau<\Gamma_{\max}}\Gamma_\tau .
+\tag{52.7}\label{eq:rays-test-endpoint}
+\]
+This is an extended-real convention, not a claim that the endpoint has
+positive mass.
+
+\begin{lemma}\label{lem:rays-test-positive-levels}
+If \(\Gamma\) is a test curve, then
+\[
+                   \int_X\theta_{\Gamma_\tau}^n>0
+ \quad\text{for every }\tau<\Gamma_{\max}.
+\tag{52.8}\label{eq:rays-test-positive-levels}
+\]
+\end{lemma}
+
+\begin{proof}
+Choose \(\tau_0<\tau\) so negative that the mass of
+\(\Gamma_{\tau_0}\) is positive; this is possible by increasing
+continuity at \(-\infty\).  Choose
+\(\tau'\in(\tau,\Gamma_{\max})\) and \(s\in(0,1)\) with
+\(\tau=s\tau_0+(1-s)\tau'\).  Concavity gives
+\[
+ \Gamma_\tau\geq s\Gamma_{\tau_0}+(1-s)\Gamma_{\tau'}.
+\]
+Multilinearity and mass monotonicity then give
+\[
+ \int_X\theta_{\Gamma_\tau}^n
+ \geq s^n\int_X\theta_{\Gamma_{\tau_0}}^n>0.
+\]
+\end{proof}
+
+A test curve is bounded if \(\Gamma_\tau=\phi\) for all sufficiently
+negative \(\tau\).  It has finite energy if
+\[
+ \mathbf E^\phi(\Gamma)
+ :=\Gamma_{\max}M_\theta(\phi)
+ +\int_{-\infty}^{\Gamma_{\max}}
+       \bigl(M_\theta(\Gamma_\tau)-M_\theta(\phi)\bigr)\,\rd \tau
+ >-\infty .
+\tag{52.9}\label{eq:rays-test-energy}
+\]
+The integral is meaningful because the integrand is nonpositive and the
+level-mass function is continuous on the interior.
+
+\section{Legendre transform and the RWN correspondence}
+
+\begin{definition}[Legendre transforms]
+\label{def:rays-legendre}
+For a test curve \(\Gamma\), define, for \(t>0\),
+\[
+                 \Gamma_t^*
+ :=\sup_{\tau\in\mathbf R}(t\tau+\Gamma_\tau).
+\tag{52.10}\label{eq:rays-forward-legendre}
+\]
+There is no usc regularization in this formula.  Set
+\(\Gamma_0^*:=\phi\) by convention; formula
+\eqref{eq:rays-forward-legendre} need not hold at \(t=0\).
+For a ray \(\ell\), define
+\[
+                 \ell_\tau^*
+ :=\inf_{t>0}(\ell_t-t\tau).
+\tag{52.11}\label{eq:rays-inverse-legendre}
+\]
+\end{definition}
+
+The two directions of the transform are displayed in
+\cref{fig:rays-test-curves-legendre}.  The profiles in the drawing are scalar
+slices at one fixed point; the definitions above are function-valued.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=0.9cm,y=1cm,>=Stealth]
+  % A scalar slice of a decreasing concave test curve.
+  \draw[-{Stealth[length=2mm]},thin] (0,0)--(4.15,0)
+    node[right,font=\small] {$\tau$};
+  \draw[-{Stealth[length=2mm]},thin] (0,0)--(0,3.15);
+  \node[rotate=90,font=\small] at (-0.45,1.7) {$\Gamma_\tau(x)$};
+  \draw[very thick]
+    plot[smooth] coordinates
+      {(0.25,2.75) (1.15,2.62) (2.05,2.2) (2.85,1.42) (3.55,0.35)};
+  \draw[dashed,thin] (3.55,0)--(3.55,2.95);
+  \node[below,font=\scriptsize] at (3.55,0) {$\Gamma_{\max}$};
+  \node[font=\scriptsize,align=center] at (1.85,3.38)
+    {decreasing, concave profile};
+
+  % A scalar slice of the corresponding convex ray.
+  \draw[-{Stealth[length=2mm]},thin] (7,0)--(11.15,0)
+    node[right,font=\small] {$t>0$};
+  \draw[-{Stealth[length=2mm]},thin] (7,0)--(7,3.15);
+  \node[rotate=90,font=\small] at (6.55,1.7) {$\ell_t(x)$};
+  \draw[very thick]
+    plot[smooth] coordinates
+      {(7.25,0.35) (8.15,0.48) (9.05,0.9) (9.85,1.62) (10.55,2.72)};
+  \node[font=\scriptsize,align=center] at (9.15,3.38)
+    {convex ray profile};
+
+  \draw[-{Stealth[length=2.2mm]},thick]
+    (4.4,2.18)--(6.72,2.18)
+    node[midway,above,font=\scriptsize,align=center]
+      {$\ell_t=\sup_\tau(t\tau+\Gamma_\tau)$};
+  \draw[-{Stealth[length=2.2mm]},thick]
+    (6.72,0.92)--(4.4,0.92)
+    node[midway,below,font=\scriptsize,align=center]
+      {$\Gamma_\tau=\inf_{t>0}(\ell_t-t\tau)$};
+\end{tikzpicture}
+\caption{The Legendre correspondence at the level of a scalar slice.  The
+upper arrow is \eqref{eq:rays-forward-legendre}; the lower arrow is
+\eqref{eq:rays-inverse-legendre} together with biconjugacy.  The two vertical
+axes have independent scales, so the drawing records convexity and the
+direction of the transforms rather than numerical values.}
+\label{fig:rays-test-curves-legendre}
+\end{figure}
+
+The extended-real arithmetic is classical:
+\(-\infty+c=-\infty\) for finite \(c\), and an infimum equal to
+\(-\infty\) is retained.  We never subtract two infinite values.
+
+\begin{proposition}\label{prop:rays-legendre-well-defined}
+For a test curve \(\Gamma\), each \(\Gamma_t^*\) is
+\(\theta\)-psh and the family is a subgeodesic on \(t>0\).
+For a ray \(\ell\), each \(\ell_\tau^*\) is
+\(\theta\)-psh or identically \(-\infty\), and
+\[
+ \ell_\tau^*\in\PSH(X,\theta)
+ \quad\Longleftrightarrow\quad
+ \tau\leq\sup_X\ell_1.
+\tag{52.12}\label{eq:rays-inverse-domain}
+\]
+\end{proposition}
+
+\begin{proof}
+For fixed \(x\), the functions in
+\eqref{eq:rays-forward-legendre} are affine in \(t\), hence their
+supremum is convex.  On the half-plane \(\Re z>0\), the family
+\(t\tau+\Gamma_\tau\) is locally uniformly bounded above by
+\(t\Gamma_{\max}\).  Kiselman's minimum principle and the psh supremum
+lemma give joint upper semicontinuity, hence
+\(\theta\)-psh slices.  For \eqref{eq:rays-inverse-legendre}, Kiselman's
+principle applies to the \(S^1\)-invariant complexification of the ray.
+The threshold follows from
+\(\sup_X\ell_t=t\sup_X\ell_1\).
+\end{proof}
+
+\begin{theorem}\label{thm:rays-rwn}
+Legendre transform gives inverse bijections
+\[
+ \mathcal{TC}(X,\theta;\phi)
+ \ \xleftrightarrow{\ \ *\ \ }\
+ \mathcal R(X,\theta;\phi).
+\tag{52.13}\label{eq:rays-rwn}
+\]
+It restricts to bounded objects and to finite-energy objects.  For a
+finite-energy test curve,
+\[
+                       \mathbf E^\phi(\Gamma)
+                       =\mathbf E^\phi(\Gamma^*),
+\tag{52.14}\label{eq:rays-rwn-energy}
+\]
+where the right side is the radial Monge--Amp\`ere energy slope.
+\end{theorem}
+
+\begin{proof}[Source boundary and normalization check]
+The analytic assertions that the forward transform of a maximal test curve
+is a weak geodesic, that the inverse transform of a weak geodesic has model
+levels, and that their energies agree are the main theorems of
+\cite[Theorems~1.1--1.2]{RWN14}.  Their relative full-mass formulation is
+proved in the supplied test-curve chapter of \cite{XiaBook}.  These results
+use comparison principles and Monge--Amp\`ere energy estimates that are not
+reproved here.
+
+We verify that the imported correspondence has exactly the conventions of
+this chapter.  At every point outside the common pluripolar locus, the
+closed concave function \(\tau\mapsto\Gamma_\tau(x)\) satisfies
+Fenchel--Moreau biconjugacy with the sign \(+t\tau\):
+\[
+ \Gamma_\tau=\inf_{t>0}(\Gamma_t^*-t\tau).
+\tag{52.15}\label{eq:rays-biconjugate}
+\]
+Canonical pluripolar extension makes this an identity on \(X\).  Conversely,
+the imported inverse transform has effective domain
+\(\tau\leq\sup_X\ell_1\) by
+\eqref{eq:rays-inverse-domain}; its \(-\infty\) limit is
+\(\ell_0=\phi\).  Thus both transforms land in the spaces displayed in
+\eqref{eq:rays-rwn}, and biconjugacy makes them inverse.
+
+For bounded curves, the source energy identity is obtained from finite
+Legendre maxima and Riemann sums for
+\eqref{eq:rays-test-energy}.  The source then truncates below \(-A\) and
+uses monotone convergence.  With our squared-norm variable
+\(t=-\log|z|^2\), its slope is precisely the right side of
+\eqref{eq:rays-rwn-energy}; no factor of two occurs.  This proves the
+normalization and the stated bounded and finite-energy restrictions.
+\end{proof}
+
+\begin{remark}[Sign convention]
+\label{rem:rays-legendre-sign}
+Our transform uses \(t\tau+\Gamma_\tau\).  Some sources parameterize the
+annulus by \(t=-\log|z|\) and write the dual variable with the opposite
+sign.  Formulae in this book are always interpreted through
+\eqref{eq:rays-forward-legendre}--\eqref{eq:rays-inverse-legendre}.
+\end{remark}
+
+\section{Relative and \texorpdfstring{\(\mathcal I\)}{I}-model objects}
+
+\begin{definition}[\(\mathcal I\)-model test curve]
+\label{def:rays-i-model-test}
+A test curve is \(\mathcal I\)-model if
+\[
+                 P_\theta[\Gamma_\tau]_{\mathcal I}
+                 =\Gamma_\tau
+ \quad\text{for every }\tau<\Gamma_{\max}.
+\tag{52.16}\label{eq:rays-i-model-level}
+\]
+Write
+\(\mathcal E^{\NA}(X,\theta;\phi)\) for these curves with
+\(\Gamma_{-\infty}=\phi\), and
+\[
+ \PSH^{\NA}(X,\theta)_{>0}
+ :=\bigcup_{\phi\ {\rm model}}
+      \mathcal E^{\NA}(X,\theta;\phi).
+\tag{52.17}\label{eq:rays-positive-na-test-curves}
+\]
+\end{definition}
+
+The notation anticipates \Cref{chap:transcendental-metrics}.
+Every level, including the \(-\infty\) level, is then
+\(\mathcal I\)-model.  A geodesic ray is maximal precisely when its
+inverse Legendre transform is \(\mathcal I\)-model.
+
+For any test curve, the levelwise operation
+\[
+ (P_\theta[\Gamma]_{\mathcal I})_\tau
+ :=P_\theta[\Gamma_\tau]_{\mathcal I}
+\tag{52.18}\label{eq:rays-test-i-envelope}
+\]
+is an \(\mathcal I\)-model test curve.  Indeed, the
+\(\mathcal I\)-envelope is monotone and concave under convex
+combinations:
+\[
+ P_\theta[(1-s)u+sv]_{\mathcal I}
+ \geq(1-s)P_\theta[u]_{\mathcal I}
+       +sP_\theta[v]_{\mathcal I}.
+\tag{52.19}\label{eq:rays-i-concavity}
+\]
+Increasing continuity identifies the \(-\infty\) level.
+
+\begin{proposition}\label{prop:rays-kahler-transition}
+If \(\omega\) is a smooth positive \((1,1)\)-form, then
+\[
+ P_{\theta+\omega}[\Gamma]_{\mathcal I}
+ \in\PSH^{\NA}(X,\theta+\omega)_{>0}.
+\tag{52.20}\label{eq:rays-kahler-transition}
+\]
+For \(\omega\geq\omega'\), the transitions compose:
+\[
+ P_{\theta+\omega}
+ [P_{\theta+\omega'}[\Gamma]_{\mathcal I}]_{\mathcal I}
+ =P_{\theta+\omega}[\Gamma]_{\mathcal I}.
+\tag{52.21}\label{eq:rays-transition-cocycle}
+\]
+\end{proposition}
+
+\begin{proof}
+Apply the \(\mathcal I\)-envelope levelwise.  Its monotonicity and
+concavity preserve the test-curve axioms, while adding the positive form
+\(\omega\) preserves positive mass at every interior level by mass
+monotonicity.  Thus \eqref{eq:rays-kahler-transition} is a positive-mass
+\(\mathcal I\)-model test curve.  If \(\omega\geq\omega'\), both sides of
+\eqref{eq:rays-transition-cocycle} are the normalized
+\(\mathcal I\)-model representative in the class \(\theta+\omega\) of
+the same multiplier-ideal type.  Idempotence of the
+\(\mathcal I\)-envelope therefore gives their equality level by level.
+\end{proof}
+
+\section{Operations and monotone limits}
+
+For test curves in possibly different big classes, define the pointwise
+order by
+\[
+ \Gamma\leq\Gamma'
+ \quad\Longleftrightarrow\quad
+ \Gamma_{\max}\leq\Gamma'_{\max}
+ \quad\text{and}\quad
+ \Gamma_\tau\preceq_P\Gamma'_\tau
+ \quad(\tau<\Gamma_{\max}),
+\tag{52.22}\label{eq:rays-test-order}
+\]
+with endpoint behavior understood through the extension
+\eqref{eq:rays-test-endpoint}.
+For normalized model levels, \(P\)-comparison is ordinary pointwise order
+of the model representatives.  When the levels are \(\mathcal I\)-model,
+the constructions below use their \(\mathcal I\)-envelopes in addition.
+This does not identify the two ambient equivalence relations: outside the
+\(\mathcal I\)-good positive-mass locus one only has
+\(\preceq_P\Rightarrow\preceq_{\mathcal I}\), as recorded in
+\Cref{chap:complex-prerequisites}.
+
+The sum is the modelized sup-convolution
+\[
+ (\Gamma+\Gamma')_\tau
+ :=P_{\theta+\theta'}
+ \left[\uscsup_{\delta\in\mathbf R}
+       \bigl(\Gamma_\delta+\Gamma'_{\tau-\delta}\bigr)\right]_{\mathcal I}.
+\tag{52.23}\label{eq:rays-test-sum}
+\]
+The obstacle in brackets is \(\mathcal I\)-good in the positive-mass
+regime by the addition theorem for test curves in the supplied operations
+chapter of \cite{XiaBook}.  Consequently its \(P\)- and
+\(\mathcal I\)-envelopes agree.  Formula
+\eqref{eq:rays-test-sum} records the \(\mathcal I\)-envelope explicitly
+because that is the form compatible with K\"ahler transition.
+Translation shifts the parameter:
+\[
+              (\Gamma+C)_\tau:=\Gamma_{\tau-C},
+\qquad
+              (\Gamma+C)_{\max}=\Gamma_{\max}+C.
+\tag{52.24}\label{eq:rays-test-translation}
+\]
+The maximum is obtained by taking the least \(\mathcal I\)-model test
+curve dominating both inputs.  These definitions are arranged so that
+Legendre transform gives
+\[
+ \begin{split}
+ (\Gamma+\Gamma')^*&=\Gamma^*+\Gamma'^*,\\
+ (\Gamma+C)^*_t&=\Gamma_t^*+Ct,\\
+ (\Gamma\vee\Gamma')^*_t&=\Gamma_t^*\vee\Gamma_t'^*.
+ \end{split}
+\tag{52.25}\label{eq:rays-operations-legendre}
+\]
+
+\begin{proposition}\label{prop:rays-test-limits}
+The following operations remain in the class of \(\mathcal I\)-model
+test curves.
+\begin{enumerate}
+\item A nonempty family with
+      \(\sup_i\Gamma^i_{\max}<+\infty\) has a regularized supremum.
+      A countable subfamily has the same supremum.
+\item An increasing net with the same upper bound on
+      \(\Gamma^i_{\max}\) converges to that regularized supremum.
+\item A decreasing net with
+      \(\inf_i\Gamma^i_{\max}>-\infty\) has a pointwise infimum test
+      curve.
+\item For \(\lambda>0\), the rescaled curve is
+      \[
+      (\lambda\Gamma)_\tau
+          :=\lambda\Gamma_{\tau/\lambda}
+      \quad\text{in the class }\lambda\theta.
+      \tag{52.26}\label{eq:rays-test-rescaling}
+      \]
+\end{enumerate}
+All four constructions commute with K\"ahler transition
+\eqref{eq:rays-kahler-transition}.
+\end{proposition}
+
+\begin{proof}[Limit safeguards]
+At each level, ordinary Choquet reduction gives a countable cofinal
+subfamily for a uniformly bounded-above psh envelope.  Apply it first
+at rational \(\tau\), then use concavity to recover all real levels.
+The rational-level family is decreasing in \(\tau\); taking its closed
+concave extension supplies the test curve and shows that no
+parameter-dependent choice of a countable subfamily remains.
+
+For a decreasing net, the lower bound on the terminal parameters keeps a
+nontrivial common interval.  At any fixed interior level, the positive-mass
+infimum identity \cite[Proposition~2.8]{Xia23Operations} identifies the
+pointwise limit with its \(\mathcal I\)-model projection.  Concavity passes
+to the infimum and the endpoint is supplied by the extended-curve
+convention.  Rescaling is checked by substituting
+\(\rho=\tau/\lambda\); the current scales as
+\(\lambda(\theta+\ddc\Gamma_\rho)\), so positivity and the model condition
+are preserved.
+
+Compatibility with K\"ahler transition follows from the same
+\(\mathcal I\)-envelope identities for finite maxima, admissible suprema,
+and decreasing infima.  Without the displayed bounds on
+\(\Gamma_{\max}\), the purported limit may be identically infinite or
+have empty effective domain.
+\end{proof}
+
+\section{Filtrations and projective test configurations}
+
+Assume now that \(L\) is big, \(h\) is a smooth Hermitian metric, and
+\(\theta=c_1(L,h)\).  Let
+\[
+ R(X,L)=\bigoplus_{m\geq0}H^0(X,mL)
+\]
+and let \(\mathcal F\) be a decreasing, left-continuous,
+multiplicative, linearly bounded filtration.  Thus, for some \(C>0\),
+\[
+ \mathcal F^{Cm}H^0(X,mL)=0,\qquad
+ \mathcal F^{-Cm}H^0(X,mL)=H^0(X,mL).
+\tag{52.27}\label{eq:rays-linear-filtration}
+\]
+For \(\tau\in\mathbf R\), set
+\[
+ \Gamma_{\tau}^{\mathcal F,m}
+ :=\uscsup\left\{\log|s|_{h^m}^2\ \middle|\
+ s\in\mathcal F^{m\tau}H^0(X,mL),\
+ |s|_{h^m}^2\leq1\right\}.
+\tag{52.28}\label{eq:rays-bergman-test}
+\]
+Multiplicativity and Fekete's lemma give the asymptotic obstacle
+\[
+ g_\tau^{\mathcal F}
+ :=\uscsup_{m\geq1}\frac1m\Gamma_{\tau}^{\mathcal F,m}.
+\tag{52.29}\label{eq:rays-filtration-obstacle}
+\]
+Define
+\[
+       \Gamma_\tau^{\mathcal F}
+       :=P_\theta[g_\tau^{\mathcal F}].
+\tag{52.30}\label{eq:rays-filtration-test-curve}
+\]
+
+\begin{theorem}\label{thm:rays-filtration-interface}
+The family \(\Gamma^{\mathcal F}\) is a bounded
+\(\mathcal I\)-model test curve, and its Legendre transform is a maximal
+weak geodesic ray.  If \(L\) is ample and \(\mathcal F\) is induced by a
+smooth relatively ample projective test configuration, this ray is the
+Phong--Sturm ray.  No extension of this identification to an arbitrary
+normal test configuration is asserted here.  For an ample \(L\), the outer
+\(P_\theta\) in
+\eqref{eq:rays-filtration-test-curve} is unnecessary by
+\cite[Proposition~7.11]{RWN14}; no such removal is asserted here for an
+arbitrary big \(L\).
+\end{theorem}
+
+\begin{proof}[Algebra-to-analysis map]
+Choose sections, normalized by their sup norms, with
+\[
+ s\in\mathcal F^{m\tau}H^0(X,mL),
+ \qquad
+ s'\in\mathcal F^{m'\tau'}H^0(X,m'L).
+\]
+Multiplicativity puts \(ss'\) in filtration level
+\(m\tau+m'\tau'\).  Taking logarithms and envelopes gives
+\[
+ \frac{m}{m+m'}\frac1m\Gamma_\tau^{\mathcal F,m}
+ +\frac{m'}{m+m'}\frac1{m'}\Gamma_{\tau'}^{\mathcal F,m'}
+ \leq
+ \frac1{m+m'}
+ \Gamma_{\frac{m\tau+m'\tau'}{m+m'}}^{\mathcal F,m+m'}.
+\]
+Fekete's lemma and upper regularization therefore make
+\(\tau\mapsto g_\tau^{\mathcal F}\) concave.  Linear boundedness gives
+\(\Gamma_\tau^{\mathcal F}=V_\theta\) for \(\tau\ll0\) and
+\(-\infty\) above the asymptotic maximal weight.  The Bergman obstacles
+are \(\mathcal I\)-good, so their \(P\)- and \(\mathcal I\)-envelopes
+agree.  This proves boundedness and the \(\mathcal I\)-model property.
+
+For a smooth test configuration, choose in degree \(m\) an orthonormal basis
+adapted to the filtration, with weights \(\lambda_{m,j}\).  The weighted
+Bergman ray
+\[
+ \frac1m\log\sum_j\rme^{t\lambda_{m,j}}
+                         |s_{m,j}|_{h^m}^2
+\]
+differs from the finite Legendre maximum of the degree-\(m\) obstacles by
+at most \(m^{-1}\log h^0(X,mL)\), which tends to zero.  Taking usc tail
+envelopes identifies the limiting Bergman ray with the Legendre transform
+of \(\Gamma^{\mathcal F}\).  Theorem~9.2 of \cite{RWN14} identifies this
+limit with the Phong--Sturm ray; uniqueness of the Perron solution gives
+the same identification on every compact time interval.
+\end{proof}
+
+\begin{example}[A product one-parameter subgroup]
+\label{ex:rays-p1-action}
+Let \(X=\mathbf P^1\), \(L=\mathcal O(1)\), and let
+\(\mathbf G_m\) act with weights \(0,1\) on homogeneous coordinates.
+The degree-\(m\) weights are \(0,\ldots,m\).  The resulting filtration
+gives a bounded test curve with terminal parameter \(1\); its transform
+is the product geodesic ray.  Translation of all weights by \(mc\)
+changes the ray by \(ct\), exactly as in
+\eqref{eq:rays-test-translation}.
+With \(t=-\log|z|^2\), the degree-\(m\) weighted Bergman expression uses
+\(\rme^{tj}|s_j|_{h^m}^2\).  Replacing \(t\) by \(-\log|z|\) without
+simultaneously changing the weights would therefore produce the wrong
+product ray.  This checks the squared-norm convention on the simplest
+nonconstant example.
+\end{example}
+
+\begin{remark}[Source note]
+\label{rem:rays-source-note}
+The analytic correspondence is
+\cite[Theorems~1.1--1.2]{RWN14}; the filtration ray and its
+Phong--Sturm identification are \cite[Theorem~9.2]{RWN14}.  The relative
+and \(\mathcal I\)-model form
+used here follows the supplied chapters on rays and test curves and the
+transcendental framework of \cite{DXZ23}.  In particular, all test-curve
+levels in the notation \(\PSH^{\NA}(X,\theta)_{>0}\) have positive
+nonpluripolar mass; the zero-volume objects introduced next are inverse
+systems of such perturbed positive-mass components.
+\end{remark}
