@@ -1,12 +1,14 @@
 # Major open-problem programme
 
 **Literature cutoff:** 24 August 2026.  
-**Live book location:** Chapter 72, with 19 research-frontier problem
+**Live book location:** Chapter 72, with 17 research-frontier problem
 environments.  
-**Book-wide count:** 20 problem environments: the 19 active items mapped below and the
+**Book-wide count:** 18 problem environments: the 17 active items mapped below and the
 separate projective-rational full-link problem in the preceding
-pseudoeffective MP--DXZ chapter.  The latter is not a twentieth Chapter 72
-item.  
+pseudoeffective MP--DXZ chapter.  The latter is outside the Chapter 72 list.
+OP-11 and OP-18 below are retained as resolved history and are not
+counted.
+
 **Promotion rule:** an item becomes a new theorem only after its exact
 statement and proof receive a production Rethlas gpt-5.6-sol/xhigh receipt
 and survive an independent hostile audit.  If the run controls a frozen
@@ -45,12 +47,12 @@ are independently checked.  Accordingly OP-15 and Chapter 72 keep
 Conjecture 8.8 open.  The dated 15 August note near the end of this file is
 retained only to disclose the superseded intermediate classification.
 
-**Exact active count:** Chapter 72 contains 19 problem environments and
+**Exact active count:** Chapter 72 contains 17 problem environments and
 Chapter 71 contains the separate projective-rational full-cone problem, for
-20 book-wide and 61 independently auditable active atoms. All 20 retain a
+18 book-wide and 59 independently auditable active atoms. All 18 retain a
 genuinely open residual scope. At the
 whole-environment level the cutoff count is: resolved 0, disproved 0,
-conditional 0, genuinely open 20. Resolved, disproved, and conditional
+conditional 0, genuinely open 18. Resolved, disproved, and conditional
 subclaims below are boundary results inside those active environments and
 are not additional problem environments.
 
@@ -61,12 +63,13 @@ regularization argument over \(k((t))\), explicitly records the resulting
 projective maximal-ray entropy-slope equality, and adds Theorem C in the
 weighted-relative smooth polarized setting. These are imported dated
 preprint claims, not new book theorems. The residual compact-Kähler,
-singular, hybrid-continuity, bounded-support, and direct-algebraic-proof
+singular, bounded-support, and direct-algebraic-proof
 questions in OP-19 remain open. The other version-sensitive primary sources
 in the reference-pack manifest had no revision changing a listed status by
 the cutoff.
 
-The active tags below map exactly the 19 Chapter 72 environments and distinguish a
+The 17 active tags below map exactly the Chapter 72 inventory; the retained
+OP-11 and OP-18 tags record resolved history and are not counted.  The tags distinguish a
 **primary-source question** from a
 **book-formulated question**. Some problem environments collect several
 source questions under one common framework.
@@ -144,12 +147,36 @@ source questions under one common framework.
 
 - **Kind:** source questions from GR/GJR/Wanner.
 - **Question:** remove the extra hypotheses in GR Proposition 7.8; recover a
-  harmonic representative from distributional current vanishing without
-  weak smoothness; obtain CLD-smooth monotone regularization on every smooth
-  Berkovich curve.
-- **Status:** weakly smooth current-zero functions are harmonic PL; all three
-  unrestricted upgrades remain open.
-- **Packet:** pluriharmonic_regularity.md.
+  harmonic representative for an arbitrary continuous function from
+  distributional current vanishing; obtain CLD-smooth monotone
+  regularization on every smooth Berkovich curve.
+- **Verified boundary:** weakly smooth current-zero functions are harmonic
+  PL.  More sharply, on a good separated boundaryless strict
+  pure-dimensional space, every real-PL function with zero CLD
+  \(\mathrm d'\mathrm d''\)-current is GJR harmonic and classically
+  pluriharmonic.  The repaired exact-live skeletal-current packet passed
+  production run `20260825T061351Z_655e7f503e5d`, item
+  `pi_eea98ea0a54108cae4e076be`, final `correct`, with zero critical errors
+  and zero gaps.  The proof uses rational calibrated coefficients on common
+  analytic skeletal refinements; it does not pull currents back to curves.  An
+  earlier boundary-separator proof was rejected in run
+  `20260825T031243Z_1603e0a83037` and remains quarantined.  Wanner's
+  published theorem also settles the arbitrary continuous zero-current
+  implication on open subsets of smooth proper algebraic curves over an
+  algebraically closed complete nontrivially valued field.  The literal
+  harmonic-approximant version is disproved by exact-live run
+  `20260825T055907Z_b5c8f0719b60`, item
+  `pi_d80993bb01a748f0422ae6a5`, final `correct` with zero errors and gaps;
+  this does not touch ordinary CLD-smooth psh approximation.
+- **Status:** the unrestricted classical-pluriharmonic regularity question,
+  the arbitrary continuous higher-dimensional zero-current question, and
+  the universal ordinary CLD-smooth psh curve regularization question remain
+  open.  The former real-PL zero-current subproblem is retired; the literal
+  harmonic approximation variant is disproved.
+- **Packets:** `pluriharmonic_regularity.md` (legacy); exact accepted packet
+  `rethlas_packets_20260825/p06_real_pl_zero_current_live_scope_arithmetic_final_v4_*`;
+  exact harmonic counterexample packet
+  `rethlas_packets_20260825/p06_cld_smooth_harmonic_nonregularization_live_global_model_final_*`.
 
 ### OP-07. Early collapse of the CLD psh hierarchy
 
@@ -229,9 +256,18 @@ source questions under one common framework.
 - **Kind:** primary-source Question 11.16.
 - **Question:** does weak convergence plus convergence of \(T_\omega\) imply
   strong \(d_{\infty,\omega}\)-convergence on all of \(X^{\mathrm{lin}}\)?
-- **Status:** verified on one fixed snc dual complex in smooth projective
-  characteristic zero; open globally and in the corresponding
-  characteristic-free compactness step.
+- **Status:** resolved history --- the global implication is disproved on
+  \(\mathbf P^n\), every \(n\ge2\), by point-blowup valuations moving along
+  a linear line: they converge weakly to the line-centred valuation, all
+  exhaustion values equal one, and the strong distance stays at least one.
+  Guarded production run `20260825T044839Z_326e2035bbb9`, item
+  `pi_9e222887262acc5d9fbc740a`, returned final `correct`, zero critical
+  errors and zero gaps.  The adapted exact-live theorem and proof then passed
+  run `20260825T051642Z_049da6197deb`, item
+  `pi_062d99c623958fae25885125`, with the same verdict.  The positive theorem on one fixed SNC dual complex
+  remains valid; its arbitrary-characteristic compactness estimate is a
+  separate restricted question, not a residual form of the global
+  implication.
 - **Packet:** bj_radon_riesz.md.
 
 ### OP-12. Functorial local theory on singular germs
@@ -292,7 +328,7 @@ source questions under one common framework.
 - **Related earlier environment:**
   `prob:pseff-projective-rational-full-link` in the preceding chapter records
   the separate projective-rational full-cone comparison.  It accounts for
-  the difference between the 19-item Chapter 72 map and the 20 book-wide
+  the difference between the 17-item Chapter 72 map and the 18 book-wide
   literal problem count.
 - **Packets:** mp_pseff_chapter_exact.md (failed verification, no promotion)
   and dxz_filtration_test_curve_maximality.md (prepared, not run).
@@ -344,19 +380,28 @@ source questions under one common framework.
   open over a general integral Banach ring.
 - **Packet:** banach_family_ma_continuity.md.
 
-### OP-18. Normalized hybrid continuity after the Favre counterexample
+### OP-18. Favre--Pille-Schneider hybrid continuity --- retired
 
 - **Resolved literal question:** Favre Question 1 / PS23 Question 3.18 is
   false.  The smooth product counterexample is
   `thm:hybrid-endpoint-continuity-counterexample`; production Rethlas run
   `20260825T030402Z_13e01361eeff` returned `final/correct`.
-- **Active residual:** after fixing a continuous model metric and normalizing
-  the fibrewise suprema on both the complex and non-Archimedean fibres, does
-  the canonical hybrid psh extension become continuous?
-- **Status:** the literal atom is retired; the one-atom normalized replacement
-  `prob:frontier-favre-hybrid-extension-normalized` remains open.
-- **Packet:** favre_hybrid_extension.md; controlling receipt
-  `p18_favre_hybrid_extension_counterexample_production_receipt.md`.
+- **Resolved normalized strengthening:** even after fixing the product
+  Fubini--Study model metric and imposing zero fibrewise supremum on every
+  complex fibre and on the non-Archimedean fibre, the canonical hybrid psh
+  extension can be discontinuous.  The stronger theorem is controlled by
+  production run `20260825T035945Z_070e264c3ef1`, item
+  `pi_db89dd432acabcf33a3f2272`, which returned `final/correct`, with zero
+  critical errors and zero gaps.  Its exact adapted live theorem-and-proof
+  bytes separately passed run `20260825T043840Z_d77f7f93aeb0`, item
+  `pi_b7f015a6ad5570f431769a71`, with the same clean verdict.
+- **Status:** both the literal and normalized atoms are retired; OP-18 is not
+  an active problem environment.
+- **Packet:** `favre_hybrid_extension.md`; controlling normalized packet and
+  exact-live receipts are
+  `p18_favre_hybrid_extension_normalized_counterexample_production_receipt.md`
+  and
+  `p18_favre_hybrid_extension_normalized_counterexample_live_integration_receipt_20260825.md`.
 
 ### OP-19. Residual compact-Kähler and hybrid YTD questions
 
@@ -388,11 +433,22 @@ source questions under one common framework.
   `20260825T021353Z_058a4390b0fb` are final `correct`, with zero critical
   errors and zero gaps.
 - **Question:** can the analytic curvature currents be made equal upstairs
-  while `d'd''((U-V)T)` remains nonzero, or do positive closed analytic and
-  delta-currents force Bedford--Taylor compatibility?
-- **Status:** open.  The verified realization has unequal curvature measures
-  at two distinct Gauss points and equality only after proper pushforward.
-- **Packet:** the original realization packet is resolved history; a new
+  while \(\mathrm d'\mathrm d''((U-V)T)\) remains nonzero, or do positive
+  closed analytic and delta-currents force Bedford--Taylor compatibility?
+- **Verified narrow obstruction:** on the four-punctured smooth projective
+  line, the natural real-PL potentials have equal curvature
+  \(4\delta_q\), but a third-unit refinement forces every positive closed
+  order-zero current with visible ray weights to have all four weights
+  equal.  Thus the desired `(2,2,1,1)` current is illegal.  Guarded
+  production run `20260825T034743Z_ea6194f07e86`, item
+  `pi_19c9aad210847a2875a0fe4a`, returned final `correct`, zero critical
+  errors, and zero gaps.
+- **Status:** open.  The reducible realization has equality only after
+  proper pushforward, while the smooth four-punctured candidate is blocked
+  by refined balancing.  Neither result treats arbitrary connected curves,
+  higher-dimensional analytic CLD currents, or non-PL potentials.
+- **Packets:** the original realization packet and the four-punctured
+  obstruction packet are resolved history; a materially different
   upstairs-equality packet is required.
 
 ## Historical corrections that must not return to the queue

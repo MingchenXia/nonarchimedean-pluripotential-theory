@@ -13,7 +13,7 @@ Status vocabulary:
 | Chapter | Short title | Status | Mathematical audit | Source audit |
 |---:|---|---|---|---|
 | 1--8 | Foundations | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
-| 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the two Chapter 18 GJR gates, first-stage CLD collapse on tropical toric partial compactifications and on finite-valence boundaryless tropical curves passed frozen production run `20260825T024707Z_d1b8d7eaf79e`; all listed runs are final `correct`, with 0 critical errors and 0 gaps; unrestricted higher-dimensional, boundary, and infinite-star collapse remains open | GJR and Raynaud inputs retain their earlier exact scopes; the new toric source synthesis uses BGJKK Theorem 3.3.4, while the curve proof supplies its own Jensen--Farkas--regularization argument; no unrestricted collapse, novelty, or priority claim is made |
+| 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the two Chapter 18 GJR gates, first-stage CLD collapse on tropical toric partial compactifications and on finite-valence boundaryless tropical curves passed frozen production run `20260825T024707Z_d1b8d7eaf79e`; the repaired exact-live real-PL zero-current theorem passed `20260825T061351Z_655e7f503e5d`, and the exact-live curve counterexample to ordinary CLD-smooth harmonic approximation passed `20260825T055907Z_b5c8f0719b60`; all listed runs are final `correct`, with 0 critical errors and 0 gaps; the continuous higher-dimensional zero-current problem, ordinary CLD-smooth psh regularization, and unrestricted higher-dimensional, boundary, and infinite-star collapse remain open | GJR and Raynaud inputs retain their exact scopes; the new toric source synthesis uses BGJKK Theorem 3.3.4, while the curve proof supplies its own Jensen--Farkas--regularization argument; no unrestricted collapse, psh nonregularization, novelty, or priority claim is made |
 | 20--27 | BFJ forms, psh, envelopes, MA, capacity, and energy | first-draft-final (historical) | first-pass record; the exact-current Chapter 23 fixed-skeleton selection passed production Rethlas run `20260824T044830Z_25024c43d265` with final `correct`, 0 critical errors, 0 gaps | first-pass record; the Chapter 23 book-local result is separated from its published BFJ inputs and makes no global sequential claim |
 | 28--31 | BFJ measures, continuity, functoriality, and examples | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 32--34 | Trivially valued foundations and psh closure | first-draft-final (historical) | first-pass record; Ch. 34 closure integration awaits Rethlas review | first-pass record; primary anchors rechecked for the closure repair |
@@ -21,18 +21,18 @@ Status vocabulary:
 | 36 | Envelope history | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 37--41 | Envelope theorem, first proof block | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 42--45 | Envelope theorem, second proof block | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
-| 46--49 | BJ energy, topology, and valuations | first-draft-final (historical) | first-pass record; the exact-current Chapter 49 truncation-energy and sharpness package passed run `20260824T041218Z_0c95825dbb06` with final `correct`, 0 critical errors, 0 gaps | first-pass record; the verified consequence is restricted to the positive-volume probability-normalized BJ framework |
+| 46--49 | BJ energy, topology, and valuations | post-expansion synchronization complete for the listed gates | the exact-current Chapter 49 truncation-energy package passed `20260824T041218Z_0c95825dbb06`; the \(\mathbf P^n\), \(n\ge2\), global Radon--Riesz counterexample passed frozen run `20260825T044839Z_326e2035bbb9` and exact-live run `20260825T051642Z_049da6197deb`; all returned final `correct`, 0 critical errors, 0 gaps | the truncation theorem is restricted to the positive-volume probability-normalized BJ framework; the Radon--Riesz counterexample is characteristic-free on projective space and the later gate controls the adapted live theorem-and-proof bytes |
 | 50 | Stability and completions | post-expansion depth-audited | quotient, Hausdorffization, completion extension, independence, and uniqueness arguments expanded in full after explicit imported inputs | BJKS and BJ theorem scopes rechecked against the formal completion argument |
 | 51 | Complex prerequisites | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 52--54 | Test curves, inverse systems, and trace | post-expansion depth-audited | independent mathematical depth pass completed 23 August 2026; imported Perron/Ross--Witt Nystr\"om boundaries remain explicit | primary sources rechecked, including the exact Darvas--Xia \(\mathcal I\)-input/\(P\)-output trace theorem |
 | 55--58 | Okounkov/DH, analytification, BJ comparison, and tropical spectra | post-expansion depth-audited | the 23 August depth pass is retained; Chapter 55's exact-current metric theorem and line-bundle specialization passed separate production runs `20260824T054849Z_57635bfa07f4` and `20260824T061508Z_17bf73c6b37c`, its rational toric zero-mass block passed `20260824T052605Z_703e3b501202`, and the general real-class current-level theorem passed frozen source-aware run `20260825T011636Z_99edb45c54cb`, all final `correct`, 0 critical errors, 0 gaps | primary-source scope and locators rechecked for multiplier-ideal volume, DXZ approximation, MP tropical spectra, Cao, CGSZ, BEGZ, Guenancia, Schneider, and the repaired mixed-volume proof; the general toric run is not a post-integration byte-identity gate, the author-supplied proof remains unpublished, and no priority claim is made |
 | 59--62 | Complex dual complexes, MP psh, transcendental CY, and K-stability | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 63--64 | Master dictionary and Monge--Ampère comparisons | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
-| 65--66 | Rays, filtrations, and hybrid spaces | post-expansion depth-audited | slope, entropy, hybrid-extension, and Monge--Ampère limit arguments reconstructed after explicit imported inputs | BHJ/BJ and Pille--Schneider anchors rechecked; the excluded Deligne-pairing paper is not used |
+| 65--66 | Rays, filtrations, and hybrid spaces | post-expansion depth-audited | slope, entropy, hybrid-extension, and Monge--Ampère limit arguments reconstructed after explicit imported inputs; the normalized Favre--Pille-Schneider counterexample passed frozen run `20260825T035945Z_070e264c3ef1` and exact-live run `20260825T043840Z_d77f7f93aeb0`, both final `correct`, 0 critical errors, 0 gaps | BHJ/BJ and Pille--Schneider anchors rechecked; the excluded Deligne-pairing paper is not used |
 | 67 | Functoriality and trace | first-draft-final (historical) | prior hostile-pass record; exact current Rethlas status is recorded separately | source correction recorded in the trace audit |
 | 68 | YTD bridge | post-expansion depth-audited | factor-two normalization and perturbation chain checked against the internally proved ray formulas | Fano and automorphism-group scope rechecked against primary sources |
-| 69 | Validated extensions | post-expansion synchronization in progress | in addition to the toric gates, the complete-intersection slice passed `20260825T023505Z_66547f68ec32`, and the analytic weighted-cross realization and compact-source obstruction passed `20260825T021353Z_058a4390b0fb` and `20260825T024519Z_16376e0d52eb`; all three are final `correct`, with 0 critical errors and 0 gaps | the slice tests only restrictions of ambient smooth functions; the cross construction gives equality of curvature only after proper pushforward, not an analytic Bedford--Taylor counterexample; no novelty or priority claim is made |
-| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 19 problem environments, for 20 book-wide and 61 active atoms; the generalized-Lelong, real-toric current-level, and two original cross-fan realization atoms were retired after frozen production runs; the PL-current converse remains open but now has a verified complete-intersection slice | source status reconciled through 24 August 2026 and book verification through 25 August; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and all book-level derivations retain exact scope and no novelty or priority claim |
+| 69 | Validated extensions | post-expansion synchronization in progress | in addition to the toric gates, the complete-intersection slice passed `20260825T023505Z_66547f68ec32`; the analytic weighted-cross realization and compact-source obstruction passed `20260825T021353Z_058a4390b0fb` and `20260825T024519Z_16376e0d52eb`; and the four-punctured smooth-curve obstruction passed `20260825T034743Z_ea6194f07e86`; all four are final `correct`, with 0 critical errors and 0 gaps | the slice tests only restrictions of ambient smooth functions; the cross construction gives equality of curvature only after proper pushforward, not an analytic Bedford--Taylor counterexample; the four-punctured result excludes its concrete candidate but leaves P21.3 open; no novelty or priority claim is made |
+| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 17 problem environments, for 18 book-wide and 59 active atoms; the generalized-Lelong, real-toric current-level, global Radon--Riesz, two original cross-fan realization, and normalized hybrid-continuity atoms were retired after production verification; the PL-current converse retains only its unresolved residuals | source status reconciled through 24 August 2026 and book verification through 25 August; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and all book-level derivations retain exact scope and no novelty or priority claim |
 | A--L | Appendices | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 
 ## Second-draft expansion
@@ -109,10 +109,11 @@ final log has no TeX error, undefined reference or citation, duplicate
 destination, BibTeX warning, or overfull box, and the representative-page
 inspection passed.  Static and build checks do not replace the independent
 mathematical audits listed below.  After the later generalized-Lelong,
-real-toric, and cross-fan integrations, the current literal frontier has 20
-environments (one in Chapter 71 and 19 in Chapter 72) and 61 active atoms; the theorem-like,
-label, reference, and page totals await the next whole-source recount and
-build.
+real-toric, cross-fan, hybrid-continuity, and Radon--Riesz integrations, the current literal frontier has 18
+environments (one in Chapter 71 and 17 in Chapter 72) and 59 active atoms; the theorem-like,
+label, and reference audits pass.  The clean 25 August current-source build
+has 3,123 pages; its evidence is recorded in
+`editorial/current_source_build_20260825.md`.
 
 ## Global release gates
 
@@ -121,10 +122,12 @@ following is the controlling **post-expansion** release list; an unchecked
 box is an outstanding verification step, not a mathematical defect.
 
 - [x] Every planned `\draftinclude` target exists.
-- [x] A clean whole-book build of the exact current release snapshot has been
+- [x] A clean whole-book build of the 25 August current working source has been
       reviewed for TeX errors, overfull boxes, undefined references/citations,
-      duplicate destinations, the bibliography, and the index.  The exact
-      artifact and source-freeze evidence are recorded in
+      duplicate destinations, the bibliography, and the index.  Its 3,123-page
+      artifact evidence is recorded in
+      `editorial/current_source_build_20260825.md`.  The distinct dated
+      24 August release snapshot and source-freeze evidence remain recorded in
       `output/BUILD_AND_AUDIT_SUMMARY.md` and
       `output/PRODUCTION_SOURCE_SHA256SUMS`.
 - [ ] The expanded chapters have received independent post-expansion
@@ -132,8 +135,8 @@ box is an outstanding verification step, not a mathematical defect.
       above do not close this gate.
 - [ ] The source-boundary review is complete outside the separately recorded
       final-chapter and BJ-closure audits.
-- [x] The literal research inventory is 20 open `problem` environments:
-      one in Chapter 71 and 19 in Chapter 72, split into 61 active atoms.  No
+- [x] The literal research inventory is 18 open `problem` environments:
+      one in Chapter 71 and 17 in Chapter 72, split into 59 active atoms.  No
       exercise environment occurs.
 - [ ] Every result or integration designated for a Rethlas receipt has a
       receipt for its exact current statement and proof.  The Chapter 23 and

@@ -1,10 +1,18 @@
-# Normalized hybrid continuity after the Favre counterexample
+# Favre--Pille-Schneider hybrid continuity: negative solution
 
-**25 August 2026 update.**  The literal packet is solved negatively.
-The smooth product counterexample in
+**25 August 2026 controlling update.**  Both the literal packet and its
+zero-supremum normalized strengthening are solved negatively.  The smooth
+product counterexample in
 `thm:hybrid-endpoint-continuity-counterexample` passed production Rethlas
-run `20260825T030402Z_13e01361eeff` with `final/correct`, zero critical
-errors, and zero gaps.  It also satisfies Favre's three intrinsic conditions
+first as a base-scalar packet in run
+`20260825T030402Z_13e01361eeff`.  Its stronger fibre-dependent log-sum-exp
+form passed run `20260825T035945Z_070e264c3ef1`, item
+`pi_db89dd432acabcf33a3f2272`; the adapted live theorem-and-proof bytes then
+passed run `20260825T043840Z_d77f7f93aeb0`, item
+`pi_b7f015a6ad5570f431769a71`.  All returned `final/correct`, zero critical
+errors, and zero gaps.  The stronger form has zero supremum relative to the
+product Fubini--Study metric on every complex fibre and on the
+non-Archimedean fibre.  It also satisfies Favre's three intrinsic conditions
 while failing to be uniform, so the two source formulations are refuted
 separately rather than identified without proof.
 
@@ -36,14 +44,19 @@ smooth, relatively ample hybrid setting for one continuous hybrid psh metric.
 Do not present any of these restricted theorems as the general continuity
 statement.
 
-The active replacement is
-`prob:frontier-favre-hybrid-extension-normalized`.  Fix a continuous model
-reference metric and impose zero-supremum normalization on every complex
-fibre and on the non-Archimedean fibre.  Decide whether the canonical hybrid
-psh extension is then continuous.  This normalization removes the verified
-base-scalar counterexample but does not itself supply the uniform normalized
-Bergman estimate.
+The former replacement fixed a continuous model reference metric and imposed
+zero-supremum normalization on every complex fibre and on the
+non-Archimedean fibre.  The stronger example satisfies exactly those
+hypotheses: if
+\[
+ \phi=\frac12\log\bigl(|Z_0|^2+\exp(2u(t))|Z_1|^2\bigr),
+\]
+then its relative potential lies between \(u\) and \(0\), equals \(0\) at
+\([1:0]\), and equals \(u\) at \([0:1]\).  Hence the fibrewise suprema are
+zero while the two verified scalar-well sequences still give distinct
+hybrid limits.  The normalized environment and atom are therefore retired;
+there is no active P18 replacement.
 
-Keep the psh gluing theorem, canonically polarized positive case, literal
-counterexample, normalized residual, and weak continuity of
+Keep the psh gluing theorem, canonically polarized positive case, the two
+counterexample scopes, and weak continuity of
 Monge--Ampère measures logically separate.

@@ -12,8 +12,8 @@ surrounding literature.
 
 ## Counting method
 
-The current source contains exactly twenty formal problem environments:
-one in Chapter 71 and nineteen in Chapter 72.  A compound environment is
+The current source contains exactly eighteen formal problem environments:
+one in Chapter 71 and seventeen in Chapter 72.  A compound environment is
 split below into independently auditable theorem or construction targets.
 Equivalent reformulations are counted only once.  The compatibility axioms
 that make a construction meaningful---for example model independence,
@@ -27,12 +27,13 @@ isomorphism question, which is negatively answered in the book, the
 generalized-Lelong separation question, which is proved in
 `thm:local-generalized-lelong-separation`, and the real-toric current-level
 question, which is proved in `thm:ok-toric-real-products`, and retirement of
-the two original cross-fan realization atoms, and retirement of the literal
-Favre endpoint-continuity atom with a one-for-one normalized replacement,
+the two original cross-fan realization atoms, and retirement of both the
+literal and zero-supremum normalized Favre endpoint-continuity atoms,
+and retirement of the global Boucksom--Jonsson Radon--Riesz atom,
 the exact count is
 
 ```text
-20 formal problem environments = 61 active atomic research questions.
+18 formal problem environments = 59 active atomic research questions.
 ```
 
 The identifiers `P00.1` through `P21.3` below are an editorial addressing
@@ -119,14 +120,28 @@ conditional; the general targets remain open.
 - **P06.1** `[T2; open]` Decide whether every classically pluriharmonic
   function is PL without the extra regularity assumptions in the cited
   result.
-- **P06.2** `[T2; open]` Decide whether a continuous function with zero
+- **P06.2** `[T2; open after the real-PL case]` Decide whether an arbitrary
+  continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
   harmonic whenever the classical notion is available.
-- **P06.3** `[T2; open]` Prove or disprove decreasing regularization on every
-  smooth Berkovich curve by CLD-smooth harmonic approximants.
+- **P06.3** `[T2; open after the literal harmonic variant]` Decide whether
+  every continuous current-psh function on every smooth proper Berkovich
+  curve in the stated Wanner scope is locally a decreasing limit of ordinary
+  CLD-smooth psh functions, without the supplementary hypotheses of Wanner
+  Corollary 5.4.
 
-The weakly smooth zero-current statement is known; these three upgrades are
-open.
+The weakly smooth zero-current statement is known.  The real-PL
+zero-current implication is now verified on good separated boundaryless
+strict pure-dimensional spaces by production run
+`20260825T061351Z_655e7f503e5d`: it uses rational coefficients of calibrated
+skeletal currents and does not extend to arbitrary continuous functions.
+The former literal request for ordinary CLD-smooth harmonic approximants is
+disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
+positive-curvature psh approximants are not covered.  Wanner's
+published comparison settles the continuous problem on open subsets of
+smooth proper algebraic curves over algebraically closed complete
+nontrivially valued fields.  The three atoms retain the residual scopes
+stated above.
 
 ### `prob:frontier-cld-hierarchy` --- 2 atoms
 
@@ -173,13 +188,20 @@ good-reduction elliptic-curve counterexample to surjectivity.  This negative
 answer does not settle the separately restricted totally degenerate case,
 which is not a formal problem environment here.
 
-### `prob:frontier-bj-radon-riesz` --- 1 atom
+### Retired P11 history --- 0 active atoms
 
-- **P11.1** `[T2; open]` Decide whether weak convergence together with
-  convergence of the Boucksom--Jonsson exhaustion implies strong
-  \(d_{\infty,\omega}\)-convergence on all of \(X^{\mathrm{lin}}\).
-  The fixed-snc-complex characteristic-zero case is verified; the global
-  statement remains open.
+- **P11.1** `[retired; disproved]` Weak convergence together with convergence
+  of the Boucksom--Jonsson exhaustion does not imply strong convergence on
+  all of \(X^{\mathrm{lin}}\).  On \(\mathbf P^n\), every \(n\ge2\), moving
+  point-blowup valuations along a linear line converge weakly to its
+  line-centred valuation, all exhaustion values equal one, and the strong
+  distance stays at least one.  Generalized production run
+  `20260825T044839Z_326e2035bbb9`, item
+  `pi_9e222887262acc5d9fbc740a`, returned final `correct`, zero critical
+  errors and zero gaps; the adapted exact-live theorem and proof passed run
+  `20260825T051642Z_049da6197deb`, item
+  `pi_062d99c623958fae25885125`, with the same verdict.  The fixed-SNC-complex positive result remains
+  valid.  The identifier `P11.1` is retired and will not be reassigned.
 
 ### `prob:frontier-singular-local` --- 6 atoms
 
@@ -269,16 +291,17 @@ skeleton or to rational PL potentials.
   Monge--Amp\`ere integral over a general integral Banach ring.  The hybrid
   base case is known; the general Banach-base statement is open.
 
-### `prob:frontier-favre-hybrid-extension-normalized` --- 1 atom
+### Retired P18 history --- 0 active atoms
 
-The original endpoint-continuity atom is disproved by
-`thm:hybrid-endpoint-continuity-counterexample` and retired.  The
-one-for-one replacement leaves the inventory total unchanged.
-
-- **P18.1** `[T2; open]` Decide whether continuous Archimedean and
-  non-Archimedean endpoint metrics force continuity of the canonical hybrid
-  metric after fixing a continuous model reference and imposing zero-supremum
-  normalization on every complex fibre and on the non-Archimedean fibre.
+`thm:hybrid-endpoint-continuity-counterexample` disproves both the literal
+Favre--Pille-Schneider endpoint question and the zero-supremum normalized
+strengthening.  The latter is controlled by production run
+`20260825T035945Z_070e264c3ef1`, item
+`pi_db89dd432acabcf33a3f2272`, with final verdict `correct`; the exact
+adapted live bytes passed the independent run
+`20260825T043840Z_d77f7f93aeb0`, item
+`pi_b7f015a6ad5570f431769a71`, with the same verdict.  The former
+`P18.1` is therefore not an active atom and has no replacement.
 
 ### `prob:frontier-hybrid-ytd` --- 4 atoms
 
@@ -313,6 +336,18 @@ in seven-item production run `20260825T021353Z_058a4390b0fb`.  In that
 construction the two curvature currents are unequal upstairs and agree only
 after pushforward, so it does not settle `P21.3`.
 
+A third guarded production run,
+`20260825T034743Z_ea6194f07e86`, item
+`pi_19c9aad210847a2875a0fe4a`, excludes one smooth connected workaround.
+For the natural four-punctured \(\mathbf P^1\) construction the two real-PL
+curvatures are equal at the same Gauss point, but adjoining the third unit
+\((z-a)/(z-c)\) forces all four visible weights of a positive closed
+order-zero current to be equal.  Hence the proposed `(2,2,1,1)` weights do
+not come from such a current.  The run returned final `correct`, zero
+critical errors, and zero gaps.  This is a candidate-level obstruction only:
+`P21.3` remains open, stays in the queue, and the inventory count is
+unchanged.
+
 ## Easy-to-hard Rethlas queue
 
 The tiers estimate how bounded the first exact submission can be, not the
@@ -325,9 +360,9 @@ Recommended internal order:
 
 1. `P01.1`
 
-### T2 --- focused problems with one principal missing bridge (11 atoms)
+### T2 --- focused problems with one principal missing bridge (9 atoms)
 
-`P21.3`, `P11.1`, `P07.1`, `P00.1`, `P17.1`, `P18.1`, `P03.1`,
+`P21.3`, `P07.1`, `P00.1`, `P17.1`, `P03.1`,
 `P06.1`, `P06.2`, `P06.3`, `P09.1`.
 
 ### T3 --- major theorems within mature frameworks (15 atoms)

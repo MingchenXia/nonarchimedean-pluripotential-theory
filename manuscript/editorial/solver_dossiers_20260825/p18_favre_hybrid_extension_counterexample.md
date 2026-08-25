@@ -2,8 +2,22 @@
 
 Date of audit: 2026-08-25 (Asia/Shanghai).
 
-Status: **complete counterexample to the question as literally stated;
-production Rethlas final/correct; not integrated into a live chapter**.
+Status: **historical base-scalar counterexample, production Rethlas
+final/correct and integrated; superseded in scope by the verified normalized
+counterexample**.
+
+**Controlling 25 August addendum.**  The later fibre-dependent log-sum-exp
+construction has zero supremum relative to the Fubini--Study model metric on
+every complex fibre and on the non-Archimedean fibre, yet remains hybrid
+discontinuous.  It passed production run
+`20260825T035945Z_070e264c3ef1`, item
+`pi_db89dd432acabcf33a3f2272`, final `correct`, with zero critical errors and
+zero gaps, and is now integrated in Chapter 66.  The exact adapted live bytes
+then passed run `20260825T043840Z_d77f7f93aeb0`, item
+`pi_b7f015a6ad5570f431769a71`, with the same clean verdict.  It retires the former
+normalized residual from Chapter 72.  Statements below saying that the
+normalized problem remains open are preserved only as the earlier
+base-scalar audit stage and are superseded by this addendum.
 
 The user explicitly authorized submission of the frozen theorem and proof to
 the local production Rethlas service.  The exact submitted bytes, digests, and

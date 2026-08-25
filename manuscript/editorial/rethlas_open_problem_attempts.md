@@ -6,6 +6,38 @@
 **Rule:** an attempted route is never promoted to a theorem without a final
 Rethlas verification receipt for the exact displayed statement and proof.
 
+> **25 August 2026 P11 controlling addendum.**  The global implication in
+> Boucksom--Jonsson Question 11.16 is now disproved.  The first \(\mathbf
+> P^2\) proof run was correctly rejected because residue nonvanishing did not
+> exclude cancellation, and all rejected artifacts remain preserved.  The
+> repaired surface baseline passed its second run.  A stronger transverse-
+> initial-form proof on every \(\mathbf P^n\), \(n\ge2\), then passed guarded
+> production run `20260825T044839Z_326e2035bbb9`, item
+> `pi_9e222887262acc5d9fbc740a`, final `correct`, zero critical errors and
+> zero gaps.  The adapted exact-live theorem and proof separately passed run
+> `20260825T051642Z_049da6197deb`, item
+> `pi_062d99c623958fae25885125`, with the same clean verdict.  Moving
+> point-blowup valuations converge weakly to the
+> line-centred valuation with exhaustion identically one, but remain at
+> strong distance at least one.  The fixed-dual-complex theorem is unchanged.
+
+> **25 August 2026 P06 exact-live addendum.**  The repaired Chapter 18
+> real-PL zero-current proof passed run
+> `20260825T061351Z_655e7f503e5d`, item
+> `pi_eea98ea0a54108cae4e076be`, final `correct`, zero errors and gaps.
+> Intermediate exact-live run `20260825T055921Z_655e7f503e5d` returned
+> `wrong` because the common chart was not first obtained G-locally and the
+> final comparison depended on an undeclared internal theorem.  Those defects
+> were repaired, and all negative artifacts are preserved.  Separately, the
+> literal ordinary CLD-smooth harmonic approximation request is disproved by
+> the exact-live theta-curve proposition, run
+> `20260825T055907Z_b5c8f0719b60`, item
+> `pi_d80993bb01a748f0422ae6a5`, final `correct`, zero errors and gaps.  The
+> proof uses the global model function from GJR Proposition 17.4 and a closed
+> finite-dimensional residual Picard kernel.  It does not disprove ordinary
+> CLD-smooth psh regularization; P06.3 stays open in that scope and 18/59 is
+> unchanged.
+
 > **24 August 2026 controlling release addendum.**  The author supplied the
 > TeX proof of Xia's Conjecture 8.8.
 > Human and hostile audits repaired it, and production Rethlas
@@ -448,7 +480,7 @@ mark.
 | `gjr_three_questions` | **Partly superseded historical classification.**  Q1 is now verified in the natural positive-cone form whenever the residual dimension is at most one by exact-current run `20260824T135721Z_81346238f7dd`; arbitrary residual dimension remains open.  Q2 is no longer candidate-grade: the explicit good-reduction elliptic counterexample passed exact-current run `20260824T123617Z_fcddc3abc33d`, so the unrestricted question is disproved; no claim is made for total degeneration.  The ordinary canonical-delta-metric question is settled in the listed special cases only, with the non-isotrivial mixed case open. |
 | `bmps_exact_source_questions` | Rank-two matroids closed by the source's own one-dimensional theorem (Bergman fan of a rank-\(r\) matroid has dimension \(r-1\)); \(U_{3,4}\)'s failure reinterpreted as a failure of \(\gamma\)'s growth hypotheses at rank three.  Split-obstacle orthogonality on products.  Purely local smoothness hypotheses proved insufficient in higher dimension. |
 | `generalized_lelong_separation` | **Superseded historical classification.**  Not attempted in the 15 August pass; the exact frozen statement and source-aware proof later passed production run `20260824T140127Z_ef8316d19c12`, and an independent hostile audit found no gap before the result was integrated in Chapter 70.  The receipt is not a post-integration byte-identity gate. |
-| `bj_radon_riesz` | Not attempted in this pass. |
+| `bj_radon_riesz` | **Superseded historical row.**  Not attempted in the 15 August pass; the later moving-centre \(\mathbf P^n\) counterexample passed final/correct run `20260825T044839Z_326e2035bbb9`, item `pi_9e222887262acc5d9fbc740a`, and resolves the global question negatively. |
 | `trace_p_valued_refinement` | Positive resolution at candidate grade: the \(P\)-lift exists and is canonical, via the Darvas--Xia trace as an actual model potential.  The two counterexample engines mandated by the packet are provably empty — restriction commutes with integral closure, and the Newton polyhedron of a sliced monomial ideal equals the slice of the polyhedron. |
 | `dxz_filtration_test_curve_maximality` | Endpoints settled; exact obstruction identified (an \(O(1/m)\) class twist is harmless for potentials but \(\mathcal I\)-equivalence is not continuous under it, and for big non-ample \(L\) the twist leaves \(R(X,L)\)); exceptional-pullback counterexample mechanism refuted by explicit computation on \(\mathrm{Bl}_p\mathbf P^2\); zero-mass range reduced to the book's existing zero-mass \(\mathcal I\)-model problems. |
 | `xia_partial_okounkov_questions` | **Superseded historical classification.**  The 15 August pass called Conjecture 8.8 “literature-resolved”; that description was wrong because the author-supplied work is unpublished.  The later repaired proof and the two exact-current Chapter 55 gates verify the positive-volume formula without converting it into published literature.  The pass's independently found \(\ge\) half for two-bundle mixed terms is subsumed and carries no priority claim.  Conjecture 5.29 remains open.  Chebyshev \(\eta\)-independence remains open: the admissible set is upward directed but unbounded below in singularity, so the max-interpolation squeeze does not close. |

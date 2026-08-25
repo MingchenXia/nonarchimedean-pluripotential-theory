@@ -3,10 +3,10 @@
 Solver stage, run 15 August 2026. Literature cutoff 15 August 2026. Scope fixed by
 `/home/claude/work/refs/post2025_ytd_residuals.md` (binding). Book environment:
 `ch72_major_open_problems.tex`, §"Hybrid entropy slopes and the remaining compact-Kähler YTD frontier"
-(Problem `prob:frontier-hybrid-ytd`) and the two hybrid problems
-(`prob:frontier-favre-hybrid-extension-normalized`, the PS23
-Question 4.9 problem).  The first label is the 25 August normalized
-replacement for the now-disproved literal endpoint-continuity question.
+(Problem `prob:frontier-hybrid-ytd`) and the PS23 Question 4.9 Banach-family
+problem.  The Favre--Pille-Schneider endpoint problem and its former
+zero-supremum normalized replacement were both retired on 25 August after
+the production-verified counterexample.
 
 ## 0. Sources, quarantine, firewall
 
@@ -363,11 +363,14 @@ special regimes; (M5) NA Matsushima/reductivity, transcendental. Status: OPEN.
 
 Required end theorems: (H1) the literal continuity question for polarized
 degenerations (Favre Q1 / PS23 Q3.18) is now disproved by the verified
-smooth-product counterexample.  Its book replacement
-`prob:frontier-favre-hybrid-extension-normalized` asks the question after
-zero-supremum normalization; the missing input is still a
-degeneration-uniform normalized Bergman estimate.  The canonically polarized
-semistable case is PS23 Theorem 5.1.  (H2) family
+smooth-product counterexample.  The stronger fibre-dependent construction
+also disproves its zero-supremum normalized replacement; production run
+`20260825T035945Z_070e264c3ef1`, item
+`pi_db89dd432acabcf33a3f2272`, returned final `correct`; the adapted exact
+live theorem and proof passed `20260825T043840Z_d77f7f93aeb0`, item
+`pi_b7f015a6ad5570f431769a71`, with the same verdict.  The canonically
+polarized semistable case remains PS23 Theorem 5.1 and is not contradicted.
+(H2) family
 MA continuity over a Banach base (PS23 Q4.9; book problem above it): reduced by PS23 Lem 4.10 to
 FS metrics/model functions; hybrid-base case done (PS23 Thm 4.11). (H3) a *family* version of the
 finite-energy compactness in MPWN25 Thm B/MP24 (fixed-\(X\) statements only at cutoff), i.e.

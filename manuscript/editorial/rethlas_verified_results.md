@@ -9,7 +9,7 @@ were checked by the production Rethlas verifier with `gpt-5.6-sol` at `xhigh`
 effort, after source and domain hypotheses were made explicit.  Later edits to
 a statement or proof invalidate its receipt until a fresh audit is recorded.
 
-## Current release boundary (24 August 2026)
+## Current release boundary (through 25 August 2026)
 
 This ledger is not a book-wide Rethlas completion certificate.  It records
 nine mathematical production gates completed on 24 August.  Eight are
@@ -26,9 +26,14 @@ The BJ22 basic-closure integration is still a source-audited import without an
 exact-current Rethlas receipt; the standalone MP reduced entropy-slope
 reconstruction also remains pending.  Candidate-only packets and runs on
 stale bytes are not receipts.  The separate clean whole-book build of the
-exact current release snapshot has passed and is recorded in
-`output/BUILD_AND_AUDIT_SUMMARY.md`; it does not enlarge the mathematical
-scope of any receipt.
+25 August current working source has passed and is recorded in
+`editorial/current_source_build_20260825.md`; it does not enlarge the
+mathematical scope of any receipt.  The earlier
+`output/BUILD_AND_AUDIT_SUMMARY.md` records the distinct dated 24 August
+release snapshot.
+The 25 August addenda below record further frozen-packet gates and preserve
+their failed predecessor runs; they do not retroactively enlarge any of the
+nine 24 August gates counted in this paragraph.
 
 ## Chapter 18 — unrestricted GJR cohomology question
 
@@ -88,6 +93,76 @@ scope of any receipt.
   common-model formalism, openness statement, and an integral splitting of
   the one-dimensional degree functional.  No novelty or priority claim is
   made.
+
+## Chapter 18 and Chapter 72 — real-PL zero-current converse
+
+- Status: **VERIFIED FROZEN PACKET / INTEGRATED WITH CONTINUOUS FIREWALL**
+  (25 August 2026).
+- Book locations: `prop:ch18-real-pl-zero-current-harmonic` and its full
+  proof in Chapter 18; the narrowed `prob:frontier-pluriharmonic` discussion
+  in Chapter 72.  Wanner's published continuous curve scope is recorded as
+  `cor:ch19-continuous-zero-current-harmonic`.
+- Scope: a complete nontrivially valued field and a good, separated,
+  boundaryless, strictly analytic pure-dimensional space of positive
+  dimension.  A real-PL function whose CLD
+  \(\mathrm d'\mathrm d''\)-current vanishes is GJR harmonic and classically
+  pluriharmonic;
+  equivalently, all of its residual classes are numerically trivial.
+- Proof mechanism: decompose over `Q`-linearly independent coefficients;
+  use rational coefficients of the codimension-one calibrated CLD skeletal
+  currents on a common minimal analytic skeleton; then refine by the moment chart of
+  each arbitrary compactly supported test form.  No analytic current is
+  pulled back and no target-side boundary separator is used.
+- Exact-live statement SHA-256:
+  `655e7f503e5db0cee8e0c94fdc765b6923aeebb7b89c7b5b98ad7827fa6e2421`.
+- Exact-live source-aware proof SHA-256:
+  `7ad130bab1d9dd61ecbac818005c4b80fe405c3d9710a6bb588fea6fa30a856a`.
+- Exact request SHA-256:
+  `29704a697a6f17c1a6bf15a578a028126e322059a08353d1acc76cd6921ebef7`.
+- Production run: `20260825T061351Z_655e7f503e5d`; proof item
+  `pi_eea98ea0a54108cae4e076be`; `gpt-5.6-sol`, `xhigh`, final verdict
+  `correct`, zero critical errors, zero gaps.
+- Controlling exact-live receipt:
+  `editorial/rethlas_receipts_20260825/p06_real_pl_zero_current_live_scope_arithmetic_v4_production_receipt_20260825.md`.
+- Superseded history: run `20260825T032958Z_3a27f19be958` controls only its
+  earlier frozen packet.  Exact-live intermediate run
+  `20260825T055921Z_655e7f503e5d` returned final `wrong` with two gaps; its
+  repaired successor is the controlling run above.
+- Rejection history: round one, run
+  `20260825T031243Z_1603e0a83037`, item
+  `pi_ef4b8ab22822f1ccc0242d30`, returned final `wrong`.  Its unsupported
+  target-boundary separation step is not present in the live proof, and all
+  negative artifacts remain preserved.
+- Scope firewall: the arbitrary continuous higher-dimensional case remains
+  open.  The continuous curve result uses Wanner's published theorem only in
+  its algebraically closed, complete, nontrivially valued, smooth proper
+  algebraic-curve scope.  No novelty or priority claim is made.
+
+## Chapter 19 and Chapter 72 — failure of ordinary smooth harmonic approximation
+
+- Status: **VERIFIED EXACT-LIVE COUNTEREXAMPLE / PSH FIREWALL RETAINED**
+  (25 August 2026).
+- Book location: `prop:ch19-cld-smooth-harmonic-nonregularization` and its
+  full proof in Chapter 19; the re-scoped P06.3 discussion in Chapter 72.
+- Exact scope: on a smooth proper GJR theta-curve, an integral PL harmonic
+  function on a relatively compact three-arm neighbourhood is weakly smooth
+  with zero weakly smooth curvature but is not a locally uniform limit, nor a
+  decreasing pointwise limit, of ordinary CLD-smooth harmonic functions.
+- Statement SHA-256:
+  `b5c8f0719b606707b8055f0ead8c1baa96b5d9732cccf51a0e86ec02c5e64f24`.
+- Proof SHA-256:
+  `ba402983b6d88c03437c79af66dfd541c5a37b89c0bb2a6a67438ac84120565b`.
+- Request SHA-256:
+  `2b564db26e52284aeafa88e0f8ed3ef39aed3a016c3a21716fdf80e437dd959f`.
+- Production run: `20260825T055907Z_b5c8f0719b60`; item
+  `pi_d80993bb01a748f0422ae6a5`; `gpt-5.6-sol`, `xhigh`, final `correct`,
+  zero critical errors and zero gaps.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260825/p06_cld_smooth_harmonic_nonregularization_live_production_receipt_20260825.md`.
+- Scope firewall: the proof uses vanishing curvature of every approximant.
+  It does not disprove decreasing ordinary CLD-smooth psh approximation,
+  which remains open.  The atom and the authoritative 18/59 counts are
+  unchanged.  No novelty or priority claim is made.
 
 ## Xia Conjecture 8.8 — repaired mixed partial-body formula
 
@@ -312,6 +387,51 @@ scope of any receipt.
   `pi_8189ce12c89257c9acec4eef`; `gpt-5.6-sol`, `xhigh`, final verdict
   `correct`, zero critical errors, zero gaps.
 
+## Chapter 49 global Radon--Riesz counterexample
+
+- Status: **DISPROVED / EXACT LIVE THEOREM AND PROOF VERIFIED** (25 August
+  2026).
+- Book locations: `thm:ch49-global-radon-riesz-counterexample`, the contrast
+  remark `rem:verified-no-global-radon-riesz`, and the resolved history
+  `sec:resolved-bj-radon-riesz`.
+- Exact scope: on \(\mathbf P^n_k\), for every \(n\ge2\) and in arbitrary
+  characteristic, point-blowup valuations centred at pairwise distinct
+  points of one linear line converge weakly to the line-centred valuation,
+  while both the sequence and limit have exhaustion one and their strong
+  distance is at least one.  For \(n=2\) the limit is \(\ord_C\); for
+  \(n\ge3\) it is the exceptional valuation of the blowup along \(C\).
+- Production run: `20260825T044839Z_326e2035bbb9`; proof item
+  `pi_9e222887262acc5d9fbc740a`; model `gpt-5.6-sol`, scrutiny `xhigh`, final
+  verdict `correct`, zero critical errors and zero gaps.  Both process guards
+  completed and the wrapper returned zero.
+- Frozen SHA-256 boundary: statement
+  `326e2035bbb9dd6b3d705f085c19d293da2e58b2998f3452b654c2d75d6d42f3`;
+  source-aware proof
+  `7c9317bce0cb53b5767eb63e053c4f0e94ab23b88292e17cb481a1cdba914585`;
+  request
+  `d186c1e5b96ebb91370a15155b5d6b8f4e355b04740db69bd4ccf60b1ed0b2f7`;
+  authenticated source PDF
+  `8d5975337f4ac88a475929ea6a436ec4a15d08715d5582bc0ba0eb3e07152c52`.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260825/p11_bj_radon_riesz_pn_counterexample_production_receipt_20260825.md`.
+- Exact-live gate: run `20260825T051642Z_049da6197deb`, item
+  `pi_062d99c623958fae25885125`, final `correct`, zero critical errors and
+  zero gaps.  The extracted live statement SHA-256 is
+  `049da6197deb627f55e5e469a246dce53154e121eb0a1b8206806ae8ec395518`;
+  the exact live theorem-and-proof SHA-256 is
+  `d6e40fa3adedaccecc6a3af1f7258ee29b803ac9443a430e234be2a9571c9aa1`.
+  Both wrapper and child guards completed with return code zero.  Controlling
+  live receipt:
+  `editorial/rethlas_receipts_20260825/p11_bj_radon_riesz_pn_live_integration_receipt_20260825.md`.
+- Rejection preservation: the first \(\mathbf P^2\) proof run returned
+  `final/wrong`; its rejected proof SHA-256 is
+  `54d3e6ef089fdea4194414628db7e9f3d247c16cf89070430eb69e5a60fafab8`
+  and its artifacts remain quarantined.  The repaired \(\mathbf P^2\)
+  baseline and the stronger \(\mathbf P^n\) packet are both preserved.
+- Firewall: the generalized frozen run controls the source-aware mathematical
+  packet, while the later run controls the adapted live theorem-and-proof
+  bytes.  No publication, novelty, or priority claim is made.
+
 ## Chapter 55 toric zero-mass package
 
 - Status: **VERIFIED** (24 August 2026).
@@ -422,6 +542,65 @@ scope of any receipt.
   `5f74d82c9ec0f75368ceecda14d6e597a0549a31a230a07c9dad31311cb3e3d3`.
 - Both production runs used `gpt-5.6-sol`, `xhigh`, and returned final
   `correct`, zero critical errors, and zero gaps.
+
+## Chapters 69 and 72 — four-punctured smooth-cross obstruction
+
+- Status: **VERIFIED FROZEN PACKET / INTEGRATED AS A NARROW OBSTRUCTION**
+  (25 August 2026).
+- Book location: `prop:verified-four-punctured-cross-obstruction`, with its
+  precise residual scope recorded under `prob:frontier-cross-fan-upstairs`.
+- Exact answer: on
+  `(P1_K \ {a,b,c,d})^an`, for punctures with pairwise distinct reductions,
+  the natural full-cross potentials have equal CLD and delta curvatures
+  `4 delta_q`.  A positive closed order-zero CLD current with visible ray
+  weights `(wa,wb,wc,wd)` must nevertheless have all four weights equal:
+  the third-unit refinement gives
+  `(wa-wb,wc-wd,wa-wc)=(0,0,0)`.  The same obstruction applies to a positive
+  closed delta-current whose smooth restriction has those visible weights.
+- Scope firewall: the result excludes only this concrete four-punctured
+  smooth-curve construction.  It neither classifies currents on arbitrary
+  connected analytic curves nor decides the higher-dimensional or non-PL
+  cases.  `P21.3` remains open and no inventory count changes.
+- Exact frozen statement SHA-256:
+  `ea6194f07e869610c427c326311d7a0bea38ca15e8c0050e396d3c9b5b92a596`.
+- Exact frozen source-aware proof SHA-256:
+  `2426acd5e1662ed5aad826597b389884ef925c42258538c86184ab7dd7817a11`.
+- Guarded production run: `20260825T034743Z_ea6194f07e86`; proof item
+  `pi_19c9aad210847a2875a0fe4a`; model `gpt-5.6-sol`, scrutiny `xhigh`, final
+  verdict `correct`, zero critical errors, and zero gaps.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260825/p21_upstairs_cross_curve_obstruction_production_receipt_20260825.md`.
+- Live-integration receipt:
+  `editorial/rethlas_receipts_20260825/p21_upstairs_cross_curve_obstruction_live_integration_receipt_20260825.md`.
+- Provenance: dated book-level consequence of the CLD and delta-form
+  calculi; no novelty or priority claim is made.
+
+## Chapters 66 and 72 — normalized hybrid endpoint counterexample
+
+- Status: **EXACT LIVE THEOREM AND PROOF VERIFIED** (25 August 2026).
+- Book location: `thm:hybrid-endpoint-continuity-counterexample`, with the
+  source questions retained only as resolved history in Chapter 72.
+- Exact answer: even on the smooth trivial polarized
+  `P1_C x D*` family, a smooth semipositive metric can extend as an
+  everywhere-finite psh model metric, have the continuous product
+  Fubini--Study non-Archimedean endpoint, and have zero relative supremum on
+  every complex fibre and on the non-Archimedean fibre, while its canonical
+  hybrid psh extension is discontinuous.
+- Exact live statement SHA-256:
+  `d77f7f93aeb01c9b29d0ffa170ea5301811f685e2b95f6d54b4151a9a0aad6ff`.
+- Exact live theorem-and-proof SHA-256:
+  `992a686618355605e4f889564c402f5b2c6ff18db70762daed2dbcf4d09fdbad`.
+- Production run: `20260825T043840Z_d77f7f93aeb0`; proof item
+  `pi_b7f015a6ad5570f431769a71`; model `gpt-5.6-sol`, scrutiny `xhigh`,
+  final verdict `correct`, zero critical errors and zero gaps.
+- The earlier normalized frozen mathematical packet remains preserved under
+  run `20260825T035945Z_070e264c3ef1`; the later run is the exact-current
+  byte-identity gate.
+- Scope firewall: this closes the Favre--Pille-Schneider endpoint question
+  and its zero-supremum strengthening, but not Pille-Schneider Question 4.9
+  over general integral Banach rings.  No novelty or priority claim is made.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260825/p18_favre_hybrid_extension_normalized_counterexample_live_integration_receipt_20260825.md`.
 
 ## Chapter 69 — complete-intersection slice of positive PL currents
 

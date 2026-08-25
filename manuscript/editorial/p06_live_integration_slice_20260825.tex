@@ -1,0 +1,95 @@
+\documentclass[envcountsect]{style/svmono}
+
+\usepackage{type1cm}
+\usepackage{makeidx}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[bottom]{footmisc}
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage[final]{microtype}
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{dsfont}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{tikz-cd}
+\usetikzlibrary{decorations.pathreplacing,arrows.meta,calc,patterns}
+\usepackage[unicode]{hyperref}
+\usepackage[nameinlink,capitalize,noabbrev]{cleveref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!45!black,
+  citecolor=green!35!black,
+  urlcolor=blue!55!black,
+  linktoc=all,
+  pdfauthor={},
+  pdftitle={Non-Archimedean Pluripotential Theory},
+  pdfkeywords={non-Archimedean geometry, pluripotential theory, Berkovich spaces, Monge-Ampere equations, tropical geometry, K-stability}
+}
+
+\crefname{appendix}{Appendix}{Appendices}
+\Crefname{appendix}{Appendix}{Appendices}
+\crefname{subappendix}{section}{sections}
+\Crefname{subappendix}{Section}{Sections}
+\crefname{part}{Part}{Parts}
+\Crefname{part}{Part}{Parts}
+\crefname{problem}{problem}{problems}
+\Crefname{problem}{Problem}{Problems}
+% Enumerated items already carry their parenthesized number through enumitem.
+% Keep \cref compact so prose such as ``Item \cref{...}'' does not repeat
+% the word ``item''; this replaces the former raw-\ref item helper.
+\crefformat{enumi}{#2#1#3}
+\crefformat{enumii}{#2#1#3}
+\crefformat{enumiii}{#2#1#3}
+\crefformat{enumiv}{#2#1#3}
+\makeatletter
+\renewcommand*{\theHtheorem}{\theHsection.\arabic{theorem}}
+% The table of contents now reaches four-digit page numbers.  The standard
+% svmono width is sized for three digits and produces an overfull box in
+% every affected entry.
+\renewcommand*{\@pnumwidth}{2.4em}
+\renewcommand*{\@tocrmarg}{3.2em}
+\makeatother
+
+\makeindex
+\graphicspath{{figures/}}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+\setlist[enumerate,1]{label=\textup{(\arabic*)},ref=\textup{(\arabic*)}}
+
+\input{style/notations}
+
+% During drafting this command permits a clean build before every planned
+% chapter exists.  The final release gate requires the missing-file report to
+% be empty.
+\newcommand{\draftinclude}[1]{%
+  \IfFileExists{#1.tex}{\include{#1}}{%
+    \typeout{NA-BOOK-MISSING: #1.tex}%
+  }%
+}
+
+\hyphenation{
+  plu-ri-sub-har-mon-ic plu-ri-po-ten-tial non-Arch-i-me-de-an
+  Arch-i-me-de-an ana-lyt-i-fi-ca-tion equi-sin-gu-lar
+  trop-i-cal-i-za-tion Ber-ko-vich Cham-bert--Loir Du-cros
+  Bouck-som Fa-vre Jon-sson Mes-qui-ta-Pic-ci-o-ne
+  Mon-ge--Am-pe-re O-koun-kov Käh-ler
+}
+
+\begin{document}
+\mainmatter
+\input{parts/part2/ch18_delta_forms}
+\input{parts/part2/ch19_cld_examples}
+\input{parts/part6/ch72_major_open_problems}
+\appendix
+\input{appendices/appL_provenance}
+\bibliographystyle{style/sgptalpha}
+\bibliography{bibliography/ComplexGeometry,bibliography/NonArchimedean}
+\end{document}

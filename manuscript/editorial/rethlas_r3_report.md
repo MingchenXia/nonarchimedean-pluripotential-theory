@@ -15,6 +15,36 @@ independent proof, an adversarial audit, boundary tests, and a source/novelty
 separation all appear below.  `CONDITIONAL`, `DISPROVED`, and `OPEN` have the
 meanings fixed in the verification protocol.
 
+**25 August 2026 P11 controlling addendum.**  This historical R3 report did
+not solve Boucksom--Jonsson Question~11.16 globally.  The later verified
+moving-centre construction does: on \(\mathbf P^n\), every \(n\ge2\), point-
+blowup valuations along one linear line converge weakly to its line-centred
+valuation, all exhaustion values equal one, and the strong distance remains
+at least one.  The generalized packet passed guarded production run
+`20260825T044839Z_326e2035bbb9`, item
+`pi_9e222887262acc5d9fbc740a`, with final `correct`, zero critical errors and
+zero gaps.  The adapted exact-live bytes separately passed run
+`20260825T051642Z_049da6197deb`, item
+`pi_062d99c623958fae25885125`, with the same verdict.  This addendum
+supersedes later phrases such as “does not solve
+globally” and “global P0” only as present status; it does not rewrite what R3
+knew at its dated snapshot.  The positive fixed-dual-complex theorem remains
+valid.
+
+**25 August 2026 P06 controlling addendum.**  Later exact-live verification
+settles two portions of the historical R3-05/R3-23 boundary.  The real-PL
+zero-current implication passed run `20260825T061351Z_655e7f503e5d`, item
+`pi_eea98ea0a54108cae4e076be`, and the smooth-curve counterexample to
+ordinary CLD-smooth harmonic approximation passed run
+`20260825T055907Z_b5c8f0719b60`, item
+`pi_d80993bb01a748f0422ae6a5`; both verdicts are `final/correct`, with zero
+critical errors and zero gaps.  Thus later phrases saying that unrestricted
+CLD-smooth regularization remains open refer only to ordinary CLD-smooth
+**psh** approximation.  The arbitrary continuous higher-dimensional
+zero-current problem and the classical/GJR pluriharmonic comparison outside
+the verified real-PL scope remain open.  This addendum updates present status
+without rewriting the dated R3 snapshot.
+
 **Superseded 24 August 2026 source-status addendum.**  Xia's Conjecture 8.8 remains
 open for this release.  The July 2026 document *Mixed Volumes of Okounkov
 Bodies* is an unpublished work in progress whose headline claims have not
@@ -465,12 +495,15 @@ The curve case splits according to the regularization language.
   curves with nonsmooth harmonic functions.  A net is not silently replaced
   by a sequence.
 * **Boundary/counterexample search.**  Wanner Remark 5.5 supplies curves for
-  which harmonic functions need not be CLD-smooth; full CLD-smooth
-  regularization remains unknown there.
+  which harmonic functions need not be CLD-smooth.  The later exact-live
+  counterexample cited in the controlling addendum disproves ordinary
+  CLD-smooth harmonic approximation; ordinary CLD-smooth psh regularization
+  remains unknown there.
 * **Source/novelty separation.**  Published results and a published open
   boundary.
-* **Final verdict.**  **VERIFIED** for the split statement; the unrestricted
-  CLD-smooth regularization claim is **OPEN**.
+* **Final verdict.**  **VERIFIED** for the split statement.  In present
+  status, ordinary CLD-smooth harmonic approximation is **DISPROVED**, while
+  unrestricted ordinary CLD-smooth psh regularization is **OPEN**.
 
 ### R3-06
 

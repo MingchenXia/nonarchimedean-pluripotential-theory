@@ -111,3 +111,14 @@ with the Pille-Schneider formulation.
    guards.  Any byte change creates a new proof object and requires a new
    receipt.
 
+## Later controlling addendum
+
+The status and scope firewalls above record the state when this original
+base-scalar receipt was issued.  The result was subsequently integrated and
+passed an exact-current gate.  A stronger fibre-dependent construction then
+disproved the zero-supremum normalized variant as well; its controlling
+production run is `20260825T035945Z_070e264c3ef1`, item
+`pi_db89dd432acabcf33a3f2272`, final `correct`, with zero critical errors and
+zero gaps.  The normalized theorem is now the live Chapter 66 formulation,
+and Chapter 72 no longer contains a P18 problem environment.  The present
+receipt is preserved unchanged above as the historical scalar-stage record.

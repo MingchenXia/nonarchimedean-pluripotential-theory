@@ -1,0 +1,13 @@
+started_at_utc: 2026-08-25T05:59:21.528198+00:00
+model: gpt-5.6-sol
+reasoning_effort: xhigh
+item_id: pi_9699db6066f137872b49e98d
+proof_digest: 204bf121f2b6535a12e898908667f9268eae3b8500721c55282b57e5f9a57142
+context_digest: b0ba66b187b13cfd2ddcd102ec3dc4f8bc7261dae3801c7a620603865e025837
+adaptive_round: 0
+expanded_proof_ids: []
+elapsed_seconds: 689.785
+tokens_used: 195
+codex_returncode: 0
+codex_status: completed
+output_status: validated

@@ -1,5 +1,34 @@
 # Part VI post-expansion audit (2026-08-24)
 
+## 25 Aug 2026 controlling addendum
+
+The current literal frontier consists of 17 problem environments in Chapter
+72 and one in Chapter 71, for 18 book-wide and 59 active atoms.  The latest
+decrement comes from the verified global Radon--Riesz counterexample on
+\(\mathbf P^n\), \(n\ge2\): moving point-blowup valuations along a linear
+line converge weakly to its line-centred valuation with exhaustion identically
+one, while their strong distance stays at least one.  The generalized packet
+passed guarded production run `20260825T044839Z_326e2035bbb9`, item
+`pi_9e222887262acc5d9fbc740a`, final `correct`, zero critical errors, and zero
+gaps.  The adapted exact-live theorem and proof passed run
+`20260825T051642Z_049da6197deb`, item
+`pi_062d99c623958fae25885125`, with the same verdict.  This disproves the
+global implication while preserving the fixed-SNC-
+complex positive theorem.
+
+The preceding decrement came from the stronger fibre-dependent counterexample in
+`thm:hybrid-endpoint-continuity-counterexample`: it has zero supremum
+relative to the product Fubini--Study model metric on every complex fibre and
+on the non-Archimedean fibre, yet its canonical hybrid psh extension is
+discontinuous.  The exact normalized packet passed production run
+`20260825T035945Z_070e264c3ef1`, item
+`pi_db89dd432acabcf33a3f2272`, with final verdict `correct`, zero critical
+errors, and zero gaps.  The adapted live theorem-and-proof bytes then passed
+the independent post-integration run `20260825T043840Z_d77f7f93aeb0`, item
+`pi_b7f015a6ad5570f431769a71`, with the same clean verdict.  Both the literal Favre--Pille-Schneider question and
+the former normalized residual are retired.  All earlier counts below are
+dated audit snapshots and are superseded where they purport to be current.
+
 ## Later 24 Aug 2026 controlling addendum
 
 Chapter 70 now contains the smooth-germ generalized-Lelong separation
@@ -15,7 +44,7 @@ dated book-level derivation without novelty or priority claim.  Its scope is
 arbitrary psh germs at a smooth complex point; singular and nonnormal germs
 remain outside it.
 
-The current literal frontier therefore consists of 20 problem environments
+At that audit stage the literal frontier consisted of 20 problem environments
 in Chapter 72 and one in Chapter 71, for 21 book-wide and 63 active atoms.
 The earlier 22-environment counts below describe the pre-integration audit
 snapshot and are superseded wherever they purport to describe the current
@@ -179,7 +208,7 @@ No change was required in Chapters 63, 68, 69, or 70.
 | MP--DXZ | The factor-two conversion is retained.  The sourced Kähler finite-energy bijection is separated from the still-open full projective pseudo-effective comparison. |
 | Local valuative psh | The exact PL/Gauss-shell receipt is separated from classical, nonalgebraizable, unbounded, and singular analytic extensions. |
 | Trace/restriction | Domain: generic Lelong number zero.  Input quotient: \(\mathcal I\).  Output quotient: \(P\), represented by \(\mathcal I\)-good potentials.  Restricted ideals are image ideals and only one-sided inclusion is used. |
-| Hybrid bridge | Projective hybrid Monge--Ampère continuity, canonical psh extension, and canonically polarized continuity are sourced at their precise theorem numbers.  The literal Favre--Pille-Schneider endpoint-continuity question is now disproved by the verified smooth product counterexample; only the explicitly normalized residual and the Banach-family question remain open. |
+| Hybrid bridge | Projective hybrid Monge--Ampère continuity, canonical psh extension, and canonically polarized continuity are sourced at their precise theorem numbers.  The verified smooth product counterexample disproves both the literal Favre--Pille-Schneider endpoint-continuity question and its zero-supremum normalized strengthening; only the separate Banach-family question remains open in this pair. |
 | YTD bridge | Algebraic, smooth-ray, coercivity, and hybrid assertions retain their separate hypotheses; no blanket equivalence is asserted. |
 
 Sign and mass spot checks were repeated for model Monge--Ampère masses,
@@ -227,9 +256,9 @@ through an identifiable intermediate dependency on it.
   proof, and problem environments in the range have balanced begin/end
   delimiters.
 - At the time of the original audit there were 22 literal `problem`
-  environments.  After retirement of the generalized-Lelong item, the
-  current source has 21: one in the pseudo-effective chapter and 20 in the
-  major-open-problems chapter, split into 63 active atoms.
+  environments.  The current source has 18: one in the pseudo-effective
+  chapter and 17 in the major-open-problems chapter, split into 59 active
+  atoms.
 - There are no exercise environments.
 - Label-bearing statements were preserved; the repair in Chapter 67 removed
   only one enumerated assertion and its proof paragraph, not a label.
@@ -266,9 +295,12 @@ through an identifiable intermediate dependency on it.
    the item as a July 2026 work in progress whose claims await independent
    exact-current verification; that metadata does not itself verify the
    announced results.
-7. Recent hybrid/YTD and Radon--Riesz status statements remain deliberately
-   date-scoped.  They should be rechecked against primary literature in any
-   later edition rather than silently upgraded.
+7. Recent hybrid/YTD and Radon--Riesz literature statements remain
+   deliberately date-scoped.  The literature search should be refreshed in
+   any later edition, but present book status is already negative for the
+   global Radon--Riesz implication by the verified moving-centre construction;
+   only the fixed-complex arbitrary-characteristic compactness variant remains
+   a separate restricted question.
 
 These boundaries are intentionally visible in the manuscript as theorem,
 conditional theorem, obstruction, source-status notice, or open problem,

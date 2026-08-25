@@ -6,13 +6,15 @@ left blank in this release.
 
 The last clean 24 August 2026 release snapshot passed the final structural
 audit and produced a 3,081-page PDF from its exact 101-file production-source
-closure.  The current source records nine mathematical production Rethlas
+closure.  That snapshot records nine mathematical production Rethlas
 gates: eight exact-current integrations in Chapters 18, 23, 49, 55, and 69,
 and one exact frozen statement/proof gate for the Chapter 70 generalized-
 Lelong separation theorem, followed by an independent hostile audit.  The
-latter is not represented as a post-integration byte-identity gate.  A fresh
-current-source whole-book rebuild after these integrations passed and produced
-a 3,087-page PDF; the dated release artifacts below remain the earlier
+latter is not represented as a post-integration byte-identity gate.  The
+additional 25 August gates and exact-current integrations are recorded
+individually in the editorial receipts and provenance ledgers.  A fresh
+current-source whole-book rebuild through 25 August passed and produced a
+3,123-page PDF; the dated release artifacts below remain the earlier
 3,081-page source freeze until the next release cut.  These checks do not turn
 source imports or book-level derivations into novelty or priority claims, or
 close residual questions outside the displayed theorem scopes.
@@ -62,8 +64,8 @@ intentionally excluded from version control.  Results proved only in the
 supplied envelope manuscript are identified as such and are not
 misrepresented as previously published theorems.
 
-The editorial records also keep the literal research-frontier inventory at 20
-open problems (one in Chapter 71 and 19 in Chapter 72), split into 61 active
+The editorial records also keep the literal research-frontier inventory at 18
+open problems (one in Chapter 71 and 17 in Chapter 72), split into 59 active
 atoms, together with the source-cutoff
 dates, and every remaining mathematical boundary visible.  The clean-build
 and exact-current Rethlas gates that have passed are recorded separately from
