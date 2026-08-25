@@ -92,7 +92,13 @@ hostile audit preceded integration, but no post-integration byte-identity gate
 is claimed.  Thus the current ledger contains nine mathematical production
 gates, eight exact-current and one exact frozen-packet gate.  Their domains
 remain exactly as recorded in the live text; no publication or priority claim
-follows.  The BJ22 basic-closure integration and the MP reduced entropy-slope
+follows.  A later 25 August P09 supplement settles the arbitrary residual
+dimension integral-decomposition question: signed generation passed run
+`20260825T130036Z_c1607c25ec38`, and the positive-cone counterexample passed
+`20260825T130707Z_4c4a1f2c885f`.  Both used `gpt-5.6-sol` at `xhigh` and
+returned final `correct`, zero critical errors, and zero gaps.  P09.1 is
+retired; only canonical ordinary delta-metricity remains among the GJR
+questions.  The BJ22 basic-closure integration and the MP reduced entropy-slope
 reconstruction remain outside this receipt set.
 
 ## 0. Source-audit addendum of 15 August 2026
@@ -1626,8 +1632,9 @@ addendum explicitly supersedes them.
     integration, the live Chapter 72 has 20 problem environments.  In
     addition to the BMPS, Banach-family, Favre, and
     the then-listed \(P\)-valued trace item (removed on 23 August),
-    it now states CLD early collapse, CLD Remark 17.8.10, and the two residual
-    GJR questions exactly; the unrestricted cohomology question is resolved
+    it now states CLD early collapse, CLD Remark 17.8.10, and the sole
+    remaining GJR canonical-delta-metric question exactly; the unrestricted
+    cohomology and semipositive integral-decomposition questions are resolved
     history.  Its YTD status uses the 22 August 2026 cutoff,
     records Trusiani v2's smooth polarized projective and weighted-relative
     claims as dated preprint claims only, and retains only the exact

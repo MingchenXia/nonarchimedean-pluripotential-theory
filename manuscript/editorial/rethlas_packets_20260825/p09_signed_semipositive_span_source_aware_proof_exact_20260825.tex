@@ -1,0 +1,202 @@
+% Frozen source-aware proof candidate.  Do not insert into the live chapter
+% before production Rethlas verification.  No novelty or priority claim is
+% intended.
+
+\paragraph{Imported inputs.}
+The following primary-source statements are used with their stated
+hypotheses.
+\begin{enumerate}
+\item Gubler--Jell--Rabinoff, Proposition~5.8: if
+\(\Lambda=\mathbf Z\), or if \(\Lambda\subset\mathbf R\) is divisible,
+then every \(\Lambda\)-PL function is analytically locally a finite
+\(\Lambda\)-linear combination of integral PL functions; the converse
+holds as well.
+\item Gubler--Jell--Rabinoff, \S6.6 and Lemma~6.5: invertible sheaves on
+the reduction of a good strict germ are represented on algebraic models,
+the models form a filtered system under proper domination, and a finite
+family of residue bundles can be represented on one common model.
+Proper domination preserves the associated open subset of the
+Riemann--Zariski space by the model formalism in their \S6.2.
+\item Gubler--Jell--Rabinoff, Lemma~6.18: the residue map on PL germs is
+linear.  Their Proposition~7.1 identifies semipositivity of a PL germ at
+\(x\) with nefness of its residue class, and their Remark~7.3(4) says that
+the semipositivity locus is open.
+\item Chambert--Loir--Ducros, Theorem~17.5.7(b), in the version of
+25~July~2025: on an almost-good strict germ the strict integral residual
+functor is essentially surjective already for analytically trivial
+underlying bundles.  In rank one, a residual line bundle is therefore the
+residue of an integral PL metric on a locally trivial analytic line bundle.
+A good strict germ satisfies the required almost-good hypothesis.  This is
+the lifting input used in the proof of Gubler--Jell--Rabinoff,
+Proposition~7.10.
+\item Chow's lemma, in the form of Stacks Project, Tag~02O2, gives a
+proper birational quasi-projective model dominating an integral separated
+finite-type model over the residue field.  The ample-twist criterion of
+Stacks Project, Tag~0892, says that if \(A\) is ample and \(M\) is an
+invertible sheaf on such a model, then \(A^{\otimes N}\otimes M\) is ample
+for all sufficiently large \(N\).
+\end{enumerate}
+
+\begin{proof}
+All assertions are local at \(x\).  Since \(X\) is good and strict, we
+may first replace it by a strictly affinoid neighbourhood of \(x\).
+This neighbourhood is separated, and its germ at \(x\) is good, hence
+almost good in the sense required by
+\cite[Theorem~17.5.7(b)]{CLD25}.
+
+Put
+\[
+                         \mathscr R=\operatorname{red}(X,x).
+\]
+For each \(i\), the residue
+\[
+                         L_{h_i}(x)\in\operatorname{Pic}(\mathscr R)
+\]
+is represented by a line bundle on a model of \(\mathscr R\).  The
+description of invertible sheaves in \cite[\S6.6]{GJR26}, together with
+the filteredness statement \cite[Lemma~6.5]{GJR26}, therefore gives one
+model \(V_0\) of \(\mathscr R\) and line bundles \(M_{i,0}\) on \(V_0\)
+representing all the \(L_{h_i}(x)\).
+
+Apply Chow's lemma \cite[Tag~02O2]{stacks-project} to \(V_0\) over
+\(\widetilde K\).  It gives a proper surjective morphism
+\(Z\to V_0\), with \(Z\) quasi-projective, which is an isomorphism over
+a dense open subset of \(V_0\).  Replacing \(Z\) by the reduced closure
+of the inverse image of that dense open subset, we obtain an integral
+quasi-projective variety \(V\) and a proper birational morphism
+\[
+                             \pi:V\longrightarrow V_0.
+\]
+By \cite[\S6.2]{GJR26}, proper domination does not change the associated
+open subset of the Riemann--Zariski space.  Hence \(V\) is again a model
+of \(\mathscr R\).  Put
+\[
+                             M_i=\pi^*M_{i,0}.
+\]
+
+Choose an ample line bundle \(A\) on \(V\).  Apply the ample-twist criterion
+\cite[Tag~0892]{stacks-project} with \(f=\operatorname{id}_V\), with
+\(\mathcal M=A\), and successively with
+\(\mathcal L=M_i,M_i^{-1}\).  Every invertible sheaf is
+\(\operatorname{id}_V\)-ample, since its restriction to an affine open is
+ample.  Hence, after taking the maximum of finitely many thresholds, there
+is one integer \(N\geq1\) such that
+\begin{equation}
+\label{eq:p09-ample-order-interval}
+                A^{\otimes N}\otimes M_i,
+                \qquad
+                A^{\otimes N}\otimes M_i^{-1}
+\end{equation}
+are ample for every \(i\).  In particular, \(A\) and all the line
+bundles in \eqref{eq:p09-ample-order-interval} are nef: their restrictions
+to every proper integral curve have nonnegative degree.
+
+The line bundle \(A\) determines an invertible sheaf on
+\(\mathscr R\).  The strict lifting theorem
+\cite[Theorem~17.5.7(b)]{CLD25}, used for line bundles in precisely this
+way in the proof of \cite[Proposition~7.10]{GJR26}, gives a strictly
+integral PL metric on an analytically trivial line bundle over the germ
+\((X,x)\) whose residual line bundle is represented by \((V,A)\).
+Choosing a trivializing frame and taking the negative logarithm of its
+norm gives an integral PL germ \(a\) satisfying
+\[
+                             L_a(x)\simeq[A].
+\]
+After shrinking, regard \(a,h_1,\ldots,h_m\) as actual functions on one
+common neighbourhood of \(x\).
+
+Residue linearity \cite[Lemma~6.18]{GJR26} now gives
+\[
+ \begin{aligned}
+ L_{Na+h_i}(x)
+   &\simeq [A^{\otimes N}\otimes M_i],\\
+ L_{Na-h_i}(x)
+   &\simeq [A^{\otimes N}\otimes M_i^{-1}].
+ \end{aligned}
+\]
+These residue classes, as well as \(L_a(x)\), are nef.  The residue
+criterion \cite[Proposition~7.1]{GJR26} shows that \(a\) and all
+\(Na\pm h_i\) are semipositive at \(x\).  Their semipositivity loci are
+open by \cite[Remark~7.3(4)]{GJR26}.  Intersecting these finitely many
+open loci and then choosing a strict analytic neighbourhood \(W\) of
+\(x\) inside the intersection proves the first assertion.
+
+Let now \(h\) be a \(\Lambda\)-PL germ.  By
+\cite[Proposition~5.8]{GJR26}, after shrinking around \(x\), there is an
+identity of actual functions
+\[
+                              h=\sum_{i=1}^{m}\lambda_i h_i,
+ \qquad
+ \lambda_i\in\Lambda,\quad
+ h_i\in\operatorname{PL}_{\mathbf Z}.
+\]
+Apply the first assertion to \(h_1,\ldots,h_m\), and restrict everything
+to the resulting common neighbourhood \(W\).  Omit the indices for
+which \(\lambda_i=0\).  For every remaining index, put
+\[
+ \epsilon_i=
+ \begin{cases}
+  1,&\lambda_i>0,\\
+ -1,&\lambda_i<0,
+ \end{cases}
+ \qquad
+ c_i=|\lambda_i|,
+ \qquad
+ g_i=Na+\epsilon_i h_i,
+\]
+and set
+\[
+                              c=N\sum_i|\lambda_i|.
+\]
+Every \(g_i\), as well as \(a\), is an integral PL function semipositive
+on \(W\).  Moreover,
+\[
+ \begin{aligned}
+ \sum_i c_ig_i-ca
+ &=\sum_i|\lambda_i|
+       \bigl(Na+\epsilon_i h_i\bigr)
+       -N\sum_i|\lambda_i|a\\
+ &=\sum_i\lambda_i h_i
+ =h.
+ \end{aligned}
+\]
+Since \(\Lambda\) is an additive subgroup of \(\mathbf R\), one has
+\[
+                 |\lambda_i|\in\Lambda_{\geq0},
+ \qquad
+                 N\sum_i|\lambda_i|\in\Lambda_{\geq0}.
+\]
+Thus \eqref{eq:p09-signed-semipositive-span} has all the asserted
+coefficient properties.  If all \(\lambda_i\) vanish, take the sum to
+be empty and \(c=0\).
+
+Conversely, every finite \(\Lambda\)-linear combination of integral PL
+functions is \(\Lambda\)-PL, by the reverse implication in
+\cite[Proposition~5.8]{GJR26}.  This proves the final assertion.
+\end{proof}
+
+\begin{remark}
+\label{rem:p09-signed-semipositive-span-scope}
+The proof uses the common residual model only to establish nefness of the
+residues of the actual functions \(Na\pm h_i\); it never replaces the
+original \(h_i\) by unrelated lifts.  Thus the displayed identity is an
+identity of functions, not merely of residue classes.  If \(a'\) is another
+integral PL lift of \([A]\), then \(L_{a-a'}(x)=0\) by residue linearity,
+and \cite[Lemma~6.18 and Proposition~7.1]{GJR26} identify \(a-a'\) as a
+harmonic germ.  In any case, replacing \(a\) by \(a'\) in both occurrences
+of \eqref{eq:p09-signed-semipositive-span}, and redefining
+\(g_i'=Na'+\epsilon_i h_i\), produces exact cancellation, so there is no
+hidden kernel correction.
+
+No interior-point assumption is used.  At a boundary point the first
+common residual model need not be proper; Chow's lemma supplies a proper
+dominating quasi-projective model, and quasi-projectivity is sufficient for
+the ample order-unit argument.
+
+Finally, the theorem is not a positive-cone decomposition theorem.  Its
+proof never uses semipositivity of \(h\), and the coefficient \(-c\) in
+\eqref{eq:p09-signed-semipositive-span} is generally negative.  It
+identifies the signed \(\Lambda\)-span of the semipositive integral germs;
+when \(\Lambda=\mathbf Z\), this is their group completion.  It gives no
+positive-coefficient decomposition of a semipositive \(\Lambda\)-PL germ.
+\end{remark}

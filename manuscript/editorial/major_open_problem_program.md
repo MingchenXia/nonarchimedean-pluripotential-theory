@@ -49,7 +49,7 @@ retained only to disclose the superseded intermediate classification.
 
 **Exact active count:** Chapter 72 contains 16 problem environments and
 Chapter 71 contains the separate projective-rational full-cone problem, for
-17 book-wide and 58 independently auditable active atoms. All 17 retain a
+17 book-wide and 57 independently auditable active atoms. All 17 retain a
 genuinely open residual scope. At the
 whole-environment level the cutoff count is: resolved 0, disproved 0,
 conditional 0, genuinely open 17. Resolved, disproved, and conditional
@@ -223,26 +223,27 @@ source questions under one common framework.
 - **Status:** open outside the common semiample/formal/model loci.
 - **Packet:** cld_local_global_psh_metrics.md (prepared, not run).
 
-### OP-09. Two remaining Gubler--Jell--Rabinoff questions
+### OP-09. The remaining Gubler--Jell--Rabinoff question
 
 - **Kind:** primary-source questions.
-- **Questions:** a semipositive analogue of the local integral decomposition
-  before Proposition 7.5, and whether canonical metrics on abelian varieties
-  are ordinary \(\delta\)-metrics.
-- **Status:** both residual questions are open; the nonsmooth mixed-reduction
-  canonical tropicalization is a mandatory boundary test for the second.
-  For the first, the natural positive-cone formulation is verified in
-  residual dimension at most one, including every good strict analytic curve,
-  by exact-current run `20260824T135721Z_81346238f7dd`, final `correct`, zero
-  critical errors, and zero gaps.  Arbitrary residual dimension remains open.
+- **Question:** whether canonical metrics on abelian varieties are ordinary
+  \(\delta\)-metrics.
+- **Status:** open; the nonsmooth mixed-reduction canonical tropicalization is
+  a mandatory boundary test.  The semipositive integral-decomposition atom
+  is retired: the natural positive-cone formulation is verified in residual
+  dimension at most one, signed generation holds in every dimension, and the
+  positive-cone formulation fails in residual dimension two.  The two
+  controlling production runs are `20260825T130036Z_c1607c25ec38` and
+  `20260825T130707Z_4c4a1f2c885f`, both final `correct`, zero critical
+  errors, and zero gaps.
   The unrestricted Section 1.15 cohomology-isomorphism question is closed
   negatively by the good-reduction elliptic curve in
   `prop:ch18-gjr-cohomology-counterexample`.  Exact-current production run
   `20260824T123617Z_fcddc3abc33d` returned final `correct`, zero critical
   errors, and zero gaps.  The totally degenerate refinement remains outside
   that counterexample.
-- **Packet:** gjr_three_questions.md (legacy filename; updated to the two
-  remaining questions and the closed historical item).
+- **Packet:** gjr_three_questions.md (legacy filename; updated to the one
+  remaining question and the two closed historical items).
 
 ## B. Valuative singularities and the trivially valued frontier
 

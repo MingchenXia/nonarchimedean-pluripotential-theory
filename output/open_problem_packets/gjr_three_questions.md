@@ -1,4 +1,4 @@
-# Remaining source questions from Gubler--Jell--Rabinoff
+# The remaining source question from Gubler--Jell--Rabinoff
 
 The unrestricted cohomological item formerly numbered 2 is **closed
 negatively**.  A Rethlas generation run using `gpt-5.6-sol` at `xhigh`
@@ -9,36 +9,25 @@ digest is
 `99d7583f90ebf7dcb56a40dcc04463ffcb0c04ee4c1c711e0acafacdc85dbe2c`,
 and its receipt is
 `manuscript/editorial/rethlas_receipts_20260824/ch18_gjr_cohomology_counterexample_exact_current_receipt.md`.
-The two unrestricted questions below are stated in Gubler--Jell--Rabinoff,
-arXiv:2111.05741v3.  The first now has the complete positive-cone solution in
-residual dimension at most one; its higher-dimensional remainder stays open.
+The one unrestricted question below is stated in Gubler--Jell--Rabinoff,
+arXiv:2111.05741v3.  Remark 16.4 retracts an argument in earlier work that
+assumed the canonical tropicalization of every abelian variety is smooth.
+Is a canonical metric on a line bundle on an abelian variety nevertheless an
+ordinary \(\delta\)-metric, rather than only an object in the enlarged
+weakly smooth formalism?  Any answer must account for the mixed-reduction
+abelian threefold in Section 17 whose canonical tropicalization is not
+smooth.
 
-Treat the following independently.
+The semipositive integral-decomposition question immediately before
+Proposition 7.5 is closed.  Chapter 18 proves the positive-cone statement in
+residual dimension at most one, proves signed generation in every residual
+dimension, and gives a good-reduction residual-dimension-two counterexample
+to nonnegative-cone generation.  Production runs
+`20260825T130036Z_c1607c25ec38` and
+`20260825T130707Z_4c4a1f2c885f` returned `final/correct`, zero critical
+errors, and zero gaps.  Thus arbitrary signed linear decomposition must not
+be confused with a positive-cone decomposition.
 
-1. Immediately before Proposition 7.5 the authors ask whether its local
-   finite integral-decomposition characterization of harmonic
-   \(\Lambda\)-PL functions has a semipositive analogue.  Formulate the exact
-   analogue for \(\Lambda=\mathbf Z\) or a divisible subgroup containing
-   \(1\), and determine whether a semipositive \(\Lambda\)-PL function is
-   locally a finite \(\Lambda\)-linear combination of integral semipositive PL
-   functions with the coefficient/sign conditions actually needed for
-   semipositivity.  Chapter 18 proves that the answer is affirmative when
-   \(\operatorname{trdeg}_{\widetilde K}
-   \widetilde{\mathscr H(x)}\leq1\): the coefficients can be taken in
-   \(\Lambda_{\geq0}\), and all but at most
-   one integral summand are harmonic.  Exact-current Rethlas run
-   `20260824T135721Z_81346238f7dd` returned `final/correct`, zero critical
-   errors, and zero gaps.  Do not extrapolate this one-degree argument to a
-   higher-dimensional, possibly nonpolyhedral nef cone.
-2. Remark 16.4 retracts an argument in earlier work that assumed the canonical
-   tropicalization of every abelian variety is smooth.  Is a canonical metric
-   on a line bundle on an abelian variety nevertheless an ordinary
-   \(\delta\)-metric, rather than only an object in the enlarged weakly smooth
-   formalism?
-
-For item 1, do not confuse an arbitrary real linear decomposition with a
-positive-cone decomposition.  For item 2, account for the mixed-reduction
-abelian threefold in Section 17 whose canonical tropicalization is not smooth.
 Weak smoothness is not ordinary CLD smoothness.  Return known special cases,
 conditional reductions, counterexamples, and open remainders separately.
 

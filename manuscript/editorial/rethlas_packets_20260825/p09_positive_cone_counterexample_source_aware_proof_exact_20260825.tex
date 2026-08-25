@@ -1,0 +1,309 @@
+% Frozen source-aware proof candidate.  Do not insert into the live chapter
+% before production Rethlas verification.  No novelty or priority claim is
+% intended.
+
+\paragraph{Imported inputs.}
+The proof uses the following primary-source statements with their stated
+hypotheses.
+\begin{enumerate}
+\item Chambert--Loir--Ducros, Theorem~17.5.7(b), in the version of
+25~July~2025, says that the strict integral residual functor on an
+almost-good strict germ is essentially surjective already in the subcategory
+whose underlying analytic bundle is trivial.  In rank one, every line bundle
+on a model of the reduction of a good strict germ is therefore represented
+by the residue of an integral PL germ.
+\item Gubler--Jell--Rabinoff, \S\S6.2 and~6.6 and Lemma~6.5, identify the
+Picard group of the reduction of a germ with the filtered colimit over its
+models and provide common dominating models for finite collections of
+residual line bundles.  Lemma~6.11 says that every model representing a nef
+residual class is nef.  Lemma~6.18 gives linearity of residues, and
+Proposition~7.1 identifies semipositivity at a point with nefness of the
+residual class.  Remark~7.3(4) says that the semipositivity locus is open.
+\item For a product principally polarized abelian variety, the Rosati map
+identifies its real N\'eron--Severi space with the symmetric subspace of its
+real endomorphism algebra and identifies the ample cone with the cone of
+positive-definite matrices.  This is Prendergast-Smith, Theorem~4.3.  The
+nef cone is its closure, the cone of positive-semidefinite matrices.
+For \(S=E\times E\) with \(\operatorname{End}(E)=\mathbf Z\), the three
+fibre and diagonal classes used below form an integral basis of
+\(\operatorname{NS}(S)\); compare Bauer--Borntr\"ager, Lemma~3.1 and
+Remark~3.4.
+\item Chow's lemma \cite[Tag~02O2]{stacks-project} and resolution of
+surface singularities \cite[Tag~0BGP]{stacks-project} give a smooth
+projective surface dominating any proper surface model of the same function
+field.  A proper birational morphism between smooth surfaces factors into
+blowups in closed points \cite[Tag~0C5Q]{stacks-project}.  For such a
+blowup \(b:Y'\to Y\), with exceptional curve \(E\), the sequence
+\[
+ 0\longrightarrow\operatorname{Pic}(Y)
+  \xrightarrow{b^*}\operatorname{Pic}(Y')
+  \xrightarrow{\deg_E}\mathbf Z\longrightarrow0
+\]
+is exact \cite[Tag~0C5L]{stacks-project}.
+\end{enumerate}
+
+\begin{proof}[Proof of \cref{prop:p09-irrational-nef-ray-obstruction}]
+Suppose, for a contradiction, that
+\eqref{eq:p09-forbidden-positive-decomposition} holds.  Delete every term
+with \(a_j=0\); thus all remaining \(a_j\) are strictly positive.  Taking
+residues gives
+\begin{equation}
+\label{eq:p09-residual-positive-decomposition}
+                 \alpha=\sum_{j=1}^{m}a_jL_{g_j}(x)
+ \quad\text{in}\quad
+ \operatorname{Pic}(P_{k(S)/k})\otimes_{\mathbf Z}\mathbf R.
+\end{equation}
+By the filtered common-model formalism
+\cite[\S\S6.2, 6.6 and Lemma~6.5]{GJR26}, there is one model \(V\) of
+the full Riemann--Zariski space \(P_{k(S)/k}\) dominating \(S\) and all
+models involved in \eqref{eq:p09-residual-positive-decomposition}, far
+enough that the equality itself is represented on \(V\).  Because it is a
+model of the full Riemann--Zariski space, the morphism \(V\to S\) is proper.
+Both models have function field \(k(S)\), so this morphism is birational.
+Moreover, every integral line bundle on \(V\) representing
+\(L_{g_j}(x)\) is nef by \cite[Lemma~6.11]{GJR26}.
+
+Chow's lemma \cite[Tag~02O2]{stacks-project} and surface resolution
+\cite[Tag~0BGP]{stacks-project} give a smooth projective surface \(Y\)
+dominating \(V\).  Denote the composite morphism by
+\[
+                              f:Y\longrightarrow S.
+\]
+Pulling the represented equality to \(Y\), and then passing to numerical
+classes, yields
+\begin{equation}
+\label{eq:p09-upstairs-nef-decomposition}
+                       f^*[\alpha]=\sum_{j=1}^{m}a_j[M_j]
+              \quad\text{in }N^1(Y)_{\mathbf R},
+\end{equation}
+where every \(M_j\) is an integral nef line bundle on \(Y\).
+
+Let \(C\subset Y\) be an irreducible \(f\)-exceptional curve.  The
+projection formula and \eqref{eq:p09-upstairs-nef-decomposition} give
+\[
+ 0=f^*[\alpha]\cdot C
+   =\sum_{j=1}^{m}a_j(M_j\cdot C).
+\]
+Every intersection number on the right is nonnegative, and every \(a_j\)
+is positive.  Hence
+\begin{equation}
+\label{eq:p09-exceptional-orthogonality}
+                              M_j\cdot C=0
+\end{equation}
+for every \(j\) and every \(f\)-exceptional curve \(C\).
+
+By \cite[Tag~0C5Q]{stacks-project}, the morphism \(f\) factors as
+\[
+ Y=Y_r\xrightarrow{b_r}Y_{r-1}\xrightarrow{b_{r-1}}\cdots
+   \xrightarrow{b_1}Y_0=S,
+\]
+where every \(b_\ell\) is the blowup of a closed point.  Fix \(j\), set
+\(M_{j,r}=M_j\), and consider the exceptional curve \(E_r\subset Y_r\)
+of \(b_r\).  It is \(f\)-exceptional, so
+\eqref{eq:p09-exceptional-orthogonality} gives
+\(\deg_{E_r}M_{j,r}=0\).  The exact Picard sequence for a point blowup
+\cite[Tag~0C5L]{stacks-project} therefore supplies a line bundle
+\(M_{j,r-1}\) on \(Y_{r-1}\) such that
+\[
+                              M_{j,r}\simeq b_r^*M_{j,r-1}.
+\]
+The line bundle \(M_{j,r-1}\) is nef: if \(D\subset Y_{r-1}\) is an
+irreducible curve and \(\widetilde D\subset Y_r\) its strict transform,
+then
+\[
+                     M_{j,r-1}\cdot D
+                   = M_{j,r}\cdot\widetilde D\geq0.
+\]
+It also has degree zero on every curve contracted by
+\(Y_{r-1}\to S\), since the strict transform of such a curve is
+\(f\)-exceptional.  Iterating the same argument gives a nef line bundle
+\(B_j=M_{j,0}\) on \(S\) with
+\[
+                         M_j\simeq f^*B_j.
+\]
+Consequently, for the integral nef class
+\(\beta_j=c_1(B_j)\in N^1(S)_{\mathbf Z}\), one has
+\[
+                         [M_j]=f^*\beta_j
+                  \quad\text{in }N^1(Y)_{\mathbf R}.
+\]
+
+Substituting into \eqref{eq:p09-upstairs-nef-decomposition} and using the
+injectivity of \(f^*:N^1(S)_{\mathbf R}\to N^1(Y)_{\mathbf R}\), we obtain
+\begin{equation}
+\label{eq:p09-downstairs-nef-decomposition}
+                              [\alpha]=\sum_{j=1}^{m}a_j\beta_j
+                       \quad\text{in }N^1(S)_{\mathbf R}.
+\end{equation}
+Each summand is nef.  Since \([\alpha]\) spans an extremal nef ray,
+every nonzero \(\beta_j\) belongs to \(\mathbf R_{\geq0}[\alpha]\).  At
+least one \(\beta_j\) is nonzero because \([\alpha]\ne0\).  This contradicts
+\eqref{eq:p09-irrational-extremal-ray}, since
+\(\beta_j\in N^1(S)_{\mathbf Z}\subset N^1(S)_{\mathbf Q}\).
+Therefore the positive decomposition cannot exist.
+
+For the last assertion, write the residual class as a finite sum
+\[
+                         \alpha=\sum_{i=1}^{q}\lambda_i[L_i],
+ \qquad
+             \lambda_i\in\Lambda,\quad L_i\in\operatorname{Pic}(S).
+\]
+Replace \(X\) by a strictly affinoid neighbourhood of \(x\).  It is
+separated, and its good germ at \(x\) is almost good.
+The strict residual lifting theorem
+\cite[Theorem~17.5.7(b)]{CLD25} supplies a strictly integral PL metric on
+an analytically trivial line bundle for each residual bundle \([L_i]\).
+Choose a local trivializing frame and let \(u_i\) be the negative logarithm
+of its norm.  Compatibility of the strict residual functor with the residue
+line-bundle convention, exactly as in the realization step in the proof of
+\cite[Proposition~7.10]{GJR26}, gives
+\[
+                              L_{u_i}(x)=[L_i].
+\]
+After shrinking once so that all these germs are represented by functions,
+put
+\[
+                              h_\alpha=\sum_{i=1}^{q}\lambda_i u_i.
+\]
+This is a \(\Lambda\)-PL germ.  Residue linearity
+\cite[Lemma~6.18]{GJR26} gives \(L_{h_\alpha}(x)=\alpha\), and the nefness
+of \(\alpha\), together with the residue criterion
+\cite[Proposition~7.1]{GJR26}, shows that \(h_\alpha\) is semipositive at
+\(x\).
+\end{proof}
+
+\begin{proof}[Proof of
+\cref{cor:p09-good-reduction-positive-cone-counterexample}]
+Set \(\tau=\pi\mathrm i\).  We first check that \(E\) has no complex
+multiplication.  If multiplication by \(z\in\mathbf C\) preserves
+\(\mathbf Z+\tau\mathbf Z\), then for some integers \(a,b,c,d\) one has
+\[
+                              z=a+b\tau,
+ \qquad
+                              z\tau=c+d\tau.
+\]
+Thus
+\[
+                       b\tau^2+(a-d)\tau-c=0.
+\]
+The number \(\tau\) is transcendental, so \(b=c=0\) and \(a=d\).  Hence
+\(z=a\in\mathbf Z\), proving
+\[
+                              \operatorname{End}(E)=\mathbf Z.
+\]
+
+Let \(p_1,p_2:S\to E\) be the projections, and put
+\[
+ H_1=p_1^*(0)=\{0\}\times E,
+ \qquad
+ H_2=p_2^*(0)=E\times\{0\},
+ \qquad
+ \Delta=(p_1-p_2)^*(0).
+\]
+The classes \(H_1,H_2,\Delta\) form a \(\mathbf Z\)-basis of
+\(\operatorname{NS}(S)\) by
+\cite[Remark~3.4]{BauerBorntraeger18}.  For completeness, the Rosati
+identification is
+\[
+\rho:\operatorname{NS}(S)\simeq
+ \left\{
+   \begin{pmatrix}r&s\\s&u\end{pmatrix}:r,s,u\in\mathbf Z
+ \right\}
+\]
+for the product principal polarization \(\Theta=H_1+H_2\), where
+\(\rho([D])=\phi_\Theta^{-1}\circ\phi_D\).  Under this identification,
+\[
+ H_1\longmapsto
+ \begin{pmatrix}1&0\\0&0\end{pmatrix},
+ \qquad
+ H_2\longmapsto
+ \begin{pmatrix}0&0\\0&1\end{pmatrix},
+ \qquad
+ \Delta\longmapsto
+ \begin{pmatrix}1&-1\\-1&1\end{pmatrix}.
+\]
+Indeed, if \(\Theta_E=(0)\) is the principal polarization on \(E\), the
+functorial formula for the polarization homomorphism of \(q^*\Theta_E\)
+gives the symmetric matrix \(q^{\mathsf T}q\).  Taking
+\(q=p_1,p_2,p_1-p_2\) gives exactly the three displayed matrices and fixes
+the sign of the off-diagonal entries.
+The ample cone corresponds to the positive-definite cone by
+\cite[Theorem~4.3]{PrendergastSmith12}, and therefore the nef cone
+corresponds to the positive-semidefinite cone.
+
+Put \(s=\sqrt2\) and consider the Picard class
+\[
+ \widehat\xi=(2+s)[\mathcal O_S(H_1)]
+        +(1+s)[\mathcal O_S(H_2)]-s[\mathcal O_S(\Delta)]
+        \in\operatorname{Pic}(S)\otimes_{\mathbf Z}\Lambda
+\]
+and its numerical image
+\begin{equation}
+\label{eq:p09-explicit-irrational-nef-class}
+               \xi=(2+s)H_1+(1+s)H_2-s\Delta
+                 \in\operatorname{NS}(S)\otimes_{\mathbf Z}\Lambda.
+\end{equation}
+Its Rosati matrix is
+\begin{equation}
+\label{eq:p09-rank-one-rosati-matrix}
+ Q=
+ \begin{pmatrix}2&s\\s&1\end{pmatrix}
+ =
+ \begin{pmatrix}s\\1\end{pmatrix}
+ \begin{pmatrix}s&1\end{pmatrix}.
+\end{equation}
+Thus \(\xi\) is nonzero and nef.  Its ray is extremal.  Indeed, if
+\(Q=A+B\) with \(A,B\) positive semidefinite and if \(w\in\ker Q\), then
+\[
+                    0=w^{\mathsf T}Aw+w^{\mathsf T}Bw.
+\]
+Both summands are nonnegative, so both vanish.  For a positive-semidefinite
+matrix, \(w^{\mathsf T}Aw=0\) implies \(Aw=0\); hence
+\(\ker Q\subset\ker A\cap\ker B\).  Since \(Q\) has rank one, the images
+of \(A\) and \(B\) lie in the one-dimensional image of \(Q\), and
+\(A,B\) are nonnegative scalar multiples of \(Q\).
+
+The ray is irrational.  If \(r\xi\in N^1(S)_{\mathbf Q}\), the difference
+between its \(H_1\)- and \(H_2\)-coefficients is \(r\), whereas its
+\(\Delta\)-coefficient is \(-r\sqrt2\).  Both are rational only when
+\(r=0\).  Thus
+\[
+                   \mathbf R_{\geq0}\xi\cap N^1(S)_{\mathbf Q}=\{0\}.
+\]
+
+For the divisorial point \(x\) of the constant good-reduction model, the
+residue of its completed residue field is the function field of the closure
+of its reduction, namely
+\[
+ \widetilde{\mathscr H(x)}=\mathbf C(S).
+\]
+The construction in \cite[\S6.13]{GJR26} identifies the reduction of the
+germ with
+\[
+ \operatorname{red}(X,x)=P_{\mathbf C(S)/\mathbf C}\{S\}.
+\]
+Since \(S\) is proper, the valuative criterion gives
+\(P_{\mathbf C(S)/\mathbf C}\{S\}=P_{\mathbf C(S)/\mathbf C}\).
+The last assertion of
+\cref{prop:p09-irrational-nef-ray-obstruction}, applied to
+\(\alpha=\widehat\xi\),
+gives a semipositive \(\Lambda\)-PL germ with residue \(\widehat\xi\); the first
+assertion excludes every nonnegative-real decomposition of this germ into
+semipositive integral PL germs.  By the openness of its
+semipositivity locus \cite[Remark~7.3(4)]{GJR26}, the germ is represented by
+a semipositive function on one strict analytic neighbourhood \(U\) of
+\(x\), as asserted.
+\end{proof}
+
+\begin{remark}
+\label{rem:p09-positive-coefficients-essential}
+The sign restriction in
+\eqref{eq:p09-forbidden-positive-decomposition} is essential.  Each of
+\(H_1,H_2,\Delta\) is nef, so their integral PL lifts may be chosen
+semipositive at \(x\).  Formula
+\eqref{eq:p09-explicit-irrational-nef-class} therefore writes the same
+counterexample as a signed \(\Lambda\)-linear combination of semipositive
+integral PL germs.  With negative coefficients, intersections against
+exceptional curves can cancel and the descent argument above no longer
+applies.
+\end{remark}

@@ -1,5 +1,13 @@
 # GJR semipositive integral decomposition: audited curve case
 
+> **Superseded status (25 August 2026).**  This dossier remains the audit
+> record for the positive curve theorem.  Its statements that P09.1 remains
+> globally open are historical: production runs
+> `20260825T130036Z_c1607c25ec38` and
+> `20260825T130707Z_4c4a1f2c885f` respectively verify signed generation in
+> arbitrary residual dimension and disprove nonnegative-cone generation in
+> residual dimension two.  P09.1 is therefore retired.
+
 ## Purpose and disposition
 
 This note audits the curve argument in
@@ -384,5 +392,6 @@ The resulting nef cone need not be rational polyhedral.  The one-degree
 Bezout argument above therefore stops precisely at dimension one and gives
 no positive integral generation theorem in higher dimension.
 
-**Final inventory status: P09.1 remains `[T2; open]` globally, with its
-curve subcase closed by this packet.**
+**Historical inventory status at the date of this packet:** P09.1 remained
+`[T2; open]` globally, with its curve subcase closed.  The superseding
+25 August record above is controlling.

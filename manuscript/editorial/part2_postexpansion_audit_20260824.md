@@ -253,4 +253,12 @@ run `20260824T135721Z_81346238f7dd` with `gpt-5.6-sol` at `xhigh`, final
 `correct`, zero critical errors, and zero gaps.  Arbitrary residual dimension
 remains open because the nef cone need not be one rational half-space.  This
 is recorded as a dated book-level derivation without a novelty or priority
-claim.
+claim.  This final sentence records the 24 August status and is superseded
+as of 25 August: signed generation by semipositive integral germs holds in
+every residual dimension, while the natural nonnegative-coefficient
+assertion fails in residual dimension two on a constant good-reduction
+abelian surface.  The exact frozen blocks passed production runs
+`20260825T130036Z_c1607c25ec38` and
+`20260825T130707Z_4c4a1f2c885f`, both with `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors, and zero gaps.  P09.1 is retired, and no
+novelty or priority claim is made.

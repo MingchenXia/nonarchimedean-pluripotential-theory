@@ -76,8 +76,8 @@ nine 24 August gates counted in this paragraph.
   value-group compatibility hypothesis is imposed.
 - Residual boundary: this settles the natural positive-cone formulation for
   all good strict analytic curves and, more generally, in residual dimension
-  at most one.  It does not settle arbitrary residual dimension, where the
-  nef cone need not be a single rational half-space.
+  at most one.  The next two verified results settle the arbitrary-dimensional
+  question by separating signed span from positive-cone generation.
 - Live Chapter 18 SHA-256 at submission:
   `b35a05039dc061151b0d940498562220a83d1d61889ed699f0fac7e351b18444`.
 - Exact statement SHA-256:
@@ -92,7 +92,12 @@ nine 24 August gates counted in this paragraph.
 - Provenance: a book-level deduction from the GJR residue criterion,
   common-model formalism, openness statement, and an integral splitting of
   the one-dimensional degree functional.  No novelty or priority claim is
-  made.
+  made.  The arbitrary-dimensional resolution is given by production runs
+  `20260825T130036Z_c1607c25ec38` and
+  `20260825T130707Z_4c4a1f2c885f`, both final `correct` with zero critical
+  errors and zero gaps: signed generation holds in every residual dimension,
+  while positive-cone generation fails in residual dimension two.  Exact
+  hashes and scope firewalls are in the P09 integration receipt.
 
 ## Chapter 18 and Chapter 72 — real-PL zero-current converse
 

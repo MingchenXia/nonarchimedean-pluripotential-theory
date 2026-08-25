@@ -31,11 +31,13 @@ the two original cross-fan realization atoms, and retirement of both the
 literal and zero-supremum normalized Favre endpoint-continuity atoms,
 retirement of the global Boucksom--Jonsson Radon--Riesz atom, and retirement
 of the real-PL current--residue atom after
-`thm:p01-real-pl-positive-current-candidate`,
+`thm:p01-real-pl-positive-current-candidate`, and retirement of the
+semipositive integral-decomposition atom after the verified signed theorem
+and positive-cone counterexample,
 the exact count is
 
 ```text
-17 formal problem environments = 58 active atomic research questions.
+17 formal problem environments = 57 active atomic research questions.
 ```
 
 The identifiers `P00.1` through `P21.3` below are an editorial addressing
@@ -176,22 +178,23 @@ a uniform general bound.
 Agreement is known on the common model loci.  Both unrestricted global
 statements are open.
 
-### `prob:frontier-gjr-remaining` --- 2 atoms
+### `prob:frontier-gjr-remaining` --- 1 atom
 
-- **P09.1** `[T2; open]` Determine whether the local finite integral
-  decomposition of harmonic PL functions has a semipositive analogue in
-  arbitrary residual dimension.  The natural positive-cone formulation is
-  now proved when the residual dimension is at most one, including all good
-  strict analytic curves.
 - **P09.2** `[T3; open]` Determine whether the canonical metric on an
   abelian variety is an ordinary delta-metric rather than merely weakly
   smooth.
 
-Both unrestricted questions are open.  The formerly bundled unrestricted
-cohomological isomorphism question is not active: the book gives a
-good-reduction elliptic-curve counterexample to surjectivity.  This negative
-answer does not settle the separately restricted totally degenerate case,
-which is not a formal problem environment here.
+P09.1 is retired.  Signed generation holds in every residual dimension by
+`thm:p09-signed-semipositive-span`, while
+`cor:p09-good-reduction-positive-cone-counterexample` disproves the natural
+nonnegative-coefficient formulation in residual dimension two.  Production
+runs `20260825T130036Z_c1607c25ec38` and
+`20260825T130707Z_4c4a1f2c885f` returned final `correct`, zero critical
+errors, and zero gaps.  The formerly bundled unrestricted cohomological
+isomorphism question is likewise inactive: the book gives a good-reduction
+elliptic-curve counterexample to surjectivity.  This does not settle the
+separately restricted totally degenerate case, which is not a formal problem
+environment here.
 
 ### Retired P11 history --- 0 active atoms
 
@@ -363,10 +366,10 @@ counterexample retires an atom just as a verified proof does.
 
 No active atom remains in this tier after retirement of `P01.1`.
 
-### T2 --- focused problems with one principal missing bridge (9 atoms)
+### T2 --- focused problems with one principal missing bridge (8 atoms)
 
 `P21.3`, `P07.1`, `P00.1`, `P17.1`, `P06.1`, `P06.2`, `P06.3`,
-`P09.1`, `P03.1`.
+`P03.1`.
 
 ### T3 --- major theorems within mature frameworks (15 atoms)
 

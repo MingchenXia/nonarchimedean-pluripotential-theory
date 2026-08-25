@@ -843,26 +843,16 @@ every parlinear metric should then be globally dpsh. The second is not
 literally the same as the first and must not be replaced by a modern
 Fubini--Study definition without a comparison theorem.
 
-### CLD-10. Two remaining Gubler--Jell--Rabinoff questions
+### CLD-10. The remaining Gubler--Jell--Rabinoff question
 
-**Status:** two primary-source questions remain open; the formerly bundled
-unrestricted cohomology-isomorphism question is disproved by an exact-current
-Rethlas-verified counterexample.
+**Status:** ordinary delta-metricity of canonical metrics remains open.  The
+formerly bundled cohomology-isomorphism and semipositive
+integral-decomposition questions are resolved.
 
-1. Does the local finite integral-decomposition characterization of harmonic
-   PL functions immediately before Proposition 7.5 have a semipositive
-   analogue in arbitrary residual dimension?  The natural positive-cone
-   formulation is proved in
-   `thm:ch18-semipositive-integral-residual-curve` whenever the residual
-   dimension is at most one; the higher-dimensional residue-nef problem
-   remains.
-2. Is a canonical metric on a line bundle on an abelian variety an ordinary
-   \(\delta\)-metric, despite the failure of smoothness of canonical
-   tropicalizations recorded in Remark 16.4 and Section 17?
-
-The mixed-reduction abelian threefold is a boundary case for item 2, and an
-arbitrary real linear decomposition is not a positive-cone decomposition for
-item 1.
+Is a canonical metric on a line bundle on an abelian variety an ordinary
+\(\delta\)-metric, despite the failure of smoothness of canonical
+tropicalizations recorded in Remark 16.4 and Section 17?  The
+mixed-reduction abelian threefold is a mandatory boundary case.
 
 The low-residual-dimension theorem uses a common residue model and an
 integral B\'ezout splitting of its single degree functional.  Source-aware
@@ -870,6 +860,17 @@ exact-current production run `20260824T135721Z_81346238f7dd` returned final `cor
 critical errors, and zero gaps.  It includes all good strict analytic curves,
 allows boundary points, and imposes no relation between the coefficient
 group and the value group.
+
+In arbitrary residual dimension,
+`thm:p09-signed-semipositive-span` proves signed generation by semipositive
+integral germs, while
+`cor:p09-good-reduction-positive-cone-counterexample` disproves the natural
+nonnegative-coefficient version on a good-reduction abelian surface.
+Production runs `20260825T130036Z_c1607c25ec38` and
+`20260825T130707Z_4c4a1f2c885f`, both with `gpt-5.6-sol` at `xhigh`,
+returned final `correct`, zero critical errors, and zero gaps.  Thus the
+integral-decomposition atom is retired; the signed statement is not a
+semipositivity characterization.
 
 For chronology, Section 1.15 also asks whether
 \(\Lambda^{p,q}M_{\mathbf R}\to H^{p,q}(A)\) is always an isomorphism.  The
@@ -1240,7 +1241,7 @@ theory row.
 | P0 | Nontrivially valued MA existence and the arbitrary-field \(\mathcal E^1\) operator; BFJ and Pille--Schneider Remark 4.4 | Separate operator construction from solvability; remove one field/singularity/support hypothesis at a time and reconstruct every variational input | Exact source question and broader book programme are separated in Chapter 72 and this ledger |
 | Resolved history | BJ global Radon--Riesz, BJ Question 11.16 | Moving-centre valuations on \(\mathbf P^n\), \(n\ge2\), give weak convergence and identical exhaustion value one but a uniform strong gap | Disproved by `thm:ch49-global-radon-riesz-counterexample`; the fixed-SNC-complex positive theorem remains valid |
 | P1 | Singular/nonnormal local valuative theory; BFJ08, Bingener 1976, Xia *Stein spaces* (3 July 2026) | Test normalization, conductor, and finite-map descent on nodes, cusps, quotient and inseparable germs | Chapter 72 treats the smooth BFJ endpoint only |
-| P1 | The two remaining GJR questions: positive integral decomposition in arbitrary residual dimension and canonical ordinary \(\delta\)-metrics | Extend the verified residual-dimension-at-most-one positive decomposition beyond a one-functional nef cone; use the mixed-reduction abelian threefold as a boundary test for the metric question | Chapter 72 states the two residuals; the curve/residual-dimension-at-most-one case passed exact-current run `20260824T135721Z_81346238f7dd`, and unrestricted cohomology surjectivity is disproved by `20260824T123617Z_fcddc3abc33d` |
+| P1 | The remaining GJR question: canonical ordinary \(\delta\)-metricity | Use the mixed-reduction abelian threefold as a boundary test and either construct ordinary tropical charts for the canonical metric or isolate an obstruction to ordinary delta-forms | Chapter 72 states the sole residual; P09.1 is retired by signed-generation run `20260825T130036Z_c1607c25ec38` and positive-cone counterexample run `20260825T130707Z_4c4a1f2c885f`, while unrestricted cohomology surjectivity is disproved by `20260824T123617Z_fcddc3abc33d` |
 | P1 | DXZ filtration-test-curve maximality, Xia Conjecture 5.29, and auxiliary-\(\eta\) independence | Start with finitely generated/toric/flag cases; do not recycle the already asserted \(H,\omega\)-independence or the now-proved positive-volume Conjecture 8.8 | The residual source-scoped packets remain open; Conjecture 8.8 is closed in its exact Chapter 55 positive-volume scope by separate exact-current gates |
 | P1 | Banach-family MA continuity; Pille-Schneider, JEP 10 (2023), Question 4.9; the Favre--Pille-Schneider endpoint question is retained only as resolved history | Prove FS specialization or produce a non-hybrid jumping base for Question 4.9 | `thm:hybrid-endpoint-continuity-counterexample` disproves both literal Question 3.18/Favre Question 1 and the zero-supremum normalized strengthening; the stronger packet passed production run `20260825T035945Z_070e264c3ef1`, item `pi_db89dd432acabcf33a3f2272`, and the adapted exact-live bytes passed `20260825T043840Z_d77f7f93aeb0`, item `pi_b7f015a6ad5570f431769a71`, both `final/correct`, while Question 4.9 remains open |
 | P1 | BMPS higher-dimensional smoothness, Calabi--Yau tropicalizations, and Bergman-fan matroid classification | Test intrinsic contact and orthogonality on singular smooth fans; keep the recursive analytic comparison as a stronger book question | Exact source questions and book strengthenings are separated; R3-27 solves only the complete affine case |
@@ -1256,7 +1257,7 @@ research-status records, not exercises.  The earlier trace-refinement row has
 been removed: the complete supplied Darvas--Xia chapter proves the required
 input-\(\mathcal I\)/output-\(P\) factorization, so Chapter 72 now records it as
 resolved source history.  Splitting compound environments into independently
-auditable targets gives 58 active atoms; their exact crosswalk and easy-to-hard
+auditable targets gives 57 active atoms; their exact crosswalk and easy-to-hard
 queue are recorded in
 `manuscript/editorial/open_problem_atomic_inventory_20260824.md`.  The
 production receipts distinguish exact-current gates from frozen
