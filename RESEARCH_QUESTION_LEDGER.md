@@ -733,22 +733,43 @@ every parlinear metric should then be globally dpsh. The second is not
 literally the same as the first and must not be replaced by a modern
 Fubini--Study definition without a comparison theorem.
 
-### CLD-10. Three Gubler--Jell--Rabinoff questions
+### CLD-10. Two remaining Gubler--Jell--Rabinoff questions
 
-**Status:** primary-source questions; open; prepared Rethlas packet not run.
+**Status:** two primary-source questions remain open; the formerly bundled
+unrestricted cohomology-isomorphism question is disproved by an exact-current
+Rethlas-verified counterexample.
 
 1. Does the local finite integral-decomposition characterization of harmonic
    PL functions immediately before Proposition 7.5 have a semipositive
-   analogue?
-2. For an abelian variety \(A\), is the canonical injection
-   \(\Lambda^{p,q}M_{\mathbf R}\to H^{p,q}(A)\) in Section 1.15 surjective?
-3. Is a canonical metric on a line bundle on an abelian variety an ordinary
+   analogue in arbitrary residual dimension?  The natural positive-cone
+   formulation is proved in
+   `thm:ch18-semipositive-integral-residual-curve` whenever the residual
+   dimension is at most one; the higher-dimensional residue-nef problem
+   remains.
+2. Is a canonical metric on a line bundle on an abelian variety an ordinary
    \(\delta\)-metric, despite the failure of smoothness of canonical
    tropicalizations recorded in Remark 16.4 and Section 17?
 
-The mixed-reduction abelian threefold is a boundary case for items 2--3, and
-an arbitrary real linear decomposition is not a positive-cone decomposition
-for item 1.
+The mixed-reduction abelian threefold is a boundary case for item 2, and an
+arbitrary real linear decomposition is not a positive-cone decomposition for
+item 1.
+
+The low-residual-dimension theorem uses a common residue model and an
+integral B\'ezout splitting of its single degree functional.  Source-aware
+exact-current production run `20260824T135721Z_81346238f7dd` returned final `correct`, zero
+critical errors, and zero gaps.  It includes all good strict analytic curves,
+allows boundary points, and imposes no relation between the coefficient
+group and the value group.
+
+For chronology, Section 1.15 also asks whether
+\(\Lambda^{p,q}M_{\mathbf R}\to H^{p,q}(A)\) is always an isomorphism.  The
+literal unrestricted answer is no: a good-reduction elliptic curve has
+\(M_{\mathbf R}=0\), while GJR Theorem 1.14 gives
+\(\dim_{\mathbf R}H^{1,1}(A^{\mathrm{an}})=1\).  The complete proof is
+Proposition `prop:ch18-gjr-cohomology-counterexample` in Chapter 18.  Its exact-current
+production run `20260824T123617Z_fcddc3abc33d` returned final `correct`, zero
+critical errors, and zero gaps.  The counterexample does not decide the
+totally degenerate restriction.
 
 ### CLD-11. Exact balanced-polyhedral questions and book strengthenings
 
@@ -915,6 +936,17 @@ equivalence was found.
     projective stability signatures listed in Trusiani's Corollary B: a
     dated 2026 preprint claim, not a remaining open item.  Direct algebraic,
     transcendental, equivariant, hybrid, and singular extensions remain open.
+13. the unrestricted GJR abelian-cohomology isomorphism question: disproved
+    by the good-reduction elliptic curve in Chapter 18, with exact-current run
+    `20260824T123617Z_fcddc3abc33d`; the totally degenerate refinement remains
+    open;
+14. the BFJ generalized-Lelong converse for psh germs at a smooth complex
+    point: the exact frozen statement and source-aware proof passed
+    `20260824T140127Z_ef8316d19c12`, and an independent hostile audit found no
+    defect before Chapter 70 integration.  Primary-ideal weights already
+    separate pointwise valuative transforms.  This is a dated book-level
+    derivation, not a novelty or priority claim, and the run was not a
+    post-integration byte-identity gate.
 
 ---
 
@@ -1079,6 +1111,13 @@ the compact release-facing index.  `P0` means essential to the unified theory,
 `P1` a major extension with a verified core, and `P2` a sharp secondary
 question.
 
+The former BFJ generalized-Lelong-converse row has been retired from the
+active queue.  In the smooth-germ framework, primary-ideal tests suffice to
+force pointwise equality of valuative transforms; production run
+`20260824T140127Z_ef8316d19c12` and the independent hostile audit are recorded
+above.  Singular and nonnormal germs remain in the separate functorial local-
+theory row.
+
 | Priority | Open target and controlling primary source | Concrete next Rethlas task | Live-book status |
 |---|---|---|---|
 | P0 | Full local CLD/classical/LFS comparison beyond PL; CLD v2 (25 July 2025), GR-PL/GR-C (2025), GJR (2026) | Prove decreasing local-FS regularization or construct a strict higher-dimensional counterexample; audit boundary, scalar extension, and nonmetrizable cases | Chapter 72 proves only the PL core and records the remaining interface |
@@ -1088,9 +1127,8 @@ question.
 | P0 | MP realization of big/pseudoeffective DXZ data; DXZ (CMH 2025), MP (Adv. Math. 2025), Xia operations | Build a relatively big/nef model category with intersections, envelopes, orthogonality, and exact \(\mathcal I\)-comparison | Chapter 72 records the Kähler comparison and no-go boundaries |
 | P0 | Nontrivially valued MA existence and the arbitrary-field \(\mathcal E^1\) operator; BFJ and Pille--Schneider Remark 4.4 | Separate operator construction from solvability; remove one field/singularity/support hypothesis at a time and reconstruct every variational input | Exact source question and broader book programme are separated in Chapter 72 and this ledger |
 | P0 | BJ global Radon--Riesz, BJ Question 11.16 | Prove strong precompactness of \(T\)-sublevels across models or construct strong escape | Chapter 72 proves only the fixed-SNC-complex case in smooth projective characteristic zero |
-| P1 | BFJ generalized-Lelong converse; BFJ08 Theorem A, Bao--Guan--Mi--Yuan (2025) | Prove nondegeneracy first for monomial/surface singularities or find two formal psh functions invisible to all tame weights | Chapter 72 states the exact chain and its open converse |
 | P1 | Singular/nonnormal local valuative theory; BFJ08, Bingener 1976, Xia *Stein spaces* (3 July 2026) | Test normalization, conductor, and finite-map descent on nodes, cusps, quotient and inseparable germs | Chapter 72 treats the smooth BFJ endpoint only |
-| P1 | The three GJR questions: positive integral decomposition, abelian cohomology surjectivity, and canonical ordinary \(\delta\)-metrics | Attack each exact source signature separately, using the mixed-reduction abelian threefold as a boundary test | Chapter 72 states all three; no Rethlas run has been made |
+| P1 | The two remaining GJR questions: positive integral decomposition in arbitrary residual dimension and canonical ordinary \(\delta\)-metrics | Extend the verified residual-dimension-at-most-one positive decomposition beyond a one-functional nef cone; use the mixed-reduction abelian threefold as a boundary test for the metric question | Chapter 72 states the two residuals; the curve/residual-dimension-at-most-one case passed exact-current run `20260824T135721Z_81346238f7dd`, and unrestricted cohomology surjectivity is disproved by `20260824T123617Z_fcddc3abc33d` |
 | P1 | DXZ filtration-test-curve maximality, Xia Conjecture 5.29, and auxiliary-\(\eta\) independence | Start with finitely generated/toric/flag cases; do not recycle the already asserted \(H,\omega\)-independence or the now-proved positive-volume Conjecture 8.8 | The residual source-scoped packets remain open; Conjecture 8.8 is closed in its exact Chapter 55 positive-volume scope by separate exact-current gates |
 | P1 | Banach-family MA continuity and Favre hybrid-extension continuity; Pille-Schneider, JEP 10 (2023), Questions 4.9 and 3.18 | Prove FS specialization plus uniform CLN/Bergman estimates, or produce a non-hybrid jumping base | Stated separately in Chapter 72; not solved |
 | P1 | BMPS higher-dimensional smoothness, Calabi--Yau tropicalizations, and Bergman-fan matroid classification | Test intrinsic contact and orthogonality on singular smooth fans; keep the recursive analytic comparison as a stronger book question | Exact source questions and book strengthenings are separated; R3-27 solves only the complete affine case |
@@ -1099,15 +1137,22 @@ question.
 | P2 | Early collapse of the CLD transfinite psh hierarchy; CLD Lemma 8.1.4/Remark 8.1.6 | Prove stage-one collapse on locally finite charts or exhibit genuine transfinite rank | Eventual cardinal stabilization is closed; Chapter 72 asks only early collapse |
 | P2 | Exact canonical BJ approximation and threshold identities after Trusiani 2026 | Identify Trusiani's approximants term by term with the prescribed BJ sequence and normalize every threshold | Earlier chapters provide machinery; Chapter 72 does not identify them |
 
-The live Chapter 72 has 21 open-problem environments.  The book-wide literal
-count is 22 because the preceding pseudoeffective MP--DXZ chapter separately
+The live Chapter 72 has 20 open-problem environments.  The book-wide literal
+count is 21 because the preceding pseudoeffective MP--DXZ chapter separately
 contains the projective-rational full-link problem.  These are
 research-status records, not exercises.  The earlier trace-refinement row has
 been removed: the complete supplied Darvas--Xia chapter proves the required
 input-\(\mathcal I\)/output-\(P\) factorization, so Chapter 72 now records it as
-resolved source history.  After Rethlas access resumed, six exact-current
-production gates were completed for the Chapter 23 selection, Chapter 49
-energy package, the two Chapter 55 Conjecture 8.8 blocks, and the Chapter
-55/69 toric blocks.  The remaining source-scoped packets in the table have no
+resolved source history.  Splitting compound environments into independently
+auditable targets gives 63 active atoms; their exact crosswalk and easy-to-hard
+queue are recorded in
+`manuscript/editorial/open_problem_atomic_inventory_20260824.md`.  After
+Rethlas access resumed, nine mathematical production gates were completed:
+eight exact-current gates for the two Chapter 18 results, Chapter 23
+selection, Chapter 49 energy package, the two Chapter 55 Conjecture 8.8
+blocks, and the Chapter 55/69 toric blocks, plus the exact frozen Chapter 70
+generalized-Lelong statement/proof gate followed by an independent hostile
+audit.  The latter is not claimed as a post-integration byte-identity gate.
+The remaining source-scoped packets in the table have no
 promotable proof receipt unless an individual entry explicitly says
 otherwise.

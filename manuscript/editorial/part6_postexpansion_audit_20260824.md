@@ -1,6 +1,27 @@
 # Part VI post-expansion audit (2026-08-24)
 
-## 24 Aug 2026 controlling addendum
+## Later 24 Aug 2026 controlling addendum
+
+Chapter 70 now contains the smooth-germ generalized-Lelong separation
+theorem, and its former Chapter 72 problem environment has been retired.  The
+exact frozen statement and source-aware proof packet passed production run
+`20260824T140127Z_ef8316d19c12` with `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors, and zero gaps.  A separate hostile audit
+rechecked primary-ideal generation, exact polarization, the one-Weil-input
+intersection domain, the compactified Hodge-index argument, and passage from
+finite traces to all normalized valuations before integration.  The run was
+not a post-integration byte-identity gate, and the theorem is recorded as a
+dated book-level derivation without novelty or priority claim.  Its scope is
+arbitrary psh germs at a smooth complex point; singular and nonnormal germs
+remain outside it.
+
+The current literal frontier therefore consists of 20 problem environments
+in Chapter 72 and one in Chapter 71, for 21 book-wide and 63 active atoms.
+The earlier 22-environment counts below describe the pre-integration audit
+snapshot and are superseded wherever they purport to describe the current
+source.
+
+## Earlier 24 Aug 2026 controlling addendum
 
 The audit below records the state before the author supplied the TeX proof of
 Xia's Conjecture 8.8.  Source and hostile audits repaired the proof, and the
@@ -19,9 +40,10 @@ toric-dimension statement and proof passed the separate source-aware run
 current Chapter 72 status therefore treats Conjecture 8.8 as proved on the
 smooth-projective, big-line-bundle, positive-Cao/ideal-volume domain and
 retains the author-supplied work as unpublished provenance.  Zero volume,
-transcendental classes, singular varieties, and attainment remain open.  The
-22 problem-environment count is unchanged because the zero-volume problem
-retains those and other genuine residual scopes.  Contrary pre-verification
+transcendental classes, singular varieties, and attainment remain open.  At
+that stage, the 22 problem-environment count was unchanged because the zero-
+volume problem retained those and other genuine residual scopes.  The later
+controlling addendum above records the subsequent Lelong retirement.  Contrary pre-verification
 sentences in the preserved dated audit below are superseded by this addendum.
 
 ## Scope and standard
@@ -179,6 +201,9 @@ an unstated length normalization required repair.
 | Pseudo-effective MP/DXZ bridge | Sourced Kähler finite-energy bridge only; full projective comparison remains `prob:pseff-projective-rational-full-link`. |
 | Toric/rational numerical dimension | Exact-current Chapter 69 production run `20260824T070302Z_d706dc98ccca`; smooth projective invariant integral/rational toric scope only, with no novelty claim. |
 | July 2026 mixed-volume manuscript | Unpublished author-supplied proof; the current Chapter 55 metric and line-bundle blocks passed separate exact-current runs `20260824T054849Z_57635bfa07f4` and `20260824T061508Z_17bf73c6b37c`; zero-volume and other stated extensions remain open. |
+| GJR unrestricted abelian-cohomology question | Removed from the active Chapter 72 list after the Chapter 18 good-reduction elliptic counterexample passed exact-current run `20260824T123617Z_fcddc3abc33d`, final `correct`, zero critical errors, and zero gaps; two source questions remain, and the counterexample does not address the totally degenerate restriction. |
+| GJR semipositive integral decomposition | Verified in residual dimension at most one, including all good strict analytic curves, by exact-current run `20260824T135721Z_81346238f7dd`, final `correct`, zero critical errors, and zero gaps; arbitrary residual dimension remains open, and no novelty or priority claim is made. |
+| Generalized-Lelong separation | The exact frozen statement and source-aware proof passed run `20260824T140127Z_ef8316d19c12`, final `correct`, zero critical errors, and zero gaps, and an independent hostile audit found no defect before Chapter 70 integration; the run is not claimed as a post-integration byte-identity gate. |
 
 Primary-source checks included BHJ Theorem 3.6 together with its erratum,
 Pille-Schneider's Theorems 3.13, 4.11, 5.1 and Corollary 5.2 (and the two
@@ -201,8 +226,10 @@ through an identifiable intermediate dependency on it.
 - All theorem, proposition, lemma, corollary, definition, example, remark,
   proof, and problem environments in the range have balanced begin/end
   delimiters.
-- There are exactly 22 literal `problem` environments: one in the
-  pseudo-effective chapter and 21 in the major-open-problems chapter.
+- At the time of the original audit there were 22 literal `problem`
+  environments.  After retirement of the generalized-Lelong item, the
+  current source has 21: one in the pseudo-effective chapter and 20 in the
+  major-open-problems chapter, split into 63 active atoms.
 - There are no exercise environments.
 - Label-bearing statements were preserved; the repair in Chapter 67 removed
   only one enumerated assertion and its proof paragraph, not a label.

@@ -12,11 +12,16 @@ a statement or proof invalidate its receipt until a fresh audit is recorded.
 ## Current release boundary (24 August 2026)
 
 This ledger is not a book-wide Rethlas completion certificate.  It records
-six exact-current production gates completed on 24 August: the Chapter 23
-fixed-skeleton selection, the Chapter 49 truncation-energy package, the
+nine mathematical production gates completed on 24 August.  Eight are
+exact-current gates: the two Chapter 18 results recorded below, the Chapter
+23 fixed-skeleton selection, the Chapter 49 truncation-energy package, the
 Chapter 55 toric zero-mass package, the two separate Chapter 55 blocks that
-integrate Xia's Conjecture 8.8, and the Chapter 69 toric-dimension block.  Each
-has status `final`, verdict `correct`, zero critical errors, and zero gaps.
+integrate Xia's Conjecture 8.8, and the Chapter 69 toric-dimension block.  The
+ninth gate verifies the exact frozen statement and source-aware proof packet
+for the Chapter 70 generalized-Lelong separation theorem; that packet was
+integrated only after a separate hostile audit, but has not received a
+post-integration byte-identity gate.  All nine runs have status `final`,
+verdict `correct`, zero critical errors, and zero gaps.
 The BJ22 basic-closure integration is still a source-audited import without an
 exact-current Rethlas receipt; the standalone MP reduced entropy-slope
 reconstruction also remains pending.  Candidate-only packets and runs on
@@ -24,6 +29,65 @@ stale bytes are not receipts.  The separate clean whole-book build of the
 exact current release snapshot has passed and is recorded in
 `output/BUILD_AND_AUDIT_SUMMARY.md`; it does not enlarge the mathematical
 scope of any receipt.
+
+## Chapter 18 — unrestricted GJR cohomology question
+
+- Status: **DISPROVED** (24 August 2026).
+- Book location: `prop:ch18-gjr-cohomology-counterexample` and its adjacent
+  proof in Chapter 18.
+- Exact answer: the canonical GJR injection is not always an isomorphism.
+  For the constant good-reduction elliptic curve used in the book,
+  `M_R=0`, while GJR Theorem 1.14 gives a one-dimensional weakly smooth
+  `H^{1,1}`.
+- Scope: this is a counterexample to the literal unrestricted question in
+  GJR Section 1.15.  It does not decide the totally degenerate restriction.
+- Live Chapter 18 SHA-256:
+  `8e1ca749f52d628f8a8681ff7eba03496fdcab75d8371abbb34dc919d20601cf`.
+- Target-statement SHA-256:
+  `fcddc3abc33d3d10de1f5e84b14a892e9ac193a48befaaa51a8104c2ac860e58`.
+- Source-aware composite proof-context SHA-256:
+  `99d7583f90ebf7dcb56a40dcc04463ffcb0c04ee4c1c711e0acafacdc85dbe2c`.
+- Production run: `20260824T123617Z_fcddc3abc33d`; proof item
+  `pi_a039b322c111642b44684f4e`; `gpt-5.6-sol`, `xhigh`, final verdict
+  `correct`, zero critical errors, zero gaps.
+- Exact-current receipt:
+  `editorial/rethlas_receipts_20260824/ch18_gjr_cohomology_counterexample_exact_current_receipt.md`.
+- Provenance: direct consequence of the published GJR injection and curve
+  cohomology formula together with the standard good-reduction extreme of
+  Raynaud uniformization.  No novelty or priority claim is made.
+
+## Chapter 18 — semipositive integral decomposition in residual dimension at most one
+
+- Status: **VERIFIED** (24 August 2026).
+- Book location: `thm:ch18-semipositive-integral-residual-curve` and its
+  adjacent proof in Chapter 18.
+- Scope: a good strict analytic space over an arbitrary complete
+  nontrivially valued field; a point whose completed-residue-field
+  transcendence degree is at most one; coefficients in `Z` or a divisible
+  additive subgroup of `R`.  Every semipositive PL germ has, on one strict
+  analytic neighbourhood, a finite nonnegative-coefficient decomposition
+  into integral semipositive PL functions, all but at most one integral
+  harmonic.  Boundary points are allowed, and no algebraic-closedness or
+  value-group compatibility hypothesis is imposed.
+- Residual boundary: this settles the natural positive-cone formulation for
+  all good strict analytic curves and, more generally, in residual dimension
+  at most one.  It does not settle arbitrary residual dimension, where the
+  nef cone need not be a single rational half-space.
+- Live Chapter 18 SHA-256 at submission:
+  `b35a05039dc061151b0d940498562220a83d1d61889ed699f0fac7e351b18444`.
+- Exact statement SHA-256:
+  `b656ed062f537dfd609fcf69d4efd2d6ab8f767311af75ae72cbd704d0611803`.
+- Exact adjacent proof SHA-256:
+  `1d1fa9a93164ba1f29e20e9b59172aeffff78227ec2f7e8f1097bd248aa29f19`.
+- Production run: `20260824T135721Z_81346238f7dd`; proof item
+  `pi_fa66bb9ea857f58ce38688a6`; `gpt-5.6-sol`, `xhigh`, final verdict
+  `correct`, zero critical errors, zero gaps.
+- Exact-current receipt:
+  `editorial/rethlas_receipts_20260824/ch18_gjr_semipositive_curve_exact_current_receipt.md`.
+- Provenance: a book-level deduction from the GJR residue criterion,
+  common-model formalism, openness statement, and an integral splitting of
+  the one-dimensional degree functional.  No novelty or priority claim is
+  made.
 
 ## Xia Conjecture 8.8 — repaired mixed partial-body formula
 
@@ -272,6 +336,39 @@ scope of any receipt.
   `editorial/rethlas_receipts_20260824/ch69_verified_toric_dimension_exact_current_receipt.md`,
   SHA-256
   `2c6b741ab8df23c9cecd8add300a6ab795fe90f12b0c46def9caaf9be2fe4c96`.
+
+## Chapter 70 — generalized-Lelong separation
+
+- Status: **VERIFIED FROZEN PACKET / INTEGRATED AFTER HOSTILE AUDIT**
+  (24 August 2026).
+- Book location: `thm:local-generalized-lelong-separation` and its adjacent
+  proof in Chapter 70.
+- Statement: for arbitrary psh germs at a smooth complex point, equality of
+  generalized Lelong numbers against every tame psh weight forces pointwise
+  equality of the BFJ valuative transforms on the normalized centered
+  valuation space.  Primary-ideal analytic weights already suffice.
+- Scope firewall: the conclusion concerns valuative transforms, not equality
+  of the original germs, equality modulo bounded functions, or a singular or
+  nonnormal ambient germ.
+- Exact frozen statement SHA-256:
+  `ef8316d19c121710280984d8954fefb9e9c14ce8737a4b9aef658c4c5120546e`.
+- Exact frozen source-aware proof SHA-256:
+  `57355a05bf4be050dfe54755eaf989ae3725782fc94b14dd9296b75e06e4dedd`.
+- Production run: `20260824T140127Z_ef8316d19c12`; proof item
+  `pi_3114f2ee2498f163b2c41e7c`; `gpt-5.6-sol`, `xhigh`, final verdict
+  `correct`, zero critical errors, zero gaps.
+- Independent hostile audit:
+  `editorial/solver_dossiers_20260824/lelong_separation_hostile_audit.md`;
+  it rechecked the primary-ideal generation, the one-Weil-input intersection
+  domain, exact polarization, compactification, Hodge-index negativity, and
+  passage from all finite traces to every normalized valuation.
+- Verification record:
+  `editorial/rethlas_receipts_20260824/ch70_lelong_separation_exact_current_receipt.md`.
+  Despite that historical filename, the record controls the frozen exact
+  statement and proof packet submitted before integration; it is not a
+  post-integration byte-identity receipt for the live chapter.
+- Provenance: a dated book-level derivation from BFJ's intersection theory
+  and the Hodge index theorem.  No novelty or priority claim is made.
 
 ## Darvas--Xia trace-source correction (not a receipt)
 

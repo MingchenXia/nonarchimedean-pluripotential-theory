@@ -4,12 +4,18 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
-The 24 August 2026 release snapshot has passed the final structural audit and
-a fresh clean build from its exact 101-file production-source closure.  The
-result is a 3,081-page PDF.  Six exact-current mathematical integrations in
-Chapters 23, 49, 55, and 69 also have production Rethlas receipts.  These
-checks do not turn source-imported theorems into new results or close the
-research problems whose residual scopes remain listed in Chapters 71--72.
+The last clean 24 August 2026 release snapshot passed the final structural
+audit and produced a 3,081-page PDF from its exact 101-file production-source
+closure.  The current source records nine mathematical production Rethlas
+gates: eight exact-current integrations in Chapters 18, 23, 49, 55, and 69,
+and one exact frozen statement/proof gate for the Chapter 70 generalized-
+Lelong separation theorem, followed by an independent hostile audit.  The
+latter is not represented as a post-integration byte-identity gate.  A fresh
+current-source whole-book rebuild after these integrations passed and produced
+a 3,087-page PDF; the dated release artifacts below remain the earlier
+3,081-page source freeze until the next release cut.  These checks do not turn
+source imports or book-level derivations into novelty or priority claims, or
+close residual questions outside the displayed theorem scopes.
 
 The manuscript has 72 chapters in six parts and 12 reference appendices.  It
 develops:
@@ -56,8 +62,9 @@ intentionally excluded from version control.  Results proved only in the
 supplied envelope manuscript are identified as such and are not
 misrepresented as previously published theorems.
 
-The editorial records also keep the literal research-frontier inventory at 22
-open problems (one in Chapter 71 and 21 in Chapter 72), the source-cutoff
+The editorial records also keep the literal research-frontier inventory at 21
+open problems (one in Chapter 71 and 20 in Chapter 72), split into 63 active
+atoms, together with the source-cutoff
 dates, and every remaining mathematical boundary visible.  The clean-build
 and exact-current Rethlas gates that have passed are recorded separately from
 source imports and unresolved packets.

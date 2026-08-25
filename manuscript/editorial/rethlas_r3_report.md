@@ -43,21 +43,35 @@ transcendental-class, singular-variety, or attainment extension is claimed.
 This later addendum supersedes the immediately preceding temporary open
 classification without deleting it from the historical report.
 
-**24 August 2026 exact-current release supplement.**  Three other formerly
+**24 August 2026 production release supplement.**  Three other formerly
 historical or pending blocks now have current production gates: Chapter 23
 fixed-skeleton selection, run `20260824T044830Z_25024c43d265`; Chapter 49
 truncation-energy with sharpness, run
 `20260824T041218Z_0c95825dbb06`; and the Chapter 55 toric zero-mass source
 block, run `20260824T052605Z_703e3b501202`.  Together with the two Xia runs
-above and the separate Chapter 69 toric run
-`20260824T070302Z_d706dc98ccca`, all six are final `correct`, with zero
-critical errors and zero gaps.  Their domains remain fixed-skeleton,
-positive-volume BJ energy, smooth-projective positive-Cao-volume, or
-integral/rational toric exactly as recorded in the live text; no publication
-or priority claim follows.  The BJ22 basic-closure integration and the MP
-reduced entropy-slope reconstruction remain outside this receipt set.
+above, the separate Chapter 69 toric run
+`20260824T070302Z_d706dc98ccca`, and the Chapter 18 GJR cohomology
+counterexample run `20260824T123617Z_fcddc3abc33d`, these seven exact-current
+gates are final `correct`, with zero critical errors and zero gaps.  The
+Chapter 18 semipositive integral-decomposition theorem in residual dimension
+at most one then passed an eighth exact-current gate,
+`20260824T135721Z_81346238f7dd`, with the same verdict.  Finally, the exact
+frozen statement and source-aware proof packet for Chapter 70 generalized-
+Lelong separation passed `20260824T140127Z_ef8316d19c12`; an independent
+hostile audit preceded integration, but no post-integration byte-identity gate
+is claimed.  Thus the current ledger contains nine mathematical production
+gates, eight exact-current and one exact frozen-packet gate.  Their domains
+remain exactly as recorded in the live text; no publication or priority claim
+follows.  The BJ22 basic-closure integration and the MP reduced entropy-slope
+reconstruction remain outside this receipt set.
 
 ## 0. Source-audit addendum of 15 August 2026
+
+**Later 24 August 2026 controlling count.**  Retirement of the generalized-
+Lelong problem leaves 20 `problem` environments in Chapter 72 and one in
+Chapter 71, hence 21 book-wide and 63 independently auditable active atoms.
+The two paragraphs immediately below record the 23 August snapshot before
+that retirement and are retained only as audit history.
 
 **23 August 2026 addendum.**  The supplied complete trace chapter invalidated
 R3-19's claim that trace has only an \(\mathcal I\)-valued target.  The
@@ -126,10 +140,13 @@ The primary-source audit made the following status corrections.
 Nine source-scoped inputs were prepared under
 `Rethlas_isolated_20260813_232740/agents/generation/data/open_problems` for
 these genuinely open items.  At the time of the 15 August pass none could be
-launched.  After access resumed, six exact-current production gates were run
-for the Chapter 23 selection, Chapter 49 energy package, the two Chapter 55
-Conjecture 8.8 blocks, and the Chapter 55/69 toric blocks; their receipts are
-listed in the release addenda below.  This does not give receipts to the
+launched.  After access resumed, eight exact-current production gates were run
+for the two Chapter 18 results, Chapter 23 selection, Chapter 49 energy
+package, the two Chapter 55 Conjecture 8.8 blocks, and the Chapter 55/69 toric
+blocks.  The Chapter 70 generalized-Lelong statement and proof passed a ninth
+production gate as an exact frozen packet, followed by an independent hostile
+audit, but not a post-integration byte-identity check.  Their receipts are
+listed in the release addenda above.  This does not give receipts to the
 remaining prepared open-problem inputs.  The Boucksom--Jonsson 2024 and Zhang
 2014 PDFs were not present in the local Rethlas pack.  Existing overview
 packets mention them only as resolved/no-go boundaries; none of the remaining
@@ -1331,17 +1348,19 @@ prepared but unrun.
    Chapter 69 contains the fixed-complex theorem; Chapter 70 does not address
    global compactness.
 
-7. **P1, essential for local singularity theory: the BFJ generalized-Lelong
-   converse.**  **Framework:** psh germs at a smooth complex point, tested
-   against every tame psh weight.  **Source:** BFJ (2008), Theorem A and the
-   implication from relative types/multiplier ideals to generalized Lelong
-   numbers; Bao--Guan--Mi--Yuan, *Adv. Math.* 477 (2025), strengthens adjacent
-   Zhou-weight tests but does not state the converse.  **Known:** the forward
-   implication holds; the converse remains open.  **Rethlas task:** prove
-   nondegeneracy of the mixed local intersection pairing first for monomial
-   and surface singularities, or find distinct formal psh functions annihilated
-   by all tame tests.  **Coverage:** Chapter 70 states the exact BFJ chain;
-   Chapter 69 does not solve the converse.
+7. **Resolved history, removed from the active programme: the BFJ
+   generalized-Lelong converse.**  **Framework:** arbitrary psh germs at a
+   smooth complex point, tested against every tame psh weight.  **Answer:**
+   equality of all generalized Lelong numbers forces pointwise equality of
+   BFJ valuative transforms; primary-ideal analytic weights already suffice.
+   Exact polarization reduces the tests to all Cartier (b)-divisors, and a
+   negative-definite relative Hodge-index pairing separates every model
+   trace.  **Verification:** the exact frozen statement and source-aware proof
+   passed `20260824T140127Z_ef8316d19c12`, final `correct`, zero critical
+   errors, zero gaps; a separate hostile audit found no defect before Chapter
+   70 integration.  This is not a post-integration byte-identity receipt and
+   carries no novelty or priority claim.  Singular and nonnormal ambient
+   germs remain in item 8 rather than being inferred from the smooth result.
 
 8. **P1, essential for the requested local theory: singular and nonnormal
    valuative germs.**  **Framework:** excellent local rings, with normalization,
@@ -1545,11 +1564,13 @@ addendum explicitly supersedes them.
     Gauss-shell comparison, joint bounded closure, finite-map formula, and
     the probability and polar-mass obstructions; it leaves the arbitrary
     classical-psh, nonalgebraizable analytic-model, finite-energy, and
-    singular-germ domains open.  The live Chapter 72 has 21 problem
-    environments.  In addition to the BMPS, Banach-family, Favre, and
+    singular-germ domains open.  After the later generalized-Lelong
+    integration, the live Chapter 72 has 20 problem environments.  In
+    addition to the BMPS, Banach-family, Favre, and
     the then-listed \(P\)-valued trace item (removed on 23 August),
-    it now states CLD early collapse, CLD Remark 17.8.10, and the three GJR
-    questions exactly.  Its YTD status uses the 22 August 2026 cutoff,
+    it now states CLD early collapse, CLD Remark 17.8.10, and the two residual
+    GJR questions exactly; the unrestricted cohomology question is resolved
+    history.  Its YTD status uses the 22 August 2026 cutoff,
     records Trusiani v2's smooth polarized projective and weighted-relative
     claims as dated preprint claims only, and retains only the exact
     primary-source residuals plus the separately labelled book hybrid target.

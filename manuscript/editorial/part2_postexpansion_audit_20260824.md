@@ -224,3 +224,33 @@ supplementary regularization hypotheses are imposed.
    the general approximation-generated CLD hierarchy.  This distinction is
    now explicit but remains a dependency boundary for every later use of the
    phrase ``CLD-psh on a curve.''
+
+## Later 24 August addendum: GJR cohomology question
+
+The literal unrestricted isomorphism question in GJR Section 1.15 is now
+closed negatively in Chapter 18.  The constant good-reduction elliptic curve
+has trivial Raynaud torus and hence zero invariant source in bidegree
+`(1,1)`, whereas GJR Theorem 1.14 gives a one-dimensional weakly smooth
+cohomology target.  The exact current proposition and source-aware proof
+context passed production Rethlas run `20260824T123617Z_fcddc3abc33d` with
+`gpt-5.6-sol` at `xhigh`, final `correct`, zero critical errors, and zero
+gaps.  The source check used the published Theorem 1.14 and Section 1.15 and
+the standard good-reduction extreme of Raynaud uniformization.  The result is
+a direct source synthesis, carries no priority claim, and does not decide the
+totally degenerate restriction.
+
+## Later 24 August addendum: semipositive integral decomposition
+
+Chapter 18 now proves the natural positive-cone form of the GJR integral-
+decomposition question at every point of residual dimension at most one.  It
+includes every good strict analytic curve, permits boundary points, and
+requires neither algebraic closedness nor a relation between the coefficient
+group and the value group.  The proof passes to a common residue model, uses
+degree as the sole nef inequality on a proper residual curve, and splits the
+primitive integral degree functional; all but at most one integral summand
+are harmonic.  The exact live statement and adjacent proof passed production
+run `20260824T135721Z_81346238f7dd` with `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors, and zero gaps.  Arbitrary residual dimension
+remains open because the nef cone need not be one rational half-space.  This
+is recorded as a dated book-level derivation without a novelty or priority
+claim.

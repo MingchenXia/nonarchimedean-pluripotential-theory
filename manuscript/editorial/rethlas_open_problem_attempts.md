@@ -24,6 +24,35 @@ Rethlas verification receipt for the exact displayed statement and proof.
 > calling the conjecture “literature-resolved” is a superseded 15 August
 > classification retained only as audit history.
 
+> **24 August 2026 GJR addendum.**  The literal unrestricted cohomological
+> question in Gubler--Jell--Rabinoff Section 1.15 is now closed negatively.
+> For the explicit constant good-reduction elliptic curve in Chapter 18, the
+> invariant source in bidegree `(1,1)` is zero, whereas GJR Theorem 1.14 gives
+> a one-dimensional target.  The exact current statement and source-aware
+> proof context passed production run `20260824T123617Z_fcddc3abc33d` with
+> `gpt-5.6-sol` at `xhigh`, final `correct`, zero critical errors, and zero
+> gaps.  This supersedes the candidate-only Q2 classification below.  The
+> natural positive-cone integral-decomposition statement has also been proved
+> in residual dimension at most one, including all good strict analytic
+> curves: its exact live theorem and proof passed
+> `20260824T135721Z_81346238f7dd`, again final `correct` with zero critical
+> errors and zero gaps.  Arbitrary residual dimension, ordinary canonical
+> delta-metrics, and the separately sharpened totally degenerate cohomology
+> question remain open.  Neither result carries a novelty or priority claim.
+
+> **24 August 2026 generalized-Lelong addendum.**  The BFJ converse is now
+> closed in the smooth-germ framework.  Equality against all tame weights---
+> in fact, against the primary-ideal analytic weights---forces pointwise
+> equality of valuative transforms on the normalized centered valuation
+> space.  The exact frozen statement and source-aware proof packet passed
+> production run `20260824T140127Z_ef8316d19c12` with `gpt-5.6-sol` at
+> `xhigh`, final `correct`, zero critical errors, and zero gaps.  An
+> independent hostile audit then checked ideal generation, polarization, the
+> one-Weil-input domain, the relative Hodge-index form, and passage to all
+> valuations before integration into Chapter 70.  The run was not a
+> post-integration byte-identity gate, and no novelty or priority claim is
+> made.  Singular and nonnormal ambient germs remain outside the theorem.
+
 ## Classical psh regularization
 
 - **Problem id:** `open_problems/classical_psh_regularization`
@@ -324,11 +353,12 @@ Rethlas verification receipt for the exact displayed statement and proof.
 The following nine source-scoped inputs were prepared after the 15 August
 audit and were **never launched on Rethlas as these packets**.  There is no
 generation result, machine hostile audit, or verification receipt for any of
-them, and no attempted-verification claim is made.  Their status remains `OPEN`
-exactly as recorded in the primary sources, except where an input explicitly
-separates a stronger book-formulated question.  This historical packet list
-does not include the later repaired and exact-current Xia submissions recorded
-at the head of this ledger.
+them as those historical packets, and no 15 August attempted-verification
+claim is made.  Later runs supersede parts of the GJR and generalized-Lelong
+classifications exactly as recorded in the controlling addenda and outcome
+table.  This historical packet list does not include those later production
+submissions or the repaired and exact-current Xia submissions recorded at the
+head of this ledger.
 
 All nine were subsequently attempted in the **non-Rethlas candidate-only solver
 pass of 15 August 2026** recorded in the following section.  That pass produces
@@ -338,7 +368,7 @@ no promotion and no receipt.
 |---|---|---|
 | `open_problems/cld_psh_early_collapse` | CLD Lemma 8.1.4 versus Remark 8.1.6: stage-one or controlled-early collapse, not eventual stationarity | `0d4149f848fbaa409eb5ff21384537810e50231f07af2a3d944e825b98bd5cc7` |
 | `open_problems/cld_local_global_psh_metrics` | the two questions of CLD Remark 17.8.10 | `d5fd4e0c58de4317b0bf938b5fcc40d607a650e1eed6524606ee8171cdfdb1c5` |
-| `open_problems/gjr_three_questions` | positive integral decomposition, abelian cohomology surjectivity, and canonical ordinary delta-metrics | `4cbac12689ee67aab4e2e4214b9fc3971ddcdbf1e6de30ab8122d0006bd1e784` |
+| `open_problems/gjr_three_questions` | Historical three-item bundle: unrestricted abelian cohomology is superseded by the exact-current counterexample, and positive integral decomposition is now verified in residual dimension at most one; arbitrary residual dimension and canonical ordinary delta-metrics remain open | `4cbac12689ee67aab4e2e4214b9fc3971ddcdbf1e6de30ab8122d0006bd1e784` |
 | `open_problems/dxz_filtration_test_curve_maximality` | the conjecture immediately before DXZ Definition 4.4 | `0d5303f2064130a14d82454ecf45c893fd117aef1d28dcfa12620620e8477283` |
 | `open_problems/xia_partial_okounkov_questions` | Historical bundled packet: Xia Conjecture 5.29 and Chebyshev auxiliary-eta independence remain open; its Conjecture 8.8 component is superseded by the later exact-current positive-volume gates; auxiliary-H/omega independence excluded as closed | `4cc5a8d0ba7e347ee73f8d9e63fe1f5628bbee8f4c98ee15273be104c5d0ad45` |
 | `open_problems/ps23_arbitrary_field_e1_ma` | Pille--Schneider Remark 4.4 on constructing the E1 Monge--Ampere operator over an arbitrary complete field | `37cd2ca67d7bdbeaf412027fc0a46428003f6ea0d453f223f9239db89b97a397` |
@@ -385,9 +415,9 @@ mark.
 |---|---|
 | `cld_psh_early_collapse` | Source correction: eventual stationarity **is** proved (CLD Lemme 8.1.4, cardinality argument); Remarque 8.1.6's literal sentence contradicts it.  CLD Définition 8.1.13 already names the live property, *localement approchable*.  Collapse at stage \(\alpha\) shown equivalent to closure of \(\mathrm{Psh}_{X,\alpha}\) under decreasing limits.  Unconditional collapse on \(\mathbf R^n\).  Vertex atoms refuted as an obstruction.  General case open.  **One claim withdrawn:** that finite collapse at any stage implies collapse at stage one — unproved, retracted after an independent audit in the same session. |
 | `cld_local_global_psh_metrics` | Question A open, with the Fubini--Study closure contained in the globally psh cone, and the Richberg route blocked at two recorded points (local CLD-smooth functions are constant near rigid points, so no strict positivity reserve).  Question B expected false as stated, with a candidate polarization-killing formal K3 and two flagged gaps. |
-| `gjr_three_questions` | Q1 proved for curves (positive-cone decomposition, no divisibility needed); the tripod \((2,-1,-1)\) is **not** a counterexample.  Q2: candidate proof that the injection is never an isomorphism outside total degeneration.  Q3: settled for good reduction, total degeneration, and finite residue field; non-isotrivial mixed case open. |
+| `gjr_three_questions` | **Partly superseded historical classification.**  Q1 is now verified in the natural positive-cone form whenever the residual dimension is at most one by exact-current run `20260824T135721Z_81346238f7dd`; arbitrary residual dimension remains open.  Q2 is no longer candidate-grade: the explicit good-reduction elliptic counterexample passed exact-current run `20260824T123617Z_fcddc3abc33d`, so the unrestricted question is disproved; no claim is made for total degeneration.  The ordinary canonical-delta-metric question is settled in the listed special cases only, with the non-isotrivial mixed case open. |
 | `bmps_exact_source_questions` | Rank-two matroids closed by the source's own one-dimensional theorem (Bergman fan of a rank-\(r\) matroid has dimension \(r-1\)); \(U_{3,4}\)'s failure reinterpreted as a failure of \(\gamma\)'s growth hypotheses at rank three.  Split-obstacle orthogonality on products.  Purely local smoothness hypotheses proved insufficient in higher dimension. |
-| `generalized_lelong_separation` | Not attempted in this pass. |
+| `generalized_lelong_separation` | **Superseded historical classification.**  Not attempted in the 15 August pass; the exact frozen statement and source-aware proof later passed production run `20260824T140127Z_ef8316d19c12`, and an independent hostile audit found no gap before the result was integrated in Chapter 70.  The receipt is not a post-integration byte-identity gate. |
 | `bj_radon_riesz` | Not attempted in this pass. |
 | `trace_p_valued_refinement` | Positive resolution at candidate grade: the \(P\)-lift exists and is canonical, via the Darvas--Xia trace as an actual model potential.  The two counterexample engines mandated by the packet are provably empty — restriction commutes with integral closure, and the Newton polyhedron of a sliced monomial ideal equals the slice of the polyhedron. |
 | `dxz_filtration_test_curve_maximality` | Endpoints settled; exact obstruction identified (an \(O(1/m)\) class twist is harmless for potentials but \(\mathcal I\)-equivalence is not continuous under it, and for big non-ample \(L\) the twist leaves \(R(X,L)\)); exceptional-pullback counterexample mechanism refuted by explicit computation on \(\mathrm{Bl}_p\mathbf P^2\); zero-mass range reduced to the book's existing zero-mass \(\mathcal I\)-model problems. |

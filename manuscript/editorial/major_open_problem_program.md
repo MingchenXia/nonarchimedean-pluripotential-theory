@@ -1,16 +1,19 @@
 # Major open-problem programme
 
 **Literature cutoff:** 24 August 2026.  
-**Live book location:** Chapter 72, with 21 research-frontier problem
+**Live book location:** Chapter 72, with 20 research-frontier problem
 environments.  
-**Book-wide count:** 22 problem environments: the 21 active items mapped below and the
+**Book-wide count:** 21 problem environments: the 20 active items mapped below and the
 separate projective-rational full-link problem in the preceding
-pseudoeffective MP--DXZ chapter.  The latter is not a twenty-second Chapter 72
+pseudoeffective MP--DXZ chapter.  The latter is not a twenty-first Chapter 72
 item.  
 **Promotion rule:** an item becomes a new theorem only after its exact
 statement and proof receive a production Rethlas gpt-5.6-sol/xhigh receipt
-and survive a post-integration audit. A prepared packet is not an attempt.
-A failed or incomplete run is not evidence for a theorem.
+and survive an independent hostile audit.  If the run controls a frozen
+pre-integration packet rather than exact live bytes, that limitation must be
+stated explicitly until a post-integration byte-identity gate is run.  A
+prepared packet is not an attempt.  A failed or incomplete run is not
+evidence for a theorem.
 
 **24 Aug 2026 controlling addendum.**  The author subsequently supplied the
 TeX proof of Xia's Conjecture 8.8.  Human source review and a hostile audit
@@ -42,11 +45,12 @@ are independently checked.  Accordingly OP-15 and Chapter 72 keep
 Conjecture 8.8 open.  The dated 15 August note near the end of this file is
 retained only to disclose the superseded intermediate classification.
 
-**Exact active count:** Chapter 72 contains 21 problem environments and
+**Exact active count:** Chapter 72 contains 20 problem environments and
 Chapter 71 contains the separate projective-rational full-cone problem, for
-22 book-wide. All 22 retain a genuinely open residual scope. At the
+21 book-wide and 63 independently auditable active atoms. All 21 retain a
+genuinely open residual scope. At the
 whole-environment level the cutoff count is: resolved 0, disproved 0,
-conditional 0, genuinely open 22. Resolved, disproved, and conditional
+conditional 0, genuinely open 21. Resolved, disproved, and conditional
 subclaims below are boundary results inside those active environments and
 are not additional problem environments.
 
@@ -62,7 +66,7 @@ questions in OP-19 remain open. The other version-sensitive primary sources
 in the reference-pack manifest had no revision changing a listed status by
 the cutoff.
 
-The tags below map exactly the 21 Chapter 72 environments and distinguish a
+The active tags below map exactly the 20 Chapter 72 environments and distinguish a
 **primary-source question** from a
 **book-formulated question**. Some problem environments collect several
 source questions under one common framework.
@@ -165,26 +169,48 @@ source questions under one common framework.
 - **Status:** open outside the common semiample/formal/model loci.
 - **Packet:** cld_local_global_psh_metrics.md (prepared, not run).
 
-### OP-09. Three Gubler--Jell--Rabinoff questions
+### OP-09. Two remaining Gubler--Jell--Rabinoff questions
 
 - **Kind:** primary-source questions.
 - **Questions:** a semipositive analogue of the local integral decomposition
-  before Proposition 7.5; surjectivity of
-  \(\Lambda^{p,q}M_{\mathbf R}\hookrightarrow H^{p,q}(A)\); and whether
-  canonical metrics on abelian varieties are ordinary \(\delta\)-metrics.
-- **Status:** open; the nonsmooth mixed-reduction canonical tropicalization
-  is a mandatory boundary test.
-- **Packet:** gjr_three_questions.md (prepared, not run).
+  before Proposition 7.5, and whether canonical metrics on abelian varieties
+  are ordinary \(\delta\)-metrics.
+- **Status:** both residual questions are open; the nonsmooth mixed-reduction
+  canonical tropicalization is a mandatory boundary test for the second.
+  For the first, the natural positive-cone formulation is verified in
+  residual dimension at most one, including every good strict analytic curve,
+  by exact-current run `20260824T135721Z_81346238f7dd`, final `correct`, zero
+  critical errors, and zero gaps.  Arbitrary residual dimension remains open.
+  The unrestricted Section 1.15 cohomology-isomorphism question is closed
+  negatively by the good-reduction elliptic curve in
+  `prop:ch18-gjr-cohomology-counterexample`.  Exact-current production run
+  `20260824T123617Z_fcddc3abc33d` returned final `correct`, zero critical
+  errors, and zero gaps.  The totally degenerate refinement remains outside
+  that counterexample.
+- **Packet:** gjr_three_questions.md (legacy filename; updated to the two
+  remaining questions and the closed historical item).
 
 ## B. Valuative singularities and the trivially valued frontier
 
-### OP-10. Generalized Lelong numbers
+### Resolved history: generalized Lelong numbers
 
-- **Kind:** primary-source expected converse after BFJ Theorem A.
-- **Question:** does equality against every tame generalized Lelong weight
-  force equality of valuative transforms?
-- **Status:** open.
-- **Packet:** generalized_lelong_separation.md.
+- **Former question:** does equality against every tame generalized Lelong
+  weight force equality of valuative transforms?
+- **Answer:** yes.  The proof in
+  `thm:local-generalized-lelong-separation` shows that primary-ideal weights
+  already suffice.  Product ideals give exact polarization to all Cartier
+  \(b\)-divisor inputs, and a negative-definite relative Hodge-index form
+  separates the trace on every model.
+- **Verification:** the exact frozen statement and source-aware proof passed
+  production Rethlas run
+  `20260824T140127Z_ef8316d19c12`, `gpt-5.6-sol`/`xhigh`, final `correct`,
+  zero critical errors and zero gaps.  An independent hostile audit found no
+  defect before integration; the run is not claimed as a post-integration
+  byte-identity gate.
+- **Provenance:** a dated book-level derivation, without a priority claim.
+- **Verification record:**
+  `editorial/rethlas_receipts_20260824/ch70_lelong_separation_exact_current_receipt.md`;
+  despite the historical filename, it controls the frozen submitted packet.
 
 ### OP-11. Global Boucksom--Jonsson Radon--Riesz convergence
 
@@ -254,7 +280,7 @@ source questions under one common framework.
 - **Related earlier environment:**
   `prob:pseff-projective-rational-full-link` in the preceding chapter records
   the separate projective-rational full-cone comparison.  It accounts for
-  the difference between the 21-item Chapter 72 map and the 22 book-wide
+  the difference between the 20-item Chapter 72 map and the 21 book-wide
   literal problem count.
 - **Packets:** mp_pseff_chapter_exact.md (failed verification, no promotion)
   and dxz_filtration_test_curve_maximality.md (prepared, not run).
