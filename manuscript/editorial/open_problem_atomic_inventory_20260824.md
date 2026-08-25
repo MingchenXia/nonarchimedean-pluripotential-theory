@@ -180,9 +180,10 @@ statements are open.
 
 ### `prob:frontier-gjr-remaining` --- 1 atom
 
-- **P09.2** `[T3; open]` Determine whether the canonical metric on an
-  abelian variety is an ordinary delta-metric rather than merely weakly
-  smooth.
+- **P09.2** `[T3; open]` Over an algebraically closed, complete,
+  nontrivially valued field, determine whether every cubical metric on every
+  ample symmetric rigidified line bundle on an abelian variety with
+  non-isotrivial mixed reduction is an ordinary delta-metric.
 
 P09.1 is retired.  Signed generation holds in every residual dimension by
 `thm:p09-signed-semipositive-span`, while
@@ -195,6 +196,18 @@ isomorphism question is likewise inactive: the book gives a good-reduction
 elliptic-curve counterexample to surjectivity.  This does not settle the
 separately restricted totally degenerate case, which is not a formal problem
 environment here.
+
+The displayed P09.2 formulation is the exact residual problem, not a
+strengthening.  Under the stated field hypotheses,
+`thm:p09p2-reduction` proves that all cubical metrics on a fixed abelian
+variety are ordinary delta-metrics if and only if this holds for all ample
+symmetric cubical metrics; it also settles every line bundle in
+`Pic^0(A)`.  Exact production run
+`20260825T145229Z_b37e13478cc7`, item
+`pi_10f6228b6e69e780dad8b17b`, returned final `correct`, zero critical
+errors, and zero gaps.  Good reduction, total degeneration, and isotrivial
+residual Raynaud extensions are separately settled.  P09.2 remains one
+active atom, so the tier and total counts are unchanged.
 
 ### Retired P11 history --- 0 active atoms
 

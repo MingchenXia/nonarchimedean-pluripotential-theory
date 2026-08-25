@@ -262,3 +262,17 @@ abelian surface.  The exact frozen blocks passed production runs
 `20260825T130707Z_4c4a1f2c885f`, both with `gpt-5.6-sol` at `xhigh`, final
 `correct`, zero critical errors, and zero gaps.  P09.1 is retired, and no
 novelty or priority claim is made.
+
+## Later 25 August addendum: canonical cubical delta-metricity
+
+Chapter 19 now includes the exact source-derived reduction theorem verified
+in production run `20260825T145229Z_b37e13478cc7`, item
+`pi_10f6228b6e69e780dad8b17b`.  It proves ordinary GK delta-metricity for
+all cubical metrics on `Pic^0(A)`, the exact induced
+symmetric/antisymmetric square splitting, and equivalence of the universal
+fixed-abelian-variety question with the ample symmetric case.  The run used
+`gpt-5.6-sol` at `xhigh` and returned final `correct`, zero critical errors,
+and zero gaps.  Good, totally degenerate, and isotrivial residual-extension
+cases remain separately recorded.  The result does not close P09.2: the
+ample symmetric non-isotrivial mixed-reduction range remains open.  No
+novelty or priority claim is made.

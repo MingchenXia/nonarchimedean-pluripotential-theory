@@ -97,7 +97,10 @@ dimension integral-decomposition question: signed generation passed run
 `20260825T130036Z_c1607c25ec38`, and the positive-cone counterexample passed
 `20260825T130707Z_4c4a1f2c885f`.  Both used `gpt-5.6-sol` at `xhigh` and
 returned final `correct`, zero critical errors, and zero gaps.  P09.1 is
-retired; only canonical ordinary delta-metricity remains among the GJR
+retired.  A later exact reduction, run
+`20260825T145229Z_b37e13478cc7`, settles `Pic^0` and reduces canonical
+ordinary delta-metricity to ample symmetric cubical metrics in
+non-isotrivial mixed reduction; only that range remains among the GJR
 questions.  The BJ22 basic-closure integration and the MP reduced entropy-slope
 reconstruction remain outside this receipt set.
 
@@ -1633,7 +1636,7 @@ addendum explicitly supersedes them.
     addition to the BMPS, Banach-family, Favre, and
     the then-listed \(P\)-valued trace item (removed on 23 August),
     it now states CLD early collapse, CLD Remark 17.8.10, and the sole
-    remaining GJR canonical-delta-metric question exactly; the unrestricted
+    remaining reduced GJR canonical-delta-metric question exactly; the unrestricted
     cohomology and semipositive integral-decomposition questions are resolved
     history.  Its YTD status uses the 22 August 2026 cutoff,
     records Trusiani v2's smooth polarized projective and weighted-relative

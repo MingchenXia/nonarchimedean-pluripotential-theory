@@ -658,6 +658,31 @@ nine 24 August gates counted in this paragraph.
 - Controlling receipt:
   `editorial/rethlas_receipts_20260825/p03_nodal_local_envelope_counterexample_live_integration_receipt_20260825.md`.
 
+## Chapters 19 and 72 — canonical cubical delta-metricity reduction
+
+- Status: **VERIFIED FROZEN EXACT BLOCK / INTEGRATED BYTE-FOR-BYTE**
+  (25 August 2026).
+- Book location: `thm:p09p2-reduction`, with the residual problem in
+  `prob:frontier-gjr-remaining`.
+- Exact result: cubical metrics on `Pic^0(A)` are ordinary GK
+  delta-metrics; the directly induced symmetric/antisymmetric decomposition
+  gives an isometric square splitting and an equivalence of delta-metricity;
+  on a fixed abelian variety, the universal problem is equivalent to the
+  ample symmetric case.
+- Exact frozen statement SHA-256:
+  `b37e13478cc753ff1ba131540dda18ab93f421b047e04cb9b4673370ce466655`.
+- Exact frozen proof SHA-256:
+  `3967095b314a63a2dd805a5205fbe8904e998b5284dfe350a4fa6ed6f755a919`.
+- Production run: `20260825T145229Z_b37e13478cc7`; proof item
+  `pi_10f6228b6e69e780dad8b17b`; model `gpt-5.6-sol`, scrutiny `xhigh`,
+  final verdict `correct`, zero critical errors and zero gaps.
+- Scope firewall: the theorem assumes the Gubler--Künnemann field category
+  and does not prove ordinary delta-metricity for ample symmetric cubical
+  metrics in non-isotrivial mixed reduction.  P09.2 remains active in
+  exactly that reduced range.  No novelty or priority claim is made.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260825/p09p2_cubical_delta_reduction_live_integration_receipt_20260825.md`.
+
 ## Darvas--Xia trace-source correction (not a receipt)
 
 - Status: **SOURCE IMPORT / HISTORICAL RECEIPT SUPERSEDED** (23 August

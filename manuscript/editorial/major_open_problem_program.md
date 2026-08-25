@@ -226,10 +226,17 @@ source questions under one common framework.
 ### OP-09. The remaining Gubler--Jell--Rabinoff question
 
 - **Kind:** primary-source questions.
-- **Question:** whether canonical metrics on abelian varieties are ordinary
+- **Question:** whether cubical metrics on ample symmetric line bundles over
+  non-isotrivial mixed-reduction abelian varieties are ordinary
   \(\delta\)-metrics.
-- **Status:** open; the nonsmooth mixed-reduction canonical tropicalization is
-  a mandatory boundary test.  The semipositive integral-decomposition atom
+- **Status:** open in this exact reduced range; the nonsmooth mixed-reduction
+  canonical tropicalization is a mandatory boundary test.  Production run
+  `20260825T145229Z_b37e13478cc7` settles `Pic^0`, proves the exact
+  symmetric/antisymmetric metric splitting, and shows that the universal
+  question on a fixed abelian variety is equivalent to the ample symmetric
+  case.  The run returned final `correct`, zero critical errors, and zero
+  gaps.  Good reduction, total degeneration, and isotrivial residual
+  extensions are separately settled.  The semipositive integral-decomposition atom
   is retired: the natural positive-cone formulation is verified in residual
   dimension at most one, signed generation holds in every dimension, and the
   positive-cone formulation fails in residual dimension two.  The two
