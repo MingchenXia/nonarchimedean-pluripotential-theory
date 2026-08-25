@@ -179,7 +179,7 @@ No change was required in Chapters 63, 68, 69, or 70.
 | MP--DXZ | The factor-two conversion is retained.  The sourced Kähler finite-energy bijection is separated from the still-open full projective pseudo-effective comparison. |
 | Local valuative psh | The exact PL/Gauss-shell receipt is separated from classical, nonalgebraizable, unbounded, and singular analytic extensions. |
 | Trace/restriction | Domain: generic Lelong number zero.  Input quotient: \(\mathcal I\).  Output quotient: \(P\), represented by \(\mathcal I\)-good potentials.  Restricted ideals are image ideals and only one-sided inclusion is used. |
-| Hybrid bridge | Projective hybrid Monge--Ampère continuity, canonical psh extension, and canonically polarized continuity are sourced at their precise theorem numbers.  Banach-family and general Favre-type continuity questions remain questions. |
+| Hybrid bridge | Projective hybrid Monge--Ampère continuity, canonical psh extension, and canonically polarized continuity are sourced at their precise theorem numbers.  The literal Favre--Pille-Schneider endpoint-continuity question is now disproved by the verified smooth product counterexample; only the explicitly normalized residual and the Banach-family question remain open. |
 | YTD bridge | Algebraic, smooth-ray, coercivity, and hybrid assertions retain their separate hypotheses; no blanket equivalence is asserted. |
 
 Sign and mass spot checks were repeated for model Monge--Ampère masses,

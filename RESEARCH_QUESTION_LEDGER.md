@@ -14,6 +14,17 @@ This is an internal research document, not a list of claims for publication.
 It records what has been tried, what is already known, and where a proof
 actually stops.
 
+**Controlling delta, 25 August 2026.**  Later exact production runs supersede
+the 15 August candidate classifications in three places.  The weighted cross
+has both a compact-source obstruction and a proper noncompact analytic
+realization, although equality of curvature remains only after pushforward.
+The positive-current problem has a verified regular complete-intersection
+slice but not a global converse.  The CLD hierarchy collapses at stage one on
+tropical toric partial compactifications and on the stated finite-valence
+boundaryless tropical curves; unrestricted higher-dimensional, boundary, and
+infinite-valence cases remain open.  The exact run identifiers and scope
+firewalls appear in the current tables below.
+
 ---
 
 ## 1. Status vocabulary
@@ -554,6 +565,20 @@ data was found. The older implication
 also remains open, because pullback stability of the current predicate is
 unknown. It must not be conflated with the functorial transfinite CLD sheaf.
 
+There is nevertheless a verified analytic slice.  If a regular sequence of
+length (n-1) cuts out a pure-relative-dimension-one zero fibre (C) in a
+good separated boundaryless strict (n)-fold, ambient positivity of
+(\mathrm d'\mathrm d''[h]) implies nonnegative pairing of
+(\mathrm d'\mathrm d''[h|_C]) against every test obtained by restricting a
+nonnegative smooth compactly supported ambient function.  A tightly
+supported ambient cutoff therefore detects a nonnegative isolated atom.  The
+exact statement passed production run
+`20260825T023505Z_66547f68ec32`, `gpt-5.6-sol`/`xhigh`, final `correct`, zero
+critical errors, and zero gaps.  It neither extends arbitrary curve tests nor
+supplies the residual-degree formula needed for the global converse; a
+separate attempted global deduction was rejected for exactly that missing
+smooth-curve/descent bridge.
+
 ### CLD-3. Independence in Bedford--Taylor products
 
 **Status:** the sufficient criterion is VERIFIED; the unrestricted assertion
@@ -617,9 +642,17 @@ horizontal ray and \(1\) on each vertical ray. Then
 Thus the obstruction is exactly the change of face-balancing weights under
 multiplication by \(T\).
 
-**R3 boundary:** the counterexample is verified as an abstract tropical
-current calculation. No Berkovich analytic realization of this particular
-weighted current is asserted.
+**25 August boundary update:** the counterexample remains an abstract
+Bedford--Taylor calculation, but its weighted geometry now has a genuine
+analytic realization.  The proper tropicalization of
+(V((x-1)(y-1))^{\an}) is exhausted by compact harmonic charts, and the
+cycle (2[Y_h]+[Y_v]) gives the desired positive current.  The two curvature
+measures are unequal at distinct Gauss points upstairs and become equal only
+after proper pushforward.  Thus production run
+`20260825T021353Z_058a4390b0fb` realizes the weighted configuration but does
+not supply an analytic Bedford--Taylor counterexample.  The literal compact
+full-cross chart is ruled out by run
+`20260825T024519Z_16376e0d52eb`.
 
 ### CLD-5. Non-Archimedean Kähler forms and Kodaira theory
 
@@ -709,7 +742,9 @@ nonnormal germs.
 
 ### CLD-8. Early collapse of the psh hierarchy
 
-**Status:** corrected book formulation; open; prepared Rethlas packet not run.
+**Status:** verified on tropical toric partial compactifications and on the
+stated finite-valence boundaryless tropical curves; open in the unrestricted
+scope.
 
 CLD Lemma 8.1.4 proves eventual stabilization by a cardinality argument.
 Remark 8.1.6 literally says stationarity is unknown, contradicting that
@@ -720,6 +755,18 @@ also lies at stage one. The meaningful question is therefore whether
 otherwise uniformly controlled early ordinal suffices on natural classes of
 affine refined tropical spaces. No second-stage example is known at the
 cutoff. Eventual set-theoretic stationarity is not an open problem.
+
+The first natural cases are now closed.  On every tropical toric partial
+compactification with the standard Lagerberg smooth structure, the toric psh,
+CLD psh, and first-stage CLD psh sheaves coincide.  Stage one also suffices on
+a one-dimensional boundaryless affine tropical space locally modeled on a
+finite balanced complex with ambient-induced smooth structure; the proof
+includes vertex Jensen inequalities, a Farkas support covector, chordal
+approximation, and smooth monotone regularization on one fixed star.  The
+exact packet passed production run
+`20260825T024707Z_d1b8d7eaf79e`, `gpt-5.6-sol`/`xhigh`, final `correct`, zero
+critical errors, and zero gaps.  Higher-dimensional arbitrary balanced
+spaces, tropical boundary points, and infinite-valence stars remain open.
 
 ### CLD-9. Local psh metrics versus global psh metrics
 
@@ -1051,7 +1098,7 @@ for its full receipt.
 | R3-01 | literal equality of smooth CLD, semipositive PL, current-psh, classical psh, and global BFJ/BJ psh | **DISPROVED** already on a tropical interval and by the local/global signature mismatch |
 | R3-02 | semipositive PL versus classical PL psh | **VERIFIED** for complete nontrivially valued \(k\), good strict spaces, and \(\mathbf R\)-PL functions |
 | R3-03 | maximum principle for the 2025 CLD psh sheaf | **VERIFIED** as a consequence of the submitted GR-C primary preprint's CLD-to-classical comparison and maximum principles |
-| R3-04 | current-psh PL implies semipositive PL | **OPEN** outside the sourced curve/Euclidean cases |
+| R3-04 | current-psh PL implies semipositive PL | **OPEN** globally; the regular complete-intersection slice against ambient tests is **VERIFIED** by `20260825T023505Z_66547f68ec32`, while the attempted degree--atom completion was rejected |
 | R3-05 | curve comparison and regularization | **VERIFIED** with weakly smooth nets in general smooth boundaryless curve scope; unrestricted CLD-smooth regularization is **OPEN** |
 | R3-06 | global BFJ/BJ psh gives local classical weights | **VERIFIED** for the FS/model-net definitions; the reverse arrow is **OPEN** |
 | R3-07 | raw local FS envelope | **VERIFIED** for a nonempty pointwise-bounded-above family when the raw supremum is already usc; the unrestricted usc-regularized envelope is **OPEN** |
@@ -1064,7 +1111,7 @@ for its full receipt.
 | R3-14 | Bingener/SS comparison | **VERIFIED** for interiorly locally finite-type Stein-algebra schemes: analytification, flat/completion comparison, and interiorly proper direct images; coherent algebraization near an excellent Stein compact also requires interior separation and proper support, while finite étale Riemann existence requires interior finite type; no positivity or MA consequence |
 | R3-15 | Berndtsson superforms as a Berkovich comparison theorem | limited Euclidean convex integration **VERIFIED**; the asserted Berkovich comparison is **DISPROVED** as attribution |
 | R3-16 | CLD uniform pluriharmonic-approximation criterion | **VERIFIED** for continuous multipliers and order-zero positive closed currents |
-| R3-17 | cross-fan obstruction | **VERIFIED** on the abstract calibrated fan using explicit decreasing smooth convex approximants; analytic realization is **CONDITIONAL** |
+| R3-17 | cross-fan obstruction | **VERIFIED** on the abstract calibrated fan; the compact full-cross chart is **DISPROVED**, and the proper noncompact weighted analytic realization is **VERIFIED** by the two 25 August production runs; equality of curvature currents upstairs remains **OPEN** |
 | R3-18 | fixed-dual-complex topology | **VERIFIED** for smooth projective \(X\) in characteristic zero; arbitrary characteristic remains **CONDITIONAL/OPEN** |
 | R3-19 | \(\mathcal I\)-class trace factorization and split product | **VERIFIED** in the displayed smooth/submanifold and split-class domains; a \(P\)-valued trace refinement is **OPEN** |
 | R3-20 | toric Cao dimension formula | **VERIFIED** for integral/rational big toric data after the live Guenancia/toric-count citation and limsup-versus-limit repair; the real transcendental extension remains **OPEN** |
@@ -1130,11 +1177,11 @@ theory row.
 | P1 | Singular/nonnormal local valuative theory; BFJ08, Bingener 1976, Xia *Stein spaces* (3 July 2026) | Test normalization, conductor, and finite-map descent on nodes, cusps, quotient and inseparable germs | Chapter 72 treats the smooth BFJ endpoint only |
 | P1 | The two remaining GJR questions: positive integral decomposition in arbitrary residual dimension and canonical ordinary \(\delta\)-metrics | Extend the verified residual-dimension-at-most-one positive decomposition beyond a one-functional nef cone; use the mixed-reduction abelian threefold as a boundary test for the metric question | Chapter 72 states the two residuals; the curve/residual-dimension-at-most-one case passed exact-current run `20260824T135721Z_81346238f7dd`, and unrestricted cohomology surjectivity is disproved by `20260824T123617Z_fcddc3abc33d` |
 | P1 | DXZ filtration-test-curve maximality, Xia Conjecture 5.29, and auxiliary-\(\eta\) independence | Start with finitely generated/toric/flag cases; do not recycle the already asserted \(H,\omega\)-independence or the now-proved positive-volume Conjecture 8.8 | The residual source-scoped packets remain open; Conjecture 8.8 is closed in its exact Chapter 55 positive-volume scope by separate exact-current gates |
-| P1 | Banach-family MA continuity and Favre hybrid-extension continuity; Pille-Schneider, JEP 10 (2023), Questions 4.9 and 3.18 | Prove FS specialization plus uniform CLN/Bergman estimates, or produce a non-hybrid jumping base | Stated separately in Chapter 72; not solved |
+| P1 | Banach-family MA continuity and normalized hybrid-extension continuity after the Favre counterexample; Pille-Schneider, JEP 10 (2023), Questions 4.9 and 3.18 | For Question 4.9, prove FS specialization or produce a non-hybrid jumping base; for the hybrid problem, prove a uniform normalized Bergman estimate or construct a non-scalar counterexample | Literal Question 3.18 and the reverse implication in Favre Question 1 are disproved by `thm:hybrid-endpoint-continuity-counterexample` (production run `20260825T030402Z_13e01361eeff`, final/correct); Chapter 72 retains only `prob:frontier-favre-hybrid-extension-normalized`, while Question 4.9 remains open |
 | P1 | BMPS higher-dimensional smoothness, Calabi--Yau tropicalizations, and Bergman-fan matroid classification | Test intrinsic contact and orthogonality on singular smooth fans; keep the recursive analytic comparison as a stronger book question | Exact source questions and book strengthenings are separated; R3-27 solves only the complete affine case |
 | P1 | Exact post-2025 YTD residuals; BJ 2509.15016v1, Darvas--Zhang 2509.15173v2, Trusiani 2605.30063v1, MPWN25 | Direct algebraic bridge, bounded divisorial support, algebraic equivariance, log-discrepancy-ray regularization, and transcendental/singular/hybrid extensions | Trusiani Corollary B removes the bare smooth-projective signature question; Chapter 72 lists only residuals |
 | P1 | Zero-volume relative energy/MA and \(P\)-sensitive bodies; DXZ/Xia/MP | Test first-nonzero-volume-coefficient rescaling for path independence and numerical dimension | Chapter 72 proves the probability and \(\mathcal I\)-body no-go boundaries |
-| P2 | Early collapse of the CLD transfinite psh hierarchy; CLD Lemma 8.1.4/Remark 8.1.6 | Prove stage-one collapse on locally finite charts or exhibit genuine transfinite rank | Eventual cardinal stabilization is closed; Chapter 72 asks only early collapse |
+| P2 | Early collapse of the CLD transfinite psh hierarchy; CLD Lemma 8.1.4/Remark 8.1.6 | Extend the verified toric and finite-valence boundaryless-curve cases to higher-dimensional balanced spaces, boundary points, or infinite stars, or exhibit genuine transfinite rank | Eventual cardinal stabilization is closed; the two natural stage-one cases passed `20260825T024707Z_d1b8d7eaf79e`; Chapter 72 retains only the unrestricted residual |
 | P2 | Exact canonical BJ approximation and threshold identities after Trusiani 2026 | Identify Trusiani's approximants term by term with the prescribed BJ sequence and normalize every threshold | Earlier chapters provide machinery; Chapter 72 does not identify them |
 
 The live Chapter 72 has 19 open-problem environments.  The book-wide literal
@@ -1144,7 +1191,7 @@ research-status records, not exercises.  The earlier trace-refinement row has
 been removed: the complete supplied Darvas--Xia chapter proves the required
 input-\(\mathcal I\)/output-\(P\) factorization, so Chapter 72 now records it as
 resolved source history.  Splitting compound environments into independently
-auditable targets gives 62 active atoms; their exact crosswalk and easy-to-hard
+auditable targets gives 61 active atoms; their exact crosswalk and easy-to-hard
 queue are recorded in
 `manuscript/editorial/open_problem_atomic_inventory_20260824.md`.  After
 Rethlas access resumed, ten mathematical production gates were completed:

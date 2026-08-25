@@ -4,7 +4,9 @@ Solver stage, run 15 August 2026. Literature cutoff 15 August 2026. Scope fixed 
 `/home/claude/work/refs/post2025_ytd_residuals.md` (binding). Book environment:
 `ch72_major_open_problems.tex`, §"Hybrid entropy slopes and the remaining compact-Kähler YTD frontier"
 (Problem `prob:frontier-hybrid-ytd`) and the two hybrid problems
-(`prob:frontier-favre-hybrid-extension`, the PS23 Question 4.9 problem).
+(`prob:frontier-favre-hybrid-extension-normalized`, the PS23
+Question 4.9 problem).  The first label is the 25 August normalized
+replacement for the now-disproved literal endpoint-continuity question.
 
 ## 0. Sources, quarantine, firewall
 
@@ -359,10 +361,13 @@ special regimes; (M5) NA Matsushima/reductivity, transcendental. Status: OPEN.
 
 ### 5.3 B3 — hybrid compactness / family MA continuity
 
-Required end theorems: (H1) continuity of the hybrid extension for polarized degenerations
-(Favre's Q1 = PS23 Q3.18; book Problem `prob:frontier-favre-hybrid-extension`): missing input is
-the degeneration-uniform Bergman oscillation estimate isolated in ch71 (lines after the problem);
-proved for canonically polarized semistable degenerations (PS23 Thm 5.1, published). (H2) family
+Required end theorems: (H1) the literal continuity question for polarized
+degenerations (Favre Q1 / PS23 Q3.18) is now disproved by the verified
+smooth-product counterexample.  Its book replacement
+`prob:frontier-favre-hybrid-extension-normalized` asks the question after
+zero-supremum normalization; the missing input is still a
+degeneration-uniform normalized Bergman estimate.  The canonically polarized
+semistable case is PS23 Theorem 5.1.  (H2) family
 MA continuity over a Banach base (PS23 Q4.9; book problem above it): reduced by PS23 Lem 4.10 to
 FS metrics/model functions; hybrid-base case done (PS23 Thm 4.11). (H3) a *family* version of the
 finite-energy compactness in MPWN25 Thm B/MP24 (fixed-\(X\) statements only at cutoff), i.e.

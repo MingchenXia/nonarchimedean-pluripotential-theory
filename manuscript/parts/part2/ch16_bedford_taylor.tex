@@ -235,7 +235,11 @@ to state them in their correct logical relation.
 \item\label{itm:ch16-hier:approach}
  A psh function is called \emph{locally approachable} when it is a section
  of $\operatorname{Psh}_{X,1}$.  Whether every psh function is locally
- approachable is open.
+ approachable remains open in general.  It holds on tropical toric partial
+ compactifications with their standard smooth structure and on the
+ finite-valence boundaryless tropical curves treated in
+ \Cref{prop:ch16-collapse-tropical-toric,%
+thm:ch16-collapse-finite-tropical-curves}.
 \end{enumerate}
 \end{proposition}
 
@@ -255,7 +259,8 @@ inclusion is immediate by transfinite induction.  Assertion
 \cref{itm:ch16-hier:cont} is \Cref{prop:cld-psh-calculus}, which is
 \cite[Proposition~8.1.11]{CLD25}.  Assertion
 \cref{itm:ch16-hier:approach} is \cite[Definition~8.1.13]{CLD25} together
-with the status recorded in \Cref{prob:frontier-cld-hierarchy}.
+with the general status recorded in \Cref{prob:frontier-cld-hierarchy}; the
+two positive cases are proved below.
 \end{proof}
 
 \begin{warning}{Stationarity is a theorem; early collapse is the open
@@ -264,8 +269,9 @@ The literal sentence of \cite[Remark~8.1.6]{CLD25} asserting that
 stationarity of the filtration is unknown is superseded by the same
 authors' \cite[Lemma~8.1.4]{CLD25}, which proves stationarity by the
 cardinality argument reproduced above and is invoked in the proofs of
-\cite[Propositions~8.1.5, 8.1.11 and 8.2.1]{CLD25}.  What is open is
-collapse at a specified early stage---above all at stage one---and CLD
+\cite[Propositions~8.1.5, 8.1.11 and 8.2.1]{CLD25}.  What is open in
+general is collapse at a specified early stage---above all at stage
+one---and CLD
 already name that property: a psh function is \emph{locally approachable}
 precisely when it lies in $\operatorname{Psh}_{X,1}$
 \cite[Definition~8.1.13]{CLD25}.  Every statement in this book about the
@@ -331,6 +337,426 @@ acts.  On a polyhedral tropical space no group moves one cell into another,
 and by \Cref{rem:ch16-collapse-reduction} the missing ingredient in general
 is exactly a local regularization operator that preserves
 $\dprimeddprime\geq0$, dominates, and is monotone in its parameter.
+\end{remark}
+
+\subsection{First-stage collapse in two polyhedral settings}
+\label{sec:ch16-collapse-positive-cases}
+
+The obstruction described in \Cref{rem:ch16-collapse-euclidean} disappears
+in two further settings.  The first is already contained in the tropical
+toric regularization theorem of Burgos Gil--Gubler--Jell--K\"unnemann.  The
+second requires a separate argument at the vertices of a tropical curve.
+
+\begin{proposition}
+\label{prop:ch16-collapse-tropical-toric}
+Let $N$ be a lattice, let $\Sigma$ be a rational polyhedral fan in
+$N_{\mathbf R}$, and equip the tropical toric partial compactification
+$N_\Sigma$ with its standard Lagerberg smooth structure.  On every open
+subset of $N_\Sigma$ one has an equality of sheaves
+\begin{equation}
+\label{eq:ch16-collapse-tropical-toric}
+ \operatorname{Psh}^{\mathrm{CLD}}_{N_\Sigma,1}
+ =\operatorname{Psh}^{\mathrm{CLD}}_{N_\Sigma}
+ =\operatorname{Psh}^{\mathrm{tor}}_{N_\Sigma},
+\end{equation}
+where the last term is the psh sheaf of Burgos
+Gil--Gubler--Jell--K\"unnemann.  In particular, the CLD hierarchy on
+$N_\Sigma$ collapses at its first decreasing-limit stage.
+\end{proposition}
+
+\begin{proof}
+Let $f$ be smooth for the standard Lagerberg structure and suppose that
+$\dprimeddprime f\geq0$.  Then $f$ is continuous, and its restriction to
+the dense stratum $N_{\mathbf R}$ is convex because its Hessian is positive
+semidefinite.  The tropical toric characterization of psh functions puts
+$f$ in $\operatorname{Psh}^{\mathrm{tor}}_{N_\Sigma}$.  That sheaf is local
+and stable under decreasing sequential limits.  The defining minimality of
+the CLD sheaf therefore gives
+\[
+ \operatorname{Psh}^{\mathrm{CLD}}_{N_\Sigma}
+ \subseteq\operatorname{Psh}^{\mathrm{tor}}_{N_\Sigma}.
+\]
+Conversely, tropical toric regularization writes every section of
+$\operatorname{Psh}^{\mathrm{tor}}_{N_\Sigma}$ locally as a decreasing
+sequence of smooth psh functions for the same standard Lagerberg structure.
+These are precisely the generators at CLD stage zero, and hence
+\[
+ \operatorname{Psh}^{\mathrm{tor}}_{N_\Sigma}
+ \subseteq\operatorname{Psh}^{\mathrm{CLD}}_{N_\Sigma,1}.
+\]
+The reverse inclusion of the first CLD stage in the generated CLD sheaf is
+tautological.  This proves \eqref{eq:ch16-collapse-tropical-toric}.  The
+literature inputs, including compatibility of the smooth structures, are
+\cite[Definition~3.1.2, Proposition~3.1.3 and Theorems~3.1.4,
+3.3.4]{BGJKK25}.
+\end{proof}
+
+We shall use the following finite-dimensional form of Farkas' lemma.  It is
+included to make the vertex argument independent of a choice of coordinates.
+
+\begin{lemma}
+\label{lem:ch16-farkas-ray-support}
+Let $v_1,\ldots,v_m\in\mathbf R^N$ and $A_1,\ldots,A_m\in\mathbf R$.
+There is a covector $\xi\in(\mathbf R^N)^*$ satisfying
+\begin{equation}
+\label{eq:ch16-farkas-ray-support}
+                         \xi(v_i)\leq A_i
+                         \quad(1\leq i\leq m)
+\end{equation}
+if and only if
+\begin{equation}
+\label{eq:ch16-farkas-ray-relations}
+ \sum_i\lambda_iA_i\geq0
+ \quad\text{whenever}\quad
+ \lambda_i\geq0\ \text{ and }\ \sum_i\lambda_i v_i=0.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+If \eqref{eq:ch16-farkas-ray-support} holds, multiply its inequalities by
+$\lambda_i$ and sum to obtain \eqref{eq:ch16-farkas-ray-relations}.
+Conversely, let
+\[
+ L=\bigl\{(\xi(v_1),\ldots,\xi(v_m)):\xi\in(\mathbf R^N)^*\bigr\}
+ \subseteq\mathbf R^m,
+ \qquad P=\mathbf R_{\geq0}^m.
+\]
+The system \eqref{eq:ch16-farkas-ray-support} is solvable precisely when
+$A=(A_i)$ belongs to the polyhedral cone $L+P$.  If it were not solvable,
+finite-dimensional strict separation from the closed polyhedral cone
+$L+P$ would give a vector $\lambda\in\mathbf R^m$ such that
+\[
+              \sum_i\lambda_iA_i<0,
+ \qquad
+              \sum_i\lambda_i z_i\geq0
+              \quad(z\in L+P).
+\]
+Since both $L$ and $-L$ lie in $L+P$, the second inequality makes
+$\lambda$ orthogonal to $L$; equivalently,
+$\sum_i\lambda_i v_i=0$.  Since $P\subseteq L+P$, it also gives
+$\lambda_i\geq0$ for every $i$.  This contradicts
+\eqref{eq:ch16-farkas-ray-relations}, and proves the converse.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch16-collapse-finite-tropical-curves}
+Let $X$ be a one-dimensional boundaryless affine tropical space.  Assume
+that every point has a neighbourhood isomorphic, as a calibrated affine
+tropical space with smooth structure, to an open subset of the support of a
+finite balanced one-dimensional polyhedral complex in some $\mathbf R^N$,
+with the smooth structure induced by ambient smooth functions.  Then
+\begin{equation}
+\label{eq:ch16-collapse-finite-tropical-curves}
+                    \operatorname{Psh}_{X,1}
+                    =\operatorname{Psh}_X.
+\end{equation}
+More precisely, every CLD-psh germ is represented on one fixed open
+neighbourhood by the pointwise decreasing limit of a sequence of smooth
+CLD-psh functions defined on that same neighbourhood.
+\end{theorem}
+
+\begin{proof}
+Let $\mathscr C$ be the sheaf of functions whose restriction to every
+connected segment in an edge closure is extended-real convex.  Convexity on
+an interval is local, so this is a sheaf, and it is stable under decreasing
+limits.  It contains every smooth function $u$ with
+$\dprimeddprime u\geq0$, because this inequality gives a nonnegative second
+directional derivative on every edge.  Minimality of the CLD sheaf gives
+\begin{equation}
+\label{eq:ch16-curve-branch-convexity}
+                         \operatorname{Psh}_X\subseteq\mathscr C.
+\end{equation}
+
+We first treat a point in the interior of an edge.  Choose an affine
+coordinate and fixed intervals
+\[
+                       V=(-\rho,\rho)
+                       \Subset K=[-R,R]
+                       \Subset I.
+\]
+By \eqref{eq:ch16-curve-branch-convexity}, the restriction to $I$ of a
+CLD-psh function $u$ is convex.  Such a function is either identically
+$-\infty$ or finite.  Indeed, suppose that $u(x)=-\infty$ and $u(y)$ is
+finite.  If $x<y$, choose $z>y$ in $I$ and write
+$y=(1-s)x+sz$, where $0<s<1$.  Convexity would give
+\[
+                    u(y)\leq(1-s)u(x)+su(z)=-\infty,
+\]
+a contradiction; the case $x>y$ is symmetric.  The identically
+$-\infty$ germ is the decreasing limit of the smooth psh constants $-k$.
+
+Suppose that $u$ is finite.  Then it is continuous.  On $K$, take chordal
+interpolants $h_j$ along partitions whose meshes tend to zero.  Convexity
+and uniform continuity give $h_j\geq u$ and $h_j\to u$ uniformly.  Each
+$h_j$ is the maximum of the affine extensions of its finitely many pieces.
+Applying the regularized maximum of \Cref{lem:ch15-regmax} to those affine
+functions, with $\varepsilon_j\downarrow0$, gives a smooth convex function
+$g_j$ on $I$ such that
+\[
+                         h_j\leq g_j\leq h_j+\varepsilon_j
+                         \quad\text{on }K.
+\]
+Thus $g_j\to u$ uniformly on $K$.  If
+$\delta_j=\lVert g_j-u\rVert_K$, \Cref{lem:ch15-shift} gives a subsequence
+of $g_j+2\delta_j$ decreasing to $u$ on $K$, and therefore on the one fixed
+open interval $V$.  This proves first-stage membership at every interior
+point.
+
+It remains to work at a vertex.  After shrinking, write its local star as
+\begin{equation}
+\label{eq:ch16-curve-balanced-star}
+ S=\{0\}\cup\coprod_{i=1}^m(0,r_i)v_i\subset\mathbf R^N,
+ \qquad
+ \sum_{i=1}^m w_i v_i=0,
+ \qquad w_i>0.
+\end{equation}
+For a function $u:S\to\mathbf R\cup\{-\infty\}$, put
+$u_i(t)=u(tv_i)$.  By \eqref{eq:ch16-curve-branch-convexity}, every
+CLD-psh function has extended-real convex branch functions, including at
+the vertex endpoint.
+
+We next prove, including its locality, that every such function satisfies
+the junction inequality
+\begin{equation}
+\label{eq:ch16-curve-junction-jensen}
+ u(0)\leq\sum_{i=1}^m\alpha_i u_i(t_i)
+\end{equation}
+whenever $\alpha_i\geq0$, $\sum_i\alpha_i=1$,
+$0\leq t_i<r_i$, and $\sum_i\alpha_i t_i v_i=0$.  Let $\mathscr J$ be the
+class of functions on open subsets of the local polyhedral complex that are
+extended-real convex on every edge segment and satisfy
+\eqref{eq:ch16-curve-junction-jensen} for every tuple contained in every
+vertex star in their domain.  Only the sheaf-gluing property for the
+junction inequality requires proof.  Suppose that a function belongs to
+$\mathscr J$ on the members of an open cover, fix a vertex star and an
+admissible tuple $(\alpha_i,t_i)$ in it, and choose a member of the cover
+containing the vertex.  Finiteness of the star gives $s\in(0,1)$ such that
+all the points $st_iv_i$ lie with the vertex in a smaller star contained in
+that member.  The junction inequality there gives
+\[
+                         u(0)\leq
+                         \sum_i\alpha_i u_i(st_i).
+\]
+If $u(0)=-\infty$, the desired inequality is automatic.  If $u(0)$ is
+finite, the displayed inequality shows that no summand with
+$\alpha_i>0$ is $-\infty$.  Convexity on the segment from $0$ to $t_iv_i$
+gives
+\[
+                  u_i(st_i)\leq
+                  (1-s)u(0)+s u_i(t_i).
+\]
+Taking the weighted sum and cancelling $(1-s)u(0)$ proves
+\eqref{eq:ch16-curve-junction-jensen} for the original tuple.  Thus
+$\mathscr J$ is a subsheaf.
+
+The class $\mathscr J$ is stable under decreasing sequential limits:
+branchwise convexity passes to the limit, as does every junction inequality,
+which contains only a finite weighted sum and no value $+\infty$.  It also
+contains every smooth psh function.  Indeed, if
+\[
+                   \ell(x)=u(0)+\mathrm d u(0)(x)
+\]
+is its ambient affine tangent at the vertex, branchwise convexity gives
+$u_i(t)\geq\ell(tv_i)$.  Taking an admissible convex combination and using
+$\sum_i\alpha_it_iv_i=0$ proves
+\eqref{eq:ch16-curve-junction-jensen}.  Minimality of
+$\operatorname{Psh}_X$ now shows that every CLD-psh function belongs to
+$\mathscr J$.
+
+We next dispose of the value $-\infty$.  Suppose first that $u(0)$ is
+finite and set
+\[
+                  L_i=\lim_{t\downarrow0}u_i(t).
+\]
+Upper semicontinuity, recalled in \Cref{prop:cld-psh-calculus}, gives
+$L_i\leq u(0)$.  Apply \eqref{eq:ch16-curve-junction-jensen} with a common
+small $t$ and with
+\[
+                 \alpha_i=\frac{w_i}{\sum_jw_j}.
+\]
+The balancing relation in \eqref{eq:ch16-curve-balanced-star} makes this an
+admissible convex combination.  On letting $t\downarrow0$, we obtain
+\[
+ u(0)\leq\sum_i\alpha_iL_i\leq u(0).
+\]
+All $\alpha_i$ are positive, so $L_i=u(0)$ for every $i$.  If some
+$u_i(t_0)$ were $-\infty$, convexity between $0$ and $t_0$ would force
+$u_i(t)=-\infty$ for $0<t<t_0$, contradicting $L_i=u(0)$.  Thus $u$ is
+finite and continuous on a smaller star; finiteness of the set of branches
+is used here.
+
+If $u(0)=-\infty$, convexity shows on each branch that $u_i$ is identically
+$-\infty$ on an initial interval: this is immediate if no finite value
+occurs, while a finite value $u_i(t_i)$ forces
+$u_i(t)\leq(1-t/t_i)u(0)+(t/t_i)u_i(t_i)=-\infty$ for $0<t<t_i$.
+There are only finitely many branches, so after one common shrinking
+$u\equiv-\infty$.  Again the constants $-k$ decrease to this germ.  It
+remains to treat the finite continuous case.
+
+Choose radii $0<\rho_i<R_i<r_i$ and put
+\[
+ V=\{0\}\cup\coprod_i(0,\rho_i)v_i,
+ \qquad
+ K=\{0\}\cup\coprod_i(0,R_i]v_i.
+\]
+Thus $V$ is one fixed open neighbourhood of the vertex and its closure is
+contained in the compact star $K\Subset S$.  On each $[0,R_i]$ choose a
+finite partition starting at zero, and let $h_i$ be the chordal interpolant
+of $u_i$.  Along a sequence of partitions whose meshes tend to zero, the
+resulting continuous functions $h$ are piecewise affine and convex on every
+branch, satisfy $h\geq u$, and converge uniformly to $u$ on $K$.
+
+Let $t_i>0$ be the first positive partition point on branch $i$ and set
+\[
+                   A_i=\frac{u_i(t_i)-u(0)}{t_i}.
+\]
+We claim that there is a covector $\xi\in(\mathbf R^N)^*$ such that
+\begin{equation}
+\label{eq:ch16-curve-support-covector}
+                         \xi(v_i)\leq A_i
+                         \quad(1\leq i\leq m).
+\end{equation}
+By \Cref{lem:ch16-farkas-ray-support}, it is enough to check all
+nonnegative relations among the $v_i$.  Let $\lambda_i\geq0$ and
+$\sum_i\lambda_i v_i=0$.  If $\lambda\neq0$, put
+\[
+ \beta_i=
+ \frac{\lambda_i/t_i}{\sum_j\lambda_j/t_j}.
+\]
+Then $\sum_i\beta_i=1$ and $\sum_i\beta_it_iv_i=0$.  Applying
+\eqref{eq:ch16-curve-junction-jensen} to the points $t_iv_i$, subtracting
+$u(0)$, and clearing the positive denominator gives
+\[
+                  0\leq\sum_i\lambda_i
+                  \frac{u_i(t_i)-u(0)}{t_i}
+                  =\sum_i\lambda_iA_i.
+\]
+The zero relation is automatic, so
+\eqref{eq:ch16-curve-support-covector} follows.
+
+Since the slopes of a convex chordal interpolant are nondecreasing, the
+ambient affine function
+\[
+                         \ell(x)=u(0)+\xi(x)
+\]
+satisfies $\ell\leq h$ throughout $K$.  On branch $i$, write the convex
+piecewise-affine function $h_i$ as the maximum of the affine extensions of
+its finitely many pieces:
+\[
+                         h_i(t)=\max_{1\leq j\leq q_i}L_{ij}(t).
+\]
+For $C>0$, set
+\[
+                         B_i(t)=u(0)+C+\xi(tv_i).
+\]
+Choose $0<2\varepsilon<C$ and use the regularized maximum of
+\Cref{lem:ch15-regmax} to define
+\begin{equation}
+\label{eq:ch16-curve-regularized-approximant}
+ g_i(t)=M_\varepsilon
+       \bigl(B_i(t),L_{i1}(t),\ldots,L_{iq_i}(t)\bigr).
+\end{equation}
+At $t=0$, the entry $B_i$ has value $u(0)+C$, while every $L_{ij}(0)$ is
+at most $u(0)$.  The truncation property of
+\Cref{lem:ch15-regmax}\,\cref{itm:ch15-regmax-trunc} therefore gives
+$g_i=B_i$ on an initial interval of each branch.  Since there are finitely
+many branches, the $g_i$ glue near the vertex to the single ambient affine
+function
+\[
+                         x\longmapsto u(0)+C+\xi(x).
+\]
+Away from the vertex, $g_i$ is an ordinary smooth function of the edge
+coordinate; choosing a covector taking $v_i$ to $1$ extends that coordinate,
+and hence $g_i$, smoothly to the ambient space.  Thus the glued function
+$g$ is smooth for the stated tropical smooth structure.  Each $g_i$ is
+convex because $M_\varepsilon$ is convex and coordinatewise nondecreasing
+and all its entries are affine.  Consequently
+$\dprimeddprime g\geq0$.
+
+The inequality $\ell\leq h$ gives $B_i\leq h_i+C$, while the sandwich
+estimate in \Cref{lem:ch15-regmax}\,\cref{itm:ch15-regmax-sandwich} gives
+\begin{equation}
+\label{eq:ch16-curve-uniform-sandwich}
+                         h\leq g\leq h+C+\varepsilon
+                         \quad\text{on }K.
+\end{equation}
+Letting $C$ and $\varepsilon$ tend to zero therefore approximates each
+chordal $h$ uniformly from above by functions smooth and psh on the fixed
+open star $V$.  The affine extensions in
+\eqref{eq:ch16-curve-regularized-approximant} define each branch function
+on all of $(0,\rho_i)$; the smaller neighbourhood on which it agrees with
+the ambient affine function may depend on the approximant, as smoothness
+allows.
+
+For successive chordal interpolants $h_j$, choose smooth psh $g_j$ with
+$\lVert g_j-h_j\rVert_K\leq j^{-1}$.  Then $g_j\to u$ uniformly on $K$.
+Put $\delta_j=\lVert g_j-u\rVert_K$.  By \Cref{lem:ch15-shift}, the
+sequence $g_j+2\delta_j$ has a decreasing subsequence converging uniformly,
+and hence pointwise, to $u$ on $K$.  It is in particular defined,
+decreasing, and convergent on the one fixed open neighbourhood $V$.  Adding
+a constant preserves smooth plurisubharmonicity.  This proves first-stage
+membership at the vertex, and hence
+\eqref{eq:ch16-collapse-finite-tropical-curves}.
+\end{proof}
+
+\begin{example}
+\label{ex:ch16-collapse-weighted-tripod}
+Let $S\subset\mathbf R^2$ be the open tripod with rays
+\[
+ v_1=(1,0),\qquad v_2=(0,1),\qquad v_3=(-1,-1),
+\]
+all of weight one.  Define $u(0)=0$ and, for $t>0$,
+\[
+                         u_1(t)=u_2(t)=0,
+ \qquad                   u_3(t)=t.
+\]
+This function is convex on every branch but is not smooth at the vertex:
+its three outgoing slopes do not come from one ambient covector.  For an
+admissible tuple in \eqref{eq:ch16-curve-junction-jensen}, the relation
+$\sum_i\alpha_it_iv_i=0$ says
+$\alpha_1t_1=\alpha_2t_2=\alpha_3t_3$, and hence
+\[
+                   \sum_i\alpha_i u_i(t_i)=\alpha_3t_3\geq0=u(0).
+\]
+The approximation in the proof is especially transparent here.  Take
+$\xi=0$ and, for $0<2\varepsilon<C$, regularize branchwise
+$\max\{C,u_i(t)\}$.  The result equals the common constant $C$ near the
+vertex, is smooth and convex on every branch, and differs from $u$ by at
+most $C+\varepsilon$ on any fixed compact substar.  Applying
+\Cref{lem:ch15-shift} produces a decreasing sequence of smooth psh
+functions converging to $u$, so $u\in\operatorname{Psh}_{S,1}$.
+
+The junction condition is essential.  The branchwise affine function
+$q_i(t)=-t$ is convex on all three rays, but the balanced choice
+$\alpha_i=1/3$ and $t_i=t>0$ gives
+$\sum_i\alpha_iq_i(t_i)=-t<q(0)=0$.  Therefore $q$ is not CLD-psh, by
+\eqref{eq:ch16-curve-junction-jensen}.
+\end{example}
+
+\begin{remark}
+\label{rem:ch16-collapse-scope-firewall}
+The two results have different and exact scopes.  In
+\Cref{prop:ch16-collapse-tropical-toric}, the space may have tropical
+boundary, but it must be a tropical toric partial compactification equipped
+with the standard Lagerberg structure to which the cited toric
+regularization theorem applies.  In
+\Cref{thm:ch16-collapse-finite-tropical-curves}, finiteness of the local
+star and the positive balancing relation through all its branches are used
+twice: first to recover continuity at the vertex and then to obtain a common
+ambient supporting covector.  The proof does not cover tropical boundary
+points or the infinite-star spaces of \cite[\S6.7.3]{CLD25}.
+
+In dimensions at least two, the analogous Jensen reduction leaves a
+genuine face-compatibility problem for polyhedral regularization.  The
+regularity property studied by Botero--Mazzon--Pille-Schneider isolates the
+piecewise-affine part of that problem and is established in dimension one,
+but piecewise-affine approximation is not by itself approximation by the
+smooth functions defining CLD stage zero
+\cite[Theorem~6.4, Remark~6.6 and Proposition~6.13]{BMPS26}.  The
+regularized-maximum construction above supplies that extra bridge only in
+the finite one-dimensional setting.  Thus neither result proves collapse
+for arbitrary balanced tropical spaces, and the unrestricted problem in
+\Cref{prob:frontier-cld-hierarchy} remains open.
 \end{remark}
 
 \subsection{Composition, maxima, and tropical convexity}
@@ -3228,18 +3654,27 @@ no way compatible with $\dprimeddprime h_j=0$, which is precisely the
 hypothesis \eqref{eq:ch16-pluriharmonic-approximation} that fails.
 \end{remark}
 
-\begin{warning}{This is an abstract fan, not an analytic space}
-\Cref{ex:ch16-cross-fan} is a counterexample on an abstract calibrated
-tropical fan.  No Berkovich-analytic realization of this weighted
-configuration is asserted; whether one exists is
-\Cref{prob:frontier-cross-fan}.  In particular the example does \emph{not}
-exhibit a positive closed current on an analytic space that fails the
-Bedford--Taylor property, and CLD's remark that every current they construct
-is Bedford--Taylor is not contradicted.  What the example does establish is
-that the property cannot be proved from cellwise harmonicity and balancing
-alone: any proof must use a further input, and
-\Cref{thm:bt-harmonic-compatibility} shows what that input is in the
-harmonic case.
+\begin{warning}{The analytic realization is only after pushforward}
+\Cref{ex:ch16-cross-fan} is itself a counterexample on an abstract
+calibrated tropical fan.  The weighted fan and its positive closed current
+do admit the noncompact analytic realization of
+\Cref{prop:verified-cross-analytic-realization}: a proper moment
+tropicalization has the full cross as image, is exhausted by compact
+harmonic-tropicalization charts, and carries an analytic cycle with weights
+\((2,2,1,1)\).  The full cross cannot itself be the image of one harmonic
+tropicalization in the definition used here, because that definition has a
+compact source; see \Cref{prop:verified-cross-compact-obstruction}.
+
+This still does \emph{not} exhibit a positive closed analytic current that
+fails the Bedford--Taylor property.  Upstairs, the two pulled-back
+potentials have the distinct curvature measures displayed in
+\eqref{eq:verified-cross-upstairs-curvatures}; they become equal only after
+proper tropical pushforward identifies two different Gauss points.
+Accordingly CLD's remark that every current they construct is
+Bedford--Taylor is not contradicted.  The example and its realization show
+that cellwise harmonicity and balancing alone do not prove the property;
+one needs the further compatibility isolated in
+\Cref{thm:bt-harmonic-compatibility}.
 \end{warning}
 
 \subsection{The three levels of ambiguity}
@@ -3748,7 +4183,10 @@ audited statements \Cref{thm:verified-cld-criterion},
 \Cref{prop:verified-cell-rigidity} and \Cref{prop:verified-cross-fan} of
 \Cref{chap:verified-extensions}, reproved here because this is where they
 are used.  The cross-fan is a counterexample on an abstract calibrated fan;
-its analytic realizability is \Cref{prob:frontier-cross-fan}.  The
+the weighted configuration and pushed defect are realized analytically in
+\Cref{prop:verified-cross-analytic-realization}, while
+\Cref{rem:verified-cross-upstairs-firewall} isolates the stronger
+upstairs-equality question that remains open.  The
 distinction between the three harmonicity conditions tabulated in
 \Cref{sec:ch16-reading-bt} follows \cite[Remark~7.8.3]{CLD25} for the first
 two and \cite{GR25Classical} for the third.

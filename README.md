@@ -63,7 +63,7 @@ supplied envelope manuscript are identified as such and are not
 misrepresented as previously published theorems.
 
 The editorial records also keep the literal research-frontier inventory at 20
-open problems (one in Chapter 71 and 19 in Chapter 72), split into 62 active
+open problems (one in Chapter 71 and 19 in Chapter 72), split into 61 active
 atoms, together with the source-cutoff
 dates, and every remaining mathematical boundary visible.  The clean-build
 and exact-current Rethlas gates that have passed are recorded separately from

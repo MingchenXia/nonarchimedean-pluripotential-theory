@@ -47,7 +47,7 @@ retained only to disclose the superseded intermediate classification.
 
 **Exact active count:** Chapter 72 contains 19 problem environments and
 Chapter 71 contains the separate projective-rational full-cone problem, for
-20 book-wide and 62 independently auditable active atoms. All 20 retain a
+20 book-wide and 61 independently auditable active atoms. All 20 retain a
 genuinely open residual scope. At the
 whole-environment level the cutoff count is: resolved 0, disproved 0,
 conditional 0, genuinely open 20. Resolved, disproved, and conditional
@@ -80,8 +80,12 @@ source questions under one common framework.
 - **Question:** does positivity of \(\mathrm d'\mathrm d''[h]\) for a real PL
   function imply residue-nef semipositivity?
 - **Status:** the exact conditional curve-restriction implication is
-  verified; a coarse tropical restriction principle is disproved; the
-  analytic positive-current converse remains open.
+  verified; a coarse tropical restriction principle is disproved; and the
+  regular complete-intersection slice is verified against restrictions of
+  nonnegative smooth ambient tests by production run
+  `20260825T023505Z_66547f68ec32`.  The analytic positive-current converse
+  remains open.  A separate global candidate was rejected because its
+  detecting curve was not placed in the smooth strict degree--atom scope.
 - **Packet:** cld_current_curve_pullback.md (run completed; use only the
   dispositions recorded in the attempt ledger).
 
@@ -154,9 +158,17 @@ source questions under one common framework.
   stabilization, while Remark 8.1.6 literally says stationarity is unknown.
   The meaningful analytic question is collapse at stage one, or at a
   uniformly controlled early ordinal.
-- **Status:** open; no example of genuine second-stage rank is known at the
-  cutoff.
-- **Packet:** cld_psh_early_collapse.md (prepared, not run).
+- **Verified natural cases:** on every tropical toric partial compactification
+  with its standard Lagerberg smooth structure, the CLD, stage-one CLD, and
+  toric psh sheaves coincide; stage one also suffices on finite-valence
+  boundaryless one-dimensional affine tropical spaces with ambient-induced
+  smooth structure.  The exact packet passed production run
+  `20260825T024707Z_d1b8d7eaf79e`.
+- **Status:** open for arbitrary higher-dimensional balanced spaces, tropical
+  boundary points, and infinite-valence stars; no example of genuine
+  second-stage rank is known at the cutoff.
+- **Packet:** cld_psh_early_collapse.md, superseded in these two verified
+  cases by the 25 August exact packet.
 
 ### OP-08. Local psh metrics versus global psh metrics
 
@@ -332,12 +344,19 @@ source questions under one common framework.
   open over a general integral Banach ring.
 - **Packet:** banach_family_ma_continuity.md.
 
-### OP-18. Continuity of Favre's hybrid extension
+### OP-18. Normalized hybrid continuity after the Favre counterexample
 
-- **Kind:** Favre Question 1 / PS23 Question 3.18.
-- **Status:** psh gluing is known; continuity of the endpoint extension in the
-  general stated class remains open.
-- **Packet:** favre_hybrid_extension.md.
+- **Resolved literal question:** Favre Question 1 / PS23 Question 3.18 is
+  false.  The smooth product counterexample is
+  `thm:hybrid-endpoint-continuity-counterexample`; production Rethlas run
+  `20260825T030402Z_13e01361eeff` returned `final/correct`.
+- **Active residual:** after fixing a continuous model metric and normalizing
+  the fibrewise suprema on both the complex and non-Archimedean fibres, does
+  the canonical hybrid psh extension become continuous?
+- **Status:** the literal atom is retired; the one-atom normalized replacement
+  `prob:frontier-favre-hybrid-extension-normalized` remains open.
+- **Packet:** favre_hybrid_extension.md; controlling receipt
+  `p18_favre_hybrid_extension_counterexample_production_receipt.md`.
 
 ### OP-19. Residual compact-Kähler and hybrid YTD questions
 
@@ -358,14 +377,23 @@ source questions under one common framework.
 - **Packets:** hybrid_entropy_ytd.md and
   post2025_ytd_residuals.md (the latter prepared, not run).
 
-### OP-21. Analytic realization of the cross-fan obstruction
+### OP-21. The residual upstairs cross-fan problem
 
-- **Kind:** book-formulated realization question.
-- **Question:** realize the verified weighted cross as a harmonic
-  tropicalization and positive analytic/delta current, or prove an analytic
-  multiplicity obstruction.
-- **Status:** open.
-- **Packet:** cross_fan_analytic_realization.md.
+- **Kind:** book-formulated Bedford--Taylor compatibility question.
+- **Resolved predecessors:** compactness rules out the full unbounded cross
+  as the image of one literal harmonic chart; a proper tropicalization of a
+  noncompact reduced boundaryless curve realizes the cross and the positive
+  cycle current with weights `(2,2,1,1)`.  Production runs
+  `20260825T024519Z_16376e0d52eb` and
+  `20260825T021353Z_058a4390b0fb` are final `correct`, with zero critical
+  errors and zero gaps.
+- **Question:** can the analytic curvature currents be made equal upstairs
+  while `d'd''((U-V)T)` remains nonzero, or do positive closed analytic and
+  delta-currents force Bedford--Taylor compatibility?
+- **Status:** open.  The verified realization has unequal curvature measures
+  at two distinct Gauss points and equality only after proper pushforward.
+- **Packet:** the original realization packet is resolved history; a new
+  upstairs-equality packet is required.
 
 ## Historical corrections that must not return to the queue
 

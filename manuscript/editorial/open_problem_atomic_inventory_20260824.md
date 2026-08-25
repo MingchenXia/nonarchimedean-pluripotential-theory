@@ -26,13 +26,16 @@ After deletion of the unrestricted Gubler--Jell--Rabinoff cohomological
 isomorphism question, which is negatively answered in the book, the
 generalized-Lelong separation question, which is proved in
 `thm:local-generalized-lelong-separation`, and the real-toric current-level
-question, which is proved in `thm:ok-toric-real-products`, the exact count is
+question, which is proved in `thm:ok-toric-real-products`, and retirement of
+the two original cross-fan realization atoms, and retirement of the literal
+Favre endpoint-continuity atom with a one-for-one normalized replacement,
+the exact count is
 
 ```text
-20 formal problem environments = 62 active atomic research questions.
+20 formal problem environments = 61 active atomic research questions.
 ```
 
-The identifiers `P00.1` through `P21.2` below are an editorial addressing
+The identifiers `P00.1` through `P21.3` below are an editorial addressing
 scheme.  The prefix records the formal environment, not a theorem number in
 the book.
 
@@ -133,8 +136,13 @@ open.
   uniformly controlled early ordinal works on a natural class of affine
   tropical spaces.
 
-Eventual cardinal stabilization is known.  Early analytic collapse and a
-uniform early bound remain open.
+Eventual cardinal stabilization is known.  Production run
+`20260825T024707Z_d1b8d7eaf79e` proves stage-one collapse on tropical toric
+partial compactifications and on finite-valence boundaryless
+one-dimensional affine tropical spaces with ambient-induced smooth
+structure.  The two atoms retain only higher-dimensional arbitrary balanced
+spaces, tropical boundary points, infinite-valence stars, and the absence of
+a uniform general bound.
 
 ### `prob:frontier-cld-global-metric` --- 2 atoms
 
@@ -261,12 +269,16 @@ skeleton or to rational PL potentials.
   Monge--Amp\`ere integral over a general integral Banach ring.  The hybrid
   base case is known; the general Banach-base statement is open.
 
-### `prob:frontier-favre-hybrid-extension` --- 1 atom
+### `prob:frontier-favre-hybrid-extension-normalized` --- 1 atom
+
+The original endpoint-continuity atom is disproved by
+`thm:hybrid-endpoint-continuity-counterexample` and retired.  The
+one-for-one replacement leaves the inventory total unchanged.
 
 - **P18.1** `[T2; open]` Decide whether continuous Archimedean and
-  non-Archimedean endpoint metrics force continuity of the glued hybrid
-  metric.  The psh property and special semistable canonical cases are
-  known; general continuity is open.
+  non-Archimedean endpoint metrics force continuity of the canonical hybrid
+  metric after fixing a continuous model reference and imposing zero-supremum
+  normalization on every complex fibre and on the non-Archimedean fibre.
 
 ### `prob:frontier-hybrid-ytd` --- 4 atoms
 
@@ -285,16 +297,21 @@ projective results described in the chapter.
 The dated smooth polarized projective claims listed in the chapter are not
 open atoms.  The four corrected residual targets above remain open.
 
-### `prob:frontier-cross-fan` --- 2 atoms
+### `prob:frontier-cross-fan-upstairs` --- 1 atom
 
-- **P21.1** `[T1; open]` Realize the verified weighted cross-fan as a
-  harmonic tropicalization of a good strict analytic space, or prove a
-  realization obstruction.
-- **P21.2** `[T2; open]` Realize the displayed weights by a positive closed
-  analytic or delta-current, or prove a multiplicity obstruction.
+- **P21.3** `[T2; open]` Construct a good strict analytic space, a positive
+  closed order-zero analytic or delta-current \(T\), and continuous psh
+  functions \(U,V\) with equal analytic curvature currents but
+  \(\mathrm d'\mathrm d''((U-V)T)\ne0\), or prove that the available
+  analytic and delta-currents force Bedford--Taylor compatibility.
 
-The abstract calibrated fan counterexample is verified.  Both analytic
-realization targets remain open.
+The two preceding realization atoms are retired.  `P21.1` is negatively
+settled by the compact-source obstruction in production run
+`20260825T024519Z_16376e0d52eb`.  `P21.2` is positively settled by the
+proper noncompact split-Gauss construction and its positive cycle current
+in seven-item production run `20260825T021353Z_058a4390b0fb`.  In that
+construction the two curvature currents are unequal upstairs and agree only
+after pushforward, so it does not settle `P21.3`.
 
 ## Easy-to-hard Rethlas queue
 
@@ -302,16 +319,15 @@ The tiers estimate how bounded the first exact submission can be, not the
 probability that its expected answer is affirmative.  A verified
 counterexample retires an atom just as a verified proof does.
 
-### T1 --- concrete first submissions (2 atoms)
+### T1 --- concrete first submissions (1 atom)
 
 Recommended internal order:
 
-1. `P21.1`
-2. `P01.1`
+1. `P01.1`
 
 ### T2 --- focused problems with one principal missing bridge (11 atoms)
 
-`P21.2`, `P11.1`, `P07.1`, `P00.1`, `P17.1`, `P18.1`, `P03.1`,
+`P21.3`, `P11.1`, `P07.1`, `P00.1`, `P17.1`, `P18.1`, `P03.1`,
 `P06.1`, `P06.2`, `P06.3`, `P09.1`.
 
 ### T3 --- major theorems within mature frameworks (15 atoms)

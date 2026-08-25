@@ -262,6 +262,30 @@ scope of any receipt.
   `192baaddd4858b025099ff44938f1d075b4dfb4ad555c8deee082155e5cc7e15`.
 - Source firewall: neither packet cites or depends on arXiv:1710.09731.
 
+## Chapter 16 — first-stage CLD collapse in two polyhedral settings
+
+- Status: **VERIFIED FROZEN PACKET / INTEGRATED** (25 August 2026).
+- Book locations: `prop:ch16-collapse-tropical-toric` and
+  `thm:ch16-collapse-finite-tropical-curves`.
+- Scope: tropical toric partial compactifications with their standard
+  Lagerberg smooth structure; and finite-valence boundaryless
+  one-dimensional affine tropical spaces locally realized as balanced
+  complexes with ambient-induced smooth structure.
+- Exact conclusion: the toric psh, CLD psh, and first-stage CLD psh sheaves
+  coincide in the toric setting; every psh curve germ has a decreasing
+  smooth-psh approximation on one fixed neighbourhood in the curve setting.
+- Scope firewall: no tropical-boundary or infinite-star curve result and no
+  arbitrary higher-dimensional balanced-space collapse is inferred.
+- Production run: `20260825T024707Z_d1b8d7eaf79e`; proof item
+  `pi_ccfb83de7a7be82ef602cd72`; statement SHA-256
+  `d1b8d7eaf79e155ecf7b347e4fcc1717c72d5a8090e346b2cb2fc9c9a0996e63`;
+  proof SHA-256
+  `316a774fbb4eda54150b63cae0c9f23a1edab17a75b89beeee6d56d402f8c4a0`.
+- Model and verdict: `gpt-5.6-sol`, `xhigh`, final `correct`, zero critical
+  errors, and zero gaps.  The preserved first round returned final `wrong`
+  with two gaps; the controlling round supplies the omitted interior-edge
+  regularization and sheaf-local junction argument.
+
 ## Chapter 49 truncation-energy package
 
 - Status: **VERIFIED** (24 August 2026).
@@ -369,6 +393,56 @@ scope of any receipt.
   post-integration byte-identity receipt for the live chapter.
 - Provenance: a dated book-level derivation from BFJ's intersection theory
   and the Hodge index theorem.  No novelty or priority claim is made.
+
+## Chapter 69 — analytic weighted-cross realization
+
+- Status: **VERIFIED FROZEN PACKETS / INTEGRATED WITH AN UPSTAIRS FIREWALL**
+  (25 August 2026).
+- Book locations: `prop:verified-cross-compact-obstruction` and
+  `prop:verified-cross-analytic-realization`, with the residual question in
+  Chapter 72.
+- Exact answer: a compact harmonic-tropicalization chart cannot map onto the
+  unbounded full cross.  The proper tropicalization of
+  `V((x-1)(y-1))^an` from a noncompact reduced boundaryless curve does realize
+  the full cross and is exhausted by compact harmonic charts; the effective
+  cycle `2[Y_h]+[Y_v]` has pushed weights `(2,2,1,1)`.
+- Scope firewall: the two curvature currents are unequal upstairs and agree
+  only after the tropicalization identifies distinct Gauss points.  The
+  packet verifies the pushed defect, not an analytic Bedford--Taylor
+  counterexample.
+- Analytic run: `20260825T021353Z_058a4390b0fb`, seven proof items;
+  statement SHA-256
+  `058a4390b0fba4e83d462b9b125a623d304390bb0ac64341134b1a8b5896058f`;
+  proof SHA-256
+  `4a68b379e8d043b6a62293496af981fca77371575474a8af0040d7b6b70a56fc`.
+- Compact-obstruction run: `20260825T024519Z_16376e0d52eb`; statement
+  SHA-256
+  `16376e0d52eb76320faeefef96201da0aabab36becf81c2cecde7ddd5a1931ee`;
+  proof SHA-256
+  `5f74d82c9ec0f75368ceecda14d6e597a0549a31a230a07c9dad31311cb3e3d3`.
+- Both production runs used `gpt-5.6-sol`, `xhigh`, and returned final
+  `correct`, zero critical errors, and zero gaps.
+
+## Chapter 69 — complete-intersection slice of positive PL currents
+
+- Status: **VERIFIED FROZEN STANDALONE PROPOSITION / INTEGRATED**
+  (25 August 2026).
+- Book location: `prop:verified-lci-current-slice`.
+- Scope: good separated boundaryless strict pure-dimensional analytic space;
+  a regular sequence of length `n-1`; pure relative dimension one; tests are
+  restrictions of nonnegative smooth compactly supported ambient functions.
+  A tightly supported ambient cutoff detects a discrete curve-current atom.
+- Scope firewall: this does not extend arbitrary smooth functions on the
+  curve, provide a residual-degree formula, or prove the global
+  current-positivity converse.  A separate rig-smooth global candidate was
+  rejected and remains preserved as a negative verification record.
+- Production run: `20260825T023505Z_66547f68ec32`; proof item
+  `pi_d75152188902c18ea84618d2`; statement SHA-256
+  `66547f68ec325107732ee307b3e728480b5ffc9c8f08537478e75984eb89f202`;
+  proof SHA-256
+  `d62ff2285ed7a7e435ae78477075482bf676bf36360a1e4c46babfdbfbad281b`.
+- Model and verdict: `gpt-5.6-sol`, `xhigh`, final `correct`, zero critical
+  errors, and zero gaps.
 
 ## Darvas--Xia trace-source correction (not a receipt)
 

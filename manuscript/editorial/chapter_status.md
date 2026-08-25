@@ -13,7 +13,7 @@ Status vocabulary:
 | Chapter | Short title | Status | Mathematical audit | Source audit |
 |---:|---|---|---|---|
 | 1--8 | Foundations | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
-| 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | the unrestricted GJR abelian-cohomology question is disproved by exact-current run `20260824T123617Z_fcddc3abc33d`; the residual-dimension-at-most-one semipositive integral-decomposition theorem passed exact-current run `20260824T135721Z_81346238f7dd`; both are final `correct`, with 0 critical errors and 0 gaps; the remaining post-expansion range still awaits a complete independent audit | GJR Theorem 1.14, Section 1.15, Proposition 5.8, Lemma 6.18, Proposition 7.1, Remark 7.3(4), the common residue-model formalism, and Raynaud good reduction were checked at the stated scopes; no totally degenerate cohomology conclusion, arbitrary-residual-dimension decomposition, novelty, or priority claim is made |
+| 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the two Chapter 18 GJR gates, first-stage CLD collapse on tropical toric partial compactifications and on finite-valence boundaryless tropical curves passed frozen production run `20260825T024707Z_d1b8d7eaf79e`; all listed runs are final `correct`, with 0 critical errors and 0 gaps; unrestricted higher-dimensional, boundary, and infinite-star collapse remains open | GJR and Raynaud inputs retain their earlier exact scopes; the new toric source synthesis uses BGJKK Theorem 3.3.4, while the curve proof supplies its own Jensen--Farkas--regularization argument; no unrestricted collapse, novelty, or priority claim is made |
 | 20--27 | BFJ forms, psh, envelopes, MA, capacity, and energy | first-draft-final (historical) | first-pass record; the exact-current Chapter 23 fixed-skeleton selection passed production Rethlas run `20260824T044830Z_25024c43d265` with final `correct`, 0 critical errors, 0 gaps | first-pass record; the Chapter 23 book-local result is separated from its published BFJ inputs and makes no global sequential claim |
 | 28--31 | BFJ measures, continuity, functoriality, and examples | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 32--34 | Trivially valued foundations and psh closure | first-draft-final (historical) | first-pass record; Ch. 34 closure integration awaits Rethlas review | first-pass record; primary anchors rechecked for the closure repair |
@@ -31,8 +31,8 @@ Status vocabulary:
 | 65--66 | Rays, filtrations, and hybrid spaces | post-expansion depth-audited | slope, entropy, hybrid-extension, and Monge--Ampère limit arguments reconstructed after explicit imported inputs | BHJ/BJ and Pille--Schneider anchors rechecked; the excluded Deligne-pairing paper is not used |
 | 67 | Functoriality and trace | first-draft-final (historical) | prior hostile-pass record; exact current Rethlas status is recorded separately | source correction recorded in the trace audit |
 | 68 | YTD bridge | post-expansion depth-audited | factor-two normalization and perturbation chain checked against the internally proved ray formulas | Fano and automorphism-group scope rechecked against primary sources |
-| 69 | Validated extensions | post-expansion synchronization in progress | the rational toric statement and source-aware proof composite passed run `20260824T070302Z_d706dc98ccca`; Chapter 69 now identifies it as the section-counting proof of the more general Chapter 55 theorem, whose frozen source-aware run is `20260825T011636Z_99edb45c54cb`; both final `correct`, 0 critical errors, 0 gaps | Cao's current-level definition, the local toric mass formula, and the rational Guenancia/character-count method are kept distinct; no novelty or priority claim is made |
-| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 19 problem environments, for 20 book-wide and 62 active atoms; the generalized-Lelong converse and real-toric current-level problem were retired after their frozen production runs and independent hostile audits; neither run is described as a post-integration byte-identity gate | source status reconciled through 24 August 2026 and book verification through 25 August; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and the Lelong and real-toric results are recorded as dated book-level derivations without novelty or priority claims |
+| 69 | Validated extensions | post-expansion synchronization in progress | in addition to the toric gates, the complete-intersection slice passed `20260825T023505Z_66547f68ec32`, and the analytic weighted-cross realization and compact-source obstruction passed `20260825T021353Z_058a4390b0fb` and `20260825T024519Z_16376e0d52eb`; all three are final `correct`, with 0 critical errors and 0 gaps | the slice tests only restrictions of ambient smooth functions; the cross construction gives equality of curvature only after proper pushforward, not an analytic Bedford--Taylor counterexample; no novelty or priority claim is made |
+| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 19 problem environments, for 20 book-wide and 61 active atoms; the generalized-Lelong, real-toric current-level, and two original cross-fan realization atoms were retired after frozen production runs; the PL-current converse remains open but now has a verified complete-intersection slice | source status reconciled through 24 August 2026 and book verification through 25 August; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and all book-level derivations retain exact scope and no novelty or priority claim |
 | A--L | Appendices | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 
 ## Second-draft expansion
@@ -108,9 +108,9 @@ build from the exact 101-file release snapshot now produces 3,081 pages; its
 final log has no TeX error, undefined reference or citation, duplicate
 destination, BibTeX warning, or overfull box, and the representative-page
 inspection passed.  Static and build checks do not replace the independent
-mathematical audits listed below.  After the later generalized-Lelong and
-real-toric integrations, the current literal frontier has 20 environments
-(one in Chapter 71 and 19 in Chapter 72) and 62 active atoms; the theorem-like,
+mathematical audits listed below.  After the later generalized-Lelong,
+real-toric, and cross-fan integrations, the current literal frontier has 20
+environments (one in Chapter 71 and 19 in Chapter 72) and 61 active atoms; the theorem-like,
 label, reference, and page totals await the next whole-source recount and
 build.
 
@@ -133,7 +133,7 @@ box is an outstanding verification step, not a mathematical defect.
 - [ ] The source-boundary review is complete outside the separately recorded
       final-chapter and BJ-closure audits.
 - [x] The literal research inventory is 20 open `problem` environments:
-      one in Chapter 71 and 19 in Chapter 72, split into 62 active atoms.  No
+      one in Chapter 71 and 19 in Chapter 72, split into 61 active atoms.  No
       exercise environment occurs.
 - [ ] Every result or integration designated for a Rethlas receipt has a
       receipt for its exact current statement and proof.  The Chapter 23 and

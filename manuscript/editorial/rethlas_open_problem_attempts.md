@@ -101,6 +101,36 @@ Rethlas verification receipt for the exact displayed statement and proof.
   conditional equivalence and the disproved auxiliary tropical claim, and
   keep the machine receipt in this editorial ledger rather than cite it as
   external literature.
+- **25 August production delta:** the complete-intersection slice now passes
+  in its exact standalone scope.  Run
+  `20260825T023505Z_66547f68ec32`, `gpt-5.6-sol`/`xhigh`, returned final
+  `correct`, zero critical errors, and zero gaps.  It tests
+  `d'd''[h|_C]` only against restrictions of nonnegative smooth ambient
+  compactly supported functions when `C` is the zero fibre of a regular
+  sequence of length `n-1` and has pure relative dimension one.  A separate
+  attempt to infer the full converse returned final `wrong`: the detecting
+  curve was not shown to satisfy the smooth strict hypotheses of the
+  available degree--atom formula over the full stated base-field and model
+  generality.  The rejected implication remains excluded.
+
+## Analytic realization of the weighted cross
+
+- **Former problem ids:** the compact harmonic-chart realization and the
+  positive analytic/delta-current realization.
+- **Outcome:** both original atoms are retired.  Compactness disproves the
+  literal full-cross image for one harmonic chart.  The proper noncompact
+  curve `V((x-1)(y-1))^an`, exhausted by compact harmonic charts, realizes
+  the full cross and the positive cycle `2[Y_h]+[Y_v]` with pushed weights
+  `(2,2,1,1)`.
+- **Production runs:** `20260825T024519Z_16376e0d52eb` for compactness and
+  the seven-item run `20260825T021353Z_058a4390b0fb` for the analytic
+  construction; both used `gpt-5.6-sol`/`xhigh` and returned final `correct`,
+  zero critical errors, and zero gaps.
+- **Residual boundary:** upstairs the curvature currents are
+  `4 delta_{q_h}` and `2 delta_{q_h}+2 delta_{q_v}` with `q_h != q_v`.
+  Equality occurs only after proper pushforward.  The existence of an
+  analytic positive closed current with equality upstairs and nonzero
+  product defect is the new active atom.
 
 ## Common local singular Monge--Ampère product
 
