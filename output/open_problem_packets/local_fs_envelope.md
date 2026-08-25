@@ -31,7 +31,7 @@ Determine sharp hypotheses under which
                          (P^{\mathrm{raw}}_Uf)^*
 \]
 is classically psh, and determine separately when it is CLD-v2 psh.  For the
-continuity subproblem, restrict (f) to continuous real-valued obstacles and
+continuity subproblem, restrict \(f\) to continuous real-valued obstacles and
 determine when the regularized envelope is continuous.  Start with:
 
 1. normal or analytically unibranch curves and higher-dimensional domains;

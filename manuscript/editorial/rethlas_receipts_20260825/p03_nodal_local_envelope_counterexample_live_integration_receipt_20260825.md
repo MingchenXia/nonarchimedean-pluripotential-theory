@@ -81,7 +81,7 @@ atoms.
 | `manuscript/parts/part2/ch15_poincare_lelong.tex` | `128bb1b4dc3bfc590e1860922b377340bcddff477c8e99c7b81e088769670c15` |
 | `manuscript/parts/part6/ch70_local_valuative_psh.tex` | `fddd7c7ac8619b3251dc45d7a5e16c4ed15d8a32153cbbdb45c6e638ffed920c` |
 | `manuscript/parts/part6/ch72_major_open_problems.tex` | `4494f7e3cc787fb3e4d51d363992901066ed5ac9cc035683a3a786ac44b10561` |
-| `output/open_problem_packets/local_fs_envelope.md` | `b7f6f24dc05a20411bd7c839661b8e80c0eed30138063e39986448d3b224408d` |
+| `output/open_problem_packets/local_fs_envelope.md` | `26702c2f512e7029f7b19271517682060b5c8fbe1d8bb1160cd344895b1a5275` |
 | `output/open_problem_packets/reference_pack_manifest.tsv` | `0013bb4e02fdc762faf2fabdced32fb9ddb0caaf9f988b9473a5fbc322fd112f` |
 
 ## Static gates
