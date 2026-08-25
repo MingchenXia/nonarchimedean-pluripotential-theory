@@ -315,3 +315,36 @@ zero-locus induction.
   non-Cohen--Macaulay central-dimension-one germs, together with a
   source-backed curve-current/degree comparison in the general lifted-curve
   scope.
+
+## Superseding addendum, 25 August 2026
+
+The preceding disposition is retained as the exact history of the rejected
+curve-lifting route, but it no longer describes the live problem status.
+P01 is resolved in the pure-dimensional CLD framework by
+`thm:p01-real-pl-positive-current-candidate`.
+
+The successful proof avoids restriction and pullback of positive currents.
+On one projective model of the reduction germ, an ample line bundle is
+realized by an integral PL germ `a`.  For the finite integral decomposition
+`h=sum lambda_i h_i`, a single integer `N` makes `Na+h_i` and `Na-h_i`
+semipositive.  Rational approximants to the coefficients, corrected by a
+small positive multiple of `a`, therefore have positive current.  CLD
+Corollary 18.8.8 makes their residual classes nef, and their degrees on every
+proper integral curve converge to those of the original real residual
+class.  This proves the missing implication.
+
+The exact pure-dimensional statement and proof passed production run
+`20260825T080059Z_80f35689475f`, item
+`pi_33f9d15994f62f668065256e`, with `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors, and zero gaps.  The earlier broader run
+`20260825T075050Z_235cca2fd59b` is preserved but noncontrolling because a
+fixed-bidegree CLD current is formulated on a pure-dimensional `n`-space.
+
+The later source audit also located CLD Theorem 18.4.7, whose
+one-dimensional model-current formula allows singular and nonreduced pure
+analytic curves and supplies the degree--atom comparison missing from the
+rejected route.  This repairs that historical source gap but is not needed
+for the ample-order-unit proof.  The old final verdicts remain part of the
+audit trail; they are not evidence against the different successful proof.
+P01 is removed from the active inventory.  No novelty or priority claim is
+made.

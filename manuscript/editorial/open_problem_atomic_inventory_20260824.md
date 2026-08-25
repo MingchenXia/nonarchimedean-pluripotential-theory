@@ -1,6 +1,6 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 24 August 2026
+**Inventory date:** 25 August 2026
 **Literature cutoff:** 24 August 2026
 **Source scope:** the formal `problem` environments in Chapters 71 and 72
 
@@ -12,8 +12,8 @@ surrounding literature.
 
 ## Counting method
 
-The current source contains exactly eighteen formal problem environments:
-one in Chapter 71 and seventeen in Chapter 72.  A compound environment is
+The current source contains exactly seventeen formal problem environments:
+one in Chapter 71 and sixteen in Chapter 72.  A compound environment is
 split below into independently auditable theorem or construction targets.
 Equivalent reformulations are counted only once.  The compatibility axioms
 that make a construction meaningful---for example model independence,
@@ -29,11 +29,13 @@ generalized-Lelong separation question, which is proved in
 question, which is proved in `thm:ok-toric-real-products`, and retirement of
 the two original cross-fan realization atoms, and retirement of both the
 literal and zero-supremum normalized Favre endpoint-continuity atoms,
-and retirement of the global Boucksom--Jonsson Radon--Riesz atom,
+retirement of the global Boucksom--Jonsson Radon--Riesz atom, and retirement
+of the real-PL current--residue atom after
+`thm:p01-real-pl-positive-current-candidate`,
 the exact count is
 
 ```text
-18 formal problem environments = 59 active atomic research questions.
+17 formal problem environments = 58 active atomic research questions.
 ```
 
 The identifiers `P00.1` through `P21.3` below are an editorial addressing
@@ -48,14 +50,6 @@ the book.
   full Mesquita--Piccione psh cone agrees on all semivaluations with the full
   Boucksom--Jonsson psh cone, without a finite-energy hypothesis.  The
   finite-energy comparison is known; the unrestricted comparison is open.
-
-### `prob:frontier-current-pullback` --- 1 atom
-
-- **P01.1** `[T1; open]` Decide whether positivity of
-  \(\mathrm d'\mathrm d''[h]\) for a real PL function forces residue-nef,
-  equivalently model-semipositive, behaviour.  The converse and an exact
-  conditional curve reduction are known; a coarse tropical restriction
-  principle is disproved, while the analytic converse remains open.
 
 ### `prob:frontier-classical-regularization` --- 4 atoms
 
@@ -354,11 +348,9 @@ The tiers estimate how bounded the first exact submission can be, not the
 probability that its expected answer is affirmative.  A verified
 counterexample retires an atom just as a verified proof does.
 
-### T1 --- concrete first submissions (1 atom)
+### T1 --- concrete first submissions (0 atoms)
 
-Recommended internal order:
-
-1. `P01.1`
+No active atom remains in this tier after retirement of `P01.1`.
 
 ### T2 --- focused problems with one principal missing bridge (9 atoms)
 

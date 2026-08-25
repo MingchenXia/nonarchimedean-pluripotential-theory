@@ -1,12 +1,12 @@
 # Major open-problem programme
 
 **Literature cutoff:** 24 August 2026.  
-**Live book location:** Chapter 72, with 17 research-frontier problem
+**Live book location:** Chapter 72, with 16 research-frontier problem
 environments.  
-**Book-wide count:** 18 problem environments: the 17 active items mapped below and the
+**Book-wide count:** 17 problem environments: the 16 active items mapped below and the
 separate projective-rational full-link problem in the preceding
 pseudoeffective MP--DXZ chapter.  The latter is outside the Chapter 72 list.
-OP-11 and OP-18 below are retained as resolved history and are not
+OP-01, OP-11, and OP-18 below are retained as resolved history and are not
 counted.
 
 **Promotion rule:** an item becomes a new theorem only after its exact
@@ -47,12 +47,12 @@ are independently checked.  Accordingly OP-15 and Chapter 72 keep
 Conjecture 8.8 open.  The dated 15 August note near the end of this file is
 retained only to disclose the superseded intermediate classification.
 
-**Exact active count:** Chapter 72 contains 17 problem environments and
+**Exact active count:** Chapter 72 contains 16 problem environments and
 Chapter 71 contains the separate projective-rational full-cone problem, for
-18 book-wide and 59 independently auditable active atoms. All 18 retain a
+17 book-wide and 58 independently auditable active atoms. All 17 retain a
 genuinely open residual scope. At the
 whole-environment level the cutoff count is: resolved 0, disproved 0,
-conditional 0, genuinely open 18. Resolved, disproved, and conditional
+conditional 0, genuinely open 17. Resolved, disproved, and conditional
 subclaims below are boundary results inside those active environments and
 are not additional problem environments.
 
@@ -68,29 +68,32 @@ questions in OP-19 remain open. The other version-sensitive primary sources
 in the reference-pack manifest had no revision changing a listed status by
 the cutoff.
 
-The 17 active tags below map exactly the Chapter 72 inventory; the retained
-OP-11 and OP-18 tags record resolved history and are not counted.  The tags distinguish a
+The 16 active tags below map exactly the Chapter 72 inventory; the retained
+OP-01, OP-11, and OP-18 tags record resolved history and are not counted.  The tags distinguish a
 **primary-source question** from a
 **book-formulated question**. Some problem environments collect several
 source questions under one common framework.
 
 ## A. Local positivity and CLD--Gubler--Rabinoff theory
 
-### OP-01. Pullback of positive PL currents to curves
+### OP-01. Positive real PL currents and residue nefness --- retired
 
 - **Kind:** primary-source boundary, sharpened by the book.
 - **Source:** Gubler--Rabinoff, arXiv:2503.05513, Remark 1.8 and Theorem 5.3.
 - **Question:** does positivity of \(\mathrm d'\mathrm d''[h]\) for a real PL
   function imply residue-nef semipositivity?
-- **Status:** the exact conditional curve-restriction implication is
-  verified; a coarse tropical restriction principle is disproved; and the
-  regular complete-intersection slice is verified against restrictions of
-  nonnegative smooth ambient tests by production run
-  `20260825T023505Z_66547f68ec32`.  The analytic positive-current converse
-  remains open.  A separate global candidate was rejected because its
-  detecting curve was not placed in the smooth strict degree--atom scope.
-- **Packet:** cld_current_curve_pullback.md (run completed; use only the
-  dispositions recorded in the attempt ledger).
+- **Status:** resolved in the pure-dimensional CLD framework by
+  `thm:p01-real-pl-positive-current-candidate`.  The proof uses an ample
+  residual order unit and rational approximation, not pullback of currents.
+  Its exact controlling production run is
+  `20260825T080059Z_80f35689475f`, item
+  `pi_33f9d15994f62f668065256e`, final `correct`, with zero critical errors
+  and zero gaps.  The old conditional slice and rejected curve-lift route
+  remain historical evidence only.  CLD currents in this discussion are
+  defined on pure-dimensional (n)-spaces; no undefined non-pure variant is
+  retained as an open atom.
+- **Packet:**
+  `p01_real_pl_positive_current_residue_nef_pure_request_v2_20260825.json`.
 
 ### OP-02. Regularization of arbitrary classical psh functions
 
@@ -473,6 +476,10 @@ source questions under one common framework.
    `20260825T011636Z_99edb45c54cb` returned final `correct`, with zero
    critical errors and zero gaps; the atom is retired rather than retained
    as an open rational-approximation problem.
+8. OP-01 is resolved on the pure-dimensional (n)-spaces on which the CLD
+   curvature current is defined.  The controlling proof is the ample-order-
+   unit argument in Chapter 18; it does not assert that arbitrary positive
+   currents admit pullback to analytic curves.
 
 ## Current unsubmitted-packet boundary
 

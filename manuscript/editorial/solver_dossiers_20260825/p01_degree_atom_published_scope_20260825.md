@@ -132,3 +132,20 @@ after one of the following genuinely additional inputs were established:
 
 None of these bridges is contained in the rejected packet or in the cited
 statements above.  Therefore no revised global converse is submitted.
+
+## Superseding source addendum, 25 August 2026
+
+The preceding note records the sources known at the time of the rejected
+packet.  A later audit of the 25 July 2025 CLD version located Theorem 18.4.7.
+In pure dimension one its model-current formula applies to singular and
+nonreduced analytic curves and identifies the current coefficient with the
+corresponding residual degree, with the analytic-cycle multiplicities built
+into the statement.  Thus the third bridge listed above is available in the
+pure one-dimensional CLD framework.
+
+This source correction does not validate the rejected global proof: a
+rejected packet remains rejected.  The eventual solution of P01 uses the
+independent ample-order-unit argument recorded in
+`p01_current_positive_complete_intersection_slicing.md` and passed exact
+production run `20260825T080059Z_80f35689475f`.  No novelty or priority
+claim is made.
