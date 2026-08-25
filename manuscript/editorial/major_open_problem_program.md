@@ -108,12 +108,24 @@ source questions under one common framework.
 ### OP-03. Upper-semicontinuous regularization of local envelopes
 
 - **Kind:** book-formulated local analogue of global envelope theory.
-- **Question:** when is the usc regularization of the local FS/semipositive-PL
-  envelope classically psh, CLD psh, or continuous?
-- **Status:** open; the raw supremum is psh only when already usc, and the
-  missing step is compatibility of usc regularization with all analytic
-  curve pullbacks.
-- **Packet:** local_fs_envelope.md.
+- **Question:** for upper-semicontinuous obstacles, when is the usc
+  regularization of the local FS/semipositive-PL envelope classically psh or
+  CLD psh?  For continuous finite obstacles, when is it continuous?
+- **Status:** open as a classification problem.  The raw supremum is
+  classically psh when it is already usc, but all three unconditional
+  regularized-envelope assertions are disproved by
+  `prop:ch15-nodal-local-envelope`.  Its obstacle is continuous and
+  real-valued on a reduced strict nodal affinoid curve; the regularized
+  envelope is discontinuous and violates the affinoid maximum principle,
+  hence is neither classically psh nor CLD-v2 psh.  The exact controlling
+  production run is `20260825T094005Z_10ac70696f69`, item
+  `pi_31f95353b7e94f3cb98b09b6`, final `correct`, with zero critical errors
+  and zero gaps.  No positive classification for normal or analytically
+  unibranch domains follows; establishing such a classification is the live
+  target.
+- **Packet:** `local_fs_envelope.md`; the exact nodal counterexample packet
+  `p03_nodal_local_envelope_request_20260825.json` is retained as verified
+  boundary evidence.
 
 ### OP-04. A common singular local Monge--Ampère product
 
@@ -331,7 +343,7 @@ source questions under one common framework.
 - **Related earlier environment:**
   `prob:pseff-projective-rational-full-link` in the preceding chapter records
   the separate projective-rational full-cone comparison.  It accounts for
-  the difference between the 17-item Chapter 72 map and the 18 book-wide
+  the difference between the 16-item Chapter 72 map and the 17 book-wide
   literal problem count.
 - **Packets:** mp_pseff_chapter_exact.md (failed verification, no promotion)
   and dxz_filtration_test_curve_maximality.md (prepared, not run).

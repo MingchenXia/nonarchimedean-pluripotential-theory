@@ -1166,7 +1166,7 @@ for its full receipt.
 | R3-04 | current-psh PL implies semipositive PL | **OPEN** globally; the regular complete-intersection slice against ambient tests is **VERIFIED** by `20260825T023505Z_66547f68ec32`, while the attempted degree--atom completion was rejected |
 | R3-05 | curve comparison and regularization | **VERIFIED** with weakly smooth nets in general smooth boundaryless curve scope; ordinary CLD-smooth harmonic approximation is **DISPROVED** by the later exact-live curve construction, while unrestricted ordinary CLD-smooth psh regularization is **OPEN** |
 | R3-06 | global BFJ/BJ psh gives local classical weights | **VERIFIED** for the FS/model-net definitions; the reverse arrow is **OPEN** |
-| R3-07 | raw local FS envelope | **VERIFIED** for a nonempty pointwise-bounded-above family when the raw supremum is already usc; the unrestricted usc-regularized envelope is **OPEN** |
+| R3-07 | raw local FS envelope | **VERIFIED** for a nonempty pointwise-bounded-above family when the raw supremum is already usc; the unconditional classical-psh, CLD-v2-psh, and continuity conclusions after usc regularization are **DISPROVED** on a reduced strict nodal affinoid curve by `prop:ch15-nodal-local-envelope` and production run `20260825T094005Z_10ac70696f69`; sharp normal/analytically-unibranch classification remains **OPEN** |
 | R3-08 | probability-valued local MA sheaf with literal restriction | **DISPROVED** by disjoint opens |
 | R3-09 | full local BJ/CLD/GR theory | **OPEN** beyond the R3-26 smooth algebraizable-model and joint bounded comparison, especially for arbitrary classical psh data, nonalgebraizable analytic models, unbounded finite energy, and singular germs |
 | R3-10 | MP--DXZ finite-energy comparison | **VERIFIED** for compact Kähler \(X\), Kähler class, fixed initial potential, and \(\mathcal I\)-maximal finite-energy objects |
@@ -1235,7 +1235,7 @@ theory row.
 | P0 | Full local CLD/classical/LFS comparison beyond PL; CLD v2 (25 July 2025), GR-PL/GR-C (2025), GJR (2026) | Prove decreasing local-FS regularization or construct a strict higher-dimensional counterexample; audit boundary, scalar extension, and nonmetrizable cases | Chapter 72 proves only the PL core and records the remaining interface |
 | P0 | CLD local-to-global psh metrics; CLD Remark 17.8.10 | Treat separately global smooth-psh approximation on projective varieties and the parlinear-dpsh assertion on proper strict spaces with projective formal special fibre | Primary-source questions; Chapter 72 states both exactly |
 | P0 | Common singular local MA product; CLD §§8.5--8.7 and Theorem 18.5.5, BFJ08 Propositions 4.6/4.8/4.9, BMPS 2603.08664v1 | R3-26 proves the smooth ideal/algebraizable-model and joint bounded comparison; next remove the analytic-model algebraizability boundary, characterize the closure, and find a capacity/energy rule for polar mass | Chapter 72 proves the Gauss-shell comparison and records the remaining scope |
-| P0 | Local FS envelopes and gluing; GR-C Theorem 6.5 and global BJ envelopes | Prove usc regularization commutes with curve restriction plus the curve envelope theorem, or find a boundary counterexample | Chapter 72 has raw closure and the boundary-data firewall |
+| P0 | Local FS envelopes and gluing; GR-C Theorem 6.5 and global BJ envelopes | Classify geometric hypotheses, beginning with normal or analytically unibranch domains, under which usc regularization preserves classical psh; then treat CLD-v2 psh for usc obstacles and continuity for continuous finite obstacles separately | The unconditional assertions are disproved by `prop:ch15-nodal-local-envelope` and run `20260825T094005Z_10ac70696f69`; the positive classification is open |
 | P0 | MP realization of big/pseudoeffective DXZ data; DXZ (CMH 2025), MP (Adv. Math. 2025), Xia operations | Build a relatively big/nef model category with intersections, envelopes, orthogonality, and exact \(\mathcal I\)-comparison | Chapter 72 records the Kähler comparison and no-go boundaries |
 | P0 | Nontrivially valued MA existence and the arbitrary-field \(\mathcal E^1\) operator; BFJ and Pille--Schneider Remark 4.4 | Separate operator construction from solvability; remove one field/singularity/support hypothesis at a time and reconstruct every variational input | Exact source question and broader book programme are separated in Chapter 72 and this ledger |
 | Resolved history | BJ global Radon--Riesz, BJ Question 11.16 | Moving-centre valuations on \(\mathbf P^n\), \(n\ge2\), give weak convergence and identical exhaustion value one but a uniform strong gap | Disproved by `thm:ch49-global-radon-riesz-counterexample`; the fixed-SNC-complex positive theorem remains valid |
@@ -1249,14 +1249,14 @@ theory row.
 | P2 | Early collapse of the CLD transfinite psh hierarchy; CLD Lemma 8.1.4/Remark 8.1.6 | Extend the verified toric and finite-valence boundaryless-curve cases to higher-dimensional balanced spaces, boundary points, or infinite stars, or exhibit genuine transfinite rank | Eventual cardinal stabilization is closed; the two natural stage-one cases passed `20260825T024707Z_d1b8d7eaf79e`; Chapter 72 retains only the unrestricted residual |
 | P2 | Exact canonical BJ approximation and threshold identities after Trusiani 2026 | Identify Trusiani's approximants term by term with the prescribed BJ sequence and normalize every threshold | Earlier chapters provide machinery; Chapter 72 does not identify them |
 
-The live Chapter 72 has 17 open-problem environments.  The book-wide literal
-count is 18 because the preceding pseudoeffective MP--DXZ chapter separately
+The live Chapter 72 has 16 open-problem environments.  The book-wide literal
+count is 17 because the preceding pseudoeffective MP--DXZ chapter separately
 contains the projective-rational full-link problem.  These are
 research-status records, not exercises.  The earlier trace-refinement row has
 been removed: the complete supplied Darvas--Xia chapter proves the required
 input-\(\mathcal I\)/output-\(P\) factorization, so Chapter 72 now records it as
 resolved source history.  Splitting compound environments into independently
-auditable targets gives 59 active atoms; their exact crosswalk and easy-to-hard
+auditable targets gives 58 active atoms; their exact crosswalk and easy-to-hard
 queue are recorded in
 `manuscript/editorial/open_problem_atomic_inventory_20260824.md`.  The
 production receipts distinguish exact-current gates from frozen

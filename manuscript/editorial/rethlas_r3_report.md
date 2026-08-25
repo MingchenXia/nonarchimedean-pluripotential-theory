@@ -213,9 +213,13 @@ copy.
 5. A useful local envelope statement survives: the raw supremum of a
    nonempty pointwise-bounded-above family of classically psh minorants is
    classically psh whenever that raw supremum is already upper
-   semicontinuous.  Passing to the usc
-   regularization is the unresolved step; usc regularization does not
-   formally commute with restriction to curves.
+   semicontinuous.  The later exact-live nodal construction
+   `prop:ch15-nodal-local-envelope` shows that the unrestricted conclusion
+   after usc regularization is false: for a continuous real-valued obstacle
+   on a reduced strict nodal affinoid curve the regularized envelope is
+   discontinuous and is neither classically psh nor CLD-v2 psh.  This does
+   not give a positive classification for normal or analytically unibranch
+   domains.
 6. The requested local BJ theory is not a blank slate.  Boucksom--Favre--
    Jonsson already construct formal psh functions and a mixed local
    Monge--Amp\`ere operator on the normalized valuation space of a smooth
@@ -362,9 +366,12 @@ The broadest defensible programme has four layers.
      P_U^{\mathrm{raw}}f=
        \sup\{h:h\text{ is local FS or semipositive PL on }U, h\leq f\}.
    \]
-   It is classical psh when the raw supremum is already usc.  Continuity or
-   equality with its usc regularization is the missing local envelope
-   theorem.
+   It is classical psh when the raw supremum is already usc.  The unrestricted
+   assertion for its usc regularization, including continuity and
+   classical/CLD-v2 plurisubharmonicity, is false by the continuous-obstacle
+   nodal counterexample `prop:ch15-nodal-local-envelope`.  Any positive
+   replacement must impose branch compatibility or an analytically
+   unibranch hypothesis; no such classification is asserted here.
 2. **Valuative singularities.**  For a smooth closed germ, import the
    normalized valuation space and formal psh functions of BFJ-local.  For a
    general excellent local ring one must first choose a normalization of
@@ -547,17 +554,26 @@ The raw local FS envelope is psh when it is already upper semicontinuous.
   inclusion and set \(u_F=\max_{h\in F}h\).  Proposition 4.2 makes every
   \(u_F\) classically psh.  The net \(u_F\) converges pointwise to \(u\).
   Apply GR-C Theorem 6.5.
-* **Adversarial audit.**  The proof does not apply to \(u^*\) unless one first
-  proves that restriction to every curve commutes with usc regularization.
-  That is the nontrivial envelope step.
-* **Boundary/counterexample search.**  Nets handle nonmetrizable spaces and
-  uncountable families.  No projectivity or characteristic hypothesis is
-  used.
+* **Adversarial audit.**  The proof does not apply to \(u^*\).  The later
+  exact-live construction `prop:ch15-nodal-local-envelope` supplies a
+  continuous obstacle on a reduced strict nodal affinoid curve for which the
+  raw envelope has a branch jump and its usc regularization is discontinuous
+  and not classically psh.  Since CLD-v2 psh implies classical psh, it is not
+  CLD-v2 psh either.
+* **Boundary/counterexample search.**  Nets still handle nonmetrizable spaces
+  and uncountable families in the already-usc theorem.  The nodal example
+  disproves the unrestricted regularized theorem; it does not settle a
+  normal or analytically unibranch classification.
 * **Source/novelty separation.**  Immediate corollary of GR-C Theorem 6.5
   in the submitted preprint; useful as a precise reduction, not claimed as
   new.
-* **Final verdict.**  **VERIFIED.**  The usc-regularized-envelope version is
-  **OPEN** in the unrestricted local setting.
+* **Final verdict.**  The already-usc raw-envelope statement is **VERIFIED**.
+  The unrestricted classical-psh, CLD-v2-psh, and continuity claims after
+  usc regularization are **DISPROVED** by production run
+  `20260825T094005Z_10ac70696f69`, item
+  `pi_31f95353b7e94f3cb98b09b6` (`final/correct`, zero critical errors and
+  zero gaps).  The sharp positive classification, beginning with normal or
+  analytically unibranch domains, remains **OPEN**.
 
 ### R3-08
 
@@ -590,7 +606,8 @@ The full local BJ/CLD/GR comparison remains incomplete.
   energy, restriction/gluing, on arbitrary analytic germs and in arbitrary
   characteristic.
 * **Independent proof attempt.**  R3-07 constructs the classical envelope
-  only after usc is known.  BFJ-local constructs formal psh and bounded mixed
+  only after usc is known, while the later nodal construction disproves the
+  unrestricted regularized-envelope closure.  BFJ-local constructs formal psh and bounded mixed
   MA for a normalized valuation space of a smooth complex germ.  CLD
   constructs continuous local products.  No primary source identifies all
   three domains or products.
@@ -598,13 +615,18 @@ The full local BJ/CLD/GR comparison remains incomplete.
   scaling of valuations without a chosen ideal/boundary.  Non-normal germs
   add branch and finite-descent issues.  Energy has boundary terms and no
   fixed intersection volume.
-* **Boundary/counterexample search.**  Curves and model/polyhedral loci work
-  after boundary conditions.  Singular, non-normal, nonprojective, and
-  unbounded higher-dimensional cases expose missing inputs.
+* **Boundary/counterexample search.**  The reduced nodal affinoid curve in
+  `prop:ch15-nodal-local-envelope` already defeats unrestricted envelope
+  closure.  Curves and model/polyhedral loci may still work after appropriate
+  boundary and branch-compatibility conditions.  Singular, non-normal,
+  nonprojective, and unbounded higher-dimensional cases expose further
+  missing inputs.
 * **Source/novelty separation.**  BFJ-local is the published predecessor;
   the general comparison is a programme, not an existing theorem.
-* **Final verdict.**  **OPEN**, with R3-07 and the curve/model cases as
-  conditional building blocks.
+* **Final verdict.**  **OPEN** for the broader local product, energy, and
+  comparison programme.  Its unrestricted envelope subclaim is
+  **DISPROVED**, whereas the already-usc theorem of R3-07 and conditional
+  curve/model cases remain valid building blocks.
 
 ### R3-10
 
@@ -1332,14 +1354,17 @@ prepared but unrun.
    \(\mathbf R\cup\{-\infty\}\) on good strict domains, initially polystable
    or carrying a relatively ample formal model.  **Sources:** GR-C Theorem
    6.5 (2025), GR-PL local regularization (2025), and the global BJ envelope
-   theory.  **Known:** R3-07 proves that an already-usc raw supremum is
-   classical psh; global envelope results do not imply the local assertion.
-   **Rethlas task:** prove that usc regularization commutes with curve
-   restriction after scalar extension, together with the needed curve
-   upper-envelope theorem, or find a relative-boundary counterexample; then
-   build barriers for continuity.  **Coverage:** Chapter 69 contains the raw
-   closure mechanism; Chapter 70 explains why energy and probability mass do
-   not glue as sheaves.
+   theory.  **Known boundary:** R3-07 proves that an already-usc raw supremum is
+   classical psh, but `prop:ch15-nodal-local-envelope` gives a continuous
+   obstacle on a reduced strict nodal affinoid curve whose usc-regularized
+   envelope is discontinuous and neither classically psh nor CLD-v2 psh.
+   Production run `20260825T094005Z_10ac70696f69` verifies the exact proof.
+   **Rethlas task:** determine sharp positive hypotheses, beginning with
+   normal or analytically unibranch domains, for classical-psh preservation;
+   then treat CLD-v2 plurisubharmonicity for usc obstacles and continuity for
+   continuous finite obstacles separately.
+   **Coverage:** Chapters 15, 69, 70, and 72 contain the counterexample, raw
+   closure mechanism, local gluing firewalls, and live classification problem.
 
 4. **P0, essential: MP realization of arbitrary big and pseudoeffective
    classes and exact comparison with DXZ.**  **Framework:** compact K\"ahler

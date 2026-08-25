@@ -32,7 +32,7 @@ Status vocabulary:
 | 67 | Functoriality and trace | first-draft-final (historical) | prior hostile-pass record; exact current Rethlas status is recorded separately | source correction recorded in the trace audit |
 | 68 | YTD bridge | post-expansion depth-audited | factor-two normalization and perturbation chain checked against the internally proved ray formulas | Fano and automorphism-group scope rechecked against primary sources |
 | 69 | Validated extensions | post-expansion synchronization in progress | in addition to the toric gates, the complete-intersection slice passed `20260825T023505Z_66547f68ec32`; the analytic weighted-cross realization and compact-source obstruction passed `20260825T021353Z_058a4390b0fb` and `20260825T024519Z_16376e0d52eb`; and the four-punctured smooth-curve obstruction passed `20260825T034743Z_ea6194f07e86`; all four are final `correct`, with 0 critical errors and 0 gaps | the slice tests only restrictions of ambient smooth functions; the cross construction gives equality of curvature only after proper pushforward, not an analytic Bedford--Taylor counterexample; the four-punctured result excludes its concrete candidate but leaves P21.3 open; no novelty or priority claim is made |
-| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 16 problem environments, for 17 book-wide and 58 active atoms; the generalized-Lelong, real-PL current--residue, real-toric current-level, global Radon--Riesz, two original cross-fan realization, and normalized hybrid-continuity atoms were retired after production verification | source status reconciled through 24 August 2026 and book verification through 25 August; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and all book-level derivations retain exact scope and no novelty or priority claim |
+| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 16 problem environments, for 17 book-wide and 58 active atoms; the generalized-Lelong, real-PL current--residue, real-toric current-level, global Radon--Riesz, two original cross-fan realization, and normalized hybrid-continuity atoms were retired after production verification; the nodal counterexample disproves the three unconditional local-envelope assertions but leaves the classification atoms open | source status reconciled through 24 August 2026 and book verification through 25 August; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and all book-level derivations retain exact scope and no novelty or priority claim |
 | A--L | Appendices | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 
 ## Second-draft expansion
@@ -109,11 +109,11 @@ final log has no TeX error, undefined reference or citation, duplicate
 destination, BibTeX warning, or overfull box, and the representative-page
 inspection passed.  Static and build checks do not replace the independent
 mathematical audits listed below.  After the later generalized-Lelong,
-real-PL current--residue, real-toric, cross-fan, hybrid-continuity, and
-Radon--Riesz integrations, the current literal frontier has 17
+real-PL current--residue, real-toric, local-envelope, cross-fan,
+hybrid-continuity, and Radon--Riesz integrations, the current literal frontier has 17
 environments (one in Chapter 71 and 16 in Chapter 72) and 58 active atoms; the theorem-like,
 label, and reference audits pass.  The clean 25 August current-source build
-has 3,123 pages; its evidence is recorded in
+has 3,125 pages; its evidence is recorded in
 `editorial/current_source_build_20260825.md`.
 
 ## Global release gates

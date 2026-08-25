@@ -64,15 +64,26 @@ the book.
 The curve and real-PL boundary cases recorded in the chapter are known; the
 four unrestricted higher-dimensional targets remain open.
 
-### `prob:frontier-local-envelope` --- 3 atoms
+### `prob:frontier-unibranch-local-envelope` --- 3 atoms
 
-- **P03.1** `[T2; open]` Determine when the usc regularization of the local
-  FS/semipositive-PL envelope is classically psh.
-- **P03.2** `[T3; open]` Determine when it is CLD-v2 psh.
-- **P03.3** `[T3; open]` Determine when it is continuous.
+- **P03.1** `[T2; open]` Classify the hypotheses, beginning with normal or
+  analytically unibranch good strict domains, under which usc regularization
+  of every upper-semicontinuous local FS/semipositive-PL obstacle envelope is
+  classically psh.
+- **P03.2** `[T3; open]` Determine the additional hypotheses under which the
+  regularized envelope is CLD-v2 psh for every such obstacle.
+- **P03.3** `[T3; open]` For continuous finite obstacles, determine the
+  additional hypotheses under which the regularized envelope is continuous.
 
-If the raw envelope is already usc, the classical-psh conclusion is
-verified.  The unrestricted regularized-envelope targets remain open.
+The continuous obstacle on the reduced strict nodal affinoid curve in
+`prop:ch15-nodal-local-envelope` disproves all three unconditional universal
+assertions, but it does not answer these classification questions.
+Its exact statement and proof passed production run
+`20260825T094005Z_10ac70696f69`, item
+`pi_31f95353b7e94f3cb98b09b6`, final `correct`, with zero critical errors
+and zero gaps.  If the raw envelope is already usc, the classical-psh
+conclusion remains valid.  No positive classification on normal or
+analytically unibranch domains is inferred.
 
 ### `prob:frontier-local-ma` --- 4 atoms
 
@@ -354,14 +365,14 @@ No active atom remains in this tier after retirement of `P01.1`.
 
 ### T2 --- focused problems with one principal missing bridge (9 atoms)
 
-`P21.3`, `P07.1`, `P00.1`, `P17.1`, `P03.1`,
-`P06.1`, `P06.2`, `P06.3`, `P09.1`.
+`P21.3`, `P07.1`, `P00.1`, `P17.1`, `P06.1`, `P06.2`, `P06.3`,
+`P09.1`, `P03.1`.
 
 ### T3 --- major theorems within mature frameworks (15 atoms)
 
-`P02.1`, `P02.2`, `P02.3`, `P03.2`, `P03.3`, `P05.1`, `P05.2`,
-`P05.3`, `P05.4`, `P07.2`, `P08.1`, `P08.2`, `P09.2`, `P14.2`,
-`P14.7`.
+`P02.1`, `P02.2`, `P02.3`, `P05.1`, `P05.2`, `P05.3`, `P05.4`,
+`P07.2`, `P08.1`, `P08.2`, `P09.2`, `P14.2`, `P14.7`, `P03.2`,
+`P03.3`.
 
 ### T4 --- new comparison theories or several coupled inputs (17 atoms)
 

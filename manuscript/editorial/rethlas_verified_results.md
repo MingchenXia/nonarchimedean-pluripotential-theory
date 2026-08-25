@@ -623,6 +623,36 @@ nine 24 August gates counted in this paragraph.
 - Model and verdict: `gpt-5.6-sol`, `xhigh`, final `correct`, zero critical
   errors, and zero gaps.
 
+## Chapters 15, 70, and 72 — nodal local-envelope counterexample
+
+- Status: **VERIFIED FROZEN EXACT BLOCK / INTEGRATED BYTE-FOR-BYTE**
+  (25 August 2026).
+- Book location: `prop:ch15-nodal-local-envelope`, with its consequences in
+  Chapters 70 and 72.
+- Exact answer: on the reduced strict affinoid curve
+  `M(K<x,y>/(xy))`, a continuous finite obstacle has raw
+  FS/semipositive-real-PL envelope equal to zero on one punctured branch and
+  a negative constant on the other branch and at the node.  Its usc
+  regularization changes the nodal value, is discontinuous, and violates
+  the affinoid Shilov-boundary maximum principle.  It is therefore neither
+  classically psh nor CLD-v2 psh.
+- Exact frozen statement SHA-256:
+  `10ac70696f69b1ed18ae1522c0b065fe9240d8f921b9db258201c9e8a7b509e1`.
+- Exact frozen proof SHA-256:
+  `21fc22e5b1f3b3084f29df412a57485131e46ca160cf168db18da8a3e2559fc7`.
+- Production run: `20260825T094005Z_10ac70696f69`; proof item
+  `pi_31f95353b7e94f3cb98b09b6`; model `gpt-5.6-sol`, scrutiny `xhigh`,
+  final verdict `correct`, zero critical errors and zero gaps.
+- Exact-live gate: the proposition and proof extracted from Chapter 15
+  compare byte-for-byte with the two frozen files; the extraction commands
+  and hashes are recorded in the controlling receipt.
+- Scope firewall: the construction disproves the three unconditional
+  universal assertions.  It does not solve the three classification targets,
+  beginning with the normal or analytically unibranch case; those remain
+  open.  No novelty or priority claim is made.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260825/p03_nodal_local_envelope_counterexample_live_integration_receipt_20260825.md`.
+
 ## Darvas--Xia trace-source correction (not a receipt)
 
 - Status: **SOURCE IMPORT / HISTORICAL RECEIPT SUPERSEDED** (23 August
