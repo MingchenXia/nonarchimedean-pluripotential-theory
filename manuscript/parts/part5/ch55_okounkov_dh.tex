@@ -22,9 +22,10 @@ external input at the point where it is used.  Its scope is projective,
 algebraic, and strictly positive-volume; no zero-volume or transcendental
 extension is inferred from it.
 The last section has a different status.
-It records one validated toric zero-volume theorem and one obstruction from the
-research ledger.
-Neither statement extends the positive-volume theory by formal continuity.
+It records a validated current-level toric theorem in arbitrary real classes,
+an independent section-counting proof in rational classes, and one obstruction
+from the research ledger.  None is obtained from the positive-volume partial
+body theory by formal continuity.
 
 Throughout, \(X\) is a connected compact K\"ahler manifold of dimension
 \(n\).
@@ -1295,13 +1296,288 @@ listed in \Cref{prob:frontier-zero-volume}.
 
 The full-dimensional volume identity cannot simply be continued to
 multiplier-ideal volume zero.
-The next theorem is a separate toric result.
-Here \(\Delta(T)\) is the Newton body defined directly from the convex
-toric potential.  It agrees with the partial Okounkov body on the
-positive-volume locus, but at volume zero it is a separate toric extension
-of \Cref{def:ok-algebraic-partial-body}.
+The toric convex dictionary nevertheless retains lower-dimensional data.
+We first treat arbitrary real classes analytically and then retain the
+section-counting argument in integral and rational classes as a second
+proof.  The numerical dimensions below belong to the current, not merely to
+its cohomology class.
 
-\begin{theorem}\label{thm:ok-toric-zero-mass}
+Let \(X=X_\Sigma\) be a smooth projective toric variety, and let \(M\) and
+\(N\) be its character and cocharacter lattices.  Invariance in this section
+means invariance under the maximal compact torus.  Normalize Lebesgue measure
+on \(M_{\mathbf R}\) so that a fundamental lattice parallelepiped has volume
+one.  If \(T\) is an invariant closed positive \((1,1)\)-current, its
+restriction to the dense torus has the form
+\[
+             T|_{(\mathbf C^*)^n}=\ddc(F_T\circ\operatorname{Log})
+\]
+after an invariant smooth local primitive has been absorbed into a finite
+convex function \(F_T:N_{\mathbf R}\to\mathbf R\).  Changing the primitive
+adds an affine function to \(F_T\).
+
+\begin{definition}\label{def:ok-closed-newton-body}
+The closed Newton body of \(T\) is
+\[
+                 \Delta(T):=
+                 \overline{\operatorname{dom}F_T^*}
+                 \subset M_{\mathbf R}.
+\tag{55.50}\label{eq:ok-closed-newton-body}
+\]
+It is understood up to translation.
+\end{definition}
+
+The closure is load bearing.  For example,
+\(F(x)=\log(1+\rme^x)\) has gradient image \((0,1)\), whereas
+\(\operatorname{dom}F^*=[0,1]\).  Dimension and mixed volume see the closed
+body.  This definition agrees with the usual toric Newton body on the
+positive-volume locus.  At zero volume it is a separate toric object and is
+not being defined through \Cref{def:ok-algebraic-partial-body}.
+
+For a current \(T\), put
+\[
+ \nu_{\mathrm{Cao}}(T)
+ :=\max\{k:\langle T^k\rangle_{\mathrm{Cao}}\ne0\},
+ \qquad
+ \nu_{\mathrm{np}}(T)
+ :=\max\{k:[\langle T^k\rangle_{\mathrm{np}}]\ne0\}.
+\]
+The first product is Cao's current-level cohomological product from
+quasi-equisingular approximations \cite[Definitions~2--3]{Cao14}; the second
+is the ordinary non-pluripolar product.  We use
+\(\langle T^0\rangle_{\mathrm{Cao}}
+=\langle T^0\rangle_{\mathrm{np}}=1\).
+
+\begin{theorem}\label{thm:ok-toric-real-products}
+Let \(X=X_\Sigma\) be a smooth projective toric variety of dimension
+\(n\geq1\), and let \(T\) be an invariant closed positive
+\((1,1)\)-current in a pseudoeffective real class.  Put
+\(K=\Delta(T)\).  Then \(K\) is nonempty and compact.
+
+Let \(\omega\) be an invariant K\"ahler form with moment polytope \(Q\),
+and normalize mixed volume by
+\(V(B[n])=\operatorname{vol}_M(B)\).  For every \(0\leq k\leq n\),
+\[
+ \int_X\langle T^k\rangle_{\mathrm{Cao}}\wedge\omega^{n-k}
+ =\int_X\langle T^k\rangle_{\mathrm{np}}\wedge\omega^{n-k}
+ =n!V\bigl(K[k],Q[n-k]\bigr).
+\tag{55.51}\label{eq:ok-toric-real-products}
+\]
+Consequently,
+\[
+                    \nu_{\mathrm{Cao}}(T)
+                    =\nu_{\mathrm{np}}(T)
+                    =\dim K.
+\tag{55.52}\label{eq:ok-toric-real-dimension}
+\]
+\end{theorem}
+
+\begin{proof}
+Choose an invariant smooth representative \(\theta\) of \(\{T\}\), average
+a potential over the compact torus, and write
+\[
+                         T=\theta+\ddc\varphi.
+\]
+On the dense torus, an invariant primitive of \(\theta\), together with
+\(\varphi\), gives the finite convex function \(F=F_T\).  A finite toric
+affine cover and the extension of \(T\) across its boundary give
+\(F(x)\leq C(1+\lVert x\rVert)\).  A subgradient exists at every point
+because \(F\) is finite and convex on all of \(N_{\mathbf R}\).  The linear
+upper bound makes \(\operatorname{dom}F^*\) bounded.  Hence
+\[
+ K=\overline{\operatorname{dom}F^*}
+  =\overline{\bigcup_{x\in N_{\mathbf R}}\partial F(x)}
+\]
+is nonempty and compact.  Adding an affine function to \(F\) translates
+this body, proving the asserted intrinsicness.
+
+Fix a decreasing quasi-equisingular approximation \((\varphi_j)\) with
+gentle analytic singularities and put
+\[
+                       R_j=\theta+\ddc\varphi_j.
+\]
+Such an approximation exists by
+\cite[Theorem~1.6.2 and Definition~1.6.5]{XiaBook}.  After comparing its
+auxiliary K\"ahler form with \(\omega\), we may write
+\(R_j\geq-\varepsilon_j\omega\), where \(\varepsilon_j\downarrow0\).
+The multiplier-ideal convention in \cite{Cao14} differs from that of
+\cite{XiaBook} by a factor of two.  More precisely,
+\[
+             \mathcal I_{\mathrm C}(a\varphi)
+             =\mathcal I_{\mathrm B}(2a\varphi).
+\]
+Applying the book's quasi-equisingular inclusion with
+\(2m<2m(1+\delta)\), and using that the approximants decrease, shows that
+the same tail is admissible in Cao's definition.
+
+For \(s>0\), set \(S_s=T+s\omega\).  Deleting finitely many terms makes
+\((R_j+s\omega)\) a positive quasi-equisingular approximation of \(S_s\).
+Addition of a smooth form changes neither analytic singularities nor
+multiplier ideals, and
+\[
+              (R_j+s\omega)_{\mathrm{ac}}
+              =(R_j)_{\mathrm{ac}}+s\omega.
+\]
+Cao's definition and the binomial formula therefore give
+\[
+ \int_X\langle S_s^n\rangle_{\mathrm{Cao}}
+ =\sum_{k=0}^n\binom nk s^{n-k}
+   \int_X\langle T^k\rangle_{\mathrm{Cao}}
+                  \wedge\omega^{n-k}.
+\tag{55.53}\label{eq:ok-cao-smooth-polynomial}
+\]
+This is an identity for one fixed approximation, not a continuity assertion
+under variation of the cohomology class.
+
+We next identify its left-hand side.  The current \(S_s\) dominates
+\(s\omega\), so it is a K\"ahler current.  Its potential is toric and hence
+\(\mathcal I\)-good by \cite[Example~7.4.1]{XiaBook}.  Thus
+\cite[Theorem~7.1.1]{XiaBook} gives \(d_{\mathcal S}\)-convergence of the
+fixed quasi-equisingular approximation, and
+\cite[Theorem~6.2.1]{XiaBook} gives convergence of its top non-pluripolar
+masses.
+
+Gentleness is essential at this point.  For fixed \(s\) and every term in
+the positive tail, there is a modification \(\pi_j:Y_j\to X\) and an exact
+decomposition
+\[
+                    \pi_j^*(R_j+s\omega)
+                    =[E_j]+\beta_{j,s},
+\]
+where \(E_j\) is an effective real divisor and \(\beta_{j,s}\) is smooth.
+Off \(\operatorname{Supp}E_j\), the form \(\beta_{j,s}\) is the pullback of
+a positive current, so it is semipositive there and, by continuity,
+everywhere.  The singular and exceptional analytic sets have Lebesgue
+measure zero, while the non-pluripolar product ignores them.  On their
+complement both products are the ordinary smooth wedge.  It follows that
+\[
+ \int_X(R_j+s\omega)_{\mathrm{ac}}^n
+ =\int_{Y_j}\beta_{j,s}^n
+ =\int_X\langle(R_j+s\omega)^n\rangle_{\mathrm{np}}.
+\]
+Taking the limit gives
+\[
+ \int_X\langle S_s^n\rangle_{\mathrm{Cao}}
+ =\int_X\langle S_s^n\rangle_{\mathrm{np}}.
+\tag{55.54}\label{eq:ok-cao-np-positive-perturbation}
+\]
+A merely bounded remainder in a general analytic singularity would not
+provide the smooth residual form used above.
+
+Let \(G\) be the smooth strictly convex weight of \(\omega\), so that
+\(\overline{\operatorname{dom}G^*}=Q\).  The weight of \(S_s\) is
+\(F_s=F+sG\), and
+\[
+             \overline{\operatorname{dom}F_s^*}=K+sQ.
+\tag{55.55}\label{eq:ok-real-newton-minkowski}
+\]
+For completeness, if \(H\) is a finite convex function with bounded closed
+conjugate domain \(B\), its recession function is the support function
+\(H^\infty=h_B\).  Recession functions add, so
+\[
+                 F_s^\infty=F^\infty+sG^\infty
+                 =h_K+s h_Q=h_{K+sQ}.
+\]
+Support functions determine compact convex bodies, proving
+\eqref{eq:ok-real-newton-minkowski}.  This argument avoids the generally
+false unclosed-domain identity for conjugates of sums.
+
+The function \(F_s\) is locally bounded on \(N_{\mathbf R}\).  The local
+complex/real Monge--Amp\`ere calculation
+\cite[Lemmas~2.1--2.2]{CGSZ19} identifies the logarithmic pushforward of its
+Bedford--Taylor measure with \(n!\) times its Alexandrov measure.  The
+interior of \(\operatorname{dom}F_s^*\) lies in the subgradient image, and
+the latter lies in the domain.  Since \(K+sQ\) is full dimensional, closing
+that image changes only a Lebesgue-null boundary.  The toric boundary of
+\(X\) is analytic and hence pluripolar, so the non-pluripolar measure does
+not charge it \cite[Propositions~1.4 and~1.6]{BEGZ10}.  Consequently,
+\[
+ \int_X\langle S_s^n\rangle_{\mathrm{np}}
+       =n!\operatorname{vol}_M(K+sQ).
+\tag{55.56}\label{eq:ok-real-toric-mass}
+\]
+Thus only the local torus calculation has been used; no global
+ample-class theorem has been extended silently to a real class.
+
+Minkowski's polynomial formula reads
+\[
+ \operatorname{vol}_M(K+sQ)
+ =\sum_{k=0}^n\binom nk
+       V(K[k],Q[n-k])s^{n-k}.
+\tag{55.57}\label{eq:ok-real-minkowski-polynomial}
+\]
+Equations \eqref{eq:ok-cao-smooth-polynomial},
+\eqref{eq:ok-cao-np-positive-perturbation},
+\eqref{eq:ok-real-toric-mass}, and
+\eqref{eq:ok-real-minkowski-polynomial} hold for every \(s>0\).  Equality of
+polynomials gives
+\[
+ \int_X\langle T^k\rangle_{\mathrm{Cao}}\wedge\omega^{n-k}
+       =n!V(K[k],Q[n-k]).
+\]
+Multilinearity of non-pluripolar products under addition of a smooth form
+\cite[Proposition~1.4]{BEGZ10} gives, by the same coefficient comparison,
+\[
+ \int_X\langle T^k\rangle_{\mathrm{np}}\wedge\omega^{n-k}
+       =n!V(K[k],Q[n-k]).
+\]
+This proves \eqref{eq:ok-toric-real-products}.
+
+It remains to determine which coefficients vanish.  Put \(d=\dim K\).  If
+\(k>d\), translate \(K\) into a \(d\)-dimensional linear subspace.  The
+volume polynomial has degree at most \(d\) in the variables belonging to
+the \(k\) copies of \(K\), and hence
+\(V(K[k],Q[n-k])=0\).  If \(1\leq k\leq d\), choose \(k\) linearly
+independent segments in a translate of \(K\), and complete their directions
+by \(n-k\) segments contained, after translation and scaling, in the
+interior of \(Q\).  The mixed volume of the resulting segments is a positive
+multiple of the absolute determinant of their directions.  Monotonicity of
+mixed volume therefore gives
+\[
+ V(K[k],Q[n-k])
+ \begin{cases}
+  >0,&0\leq k\leq d,\\
+  =0,&d<k\leq n.
+ \end{cases}
+\tag{55.58}\label{eq:ok-real-mixed-positivity}
+\]
+Cao's product class is pseudoeffective, and the non-pluripolar product is
+represented by a positive current.  Either class is nonzero exactly when
+its pairing with the strictly positive form \(\omega^{n-k}\) is positive.
+The two coefficient formulas and
+\eqref{eq:ok-real-mixed-positivity} prove
+\eqref{eq:ok-toric-real-dimension}.
+\end{proof}
+
+\begin{example}\label{ex:ok-real-toric-class-current}
+On \(X=\mathbf P^1\), let \(T=\lambda[0]\), with \(\lambda>0\).  The class
+\(\lambda[\omega_{\mathrm{FS}}]\) has class numerical dimension one, but
+the Newton body of \(T\) is a point and its current-level numerical
+dimensions are zero.  Taking \(\lambda\notin\mathbf Q\) gives the same
+counterexample in an irrational class.  Thus
+\Cref{thm:ok-toric-real-products} would be false if
+\(\nu(T)\) were interpreted as the numerical dimension of \(\{T\}\).
+\end{example}
+
+\begin{example}\label{ex:ok-real-toric-segment}
+On \(\mathbf P^1\times\mathbf P^1\), take
+\[
+ T=a[\{0\}\times\mathbf P^1]
+      +b\,\operatorname{pr}_2^*\omega_{\mathrm{FS}},
+ \qquad a/b\notin\mathbf Q.
+\]
+Up to translation, \(\Delta(T)=\{0\}\times[0,b]\).  For the product
+K\"ahler form with square moment polytope,
+\(\operatorname{vol}(\Delta(T)+sQ)=bs+s^2\).  Hence both current-level
+numerical dimensions are one, while the big cohomology class has numerical
+dimension two.
+\end{example}
+
+The next rational statement is already contained in
+\Cref{thm:ok-toric-real-products}.  Its proof is retained because it gives an
+independent algebraic explanation through multiplier ideals and character
+counts.
+
+\begin{corollary}\label{thm:ok-toric-zero-mass}
 Let \(X\) be a smooth projective toric variety.
 Let \(T\) be a torus-invariant positive \((1,1)\)-current in an integral or
 rational big toric class, and let
@@ -1314,9 +1590,9 @@ intended.
 Then Cao's numerical dimension satisfies
 \[
                          \nu_{\mathrm{Cao}}(T)=\dim K.
-\tag{55.50}\label{eq:ok-toric-numdim}
+\tag{55.59}\label{eq:ok-toric-numdim}
 \]
-\end{theorem}
+\end{corollary}
 
 \begin{proof}
 Choose a toric \(\mathbf Q\)-divisor \(D\) representing the class of \(T\).
@@ -1344,7 +1620,7 @@ Minkowski sum of the two compact effective domains.  Consequently, for
 rational \(\varepsilon>0\),
 \[
                   \Delta(T+\varepsilon\omega_A)=K+\varepsilon Q.
-\tag{55.51}\label{eq:ok-toric-minkowski}
+\tag{55.60}\label{eq:ok-toric-minkowski}
 \]
 
 We now prove the section-counting identity needed for Cao's criterion.  Put
@@ -1511,7 +1787,7 @@ gives constants \(c,C>0\) such that
  c\varepsilon^{\,n-d}
  \leq\lambda_M(K+\varepsilon Q)
  \leq C\varepsilon^{\,n-d}
-\tag{55.52}\label{eq:ok-toric-tube-growth}
+\tag{55.61}\label{eq:ok-toric-tube-growth}
 \]
 for all sufficiently small \(\varepsilon>0\).
 Thus
@@ -1523,11 +1799,13 @@ Thus
 
 \begin{remark}[Exact scope]
 \label{rem:ok-toric-scope}
-\Cref{thm:ok-toric-zero-mass} does not include an irrational real toric
-class.
-Such an extension needs both a definition of its Newton body and an
-approximation theorem compatible with Cao's numerical dimension.
-Neither is a formal consequence of \eqref{eq:ok-toric-numdim}.
+The section-counting proof of \Cref{thm:ok-toric-zero-mass} is restricted to
+integral or rational big classes because it uses one graded section algebra.
+The conclusion itself is not so restricted:
+\Cref{thm:ok-toric-real-products} proves it analytically for every invariant
+positive current in a pseudoeffective real class.  The two arguments must not
+be conflated: the real-class proof fixes the current and adds a smooth form;
+it does not approximate the class by rational classes.
 \end{remark}
 
 \begin{proposition}\label{prop:ok-i-invariant-obstruction}
@@ -1615,10 +1893,14 @@ of mixed volume is \Cref{thm:appD-minkowski-polynomial}, and the
 multiplier-ideal volume of a metric is
 \Cref{def:complex-current-volume}; \Cref{rem:ok-mvob-normalizations} carries
 out both conversions explicitly rather than assuming them.
-The toric statement \Cref{thm:ok-toric-zero-mass} is the validated
-integral/rational theorem recorded in the research ledger; its proof uses
-Cao's criterion \cite{Cao14}, not an unproved identification with an
-unrelated mixed product.
+The general toric statement \Cref{thm:ok-toric-real-products} is controlled
+by production Rethlas run
+\nolinkurl{20260825T011636Z_99edb45c54cb}; its source-aware frozen proof
+received verdict \texttt{correct}, with no reported error or gap, and an
+independent hostile audit found no defect.  The rational corollary
+\Cref{thm:ok-toric-zero-mass} retains the separately validated
+section-counting proof through Cao's criterion \cite{Cao14}.  Neither
+verification is a novelty or priority claim.
 The Cantor-set example uses \cite{Car83}.
 
 Four boundaries should be retained.

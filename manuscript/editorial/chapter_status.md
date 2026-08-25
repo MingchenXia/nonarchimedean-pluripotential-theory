@@ -25,14 +25,14 @@ Status vocabulary:
 | 50 | Stability and completions | post-expansion depth-audited | quotient, Hausdorffization, completion extension, independence, and uniqueness arguments expanded in full after explicit imported inputs | BJKS and BJ theorem scopes rechecked against the formal completion argument |
 | 51 | Complex prerequisites | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 52--54 | Test curves, inverse systems, and trace | post-expansion depth-audited | independent mathematical depth pass completed 23 August 2026; imported Perron/Ross--Witt Nystr\"om boundaries remain explicit | primary sources rechecked, including the exact Darvas--Xia \(\mathcal I\)-input/\(P\)-output trace theorem |
-| 55--58 | Okounkov/DH, analytification, BJ comparison, and tropical spectra | post-expansion depth-audited | the 23 August depth pass is retained; Chapter 55's exact-current metric theorem and line-bundle specialization passed separate production runs `20260824T054849Z_57635bfa07f4` and `20260824T061508Z_17bf73c6b37c`, and its toric zero-mass block passed source-attested run `20260824T052605Z_703e3b501202`, all final `correct`, 0 critical errors, 0 gaps | primary-source scope and locators rechecked for multiplier-ideal volume, DXZ approximation, MP tropical spectra, Cao, Guenancia, Schneider, and the repaired mixed-volume proof; the author-supplied proof remains unpublished and no priority claim is made |
+| 55--58 | Okounkov/DH, analytification, BJ comparison, and tropical spectra | post-expansion depth-audited | the 23 August depth pass is retained; Chapter 55's exact-current metric theorem and line-bundle specialization passed separate production runs `20260824T054849Z_57635bfa07f4` and `20260824T061508Z_17bf73c6b37c`, its rational toric zero-mass block passed `20260824T052605Z_703e3b501202`, and the general real-class current-level theorem passed frozen source-aware run `20260825T011636Z_99edb45c54cb`, all final `correct`, 0 critical errors, 0 gaps | primary-source scope and locators rechecked for multiplier-ideal volume, DXZ approximation, MP tropical spectra, Cao, CGSZ, BEGZ, Guenancia, Schneider, and the repaired mixed-volume proof; the general toric run is not a post-integration byte-identity gate, the author-supplied proof remains unpublished, and no priority claim is made |
 | 59--62 | Complex dual complexes, MP psh, transcendental CY, and K-stability | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 63--64 | Master dictionary and Monge--Ampère comparisons | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 65--66 | Rays, filtrations, and hybrid spaces | post-expansion depth-audited | slope, entropy, hybrid-extension, and Monge--Ampère limit arguments reconstructed after explicit imported inputs | BHJ/BJ and Pille--Schneider anchors rechecked; the excluded Deligne-pairing paper is not used |
 | 67 | Functoriality and trace | first-draft-final (historical) | prior hostile-pass record; exact current Rethlas status is recorded separately | source correction recorded in the trace audit |
 | 68 | YTD bridge | post-expansion depth-audited | factor-two normalization and perturbation chain checked against the internally proved ray formulas | Fano and automorphism-group scope rechecked against primary sources |
-| 69 | Validated extensions | first-draft-final (historical) | prior hostile-pass record retained; the exact-current toric-dimension statement and source-aware proof composite separately passed run `20260824T070302Z_d706dc98ccca`, final `correct`, 0 critical errors, 0 gaps | Cao Proposition 4.4, Guenancia Theorem 1.13, and the toric character interface were primary-source checked; the result remains integral/rational toric only and carries no novelty claim |
-| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 20 problem environments, for 21 book-wide and 63 active atoms; the generalized-Lelong converse was retired after frozen-packet production run `20260824T140127Z_ef8316d19c12` and an independent hostile audit; that run was not a post-integration byte-identity gate | source status reconciled through 24 August 2026; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and the Lelong result is recorded as a dated book-level derivation without novelty or priority claim |
+| 69 | Validated extensions | post-expansion synchronization in progress | the rational toric statement and source-aware proof composite passed run `20260824T070302Z_d706dc98ccca`; Chapter 69 now identifies it as the section-counting proof of the more general Chapter 55 theorem, whose frozen source-aware run is `20260825T011636Z_99edb45c54cb`; both final `correct`, 0 critical errors, 0 gaps | Cao's current-level definition, the local toric mass formula, and the rational Guenancia/character-count method are kept distinct; no novelty or priority claim is made |
+| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 19 problem environments, for 20 book-wide and 62 active atoms; the generalized-Lelong converse and real-toric current-level problem were retired after their frozen production runs and independent hostile audits; neither run is described as a post-integration byte-identity gate | source status reconciled through 24 August 2026 and book verification through 25 August; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and the Lelong and real-toric results are recorded as dated book-level derivations without novelty or priority claims |
 | A--L | Appendices | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 
 ## Second-draft expansion
@@ -108,9 +108,9 @@ build from the exact 101-file release snapshot now produces 3,081 pages; its
 final log has no TeX error, undefined reference or citation, duplicate
 destination, BibTeX warning, or overfull box, and the representative-page
 inspection passed.  Static and build checks do not replace the independent
-mathematical audits listed below.  After the later generalized-Lelong
-integration, the current literal frontier has 21 environments (one in
-Chapter 71 and 20 in Chapter 72) and 63 active atoms; the theorem-like,
+mathematical audits listed below.  After the later generalized-Lelong and
+real-toric integrations, the current literal frontier has 20 environments
+(one in Chapter 71 and 19 in Chapter 72) and 62 active atoms; the theorem-like,
 label, reference, and page totals await the next whole-source recount and
 build.
 
@@ -132,15 +132,17 @@ box is an outstanding verification step, not a mathematical defect.
       above do not close this gate.
 - [ ] The source-boundary review is complete outside the separately recorded
       final-chapter and BJ-closure audits.
-- [x] The literal research inventory is 21 open `problem` environments:
-      one in Chapter 71 and 20 in Chapter 72, split into 63 active atoms.  No
+- [x] The literal research inventory is 20 open `problem` environments:
+      one in Chapter 71 and 19 in Chapter 72, split into 62 active atoms.  No
       exercise environment occurs.
 - [ ] Every result or integration designated for a Rethlas receipt has a
       receipt for its exact current statement and proof.  The Chapter 23 and
       Chapter 49 stale/pending entries are closed by runs
       `20260824T044830Z_25024c43d265` and
-      `20260824T041218Z_0c95825dbb06`; Chapter 55 has the toric gate and the two
-      separate Xia exact-current gates; Chapter 69 has its own toric gate;
+      `20260824T041218Z_0c95825dbb06`; Chapter 55 has the rational toric gate,
+      the general frozen real-toric gate
+      `20260825T011636Z_99edb45c54cb`, and the two separate Xia exact-current
+      gates; Chapter 69 has its own rational toric gate;
       Chapter 18 has the exact-current GJR counterexample and
       residual-dimension-at-most-one semipositive-decomposition gates
       `20260824T123617Z_fcddc3abc33d` and

@@ -1,11 +1,11 @@
 # Major open-problem programme
 
 **Literature cutoff:** 24 August 2026.  
-**Live book location:** Chapter 72, with 20 research-frontier problem
+**Live book location:** Chapter 72, with 19 research-frontier problem
 environments.  
-**Book-wide count:** 21 problem environments: the 20 active items mapped below and the
+**Book-wide count:** 20 problem environments: the 19 active items mapped below and the
 separate projective-rational full-link problem in the preceding
-pseudoeffective MP--DXZ chapter.  The latter is not a twenty-first Chapter 72
+pseudoeffective MP--DXZ chapter.  The latter is not a twentieth Chapter 72
 item.  
 **Promotion rule:** an item becomes a new theorem only after its exact
 statement and proof receive a production Rethlas gpt-5.6-sol/xhigh receipt
@@ -45,12 +45,12 @@ are independently checked.  Accordingly OP-15 and Chapter 72 keep
 Conjecture 8.8 open.  The dated 15 August note near the end of this file is
 retained only to disclose the superseded intermediate classification.
 
-**Exact active count:** Chapter 72 contains 20 problem environments and
+**Exact active count:** Chapter 72 contains 19 problem environments and
 Chapter 71 contains the separate projective-rational full-cone problem, for
-21 book-wide and 63 independently auditable active atoms. All 21 retain a
+20 book-wide and 62 independently auditable active atoms. All 20 retain a
 genuinely open residual scope. At the
 whole-environment level the cutoff count is: resolved 0, disproved 0,
-conditional 0, genuinely open 21. Resolved, disproved, and conditional
+conditional 0, genuinely open 20. Resolved, disproved, and conditional
 subclaims below are boundary results inside those active environments and
 are not additional problem environments.
 
@@ -66,7 +66,7 @@ questions in OP-19 remain open. The other version-sensitive primary sources
 in the reference-pack manifest had no revision changing a listed status by
 the cutoff.
 
-The active tags below map exactly the 20 Chapter 72 environments and distinguish a
+The active tags below map exactly the 19 Chapter 72 environments and distinguish a
 **primary-source question** from a
 **book-formulated question**. Some problem environments collect several
 source questions under one common framework.
@@ -280,7 +280,7 @@ source questions under one common framework.
 - **Related earlier environment:**
   `prob:pseff-projective-rational-full-link` in the preceding chapter records
   the separate projective-rational full-cone comparison.  It accounts for
-  the difference between the 20-item Chapter 72 map and the 21 book-wide
+  the difference between the 19-item Chapter 72 map and the 20 book-wide
   literal problem count.
 - **Packets:** mp_pseff_chapter_exact.md (failed verification, no promotion)
   and dxz_filtration_test_curve_maximality.md (prepared, not run).
@@ -358,22 +358,6 @@ source questions under one common framework.
 - **Packets:** hybrid_entropy_ytd.md and
   post2025_ytd_residuals.md (the latter prepared, not run).
 
-### OP-20. Irrational real toric numerical dimension
-
-- **Kind:** book extension of a verified rational theorem.
-- **Question:** extend \(\nu(T)=\dim\Delta(T)\) to invariant currents in
-  irrational real classes by a class-varying approximation compatible with
-  real positive products.
-- **Status:** open.
-- **Verified rational boundary:** the source-attested Chapter 55 block passed
-  `20260824T052605Z_703e3b501202`, and the separate exact-current Chapter 69
-  integration passed `20260824T070302Z_d706dc98ccca`; both returned final
-  `correct`, zero critical errors, and zero gaps.  They cover only smooth
-  projective toric varieties, invariant currents, and integral/rational big
-  classes, and carry no novelty claim.
-- **Packet:** real_toric_numerical_dimension.md; it asks only for the
-  irrational-real extension and remains unsubmitted.
-
 ### OP-21. Analytic realization of the cross-fan obstruction
 
 - **Kind:** book-formulated realization question.
@@ -398,6 +382,13 @@ source questions under one common framework.
 6. The \(P\)-valued analytic trace is already supplied by the trace
    comparison and uniqueness theorem; the former trace item is resolved
    history and must not be confused with the current OP-13.
+7. The former OP-20 was ambiguous.  The class-level identity is false on
+   \(\mathbf P^1\), while the current-level Cao and non-pluripolar identities
+   are proved for every pseudoeffective real toric class in
+   `thm:ok-toric-real-products`.  Production run
+   `20260825T011636Z_99edb45c54cb` returned final `correct`, with zero
+   critical errors and zero gaps; the atom is retired rather than retained
+   as an open rational-approximation problem.
 
 ## Current unsubmitted-packet boundary
 

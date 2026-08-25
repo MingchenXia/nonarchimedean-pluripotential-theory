@@ -1,6 +1,6 @@
 # P20.1: real toric numerical dimension — source-aware solution candidate
 
-Date: 24 August 2026.
+Date: 24 August 2026; production verification updated 25 August 2026.
 
 ## Verdict
 
@@ -39,10 +39,15 @@ normalization is \(V(B[n])=\operatorname{vol}_M(B)\).  Consequently,
              =\dim K.
 \]
 
-This is a solver dossier, not a production Rethlas receipt.  The result must
-not be promoted to the live chapters before an exact-current
-`gpt-5.6-sol`/`xhigh` verification and the independent integration audit
-required by `manuscript/editorial/rethlas_verification_protocol.md`.
+This remains a solver dossier rather than the controlling production
+receipt. The exact statement and full source-aware proof have now passed
+production Rethlas with `gpt-5.6-sol`/`xhigh`, final verdict `correct`, zero
+critical errors, and zero gaps. The controlling receipt is
+`manuscript/editorial/rethlas_receipts_20260825/real_toric_numerical_dimension_round3_production_receipt.md`.
+The result has not yet been promoted to a live chapter; the independent
+integration audit required by
+`manuscript/editorial/rethlas_verification_protocol.md` still applies to the
+future live bytes.
 
 ## 1. What “irrational” can mean on a projective toric variety
 
@@ -808,5 +813,24 @@ integration should do all of the following together:
   torus calculation instead of enlarging the scope of Proposition 5.2.5.
   It independently reproduced the class-level \(\mathbf P^1\)
   counterexample and the irrational \(\mathbf P^1\times\mathbf P^1\) test.
-- Production Rethlas status: **not run**.
-- Live-chapter status: **unchanged; P20.1 remains open pending verification**.
+- Production Rethlas status: **passed**. Run
+  `20260825T011636Z_99edb45c54cb`, item
+  `pi_9bb081dd3b5d36a64cbc59af`, using `gpt-5.6-sol` at `xhigh`, returned
+  `final/correct`, with zero critical errors and zero gaps. The exact
+  statement, proof, and request SHA-256 values are respectively
+  `99edb45c54cb8bae89f5f5dc34abc718ca965a2ac7f1d7bef1693ab4dab372fa`,
+  `e2e16296fa3420e6a40739016a6dccabb9628e17ea2c6ec47ec890e9dfaebfad`,
+  and
+  `799eb4aaee0db33d97e208fa9859cdd099ffa4932d3f356e98ac1390f37de46d`.
+  The exact API response SHA-256 is
+  `ad5250ac8d2b41fc62d1f16b815631c9b6bd4bd74f16ca9e159eff375d311278`.
+- The first production round correctly rejected a missing factor-two
+  multiplier-ideal convention comparison. The repaired second round ended
+  in an infrastructure timeout and supplied no mathematical verdict. The
+  third round retained the full repair, added the explicit convention
+  \(\langle T^0\rangle_{\mathrm{Cao}}=
+    \langle T^0\rangle_{\mathrm{np}}=1\), and is the controlling pass.
+- Live-chapter status: **unchanged in this task**. P20.1 is mathematically
+  resolved at the frozen-packet level, but it remains literally present in
+  the live open-problem chapter until the separate integration blueprint is
+  executed and audited.

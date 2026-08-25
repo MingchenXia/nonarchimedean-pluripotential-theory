@@ -1137,22 +1137,26 @@ theory row.
 | P2 | Early collapse of the CLD transfinite psh hierarchy; CLD Lemma 8.1.4/Remark 8.1.6 | Prove stage-one collapse on locally finite charts or exhibit genuine transfinite rank | Eventual cardinal stabilization is closed; Chapter 72 asks only early collapse |
 | P2 | Exact canonical BJ approximation and threshold identities after Trusiani 2026 | Identify Trusiani's approximants term by term with the prescribed BJ sequence and normalize every threshold | Earlier chapters provide machinery; Chapter 72 does not identify them |
 
-The live Chapter 72 has 20 open-problem environments.  The book-wide literal
-count is 21 because the preceding pseudoeffective MP--DXZ chapter separately
+The live Chapter 72 has 19 open-problem environments.  The book-wide literal
+count is 20 because the preceding pseudoeffective MP--DXZ chapter separately
 contains the projective-rational full-link problem.  These are
 research-status records, not exercises.  The earlier trace-refinement row has
 been removed: the complete supplied Darvas--Xia chapter proves the required
 input-\(\mathcal I\)/output-\(P\) factorization, so Chapter 72 now records it as
 resolved source history.  Splitting compound environments into independently
-auditable targets gives 63 active atoms; their exact crosswalk and easy-to-hard
+auditable targets gives 62 active atoms; their exact crosswalk and easy-to-hard
 queue are recorded in
 `manuscript/editorial/open_problem_atomic_inventory_20260824.md`.  After
-Rethlas access resumed, nine mathematical production gates were completed:
+Rethlas access resumed, ten mathematical production gates were completed:
 eight exact-current gates for the two Chapter 18 results, Chapter 23
 selection, Chapter 49 energy package, the two Chapter 55 Conjecture 8.8
 blocks, and the Chapter 55/69 toric blocks, plus the exact frozen Chapter 70
 generalized-Lelong statement/proof gate followed by an independent hostile
-audit.  The latter is not claimed as a post-integration byte-identity gate.
+audit, and the frozen source-aware real-toric current-level gate
+`20260825T011636Z_99edb45c54cb`, also followed by a hostile audit.  The two
+frozen gates are not claimed as post-integration byte-identity gates.  The
+real-toric atom is retired: the current-level identity is proved in every
+pseudoeffective real class, while the class-level reading is disproved.
 The remaining source-scoped packets in the table have no
 promotable proof receipt unless an individual entry explicitly says
 otherwise.

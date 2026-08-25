@@ -12,8 +12,8 @@ surrounding literature.
 
 ## Counting method
 
-The current source contains exactly twenty-one formal problem environments:
-one in Chapter 71 and twenty in Chapter 72.  A compound environment is
+The current source contains exactly twenty formal problem environments:
+one in Chapter 71 and nineteen in Chapter 72.  A compound environment is
 split below into independently auditable theorem or construction targets.
 Equivalent reformulations are counted only once.  The compatibility axioms
 that make a construction meaningful---for example model independence,
@@ -23,12 +23,13 @@ not artificial extra atoms.  Known boundary cases and counterexamples are
 reported in the status notes but are not counted as active atoms.
 
 After deletion of the unrestricted Gubler--Jell--Rabinoff cohomological
-isomorphism question, which is negatively answered in the book, and the
+isomorphism question, which is negatively answered in the book, the
 generalized-Lelong separation question, which is proved in
-`thm:local-generalized-lelong-separation`, the exact count is
+`thm:local-generalized-lelong-separation`, and the real-toric current-level
+question, which is proved in `thm:ok-toric-real-products`, the exact count is
 
 ```text
-21 formal problem environments = 63 active atomic research questions.
+20 formal problem environments = 62 active atomic research questions.
 ```
 
 The identifiers `P00.1` through `P21.2` below are an editorial addressing
@@ -284,14 +285,6 @@ projective results described in the chapter.
 The dated smooth polarized projective claims listed in the chapter are not
 open atoms.  The four corrected residual targets above remain open.
 
-### `prob:frontier-real-toric` --- 1 atom
-
-- **P20.1** `[T1; open]` Prove or disprove
-  \(\nu(T)=\dim\Delta(T)\) for a torus-invariant positive current in a big
-  irrational real class, with numerical dimension defined by real positive
-  products.  The integral and rational cases are verified; the irrational
-  real case is open.
-
 ### `prob:frontier-cross-fan` --- 2 atoms
 
 - **P21.1** `[T1; open]` Realize the verified weighted cross-fan as a
@@ -309,13 +302,12 @@ The tiers estimate how bounded the first exact submission can be, not the
 probability that its expected answer is affirmative.  A verified
 counterexample retires an atom just as a verified proof does.
 
-### T1 --- concrete first submissions (3 atoms)
+### T1 --- concrete first submissions (2 atoms)
 
 Recommended internal order:
 
-1. `P20.1`
-2. `P21.1`
-3. `P01.1`
+1. `P21.1`
+2. `P01.1`
 
 ### T2 --- focused problems with one principal missing bridge (11 atoms)
 
