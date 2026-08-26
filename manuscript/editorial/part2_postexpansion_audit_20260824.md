@@ -276,3 +276,23 @@ and zero gaps.  Good, totally degenerate, and isotrivial residual-extension
 cases remain separately recorded.  The result does not close P09.2: the
 ample symmetric non-isotrivial mixed-reduction range remains open.  No
 novelty or priority claim is made.
+
+## Later 26 August addendum: the four layers of a delta-metric
+
+The former Chapter 18 gluing lemma incorrectly treated the global
+piecewise-smooth Chern form, the residual codimension-one generalized
+delta-form, the ambient codimension-zero Hessian lift, and the ambient
+bidegree after intersection with a tropical cycle as one assertion.  The
+replacement states and proves these four layers separately from the exact
+GK17 sources.  In particular, Proposition 9.8 uniqueness is used only with
+its universal algebraic-pullback characterization, and the degree
+calculation is made on an ambient neighbourhood whose tropical-cycle
+intersection lies inside the chosen chart domain.
+
+The first exact production submission was rejected for omitting precisely
+those two quantifiers.  After their repair, the frozen statement and
+source-aware proof passed run 20260826T011701Z_1e7c96932016, item
+pi_a860454e8a0004aa4767207c, with gpt-5.6-sol at xhigh, final
+correct, zero critical errors, and zero gaps.  Chapter 18 inputs the
+verified files directly.  This is a correctness repair and source
+reconstruction, not a new theorem or priority claim.

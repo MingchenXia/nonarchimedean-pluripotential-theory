@@ -35,6 +35,19 @@ Status vocabulary:
 | 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 16 problem environments, for 17 book-wide and 57 active atoms; the generalized-Lelong, real-PL current--residue, real-toric current-level, global Radon--Riesz, P09.1 semipositive integral-decomposition, two original cross-fan realization, and normalized hybrid-continuity atoms were retired after production verification; P09.2 remains one atom but has been reduced by `20260825T145229Z_b37e13478cc7` to ample symmetric cubical metrics in non-isotrivial mixed reduction | source status reconciled through 24 August 2026 and book verification through 25 August; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and all book-level derivations retain exact scope and no novelty or priority claim |
 | A--L | Appendices | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 
+**26 August 2026 controlling Chapter 18 correction.**  The former
+delta-metric gluing lemma conflated four different objects and degree
+conventions.  Its exact replacement separates the global piecewise smooth
+Chern form, the universally characterized residual codimension-one
+generalized delta-form, the conditional ambient Hessian lift defining an
+ordinary delta-metric, and the ambient bidegree after intersection with the
+tropical cycle.  After a first rejected submission exposed two precise
+quantifier errors, the corrected statement and proof passed production run
+20260826T011701Z_1e7c96932016, item
+pi_a860454e8a0004aa4767207c, with final correct, zero critical
+errors, and zero gaps.  Chapter 18 inputs those exact files.  This correction
+does not retire an open-problem atom and does not assert novelty or priority.
+
 ## Second-draft expansion
 
 A second-draft expansion pass has now reached every numbered chapter.  It

@@ -55,6 +55,17 @@ hypotheses but never replace prose.
 
 ## Current source-boundary firewalls
 
+- **GK delta-metrics (Ch. 18).**  For a piecewise smoothly metrized line
+  bundle, the global piecewise smooth Chern form and the canonical residual
+  generalized delta-form of codimension one exist without assuming ordinary
+  delta-metricity.  Ordinary delta-metricity additionally requires the
+  facewise Hessian to extend from the tropical cycle to an ambient
+  bidegree-\((1,1)\) superform with piecewise smooth coefficients.  The
+  residual form is unique by the universal algebraic-pullback property of
+  GK Proposition 9.8, not by injectivity into currents on one fixed open
+  set.  After intersecting an ambient coefficient form with a
+  codimension-\(c\) tropical cycle, its ambient bidegree is
+  \((c+1,c+1)\), while its relative bidegree remains \((1,1)\).
 - **BJ closure package (Chs. 34--35).** The repaired closure theorem is an
   imported `BJ22` package in the trivially valued projective regime. Its
   decreasing-net and moving-class clauses require the exact source hypotheses;
