@@ -6,6 +6,23 @@
 **Rule:** an attempted route is never promoted to a theorem without a final
 Rethlas verification receipt for the exact displayed statement and proof.
 
+> **26 August 2026 P09.2 controlling addendum.**  The final
+> Gubler--Jell--Rabinoff cubical delta-metricity atom is resolved negatively.
+> The exact product--Gauss theorem proves that an equivariant locally
+> integral-PL map with a nondegenerate quadratic weight gives an ordinary
+> delta-metric exactly when every tropical coordinate is CLD-smooth.  In
+> split Raynaud uniformization this is equivalent, for an ample cubical
+> metric, to isotriviality of the residual extension.  Thus no ample
+> cubical metric in non-isotrivial mixed reduction is ordinary delta.
+> Production run `20260826T055627Z_b68659fba1be`, item
+> `pi_75c74fac9a98efc3719b9773`, using `gpt-5.6-sol` at `xhigh`, returned
+> final `correct`, zero critical errors, and zero gaps.  The exact proof
+> digest is
+> `3bfc656409c96a2be52161798efffe726657a3e0b2d2831a5f25a795e8c4d262`.
+> This supersedes every historical row below that calls the ample-symmetric
+> non-isotrivial range open.  P09.2 is removed from the active inventory; no
+> novelty or priority claim is made.
+
 > **25 August 2026 P11 controlling addendum.**  The global implication in
 > Boucksom--Jonsson Question 11.16 is now disproved.  The first \(\mathbf
 > P^2\) proof run was correctly rejected because residue nonvanishing did not
@@ -430,7 +447,7 @@ no promotion and no receipt.
 |---|---|---|
 | `open_problems/cld_psh_early_collapse` | CLD Lemma 8.1.4 versus Remark 8.1.6: stage-one or controlled-early collapse, not eventual stationarity | `0d4149f848fbaa409eb5ff21384537810e50231f07af2a3d944e825b98bd5cc7` |
 | `open_problems/cld_local_global_psh_metrics` | the two questions of CLD Remark 17.8.10 | `d5fd4e0c58de4317b0bf938b5fcc40d607a650e1eed6524606ee8171cdfdb1c5` |
-| `open_problems/gjr_three_questions` | Historical three-item bundle: unrestricted abelian cohomology is disproved; positive integral decomposition is settled by signed generation in every dimension and failure of the natural positive cone in residual dimension two; canonical ordinary delta-metricity is reduced to ample symmetric cubical metrics in non-isotrivial mixed reduction, and only that reduced case remains open | `4cbac12689ee67aab4e2e4214b9fc3971ddcdbf1e6de30ab8122d0006bd1e784` |
+| `open_problems/gjr_three_questions` | Historical three-item bundle at its submission cutoff: unrestricted abelian cohomology was disproved; positive integral decomposition was settled by signed generation and failure of the natural positive cone; canonical ordinary delta-metricity had been reduced to the ample-symmetric non-isotrivial case, which is now resolved negatively by the 26 August controlling addendum | `4cbac12689ee67aab4e2e4214b9fc3971ddcdbf1e6de30ab8122d0006bd1e784` |
 | `open_problems/dxz_filtration_test_curve_maximality` | the conjecture immediately before DXZ Definition 4.4 | `0d5303f2064130a14d82454ecf45c893fd117aef1d28dcfa12620620e8477283` |
 | `open_problems/xia_partial_okounkov_questions` | Historical bundled packet: Xia Conjecture 5.29 and Chebyshev auxiliary-eta independence remain open; its Conjecture 8.8 component is superseded by the later exact-current positive-volume gates; auxiliary-H/omega independence excluded as closed | `4cc5a8d0ba7e347ee73f8d9e63fe1f5628bbee8f4c98ee15273be104c5d0ad45` |
 | `open_problems/ps23_arbitrary_field_e1_ma` | Pille--Schneider Remark 4.4 on constructing the E1 Monge--Ampere operator over an arbitrary complete field | `37cd2ca67d7bdbeaf412027fc0a46428003f6ea0d453f223f9239db89b97a397` |
@@ -477,7 +494,7 @@ mark.
 |---|---|
 | `cld_psh_early_collapse` | Source correction: eventual stationarity **is** proved (CLD Lemme 8.1.4, cardinality argument); Remarque 8.1.6's literal sentence contradicts it.  CLD Définition 8.1.13 already names the live property, *localement approchable*.  Collapse at stage \(\alpha\) shown equivalent to closure of \(\mathrm{Psh}_{X,\alpha}\) under decreasing limits.  Unconditional collapse on \(\mathbf R^n\).  Vertex atoms refuted as an obstruction.  General case open.  **One claim withdrawn:** that finite collapse at any stage implies collapse at stage one — unproved, retracted after an independent audit in the same session. |
 | `cld_local_global_psh_metrics` | Question A open, with the Fubini--Study closure contained in the globally psh cone, and the Richberg route blocked at two recorded points (local CLD-smooth functions are constant near rigid points, so no strict positivity reserve).  Question B expected false as stated, with a candidate polarization-killing formal K3 and two flagged gaps. |
-| `gjr_three_questions` | **Superseded historical classification.**  The semipositive integral-decomposition question is now settled: positive generation holds in residual dimension at most one (`20260824T135721Z_81346238f7dd`), signed generation holds in every dimension (`20260825T130036Z_c1607c25ec38`), and positive generation fails in residual dimension two (`20260825T130707Z_4c4a1f2c885f`).  The explicit good-reduction elliptic cohomology counterexample passed `20260824T123617Z_fcddc3abc33d`; no claim is made for total degeneration.  For canonical metrics, run `20260825T145229Z_b37e13478cc7` proves the `Pic^0` case, the symmetric/antisymmetric splitting, and equivalence of the fixed-variety universal problem with the ample symmetric case.  Only ample symmetric ordinary delta-metricity in non-isotrivial mixed reduction remains open. |
+| `gjr_three_questions` | **Superseded historical classification.**  The semipositive integral-decomposition question is settled: positive generation holds in residual dimension at most one (`20260824T135721Z_81346238f7dd`), signed generation holds in every dimension (`20260825T130036Z_c1607c25ec38`), and positive generation fails in residual dimension two (`20260825T130707Z_4c4a1f2c885f`).  The explicit good-reduction elliptic cohomology counterexample passed `20260824T123617Z_fcddc3abc33d`; no claim is made for total degeneration.  For canonical metrics, run `20260825T145229Z_b37e13478cc7` proves the `Pic^0` case and reduction to ample symmetric bundles; the later product--Gauss run `20260826T055627Z_b68659fba1be` answers that last range negatively and retires P09.2. |
 | `bmps_exact_source_questions` | Rank-two matroids closed by the source's own one-dimensional theorem (Bergman fan of a rank-\(r\) matroid has dimension \(r-1\)); \(U_{3,4}\)'s failure reinterpreted as a failure of \(\gamma\)'s growth hypotheses at rank three.  Split-obstacle orthogonality on products.  Purely local smoothness hypotheses proved insufficient in higher dimension. |
 | `generalized_lelong_separation` | **Superseded historical classification.**  Not attempted in the 15 August pass; the exact frozen statement and source-aware proof later passed production run `20260824T140127Z_ef8316d19c12`, and an independent hostile audit found no gap before the result was integrated in Chapter 70.  The receipt is not a post-integration byte-identity gate. |
 | `bj_radon_riesz` | **Superseded historical row.**  Not attempted in the 15 August pass; the later moving-centre \(\mathbf P^n\) counterexample passed final/correct run `20260825T044839Z_326e2035bbb9`, item `pi_9e222887262acc5d9fbc740a`, and resolves the global question negatively. |

@@ -1,6 +1,6 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 25 August 2026
+**Inventory date:** 26 August 2026
 **Literature cutoff:** 24 August 2026
 **Source scope:** the formal `problem` environments in Chapters 71 and 72
 
@@ -12,8 +12,8 @@ surrounding literature.
 
 ## Counting method
 
-The current source contains exactly seventeen formal problem environments:
-one in Chapter 71 and sixteen in Chapter 72.  A compound environment is
+The current source contains exactly sixteen formal problem environments:
+one in Chapter 71 and fifteen in Chapter 72.  A compound environment is
 split below into independently auditable theorem or construction targets.
 Equivalent reformulations are counted only once.  The compatibility axioms
 that make a construction meaningful---for example model independence,
@@ -33,11 +33,12 @@ retirement of the global Boucksom--Jonsson Radon--Riesz atom, and retirement
 of the real-PL current--residue atom after
 `thm:p01-real-pl-positive-current-candidate`, and retirement of the
 semipositive integral-decomposition atom after the verified signed theorem
-and positive-cone counterexample,
+and positive-cone counterexample, and retirement of the cubical
+delta-metricity atom after the verified product--Gauss criterion,
 the exact count is
 
 ```text
-17 formal problem environments = 57 active atomic research questions.
+16 formal problem environments = 56 active atomic research questions.
 ```
 
 The identifiers `P00.1` through `P21.3` below are an editorial addressing
@@ -178,12 +179,23 @@ a uniform general bound.
 Agreement is known on the common model loci.  Both unrestricted global
 statements are open.
 
-### `prob:frontier-gjr-remaining` --- 1 atom
+### Retired P09.2 history --- 0 active atoms
 
-- **P09.2** `[T3; open]` Over an algebraically closed, complete,
-  nontrivially valued field, determine whether every cubical metric on every
-  ample symmetric rigidified line bundle on an abelian variety with
-  non-isotrivial mixed reduction is an ordinary delta-metric.
+P09.2 asked whether, over an algebraically closed, complete,
+nontrivially valued field, every cubical metric on every ample symmetric
+rigidified line bundle on an abelian variety with non-isotrivial mixed
+reduction is an ordinary delta-metric.  It is retired with a negative
+answer.  The product--Gauss criterion
+`thm:p09p2-product-gauss-candidate` proves more generally that a
+nondegenerate quadratic weight `F(h)` on an equivariant locally integral-PL
+map is ordinary delta exactly when all coordinates of `h` are CLD-smooth.
+Applied to split Raynaud uniformization, an ample cubical metric is ordinary
+delta exactly when the residual Raynaud extension is isotrivial.  Thus no
+ample cubical metric in non-isotrivial mixed reduction is ordinary delta.
+The exact statement and proof passed production run
+`20260826T055627Z_b68659fba1be`, item
+`pi_75c74fac9a98efc3719b9773`, with `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors, and zero gaps.
 
 P09.1 is retired.  Signed generation holds in every residual dimension by
 `thm:p09-signed-semipositive-span`, while
@@ -197,7 +209,7 @@ elliptic-curve counterexample to surjectivity.  This does not settle the
 separately restricted totally degenerate case, which is not a formal problem
 environment here.
 
-The displayed P09.2 formulation is the exact residual problem, not a
+The former displayed P09.2 formulation was the exact residual problem, not a
 strengthening.  Under the stated field hypotheses,
 `thm:p09p2-reduction` proves that all cubical metrics on a fixed abelian
 variety are ordinary delta-metrics if and only if this holds for all ample
@@ -206,8 +218,9 @@ symmetric cubical metrics; it also settles every line bundle in
 `20260825T145229Z_b37e13478cc7`, item
 `pi_10f6228b6e69e780dad8b17b`, returned final `correct`, zero critical
 errors, and zero gaps.  Good reduction, total degeneration, and isotrivial
-residual Raynaud extensions are separately settled.  P09.2 remains one
-active atom, so the tier and total counts are unchanged.
+residual Raynaud extensions remain the positive boundary cases.  The later
+product--Gauss run above closes the exact residual question, removes its
+displayed problem environment, and lowers the active count by one.
 
 ### Retired P11 history --- 0 active atoms
 
@@ -384,10 +397,10 @@ No active atom remains in this tier after retirement of `P01.1`.
 `P21.3`, `P07.1`, `P00.1`, `P17.1`, `P06.1`, `P06.2`, `P06.3`,
 `P03.1`.
 
-### T3 --- major theorems within mature frameworks (15 atoms)
+### T3 --- major theorems within mature frameworks (14 atoms)
 
 `P02.1`, `P02.2`, `P02.3`, `P05.1`, `P05.2`, `P05.3`, `P05.4`,
-`P07.2`, `P08.1`, `P08.2`, `P09.2`, `P14.2`, `P14.7`, `P03.2`,
+`P07.2`, `P08.1`, `P08.2`, `P14.2`, `P14.7`, `P03.2`,
 `P03.3`.
 
 ### T4 --- new comparison theories or several coupled inputs (17 atoms)

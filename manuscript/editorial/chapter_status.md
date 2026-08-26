@@ -13,7 +13,7 @@ Status vocabulary:
 | Chapter | Short title | Status | Mathematical audit | Source audit |
 |---:|---|---|---|---|
 | 1--8 | Foundations | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
-| 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the two earlier Chapter 18 GJR gates, the pure-dimensional real-PL positive-current/residue-nef equivalence passed exact production run `20260825T080059Z_80f35689475f`; first-stage CLD collapse on tropical toric partial compactifications and on finite-valence boundaryless tropical curves passed frozen production run `20260825T024707Z_d1b8d7eaf79e`; the repaired exact-live real-PL zero-current theorem passed `20260825T061351Z_655e7f503e5d`, the exact-live curve counterexample to ordinary CLD-smooth harmonic approximation passed `20260825T055907Z_b5c8f0719b60`, and the canonical-cubical delta-metricity reduction passed `20260825T145229Z_b37e13478cc7`; all listed runs are final `correct`, with 0 critical errors and 0 gaps; P09.2 now remains only for ample symmetric cubical metrics in non-isotrivial mixed reduction | GJR, CLD, and Raynaud inputs retain their exact scopes; the current--residue theorem is stated on pure-dimensional (n)-spaces and uses an ample residual order unit; the cubical reduction is confined to the GK field category and settles `Pic^0` without using the retracted smooth-tropicalization argument; no unrestricted delta-metricity, collapse, psh nonregularization, novelty, or priority claim is made |
+| 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the earlier Chapter 18 GJR gates, the pure-dimensional real-PL positive-current/residue-nef equivalence passed `20260825T080059Z_80f35689475f`; first-stage CLD collapse on two natural classes passed `20260825T024707Z_d1b8d7eaf79e`; the real-PL zero-current theorem and curve counterexample passed `20260825T061351Z_655e7f503e5d` and `20260825T055907Z_b5c8f0719b60`; the cubical reduction passed `20260825T145229Z_b37e13478cc7`; and the exact product--Gauss criterion and its Raynaud application passed `20260826T055627Z_b68659fba1be`; all listed runs are final `correct`, with 0 critical errors and 0 gaps; P09.2 is now resolved negatively | GJR's harmonic result and original warning retain their source scope; the new theorem is a book-level deduction in the GK field and ordinary algebraic-chart categories, using Gubler's local algebraization and CLD's Raynaud criteria; it proves ordinary delta-metricity for ample cubical metrics exactly in the isotrivial residual case and makes no novelty or priority claim |
 | 20--27 | BFJ forms, psh, envelopes, MA, capacity, and energy | first-draft-final (historical) | first-pass record; the exact-current Chapter 23 fixed-skeleton selection passed production Rethlas run `20260824T044830Z_25024c43d265` with final `correct`, 0 critical errors, 0 gaps | first-pass record; the Chapter 23 book-local result is separated from its published BFJ inputs and makes no global sequential claim |
 | 28--31 | BFJ measures, continuity, functoriality, and examples | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 32--34 | Trivially valued foundations and psh closure | first-draft-final (historical) | first-pass record; Ch. 34 closure integration awaits Rethlas review | first-pass record; primary anchors rechecked for the closure repair |
@@ -32,7 +32,7 @@ Status vocabulary:
 | 67 | Functoriality and trace | first-draft-final (historical) | prior hostile-pass record; exact current Rethlas status is recorded separately | source correction recorded in the trace audit |
 | 68 | YTD bridge | post-expansion depth-audited | factor-two normalization and perturbation chain checked against the internally proved ray formulas | Fano and automorphism-group scope rechecked against primary sources |
 | 69 | Validated extensions | post-expansion synchronization in progress | in addition to the toric gates, the complete-intersection slice passed `20260825T023505Z_66547f68ec32`; the analytic weighted-cross realization and compact-source obstruction passed `20260825T021353Z_058a4390b0fb` and `20260825T024519Z_16376e0d52eb`; and the four-punctured smooth-curve obstruction passed `20260825T034743Z_ea6194f07e86`; all four are final `correct`, with 0 critical errors and 0 gaps | the slice tests only restrictions of ambient smooth functions; the cross construction gives equality of curvature only after proper pushforward, not an analytic Bedford--Taylor counterexample; the four-punctured result excludes its concrete candidate but leaves P21.3 open; no novelty or priority claim is made |
-| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 16 problem environments, for 17 book-wide and 57 active atoms; the generalized-Lelong, real-PL current--residue, real-toric current-level, global Radon--Riesz, P09.1 semipositive integral-decomposition, two original cross-fan realization, and normalized hybrid-continuity atoms were retired after production verification; P09.2 remains one atom but has been reduced by `20260825T145229Z_b37e13478cc7` to ample symmetric cubical metrics in non-isotrivial mixed reduction | source status reconciled through 24 August 2026 and book verification through 25 August; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and all book-level derivations retain exact scope and no novelty or priority claim |
+| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 15 problem environments, for 16 book-wide and 56 active atoms; the generalized-Lelong, real-PL current--residue, real-toric current-level, global Radon--Riesz, P09.1 semipositive integral-decomposition, P09.2 cubical delta-metricity, two original cross-fan realization, and normalized hybrid-continuity atoms were retired after production verification; P09.2 passed `20260826T055627Z_b68659fba1be` with a negative answer in the exact non-isotrivial mixed-reduction range | source status is reconciled through 24 August 2026 and book verification through 26 August; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and all book-level derivations retain exact scope and no novelty or priority claim |
 | A--L | Appendices | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 
 **26 August 2026 controlling Chapter 18 correction.**  The former
@@ -123,11 +123,13 @@ destination, BibTeX warning, or overfull box, and the representative-page
 inspection passed.  Static and build checks do not replace the independent
 mathematical audits listed below.  After the later generalized-Lelong,
 real-PL current--residue, real-toric, local-envelope, cross-fan,
-hybrid-continuity, and Radon--Riesz integrations, the current literal frontier has 17
-environments (one in Chapter 71 and 16 in Chapter 72) and 57 active atoms; the theorem-like,
-label, and reference audits pass.  The clean 25 August current-source build
-has 3,125 pages; its evidence is recorded in
-`editorial/current_source_build_20260825.md`.
+hybrid-continuity, Radon--Riesz, and cubical delta-metricity integrations,
+the current literal frontier has 16 environments (one in Chapter 71 and 15
+in Chapter 72) and 56 active atoms.  The post-P09.2 source has a clean,
+visually audited 3,149-page build with a verified 111-file closure; its
+evidence is recorded in
+`editorial/current_source_build_p09p2_20260826.md` and
+`editorial/current_source_closure_p09p2_20260826.sha256`.
 
 ## Global release gates
 
@@ -144,13 +146,18 @@ box is an outstanding verification step, not a mathematical defect.
       24 August release snapshot and source-freeze evidence remain recorded in
       `output/BUILD_AND_AUDIT_SUMMARY.md` and
       `output/PRODUCTION_SOURCE_SHA256SUMS`.
+- [x] The 26 August post-P09.2 source has a clean converged 3,149-page build,
+      final-log and structural audits, inspection of all pages carrying the
+      new theorem and proof and of the retirement pages in Chapter 72, and a
+      verified 111-file source closure.  The controlling evidence is
+      `editorial/current_source_build_p09p2_20260826.md`.
 - [ ] The expanded chapters have received independent post-expansion
       mathematical and primary-source audits; the historical first-pass rows
       above do not close this gate.
 - [ ] The source-boundary review is complete outside the separately recorded
       final-chapter and BJ-closure audits.
-- [x] The literal research inventory is 17 open `problem` environments:
-      one in Chapter 71 and 16 in Chapter 72, split into 57 active atoms.  No
+- [x] The literal research inventory is 16 open `problem` environments:
+      one in Chapter 71 and 15 in Chapter 72, split into 56 active atoms.  No
       exercise environment occurs.
 - [ ] Every result or integration designated for a Rethlas receipt has a
       receipt for its exact current statement and proof.  The Chapter 23 and

@@ -104,6 +104,17 @@ non-isotrivial mixed reduction; only that range remains among the GJR
 questions.  The BJ22 basic-closure integration and the MP reduced entropy-slope
 reconstruction remain outside this receipt set.
 
+**26 August 2026 controlling P09.2 addendum.**  The range described in the
+preceding dated paragraph no longer remains open.  The exact product--Gauss
+statement and proof passed production run
+`20260826T055627Z_b68659fba1be`, item
+`pi_75c74fac9a98efc3719b9773`, with `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors, and zero gaps.  For ample cubical metrics,
+ordinary delta-metricity is equivalent to isotriviality of the residual
+Raynaud extension; hence the non-isotrivial mixed-reduction answer is
+negative.  P09.2 is retired, leaving 16 formal problem environments and 56
+active atoms.  The older paragraphs remain historical snapshots.
+
 ## 0. Source-audit addendum of 15 August 2026
 
 **Later 24 August 2026 controlling count.**  Retirement of the generalized-

@@ -1,12 +1,12 @@
 # Major open-problem programme
 
 **Literature cutoff:** 24 August 2026.  
-**Live book location:** Chapter 72, with 16 research-frontier problem
+**Live book location:** Chapter 72, with 15 research-frontier problem
 environments.  
-**Book-wide count:** 17 problem environments: the 16 active items mapped below and the
+**Book-wide count:** 16 problem environments: the 15 active items mapped below and the
 separate projective-rational full-link problem in the preceding
 pseudoeffective MP--DXZ chapter.  The latter is outside the Chapter 72 list.
-OP-01, OP-11, and OP-18 below are retained as resolved history and are not
+OP-01, OP-09, OP-11, and OP-18 below are retained as resolved history and are not
 counted.
 
 **Promotion rule:** an item becomes a new theorem only after its exact
@@ -47,12 +47,12 @@ are independently checked.  Accordingly OP-15 and Chapter 72 keep
 Conjecture 8.8 open.  The dated 15 August note near the end of this file is
 retained only to disclose the superseded intermediate classification.
 
-**Exact active count:** Chapter 72 contains 16 problem environments and
+**Exact active count:** Chapter 72 contains 15 problem environments and
 Chapter 71 contains the separate projective-rational full-cone problem, for
-17 book-wide and 57 independently auditable active atoms. All 17 retain a
+16 book-wide and 56 independently auditable active atoms. All 16 retain a
 genuinely open residual scope. At the
 whole-environment level the cutoff count is: resolved 0, disproved 0,
-conditional 0, genuinely open 17. Resolved, disproved, and conditional
+conditional 0, genuinely open 16. Resolved, disproved, and conditional
 subclaims below are boundary results inside those active environments and
 are not additional problem environments.
 
@@ -68,8 +68,8 @@ questions in OP-19 remain open. The other version-sensitive primary sources
 in the reference-pack manifest had no revision changing a listed status by
 the cutoff.
 
-The 16 active tags below map exactly the Chapter 72 inventory; the retained
-OP-01, OP-11, and OP-18 tags record resolved history and are not counted.  The tags distinguish a
+The 15 active tags below map exactly the Chapter 72 inventory; the retained
+OP-01, OP-09, OP-11, and OP-18 tags record resolved history and are not counted.  The tags distinguish a
 **primary-source question** from a
 **book-formulated question**. Some problem environments collect several
 source questions under one common framework.
@@ -223,20 +223,26 @@ source questions under one common framework.
 - **Status:** open outside the common semiample/formal/model loci.
 - **Packet:** cld_local_global_psh_metrics.md (prepared, not run).
 
-### OP-09. The remaining Gubler--Jell--Rabinoff question
+### Resolved OP-09. The Gubler--Jell--Rabinoff delta-metricity question
 
 - **Kind:** primary-source questions.
 - **Question:** whether cubical metrics on ample symmetric line bundles over
   non-isotrivial mixed-reduction abelian varieties are ordinary
   \(\delta\)-metrics.
-- **Status:** open in this exact reduced range; the nonsmooth mixed-reduction
-  canonical tropicalization is a mandatory boundary test.  Production run
+- **Status:** resolved negatively.  The product--Gauss criterion proves that
+  a nondegenerate quadratic equivariant PL weight is ordinary delta exactly
+  when all underlying tropical coordinates are CLD-smooth.  For an ample
+  cubical metric this is equivalent to isotriviality of the residual Raynaud
+  extension.  Hence the answer is no throughout non-isotrivial mixed
+  reduction.  Exact production run
+  `20260826T055627Z_b68659fba1be`, item
+  `pi_75c74fac9a98efc3719b9773`, returned final `correct`, zero critical
+  errors, and zero gaps.  The earlier run
   `20260825T145229Z_b37e13478cc7` settles `Pic^0`, proves the exact
-  symmetric/antisymmetric metric splitting, and shows that the universal
-  question on a fixed abelian variety is equivalent to the ample symmetric
-  case.  The run returned final `correct`, zero critical errors, and zero
-  gaps.  Good reduction, total degeneration, and isotrivial residual
-  extensions are separately settled.  The semipositive integral-decomposition atom
+  symmetric/antisymmetric metric splitting, and shows why the now-resolved
+  ample symmetric range was the last universal case on a fixed abelian
+  variety.  Good reduction, total degeneration, and isotrivial residual
+  extensions remain positive boundary cases.  The semipositive integral-decomposition atom
   is retired: the natural positive-cone formulation is verified in residual
   dimension at most one, signed generation holds in every dimension, and the
   positive-cone formulation fails in residual dimension two.  The two
@@ -249,8 +255,8 @@ source questions under one common framework.
   `20260824T123617Z_fcddc3abc33d` returned final `correct`, zero critical
   errors, and zero gaps.  The totally degenerate refinement remains outside
   that counterexample.
-- **Packet:** gjr_three_questions.md (legacy filename; updated to the one
-  remaining question and the two closed historical items).
+- **Packet:** gjr_three_questions.md (legacy filename; all three historical
+  source questions are now classified as resolved in their exact scopes).
 
 ## B. Valuative singularities and the trivially valued frontier
 
@@ -351,7 +357,7 @@ source questions under one common framework.
 - **Related earlier environment:**
   `prob:pseff-projective-rational-full-link` in the preceding chapter records
   the separate projective-rational full-cone comparison.  It accounts for
-  the difference between the 16-item Chapter 72 map and the 17 book-wide
+  the difference between the 15-item Chapter 72 map and the 16 book-wide
   literal problem count.
 - **Packets:** mp_pseff_chapter_exact.md (failed verification, no promotion)
   and dxz_filtration_test_curve_maximality.md (prepared, not run).

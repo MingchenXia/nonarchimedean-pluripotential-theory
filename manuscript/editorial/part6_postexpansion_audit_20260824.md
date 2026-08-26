@@ -1,6 +1,21 @@
 # Part VI post-expansion audit (2026-08-24)
 
-## 25 Aug 2026 controlling addendum
+## 26 Aug 2026 controlling addendum
+
+The current literal frontier contains 15 problem environments in Chapter 72
+and one in Chapter 71, for 16 book-wide and 56 active atoms.  P09.2 is
+retired after the exact product--Gauss theorem passed production run
+`20260826T055627Z_b68659fba1be`, item
+`pi_75c74fac9a98efc3719b9773`, with `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors, and zero gaps.  The theorem characterizes
+ordinary delta-metricity of an ample cubical metric by isotriviality of the
+residual Raynaud extension and therefore answers the non-isotrivial
+mixed-reduction question negatively.  Chapter 72 has removed the formal
+problem environment and retained the source history and scope firewall.
+This paragraph supersedes all older P09.2 and inventory counts below without
+rewriting their dated audit history.
+
+## 25 Aug 2026 historical controlling addendum
 
 The current literal frontier consists of 17 problem environments in Chapter
 72 and one in Chapter 71, for 18 book-wide and 59 active atoms.  The latest
@@ -305,3 +320,19 @@ through an identifiable intermediate dependency on it.
 These boundaries are intentionally visible in the manuscript as theorem,
 conditional theorem, obstruction, source-status notice, or open problem,
 rather than being compressed into a single claimed equivalence.
+
+## Superseding 26 August addendum: retirement of P09.2
+
+Chapter 72 no longer displays the cubical delta-metricity question as a
+formal problem.  The exact product--Gauss theorem in Chapter 19 answers it
+negatively and passed production run
+`20260826T055627Z_b68659fba1be`, item
+`pi_75c74fac9a98efc3719b9773`, using `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors, and zero gaps.  The chapter now contains 15
+formal problem environments; with the one Chapter 71 environment the
+book-wide inventory contains 16 environments and 56 active atoms.  The
+resolved-history discussion retains GJR's original source scope, the earlier
+Picard reduction, the new negative conclusion, and the firewall that no
+classification of every individual nonample cubical line bundle is claimed.
+This addendum supersedes only the dated P09.2/count statements above; all
+other residual-risk entries remain unchanged.

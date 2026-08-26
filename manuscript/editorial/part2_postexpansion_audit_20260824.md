@@ -296,3 +296,19 @@ pi_a860454e8a0004aa4767207c, with gpt-5.6-sol at xhigh, final
 correct, zero critical errors, and zero gaps.  Chapter 18 inputs the
 verified files directly.  This is a correctness repair and source
 reconstruction, not a new theorem or priority claim.
+
+## Later 26 August addendum: product--Gauss criterion and P09.2
+
+Chapter 19 now inputs the exact product--Gauss statement and proof that
+passed production run `20260826T055627Z_b68659fba1be`, item
+`pi_75c74fac9a98efc3719b9773`, with `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors, and zero gaps.  A nondegenerate quadratic
+weight on an equivariant locally integral-PL map is ordinary delta exactly
+when every tropical coordinate is CLD-smooth.  For an ample cubical metric
+on a split Raynaud uniformization this is equivalent to isotriviality of the
+residual extension.  Thus P09.2 has a negative answer in non-isotrivial mixed
+reduction.  The chapter preserves the historical fact that GJR left the
+question open, but every former live-open assertion has been superseded by
+the verified criterion.  Harmonic tropicalizability and all canonical
+measure computations remain valid independently of ordinary
+delta-metricity.  No novelty or priority claim is made.

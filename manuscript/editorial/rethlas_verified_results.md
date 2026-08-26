@@ -662,8 +662,8 @@ nine 24 August gates counted in this paragraph.
 
 - Status: **VERIFIED FROZEN EXACT BLOCK / INTEGRATED BYTE-FOR-BYTE**
   (25 August 2026).
-- Book location: `thm:p09p2-reduction`, with the residual problem in
-  `prob:frontier-gjr-remaining`.
+- Book location: `thm:p09p2-reduction`; the residual problem displayed at
+  that date has since been retired by the next verified result.
 - Exact result: cubical metrics on `Pic^0(A)` are ordinary GK
   delta-metrics; the directly induced symmetric/antisymmetric decomposition
   gives an isometric square splitting and an equivalence of delta-metricity;
@@ -676,12 +676,46 @@ nine 24 August gates counted in this paragraph.
 - Production run: `20260825T145229Z_b37e13478cc7`; proof item
   `pi_10f6228b6e69e780dad8b17b`; model `gpt-5.6-sol`, scrutiny `xhigh`,
   final verdict `correct`, zero critical errors and zero gaps.
-- Scope firewall: the theorem assumes the Gubler--Künnemann field category
-  and does not prove ordinary delta-metricity for ample symmetric cubical
-  metrics in non-isotrivial mixed reduction.  P09.2 remains active in
-  exactly that reduced range.  No novelty or priority claim is made.
+- Historical scope firewall: the theorem assumes the Gubler--Künnemann
+  field category and did not by itself decide ample symmetric cubical
+  metrics in non-isotrivial mixed reduction.  The later product--Gauss
+  theorem below closes exactly that range.  No novelty or priority claim is
+  made.
 - Controlling receipt:
   `editorial/rethlas_receipts_20260825/p09p2_cubical_delta_reduction_live_integration_receipt_20260825.md`.
+
+## Chapters 19 and 72 — product--Gauss criterion and retirement of P09.2
+
+- Status: **VERIFIED FROZEN EXACT BLOCK / INTEGRATED BYTE-FOR-BYTE**
+  (26 August 2026).
+- Book location: `thm:p09p2-product-gauss-candidate`; Chapter 72 records the
+  source question as resolved rather than displaying a problem environment.
+- Exact result: for a split torus action and an equivariant locally integral
+  PL map `h`, a weight `F(h)` with nondegenerate quadratic Hessian is an
+  ordinary Gubler--Künnemann delta-weight if and only if every coordinate of
+  `h` is CLD-smooth.  For split Raynaud uniformization, an ample cubical
+  metric is ordinary delta if and only if the residual Raynaud extension is
+  isotrivial.  Consequently no ample cubical metric in non-isotrivial mixed
+  reduction is ordinary delta, and P09.2 is retired negatively.
+- Exact frozen statement SHA-256:
+  `b68659fba1be78b30345c112c637d38f41372dc70526fef8ecad6a450f7cbf47`.
+- Exact frozen proof SHA-256:
+  `3bfc656409c96a2be52161798efffe726657a3e0b2d2831a5f25a795e8c4d262`.
+- Production run: `20260826T055627Z_b68659fba1be`; proof item
+  `pi_75c74fac9a98efc3719b9773`; model `gpt-5.6-sol`, scrutiny `xhigh`,
+  final verdict `correct`, zero critical errors and zero gaps.
+- Independent gates: primary-source, novelty-scope, proof-architecture, and
+  hostile audits all passed.  The final quantifier repair defines relative
+  Gauss points for every real torus weight and invokes constant `K`-section
+  density only at value-group-rational weights.
+- Scope firewall: the analytic-local invariance argument concerns analytic
+  opens of algebraic analytifications and algebraic line bundles; the
+  product criterion requires a nondegenerate quadratic Hessian; the Raynaud
+  application assumes the stated algebraically closed complete
+  nontrivially valued field and an ample line bundle.  No broader weakly
+  smooth, arbitrary analytic, nonample, novelty, or priority claim is made.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260826/p09p2_product_gauss_live_integration_receipt_20260826.md`.
 
 ## Darvas--Xia trace-source correction (not a receipt)
 
