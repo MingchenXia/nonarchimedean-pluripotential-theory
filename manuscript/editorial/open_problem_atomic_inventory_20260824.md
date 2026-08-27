@@ -356,11 +356,14 @@ open atoms.  The four corrected residual targets above remain open.
 
 ### `prob:frontier-cross-fan-upstairs` --- 1 atom
 
-- **P21.3** `[T2; open]` Construct a good strict analytic space, a positive
-  closed order-zero analytic or delta-current \(T\), and continuous psh
-  functions \(U,V\) with equal analytic curvature currents but
-  \(\mathrm d'\mathrm d''((U-V)T)\ne0\), or prove that the available
-  analytic and delta-currents force Bedford--Taylor compatibility.
+- **P21.3** `[T2; open residual]` Outside the precise complete,
+  algebraically closed, nontrivially valued reduced one-dimensional class
+  with rig-smooth component normalizations settled by
+  `prop:p21p3-curve-rigidity`, determine whether every positive closed
+  CLD current of bidegree \((p,p)\), \(0\le p\le n-1\), on a good separated
+  strict boundaryless pure \(n\)-dimensional analytic space is
+  Bedford--Taylor in the sense of CLD Definition 8.6.2, or construct a
+  counterexample.
 
 The two preceding realization atoms are retired.  `P21.1` is negatively
 settled by the compact-source obstruction in production run
@@ -381,6 +384,30 @@ not come from such a current.  The run returned final `correct`, zero
 critical errors, and zero gaps.  This is a candidate-level obstruction only:
 `P21.3` remains open, stays in the queue, and the inventory count is
 unchanged.
+
+The original wording also offered an unrestricted delta-current branch.
+That branch was not well-defined.  The exact Gubler--Künnemann module is
+`B_GK × E_GK → E_GK`, with `B_GK^(0,0)=A^(0,0)`; it does not multiply an
+arbitrary real-PL or continuous function by an arbitrary delta-current.
+The complete graded Leibniz identity and this scope boundary passed
+production Rethlas run `20260826T072535Z_e0a34aabb30f`, item
+`pi_2554dbbac2584768c3a71996`, with final `correct`, zero critical errors,
+and zero gaps.  This correction neither proves nor disproves the analytic
+CLD question, so it does not retire the atom.
+
+The principal curve subcase is now retired.  Over an algebraically closed
+complete nontrivially valued field, every positive closed CLD current of
+bidegree \((0,0)\) on a good separated strict reduced boundaryless curve
+whose component normalizations are rig-smooth is a locally finite
+nonnegative linear combination of the component integration currents; it
+is therefore Bedford--Taylor.  The exact frozen statement and proof passed
+production Rethlas run `20260826T154751Z_7cb598fbddb7`, item
+`pi_383fc357b7bbce95a0e83cb2`, using `gpt-5.6-sol` at `xhigh`, with
+final `correct`, zero critical errors, and zero gaps.  Independent hostile,
+source, and shadow audits also passed.  `P21.3` now denotes only
+analytic dimension at least two and the one-dimensional domains outside the
+proposition's exact hypotheses, including the nonreduced range; the active
+atom count is unchanged.
 
 ## Easy-to-hard Rethlas queue
 

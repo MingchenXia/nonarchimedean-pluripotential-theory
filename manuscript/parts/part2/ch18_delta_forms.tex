@@ -84,8 +84,9 @@ enlargement will make false deductions in both directions.
 \item\label{itm:ch18-plan:deltaforms}
  \emph{What replaces the smooth category?}
  \Crefrange{sec:delta-tropical}{sec:ch18-delta-currents} construct
- delta-preforms, delta-forms and delta-currents, prove that the associated
- current determines a delta-form
+ delta-preforms, delta-forms and delta-currents, prove that on a fixed open
+ subset of an ambient vector space the associated polyhedral current
+ determines a delta-preform
  (\Cref{prop:ch18-current-faithful}) and that the product descends to that
  normalization (\Cref{prop:ch18-product-descends}).
 \item\label{itm:ch18-plan:positivity}
@@ -541,9 +542,12 @@ weighted fan $C_\varphi$.
 Now observe two things.  First, $\delta_{C_\varphi}$ is a $(1,1)$-current
 which is not represented by any smooth $(1,1)$-form: it charges a set of
 Lebesgue measure zero.  Second---and this is the reason for the enlarged
-calculus---the datum of $C_\varphi$ is strictly finer than the datum of the
-current.  Wedging $\delta_{C_\varphi}$ with itself is meaningless as a
-product of currents, but the \emph{cycle} $C_\varphi$ has a stable
+calculus---the polyhedral subclass carries a multiplication that the
+category of all currents does not.  On this fixed ambient space the current
+does determine the collected cycle coefficients; the gain is algebraic
+structure, not hidden linear data.  Wedging $\delta_{C_\varphi}$ with itself
+is meaningless as a product of arbitrary currents, but the \emph{cycle}
+$C_\varphi$ has a stable
 self-intersection $C_\varphi\cdot C_\varphi$, which by
 \Cref{thm:tropical-stable-intersection} is the $0$-cycle $1\cdot\{0\}$: the
 tropical B\'ezout count of two lines.  Delta-forms are designed so that
@@ -570,8 +574,10 @@ of carrying the potentials along: its output is a current attached to a
 tuple of potentials, and \Cref{ex:ch16-cross-fan} shows that the output can
 genuinely depend on the potential and not only on its curvature.  The
 delta-calculus resolves the same difficulty from the other side.  It does
-not multiply arbitrary currents; it multiplies those currents which come
-with a polyhedral presentation, and it multiplies the presentations.
+not multiply arbitrary currents.  Delta-preforms are polyhedral currents;
+one computes their product from any polyhedral presentation, and
+\Cref{prop:ch18-product-descends} proves that the answer is independent of
+that presentation.
 \end{remark}
 
 \subsection{Model functions on a curve, with numbers}
@@ -661,8 +667,8 @@ Let \(N\) be a lattice, \(N_{\mathbf R}=N\otimes\mathbf R\), and let
 \(\Omega\subset N_{\mathbf R}\) be open.  A pure \(d\)-dimensional
 polyhedral complex \(C\) has a real weight \(m_\sigma\) on every maximal
 face.  Constant weights give the usual tropical cycles.  Gubler--K\"unnemann
-also allow smooth weights on the relative interiors of maximal faces, with
-the corresponding weighted balancing condition.
+also allow weights that are smooth up to the faces of every maximal
+polyhedron, with the corresponding weighted balancing condition.
 
 The integration current \(\delta_C\) acts on a compactly supported
 \((d,d)\)-superform by
@@ -713,10 +719,10 @@ through $\tau$, so the two balancing sums coincide.  This is
 
 \begin{remark}[Two kinds of weight]
 \label{rem:ch18-two-weights}
-Gubler and K\"unnemann permit the weight $m_\sigma$ to be a smooth function
-on $\RelInt\sigma$ rather than a constant, subject to the balancing
+Gubler and K\"unnemann permit the weight $m_\sigma$ to be a function smooth
+up to the faces of $\sigma$, rather than a constant, subject to the balancing
 condition
-$\sum_{\sigma\supset\tau}m_\sigma(x)u_{\sigma/\tau}\in N_\tau$ for every
+$\sum_{\sigma\supset\tau}m_\sigma(x)u_{\sigma/\tau}\in N_{\tau,\mathbf R}$ for every
 $x\in\RelInt\tau$.  The ambient cycles used below have constant weights
 unless smooth weights are explicitly mentioned.  The corner locus of a
 piecewise smooth function, however, generally has smooth weights, so its
@@ -737,26 +743,32 @@ A \emph{delta-preform} of bidegree \((p,q)\) and codimension \(l\) on
                        \sum_i \alpha_i\wedge\delta_{C_i},
 \label{eq:delta-preform}
 \end{equation}
-where \(C_i\) is a tropical cycle of codimension \(l\) and
-\(\alpha_i\) is a smooth superform of bidegree \((p-l,q-l)\) near
-\(|C_i|\cap\Omega\).  Finite sums over different codimensions are called
+where \(C_i\) is a tropical cycle with smooth weights of codimension \(l\) and
+\(\alpha_i\in A^{p-l,q-l}(\Omega)\) is an ambient smooth superform.
+Finite sums over different codimensions are called
 \emph{generalized delta-preforms}.
 \end{definition}
 
 The codimension shift makes \(\delta_C\) itself have bidegree \((l,l)\).
-Ordinary superforms are precisely the codimension-zero terms
-\(\alpha\wedge\delta_{N_{\mathbf R}}\).
+Ordinary smooth superforms embed as the codimension-zero terms
+\(\alpha\wedge\delta_{N_{\mathbf R}}\) with unit constant weight.  They are
+not all codimension-zero delta-preforms: allowing smooth weights on a
+full-dimensional polyhedral complex produces the piecewise-smooth
+superforms of \cite[Example~2.10]{GK17}.
 
 Two elementary conventions must be fixed at once, since they are the source
-of most confusion in reading \cite{GK17}.  First, in
-\eqref{eq:delta-preform} the form $\alpha_i$ is only required to be defined
-on a neighbourhood of $|C_i|\cap\Omega$; nothing is asserted about it away
-from the cycle, and two representatives differing off $|C_i|$ define the
-same delta-preform by fiat.  Second, the symbol $\wedge$ in
-\eqref{eq:delta-preform} is formal: at this stage $\alpha_i\wedge\delta_{C_i}$
-is a pair, not the result of an operation.  The content of
-\Cref{thm:delta-preform-algebra} is that the formal symbol can be given an
-associative multiplication.
+of most confusion in reading \cite{GK17}.  First, only the restriction of
+$\alpha_i$ to $|C_i|\cap\Omega$ affects
+\eqref{eq:delta-preform}.  Thus changing an ambient coefficient away from
+the cycle changes no current; conversely, a coefficient initially given on
+a neighbourhood of the cycle can be handled after restriction and a smooth
+partition-of-unity extension.  Second, the expression
+$\alpha_i\wedge\delta_{C_i}$ already denotes the action of a smooth form on
+the integration current of $C_i$.  Thus a delta-preform is the resulting
+polyhedral supercurrent, not a raw formal presentation.  What still requires
+proof is that stable intersection gives a product depending only on that
+current and not on the chosen presentation; this is
+\Cref{prop:ch18-product-descends,thm:delta-preform-algebra}.
 
 \begin{definition}[The associated current]
 \label{def:ch18-associated-current}
@@ -765,8 +777,8 @@ $\beta=\sum_i\alpha_i\wedge\delta_{C_i}$ of bidegree $(p,q)$ is
 \begin{equation}
 \label{eq:ch18-associated-current}
  \langle[\beta],\omega\rangle
- :=\sum_i\sum_{\sigma\in(C_i)_{d_i}}m_{i,\sigma}
-    \int_\sigma\alpha_i\wedge\omega ,
+ :=\sum_i\sum_{\sigma\in(C_i)_{d_i}}
+    \int_\sigma m_{i,\sigma}\,\alpha_i\wedge\omega ,
 \end{equation}
 $\omega$ running over compactly supported superforms of bidegree
 $(n-p,n-q)$, where $n=\dim N_{\mathbf R}$ and $d_i=n-l_i$.  The integrals
@@ -777,9 +789,8 @@ of \Cref{def:ch10-forms-on-support}.
 
 The assignment $\beta\mapsto[\beta]$ is linear and, by
 \Cref{lem:ch18-subdivision-invariance}, unchanged under subdivision of the
-$C_i$.  It is not injective on preforms; the next proposition identifies its
-kernel exactly, and thereby tells us what a delta-form \emph{is} in this
-book.
+$C_i$.  A displayed sum is only a presentation of this current; the next
+proposition gives the exact equality criterion after a common subdivision.
 
 \begin{proposition}
 \label{prop:ch18-current-faithful}
@@ -845,28 +856,40 @@ to $\mathscr C$, and $[\beta]=0$ by
 \Cref{lem:ch18-subdivision-invariance}.
 \end{proof}
 
-\begin{definition}[Delta-form on an open subset of $N_{\mathbf R}$]
+\begin{definition}[Delta-preforms on an open subset of $N_{\mathbf R}$]
 \label{def:ch18-delta-form-euclidean}
-A \emph{delta-form} of bidegree $(p,q)$ on $\Omega$ is a generalized
-delta-preform modulo the subspace of preforms whose associated current
-vanishes.  We write $B^{p,q}(\Omega)$ for the resulting vector space and
-$\beta\mapsto[\beta]$ for the induced injection into currents.
+We write $P^{p,q}(\Omega)$ for the vector space of generalized
+delta-preforms of bidegree $(p,q)$ on $\Omega$, regarded as polyhedral
+supercurrents.  Equivalently, one may start with presentations
+\eqref{eq:delta-preform} and divide by those whose associated current
+vanishes.  The letter $P$ is deliberate: the letter $B$ will be reserved
+for the smaller differential algebra of global delta-forms constructed in
+\Cref{sec:ch18-delta-analytic}.
 \end{definition}
 
 \begin{remark}[Which normalization is in force]
 \label{rem:ch18-normalization-choice}
-There are two natural equivalence relations on delta-preforms: identify two
-preforms when their associated currents agree, or identify them only when
-their polyhedral data agree after common subdivision.  The second is
-strictly finer.  This book uses the first, as in
-\Cref{def:ch18-delta-form-euclidean}, for three reasons: it makes the
-comparison with \Cref{chap:cld-currents} tautological; by
-\Cref{prop:ch18-current-faithful} it has a concrete description as a family
-of restricted coefficient forms; and by \Cref{prop:ch18-product-descends}
-the product descends to it, so nothing is lost.  Every statement below that
-mentions a delta-form is proved for this normalization.  The reader
-comparing with \cite{GK17} should verify which quotient is taken there
-before transporting a statement in either direction.
+On a fixed open subset of \(N_{\mathbf R}\), a delta-preform is the
+polyhedral supercurrent represented by an expression
+\eqref{eq:delta-preform}, not the raw expression itself.  Equality of two
+such preforms is therefore equality of their associated polyhedral
+supercurrents; after a common subdivision,
+\Cref{prop:ch18-current-faithful} identifies this with equality of every
+restricted coefficient.  This is the fixed-ambient convention of
+\cite[Definition~2.9 and Remark~2.11]{GK17}, and
+\Cref{def:ch18-delta-form-euclidean} records it explicitly.  In particular,
+the fixed-ambient space $P(\Omega)$ is an algebra, but it is not in general
+preserved by the current differentials $\dprime$ and $\ddprime$; see
+\Cref{rem:ch18-differentials-descend}.
+
+The statement changes on an analytic variety.  Equality of the single
+ordinary current on the base is not the functorial equivalence used to
+transport through every change of tropical chart.  The global definition in
+\Cref{sec:ch18-delta-analytic} therefore uses compatible tropical charts
+after every algebraic morphism, exactly as in \cite[\S4]{GK17}; the corresponding
+current-detection criterion is the all-algebraic-pullback criterion of
+\cite[Proposition~6.8]{GK17}.  Fixed-chart faithfulness must not be used as
+a substitute for that global criterion.
 \end{remark}
 
 \begin{proposition}
@@ -876,59 +899,67 @@ $\gamma=\sum_j\beta_j\wedge\delta_{D_j}$ be delta-preforms and suppose
 $[\beta]=0$.  Then the delta-preform
 $\sum_{i,j}(\alpha_i\wedge\beta_j)\wedge\delta_{C_i\cdot D_j}$ produced by
 \Cref{thm:delta-preform-algebra} also induces the zero current.
-Consequently the product of \Cref{thm:delta-preform-algebra} descends to a
-product on $B^{\bullet,\bullet}(\Omega)$.
+Consequently the product of \Cref{thm:delta-preform-algebra} is well defined
+on $P^{\bullet,\bullet}(\Omega)$.
 \end{proposition}
 
 \begin{proof}
-Fix a polyhedral complex $\mathscr C$ subdividing all the $C_i$ and all the
-$D_j$, and refine it further so that it also subdivides all the stable
-intersections $C_i\cdot D_j$; this is possible by
-\Cref{prop:tropical-common-refinement} because
-$|C_i\cdot D_j|\subseteq|C_i|\cap|D_j|$ by
-\Cref{thm:tropical-stable-intersection}.  Let $\tau$ be a maximal face of
-$C_i\cdot D_j$ carrying a nonzero weight.  Then $\tau\subseteq|C_i|$, so
-$\tau$ lies in a maximal face $\sigma$ of $C_i$ with $m_{i,\sigma}\neq0$.
-
-By \Cref{prop:ch18-current-faithful} applied to $\beta$, the combination
-$A_\sigma=\sum_{i'}m_{i',\sigma}\alpha_{i'}|_\sigma$ vanishes for every face
-$\sigma$; in particular, when only one index contributes, $\alpha_i|_\sigma=0$.
-In general one argues with the whole combination: the coefficient of
-$\delta_\tau$ in the product preform is
+Decompose \(\beta\) and \(\gamma\) first by codimension.  It is enough by
+bilinearity to treat pieces of fixed codimensions \(l\) and \(l'\).  Choose
+a common polyhedral complex \(\mathscr C\) for every supporting cycle.
+After collecting all terms supported on the same cell, write
 \[
- \sum_{i,j}m_{i,\sigma_i}\,m_{j,\sigma_j}\,\lambda_{ij\tau}\,
- (\alpha_i\wedge\beta_j)\big|_\tau
- =\sum_j\Bigl(\sum_i m_{i,\sigma_i}\lambda_{ij\tau}\alpha_i\big|_\tau\Bigr)
-   \wedge\bigl(m_{j,\sigma_j}\beta_j\big|_\tau\bigr),
+ \beta=\sum_{\sigma\in\mathscr C_{n-l}}
+             A_\sigma\wedge\delta_\sigma,
+ \qquad
+ \gamma=\sum_{\sigma'\in\mathscr C_{n-l'}}
+             B_{\sigma'}\wedge\delta_{\sigma'} .
 \]
-where $\lambda_{ij\tau}$ is the lattice index appearing in
-\eqref{eq:tropical-stable-weight}, a scalar depending only on the cells.
-Since $T\tau\subseteq T\sigma$, the restriction of $\alpha_i$ to $\tau$
-factors through its restriction to $\sigma$; hence the inner sum is the
-restriction to $\tau$ of a combination of the $A_\sigma$'s, which vanishes.
-Therefore all coefficients of the product preform vanish, and
-\Cref{prop:ch18-current-faithful} gives that its current is zero.
+Here \(A_\sigma\) and \(B_{\sigma'}\) are precisely the weighted sums of
+the restricted coefficient forms.  Since \([\beta]=0\),
+\Cref{prop:ch18-current-faithful} gives
+\(A_\sigma=0\) for every \(\sigma\).
 
-Bilinearity of the product then makes it well defined on the quotient
-$B^{\bullet,\bullet}(\Omega)$: if $\beta\equiv\beta'$ and
+Choose one sufficiently small generic displacement used simultaneously to
+compute all stable intersections and refine the resulting intersections.
+For every resulting cell \(\tau\), the coefficient of \(\delta_\tau\) in
+\(\beta\wedge\gamma\) is
+\[
+ \sum_{\substack{\sigma,\sigma'\\
+                  \tau=\sigma\cap\sigma'\\
+                  \sigma\cap(\sigma'+\varepsilon v)\ne\varnothing}}
+ [N:N_\sigma+N_{\sigma'}]\,
+ \bigl(A_\sigma\wedge B_{\sigma'}\bigr)\big|_\tau .
+\]
+This is the coefficient formula in the proof of
+\cite[Proposition~2.12(ii)]{GK17}; it is also
+\eqref{eq:ch18-stable-weight} with the smooth coefficients retained.
+Every summand vanishes because \(A_\sigma=0\).  Hence every cell coefficient
+of the product is zero, and
+\Cref{prop:ch18-current-faithful} gives
+\([\beta\wedge\gamma]=0\).
+
+Bilinearity of the product then makes it well defined on
+$P^{\bullet,\bullet}(\Omega)$: if $\beta\equiv\beta'$ and
 $\gamma\equiv\gamma'$, then
 $\beta\wedge\gamma-\beta'\wedge\gamma'
 =(\beta-\beta')\wedge\gamma+\beta'\wedge(\gamma-\gamma')$ induces the zero
 current by the case just proved and its mirror image.
 \end{proof}
 
-\begin{remark}[The two differentials on the quotient]
+\begin{warning}{The fixed-ambient algebra is not a differential algebra}
 \label{rem:ch18-differentials-descend}
-The operators $\dprime$ and $\ddprime$ of
-\Cref{thm:delta-preform-algebra} are defined through the associated
-currents, so they descend to $B^{\bullet,\bullet}(\Omega)$ without any
-further argument.  What requires proof, and is contained in
-\Cref{thm:delta-preform-algebra}, is that the current
-$\dprime[\beta]$ of a delta-preform is again the current of a delta-preform,
-that is, that the enlarged class is stable under differentiation.  It is
-here, and only here, that the boundary faces of the cells enter and that
-balancing is used.
-\end{remark}
+The currents $\dprime[\beta]$ and $\ddprime[\beta]$ are defined for every
+$\beta\in P(\Omega)$, but they need not belong to $P(\Omega)$.  In
+particular, differentiating the underlying current does \emph{not} define
+operators $P\to P$.  This is the obstruction isolated in
+\cite[Remark~2.17 and Proposition~2.18]{GK17}.  The global differential algebra
+$B_{\mathrm{GK}}$ is obtained only after imposing functorial closedness and
+then adjoining smooth coefficients; see
+\Cref{prop:ch18-global-pb-structure}.  Confusing $P$ and $B_{\mathrm{GK}}$
+would incorrectly allow arbitrary piecewise-smooth degree-zero functions to
+act on delta-currents by the differential Leibniz rule.
+\end{warning}
 
 \subsection{Stable intersection as the polyhedral multiplication}
 \label{sec:ch18-stable-intersection}
@@ -947,14 +978,19 @@ the balanced cycle of codimension $l+l'$ whose weight on a maximal face
 $\tau$ is
 \begin{equation}
 \label{eq:ch18-stable-weight}
- m_\tau(C\cdot D)
- =\sum_{\substack{\sigma\in C,\ \sigma'\in D\\ \tau\subseteq\sigma\cap\sigma'\\
-   \dim(\sigma+\sigma')=n}}
- m_\sigma m_{\sigma'}\,
+ m_\tau(C\cdot D)(x)
+ =\sum_{\substack{\sigma\in C,\ \sigma'\in D\\
+                   \tau=\sigma\cap\sigma'\\
+                   \sigma\cap(\sigma'+\varepsilon v)\ne\varnothing}}
+ m_\sigma(x)m_{\sigma'}(x)\,
  \bigl[N:N_\sigma+N_{\sigma'}\bigr],
 \end{equation}
-the sum being over the pairs of faces meeting transversally along $\tau$
-after a generic translation, as in \eqref{eq:tropical-stable-weight}.  Three
+where the cycles have first been put on a common complex,
+$x\in\RelInt\tau$, $v$ is generic, and $\varepsilon>0$ is sufficiently
+small.  Thus $\tau$ is the \emph{unshifted} intersection; the translated
+intersection occurs only in the nonemptiness condition.  This is
+\cite[(1.4.1)]{GK17}, in the notation of
+\eqref{eq:tropical-stable-weight}.  Three
 consequences are used repeatedly:
 \begin{enumerate}
 \item\label{itm:ch18-si:support}
@@ -998,29 +1034,48 @@ normalizations; they are part of the cycle.
 \label{sec:ch18-delta-algebra}
 
 \begin{theorem}\label{thm:delta-preform-algebra}
-There is a unique local, graded-commutative product extending wedge of
-superforms and stable tropical intersection such that
+There is a unique $C^\infty(\Omega)$-bilinear, local,
+graded-commutative product extending wedge of superforms and stable tropical
+intersection such that
 \[
  (\alpha\wedge\delta_C)\wedge(\beta\wedge\delta_D)
        =(\alpha\wedge\beta)\wedge\delta_{C\cdot D}
 \]
-whenever the displayed representatives meet properly.  After a common
-refinement this defines the product in general.  The operators \(\dprime\) and
-\(\ddprime\), defined through the associated polyhedral currents, satisfy the
-Leibniz rules and commute with integral affine pullback in its defined
-range.
+whenever $C\cdot D$ is computed by fan displacement.  A common refinement
+followed by a generic displacement defines the product without a
+proper-intersection hypothesis.  Integral affine pullback of delta-preforms
+is defined and respects this product.
 \end{theorem}
 \begin{proof}
-This is the delta-preform algebra constructed in
-\cite[\S\S1--3]{GK17}; the complete proof, including independence of the fan
-displacement, passage to smooth weights, the Leibniz rules, and the precise
-admissible pullback range, is imported from there.  On properly meeting
-representatives its product is the displayed formula.  In general the
-supporting cycles are multiplied by the fan-displacement definition of
-stable intersection after a common subdivision, whose independence and
-associativity are part of the cited construction.  The restriction on
-pullback is essential: this construction does not define pullback of an
-arbitrary current.
+For two displayed presentations, define the product by bilinearity and by
+the displayed rule.  Choose a common complex for all coefficients and
+cycles.  The fan-displacement formula then gives, on every cell $\tau$, the
+coefficient written in the proof of
+\Cref{prop:ch18-product-descends}.  That formula depends only on the
+collected coefficients of the two polyhedral currents, so
+\Cref{prop:ch18-product-descends} proves independence of both
+presentations.
+
+Locality is \Cref{lem:ch18-product-local}.  Graded commutativity follows
+from the Koszul rule for superforms and commutativity of stable
+intersection.  For three factors, take one common subdivision and two
+generic displacement vectors.  Associativity of stable intersection
+(\Cref{thm:tropical-stable-intersection}) identifies the lattice-indexed
+coefficient sums for the two bracketings, while associativity of the
+coefficient wedge identifies their summands.  The constant superform $1$
+on $N_{\mathbf R}$, paired with its unit-weight cycle, is the unit.  These
+properties also prove uniqueness, since the elementary terms
+$\alpha\wedge\delta_C$ span $P(\Omega)$.
+
+If $F:N'_{\mathbf R}\to N_{\mathbf R}$ is integral affine, define
+$F^*(\alpha\wedge\delta_C)=F^*\alpha\wedge\delta_{F^*C}$, where the cycle
+pullback is defined by stable intersection with the graph of $F$, with the
+lattice indices of \cite[\S1.4(v)]{GK17}.  Its common-refinement
+coefficient formula depends only on the source current, so it descends to
+$P$; the projection formula and associativity of stable intersection give
+$F^*(\beta\wedge\gamma)=F^*\beta\wedge F^*\gamma$.  This is exactly the
+construction of \cite[Proposition~2.12]{GK17}.  It is a pullback on the
+polyhedral algebra $P$, not a pullback of arbitrary currents.
 \end{proof}
 
 Three points in the preceding proof deserve to be isolated, because they
@@ -1028,49 +1083,52 @@ are what one actually verifies when computing.
 
 \begin{lemma}
 \label{lem:ch18-differential-delta}
-Let $C$ be a weighted pure $d$-dimensional polyhedral complex in $\Omega$
-and let $\alpha$ be a smooth $(p,q)$-form near $|C|$.  Then, as currents,
+Let $C$ be a constant-weight balanced pure $d$-dimensional tropical cycle
+in $\Omega$ and let $\alpha$ be a smooth $(p,q)$-form near $|C|$.  Then, as
+currents,
 \begin{equation}
 \label{eq:ch18-leibniz-delta}
  \dprime\bigl[\alpha\wedge\delta_C\bigr]
- =\bigl[\dprime\alpha\wedge\delta_C\bigr]
- +(-1)^{p+q}\bigl[\alpha\wedge\delta_{\partial C}\bigr],
+ =\bigl[\dprime\alpha\wedge\delta_C\bigr],
+ \qquad
+ \ddprime\bigl[\alpha\wedge\delta_C\bigr]
+ =\bigl[\ddprime\alpha\wedge\delta_C\bigr].
 \end{equation}
-where $\delta_{\partial C}$ is the boundary current of
-\Cref{thm:ch11-defect-stokes}, supported on the codimension-one faces of $C$
-and weighted by the balancing defect
-$\mathbf N(\tau)=\sum_{\sigma\supset\tau}m_\sigma u_{\sigma/\tau}$.  In
-particular, if $C$ is balanced then $\delta_{\partial C}=0$ and
-$\dprime$ acts on the coefficient alone.  The same formula holds for
-$\ddprime$.
 \end{lemma}
 
 \begin{proof}
-Pair with a compactly supported test form $\omega$ of complementary
-bidegree.  By the definition of the differential of a current
-(\Cref{prop:current-differential-calculus}),
-$\langle\dprime[\alpha\wedge\delta_C],\omega\rangle
-=\pm\langle[\alpha\wedge\delta_C],\dprime\omega\rangle$ with the sign fixed
-in \eqref{eq:ch14-dprime-sign}.  Expand
-$\alpha\wedge\dprime\omega
-=\pm\bigl(\dprime(\alpha\wedge\omega)-\dprime\alpha\wedge\omega\bigr)$ with
-the Koszul sign of \Cref{prop:ch09-wedge-signs}, integrate cellwise, and
-apply \Cref{thm:polyhedral-stokes} on each maximal cell.  The interior
-contributions of $\dprime(\alpha\wedge\omega)$ assemble into the boundary
-sum, which by \Cref{thm:ch11-defect-stokes} is exactly the pairing of
-$\alpha\wedge\omega$ against the defect weights $\mathbf N(\tau)$; the terms
-$\dprime\alpha\wedge\omega$ assemble into
-$[\dprime\alpha\wedge\delta_C]$.  When $C$ is balanced, every
-$\mathbf N(\tau)$ vanishes by \Cref{def:ch10-weighted-balanced} and the
-boundary term disappears, which is \Cref{thm:balanced-stokes}.
+The integration current $\delta_C$ is $\dprime$- and
+$\ddprime$-closed by \Cref{thm:ch11-current-closed}.  Apply the current
+Leibniz rule of \Cref{prop:current-differential-calculus} to the action of
+the smooth form $\alpha$ on $\delta_C$.  The terms involving a differential
+of $\delta_C$ vanish and give the two displayed identities.
 \end{proof}
+
+\begin{warning}{Smooth weights require the full polyhedral derivative}
+The hypothesis ``constant-weight balanced'' in
+\Cref{lem:ch18-differential-delta} cannot be dropped.  For smooth weights,
+the balancing condition still cancels the codimension-one boundary terms,
+but the facewise differentials of the weight functions remain.  Equivalently,
+if $C=(\mathscr C,m)$, then \cite[Proposition~2.16]{GK17} gives
+\[
+ \dprime\delta_C=\dprime m\wedge\delta_{\mathscr C}
+   :=\sum_{\sigma\in\mathscr C_d}
+        \dprime m_\sigma\wedge\delta_\sigma,
+ \qquad
+ \ddprime\delta_C=\ddprime m\wedge\delta_{\mathscr C},
+\]
+and the current Leibniz rule supplies the corresponding formula for
+$\alpha\wedge\delta_C$.  These polyhedral derivatives need not lie in
+$P(\Omega)$; this is precisely why
+\Cref{rem:ch18-differentials-descend} is necessary.
+\end{warning}
 
 \begin{lemma}
 \label{lem:ch18-product-local}
 Let $\beta,\gamma$ be delta-preforms on $\Omega$ and $\Omega'\subseteq\Omega$
 open.  Then $(\beta\wedge\gamma)|_{\Omega'}=\beta|_{\Omega'}\wedge
 \gamma|_{\Omega'}$.  Moreover, if $\beta$ vanishes on $\Omega'$ as a
-delta-form, so does $\beta\wedge\gamma$.
+delta-preform, so does $\beta\wedge\gamma$.
 \end{lemma}
 
 \begin{proof}
@@ -1089,9 +1147,11 @@ $\RelInt\tau$.  Both assertions follow, the second from
 The word ``unique'' in \Cref{thm:delta-preform-algebra} refers to a product
 that (i) restricts to the wedge product on codimension-zero terms, and (ii)
 restricts to stable intersection on the supporting cycles when the
-coefficients are $1$.  Without (ii) one could multiply the stable
-intersection by an arbitrary function of the codimensions and still obtain
-an associative graded-commutative product.  Requirement (ii) is a genuine
+coefficients are $1$.  Without (ii), another symmetric unital factor
+$\lambda(l,l')$ can preserve associativity when it satisfies
+$\lambda(l,l')\lambda(l+l',l'')=
+ \lambda(l',l'')\lambda(l,l'+l'')$; for example,
+$\lambda(l,l')=c^{ll'}$.  Requirement (ii) rules out every such twist and is a genuine
 normalization, and it is the one that makes
 \Cref{thm:gk-delta-cl-measure} come out with the intersection numbers of
 \Cref{thm:cl-model-properties} rather than with a multiple of them.  The
@@ -1368,13 +1428,18 @@ Let $X$ be an algebraic variety over $K$ as above.
  \Cref{def:trop-canonical-calibration} and balanced by
  \Cref{thm:analytic-tropical-balancing}.
 \item\label{itm:ch18-va:refine}
- If $U'\subseteq U$ are very affine, the inclusion of coordinate lattices
- induces a surjection $\pi:N_{U',\mathbf R}\to N_{U,\mathbf R}$ with
- $\operatorname{trop}_U=\pi\circ\operatorname{trop}_{U'}$ on
- $U'^{\An}$, and $\pi_*\Trop(U')=\deg(\pi)\Trop(U)$ in the sense of
- \Cref{thm:ch11-pushforward-balanced} whenever $U'=U$; in general
- $\pi_*\Trop(U')$ is the tropical cycle of the image, computed by
- \eqref{eq:analytic-tropical-pushforward}.
+ If $g:X'\to X$ is an algebraic morphism and
+ $(V',\varphi_{U'})$, $(V,\varphi_U)$ are compatible tropical charts, the
+ induced integral affine map
+ $F:N_{U',\mathbf R}\to N_{U,\mathbf R}$ satisfies
+ $\operatorname{trop}_U\circ g^{\An}=F\circ\operatorname{trop}_{U'}$ and
+ \[
+       F_*\Trop(U')=\deg(g|_{U'})\,\Trop(g(U')).
+ \]
+ Here the degree is the function-field degree onto the schematic image,
+ and is zero when that extension is not finite.  In particular, a dense
+ very-affine open immersion into an irreducible $U$ has degree one and
+ schematic image $U$.
 \item\label{itm:ch18-va:filtered}
  Any two very affine opens containing a given point admit a common very
  affine refinement, and the resulting category of tropical charts at a point
@@ -1394,72 +1459,182 @@ dimensionality are \Cref{thm:analytic-tropical-polyhedrality} and
 \Cref{thm:analytic-tropical-balancing}, whose hypotheses hold because
 $U^{\An}$ has no boundary in the torus.
 
-\cref{itm:ch18-va:refine} The inclusion $U'\subseteq U$ induces
-$\cO(U)^\times\subseteq\cO(U')^\times$ modulo constants, hence
-$M_U\subseteq M_{U'}$ and dually a surjection of the cocharacter spaces;
-compatibility of the moment maps is
-\Cref{lem:trop-moment-basic}\,\cref{itm:trop-moment:funct}.  The pushforward
-formula is \eqref{eq:analytic-tropical-pushforward}.
+\cref{itm:ch18-va:refine} Compatibility gives the homomorphism of tori and
+the integral affine map $F$; functoriality of tropicalization is
+\Cref{lem:trop-moment-basic}\,\cref{itm:trop-moment:funct}.  The equality of
+weighted tropical cycles is the Sturmfels--Tevelev multiplicity formula
+\cite[(4.3.1)]{GK17}, equivalently
+\eqref{eq:analytic-tropical-pushforward}.  For a dense open immersion the
+two function fields agree, so the last assertion follows.
 
 \cref{itm:ch18-va:filtered} The intersection of two very affine opens is very
 affine, and \Cref{lem:ch13-charts-filtered} gives the filteredness statement
 in the form used later.
 \end{proof}
 
-\begin{definition}[Generalized delta-form]
-A generalized delta-form on \(V\) is represented by a generalized
-delta-preform on \(\Omega\), two representatives being identified when
-their pullbacks agree after passing to a common very-affine refinement.
-These local objects glue to a sheaf.  The subsheaf satisfying the closedness
-conditions of \cite[\S4]{GK17} is the sheaf of \emph{delta-forms}.
+\begin{definition}[Generalized delta-forms and delta-forms]
+\label{def:ch18-global-pb}
+Fix a tropical chart $(V,\varphi_U)$, put
+$\Omega=\operatorname{trop}_U(V)$, and choose an open
+$\widetilde\Omega\subset N_{U,\mathbf R}$ with
+$\Omega=\widetilde\Omega\cap\Trop(U)$.  If
+$f:X'\to X$ is an algebraic morphism and $(V',\varphi_{U'})$ is a tropical
+chart compatible with $(V,\varphi_U)$, let
+$F:N_{U',\mathbf R}\to N_{U,\mathbf R}$ be the induced integral affine map
+and put $\Omega'=\operatorname{trop}_{U'}(V')$.  For
+$\widetilde\beta\in P(\widetilde\Omega)$ set
+\begin{equation}
+\label{eq:ch18-all-pullback-restriction}
+ \mathcal R_{f,V'}(\widetilde\beta)
+ :=\bigl(F^*\widetilde\beta\bigr)\wedge
+      \delta_{\Trop(U')}\big|_{\Omega'}\in D(\Omega').
+\end{equation}
+Here one first restricts $F^*\widetilde\beta$ to a sufficiently small open
+neighbourhood of $\Omega'$.
+
+Let $\mathcal N(V,\varphi_U)$ be the ideal of all
+$\widetilde\beta$ for which
+$\mathcal R_{f,V'}(\widetilde\beta)=0$ for \emph{every} algebraic $f$ and
+every compatible chart.  Define
+\[
+ P(V,\varphi_U):=P(\widetilde\Omega)/\mathcal N(V,\varphi_U).
+\]
+An element of this algebra is a chartwise generalized delta-form.  Let
+$Z(V,\varphi_U)$ be the subalgebra of those classes $\omega$ for which every
+current $\mathcal R_{f,V'}(\omega)$ is both $\dprime$- and
+$\ddprime$-closed.  Finally let $AZ(V,\varphi_U)$ be the subalgebra generated
+by the smooth forms and $Z(V,\varphi_U)$.  On a presentation
+\begin{equation}
+\label{eq:ch18-az-presentation}
+                 \beta=\sum_i\alpha_i\wedge\omega_i,
+ \qquad \alpha_i\in A(\Omega),\quad
+        \omega_i\in Z(V,\varphi_U),
+\end{equation}
+put
+\[
+ \dprime\beta=\sum_i\dprime\alpha_i\wedge\omega_i,
+ \qquad
+ \ddprime\beta=\sum_i\ddprime\alpha_i\wedge\omega_i.
+\]
+
+Taking the directed colimits over tropical charts, followed by
+sheafification, gives the sheaf $P$ of \emph{generalized delta-forms} and
+its subsheaf $B_{\mathrm{GK}}$ of \emph{delta-forms}.  We suppress the
+subscript when no confusion with another $B$ is possible.
 \end{definition}
 
-The common-refinement condition is essential.  Equality of two currents is
-too coarse to define all products, while equality of raw polyhedral
-expressions is too rigid.  The quotient used above retains precisely the
-data stable under tropical change of chart.
+The universal quantifier in
+\eqref{eq:ch18-all-pullback-restriction} is essential.  Testing only
+refinements on $X$ does not recover the functorial quotient of
+\cite[Definition~4.4]{GK17}; one must test compatible tropical charts after
+every algebraic pullback.
+
+\begin{proposition}
+\label{prop:ch18-global-pb-structure}
+The sheaves $P$ and $B_{\mathrm{GK}}$ are sheaves of bigraded,
+graded-commutative algebras, and
+\[
+                         A\lhook\joinrel\longrightarrow
+                         B_{\mathrm{GK}}\lhook\joinrel\longrightarrow P.
+\]
+The operators $\dprime$ and $\ddprime$ in
+\Cref{def:ch18-global-pb} are well defined on $B_{\mathrm{GK}}$, satisfy the
+two differential-algebra identities, and commute with algebraic pullback.
+No differential on all of $P$ is asserted.
+\end{proposition}
+
+\begin{proof}
+Integral affine pullback and the product on $P(\widetilde\Omega)$ commute by
+\Cref{thm:delta-preform-algebra}.  Hence if every current
+$\mathcal R_{f,V'}(\widetilde\beta)$ vanishes, the same is true after
+multiplying $\widetilde\beta$ by any delta-preform; thus
+$\mathcal N(V,\varphi_U)$ is an ideal and the product descends.  The same
+formula defines pullback between compatible charts and shows its
+functoriality.
+
+Suppose $\omega$ and $\eta$ lie in $Z(V,\varphi_U)$.  After any algebraic
+pullback and on any compatible chart, take a common polyhedral complex for
+their restricted currents.  The fan-displacement formula expresses the
+coefficient of their product on a cell as a lattice-indexed sum of wedges of
+the two coefficient forms.  Applying $\dprime$ splits that sum into the two
+Leibniz terms.  The closedness relations for $\omega$ and $\eta$, reindexed
+using associativity of stable intersection, make both sums vanish.  The
+same argument applies to $\ddprime$.  This is the cellwise proof of
+\cite[Lemma~3.7 and Proposition~4.7]{GK17}, and proves that $Z$ is a
+subalgebra.
+
+Now let a sum \eqref{eq:ch18-az-presentation} represent zero.  After every
+algebraic pullback its associated current is zero.  Differentiate that
+current.  Since each pulled-back $\omega_i$ is closed, the current Leibniz
+rule gives exactly the pullback of
+$\sum_i\dprime\alpha_i\wedge\omega_i$, which must therefore vanish.  The
+all-pullback quotient shows that this sum is zero.  This proves that
+$\dprime$ is independent of the presentation; the proof for $\ddprime$ is
+identical.  The relations $\dprime^2=\ddprime^2=0$,
+$\dprime\ddprime+\ddprime\dprime=0$, and both Leibniz rules reduce to the
+corresponding identities for the smooth coefficients.  Pullback
+compatibility follows from the same formulas.
+
+Finally, compatible charts form a directed system.  Restriction gives the
+presheaf colimits, and sheafification gives $P$ and $B_{\mathrm{GK}}$.
+Chartwise partitions of unity glue finite compatible families.  The first
+inclusion is injective by fixed-chart faithfulness of smooth superforms; the
+second is injective by construction.  This proves all assertions and is
+the construction of \cite[Definitions~4.9, 4.13 and
+Proposition~4.15]{GK17}.
+\end{proof}
 
 \begin{remark}[Reconciling the two quotients]
 \label{rem:ch18-two-quotients-analytic}
-On a \emph{fixed} chart, \Cref{prop:ch18-current-faithful} shows that the
-current already determines the coefficient forms on the cells, so on a fixed
-chart the two quotients of \Cref{rem:ch18-normalization-choice} differ only
-in the bookkeeping of cells with zero weight.  The refinement condition in
-the definition above is a statement about \emph{changing} the chart, and it
-is genuinely stronger than equality of currents on $X^{\An}$: the current
-$\delta_{\Trop(U)}$ remembers the tropical cycle only through the
-calibration, while the delta-form remembers the cycle itself in each chart,
-together with the compatibility \eqref{eq:analytic-tropical-pushforward}
-under refinement.  It is that extra memory which makes the product of
-\Cref{thm:delta-preform-algebra} transport from one chart to another.
+On a fixed open subset of the ambient vector space,
+\Cref{prop:ch18-current-faithful} says that the polyhedral current determines
+its collected cell coefficients.  On an analytic chart, however, one first
+restricts to $\Trop(U)$, and a class in $P(V,\varphi_U)$ is required to have
+well-defined behaviour after every algebraic pullback.  Equality of the two
+restricted currents on $X^{\An}$ tests only the identity morphism and is not
+the definition of equality in $P$.  The exact faithful replacement is the
+all-pullback criterion in
+\Cref{prop:ch18-delta-vs-cld-currents}.  This statement concerns generalized
+delta-forms; it neither asserts nor requires injectivity of the restriction
+map from delta-currents to CLD currents.
 \end{remark}
 
 \subsection{Integration, Stokes, and delta-currents}
 \label{sec:ch18-delta-currents}
 
-Integration of compactly supported top-degree delta-forms is defined on one
-very-affine chart and is independent of that choice.  It satisfies Stokes'
-formula.  Dualizing compactly supported delta-forms gives delta-currents,
-and every delta-form determines a delta-current.
+Integration of compactly supported top-degree generalized delta-forms is
+defined on one very-affine chart and is independent of that choice.  It
+satisfies Stokes' formula on the differential subalgebra $B_{\mathrm{GK}}$.
+Dualizing compactly supported delta-forms gives delta-currents, and every
+generalized delta-form determines a delta-current.
 
 We state the three assertions of the previous paragraph precisely, since the
 whole comparison with \Cref{chap:cld-currents} rests on them.
 
 \begin{proposition}
 \label{prop:ch18-delta-integration}
-Let $X$ be as above, of pure dimension $n$, and let $\beta$ be a compactly
-supported delta-form of bidegree $(n,n)$ on $X^{\An}$.
+Let $X$ be as above, of pure dimension $n$, and let $\beta\in P^{n,n}_c(X^{\An})$.
 \begin{enumerate}
 \item\label{itm:ch18-di:defined}
- The number $\int_{X^{\An}}\beta$, computed on any very affine chart
- covering $\Supp\beta$ by summing the integrals
- \eqref{eq:ch18-associated-current} against the constant test form $1$, is
- independent of the chart and of the polyhedral representative.
+ A very affine chart of integration exists: this means a nonempty very
+ affine $U\subset X$ for which
+ $\beta|_{U^{\An}}=\operatorname{trop}_U^*\beta_U$ with
+ $\beta_U\in P_c^{n,n}(U^{\An},\varphi_U)$.  The number
+ \[
+       \int_{X^{\An}}\beta:=\int_{|\Trop(U)|}\beta_U
+ \]
+ is independent of the chart of integration and of the polyhedral
+ representative.
 \item\label{itm:ch18-di:measure}
- $\beta$ determines a signed Radon measure on $X^{\An}$, namely the measure
- $u\mapsto\int u\beta$ on continuous compactly supported $u$; and $\beta$ is
- a positive delta-form in the sense of \Cref{sec:delta-positivity} if and
- only if this measure is positive.
+ $\beta$ determines a unique signed Radon measure $\mu_\beta$ characterized
+ by
+ $\int u\,\mathrm d\mu_\beta=\int u\beta$ for smooth compactly supported
+ $u$.  The left side then defines the integral for arbitrary continuous
+ compactly supported $u$.  If $\beta$
+ is a positive generalized delta-form in the sense of
+ \Cref{sec:delta-positivity}, then this measure is positive.  Positivity of
+ this single measure is not asserted to imply functorial positivity of
+ $\beta$.
 \item\label{itm:ch18-di:stokes}
  If $X^{\An}$ is boundaryless and $\gamma$ is a compactly supported
  delta-form of bidegree $(n-1,n)$, then
@@ -1468,45 +1643,143 @@ supported delta-form of bidegree $(n,n)$ on $X^{\An}$.
 \end{proposition}
 
 \begin{proof}
-\cref{itm:ch18-di:defined} Fix a very affine $U$ with
-$\Supp\beta\subseteq\operatorname{trop}_U^{-1}(\Omega)$, and a representative
-$\sum_i\alpha_i\wedge\delta_{C_i}$ on $\Omega$.  The number
-$\sum_i\sum_\sigma m_{i,\sigma}\int_\sigma\alpha_i$ is unchanged under
+\cref{itm:ch18-di:defined} Cover $\Supp\beta$ by finitely many tropical
+charts on which $\beta$ is represented.  The intersection of their
+very-affine algebraic opens contains a nonempty very-affine open $U$.
+The gluing argument for the all-pullback quotient gives a unique
+$\beta_U\in P^{n,n}(U^{\An},\varphi_U)$ representing $\beta$ on $U^{\An}$.
+Because the bidegree is top degree, the support-removal statement
+\cite[Corollary~5.6]{GK17} shows that $\Supp\beta\subset U^{\An}$,
+and $\beta_U$ has compact support in $\Trop(U)$.  This is the construction
+of a chart of integration in \cite[Proposition~5.7 and
+Definition~5.8]{GK17}.
+
+Choose a representative $\sum_i\alpha_i\wedge\delta_{C_i}$ of $\beta_U$.
+The number
+$\sum_i\sum_\sigma\int_\sigma m_{i,\sigma}\alpha_i$ is unchanged under
 subdivision by \Cref{lem:ch18-subdivision-invariance}, and unchanged by a
 change of representative inducing the same current, by
-\Cref{prop:ch18-current-faithful}.  For a refinement $U'\subseteq U$, the
-representative on $\Omega'$ is the pullback along the surjection $\pi$ of
+\Cref{prop:ch18-current-faithful}.  For a nonempty very-affine
+$U'\subseteq U$, the representative on $\Trop(U')$ is the pullback along
+the induced surjection $F$ of
 \Cref{lem:ch18-very-affine-charts}\,\cref{itm:ch18-va:refine}, and
-$\int_{\pi^{-1}(\sigma)\cap\Trop(U')}\pi^*\alpha$ equals
+$\int_{F^{-1}(\sigma)\cap\Trop(U')}F^*\alpha$ equals
 $\int_\sigma\alpha$ multiplied by the pushforward weight, by
-\Cref{cor:ch11-projection-formula}; summing, the two answers agree.  A
-general pair of charts is compared through a common refinement, which exists
-by \cref{itm:ch18-va:filtered}.
+\Cref{cor:ch11-projection-formula}; the degree-one multiplicity formula for
+the open immersion makes the sums equal.  Two charts of integration are
+compared after passing to a nonempty very-affine open in their intersection.
+This proves independence and is \cite[Proposition~5.9]{GK17}.
 
-\cref{itm:ch18-di:measure} The functional $u\mapsto\int u\beta$ is linear and,
-for $u$ supported in a fixed compact set, bounded by
-$\|u\|_\infty\cdot\sum_i|m_{i,\sigma}|\int_\sigma|\alpha_i|$; the Riesz
-representation theorem gives the measure.  Positivity is checked cellwise,
-which is the content of the definition in \Cref{sec:delta-positivity}.
+\cref{itm:ch18-di:measure} Initially take $u\in A_c^{0,0}(X^{\An})$.
+By linearity it is enough to treat one fixed-codimension-$l$ summand of
+$\beta$; the constants for the finitely many codimensions are then added.
+A common chart of integration for $\beta$ and $u\beta$ exists by the first
+part.  Fix the preceding chart $U$ and a polyhedral-current presentation
+\[
+                    \widetilde\beta_U=\sum_\sigma
+                       \alpha_\sigma\wedge\delta_\sigma .
+\]
+After refining so that $\Trop(U)=(\mathscr C_{\leq n},m)$, fan displacement
+gives a finite constant
+\[
+ C_\beta=
+ \sum_{\substack{\Delta\in\mathscr C_n,\ \sigma\in\mathscr C,\
+                  \operatorname{codim}_{N_{U,\mathbf R}}\sigma=l\\
+                  L_\Delta+L_\sigma=N_{U,\mathbf R},\
+                  \tau:=\Delta\cap\sigma,\ \dim\tau=n-l}}
+ [N_U:N_\Delta+N_\sigma]m_\Delta
+ \int_\tau|\alpha_\sigma|_\tau.
+\]
+On a common tropical refinement on which $u$ is a smooth coefficient, the
+projection formula for lattices and the Sturmfels--Tevelev multiplicity
+formula cancel exactly the extra indices and sheets.  Termwise estimation
+therefore gives
+\begin{equation}
+\label{eq:ch18-measure-sup-bound}
+               \left|\int_{X^{\An}}u\beta\right|
+                    \leq C_\beta\|u\|_\infty .
+\end{equation}
+The lattice cancellation is the identity proved in
+\cite[Lemma~6.14]{GK17}; substituting it in the fan-displacement sum gives
+\cite[Proposition~6.13]{GK17}.  Smooth compactly supported functions are
+sup-norm dense in continuous compactly supported functions, so
+\eqref{eq:ch18-measure-sup-bound} extends the functional uniquely to
+$C_c(X^{\An})$.  The Riesz representation theorem now gives the unique
+signed Radon measure $\mu_\beta$.  Only after this extension do we define
+$\int u\beta:=\int u\,\mathrm d\mu_\beta$ for nonsmooth continuous $u$.
 
-\cref{itm:ch18-di:stokes} On a fixed chart this is
-\Cref{lem:ch18-differential-delta} together with balancing of each $C_i$:
-the boundary term vanishes, and the remaining term is
-$\int_\Omega\dprime(\text{coefficient})\wedge\delta_{C_i}$, which integrates
-to zero by \Cref{thm:balanced-stokes}.  The global statement follows from a
-partition of unity, which exists by \Cref{thm:cld-partitions-unity}, together
-with the chart independence just proved; this is the argument of
-\Cref{thm:cld-global-stokes}.
+A positive generalized
+delta-form has positive restriction for the identity morphism, so its
+top-degree cell coefficients and hence its measure are positive.  The
+all-pullback requirement is stronger than this one necessary test, as
+\Cref{lem:ch18-positivity-consistent}\,\cref{itm:ch18-pos:global} explains.
+
+\cref{itm:ch18-di:stokes} By
+\Cref{prop:ch18-global-pb-structure}, the current associated to
+$\dprime\gamma$ is the current derivative of the current associated to
+$\gamma$.  Choose a compactly supported smooth function $\chi$ equal to $1$
+on a neighbourhood of $\Supp\gamma$.  With the current sign convention of
+\eqref{eq:ch14-dprime-sign},
+\[
+ \int_{X^{\An}}\dprime\gamma
+ =\langle\dprime[\gamma]_D,\chi\rangle
+ =\pm\langle[\gamma]_D,\dprime\chi\rangle=0,
+\]
+because $\dprime\chi$ vanishes near $\Supp\gamma$.  The same argument gives
+the $\ddprime$ identity.  This proof also shows why the assertion is made
+for $B_{\mathrm{GK}}$, not for all of $P$.
 \end{proof}
+
+We first make the continuity condition precise.  Fix a tropical chart
+$(V,\varphi_U)$ with $\Omega=\operatorname{trop}_U(V)$ and a finite tuple
+$\omega_J=(\omega_j)_{j\in J}$ in $Z(V,\varphi_U)$.  Let
+$AZ(V,\varphi_U;\omega_J)$ be the subspace of elements admitting a
+presentation $\sum_{j\in J}\alpha_j\wedge\omega_j$ with
+$\alpha_j\in A(\Omega)$.  For a compact $Q\subset\Omega$ and $s\geq0$, let
+$p_{Q,s}(\alpha)$ be the maximum on $Q$ of the coefficient derivatives of
+$\alpha$ of order at most $s$, and set
+\begin{equation}
+\label{eq:ch18-delta-test-seminorm}
+ p_{Q,s,\omega_J}(\beta)
+ :=\inf_{\beta=\sum_j\alpha_j\wedge\omega_j}
+       \max_{j\in J}p_{Q,s}(\alpha_j).
+\end{equation}
+These quotient seminorms give $AZ(V,\varphi_U;\omega_J)$ a locally convex
+topology.
+
+Now fix a tropical-chart cover $(V_i,\varphi_{U_i})_{i\in I}$ of an open
+$W\subseteq X^{\An}$ and a finite tuple $\omega_{J_i}$ in
+$Z(V_i,\varphi_{U_i})$ for each $i$.  Write
+\[
+ B(W;V_i,\varphi_{U_i},\omega_{J_i}:i\in I)
+\]
+for the delta-forms whose restriction to $V_i$ belongs to
+$AZ(V_i,\varphi_{U_i};\omega_{J_i})$ for every $i$.  Give this space the
+coarsest locally convex topology for which all restriction maps to the
+chart spaces are continuous.  If $C\subset W$ is compact, append a subscript
+$C$ to denote the subspace of forms supported in $C$, with its induced
+topology.
 
 \begin{definition}[Delta-current]
 \label{def:ch18-delta-current}
 \index{delta-current}%
-A \emph{delta-current} of bidegree $(p,q)$ on $X^{\An}$ is a linear
-functional on compactly supported delta-forms of bidegree $(n-p,n-q)$ which
-is continuous for the inductive-limit topology defined chartwise as in
-\Cref{sec:ch13-topology}.  Its differentials $\dprime,\ddprime$ and its
-support are defined by the formulas of \Cref{chap:cld-currents}.
+A \emph{delta-current} on $W$ is a real linear functional on $B_c(W)$ whose
+restriction to
+\[
+ B_C(W;V_i,\varphi_{U_i},\omega_{J_i}:i\in I)
+\]
+is continuous for every compact $C$, every tropical-chart cover, and every
+choice of the finite tuples $\omega_{J_i}$.  It has bidegree $(p,q)$ when it
+vanishes outside test bidegree $(n-p,n-q)$.  Its differentials
+$\dprime,\ddprime$ and its support are defined by the formulas of
+\Cref{chap:cld-currents}.
+A symmetric delta-current is weakly positive, positive, or strongly
+positive when it is nonnegative, respectively, on compactly supported
+strongly positive, positive, or weakly positive delta-forms of
+complementary bidegree.  These are the same dual-cone conventions as in
+\Cref{sec:ch14-positivity}.  This is precisely
+\cite[Definitions~6.1--6.4]{GK17} and
+\cite[Definition~2.10]{GK19}.
 \end{definition}
 
 \begin{proposition}
@@ -1518,57 +1791,133 @@ Let $X$ be as above.
  linear map
  $\iota^\ast$ from delta-currents to CLD currents, commuting with
  $\dprime$, $\ddprime$ and with multiplication by smooth functions, and
- not increasing supports.
+ not increasing supports.  It sends each of the three positivity cones of
+ delta-currents into the corresponding cone of CLD currents.
 \item\label{itm:ch18-dc:form}
- Every delta-form $\beta$ of bidegree $(p,q)$ determines a delta-current
- $[\beta]_\delta$ by $\gamma\mapsto\int\beta\wedge\gamma$, and
- $\iota^\ast[\beta]_\delta$ is the CLD current
+ Every generalized delta-form $\beta\in P^{p,q}(X^{\An})$ determines a
+ delta-current $[\beta]_E$ by $\gamma\mapsto\int\beta\wedge\gamma$, and
+ $\iota^\ast[\beta]_E$ is the CLD current
  \eqref{eq:ch18-associated-current}.
-\item\label{itm:ch18-dc:notinj}
- $\iota^\ast$ is injective on delta-currents of the form $[\beta]_\delta$
- but is not injective in general.
+\item\label{itm:ch18-dc:criterion}
+ For generalized delta-forms \(\beta,\beta'\in P^{p,q}(W)\) on an open
+ $W\subseteq X^{\An}$, the faithful current criterion is functorial:
+ \(\beta=\beta'\) if and only if
+ \[
+  [f^*\beta|_{W'}]_{D}=[f^*\beta'|_{W'}]_{D}
+ \]
+ for every morphism \(f:X'\to X\) of algebraic \(K\)-varieties and every
+ open \(W'\subseteq(X')^{\An}\) with $f(W')\subseteq W$.  No injectivity or
+ noninjectivity assertion about $\iota^*:E\to D$ is part of this criterion.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
 \cref{itm:ch18-dc:restrict} A smooth form is a delta-form of codimension
-zero, and the topology of \Cref{sec:ch13-topology} is the subspace topology
-of the chartwise inductive limit; so restriction of a continuous functional
-is continuous.  Compatibility with $\dprime$ is the definition of the
-differential of a current, and compatibility with multiplication by a smooth
-function is \Cref{lem:ch14-module-leibniz}.  Supports do not increase because
-the smooth test forms are fewer.
+zero.  In the continuity test of \Cref{def:ch18-delta-current}, choose on
+each chart the one-element tuple $(1)$.  Then
+$AZ(V_i,\varphi_{U_i};1)=A(\Omega_i)$, and the seminorms
+\eqref{eq:ch18-delta-test-seminorm} are the usual coefficient-derivative
+seminorms defining the CLD test-form topology of
+\Cref{sec:ch13-topology}.  Thus restriction of a delta-current is a
+continuous CLD current.
+
+On every fixed test space, $\dprime$ and $\ddprime$ differentiate only the
+smooth coefficients because the $\omega_{J_i}$ are closed; they send an
+order-$(s+1)$ seminorm continuously to an order-$s$ seminorm.
+Multiplication by a fixed smooth function is continuous by the ordinary
+product estimates for these seminorms.  The dual definitions therefore give
+the asserted compatibilities.  Supports do not increase because the smooth
+test forms are fewer.  Finally, a smooth positive test form is a positive
+delta-form, so the three dual-cone implications follow directly from
+\Cref{def:ch18-delta-current}; this is \cite[Remark~2.12]{GK19}.
 
 \cref{itm:ch18-dc:form} The pairing is well defined by
 \Cref{prop:ch18-delta-integration}\,\cref{itm:ch18-di:defined} applied to
-$\beta\wedge\gamma$, which is a delta-form by
-\Cref{thm:delta-preform-algebra} and
-\Cref{prop:ch18-product-descends}; continuity is inherited from continuity
-of the coefficientwise integrals.  If $\gamma$ is smooth then
+$\beta\wedge\gamma$, which is a compactly supported generalized delta-form
+by \Cref{prop:ch18-global-pb-structure}.  We verify the nontrivial
+continuity assertion.  Fix a compact $C$, a chart cover, and tuples
+$\omega_{J_i}$ as in \Cref{def:ch18-delta-current}.  Refine the cover so
+that $\beta$ has a representative on every chart, and choose a finite
+subcover $(V_i)_{i\in I_0}$ of $C$.  The chart-of-integration construction in
+the proof of \cref{itm:ch18-di:defined} puts every product
+$\beta\wedge\gamma$ on one common very-affine chart.  Its tropical support
+is contained in a fixed compact polyhedral set $Q$, independent of
+$\gamma$.
+
+Write on $V_i$
+$\gamma_i=\sum_{j\in J_i}\alpha_{ij}\wedge\omega_{ij}$.  On a common
+subdivision, the coefficient of $\beta\wedge\gamma$ is a finite sum of
+fixed smooth coefficients of $\beta$ and $\omega_{ij}$ multiplied by the
+variable coefficients $\alpha_{ij}$ and fixed nonnegative lattice indices.
+Integration over $Q$ therefore gives a constant $K$, depending only on the
+fixed data, such that
+\[
+ \left|\int_{X^{\An}}\beta\wedge\gamma\right|
+ \leq K\max_{i\in I_0,\,j\in J_i}p_{Q_i,0}(\alpha_{ij})
+\]
+for suitable compact $Q_i\subset\Omega_i$.  Taking the infimum over all
+presentations of each $\gamma_i$ turns the right-hand side into finitely many
+seminorms \eqref{eq:ch18-delta-test-seminorm}.  Hence the pairing is
+continuous on every required test space.  This is the estimate of
+\cite[Proposition~6.6]{GK17}.
+
+If $\gamma$ is smooth then
 $\beta\wedge\gamma$ is the preform with coefficients $\alpha_i\wedge\gamma$
 and the same cycles, whose integral is \eqref{eq:ch18-associated-current}.
 
-\cref{itm:ch18-dc:notinj} Injectivity on the image of the delta-form functor
-is \Cref{prop:ch18-current-faithful}.  For the failure in general, note that
-compactly supported delta-forms of a given bidegree strictly contain the
-smooth ones---for instance $\delta_{\{pt\}}$ times a bump function in
-bidegree $(n,n)$ on a curve---so a functional may vanish on all smooth test
-forms without vanishing.  A concrete instance is the functional
-$\gamma\mapsto m_{\{x\}}(\gamma)$ extracting the weight of a delta-form of
-top codimension at a fixed point $x$: it kills every smooth form and is
-nonzero.
+\cref{itm:ch18-dc:criterion} The forward implication follows from
+functoriality.  Conversely, cover $W$ by tropical charts on which $\beta$
+and $\beta'$ are represented by ambient delta-preforms.  Fix one such chart
+and a compatible chart after an arbitrary algebraic morphism $f$.  The
+hypothesis says that the associated pulled-back currents agree there.  By
+the fixed-ambient equality criterion
+\Cref{prop:ch18-current-faithful}, their difference has zero restriction
+\eqref{eq:ch18-all-pullback-restriction}.  Since this holds for every $f$ and
+every compatible chart, the difference belongs to the ideal
+$\mathcal N$ of \Cref{def:ch18-global-pb}.  Hence the two chart classes
+agree; sheaf gluing gives $\beta=\beta'$.  This is
+\cite[Proposition~6.8]{GK17}.
 \end{proof}
 
 \begin{warning}{Delta-currents are not currents}
-\Cref{prop:ch18-delta-vs-cld-currents}\,\cref{itm:ch18-dc:notinj} is the
-reason the phrase ``delta-current'' is never abbreviated to ``current'' in
-this book.  A delta-current carries strictly more information than its
-restriction to smooth test forms.  In particular, an equality of
-delta-currents is a stronger assertion than the corresponding equality of
-CLD currents, and \Cref{thm:gk-poincare-lelong} below is therefore
-\emph{stronger} than \Cref{thm:cld-poincare-lelong} on its common domain,
-not merely a restatement of it in other notation.
+The test space defining a delta-current is $B_{\mathrm{GK},c}$, whereas a
+CLD current is tested only on $A_c$.  Restriction therefore gives a
+canonical map $E\to D$, but the cited theory supplies no general assertion
+that this map is injective or noninjective.  Equality of delta-currents
+always implies equality of their restrictions, so
+\Cref{thm:gk-poincare-lelong} implies the CLD Poincar\'e--Lelong identity on
+their common domain.  The separate question whether two generalized
+delta-forms agree is settled by the all-pullback criterion
+\cref{itm:ch18-dc:criterion}, not by a claim about $E\to D$.
 \end{warning}
+
+\subsection{The exact module boundary}
+\label{sec:ch18-delta-current-module}
+
+The dual definition of a delta-current does not make it a module over every
+coefficient object occurring in the enlarged polyhedral calculi.  In the
+original notation of \cite{GK17}, \(B_{\mathrm{GK}}\) is the differential
+algebra of delta-forms, \(P\) is the larger space of generalized
+delta-forms, and \(P\!S\!P\) also contains the piecewise-smooth algebra.
+The canonical action on delta-currents is the action of
+\(B_{\mathrm{GK}}\), not an action of all of \(P\) or \(P\!S\!P\).  The
+following calculation records the complete Leibniz rule, including the
+signs and the precise current-level detection hypothesis.
+
+\input{editorial/rethlas_packets_20260826/p21p3_delta_module_statement_20260826.tex}
+
+\input{editorial/rethlas_packets_20260826/p21p3_delta_module_proof_20260826.tex}
+
+The degree-zero clause is especially restrictive:
+\(B_{\mathrm{GK}}^{0,0}=A^{0,0}\).  Thus a smooth pluriharmonic difference
+cannot create a defect against a closed delta-current, but the proposition
+does not permit the same inference for an arbitrary continuous or real-PL
+difference.  For such a function, multiplication by an order-zero CLD
+current is defined in the analytic current category; multiplication by an
+arbitrary delta-current requires a separately constructed action and cannot
+be inferred from the \(B_{\mathrm{GK}}\)-module.  This distinction is used
+when formulating the residual Bedford--Taylor problem in
+\Cref{prob:frontier-cross-fan-upstairs}.
 
 \section{Poincar\'e--Lelong in the enlarged calculus}
 \label{sec:ch18-delta-pl}
@@ -1581,105 +1930,189 @@ For a nonzero rational function \(f\) on \(X\),
 as delta-currents.
 \end{theorem}
 \begin{proof}
-Work on a very-affine tropical chart and adjoin $f$ to its torus
-coordinates.  The function $\log|f|$ is piecewise affine on the resulting
-tropicalization.  By \eqref{eq:tropical-delta-pl}, its delta-current
-derivative is the corner cycle of this piecewise affine function.  The
-initial-form criterion identifies that corner support with the
-tropicalization of $\operatorname{cyc}(f)$.  At a facet, the outgoing slope
-is the order of the initial form of $f$; conservation of length in the
-initial degeneration shows that the corner weight is the algebraic divisor
-multiplicity times the lattice and residue-degree index.  Thus the two
-delta-preforms agree on the chart.
+The assertion is local on $X$.  By writing a rational function as a quotient
+of two regular functions, using additivity of both sides, and treating the
+irreducible components separately, we may assume that $X=\Spec A$ is
+integral and that $f\in A$ is nonconstant.  Put
+$U=X\setminus\Supp(\divis(f))$.  The function $\log|f|$ is smooth on
+$U^{\An}$, and the support-removal theorem for delta-currents identifies
+$E^{0,0}(U^{\An})$ with $E^{0,0}(X^{\An})$; this defines
+$[\log|f|]$ across the divisor.
 
-Product very-affine refinements preserve these weights by the tropical
-pushforward formula, so the local identities agree on overlaps and glue.
-This proves the equality as delta-currents.  The initial-degeneration
-multiplicity comparison is \cite[Theorem~7.2]{GK17}.  Forgetting the
-polyhedral representatives recovers \Cref{thm:cld-poincare-lelong}.
+Both currents in the asserted equality are symmetric.  It is therefore
+enough to pair them with a symmetric
+$\alpha\in B_c^{n-1,n-1}(X^{\An})$.  Choose finitely many tropical charts
+$(V_i,\varphi_{U_i})$ covering $\Supp\alpha$ and compact polytopal affinoid
+domains $W_i\Subset V_i$ whose interiors still cover that support.  Since
+$X^{\An}$ is separated, every nonempty intersection
+$W_E=\bigcap_{i\in E}W_i$ is affinoid.  Shrink the polytopes slightly if
+necessary and put
+\[
+       U_0:=U_1\cap\cdots\cap U_m\setminus\Supp(\divis(f)).
+\]
+This is very affine.  On the common chart, let
+$F:N_{U_0,\mathbf R}\to\mathbf R$ be the integral affine map satisfying
+\[
+ F\circ\operatorname{trop}_{U_0}=-\log|f|,
+\]
+and let $\alpha_{U_0}$ represent $\alpha$.  The top-degree support-removal
+statement implies that $\Supp(\ddprime\alpha)$ is contained in $U_0^{\An}$.
+Writing $W=\bigcup_iW_i$, the polytopes may be chosen so that
+$\Supp\alpha_{U_0}$ lies in the relative interior of
+$\operatorname{trop}_{U_0}(W\cap U_0^{\An})$.
+The compact set $\Supp(\ddprime\alpha)$ is contained in $U_0^{\An}$, so
+there is $s>0$ such that $|f|>s$ on it.  Set
+\[
+ \begin{aligned}
+ W_i(s)&:=\{x\in W_i:|f(x)|\geq s\},&
+ W(s)&:=\bigcup_iW_i(s),\\
+ P_s&:=\operatorname{trop}_{U_0}(W(s)\cap U_0^{\An}).
+ \end{aligned}
+\]
+We give $P_s$ its canonical weighted polyhedral structure.
+
+By the definition of the current differential and the sign convention
+$F\circ\operatorname{trop}_{U_0}=-\log|f|$,
+\begin{equation}
+\label{eq:ch18-pl-pairing}
+ \left\langle\dprimeddprime[\log|f|],\alpha\right\rangle
+       =-\int_{P_s}F^*(x_0)\dprimeddprime\alpha_{U_0}.
+\end{equation}
+Green's formula for delta-preforms, applied cell by cell, gives
+\[
+ \int_{P_s}F^*(x_0)\dprimeddprime\alpha_{U_0}
+ =\int_{\partial P_s}
+     \bigl(F^*(x_0)\ddprime\alpha_{U_0}
+       -\ddprime F^*(x_0)\wedge\alpha_{U_0}\bigr),
+\]
+because $\dprimeddprime F^*(x_0)=0$.  The first boundary term is zero:
+$\Supp(\ddprime\alpha_{U_0})$ lies in the relative interior of $P_s$.
+Consequently \eqref{eq:ch18-pl-pairing} becomes
+\begin{equation}
+\label{eq:ch18-pl-boundary-pairing}
+ \left\langle\dprimeddprime[\log|f|],\alpha\right\rangle
+   =\int_{\partial P_s}\ddprime F^*(x_0)\wedge\alpha_{U_0}.
+\end{equation}
+The boundary--fibre calculation in
+\Cref{lem:ch18-boundary-divisor} identifies the last member with
+$\langle\delta_{\operatorname{cyc}(f)},\alpha\rangle$.  This proves the
+equality on every symmetric test form and hence as delta-currents.  Notice
+that no torus chart on which $f$ is invertible can by itself see the divisor:
+there $\log|f|$ is integral affine and has no corner.  The boundary limit is
+the indispensable step.
 \end{proof}
 
-\subsection{The three ingredients of the proof, isolated}
+\subsection{The analytic fibre and boundary calculation}
 \label{sec:ch18-pl-ingredients}
 
-The proof just given compresses three separate facts.  We state them so
-that a reader checking a sign or a multiplicity knows which one to check.
-
 \begin{lemma}
-\label{lem:ch18-adjoin-f}
-Let $U\subseteq X$ be very affine with $f\in\cO(U)^\times$, and let
-$U_f=U\setminus\{f=0\}$, again very affine.  Then $f$ is one of the
-coordinates of the canonical torus embedding of $U_f$, and on
-$N_{U_f,\mathbf R}$ the function $\log|f|$ is the restriction of the
-integral linear form $-\chi_f$ dual to that coordinate, where
-$\chi_f(x)=v_x(f)$.  In particular $\log|f|\circ\operatorname{trop}_{U_f}$
-is the pullback of an integral affine function, hence piecewise affine on
-$\Trop(U_f)$ and affine on each cell.
+\label{lem:ch18-fibre-cylinder}
+Let $W$ be an affinoid domain in a pure $n$-dimensional analytic space,
+let $g:W\to T^{\An}$ be an analytic moment map, and let $f$ be a nonzero
+analytic function whose zero locus is an effective Cartier divisor on $W$.
+There are $r>0$ and a weighted integral polyhedral complex $(\mathscr C,m)$
+of pure dimension $n-1$ such that:
+\begin{enumerate}
+\item for every analytic point $t$ of the closed disc $|t|\leq r$, the
+ $(n-1)$-skeleton of $g_{\trop}(W_t)$, with its canonical calibration, is
+ $(\mathscr C,m)$;
+\item for every closed interval $I\subset(0,r]$, the $n$-skeleton of
+ $(-\log|f|,g_{\trop})(W_I)$ is the weighted product
+ $(-\log I,1)\times(\mathscr C,m)$;
+\item at $t=0$, the same $(\mathscr C,m)$ is the calibrated
+ tropicalization of $\divis(f|_W)$.
+\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-The canonical embedding of a very affine variety uses a basis of
-$\cO(U_f)^\times/K^\times$, which may be chosen to contain the class of $f$
-since $f$ is invertible on $U_f$.  With that choice the corresponding moment
-coordinate is $x\mapsto v_x(f)=-\log|f(x)|$, by the convention of
-\Cref{chap:cld-forms} recalled in \Cref{lem:ch15-log-smooth}.  Hence
-$\log|f|=-\chi_f\circ\operatorname{trop}_{U_f}$ with $\chi_f$ an integral
-linear form.  Its restriction to the polyhedral set $\Trop(U_f)$ is affine
-on each cell.
+Apply the analytic tropical fibre theorem
+\cite[Proposition~4.6.6]{CLD25} to the analytic map
+$(f,g):W\to\mathbf A^{1,\An}\times T^{\An}$.  That theorem first gives
+polyhedrality of the images of the fibres and of the annular domains, and
+then says that their canonical calibrations are locally constant as the
+parameter approaches zero.  After decreasing $r$, the finitely many cells
+and their calibrations are therefore independent of $t$.  On an annulus the
+coordinate $-\log|f|$ has primitive slope one; the calibration product rule
+then gives $(-\log I,1)\times(\mathscr C,m)$.  The fibre over zero is the
+closed analytic subspace defined by the Cartier divisor, and the
+fundamental-cycle calibration includes its algebraic multiplicities.  This
+gives the third assertion.  These are precisely the three conclusions of
+the cited proposition, translated from calibrations to weighted complexes
+using \Cref{def:trop-canonical-calibration}.
 \end{proof}
 
 \begin{lemma}
-\label{lem:ch18-corner-is-divisor}
-In the situation of \Cref{thm:gk-poincare-lelong}, let $\tau$ be a
-codimension-one face of $\Trop(U)$ for a very affine $U$ containing $f$
-among its coordinates, and let
-$\varphi=\log|f|\circ\operatorname{trop}_U$.  Then the corner weight
-\eqref{eq:ch18-corner-weight} of $\varphi\cdot\Trop(U)$ at $\tau$ equals the
-tropical multiplicity, in the sense of
-\eqref{eq:trop-multiplicity-formula}, of $\Trop(\operatorname{cyc}(f))$ at
-$\tau$.
+\label{lem:ch18-boundary-divisor}
+With the notation used in the proof of
+\Cref{thm:gk-poincare-lelong}, and after choosing $s>0$ small enough for
+\Cref{lem:ch18-fibre-cylinder} on every nonempty $W_E$, one has
+\begin{equation}
+\label{eq:ch18-boundary-divisor}
+ \int_{\partial P_s}\ddprime F^*(x_0)\wedge\alpha_{U_0}
+       =\left\langle\delta_{\operatorname{cyc}(f)},\alpha\right\rangle .
+\end{equation}
 \end{lemma}
 
 \begin{proof}
-Both sides are computed in the initial degeneration at a point of
-$\RelInt\tau$.  By \Cref{thm:trop-degree-graded} the multiplicity of
-$\Trop(U)$ along a maximal face $\sigma\supseteq\tau$ is the number of
-components, counted with length and residue degree, of the initial
-degeneration $\operatorname{in}_\sigma(U)$.  The order of vanishing of the
-initial form of $f$ along such a component is the slope
-$\partial_{u_{\sigma/\tau}}\varphi_\sigma$, because $\varphi$ is the linear
-form $-\chi_f$ and the initial form of $f$ has weight
-$\langle\chi_f,\cdot\rangle$ in the grading; summing over $\sigma$ with the
-weights $m_\sigma$ produces the left-hand side of
-\eqref{eq:ch18-corner-weight}.  On the other hand the same sum computes the
-multiplicity of $\Trop(\operatorname{cyc}(f))$ at $\tau$ by
-\Cref{prop:trop-multiplicity-local}, since $\operatorname{cyc}(f)$ is
-locally the divisor of the initial form.  The lattice index and residue
-degree occur identically on both sides through
-\Cref{def:trop-calibrated-degree}.  This is the multiplicity comparison
-\cite[Theorem~7.2]{GK17}.
-\end{proof}
+Put $U_E=\bigcap_{i\in E}U_i$ and
+$W_E(s)=\bigcap_{i\in E}W_i(s)$.  Choose smooth functions
+$\phi_\ell:\mathbf R\to[0,1]$ which equal $1$ on
+$(-\infty,-\log s-1/\ell]$ and $0$ on
+$[-\log s-1/(2\ell),\infty)$, and put $\psi_\ell=1-\phi_\ell$.  The form
+$\phi_\ell(F^*x_0)\ddprime F^*x_0\wedge\alpha_{U_0}$ vanishes on the
+truncation face $x_0=-\log s$; on every other boundary face it vanishes
+because $\Supp\alpha_{U_0}$ lies in the relative interior of the
+untruncated tropicalization.  Its boundary integral is therefore zero.
+Hence the left side of
+\eqref{eq:ch18-boundary-divisor} equals the limit, as $\ell\to\infty$, of
+\[
+ \int_{\partial P_s}\psi_\ell(F^*x_0)\ddprime F^*x_0
+                         \wedge\alpha_{U_0}.
+\]
 
-\begin{lemma}
-\label{lem:ch18-pl-refinement}
-Let $U'\subseteq U$ be very affine and $\pi:N_{U',\mathbf R}\to
-N_{U,\mathbf R}$ as in
-\Cref{lem:ch18-very-affine-charts}\,\cref{itm:ch18-va:refine}.  Then
-$\pi_*\bigl((\varphi\circ\pi)\cdot\Trop(U')\bigr)
- =\bigl(\varphi\cdot\Trop(U)\bigr)|_{\pi(\Trop(U'))}$ for every piecewise
-affine $\varphi$ on $\Trop(U)$.  Consequently the local identities of
-\Cref{thm:gk-poincare-lelong} glue.
-\end{lemma}
-
-\begin{proof}
-Corner cycles commute with pullback along a surjection of lattices: the
-normal derivative of $\varphi\circ\pi$ along $u$ is the normal derivative of
-$\varphi$ along $\pi(u)$, and the primitive normals correspond up to the
-lattice index recorded in \Cref{lem:ch10-index}.  Pushing forward and using
-\Cref{cor:ch11-projection-formula} together with
-\eqref{eq:analytic-tropical-pushforward} gives the displayed identity.
-Since both sides of \Cref{thm:gk-poincare-lelong} are compatible with this
-operation, the chartwise identities agree on overlaps.
+Use finite inclusion--exclusion for the covering $W(s)=\bigcup_iW_i(s)$.
+For every nonempty $E\subseteq\{1,\dots,m\}$ put
+$V_E=\bigcap_{i\in E}V_i$, let $\alpha_E$ be the chart class determined by
+$\alpha|_{V_E}=\operatorname{trop}_{U_E}^*\alpha_E$, and choose an ambient
+delta-preform $\widetilde\alpha_E$ representing it.  Let
+$g_E=\varphi_{U_E}$, $h_E=(f,g_E)$, and let
+$\Sigma_E(s)=h_{E,\trop}(W_E(s))$.  The Sturmfels--Tevelev formula and the
+projection formula carry the corresponding summand to
+\[
+ \int_{\partial\Sigma_E(s)}
+       \psi_\ell(x_0)\ddprime x_0\wedge P_E^*\widetilde\alpha_E,
+\]
+where $P_E:\mathbf R\times N_{U_E,\mathbf R}\to N_{U_E,\mathbf R}$.
+More explicitly, if $G_E:N_{U_0,\mathbf R}\to N_{U_E,\mathbf R}$ is the
+compatible affine map and $H_E=(F,G_E)$, then
+\[
+ h_{E,\trop}(U_E\setminus\Supp(\divis(f)))
+       =(H_E)_*\Trop(U_0).
+\]
+Applying the projection formula to this equality gives the displayed
+boundary integral.  Passing to the limit
+localizes this integral on the face $x_0=-\log s$.  By
+\Cref{lem:ch18-fibre-cylinder}, that face, with its full lattice and
+residue-degree calibration, is
+\(
+ \{-\log s\}\times
+ \operatorname{trop}_{U_E}(\divis(f)\cap W_E)
+\).
+The limiting summand is therefore
+\[
+        \int_{\operatorname{trop}_{U_E}
+          (\divis(f)\cap W_E\cap U_E^{\An})}\alpha_E .
+\]
+Finally sum with the inclusion--exclusion signs
+$(-1)^{|E|+1}$.  On each irreducible component of $\divis(f)$ these terms
+are exactly the inclusion--exclusion formula for integration over the part
+covered by the $W_i$; those interiors cover $\Supp\alpha$.  Linearity in the
+components, with their orders in $\operatorname{cyc}(f)$, gives
+$\langle\delta_{\operatorname{cyc}(f)},\alpha\rangle$.  This proves
+\eqref{eq:ch18-boundary-divisor}.  The calculation is the one in
+\cite[Theorem~7.2 and Lemma~7.3]{GK17}; every multiplicity enters through
+the calibrated fibre in \Cref{lem:ch18-fibre-cylinder}, rather than through
+a nonexistent corner on the unit locus.
 \end{proof}
 
 \subsection{The constants, checked}
@@ -1724,14 +2157,12 @@ identities.
 
 \begin{proof}
 \cref{itm:ch18-plc:cld} By
-\Cref{prop:ch18-delta-vs-cld-currents}\,\cref{itm:ch18-dc:form}, the
-restriction of the delta-current $\delta_{\operatorname{cyc}(f)}$ to smooth
-test forms is the CLD cycle current of
-\Cref{prop:ch14-delta-Y-current}, that is, $\delta_{\divis(f)}$, because the
-tropical multiplicities of $\Trop(\operatorname{cyc}(f))$ are by
-\Cref{lem:ch18-corner-is-divisor} exactly the calibrated multiplicities that
-enter \Cref{thm:current-fundamental-cycle}.  Restriction commutes with
-$\dprimeddprime$ by \cref{itm:ch18-dc:restrict}, and
+\cite[Example~6.11 and Remark~6.7]{GK17}, the restriction of the algebraic
+integration delta-current $\delta_{\operatorname{cyc}(f)}$ to smooth test
+forms is the CLD cycle current of
+\Cref{prop:ch14-delta-Y-current}, namely $\delta_{\divis(f)}$.
+Restriction commutes with $\dprimeddprime$ by
+\Cref{prop:ch18-delta-vs-cld-currents}\,\cref{itm:ch18-dc:restrict}, and
 $\iota^\ast[\log|f|]_\delta=[\log|f|]$ because both are the
 $L^1_{\loc}$-current of the same function.  Hence the identity restricts as
 claimed.  Comparing with \eqref{eq:appJ-cld-pl} shows that the two
@@ -1749,11 +2180,15 @@ Chern delta-form in \Cref{sec:ch18-chern-delta}.  Subtracting
 $\iota^\ast$ is \cref{itm:ch18-plc:cld} and produces
 \eqref{eq:appJ-cld-section-pl}.
 
-\cref{itm:ch18-plc:mass} Pair with the constant delta-form $1$, legitimate
-because $X^{\An}$ is compact and boundaryless, and use
-\Cref{prop:ch18-delta-integration}\,\cref{itm:ch18-di:stokes}:
-$\int\delta_{\divis(f)}=\int\dprimeddprime[\log|f|]=0$.  Alternatively apply
-$\iota^\ast$ and quote \Cref{cor:ch15-degree-zero}.
+\cref{itm:ch18-plc:mass} Evaluate the current identity on the constant test
+function $1$, which is admissible because $X^{\An}$ is compact.  By the
+definition of the current differential,
+\[
+ \int_{X^{\An}}\delta_{\divis(f)}
+ =\langle\dprimeddprime[\log|f|],1\rangle
+ =\pm\langle[\log|f|],\dprimeddprime1\rangle=0.
+\]
+This is also \Cref{cor:ch15-degree-zero} after restriction to CLD currents.
 
 Finally, no constant intervenes because every step is an equality of
 polyhedral weights: the corner weight \eqref{eq:ch18-corner-weight} is a sum
@@ -1787,14 +2222,18 @@ $a\neq b$.  Then $\operatorname{cyc}(f)=[a]-[b]$ and
 $\dprimeddprime[\log|f|]=\delta_a-\delta_b$ as delta-currents.  Restricting
 to the standard apartment and writing $r=|a-b|$, the function $\log|f|$ is
 $0$ on the part of the tree outside the disc of radius $r$ about $a$, and on
-the segment from the Gauss point of that disc to $a$ it has slope $+1$
-towards $a$ and slope $-1$ towards $b$.  Both atoms have absolute value $1$
+the two branches from the Gauss point of that disc it has slope $-1$
+towards the zero $a$ and slope $+1$ towards the pole $b$.  Both atoms have absolute value $1$
 and the total mass is $0$, as \Cref{cor:ch15-degree-zero} and
 \Cref{cor:ch18-pl-restricts}\,\cref{itm:ch18-plc:mass} require.  This is the
-computation of \Cref{ex:ch15-rational-p1}, now read as an identity of
-delta-currents rather than of currents; the extra information carried by the
-delta-current is the $0$-cycle $[a]-[b]$ itself, which can be intersected
-with other cycles, whereas the measure $\delta_a-\delta_b$ cannot.
+computation of \Cref{ex:ch15-rational-p1}, now read in the delta-current
+test category.  Its right-hand side is the algebraic integration
+delta-current $\delta_{[a]-[b]}$, so it may be paired with compactly
+supported delta-forms; prescribed Green-current intersections are also
+available when the relevant algebraic cycles meet properly.  It is not being
+asserted that this algebraic current is a generalized delta-form, and the bare
+measure $\delta_a-\delta_b$ has no product with an arbitrary current.  No
+injectivity assertion for $E\to D$ is being used.
 \end{example}
 
 \begin{example}[The tropical line, once more]
@@ -1808,12 +2247,16 @@ instead $g=1+x=-y$ on $U$, again invertible; $\log|g|=-x_2$, again affine,
 again giving $0$.  Now pass to the compactification
 $\overline U\subset\mathbf P^2$ and take the restriction of the coordinate
 $Z_0/Z_2$: the corresponding function is no longer invertible on
-$\overline U$ and its divisor is a single point of degree $1$, whose
-tropical position is the endpoint of the ray $\mathbf R_{\geq0}v_3$ at
-infinity.  The corner cycle then acquires the weight $1$ at that point.  The
-example shows that on a very affine chart all the Poincar\'e--Lelong content
-is at the boundary of the chart, and that adjoining $f$ to the coordinates,
-as in \Cref{lem:ch18-adjoin-f}, is what brings the divisor into view.
+$\overline U$.  Its divisor is
+\[
+ [\overline U\cap\{Z_0=0\}]-[\overline U\cap\{Z_2=0\}],
+\]
+two boundary points with weights $+1$ and $-1$ and total degree zero.  The
+example shows that on the unit locus all the
+Poincar\'e--Lelong content lies at the boundary of the chart.  It is the
+calibrated boundary--fibre limit of
+\Cref{lem:ch18-boundary-divisor}, not the addition of another invertible
+torus coordinate, that recovers the divisor.
 \end{example}
 
 \begin{example}[The gauge is not a Poincar\'e--Lelong term]
@@ -1821,10 +2264,12 @@ as in \Cref{lem:ch18-adjoin-f}, is what brings the divisor into view.
 The function $u=g|_L$ of \Cref{ex:ch18-gauge-atom} has
 $\dprimeddprime[u]=3\delta_0$, which by
 \Cref{thm:gk-poincare-lelong} is \emph{not} of the form
-$\delta_{\operatorname{cyc}(f)}$ for a rational function $f$ on $U$, since
-$\operatorname{cyc}(f)$ has total degree $0$ on the proper model while
-$3\delta_0$ has mass $3>0$.  This is the difference between a curvature
-current and a divisor current, and it is the reason the Chern delta-form of
+$\delta_{\operatorname{cyc}(f)}$ for a rational function $f$ on $U$.
+Indeed, an algebraic divisor current on the curve is supported at rigid
+type-$1$ points, whereas the CLD measure associated to the polyhedral atom
+$\delta_0$ is supported at the type-$2$ Shilov point of the tropical fibre
+over the vertex.  The supports are disjoint.  This is the difference between
+a curvature current and an algebraic divisor current, and it is the reason the Chern delta-form of
 \Cref{sec:ch18-chern-delta} is needed: the mass $3$ is a positivity datum of
 a metric, not the divisor of a function.
 \end{example}
@@ -1887,8 +2332,9 @@ is a top-degree delta-form and hence a signed Radon measure.
 
 Two remarks on this sentence.  The product exists because of
 \Cref{thm:delta-preform-algebra} and \Cref{prop:ch18-product-descends}; no
-Bedford--Taylor recursion is used, and in particular no continuity of the
-potentials is required.  The passage to a measure is
+Bedford--Taylor approximation or recursion is used, and no regularity beyond
+the piecewise-smooth, hence continuous, delta-metric hypothesis is required.
+The passage to a measure is
 \Cref{prop:ch18-delta-integration}\,\cref{itm:ch18-di:measure}.  The measure
 is signed because effectivity of the corner cycles has not been assumed;
 positivity is exactly the content of \Cref{sec:delta-positivity}.
@@ -2017,31 +2463,84 @@ Chambert--Loir measure is $\delta_{x_E}$, in agreement with
 \label{sec:ch18-green}
 
 The delta-calculus also permits Green delta-currents and their
-\(*\)-products.  For properly intersecting divisors with algebraic metrics,
-the resulting local height agrees with the model-theoretic local height;
-see \cite[Theorem~0.4 and \S12]{GK17}.  This is a genuine connection with
-non-Archimedean Arakelov intersection theory, not merely an analogy.
-
-We indicate the mechanism, without developing Arakelov theory, because it
-explains why the delta-calculus and not the current calculus is the right
-home for local heights.  A Green delta-current for a cycle $Z$ of
-codimension $p$ is a delta-current $g_Z$ of bidegree $(p-1,p-1)$ with
-$\dprimeddprime g_Z+\delta_Z$ a delta-\emph{form}.  The $*$-product of two
-such data is defined by
+\(*\)-products, but only in a prescribed one-sided framework.  If $Z$ is
+an algebraic cycle of codimension $p$, a delta-current
+$g_Z\in E^{p-1,p-1}$ is a Green delta-current when
 \[
- g_Z*g_W:=g_Z\wedge(\dprimeddprime g_W+\delta_W)+\delta_Z\wedge g_W ,
+          \omega(Z,g_Z):=\dprimeddprime g_Z+\delta_Z
 \]
-and this expression makes sense because the first factor of each term is a
-delta-current paired against a delta-form, and because
-$\delta_Z\wedge g_W$ is defined when $Z$ and $W$ meet properly, by
-\Cref{thm:delta-preform-algebra}.  Neither term is defined in the calculus
-of \Cref{chap:cld-currents}: there, $\delta_Z\wedge g_W$ is a product of two
-currents.  The local height of a properly intersecting family
-$(Z_0,\ldots,Z_n)$ is then $\int g_{Z_0}*\cdots*g_{Z_n}$, and its agreement
-with the model-theoretic local height is \cite[Theorem~0.4]{GK17}.  We use
-this nowhere below; it is recorded because it is the principal application
-of the theory in its source, and because it is the reason the theory is
-stated over an algebraically closed field with a very affine chart system.
+is the current of a delta-form $\omega_Z\in B^{p,p}$.
+
+Let $\overline L=(L,\|\cdot\|)$ be a delta-metrized line bundle, let $s$ be
+a nonzero meromorphic section, and put
+\[
+ D=\divis(s),\qquad Y=\operatorname{cyc}(s),\qquad
+ g_Y=[-\log\|s\|],\qquad \omega_Y=c_1^\delta(\overline L).
+\]
+Suppose that $D$ meets $Z$ properly.  For a prime component $Z$ with
+inclusion $i_Z:Z^{\An}\to X^{\An}$, define
+\begin{equation}
+\label{eq:ch18-green-restriction}
+       g_Y\wedge\delta_Z
+       :=(i_Z)_*[-\log\|s|_Z\|],
+\end{equation}
+and extend linearly in $Z$.  This is a restriction followed by pushforward,
+not a product of arbitrary currents.  If $g_Z$ is a Green delta-current, set
+\begin{equation}
+\label{eq:ch18-green-star}
+             g_Y*g_Z:=g_Y\wedge\delta_Z+\omega_Y\wedge g_Z
+             \in E^{p,p}(X^{\An}).
+\end{equation}
+The second term is the canonical action of the differential algebra $B$ on
+delta-currents.  The first is the special operation
+\eqref{eq:ch18-green-restriction}.  Proper intersection alone does not
+define $\delta_Z\wedge g_W$ for an arbitrary Green current $g_W$, and the
+polyhedral algebra of \Cref{thm:delta-preform-algebra} does not supply such
+a product.
+
+We verify that \eqref{eq:ch18-green-star} has the required curvature.
+Poincar\'e--Lelong on every prime component of $Z$, followed by proper
+pushforward, gives
+\begin{equation}
+\label{eq:ch18-green-restricted-pl}
+ \dprimeddprime(g_Y\wedge\delta_Z)+\delta_{D\cdot Z}
+            =\omega_Y\wedge\delta_Z .
+\end{equation}
+Since $\omega_Y$ is closed and acts on delta-currents, the Leibniz rule and
+\eqref{eq:ch18-green-restricted-pl} yield
+\begin{align*}
+ \omega(D\cdot Z,g_Y*g_Z)
+ &=\dprimeddprime(g_Y\wedge\delta_Z)
+    +\omega_Y\wedge\dprimeddprime g_Z+\delta_{D\cdot Z}\\
+ &=\omega_Y\wedge(\delta_Z+\dprimeddprime g_Z)
+  =\omega_Y\wedge\omega(Z,g_Z).
+\end{align*}
+Thus $g_Y*g_Z$ is a Green delta-current for $D\cdot Z$.  This is
+\cite[Lemma~11.3 and Proposition~11.4]{GK17} with all operations displayed.
+The operation is not literally a commutative product on arbitrary Green
+currents; even for two divisor factors, interchange is controlled only
+modulo the explicit $\dprime$- and $\ddprime$-exact correction.  If
+$\eta_{Y_i}=-\log\|s_i\|$, then
+\begin{equation}
+\label{eq:ch18-green-commutator}
+ g_{Y_1}*g_{Y_2}-g_{Y_2}*g_{Y_1}
+ =\dprime[\ddprime_P\eta_{Y_1}\wedge\eta_{Y_2}]
+  +\ddprime[\eta_{Y_1}\wedge\dprime_P\eta_{Y_2}],
+\end{equation}
+by \cite[Proposition~11.5]{GK17}.
+
+For $n+1$ properly intersecting delta-metrized Cartier divisors on a proper
+$n$-fold, one may iterate this divisor-first construction and evaluate the
+right-associated top current
+\[
+       \bigl(g_{Y_0}*(g_{Y_1}*(\cdots*g_{Y_n}))\bigr)(1).
+\]
+The value is symmetric and agrees with the
+model-theoretic local height for algebraic metrics by
+\cite[Theorem~0.4 and \S12]{GK17}.  This is the precise connection with
+non-Archimedean Arakelov intersection theory.  We use the construction
+nowhere below, but record it because it is a principal application of the
+delta-current category.
 
 \section{Positivity of delta-forms}
 \label{sec:delta-positivity}
@@ -2049,12 +2548,13 @@ stated over an algebraically closed field with a very affine chart system.
 \subsection{The definition, and what it must satisfy}
 \label{sec:ch18-positivity-def}
 
-Positivity for delta-preforms is defined by testing the coefficient forms on
-the effective tropical cycles supporting them.  Weak, ordinary, and strong
-positivity are distinguished in intermediate bidegrees, exactly as for
-superforms.  A positivity notion on the analytic space is required to be
-stable under all tropical refinements; the word \emph{functorial} records
-stability under pullback by morphisms.
+Positivity for delta-preforms is defined by testing the intrinsic collected
+coefficient on every cell of a common subdivision.  A presentation may use
+signed cycles and signed weights; no sign is imposed term by term.  Weak,
+ordinary, and strong positivity are distinguished in intermediate
+bidegrees, exactly as for superforms.  On the analytic space the test is
+repeated after every compatible algebraic pullback; the word
+\emph{functorial} records that universal requirement.
 
 Written out, the definition is the following.
 
@@ -2064,14 +2564,23 @@ Written out, the definition is the following.
 A delta-preform $\beta=\sum_i\alpha_i\wedge\delta_{C_i}$ of bidegree $(p,p)$
 on $\Omega$ is \emph{positive} (respectively \emph{strongly positive},
 \emph{weakly positive}) if, after passing to a common subdivision
-$\mathscr C$ as in \Cref{prop:ch18-current-faithful}, for every face
-$\sigma\in\mathscr C$ carrying a nonzero total weight the combination
+$\mathscr C$ as in \Cref{prop:ch18-current-faithful}, for every relevant face
+$\sigma\in\mathscr C$ the collected coefficient
 \[
  A_\sigma=\sum_{i:\,l_i=\operatorname{codim}\sigma}m_{i,\sigma}\alpha_i|_\sigma
 \]
 is a positive (respectively strongly, weakly positive) superform on the
 vector space $N_{\sigma,\mathbf R}$ in the sense of
-\Cref{def:ch09-positivity}, and all the weights entering are nonnegative.
+\Cref{def:ch09-positivity}.  There is no condition on the signs of the
+individual weights in a chosen presentation: only the collected coefficient,
+which is intrinsic to the polyhedral current, is tested.
+
+A chart class in $P^{p,p}(V,\varphi_U)$ is positive in the corresponding
+sense when every restriction \eqref{eq:ch18-all-pullback-restriction} after
+every algebraic morphism is a positive delta-preform.  A generalized
+delta-form on an analytic open set is positive when this holds locally on
+tropical charts.  This is the functorial definition of
+\cite[Definitions~2.2 and 2.6]{GK19}.
 \end{definition}
 
 \begin{lemma}
@@ -2079,60 +2588,81 @@ vector space $N_{\sigma,\mathbf R}$ in the sense of
 \begin{enumerate}
 \item\label{itm:ch18-pos:welldef}
  \Cref{def:ch18-positive-delta} is independent of the subdivision and
- descends to delta-forms.
+ of the presentation, and hence is well defined on $P(\Omega)$.
 \item\label{itm:ch18-pos:current}
- A positive delta-form of bidegree $(p,p)$ induces a positive current in the
- sense of \Cref{def:ch14-current}; a strongly positive delta-form induces a
- strongly positive current.
+ On a fixed ambient open set, a delta-preform is weakly positive, positive,
+ or strongly positive if and only if its associated polyhedral current has
+ the corresponding positivity property.
+\item\label{itm:ch18-pos:global}
+ A generalized delta-form $\beta\in P^{p,p}(W)$ is weakly positive,
+ positive, or strongly positive if and only if $[f^*\beta]_D$ has the
+ corresponding positivity property on $f^{-1}(W)$ for every algebraic
+ morphism $f:X'\to X$.
 \item\label{itm:ch18-pos:top}
- In top bidegree $(n,n)$ the three notions coincide and are equivalent to
- positivity of the induced measure.
-\item\label{itm:ch18-pos:converse}
- In bidegree $(1,1)$ and in top bidegree, positivity of the induced current
- implies positivity of the delta-form; in intermediate bidegrees it does
- not.
+ On a fixed $n$-dimensional ambient tropical space, the three notions in
+ bidegree $(n,n)$ coincide and are equivalent to positivity of the
+ associated measure.  For a generalized delta-form on an analytic variety,
+ positivity implies positivity of the base measure; the converse still
+ requires the all-pullback test in \cref{itm:ch18-pos:global}.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
 \cref{itm:ch18-pos:welldef} A refinement of $\mathscr C$ replaces
-$A_\sigma$ by its restriction to a subcell with the same tangent space, so
-the condition is unchanged; and the $A_\sigma$ depend only on the class of
-$\beta$ by \Cref{prop:ch18-current-faithful}.
+$A_\sigma$ by its restriction to subcells, so the condition is unchanged.
+The collected coefficients depend only on the polyhedral current by
+\Cref{prop:ch18-current-faithful}; in particular, cancellation between
+positive and negative weights has already occurred before positivity is
+tested.
 
-\cref{itm:ch18-pos:current} Test \eqref{eq:ch18-associated-current} against a
-strongly positive $\omega$: each integrand $A_\sigma\wedge\omega|_\sigma$ is
-a positive top-degree superform on $\sigma$ by
-\Cref{prop:ch09-positivity-products}, hence integrates to a nonnegative
-number against the lattice measure by
-\Cref{prop:ch11-integral-cycle-invariant}.  The strong case is symmetric.
+\cref{itm:ch18-pos:current} If all $A_\sigma$ are positive, test
+\eqref{eq:ch18-associated-current} against a strongly positive $\omega$.
+Each $A_\sigma\wedge\omega|_\sigma$ is a positive top-degree superform by
+\Cref{prop:ch09-positivity-products}, hence has nonnegative integral.  The
+weak and strong variants use the dual positivity cones in the same way.
 
-\cref{itm:ch18-pos:top} In top bidegree the cone of positive forms on a
-$0$-dimensional cell is a half-line, and
-\Cref{prop:ch09-positivity-dictionary} identifies the three cones.  The
-equivalence with positivity of the measure is
-\Cref{prop:ch18-delta-integration}\,\cref{itm:ch18-di:measure}.
+Conversely, order the cells by increasing dimension.  Near a point of the
+relative interior of a cell of minimal remaining dimension, use nonnegative
+cutoffs supported in a shrinking transverse tube, normalized by the lattice
+volume of that cell.  Contributions from higher-dimensional cells tend to
+zero, exactly as in Step~1 of \Cref{prop:ch18-current-faithful}.  Positivity
+of the current therefore says that $A_\sigma$ pairs nonnegatively with every
+test form in the dual cone.  The finite-dimensional duality of
+\Cref{prop:ch09-positivity-dictionary} puts $A_\sigma$ in the required cone.
+Remove those cells and continue by induction.  This proves the converse for
+each of the three cones in every bidegree; compare
+\cite[Remark~1.11]{GK19}.
 
-\cref{itm:ch18-pos:converse} In bidegree $(1,1)$ the cones of positive and
-strongly positive forms coincide
-(\Cref{prop:ch09-positivity-inclusions}), and one recovers $A_\sigma$ from
-the current by the localization argument of Step~1 of
-\Cref{prop:ch18-current-faithful}, so positivity of the current forces
-positivity of each $A_\sigma$.  The same argument works in top bidegree.  In
-intermediate bidegrees the failure is already present for smooth forms:
-\Cref{ex:ch09-weak-not-positive} and
-\Cref{ex:ch14-positive-not-strong-current} exhibit forms whose associated
-currents are positive in the weaker sense only.  The delta-calculus inherits
-the discrepancy verbatim, since on the codimension-zero part it \emph{is}
-the smooth calculus.
+\cref{itm:ch18-pos:global} If $\beta$ is positive, every algebraic pullback
+is positive by definition, and \cref{itm:ch18-pos:current} makes its
+associated current positive.  Conversely, assume all the currents
+$[f^*\beta]_D$ are positive.  On any compatible tropical chart, their
+ambient polyhedral representatives are positive by
+\cref{itm:ch18-pos:current}.  Since this is true after every algebraic
+pullback, \Cref{def:ch18-positive-delta} makes the original chart class
+positive.  Locality gives positivity on $W$.  The weak and strong cases are
+identical.  This is \cite[Proposition~2.13]{GK19}.
+
+\cref{itm:ch18-pos:top} A codimension-$l$ term of total bidegree $(n,n)$ has
+a coefficient of top bidegree $(n-l,n-l)$ on its $(n-l)$-dimensional cell.
+Its three positivity cones are therefore the same half-line, by
+\Cref{prop:ch09-positivity-dictionary}.  The fixed-ambient form--current
+equivalence in \cref{itm:ch18-pos:current} identifies this condition with
+positivity of the associated measure.  The analytic assertions follow from
+\Cref{prop:ch18-delta-integration}\,\cref{itm:ch18-di:measure} and the
+all-pullback criterion \cref{itm:ch18-pos:global}.
+
 \end{proof}
 
 \begin{warning}{Three positivity words, three theorems}
-Positivity of a delta-form, positivity of its current, and semipositivity of
-a metric are three different assertions.  The first implies the second by
-\Cref{lem:ch18-positivity-consistent}\,\cref{itm:ch18-pos:current}; the
-converse holds in bidegrees $(1,1)$ and $(n,n)$ and fails in between; and
-the relation with semipositivity of a metric is the content of
+Positivity of a generalized delta-form, positivity of one current on the
+base, and semipositivity of a metric must not be conflated.  On a fixed
+ambient polyhedral space the form--current criterion is an equivalence in
+every bidegree.  On an analytic variety, the correct converse requires the
+currents of \emph{all} algebraic pullbacks, as in
+\Cref{lem:ch18-positivity-consistent}\,\cref{itm:ch18-pos:global}; positivity
+of the single base current is only a necessary condition.  The relation
+with semipositivity of a metric is the content of
 \Cref{thm:gk-tropical-frame-positivity} and
 \Cref{thm:gk-formal-positivity-comparison}, which require the metric to be
 piecewise smooth, respectively piecewise linear.  Nothing here applies to an
@@ -2185,18 +2715,17 @@ origin and its behaviour on the rays.
 \end{enumerate}
 \end{example}
 
-\begin{example}[Effectivity is not a consequence of harmonicity]
+\begin{example}[A nonsmooth pluriharmonic function]
 \label{ex:ch18-cross-positivity}
 On the cross-fan $\Sigma$ of \eqref{eq:ch16-cross-fan} with unit weights,
 the function $h=|x_1|-|x_2|$ of \eqref{eq:ch16-cross-functions} has slopes
 $(1,1,-1,-1)$ and corner weight $1+1-1-1=0$.  Thus $h$ satisfies the second
 condition with equality, and it is affine on each ray, so it satisfies the
-first; nevertheless $h$ is not psh in any useful sense, being the difference
-of two psh functions with equal curvature.  What the two conditions
-guarantee is exactly that $\dprimeddprime[h]\geq0$, here $=0$; they say
-nothing about $h$ itself.  This function reappears in
-\Cref{sec:harmonic-trop} as the basic example of a harmonic function which
-is not smooth.
+first.  Therefore \cite[Theorem~8.4]{GK19} says that both $h$ and $-h$ are
+psh, and indeed $\dprimeddprime[h]=0$.  The example is not a failure of the
+psh criterion: it is a nonsmooth pluriharmonic function.  It reappears in
+\Cref{sec:harmonic-trop} as the basic example showing that pluriharmonic need
+not mean smooth on a tropical space.
 \end{example}
 
 \subsection{The tropical-frame criterion}
@@ -2323,32 +2852,79 @@ following are equivalent:
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-Put the PL metric on a formal model.  At a point $x$, its residual line
-bundle records the slopes and corner weights of the tropical metric.  By the
-residual intersection formula, its degree on a residual curve is exactly the
-mass of the pulled-back Chern delta-form on the corresponding tropical
-one-cycle.  Hence residual nefness is equivalent to nonnegativity after
-pullback to every residual curve.  The curve-lifting theorem realizes these
-curves, after refinement, by closed algebraic curves in $X$; this proves the
-equivalence of (1) and (5).
+We give the argument of \cite[Theorem~6.10]{GK19}, including the two
+reductions that are needed for the positivity implication.  Nagata
+compactification first permits us to assume that $X$ is proper.  All five
+conditions are local for the analytic topology, so, after shrinking around
+an arbitrary point of $W$, the PL metric extends to the formal metric defined
+by a line bundle $\mathfrak L$ on a formal model $\mathfrak X$ of $X$.  It is
+therefore enough to work with this formal model.
 
-In every tropical frame, residual nefness makes the facewise Hessian
-positive and every corner coefficient effective.  By
-\Cref{thm:gk-tropical-frame-positivity}, this is equivalent to positivity of
-$c_1^\delta$, giving (1)$\Leftrightarrow$(4).  The same description is
-preserved by arbitrary analytic pullback, because residual line bundles and
-their degrees pull back functorially.  Thus (1) implies both functorial
-delta-psh and functorial psh, namely (2) and (3).  Conversely, either
-functorial positivity notion may be tested after pullback to the lifted
-curves.  On a curve, positivity is exactly nonnegativity of the outgoing
-slope sums, hence of all residual degrees.  This returns (5) and then (1).
+Assume (1).  Semipositivity of formal metrics is preserved by algebraic
+pullback.  To prove (2), it consequently suffices to prove that the current
+associated to $c_1^\delta(L|_W,\|\cdot\|)$ is positive.  The projection formula
+allows us to test this after a generically finite projective covering; by
+Chow's lemma we may thus suppose that $X$ is projective.
 
-This closes the cycle of implications and is the proof strategy of
-\cite[Theorem~6.10]{GK19}.  The lifting and descent steps use that $K$ is
-algebraically closed, complete, and nontrivially valued and that the metric
-is PL.  The approximation statement for formal metrics is separately
-\cite[Proposition~7.2]{GK19}; the theorem makes no assertion about arbitrary
-positive currents or arbitrary continuous psh metrics.
+Fix $x\in W$.  There is a compact strictly analytic neighbourhood
+$V\Subset W$ such that $(V,L^{\An}|_V)$ has a formal model
+$(\mathfrak V,\mathfrak M)$ induced by $(\mathfrak X,\mathfrak L)$.  Write
+$Z$ for the closure in $\mathfrak V_s$ of the reduction of $x$.  Because
+$x$ is an inner point of $V$, the variety $Z$ is proper over the residue
+field.  Semipositivity at $x$ says precisely that $\mathfrak M|_Z$ is nef.
+After passing to a dominating formal model, Raynaud's theorem and formal
+GAGA let us arrange that the model is induced from a projective flat model
+and that $\mathfrak L$ is algebraic.  Choose a very ample model line bundle
+$\mathfrak H$, write $H$ for its generic fibre, and let
+$\|\cdot\|_{\mathfrak H}$ be its semipositive algebraic metric.  For every
+rational $\varepsilon>0$, set
+\[
+ \mathfrak L_\varepsilon
+   :=\mathfrak L\otimes\mathfrak H^{\varepsilon},
+ \qquad
+ \|\cdot\|_\varepsilon
+   :=\|\cdot\|\otimes\|\cdot\|_{\mathfrak H}^{\varepsilon}.
+\]
+The restriction $\mathfrak L_\varepsilon|_Z$ is ample.  The local
+representability criterion \cite[Lemma~6.9]{GK19} therefore shows that
+$c_1^\delta(L|_W,\|\cdot\|_\varepsilon)$ is positively representable on a
+neighbourhood of $x$.  As $x$ was arbitrary, its associated delta-current is
+positive on $W$.  If $n=\dim X$ and
+$\beta\in B_c^{n-1,n-1}(W)$ is positive, then
+\begin{align*}
+ &\big\langle[c_1^\delta(L|_W,\|\cdot\|)],\beta\big\rangle
+ +\varepsilon
+  \big\langle[c_1^\delta(H|_W,\|\cdot\|_{\mathfrak H})],\beta\big\rangle \\
+ &\hspace{7em}=
+ \big\langle[c_1^\delta(L|_W,\|\cdot\|_\varepsilon)],\beta\big\rangle
+ \geq0 .
+\end{align*}
+Letting $\varepsilon\downarrow0$ proves positivity of the first current.
+Applying the same argument after every algebraic pullback gives (2).
+
+A positive delta-current is a positive ordinary current
+\cite[Remark~2.12]{GK19}, so (2) implies (3).  The functorial positivity
+criterion \cite[Proposition~2.13]{GK19} gives (3)$\Leftrightarrow$(4), and
+(3) immediately implies (5) by pullback to closed algebraic curves.
+
+It remains to prove (5)$\Rightarrow$(1).  By the algebraization of PL
+metrics, we may take $(\mathfrak X,\mathfrak L)$ to be an algebraic model.
+Let $Y$ be any closed curve in $\mathfrak X_s$ whose generic point lies in
+the reduction of $W$.  Since $X$ is proper, $Y$ is proper over the residue
+field.  The curve-lifting theorem \cite[Theorem~4.1]{GK19} supplies a closed
+algebraic curve $C\subset X$ such that $Y$ is an irreducible component of the
+special fibre of the closure of $C$.  By (5), the Chern current of the
+restricted metric on $W\cap C^{\An}$ is positive.  Its extension is the
+discrete Chambert--Loir measure of the formal metric on $C$.  The curve
+criterion \cite[Lemma~6.8]{GK19} now yields
+\(
+  \deg_{\mathfrak L}(Y)\geq0.
+\)
+Thus $\mathfrak L$ is vertically nef over $W$, which is (1).
+
+The argument uses the hypotheses on $K$ precisely in the formal-model and
+curve-lifting steps.  It concerns PL metrics only; the approximation result
+for formal metrics is the separate \cite[Proposition~7.2]{GK19}.
 \end{proof}
 
 \begin{remark}[Where each hypothesis is used]
@@ -2356,11 +2932,13 @@ positive currents or arbitrary continuous psh metrics.
 The five equivalent conditions of
 \Cref{thm:gk-formal-positivity-comparison} are not equally robust.
 \begin{itemize}
-\item The equivalence (1)$\Leftrightarrow$(4) is chartwise and needs only
- \Cref{thm:gk-tropical-frame-positivity}; it holds for piecewise smooth
- metrics.
+\item Conditions (1)--(5) concern PL, hence formal, data.  For a merely
+ piecewise-smooth metric there is no residual line bundle in general; the
+ valid replacement is \Cref{thm:gk-tropical-frame-positivity}, namely
+ facewise convexity plus effectivity of the corner locus.
 \item The implication (1)$\Rightarrow$(2),(3) uses functoriality of residual
- line bundles and holds for any morphism of analytic spaces.
+ line bundles under algebraic morphisms of varieties.  No functoriality for
+ arbitrary analytic morphisms is asserted here.
 \item The equivalence with (5) uses the curve-lifting theorem, and this is
  where $K$ algebraically closed and nontrivially valued is essential:
  residual curves are lifted to closed algebraic curves after refinement, and
@@ -3867,23 +4445,23 @@ corner cycle $\varphi\cdot C$
  &\Cref{thm:gk-poincare-lelong},
   \Cref{thm:ch18-model-corner}\\
 delta-preform
- &formal sum $\alpha\wedge\delta_C$
+ &polyhedral current presented by $\alpha\wedge\delta_C$
   (\eqref{eq:delta-preform})
  &\Cref{thm:delta-preform-algebra}\\
 associated current
- &determines the coefficients
+ &determines the collected coefficients in a fixed ambient space
   (\Cref{prop:ch18-current-faithful})
  &\Cref{def:ch18-delta-form-euclidean}\\
 delta-form
- &product descends
-  (\Cref{prop:ch18-product-descends})
+ &the global subalgebra $B_{\mathrm{GK}}$ is differential
+  (\Cref{prop:ch18-global-pb-structure})
  &\Cref{sec:ch18-delta-analytic}\\
 delta-current
- &strictly finer than a CLD current
+ &restricts canonically to a CLD current; no injectivity claim
   (\Cref{prop:ch18-delta-vs-cld-currents})
  &\Cref{thm:gk-poincare-lelong}\\
 positivity of a delta-form
- &cellwise, implies positivity of the current
+ &cellwise in fixed ambient; functorial under algebraic pullback
   (\Cref{lem:ch18-positivity-consistent})
  &\Cref{thm:gk-tropical-frame-positivity}\\
 Chern delta-form $c_1^\delta$
@@ -4137,8 +4715,9 @@ enter, were tested in \Cref{ex:ch18-two-lines-numbers} and
 
 \paragraph{Statements quoted without proof.}
 Four statements in this chapter are used with a citation and are not proved
-here: the initial-degeneration multiplicity comparison
-\cite[Theorem~7.2]{GK17} inside \Cref{lem:ch18-corner-is-divisor}; that
+here: the analytic tropical fibre-calibration theorem
+\cite[Proposition~4.6.6]{CLD25} inside
+\Cref{lem:ch18-fibre-cylinder}; that
 formal metrics are delta-metrics, \cite[Proposition~8.11]{GK17}, inside
 \Cref{thm:ch18-model-corner}\,\cref{itm:ch18-mc:delta}; the residual
 mixed-degree comparison \cite[Theorem~10.5]{GK17} inside
