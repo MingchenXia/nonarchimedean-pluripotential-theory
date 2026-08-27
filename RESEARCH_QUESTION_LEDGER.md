@@ -26,9 +26,30 @@ infinite-valence cases remain open.  The real-PL zero-current implication is
 also verified on good separated boundaryless strict pure-dimensional spaces,
 while the arbitrary continuous higher-dimensional problem remains open.  The
 literal ordinary CLD-smooth harmonic approximation variant is disproved on a
-smooth curve, while ordinary CLD-smooth psh regularization remains open.  The
+smooth curve, while that 25 August gate did not decide ordinary CLD-smooth
+psh regularization.  The
 exact run identifiers and scope
 firewalls appear in the current tables below.
+
+**Controlling delta, 27 August 2026.**  Three later exact gates supersede
+additional current-facing entries below.  The canonical cubical
+delta-metricity problem is resolved: the product--Gauss criterion shows that
+an ample cubical metric in split Raynaud uniformization is ordinary delta if
+and only if the residual Raynaud extension is isotrivial, hence answers the
+non-isotrivial mixed-reduction case negatively.  On smooth proper algebraic
+curves over algebraically closed complete nontrivially valued fields,
+continuous current-psh functions admit decreasing ordinary CLD-smooth psh
+regularization; this does not contradict the harmonic-approximant
+counterexample.  Finally, first-stage collapse holds for every finite
+ambient-induced real-affine star, including extended-valued polar branches,
+without lattice or balancing hypotheses.  Arbitrary non-toric
+positive-sedentarity structures not covered by the toric theorem, nonambient
+structures, infinite-valence stars, and higher-dimensional settings remain
+open.  The current
+literal frontier is fifteen problem environments in Chapter 72 and one in
+Chapter 71, split into fifty-five active atoms.  Exact hashes, production
+responses, and scope firewalls are recorded in the dated receipts and the
+atomic inventory.
 
 ---
 
@@ -715,7 +736,19 @@ ordinary CLD-smooth harmonic functions.  Its exact-live proof passed run
 `20260825T055907Z_b5c8f0719b60`, item
 `pi_d80993bb01a748f0422ae6a5`, final `correct`, with zero critical errors and
 zero gaps.  The fixed-support proof uses zero curvature of every approximant;
-ordinary CLD-smooth psh regularization remains open.
+that run did not decide ordinary CLD-smooth psh regularization.
+
+**27 August ordinary-psh-regularization update:** the continuous
+smooth-proper-curve case is now closed positively.  Over an algebraically
+closed complete nontrivially valued field, current positivity, Thuillier
+subharmonicity, and local decreasing ordinary CLD-smooth psh approximation
+coincide for continuous functions on smooth proper algebraic curves.  The
+exact statement and proof passed production run
+`20260827T090645Z_767cbf81c723`, final `correct`, with zero critical errors
+and zero gaps.  The approximants carry positive curvature in fresh tangent
+directions, so the harmonic-approximant obstruction above remains valid.
+Arbitrary singular curve functions, more general analytic curves, and higher
+dimensions are not covered.
 
 ### CLD-5. Non-Archimedean Kähler forms and Kodaira theory
 
@@ -805,9 +838,8 @@ nonnormal germs.
 
 ### CLD-8. Early collapse of the psh hierarchy
 
-**Status:** verified on tropical toric partial compactifications and on the
-stated finite-valence boundaryless tropical curves; open in the unrestricted
-scope.
+**Status:** verified on tropical toric partial compactifications and every
+finite ambient-induced real-affine star; open in the unrestricted scope.
 
 CLD Lemma 8.1.4 proves eventual stabilization by a cardinality argument.
 Remark 8.1.6 literally says stationarity is unknown, contradicting that
@@ -823,13 +855,25 @@ The first natural cases are now closed.  On every tropical toric partial
 compactification with the standard Lagerberg smooth structure, the toric psh,
 CLD psh, and first-stage CLD psh sheaves coincide.  Stage one also suffices on
 a one-dimensional boundaryless affine tropical space locally modeled on a
-finite balanced complex with ambient-induced smooth structure; the proof
-includes vertex Jensen inequalities, a Farkas support covector, chordal
-approximation, and smooth monotone regularization on one fixed star.  The
-exact packet passed production run
+finite balanced complex with ambient-induced smooth structure.  That earlier
+packet passed production run
 `20260825T024707Z_d1b8d7eaf79e`, `gpt-5.6-sol`/`xhigh`, final `correct`, zero
-critical errors, and zero gaps.  Higher-dimensional arbitrary balanced
-spaces, tropical boundary points, and infinite-valence stars remain open.
+critical errors, and zero gaps.
+
+The stronger finite-star theorem removes rationality, weights, balancing,
+calibration, harmony, and boundary designation from the abstract model.  For
+any finite union of distinct half-open rays in a finite-dimensional real
+vector space, with ambient-induced smooth branchwise-convex generators, it
+identifies the first stage and the full generated psh sheaf with branchwise
+extended-real convexity plus all junction Jensen inequalities and constructs
+decreasing smooth approximants on one fixed neighbourhood.  Its exact bytes
+passed the direct production endpoint using `gpt-5.6-sol`/`xhigh`, final
+`correct`, zero critical errors, and zero gaps; the response is archived
+under the local label `20260827T103835Z_c8131b22d800`, and the endpoint
+assigned no run or item identifier.  The theorem does not identify arbitrary
+positive-sedentarity or nonambient generator sheaves with its model.
+Higher-dimensional spaces, such boundary structures, and infinite-valence
+stars remain open.
 
 ### CLD-9. Local psh metrics versus global psh metrics
 
@@ -843,16 +887,26 @@ every parlinear metric should then be globally dpsh. The second is not
 literally the same as the first and must not be replaced by a modern
 Fubini--Study definition without a comparison theorem.
 
-### CLD-10. The remaining Gubler--Jell--Rabinoff question
+### CLD-10. The resolved Gubler--Jell--Rabinoff delta-metricity question
 
-**Status:** ordinary delta-metricity of canonical metrics remains open.  The
-formerly bundled cohomology-isomorphism and semipositive
-integral-decomposition questions are resolved.
+**Status:** resolved.  The formerly bundled cohomology-isomorphism and
+semipositive integral-decomposition questions are also resolved in their
+literal unrestricted formulations.
 
-Is a canonical metric on a line bundle on an abelian variety an ordinary
-\(\delta\)-metric, despite the failure of smoothness of canonical
-tropicalizations recorded in Remark 16.4 and Section 17?  The
-mixed-reduction abelian threefold is a mandatory boundary case.
+The final residual asked whether a canonical metric on a line bundle on an
+abelian variety is an ordinary \(\delta\)-metric, with non-isotrivial mixed
+reduction as the essential boundary case.  The answer in that residual range
+is no.  The product--Gauss criterion proves that a nondegenerate quadratic
+weight on an equivariant locally integral-PL map is ordinary delta exactly
+when every coordinate of that map is CLD-smooth.  Applied to split Raynaud
+uniformization, an ample cubical metric is ordinary delta exactly when the
+residual Raynaud extension is isotrivial.  The exact statement and proof
+passed production run `20260826T055627Z_b68659fba1be`, item
+`pi_75c74fac9a98efc3719b9773`, using `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors, and zero gaps.  The preceding Picard
+reduction settles `Pic^0`, separates symmetric and antisymmetric factors, and
+shows that the ample symmetric range was the last universal case on a fixed
+abelian variety.
 
 The low-residual-dimension theorem uses a common residue model and an
 integral B\'ezout splitting of its single degree functional.  Source-aware
@@ -1079,7 +1133,10 @@ pass is followed by a separately prompted hostile audit.
 8. product/retraction trace Dirichlet proposition;
 9. CLD harmonic-reduction lemmas (real-PL zero-current case verified by
    `20260825T061351Z_655e7f503e5d`; arbitrary continuous higher-dimensional
-   case and ordinary CLD-smooth psh regularization open; the literal harmonic
+   case remains open; continuous ordinary CLD-smooth psh regularization on
+   smooth proper algebraic curves is verified by
+   `20260827T090645Z_767cbf81c723`, while arbitrary singular or more general
+   curves and higher dimensions remain open; the literal harmonic
    approximation variant is disproved by `20260825T055907Z_b5c8f0719b60`);
 10. fixed-dual-complex special case of BJ Question 11.16.
 
@@ -1183,7 +1240,7 @@ for its full receipt.
 | R3-20 | toric Cao dimension formula | **VERIFIED** for integral/rational big toric data after the live Guenancia/toric-count citation and limsup-versus-limit repair; the real transcendental extension remains **OPEN** |
 | R3-21 | \(\mathcal I\)-invariant mass-body assignment | **DISPROVED** by the polar-Cantor pair; a \(P\)-sensitive refinement remains **OPEN** |
 | R3-22 | singular higher-dimensional CLD/GR Bedford--Taylor products | **OPEN** beyond continuous CLD, Euclidean convex, curve, and model loci |
-| R3-23 | harmonic/pluriharmonic comparison | sourced weakly smooth and regular-model cases are **VERIFIED**; the real-PL zero-CLD-current converse is **VERIFIED** by exact-live run `20260825T061351Z_655e7f503e5d`; ordinary CLD-smooth harmonic approximation is **DISPROVED** by `20260825T055907Z_b5c8f0719b60`; the arbitrary continuous higher-dimensional, ordinary CLD-smooth psh-regularization, and unrestricted classical-pluriharmonic statements remain **OPEN** |
+| R3-23 | harmonic/pluriharmonic comparison | sourced weakly smooth and regular-model cases are **VERIFIED**; the real-PL zero-CLD-current converse is **VERIFIED** by exact-live run `20260825T061351Z_655e7f503e5d`; ordinary CLD-smooth harmonic approximation is **DISPROVED** by `20260825T055907Z_b5c8f0719b60`; continuous ordinary-smooth psh regularization on smooth proper curves is **VERIFIED** by `20260827T090645Z_767cbf81c723`; arbitrary singular curves, higher dimensions, arbitrary continuous zero-current functions, and unrestricted classical pluriharmonicity remain **OPEN** |
 | R3-24 | model-semipositive, classical-psh, and revised-CLD-psh real PL functions | **VERIFIED** on complete nontrivially valued fields and good strict boundaryless spaces, or on the relative interior in general; separatedness is needed only for the one-way current consequence |
 | R3-26 | swept CLD boundary product versus local BFJ measure | **VERIFIED** for ideal model functions, algebraizable rational-semipositive model functions, and their stated joint bounded closure; the probability-sheaf signature and canonical selection of arbitrary unbounded polar mass by the model comparison alone are **DISPROVED**; nonalgebraizable analytic models and broader psh/singular domains **OPEN** |
 | R3-27 | balanced polyhedral regularity, orthogonality, and realization | all-dimensional regularity and orthogonality on the complete affine space (N_{mathbf R}) are **VERIFIED**; strict positivity alone is **DISPROVED** on the singular four-ray cross; analytic comparison is **CONDITIONAL** on recursive calibrated current compatibility; the intrinsic higher-dimensional singular-fan contact problem is **OPEN** |
@@ -1241,23 +1298,23 @@ theory row.
 | P0 | Nontrivially valued MA existence and the arbitrary-field \(\mathcal E^1\) operator; BFJ and Pille--Schneider Remark 4.4 | Separate operator construction from solvability; remove one field/singularity/support hypothesis at a time and reconstruct every variational input | Exact source question and broader book programme are separated in Chapter 72 and this ledger |
 | Resolved history | BJ global Radon--Riesz, BJ Question 11.16 | Moving-centre valuations on \(\mathbf P^n\), \(n\ge2\), give weak convergence and identical exhaustion value one but a uniform strong gap | Disproved by `thm:ch49-global-radon-riesz-counterexample`; the fixed-SNC-complex positive theorem remains valid |
 | P1 | Singular/nonnormal local valuative theory; BFJ08, Bingener 1976, Xia *Stein spaces* (3 July 2026) | Test normalization, conductor, and finite-map descent on nodes, cusps, quotient and inseparable germs | Chapter 72 treats the smooth BFJ endpoint only |
-| P1 | The remaining GJR question: canonical ordinary \(\delta\)-metricity | Use the mixed-reduction abelian threefold as a boundary test and either construct ordinary tropical charts for the canonical metric or isolate an obstruction to ordinary delta-forms | Chapter 72 states the sole residual; P09.1 is retired by signed-generation run `20260825T130036Z_c1607c25ec38` and positive-cone counterexample run `20260825T130707Z_4c4a1f2c885f`, while unrestricted cohomology surjectivity is disproved by `20260824T123617Z_fcddc3abc33d` |
+| Resolved history | GJR canonical ordinary \(\delta\)-metricity | The product--Gauss criterion detects ordinary delta-metricity coordinatewise and, for ample cubical metrics, by isotriviality of the residual Raynaud extension | The non-isotrivial mixed-reduction answer is negative by `20260826T055627Z_b68659fba1be`; P09.1 and unrestricted cohomology surjectivity are separately retired |
 | P1 | DXZ filtration-test-curve maximality, Xia Conjecture 5.29, and auxiliary-\(\eta\) independence | Start with finitely generated/toric/flag cases; do not recycle the already asserted \(H,\omega\)-independence or the now-proved positive-volume Conjecture 8.8 | The residual source-scoped packets remain open; Conjecture 8.8 is closed in its exact Chapter 55 positive-volume scope by separate exact-current gates |
 | P1 | Banach-family MA continuity; Pille-Schneider, JEP 10 (2023), Question 4.9; the Favre--Pille-Schneider endpoint question is retained only as resolved history | Prove FS specialization or produce a non-hybrid jumping base for Question 4.9 | `thm:hybrid-endpoint-continuity-counterexample` disproves both literal Question 3.18/Favre Question 1 and the zero-supremum normalized strengthening; the stronger packet passed production run `20260825T035945Z_070e264c3ef1`, item `pi_db89dd432acabcf33a3f2272`, and the adapted exact-live bytes passed `20260825T043840Z_d77f7f93aeb0`, item `pi_b7f015a6ad5570f431769a71`, both `final/correct`, while Question 4.9 remains open |
 | P1 | BMPS higher-dimensional smoothness, Calabi--Yau tropicalizations, and Bergman-fan matroid classification | Test intrinsic contact and orthogonality on singular smooth fans; keep the recursive analytic comparison as a stronger book question | Exact source questions and book strengthenings are separated; R3-27 solves only the complete affine case |
 | P1 | Exact post-2025 YTD residuals; BJ 2509.15016v1, Darvas--Zhang 2509.15173v2, Trusiani 2605.30063v1, MPWN25 | Direct algebraic bridge, bounded divisorial support, algebraic equivariance, log-discrepancy-ray regularization, and transcendental/singular/hybrid extensions | Trusiani Corollary B removes the bare smooth-projective signature question; Chapter 72 lists only residuals |
 | P1 | Zero-volume relative energy/MA and \(P\)-sensitive bodies; DXZ/Xia/MP | Test first-nonzero-volume-coefficient rescaling for path independence and numerical dimension | Chapter 72 proves the probability and \(\mathcal I\)-body no-go boundaries |
-| P2 | Early collapse of the CLD transfinite psh hierarchy; CLD Lemma 8.1.4/Remark 8.1.6 | Extend the verified toric and finite-valence boundaryless-curve cases to higher-dimensional balanced spaces, boundary points, or infinite stars, or exhibit genuine transfinite rank | Eventual cardinal stabilization is closed; the two natural stage-one cases passed `20260825T024707Z_d1b8d7eaf79e`; Chapter 72 retains only the unrestricted residual |
+| P2 | Early collapse of the CLD transfinite psh hierarchy; CLD Lemma 8.1.4/Remark 8.1.6 | Extend the verified toric and finite ambient-induced real-affine-star cases to arbitrary non-toric positive-sedentarity or nonambient structures, higher-dimensional spaces, or infinite stars, or exhibit genuine transfinite rank | Eventual stabilization, the toric case, and the finite ambient-induced star case are closed; the latter passed the direct production endpoint and is archived under `20260827T103835Z_c8131b22d800`; Chapter 72 retains the unrestricted residual |
 | P2 | Exact canonical BJ approximation and threshold identities after Trusiani 2026 | Identify Trusiani's approximants term by term with the prescribed BJ sequence and normalize every threshold | Earlier chapters provide machinery; Chapter 72 does not identify them |
 
-The live Chapter 72 has 16 open-problem environments.  The book-wide literal
-count is 17 because the preceding pseudoeffective MP--DXZ chapter separately
+The live Chapter 72 has 15 open-problem environments.  The book-wide literal
+count is 16 because the preceding pseudoeffective MP--DXZ chapter separately
 contains the projective-rational full-link problem.  These are
 research-status records, not exercises.  The earlier trace-refinement row has
 been removed: the complete supplied Darvas--Xia chapter proves the required
 input-\(\mathcal I\)/output-\(P\) factorization, so Chapter 72 now records it as
 resolved source history.  Splitting compound environments into independently
-auditable targets gives 57 active atoms; their exact crosswalk and easy-to-hard
+auditable targets gives 55 active atoms; their exact crosswalk and easy-to-hard
 queue are recorded in
 `manuscript/editorial/open_problem_atomic_inventory_20260824.md`.  The
 production receipts distinguish exact-current gates from frozen

@@ -221,15 +221,23 @@ source questions under one common framework.
   uniformly controlled early ordinal.
 - **Verified natural cases:** on every tropical toric partial compactification
   with its standard Lagerberg smooth structure, the CLD, stage-one CLD, and
-  toric psh sheaves coincide; stage one also suffices on finite-valence
-  boundaryless one-dimensional affine tropical spaces with ambient-induced
-  smooth structure.  The exact packet passed production run
-  `20260825T024707Z_d1b8d7eaf79e`.
-- **Status:** open for arbitrary higher-dimensional balanced spaces, tropical
-  boundary points, and infinite-valence stars; no example of genuine
-  second-stage rank is known at the cutoff.
-- **Packet:** cld_psh_early_collapse.md, superseded in these two verified
-  cases by the 25 August exact packet.
+  toric psh sheaves coincide; this is controlled by production run
+  `20260825T024707Z_d1b8d7eaf79e`.  Stage one also suffices for the generated
+  sheaf on every finite ambient-induced real-affine star and on spaces locally
+  charted by such stars with generator-preserving transitions.  The exact
+  statement and proof passed the direct production endpoint and are archived
+  under `20260827T103835Z_c8131b22d800`; the endpoint assigned no run or item
+  identifier.
+- **Scope firewall:** the finite-star theorem does not assert that every
+  analytic, sedentary tropical, or nonambient germ carries the required
+  generator-preserving chart.
+- **Status:** P07.1 remains open in arbitrary higher dimension, at
+  infinite-valence stars, and on local models outside that chart category.
+  P07.2 retains the conditional question of a finite or uniformly controlled
+  early ordinal.  No example of genuine second-stage rank is known.
+- **Packets:** `cld_psh_early_collapse.md` is historical; the toric result is
+  controlled by the 25 August packet, and the stronger finite-star result by
+  `rethlas_packets_20260827/p071_finite_affine_tropical_stars_*_20260827`.
 
 ### OP-08. Local psh metrics versus global psh metrics
 

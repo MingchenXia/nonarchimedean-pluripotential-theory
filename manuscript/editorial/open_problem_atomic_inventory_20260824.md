@@ -166,12 +166,18 @@ the residual scopes stated above.
   tropical spaces.
 
 Eventual cardinal stabilization is known.  Production run
-`20260825T024707Z_d1b8d7eaf79e` proves stage-one collapse on tropical toric
-partial compactifications and on finite-valence boundaryless
-one-dimensional affine tropical spaces with ambient-induced smooth
-structure.  The two atoms retain only higher-dimensional arbitrary balanced
-spaces, tropical boundary points, infinite-valence stars, and the absence of
-a uniform general bound.
+`20260825T024707Z_d1b8d7eaf79e` controls the tropical toric case and the
+historical narrower finite-curve statement.  The latter is superseded by the
+exact finite ambient-induced real-affine-star theorem archived under
+`20260827T103835Z_c8131b22d800`; the direct endpoint assigned no run or item
+identifier and returned final `correct`, with zero critical errors and zero
+gaps.  The theorem does not identify its generator sheaf with the CLD sheaf
+on every analytic, sedentary tropical, or nonambient local model.  P07.1
+therefore retains arbitrary higher-dimensional settings, infinite-valence
+stars, and local models not known to admit the stated generator-preserving
+finite-star charts.  P07.2 retains the absence of a uniform early-ordinal
+bound.  Both atoms remain active; the inventory stays at 55 atoms in 16
+formal problem environments.
 
 ### `prob:frontier-cld-global-metric` --- 2 atoms
 

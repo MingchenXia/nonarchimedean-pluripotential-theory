@@ -48,6 +48,43 @@ pi_a860454e8a0004aa4767207c, with final correct, zero critical
 errors, and zero gaps.  Chapter 18 inputs those exact files.  This correction
 does not retire an open-problem atom and does not assert novelty or priority.
 
+**27 August 2026 finite affine-star verification addendum.**  The exact P071
+statement and proof establish first-stage collapse on every finite
+one-dimensional real-affine star in a finite-dimensional real vector space
+when the smooth functions are ambient-induced and the stage-zero psh
+functions are precisely the ambient-induced functions that are convex on
+each branch.  The global form applies only to charts that identify the
+stage-zero sheaf with this model sheaf; a homeomorphism of the underlying
+star alone is not enough.  The exact statement and proof have SHA-256
+`c8131b22d8002212e31cd526095317734a2b67be5d47f1387e5ee6bc041af5e3`
+and
+`921e8b46690e69cbacea66bf86cbcdf628e7dbc95651f526d62cc6d755d7cbcf`.
+The production endpoint returned verdict `correct`, with zero critical
+errors and zero gaps.  It assigned neither a run identifier nor an item
+identifier: `20260827T103835Z_c8131b22d800` is a local archive label only.
+No application is claimed here for positive-sedentarity or other tropical
+boundary charts whose local generator sheaf has not been identified with
+the model, for nonambient smooth structures, for infinite stars, or in
+higher dimension.  P07.1 and P07.2 therefore remain active, and the literal
+inventory remains 16 problem environments and 55 active atoms.  This
+verification addendum is not a post-integration or whole-book build gate.
+
+**27 August 2026 finite affine-star live-integration gate.**  Chapter 16 now
+inputs the exact verified P071 statement and proof.  A forced clean rebuild
+followed by a convergence pass produces a 3,187-page PDF whose final log has
+no TeX error, undefined reference or citation, duplicate label or
+destination, BibTeX or index warning, rerun request, or overfull box.  The
+119-file current-source closure verifies entry by entry.  Rendered inspection
+passed on every page containing the corrected Chapter 10 slope convention,
+the complete statement and proof, the Chapter 19 limitations table, the
+Chapter 72 residual frontier, and the Appendix L provenance entry, together
+with their neighbouring transitions.  The controlling evidence is
+`editorial/current_source_build_p071_20260827.md`,
+`editorial/current_source_closure_p071_20260827.sha256`, and the production
+and live-integration receipts in
+`editorial/rethlas_receipts_20260827/`.  This gate does not enlarge the
+theorem's exact scope or retire P07.1 or P07.2.
+
 ## Second-draft expansion
 
 A second-draft expansion pass has now reached every numbered chapter.  It
@@ -158,6 +195,13 @@ box is an outstanding verification step, not a mathematical defect.
       verified 117-file source closure.  The controlling evidence is
       `editorial/current_source_build_p063_20260827.md` and
       `editorial/current_source_closure_p063_20260827.sha256`.
+- [x] The 27 August post-P071 source has a forced clean and converged
+      3,187-page build, exact-byte and scope audits, rendered inspection of
+      the complete finite-star theorem and proof and every affected status
+      page, and a verified 119-file source closure.  The controlling evidence
+      is `editorial/current_source_build_p071_20260827.md`,
+      `editorial/current_source_closure_p071_20260827.sha256`, and the two
+      P071 receipts in `editorial/rethlas_receipts_20260827/`.
 - [ ] The expanded chapters have received independent post-expansion
       mathematical and primary-source audits; the historical first-pass rows
       above do not close this gate.

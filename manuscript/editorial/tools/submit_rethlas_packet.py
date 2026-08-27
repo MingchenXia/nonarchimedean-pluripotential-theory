@@ -8,8 +8,8 @@ import json
 import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-
-import requests
+from urllib.error import HTTPError
+from urllib.request import Request, urlopen
 
 
 def parse_args() -> argparse.Namespace:
@@ -52,37 +52,52 @@ def main() -> None:
     token = os.environ.get("VERIFY_API_TOKEN")
     if token:
         headers["Authorization"] = f"Bearer {token}"
-    response = requests.post(
+    request = Request(
         args.endpoint,
         data=request_bytes,
         headers=headers,
-        timeout=args.timeout_seconds,
+        method="POST",
     )
-    args.response_archive.write_bytes(response.content)
+    try:
+        with urlopen(request, timeout=args.timeout_seconds) as response:
+            response_bytes = response.read()
+            response_status = response.status
+            response_headers = dict(response.headers.items())
+    except HTTPError as error:
+        response_bytes = error.read()
+        response_status = error.code
+        response_headers = dict(error.headers.items())
+    args.response_archive.write_bytes(response_bytes)
     safe_headers = {
         key: value
-        for key, value in response.headers.items()
+        for key, value in response_headers.items()
         if key.lower() in {"content-type", "content-length", "date", "server"}
     }
     args.headers_archive.write_text(
         json.dumps(
-            {"status_code": response.status_code, "headers": safe_headers},
+            {"status_code": response_status, "headers": safe_headers},
             indent=2,
             sort_keys=True,
         )
         + "\n",
         encoding="utf-8",
     )
-    response.raise_for_status()
+    if response_status >= 400:
+        raise RuntimeError(
+            f"verification endpoint returned HTTP {response_status}"
+        )
 
-    body = response.json()
+    body = json.loads(response_bytes)
+    report = body.get("verification_report") or {}
     summary = {
         "run_id": body.get("run_id"),
         "verification_status": body.get("verification_status"),
         "verdict": body.get("verdict"),
         "checked_items": len(body.get("checked_item_ids", [])),
-        "critical_errors": len(body.get("critical_errors", [])),
-        "gaps": len(body.get("gaps", [])),
+        "critical_errors": len(
+            report.get("critical_errors", body.get("critical_errors", []))
+        ),
+        "gaps": len(report.get("gaps", body.get("gaps", []))),
     }
     print(json.dumps(summary, indent=2, sort_keys=True))
 

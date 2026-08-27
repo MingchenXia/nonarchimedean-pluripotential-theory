@@ -1,5 +1,63 @@
 # P07.1: early collapse of the CLD psh hierarchy
 
+## 27 August 2026 controlling addendum
+
+The historical 25 August verification record below is retained unchanged.
+The stronger exact P071 packet now proves the following abstract local
+statement.  Let
+
+\[
+ S=\{0\}\mathbin{\cup}\coprod_{i=1}^m(0,r_i)v_i\subset E
+\]
+
+be a finite one-dimensional real-affine star in a finite-dimensional real
+vector space, with pairwise distinct positive rays.  Smooth functions are,
+by definition, locally restrictions of ambient smooth functions, and
+`Psh_{S,0}` consists exactly of those smooth functions that are convex on
+each branch.  Then
+
+\[
+             \operatorname{Psh}_{S,1}
+             =\operatorname{Psh}_S
+             =\mathscr J_S,
+\]
+
+where `J_S` is defined by branchwise extended-real convexity and all junction
+Jensen inequalities.  The proof includes polar branches, needs no positive
+balancing relation, and constructs the decreasing stage-zero sequence on one
+fixed neighbourhood.  For a space covered by such stars, descent holds only
+under the explicit additional hypothesis that the chart maps identify its
+stage-zero sheaf with the model `Psh_{S,0}`.  An underlying topological star
+chart does not supply that identification.
+
+The exact statement and proof are
+`manuscript/editorial/rethlas_packets_20260827/p071_finite_affine_tropical_stars_statement_20260827.tex`
+and
+`manuscript/editorial/rethlas_packets_20260827/p071_finite_affine_tropical_stars_proof_20260827.tex`.
+Their SHA-256 digests are
+`c8131b22d8002212e31cd526095317734a2b67be5d47f1387e5ee6bc041af5e3`
+and
+`921e8b46690e69cbacea66bf86cbcdf628e7dbc95651f526d62cc6d755d7cbcf`.
+The direct production endpoint returned verdict `correct`, with zero
+critical errors and zero gaps.  It assigned no run identifier and no item
+identifier.  The string `20260827T103835Z_c8131b22d800` is the local archive
+label only, not an endpoint-issued identifier.  The request, response, and
+headers digests are respectively
+`ac68faee9ddb39bd3a30373e193196fc0a25431477a34e5c9cea6b49947299ed`,
+`4f9a8b82e6eb7134cf76a5eac5ac0313db8f0e6cca082d369976db04ec115cfe`,
+and
+`2d161b58dbf027d6e9461e11cb0008b582425f0adb2d1ad29318d4c43398d17e`.
+
+The exact scope firewall is essential.  The abstract result uses no lattice,
+rationality, weights, balancing, calibration, harmony, or boundary
+designation.  This does not by itself identify the CLD stage-zero sheaf in a
+positive-sedentarity or other tropical boundary chart, nor does it cover a
+nonambient-induced smooth structure, an infinite star, or a
+higher-dimensional local model.  Thus both live atoms P07.1 and P07.2 remain
+active.  The inventory is unchanged at 16 problem environments and 55 active
+atoms.  No post-integration or whole-book build gate is recorded by this
+addendum.
+
 ## Disposition
 
 The unrestricted problem in Chapter 72 remains open after this pass.  Two

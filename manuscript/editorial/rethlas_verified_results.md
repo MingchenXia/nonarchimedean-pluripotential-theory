@@ -371,29 +371,54 @@ nine 24 August gates counted in this paragraph.
   `192baaddd4858b025099ff44938f1d075b4dfb4ad555c8deee082155e5cc7e15`.
 - Source firewall: neither packet cites or depends on arXiv:1710.09731.
 
-## Chapter 16 — first-stage CLD collapse in two polyhedral settings
+## Chapter 16 — first-stage CLD collapse on tropical toric partial compactifications
 
 - Status: **VERIFIED FROZEN PACKET / INTEGRATED** (25 August 2026).
-- Book locations: `prop:ch16-collapse-tropical-toric` and
-  `thm:ch16-collapse-finite-tropical-curves`.
+- Book location: `prop:ch16-collapse-tropical-toric`.
 - Scope: tropical toric partial compactifications with their standard
-  Lagerberg smooth structure; and finite-valence boundaryless
-  one-dimensional affine tropical spaces locally realized as balanced
-  complexes with ambient-induced smooth structure.
+  Lagerberg smooth structure.
 - Exact conclusion: the toric psh, CLD psh, and first-stage CLD psh sheaves
-  coincide in the toric setting; every psh curve germ has a decreasing
-  smooth-psh approximation on one fixed neighbourhood in the curve setting.
-- Scope firewall: no tropical-boundary or infinite-star curve result and no
-  arbitrary higher-dimensional balanced-space collapse is inferred.
+  coincide.
 - Production run: `20260825T024707Z_d1b8d7eaf79e`; proof item
   `pi_ccfb83de7a7be82ef602cd72`; statement SHA-256
   `d1b8d7eaf79e155ecf7b347e4fcc1717c72d5a8090e346b2cb2fc9c9a0996e63`;
   proof SHA-256
   `316a774fbb4eda54150b63cae0c9f23a1edab17a75b89beeee6d56d402f8c4a0`.
 - Model and verdict: `gpt-5.6-sol`, `xhigh`, final `correct`, zero critical
-  errors, and zero gaps.  The preserved first round returned final `wrong`
-  with two gaps; the controlling round supplies the omitted interior-edge
-  regularization and sheaf-local junction argument.
+  errors, and zero gaps.  The same historical packet contained a narrower
+  finite-curve theorem, now superseded by the separate finite-star result
+  below.
+
+## Chapter 16 — first-stage collapse on finite ambient-induced real-affine stars
+
+- Status: **VERIFIED EXACT FROZEN PACKET / INTEGRATED** (27 August 2026).
+- Book location: `thm:ch16-collapse-finite-tropical-curves`.
+- Scope: a finite set of pairwise distinct positive rays in a
+  finite-dimensional real vector space, with stage-zero sheaf given by
+  ambient-induced smooth functions convex on every branch; and Hausdorff
+  spaces locally charted by such stars with generator-preserving transitions.
+- Exact conclusion:
+  `Psh_{S,1}=Psh_S=J_S`, with the junction Jensen characterization, and the
+  corresponding chartwise equality.  Every germ has a pointwise decreasing
+  smooth-psh approximation on one fixed neighbourhood.  Polar branches are
+  included.
+- Scope firewall: no lattice, rationality, weight, balancing, calibration,
+  harmony, or boundary designation enters the theorem, but this does not
+  identify the generated star sheaf with the CLD sheaf on every analytic,
+  sedentary tropical, or nonambient local model.  Arbitrary higher-dimensional
+  settings and infinite-valence stars remain open.
+- Production verification: the direct endpoint returned final `correct`, zero
+  critical errors, and zero gaps.  The archival label is
+  `20260827T103835Z_c8131b22d800`; the endpoint assigned no run or item
+  identifier.
+- Exact SHA-256 values: statement
+  `c8131b22d8002212e31cd526095317734a2b67be5d47f1387e5ee6bc041af5e3`;
+  proof
+  `921e8b46690e69cbacea66bf86cbcdf628e7dbc95651f526d62cc6d755d7cbcf`;
+  request
+  `ac68faee9ddb39bd3a30373e193196fc0a25431477a34e5c9cea6b49947299ed`;
+  response
+  `4f9a8b82e6eb7134cf76a5eac5ac0313db8f0e6cca082d369976db04ec115cfe`.
 
 ## Chapter 49 truncation-energy package
 
