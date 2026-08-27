@@ -1,5 +1,33 @@
 # Part III post-expansion mathematical and source audit (23 August 2026)
 
+## Reconciliation addendum (27 August 2026)
+
+The historical account of Wanner's source scope below remains correct.  A
+later book-level result now supplies the missing local first-stage implication
+for continuous functions on a smooth proper algebraic curve over an
+algebraically closed complete nontrivially valued field:
+
+\[
+ \text{current positivity}
+ \Longleftrightarrow
+ \text{Thuillier subharmonicity}
+ \Longleftrightarrow
+ \text{local decreasing ordinary CLD-smooth psh regularization}.
+\]
+
+Accordingly, row (C5) of the Chapter 31 comparison table uses this result for
+the local current-positive-to-first-stage passage but retains only the arrow
+from global BFJ positivity.  The theorem does not prove the reverse
+local-to-global BFJ numerical implication, so it does not turn (C5) into an
+equality of global and local psh classes.
+
+The exact frozen statement and proof passed production Rethlas run
+`20260827T090645Z_767cbf81c723` (`gpt-5.6-sol`, `xhigh`) with verdict
+`correct`, zero critical errors, and zero gaps.  Their SHA-256 digests are
+`767cbf81c723279c1218df4136f8e299465240b325f41f6b0663d001fb5d8a68` and
+`d1db3c2db861d920598697fdad5d002a2b1ce947dbdbd95ad9b78b8f9f312bd8`,
+respectively.  The direct endpoint assigned no item identifier.
+
 ## Scope and source firewall
 
 This audit covers Chapters 20--31 after the second-draft expansion.  It is a

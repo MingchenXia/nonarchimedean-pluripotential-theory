@@ -9,6 +9,19 @@ pseudoeffective MP--DXZ chapter.  The latter is outside the Chapter 72 list.
 OP-01, OP-09, OP-11, and OP-18 below are retained as resolved history and are not
 counted.
 
+**27 Aug 2026 P06.3 controlling addendum.**  The universal continuous
+smooth-proper-curve ordinary CLD-smooth psh regularization atom is resolved
+positively by `thm:p063-current-psh-ordinary-regularization`.  The exact
+frozen statement and proof, SHA-256
+`767cbf81c723279c1218df4136f8e299465240b325f41f6b0663d001fb5d8a68`
+and
+`d1db3c2db861d920598697fdad5d002a2b1ce947dbdbd95ad9b78b8f9f312bd8`,
+passed production Rethlas run `20260827T090645Z_767cbf81c723`, using
+`gpt-5.6-sol` at `xhigh`, final `correct`, with zero critical errors and zero
+gaps.  Three independent exact-byte audits also passed.  The direct endpoint
+assigned no item identifier.  P06.3 is retired; P06.1 and P06.2 remain, so
+the number of formal problem environments is unchanged.
+
 **Promotion rule:** an item becomes a new theorem only after its exact
 statement and proof receive a production Rethlas gpt-5.6-sol/xhigh receipt
 and survive an independent hostile audit.  If the run controls a frozen
@@ -49,7 +62,7 @@ retained only to disclose the superseded intermediate classification.
 
 **Exact active count:** Chapter 72 contains 15 problem environments and
 Chapter 71 contains the separate projective-rational full-cone problem, for
-16 book-wide and 56 independently auditable active atoms. All 16 retain a
+16 book-wide and 55 independently auditable active atoms. All 16 retain a
 genuinely open residual scope. At the
 whole-environment level the cutoff count is: resolved 0, disproved 0,
 conditional 0, genuinely open 16. Resolved, disproved, and conditional
@@ -102,7 +115,9 @@ source questions under one common framework.
   of local Fubini--Study, semipositive PL, weakly smooth psh, or CLD-smooth
   psh functions?
 - **Status:** open beyond the real-PL and curve loci; one run produced no
-  verified blueprint.
+  verified higher-dimensional blueprint.  In the continuous smooth-proper
+  curve scope, ordinary CLD-smooth monotone regularization is now verified by
+  `thm:p063-current-psh-ordinary-regularization`.
 - **Packet:** classical_psh_regularization.md.
 
 ### OP-03. Upper-semicontinuous regularization of local envelopes
@@ -163,8 +178,7 @@ source questions under one common framework.
 - **Kind:** source questions from GR/GJR/Wanner.
 - **Question:** remove the extra hypotheses in GR Proposition 7.8; recover a
   harmonic representative for an arbitrary continuous function from
-  distributional current vanishing; obtain CLD-smooth monotone
-  regularization on every smooth Berkovich curve.
+  distributional current vanishing.
 - **Verified boundary:** weakly smooth current-zero functions are harmonic
   PL.  More sharply, on a good separated boundaryless strict
   pure-dimensional space, every real-PL function with zero CLD
@@ -182,16 +196,21 @@ source questions under one common framework.
   harmonic-approximant version is disproved by exact-live run
   `20260825T055907Z_b5c8f0719b60`, item
   `pi_d80993bb01a748f0422ae6a5`, final `correct` with zero errors and gaps;
-  this does not touch ordinary CLD-smooth psh approximation.
+  this does not touch ordinary CLD-smooth psh approximation.  That psh atom
+  is now positively retired by
+  `thm:p063-current-psh-ordinary-regularization`, whose exact statement and
+  proof passed production run `20260827T090645Z_767cbf81c723`, final
+  `correct`, with zero critical errors and zero gaps.
 - **Status:** the unrestricted classical-pluriharmonic regularity question,
-  the arbitrary continuous higher-dimensional zero-current question, and
-  the universal ordinary CLD-smooth psh curve regularization question remain
-  open.  The former real-PL zero-current subproblem is retired; the literal
-  harmonic approximation variant is disproved.
+  and the arbitrary continuous zero-current question in the residual scope
+  remain open.  The former real-PL zero-current subproblem and P06.3 are
+  retired; the literal harmonic approximation variant is disproved.
 - **Packets:** `pluriharmonic_regularity.md` (legacy); exact accepted packet
   `rethlas_packets_20260825/p06_real_pl_zero_current_live_scope_arithmetic_final_v4_*`;
   exact harmonic counterexample packet
-  `rethlas_packets_20260825/p06_cld_smooth_harmonic_nonregularization_live_global_model_final_*`.
+  `rethlas_packets_20260825/p06_cld_smooth_harmonic_nonregularization_live_global_model_final_*`;
+  exact positive regularization packet
+  `rethlas_packets_20260827/p063_curve_cld_monotone_regularization_*`.
 
 ### OP-07. Early collapse of the CLD psh hierarchy
 

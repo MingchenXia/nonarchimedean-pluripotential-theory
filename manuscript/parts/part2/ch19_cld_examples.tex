@@ -39,8 +39,10 @@ of \Cref{thm:ch08-slope-formula}.  We verify that
 two competing local definitions of subharmonicity---Thuillier's
 \cite[Def.~3.1.5]{Thu05}, by comparison, and Wanner's current-theoretic
 condition \(\dprimeddprime[u]\ge0\)---define the same class of continuous
-functions.  We keep that current-theoretic class distinct from the
-approximation-generated CLD hierarchy of \Cref{def:ch15-hierarchy}.
+functions.  We first keep that current-theoretic class distinct from the
+approximation-generated CLD hierarchy of \Cref{def:ch15-hierarchy}, and then
+prove their local first-stage equality in
+\Cref{thm:p063-current-psh-ordinary-regularization}.
 \item On a \emph{toric variety} the classical answer is convex analysis:
 invariant metrics are convex functions on \(N_{\mathbf R}\) and their
 Monge--Amp\`ere measures are Alexandrov measures, with the factor \(n!\)
@@ -153,7 +155,8 @@ together with the degree it is checked against.
 \Cref{sec:ch19-curves} treats curves: the graph Laplacian, the slope
 formula, and a completely worked elliptic curve with multiplicative
 reduction.  \Cref{sec:ch19-wanner} proves Wanner's comparison theorem and
-delimits its regularization corollary.  \Cref{sec:ch19-toric} treats toric
+then proves unconditional ordinary-smooth monotone regularization on smooth
+proper curves.  \Cref{sec:ch19-toric} treats toric
 metrics, tropical Monge--Amp\`ere measures, and three worked surfaces.
 \Cref{sec:ch19-models} records the model and good-reduction computations in
 arbitrary dimension.  \Cref{sec:ch19-abelian} sets up Raynaud
@@ -713,7 +716,9 @@ the current $\dprimeddprime[u]$.  The forward implication in the final
 sentence is \Cref{prop:cld-psh-positive-current} followed by the imported
 equivalence.  It is deliberately not reversed: \cite{Wanner19} does not
 identify current positivity with the approximation-generated hierarchy of
-\Cref{def:ch15-hierarchy} without a separate regularization input.
+\Cref{def:ch15-hierarchy} without a separate regularization input.  That
+input is supplied later by
+\Cref{thm:p063-current-psh-ordinary-regularization}.
 \end{proof}
 
 \begin{corollary}
@@ -750,7 +755,9 @@ Thuillier-subharmonic and classically psh in the sense of
 \Cref{sec:ch15-classical}.  In particular, the maximum principle of
 \Cref{cor:ch15-cld-curve-max} is available for every continuous CLD-psh
 function on a curve.  The converse implication from either of the two larger
-classes to the CLD hierarchy is not asserted here.
+classes requires qualification: the Thuillier/current-positive converse is
+\Cref{thm:p063-current-psh-ordinary-regularization}, whereas no converse from
+the full classically psh class is asserted.
 \end{corollary}
 
 \begin{proof}
@@ -761,16 +768,13 @@ CLD-psh implies positivity of $\dprimeddprime[u]$ by
 for the curve-test class.
 \end{proof}
 
-The regularization statement has a smaller scope, and the gap is the first
-example in this book of a property that holds for continuous
-current-psh functions only under supplementary hypotheses.  Such a function
-is locally a decreasing limit of smooth psh functions when the
-residue field is algebraic over a finite field, or when \(C=\mathbf P^1\),
-or when \(C\) is a Mumford curve
-\cite[Corollary~5.4]{Wanner19}.  This is not asserted for every curve.  The
-weakly smooth theory later gives a regularization by weakly smooth psh
-functions on rig-smooth curves under the hypotheses of
-\cite[Proposition~15.11]{GJR26}.
+Wanner's published ordinary-smooth regularization theorem has a smaller
+scope: it applies when the residue field is algebraic over a finite field,
+or when \(C=\mathbf P^1\), or when \(C\) is a Mumford curve
+\cite[Corollary~5.4]{Wanner19}.  The unrestricted ordinary-smooth statement
+is proved in \Cref{thm:p063-current-psh-ordinary-regularization} below.  The
+weakly smooth theory gives a different regularization on rig-smooth curves
+by \cite[Proposition~15.11]{GJR26}.
 
 \begin{warning}{Three statements that look alike}
 On a curve, the following are three different assertions.
@@ -779,9 +783,10 @@ On a curve, the following are three different assertions.
  it is Thuillier-subharmonic (\Cref{thm:wanner-curve-comparison}).
 \item A continuous CLD-psh function has positive \(\dprimeddprime\)
  (\Cref{prop:cld-psh-positive-current}).
-\item A continuous current-psh function belongs to the CLD hierarchy.  This
- follows from CLD-smooth regularization under the three hypotheses of
- \cite[Corollary~5.4]{Wanner19}, but is not asserted for every curve.
+\item A continuous current-psh function belongs locally to the first
+ decreasing-limit stage of the ordinary CLD hierarchy.  This is
+ \Cref{thm:p063-current-psh-ordinary-regularization}; Wanner had previously
+ proved it under the three hypotheses of \cite[Corollary~5.4]{Wanner19}.
 \end{enumerate}
 The first statement compares two definitions from above; the third is the
 additional approximation statement and must not be folded into it.
@@ -958,11 +963,12 @@ The finite-dimensional closure argument in
 curvature of every approximant.  It does not apply to ordinary CLD-smooth psh
 approximants: their positive curvature can move and concentrate, and uniform
 convergence does not force endpoint derivatives of convex functions to
-converge.  Thus the proposition neither contradicts
-\cite[Proposition~15.11]{GJR26} nor resolves the ordinary CLD-smooth psh
-regularization question left open in \cite[Remark~5.5]{Wanner19}.  This is a
-book-level consequence of the cited sources; no novelty or priority claim is
-made.
+converge.  Thus the proposition contradicts neither
+\cite[Proposition~15.11]{GJR26} nor
+\Cref{thm:p063-current-psh-ordinary-regularization}.  The latter theorem
+resolves the ordinary CLD-smooth psh regularization question left open in
+\cite[Remark~5.5]{Wanner19}: positive curvature is what lets the residual
+slope defect of an approximant escape into fresh tangent directions.
 
 \subsection{Currents on a curve, and Thuillier's approximation theorem}
 \label{sec:ch19-thuillier-currents}
@@ -1112,20 +1118,22 @@ CLD-smooth and not Thuillier-smooth.
 
 Consequently \Cref{thm:ch19-thuillier-approximation} gives a decreasing net
 of Thuillier-smooth, hence skeletal piecewise affine, subharmonic functions
-for arbitrary upper semicontinuous subharmonic \(u\).  It does not prove
-item~(3) of the warning, because that item is a statement about the
-CLD-smooth sheaf and about the approximation-generated CLD hierarchy.  The
-passage from a piecewise affine current-psh function to a decreasing family
-of CLD-smooth psh functions is exactly where
-\cite[Cor.~5.4]{Wanner19} needs its three hypotheses.  Those hypotheses are
-Thuillier's own \cite[Thm.~2.3.21]{Thu05}: \(\widetilde K\) algebraic over a
-finite field, or \(C\) locally isomorphic to \(\mathbf P^1\), are precisely
-the two conditions under which \(\mathcal H_C\) is generated by the germs
-\(\log|f|\) and the residual Picard groups of
-\Cref{rem:ch08-harmonic-vs-log} are torsion.  The coincidence is not an
-accident: an atom that a CLD-smooth function cannot produce has to be
-produced by a \(\log|f|\), and that requires a degree-zero residual divisor
-to be principal.
+for arbitrary upper semicontinuous subharmonic \(u\).  It does not by itself
+give ordinary CLD-smooth approximants, because ordinary smoothness detects a
+principal residual-divisor condition at type~\(2\) points.  Wanner overcame
+that obstruction under the three hypotheses of
+\cite[Cor.~5.4]{Wanner19}; those are the cases in which the relevant
+residual Picard obstruction is torsion, as in
+\cite[Thm.~2.3.21]{Thu05}.
+
+The proof below removes those hypotheses for \emph{psh} approximants.  It
+first introduces an arbitrarily small strictly positive graph Laplacian.
+At each type~\(2\) vertex, Riemann--Roch moves the compensating effective
+residual divisor away from the skeletal directions.  The remaining
+degree-zero divisor is principal, hence comes from an ordinary smooth
+harmonic germ; smooth convex caps then turn its negative fresh-direction
+slopes into positive curvature.  This mechanism is unavailable for harmonic
+approximants, which explains the preceding counterexample.
 \end{remark}
 
 \begin{remark}[The vanishing vertex atom of a smooth function on a balanced
@@ -1150,14 +1158,49 @@ every CLD-smooth function has vanishing vertex atoms, and
 \(\dprimeddprime[F\circ\trop]\) is the edgewise measure \(F''\rd s\).  A
 function with a strictly positive vertex atom---for instance the model
 function of \Cref{ex:ch19-p1-standard}---is therefore never CLD-smooth, yet
-under the hypotheses of \cite[Cor.~5.4]{Wanner19} it is a decreasing limit of
-CLD-smooth psh functions, the curvature of the approximants concentrating at
-the vertex as in \Cref{ex:ch19-p1-nonpl}.  \Cref{thm:ch19-thuillier-approximation}
+on every curve in the scope of
+\Cref{thm:p063-current-psh-ordinary-regularization} it is a decreasing limit
+of CLD-smooth psh functions, the curvature of the approximants concentrating
+at the vertex as in \Cref{ex:ch19-p1-nonpl}.
+\Cref{thm:ch19-thuillier-approximation}
 is the analytic counterpart of exactly this phenomenon, with the roles of the
 two smooth classes exchanged: Thuillier's smooth functions are the ones that
 carry the atoms, so his approximation is unconditional, and the difficulty is
 displaced onto the comparison of the two notions of smoothness rather than
 onto the approximation itself.
+\end{remark}
+
+\subsection{Ordinary smooth monotone regularization on curves}
+\label{sec:ch19-ordinary-smooth-curve-regularization}
+
+We now prove the unrestricted continuous result.  The base field is kept
+algebraically closed, complete, and nontrivially valued, exactly as in
+Wanner's comparison theorem.  Properness is used to stay in the algebraic
+semistable framework; the conclusion itself is local on the analytification.
+The proof treats ordinary Chambert--Loir--Ducros smoothness, not the enlarged
+weakly smooth sheaf.
+
+For auditability, the next two inputs are the exact frozen statement and
+proof bytes submitted to production verification.  Their internal comments
+record their pre-verification status and are retained solely to preserve byte
+identity.
+
+\input{editorial/rethlas_packets_20260827/p063_curve_cld_monotone_regularization_statement_20260827.tex}
+\begingroup
+\emergencystretch=2em
+\input{editorial/rethlas_packets_20260827/p063_curve_cld_monotone_regularization_proof_20260827.tex}
+\endgroup
+
+\begin{remark}[The role of positive curvature]
+The harmonic nonregularization result
+\Cref{prop:ch19-cld-smooth-harmonic-nonregularization} fixes all slope mass
+in a finite-dimensional residual divisor space.  In the proof above, the
+small strict graph mass supplies positive degree at each interior type~\(2\)
+vertex.  The moving-divisor argument transfers the compensating negative
+slopes to fresh open-disc directions, while the convex cap replaces each
+such negative slope by a nonnegative smooth curvature density.  Thus the
+approximants need not remain in the closed harmonic subspace, and there is no
+contradiction.
 \end{remark}
 
 \begin{example}[The standard metric on \(\mathbf P^1\)]
@@ -3522,24 +3565,31 @@ and neither proved nor disproved here.  In the second column, ``model'' and
 
 (L4) Positivity of \(\dprimeddprime[u]\) implies that \(u\) belongs to the
  approximation-generated CLD hierarchy.
- &Known on curves only under the regularization hypotheses of (L5)
- &\emph{Open in general, already as a regularization question on curves.}
+ &Yes for continuous functions on smooth proper algebraic curves over an
+  algebraically closed complete nontrivially valued field,
+  \Cref{thm:p063-current-psh-ordinary-regularization}
+ &\emph{Open beyond the continuous smooth-proper algebraic-curve and
+  \(\mathbf R\)-PL cases.}
   Positivity of the current is a condition from above, whereas the CLD
   class is generated from below by decreasing limits of smooth psh
-  functions.  Wanner identifies current positivity on a curve with
-  Thuillier subharmonicity, not automatically with this CLD hierarchy.  For
-  \(\mathbf R\)-PL functions on a boundaryless space the converse is
- available.
+  functions.  The tree regularization above supplies the missing implication
+  only for continuous functions in its stated curve scope; arbitrary
+  singular or \(-\infty\)-valued functions remain unresolved even in
+  dimension one.  For \(\mathbf R\)-PL functions on a boundaryless space
+  the implication is available in every dimension.
  &\Cref{thm:verified-pl-psh-equivalence,%
 thm:p01-real-pl-positive-current-candidate}.\\
 
 (L5) \(u\) is a local decreasing limit of \emph{smooth} psh functions.
- &Known only under extra hypotheses even for continuous \(u\)
- &\emph{Open.}  This is the collapse of the transfinite hierarchy at stage
-  one.  Eventual stabilization is a theorem
-  (\Cref{prop:ch15-hierarchy-stabilizes}); collapse is not.  On curves it
-  holds when the residue field is algebraic over a finite field, or for
-  \(\mathbf P^1\), or for Mumford curves, and not otherwise proved.
+ &Yes for continuous current-psh functions on smooth proper algebraic curves
+  over an algebraically closed complete nontrivially valued field
+ &\emph{Open in general.}  This is the collapse of the transfinite hierarchy
+  at stage one.  Eventual stabilization is a theorem
+  (\Cref{prop:ch15-hierarchy-stabilizes}); a uniform higher-dimensional
+  collapse is not.  \Cref{thm:p063-current-psh-ordinary-regularization}
+  settles the continuous current-positive subcase in its smooth-proper
+  algebraic-curve scope; full collapse for arbitrary singular curve
+  functions, as well as the higher-dimensional problem, remains open.
  &\Cref{prob:frontier-cld-hierarchy};
   \cite[Corollary~5.4]{Wanner19}.\\
 
@@ -3668,9 +3718,10 @@ operators, not gaps.
 generated from below, so membership is proved by exhibiting approximants,
 and any statement asserting membership from a property of the current is a
 converse that must be proved.  Wanner's curve theorem compares current
-positivity with Thuillier's comparison class; it supplies the required
-CLD-smooth regularization only under the extra hypotheses of (L5).  In
-higher dimension the only converse recorded here is for
+positivity with Thuillier's comparison class; the separate
+\Cref{thm:p063-current-psh-ordinary-regularization} supplies the required
+ordinary CLD-smooth regularization for continuous functions on smooth proper
+curves.  In higher dimension the only converse recorded here is for
 \(\mathbf R\)-PL functions.
 
 \emph{Third, one failure is geometric.}  Row (L9) is not about singular
@@ -3729,11 +3780,13 @@ positive currents by formal metrics.
 Thuillier subharmonicity \cite[Def.~3.1.5]{Thu05} over an algebraically
 closed complete nontrivially valued field
 \cite[Theorem~4.7 and Corollary~4.8]{Wanner19}; continuous CLD-psh functions
-belong to both classes.
-\par\emph{Boundary.} The converse from current positivity or Thuillier
-subharmonicity into the approximation-generated CLD hierarchy requires an
-additional CLD-smooth regularization theorem and is not claimed for every
-curve.  Decreasing regularization by Thuillier-smooth, that is by
+belong to both classes.  Conversely, every continuous member of either class
+lies locally in the first ordinary CLD-smooth decreasing-limit stage by
+\Cref{thm:p063-current-psh-ordinary-regularization}.
+\par\emph{Boundary.} The ordinary-smooth theorem does not treat arbitrary
+upper semicontinuous functions that may equal \(-\infty\), singular or
+nonproper analytic curves outside its stated algebraic scope, or higher
+dimension.  Decreasing regularization by Thuillier-smooth, that is by
 \(\mathbf R\)-PL, subharmonic functions is unconditional and holds for
 arbitrary upper semicontinuous subharmonic functions
 (\Cref{thm:ch19-thuillier-approximation}).
@@ -3838,6 +3891,10 @@ Wanner's comparison
   curves
  &\Cref{thm:wanner-curve-comparison},
   \Cref{cor:ch19-curve-three-classes}\\
+ordinary-smooth curve regularization
+ &identification of the continuous current-positive class with the local
+  first decreasing-limit stage
+ &\Cref{thm:p063-current-psh-ordinary-regularization}\\
 convexity is toric positivity
  &normalization check for every later positivity notion
  &\Cref{thm:toric-positivity},
@@ -4015,8 +4072,11 @@ The potential theory of Berkovich curves underlying
 sheaves of harmonic and subharmonic germs, the operator \(\ddc\), the
 current spaces, the description of subharmonicity by positivity of \(\ddc\),
 and the approximation theorem---is Thuillier's \cite{Thu05}.
-The curve comparison and its restricted regularization theorem are from
-\cite{Wanner19}.  Delta-form positivity, toric convexity, and formal curve
+The curve comparison and the previously known restricted regularization
+theorem are from \cite{Wanner19}.  The unrestricted ordinary-smooth curve
+regularization is proved in
+\Cref{thm:p063-current-psh-ordinary-regularization}.  Delta-form positivity,
+toric convexity, and formal curve
 tests are from \cite{GK19}.  The invariant toric and abelian
 pluripotential theory, including the exact tropical pushforward formula, is
 from \cite{BGJKK25}.  Harmonic canonical tropicalizations and the correction
@@ -4188,9 +4248,10 @@ potentials with atomic curvature (\Cref{rem:ch19-thuillier-smooth-vs-cld}).
 The identification of the two notions of subharmonicity on curves---
 comparison against harmonic functions, and positivity of a
 Chambert--Loir--Ducros current---is Wanner's \cite{Wanner19}, and it remains
-the basic comparison between these two current-theoretic notions.  It does
-not identify the current-positive class with the approximation-generated
-CLD hierarchy without the separate regularization hypotheses stated above.
+the basic comparison between these two current-theoretic notions.  The
+additional identification of the continuous current-positive class with the
+first ordinary-smooth decreasing-limit stage is
+\Cref{thm:p063-current-psh-ordinary-regularization}.
 What
 \Cref{thm:ch19-thuillier-sh-currents} adds is that on the Thuillier side the
 identification of subharmonic functions with positive-\(\ddc\) currents was

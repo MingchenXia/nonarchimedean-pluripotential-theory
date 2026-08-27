@@ -1,5 +1,24 @@
 # Part VI post-expansion audit (2026-08-24)
 
+## 27 Aug 2026 controlling addendum
+
+P06.3 is positively retired.  The exact theorem identifying current
+positivity, Thuillier subharmonicity, and the local first ordinary CLD-smooth
+decreasing-limit stage for continuous functions on smooth proper algebraic
+curves passed production Rethlas run
+`20260827T090645Z_767cbf81c723`, using `gpt-5.6-sol` at `xhigh`, final
+`correct`, with zero critical errors and zero gaps.  The frozen statement and
+proof SHA-256 digests are
+`767cbf81c723279c1218df4136f8e299465240b325f41f6b0663d001fb5d8a68`
+and
+`d1db3c2db861d920598697fdad5d002a2b1ce947dbdbd95ad9b78b8f9f312bd8`;
+the direct endpoint assigned no item identifier.  Three independent
+exact-byte audits passed, and Chapter 19 inputs those bytes directly.  The
+literal frontier now has 15 problem environments in Chapter 72 and one in
+Chapter 71, hence 16 book-wide environments and 55 active atoms, with tier
+counts `(0,7,14,17,17)`.  This addendum supersedes the two 26 August
+`16/56` count passages below without rewriting their dated history.
+
 ## 26 Aug 2026 controlling addendum
 
 The current literal frontier contains 15 problem environments in Chapter 72

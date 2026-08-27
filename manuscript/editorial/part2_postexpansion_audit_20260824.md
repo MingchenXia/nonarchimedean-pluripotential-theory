@@ -1,5 +1,26 @@
 # Part II post-expansion mathematical and source audit (24 August 2026)
 
+## 27 August 2026 P06.3 reconciliation addendum
+
+The Wanner source scope audited below remains unchanged: Wanner proves the
+current-positive/Thuillier comparison generally in the stated curve scope and
+ordinary CLD-smooth regularization under his supplementary hypotheses.  A
+later independent book theorem now supplies the missing reverse implication
+for continuous functions on smooth proper algebraic curves over an
+algebraically closed complete nontrivially valued field.
+`thm:p063-current-psh-ordinary-regularization` identifies current positivity,
+Thuillier subharmonicity, and local membership in the first ordinary-smooth
+decreasing-limit stage.  Its exact frozen statement and proof passed
+production Rethlas run `20260827T090645Z_767cbf81c723`, using
+`gpt-5.6-sol`/`xhigh`, final `correct`, zero critical errors, and zero gaps;
+their SHA-256 digests are
+`767cbf81c723279c1218df4136f8e299465240b325f41f6b0663d001fb5d8a68`
+and
+`d1db3c2db861d920598697fdad5d002a2b1ce947dbdbd95ad9b78b8f9f312bd8`.
+Thus the dated reverse-implication boundaries below are superseded only in
+this exact continuous smooth-proper-curve scope.  The harmonic, singular,
+and higher-dimensional firewalls remain.
+
 ## Scope and source firewall
 
 This audit covers Chapters 9--19, from Lagerberg superforms through the CLD,

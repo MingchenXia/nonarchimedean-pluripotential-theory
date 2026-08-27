@@ -1,6 +1,6 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 26 August 2026
+**Inventory date:** 27 August 2026
 **Literature cutoff:** 24 August 2026
 **Source scope:** the formal `problem` environments in Chapters 71 and 72
 
@@ -34,11 +34,13 @@ of the real-PL current--residue atom after
 `thm:p01-real-pl-positive-current-candidate`, and retirement of the
 semipositive integral-decomposition atom after the verified signed theorem
 and positive-cone counterexample, and retirement of the cubical
-delta-metricity atom after the verified product--Gauss criterion,
+delta-metricity atom after the verified product--Gauss criterion, and
+retirement of the ordinary CLD-smooth curve-regularization atom after
+`thm:p063-current-psh-ordinary-regularization`,
 the exact count is
 
 ```text
-16 formal problem environments = 56 active atomic research questions.
+16 formal problem environments = 55 active atomic research questions.
 ```
 
 The identifiers `P00.1` through `P21.3` below are an editorial addressing
@@ -123,7 +125,7 @@ Complete affine space, the exact normalization, and the abstract cross-fan
 counterexample are verified.  The recursive analytic comparison is only
 conditional; the general targets remain open.
 
-### `prob:frontier-pluriharmonic` --- 3 atoms
+### `prob:frontier-pluriharmonic` --- 2 atoms
 
 - **P06.1** `[T2; open]` Decide whether every classically pluriharmonic
   function is PL without the extra regularity assumptions in the cited
@@ -132,11 +134,6 @@ conditional; the general targets remain open.
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
   harmonic whenever the classical notion is available.
-- **P06.3** `[T2; open after the literal harmonic variant]` Decide whether
-  every continuous current-psh function on every smooth proper Berkovich
-  curve in the stated Wanner scope is locally a decreasing limit of ordinary
-  CLD-smooth psh functions, without the supplementary hypotheses of Wanner
-  Corollary 5.4.
 
 The weakly smooth zero-current statement is known.  The real-PL
 zero-current implication is now verified on good separated boundaryless
@@ -145,11 +142,20 @@ strict pure-dimensional spaces by production run
 skeletal currents and does not extend to arbitrary continuous functions.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
-positive-curvature psh approximants are not covered.  Wanner's
-published comparison settles the continuous problem on open subsets of
-smooth proper algebraic curves over algebraically closed complete
-nontrivially valued fields.  The three atoms retain the residual scopes
-stated above.
+positive-curvature psh approximants are not covered by that obstruction.
+The former P06.3 is now retired positively:
+`thm:p063-current-psh-ordinary-regularization` proves on every smooth proper
+algebraic curve over an algebraically closed complete nontrivially valued
+field that current positivity, Thuillier subharmonicity, and local membership
+in the first ordinary CLD-smooth decreasing-limit stage agree for continuous
+functions.  The exact frozen statement and proof passed production run
+`20260827T090645Z_767cbf81c723`, final `correct`, with zero critical errors
+and zero gaps.  Their SHA-256 digests are respectively
+`767cbf81c723279c1218df4136f8e299465240b325f41f6b0663d001fb5d8a68`
+and
+`d1db3c2db861d920598697fdad5d002a2b1ce947dbdbd95ad9b78b8f9f312bd8`.
+The direct endpoint assigned no item identifier.  P06.1 and P06.2 retain
+the residual scopes stated above.
 
 ### `prob:frontier-cld-hierarchy` --- 2 atoms
 
@@ -419,10 +425,9 @@ counterexample retires an atom just as a verified proof does.
 
 No active atom remains in this tier after retirement of `P01.1`.
 
-### T2 --- focused problems with one principal missing bridge (8 atoms)
+### T2 --- focused problems with one principal missing bridge (7 atoms)
 
-`P21.3`, `P07.1`, `P00.1`, `P17.1`, `P06.1`, `P06.2`, `P06.3`,
-`P03.1`.
+`P21.3`, `P07.1`, `P00.1`, `P17.1`, `P06.1`, `P06.2`, `P03.1`.
 
 ### T3 --- major theorems within mature frameworks (14 atoms)
 

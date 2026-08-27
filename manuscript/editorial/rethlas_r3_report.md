@@ -15,6 +15,23 @@ independent proof, an adversarial audit, boundary tests, and a source/novelty
 separation all appear below.  `CONDITIONAL`, `DISPROVED`, and `OPEN` have the
 meanings fixed in the verification protocol.
 
+**27 August 2026 P06.3 controlling addendum.**  The historical R3 status of
+ordinary CLD-smooth psh regularization is superseded.  The exact theorem
+`thm:p063-current-psh-ordinary-regularization` proves, for continuous
+functions on smooth proper algebraic curves over algebraically closed
+complete nontrivially valued fields, the equivalence of current positivity,
+Thuillier subharmonicity, and local membership in the first ordinary-smooth
+decreasing-limit stage.  Statement and proof SHA-256 are
+`767cbf81c723279c1218df4136f8e299465240b325f41f6b0663d001fb5d8a68`
+and
+`d1db3c2db861d920598697fdad5d002a2b1ce947dbdbd95ad9b78b8f9f312bd8`.
+Production run `20260827T090645Z_767cbf81c723`, using `gpt-5.6-sol` at
+`xhigh`, returned final `correct`, zero critical errors, and zero gaps; the
+direct endpoint assigned no item ID.  Three independent exact-byte audits
+also passed.  P06.3 is retired, leaving 16 formal open environments and 55
+active atoms.  The zero-curvature harmonic counterexample and the two
+residual P06 atoms remain unchanged.
+
 **25 August 2026 P11 controlling addendum.**  This historical R3 report did
 not solve Boucksom--Jonsson Question~11.16 globally.  The later verified
 moving-centre construction does: on \(\mathbf P^n\), every \(n\ge2\), point-

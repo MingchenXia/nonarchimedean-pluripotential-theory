@@ -145,7 +145,7 @@ nine 24 August gates counted in this paragraph.
 
 ## Chapter 19 and Chapter 72 — failure of ordinary smooth harmonic approximation
 
-- Status: **VERIFIED EXACT-LIVE COUNTEREXAMPLE / PSH FIREWALL RETAINED**
+- Status: **VERIFIED EXACT-LIVE COUNTEREXAMPLE / COMPATIBLE WITH LATER PSH RESULT**
   (25 August 2026).
 - Book location: `prop:ch19-cld-smooth-harmonic-nonregularization` and its
   full proof in Chapter 19; the re-scoped P06.3 discussion in Chapter 72.
@@ -166,8 +166,37 @@ nine 24 August gates counted in this paragraph.
   `editorial/rethlas_receipts_20260825/p06_cld_smooth_harmonic_nonregularization_live_production_receipt_20260825.md`.
 - Scope firewall: the proof uses vanishing curvature of every approximant.
   It does not disprove decreasing ordinary CLD-smooth psh approximation,
-  which remains open.  The atom and the authoritative 18/59 counts are
-  unchanged.  No novelty or priority claim is made.
+  which is now proved in the next record.  Positive curvature lets the later
+  approximants move residual slope defects into fresh directions.
+
+## Chapters 19 and 72 — ordinary CLD-smooth monotone regularization on curves
+
+- Status: **VERIFIED FROZEN EXACT BLOCK / INTEGRATED BYTE-FOR-BYTE**
+  (27 August 2026).
+- Book location: `thm:p063-current-psh-ordinary-regularization` and its full
+  proof in Chapter 19; P06.3 is retired in Chapter 72.
+- Exact scope: algebraically closed complete nontrivially valued field;
+  smooth proper algebraic curve; continuous function on an open subset.
+  Current positivity, Thuillier subharmonicity, and local membership in the
+  first ordinary CLD-smooth decreasing-limit stage are equivalent.
+- Statement SHA-256:
+  `767cbf81c723279c1218df4136f8e299465240b325f41f6b0663d001fb5d8a68`.
+- Proof SHA-256:
+  `d1db3c2db861d920598697fdad5d002a2b1ce947dbdbd95ad9b78b8f9f312bd8`.
+- Production run: `20260827T090645Z_767cbf81c723`; `gpt-5.6-sol`, `xhigh`,
+  final `correct`, zero critical errors and zero gaps.  The direct endpoint
+  assigned no item identifier.
+- Independent gates: three exact-byte hostile mathematical/source audits
+  passed before submission.  Chapter 19 inputs the frozen statement and
+  proof files without label or byte transformation.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260827/p063_curve_cld_monotone_regularization_production_receipt_20260827.md`.
+- Inventory consequence: P06.3 is positively retired; 16 formal open
+  environments remain, containing 55 active atoms with tier counts
+  `(0,7,14,17,17)`.
+- Scope firewall: harmonic approximants are not asserted; functions taking
+  `-infinity`, higher-dimensional spaces, and curve scopes outside the exact
+  theorem remain outside this result.
 
 ## Xia Conjecture 8.8 — repaired mixed partial-body formula
 

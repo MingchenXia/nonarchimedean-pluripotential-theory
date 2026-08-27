@@ -2,6 +2,22 @@
 
 Date: 24 August 2026
 
+**27 August 2026 P06.3 reconciliation addendum.**  The historical audit of
+Wanner's published comparison and restricted regularization scope remains
+correct.  Appendix L now additionally records the independent book theorem
+`thm:p063-current-psh-ordinary-regularization`: for continuous functions on
+smooth proper algebraic curves over algebraically closed complete
+nontrivially valued fields, current positivity, Thuillier subharmonicity, and
+the first ordinary CLD-smooth decreasing-limit stage coincide locally.  The
+exact statement/proof hashes are `767cbf81...d5d8a68` and
+`d1db3c2d...312bd8`; production run
+`20260827T090645Z_767cbf81c723`, `gpt-5.6-sol`/`xhigh`, returned final
+`correct`, zero critical errors, and zero gaps, and three independent
+exact-byte audits passed.  Appendix L records the exact scope and receipt.
+P06.3 is retired; the current frontier is 16 formal environments and 55
+active atoms.  This addendum supersedes only the older current-status
+sentences below, not their dated source audit.
+
 **Release reconciliation addendum.**  Appendix L has now been synchronized
 with the exact-current Chapter 23, 49, 55, and 69 production gates.  It records
 the fixed-skeleton, positive-volume BJ, positive-Cao-volume Xia, and

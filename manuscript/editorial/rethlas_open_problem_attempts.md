@@ -6,6 +6,24 @@
 **Rule:** an attempted route is never promoted to a theorem without a final
 Rethlas verification receipt for the exact displayed statement and proof.
 
+> **27 August 2026 P06.3 controlling addendum.**  The later exact theorem
+> resolves the ordinary CLD-smooth **psh** regularization atom positively.
+> On every smooth proper algebraic curve over an algebraically closed,
+> complete, nontrivially valued field, current positivity, Thuillier
+> subharmonicity, and local membership of a continuous function in the first
+> ordinary-smooth decreasing-limit stage are equivalent.  The frozen
+> statement and proof hashes are
+> `767cbf81c723279c1218df4136f8e299465240b325f41f6b0663d001fb5d8a68`
+> and
+> `d1db3c2db861d920598697fdad5d002a2b1ce947dbdbd95ad9b78b8f9f312bd8`.
+> Production run `20260827T090645Z_767cbf81c723`, using `gpt-5.6-sol` at
+> `xhigh`, returned final `correct`, zero critical errors, and zero gaps; no
+> item ID was assigned.  Three independent exact-byte audits passed.  This
+> supersedes every historical phrase below saying P06.3 or ordinary-smooth
+> psh approximation remains open.  It does not alter the verified harmonic
+> counterexample, whose approximants were required to have zero curvature.
+> The active inventory is now 16 environments and 55 atoms.
+
 > **26 August 2026 P09.2 controlling addendum.**  The final
 > Gubler--Jell--Rabinoff cubical delta-metricity atom is resolved negatively.
 > The exact product--Gauss theorem proves that an equivariant locally
