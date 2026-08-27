@@ -22,6 +22,24 @@ gaps.  Three independent exact-byte audits also passed.  The direct endpoint
 assigned no item identifier.  P06.3 is retired; P06.1 and P06.2 remain, so
 the number of formal problem environments is unchanged.
 
+**27 Aug 2026 P21.3 controlling addendum.**  The algebraically closed,
+complete, nontrivially valued curve range is now settled without a reducedness
+assumption.  On every good separated strict pure one-dimensional boundaryless
+analytic space whose reduced irreducible-component normalizations are
+rig-smooth, reduction identifies the ordinary CLD calculus and the current and
+psh sheaves, while the integration current records the generic
+multiplicities.  Every positive closed \((0,0)\)-current is a locally finite
+nonnegative combination of the normalized reduced-component currents and is
+Bedford--Taylor.  The exact addendum statement and proof, SHA-256
+`3ee099341ca1ba77d806082ca2903320fd9db25c448b48f3dab9c2bb607a777e`
+and
+`b8aac711aafa611750c56a960177182ff1b7b8f78b489d7b43575d03b28b7f43`,
+passed the direct production endpoint using `gpt-5.6-sol` at `xhigh`, final
+`correct`, with zero critical errors and zero gaps.  The endpoint assigned no
+run ID, item ID, or status ID; `20260827T133151Z_3ee099341ca1` is a local
+archive label only.  P21.3 remains one active residual atom, so the formal
+environment and active-atom counts are unchanged.
+
 **Promotion rule:** an item becomes a new theorem only after its exact
 statement and proof receive a production Rethlas gpt-5.6-sol/xhigh receipt
 and survive an independent hostile audit.  If the run controls a frozen
@@ -490,7 +508,8 @@ source questions under one common framework.
   errors and zero gaps.
 - **Question:** can the analytic curvature currents be made equal upstairs
   while \(\mathrm d'\mathrm d''((U-V)T)\) remains nonzero, or do positive
-  closed analytic and delta-currents force Bedford--Taylor compatibility?
+  closed analytic currents force Bedford--Taylor compatibility outside the
+  verified curve class?
 - **Verified narrow obstruction:** on the four-punctured smooth projective
   line, the natural real-PL potentials have equal curvature
   \(4\delta_q\), but a third-unit refinement forces every positive closed
@@ -499,13 +518,27 @@ source questions under one common framework.
   production run `20260825T034743Z_ea6194f07e86`, item
   `pi_19c9aad210847a2875a0fe4a`, returned final `correct`, zero critical
   errors, and zero gaps.
-- **Status:** open.  The reducible realization has equality only after
-  proper pushforward, while the smooth four-punctured candidate is blocked
-  by refined balancing.  Neither result treats arbitrary connected curves,
-  higher-dimensional analytic CLD currents, or non-PL potentials.
-- **Packets:** the original realization packet and the four-punctured
-  obstruction packet are resolved history; a materially different
-  upstairs-equality packet is required.
+- **Verified curve range:** the reduced classification passed production run
+  `20260826T154751Z_7cb598fbddb7`, item
+  `pi_383fc357b7bbce95a0e83cb2`.  Its nonreduced extension passed the direct
+  production endpoint, final `correct`, zero critical errors, and zero gaps;
+  the endpoint assigned no identifiers and
+  `20260827T133151Z_3ee099341ca1` is a local archive label only.  This covers
+  arbitrary continuous CLD-psh potentials and arbitrary connected or
+  reducible curves in the stated algebraically closed, complete,
+  nontrivially valued analytic class.
+- **Status:** open only in the corrected residual scope: analytic dimension at
+  least two, and one-dimensional cases over non-algebraically-closed or
+  trivially valued fields or with a reduced component normalization not known
+  to be rig-smooth.  The reducible cross realization still has equality only
+  after proper pushforward, while the four-punctured candidate is subsumed by
+  the verified curve classification.
+- **Packets:** the original realization packet, the four-punctured obstruction
+  packet, and the reduced and nonreduced curve packets are resolved history.
+  The arbitrary-field dossier is only a conditional reduction: its
+  virtual-annular branch-ray identification is unproved, and it has no
+  production receipt or theorem status.  A higher-dimensional packet or a
+  proof of that exact arbitrary-field bridge is required next.
 
 ## Historical corrections that must not return to the queue
 

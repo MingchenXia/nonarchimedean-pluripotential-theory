@@ -369,9 +369,10 @@ open atoms.  The four corrected residual targets above remain open.
 ### `prob:frontier-cross-fan-upstairs` --- 1 atom
 
 - **P21.3** `[T2; open residual]` Outside the precise complete,
-  algebraically closed, nontrivially valued reduced one-dimensional class
-  with rig-smooth component normalizations settled by
-  `prop:p21p3-curve-rigidity`, determine whether every positive closed
+  algebraically closed, nontrivially valued one-dimensional class, without a
+  reducedness assumption, whose reduced irreducible-component normalizations
+  are rig-smooth, settled by
+  `prop:p21p3-curve-rigidity-nonreduced`, determine whether every positive closed
   CLD current of bidegree \((p,p)\), \(0\le p\le n-1\), on a good separated
   strict boundaryless pure \(n\)-dimensional analytic space is
   Bedford--Taylor in the sense of CLD Definition 8.6.2, or construct a
@@ -407,19 +408,31 @@ production Rethlas run `20260826T072535Z_e0a34aabb30f`, item
 and zero gaps.  This correction neither proves nor disproves the analytic
 CLD question, so it does not retire the atom.
 
-The principal curve subcase is now retired.  Over an algebraically closed
+The principal curve subcase, including arbitrary nilpotent thickenings in
+the stated analytic class, is now retired.  Over an algebraically closed
 complete nontrivially valued field, every positive closed CLD current of
-bidegree \((0,0)\) on a good separated strict reduced boundaryless curve
-whose component normalizations are rig-smooth is a locally finite
-nonnegative linear combination of the component integration currents; it
-is therefore Bedford--Taylor.  The exact frozen statement and proof passed
+bidegree \((0,0)\) on a good separated strict pure one-dimensional
+boundaryless analytic space whose reduced component normalizations are
+rig-smooth is a locally finite nonnegative linear combination of the
+normalized reduced-component currents; it is therefore Bedford--Taylor.
+Ordinary forms, compact-test topologies, currents, positivity, closedness,
+and the psh sheaves are invariant under reduction, while the integration
+current retains the generic multiplicities.  The reduced theorem passed
 production Rethlas run `20260826T154751Z_7cb598fbddb7`, item
-`pi_383fc357b7bbce95a0e83cb2`, using `gpt-5.6-sol` at `xhigh`, with
-final `correct`, zero critical errors, and zero gaps.  Independent hostile,
-source, and shadow audits also passed.  `P21.3` now denotes only
-analytic dimension at least two and the one-dimensional domains outside the
-proposition's exact hypotheses, including the nonreduced range; the active
-atom count is unchanged.
+`pi_383fc357b7bbce95a0e83cb2`.  The exact nonreduced addendum, with statement
+and proof SHA-256
+`3ee099341ca1ba77d806082ca2903320fd9db25c448b48f3dab9c2bb607a777e`
+and
+`b8aac711aafa611750c56a960177182ff1b7b8f78b489d7b43575d03b28b7f43`,
+passed the direct production endpoint using `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors, and zero gaps.  The endpoint assigned no
+run ID, item ID, or status ID; `20260827T133151Z_3ee099341ca1` is a local
+archive label only.  Independent hostile and source audits also passed.
+`P21.3` now denotes only analytic dimension at least two and the
+one-dimensional domains outside the proposition's remaining exact
+hypotheses, notably non-algebraically-closed or trivially valued ground
+fields and reduced component normalizations not known to be rig-smooth.
+The active atom count is unchanged.
 
 ## Easy-to-hard Rethlas queue
 

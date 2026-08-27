@@ -51,6 +51,24 @@ Chapter 71, split into fifty-five active atoms.  Exact hashes, production
 responses, and scope firewalls are recorded in the dated receipts and the
 atomic inventory.
 
+**Controlling delta, 27 August 2026 (P21.3).**  A fourth exact gate settles
+the algebraically closed, complete, nontrivially valued curve range without a
+reducedness assumption.  On a good separated strict pure one-dimensional
+boundaryless analytic space whose reduced component normalizations are
+rig-smooth, reduction identifies the ordinary CLD calculus, current topology,
+positivity, closedness, and psh sheaves; the integration current alone retains
+the generic multiplicities.  Positive closed \((0,0)\)-currents are classified
+by the normalized reduced-component currents and are Bedford--Taylor.  The
+exact addendum statement and proof, SHA-256
+`3ee099341ca1ba77d806082ca2903320fd9db25c448b48f3dab9c2bb607a777e`
+and
+`b8aac711aafa611750c56a960177182ff1b7b8f78b489d7b43575d03b28b7f43`,
+passed the direct production endpoint using `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors and zero gaps.  The endpoint assigned no run,
+item, or status identifier; `20260827T133151Z_3ee099341ca1` is a local archive
+label only.  P21.3 remains one active atom for higher dimension and the
+one-dimensional scopes outside the theorem, so the count stays at fifty-five.
+
 ---
 
 ## 1. Status vocabulary
@@ -627,8 +645,9 @@ smooth-curve/descent bridge.
 ### CLD-3. Independence in Bedford--Taylor products
 
 **Status:** the sufficient criterion is VERIFIED; the unrestricted assertion
-for arbitrary positive closed currents is DISPROVED on an abstract calibrated
-tropical fan.
+is DISPROVED on an abstract calibrated tropical fan, while the stated analytic
+curve class, including nilpotent thickenings, is VERIFIED positively.  The
+complementary analytic problem remains open.
 
 Let \(T\) be positive and closed, and let \(u,v\) be continuous psh functions
 with \(d'd''u=d'd''v\). Put \(h=u-v\). If there are smooth functions
@@ -644,9 +663,27 @@ pluriharmonic approximants.
 
 The cross-fan calculation in CLD-4 gives continuous CLD-psh \(u,v\) with
 equal Hessian currents and a positive closed current \(T\) for which
-\(d'd''((u-v)T)\ne0\). Hence not every positive closed current is a
-Bedford--Taylor current. This does not contradict CLD's recursive product,
-which begins with \(\delta_X\) and remains inside the Bedford--Taylor class.
+\(d'd''((u-v)T)\ne0\).  It disproves the unrestricted assertion in the
+category of abstract calibrated tropical spaces; it is not an analytic-curve
+counterexample.  This does not contradict CLD's recursive product, which
+begins with \(\delta_X\) and remains inside the Bedford--Taylor class.
+
+**27 August analytic-curve update:** over an algebraically closed complete
+nontrivially valued field, every positive closed CLD current of bidegree
+\((0,0)\) on a good separated strict pure one-dimensional boundaryless
+analytic space whose reduced component normalizations are rig-smooth is
+Bedford--Taylor, whether or not the space is reduced.  Ordinary forms,
+compact-test topologies, currents, and the psh sheaves are reduction
+invariant; the integration current is the multiplicity-weighted sum
+\(\sum_i m_i\delta_i\).  Equality of curvature for this weighted current is
+equivalent to equality on the reduction.  The reduced result passed run
+`20260826T154751Z_7cb598fbddb7`, item
+`pi_383fc357b7bbce95a0e83cb2`; the exact nonreduced addendum passed the direct
+endpoint with final `correct`, zero critical errors and zero gaps.  The latter
+endpoint assigned no identifiers, and `20260827T133151Z_3ee099341ca1` is a
+local archive label only.  The residual analytic question begins in dimension
+at least two and in the excluded one-dimensional field and normalization
+scopes.
 
 ### CLD-4. Distributionally harmonic functions
 
@@ -710,8 +747,9 @@ After adjoining the third unit \((z-a)/(z-c)\), however, closedness gives
 \((2,2,1,1)\) is impossible.  The exact packet passed guarded production
 run `20260825T034743Z_ea6194f07e86`, item
 `pi_19c9aad210847a2875a0fe4a`, final `correct`, with zero critical errors
-and zero gaps.  This excludes only that concrete smooth-curve construction;
-the unrestricted upstairs problem remains open.
+and zero gaps.  This excludes that concrete smooth-curve construction; the
+later dimension-one classification subsumes it.  Only the scopes outside the
+verified analytic curve theorem remain open.
 
 **25 August real-PL update:** on a good separated boundaryless strict
 pure-dimensional analytic space, a real-PL function with zero CLD
@@ -1222,7 +1260,7 @@ for its full receipt.
 | R3-02 | semipositive PL versus classical PL psh | **VERIFIED** for complete nontrivially valued \(k\), good strict spaces, and \(\mathbf R\)-PL functions |
 | R3-03 | maximum principle for the 2025 CLD psh sheaf | **VERIFIED** as a consequence of the submitted GR-C primary preprint's CLD-to-classical comparison and maximum principles |
 | R3-04 | current-psh PL implies semipositive PL | **OPEN** globally; the regular complete-intersection slice against ambient tests is **VERIFIED** by `20260825T023505Z_66547f68ec32`, while the attempted degree--atom completion was rejected |
-| R3-05 | curve comparison and regularization | **VERIFIED** with weakly smooth nets in general smooth boundaryless curve scope; ordinary CLD-smooth harmonic approximation is **DISPROVED** by the later exact-live curve construction, while unrestricted ordinary CLD-smooth psh regularization is **OPEN** |
+| R3-05 | curve comparison and regularization | **VERIFIED** with weakly smooth nets in general smooth boundaryless curve scope; ordinary CLD-smooth harmonic approximation is **DISPROVED** by the later exact-live curve construction; continuous ordinary CLD-smooth psh regularization on smooth proper algebraic curves is **VERIFIED** by `20260827T090645Z_767cbf81c723`, while singular or more general analytic curves and higher dimensions remain **OPEN** |
 | R3-06 | global BFJ/BJ psh gives local classical weights | **VERIFIED** for the FS/model-net definitions; the reverse arrow is **OPEN** |
 | R3-07 | raw local FS envelope | **VERIFIED** for a nonempty pointwise-bounded-above family when the raw supremum is already usc; the unconditional classical-psh, CLD-v2-psh, and continuity conclusions after usc regularization are **DISPROVED** on a reduced strict nodal affinoid curve by `prop:ch15-nodal-local-envelope` and production run `20260825T094005Z_10ac70696f69`; sharp normal/analytically-unibranch classification remains **OPEN** |
 | R3-08 | probability-valued local MA sheaf with literal restriction | **DISPROVED** by disjoint opens |
@@ -1234,12 +1272,12 @@ for its full receipt.
 | R3-14 | Bingener/SS comparison | **VERIFIED** for interiorly locally finite-type Stein-algebra schemes: analytification, flat/completion comparison, and interiorly proper direct images; coherent algebraization near an excellent Stein compact also requires interior separation and proper support, while finite étale Riemann existence requires interior finite type; no positivity or MA consequence |
 | R3-15 | Berndtsson superforms as a Berkovich comparison theorem | limited Euclidean convex integration **VERIFIED**; the asserted Berkovich comparison is **DISPROVED** as attribution |
 | R3-16 | CLD uniform pluriharmonic-approximation criterion | **VERIFIED** for continuous multipliers and order-zero positive closed currents |
-| R3-17 | cross-fan obstruction | **VERIFIED** on the abstract calibrated fan; the compact full-cross chart is **DISPROVED**, and the proper noncompact weighted analytic realization is **VERIFIED** by the first two 25 August production runs; a third guarded run excludes the four-punctured smooth-\(\mathbf P^1\) unequal-weight candidate by refined balancing; the unrestricted upstairs-equality problem remains **OPEN** |
+| R3-17 | cross-fan obstruction and analytic Bedford--Taylor compatibility | **VERIFIED** negatively on the abstract calibrated fan; the compact full-cross chart is **DISPROVED**, and the proper noncompact weighted analytic realization is **VERIFIED** by the first two 25 August production runs; a third guarded run excludes the four-punctured smooth-\(\mathbf P^1\) candidate; the reduced analytic curve classification passed `20260826T154751Z_7cb598fbddb7`, and its nonreduced extension passed the direct endpoint archived locally as `20260827T133151Z_3ee099341ca1`; the residual analytic problem is **OPEN** only in higher dimension and the excluded field/normalization curve scopes |
 | R3-18 | fixed-dual-complex topology | **VERIFIED** for smooth projective \(X\) in characteristic zero; arbitrary characteristic remains **CONDITIONAL/OPEN** |
 | R3-19 | \(\mathcal I\)-class trace factorization and split product | **VERIFIED** in the displayed smooth/submanifold and split-class domains; a \(P\)-valued trace refinement is **OPEN** |
 | R3-20 | toric Cao dimension formula | **VERIFIED** for integral/rational big toric data after the live Guenancia/toric-count citation and limsup-versus-limit repair; the real transcendental extension remains **OPEN** |
 | R3-21 | \(\mathcal I\)-invariant mass-body assignment | **DISPROVED** by the polar-Cantor pair; a \(P\)-sensitive refinement remains **OPEN** |
-| R3-22 | singular higher-dimensional CLD/GR Bedford--Taylor products | **OPEN** beyond continuous CLD, Euclidean convex, curve, and model loci |
+| R3-22 | singular higher-dimensional CLD/GR Bedford--Taylor products | **OPEN** beyond continuous CLD, Euclidean convex, model loci, and the verified good separated strict pure one-dimensional boundaryless class over an algebraically closed complete nontrivially valued field, including its nilpotent thickenings when the reduced component normalizations are rig-smooth |
 | R3-23 | harmonic/pluriharmonic comparison | sourced weakly smooth and regular-model cases are **VERIFIED**; the real-PL zero-CLD-current converse is **VERIFIED** by exact-live run `20260825T061351Z_655e7f503e5d`; ordinary CLD-smooth harmonic approximation is **DISPROVED** by `20260825T055907Z_b5c8f0719b60`; continuous ordinary-smooth psh regularization on smooth proper curves is **VERIFIED** by `20260827T090645Z_767cbf81c723`; arbitrary singular curves, higher dimensions, arbitrary continuous zero-current functions, and unrestricted classical pluriharmonicity remain **OPEN** |
 | R3-24 | model-semipositive, classical-psh, and revised-CLD-psh real PL functions | **VERIFIED** on complete nontrivially valued fields and good strict boundaryless spaces, or on the relative interior in general; separatedness is needed only for the one-way current consequence |
 | R3-26 | swept CLD boundary product versus local BFJ measure | **VERIFIED** for ideal model functions, algebraizable rational-semipositive model functions, and their stated joint bounded closure; the probability-sheaf signature and canonical selection of arbitrary unbounded polar mass by the model comparison alone are **DISPROVED**; nonalgebraizable analytic models and broader psh/singular domains **OPEN** |
@@ -1293,6 +1331,7 @@ theory row.
 | P0 | Full local CLD/classical/LFS comparison beyond PL; CLD v2 (25 July 2025), GR-PL/GR-C (2025), GJR (2026) | Prove decreasing local-FS regularization or construct a strict higher-dimensional counterexample; audit boundary, scalar extension, and nonmetrizable cases | Chapter 72 proves only the PL core and records the remaining interface |
 | P0 | CLD local-to-global psh metrics; CLD Remark 17.8.10 | Treat separately global smooth-psh approximation on projective varieties and the parlinear-dpsh assertion on proper strict spaces with projective formal special fibre | Primary-source questions; Chapter 72 states both exactly |
 | P0 | Common singular local MA product; CLD §§8.5--8.7 and Theorem 18.5.5, BFJ08 Propositions 4.6/4.8/4.9, BMPS 2603.08664v1 | R3-26 proves the smooth ideal/algebraizable-model and joint bounded comparison; next remove the analytic-model algebraizability boundary, characterize the closure, and find a capacity/energy rule for polar mass | Chapter 72 proves the Gauss-shell comparison and records the remaining scope |
+| P1 | Residual analytic Bedford--Taylor current compatibility; CLD §8.6 | First prove the exact arbitrary-field virtual-annular branch-ray identification needed by the conditional curve dossier; then attack dimension at least two by a legal intrinsic-current construction or a rigidity theorem | The algebraically closed complete nontrivially valued curve class, including nilpotent thickenings with rig-smooth reduced component normalizations, is verified by the reduced run and the direct endpoint locally archived as `20260827T133151Z_3ee099341ca1`; P21.3 remains one T2 atom outside that class |
 | P0 | Local FS envelopes and gluing; GR-C Theorem 6.5 and global BJ envelopes | Classify geometric hypotheses, beginning with normal or analytically unibranch domains, under which usc regularization preserves classical psh; then treat CLD-v2 psh for usc obstacles and continuity for continuous finite obstacles separately | The unconditional assertions are disproved by `prop:ch15-nodal-local-envelope` and run `20260825T094005Z_10ac70696f69`; the positive classification is open |
 | P0 | MP realization of big/pseudoeffective DXZ data; DXZ (CMH 2025), MP (Adv. Math. 2025), Xia operations | Build a relatively big/nef model category with intersections, envelopes, orthogonality, and exact \(\mathcal I\)-comparison | Chapter 72 records the Kähler comparison and no-go boundaries |
 | P0 | Nontrivially valued MA existence and the arbitrary-field \(\mathcal E^1\) operator; BFJ and Pille--Schneider Remark 4.4 | Separate operator construction from solvability; remove one field/singularity/support hypothesis at a time and reconstruct every variational input | Exact source question and broader book programme are separated in Chapter 72 and this ledger |

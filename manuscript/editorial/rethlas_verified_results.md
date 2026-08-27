@@ -9,7 +9,7 @@ were checked by the production Rethlas verifier with `gpt-5.6-sol` at `xhigh`
 effort, after source and domain hypotheses were made explicit.  Later edits to
 a statement or proof invalidate its receipt until a fresh audit is recorded.
 
-## Current release boundary (through 25 August 2026)
+## Current release boundary (through 27 August 2026)
 
 This ledger is not a book-wide Rethlas completion certificate.  It records
 nine mathematical production gates completed on 24 August.  Eight are
@@ -31,7 +31,7 @@ stale bytes are not receipts.  The separate clean whole-book build of the
 mathematical scope of any receipt.  The earlier
 `output/BUILD_AND_AUDIT_SUMMARY.md` records the distinct dated 24 August
 release snapshot.
-The 25 August addenda below record further frozen-packet gates and preserve
+The 25--27 August addenda below record further frozen-packet gates and preserve
 their failed predecessor runs; they do not retroactively enlarge any of the
 nine 24 August gates counted in this paragraph.
 
@@ -419,6 +419,49 @@ nine 24 August gates counted in this paragraph.
   `ac68faee9ddb39bd3a30373e193196fc0a25431477a34e5c9cea6b49947299ed`;
   response
   `4f9a8b82e6eb7134cf76a5eac5ac0313db8f0e6cca082d369976db04ec115cfe`.
+
+## Chapters 16 and 72 — dimension-one current classification, including nilpotent thickenings
+
+- Status: **BOTH EXACT FROZEN BLOCKS VERIFIED / INPUT BYTE-FOR-BYTE**
+  (27 August 2026).
+- Book location: the reduced theorem is
+  `prop:p21p3-curve-rigidity`; the exact addendum is
+  `prop:p21p3-curve-rigidity-nonreduced`; Chapter 72 retains P21.3 only in its
+  complementary residual scope.
+- Exact scope: algebraically closed complete nontrivially valued field; good
+  separated strict pure one-dimensional boundaryless analytic space, not
+  assumed reduced; every irreducible-component normalization of the reduction
+  is rig-smooth.
+- Exact result: reduction identifies ordinary CLD forms and their compact-test
+  topology, currents and weak topology, positivity, closedness, the psh and
+  continuous-psh sheaves, and \(G\)-forms.  The integration current is instead
+  `sum_i m_i delta_i`.  Every positive closed `(0,0)`-current is a unique
+  locally finite nonnegative combination `sum_i c_i delta_i`; equality of
+  curvature computed with the nonreduced integration current is equivalent to
+  equality on the reduction, and every such current is Bedford--Taylor.
+- Reduced packet: statement SHA-256
+  `7cb598fbddb7b41aedcea7cf79fe44208d4c41b3e9a70e90e73819599354d5c4`;
+  proof SHA-256
+  `0ae0ee2d33425c58b26595ea2b27a268818e4c85e3dc269fc5aac962d3c64dd8`;
+  production run `20260826T154751Z_7cb598fbddb7`, item
+  `pi_383fc357b7bbce95a0e83cb2`, final `correct`, zero critical errors and
+  zero gaps.
+- Nonreduced addendum: statement SHA-256
+  `3ee099341ca1ba77d806082ca2903320fd9db25c448b48f3dab9c2bb607a777e`;
+  proof SHA-256
+  `b8aac711aafa611750c56a960177182ff1b7b8f78b489d7b43575d03b28b7f43`.
+  The direct production endpoint used `gpt-5.6-sol` at `xhigh` and returned
+  final `correct`, zero critical errors, and zero gaps.  It assigned no run ID,
+  item ID, or status ID; `20260827T133151Z_3ee099341ca1` is a local archive
+  label only.
+- Scope firewall: the theorem makes no claim over a non-algebraically-closed
+  or trivially valued field, for a reduction with a component normalization
+  not known to be rig-smooth, or in dimension at least two.  Borel
+  multiplication is asserted for positive currents and local differences of
+  positives, not for arbitrary order-zero currents.
+- Inventory consequence: P21.3 remains one T2 residual atom.  There are 16
+  formal problem environments and 55 active atoms, with tier counts
+  `(0,7,14,17,17)`.
 
 ## Chapter 49 truncation-energy package
 
