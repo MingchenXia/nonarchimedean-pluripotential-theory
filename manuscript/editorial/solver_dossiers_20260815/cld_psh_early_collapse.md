@@ -415,7 +415,8 @@ no such operator is known.
   \(L^1\mathrm{Psh}_{X,\alpha}=L^1_{\mathrm{loc}}\cap
   \mathrm{Psh}_{X,\alpha}\). It does not identify the two collapse stages:
   the forward implication preserves the stage, while the reverse implication
-  may lose one successor stage through truncation.
+  only proves a possible loss of one successor stage through truncation; no
+  example showing a strict loss is known here.
 - *Non-compact cells and behaviour at infinity.* §4.2 is stated on \(\Omega_\varepsilon\)
   and the conclusion is local, so no properness is used. §4.5 is a germ statement at
   a vertex.
