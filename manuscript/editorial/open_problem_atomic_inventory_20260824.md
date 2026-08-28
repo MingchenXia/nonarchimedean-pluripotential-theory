@@ -1,6 +1,6 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 27 August 2026
+**Inventory date:** 28 August 2026
 **Literature cutoff:** 24 August 2026
 **Source scope:** the formal `problem` environments in Chapters 71 and 72
 
@@ -368,15 +368,17 @@ open atoms.  The four corrected residual targets above remain open.
 
 ### `prob:frontier-cross-fan-upstairs` --- 1 atom
 
-- **P21.3** `[T2; open residual]` Outside the precise complete,
-  algebraically closed, nontrivially valued one-dimensional class, without a
-  reducedness assumption, whose reduced irreducible-component normalizations
-  are rig-smooth, settled by
-  `prop:p21p3-curve-rigidity-nonreduced`, determine whether every positive closed
-  CLD current of bidegree \((p,p)\), \(0\le p\le n-1\), on a good separated
-  strict boundaryless pure \(n\)-dimensional analytic space is
-  Bedford--Taylor in the sense of CLD Definition 8.6.2, or construct a
-  counterexample.
+- **P21.3** `[T2; open residual]` Outside the continuous-pair
+  one-dimensional class over a complete nontrivially valued field settled by
+  `prop:p21p3-curve-rigidity-nonreduced`, determine whether every positive
+  closed CLD current of bidegree \((p,p)\), \(0\le p\le n-1\), on a good
+  separated strict boundaryless pure \(n\)-dimensional analytic space has
+  Bedford--Taylor independence for continuous psh pairs of equal curvature,
+  or construct a counterexample.  The remaining domain is dimension at least
+  two, together with the one-dimensional cases of a trivially valued ground
+  field or a reduced component whose normalization is not rig-smooth.  The
+  literal discontinuous-potential predicate of CLD Definition 8.6.2 is a
+  stronger scope boundary and is not a separately counted atom.
 
 The two preceding realization atoms are retired.  `P21.1` is negatively
 settled by the compact-source obstruction in production run
@@ -408,31 +410,33 @@ production Rethlas run `20260826T072535Z_e0a34aabb30f`, item
 and zero gaps.  This correction neither proves nor disproves the analytic
 CLD question, so it does not retire the atom.
 
-The principal curve subcase, including arbitrary nilpotent thickenings in
-the stated analytic class, is now retired.  Over an algebraically closed
-complete nontrivially valued field, every positive closed CLD current of
-bidegree \((0,0)\) on a good separated strict pure one-dimensional
-boundaryless analytic space whose reduced component normalizations are
-rig-smooth is a locally finite nonnegative linear combination of the
-normalized reduced-component currents; it is therefore Bedford--Taylor.
-Ordinary forms, compact-test topologies, currents, positivity, closedness,
-and the psh sheaves are invariant under reduction, while the integration
-current retains the generic multiplicities.  The reduced theorem passed
-production Rethlas run `20260826T154751Z_7cb598fbddb7`, item
-`pi_383fc357b7bbce95a0e83cb2`.  The exact nonreduced addendum, with statement
-and proof SHA-256
-`3ee099341ca1ba77d806082ca2903320fd9db25c448b48f3dab9c2bb607a777e`
+The principal continuous-pair curve subcase, including arbitrary nilpotent
+thickenings in the stated analytic class, is now retired over every complete
+nontrivially valued field.  Every positive closed CLD current of bidegree
+\((0,0)\) on a good separated strict pure one-dimensional boundaryless
+analytic space whose reduced component normalizations are rig-smooth is a
+unique locally finite nonnegative linear combination of the normalized
+reduced-component currents.  Ordinary forms, compact-test topologies,
+currents, positivity, closedness, and the psh sheaves are invariant under
+reduction, while the integration current retains the generic
+multiplicities.  The exact arbitrary-field reduced packet passed production
+Rethlas run `20260828T042906Z_f2a1c1b9f2a3` with 17 statement and 19 source
+checks; the independent nonreduced combined packet passed
+`20260828T044008Z_dfdaa04a1cea` with 24 and 25 checks; and the exact-live
+arbitrary-field nonreduced packet passed the HTTP-archived closure run
+`20260828T051601Z_db92555a72e1` with 23 and 25 checks.  All three used
+`gpt-5.6-sol` at `xhigh` and returned final `correct`, zero critical errors,
+and zero gaps.  The exact-live nonreduced statement and proof SHA-256 values
+are
+`e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c`
 and
-`b8aac711aafa611750c56a960177182ff1b7b8f78b489d7b43575d03b28b7f43`,
-passed the direct production endpoint using `gpt-5.6-sol` at `xhigh`, final
-`correct`, zero critical errors, and zero gaps.  The endpoint assigned no
-run ID, item ID, or status ID; `20260827T133151Z_3ee099341ca1` is a local
-archive label only.  Independent hostile and source audits also passed.
-`P21.3` now denotes only analytic dimension at least two and the
-one-dimensional domains outside the proposition's remaining exact
-hypotheses, notably non-algebraically-closed or trivially valued ground
-fields and reduced component normalizations not known to be rig-smooth.
-The active atom count is unchanged.
+`25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`.
+The earlier `20260828T045515Z_db92555a72e1` run is service-only corroborating
+provenance rather than the controlling gate.  Independent byte, source, and
+hostile audits also passed.  Thus neither
+nonreducedness nor failure of algebraic closedness remains in the residual
+domain over a complete nontrivially valued field.  The active atom count is
+unchanged at 55.
 
 ## Easy-to-hard Rethlas queue
 

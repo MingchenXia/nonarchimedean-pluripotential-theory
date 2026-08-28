@@ -463,6 +463,94 @@ nine 24 August gates counted in this paragraph.
   formal problem environments and 55 active atoms, with tier counts
   `(0,7,14,17,17)`.
 
+## Chapters 16 and 72 — arbitrary-field dimension-one current classification
+
+- Status: **EXACT LIVE BYTES VERIFIED / INTEGRATED BYTE-FOR-BYTE**
+  (28 August 2026).
+- Book location: `lem:p21p3-gf-legal-source-localization`,
+  `prop:p21p3-gf-virtual-annulus-bridge`,
+  `lem:p21p3-gfc-rigid-zero-atom`, `prop:p21p3-curve-rigidity`, and
+  `prop:p21p3-curve-rigidity-nonreduced`.
+- Exact scope: every complete nontrivially valued field; good separated
+  strict pure one-dimensional boundaryless analytic space, not assumed
+  reduced; every irreducible-component normalization of the reduction is
+  rig-smooth.  The Bedford--Taylor conclusion is for continuous psh pairs
+  of equal curvature.  Literal discontinuous CLD psh functions, trivial
+  valuation, non-rig-smooth component normalizations, and dimension at least
+  two remain outside the theorem.
+- New mechanism: legal source localization through analytic moments;
+  cofinal virtual-annular collars; exact branch rays weighted by a common
+  expansion index; residual closed points of arbitrary degree; and a
+  residual-divisor/Riemann--Roch flux comparison.  Smooth cutoff plateaux are
+  not tropical coordinates.
+- Reduced exact-live gate: production run
+  `20260828T042906Z_f2a1c1b9f2a3`, 17 statement records, 19 source records,
+  zero failed checks and zero gaps.  Bridge statement/proof SHA-256:
+  `f3202ef13495aad790ee2b1ff057a89b34e76eff15761c33c88e7b809c3e1033`
+  and
+  `ff8225ed6206f97e628504ab5b255c58a1a0de4fda13962e1ab09092fe2be7d5`;
+  reduced statement/proof SHA-256:
+  `c9f27245f5608b772385167c84bfe9e836fc9f4b164477a578b6c26712e35b21`
+  and
+  `01ab07fdacedfe95e1d764656a071a88395f5d0766115fd0a67164e3162410af`.
+- Nonreduced independent gate: run
+  `20260828T044008Z_dfdaa04a1cea`, 24 statement records, 25 source records,
+  zero failed checks and zero gaps; combined statement/proof SHA-256:
+  `dfdaa04a1cea28df3d689062fb46f513a7f7aea0ce8ac9f2a707f6c56029d6b4`
+  and
+  `f8eb8968f9ae269b621944cde4b114fa5733f1ae4f4b454284a37b70ea545abe`.
+- Nonreduced exact-live gate: the controlling complete HTTP-archived run is
+  `20260828T051601Z_db92555a72e1`, with 23 statement records, 25 source
+  records, zero failed checks, zero critical errors, and zero gaps.  Exact
+  live statement/proof SHA-256:
+  `e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c`
+  and
+  `25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`;
+  materialized statement/proof SHA-256:
+  `db92555a72e145591f922b3ffc623148dcaca7d252ea220d694203b04d164c49`
+  and
+  `b13829d962614f35af3f3725eb04be1d6f1b6b78490cb13d65e4ed43a05de779`.
+- The controlling request, response, and safe-header SHA-256 digests are
+  `d0cc30cbd8110de827077054d6320900865fff3d06657d9c659e412cadb79f64`,
+  `e2e7d8943b8a4f5bbd677065299bda3ebae0d22be10a71f2962ae38c40830f3f`,
+  and
+  `0e23adb170ea7848dab43cc432b1f50aa29e8f37e3f9fdac0c06a4a667201299`.
+  The service `verification.json` and final service-log SHA-256 digests are
+  `f1e20502448f27381329b2b94612ea901c72cc3771db26c83f715c14c0a8e35a`
+  and
+  `69208e44e730089339cd3d1ae45e414c5cb8c6e56b3de4b32af98c258658ab3f`.
+  The controlling exact-live receipt has SHA-256
+  `193e4e63a6f6db4c747189ded171334ccc664f7474cd048fe7f123054f6f1cb0`.
+- The earlier run `20260828T045515Z_db92555a72e1` passed service-side on the
+  same materialized bytes, with the same 23 statement and 25 source records
+  and no failed check, critical error, or gap.  Because its client directory
+  lacks the response and safe headers, it is corroborating provenance only;
+  the `051601` run controls the integration.
+- All three mathematical gates used `gpt-5.6-sol` at `xhigh` and returned
+  final `correct`, zero critical errors, and zero gaps.
+- Whole-book gate: clean converged build, 3,207 pages and 15,433,695 bytes;
+  PDF SHA-256
+  `e2e68023a6b9e7a5e4bd671504d8226f6c1a377c9749bdf0c3745d2932d7c028`;
+  log SHA-256
+  `d91cbee2b685c928086c8b9f5d9156e4b4f7749eadacc6ff9d94200042a3a983`.
+  There is no fatal error, undefined reference or citation, duplicate label
+  or destination, rerun request, BibTeX or index warning, or overfull box;
+  991 historical underfull notices and the benign class-path warning remain.
+- Source closure: 127 files, all verified; manifest SHA-256
+  `eecc05a93d3cdccf82b6b2411662ac16ce34221f3ced4829613b88119782514b`.
+  Static scans found 9,913 labels and no duplicate, 30,768 references and no
+  dangling target, 208 cited keys and no missing key, no exercises, and no
+  optional conventional theorem-like name.
+- Visual inspection passed on physical pages 737--765, 3035--3037, and
+  3182--3184, covering the Chapter 16 theorem package, the Chapter 72
+  residual statement, the Appendix L provenance gate, and all neighbouring
+  transitions.
+- Inventory consequence: algebraic closedness and nonreducedness are removed
+  from the one-dimensional residual list.  P21.3 remains one T2 atom, and
+  the total stays at 16 formal problem environments and 55 active atoms,
+  with tier counts `(0,7,14,17,17)`.  This dated integration record makes no
+  novelty or priority claim.
+
 ## Chapter 49 truncation-energy package
 
 - Status: **VERIFIED** (24 August 2026).

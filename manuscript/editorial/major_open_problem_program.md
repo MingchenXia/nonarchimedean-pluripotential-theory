@@ -40,6 +40,51 @@ run ID, item ID, or status ID; `20260827T133151Z_3ee099341ca1` is a local
 archive label only.  P21.3 remains one active residual atom, so the formal
 environment and active-atom counts are unchanged.
 
+**28 Aug 2026 P21.3 arbitrary-field controlling addendum.**  The exact-live
+canonical-collar bridge and reduced curve theorem settle the continuous-pair
+problem over every complete nontrivially valued non-Archimedean field \(K\)
+for good separated strict reduced pure one-dimensional boundaryless analytic
+spaces whose irreducible-component normalizations are rig-smooth.  The proof
+uses analytic-moment source localization, full canonical virtual-annular
+collars with exact tropical preimages, Riemann--Roch on the residual curve
+over its actual field, and a rigid-point zero-atom estimate at the strict
+conductor locus.  Its bridge/reduced live bytes passed
+`20260828T042906Z_f2a1c1b9f2a3`, using `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors and zero gaps, with 17 sequential-statement
+records, 19 primary-source records, and 0 failed checks.  The exact combined
+nonreduced packet, statement/proof SHA-256
+`dfdaa04a1cea28df3d689062fb46f513a7f7aea0ce8ac9f2a707f6c56029d6b4` /
+`f8eb8968f9ae269b621944cde4b114fa5733f1ae4f4b454284a37b70ea545abe`,
+passed `20260828T044008Z_dfdaa04a1cea`, final `correct`, zero critical errors
+and zero gaps, with 24 sequential-statement records, 25 primary-source
+records, and 0 failed checks.  The separately materialized nonreduced
+exact-live statement/proof, SHA-256
+`e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c` /
+`25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`,
+and materialized submission SHA-256
+`db92555a72e145591f922b3ffc623148dcaca7d252ea220d694203b04d164c49` /
+`b13829d962614f35af3f3725eb04be1d6f1b6b78490cb13d65e4ed43a05de779`,
+passed HTTP-archived closure run `20260828T051601Z_db92555a72e1`, using
+`gpt-5.6-sol` at `xhigh`, final `correct`, zero critical errors and zero gaps,
+with 23 sequential-statement records, 25 primary-source records, and 0 failed
+checks.  Its archived request/response/safe-header SHA-256 are
+`d0cc30cbd8110de827077054d6320900865fff3d06657d9c659e412cadb79f64`,
+`e2e7d8943b8a4f5bbd677065299bda3ebae0d22be10a71f2962ae38c40830f3f`,
+and
+`0e23adb170ea7848dab43cc432b1f50aa29e8f37e3f9fdac0c06a4a667201299`;
+its service-verification and final-service-log SHA-256 are
+`f1e20502448f27381329b2b94612ea901c72cc3771db26c83f715c14c0a8e35a`
+and
+`69208e44e730089339cd3d1ae45e414c5cb8c6e56b3de4b32af98c258658ab3f`;
+the direct endpoint assigned no item identifier.  It removes reducedness
+without reintroducing algebraic closedness: ordinary CLD forms, currents,
+positivity, closedness, and continuous psh functions are invariant under
+nilreduction, whereas the fundamental integration current records the
+generic component multiplicities.  No statement is made for the literal
+possibly discontinuous psh scope of CLD Definition 8.6.2.  P21.3 remains one
+T2 atom, so the inventory stays at 16 problem environments and 55 active
+atoms.
+
 **Promotion rule:** an item becomes a new theorem only after its exact
 statement and proof receive a production Rethlas gpt-5.6-sol/xhigh receipt
 and survive an independent hostile audit.  If the run controls a frozen
@@ -518,27 +563,43 @@ source questions under one common framework.
   production run `20260825T034743Z_ea6194f07e86`, item
   `pi_19c9aad210847a2875a0fe4a`, returned final `correct`, zero critical
   errors, and zero gaps.
-- **Verified curve range:** the reduced classification passed production run
-  `20260826T154751Z_7cb598fbddb7`, item
-  `pi_383fc357b7bbce95a0e83cb2`.  Its nonreduced extension passed the direct
-  production endpoint, final `correct`, zero critical errors, and zero gaps;
-  the endpoint assigned no identifiers and
-  `20260827T133151Z_3ee099341ca1` is a local archive label only.  This covers
-  arbitrary continuous CLD-psh potentials and arbitrary connected or
-  reducible curves in the stated algebraically closed, complete,
-  nontrivially valued analytic class.
-- **Status:** open only in the corrected residual scope: analytic dimension at
-  least two, and one-dimensional cases over non-algebraically-closed or
-  trivially valued fields or with a reduced component normalization not known
-  to be rig-smooth.  The reducible cross realization still has equality only
-  after proper pushforward, while the four-punctured candidate is subsumed by
-  the verified curve classification.
-- **Packets:** the original realization packet, the four-punctured obstruction
-  packet, and the reduced and nonreduced curve packets are resolved history.
-  The arbitrary-field dossier is only a conditional reduction: its
-  virtual-annular branch-ray identification is unproved, and it has no
-  production receipt or theorem status.  A higher-dimensional packet or a
-  proof of that exact arbitrary-field bridge is required next.
+- **Verified curve range:** the canonical-collar bridge and arbitrary-field
+  reduced classification passed exact-live run
+  `20260828T042906Z_f2a1c1b9f2a3`, final `correct`, zero critical errors and
+  zero gaps, with 17 sequential-statement records, 19 primary-source records,
+  and 0 failed checks.  It classifies positive closed bidegree-`(0,0)`
+  currents on good separated strict reduced pure one-dimensional boundaryless
+  analytic spaces over every complete nontrivially valued ground field,
+  provided the irreducible-component normalizations are rig-smooth, and
+  proves Bedford--Taylor independence for continuous psh pairs.  The exact
+  combined arbitrary-field nonreduced extension passed run
+  `20260828T044008Z_dfdaa04a1cea`, final `correct`, zero critical errors and
+  zero gaps, with 24 sequential-statement records, 25 primary-source records,
+  and 0 failed checks.  Its separately materialized exact-live
+  statement/proof, SHA-256
+  `e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c` /
+  `25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`,
+  passed HTTP-archived closure run `20260828T051601Z_db92555a72e1`, final
+  `correct`, with zero critical errors, zero gaps, 23 sequential-statement
+  records, 25 primary-source records, and 0 failed checks.  The nonreduced
+  result preserves the classification and continuous-pair conclusion under
+  nilreduction while retaining generic multiplicities in the fundamental
+  cycle.
+- **Status:** open only in analytic dimension at least two and, in dimension
+  one within the problem's displayed ambient hypotheses, over trivially
+  valued fields or when at least one reduced irreducible component has a
+  normalization that is not rig-smooth.  Nonreducedness by itself and failure
+  of algebraic closedness are no longer residual over a complete
+  nontrivially valued field.  The reducible cross realization still has
+  equality only after proper pushforward, and the four-punctured candidate is
+  subsumed by the verified curve classification.  Literal discontinuous-psh
+  CLD Definition 8.6.2 is outside the continuous-pair formulation and is not
+  counted as another atom.
+- **Packets:** the realization, four-punctured obstruction, canonical-collar
+  bridge, arbitrary-field reduced, and arbitrary-field nonreduced packets are
+  resolved history under the exact receipts cited above.  The next P21.3
+  targets are the trivially valued curve case, curves with a non-rig-smooth
+  reduced-component normalization, and analytic dimension at least two.
 
 ## Historical corrections that must not return to the queue
 

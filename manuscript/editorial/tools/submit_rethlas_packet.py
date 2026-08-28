@@ -19,15 +19,46 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("request_archive", type=Path)
     parser.add_argument("response_archive", type=Path)
     parser.add_argument("headers_archive", type=Path)
+    parser.add_argument(
+        "--statement-dependency",
+        action="append",
+        default=[],
+        type=Path,
+        help=(
+            "prepend an exact dependency to the submitted statement; "
+            "repeat for more than one dependency"
+        ),
+    )
+    parser.add_argument(
+        "--proof-dependency",
+        action="append",
+        default=[],
+        type=Path,
+        help=(
+            "prepend an exact dependency proof to the submitted proof; "
+            "repeat for more than one dependency"
+        ),
+    )
     parser.add_argument("--endpoint", default="http://127.0.0.1:8107/verify")
     parser.add_argument("--timeout-seconds", type=int, default=3300)
     return parser.parse_args()
 
 
+def materialize(dependencies: list[Path], principal: Path) -> str:
+    """Read exact UTF-8 inputs, separating bundled artifacts visibly."""
+    if not dependencies:
+        return principal.read_text(encoding="utf-8")
+    parts = [
+        path.read_text(encoding="utf-8").rstrip("\n")
+        for path in (*dependencies, principal)
+    ]
+    return "\n\n".join(parts) + "\n"
+
+
 def main() -> None:
     args = parse_args()
-    statement = args.statement.read_text(encoding="utf-8")
-    proof = args.proof.read_text(encoding="utf-8")
+    statement = materialize(args.statement_dependency, args.statement)
+    proof = materialize(args.proof_dependency, args.proof)
     deadline = datetime.now(timezone.utc) + timedelta(
         seconds=args.timeout_seconds
     )

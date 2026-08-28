@@ -13,7 +13,7 @@ Status vocabulary:
 | Chapter | Short title | Status | Mathematical audit | Source audit |
 |---:|---|---|---|---|
 | 1--8 | Foundations | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
-| 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the earlier Chapter 18 GJR gates, the pure-dimensional real-PL positive-current/residue-nef equivalence passed `20260825T080059Z_80f35689475f`; first-stage CLD collapse on tropical toric partial compactifications passed `20260825T024707Z_d1b8d7eaf79e`, and its finite ambient-induced-star extension passed the direct endpoint archived locally as `20260827T103835Z_c8131b22d800`; the real-PL zero-current theorem and curve counterexample passed `20260825T061351Z_655e7f503e5d` and `20260825T055907Z_b5c8f0719b60`; the cubical reduction and product--Gauss criterion passed `20260825T145229Z_b37e13478cc7` and `20260826T055627Z_b68659fba1be`; unrestricted continuous smooth-proper-curve ordinary-smooth psh regularization passed `20260827T090645Z_767cbf81c723`; the reduced dimension-one positive-current classification passed `20260826T154751Z_7cb598fbddb7`, and its exact nonreduced addendum passed the direct endpoint archived locally as `20260827T133151Z_3ee099341ca1`; every listed verdict is final `correct`, with 0 critical errors and 0 gaps, and the two direct endpoints assigned no identifiers | The P06.3 proof uses Thuillier, Baker--Payne--Rabinoff, Gubler--Jell--Rabinoff, and Wanner in their exact source scopes.  The P21.3 addendum uses the ordinary-open reduction theorem of CLD Proposition 15.1.3(b), not a bare \(G\)-domain refinement, and separates reduction-invariant current calculus from multiplicity-sensitive integration.  The product--Gauss theorem remains a separate book-level deduction in the GK field and ordinary algebraic-chart categories |
+| 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the earlier Chapter 18 GJR gates, the pure-dimensional real-PL positive-current/residue-nef equivalence passed `20260825T080059Z_80f35689475f`; first-stage CLD collapse on tropical toric partial compactifications passed `20260825T024707Z_d1b8d7eaf79e`, and its finite ambient-induced-star extension passed the direct endpoint archived locally as `20260827T103835Z_c8131b22d800`; the real-PL zero-current theorem and curve counterexample passed `20260825T061351Z_655e7f503e5d` and `20260825T055907Z_b5c8f0719b60`; the cubical reduction and product--Gauss criterion passed `20260825T145229Z_b37e13478cc7` and `20260826T055627Z_b68659fba1be`; unrestricted continuous smooth-proper-curve ordinary-smooth psh regularization passed `20260827T090645Z_767cbf81c723`; the canonical-collar bridge, rigid-point zero-atom estimate, and arbitrary-field reduced dimension-one positive-current classification passed exact-live run `20260828T042906Z_f2a1c1b9f2a3`; the arbitrary-field nonreduced combined packet passed production run `20260828T044008Z_dfdaa04a1cea`, and its separately materialized exact-live statement/proof, SHA-256 `e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c` / `25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`, passed HTTP-archived exact-live closure run `20260828T051601Z_db92555a72e1`; these three controlling runs are final `correct`, with respectively 17/19/0, 24/25/0, and 23/25/0 sequential-statement/primary-source/failed-check records and respectively 0/0, 0/0, and 0/0 critical-error/gap counts | The P06.3 proof uses Thuillier, Baker--Payne--Rabinoff, Gubler--Jell--Rabinoff, and Wanner in their exact source scopes.  The P21.3 proof uses ordinary-open nilreduction, canonical full virtual-annular collars with exact source preimages, Riemann--Roch on normal residual curves over the actual residue field, and a rigid-point zero-atom argument at the strict conductor locus.  It separates reduction-invariant ordinary CLD calculus from multiplicity-sensitive integration and proves only continuous-pair Bedford--Taylor independence.  The product--Gauss theorem remains a separate book-level deduction in the GK field and ordinary algebraic-chart categories |
 | 20--27 | BFJ forms, psh, envelopes, MA, capacity, and energy | first-draft-final (historical) | first-pass record; the exact-current Chapter 23 fixed-skeleton selection passed production Rethlas run `20260824T044830Z_25024c43d265` with final `correct`, 0 critical errors, 0 gaps | first-pass record; the Chapter 23 book-local result is separated from its published BFJ inputs and makes no global sequential claim |
 | 28--31 | BFJ measures, continuity, functoriality, and examples | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 32--34 | Trivially valued foundations and psh closure | first-draft-final (historical) | first-pass record; Ch. 34 closure integration awaits Rethlas review | first-pass record; primary anchors rechecked for the closure repair |
@@ -32,7 +32,7 @@ Status vocabulary:
 | 67 | Functoriality and trace | first-draft-final (historical) | prior hostile-pass record; exact current Rethlas status is recorded separately | source correction recorded in the trace audit |
 | 68 | YTD bridge | post-expansion depth-audited | factor-two normalization and perturbation chain checked against the internally proved ray formulas | Fano and automorphism-group scope rechecked against primary sources |
 | 69 | Validated extensions | post-expansion synchronization in progress | in addition to the toric gates, the complete-intersection slice passed `20260825T023505Z_66547f68ec32`; the analytic weighted-cross realization and compact-source obstruction passed `20260825T021353Z_058a4390b0fb` and `20260825T024519Z_16376e0d52eb`; and the four-punctured smooth-curve obstruction passed `20260825T034743Z_ea6194f07e86`; all four are final `correct`, with 0 critical errors and 0 gaps | the slice tests only restrictions of ambient smooth functions; the cross construction gives equality of curvature only after proper pushforward, not an analytic Bedford--Taylor counterexample; the four-punctured result excludes its concrete candidate but leaves P21.3 open; no novelty or priority claim is made |
-| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 15 problem environments, for 16 book-wide and 55 active atoms; P06.3 joined the previously retired generalized-Lelong, real-PL current--residue, real-toric current-level, global Radon--Riesz, P09.1, P09.2, cross-fan realization, and normalized hybrid-continuity atoms after production verification; P06.3 passed `20260827T090645Z_767cbf81c723` positively; the P21.3 reduced curve theorem passed `20260826T154751Z_7cb598fbddb7`, and the nonreduced extension passed the direct endpoint with local archive label `20260827T133151Z_3ee099341ca1`, narrowing but not retiring its one residual atom | source status is reconciled through 24 August 2026 and book verification through 27 August; the P21.3 residual now begins with non-algebraically-closed or trivially valued curves, nonsmooth reduced component normalizations, and dimension at least two; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and all book-level derivations retain exact scope |
+| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 15 problem environments, for 16 book-wide and 55 active atoms; P06.3 joined the previously retired generalized-Lelong, real-PL current--residue, real-toric current-level, global Radon--Riesz, P09.1, P09.2, cross-fan realization, and normalized hybrid-continuity atoms after production verification; P06.3 passed `20260827T090645Z_767cbf81c723` positively; the P21.3 canonical-collar arbitrary-field reduced theorem passed exact-live run `20260828T042906Z_f2a1c1b9f2a3`; its arbitrary-field nonreduced combined extension passed run `20260828T044008Z_dfdaa04a1cea`, and the separately materialized nonreduced exact-live bytes passed HTTP-archived closure run `20260828T051601Z_db92555a72e1`, narrowing but not retiring the single residual T2 atom | source status is reconciled through 24 August 2026 and book verification through 28 August; the P21.3 residual is analytic dimension at least two and, in dimension one, only trivially valued ground fields or a reduced irreducible component whose normalization is not rig-smooth; nonreducedness by itself and failure of algebraic closedness are no longer residual over a complete nontrivially valued field, while literal discontinuous-psh CLD Definition 8.6.2 remains outside the proved continuous-pair scope; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and all book-level derivations retain exact scope |
 | A--L | Appendices | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 
 **26 August 2026 controlling Chapter 18 correction.**  The former
@@ -84,6 +84,51 @@ with their neighbouring transitions.  The controlling evidence is
 and live-integration receipts in
 `editorial/rethlas_receipts_20260827/`.  This gate does not enlarge the
 theorem's exact scope or retire P07.1 or P07.2.
+
+**28 August 2026 P21.3 arbitrary-field canonical-collar controlling
+addendum.**  The exact-live bridge and reduced consequence remove algebraic
+closedness from the good separated strict reduced pure one-dimensional
+boundaryless range.  Source localization uses analytic moment coordinates
+and smooth functions of tropical coordinates, the selected source arm is a
+full canonical virtual-annular collar with an exact tropical preimage, and
+residual-star proportionality follows from Riemann--Roch over the actual
+residue field.  The rigid-point zero-atom estimate, not an unrestricted
+type-1 statement, controls the conductor.  The bridge/reduced live bytes
+passed `20260828T042906Z_f2a1c1b9f2a3`, final `correct`, zero critical
+errors and zero gaps, with 17 sequential-statement records, 19 primary-source
+records, and 0 failed checks.  The exact combined nonreduced packet,
+statement/proof SHA-256
+`dfdaa04a1cea28df3d689062fb46f513a7f7aea0ce8ac9f2a707f6c56029d6b4` /
+`f8eb8968f9ae269b621944cde4b114fa5733f1ae4f4b454284a37b70ea545abe`,
+passed `20260828T044008Z_dfdaa04a1cea`, final `correct`, zero critical errors
+and zero gaps, with 24 sequential-statement records, 25 primary-source
+records, and 0 failed checks.  Its separately materialized exact-live
+statement/proof, SHA-256
+`e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c` /
+`25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`,
+and materialized submission SHA-256
+`db92555a72e145591f922b3ffc623148dcaca7d252ea220d694203b04d164c49` /
+`b13829d962614f35af3f3725eb04be1d6f1b6b78490cb13d65e4ed43a05de779`,
+passed HTTP-archived closure run `20260828T051601Z_db92555a72e1`,
+`gpt-5.6-sol`/`xhigh`, final `correct`, zero critical errors and zero gaps,
+with 23 sequential-statement records, 25 primary-source records, and 0 failed
+checks.  Its archived request/response/safe-header SHA-256 are
+`d0cc30cbd8110de827077054d6320900865fff3d06657d9c659e412cadb79f64`,
+`e2e7d8943b8a4f5bbd677065299bda3ebae0d22be10a71f2962ae38c40830f3f`,
+and
+`0e23adb170ea7848dab43cc432b1f50aa29e8f37e3f9fdac0c06a4a667201299`;
+its service-verification and final-service-log SHA-256 are
+`f1e20502448f27381329b2b94612ea901c72cc3771db26c83f715c14c0a8e35a`
+and
+`69208e44e730089339cd3d1ae45e414c5cb8c6e56b3de4b32af98c258658ab3f`;
+the direct endpoint assigned no item identifier.  Nilreduction preserves the
+ordinary CLD calculus, currents, positivity, closedness, and the
+continuous-psh sheaves, while the fundamental integration current retains
+the generic component multiplicities.  The Bedford--Taylor conclusion
+concerns continuous psh pairs only.  The inventory remains 16 environments
+and 55 active atoms; P21.3 remains one T2 atom in analytic dimension at least
+two and, in dimension one, only for trivially valued fields or a reduced
+component whose normalization is not rig-smooth.
 
 ## Second-draft expansion
 
