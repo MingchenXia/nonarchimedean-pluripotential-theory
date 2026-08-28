@@ -946,7 +946,7 @@ non-Archimedean metrics,” arXiv:2112.04290v2, 13 April 2024.
 line bundles, numerical-dimension and mixed-volume questions, Chebyshev
 transforms, and Duistermaat--Heckman measures of non-Archimedean metrics.
 
-**Exact open questions and closed auxiliary choice.** Conjecture 5.29 asks
+**Exact source questions and current book status.** Conjecture 5.29 asks
 whether \(\dim\Delta(L,\varphi)=\operatorname{nd}(L,\varphi)\).
 Conjecture 8.8 asks for the stated non-toric mixed-volume formula with a
 supremum over rank-\(n\) valuations.  At the end of Section 6.4 the paper
@@ -956,9 +956,13 @@ already asserts that the limit-body definition is independent of the
 auxiliary ample divisor \(H\) and Kähler form \(\omega\); that independence
 must not be recycled as open.
 
-**Book use.** The three genuine questions enter the source-scoped open-
-problem corpus; the \((H,\omega)\)-independence is recorded under resolved
-history.
+**Book use.** Conjecture 5.29 and auxiliary-\(\eta\) independence remain in
+the source-scoped open-problem corpus.  The author-supplied repaired proof of
+Conjecture 8.8, independently audited and verified in Chapter 55, closes its
+smooth-projective positive-Cao-volume scope; this does not turn it into a
+published result or settle the zero-volume, transcendental, singular-variety,
+or attainment extensions.  The \((H,\omega)\)-independence is recorded under
+resolved history.
 
 ### Xia on operations
 
@@ -1177,8 +1181,10 @@ literature corrections are:
   local/global metric questions of Remark 17.8.10;
 - the three Gubler--Jell--Rabinoff questions, the Pille--Schneider arbitrary-
   field \(\mathcal E^1\) operator, DXZ filtration-test-curve maximality,
-  Xia Conjectures 5.29/8.8 and auxiliary-\(\eta\) independence, and the three
-  exact BMPS questions remain source-stated open items;
+  Xia Conjecture 5.29 and auxiliary-\(\eta\) independence, and the three
+  exact BMPS questions remain source-stated open items; Xia Conjecture 8.8 is
+  closed in the Chapter 55 positive-volume scope by the author-supplied
+  repaired proof, without a publication claim;
 - Xia's limit-body independence from \(H\) and \(\omega\) is already asserted
   in Section 5.6 and is distinct from the Chebyshev auxiliary-\(\eta\)
   question;

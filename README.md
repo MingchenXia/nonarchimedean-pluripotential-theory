@@ -11,11 +11,14 @@ gates: eight exact-current integrations in Chapters 18, 23, 49, 55, and 69,
 and one exact frozen statement/proof gate for the Chapter 70 generalized-
 Lelong separation theorem, followed by an independent hostile audit.  The
 latter is not represented as a post-integration byte-identity gate.  The
-additional 25 August gates and exact-current integrations are recorded
+additional 25--28 August gates and exact-current integrations are recorded
 individually in the editorial receipts and provenance ledgers.  A fresh
 current-source whole-book rebuild through 25 August passed and produced a
 3,123-page PDF; the dated release artifacts below remain the earlier
-3,081-page source freeze until the next release cut.  These checks do not turn
+3,081-page source freeze until the next release cut.  The integrated
+28 August source, including the full projective ample-class MP--BJ comparison,
+also passes a whole-book build and currently produces 3,209 pages.  These
+checks do not turn
 source imports or book-level derivations into novelty or priority claims, or
 close residual questions outside the displayed theorem scopes.
 
@@ -64,9 +67,9 @@ intentionally excluded from version control.  Results proved only in the
 supplied envelope manuscript are identified as such and are not
 misrepresented as previously published theorems.
 
-The editorial records also keep the literal research-frontier inventory at 17
-open problems (one in Chapter 71 and 16 in Chapter 72), split into 57 active
-atoms, together with the source-cutoff
+The editorial records also keep the literal research-frontier inventory at 15
+open problem environments, all in Chapter 72, split into 54 active atoms with
+tier counts `(0,6,14,17,17)`, together with the source-cutoff
 dates, and every remaining mathematical boundary visible.  The clean-build
 and exact-current Rethlas gates that have passed are recorded separately from
 source imports and unresolved packets.

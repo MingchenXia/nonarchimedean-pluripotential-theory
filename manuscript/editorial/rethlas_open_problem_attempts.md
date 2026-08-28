@@ -426,6 +426,24 @@ Rethlas verification receipt for the exact displayed statement and proof.
   realization and nondivisorial-regularity frontier.  All nine
   `RETHLAS-NEW` markers were removed.
 
+**28 August 2026 controlling P00.1 addendum.**  The failed historical packet
+above remains rejected and is not reused.  A new, narrower proof in the
+natural smooth-projective ample Néron--Severi framework identifies the MP and
+BJ rational PL relative-nef cones by finite flag-ideal GAGA and common
+refinements, then identifies their decreasing completions.  Its exact frozen
+statement/proof SHA-256 values are
+`e40829e3586bcabeeb866229dc068c2e518a736fc908dec32f3bf3957c59c9ab` and
+`baad23068e9dcae47619f3e2d81cfd26fa5bd51b1e4c4d4baa1a7c024824e671`.
+Two independent exact-byte audits passed, and the production archive
+`rethlas_packets_20260828/p001_mp_bj_full_cone_run_20260828` records verdict
+`correct`, zero critical errors, and zero gaps.  The integrated live theorem
+and proof were separately resubmitted byte for byte; their final receipt is
+recorded in `rethlas_verified_results.md`.  This retires P00.1 and its
+Chapter 71 problem environment, but it does not settle the broader
+compact-Kähler, transcendental, big non-nef, or zero-volume problem retained
+as `prob:frontier-mp-pseff`.  The result is a book-level sourced synthesis of
+MP, BJ, and DXZ, with no novelty or priority claim.
+
 ## MP24 reduced entropy-slope normalization
 
 - **Audit marker:** `mp24-discrepancy-shift-correction` (now removed from the

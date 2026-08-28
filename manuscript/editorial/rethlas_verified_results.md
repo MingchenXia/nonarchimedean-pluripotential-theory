@@ -9,7 +9,7 @@ were checked by the production Rethlas verifier with `gpt-5.6-sol` at `xhigh`
 effort, after source and domain hypotheses were made explicit.  Later edits to
 a statement or proof invalidate its receipt until a fresh audit is recorded.
 
-## Current release boundary (through 27 August 2026)
+## Current release boundary (through 28 August 2026)
 
 This ledger is not a book-wide Rethlas completion certificate.  It records
 nine mathematical production gates completed on 24 August.  Eight are
@@ -31,7 +31,7 @@ stale bytes are not receipts.  The separate clean whole-book build of the
 mathematical scope of any receipt.  The earlier
 `output/BUILD_AND_AUDIT_SUMMARY.md` records the distinct dated 24 August
 release snapshot.
-The 25--27 August addenda below record further frozen-packet gates and preserve
+The 25--28 August addenda below record further frozen-packet gates and preserve
 their failed predecessor runs; they do not retroactively enlarge any of the
 nine 24 August gates counted in this paragraph.
 
@@ -197,6 +197,60 @@ nine 24 August gates counted in this paragraph.
 - Scope firewall: harmonic approximants are not asserted; functions taking
   `-infinity`, higher-dimensional spaces, and curve scopes outside the exact
   theorem remain outside this result.
+
+## Chapters 57, 58, 63, and 71 — full projective ample-class MP--BJ comparison
+
+- Status: **VERIFIED FROZEN CANDIDATE AND EXACT-LIVE RUN2 / P00.1 RETIRED**
+  (28 August 2026).
+- Book location: the full-cone comparison theorem in Chapter 71 and its
+  synchronized comparison summaries.
+- Exact scope: connected smooth projective complex variety; every ample real
+  numerical class for the MP--BJ order isomorphism; an ample rational
+  line-bundle class and smooth representative for the composed full DXZ--MP
+  order isomorphism.  Both conclusions concern all semivaluations and impose
+  no finite-energy hypothesis.
+- Proof mechanism: finite flag-ideal GAGA identifies the rational PL
+  lattices; a common-refinement/direct-limit argument makes MP positivity
+  testable on an algebraic determination; analytic and algebraic nef cones
+  agree on the smooth projective central components; the MP and BJ decreasing
+  completion theorems then identify the full cones.
+- Frozen statement SHA-256:
+  `e40829e3586bcabeeb866229dc068c2e518a736fc908dec32f3bf3957c59c9ab`.
+- Frozen proof SHA-256:
+  `baad23068e9dcae47619f3e2d81cfd26fa5bd51b1e4c4d4baa1a7c024824e671`.
+- Production archive:
+  `editorial/rethlas_packets_20260828/p001_mp_bj_full_cone_run_20260828`;
+  response verdict `correct`, zero critical errors, and zero gaps.  Request,
+  response, and safe-header SHA-256 are
+  `5247582aa59d492ecc683c2740eac8783528df9dacb0b49aedb710c08dab677a`,
+  `b2e490edd946e0c32d2e59ba941d77cc38425956f4cde0ecc82f49adc173917f`,
+  and
+  `c9dcbbbaae1d0b1064b9e21df6976bee6c7c647306cec57a85e43ea4588b4371`.
+  The endpoint assigned no run or item identifier beyond the archive label.
+- Independent gates: two exact-byte mathematical/source audits passed before
+  the production submission.
+- Exact-live gate: statement SHA-256
+  `949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e`;
+  proof SHA-256
+  `58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064`.
+  Archive
+  `editorial/rethlas_packets_20260828/p001_mp_bj_full_cone_live_run2_20260828`;
+  verdict `correct`, zero critical errors, and zero gaps.  Request, response,
+  and safe-header SHA-256 are
+  `0117a2a2669e2980b620e9fedc53d9ca6fb59c9b8d312f9fa46935dad82bcea6`,
+  `aa83284548a249c6e1538a7d0c352e6181936e4d79455b5a8f980400aec8b960`,
+  and
+  `1bf4eb42373b4422429660ca6be4c02fd27681fdd3ea3e76a52dd1edbe05c862`.
+  The prior archive `p001_mp_bj_full_cone_live_run_20260828` also returned
+  `correct`; its statement SHA-256 began `5d912`, and its proof already had
+  the final hash above.  Run2 supersedes it solely because the live TeX
+  equation wrapper was repaired; no mathematical content changed.
+- Provenance: this is a book-level source-explicit synthesis of published MP,
+  BJ, and DXZ results.  No novelty, publication, or priority claim is made.
+  The frozen candidate and final exact-live bytes are both controlled.
+- Inventory consequence: P00.1 and its Chapter 71 problem environment are
+  retired.  Fifteen formal open environments and 54 active atoms remain,
+  with tier counts `(0,6,14,17,17)`.
 
 ## Xia Conjecture 8.8 — repaired mixed partial-body formula
 

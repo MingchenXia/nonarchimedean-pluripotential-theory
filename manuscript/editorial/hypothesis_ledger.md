@@ -74,11 +74,17 @@ hypotheses but never replace prose.
   source-audited, but its Rethlas receipt remains pending.
 - **DXZ--BJ versus MP (Ch. 71).** The literal raw multiplier-ideal formula on
   all semivaluations is retained only for a pseudoeffective
-  (mathbf Q)-line-bundle class on a smooth projective manifold. The
-  real-Néron--Severi assertion is the source's directed-limit identification.
-  The MP comparison remains Kähler, (mathcal I)-maximal, and finite-energy;
-  it is neither a full-cone identification nor a replacement of
-  (P)-equivalence by (mathcal I)-equivalence.
+  \(\mathbf Q\)-line-bundle class on a smooth projective manifold; the
+  real-Néron--Severi DXZ--BJ assertion is the source's directed-limit
+  identification.  The general compact-Kähler MP comparison remains
+  Kähler, \(\mathcal I\)-maximal, and finite-energy.  There is one verified
+  full-cone exception: for a connected smooth projective variety and an
+  ample real Néron--Severi class, the MP and BJ cones agree; for an ample
+  \(\mathbf Q\)-class, composition with DXZ gives the full DXZ--MP order
+  isomorphism.  This does not cover transcendental classes outside
+  \(N^1(X)_{\mathbf R}\), nonprojective compact-Kähler manifolds, or non-nef
+  classes, and it does not replace \(P\)-equivalence by
+  \(\mathcal I\)-equivalence.
 - **Trusiani v2 (17 August 2026).** Its smooth polarized projective and
   weighted-relative statements remain dated preprint claims under their
   displayed automorphism-relative hypotheses. They do not enlarge the

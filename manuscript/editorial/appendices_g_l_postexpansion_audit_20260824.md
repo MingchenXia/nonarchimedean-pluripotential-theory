@@ -193,3 +193,15 @@ No manuscript source file in Appendices G--L was changed: every potential issue 
 5. **Dependence on main-chapter notation.** Appendix H was checked against the current Chapters 51 and 52. Any later normalization change in those chapters must be propagated to Appendix H and Appendix J together.
 
 Subject to those synchronization checks, Appendices G--L are mathematically and editorially ready for integration into the next full-book build.
+
+## Controlling 28 August 2026 Appendix L synchronization addendum
+
+Appendix L has now been reconciled with the retirement of P00.1.  It records
+the full projective ample-class MP--BJ theorem, its rational-class DXZ--MP
+corollary, the frozen-candidate production receipt, and the final exact-live
+receipt.  The current frontier is 15 formal problem environments and 54
+active atoms with tiers `(0,6,14,17,17)`.  The final live theorem/proof hashes
+are `949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e`
+and `58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064`;
+the archive `p001_mp_bj_full_cone_live_run2_20260828` returned `correct` with
+zero critical errors and zero gaps.  No novelty or priority claim is made.

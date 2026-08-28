@@ -355,3 +355,21 @@ Picard reduction, the new negative conclusion, and the firewall that no
 classification of every individual nonample cubical line bundle is claimed.
 This addendum supersedes only the dated P09.2/count statements above; all
 other residual-risk entries remain unchanged.
+
+## Controlling 28 August 2026 P00.1 addendum
+
+The residual-risk sentence above concerning the full projective
+pseudoeffective MP comparison is now superseded only in the smooth-projective
+ample Néron--Severi locus.  Theorem
+`thm:pseff-projective-full-mp-bj` identifies the full MP and BJ cones for
+every ample real numerical class, and its composition with DXZ Theorem 3.14
+identifies the full DXZ and MP cones for an ample rational class.  The final
+live theorem/proof SHA-256 values are
+`949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e` and
+`58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064`;
+the exact-live archive `p001_mp_bj_full_cone_live_run2_20260828` records
+verdict `correct`, zero critical errors, and zero gaps.  The nonprojective,
+transcendental, non-nef, and zero-volume boundaries remain.  P00.1 is retired,
+leaving 15 formal problem environments and 54 active atoms with tiers
+`(0,6,14,17,17)`.  This is a source-explicit book-level synthesis, with no
+novelty or priority claim.

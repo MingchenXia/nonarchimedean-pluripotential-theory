@@ -32,7 +32,7 @@ Status vocabulary:
 | 67 | Functoriality and trace | first-draft-final (historical) | prior hostile-pass record; exact current Rethlas status is recorded separately | source correction recorded in the trace audit |
 | 68 | YTD bridge | post-expansion depth-audited | factor-two normalization and perturbation chain checked against the internally proved ray formulas | Fano and automorphism-group scope rechecked against primary sources |
 | 69 | Validated extensions | post-expansion synchronization in progress | in addition to the toric gates, the complete-intersection slice passed `20260825T023505Z_66547f68ec32`; the analytic weighted-cross realization and compact-source obstruction passed `20260825T021353Z_058a4390b0fb` and `20260825T024519Z_16376e0d52eb`; and the four-punctured smooth-curve obstruction passed `20260825T034743Z_ea6194f07e86`; all four are final `correct`, with 0 critical errors and 0 gaps | the slice tests only restrictions of ambient smooth functions; the cross construction gives equality of curvature only after proper pushforward, not an analytic Bedford--Taylor counterexample; the four-punctured result excludes its concrete candidate but leaves P21.3 open; no novelty or priority claim is made |
-| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 71 has one and Chapter 72 has 15 problem environments, for 16 book-wide and 55 active atoms; P06.3 joined the previously retired generalized-Lelong, real-PL current--residue, real-toric current-level, global Radon--Riesz, P09.1, P09.2, cross-fan realization, and normalized hybrid-continuity atoms after production verification; P06.3 passed `20260827T090645Z_767cbf81c723` positively; the P21.3 canonical-collar arbitrary-field reduced theorem passed exact-live run `20260828T042906Z_f2a1c1b9f2a3`; its arbitrary-field nonreduced combined extension passed run `20260828T044008Z_dfdaa04a1cea`, and the separately materialized nonreduced exact-live bytes passed HTTP-archived closure run `20260828T051601Z_db92555a72e1`, narrowing but not retiring the single residual T2 atom | source status is reconciled through 24 August 2026 and book verification through 28 August; the P21.3 residual is analytic dimension at least two and, in dimension one, only trivially valued ground fields or a reduced irreducible component whose normalization is not rig-smooth; nonreducedness by itself and failure of algebraic closedness are no longer residual over a complete nontrivially valued field, while literal discontinuous-psh CLD Definition 8.6.2 remains outside the proved continuous-pair scope; the sourced \(P\)-valued trace theorem replaced a false open item, Wu's affine-cone equation supplied a genuine one, the author-supplied repaired proof closes Conjecture 8.8 only in its smooth-projective positive-Cao-volume domain, and all book-level derivations retain exact scope |
+| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 72 has all 15 remaining problem environments and 54 active atoms; P00.1 is retired after exact verification of the ample-class full MP--BJ comparison and its rational-class DXZ corollary; its frozen statement/proof SHA-256 values are `e40829e3586bcabeeb866229dc068c2e518a736fc908dec32f3bf3957c59c9ab` / `baad23068e9dcae47619f3e2d81cfd26fa5bd51b1e4c4d4baa1a7c024824e671`, and the archived production response in `p001_mp_bj_full_cone_run_20260828` is `correct` with zero critical errors and zero gaps; the exact-live statement/proof SHA-256 values `949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e` / `58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064` passed `p001_mp_bj_full_cone_live_run2_20260828`, also `correct` with zero critical errors and zero gaps; P06.3 passed `20260827T090645Z_767cbf81c723`; the P21.3 arbitrary-field reduced, nonreduced combined, and exact-live closure gates passed `20260828T042906Z_f2a1c1b9f2a3`, `20260828T044008Z_dfdaa04a1cea`, and `20260828T051601Z_db92555a72e1`, narrowing but not retiring its residual T2 atom | source status is reconciled through 24 August 2026 and book verification through 28 August; P00.1 is a book-level sourced synthesis, not a novelty or priority claim; the P21.3 residual is analytic dimension at least two and, in dimension one, only trivially valued ground fields or a reduced irreducible component whose normalization is not rig-smooth; nonreducedness by itself and failure of algebraic closedness are no longer residual over a complete nontrivially valued field, while literal discontinuous-psh CLD Definition 8.6.2 remains outside the proved continuous-pair scope; all book-level derivations retain exact scope |
 | A--L | Appendices | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 
 **26 August 2026 controlling Chapter 18 correction.**  The former
@@ -130,6 +130,31 @@ and 55 active atoms; P21.3 remains one T2 atom in analytic dimension at least
 two and, in dimension one, only for trivially valued fields or a reduced
 component whose normalization is not rig-smooth.
 
+**28 August 2026 P00.1 controlling retirement addendum.**  The full
+Mesquita--Piccione and Boucksom--Jonsson psh cones agree under the canonical
+GAGA homeomorphism for every ample real numerical class on a connected smooth
+projective complex variety.  For an ample rational line-bundle class, DXZ
+Theorem 3.14 then supplies the unrestricted DXZ--MP order isomorphism on all
+semivaluations.  The exact frozen statement and proof have SHA-256
+`e40829e3586bcabeeb866229dc068c2e518a736fc908dec32f3bf3957c59c9ab`
+and
+`baad23068e9dcae47619f3e2d81cfd26fa5bd51b1e4c4d4baa1a7c024824e671`;
+the archived production response in
+`editorial/rethlas_packets_20260828/p001_mp_bj_full_cone_run_20260828`
+returned `correct`, zero critical errors, and zero gaps after two independent
+exact-byte audits.  The exact-live statement and proof, SHA-256
+`949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e`
+and
+`58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064`,
+passed the superseding archive
+`editorial/rethlas_packets_20260828/p001_mp_bj_full_cone_live_run2_20260828`,
+verdict `correct`, zero critical errors, and zero gaps.  The result is a
+book-level source-explicit synthesis of
+MP, BJ, and DXZ, not a novelty or priority claim.  P00.1 and the Chapter 71
+problem environment are retired.  The current inventory is 15 formal problem
+environments, all in Chapter 72, and 54 active atoms, with tier counts
+`(0,6,14,17,17)`.
+
 ## Second-draft expansion
 
 A second-draft expansion pass has now reached every numbered chapter.  It
@@ -206,8 +231,8 @@ inspection passed.  Static and build checks do not replace the independent
 mathematical audits listed below.  After the later generalized-Lelong,
 real-PL current--residue, real-toric, local-envelope, cross-fan,
 hybrid-continuity, Radon--Riesz, and cubical delta-metricity integrations,
-the current literal frontier has 16 environments (one in Chapter 71 and 15
-in Chapter 72) and, after the P06.3 integration, 55 active atoms.  The
+the current literal frontier has 15 environments, all in Chapter 72, and,
+after the P00.1 integration, 54 active atoms.  The
 post-P09.2 source had a clean,
 visually audited 3,149-page build with a verified 111-file closure; its
 evidence is recorded in
@@ -252,8 +277,8 @@ box is an outstanding verification step, not a mathematical defect.
       above do not close this gate.
 - [ ] The source-boundary review is complete outside the separately recorded
       final-chapter and BJ-closure audits.
-- [x] The literal research inventory is 16 open `problem` environments:
-      one in Chapter 71 and 15 in Chapter 72, split into 55 active atoms.  No
+- [x] The literal research inventory is 15 open `problem` environments,
+      all in Chapter 72, split into 54 active atoms.  No
       exercise environment occurs.
 - [ ] Every result or integration designated for a Rethlas receipt has a
       receipt for its exact current statement and proof.  The Chapter 23 and

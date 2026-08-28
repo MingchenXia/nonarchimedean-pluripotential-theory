@@ -72,6 +72,24 @@ at least two and, in dimension one, for trivially valued fields or a reduced
 component whose normalization is not rig-smooth, so the count stays at
 fifty-five.
 
+**Controlling delta, 28 August 2026 (P00.1).**  The former Chapter 71
+projective-rational full-cone problem is retired.  For a connected smooth
+projective complex variety and every ample real Néron--Severi class, finite
+flag-ideal GAGA and common refinements identify the MP and BJ rational PL
+relative-nef cones, and their decreasing completions identify the full psh
+cones.  For an ample rational class, DXZ Theorem 3.14 then gives the full
+DXZ--MP order isomorphism on all semivaluations without an energy hypothesis.
+The frozen candidate passed two independent audits and a production Rethlas
+gate.  The final live statement and proof have SHA-256
+`949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e`
+and
+`58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064`;
+the exact-live run
+`p001_mp_bj_full_cone_live_run2_20260828` returned `correct`, zero critical
+errors, and zero gaps.  This is a book-level sourced synthesis, not a novelty
+or priority claim.  The current frontier is 15 formal problem environments,
+all in Chapter 72, and 54 active atoms with tier counts `(0,6,14,17,17)`.
+
 ---
 
 ## 1. Status vocabulary
@@ -1339,7 +1357,8 @@ theory row.
 | P0 | Common singular local MA product; CLD §§8.5--8.7 and Theorem 18.5.5, BFJ08 Propositions 4.6/4.8/4.9, BMPS 2603.08664v1 | R3-26 proves the smooth ideal/algebraizable-model and joint bounded comparison; next remove the analytic-model algebraizability boundary, characterize the closure, and find a capacity/energy rule for polar mass | Chapter 72 proves the Gauss-shell comparison and records the remaining scope |
 | P1 | Residual analytic Bedford--Taylor current compatibility; CLD §8.6 | Attack analytic dimension at least two by a legal intrinsic-current construction or a rigidity theorem; in dimension one, treat trivial valuation and non-rig-smooth reduced-component normalizations | The arbitrary complete nontrivially valued continuous-pair curve class, including nilpotent thickenings with rig-smooth reduced component normalizations, is verified by `20260828T042906Z_f2a1c1b9f2a3` and controlling HTTP-archived run `20260828T051601Z_db92555a72e1`; P21.3 remains one T2 atom precisely in the displayed residual scopes |
 | P0 | Local FS envelopes and gluing; GR-C Theorem 6.5 and global BJ envelopes | Classify geometric hypotheses, beginning with normal or analytically unibranch domains, under which usc regularization preserves classical psh; then treat CLD-v2 psh for usc obstacles and continuity for continuous finite obstacles separately | The unconditional assertions are disproved by `prop:ch15-nodal-local-envelope` and run `20260825T094005Z_10ac70696f69`; the positive classification is open |
-| P0 | MP realization of big/pseudoeffective DXZ data; DXZ (CMH 2025), MP (Adv. Math. 2025), Xia operations | Build a relatively big/nef model category with intersections, envelopes, orthogonality, and exact \(\mathcal I\)-comparison | Chapter 72 records the Kähler comparison and no-go boundaries |
+| P0 | MP realization of big/pseudoeffective DXZ data; DXZ (CMH 2025), MP (Adv. Math. 2025), Xia operations | Build a relatively big/nef model category with intersections, envelopes, orthogonality, and exact \(\mathcal I\)-comparison outside the ample projective numerical locus | Chapter 71 proves the full MP--BJ comparison for smooth projective ample real Néron--Severi classes, and hence full DXZ--MP for ample rational classes; Chapter 72 retains the nonprojective, transcendental, non-nef, and zero-volume boundaries |
+| Resolved history | Full projective ample-class MP--BJ comparison (former P00.1) | Finite flag-ideal GAGA, common-refinement relative-nef comparison, and equality of decreasing completions | Verified in `thm:pseff-projective-full-mp-bj`; production and exact-live Rethlas records are in the 28 August P00.1 receipts, with no novelty or priority claim |
 | P0 | Nontrivially valued MA existence and the arbitrary-field \(\mathcal E^1\) operator; BFJ and Pille--Schneider Remark 4.4 | Separate operator construction from solvability; remove one field/singularity/support hypothesis at a time and reconstruct every variational input | Exact source question and broader book programme are separated in Chapter 72 and this ledger |
 | Resolved history | BJ global Radon--Riesz, BJ Question 11.16 | Moving-centre valuations on \(\mathbf P^n\), \(n\ge2\), give weak convergence and identical exhaustion value one but a uniform strong gap | Disproved by `thm:ch49-global-radon-riesz-counterexample`; the fixed-SNC-complex positive theorem remains valid |
 | P1 | Singular/nonnormal local valuative theory; BFJ08, Bingener 1976, Xia *Stein spaces* (3 July 2026) | Test normalization, conductor, and finite-map descent on nodes, cusps, quotient and inseparable germs | Chapter 72 treats the smooth BFJ endpoint only |
@@ -1352,14 +1371,15 @@ theory row.
 | P2 | Early collapse of the CLD transfinite psh hierarchy; CLD Lemma 8.1.4/Remark 8.1.6 | Extend the verified toric and finite ambient-induced real-affine-star cases to arbitrary non-toric positive-sedentarity or nonambient structures, higher-dimensional spaces, or infinite stars, or exhibit genuine transfinite rank | Eventual stabilization, the toric case, and the finite ambient-induced star case are closed; the latter passed the direct production endpoint and is archived under `20260827T103835Z_c8131b22d800`; Chapter 72 retains the unrestricted residual |
 | P2 | Exact canonical BJ approximation and threshold identities after Trusiani 2026 | Identify Trusiani's approximants term by term with the prescribed BJ sequence and normalize every threshold | Earlier chapters provide machinery; Chapter 72 does not identify them |
 
-The live Chapter 72 has 15 open-problem environments.  The book-wide literal
-count is 16 because the preceding pseudoeffective MP--DXZ chapter separately
-contains the projective-rational full-link problem.  These are
+The live Chapter 72 contains all 15 open-problem environments in the book.
+The former projective-rational full-link environment in Chapter 71 has been
+replaced by the verified full projective ample-class comparison.  These are
 research-status records, not exercises.  The earlier trace-refinement row has
 been removed: the complete supplied Darvas--Xia chapter proves the required
 input-\(\mathcal I\)/output-\(P\) factorization, so Chapter 72 now records it as
 resolved source history.  Splitting compound environments into independently
-auditable targets gives 55 active atoms; their exact crosswalk and easy-to-hard
+auditable targets gives 54 active atoms, with tier counts `(0,6,14,17,17)`;
+their exact crosswalk and easy-to-hard
 queue are recorded in
 `manuscript/editorial/open_problem_atomic_inventory_20260824.md`.  The
 production receipts distinguish exact-current gates from frozen

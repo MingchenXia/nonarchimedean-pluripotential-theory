@@ -3,9 +3,9 @@
 **Literature cutoff:** 24 August 2026.  
 **Live book location:** Chapter 72, with 15 research-frontier problem
 environments.  
-**Book-wide count:** 16 problem environments: the 15 active items mapped below and the
-separate projective-rational full-link problem in the preceding
-pseudoeffective MP--DXZ chapter.  The latter is outside the Chapter 72 list.
+**Book-wide count:** 15 problem environments, all mapped below in Chapter 72.
+The former projective full-cone problem P00.1 in Chapter 71 is retired by the
+28 August controlling addendum below.
 OP-01, OP-09, OP-11, and OP-18 below are retained as resolved history and are not
 counted.
 
@@ -82,8 +82,34 @@ positivity, closedness, and continuous psh functions are invariant under
 nilreduction, whereas the fundamental integration current records the
 generic component multiplicities.  No statement is made for the literal
 possibly discontinuous psh scope of CLD Definition 8.6.2.  P21.3 remains one
-T2 atom, so the inventory stays at 16 problem environments and 55 active
-atoms.
+T2 atom, so at that gate the inventory stayed at 16 problem environments and
+55 active atoms; the following P00.1 addendum controls the current totals.
+
+**28 Aug 2026 P00.1 controlling retirement addendum.**  On a connected
+smooth projective complex variety, the canonical GAGA homeomorphism identifies
+the full Mesquita--Piccione and Boucksom--Jonsson psh cones for every ample
+real numerical class.  The proof first identifies the rational PL
+relative-nef cones through algebraized flag ideals, common refinements, and
+analytic/algebraic nef-cone comparison, and then identifies their decreasing
+completions.  For an ample rational line-bundle class, DXZ Theorem 3.14 gives
+the full DXZ--MP order isomorphism on all semivaluations, without a
+finite-energy hypothesis.  The exact frozen statement/proof SHA-256 values
+are
+`e40829e3586bcabeeb866229dc068c2e518a736fc908dec32f3bf3957c59c9ab` /
+`baad23068e9dcae47619f3e2d81cfd26fa5bd51b1e4c4d4baa1a7c024824e671`.
+The archived production response in
+`rethlas_packets_20260828/p001_mp_bj_full_cone_run_20260828` returned verdict
+`correct`, zero critical errors, and zero gaps after two independent
+exact-byte audits.  This controls the frozen candidate; the exact-live
+statement and proof, SHA-256
+`949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e` /
+`58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064`,
+passed the superseding archive
+`rethlas_packets_20260828/p001_mp_bj_full_cone_live_run2_20260828`, verdict
+`correct`, zero critical errors, and zero gaps.  This is a book-level synthesis of published MP, BJ, and
+DXZ results, with no novelty or priority claim.  P00.1 and the Chapter 71
+problem environment are retired; 15 formal environments and 54 atoms remain,
+with tier counts `(0,6,14,17,17)`.
 
 **Promotion rule:** an item becomes a new theorem only after its exact
 statement and proof receive a production Rethlas gpt-5.6-sol/xhigh receipt
@@ -123,12 +149,11 @@ are independently checked.  Accordingly OP-15 and Chapter 72 keep
 Conjecture 8.8 open.  The dated 15 August note near the end of this file is
 retained only to disclose the superseded intermediate classification.
 
-**Exact active count:** Chapter 72 contains 15 problem environments and
-Chapter 71 contains the separate projective-rational full-cone problem, for
-16 book-wide and 55 independently auditable active atoms. All 16 retain a
-genuinely open residual scope. At the
+**Exact active count:** Chapter 72 contains all 15 problem environments, with
+54 independently auditable active atoms and tier counts
+`(0,6,14,17,17)`. All 15 retain a genuinely open residual scope. At the
 whole-environment level the cutoff count is: resolved 0, disproved 0,
-conditional 0, genuinely open 16. Resolved, disproved, and conditional
+conditional 0, genuinely open 15. Resolved, disproved, and conditional
 subclaims below are boundary results inside those active environments and
 are not additional problem environments.
 
@@ -444,11 +469,11 @@ source questions under one common framework.
 - **Status:** the broad exact packet was attempted and not verified; Chapter
   72 retains only sourced and elementary results. The subquestion remains
   open.
-- **Related earlier environment:**
-  `prob:pseff-projective-rational-full-link` in the preceding chapter records
-  the separate projective-rational full-cone comparison.  It accounts for
-  the difference between the 15-item Chapter 72 map and the 16 book-wide
-  literal problem count.
+- **Resolved adjacent comparison:** the former P00.1 environment
+  `prob:pseff-projective-rational-full-link` in the preceding chapter has
+  been replaced by the verified ample-class full MP--BJ comparison and its
+  rational-class DXZ corollary.  This does not resolve the pseudoeffective,
+  non-nef, nonprojective, or zero-volume targets retained in OP-14.
 - **Packets:** mp_pseff_chapter_exact.md (failed verification, no promotion)
   and dxz_filtration_test_curve_maximality.md (prepared, not run).
 

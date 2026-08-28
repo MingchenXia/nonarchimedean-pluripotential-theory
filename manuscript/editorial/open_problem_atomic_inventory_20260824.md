@@ -12,8 +12,8 @@ surrounding literature.
 
 ## Counting method
 
-The current source contains exactly sixteen formal problem environments:
-one in Chapter 71 and fifteen in Chapter 72.  A compound environment is
+The current source contains exactly fifteen formal problem environments,
+all in Chapter 72.  A compound environment is
 split below into independently auditable theorem or construction targets.
 Equivalent reformulations are counted only once.  The compatibility axioms
 that make a construction meaningful---for example model independence,
@@ -36,25 +36,21 @@ semipositive integral-decomposition atom after the verified signed theorem
 and positive-cone counterexample, and retirement of the cubical
 delta-metricity atom after the verified product--Gauss criterion, and
 retirement of the ordinary CLD-smooth curve-regularization atom after
-`thm:p063-current-psh-ordinary-regularization`,
+`thm:p063-current-psh-ordinary-regularization`, and retirement of the
+projective ample-class full-cone atom P00.1 after the source-explicit
+Mesquita--Piccione--Boucksom--Jonsson comparison described below,
 the exact count is
 
 ```text
-16 formal problem environments = 55 active atomic research questions.
+15 formal problem environments = 54 active atomic research questions.
+Tier counts: (T1,T2,T3,T4,T5) = (0,6,14,17,17).
 ```
 
-The identifiers `P00.1` through `P21.3` below are an editorial addressing
+The active identifiers `P02.1` through `P21.3` below are an editorial addressing
 scheme.  The prefix records the formal environment, not a theorem number in
 the book.
 
 ## Atomic inventory
-
-### `prob:pseff-projective-rational-full-link` --- 1 atom
-
-- **P00.1** `[T2; open]` Decide whether, for an ample rational class, the
-  full Mesquita--Piccione psh cone agrees on all semivaluations with the full
-  Boucksom--Jonsson psh cone, without a finite-energy hypothesis.  The
-  finite-energy comparison is known; the unrestricted comparison is open.
 
 ### `prob:frontier-classical-regularization` --- 4 atoms
 
@@ -177,7 +173,8 @@ therefore retains arbitrary higher-dimensional settings, infinite-valence
 stars, and local models not known to admit the stated generator-preserving
 finite-star charts.  P07.2 retains the absence of a uniform early-ordinal
 bound.  Both atoms remain active; the inventory stays at 55 atoms in 16
-formal problem environments.
+formal problem environments at that verification gate; the controlling
+P00.1 retirement addendum below gives the current totals.
 
 ### `prob:frontier-cld-global-metric` --- 2 atoms
 
@@ -436,7 +433,34 @@ provenance rather than the controlling gate.  Independent byte, source, and
 hostile audits also passed.  Thus neither
 nonreducedness nor failure of algebraic closedness remains in the residual
 domain over a complete nontrivially valued field.  The active atom count is
-unchanged at 55.
+unchanged at the then-current value (55).
+
+**28 August 2026 P00.1 controlling retirement addendum.**  For every
+connected smooth projective complex variety and every ample real numerical
+class, GAGA identifies the rational PL Mesquita--Piccione and
+Boucksom--Jonsson model cones, including their relative-nef conditions, and
+their decreasing completions therefore agree on all semivaluations.  For an
+ample rational line-bundle class, composition with Darvas--Xia--Zhang,
+Theorem 3.14 gives the unrestricted DXZ--MP order isomorphism without a
+finite-energy hypothesis.  This is a book-level, source-explicit synthesis
+of published MP, BJ, and DXZ inputs; it is not a novelty or priority claim.
+The exact frozen statement and proof have SHA-256
+`e40829e3586bcabeeb866229dc068c2e518a736fc908dec32f3bf3957c59c9ab`
+and
+`baad23068e9dcae47619f3e2d81cfd26fa5bd51b1e4c4d4baa1a7c024824e671`.
+The production archive
+`rethlas_packets_20260828/p001_mp_bj_full_cone_run_20260828` records verdict
+`correct`, zero critical errors, and zero gaps after two independent
+exact-byte audits.  This controls the frozen candidate; the exact-live
+statement and proof, SHA-256
+`949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e`
+and
+`58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064`,
+passed the superseding archive
+`rethlas_packets_20260828/p001_mp_bj_full_cone_live_run2_20260828`, verdict
+`correct`, zero critical errors, and zero gaps.  P00.1 and its Chapter 71
+problem environment are retired.
+The active inventory is now 15 formal environments and 54 atoms.
 
 ## Easy-to-hard Rethlas queue
 
@@ -448,9 +472,9 @@ counterexample retires an atom just as a verified proof does.
 
 No active atom remains in this tier after retirement of `P01.1`.
 
-### T2 --- focused problems with one principal missing bridge (7 atoms)
+### T2 --- focused problems with one principal missing bridge (6 atoms)
 
-`P21.3`, `P07.1`, `P00.1`, `P17.1`, `P06.1`, `P06.2`, `P03.1`.
+`P21.3`, `P07.1`, `P17.1`, `P06.1`, `P06.2`, `P03.1`.
 
 ### T3 --- major theorems within mature frameworks (14 atoms)
 
