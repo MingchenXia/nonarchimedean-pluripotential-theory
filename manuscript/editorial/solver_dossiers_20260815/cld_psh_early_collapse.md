@@ -94,9 +94,12 @@ limits are of *sequences*, not nets, in Définition 8.1.1(ii); local integrabili
 not part of Définition 8.1.1 but is the subject of the separate sheaf
 \(L^1\mathrm{Psh}_X\) of Proposition 8.1.12, which satisfies
 \(L^1\mathrm{Psh}_{X,\alpha}=L^1_{\mathrm{loc}}\cap \mathrm{Psh}_{X,\alpha}\) for every
-\(\alpha\). Consequently **collapse for \(\mathrm{Psh}\) and collapse for
-\(L^1\mathrm{Psh}\) are equivalent**, level by level, and the integrability
-bookkeeping the packet warns about does not create a separate problem.
+\(\alpha\). Consequently, collapse of \(\mathrm{Psh}\) at stage \(\alpha\)
+implies collapse of \(L^1\mathrm{Psh}\) at that stage. Conversely, collapse of
+\(L^1\mathrm{Psh}\) at stage \(\alpha\) implies collapse of
+\(\mathrm{Psh}\) by stage \(\alpha+1\), using the decreasing truncations
+\(\max\{u,-m\}\). Thus the two least collapse ordinals differ by at most one;
+level-by-level equivalence is not a consequence of Proposition 8.1.12.
 
 ---
 
@@ -140,10 +143,9 @@ Définition 8.1.1(ii); by minimality of \(\mathrm{Psh}_X\) we get
 content of Lemme 8.1.4. \(\square\)
 
 **Consequence.** The entire question is: *is a decreasing limit of approachable
-functions approachable?* Every genuinely analytic difficulty is concentrated here,
-and the transfinite apparatus is a red herring — if stage one is not stable under
-decreasing limits, no finite stage is either, by the same argument applied at each
-\(\alpha\).
+functions approachable?* Every genuinely analytic difficulty is concentrated here.
+The reduction does not compare different stages: failure of stability at stage one
+does not rule out stabilization at a later finite or transfinite stage.
 
 ### 4.2 Collapse on \(\mathbf R^n\) (CANDIDATE-PROPOSITION; complete proof)
 
@@ -275,8 +277,9 @@ neighbourhood serving all \(\varepsilon\). Call the implication between these th
 
 **CONDITIONAL-REDUCTION (continuous case).** For continuous psh functions, stage-one
 collapse is equivalent to UNP. In particular the obstruction in the continuous case
-is purely point-set: no analytic input is missing, only the passage from
-shrinking neighbourhoods to a fixed one.
+is the passage from shrinking neighbourhoods to a fixed one.  Closing that passage
+requires a fixed-domain regularization or gluing theorem; it is not a consequence of
+point-set topology alone.
 
 **First unsupported implication in the naive argument** (recorded verbatim, as the
 protocol requires): *"since each \(u_k\) is locally a uniform limit of smooth psh
@@ -408,8 +411,11 @@ no such operator is known.
   upgrades pointwise to locally uniform convergence for continuous limits on the
   locally compact tropical space, and this is used only in §4.4 where CLD themselves
   use it.
-- *Local integrability.* Handled once and for all by Proposition 8.1.12: the
-  \(L^1\) hierarchy matches the plain one at every level, so no separate bookkeeping.
+- *Local integrability.* Proposition 8.1.12 gives the stagewise identity
+  \(L^1\mathrm{Psh}_{X,\alpha}=L^1_{\mathrm{loc}}\cap
+  \mathrm{Psh}_{X,\alpha}\). It does not identify the two collapse stages:
+  the forward implication preserves the stage, while the reverse implication
+  may lose one successor stage through truncation.
 - *Non-compact cells and behaviour at infinity.* §4.2 is stated on \(\Omega_\varepsilon\)
   and the conclusion is local, so no properness is used. §4.5 is a germ statement at
   a vertex.
@@ -481,10 +487,10 @@ text repeating the narrowing must be corrected.
   arguments.
 - **Continuous case:** by CLD Proposition 8.1.11 and Lemme 8.1.10 the continuous
   question reduces to uniform limits, which diagonalize on a fixed open; the residual
-  obstruction is purely point-set — the uniform-neighbourhood property — and carries
-  no missing analytic input. Richberg gluing via the §4.3(b) regularized maximum is
-  the recommended next attack, and unlike the Berkovich setting of Remarque 17.8.10
-  it is not blocked by absence of a strict positivity reserve.
+  obstruction is the uniform-neighbourhood property.  It requires analytic input in
+  the form of fixed-domain regularization or Richberg gluing via the §4.3(b)
+  regularized maximum; unlike the Berkovich setting of Remarque 17.8.10, the latter
+  route is not immediately blocked by absence of a strict positivity reserve.
 - **Refuted mechanism:** vertex atoms do not obstruct approachability. On the
   standard tropical line the Minkowski gauge of \(\operatorname{conv}\{v_1,v_2,v_3\}\)
   lies in \(\mathrm{Psh}_{X,1}\) and has vertex atom \(3\), while every smooth psh

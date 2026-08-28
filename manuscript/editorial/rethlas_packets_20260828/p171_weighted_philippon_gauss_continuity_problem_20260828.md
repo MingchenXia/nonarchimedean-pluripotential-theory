@@ -1,0 +1,188 @@
+# Weighted Philippon--Gauss continuity on a Banach spectrum
+
+## Exact target
+
+Let \(A\) be a Banach ring and let \(U\subset \mathcal M(A)\) be open.  Fix
+finitely many blocks of variables
+\[
+ \mathbf U_i=(U_{i0},\ldots,U_{i,N_i-1}),\qquad N_i\ge 1,
+\]
+and nonnegative block degrees \(d_i\).  Let \(S\) be a finite set of
+multiexponents of block degree \((d_i)_i\), let \(w_\alpha\in\mathbf R\)
+for \(\alpha\in S\), and let \(c_\alpha\in\mathcal O(U)\).  Assume that the
+coefficient tuple is nowhere zero:
+\[
+ \max_{\alpha\in S}|c_\alpha(x)|_x>0\quad\text{for every }x\in U.
+\]
+It is enough to prove the assertion after shrinking to a rational domain on
+which all \(c_\alpha\) belong to one Banach localization of \(A\).
+
+Put
+\[
+ \rho(x)=\frac{\log\max\{1,|2|_x\}}{\log 2}.
+\]
+If \(\rho(x)=0\), define
+\[
+ \Phi(x)=\max_{\alpha\in S}
+            \bigl(\log|c_\alpha(x)|_x+w_\alpha\bigr),
+ \qquad \log 0=-\infty.
+\tag{1}
+\]
+If \(\rho(x)>0\), choose a complex character
+\(\chi_x\) representing the Archimedean seminorm, so that
+\[
+ |a|_x=|\chi_x(a)|_\infty^{\rho(x)}.
+\]
+The character is unique up to complex conjugation.  Define
+\[
+ F_x=\sum_{\alpha\in S}
+       \chi_x(c_\alpha)e^{w_\alpha/\rho(x)}\mathbf U^\alpha
+\]
+and
+\[
+ \Phi(x)=\rho(x)\operatorname{ph}(F_x),
+\tag{2}
+\]
+where \(\operatorname{ph}\) is Philippon's logarithmic sphere measure with
+the harmonic correction in D'Andrea--Krick--Sombra, Definition 2.33.
+
+Prove that \(\Phi\) is a well-defined continuous real-valued function on
+\(U\).
+
+Also prove the line-valued version.  If \(\mathscr L\) is a line bundle on
+\(U\), and
+\[
+ R=\sum_\alpha r_\alpha\mathbf U^\alpha
+       \in \mathscr L\otimes \mathbf Z[\mathbf U]
+\]
+has a nowhere-zero fibrewise coefficient tuple, write \(R=eF_e\) in a local
+frame \(e\).  Prove that \(\Phi_e:=\Phi(F_e)\) satisfies
+\[
+ e'=ue\quad\Longrightarrow\quad
+ F_{e'}=u^{-1}F_e,
+ \qquad
+ \Phi_{e'}=\Phi_e-\log|u|,
+\tag{3}
+\]
+and hence defines a continuous additive metric on \(\mathscr L\).
+
+Do not claim that this lemma solves Pille--Schneider Question 4.9.  It is
+only one analytic input for that problem.
+
+## Permitted primary-source inputs
+
+1. D'Andrea--Krick--Sombra, arXiv:1103.4561v2, Lemma 2.32,
+   Definition 2.33, and equations (2.34)--(2.35).  For a fixed
+   multihomogeneous type they imply a constant \(C=C((N_i),(d_i))\) such
+   that every nonzero complex polynomial \(F\) of that type satisfies
+   \[
+    \left|\operatorname{ph}(F)-\log\|F\|_{\max}\right|\le C,
+   \tag{4}
+   \]
+   where \(\|F\|_{\max}\) is the maximum coefficient modulus.  It is
+   acceptable to use the harmless bound
+   \(C=2\sum_i\log(N_i+1)d_i\).
+
+2. Shouwu Zhang, *Heights and reductions of semi-stable varieties*,
+   Compositio Math. 104 (1996), Theorem 3.6(1), pp. 94--96.  Together with
+   the definition of the Chow metric in Section 1.5, it proves continuity
+   of the logarithmic spherical integral on the nonzero projective
+   coefficient space of a fixed Chow type.  If using it for arbitrary fixed
+   block sizes and multidegrees, either explain the elementary padding and
+   fixed-monomial reduction to Zhang's equal-type case, or reproduce the
+   local Weierstrass-preparation argument.  Homogeneity must then be used to
+   pass from projective coefficient space to the punctured coefficient
+   vector space.
+
+No other literature result may be silently strengthened.  In particular,
+the following Archimedean character-topology assertion is not supplied by
+the cited sources and must be proved.
+
+## Required finite-type character lemma
+
+Let \(B\) be a finitely generated \(\mathbf Z\)-algebra.  Every
+Archimedean seminorm \(x\in\mathcal M(B)\) has a representation
+\[
+ |b|_x=|\chi_x(b)|_\infty^{\rho(x)}
+\]
+with \(\chi_x:B\to\mathbf C\), unique up to complex conjugation.  If
+\(x_\lambda\to x\) is a net of Archimedean seminorms and
+\(\inf_\lambda\rho(x_\lambda)>0\), prove that, after arbitrary choices of
+representatives \(\chi_\lambda\), every subnet has a further subnet
+converging pointwise on \(B\) to \(\chi_x\) or
+\(\overline{\chi_x}\).
+
+A complete proof must include all of the following points.
+
+* Present \(B=\mathbf Z[t_1,\ldots,t_r]/I\).  Use convergence of seminorms
+  and the positive lower bound for \(\rho\) to bound all
+  \(\chi_\lambda(t_j)\).
+* Extract convergent subnets in a compact polydisc and show that each limit
+  lies in \(V(I)(\mathbf C)\).
+* Identify the limit seminorm on every \(b\in B\), including the convergence
+  \(\rho(x_\lambda)\to\rho(x)\).
+* Prove, rather than merely assert, that two complex characters which give
+  the same usual absolute value on every element of \(B\) are equal or
+  complex conjugate.  A completion argument is allowed, but it must address
+  the real and nonreal cases and explain why a continuous automorphism of
+  \(\mathbf C\) fixing \(\mathbf R\) is the identity or conjugation.
+
+Then apply this lemma to the finitely generated ring generated by the
+finitely many coefficients (and a localization denominator, when needed).
+Explain why conjugation invariance and coefficient continuity of
+\(\operatorname{ph}\) give continuity at every point where \(\rho>0\).
+
+## Boundary argument that must be checked
+
+For \(\rho(x)>0\), show exactly that
+\[
+ \rho(x)\log\|F_x\|_{\max}
+ =\max_\alpha\bigl(\log|c_\alpha(x)|_x+w_\alpha\bigr).
+\tag{5}
+\]
+Combining (4) and (5), prove
+\[
+ \left|\Phi(x)-
+  \max_\alpha(\log|c_\alpha(x)|_x+w_\alpha)\right|
+ \le \rho(x)C.
+\tag{6}
+\]
+Prove that the finite maximum on the right is continuous despite zero
+coefficients, using the nowhere-zero-tuple hypothesis.  Since
+\(\rho\to0\) along every Archimedean net converging to a
+non-Archimedean point, (6) must yield the boundary continuity.  Explain why
+a net of non-Archimedean points cannot converge to a point with \(\rho>0\).
+
+## Homogeneity, localization, and failure tests
+
+The proof must verify
+\[
+ \Phi(\lambda F)=\log|\lambda|+\Phi(F)
+\tag{7}
+\]
+in both regimes, with the correct sign in (3).  It must also explain why the
+argument is local on \(U\), and why a coefficient denominator that is a unit
+on the chosen rational domain causes no problem.
+
+Run the following tests explicitly.
+
+1. \(A=\mathbf Z\) with its hybrid Banach spectrum and
+   \(F=1+U+V\): the Archimedean values converge to the maximum-coefficient
+   value as \(\rho\downarrow0\).
+2. Some coefficients may vanish at the limit, but not all; continuity must
+   survive.
+3. Real Archimedean fibres must agree with complexification and be
+   independent of the two conjugate representatives.
+4. Weights \(w_\alpha\) may be arbitrary real numbers, positive or
+   negative.
+5. For \(e'=ue\), the coefficient polynomial transforms by \(u^{-1}\),
+   not by \(u\).  The dimension-zero norm test must give (3).
+
+## Verification standard
+
+Return one theorem with a complete proof.  List every external input with
+its exact source and hypotheses.  Treat nets, not only sequences.  Do not
+hide the finite-type character lemma behind phrases such as "locally
+compact coefficient tuples".  If any step fails in the stated generality,
+give the exact counterexample and the strongest corrected theorem rather
+than declaring success.
