@@ -1,6 +1,6 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 28 August 2026
+**Inventory date:** 29 August 2026
 **Literature cutoff:** 24 August 2026
 **Source scope:** the formal `problem` environments in Chapters 71 and 72
 
@@ -123,19 +123,54 @@ conditional; the general targets remain open.
 
 ### `prob:frontier-pluriharmonic` --- 2 atoms
 
-- **P06.1** `[T2; open]` Decide whether every classically pluriharmonic
-  function is PL without the extra regularity assumptions in the cited
-  result.
-- **P06.2** `[T2; open after the real-PL case]` Decide whether an arbitrary
+- **P06.1** `[T2; open after the quasi-smooth and all strict-curve cases]`
+  On a good, separated, strict, boundaryless analytic space, decide whether
+  every classically pluriharmonic function is \(\mathbf R\)-PL near a
+  non-quasi-smooth point of analytic dimension at least two.
+- **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
+  moment-factor, and smooth-proper-curve cases]` Decide whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
-  harmonic whenever the classical notion is available.
+  harmonic whenever the classical notion is available, without assuming a
+  proper full-rank moment factorization.
 
 The weakly smooth zero-current statement is known.  The real-PL
 zero-current implication is now verified on good separated boundaryless
 strict pure-dimensional spaces by production run
 `20260825T061351Z_655e7f503e5d`: it uses rational coefficients of calibrated
 skeletal currents and does not extend to arbitrary continuous functions.
+The quasi-smooth scope of P06.1 is settled by
+`thm:p061-quasismooth-ph-rpl`: every classically pluriharmonic function on a
+good strict quasi-smooth analytic space is \(\mathbf R\)-PL and GJR
+harmonic, without global quasicompactness, separatedness, or
+boundarylessness. The proof combines Temkin's altered local uniformization
+with rigid étale sheaf descent. The published curve comparison already
+covers all strict analytic curves, including singular and nonreduced ones
+(`GR25Classical`, §4.1.2 and Proposition 3.15).
+The coefficient cannot be strengthened: `prop:p061-integral-pl-counterexample`
+gives \(\sqrt2\log|T|\) on a strict semistable annulus, which is not
+\(\mathbf Q\)-PL. The exact statement and proof passed production Rethlas
+run `20260829T043457Z_0b1b4d161e3b`, item
+`pi_7cd35ebd843cf80a7cd696bb`, final `correct`, with zero critical errors
+and zero gaps. P06.1 remains one active T2 atom, now confined to
+non-quasi-smooth points in dimension at least two. No atom count, tier count, or queue
+position changes.
+The proper full-rank moment-factor case is also verified by
+`prop:p062-proper-full-rank-moment`.  It applies only when \(X\) is pure of
+dimension \(n\geq 1\) and \(h=\varphi\circ F\), where
+\(F=(-\log|f_1|,\ldots,-\log|f_n|)\) is one pleasant full-rank moment,
+\(F(X)=F(\Sigma_F^{(n)})\) is a nonempty connected open subset of
+\(\mathbf R^n\), \(F\) has compact inverse images of compact subsets, and
+the pushed-forward canonical calibration has constant positive
+multiplicity.  In this scope, zero current forces \(\varphi\) to be affine.
+When \(X\) is boundaryless,
+`cor:p062-proper-full-rank-moment-automatic-calibration` makes the constant
+calibration automatic and gives the converse.  The exact statement and proof
+passed production Rethlas run `20260829T031126Z_75e9cb498ce4`, item
+`pi_f96fe9f8904943602779f274`, final `correct`, with zero critical errors and
+zero gaps.  No theorem in the packet constructs such an \(F\) for an
+arbitrary continuous function, so P06.2 remains one active T2 atom outside
+this factorized scope.  No atom count, tier count, or queue position changes.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
