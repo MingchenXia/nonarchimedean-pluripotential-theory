@@ -18,7 +18,12 @@ current-source whole-book rebuild through 25 August passed and produced a
 3,081-page source freeze until the next release cut.  The integrated
 29 August source, including the full projective ample-class MP--BJ comparison
 and the exact finite-level closed-immersion reduction for P17.1, also passes a
-whole-book build and currently produces 3,284 pages.  These
+whole-book build and produced 3,284 pages at that stage.  On 30 August the full
+Banach-base continuity theorem answering Pille--Schneider Question 4.9 in its
+stated scope was integrated as `thm:p171-full-assembly`; its exact live gate,
+item `pi_87b42b938a8d830222bed78f`, returned final `correct`, with zero
+critical errors and zero gaps.  The resulting clean current-source build has
+3,318 pages.  These
 checks do not turn
 source imports or book-level derivations into novelty or priority claims, or
 close residual questions outside the displayed theorem scopes.
@@ -68,9 +73,9 @@ intentionally excluded from version control.  Results proved only in the
 supplied envelope manuscript are identified as such and are not
 misrepresented as previously published theorems.
 
-The editorial records also keep the literal research-frontier inventory at 15
-open problem environments, all in Chapter 72, split into 54 active atoms with
-tier counts `(0,6,14,17,17)`, together with the source-cutoff
+The editorial records also keep the literal research-frontier inventory at 14
+open problem environments, all in Chapter 72, split into 53 active atoms with
+tier counts `(0,5,14,17,17)`, together with the source-cutoff
 dates, and every remaining mathematical boundary visible.  The clean-build
 and exact-current Rethlas gates that have passed are recorded separately from
 source imports and unresolved packets.

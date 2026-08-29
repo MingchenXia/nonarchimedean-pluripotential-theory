@@ -1,13 +1,13 @@
 # Major open-problem programme
 
 **Literature cutoff:** 24 August 2026.  
-**Live book location:** Chapter 72, with 15 research-frontier problem
+**Live book location:** Chapter 72, with 14 research-frontier problem
 environments.  
-**Book-wide count:** 15 problem environments, all mapped below in Chapter 72.
+**Book-wide count:** 14 problem environments, all mapped below in Chapter 72.
 The former projective full-cone problem P00.1 in Chapter 71 is retired by the
 28 August controlling addendum below.
-OP-01, OP-09, OP-11, and OP-18 below are retained as resolved history and are not
-counted.
+OP-01, OP-09, OP-11, OP-17, and OP-18 below are retained as resolved history
+and are not counted.
 
 **27 Aug 2026 P06.3 controlling addendum.**  The universal continuous
 smooth-proper-curve ordinary CLD-smooth psh regularization atom is resolved
@@ -83,7 +83,7 @@ nilreduction, whereas the fundamental integration current records the
 generic component multiplicities.  No statement is made for the literal
 possibly discontinuous psh scope of CLD Definition 8.6.2.  P21.3 remains one
 T2 atom.  That historical gate did not change the active questions; the
-following P00.1 addendum controls the current total of 15 problem
+following P00.1 addendum controlled the total at that stage: 15 problem
 environments and 54 active atoms.
 
 **28 Aug 2026 P00.1 controlling retirement addendum.**  On a connected
@@ -107,10 +107,11 @@ statement and proof, SHA-256
 `58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064`,
 passed the superseding archive
 `rethlas_packets_20260828/p001_mp_bj_full_cone_live_run2_20260828`, verdict
-`correct`, zero critical errors, and zero gaps.  This is a book-level synthesis of published MP, BJ, and
-DXZ results, with no novelty or priority claim.  P00.1 and the Chapter 71
-problem environment are retired; 15 formal environments and 54 atoms remain,
-with tier counts `(0,6,14,17,17)`.
+`correct`, zero critical errors, and zero gaps.  This is a book-level synthesis
+of published MP, BJ, and DXZ results, with no novelty or priority claim.
+P00.1 and the Chapter 71 problem environment were retired; at that stage 15
+formal environments and 54 atoms remained, with tier counts
+`(0,6,14,17,17)`.
 
 **29 Aug 2026 P21.3 componentwise rigid-exception controlling addendum.**
 Over every complete nontrivially valued field, the continuous-pair theorem
@@ -139,9 +140,30 @@ P21.3 remains one T2 atom.  The remaining one-dimensional cases are exactly
 a trivially valued ground field and a component whose normalization has
 non-rig-smooth locus not contained in a locally finite rigid set; analytic
 dimension at least two also remains open.  Reducibility and nonreducedness
-are no longer residual under the verified hypotheses.  The controlling
-counts remain 15 formal environments and 54 atoms, with tiers
+are no longer residual under the verified hypotheses.  At that stage the
+counts remained 15 formal environments and 54 atoms, with tiers
 `(0,6,14,17,17)`.
+
+**30 Aug 2026 P17.1 controlling retirement addendum.**  The theorem
+`thm:p171-full-assembly` answers Pille--Schneider Question 4.9 with its
+original quantifiers.  For an integral Banach ring, a flat projective family,
+semiample line bundles with continuous psh metrics, and an arbitrary
+continuous test function, the fibrewise mixed Monge--Ampère integral is
+continuous on the Berkovich spectrum.  The proof retains the top fundamental
+cycle and all generic lengths and adds no reducedness or purity hypothesis.
+
+The principal live statement/proof SHA-256 values are
+`0d95354a4cd2bd15d03020dde630779f4f423b73e9661eb8e65e0511dc765e24` /
+`9cab2f0f679b095b00b2d9f760a4a5315d3a24fe7b295a9d0a9bf414d91e434a`.
+The dependency-closed materialized statement/proof SHA-256 values are
+`0ba26fe924a065af31198cfc74aa44e790feb128159eef24458f8ca0b151f8b4` /
+`cdce552b3750faed4dfbb6a0284405094be10b56c138363482cca0464e20f4af`.
+Production item `pi_87b42b938a8d830222bed78f`, using `gpt-5.6-sol` at
+`xhigh`, returned final `correct`, zero critical errors, and zero gaps.
+This is a verified book-level synthesis, not a novelty or priority claim.
+P17.1 and its formal problem environment are retired.  The controlling
+inventory is therefore 14 formal environments and 53 active atoms, with
+tier counts `(0,5,14,17,17)`.
 
 **Promotion rule:** an item becomes a new theorem only after its exact
 statement and proof receive a production Rethlas gpt-5.6-sol/xhigh receipt
@@ -181,11 +203,11 @@ are independently checked.  Accordingly OP-15 and Chapter 72 keep
 Conjecture 8.8 open.  The dated 15 August note near the end of this file is
 retained only to disclose the superseded intermediate classification.
 
-**Exact active count:** Chapter 72 contains all 15 problem environments, with
-54 independently auditable active atoms and tier counts
-`(0,6,14,17,17)`. All 15 retain a genuinely open residual scope. At the
+**Exact active count:** Chapter 72 contains all 14 problem environments, with
+53 independently auditable active atoms and tier counts
+`(0,5,14,17,17)`. All 14 retain a genuinely open residual scope. At the
 whole-environment level the cutoff count is: resolved 0, disproved 0,
-conditional 0, genuinely open 15. Resolved, disproved, and conditional
+conditional 0, genuinely open 14. Resolved, disproved, and conditional
 subclaims below are boundary results inside those active environments and
 are not additional problem environments.
 
@@ -201,8 +223,9 @@ questions in OP-19 remain open. The other version-sensitive primary sources
 in the reference-pack manifest had no revision changing a listed status by
 the cutoff.
 
-The 15 active tags below map exactly the Chapter 72 inventory; the retained
-OP-01, OP-09, OP-11, and OP-18 tags record resolved history and are not counted.  The tags distinguish a
+The 14 active tags below map exactly the Chapter 72 inventory; the retained
+OP-01, OP-09, OP-11, OP-17, and OP-18 tags record resolved history and are
+not counted.  The tags distinguish a
 **primary-source question** from a
 **book-formulated question**. Some problem environments collect several
 source questions under one common framework.
@@ -549,12 +572,17 @@ source questions under one common framework.
 - **Packets:** general_na_ma_equation.md and
   ps23_arbitrary_field_e1_ma.md (the latter prepared, not run).
 
-### OP-17. Banach-family Monge--Ampère continuity
+### OP-17. Banach-family Monge--Ampère continuity --- retired
 
 - **Kind:** primary-source Question 4.9 in PS23.
-- **Status:** known for the hybrid base and continuous hybrid psh metrics;
-  open over a general integral Banach ring.
-- **Packet:** banach_family_ma_continuity.md.
+- **Status:** resolved positively in the full source scope by
+  `thm:p171-full-assembly`.
+- **Verification:** exact-live production item
+  `pi_87b42b938a8d830222bed78f` returned final `correct`, zero critical
+  errors, and zero gaps; principal live statement/proof SHA-256 are
+  `0d95354a4cd2bd15d03020dde630779f4f423b73e9661eb8e65e0511dc765e24` /
+  `9cab2f0f679b095b00b2d9f760a4a5315d3a24fe7b295a9d0a9bf414d91e434a`.
+- **Provenance:** verified book-level synthesis; no novelty or priority claim.
 
 ### OP-18. Favre--Pille-Schneider hybrid continuity --- retired
 

@@ -28,11 +28,11 @@ Status vocabulary:
 | 55--58 | Okounkov/DH, analytification, BJ comparison, and tropical spectra | post-expansion depth-audited | the 23 August depth pass is retained; Chapter 55's exact-current metric theorem and line-bundle specialization passed separate production runs `20260824T054849Z_57635bfa07f4` and `20260824T061508Z_17bf73c6b37c`, its rational toric zero-mass block passed `20260824T052605Z_703e3b501202`, and the general real-class current-level theorem passed frozen source-aware run `20260825T011636Z_99edb45c54cb`, all final `correct`, 0 critical errors, 0 gaps | primary-source scope and locators rechecked for multiplier-ideal volume, DXZ approximation, MP tropical spectra, Cao, CGSZ, BEGZ, Guenancia, Schneider, and the repaired mixed-volume proof; the general toric run is not a post-integration byte-identity gate, the author-supplied proof remains unpublished, and no priority claim is made |
 | 59--62 | Complex dual complexes, MP psh, transcendental CY, and K-stability | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 63--64 | Master dictionary and Monge--Ampère comparisons | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
-| 65--66 | Rays, filtrations, and hybrid spaces | post-expansion depth-audited | slope, entropy, hybrid-extension, and Monge--Ampère limit arguments reconstructed after explicit imported inputs; the normalized Favre--Pille-Schneider counterexample passed frozen run `20260825T035945Z_070e264c3ef1` and exact-live run `20260825T043840Z_d77f7f93aeb0`, both final `correct`, 0 critical errors, 0 gaps | BHJ/BJ and Pille--Schneider anchors rechecked; the excluded Deligne-pairing paper is not used |
+| 65--66 | Rays, filtrations, and hybrid spaces | post-expansion depth-audited | slope, entropy, hybrid-extension, and Monge--Ampère limit arguments reconstructed after explicit imported inputs; the normalized Favre--Pille-Schneider counterexample passed frozen run `20260825T035945Z_070e264c3ef1` and exact-live run `20260825T043840Z_d77f7f93aeb0`; the full P17.1 Banach-family theorem passed exact-live item `pi_87b42b938a8d830222bed78f`; all gates returned final `correct` with 0 critical errors and 0 gaps | BHJ/BJ, Pille--Schneider, Ducrot, Chen--Moriwaki, and Stacks Project anchors rechecked; the excluded Deligne-pairing paper is not used; P17.1 is a verified book-level synthesis with no novelty or priority claim |
 | 67 | Functoriality and trace | first-draft-final (historical) | prior hostile-pass record; exact current Rethlas status is recorded separately | source correction recorded in the trace audit |
 | 68 | YTD bridge | post-expansion depth-audited | factor-two normalization and perturbation chain checked against the internally proved ray formulas | Fano and automorphism-group scope rechecked against primary sources |
 | 69 | Validated extensions | post-expansion synchronization in progress | in addition to the toric gates, the complete-intersection slice passed `20260825T023505Z_66547f68ec32`; the analytic weighted-cross realization and compact-source obstruction passed `20260825T021353Z_058a4390b0fb` and `20260825T024519Z_16376e0d52eb`; and the four-punctured smooth-curve obstruction passed `20260825T034743Z_ea6194f07e86`; all four are final `correct`, with 0 critical errors and 0 gaps | the slice tests only restrictions of ambient smooth functions; the cross construction gives equality of curvature only after proper pushforward, not an analytic Bedford--Taylor counterexample; the four-punctured result excludes its concrete candidate but leaves P21.3 open; no novelty or priority claim is made |
-| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 72 has all 15 remaining problem environments and 54 active atoms; P00.1 is retired after exact verification of the ample-class full MP--BJ comparison and its rational-class DXZ corollary; its frozen statement/proof SHA-256 values are `e40829e3586bcabeeb866229dc068c2e518a736fc908dec32f3bf3957c59c9ab` / `baad23068e9dcae47619f3e2d81cfd26fa5bd51b1e4c4d4baa1a7c024824e671`, and the archived production response in `p001_mp_bj_full_cone_run_20260828` is `correct` with zero critical errors and zero gaps; the exact-live statement/proof SHA-256 values `949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e` / `58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064` passed `p001_mp_bj_full_cone_live_run2_20260828`, also `correct` with zero critical errors and zero gaps; P06.3 passed `20260827T090645Z_767cbf81c723`; the P21.3 arbitrary-field reduced, nonreduced, normal rigid-exception, and dependency-closed componentwise gates culminated in `20260829T061505Z_2bf673687e93`, item `pi_ee24d64b88f0c4e60ad1acbd`, final `correct`, zero critical errors, and zero gaps, narrowing but not retiring its residual T2 atom | source status is reconciled through 24 August 2026 and book verification through 29 August; P00.1 and the P21.3 componentwise statement are book-level sourced derivations with no novelty or priority claim; the P21.3 residual is analytic dimension at least two and, in dimension one, only a trivially valued ground field or a component whose normalization has non-rig-smooth locus not contained in a locally finite rigid set; reducibility and nonreducedness under the verified hypotheses, and failure of algebraic closedness, are no longer residual over a complete nontrivially valued field, while literal discontinuous-psh CLD Definition 8.6.2 remains outside the proved continuous-pair scope; all book-level derivations retain exact scope |
+| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 72 has all 14 remaining problem environments and 53 active atoms; P00.1 is retired after exact verification of the ample-class full MP--BJ comparison and its rational-class DXZ corollary; its frozen statement/proof SHA-256 values are `e40829e3586bcabeeb866229dc068c2e518a736fc908dec32f3bf3957c59c9ab` / `baad23068e9dcae47619f3e2d81cfd26fa5bd51b1e4c4d4baa1a7c024824e671`, and the archived production response in `p001_mp_bj_full_cone_run_20260828` is `correct` with zero critical errors and zero gaps; the exact-live statement/proof SHA-256 values `949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e` / `58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064` passed `p001_mp_bj_full_cone_live_run2_20260828`, also `correct` with zero critical errors and zero gaps; P06.3 passed `20260827T090645Z_767cbf81c723`; the P21.3 arbitrary-field reduced, nonreduced, normal rigid-exception, and dependency-closed componentwise gates culminated in `20260829T061505Z_2bf673687e93`, item `pi_ee24d64b88f0c4e60ad1acbd`, final `correct`, zero critical errors, and zero gaps, narrowing but not retiring its residual T2 atom; P17.1 is retired by `thm:p171-full-assembly` after exact-live item `pi_87b42b938a8d830222bed78f` returned final `correct`, zero critical errors, and zero gaps | source status is reconciled through 24 August 2026 and book verification through 30 August; P00.1, P17.1, and the P21.3 componentwise statement are book-level sourced derivations with no novelty or priority claim; the P21.3 residual is analytic dimension at least two and, in dimension one, only a trivially valued ground field or a component whose normalization has non-rig-smooth locus not contained in a locally finite rigid set; reducibility and nonreducedness under the verified hypotheses, and failure of algebraic closedness, are no longer residual over a complete nontrivially valued field, while literal discontinuous-psh CLD Definition 8.6.2 remains outside the proved continuous-pair scope; all book-level derivations retain exact scope |
 | A--L | Appendices | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 
 **26 August 2026 controlling Chapter 18 correction.**  The former
@@ -66,9 +66,9 @@ No application is claimed here for positive-sedentarity or other tropical
 boundary charts whose local generator sheaf has not been identified with
 the model, for nonambient smooth structures, for infinite stars, or in
 higher dimension.  P07.1 and P07.2 therefore remain active.  This historical
-gate did not change their status; the current controlling inventory, after
-the separate P00.1 retirement, is 15 problem environments and 54 active
-atoms.  This verification addendum is not a post-integration or whole-book
+gate did not change their status; after the separate P00.1 retirement, the
+inventory at that stage was 15 problem environments and 54 active atoms.
+This verification addendum is not a post-integration or whole-book
 build gate.
 
 **27 August 2026 finite affine-star live-integration gate.**  Chapter 16 now
@@ -128,8 +128,8 @@ ordinary CLD calculus, currents, positivity, closedness, and the
 continuous-psh sheaves, while the fundamental integration current retains
 the generic component multiplicities.  The Bedford--Taylor conclusion
 concerns continuous psh pairs only.  This historical gate did not retire
-P21.3.  The current controlling inventory is 15 environments and 54 active
-atoms; the sharper 29 August componentwise gate below further narrows the
+P21.3.  At that stage the inventory was 15 environments and 54 active atoms;
+the sharper 29 August componentwise gate below further narrowed the
 one-dimensional residual without changing that count.
 
 **28 August 2026 P00.1 controlling retirement addendum.**  The full
@@ -153,9 +153,9 @@ passed the superseding archive
 verdict `correct`, zero critical errors, and zero gaps.  The result is a
 book-level source-explicit synthesis of
 MP, BJ, and DXZ, not a novelty or priority claim.  P00.1 and the Chapter 71
-problem environment are retired.  The current inventory is 15 formal problem
-environments, all in Chapter 72, and 54 active atoms, with tier counts
-`(0,6,14,17,17)`.
+problem environment were retired.  At that stage the inventory was 15 formal
+problem environments, all in Chapter 72, and 54 active atoms, with tier
+counts `(0,6,14,17,17)`.
 
 **29 August 2026 P21.3 componentwise rigid-exception controlling
 addendum.**  The continuous-pair theorem now covers every good separated
@@ -186,8 +186,28 @@ P21.3 remains one T2 atom.  Its one-dimensional residual is now exactly a
 trivially valued ground field or a component whose normalization has
 non-rig-smooth locus not contained in a locally finite rigid set; analytic
 dimension at least two also remains open.  Reducibility and nonreducedness
-are no longer residual under the verified hypotheses.  Counts remain 15
-problem environments and 54 active atoms, with tiers `(0,6,14,17,17)`.
+are no longer residual under the verified hypotheses.  At that stage the
+counts remained 15 problem environments and 54 active atoms, with tiers
+`(0,6,14,17,17)`.
+
+**30 August 2026 P17.1 exact-live controlling retirement addendum.**
+`thm:p171-full-assembly` answers Pille--Schneider Question 4.9 with its
+original quantifiers.  The theorem covers an integral Banach ring, a flat
+projective family, semiample line bundles with continuous psh metrics, and
+every continuous test function.  It retains the top fundamental cycle and
+all generic lengths and adds no reducedness or purity hypothesis.
+
+The principal live statement/proof SHA-256 values are
+`0d95354a4cd2bd15d03020dde630779f4f423b73e9661eb8e65e0511dc765e24` and
+`9cab2f0f679b095b00b2d9f760a4a5315d3a24fe7b295a9d0a9bf414d91e434a`.
+The dependency-closed materialized statement/proof SHA-256 values are
+`0ba26fe924a065af31198cfc74aa44e790feb128159eef24458f8ca0b151f8b4` and
+`cdce552b3750faed4dfbb6a0284405094be10b56c138363482cca0464e20f4af`.
+Production item `pi_87b42b938a8d830222bed78f`, using `gpt-5.6-sol` at
+`xhigh`, returned final `correct`, zero critical errors, and zero gaps.
+The controlling inventory is now 14 formal problem environments and 53
+active atoms, with tiers `(0,5,14,17,17)`.  This is a verified book-level
+synthesis, not a novelty or priority claim.
 
 ## Second-draft expansion
 
@@ -265,8 +285,8 @@ inspection passed.  Static and build checks do not replace the independent
 mathematical audits listed below.  After the later generalized-Lelong,
 real-PL current--residue, real-toric, local-envelope, cross-fan,
 hybrid-continuity, Radon--Riesz, and cubical delta-metricity integrations,
-the current literal frontier has 15 environments, all in Chapter 72, and,
-after the P00.1 integration, 54 active atoms.  The
+the current literal frontier has 14 environments, all in Chapter 72, and,
+after the P17.1 retirement, 53 active atoms.  The
 post-P09.2 source had a clean,
 visually audited 3,149-page build with a verified 111-file closure; its
 evidence is recorded in
@@ -311,8 +331,8 @@ box is an outstanding verification step, not a mathematical defect.
       above do not close this gate.
 - [ ] The source-boundary review is complete outside the separately recorded
       final-chapter and BJ-closure audits.
-- [x] The literal research inventory is 15 open `problem` environments,
-      all in Chapter 72, split into 54 active atoms.  No
+- [x] The literal research inventory is 14 open `problem` environments,
+      all in Chapter 72, split into 53 active atoms.  No
       exercise environment occurs.
 - [ ] Every result or integration designated for a Rethlas receipt has a
       receipt for its exact current statement and proof.  The Chapter 23 and

@@ -248,9 +248,9 @@ nine 24 August gates counted in this paragraph.
 - Provenance: this is a book-level source-explicit synthesis of published MP,
   BJ, and DXZ results.  No novelty, publication, or priority claim is made.
   The frozen candidate and final exact-live bytes are both controlled.
-- Inventory consequence: P00.1 and its Chapter 71 problem environment are
-  retired.  Fifteen formal open environments and 54 active atoms remain,
-  with tier counts `(0,6,14,17,17)`.
+- Inventory consequence at that gate: P00.1 and its Chapter 71 problem
+  environment were retired.  Fifteen formal open environments and 54 active
+  atoms then remained, with tier counts `(0,6,14,17,17)`.
 
 ## Xia Conjecture 8.8 — repaired mixed partial-body formula
 
@@ -1070,11 +1070,11 @@ nine 24 August gates counted in this paragraph.
   `87507beab77d5917edc8cd8d1abcf466965222a2c973e6cded58beabd2057a8a`,
   and
   `0733b7bff2ffbe09bba821804d7b4bcbf50842031743a096f5db79c9dc5cdde6`.
-- Scope and inventory consequence: the reducible/nonreduced theorem asserts
+- Scope and inventory consequence at that gate: the reducible/nonreduced theorem asserts
   only the continuous-pair predicate.  It retires every one-dimensional case
   inside P21.3's ambient hypotheses.  P21.3 remains one T2 atom only in
-  dimension at least two, so the inventory remains 15 environments and 54
-  atoms with tier totals `(0,6,14,17,17)`.
+  dimension at least two; at that stage the inventory remained 15 environments
+  and 54 atoms with tier totals `(0,6,14,17,17)`.
 - Controlling receipt:
   `editorial/rethlas_packets_20260829/p213_componentwise_arbitrary_valuation_live_ready_20260829/p213_componentwise_arbitrary_valuation_revised3_rethlas_receipt_20260829.md`.
 
@@ -1113,10 +1113,11 @@ nine 24 August gates counted in this paragraph.
 - Controlling receipt:
   `editorial/rethlas_packets_20260829/ch14_cld_support_correction_packet_20260829/ch14_cld_support_correction_rethlas_receipt_20260829.md`.
 
-## Chapter 72 — finite-level closed-immersion reduction for P17.1
+## Historical component gate — finite-level closed-immersion reduction for P17.1
 
-- Status: **EXACT LIVE-READY PACKET VERIFIED / INTEGRATED; P17.1 NOT
-  RETIRED** (29 August 2026).
+- Historical status at this gate: **EXACT LIVE-READY PACKET VERIFIED /
+  INTEGRATED; P17.1 WAS NOT YET RETIRED** (29 August 2026; superseded by the
+  exact-live full-assembly gate below).
 - Book locations:
   `prop:p171-closed-immersion-finite-level-reduction` and
   `rem:p171-closed-immersion-reduction-scope`.
@@ -1141,10 +1142,44 @@ nine 24 August gates counted in this paragraph.
   hash.
 - Scope firewall: this is only a finite-level reduction.  It neither
   constructs a relative Chow/resultant section over an arbitrary Banach base
-  nor proves continuity of its fieldwise Deligne weight.  P17.1 remains one
-  T2 atom, and the inventory stays at 15 environments and 54 atoms.
+  nor proves continuity of its fieldwise Deligne weight.  At that stage P17.1
+  remained one T2 atom, and the inventory stayed at 15 environments and 54
+  atoms.
 - Controlling receipt:
   `editorial/rethlas_packets_20260829/p171_post_p213_research_lane_20260829/p171_closed_immersion_reduction_live_ready_production_receipt_20260829.md`.
+
+## Chapter 66 — full Banach-family Monge--Ampère continuity theorem
+
+- Status: **EXACT LIVE DEPENDENCY CLOSURE VERIFIED / INTEGRATED; P17.1
+  RETIRED** (30 August 2026).
+- Book location: `thm:p171-full-assembly`.
+- Exact result: Pille--Schneider Question 4.9 is answered positively with
+  its original quantifiers.  For an integral Banach ring, a flat projective
+  family, semiample line bundles with continuous psh metrics, and every
+  continuous test function, the fibrewise mixed Monge--Ampère integral is
+  continuous on the Berkovich spectrum.  The theorem retains the top
+  fundamental cycle and every generic length and adds no reducedness or
+  purity hypothesis.
+- Principal live statement/proof SHA-256:
+  `0d95354a4cd2bd15d03020dde630779f4f423b73e9661eb8e65e0511dc765e24` /
+  `9cab2f0f679b095b00b2d9f760a4a5315d3a24fe7b295a9d0a9bf414d91e434a`.
+- Dependency-closed materialized statement/proof SHA-256:
+  `0ba26fe924a065af31198cfc74aa44e790feb128159eef24458f8ca0b151f8b4` /
+  `cdce552b3750faed4dfbb6a0284405094be10b56c138363482cca0464e20f4af`.
+- Production item: `pi_87b42b938a8d830222bed78f`; model
+  `gpt-5.6-sol`, scrutiny `xhigh`, status `final`, verdict `correct`, zero
+  critical errors, and zero gaps.  The proof digest equals the materialized
+  proof hash.
+- Build gate: before submission, the exact live source passed a clean
+  3,318-page whole-book build with no undefined references or citations,
+  duplicate labels, undefined control sequences, or overfull boxes; pages
+  2898--2927 passed rendered inspection.
+- Inventory consequence: P17.1 and its formal problem environment are
+  retired.  The controlling inventory is 14 formal environments and 53
+  active atoms, with tier totals `(0,5,14,17,17)`.
+- Provenance: verified book-level synthesis; no novelty or priority claim.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260830/p171_full_banach_family_live_integration_receipt_20260830.md`.
 
 ## Darvas--Xia trace-source correction (not a receipt)
 

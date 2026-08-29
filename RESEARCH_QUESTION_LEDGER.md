@@ -3,7 +3,7 @@
 ## Non-Archimedean pluripotential theory monograph
 
 **Snapshot date:** 15 August 2026  
-**Current controlling update:** 29 August 2026
+**Current controlling update:** 30 August 2026
 **Research engine for Passes R1--R3:** `gpt-5.6-sol`, `xhigh` reasoning effort  
 **Scope:** explicit questions in the two supplied archives; directly relevant
 questions in the BFJ, BJ, CLD, Gubler--Künnemann--Jell--Rabinoff,
@@ -47,7 +47,7 @@ without lattice or balancing hypotheses.  Arbitrary non-toric
 positive-sedentarity structures not covered by the toric theorem, nonambient
 structures, infinite-valence stars, and higher-dimensional settings remain
 open.  This historical checkpoint is superseded by the 28 August P00.1
-retirement below.  The current literal frontier is fifteen problem
+retirement below.  At that checkpoint the literal frontier was fifteen problem
 environments, all in Chapter 72, split into 54 active atoms.  Exact hashes,
 production responses, and scope firewalls are recorded in the dated receipts
 and the atomic inventory.
@@ -71,7 +71,7 @@ returned final `correct`, zero critical errors, and zero gaps.  The earlier
 controlling gate.  P21.3 remains one active atom only in analytic dimension
 at least two and, in dimension one at that gate, for trivially valued fields
 or a reduced component whose normalization is not rig-smooth.  The following
-P00.1 delta controls the current count of 54 atoms, and the 29 August P21.3
+P00.1 delta controlled the count of 54 atoms at that stage, and the 29 August P21.3
 delta further narrows the curve residual without changing that count.
 
 **Controlling delta, 28 August 2026 (P00.1).**  The former Chapter 71
@@ -89,7 +89,7 @@ and
 the exact-live run
 `p001_mp_bj_full_cone_live_run2_20260828` returned `correct`, zero critical
 errors, and zero gaps.  This is a book-level sourced synthesis, not a novelty
-or priority claim.  The current frontier is 15 formal problem environments,
+or priority claim.  At that stage the frontier was 15 formal problem environments,
 all in Chapter 72, and 54 active atoms with tier counts `(0,6,14,17,17)`.
 
 **Controlling delta, 29 August 2026 (P21.3 componentwise rigid
@@ -120,8 +120,38 @@ P21.3 remains one T2 atom.  In dimension one, only a trivially valued ground
 field or a component whose normalization has non-rig-smooth locus not
 contained in a locally finite rigid set remains; analytic dimension at least
 two remains open.  Reducibility and nonreducedness are no longer residual
-under the verified hypotheses.  The controlling totals stay at 15 formal
+under the verified hypotheses.  At that stage the controlling totals stood at 15 formal
 problem environments and 54 active atoms, with tiers `(0,6,14,17,17)`.
+
+**Controlling delta, 30 August 2026 (P17.1).**  Pille--Schneider Question
+4.9 is settled, in its displayed source scope, by
+`thm:p171-full-assembly`.  For an integral Banach ring, a flat projective
+finite-type family, semiample line bundles, arbitrary continuous psh metrics,
+and an arbitrary continuous test function, the fibrewise mixed
+Monge--Ampère integral is continuous on the Berkovich spectrum.  The theorem
+includes real and complex fibres, trivially and nontrivially valued fibres,
+nonpure and nonreduced fibres (with all top-dimensional quantities evaluated
+on the top fundamental cycle), and relative dimension zero.
+
+The proof first makes the finite-presentation reduction, then applies a
+finite DFS/FS reduction with exactly `2^(n+1)` signed weights (two when
+`n=0`), proves finite-level continuity through relative resultants and
+Deligne weights, and finally passes to arbitrary continuous psh metrics and
+continuous test functions by a uniform CLN estimate and a cofinal product
+net.  The dependency order is finite-level algebraic continuity, uniform
+control, and only then density, so the argument does not use the desired
+continuity circularly.  The principal live statement/proof SHA-256 are
+`0d95354a4cd2bd15d03020dde630779f4f423b73e9661eb8e65e0511dc765e24` /
+`9cab2f0f679b095b00b2d9f760a4a5315d3a24fe7b295a9d0a9bf414d91e434a`.
+The dependency-closed materialized statement/proof SHA-256 are
+`0ba26fe924a065af31198cfc74aa44e790feb128159eef24458f8ca0b151f8b4` /
+`cdce552b3750faed4dfbb6a0284405094be10b56c138363482cca0464e20f4af`.
+Production item `pi_87b42b938a8d830222bed78f`, using `gpt-5.6-sol` at
+`xhigh`, returned final `correct`, zero critical errors, and zero gaps, with
+proof digest equal to the materialized proof hash.  This is a verified
+book-level synthesis, not a novelty or priority claim.  The current frontier
+is 14 formal problem environments and 53 active atoms, with tiers
+`(0,5,14,17,17)`.
 
 ---
 
@@ -1409,21 +1439,21 @@ theory row.
 | P1 | Singular/nonnormal local valuative theory; BFJ08, Bingener 1976, Xia *Stein spaces* (3 July 2026) | Test normalization, conductor, and finite-map descent on nodes, cusps, quotient and inseparable germs | Chapter 72 treats the smooth BFJ endpoint only |
 | Resolved history | GJR canonical ordinary \(\delta\)-metricity | The product--Gauss criterion detects ordinary delta-metricity coordinatewise and, for ample cubical metrics, by isotriviality of the residual Raynaud extension | The non-isotrivial mixed-reduction answer is negative by `20260826T055627Z_b68659fba1be`; P09.1 and unrestricted cohomology surjectivity are separately retired |
 | P1 | DXZ filtration-test-curve maximality, Xia Conjecture 5.29, and auxiliary-\(\eta\) independence | Start with finitely generated/toric/flag cases; do not recycle the already asserted \(H,\omega\)-independence or the now-proved positive-volume Conjecture 8.8 | The residual source-scoped packets remain open; Conjecture 8.8 is closed in its exact Chapter 55 positive-volume scope by separate exact-current gates |
-| P1 | Banach-family MA continuity; Pille-Schneider, JEP 10 (2023), Question 4.9; the Favre--Pille-Schneider endpoint question is retained only as resolved history | Prove FS specialization or produce a non-hybrid jumping base for Question 4.9 | `thm:hybrid-endpoint-continuity-counterexample` disproves both literal Question 3.18/Favre Question 1 and the zero-supremum normalized strengthening; the stronger packet passed production run `20260825T035945Z_070e264c3ef1`, item `pi_db89dd432acabcf33a3f2272`, and the adapted exact-live bytes passed `20260825T043840Z_d77f7f93aeb0`, item `pi_b7f015a6ad5570f431769a71`, both `final/correct`, while Question 4.9 remains open |
+| Resolved history | Banach-family MA continuity; Pille--Schneider, JEP 10 (2023), Question 4.9 | Finite presentation; finite DFS/FS reduction; relative resultant and Deligne-weight continuity; uniform CLN estimate; cofinal product-net density passage | Settled in the full source scope by `thm:p171-full-assembly`; exact-live item `pi_87b42b938a8d830222bed78f` returned final `correct`, zero critical errors and zero gaps.  Principal live statement/proof SHA-256 are `0d95354a4cd2bd15d03020dde630779f4f423b73e9661eb8e65e0511dc765e24` / `9cab2f0f679b095b00b2d9f760a4a5315d3a24fe7b295a9d0a9bf414d91e434a`; materialized SHA-256 are `0ba26fe924a065af31198cfc74aa44e790feb128159eef24458f8ca0b151f8b4` / `cdce552b3750faed4dfbb6a0284405094be10b56c138363482cca0464e20f4af`.  No novelty or priority claim is made |
 | P1 | BMPS higher-dimensional smoothness, Calabi--Yau tropicalizations, and Bergman-fan matroid classification | Test intrinsic contact and orthogonality on singular smooth fans; keep the recursive analytic comparison as a stronger book question | Exact source questions and book strengthenings are separated; R3-27 solves only the complete affine case |
 | P1 | Exact post-2025 YTD residuals; BJ 2509.15016v1, Darvas--Zhang 2509.15173v2, Trusiani 2605.30063v1, MPWN25 | Direct algebraic bridge, bounded divisorial support, algebraic equivariance, log-discrepancy-ray regularization, and transcendental/singular/hybrid extensions | Trusiani Corollary B removes the bare smooth-projective signature question; Chapter 72 lists only residuals |
 | P1 | Zero-volume relative energy/MA and \(P\)-sensitive bodies; DXZ/Xia/MP | Test first-nonzero-volume-coefficient rescaling for path independence and numerical dimension | Chapter 72 proves the probability and \(\mathcal I\)-body no-go boundaries |
 | P2 | Early collapse of the CLD transfinite psh hierarchy; CLD Lemma 8.1.4/Remark 8.1.6 | Extend the verified toric and finite ambient-induced real-affine-star cases to arbitrary non-toric positive-sedentarity or nonambient structures, higher-dimensional spaces, or infinite stars, or exhibit genuine transfinite rank | Eventual stabilization, the toric case, and the finite ambient-induced star case are closed; the latter passed the direct production endpoint and is archived under `20260827T103835Z_c8131b22d800`; Chapter 72 retains the unrestricted residual |
 | P2 | Exact canonical BJ approximation and threshold identities after Trusiani 2026 | Identify Trusiani's approximants term by term with the prescribed BJ sequence and normalize every threshold | Earlier chapters provide machinery; Chapter 72 does not identify them |
 
-The live Chapter 72 contains all 15 open-problem environments in the book.
+The live Chapter 72 contains all 14 open-problem environments in the book.
 The former projective-rational full-link environment in Chapter 71 has been
 replaced by the verified full projective ample-class comparison.  These are
 research-status records, not exercises.  The earlier trace-refinement row has
 been removed: the complete supplied Darvas--Xia chapter proves the required
 input-\(\mathcal I\)/output-\(P\) factorization, so Chapter 72 now records it as
 resolved source history.  Splitting compound environments into independently
-auditable targets gives 54 active atoms, with tier counts `(0,6,14,17,17)`;
+auditable targets gives 53 active atoms, with tier counts `(0,5,14,17,17)`;
 their exact crosswalk and easy-to-hard
 queue are recorded in
 `manuscript/editorial/open_problem_atomic_inventory_20260824.md`.  The

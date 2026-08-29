@@ -548,14 +548,26 @@ not known in that generality; it names the discretely valued
 characteristic-zero BFJ theory and the trivially valued BJ theory as the
 known endpoints.  This is distinct from Question 4.9, which asks for
 continuity of fibrewise Monge--Ampère integrals over a general integral
-Banach base.  Question 3.18 reproduces Favre's continuity question for the
-hybrid extension.  Theorem 4.11 treats the hybrid Monge--Ampère continuity
-case, and Theorem 5.1 treats canonically polarized degenerations.
+Banach base; the book now answers that question in its displayed source
+scope by `thm:p171-full-assembly`.  Question 3.18 reproduces Favre's
+continuity question for the hybrid extension.  Theorem 4.11 treats the hybrid
+Monge--Ampère continuity case, and Theorem 5.1 treats canonically polarized
+degenerations.
 
-**Book use.** The arbitrary-field operator, Banach-family continuity, and
-hybrid-extension continuity are stated as three separate interfaces in the
-research corpus; solvability of a Monge--Ampère equation is not conflated
-with construction of the operator.
+**Book use.** The arbitrary-field `E^1` operator remains a separate research
+interface.  Banach-family continuity in Question 4.9 is settled in the exact
+scope of `thm:p171-full-assembly`, while the hybrid-extension question in
+Question 3.18/Favre Question 1 is retained as resolved negative history.
+Solvability of a Monge--Ampère equation is not conflated with construction of
+the operator.  The exact-live gate for the Banach-family theorem is item
+`pi_87b42b938a8d830222bed78f`, final `correct` with zero critical errors and
+zero gaps.  Its principal live statement/proof SHA-256 are
+`0d95354a4cd2bd15d03020dde630779f4f423b73e9661eb8e65e0511dc765e24` /
+`9cab2f0f679b095b00b2d9f760a4a5315d3a24fe7b295a9d0a9bf414d91e434a`,
+and its dependency-closed materialized statement/proof SHA-256 are
+`0ba26fe924a065af31198cfc74aa44e790feb128159eef24458f8ca0b151f8b4` /
+`cdce552b3750faed4dfbb6a0284405094be10b56c138363482cca0464e20f4af`.
+This status record makes no novelty or priority claim.
 
 ---
 

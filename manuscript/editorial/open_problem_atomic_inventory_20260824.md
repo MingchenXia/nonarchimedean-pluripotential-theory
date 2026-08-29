@@ -1,8 +1,8 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 29 August 2026
+**Inventory date:** 30 August 2026
 **Literature cutoff:** 24 August 2026
-**Source scope:** the formal `problem` environments in Chapters 71 and 72
+**Source scope:** the formal `problem` environments in Chapter 72
 
 This file is an editorial crosswalk for solving, verifying, and retiring the
 problems that are formally displayed in the book.  It is not an exercise
@@ -12,7 +12,7 @@ surrounding literature.
 
 ## Counting method
 
-The current source contains exactly fifteen formal problem environments,
+The current source contains exactly fourteen formal problem environments,
 all in Chapter 72.  A compound environment is
 split below into independently auditable theorem or construction targets.
 Equivalent reformulations are counted only once.  The compatibility axioms
@@ -38,12 +38,14 @@ delta-metricity atom after the verified product--Gauss criterion, and
 retirement of the ordinary CLD-smooth curve-regularization atom after
 `thm:p063-current-psh-ordinary-regularization`, and retirement of the
 projective ample-class full-cone atom P00.1 after the source-explicit
-Mesquita--Piccione--Boucksom--Jonsson comparison described below,
+Mesquita--Piccione--Boucksom--Jonsson comparison described below, and
+retirement of P17.1 after the exact-live Banach-family Monge--Amp\`ere
+continuity theorem,
 the exact count is
 
 ```text
-15 formal problem environments = 54 active atomic research questions.
-Tier counts: (T1,T2,T3,T4,T5) = (0,6,14,17,17).
+14 formal problem environments = 53 active atomic research questions.
+Tier counts: (T1,T2,T3,T4,T5) = (0,5,14,17,17).
 ```
 
 The active identifiers `P02.1` through `P21.3` below are an editorial addressing
@@ -228,7 +230,7 @@ than branch coupling.  P07.1 therefore retains arbitrary higher-dimensional
 settings, infinite-valence stars, and general nonambient local models beyond
 the two verified interval structures.  P07.2 retains the absence of a
 uniform early-ordinal bound.  Both atoms remain active.  The controlling
-P00.1 retirement addendum below gives the current total of 54 atoms in 15
+P17.1 retirement addendum below gives the current total of 53 atoms in 14
 formal problem environments.
 
 ### `prob:frontier-cld-global-metric` --- 2 atoms
@@ -383,17 +385,29 @@ Strictly delimited endpoints are known.  The unrestricted axes remain open,
 and known nonskeletal examples rule out a general reduction to one
 skeleton or to rational PL potentials.
 
-### `prob:frontier-banach-family-ma` --- 1 atom
+### Retired P17 history --- 0 active atoms
 
-- **P17.1** `[T2; open]` Prove or disprove continuity of the fibrewise mixed
-  Monge--Amp\`ere integral over a general integral Banach ring.  The hybrid
-  base case is known.  The exact finite-level FS/DFS integral now reduces to
-  a signed sum of Deligne weights whose every slot is defined by a closed
-  immersion (production item `pi_9d4f5f4d6c4a36b32834c0a5`, `correct`,
-  zero critical errors and zero gaps).  The residual problem is to construct
-  and identify the correctly oriented relative closed-immersion
-  Chow/resultant line and prove continuity of its fieldwise weight across the
-  whole Banach spectrum.  The general Banach-base statement remains open.
+P17.1 asked whether fibrewise mixed Monge--Amp\`ere integrals vary
+continuously over a general integral Banach ring.  It is retired positively
+by `thm:p171-full-assembly`, which answers Pille--Schneider Question 4.9
+with its original quantifiers.  The proof derives finite presentation from
+the source hypotheses, retains the top fundamental cycle and every generic
+length, treats all Archimedean powers and both non-Archimedean branches, and
+adds no reducedness or purity assumption.
+
+The exact live dependency closure and principal theorem passed production
+Rethlas item `pi_87b42b938a8d830222bed78f`, using `gpt-5.6-sol` at
+`xhigh`, with final verdict `correct`, zero critical errors, and zero gaps.
+The materialized statement and proof SHA-256 values are
+`0ba26fe924a065af31198cfc74aa44e790feb128159eef24458f8ca0b151f8b4`
+and
+`cdce552b3750faed4dfbb6a0284405094be10b56c138363482cca0464e20f4af`.
+The principal live statement and proof hashes are
+`0d95354a4cd2bd15d03020dde630779f4f423b73e9661eb8e65e0511dc765e24`
+and
+`9cab2f0f679b095b00b2d9f760a4a5315d3a24fe7b295a9d0a9bf414d91e434a`.
+The earlier finite closed-immersion reduction remains valid historical
+input, but it is no longer the controlling frontier status.
 
 ### Retired P18 history --- 0 active atoms
 
@@ -494,8 +508,9 @@ provenance rather than the controlling gate.  Independent byte, source, and
 hostile audits also passed.  Thus neither
 nonreducedness nor failure of algebraic closedness remains in the residual
 domain over a complete nontrivially valued field.  This gate did not retire
-P21.3.  The current controlling count, after the separate P00.1 retirement,
-is 54 active atoms.
+P21.3.  At that stage, after the separate P00.1 retirement, the controlling
+count was 54 active atoms.  The later P17.1 retirement lowers the current
+count to 53.
 
 **29 August 2026 P21.3 rigid-exception narrowing addendum.**  Let `X` be a
 nonempty connected good separated strict normal boundaryless analytic curve
@@ -567,8 +582,9 @@ zero critical errors, and zero gaps, with the exact materialized proof
 digest.  All one-dimensional cases within the ambient hypotheses are
 therefore retired from P21.3.
 
-P21.3 remains one T2 atom only in analytic dimension at least two.  The
-inventory stays at 15 formal problem environments and 54 active atoms, with
+P21.3 remains one T2 atom only in analytic dimension at least two.  At this
+29 August milestone, before the independent P17.1 retirement below, the
+inventory stood at 15 formal problem environments and 54 active atoms, with
 tier totals `(0,6,14,17,17)`.
 
 **28 August 2026 P00.1 controlling retirement addendum.**  For every
@@ -596,7 +612,9 @@ passed the superseding archive
 `rethlas_packets_20260828/p001_mp_bj_full_cone_live_run2_20260828`, verdict
 `correct`, zero critical errors, and zero gaps.  P00.1 and its Chapter 71
 problem environment are retired.
-The active inventory is now 15 formal environments and 54 atoms.
+At this 28 August milestone, the active inventory was 15 formal
+environments and 54 atoms.  After the 30 August P17.1 retirement recorded
+above, the current inventory is 14 formal environments and 53 atoms.
 
 ## Easy-to-hard Rethlas queue
 
@@ -608,9 +626,9 @@ counterexample retires an atom just as a verified proof does.
 
 No active atom remains in this tier after retirement of `P01.1`.
 
-### T2 --- focused problems with one principal missing bridge (6 atoms)
+### T2 --- focused problems with one principal missing bridge (5 atoms)
 
-`P21.3`, `P07.1`, `P17.1`, `P06.1`, `P06.2`, `P03.1`.
+`P21.3`, `P07.1`, `P06.1`, `P06.2`, `P03.1`.
 
 ### T3 --- major theorems within mature frameworks (14 atoms)
 
