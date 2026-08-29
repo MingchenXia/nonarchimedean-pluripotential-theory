@@ -153,6 +153,24 @@ book-level synthesis, not a novelty or priority claim.  The current frontier
 is 14 formal problem environments and 53 active atoms, with tiers
 `(0,5,14,17,17)`.
 
+**Controlling delta, 30 August 2026 (P07.1 CLD infinite star).**  Let \(B\)
+be any nonempty set and let \(X_B\) be the exact tropical star of CLD Section
+6.7.3, with the CLD topology and smooth structure.  The first-stage psh
+sheaf, the full generated psh sheaf, and the explicit branchwise-convex
+comparison sheaf coincide.  Every germ has a pointwise decreasing sequence
+of smooth psh approximants on one fixed neighbourhood.  The exact statement
+and proof have SHA-256
+`99c1a6a6a712005e73ee3b7cdae297606895b22ce79c80a6411dfd7f4863c963` /
+`ca49ad210cf8e64100cc00c31c16a76f207ecd0d4b37dc365e8e1c61ce903090`.
+Production item `pi_00f6c73303087d94da9eb724`, using `gpt-5.6-sol` at
+`xhigh`, returned final `correct`, zero critical errors, and zero gaps; the
+response SHA-256 is
+`b271d51ed81898ccfe68a798b3fc69e165c0c72486ff6c59711995f5b9e581af`.
+P07.1 is narrowed to arbitrary higher-dimensional and other nonambient local
+models outside the two exact interval structures and \(X_B\).  P07.1 and
+P07.2 remain active, so the controlling inventory remains 14 formal problem
+environments and 53 active atoms, with tiers `(0,5,14,17,17)`.
+
 ---
 
 ## 1. Status vocabulary
@@ -975,8 +993,10 @@ nonnormal germs.
 
 ### CLD-8. Early collapse of the psh hierarchy
 
-**Status:** verified on tropical toric partial compactifications and every
-finite ambient-induced real-affine star; open in the unrestricted scope.
+**Status:** verified on tropical toric partial compactifications, every
+finite ambient-induced real-affine star, and the exact CLD Section 6.7.3
+star \(X_B\) for every nonempty \(B\); open in the residual unrestricted
+scope.
 
 CLD Lemma 8.1.4 proves eventual stabilization by a cardinality argument.
 Remark 8.1.6 literally says stationarity is unknown, contradicting that
@@ -1009,8 +1029,20 @@ passed the direct production endpoint using `gpt-5.6-sol`/`xhigh`, final
 under the local label `20260827T103835Z_c8131b22d800`, and the endpoint
 assigned no run or item identifier.  The theorem does not identify arbitrary
 positive-sedentarity or nonambient generator sheaves with its model.
-Higher-dimensional spaces, such boundary structures, and infinite-valence
-stars remain open.
+
+The exact CLD infinite-star theorem treats the non-quotient topology and
+smooth structure of CLD Section 6.7.3 for an arbitrary nonempty branch set
+\(B\).  It identifies
+\(\operatorname{Psh}_{X_B,1}=\operatorname{Psh}_{X_B}=\mathscr J_B\) and
+constructs the decreasing smooth psh sequence on one fixed neighbourhood,
+including centre and \(-\infty\)-endpoint germs.  Its exact statement/proof
+hashes are
+`99c1a6a6a712005e73ee3b7cdae297606895b22ce79c80a6411dfd7f4863c963` /
+`ca49ad210cf8e64100cc00c31c16a76f207ecd0d4b37dc365e8e1c61ce903090`;
+production item `pi_00f6c73303087d94da9eb724` returned final `correct`,
+zero critical errors, and zero gaps.  The residual is arbitrary
+higher-dimensional and other nonambient local models outside the two exact
+interval structures and \(X_B\).
 
 ### CLD-9. Local psh metrics versus global psh metrics
 
@@ -1443,7 +1475,7 @@ theory row.
 | P1 | BMPS higher-dimensional smoothness, Calabi--Yau tropicalizations, and Bergman-fan matroid classification | Test intrinsic contact and orthogonality on singular smooth fans; keep the recursive analytic comparison as a stronger book question | Exact source questions and book strengthenings are separated; R3-27 solves only the complete affine case |
 | P1 | Exact post-2025 YTD residuals; BJ 2509.15016v1, Darvas--Zhang 2509.15173v2, Trusiani 2605.30063v1, MPWN25 | Direct algebraic bridge, bounded divisorial support, algebraic equivariance, log-discrepancy-ray regularization, and transcendental/singular/hybrid extensions | Trusiani Corollary B removes the bare smooth-projective signature question; Chapter 72 lists only residuals |
 | P1 | Zero-volume relative energy/MA and \(P\)-sensitive bodies; DXZ/Xia/MP | Test first-nonzero-volume-coefficient rescaling for path independence and numerical dimension | Chapter 72 proves the probability and \(\mathcal I\)-body no-go boundaries |
-| P2 | Early collapse of the CLD transfinite psh hierarchy; CLD Lemma 8.1.4/Remark 8.1.6 | Extend the verified toric and finite ambient-induced real-affine-star cases to arbitrary non-toric positive-sedentarity or nonambient structures, higher-dimensional spaces, or infinite stars, or exhibit genuine transfinite rank | Eventual stabilization, the toric case, and the finite ambient-induced star case are closed; the latter passed the direct production endpoint and is archived under `20260827T103835Z_c8131b22d800`; Chapter 72 retains the unrestricted residual |
+| P2 | Early collapse of the CLD transfinite psh hierarchy; CLD Lemma 8.1.4/Remark 8.1.6 | Extend the verified toric, finite ambient-induced real-affine-star, two exact interval, and CLD Section 6.7.3 \(X_B\) cases to arbitrary higher-dimensional or other nonambient local models, or exhibit genuine transfinite rank | Eventual stabilization and the displayed natural cases are closed; the exact \(X_B\) statement/proof passed production item `pi_00f6c73303087d94da9eb724`, final `correct`, zero critical errors, and zero gaps; Chapter 72 retains the narrowed residual |
 | P2 | Exact canonical BJ approximation and threshold identities after Trusiani 2026 | Identify Trusiani's approximants term by term with the prescribed BJ sequence and normalize every threshold | Earlier chapters provide machinery; Chapter 72 does not identify them |
 
 The live Chapter 72 contains all 14 open-problem environments in the book.

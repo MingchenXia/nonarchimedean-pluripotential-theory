@@ -257,7 +257,9 @@ to state them in their correct logical relation.
 thm:ch16-collapse-finite-tropical-curves}.  It also holds for the two
 constant-tail interval models of
 \Cref{thm:p071-cld-constant-collar-endpoint,%
-thm:p071-cld-infinite-collar-endpoint}.
+thm:p071-cld-infinite-collar-endpoint}, and for the exact CLD stars $X_B$
+of \cite[\S6.7.3]{CLD25}, with arbitrary nonempty branch set $B$, by
+\Cref{thm:p071-infinite-star-collapse-candidate}.
 \end{enumerate}
 \end{proposition}
 
@@ -278,7 +280,7 @@ inclusion is immediate by transfinite induction.  Assertion
 \cite[Proposition~8.1.11]{CLD25}.  Assertion
 \cref{itm:ch16-hier:approach} is \cite[Definition~8.1.13]{CLD25} together
 with the general status recorded in \Cref{prob:frontier-cld-hierarchy}; the
-four positive cases are proved below.
+five positive cases are proved below.
 \end{proof}
 
 \begin{warning}{Stationarity is a theorem; early collapse is the open
@@ -357,18 +359,21 @@ is exactly a local regularization operator that preserves
 $\dprimeddprime\geq0$, dominates, and is monotone in its parameter.
 \end{remark}
 
-\subsection{Four settings with first-stage collapse}
+\subsection{Five settings with first-stage collapse}
 \label{sec:ch16-collapse-positive-cases}
 
 The obstruction described in \Cref{rem:ch16-collapse-euclidean} disappears
-in four further settings.  The first is already contained in the tropical
+in five further settings.  The first is already contained in the tropical
 toric regularization theorem of Burgos Gil--Gubler--Jell--K\"unnemann.  The
 second is a finite real-affine-star argument requiring neither lattice data,
 weights, balancing, calibration, harmony, nor a boundary designation.  The
-last two are the finite- and infinite-endpoint constant-tail interval
+third and fourth are the finite- and infinite-endpoint constant-tail interval
 structures of \cite[Example~6.7.2]{CLD25}; they require separate arguments
 because their smooth functions are locally constant at the distinguished
-endpoint.
+endpoint.  The fifth is the exact CLD star $X_B$ of
+\cite[\S6.7.3]{CLD25}; its topology permits an arbitrary nonempty branch set
+while every centre neighbourhood and smooth centre germ has only finitely
+many exceptional branches.
 
 \begin{proposition}
 \label{prop:ch16-collapse-tropical-toric}
@@ -494,9 +499,93 @@ proof bytes accepted by production Rethlas verification.  Both runs used
 \input{editorial/rethlas_packets_20260829/p071_infinite_endpoint_proof_20260829.tex}
 \endgroup
 
+For auditability, the next statement and proof are the exact frozen bytes
+accepted by production Rethlas item
+\texttt{pi\_00f6c7330308}\hspace{0pt}
+\texttt{7d94da9eb724}.  Their respective SHA-256 hashes, displayed in
+consecutive sixteen-character blocks, are
+\begin{center}
+\small
+\begin{tabular}{@{}r@{\quad}l@{}}
+statement:&
+\texttt{99c1a6a6a712005e}\texttt{73ee3b7cdae29760}\\
+&\texttt{6895b22ce79c80a6}\texttt{411dfd7f4863c963}\\
+proof:&
+\texttt{ca49ad210cf8e641}\texttt{00cc00c31c16a76f}\\
+&\texttt{207ecd0d4b37dc36}\texttt{5e8e1c61ce903090}.
+\end{tabular}
+\end{center}
+The run used \texttt{gpt-5.6-sol} at \texttt{xhigh} and returned final
+verdict \texttt{correct}, with zero critical errors and zero gaps.  It
+narrows but does not retire the two questions in
+\Cref{prob:frontier-cld-hierarchy}; the active editorial inventory remains
+at fifty-three atoms in fourteen formal problem environments.
+
+\input{editorial/rethlas_packets_20260830/p071_infinite_star_collapse_candidate_20260830/statement.tex}
+\begingroup
+\emergencystretch=2em
+\input{editorial/rethlas_packets_20260830/p071_infinite_star_collapse_candidate_20260830/proof.tex}
+\endgroup
+
+\begin{example}
+The countable-activity conclusion and slope budget of
+\Cref{thm:p071-infinite-star-collapse-candidate} are sharp.  Suppose that
+$B$ contains distinct elements $a,b_1,b_2,\ldots$, and take the standard
+neighbourhood with exceptional branch $V_a=(-1,0]$ and every other branch
+full.  Choose a smooth convex function
+$\chi:[-\infty,0]\to\mathbf R$, constant near $-\infty$, such that
+$\chi\leq0$, $\chi(0)=0$, and $\chi'(0)=1$.  Put
+\[
+ \varepsilon_j=2^{-j},\qquad
+ S_n=1-2^{-n},\qquad
+ T_n=2^{-n},
+\]
+and define
+\[
+ f_{n,a}(t)=T_n-S_nt,
+ \qquad
+ f_{n,b_j}(t)=T_n+\varepsilon_j\chi(t)\quad(j\leq n),
+\]
+with $f_{n,b}=T_n$ on every remaining full branch.  Each $f_n$ is
+branchwise smooth and convex, has only finitely many nonconstant full
+branches, and satisfies the exact derivative balance
+\[
+ f'_{n,a}(0)+\sum_{j=1}^n f'_{n,b_j}(0)
+   =-S_n+\sum_{j=1}^n\varepsilon_j=0.
+\]
+Thus $f_n\in\operatorname{Psh}_{X_B,0}(V)$.  Moreover,
+\[
+ f_{n+1,a}(t)-f_{n,a}(t)
+   =-\varepsilon_{n+1}(1+t)\leq0
+ \qquad(-1<t\leq0),
+\]
+while on an already active branch only $T_n$ decreases, on the newly
+active branch the difference is
+$\varepsilon_{n+1}(\chi-1)\leq0$, and on every other branch the assertion
+is immediate.  Hence $f_n\downarrow u$, where
+\[
+ u_a(t)=-t,
+ \qquad
+ u_{b_j}(t)=\varepsilon_j\chi(t),
+ \qquad
+ u_b(t)=0\quad\text{otherwise}.
+\]
+All the branches $b_j$ are active, their endpoint slopes are
+$\varepsilon_j$, and for every $0<\rho<1$,
+\[
+ \sum_{j\geq1}D_-u_{b_j}(0)=\sum_{j\geq1}2^{-j}=1
+   =\frac{u_a(-\rho)-u(\eta)}{\rho}.
+\]
+\end{example}
+
+The sharp-budget construction just displayed was independently accepted by
+production Rethlas item \nolinkurl{pi_e07ae5472f3ba6d4ebc75d6b}, again using
+\texttt{gpt-5.6-sol} at \texttt{xhigh}, with final verdict
+\texttt{correct}, zero critical errors, and zero gaps.
+
 \begin{remark}
 \label{rem:ch16-collapse-scope-firewall}
-The four results have different exact scopes.  In
+The five results have different exact scopes.  In
 \Cref{prop:ch16-collapse-tropical-toric}, the space may have tropical
 boundary, but it must be a tropical toric partial compactification equipped
 with the standard Lagerberg structure to which the cited regularization
@@ -516,13 +605,20 @@ separately by \Cref{prop:ch16-collapse-tropical-toric}.  The two
 constant-near-an-endpoint interval structures of
 \cite[Example~6.7.2]{CLD25} are covered separately by
 \Cref{thm:p071-cld-constant-collar-endpoint,%
-thm:p071-cld-infinite-collar-endpoint}.  None of these results covers the
-infinite-star structures of \cite[\S6.7.3]{CLD25}.
+thm:p071-cld-infinite-collar-endpoint}.  The exact infinite-star structure of
+\cite[\S6.7.3]{CLD25} is now covered by
+\Cref{thm:p071-infinite-star-collapse-candidate} for every nonempty set of
+branches $B$.  This assertion uses precisely the CLD topology and smooth
+structure stated there; it is not a theorem about every nonambient or
+infinite-valence space called a tropical star.
 
-Finiteness is essential to the proof: it permits simultaneous shrinking of
-all branches and smoothing through finitely many affine pieces.  In
-dimensions at least two, the analogous Jensen reduction leaves a genuine
-face-compatibility problem for polyhedral regularization.  The
+Finiteness is essential to the finite ambient-star proof: it permits
+simultaneous shrinking of all branches and smoothing through finitely many
+affine pieces.  The exact CLD star theorem replaces that finiteness by the
+finite-exception topology, a summable endpoint-slope budget, and a
+countable-activity reduction on one fixed neighbourhood.  In dimensions at
+least two, the analogous Jensen reduction leaves a genuine face-compatibility
+problem for polyhedral regularization.  The
 regularity property studied by Botero--Mazzon--Pille-Schneider isolates the
 piecewise-affine part of that problem and is established in dimension one,
 but piecewise-affine approximation is not by itself approximation by the
@@ -530,10 +626,11 @@ smooth functions defining CLD stage zero
 \cite[Theorem~6.4, Remark~6.6 and Proposition~6.13]{BMPS26}.  The
 regularized-maximum construction above supplies that bridge for the finite
 ambient-induced one-dimensional model, while the two endpoint theorems use
-the order structure of a single interval and do not couple branches.
-Arbitrary higher-dimensional settings, infinite-valence stars, and general
-nonambient one-dimensional smooth structures therefore remain within
-\Cref{prob:frontier-cld-hierarchy}.
+the order structure of a single interval and the exact $X_B$ theorem uses
+its special finite-exception topology and balance law.  Arbitrary
+higher-dimensional settings and other nonambient one-dimensional smooth
+structures, including infinite-star models not locally equal to this exact
+CLD $X_B$, therefore remain within \Cref{prob:frontier-cld-hierarchy}.
 \end{remark}
 
 \subsection{Composition, maxima, and tropical convexity}
@@ -4125,7 +4222,12 @@ production Rethlas endpoint under the local archive label
 \texttt{correct}, zero critical errors, and zero gaps.  The endpoint assigned
 no run or item identifier, and none is inferred.  The precise distinction
 between this zero-sedentarity ambient-induced model and other tropical
-boundary structures is \Cref{rem:ch16-collapse-scope-firewall}.
+boundary structures is \Cref{rem:ch16-collapse-scope-firewall}.  The exact
+CLD infinite-star collapse theorem
+\Cref{thm:p071-infinite-star-collapse-candidate} is likewise book-local;
+its frozen-byte production provenance is recorded immediately before its
+statement, and the same scope firewall separates it from other nonambient
+models.
 
 \paragraph{Harmonic tropicalizations and the curve tests.}
 The harmonic-chart theory used in
@@ -4332,9 +4434,11 @@ prop:p213-triv-algebraic-curve-current-rigidity}, together with the abstract
 cross and four-punctured no-go statements in the same packet, have the same
 book-level status and make no novelty or priority claim.  The finite
 real-affine-star collapse of
-\Cref{thm:ch16-collapse-finite-tropical-curves} is likewise a first-draft
-result.  The remaining theorem families in this chapter come from the cited
-sources.
+\Cref{thm:ch16-collapse-finite-tropical-curves} and the exact CLD
+infinite-star collapse of
+\Cref{thm:p071-infinite-star-collapse-candidate} are likewise first-draft
+results.  The remaining theorem families in this chapter come from the
+cited sources.
 The organizational
 choices that differ from CLD are the four listed above: the sheaf-closure
 principle as a named lemma, the explicit CLN constant, the single

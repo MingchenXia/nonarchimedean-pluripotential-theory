@@ -223,15 +223,26 @@ and
 passed production run `20260829T003722Z_779b1304255d`, again final `correct`,
 with zero critical errors and zero gaps.
 
-The finite-star theorem does not identify its generator sheaf with the CLD
-sheaf on every analytic, sedentary tropical, or nonambient local model, and
-the endpoint arguments use the order structure of a single interval rather
-than branch coupling.  P07.1 therefore retains arbitrary higher-dimensional
-settings, infinite-valence stars, and general nonambient local models beyond
-the two verified interval structures.  P07.2 retains the absence of a
-uniform early-ordinal bound.  Both atoms remain active.  The controlling
-P17.1 retirement addendum below gives the current total of 53 atoms in 14
-formal problem environments.
+On 30 August 2026, the exact CLD star \(X_B\) of CLD Section 6.7.3 also
+became controlled for every nonempty branch set \(B\), including infinite
+\(B\).  Its first-stage,
+full generated, and explicit comparison psh sheaves coincide, and every germ
+admits a pointwise decreasing smooth psh approximation on one fixed
+neighbourhood.  The exact statement and proof have SHA-256
+`99c1a6a6a712005e73ee3b7cdae297606895b22ce79c80a6411dfd7f4863c963`
+and
+`ca49ad210cf8e64100cc00c31c16a76f207ecd0d4b37dc365e8e1c61ce903090`.
+Production item `pi_00f6c73303087d94da9eb724`, using `gpt-5.6-sol` at
+`xhigh`, returned final `correct`, zero critical errors, and zero gaps; the
+response SHA-256 is
+`b271d51ed81898ccfe68a798b3fc69e165c0c72486ff6c59711995f5b9e581af`.
+
+P07.1 therefore retains arbitrary higher-dimensional settings and other
+nonambient local models outside the two exact interval structures and
+\(X_B\).  P07.2 retains the absence of a uniform early-ordinal bound.  Both
+atoms remain active.  The controlling P17.1 retirement addendum below gives
+the current total of 53 atoms in 14 formal problem environments, with tier
+counts `(0,5,14,17,17)`.
 
 ### `prob:frontier-cld-global-metric` --- 2 atoms
 

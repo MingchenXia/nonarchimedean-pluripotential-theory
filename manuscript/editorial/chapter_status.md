@@ -209,6 +209,24 @@ The controlling inventory is now 14 formal problem environments and 53
 active atoms, with tiers `(0,5,14,17,17)`.  This is a verified book-level
 synthesis, not a novelty or priority claim.
 
+**30 August 2026 P07.1 CLD infinite-star verification addendum.**  For every
+nonempty branch set \(B\), the exact candidate treats the CLD star \(X_B\) of
+CLD Section 6.7.3 with its non-quotient topology and exact smooth structure.
+It proves equality of the first-stage, full generated, and explicit
+comparison psh sheaves, and constructs pointwise decreasing smooth psh
+approximants on one fixed neighbourhood for every germ.  The exact statement
+and proof have SHA-256
+`99c1a6a6a712005e73ee3b7cdae297606895b22ce79c80a6411dfd7f4863c963` /
+`ca49ad210cf8e64100cc00c31c16a76f207ecd0d4b37dc365e8e1c61ce903090`.
+Production item `pi_00f6c73303087d94da9eb724`, using `gpt-5.6-sol` at
+`xhigh`, returned final `correct`, zero critical errors, and zero gaps.  The
+response SHA-256 is
+`b271d51ed81898ccfe68a798b3fc69e165c0c72486ff6c59711995f5b9e581af`.
+This narrows P07.1 to arbitrary higher-dimensional and other nonambient
+local models outside the two exact interval structures and \(X_B\); P07.1
+and P07.2 remain active.  The inventory is unchanged at 53 active atoms in
+14 formal environments, with tiers `(0,5,14,17,17)`.
+
 ## Second-draft expansion
 
 A second-draft expansion pass has now reached every numbered chapter.  It

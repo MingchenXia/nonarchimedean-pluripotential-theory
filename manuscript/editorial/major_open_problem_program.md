@@ -370,17 +370,32 @@ source questions under one common framework.
   charted by such stars with generator-preserving transitions.  The exact
   statement and proof passed the direct production endpoint and are archived
   under `20260827T103835Z_c8131b22d800`; the endpoint assigned no run or item
-  identifier.
+  identifier.  On 30 August 2026, for the exact CLD star \(X_B\) of CLD
+  Section 6.7.3, with an arbitrary nonempty branch set \(B\), the first-stage,
+  full generated, and explicit comparison psh sheaves were verified to
+  coincide, and every germ has decreasing smooth psh approximation on one
+  fixed neighbourhood.  Its exact
+  statement/proof SHA-256 are
+  `99c1a6a6a712005e73ee3b7cdae297606895b22ce79c80a6411dfd7f4863c963` /
+  `ca49ad210cf8e64100cc00c31c16a76f207ecd0d4b37dc365e8e1c61ce903090`;
+  production item `pi_00f6c73303087d94da9eb724`, `gpt-5.6-sol`/`xhigh`,
+  returned final `correct`, zero critical errors, and zero gaps, with response
+  SHA-256
+  `b271d51ed81898ccfe68a798b3fc69e165c0c72486ff6c59711995f5b9e581af`.
 - **Scope firewall:** the finite-star theorem does not assert that every
   analytic, sedentary tropical, or nonambient germ carries the required
   generator-preserving chart.
-- **Status:** P07.1 remains open in arbitrary higher dimension, at
-  infinite-valence stars, and on local models outside that chart category.
-  P07.2 retains the conditional question of a finite or uniformly controlled
-  early ordinal.  No example of genuine second-stage rank is known.
+- **Status:** P07.1 remains open in arbitrary higher dimension and on other
+  nonambient local models outside the two exact interval structures and
+  \(X_B\).  P07.2 retains the conditional question of a finite or uniformly
+  controlled early ordinal.  No example of genuine second-stage rank is
+  known.  Both atoms remain active; the inventory stays at 53 atoms in 14
+  formal environments, with tiers `(0,5,14,17,17)`.
 - **Packets:** `cld_psh_early_collapse.md` is historical; the toric result is
   controlled by the 25 August packet, and the stronger finite-star result by
   `rethlas_packets_20260827/p071_finite_affine_tropical_stars_*_20260827`.
+  The exact CLD \(X_B\) result is controlled by
+  `rethlas_packets_20260830/p071_infinite_star_collapse_candidate_20260830`.
 
 ### OP-08. Local psh metrics versus global psh metrics
 

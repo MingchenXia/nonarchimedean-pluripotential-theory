@@ -147,6 +147,22 @@ literal sentence in Remark 8.1.6 saying stationarity is unknown conflicts
 with Lemma 8.1.4; the book records the source wording and asks only the
 coherent early-collapse question.
 
+**30 August 2026 P07.1 verification addendum.**  For the exact star \(X_B\)
+of CLD Section 6.7.3 and every nonempty branch set \(B\), the book-level
+candidate proves equality of the first-stage, full generated, and explicit
+comparison psh sheaves, together with fixed-neighbourhood decreasing smooth
+psh approximation.  Its exact statement/proof SHA-256 are
+`99c1a6a6a712005e73ee3b7cdae297606895b22ce79c80a6411dfd7f4863c963` /
+`ca49ad210cf8e64100cc00c31c16a76f207ecd0d4b37dc365e8e1c61ce903090`.
+Production item `pi_00f6c73303087d94da9eb724`, `gpt-5.6-sol`/`xhigh`,
+returned final `correct`, zero critical errors, and zero gaps; response
+SHA-256
+`b271d51ed81898ccfe68a798b3fc69e165c0c72486ff6c59711995f5b9e581af`.
+This source-explicit book-level result makes no novelty or priority claim.
+It leaves P07.1 active only for arbitrary higher-dimensional and other
+nonambient local models outside the two exact interval structures and
+\(X_B\); P07.2 also remains active.
+
 ### Mikhalkin--Rau: tropical convention authority
 
 Grigory Mikhalkin and Johannes Rau, *Tropical Geometry*, book manuscript,
@@ -1188,9 +1204,12 @@ literature corrections are:
 - BEGZ monotonicity and log-concavity issues used by this book are historical,
   not current;
 - arbitrary smooth complex geodesics are known to fail;
-- CLD Lemma 8.1.4 already proves eventual cardinal stabilization; only
-  stage-one or controlled-early collapse remains open, along with the two
-  local/global metric questions of Remark 17.8.10;
+- CLD Lemma 8.1.4 already proves eventual cardinal stabilization; stage one
+  is now verified on the toric, finite ambient-induced-star, two exact
+  interval, and CLD Section 6.7.3 \(X_B\) models, while arbitrary
+  higher-dimensional and other nonambient models retain the stage-one or
+  controlled-early question, along with the two local/global metric
+  questions of Remark 17.8.10;
 - the three Gubler--Jell--Rabinoff questions, the Pille--Schneider arbitrary-
   field \(\mathcal E^1\) operator, DXZ filtration-test-curve maximality,
   Xia Conjecture 5.29 and auxiliary-\(\eta\) independence, and the three

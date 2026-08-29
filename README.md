@@ -22,9 +22,19 @@ whole-book build and produced 3,284 pages at that stage.  On 30 August the full
 Banach-base continuity theorem answering Pille--Schneider Question 4.9 in its
 stated scope was integrated as `thm:p171-full-assembly`; its exact live gate,
 item `pi_87b42b938a8d830222bed78f`, returned final `correct`, with zero
-critical errors and zero gaps.  The resulting clean current-source build has
-3,318 pages.  These
-checks do not turn
+critical errors and zero gaps.  The resulting clean current-source build had
+3,318 pages.  Also on 30 August, the exact P07.1 theorem for the
+Chambert--Loir--Ducros star \(X_B\) of CLD Section 6.7.3 passed production
+verification for every nonempty branch set \(B\).  It proves equality of the
+first-stage, full, and explicit comparison psh sheaves and gives decreasing
+smooth psh approximation on one fixed neighbourhood.  Production item
+`pi_00f6c73303087d94da9eb724`, using `gpt-5.6-sol` at `xhigh`, returned final
+`correct`, zero critical errors, and zero gaps.  This narrows P07.1 to
+arbitrary higher-dimensional and other nonambient local models outside the
+two exact interval structures and \(X_B\); P07.1 and P07.2 remain active, and
+the inventory remains 14 formal problem environments and 53 active atoms,
+with tiers `(0,5,14,17,17)`.  After that theorem was integrated, the clean
+current-source build produced 3,330 pages.  These checks do not turn
 source imports or book-level derivations into novelty or priority claims, or
 close residual questions outside the displayed theorem scopes.
 

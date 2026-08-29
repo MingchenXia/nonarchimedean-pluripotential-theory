@@ -9,7 +9,7 @@ were checked by the production Rethlas verifier with `gpt-5.6-sol` at `xhigh`
 effort, after source and domain hypotheses were made explicit.  Later edits to
 a statement or proof invalidate its receipt until a fresh audit is recorded.
 
-## Current release boundary (through 29 August 2026)
+## Current release boundary (through 30 August 2026)
 
 This ledger is not a book-wide Rethlas completion certificate.  It records
 nine mathematical production gates completed on 24 August.  Eight are
@@ -459,8 +459,9 @@ nine 24 August gates counted in this paragraph.
 - Scope firewall: no lattice, rationality, weight, balancing, calibration,
   harmony, or boundary designation enters the theorem, but this does not
   identify the generated star sheaf with the CLD sheaf on every analytic,
-  sedentary tropical, or nonambient local model.  Arbitrary higher-dimensional
-  settings and infinite-valence stars remain open.
+  sedentary tropical, or nonambient local model.  The exact CLD \(X_B\)
+  infinite-star structure is treated separately below; arbitrary
+  higher-dimensional and other nonambient local models remain open.
 - Production verification: the direct endpoint returned final `correct`, zero
   critical errors, and zero gaps.  The archival label is
   `20260827T103835Z_c8131b22d800`; the endpoint assigned no run or item
@@ -473,6 +474,33 @@ nine 24 August gates counted in this paragraph.
   `ac68faee9ddb39bd3a30373e193196fc0a25431477a34e5c9cea6b49947299ed`;
   response
   `4f9a8b82e6eb7134cf76a5eac5ac0313db8f0e6cca082d369976db04ec115cfe`.
+
+## Chapter 16 — first-stage collapse for the exact CLD infinite star \(X_B\)
+
+- Status: **VERIFIED EXACT FROZEN BLOCKS / INPUT BYTE-FOR-BYTE**
+  (30 August 2026).
+- Scope: the exact tropical star \(X_B\) of CLD Section 6.7.3, with its CLD
+  topology and smooth structure, for every nonempty branch set \(B\), finite
+  or infinite.
+- Exact conclusion:
+  \(\operatorname{Psh}_{X_B,1}=\operatorname{Psh}_{X_B}=\mathscr J_B\).
+  Every germ admits a pointwise decreasing sequence of smooth psh functions
+  on one fixed neighbourhood, including centre and \(-\infty\) endpoint
+  germs.
+- Exact statement/proof SHA-256:
+  `99c1a6a6a712005e73ee3b7cdae297606895b22ce79c80a6411dfd7f4863c963` /
+  `ca49ad210cf8e64100cc00c31c16a76f207ecd0d4b37dc365e8e1c61ce903090`.
+- Production verification: item `pi_00f6c73303087d94da9eb724`, model
+  `gpt-5.6-sol`, scrutiny `xhigh`, status `final`, verdict `correct`, zero
+  critical errors, and zero gaps.  Response SHA-256:
+  `b271d51ed81898ccfe68a798b3fc69e165c0c72486ff6c59711995f5b9e581af`.
+- Scope firewall: this theorem does not settle arbitrary
+  higher-dimensional or other nonambient local models outside the two exact
+  interval structures and \(X_B\).  P07.1 and P07.2 remain active; the
+  inventory remains 53 active atoms in 14 formal environments, with tiers
+  `(0,5,14,17,17)`.
+- Controlling packet:
+  `editorial/rethlas_packets_20260830/p071_infinite_star_collapse_candidate_20260830/`.
 
 ## Chapters 16 and 72 — dimension-one current classification, including nilpotent thickenings
 
