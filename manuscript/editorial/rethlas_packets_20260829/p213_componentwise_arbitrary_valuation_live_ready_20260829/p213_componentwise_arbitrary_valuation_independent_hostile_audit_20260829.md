@@ -1,0 +1,178 @@
+# Independent hostile audit: arbitrary-valuation componentwise curve packet
+
+Date: 29 August 2026
+
+## Verdict
+
+**DEPENDENCY-BLOCKED; conditional reduction PASS.**  The exact componentwise
+argument has **0 intrinsic critical errors and 0 intrinsic proof gaps** under
+the three theorem statements that it explicitly invokes.  It is not eligible
+for production submission or live integration: the exact revised
+normal-curve dependency listed below was subsequently rejected in production
+for a calibration defect and is being replaced.  This audit therefore makes
+no unconditional correctness claim for the componentwise proposition.
+
+The independently checked componentwise bytes are
+
+- statement:
+  `91ce52597273f7c8479efd755925d70c51bcc067ea68e72dcf43a1cdf259bff0`;
+- proof:
+  `098995604f7c55ce0341eba984c7bb23a09b6be5d148d14169d1b7f8f7386cd1`;
+- compile harness:
+  `3e7ac35df61c6faf2fde3c3505a89e428c2a8c6fb68e12452a72a4a9db3de9db`.
+
+No statement, proof, or live-book file was edited during this audit.
+
+## Exact dependencies and controlling blocker
+
+The harness imports the following exact dependency statements, and the proof
+uses no stronger conclusions than their displayed statements.
+
+1. Arbitrary-valued normal-curve classification:
+   statement
+   `8c736e3df2df1efd7b6925dd4edccddfcf03cc1ee0b68250bd1219f80169be5a`,
+   proof
+   `9cb4d5eef1370ef97ccf1fa51e9ece16ab418c44092df61bd1a403f3f1d99ed9`.
+   **External status: production-rejected for a calibration error.**  This is
+   the controlling blocker.
+2. Nontrivially valued normal rigid-point zero atom:
+   statement
+   `469024d04e8eb5e08900b9caea6480057398c743ca0b46076b524f2109cf80ac`,
+   proof
+   `661100a4b25e82297c5b2b2712775e9c9501c337d619a64280f2d49922a4bcc2`.
+3. Trivially valued Gauss--Shilov rigid-point zero atom:
+   statement
+   `ffaa0610214068382fd20e584bb48e77e86f8bbc2f4ea0910eb7d091ba843a6a`,
+   proof
+   `789acb082e15ffe8e7f31327ae5e331b06654c42e21ee2ed83c4ff404e32bc66`.
+
+The source copies inspected independently were CLD25,
+`f659b1fd1423baba9552c03e4738f59e5ee985df0bbf671c8ce9d9718a5d0629`,
+and Ducros's curve monograph,
+`b514eaa16c0a531880672956d08ee75a4026d75f61303446044468937c9342ad`.
+
+## Hostile mathematical audit
+
+### Nilreduction
+
+Analytic seminorms annihilate nilpotents, so the nilpotent immersion is a
+homeomorphism and preserves completed residue fields.  Units modulo a
+nilpotent ideal lift by a finite geometric-series inverse and retain the same
+absolute-value function.  Hence the two systems of ordinary moment charts
+have cofinal refinements with identical tropicalizations and Lagerberg
+representatives.  This proves the form isomorphism from the form variant of
+CLD Proposition 15.1.3 and, on each fixed compact support, also identifies all
+the seminorms defining the test-form topology.  Transposition therefore gives
+the asserted current and weak-topology isomorphisms.  Positivity,
+`d'`, `d''`, smooth multiplication, and locally bounded Borel multiplication
+of positive currents are preserved because the test cones and the associated
+coefficient measures are literally the same.  The decomposition-independent
+extension to local differences of positive currents is valid.
+
+The smooth psh cone is identical on the two spaces, as are pointwise
+decreasing convergence and local uniform convergence on their common
+topological space.  Transfinite induction using CLD Lemmas 8.1.4 and 8.1.8
+therefore identifies both the psh and continuous-psh filtrations.  The same
+moment-lifting argument applies to the stated G-form variant.  This calculus
+does not erase the generic lengths in the fundamental cycle, which are kept
+separately later in the proof.
+
+### Normalization, conductor, strictness, and connected deleted opens
+
+On a good affinoid curve, excellence and finite normalization make the
+normalization quotient and conductor coherent.  Their support is proper and
+zero-dimensional on each reduced component.  Pairwise intersections of
+distinct pure one-dimensional components are also zero-dimensional.
+Irreducible components are locally finite, and a zero-dimensional affinoid
+analytic space has finitely many points, so the resulting set `Z` and each
+inverse image `Z_i` are closed and locally finite.
+
+At a nonrigid point of a normal analytic curve, Ducros Section 4.2.18 makes
+the local ring a field.  A proper coherent ideal defining `Z_i` would then
+have zero stalk and hence vanish on a neighborhood, contradicting the
+zero-dimensionality of `Z_i`.  Thus all points of `Z_i` are rigid.  Finiteness
+of completed residue-field extensions under a finite morphism then makes all
+points of `Z` rigid as well.
+
+Strictness is correctly checked germwise, including over a trivially valued
+field: the degrees from a strict base germ are torsion modulo `|K^x|`, and a
+homogeneous element integral over the finite base algebra has a positive power
+of its degree in the group generated by the base degrees.  CLD Lemma 11.8.5
+then gives strictness upstairs.  Finite morphisms have empty relative boundary,
+so the boundary-composition formula transfers boundarylessness.
+
+The normalization of one irreducible component is connected.  Its deleted
+points are rigid and therefore unibranch by Ducros Proposition 3.5.2.  A
+connected analytic curve is connected by injective arcs, while an interior
+point of such an arc is pluribranch.  An arc between undeleted points cannot
+pass through a deleted point.  Consequently each nonempty `U_i` is connected
+and satisfies every hypothesis of the invoked normal-curve classification;
+no quasi-smoothness or rig-smoothness is used.
+
+### Fundamental cycles and current classification
+
+CLD Definition 13.2.5, Section 13.5.2, and Proposition 16.6.3 preserve the
+generic multiplicities `m_i`.  Normalization has calibrated degree one on the
+normal locus.  The exceptional image lies in the locally finite rigid set
+`Z`, while CLD Proposition 15.2.1 makes every ordinary `(1,1)`-test germ vanish
+where `d_K<1`, hence near each point of `Z`.  The two displayed fundamental
+current identities consequently extend across `Z`.
+
+The integration current of each nonempty `U_i` is nonzero: CLD Theorem
+12.11.1 makes it very rich and Corollary 7.3.13 gives full support.  This both
+detects each generic multiplicity and later gives uniqueness.
+
+For classification, the proof never pulls an arbitrary current through a
+finite normalization.  It restricts to the disjoint normal component opens,
+transports across analytic isomorphisms there, and invokes only the stated
+normal-curve classification.  The difference from the locally finite
+component sum is supported on `Z`, but every compact ordinary top-degree test
+form has support disjoint from `Z`; hence that difference is zero.  Restriction
+to `U_i` and nonvanishing of its integration current prove coefficient
+uniqueness.
+
+### Weighted and unweighted curvature identities
+
+The pullbacks of the two continuous psh functions have positive Radon
+curvature measures by CLD Proposition 8.1.5 and Lemma 8.5.5.  Multiplication
+of the fundamental current identities by a continuous function is legitimate,
+and finite proper pushforward commutes with `d'd''`.  Thus curvature equality
+on `X` is exactly the weighted identity
+`sum_i m_i nu_{i,*} sigma_i=0`, whereas equality on `X_red` is the unweighted
+identity `sum_i nu_{i,*} sigma_i=0`.
+
+Off `Z`, component images are disjoint and each normalization map is an
+isomorphism.  Either identity therefore forces every `sigma_i` to be supported
+on the locally finite rigid set `Z_i`.  The appropriate one of the two exact
+zero-atom dependencies applies at every such point: the normalization is good,
+separated, strict, normal, pure one-dimensional, and boundaryless there.  Both
+positive curvature measures have zero point mass, so their signed difference,
+being supported on a locally finite set, is zero.  This proves the weighted /
+unweighted equivalence.  The classified locally finite component sum then
+gives `d'd''((U-V)T)=0` by proper pushforward and linearity.  The proof correctly
+restricts this conclusion to continuous psh pairs.
+
+## Citation and compilation audit
+
+The cited CLD passages support the uses made of finite morphisms and boundary,
+strict germs, irreducible components and normalization, moment presentations,
+support of top-degree forms, fundamental cycles, very richness, positive-current
+measures, psh pullback, and proper pushforward.  Ducros Sections 4.2.18, 3.5.1,
+1.3.5, 1.3.12, and Proposition 3.5.2 support the local-field and graph arguments.
+No use is made of the misindexed printed CLD Corollary 16.8.6.
+
+The exact harness was rebuilt independently in three passes.  The final log has
+no TeX error, warning, undefined citation/reference, multiply defined label,
+overfull box, or underfull box.  The resulting 12-page PDF has 302255 bytes and
+SHA-256
+`a05f25bde284f56b56d72fc8b2cba274c64820a0c2d0168cbf813b5681337dd3`.
+
+## Promotion consequence
+
+The componentwise reduction may be reused only after a replacement
+normal-curve theorem is frozen and independently verified.  Its exact new
+statement must imply the classification used here under the same hypotheses.
+The componentwise bytes must then be rebound to that replacement, audited
+again, and submitted in a dependency-closed production packet.  The current
+exact packet must remain quarantined and must not be recommended for live
+integration.

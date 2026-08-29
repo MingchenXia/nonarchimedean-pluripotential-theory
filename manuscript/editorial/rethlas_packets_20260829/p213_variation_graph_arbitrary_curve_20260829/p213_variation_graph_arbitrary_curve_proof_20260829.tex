@@ -1,0 +1,500 @@
+% Quarantine-only candidate proof.
+% Date: 29 August 2026.
+% This file is not a live-book input and has not been Rethlas-verified.
+% It makes no novelty or priority claim.
+
+\paragraph{Source conventions.}
+We use the type decomposition, branch space, residual curve, and canonical
+graph metric of \cite[§§3.3--4.5]{Ducros24CurveStructure}.  In
+particular, \cite[§3.3.5.2]{Ducros24CurveStructure} associates to a
+type-$2$ point $y$ a projective normal integral residual curve $C_y$ over
+the degree-one residue field of $K$; it need not be geometrically
+integral.  The branch theorem
+\cite[Theorem~4.2.10 and §§4.2.11.1--4.2.11.2]
+{Ducros24CurveStructure} applies to an arbitrary analytic curve.  Since
+$y$ is interior, its branches are all closed points of $C_y$ in type~$2$,
+and there are exactly two branches in type~$3$.
+
+For an analytic unit $f$ on an arbitrary analytic curve, its variation
+graph is closed and locally finite, its norm is locally constant off that
+graph, and its restriction to the graph is piecewise a dilation by
+\cite[§§4.5.21.1--4.5.21.4]{Ducros24CurveStructure}.  The normalized
+branch slope $\mathrm d\log_b|f|$ is an integer, without a generic
+quasi-smoothness hypothesis.  If the curve is boundaryless, the finite
+sum of these slopes at every node is zero by
+\cite[Theorem~4.5.22]{Ducros24CurveStructure}.  We use CLD tropical
+coordinates with the sign convention $-\log|f|$.
+
+\begin{proof}[Proof of
+\cref{lem:p213-variation-graph-branch-separation}]
+We first treat the branch separation and then add the proper source
+localization.
+
+Suppose that $y$ is of type~$2$, and let $C_y$ be its residual curve.
+Every branch $b$ at $y$ corresponds to a unique closed point $P_b$ of
+$C_y$.  This assertion needs neither normality nor quasi-smoothness of
+$Y$: it is exactly
+\cite[Theorem~4.2.10 and §4.2.11.1]{Ducros24CurveStructure}.  Normality
+will be used only to lift rational functions on $C_y$ to analytic unit
+germs.
+
+Let $A_0\subseteq A$ be the set of branches on which $F_0$ is not
+locally constant, and write
+\[
+                     A_0=\{b_1,\ldots,b_s\},
+             \qquad P_i=P_{b_i}.
+\]
+Weak approximation on the projective normal integral curve $C_y$
+provides $r_i\in\operatorname{Rat}(C_y)^\times$ such that
+\begin{equation}
+       \operatorname{ord}_{P_j}(r_i)=\delta_{ij}
+       \qquad(1\leq i,j\leq s).
+ \label{eq:p213-variation-first-order-block}
+\end{equation}
+Here is a Riemann--Roch construction that records the field hypotheses.
+Choose an effective divisor $D$, disjoint from the $P_j$, sufficiently
+large that
+\[
+ H^1\!\left(C_y,
+   \mathcal O_{C_y}\!\left(D-2P_i-\sum_{j\ne i}P_j\right)\right)=0.
+\]
+The associated jet-evaluation map is surjective.  Prescribing a
+uniformizer modulo $\mathfrak m_{P_i}^2$ at $P_i$ and the value $1$
+modulo $\mathfrak m_{P_j}$ at every $P_j\ne P_i$ yields $r_i$.
+This uses only that $C_y$ is projective, normal, and integral over its
+actual constant field.
+
+Let $B$ be the finite set of closed points outside
+$\{P_1,\ldots,P_s\}$ at which at least one $r_i$ has nonzero order.
+Choose a fresh effective divisor $D'$, disjoint from
+$B\cup\{P_1,\ldots,P_s\}$, sufficiently positive that the simultaneous
+first-jet evaluation map at $B$ and the value-evaluation map at the $P_i$
+are surjective.  They give $h\in\operatorname{Rat}(C_y)^\times$ such that
+\begin{equation}
+ \operatorname{ord}_{P_i}(h)=0,
+ \qquad
+ \operatorname{ord}_{Q}(h)=1
+ \quad(Q\in B).
+ \label{eq:p213-variation-collision-killer}
+\end{equation}
+If $R$ is any further zero or pole of $h$, then
+$\operatorname{ord}_R(r_i)=0$ for every $i$, by the definition of $B$.
+Consequently the order vector
+\begin{equation}
+ \bigl(\operatorname{ord}_P(r_1),\ldots,
+       \operatorname{ord}_P(r_s),\operatorname{ord}_P(h)\bigr)
+ \label{eq:p213-variation-order-vector}
+\end{equation}
+at $P=P_i$ is $(e_i,0)$; at a point of $B$ its last coordinate is one;
+and at every further zero or pole of $h$ its first $s$ coordinates are
+zero and its last coordinate is nonzero.  Thus the selected rays are
+pairwise distinct and no newly activated branch can collide with one of
+them.  This single extra function avoids an infinite separator iteration.
+
+We now lift these rational functions.  At a type-$2$ point the field
+$\operatorname{Rat}(C_y)$ is the degree-one residue field of
+$\mathcal H(y)$.  Choose a norm-one representative of any one of the
+functions in \eqref{eq:p213-variation-order-vector} in $\mathcal H(y)$.
+The field $\kappa(y)$ is dense in $\mathcal H(y)$; this density is also
+used explicitly in the proof of \cite[Lemma~12.2.3]{CLD25}.  Approximate
+the representative to error strictly less than one.  The approximant in
+$\kappa(y)$ has norm one and the same residue.  Since $Y$ is normal and
+$y$ is nonrigid,
+\begin{equation}
+                         \mathcal O_{Y,y}=\kappa(y)
+ \label{eq:p213-variation-normal-local-field}
+\end{equation}
+by \cite[§4.2.18]{Ducros24CurveStructure}.  Every nonzero approximant
+is therefore an analytic unit germ.  After shrinking, all these germs are
+analytic units on one common neighborhood.  Denote their tuple by $S$.
+
+We record the saturation factor, because it is not legitimate in a
+nowhere-quasi-smooth curve to declare an order-one lift to have normalized
+slope one.  Let $b$ correspond to $P$ and let $s_P$ be the lift of a
+residual uniformizer at $P$.  Put
+\begin{equation}
+             e_b:=\operatorname{slope}_b(-\log|s_P|)
+                 =-\mathrm d\log_b|s_P|\in\mathbf Z_{>0}.
+ \label{eq:p213-variation-branch-index}
+\end{equation}
+Here is the precise link between the refined valuation and the metric
+slope.  Let $\nu_b$ denote the $\mathbf Z$-coordinate of the refined value
+at $b$, normalized by $\nu_b(s_P)=1$.  If an analytic unit germ $q$ has
+$\nu_b(q)=0$, then \cite[§4.2.6]{Ducros24CurveStructure}, applied both to
+$q$ and to $q^{-1}$, shows that $|q|$ is constant on a sufficiently short
+section of $b$: the two inequalities supplied there force
+$|q|=|q(y)|$.  For a norm-one lift $\widehat g$, the quotient
+$\widehat g s_P^{-\operatorname{ord}_P(g)}$ has $\nu_b$-value zero.
+Consequently
+\begin{equation}
+ \operatorname{slope}_b(-\log|\widehat g|)
+       =e_b\operatorname{ord}_{P}(g)
+       \qquad(g\in\operatorname{Rat}(C_y)^\times),
+ \label{eq:p213-variation-residual-slope}
+\end{equation}
+for any norm-one lift $\widehat g$.  The same argument applied to an
+arbitrary analytic unit germ says that its slope is $e_b\nu_b(f)$ and is
+therefore divisible by $e_b$.
+Since the full moment contains an order-one coordinate, the greatest
+common divisor of its slope vector along $b$ is exactly $e_b$.  Hence,
+after saturation, its primitive target tangent has residual-coordinate
+block equal to the order vector
+\eqref{eq:p213-variation-order-vector}, up to the one fixed sign from the
+choice of $-\log$.  This proves the asserted ray separation without any
+quasi-smoothness or annular-coordinate hypothesis.
+
+If $y$ is of type~$3$, it has exactly two branches because it is interior,
+by \cite[§4.2.11.2]{Ducros24CurveStructure}.  A germ whose value at
+$y$ has modulus outside $|K^\times|^{\mathbf Q}$ is nonconstant along
+both branches.  The node identity
+\cite[Theorem~4.5.22]{Ducros24CurveStructure} makes its two normalized
+slopes opposite.  Thus the two target rays are already distinct after
+appending this one analytic unit germ.  We again denote the resulting
+finite separator block by $S$.
+
+Before introducing the boundary block, choose the preceding common
+neighborhood to be an open tree $W_*$ around $y$ such that the full
+variation graph of the finite block $(F_0,S)$ has no vertex in
+$W_*\setminus\{y\}$.  Thus on every arm of $W_* $ the block is either
+constant or integral-affine with one constant slope vector, and every
+selected $S$-coordinate is strictly monotone on its named arm.  This is
+possible by \cite[Theorem~3.5.1 and
+§§4.5.21.1--4.5.21.2]{Ducros24CurveStructure}: the union of the finitely
+many variation graphs is locally finite, and all arms outside that union
+are constant for the whole block.
+
+Apply
+\cref{lem:p213-normal-curve-nonrigid-localization} inside $W_*$.  This is
+the arbitrary-valuation normal-curve repair of
+\cite[Lemma~12.3.6]{CLD25}; in particular, it uses the exact
+connected-normal-affinoid irreducibility argument rather than an
+irreducibility citation requiring extra hypotheses.  It gives a compact
+analytic neighborhood $V\subset W_*$ and a boundary moment
+$F_{\mathrm{bd}}$.  Arbitrary positive real radii are allowed in that
+construction, so no nontriviality of the ground-field valuation is used.
+Concatenating
+$F_{\mathrm{bd}}$, $F_0$, and $S$ preserves boundary avoidance by
+projection to the first block.  Since $W_*$ is open in $Y$, relative
+interiors give $\partial(V/W_*)=\partial(V/Y)$.  The proof of
+\cite[Theorem~16.8.5]{CLD25} then gives
+\eqref{eq:p213-variation-local-omega}: $U$ is open and the displayed
+tropicalization is proper, since it is the base change of the proper map
+$F_{\mathrm{trop}}:V\to\mathbf R^N$.
+
+It remains to justify the target and source tubes without altering $V$.
+For each coordinate
+$f$ of $F$, let $\Gamma_f$ be its variation graph.  By
+\cite[§§4.5.21.1--4.5.21.2]{Ducros24CurveStructure}, the finite
+union $\Gamma=\bigcup_f\Gamma_f$ is a closed locally finite graph, every
+coordinate of $F_{\mathrm{trop}}$ is locally constant off $\Gamma$, and
+it is piecewise integral-affine on $\Gamma$.  After the boundary block has
+been constructed, subdivide its finitely many local variation arms and
+choose the target segment sufficiently close to $v$ that every active arm
+there has a constant slope vector.  Its image is then a finite fan at
+$v$.  No source domain is shrunk at this stage.  Projection to the
+$S$-block and the construction above show that every selected ray is
+distinct from the image of every other source branch.  Indeed, a branch
+activated by some $r_i$ belongs to $B$ or has a different order vector, a
+branch activated only by $h$ has zero $r_i$-block, and a branch activated
+only by $F_{\mathrm{bd}}$ has zero $S$-block.  Appending the boundary block
+therefore cannot destroy the distinction.
+
+Take a sufficiently short open subsegment $\rho_b$ of a selected ray away
+from $v$.  The $S$-coordinate which has order one at its residual point is
+strictly monotone on the whole named arm in $W_*$, while the $S$-projection
+of every other active arm lies on a distinct ray and every inactive arm
+maps to the vertex.  Hence no point on another arm, and no second point on
+the named arm, can have the same $S$-value as a point of $\rho_b$.
+After $F_{\mathrm{bd}}$ is known, choose $\rho_b$ before the first vertex
+of its locally finite variation graph on the named arm.  A subtree attached
+therefore either has all coordinates of $F$ constant or has target image
+separated from this shortened segment.  Since $F_{\mathrm{trop}}|_U$ is
+proper, its image is closed; the preceding $S$-separation then gives a
+sufficiently thin ambient open tube $O_b\Subset\Omega$ whose intersection
+with $F_{\mathrm{trop}}(U)$ is exactly $\rho_b$.  Every point of
+$F_{\mathrm{trop}}^{-1}(O_b)$ therefore lies in the component representing
+$b$;
+the only additional pieces are subtrees attached to that component on
+which all tropical coordinates are constant.  This proves
+\eqref{eq:p213-variation-ambient-tube}.  Notice that a ray has empty
+ambient interior when $N>1$, so its exact inverse image need not be open.
+Proper pushforward is defined on all of $U$; the ambient tube is used only
+to isolate the source contribution to one target edge.  No analytic
+retraction and no virtual-annulus presentation is involved.
+\end{proof}
+
+\begin{proof}[Proof of
+\cref{lem:p213-euclidean-one-dimensional-current}]
+The assertion is local on $\Omega$.  On a relatively compact coordinate
+ball meeting only finitely many cells, positivity gives order zero by
+\cite[Proposition~7.2.9]{CLD25}.  Thus $R$ is represented by a symmetric
+positive-semidefinite matrix $M=(\mu_{ij})$ of Radon measures: if
+$\alpha=\sum\alpha_{ij}\,\mathrm d'x_i\wedge\mathrm d''x_j$, then, up to
+the fixed harmless sign convention for currents,
+\[
+                         \langle R,\alpha\rangle
+                    =\sum_{i,j}\int\alpha_{ij}\,\mathrm d\mu_{ij}.
+\]
+The equation $\mathrm d'R=0$ says, column by column,
+\begin{equation}
+                         \sum_i\partial_i\mu_{ij}=0
+                 \quad\text{in }\mathcal D'(\Omega).
+ \label{eq:p213-euclidean-column-divergence}
+\end{equation}
+
+Consider first a tube meeting the relative interior of only one edge.
+Choose linear coordinates $(t,z_2,\ldots,z_N)$ in which the edge is
+$\{z=0\}$.  In
+\eqref{eq:p213-euclidean-column-divergence}, use a scalar test function of
+the form $z_a\psi(t,z)$, with arbitrary compactly supported $\psi$, for
+each $a\geq2$.  Its tangential derivative vanishes on the edge and its
+$a$-th normal derivative there is arbitrary.  It follows that
+$\mu_{aj}=0$ for every $a\geq2$ and every $j$.  Symmetry gives
+$\mu_{ia}=0$ as well.  The remaining equation is
+$\partial_t\mu_{11}=0$.  A Radon measure on an interval with zero
+distributional derivative is a constant multiple of Lebesgue measure,
+and positivity makes the constant nonnegative.  Returning to the integral
+affine parametrization by the primitive tangent gives
+$R|_e=b_e[e]$ with $b_e\geq0$.
+
+It remains to inspect a vertex $v$.  Subtract the edge currents just found
+on a finite star about $v$.  Since the original matrix measures and the
+edge measures agree away from $v$, the remainder is
+$A_v\delta_v$ for a positive-semidefinite matrix $A_v$.  The distributional
+column divergence of the full current at $v$ has the form
+\begin{equation}
+ \left(\sum_{e\ni v}b_eu_{e,v}\right)\delta_v
+       +\left(\sum_i(A_v)_{ij}\partial_i\delta_v\right)_{j=1}^N,
+ \label{eq:p213-euclidean-vertex-distribution}
+\end{equation}
+up to one common sign.  Smooth test functions can have independently
+prescribed value and gradient at $v$.  First prescribing value zero and an
+arbitrary gradient in
+\eqref{eq:p213-euclidean-vertex-distribution} gives $A_v=0$; then
+prescribing an arbitrary value gives
+\eqref{eq:p213-euclidean-vertex-balance}.  Local finiteness lets these
+calculations be made at every vertex and makes the sum in
+\eqref{eq:p213-euclidean-edge-decomposition} locally finite.
+\end{proof}
+
+\begin{proof}[Proof of
+\cref{prop:p213-normal-curve-arbitrary-valuation-current}]
+Let $\alpha$ be a compactly supported ordinary CLD-smooth form of
+bidegree $(1,1)$ on $Y$.  By the local ordinary-moment presentation
+\cite[Proposition~15.1.1(b)]{CLD25} and the dimension argument in the
+proof of \cite[Proposition~15.2.1(a)]{CLD25}, its support is contained in
+the locus where $d_K(y)\geq1$, which on a curve is $Y^{[2,3]}$.  Thus every
+point relevant to a current test is nonrigid, and
+the localization in
+\cref{lem:p213-variation-graph-branch-separation} applies even when $K$
+is trivially valued.  The local moment description
+\cite[Proposition~15.1.1(b)]{CLD25}, finite source localization, and the
+smooth cutoffs of \cite[Corollary~15.2.9]{CLD25} reduce the test to a
+moment $F$ on an open $U$ as in
+\eqref{eq:p213-variation-local-omega}.  A cutoff is factored through its
+own finite analytic moment by \cite[Corollary~15.1.2]{CLD25}; the cutoff
+itself is never treated as an analytic coordinate.  In applying
+\cref{lem:p213-variation-graph-branch-separation}, take $A$ to contain
+every branch on which the form and cutoff moment blocks vary.  This set is
+finite because it is the set of arms at $y$ in a finite union of locally
+finite variation graphs.  Additional branches activated by the boundary
+block cannot collide with a selected ray, since projection to the
+separator block already distinguishes it.
+
+Proper tropical pushforward defines a positive closed Euclidean
+supercurrent $T_\Omega$ of bidimension $(1,1)$ supported on the
+one-dimensional polyhedral set $F_{\mathrm{trop}}(U)$.  Applying
+\cref{lem:p213-euclidean-one-dimensional-current} gives, on the relative
+interior of every edge,
+\begin{equation}
+                         T_\Omega|_e=b_e[e],
+             \qquad b_e\geq0,
+ \label{eq:p213-variation-edge-density}
+\end{equation}
+with $b_e$ constant.  At every vertex one has
+\begin{equation}
+                         \sum_{e\ni v}b_eu_{e,v}=0,
+ \label{eq:p213-variation-current-balance}
+\end{equation}
+where $u_{e,v}$ is the primitive outgoing tangent, and there is no
+positive remainder supported at the vertex.
+
+Use the ambient tubes from
+\cref{lem:p213-variation-graph-branch-separation} to assign an edge
+coefficient to an individual source branch.  Let $m_b>0$ be the
+coefficient obtained by pushing forward the canonical integration current
+$\delta_Y$, which is closed by \cite[§7.7.4]{CLD25}, and define
+\begin{equation}
+                             a_b:=b_b/m_b.
+ \label{eq:p213-variation-branch-ratio}
+\end{equation}
+This ratio is independent of the separating moment.  Pass to a common
+concatenated moment, and suppose a target projection sends its primitive
+source tangent $u'$ to $q u$, where $u$ is primitive and
+$q\in\mathbf Z_{>0}$.  Direct parametrization of a calibrated segment
+gives
+\begin{equation}
+                       A_*[u']=q[u].
+ \label{eq:p213-variation-segment-pushforward}
+\end{equation}
+Indeed, the pullback evaluates a $(1,1)$-form on $(qu,qu)$ and the target
+parameter is $q$ times the source parameter.  Functoriality of current
+pushforward \cite[§7.1.11]{CLD25} therefore multiplies both the coefficient
+of $T$ and that of the intrinsic integration current by the same $q$.
+The factors cancel in \eqref{eq:p213-variation-branch-ratio}.  The
+canonical calibration used for $\delta_Y$ is independent of the moment by
+\cite[§§14.3.1--14.3.5]{CLD25}.
+
+At a type-$3$ point there are exactly two branches.  The slope vector of
+every analytic unit on one branch is the negative of its slope vector on
+the other, by \cite[Theorem~4.5.22]{Ducros24CurveStructure}.  Applying
+\eqref{eq:p213-variation-current-balance} first to $T$ and then to
+$\delta_Y$ shows that the two branch ratios agree.
+
+Let now $y$ be of type~$2$ and put $C=C_y$.  For every closed point
+$P\in C$, let $b_P$ be its branch.  Append a lift of a residual
+uniformizer at $P$.  By
+\eqref{eq:p213-variation-residual-slope}, saturation divides the full
+slope vector by $e_{b_P}$ and makes the residual coordinate equal to one.
+The common-refinement argument above then shows that the corresponding
+canonical flux $m_P$ is independent of the normalized moment.  Indeed, if
+two moments each contain an order-one residual coordinate, their
+concatenation still has greatest common slope divisor $e_{b_P}$.  Its
+primitive tangent projects to either old primitive tangent with expansion
+index one, because the retained order-one coordinate has primitive
+coordinate one on both sides.  Thus neither canonical flux changes.
+Extend
+the two assignments on prime divisors additively:
+\begin{equation}
+ \begin{split}
+ L_T([P])&=a_{b_P}m_P,\\
+ L_Y([P])&=m_P.
+ \end{split}
+ \label{eq:p213-variation-divisor-functionals}
+\end{equation}
+Both are nonnegative on effective divisors.
+
+Let $g\in\operatorname{Rat}(C)^\times$.  Append a norm-one analytic-unit
+lift of $g$, and append the finite separator block from the proof of
+\cref{lem:p213-variation-graph-branch-separation} for the branches in
+$\operatorname{Supp}(\operatorname{div}(g))$.  The residual-coordinate
+component of the primitive tangent in the $P$-branch is
+$\operatorname{ord}_P(g)$ by
+\eqref{eq:p213-variation-residual-slope}; all other branches have zero
+component.  Taking this scalar coordinate in
+\eqref{eq:p213-variation-current-balance} gives
+\begin{equation}
+             L_T(\operatorname{div}(g))=0,
+       \qquad L_Y(\operatorname{div}(g))=0.
+ \label{eq:p213-variation-principal-zero}
+\end{equation}
+The second equality is the same calculation for the closed integration
+current.  Only finitely many branches enter.
+
+We use Riemann--Roch over the actual base field of $C$; neither geometric
+integrality nor a rational point is needed.  Let
+$L:\operatorname{Div}(C)\to\mathbf R$ be additive, nonnegative on
+effective divisors, and zero on principal divisors.  If $D$ has degree
+zero, choose an effective divisor $A$ with
+\begin{equation}
+                  \deg A+\chi(C,\mathcal O_C)>0.
+ \label{eq:p213-variation-rr-positive-constant}
+\end{equation}
+This is the correct constant over a non-algebraically-closed field:
+$H^0(C,\mathcal O_C)$ can be a nontrivial finite extension of the base
+field, so $\chi(C,\mathcal O_C)$ must not be replaced by
+$1-h^1(C,\mathcal O_C)$.  For every $n\in\mathbf Z$, Riemann--Roch gives
+\[
+ h^0\bigl(C,\mathcal O_C(A+nD)\bigr)
+    \geq \deg A+\chi(C,\mathcal O_C)>0.
+\]
+Thus there is a nonzero section of
+$\mathcal O_C(A+nD)$.  Hence $A+nD$ is linearly equivalent to an
+effective divisor, and
+\[
+                         0\leq L(A)+nL(D)
+                         \qquad(n\in\mathbf Z).
+\]
+Letting $n$ tend to both signs of infinity gives $L(D)=0$.  Thus $L$
+factors through the degree subgroup
+$\deg\operatorname{Div}(C)\subseteq\mathbf Z$, so
+\begin{equation}
+                              L=c_L\deg
+ \label{eq:p213-variation-degree-factor}
+\end{equation}
+for one $c_L\geq0$.  Applying this to the two functionals in
+\eqref{eq:p213-variation-divisor-functionals} yields
+\[
+                 m_P=c_Y\deg(P),
+       \qquad a_{b_P}m_P=c_T\deg(P).
+\]
+Since $m_P>0$, one has $c_Y>0$, and all branch ratios at $y$ are equal to
+$c_T/c_Y$.  This argument also covers an infinite-valence type-$2$ star,
+because every analytic moment and every principal divisor activates only
+finitely many branches.
+
+It remains to globalize the constant.  By
+\cite[Theorem~3.5.1 and §1.3.5]{Ducros24CurveStructure}, $Y$ is a connected
+arcwise-connected graph.  It is not a one-point graph because it is purely
+one-dimensional.  Hence it contains an open interval; every interior point
+of such an interval belongs to $Y^{[2,3]}$ by normality and
+\cite[§4.5.11]{Ducros24CurveStructure}.  Thus this locus is nonempty.  The
+same section says that it is convex, so it is path-connected.  Edgewise
+constancy from \cref{lem:p213-euclidean-one-dimensional-current}, together
+with the type-$2$ and type-$3$ vertex comparisons, propagates one constant
+$c$ throughout it.  The localized Euclidean calculation, including the
+absence of vertex terms, then gives
+$T=c\delta_Y$ on every compactly supported $(1,1)$-test form.  There is no
+unseen endpoint term: by the ordinary local presentation and the dimension
+argument cited at the start of the proof, every such test form has zero germ
+at every point outside $Y^{[2,3]}$.  Branches activated only by the
+auxiliary boundary or separator blocks also make no contribution: the
+original form moment has zero tangent there, so the pulled-back
+$(1,1)$-form vanishes on those edges.  This proves
+\eqref{eq:p213-normal-curve-arbitrary-classification}.
+
+Finally, \cite[Example~8.6.4]{CLD25} states that the integration current
+is Bedford--Taylor, and the defining identity is stable under
+nonnegative scalar multiplication.  Therefore so is $T$.
+\end{proof}
+
+\begin{proof}[Proof of
+\cref{prop:p213-curve-nonsmooth-locus-dichotomy}]
+The quasi-smooth locus is Zariski open by
+\cite[§3.1.11]{Ducros24CurveStructure}.  If it is nonempty, its
+complement is a proper Zariski closed subset of the irreducible curve and
+therefore has dimension zero.  On every strict affinoid domain this
+closed analytic subspace is finite: its affinoid algebra is noetherian
+and zero-dimensional, hence Artinian.  The strict affinoid
+Nullstellensatz, in the form of
+\cite[Theorem~4.5]{Tate71Rigid}, makes its points rigid.  These finite descriptions show
+that the complement is locally finite in $Y$.  At every interior point,
+quasi-smoothness is equivalent to smoothness by
+\cite[§3.1.11.4]{Ducros24CurveStructure}; hence it is equivalent to
+rig-smoothness when $Y$ is boundaryless.  If the quasi-smooth locus is
+empty, the second alternative holds.  This proves the dichotomy and also
+shows that a nonrigid failure cannot occur as an isolated exceptional
+point.
+\end{proof}
+
+\begin{proof}[Verification of
+\cref{ex:p213-nowhere-smooth-normal-curve}]
+Write $\alpha=t^{1/p}$, so
+$L=K[\alpha]/(\alpha^p-t)$.  The algebraic $K$-curve
+$\operatorname{Spec}L[T]$ is integral and regular, and its analytification
+is good, separated, strict, and boundaryless.  It is normal and purely
+one-dimensional.  In characteristic $p$, differentiating the relation
+$\alpha^p-t=0$ gives no relation on $\mathrm d\alpha$, and therefore
+\begin{equation}
+ \Omega^1_{L[T]/K}
+      \simeq L[T]\,\mathrm d\alpha
+           \oplus L[T]\,\mathrm dT.
+ \label{eq:p213-nowhere-smooth-differentials}
+\end{equation}
+At every analytic point the fibre of the differential sheaf has dimension
+two over the completed residue field, whereas the local analytic
+dimension is one.  The criterion in
+\cite[§3.1.11]{Ducros24CurveStructure} therefore shows that the curve
+is nowhere quasi-smooth over $K$.  It contains nonrigid Gauss points, so
+its nonsmooth locus is not a locally finite rigid set.
+\end{proof}

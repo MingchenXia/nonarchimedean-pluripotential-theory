@@ -1,0 +1,166 @@
+# P21.3 arbitrary-valuation componentwise candidate: source audit
+
+Date: 29 August 2026
+
+## Status
+
+**Dependency-blocked quarantine draft.**  The reduction written in this
+packet is conditional on a correct arbitrary-valuation classification of
+positive closed ordinary `(0,0)` currents on connected normal analytic
+curves.  The exact variation-graph packet currently carrying
+`prop:p213-normal-curve-arbitrary-valuation-current` was rejected by
+production Rethlas with one critical error and three gaps.  In particular,
+this packet is not frozen, not verified, not eligible for live integration,
+and does not change any open-problem count.
+
+The rejected input must not be treated as a theorem.  Its current exact
+bytes are recorded only to make the blocked dependency reproducible:
+
+- statement SHA-256
+  `7b7348ff83ee2d9f4560b868bf30a5cbda28bc374940aff885305a060b593d0c`;
+- proof SHA-256
+  `5ea911448a4044ae71243dcac1617f7307fff6c73b84bce01881fa7a91eeac5a`.
+
+The production rejection identified three points relevant to any
+replacement: the canonical metric flux was not correctly related to
+Ducros's normalized integer slope; a selected tropical ray was not proved
+free of source subtrees that later vary in boundary coordinates; and one
+normalization equivalence in the nonsmooth-locus dichotomy was not proved.
+None of those claims is reused or repaired in this componentwise packet.
+
+## Exact valid dependencies
+
+The following dependencies are independent of the rejected variation
+argument.
+
+1. Nontrivially valued normal rigid-point zero atom:
+   `lem:p21p3-componentwise-normal-rigid-zero-atom`.
+   Statement SHA-256
+   `469024d04e8eb5e08900b9caea6480057398c743ca0b46076b524f2109cf80ac`;
+   proof SHA-256
+   `661100a4b25e82297c5b2b2712775e9c9501c337d619a64280f2d49922a4bcc2`.
+   The archived production item `pi_0d4235a44db2b33950f8dd55` returned
+   `correct`, with zero critical errors and zero gaps.
+
+2. Trivially valued Gauss transfer:
+   `lem:p213-trivial-gauss-rigid-zero-atom`.
+   Statement SHA-256
+   `ffaa0610214068382fd20e584bb48e77e86f8bbc2f4ea0910eb7d091ba843a6a`;
+   proof SHA-256
+   `789acb082e15ffe8e7f31327ae5e331b06654c42e21ee2ed83c4ff404e32bc66`;
+   independent source audit SHA-256
+   `2364223004306c2debea650e386253b325e18eed55de9a1e3b2112fd30f7129e`.
+   Dependency-closed production item `pi_b63296e1cb8309bd0f35d29f`
+   returned `correct`, with zero critical errors and zero gaps.  It remains
+   quarantined until live placement, but it is no longer a verification
+   blocker for the conditional reduction.
+
+The Gauss-transfer proof uses CLD Propositions 16.8.2 and 8.7.5 for,
+respectively, support on the Shilov section and exact curvature
+pushforward.  It does not use the Hausdorff exponent printed in CLD
+Corollary 16.8.6.  The independent audit records the index conflict and the
+corrected scalar-extension argument, including imperfect ground fields and
+finite inseparable rigid residue fields.
+
+## Conditional reduction ledger
+
+Assume only for this ledger that a corrected theorem with the statement of
+`prop:p213-normal-curve-arbitrary-valuation-current` has been proved.
+
+### Nilreduction
+
+CLD Proposition 15.1.3(b) and its form variant identify ordinary forms and
+G-forms across a nilpotent closed immersion.  The proof also checks the
+topology rather than inferring it from a sheaf isomorphism: moment charts
+lift through a nilpotent quotient because units lift, their tropicalizations
+are identical, and the compact-test seminorm data coincide.  Transposition
+then gives the current homeomorphism, positivity, closedness, and the weak
+topology.  CLD Example 7.2.12 supplies multiplication of positive currents
+by locally bounded Borel functions.  Generic multiplicities are not erased
+by this form calculus.
+
+### Conductor and component intersections
+
+CLD Sections 11.1.10, 11.2.5, and 11.3.1 give excellence, locally finite
+irreducible components, and finite componentwise normalization.  The
+conductor support and proper intersections of distinct components are
+zero-dimensional; on affinoid curve charts their coordinate rings are
+Artinian, so the corresponding sets are locally finite.
+
+Rigidness is proved without a compact strict neighborhood.  On a normal
+analytic curve, Ducros Section 4.2.18 gives
+`O_{Y,y}=kappa(y)` at every nonrigid point.  A coherent ideal defining a
+proper zero-dimensional closed subset cannot have a proper stalk in that
+field: the stalk would be zero, and coherence would make the ideal vanish
+on a one-dimensional neighborhood.  Thus the normalization preimages of
+the conductor/intersection locus are rigid.  Finite residue-field extension
+then makes their images rigid as well.  This argument works for trivial and
+nontrivial valuations.
+
+CLD Lemma 11.8.5 gives the germwise strictness criterion.  Under a finite
+normalization, a homogeneous integral element satisfies a homogeneous
+monic relation, so a positive power of its degree lies in the degree group
+generated by the base algebra.  Torsion of base degrees modulo
+`|K^x|` therefore implies torsion upstairs.  This is the strictness needed
+by the two rigid zero-atom inputs; it does not use the unavailable compact
+strict neighborhoods mentioned in CLD Remark 11.8.4.
+
+### Connected normalization opens
+
+For `U_i = tilde X_i minus Z_i`, normality makes every deleted rigid point
+unibranch by Ducros Proposition 3.5.2.  Ducros Theorem 3.5.1 and Section
+1.3.5 connect two points of the curve by an injective arc, while Section
+1.3.12 says that an interior point of such an arc is pluribranch.  An arc
+with endpoints outside `Z_i` cannot pass through `Z_i`.  Hence every `U_i`
+is nonempty and connected, as required by the conditional normal-curve
+classification.
+
+### Fundamental cycles and current classification
+
+CLD Definition 13.2.5, Section 13.5.2, and Proposition 16.6.3 retain the
+generic lengths `m_i` in the fundamental cycle and identify its integration
+current.  Ordinary `(1,1)` test-form germs vanish at rigid points: use the
+ordinary moment presentation in CLD Proposition 15.1.1(b) and the dimension
+argument in the proof of Proposition 15.2.1(a).  The statement of
+Proposition 15.2.1 itself concerns G-forms and is not substituted for that
+ordinary-form argument.
+
+An arbitrary current is never pulled through normalization.  It is first
+restricted to the complement of the conductor, transported across the
+normalization isomorphism there, and only then subjected to the conditional
+normal-curve theorem.  The difference from the resulting component sum is
+supported at rigid points and hence vanishes on ordinary top-degree tests.
+
+Uniqueness and the converse generic-reducedness assertion require that the
+integration current on a nonempty normal curve is nonzero.  This is
+source-direct and does not use the rejected localization packet: CLD
+Theorem 12.11.1 makes every boundaryless topologically separated pure
+analytic space very rich, and CLD Corollary 7.3.13 then says that the support
+of its integration current is the whole space.
+
+### Curvature measures
+
+CLD Propositions 8.1.5 and 8.5.6 and Lemma 8.5.5 give pullback of continuous
+psh functions, positive curvature measures, and compatibility with finite
+proper pushforward.  Weighted equality on `X` and unweighted equality on
+`X_red` both isolate each signed component measure away from the conductor;
+each such measure is therefore supported on the locally finite rigid set
+`Z_i`.
+
+For nontrivial valuation the production-verified normal rigid-point lemma
+kills every positive component curvature atom.  For trivial valuation the
+separate Gauss-transfer lemma does the same.  A signed Radon measure
+supported on a locally finite set and having zero mass at every point is
+zero.  Thus the weighted and unweighted equalities are equivalent, and the
+same componentwise equality gives continuous-psh Bedford--Taylor
+independence for a conditionally classified current.
+
+## Required promotion order
+
+1. Repair and independently audit the arbitrary normal-curve theorem.
+2. Obtain a production Rethlas verdict on its exact repaired bytes.
+3. Rebind this componentwise proof to the repaired normal-curve bytes.
+4. Compile and render the exact rebound componentwise bytes, then submit
+   them for dependency-closed production verification.
+5. Only after all preceding gates may live integration or an open-problem
+   ledger change be considered.

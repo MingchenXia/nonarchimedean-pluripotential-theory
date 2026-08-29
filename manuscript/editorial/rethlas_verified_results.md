@@ -9,7 +9,7 @@ were checked by the production Rethlas verifier with `gpt-5.6-sol` at `xhigh`
 effort, after source and domain hypotheses were made explicit.  Later edits to
 a statement or proof invalidate its receipt until a fresh audit is recorded.
 
-## Current release boundary (through 28 August 2026)
+## Current release boundary (through 29 August 2026)
 
 This ledger is not a book-wide Rethlas completion certificate.  It records
 nine mathematical production gates completed on 24 August.  Eight are
@@ -955,6 +955,163 @@ nine 24 August gates counted in this paragraph.
   smooth, arbitrary analytic, nonample, novelty, or priority claim is made.
 - Controlling receipt:
   `editorial/rethlas_receipts_20260826/p09p2_product_gauss_live_integration_receipt_20260826.md`.
+
+## Chapter 16 — direct trivially valued curve classifications
+
+- Status: **EXACT LIVE-READY PACKET VERIFIED / INTEGRATED** (29 August
+  2026).
+- Book locations: `lem:p213-triv-interval-current`,
+  `prop:p213-triv-abstract-cross-counterexample`,
+  `prop:p213-triv-p1-current-rigidity`,
+  `prop:p213-triv-algebraic-curve-current-rigidity`, and
+  `prop:p213-triv-four-puncture-no-go`.
+- Exact result: positive closed bidegree-`(0,0)` currents are nonnegative
+  multiples of the integration current on the two boundaryless CLD interval
+  structures, every connected analytic open of the trivially valued
+  projective line, every smooth connected projective algebraic curve over an
+  algebraically closed trivially valued field, and every connected Zariski
+  open in such a curve.  The analytic classifications imply the full CLD
+  Bedford--Taylor predicate.  The same packet gives the positive closed
+  weighted-cross counterexample in the abstract tropical category and proves
+  that a third analytic unit forbids its unequal weights on the natural
+  four-punctured algebraic cross.
+- Exact live-ready statement SHA-256:
+  `cd1032050a8ce5d3617fbf1952b411a1fe638db2f658aec9b7e0810e3b32d77b`.
+- Exact live-ready proof SHA-256:
+  `37ed90b0b7f079b0f34d140a79c61c510b1206da6629953696d4a2d98c8a3ee8`.
+- Independent exact-byte audit SHA-256:
+  `0d1c7a9a5aef9ee2c2daf4bfcb0778ec2cde1e5067b907da283edf66a0a246ea`.
+- Production item: `pi_ed915de7970791904bc0ec6e`; model
+  `gpt-5.6-sol`, scrutiny `xhigh`, final verdict `correct`, zero critical
+  errors, and zero gaps.  The archived proof digest equals the exact proof
+  hash.
+- Scope firewall: this direct packet does not classify every singular,
+  nonnormal, or nonalgebraizable trivially valued analytic curve.  By itself
+  it narrows but does not retire the dimension-one residual of P21.3.  No
+  novelty or priority claim is made.
+- Controlling receipt:
+  `editorial/rethlas_packets_20260829/p213_trivially_valued_curve_live_ready_20260829/p213_trivially_valued_curve_live_ready_rethlas_receipt_20260829.md`.
+
+## Chapter 16 — arbitrary-valued normal analytic curves
+
+- Status: **EXACT FROZEN PACKET VERIFIED / INTEGRATED BYTE-FOR-BYTE**
+  (29 August 2026).
+- Book locations: `lem:p213-variation-graph-source-cutoff`,
+  `lem:p213-euclidean-one-dimensional-current-revised`, and
+  `prop:p213-normal-curve-arbitrary-valuation-current-revised`.
+- Exact result: on a connected good separated normal boundaryless pure
+  analytic curve over any complete non-Archimedean field, possibly trivially
+  valued, every positive closed ordinary CLD current of bidegree `(0,0)` is
+  `c delta_Y`, with `c>=0`.  No strictness or smoothness hypothesis is used.
+  Every such current has the full Bedford--Taylor property of CLD Definition
+  8.6.2.
+- Exact statement SHA-256:
+  `339f8cb085fd6a7ce4d57d6163cfeafdacfb2ad01397d77f39c6f63328178cb7`.
+- Exact proof SHA-256:
+  `d6d02762690b9eeed6e025a3f5aa200d19994859ed02b27050da22e03da57660`.
+- Independent hostile-audit SHA-256:
+  `534154de06a9c7c63d5a060c4feac5d47a274af168177a305f64972483134c41`;
+  verdict PASS, zero critical errors and zero gaps.
+- Production item: `pi_d9543424f0492e1412e0d203`; model
+  `gpt-5.6-sol`, scrutiny `xhigh`, final verdict `correct`, zero critical
+  errors, and zero gaps.  The returned proof digest equals the exact proof
+  hash.  The request/response/header hashes are
+  `d9a4ad02796009280917f1c0d1de216503c5fdcd25aef28c073570e26baebf1f`,
+  `93c586e3de8884e30e7e7c320e6364cb2bb9c6c35d38593361e34c9a85f06860`,
+  and
+  `0f0bcd114f923264cbcfb398d5d8fc10b556eda20373330912c3ef8fe3eca217`.
+- Noncontrolling provenance: the first revision's calibration error and the
+  second revision's unrelated smooth-locus gap remain preserved as rejected
+  stages; neither is cited as verification of the live theorem.
+- Controlling receipt:
+  `editorial/rethlas_packets_20260829/p213_variation_graph_arbitrary_curve_20260829/p213_variation_graph_arbitrary_curve_revised3_rethlas_receipt_20260829.md`.
+
+## Chapter 16 — arbitrary-valued componentwise analytic curves
+
+- Status: **DEPENDENCY-CLOSED EXACT PACKET VERIFIED / INTEGRATED**
+  (29 August 2026).
+- Book location: `prop:p213-componentwise-arbitrary-valuation`, including
+  items `itm:p213-componentwise-av:calculus`,
+  `itm:p213-componentwise-av:integration`,
+  `itm:p213-componentwise-av:classification`, and
+  `itm:p213-componentwise-av:bedford-taylor`.
+- Exact result: for every good separated strict boundaryless pure analytic
+  curve over either valuation regime, with reducible and nonreduced spaces
+  allowed and with no smoothness assumption on component normalizations,
+  nilreduction identifies the ordinary CLD calculus and current topology;
+  generic multiplicities remain in the fundamental integration current;
+  every positive closed `(0,0)` current is the unique locally finite
+  nonnegative sum of normalized reduced-component currents; and the
+  continuous-pair Bedford--Taylor property holds.
+- Principal statement/proof SHA-256:
+  `91ce52597273f7c8479efd755925d70c51bcc067ea68e72dcf43a1cdf259bff0`
+  and
+  `098995604f7c55ce0341eba984c7bb23a09b6be5d148d14169d1b7f8f7386cd1`.
+- Exact dependency statement/proof pairs, in materialization order:
+  `469024d04e8eb5e08900b9caea6480057398c743ca0b46076b524f2109cf80ac`
+  / `661100a4b25e82297c5b2b2712775e9c9501c337d619a64280f2d49922a4bcc2`,
+  `ffaa0610214068382fd20e584bb48e77e86f8bbc2f4ea0910eb7d091ba843a6a`
+  / `789acb082e15ffe8e7f31327ae5e331b06654c42e21ee2ed83c4ff404e32bc66`,
+  and
+  `339f8cb085fd6a7ce4d57d6163cfeafdacfb2ad01397d77f39c6f63328178cb7`
+  / `d6d02762690b9eeed6e025a3f5aa200d19994859ed02b27050da22e03da57660`.
+- Materialized statement/proof SHA-256:
+  `d1ad274eb03a9a51db54427c6cef1f8ff7121a987e70caecd6453f868598d1f6`
+  and
+  `cd7f2e4cc32ca90c6f866f8190da57ad885fd7effa0bed3248f880d09bbf209f`.
+- Independent binding audit SHA-256:
+  `4a347171150e52a88223415cc8cfff1bb38baeabeb6eb0ce84be29ba5be595c7`;
+  its exact 24-page harness compiled cleanly.
+- Production item: `pi_1ca3e6d14c7e8596372d863d`; model
+  `gpt-5.6-sol`, scrutiny `xhigh`, final verdict `correct`, zero critical
+  errors, and zero gaps.  The returned proof digest equals the materialized
+  proof hash.  The request/response/header hashes are
+  `6920d2582649e1fcedcc3a729242e1ca02fded05502cc878a36f4e8652929365`,
+  `87507beab77d5917edc8cd8d1abcf466965222a2c973e6cded58beabd2057a8a`,
+  and
+  `0733b7bff2ffbe09bba821804d7b4bcbf50842031743a096f5db79c9dc5cdde6`.
+- Scope and inventory consequence: the reducible/nonreduced theorem asserts
+  only the continuous-pair predicate.  It retires every one-dimensional case
+  inside P21.3's ambient hypotheses.  P21.3 remains one T2 atom only in
+  dimension at least two, so the inventory remains 15 environments and 54
+  atoms with tier totals `(0,6,14,17,17)`.
+- Controlling receipt:
+  `editorial/rethlas_packets_20260829/p213_componentwise_arbitrary_valuation_live_ready_20260829/p213_componentwise_arbitrary_valuation_revised3_rethlas_receipt_20260829.md`.
+
+## Chapter 14 — CLD support exponent and scalar extension
+
+- Status: **EXACT FROZEN PACKET VERIFIED / DIRECTLY INTEGRATED** (29 August
+  2026).
+- Book locations: `thm:ch14-cld-support-corrected-packet`,
+  `rem:ch14-cld-support-corrected-index`, and
+  `prop:ch14-cld-support-printed-exponent-counterexample`.
+- Exact result: the nontrivially valued support theorem is reconstructed by
+  proper tropical pushforward and Lagerberg's Euclidean support theorem.  If
+  a trivially valued pure `n`-fold carries a product of `q` continuous-dpsh
+  curvature currents, scalar extension gives vanishing on tropically
+  `H^(n-q)`-negligible sets.  The `H^q` exponent printed in CLD Corollary
+  16.8.6 is an index error; on the trivially valued analytic torus,
+  `d'd'' max(0,log|z|)` is the unit Dirac mass at the unit Gauss point and
+  disproves the printed exponent when `n=q=1`.
+- Exact frozen statement SHA-256:
+  `2b291fc55872ab32d40fa3a67e9a9308fc12ac9726113b48950d0a9e50cfd8c1`.
+- Exact frozen proof SHA-256:
+  `9f21f7ece49c761d3f19c07acd8b56e48e9939be493e0bbbd39c0a4d3176e668`.
+- Independent hostile-audit SHA-256:
+  `62520258d3a5a4d6e73a3d7f9d0dfd8679586ec718d03acf4f32bebcabe7adaa`;
+  verdict PASS, zero critical errors, zero gaps, zero source mismatches, and
+  zero degree/index collisions.
+- Production item: `pi_d8921af65dfc0c98f29a5fb7`; model
+  `gpt-5.6-sol`, scrutiny `xhigh`, final verdict `correct`, zero critical
+  errors, and zero gaps.  The returned proof digest equals the exact proof
+  hash.  The exact packet files are the live chapter inputs; their archival
+  header comments remain unchanged solely to preserve byte identity.
+- Scope firewall: the trivially valued clause concerns Bedford--Taylor
+  products, not arbitrary positive closed currents.  The exponent diagnosis
+  is a correction to the printed source, not a claim that the source theorem
+  or its scalar-extension method is new.
+- Controlling receipt:
+  `editorial/rethlas_packets_20260829/ch14_cld_support_correction_packet_20260829/ch14_cld_support_correction_rethlas_receipt_20260829.md`.
 
 ## Darvas--Xia trace-source correction (not a receipt)
 

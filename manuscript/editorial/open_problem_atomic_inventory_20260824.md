@@ -420,23 +420,17 @@ open atoms.  The four corrected residual targets above remain open.
 
 ### `prob:frontier-cross-fan-upstairs` --- 1 atom
 
-- **P21.3** `[T2; open residual]` Outside the continuous-pair
-  one-dimensional classes over a complete nontrivially valued field settled
-  by `prop:p21p3-curve-rigidity-nonreduced`,
-  `prop:p21p3-rigid-exception-extension`, and the production-verified
-  componentwise extension
-  `prop:p21p3-componentwise-rigid-exceptions`, determine whether every positive
-  closed CLD current of bidegree \((p,p)\), \(0\le p\le n-1\), on a good
-  separated strict boundaryless pure \(n\)-dimensional analytic space has
-  Bedford--Taylor independence for continuous psh pairs of equal curvature,
-  or construct a counterexample.  The remaining domain is dimension at least
-  two, together with the one-dimensional cases of a trivially valued ground
-  field or a component whose normalization has non-rig-smooth locus not
-  contained in a locally finite set of rigid points.  Reducibility and
-  nonreducedness are no longer residual under the stated componentwise
-  hypotheses.  The literal
-  discontinuous-potential predicate of CLD Definition 8.6.2 is a stronger
-  scope boundary and is not a separately counted atom.
+- **P21.3** `[T2; open residual]` In analytic dimension at least two,
+  determine whether every positive closed CLD current of bidegree
+  \((p,p)\), \(0\le p\le n-1\), on a good separated strict boundaryless
+  pure \(n\)-dimensional analytic space has Bedford--Taylor independence for
+  continuous psh pairs of equal curvature, or construct a counterexample.
+  The entire one-dimensional case inside these ambient hypotheses is settled
+  by `prop:p213-componentwise-arbitrary-valuation`, over either a trivial or
+  nontrivial valuation and without reducedness or normalization-smoothness
+  assumptions.  The literal discontinuous-potential predicate of CLD
+  Definition 8.6.2 is a stronger scope boundary and is not a separately
+  counted atom.
 
 The two preceding realization atoms are retired.  `P21.1` is negatively
 settled by the compact-source obstruction in production run
@@ -541,12 +535,35 @@ candidate theorem bytes were unchanged, so that rejection is not recorded
 as a mathematical failure.  This is a book-level verified extension with no
 novelty or priority claim.
 
-P21.3 remains one T2 atom.  Its remaining one-dimensional domain consists
-exactly of a trivially valued ground field or a component whose normalization
-has non-rig-smooth locus not contained in a locally finite rigid set; analytic
-dimension at least two remains open.  The inventory stays at 15 formal
-problem environments and 54 active atoms, with tier totals
-`(0,6,14,17,17)`.
+**29 August 2026 P21.3 arbitrary-valued curve controlling addendum.**  On a
+connected good separated normal boundaryless pure analytic curve over any
+complete non-Archimedean field, possibly trivially valued, every positive
+closed ordinary CLD `(0,0)` current is a nonnegative multiple of the
+integration current and has the full CLD Bedford--Taylor property.  On an
+arbitrary good separated strict boundaryless pure one-dimensional analytic
+space, with reducible and nonreduced structure allowed and with no smoothness
+assumption on component normalizations, every such current is a unique
+locally finite nonnegative combination of normalized reduced-component
+currents and has continuous-pair Bedford--Taylor independence.
+
+The exact normal statement/proof hashes are
+`339f8cb085fd6a7ce4d57d6163cfeafdacfb2ad01397d77f39c6f63328178cb7`
+and
+`d6d02762690b9eeed6e025a3f5aa200d19994859ed02b27050da22e03da57660`;
+production item `pi_d9543424f0492e1412e0d203` returned final `correct`,
+zero critical errors, and zero gaps.  The dependency-closed componentwise
+materialization has statement/proof hashes
+`d1ad274eb03a9a51db54427c6cef1f8ff7121a987e70caecd6453f868598d1f6`
+and
+`cd7f2e4cc32ca90c6f866f8190da57ad885fd7effa0bed3248f880d09bbf209f`;
+production item `pi_1ca3e6d14c7e8596372d863d` returned final `correct`,
+zero critical errors, and zero gaps, with the exact materialized proof
+digest.  All one-dimensional cases within the ambient hypotheses are
+therefore retired from P21.3.
+
+P21.3 remains one T2 atom only in analytic dimension at least two.  The
+inventory stays at 15 formal problem environments and 54 active atoms, with
+tier totals `(0,6,14,17,17)`.
 
 **28 August 2026 P00.1 controlling retirement addendum.**  For every
 connected smooth projective complex variety and every ample real numerical
