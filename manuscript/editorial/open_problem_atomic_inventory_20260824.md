@@ -125,10 +125,12 @@ conditional; the general targets remain open.
 
 ### `prob:frontier-pluriharmonic` --- 2 atoms
 
-- **P06.1** `[T2; open after the quasi-smooth, all strict-curve, and finite
-  geometrically reduced curve-product cases]` On a good, separated, strict,
-  boundaryless analytic space, outside the local finite-curve-product scope
-  of `cor:p061-finite-curve-products-ph-rpl`, decide whether every
+- **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
+  finite curve-factor, and affine-toric fixed-point cases]` On a good,
+  separated, strict, boundaryless analytic space, outside the local
+  arbitrary-curve-factor scope of
+  `thm:p061-arbitrary-curve-factors-ph-rpl` and the exact toric fixed-point
+  scope of `thm:p061-toric-fixed-point-constancy`, decide whether every
   classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
@@ -166,17 +168,38 @@ statement/proof SHA-256 values are
 Production run `20260829T191019Z_0b5e24145108`, item
 `pi_6add90bcf0cfded12d6a074b`, returned final `correct`, with zero critical
 errors and zero gaps.  This does not cover arbitrary singular germs,
-non-geometrically-reduced curve factors, or spaces without the stated local
-product decomposition.
+or spaces without the stated local product decomposition.
+The reducedness restrictions on the curve factors have now also been
+removed.  By `thm:p061-arbitrary-curve-factors-ph-rpl`, the same conclusion
+holds for arbitrary finite products of good strict analytic curves, including
+nonreduced and non-geometrically-reduced ones, with a good strict factor whose
+reduction is quasi-smooth, as well as their stated local open-product models.
+The case with no curve factor includes nilpotent thickenings of quasi-smooth
+spaces.  Its exact statement/proof SHA-256 values are
+`6954b3ebc1f9efb060b4858ce732d9720d62741ba2397c39573312dd6e3ba8f3` and
+`e308ba5df336e38717ac27413c6f669a7fa37535bed613a79f095811c6dba4a7`.
+Production item `pi_7dceb6442b4d586c4475feca` returned final `correct`,
+with zero critical errors and zero gaps.
+There is independently an affine toric scope:
+`thm:p061-toric-fixed-point-constancy` proves that every classically
+pluriharmonic germ at the torus-fixed point associated to a full-dimensional
+strongly convex rational cone is locally constant.  Its exact
+statement/proof SHA-256 values are
+`edbe69950a0a9c81ca2fd9077a58be96ec6bdb6c27ce9cf2524da5bf653a5ab6` and
+`531e326b4aeb19067fcb88af2f6eb6477a169587d71a3249103777c9131cf8f4`.
+Production item `pi_dfd932c583fee3acd3fefbe3` returned final `correct`,
+with zero critical errors and zero gaps.  This fixed-point theorem does not
+cover positive-dimensional torus orbits or arbitrary toric domains.
 The coefficient cannot be strengthened: `prop:p061-integral-pl-counterexample`
 gives \(\sqrt2\log|T|\) on a strict semistable annulus, which is not
 \(\mathbf Q\)-PL. The exact statement and proof passed production Rethlas
 run `20260829T043457Z_0b1b4d161e3b`, item
 `pi_7cd35ebd843cf80a7cd696bb`, final `correct`, with zero critical errors
-and zero gaps. P06.1 remains one active T2 atom, now confined to
-non-quasi-smooth points in dimension at least two outside the verified local
-finite-curve-product scope. No atom count, tier count, or queue position
-changes.
+and zero gaps. P06.1 remains one active T2 atom, now confined to arbitrary
+nonproduct non-quasi-smooth points in dimension at least two, products
+containing a reduced singular factor of dimension at least two, and toric
+germs outside the verified fixed-point scope. No atom count, tier count, or
+queue position changes.
 The proper full-rank moment-factor case is also verified by
 `prop:p062-proper-full-rank-moment`.  It applies only when \(X\) is pure of
 dimension \(n\geq 1\) and \(h=\varphi\circ F\), where

@@ -99,27 +99,39 @@ nine 24 August gates counted in this paragraph.
   while positive-cone generation fails in residual dimension two.  Exact
   hashes and scope firewalls are in the P09 integration receipt.
 
-## Chapter 18 and Chapter 72 — classical pluriharmonic regularity on quasi-smooth spaces and finite curve products
+## Chapter 18 and Chapter 72 — classical pluriharmonic regularity on quasi-smooth spaces, arbitrary curve-factor products, and affine toric fixed points
 
 - Status: **VERIFIED EXACT PACKET / INTEGRATED WITH SINGULAR-SCOPE
   FIREWALL** (30 August 2026).
 - Book locations: `thm:p061-quasismooth-ph-rpl`,
   `thm:p061-curve-product-ph-rpl`,
-  `cor:p061-finite-curve-products-ph-rpl`, and their full proofs in
-  Chapter 18; the narrowed `prob:frontier-pluriharmonic` discussion in
-  Chapter 72.
+  `cor:p061-finite-curve-products-ph-rpl`,
+  `thm:p061-arbitrary-curve-factors-ph-rpl`, and
+  `thm:p061-toric-fixed-point-constancy`, with their full proofs in Chapter
+  18; the narrowed `prob:frontier-pluriharmonic` discussion in Chapter 72.
 - New singular scope: over a complete nontrivially valued field, every
   classically pluriharmonic function is \(\mathbf R\)-PL and GJR harmonic on
-  a good product of finitely many geometrically reduced good strict analytic
-  curves and one good strict quasi-smooth factor.  The same holds on a good
-  strict space locally isomorphic to an open analytic subspace of such a
-  product.
+  a good product of finitely many arbitrary good strict analytic curves and
+  one good strict factor whose reduction is quasi-smooth.  The same holds on
+  a good strict space locally isomorphic to an open analytic subspace of such
+  a product.  At the torus-fixed point associated to a full-dimensional
+  strongly convex rational cone, every classically pluriharmonic germ is
+  locally constant.
 - Proof mechanism: after ground-field descent, normalize one curve factor;
   the quasi-smooth result applies upstairs.  A completed-tensor estimate at a
   rational section shows that an \(\mathbf R\)-PL function near that section
   is locally pulled back from the parameter factor.  This removes the branch
   ambiguity and permits finite normalization descent.  Iterating gives the
   finite-product statement.
+- Arbitrary-factor mechanism: real-PL functions are invariant under
+  nilpotent closed immersions, and reducing every factor of a completed
+  affinoid tensor product has nilpotent kernel.  After scalar extension this
+  reduces arbitrary, possibly nonreduced curve factors to the verified
+  successive normalization theorem.
+- Toric mechanism: a positive integral grading produces cofinal weighted
+  strict affinoid neighborhoods with canonical reduction
+  \(\widetilde K[S]\).  This is a domain, so the Shilov boundary is a
+  singleton, and the classical maximum--minimum principle forces constancy.
 - Illustrating scope: `ex:p061-nodal-cuspidal-products` covers nodal and
   cuspidal cylinders and finite products of them, including every
   non-quasi-smooth stratum.
@@ -136,9 +148,24 @@ nine 24 August gates counted in this paragraph.
   `a19410a54ff7299a83996b4199fc348478d63a5ad37d2cd439ca81f5e7f79b97`;
   `gpt-5.6-sol`, `xhigh`, final verdict `correct`, zero critical errors, zero
   gaps.
-- Scope firewall: no conclusion is asserted for arbitrary singular germs,
-  non-geometrically-reduced curve factors, or spaces without the stated local
-  product presentation.  P06.1 therefore remains one active T2 atom.
+- Arbitrary curve-factor exact statement/proof SHA-256:
+  `6954b3ebc1f9efb060b4858ce732d9720d62741ba2397c39573312dd6e3ba8f3` /
+  `e308ba5df336e38717ac27413c6f669a7fa37535bed613a79f095811c6dba4a7`.
+  Two independent exact-byte audits passed.  Dependency-closed production
+  item `pi_7dceb6442b4d586c4475feca` returned disposition `verified`, final
+  `correct`, zero critical errors, and zero gaps; proof digest
+  `00a77e601f10b88763b6526374fd7826764b8847f2660882fbd35b2dd00451e7`.
+- Toric exact statement/proof SHA-256:
+  `edbe69950a0a9c81ca2fd9077a58be96ec6bdb6c27ce9cf2524da5bf653a5ab6` /
+  `531e326b4aeb19067fcb88af2f6eb6477a169587d71a3249103777c9131cf8f4`.
+  Two independent exact-byte audits passed.  Production item
+  `pi_dfd932c583fee3acd3fefbe3` returned disposition `verified`, final
+  `correct`, zero critical errors, and zero gaps; its proof digest is the
+  displayed proof SHA-256.
+- Scope firewall: reduced singular factors of dimension at least two,
+  arbitrary nonproduct non-quasi-smooth germs, positive-dimensional torus
+  orbits, and arbitrary toric domains remain outside the conclusions.  P06.1
+  therefore remains one active T2 atom.
 
 ## Chapter 18 and Chapter 72 — real-PL zero-current converse
 
