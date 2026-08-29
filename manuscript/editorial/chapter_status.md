@@ -13,7 +13,7 @@ Status vocabulary:
 | Chapter | Short title | Status | Mathematical audit | Source audit |
 |---:|---|---|---|---|
 | 1--8 | Foundations | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
-| 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the earlier Chapter 18 GJR gates, the pure-dimensional real-PL positive-current/residue-nef equivalence passed `20260825T080059Z_80f35689475f`; first-stage CLD collapse on tropical toric partial compactifications passed `20260825T024707Z_d1b8d7eaf79e`, and its finite ambient-induced-star extension passed the direct endpoint archived locally as `20260827T103835Z_c8131b22d800`; the real-PL zero-current theorem and curve counterexample passed `20260825T061351Z_655e7f503e5d` and `20260825T055907Z_b5c8f0719b60`; the cubical reduction and product--Gauss criterion passed `20260825T145229Z_b37e13478cc7` and `20260826T055627Z_b68659fba1be`; unrestricted continuous smooth-proper-curve ordinary-smooth psh regularization passed `20260827T090645Z_767cbf81c723`; the canonical-collar bridge, rigid-point zero-atom estimate, and arbitrary-field reduced dimension-one positive-current classification passed exact-live run `20260828T042906Z_f2a1c1b9f2a3`; the arbitrary-field nonreduced combined packet passed production run `20260828T044008Z_dfdaa04a1cea`, and its separately materialized exact-live statement/proof, SHA-256 `e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c` / `25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`, passed HTTP-archived exact-live closure run `20260828T051601Z_db92555a72e1`; these three controlling runs are final `correct`, with respectively 17/19/0, 24/25/0, and 23/25/0 sequential-statement/primary-source/failed-check records and respectively 0/0, 0/0, and 0/0 critical-error/gap counts | The P06.3 proof uses Thuillier, Baker--Payne--Rabinoff, Gubler--Jell--Rabinoff, and Wanner in their exact source scopes.  The P21.3 proof uses ordinary-open nilreduction, canonical full virtual-annular collars with exact source preimages, Riemann--Roch on normal residual curves over the actual residue field, and a rigid-point zero-atom argument at the strict conductor locus.  It separates reduction-invariant ordinary CLD calculus from multiplicity-sensitive integration and proves only continuous-pair Bedford--Taylor independence.  The product--Gauss theorem remains a separate book-level deduction in the GK field and ordinary algebraic-chart categories |
+| 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the earlier Chapter 18 GJR gates, the pure-dimensional real-PL positive-current/residue-nef equivalence passed `20260825T080059Z_80f35689475f`; first-stage CLD collapse on tropical toric partial compactifications passed `20260825T024707Z_d1b8d7eaf79e`, and its finite ambient-induced-star extension passed the direct endpoint archived locally as `20260827T103835Z_c8131b22d800`; the real-PL zero-current theorem and curve counterexample passed `20260825T061351Z_655e7f503e5d` and `20260825T055907Z_b5c8f0719b60`; the cubical reduction and product--Gauss criterion passed `20260825T145229Z_b37e13478cc7` and `20260826T055627Z_b68659fba1be`; unrestricted continuous smooth-proper-curve ordinary-smooth psh regularization passed `20260827T090645Z_767cbf81c723`; the canonical-collar bridge, rigid-point zero-atom estimate, and arbitrary-field reduced dimension-one positive-current classification passed exact-live run `20260828T042906Z_f2a1c1b9f2a3`; the arbitrary-field nonreduced combined packet passed production run `20260828T044008Z_dfdaa04a1cea`, and its separately materialized exact-live statement/proof, SHA-256 `e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c` / `25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`, passed HTTP-archived exact-live closure run `20260828T051601Z_db92555a72e1`; the dependency-closed componentwise rigid-exception materialization, SHA-256 `2bf673687e935bcdae91550158344647cb1ca1cd4ae0a5040109aeb5fb2f3cbc` / `a27c40fbb1328b008acab07b871f50a778c34bab2b0f1d05e3a6d9d229839716`, passed `20260829T061505Z_2bf673687e93`, item `pi_ee24d64b88f0c4e60ad1acbd`, final `correct`, zero critical errors, and zero gaps | The P06.3 proof uses Thuillier, Baker--Payne--Rabinoff, Gubler--Jell--Rabinoff, and Wanner in their exact source scopes.  The P21.3 proof uses ordinary-open nilreduction, canonical full virtual-annular collars with exact source preimages, Riemann--Roch on normal residual curves over the actual residue field, and rigid-point zero-atom arguments at the strict conductor locus and at normal rigid exceptional points.  It now covers reducible and nonreduced curves whose component-normalization non-rig-smooth loci lie in locally finite rigid sets, separates reduction-invariant ordinary CLD calculus from multiplicity-sensitive integration, and proves only continuous-pair Bedford--Taylor independence.  No novelty or priority claim is made.  The product--Gauss theorem remains a separate book-level deduction in the GK field and ordinary algebraic-chart categories |
 | 20--27 | BFJ forms, psh, envelopes, MA, capacity, and energy | first-draft-final (historical) | first-pass record; the exact-current Chapter 23 fixed-skeleton selection passed production Rethlas run `20260824T044830Z_25024c43d265` with final `correct`, 0 critical errors, 0 gaps | first-pass record; the Chapter 23 book-local result is separated from its published BFJ inputs and makes no global sequential claim |
 | 28--31 | BFJ measures, continuity, functoriality, and examples | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 32--34 | Trivially valued foundations and psh closure | first-draft-final (historical) | first-pass record; Ch. 34 closure integration awaits Rethlas review | first-pass record; primary anchors rechecked for the closure repair |
@@ -32,7 +32,7 @@ Status vocabulary:
 | 67 | Functoriality and trace | first-draft-final (historical) | prior hostile-pass record; exact current Rethlas status is recorded separately | source correction recorded in the trace audit |
 | 68 | YTD bridge | post-expansion depth-audited | factor-two normalization and perturbation chain checked against the internally proved ray formulas | Fano and automorphism-group scope rechecked against primary sources |
 | 69 | Validated extensions | post-expansion synchronization in progress | in addition to the toric gates, the complete-intersection slice passed `20260825T023505Z_66547f68ec32`; the analytic weighted-cross realization and compact-source obstruction passed `20260825T021353Z_058a4390b0fb` and `20260825T024519Z_16376e0d52eb`; and the four-punctured smooth-curve obstruction passed `20260825T034743Z_ea6194f07e86`; all four are final `correct`, with 0 critical errors and 0 gaps | the slice tests only restrictions of ambient smooth functions; the cross construction gives equality of curvature only after proper pushforward, not an analytic Bedford--Taylor counterexample; the four-punctured result excludes its concrete candidate but leaves P21.3 open; no novelty or priority claim is made |
-| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 72 has all 15 remaining problem environments and 54 active atoms; P00.1 is retired after exact verification of the ample-class full MP--BJ comparison and its rational-class DXZ corollary; its frozen statement/proof SHA-256 values are `e40829e3586bcabeeb866229dc068c2e518a736fc908dec32f3bf3957c59c9ab` / `baad23068e9dcae47619f3e2d81cfd26fa5bd51b1e4c4d4baa1a7c024824e671`, and the archived production response in `p001_mp_bj_full_cone_run_20260828` is `correct` with zero critical errors and zero gaps; the exact-live statement/proof SHA-256 values `949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e` / `58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064` passed `p001_mp_bj_full_cone_live_run2_20260828`, also `correct` with zero critical errors and zero gaps; P06.3 passed `20260827T090645Z_767cbf81c723`; the P21.3 arbitrary-field reduced, nonreduced combined, and exact-live closure gates passed `20260828T042906Z_f2a1c1b9f2a3`, `20260828T044008Z_dfdaa04a1cea`, and `20260828T051601Z_db92555a72e1`, narrowing but not retiring its residual T2 atom | source status is reconciled through 24 August 2026 and book verification through 28 August; P00.1 is a book-level sourced synthesis, not a novelty or priority claim; the P21.3 residual is analytic dimension at least two and, in dimension one, only trivially valued ground fields or a reduced irreducible component whose normalization is not rig-smooth; nonreducedness by itself and failure of algebraic closedness are no longer residual over a complete nontrivially valued field, while literal discontinuous-psh CLD Definition 8.6.2 remains outside the proved continuous-pair scope; all book-level derivations retain exact scope |
+| 70--72 | Local comparison frontiers, pseudoeffective MP--DXZ boundary, and major open problems | post-expansion audit in progress | Chapter 72 has all 15 remaining problem environments and 54 active atoms; P00.1 is retired after exact verification of the ample-class full MP--BJ comparison and its rational-class DXZ corollary; its frozen statement/proof SHA-256 values are `e40829e3586bcabeeb866229dc068c2e518a736fc908dec32f3bf3957c59c9ab` / `baad23068e9dcae47619f3e2d81cfd26fa5bd51b1e4c4d4baa1a7c024824e671`, and the archived production response in `p001_mp_bj_full_cone_run_20260828` is `correct` with zero critical errors and zero gaps; the exact-live statement/proof SHA-256 values `949819c48c8d0e991acbb92ed7c15d504dd691056f06553c58ac1d4ab564d33e` / `58c2954ad1e541ab41e0649c4e84e22252299265b422159df41fe5772f2e8064` passed `p001_mp_bj_full_cone_live_run2_20260828`, also `correct` with zero critical errors and zero gaps; P06.3 passed `20260827T090645Z_767cbf81c723`; the P21.3 arbitrary-field reduced, nonreduced, normal rigid-exception, and dependency-closed componentwise gates culminated in `20260829T061505Z_2bf673687e93`, item `pi_ee24d64b88f0c4e60ad1acbd`, final `correct`, zero critical errors, and zero gaps, narrowing but not retiring its residual T2 atom | source status is reconciled through 24 August 2026 and book verification through 29 August; P00.1 and the P21.3 componentwise statement are book-level sourced derivations with no novelty or priority claim; the P21.3 residual is analytic dimension at least two and, in dimension one, only a trivially valued ground field or a component whose normalization has non-rig-smooth locus not contained in a locally finite rigid set; reducibility and nonreducedness under the verified hypotheses, and failure of algebraic closedness, are no longer residual over a complete nontrivially valued field, while literal discontinuous-psh CLD Definition 8.6.2 remains outside the proved continuous-pair scope; all book-level derivations retain exact scope |
 | A--L | Appendices | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 
 **26 August 2026 controlling Chapter 18 correction.**  The former
@@ -65,9 +65,11 @@ identifier: `20260827T103835Z_c8131b22d800` is a local archive label only.
 No application is claimed here for positive-sedentarity or other tropical
 boundary charts whose local generator sheaf has not been identified with
 the model, for nonambient smooth structures, for infinite stars, or in
-higher dimension.  P07.1 and P07.2 therefore remain active, and the literal
-inventory remains 16 problem environments and 55 active atoms.  This
-verification addendum is not a post-integration or whole-book build gate.
+higher dimension.  P07.1 and P07.2 therefore remain active.  This historical
+gate did not change their status; the current controlling inventory, after
+the separate P00.1 retirement, is 15 problem environments and 54 active
+atoms.  This verification addendum is not a post-integration or whole-book
+build gate.
 
 **27 August 2026 finite affine-star live-integration gate.**  Chapter 16 now
 inputs the exact verified P071 statement and proof.  A forced clean rebuild
@@ -125,10 +127,10 @@ the direct endpoint assigned no item identifier.  Nilreduction preserves the
 ordinary CLD calculus, currents, positivity, closedness, and the
 continuous-psh sheaves, while the fundamental integration current retains
 the generic component multiplicities.  The Bedford--Taylor conclusion
-concerns continuous psh pairs only.  The inventory remains 16 environments
-and 55 active atoms; P21.3 remains one T2 atom in analytic dimension at least
-two and, in dimension one, only for trivially valued fields or a reduced
-component whose normalization is not rig-smooth.
+concerns continuous psh pairs only.  This historical gate did not retire
+P21.3.  The current controlling inventory is 15 environments and 54 active
+atoms; the sharper 29 August componentwise gate below further narrows the
+one-dimensional residual without changing that count.
 
 **28 August 2026 P00.1 controlling retirement addendum.**  The full
 Mesquita--Piccione and Boucksom--Jonsson psh cones agree under the canonical
@@ -154,6 +156,38 @@ MP, BJ, and DXZ, not a novelty or priority claim.  P00.1 and the Chapter 71
 problem environment are retired.  The current inventory is 15 formal problem
 environments, all in Chapter 72, and 54 active atoms, with tier counts
 `(0,6,14,17,17)`.
+
+**29 August 2026 P21.3 componentwise rigid-exception controlling
+addendum.**  The continuous-pair theorem now covers every good separated
+strict boundaryless pure one-dimensional analytic space over a complete
+nontrivially valued field, including reducible and nonreduced spaces, when
+the non-rig-smooth locus of each reduced-component normalization is contained
+in a locally finite set of rigid points.  Nilreduction preserves the
+ordinary CLD calculus, current topology, positivity, closedness, and
+continuous-psh sheaves; the fundamental integration current retains generic
+component multiplicities.  Positive closed `(0,0)` currents have a unique
+locally finite component-current decomposition, and componentwise curvature
+splitting gives continuous-pair Bedford--Taylor independence.
+
+The complete dependency-closed materialized statement and proof have
+SHA-256
+`2bf673687e935bcdae91550158344647cb1ca1cd4ae0a5040109aeb5fb2f3cbc`
+and
+`a27c40fbb1328b008acab07b871f50a778c34bab2b0f1d05e3a6d9d229839716`.
+Production Rethlas run `20260829T061505Z_2bf673687e93`, item
+`pi_ee24d64b88f0c4e60ad1acbd`, returned final `correct`, zero critical
+errors, and zero gaps.  An earlier noncontrolling submission omitted the
+already verified transitive canonical-collar bridge and was rejected for
+that packaging defect; the candidate theorem bytes did not change, so the
+rejection is not a mathematical failure.  No novelty or priority claim is
+made.
+
+P21.3 remains one T2 atom.  Its one-dimensional residual is now exactly a
+trivially valued ground field or a component whose normalization has
+non-rig-smooth locus not contained in a locally finite rigid set; analytic
+dimension at least two also remains open.  Reducibility and nonreducedness
+are no longer residual under the verified hypotheses.  Counts remain 15
+problem environments and 54 active atoms, with tiers `(0,6,14,17,17)`.
 
 ## Second-draft expansion
 

@@ -422,16 +422,19 @@ open atoms.  The four corrected residual targets above remain open.
 
 - **P21.3** `[T2; open residual]` Outside the continuous-pair
   one-dimensional classes over a complete nontrivially valued field settled
-  by `prop:p21p3-curve-rigidity-nonreduced` and
-  `prop:p21p3-rigid-exception-extension`, determine whether every positive
+  by `prop:p21p3-curve-rigidity-nonreduced`,
+  `prop:p21p3-rigid-exception-extension`, and the production-verified
+  componentwise extension
+  `prop:p21p3-componentwise-rigid-exceptions`, determine whether every positive
   closed CLD current of bidegree \((p,p)\), \(0\le p\le n-1\), on a good
   separated strict boundaryless pure \(n\)-dimensional analytic space has
   Bedford--Taylor independence for continuous psh pairs of equal curvature,
   or construct a counterexample.  The remaining domain is dimension at least
   two, together with the one-dimensional cases of a trivially valued ground
-  field, a component normalization not covered by the rig-smooth theorem or
-  the verified normal rigid-exception theorem, and reducible or nonreduced
-  extensions of the latter exceptional-point class.  The literal
+  field or a component whose normalization has non-rig-smooth locus not
+  contained in a locally finite set of rigid points.  Reducibility and
+  nonreducedness are no longer residual under the stated componentwise
+  hypotheses.  The literal
   discontinuous-potential predicate of CLD Definition 8.6.2 is a stronger
   scope boundary and is not a separately counted atom.
 
@@ -490,8 +493,9 @@ The earlier `20260828T045515Z_db92555a72e1` run is service-only corroborating
 provenance rather than the controlling gate.  Independent byte, source, and
 hostile audits also passed.  Thus neither
 nonreducedness nor failure of algebraic closedness remains in the residual
-domain over a complete nontrivially valued field.  The active atom count is
-unchanged at the then-current value (55).
+domain over a complete nontrivially valued field.  This gate did not retire
+P21.3.  The current controlling count, after the separate P00.1 retirement,
+is 54 active atoms.
 
 **29 August 2026 P21.3 rigid-exception narrowing addendum.**  Let `X` be a
 nonempty connected good separated strict normal boundaryless analytic curve
@@ -509,6 +513,40 @@ Submitted with the exact rig-smooth dependency, they passed production run
 statement checks and 26 primary-source checks, final `correct`, zero
 critical errors, and zero gaps.  This narrows but does not retire P21.3; the
 atom count is unchanged.
+
+**29 August 2026 P21.3 componentwise rigid-exception controlling
+addendum.**  Let `X` be a good separated strict boundaryless pure
+one-dimensional analytic space over a complete nontrivially valued field,
+with arbitrary nilpotent structure.  Assume that, for every irreducible
+component of `X_red`, the non-rig-smooth locus of its normalization is
+contained in a locally finite set of rigid points.  Then nilreduction
+identifies the ordinary CLD calculus, current topology, positivity,
+closedness, and continuous-psh sheaves; the integration current retains the
+generic component multiplicities; every positive closed `(0,0)` current is
+a unique locally finite nonnegative combination of the normalized reduced
+component currents; and continuous-pair Bedford--Taylor independence holds.
+Thus reducible and nonreduced curves in this class are settled, not residual.
+
+The complete dependency-closed production materialization has statement and
+proof SHA-256
+`2bf673687e935bcdae91550158344647cb1ca1cd4ae0a5040109aeb5fb2f3cbc`
+and
+`a27c40fbb1328b008acab07b871f50a778c34bab2b0f1d05e3a6d9d229839716`.
+Production Rethlas run `20260829T061505Z_2bf673687e93`, item
+`pi_ee24d64b88f0c4e60ad1acbd`, used `gpt-5.6-sol` at `xhigh` and returned
+final `correct`, zero critical errors, and zero gaps.  An earlier
+noncontrolling materialization omitted the already verified transitive
+canonical-collar bridge and was rejected for that packaging defect; the
+candidate theorem bytes were unchanged, so that rejection is not recorded
+as a mathematical failure.  This is a book-level verified extension with no
+novelty or priority claim.
+
+P21.3 remains one T2 atom.  Its remaining one-dimensional domain consists
+exactly of a trivially valued ground field or a component whose normalization
+has non-rig-smooth locus not contained in a locally finite rigid set; analytic
+dimension at least two remains open.  The inventory stays at 15 formal
+problem environments and 54 active atoms, with tier totals
+`(0,6,14,17,17)`.
 
 **28 August 2026 P00.1 controlling retirement addendum.**  For every
 connected smooth projective complex variety and every ample real numerical

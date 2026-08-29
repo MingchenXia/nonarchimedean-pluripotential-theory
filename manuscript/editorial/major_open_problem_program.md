@@ -82,8 +82,9 @@ positivity, closedness, and continuous psh functions are invariant under
 nilreduction, whereas the fundamental integration current records the
 generic component multiplicities.  No statement is made for the literal
 possibly discontinuous psh scope of CLD Definition 8.6.2.  P21.3 remains one
-T2 atom, so at that gate the inventory stayed at 16 problem environments and
-55 active atoms; the following P00.1 addendum controls the current totals.
+T2 atom.  That historical gate did not change the active questions; the
+following P00.1 addendum controls the current total of 15 problem
+environments and 54 active atoms.
 
 **28 Aug 2026 P00.1 controlling retirement addendum.**  On a connected
 smooth projective complex variety, the canonical GAGA homeomorphism identifies
@@ -110,6 +111,37 @@ passed the superseding archive
 DXZ results, with no novelty or priority claim.  P00.1 and the Chapter 71
 problem environment are retired; 15 formal environments and 54 atoms remain,
 with tier counts `(0,6,14,17,17)`.
+
+**29 Aug 2026 P21.3 componentwise rigid-exception controlling addendum.**
+Over every complete nontrivially valued field, the continuous-pair theorem
+now covers good separated strict boundaryless pure one-dimensional analytic
+spaces, with arbitrary reducibility and nilpotent structure, whenever the
+non-rig-smooth locus of each reduced-component normalization is contained in
+a locally finite set of rigid points.  The proof preserves the exact
+nilreduction calculus and compact-test topology, retains generic
+multiplicities in the integration current, classifies every positive closed
+`(0,0)` current by a unique locally finite nonnegative component sum, and
+splits equal curvature measures componentwise before proving
+Bedford--Taylor independence.
+
+The complete dependency-closed materialized statement/proof SHA-256 are
+`2bf673687e935bcdae91550158344647cb1ca1cd4ae0a5040109aeb5fb2f3cbc` /
+`a27c40fbb1328b008acab07b871f50a778c34bab2b0f1d05e3a6d9d229839716`.
+Production Rethlas run `20260829T061505Z_2bf673687e93`, item
+`pi_ee24d64b88f0c4e60ad1acbd`, returned final `correct`, zero critical
+errors, and zero gaps.  A prior noncontrolling materialization omitted the
+already verified transitive canonical-collar bridge and was rejected for
+that packaging defect; the candidate theorem bytes were unchanged, so this
+was not a mathematical failure.  This is a book-level verified extension
+with no novelty or priority claim.
+
+P21.3 remains one T2 atom.  The remaining one-dimensional cases are exactly
+a trivially valued ground field and a component whose normalization has
+non-rig-smooth locus not contained in a locally finite rigid set; analytic
+dimension at least two also remains open.  Reducibility and nonreducedness
+are no longer residual under the verified hypotheses.  The controlling
+counts remain 15 formal environments and 54 atoms, with tiers
+`(0,6,14,17,17)`.
 
 **Promotion rule:** an item becomes a new theorem only after its exact
 statement and proof receive a production Rethlas gpt-5.6-sol/xhigh receipt
@@ -610,21 +642,36 @@ source questions under one common framework.
   result preserves the classification and continuous-pair conclusion under
   nilreduction while retaining generic multiplicities in the fundamental
   cycle.
+- **29 August componentwise extension:** the complete dependency-closed
+  materialization settles the same continuous-pair conclusion for arbitrary
+  reducible and nonreduced curves whose reduced-component normalizations are
+  rig-smooth away from locally finite sets of rigid points.  Its materialized
+  statement/proof SHA-256 are
+  `2bf673687e935bcdae91550158344647cb1ca1cd4ae0a5040109aeb5fb2f3cbc` /
+  `a27c40fbb1328b008acab07b871f50a778c34bab2b0f1d05e3a6d9d229839716`;
+  production run `20260829T061505Z_2bf673687e93`, item
+  `pi_ee24d64b88f0c4e60ad1acbd`, returned final `correct`, zero critical
+  errors, and zero gaps.  The earlier missing-bridge materialization was a
+  noncontrolling packaging rejection, not a mathematical failure.  No
+  novelty or priority claim is made.
 - **Status:** open only in analytic dimension at least two and, in dimension
-  one within the problem's displayed ambient hypotheses, over trivially
-  valued fields or when at least one reduced irreducible component has a
-  normalization that is not rig-smooth.  Nonreducedness by itself and failure
-  of algebraic closedness are no longer residual over a complete
-  nontrivially valued field.  The reducible cross realization still has
+  one within the problem's displayed ambient hypotheses, over a trivially
+  valued field or when at least one component normalization has non-rig-smooth
+  locus not contained in a locally finite set of rigid points.  Reducibility,
+  nonreducedness, and failure of algebraic closedness are no longer residual
+  over a complete nontrivially valued field under the verified hypotheses.
+  The reducible cross realization still has
   equality only after proper pushforward, and the four-punctured candidate is
   subsumed by the verified curve classification.  Literal discontinuous-psh
   CLD Definition 8.6.2 is outside the continuous-pair formulation and is not
   counted as another atom.
 - **Packets:** the realization, four-punctured obstruction, canonical-collar
-  bridge, arbitrary-field reduced, and arbitrary-field nonreduced packets are
-  resolved history under the exact receipts cited above.  The next P21.3
-  targets are the trivially valued curve case, curves with a non-rig-smooth
-  reduced-component normalization, and analytic dimension at least two.
+  bridge, arbitrary-field reduced, arbitrary-field nonreduced, normal
+  rigid-exception, and componentwise packets are resolved history under the
+  exact receipts cited above.  The next P21.3 targets are the trivially valued
+  curve case, component normalizations whose non-rig-smooth locus is not
+  contained in a locally finite rigid set, and analytic dimension at least
+  two.
 
 ## Historical corrections that must not return to the queue
 
