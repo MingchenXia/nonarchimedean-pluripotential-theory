@@ -2,8 +2,13 @@
 
 ## Status
 
-This is an isolated, non-live, non-Rethlas-verified candidate.  It does not
-alter the monograph, the atomic inventory, or the status of P07.1.
+This is a **production-verified, byte-for-byte live-integrated** result.  The
+exact statement and proof hashes below passed production Rethlas run
+`20260829T003722Z_779b1304255d` with model `gpt-5.6-sol`, reasoning effort
+`xhigh`, verdict `correct`, zero critical errors, and zero gaps.  The frozen
+files are now inputs of Chapter 16, and the complete book build succeeds.  It
+does not retire P07.1, whose star, higher-dimensional, and general
+G-tropical scopes remain open.
 
 ## Exact mathematical scope
 
@@ -67,7 +72,11 @@ defect was found.
 
 ## Required gate
 
-Before any live integration, the exact statement and proof bytes must receive
-an independent source-aware audit and a production gpt-5.6-sol/xhigh Rethlas
-verdict of correct with zero critical errors and zero gaps.  A later edit
-invalidates the frozen hashes and requires a fresh gate.
+The independent source-aware and production gates for these exact isolated
+bytes have passed.  The archived request, response, headers, service report,
+verifier log, record counts, and artifact hashes are recorded in
+`p071_infinite_endpoint_rethlas_receipt_20260829.md`.  Chapter 16 inputs the
+frozen files without modification, Chapter 72 and the atomic inventory record
+the narrowed scope, and the complete 3223-page book compiles without an
+undefined reference or citation.  A later change to the statement or proof invalidates the
+frozen hashes and requires a fresh mathematical gate.

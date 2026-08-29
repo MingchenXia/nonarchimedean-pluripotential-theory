@@ -167,14 +167,34 @@ historical narrower finite-curve statement.  The latter is superseded by the
 exact finite ambient-induced real-affine-star theorem archived under
 `20260827T103835Z_c8131b22d800`; the direct endpoint assigned no run or item
 identifier and returned final `correct`, with zero critical errors and zero
-gaps.  The theorem does not identify its generator sheaf with the CLD sheaf
-on every analytic, sedentary tropical, or nonambient local model.  P07.1
-therefore retains arbitrary higher-dimensional settings, infinite-valence
-stars, and local models not known to admit the stated generator-preserving
-finite-star charts.  P07.2 retains the absence of a uniform early-ordinal
-bound.  Both atoms remain active; the inventory stays at 55 atoms in 16
-formal problem environments at that verification gate; the controlling
-P00.1 retirement addendum below gives the current totals.
+gaps.
+
+Two additional nonambient interval models are now controlled.  For the
+finite constant-collar endpoint, the comparison sheaf is the extended-real
+convex functions satisfying the boundary-minimum condition.  Its exact
+statement and proof, SHA-256
+`69f04be69f70be0abfdb720fa6aceaad799240421046d14333cfd542e2e56498`
+and
+`5e7d96e8badf030b64d063b26fb353aa4be097438ae267cdd72911907c2a5c7c`,
+passed production run `20260829T002250Z_69f04be69f70`, final `correct`, with
+zero critical errors and zero gaps.  For the constant-collar endpoint at
+`-infinity`, the comparison condition is instead the exact finite-side trace
+at the endpoint.  Its exact statement and proof, SHA-256
+`779b1304255d6e803cf34d9e429acb085eb5cf827e54c6a30a15ba3058182d9a`
+and
+`dacaa96b68c5ddb260736d40075d229ffbe843dbe4994436c1a18428aa407f5b`,
+passed production run `20260829T003722Z_779b1304255d`, again final `correct`,
+with zero critical errors and zero gaps.
+
+The finite-star theorem does not identify its generator sheaf with the CLD
+sheaf on every analytic, sedentary tropical, or nonambient local model, and
+the endpoint arguments use the order structure of a single interval rather
+than branch coupling.  P07.1 therefore retains arbitrary higher-dimensional
+settings, infinite-valence stars, and general nonambient local models beyond
+the two verified interval structures.  P07.2 retains the absence of a
+uniform early-ordinal bound.  Both atoms remain active.  The controlling
+P00.1 retirement addendum below gives the current total of 54 atoms in 15
+formal problem environments.
 
 ### `prob:frontier-cld-global-metric` --- 2 atoms
 
@@ -366,16 +386,19 @@ open atoms.  The four corrected residual targets above remain open.
 ### `prob:frontier-cross-fan-upstairs` --- 1 atom
 
 - **P21.3** `[T2; open residual]` Outside the continuous-pair
-  one-dimensional class over a complete nontrivially valued field settled by
-  `prop:p21p3-curve-rigidity-nonreduced`, determine whether every positive
+  one-dimensional classes over a complete nontrivially valued field settled
+  by `prop:p21p3-curve-rigidity-nonreduced` and
+  `prop:p21p3-rigid-exception-extension`, determine whether every positive
   closed CLD current of bidegree \((p,p)\), \(0\le p\le n-1\), on a good
   separated strict boundaryless pure \(n\)-dimensional analytic space has
   Bedford--Taylor independence for continuous psh pairs of equal curvature,
   or construct a counterexample.  The remaining domain is dimension at least
   two, together with the one-dimensional cases of a trivially valued ground
-  field or a reduced component whose normalization is not rig-smooth.  The
-  literal discontinuous-potential predicate of CLD Definition 8.6.2 is a
-  stronger scope boundary and is not a separately counted atom.
+  field, a component normalization not covered by the rig-smooth theorem or
+  the verified normal rigid-exception theorem, and reducible or nonreduced
+  extensions of the latter exceptional-point class.  The literal
+  discontinuous-potential predicate of CLD Definition 8.6.2 is a stronger
+  scope boundary and is not a separately counted atom.
 
 The two preceding realization atoms are retired.  `P21.1` is negatively
 settled by the compact-source obstruction in production run
@@ -434,6 +457,23 @@ hostile audits also passed.  Thus neither
 nonreducedness nor failure of algebraic closedness remains in the residual
 domain over a complete nontrivially valued field.  The active atom count is
 unchanged at the then-current value (55).
+
+**29 August 2026 P21.3 rigid-exception narrowing addendum.**  Let `X` be a
+nonempty connected good separated strict normal boundaryless analytic curve
+over a complete nontrivially valued field, and let `E` be a locally finite
+set of rigid points whose complement is rig-smooth.  Then `X - E` is
+nonempty and connected; every positive `d'`- and `d''`-closed CLD
+`(0,0)` current on `X` is a unique nonnegative multiple of the integration
+current; and continuous-pair Bedford--Taylor independence holds.  The exact
+candidate statement and proof have SHA-256
+`cf53c4101b6fe798d89c7e37188f2d1f03f389a5a468fdd055b6fba8bf8cf2f5`
+and
+`cf94877ec4b2a1010a3eb51915c7cbc20a134da0bf2563b90585deab992850ce`.
+Submitted with the exact rig-smooth dependency, they passed production run
+`20260829T021315Z_cc0c48725114` using `gpt-5.6-sol` at `xhigh`: 14
+statement checks and 26 primary-source checks, final `correct`, zero
+critical errors, and zero gaps.  This narrows but does not retire P21.3; the
+atom count is unchanged.
 
 **28 August 2026 P00.1 controlling retirement addendum.**  For every
 connected smooth projective complex variety and every ample real numerical

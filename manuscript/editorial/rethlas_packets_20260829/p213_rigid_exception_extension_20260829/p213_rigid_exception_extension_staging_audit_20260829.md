@@ -2,9 +2,13 @@
 
 Date: 29 August 2026
 
-Status: **quarantined candidate**.  This packet is neither a live-book input
-nor a production-Rethlas-verified result.  It does not retire or narrow
-P21.3 in the authoritative open-problem inventory.
+Status: **production verified and live-integrated byte-for-byte**.  The exact candidate statement and proof,
+submitted together with the exact production-verified rig-smooth dependency,
+passed run `20260829T021315Z_cc0c48725114` using `gpt-5.6-sol` at `xhigh`,
+with verdict `correct`, zero critical errors, and zero gaps.  Chapter 16 now
+inputs the frozen files without modification; Chapter 72 and the atomic
+inventory record the narrowed scope; and the complete 3223-page book builds
+successfully.  The result narrows but does not retire P21.3.
 
 ## Candidate result
 
@@ -77,9 +81,14 @@ bibliography item, or layout defect remains.
   CLD Corollary 7.2.10, Example 7.2.12, Section 7.3.1, and the explicit test
   pairing.  Both the current-specialist re-audit and the final whole-packet
   re-audit passed these repaired exact bytes.
-- Exact production Rethlas (`gpt-5.6-sol`, `xhigh`): **pending**.
+- Exact production Rethlas (`gpt-5.6-sol`, `xhigh`): **passed**; fourteen
+  sequential statement records and twenty-six primary-source reference
+  records passed, with no failed check.  The exact service evidence and
+  artifact hashes are recorded in
+  `p213_rigid_exception_extension_rethlas_receipt_20260829.md`.
 - Live integration, whole-chapter compile, provenance update, and inventory
-  change: **forbidden until the production gate passes**.
+  narrowing are complete.  The frozen candidate files remain unmodified and
+  the unrestricted atom remains active.
 
 ## Scope firewall
 

@@ -1491,7 +1491,7 @@ stationarity.  It is distinct from
 arbitrary classically psh function and asks whether it enters the CLD class,
 whereas this problem asks how many closure stages are needed after it does.
 
-Two natural local geometries are now settled at stage one.
+Four natural local geometries are now settled at stage one.
 \Cref{prop:ch16-collapse-tropical-toric} identifies the first-stage CLD,
 full CLD, and Burgos Gil--Gubler--Jell--K\"unnemann psh sheaves on every
 tropical toric partial compactification with its standard Lagerberg smooth
@@ -1527,6 +1527,31 @@ preserved under the local archive label
 \nolinkurl{20260827T103835Z_c8131b22d800}.  This is a local archive label:
 the direct endpoint assigned no run identifier and no item identifier.
 
+The remaining two positive cases are the nonambient constant-tail interval
+models of \cite[Example~6.7.2]{CLD25}.  At a finite endpoint, smooth
+functions are constant on an initial collar and the full generated psh sheaf
+is exactly the sheaf of extended-real convex functions satisfying the
+boundary-minimum condition.  Every such germ is a decreasing limit of smooth
+psh functions on one fixed neighbourhood; see
+\Cref{thm:p071-cld-constant-collar-endpoint}.  Its exact statement and proof
+passed production run
+\nolinkurl{20260829T002250Z_69f04be69f70}, using
+\texttt{gpt-5.6-sol} at \texttt{xhigh}, with final verdict
+\texttt{correct}, zero critical errors, and zero gaps.
+
+At the endpoint $-\infty$, the correct comparison condition is instead the
+exact equality between the endpoint value and the finite-side limit; a
+boundary-minimum condition would be too restrictive.  The generated psh
+sheaf again collapses at stage one, including functions such as $u(t)=t$
+with $u(-\infty)=-\infty$; see
+\Cref{thm:p071-cld-infinite-collar-endpoint}.  Its exact statement and proof
+passed production run
+\nolinkurl{20260829T003722Z_779b1304255d}, with the same model and scrutiny,
+final verdict \texttt{correct}, zero critical errors, and zero gaps.  These
+two theorems settle both endpoint versions of the one-dimensional model but
+do not identify the hierarchy on a star or on an arbitrary G-tropical
+space.
+
 No example requiring a second stage is known at the cutoff.  A solution must
 either flatten an iterated decreasing-limit diagram into a single local
 decreasing approximation, with its index and topology controlled, or exhibit
@@ -1545,11 +1570,13 @@ that also repairs the cross-row order defect.  These are sufficient missing
 inputs, not consequences of a cofinality argument alone.
 Both atoms in \Cref{prob:frontier-cld-hierarchy} therefore remain open, and
 the active inventory remains at $54$ atoms.  The finite-star theorem does not
-identify an arbitrary sedentary or nonambient tropical-boundary smooth
-structure with the ambient-induced model above.  In particular, the problem
-remains \emph{open} for such boundary structures, infinite-valence stars,
-and arbitrary higher-dimensional balanced spaces; no uniform early ordinal
-for those classes is supplied.
+identify a general nonambient tropical-boundary smooth structure with the
+ambient-induced model above, and the two interval theorems use the order
+structure of one branch rather than a junction argument.  In particular,
+the problem remains \emph{open} for general nonambient boundary structures
+beyond those two intervals, infinite-valence stars, and arbitrary
+higher-dimensional balanced spaces; no uniform early ordinal for those
+classes is supplied.
 
 \subsection{Local psh metrics versus global psh metrics}
 \index{psh metric!local versus global}
@@ -2222,10 +2249,21 @@ fundamental integration current through the generic multiplicities, but it
 does not change the ordinary CLD calculus, the current space, or this
 continuous-pair predicate.
 
+A second one-dimensional class is settled by
+\cref{prop:p21p3-rigid-exception-extension}.  If \(X\) is instead a
+nonempty connected normal curve and its non-rig-smooth locus is contained in
+a locally finite set \(E\) of rigid points whose complement is rig-smooth,
+then \(X\setminus E\) is nonempty and connected, every positive closed
+\((0,0)\)-current is a unique \(c\delta_X\), and continuous-pair
+Bedford--Taylor independence follows.  This does not extend the preceding
+componentwise theorem to every reduced or nonreduced curve whose
+normalizations have arbitrary singular points.
+
 \begin{problem}
 \label{prob:frontier-cross-fan-upstairs}
-Outside the exact continuous-pair one-dimensional class of
-\cref{prop:p21p3-curve-rigidity-nonreduced}, let \(K\) be a complete
+Outside the exact continuous-pair one-dimensional classes of
+\cref{prop:p21p3-curve-rigidity-nonreduced,%
+prop:p21p3-rigid-exception-extension}, let \(K\) be a complete
 non-Archimedean field and let \(X\) be a good separated strict boundaryless
 pure \(n\)-dimensional \(K\)-analytic space.  Determine whether every
 positive \(\mathrm d'\)- and \(\mathrm d''\)-closed CLD current \(T\) of
@@ -2249,14 +2287,18 @@ tropical pushforward.
 \end{problem}
 
 The residual domain of this problem consists of analytic dimension at least
-two and precisely the following one-dimensional cases within its displayed
-ambient hypotheses: a trivially valued ground field, or a reduced
-irreducible component whose normalization is not rig-smooth.  In particular,
-neither nonreducedness by itself nor failure of algebraic closedness is any
-longer a residual case over a complete nontrivially valued field.  Non-good,
-non-separated, or non-strict spaces and spaces with boundary lie outside the
-displayed problem as well as outside the theorems; they are not silently
-folded into this atom.
+two and the following one-dimensional cases within its displayed ambient
+hypotheses: a trivially valued ground field; a reduced irreducible component
+whose normalization is not rig-smooth and is not covered by the verified
+normal rigid-exception theorem; and reducible or nonreduced extensions of
+that exceptional-point class not supplied by the exact statement.  In
+particular, neither nonreducedness by itself nor failure of algebraic
+closedness is a residual case over a complete nontrivially valued field, and
+a connected normal curve is no longer residual when its failure of
+rig-smoothness is confined to the verified locally finite rigid set.
+Non-good, non-separated, or non-strict spaces and spaces with boundary lie
+outside the displayed problem as well as outside the theorems; they are not
+silently folded into this atom.
 
 The exact arbitrary-field reduced packet passed production Rethlas run
 \begin{center}
@@ -2291,6 +2333,20 @@ Each run used
 \texttt{gpt-5.6-sol} at \texttt{xhigh} scrutiny and returned final verdict
 \texttt{correct}, zero critical errors, and zero gaps.
 
+The exact rigid-exception statement and proof have SHA-256 values
+\begin{quote}
+\small\ttfamily
+cf53c4101b6fe798d89c7e37188f2d1f03f389a5a468fdd055b6fba8bf8cf2f5\\
+cf94877ec4b2a1010a3eb51915c7cbc20a134da0bf2563b90585deab992850ce.
+\end{quote}
+Together with the exact rig-smooth dependency, they passed production run
+\begin{center}
+\small\ttfamily 20260829T021315Z\_cc0c48725114
+\end{center}
+with 14 statement checks and 26 primary-source checks.  This run used the
+same model and scrutiny and returned final \texttt{correct}, zero critical
+errors, and zero gaps.
+
 The problem uses the book's continuous-potential convention.  Literal
 \cite[Definition~8.6.2]{CLD25} quantifies over the full CLD psh class, which
 may include discontinuous functions.  The curve theorems do not establish
@@ -2306,7 +2362,8 @@ balancing after a third analytic unit is appended, so a coarse tropical
 pushforward cannot replace analytic classification.  The well-defined
 residual atom is precisely the continuous-pair CLD question in the ranges
 not covered by
-\cref{prop:p21p3-curve-rigidity-nonreduced}.  Equality only after a
+\cref{prop:p21p3-curve-rigidity-nonreduced,%
+prop:p21p3-rigid-exception-extension}.  Equality only after a
 noninjective tropical pushforward does not decide it.
 
 \section{How solutions enter the book}

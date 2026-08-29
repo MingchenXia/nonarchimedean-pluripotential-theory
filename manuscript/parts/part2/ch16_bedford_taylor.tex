@@ -253,7 +253,10 @@ to state them in their correct logical relation.
  ambient-induced branchwise-convex generator sheaf, on spaces locally
  charted by finite real-affine stars as treated in
  \Cref{prop:ch16-collapse-tropical-toric,%
-thm:ch16-collapse-finite-tropical-curves}.
+thm:ch16-collapse-finite-tropical-curves}.  It also holds for the two
+constant-tail interval models of
+\Cref{thm:p071-cld-constant-collar-endpoint,%
+thm:p071-cld-infinite-collar-endpoint}.
 \end{enumerate}
 \end{proposition}
 
@@ -274,7 +277,7 @@ inclusion is immediate by transfinite induction.  Assertion
 \cite[Proposition~8.1.11]{CLD25}.  Assertion
 \cref{itm:ch16-hier:approach} is \cite[Definition~8.1.13]{CLD25} together
 with the general status recorded in \Cref{prob:frontier-cld-hierarchy}; the
-two positive cases are proved below.
+four positive cases are proved below.
 \end{proof}
 
 \begin{warning}{Stationarity is a theorem; early collapse is the open
@@ -353,14 +356,18 @@ is exactly a local regularization operator that preserves
 $\dprimeddprime\geq0$, dominates, and is monotone in its parameter.
 \end{remark}
 
-\subsection{First-stage collapse in two polyhedral settings}
+\subsection{Four settings with first-stage collapse}
 \label{sec:ch16-collapse-positive-cases}
 
 The obstruction described in \Cref{rem:ch16-collapse-euclidean} disappears
-in two further settings.  The first is already contained in the tropical
+in four further settings.  The first is already contained in the tropical
 toric regularization theorem of Burgos Gil--Gubler--Jell--K\"unnemann.  The
 second is a finite real-affine-star argument requiring neither lattice data,
-weights, balancing, calibration, harmony, nor a boundary designation.
+weights, balancing, calibration, harmony, nor a boundary designation.  The
+last two are the finite- and infinite-endpoint constant-tail interval
+structures of \cite[Example~6.7.2]{CLD25}; they require separate arguments
+because their smooth functions are locally constant at the distinguished
+endpoint.
 
 \begin{proposition}
 \label{prop:ch16-collapse-tropical-toric}
@@ -459,9 +466,36 @@ $\sum_i\alpha_iq_i(t_i)=-t<q(0)=0$.  Therefore $q$ is not CLD-psh, by
 \eqref{eq:ch16-curve-junction-jensen}.
 \end{example}
 
+The preceding finite-star theorem uses the smooth structure induced from a
+finite-dimensional ambient vector space.  There are two natural endpoint
+models in which that hypothesis fails: the smooth functions are required to
+be exactly constant on a neighbourhood of the endpoint.  The finite endpoint
+and the endpoint at $-\infty$ behave differently.  At a finite endpoint,
+convexity forces a boundary minimum; at $-\infty$, it instead forces an exact
+trace condition.  In particular, the function $u(t)=t$, extended by
+$u(-\infty)=-\infty$, is admissible in the second model and shows why the two
+statements cannot be merged by a formal change of coordinate.
+
+For auditability, the next four inputs are the exact frozen statement and
+proof bytes accepted by production Rethlas verification.  Both runs used
+\texttt{gpt-5.6-sol} at \texttt{xhigh} and returned verdict
+\texttt{correct}, with zero critical errors and zero gaps.
+
+\input{editorial/rethlas_packets_20260829/p071_cld_constant_collar_endpoint_statement_20260829.tex}
+\begingroup
+\emergencystretch=2em
+\input{editorial/rethlas_packets_20260829/p071_cld_constant_collar_endpoint_proof_20260829.tex}
+\endgroup
+
+\input{editorial/rethlas_packets_20260829/p071_infinite_endpoint_statement_20260829.tex}
+\begingroup
+\emergencystretch=2em
+\input{editorial/rethlas_packets_20260829/p071_infinite_endpoint_proof_20260829.tex}
+\endgroup
+
 \begin{remark}
 \label{rem:ch16-collapse-scope-firewall}
-The two results have different exact scopes.  In
+The four results have different exact scopes.  In
 \Cref{prop:ch16-collapse-tropical-toric}, the space may have tropical
 boundary, but it must be a tropical toric partial compactification equipped
 with the standard Lagerberg structure to which the cited regularization
@@ -476,10 +510,12 @@ unbalanced finite stars, and polar branches are included.
 This last assertion is not a statement about every structure that the
 literature calls a tropical boundary.  A finite star in the theorem has
 sedentarity zero and the ambient-induced smooth sheaf.  The theorem does not
-automatically apply to the constant-near-an-endpoint smooth structure of
-\cite[Example~6.7.2]{CLD25} or to positive-sedentarity toric charts; the
-latter are covered separately by
-\Cref{prop:ch16-collapse-tropical-toric}.  Nor does it cover the
+automatically apply to positive-sedentarity toric charts, which are covered
+separately by \Cref{prop:ch16-collapse-tropical-toric}.  The two
+constant-near-an-endpoint interval structures of
+\cite[Example~6.7.2]{CLD25} are covered separately by
+\Cref{thm:p071-cld-constant-collar-endpoint,%
+thm:p071-cld-infinite-collar-endpoint}.  None of these results covers the
 infinite-star structures of \cite[\S6.7.3]{CLD25}.
 
 Finiteness is essential to the proof: it permits simultaneous shrinking of
@@ -491,10 +527,11 @@ piecewise-affine part of that problem and is established in dimension one,
 but piecewise-affine approximation is not by itself approximation by the
 smooth functions defining CLD stage zero
 \cite[Theorem~6.4, Remark~6.6 and Proposition~6.13]{BMPS26}.  The
-regularized-maximum construction above supplies that bridge only for the
-finite ambient-induced one-dimensional model.  Arbitrary higher-dimensional
-settings, infinite-valence stars, and nonambient one-dimensional smooth
-structures therefore remain within
+regularized-maximum construction above supplies that bridge for the finite
+ambient-induced one-dimensional model, while the two endpoint theorems use
+the order structure of a single interval and do not couple branches.
+Arbitrary higher-dimensional settings, infinite-valence stars, and general
+nonambient one-dimensional smooth structures therefore remain within
 \Cref{prob:frontier-cld-hierarchy}.
 \end{remark}
 
@@ -1179,7 +1216,10 @@ current.  On a reduced pure curve whose component normalizations have those
 properties, the constant may vary by irreducible component.  After a
 nilpotent thickening the ordinary CLD forms, currents, positivity, closedness,
 and continuous psh sheaves remain unchanged, while the integration current
-continues to record the generic component multiplicities.
+continues to record the generic component multiplicities.  There is also a
+removable-exception extension: on a connected normal curve, rig-smoothness
+may fail along a locally finite set of rigid points provided it holds on the
+complement.
 
 The proof is arranged to keep the source curve visible throughout the
 tropical calculation.  A first bridge constructs a full canonical
@@ -1190,8 +1230,10 @@ balancing, and Riemann--Roch on the residual curve over its actual ground
 field then give the smooth classification.  Finite normalization and a
 rigid-point zero-atom estimate give the reduced theorem, and nilreduction
 gives the nonreduced theorem and its multiplicity-weighted curvature
-comparison.  The final nodal example displays both componentwise
-classification and the effect of a double thickening.
+comparison.  Between these two steps, the vanishing of smooth top-degree test
+forms at rigid points gives the removable-exception extension on a normal
+curve.  The final nodal example displays both componentwise classification
+and the effect of a double thickening.
 
 For an integral algebraic curve $C$, we write
 $\operatorname{Rat}(C)$ for its function field.
@@ -1208,6 +1250,15 @@ $\operatorname{Rat}(C)$ for its function field.
 
 \input{editorial/rethlas_packets_20260828/p21p3_curve_rigidity_arbitrary_field_reduced_statement_live_20260828.tex}
 \input{editorial/rethlas_packets_20260828/p21p3_curve_rigidity_arbitrary_field_reduced_proof_live_20260828.tex}
+
+The next statement isolates a different one-dimensional enlargement.  It
+does not pass through normalization: normality is assumed from the outset,
+and a locally finite rigid exceptional set is removed by the support theorem
+for smooth $(1,1)$-forms.  The following statement and proof are the exact
+bytes accepted by production verification.
+
+\input{editorial/rethlas_packets_20260829/p213_rigid_exception_extension_20260829/p213_rigid_exception_extension_statement_20260829.tex}
+\input{editorial/rethlas_packets_20260829/p213_rigid_exception_extension_20260829/p213_rigid_exception_extension_proof_20260829.tex}
 
 \input{editorial/rethlas_packets_20260828/p21p3_curve_rigidity_nonreduced_arbitrary_field_statement_live_20260828.tex}
 \input{editorial/rethlas_packets_20260828/p21p3_curve_rigidity_nonreduced_arbitrary_field_proof_live_20260828.tex}
@@ -4006,6 +4057,20 @@ production Rethlas run
 \texttt{correct}, zero critical errors, zero gaps, seventeen sequential
 statement records, nineteen primary-source records, and no failed check.
 
+The normal-curve rigid-exception extension
+\Cref{prop:p21p3-rigid-exception-extension} is a further book-level
+deduction.  Its exact statement and proof have SHA-256 prefixes
+\texttt{cf53c4101b6f} and \texttt{cf94877ec4b2}.  Submitted after the exact
+rig-smooth dependency, the materialized statement and proof have prefixes
+\texttt{cc0c48725114} and \texttt{fd794304c18d}; they passed production
+Rethlas run \nolinkurl{20260829T021315Z_cc0c48725114}, using
+\texttt{gpt-5.6-sol} at \texttt{xhigh}, with final verdict
+\texttt{correct}, zero critical errors, zero gaps, fourteen sequential
+statement records, twenty-six primary-source records, and no failed check.
+The proof uses graph connectedness, unibranchness of rigid points on a
+normal curve, and the vanishing of smooth $(1,1)$-test germs at such points;
+it does not promote the result to arbitrary non-rig-smooth normalizations.
+
 The nilreduction and nonreduced extension in
 \Cref{prop:p21p3-curve-rigidity-nonreduced} form a further book-level
 deduction.  The exact live statement and proof have SHA-256 prefixes
@@ -4024,7 +4089,8 @@ verdict and zero errors or gaps.  The earlier service-only run
 the controlling gate.  The request, response, safe-header archive, and
 persistent service evidence retain the full hashes and verification records.
 
-\Cref{rem:p21p3-curve-scope,rem:p21p3-nr-scope} record the exact scope.
+\Cref{rem:p21p3-curve-scope,rem:p21p3-rigid-exception-scope,%
+rem:p21p3-nr-scope} record the exact scope.
 In particular, no algebraic-closedness hypothesis is imposed, but the
 ground field remains nontrivially valued and the goodness, separatedness,
 strictness, boundarylessness, dimension, and component-normalization
@@ -4065,7 +4131,9 @@ The canonical-collar source-localization and branch-separation argument, the
 rigid-point zero-atom estimate, the arbitrary-field dimension-one
 classification and continuous-pair Bedford--Taylor consequence of
 \Cref{prop:p21p3-curve-rigidity}, and its nilpotent-thickening extension
-\Cref{prop:p21p3-curve-rigidity-nonreduced} are book-level first-draft
+\Cref{prop:p21p3-curve-rigidity-nonreduced}, together with the normal-curve
+rigid-exception extension
+\Cref{prop:p21p3-rigid-exception-extension}, are book-level first-draft
 deductions assembled from the cited inputs; no novelty or priority claim is
 made.  The finite real-affine-star collapse of
 \Cref{thm:ch16-collapse-finite-tropical-curves} is likewise a first-draft

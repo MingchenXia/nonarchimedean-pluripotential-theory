@@ -2,9 +2,13 @@
 
 Date: 29 August 2026.
 
-Status: audited staging material only.  The statement and proof in this
-directory are not inputs of the live book and have not received a production
-Rethlas verdict.  P07.1 therefore remains in the open-problem inventory.
+Status: **production verified and live-integrated byte-for-byte.**  The exact
+statement and proof hashes below passed production
+Rethlas run `20260829T002250Z_69f04be69f70` with model `gpt-5.6-sol`,
+reasoning effort `xhigh`, verdict `correct`, zero critical errors, and zero
+gaps.  The frozen files are now inputs of Chapter 16, and the complete book
+build succeeds.  P07.1 nevertheless remains in the open-problem inventory
+because this packet treats only the finite constant-collar endpoint.
 
 ## Result under audit
 
@@ -81,8 +85,12 @@ new exact-byte review.
 
 ## Production gate
 
-Live integration, any claim that the result is established, and removal or
-narrowing of P07.1 are forbidden until these exact statement and proof bytes
-receive a production gpt-5.6-sol/xhigh Rethlas verdict of `correct`, with zero
-critical errors and zero gaps.  The present staging audit is not a substitute
-for that gate.
+The production gate for these exact isolated bytes has passed.  The archived
+request, response, headers, service report, verifier log, source-record
+counts, and artifact hashes are recorded in
+`p071_cld_constant_collar_endpoint_rethlas_receipt_20260829.md`.  Chapter 16
+inputs the frozen files without modification, Chapter 72 and the atomic
+inventory record the narrowed scope, and the complete 3223-page book compiles
+without an undefined reference or citation.  The verified result narrows
+P07.1 but cannot retire its infinite-star,
+higher-dimensional, or general nonambient residual scopes.
