@@ -1113,6 +1113,39 @@ nine 24 August gates counted in this paragraph.
 - Controlling receipt:
   `editorial/rethlas_packets_20260829/ch14_cld_support_correction_packet_20260829/ch14_cld_support_correction_rethlas_receipt_20260829.md`.
 
+## Chapter 72 — finite-level closed-immersion reduction for P17.1
+
+- Status: **EXACT LIVE-READY PACKET VERIFIED / INTEGRATED; P17.1 NOT
+  RETIRED** (29 August 2026).
+- Book locations:
+  `prop:p171-closed-immersion-finite-level-reduction` and
+  `rem:p171-closed-immersion-reduction-scope`.
+- Exact result: a tropical FS system is converted, by multiplying with all
+  degree-`m` monomials of one fixed projective embedding, into a
+  closed-immersion system with metric `phi+eta`; hence `phi=(phi+eta)-eta`.
+  Multilinearity expands every finite-level FS/DFS Monge--Ampere integral
+  over every complete residue field into a finite signed sum of differences
+  of Deligne weights whose every slot is induced by a closed immersion.  The
+  finite index and sign system is independent of the point of the Banach
+  spectrum.
+- Exact live-ready statement SHA-256:
+  `9be78feb5c4b76ae9f8ec7ec05d26dbaffebab602993dec7b37dcc8668819f81`.
+- Exact live-ready proof SHA-256:
+  `ebb4c34fc1d06909ff2dfc7c0c0d918d1d548222b092e1b5e0472d2eecc4b603`.
+- Independent exact-byte audit: PASS; the live mathematical bodies are
+  byte-identical to independently audited revised3, and the standalone
+  harness compiled cleanly.
+- Production item: `pi_9d4f5f4d6c4a36b32834c0a5`; model
+  `gpt-5.6-sol`, scrutiny `xhigh`, final verdict `correct`, zero critical
+  errors, and zero gaps.  The returned proof digest equals the exact proof
+  hash.
+- Scope firewall: this is only a finite-level reduction.  It neither
+  constructs a relative Chow/resultant section over an arbitrary Banach base
+  nor proves continuity of its fieldwise Deligne weight.  P17.1 remains one
+  T2 atom, and the inventory stays at 15 environments and 54 atoms.
+- Controlling receipt:
+  `editorial/rethlas_packets_20260829/p171_post_p213_research_lane_20260829/p171_closed_immersion_reduction_live_ready_production_receipt_20260829.md`.
+
 ## Darvas--Xia trace-source correction (not a receipt)
 
 - Status: **SOURCE IMPORT / HISTORICAL RECEIPT SUPERSEDED** (23 August

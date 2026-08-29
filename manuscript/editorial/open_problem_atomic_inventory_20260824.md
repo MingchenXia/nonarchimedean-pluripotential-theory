@@ -387,7 +387,13 @@ skeleton or to rational PL potentials.
 
 - **P17.1** `[T2; open]` Prove or disprove continuity of the fibrewise mixed
   Monge--Amp\`ere integral over a general integral Banach ring.  The hybrid
-  base case is known; the general Banach-base statement is open.
+  base case is known.  The exact finite-level FS/DFS integral now reduces to
+  a signed sum of Deligne weights whose every slot is defined by a closed
+  immersion (production item `pi_9d4f5f4d6c4a36b32834c0a5`, `correct`,
+  zero critical errors and zero gaps).  The residual problem is to construct
+  and identify the correctly oriented relative closed-immersion
+  Chow/resultant line and prove continuity of its fieldwise weight across the
+  whole Banach spectrum.  The general Banach-base statement remains open.
 
 ### Retired P18 history --- 0 active atoms
 

@@ -16,8 +16,9 @@ individually in the editorial receipts and provenance ledgers.  A fresh
 current-source whole-book rebuild through 25 August passed and produced a
 3,123-page PDF; the dated release artifacts below remain the earlier
 3,081-page source freeze until the next release cut.  The integrated
-28 August source, including the full projective ample-class MP--BJ comparison,
-also passes a whole-book build and currently produces 3,209 pages.  These
+29 August source, including the full projective ample-class MP--BJ comparison
+and the exact finite-level closed-immersion reduction for P17.1, also passes a
+whole-book build and currently produces 3,284 pages.  These
 checks do not turn
 source imports or book-level derivations into novelty or priority claims, or
 close residual questions outside the displayed theorem scopes.
