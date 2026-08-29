@@ -125,9 +125,11 @@ conditional; the general targets remain open.
 
 ### `prob:frontier-pluriharmonic` --- 2 atoms
 
-- **P06.1** `[T2; open after the quasi-smooth and all strict-curve cases]`
-  On a good, separated, strict, boundaryless analytic space, decide whether
-  every classically pluriharmonic function is \(\mathbf R\)-PL near a
+- **P06.1** `[T2; open after the quasi-smooth, all strict-curve, and finite
+  geometrically reduced curve-product cases]` On a good, separated, strict,
+  boundaryless analytic space, outside the local finite-curve-product scope
+  of `cor:p061-finite-curve-products-ph-rpl`, decide whether every
+  classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
   moment-factor, and smooth-proper-curve cases]` Decide whether an arbitrary
@@ -149,14 +151,32 @@ boundarylessness. The proof combines Temkin's altered local uniformization
 with rigid étale sheaf descent. The published curve comparison already
 covers all strict analytic curves, including singular and nonreduced ones
 (`GR25Classical`, §4.1.2 and Proposition 3.15).
+The exact finite-product extension is now also verified.  By
+`thm:p061-curve-product-ph-rpl` and
+`cor:p061-finite-curve-products-ph-rpl`, every classically pluriharmonic
+function is \(\mathbf R\)-PL and GJR harmonic on a good product of finitely
+many geometrically reduced good strict analytic curves and a good strict
+quasi-smooth factor, and on every good strict space locally isomorphic to an
+open analytic subspace of such a product.  The normalization-descent input is
+`prop:p061-curve-product-normalization-descent`; the concrete nodal and
+cuspidal strata are recorded in `ex:p061-nodal-cuspidal-products`.  The exact
+statement/proof SHA-256 values are
+`96b246d6f6032bce38751095935525a67456c6753e006e7b188778bc945e50bc` and
+`6f6158b5253922539f81e42ab9e6d9e2c48a6b3c8b727e4157351b9591baabe5`.
+Production run `20260829T191019Z_0b5e24145108`, item
+`pi_6add90bcf0cfded12d6a074b`, returned final `correct`, with zero critical
+errors and zero gaps.  This does not cover arbitrary singular germs,
+non-geometrically-reduced curve factors, or spaces without the stated local
+product decomposition.
 The coefficient cannot be strengthened: `prop:p061-integral-pl-counterexample`
 gives \(\sqrt2\log|T|\) on a strict semistable annulus, which is not
 \(\mathbf Q\)-PL. The exact statement and proof passed production Rethlas
 run `20260829T043457Z_0b1b4d161e3b`, item
 `pi_7cd35ebd843cf80a7cd696bb`, final `correct`, with zero critical errors
 and zero gaps. P06.1 remains one active T2 atom, now confined to
-non-quasi-smooth points in dimension at least two. No atom count, tier count, or queue
-position changes.
+non-quasi-smooth points in dimension at least two outside the verified local
+finite-curve-product scope. No atom count, tier count, or queue position
+changes.
 The proper full-rank moment-factor case is also verified by
 `prop:p062-proper-full-rank-moment`.  It applies only when \(X\) is pure of
 dimension \(n\geq 1\) and \(h=\varphi\circ F\), where

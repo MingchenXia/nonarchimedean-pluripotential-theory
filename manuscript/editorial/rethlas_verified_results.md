@@ -99,6 +99,47 @@ nine 24 August gates counted in this paragraph.
   while positive-cone generation fails in residual dimension two.  Exact
   hashes and scope firewalls are in the P09 integration receipt.
 
+## Chapter 18 and Chapter 72 — classical pluriharmonic regularity on quasi-smooth spaces and finite curve products
+
+- Status: **VERIFIED EXACT PACKET / INTEGRATED WITH SINGULAR-SCOPE
+  FIREWALL** (30 August 2026).
+- Book locations: `thm:p061-quasismooth-ph-rpl`,
+  `thm:p061-curve-product-ph-rpl`,
+  `cor:p061-finite-curve-products-ph-rpl`, and their full proofs in
+  Chapter 18; the narrowed `prob:frontier-pluriharmonic` discussion in
+  Chapter 72.
+- New singular scope: over a complete nontrivially valued field, every
+  classically pluriharmonic function is \(\mathbf R\)-PL and GJR harmonic on
+  a good product of finitely many geometrically reduced good strict analytic
+  curves and one good strict quasi-smooth factor.  The same holds on a good
+  strict space locally isomorphic to an open analytic subspace of such a
+  product.
+- Proof mechanism: after ground-field descent, normalize one curve factor;
+  the quasi-smooth result applies upstairs.  A completed-tensor estimate at a
+  rational section shows that an \(\mathbf R\)-PL function near that section
+  is locally pulled back from the parameter factor.  This removes the branch
+  ambiguity and permits finite normalization descent.  Iterating gives the
+  finite-product statement.
+- Illustrating scope: `ex:p061-nodal-cuspidal-products` covers nodal and
+  cuspidal cylinders and finite products of them, including every
+  non-quasi-smooth stratum.
+- Exact statement SHA-256:
+  `96b246d6f6032bce38751095935525a67456c6753e006e7b188778bc945e50bc`.
+- Exact source-aware proof SHA-256:
+  `6f6158b5253922539f81e42ab9e6d9e2c48a6b3c8b727e4157351b9591baabe5`.
+- Exact request/response/safe-header SHA-256:
+  `7b9130dd0748d025721a1407c01d19f4d567e291f7127439a5483a3036486605`,
+  `a58b374e706367006a174361f9670402aa75fc5103590817d87d72d3311d74eb`,
+  and `e4c041172fce9e83c6d3b01617706a9cdad7fd5461faf4605678506632527035`.
+- Production run directory: `20260829T191019Z_0b5e24145108`; proof item
+  `pi_6add90bcf0cfded12d6a074b`; proof digest
+  `a19410a54ff7299a83996b4199fc348478d63a5ad37d2cd439ca81f5e7f79b97`;
+  `gpt-5.6-sol`, `xhigh`, final verdict `correct`, zero critical errors, zero
+  gaps.
+- Scope firewall: no conclusion is asserted for arbitrary singular germs,
+  non-geometrically-reduced curve factors, or spaces without the stated local
+  product presentation.  P06.1 therefore remains one active T2 atom.
+
 ## Chapter 18 and Chapter 72 — real-PL zero-current converse
 
 - Status: **VERIFIED FROZEN PACKET / INTEGRATED WITH CONTINUOUS FIREWALL**
