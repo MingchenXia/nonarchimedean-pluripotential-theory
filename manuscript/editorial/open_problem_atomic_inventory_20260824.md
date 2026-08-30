@@ -72,8 +72,9 @@ four unrestricted higher-dimensional targets remain open.
 
 ### `prob:frontier-unibranch-local-envelope` --- 3 atoms
 
-- **P03.1** `[T2; open]` Classify the higher-dimensional and remaining
-  singular hypotheses, and determine necessity, under which usc
+- **P03.1** `[T2; open]` Classify the irreducible, normal, or analytically
+  unibranch higher-dimensional hypotheses, and determine sharp necessity,
+  under which usc
   regularization of every upper-semicontinuous local
   FS/semipositive-PL obstacle envelope is classically psh.  The
   perfected-unibranch reduced strict curve range is settled positively by
@@ -97,9 +98,20 @@ passed production run `20260829T233220Z_e30033eea96e` using
 `gpt-5.6-sol` at `xhigh`, final `correct`, zero critical errors and zero
 gaps.  It covers every reduced separated strict curve whose normalization
 is bijective after completed perfect closure and reduction, including
-relative boundary.  P03.1 remains active only beyond this curve range and
-for sharp necessity; P03.2 and P03.3 are unchanged.  At that verification
-checkpoint the total was 53 active atoms in 14 formal problem environments;
+relative boundary.  The production-verified product obstruction
+`prop:p031-nodal-product-envelope-obstruction-candidate` shows that the same
+classical-psh and CLD-v2 failures occur on reduced strict pure-dimensional
+spaces of every dimension at least two: take the nodal curve times a closed
+strict polydisc and test the zero section against the singleton-Shilov branch
+disc.  Its exact statement/proof SHA-256 digests are
+`cd22f9b56b743506054ad5c9a5f0f64f9a284385509c27cc1c23c85f76b0b5d6` /
+`93ea55ab2a14a152ec7ea6008ca84d6984b6ca92fb1a1527af257da11d6974a8`;
+production Rethlas returned `correct`, zero critical errors and zero gaps.
+It makes no higher-dimensional continuity claim.  P03.1 and P03.2 therefore
+remain active only beyond the reducible product obstruction and, for P03.1,
+beyond the perfected-unibranch curve range; P03.3 is unchanged.  At the
+earlier verification checkpoint the total was 53 active atoms in 14 formal
+problem environments;
 the later P07.2 and P08.2 retirements give the current total of 51.
 
 ### `prob:frontier-local-ma` --- 4 atoms
@@ -141,7 +153,8 @@ conditional; the general targets remain open.
 
 - **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
   finite curve-factor, finite constant-group quotient, all-orbits split
-  toric, finite-split toric-form, and transverse toric-product cases]` On a good,
+  toric, finite-split toric-form, transverse toric-product, and
+  source-Zariski-local ordinary-etale split-toroidal cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
   `thm:p061-arbitrary-curve-factors-ph-rpl` and the all-orbits split toric
@@ -151,15 +164,14 @@ conditional; the general targets remain open.
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
   moment-factor, algebraically closed closed-polydisc, arbitrary-field
-  standard strict-open-polycylinder, arbitrary-field one-dimensional annulus
-  endpoint, and smooth-proper-curve cases]` Decide
+  standard strict endpoint-polycylinder, and smooth-proper-curve cases]` Decide
   whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
   harmonic whenever the classical notion is available, outside the verified
-  standard strict-open-product, factorized, and curve scopes, with the
-  higher-dimensional product-endpoint and arbitrary-germ residual boundaries
-  stated below.
+  standard strict-coordinate-product, factorized, and curve scopes, with the
+  arbitrary-germ, nonproduct, non-strict-radius, and strict-core-only residual
+  boundaries stated below.
 
 The weakly smooth zero-current statement is known.  The real-PL
 zero-current implication is now verified on good separated boundaryless
@@ -261,11 +273,27 @@ request/response/header SHA-256 values are
 `def28bf9f16539fadab9b8b99dbd435d00eed8c3730c496d2b8832ee865a29c9` /
 `718044118ee65e0d76b7c02b8b553552b8da974367513aa5ed4d57e8b6231f7d` /
 `4146f66712746a54a0f3f2be457e6ae87cd4ab1be92013e1e8480765492d7958`.
+The ordinary-etale split-toroidal range is now also verified.
+`prop:p061-v3-etale-toric-product` constructs an actual affinoid product over
+a sufficiently deep weighted toric tube from a separated finite-type etale
+map to a pointed split toric factor times a smooth factor;
+`thm:p061-v3-etale-toroidal-ph-rpl` and
+`cor:p061-v3-zariski-etale-toric-charts` give real-PL and GJR harmonicity,
+including the rank-zero transverse factor at the dense orbit.  The principal
+statement/proof SHA-256 values are
+`fbb294c435dffacf8153a076846586d2bdf2ee68a6e7268f94d2a12241629c34` /
+`10d188621a07242ea278c5699a27ef25488605365c953f94ddf0d08bb4ec9729`.
+Independent exact-byte re-audit passed, and dependency-closed production
+Rethlas using `gpt-5.6-sol` at `xhigh` returned `correct`, zero critical
+errors and zero gaps.  The request/response/header hashes are
+`dab3e30657a5118304753fa1eb97a07c9bbb3cfd72cacc5d64181e3dfd4ff44f` /
+`7e06480126ac47adfa84bffba5dd9de913c6e73230808f710ddc8c9b73b0e1b5` /
+`8f2831a5383da9db987a8cdb4dad4d4246775fa50afb754120d9aba71ae9b4d7`.
 P06.1 remains active only for arbitrary nonproduct singular germs, products
 containing higher-dimensional reduced singular factors outside the verified
-ranges, genuinely toroidal or log-etale charts not analytically locally of
-the displayed product form, and forms not known to split after a finite
-extension.
+ranges, genuinely log-etale charts not covered by an ordinary-etale chart of
+the displayed kind, and nonsplit local models outside the verified
+finite-split descent range.
 The coefficient cannot be strengthened: `prop:p061-integral-pl-counterexample`
 gives \(\sqrt2\log|T|\) on a strict semistable annulus, which is not
 \(\mathbf Q\)-PL. The exact statement and proof passed production Rethlas
@@ -274,10 +302,10 @@ run `20260829T043457Z_0b1b4d161e3b`, item
 and zero gaps. P06.1 remains one active T2 atom, now confined to arbitrary
 nonproduct non-quasi-smooth points in dimension at least two outside the
 verified product and quotient ranges, products containing a reduced singular
-factor of dimension at least two outside those ranges, genuinely toroidal or
-log-etale charts without the verified transverse product structure, and
-forms not known to split after a finite extension. No atom count, tier count, or queue position
-changes.
+factor of dimension at least two outside those ranges, genuinely log-etale
+charts not covered by the verified ordinary-etale split-toroidal theorem,
+and nonsplit local models outside the finite-split range. No atom count, tier
+count, or queue position changes.
 The proper full-rank moment-factor case is also verified by
 `prop:p062-proper-full-rank-moment`.  It applies only when \(X\) is pure of
 dimension \(n\geq 1\) and \(h=\varphi\circ F\), where
@@ -336,12 +364,13 @@ no run or item identifier.  This does not prove the arbitrary-field result
 on strict polydiscs of dimension at least two and does not uniformize an
 arbitrary analytic germ.
 
-The arbitrary-field result now extends to every standard strict open
-polycylinder.  `prop:p062-product-fibre-zero-current-candidate` proves exact
+At an earlier verification gate, the arbitrary-field result was extended to
+every standard strict open
+polycylinder.  `prop:p062-strict-product-fibre-slicing-v4-research` proves exact
 restriction of the zero-Hessian current to every strict disc or annulus
 fibre over the completed residue field of an arbitrary base point;
-`prop:p062-arbitrary-field-annulus-candidate` and
-`thm:p062-arbitrary-field-polycylinder-candidate` then give
+`prop:p062-arbitrary-field-annulus-v4-source-correct` and
+`thm:p062-arbitrary-field-polycylinder-v4-source-correct` then give
 
 ```text
 h = c + sum_j lambda_j log|S_j|.
@@ -358,10 +387,11 @@ are
 `6261b61bc49669a74a6eee4a2d834c25c8741bef59b084b81eaa684629f2d604` /
 `c8c951075a574c6a3badde2e2a22942718616cd21da0144cb8a983bc3cac822f` /
 `dcac7f45ad5464d4599d880862ce27c9c98e18cc3f4060bbf250426080c7fb45`.
-The accepted packet is strictly open: the closed and half-closed endpoint
-assertions rejected from v2 are absent.  P06.2 remains one active T2 atom for
-arbitrary analytic germs, nonproduct local domains, and unresolved
-higher-dimensional product-endpoint variants.
+That v3 packet was strictly open: the closed and half-closed endpoint
+assertions rejected from v2 were absent.  A later transitive source audit
+found that its slicing proof used a local-moment result in the wrong
+direction.  The source-correct v4 proof below supersedes it; no live theorem
+depends on the v3 proof.
 
 The one-dimensional closed and half-closed annulus endpoints are now settled
 by a separate proof, not by restoring the rejected v2 product claim.
@@ -383,10 +413,38 @@ SHA-256 values are
 `34a4d9f0d4b10a1f5a4693adef7a233a8ee756813dfe1f21450dc0cfd2d67242` /
 `6b5aa2445bbd8b1dbe594fc23571c979d64eb5dc839f038101ce97b93181cee4` /
 `7d1ce47df4f2cceae087f95d72337b90ce2a3a2b6c51cabf015395597ff3e396`.
-The proof makes no product or higher-dimensional endpoint assertion.  P06.2
-therefore remains one active T2 atom only for the residual scopes above.
-Neither this result nor the P06.1 all-orbits theorem changes the
-atom count, tier count, or queue position.
+The proof makes no product or higher-dimensional endpoint assertion by
+itself.  It is, however, an ingredient in the following product theorem.
+
+The higher-dimensional standard strict endpoint variants are now settled.
+`thm:p062-endpoint-polycylinder-v4-research` proves over every complete
+nontrivially valued field that, on any finite product of standard strict
+open or closed discs and standard strict open, closed, or half-closed
+annuli, a continuous function whose Hessian current vanishes on the absolute
+analytic interior is
+
+```text
+h = c + sum_j lambda_j log|S_j|.
+```
+
+The proof uses only the inclusion of the product of the factor interiors in
+the product interior, slices there, and propagates through rigid base points,
+finite residue extensions, the one-dimensional endpoint result, and density.
+The principal statement/proof SHA-256 values are
+`56ffaad6c42e0a14c56279e263d326120ce03f6ae132d8261deee56ff9ca7663` /
+`2616ac69cd450010b8f0d108d030bd69d2ff2728cad9641ad7d9d0e1a981a0b7`.
+An independent exact-byte hostile audit passed.  Dependency-closed
+production Rethlas using `gpt-5.6-sol` at `xhigh` returned final `correct`,
+zero critical errors, and zero gaps.  The archived
+request/response/header SHA-256 values are
+`7b5bdbb4a15fb8d5202d57ddb4c49f84e1844908863c95580ceec7c1f1324171` /
+`c0d9aaf5a8ef3400b6b20782a0a8d9073c24c200027c4451a9aec9e5432b446d` /
+`1013a47eaabe8bdeec363937720e76b988fb76dbd90f2009ca10f6a513d0cb94`.
+P06.2 remains one active T2 atom only for arbitrary analytic germs,
+nonproduct local domains, non-strict radii, and equations known merely on
+the coordinatewise strict radial core.  Higher-dimensional standard strict
+product endpoints are removed from the residual.  The atom count, tier
+count, and queue position are unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
@@ -406,8 +464,11 @@ the residual scopes stated above.
 
 ### `prob:frontier-cld-hierarchy` --- 1 active atom
 
-- **P07.1** `[T2; open]` Decide whether the CLD psh hierarchy collapses after
-  its first decreasing-limit stage.
+- **P07.1** `[T2; open after the tropical-toric, finite ambient-star, two
+  nonambient interval, exact CLD infinite-star, Stone--Euclidean,
+  Stone--polyhedral, and generator-convex finite polyhedral-complex cases]`
+  Decide whether the CLD psh hierarchy collapses after its first
+  decreasing-limit stage.
 
 Eventual cardinal stabilization is known.  Production run
 `20260825T024707Z_d1b8d7eaf79e` controls the tropical toric case and the
@@ -467,6 +528,52 @@ This result does not cover nonconstant affine directions in $Z$ or general
 polyhedral face gluings, so it narrows but does not retire P07.1; the
 uniform-ordinal atom is handled separately below.
 
+The same conclusion is now verified when the second factor is one nonempty
+convex polyhedron \(P\), possibly unbounded, lower-dimensional, or
+zero-dimensional, with its induced affine tropical structure. All faces
+and corners are included. Fibrewise convexification on compact polytope
+cores, smooth convex majorants, finite clopen partitions, and summable tail
+corrections produce the fixed-neighbourhood decreasing smooth-psh sequence.
+The exact statement/proof SHA-256 hashes are
+b46b8e22fa8b3f8f64dcf8ae24d164b905dbe8d9035e37c3ede23321717cc002 /
+37a3b6a12f6ddd2a3038dd926dfe8120d8955756efe64608fbd2a37b33c01efb.
+After independent exact-byte and exact-source audits, dependency-closed
+production Rethlas using gpt-5.6-sol at xhigh returned final correct, zero
+critical errors, and zero gaps. The request/response SHA-256 hashes are
+6697bc79ad50c8b7a9cf3c63dc63fd5b08a9930f9369b304595254f635573d11 /
+c5871408ef86be152ecd6e169eaae05f590feef00e5487d37f185780951d5285.
+The theorem does not glue nonconvex or branched chamber systems and does not
+permit nonconstant affine directions on the Stone factor. P07.1 therefore
+remains one active atom.
+
+The chartwise consequence is now also verified for every finite Hausdorff
+face-to-face polyhedral complex whose complete smooth-psh generator germ is
+locally, and in both directions, identified with the single-chamber
+generator sheaf on a relatively open convex subset of one polyhedron.  On
+the product with any locally compact Hausdorff clopen-base parameter, the
+first-stage, full generated, and chartwise comparison sheaves coincide, and
+every germ has a fixed-neighbourhood decreasing smooth-psh approximation
+crossing all chart faces.  The exact principal statement/proof SHA-256
+hashes are
+`2bc8574fecdc46ecafc1e41f24608c6db60cb9e48f696204ef503a83bed0625e` /
+`ab3348d8d0dc31c4c661e1358f8b70894eff83890a3c6d6abc412810dea4ca30`.
+The independent exact-byte hostile reaudit passed.  A dependency-closed
+production Rethlas request using `gpt-5.6-sol` at `xhigh` returned final
+`correct`, zero critical errors, and zero gaps.  The materialized
+statement/proof and request/response/header SHA-256 hashes are
+`e163679c6f1140eb3452e9f052f89f8895b7b1d300e081f6149feec099d47ac7` /
+`1505aa473b3092f80d26bde3e8e947c709b138992370599645948ed510e39400` /
+`dd51939097d53f3c1b195388d6312c6b2c5fc15816e88e444b3e5d8ca0dd4985` /
+`8bab39fea7dd28f75309d021731f23de1386f1801c6a8ae8362452b237b0106f` /
+`35f9ddd2168e155c0351c56b4bcae5b3b0d28a4922703d59413aa194280dea57`.
+The verified two-ray example shows that face-to-face topological
+unbranching plus independent cellwise positivity is insufficient: the
+ambient affine generator `-x-y` unfolds to the nonconvex function `-|t|`.
+Consequently the new theorem does not cover branched links, singular lower
+links, or generator germs without a generator-preserving convex
+development.  P07.1 remains one active T2 atom, and the active count and
+tier counts are unchanged.
+
 The general cross-row order obstruction is also eliminated conditionally by
 `prop:p071-fixed-core-flattening`: if every row approximation is defined on
 a neighbourhood of one common compact core, a finite-square diagonal and
@@ -504,11 +611,14 @@ This supplies no finite or fixed countable bound and does not retire P07.1.
 At this checkpoint the active count drops from 53 to 52 and the tier counts
 become `(0,5,13,17,17)`.
 
-P07.1 therefore retains arbitrary higher-dimensional settings and other
-nonambient local models outside the two exact interval structures,
-\(X_B\), and the exact locally constant-parameter product, with the residual
-obstruction sharpened to fixed-neighbourhood
-globalization rather than diagonal order.  It remains active.
+P07.1 therefore retains branched or singular-link higher-dimensional
+chamber systems without a generator-preserving convex development,
+nonconstant affine parameter directions, and other nonambient local models
+outside the two exact interval structures, \(X_B\), and the verified
+locally constant-parameter models. The residual obstruction is sharpened
+to the existence of a compatible local convex development and to
+fixed-neighbourhood globalization beyond it, rather than diagonal order.
+It remains active.
 
 ### `prob:frontier-cld-global-metric` --- 1 active atom
 

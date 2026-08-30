@@ -1,0 +1,411 @@
+% Quarantined proof corresponding exactly to statement.tex.
+% It is not a live-book input and has not received production verification.
+
+\begin{proof}
+We first isolate three elementary points which will be used twice.
+
+\medskip\noindent\emph{Local extended-real convexity on a convex set.}
+Let \(H\) be a convex subset of a finite-dimensional affine space and let
+\(v:H\to\mathbf R\cup\{-\infty\}\) be locally extended-real convex.  Then
+\(v\) is extended-real convex on \(H\).  It is enough to restrict to a
+segment and prove the assertion on an interval \(I\).  On
+\(I^\circ\), both
+\[
+ \{t:v(t)\in\mathbf R\}
+ \quad\text{and}\quad
+ \{t:v(t)=-\infty\}
+\]
+are open.  For the first set, if a finite point had arbitrarily close
+\(-\infty\) points, write the finite point as a strict convex combination
+of one of them and a point on its other side, inside one interval of local
+convexity.  For the second set, if \(v(t)=-\infty\), then every sufficiently
+nearby \(s\) lies strictly between \(t\) and another point of the same
+local convexity interval; the convexity inequality forces
+\(v(s)=-\infty\).  Connectedness of \(I^\circ\) shows that \(v\) is either
+finite throughout \(I^\circ\) or identically \(-\infty\) there.
+
+In the first case an included endpoint cannot have value \(-\infty\):
+local convexity there would propagate \(-\infty\) to a one-sided interior
+collar.  Thus \(v\) is finite on \(I\), and the usual subdivision argument
+applies: on a partition fine enough that each pair of consecutive
+subintervals lies in a local convexity interval, the successive secant
+slopes are nondecreasing.  Summing the slope inequalities proves global
+convexity.  In the second case every convexity inequality at a point of
+\(I^\circ\) has left side \(-\infty\), while the endpoint cases are
+tautological.  This proves the assertion, including possible finite values
+at the two endpoints of an otherwise polar segment.
+
+\medskip\noindent\emph{Continuous convexification on a polytope.}
+Let \(K\) be a compact convex polytope in a \(d\)-dimensional affine space
+and let \(\phi:K\to\mathbf R\) be continuous.  Put
+\begin{equation}
+ (\operatorname{co}_K\phi)(x)
+ =
+ \inf\left\{
+       \sum_i\alpha_i\phi(x_i):
+       \alpha_i\geq0,\ \sum_i\alpha_i=1,\
+       \sum_i\alpha_i x_i=x
+      \right\}.
+ \label{eq:p071-polyhedral-convex-envelope}
+\end{equation}
+This is the largest convex function on \(K\) bounded above by \(\phi\).
+It is finite and continuous.
+
+For completeness, every combination in
+\eqref{eq:p071-polyhedral-convex-envelope} can be replaced, without
+increasing its value, by one with at most \(d+1\) nonzero coefficients.
+Indeed, if there are more, affine dependence gives numbers \(\beta_i\),
+not all zero, with
+\[
+             \sum_i\beta_i=0,\qquad \sum_i\beta_i x_i=0.
+\]
+Move the weights along one of the two directions
+\(\alpha_i+t\beta_i\) for which the objective does not increase, until a
+coefficient becomes zero, and iterate.  It follows that the infimum is
+attained on a compact parameter space.  If \(x_j\to x\), choose minimizing
+representations for \(x_j\) and pass to a convergent subsequence.  The
+limiting representation is admissible for \(x\), which proves
+\[
+ \operatorname{co}_K\phi(x)
+ \leq\liminf_j\operatorname{co}_K\phi(x_j).
+\]
+Thus the envelope is lower semicontinuous.  Convexity follows by combining
+two admissible representations.
+
+It remains only to check upper semicontinuity at the boundary of \(K\).
+Fix \(x\in K\).  A finite triangulation of \(K\) may be refined so that
+\(x\) is a vertex and the closed star of \(x\) is a neighbourhood of
+\(x\) in \(K\).  If \(x_j\to x\), pass through the finitely many simplices
+of that star.  In a simplex containing \(x\), the barycentric coefficient
+of \(x\) tends to one.  Convexity bounds the envelope at \(x_j\) by the
+same barycentric combination of its values at \(x\) and at the other
+vertices.  The latter values are finite, hence
+\[
+ \limsup_j\operatorname{co}_K\phi(x_j)
+ \leq\operatorname{co}_K\phi(x).
+\]
+This proves continuity.  Notice that polyhedrality is used exactly in
+this boundary argument.
+
+The convexification operation is nonexpanding in the uniform norm:
+\begin{equation}
+ \left\|\operatorname{co}_K\phi-\operatorname{co}_K\psi\right\|_K
+ \leq \|\phi-\psi\|_K .
+ \label{eq:p071-polyhedral-envelope-nonexpanding}
+\end{equation}
+This follows immediately by applying
+\eqref{eq:p071-polyhedral-convex-envelope} to the same barycentric
+representations in both directions.
+
+\medskip\noindent\emph{Smooth convex majorants on one fixed polytope.}
+If \(a:K\to\mathbf R\) is continuous and convex, then for every
+\(\varepsilon>0\) there is a smooth convex function \(g\) on the whole
+affine span of \(K\) such that
+\begin{equation}
+                       a\leq g\leq a+\varepsilon
+                       \qquad\text{on }K.
+ \label{eq:p071-polyhedral-smooth-majorant}
+\end{equation}
+To see this, extend \(a\) by \(+\infty\) off \(K\).  The resulting function
+is proper, convex, and lower semicontinuous.  Strict separation of its
+closed epigraph from the point \((x,a(x)-\delta)\) gives, for every
+\(x\in K\) and \(\delta>0\), an affine function \(\ell_x\) such that
+\[
+                         \ell_x\leq a\text{ on }K,
+              \qquad     \ell_x(x)>a(x)-\delta .
+\]
+The sets on which \(\ell_x>a-\delta\) form an open cover of \(K\).
+After taking a finite subcover and putting
+\[
+                              p=\max_j\ell_{x_j},
+\]
+we obtain a globally defined convex piecewise-affine function satisfying
+\[
+                              a-\delta<p\leq a
+                              \qquad\text{on }K.
+\]
+Choose a nonnegative smooth compactly supported probability kernel
+\(\rho\) of barycentre zero.  The function \(p\) is globally Lipschitz;
+if \(L\) is a Lipschitz constant, then
+\[
+                  p\leq p*\rho_r\leq p+Lr .
+\]
+The first inequality is Jensen's inequality.  Taking
+\(\delta=\varepsilon/3\), choosing \(r\) with
+\(Lr<\varepsilon/3\), and setting
+\[
+                              g=p*\rho_r+\delta
+\]
+proves \eqref{eq:p071-polyhedral-smooth-majorant}.  If \(L=0\), any
+sufficiently small \(r\) works.  This argument is uniform for any finite
+family of continuous convex functions by choosing the smoothing radii
+separately.
+
+\medskip\noindent
+We now turn to the comparison sheaf.  Its defining condition is local, so
+it is a sheaf.  Every smooth psh generator belongs to
+\(\mathscr C_X\): after a clopen shrinking it is independent of \(z\);
+take \(Y\) to be a point.  Positive semidefiniteness of the Hessian implies
+convexity on each convex relative neighbourhood in \(P\).
+
+We prove that \(\mathscr C_X\) is stable under decreasing sequential
+limits.  Let \(u_n\downarrow u\) on an open subset \(W\subset X\), with
+\(u_n\in\mathscr C_X(W)\), and fix \((z_0,x_0)\in W\).  Local compactness
+and the clopen basis give a compact clopen neighbourhood \(C\) of \(z_0\).
+Choose bounded open polyhedra \(O_1,O_0\subset A\), both containing
+\(x_0\), such that
+\[
+ \overline{O_1}\subset O_0,\qquad
+ C\times\bigl(P\cap\overline{O_0}\bigr)\subset W.
+\]
+After making the polyhedra smaller if necessary, we may and do suppose that
+\[
+       V=P\cap O_1\quad\text{is convex},\qquad
+       K=P\cap\overline{O_0}\quad\text{is a compact convex polytope}.
+ \label{eq:p071-polyhedral-compact-core}
+\]
+
+For each fixed \(n\), compactness gives a finite product cover of
+\(C\times K\) by sets
+\begin{equation}
+                           C_{n,a}\times V_{n,a},
+ \label{eq:p071-polyhedral-local-factor-cover}
+\end{equation}
+where \(C_{n,a}\) is compact clopen in \(C\), \(V_{n,a}\) is relatively
+open in \(P\), and on this product \(u_n\) factors through a continuous
+surjection
+\[
+                  q_{n,a}:C_{n,a}\twoheadrightarrow Y_{n,a}
+\]
+onto a compact metrizable zero-dimensional space.  Choose a countable
+clopen base \(\mathcal D_{n,a}\) of each \(Y_{n,a}\).  Let
+\(\mathcal B\) be the Boolean subalgebra of the clopen subsets of \(C\)
+generated by all \(C_{n,a}\) and all
+\[
+                     q_{n,a}^{-1}(D),
+                     \qquad D\in\mathcal D_{n,a}.
+\]
+There are only countably many generators.  The evaluation map
+\begin{equation}
+ q:C\longrightarrow
+ Y:=q(C)\subseteq\{0,1\}^{\mathcal B}
+ \label{eq:p071-polyhedral-common-quotient}
+\end{equation}
+is a continuous surjection onto a compact metrizable zero-dimensional
+space.
+
+Every \(u_n|_{C\times V}\) is constant on the fibres of
+\(q\times\operatorname{id}_V\).  Indeed, suppose \(q(z)=q(z')\) and
+\(x\in V\).  Choose a member of
+\eqref{eq:p071-polyhedral-local-factor-cover} containing \((z,x)\).
+The Boolean coordinates first show that \(z'\in C_{n,a}\), and then that
+\(q_{n,a}(z)=q_{n,a}(z')\), since the chosen clopen base separates points.
+The local factorization gives \(u_n(z,x)=u_n(z',x)\).  The limit therefore
+factors as
+\begin{equation}
+                           u(z,x)=\bar u(q(z),x)
+                           \qquad(C\times V).
+ \label{eq:p071-polyhedral-limit-factor}
+\end{equation}
+
+The function \(u\) is upper semicontinuous: each \(u_n\) is locally upper
+semicontinuous and
+\[
+                         \{u<t\}=\bigcup_n\{u_n<t\}.
+\]
+Upper semicontinuity descends to \(\bar u\) without any unsupported
+product-quotient assertion.  If \(\bar u(y,x)<t\), cover the compact fibre
+\(q^{-1}(y)\times\{x\}\) by finitely many product neighbourhoods
+\(N_j\times D_j\) contained in \(\{u<t\}\).  Set
+\(N=\bigcup_jN_j\) and \(D=\bigcap_jD_j\).  Since \(q\) is closed,
+\[
+                         Y\setminus q(C\setminus N)
+\]
+is an open neighbourhood of \(y\), and its product with \(D\) lies in
+\(\{\bar u<t\}\).
+
+For fixed \(z\), the restrictions \(x\mapsto u_n(z,x)\) are locally
+extended-real convex.  The first elementary point makes them convex on
+\(V\).  Passing to the limit in every finite convexity inequality shows
+that \(x\mapsto u(z,x)\), and hence
+\(x\mapsto\bar u(y,x)\), is extended-real convex.  Thus
+\(\mathscr C_X\) is decreasing-sequentially closed.  Since it contains
+the generators, minimality gives
+\begin{equation}
+                         \operatorname{Psh}_X\subseteq\mathscr C_X.
+ \label{eq:p071-polyhedral-minimality}
+\end{equation}
+
+It remains to prove that every comparison germ is already in the first
+stage.  Let \(u\in\mathscr C_X\) have a factorization
+\eqref{eq:p071-polyhedral-factorization} on \(C\times V_0\).  Choose a
+compact convex polytope \(K\subset V_0\) and a relatively open polyhedral
+neighbourhood \(V\) of \(x_0\) such that
+\begin{equation}
+                         \overline V^{\,P}\subset K\subset V_0.
+ \label{eq:p071-polyhedral-nested-core}
+\end{equation}
+Here the closure is taken in \(P\).  Such a choice is obtained by
+intersecting \(P\) with two nested bounded open polyhedral boxes in
+\(A\).  We construct every approximant on the one fixed set \(C\times V\).
+
+Give \(Y\times K\) a compatible product metric \(d\).  The upper
+semicontinuous function \(\bar u\) is bounded above there; fix an upper
+bound \(M\).  For \(k\geq1\), put
+\begin{align}
+ h_k(s)&=\max\{\bar u(s),-k\},\\
+ \Phi_k(s)&=\sup_{t\in Y\times K}
+                 \bigl(h_k(t)-k\,d(s,t)\bigr).
+ \label{eq:p071-polyhedral-usc-regularization}
+\end{align}
+Each \(\Phi_k\) is finite, continuous, and \(k\)-Lipschitz.  Moreover,
+\begin{equation}
+                \Phi_{k+1}\leq\Phi_k,\qquad
+                \Phi_k\geq\bar u,\qquad
+                \Phi_k\downarrow\bar u .
+ \label{eq:p071-polyhedral-usc-convergence}
+\end{equation}
+Only the last assertion requires a check.  Fix \(s\) and a real number
+\(a>\bar u(s)\), with \(a\) arbitrary when \(\bar u(s)=-\infty\).
+Choose \(b\) with \(\bar u(s)<b<a\).  Upper semicontinuity gives a metric
+ball about \(s\) on which \(\bar u<b\).  For large \(k\), also \(-k<b\).
+On this ball the expression under the supremum is at most \(b\); outside a
+smaller fixed ball it is at most
+\(\max\{M,-1\}\) minus \(k\) times a fixed positive number.  It is therefore
+less than \(a\) for large \(k\).  This proves the last assertion.
+
+For \(y\in Y\), convexify only in the polyhedral variable:
+\begin{equation}
+ c_k(y,x)
+ =\operatorname{co}_K\bigl(\Phi_k(y,\cdot)\bigr)(x).
+ \label{eq:p071-polyhedral-fibre-convexification}
+\end{equation}
+Because \(x\mapsto\bar u(y,x)\) is extended-real convex and
+\(\bar u\leq\Phi_k\), every barycentric representation of \(x\) gives
+\[
+       \bar u(y,x)
+       \leq\sum_i\alpha_i\bar u(y,x_i)
+       \leq\sum_i\alpha_i\Phi_k(y,x_i).
+\]
+Taking the infimum yields
+\begin{equation}
+                     \bar u\leq c_k\leq\Phi_k,
+        \qquad       c_{k+1}\leq c_k,
+        \qquad       c_k\downarrow\bar u .
+ \label{eq:p071-polyhedral-convexified-convergence}
+\end{equation}
+The function \(c_k\) is jointly continuous on \(Y\times K\).  Continuity
+in \(x\) is the second elementary point.  For \(y,y'\in Y\),
+\eqref{eq:p071-polyhedral-envelope-nonexpanding} and the Lipschitz bound
+for \(\Phi_k\) give
+\[
+ \sup_{x\in K}|c_k(y,x)-c_k(y',x)|
+ \leq
+ \sup_{x\in K}|\Phi_k(y,x)-\Phi_k(y',x)|
+ \leq k\,d_Y(y,y'),
+\]
+after choosing the product metric in sum form.  Separate continuity with
+this uniform estimate gives joint continuity.
+
+Choose nested finite clopen partitions \(\mathcal P_k\) of \(Y\) whose
+meshes tend to zero.  Such partitions are obtained by taking finite clopen
+covers of successively smaller mesh and refining all preceding covers.
+For \(Q\in\mathcal P_k\), set
+\begin{equation}
+             a_{k,Q}(x)=\max_{y\in Q}c_k(y,x),
+             \qquad
+             a_k(y,x)=a_{k,Q_k(y)}(x),
+ \label{eq:p071-polyhedral-clopen-envelope}
+\end{equation}
+where \(Q_k(y)\) is the member containing \(y\).  Each \(a_{k,Q}\) is a
+finite continuous convex function on \(K\).  Refinement and
+\(c_{k+1}\leq c_k\) give
+\begin{equation}
+                              a_{k+1}\leq a_k.
+ \label{eq:p071-polyhedral-clopen-monotonicity}
+\end{equation}
+Furthermore,
+\begin{equation}
+                              a_k\downarrow\bar u
+                              \quad\text{on }Y\times K.
+ \label{eq:p071-polyhedral-clopen-convergence}
+\end{equation}
+The lower bound follows from \(a_k\geq c_k\geq\bar u\).  For the upper
+bound, fix \((y,x)\), choose \(a>\bar u(y,x)\), and then choose
+\(b\) strictly between these two numbers.  Choose a metric ball on which
+\(\bar u<b\).  For large \(k\), the set \(Q_k(y)\times\{x\}\) lies close
+enough to \((y,x)\), and \(-k<b\).  In
+\eqref{eq:p071-polyhedral-usc-regularization}, points in the chosen ball
+contribute at most \(b\), whereas points outside it pay a fixed positive
+distance times \(k\).  Consequently
+\[
+       \sup_{y'\in Q_k(y)}\Phi_k(y',x)<a
+\]
+for large \(k\).  Since \(a_{k,Q_k(y)}\leq
+\sup_{y'\in Q_k(y)}\Phi_k(y',x)\), this proves
+\eqref{eq:p071-polyhedral-clopen-convergence}, also at a
+\(-\infty\)-valued point.
+
+Put \(\varepsilon_k=4^{-k}\).  The smooth-majorant construction, applied
+to the finite family indexed by \(\mathcal P_k\), gives smooth convex
+functions \(g_{k,Q}\) on \(A\) such that
+\begin{equation}
+                        a_{k,Q}\leq g_{k,Q}
+                        \leq a_{k,Q}+\varepsilon_k
+                        \qquad\text{on }K.
+ \label{eq:p071-polyhedral-family-smoothing}
+\end{equation}
+Define \(w_k\) on \(C\times V\) by
+\begin{equation}
+                 w_k(z,x)=g_{k,Q}(x)
+                 \quad\text{if }q(z)\in Q\in\mathcal P_k.
+ \label{eq:p071-polyhedral-smooth-piecewise}
+\end{equation}
+The inverse images \(q^{-1}(Q)\) form a finite clopen partition of \(C\)
+by subsets which are clopen in \(Z\).  Hence \(w_k\) is smooth for the
+stated product structure.  Its Hessian in the \(A\)-directions is positive
+semidefinite, so \(w_k\in\operatorname{Psh}_{X,0}(C\times V)\).
+Equations \eqref{eq:p071-polyhedral-clopen-monotonicity} and
+\eqref{eq:p071-polyhedral-family-smoothing} imply
+\begin{equation}
+                             w_{k+1}\leq w_k+\varepsilon_{k+1}.
+ \label{eq:p071-polyhedral-almost-monotone}
+\end{equation}
+
+Set
+\[
+                 \tau_k=\sum_{j\geq k+1}\varepsilon_j,
+                 \qquad G_k=w_k+\tau_k .
+\]
+Since \(\tau_k=\varepsilon_{k+1}+\tau_{k+1}\),
+\eqref{eq:p071-polyhedral-almost-monotone} gives
+\(G_{k+1}\leq G_k\).  Finally,
+\eqref{eq:p071-polyhedral-clopen-convergence},
+\eqref{eq:p071-polyhedral-family-smoothing}, and
+\(\tau_k\to0\) show that
+\[
+                         G_k\downarrow u
+                         \qquad\text{on }C\times V.
+\]
+This is \eqref{eq:p071-polyhedral-fixed-domain}.  We have proved
+\[
+                         \mathscr C_X
+                         \subseteq\operatorname{Psh}_{X,1}.
+\]
+Together with \eqref{eq:p071-polyhedral-minimality} and the tautological
+inclusion
+\(\operatorname{Psh}_{X,1}\subseteq\operatorname{Psh}_X\), this proves
+\eqref{eq:p071-polyhedral-collapse}.
+
+The proof is local and uses only the generator sheaf.  It therefore
+transports through any generator-preserving chart and proves the asserted
+chartwise extension.  For a rational convex polyhedron with its induced
+Chambert--Loir--Ducros affine tropical structure, smooth functions are
+locally restrictions of ambient smooth functions; positivity of
+\(\mathrm d'\mathrm d''f\) is positive semidefiniteness of the Hessian on
+the affine span.  A locally constant affine structure on \(Z\) becomes
+constant after a clopen shrinking, and the product construction gives
+exactly the generator sheaf used above.  This verifies the claimed
+compatibility while leaving untouched the excluded nonconvex and branched
+settings.
+\end{proof}
