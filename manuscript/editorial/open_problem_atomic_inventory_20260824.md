@@ -137,12 +137,13 @@ conditional; the general targets remain open.
 ### `prob:frontier-pluriharmonic` --- 2 atoms
 
 - **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
-  finite curve-factor, finite constant-group quotient, and affine-toric
-  fixed-point cases]` On a good,
+  finite curve-factor, finite constant-group quotient, split simplicial
+  toric-domain, and affine-toric fixed-point cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
-  `thm:p061-arbitrary-curve-factors-ph-rpl` and the exact toric fixed-point
-  scope of `thm:p061-toric-fixed-point-constancy`, decide whether every
+  `thm:p061-arbitrary-curve-factors-ph-rpl`, the split simplicial toric
+  scope of `thm:p061-simplicial-toric-ph-rpl`, and the exact toric
+  fixed-point scope of `thm:p061-toric-fixed-point-constancy`, decide whether every
   classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
@@ -218,6 +219,27 @@ or invertibility of the group order is assumed.  Hence the verified P06.1
 source scopes remain verified after taking separated strict affinoid finite
 constant-group quotients.  The theorem does not produce such a quotient
 uniformization for an arbitrary singular germ.
+The finite-group argument has now been combined with an exact radicial
+Frobenius descent proposition to cover every good strict domain in a split
+simplicial affine toric variety, including a non-full cone and a quotient
+index divisible by the ground-field characteristic.  The exact live
+statement/proof SHA-256 values of
+`prop:p061-frobenius-rpl-descent` and
+`thm:p061-simplicial-toric-ph-rpl` are
+`b2cdce85c771e2ccf6bbd4d0fd8ba274d521d35d3d371a5575c71b77db5aabce`
+and
+`e81b0f7d1156af135c75dcd15ec11b636e2d82131715cfbee0d765fd1c8900e0`.
+An independent hostile audit passed.  A dependency-closed production
+request using `gpt-5.6-sol` at `xhigh` returned final `correct`, zero
+critical errors, and zero gaps; the direct endpoint assigned no run or item
+identifier.  The archived request/response/header SHA-256 values are
+`246d058026f2581c0e6c1b28f6231b936e697c1613b78f1fce7cbcbdd773f2b9`,
+`b4a03f9def9dbb51cdb808951afe6a1a0232a2b54e8493b8a2c37c0eeb2e4467`,
+and
+`f327f862ee85670ad3cdff73e3212734eb9c4e2edf391f0325f1a50489a40f26`.
+The atom remains active only outside the split simplicial toric-domain
+scope and the other verified scopes listed above; in particular, the
+non-simplicial, nonsplit, and general toroidal residuals are unchanged.
 The coefficient cannot be strengthened: `prop:p061-integral-pl-counterexample`
 gives \(\sqrt2\log|T|\) on a strict semistable annulus, which is not
 \(\mathbf Q\)-PL. The exact statement and proof passed production Rethlas
@@ -226,8 +248,9 @@ run `20260829T043457Z_0b1b4d161e3b`, item
 and zero gaps. P06.1 remains one active T2 atom, now confined to arbitrary
 nonproduct non-quasi-smooth points in dimension at least two outside the
 verified quotient range, products containing a reduced singular factor of
-dimension at least two outside that range, and toric germs outside the
-verified fixed-point scope. No atom count, tier count, or queue position
+dimension at least two outside that range, non-simplicial positive-orbit
+toric domains, nonsplit toric forms, and general toroidal or log-etale
+charts. No atom count, tier count, or queue position
 changes.
 The proper full-rank moment-factor case is also verified by
 `prop:p062-proper-full-rank-moment`.  It applies only when \(X\) is pure of
@@ -372,15 +395,59 @@ formal problem environments, with tier counts `(0,5,14,17,17)`.
 
 ### `prob:frontier-cld-global-metric` --- 2 atoms
 
-- **P08.1** `[T3; open]` Decide whether a continuous locally CLD-psh metric
-  on a projective non-Archimedean variety is globally psh in the
-  Fubini--Study or nef-model sense.
-- **P08.2** `[T3; open]` Prove or disprove the corresponding global
-  approximation statement on a proper strict analytic space admitting a
-  formal model with projective special fibre.
+- **P08.1** `[T3; open beyond the verified smooth algebraically closed
+  curve scope]` Decide whether a continuous locally CLD-psh metric on a
+  projective non-Archimedean variety is globally psh in the Fubini--Study
+  or nef-model sense outside the curve scope stated below.
+- **P08.2** `[T3; open beyond the verified algebraic and strict analytic
+  smooth-curve scope]`
+  Prove or disprove the corresponding global approximation statement on a
+  proper strict analytic space admitting a formal model with projective
+  special fibre.
 
-Agreement is known on the common model loci.  Both unrestricted global
-statements are open.
+The smooth proper algebraic curve case over an algebraically closed complete
+nontrivially valued field is now verified by
+`thm:p081-curve-local-global`. A continuous locally CLD-psh metric has
+nonnegative degree and is a uniform limit of semipositive Q-formal metrics,
+equivalently semipositive algebraic model metrics. In positive degree the
+approximants may be chosen relatively ample and the metric lies in the
+uniform Fubini--Study closure; in degree zero its curvature vanishes and
+the approximants may be chosen numerically trivial. The exact
+statement/proof SHA-256 values are
+`1f2c51f101fd8447fbb6b65a3c0686515efaf982674efaadcaf2271079173e93`
+and
+`9847a08c98a640ee7def082a73cc1b3ff116980f2882920808557822056f0f2f`.
+An independent hostile audit passed. A dependency-closed production
+request using `gpt-5.6-sol` at `xhigh` returned final `correct`, zero
+critical errors, and zero gaps; the archived request/response/header
+SHA-256 values are
+`307ba899872bfd33720dd863bd58269820d5c0687b848760afef960cb549c7cd`,
+`7af690cea941960fc8c8bfba39acfacd6cbf0bbe8bf52273431b93945d1af0af`,
+and
+`c2d6c04bd79ddd90ddd7e91a6c6bbf64282d5f7cd193bb1e682ff9c89d8d69a3`.
+The same conclusions now hold for every smooth proper connected strict
+analytic curve over the same field, without assuming beforehand that it has
+a formal model with projective special fibre.  The exact transfer statement
+and proof, SHA-256
+`64e507146c65614e37d831a25d230f1bb05cdf4decc25f298f4adbea22f4c9da`
+and
+`8b0c95bc1b4822cd29560b8f8045f53ab09281131c59c1bfb4dbf9770cf546de`,
+use strict Berkovich--rigid comparison, projective curve algebraization, and
+proper GAGA for the line bundle.  An independent hostile audit passed.  The
+dependency-closed production request using `gpt-5.6-sol` at `xhigh`
+returned final `correct`, zero critical errors, and zero gaps; its
+request/response/header SHA-256 values are
+`492ed02879f4f2b3346e8389996f259a5a665f85bb521f4f425ace93d6879f60`,
+`fb038501912bea4c1d6d816d5188e08b3249b016a00d7331d4fcfc56da78ba00`,
+and
+`176e7a69175ba6de0ce09be2633852742af43e415cbf283ad51991fbddf084e0`.
+
+P08.1 retains higher dimension, singular curves, and arbitrary complete
+ground fields. P08.2 retains higher-dimensional proper strict analytic
+spaces, singular analytic curves, and the general-field and trivially
+valued ranges.  No smooth strict-curve residual remains under the verified
+field hypotheses, but neither atom is retired; the count and tier
+distribution are unchanged.
 
 ### Retired P09 history --- 0 active atoms
 
