@@ -48,9 +48,10 @@ the exact count is
 Tier counts: (T1,T2,T3,T4,T5) = (0,5,14,17,17).
 ```
 
-The active identifiers `P02.1` through `P21.3` below are an editorial addressing
-scheme.  The prefix records the formal environment, not a theorem number in
-the book.
+The active identifiers listed below form an editorial addressing scheme.
+Their prefixes record the corresponding formal environments, not theorem
+numbers in the book; retired and historically skipped identifiers are not
+reassigned.
 
 ## Atomic inventory
 
@@ -145,12 +146,14 @@ conditional; the general targets remain open.
   classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
-  moment-factor, strict-polydisc, and smooth-proper-curve cases]` Decide
+  moment-factor, algebraically closed strict-polydisc, arbitrary-field
+  one-dimensional strict-disc, and smooth-proper-curve cases]` Decide
   whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
   harmonic whenever the classical notion is available, outside the verified
-  strict-polydisc, factorized, and curve scopes.
+  strict-polydisc, factorized, and curve scopes, with the arbitrary-field
+  higher-dimensional and arbitrary-germ residual boundaries stated below.
 
 The weakly smooth zero-current statement is known.  The real-PL
 zero-current implication is now verified on good separated boundaryless
@@ -254,9 +257,36 @@ An independent exact-byte hostile audit passed.  Production run
 `20260830T001728Z_017f3da108ae` used `gpt-5.6-sol` at `xhigh` and returned
 final `correct`, with zero critical errors and zero gaps; the direct endpoint
 assigned no item identifier.  The theorem does not descend the conclusion to
-an arbitrary complete ground field and does not uniformize an arbitrary
-analytic germ by strict polydiscs.  Thus P06.2 remains one active T2 atom, and
-the atom count, tier count, and queue position remain unchanged.
+an arbitrary complete ground field by itself and does not uniformize an
+arbitrary analytic germ by strict polydiscs.  The following
+one-dimensional finite-trace theorem removes the first restriction for
+strict discs, but not in higher dimension.  Thus P06.2 remains one active
+T2 atom, and the atom count, tier count, and queue position remain unchanged.
+
+The arbitrary-field one-dimensional strict-disc case is now verified.
+`prop:p062-finite-flat-continuous-trace` proves continuity of the calibrated
+trace of an arbitrary continuous multiplier under a finite flat analytic
+map, identifies its current with direct image, and preserves vanishing
+Hessian.  For a rigid point, its minimal polynomial gives a finite flat map
+of discs whose zero fibre and a selected Gauss fibre are both single fibres
+of the full degree, including ramified and inseparable degrees.  Together
+with the verified rational-centred radial identity and rigid-point density,
+this proves `prop:p062-arbitrary-field-disc`: a continuous zero-current
+function on a strict open disc is constant over every complete
+nontrivially valued field; the closed-disc version holds when the equation
+is imposed on the analytic interior.  The exact statement/proof SHA-256
+values are
+`67a8d8a21e23cb34cf9b8f6685efbf2c9eaa6ff484b3696cbc1867a8940e095c`
+and
+`479643ee3aa534bbfc98adcf69837356d3cd8eff22d92accd1319aabb049553e`.
+An independent exact-byte hostile audit passed.  The dependency-closed
+production request archived as `20260830T033245Z_5c4711a474d8`, using
+`gpt-5.6-sol` at `xhigh`, returned final `correct`, zero critical
+errors, zero gaps, and thirteen checked citation uses; the endpoint assigned
+no run or item identifier.  This does not prove the arbitrary-field result
+on strict polydiscs of dimension at least two and does not uniformize an
+arbitrary analytic germ.  Hence P06.2 remains one active T2 atom and the
+total remains 53.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
@@ -352,7 +382,7 @@ formal problem environments, with tier counts `(0,5,14,17,17)`.
 Agreement is known on the common model loci.  Both unrestricted global
 statements are open.
 
-### Retired P09.2 history --- 0 active atoms
+### Retired P09 history --- 0 active atoms
 
 P09.2 asked whether, over an algebraically closed, complete,
 nontrivially valued field, every cubical metric on every ample symmetric
@@ -690,7 +720,7 @@ digest.  All one-dimensional cases within the ambient hypotheses are
 therefore retired from P21.3.
 
 P21.3 remains one T2 atom only in analytic dimension at least two.  At this
-29 August milestone, before the independent P17.1 retirement below, the
+29 August milestone, before the independent P17.1 retirement recorded above, the
 inventory stood at 15 formal problem environments and 54 active atoms, with
 tier totals `(0,6,14,17,17)`.
 

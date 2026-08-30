@@ -1311,13 +1311,85 @@ nine 24 August gates counted in this paragraph.
 - Service verification/log SHA-256:
   `14f07a53748b12a093ef722c4b542ff8cd7c28fd3b70154ab74163138e998321` /
   `a2dd8104416fdc0cb0e1fb71781bb513b6fb78e2849de5f837e31ef4b5eaa024`.
-- Scope firewall: no automatic pullback theorem is asserted for an arbitrary
-  continuous Hessian current, no unconditional value is obtained at rigid
-  points with nontrivial residue extension, and no arbitrary analytic germ is
-  uniformized.  P06.2 therefore remains active; the inventory stays at 14
+- Scope firewall: within this proposition no automatic pullback theorem is
+  asserted for an arbitrary continuous Hessian current, no unconditional
+  value is obtained at rigid points with nontrivial residue extension, and no
+  arbitrary analytic germ is uniformized.  The one-dimensional rigid-point
+  restriction is removed by the verified finite-trace result below.  P06.2
+  therefore remains active; the inventory stays at 14
   formal environments and 53 active atoms, with tiers `(0,5,14,17,17)`.
 - Controlling receipt:
   `editorial/rethlas_receipts_20260830/p062_base_field_descent_production_receipt_20260830.md`.
+
+## Chapter 18 — CLD fibre-theorem numbering repair (not a new result)
+
+- Status: **PRIMARY-SOURCE REPAIR / EXACT HOSTILE AUDIT PASS** (30 August
+  2026).
+- Defect: the live proof of `lem:ch18-fibre-cylinder` had copied
+  `CLD25, Proposition 4.6.6` from the numbering of the older CLD draft.
+  In the current CLD text that number denotes boundary compensation.
+- Repair: the current source is CLD Theorem 14.7.2.  The revised proof
+  verifies its \((\mathrm S_1)\), pure-relative-dimension, compact-tube, and
+  empty-divisor hypotheses using the preliminary reduction in CLD Lemma
+  16.7.5; it recovers divisor multiplicities from CLD Section 13.7.1 and
+  Proposition 16.6.3.  The boundary paragraph restores the
+  relative-boundary qualification from GK17 Lemma 7.3.
+- Exact staged replacement/source-matrix/hostile-audit SHA-256:
+  `839bee26c8261e542644279a6b5144baca46b8c1ad2615338006472eef8d3075` /
+  `a38c8fa23e987e7a330885bb5918d8d860ff6c4d6165d53cde5e01419c3e6fd6` /
+  `7592fce50305c4b6e8249b0bd3eb329d5803a7403ec5ab02504737a6f031f87b`.
+- The replacement's minimal compile is clean; PDF SHA-256
+  `5ce3e8490e39bc472de12c488110050c09981ae4dc10bbadf9bf2bd99a14cad9`.
+- Provenance: imported CLD/Gubler--Künnemann theorem with corrected current
+  numbering and hypotheses.  No new theorem and no production Rethlas
+  receipt is claimed.
+
+## Chapter 18 — finite-flat traces and arbitrary-field strict discs
+
+- Status: **EXACT DEPENDENCY-CLOSED PACKET VERIFIED / INTEGRATED; P06.2
+  NARROWED BUT NOT RETIRED** (30 August 2026).
+- Book locations: `prop:p062-finite-flat-continuous-trace` and
+  `prop:p062-arbitrary-field-disc`, with the residual recorded under P06.2
+  in Chapter 72 and the provenance in Appendix L.
+- Exact result: the calibrated fibre trace of an arbitrary continuous
+  multiplier under a finite flat constant-degree map is continuous, its
+  current is direct image, and vanishing Hessian descends.  Consequently,
+  over every complete nontrivially valued field, every continuous
+  zero-current function on a strict open disc is constant; the same holds
+  on a strict closed disc when the equation holds on its analytic interior.
+  The proof includes ramified and inseparable rigid points and both closed
+  endpoints.
+- Exact statement SHA-256:
+  `67a8d8a21e23cb34cf9b8f6685efbf2c9eaa6ff484b3696cbc1867a8940e095c`.
+- Exact proof SHA-256:
+  `479643ee3aa534bbfc98adcf69837356d3cd8eff22d92accd1319aabb049553e`.
+- Dependency-closed materialized statement/proof SHA-256:
+  `5c4711a474d8bdf329abf57cd3ceddbca2d3980e4699d0f31e7f6a7f09e6c24d` /
+  `66172824ab6cc8c09bca7385eed5cac821729b05149d7951938a98109fe52111`.
+- Independent audit: exact-byte hostile PASS, SHA-256
+  `49ade4c749e26cc45be0d7896d69edbcdf2506b9dfec433ed8cfd844c93ca867`;
+  standalone four-page compile PASS.
+- Production request: archive label
+  `20260830T033245Z_5c4711a474d8`; model `gpt-5.6-sol`, scrutiny
+  `xhigh`, verdict `correct`, zero critical errors, zero gaps, and
+  thirteen checked citation uses.  The endpoint assigned no run or item
+  identifier.
+- Archived request/response/safe-header SHA-256:
+  `b7196d6d50cbd4568235df56d96151750f2206dbb5f0334dc2584a9fde54e31d` /
+  `1459e3e5b05666c9537491e945b96b159df4448c502a9c4c930bdd9a204d11ea` /
+  `cec0daf8f0df841ee3c24021f0eb0186405702d8f9da6e6c469007d35d428f21`.
+- Rejected audit history: the first request omitted the already verified
+  dependency proof and therefore returned `wrong` with three missing-proof
+  gaps and no critical mathematical error.  It is preserved separately and
+  does not control the live result.
+- Scope firewall: arbitrary-field strict polydiscs of dimension at least two,
+  automatic scalar-extension pullback for continuous Hessian currents, and
+  arbitrary analytic germs remain outside the conclusion.  P06.2 remains
+  active; the inventory stays at 14 formal environments and 53 active atoms,
+  with tiers `(0,5,14,17,17)`.
+- Provenance: verified book-level synthesis; no novelty or priority claim.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260830/p062_curve_arbitrary_field_production_receipt_20260830.md`.
 
 ## Darvas--Xia trace-source correction (not a receipt)
 

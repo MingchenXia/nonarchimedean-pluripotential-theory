@@ -2009,9 +2009,15 @@ the indispensable step.
 \label{lem:ch18-fibre-cylinder}
 Let $W$ be an affinoid domain in a pure $n$-dimensional analytic space,
 let $g:W\to T^{\An}$ be an analytic moment map, and let $f$ be a nonzero
-analytic function whose zero locus is an effective Cartier divisor on $W$.
-There are $r>0$ and a weighted integral polyhedral complex $(\mathscr C,m)$
-of pure dimension $n-1$ such that:
+analytic function which defines an effective Cartier divisor on $W$.
+Write
+\[
+ W_t:=W\mathbin{\times}_{\mathbf A^{1,\An}}\mathcal M(\mathscr H(t))
+ \quad\text{and}\quad
+ W_I:=\{x\in W:|f(x)|\in I\}.
+\]
+There are $r>0$ and a weighted integral polyhedral complex
+$(\mathscr C,m)$, either empty or pure of dimension $n-1$, such that:
 \begin{enumerate}
 \item for every analytic point $t$ of the closed disc $|t|\leq r$, the
  $(n-1)$-skeleton of $g_{\trop}(W_t)$, with its canonical calibration, is
@@ -2019,26 +2025,46 @@ of pure dimension $n-1$ such that:
 \item for every closed interval $I\subset(0,r]$, the $n$-skeleton of
  $(-\log|f|,g_{\trop})(W_I)$ is the weighted product
  $(-\log I,1)\times(\mathscr C,m)$;
-\item at $t=0$, the same $(\mathscr C,m)$ is the calibrated
- tropicalization of $\divis(f|_W)$.
+\item at $t=0$, the same $(\mathscr C,m)$ is the $(n-1)$-skeleton of the
+ calibrated tropicalization of $\divis(f|_W)$.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-Apply the analytic tropical fibre theorem
-\cite[Proposition~4.6.6]{CLD25} to the analytic map
-$(f,g):W\to\mathbf A^{1,\An}\times T^{\An}$.  That theorem first gives
-polyhedrality of the images of the fibres and of the annular domains, and
-then says that their canonical calibrations are locally constant as the
-parameter approaches zero.  After decreasing $r$, the finitely many cells
-and their calibrations are therefore independent of $t$.  On an annulus the
-coordinate $-\log|f|$ has primitive slope one; the calibration product rule
-then gives $(-\log I,1)\times(\mathscr C,m)$.  The fibre over zero is the
-closed analytic subspace defined by the Cartier divisor, and the
-fundamental-cycle calibration includes its algebraic multiplicities.  This
-gives the third assertion.  These are precisely the three conclusions of
-the cited proposition, translated from calibrations to weighted complexes
-using \Cref{def:trop-canonical-calibration}.
+Put $Z=W_0$.  If $Z$ is empty, compactness of $W$ gives
+$\min_W|f|>0$; choosing $r<\min_W|f|$ proves all three assertions with
+$(\mathscr C,m)$ empty.  We may therefore suppose that $Z$ is nonempty.
+
+At every point of $Z$, the germ of $f$ is a regular element of the local
+ring.  Hence, on a neighbourhood of $Z$, the space has Serre's property
+$(\mathrm S_1)$ and the map $f$ is purely of relative dimension $n-1$.
+Indeed, the first assertion follows from depth at a regular element, and
+the second from upper semicontinuity of fibre dimension followed by the
+analytic Hauptidealsatz.  This is the local reduction written out in the
+proof of \cite[Lemma~16.7.5]{CLD25}.  Since $Z$ is compact, there is
+$R>0$ such that the compact analytic tube
+\[
+                 W_{\leq R}:=\{x\in W:|f(x)|\leq R\}
+\]
+is contained in that neighbourhood.  It is pure of dimension $n$, has
+property $(\mathrm S_1)$, and the restriction
+$f:W_{\leq R}\to\mathbf A^{1,\An}$ is purely of relative dimension
+$n-1$.
+
+Apply \cite[Theorem~14.7.2]{CLD25} with $d=1$,
+$X=W_{\leq R}$, $Y=\mathbf A^{1,\An}$, and $y=0$.  After decreasing
+$r<R$, part~(a) of that theorem gives the first assertion.  Part~(b),
+restricted to a closed interval $I\subset(0,r]$, gives the second after
+permuting the two factors and replacing the coordinate $\log|f|$ by
+$-\log|f|$; the standard calibration has weight one and is unchanged by
+this sign change.
+
+Finally, $W_0$ is the closed analytic subspace defined by $f$.  Its
+associated cycle is $\divis(f|_W)$ by \cite[\S13.7.1]{CLD25}, and
+integration over a pure closed analytic subspace agrees with integration
+over its associated cycle by \cite[Proposition~16.6.3]{CLD25}.  Thus its
+canonical calibration contains exactly the generic lengths occurring in
+the Cartier divisor, which proves the third assertion.
 \end{proof}
 
 \begin{lemma}
@@ -2090,10 +2116,29 @@ compatible affine map and $H_E=(F,G_E)$, then
        =(H_E)_*\Trop(U_0).
 \]
 Applying the projection formula to this equality gives the displayed
-boundary integral.  Passing to the limit
-localizes this integral on the face $x_0=-\log s$.  By
-\Cref{lem:ch18-fibre-cylinder}, that face, with its full lattice and
-residue-degree calibration, is
+boundary integral.  Passing to the limit localizes this integral on the
+face $x_0=-\log s$.  Let $\rho>s$ be a common cylinder radius supplied by
+\Cref{lem:ch18-fibre-cylinder} for the finitely many nonempty $W_E$ and put
+$I=[s,\rho]$.  Set
+\[
+ W_E(I):=\{x\in W_E:|f(x)|\in I\},
+ \qquad
+ \Sigma_E(I):=h_{E,\trop}(W_E(I)).
+\]
+The lemma identifies the $n$-dimensional calibrated part of
+$\Sigma_E(I)$ with
+\[
+ (-\log I,1)\times
+ \operatorname{trop}_{U_E}(\divis(f)\cap W_E).
+\]
+There can a priori be additional cells contained in the relative boundary,
+because the fibre theorem identifies the top-dimensional skeleton rather
+than the whole tropical image.  As in the proof of
+\cite[Lemma~7.3, equations~(7.3.8)--(7.3.9)]{GK17}, use the available
+freedom in the defining polytopes and in $s$ to arrange that the annular
+complex met by the integrand is the pure $n$-dimensional product above.
+Consequently the contributing part of the face $x_0=-\log s$, with its
+full lattice and canonical calibration, is
 \(
  \{-\log s\}\times
  \operatorname{trop}_{U_E}(\divis(f)\cap W_E)
@@ -3800,21 +3845,54 @@ exact-byte hostile audits and production Rethlas verification.
 \endgroup
 \endgroup
 
+Finite flat fibre integration removes the remaining rational-point
+restriction in analytic dimension one.  The next two propositions are
+book-level deductions from the cited Chambert--Loir--Ducros and Berkovich
+results; no novelty or priority claim is made.  Their exact
+dependency-closed statement and proof passed an independent hostile audit
+and production Rethlas verification.
+
+\begingroup
+\providecommand{\an}{\mathrm{an}}
+\input{editorial/rethlas_packets_20260830/p062_curve_arbitrary_field_candidate_20260830/p062_curve_arbitrary_field_statement_20260830.tex}
+
+% The verified proof headings already contain the words Proof of.
+\begingroup
+\makeatletter
+\let\pzerosixtwocurve@original@nonumberplain\th@nonumberplain
+\def\th@nonumberplain{%
+  \pzerosixtwocurve@original@nonumberplain
+  \def\@opargbegintheorem##1##2##3{%
+    \item[\theorem@headerfont\hskip\labelsep ##3\theorem@separator]}}
+\makeatother
+\input{editorial/rethlas_packets_20260830/p062_curve_arbitrary_field_candidate_20260830/p062_curve_arbitrary_field_proof_20260830.tex}
+\endgroup
+\endgroup
+
 \Cref{prop:p062-rational-centred-traces} is unconditional over the original
 field, but it reaches only \(K\)-rational centres, their Gauss skeleta, and
-the closure of their union.  Such a closure need not contain a rigid point
-with nontrivial residue extension.  \Cref{prop:p062-explicit-base-change}
-therefore states the scalar-extension equation as a hypothesis rather than
-silently pulling back a continuous current.  Its last item, which concerns
-the open polydisc, is unconditional for two-sided CLD-psh functions because
-psh functoriality supplies both positive opposite currents upstairs.
+the closure of their union in higher dimension.  Such a closure need not
+contain a rigid point with nontrivial residue extension.
+\Cref{prop:p062-finite-flat-continuous-trace} supplies a continuous
+branch-free trace through ramified and inseparable finite fibres, and
+\Cref{prop:p062-arbitrary-field-disc} uses it to reach every analytic point
+of a strict one-dimensional disc over the original field.
+\Cref{prop:p062-explicit-base-change} remains the available
+higher-dimensional descent statement: it states the scalar-extension
+equation as a hypothesis rather than silently pulling back a continuous
+current.  Its last item, which concerns the open polydisc, is unconditional
+for two-sided CLD-psh functions because psh functoriality supplies both
+positive opposite currents upstairs.
 
-Thus the algebraically closed theorem gives constancy everywhere, while the
-arbitrary-field proposition isolates the exact part that is currently
-available without a scalar-extension theorem.  No uniformization of an
-arbitrary analytic germ, and no automatic scalar-extension stability of
-\(\mathrm d'\mathrm d''[h]\), is inferred.  The unrestricted continuous
-zero-current problem remains open.
+Thus the algebraically closed theorem gives constancy in every dimension,
+and the finite-trace argument gives unconditional full constancy in
+dimension one over an arbitrary complete nontrivially valued field.  In
+dimension at least two over such a field, only the rational-centred trace
+and the explicit descent criteria are presently established.  No
+uniformization of an arbitrary analytic germ, and no automatic
+scalar-extension stability of \(\mathrm d'\mathrm d''[h]\), is inferred.
+The unrestricted higher-dimensional continuous zero-current problem remains
+open.
 
 \subsection{Harmonic tropicalizations and their weights}
 \label{sec:ch18-harmonic-trop-def}
@@ -4883,10 +4961,14 @@ continuous zero-current function on a strict polydisc
   \Cref{prop:p062-rational-centred-traces} works over every complete
   nontrivially valued field but concludes only constancy on \(K\)-points,
   \(K\)-centred Gauss skeleta, and their closure;
+  \Cref{prop:p062-arbitrary-field-disc} gives full constancy on every
+  one-dimensional strict open disc, and on a strict closed disc when the
+  equation holds on its analytic interior, over the same arbitrary fields;
   \Cref{prop:p062-explicit-base-change} gives full constancy when the zero
   current is known after one complete algebraically closed extension, and
   on the open polydisc for two-sided CLD-psh functions; automatic current
-  pullback and arbitrary analytic germs are not covered\\
+  pullback, arbitrary analytic germs, and arbitrary-field polydiscs of
+  dimension at least two are not covered\\
 \end{tabular}
 \end{center}
 
@@ -4980,10 +5062,13 @@ polydisc, or strict closed polydisc with the equation on its analytic
 interior; \Cref{thm:p062-polydisc-zero-current-candidate}; over an arbitrary
 complete nontrivially valued field the radial identity and constancy on
 \(K\)-centred Gauss skeleta follow from
-\Cref{prop:p062-rational-centred-traces}, while
+\Cref{prop:p062-rational-centred-traces};
+\Cref{prop:p062-arbitrary-field-disc} gives full constancy in dimension one,
+while
 \Cref{prop:p062-explicit-base-change} supplies the two explicit full-descent
-criteria; no automatic arbitrary-field current pullback or arbitrary-germ
-uniformization\\
+criteria in every dimension; no automatic arbitrary-field current pullback,
+arbitrary-germ uniformization, or unconditional higher-dimensional
+arbitrary-field conclusion\\
 Weakly smooth form vs. delta-form & no general equality used & different
 coordinate and coefficient enlargements \\
 Classically psh function & maximum principles and curve functoriality & no
@@ -5168,8 +5253,32 @@ model and scrutiny & \texttt{gpt-5.6-sol}, \texttt{xhigh}.
 The final verdict was \texttt{correct}, with zero critical errors, zero gaps,
 and eight reference checks without an issue; the direct endpoint assigned no
 item identifier.
-The result does not assert automatic scalar-extension stability of the
-continuous Hessian current and does not cover arbitrary analytic germs.
+The finite-flat trace and arbitrary-field one-dimensional disc results
+\Cref{prop:p062-finite-flat-continuous-trace,%
+prop:p062-arbitrary-field-disc} add a different descent mechanism.  Uniform
+ordinary-smooth approximation and relative-dimension-zero fibre integration
+give a continuous calibrated trace commuting with currents.  For a rigid
+point, its minimal polynomial then produces a finite flat disc map whose
+zero fibre and selected Gauss fibre are both single calibrated fibres of the
+full degree, including in ramified and inseparable cases.  The exact
+statement/proof SHA-256 values are
+\begin{center}
+\small
+\begin{tabular}{@{}c@{}}
+\nolinkurl{67a8d8a21e23cb34cf9b8f6685efbf2c9eaa6ff484b3696cbc1867a8940e095c}\\
+\nolinkurl{479643ee3aa534bbfc98adcf69837356d3cd8eff22d92accd1319aabb049553e}.
+\end{tabular}
+\end{center}
+An independent exact-byte hostile audit passed.  The dependency-closed
+production request, archived under
+\nolinkurl{20260830T033245Z_5c4711a474d8}, used
+\texttt{gpt-5.6-sol} at \texttt{xhigh}; it returned final
+\texttt{correct}, zero critical errors, zero gaps, and thirteen checked
+citation uses, with no endpoint run or item identifier.  The result proves
+full constancy on one-dimensional strict discs over arbitrary complete
+nontrivially valued fields.  It does not assert automatic scalar-extension
+stability of the continuous Hessian current in higher dimension and does
+not cover arbitrary analytic germs.
 The ordinary CLD-smooth monotone regularization theorem
 \Cref{thm:p063-current-psh-ordinary-regularization} is the book-level
 tree/residual-divisor extension of Wanner's curve comparison and restricted
@@ -5253,9 +5362,9 @@ enter, were tested in \Cref{ex:ch18-two-lines-numbers} and
 \Cref{ex:ch18-nonunimodular}.
 
 \paragraph{Statements quoted without proof.}
-Four statements in this chapter are used with a citation and are not proved
-here: the analytic tropical fibre-calibration theorem
-\cite[Proposition~4.6.6]{CLD25} inside
+Four deep inputs in this chapter are used with a citation and are not proved
+here: the analytic variation theorem for calibrated tropical fibres
+\cite[Theorem~14.7.2]{CLD25}, used in the proof of
 \Cref{lem:ch18-fibre-cylinder}; that
 formal metrics are delta-metrics, \cite[Proposition~8.11]{GK17}, inside
 \Cref{thm:ch18-model-corner}\,\cref{itm:ch18-mc:delta}; the residual
