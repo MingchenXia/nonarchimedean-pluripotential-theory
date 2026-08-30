@@ -40,12 +40,14 @@ retirement of the ordinary CLD-smooth curve-regularization atom after
 projective ample-class full-cone atom P00.1 after the source-explicit
 Mesquita--Piccione--Boucksom--Jonsson comparison described below, and
 retirement of P17.1 after the exact-live Banach-family Monge--Amp\`ere
-continuity theorem,
+continuity theorem, retirement of P07.2 after the universal
+\(\omega_1\)-stage theorem, and retirement of P08.2 after the formal-twistor
+counterexample,
 the exact count is
 
 ```text
-14 formal problem environments = 53 active atomic research questions.
-Tier counts: (T1,T2,T3,T4,T5) = (0,5,14,17,17).
+14 formal problem environments = 51 active atomic research questions.
+Tier counts: (T1,T2,T3,T4,T5) = (0,5,12,17,17).
 ```
 
 The active identifiers listed below form an editorial addressing scheme.
@@ -96,8 +98,9 @@ passed production run `20260829T233220Z_e30033eea96e` using
 gaps.  It covers every reduced separated strict curve whose normalization
 is bijective after completed perfect closure and reduction, including
 relative boundary.  P03.1 remains active only beyond this curve range and
-for sharp necessity; P03.2 and P03.3 are unchanged.  The total remains 53
-active atoms in 14 formal problem environments.
+for sharp necessity; P03.2 and P03.3 are unchanged.  At that verification
+checkpoint the total was 53 active atoms in 14 formal problem environments;
+the later P07.2 and P08.2 retirements give the current total of 51.
 
 ### `prob:frontier-local-ma` --- 4 atoms
 
@@ -137,24 +140,26 @@ conditional; the general targets remain open.
 ### `prob:frontier-pluriharmonic` --- 2 atoms
 
 - **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
-  finite curve-factor, finite constant-group quotient, split simplicial
-  toric-domain, and affine-toric fixed-point cases]` On a good,
+  finite curve-factor, finite constant-group quotient, all-orbits split
+  toric, finite-split toric-form, and transverse toric-product cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
-  `thm:p061-arbitrary-curve-factors-ph-rpl`, the split simplicial toric
-  scope of `thm:p061-simplicial-toric-ph-rpl`, and the exact toric
-  fixed-point scope of `thm:p061-toric-fixed-point-constancy`, decide whether every
+  `thm:p061-arbitrary-curve-factors-ph-rpl` and the all-orbits split toric
+  and finite-split-form scope of `thm:p061-split-toric-all-orbits` and
+  `cor:p061-toric-forms`, decide whether every
   classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
-  moment-factor, algebraically closed strict-polydisc, arbitrary-field
-  one-dimensional strict-disc, and smooth-proper-curve cases]` Decide
+  moment-factor, algebraically closed closed-polydisc, arbitrary-field
+  standard strict-open-polycylinder, arbitrary-field one-dimensional annulus
+  endpoint, and smooth-proper-curve cases]` Decide
   whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
   harmonic whenever the classical notion is available, outside the verified
-  strict-polydisc, factorized, and curve scopes, with the arbitrary-field
-  higher-dimensional and arbitrary-germ residual boundaries stated below.
+  standard strict-open-product, factorized, and curve scopes, with the
+  higher-dimensional product-endpoint and arbitrary-germ residual boundaries
+  stated below.
 
 The weakly smooth zero-current statement is known.  The real-PL
 zero-current implication is now verified on good separated boundaryless
@@ -237,9 +242,30 @@ identifier.  The archived request/response/header SHA-256 values are
 `b4a03f9def9dbb51cdb808951afe6a1a0232a2b54e8493b8a2c37c0eeb2e4467`,
 and
 `f327f862ee85670ad3cdff73e3212734eb9c4e2edf391f0325f1a50489a40f26`.
-The atom remains active only outside the split simplicial toric-domain
-scope and the other verified scopes listed above; in particular, the
-non-simplicial, nonsplit, and general toroidal residuals are unchanged.
+This simplicial theorem is retained as an independent quotient-descent
+result.  The stronger all-orbits theorem now removes simpliciality and the
+closed-orbit restriction.  `thm:p061-split-toric-all-orbits` and
+`cor:p061-split-toric-varieties` cover every ordinary open analytic subspace
+of every split toric variety, for arbitrary fans and at every orbit;
+`cor:p061-toric-forms` descends the conclusion for forms that split after a
+finite analytic extension.  The parameterized fixed-fibre theorem also
+covers actual local products of a pointed full-dimensional affine toric
+factor with a quasi-smooth factor.  The exact statement/proof SHA-256 values
+are
+`05bda70eb1cf7ebbcc95d1831feadd946afa168f64a7298171381b9f1e865e60` /
+`21c44c47a91a28469fb91a6c00569ed56d12699bae9c956c68c33ad493825b03`.
+An independent exact-byte hostile audit passed.  Dependency-closed
+production Rethlas using `gpt-5.6-sol` at `xhigh` returned final `correct`,
+zero critical errors, and zero gaps.  The archived
+request/response/header SHA-256 values are
+`def28bf9f16539fadab9b8b99dbd435d00eed8c3730c496d2b8832ee865a29c9` /
+`718044118ee65e0d76b7c02b8b553552b8da974367513aa5ed4d57e8b6231f7d` /
+`4146f66712746a54a0f3f2be457e6ae87cd4ab1be92013e1e8480765492d7958`.
+P06.1 remains active only for arbitrary nonproduct singular germs, products
+containing higher-dimensional reduced singular factors outside the verified
+ranges, genuinely toroidal or log-etale charts not analytically locally of
+the displayed product form, and forms not known to split after a finite
+extension.
 The coefficient cannot be strengthened: `prop:p061-integral-pl-counterexample`
 gives \(\sqrt2\log|T|\) on a strict semistable annulus, which is not
 \(\mathbf Q\)-PL. The exact statement and proof passed production Rethlas
@@ -247,10 +273,10 @@ run `20260829T043457Z_0b1b4d161e3b`, item
 `pi_7cd35ebd843cf80a7cd696bb`, final `correct`, with zero critical errors
 and zero gaps. P06.1 remains one active T2 atom, now confined to arbitrary
 nonproduct non-quasi-smooth points in dimension at least two outside the
-verified quotient range, products containing a reduced singular factor of
-dimension at least two outside that range, non-simplicial positive-orbit
-toric domains, nonsplit toric forms, and general toroidal or log-etale
-charts. No atom count, tier count, or queue position
+verified product and quotient ranges, products containing a reduced singular
+factor of dimension at least two outside those ranges, genuinely toroidal or
+log-etale charts without the verified transverse product structure, and
+forms not known to split after a finite extension. No atom count, tier count, or queue position
 changes.
 The proper full-rank moment-factor case is also verified by
 `prop:p062-proper-full-rank-moment`.  It applies only when \(X\) is pure of
@@ -308,8 +334,59 @@ production request archived as `20260830T033245Z_5c4711a474d8`, using
 errors, zero gaps, and thirteen checked citation uses; the endpoint assigned
 no run or item identifier.  This does not prove the arbitrary-field result
 on strict polydiscs of dimension at least two and does not uniformize an
-arbitrary analytic germ.  Hence P06.2 remains one active T2 atom and the
-total remains 53.
+arbitrary analytic germ.
+
+The arbitrary-field result now extends to every standard strict open
+polycylinder.  `prop:p062-product-fibre-zero-current-candidate` proves exact
+restriction of the zero-Hessian current to every strict disc or annulus
+fibre over the completed residue field of an arbitrary base point;
+`prop:p062-arbitrary-field-annulus-candidate` and
+`thm:p062-arbitrary-field-polycylinder-candidate` then give
+
+```text
+h = c + sum_j lambda_j log|S_j|.
+```
+
+Thus strict open polydiscs are constant over every complete nontrivially
+valued field.  The frozen v3 statement/proof SHA-256 values are
+`985be85d97b583f72be5cee65988df6f31c1edb49a685121b834df179fa87fda` /
+`42b592bf8ac26ed46c36928e5e90272225ae6883bd2bfe62d3ff2840f01d46e5`.
+After an independent exact-byte audit, dependency-closed production Rethlas
+using `gpt-5.6-sol` at `xhigh` returned final `correct`, zero critical
+errors, and zero gaps.  The archived request/response/header SHA-256 values
+are
+`6261b61bc49669a74a6eee4a2d834c25c8741bef59b084b81eaa684629f2d604` /
+`c8c951075a574c6a3badde2e2a22942718616cd21da0144cb8a983bc3cac822f` /
+`dcac7f45ad5464d4599d880862ce27c9c98e18cc3f4060bbf250426080c7fb45`.
+The accepted packet is strictly open: the closed and half-closed endpoint
+assertions rejected from v2 are absent.  P06.2 remains one active T2 atom for
+arbitrary analytic germs, nonproduct local domains, and unresolved
+higher-dimensional product-endpoint variants.
+
+The one-dimensional closed and half-closed annulus endpoints are now settled
+by a separate proof, not by restoring the rejected v2 product claim.
+`prop:p062-annulus-endpoint-arbitrary-field` proves that, over every complete
+nontrivially valued field, a continuous zero-current function on each of
+
+```text
+{r<|T|<=R},  {r<=|T|<R},  {r<=|T|<=R}
+```
+
+is `a log|T|+b`, when the equation is imposed on the absolute analytic
+interior.  Its exact frozen statement/proof SHA-256 values are
+`a54723f040926d5a309494bb77d3c734c1c9d27bfb9fd18c56fc70ea4d03c9e1` /
+`461afad5804a3269cb385550af6f4abcb5543d4f3151db56f986490c74e6947e`.
+An independent exact-byte release audit passed.  Dependency-closed
+production Rethlas using `gpt-5.6-sol` at `xhigh` returned final `correct`,
+zero critical errors, and zero gaps.  The archived request/response/header
+SHA-256 values are
+`34a4d9f0d4b10a1f5a4693adef7a233a8ee756813dfe1f21450dc0cfd2d67242` /
+`6b5aa2445bbd8b1dbe594fc23571c979d64eb5dc839f038101ce97b93181cee4` /
+`7d1ce47df4f2cceae087f95d72337b90ce2a3a2b6c51cabf015395597ff3e396`.
+The proof makes no product or higher-dimensional endpoint assertion.  P06.2
+therefore remains one active T2 atom only for the residual scopes above.
+Neither this result nor the P06.1 all-orbits theorem changes the
+atom count, tier count, or queue position.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
@@ -327,13 +404,10 @@ and
 The direct endpoint assigned no item identifier.  P06.1 and P06.2 retain
 the residual scopes stated above.
 
-### `prob:frontier-cld-hierarchy` --- 2 atoms
+### `prob:frontier-cld-hierarchy` --- 1 active atom
 
 - **P07.1** `[T2; open]` Decide whether the CLD psh hierarchy collapses after
   its first decreasing-limit stage.
-- **P07.2** `[T3; open]` If not, determine whether a finite or otherwise
-  uniformly controlled early ordinal works on a natural class of affine
-  tropical spaces.
 
 Eventual cardinal stabilization is known.  Production run
 `20260825T024707Z_d1b8d7eaf79e` controls the tropical toric case and the
@@ -374,6 +448,25 @@ Production item `pi_00f6c73303087d94da9eb724`, using `gpt-5.6-sol` at
 response SHA-256 is
 `b271d51ed81898ccfe68a798b3fc69e165c0c72486ff6c59711995f5b9e581af`.
 
+The exact product of a locally compact Hausdorff clopen-base space $Z$,
+carrying only locally constant affine functions, with an arbitrary open
+convex Euclidean domain is also controlled.  The first-stage and full CLD
+psh sheaves coincide, every germ has a fixed-neighbourhood decreasing smooth
+psh approximation, and every germ factors through a compact metrizable
+zero-dimensional quotient of a compact clopen neighbourhood in $Z$.  This
+includes nonmetrizable Cantor
+cubes.  The frozen statement/proof SHA-256 hashes are
+`dfd8c7cc9d6d26f50260707975ff62d4f292627f084400bcd37b32253c876cdc` /
+`9316e1a9df86c73a68ec099d3254e451ceaaac17a15c2a92441ad44961d863f6`.
+The source-aware production endpoint, using `gpt-5.6-sol` at `xhigh`,
+returned final `correct`, zero critical errors, and zero gaps; it assigned
+no run or item identifier.  The archived request/response SHA-256 hashes are
+`ac70562c588dbf8f22925086bc85dc327585f026809563a71c79feb29787ca23` /
+`ef9be00d4ed1462f11068a2b99a2c7fbe366af2b3bd180850b6763db541c3d6a`.
+This result does not cover nonconstant affine directions in $Z$ or general
+polyhedral face gluings, so it narrows but does not retire P07.1; the
+uniform-ordinal atom is handled separately below.
+
 The general cross-row order obstruction is also eliminated conditionally by
 `prop:p071-fixed-core-flattening`: if every row approximation is defined on
 a neighbourhood of one common compact core, a finite-square diagonal and
@@ -385,25 +478,44 @@ Production run `20260829T234341Z_b29ccabac989`, using
 `gpt-5.6-sol` at `xhigh`, returned final `correct`, zero critical errors and
 zero gaps.
 
-P07.1 therefore retains arbitrary higher-dimensional settings and other
-nonambient local models outside the two exact interval structures and
-\(X_B\), with the residual obstruction sharpened to fixed-neighbourhood
-globalization rather than diagonal order.  P07.2 retains the absence of a
-uniform early-ordinal bound.  Both atoms remain active.  The controlling
-P17.1 retirement addendum below gives the current total of 53 atoms in 14
-formal problem environments, with tier counts `(0,5,14,17,17)`.
+**Retired P07.2 (positive).**  For every CLD affine $G$-tropical space,
+the full generated psh and continuous psh sheaves occur by the first
+uncountable stage:
 
-### `prob:frontier-cld-global-metric` --- 2 atoms
+```text
+Psh_{X,\omega_1} = Psh_X,
+CPsh_{X,\omega_1} = CPsh_X.
+```
+
+The compact-core proof correctly treats the limit stage as a
+sheaf-theoretic local union and uses that a countable supremum of countable
+row ranks is still below $\omega_1$.  The frozen statement/proof SHA-256
+hashes are
+`37ca59d5bd863e6af4d46ed18d1cf1c4cfcdb45aeeac1f25631fa582750985f8` /
+`9cb9222dbd307d4ff21c0043951a5c0b4a65dec645012fe5e5584b86808a6b5b`.
+After an independent exact-byte re-audit, dependency-closed production
+Rethlas using `gpt-5.6-sol` at `xhigh` returned final `correct`, zero
+critical errors, and zero gaps.  The request/response/header SHA-256 hashes
+are
+`befa29ce409a5b20bf3d40acd1adf20c99a599ecab7c3d886b29327676950f11` /
+`d40c473aad890ff6361e637af8219e5f8ed3c09fc6c8beacd77e94e49780fec3` /
+`226053b84fefdb73d19c1ae547c54425604190f55d4d026f5a9f46ab061d064c`.
+This supplies no finite or fixed countable bound and does not retire P07.1.
+At this checkpoint the active count drops from 53 to 52 and the tier counts
+become `(0,5,13,17,17)`.
+
+P07.1 therefore retains arbitrary higher-dimensional settings and other
+nonambient local models outside the two exact interval structures,
+\(X_B\), and the exact locally constant-parameter product, with the residual
+obstruction sharpened to fixed-neighbourhood
+globalization rather than diagonal order.  It remains active.
+
+### `prob:frontier-cld-global-metric` --- 1 active atom
 
 - **P08.1** `[T3; open beyond the verified smooth algebraically closed
   curve scope]` Decide whether a continuous locally CLD-psh metric on a
   projective non-Archimedean variety is globally psh in the Fubini--Study
   or nef-model sense outside the curve scope stated below.
-- **P08.2** `[T3; open beyond the verified algebraic and strict analytic
-  smooth-curve scope]`
-  Prove or disprove the corresponding global approximation statement on a
-  proper strict analytic space admitting a formal model with projective
-  special fibre.
 
 The smooth proper algebraic curve case over an algebraically closed complete
 nontrivially valued field is now verified by
@@ -425,9 +537,8 @@ SHA-256 values are
 `7af690cea941960fc8c8bfba39acfacd6cbf0bbe8bf52273431b93945d1af0af`,
 and
 `c2d6c04bd79ddd90ddd7e91a6c6bbf64282d5f7cd193bb1e682ff9c89d8d69a3`.
-The same conclusions now hold for every smooth proper connected strict
-analytic curve over the same field, without assuming beforehand that it has
-a formal model with projective special fibre.  The exact transfer statement
+The same P08.1-type conclusions now hold for every smooth proper connected
+strict analytic curve over the same field.  The exact transfer statement
 and proof, SHA-256
 `64e507146c65614e37d831a25d230f1bb05cdf4decc25f298f4adbea22f4c9da`
 and
@@ -443,24 +554,40 @@ and
 `176e7a69175ba6de0ce09be2633852742af43e415cbf283ad51991fbddf084e0`.
 
 P08.1 retains higher dimension, singular curves, and arbitrary complete
-ground fields. P08.2 retains higher-dimensional proper strict analytic
-spaces, singular analytic curves, and the general-field and trivially
-valued ranges.  No smooth strict-curve residual remains under the verified
-field hypotheses, but neither atom is retired; the count and tier
-distribution are unchanged.
-
-The distinct statement that every parlinear metric on a smooth proper
-strict analytic curve is globally dpsh is not an active atom: it is already
-contained in CLD Corollary 17.8.9.  The book now gives a curve-specific
-curvature-domination proof, exact statement/proof SHA-256
+ground fields.  P08.2 is the distinct source-exact extension of CLD
+Corollary 17.8.9 from analytifications of projective varieties to proper
+strict analytic spaces having a formal model with projective special fibre.
+The book gives a curve-specific curvature-domination proof in the smooth
+strict-curve range, with exact statement/proof SHA-256
 `ae3042f558e649bfd2f54a00287901978558defa6a6aa4be52e63f9461c466be` /
 `5a35c88f774aca391fa6c38acbbc5cb0c7ea5956efbdc370d129fbdc365bec80`.
 An independent seven-obligation audit passed; dependency-closed production
 Rethlas using `gpt-5.6-sol` at `xhigh` returned final `correct`, zero
 critical errors, and zero gaps.  The response SHA-256 is
 `00561848978d7ef9ca781ffb48eb507ba928d53507dea96e7ea2b34e5cb4add7`.
-This is an alternative proof of a published conclusion and does not change
-the active count.
+This is an alternative proof of a published conclusion in that curve range.
+
+**Retired P08.2 (negative).**  The extension of CLD Corollary 17.8.9 to all
+proper strict analytic spaces possessing a formal model with projective
+special fibre is false.  On the generic fibre of a very general formal
+twistor deformation of a projective complex K3 surface, the analytic Picard
+group is zero.  An admissible blow-up of a closed point of the special fibre
+produces a nonconstant strictly integral parlinear metric on the trivial
+line bundle, while the maximum principle forces every globally dpsh metric
+on that bundle to be constant.  The frozen statement/proof SHA-256 hashes
+are
+`1e9b7c31a70c55f407de07d76c67d6912e61e1673ef81c66c60789afd2202d2f` /
+`78fab726abcdfb3086988150359568ccd8a9b29d63c3a94e0c513f14b9fc148c`.
+After an independent twelve-obligation audit, dependency-closed production
+Rethlas using `gpt-5.6-sol` at `xhigh` returned final `correct`, zero
+critical errors, and zero gaps.  The request/response/header SHA-256 hashes
+are
+`7916d3750482946cd933591a3f836d6e3b308dcbddb8a24a26c836de41d73e1b` /
+`f5e780184515b39bbb7d4fd099366da98b96a74896fa1d693b43f66cce19d57e` /
+`29d3ae7255f5ee74b5deca5d6cc3c297ec382d97c8d078731eecc273940c1d45`.
+The counterexample does not address P08.1.  At this checkpoint the active
+count drops from 52 to 51 and the tier counts become `(0,5,12,17,17)`;
+the number of formal problem environments remains 14.
 
 ### Retired P09 history --- 0 active atoms
 
@@ -830,8 +957,8 @@ passed the superseding archive
 `correct`, zero critical errors, and zero gaps.  P00.1 and its Chapter 71
 problem environment are retired.
 At this 28 August milestone, the active inventory was 15 formal
-environments and 54 atoms.  After the 30 August P17.1 retirement recorded
-above, the current inventory is 14 formal environments and 53 atoms.
+environments and 54 atoms.  After the 30 August retirements recorded above,
+the current inventory is 14 formal environments and 51 atoms.
 
 ## Easy-to-hard Rethlas queue
 
@@ -847,10 +974,10 @@ No active atom remains in this tier after retirement of `P01.1`.
 
 `P21.3`, `P07.1`, `P06.1`, `P06.2`, `P03.1`.
 
-### T3 --- major theorems within mature frameworks (14 atoms)
+### T3 --- major theorems within mature frameworks (12 atoms)
 
 `P02.1`, `P02.2`, `P02.3`, `P05.1`, `P05.2`, `P05.3`, `P05.4`,
-`P07.2`, `P08.1`, `P08.2`, `P14.2`, `P14.7`, `P03.2`,
+`P08.1`, `P14.2`, `P14.7`, `P03.2`,
 `P03.3`.
 
 ### T4 --- new comparison theories or several coupled inputs (17 atoms)
