@@ -449,6 +449,19 @@ valued ranges.  No smooth strict-curve residual remains under the verified
 field hypotheses, but neither atom is retired; the count and tier
 distribution are unchanged.
 
+The distinct statement that every parlinear metric on a smooth proper
+strict analytic curve is globally dpsh is not an active atom: it is already
+contained in CLD Corollary 17.8.9.  The book now gives a curve-specific
+curvature-domination proof, exact statement/proof SHA-256
+`ae3042f558e649bfd2f54a00287901978558defa6a6aa4be52e63f9461c466be` /
+`5a35c88f774aca391fa6c38acbbc5cb0c7ea5956efbdc370d129fbdc365bec80`.
+An independent seven-obligation audit passed; dependency-closed production
+Rethlas using `gpt-5.6-sol` at `xhigh` returned final `correct`, zero
+critical errors, and zero gaps.  The response SHA-256 is
+`00561848978d7ef9ca781ffb48eb507ba928d53507dea96e7ea2b34e5cb4add7`.
+This is an alternative proof of a published conclusion and does not change
+the active count.
+
 ### Retired P09 history --- 0 active atoms
 
 P09.2 asked whether, over an algebraically closed, complete,
