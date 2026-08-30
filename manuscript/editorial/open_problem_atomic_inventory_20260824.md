@@ -164,14 +164,16 @@ conditional; the general targets remain open.
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
   moment-factor, algebraically closed closed-polydisc, arbitrary-field
-  standard strict endpoint-polycylinder, and smooth-proper-curve cases]` Decide
+  standard strict endpoint-polycylinder, arbitrary-radius scalar-stable
+  endpoint-polycylinder, and smooth-proper-curve cases]` Decide
   whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
   harmonic whenever the classical notion is available, outside the verified
   standard strict-coordinate-product, factorized, and curve scopes, with the
-  arbitrary-germ, nonproduct, non-strict-radius, and strict-core-only residual
-  boundaries stated below.
+  arbitrary-germ, nonproduct, strict-core-only, and weaker-than-scalar-stable
+  boundary-control residuals stated below.  The unrestricted arbitrary-radius
+  product extension is now known to be false.
 
 The weakly smooth zero-current statement is known.  The real-PL
 zero-current implication is now verified on good separated boundaryless
@@ -440,11 +442,37 @@ request/response/header SHA-256 values are
 `7b5bdbb4a15fb8d5202d57ddb4c49f84e1844908863c95580ceec7c1f1324171` /
 `c0d9aaf5a8ef3400b6b20782a0a8d9073c24c200027c4451a9aec9e5432b446d` /
 `1013a47eaabe8bdeec363937720e76b988fb76dbd90f2009ca10f6a513d0cb94`.
+
+The arbitrary-radius residual now has a sharp negative--positive resolution
+on standard products.  `prop:p062-nonstrict-boundary-resonance-counterexample`
+takes \(R\notin\sqrt{|K^\times|}\) and the reciprocal closed bidisc
+\(\{|T|\leq R\}\times\{|S|\leq R^{-1}\}\).  Its relatively open tube
+\(\{|TS-1|<1\}\) lies entirely outside the absolute analytic interior, so an
+explicit nonconstant continuous cutoff supported there has zero Hessian on
+the interior.  Thus the unrestricted arbitrary-radius extension is false.
+By contrast, `prop:p062-nonstrict-scalar-stable-repair` proves the full
+affine formula on every arbitrary-radius standard endpoint polycylinder if,
+after one complete extension strictifying the radii, the pulled-back Hessian
+vanishes on the full upstairs interior.  Its exact statement/proof SHA-256
+values are
+`27ff3ad7a6174b8b38d5890d8c891681edf416f02e2538017db22edf372c1ed8` /
+`15ff9b3a28b63c1e3f37c104f27e30e77431f389ec694a1d3f3823232ef1f125`.
+An independent exact-byte hostile re-audit passed.  Dependency-closed
+production Rethlas using `gpt-5.6-sol` at `xhigh` returned final `correct`,
+zero critical errors, and zero gaps.  The archived request/response/header
+SHA-256 values are
+`bb90f025d3e6fb616918a364a9f1b014968a58164ff142557ec8188a45b40759` /
+`839c5b3f0506f9789f2f14d5eaff8afc0c2bd20b17ba11bf7400b3a5e0a7582a` /
+`3f31d65b71c13800f8486cf689d9fb508fa35c7b44e0b94084292abffd0dad66`.
+No automatic ascent of an arbitrary continuous current is asserted.
+
 P06.2 remains one active T2 atom only for arbitrary analytic germs,
-nonproduct local domains, non-strict radii, and equations known merely on
-the coordinatewise strict radial core.  Higher-dimensional standard strict
-product endpoints are removed from the residual.  The atom count, tier
-count, and queue position are unchanged.
+nonproduct local domains, equations known merely on the coordinatewise
+strict radial core, and the classification of boundary-control hypotheses
+weaker than scalar stability.  Higher-dimensional standard strict product
+endpoints and the scalar-stable arbitrary-radius products are removed from
+the residual; the unrestricted arbitrary-radius version is disproved.  The
+atom count, tier count, and queue position are unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
