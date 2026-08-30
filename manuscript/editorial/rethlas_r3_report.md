@@ -254,9 +254,13 @@ copy.
    `prop:ch15-nodal-local-envelope` shows that the unrestricted conclusion
    after usc regularization is false: for a continuous real-valued obstacle
    on a reduced strict nodal affinoid curve the regularized envelope is
-   discontinuous and is neither classically psh nor CLD-v2 psh.  This does
-   not give a positive classification for normal or analytically unibranch
-   domains.
+   discontinuous and is neither classically psh nor CLD-v2 psh.  That
+   counterexample did not by itself give a positive classification for
+   normal or analytically unibranch domains.  The later production-verified
+   `thm:p031-perfected-unibranch-curve-envelope` now supplies the positive
+   conclusion for the stated perfected-unibranch reduced strict curve range,
+   including relative boundary; higher dimension, sharp necessity, CLD-v2,
+   and continuity remain open.
 6. The requested local BJ theory is not a blank slate.  Boucksom--Favre--
    Jonsson already construct formal psh functions and a mixed local
    Monge--Amp\`ere operator on the normalized valuation space of a smooth
@@ -1691,3 +1695,33 @@ sense that they record research-frontier status and do not purport to be
 proved statements or reader assignments.  A fresh global scan after the
 central conversions finds no remaining `exercise` environment anywhere in
 the manuscript.
+
+## 10. Production addendum, 30 August 2026: finite quotient descent
+
+The P06.1 finite-constant-group quotient candidate has passed two
+source-aware hostile audits and exact-byte production verification.  Its
+statement/proof SHA-256 are
+`e1daa4b3e3efd64fcc8f0ce05b9c1d5d6cb69b28686b939b48535fc56b0ccc07` /
+`a6c24d1686c726dc72aebe55a1e83eb8d4fe1ed4025d4a8d7166da59123ce30e`.
+Run `20260829T235341Z_e1daa4b3e3ef` used `gpt-5.6-sol` at `xhigh` and
+returned final `correct`, zero critical errors and zero gaps.  The result is
+integrated by exact input in Chapter 18 and summarized with its limitations
+in Chapter 72.  It adds arbitrary finite constant-group quotients of verified
+separated strict affinoid source scopes, but no general quotient
+uniformization; P06.1 and the 53-atom inventory remain active.
+
+## 11. Production addendum, 30 August 2026: strict-polydisc zero current
+
+The P06.2 strict-polydisc candidate passed an independent exact-byte hostile
+audit and exact-byte production verification.  Its statement/proof SHA-256
+are
+`017f3da108ae737e4bbc1d490d6988faf76ce643b4cb52104aae53c4dcda75d6` /
+`3763bf9a7e4b1f47602544ad2c3248d9b8abd7b9d34109e3c14259e422393bbd`.
+Run `20260830T001728Z_017f3da108ae` used `gpt-5.6-sol` at `xhigh` and
+returned final `correct`, zero critical errors and zero gaps.  The result is
+integrated by exact input in Chapter 18 and summarized with its limitations
+in Chapter 72.  It proves constancy on strict open polydiscs, and on strict
+closed polydiscs when the current equation holds on the analytic interior,
+over algebraically closed complete nontrivially valued fields.  It supplies
+neither arbitrary-field descent nor a chart theorem for arbitrary analytic
+germs; P06.2 and the 53-atom inventory remain active.

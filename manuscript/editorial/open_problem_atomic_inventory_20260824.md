@@ -69,10 +69,12 @@ four unrestricted higher-dimensional targets remain open.
 
 ### `prob:frontier-unibranch-local-envelope` --- 3 atoms
 
-- **P03.1** `[T2; open]` Classify the hypotheses, beginning with normal or
-  analytically unibranch good strict domains, under which usc regularization
-  of every upper-semicontinuous local FS/semipositive-PL obstacle envelope is
-  classically psh.
+- **P03.1** `[T2; open]` Classify the higher-dimensional and remaining
+  singular hypotheses, and determine necessity, under which usc
+  regularization of every upper-semicontinuous local
+  FS/semipositive-PL obstacle envelope is classically psh.  The
+  perfected-unibranch reduced strict curve range is settled positively by
+  `thm:p031-perfected-unibranch-curve-envelope`.
 - **P03.2** `[T3; open]` Determine the additional hypotheses under which the
   regularized envelope is CLD-v2 psh for every such obstacle.
 - **P03.3** `[T3; open]` For continuous finite obstacles, determine the
@@ -80,13 +82,21 @@ four unrestricted higher-dimensional targets remain open.
 
 The continuous obstacle on the reduced strict nodal affinoid curve in
 `prop:ch15-nodal-local-envelope` disproves all three unconditional universal
-assertions, but it does not answer these classification questions.
-Its exact statement and proof passed production run
+assertions.  Its exact statement and proof passed production run
 `20260825T094005Z_10ac70696f69`, item
 `pi_31f95353b7e94f3cb98b09b6`, final `correct`, with zero critical errors
 and zero gaps.  If the raw envelope is already usc, the classical-psh
-conclusion remains valid.  No positive classification on normal or
-analytically unibranch domains is inferred.
+conclusion remains valid.  The exact perfected-unibranch curve
+statement/proof, SHA-256
+`e30033eea96e7d59310a1e67402dc73dbdc1a9463b7ab14fc6f28e271ea0397f` /
+`59535602b2f29c7c34bb4b4df79be1e2f72c0fa4fa61f1467b3e1c75723a1c71`,
+passed production run `20260829T233220Z_e30033eea96e` using
+`gpt-5.6-sol` at `xhigh`, final `correct`, zero critical errors and zero
+gaps.  It covers every reduced separated strict curve whose normalization
+is bijective after completed perfect closure and reduction, including
+relative boundary.  P03.1 remains active only beyond this curve range and
+for sharp necessity; P03.2 and P03.3 are unchanged.  The total remains 53
+active atoms in 14 formal problem environments.
 
 ### `prob:frontier-local-ma` --- 4 atoms
 
@@ -126,7 +136,8 @@ conditional; the general targets remain open.
 ### `prob:frontier-pluriharmonic` --- 2 atoms
 
 - **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
-  finite curve-factor, and affine-toric fixed-point cases]` On a good,
+  finite curve-factor, finite constant-group quotient, and affine-toric
+  fixed-point cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
   `thm:p061-arbitrary-curve-factors-ph-rpl` and the exact toric fixed-point
@@ -134,11 +145,12 @@ conditional; the general targets remain open.
   classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
-  moment-factor, and smooth-proper-curve cases]` Decide whether an arbitrary
+  moment-factor, strict-polydisc, and smooth-proper-curve cases]` Decide
+  whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
-  harmonic whenever the classical notion is available, without assuming a
-  proper full-rank moment factorization.
+  harmonic whenever the classical notion is available, outside the verified
+  strict-polydisc, factorized, and curve scopes.
 
 The weakly smooth zero-current statement is known.  The real-PL
 zero-current implication is now verified on good separated boundaryless
@@ -190,16 +202,30 @@ statement/proof SHA-256 values are
 Production item `pi_dfd932c583fee3acd3fefbe3` returned final `correct`,
 with zero critical errors and zero gaps.  This fixed-point theorem does not
 cover positive-dimensional torus orbits or arbitrary toric domains.
+Real-PL regularity also descends through arbitrary finite constant-group
+quotients of separated strict affinoids.  The exact statement/proof SHA-256
+values of `prop:p061-finite-group-rpl-descent-candidate` are
+`e1daa4b3e3efd64fcc8f0ce05b9c1d5d6cb69b28686b939b48535fc56b0ccc07` and
+`a6c24d1686c726dc72aebe55a1e83eb8d4fe1ed4025d4a8d7166da59123ce30e`.
+Two source-aware hostile audits passed.  Production run
+`20260829T235341Z_e1daa4b3e3ef` used `gpt-5.6-sol` at `xhigh` and returned
+final `correct`, with zero critical errors and zero gaps; the direct endpoint
+assigned no item identifier.  No flatness, freeness, reducedness, normality,
+or invertibility of the group order is assumed.  Hence the verified P06.1
+source scopes remain verified after taking separated strict affinoid finite
+constant-group quotients.  The theorem does not produce such a quotient
+uniformization for an arbitrary singular germ.
 The coefficient cannot be strengthened: `prop:p061-integral-pl-counterexample`
 gives \(\sqrt2\log|T|\) on a strict semistable annulus, which is not
 \(\mathbf Q\)-PL. The exact statement and proof passed production Rethlas
 run `20260829T043457Z_0b1b4d161e3b`, item
 `pi_7cd35ebd843cf80a7cd696bb`, final `correct`, with zero critical errors
 and zero gaps. P06.1 remains one active T2 atom, now confined to arbitrary
-nonproduct non-quasi-smooth points in dimension at least two, products
-containing a reduced singular factor of dimension at least two, and toric
-germs outside the verified fixed-point scope. No atom count, tier count, or
-queue position changes.
+nonproduct non-quasi-smooth points in dimension at least two outside the
+verified quotient range, products containing a reduced singular factor of
+dimension at least two outside that range, and toric germs outside the
+verified fixed-point scope. No atom count, tier count, or queue position
+changes.
 The proper full-rank moment-factor case is also verified by
 `prop:p062-proper-full-rank-moment`.  It applies only when \(X\) is pure of
 dimension \(n\geq 1\) and \(h=\varphi\circ F\), where
@@ -216,6 +242,21 @@ passed production Rethlas run `20260829T031126Z_75e9cb498ce4`, item
 zero gaps.  No theorem in the packet constructs such an \(F\) for an
 arbitrary continuous function, so P06.2 remains one active T2 atom outside
 this factorized scope.  No atom count, tier count, or queue position changes.
+The factorization-free strict-polydisc case is now verified as well.
+`thm:p062-polydisc-zero-current-candidate` proves that, over an algebraically
+closed complete nontrivially valued field, a continuous function with zero
+CLD current on a strict open polydisc is constant; the same holds on a strict
+closed polydisc when the equation holds on its analytic interior.  Its exact
+statement/proof SHA-256 values are
+`017f3da108ae737e4bbc1d490d6988faf76ce643b4cb52104aae53c4dcda75d6` and
+`3763bf9a7e4b1f47602544ad2c3248d9b8abd7b9d34109e3c14259e422393bbd`.
+An independent exact-byte hostile audit passed.  Production run
+`20260830T001728Z_017f3da108ae` used `gpt-5.6-sol` at `xhigh` and returned
+final `correct`, with zero critical errors and zero gaps; the direct endpoint
+assigned no item identifier.  The theorem does not descend the conclusion to
+an arbitrary complete ground field and does not uniformize an arbitrary
+analytic germ by strict polydiscs.  Thus P06.2 remains one active T2 atom, and
+the atom count, tier count, and queue position remain unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
@@ -280,12 +321,24 @@ Production item `pi_00f6c73303087d94da9eb724`, using `gpt-5.6-sol` at
 response SHA-256 is
 `b271d51ed81898ccfe68a798b3fc69e165c0c72486ff6c59711995f5b9e581af`.
 
+The general cross-row order obstruction is also eliminated conditionally by
+`prop:p071-fixed-core-flattening`: if every row approximation is defined on
+a neighbourhood of one common compact core, a finite-square diagonal and
+summable tail constants yield a single decreasing smooth-psh approximation
+on the fixed interior.  Its exact statement/proof SHA-256 are
+`b29ccabac98982c239fcedcc34a701c9a9bb98ca95710d6ed7fbaa3f0f96e4d9` /
+`7677ba46620cc4cef8a74d502cdf9fde344e045b04bbc66a4274a5c20b1838c2`.
+Production run `20260829T234341Z_b29ccabac989`, using
+`gpt-5.6-sol` at `xhigh`, returned final `correct`, zero critical errors and
+zero gaps.
+
 P07.1 therefore retains arbitrary higher-dimensional settings and other
 nonambient local models outside the two exact interval structures and
-\(X_B\).  P07.2 retains the absence of a uniform early-ordinal bound.  Both
-atoms remain active.  The controlling P17.1 retirement addendum below gives
-the current total of 53 atoms in 14 formal problem environments, with tier
-counts `(0,5,14,17,17)`.
+\(X_B\), with the residual obstruction sharpened to fixed-neighbourhood
+globalization rather than diagonal order.  P07.2 retains the absence of a
+uniform early-ordinal bound.  Both atoms remain active.  The controlling
+P17.1 retirement addendum below gives the current total of 53 atoms in 14
+formal problem environments, with tier counts `(0,5,14,17,17)`.
 
 ### `prob:frontier-cld-global-metric` --- 2 atoms
 

@@ -561,3 +561,69 @@ mark.
 4. No priority claim is made for anything in this pass, and no result is described
    as new until an external novelty check has been run against the primary
    literature.
+
+---
+
+# Production update, 30 August 2026: P03.1 curve range
+
+The exact perfected-unibranch curve candidate was independently hostile
+audited and then submitted to the production Rethlas service.  Frozen
+statement/proof SHA-256:
+`e30033eea96e7d59310a1e67402dc73dbdc1a9463b7ab14fc6f28e271ea0397f` /
+`59535602b2f29c7c34bb4b4df79be1e2f72c0fa4fa61f1467b3e1c75723a1c71`.
+Run `20260829T233220Z_e30033eea96e`, using `gpt-5.6-sol` at `xhigh`,
+returned final `correct`, zero critical errors and zero gaps.  The verified
+result is integrated in Chapter 15 and proves the classical-psh envelope
+property on reduced separated strict curves with bijective normalization
+after completed perfect closure and reduction, including relative boundary.
+It narrows rather than retires P03.1: the higher-dimensional and remaining
+singular classification and sharp necessity remain, as do P03.2 and P03.3.
+The inventory remains 53 active atoms in 14 formal problem environments.
+
+# Production update, 30 August 2026: P07.1 fixed-core flattening
+
+The exact fixed-core statement/proof, SHA-256
+`b29ccabac98982c239fcedcc34a701c9a9bb98ca95710d6ed7fbaa3f0f96e4d9` /
+`7677ba46620cc4cef8a74d502cdf9fde344e045b04bbc66a4274a5c20b1838c2`,
+passed an independent hostile audit and production run
+`20260829T234341Z_b29ccabac989` using `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors and zero gaps.  It proves that the iterated
+decreasing diagram flattens whenever all row approximations live over one
+common compact core.  The rejected naive diagonal route is therefore no
+longer the live obstruction.  P07.1 now asks for a fixed-neighbourhood /
+common-core globalization theorem in arbitrary higher-dimensional and other
+nonambient local models.  P07.1 and P07.2 remain active; the count remains
+53 atoms in 14 problem environments.
+
+# Production update, 30 August 2026: P06.1 finite-quotient descent
+
+The exact finite-constant-group quotient statement/proof, SHA-256
+`e1daa4b3e3efd64fcc8f0ce05b9c1d5d6cb69b28686b939b48535fc56b0ccc07` /
+`a6c24d1686c726dc72aebe55a1e83eb8d4fe1ed4025d4a8d7166da59123ce30e`,
+passed a source-aware hostile audit, an independent exact-byte hostile audit,
+and production run `20260829T235341Z_e1daa4b3e3ef` using
+`gpt-5.6-sol` at `xhigh`, final `correct`, zero critical errors and zero
+gaps.  The direct endpoint assigned no item identifier.  The proof repairs
+the earlier G-topology gap by using ordinary-open integral-PL decomposition,
+then descends tensor-induced model line bundles through Zavyalov's possibly
+wild nonflat formal quotient.  It settles finite constant-group quotients of
+the verified P06.1 affinoid source scopes.  It does not construct a quotient
+presentation for arbitrary singular germs, so P06.1 remains active and the
+count remains 53 atoms in 14 problem environments.
+
+# Production update, 30 August 2026: P06.2 strict-polydisc zero current
+
+The exact strict-polydisc statement/proof, SHA-256
+`017f3da108ae737e4bbc1d490d6988faf76ce643b4cb52104aae53c4dcda75d6` /
+`3763bf9a7e4b1f47602544ad2c3248d9b8abd7b9d34109e3c14259e422393bbd`,
+passed an independent exact-byte hostile audit and production run
+`20260830T001728Z_017f3da108ae` using `gpt-5.6-sol` at `xhigh`, final
+`correct`, zero critical errors and zero gaps.  The proof converts current
+vanishing on every translated punctured-polydisc chart into vanishing of the
+distributional Hessian of each Gauss radial trace, then uses coordinate
+collapse, translation equality, rigid-point density, and continuity to prove
+constancy.  It covers strict open polydiscs and strict closed polydiscs with
+the equation imposed on their analytic interiors over algebraically closed
+complete nontrivially valued fields.  It does not prove arbitrary-field
+descent or treat arbitrary analytic germs.  P06.2 remains active and the
+count remains 53 atoms in 14 formal problem environments.

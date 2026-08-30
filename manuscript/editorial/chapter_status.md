@@ -311,6 +311,71 @@ evidence is recorded in
 `editorial/current_source_build_p09p2_20260826.md` and
 `editorial/current_source_closure_p09p2_20260826.sha256`.
 
+**30 August 2026 P03.1 perfected-unibranch curve addendum.**  Chapter 15 now
+contains the exact independently audited lemma, theorem, corollary, and full
+proof showing that usc-regularized upper envelopes of locally upper-bounded
+classical-psh families remain classically psh on separated rig-smooth strict
+curves and, by completed perfect closure, reduction, normalization, and
+finite-surjective descent, on every reduced separated strict curve whose
+resulting normalization is bijective on Berkovich points.  Relative boundary
+is included.  The local-FS/semipositive-real-PL obstacle envelope is an
+immediate corollary.  The frozen statement/proof SHA-256 are
+`e30033eea96e7d59310a1e67402dc73dbdc1a9463b7ab14fc6f28e271ea0397f` /
+`59535602b2f29c7c34bb4b4df79be1e2f72c0fa4fa61f1467b3e1c75723a1c71`.
+Production run `20260829T233220Z_e30033eea96e` used `gpt-5.6-sol` at
+`xhigh` and returned final `correct`, zero critical errors and zero gaps.
+This narrows but does not retire P03.1: dimension at least two, remaining
+singular curve cases, and necessity remain; the CLD-v2 and continuity atoms
+are unchanged.  The inventory therefore remains 53 atoms in 14 environments.
+
+**30 August 2026 P07.1 fixed-core addendum.**  Chapter 16 now contains the
+exact independently audited proposition showing that an iterated decreasing
+diagram of first-stage CLD psh functions flattens to one decreasing smooth
+psh sequence whenever every row is realized on a neighbourhood of one common
+compact core.  The frozen statement/proof SHA-256 are
+`b29ccabac98982c239fcedcc34a701c9a9bb98ca95710d6ed7fbaa3f0f96e4d9` /
+`7677ba46620cc4cef8a74d502cdf9fde344e045b04bbc66a4274a5c20b1838c2`.
+Production run `20260829T234341Z_b29ccabac989` used `gpt-5.6-sol` at
+`xhigh` and returned final `correct`, zero critical errors and zero gaps.
+This removes the cross-row diagonal obstruction but does not construct a
+common core for arbitrary CLD-local presentations.  P07.1 therefore remains
+active with the sharper residual fixed-neighbourhood/globalization problem;
+the inventory remains 53 atoms in 14 environments.
+
+**30 August 2026 P06.1 finite-quotient addendum.**  Chapter 18 now inputs the
+exact independently audited proposition and proof that real-PL regularity
+descends through a finite constant-group quotient of a separated strict
+affinoid.  The proof uses a clean stabilizer slice, ordinary-open integral-PL
+decomposition, a common equivariant formal model, tensor induction, and
+Zavyalov's possibly wild nonflat formal quotient; it uses neither exactness of
+invariants nor division by the group order in the ground field.  The frozen
+statement/proof SHA-256 are
+`e1daa4b3e3efd64fcc8f0ce05b9c1d5d6cb69b28686b939b48535fc56b0ccc07` /
+`a6c24d1686c726dc72aebe55a1e83eb8d4fe1ed4025d4a8d7166da59123ce30e`.
+Production run `20260829T235341Z_e1daa4b3e3ef` used `gpt-5.6-sol` at
+`xhigh` and returned final `correct`, zero critical errors and zero gaps.
+This closes every finite constant-group quotient of a verified P06.1
+affinoid source scope, but it does not construct such a presentation for an
+arbitrary singular germ.  P06.1 remains active, and the inventory remains 53
+atoms in 14 environments.
+
+**30 August 2026 P06.2 strict-polydisc addendum.**  Chapter 18 now inputs the
+exact independently audited proposition, theorem, and complete proofs showing
+that a continuous zero-current function on a strict open polydisc over an
+algebraically closed complete nontrivially valued field is constant, with the
+same conclusion for a strict closed polydisc when the current vanishes on its
+analytic interior.  The proof uses translated torus charts, signed Radon
+measure pushforward on the Gauss section, coordinate-radius collapse, and
+Gauss-norm separation; it does not pull an arbitrary current back to curves.
+The frozen statement/proof SHA-256 are
+`017f3da108ae737e4bbc1d490d6988faf76ce643b4cb52104aae53c4dcda75d6` /
+`3763bf9a7e4b1f47602544ad2c3248d9b8abd7b9d34109e3c14259e422393bbd`.
+Production run `20260830T001728Z_017f3da108ae` used `gpt-5.6-sol` at
+`xhigh` and returned final `correct`, zero critical errors and zero gaps.
+Arbitrary-field descent and arbitrary analytic germs remain outside the
+theorem.  P06.2 therefore remains active, and the inventory remains 53 atoms
+in 14 environments.
+
 ## Global release gates
 
 Historical completed gates remain recorded in their dated audits.  The

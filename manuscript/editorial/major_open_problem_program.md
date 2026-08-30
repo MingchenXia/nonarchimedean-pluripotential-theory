@@ -269,18 +269,27 @@ source questions under one common framework.
 - **Question:** for upper-semicontinuous obstacles, when is the usc
   regularization of the local FS/semipositive-PL envelope classically psh or
   CLD psh?  For continuous finite obstacles, when is it continuous?
-- **Status:** open as a classification problem.  The raw supremum is
-  classically psh when it is already usc, but all three unconditional
-  regularized-envelope assertions are disproved by
+- **Status:** open beyond the verified perfected-unibranch curve range.  The
+  raw supremum is classically psh when it is already usc, but all three
+  unconditional regularized-envelope assertions are disproved by
   `prop:ch15-nodal-local-envelope`.  Its obstacle is continuous and
   real-valued on a reduced strict nodal affinoid curve; the regularized
   envelope is discontinuous and violates the affinoid maximum principle,
   hence is neither classically psh nor CLD-v2 psh.  The exact controlling
   production run is `20260825T094005Z_10ac70696f69`, item
   `pi_31f95353b7e94f3cb98b09b6`, final `correct`, with zero critical errors
-  and zero gaps.  No positive classification for normal or analytically
-  unibranch domains follows; establishing such a classification is the live
-  target.
+  and zero gaps.  Conversely,
+  `thm:p031-perfected-unibranch-curve-envelope` proves the classical-psh
+  assertion for reduced separated strict curves whose normalization is
+  bijective after completed perfect closure and reduction, including their
+  relative boundary.  Its exact statement/proof SHA-256 are
+  `e30033eea96e7d59310a1e67402dc73dbdc1a9463b7ab14fc6f28e271ea0397f` /
+  `59535602b2f29c7c34bb4b4df79be1e2f72c0fa4fa61f1467b3e1c75723a1c71`;
+  production run `20260829T233220Z_e30033eea96e`, `gpt-5.6-sol`/`xhigh`,
+  returned final `correct` with zero critical errors and zero gaps.  The live
+  P03.1 target is the higher-dimensional and remaining singular
+  classification together with necessity; the CLD-v2 and continuity atoms
+  remain unchanged.
 - **Packet:** `local_fs_envelope.md`; the exact nodal counterexample packet
   `p03_nodal_local_envelope_request_20260825.json` is retained as verified
   boundary evidence.
@@ -346,14 +355,41 @@ source questions under one common framework.
   `correct`, with zero critical errors and zero gaps.
 - **Status:** the unrestricted classical-pluriharmonic regularity question,
   and the arbitrary continuous zero-current question in the residual scope
-  remain open.  The former real-PL zero-current subproblem and P06.3 are
-  retired; the literal harmonic approximation variant is disproved.
+  remain open.  A further exact theorem now proves that real-PL regularity
+  descends through every finite constant-group quotient of a separated
+  strict affinoid, without flatness, freeness, reducedness, normality,
+  tameness, or invertibility of the group order.  Its exact statement/proof
+  SHA-256 are
+  `e1daa4b3e3efd64fcc8f0ce05b9c1d5d6cb69b28686b939b48535fc56b0ccc07` /
+  `a6c24d1686c726dc72aebe55a1e83eb8d4fe1ed4025d4a8d7166da59123ce30e`;
+  production run `20260829T235341Z_e1daa4b3e3ef`,
+  `gpt-5.6-sol`/`xhigh`, returned final `correct`, zero critical errors and
+  zero gaps.  Thus finite constant-group quotients of all verified affinoid
+  P06.1 source scopes are settled.  The theorem does not construct quotient
+  uniformizations for arbitrary singular germs.  Independently, the
+  factorization-free strict-polydisc case of P06.2 is settled: over an
+  algebraically closed complete nontrivially valued field, a continuous
+  zero-current function on a strict open polydisc is constant, with the same
+  conclusion on a strict closed polydisc when the current vanishes on its
+  analytic interior.  Its exact statement/proof SHA-256 are
+  `017f3da108ae737e4bbc1d490d6988faf76ce643b4cb52104aae53c4dcda75d6` /
+  `3763bf9a7e4b1f47602544ad2c3248d9b8abd7b9d34109e3c14259e422393bbd`;
+  production run `20260830T001728Z_017f3da108ae`,
+  `gpt-5.6-sol`/`xhigh`, returned final `correct`, zero critical errors and
+  zero gaps.  Arbitrary-field descent and arbitrary analytic germs remain
+  open.  The former real-PL
+  zero-current subproblem and P06.3 are retired; the literal harmonic
+  approximation variant is disproved.
 - **Packets:** `pluriharmonic_regularity.md` (legacy); exact accepted packet
   `rethlas_packets_20260825/p06_real_pl_zero_current_live_scope_arithmetic_final_v4_*`;
   exact harmonic counterexample packet
   `rethlas_packets_20260825/p06_cld_smooth_harmonic_nonregularization_live_global_model_final_*`;
   exact positive regularization packet
-  `rethlas_packets_20260827/p063_curve_cld_monotone_regularization_*`.
+  `rethlas_packets_20260827/p063_curve_cld_monotone_regularization_*`; exact
+  finite-quotient packet
+  `rethlas_packets_20260830/p061_finite_quotient_gdescent_audit_20260830`;
+  exact strict-polydisc packet
+  `rethlas_packets_20260830/p062_polydisc_zero_current_research_20260830`.
 
 ### OP-07. Early collapse of the CLD psh hierarchy
 
@@ -382,20 +418,32 @@ source questions under one common framework.
   returned final `correct`, zero critical errors, and zero gaps, with response
   SHA-256
   `b271d51ed81898ccfe68a798b3fc69e165c0c72486ff6c59711995f5b9e581af`.
+  The abstract fixed-core flattening proposition further proves that every
+  iterated decreasing diagram collapses to one decreasing smooth-psh
+  sequence once all row approximations live over a common compact core.  Its
+  exact statement/proof SHA-256 are
+  `b29ccabac98982c239fcedcc34a701c9a9bb98ca95710d6ed7fbaa3f0f96e4d9` /
+  `7677ba46620cc4cef8a74d502cdf9fde344e045b04bbc66a4274a5c20b1838c2`;
+  production run `20260829T234341Z_b29ccabac989`, `gpt-5.6-sol`/`xhigh`,
+  returned final `correct`, zero critical errors, and zero gaps.
 - **Scope firewall:** the finite-star theorem does not assert that every
   analytic, sedentary tropical, or nonambient germ carries the required
   generator-preserving chart.
 - **Status:** P07.1 remains open in arbitrary higher dimension and on other
   nonambient local models outside the two exact interval structures and
-  \(X_B\).  P07.2 retains the conditional question of a finite or uniformly
-  controlled early ordinal.  No example of genuine second-stage rank is
-  known.  Both atoms remain active; the inventory stays at 53 atoms in 14
-  formal environments, with tiers `(0,5,14,17,17)`.
+  \(X_B\).  The residual obstruction is now the construction of a common
+  compact core/fixed neighbourhood for arbitrary local rows, not the
+  cross-row order diagonal itself.  P07.2 retains the conditional question
+  of a finite or uniformly controlled early ordinal.  No example of genuine
+  second-stage rank is known.  Both atoms remain active; the inventory stays
+  at 53 atoms in 14 formal environments, with tiers `(0,5,14,17,17)`.
 - **Packets:** `cld_psh_early_collapse.md` is historical; the toric result is
   controlled by the 25 August packet, and the stronger finite-star result by
   `rethlas_packets_20260827/p071_finite_affine_tropical_stars_*_20260827`.
   The exact CLD \(X_B\) result is controlled by
-  `rethlas_packets_20260830/p071_infinite_star_collapse_candidate_20260830`.
+  `rethlas_packets_20260830/p071_infinite_star_collapse_candidate_20260830`;
+  the fixed-core flattening result is controlled by
+  `rethlas_packets_20260830/p071_fixed_core_flattening_20260830`.
 
 ### OP-08. Local psh metrics versus global psh metrics
 
