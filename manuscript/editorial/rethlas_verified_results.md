@@ -570,6 +570,45 @@ nine 24 August gates counted in this paragraph.
 - Controlling packet:
   `editorial/rethlas_packets_20260830/p071_infinite_star_collapse_candidate_20260830/`.
 
+## Chapters 16 and 72 — no common domain for arbitrarily chosen CLD rows
+
+- Status: **EXACT FROZEN BLOCKS VERIFIED / INTEGRATED; P07.1 NOT
+  RETIRED** (30 August 2026).
+- Book location: `ex:p071-no-common-domain-for-chosen-rows`, with the
+  quantifier consequence recorded under P07.1 in Chapter 72.
+- Exact scope: the exact infinite star (X_B) of CLD Section 6.7.3, with one
+  distinguished full branch and countably many branches that become
+  exceptional one at a time.
+- Exact conclusion: there are smooth psh germs represented on a decreasing
+  family of centre-neighbourhoods but not simultaneously representable by
+  smooth psh functions on any one centre-neighbourhood.  Positive rescalings
+  give badly chosen first-stage rows all converging to the global zero
+  function, while the full selected two-index family still has no common
+  representative domain.
+- Mathematical firewall: this is not an element of
+  `Psh_{X_B,2} minus Psh_{X_B,1}` and does not contradict the already proved
+  first-stage collapse on (X_B).  It disproves only the formal claim that
+  sheaf locality or passage to stalks puts an arbitrary countable family of
+  chosen presentations on one fixed neighbourhood.  P07.1 and P07.2 remain
+  active; the inventory stays at 53 atoms in 14 formal environments.
+- Exact statement/proof SHA-256:
+  `563bd314d2ee0ce12c487df565e2e3c6ad222789e9acace8e550b03b386309ed` /
+  `5d36861cef1d8861bf51ca49ef1ecf8619c4e7975a6322aaed071eee54f058c4`.
+- Production verification: local archive label
+  `20260830T043500Z_563bd314d2ee`; model `gpt-5.6-sol`, scrutiny `xhigh`,
+  verdict `correct`, zero critical errors, and zero gaps.  The endpoint
+  assigned no run or item identifier.  Its report explicitly checked the
+  CLD topology and smoothness conditions, centre-slope balance, branchwise
+  positivity, the convexity contradiction on a full branch, and the scaling
+  argument.
+- Archived request/response/header SHA-256:
+  `fb961dc17f3f9efcb2765a9361eff769b48d47e3e12bd9f1b25b379a047abdb9` /
+  `2c352b411b22528d927f97fe1d5820095b8eb05f16bb64f3dd849aa2e74ba3b8` /
+  `bc7de8aefbacf4ce8597040eee26caa0963c8a589137ca8bd2a2dd5dd71ed101`.
+- Provenance: verified book-level diagnostic; no novelty or priority claim.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260830/p071_chosen_rows_no_common_domain_production_receipt_20260830.md`.
+
 ## Chapters 16 and 72 — dimension-one current classification, including nilpotent thickenings
 
 - Status: **BOTH EXACT FROZEN BLOCKS VERIFIED / INPUT BYTE-FOR-BYTE**
