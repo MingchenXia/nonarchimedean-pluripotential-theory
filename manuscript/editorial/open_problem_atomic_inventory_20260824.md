@@ -792,7 +792,12 @@ open atoms.  The four corrected residual targets above remain open.
   The entire one-dimensional case inside these ambient hypotheses is settled
   by `prop:p213-componentwise-arbitrary-valuation`, over either a trivial or
   nontrivial valuation and without reducedness or normalization-smoothness
-  assumptions.  The literal discontinuous-potential predicate of CLD
+  assumptions.  Spaces carrying a genuine ordinary-topology basis of
+  standard strict open polycylinders are settled by
+  `cor:p213-polycylinder-basis-v2-candidate`; on one standard strict open
+  polycylinder, pairs defined on the whole polycylinder are settled by
+  `prop:p213-fixed-polycylinder-v2-candidate`.  The literal
+  discontinuous-potential predicate of CLD
   Definition 8.6.2 is a stronger scope boundary and is not a separately
   counted atom.
 
@@ -925,6 +930,42 @@ production item `pi_1ca3e6d14c7e8596372d863d` returned final `correct`,
 zero critical errors, and zero gaps, with the exact materialized proof
 digest.  All one-dimensional cases within the ambient hypotheses are
 therefore retired from P21.3.
+
+**30 August 2026 P21.3 strict-open-polycylinder narrowing addendum.**  Let
+`X` be a good topologically separated pure boundaryless analytic space.  If
+`X` has a genuine basis for its ordinary topology on whose members every
+continuous zero-current function is ordinary CLD-smooth with zero smooth
+Hessian, then every positive `d'`- and `d''`-closed CLD current on `X` has
+continuous-pair Bedford--Taylor independence on every open set.  This
+applies, over a nontrivially valued field, when the basis members are
+standard strict open polycylinders.  On one standard strict open
+polycylinder the same identity holds for an equal-curvature pair defined on
+the whole polycylinder, but this fixed-domain statement does not claim the
+every-open predicate.
+
+The exact principal statement/proof SHA-256 values are
+`955e1ab4323ddfe935b8bb54d7657915ea6f563e8d6e8f178ab589fcee5f16f1`
+and
+`70f34cad9f975402dd03f7f03de0b941898df112df2c018570bdbcba0b48f077`.
+After prepending the exact verified P06.2 dependency, the materialized
+statement/proof values are
+`6c90e664468b815126ff64f1c0e2297b4d81bf0cf8d51e2a243ee778822f42ce`
+and
+`6eff86ba6c989143485449b189f1379e986f3d8349abc403dc23ae5d56e7fd33`.
+The archived request/response values are
+`add3a522de8d31ffb393d3c38c9ef63f33d125bccc5f56797cd7679cc3b7696d`
+and
+`8ef692e78c8ab156238597405a0b5cd8003f5bc9bee94acc62ab4eb913317779`.
+Production Rethlas used `gpt-5.6-sol` at `xhigh` and returned final
+`correct`, zero critical errors, and zero gaps after an independent
+exact-byte hostile audit.
+
+The superseded first candidate confused a polycylinder atlas with a basis
+refining every open set.  Its exact-byte audit therefore failed closed, and
+it was neither submitted nor integrated.  The repaired theorem keeps the
+basis and fixed-domain assertions separate.  This narrows P21.3 but does not
+retire its general higher-dimensional atom, so the inventory count is
+unchanged.
 
 P21.3 remains one T2 atom only in analytic dimension at least two.  At this
 29 August milestone, before the independent P17.1 retirement recorded above, the
