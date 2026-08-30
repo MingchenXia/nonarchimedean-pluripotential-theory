@@ -171,6 +171,30 @@ models outside the two exact interval structures and \(X_B\).  P07.1 and
 P07.2 remain active, so the controlling inventory remains 14 formal problem
 environments and 53 active atoms, with tiers `(0,5,14,17,17)`.
 
+**Controlling delta, 30 August 2026 (P06.2 arbitrary-field
+strict-polydisc trace).**  Over every complete nontrivially valued field, a
+continuous zero-current function on a strict open polydisc satisfies
+$h(\eta_{a,\mathbf r})=h(a)$ for every $K$-rational centre and every
+allowed positive polyradius; the closed-polydisc counterpart holds when the
+equation is imposed on the absolute analytic interior.  Consequently the
+function is constant on $K$-points, all $K$-centred Gauss skeleta, and
+their closure.  Full constancy follows when the zero-current equation is
+explicitly known after one complete algebraically closed extension; on the
+open polydisc this extra hypothesis is automatic when both signs of the
+function are CLD-psh in the approximation sense.
+
+The frozen statement/proof SHA-256 are
+`7510083fecda2d561c4ce2a1b35d08377268ef48adda2b242172428dbd39caec` /
+`77a013d4e655d288d8803c9650df5446bed570de2644591edddfc116c323eab2`.
+Two independent exact-byte hostile audits passed.  Production Rethlas run
+`20260830T015556Z_7510083fecda`, using `gpt-5.6-sol` at `xhigh`, returned
+final `correct`, zero critical errors, zero gaps, and eight reference checks
+with no issue.  This result does not prove automatic scalar-extension
+stability for arbitrary continuous Hessian currents and does not reach an
+arbitrary non-$K$-rational rigid point or an arbitrary analytic germ.  P06.2
+therefore remains active; the controlling inventory remains 14 formal
+problem environments and 53 active atoms, with tiers `(0,5,14,17,17)`.
+
 ---
 
 ## 1. Status vocabulary
@@ -1302,8 +1326,10 @@ pass is followed by a separately prompted hostile audit.
 8. product/retraction trace Dirichlet proposition;
 9. CLD harmonic-reduction lemmas (real-PL zero-current case verified by
    `20260825T061351Z_655e7f503e5d`; arbitrary continuous higher-dimensional
-   case remains open; continuous ordinary CLD-smooth psh regularization on
-   smooth proper algebraic curves is verified by
+   case remains open, but strict polydiscs now have the arbitrary-field
+   rational-centred trace and conditional-descent theorem verified by
+   `20260830T015556Z_7510083fecda`; continuous ordinary CLD-smooth psh
+   regularization on smooth proper algebraic curves is verified by
    `20260827T090645Z_767cbf81c723`, while arbitrary singular or more general
    curves and higher dimensions remain open; the literal harmonic
    approximation variant is disproved by `20260825T055907Z_b5c8f0719b60`);
@@ -1409,7 +1435,7 @@ for its full receipt.
 | R3-20 | toric Cao dimension formula | **VERIFIED** for integral/rational big toric data after the live Guenancia/toric-count citation and limsup-versus-limit repair; the real transcendental extension remains **OPEN** |
 | R3-21 | \(\mathcal I\)-invariant mass-body assignment | **DISPROVED** by the polar-Cantor pair; a \(P\)-sensitive refinement remains **OPEN** |
 | R3-22 | singular higher-dimensional CLD/GR Bedford--Taylor products | **OPEN** beyond continuous CLD, Euclidean convex, model loci, and the verified good separated strict pure one-dimensional boundaryless class over an arbitrary complete nontrivially valued field, including reducible and nonreduced spaces whose component-normalization non-rig-smooth loci lie in locally finite rigid sets; literal discontinuous CLD psh remains outside the curve theorem |
-| R3-23 | harmonic/pluriharmonic comparison | sourced weakly smooth and regular-model cases are **VERIFIED**; the real-PL zero-CLD-current converse is **VERIFIED** by exact-live run `20260825T061351Z_655e7f503e5d`; ordinary CLD-smooth harmonic approximation is **DISPROVED** by `20260825T055907Z_b5c8f0719b60`; continuous ordinary-smooth psh regularization on smooth proper curves is **VERIFIED** by `20260827T090645Z_767cbf81c723`; arbitrary singular curves, higher dimensions, arbitrary continuous zero-current functions, and unrestricted classical pluriharmonicity remain **OPEN** |
+| R3-23 | harmonic/pluriharmonic comparison | sourced weakly smooth and regular-model cases are **VERIFIED**; the real-PL zero-CLD-current converse is **VERIFIED** by exact-live run `20260825T061351Z_655e7f503e5d`; ordinary CLD-smooth harmonic approximation is **DISPROVED** by `20260825T055907Z_b5c8f0719b60`; continuous ordinary-smooth psh regularization on smooth proper curves is **VERIFIED** by `20260827T090645Z_767cbf81c723`; the arbitrary-field rational-centred strict-polydisc trace and its explicit scalar-extension and open-polydisc two-sided-psh descent criteria are **VERIFIED** by `20260830T015556Z_7510083fecda`; automatic scalar-extension stability for arbitrary continuous Hessian currents, non-$K$-rational rigid points, arbitrary singular germs, higher dimensions outside the verified local models, and unrestricted classical pluriharmonicity remain **OPEN** |
 | R3-24 | model-semipositive, classical-psh, and revised-CLD-psh real PL functions | **VERIFIED** on complete nontrivially valued fields and good strict boundaryless spaces, or on the relative interior in general; separatedness is needed only for the one-way current consequence |
 | R3-26 | swept CLD boundary product versus local BFJ measure | **VERIFIED** for ideal model functions, algebraizable rational-semipositive model functions, and their stated joint bounded closure; the probability-sheaf signature and canonical selection of arbitrary unbounded polar mass by the model comparison alone are **DISPROVED**; nonalgebraizable analytic models and broader psh/singular domains **OPEN** |
 | R3-27 | balanced polyhedral regularity, orthogonality, and realization | all-dimensional regularity and orthogonality on the complete affine space (N_{mathbf R}) are **VERIFIED**; strict positivity alone is **DISPROVED** on the singular four-ray cross; analytic comparison is **CONDITIONAL** on recursive calibrated current compatibility; the intrinsic higher-dimensional singular-fan contact problem is **OPEN** |

@@ -1277,6 +1277,48 @@ nine 24 August gates counted in this paragraph.
 - Controlling receipt:
   `editorial/rethlas_receipts_20260830/p171_full_banach_family_live_integration_receipt_20260830.md`.
 
+## Chapter 18 — arbitrary-field rational-centred strict-polydisc traces
+
+- Status: **EXACT DEPENDENCY-CLOSED PACKET VERIFIED / INTEGRATED; P06.2
+  NARROWED BUT NOT RETIRED** (30 August 2026).
+- Book locations: `prop:p062-rational-centred-traces` and
+  `prop:p062-explicit-base-change`, with the residual recorded under P06.2 in
+  Chapter 72 and the provenance in Appendix L.
+- Exact result: over every complete nontrivially valued field, a continuous
+  zero-current function on a strict open polydisc satisfies
+  $h(\eta_{a,\mathbf r})=h(a)$ for every $K$-rational centre and allowed
+  positive polyradius.  The corresponding closed-polydisc assertion holds when the
+  equation is imposed on the absolute analytic interior.  Thus the function
+  is constant on $K$-points, all $K$-centred Gauss skeleta, and their
+  closure.  It is constant everywhere if the zero-current equation holds
+  after one complete algebraically closed extension; on the open polydisc this
+  extra hypothesis is automatic for a continuous function whose two signs are
+  CLD-psh in the approximation sense.
+- Exact statement SHA-256:
+  `7510083fecda2d561c4ce2a1b35d08377268ef48adda2b242172428dbd39caec`.
+- Exact proof SHA-256:
+  `77a013d4e655d288d8803c9650df5446bed570de2644591edddfc116c323eab2`.
+- Independent audit: two exact-byte hostile passes, followed by a successful
+  standalone compile of the frozen packet.
+- Production run: `20260830T015556Z_7510083fecda`; model
+  `gpt-5.6-sol`, scrutiny `xhigh`, status `final`, verdict `correct`, zero
+  critical errors, zero gaps, eight reference checks, and zero reference
+  issues.  The direct endpoint assigned no item identifier.
+- Archived request/response/safe-header SHA-256:
+  `afcf192980ce06797e6570e272334d8256a2135ac8cabc7f8eb56a8eb933a760` /
+  `112168020192b4dffb65d309898992528dac0c8bdf8ba3aeddfe3bb245597c41` /
+  `ecbf58b12b82cf1c5155dbcc99cc2afd5a51a99a606ac55685449433c1d361ee`.
+- Service verification/log SHA-256:
+  `14f07a53748b12a093ef722c4b542ff8cd7c28fd3b70154ab74163138e998321` /
+  `a2dd8104416fdc0cb0e1fb71781bb513b6fb78e2849de5f837e31ef4b5eaa024`.
+- Scope firewall: no automatic pullback theorem is asserted for an arbitrary
+  continuous Hessian current, no unconditional value is obtained at rigid
+  points with nontrivial residue extension, and no arbitrary analytic germ is
+  uniformized.  P06.2 therefore remains active; the inventory stays at 14
+  formal environments and 53 active atoms, with tiers `(0,5,14,17,17)`.
+- Controlling receipt:
+  `editorial/rethlas_receipts_20260830/p062_base_field_descent_production_receipt_20260830.md`.
+
 ## Darvas--Xia trace-source correction (not a receipt)
 
 - Status: **SOURCE IMPORT / HISTORICAL RECEIPT SUPERSEDED** (23 August

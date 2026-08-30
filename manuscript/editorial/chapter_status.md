@@ -372,9 +372,29 @@ The frozen statement/proof SHA-256 are
 `3763bf9a7e4b1f47602544ad2c3248d9b8abd7b9d34109e3c14259e422393bbd`.
 Production run `20260830T001728Z_017f3da108ae` used `gpt-5.6-sol` at
 `xhigh` and returned final `correct`, zero critical errors and zero gaps.
-Arbitrary-field descent and arbitrary analytic germs remain outside the
-theorem.  P06.2 therefore remains active, and the inventory remains 53 atoms
-in 14 environments.
+The same chapter now also inputs the exact independently audited
+arbitrary-field propositions.  Without any scalar-extension hypothesis they
+prove
+$h(\eta_{a,\mathbf r})=h(a)$ at every $K$-rational centre and hence constancy
+on $K$-points, all $K$-centred Gauss skeleta, and their closure.  Full
+constancy follows if the zero-current equation is explicitly known after one
+complete algebraically closed extension; on the open polydisc that hypothesis
+is automatic when both $h$ and $-h$ are CLD-psh in the approximation sense.
+Their frozen
+statement/proof SHA-256 are
+`7510083fecda2d561c4ce2a1b35d08377268ef48adda2b242172428dbd39caec` /
+`77a013d4e655d288d8803c9650df5446bed570de2644591edddfc116c323eab2`.
+Two exact-byte hostile audits passed.  Production run
+`20260830T015556Z_7510083fecda` used `gpt-5.6-sol` at `xhigh` and returned
+final `correct`, zero critical errors, zero gaps, and eight reference checks
+with no issue.  The response/service-verification/service-log SHA-256 are
+`112168020192b4dffb65d309898992528dac0c8bdf8ba3aeddfe3bb245597c41` /
+`14f07a53748b12a093ef722c4b542ff8cd7c28fd3b70154ab74163138e998321` /
+`a2dd8104416fdc0cb0e1fb71781bb513b6fb78e2849de5f837e31ef4b5eaa024`.
+Automatic scalar-extension stability for an arbitrary continuous Hessian
+current, non-$K$-rational rigid points, and arbitrary analytic germs remain
+outside the theorem.  P06.2 therefore remains active, and the inventory
+remains 53 atoms in 14 environments.
 
 ## Global release gates
 
