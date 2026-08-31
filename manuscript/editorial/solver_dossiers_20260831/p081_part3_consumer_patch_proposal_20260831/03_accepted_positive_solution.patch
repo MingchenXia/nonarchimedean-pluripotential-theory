@@ -1,0 +1,209 @@
+# DRAFT ONLY: DO NOT APPLY before the residue-degree weighting and common-model interfaces in REVIEW_CHECKLIST.md have been audited. The accepted positive Ch17 theorem is only one downstream input.
+diff --git a/manuscript/parts/part3/ch29_continuity.tex b/manuscript/parts/part3/ch29_continuity.tex
+--- a/manuscript/parts/part3/ch29_continuity.tex
++++ b/manuscript/parts/part3/ch29_continuity.tex
+@@ -2126,47 +2126,47 @@
+ \cite[Proposition~2.11]{GJKM19}, including its inseparable case, exactly
+ as proved in \Cref{thm:ch23-gjkm-curves}.
+ 
+-We next solve the equation when $\mu$ is supported on the skeleton
+-$\Gamma$ of a strictly semistable model.  After replacing the model by a
+-dominating one, choose a semipositive model metric $\|\cdot\|_0$ on $L$
+-determined there, and put
+-$\mu_0=c_1(L,\|\cdot\|_0)$.  Both measures are carried by $\Gamma$ and
+-have mass $\deg L$, so $\nu:=\mu-\mu_0$ has total mass zero.  Let
+-$G_\Gamma(x,y)$ be the continuous Green kernel on the compact connected
+-metric graph $\Gamma$, normalized to have mean zero in the first variable,
+-and set
++We next solve the equation under the stated skeletal-support hypothesis.
++After passing to a dominating model, choose a semipositive rational model
++metric $\|\cdot\|_0$ on $L$, with curvature $\mu_0$, so that the chosen
++skeleton $\Gamma$ carries both $\mu$ and $\mu_0$.  Write $r$ for the
++retraction.  The masses agree and are $\deg L>0$.
++Fix $q\in\Gamma$ and let $g_q$ be the graph Green kernel with
++$\Delta_xg_q(x,y)=\delta_y-\delta_q$ and $g_q(q,y)=0$.
++Write $G_q\nu(x)=\int_\Gamma g_q(x,y)\,\mathrm d\nu(y)$.
++The finite-graph construction gives
+ \[
+-                   u(x):=\int_\Gamma G_\Gamma(x,y)\,\rd\nu(y).
++ u(x)=\int_\Gamma g_q(x,y)\,\mathrm d(\mu-\mu_0)(y),
++ \qquad \Delta_\Gamma u=\mu-\mu_0.
+ \]
+-Continuity of the kernel makes $u$ continuous, and the defining identity
+-for the Green kernel gives $\Delta_\Gamma u=\nu$.
++It is continuous by joint continuity of the kernel and compactness.
++To justify positivity before invoking model approximation, approximate
++\(\mu\) weakly by positive finite atomic measures \(\mu_j\) of the
++same mass, supported at type-II points of \(\Gamma\).  Such points are
++dense in each edge; they may be chosen with coordinates in the divisible
++hull of the value group.  Move the mass of each member of a finite
++partition of small diameter to one such point.  The graph Green potentials
++\(u_j=G_q(\mu_j-\mu_0)\) are real piecewise affine functions with
++\(\Delta_\Gamma u_j=\mu_j-\mu_0\), not necessarily rational model
++functions.  The compact family \(\{g_q(x,\cdot):x\in\Gamma\}\) and
++weak convergence give \(u_j\to u\) uniformly by a finite-net argument.
+ 
+-The measure-valued extension of the graph slope criterion now gives
+-\[
+- \theta+\ddc(u\circ r)=\mu\geq0.
+-\]
+-Indeed, testing against a model function on $\Gamma$ and using graph
+-integration by parts identifies the left-hand side with
+-$\mu_0+\Delta_\Gamma u=mu$; model test functions determine Radon
+-measures.  Hence $u\circ r$ is a continuous $\theta$-psh function in
+-Thuillier's sense.  The envelope regularity already proved upgrades this to
+-semipositivity in the metric sense.  Explicitly, take model functions
+-$f_j\to u\circ r$ uniformly.  Since $P_\theta(u\circ r)=u\circ r$,
+-\eqref{eq:curve-envelope-contraction} gives
+-\[
+- P_\theta(f_j)\longrightarrow u\circ r
+- \quad\text{uniformly}.
+-\]
+-The model-obstacle argument above expresses every $P_\theta(f_j)$ as a
+-uniform limit of $\theta$-psh model functions; a diagonal choice therefore
+-gives a uniform model approximation of $u\circ r$.  Thus
+-$\|\cdot\|:=\rme^{-u\circ r}\|\cdot\|_0$ is a continuous semipositive
+-metric with curvature measure $\mu$.
+-If two such metrics exist, the logarithm of their ratio is a continuous
+-harmonic function on the compact connected Berkovich curve.  Its graph
+-Laplacian vanishes on every skeleton, so the maximum principle makes it
+-constant.  The two metrics therefore differ by a positive scalar.  This
+-proves existence and uniqueness.
++The local curve slope criterion identifies the curvature of the lisse
++metric \(\mathrm e^{-u_j\circ r}\|\cdot\|_0\) with
++\(\mu_j\geq0\).  Thus its local weights are psh.  Uniform convergence
++passes both the distributional curvature identity and positivity to the
++continuous metric \(\mathrm e^{-u\circ r}\|\cdot\|_0\): its
++curvature is \(\mu\), and its local weights are psh.  The final potential
++is not asserted to be lisse when \(\mu\) is not atomic.
++
++Now use only the strictly positive degree clause of
++\Cref{thm:p081-corrected-curve-comparison}, since \(\deg L>0\).
++It gives a uniform approximation of this metric by semipositive rational
++formal metrics.  The model slope formula and continuity of curvature
++under uniform convergence identify its semipositive curvature measure
++with \(\mu\).  No rational slopes are inferred from rational atomic
++masses.  The harmonic maximum principle on the proper connected curve
++gives uniqueness up to a multiplicative constant.
+ 
+ Retraction preserving semipositivity is false in higher dimension, even for
+ toric surfaces; the counterexample is the appendix to \cite{GJKM19}.
+@@ -2179,10 +2179,12 @@
+ The rational-model envelope convention is explicit in
+ \Cref{thm:ch23-gjkm-curves}; the retraction statements used in its proof are
+ \cite[Proposition~1.2 and Propositions~3.5, 3.8]{GJKM19}.  The
+-Monge--Amp\`ere half is the deduction sketched in the introduction of
+-\cite{GJKM19}, resting on the existence of a possibly singular semipositive
+-solution in Thuillier's potential theory on a Berkovich curve, and on the
+-uniqueness statement quoted there.  The counterexample to the
++Monge--Amp\`ere half uses the finite-graph Green potential under the
++stated support hypothesis, the local slope criterion, and the positive
++degree approximation in
++\Cref{thm:p081-corrected-curve-comparison}.  This last comparison is
++used downstream of the independently proved model-envelope theorem.
++The counterexample to the
+ higher-dimensional analogue of the retraction statement is due to Burgos Gil
+ and Sombra and appears in the appendix to \cite{GJKM19}.  Nothing in this
+ subsection uses \Cref{chap:bfj-capacity} or \Cref{chap:bfj-energy}: on a
+diff --git a/manuscript/parts/part3/ch31_bfj_examples.tex b/manuscript/parts/part3/ch31_bfj_examples.tex
+--- a/manuscript/parts/part3/ch31_bfj_examples.tex
++++ b/manuscript/parts/part3/ch31_bfj_examples.tex
+@@ -454,50 +454,57 @@
+ \end{proposition}
+ 
+ \begin{proof}
+-Since \((\mu-\omega)(\Gamma)=V-V=0\), \Cref{lem:ch31-green-kernel} applies
+-with \(\nu=\mu-\mu_0\): the function
++Here $L$ and its relatively nef model metric are the ones fixed in
++\Cref{sec:ch31-curve-affine}; in particular $V=\deg L>0$ and
++$\omega=c_1(L,\|\cdot\|_0)$.  Put $r=p_{\cX}$.
++\Cref{lem:ch31-green-kernel} applies because
++$(\mu-\mu_0)(\Gamma)=0$.
++Fix $q\in\Gamma$ and let $g_q$ be the graph Green kernel with
++$\Delta_xg_q(x,y)=\delta_y-\delta_q$ and $g_q(q,y)=0$.
++Write $G_q\nu(x)=\int_\Gamma g_q(x,y)\,\mathrm d\nu(y)$.
++The finite-graph construction gives
+ \[
+-                u(x)=G_q(\mu-\mu_0)(x)
+-                    =\int_\Gamma g_q(x,y)\,\rd(\mu-\mu_0)(y)
++ u(x)=\int_\Gamma g_q(x,y)\,\mathrm d(\mu-\mu_0)(y),
++ \qquad \Delta_\Gamma u=\mu-\mu_0.
+ \]
+-is continuous on \(\Gamma\) and has \(\Delta_\Gamma u=\mu-\mu_0\), which is
+-\eqref{eq:curve-poisson}; uniqueness modulo constants is the last clause of
+-that lemma.  Its curvature \(\mu_0+\Delta_\Gamma u=\mu\) is positive, so by
+-the criterion in \Cref{lem:ch31-curve-ma-affine} every piecewise affine
+-approximation of \(u\) that is admissible is \(\omega\)-psh; more directly,
+-\(u\) is a uniform limit of \(\omega\)-psh model functions.  Indeed let
+-\(\mu_m\to\mu\) weakly with \(\mu_m\) atomic, rational, supported on a
+-finite subset of \(\Gamma\) and of mass \(V\); then
+-\(u_m=G_q(\mu_m-\mu_0)\) is a rational piecewise affine function, hence a
+-model function on a model dominating \(\cX\)
+-(\Cref{thm:bfj-skeletal-characterization}), it is \(\omega\)-psh by the same
+-criterion, and \(u_m\to u\) uniformly.  For the last point, observe that
+-\(u_m-u=G_q(\mu_m-\mu)\), that the family
+-\(\{g_q(x,\cdot):x\in\Gamma\}\) is bounded by \(\operatorname{diam}\Gamma\)
+-and equi-Lipschitz, hence relatively compact in \(C^0(\Gamma)\), and that
+-weak convergence of measures of uniformly bounded total variation is
+-uniform over a compact family of test functions, by a finite
+-\(\varepsilon\)-net argument.  Hence
+-\(\sup_{x\in\Gamma}|G_q(\mu_m-\mu)(x)|\to0\).  A concrete choice of
+-\(\mu_m\) is the pushforward of \(\mu\) under the retraction of \(\Gamma\)
+-to a finer and finer rational subdivision, followed by a rational rounding
+-of the atoms preserving the total mass \(V\).  Thus \(u\) is a
+-continuous \(\omega\)-psh function in the sense of
+-\Cref{thm:ch21-continuous-zhang}.
++It is continuous by joint continuity of the kernel and compactness.
++To justify positivity before invoking model approximation, approximate
++\(\mu\) weakly by positive finite atomic measures \(\mu_j\) of the
++same mass, supported at type-II points of \(\Gamma\).  Such points are
++dense in each edge; they may be chosen with coordinates in the divisible
++hull of the value group.  Move the mass of each member of a finite
++partition of small diameter to one such point.  The graph Green potentials
++\(u_j=G_q(\mu_j-\mu_0)\) are real piecewise affine functions with
++\(\Delta_\Gamma u_j=\mu_j-\mu_0\), not necessarily rational model
++functions.  The compact family \(\{g_q(x,\cdot):x\in\Gamma\}\) and
++weak convergence give \(u_j\to u\) uniformly by a finite-net argument.
+ 
+-It remains to identify the Monge--Amp\`ere measure of the corresponding
+-metric on \(X^{\An}\), not merely on \(\Gamma\).  For the model functions
+-\(u_m\) this is \eqref{eq:curve-ma-laplacian}.  Passing to the limit,
+-\Cref{prop:ch24-continuous-uniform} gives
+-\(\MA_\omega(u_m)\to\MA_\omega(u)\) weakly, while
+-\(\MA_\omega(u_m)=\mu_m\to\mu\); hence \(\MA_\omega(u)=\mu\).  The measure
+-lives on \(\Gamma\) because each \(\mu_m\) does.  The same conclusion may be
+-read off on the CLD side: the metric weight
+-\(u\circ p_{\cX}\) has Chern current computed by the slope formula
+-\Cref{thm:ch08-slope-formula}, and its curvature is
+-\(\mu_0+\Delta_\Gamma u\) by \Cref{prop:ch19-curve-model-curvature} and its
+-uniform limits; the two answers agree by
+-\Cref{thm:ch19-cld-bfj-comparison}\,(B).
++The local curve slope criterion identifies the curvature of the lisse
++metric \(\mathrm e^{-u_j\circ r}\|\cdot\|_0\) with
++\(\mu_j\geq0\).  Thus its local weights are psh.  Uniform convergence
++passes both the distributional curvature identity and positivity to the
++continuous metric \(\mathrm e^{-u\circ r}\|\cdot\|_0\): its
++curvature is \(\mu\), and its local weights are psh.  The final potential
++is not asserted to be lisse when \(\mu\) is not atomic.
++
++Now use only the strictly positive degree clause of
++\Cref{thm:p081-corrected-curve-comparison}, since \(\deg L>0\).
++It gives a uniform approximation of this metric by semipositive rational
++formal metrics.  The model slope formula and continuity of curvature
++under uniform convergence identify its semipositive curvature measure
++with \(\mu\).  No rational slopes are inferred from rational atomic
++masses.  The harmonic maximum principle on the proper connected curve
++gives uniqueness up to a multiplicative constant.
++
++In the original BFJ regime of this chapter, the resulting continuous
++semipositive metric defines the stated $\omega$-psh potential through
++\Cref{thm:ch21-continuous-zhang}.  Its measure is
++$\MA_\omega(u)=\mu$ by \Cref{prop:ch24-continuous-uniform}; the
++curve CLD comparison gives the same measure through
++\Cref{prop:ch19-curve-model-curvature,thm:ch19-cld-bfj-comparison}.
++The arbitrary-field metric assertion is the one in
++\Cref{thm:curves-arbitrary-field-continuity}, not an automatic extension
++of every singular BFJ psh definition.
+ \end{proof}
+ 
+ \begin{remark}[What this proposition is, and is not]

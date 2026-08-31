@@ -1,0 +1,457 @@
+diff --git a/manuscript/parts/part3/ch22_compactness.tex b/manuscript/parts/part3/ch22_compactness.tex
+--- a/manuscript/parts/part3/ch22_compactness.tex
++++ b/manuscript/parts/part3/ch22_compactness.tex
+@@ -3214,15 +3214,15 @@
+ vertex and slope bounds, hence facewise equicontinuity, hold on any SNC
+ model over any complete discretely valued field.  What is lost is not the
+ estimate but the supply of complexes.
+-\item \emph{Curves.}  For a smooth projective curve over an arbitrary
+-complete nontrivially valued field, semipositive envelopes of continuous
+-metrics are continuous, by \Cref{thm:curves-arbitrary-field-continuity};
+-the proof is a graph-Laplacian argument and uses no resolution.  Since
+-\Cref{thm:bfj-decreasing-regularization} deduces regularization from
+-envelope continuity by pure order theory
+-(\Cref{prop:ch22-multiplier-interface}), the regularization statement is
+-available for curves in that generality, once the skeletal framework has
+-been set up by semistable reduction.
++\item \emph{Curves.}  For an ample line bundle on a smooth projective
++geometrically connected curve over an arbitrary complete nontrivially
++valued field, the semipositive metric envelope is continuous
++\cite[Theorem~1.1]{GJKM19}; see
++\Cref{thm:curves-arbitrary-field-continuity}.  This is a rational-model
++envelope statement.  Transporting
++\Cref{thm:bfj-decreasing-regularization} to that setting additionally
++requires its singular-psh class, skeletal hypotheses, and envelope
++identification; it is not a consequence of notation alone.
+ \item \emph{Equal positive characteristic.}  Over a complete discretely
+ valued field of characteristic \(p>0\), for a smooth projective variety of
+ geometric origin from a \(d\)-dimensional family, and assuming resolution
+diff --git a/manuscript/parts/part3/ch23_bfj_envelopes.tex b/manuscript/parts/part3/ch23_bfj_envelopes.tex
+--- a/manuscript/parts/part3/ch23_bfj_envelopes.tex
++++ b/manuscript/parts/part3/ch23_bfj_envelopes.tex
+@@ -77,10 +77,10 @@
+ psh functions and the only issue is upper semicontinuity of the supremum.
+ \item The \emph{model obstacle envelope} \(P^{\mathcal D}_\theta(f)\),
+ obtained by restricting the competitors in (1) to \(\theta\)-psh
+-\emph{model} functions.  This is the definition used by
+-Gubler--Jell--K\"unnemann--Martin \cite[Definition~2.8]{GJKM19}, and it is
+-the only one of the three that makes sense before a theory of singular psh
+-functions has been built.
++\emph{real model} functions in the convention of this chapter.
++The rational-model envelope of
++\cite[Definition~2.8]{GJKM19} is a distinct object, defined below using
++numerical nefness and not a previously constructed singular psh class.
+ \end{enumerate}
+ 
+ Operations (1) and (2) are related but not identical: \(P_\theta(f)\) is the
+@@ -250,11 +250,21 @@
+  P^{\mathcal D}_\theta(f)\leq P_\theta(f)
+  \qquad\text{pointwise on }X^{\An}.
+ \end{equation}
+-\Cref{def:ch23-model-envelope} is the one under which the later
+-literature works, because it is available verbatim over fields for which the
+-singular class \(\PSH(X,\theta)\) has not been constructed;
+-\Cref{prop:ch23-model-vs-psh-envelope} shows that in the present regime, and
+-for continuous obstacles, nothing is lost.
++\Cref{prop:ch23-model-vs-psh-envelope} compares this real-model
++envelope with the raw all-psh envelope in the present hypothesis regime.
++For later arbitrary-field statements we use a separate notation.  Write
++\(\mathcal D_{\mathbf Q}(X)\) for the rational model functions and set
++\[
++ P^{\mathcal D_{\mathbf Q}}_\theta(f)
++ :=\sup\{\varphi\in\mathcal D_{\mathbf Q}(X):
++       \theta+\ddc\varphi\text{ is a semipositive model form},\quad
++       \varphi\leq f\},\qquad \sup\varnothing=-\infty.
++\]
++Here \(\theta\) may be a real closed model form.  This is the envelope
++of \cite[\S\S2.2--2.8]{GJKM19}.  Its competitor set and that of
++\eqref{eq:ch23-model-envelope} are not definitionally the same; neither
++is identified with the raw all-psh envelope outside a stated comparison
++theorem.
+ 
+ Finally we record the third operation of \Cref{sec:ch23-three-operators} as a
+ definition, since it is the one whose output requires a star.
+@@ -3044,32 +3054,23 @@
+ \subsection{Curves over an arbitrary complete field}
+ \label{sec:ch23-later-curves}
+ 
+-The first extension removes essentially every hypothesis except the
+-dimension.
++The first extension removes discreteness and residue-characteristic
++restrictions for ample line bundles on curves.
+ 
+ \begin{theorem}
+ \label{thm:ch23-gjkm-curves}
+-Let \(K\) be \emph{any} field complete with respect to a nontrivial
+-non-Archimedean absolute value, let \(X\) be a smooth projective curve over
+-\(K\), let \(\theta\) be a closed \((1,1)\)-form on \(X^{\An}\) whose de
+-Rham class \(\{\theta\}\) is nef, and let \(u\in C^0(X^{\An})\).  Then
+-\(P_\theta(u)\) is a uniform limit of \(\theta\)-psh model functions; in
+-particular it is continuous.  For an ample line bundle \(L\) and any
+-continuous metric on \(L^{\An}\), the semipositive envelope is therefore a
+-continuous semipositive metric.
++Let \(K\) be complete with respect to a nontrivial non-Archimedean
++absolute value, let \(X\) be a smooth projective geometrically connected
++curve over \(K\), and let \(L\) be ample.  For every continuous metric
++on \(L^{\An}\), its envelope over semipositive rational model metrics
++is a continuous semipositive metric.
+ \end{theorem}
+ 
+-\begin{proof}[Source and scope]
+-This is \cite[Theorem~1.1]{GJKM19} in the form of its generalization
+-\cite[Theorem~3.1]{GJKM19}.  A complete proof, in the notation of this book,
+-is given in \Cref{thm:curves-arbitrary-field-continuity}; the mechanism is
+-Thuillier's potential theory on \(X^{\An}\) together with the slope formula
+-of \Cref{thm:ch08-slope-formula}, which turns the psh condition into the
+-inequality \eqref{eq:curve-slope-criterion} on outgoing slopes.  Note the
+-three hypotheses that have been dropped relative to
+-\Cref{thm:bfj-envelope-regularity}: the valuation need not be discrete, the
+-residue characteristic is arbitrary, and the class is only assumed nef.  The
+-hypothesis that has been added is \(\dim X=1\).
++\begin{proof}
++This is \cite[Theorem~1.1]{GJKM19}.  In potential notation it is the
++rational-model envelope, not by definition the raw all-psh envelope.
++Ampleness is retained; no existence of a rational model competitor is
++inferred here from generic nefness alone.
+ \end{proof}
+ 
+ \begin{remark}[Why dimension one is special, and what fails above it]
+@@ -3211,11 +3212,12 @@
+ \(X\); \Cref{rem:cofinality-scope} states the consequences.  For envelopes
+ this means:
+ \begin{enumerate}
+-\item pullback along a finite extension \(K'/K\) commutes with the envelope,
+-by \cite[Proposition~2.11]{GJKM19}, so a continuity statement may be proved
+-after a finite, even a purely inseparable, base extension and then descended;
+-this is used in the proof of
+-\Cref{thm:curves-arbitrary-field-continuity};
++\item for the rational-model envelope, pullback along a finite normal
++extension \(K'/K\) commutes with the envelope by
++\cite[Proposition~2.11]{GJKM19}.  One may enlarge a finite extension to
++a finite normal extension; the cited proposition includes the purely
++inseparable case.  This is not a statement about arbitrary alterations or,
++without a separate comparison, the raw all-psh envelope;
+ \item pullback along a genuine alteration \(X'\to X\) does \emph{not}
+ obviously reflect continuity of envelopes, because the psh class on \(X\) is
+ not the set of functions whose pullback is psh unless a descent theorem is
+@@ -3278,8 +3280,8 @@
+ \Cref{thm:ch23-gjkm-curves}
+  &any complete, nontrivial
+  &\(1\)
+- &nef
+- &none\\
++ &ample \(L\)
++ &smooth projective geometrically connected curve; metric envelope\\
+ \Cref{thm:ch23-gjkm-positive-characteristic}
+  &cdv, \(\operatorname{char}K=p\)
+  &any
+@@ -3460,11 +3462,11 @@
+ envelopes in non-Archimedean geometry and test ideals}, Annales de
+ l'Institut Fourier \textbf{69} (2019), 2331--2376, with an appendix by
+ Burgos Gil and Sombra \cite{GJKM19}, contains three results used above.
+-Continuity on curves over an arbitrary complete nontrivially valued field
+-is \cite[Theorem~1.1]{GJKM19}, generalized to nef classes in
+-\cite[Theorem~3.1]{GJKM19}; it is our
+-\Cref{thm:ch23-gjkm-curves}, proved in full in
+-\Cref{thm:curves-arbitrary-field-continuity}.  Continuity in equal
++For ample line bundles on curves over an arbitrary complete nontrivially
++valued field, continuity of the semipositive metric envelope is
++\cite[Theorem~1.1]{GJKM19}, recorded in
++\Cref{thm:ch23-gjkm-curves}.  No unrestricted degree-zero model-existence
++assertion is used.  Continuity in equal
+ characteristic \(p\) is \cite[Theorem~8.2]{GJKM19}, our
+ \Cref{thm:ch23-gjkm-positive-characteristic}, with the unconditional
+ surface case \cite[Corollary~8.3]{GJKM19}.  The uniform generation theorem
+diff --git a/manuscript/parts/part3/ch27_differentiability.tex b/manuscript/parts/part3/ch27_differentiability.tex
+--- a/manuscript/parts/part3/ch27_differentiability.tex
++++ b/manuscript/parts/part3/ch27_differentiability.tex
+@@ -1925,13 +1925,11 @@
+ and that Monge--Amp\`ere measures do.  The second is
+ \Cref{thm:base-change-ma}, in the form
+ \(\pi_*\MA_{\omega_{K'}}(\varphi\circ\pi)=\MA_\omega(\varphi)\), together
+-with \eqref{eq:base-change-weight}.  The first is carried out inside the
+-proof of \Cref{thm:curves-arbitrary-field-continuity}, where the reduction
+-``after a finite extension \(K'/K\), semistable reduction provides a
+-strictly semistable model \(\mathcal X'\) determining both the pulled back
+-form and the obstacle; the envelope commutes with this finite base change''
+-is performed in detail, using the Galois quotient description of
+-\(X^{\An}\).  We do not repeat that argument here, and we do not state an
++with \eqref{eq:base-change-weight}.  For the rational-model envelope,
++the first is \cite[Proposition~2.11]{GJKM19} after enlarging to a finite
++normal extension, including its inseparable part.  Applying this identity
++to the raw all-psh envelope additionally requires the appropriate envelope
++comparison.  We do not infer that comparison from notation, or state an
+ unconditional curve orthogonality theorem in this chapter: what is proved
+ here is \Cref{prop:ch27-curve-orthogonality} and
+ \Cref{cor:ch27-curve-orthogonality-global}, and the general curve case is
+@@ -3416,11 +3414,11 @@
+ \Cref{sec:ch23-later}.
+ 
+ \paragraph{Curves over an arbitrary complete field.}
+-Continuity of the envelope holds with no hypothesis on the residue
+-characteristic and with no discreteness hypothesis: this is
+-\Cref{thm:ch23-gjkm-curves}, that is,
+-\cite[Theorem~1.1 and Theorem~3.1]{GJKM19}, proved in full in
+-\Cref{thm:curves-arbitrary-field-continuity}; the class need only be nef.
++For ample line bundles on smooth projective geometrically connected
++curves, semipositive metric-envelope continuity holds without discreteness
++or residue-characteristic restrictions:
++\cite[Theorem~1.1]{GJKM19} and \Cref{thm:ch23-gjkm-curves}.
++This assertion concerns rational-model competitors.
+ Orthogonality on a curve is the complementary-slackness statement
+ \Cref{thm:ch23-model-orthogonality-curve} at model level, upgraded by
+ \Cref{prop:ch27-curve-orthogonality} and
+@@ -3495,10 +3493,11 @@
+  &any
+  &\Cref{thm:bfj-envelope-regularity}
+  &\Cref{thm:orthogonality-provenance}\,(1), by asymptotic orthogonality\\
+-any complete nontrivially valued \(K\); class nef
++any complete nontrivially valued \(K\); ample \(L\), curve geometrically connected
+  &\(1\)
+  &\Cref{thm:ch23-gjkm-curves}
+- &\Cref{cor:ch27-curve-orthogonality-global} under semistability;
++ &\Cref{cor:ch27-curve-orthogonality-global} under its positive-class
++   standing hypotheses and semistability;
+    \Cref{rem:ch27-curve-base-change}\\
+ cdv, \(\operatorname{char}K=p\), geometric origin, resolution in
+  \(d+n\)
+@@ -3536,7 +3535,8 @@
+ 
+ \begin{warning}{Do not transport a continuity theorem across its dimension}
+ The curve theorem \Cref{thm:ch23-gjkm-curves} holds over every complete
+-nontrivially valued field, and it is tempting to combine it with a fibration
++nontrivially valued field in its stated ample metric scope, and it is
++tempting to combine it with a fibration
+ argument to obtain continuity in higher dimension.  No such argument is
+ known, and the obstruction is identified in
+ \Cref{rem:ch23-curve-specialness}: retraction to a skeleton preserves
+@@ -4412,8 +4412,8 @@
+ \paragraph{Positive residue characteristic.}
+ The continuity theorems quoted in \Cref{sec:ch27-positive-characteristic}
+ are Gubler--Jell--K\"unnemann--Martin \cite{GJKM19}: curves over an
+-arbitrary complete nontrivially valued field, \cite[Theorem~1.1 and
+-Theorem~3.1]{GJKM19}; equal characteristic \(p\) with geometric origin and
++arbitrary complete nontrivially valued field with an ample line bundle,
++\cite[Theorem~1.1]{GJKM19}; equal characteristic \(p\) with geometric origin and
+ resolution, \cite[Theorem~8.2]{GJKM19}; the unconditional surface case,
+ \cite[Corollary~8.3]{GJKM19}.  Orthogonality in equal characteristic \(p\)
+ is \cite[Theorem~9.2]{GJKM19}, which uses the volume theorem
+diff --git a/manuscript/parts/part3/ch28_finite_energy_measures.tex b/manuscript/parts/part3/ch28_finite_energy_measures.tex
+--- a/manuscript/parts/part3/ch28_finite_energy_measures.tex
++++ b/manuscript/parts/part3/ch28_finite_energy_measures.tex
+@@ -272,7 +272,8 @@
+  &complete, discretely valued
+  &cofinality of SNC models \Cref{prop:snc-cofinal}; the whole model
+   calculus of \Cref{chap:bfj-model-forms}
+- &curves over an arbitrary complete field,
++ &ample curve metric envelopes and skeletal-supported continuous
++  solutions over arbitrary complete nontrivially valued fields,
+   \Cref{thm:curves-arbitrary-field-continuity}; the general case is
+   \emph{open}, \Cref{prob:frontier-general-ma}\\
+ residue char.
+@@ -2250,10 +2251,14 @@
+ replace multiplier ideals by test ideals in the envelope step and leave the
+ support hypothesis on \(\mu\) untouched.
+ 
+-\emph{Other ground fields.}  For a smooth projective \emph{curve} over an
+-arbitrary complete nontrivially valued field, the whole package is available:
+-this is \Cref{thm:curves-arbitrary-field-continuity}, from
+-\cite[Theorems~1.1 and~3.1]{GJKM19}.  In dimension \(n\geq2\) over a
++\emph{Other ground fields.}  On a smooth projective geometrically
++connected curve over an arbitrary complete nontrivially valued field,
++\Cref{thm:curves-arbitrary-field-continuity} gives ample metric-envelope
++continuity and continuous semipositive solutions for positive measures of
++matching mass supported on a semistable skeleton.  The envelope input is
++\cite[Theorem~1.1]{GJKM19}.  This does not by itself transport every
++finite-energy or singular-psh assertion of this chapter.
++In dimension \(n\geq2\) over a
+ general complete field the situation is different in kind.  The class
+ \(\cE^1\) can be defined, but the extension of the Monge--Amp\`ere operator
+ to it is explicitly left open in \cite[Remark~4.4]{PS23Hybrid}; the
+@@ -3574,8 +3579,11 @@
+ volume functional is developed in \cite{BGM21}.  Continuity of envelopes and
+ the Calabi--Yau theorem in equal characteristic \(p\), under geometric-origin
+ and resolution hypotheses, are \cite[Theorems~1.4, 8.2, 9.2 and~9.3]{GJKM19}
+-(2019), which also settle curves over an arbitrary complete nontrivially
+-valued field, \cite[Theorems~1.1 and~3.1]{GJKM19}.  Mixed characteristic,
++(2019).  The same paper proves ample metric-envelope continuity on
++curves over arbitrary complete nontrivially valued fields,
++\cite[Theorem~1.1]{GJKM19}; the separate skeletal-supported solution
++statement is \Cref{thm:curves-arbitrary-field-continuity}.
++Mixed characteristic,
+ again under resolution hypotheses, is \cite{FGK25} (2025).  The trivially
+ valued theory, in which the corresponding surjectivity statement is
+ equivalent to the envelope property, is \cite[\S\S7--12]{BJ22} (2022) and
+diff --git a/manuscript/parts/part3/ch29_continuity.tex b/manuscript/parts/part3/ch29_continuity.tex
+--- a/manuscript/parts/part3/ch29_continuity.tex
++++ b/manuscript/parts/part3/ch29_continuity.tex
+@@ -2060,9 +2060,9 @@
+  &\(\dim X=1\)\\
+ residue characteristic zero
+  &\(K\) complete, nontrivially valued\\
+-ampleness (nefness suffices)
+- &for the Monge--Amp\`ere half: \(L\) ample and \(\mu\) supported on the
+-  skeleton of a strictly semistable model\\
++higher-dimensional resolution
++ &\(L\) ample, \(X\) geometrically connected; for the equation,
++  \(\mu\) supported on a strictly semistable skeleton\\
+ algebraizability \textup{(S4)}
+  &mass \(\mu(X^{\An})=\deg L\)\\
+ \bottomrule
+@@ -2071,8 +2071,9 @@
+ 
+ \begin{theorem}\label{thm:curves-arbitrary-field-continuity}
+ Let \(K\) be any complete nontrivially valued non-Archimedean field, let
+-\(X\) be a smooth projective curve, and let \(L\) be ample.  The
+-semipositive envelope of every continuous metric on \(L^{\An}\) is a
++\(X\) be a smooth projective geometrically connected curve, and let
++\(L\) be ample.  The envelope over semipositive rational model metrics
++of every continuous metric on \(L^{\An}\) is a
+ continuous semipositive metric.  If a positive measure of mass \(\deg L\)
+ is supported on the skeleton of a strictly semistable model, the associated
+ Monge--Amp\`ere equation has a continuous semipositive solution, unique up
+@@ -2207,8 +2208,8 @@
+ \begin{remark}[Source, date, and the division of labour]
+ \label{rem:ch29-curve-source}
+ The envelope half of \Cref{thm:curves-arbitrary-field-continuity} is
+-\cite[Theorem~1.1]{GJKM19}, in the more general form
+-\cite[Theorem~3.1]{GJKM19}, published in 2019 and recorded in this book as
++\cite[Theorem~1.1]{GJKM19}, published in 2019, for an ample line bundle.
++The rational-model envelope convention is explicit in
+ \Cref{thm:ch23-gjkm-curves}; the retraction statements used in its proof are
+ \cite[Proposition~1.2 and Propositions~3.5, 3.8]{GJKM19}.  The
+ Monge--Amp\`ere half is the deduction sketched in the introduction of
+@@ -2225,14 +2226,11 @@
+ 
+ \begin{remark}[Where the ``nef'' and ``ample'' hypotheses sit]
+ \label{rem:ch29-curve-nef-ample}
+-The envelope statement in \Cref{thm:curves-arbitrary-field-continuity} needs
+-only a nef de Rham class, as in \Cref{thm:ch23-gjkm-curves}; ampleness of
+-\(L\) is used only in the Monge--Amp\`ere half, and there only to know that
+-\(\deg L>0\), so that the measure \(\mu_0\) has positive mass and the graph
+-Laplacian equation \(\Delta_\Gamma u=\mu-\mu_0\) has a right-hand side of
+-total mass zero.  The asymmetry is characteristic of dimension one: in
+-higher dimension ampleness is needed already for
+-\Cref{lem:ch23-envelope-finiteness}, hence for the entire envelope calculus.
++Ampleness is retained in both assertions of
++\Cref{thm:curves-arbitrary-field-continuity}.  Matching the total masses
++is what makes \(\mu-\mu_0\) have mass zero; positivity of \(\deg L\)
++is a separate hypothesis.  Generic nefness alone is not used as a
++model-existence assertion in degree zero.
+ \end{remark}
+ 
+ \subsection{Equicharacteristic positive characteristic}
+@@ -2532,9 +2530,10 @@
+ 
+ \item[Curves]
+ \emph{Input.} Thuillier theory and graph retraction.
+-\par\emph{Remaining hypotheses.} The field is arbitrary complete and
+-nontrivially valued; for the stated equation the measure is carried by a
+-semistable skeleton.
++\par\emph{Remaining hypotheses.} The curve is smooth projective and
++geometrically connected, the field is complete and nontrivially valued,
++and the line bundle is ample.  For the equation the measure has mass
++\(\deg L\) and is carried by a semistable skeleton.
+ 
+ \item[GJKM 2019]
+ \emph{Input.} Equal-characteristic test ideals.
+@@ -3116,9 +3115,10 @@
+ arbitrary complete nontrivially valued field the extension of the
+ Monge--Amp\`ere operator to \(\cE^1\) is explicitly left open in
+ \cite[Remark~4.4]{PS23Hybrid}; see \Cref{prob:frontier-general-ma}.  For
+-curves the whole problem is linear and
+-\Cref{thm:curves-arbitrary-field-continuity} is unconditional over every
+-complete nontrivially valued field.
++curves, \Cref{thm:curves-arbitrary-field-continuity} supplies ample
++metric-envelope continuity and the skeletal-supported continuous-solution
++statement over every complete nontrivially valued field.  It is not by
++itself the whole finite-energy package.
+ 
+ \emph{(E3) Singular \(X\).}  Smoothness enters through the availability of
+ SNC models and through
+@@ -3314,7 +3314,8 @@
+ 
+ \paragraph{Curves, 2019.}
+ \Cref{thm:curves-arbitrary-field-continuity} is
+-\cite[Theorem~1.1 and Theorem~3.1]{GJKM19}, with the retraction statements
++based, for its ample metric-envelope half, on
++\cite[Theorem~1.1]{GJKM19}, with the retraction statements
+ \cite[Proposition~1.2 and Propositions~3.5, 3.8]{GJKM19}; the underlying
+ potential theory on a Berkovich curve is Thuillier's, and the slope formula
+ is that of \Cref{thm:ch08-slope-formula}.  The higher-dimensional failure of
+diff --git a/manuscript/parts/part3/ch31_bfj_examples.tex b/manuscript/parts/part3/ch31_bfj_examples.tex
+--- a/manuscript/parts/part3/ch31_bfj_examples.tex
++++ b/manuscript/parts/part3/ch31_bfj_examples.tex
+@@ -175,7 +175,8 @@
+ hypotheses, and each enlargement is flagged where it occurs.  Curves over an
+ arbitrary complete nontrivially valued field are treated in
+ \Cref{sec:ch31-curves} because the continuity theorem
+-\Cref{thm:curves-arbitrary-field-continuity} is available there; the toric
++\Cref{thm:curves-arbitrary-field-continuity} is available for ample
++metric envelopes and skeletal-supported measures there; the toric
+ comparison \Cref{thm:toric-bfj-alexandrov} is stated for a projective toric
+ variety, which is smooth only for a smooth fan; and totally degenerate
+ abelian varieties in \Cref{sec:ch31-abelian} are treated over an
+@@ -237,7 +238,8 @@
+ \subsection{The skeleton, its lengths, and the Laplacian}
+ \label{sec:ch31-curve-setup}
+ 
+-Let \(X\) be a smooth projective curve over \(K\) and let \(\cX\) be a
++Let \(X\) be a smooth projective geometrically connected curve over
++\(K\) and let \(\cX\) be a
+ regular semistable model, so that \(\cX_s\) is reduced with smooth
+ components meeting transversely.  Its dual graph, weighted by the
+ \emph{modulus lengths} of \Cref{prop:ch08-annulus-skeleton}, is the skeleton
+@@ -249,9 +251,11 @@
+ 
+ A model function on \(X^{\An}\) determined on \(\cX\) is the pullback under
+ \(p_{\cX}\) of a piecewise affine function on \(\Gamma\), by
+-\Cref{thm:bfj-skeletal-characterization}; conversely every piecewise affine
+-function on \(\Gamma\) arises this way after subdividing, that is, after
+-passing to a model dominating \(\cX\).  The operator \(\ddc\) of
++\Cref{thm:bfj-skeletal-characterization}.  For the rational-model
++converse, slopes, values, and subdivision points must satisfy the
++value-group compatibility of \cite[Proposition~3.5]{GJKM19}; an arbitrary
++real piecewise affine graph function is not thereby a rational model
++function.  The operator \(\ddc\) of
+ \Cref{def:ch20-ddc} restricts on such functions to the graph Laplacian of
+ \eqref{eq:graph-laplacian}:
+ \begin{equation}
+@@ -506,10 +510,11 @@
+ with the variational argument replaced by linear algebra and the capacity
+ estimate replaced by the bound \(\sup|g_q|\leq\operatorname{diam}\Gamma\).
+ Two things are \emph{not} obtained this way.  First, a measure on
+-\(X^{\An}\) not supported on any skeleton is out of reach here: it is the
+-content of \Cref{thm:curves-arbitrary-field-continuity} that the equation is
+-nevertheless solvable on a curve over an arbitrary complete nontrivially
+-valued field.  Second, nothing in the argument generalizes: in dimension
++\(X^{\An}\) not supported on any skeleton is outside this assertion;
++\Cref{thm:curves-arbitrary-field-continuity} also retains skeletal support
++for its continuous-solution statement.  No nonskeletal existence or
++continuity assertion is deduced from either theorem here.
++Second, nothing in the argument generalizes: in dimension
+ \(\geq2\) the operator is not affine, there is no kernel, and the solution
+ is produced variationally.
+ \end{remark}
+@@ -3536,8 +3541,8 @@
+  &continuity of the solution
+   (\Cref{thm:bfj-supported-regularity})
+  &solvability remains, in finite energy
+-  (\Cref{thm:bfj-supported-cy}); continuity is not asserted, except on
+-  curves (\Cref{thm:curves-arbitrary-field-continuity})\\
++  (\Cref{thm:bfj-supported-cy}); continuity is not asserted without
++  the support hypothesis, including on curves\\
+ \bottomrule
+ \end{tabular}
+ \end{center}
+@@ -3791,7 +3796,9 @@
+ \cite{BFJ15}; algebraizability is removed in \cite{BGGJKM20}, the
+ equal-characteristic test-ideal extension is \cite{GJKM19}, and the
+ conditional mixed-characteristic extension is \cite{FGK25}.  Continuity of
+-solutions on curves over an arbitrary complete nontrivially valued field is
++solutions for positive skeletal-supported measures of matching mass on
++smooth projective geometrically connected curves with an ample line bundle
++over arbitrary complete nontrivially valued fields is
+ \Cref{thm:curves-arbitrary-field-continuity}, proved in
+ \Cref{chap:bfj-continuity}, where its provenance is recorded.  The
+ comparison of algebraic, formal, and

@@ -1,0 +1,1113 @@
+# DRAFT ONLY: DO NOT APPLY before the residue-degree weighting and common-model interfaces in REVIEW_CHECKLIST.md have been audited. The accepted positive Ch17 theorem is only one downstream input.
+diff --git a/manuscript/parts/part3/ch22_compactness.tex b/manuscript/parts/part3/ch22_compactness.tex
+--- a/manuscript/parts/part3/ch22_compactness.tex
++++ b/manuscript/parts/part3/ch22_compactness.tex
+@@ -3214,15 +3214,15 @@
+ vertex and slope bounds, hence facewise equicontinuity, hold on any SNC
+ model over any complete discretely valued field.  What is lost is not the
+ estimate but the supply of complexes.
+-\item \emph{Curves.}  For a smooth projective curve over an arbitrary
+-complete nontrivially valued field, semipositive envelopes of continuous
+-metrics are continuous, by \Cref{thm:curves-arbitrary-field-continuity};
+-the proof is a graph-Laplacian argument and uses no resolution.  Since
+-\Cref{thm:bfj-decreasing-regularization} deduces regularization from
+-envelope continuity by pure order theory
+-(\Cref{prop:ch22-multiplier-interface}), the regularization statement is
+-available for curves in that generality, once the skeletal framework has
+-been set up by semistable reduction.
++\item \emph{Curves.}  For an ample line bundle on a smooth projective
++geometrically connected curve over an arbitrary complete nontrivially
++valued field, the semipositive metric envelope is continuous
++\cite[Theorem~1.1]{GJKM19}; see
++\Cref{thm:curves-arbitrary-field-continuity}.  This is a rational-model
++envelope statement.  Transporting
++\Cref{thm:bfj-decreasing-regularization} to that setting additionally
++requires its singular-psh class, skeletal hypotheses, and envelope
++identification; it is not a consequence of notation alone.
+ \item \emph{Equal positive characteristic.}  Over a complete discretely
+ valued field of characteristic \(p>0\), for a smooth projective variety of
+ geometric origin from a \(d\)-dimensional family, and assuming resolution
+diff --git a/manuscript/parts/part3/ch23_bfj_envelopes.tex b/manuscript/parts/part3/ch23_bfj_envelopes.tex
+--- a/manuscript/parts/part3/ch23_bfj_envelopes.tex
++++ b/manuscript/parts/part3/ch23_bfj_envelopes.tex
+@@ -77,10 +77,10 @@
+ psh functions and the only issue is upper semicontinuity of the supremum.
+ \item The \emph{model obstacle envelope} \(P^{\mathcal D}_\theta(f)\),
+ obtained by restricting the competitors in (1) to \(\theta\)-psh
+-\emph{model} functions.  This is the definition used by
+-Gubler--Jell--K\"unnemann--Martin \cite[Definition~2.8]{GJKM19}, and it is
+-the only one of the three that makes sense before a theory of singular psh
+-functions has been built.
++\emph{real model} functions in the convention of this chapter.
++The rational-model envelope of
++\cite[Definition~2.8]{GJKM19} is a distinct object, defined below using
++numerical nefness and not a previously constructed singular psh class.
+ \end{enumerate}
+ 
+ Operations (1) and (2) are related but not identical: \(P_\theta(f)\) is the
+@@ -250,11 +250,21 @@
+  P^{\mathcal D}_\theta(f)\leq P_\theta(f)
+  \qquad\text{pointwise on }X^{\An}.
+ \end{equation}
+-\Cref{def:ch23-model-envelope} is the one under which the later
+-literature works, because it is available verbatim over fields for which the
+-singular class \(\PSH(X,\theta)\) has not been constructed;
+-\Cref{prop:ch23-model-vs-psh-envelope} shows that in the present regime, and
+-for continuous obstacles, nothing is lost.
++\Cref{prop:ch23-model-vs-psh-envelope} compares this real-model
++envelope with the raw all-psh envelope in the present hypothesis regime.
++For later arbitrary-field statements we use a separate notation.  Write
++\(\mathcal D_{\mathbf Q}(X)\) for the rational model functions and set
++\[
++ P^{\mathcal D_{\mathbf Q}}_\theta(f)
++ :=\sup\{\varphi\in\mathcal D_{\mathbf Q}(X):
++       \theta+\ddc\varphi\text{ is a semipositive model form},\quad
++       \varphi\leq f\},\qquad \sup\varnothing=-\infty.
++\]
++Here \(\theta\) may be a real closed model form.  This is the envelope
++of \cite[\S\S2.2--2.8]{GJKM19}.  Its competitor set and that of
++\eqref{eq:ch23-model-envelope} are not definitionally the same; neither
++is identified with the raw all-psh envelope outside a stated comparison
++theorem.
+ 
+ Finally we record the third operation of \Cref{sec:ch23-three-operators} as a
+ definition, since it is the one whose output requires a star.
+@@ -3044,32 +3054,351 @@
+ \subsection{Curves over an arbitrary complete field}
+ \label{sec:ch23-later-curves}
+ 
+-The first extension removes essentially every hypothesis except the
+-dimension.
++The curve result below removes discreteness and residue-characteristic
++restrictions for positive-degree real model classes.  Its degree-zero
++clause requires an actual rational-model competitor.
+ 
+ \begin{theorem}
+ \label{thm:ch23-gjkm-curves}
+-Let \(K\) be \emph{any} field complete with respect to a nontrivial
+-non-Archimedean absolute value, let \(X\) be a smooth projective curve over
+-\(K\), let \(\theta\) be a closed \((1,1)\)-form on \(X^{\An}\) whose de
+-Rham class \(\{\theta\}\) is nef, and let \(u\in C^0(X^{\An})\).  Then
+-\(P_\theta(u)\) is a uniform limit of \(\theta\)-psh model functions; in
+-particular it is continuous.  For an ample line bundle \(L\) and any
+-continuous metric on \(L^{\An}\), the semipositive envelope is therefore a
+-continuous semipositive metric.
++Let $K$ be a complete nontrivially valued non-Archimedean field, and let
++$C$ be a smooth proper geometrically connected $K$-curve.  Write
++$\mathcal D_{\mathbf Q}(C)$ for the rational model functions, namely the
++functions induced by formal metrics on positive tensor powers of the
++trivial line bundle, divided by that tensor power.  Let
++$\theta\in Z^{1,1}(C)$ be a real closed model $(1,1)$-form in the sense of
++\cite[\S\S2.3--2.7]{GJKM19}, and put $d=\deg\{\theta\}$.
++For $f\in C^0(C^{\mathrm{an}},\mathbf R)$ define
++\begin{equation}
++\label{eq:ch23-curve-rational-model-envelope}
++ P^{\mathcal D_{\mathbf Q}}_\theta(f)
++ :=\sup\{\varphi\in\mathcal D_{\mathbf Q}(C):
++             \theta+\mathrm d\mathrm d^c\varphi\text{ is nef},\quad
++             \varphi\leq f\},
++ \qquad \sup\varnothing=-\infty.
++\end{equation}
++Here nefness is numerical nefness on a determining proper model, not
++merely nefness of the generic class.  Then the following hold.
++\begin{enumerate}
++\item If $d>0$, the envelope in
++\eqref{eq:ch23-curve-rational-model-envelope} is a finite continuous function
++for every continuous $f$.  It is a uniform limit of $\theta$-psh rational
++model functions lying below $f$.
++\item Suppose $d=0$ and an actual function
++$\psi\in\mathcal D_{\mathbf Q}(C)$ with
++$\theta+\mathrm d\mathrm d^c\psi$ nef exists.  Then
++$\theta+\mathrm d\mathrm d^c\psi=0$ in $Z^{1,1}(C)$, any two such
++functions differ by a real constant, and for every continuous $f$,
++\begin{equation}
++\label{eq:ch23-curve-degree-zero-envelope}
++ P^{\mathcal D_{\mathbf Q}}_\theta(f)
++       =\psi+\min_{C^{\mathrm{an}}}(f-\psi).
++\end{equation}
++This is again a uniform limit of $\theta$-psh rational model functions
++lying below $f$.  If no such $\psi$ exists, all these envelopes equal
++$-\infty$.
++\end{enumerate}
++The hypothesis $d>0$ is equivalent to ampleness of the real numerical
++class on the curve.  No assertion here identifies
++$P^{\mathcal D_{\mathbf Q}}_\theta$ with an envelope over the real span
++of model functions, or with an envelope over all singular psh functions.
+ \end{theorem}
+ 
+-\begin{proof}[Source and scope]
+-This is \cite[Theorem~1.1]{GJKM19} in the form of its generalization
+-\cite[Theorem~3.1]{GJKM19}.  A complete proof, in the notation of this book,
+-is given in \Cref{thm:curves-arbitrary-field-continuity}; the mechanism is
+-Thuillier's potential theory on \(X^{\An}\) together with the slope formula
+-of \Cref{thm:ch08-slope-formula}, which turns the psh condition into the
+-inequality \eqref{eq:curve-slope-criterion} on outgoing slopes.  Note the
+-three hypotheses that have been dropped relative to
+-\Cref{thm:bfj-envelope-regularity}: the valuation need not be discrete, the
+-residue characteristic is arbitrary, and the class is only assumed nef.  The
+-hypothesis that has been added is \(\dim X=1\).
++\begin{proof}
++Throughout this proof the word model means rational model unless explicitly
++qualified.  We use the model-function and real-model-form conventions of
++\cite[\S\S2.2--2.8]{GJKM19}; in particular the coefficients of $\theta$
++need not be rational and $\theta$ need not come from one line bundle.
++A smooth proper curve over a field is projective, so the proper and
++projective model results cited below apply to $C$.
++
++\emph{Elementary envelope operations.}
++Put $\Gamma_K=-\log|K^\times|$ and
++$\Lambda_K=\mathbf Q\Gamma_K$.  Constants in $\Lambda_K$ are model
++functions with zero curvature.  This subgroup is dense in $\mathbf R$:
++it contains $a\mathbf Q$ for a nonzero $a\in\Gamma_K$.
++Model $\theta$-psh functions are closed under finite maxima
++\cite[\S2.5]{GJKM19}.  Thus, if one such function exists, translating it
++down by a sufficiently large element of $\Lambda_K$ gives a competitor
++under every continuous obstacle.  Every resulting envelope is finite,
++bounded above by the obstacle and below by a continuous competitor.
++Monotonicity and translations by model constants imply, by taking limits
++of constants in $\Lambda_K$, that
++\begin{equation}
++\label{eq:ch23-curve-envelope-basic-operations}
++ P^{\mathcal D_{\mathbf Q}}_\theta(f+c)
++       =P^{\mathcal D_{\mathbf Q}}_\theta(f)+c,
++ \qquad
++ \|P^{\mathcal D_{\mathbf Q}}_\theta(f)
++       -P^{\mathcal D_{\mathbf Q}}_\theta(g)\|_\infty
++       \leq\|f-g\|_\infty.
++\end{equation}
++Here $c$ is any real number; this identity does not assert that adding
++$c$ preserves the model-function class.  For a model function $b$, the
++actual bijection $\varphi\mapsto\varphi-b$ of competitor sets gives
++\begin{equation}
++\label{eq:ch23-curve-model-obstacle-translation}
++ P^{\mathcal D_{\mathbf Q}}_\theta(b)-b
++       =P^{\mathcal D_{\mathbf Q}}_{\theta+\mathrm d\mathrm d^cb}(0).
++\end{equation}
++These are also \cite[Proposition~2.9(3)--(5)]{GJKM19}.
++
++\emph{The graph calculation over an algebraically closed field.}
++For now assume that $K$ is algebraically closed.  Its value group
++$\Gamma_K$ is divisible.  Semistable reduction and domination give a
++proper strictly semistable model determining any prescribed finite
++collection of model functions and real model forms.  For this curve-model
++input and its use for an arbitrary real form, see
++\cite[proof of Proposition~3.7]{GJKM19} and the semistable domination
++result \cite[\S7]{BL85} used there.  A real form is determined by finitely
++many model numerical classes, so common domination applies to it too.
++Write $G$ for the finite connected skeleton, $V$ for its nonempty vertex
++set, and $\tau:C^{\mathrm{an}}\to G$ for its retraction.  Subdivisions
++at $\Gamma_K$-rational points give dominating models.  The edge lengths
++$\ell_e$ belong to $\Gamma_K$.
++
++Let $d_v\in\mathbf R$ be the degree of $\theta$ on the component
++corresponding to $v$.  The special fiber is reduced and the residue field
++is algebraically closed, so
++\begin{equation}
++\label{eq:ch23-curve-graph-curvature}
++ D=\sum_{v\in V}d_v\delta_v,
++ \qquad \sum_{v\in V}d_v=d,
++ \qquad
++ \theta+\mathrm d\mathrm d^c(F\circ\tau)\text{ is nef}
++       \Longleftrightarrow D+\Delta F\geq0
++\end{equation}
++whenever $F\circ\tau$ is a model function.  The Laplacian has the
++outgoing-slope convention; in an edge interior its coefficient at a break
++is the right slope minus the left slope.  Formula
++\eqref{eq:ch23-curve-graph-curvature} is
++\cite[Proposition~3.7]{GJKM19}.  The degree identity is the degree
++formula on a proper model, applied real-linearly.  In particular, the
++condition is convexity on each open edge and
++$d_v+\sum_{\nu\in T_vG}\partial_\nu F\geq0$ at each vertex.
++We also use precisely the following model dictionary:
++if $F$ has rational slopes, all breakpoints have coordinates in
++$\Gamma_K$, and all its vertex values are in $\Gamma_K$, then
++$F\circ\tau$ is a model function.  Indeed a common positive integer
++multiple is integral $\Gamma_K$-affine, and
++\cite[Proposition~3.5(3)]{GJKM19} applies.  This use of divisibility is
++why the construction is first made over an algebraically closed field.
++
++Assume $d>0$.  Write $N=|V|$.  There is a real function $h$, affine on
++each edge, with
++\begin{equation}
++\label{eq:ch23-curve-positive-vertex-margin}
++ D+\Delta h=\frac dN\sum_{v\in V}\delta_v.
++\end{equation}
++To see this, the Laplacian on edge-affine functions is a symmetric
++matrix whose quadratic form, with sign reversed, is
++$\sum_{e=(v,w)}(x_v-x_w)^2/\ell_e$.  Its kernel consists exactly of
++constants, since $G$ is connected.  Its image is therefore the vectors
++with coordinate sum zero.  The right side of
++\eqref{eq:ch23-curve-positive-vertex-margin} minus $D$ has that sum.
++Normalize the solution by one vertex value and then shift it by a real
++constant so that $h\leq0$.  This is an auxiliary real graph function;
++we have not asserted that it is a model function.
++
++We next prove the approximation needed below.  Let $H\leq0$ be real
++and affine on every edge, with
++$d_v+\sum_\nu\partial_\nu H\geq\eta>0$ at all vertices.  For every
++$\varepsilon>0$ there is a model graph function $A\leq0$ with
++$D+\Delta A\geq0$ and $\|A-H\|_\infty<\varepsilon$.
++If the graph has no edges, approximate its single value from below by
++an element of $\Gamma_K$; this proves the assertion in that case.
++Otherwise choose a small $\delta>0$ so that the maximum valence times
++$\delta$ is less than $\eta/2$, and so that
++$\delta\max_e\ell_e$ is as small as desired.  Choose values
++$p_v\in\Gamma_K$ sufficiently close to $H(v)$ that every chord slope
++\[
++ \sigma_e=\frac{p_w-p_v}{\ell_e}
++\]
++differs from the corresponding slope of $H$ by less than $\delta/3$.
++This is possible because there are finitely many positive edge lengths.
++For an oriented edge $e=[v,w]$, choose rational numbers
++$\alpha_e<\sigma_e<\beta_e$ whose distances from $\sigma_e$ are less
++than $\delta/3$, and put
++\begin{equation}
++\label{eq:ch23-curve-rational-breakpoint}
++ t_e=\frac{\beta_e\ell_e-(p_w-p_v)}{\beta_e-\alpha_e},
++ \qquad 0<t_e<\ell_e.
++\end{equation}
++Divisibility gives $t_e\in\Gamma_K$.  On the edge, start at $p_v$,
++use slope $\alpha_e$ up to $t_e$, and slope $\beta_e$ thereafter.
++Equation \eqref{eq:ch23-curve-rational-breakpoint} gives endpoint $p_w$.
++These functions glue to a continuous function $A_0$ with rational slopes
++and values in $\Gamma_K$ at every old and new vertex.  Its interior
++Laplacian is nonnegative because $\beta_e>\alpha_e$.  Each outgoing
++slope at an old vertex differs from the corresponding slope of $H$ by
++less than $\delta$, so the curvature at that vertex is at least
++$\eta/2$.  On every edge the difference from $H$ is bounded by the
++initial endpoint error plus $\ell_e\delta$.  Thus $A_0$ is uniformly
++as close to $H$ as desired and is a model function by the dictionary.
++Finally subtract a positive constant $\lambda\in\Gamma_K$ slightly
++larger than $\|A_0-H\|_\infty$.  The resulting $A$ is nonpositive,
++retains its curvature, and remains arbitrarily close to $H$.
++
++More generally, if $H_0\leq0$ is edge-affine and satisfies
++$D+\Delta H_0\geq0$, replace it by
++$(1-s)H_0+sh$ with $0<s<1$.  This has vertex margin $sd/N$ by
++\eqref{eq:ch23-curve-positive-vertex-margin}, is nonpositive, and converges
++uniformly to $H_0$ as $s\downarrow0$.  The preceding construction proves
++\begin{equation}
++\label{eq:ch23-curve-real-chord-approximation}
++ \text{every such }H_0\circ\tau\text{ is a uniform limit of
++ model }\theta\text{-psh functions }A\circ\tau\leq0.
++\end{equation}
++Applying the construction directly to $h$ also supplies an actual model
++competitor.  Thus nonemptiness has been proved, not inferred from generic
++nefness or from an envelope theorem.
++
++\emph{Continuity for a model obstacle over the algebraically closed field.}
++Choose the semistable model to determine both $\theta$ and the obstacle
++$b\in\mathcal D_{\mathbf Q}(C)$, and use
++\eqref{eq:ch23-curve-model-obstacle-translation}.  Thus the obstacle is zero
++and the new form still has degree $d>0$.
++Let $\mathcal A$ consist of the nonpositive graph functions $F$ such
++that $F\circ\tau$ is a $\theta$-psh model function.
++The preceding construction shows $\mathcal A\ne\varnothing$.
++For every model $\theta$-psh function $\varphi$,
++\cite[Proposition~3.8]{GJKM19} says that $\varphi\circ\tau$ is again
++model and $\theta$-psh, and $\varphi\leq\varphi\circ\tau$.
++For an obstacle zero this remains a competitor.  Hence
++\begin{equation}
++\label{eq:ch23-curve-skeletal-envelope}
++ P^{\mathcal D_{\mathbf Q}}_\theta(0)=F_*\circ\tau,
++ \qquad F_*:=\sup_{F\in\mathcal A}F.
++\end{equation}
++The cited retraction proposition is applied to actual competitors and
++does not provide their existence.
++
++For $F\in\mathcal A$, let $L(F)$ be the edge-affine interpolation of
++its values on $V$.  Edgewise convexity gives $F\leq L(F)\leq0$.
++Chording increases the outgoing slope at each endpoint, so
++$D+\Delta L(F)\geq0$.  Formula
++\eqref{eq:ch23-curve-real-chord-approximation} shows $L(F)\leq F_*$;
++the chord itself need not be a model function.
++The class $\mathcal A$ is closed under finite maxima.  Given
++$\varepsilon>0$, choose $F_v\in\mathcal A$ with
++$F_v(v)>F_*(v)-\varepsilon$ at each of the finitely many vertices.
++For $B=\max_{v\in V}F_v$ we have
++\[
++ L(F_*)-\varepsilon<L(B)\leq F_*\leq L(F_*).
++\]
++Here the left inequality follows by affine interpolation of the vertex
++inequalities.  For the right inequality, every $F\in\mathcal A$
++is convex on each edge and is bounded at its endpoints by $F_*$, so
++it lies below the interpolation $L(F_*)$; take the supremum.
++Letting $\varepsilon\downarrow0$ gives $F_*=L(F_*)$.
++The envelope is consequently continuous, indeed edge-affine after
++subtracting the model obstacle.
++
++Model functions are uniformly dense in $C^0(C^{\mathrm{an}})$ by
++\cite[Proposition~2.15]{GM19}.  Together with
++\eqref{eq:ch23-curve-envelope-basic-operations}, the result for model
++obstacles proves continuity for every continuous obstacle over the
++algebraically closed field.
++
++\emph{Field descent, including real model forms.}
++For a general $K$, put $\widehat{\overline K}=C_K$ and let
++$q:C_{C_K}^{\mathrm{an}}\to C^{\mathrm{an}}$ be the projection.
++We claim, with empty suprema permitted, that
++\begin{equation}
++\label{eq:ch23-curve-completed-algebraic-envelope-base-change}
++ q^*P^{\mathcal D_{\mathbf Q}}_\theta(f)
++  =P^{\mathcal D_{\mathbf Q}}_{q^*\theta}(q^*f).
++\end{equation}
++Pulling back a competitor proves the inequality from left to right.
++For the reverse inequality, take an actual model competitor $a$ on
++$C_{C_K}$.  Applying \cite[Proposition~2.18(b)]{GM19} to its metric on
++the trivial line bundle gives a finite extension $K'/K$ inside
++$\overline K$ and a model function $a'$ on $C_{K'}$ pulling back to
++$a$.
++
++The form $\theta_{K'}+\mathrm d\mathrm d^ca'$ is nef because its
++pullback to $C_K$ is nef.  This implication is numerical and applies to
++\emph{real} model classes: put the finitely many classes representing
++$\theta_{K'}$ and the model of $a'$ on a common proper model.
++Nefness of a model numerical class is unchanged under scalar extension
++and under passing to a dominating model.  For scalar extension one tests
++on the components of special-fiber curves; their degrees after extension
++are positive factors of the original degrees.  For domination,
++exceptional curves have pullback degree zero and the projection formula
++on a component mapping onto a curve multiplies its degree by the
++positive degree of that map.  These identities extend from line bundles
++to real numerical classes by linearity.  Thus nonnegative degrees after
++pullback imply nonnegative degrees before pullback.  This is the real-form
++base-change invariance used explicitly in
++\cite[proof of Proposition~3.7]{GJKM19}; it is not an inference from a
++statement only about one metrized line bundle.  The inequality
++$a'\leq f_{K'}$ follows from surjectivity of the analytic base-change
++map.
++
++Choose a finite normal extension $K''/K$ containing $K'$.  Pulling $a'$
++to $K''$ and applying \cite[Proposition~2.11]{GJKM19} gives
++\[
++ a_{K''}\leq P^{\mathcal D_{\mathbf Q}}_{\theta_{K''}}(f_{K''})
++           =q_{K''}^*P^{\mathcal D_{\mathbf Q}}_\theta(f).
++\]
++This proposition includes inseparable normal extensions; a Galois-only
++quotient argument would not suffice.  Pull back once more to $C_K$ and
++take the supremum over $a$ to obtain
++\eqref{eq:ch23-curve-completed-algebraic-envelope-base-change}.
++Geometric connectedness ensures the curve upstairs remains connected.
++If $d>0$, its envelope is finite and continuous by the graph proof.
++The map $q$ is continuous and surjective from a compact space to a
++Hausdorff space and hence is a quotient map.  Equation
++\eqref{eq:ch23-curve-completed-algebraic-envelope-base-change} therefore
++proves finiteness and continuity downstairs as well.  In particular the
++downstairs competitor family is nonempty.
++
++\emph{The degree-zero case.}
++Suppose now $d=0$ and $\psi$ is an actual model $\theta$-psh function.
++Over $C_K$, choose a common strictly semistable model determining
++$q^*\theta$, $q^*\psi$, and any other model competitor $q^*\varphi$.
++All component degrees of
++$q^*\theta+\mathrm d\mathrm d^c(q^*\psi)$ are nonnegative and their
++sum is zero.  Each is therefore zero; the same holds for $\varphi$.
++On a proper curve model the vertical integral curves are exactly the
++irreducible special-fiber components.  Vanishing of these degrees says
++that both real relative numerical classes are zero.
++The reflection argument above gives
++$\theta+\mathrm d\mathrm d^c\psi=0$ downstairs too.
++On the common connected skeleton the function
++$q^*(\varphi-\psi)=U\circ\tau$ has $\Delta U=0$.
++After subdividing at its finitely many breaks, graph integration by parts
++gives
++\[
++ 0=-\int_G U\,\mathrm d\Delta U
++   =\sum_e\int_e|U'|^2\,\mathrm ds.
++\]
++Thus $U$ is constant on every edge and, by connectedness, on $G$.
++Retraction and surjectivity of $q$ imply that $\varphi-\psi$ is a
++constant on $C^{\mathrm{an}}$.
++
++Put $c_*:=\min_{C^{\mathrm{an}}}(f-\psi)$; the minimum exists by
++compactness.  Any competitor below $f$ equals $\psi+c$ for a constant
++$c\leq c_*$, proving the upper bound in
++\eqref{eq:ch23-curve-degree-zero-envelope}.
++Choose $c_j\in\Lambda_K$ with $c_j\leq c_*$ and $c_j\to c_*$.
++Then $\psi+c_j$ are actual model $\theta$-psh competitors below $f$,
++and converge uniformly to $\psi+c_*$.  This proves the reverse bound
++and the required uniform approximation.  No arbitrary real normalization
++of $\psi$ has been declared a model function.  If there is no $\psi$,
++the empty-family conclusion follows directly from the definition.
++
++\emph{Uniform approximation in the positive-degree case.}
++Finally let $P=P^{\mathcal D_{\mathbf Q}}_\theta(f)$ be any of the
++finite continuous envelopes just proved.  At each point choose a model
++competitor whose value exceeds $P-\varepsilon$ there.  By continuity this
++inequality holds on a neighborhood.  A finite subcover of the compact
++curve and the finite maximum of its competitors give a model function
++$\varphi_\varepsilon$ with
++$P-\varepsilon<\varphi_\varepsilon\leq P\leq f$ everywhere.
++Taking $\varepsilon\downarrow0$ proves the claimed uniform
++approximation.  This is the compact maximum argument of
++\cite[Proposition~2.9(8)]{GJKM19} and does not use an envelope theorem
++as an input.
+ \end{proof}
+ 
+ \begin{remark}[Why dimension one is special, and what fails above it]
+@@ -3211,11 +3540,12 @@
+ \(X\); \Cref{rem:cofinality-scope} states the consequences.  For envelopes
+ this means:
+ \begin{enumerate}
+-\item pullback along a finite extension \(K'/K\) commutes with the envelope,
+-by \cite[Proposition~2.11]{GJKM19}, so a continuity statement may be proved
+-after a finite, even a purely inseparable, base extension and then descended;
+-this is used in the proof of
+-\Cref{thm:curves-arbitrary-field-continuity};
++\item for the rational-model envelope, pullback along a finite normal
++extension \(K'/K\) commutes with the envelope by
++\cite[Proposition~2.11]{GJKM19}.  One may enlarge a finite extension to
++a finite normal extension; the cited proposition includes the purely
++inseparable case.  This is not a statement about arbitrary alterations or,
++without a separate comparison, the raw all-psh envelope;
+ \item pullback along a genuine alteration \(X'\to X\) does \emph{not}
+ obviously reflect continuity of envelopes, because the psh class on \(X\) is
+ not the set of functions whose pullback is psh unless a descent theorem is
+@@ -3278,8 +3608,10 @@
+ \Cref{thm:ch23-gjkm-curves}
+  &any complete, nontrivial
+  &\(1\)
+- &nef
+- &none\\
++ &positive degree, or degree zero with an actual rational-model
++   \(\theta\)-psh competitor
++ &smooth projective geometrically connected curve; real model form;
++   rational-model envelope\\
+ \Cref{thm:ch23-gjkm-positive-characteristic}
+  &cdv, \(\operatorname{char}K=p\)
+  &any
+@@ -3460,11 +3792,13 @@
+ envelopes in non-Archimedean geometry and test ideals}, Annales de
+ l'Institut Fourier \textbf{69} (2019), 2331--2376, with an appendix by
+ Burgos Gil and Sombra \cite{GJKM19}, contains three results used above.
+-Continuity on curves over an arbitrary complete nontrivially valued field
+-is \cite[Theorem~1.1]{GJKM19}, generalized to nef classes in
+-\cite[Theorem~3.1]{GJKM19}; it is our
+-\Cref{thm:ch23-gjkm-curves}, proved in full in
+-\Cref{thm:curves-arbitrary-field-continuity}.  Continuity in equal
++For ample line bundles on curves over an arbitrary complete nontrivially
++valued field, continuity of the semipositive metric envelope is
++\cite[Theorem~1.1]{GJKM19}, recorded in
++\Cref{thm:ch23-gjkm-curves}.  The proof there treats arbitrary real
++closed model forms in positive degree and gives an explicit formula in
++degree zero when a rational-model competitor exists; it does not import
++an unrestricted degree-zero model-existence assertion.  Continuity in equal
+ characteristic \(p\) is \cite[Theorem~8.2]{GJKM19}, our
+ \Cref{thm:ch23-gjkm-positive-characteristic}, with the unconditional
+ surface case \cite[Corollary~8.3]{GJKM19}.  The uniform generation theorem
+diff --git a/manuscript/parts/part3/ch27_differentiability.tex b/manuscript/parts/part3/ch27_differentiability.tex
+--- a/manuscript/parts/part3/ch27_differentiability.tex
++++ b/manuscript/parts/part3/ch27_differentiability.tex
+@@ -1925,13 +1925,11 @@
+ and that Monge--Amp\`ere measures do.  The second is
+ \Cref{thm:base-change-ma}, in the form
+ \(\pi_*\MA_{\omega_{K'}}(\varphi\circ\pi)=\MA_\omega(\varphi)\), together
+-with \eqref{eq:base-change-weight}.  The first is carried out inside the
+-proof of \Cref{thm:curves-arbitrary-field-continuity}, where the reduction
+-``after a finite extension \(K'/K\), semistable reduction provides a
+-strictly semistable model \(\mathcal X'\) determining both the pulled back
+-form and the obstacle; the envelope commutes with this finite base change''
+-is performed in detail, using the Galois quotient description of
+-\(X^{\An}\).  We do not repeat that argument here, and we do not state an
++with \eqref{eq:base-change-weight}.  For the rational-model envelope,
++the first is \cite[Proposition~2.11]{GJKM19} after enlarging to a finite
++normal extension, including its inseparable part.  Applying this identity
++to the raw all-psh envelope additionally requires the appropriate envelope
++comparison.  We do not infer that comparison from notation, or state an
+ unconditional curve orthogonality theorem in this chapter: what is proved
+ here is \Cref{prop:ch27-curve-orthogonality} and
+ \Cref{cor:ch27-curve-orthogonality-global}, and the general curve case is
+@@ -3416,11 +3414,14 @@
+ \Cref{sec:ch23-later}.
+ 
+ \paragraph{Curves over an arbitrary complete field.}
+-Continuity of the envelope holds with no hypothesis on the residue
+-characteristic and with no discreteness hypothesis: this is
+-\Cref{thm:ch23-gjkm-curves}, that is,
+-\cite[Theorem~1.1 and Theorem~3.1]{GJKM19}, proved in full in
+-\Cref{thm:curves-arbitrary-field-continuity}; the class need only be nef.
++For ample line bundles on smooth projective geometrically connected
++curves, semipositive metric-envelope continuity holds without discreteness
++or residue-characteristic restrictions:
++\cite[Theorem~1.1]{GJKM19} and \Cref{thm:ch23-gjkm-curves}.
++The real-model-form extension in \Cref{thm:ch23-gjkm-curves} concerns
++rational-model competitors: positive generic degree is unconditional;
++degree zero requires an actual rational-model \(\theta\)-psh competitor
++and has the formula \eqref{eq:ch23-curve-degree-zero-envelope}.
+ Orthogonality on a curve is the complementary-slackness statement
+ \Cref{thm:ch23-model-orthogonality-curve} at model level, upgraded by
+ \Cref{prop:ch27-curve-orthogonality} and
+@@ -3495,10 +3496,13 @@
+  &any
+  &\Cref{thm:bfj-envelope-regularity}
+  &\Cref{thm:orthogonality-provenance}\,(1), by asymptotic orthogonality\\
+-any complete nontrivially valued \(K\); class nef
++any complete nontrivially valued \(K\); geometrically connected curve;
++ positive-degree real model class, or degree zero with an actual
++ rational-model competitor
+  &\(1\)
+  &\Cref{thm:ch23-gjkm-curves}
+- &\Cref{cor:ch27-curve-orthogonality-global} under semistability;
++ &\Cref{cor:ch27-curve-orthogonality-global} under its positive-class
++   standing hypotheses and semistability;
+    \Cref{rem:ch27-curve-base-change}\\
+ cdv, \(\operatorname{char}K=p\), geometric origin, resolution in
+  \(d+n\)
+@@ -3536,7 +3540,9 @@
+ 
+ \begin{warning}{Do not transport a continuity theorem across its dimension}
+ The curve theorem \Cref{thm:ch23-gjkm-curves} holds over every complete
+-nontrivially valued field, and it is tempting to combine it with a fibration
++nontrivially valued field in its stated rational-model and degree scope,
++and it is
++tempting to combine it with a fibration
+ argument to obtain continuity in higher dimension.  No such argument is
+ known, and the obstruction is identified in
+ \Cref{rem:ch23-curve-specialness}: retraction to a skeleton preserves
+@@ -4412,8 +4418,8 @@
+ \paragraph{Positive residue characteristic.}
+ The continuity theorems quoted in \Cref{sec:ch27-positive-characteristic}
+ are Gubler--Jell--K\"unnemann--Martin \cite{GJKM19}: curves over an
+-arbitrary complete nontrivially valued field, \cite[Theorem~1.1 and
+-Theorem~3.1]{GJKM19}; equal characteristic \(p\) with geometric origin and
++arbitrary complete nontrivially valued field with an ample line bundle,
++\cite[Theorem~1.1]{GJKM19}; equal characteristic \(p\) with geometric origin and
+ resolution, \cite[Theorem~8.2]{GJKM19}; the unconditional surface case,
+ \cite[Corollary~8.3]{GJKM19}.  Orthogonality in equal characteristic \(p\)
+ is \cite[Theorem~9.2]{GJKM19}, which uses the volume theorem
+diff --git a/manuscript/parts/part3/ch28_finite_energy_measures.tex b/manuscript/parts/part3/ch28_finite_energy_measures.tex
+--- a/manuscript/parts/part3/ch28_finite_energy_measures.tex
++++ b/manuscript/parts/part3/ch28_finite_energy_measures.tex
+@@ -272,7 +272,8 @@
+  &complete, discretely valued
+  &cofinality of SNC models \Cref{prop:snc-cofinal}; the whole model
+   calculus of \Cref{chap:bfj-model-forms}
+- &curves over an arbitrary complete field,
++ &ample curve metric envelopes and skeletal-supported continuous
++  solutions over arbitrary complete nontrivially valued fields,
+   \Cref{thm:curves-arbitrary-field-continuity}; the general case is
+   \emph{open}, \Cref{prob:frontier-general-ma}\\
+ residue char.
+@@ -2250,10 +2251,14 @@
+ replace multiplier ideals by test ideals in the envelope step and leave the
+ support hypothesis on \(\mu\) untouched.
+ 
+-\emph{Other ground fields.}  For a smooth projective \emph{curve} over an
+-arbitrary complete nontrivially valued field, the whole package is available:
+-this is \Cref{thm:curves-arbitrary-field-continuity}, from
+-\cite[Theorems~1.1 and~3.1]{GJKM19}.  In dimension \(n\geq2\) over a
++\emph{Other ground fields.}  On a smooth projective geometrically
++connected curve over an arbitrary complete nontrivially valued field,
++\Cref{thm:curves-arbitrary-field-continuity} gives ample metric-envelope
++continuity and continuous semipositive solutions for positive measures of
++matching mass supported on a semistable skeleton.  The envelope input is
++\cite[Theorem~1.1]{GJKM19}.  This does not by itself transport every
++finite-energy or singular-psh assertion of this chapter.
++In dimension \(n\geq2\) over a
+ general complete field the situation is different in kind.  The class
+ \(\cE^1\) can be defined, but the extension of the Monge--Amp\`ere operator
+ to it is explicitly left open in \cite[Remark~4.4]{PS23Hybrid}; the
+@@ -3574,8 +3579,11 @@
+ volume functional is developed in \cite{BGM21}.  Continuity of envelopes and
+ the Calabi--Yau theorem in equal characteristic \(p\), under geometric-origin
+ and resolution hypotheses, are \cite[Theorems~1.4, 8.2, 9.2 and~9.3]{GJKM19}
+-(2019), which also settle curves over an arbitrary complete nontrivially
+-valued field, \cite[Theorems~1.1 and~3.1]{GJKM19}.  Mixed characteristic,
++(2019).  The same paper proves ample metric-envelope continuity on
++curves over arbitrary complete nontrivially valued fields,
++\cite[Theorem~1.1]{GJKM19}; the separate skeletal-supported solution
++statement is \Cref{thm:curves-arbitrary-field-continuity}.
++Mixed characteristic,
+ again under resolution hypotheses, is \cite{FGK25} (2025).  The trivially
+ valued theory, in which the corresponding surjectivity statement is
+ equivalent to the envelope property, is \cite[\S\S7--12]{BJ22} (2022) and
+diff --git a/manuscript/parts/part3/ch29_continuity.tex b/manuscript/parts/part3/ch29_continuity.tex
+--- a/manuscript/parts/part3/ch29_continuity.tex
++++ b/manuscript/parts/part3/ch29_continuity.tex
+@@ -2060,9 +2060,9 @@
+  &\(\dim X=1\)\\
+ residue characteristic zero
+  &\(K\) complete, nontrivially valued\\
+-ampleness (nefness suffices)
+- &for the Monge--Amp\`ere half: \(L\) ample and \(\mu\) supported on the
+-  skeleton of a strictly semistable model\\
++higher-dimensional resolution
++ &\(L\) ample, \(X\) geometrically connected; for the equation,
++  \(\mu\) supported on a strictly semistable skeleton\\
+ algebraizability \textup{(S4)}
+  &mass \(\mu(X^{\An})=\deg L\)\\
+ \bottomrule
+@@ -2071,134 +2071,102 @@
+ 
+ \begin{theorem}\label{thm:curves-arbitrary-field-continuity}
+ Let \(K\) be any complete nontrivially valued non-Archimedean field, let
+-\(X\) be a smooth projective curve, and let \(L\) be ample.  The
+-semipositive envelope of every continuous metric on \(L^{\An}\) is a
++\(X\) be a smooth projective geometrically connected curve, and let
++\(L\) be ample.  The envelope over semipositive rational model metrics
++of every continuous metric on \(L^{\An}\) is a
+ continuous semipositive metric.  If a positive measure of mass \(\deg L\)
+ is supported on the skeleton of a strictly semistable model, the associated
+ Monge--Amp\`ere equation has a continuous semipositive solution, unique up
+ to scale.
+ \end{theorem}
+ \begin{proof}
+-We first prove continuity of envelopes.  Choose a semipositive model metric
+-$\|\cdot\|_0$ on $L$, put $\theta=c_1(L,\|\cdot\|_0)$, and write a
+-continuous metric as
+-$\rme^{-f}\|\cdot\|_0$, where
+-$f\in C^0(X^{\An})$.  Model functions are uniformly dense in
+-$C^0(X^{\An})$, and the envelope is a sup-norm contraction:
++We first prove continuity of envelopes.  Choose a rational model metric
++$\|\cdot\|_0$ on $L$, put $\theta=c_1(L,\|\cdot\|_0)$, and write the
++continuous metric as $\mathrm e^{-f}\|\cdot\|_0$.
++Its generic degree is $\deg L>0$, so
++\Cref{thm:ch23-gjkm-curves} applies to
++$P^{\mathcal D_{\mathbf Q}}_\theta(f)$.  The resulting continuous
++function is a uniform limit of $\theta$-psh rational model functions
++below $f$.  Exponentiating gives the asserted continuous semipositive
++metric envelope.  This uses no identification with a raw all-psh envelope.
++
++For later references we record the precise identities used in that proof.
++Dense rational value-group constants give
+ \begin{equation}\label{eq:curve-envelope-contraction}
+- \lVert P_\theta(f)-P_\theta(g)\rVert_\infty
+- \leq\lVert f-g\rVert_\infty.
++ \bigl\|P^{\mathcal D_{\mathbf Q}}_\theta(f)
++       -P^{\mathcal D_{\mathbf Q}}_\theta(g)\bigr\|_\infty
++       \leq\|f-g\|_\infty.
+ \end{equation}
+-Indeed, $f\leq g+c$ implies $P_\theta(f)\leq P_\theta(g)+c$, and the
+-reverse inequality follows after exchanging $f$ and $g$.  It is therefore
+-enough to treat a model obstacle $f$.
+-
+-After a finite extension $K'/K$, semistable reduction provides a strictly
+-semistable model $\mathcal X'$ of $X_{K'}$ that determines both the pulled
+-back form $\theta'$ and $f'$.  The envelope commutes with this finite base
+-change.  Moreover, $X^{\An}$ is the quotient of $X_{K'}^{\An}$ by the
+-finite automorphism group after passing to a Galois closure.  It thus
+-suffices to prove continuity upstairs.  We suppress primes and put
+-$\Gamma=S(\mathcal X)$, with retraction
+-$r:X^{\An}\to\Gamma$.
+-
+-Replacing $\theta$ by $\theta+\ddc f$ reduces the obstacle to zero.  Let
+-$\mathcal A$ be the set of nonpositive piecewise affine functions $F$ on
+-$\Gamma$ for which a positive multiple has integer slopes and
+-$F\circ r$ is $\theta$-psh.  The one-dimensional retraction statement says
++For a rational model obstacle $b$, after passage to the completed
++algebraic closure choose a semistable model determining $\theta$ and $b$.
++Set $\theta_b=\theta+\ddc b$, let $r$ be its skeletal retraction, and let
++$\mathcal A$ consist of nonpositive graph functions $F$ for which
++$F\circ r$ is a rational model $\theta_b$-psh function.  Then
+ \begin{equation}\label{eq:curve-envelope-retraction}
+- P_\theta(0)=F_0\circ r,
+- \qquad F_0:=\sup_{F\in\mathcal A}F.
++ P^{\mathcal D_{\mathbf Q}}_\theta(b)=b+F_0\circ r,
++ \qquad F_0=\sup_{F\in\mathcal A}F.
+ \end{equation}
+-We prove both the retraction statement and the regularity of $F_0$.
+-If $\varphi$ is a $\theta$-psh model function, choose a semistable model
+-whose skeleton $\Gamma'$ contains $\Gamma$ and determines $\varphi$.
+-Writing $\varphi=F'\circ r'$ on $\Gamma'$, the slope formula gives, at
+-each $x\in\Gamma'$, the inequality
++Writing $d_v$ for the component degrees of $\theta_b$, the criterion is
+ \begin{equation}\label{eq:curve-slope-criterion}
+- \sum_{\nu\in T_x(\Gamma')}
+-   w_x(\nu)\lambda_{x,\nu}(F')+\deg(\theta|_{C_x})\geq0.
++ \sum_{v}d_v\delta_v+\Delta_\Gamma F\geq0.
+ \end{equation}
+-The maximum principle for the vertical ideal defining $\varphi$ gives
+-$\varphi\leq\varphi\circ r$.  Hence every slope of $F'$ along an edge
+-leaving $\Gamma$ is nonpositive.  Removing those slopes from
+-\eqref{eq:curve-slope-criterion} preserves the inequality, so the same
+-criterion shows that $\varphi\circ r$ is $\theta$-psh.  Taking suprema
+-over model competitors proves \eqref{eq:curve-envelope-retraction}.  This
+-is the place where dimension one is essential.
+-
+-Let $V$ be the finite vertex set of $\Gamma$.  For
+-$F\in\mathcal A$, let $L(F)$ be affine on every edge and agree with $F$ on
+-$V$.  Criterion \eqref{eq:curve-slope-criterion} makes $F$ convex along
+-each open edge, hence $F\leq L(F)\leq0$.  Replacing a convex edge by its
+-chord can only increase the outgoing slopes at its endpoints; consequently
+-$L(F)\circ r$ still satisfies
+-\eqref{eq:curve-slope-criterion}.  Approximate its slopes from within the
+-finite system of linear inequalities by rational slopes.  The resulting
+-$L_\varepsilon(F)$ belongs to $\mathcal A$ and converges uniformly to
+-$L(F)$.  Therefore
++Here the residue-degree weights are one because this calculation is over
++the algebraically closed field.  If $L(F)$ denotes edgewise chording,
++the explicit strict-margin and rational-bend construction in the proof of
++\Cref{thm:ch23-gjkm-curves} establishes
+ \begin{equation}\label{eq:curve-chord-supremum}
+-                 F_0=\sup_{F\in\mathcal A}L(F).
++ F_0=\sup_{F\in\mathcal A}L(F).
+ \end{equation}
++The chord itself need not be a rational model function.  Nonemptiness of
++$\mathcal A$ is provided by the same positive-degree construction.
++Retraction is \cite[Proposition~3.8]{GJKM19}; the model dictionary and
++slope criterion are \cite[Propositions~3.5 and~3.7]{GJKM19}.
++Descent of the envelope uses finite definition of actual competitors,
++real numerical nefness reflection, and the finite-normal identity
++\cite[Proposition~2.11]{GJKM19}, including its inseparable case, exactly
++as proved in \Cref{thm:ch23-gjkm-curves}.
+ 
+-The set $\mathcal A$ is closed under finite maxima.  Given
+-$\varepsilon>0$, choose for every $v\in V$ a function $F_v\in\mathcal A$
+-with $F_v(v)>F_0(v)-\varepsilon$, and put $G=\max_{v\in V}F_v$.  The chord
+-$L(G)$ lies below $F_0$ by
+-\eqref{eq:curve-chord-supremum}, while at every vertex it differs from
+-$F_0$ by less than $\varepsilon$.  Since both $L(G)$ and $L(F_0)$ are
+-affine on the edges,
++We next solve the equation under the stated skeletal-support hypothesis.
++After passing to a dominating model, choose a semipositive rational model
++metric $\|\cdot\|_0$ on $L$, with curvature $\mu_0$, so that the chosen
++skeleton $\Gamma$ carries both $\mu$ and $\mu_0$.  Write $r$ for the
++retraction.  The masses agree and are $\deg L>0$.
++Fix $q\in\Gamma$ and let $g_q$ be the graph Green kernel with
++$\Delta_xg_q(x,y)=\delta_y-\delta_q$ and $g_q(q,y)=0$.
++Write $G_q\nu(x)=\int_\Gamma g_q(x,y)\,\mathrm d\nu(y)$.
++The finite-graph construction gives
+ \[
+-                 L(F_0)-\varepsilon\leq L(G)\leq F_0.
++ u(x)=\int_\Gamma g_q(x,y)\,\mathrm d(\mu-\mu_0)(y),
++ \qquad \Delta_\Gamma u=\mu-\mu_0.
+ \]
+-Letting $\varepsilon\downarrow0$ gives $L(F_0)\leq F_0$.  The reverse
+-inequality follows from edgewise convexity, so $F_0=L(F_0)$ is affine on
+-each edge.  Thus $P_\theta(f)$ is continuous for a model obstacle.  Uniform
+-approximation and \eqref{eq:curve-envelope-contraction} prove the first
+-assertion for every continuous metric.  This reconstructs
+-\cite[Theorem~3.1 and Propositions~3.5, 3.7, 3.8 and 3.10]{GJKM19}.
++It is continuous by joint continuity of the kernel and compactness.
++To justify positivity before invoking model approximation, approximate
++\(\mu\) weakly by positive finite atomic measures \(\mu_j\) of the
++same mass, supported at type-II points of \(\Gamma\).  Such points are
++dense in each edge; they may be chosen with coordinates in the divisible
++hull of the value group.  Move the mass of each member of a finite
++partition of small diameter to one such point.  The graph Green potentials
++\(u_j=G_q(\mu_j-\mu_0)\) are real piecewise affine functions with
++\(\Delta_\Gamma u_j=\mu_j-\mu_0\), not necessarily rational model
++functions.  The compact family \(\{g_q(x,\cdot):x\in\Gamma\}\) and
++weak convergence give \(u_j\to u\) uniformly by a finite-net argument.
+ 
+-We next solve the equation when $\mu$ is supported on the skeleton
+-$\Gamma$ of a strictly semistable model.  After replacing the model by a
+-dominating one, choose a semipositive model metric $\|\cdot\|_0$ on $L$
+-determined there, and put
+-$\mu_0=c_1(L,\|\cdot\|_0)$.  Both measures are carried by $\Gamma$ and
+-have mass $\deg L$, so $\nu:=\mu-\mu_0$ has total mass zero.  Let
+-$G_\Gamma(x,y)$ be the continuous Green kernel on the compact connected
+-metric graph $\Gamma$, normalized to have mean zero in the first variable,
+-and set
+-\[
+-                   u(x):=\int_\Gamma G_\Gamma(x,y)\,\rd\nu(y).
+-\]
+-Continuity of the kernel makes $u$ continuous, and the defining identity
+-for the Green kernel gives $\Delta_\Gamma u=\nu$.
++The local curve slope criterion identifies the curvature of the lisse
++metric \(\mathrm e^{-u_j\circ r}\|\cdot\|_0\) with
++\(\mu_j\geq0\).  Thus its local weights are psh.  Uniform convergence
++passes both the distributional curvature identity and positivity to the
++continuous metric \(\mathrm e^{-u\circ r}\|\cdot\|_0\): its
++curvature is \(\mu\), and its local weights are psh.  The final potential
++is not asserted to be lisse when \(\mu\) is not atomic.
+ 
+-The measure-valued extension of the graph slope criterion now gives
+-\[
+- \theta+\ddc(u\circ r)=\mu\geq0.
+-\]
+-Indeed, testing against a model function on $\Gamma$ and using graph
+-integration by parts identifies the left-hand side with
+-$\mu_0+\Delta_\Gamma u=mu$; model test functions determine Radon
+-measures.  Hence $u\circ r$ is a continuous $\theta$-psh function in
+-Thuillier's sense.  The envelope regularity already proved upgrades this to
+-semipositivity in the metric sense.  Explicitly, take model functions
+-$f_j\to u\circ r$ uniformly.  Since $P_\theta(u\circ r)=u\circ r$,
+-\eqref{eq:curve-envelope-contraction} gives
+-\[
+- P_\theta(f_j)\longrightarrow u\circ r
+- \quad\text{uniformly}.
+-\]
+-The model-obstacle argument above expresses every $P_\theta(f_j)$ as a
+-uniform limit of $\theta$-psh model functions; a diagonal choice therefore
+-gives a uniform model approximation of $u\circ r$.  Thus
+-$\|\cdot\|:=\rme^{-u\circ r}\|\cdot\|_0$ is a continuous semipositive
+-metric with curvature measure $\mu$.
+-If two such metrics exist, the logarithm of their ratio is a continuous
+-harmonic function on the compact connected Berkovich curve.  Its graph
+-Laplacian vanishes on every skeleton, so the maximum principle makes it
+-constant.  The two metrics therefore differ by a positive scalar.  This
+-proves existence and uniqueness.
++Now use only the strictly positive degree clause of
++\Cref{thm:p081-corrected-curve-comparison}, since \(\deg L>0\).
++It gives a uniform approximation of this metric by semipositive rational
++formal metrics.  The model slope formula and continuity of curvature
++under uniform convergence identify its semipositive curvature measure
++with \(\mu\).  No rational slopes are inferred from rational atomic
++masses.  The harmonic maximum principle on the proper connected curve
++gives uniqueness up to a multiplicative constant.
+ 
+ Retraction preserving semipositivity is false in higher dimension, even for
+ toric surfaces; the counterexample is the appendix to \cite{GJKM19}.
+@@ -2207,14 +2175,16 @@
+ \begin{remark}[Source, date, and the division of labour]
+ \label{rem:ch29-curve-source}
+ The envelope half of \Cref{thm:curves-arbitrary-field-continuity} is
+-\cite[Theorem~1.1]{GJKM19}, in the more general form
+-\cite[Theorem~3.1]{GJKM19}, published in 2019 and recorded in this book as
++\cite[Theorem~1.1]{GJKM19}, published in 2019, for an ample line bundle.
++The rational-model envelope convention is explicit in
+ \Cref{thm:ch23-gjkm-curves}; the retraction statements used in its proof are
+ \cite[Proposition~1.2 and Propositions~3.5, 3.8]{GJKM19}.  The
+-Monge--Amp\`ere half is the deduction sketched in the introduction of
+-\cite{GJKM19}, resting on the existence of a possibly singular semipositive
+-solution in Thuillier's potential theory on a Berkovich curve, and on the
+-uniqueness statement quoted there.  The counterexample to the
++Monge--Amp\`ere half uses the finite-graph Green potential under the
++stated support hypothesis, the local slope criterion, and the positive
++degree approximation in
++\Cref{thm:p081-corrected-curve-comparison}.  This last comparison is
++used downstream of the independently proved model-envelope theorem.
++The counterexample to the
+ higher-dimensional analogue of the retraction statement is due to Burgos Gil
+ and Sombra and appears in the appendix to \cite{GJKM19}.  Nothing in this
+ subsection uses \Cref{chap:bfj-capacity} or \Cref{chap:bfj-energy}: on a
+@@ -2225,14 +2195,17 @@
+ 
+ \begin{remark}[Where the ``nef'' and ``ample'' hypotheses sit]
+ \label{rem:ch29-curve-nef-ample}
+-The envelope statement in \Cref{thm:curves-arbitrary-field-continuity} needs
+-only a nef de Rham class, as in \Cref{thm:ch23-gjkm-curves}; ampleness of
+-\(L\) is used only in the Monge--Amp\`ere half, and there only to know that
+-\(\deg L>0\), so that the measure \(\mu_0\) has positive mass and the graph
+-Laplacian equation \(\Delta_\Gamma u=\mu-\mu_0\) has a right-hand side of
+-total mass zero.  The asymmetry is characteristic of dimension one: in
+-higher dimension ampleness is needed already for
+-\Cref{lem:ch23-envelope-finiteness}, hence for the entire envelope calculus.
++Ampleness is retained in both assertions of
++\Cref{thm:curves-arbitrary-field-continuity}.  More generally, the
++rational-model envelope for a real closed model form is continuous in
++positive degree by \Cref{thm:ch23-gjkm-curves}.  In degree zero that
++theorem requires an actual rational-model \(\theta\)-psh competitor
++\(\psi\) and gives
++\(P^{\mathcal D_{\mathbf Q}}_\theta(f)
++  =\psi+\min(f-\psi)\).
++Generic nefness alone supplies no competitor.  Matching total masses
++makes \(\mu-\mu_0\) have mass zero; positive degree is the separate
++approximation hypothesis in the continuous-solution argument.
+ \end{remark}
+ 
+ \subsection{Equicharacteristic positive characteristic}
+@@ -2532,9 +2505,10 @@
+ 
+ \item[Curves]
+ \emph{Input.} Thuillier theory and graph retraction.
+-\par\emph{Remaining hypotheses.} The field is arbitrary complete and
+-nontrivially valued; for the stated equation the measure is carried by a
+-semistable skeleton.
++\par\emph{Remaining hypotheses.} The curve is smooth projective and
++geometrically connected, the field is complete and nontrivially valued,
++and the line bundle is ample.  For the equation the measure has mass
++\(\deg L\) and is carried by a semistable skeleton.
+ 
+ \item[GJKM 2019]
+ \emph{Input.} Equal-characteristic test ideals.
+@@ -3116,9 +3090,10 @@
+ arbitrary complete nontrivially valued field the extension of the
+ Monge--Amp\`ere operator to \(\cE^1\) is explicitly left open in
+ \cite[Remark~4.4]{PS23Hybrid}; see \Cref{prob:frontier-general-ma}.  For
+-curves the whole problem is linear and
+-\Cref{thm:curves-arbitrary-field-continuity} is unconditional over every
+-complete nontrivially valued field.
++curves, \Cref{thm:curves-arbitrary-field-continuity} supplies ample
++metric-envelope continuity and the skeletal-supported continuous-solution
++statement over every complete nontrivially valued field.  It is not by
++itself the whole finite-energy package.
+ 
+ \emph{(E3) Singular \(X\).}  Smoothness enters through the availability of
+ SNC models and through
+@@ -3314,7 +3289,8 @@
+ 
+ \paragraph{Curves, 2019.}
+ \Cref{thm:curves-arbitrary-field-continuity} is
+-\cite[Theorem~1.1 and Theorem~3.1]{GJKM19}, with the retraction statements
++based, for its ample metric-envelope half, on
++\cite[Theorem~1.1]{GJKM19}, with the retraction statements
+ \cite[Proposition~1.2 and Propositions~3.5, 3.8]{GJKM19}; the underlying
+ potential theory on a Berkovich curve is Thuillier's, and the slope formula
+ is that of \Cref{thm:ch08-slope-formula}.  The higher-dimensional failure of
+diff --git a/manuscript/parts/part3/ch31_bfj_examples.tex b/manuscript/parts/part3/ch31_bfj_examples.tex
+--- a/manuscript/parts/part3/ch31_bfj_examples.tex
++++ b/manuscript/parts/part3/ch31_bfj_examples.tex
+@@ -175,7 +175,8 @@
+ hypotheses, and each enlargement is flagged where it occurs.  Curves over an
+ arbitrary complete nontrivially valued field are treated in
+ \Cref{sec:ch31-curves} because the continuity theorem
+-\Cref{thm:curves-arbitrary-field-continuity} is available there; the toric
++\Cref{thm:curves-arbitrary-field-continuity} is available for ample
++metric envelopes and skeletal-supported measures there; the toric
+ comparison \Cref{thm:toric-bfj-alexandrov} is stated for a projective toric
+ variety, which is smooth only for a smooth fan; and totally degenerate
+ abelian varieties in \Cref{sec:ch31-abelian} are treated over an
+@@ -237,7 +238,8 @@
+ \subsection{The skeleton, its lengths, and the Laplacian}
+ \label{sec:ch31-curve-setup}
+ 
+-Let \(X\) be a smooth projective curve over \(K\) and let \(\cX\) be a
++Let \(X\) be a smooth projective geometrically connected curve over
++\(K\) and let \(\cX\) be a
+ regular semistable model, so that \(\cX_s\) is reduced with smooth
+ components meeting transversely.  Its dual graph, weighted by the
+ \emph{modulus lengths} of \Cref{prop:ch08-annulus-skeleton}, is the skeleton
+@@ -249,9 +251,11 @@
+ 
+ A model function on \(X^{\An}\) determined on \(\cX\) is the pullback under
+ \(p_{\cX}\) of a piecewise affine function on \(\Gamma\), by
+-\Cref{thm:bfj-skeletal-characterization}; conversely every piecewise affine
+-function on \(\Gamma\) arises this way after subdividing, that is, after
+-passing to a model dominating \(\cX\).  The operator \(\ddc\) of
++\Cref{thm:bfj-skeletal-characterization}.  For the rational-model
++converse, slopes, values, and subdivision points must satisfy the
++value-group compatibility of \cite[Proposition~3.5]{GJKM19}; an arbitrary
++real piecewise affine graph function is not thereby a rational model
++function.  The operator \(\ddc\) of
+ \Cref{def:ch20-ddc} restricts on such functions to the graph Laplacian of
+ \eqref{eq:graph-laplacian}:
+ \begin{equation}
+@@ -450,50 +454,57 @@
+ \end{proposition}
+ 
+ \begin{proof}
+-Since \((\mu-\omega)(\Gamma)=V-V=0\), \Cref{lem:ch31-green-kernel} applies
+-with \(\nu=\mu-\mu_0\): the function
++Here $L$ and its relatively nef model metric are the ones fixed in
++\Cref{sec:ch31-curve-affine}; in particular $V=\deg L>0$ and
++$\omega=c_1(L,\|\cdot\|_0)$.  Put $r=p_{\cX}$.
++\Cref{lem:ch31-green-kernel} applies because
++$(\mu-\mu_0)(\Gamma)=0$.
++Fix $q\in\Gamma$ and let $g_q$ be the graph Green kernel with
++$\Delta_xg_q(x,y)=\delta_y-\delta_q$ and $g_q(q,y)=0$.
++Write $G_q\nu(x)=\int_\Gamma g_q(x,y)\,\mathrm d\nu(y)$.
++The finite-graph construction gives
+ \[
+-                u(x)=G_q(\mu-\mu_0)(x)
+-                    =\int_\Gamma g_q(x,y)\,\rd(\mu-\mu_0)(y)
++ u(x)=\int_\Gamma g_q(x,y)\,\mathrm d(\mu-\mu_0)(y),
++ \qquad \Delta_\Gamma u=\mu-\mu_0.
+ \]
+-is continuous on \(\Gamma\) and has \(\Delta_\Gamma u=\mu-\mu_0\), which is
+-\eqref{eq:curve-poisson}; uniqueness modulo constants is the last clause of
+-that lemma.  Its curvature \(\mu_0+\Delta_\Gamma u=\mu\) is positive, so by
+-the criterion in \Cref{lem:ch31-curve-ma-affine} every piecewise affine
+-approximation of \(u\) that is admissible is \(\omega\)-psh; more directly,
+-\(u\) is a uniform limit of \(\omega\)-psh model functions.  Indeed let
+-\(\mu_m\to\mu\) weakly with \(\mu_m\) atomic, rational, supported on a
+-finite subset of \(\Gamma\) and of mass \(V\); then
+-\(u_m=G_q(\mu_m-\mu_0)\) is a rational piecewise affine function, hence a
+-model function on a model dominating \(\cX\)
+-(\Cref{thm:bfj-skeletal-characterization}), it is \(\omega\)-psh by the same
+-criterion, and \(u_m\to u\) uniformly.  For the last point, observe that
+-\(u_m-u=G_q(\mu_m-\mu)\), that the family
+-\(\{g_q(x,\cdot):x\in\Gamma\}\) is bounded by \(\operatorname{diam}\Gamma\)
+-and equi-Lipschitz, hence relatively compact in \(C^0(\Gamma)\), and that
+-weak convergence of measures of uniformly bounded total variation is
+-uniform over a compact family of test functions, by a finite
+-\(\varepsilon\)-net argument.  Hence
+-\(\sup_{x\in\Gamma}|G_q(\mu_m-\mu)(x)|\to0\).  A concrete choice of
+-\(\mu_m\) is the pushforward of \(\mu\) under the retraction of \(\Gamma\)
+-to a finer and finer rational subdivision, followed by a rational rounding
+-of the atoms preserving the total mass \(V\).  Thus \(u\) is a
+-continuous \(\omega\)-psh function in the sense of
+-\Cref{thm:ch21-continuous-zhang}.
++It is continuous by joint continuity of the kernel and compactness.
++To justify positivity before invoking model approximation, approximate
++\(\mu\) weakly by positive finite atomic measures \(\mu_j\) of the
++same mass, supported at type-II points of \(\Gamma\).  Such points are
++dense in each edge; they may be chosen with coordinates in the divisible
++hull of the value group.  Move the mass of each member of a finite
++partition of small diameter to one such point.  The graph Green potentials
++\(u_j=G_q(\mu_j-\mu_0)\) are real piecewise affine functions with
++\(\Delta_\Gamma u_j=\mu_j-\mu_0\), not necessarily rational model
++functions.  The compact family \(\{g_q(x,\cdot):x\in\Gamma\}\) and
++weak convergence give \(u_j\to u\) uniformly by a finite-net argument.
+ 
+-It remains to identify the Monge--Amp\`ere measure of the corresponding
+-metric on \(X^{\An}\), not merely on \(\Gamma\).  For the model functions
+-\(u_m\) this is \eqref{eq:curve-ma-laplacian}.  Passing to the limit,
+-\Cref{prop:ch24-continuous-uniform} gives
+-\(\MA_\omega(u_m)\to\MA_\omega(u)\) weakly, while
+-\(\MA_\omega(u_m)=\mu_m\to\mu\); hence \(\MA_\omega(u)=\mu\).  The measure
+-lives on \(\Gamma\) because each \(\mu_m\) does.  The same conclusion may be
+-read off on the CLD side: the metric weight
+-\(u\circ p_{\cX}\) has Chern current computed by the slope formula
+-\Cref{thm:ch08-slope-formula}, and its curvature is
+-\(\mu_0+\Delta_\Gamma u\) by \Cref{prop:ch19-curve-model-curvature} and its
+-uniform limits; the two answers agree by
+-\Cref{thm:ch19-cld-bfj-comparison}\,(B).
++The local curve slope criterion identifies the curvature of the lisse
++metric \(\mathrm e^{-u_j\circ r}\|\cdot\|_0\) with
++\(\mu_j\geq0\).  Thus its local weights are psh.  Uniform convergence
++passes both the distributional curvature identity and positivity to the
++continuous metric \(\mathrm e^{-u\circ r}\|\cdot\|_0\): its
++curvature is \(\mu\), and its local weights are psh.  The final potential
++is not asserted to be lisse when \(\mu\) is not atomic.
++
++Now use only the strictly positive degree clause of
++\Cref{thm:p081-corrected-curve-comparison}, since \(\deg L>0\).
++It gives a uniform approximation of this metric by semipositive rational
++formal metrics.  The model slope formula and continuity of curvature
++under uniform convergence identify its semipositive curvature measure
++with \(\mu\).  No rational slopes are inferred from rational atomic
++masses.  The harmonic maximum principle on the proper connected curve
++gives uniqueness up to a multiplicative constant.
++
++In the original BFJ regime of this chapter, the resulting continuous
++semipositive metric defines the stated $\omega$-psh potential through
++\Cref{thm:ch21-continuous-zhang}.  Its measure is
++$\MA_\omega(u)=\mu$ by \Cref{prop:ch24-continuous-uniform}; the
++curve CLD comparison gives the same measure through
++\Cref{prop:ch19-curve-model-curvature,thm:ch19-cld-bfj-comparison}.
++The arbitrary-field metric assertion is the one in
++\Cref{thm:curves-arbitrary-field-continuity}, not an automatic extension
++of every singular BFJ psh definition.
+ \end{proof}
+ 
+ \begin{remark}[What this proposition is, and is not]
+@@ -506,10 +517,11 @@
+ with the variational argument replaced by linear algebra and the capacity
+ estimate replaced by the bound \(\sup|g_q|\leq\operatorname{diam}\Gamma\).
+ Two things are \emph{not} obtained this way.  First, a measure on
+-\(X^{\An}\) not supported on any skeleton is out of reach here: it is the
+-content of \Cref{thm:curves-arbitrary-field-continuity} that the equation is
+-nevertheless solvable on a curve over an arbitrary complete nontrivially
+-valued field.  Second, nothing in the argument generalizes: in dimension
++\(X^{\An}\) not supported on any skeleton is outside this assertion;
++\Cref{thm:curves-arbitrary-field-continuity} also retains skeletal support
++for its continuous-solution statement.  No nonskeletal existence or
++continuity assertion is deduced from either theorem here.
++Second, nothing in the argument generalizes: in dimension
+ \(\geq2\) the operator is not affine, there is no kernel, and the solution
+ is produced variationally.
+ \end{remark}
+@@ -3536,8 +3548,8 @@
+  &continuity of the solution
+   (\Cref{thm:bfj-supported-regularity})
+  &solvability remains, in finite energy
+-  (\Cref{thm:bfj-supported-cy}); continuity is not asserted, except on
+-  curves (\Cref{thm:curves-arbitrary-field-continuity})\\
++  (\Cref{thm:bfj-supported-cy}); continuity is not asserted without
++  the support hypothesis, including on curves\\
+ \bottomrule
+ \end{tabular}
+ \end{center}
+@@ -3791,7 +3803,9 @@
+ \cite{BFJ15}; algebraizability is removed in \cite{BGGJKM20}, the
+ equal-characteristic test-ideal extension is \cite{GJKM19}, and the
+ conditional mixed-characteristic extension is \cite{FGK25}.  Continuity of
+-solutions on curves over an arbitrary complete nontrivially valued field is
++solutions for positive skeletal-supported measures of matching mass on
++smooth projective geometrically connected curves with an ample line bundle
++over arbitrary complete nontrivially valued fields is
+ \Cref{thm:curves-arbitrary-field-continuity}, proved in
+ \Cref{chap:bfj-continuity}, where its provenance is recorded.  The
+ comparison of algebraic, formal, and

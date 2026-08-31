@@ -1,6 +1,6 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 30 August 2026
+**Inventory date:** 31 August 2026
 **Literature cutoff:** 24 August 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
@@ -650,60 +650,62 @@ It remains active.
 
 ### `prob:frontier-cld-global-metric` --- 1 active atom
 
-- **P08.1** `[T3; open beyond the verified smooth algebraically closed
-  curve scope]` Decide whether a continuous locally CLD-psh metric on a
-  projective non-Archimedean variety is globally psh in the Fubini--Study
-  or nef-model sense outside the curve scope stated below.
+- **P08.1** `[T3; open beyond the verified implications below]` Decide
+  whether a continuous locally CLD-psh metric on a projective
+  non-Archimedean variety is globally psh in CLD's literal sense: a
+  uniform limit of globally defined smooth psh metrics.
 
-The smooth proper algebraic curve case over an algebraically closed complete
-nontrivially valued field is now verified by
-`thm:p081-curve-local-global`. A continuous locally CLD-psh metric has
-nonnegative degree and is a uniform limit of semipositive Q-formal metrics,
-equivalently semipositive algebraic model metrics. In positive degree the
-approximants may be chosen relatively ample and the metric lies in the
-uniform Fubini--Study closure; in degree zero its curvature vanishes and
-the approximants may be chosen numerically trivial. The exact
-statement/proof SHA-256 values are
-`1f2c51f101fd8447fbb6b65a3c0686515efaf982674efaadcaf2271079173e93`
-and
-`9847a08c98a640ee7def082a73cc1b3ff116980f2882920808557822056f0f2f`.
-An independent hostile audit passed. A dependency-closed production
-request using `gpt-5.6-sol` at `xhigh` returned final `correct`, zero
-critical errors, and zero gaps; the archived request/response/header
-SHA-256 values are
-`307ba899872bfd33720dd863bd58269820d5c0687b848760afef960cb549c7cd`,
-`7af690cea941960fc8c8bfba39acfacd6cbf0bbe8bf52273431b93945d1af0af`,
-and
-`c2d6c04bd79ddd90ddd7e91a6c6bbf64282d5f7cd193bb1e682ff9c89d8d69a3`.
-The same P08.1-type conclusions now hold for every smooth proper connected
-strict analytic curve over the same field.  The exact transfer statement
-and proof, SHA-256
-`64e507146c65614e37d831a25d230f1bb05cdf4decc25f298f4adbea22f4c9da`
-and
-`8b0c95bc1b4822cd29560b8f8045f53ab09281131c59c1bfb4dbf9770cf546de`,
-use strict Berkovich--rigid comparison, projective curve algebraization, and
-proper GAGA for the line bundle.  An independent hostile audit passed.  The
-dependency-closed production request using `gpt-5.6-sol` at `xhigh`
-returned final `correct`, zero critical errors, and zero gaps; its
-request/response/header SHA-256 values are
-`492ed02879f4f2b3346e8389996f259a5a665f85bb521f4f425ace93d6879f60`,
-`fb038501912bea4c1d6d816d5188e08b3249b016a00d7331d4fcfc56da78ba00`,
-and
-`176e7a69175ba6de0ce09be2633852742af43e415cbf283ad51991fbddf084e0`.
+**Correction of the comparison scope, 31 August 2026.** The source question
+is CLD Remark 17.8.10, first paragraph. Fixed-line-bundle approximation by
+nef rational model metrics is a distinct comparison assertion, not the
+definition in the source.
 
-P08.1 retains higher dimension, singular curves, and arbitrary complete
-ground fields.  P08.2 is the distinct source-exact extension of CLD
-Corollary 17.8.9 from analytifications of projective varieties to proper
-strict analytic spaces having a formal model with projective special fibre.
-The book gives a curve-specific curvature-domination proof in the smooth
-strict-curve range, with exact statement/proof SHA-256
-`ae3042f558e649bfd2f54a00287901978558defa6a6aa4be52e63f9461c466be` /
-`5a35c88f774aca391fa6c38acbbc5cb0c7ea5956efbdc370d129fbdc365bec80`.
-An independent seven-obligation audit passed; dependency-closed production
-Rethlas using `gpt-5.6-sol` at `xhigh` returned final `correct`, zero
-critical errors, and zero gaps.  The response SHA-256 is
-`00561848978d7ef9ca781ffb48eb507ba928d53507dea96e7ea2b34e5cb4add7`.
-This is an alternative proof of a published conclusion in that curve range.
+The current theorem `thm:p081-corrected-curve-comparison` applies to
+smooth proper geometrically connected algebraic curves over every complete
+nontrivially valued field. For a continuous locally CLD-psh metric of
+positive degree it gives uniform
+approximation by relatively ample rational algebraic model metrics and
+membership in the uniform Fubini--Study closure. For degree zero the
+curvature vanishes, and approximation by nef rational formal metrics holds
+if and only if the fixed line bundle has one such metric. It does not
+assert that degree zero alone ensures this existence.
+Its statement/proof SHA-256 values are
+`5158fe6399885289ba2e9bf7a57f7da32a87fdb7b7d6e6b5bc20879e054564b6` /
+`99028d9d33abcfe31e42dd6f5e1aedb6c00822c5408ef46da4ef692ed2ef3a17`.
+After independent exact-byte review, strict Rethlas 0.2 production run
+`20260830T234536Z_5158fe639988`, item `pi_4592d7150e75755585cdfa20`,
+using `gpt-5.6-sol` / `xhigh`, returned final `correct`, zero critical
+errors and zero gaps. Exact-current request, source, coverage, and adaptive
+context reconstruction passed again on 31 August. The response SHA-256 is
+`ec419c5259c5aebba62c8349070a89b2cb82b6d127b5a5b9ff5b7a04188700c5`.
+
+The degree-zero hypothesis cannot be dropped:
+`thm:p081-irrational-tate-period-obstruction` constructs a Tate-curve
+line bundle with a smooth harmonic metric and no nef rational formal metric
+on any positive tensor power. Its statement/proof SHA-256 values are
+`4d997e024fa7ec642299a0d86ae1d9b9d06c6041f7f10b694369d7faa458d28c` /
+`c7a2a08ad4ad82df4470004d01fa131fecdc01ab03f60eefa67bbe7eaa8f0a5a`.
+Independent exact-byte review passed; the strict production retry, item
+`pi_f2b822c25aa05cfebdd8bcc0`, returned final `correct`, zero critical
+errors and zero gaps, with model/effort `gpt-5.6-sol` / `xhigh`.
+Its exact-current audit also passed. The response SHA-256 is
+`a8d296d20c4ea5496262e30b83509d9f21bdae7fc03a33b48b6de87aab9c0054`.
+The smooth harmonic metric is already globally psh in CLD's literal sense.
+This is not a counterexample to P08.1 or to ample envelope continuity.
+
+**Supersession.** The old unrestricted degree-zero theorem
+`thm:p081-curve-local-global`, its old analytic transfer, and the
+alternative factorization proof depending on that theorem are no longer
+live proof inputs. Their historical sources and receipts remain preserved;
+a previous model verdict cannot validate the missing rationalization step.
+Corrected analytic-transfer and factorization packets are awaiting their
+own production gates. No pending result is counted as established here.
+
+P08.1 retains the higher-dimensional and singular comparison questions and
+all residual scope not covered by the exact displayed implications.
+The general nontrivially valued envelope property is not proved by these
+curve results. This correction retires no additional atom: the active total
+remains 51, with tiers `(0,5,12,17,17)`.
 
 **Retired P08.2 (negative).**  The extension of CLD Corollary 17.8.9 to all
 proper strict analytic spaces possessing a formal model with projective

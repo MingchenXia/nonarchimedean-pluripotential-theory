@@ -1,0 +1,3701 @@
+\chapter{Finite-energy measures and variational solutions}
+\index{finite-energy measure!BFJ}\index{Monge--Ampere equation!variational solution}
+\label{chap:bfj-finite-energy-measures}
+
+The previous two chapters put the two sides of the Monge--Amp\`ere equation
+on an equal footing.  A potential \(\varphi\in\mathcal E^1\) has an energy
+and a full-mass measure, while differentiability identifies the derivative of
+energy with integration against that measure.  We now formulate the inverse
+problem variationally: given a positive measure \(\mu\) of the correct total
+mass, find \(\varphi\) with \(\MA_\omega(\varphi)=\mu\).
+
+The method is the one every reader of the complex theory will recognize.
+One writes down a concave functional
+\(F_\mu(\varphi)=E_\omega(\varphi)-\int\varphi\,\rd\mu\) whose
+Euler--Lagrange equation is the equation to be solved, one shows that
+\(F_\mu\) is bounded above and attains its supremum, and one differentiates.
+Each of the three steps has a non-Archimedean cost.  Boundedness above is
+exactly the statement that \(\mu\) lies in the domain of a Legendre
+transform, and that transform---the \emph{dual energy}
+\(E^\vee_\omega\)---is the principal new object of the chapter.  Attainment
+of the supremum requires a compactness argument that must be run with nets,
+because \(\PSH_0(X,\omega)\) is compact but not known to be metrizable
+(\Cref{lem:ch21-no-cofinal-sequence}).  Differentiation is
+\Cref{prop:bfj-euler-lagrange}, and it consumes the orthogonality property.
+
+Three results must be kept apart, and the chapter is organized so that they
+never touch.  The first is a \emph{duality} statement: \(E^\vee_\omega\) is
+the concave conjugate of the energy, and the supremum of \(F_\mu\) equals
+\(E^\vee_\omega(\mu)\) whenever the latter is finite.  This costs nothing
+but the definitions.  The second is a \emph{completion} statement: the
+Monge--Amp\`ere measures of model potentials are dense, in a strong measure
+topology, in the space \(\mathcal M^1_V\) of measures of finite dual energy.
+This does not, by itself, identify every point of that completion with the
+Monge--Amp\`ere measure of a pointwise \(\mathcal E^1\)-potential; it
+produces maximizing nets, not maximizers.  The third is the
+\emph{existence} theorem of Boucksom--Favre--Jonsson, which concerns an
+arbitrary positive measure supported on one SNC dual complex.  For that
+class, and for the slightly larger class isolated in
+\Cref{def:ch28-admissible-measure} below, the variational functional does
+attain its maximum in \(\mathcal E^1\).  Support on a dual complex is
+therefore an existence input in the original proof---and, in
+\Cref{chap:bfj-continuity}, a regularity input as well---not part of the
+definition of finite energy.
+
+\begin{warning}{The scope of the existence theorem}
+\Cref{thm:bfj-supported-cy} is a theorem about a smooth projective variety
+over a complete \emph{discretely valued} field of residue characteristic
+zero, with a semipositive model form of ample de Rham class having the
+orthogonality property, and about a measure supported on the dual complex of
+an SNC model.  Every one of these hypotheses is used.  It is
+\emph{not} a theorem over an arbitrary complete non-Archimedean field: over
+such a field the class \(\cE^1\) can still be defined, but the extension of
+the Monge--Amp\`ere operator to it is explicitly left open in
+\cite[Remark~4.4]{PS23Hybrid}, and no assertion of this chapter presupposes
+that extension.  \Cref{sec:ch28-scope} displays the full hypothesis
+signature and lists, separately and with dates, the later theorems that
+weaken individual hypotheses.
+\end{warning}
+
+\paragraph{Standing hypotheses.}
+Unless a statement says otherwise we retain the geometric hypotheses fixed
+at the beginning of \Cref{chap:bfj-model-forms} and used throughout
+\Cref{chap:bfj-psh,chap:bfj-compactness,chap:bfj-envelopes,chap:bfj-ma,chap:bfj-capacity,chap:bfj-energy,chap:bfj-differentiability}:
+\(K\) is complete and discretely valued with residue characteristic zero and
+\(v_K(\pi)=1\); \(X\) is smooth, connected and projective of dimension \(n\)
+over \(K\); and \(\omega\) is a closed model \((1,1)\)-form which is
+semipositive and whose de Rham class \(\{\omega\}\) is ample.  We write
+\begin{equation}
+\label{eq:ch28-standing}
+ \begin{aligned}
+ V&:=(\{\omega\}^n)>0,\\
+ \mathcal M_V(X)
+ &:=\Bigl\{\mu\ \Bigm|\
+   \begin{gathered}
+    \mu\ \text{is a positive Radon measure on }X^{\An},\\[-1mm]
+    \mu(X^{\An})=V
+   \end{gathered}\Bigr\},
+ \end{aligned}
+\end{equation}
+and \(\PSH_0(X,\omega)\) for the normalized psh space
+\eqref{eq:ch22-normalized-space}.  All Monge--Amp\`ere measures below have
+total mass \(V\), never mass one; the probability normalization is recorded
+in \eqref{eq:appJ-dual-energy} and is used only when a source is being
+transported, as in \Cref{thm:finite-energy-measure-completion}.
+
+Two further hypotheses are named rather than assumed globally.
+
+\begin{itemize}
+\item \emph{Orthogonality} (\Cref{def:orthogonality-property}) is assumed in
+every statement that differentiates an envelope, and it is flagged in the
+statement.  It is available in dimension one and in the invariant toric
+category by \Cref{prop:ch27-curve-orthogonality} and
+\Cref{thm:ch27-toric-orthogonality}, and in general through the two
+provenances of \Cref{thm:orthogonality-provenance}.
+\item \emph{Support} hypotheses on \(\mu\) are always displayed.  No theorem
+here applies to an arbitrary element of \(\mathcal M_V(X)\), and no theorem
+here applies to an arbitrary element of \(\mathcal M^1_V(X,\omega)\) either.
+\end{itemize}
+
+\paragraph{What the reader should learn.}
+By the end of the chapter the reader should be able to: write down the
+Legendre dual energy of a measure and explain why the total-mass condition
+is forced rather than imposed; prove that the supremum of the variational
+functional equals the dual energy, and compute both in closed form on a
+metric graph; distinguish a maximizing net from a maximizer, and say
+precisely which compactness statement upgrades the first to the second;
+state the Boucksom--Favre--Jonsson existence theorem with its complete
+hypothesis signature and identify the role of each hypothesis in the proof;
+explain why uniqueness is not a corollary of the comparison principle;
+compute the dual energy of an explicit measure on a curve skeleton and
+exhibit a measure of infinite dual energy; and quantify the dependence of
+the solution on the measure.
+
+\paragraph{Prerequisites.}
+From \Cref{chap:topological-tools} we use the Riesz interface
+\Cref{thm:riesz-interface} and its uniqueness clause
+\Cref{cor:riesz-uniqueness}, weak convergence and the portmanteau theorem
+\Cref{prop:portmanteau}, the joint convergence lemma
+\Cref{lem:joint-weak-uniform}, and the concave-conjugate formalism of
+\Cref{subsec:legendre-finite}, in particular
+\eqref{eq:dual-energy-abstract}, \Cref{lem:dual-mass},
+\eqref{eq:fenchel-energy} and \Cref{prop:concave-biconjugation}.  From
+\Cref{chap:bfj-compactness} we use skeletal equicontinuity
+\Cref{thm:bfj-skeletal-equicontinuity} with its explicit modulus
+\Cref{cor:ch22-explicit-modulus}, compactness of \(\PSH_0\)
+\Cref{thm:bfj-psh-compactness} in the net form
+\Cref{cor:ch22-net-compactness}, and decreasing regularization
+\Cref{thm:bfj-decreasing-regularization}.  From \Cref{chap:bfj-energy} we
+use the energy cocycle \eqref{eq:energy-cocycle}, the extension
+\Cref{thm:extended-energy-basic}, the class \(\cE^1\) of \Cref{def:e1}, the
+mass tail \eqref{eq:e1-mass-tail} and the integrability bound
+\eqref{eq:e1-integrability}, the mixed-energy identities
+\Cref{thm:ch26-mixed-energy-identities}, the finite-energy sandwich
+\eqref{eq:ch26-e1-sandwich}, monotone continuity
+\Cref{prop:e1-monotone-continuity}, and the compactness of normalized
+energy superlevels \Cref{prop:e1-compact-superlevels} in the net form
+\Cref{cor:ch26-net-superlevel}.  From
+\Cref{chap:bfj-differentiability} we use exactly two statements, the
+finite-energy projected variation \Cref{cor:e1-projected-variation} and the
+Euler--Lagrange proposition \Cref{prop:bfj-euler-lagrange}.
+
+\section{Orientation}
+\label{sec:ch28-orientation}
+
+\subsection{The inverse problem, and why a functional appears}
+\label{sec:ch28-inverse}
+\index{variational method!BFJ existence}
+
+Every construction of \Cref{chap:bfj-ma} and \Cref{chap:bfj-energy} runs in
+one direction: from a potential to a measure.  A model potential determines
+a vertical divisor, hence \(n\)-fold intersection numbers on a model, hence
+an atomic measure supported at divisorial points
+(\Cref{def:mixed-model-measure}); monotone limits extend this to bounded and
+then to finite-energy potentials.  The inverse problem asks for the
+preimage.  It has no direct answer, because there is no formula: the
+operator \(\MA_\omega\) is a degree-\(n\) polynomial expression in the
+potential, and even at the level of a single model it is a system of
+polynomial equations in the vertex values, not a linear system, as soon as
+\(n\geq2\).
+
+The variational method replaces inversion by optimization.  Because
+\(E_\omega\) is concave with derivative \(\MA_\omega\), the equation
+\(\MA_\omega(\varphi)=\mu\) says exactly that the affine functional
+\(\psi\mapsto\int\psi\,\rd\mu\) supports the concave functional
+\(E_\omega\) at \(\varphi\); in the language of
+\Cref{prop:concave-biconjugation}\,(3), \(\mu\) is a supergradient of
+\(E_\omega\) at \(\varphi\).  That is a statement about a maximum, namely
+that
+\[
+ F_\mu(\psi):=E_\omega(\psi)-\int\psi\,\rd\mu
+\]
+is maximal at \(\psi=\varphi\); and this reformulation, unlike the equation
+itself, is stable under the only limiting operations the theory provides.
+\Cref{cor:ch27-euler-lagrange-supergradient} already recorded the
+equivalence.  What remains, and what this chapter supplies, is the analysis
+of the maximization problem: for which \(\mu\) is \(F_\mu\) bounded above,
+for which \(\mu\) is its supremum attained, and how the maximizer moves when
+\(\mu\) does.
+
+One dimension of the problem is visible already on a curve, and it is worth
+recording at the outset because it is the only case in which every question
+of the chapter has a complete elementary answer.  For \(n=1\) the operator
+is affine: by \eqref{eq:curve-ma-laplacian},
+\(\MA_\omega(u)=\mu_0+\Delta_\Gamma u\) on a skeleton, so the equation is
+the linear Poisson equation \eqref{eq:curve-poisson}, the functional
+\(F_\mu\) is a strictly concave quadratic form, and the dual energy is a
+classical Dirichlet integral.  \Cref{sec:ch28-curves} carries this out with
+numbers.  In dimension \(n\geq2\) nothing of the sort is available, and each
+of the three questions above becomes a separate theorem.
+
+\subsection{Three theorems that must not be merged}
+\label{sec:ch28-three}
+
+\begin{center}
+\small
+\begin{tabular}{p{.20\textwidth}|p{.36\textwidth}|p{.36\textwidth}}
+\toprule
+\textbf{Name}&\textbf{Statement}&\textbf{Status here}\\
+\midrule
+Duality
+ &\(\sup F_\mu=E^\vee_\omega(\mu)\), and equality in the Fenchel
+  inequality holds exactly at solutions
+ &proved in full:
+  \Cref{prop:ch28-sup-is-dual-energy},
+  \Cref{cor:finite-energy-variational-characterization}\\
+Completion
+ &model Monge--Amp\`ere measures are strongly dense in
+  \(\mathcal M^1_V\); maximizing nets exist for every
+  \(\mu\in\mathcal M^1_V\)
+ &quoted with its source:
+  \Cref{thm:finite-energy-measure-completion}; the maximizing-net half is
+  proved here in \Cref{thm:finite-energy-measure-stability}\\
+Existence
+ &the supremum of \(F_\mu\) is \emph{attained} in \(\cE^1\), and the
+  maximizer solves \(\MA_\omega(\varphi)=\mu\)
+ &proved here for admissible \(\mu\):
+  \Cref{thm:ch28-existence-admissible},
+  \Cref{thm:bfj-supported-cy}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The gap between the second and the third rows is the whole difficulty.  A
+maximizing net \((\varphi_\alpha)\) always exists; it lies in
+\(\PSH_0(X,\omega)\), which is compact, so a subnet converges in the BFJ
+topology to some \(\varphi\in\PSH_0(X,\omega)\).  What can fail is that
+\(\varphi\) has infinite energy, or that
+\(\int\varphi_\alpha\,\rd\mu\not\to\int\varphi\,\rd\mu\).  Both failures are
+failures of \emph{coercivity} of \(F_\mu\), and both are genuine: the
+functional \(\varphi\mapsto\int\varphi\,\rd\mu\) is only upper
+semicontinuous in general, which is the wrong direction, and the energy is
+also only upper semicontinuous, which is the right direction but does not
+prevent escape of the maximizing net towards \(E_\omega=-\infty\).
+\Cref{sec:ch28-coercivity} isolates the two properties of \(\mu\) that
+exclude these failures and proves that a measure supported on a dual complex
+has both.
+
+\begin{warning}{``Finite energy'' is used of two different objects}
+A \emph{finite-energy potential} is an element of \(\cE^1(X,\omega)\), that
+is, a psh function whose Monge--Amp\`ere energy is finite
+(\Cref{def:e1}).  A \emph{finite-energy measure} is an element of
+\(\mathcal M^1_V(X,\omega)\), that is, a positive measure of mass \(V\)
+whose Legendre dual energy is finite
+(\Cref{def:dual-energy-measure}).  The two conditions are Legendre-dual to
+one another, but they are not interchangeable, and neither implies a
+statement about the other without a theorem.  In particular:
+\(\MA_\omega(\varphi)\in\mathcal M^1_V\) for every \(\varphi\in\cE^1\)
+(\Cref{prop:ch28-dual-energy-of-ma}), but the converse inclusion
+\(\mathcal M^1_V\subseteq\MA_\omega(\cE^1)\) is exactly the surjectivity
+question discussed in \Cref{sec:ch28-surjectivity} and is not proved here.
+\end{warning}
+
+\subsection{The hypothesis signature, and the later extensions}
+\label{sec:ch28-scope}
+
+\index{hypothesis signature!BFJ existence theorem}
+The following table is the scope discipline of the chapter in one place.
+The first column is the axis, the second the hypothesis actually used in
+\Cref{thm:bfj-supported-cy}, the third the place in the proof where it is
+used, and the fourth the later results that weaken it.  A later result is
+never silently substituted for the original one; each is stated separately,
+with its date, its source, and its own additional hypotheses.
+
+\begin{center}
+\small
+\begin{tabular}{p{.15\textwidth}|p{.22\textwidth}|p{.28\textwidth}|p{.26\textwidth}}
+\toprule
+\textbf{Axis}&\textbf{Hypothesis used}&\textbf{Where it enters}
+ &\textbf{Later extensions}\\
+\midrule
+base field
+ &complete, discretely valued
+ &cofinality of SNC models \Cref{prop:snc-cofinal}; the whole model
+  calculus of \Cref{chap:bfj-model-forms}
+ &ample curve metric envelopes and skeletal-supported continuous
+  solutions over arbitrary complete nontrivially valued fields,
+  \Cref{thm:curves-arbitrary-field-continuity}; the general case is
+  \emph{open}, \Cref{prob:frontier-general-ma}\\
+residue char.
+ &zero
+ &resolution of singularities; multiplier ideals in
+  \Cref{thm:bfj-envelope-regularity}
+ &equal characteristic \(p\) with geometric origin,
+  \Cref{thm:gjkm-positive-characteristic-cy}; mixed characteristic,
+  \Cref{thm:fgk-mixed-characteristic-cy}\\
+space
+ &\(X\) smooth projective
+ &SNC models; skeletal equicontinuity
+  \Cref{thm:bfj-skeletal-equicontinuity}
+ &none in \Cref{part:bfj}; the unibranch obstruction in the trivially
+  valued theory is \Cref{chap:bj-strong-topologies}\\
+class
+ &\(\{\omega\}\) ample, \(\omega\) semipositive
+ &positivity of the model measure \Cref{prop:model-ma-basic}; the Hodge
+  index input \Cref{thm:ch20-mixed-hodge}
+ &big classes are not treated here\\
+orthogonality
+ &assumed
+ &\Cref{prop:variational-maximizer-solves} only
+ &algebraizability, \cite[Appendix~A]{BFJ15}; removed in residue
+  characteristic zero, \Cref{thm:bggjkm-remove-algebraizability}\\
+measure
+ &mass \(V\), supported on one SNC dual complex
+ &coercivity \Cref{lem:ch28-skeleton-admissible}; Dini in
+  \Cref{thm:bfj-supported-regularity}
+ &admissible measures, \Cref{def:ch28-admissible-measure}; measures in
+  \(\MA_\omega(\cE^1)\), \Cref{prop:ch28-image-is-solvable}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Two entries deserve emphasis, because they are the ones most often blurred
+in summaries of the theory.
+
+First, \emph{algebraizability is not a hypothesis of
+\Cref{thm:bfj-supported-cy}}.  The historical Theorem~A of \cite{BFJ15}
+assumed that \(X\) descends from a smooth projective variety over a
+one-variable function field whose completion is \(K\); that assumption was
+used only to prove orthogonality, in \cite[Appendix~A]{BFJ15}.  Our theorem
+assumes orthogonality outright and is therefore insensitive to the route by
+which it is obtained.  In residue characteristic zero, the differentiability
+theorem for non-Archimedean volumes removes algebraizability altogether
+\cite[Theorem~6.3.3 and Corollary~6.3.4]{BGGJKM20}; this is
+\Cref{thm:bggjkm-remove-algebraizability}.
+
+Second, \emph{discreteness is not removed by any theorem proved in this
+book, except on curves}.  The class \(\cE^1\) admits a definition over an
+arbitrary complete non-Archimedean field, but the Monge--Amp\`ere operator
+is known to extend to it only in the discretely valued residue-characteristic
+zero case, treated here, and in the trivially valued case of
+\Cref{part:bj}; the general case is stated as unresolved in
+\cite[Remark~4.4]{PS23Hybrid} and is recorded in this book as
+\Cref{prob:frontier-general-ma}.  Nothing in this chapter should be read as
+asserting the general extension, and in particular the sentence ``the
+finite-energy theory works over any complete field'' is not a theorem.
+
+\subsection{What is proved here and what is imported}
+\label{sec:ch28-imported}
+
+Everything below is proved in full from
+\Cref{chap:bfj-model-forms,chap:bfj-psh,chap:bfj-compactness,chap:bfj-envelopes,chap:bfj-ma,chap:bfj-capacity,chap:bfj-energy,chap:bfj-differentiability},
+with three exceptions, each of which is flagged at the point of use.
+
+\begin{enumerate}
+\item[\textup{(I1)}]
+\emph{Orthogonality} in dimension \(n\geq2\), quoted with its two
+provenances in \Cref{thm:orthogonality-provenance}.  It is used only through
+\Cref{cor:e1-projected-variation} and \Cref{prop:bfj-euler-lagrange}, that
+is, only in \Cref{prop:variational-maximizer-solves} and its consequences.
+\item[\textup{(I2)}]
+\emph{Uniqueness} of the finite-energy solution modulo constants.  What is
+proved here is the structure of the solution set,
+\Cref{prop:ch28-solution-set}, which already gives uniqueness for \(n=1\)
+(\Cref{prop:ch28-curve-uniqueness}); the remaining step in dimension
+\(n\geq2\) is the non-Archimedean Calabi--Yau uniqueness theorem, quoted as
+\cite[Proposition~8.2]{BFJ15} and recorded in
+\Cref{cor:bfj-original-continuous-solution}.  It is \emph{not} a consequence
+of the comparison principle, for the reason given in
+\Cref{rem:ch25-no-uniqueness}.
+\item[\textup{(I3)}]
+The \emph{strong completion} theorem for finite-energy measures,
+\Cref{thm:finite-energy-measure-completion}, quoted from
+\cite{BJ25FiniteEnergy}.  It is used nowhere in the proof of
+\Cref{thm:bfj-supported-cy}; it is recorded because it is the correct modern
+formulation of what the maximizing-net construction produces, and because
+the two statements are constantly confused.  The half of it that is proved
+here is \Cref{thm:finite-energy-measure-stability}.
+\end{enumerate}
+
+Nothing in this chapter is used in
+\Cref{chap:bfj-envelopes,chap:bfj-ma,chap:bfj-capacity,chap:bfj-energy,chap:bfj-differentiability},
+which is what makes the dependency order
+\eqref{eq:ch27-dependency-diagram} of \Cref{sec:ch27-dependency} consistent:
+the present chapter is step \textup{(D11)} of that order and nothing else
+depends on it inside \Cref{part:bfj} except
+\Cref{chap:bfj-continuity,chap:bfj-examples}.
+
+\subsection{Plan}
+\label{sec:ch28-plan}
+
+\Cref{sec:ch28-dual-energy} defines the dual energy, proves that its
+definition does not depend on the test class used, computes it at a
+Monge--Amp\`ere measure, and identifies the Fenchel defect with the
+functional \(J\) of \Cref{def:ch26-ij}.
+\Cref{sec:ch28-variational} sets up the variational functional, proves that
+its supremum is the dual energy, and proves that a maximizer solves the
+equation.  \Cref{sec:ch28-coercivity} isolates coercivity, proves the
+existence theorem for admissible measures with the compactness argument in
+net form, and gives the counterexamples that show the hypotheses are not
+decorative.  \Cref{sec:ch28-strong-measures} records the strong topology on
+measures and the completion theorem, and separates them carefully from the
+gauge on potentials of \Cref{sec:ch26-e1-gauge}.
+\Cref{sec:ch28-bfj-theorem} states the original BFJ existence theorem with
+its full hypothesis signature and proves it.  \Cref{sec:ch28-calabi-yau}
+assembles the Calabi--Yau correspondence.  \Cref{sec:ch28-stability} proves
+stability with respect to the measure, in three forms.
+\Cref{sec:ch28-curves} carries everything to explicit numbers on curves, and
+\Cref{sec:ch28-dictionary} is the chapter dictionary.
+
+\section{The Legendre dual energy}
+\label{sec:ch28-dual-energy}
+
+\subsection{Definition and the forced mass condition}
+\label{sec:ch28-dual-def}
+
+\begin{definition}[Energy of a measure]
+\label{def:dual-energy-measure}
+\index{dual energy!of a measure}\index{Legendre transform!dual energy}
+For \(\mu\in\mathcal M_V(X)\), set
+\begin{equation}
+\label{eq:dual-energy-measure}
+ E_\omega^\vee(\mu)
+ :=\sup_{\varphi\ \mathrm{psh\ model}}
+       \left\{E_\omega(\varphi)-\int\varphi\,\rd \mu\right\}
+ \in[0,+\infty].
+\end{equation}
+This is a Legendre transform on the psh test/model locus; no integral of an
+arbitrary unbounded potential is used in the definition.  We call \(\mu\) a
+\emph{finite-energy measure} when
+\(E_\omega^\vee(\mu)<+\infty\), and write
+\(\mathcal M^1_V(X,\omega)\) for the resulting class.
+\end{definition}
+
+Three features of \eqref{eq:dual-energy-measure} deserve comment before any
+property is proved.
+
+\emph{The test class is small.}  The supremum is taken over
+\(\omega\)-psh \emph{model} functions.  These are continuous, indeed
+locally constant on the complement of a dual complex, so
+\(\int\varphi\,\rd\mu\) is a finite integral of a bounded continuous function
+against a finite measure, and no convention about \(-\infty\) is needed.
+This is deliberate: it makes \(E^\vee_\omega\) manifestly a supremum of
+weak-continuous affine functionals of \(\mu\), which is what
+\Cref{prop:dual-energy-elementary} exploits.
+\Cref{prop:ch28-test-class} shows that enlarging the test class to bounded,
+continuous, or finite-energy potentials does not change the value; the small
+class is used in the definition and the large one in the applications.
+
+\emph{The sign convention is the concave one.}  \(E_\omega\) is concave and
+is to be maximized, so \eqref{eq:dual-energy-measure} is the concave
+conjugate \eqref{eq:concave-conjugate} of \(E_\omega\) with respect to the
+pairing \(\varphi\mapsto\int\varphi\,\rd\mu\), and
+\(E^\vee_\omega\) takes values in \([0,+\infty]\) rather than
+\([-\infty,0]\).  \Cref{app:normalizations} records this at
+\eqref{eq:appJ-dual-energy}.
+
+\emph{The mass is not normalized.}  For probability measures the usual
+convention divides both the energy and the Monge--Amp\`ere measure by \(V\).
+Formula \eqref{eq:dual-energy-measure} keeps the intersection-theoretic mass
+and is therefore compatible with the rest of this book; the dictionary
+between the two conventions is
+\begin{equation}
+\label{eq:ch28-probability-dictionary}
+ E_\omega^{\vee,\mathrm{prob}}(V^{-1}\mu)=V^{-1}E_\omega^\vee(\mu),
+\end{equation}
+which follows by dividing both terms of \eqref{eq:dual-energy-measure} by
+\(V\).  Mixing a probability measure with the unnormalized energy destroys
+translation invariance and is therefore immediately detectable, as
+\eqref{eq:appJ-dual-energy} warns.
+
+\begin{lemma}
+\label{lem:ch28-mass-forced}
+Let \(\mu\) be a positive Radon measure on \(X^{\An}\) and define
+\(E^\vee_\omega(\mu)\) by \eqref{eq:dual-energy-measure}.  Then
+\(E^\vee_\omega(\mu)<+\infty\) forces \(\mu(X^{\An})=V\).  Moreover
+\(E^\vee_\omega(\mu)\geq0\) for every \(\mu\in\mathcal M_V(X)\), with
+equality if and only if the constant \(0\) maximizes \(F_\mu\) among model
+psh functions.
+\end{lemma}
+
+\begin{proof}
+Constants are \(\omega\)-psh model functions, so they are admissible test
+objects.  By the translation identity \eqref{eq:bfj-energy-translation},
+\begin{equation}
+\label{eq:dual-energy-constant-test}
+ E_\omega(\varphi+c)-\int(\varphi+c)\,\rd \mu
+ =E_\omega(\varphi)-\int\varphi\,\rd \mu
+   +c\bigl(V-\mu(X^{\An})\bigr)
+\end{equation}
+for every model psh \(\varphi\) and every \(c\in\mathbf R\).  If
+\(\mu(X^{\An})\neq V\), let \(c\) run to \(+\infty\) or to \(-\infty\)
+according to the sign of \(V-\mu(X^{\An})\); the right-hand side is
+unbounded above, so \(E^\vee_\omega(\mu)=+\infty\).  This is
+\Cref{lem:dual-mass} in the present notation, with \(M=V\) and
+\(\varphi_0=0\), for which \(E_\omega(0)=0\) is finite.  Testing
+\eqref{eq:dual-energy-measure} against \(\varphi=0\) gives
+\(E^\vee_\omega(\mu)\geq E_\omega(0)-0=0\), and equality means precisely that
+no model psh competitor does better than \(0\).
+\end{proof}
+
+\begin{warning}{A positive measure of the wrong mass has no dual energy}
+\Cref{lem:ch28-mass-forced} is the reason why \(\mathcal M^1_V\) is defined
+inside \(\mathcal M_V\) rather than inside the cone of all positive
+measures.  The value \(E^\vee_\omega(\mu)=+\infty\) at the wrong mass is not
+an artefact of a bad normalization; it records that the variational problem
+has no solution, since \(\MA_\omega(\varphi)\) has mass \(V\) for every
+\(\varphi\in\cE^1\) by \Cref{prop:e1-integrability-tail}.  Consequently the
+words \emph{finite-energy measure} always include the mass condition.
+\end{warning}
+
+\subsection{Elementary properties}
+\label{sec:ch28-dual-elementary}
+
+\begin{proposition}
+\label{prop:dual-energy-elementary}
+The functional \(E_\omega^\vee\) is convex and weakly lower
+semicontinuous on \(\mathcal M_V(X)\).  For every psh model function \(u\),
+\begin{equation}
+\label{eq:measure-fenchel-energy}
+       \int u\,\rd \mu
+       \geq E_\omega(u)-E_\omega^\vee(\mu).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For fixed model \(u\), the expression
+\(E_\omega(u)-\int u\,\rd \mu\) is continuous and affine in \(\mu\).
+Its supremum over model psh functions is therefore convex and lower
+semicontinuous.  Inequality \eqref{eq:measure-fenchel-energy} is the
+definition rearranged.
+\end{proof}
+
+We expand the two assertions of the proof, since both are used repeatedly.
+Affineness in \(\mu\) is clear, the first term being independent of \(\mu\)
+and the second linear.  Weak continuity in \(\mu\) holds because \(u\) is a
+model function, hence continuous on the compact space \(X^{\An}\), so
+\(\mu\mapsto\int u\,\rd\mu\) is by definition continuous for the weak
+topology of \Cref{prop:portmanteau}.  A pointwise supremum of a family of
+continuous affine functions is convex and lower semicontinuous, by
+\Cref{prop:net-semicontinuity} applied to each member of the family; this is
+the same mechanism as in \Cref{prop:concave-biconjugation}\,(1), where the
+conjugate of a concave function is convex and lower semicontinuous for the
+same reason.  Nothing about \(E_\omega\) is used, and in particular no
+concavity, monotonicity or semicontinuity of the energy enters.
+
+\begin{proposition}
+\label{prop:ch28-dual-order}
+Let \(\mu,\nu\in\mathcal M_V(X)\) and \(s\in[0,1]\).
+\begin{enumerate}
+\item\label{itm:ch28-dual:convex}
+ \(E^\vee_\omega\bigl((1-s)\mu+s\nu\bigr)\leq
+ (1-s)E^\vee_\omega(\mu)+sE^\vee_\omega(\nu)\); in particular
+ \(\mathcal M^1_V(X,\omega)\) is a convex subset of \(\mathcal M_V(X)\).
+\item\label{itm:ch28-dual:sublevel}
+ For every \(C\geq0\) the set
+ \(\{\mu\in\mathcal M_V(X):E^\vee_\omega(\mu)\leq C\}\) is convex and weakly
+ compact.
+\item\label{itm:ch28-dual:reference}
+ If \(f\) is an \(\omega\)-psh model function and \(\omega'=\omega+\ddc f\),
+ then \(E^{\vee}_{\omega'}(\mu)=E^\vee_\omega(\mu)-E_\omega(f)
+ +\int f\,\rd\mu\) whenever either side is finite.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch28-dual:convex} is \Cref{prop:dual-energy-elementary}; convexity
+of \(\mathcal M^1_V\) follows because the right-hand side is finite when
+both dual energies are.
+
+\cref{itm:ch28-dual:sublevel}.  The set \(\mathcal M_V(X)\) is weakly compact:
+it is a weak-\(*\) closed subset of the ball of radius \(V\) in the dual of
+\(C^0(X^{\An})\), and \(X^{\An}\) is compact by
+\Cref{thm:berk-proper-compact}, so the Banach--Alaoglu theorem quoted
+in \Cref{thm:riesz-interface} applies; closedness is the statement that
+\(\mu\mapsto\mu(X^{\An})=\int 1\,\rd\mu\) is weakly continuous, the constant
+\(1\) being a legitimate test function on a compact space.  A sublevel set of
+a lower semicontinuous convex function on a compact convex set is closed and
+convex, hence compact.
+
+\cref{itm:ch28-dual:reference}.  By the change-of-reference formula
+\eqref{eq:ch26-reference-change}, an \(\omega'\)-psh model function is
+exactly \(\varphi-f\) for \(\varphi\) an \(\omega\)-psh model function, and
+\(E_{\omega'}(\varphi-f)=E_\omega(\varphi)-E_\omega(f)\).  Substituting into
+\eqref{eq:dual-energy-measure} and using
+\(\int(\varphi-f)\,\rd\mu=\int\varphi\,\rd\mu-\int f\,\rd\mu\) gives the
+stated identity, the two correction terms being finite real numbers
+independent of \(\varphi\).
+\end{proof}
+
+\begin{remark}[Weak compactness is not strong compactness]
+\label{rem:ch28-weak-not-strong}
+\Cref{prop:ch28-dual-order}\,\cref{itm:ch28-dual:sublevel} is a genuine
+compactness statement, and it is the reason the measure side of the theory
+is better behaved than the potential side: the corresponding superlevel sets
+of the energy on \(\cE^1\) are weakly compact
+(\Cref{prop:e1-compact-superlevels}) but never strongly compact
+(\Cref{prop:ch26-no-strong-compactness}).  The dual-energy sublevels are
+likewise \emph{not} compact for the strong topology of
+\Cref{sec:ch28-strong-measures}; what is true there is completeness, which is
+a different statement and is quoted, not proved, in
+\Cref{thm:finite-energy-measure-completion}.
+\end{remark}
+
+\subsection{The test class does not matter}
+\label{sec:ch28-test-class}
+
+The definition uses model psh functions.  In every application one wants to
+test against a bounded, a continuous, or an arbitrary finite-energy
+potential.  The following proposition says that all four suprema agree.  Its
+proof is the first place where decreasing regularization
+\textup{(D3)} is used.
+
+\begin{proposition}
+\label{prop:ch28-test-class}
+Let \(\mu\in\mathcal M_V(X)\).  Then
+\begin{equation}
+\label{eq:ch28-test-class}
+ E^\vee_\omega(\mu)
+ =\sup_{\varphi\in\mathcal T}
+   \Bigl\{E_\omega(\varphi)-\int\varphi\,\rd\mu\Bigr\}
+\end{equation}
+for each of the following test classes \(\mathcal T\):
+\begin{enumerate}
+\item\label{itm:ch28-test:model}
+ the \(\omega\)-psh model functions;
+\item\label{itm:ch28-test:cont}
+ the continuous \(\omega\)-psh functions;
+\item\label{itm:ch28-test:bdd}
+ the bounded \(\omega\)-psh functions;
+\item\label{itm:ch28-test:e1}
+ the \(\varphi\in\cE^1(X,\omega)\) with \(\int\varphi\,\rd\mu>-\infty\).
+\end{enumerate}
+In \cref{itm:ch28-test:e1} the supremum is over a possibly empty set, in
+which case it is \(-\infty\) by convention; but the set always contains the
+constants, so it is nonempty and the convention is never invoked.
+\end{proposition}
+
+\begin{proof}
+Write \(S_1,\ldots,S_4\) for the four suprema.  Model psh functions are
+continuous and bounded and lie in \(\cE^1\) by
+\Cref{thm:ch26-e1-structure}\,\cref{itm:ch26-e1:bounded}, and for such
+\(\varphi\) the integral \(\int\varphi\,\rd\mu\) is finite; hence
+\(S_1\leq S_2\leq S_3\leq S_4\), the last two inclusions of test classes
+being immediate.  It therefore suffices to prove \(S_4\leq S_1\).
+
+Let \(\varphi\in\cE^1(X,\omega)\) with \(\int\varphi\,\rd\mu>-\infty\), and
+let \(\varepsilon>0\).  By \Cref{thm:bfj-decreasing-regularization} there is
+a decreasing net \((\varphi_\alpha)\) of \(\omega\)-psh model functions with
+\(\varphi_\alpha\searrow\varphi\).  Each \(\varphi_\alpha\) is an admissible
+test object for \(S_1\), so
+\[
+ S_1\ \geq\ E_\omega(\varphi_\alpha)-\int\varphi_\alpha\,\rd\mu
+ \qquad\text{for every }\alpha .
+\]
+We pass to the limit in each term separately, both limits existing in
+\(\mathbf R\).
+
+For the energy, \Cref{thm:extended-energy-basic} gives continuity of
+\(E_\omega\) along decreasing nets, so
+\(E_\omega(\varphi_\alpha)\to E_\omega(\varphi)\), a finite number because
+\(\varphi\in\cE^1\).
+
+For the integral, the net \((\varphi_\alpha)\) is decreasing with pointwise
+infimum \(\varphi\) --- the regularization theorem produces pointwise
+convergence, not merely convergence on dual complexes --- and every member
+is bounded above by \(\varphi_{\alpha_0}\) for a fixed index
+\(\alpha_0\), which is a bounded function.  The monotone convergence theorem
+for a decreasing net of upper semicontinuous functions against a fixed finite
+measure, \Cref{cor:usc-net-monotone-integral}, therefore gives
+\[
+ \int\varphi_\alpha\,\rd\mu\ \longrightarrow\ \int\varphi\,\rd\mu ,
+\]
+the limit being finite by hypothesis.  Note that this is a statement about a
+\emph{fixed} measure and a monotone net of integrands; the portmanteau
+inequality \Cref{prop:portmanteau} would give only an inequality in the
+wrong direction, and \Cref{rem:no-reverse-inequality} explains why no
+reverse inequality is available in general.
+
+Combining the two limits, \(S_1\geq E_\omega(\varphi)-\int\varphi\,\rd\mu\).
+Taking the supremum over admissible \(\varphi\) gives \(S_1\geq S_4\).
+\end{proof}
+
+\begin{remark}[Where the enlargement is used, and where it is not]
+\label{rem:ch28-test-class-use}
+\Cref{prop:ch28-test-class} is used in
+\Cref{prop:ch28-sup-is-dual-energy}, where the maximization is carried out
+over \(\cE^1\), and in
+\Cref{cor:finite-energy-variational-characterization}, where the value of
+the supremum is identified at a solution.  It is \emph{not} used in
+\Cref{prop:dual-energy-elementary}, whose proof needs the small test class:
+an unbounded \(\varphi\) gives a functional \(\mu\mapsto\int\varphi\,\rd\mu\)
+that is only upper semicontinuous in \(\mu\), so the supremum over the large
+class is not visibly lower semicontinuous.  The two statements together say
+that the small class computes the value and the small class alone gives the
+semicontinuity; this is the usual asymmetry of a Legendre transform, and it
+is why \eqref{eq:dual-energy-measure} is stated with model functions.
+\end{remark}
+
+\subsection{Dual energy at a Monge--Amp\`ere measure}
+\label{sec:ch28-dual-at-ma}
+
+The next proposition is the basic computation of the chapter.  It says that
+the dual energy of a measure that already \emph{is} a Monge--Amp\`ere
+measure can be written down, and that the supremum defining it is attained.
+It uses only the finite-energy sandwich \eqref{eq:ch26-e1-sandwich}, that is
+step \textup{(D6)} of \Cref{sec:ch27-dependency}, and in particular it does
+not use orthogonality.
+
+\begin{proposition}
+\label{prop:ch28-dual-energy-of-ma}
+Let \(\varphi\in\cE^1(X,\omega)\) and put \(\mu:=\MA_\omega(\varphi)\).  Then
+\(\mu\in\mathcal M^1_V(X,\omega)\), the supremum in
+\eqref{eq:ch28-test-class} is attained at \(\varphi\), and
+\begin{equation}
+\label{eq:ch28-dual-energy-of-ma}
+ E^\vee_\omega\bigl(\MA_\omega(\varphi)\bigr)
+ =E_\omega(\varphi)-\int\varphi\,\MA_\omega(\varphi).
+\end{equation}
+If moreover \(\sup_{X^{\An}}\varphi=0\), then
+\begin{equation}
+\label{eq:ch28-dual-energy-bracket}
+ 0\ \leq\ E^\vee_\omega\bigl(\MA_\omega(\varphi)\bigr)
+ \ \leq\ n\bigl(-E_\omega(\varphi)\bigr).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\emph{Step 1: the right-hand side of \eqref{eq:ch28-dual-energy-of-ma} is a
+finite real number.}  Normalize \(\varphi\leq0\) by subtracting a constant;
+by \eqref{eq:dual-energy-constant-test} with \(\mu(X^{\An})=V\), which holds
+by \Cref{prop:e1-integrability-tail}, neither side of
+\eqref{eq:ch28-dual-energy-of-ma} changes.  Then \(E_\omega(\varphi)\) is
+finite by definition of \(\cE^1\) and
+\(0\leq\int(-\varphi)\MA_\omega(\varphi)\leq(n+1)(-E_\omega(\varphi))\) by
+\eqref{eq:e1-integrability}.
+
+\emph{Step 2: every competitor is dominated.}  Let
+\(\psi\in\cE^1(X,\omega)\) with \(\int\psi\,\rd\mu>-\infty\).  The
+right-hand inequality of the two-sided sandwich
+\eqref{eq:ch27-two-sided-sandwich}, applied to the pair
+\((\varphi,\psi)\) with no ordering hypothesis, gives
+\[
+ E_\omega(\psi)-E_\omega(\varphi)
+ \ \leq\ \int(\psi-\varphi)\,\MA_\omega(\varphi)
+ =\int\psi\,\rd\mu-\int\varphi\,\rd\mu ,
+\]
+all four integrals being finite by
+\Cref{lem:ch27-mutual-integrability} and Step~1.  Rearranging,
+\[
+ E_\omega(\psi)-\int\psi\,\rd\mu
+ \ \leq\ E_\omega(\varphi)-\int\varphi\,\rd\mu .
+\]
+
+\emph{Step 3: conclusion.}  By Step~2 the supremum over the test class
+\cref{itm:ch28-test:e1} of \Cref{prop:ch28-test-class} is attained at
+\(\varphi\) and equals the right-hand side of
+\eqref{eq:ch28-dual-energy-of-ma}, which is finite; by
+\Cref{prop:ch28-test-class} that supremum equals \(E^\vee_\omega(\mu)\).
+Hence \(\mu\in\mathcal M^1_V\) and \eqref{eq:ch28-dual-energy-of-ma} holds.
+
+\emph{Step 4: the bracket.}  Assume \(\sup\varphi=0\).  The lower bound is
+\Cref{lem:ch28-mass-forced}.  For the upper bound, combine
+\eqref{eq:ch28-dual-energy-of-ma} with the right-hand inequality of
+\eqref{eq:e1-integrability}:
+\[
+ E^\vee_\omega(\mu)
+ =E_\omega(\varphi)+\int(-\varphi)\MA_\omega(\varphi)
+ \leq E_\omega(\varphi)+(n+1)\bigl(-E_\omega(\varphi)\bigr)
+ =n\bigl(-E_\omega(\varphi)\bigr).
+\]
+This is \eqref{eq:ch28-dual-energy-bracket}.
+\end{proof}
+
+\begin{remark}[Reading \eqref{eq:ch28-dual-energy-of-ma}]
+\label{rem:ch28-reading-dual-of-ma}
+Three consequences are worth isolating.
+
+First, \(\MA_\omega\) maps \(\cE^1(X,\omega)\) into
+\(\mathcal M^1_V(X,\omega)\).  This is the easy half of the Calabi--Yau
+correspondence and is proved unconditionally; the hard half, surjectivity,
+is discussed in \Cref{sec:ch28-surjectivity}.
+
+Second, \eqref{eq:ch28-dual-energy-of-ma} is a formula for the dual energy,
+not merely a bound, and it is the formula one computes with.  On a curve it
+becomes the classical Dirichlet integral of the Green potential of \(\mu\),
+\Cref{prop:ch28-curve-dual-energy}, and the computation there is completely
+explicit.
+
+Third, \eqref{eq:ch28-dual-energy-bracket} bounds the dual energy of the
+image by the energy of the source, with the dimensional constant \(n\).  The
+upper bound is attained for \(n=1\), by
+\Cref{ex:ch28-unbounded-dual-energy}, so the constant \(n\) cannot be
+lowered.  The lower bound \(0\) cannot be replaced by any positive multiple
+of \(-E_\omega(\varphi)\): the affine family of
+\Cref{ex:ch28-affine-family} has
+\[
+ \frac{E^\vee_\omega(\MA_\omega(u_\varepsilon))}
+      {-E_\omega(u_\varepsilon)}
+ =\frac{\varepsilon^2/2}{\varepsilon+\varepsilon^2/2}
+ \ \xrightarrow[\varepsilon\downarrow0]{}\ 0 .
+\]
+The two sides of \eqref{eq:ch28-dual-energy-bracket} are therefore genuinely
+different quantities, and no equivalence of the two ``energies'' is
+available.
+\end{remark}
+
+\subsection{The Fenchel defect and the functional \texorpdfstring{\(J\)}{J}}
+\label{sec:ch28-fenchel-defect}
+
+The Fenchel inequality \eqref{eq:measure-fenchel-energy} has a defect, and
+that defect is an object already named in \Cref{chap:bfj-energy}.  Recording
+the identification saves a great deal of later bookkeeping and explains the
+shape of \eqref{eq:measure-dirichlet-quasimetric}.
+
+For psh model functions \(\varphi,\psi\), introduce the directed Dirichlet
+functional
+\begin{equation}
+\label{eq:directed-dirichlet-functional}
+ J_\omega(\varphi,\psi)
+ :=E_\omega(\varphi)-E_\omega(\psi)
+   +\int(\psi-\varphi)\MA_\omega(\varphi)\geq0.
+\end{equation}
+
+\begin{proposition}
+\label{prop:ch28-fenchel-defect}
+\index{Fenchel inequality!defect}
+Let \(\varphi,\psi\in\cE^1(X,\omega)\) and put
+\(\mu=\MA_\omega(\varphi)\).  Then all the quantities below are finite,
+\begin{equation}
+\label{eq:ch28-defect-identity}
+ J_\omega(\varphi,\psi)
+ =E^\vee_\omega(\mu)-\Bigl(E_\omega(\psi)-\int\psi\,\rd\mu\Bigr)
+ \ \geq\ 0 ,
+\end{equation}
+and \(J_\omega(\varphi,\psi)=J_\varphi(\psi)\) in the notation of
+\Cref{def:ch26-ij}.  If \(\varphi\) and \(\psi\) are bounded, then
+\begin{equation}
+\label{eq:ch28-defect-ak}
+ \begin{aligned}
+ J_\omega(\varphi,\psi)
+ &=\frac1{n+1}\sum_{k=0}^{n-1}(k+1)\,a_k(\varphi,\psi),\\
+ \frac1{n+1}I(\varphi,\psi)
+ &\leq J_\omega(\varphi,\psi)
+ \leq\frac n{n+1}I(\varphi,\psi),
+ \end{aligned}
+\end{equation}
+with \(a_k\) as in \eqref{eq:ch26-ak} and \(I\) as in
+\eqref{eq:ch26-I-definition}.  In particular
+\(J_\omega(\varphi,\psi)=0\) if and only if \(I(\varphi,\psi)=0\), if and
+only if \(a_k(\varphi,\psi)=0\) for every \(k\).
+\end{proposition}
+
+\begin{proof}
+Finiteness is \Cref{lem:ch27-mutual-integrability} together with
+\(\varphi,\psi\in\cE^1\).  Nonnegativity in
+\eqref{eq:directed-dirichlet-functional} is the right-hand inequality of
+\eqref{eq:ch27-two-sided-sandwich}, which says
+\(E_\omega(\psi)-E_\omega(\varphi)\leq\int(\psi-\varphi)\MA_\omega(\varphi)\).
+
+For \eqref{eq:ch28-defect-identity}, substitute
+\eqref{eq:ch28-dual-energy-of-ma}:
+\[
+ E^\vee_\omega(\mu)-E_\omega(\psi)+\int\psi\,\rd\mu
+ =E_\omega(\varphi)-\int\varphi\,\rd\mu-E_\omega(\psi)
+  +\int\psi\,\rd\mu ,
+\]
+which is exactly \eqref{eq:directed-dirichlet-functional} once
+\(\int(\psi-\varphi)\,\rd\mu\) is written as a difference of two finite
+integrals.  Comparing \eqref{eq:directed-dirichlet-functional} with
+\eqref{eq:ch26-J-definition}, in which the roles of the two arguments are
+interchanged, gives \(J_\omega(\varphi,\psi)=J_\varphi(\psi)\); and
+\eqref{eq:ch28-defect-ak} is then
+\Cref{thm:ch26-mixed-energy-identities}\,\cref{itm:ch26-ij:J} and
+\cref{itm:ch26-ij:comparison}, whose equality clause is
+\cref{itm:ch26-ij:positive}.
+\end{proof}
+
+\begin{warning}{\(J_\omega\) is not symmetric, and where rigidity enters}
+Two cautions.  First, \(J_\omega(\varphi,\psi)\neq J_\omega(\psi,\varphi)\)
+in general: by \eqref{eq:ch28-defect-ak} the two are weighted sums of the
+same nonnegative numbers \(a_k\) with the reversed weights \(k+1\) and
+\(n-k\).  They agree for \(n=1\), where both equal \(\tfrac12a_0\), and they
+always satisfy
+\(J_\omega(\varphi,\psi)+J_\omega(\psi,\varphi)=I(\varphi,\psi)\) by
+\Cref{thm:ch26-mixed-energy-identities}\,\cref{itm:ch26-ij:sum}.  This
+asymmetry is the reason
+\eqref{eq:measure-dirichlet-quasimetric} produces a \emph{quasi}-metric.
+
+Second, the elementary intersection argument proving
+\(J_\omega(\varphi,\psi)=0\) does not by itself prove that
+\(\varphi-\psi\) is constant.  It first shows that all \(n\) Dirichlet
+coefficients \(a_k(\varphi,\psi)\) vanish, hence, by
+\Cref{cor:ch26-cauchy-schwarz}, that the \(n+1\) mixed measures
+\(\omega_\varphi^{\,j}\wedge\omega_\psi^{\,n-j}\) coincide; this is
+\Cref{prop:ch28-solution-set}\,\cref{itm:ch28-sol:mixed} below.  Passing from
+there to \(\varphi-\psi\in\mathbf R\) uses the imported uniqueness theorem
+\textup{(I2)} of \Cref{sec:ch28-imported}, applied to the two equal endpoint
+measures.  Thus vanishing \emph{does} imply rigidity in the full theory;
+what is unavailable is a proof from the relatively ample equality case of
+\Cref{thm:ch20-mixed-hodge}, since \(\omega_\varphi\) and
+\(\omega_\psi\) are merely relatively nef.  This is the same source
+boundary recorded in \Cref{rem:ch25-no-uniqueness} and in the warning after
+\Cref{cor:ch26-gauge-nondegenerate}.
+\end{warning}
+
+\begin{remark}[Measure energy versus potential energy]
+\label{rem:ch28-two-energies}
+The adjective \emph{finite energy} occurs on both sides, but the meanings
+are not interchangeable by definition.  A measure in
+\(\mathcal M^1_V\) is a strong limit of model Monge--Amp\`ere measures by
+\Cref{thm:finite-energy-measure-completion} below.  Finite dual energy does
+already imply that it integrates every \(\varphi\in\mathcal E^1\): otherwise
+the bounded truncations \(\max\{\varphi,-j\}\) would have energies converging
+to the finite number \(E_\omega(\varphi)\) and integrals decreasing to
+\(-\infty\), contradicting the bounded-test characterization
+\Cref{prop:ch28-test-class}\,\cref{itm:ch28-test:bdd}.  What does require an
+additional potential-completion or surjectivity theorem is the conclusion
+that the measure equals \(\MA(\varphi)\) for some pointwise
+\(\varphi\in\mathcal E^1\).  The synthetic source
+\cite{BJ25FiniteEnergy} deliberately studies measures without making that
+identification in every geometric framework.
+\end{remark}
+
+\section{The variational functional}
+\label{sec:ch28-variational}
+
+\subsection{Domain, normalization, and the value of the supremum}
+\label{sec:ch28-domain}
+
+For \(\mu\in\mathcal M_V(X)\) and a model potential define
+\begin{equation}
+\label{eq:variational-functional}
+                  F_\mu(\varphi)
+                  :=E_\omega(\varphi)-\int\varphi\,\rd \mu.
+\end{equation}
+It is invariant under addition of constants.  We use the same notation on a
+larger psh class only after the integral is known to be finite; this is the
+case for measures supported on a fixed dual complex.  We generally
+normalize by \(\sup_{X^{\An}}\varphi=0\).
+
+The three conventions listed in \Cref{sec:ch27-variational-functional}
+remain in force and are repeated here because they are used without further
+comment.  The \emph{domain} of \(F_\mu\) is the set of
+\(\varphi\in\cE^1(X,\omega)\) with \(\int\varphi\,\rd\mu\) finite; the
+integral is always defined in \([-\infty,+\infty)\) because \(\varphi\) is
+upper semicontinuous and bounded above, so finiteness is the only issue, and
+it is exactly what
+\eqref{eq:measure-fenchel-energy} guarantees for
+\(\mu\in\mathcal M^1_V\) once \Cref{prop:ch28-test-class} is available.  The
+\emph{sign} is the concave one, and \(F_\mu\) is to be maximized.  The
+\emph{normalization} is \(\sup_{X^{\An}}\varphi=0\), which by
+\Cref{thm:bfj-psh-compactness} places the competitors in a compact set and
+which loses nothing, since \(F_\mu\) is constant on
+\(\mathbf R\)-orbits.
+
+\begin{proposition}
+\label{prop:ch28-sup-is-dual-energy}
+Let \(\mu\in\mathcal M_V(X)\).  Then
+\begin{equation}
+\label{eq:ch28-sup-is-dual-energy}
+ \sup\bigl\{F_\mu(\varphi):\varphi\in\cE^1(X,\omega),\
+   \textstyle\int\varphi\,\rd\mu>-\infty\bigr\}
+ =E^\vee_\omega(\mu),
+\end{equation}
+and the same value is obtained if the supremum is restricted to the
+normalized competitors \(\sup_{X^{\An}}\varphi=0\).  In particular \(F_\mu\)
+is bounded above on its domain if and only if
+\(\mu\in\mathcal M^1_V(X,\omega)\).
+\end{proposition}
+
+\begin{proof}
+The first equality is \Cref{prop:ch28-test-class}, case
+\cref{itm:ch28-test:e1}, since \(F_\mu(\varphi)\) is by definition the
+expression whose supremum appears in \eqref{eq:ch28-test-class}.  For the
+second assertion, note that if \(\varphi\) is in the domain then so is
+\(\varphi-\sup_{X^{\An}}\varphi\): the supremum is a finite real number,
+because \(\varphi\) is upper semicontinuous on the compact space
+\(X^{\An}\), hence attains its maximum by \Cref{cor:usc-attains-max}, and
+\(\varphi\not\equiv-\infty\) since \(E_\omega(\varphi)>-\infty\).  The value
+of \(F_\mu\) is unchanged by \eqref{eq:dual-energy-constant-test}, the two
+masses being equal.  Finally, \(F_\mu\) is bounded above on its domain
+exactly when the left-hand side of \eqref{eq:ch28-sup-is-dual-energy} is
+finite, and \(\mathcal M^1_V\) was defined by finiteness of the right-hand
+side.
+\end{proof}
+
+\begin{warning}{Bounded above is not attained}
+\Cref{prop:ch28-sup-is-dual-energy} says that \(F_\mu\) is bounded above
+precisely on \(\mathcal M^1_V\).  It says nothing about attainment.  The
+distinction is the whole content of \Cref{sec:ch28-coercivity}: a maximizing
+net always exists once the supremum is finite, and
+\Cref{thm:finite-energy-measure-stability} extracts real information from
+it, but the net need not converge to a maximizer, and its energies need not
+stay bounded below.  The reader who conflates the two statements will find
+\Cref{thm:bfj-supported-cy} unmotivated, since its entire difficulty lies in
+attainment.
+\end{warning}
+
+\subsection{Maximizers solve the equation}
+\label{sec:ch28-maximizers-solve}
+
+\begin{proposition}
+\label{prop:variational-maximizer-solves}
+Assume orthogonality.  If \(\varphi\in\mathcal E^1(X,\omega)\) maximizes
+\(F_\mu\) and the pairing with \(\mu\) is finite, then
+\begin{equation}
+\label{eq:variational-ma-equation}
+                         \MA_\omega(\varphi)=\mu.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Let \(f\) be a model function and put
+\(\varphi_t=P_\omega(\varphi+tf)\).  The envelope satisfies
+\(\varphi_t\leq\varphi+tf\), so maximality gives
+\[
+ E_\omega(\varphi_t)-E_\omega(\varphi)
+ \leq\int(\varphi_t-\varphi)\,\rd \mu
+ \leq t\int f\,\rd \mu
+\]
+for \(t>0\).  The envelope differentiability theorem of
+\Cref{chap:bfj-differentiability} yields
+\[
+                    \int f\,\MA_\omega(\varphi)
+                    \leq\int f\,\rd \mu.
+\]
+Use \(-f\) to obtain equality.  Model functions are uniformly dense in the
+continuous test functions, and both measures have mass \(V\); hence they
+are equal.  The use of \(P_\omega\) is essential: \(\varphi+tf\) need not
+be psh.
+\end{proof}
+
+The proof just given is the argument in outline.  Because
+\Cref{prop:variational-maximizer-solves} is the pivot of the whole chapter,
+and because every one of its four steps quotes a statement whose hypotheses
+must be checked, we repeat it in full detail, in the exact form in which the
+dependency order \eqref{eq:ch27-dependency-diagram} makes it available.  The
+reader who is satisfied with the outline may skip to
+\Cref{sec:ch28-coercivity}.
+
+\begin{proof}[Second proof, with the hypotheses displayed]
+Throughout, \(\mu\in\mathcal M_V(X)\) and
+\(\varphi\in\cE^1(X,\omega)\) with \(\int\varphi\,\rd\mu\) finite, and
+\(\varphi\) maximizes \(F_\mu\) over the domain of \(F_\mu\).
+
+\emph{Step 1: the competitors are admissible.}  Fix
+\(f\in C^0(X^{\An})\) and \(t\in\mathbf R\).  The obstacle
+\(\varphi+tf\) is upper semicontinuous and bounded above, and it dominates
+the \(\omega\)-psh function \(\varphi-|t|\lVert f\rVert_\infty\), so the
+competitor family in \eqref{eq:ch23-envelope} is nonempty and
+\(\varphi_t:=P_\omega(\varphi+tf)\) is \(\omega\)-psh by
+\Cref{cor:ch23-usc-obstacle}.  By
+\Cref{lem:ch27-e1-envelope-calculus}\,(4) one has
+\(\varphi_t\in\cE^1(X,\omega)\); by
+\Cref{lem:ch27-e1-envelope-calculus}\,(2),
+\begin{equation}
+\label{eq:ch28-envelope-two-sided}
+ \varphi-|t|\lVert f\rVert_\infty\ \leq\ \varphi_t\ \leq\ \varphi+tf .
+\end{equation}
+The left-hand inequality shows that \(\int\varphi_t\,\rd\mu\) is finite,
+since \(\int\varphi\,\rd\mu\) is; so \(\varphi_t\) lies in the domain of
+\(F_\mu\).
+
+\emph{Step 2: the auxiliary function and its maximum.}  Put
+\[
+ H(t):=E_\omega(\varphi_t)-\int(\varphi+tf)\,\rd\mu
+      =E_\omega\bigl(P_\omega(\varphi+tf)\bigr)
+       -\int\varphi\,\rd\mu-t\int f\,\rd\mu .
+\]
+It is real valued, the first term by Step~1 and the last two because
+\(\int\varphi\,\rd\mu\) is finite and \(f\) is bounded with
+\(\mu(X^{\An})=V<\infty\).  The right-hand inequality of
+\eqref{eq:ch28-envelope-two-sided} and \(\mu\geq0\) give
+\(-\int(\varphi+tf)\,\rd\mu\leq-\int\varphi_t\,\rd\mu\), so
+\[
+ H(t)\ \leq\ F_\mu(\varphi_t)\ \leq\ F_\mu(\varphi)=H(0),
+\]
+the middle inequality by maximality of \(\varphi\) and the last equality
+because \(P_\omega(\varphi)=\varphi\), \(\varphi\) being already
+\(\omega\)-psh.  Thus \(H\) attains its maximum over \(\mathbf R\) at the
+interior point \(t=0\).
+
+\emph{Step 3: differentiation.}  This is the only step that uses
+orthogonality.  By \Cref{cor:e1-projected-variation}, which assumes
+orthogonality and applies because \(\varphi\in\cE^1\) and
+\(f\in C^0(X^{\An})\), the function
+\(t\mapsto E_\omega(P_\omega(\varphi+tf))\) is differentiable at \(t=0\)
+with derivative \(\int f\,\MA_\omega(\varphi)\); note that the measure on the
+right is that of \(\varphi\) itself and carries no envelope correction, as
+\Cref{rem:ch27-e1-derivative-measure} explains.  The remaining part of \(H\)
+is affine in \(t\).  Hence \(H\) is differentiable at \(0\) with
+\[
+ H'(0)=\int f\,\MA_\omega(\varphi)-\int f\,\rd\mu ,
+\]
+and a differentiable function with an interior maximum has vanishing
+derivative there, so
+\begin{equation}
+\label{eq:ch28-tested-equality}
+ \int f\,\MA_\omega(\varphi)=\int f\,\rd\mu
+ \qquad\text{for every }f\in C^0(X^{\An}).
+\end{equation}
+No separate appeal to \(-f\) is needed: \eqref{eq:ch28-tested-equality} is
+an equality, obtained from a two-sided derivative, and the outline proof
+above obtains it from two one-sided estimates instead.
+
+\emph{Step 4: from tested equality to equality of measures.}  Both
+\(\MA_\omega(\varphi)\) and \(\mu\) are positive Radon measures on the
+compact Hausdorff space \(X^{\An}\) of total mass \(V\): the first by
+\Cref{prop:e1-integrability-tail}, the second by hypothesis.  Two positive
+Radon measures agreeing on \(C^0(X^{\An})\) coincide, by the uniqueness
+clause \Cref{cor:riesz-uniqueness} of the Riesz representation theorem.
+This gives \eqref{eq:variational-ma-equation}.
+\end{proof}
+
+\begin{remark}[Why the envelope cannot be omitted]
+\label{rem:ch28-envelope-essential}
+The naive variation \(\varphi+tf\) is not admissible: for \(t\neq0\) it need
+not be \(\omega\)-psh, so \(E_\omega(\varphi+tf)\) is not defined by
+\Cref{def:extended-energy}, and the inequality \(F_\mu(\varphi+tf)\leq
+F_\mu(\varphi)\) has no meaning.  Replacing it by \(P_\omega(\varphi+tf)\)
+repairs the domain at the cost of making the \(t\)-dependence nonlinear, and
+the entire difficulty of \Cref{chap:bfj-differentiability} is to show that
+the composite is still differentiable.  This is why orthogonality appears in
+an existence theorem at all: it is not needed to produce a maximizer, only
+to convert a maximizer into a solution.
+\end{remark}
+
+\begin{remark}[The converse, and the two directions of the equivalence]
+\label{rem:ch28-converse-direction}
+The converse of \Cref{prop:variational-maximizer-solves} is the second half
+of \Cref{prop:bfj-euler-lagrange}: if \(\MA_\omega(\varphi)=\mu\) then
+\(\varphi\) maximizes \(F_\mu\).  That direction does \emph{not} use
+orthogonality; it is the right-hand inequality of the two-sided sandwich
+\eqref{eq:ch27-two-sided-sandwich}, exactly as in Step~2 of the proof of
+\Cref{prop:ch28-dual-energy-of-ma}.  The asymmetry matters: the class of
+measures for which a maximizer is known to exist depends on compactness, and
+is enlarged in \Cref{sec:ch28-coercivity}, while the class of measures which
+are known to be Monge--Amp\`ere measures is by definition
+\(\MA_\omega(\cE^1)\), and the two enlargements are logically independent.
+\end{remark}
+
+\section{Coercivity and the existence of maximizers}
+\label{sec:ch28-coercivity}
+
+\Cref{prop:ch28-sup-is-dual-energy} makes \(F_\mu\) bounded above exactly on
+\(\mathcal M^1_V\).  We now ask when the supremum is attained.  The
+mechanism is the classical one---compactness of the competitor set plus
+upper semicontinuity of the functional---but each of the two ingredients
+must be supplied by a hypothesis on \(\mu\), and neither is automatic.
+
+\subsection{Two properties of a measure}
+\label{sec:ch28-two-properties}
+
+\begin{definition}[Uniformly integrable and continuously paired measures]
+\label{def:ch28-admissible-measure}
+\index{admissible measure!BFJ existence}
+Let \(\mu\in\mathcal M_V(X)\).  We say that \(\mu\) is
+\begin{enumerate}
+\item\label{itm:ch28-adm:coercive}
+ \emph{uniformly integrable} for \(\omega\) if
+ \begin{equation}
+ \label{eq:ch28-uniform-integrability}
+  M(\mu):=\sup\Bigl\{-\int\varphi\,\rd\mu\ \Bigm|\
+   \varphi\in\PSH_0(X,\omega)\Bigr\}<+\infty ;
+ \end{equation}
+\item\label{itm:ch28-adm:paired}
+ \emph{continuously paired} with \(\omega\) if the map
+ \(\varphi\mapsto\int\varphi\,\rd\mu\) is continuous on
+ \(\PSH_0(X,\omega)\) for the BFJ topology.
+\end{enumerate}
+A measure with both properties is called \emph{admissible}.  We write
+\(\mathcal M^{\mathrm{adm}}_V(X,\omega)\) for the set of admissible
+measures.
+\end{definition}
+
+The two conditions have different characters.  Condition
+\cref{itm:ch28-adm:coercive} is a uniform bound; it makes \(F_\mu\)
+\emph{coercive} in the sense of \Cref{lem:ch28-coercivity}.  Condition
+\cref{itm:ch28-adm:paired} is a semicontinuity statement, and it is needed
+because upper semicontinuity of \(\varphi\mapsto\int\varphi\,\rd\mu\) --- all
+that \Cref{prop:portmanteau} provides --- points in the wrong direction for
+the functional \(F_\mu=E_\omega-\int\cdot\,\rd\mu\), whose second term
+carries a minus sign.
+
+\begin{lemma}
+\label{lem:ch28-coercivity}
+\index{coercivity!of the variational functional}
+Let \(\mu\in\mathcal M_V(X)\) be uniformly integrable, with constant
+\(M(\mu)\).  Then \(\mu\in\mathcal M^1_V(X,\omega)\) with
+\begin{equation}
+\label{eq:ch28-dual-energy-bound-M}
+ E^\vee_\omega(\mu)\ \leq\ M(\mu),
+\end{equation}
+the domain of \(F_\mu\) contains all of \(\cE^1(X,\omega)\), and for every
+\(\varphi\in\cE^1(X,\omega)\) with \(\sup_{X^{\An}}\varphi=0\),
+\begin{equation}
+\label{eq:ch28-coercive-inequality}
+ F_\mu(\varphi)\ \leq\ E_\omega(\varphi)+M(\mu)
+ \ =\ -\bigl(-E_\omega(\varphi)\bigr)+M(\mu).
+\end{equation}
+Consequently, for every \(c\leq M(\mu)\),
+\begin{equation}
+\label{eq:ch28-sublevel-inclusion}
+ \bigl\{\varphi\in\PSH_0(X,\omega)\ :\ F_\mu(\varphi)\geq c\bigr\}
+ \ \subseteq\ \mathcal K_{M(\mu)-c},
+\end{equation}
+with \(\mathcal K_C\) the normalized energy superlevel
+\eqref{eq:normalized-energy-superlevel}; for \(c>M(\mu)\) the set on the
+left is empty.
+\end{lemma}
+
+\begin{proof}
+Let \(\varphi\in\PSH(X,\omega)\) with \(\sup_{X^{\An}}\varphi=0\).  Then
+\(\varphi\leq0\), so \(-\int\varphi\,\rd\mu\in[0,M(\mu)]\); in particular
+the integral is finite and \(\varphi\) lies in the domain of \(F_\mu\) as
+soon as \(E_\omega(\varphi)>-\infty\).  Since every
+\(\varphi\in\cE^1(X,\omega)\) differs from a normalized one by a constant,
+and both terms of \(F_\mu\) shift by the same amount
+\eqref{eq:dual-energy-constant-test}, the domain of \(F_\mu\) is all of
+\(\cE^1(X,\omega)\).
+
+Inequality \eqref{eq:ch28-coercive-inequality} is now immediate from
+\eqref{eq:variational-functional}:
+\(F_\mu(\varphi)=E_\omega(\varphi)-\int\varphi\,\rd\mu\leq
+E_\omega(\varphi)+M(\mu)\).  Taking the supremum over normalized
+\(\varphi\in\cE^1\) and using \(E_\omega(\varphi)\leq E_\omega(0)=0\)
+(monotonicity, \Cref{thm:extended-energy-basic}) gives
+\(E^\vee_\omega(\mu)\leq M(\mu)\) by
+\Cref{prop:ch28-sup-is-dual-energy}, which is
+\eqref{eq:ch28-dual-energy-bound-M}.
+
+For \eqref{eq:ch28-sublevel-inclusion}, if \(\varphi\in\PSH_0(X,\omega)\)
+satisfies \(F_\mu(\varphi)\geq c\), then
+\eqref{eq:ch28-coercive-inequality} gives
+\(E_\omega(\varphi)\geq c-M(\mu)\); in particular
+\(E_\omega(\varphi)>-\infty\), so \(\varphi\in\cE^1\), and \(\varphi\) lies
+in \(\mathcal K_{M(\mu)-c}\) by \eqref{eq:normalized-energy-superlevel},
+whose index \(M(\mu)-c\) is nonnegative by hypothesis.  If \(c>M(\mu)\), the
+same inequality together with \(E_\omega(\varphi)\leq0\) gives
+\(c\leq F_\mu(\varphi)\leq M(\mu)\), a contradiction, so the set is empty.
+\end{proof}
+
+\begin{remark}[The shape of the coercivity inequality]
+\label{rem:ch28-coercivity-shape}
+The content of \eqref{eq:ch28-coercive-inequality} is that the linear term
+of \(F_\mu\) is bounded on the normalized psh space, so that \(F_\mu\)
+inherits from \(E_\omega\) the property of tending to \(-\infty\) as the
+energy does, at rate one.  For a general \(\mu\in\mathcal M^1_V\) all one
+knows is the Fenchel inequality in the form
+\[
+ -\int\varphi\,\rd\mu\ \leq\ E^\vee_\omega(\mu)-E_\omega(\varphi),
+\]
+which is \eqref{eq:measure-fenchel-energy} rearranged; the coefficient of
+\(-E_\omega(\varphi)\) on the right is again one, so the two terms of
+\(F_\mu\) cancel exactly and no coercivity results.  This is not a defect of
+the estimate.  It is the analytic shadow of the fact that
+\(\mathcal M^1_V\) is a completion, and that a completion contains points
+which are limits of nets without being limits of convergent nets of
+potentials.
+\end{remark}
+
+\begin{theorem}
+\label{thm:ch28-existence-admissible}
+\index{maximizer!existence of}
+Let \(\mu\in\mathcal M_V(X)\) be admissible in the sense of
+\Cref{def:ch28-admissible-measure}.  Then:
+\begin{enumerate}
+\item\label{itm:ch28-exist:max}
+ the functional \(F_\mu\) attains its supremum on \(\PSH_0(X,\omega)\), at
+ some \(\varphi\in\cE^1(X,\omega)\) with
+ \(E_\omega(\varphi)\geq-M(\mu)\);
+\item\label{itm:ch28-exist:value}
+ the maximum value is \(E^\vee_\omega(\mu)\in[0,M(\mu)]\);
+\item\label{itm:ch28-exist:equation}
+ if in addition \(\omega\) has the orthogonality property, then every such
+ maximizer satisfies \(\MA_\omega(\varphi)=\mu\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the competitor set is compact and the functional is upper
+semicontinuous.}  By \Cref{thm:bfj-psh-compactness} the normalized space
+\(\PSH_0(X,\omega)\) is compact for the BFJ topology.  On it, \(F_\mu\) is
+real valued or \(-\infty\), by \Cref{lem:ch28-coercivity}, and it is the sum
+of two functions: \(E_\omega\), which is upper semicontinuous by
+\Cref{thm:extended-energy-basic}, and
+\(\varphi\mapsto-\int\varphi\,\rd\mu\), which is continuous by
+\Cref{def:ch28-admissible-measure}\,\cref{itm:ch28-adm:paired}.  A sum of an
+upper semicontinuous function and a continuous one is upper semicontinuous;
+no cancellation of infinities occurs, because the second summand takes
+values in the bounded interval \([0,M(\mu)]\).
+
+\emph{Step 2: attainment.}  An upper semicontinuous function on a nonempty
+compact space attains its maximum, by \Cref{cor:usc-attains-max}.  The space
+is nonempty since \(0\in\PSH_0(X,\omega)\), and \(F_\mu(0)=0\), so the
+maximum is at least \(0\); by \eqref{eq:ch28-coercive-inequality} it is at
+most \(M(\mu)\).  Let \(\varphi\) be a maximizer.  Then
+\(F_\mu(\varphi)\geq0\), so \eqref{eq:ch28-sublevel-inclusion} with \(c=0\)
+gives \(\varphi\in\mathcal K_{M(\mu)}\); in particular
+\(\varphi\in\cE^1(X,\omega)\) and \(E_\omega(\varphi)\geq-M(\mu)\).  This is
+\cref{itm:ch28-exist:max}.
+
+\emph{Step 3: the value.}  The maximum over \(\PSH_0\) equals the supremum
+over all of \(\cE^1(X,\omega)\) by translation invariance, and that supremum
+is \(E^\vee_\omega(\mu)\) by \Cref{prop:ch28-sup-is-dual-energy}.  Together
+with \eqref{eq:ch28-dual-energy-bound-M} and \(E^\vee_\omega\geq0\) this is
+\cref{itm:ch28-exist:value}.
+
+\emph{Step 4: the equation.}  A maximizer of \(F_\mu\) over
+\(\PSH_0(X,\omega)\) is a maximizer over the whole domain of \(F_\mu\), by
+Step~3, and its pairing with \(\mu\) is finite by
+\Cref{lem:ch28-coercivity}.  \Cref{prop:variational-maximizer-solves}
+therefore applies and gives \cref{itm:ch28-exist:equation}.
+\end{proof}
+
+\begin{remark}[The compactness argument in net form]
+\label{rem:ch28-net-form}
+Step~2 is stated as an abstract compactness statement, and this is
+deliberate.  If one prefers to argue with a maximizing family, the correct
+formulation is the following, and it must be run with nets.  Let
+\((\varphi_\alpha)\) be a net in \(\PSH_0(X,\omega)\) with
+\(F_\mu(\varphi_\alpha)\to E^\vee_\omega(\mu)\).  Discarding an initial
+segment we may assume \(F_\mu(\varphi_\alpha)\geq-1\), so by
+\eqref{eq:ch28-sublevel-inclusion} the net lies in
+\(\mathcal K_{M(\mu)+1}\).  By \Cref{cor:ch26-net-superlevel} some subnet
+converges in the BFJ topology, uniformly on every dual complex, to a limit
+\(\varphi\in\cE^1(X,\omega)\) with
+\(E_\omega(\varphi)\geq\varlimsup_\alpha E_\omega(\varphi_\alpha)\); and
+\(\int\varphi_\alpha\,\rd\mu\to\int\varphi\,\rd\mu\) along the subnet by
+\Cref{def:ch28-admissible-measure}\,\cref{itm:ch28-adm:paired}.  Hence
+\(F_\mu(\varphi)\geq\varlimsup F_\mu(\varphi_\alpha)=E^\vee_\omega(\mu)\),
+so \(\varphi\) is a maximizer.
+
+No sequence may be extracted here.  The space \(\PSH_0(X,\omega)\) is
+compact but is not known to be metrizable, and
+\Cref{lem:ch21-no-cofinal-sequence} shows that the underlying system of
+models admits no cofinal sequence; the sequential reductions available in
+this theory are \Cref{cor:psh-sequential-regularization} and
+\Cref{prop:capacity-subsequence}, and neither applies to an arbitrary
+maximizing family.  The policy is that of
+\Cref{rem:net-vs-sequence-checklist}.  When \(\mu\) is supported on one
+dual complex \(\Delta\), a sequential argument \emph{is} available on
+\(\Delta\) itself, because \(C^0(\Delta)\) is separable and
+\Cref{cor:ch22-arzela-ascoli} gives a compact metrizable family of
+restrictions; but the limit so obtained is a function on \(\Delta\), not a
+psh function on \(X^{\An}\), and reconstructing the latter is
+\Cref{thm:bfj-skeletal-characterization}.  We therefore keep the net form
+throughout.
+\end{remark}
+
+\subsection{Measures supported on a dual complex are admissible}
+\label{sec:ch28-skeleton-admissible}
+
+\begin{lemma}
+\label{lem:ch28-skeleton-admissible}
+\index{dual complex!support of a measure on}
+Let \(\mathcal X\) be an SNC model on which \(\omega\) is determined, with
+dual complex \(\Delta_{\mathcal X}\), and let \(\mu\in\mathcal M_V(X)\) be
+supported on \(\Delta_{\mathcal X}\).  Then \(\mu\) is admissible, and
+\begin{equation}
+\label{eq:ch28-skeleton-M-bound}
+ M(\mu)\ \leq\ C\,\delta(\Delta_{\mathcal X})\,V ,
+\end{equation}
+where \(C=C(\mathcal X,\omega)\) is the equicontinuity constant of
+\Cref{thm:bfj-skeletal-equicontinuity} and
+\(\delta(\Delta_{\mathcal X})\) is the diameter of
+\Cref{lem:ch22-path-metric}.
+\end{lemma}
+
+\begin{proof}
+\emph{Uniform integrability.}  Let \(\varphi\in\PSH_0(X,\omega)\).  By
+\Cref{thm:bfj-skeletal-equicontinuity}\,(2) --- whose normalization
+\eqref{eq:ch22-normalization} is exactly
+\(\sup_{X^{\An}}\varphi=0\), and which applies because \(\omega\) is
+determined on \(\mathcal X\) --- one has \(-C\leq\varphi\leq0\) on
+\(\Delta_{\mathcal X}\).  The sharper form
+\Cref{cor:ch22-explicit-modulus} gives
+\(\operatorname{osc}_{\Delta_{\mathcal X}}\varphi\leq
+C\delta(\Delta_{\mathcal X})\), and
+\Cref{prop:ch21-sup-on-skeleton} identifies
+\(\max_{\Delta_{\mathcal X}}\varphi\) with
+\(\sup_{X^{\An}}\varphi=0\); hence
+\[
+ -C\,\delta(\Delta_{\mathcal X})\ \leq\ \varphi\ \leq\ 0
+ \qquad\text{on }\Delta_{\mathcal X}.
+\]
+Since \(\mu\) is carried by \(\Delta_{\mathcal X}\) and has mass \(V\),
+\[
+ 0\ \leq\ -\int\varphi\,\rd\mu
+ =-\int_{\Delta_{\mathcal X}}\varphi\,\rd\mu
+ \ \leq\ C\,\delta(\Delta_{\mathcal X})\,V .
+\]
+Taking the supremum over \(\varphi\) gives
+\eqref{eq:ch28-skeleton-M-bound}, and in particular \(M(\mu)<+\infty\).
+
+\emph{Continuous pairing.}  The BFJ topology is, by
+\Cref{rem:ch22-topology-comparison}, the topology of uniform convergence on
+every dual complex.  Let \(\varphi_\alpha\to\varphi\) in
+\(\PSH_0(X,\omega)\); then
+\(\varphi_\alpha|_{\Delta_{\mathcal X}}\to\varphi|_{\Delta_{\mathcal X}}\)
+uniformly, and all these restrictions are continuous functions on the
+compact set \(\Delta_{\mathcal X}\).  Therefore
+\[
+ \Bigl|\int\varphi_\alpha\,\rd\mu-\int\varphi\,\rd\mu\Bigr|
+ \ \leq\ V\,\bigl\lVert
+   \varphi_\alpha-\varphi\bigr\rVert_{C^0(\Delta_{\mathcal X})}
+ \ \longrightarrow\ 0 .
+\]
+By the net criterion \Cref{prop:net-criterion}\,(2) the pairing is
+continuous.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch28-admissible-calculus}
+The set \(\mathcal M^{\mathrm{adm}}_V(X,\omega)\) is convex, and it is
+closed under the following operations, in the sense stated.
+\begin{enumerate}
+\item\label{itm:ch28-admcalc:convex}
+ If \(\mu,\nu\) are admissible and \(s\in[0,1]\), then
+ \((1-s)\mu+s\nu\) is admissible with
+ \(M((1-s)\mu+s\nu)\leq(1-s)M(\mu)+sM(\nu)\).
+\item\label{itm:ch28-admcalc:dominated}
+ If \(\mu\in\mathcal M_V(X)\) and \(\mu\leq c\,\nu\) for some admissible
+ \(\nu\) and \(c>0\), then \(\mu\) is uniformly integrable with
+ \(M(\mu)\leq cM(\nu)\); it is admissible provided it is also continuously
+ paired, for instance if \(\mu\) is carried by the support of \(\nu\) and
+ that support lies in a dual complex.
+\item\label{itm:ch28-admcalc:union}
+ A measure of mass \(V\) supported on a finite union of dual complexes is
+ admissible.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch28-admcalc:convex}.  Both defining properties are stable under
+convex combinations: the bound \eqref{eq:ch28-uniform-integrability} because
+\(-\int\varphi\,\rd((1-s)\mu+s\nu)=(1-s)(-\int\varphi\,\rd\mu)
++s(-\int\varphi\,\rd\nu)\), and continuity because a convex combination of
+two continuous functions is continuous.  Convexity of the set follows.
+
+\cref{itm:ch28-admcalc:dominated}.  For \(\varphi\in\PSH_0\) one has
+\(-\varphi\geq0\), so \(\mu\leq c\nu\) gives
+\(-\int\varphi\,\rd\mu\leq-c\int\varphi\,\rd\nu\leq cM(\nu)\).  The
+statement about continuous pairing is then
+\Cref{lem:ch28-skeleton-admissible} applied to the ambient dual complex.
+
+\cref{itm:ch28-admcalc:union}.  The system of SNC models is directed by
+domination and cofinal among models, by \Cref{prop:snc-cofinal}, and the
+dual complex of a dominating model contains the dual complexes of the models
+it dominates, by \eqref{eq:ch21-retraction-composition}.  A finite union of
+dual complexes is therefore contained in a single dual complex, and
+\Cref{lem:ch28-skeleton-admissible} applies.
+\end{proof}
+
+\subsection{Measures in the image are automatically solvable}
+\label{sec:ch28-image-solvable}
+
+There is a second, logically independent, class of measures for which the
+maximum is attained: those which are already Monge--Amp\`ere measures.  This
+is a triviality, but it is worth stating, because it shows that the
+admissible class of \Cref{def:ch28-admissible-measure} is not the whole
+answer, and because \Cref{ex:ch28-unbounded-dual-energy} uses it to produce
+a solvable measure which is not supported on any dual complex.
+
+\begin{proposition}
+\label{prop:ch28-image-is-solvable}
+Let \(\varphi\in\cE^1(X,\omega)\) and \(\mu=\MA_\omega(\varphi)\).  Then
+\(\mu\in\mathcal M^1_V(X,\omega)\), the supremum of \(F_\mu\) is attained at
+\(\varphi\), and its value is
+\(E_\omega(\varphi)-\int\varphi\,\rd\mu\).  No orthogonality hypothesis and
+no support hypothesis are used.
+\end{proposition}
+
+\begin{proof}
+This is \Cref{prop:ch28-dual-energy-of-ma} together with
+\Cref{prop:ch28-sup-is-dual-energy}: Step~2 of the former exhibits
+\(\varphi\) as a maximizer over the test class
+\cref{itm:ch28-test:e1}, and the latter identifies the value of the supremum
+with \(E^\vee_\omega(\mu)\).
+\end{proof}
+
+\begin{warning}{Admissible and solvable are different classes}
+Neither of the two classes just described contains the other.  A measure
+supported on a dual complex need not visibly be a Monge--Amp\`ere measure
+before \Cref{thm:bfj-supported-cy} is proved --- that is the content of the
+theorem.  Conversely
+\Cref{ex:ch28-unbounded-dual-energy} produces a Monge--Amp\`ere measure of
+finite dual energy on \(\mathbf P^1\) whose support is an infinite set of
+divisorial points accumulating at a rational point, hence is contained in no
+dual complex; that measure is solvable but not admissible in the sense of
+\Cref{def:ch28-admissible-measure}.  What
+\Cref{thm:ch28-existence-admissible} and
+\Cref{prop:ch28-image-is-solvable} have in common is only their conclusion.
+\end{warning}
+
+\subsection{What can go wrong}
+\label{sec:ch28-what-goes-wrong}
+
+We record the two failures that the hypotheses of
+\Cref{thm:ch28-existence-admissible} exclude.  Both occur already on
+\(\mathbf P^1\).
+
+\begin{example}[A measure of infinite dual energy]
+\label{ex:ch28-infinite-dual-energy}
+\index{dual energy!infinite, example}
+Keep the setting of \Cref{ex:ch26-infinite-energy}: \(K\) is complete
+discretely valued, \(X=\mathbf P^1_K\), \(L=\cO(1)\), and \(\omega\) is the
+curvature of the model metric of \((\mathbf P^1_R,\cO(1))\), so that
+\(\MA_\omega(0)=\delta_\eta\) at the Gauss point and \(V=1\).  Let
+\(x_0\in X^{\An}\) be the rational point \(z=0\) and put
+\[
+ \mu:=\delta_{x_0}\in\mathcal M_1(X).
+\]
+Then \(E^\vee_\omega(\mu)=+\infty\); that is,
+\(\mu\notin\mathcal M^1_1(\mathbf P^1,\omega)\).
+
+Indeed, let \(\varphi_0=\log\lVert z_1\rVert_0=\min\{0,\log|z|\}\) be the
+potential of \Cref{ex:ch21-p1-refinement}, which on the ray
+\(R_0=[\eta,0]\) equals \(-t\) in the parameter \(t=-\log r\), and let
+\(\varphi_0^{\langle m\rangle}=\varphi_0\circ p_{\mathcal X_m}\) be its
+truncations.  These are \(\omega\)-psh model functions, and
+\Cref{ex:ch26-infinite-energy} computes
+\[
+ E_\omega\bigl(\varphi_0^{\langle m\rangle}\bigr)=-\frac m2 .
+\]
+The point \(x_0\) lies in the closure of the ray \(R_0\) and
+\(\varphi_0^{\langle m\rangle}(x_0)=-m\), because the retraction
+\(p_{\mathcal X_m}\) sends \(x_0\) to the endpoint \(t=m\) of the skeleton.
+Hence
+\[
+ F_\mu\bigl(\varphi_0^{\langle m\rangle}\bigr)
+ =E_\omega\bigl(\varphi_0^{\langle m\rangle}\bigr)
+  -\varphi_0^{\langle m\rangle}(x_0)
+ =-\frac m2+m=\frac m2
+ \ \xrightarrow[m\to\infty]{}\ +\infty .
+\]
+Since each \(\varphi_0^{\langle m\rangle}\) is an admissible test object in
+\eqref{eq:dual-energy-measure}, this proves
+\(E^\vee_\omega(\delta_{x_0})=+\infty\).
+
+Three comments.  First, the mass is correct: \(\mu(X^{\An})=1=V\).  So the
+failure is not the one excluded by \Cref{lem:ch28-mass-forced}; it is a
+genuine failure of the Legendre transform to be finite.  Second, the same
+computation with \(\lambda\varphi_0^{\langle m\rangle}\) for
+\(\lambda\in(0,1]\) gives \(-\lambda^2m/2+\lambda m\to+\infty\) as well, so
+no rescaling repairs it.  Third, \(\delta_{x_0}\) is supported at a single
+point of \(X^{\An}\), which shows that \emph{compact support is not the
+issue}: what fails is uniform integrability
+\eqref{eq:ch28-uniform-integrability}, since
+\(-\varphi_0^{\langle m\rangle}(x_0)=m\) is unbounded over the normalized
+psh space.  The point \(x_0\) is rational, hence of type~1, and lies on no
+dual complex; \Cref{lem:ch28-skeleton-admissible} does not apply, and by the
+present computation it cannot be extended to cover it.
+\end{example}
+
+\begin{example}[\(X^{\An}\) is not uniformly integrable]
+\label{ex:ch28-whole-space-not-admissible}
+The same computation shows that the constant
+\eqref{eq:ch28-uniform-integrability} is infinite for measures charging a
+neighbourhood of a rational point, and hence that no analogue of
+\Cref{lem:ch28-skeleton-admissible} holds with \(\Delta_{\mathcal X}\)
+replaced by \(X^{\An}\).  Concretely, on the \(\mathbf P^1\) of
+\Cref{ex:ch28-infinite-dual-energy} put
+\[
+ \nu:=\tfrac12\delta_\eta+\tfrac12\delta_{x_0}\in\mathcal M_1(X).
+\]
+Testing against \(\varphi_0^{\langle m\rangle}\), whose value at the Gauss
+point \(\eta\) is \(0\), gives
+\(F_\nu(\varphi_0^{\langle m\rangle})=-m/2+m/2=0\), which is bounded; so this
+crude test does not decide finiteness of \(E^\vee_\omega(\nu)\).  Testing
+instead against \(\lambda\varphi_0^{\langle m\rangle}\) gives
+\(-\lambda^2m/2+\lambda m/2=\lambda(1-\lambda)m/2\to+\infty\) for every
+\(\lambda\in(0,1)\).  Hence \(E^\vee_\omega(\nu)=+\infty\) as well.  The
+lesson is that a single atom at a type-1 point already destroys finiteness
+of the dual energy, whatever else the measure does.
+\end{example}
+
+\begin{warning}{Uniform integrability is a hypothesis on \(\mu\) and
+\(\omega\) jointly}
+The constant \(M(\mu)\) of \eqref{eq:ch28-uniform-integrability} depends on
+\(\omega\) through the normalized psh space, and the bound
+\eqref{eq:ch28-skeleton-M-bound} depends on the model \(\mathcal X\) through
+both the equicontinuity constant \(C\) and the diameter
+\(\delta(\Delta_{\mathcal X})\).  Refining the model enlarges the dual
+complex and, in general, increases the right-hand side; the bound is
+therefore not uniform over models, and it is not claimed to be.  What is
+uniform, for a fixed model, is the estimate over all normalized psh
+functions, and that is exactly what the existence proof needs.
+\end{warning}
+
+\section{The strong topology on finite-energy measures}
+\label{sec:ch28-strong-measures}
+
+\subsection{Strong convergence and the completion theorem}
+\label{sec:ch28-completion}
+
+The set \(\mathcal M^1_V(X,\omega)\) carries two topologies, and the
+distinction between them repeats, on the measure side, the distinction
+between the BFJ topology and the strong topology on \(\cE^1\) drawn in
+\Cref{sec:ch26-strong}.
+
+\begin{definition}[Strong convergence of measures]
+\label{def:ch28-strong-measure-convergence}
+\index{strong topology!on finite-energy measures}
+A net \(\mu_i\) in \(\mathcal M^1_V(X,\omega)\) converges
+\emph{strongly} to \(\mu\in\mathcal M^1_V(X,\omega)\) if it converges to
+\(\mu\) weakly and
+\begin{equation}
+\label{eq:ch28-strong-measure-convergence}
+                  E_\omega^\vee(\mu_i)\longrightarrow
+                  E_\omega^\vee(\mu).
+\end{equation}
+The \emph{strong topology} on \(\mathcal M^1_V(X,\omega)\) is the coarsest
+topology refining the weak topology for which \(E^\vee_\omega\) is
+continuous.
+\end{definition}
+
+Since \(E^\vee_\omega\) is already weakly lower semicontinuous
+(\Cref{prop:dual-energy-elementary}), the strong topology is generated by
+the weakly open sets together with the sets
+\(\{E^\vee_\omega<c\}\), \(c\in\mathbf R\); and a net converges strongly if
+and only if it converges in that topology, by the net criterion
+\Cref{prop:net-criterion}.  Strong convergence implies weak convergence by
+definition, and the converse fails: on the \(\mathbf P^1\) of
+\Cref{ex:ch28-infinite-dual-energy}, the measures
+\(\MA_\omega(\varphi_0^{\langle m\rangle})=\delta_{t=m}\) converge weakly to
+\(\delta_{x_0}\), which has infinite dual energy, whereas
+\(E^\vee_\omega(\delta_{t=m})\) is finite for each \(m\) --- by
+\Cref{prop:ch28-dual-energy-of-ma} it equals
+\(E_\omega(\varphi_0^{\langle m\rangle})
+-\varphi_0^{\langle m\rangle}(t=m)=-m/2+m=m/2\).  So the weak limit is not
+even in \(\mathcal M^1_V\), and the dual energies diverge.  Weak limits do
+not preserve finite dual energy; this is the exact measure-side analogue of
+\Cref{thm:ch26-e1-structure}\,\cref{itm:ch26-e1:not-closed}.
+
+\begin{theorem}
+\label{thm:finite-energy-measure-completion}
+Assume orthogonality.  The Monge--Amp\`ere measures of psh model functions
+are strongly dense in the space \(\mathcal M^1_V(X,\omega)\).  There is a
+complete quasi-metric \(\delta_\omega\), defining its strong topology, such
+that
+\begin{equation}
+\label{eq:measure-dirichlet-quasimetric}
+ \delta_\omega\bigl(\MA_\omega(\varphi),\MA_\omega(\psi)\bigr)
+       =V^{-1}J_\omega(\varphi,\psi)
+\end{equation}
+for psh model functions \(\varphi,\psi\).
+\end{theorem}
+
+\begin{proof}[Proof architecture]
+Choose a model sequence computing the Legendre supremum for \(\mu\).
+Uniform differentiability of the equilibrium energy, which is equivalent to
+orthogonality, shows that its Monge--Amp\`ere measures converge weakly to
+\(\mu\).  Mixed-energy Hölder estimates upgrade this convergence to the
+strong topology and show that \eqref{eq:measure-dirichlet-quasimetric}
+extends uniquely.  The same estimates prove the quasi-triangle inequality
+and completeness.  This is Theorem~A of \cite{BJ25FiniteEnergy}, transported
+from probability measures by the bijection
+$\mu\mapsto V^{-1}\mu$.  Under this bijection both the potential energy and
+the measure energy are divided by $V$, which accounts for the factor on the
+right of \eqref{eq:measure-dirichlet-quasimetric}.
+\end{proof}
+
+The theorem is imported; it is item \textup{(I3)} of
+\Cref{sec:ch28-imported}.  Four reading notes make precise what it does and
+does not say, and what part of it is proved in this book.
+
+\begin{remark}[What is proved here]
+\label{rem:ch28-what-of-completion-is-proved}
+The density half of \Cref{thm:finite-energy-measure-completion} is proved
+here, in the following form: for every \(\mu\in\mathcal M^1_V(X,\omega)\)
+and every net \((\varphi_j)\) of \(\omega\)-psh model functions computing
+the supremum in \eqref{eq:dual-energy-measure}, the measures
+\(\MA_\omega(\varphi_j)\) converge to \(\mu\) strongly in the sense of
+\Cref{def:ch28-strong-measure-convergence}.  That statement is
+\Cref{thm:finite-energy-measure-stability}, and its proof, given in
+\Cref{sec:ch28-stability}, is complete except for the two quantitative
+inputs \eqref{eq:maximizing-uniform-differentiability} and
+\eqref{eq:maximizing-mixed-energy-control}, which are quoted.  The
+completeness half, and the fact that \(\delta_\omega\) defines the strong
+topology, are not proved here.
+\end{remark}
+
+\begin{remark}[Why the right-hand side of
+\eqref{eq:measure-dirichlet-quasimetric} depends only on the two measures]
+\label{rem:ch28-quasimetric-well-defined}
+As written, \eqref{eq:measure-dirichlet-quasimetric} defines
+\(\delta_\omega\) on a pair of Monge--Amp\`ere measures by a formula
+involving the potentials.  For this to define a function of the two
+measures, the right-hand side must be unchanged when \(\varphi\) and
+\(\psi\) are replaced by other model potentials with the same
+Monge--Amp\`ere measures.  By \eqref{eq:ch28-defect-identity},
+\[
+ \begin{aligned}
+ V\,\delta_\omega(\mu,\nu)
+ &=J_\omega(\varphi,\psi)\\
+ &=E^\vee_\omega(\mu)-E_\omega(\psi)+\int\psi\,\rd\mu,
+ \end{aligned}
+\]
+where \(\mu=\MA_\omega(\varphi)\) and \(\nu=\MA_\omega(\psi)\).
+so the dependence on \(\varphi\) is only through \(\mu\); the dependence on
+\(\psi\) is through \(E_\omega(\psi)\) and \(\int\psi\,\rd\mu\), and
+\eqref{eq:ch28-dual-energy-of-ma} rewrites
+\(E_\omega(\psi)=E^\vee_\omega(\nu)+\int\psi\,\rd\nu\), so that
+\[
+ V\,\delta_\omega(\mu,\nu)
+ =E^\vee_\omega(\mu)-E^\vee_\omega(\nu)
+   +\int\psi\,\rd(\mu-\nu).
+\]
+The remaining occurrence of \(\psi\) is genuine, and it disappears exactly
+when the solution of \(\MA_\omega(\psi)=\nu\) is unique modulo constants ---
+the integral \(\int\psi\,\rd(\mu-\nu)\) being insensitive to constants,
+since \(\mu\) and \(\nu\) have the same mass.  Well-definedness of
+\(\delta_\omega\) is therefore part of the quoted theorem and is
+inseparable from the uniqueness input \textup{(I2)}.  We flag this because
+the formula is often quoted as though it were a definition.
+\end{remark}
+
+\begin{remark}[This is not a metric on potentials]
+\label{rem:ch28-not-a-metric-on-potentials}
+\Cref{thm:finite-energy-measure-completion} asserts a quasi-metric on
+\emph{measures}.  No corresponding statement is made, here or anywhere in
+this book, about \(\cE^1(X,\omega)\).  The energy gauge
+\eqref{eq:ch26-gauge} on potentials is symmetric and nondegenerate on
+continuous potentials, but it \emph{fails} the triangle inequality: on a
+two-vertex metric graph, \Cref{ex:ch26-triangle-fails} computes
+\(d_\omega(\varphi,\chi)=2\) while
+\(d_\omega(\varphi,\psi)+d_\omega(\psi,\chi)=1\).  The rooftop variant
+\eqref{eq:ch26-rooftop-gauge} repairs that example
+(\Cref{ex:ch26-rooftop-repair}) but no triangle inequality is proved for it
+either.  Accordingly the words \emph{metric}, \emph{complete}, and
+\emph{geodesic} are used in this chapter only of the measure-side object
+\(\delta_\omega\), and only inside the quoted
+\Cref{thm:finite-energy-measure-completion}; the strong topology on
+\(\cE^1\) remains a topology, as \Cref{sec:ch26-strong} insists.  The
+trivially valued theory, where a genuine metric is available because the
+envelope property holds in full, is \Cref{chap:bj-strong-topologies}.
+\end{remark}
+
+\begin{remark}[Completion of measures is not surjectivity of \(\MA_\omega\)]
+\label{rem:ch28-completion-not-surjectivity}
+\Cref{thm:finite-energy-measure-completion} is a statement about the
+\emph{measure-side completion}.  By itself it does not identify every point
+of that completion with the Monge--Amp\`ere measure of a pointwise
+\(\mathcal E^1\)-potential.  Such surjectivity requires a separate
+potential-completion or envelope theorem.  We will prove the existence
+needed in the original BFJ theorem directly from the support hypothesis.
+The abstract reason is visible in
+\Cref{rem:ch28-coercivity-shape}: a completion is built from Cauchy nets,
+and a Cauchy net of potentials converges in \(\cE^1\) only if its energies
+do not escape, which is what coercivity supplies and what a general element
+of \(\mathcal M^1_V\) does not guarantee.
+\end{remark}
+
+\subsection{The Fenchel equality at a solution}
+\label{sec:ch28-fenchel-equality}
+
+\begin{corollary}
+\label{cor:finite-energy-variational-characterization}
+If \(\varphi_\mu\in\mathcal E^1\) satisfies
+\(\MA_\omega(\varphi_\mu)=\mu\), then it maximizes \(F_\mu\), modulo
+constants, among the potentials for which the pairing with \(\mu\) is
+finite.  Moreover,
+\begin{equation}
+\label{eq:dual-energy-attained}
+ E_\omega^\vee(\mu)
+ =E_\omega(\varphi_\mu)-
+      \int\varphi_\mu\,\rd \mu.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Concavity of energy and its first variation imply, for every
+\(\psi\in\mathcal E^1\) for which \(\int\psi\,\rd \mu\) is finite,
+\[
+ E_\omega(\psi)-E_\omega(\varphi_\mu)
+ \leq\int(\psi-\varphi_\mu)\MA_\omega(\varphi_\mu).
+\]
+Substitute \(\mu=\MA_\omega(\varphi_\mu)\).  Thus
+\(F_\mu(\psi)\leq F_\mu(\varphi_\mu)\).  Equality forces equality in the
+Monge--Amp\`ere uniqueness argument and hence a constant difference.
+
+It remains to compare this extended maximum with the model-test supremum
+in \Cref{def:dual-energy-measure}.  Choose a decreasing model
+regularization \(\varphi_j\searrow\varphi_\mu\).  The mixed
+finite-energy integrability theorem and the monotone energy cocycle give
+\[
+ E_\omega(\varphi_j)\longrightarrow E_\omega(\varphi_\mu),
+ \qquad
+ \int\varphi_j\,\rd \MA_\omega(\varphi_\mu)
+   \longrightarrow
+ \int\varphi_\mu\,\rd \MA_\omega(\varphi_\mu).
+\]
+Consequently \(F_\mu(\varphi_j)\to F_\mu(\varphi_\mu)\).  Since each
+\(\varphi_j\) is an admissible test in
+\eqref{eq:dual-energy-measure}, the displayed value is exactly
+\(E_\omega^\vee(\mu)\).  Thus ``attained'' here refers to the natural
+finite-energy extension of the model-test functional.
+\end{proof}
+
+The corollary repeats, in the language of the dual energy, what
+\Cref{prop:ch28-dual-energy-of-ma} established; the two statements are the
+same fact seen from opposite sides, and it is worth saying which parts of
+the proof just given are unconditional.  The inequality
+\(F_\mu(\psi)\leq F_\mu(\varphi_\mu)\) is the right-hand branch of the
+two-sided sandwich \eqref{eq:ch27-two-sided-sandwich} and uses nothing but
+step \textup{(D6)}.  The identity \eqref{eq:dual-energy-attained} is
+\eqref{eq:ch28-dual-energy-of-ma}, and the passage from the enlarged test
+class to the model test class is \Cref{prop:ch28-test-class}, which uses
+decreasing regularization \textup{(D3)}.  Only the sentence
+``equality forces \dots a constant difference'' is conditional: it is the
+imported uniqueness statement \textup{(I2)}, discussed in
+\Cref{sec:ch28-uniqueness}, and it is not used anywhere else in the proof.
+
+\begin{remark}[The Fenchel picture]
+\label{rem:ch28-fenchel-picture}
+Assembling \Cref{prop:ch28-sup-is-dual-energy},
+\Cref{prop:ch28-fenchel-defect} and
+\Cref{cor:finite-energy-variational-characterization}, the situation is
+exactly the one anticipated abstractly in \Cref{subsec:legendre-finite}.
+The pair \((E_\omega,E^\vee_\omega)\) satisfies the Fenchel inequality
+\eqref{eq:fenchel-energy}; its defect at \((\psi,\MA_\omega(\varphi))\) is
+the directed Dirichlet functional \(J_\omega(\varphi,\psi)\); and equality
+holds precisely when \(\mu\) is a supergradient of \(E_\omega\) at
+\(\psi\), that is, precisely when \(\MA_\omega(\psi)=\mu\), by
+\Cref{prop:concave-biconjugation}\,(3) and
+\Cref{cor:ch27-euler-lagrange-supergradient}.  What the finite-dimensional
+template of \Cref{prop:concave-biconjugation}\,(2) additionally supplies,
+and what is \emph{not} available here, is biconjugation: there is no
+separation theorem for the space of potentials, as
+\Cref{rem:legendre-infinite-dimensional} explains, and the substitute is
+precisely the compactness and semicontinuity package of
+\Cref{thm:ch28-existence-admissible}.
+\end{remark}
+
+\section{The original BFJ existence theorem}
+\label{sec:ch28-bfj-theorem}
+
+We now return to the historical theorem, where no dual-energy assumption is
+imposed explicitly.  The logical shape is: the support hypothesis implies
+admissibility (\Cref{lem:ch28-skeleton-admissible}), admissibility implies
+existence of a maximizer (\Cref{thm:ch28-existence-admissible}),
+orthogonality converts the maximizer into a solution
+(\Cref{prop:variational-maximizer-solves}), and the support hypothesis
+enters a second time, through a Dini argument, to make the solution
+continuous.
+
+\begin{lemma}
+\label{lem:skeletal-measure-finite-energy}
+Let \(\Delta_{\mathcal X}\) be the dual complex of an SNC model and let
+\(\mu\in\mathcal M_V(X)\) be supported on \(\Delta_{\mathcal X}\).  Then
+\(E_\omega^\vee(\mu)<+\infty\).
+\end{lemma}
+
+\begin{proof}
+Normalize \(\sup\varphi=0\).  The restrictions to the fixed compact complex
+\(\Delta_{\mathcal X}\) of all normalized \(\omega\)-psh functions form an
+equicontinuous, uniformly bounded family.  This is the skeletal estimate of
+\Cref{thm:bfj-skeletal-equicontinuity}.  Hence
+\(-\int\varphi\,\rd \mu\) is bounded above uniformly in \(\varphi\).  Since
+\(E_\omega(\varphi)\leq E_\omega(0)=0\), the supremum
+\eqref{eq:dual-energy-measure} is finite.
+\end{proof}
+
+Quantitatively, the proof gives more than finiteness:
+\Cref{lem:ch28-skeleton-admissible} bounds
+\(E^\vee_\omega(\mu)\) by \(M(\mu)\leq C\delta(\Delta_{\mathcal X})V\), with
+\(C\) the equicontinuity constant of
+\Cref{thm:bfj-skeletal-equicontinuity} and
+\(\delta(\Delta_{\mathcal X})\) the diameter of the dual complex in its path
+metric.  The constant is explicit once a model and a relatively ample class
+have been fixed; \Cref{ex:ch28-chain-dual-energy} evaluates both sides on a
+four-component chain and measures the loss.
+
+\subsection{Statement, with the hypothesis signature displayed}
+\label{sec:ch28-bfj-statement}
+
+\begin{center}
+\fbox{\begin{minipage}{0.91\textwidth}
+\textbf{Hypothesis signature of \Cref{thm:bfj-supported-cy}.}
+\begin{itemize}
+\item \emph{Base field:} \(K\) complete, \emph{discretely} valued, with
+\(v_K(\pi)=1\); residue field of characteristic \(0\).
+\item \emph{Space:} \(X\) smooth, connected, projective over \(K\), of
+dimension \(n\).
+\item \emph{Class:} \(\omega\) a closed model \((1,1)\)-form, semipositive,
+with ample de Rham class \(\{\omega\}\); \(V=(\{\omega\}^n)>0\).
+\item \emph{Positivity input:} \(\omega\) has the orthogonality property
+\Cref{def:orthogonality-property}.  This is a hypothesis, not a
+consequence; its provenances are \Cref{thm:orthogonality-provenance}.
+\item \emph{Measure:} \(\mu\geq0\) with \(\mu(X^{\An})=V\), supported on the
+dual complex \(\Delta_{\mathcal X}\) of some SNC model \(\mathcal X\).
+\item \emph{Not assumed:} algebraizability of \(X\) over a one-variable
+function field; continuity, density, or atomicity of \(\mu\);
+factorization of the solution through any retraction.
+\end{itemize}
+\end{minipage}}
+\end{center}
+
+\begin{theorem}
+\label{thm:bfj-supported-cy}
+Assume \(\omega\) has the orthogonality property.  If
+\(\mu\in\mathcal M_V(X)\) is supported on the dual complex of an SNC model,
+there is a unique continuous \(\omega\)-psh function \(\varphi\), normalized
+by \(\sup\varphi=0\), such that
+\begin{equation}
+\label{eq:bfj-supported-cy}
+                         \MA_\omega(\varphi)=\mu.
+\end{equation}
+\end{theorem}
+
+\begin{proof}[The three BFJ steps]
+First, the normalized psh space is weakly compact.  On the fixed dual
+complex, psh restrictions converge uniformly, so
+\(\varphi\mapsto\int\varphi\,\rd \mu\) is continuous.  Energy is upper
+semicontinuous.  Thus \(F_\mu\) attains its maximum; since
+\(F_\mu(0)=0\), the maximizer has finite energy.
+
+Second, \Cref{prop:variational-maximizer-solves}, which is where
+orthogonality enters, proves the equation in \(\mathcal E^1\).
+
+Third, let \(\varphi_j\searrow\varphi\) be a model regularization.  The
+restriction \(\varphi|_{\Delta_{\mathcal X}}\) is continuous, so Dini's
+lemma gives uniform convergence there.  The capacity domination estimate
+of Lemma~8.4 of \cite{BFJ15} propagates the resulting almost-everywhere
+inequality from \(\mu=\MA(\varphi)\) to all of \(X^{\An}\).  Hence
+\(\varphi_j\to\varphi\) uniformly globally, proving continuity.  Uniqueness
+is the non-Archimedean Calabi--Yau uniqueness theorem, quoted in the
+expanded proof below; it does not use orthogonality, and it is not a
+consequence of the comparison principle.
+\end{proof}
+
+\subsection{The proof, step by step}
+\label{sec:ch28-bfj-proof}
+
+We now give the same argument with every quotation identified.  The reader
+should compare the four steps below with the four rows of the second column
+of the table in \Cref{sec:ch28-scope}.
+
+\begin{proof}[Detailed proof of \Cref{thm:bfj-supported-cy}]
+Let \(\mathcal X\) be an SNC model with \(\mu\) supported on
+\(\Delta:=\Delta_{\mathcal X}\).  Enlarging \(\mathcal X\) if necessary --- SNC
+models are cofinal by \Cref{prop:snc-cofinal}, and the dual complex of a
+dominating model contains \(\Delta\) --- we may assume that \(\omega\) is
+determined on \(\mathcal X\).
+
+\emph{Step 1: \(\mu\) is admissible, and \(F_\mu\) attains its maximum.}
+By \Cref{lem:ch28-skeleton-admissible}, \(\mu\) is uniformly integrable with
+\(M(\mu)\leq C\delta(\Delta)V<\infty\) and continuously paired.  By
+\Cref{thm:ch28-existence-admissible}\,\cref{itm:ch28-exist:max} the
+functional \(F_\mu\) attains its maximum on \(\PSH_0(X,\omega)\) at some
+\(\varphi\) with
+\[
+ 0=F_\mu(0)\ \leq\ F_\mu(\varphi)=E^\vee_\omega(\mu)\ \leq\ M(\mu),
+ \qquad
+ E_\omega(\varphi)\ \geq\ -M(\mu)>-\infty ,
+\]
+so \(\varphi\in\cE^1(X,\omega)\).  The compactness used is that of
+\Cref{thm:bfj-psh-compactness}, in the net form of
+\Cref{cor:ch26-net-superlevel}; see \Cref{rem:ch28-net-form} for why no
+sequence is extracted.  This step uses the support hypothesis and no
+orthogonality.
+
+\emph{Step 2: the maximizer solves the equation.}  By
+\Cref{thm:ch28-existence-admissible}\,\cref{itm:ch28-exist:equation}, which
+is \Cref{prop:variational-maximizer-solves}, one has
+\(\MA_\omega(\varphi)=\mu\).  This is the only step that uses
+orthogonality, and it uses it only through
+\Cref{cor:e1-projected-variation}, hence only at \emph{continuous}
+obstacles; see \Cref{rem:ch27-e1-hypotheses}.
+
+\emph{Step 3: the solution is continuous.}  This is
+\Cref{thm:bfj-supported-regularity}, proved in
+\Cref{chap:bfj-continuity}, and we recall its mechanism because it is the
+second and last use of the support hypothesis.  Subtracting a constant,
+which changes neither the equation nor the continuity to be proved, assume
+\(\sup\varphi=-1\), and choose, by
+\Cref{thm:bfj-decreasing-regularization}, a decreasing net
+\((\varphi_j)\) of \(\omega\)-psh model functions with
+\(\varphi_j\searrow\varphi\); discarding an initial segment we may assume
+\(\varphi_j\leq0\).  The restriction \(\varphi|_\Delta\) is continuous by
+\Cref{thm:bfj-skeletal-equicontinuity}\,(1), and the continuous functions
+\(\varphi_j|_\Delta\) decrease to it on the compact polyhedral complex
+\(\Delta\); Dini's theorem for nets therefore gives, for each
+\(\varepsilon>0\), an index beyond which
+\[
+ \varphi_j-\varepsilon\ \leq\ \varphi
+ \qquad\text{on }\Delta ,
+\]
+hence \(\mu\)-almost everywhere, since \(\mu\) is carried by \(\Delta\).
+Because \(\mu=\MA_\omega(\varphi)\) by Step~2, the domination lemma
+\Cref{lem:bfj-supported-domination}, applied with the continuous psh
+function \(h=\varphi_j-\varepsilon\) and \(\psi=\varphi\), propagates the
+inequality to all of \(X^{\An}\):
+\(0\leq\varphi_j-\varphi\leq\varepsilon\) everywhere.  Thus
+\(\varphi_j\to\varphi\) uniformly on \(X^{\An}\) and \(\varphi\) is
+continuous.  The propagation rests on the capacity estimate
+\Cref{lem:bfj-kolodziej-sublevel} and on the fact that a nonempty open set
+has positive capacity, \Cref{lem:divisorial-positive-capacity}.
+
+\emph{Step 4: uniqueness.}  Let \(\varphi,\psi\) be two continuous
+\(\omega\)-psh solutions with \(\sup\varphi=\sup\psi=0\).
+\Cref{prop:ch28-solution-set} shows unconditionally that
+\(I(\varphi,\psi)=0\), that all the Dirichlet coefficients
+\(a_k(\varphi,\psi)\) vanish, and that the \(n+1\) mixed measures
+\(\omega_\varphi^{\,j}\wedge\omega_\psi^{\,n-j}\) all equal \(\mu\).  For
+\(n=1\) this already gives \(\varphi=\psi\),
+\Cref{prop:ch28-curve-uniqueness}.  For \(n\geq2\) the remaining step is the
+non-Archimedean Calabi--Yau uniqueness theorem, which we quote:
+\(\varphi-\psi\) is constant by \cite[Proposition~8.2]{BFJ15}, resting on
+the arithmetic Hodge index theorem of Yuan and Zhang.  The normalization
+\(\sup\varphi=\sup\psi=0\) then forces \(\varphi=\psi\).  This step is
+\emph{not} a consequence of the comparison principle
+(\Cref{rem:ch25-no-uniqueness}) and does not use orthogonality.
+\end{proof}
+
+\begin{warning}{The four hypotheses do four different jobs}
+Step~1 uses the support hypothesis to obtain compactness \emph{and}
+continuity of the pairing; Step~2 uses orthogonality and nothing else;
+Step~3 uses the support hypothesis a second time, now to run Dini on a
+compact set carrying \(\mu\), together with capacity; Step~4 uses neither
+the support hypothesis nor orthogonality, but does use an imported
+intersection-theoretic theorem.  It is a common error to compress Steps~1
+and~3 into ``\(\mu\) lives on a skeleton, so everything is finite
+dimensional''.  It is not: the solution need not factor through the
+retraction to \(\Delta\), and Boucksom--Jonsson construct a finite atomic
+measure supported on a dual complex whose solution is invariant under no
+SNC retraction \cite[Theorem~B]{BJGreen24}.  What the support hypothesis
+gives is a compact set on which all normalized psh functions are uniformly
+bounded and uniformly convergent, not a reduction of the problem to that
+set.
+\end{warning}
+
+\subsection{The structure of the solution set, and uniqueness}
+\label{sec:ch28-uniqueness}
+
+The following proposition isolates exactly how much of uniqueness is
+elementary.  It uses no orthogonality, no support hypothesis, and no
+imported theorem.
+
+\begin{proposition}
+\label{prop:ch28-solution-set}
+\index{uniqueness!Monge--Ampere solutions}
+Let \(\mu\in\mathcal M_V(X)\) and let
+\(\varphi,\psi\in\cE^1(X,\omega)\) satisfy
+\(\MA_\omega(\varphi)=\MA_\omega(\psi)=\mu\).  Then:
+\begin{enumerate}
+\item\label{itm:ch28-sol:I}
+ \(I(\varphi,\psi)=0\) and \(J_\omega(\varphi,\psi)=
+ J_\omega(\psi,\varphi)=0\), where \(I\) is
+ \eqref{eq:ch26-I-definition} and \(J_\omega\) is
+ \eqref{eq:directed-dirichlet-functional};
+\item\label{itm:ch28-sol:energy}
+ \(E_\omega(\varphi)-E_\omega(\psi)=\int(\varphi-\psi)\,\rd\mu\), and both
+ potentials give the same value \(E^\vee_\omega(\mu)\) in
+ \eqref{eq:dual-energy-attained};
+\item\label{itm:ch28-sol:mixed}
+ if \(\varphi\) and \(\psi\) are bounded, then all the Dirichlet
+ coefficients \(a_k(\varphi,\psi)\) of \eqref{eq:ch26-ak} vanish and the
+ \(n+1\) mixed measures
+ \(\omega_\varphi^{\,j}\wedge\omega_\psi^{\,n-j}\), \(0\leq j\leq n\),
+ coincide with \(\mu\);
+\item\label{itm:ch28-sol:convex}
+ the set of maximizers of \(F_\mu\) in \(\cE^1(X,\omega)\) is convex, and
+ \(E_\omega\) is affine on every segment joining two of its points;
+\item\label{itm:ch28-sol:max}
+ \(\chi:=\max\{\varphi,\psi\}\) lies in \(\cE^1(X,\omega)\), and
+ \(\MA_\omega(\chi)\) agrees with \(\mu\) on the set
+ \(\{\varphi\neq\psi\}\); moreover
+ \(\MA_\omega(\chi)(\{\varphi=\psi\})=\mu(\{\varphi=\psi\})\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch28-sol:I}.  By \eqref{eq:ch26-I-definition},
+\[
+ I(\varphi,\psi)=\int(\varphi-\psi)
+   \bigl(\MA_\omega(\psi)-\MA_\omega(\varphi)\bigr)
+ =\int(\varphi-\psi)(\mu-\mu)=0 ,
+\]
+the integrals being finite by \Cref{lem:ch27-mutual-integrability}.  By
+\Cref{prop:ch28-fenchel-defect} and
+\Cref{thm:ch26-mixed-energy-identities}\,\cref{itm:ch26-ij:sum} one has
+\(J_\omega(\varphi,\psi)+J_\omega(\psi,\varphi)=I(\varphi,\psi)=0\), and
+both summands are nonnegative, so both vanish.
+
+\cref{itm:ch28-sol:energy}.  Vanishing of \(J_\omega(\psi,\varphi)\) is,
+by \eqref{eq:directed-dirichlet-functional},
+\(E_\omega(\psi)-E_\omega(\varphi)+\int(\varphi-\psi)\MA_\omega(\psi)=0\),
+which is the stated identity since \(\MA_\omega(\psi)=\mu\).  The second
+assertion follows by substituting into \eqref{eq:dual-energy-attained}.
+
+\cref{itm:ch28-sol:mixed}.  For bounded potentials
+\Cref{thm:ch26-mixed-energy-identities}\,\cref{itm:ch26-ij:I} gives
+\(\sum_{k=0}^{n-1}a_k(\varphi,\psi)=I(\varphi,\psi)=0\), and each \(a_k\) is
+nonnegative by \Cref{lem:ch26-dirichlet-coefficients}; so all vanish.  Let
+\(h\) be a model function.  As in the proof of
+\Cref{prop:ch26-strict-monotone}\,\cref{itm:ch26-strict:bounded}, the
+Cauchy--Schwarz inequality \eqref{eq:ch26-cauchy-schwarz} applied to
+\(u=\varphi-\psi\) and to a positive multiple of \(h\) that is a difference
+of two bounded \(\omega\)-psh functions gives
+\[
+ \Bigl|\int h\,\ddc u\wedge
+   \omega_\varphi^{\,k}\wedge\omega_\psi^{\,n-1-k}\Bigr|^2
+ \leq a_k(\varphi,\psi)\cdot(\text{a finite number})=0 .
+\]
+Hence the signed measure
+\(\ddc u\wedge\omega_\varphi^{\,k}\wedge\omega_\psi^{\,n-1-k}\), which is
+the difference of two consecutive mixed measures, integrates to zero against
+every model function; model functions are uniformly dense in
+\(C^0(X^{\An})\) by \Cref{lem:ch24-dense-tests}, so the difference vanishes.
+Running \(k=0,\ldots,n-1\) identifies all \(n+1\) mixed measures with one
+another, hence with \(\MA_\omega(\varphi)=\mu\).
+
+\cref{itm:ch28-sol:convex}.  \(F_\mu\) is concave on its domain, being the
+sum of the concave \(E_\omega\) (\Cref{thm:extended-energy-basic}) and an
+affine functional; the set where a concave function attains its maximum is
+convex.  If \(\varphi,\psi\) are two maximizers and
+\(\varphi_s=(1-s)\varphi+s\psi\), then
+\(F_\mu(\varphi_s)\geq(1-s)F_\mu(\varphi)+sF_\mu(\psi)=\max F_\mu\), so
+equality holds; subtracting the affine term, which is exactly affine in
+\(s\), leaves
+\(E_\omega(\varphi_s)=(1-s)E_\omega(\varphi)+sE_\omega(\psi)\).
+
+\cref{itm:ch28-sol:max}.  Membership is
+\Cref{thm:ch26-e1-structure}\,\cref{itm:ch26-e1:max}.  The maximum principle
+\eqref{eq:ch26-e1-maximum-principle} gives
+\[
+ \one_{\{\varphi>\psi\}}\MA_\omega(\chi)
+ =\one_{\{\varphi>\psi\}}\MA_\omega(\varphi)
+ =\one_{\{\varphi>\psi\}}\mu ,
+\]
+and the same identity with the two potentials exchanged gives
+\(\one_{\{\psi>\varphi\}}\MA_\omega(\chi)
+=\one_{\{\psi>\varphi\}}\mu\).  Adding, the two measures agree on
+\(\{\varphi\neq\psi\}\).  Both have total mass \(V\), by
+\Cref{prop:e1-integrability-tail}, so their masses on the complementary set
+\(\{\varphi=\psi\}\) agree as well.
+\end{proof}
+
+\begin{remark}[Why \cref{itm:ch28-sol:max} stops where it does]
+\label{rem:ch28-max-on-contact}
+The maximum principle \eqref{eq:ch26-e1-maximum-principle} is an identity on
+the \emph{open} conditions \(\{\varphi>\psi\}\) and \(\{\psi>\varphi\}\), and
+it says nothing about the contact set \(\{\varphi=\psi\}\), which is where
+\(\chi\) coincides with both potentials but where locality of the operator
+gives no information: the Monge--Amp\`ere measure is not determined by the
+restriction of the potential to a set that is neither open nor of full
+measure.  Equality \(\MA_\omega(\chi)=\mu\) would follow if one knew that
+\(\mu\) does not charge \(\{\varphi=\psi\}\), or, in the opposite direction,
+from uniqueness.  We therefore do not use \cref{itm:ch28-sol:max} in the proof
+of any statement below; it is recorded because it shows that the solution set
+is stable under maxima away from the contact set, which is the form in which
+the corresponding complex statement is usually quoted.
+\end{remark}
+
+\begin{proposition}
+\label{prop:ch28-curve-uniqueness}
+Let \(n=1\), that is, let \(X\) be a smooth projective curve, and let
+\(\mu\in\mathcal M_V(X)\).  If \(\varphi,\psi\in\cE^1(X,\omega)\) are
+\emph{continuous} and satisfy
+\(\MA_\omega(\varphi)=\MA_\omega(\psi)=\mu\), then \(\varphi-\psi\) is
+constant.
+\end{proposition}
+
+\begin{proof}
+Both potentials are continuous, hence bounded, so
+\Cref{prop:ch28-solution-set}\,\cref{itm:ch28-sol:mixed} applies with
+\(n=1\): the single Dirichlet coefficient
+\(a_0(\varphi,\psi)=-\int u\,\ddc u\) vanishes, where \(u=\varphi-\psi\) is
+a continuous function on \(X^{\An}\).  Equivalently
+\(\ddc u=\MA_\omega(\varphi)-\MA_\omega(\psi)=0\), so \(u\) is harmonic on
+the connected compact Berkovich curve \(X^{\An}\).
+
+We conclude on skeleta.  Let \(\Gamma\) be the skeleton of any semistable
+model determining \(\omega\), with retraction \(p:X^{\An}\to\Gamma\).  By
+\Cref{prop:ch25-curve-pushforward}, applied to the bounded \(\omega\)-psh
+functions \(\varphi\) and \(\psi\),
+\[
+ \MA_\omega(\varphi\circ p)=p_*\MA_\omega(\varphi)=p_*\mu
+ =p_*\MA_\omega(\psi)=\MA_\omega(\psi\circ p),
+\]
+and \(\varphi\circ p,\psi\circ p\) are \(\omega\)-psh model-like functions on
+\(\Gamma\) by \Cref{prop:ch21-curve-retraction}.  Writing
+\(U:=(\varphi-\psi)\circ p\), formula \eqref{eq:ch25-curve-ma} gives
+\(\Delta_\Gamma U=0\), and the Dirichlet identity
+\eqref{eq:graph-dirichlet-sign} gives
+\[
+ \int_\Gamma|U'|^2\,\rd s=-\int_\Gamma U\,\Delta_\Gamma U=0 ,
+\]
+so \(U\) is constant on the connected graph \(\Gamma\); call the constant
+\(c_\Gamma\).
+
+It remains to pass from the skeleta to \(X^{\An}\).  Both \(\varphi\) and
+\(\psi\) are determined by their skeletal restrictions, by
+\Cref{thm:bfj-skeletal-characterization}: for \(\omega\)-psh functions on a
+curve one has \(\varphi=\inf_\Gamma\varphi\circ p_\Gamma\), the infimum being
+over the cofinal system of semistable skeleta, by
+\eqref{eq:ch21-decreasing-retractions}.  The constants \(c_\Gamma\) are
+compatible under refinement, since a larger skeleton contains a smaller one;
+so they are all equal to a single constant \(c\), and
+\(\varphi\circ p_\Gamma-\psi\circ p_\Gamma\equiv c\) for every \(\Gamma\).
+Taking the infimum over \(\Gamma\) --- legitimate because both families are
+decreasing and \(c\) is finite --- gives \(\varphi-\psi\equiv c\).
+\end{proof}
+
+\begin{remark}[What is missing for \(n\geq2\), precisely]
+\label{rem:ch28-uniqueness-gap}
+\Cref{prop:ch28-solution-set}\,\cref{itm:ch28-sol:mixed} produces, for two
+bounded solutions, the vanishing of
+\(a_k(\varphi,\psi)=-\int u\,\ddc u\wedge
+\omega_\varphi^{\,k}\wedge\omega_\psi^{\,n-1-k}\) for every \(k\), with
+\(u=\varphi-\psi\).  At model level, with \(D\) the vertical divisor
+representing \(\ddc u\), this says
+\((D^2\cdot\alpha_1\cdots\alpha_{n-1})=0\) for the relatively nef classes
+\(\alpha_i\in\{\omega_\varphi,\omega_\psi\}\).  What one wants is
+\(D\in\mathbf R\,\mathcal X_s\), that is, \(u\) constant.  The equality
+clause of \Cref{thm:ch20-mixed-hodge} delivers exactly that ---
+but only when the \(\alpha_i\) are relatively \emph{ample}, and
+\Cref{rem:ch20-hodge-uses} stresses that no equality case is claimed in the
+merely nef situation.  For \(n=1\) there are no classes
+\(\alpha_i\) at all, which is why \Cref{prop:ch28-curve-uniqueness} closes.
+For \(n\geq2\) the passage from nef to ample is the arithmetic Hodge index
+input, and it is imported.  The reader should note that this is a gap in a
+single, precisely identified inequality, not a gap in the variational
+method.
+\end{remark}
+
+\subsection{Beyond the original scope}
+\label{sec:ch28-surjectivity}
+
+In \cite{BFJ15}, algebraizability of \(X\) over a one-variable function
+field was used only to prove orthogonality.  The statement
+\Cref{thm:bfj-supported-cy} itself assumes orthogonality, not
+algebraizability.  The latter was removed in residue characteristic zero by
+\cite[Theorem~6.3.3 and Corollary~6.3.4]{BGGJKM20}.
+
+Three further questions of scope arise naturally at this point, and we state
+where each stands.
+
+\emph{Surjectivity of \(\MA_\omega\) onto \(\mathcal M^1_V\).}
+\Cref{prop:ch28-dual-energy-of-ma} gives the inclusion
+\(\MA_\omega(\cE^1)\subseteq\mathcal M^1_V\), and
+\Cref{thm:ch28-existence-admissible} shows that the admissible measures lie
+in the image.  Whether \emph{every} finite-energy measure lies in the image
+is a different question.  In the trivially valued theory it is equivalent to
+the envelope property and to completeness of \(\cE^1/\mathbf R\), by
+\cite[Theorem~12.8]{BJ22}, and is proved there for \(X\) smooth in
+characteristic zero; the corresponding statement in the present discretely
+valued setting is not proved in this book, and no theorem below uses it.
+The reader should not read the density statement
+\Cref{thm:finite-energy-measure-completion} as an answer: density in a
+completion is not surjectivity, as
+\Cref{rem:ch28-completion-not-surjectivity} explains.
+
+\emph{Other residue characteristics.}  Equal characteristic \(p\), under
+geometric-origin and resolution hypotheses, is
+\Cref{thm:gjkm-positive-characteristic-cy}, from \cite{GJKM19} (2019);
+mixed characteristic, under resolution hypotheses, is
+\Cref{thm:fgk-mixed-characteristic-cy}, from \cite{FGK25} (2025).  Both
+replace multiplier ideals by test ideals in the envelope step and leave the
+support hypothesis on \(\mu\) untouched.
+
+\emph{Other ground fields.}  On a smooth projective geometrically
+connected curve over an arbitrary complete nontrivially valued field,
+\Cref{thm:curves-arbitrary-field-continuity} gives ample metric-envelope
+continuity and continuous semipositive solutions for positive measures of
+matching mass supported on a semistable skeleton.  The envelope input is
+\cite[Theorem~1.1]{GJKM19}.  This does not by itself transport every
+finite-energy or singular-psh assertion of this chapter.
+In dimension \(n\geq2\) over a
+general complete field the situation is different in kind.  The class
+\(\cE^1\) can be defined, but the extension of the Monge--Amp\`ere operator
+to it is explicitly left open in \cite[Remark~4.4]{PS23Hybrid}; the
+discretely valued residue-characteristic-zero case of the present chapter and
+the trivially valued case of \Cref{chap:bj-finite-energy} are the two
+established endpoints.  This is recorded as
+\Cref{prob:frontier-general-ma}.  We state, and use, nothing beyond those
+endpoints.
+
+\section{The Calabi--Yau correspondence}
+\label{sec:ch28-calabi-yau}
+
+\index{Calabi--Yau theorem!non-Archimedean, BFJ}
+The name \emph{Calabi--Yau theorem} is used in this book for a statement of
+the form: the Monge--Amp\`ere operator is a bijection from a class of
+potentials, modulo constants, onto a class of measures.  In the complex
+K\"ahler setting this is Yau's theorem, and in the finite-energy formulation
+of Guedj--Zeriahi and Boucksom--Eriksson--Guedj--Zeriahi it says that
+\(\MA\) is a bijection from \(\cE^1\) modulo constants onto the measures of
+finite energy.  We record here exactly how much of that shape is available in
+the present setting, and the answer is: the map, its variational
+characterization, and surjectivity onto an explicit class; injectivity for
+\(n=1\) and, by import, in general; and \emph{not} surjectivity onto all of
+\(\mathcal M^1_V\).
+
+\subsection{Statement}
+\label{sec:ch28-cy-statement}
+
+It is convenient to assemble the results of the chapter into one statement
+about the map
+\begin{equation}
+\label{eq:ch28-ma-map}
+ \MA_\omega:\ \cE^1(X,\omega)/\mathbf R\ \longrightarrow\
+ \mathcal M^1_V(X,\omega),
+\end{equation}
+which is well defined because \(\MA_\omega(\varphi+c)=\MA_\omega(\varphi)\)
+and because of \Cref{prop:ch28-dual-energy-of-ma}.
+
+\begin{theorem}
+\label{thm:ch28-calabi-yau}
+Retain the standing hypotheses \eqref{eq:ch28-standing} and assume that
+\(\omega\) has the orthogonality property.  Then the map
+\eqref{eq:ch28-ma-map} has the following properties.
+\begin{enumerate}
+\item\label{itm:ch28-cy:into}
+ It is well defined: \(\MA_\omega(\varphi)\) has mass \(V\) and finite dual
+ energy, and
+ \[
+  E^\vee_\omega(\MA_\omega(\varphi))
+  =E_\omega(\varphi)-\int\varphi\,\MA_\omega(\varphi).
+ \]
+\item\label{itm:ch28-cy:variational}
+ For \(\varphi\in\cE^1(X,\omega)\) and \(\mu\in\mathcal M_V(X)\) such
+ that \(\int\varphi\,\rd\mu> -\infty\), the following are equivalent:
+ \(\MA_\omega(\varphi)=\mu\); \(\varphi\)
+ maximizes \(F_\mu\); \(\mu\) is a supergradient of \(E_\omega\) at
+ \(\varphi\); and equality holds in the Fenchel inequality
+ \eqref{eq:measure-fenchel-energy} at the pair \((\varphi,\mu)\).
+\item\label{itm:ch28-cy:onto}
+ Its image contains every admissible measure, in particular every measure of
+ mass \(V\) supported on a dual complex; for such \(\mu\) the preimage
+ contains a \emph{continuous} representative.
+\item\label{itm:ch28-cy:injective}
+ It is injective on the classes of continuous potentials modulo constants
+ for \(n=1\); for \(n\geq2\) injectivity is the imported statement
+ \textup{(I2)}.
+\item\label{itm:ch28-cy:usc}
+ It is monotone-continuous: a decreasing net
+ \(\varphi_\alpha\searrow\varphi\) in \(\cE^1\) has
+ \(\MA_\omega(\varphi_\alpha)\to\MA_\omega(\varphi)\) weakly.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\cref{itm:ch28-cy:into} is \Cref{prop:ch28-dual-energy-of-ma}.
+\cref{itm:ch28-cy:variational} is
+\Cref{prop:variational-maximizer-solves} together with
+\Cref{cor:finite-energy-variational-characterization} and
+\Cref{cor:ch27-euler-lagrange-supergradient}; the equality clause in the
+Fenchel inequality is \Cref{prop:ch28-fenchel-defect}, since the defect
+\(J_\omega\) vanishes exactly at a solution by
+\eqref{eq:ch28-defect-identity}.  \cref{itm:ch28-cy:onto} combines
+\Cref{thm:ch28-existence-admissible},
+\Cref{lem:ch28-skeleton-admissible} and
+\Cref{thm:bfj-supported-cy}.  \cref{itm:ch28-cy:injective} is
+\Cref{prop:ch28-curve-uniqueness} and
+\Cref{rem:ch28-uniqueness-gap}.  \cref{itm:ch28-cy:usc} is
+\Cref{prop:e1-monotone-continuity}.
+\end{proof}
+
+\begin{warning}{What \Cref{thm:ch28-calabi-yau} does not say}
+It does not say that \eqref{eq:ch28-ma-map} is a bijection.  Surjectivity is
+open in the sense of \Cref{sec:ch28-surjectivity}; injectivity for
+\(n\geq2\) is imported.  It does not say that the map is a homeomorphism for
+the strong topologies: that statement, in the trivially valued setting, is
+\cite[Theorem~12.8]{BJ22} and belongs to
+\Cref{chap:bj-strong-topologies}.  And it says nothing about continuity of
+the inverse where the inverse exists, which is the subject of
+\Cref{sec:ch28-stability}.
+\end{warning}
+
+\begin{remark}[The correspondence in one line]
+\label{rem:ch28-correspondence-line}
+The content of \Cref{thm:ch28-calabi-yau} may be summarized as the
+commutativity of the Legendre picture:
+\[
+ \varphi\ \longmapsto\ \MA_\omega(\varphi),
+ \qquad
+ E_\omega(\varphi)-E^\vee_\omega\bigl(\MA_\omega(\varphi)\bigr)
+ =\int\varphi\,\MA_\omega(\varphi),
+\]
+the second identity being \eqref{eq:ch28-dual-energy-of-ma} rearranged.  It
+is the exact analogue, for the pair (energy, dual energy), of the
+Fenchel--Young equality \eqref{eq:fenchel-young-concave} at a supergradient,
+and of the entropy computation of \Cref{ex:legendre-entropy-pair}, where the
+dual of the free energy is the relative entropy and the equality case is the
+Gibbs measure.
+\end{remark}
+
+\subsection{The correspondence, item by item}
+\label{sec:ch28-cy-table}
+
+\begin{center}
+\small
+\begin{tabular}{p{.24\textwidth}|p{.24\textwidth}|p{.20\textwidth}|p{.22\textwidth}}
+\toprule
+\textbf{Potential side}&\textbf{Measure side}&\textbf{Status}
+ &\textbf{Reference}\\
+\midrule
+\(\varphi\in\cE^1(X,\omega)\)
+ &\(\MA_\omega(\varphi)\in\mathcal M^1_V\)
+ &proved
+ &\Cref{prop:ch28-dual-energy-of-ma}\\
+\(E_\omega(\varphi)\)
+ &\(E^\vee_\omega(\MA_\omega\varphi)\)
+ &Legendre pair
+ &\eqref{eq:ch28-dual-energy-of-ma}\\
+\(\varphi\) bounded, model
+ &\(\MA_\omega(\varphi)\) atomic on divisorial points
+ &proved
+ &\Cref{prop:ch24-model-support}\\
+\(\varphi\) continuous
+ &\(\mu\) carried by one dual complex
+ &sufficient, not necessary
+ &\Cref{thm:bfj-supported-cy},
+  \Cref{ex:ch28-unbounded-dual-energy}\\
+\(\varphi\) unbounded, finite energy
+ &\(\mu\) of finite dual energy, support not skeletal
+ &example
+ &\Cref{ex:ch28-unbounded-dual-energy}\\
+\(\varphi\) of infinite energy
+ &no measure: mass is lost
+ &example
+ &\Cref{ex:ch26-infinite-energy}\\
+--- (no potential)
+ &\(\delta_x\), \(x\) rational: \(E^\vee_\omega=+\infty\)
+ &example
+ &\Cref{ex:ch28-infinite-dual-energy}\\
+decreasing net \(\varphi_\alpha\searrow\varphi\)
+ &weak convergence of measures
+ &proved
+ &\Cref{prop:e1-monotone-continuity}\\
+maximizing net for \(F_\mu\)
+ &strong convergence to \(\mu\)
+ &proved modulo two quoted estimates
+ &\Cref{thm:finite-energy-measure-stability}\\
+\(\cE^1/\mathbf R\) complete?
+ &\(\mathcal M^1_V\) complete for \(\delta_\omega\)
+ &quoted; potential side not claimed
+ &\Cref{thm:finite-energy-measure-completion},
+  \Cref{rem:ch28-not-a-metric-on-potentials}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The table is arranged so that the two columns are, wherever possible,
+statements of the same strength.  The three rows in which they are not are
+the ones to remember: continuity of the potential is stronger than skeletal
+support of the measure; finiteness of the dual energy is weaker than uniform
+integrability; and completeness is asserted only on the measure side.
+
+\begin{remark}[Comparison with the complex and the trivially valued cases]
+\label{rem:ch28-cy-comparison}
+In the complex K\"ahler setting the corresponding statement is a genuine
+bijection \(\cE^1(X,\theta)/\mathbf R\to\mathcal M^1\), with a complete
+metric on each side; see \cite{BBGZ13} and, in the big-class generality,
+\cite{BEGZ10,BBEGZ16}.  Two things make that proof unavailable here.  The
+first is that the complex envelope \(P_\theta f\) of a continuous obstacle
+has an orthogonality property with a local Bedford--Taylor proof, whereas in
+the non-Archimedean setting orthogonality is an imported global theorem
+(\Cref{sec:ch27-orthogonality-mechanism}).  The second is coercivity: in the
+complex case one has a genuine metric on \(\cE^1\) and a compactness theorem
+for its bounded sets, and \Cref{prop:ch26-no-strong-compactness} shows that
+the naive non-Archimedean analogue fails.  In the trivially valued theory,
+where the envelope property holds in full for smooth \(X\) in characteristic
+zero, the bijection is restored: \cite[Theorem~12.8]{BJ22} identifies
+surjectivity of \(\MA\) with the envelope property and with completeness of
+\(\cE^1/\mathbf R\); this is developed in
+\Cref{chap:bj-finite-energy,chap:bj-strong-topologies}.  The present chapter
+is deliberately silent about whether the same equivalence holds over a
+discretely valued field.
+\end{remark}
+
+\section{Stability with respect to the measure}
+\label{sec:ch28-stability}
+
+Three stability statements are proved, in increasing strength and decreasing
+generality.  \Cref{thm:finite-energy-measure-stability} says that the
+measures of a maximizing net converge strongly; it applies to every
+finite-energy measure but says nothing about potentials.
+\Cref{prop:fixed-skeleton-stability} says that on a fixed dual complex the
+solutions converge; it applies only to admissible measures but controls
+potentials.  \Cref{thm:ch28-curve-stability} is a quantitative estimate with
+explicit constants, available on curves.
+
+\subsection{Strong convergence of a maximizing net}
+\label{sec:ch28-maximizing-net}
+
+\begin{theorem}
+\label{thm:finite-energy-measure-stability}
+Assume orthogonality and let \(\mu\in\mathcal M^1_V\).  If
+\(\varphi_j\) is a model sequence computing the supremum in
+\eqref{eq:dual-energy-measure}, then
+\[
+                     \MA_\omega(\varphi_j)\longrightarrow\mu
+\]
+strongly.  In particular, strong measure convergence implies weak
+convergence, but the converse need not hold.
+\end{theorem}
+\begin{proof}
+Put $\mu_j:=\MA_\omega(\varphi_j)$ and measure the defect of maximality by
+\[
+ \varepsilon_j:=E_\omega^\vee(\mu)-
+ \left(E_\omega(\varphi_j)-\int\varphi_j\,\rd\mu\right).
+\]
+Thus $\varepsilon_j\geq0$ and $\varepsilon_j\to0$.  We reproduce the
+maximizing-sequence argument of
+\cite[Theorem~2.23]{BJ25FiniteEnergy}, retaining our mass-$V$
+normalization.
+
+Let $f$ be a model function.  Openness of the ample cone writes $f$ as a
+difference of two model functions whose curvatures are bounded by a fixed
+multiple of $\omega$.  Uniform differentiability of equilibrium energy,
+which is the quantitative form of orthogonality used in the proof of
+\Cref{thm:finite-energy-measure-completion}, therefore gives a constant
+$A_f$ independent of $j$ such that, for $0<t\leq1$,
+\begin{equation}\label{eq:maximizing-uniform-differentiability}
+ \widetilde E_\omega(\varphi_j+tf)-E_\omega(\varphi_j)
+   -t\int f\,\rd\mu_j
+ \leq A_f t^2.
+\end{equation}
+Here
+$\widetilde E_\omega(g):=E_\omega(P_\omega g)$ is the equilibrium-energy
+extension.  Since $P_\omega(\varphi_j+tf)\leq\varphi_j+tf$, the definition
+of $E_\omega^\vee(\mu)$ yields
+\[
+ \widetilde E_\omega(\varphi_j+tf)
+ \leq E_\omega^\vee(\mu)+
+      \int(\varphi_j+tf)\,\rd\mu
+ =E_\omega(\varphi_j)+\varepsilon_j+
+      t\int f\,\rd\mu.
+\]
+Combining this with
+\eqref{eq:maximizing-uniform-differentiability} gives
+\[
+ t\int f\,\rd\mu_j
+ \leq t\int f\,\rd\mu+\varepsilon_j+A_ft^2.
+\]
+First let $j\to\infty$ and then $t\downarrow0$; applying the same argument
+to $-f$ gives
+\[
+                     \int f\,\rd\mu_j\longrightarrow
+                     \int f\,\rd\mu.
+\]
+Model functions are uniformly dense in $C^0(X^{\An})$ and all these
+measures have mass $V$, so $\mu_j\to\mu$ weakly.
+
+It remains to prove convergence of the Legendre energies.  Fenchel equality
+at a model Monge--Amp\`ere measure gives
+\[
+ E_\omega^\vee(\mu_j)
+ =E_\omega(\varphi_j)-\int\varphi_j\,\rd\mu_j.
+\]
+The mixed-energy Cauchy--Schwarz estimate used in
+\Cref{thm:finite-energy-measure-completion} supplies constants
+$C>0$ and $\alpha=2^{-n}$, independent of $j,k$, such that
+\begin{equation}\label{eq:maximizing-mixed-energy-control}
+ \left|\int\varphi_j\,\rd(\mu_j-\mu_k)\right|
+ \leq C\max\{\varepsilon_j,\varepsilon_k\}^{\alpha}.
+\end{equation}
+The energy bounds needed for a uniform $C$ follow from
+$E_\omega^\vee(\mu)<+\infty$ and the bounded defects
+$\varepsilon_j$.  For fixed $j$, weak convergence of $\mu_k$ lets
+$k\to\infty$ in the left-hand side of
+\eqref{eq:maximizing-mixed-energy-control}; then
+\[
+ \left|\int\varphi_j\,\rd(\mu_j-\mu)\right|
+ \leq C\varepsilon_j^\alpha.
+\]
+Consequently
+\[
+ E_\omega^\vee(\mu_j)-E_\omega^\vee(\mu)
+ =-\varepsilon_j+
+   \int\varphi_j\,\rd(\mu-\mu_j)\longrightarrow0.
+\]
+This is strong convergence by definition.  Its weak component is therefore
+automatic, while weak convergence alone does not force the last displayed
+energy convergence.
+\end{proof}
+
+This is the density mechanism in
+\Cref{thm:finite-energy-measure-completion}.  It does not assert that
+the maximizing potentials themselves converge pointwise to a potential.
+Mere weak convergence does not control the Legendre energies and can allow
+energy to escape into increasingly singular regions.
+
+\begin{remark}[A maximizing sequence always exists; a maximizer need not]
+\label{rem:ch28-maximizing-sequence-exists}
+\Cref{thm:finite-energy-measure-stability} speaks of a maximizing
+\emph{sequence}, and this is legitimate without any metrizability
+hypothesis, for a reason worth isolating.  The quantity
+\(E^\vee_\omega(\mu)\) is by \eqref{eq:dual-energy-measure} the supremum of a
+nonempty set of \emph{real numbers}, namely
+\(\{F_\mu(\varphi):\varphi\ \text{model psh}\}\); every supremum of a
+nonempty set of reals is the limit of a sequence drawn from that set.  So a
+sequence \((\varphi_j)\) with \(\varepsilon_j\to0\) exists.  What is
+\emph{not} available is a convergent subsequence of \((\varphi_j)\) in
+\(\PSH_0(X,\omega)\): that would require sequential compactness, and the
+space is only known to be compact, by \Cref{thm:bfj-psh-compactness}, with
+\Cref{lem:ch21-no-cofinal-sequence} obstructing the usual metrizability
+argument.  The theorem is therefore stated about the measures, which live in
+the weakly compact \emph{metrizable-free} space \(\mathcal M_V(X)\) and for
+which the argument produces convergence directly, and not about the
+potentials.  The passage to a genuine maximizer, where a net must be
+extracted, is \Cref{rem:ch28-net-form}, and it needs coercivity.
+\end{remark}
+
+\begin{remark}[Which parts of the proof are quoted]
+\label{rem:ch28-stability-quoted}
+Two estimates in the proof above are imported.  The first,
+\eqref{eq:maximizing-uniform-differentiability}, is a \emph{uniform} form of
+envelope differentiability: the constant \(A_f\) does not depend on \(j\).
+Pointwise differentiability, \Cref{thm:energy-envelope-differentiability},
+is not enough, because one must let \(j\to\infty\) before \(t\downarrow0\).
+The uniformity is exactly the quantitative content of orthogonality used in
+\cite{BJ25FiniteEnergy}; the reduction of a model function \(f\) to a
+difference of two \(\omega\)-psh model functions with curvature bounded by a
+multiple of \(\omega\) is \Cref{prop:ch20-positive-representative}.  The
+second, \eqref{eq:maximizing-mixed-energy-control}, is a Hölder-type
+mixed-energy estimate with exponent \(\alpha=2^{-n}\); its model-level source
+is the chain of Cauchy--Schwarz inequalities
+\eqref{eq:ch20-mixed-cauchy-schwarz}, iterated \(n\) times, which is where
+the exponent \(2^{-n}\) comes from.  Everything else in the proof is
+elementary manipulation of the definitions.
+\end{remark}
+
+\subsection{Stability of the solutions on a fixed dual complex}
+\label{sec:ch28-fixed-skeleton}
+
+\begin{proposition}
+\label{prop:fixed-skeleton-stability}
+Let \(\mu_i,\mu\) have mass \(V\), be supported on one fixed dual complex
+\(\Delta\), and satisfy \(\mu_i\to\mu\) weakly.  Let \(\varphi_i,\varphi\)
+be the solutions of \Cref{thm:bfj-supported-cy}, normalized by
+supremum zero.  Then \(\varphi_i\to\varphi\) in the BFJ weak topology and
+uniformly on \(\Delta\); their energies converge as well.
+\end{proposition}
+
+\begin{proof}
+The normalized psh restrictions form a compact subset of \(C^0(\Delta)\).
+Weak convergence of the measures is therefore uniform on this compact test
+family.  Hence the functionals \(F_{\mu_i}\) converge uniformly on the
+normalized psh space.  Every cluster point of their maximizers maximizes
+\(F_\mu\).  Uniqueness identifies it with \(\varphi\), so the whole net
+converges weakly; skeletal equicontinuity upgrades the restrictions to
+uniform convergence.  The identity
+\(E_\omega(\varphi_i)=F_{\mu_i}(\varphi_i)+
+\int\varphi_i\,\rd \mu_i\) gives convergence of energies.
+\end{proof}
+
+We expand the four assertions of that proof, since each rests on a statement
+that has to be located.
+
+\emph{Uniform convergence on a compact test family.}  Let
+\(\mathcal R:=\{\varphi|_\Delta:\varphi\in\PSH_0(X,\omega)\}\), a compact
+subset of \(C^0(\Delta)\) by \Cref{cor:ch22-arzela-ascoli}.  A net of
+measures on \(\Delta\) of bounded mass converging weakly converges uniformly
+on a compact subset of \(C^0(\Delta)\): given \(\varepsilon>0\), cover
+\(\mathcal R\) by finitely many balls of radius \(\varepsilon/(3V)\) with
+centres \(g_1,\ldots,g_N\), choose an index beyond which
+\(|\int g_m\,\rd\mu_i-\int g_m\,\rd\mu|<\varepsilon/3\) for every
+\(m\leq N\), and estimate an arbitrary \(g\in\mathcal R\) through the
+nearest centre.  Hence
+\begin{equation}
+\label{eq:ch28-uniform-on-test-family}
+ \sup_{\varphi\in\PSH_0(X,\omega)}
+ \Bigl|\int\varphi\,\rd\mu_i-\int\varphi\,\rd\mu\Bigr|
+ \ \longrightarrow\ 0 ,
+\end{equation}
+so \(F_{\mu_i}\to F_\mu\) uniformly on \(\PSH_0(X,\omega)\), all the
+functionals being finite there by \Cref{lem:ch28-skeleton-admissible}.
+
+\emph{Cluster points are maximizers.}  Uniform convergence of an upper
+semicontinuous family transfers maximizers to maximizers.  Precisely, let
+\(\varphi_{i_\beta}\to\chi\) be a convergent subnet, which exists by
+\Cref{cor:ch22-net-compactness}.  For any competitor
+\(\psi\in\PSH_0(X,\omega)\),
+\[
+ F_\mu(\chi)\ \geq\ \varlimsup_\beta F_{\mu}(\varphi_{i_\beta})
+ =\varlimsup_\beta F_{\mu_{i_\beta}}(\varphi_{i_\beta})
+ \ \geq\ \varlimsup_\beta F_{\mu_{i_\beta}}(\psi)=F_\mu(\psi),
+\]
+the first inequality by upper semicontinuity of \(F_\mu\)
+(Step~1 of the proof of \Cref{thm:ch28-existence-admissible}), the two
+equalities by \eqref{eq:ch28-uniform-on-test-family}, and the middle
+inequality by maximality of \(\varphi_{i_\beta}\) for \(F_{\mu_{i_\beta}}\).
+
+\emph{Identification of the cluster point.}  Orthogonality is in force,
+since \Cref{thm:bfj-supported-cy} assumes it and the solutions
+\(\varphi_i,\varphi\) are the ones it produces.  By
+\Cref{prop:variational-maximizer-solves}, \(\chi\) solves
+\(\MA_\omega(\chi)=\mu\); by \Cref{thm:bfj-supported-regularity} it is
+continuous; and by the uniqueness clause of
+\Cref{thm:bfj-supported-cy}, together with the normalization
+\(\sup\chi=0\), we get \(\chi=\varphi\).  Thus \(\varphi\) is the only
+possible limit of a convergent subnet.  In a compact space this forces
+convergence of the whole net: if \((\varphi_i)\) did not converge to
+\(\varphi\), some cofinal subnet would avoid a fixed neighbourhood of
+\(\varphi\), and by \Cref{prop:net-criterion}\,(3) that subnet would itself
+have a convergent subnet, whose limit would be a point of
+\(\PSH_0(X,\omega)\) different from \(\varphi\) --- impossible, because the
+argument above applies to every convergent subnet and because limits in
+\(\PSH_0(X,\omega)\) are unique: the BFJ topology is that of uniform
+convergence on dual complexes, and a psh function is determined by its
+skeletal restrictions by \Cref{thm:bfj-skeletal-characterization}, so the
+topology is Hausdorff and \Cref{prop:net-criterion}\,(4) applies.
+
+\emph{Convergence of energies.}  From
+\(E_\omega(\varphi_i)=F_{\mu_i}(\varphi_i)+\int\varphi_i\,\rd\mu_i\), the
+first summand converges to \(F_\mu(\varphi)\) --- it equals
+\(E^\vee_\omega(\mu_i)\) by
+\Cref{thm:ch28-existence-admissible}\,\cref{itm:ch28-exist:value}, and
+\eqref{eq:ch28-uniform-on-test-family} shows that
+\(\sup F_{\mu_i}\to\sup F_\mu\) --- while the second converges by
+\Cref{lem:joint-weak-uniform}, applied on \(\Delta\) to the uniformly
+convergent restrictions \(\varphi_i|_\Delta\) and the weakly convergent
+measures \(\mu_i\).  In particular \(\mu_i\to\mu\) strongly in the sense of
+\Cref{def:ch28-strong-measure-convergence}, and
+\(\varphi_i\to\varphi\) strongly in the sense of \Cref{sec:ch26-strong}.
+
+The proposition intentionally makes no claim of uniform convergence on all
+of \(X^{\An}\).  In higher dimension a semipositive metric solving a
+skeleton-supported equation need not factor through the retraction to that
+skeleton.
+
+\begin{warning}{Weak convergence of the measures is enough here, and only
+here}
+\Cref{prop:fixed-skeleton-stability} deduces strong convergence of the
+measures from \emph{weak} convergence.  That is legitimate because all the
+measures are carried by one compact set \(\Delta\) on which the normalized
+psh functions form an equicontinuous family; the implication is false in
+general, as \Cref{ex:ch28-infinite-dual-energy} shows, where a weakly
+convergent net of Monge--Amp\`ere measures has a limit of infinite dual
+energy.  The hypothesis that the \emph{same} dual complex carries every
+\(\mu_i\) cannot be weakened to ``each \(\mu_i\) is carried by some dual
+complex'': the union of an infinite family of dual complexes need not lie in
+one of them, and \Cref{prop:ch28-admissible-calculus}\,%
+\cref{itm:ch28-admcalc:union} covers only finite unions.
+\end{warning}
+
+\subsection{A quantitative estimate on curves}
+\label{sec:ch28-curve-stability}
+
+On a curve the whole variational problem is a Dirichlet problem on a metric
+graph, and stability becomes an explicit inequality with a constant
+depending only on the total length of the graph.  We prove it here; the
+worked numbers are in \Cref{sec:ch28-curves}.
+
+Throughout this subsection \(X\) is a smooth projective curve, \(\mathcal X\)
+a regular semistable model with skeleton \(\Gamma\) carrying its modulus
+lengths, \(r:X^{\An}\to\Gamma\) the retraction, and \(\omega\) a closed
+model form determined on \(\mathcal X\) whose curvature measure
+\(\mu_0=\MA_\omega(0)\) is carried by \(\Gamma\) and has mass
+\(V=\deg L\).  We write
+\begin{equation}
+\label{eq:ch28-dirichlet-form}
+ D_\Gamma(f):=\int_\Gamma|f'|^2\,\rd s\ \in[0,+\infty],
+ \qquad
+ L(\Gamma):=\text{total length of }\Gamma ,
+\end{equation}
+for the Dirichlet energy of a piecewise affine, or more generally absolutely
+continuous, function on \(\Gamma\).
+
+\begin{lemma}
+\label{lem:ch28-graph-sobolev}
+Let \(\Gamma\) be a compact connected metric graph of total length
+\(L(\Gamma)\) and let \(f\) be continuous on \(\Gamma\) and piecewise
+\(C^1\).  Then
+\begin{equation}
+\label{eq:ch28-graph-sobolev}
+ \operatorname{osc}_\Gamma f
+ \ \leq\ L(\Gamma)^{1/2}\,D_\Gamma(f)^{1/2}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let \(x,y\in\Gamma\) and let \(\gamma\) be an injective path from \(x\) to
+\(y\) inside \(\Gamma\); such a path exists because \(\Gamma\) is connected,
+and its length \(\ell(\gamma)\) is at most \(L(\Gamma)\) because an
+injective path traverses each edge at most once.  By the fundamental theorem
+of calculus along \(\gamma\) and the Cauchy--Schwarz inequality,
+\[
+ |f(x)-f(y)|
+ \ \leq\ \int_\gamma|f'|\,\rd s
+ \ \leq\ \ell(\gamma)^{1/2}
+   \Bigl(\int_\gamma|f'|^2\,\rd s\Bigr)^{1/2}
+ \ \leq\ L(\Gamma)^{1/2}D_\Gamma(f)^{1/2}.
+\]
+Taking the supremum over \(x,y\) gives \eqref{eq:ch28-graph-sobolev}.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch28-curve-stability}
+\index{stability!with respect to the measure}
+Let \(\mu_1,\mu_2\) be positive measures of mass \(V\) carried by
+\(\Gamma\), and let \(u_1,u_2\) be the corresponding solutions of
+\(\MA_\omega(u_a)=\mu_a\) furnished by
+\Cref{prop:graph-ma-solution}, normalized by
+\(\sup_{X^{\An}}u_a=0\).  Put \(u:=u_1-u_2\) and let
+\(\lVert\mu_1-\mu_2\rVert\) denote the total variation of the signed measure
+\(\mu_1-\mu_2\) on \(\Gamma\).  Then
+\begin{align}
+\label{eq:ch28-curve-stability-dirichlet}
+ D_\Gamma(u)&\ \leq\ L(\Gamma)\,\lVert\mu_1-\mu_2\rVert^2,\\
+\label{eq:ch28-curve-stability-sup}
+ \lVert u_1-u_2\rVert_{C^0(X^{\An})}
+   &\ \leq\ L(\Gamma)\,\lVert\mu_1-\mu_2\rVert ,\\
+\label{eq:ch28-curve-stability-dual}
+ \bigl|E^\vee_\omega(\mu_1)-E^\vee_\omega(\mu_2)\bigr|
+   &\ \leq\ \tfrac12L(\Gamma)\lVert\mu_1-\mu_2\rVert
+      \bigl(\lVert\mu_1-\mu_2\rVert
+        +2\min_a D_\Gamma(u_a)^{1/2}L(\Gamma)^{-1/2}\bigr).
+\end{align}
+In particular \(\mu\mapsto u_\mu\) is Lipschitz from the total-variation
+norm to the uniform norm, with constant \(L(\Gamma)\), and
+\(E^\vee_\omega\) is locally Lipschitz on the set of measures carried by
+\(\Gamma\).
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the Dirichlet identity.}  By
+\eqref{eq:curve-ma-laplacian} the two solutions satisfy
+\(\Delta_\Gamma u_a=\mu_a-\mu_0\) on \(\Gamma\), so
+\(\Delta_\Gamma u=\mu_1-\mu_2\).  The Dirichlet identity
+\eqref{eq:graph-dirichlet-sign} gives
+\begin{equation}
+\label{eq:ch28-stability-dirichlet-identity}
+ D_\Gamma(u)=-\int_\Gamma u\,\Delta_\Gamma u
+ =-\int_\Gamma u\,\rd(\mu_1-\mu_2),
+\end{equation}
+all terms being finite because \(u\) is continuous on the compact
+\(\Gamma\).
+
+\emph{Step 2: the estimate.}  Since \(\mu_1-\mu_2\) has total mass zero, the
+right-hand side of
+\eqref{eq:ch28-stability-dirichlet-identity} is unchanged when \(u\) is
+replaced by \(u-c\) for any constant \(c\); choosing \(c\) to be the
+midpoint of the range of \(u\) on \(\Gamma\) gives
+\[
+ D_\Gamma(u)\ \leq\ \tfrac12\operatorname{osc}_\Gamma(u)\,
+ \lVert\mu_1-\mu_2\rVert
+ \ \leq\ \tfrac12L(\Gamma)^{1/2}D_\Gamma(u)^{1/2}
+   \lVert\mu_1-\mu_2\rVert ,
+\]
+using \Cref{lem:ch28-graph-sobolev}.  If \(D_\Gamma(u)=0\) there is nothing
+to prove; otherwise dividing by \(D_\Gamma(u)^{1/2}\) gives
+\(D_\Gamma(u)^{1/2}\leq\tfrac12L(\Gamma)^{1/2}
+\lVert\mu_1-\mu_2\rVert\), whence
+\eqref{eq:ch28-curve-stability-dirichlet} with room to spare, and
+\[
+ \operatorname{osc}_\Gamma(u)\ \leq\ L(\Gamma)^{1/2}D_\Gamma(u)^{1/2}
+ \ \leq\ \tfrac12 L(\Gamma)\lVert\mu_1-\mu_2\rVert .
+\]
+
+\emph{Step 3: from the graph to \(X^{\An}\).}  By
+\Cref{prop:graph-ma-solution} both solutions factor through the retraction,
+\(u_a=U_a\circ r\) with \(U_a\) continuous on \(\Gamma\); this is the
+one-dimensional retraction statement, and it is false in higher dimension.
+Hence \(u=U\circ r\) with \(U=U_1-U_2\), and
+\(\lVert u\rVert_{C^0(X^{\An})}=\lVert U\rVert_{C^0(\Gamma)}\).  The
+normalization \(\sup_{X^{\An}}u_a=0\) and
+\Cref{prop:ch21-sup-on-skeleton} give \(\max_\Gamma U_a=0\) for
+\(a=1,2\); consequently \(U\) attains a value \(\leq0\) at a maximum point
+of \(U_2\) and a value \(\geq0\) at a maximum point of \(U_1\), so
+\(\lVert U\rVert_{C^0(\Gamma)}\leq\operatorname{osc}_\Gamma U\).  Combining
+with Step~2 gives \eqref{eq:ch28-curve-stability-sup}, again with a factor
+\(\tfrac12\) to spare.
+
+\emph{Step 4: the dual energies.}  By
+\Cref{prop:ch28-curve-dual-energy} below,
+\(E^\vee_\omega(\mu_a)=\tfrac12D_\Gamma(u_a)\).  Therefore
+\[
+ \begin{aligned}
+ \bigl|E^\vee_\omega(\mu_1)-E^\vee_\omega(\mu_2)\bigr|
+ &=\tfrac12\bigl|D_\Gamma(u_1)-D_\Gamma(u_2)\bigr|\\
+ &=\tfrac12\bigl|D_\Gamma(u_1)^{1/2}-D_\Gamma(u_2)^{1/2}\bigr|\\
+ &\qquad\cdot
+   \bigl(D_\Gamma(u_1)^{1/2}+D_\Gamma(u_2)^{1/2}\bigr).
+ \end{aligned}
+\]
+The first factor is at most \(D_\Gamma(u_1-u_2)^{1/2}\), because
+\(f\mapsto D_\Gamma(f)^{1/2}\) is a seminorm and hence satisfies the reverse
+triangle inequality; and by
+\eqref{eq:ch28-curve-stability-dirichlet} it is at most
+\(L(\Gamma)^{1/2}\lVert\mu_1-\mu_2\rVert\).  For the second factor, write
+\(D_\Gamma(u_1)^{1/2}+D_\Gamma(u_2)^{1/2}
+\leq 2\min_aD_\Gamma(u_a)^{1/2}+D_\Gamma(u)^{1/2}\), again by the triangle
+inequality, and bound \(D_\Gamma(u)^{1/2}\) as before.  This is
+\eqref{eq:ch28-curve-stability-dual}.
+\end{proof}
+
+\begin{remark}[What the constant measures, and what replaces it]
+\label{rem:ch28-curve-constant}
+The constant \(L(\Gamma)\) in \eqref{eq:ch28-curve-stability-sup} is the
+total length of the skeleton in its modulus metric; refining the semistable
+model subdivides edges without changing the total length, so the constant is
+a genuine invariant of the model, not of the chosen triangulation.  It does
+grow under a finite base change \(K'/K\) of ramification index \(e\), which
+rescales all lengths by \(e\); the corresponding behaviour of \(\mu_0\) and
+\(V\) is recorded in \Cref{thm:base-change-ma} and keeps
+\eqref{eq:ch28-curve-stability-sup} consistent.
+
+In dimension \(n\geq2\) no such elementary estimate is available, because
+\eqref{eq:ch28-stability-dirichlet-identity} becomes the vanishing of a sum
+of \(n\) Dirichlet coefficients \(a_k\) rather than of a single quadratic
+form, and a bound for \(a_0\) does not control the oscillation of \(u\) for
+the reason recorded in \Cref{rem:ch28-uniqueness-gap}.  What survives in
+general is \Cref{prop:fixed-skeleton-stability}, which is qualitative, and
+\Cref{thm:finite-energy-measure-stability}, which is quantitative but
+concerns the measures rather than the potentials.
+\end{remark}
+
+\section{Worked calculations}
+\label{sec:ch28-curves}
+
+The calculations below are carried to explicit numbers.  Together they test
+every normalization of the chapter: the mass \(V\) in
+\eqref{eq:dual-energy-measure}, the sign of the Legendre transform, the
+identity \eqref{eq:ch28-dual-energy-of-ma}, the coercivity constant
+\eqref{eq:ch28-skeleton-M-bound}, and the stability estimate
+\eqref{eq:ch28-curve-stability-sup}.  All of them except
+\Cref{ex:ch28-divisorial-green} take place on a metric graph, where the
+theory is a Hilbert-space computation.
+
+\subsection{The dual energy on a curve skeleton}
+\label{sec:ch28-curve-dual-energy}
+
+\begin{proposition}
+\label{prop:ch28-curve-dual-energy}
+\index{Dirichlet energy!on a metric graph}\index{Green function!energy of a measure}
+Let \(X\) be a smooth projective curve, \(\Gamma\) the skeleton of a regular
+semistable model determining \(\omega\), and \(\mu_0=\MA_\omega(0)\), of
+mass \(V=\deg L\), carried by \(\Gamma\).  Let \(\mu\) be a positive measure
+of mass \(V\) carried by \(\Gamma\) and let \(u\) be the solution of
+\(\MA_\omega(u)=\mu\) of \Cref{prop:graph-ma-solution}.  Then
+\begin{equation}
+\label{eq:ch28-curve-dual-energy}
+ E^\vee_\omega(\mu)
+ =\tfrac12\int_\Gamma|u'|^2\,\rd s
+ =\tfrac12 D_\Gamma(u)
+ =\tfrac12\int_\Gamma u\,\rd(\mu_0-\mu)
+ \ \in[0,+\infty).
+\end{equation}
+In particular \(E^\vee_\omega(\mu)=0\) if and only if \(\mu=\mu_0\).
+\end{proposition}
+
+\begin{proof}
+The function \(u\) is continuous, hence bounded, hence lies in
+\(\cE^1(X,\omega)\) by
+\Cref{thm:ch26-e1-structure}\,\cref{itm:ch26-e1:bounded}, and
+\(\MA_\omega(u)=\mu\).  \Cref{prop:ch28-dual-energy-of-ma} therefore gives
+\[
+ E^\vee_\omega(\mu)=E_\omega(u)-\int u\,\rd\mu .
+\]
+By \eqref{eq:ch26-graph-energy}, valid because \(n=1\) and \(u\) is
+piecewise affine on \(\Gamma\) --- or, for general continuous \(u\), by
+uniform approximation and \eqref{eq:ch26-energy-lipschitz} ---
+\[
+ E_\omega(u)=\int_\Gamma u\,\rd\mu_0-\tfrac12 D_\Gamma(u).
+\]
+Hence
+\[
+ E^\vee_\omega(\mu)
+ =\int_\Gamma u\,\rd(\mu_0-\mu)-\tfrac12D_\Gamma(u).
+\]
+Now \(\mu-\mu_0=\Delta_\Gamma u\) by \eqref{eq:curve-poisson}, and
+\eqref{eq:graph-dirichlet-sign} gives
+\(\int_\Gamma u\,\Delta_\Gamma u=-D_\Gamma(u)\), so
+\(\int_\Gamma u\,\rd(\mu_0-\mu)=D_\Gamma(u)\).  Substituting,
+\[
+ E^\vee_\omega(\mu)=D_\Gamma(u)-\tfrac12D_\Gamma(u)
+ =\tfrac12D_\Gamma(u),
+\]
+which is \eqref{eq:ch28-curve-dual-energy}, the third expression being the
+same computation read backwards.  Finally \(D_\Gamma(u)=0\) forces \(u\)
+constant on the connected graph \(\Gamma\), hence
+\(\mu=\mu_0+\Delta_\Gamma u=\mu_0\); and conversely \(u=0\) solves
+\(\MA_\omega(u)=\mu_0\).
+\end{proof}
+
+\begin{remark}[The classical energy of a measure]
+\label{rem:ch28-classical-energy}
+Formula \eqref{eq:ch28-curve-dual-energy} identifies the Legendre dual
+energy of \(\mu\) with one half of the Dirichlet energy of its Green
+potential relative to \(\mu_0\).  Writing \(g_\Gamma\) for the Green kernel
+of \Cref{prop:graph-ma-solution} and \(\nu=\mu-\mu_0\), which has total mass
+zero, one has \(u(x)=\int g_\Gamma(x,y)\,\rd\nu(y)\) and therefore
+\[
+ E^\vee_\omega(\mu)
+ =-\tfrac12\iint_{\Gamma\times\Gamma}
+    g_\Gamma(x,y)\,\rd\nu(x)\,\rd\nu(y),
+\]
+the classical energy of the signed measure \(\nu\), with the sign that makes
+it nonnegative.  This is the precise sense in which the non-Archimedean dual
+energy generalizes the logarithmic energy of classical potential theory; the
+higher-dimensional theory replaces the quadratic form by the mixed
+intersection inequalities of \Cref{thm:ch26-mixed-energy-identities}.
+\end{remark}
+
+\subsection{A solved equation on a four-component chain}
+\label{sec:ch28-chain}
+
+\begin{example}[{The chain \(\Gamma=[0,3]\): a solved equation, verified}]
+\label{ex:ch28-chain-dual-energy}
+Continue \Cref{ex:ch20-chain-three} and \Cref{ex:ch26-chain-energy}:
+\(\Gamma=[0,3]\) subdivided at the integers, all four vertices
+\(x_0,\ldots,x_3\) and three edges of length one, so \(L(\Gamma)=3\); the
+reference measure is \(\mu_0=\delta_{x_0}+\delta_{x_3}\) and \(V=2\).  A
+model function is a piecewise affine \(u\) with vertex values
+\((u_0,u_1,u_2,u_3)\), and by \eqref{eq:ch31-graph-laplacian} its
+Monge--Amp\`ere measure is the atomic measure whose mass at \(x_v\) is
+\begin{equation}
+\label{eq:ch28-chain-masses}
+ \begin{aligned}
+ m_0&=1+(u_1-u_0),
+ &m_1&=(u_0-u_1)+(u_2-u_1),\\
+ m_2&=(u_1-u_2)+(u_3-u_2),
+ &m_3&=1+(u_2-u_3),
+ \end{aligned}
+\end{equation}
+and \(u\) is \(\omega\)-psh exactly when all four entries are nonnegative,
+which is \eqref{eq:ch20-chain-constraints}.  By
+\eqref{eq:ch26-chain-energy},
+\begin{equation}
+\label{eq:ch28-chain-energy}
+ E_\omega(u)=u_0+u_3
+   -\tfrac12\bigl((u_1-u_0)^2+(u_2-u_1)^2+(u_3-u_2)^2\bigr).
+\end{equation}
+
+\emph{The equation \(\MA_\omega(u)=2\delta_{x_2}\).}  Setting
+\eqref{eq:ch28-chain-masses} equal to \((0,0,2,0)\) and solving from the
+left: \(1+(u_1-u_0)=0\) gives \(u_1-u_0=-1\); then
+\((u_0-u_1)+(u_2-u_1)=0\) gives \(u_2-u_1=-1\); then
+\((u_1-u_2)+(u_3-u_2)=2\) gives \(u_3-u_2=1\); and the fourth equation
+\(1+(u_2-u_3)=1-1=0\) is automatically satisfied, as it must be, the two
+sides having equal total mass \(2=V\).  Normalizing by
+\(\max_vu_v=0\) gives the unique solution
+\begin{equation}
+\label{eq:ch28-chain-solution}
+ u=(u_0,u_1,u_2,u_3)=(0,-1,-2,-1).
+\end{equation}
+
+\emph{Verification.}  The four masses \eqref{eq:ch28-chain-masses} are
+\[
+ \bigl(1-1,\ 1-1,\ 1+1,\ 1-1\bigr)=(0,0,2,0),
+\]
+all nonnegative, so \(u\) is indeed \(\omega\)-psh, and
+\(\MA_\omega(u)=2\delta_{x_2}\) of total mass \(2=V\).  The three edge
+slopes are \(-1,-1,+1\).
+
+\emph{Energy and dual energy.}  From \eqref{eq:ch28-chain-energy},
+\[
+ E_\omega(u)=0+(-1)-\tfrac12(1+1+1)=-\tfrac52 ,
+\]
+and \(\int u\,\rd\mu=2u_2=-4\), so
+\[
+ F_\mu(u)=E_\omega(u)-\int u\,\rd\mu=-\tfrac52+4=\tfrac32 .
+\]
+Independently, \Cref{prop:ch28-curve-dual-energy} gives
+\[
+ E^\vee_\omega(2\delta_{x_2})=\tfrac12D_\Gamma(u)
+ =\tfrac12\bigl(1^2+1^2+1^2\bigr)=\tfrac32 ,
+\]
+in agreement.  The two computations use different formulas ---
+\eqref{eq:ch28-dual-energy-of-ma} and
+\eqref{eq:ch28-curve-dual-energy} --- and their agreement is a check on the
+sign conventions of \Cref{app:normalizations}.
+
+\emph{Three more measures.}  The same procedure gives the following table;
+every solution is normalized by \(\max_vu_v=0\), and the last column is
+computed twice, as \(E_\omega(u)-\int u\,\rd\mu\) and as
+\(\tfrac12D_\Gamma(u)\).
+\begin{center}
+\small
+\begin{tabular}{c|c|c|c|c}
+\toprule
+\(\mu\)&solution \(u\)&\(E_\omega(u)\)&\(\int u\,\rd\mu\)
+ &\(E^\vee_\omega(\mu)\)\\
+\midrule
+\(\delta_{x_0}+\delta_{x_3}\)&\((0,0,0,0)\)&\(0\)&\(0\)&\(0\)\\
+\(\delta_{x_1}+\delta_{x_2}\)&\((0,-1,-1,0)\)&\(-1\)&\(-2\)&\(1\)\\
+\(\delta_{x_2}+\delta_{x_3}\)&\((0,-1,-2,-2)\)&\(-3\)&\(-4\)&\(1\)\\
+\(2\delta_{x_2}\)&\((0,-1,-2,-1)\)&\(-\tfrac52\)&\(-4\)&\(\tfrac32\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+For the second row the slopes are \((-1,0,1)\), so
+\(\tfrac12D_\Gamma=\tfrac12(1+0+1)=1\); for the third they are
+\((-1,-1,0)\), so \(\tfrac12D_\Gamma=1\); the first row is the reference,
+where \(u=0\) and both expressions vanish, confirming the equality case of
+\Cref{prop:ch28-curve-dual-energy}.
+
+\emph{The slope constraints.}  Writing \(s_j:=u_j-u_{j-1}\) for the three
+edge slopes, the four nonnegativity conditions
+\eqref{eq:ch28-chain-masses} read
+\[
+ 1+s_1\geq0,\qquad s_2-s_1\geq0,\qquad s_3-s_2\geq0,\qquad 1-s_3\geq0 ,
+\]
+that is
+\begin{equation}
+\label{eq:ch28-chain-slope-window}
+ -1\ \leq\ s_1\ \leq\ s_2\ \leq\ s_3\ \leq\ 1 .
+\end{equation}
+Thus an \(\omega\)-psh model function on this chain is exactly a convex
+piecewise affine function with all slopes in \([-1,1]\), which is
+\eqref{eq:ch20-chain-constraints} in slope coordinates.
+
+\emph{The coercivity constant, and how lossy it is.}  By
+\eqref{eq:ch28-chain-slope-window} every normalized \(u\) satisfies
+\(\operatorname{osc}_\Gamma u\leq|s_1|+|s_2|+|s_3|\leq L(\Gamma)=3\), hence
+\(-3\leq u\leq0\) on \(\Gamma\).  Therefore
+\eqref{eq:ch28-uniform-integrability} gives \(M(\mu)\leq3V=6\) for every
+\(\mu\) carried by \(\Gamma\), which is the bound
+\eqref{eq:ch28-skeleton-M-bound} with \(C=1\) and
+\(\delta(\Gamma)=3\).  On the other hand
+\eqref{eq:ch28-chain-slope-window} gives
+\(D_\Gamma(u)=s_1^2+s_2^2+s_3^2\leq3\), so by
+\Cref{prop:ch28-curve-dual-energy} the dual energy of any measure carried by
+\(\Gamma\) is at most \(\tfrac32\); and the value \(\tfrac32\) is attained,
+for instance at \(\mu=2\delta_{x_0}\), whose equations
+\(\eqref{eq:ch28-chain-masses}=(2,0,0,0)\) give
+\(s_1=s_2=s_3=1\) and hence, after normalizing \(\max_vu_v=0\), the solution
+\[
+ u=(-3,-2,-1,0),
+ \qquad
+ E_\omega(u)=(-3)+0-\tfrac32=-\tfrac92,
+ \qquad
+ E^\vee_\omega(2\delta_{x_0})=\tfrac32 .
+\]
+The check through \eqref{eq:ch28-dual-energy-of-ma} is
+\(E_\omega(u)-\int u\,\rd\mu=-\tfrac92-2\cdot(-3)=\tfrac32\), as it must be.
+So the coercivity bound \(M(\mu)\leq6\) overshoots the true maximum
+\(\tfrac32\) of the dual energy by a factor of four; the loss comes from
+replacing the Dirichlet integral by the crude bound
+\(\operatorname{osc}_\Gamma u\cdot V\).  This is typical: coercivity
+constants are qualitatively correct and quantitatively wasteful.
+\end{example}
+
+\subsection{Stability with numbers}
+\label{sec:ch28-stability-numbers}
+
+\begin{example}[An affine family, and the stability constant]
+\label{ex:ch28-affine-family}
+Let \(\Gamma=[x_0,x_1]\) be the two-vertex skeleton of
+\Cref{ex:two-vertex-ma}, of length \(L(\Gamma)=1\), with
+\(\mu_0=\delta_{x_0}+\delta_{x_1}\) and \(V=2\).  Parametrize \(\Gamma\) by
+\(t\in[0,1]\).  For \(\varepsilon\in[0,1]\) set
+\[
+ \mu_\varepsilon:=(1+\varepsilon)\delta_{x_0}
+                 +(1-\varepsilon)\delta_{x_1}
+ \ \in\ \mathcal M_2(X).
+\]
+
+\emph{The solution.}  By \eqref{eq:two-component-ma} with
+\(m_0=m_1=1\), a function with \(u(x_0)=a\), \(u(x_1)=b\) has
+\(\MA_\omega(u)=(1+b-a)\delta_{x_0}+(1+a-b)\delta_{x_1}\).  Setting this
+equal to \(\mu_\varepsilon\) gives \(b-a=\varepsilon\), and the
+normalization \(\max u=0\) gives
+\begin{equation}
+\label{eq:ch28-affine-solution}
+ u_\varepsilon(t)=\varepsilon(t-1),
+ \qquad
+ u_\varepsilon(x_0)=-\varepsilon,\quad u_\varepsilon(x_1)=0 .
+\end{equation}
+The slope is \(\varepsilon\in[0,1]\), so \(u_\varepsilon\) is
+\(\omega\)-psh by \Cref{ex:two-vertex-ma}, whose admissible region is
+\(|a-b|\leq1\).
+
+\emph{The three quantities.}  From \eqref{eq:ch26-graph-energy},
+\[
+ E_\omega(u_\varepsilon)
+ =u_\varepsilon(x_0)+u_\varepsilon(x_1)-\tfrac12\varepsilon^2
+ =-\varepsilon-\tfrac{\varepsilon^2}2 ,
+\]
+and
+\(\int u_\varepsilon\,\rd\mu_\varepsilon
+=(1+\varepsilon)(-\varepsilon)+(1-\varepsilon)\cdot0
+=-\varepsilon-\varepsilon^2\), so
+\[
+ F_{\mu_\varepsilon}(u_\varepsilon)
+ =-\varepsilon-\tfrac{\varepsilon^2}2+\varepsilon+\varepsilon^2
+ =\frac{\varepsilon^2}2 ,
+\]
+which agrees with \Cref{prop:ch28-curve-dual-energy}:
+\(E^\vee_\omega(\mu_\varepsilon)=\tfrac12D_\Gamma(u_\varepsilon)
+=\tfrac12\varepsilon^2\).
+
+\emph{The stability estimate.}  For
+\(\varepsilon,\varepsilon'\in[0,1]\),
+\[
+ u_\varepsilon-u_{\varepsilon'}
+ =(\varepsilon-\varepsilon')(t-1),
+ \qquad
+ \lVert u_\varepsilon-u_{\varepsilon'}\rVert_{C^0}
+ =|\varepsilon-\varepsilon'| ,
+\]
+the supremum being attained at \(t=0\); while
+\(\mu_\varepsilon-\mu_{\varepsilon'}
+=(\varepsilon-\varepsilon')(\delta_{x_0}-\delta_{x_1})\) has total variation
+\(\lVert\mu_\varepsilon-\mu_{\varepsilon'}\rVert
+=2|\varepsilon-\varepsilon'|\).  The estimate
+\eqref{eq:ch28-curve-stability-sup} predicts
+\[
+ \lVert u_\varepsilon-u_{\varepsilon'}\rVert_{C^0}
+ \ \leq\ L(\Gamma)\lVert\mu_\varepsilon-\mu_{\varepsilon'}\rVert
+ =2|\varepsilon-\varepsilon'| ,
+\]
+so the true constant is \(\tfrac12\) and the stated estimate overshoots by a
+factor of two.  The overshoot is exactly the factor discarded in Steps~2
+and~3 of the proof of \Cref{thm:ch28-curve-stability}: those steps in fact
+give \(\lVert u_1-u_2\rVert_{C^0}\leq\tfrac12L(\Gamma)
+\lVert\mu_1-\mu_2\rVert\), which here reads
+\(|\varepsilon-\varepsilon'|\) and is sharp.  We stated
+\eqref{eq:ch28-curve-stability-sup} with the cruder constant because the
+sharper one is not stable under the refinements of \(\Gamma\) used in
+\Cref{chap:bfj-continuity}.  The Dirichlet form obeys
+\eqref{eq:ch28-stability-dirichlet-identity} exactly:
+\[
+ \begin{aligned}
+ D_\Gamma(u_\varepsilon-u_{\varepsilon'})
+ &=(\varepsilon-\varepsilon')^2,\\
+ -\int_\Gamma(u_\varepsilon-u_{\varepsilon'})\,
+  \rd(\mu_\varepsilon-\mu_{\varepsilon'})
+ &=-(\varepsilon'-\varepsilon)(-1)(\varepsilon-\varepsilon')\\
+ &=(\varepsilon-\varepsilon')^2 .
+ \end{aligned}
+\]
+Finally
+\(|E^\vee_\omega(\mu_\varepsilon)-E^\vee_\omega(\mu_{\varepsilon'})|
+=\tfrac12|\varepsilon^2-\varepsilon'^2|\to0\) as
+\(\varepsilon'\to\varepsilon\), so \(\mu_{\varepsilon'}\to\mu_\varepsilon\)
+strongly in the sense of \Cref{def:ch28-strong-measure-convergence}, in
+accordance with \Cref{prop:fixed-skeleton-stability}.
+
+\emph{The two energies are not comparable from below.}  As
+\(\varepsilon\downarrow0\),
+\[
+ E^\vee_\omega(\mu_\varepsilon)=\frac{\varepsilon^2}2,
+ \qquad
+ -E_\omega(u_\varepsilon)=\varepsilon+\frac{\varepsilon^2}2,
+ \qquad
+ \frac{E^\vee_\omega(\mu_\varepsilon)}{-E_\omega(u_\varepsilon)}
+ =\frac{\varepsilon}{2+\varepsilon}\ \longrightarrow\ 0 .
+\]
+This is the assertion made in \Cref{rem:ch28-reading-dual-of-ma}: the lower
+bound \(0\) in \eqref{eq:ch28-dual-energy-bracket} cannot be improved to any
+positive multiple of \(-E_\omega(\varphi)\).  For contrast, on a chain of
+\(N\) unit edges with \(\mu_0=\delta_{x_0}+\delta_{x_N}\) and \(V=2\), the
+measure \(\mu=2\delta_{x_0}\) has solution
+\(u=(-N,-N+1,\ldots,-1,0)\), all slopes equal to \(1\), whence
+\[
+ D_\Gamma(u)=N,
+ \qquad
+ E^\vee_\omega(2\delta_{x_0})=\frac N2 ,
+ \qquad
+ E_\omega(u)=u_0+u_N-\frac N2=-\frac{3N}2 ,
+\]
+and the ratio \(E^\vee_\omega/(-E_\omega)=\tfrac13\) is bounded away from
+both \(0\) and the upper bound \(n=1\).  The whole range \((0,1]\) of ratios
+therefore occurs already on curves.
+\end{example}
+
+\subsection{A finite-energy measure not carried by any dual complex}
+\label{sec:ch28-not-skeletal}
+
+\begin{example}[An unbounded potential and its measure]
+\label{ex:ch28-unbounded-dual-energy}
+Keep the setting of \Cref{ex:ch26-unbounded-finite-energy}: \(K\) complete
+discretely valued, \(X=\mathbf P^1_K\), \(L=\cO(1)\), \(\omega\) the
+curvature of the model metric of \((\mathbf P^1_R,\cO(1))\), so
+\(\mu_0=\delta_\eta\) and \(V=1\); \(R_0=[\eta,0]\) the ray with parameter
+\(t\); and \(\varphi=u(\mathbf t)\) the \(\omega\)-psh function determined by
+the piecewise affine \(u\) with \(u(0)=0\) and slope \(-1/k\) on
+\([k-1,k]\), so that \(u(k)=-H_k\).  There it was computed that
+\[
+ \begin{aligned}
+ \MA_\omega(\varphi)
+   &=\sum_{k\geq1}\frac1{k(k+1)}\delta_{t=k}=: \mu,\\
+ E_\omega(\varphi)&=-\frac{\pi^2}{12},\\
+ \int(-\varphi)\MA_\omega(\varphi)&=\frac{\pi^2}6 .
+ \end{aligned}
+\]
+
+\emph{Its dual energy.}  By \eqref{eq:ch28-dual-energy-of-ma},
+\begin{equation}
+\label{eq:ch28-unbounded-dual-energy}
+ E^\vee_\omega(\mu)
+ =E_\omega(\varphi)+\int(-\varphi)\MA_\omega(\varphi)
+ =-\frac{\pi^2}{12}+\frac{\pi^2}{6}
+ =\frac{\pi^2}{12}\approx0.8225 .
+\end{equation}
+So \(\mu\in\mathcal M^1_1(\mathbf P^1,\omega)\), and the bracket
+\eqref{eq:ch28-dual-energy-bracket} reads
+\(0\leq\pi^2/12\leq n(-E_\omega(\varphi))=\pi^2/12\) with \(n=1\): the upper
+bound is attained, so the constant \(n\) in
+\eqref{eq:ch28-dual-energy-bracket} is sharp for \(n=1\).
+
+\emph{It is not carried by a dual complex.}  The support of \(\mu\) is
+\(\{t=k:k\geq1\}\), an infinite discrete set of divisorial points on
+\(R_0\) accumulating at the rational point \(z=0\).  A dual complex of an
+SNC model of \(\mathbf P^1\) is a finite metric graph, and its intersection
+with \(R_0\) is a bounded segment \([0,m]\); it therefore contains only
+finitely many of the points \(t=k\).  Hence \(\mu\) is carried by no dual
+complex, and \Cref{lem:ch28-skeleton-admissible} does not apply.
+
+\emph{It is nevertheless solvable.}  By
+\Cref{prop:ch28-image-is-solvable}, \(F_\mu\) attains its maximum at
+\(\varphi\) itself, with value \(\pi^2/12\).  The solution \(\varphi\) is
+\emph{unbounded}, so it is not continuous, and
+\Cref{thm:bfj-supported-cy} does not apply to \(\mu\) --- consistently, since
+\(\mu\) violates that theorem's support hypothesis.  This is the announced
+example separating the two sufficient conditions of
+\Cref{sec:ch28-coercivity} and \Cref{sec:ch28-image-solvable}.
+
+\emph{Is \(\mu\) admissible?}  No.  Uniform integrability fails:
+testing \eqref{eq:ch28-uniform-integrability} against the normalized psh
+functions \(\lambda\varphi_0^{\langle m\rangle}\) of
+\Cref{ex:ch28-infinite-dual-energy} gives
+\[
+ \begin{aligned}
+ -\int\lambda\varphi_0^{\langle m\rangle}\,\rd\mu
+ &=\lambda\sum_{k\geq1}\frac{\min\{k,m\}}{k(k+1)}\\
+ &=\lambda\Bigl(\sum_{k=1}^{m}\frac1{k+1}
+    +m\sum_{k>m}\frac1{k(k+1)}\Bigr)\\
+ &=\lambda\Bigl(H_{m+1}-1+\frac{m}{m+1}\Bigr)
+ \ \xrightarrow[m\to\infty]{}\ +\infty
+ \end{aligned}
+\]
+for each fixed \(\lambda\in(0,1]\), since \(H_{m+1}\to\infty\); here
+\(\sum_{k>m}\frac1{k(k+1)}=\frac1{m+1}\) by telescoping.
+Hence \(M(\mu)=+\infty\), while \(E^\vee_\omega(\mu)=\pi^2/12<\infty\).
+This shows that the implication
+\(\text{uniformly integrable}\Rightarrow\text{finite dual energy}\) of
+\Cref{lem:ch28-coercivity} is strict: uniform integrability is a genuinely
+stronger condition than finiteness of the dual energy, and it is the
+stronger one that yields existence of a maximizer by compactness.
+\end{example}
+
+\subsection{Two structural checks}
+\label{sec:ch28-two-checks}
+
+\begin{example}[A Dirac mass at a divisorial point]
+\label{ex:ch28-divisorial-green}
+Let \(x\) be divisorial and define
+\begin{equation}
+\label{eq:green-envelope-divisorial}
+ \varphi_x:=\sup\{\psi\in\PSH(X,\omega)\mid\psi(x)\leq0\}.
+\end{equation}
+After upper-semicontinuous regularization this is an envelope.  Orthogonality
+shows that \(\MA_\omega(\varphi_x)\) is supported at \(x\); the mass formula
+therefore gives
+\[
+                      \MA_\omega(\varphi_x)=V\delta_x.
+\]
+The envelope is continuous, but need not be a model function.  Finite
+generation of the associated section algebra is a sufficient condition for
+modelness; Boucksom--Jonsson give a divisorial example that is not
+\(\mathbf Q\)-PL \cite[Theorem~A]{BJGreen24}.
+
+Three consequences for the present chapter.  First, \(V\delta_x\) is carried
+by any dual complex containing \(x\), hence is admissible by
+\Cref{lem:ch28-skeleton-admissible}, so
+\Cref{thm:ch28-existence-admissible} and
+\Cref{thm:bfj-supported-cy} apply and produce a unique continuous normalized
+solution; the example identifies it, granted orthogonality, with the
+envelope \eqref{eq:green-envelope-divisorial}.  Second,
+\Cref{prop:ch28-dual-energy-of-ma} evaluates its dual energy in closed form:
+\[
+ E^\vee_\omega(V\delta_x)=E_\omega(\varphi_x)-V\varphi_x(x).
+\]
+Both terms are computable once a normalization of \(\varphi_x\) has been
+fixed, and the expression is invariant under adding a constant, since
+\(E_\omega\) shifts by \(cV\) and the second term by \(cV\) as well.  With
+the Green normalization \(\varphi_x(x)=0\) of \cite{BJGreen24}, it reduces to
+\(E_\omega(\varphi_x)\), which is then \(\geq0\) because \(\varphi_x\geq0\)
+--- the constant \(0\) being a competitor in
+\eqref{eq:green-envelope-divisorial} --- and \(E_\omega\) is increasing by
+\Cref{thm:extended-energy-basic}.  Third, the example shows that the
+solutions produced by \Cref{thm:bfj-supported-cy} need not be model
+functions, so no proof in this chapter may assume that the maximizer is a
+model function; this is a genuine constraint on proof strategies, not a
+technicality.
+\end{example}
+
+\begin{example}[The graph case]
+\label{ex:ch28-graph-case}
+On a compact skeleton \(\Gamma\) of a curve, write
+\(\MA_\omega(u)=\omega+\Delta u\).  Solving
+\(\MA_\omega(u)=\mu\) is the linear equation
+\[
+                          \Delta u=\mu-\omega,
+\]
+whose right side has total mass zero.  The Green kernel gives a continuous
+solution unique modulo constants.  In this dimension the Legendre energy is
+the classical energy of a measure and the variational functional is a
+strictly concave quadratic form.  The higher-dimensional theory replaces
+this Hilbert-space calculation by mixed intersection inequalities.
+
+The precise statements behind this paragraph are, in order:
+\Cref{prop:graph-ma-solution} for existence and uniqueness of the graph
+solution; \Cref{prop:ch28-curve-dual-energy} and
+\Cref{rem:ch28-classical-energy} for the identification of the dual energy
+with the classical energy; \Cref{prop:ch28-curve-uniqueness} for uniqueness
+of the analytic solution; and
+\Cref{thm:ch26-mixed-energy-identities} together with
+\Cref{thm:ch20-mixed-hodge} for the higher-dimensional substitute.  Strict
+concavity of \(F_\mu\) on the normalized psh space holds for \(n=1\) because
+\eqref{eq:ch26-graph-energy} exhibits \(E_\omega\) as an affine functional
+minus \(\tfrac12D_\Gamma\), and \(D_\Gamma\) is a positive definite
+quadratic form modulo constants; that is exactly the equality clause of
+\Cref{prop:ch20-relative-hodge} in dimension one, and it is what fails to be
+available for \(n\geq2\) with merely nef classes.
+\end{example}
+
+\section{Chapter dictionary}
+\label{sec:ch28-dictionary}
+
+\subsection{Objects and their variational meaning}
+\label{sec:ch28-dict-objects}
+
+\begin{center}
+\small
+\begin{tabular}{p{.26\textwidth}|p{.32\textwidth}|p{.34\textwidth}}
+\toprule
+\textbf{Object}&\textbf{Variational meaning}&\textbf{Established at}\\
+\midrule
+\(E^\vee_\omega(\mu)\)
+ &concave conjugate of \(E_\omega\); the value \(\sup F_\mu\)
+ &\Cref{def:dual-energy-measure},
+  \Cref{prop:ch28-sup-is-dual-energy}\\
+\(\mu(X^{\An})=V\)
+ &forced by translation invariance, not imposed
+ &\Cref{lem:ch28-mass-forced}\\
+\(\mathcal M^1_V(X,\omega)\)
+ &convex set with weakly compact dual-energy sublevels
+ &\Cref{prop:ch28-dual-order}\\
+\(E^\vee_\omega(\MA_\omega\varphi)
+ =E_\omega(\varphi)-\int\varphi\,\MA_\omega(\varphi)\)
+ &Fenchel equality at a solution
+ &\Cref{prop:ch28-dual-energy-of-ma},
+  \Cref{cor:finite-energy-variational-characterization}\\
+\(J_\omega(\varphi,\psi)\)
+ &the defect in the Fenchel inequality; \(=J_\varphi(\psi)\)
+ &\Cref{prop:ch28-fenchel-defect}\\
+uniform integrability \(M(\mu)<\infty\)
+ &coercivity of \(F_\mu\) at rate one
+ &\Cref{def:ch28-admissible-measure},
+  \Cref{lem:ch28-coercivity}\\
+continuous pairing
+ &upper semicontinuity of \(F_\mu\) on \(\PSH_0\)
+ &\Cref{def:ch28-admissible-measure}\\
+support on a dual complex
+ &admissibility, with
+  \(M(\mu)\leq C\delta(\Delta_{\mathcal X})V\)
+ &\Cref{lem:ch28-skeleton-admissible}\\
+maximizer of \(F_\mu\)
+ &solution of \(\MA_\omega(\varphi)=\mu\)
+ &\Cref{prop:variational-maximizer-solves},
+  \Cref{thm:ch28-existence-admissible}\\
+strong measure convergence
+ &weak convergence \(+\) convergence of dual energies
+ &\Cref{def:ch28-strong-measure-convergence},
+  \Cref{thm:finite-energy-measure-stability}\\
+\(\delta_\omega\) on measures
+ &complete quasi-metric for the strong topology
+ &\Cref{thm:finite-energy-measure-completion} (quoted)\\
+\(E^\vee_\omega(\mu)=\tfrac12D_\Gamma(u)\)
+ &classical energy of a measure on a graph
+ &\Cref{prop:ch28-curve-dual-energy}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The four statements that must never be merged}
+\label{sec:ch28-dict-four}
+
+\begin{center}
+\small
+\begin{tabular}{p{.22\textwidth}|p{.38\textwidth}|p{.32\textwidth}}
+\toprule
+\textbf{Name}&\textbf{Statement}&\textbf{Status here}\\
+\midrule
+Finite dual energy
+ &\(E^\vee_\omega(\mu)<\infty\), that is, \(F_\mu\) bounded above
+ &definition; \Cref{prop:ch28-sup-is-dual-energy}\\
+Uniform integrability
+ &\(\sup\{-\int\varphi\,\rd\mu:\varphi\in\PSH_0\}<\infty\)
+ &strictly stronger:
+  \Cref{ex:ch28-unbounded-dual-energy}\\
+Existence of a maximizer
+ &\(\sup F_\mu\) attained in \(\cE^1\)
+ &proved for admissible \(\mu\):
+  \Cref{thm:ch28-existence-admissible}\\
+Continuity of the solution
+ &the maximizer lies in \(C^0(X^{\An})\)
+ &a separate theorem, using support again:
+  \Cref{thm:bfj-supported-regularity}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The first is implied by the second and implies neither of the last two.  The
+third is implied by the second, and also, for a different reason, by
+membership in \(\MA_\omega(\cE^1)\)
+(\Cref{prop:ch28-image-is-solvable}).  The fourth is implied by neither of
+the first three: \Cref{ex:ch28-unbounded-dual-energy} exhibits a measure of
+finite dual energy whose solution is unbounded.
+
+\subsection{Numbers to remember}
+\label{sec:ch28-dict-numbers}
+
+\begin{center}
+\small
+\begin{tabular}{p{.40\textwidth}|p{.24\textwidth}|p{.28\textwidth}}
+\toprule
+\textbf{Quantity}&\textbf{Value}&\textbf{Where}\\
+\midrule
+mass of every measure in \(\mathcal M^1_V\)
+ &\(V=(\{\omega\}^n)\)
+ &\Cref{lem:ch28-mass-forced}\\
+dual energy of the reference measure \(\MA_\omega(0)\)
+ &\(0\)
+ &\Cref{lem:ch28-mass-forced},
+  \Cref{prop:ch28-curve-dual-energy}\\
+bracket for \(E^\vee_\omega(\MA_\omega\varphi)\), \(\sup\varphi=0\)
+ &\(0\leq\ \cdot\ \leq n(-E_\omega(\varphi))\)
+ &\eqref{eq:ch28-dual-energy-bracket}\\
+coercivity constant for skeletal \(\mu\)
+ &\(M(\mu)\leq C\delta(\Delta_{\mathcal X})V\)
+ &\eqref{eq:ch28-skeleton-M-bound}\\
+Hölder exponent in
+ \eqref{eq:maximizing-mixed-energy-control}
+ &\(\alpha=2^{-n}\)
+ &\Cref{thm:finite-energy-measure-stability}\\
+curve stability constant
+ &\(L(\Gamma)\)
+ &\eqref{eq:ch28-curve-stability-sup}\\
+chain solution of \(\MA_\omega(u)=2\delta_{x_2}\)
+ &\((0,-1,-2,-1)\), \(E_\omega=-\tfrac52\)
+ &\Cref{ex:ch28-chain-dual-energy}\\
+its dual energy
+ &\(\tfrac32\)
+ &\Cref{ex:ch28-chain-dual-energy}\\
+\(E^\vee_\omega\) on the chain, three atomic measures
+ &\(0,\ 1,\ 1,\ \tfrac32\)
+ &\Cref{ex:ch28-chain-dual-energy}\\
+affine family: \(E^\vee_\omega(\mu_\varepsilon)\)
+ &\(\varepsilon^2/2\)
+ &\Cref{ex:ch28-affine-family}\\
+its true stability constant versus the proved one
+ &\(\tfrac12\) versus \(L(\Gamma)=1\)
+ &\Cref{ex:ch28-affine-family}\\
+dual energy of \(\MA_\omega(\varphi)\),
+ \(\varphi\) the harmonic-slope potential
+ &\(\pi^2/12\approx0.8225\)
+ &\eqref{eq:ch28-unbounded-dual-energy}\\
+dual energy of a Dirac at a rational point of \(\mathbf P^1\)
+ &\(+\infty\)
+ &\Cref{ex:ch28-infinite-dual-energy}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Source notes}
+
+\enlargethispage{2\baselineskip}
+
+\paragraph{The original theory.}
+The original variational construction, finite-energy uniqueness, capacity
+regularization, and supported existence theorem are
+\cite[\S\S6--8]{BFJ15}; the exact statement is its Theorem~8.1.  The
+removal of algebraizability is \cite{BGGJKM20}.  The measure-side Legendre
+formalism and strong finite-energy completion are presented in
+\cite{BJ25FiniteEnergy}.  No assertion in this chapter says that an
+arbitrary finite-energy measure has a continuous solution.
+Over an arbitrary non-Archimedean field the finite-energy space can still be
+defined, but extension of the Monge--Amp\`ere operator is explicitly left
+open in \cite[Remark~4.4]{PS23Hybrid}; see
+\Cref{prob:frontier-general-ma}.
+
+\paragraph{The dating of the individual hypotheses.}
+The table of \Cref{sec:ch28-scope} may be read as a chronology.  The
+existence and continuity theorem for measures supported on a dual complex,
+over a discretely valued field of residue characteristic zero and for an
+algebraizable \(X\), is \cite{BFJ15} (2015).  The removal of
+algebraizability, by differentiability of non-Archimedean volumes, is
+\cite[Theorem~6.3.3 and Corollary~6.3.4]{BGGJKM20} (2020); the underlying
+volume functional is developed in \cite{BGM21}.  Continuity of envelopes and
+the Calabi--Yau theorem in equal characteristic \(p\), under geometric-origin
+and resolution hypotheses, are \cite[Theorems~1.4, 8.2, 9.2 and~9.3]{GJKM19}
+(2019).  The same paper proves ample metric-envelope continuity on
+curves over arbitrary complete nontrivially valued fields,
+\cite[Theorem~1.1]{GJKM19}; the separate skeletal-supported solution
+statement is \Cref{thm:curves-arbitrary-field-continuity}.
+Mixed characteristic,
+again under resolution hypotheses, is \cite{FGK25} (2025).  The trivially
+valued theory, in which the corresponding surjectivity statement is
+equivalent to the envelope property, is \cite[\S\S7--12]{BJ22} (2022) and
+\Cref{part:bj} of this book.  The synthetic, axiomatic treatment of
+finite-energy measures and their strong topology, from which
+\Cref{thm:finite-energy-measure-completion} is quoted, is
+\cite{BJ25FiniteEnergy} (2025).  None of the later results removes
+discreteness of the valuation in dimension \(n\geq2\).
+
+\paragraph{The complex source of the method.}
+The variational solution of a Monge--Amp\`ere equation by maximizing
+\(E-\int\cdot\,\rd\mu\) over a finite-energy class, the identification of the
+dual energy as a Legendre transform, and the coercivity/compactness scheme of
+\Cref{sec:ch28-coercivity} are those of Berman--Boucksom--Guedj--Zeriahi
+\cite{BBGZ13}, resting on the equilibrium-energy differentiability of
+Berman--Boucksom \cite{BB10}.  The finite-energy formalism in a big class,
+including the measure-side energy and its topology, is \cite{BEGZ10}, and the
+corresponding stability theory is \cite{BBEGZ16}; the reader who knows those
+papers will recognize \Cref{prop:ch28-dual-energy-of-ma},
+\Cref{prop:ch28-fenchel-defect} and \Cref{thm:ch28-existence-admissible} as
+the non-Archimedean transcriptions of standard complex statements.  The point
+at which the transcription stops is coercivity: in the complex case the
+functional \(J\) controls the sup-norm of a normalized potential, while
+\Cref{ex:ch28-unbounded-dual-energy} and
+\Cref{prop:ch26-no-strong-compactness} show that no such control is available
+here.  Classical potential theory on graphs, which is what the chapter
+reduces to for \(n=1\), is the setting in which the identity
+\(E^\vee=\tfrac12D_\Gamma\) of \Cref{prop:ch28-curve-dual-energy} is the
+classical energy of a measure; compare the logarithmic energy in
+\cite{Ceg98,Ceg04} for the analogous local statements.
+
+\paragraph{The presentational choices made here.}
+Four things are organized differently from the sources.
+
+First, the dual energy is defined by a supremum over \emph{model} psh
+functions and the enlargement of the test class is proved
+(\Cref{prop:ch28-test-class}) rather than assumed.  This keeps
+\Cref{prop:dual-energy-elementary} --- convexity and weak lower
+semicontinuity --- available with a two-line proof, and it isolates
+decreasing regularization \textup{(D3)} as the only input needed for the
+enlargement.
+
+Second, coercivity is axiomatized.  The two conditions of
+\Cref{def:ch28-admissible-measure} are stated separately because they do
+different work: uniform integrability produces the energy bound
+\eqref{eq:ch28-sublevel-inclusion}, continuity of the pairing produces upper
+semicontinuity of \(F_\mu\).  Support on a dual complex implies both
+(\Cref{lem:ch28-skeleton-admissible}), which is how the original theorem is
+recovered; but the two implications use different parts of
+\Cref{thm:bfj-skeletal-equicontinuity}, and separating them makes visible
+that neither condition is implied by finiteness of the dual energy
+(\Cref{ex:ch28-unbounded-dual-energy}).
+
+Third, uniqueness is dissected.  What is elementary --- vanishing of \(I\), of
+all the Dirichlet coefficients \(a_k\), and coincidence of the \(n+1\) mixed
+measures --- is proved here as \Cref{prop:ch28-solution-set}, and the single
+remaining inequality is displayed in \Cref{rem:ch28-uniqueness-gap} as the
+equality case of the relative Hodge index theorem for relatively \emph{nef}
+rather than \emph{ample} classes.  In dimension one that inequality is
+vacuous, and \Cref{prop:ch28-curve-uniqueness} closes the argument
+unconditionally.  This dissection matters because the first draft of this
+chapter attributed uniqueness to the comparison principle, which
+\Cref{rem:ch25-no-uniqueness} shows is not possible.
+
+Fourth, the measure-side quasi-metric of
+\Cref{thm:finite-energy-measure-completion} is quoted, not proved, and it is
+carefully kept apart from the energy gauge on potentials.  The reason is
+\Cref{ex:ch26-triangle-fails}: on a two-vertex metric graph the max-based
+gauge \eqref{eq:ch26-gauge} violates the triangle inequality by a factor of
+two, so no metric statement about \(\cE^1(X,\omega)\) may be inferred from a
+metric statement about \(\mathcal M^1_V(X,\omega)\).
+\Cref{rem:ch28-quasimetric-well-defined} records, in addition, that
+well-definedness of \(\delta_\omega\) on pairs of measures is inseparable
+from the uniqueness input.
+
+\paragraph{Nets rather than sequences.}
+The compactness argument of \Cref{thm:ch28-existence-admissible} is run with
+nets, and \Cref{rem:ch28-net-form} explains why: \(\PSH_0(X,\omega)\) is
+compact by \Cref{thm:bfj-psh-compactness} but is not known to be metrizable,
+and \Cref{lem:ch21-no-cofinal-sequence} obstructs the usual reduction.  On
+the other hand \Cref{rem:ch28-maximizing-sequence-exists} points out that a
+maximizing \emph{sequence} always exists, because the supremum defining
+\(E^\vee_\omega(\mu)\) is a supremum of real numbers; the distinction between
+these two statements is exactly the distinction between
+\Cref{thm:finite-energy-measure-stability}, which is about measures, and
+\Cref{thm:ch28-existence-admissible}, which is about potentials.  The general
+policy is that of \Cref{rem:net-vs-sequence-checklist}, and the relevant
+counterexamples are \Cref{ex:no-cofinal-sequence} and
+\Cref{ex:decreasing-net-not-sequential}.
+
+\paragraph{Green functions and the sharpness of skeletal support.}
+Two constructions of Boucksom--Jonsson bound the ambitions of the theory
+from opposite sides.  Their non-Archimedean Green functions
+\cite[Theorem~A]{BJGreen24} show that the solution attached to a Dirac mass
+at a divisorial point --- the envelope
+\eqref{eq:green-envelope-divisorial} --- need not be a \(\mathbf Q\)-PL
+function, so no proof may assume that the maximizer produced by
+\Cref{thm:ch28-existence-admissible} is a model function.  Their
+\cite[Theorem~B]{BJGreen24} constructs a finite atomic measure supported on a
+dual complex whose solution is invariant under no SNC retraction, which is
+why Step~3 of the proof of \Cref{thm:bfj-supported-cy} is a Dini-and-capacity
+argument and not a reduction to the skeleton.  The corresponding failure of
+retractions to preserve semipositivity in dimension \(\geq2\) is the appendix
+to \cite{GJKM19}.
+
+\paragraph{Scope.}
+Nothing in this chapter asserts the existence of the finite-energy
+Monge--Amp\`ere operator over a complete non-Archimedean field other than a
+discretely valued one of residue characteristic zero, and nothing asserts
+surjectivity of \eqref{eq:ch28-ma-map}.  Both are recorded as unresolved in
+\Cref{prob:frontier-general-ma}, with the exact source sentence
+\cite[Remark~4.4]{PS23Hybrid}.  The reader is warned that survey statements
+of the form ``the non-Archimedean Calabi--Yau theorem holds in finite
+energy'' compress at least four independent hypotheses, and that this chapter
+is written so that each of them can be located.
