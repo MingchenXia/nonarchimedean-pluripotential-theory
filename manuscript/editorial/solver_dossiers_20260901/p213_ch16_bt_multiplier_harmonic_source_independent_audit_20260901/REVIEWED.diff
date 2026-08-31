@@ -1,0 +1,206 @@
+diff --git a/manuscript/parts/part2/ch16_bedford_taylor.tex b/manuscript/parts/part2/ch16_bedford_taylor.tex
+index f91ddf7..00a8134 100644
+--- a/manuscript/parts/part2/ch16_bedford_taylor.tex
++++ b/manuscript/parts/part2/ch16_bedford_taylor.tex
+@@ -1622,11 +1622,15 @@ constant $f=c\geq0$, where $cT$ is positive and closed and
+ $\dprimeddprime(u\,cT)=c\,\dprimeddprime(uT)$ by linearity.
+ \end{proof}
+ 
+-CLD state the stronger \cite[Corollary~8.6.7]{CLD25}, for an arbitrary
+-continuous nonnegative $f$ such that $fT$ is again positive and closed; the
+-extra input there is a local smooth approximation of $f$ combined with
+-\Cref{prop:bt-current-stability}.  Only the locally constant case is used
+-below, so we do not reproduce that argument.
++The arbitrary continuous multiplier in the printed statement of
++\cite[Corollary~8.6.7]{CLD25} requires care: multiplying by a nonnegative
++function preserves positivity but does not automatically preserve
++closedness.  Even for smooth $f$, the Leibniz rule gives
++$\dprime(fT)=\dprime f\wedge T$ when $T$ is closed.  Smooth approximation
++of $f$ therefore does not supply a sequence of closed Bedford--Taylor
++currents to which \Cref{prop:bt-current-stability} applies.  We use only
++the locally constant assertion proved above; no assertion for arbitrary
++continuous multipliers is needed below.
+ 
+ \subsection{Dimension one}
+ \label{sec:ch16-bt-curves}
+@@ -2362,17 +2366,21 @@ records exactly what that case does and does not give.
+ \subsection{A variant adapted to harmonic charts}
+ \label{sec:ch16-harmonic-continuity}
+ 
+-The next statement will be needed in \Cref{sec:ch16-harmonic-charts}, where
+-the potentials are pullbacks of convex functions under a harmonic chart and
+-are therefore \emph{not} psh in general: only their products with a positive
+-closed current are positive.
++For a harmonic chart, convexity on the target must be distinguished from
++membership in the ordinary CLD sheaf $\operatorname{CPsh}_X$.  The following
++version of the continuity statement retains that membership explicitly.
++It will apply whenever a separate analytic argument establishes pshness of
++the pullbacks; the formal-metric argument in
++\Cref{thm:ch19-canonical-positivity} is one such instance.
+ 
+ \begin{proposition}
+ \label{prop:ch16-harmonic-continuity}
+ Let $(T_a)$ be a weakly convergent net of positive closed currents with
+ limit $T$, let $f:X\to\mathbf R^m$ be a harmonic chart, and let
+ $v_i^a\to v_i$ locally uniformly with all $v_i^a,v_i$ continuous convex on
+-$\mathbf R^m$.  Put $u_i^a=f^*v_i^a$ and $u_i=f^*v_i$.  Then
++$\mathbf R^m$.  Put $u_i^a=f^*v_i^a$ and $u_i=f^*v_i$.  Assume, for
++$1\leq i\leq q$, that $u_i^a$ and $u_i$ belong to the ordinary sheaf
++$\operatorname{CPsh}_X$.  Then
+ \[
+  u_0^a\,\dprimeddprime u_1^a\wedge\cdots\wedge\dprimeddprime u_q^a\wedge T_a
+  \longrightarrow
+@@ -2381,20 +2389,20 @@ $\mathbf R^m$.  Put $u_i^a=f^*v_i^a$ and $u_i=f^*v_i$.  Then
+ \end{proposition}
+ 
+ \begin{proof}
+-The proof of \Cref{thm:cld-bt-continuity} is repeated verbatim, with a
+-single change at step (3): positivity and closedness of
+-$\dprimeddprime(u_1^aS_a)$ are no longer supplied by
+-\Cref{thm:one-bt-factor}, whose hypothesis is that $u_1^a$ be psh, but by
+-\Cref{cor:ch16-harmonic-convex-positive}, whose hypothesis is that $u_1^a$
+-be the pullback of a convex function by a harmonic chart.  All other steps
+-use only continuity of the potentials and positivity of the currents.  This
+-is \cite[Proposition~8.7.3]{CLD25}; the reader should note the forward
+-reference, which is not circular, since
+-\Cref{cor:ch16-harmonic-convex-positive} is proved from
+-\Cref{thm:bt-harmonic-compatibility} and
+-\Cref{thm:cld-bt-continuity}, neither of which uses the present statement.
++The image under the continuous map $f$ of a compact subset of $X$ is compact.
++Thus local uniform convergence on the target implies local uniform
++convergence of every $u_i^a$ to $u_i$.  The stated psh hypotheses now allow
++direct application of \Cref{thm:cld-bt-continuity}.
+ \end{proof}
+ 
++The more general formulation of \cite[Proposition~8.7.3]{CLD25} invokes
++\cite[Corollary~8.11.3]{CLD25} to obtain positivity at each recursive
++step.  In the proof available here, harmonic-chart compatibility requires
++a skeletal Bedford--Taylor current
++(\Cref{thm:bt-harmonic-compatibility}); positivity and closedness alone
++are not those hypotheses.  Accordingly we do not remove the explicit
++$\operatorname{CPsh}_X$ assumption by that argument.
++
+ \section{Chern--Levine--Nirenberg estimates}
+ \label{sec:ch16-cln}
+ 
+@@ -3837,31 +3845,39 @@ $\sum_{C\in\mathscr C_D}u_*\mu_C=0$.
+ 
+ \begin{corollary}
+ \label{cor:ch16-harmonic-convex-positive}
+-Let $f:U\to\mathbf R^r$ be a harmonic chart and let $F$ be continuous convex.
+-Then $u=F\circ f$ is locally a difference of psh functions and
+-$\dprimeddprime u\wedge T$ is positive for every positive closed $T$ for
+-which the product is defined.
++Let $f:U\to\mathbf R^r$ be a harmonic chart, let $F$ be a continuous
++convex function on $\mathbf R^r$, and let $T$ be a skeletal Bedford--Taylor
++current on $U$.  Then the current
++$\dprimeddprime\bigl((F\circ f)T\bigr)$ is positive and closed.
+ \end{corollary}
+ \begin{proof}
+-On every relatively compact convex subset of the tropical target, choose
+-smooth convex functions $F_j$ converging uniformly to $F$.  The Hessian of
+-$F_j$ is positive semidefinite, so
+-$\dprimeddprime(F_j\circ f)$ is a positive harmonic-chart form.  By the
+-first part of \Cref{thm:bt-harmonic-compatibility}, its wedge with the
+-positive closed current $T$ is positive.  Bedford--Taylor continuity passes
+-to the uniform limit and gives positivity of
+-$\dprimeddprime(F\circ f)\wedge T$.
+-
+-The same local regularization writes $F\circ f$ as a locally approachable
+-psh function; in particular it is a difference of psh functions, trivially
+-by subtracting the psh constant zero.  If one works with a signed harmonic
+-chart presentation, decompose it into the difference of the two convex
+-presentations supplied by the chart.  This is
+-\cite[Corollary~8.11.3]{CLD25}.  The conclusion concerns convex functions in
+-harmonic charts and does not identify arbitrary classically psh functions
+-with the CLD approximation sheaf.
++Convolution with nonnegative smooth approximate identities gives smooth
++convex functions $F_j$ converging to $F$ locally uniformly.  Put
++$u_j=F_j\circ f$.  The positive semidefinite Hessian of $F_j$ makes
++$\dprimeddprime u_j$ a positive harmonic-chart $G$-form.  Applying
++\Cref{thm:bt-harmonic-compatibility} first to $u_j$ and then to
++$\ddprime u_j$ gives
++\[
++ \dprimeddprime(u_jT)=T\wedge\dprimeddprime u_j\geq0.
++\]
++These currents are closed, since they are $\dprimeddprime$-exact.
++Continuity of $f$ gives $u_j\to F\circ f$ locally uniformly.  By
++\Cref{lem:continuous-times-positive-current}, $u_jT\to(F\circ f)T$;
++continuity of the current differentials and closedness of the positive cone
++give the asserted positive closed limit.
+ \end{proof}
+ 
++This argument retains the hypotheses of
++\cite[Proposition~8.11.1]{CLD25}.  It does not justify the assertion for
++arbitrary positive closed currents printed in
++\cite[Corollary~8.11.3]{CLD25}.  Nor does it show that $F\circ f$ is
++locally approachable in the ordinary CLD sense: $F_j\circ f$ is
++$G$-smooth, and need not be ordinary smooth.  In the analytic setting,
++strictly parlinear harmonic coordinates over a nontrivially valued field
++admit a separate psh argument using residual line bundles
++\cite[Corollary~18.8.9]{CLD25}; its application to canonical metrics is
++spelled out in \Cref{thm:ch19-canonical-positivity}.
++
+ \section{Harmonic ambiguity}
+ \label{sec:ch16-harmonic-ambiguity}
+ 
+diff --git a/manuscript/parts/part2/ch19_cld_examples.tex b/manuscript/parts/part2/ch19_cld_examples.tex
+index ebfb186..104d660 100644
+--- a/manuscript/parts/part2/ch19_cld_examples.tex
++++ b/manuscript/parts/part2/ch19_cld_examples.tex
+@@ -2618,9 +2618,43 @@ Theorem~B.6.4]{CLD25}.  The implication
+ \Cref{prop:cld-psh-positive-current}.  For
+ \cref{itm:ch19-pos:data}$\Rightarrow$\cref{itm:ch19-pos:psh}: nefness of
+ $\mathcal M_s$ makes $q^*\overline M$ psh by
+-\Cref{thm:gk-formal-positivity-comparison}; the function $\tau$ is harmonic
+-and piecewise linear and $q_L$ is convex, so $\tau^*(\tfrac12q_L)$ is psh by
+-\Cref{cor:ch16-harmonic-convex-positive}; and $p^*\overline L$ is the
++\Cref{thm:ch17-psh-residual-nef}, since its residual bundles are pullbacks
++of the nef bundle $\mathcal M_s$.  We justify separately that
++$\tau^*(\tfrac12q_L)$ is psh; harmonicity by itself is not an ordinary
++smooth-approximation argument.
++
++Choose a lattice basis and write $h_1,\ldots,h_r$ for the coordinates of
++$\tau$.  By \Cref{prop:ch19-tau-coordinates}, each $h_j$ is an integral
++parlinear function with $\dprimeddprime[h_j]=0$.  The trivial line bundles
++with weights $h_j$ and $-h_j$ therefore both have zero first Chern current.
++Applying \Cref{thm:ch17-psh-residual-nef} to these two metrics shows that
++both $h_j$ and $-h_j$ are continuous psh.  Consequently every real affine
++function of $(h_1,\ldots,h_r)$ is psh, by the convex-cone property of the
++CLD sheaf and the inclusion of constants.
++
++Put $F=\tfrac12q_L$.  Its Hessian $H$ is a constant positive semidefinite
++matrix.  For $a\in\mathbf R^r$ let
++$\ell_a(t)=F(a)+\nabla F(a)\cdot(t-a)$.  Then
++\[
++ 0\leq F(t)-\ell_a(t)
++       =\tfrac12(t-a)^{\mathsf T}H(t-a)
++       \leq\tfrac12\|H\|\,\|t-a\|^2.
++\]
++On a fixed compact subset of $\mathbf R^r$, choose a finite
++$\varepsilon$-net $(a_j)$.  The convex function $\max_j\ell_{a_j}$ differs
++from $F$ there by at most $\tfrac12\|H\|\varepsilon^2$.  Its pullback by
++$\tau$ is a finite maximum of continuous psh functions, hence psh.
++As $\varepsilon\downarrow0$, these pullbacks converge uniformly on each
++fixed compact analytic neighbourhood under consideration.  Stability under
++local uniform limits gives $F\circ\tau$ psh.  If $r=0$, this assertion
++just says that a constant is psh.  This is the quadratic instance of the
++analytic result \cite[Corollary~18.8.9]{CLD25}; it does not use the
++general harmonic-chart assertion discussed in
++\Cref{cor:ch16-harmonic-convex-positive}.
++
++The quadratic function $f$ in the metric decomposition differs from $F$
++by a real affine function, whose pullback is psh by the preceding
++argument.  Thus $f\circ\tau$ is psh as well.  Now $p^*\overline L$ is the
+ product of these two psh metrics by
+ \eqref{eq:ch19-canonical-weight}.  Since $p$ has local sections,
+ $\overline L$ is psh.
+@@ -2639,7 +2673,7 @@ $c_1(q^*\overline M)\wedge\tau^*\omega^r\geq0$, and the fibre-integration
+ projection formula \Cref{thm:cld-fibre-projection} converts this into
+ $\langle c_1(\overline M),\alpha\rangle\geq0$ for every positive smooth
+ $\alpha$ on $B$, hence $c_1(\overline M)\geq0$ and $\mathcal M_s$ is nef by
+-\Cref{thm:gk-formal-positivity-comparison}.
++\Cref{thm:ch17-psh-residual-nef}.
+ 
+ Equivalence with \cref{itm:ch19-pos:nef} in the algebraic case: if $L$ is nef,
+ split $L^2=L_+\otimes L_-$ with $L_+$ symmetric and $L_-$ antisymmetric, so

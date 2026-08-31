@@ -100,11 +100,24 @@ verification hashes for the Bedford--Taylor subsection have been moved, without
 changing its mathematical statements, to
 `manuscript/editorial/chapter72_bedford_taylor_verification_archive_20260901.md`.
 
-A fresh 1 September whole-book build of the presentation-only revision has
-3,476 pages. Its local output is
+The subsequent 1 September rank-drop diagnostic and independently reviewed
+conditional four-family coefficient transport are preserved in
+`manuscript/editorial/solver_dossiers_20260901/chapter72_propagation_preservation_20260901/CHECKPOINT.md`.
+The original proof and its correction history are retained. This does not
+establish arbitrary-source propagation or satisfy the production gate.
+
+The latest 1 September whole-book build has 3,476 pages. It incorporates
+corrections to the CLD multiplier and harmonic-chart hypotheses in Chapter 16
+and a complete replacement of the affected canonical-metric positivity step
+in Chapter 19 using residual line bundles and convex tangent-plane approximation.
+These are corrections and exposition of existing results, not new research
+theorem promotions. Its local output is
 `output/pdf/Non-Archimedean_Pluripotential_Theory_current.pdf`; the older release
-PDF is preserved. Source hashes, build checks and the scoped visual review are
-in `manuscript/editorial/solver_dossiers_20260901/chapter72_presentation_build_20260901/BUILD_REPORT.md`.
+PDF and the preceding current PDF are preserved. Source hashes, build checks
+and the scoped visual review are in
+`manuscript/editorial/solver_dossiers_20260901/cld_hypothesis_repair_build_20260901/BUILD_REPORT.md`.
+The earlier presentation-only build remains documented separately in
+`manuscript/editorial/solver_dossiers_20260901/chapter72_presentation_build_20260901/BUILD_REPORT.md`.
 
 Downloaded reference copies, temporary build trees, TeX intermediate files,
 and superseded release PDFs are also intentionally excluded from version
