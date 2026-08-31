@@ -1,0 +1,120 @@
+\section{Worked examples on the Berkovich line}
+\label{sec:ch14-line-examples}
+
+Before continuing with the general theory we compute in the smallest
+nontrivial case.  Throughout this section $k$ is algebraically closed and
+\emph{trivially} valued, and
+\[
+ X=\mathbf P^{1,\An}_k .
+\]
+By \Cref{chap:berkovich} and \Cref{chap:skeleta}, $X$ is the compact space
+obtained from the disjoint union
+\[
+ \coprod_{b\in B}\bigl(\{b\}\times[-\infty,0]\bigr),
+ \qquad B=\mathbf P^1(k),
+\]
+by identifying all the points $(b,0)$ to a single point $\eta$, the trivial
+absolute value on $k(\mathbf P^1)$, and topologized so that a set $V$ is open
+if and only if each slice $V_b$ is open in $[-\infty,0]$ and, when
+$\eta\in V$, all but finitely many branches lie entirely in $V$.  We write
+$X_b$ for the branch of index $b$, $x_b=(b,-\infty)$ for its endpoint, which
+is the rigid point $b$, and $t$ for the coordinate on a branch, normalized so
+that $t(\eta)=0$, $t(x_b)=-\infty$, and $t=\log|T-b|$ in a coordinate $T$
+vanishing at $b$.  Note the sign: $t$ is \emph{minus} the tropical coordinate
+$-\log|T-b|$ of \Cref{chap:cld-forms}, chosen so that a branch reads
+$[-\infty,0]$ with the Gauss point at the right-hand end.  Since the metric on
+a branch is $|\rd t|$ either way, no Laplacian sign is affected; a reader who
+prefers the book's default may replace $t$ by $-t$ throughout this section and
+read the branches as $[0,+\infty]$.
+This is a tropical space of level $1$, boundaryless, and its calibration is
+the constant lattice $\mathbf Z$ on each branch.
+
+We record the two structural facts we shall use, both immediate from the
+definitions of \Cref{chap:tropical-spaces} transported by
+\Cref{thm:analytic-is-tropical-space}.
+
+\begin{lemma}
+\label{lem:ch14-star-smooth}
+\begin{enumerate}
+\item A function $f$ on $X$ is smooth if and only if each $f_b:=f|_{X_b}$ is
+  smooth on $[-\infty,0]$ and constant near $-\infty$, all but finitely many
+  $f_b$ are constant on the whole branch, and the outgoing slopes satisfy the
+  harmonicity relation $\sum_bf_b'(0)=0$.
+\item If $f:U\to\mathbf R^m$ is a tropical chart with $\eta\in U$, then there
+  is a finite $B_1\subset B$ such that $f$ is constant on $X_b\cap U$ for
+  every $b\notin B_1$.
+\item Every compact subset of $X\setminus\{\eta\}$ meets only finitely many
+  branches.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) and (2) are the definitions of a smooth function and of a paralinear map
+on the star, read off from the description of its domains: a domain
+containing $\eta$ contains all but finitely many complete branches, and a
+paralinear function on such a domain is required to be constant on all but
+finitely many of them.  The harmonicity relation at $\eta$ is the balancing
+condition of \Cref{def:ch10-weighted-balanced} for the fan with one ray per
+branch, all weights $1$.
+
+(3) Let $K\subset X\setminus\{\eta\}$ be compact.  Its complement is open and
+contains $\eta$, hence contains all but finitely many complete branches; so
+$K$ meets only finitely many branches.
+\end{proof}
+
+\begin{example}[Dirac masses and the Gauss point]
+\label{ex:ch14-line-diracs}
+For any $x\in X$ the evaluation $f\mapsto f(x)$ is a positive linear
+functional on $A_{X,c}^{0,0}$, hence a positive current $\delta_x$ of
+bidimension $(0,0)$ by
+\Cref{prop:ch14-automatic-continuity}\,(1); it is the Radon measure
+$\delta_x$ under the identification of
+\Cref{ex:ch14-forms-and-measures}.  Two features distinguish the endpoints
+from $\eta$.
+
+First, $\delta_{x_b}$ is a weak limit of currents defined by smooth forms.
+Indeed, let $\omega_N$ be the smooth $(1,1)$-form supported in $X_b$ whose
+density with respect to $\dprime t\wedge\ddprime t$ is a fixed bump of mass
+$1$ concentrated near $t=-N$.  For any smooth $f$, part (1) of
+\Cref{lem:ch14-star-smooth} makes $f_b$ constant on
+$[-\infty,-N_f]$ for some $N_f$, so
+$\langle[\omega_N],f\rangle=f_b(-\infty)=f(x_b)$ for $N\ge N_f$; the sequence
+is eventually constant.
+
+Second, $\delta_{x_b}$ is not $\dprimeddprime$ of anything smooth, and it is
+not the restriction of a current of bidimension $(1,1)$: by
+\Cref{cor:ch14-rigid-invisible} the rigid points support no current of
+bidimension $(1,1)$ at all.  There is no contradiction: $\delta_{x_b}$ has
+bidimension $(0,0)$.
+\end{example}
+
+\begin{example}[The Laplacian of a model function]
+\label{ex:ch14-line-model-function}
+Let $b_1,\ldots,b_r\in B$ be distinct and let $c_1,\ldots,c_r>0$.  Define
+$u:X\to\mathbf R$ by $u=0$ outside $X_{b_1}\cup\cdots\cup X_{b_r}$ and, on
+$X_{b_i}$,
+\[
+ u_{b_i}(t)=\max\{-c_i,\,c_it\}
+ \qquad\text{(so }u(\eta)=0,\ u(x_{b_i})=-c_i).
+\]
+Then $u$ is continuous, is a difference of tropically convex functions on
+each branch, and
+\[
+ \dprimeddprime[u]
+ =\sum_{i=1}^rc_i\,\delta_{p_i}
+   -\Bigl(\sum_{i=1}^rc_i\Bigr)\delta_\eta,
+\]
+where $p_i\in X_{b_i}$ is the point with $t=-1$.  Indeed, on each branch the
+computation is that of \Cref{ex:ch14-convex-corner-restated}: a convex corner
+of slope jump $c_i$ at $t=-1$ contributes $c_i\delta_{p_i}$, and at $\eta$
+the outgoing slopes of $u$ are $c_i$ into the branch $b_i$ and $0$ elsewhere,
+and \Cref{thm:ch11-graph-green}\,(1) together with
+\Cref{lem:ch11-graph-trace} evaluates the atom at a vertex as the sum of the
+outgoing slopes, here $\sum_i(-c_i)$.  The total mass is zero, as it must be for a
+$\dprimeddprime$ of a function on a compact boundaryless space, by
+\Cref{cor:analytic-stokes-green}.
+
+This is the local model of the curvature of a model metric: compare
+\Cref{ex:ch08-p1-tripod} and \eqref{eq:cld-curve-graph-laplacian}.
+\end{example}
+

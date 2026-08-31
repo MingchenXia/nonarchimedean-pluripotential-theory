@@ -106,7 +106,18 @@ conditional four-family coefficient transport are preserved in
 The original proof and its correction history are retained. This does not
 establish arbitrary-source propagation or satisfy the production gate.
 
-The latest 1 September whole-book build has 3,476 pages. It incorporates
+The subsequent component-curvature and full-CPsh weighted/polar packets have
+independent mathematical reviews and actual Rethlas reports returning
+`correct`. Detailed execution review, however, found an approval-gate bypass
+inside the first verifier run; these reports are not treated as a clean
+production gate or as permission to promote new theorems. The exact evidence,
+remaining review and integration status are recorded in
+`manuscript/editorial/chapter72_curvature_verification_checkpoint_20260901.md`.
+
+The latest 1 September whole-book build has 3,478 pages. It incorporates
+Chapter 14 corrections distinguishing skeleton measures from integration
+currents, retaining nonreduced multiplicities, and explaining the thickening
+counterexample to the unrestricted fibre formula. It also retains the
 corrections to the CLD multiplier and harmonic-chart hypotheses in Chapter 16
 and a complete replacement of the affected canonical-metric positivity step
 in Chapter 19 using residual line bundles and convex tangent-plane approximation.
@@ -115,6 +126,8 @@ theorem promotions. Its local output is
 `output/pdf/Non-Archimedean_Pluripotential_Theory_current.pdf`; the older release
 PDF and the preceding current PDF are preserved. Source hashes, build checks
 and the scoped visual review are in
+`manuscript/editorial/solver_dossiers_20260901/cld_cycle_current_repair_build_20260901/BUILD_REPORT.md`.
+The preceding Chapter 16/19 correction build is documented in
 `manuscript/editorial/solver_dossiers_20260901/cld_hypothesis_repair_build_20260901/BUILD_REPORT.md`.
 The earlier presentation-only build remains documented separately in
 `manuscript/editorial/solver_dossiers_20260901/chapter72_presentation_build_20260901/BUILD_REPORT.md`.
