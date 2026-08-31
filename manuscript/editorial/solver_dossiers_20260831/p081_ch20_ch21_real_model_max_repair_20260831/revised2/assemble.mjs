@@ -1,0 +1,24 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+import {spawnSync} from 'node:child_process';
+const here=path.dirname(fileURLToPath(import.meta.url)),parent=path.dirname(here);
+const source=path.join(parent,'revised1/patched/ch21_bfj_psh.tex');
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const before=fs.readFileSync(source,'utf8');
+if(sha(before)!=='ae6f71cd7db4c21108fb975e159ccaacf76d7f7251978224f7ac70886168769f')throw Error('parent changed');
+const old=String.raw`\(\rho:\mathcal Y\to\mathcal X\) on which \(D\) is Cartier.  Because`;
+const replacement=String.raw`\(\rho:\mathcal Y\to\mathcal X\) on which \(D\) is a rational Cartier
+divisor.  Because`;
+if(before.split(old).length!==2)throw Error('nonunique');
+const after=before.replace(old,replacement),dest=path.join(here,'patched/ch21_bfj_psh.tex');
+fs.mkdirSync(path.dirname(dest),{recursive:true});fs.writeFileSync(dest,after,{flag:'wx'});
+const repo='/private/tmp/nappt_p071_20260827',relative='manuscript/parts/part3/ch21_bfj_psh.tex';
+const diff=spawnSync('diff',['-u','--label','a/'+relative,'--label','b/'+relative,path.join(repo,relative),dest],{encoding:'utf8'});if(diff.status!==1)throw Error(diff.stderr);
+const patch=path.join(here,'ch21_bfj_psh.patch');fs.writeFileSync(patch,diff.stdout,{flag:'wx'});
+const checked=spawnSync('git',['apply','--check',patch],{cwd:repo,encoding:'utf8'});if(checked.status!==0)throw Error(checked.stderr);
+const names=['GATE.md','assemble.mjs','patched/ch21_bfj_psh.tex','ch21_bfj_psh.patch'];
+const files=names.map(name=>{const b=fs.readFileSync(path.join(here,name));return{name,bytes:b.length,sha256:sha(b)};});
+const result={date:'2026-08-31',status:'isolated rational-Cartier precision correction',source,sourceSha256:sha(before),old,replacement,files,patchCheck:'direct git apply --check passed; not applied'};
+fs.writeFileSync(path.join(here,'MANIFEST.json'),JSON.stringify(result,null,2)+'\n',{flag:'wx'});console.log(JSON.stringify(result,null,2));

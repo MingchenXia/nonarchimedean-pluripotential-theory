@@ -1,0 +1,36 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {fileURLToPath} from 'node:url';
+import {spawnSync} from 'node:child_process';
+const here=path.dirname(fileURLToPath(import.meta.url)),parent=path.dirname(here);
+const repo='/private/tmp/nappt_p071_20260827',name='ch28_finite_energy_measures.tex';
+const input=path.join(parent,'patched',name),live=path.join(repo,'manuscript/parts/part3',name);
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const rec=p=>{const b=fs.readFileSync(p);return{path:p,bytes:b.length,sha256:sha(b)};};
+if(rec(input).sha256!=='8c27a6812bf18c9a664a74494ecbcc0ccf7fa10c6f0b2e6f949d691cc8e56106')throw Error('Frozen input changed');
+let dst=fs.readFileSync(input,'utf8');
+const oldProof=fs.readFileSync(path.join(parent,'uniqueness_proof.tex'),'utf8').trimEnd();
+const addition=fs.readFileSync(path.join(here,'scope_addendum.tex'),'utf8');
+const proof=oldProof.replace('\\end{proof}',addition+'\\end{proof}');
+if(dst.split(oldProof).length!==2)throw Error('Proof not unique');dst=dst.replace(oldProof,proof);
+const anchor='\\label{eq:ch28-dirichlet-form}';
+if(dst.split(anchor).length!==2)throw Error('Display not unique');
+const a=dst.lastIndexOf('\\begin{equation}',dst.indexOf(anchor));
+const b=dst.indexOf('\\end{equation}',dst.indexOf(anchor))+'\\end{equation}'.length;
+dst=dst.slice(0,a)+fs.readFileSync(path.join(here,'dirichlet_display.tex'),'utf8').trimEnd()+dst.slice(b);
+fs.mkdirSync(path.join(here,'patched'),{recursive:true});
+fs.writeFileSync(path.join(here,'uniqueness_proof.tex'),proof+'\n');
+const output=path.join(here,'patched',name);fs.writeFileSync(output,dst);
+const d=spawnSync('diff',['-u','--label','a/manuscript/parts/part3/'+name,'--label','b/manuscript/parts/part3/'+name,live,output],{encoding:'utf8'});
+if(![0,1].includes(d.status))throw Error(d.stderr);
+const patch=path.join(here,'chapter.patch');fs.writeFileSync(patch,d.stdout);
+const check=spawnSync('git',['apply','--check',patch],{cwd:repo,encoding:'utf8'});if(check.status!==0)throw Error(check.stderr);
+const labels=s=>[...s.matchAll(/\\label\{([^}]+)\}/g)].map(m=>m[1]);
+const old=labels(fs.readFileSync(live,'utf8')),now=labels(dst);
+if(old.some(x=>!now.includes(x))||new Set(now).size!==now.length)throw Error('Label mismatch');
+const manifest={date:'2026-08-31',status:'exact revision; review pending',inputs:[rec(input),rec(live),rec(path.join(parent,'uniqueness_proof.tex'))],
+ outputs:['scope_addendum.tex','dirichlet_display.tex','GATE.md','assemble.mjs','uniqueness_proof.tex','chapter.patch','patched/'+name].map(n=>rec(path.join(here,n))),
+ checks:{oldLabels:old.length,newLabels:now.length,gitApplyCheck:'PASS; not applied'}};
+fs.writeFileSync(path.join(here,'MANIFEST.json'),JSON.stringify(manifest,null,2)+'\n');
+console.log(JSON.stringify({proof:rec(path.join(here,'uniqueness_proof.tex')),chapter:rec(output),checks:manifest.checks},null,2));

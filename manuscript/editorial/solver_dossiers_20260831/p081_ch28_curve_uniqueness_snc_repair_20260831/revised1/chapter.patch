@@ -1,0 +1,636 @@
+--- a/manuscript/parts/part3/ch28_finite_energy_measures.tex
++++ b/manuscript/parts/part3/ch28_finite_energy_measures.tex
+@@ -178,11 +178,12 @@
+ \(\mu\) does.
+ 
+ One dimension of the problem is visible already on a curve, and it is worth
+-recording at the outset because it is the only case in which every question
+-of the chapter has a complete elementary answer.  For \(n=1\) the operator
+-is affine: by \eqref{eq:curve-ma-laplacian},
++recording at the outset because the fixed-skeleton version of the problem
++has a complete elementary answer.  For \(n=1\) the operator
++is affine on a fixed skeleton: by
++\cref{lem:ch26-weighted-graph-real-bfj}, with the residue-weighted Laplacian,
+ \(\MA_\omega(u)=\mu_0+\Delta_\Gamma u\) on a skeleton, so the equation is
+-the linear Poisson equation \eqref{eq:curve-poisson}, the functional
++the linear Poisson equation \(\Delta_\Gamma u=\mu-\mu_0\), the functional
+ \(F_\mu\) is a strictly concave quadratic form, and the dual energy is a
+ classical Dirichlet integral.  \Cref{sec:ch28-curves} carries this out with
+ numbers.  In dimension \(n\geq2\) nothing of the sort is available, and each
+@@ -2154,44 +2155,94 @@
+ \end{proposition}
+ 
+ \begin{proof}
+-Both potentials are continuous, hence bounded, so
+-\Cref{prop:ch28-solution-set}\,\cref{itm:ch28-sol:mixed} applies with
+-\(n=1\): the single Dirichlet coefficient
+-\(a_0(\varphi,\psi)=-\int u\,\ddc u\) vanishes, where \(u=\varphi-\psi\) is
+-a continuous function on \(X^{\An}\).  Equivalently
+-\(\ddc u=\MA_\omega(\varphi)-\MA_\omega(\psi)=0\), so \(u\) is harmonic on
+-the connected compact Berkovich curve \(X^{\An}\).
++We retain the original BFJ hypotheses of \eqref{eq:ch28-standing}.
++In particular the reference form is real and its generic class is ample;
++no geometric-connectedness or reduced-model hypothesis is added.
++Set \(u=\varphi-\psi\), a continuous function on \(X^{\An}\).
+ 
+-We conclude on skeleta.  Let \(\Gamma\) be the skeleton of any semistable
+-model determining \(\omega\), with retraction \(p:X^{\An}\to\Gamma\).  By
+-\Cref{prop:ch25-curve-pushforward}, applied to the bounded \(\omega\)-psh
+-functions \(\varphi\) and \(\psi\),
+-\[
+- \MA_\omega(\varphi\circ p)=p_*\MA_\omega(\varphi)=p_*\mu
+- =p_*\MA_\omega(\psi)=\MA_\omega(\psi\circ p),
+-\]
+-and \(\varphi\circ p,\psi\circ p\) are \(\omega\)-psh model-like functions on
+-\(\Gamma\) by \Cref{prop:ch21-curve-retraction}.  Writing
+-\(U:=(\varphi-\psi)\circ p\), formula \eqref{eq:ch25-curve-ma} gives
+-\(\Delta_\Gamma U=0\), and the Dirichlet identity
+-\eqref{eq:graph-dirichlet-sign} gives
+-\[
+- \int_\Gamma|U'|^2\,\rd s=-\int_\Gamma U\,\Delta_\Gamma U=0 ,
++\emph{Testing the measure equality.}
++For every real model function \(h\),
++\begin{equation}
++\label{eq:ch28-curve-uniqueness-model-test}
++ \int_{X^{\An}}u\,\ddc h=0.
++\end{equation}
++Indeed, \cref{prop:ch24-continuous-uniform} supplies real
++\(\omega\)-psh model functions \(\varphi_j,\psi_j\) converging
++uniformly to \(\varphi,\psi\), respectively, whose measures converge
++weakly.  Model integration by parts, \cref{prop:model-integration-by-parts},
++gives
++\[
++ \int h\,\rd\bigl(\MA_\omega(\varphi_j)-\MA_\omega(\psi_j)\bigr)
++       =\int(\varphi_j-\psi_j)\,\ddc h.
+ \]
+-so \(U\) is constant on the connected graph \(\Gamma\); call the constant
+-\(c_\Gamma\).
++Here \(\ddc h\) is a fixed finite signed model measure.  The right-hand
++side converges by uniform convergence, and the left-hand side tends to
++zero by the asserted equality of the limiting measures and the continuity
++of \(h\).  This proves \eqref{eq:ch28-curve-uniqueness-model-test}.
++
++\emph{All component values on one SNC model coincide.}
++Let \(\mathcal X\) be any SNC model determining \(\omega\), and write
++\(\mathcal X_s=\sum_i b_iE_i\).  Its components need not have
++multiplicity one.  Put
++\[
++ U_i=u(x_{E_i}),\qquad D_U=\sum_i b_iU_iE_i.
++\]
++Since \(\mathcal X\) is regular, \(D_U\) is a vertical real Cartier
++divisor.  Its real model function \(h=\varphi_{D_U}\) takes the values
++\(U_i\), by \cref{lem:model-function-affine} and real linearity.
++The model-measure formula \eqref{eq:model-mixed-measure} and
++\eqref{eq:ch28-curve-uniqueness-model-test} therefore imply
++\[
++ 0=\sum_i b_iU_i(D_U\cdot E_i)=(D_U^2).
++\]
++The row-sum relation \((\mathcal X_s\cdot E_i)=0\) expands this as
++\[
++ 0=-(D_U^2)
++   =\sum_{i<j}b_ib_j(E_i\cdot E_j)(U_i-U_j)^2;
++\]
++this is \eqref{eq:ch20-hodge-laplacian} in dimension one.
++All summands are nonnegative.  Intersection degrees are taken over the
++residue field, so a nonrational intersection point contributes its full
++positive residue degree.
+ 
+-It remains to pass from the skeleta to \(X^{\An}\).  Both \(\varphi\) and
+-\(\psi\) are determined by their skeletal restrictions, by
+-\Cref{thm:bfj-skeletal-characterization}: for \(\omega\)-psh functions on a
+-curve one has \(\varphi=\inf_\Gamma\varphi\circ p_\Gamma\), the infimum being
+-over the cofinal system of semistable skeleta, by
+-\eqref{eq:ch21-decreasing-retractions}.  The constants \(c_\Gamma\) are
+-compatible under refinement, since a larger skeleton contains a smaller one;
+-so they are all equal to a single constant \(c\), and
+-\(\varphi\circ p_\Gamma-\psi\circ p_\Gamma\equiv c\) for every \(\Gamma\).
+-Taking the infimum over \(\Gamma\) --- legitimate because both families are
+-decreasing and \(c\) is finite --- gives \(\varphi-\psi\equiv c\).
++The special fibre is connected, hence its component-incidence graph is
++connected.  To recall the connectedness argument used in
++\cref{thm:ch20-ddc-exact}, properness makes
++\(H^0(\mathcal X,\mathcal O_{\mathcal X})\) a finite complete
++\(R\)-algebra.  If the special fibre were disconnected, its decomposition
++would give compatible nontrivial idempotents on all infinitesimal
++thickenings, and formal functions would give a nontrivial idempotent in
++this algebra.  This is impossible because it injects into
++\(H^0(X,\mathcal O_X)\), a field: \(X\) is smooth and connected,
++hence integral and proper.  Thus \(U_i=U_j\) along each edge forces all
++\(U_i\) to equal one number \(c_{\mathcal X}\).  If there is only one
++component, the conclusion is immediate.
++
++\emph{Passing from divisorial points to the analytic curve.}
++The SNC models determining \(\omega\) form a cofinal directed system
++by \cref{prop:snc-cofinal}.  A dominating model retains the normalized
++divisorial valuation of each old component on its strict transform.
++Consequently its constant agrees with \(c_{\mathcal X}\), and common
++domination shows that all these constants are one number \(c\).
++Every divisorial point occurs on such a model, after common domination
++and SNC resolution.  These points are dense by
++\cref{rem:quasimonomial-vs-divisorial}: rational points are dense on each
++skeleton and become vertices after subdivision, while the union of the
++SNC skeleta is dense by \cref{thm:skeleton-inverse-limit}.
++Since \(u\) is continuous, equality \(u=c\) on this dense set implies
++\(u=c\) on all of \(X^{\An}\).
++
++The argument uses SNC models with their actual multiplicities, not a
++cofinal family of reduced semistable models over the original field.
++It does not need a retraction formula for Monge--Amp\`ere measures.
++The uses of \cref{chap:skeleta} in this last step do not impose that
++chapter's extra geometric-connectedness convention.  The construction
++of common SNC dominations in \cref{prop:snc-cofinal} uses only a
++smooth generic fibre and the stated characteristic-zero resolution
++input.  The density statements in the smooth \emph{connected} scope
++are precisely \cite[\S2.4, Corollaries~2.4, 3.2 and 3.17]{BFJ16}.
++Thus ordinary connectedness, already used in the component calculation,
++is sufficient here.
+ \end{proof}
+ 
+ \begin{remark}[What is missing for \(n\geq2\), precisely]
+@@ -2732,173 +2783,193 @@
+ \subsection{A quantitative estimate on curves}
+ \label{sec:ch28-curve-stability}
+ 
+-On a curve the whole variational problem is a Dirichlet problem on a metric
+-graph, and stability becomes an explicit inequality with a constant
+-depending only on the total length of the graph.  We prove it here; the
+-worked numbers are in \Cref{sec:ch28-curves}.
++For measures carried by one finite curve skeleton, the variational problem
++is a weighted graph Dirichlet problem.  Stability becomes an explicit
++inequality.  We keep the total modulus length in the stated constants,
++while also recording the sharper resistance-length bound.
+ 
+-Throughout this subsection \(X\) is a smooth projective curve, \(\mathcal X\)
+-a regular semistable model with skeleton \(\Gamma\) carrying its modulus
+-lengths, \(r:X^{\An}\to\Gamma\) the retraction, and \(\omega\) a closed
+-model form determined on \(\mathcal X\) whose curvature measure
+-\(\mu_0=\MA_\omega(0)\) is carried by \(\Gamma\) and has mass
+-\(V=\deg L\).  We write
++Throughout this subsection we retain \eqref{eq:ch28-standing}:
++\(X\) is a smooth connected projective curve over the original discretely
++valued field, \(\mathcal X\) is a regular semistable model with skeleton
++\(\Gamma\), \(r:X^{\An}\to\Gamma\) is its retraction, and \(\omega\)
++is a semipositive \emph{real} closed model form of ample generic class
++determined on \(\mathcal X\).  Its measure \(\mu_0=\MA_\omega(0)\)
++has mass \(V=(\{\omega\})>0\).  No split-node or geometric-connectedness
++assumption is added.  Give each edge its modulus length \(\ell_e\) and
++its residue weight \(c_e=[\kappa(z_e):\widetilde K]\geq1\), retained
++on subdivisions, and write
+ \begin{equation}
+ \label{eq:ch28-dirichlet-form}
+- D_\Gamma(f):=\int_\Gamma|f'|^2\,\rd s\ \in[0,+\infty],
+- \qquad
+- L(\Gamma):=\text{total length of }\Gamma ,
++\begin{aligned}
++ D_\Gamma(f)&:=\sum_e c_e\int_e|f'|^2\,\rd s\ \in[0,+\infty],\\
++ L(\Gamma)&:=\sum_e\ell_e,
++ \qquad L_R(\Gamma):=\sum_e\frac{\ell_e}{c_e}\leq L(\Gamma).
++\end{aligned}
+ \end{equation}
+-for the Dirichlet energy of a piecewise affine, or more generally absolutely
+-continuous, function on \(\Gamma\).
++This defines the Dirichlet energy for continuous functions that are
++absolutely continuous on each edge, with value \(+\infty\) if the
++weighted derivative integral diverges.  The energy is weighted but the
++slope coordinate is unchanged.  Both lengths and the energy are zero
++when the graph is a point.
+ 
+ \begin{lemma}
+ \label{lem:ch28-graph-sobolev}
+-Let \(\Gamma\) be a compact connected metric graph of total length
+-\(L(\Gamma)\) and let \(f\) be continuous on \(\Gamma\) and piecewise
+-\(C^1\).  Then
++Let \(\Gamma\) be a compact connected finite metric graph with positive
++edge weights \(c_e\geq1\), including the unweighted case \(c_e=1\).
++If \(f\) is continuous and absolutely continuous on each edge, then
+ \begin{equation}
+ \label{eq:ch28-graph-sobolev}
+  \operatorname{osc}_\Gamma f
+- \ \leq\ L(\Gamma)^{1/2}\,D_\Gamma(f)^{1/2}.
++ \leq L_R(\Gamma)^{1/2}D_\Gamma(f)^{1/2}
++ \leq L(\Gamma)^{1/2}D_\Gamma(f)^{1/2}.
+ \end{equation}
++In particular this holds for the originally stated piecewise \(C^1\)
++functions.
+ \end{lemma}
+ 
+ \begin{proof}
+-Let \(x,y\in\Gamma\) and let \(\gamma\) be an injective path from \(x\) to
+-\(y\) inside \(\Gamma\); such a path exists because \(\Gamma\) is connected,
+-and its length \(\ell(\gamma)\) is at most \(L(\Gamma)\) because an
+-injective path traverses each edge at most once.  By the fundamental theorem
+-of calculus along \(\gamma\) and the Cauchy--Schwarz inequality,
++The conclusion is immediate if the graph is a point or the energy is
++infinite.  Otherwise join \(x,y\) by an injective path \(\gamma\),
++subdividing at its endpoints.  Such a path exists by connectedness and
++traverses no edge segment twice.  The fundamental theorem of calculus and
++weighted Cauchy--Schwarz give
+ \[
+  |f(x)-f(y)|
+- \ \leq\ \int_\gamma|f'|\,\rd s
+- \ \leq\ \ell(\gamma)^{1/2}
+-   \Bigl(\int_\gamma|f'|^2\,\rd s\Bigr)^{1/2}
+- \ \leq\ L(\Gamma)^{1/2}D_\Gamma(f)^{1/2}.
++ \leq\int_\gamma|f'|\,\rd s
++ \leq\left(\int_\gamma\frac{\rd s}{c_e}\right)^{1/2}
++       \left(\int_\gamma c_e|f'|^2\,\rd s\right)^{1/2}
++ \leq L_R(\Gamma)^{1/2}D_\Gamma(f)^{1/2}.
+ \]
+-Taking the supremum over \(x,y\) gives \eqref{eq:ch28-graph-sobolev}.
++Taking the supremum and using \(L_R(\Gamma)\leq L(\Gamma)\) proves
++\eqref{eq:ch28-graph-sobolev}.
+ \end{proof}
+ 
+ \begin{theorem}
+ \label{thm:ch28-curve-stability}
+ \index{stability!with respect to the measure}
+ Let \(\mu_1,\mu_2\) be positive measures of mass \(V\) carried by
+-\(\Gamma\), and let \(u_1,u_2\) be the corresponding solutions of
+-\(\MA_\omega(u_a)=\mu_a\) furnished by
+-\Cref{prop:graph-ma-solution}, normalized by
+-\(\sup_{X^{\An}}u_a=0\).  Put \(u:=u_1-u_2\) and let
+-\(\lVert\mu_1-\mu_2\rVert\) denote the total variation of the signed measure
+-\(\mu_1-\mu_2\) on \(\Gamma\).  Then
++\(\Gamma\), and let \(u_1,u_2\) be the continuous BFJ solutions of
++\(\MA_\omega(u_a)=\mu_a\) constructed in
++\cref{lem:ch26-weighted-graph-real-bfj}, normalized by
++\(\sup_{X^{\An}}u_a=0\).  Put \(u=u_1-u_2\), and write
++\(\lVert\mu_1-\mu_2\rVert\) for total variation on \(\Gamma\).  Then
+ \begin{align}
+ \label{eq:ch28-curve-stability-dirichlet}
+- D_\Gamma(u)&\ \leq\ L(\Gamma)\,\lVert\mu_1-\mu_2\rVert^2,\\
++ D_\Gamma(u)&\leq L(\Gamma)\lVert\mu_1-\mu_2\rVert^2,\\
+ \label{eq:ch28-curve-stability-sup}
+  \lVert u_1-u_2\rVert_{C^0(X^{\An})}
+-   &\ \leq\ L(\Gamma)\,\lVert\mu_1-\mu_2\rVert ,\\
++   &\leq L(\Gamma)\lVert\mu_1-\mu_2\rVert,\\
+ \label{eq:ch28-curve-stability-dual}
+  \bigl|E^\vee_\omega(\mu_1)-E^\vee_\omega(\mu_2)\bigr|
+-   &\ \leq\ \tfrac12L(\Gamma)\lVert\mu_1-\mu_2\rVert
+-      \bigl(\lVert\mu_1-\mu_2\rVert
+-        +2\min_a D_\Gamma(u_a)^{1/2}L(\Gamma)^{-1/2}\bigr).
++   &\leq\tfrac12L(\Gamma)\lVert\mu_1-\mu_2\rVert^2
++      +L(\Gamma)^{1/2}\lVert\mu_1-\mu_2\rVert
++          \min_a D_\Gamma(u_a)^{1/2}.
+ \end{align}
+-In particular \(\mu\mapsto u_\mu\) is Lipschitz from the total-variation
+-norm to the uniform norm, with constant \(L(\Gamma)\), and
+-\(E^\vee_\omega\) is locally Lipschitz on the set of measures carried by
+-\(\Gamma\).
++The last bound is written without inverse powers of \(L(\Gamma)\),
++so it also makes sense for a point skeleton.
++Each occurrence of \(L(\Gamma)\) in the three bounds may be replaced
++by \(L_R(\Gamma)\).  In particular \(\mu\mapsto u_\mu\) is Lipschitz
++from total variation to the uniform norm with the stated constant, and
++\(E^\vee_\omega\) is locally Lipschitz on measures carried by \(\Gamma\).
+ \end{theorem}
+ 
+ \begin{proof}
+-\emph{Step 1: the Dirichlet identity.}  By
+-\eqref{eq:curve-ma-laplacian} the two solutions satisfy
+-\(\Delta_\Gamma u_a=\mu_a-\mu_0\) on \(\Gamma\), so
+-\(\Delta_\Gamma u=\mu_1-\mu_2\).  The Dirichlet identity
+-\eqref{eq:graph-dirichlet-sign} gives
++\emph{The finite-energy identity.}
++The construction in \cref{lem:ch26-weighted-graph-real-bfj} applies to
++the real form \(\omega\) and provides the asserted BFJ solutions over
++the original field.  It also proves edgewise absolute continuity,
++finite weighted energy, and integration by parts for their difference.
++Since \(\Delta_\Gamma u=\mu_1-\mu_2\),
+ \begin{equation}
+ \label{eq:ch28-stability-dirichlet-identity}
+- D_\Gamma(u)=-\int_\Gamma u\,\Delta_\Gamma u
+- =-\int_\Gamma u\,\rd(\mu_1-\mu_2),
++ D_\Gamma(u)=-\int_\Gamma u\,\rd\Delta_\Gamma u
++            =-\int_\Gamma u\,\rd(\mu_1-\mu_2).
+ \end{equation}
+-all terms being finite because \(u\) is continuous on the compact
+-\(\Gamma\).
++Continuity alone would not have justified the derivative integral; the
++strong derivative convergence in that lemma does.
+ 
+-\emph{Step 2: the estimate.}  Since \(\mu_1-\mu_2\) has total mass zero, the
+-right-hand side of
+-\eqref{eq:ch28-stability-dirichlet-identity} is unchanged when \(u\) is
+-replaced by \(u-c\) for any constant \(c\); choosing \(c\) to be the
+-midpoint of the range of \(u\) on \(\Gamma\) gives
++\emph{The estimate.}
++The signed measure has mass zero.  Subtract the midpoint of the range of
++\(u\) before bounding its integral, and apply
++\cref{lem:ch28-graph-sobolev}:
+ \[
+- D_\Gamma(u)\ \leq\ \tfrac12\operatorname{osc}_\Gamma(u)\,
+- \lVert\mu_1-\mu_2\rVert
+- \ \leq\ \tfrac12L(\Gamma)^{1/2}D_\Gamma(u)^{1/2}
+-   \lVert\mu_1-\mu_2\rVert ,
+-\]
+-using \Cref{lem:ch28-graph-sobolev}.  If \(D_\Gamma(u)=0\) there is nothing
+-to prove; otherwise dividing by \(D_\Gamma(u)^{1/2}\) gives
+-\(D_\Gamma(u)^{1/2}\leq\tfrac12L(\Gamma)^{1/2}
+-\lVert\mu_1-\mu_2\rVert\), whence
+-\eqref{eq:ch28-curve-stability-dirichlet} with room to spare, and
++ D_\Gamma(u)
++ \leq\tfrac12\operatorname{osc}_\Gamma(u)\lVert\mu_1-\mu_2\rVert
++ \leq\tfrac12 L_R(\Gamma)^{1/2}D_\Gamma(u)^{1/2}
++                       \lVert\mu_1-\mu_2\rVert.
++\]
++If \(D_\Gamma(u)=0\) there is nothing to divide by.  Otherwise divide
++by its square root.  In both cases,
+ \[
+- \operatorname{osc}_\Gamma(u)\ \leq\ L(\Gamma)^{1/2}D_\Gamma(u)^{1/2}
+- \ \leq\ \tfrac12 L(\Gamma)\lVert\mu_1-\mu_2\rVert .
++ D_\Gamma(u)^{1/2}
++ \leq\tfrac12L_R(\Gamma)^{1/2}\lVert\mu_1-\mu_2\rVert,
++ \qquad
++ \operatorname{osc}_\Gamma u
++ \leq\tfrac12L_R(\Gamma)\lVert\mu_1-\mu_2\rVert.
+ \]
++This proves the first asserted bound, with room to spare.
+ 
+-\emph{Step 3: from the graph to \(X^{\An}\).}  By
+-\Cref{prop:graph-ma-solution} both solutions factor through the retraction,
+-\(u_a=U_a\circ r\) with \(U_a\) continuous on \(\Gamma\); this is the
+-one-dimensional retraction statement, and it is false in higher dimension.
+-Hence \(u=U\circ r\) with \(U=U_1-U_2\), and
+-\(\lVert u\rVert_{C^0(X^{\An})}=\lVert U\rVert_{C^0(\Gamma)}\).  The
+-normalization \(\sup_{X^{\An}}u_a=0\) and
+-\Cref{prop:ch21-sup-on-skeleton} give \(\max_\Gamma U_a=0\) for
+-\(a=1,2\); consequently \(U\) attains a value \(\leq0\) at a maximum point
+-of \(U_2\) and a value \(\geq0\) at a maximum point of \(U_1\), so
+-\(\lVert U\rVert_{C^0(\Gamma)}\leq\operatorname{osc}_\Gamma U\).  Combining
+-with Step~2 gives \eqref{eq:ch28-curve-stability-sup}, again with a factor
+-\(\tfrac12\) to spare.
++\emph{The uniform norm on the analytic curve.}
++Both solutions factor through \(r\), so their difference has the same
++uniform norm on \(X^{\An}\) and on \(\Gamma\).  Each restriction has
++maximum zero.  At a maximum of \(u_2\), the difference is nonpositive;
++at a maximum of \(u_1\), it is nonnegative.  Thus
++\(\lVert u_1-u_2\rVert_\infty\leq\operatorname{osc}_\Gamma(u_1-u_2)\).
++The preceding estimate proves the second bound.  No factorization of
++an arbitrary higher-dimensional solution is being asserted.
+ 
+-\emph{Step 4: the dual energies.}  By
+-\Cref{prop:ch28-curve-dual-energy} below,
+-\(E^\vee_\omega(\mu_a)=\tfrac12D_\Gamma(u_a)\).  Therefore
++\emph{The dual energies.}
++The independent calculation in \cref{prop:ch28-curve-dual-energy} below
++uses \cref{lem:ch26-weighted-graph-real-bfj,prop:ch26-graph-energy}, not
++the present theorem, and gives \(E^\vee_\omega(\mu_a)=D_\Gamma(u_a)/2\).
++Put \(A_a=D_\Gamma(u_a)^{1/2}\) and \(B=D_\Gamma(u_1-u_2)^{1/2}\).
++The weighted derivative norm is a seminorm, so
+ \[
+- \begin{aligned}
++ |A_1-A_2|\leq B,\qquad A_1+A_2\leq2\min(A_1,A_2)+B.
++\]
++Consequently
++\[
+  \bigl|E^\vee_\omega(\mu_1)-E^\vee_\omega(\mu_2)\bigr|
+- &=\tfrac12\bigl|D_\Gamma(u_1)-D_\Gamma(u_2)\bigr|\\
+- &=\tfrac12\bigl|D_\Gamma(u_1)^{1/2}-D_\Gamma(u_2)^{1/2}\bigr|\\
+- &\qquad\cdot
+-   \bigl(D_\Gamma(u_1)^{1/2}+D_\Gamma(u_2)^{1/2}\bigr).
+- \end{aligned}
++ \leq\tfrac12B^2+B\min(A_1,A_2).
+ \]
+-The first factor is at most \(D_\Gamma(u_1-u_2)^{1/2}\), because
+-\(f\mapsto D_\Gamma(f)^{1/2}\) is a seminorm and hence satisfies the reverse
+-triangle inequality; and by
+-\eqref{eq:ch28-curve-stability-dirichlet} it is at most
+-\(L(\Gamma)^{1/2}\lVert\mu_1-\mu_2\rVert\).  For the second factor, write
+-\(D_\Gamma(u_1)^{1/2}+D_\Gamma(u_2)^{1/2}
+-\leq 2\min_aD_\Gamma(u_a)^{1/2}+D_\Gamma(u)^{1/2}\), again by the triangle
+-inequality, and bound \(D_\Gamma(u)^{1/2}\) as before.  This is
+-\eqref{eq:ch28-curve-stability-dual}.
++Use the weaker bound
++\(B\leq L_R(\Gamma)^{1/2}\lVert\mu_1-\mu_2\rVert\) already proved.
++This is the third estimate with \(L_R\), hence also with \(L\).
++The same estimates bound \(A_a\) on every total-variation bounded
++neighborhood of a fixed measure, proving the local Lipschitz assertion.
++For a point skeleton the sole measure of mass \(V\) is \(\mu_0\),
++the normalized solution is zero, and all three estimates read \(0\leq0\).
+ \end{proof}
+ 
+ \begin{remark}[What the constant measures, and what replaces it]
+ \label{rem:ch28-curve-constant}
+-The constant \(L(\Gamma)\) in \eqref{eq:ch28-curve-stability-sup} is the
+-total length of the skeleton in its modulus metric; refining the semistable
+-model subdivides edges without changing the total length, so the constant is
+-a genuine invariant of the model, not of the chosen triangulation.  It does
+-grow under a finite base change \(K'/K\) of ramification index \(e\), which
+-rescales all lengths by \(e\); the corresponding behaviour of \(\mu_0\) and
+-\(V\) is recorded in \Cref{thm:base-change-ma} and keeps
+-\eqref{eq:ch28-curve-stability-sup} consistent.
++The constant \(L(\Gamma)\) is the total analytic modulus length.
++The sharper \(L_R(\Gamma)\) is the total resistance length
++\(\sum_e\ell_e/c_e\).  Subdividing edges preserves both totals, because
++the sublengths sum to the old length and each piece retains \(c_e\).
++General domination may also attach branches, so it need not preserve
++either total.  For a function pulled back from the old skeleton, its
++derivative on an attached branch is zero and its weighted energy is
++unchanged.  One may retain the estimate on the old common support
++skeleton or use the possibly larger constant on the new one.
+ 
+-In dimension \(n\geq2\) no such elementary estimate is available, because
+-\eqref{eq:ch28-stability-dirichlet-identity} becomes the vanishing of a sum
+-of \(n\) Dirichlet coefficients \(a_k\) rather than of a single quadratic
+-form, and a bound for \(a_0\) does not control the oscillation of \(u\) for
+-the reason recorded in \Cref{rem:ch28-uniqueness-gap}.  What survives in
+-general is \Cref{prop:fixed-skeleton-stability}, which is qualitative, and
+-\Cref{thm:finite-energy-measure-stability}, which is quantitative but
+-concerns the measures rather than the potentials.
++There is no unconditional rule that finite scalar extension multiplies
++every analytic length by the ramification index.  With the absolute value
++extended from \(K\), the modulus \(-\log|\alpha|\) of a given lifted
++node chart \(xy=\alpha\) is unchanged; splitting, new components and
++residue degrees must still be accounted for.  If instead the discrete
++valuation is renormalized so that the new uniformizer has value one,
++all logarithmic lengths and potentials are being rescaled.  That is a
++different normalization, not the fixed-absolute-value scalar extension.
++Apply the estimates to the actual resulting weighted graph and the
++consistent measure conventions of \cref{thm:base-change-ma}.
++
++In dimension \(n\geq2\) the scalar Dirichlet coefficient is replaced by
++several mixed coefficients.  A bound for one of them does not control
++oscillation, for the reason in \cref{rem:ch28-uniqueness-gap}.
++The qualitative \cref{prop:fixed-skeleton-stability} and the
++measure estimate \cref{thm:finite-energy-measure-stability} remain the
++separately stated higher-dimensional results.
+ \end{remark}
+ 
+ \section{Worked calculations}
+@@ -2919,73 +2990,84 @@
+ \begin{proposition}
+ \label{prop:ch28-curve-dual-energy}
+ \index{Dirichlet energy!on a metric graph}\index{Green function!energy of a measure}
+-Let \(X\) be a smooth projective curve, \(\Gamma\) the skeleton of a regular
+-semistable model determining \(\omega\), and \(\mu_0=\MA_\omega(0)\), of
+-mass \(V=\deg L\), carried by \(\Gamma\).  Let \(\mu\) be a positive measure
+-of mass \(V\) carried by \(\Gamma\) and let \(u\) be the solution of
+-\(\MA_\omega(u)=\mu\) of \Cref{prop:graph-ma-solution}.  Then
++Let \(X\) be a smooth projective curve under \eqref{eq:ch28-standing},
++\(\Gamma\) the skeleton of a regular semistable model determining the
++semipositive real form \(\omega\), and \(\mu_0=\MA_\omega(0)\), of
++mass \(V=(\{\omega\})>0\).  Let \(\mu\) be any positive Radon measure
++of mass \(V\) carried by \(\Gamma\), and let \(u\) be the continuous
++BFJ solution constructed by \cref{lem:ch26-weighted-graph-real-bfj}.
++With the residue-weighted energy \eqref{eq:ch28-dirichlet-form},
+ \begin{equation}
+ \label{eq:ch28-curve-dual-energy}
+  E^\vee_\omega(\mu)
+- =\tfrac12\int_\Gamma|u'|^2\,\rd s
+- =\tfrac12 D_\Gamma(u)
++ =\tfrac12\sum_e c_e\int_e|u'|^2\,\rd s
++ =\tfrac12D_\Gamma(u)
+  =\tfrac12\int_\Gamma u\,\rd(\mu_0-\mu)
+- \ \in[0,+\infty).
++ \in[0,+\infty).
+ \end{equation}
+ In particular \(E^\vee_\omega(\mu)=0\) if and only if \(\mu=\mu_0\).
++No atomicity or rationality of \(\mu\) is assumed.
+ \end{proposition}
+ 
+ \begin{proof}
+-The function \(u\) is continuous, hence bounded, hence lies in
+-\(\cE^1(X,\omega)\) by
+-\Cref{thm:ch26-e1-structure}\,\cref{itm:ch26-e1:bounded}, and
+-\(\MA_\omega(u)=\mu\).  \Cref{prop:ch28-dual-energy-of-ma} therefore gives
++The construction supplies an actual continuous BFJ-psh function with
++\(\MA_\omega(u)=\mu\), for the full real-form scope of this chapter.
++It is bounded, so it lies in \(\cE^1(X,\omega)\) by
++\cref{thm:ch26-e1-structure}\,\cref{itm:ch26-e1:bounded}.
++Therefore \cref{prop:ch28-dual-energy-of-ma} gives
+ \[
+- E^\vee_\omega(\mu)=E_\omega(u)-\int u\,\rd\mu .
++ E^\vee_\omega(\mu)=E_\omega(u)-\int u\,\rd\mu.
+ \]
+-By \eqref{eq:ch26-graph-energy}, valid because \(n=1\) and \(u\) is
+-piecewise affine on \(\Gamma\) --- or, for general continuous \(u\), by
+-uniform approximation and \eqref{eq:ch26-energy-lipschitz} ---
++The continuous case of \cref{prop:ch26-graph-energy} gives
+ \[
+- E_\omega(u)=\int_\Gamma u\,\rd\mu_0-\tfrac12 D_\Gamma(u).
++ E_\omega(u)=\int_\Gamma u\,\rd\mu_0-\tfrac12D_\Gamma(u).
+ \]
+-Hence
+-\[
+- E^\vee_\omega(\mu)
+- =\int_\Gamma u\,\rd(\mu_0-\mu)-\tfrac12D_\Gamma(u).
+-\]
+-Now \(\mu-\mu_0=\Delta_\Gamma u\) by \eqref{eq:curve-poisson}, and
+-\eqref{eq:graph-dirichlet-sign} gives
+-\(\int_\Gamma u\,\Delta_\Gamma u=-D_\Gamma(u)\), so
+-\(\int_\Gamma u\,\rd(\mu_0-\mu)=D_\Gamma(u)\).  Substituting,
+-\[
+- E^\vee_\omega(\mu)=D_\Gamma(u)-\tfrac12D_\Gamma(u)
+- =\tfrac12D_\Gamma(u),
+-\]
+-which is \eqref{eq:ch28-curve-dual-energy}, the third expression being the
+-same computation read backwards.  Finally \(D_\Gamma(u)=0\) forces \(u\)
+-constant on the connected graph \(\Gamma\), hence
+-\(\mu=\mu_0+\Delta_\Gamma u=\mu_0\); and conversely \(u=0\) solves
+-\(\MA_\omega(u)=\mu_0\).
++That continuous case is justified by positive real model approximants
++whose derivatives converge strongly in the weighted edge \(L^2\) spaces;
++uniform convergence alone does not imply convergence of their energies.
++Finally \eqref{eq:ch26-weighted-green-ibp} reads
++\(D_\Gamma(u)=\int_\Gamma u\,\rd(\mu_0-\mu)\).
++Substitution gives \eqref{eq:ch28-curve-dual-energy}.
++Every term is finite by the same lemma.
++If the energy is zero, the derivative vanishes almost everywhere on every
++edge, whose weight is positive.  Absolute continuity and connectedness
++make \(u\) constant, so \(\mu=\mu_0+\Delta_\Gamma u=\mu_0\).
++Conversely \(u=0\) solves the reference equation and has energy zero.
++The statement is unchanged by adding a constant to \(u\), since the
++two measures have equal mass.
+ \end{proof}
+ 
+ \begin{remark}[The classical energy of a measure]
+ \label{rem:ch28-classical-energy}
+ Formula \eqref{eq:ch28-curve-dual-energy} identifies the Legendre dual
+-energy of \(\mu\) with one half of the Dirichlet energy of its Green
+-potential relative to \(\mu_0\).  Writing \(g_\Gamma\) for the Green kernel
+-of \Cref{prop:graph-ma-solution} and \(\nu=\mu-\mu_0\), which has total mass
+-zero, one has \(u(x)=\int g_\Gamma(x,y)\,\rd\nu(y)\) and therefore
++energy with half the \emph{weighted} Dirichlet energy of the graph
++potential relative to \(\mu_0\).  Choose \(q\in\Gamma\), use the
++kernel \(g_q\) of \cref{lem:ch31-green-kernel}, and put
++\(\nu=\mu-\mu_0\).  Up to a constant,
++\(u(x)=\int_\Gamma g_q(x,y)\,\rd\nu(y)\), so
+ \[
+  E^\vee_\omega(\mu)
+  =-\tfrac12\iint_{\Gamma\times\Gamma}
+-    g_\Gamma(x,y)\,\rd\nu(x)\,\rd\nu(y),
++          g_q(x,y)\,\rd\nu(x)\,\rd\nu(y).
+ \]
+-the classical energy of the signed measure \(\nu\), with the sign that makes
+-it nonnegative.  This is the precise sense in which the non-Archimedean dual
+-energy generalizes the logarithmic energy of classical potential theory; the
+-higher-dimensional theory replaces the quadratic form by the mixed
+-intersection inequalities of \Cref{thm:ch26-mixed-energy-identities}.
++The double integral exists because the kernel is bounded and continuous
++and the signed measure has finite total variation.  Its sign follows
++from the outgoing-slope convention and the nonnegative weighted energy.
++The zero mass of \(\nu\) removes dependence on the normalizing constant.
++This is the curve quadratic form; in higher dimension the replacement is
++the mixed-intersection theory of \cref{thm:ch26-mixed-energy-identities}.
++
++For a nonsplit numerical check, take
++\cref{ex:ch26-nonsplit-weighted-energy}, with
++\(\mu_0=2\delta_{v_D}\), \(\mu=2\delta_{v_E}\), and endpoint
++potential values \((0,-1)\).  Then
++\[
++ E^\vee_\omega(2\delta_{v_E})
++ =E_\omega(u)-\int u\,\rd\mu=-1-(-2)=1
++ =\tfrac12\cdot2.
++\]
++An unweighted derivative integral would give \(1/2\), contradicting
++the variational value of this actual nef model metric.
+ \end{remark}
+ 
+ \subsection{A solved equation on a four-component chain}
+@@ -2995,7 +3077,8 @@
+ \label{ex:ch28-chain-dual-energy}
+ Continue \Cref{ex:ch20-chain-three} and \Cref{ex:ch26-chain-energy}:
+ \(\Gamma=[0,3]\) subdivided at the integers, all four vertices
+-\(x_0,\ldots,x_3\) and three edges of length one, so \(L(\Gamma)=3\); the
++\(x_0,\ldots,x_3\) and three edges of length one and residue weight
++one, so \(L(\Gamma)=L_R(\Gamma)=3\); the
+ reference measure is \(\mu_0=\delta_{x_0}+\delta_{x_3}\) and \(V=2\).  A
+ model function is a piecewise affine \(u\) with vertex values
+ \((u_0,u_1,u_2,u_3)\), and by \eqref{eq:ch31-graph-laplacian} its
+@@ -3133,7 +3216,8 @@
+ \begin{example}[An affine family, and the stability constant]
+ \label{ex:ch28-affine-family}
+ Let \(\Gamma=[x_0,x_1]\) be the two-vertex skeleton of
+-\Cref{ex:two-vertex-ma}, of length \(L(\Gamma)=1\), with
++\Cref{ex:two-vertex-ma}, of length \(L(\Gamma)=1\) and residue weight
++one, with
+ \(\mu_0=\delta_{x_0}+\delta_{x_1}\) and \(V=2\).  Parametrize \(\Gamma\) by
+ \(t\in[0,1]\).  For \(\varepsilon\in[0,1]\) set
+ \[
+@@ -3202,9 +3286,11 @@
+ give \(\lVert u_1-u_2\rVert_{C^0}\leq\tfrac12L(\Gamma)
+ \lVert\mu_1-\mu_2\rVert\), which here reads
+ \(|\varepsilon-\varepsilon'|\) and is sharp.  We stated
+-\eqref{eq:ch28-curve-stability-sup} with the cruder constant because the
+-sharper one is not stable under the refinements of \(\Gamma\) used in
+-\Cref{chap:bfj-continuity}.  The Dirichlet form obeys
++\eqref{eq:ch28-curve-stability-sup} with the cruder constant for a
++uniformly stated bound.  The factor \(1/2\) remains valid on every
++refined weighted graph too; subdivision preserves both length totals,
++whereas attached branches may increase them, as explained in
++\cref{rem:ch28-curve-constant}.  The Dirichlet form obeys
+ \eqref{eq:ch28-stability-dirichlet-identity} exactly:
+ \[
+  \begin{aligned}
+@@ -3388,8 +3474,8 @@
+ this Hilbert-space calculation by mixed intersection inequalities.
+ 
+ The precise statements behind this paragraph are, in order:
+-\Cref{prop:graph-ma-solution} for existence and uniqueness of the graph
+-solution; \Cref{prop:ch28-curve-dual-energy} and
++\Cref{lem:ch26-weighted-graph-real-bfj} for the real-form BFJ solution
++and \cref{lem:ch31-green-kernel} for its graph uniqueness; \Cref{prop:ch28-curve-dual-energy} and
+ \Cref{rem:ch28-classical-energy} for the identification of the dual energy
+ with the classical energy; \Cref{prop:ch28-curve-uniqueness} for uniqueness
+ of the analytic solution; and

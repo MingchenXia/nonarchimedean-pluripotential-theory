@@ -1,0 +1,264 @@
+--- a/manuscript/parts/part3/ch26_energy.tex
++++ b/manuscript/parts/part3/ch26_energy.tex
+@@ -836,12 +836,25 @@
+ \begin{proof}
+ Let \(\varphi\) be a bounded \(\omega\)-psh function.  By
+ \Cref{thm:bfj-decreasing-regularization} choose a decreasing net
+-\(\varphi_\alpha\searrow\varphi\) of \(\omega\)-psh model functions; after
+-adding constants we may assume \(-M\leq\varphi\leq\varphi_\alpha\leq0\) for
+-some \(M\), because the net eventually lies below \(\sup\varphi+1\) and one
+-may replace it by \(\min\{\varphi_\alpha,\sup\varphi+1\}\), still a
+-decreasing net of model functions by
+-\Cref{prop:ch20-model-max} and \Cref{prop:ch21-constants}.
++\(\varphi_\alpha\searrow\varphi\) of \(\omega\)-psh model functions.
++Every member already satisfies \(\varphi_\alpha\geq\varphi\), so the
++bounded limit supplies a common lower bound.  For an upper bound put
++\(B=\sup_{X^{\An}}\varphi+1\).  The open sets
++\[
++ U_\alpha:=\{x\in X^{\An}:\varphi_\alpha(x)<B\}
++\]
++cover \(X^{\An}\): at each point the net decreases to a value strictly
++less than \(B\).  They are open because model functions are continuous.
++Compactness of \(X^{\An}\), by \Cref{thm:berk-proper-compact}, gives a
++finite subcover \(U_{\alpha_1},\ldots,U_{\alpha_r}\).  Choose
++\(\alpha_0\) above these finitely many indices.  Decreasingness then gives
++\(\varphi_\alpha<B\) everywhere for every \(\alpha\geq\alpha_0\).
++The tail \(\{\alpha:\alpha\geq\alpha_0\}\) is cofinal in the original
++directed set, so restriction to it preserves the pointwise limit.  On
++this tail there is a finite \(M\) with
++\(-M\leq\varphi\leq\varphi_\alpha\leq M\).
++Only indices have been discarded: no potential has been clipped or
++translated, and all the approximants remain the given psh model functions.
+ 
+ \emph{Step 1: existence of the limit.}  Each summand of
+ \eqref{eq:model-energy} for \(\varphi_\alpha\) is of the form
+@@ -852,55 +865,71 @@
+ \(E_\omega(\varphi_\alpha)\) converges; we define \(E_\omega(\varphi)\) to be
+ the limit and observe that it is given by \eqref{eq:model-energy}, the
+ integrals now being taken against the bounded mixed products of
+-\Cref{thm:bounded-ma-extension}.
++\Cref{thm:bounded-ma-extension}.  In particular, the definition is finite
++and agrees with the model energy when \(\varphi\) is a model function.
+ 
+ \emph{Step 2: independence of the net.}  Let \(\varphi_\beta'\searrow\varphi\)
+-be a second decreasing net of \(\omega\)-psh model functions.  Fix
++be a second decreasing net of \(\omega\)-psh model functions, restricted
++to a uniformly bounded cofinal tail as above.  Fix
+ \(\alpha\) and \(\varepsilon>0\).  The sets
+ \[
+  F_\beta:=\{\varphi_\beta'\geq\varphi_\alpha+\varepsilon\}\subset X^{\An}
+ \]
+-are closed, because \(\varphi_\beta'\) is upper semicontinuous and
+-\(\varphi_\alpha\) is continuous, and they decrease with \(\beta\); their
+-intersection is contained in
+-\(\{\varphi\geq\varphi_\alpha+\varepsilon\}=\varnothing\).  Compactness of
+-\(X^{\An}\) therefore makes one of them empty, that is,
+-\(\varphi_\beta'\leq\varphi_\alpha+\varepsilon\) for some \(\beta\).
++are closed, because both functions are continuous, and decrease with
++\(\beta\).  Their intersection is contained in
++\(\{\varphi\geq\varphi_\alpha+\varepsilon\}=\varnothing\).
++Compactness and directedness therefore make one of them empty, so
++\(\varphi_\beta'\leq\varphi_\alpha+\varepsilon\) eventually in \(\beta\).
+ Monotonicity of \(E_\omega\) at model level
+ (\Cref{cor:energy-monotone-concave}) and
+ \eqref{eq:bfj-energy-translation} give
+-\(\lim_{\beta'}E_\omega(\varphi_{\beta'}')\leq
+-E_\omega(\varphi_\alpha)+\varepsilon V\); taking the limit in \(\alpha\) and
+-then \(\varepsilon\downarrow0\), and repeating with the two nets exchanged,
+-shows that the two limits agree.
++\(\lim_\beta E_\omega(\varphi_\beta')\leq
++E_\omega(\varphi_\alpha)+\varepsilon V\).  Taking the limit in \(\alpha\)
++and then \(\varepsilon\downarrow0\), and repeating with the two nets
++exchanged, shows that the limits agree.  The translated function is used
++only as a comparison majorant; neither approximating net is translated.
+ 
+ \emph{Step 3: the identities.}  Fix bounded \(\varphi,\psi\) and decreasing
+ model nets \(\varphi_\alpha\searrow\varphi\),
+-\(\psi_\beta\searrow\psi\), indexed by the product of the two directed sets.
+-Every integral occurring in
+-\eqref{eq:energy-cocycle}--\eqref{eq:energy-sandwich} is again of the form
+-\(\int h\,\MA_\omega(\chi_1,\ldots,\chi_n)\) with \(h\) a difference of two
+-members of decreasing bounded nets and each \(\chi_i\) a member of such a
+-net.  Splitting \(h=\psi_\beta-\varphi_\alpha\) into its two terms and
+-applying \eqref{eq:weighted-monotone-ma} to each, every such integral
+-converges to the corresponding integral for \(\varphi,\psi\).  Since the
+-identities hold along the net, they hold in the limit.  For
++\(\psi_\beta\searrow\psi\).  Restrict each to a uniformly bounded cofinal
++tail and use the product of the two directed sets.  Every integral in
++\eqref{eq:energy-cocycle}--\eqref{eq:energy-sandwich} is of the form
++\(\int h\,\MA_\omega(\chi_1,\ldots,\chi_n)\), with \(h\) a difference of
++two members of decreasing bounded psh nets and each \(\chi_i\) a member
++of such a net.  Splitting \(h=\psi_\beta-\varphi_\alpha\) into its two
++terms and applying \eqref{eq:weighted-monotone-ma} to each, every such
++integral converges to the corresponding integral for \(\varphi,\psi\).
++Thus the model identities and inequalities pass to the limit.  For
+ \eqref{eq:energy-first-variation} and
+ \eqref{eq:energy-second-variation}, note that
+ \(\varphi_{t,\alpha\beta}=\varphi_\alpha+t(\psi_\beta-\varphi_\alpha)\)
+-decreases to \(\varphi_t\) for each fixed \(t\in[0,1]\), and that
+-\eqref{eq:ch26-energy-taylor} exhibits both sides as polynomials in \(t\) of
+-degree at most \(n+1\) whose coefficients converge; convergence of the
+-coefficients of a polynomial of bounded degree implies convergence of the
+-derivatives.
++decreases to \(\varphi_t\) for each fixed \(t\in[0,1]\).  The expansion
++\eqref{eq:ch26-energy-taylor} expresses the energy as a polynomial in
++\(t\) of degree at most \(n+1\).  Each coefficient is a finite linear
++combination of the bounded mixed integrals just treated, so its limit
++exists.  Differentiating these finite polynomial expansions therefore
++commutes with passage to the limit and proves the two variation formulas.
+ 
+-\emph{Step 4: decreasing bounded nets.}  If \(\varphi_\gamma\searrow\varphi\)
+-is a decreasing net of \emph{bounded} \(\omega\)-psh functions with bounded
+-limit, then choosing model nets below each \(\varphi_\gamma\) and passing to
+-the diagonal directed set produces a decreasing model net converging to
+-\(\varphi\); by Step~2 the value of \(E_\omega(\varphi)\) computed from it is
+-the correct one, and monotonicity gives
+-\(E_\omega(\varphi_\gamma)\searrow E_\omega(\varphi)\).
++\emph{Step 4: decreasing bounded nets.}  Let
++\(\varphi_\gamma\searrow\varphi\) be a decreasing net of bounded
++\(\omega\)-psh functions with bounded limit.  Fix one index \(\gamma_0\).
++On its cofinal tail,
++\[
++ \inf_{X^{\An}}\varphi\leq\varphi\leq\varphi_\gamma
++ \leq\varphi_{\gamma_0}\leq\sup_{X^{\An}}\varphi_{\gamma_0},
++ \qquad \gamma\geq\gamma_0,
++\]
++so the entire tail is uniformly bounded.  By Step~1 the bounded energy
++formula \eqref{eq:model-energy} already holds for each
++\(\varphi_\gamma\) and for \(\varphi\).  Apply
++\eqref{eq:weighted-monotone-ma} to each of its summands, with weight
++\(h^\gamma=\varphi_\gamma\) and with every measure slot equal to either
++\(\varphi_\gamma\) or \(0\).  The resulting limits give
++\(E_\omega(\varphi_\gamma)\to E_\omega(\varphi)\).
++The bounded energy inequalities from Step~3 imply monotonicity, hence in
++fact \(E_\omega(\varphi_\gamma)\searrow E_\omega(\varphi)\).
++This uses the bounded Monge--Amp\`ere continuity theorem already established
++in \Cref{chap:bfj-ma}, not a new choice or diagonalization of model nets.
+ \end{proof}
+ 
+ \begin{proposition}
+--- a/manuscript/parts/part3/ch30_functoriality.tex
++++ b/manuscript/parts/part3/ch30_functoriality.tex
+@@ -828,66 +828,81 @@
+ \begin{proof}
+ Boundedness of \(f^*\varphi_i\) is clear, and psh-ness is
+ \Cref{prop:finite-pullback-psh}.  By
+-\Cref{thm:bfj-decreasing-regularization} choose, for each \(i\), a
+-decreasing net \(\varphi_i^\alpha\searrow\varphi_i\) of \(\theta\)-psh model
+-functions; replacing \(\varphi_i^\alpha\) by
+-\(\max\{\varphi_i^\alpha,\inf\varphi_i\}\), which is again a \(\theta\)-psh
+-model function by \Cref{prop:ch20-model-max} and still decreases to
+-\(\varphi_i\), we may assume the nets uniformly bounded.  Then
+-\(f^*\varphi_i^\alpha\searrow f^*\varphi_i\) is a decreasing net of bounded
+-\(f^*\theta\)-psh model functions.
++\Cref{thm:bfj-decreasing-regularization}, for each \(i\) choose a
++decreasing net \(\varphi_i^{\alpha_i}\searrow\varphi_i\) of
++\(\theta\)-psh model functions, indexed by a directed set \(A_i\).
++Every approximant already satisfies
++\(\varphi_i^{\alpha_i}\geq\varphi_i\geq\inf_{X^{\An}}\varphi_i\).
++For the upper bound set \(B_i=\sup_{X^{\An}}\varphi_i+1\).
++The open sets \(\{\varphi_i^{\alpha_i}<B_i\}\) cover the compact space
++\(X^{\An}\), because the approximants are continuous and decrease
++pointwise to \(\varphi_i<B_i\).  Choose a finite subcover and then a
++common upper bound \(\alpha_{i,0}\) for its indices.  On the cofinal tail
++\(A_i'=\{\alpha_i:\alpha_i\geq\alpha_{i,0}\}\), decreasingness gives
++\[
++ \inf_{X^{\An}}\varphi_i\leq\varphi_i\leq
++ \varphi_i^{\alpha_i}<B_i
++ \quad\text{everywhere on }X^{\An}.
++\]
++Thus each tail is uniformly bounded without any maximum or minimum
++operation.  Put \(A=A_1'\times\cdots\times A_n'\), ordered
++componentwise, and for \(\alpha=(\alpha_1,\ldots,\alpha_n)\) write
++\(\varphi_i^\alpha=\varphi_i^{\alpha_i}\).
++These are decreasing nets with their original limits.  Since the number
++of slots is finite, one bound works for all of them and for their
++pullbacks.  By \Cref{lem:ch30-pullback-model-calculus}\,
++\cref{itm:ch30-pbm:divisor,itm:ch30-pbm:ddc}, the pullbacks are still
++psh model functions and decrease to \(f^*\varphi_i\).
+ 
+-Fix \(h\in C^0(X^{\An})\); we must show that the two sides of
+-\eqref{eq:ch30-bounded-projection} agree against \(h\).  Since model
+-functions are uniformly dense in \(C^0(X^{\An})\) and both sides are Radon
+-measures of the same finite mass by
+-\Cref{thm:ch24-mass} and
+-\Cref{lem:ch30-pushforward-basic}\,\cref{itm:ch30-pf:radon}, we may assume
+-\(h\) is a model function, hence continuous.  Apply
+-\eqref{eq:weighted-monotone-ma} on \(Y\) with the constant net \(h\circ
+-f^{\An}\) and the decreasing nets \(f^*\varphi_i^\alpha\), and on \(X\) with
+-\(h\) and \(\varphi_i^\alpha\).  Set
++Set
+ \[
+  \begin{aligned}
+  \mu_\alpha^Y
+    &:=\MA_{f^*\theta}(f^*\varphi_1^\alpha,\ldots,
+-      f^*\varphi_n^\alpha),\\
++      f^*\varphi_n^\alpha),&
+  \mu^Y
+    &:=\MA_{f^*\theta}(f^*\varphi_1,\ldots,f^*\varphi_n),\\
+  \mu_\alpha^X
+-   &:=\MA_\theta(\varphi_1^\alpha,\ldots,\varphi_n^\alpha),\\
++   &:=\MA_\theta(\varphi_1^\alpha,\ldots,\varphi_n^\alpha),&
+  \mu^X
+    &:=\MA_\theta(\varphi_1,\ldots,\varphi_n).
+  \end{aligned}
+ \]
+-The two weighted convergences are
++The bounded decreasing-net continuity established in
++\Cref{thm:bounded-ma-extension}, in particular Step~6 of its proof,
++gives \(\mu_\alpha^X\to\mu^X\) and \(\mu_\alpha^Y\to\mu^Y\) weakly.
++The model projection formula \eqref{eq:ch30-finite-test} gives
++\(f_*\mu_\alpha^Y=d\mu_\alpha^X\) for every \(\alpha\).
++Pushforward is weakly continuous by
++\Cref{lem:ch30-pushforward-basic}\,\cref{itm:ch30-pf:weak}.
++Explicitly, for every \(h\in C^0(X^{\An})\), the function
++\(h\circ f^{\An}\) is continuous on \(Y^{\An}\), and hence
+ \[
+- \int_{Y^{\An}}(h\circ f^{\An})\,\rd\mu_\alpha^Y
+- \longrightarrow
+- \int_{Y^{\An}}(h\circ f^{\An})\,\rd\mu^Y,
+- \qquad
+- \int_{X^{\An}}h\,\rd\mu_\alpha^X
+- \longrightarrow
+- \int_{X^{\An}}h\,\rd\mu^X.
++ \begin{aligned}
++ \int_{Y^{\An}}(h\circ f^{\An})\,\rd\mu^Y
++ &=\lim_\alpha\int_{Y^{\An}}(h\circ f^{\An})\,\rd\mu_\alpha^Y\\
++ &=d\lim_\alpha\int_{X^{\An}}h\,\rd\mu_\alpha^X
++  =d\int_{X^{\An}}h\,\rd\mu^X.
++ \end{aligned}
+ \]
+-For every \(\alpha\) the two left-hand sides are related by
+-\eqref{eq:ch30-finite-test}, that is, the first equals \(d\) times the
+-second.  Passing to the limit gives the identity against \(h\), and hence
++Equality against all continuous test functions proves
+ \eqref{eq:ch30-bounded-projection}.
+ \end{proof}
+ 
+ \begin{remark}[Why the test function must be pulled back]
+ \label{rem:ch30-test-function}
+-In the proof, \eqref{eq:weighted-monotone-ma} was applied upstairs with the
+-weight \(h\circ f^{\An}\), which is continuous but is \emph{not} in general
+-a model function on \(Y\) unless \(h\) is a model function on \(X\).  This
+-is harmless because \eqref{eq:weighted-monotone-ma} allows an arbitrary
+-decreasing net of bounded psh weights and, a fortiori, a constant continuous
+-weight after the usual decomposition of a continuous function as a
+-difference of two continuous psh functions
+-(\Cref{lem:ch24-psh-difference}).  It is, however, the reason the argument
+-tests against model functions downstairs rather than upstairs: the class of
+-model functions is not stable under pushforward, only under pullback.
++Pushforward of a measure is tested against a continuous function \(h\)
++downstairs by integrating \(h\circ f^{\An}\) upstairs.  The proof above
++uses weak convergence of measures, so neither test function needs to be
++psh or a model function.  The weighted statement
++\eqref{eq:weighted-monotone-ma} has a narrower direct test class: its
++weights are bounded psh functions.  In Step~6 of
++\Cref{thm:bounded-ma-extension}, weak convergence is deduced from that
++statement by linearity on the span of psh model tests and then uniform
++density.  This does not assert that every continuous function is a
++difference of two continuous psh functions.  Here we use the resulting
++weak convergence, and only measures, not test functions, are pushed
++forward.
+ \end{remark}
+ 
+ \subsection{Energy, and the finite-energy class}

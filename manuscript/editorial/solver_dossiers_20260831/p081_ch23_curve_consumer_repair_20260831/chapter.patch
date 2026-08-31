@@ -1,0 +1,286 @@
+--- a/manuscript/parts/part3/ch23_bfj_envelopes.tex
++++ b/manuscript/parts/part3/ch23_bfj_envelopes.tex
+@@ -718,38 +718,41 @@
+  \|f\circ p_{\mathcal Z}-f\|_\infty<\varepsilon .
+ \end{equation}
+ 
+-\emph{Step 2: a model competitor on the skeleton of \(\mathcal Z\).}
+-By clause (2) of \Cref{def:ch21-bfj-psh} the restriction
++% Isolated repair of Steps 2--3 in prop:ch23-model-vs-psh-envelope.
++% Preserve the original fixed skeleton; no new determining-model choice.
++\emph{Step 2: approximation on the fixed skeleton.}
++By clause (2) of \Cref{def:ch21-bfj-psh}, the restriction
+ \(\psi|_{\Delta_{\mathcal Z}}\) is a uniform limit of restrictions of
+-\(\theta\)-psh model functions.  Choose a \(\theta\)-psh model function
+-\(\chi\) with
++\(\theta\)-psh real model functions.  Choose such a function \(\chi\)
++with
+ \begin{equation}\label{eq:ch23-skeletal-approximation-error}
+  \bigl|\chi-\psi\bigr|<\varepsilon
+  \qquad\text{on }\Delta_{\mathcal Z}.
+ \end{equation}
+-Enlarging \(\mathcal Z\) if necessary, we may and do assume that \(\chi\) is
+-determined on \(\mathcal Z\); this does not disturb
+-\eqref{eq:ch23-obstacle-retraction-error}, which persists on higher models,
+-and it does not disturb \eqref{eq:ch23-skeletal-approximation-error} if the
+-approximation of Step~2 is performed after the enlargement.
++Keep \(\mathcal Z\) fixed.  The function \(\chi\) need not be determined
++on this model; enlarging the skeleton after choosing the approximation
++would not preserve the asserted approximation on the enlarged skeleton.
+ 
+-\emph{Step 3: pushing the inequality off the skeleton.}  Since \(\chi\) is
+-determined on \(\mathcal Z\) we have \(\chi=\chi\circ p_{\mathcal Z}\), by
+-\Cref{lem:ch21-model-skeletal-properties}.  For every \(x'\in X^{\An}\),
++\emph{Step 3: pushing the inequality off the skeleton.}
++Because \(\mathcal Z\) determines \(\theta\),
++\Cref{lem:ch21-model-skeletal-properties} gives
++\(\chi\leq\chi\circ p_{\mathcal Z}\).  Consequently, for every
++\(x'\in X^{\An}\),
+ \[
+- \chi(x')=\chi(p_{\mathcal Z}(x'))
++ \chi(x')\leq\chi(p_{\mathcal Z}(x'))
+  \overset{\eqref{eq:ch23-skeletal-approximation-error}}{<}
+  \psi(p_{\mathcal Z}(x'))+\varepsilon
+  \leq f(p_{\mathcal Z}(x'))+\varepsilon
+  \overset{\eqref{eq:ch23-obstacle-retraction-error}}{<}
+- f(x')+2\varepsilon ,
++ f(x')+2\varepsilon.
+ \]
+-where the middle inequality is \(\psi\leq f\) evaluated at
+-\(p_{\mathcal Z}(x')\).  Hence
+-\(\chi-2\varepsilon\leq f\) on all of \(X^{\An}\), and
+-\(\chi-2\varepsilon\) is a \(\theta\)-psh model function, so it belongs to
+-the competitor set of \eqref{eq:ch23-model-envelope}.
++Thus \(\chi-2\varepsilon\) is a \(\theta\)-psh real model
++competitor below \(f\).  The real-model convention in this chapter
++allows the real constant \(2\varepsilon\).  In a rational-model
++argument it would instead be necessary to subtract an admissible
++model constant slightly larger than \(2\varepsilon\).
+ 
++
+ \emph{Step 4: conclusion.}  Since \(x\in\Delta_{\mathcal Y}\subset
+ \Delta_{\mathcal Z}\), \eqref{eq:ch23-skeletal-approximation-error} and
+ \eqref{eq:ch23-competitor-near-x} give
+@@ -2738,7 +2741,119 @@
+ calculation to a global polarized curve; that is done in
+ \Cref{ex:ch23-curve-envelope-numbers}.
+ \end{example}
++
++% Candidate bridge for the full BFJ psh class, not a change of definition.
++% Requires independent and production Rethlas review before integration.
++\begin{lemma}
++\label{lem:ch23-psh-vertex-chord}
++Assume the standing BFJ hypotheses of this chapter and \(\dim X=1\).
++Let \(\mathcal X\) be a strictly semistable model determining
++\(\theta\), write \(\Gamma=\Delta_{\mathcal X}\), and let \(V\)
++be its vertex set.  For \(\varphi\in\PSH(X,\theta)\), let
++\(A\varphi\) be the function that agrees with \(\varphi\) on
++\(V\), is affine on every edge of \(\Gamma\), and is extended to
++\(X^{\An}\) using the retraction \(p_{\mathcal X}\).
++Then \(A\varphi\) is a real model \(\theta\)-psh function determined
++on \(\mathcal X\), and
++\[
++                 \varphi\leq A\varphi.
++\]
++If a real model obstacle \(u\) is determined on \(\mathcal X\) and
++\(\varphi\leq u\), then \(A\varphi\leq u\) as well.
++No rational-model assertion is made about \(A\varphi\).
++\end{lemma}
++
++\begin{proof}
++We first check the assertion for a \(\theta\)-psh real model
++function \(\chi\).  The edge lengths are the analytic modulus
++lengths and the edge weights are the residue degrees of the nodes.
++We use these weights at both ends of every edge, as in
++\eqref{eq:ch31-graph-laplacian}.
++
++Pass temporarily to the completed algebraic closure, and work
++component by component if the curve becomes disconnected.  A common
++strictly semistable refinement determines the finitely many real
++model classes defining \(\theta\) and \(\chi\); the semistable
++domination input is \cite[\S7]{BL85}, as used in
++\cite[proof of Proposition~3.7]{GJKM19}.  On its skeleton \(\Gamma'\),
++the curvature of \(\theta+\mathrm d\mathrm d^c\chi\) is
++\[
++                      D'+\Delta\chi\geq0.
++\]
++This follows from numerical nefness and the component-degree formula,
++extended real-linearly; it does not require \(\chi\) to be rational.
++The pullback of \(\theta\) has degree zero on the components
++contracted by the refinement, so \(D'\) is supported on the old
++vertices.  If \(r:\Gamma'\to\Gamma\) denotes retraction to the
++base-changed old skeleton, then
++\[
++      D+\Delta(\chi|_\Gamma)
++          =r_*(D'+\Delta\chi)\geq0.
++\]
++This is pushforward from a refinement of graphs over the same field,
++not an inference of positivity from a scalar pushforward in the
++opposite direction.  The old skeleton may first be subdivided;
++the identity is unchanged by subdivision.
++Here is the graph verification of the identity for this possibly
++nonfactoring \(\chi\).  By \cite[Proposition~2.2.26(iii)]{Thu05},
++each new connected piece attaches to the old skeleton at one point.
++Subtract \((\chi|_\Gamma)\circ r\) from \(\chi\).  The difference
++vanishes on \(\Gamma\).  On each attached piece its Laplacian,
++including the mass at the attaching point, has total mass zero by
++cancellation of outgoing slopes along its edges.  Retraction sends
++all these masses to the attaching point, so their pushforward is zero.
++For the subtracted pullback function, the pushforward identity is
++\cite[Proposition~2.2.26(iv)]{Thu05}.  Adding the two identities proves
++the displayed formula without assuming that \(\chi\) factors
++through the original retraction.
++
++In particular \(\chi\) is convex on each old open edge.  Replacing
++it there by the chord of its endpoint values increases both outgoing
++endpoint slopes.  The chord has no interior slope jump.  Its
++curvature is therefore nonnegative at the old vertices and zero
++elsewhere on the old open edges.  These are exactly the numerical
++nef inequalities for the real model class of \(A\chi\), again by
++\cite[Proposition~3.7]{GJKM19}.  The chord is the pullback of the
++original-field real model function with the specified vertex values.
++Nefness of a real model numerical class reflects under scalar
++extension, by the degree and projection-formula argument in
++\cref{thm:ch29-real-class-curve-model-envelope}.  It follows that
++\(A\chi\) is \(\theta\)-psh over the original field.
++
++For completeness, arbitrary real vertex values do define a real
++model function on this strictly semistable model.  On a regular
++model this is the vertical real Cartier divisor whose coefficients
++are those values.  At a node with local equation \(xy=\pi^a\),
++each component is \(\mathbf Q\)-Cartier: a multiple \(a\) of
++one branch divisor is the divisor of \(x\) or \(y\).
++The same assertion is checked on an etale node chart when the node
++is not rational over the residue field.  Thus a real linear
++combination of components is real Cartier.  Its model function
++has precisely the edge-affine interpolation of the vertex values.
++Equivalently one may compute it on the regular subdivision of that
++node, where the new coefficients are the interpolated values.
+ 
++Now let \(\varphi\) be an arbitrary BFJ-psh function.  By its
++defining approximation on the fixed skeleton, there are
++\(\theta\)-psh real model functions \(\chi_j\) with
++\(\chi_j|_\Gamma\to\varphi|_\Gamma\) uniformly.  Only this
++fixed-skeleton approximation is used.  The vertex vectors of
++\(A\chi_j\) converge to those of \(A\varphi\).
++There are finitely many numerical inequalities at the vertices;
++they are affine and hence closed in these vertex values.  Since
++they hold for every \(A\chi_j\), they hold for \(A\varphi\).
++Thus \(A\varphi\) is a real model \(\theta\)-psh function.
++
++Finally the BFJ retraction inequality gives
++\(\varphi\leq\varphi\circ p_{\mathcal X}\), and edgewise
++convexity gives \(\varphi|_\Gamma\leq(A\varphi)|_\Gamma\).
++This proves \(\varphi\leq A\varphi\) globally.  If
++\(\varphi\leq u\), the endpoint values of \(A\varphi\) are
++bounded above by those of the edge-affine function \(u\).
++Affine interpolation and retraction then give \(A\varphi\leq u\)
++globally, as asserted.
++\end{proof}
++
+ \begin{example}[An obstacle envelope on a curve skeleton, in numbers]
+ \label{ex:ch23-curve-envelope-numbers}
+ This is the promised complete computation.  Let \(K\) be discretely valued
+@@ -2848,29 +2963,25 @@
+ the two boundary slopes exactly saturating the constraints
+ \(A_0=A_4=0\) coming from the residual degrees \(c_0=c_4=1\).
+ 
+-\emph{\(P\) is the global envelope.}  Finally we check that no refinement of
+-\(\mathcal X\) improves \(P\), so that \(P=P_\theta(u)\) on
+-\(\Delta_{\mathcal X}\).  Let \(\varphi\in\PSH(X,\theta)\) with
+-\(\varphi\leq u\).  Its restriction to \(\Delta_{\mathcal X}\) is convex on
+-each edge by \Cref{thm:bfj-skeletal-characterization}\,(1).  We claim its
+-outgoing slope at \(e_0\) along the path, measured in the unit-length
+-parameterization of the edges, is \(\geq-c_0=-1\).  Granting the claim,
+-convexity along the path makes all subsequent slopes \(\geq-1\), so
++\emph{\(P\) is the global envelope.}
++Let \(\varphi\in\PSH(X,\theta)\) satisfy \(\varphi\leq u\).
++By \cref{lem:ch23-psh-vertex-chord}, its vertex chord
++\(A\varphi\) is an admissible real model function on
++\(\mathcal X\).  Its vertex vector therefore belongs to the same
++polyhedron \(K\) used above.  The already proved inequalities for
++every vector in \(K\) give
+ \[
+- \varphi(e_0)\leq\varphi(e_2)+2\leq u_2+2=-1,
++            \varphi\leq A\varphi\leq P\circ p_{\mathcal X}
++            \qquad\text{on }X^{\An}.
+ \]
+-and then \(\varphi(e_1)\leq\varphi(e_2)+1=-2\); together with the symmetric
+-estimates this gives \(\varphi\leq P\) on the vertex set, hence on
+-\(\Delta_{\mathcal X}\).  The claim itself is the slope criterion
+-\eqref{eq:curve-slope-criterion}, which for a \(\theta\)-psh function on a
+-regular semistable model reads: at every point of the skeleton, the sum of
+-outgoing slopes plus the residual degree of \(\theta\) on the corresponding
+-component is nonnegative.  At \(e_0\) the only outgoing direction inside
+-\(\Delta_{\mathcal X}\) is towards \(e_1\), and the directions leaving the
+-skeleton contribute nonpositive slopes by the retraction inequality, so
+-discarding them preserves the inequality; see the proof of
+-\Cref{thm:curves-arbitrary-field-continuity}, where this reduction is
+-carried out in detail.
++Conversely the computed \(P\circ p_{\mathcal X}\) is itself a
++\(\theta\)-psh model competitor below \(u\).  Taking the supremum
++over all \(\varphi\) proves equality with \(P_\theta(u)\) on the
++whole analytification, not only at its vertices.  The argument uses
++the real-model chord lemma in the BFJ regime; it does not apply a
++rational-model slope criterion to an arbitrary singular psh function.
++
++
+ \end{example}
+ 
+ \begin{remark}[Model dependence of the model-level envelope]
+@@ -2883,26 +2994,37 @@
+ \Cref{ex:metrics-max-skeleton} is that a refinement can create a new vertex
+ at which a competitor may be raised.
+ 
+-In dimension one, however, the chain does stabilize, and it stabilizes as
+-soon as the model sees the data.  Suppose \(\mathcal X\) is a strictly
+-semistable model, available after a finite extension of \(K\), determining
+-both \(\theta\) and the model obstacle \(u\).  The chord argument in the
+-proof of \Cref{thm:curves-arbitrary-field-continuity}---replace a competitor
+-by the piecewise affine function agreeing with it at the vertices, which can
+-only increase the outgoing slopes and hence preserves the slope criterion
+-\eqref{eq:curve-slope-criterion}---shows that the supremum defining
+-\(P_\theta(u)\) is unchanged if one restricts to competitors affine on the
+-edges of \(\Delta_{\mathcal X}\).  Hence
++In dimension one, within the standing BFJ hypotheses, the chain
++stabilizes on any strictly semistable model \(\mathcal X\)
++determining both \(\theta\) and the real model obstacle \(u\).
++Indeed, \cref{lem:ch23-psh-vertex-chord} replaces each arbitrary
++\(\theta\)-psh competitor below \(u\) by a larger real model
++competitor determined on that same model.  Consequently
+ \[
+- P^{\mathcal X}_\theta(u)=P_\theta(u)
+- \qquad(n=1,\ \mathcal X\text{ strictly semistable and determining }
+- \theta,u),
++                    P^{\mathcal X}_\theta(u)=P_\theta(u).
+ \]
+-which is the equality verified by hand at the end of
+-\Cref{ex:ch23-curve-envelope-numbers}.  This is one more item on the list of
+-\Cref{rem:ch23-curve-specialness}: it uses that the psh condition is linear
+-on each skeleton and that retraction preserves it, and it has no known
+-higher-dimensional analogue.
++The largest element in the fixed-model competitor set exists here:
++the set of its vertex vectors is nonempty, bounded above by the
++obstacle, closed, and closed under coordinatewise maxima; the
++finite-coordinate supremum argument in the proof of
++\cref{thm:ch23-model-orthogonality-curve} therefore applies.
++Nonemptiness follows by applying the chord lemma to a global
++competitor below \(u\), whose existence in this BFJ ample-class
++regime was proved in \cref{cor:ch23-continuous-finite}.
++If a finite extension is needed to obtain the model, this statement
++is applied to the base-changed data; a conclusion back over the
++original field requires the corresponding descent statement.
++
++The preceding equality concerns the full BFJ class and real model
++functions in this chapter.  In a different field regime,
++\cref{thm:ch29-real-class-curve-model-envelope} instead proves a
++theorem about rational-model envelopes.  One cannot substitute
++that theorem for the chord lemma or identify the two competitor
++classes without proof.  The one-dimensional mechanism is the
++linearity of curvature on a graph and the positivity-preserving
++retraction; no higher-dimensional retraction statement follows.
++
++
+ \end{remark}
+ 
+ \begin{example}[Toric convex envelopes and orthogonality in numbers]

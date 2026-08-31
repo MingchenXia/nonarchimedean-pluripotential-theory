@@ -1,0 +1,570 @@
+diff --git a/private/tmp/nappt_p071_20260827/manuscript/parts/part3/ch20_model_forms.tex b/private/tmp/nappt_p071_20260827/manuscript/editorial/solver_dossiers_20260831/p081_ch20_ch21_real_model_max_repair_20260831/patched/ch20_model_forms.tex
+index 6d34fd7..0321973 100644
+--- a/private/tmp/nappt_p071_20260827/manuscript/parts/part3/ch20_model_forms.tex
++++ b/private/tmp/nappt_p071_20260827/manuscript/editorial/solver_dossiers_20260831/p081_ch20_ch21_real_model_max_repair_20260831/patched/ch20_model_forms.tex
+@@ -101,8 +101,8 @@ them before the constructions.
+  up to an additive constant.  Every later reduction of the form ``replace
+  \(\theta\) by \(\theta+\ddc\psi\) and \(\varphi\) by \(\varphi-\psi\)''
+  rests on this.
+-\item \emph{The \(\theta\)-psh model functions are stable under finite
+- maxima} (\Cref{prop:ch20-model-max}).  This is not a formal consequence of
++\item \emph{The rational \(\theta\)-psh model functions are stable under
++ finite maxima} (\Cref{prop:ch20-model-max}).  This is not a formal consequence of
+  convexity of the nef cone; the proof passes through relative global
+  generation of a perturbed ideal, and the reason a naive argument fails is
+  isolated in \Cref{rem:ch20-why-max-is-hard} and made explicit in
+@@ -880,7 +880,9 @@ therefore gives the space of real model functions
+ embedded in \(C^0(X^{\An})\) by \(D\mapsto\varphi_D\).  Rational model
+ functions form \(\mathcal D(X)\).  We use real model functions when taking
+ convex combinations and rational ones when invoking line bundles or base
+-ideals.
++ideals.  This distinction also matters for maxima: rational model functions
++are closed under that operation, whereas real model functions need not be;
++see \Cref{ex:ch20-real-max-irrational-breakpoint}.
+ 
+ Three facts about this space, all proved in \Cref{part:foundations},
+ will be used without further comment.  First, \(\mathcal D(X)_{\mathbf Q}\)
+@@ -1069,71 +1071,89 @@ finite matrix, and it is worth recording once and for all, because the
+ higher-dimensional formulae in \Cref{chap:bfj-compactness} are modelled on
+ it.
+ 
++% Isolated source-corrective candidate; preserve all existing statement labels.
+ \begin{proposition}
+ \label{prop:ch20-curve-laplacian}
+ Let \(n=1\), let \(\mathcal X\) be a regular model of the smooth projective
+ curve \(X\), and write \(\mathcal X_s=\sum_{i\in I}b_iE_i\).  Let
+-\(D=\sum_ia_iE_i\) be a vertical \(\mathbf R\)-divisor, with associated
+-vertex values \(u_i=\varphi_D(x_{E_i})=a_i/b_i\).  Then, for every
+-\(i\in I\),
+-
++\(D=\sum_i a_iE_i\) be a vertical real divisor, with associated
++vertex values \(u_i=\varphi_D(x_{E_i})=a_i/b_i\).  Then
+ \begin{equation}
+ \label{eq:ch20-curve-laplacian}
+- (D\cdot E_i)=\sum_{j\neq i}b_j(E_j\cdot E_i)\,(u_j-u_i),
+- \qquad
+- \sum_{i}b_i\,(D\cdot E_i)=0 ,
+-\end{equation}
+-
+-and the weights \(b_j(E_j\cdot E_i)\), \(j\ne i\), are nonnegative.
+-Consequently the map \(u\mapsto\bigl((D\cdot E_i)\bigr)_i\) is the graph
+-Laplacian of the weighted incidence graph of \(\mathcal X_s\).  If moreover
+-\(\mathcal X\) is semistable, so that all \(b_i=1\), all singular points of
+-\(\mathcal X_s\) are nodes with local equation \(xy=\pi\), and all edges of
+-\(\Delta_{\mathcal X}\) have length one, then
+-
++ (D\cdot E_i)=\sum_{j\ne i}b_j(E_j\cdot E_i)(u_j-u_i),
++ \qquad \sum_i b_i(D\cdot E_i)=0.
++\end{equation}
++The off-diagonal coefficients \(b_j(E_j\cdot E_i)\) are nonnegative.
++Multiplying the first identity by \(b_i\) gives symmetric edge
++coefficients \(b_i b_j(E_i\cdot E_j)\).
++
++Suppose moreover that \(\mathcal X\) is regular semistable, with reduced
++special fibre and skeleton \(\Gamma=\Delta_{\mathcal X}\).
++Write \(k=\widetilde K\).  To the edge corresponding to a closed node
++\(z_e\) assign the residue weight \(c_e=[\kappa(z_e):k]\).
++Its modulus length is one under \(-\log|\pi|=1\); the local equation
++\(xy=\pi\) is understood on an etale node chart, and does not assert
++that \(z_e\) is \(k\)-rational.  With the weighted outgoing-slope
++operator
++\[
++ \Delta^{(c)}_\Gamma F
++   :=\sum_{x\in\Gamma}
++       \left(\sum_{\nu\in T_x\Gamma}
++                   c_{e(\nu)}\partial_\nu F(x)\right)\delta_x,
++\]
++one has
+ \begin{equation}
+ \label{eq:ch20-curve-laplacian-graph}
+- \sum_{i}(D\cdot E_i)\,\delta_{x_{E_i}}
+- =\Delta_{\Delta_{\mathcal X}}\varphi_D
++ \sum_i(D\cdot E_i)\delta_{x_{E_i}}
++                 =\Delta^{(c)}_\Gamma\varphi_D.
+ \end{equation}
+-
+-with the sign convention of \eqref{eq:graph-laplacian}: a model function with
+-a convex corner at a vertex has positive Laplacian there.
++The sign is the outgoing-slope sign of \eqref{eq:graph-laplacian}:
++a convex corner has positive mass.  The operator itself agrees with
++that unweighted formula only when every node has residue degree one.
+ \end{proposition}
+ 
+ \begin{proof}
+-Write \(D=\sum_jb_ju_jE_j\).  Because
+-\(\cO_{\mathcal X}(\mathcal X_s)\simeq\cO_{\mathcal X}\) we have
+-\(\sum_jb_j(E_j\cdot E_i)=(\mathcal X_s\cdot E_i)=0\) for each \(i\), so
+-subtracting \(u_i\) times this identity from
+-\((D\cdot E_i)=\sum_jb_ju_j(E_j\cdot E_i)\) leaves
+-\(\sum_{j}b_j(E_j\cdot E_i)(u_j-u_i)\), and the term \(j=i\) vanishes.  This
+-is the first identity in \eqref{eq:ch20-curve-laplacian}.  The second is
+-\((D\cdot\mathcal X_s)=0\) again, now with the roles of \(D\) and
+-\(\mathcal X_s\) exchanged, using symmetry of the intersection pairing on
+-the regular surface \(\mathcal X\).  For \(j\neq i\), \(E_i\) and \(E_j\)
+-are distinct prime divisors on the regular two-dimensional scheme
+-\(\mathcal X\), so their intersection is a finite scheme and
+-\((E_j\cdot E_i)\geq0\); \(b_j>0\) by definition.
+-
+-For \eqref{eq:ch20-curve-laplacian-graph}, assume \(\mathcal X\) semistable.
+-The edges of \(\Delta_{\mathcal X}\) are in bijection with the nodes of
+-\(\mathcal X_s\), an edge joining \(x_{E_i}\) to \(x_{E_j}\) for each point
+-of \(E_i\cap E_j\); by \Cref{prop:ch08-annulus-skeleton}\,(3) each has length
+-\(1\), since the local equation is \(xy=\pi\) and \(v_K(\pi)=1\).  The number
+-of edges joining \(x_{E_i}\) to \(x_{E_j}\) is therefore \((E_i\cdot E_j)\).
+-By \Cref{lem:model-function-affine} the function \(\varphi_D\) is affine on
+-each edge with endpoint values \(u_i,u_j\), so its outgoing slope at
+-\(x_{E_i}\) along that edge is \(u_j-u_i\).  Summing the outgoing slopes at
+-\(x_{E_i}\) over all edges emanating from it gives
+-\(\sum_{j\neq i}(E_i\cdot E_j)(u_j-u_i)\), which by the first identity in
+-\eqref{eq:ch20-curve-laplacian} is \((D\cdot E_i)\).  Comparing with
+-\eqref{eq:graph-laplacian}, whose atom at \(x_{E_i}\) is exactly the sum of
+-outgoing slopes, gives \eqref{eq:ch20-curve-laplacian-graph}.  A model
+-function determined on \(\mathcal X\) has no slope breaks in the interior of
+-an edge, so no other atoms occur.
++Write \(D=\sum_j b_j u_jE_j\).  The special fibre is the principal
++divisor of \(\pi\), so \(\sum_j b_j(E_j\cdot E_i)=0\).
++Subtracting \(u_i\) times this equality from
++\(D\cdot E_i=\sum_j b_j u_j(E_j\cdot E_i)\) proves the first
++identity in \eqref{eq:ch20-curve-laplacian}; its \(j=i\) term is zero.
++The second is \(D\cdot\mathcal X_s=0\), or follows by multiplying
++by \(b_i\), summing, and cancelling terms using symmetry of the
++intersection pairing.  For distinct prime divisors the local
++intersection multiplicities are nonnegative, which proves the
++off-diagonal assertion.  All these equalities extend real-linearly.
++
++In the semistable case the intersection at a node is transverse.
++Its local intersection length is one over \(\kappa(z_e)\); its
++degree over \(k\) is therefore \([\kappa(z_e):k]\).  Consequently
++\begin{equation}
++\label{eq:ch20-node-intersection-residue-degree}
++             (E_i\cdot E_j)
++        =\sum_{z\in E_i\cap E_j}[\kappa(z):k]
++                   \qquad(i\ne j).
++\end{equation}
++The right side is a degree-weighted sum, not the number of closed nodes.
++The length of each node annulus is
++\(-\log|\pi|=1\), computed on its etale chart.  The affine model
++function has endpoint values \(u_i,u_j\), so its outgoing slope
++at \(x_{E_i}\) on that edge is \(u_j-u_i\).  Summing with the
++node weights gives
++\[
++ \sum_{e\text{ incident to }i}c_e\partial_e\varphi_D(x_{E_i})
++    =\sum_{j\ne i}(E_i\cdot E_j)(u_j-u_i)
++    =D\cdot E_i.
++\]
++The first equality is \eqref{eq:ch20-node-intersection-residue-degree},
++and the second is \eqref{eq:ch20-curve-laplacian} with \(b_i=1\).
++There are no interior slope breaks, so this is the complete measure
++identity \eqref{eq:ch20-curve-laplacian-graph}.
++The residue-degree convention is also that of
++\cite[Remark~1.2.4 and \S2.2.3]{Thu05}; it agrees with the later
++arbitrary-field formula \eqref{eq:ch31-graph-laplacian}.
+ \end{proof}
+ 
++
+ \begin{remark}[Multiplicities and edge lengths]
+ \label{rem:ch20-multiplicities-lengths}
+ Identity \eqref{eq:ch20-curve-laplacian-graph} was stated only in the
+@@ -1145,8 +1165,11 @@ of \Cref{def:integral-affine}, and the divisorial point is
+ as \Cref{rem:divisorial-normalization} and the second remark of
+ \Cref{sec:appJ-valuations} insist.  The first identity in
+ \eqref{eq:ch20-curve-laplacian} is valid regardless; it is only the
+-identification of its right-hand side with the metric-graph Laplacian
+-\eqref{eq:graph-laplacian} that carries the normalization.
++identification with a metric-graph Laplacian that carries the
++normalization.  For the curvature measure on a nonreduced model, the
++coefficient is \(b_i(D\cdot E_i)\); node residue degrees must also be
++retained.  The semistable formula above uses \(\Delta^{(c)}\), not the
++unweighted operator \eqref{eq:graph-laplacian} unless all nodes are rational.
+ \end{remark}
+ 
+ \begin{example}[A model form on the running conic, carried to numbers]
+@@ -1883,9 +1906,9 @@ over logarithms, \emph{sums of ideals produce maxima of functions}:
+  =\log|\mathfrak a|+\log|\mathfrak b| .
+ \end{equation}
+ 
+-This is the entire mechanism of \Cref{prop:ch20-model-max}: the maximum of
+-two model functions is realized by a sum of ideals, and positivity is then
+-read off from global generation.
++This is the mechanism of the rational maximum assertion in
++\Cref{prop:ch20-model-max}: after clearing denominators, a sum of ideals
++realizes the maximum, and global generation supplies positivity.
+ 
+ \begin{lemma}\label{lem:ch20-generated-ideal-psh}
+ Let \(\mathcal L\) be a line bundle on a model \(\mathcal X\), and let
+@@ -1915,13 +1938,18 @@ positivity of \(\mathfrak a\) itself; it is the \emph{product}
+ \label{sec:ch20-max}
+ 
+ \begin{proposition}\label{prop:ch20-model-max}
+-The real \(\theta\)-psh model functions form a convex set and are stable
+-under finite maxima.
++For every real closed model form \(\theta\), the real \(\theta\)-psh
++model functions form a convex set.  The rational \(\theta\)-psh model
++functions are closed under rational convex combinations and finite maxima.
++No ampleness assumption on \(\{\theta\}\) is needed for these assertions.
++Finite-maximum closure here applies to rational potentials, not to all of
++\(\mathcal D(X)_{\mathbf R}\).
+ \end{proposition}
+ 
+ \begin{proof}
+-Convexity is immediate from the convexity of the nef cone.  The maximum
+-requires more care.  First take rational model functions
++Real convexity, and rational convexity within the rational subspace,
++follow from convexity of the nef cone.  For the maximum assertion, take
++rational model functions
+ \(\varphi_1,\varphi_2\) and choose a common determination
+ \(\mathcal X\), with vertical divisors \(D_1,D_2\).  Represent
+ \(\theta_{\mathcal X}\) by
+@@ -1966,9 +1994,17 @@ and \(m\mathcal L_\varepsilon\otimes\mathfrak a_m\) is globally
+ generated.  By \Cref{lem:ch20-generated-ideal-psh}, the maximum is psh with
+ respect to
+ \(\theta+\sum_j\varepsilon_jc_1(\mathcal A_j)\).  Letting all
+-\(\varepsilon_j\) tend to zero and using closedness of the nef cone proves
+-the rational case.  Real model functions follow by rational approximation
+-on a common finite-dimensional space and another use of closedness.
++\(\varepsilon_j\) tend to zero proves the claim.  To justify this last
++step on one numerical space, fix a model \(\mathcal Y\) dominating
++\(\mathcal X\) on which the rational model function
++\(\max\{\varphi_1,\varphi_2\}\) is determined.  Such a model is obtained
++by blowing up the sum ideal for any fixed common denominator of
++\(D_1,D_2\), independently of the perturbation.  Each perturbed form is
++semipositive, hence has nef determination on this same \(\mathcal Y\)
++by \Cref{prop:ch20-semipositive-well-defined}.  Closedness of the nef
++cone there gives the unperturbed form.  This is the rational maximum
++argument of \cite[Proposition 5.8]{BFJ16}; it does not assert that a
++uniform limit remains in the model-function space.
+ \end{proof}
+ 
+ For later use we spell out the four steps that were compressed there, since
+@@ -2004,6 +2040,130 @@ each one is a place where the argument could be misremembered.
+  rather than sums of potentials come out.
+ \end{enumerate}
+ 
++\begin{lemma}
++\label{lem:ch20-fixed-form-rational-approximation}
++Assume that \(\{\theta\}\) is ample.  Every real \(\theta\)-psh model
++function is a uniform limit on \(X^{\An}\) of rational \(\theta\)-psh
++model functions.  The form \(\theta\) is fixed throughout and need not
++itself be semipositive or rational.
++\end{lemma}
++
++\begin{proof}
++Let \(f=\varphi_D\) be a real \(\theta\)-psh model function and fix
++\(\varepsilon>0\).  By
++\Cref{prop:ch20-positive-representative}, choose one model \(\mathcal Y\)
++determining \(D\) and \(\theta\), and a vertical real Cartier divisor
++\(P\) on \(\mathcal Y\), such that \(\theta_{\mathcal Y}+[P]\) is
++relatively ample.  Here the cofinal clause is important: the correcting
++divisor and the given divisor must live on the same model.  This is also
++the positive-representative construction of \cite[Proposition 5.2]{BFJ16}.
++For \(0<\delta<1\), set
++\[
++ D_\delta=(1-\delta)D+\delta P.
++\]
++Then
++\[
++ \theta_{\mathcal Y}+[D_\delta]
++ =(1-\delta)(\theta_{\mathcal Y}+[D])
++       +\delta(\theta_{\mathcal Y}+[P])
++\]
++is relatively ample, by the sum-of-nef-and-ample assertion in
++\Cref{lem:ch20-special-fibre-test}.  Since model functions are continuous
++on the compact space \(X^{\An}\), their sup norms are finite.  Choose
++\(\delta\) so small that
++\(\|\varphi_{D_\delta}-f\|_\infty<\varepsilon/2\).
++
++By the definition of a real Cartier divisor, \(D\) and \(P\) are real
++linear combinations of a finite list of integral vertical Cartier divisors
++\(F_1,\ldots,F_r\) on this same model.  Write
++\(D_\delta=\sum_j a_jF_j\).  The map
++\[
++ (q_1,\ldots,q_r)\longmapsto
++       \theta_{\mathcal Y}+\sum_jq_j[F_j]
++\]
++is continuous into the finite-dimensional numerical space.  Openness of
++its ample cone therefore permits rational numbers \(q_j\) arbitrarily
++close to \(a_j\) for which the displayed class remains ample.  Choose
++them also so that
++\[
++ \sum_j|q_j-a_j|\,\|\varphi_{F_j}\|_\infty<\varepsilon/2.
++\]
++For \(D_\varepsilon=\sum_jq_jF_j\), the rational model function
++\(f_\varepsilon=\varphi_{D_\varepsilon}\) is \(\theta\)-psh, and the
++triangle inequality gives \(\|f_\varepsilon-f\|_\infty<\varepsilon\).
++Only divisor coefficients were rounded; the real class \(\theta\) was
++never changed.  Taking \(\varepsilon\) tending to zero proves the result.
++\end{proof}
++
++\begin{corollary}
++\label{cor:ch20-real-max-uniform-approximation}
++If \(\{\theta\}\) is ample and \(f_1,\ldots,f_r\) are real
++\(\theta\)-psh model functions, their pointwise maximum is a uniform
++limit of rational \(\theta\)-psh model functions.  It need not itself
++be a real model function.
++\end{corollary}
++
++\begin{proof}
++Choose rational approximants to the finitely many \(f_j\) with common
++error less than \(\varepsilon\), using
++\Cref{lem:ch20-fixed-form-rational-approximation}.  Their maximum is a
++rational \(\theta\)-psh model function by \Cref{prop:ch20-model-max}.
++The elementary inequality
++\[
++ \left|\max_j a_j-\max_j b_j\right|\leq\max_j|a_j-b_j|
++\]
++gives the uniform error bound.  The failure of the last conclusion is
++exhibited in \Cref{ex:ch20-real-max-irrational-breakpoint}.
++\end{proof}
++
++\begin{example}
++\label{ex:ch20-real-max-irrational-breakpoint}
++Take \(R=\mathbf C[[\pi]]\), \(K=\mathbf C((\pi))\), and let
++\(\rho:\mathcal X\to\mathbf P^1_R\) be the blowup of a rational point
++on the special fibre.  Let \(E\) be the exceptional component and \(C\)
++the strict transform of that fibre.  They meet transversely in one
++residue-rational point, and
++\[
++ C\cdot E=1,\qquad C^2=E^2=-1,\qquad \mathcal X_s=C+E.
++\]
++The two self-intersections follow also by intersecting the principal
++divisor \(C+E\) with \(C\) and \(E\).  Set
++\(\mathcal L=\rho^*\cO_{\mathbf P^1_R}(2)\otimes\cO_{\mathcal X}(-E)\)
++and let \(\theta\) be its closed model form.  The two component degrees
++are \((1,1)\), so \(\theta\) is semipositive and its generic class has
++degree two.  For \(g=\varphi_E\), the curvature form
++\(\theta+\ddc g\) is that of \(\rho^*\cO(2)\), with component degrees
++\((2,0)\); hence \(g\) is \(\theta\)-psh as well.
++
++The skeleton is the interval \([0,1]\), oriented from \(x_C\) to
++\(x_E\), and \(g(s)=s\).  Choose an irrational \(a\in(0,1)\).
++Both \(0\) and \(g-a\) are real \(\theta\)-psh model functions, but
++\[
++                    h=\max\{0,g-a\}
++\]
++is not a real model function.  Indeed, any real model function is a
++finite real linear combination of rational model functions, by
++\eqref{eq:ch20-model-functions}.  Each rational model function restricts
++to a rational piecewise affine function on this interval
++(\Cref{prop:skeleton-model-pa}; see also
++\cite[Proposition 3.12 and Corollary 3.13]{BFJ16}).  A finite common
++subdivision thus gives only rational possible breakpoints for the real
++linear combination.  In contrast, \(h|_{[0,1]}=\max\{0,s-a\}\) has a
++genuine breakpoint at the irrational point \(a\).  This contradiction
++does not depend on how high a model is chosen.
++
++This also disproves directedness of the real-model minorants of a
++continuous obstacle.  Use \(h\) itself as obstacle.  The functions
++\(0\) and \(g-a\) are admissible minorants.  Any common upper bound
++among those minorants would have to be both at least
++\(\max\{0,g-a\}=h\) and at most \(h\), hence equal to the non-model
++function \(h\).  There is no such upper bound.  On the other hand,
++\Cref{cor:ch20-real-max-uniform-approximation} still applies to \(h\).
++Thus neither this example nor the directedness failure contradicts the
++maximum stability of genuine psh functions in
++\Cref{thm:ch21-stability}.
++\end{example}
++
+ \begin{remark}[Why the naive argument fails]
+ \label{rem:ch20-why-max-is-hard}
+ This proof is worth remembering.  The maximum is not obtained by raising
+@@ -2048,9 +2208,11 @@ us.  This is why the proof of \Cref{prop:ch20-model-max} goes through global
+ generation.  On a curve every vertical curve is a whole component, so the
+ favourable case always holds and the argument does succeed
+ (\Cref{prop:ch20-curve-lattice}).  Even then a second obstruction remains,
+-independent of positivity: in dimension \(n\ge2\) the maximum of two model
+-functions determined on \(\mathcal X\) is usually not determined on
+-\(\mathcal X\) (\Cref{ex:ch20-max-fails-naively}).
++independent of positivity: already on a curve, a maximum can create a
++new breakpoint and fail to be determined on the original model.
++For rational potentials a higher model realizes the maximum, but an
++irrational breakpoint can prevent any model from doing so
++(\Cref{ex:ch20-real-max-irrational-breakpoint}).
+ \end{remark}
+ 
+ \begin{proposition}
+@@ -2181,14 +2343,15 @@ lying in two components with negative self-intersection in each, which
+ cannot happen when \(\#I=2\) and \(E\cong\mathbf P^2\).
+ 
+ Second---and this is the obstruction that always occurs---the maximum
+-\(\max\{\varphi_1,\varphi_2\}\) of two model functions determined on
+-\(\mathcal X\) is, in dimension \(n\geq2\), in general \emph{not} determined
+-on \(\mathcal X\), whatever its vertex values.  Its restriction to a face of
++\(\max\{\varphi_1,\varphi_2\}\) of two rational model functions determined
++on \(\mathcal X\) need not be determined on \(\mathcal X\), already in
++dimension one.  Its restriction to a face of
+ \(\Delta_{\mathcal X}\) of positive dimension is a maximum of two affine
+ functions, hence convex and piecewise affine but not affine, so by
+ \Cref{prop:vertical-divisor-affine-iso} it is not the model function of any
+-divisor on \(\mathcal X\); and it is strictly larger than the affine
+-interpolation of its own vertex values.  The blowup implicit in
++divisor on \(\mathcal X\).  By convexity it lies below the affine
++interpolation of its vertex values, with strict inequality wherever a
++genuine corner prevents equality.  The blowup implicit in
+ \eqref{eq:ch20-ideal-divisor} is precisely the subdivision that introduces
+ the missing breakpoints, and \Cref{ex:ch20-nodal-max} exhibits one on the
+ nodal interval.  A statement about vertex vectors on a fixed model, such as
+@@ -2198,16 +2361,24 @@ nodal interval.  A statement about vertex vectors on a fixed model, such as
+ 
+ \begin{corollary}
+ \label{cor:ch20-truncation}
+-Let \(\theta\) be semipositive.  Then every constant is a \(\theta\)-psh
+-model function, and for every \(\theta\)-psh model function \(\varphi\) and
+-every \(c\in\mathbf R\) the truncation \(\max\{\varphi,c\}\) is again a
+-\(\theta\)-psh model function.
++Let \(\theta\) be semipositive.  Every real constant is a real
++\(\theta\)-psh model function.  If \(\varphi\) is a rational
++\(\theta\)-psh model function and \(c\in\mathbf Q\), then
++\(\max\{\varphi,c\}\) is a rational \(\theta\)-psh model function.
++If in addition \(\{\theta\}\) is ample, the truncation of a real
++\(\theta\)-psh model function at an arbitrary real constant is a uniform
++limit of rational \(\theta\)-psh model functions, but is not necessarily
++a model function.
+ \end{corollary}
+ 
+ \begin{proof}
+-Constants: \(\ddc c=0\) by \eqref{eq:ch20-ddc-constant}, so
+-\(\theta+\ddc c=\theta\) is semipositive.  Truncation is then
+-\Cref{prop:ch20-model-max}.
++Constants have zero model differential by
++\eqref{eq:ch20-ddc-constant}.  Rational truncation follows from
++\Cref{prop:ch20-model-max}, and the uniform approximation assertion is
++\Cref{cor:ch20-real-max-uniform-approximation}, applied to the function
++and the constant.  The example in
++\Cref{ex:ch20-real-max-irrational-breakpoint} shows why the final
++qualification is necessary.
+ \end{proof}
+ 
+ \begin{proposition}
+@@ -2238,11 +2409,12 @@ points \(x_{E_i}\).
+ \subsection{Model envelopes}
+ \label{sec:ch20-envelopes}
+ 
+-The maximum construction of \Cref{prop:ch20-model-max} makes the family of
+-\(\theta\)-psh model functions below a given obstacle upward directed, and
+-this is exactly what is needed to define an envelope.  We record here the
+-properties that can be established at model level, and we are explicit about
+-those that cannot.
++We define the model envelope using real model functions, so that real
++translations, convex combinations and reference changes remain literal.
++The rational subfamily, not the full real family, is closed under maxima.
++When the generic class is ample, fixed-form rational approximation shows
++that this directed subfamily computes the same envelope.  The distinction
++is essential even for continuous obstacles on curves.
+ 
+ \begin{definition}[Model envelope]
+ \index{envelope!model}
+@@ -2268,9 +2440,12 @@ bounded functions \(\varphi,\varphi'\) on \(X^{\An}\) and \(c\in\mathbf R\),
+ \(t\in[0,1]\):
+ \begin{enumerate}
+ \item\label{itm:ch20-env:directed} the family in
+- \eqref{eq:ch20-model-envelope} is nonempty and upward directed, and
+- \(P^{\model}_\theta\varphi\) is the pointwise limit of an increasing net of
+- \(\theta\)-psh model functions;
++ \eqref{eq:ch20-model-envelope} is nonempty.  Its rational subfamily is
++ nonempty and upward directed.  If \(\{\theta\}\) is ample, that
++ rational subfamily has the same supremum, so
++ \(P^{\model}_\theta\varphi\) is the pointwise limit of an increasing
++ net of rational \(\theta\)-psh model functions.  The full real family
++ need not be upward directed;
+ \item\label{itm:ch20-env:bounds}
+  \(\inf_{X^{\An}}\varphi\leq P^{\model}_\theta\varphi\leq\varphi\);
+ \item\label{itm:ch20-env:monotone} \(\varphi\leq\varphi'\) implies
+@@ -2295,16 +2470,33 @@ bounded functions \(\varphi,\varphi'\) on \(X^{\An}\) and \(c\in\mathbf R\),
+ \end{theorem}
+ 
+ \begin{proof}
+-\cref{itm:ch20-env:directed}.  Nonemptiness: since \(\theta\) is
+-semipositive, the constant \(\inf\varphi\) is a \(\theta\)-psh model
+-function \(\leq\varphi\), by \Cref{cor:ch20-truncation}.  Directedness: if
+-\(\psi_1,\psi_2\) belong to the family, then so does
+-\(\max\{\psi_1,\psi_2\}\), by \Cref{prop:ch20-model-max}, and it dominates
+-both.  An upward directed family has a pointwise supremum realized as the
+-limit of the increasing net indexed by the family itself, ordered by
+-\(\leq\); nets, and not sequences, are used here because the family is not
+-countable and no metrizability has been proved
+-(\Cref{app:nets}).
++\cref{itm:ch20-env:directed}.  Since \(\theta\) is semipositive, any
++constant no greater than \(\inf\varphi\) is an admissible real model
++function.  A rational such constant also proves nonemptiness of the
++rational subfamily.  By \Cref{prop:ch20-model-max}, that rational
++subfamily is closed under finite maxima and is therefore upward directed.
++
++Now assume \(\{\theta\}\) ample.  Given a real admissible model function
++\(\psi\) and \(\varepsilon>0\), use
++\Cref{lem:ch20-fixed-form-rational-approximation} to choose a rational
++\(\theta\)-psh model function \(q\) with
++\(\|q-\psi\|_\infty<\varepsilon\).  Choose a rational number
++\(c\) with \(\varepsilon<c<2\varepsilon\).  Then
++\[
++             \psi-3\varepsilon<q-c\leq\psi\leq\varphi.
++\]
++Subtracting the rational constant preserves both rationality and
++\(\theta\)-pshness.  Taking suprema over rational minorants and then
++letting \(\varepsilon\) decrease to zero proves that their supremum
++equals the real-model envelope.  The rational minorants, ordered by
++pointwise comparison, now supply the asserted increasing net.  No
++countability or metrizability is used (\Cref{app:nets}).
++
++The full real-model family itself need not be upward directed, even
++under this ample-class hypothesis, by
++\Cref{ex:ch20-real-max-irrational-breakpoint}.  The small downward
++constant in the preceding argument is what allows the exact obstacle
++constraint to survive rational approximation.
+ 
+ \cref{itm:ch20-env:bounds}.  The lower bound is the constant just exhibited;
+ the upper bound is the constraint \(\psi\leq\varphi\).
+@@ -2399,17 +2591,19 @@ element by construction.
+ 
+ \begin{remark}[Why the fixed-model envelope is a curve phenomenon]
+ \label{rem:ch20-fixed-model-envelope-scope}
+-\Cref{prop:ch20-curve-envelope} solves the envelope problem inside a fixed
+-model, by a finite-dimensional argument, and the solution is again a model
+-function on the same model.  In dimension \(n\geq2\) neither conclusion is
+-available by this route: \Cref{ex:ch20-max-fails-naively} shows that the
+-admissible set of vertex vectors is not stable under componentwise maximum,
+-and even if it were, \Cref{prop:ch20-model-max} produces the maximum only
+-after a blowup.  This is precisely why
+-\Cref{chap:bfj-envelopes} needs multiplier ideals rather than convex
+-geometry, and why continuity of envelopes is a theorem with hypotheses
+-rather than a formality.  It is also why the theory does not simply take
+-place on one dual complex.
++\Cref{prop:ch20-curve-envelope} solves the envelope problem for vertex
++constraints on a fixed curve model by a finite-dimensional argument.
++It does not identify the pointwise maximum of the corresponding affine
++interpolants with the interpolant of their vertexwise maximum.
++In higher dimension the one-negative-coefficient argument in
++\Cref{prop:ch20-curve-lattice} is no longer available for every vertical
++curve, and the ideal construction of \Cref{prop:ch20-model-max} generally
++requires a higher model even for rational potentials.  Thus this
++fixed-model calculation is not a proof of the global envelope theorem.
++The arguments in
++\Cref{chap:bfj-envelopes} use multiplier ideals, and continuity of envelopes
++remains a theorem with hypotheses rather than a formality.  The theory
++does not take place on just one dual complex.
+ \end{remark}
+ 
+ \section{Nefness, semipositivity, and numerical positivity}
+@@ -3052,7 +3246,8 @@ when
+  \quad\text{for every }i.
+ \end{equation}
+ 
+-For a reduced two-component fibre with one node, the intersection matrix is
++For a reduced two-component fibre with one node rational over the residue
++field, the intersection matrix is
+ 
+ \begin{equation}
+ \label{eq:ch20-two-component-matrix}
+@@ -3493,9 +3688,10 @@ see at once whether the proof given here survives.
+   most hypothesis-sensitive statement of the chapter.\\
+ \Cref{prop:ch20-model-max}
+  &\(\cX\) projective over \(R\); \(N^1(\cX/R)\) spanned by ample classes
+- &Neither regularity nor \(\operatorname{char}k=0\) is used.  The
+-  corresponding statement for model metrics over an arbitrary complete
+-  field is \Cref{prop:semipositive-stability}\,(3).\\
++ &The rational-potential maximum assertion uses neither regularity nor
++  \(\operatorname{char}k=0\).  The fixed-real-form approximation in
++  \Cref{lem:ch20-fixed-form-rational-approximation} additionally uses an
++  ample generic class and the positive-representative input.\\
+ \Cref{thm:ch20-vertical-nef-rigidity}
+  &regular \(\cX\); connected \(\cX_s\)
+  &Uses the equality case of \eqref{eq:ch20-hodge-laplacian}, hence

@@ -1,0 +1,17 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url));
+const parent=path.join(path.dirname(here),'p081_ch24_real_maximum_locality_repair_20260831');
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const raw=fs.readFileSync(path.join(parent,'MANIFEST.json'));
+if(sha(raw)!=='408c1c750c116696e2d43a3466038e84e14ab48e37cb6f5995fec5e501eb6185')throw Error('manifest changed');
+const checks=JSON.parse(raw).entries.map(e=>{const b=fs.readFileSync(path.join(parent,e.path));if(b.length!==e.bytes||sha(b)!==e.sha256)throw Error('changed '+e.path);return {...e,verified:true};});
+const result=spawnSync(process.execPath,[path.join(parent,'validate_repair.mjs')],{encoding:'utf8',maxBuffer:4*1024*1024});
+if(result.status!==0)throw Error(result.stderr);
+const report=JSON.parse(result.stdout).report;
+const output={date:'2026-08-31',status:'parent technical check; not production',manifestSha256:sha(raw),manifestEntries:checks,readOnlyValidator:report,noLiveWrites:true};
+fs.writeFileSync(path.join(here,'CHECKS.json'),JSON.stringify(output,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({entries:checks.length,oldLabels:report.oldLabels,newLabels:report.newLabels,statementsUnchanged:report.originalStatementsUnchanged,patch:report.patchCheck},null,2));

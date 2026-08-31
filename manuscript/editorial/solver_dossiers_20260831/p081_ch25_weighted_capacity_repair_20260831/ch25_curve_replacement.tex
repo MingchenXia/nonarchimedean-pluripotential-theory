@@ -1,0 +1,406 @@
+\section{Capacity on a curve}
+\label{sec:ch25-curves}
+
+The capacity of a tube over a curve skeleton is a weighted graph
+problem.  We prove the pushforward identity directly from model
+integration by parts.  This keeps both the residue degrees and the
+nonreduced SNC refinements that occur over the original field visible.
+
+Retain the original BFJ hypotheses \eqref{eq:ch20-standing}, with
+\(-\log|\pi|=1\).  Thus \(K\) is complete and discretely valued,
+\(k=\widetilde K\) has characteristic zero, and \(C\) is a smooth
+connected projective \(K\)-curve.  The reference \(\theta\) is an
+arbitrary real semipositive closed model form with ample generic class;
+it need not come from one line bundle.  Suppose it is determined on
+a given semistable model \(\mathcal C\), with smooth components as in
+the regular semistable convention of
+\cref{def:ch08-semistable-curve-model}, but without requiring its nodes
+to be \(k\)-rational.  A node of thickness greater than one may first
+be resolved into its regular chain: this subdivides its edge into
+unit-length edges over its node residue field, without changing the
+underlying skeleton or retraction.  This is a resolution of the given
+model, not a semistable domination assertion for arbitrary models.
+If the model does not yet satisfy the irreducible-strata indexing
+convention for SNC models, make a fixed node subdivision as in
+\cref{prop:snc-cofinal}.  It leaves the underlying graph and
+retraction unchanged, although the inserted components can have
+multiplicity greater than one.  It is this SNC presentation that
+is used when applying \cref{def:ch21-bfj-psh} to the fixed graph.
+
+Write \(\Gamma\) for that skeleton,
+\(p:C^{\An}\to\Gamma\) for its retraction and
+\(\iota:\Gamma\hookrightarrow C^{\An}\) for its inclusion.  Let
+\(\mu_0=\MA_\theta(0)\), viewed on \(\Gamma\).  Its mass is
+\(V=(\{\theta\})>0\), and its vertex masses are the degrees of the
+determining real class over \(k\).  If \(e\) corresponds to a node
+\(z_e\), set
+\[
+ c_e=[\kappa(z_e):k].
+\]
+Each edge has its analytic modulus coordinate \(s\).  The same
+\(c_e\) is used at both ends and on every subdivision of \(e\).
+For a continuous piecewise affine \(T\), our convention is
+\[
+ \Delta_\Gamma T
+ =\sum_x\left(\sum_{e\ni x}c_e\,\partial_eT(x)\right)\delta_x,
+ \qquad
+ \int_\Gamma F\,\rd\Delta_\Gamma T
+ =-\sum_e c_e\int_e F'T'\,\rd s
+\]
+when \(F\) is also piecewise affine, after a common subdivision.
+This is the weighted Laplacian of
+\eqref{eq:ch31-graph-laplacian}, not the unit-weight formula
+\eqref{eq:graph-laplacian}.  For a continuous \(F\), the assertion
+\(\Delta_\Gamma F=\nu\), with \(\nu\) a finite signed measure, means
+\(\int F\,\rd\Delta_\Gamma T=\int T\,\rd\nu\) for every continuous
+piecewise affine \(T\).
+
+We use the real-form graph lemma
+\cref{lem:ch26-weighted-graph-real-bfj}.  Its proof uses the algebraic
+curve intersection formula, model integration by parts, uniform
+stability and continuity of the bounded operator, and the elementary
+weighted Green kernel.  It uses no capacity theorem and no
+finite-energy result; this forward reference is therefore independent
+of the capacity arguments of this chapter.
+
+Here is its model-level input in the notation needed below.  If \(T\)
+is real piecewise affine with rational breakpoints in the original
+modulus coordinates, then \(t=T\circ p\) is a real model function and
+\begin{equation}
+\label{eq:ch25-curve-ma}
+ \MA_\theta(t)=\iota_*(\mu_0+\Delta_\Gamma T).
+\end{equation}
+This is an equality of signed model measures if \(t\) is not psh.
+In particular \(\ddc t=\iota_*\Delta_\Gamma T\).  To recall why the
+statement holds over \(K\), successive blowups of closed nodes insert
+the desired rational points.  The resulting regular SNC model may
+have special fiber \(\sum_i b_iE_i\) with \(b_i>1\).
+For prescribed real vertex values \(a_i\), the vertical real divisor
+is \(D=\sum_i b_i a_iE_i\), not \(\sum_i a_iE_i\).
+Adjacent vertices obtained by these node blowups have modulus
+distance \(1/(b_i b_j)\), and their intersection has degree \(c_e\).
+Consequently the first identity in
+\eqref{eq:ch20-curve-laplacian} gives
+\[
+ b_i(D\cdot E_i)
+   =\sum_{j\ne i}b_i b_j(E_j\cdot E_i)(a_j-a_i)
+   =\sum_{e\ni i}c_e\,\partial_eT(i).
+\]
+The left side is exactly the atom in
+\eqref{eq:model-mixed-measure}; the reference has degree zero on
+new exceptional components by the projection formula.  This proves
+\eqref{eq:ch25-curve-ma}.  For example, blowing up a node of a unit
+edge inserts its midpoint with multiplicity two.  There is no
+requirement that this SNC model have reduced special fiber, and no
+claim that a real \(T\) be a rational model function.
+
+\begin{proposition}
+\label{prop:ch25-curve-pushforward}
+For every bounded \(\theta\)-psh function \(u\) on \(C^{\An}\), the
+restriction \(f=u|_\Gamma\) is continuous,
+\[
+ \mu_0+\Delta_\Gamma f=p_*\MA_\theta(u)\geq0,
+ \qquad u\circ p\in\PSH(C,\theta)\cap C^0(C^{\An}),
+\]
+and
+\begin{equation}
+\label{eq:ch25-curve-pushforward}
+ \iota_*p_*\MA_\theta(u)=\MA_\theta(u\circ p).
+\end{equation}
+Thus \(\MA_\theta(u)(p^{-1}(A))
+=\MA_\theta(u\circ p)(\iota(A))\) for every Borel
+\(A\subseteq\Gamma\).  In particular
+\eqref{eq:ch25-curve-ma} also holds with \(t=u\circ p\) and
+\(T=u|_\Gamma\), without a model-function hypothesis.
+\end{proposition}
+
+\begin{proof}
+\emph{Step 1: test on the original skeleton.}
+Let \(\psi\) be any real \(\theta\)-psh model function; its determining
+model is not assumed semistable.  For a real piecewise affine \(T\)
+with rational breakpoints, \(t=T\circ p\) is the model function just
+constructed.  Model integration by parts
+\cref{prop:model-integration-by-parts}, applied on a common model
+determining \(\psi,t,\theta\), gives
+\begin{equation}
+\label{eq:ch25-weighted-skeletal-test}
+ \begin{aligned}
+ \int_\Gamma T\,\rd(p_*\MA_\theta(\psi)-\mu_0)
+ &=\int_{C^{\An}}t\,\ddc\psi\\
+ &=\int_{C^{\An}}\psi\,\ddc t
+ =\int_\Gamma\psi|_\Gamma\,\rd\Delta_\Gamma T.
+ \end{aligned}
+\end{equation}
+Only ordinary common model domination is used for the intersection
+pairing.  Neither \(\psi\) nor its determining model is required to
+factor through a higher reduced semistable skeleton.
+
+For completeness, these rational-breakpoint tests determine a
+continuous potential up to a constant.  If a continuous \(w\) satisfies
+\(\int w\,\rd\Delta_\Gamma T=0\) for all such \(T\), choose a finite
+rational subdivision and let \(T\) interpolate the values of \(w\) at
+its vertices.  The measure \(\Delta_\Gamma T\) is supported at those
+vertices, so
+\[
+ 0=\int_\Gamma w\,\rd\Delta_\Gamma T
+   =\int_\Gamma T\,\rd\Delta_\Gamma T
+   =-\sum_{e=(v,v')}\frac{c_e}{\ell_e}
+                         \bigl(w(v)-w(v')\bigr)^2.
+\]
+Connectedness makes all these vertex values equal.  Finer rational
+subdivisions have dense union, so continuity makes \(w\) constant
+everywhere.  The assertion is immediate for a point skeleton.
+Apply this observation to the difference between \(\psi|_\Gamma\)
+and the continuous Green potential of
+\(p_*\MA_\theta(\psi)-\mu_0\), whose mass is zero.  The kernel of
+\cref{lem:ch31-green-kernel} satisfies the same tests, including all
+piecewise affine tests.  Thus
+\(\Delta_\Gamma(\psi|_\Gamma)=p_*\MA_\theta(\psi)-\mu_0\) in the
+stated distributional sense.
+
+\emph{Step 2: the bounded limit.}
+Take a decreasing net \(\psi_\alpha\searrow u\) of real
+\(\theta\)-psh model functions by
+\cref{thm:bfj-decreasing-regularization}.  After restricting to a
+tail, this net is uniformly bounded: it lies above the bounded
+function \(u\) and below one fixed continuous model function.
+The restrictions decrease to \(f=u|_\Gamma\), which is finite and
+continuous by clause~(2) of \cref{def:ch21-bfj-psh}.
+Dini's theorem for nets, \cref{prop:dini-nets}, gives uniform
+convergence on this fixed compact graph.  Meanwhile
+\cref{thm:bounded-ma-extension} gives
+\(\MA_\theta(\psi_\alpha)\to\MA_\theta(u)\) weakly.
+Pushforward by the continuous \(p\) preserves weak convergence,
+since a continuous test \(T\) pulls back to \(T\circ p\).
+
+For each fixed rational-breakpoint test \(T\), pass to the limit in
+\eqref{eq:ch25-weighted-skeletal-test}.  On the right this is uniform
+convergence against the fixed finite signed measure
+\(\Delta_\Gamma T\); on the left it is weak convergence.
+The result is
+\[
+ \int_\Gamma T\,\rd(p_*\MA_\theta(u)-\mu_0)
+       =\int_\Gamma f\,\rd\Delta_\Gamma T.
+\]
+The preceding Green-potential and interpolation argument now proves
+\(\Delta_\Gamma f=p_*\MA_\theta(u)-\mu_0\).
+The measure on the right after adding \(\mu_0\) is positive of mass
+\(V\).  The sufficiency direction of
+\cref{lem:ch26-weighted-graph-real-bfj} therefore proves that
+\(f\circ p=u\circ p\) is continuous BFJ-psh and has measure
+\(\iota_*(\mu_0+\Delta_\Gamma f)\).  This is
+\eqref{eq:ch25-curve-pushforward}.  The equality of measures, not a
+claim about weak convergence on arbitrary Borel sets, gives the
+final Borel-set identity.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch25-curve-capacity-formula}
+Put
+\[
+ \begin{aligned}
+ \mathcal P_\Gamma
+  &:=\{u|_\Gamma:u\in\mathcal U_\theta\},\\
+ \mathcal Q_\Gamma
+  &:=\{f\in C(\Gamma): -1\leq f\leq0,\
+                \mu_0+\Delta_\Gamma f\text{ is a positive measure}\}.
+ \end{aligned}
+\]
+Then \(\mathcal P_\Gamma=\mathcal Q_\Gamma\), and for every Borel
+\(A\subseteq\Gamma\),
+\begin{equation}
+\label{eq:ch25-curve-capacity}
+ \Capa_\theta(p^{-1}(A))
+   =\sup_{f\in\mathcal P_\Gamma}(\mu_0+\Delta_\Gamma f)(A)
+   =\sup_{f\in\mathcal Q_\Gamma}(\mu_0+\Delta_\Gamma f)(A).
+\end{equation}
+Every member of \(\mathcal Q_\Gamma\) pulls back to an actual
+continuous BFJ \(\theta\)-psh competitor.  Real values and irrational
+breakpoints are allowed.  A real piecewise affine member with
+rational breakpoints pulls back to a real model function; if its
+vertex values are also rational, it is a rational model function.
+\end{corollary}
+
+\begin{proof}
+For \(u\in\mathcal U_\theta\),
+\cref{prop:ch25-curve-pushforward} gives
+\[
+ \MA_\theta(u)(p^{-1}(A))
+   =(\mu_0+\Delta_\Gamma(u|_\Gamma))(A),
+\]
+and proves \(\mathcal P_\Gamma\subseteq\mathcal Q_\Gamma\).
+Conversely, if \(f\in\mathcal Q_\Gamma\), the graph Laplacian has
+total mass zero (test against the constant one), so
+\(\mu=\mu_0+\Delta_\Gamma f\) has mass \(V\).
+By \cref{lem:ch26-weighted-graph-real-bfj},
+\(f\circ p\in\PSH(C,\theta)\cap C^0(C^{\An})\).
+It takes values in \([-1,0]\), hence belongs to
+\(\mathcal U_\theta\), and restricts to \(f\).
+This proves the reverse inclusion and the equality of the suprema.
+The final model assertions follow from the SNC construction preceding
+\cref{prop:ch25-curve-pushforward}.  No rational approximation of the
+real reference class is involved.
+\end{proof}
+
+\subsection{The two-vertex graph}
+\label{sec:ch25-two-vertex}
+
+Suppose the underlying graph is a segment and \(\mu_0\) is supported
+at its two endpoints.  Internal valence-two vertices may be retained
+to record changing edge weights, even when their reference masses
+are zero.  The coordinate relevant to capacity is the
+\emph{resistance coordinate}
+\begin{equation}
+\label{eq:ch25-resistance-coordinate}
+ x(z)=\int_{[x_{E_0},z]}\frac{\rd s}{c_e},\qquad
+ \ell=\sum_e\frac{\ell_e}{c_e}.
+\end{equation}
+Thus \(x\in[0,\ell]\).  Here \(\ell_e\) is an analytic modulus
+length, whereas \(\ell\) is a total resistance length; they agree
+with ordinary total length only when every \(c_e=1\).
+On each edge, if \(f\) is expressed as a function of \(x\), then
+\(c_e\,\rd f/\rd s=\rd f/\rd x\).
+Accordingly both fluxes at a junction become ordinary one-sided
+\(x\)-derivatives, even when its two edge weights differ.
+
+Let \(m_i=\mu_0(\{x_{E_i}\})\).  On the original reduced model these
+are the degrees of \(\theta|_{E_i}\) over \(k\); the measure-based
+definition also records multiplicities if a different SNC
+presentation is used.  Then
+\(\mu_0=m_0\delta_0+m_1\delta_\ell\), with \(m_i\geq0\) and
+\(V=m_0+m_1>0\).
+In the resistance coordinate,
+\begin{equation}
+\label{eq:ch25-segment-class}
+ \mathcal Q_\Gamma
+ =\{f\in C([0,\ell]): -1\leq f\leq0,\ f\text{ convex},\
+       f'(0^+)\geq-m_0,\ f'(\ell^-)\leq m_1\},
+\end{equation}
+and
+\begin{equation}
+\label{eq:ch25-segment-measure}
+ \mu_0+\Delta_\Gamma f
+  =(m_0+f'(0^+))\delta_0
+       +f''|_{(0,\ell)}+(m_1-f'(\ell^-))\delta_\ell .
+\end{equation}
+Indeed positivity in the interior is precisely convexity in \(x\),
+and the remaining two inequalities are positivity at the endpoints.
+The endpoint bounds make the one-sided derivatives finite; the
+total interior mass is \(f'(\ell^-)-f'(0^+)\), so the displayed
+measure has total mass \(V\).
+
+\begin{proposition}
+\label{prop:ch25-segment-capacities}
+With \(x_c\) denoting the point at resistance distance \(c\) from
+\(x_{E_0}\), one has
+\begin{align}
+\label{eq:ch25-cap-endpoint}
+ \Capa_\theta(p^{-1}(\{x_0\}))
+   &=m_0+\min\{m_1,1/\ell\},\\
+\label{eq:ch25-cap-interval}
+ \Capa_\theta(p^{-1}([a,b]))
+   &=\min\{m_0,1/a\}+\min\{m_1,1/(\ell-b)\},
+       \qquad 0<a\leq b<\ell.
+\end{align}
+In particular, for \(0<c<\ell\), the capacity of the tube over
+\(x_c\) is \(\min\{m_0,1/c\}+\min\{m_1,1/(\ell-c)\}\).
+All these suprema are attained by continuous piecewise affine graph
+potentials whose pullbacks are BFJ \(\theta\)-psh.
+No rationality hypothesis is needed for attainment.
+\end{proposition}
+
+\begin{proof}
+By \cref{cor:ch25-curve-capacity-formula} it suffices to maximize
+the indicated graph mass over \(\mathcal Q_\Gamma\).
+
+For the endpoint, \eqref{eq:ch25-segment-measure} gives the mass
+\(m_0+f'(0^+)\).  Convexity implies
+\(f'(0^+)\leq f'(\ell^-)\leq m_1\), and
+\(\ell f'(0^+)\leq f(\ell)-f(0)\leq1\).
+The upper bound in \eqref{eq:ch25-cap-endpoint} follows.
+It is attained by \(f(x)=-1+sx\), where
+\(s=\min\{m_1,1/\ell\}\): its values lie in \([-1,0]\), and both
+endpoint inequalities hold.
+
+For \(0<a\leq b<\ell\), the mass is
+\(f''([a,b])=f'(b^+)-f'(a^-)\), including the jumps at \(a,b\).
+Convexity and the range bound give
+\[
+ f'(a^-)\geq\frac{f(a)-f(0)}a\geq-1/a,\qquad
+ f'(b^+)\leq\frac{f(\ell)-f(b)}{\ell-b}\leq1/(\ell-b).
+\]
+The endpoint constraints also give
+\(f'(a^-)\geq-m_0\) and \(f'(b^+)\leq m_1\).
+Together these prove the desired upper bound.
+Set \(\alpha=\min\{m_0,1/a\}\),
+\(\beta=\min\{m_1,1/(\ell-b)\}\), and define
+\[
+ f(x)=
+ \begin{cases}
+  -1+\alpha(a-x),&0\leq x\leq a,\\
+  -1,&a\leq x\leq b,\\
+  -1+\beta(x-b),&b\leq x\leq\ell.
+ \end{cases}
+\]
+Its slopes are \(-\alpha,0,\beta\), in increasing order, and its
+maximum is attained at an endpoint.  The inequalities
+\(\alpha a\leq1\), \(\beta(\ell-b)\leq1\) make that maximum at most
+zero; the minimum is minus one.  The endpoint inequalities follow
+from \(\alpha\leq m_0,\beta\leq m_1\).
+Thus \(f\in\mathcal Q_\Gamma\), and its interior measure is
+\(\alpha\delta_a+\beta\delta_b\).
+When \(a=b\), these atoms coincide and their masses add.
+The corollary makes \(f\circ p\) an admissible competitor even if
+\(a,b\) are irrational.  Its measure attains the upper bound
+exactly; weak convergence on a fixed Borel set is not needed.
+\end{proof}
+
+\begin{remark}[Reading the formulas]
+\label{rem:ch25-segment-reading}
+The geometry enters through the resistance length, which combines
+analytic modulus and residue degree.  For one edge of modulus
+length \(L\) and weight \(c\), the term \(1/\ell\) is \(c/L\).
+The two terms in \eqref{eq:ch25-cap-interval} are the weighted
+fluxes entering from the two ends.  Each minimum records whether
+the range constraint or the available reference mass is active.
+The formulas are unchanged by subdivisions: lengths of subdivided
+pieces add and their inherited weight stays the same.
+\end{remark}
+
+\begin{example}[A nonsplit node changes capacity]
+\label{ex:ch25-nonsplit-capacity}
+Let \(K=\mathbf R((\pi))\), with \(-\log|\pi|=1\), and blow up
+\(\mathbf P^1_{\mathbf R[[\pi]]}\) at the closed special-fiber point
+\(z\) given by \(x^2+1=0\).
+The strict transform \(D\) and the exceptional
+\(E\simeq\mathbf P^1_{\mathbf C}\) both have multiplicity one.
+They meet at a node with residue field \(\mathbf C\).
+The edge therefore has modulus length one and weight two, hence
+resistance length \(\ell=1/2\).
+
+Take the pullback of the standard \(\mathcal O(2)\) model as
+reference.  Its degrees over \(\mathbf R\) are \((2,0)\), so
+\(\mu_0=2\delta_{v_D}\).
+The vertical divisor \(-E\) has degree minus two on \(D\) and
+plus two on \(E\): the restriction of \(\mathcal O(E)\) to \(D\)
+is \(\mathcal O_D(z)\), while its restriction to
+\(\mathbf P^1_{\mathbf C}\) is \(\mathcal O(-1)\), of degree
+minus two over \(\mathbf R\).
+Its model potential has values \((0,-1)\), hence is
+\(f(s)=-s=-2x\).  It lies in \([-1,0]\) and has
+\[
+ \Delta_\Gamma f=-2\delta_{v_D}+2\delta_{v_E},
+ \qquad \MA_\theta(f\circ p)=2\delta_{v_E}.
+\]
+The modified model has degrees \((0,2)\) and is nef.  Therefore
+\[
+ \Capa_\theta(\{v_E\})
+ =\Capa_\theta(p^{-1}(\{v_E\}))=2.
+\]
+The upper bound is the total mass; the displayed model realizes
+it at the point itself.  Equivalently, the endpoint formula from
+the \(E\)-end reads \(0+\min\{2,1/(1/2)\}=2\).
+Using the modulus length one but omitting its weight would instead
+give one.  Thus residue weights affect capacity, not just notation.
+\end{example}
+

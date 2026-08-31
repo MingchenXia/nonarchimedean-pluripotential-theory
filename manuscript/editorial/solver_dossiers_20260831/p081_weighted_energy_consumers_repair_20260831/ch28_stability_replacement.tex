@@ -1,0 +1,189 @@
+\subsection{A quantitative estimate on curves}
+\label{sec:ch28-curve-stability}
+
+For measures carried by one finite curve skeleton, the variational problem
+is a weighted graph Dirichlet problem.  Stability becomes an explicit
+inequality.  We keep the total modulus length in the stated constants,
+while also recording the sharper resistance-length bound.
+
+Throughout this subsection we retain \eqref{eq:ch28-standing}:
+\(X\) is a smooth connected projective curve over the original discretely
+valued field, \(\mathcal X\) is a regular semistable model with skeleton
+\(\Gamma\), \(r:X^{\An}\to\Gamma\) is its retraction, and \(\omega\)
+is a semipositive \emph{real} closed model form of ample generic class
+determined on \(\mathcal X\).  Its measure \(\mu_0=\MA_\omega(0)\)
+has mass \(V=(\{\omega\})>0\).  No split-node or geometric-connectedness
+assumption is added.  Give each edge its modulus length \(\ell_e\) and
+its residue weight \(c_e=[\kappa(z_e):\widetilde K]\geq1\), retained
+on subdivisions, and write
+\begin{equation}
+\label{eq:ch28-dirichlet-form}
+ D_\Gamma(f):=\sum_e c_e\int_e|f'|^2\,\rd s\ \in[0,+\infty],
+ \qquad L(\Gamma):=\sum_e\ell_e,
+ \qquad L_R(\Gamma):=\sum_e\frac{\ell_e}{c_e}\leq L(\Gamma).
+\end{equation}
+This defines the Dirichlet energy for continuous functions that are
+absolutely continuous on each edge, with value \(+\infty\) if the
+weighted derivative integral diverges.  The energy is weighted but the
+slope coordinate is unchanged.  Both lengths and the energy are zero
+when the graph is a point.
+
+\begin{lemma}
+\label{lem:ch28-graph-sobolev}
+Let \(\Gamma\) be a compact connected finite metric graph with positive
+edge weights \(c_e\geq1\), including the unweighted case \(c_e=1\).
+If \(f\) is continuous and absolutely continuous on each edge, then
+\begin{equation}
+\label{eq:ch28-graph-sobolev}
+ \operatorname{osc}_\Gamma f
+ \leq L_R(\Gamma)^{1/2}D_\Gamma(f)^{1/2}
+ \leq L(\Gamma)^{1/2}D_\Gamma(f)^{1/2}.
+\end{equation}
+In particular this holds for the originally stated piecewise \(C^1\)
+functions.
+\end{lemma}
+
+\begin{proof}
+The conclusion is immediate if the graph is a point or the energy is
+infinite.  Otherwise join \(x,y\) by an injective path \(\gamma\),
+subdividing at its endpoints.  Such a path exists by connectedness and
+traverses no edge segment twice.  The fundamental theorem of calculus and
+weighted Cauchy--Schwarz give
+\[
+ |f(x)-f(y)|
+ \leq\int_\gamma|f'|\,\rd s
+ \leq\left(\int_\gamma\frac{\rd s}{c_e}\right)^{1/2}
+       \left(\int_\gamma c_e|f'|^2\,\rd s\right)^{1/2}
+ \leq L_R(\Gamma)^{1/2}D_\Gamma(f)^{1/2}.
+\]
+Taking the supremum and using \(L_R(\Gamma)\leq L(\Gamma)\) proves
+\eqref{eq:ch28-graph-sobolev}.
+\end{proof}
+
+\begin{theorem}
+\label{thm:ch28-curve-stability}
+\index{stability!with respect to the measure}
+Let \(\mu_1,\mu_2\) be positive measures of mass \(V\) carried by
+\(\Gamma\), and let \(u_1,u_2\) be the continuous BFJ solutions of
+\(\MA_\omega(u_a)=\mu_a\) constructed in
+\cref{lem:ch26-weighted-graph-real-bfj}, normalized by
+\(\sup_{X^{\An}}u_a=0\).  Put \(u=u_1-u_2\), and write
+\(\lVert\mu_1-\mu_2\rVert\) for total variation on \(\Gamma\).  Then
+\begin{align}
+\label{eq:ch28-curve-stability-dirichlet}
+ D_\Gamma(u)&\leq L(\Gamma)\lVert\mu_1-\mu_2\rVert^2,\\
+\label{eq:ch28-curve-stability-sup}
+ \lVert u_1-u_2\rVert_{C^0(X^{\An})}
+   &\leq L(\Gamma)\lVert\mu_1-\mu_2\rVert,\\
+\label{eq:ch28-curve-stability-dual}
+ \bigl|E^\vee_\omega(\mu_1)-E^\vee_\omega(\mu_2)\bigr|
+   &\leq\tfrac12L(\Gamma)\lVert\mu_1-\mu_2\rVert^2
+      +L(\Gamma)^{1/2}\lVert\mu_1-\mu_2\rVert
+          \min_a D_\Gamma(u_a)^{1/2}.
+\end{align}
+The last bound is written without inverse powers of \(L(\Gamma)\),
+so it also makes sense for a point skeleton.
+Each occurrence of \(L(\Gamma)\) in the three bounds may be replaced
+by \(L_R(\Gamma)\).  In particular \(\mu\mapsto u_\mu\) is Lipschitz
+from total variation to the uniform norm with the stated constant, and
+\(E^\vee_\omega\) is locally Lipschitz on measures carried by \(\Gamma\).
+\end{theorem}
+
+\begin{proof}
+\emph{The finite-energy identity.}
+The construction in \cref{lem:ch26-weighted-graph-real-bfj} applies to
+the real form \(\omega\) and provides the asserted BFJ solutions over
+the original field.  It also proves edgewise absolute continuity,
+finite weighted energy, and integration by parts for their difference.
+Since \(\Delta_\Gamma u=\mu_1-\mu_2\),
+\begin{equation}
+\label{eq:ch28-stability-dirichlet-identity}
+ D_\Gamma(u)=-\int_\Gamma u\,\rd\Delta_\Gamma u
+            =-\int_\Gamma u\,\rd(\mu_1-\mu_2).
+\end{equation}
+Continuity alone would not have justified the derivative integral; the
+strong derivative convergence in that lemma does.
+
+\emph{The estimate.}
+The signed measure has mass zero.  Subtract the midpoint of the range of
+\(u\) before bounding its integral, and apply
+\cref{lem:ch28-graph-sobolev}:
+\[
+ D_\Gamma(u)
+ \leq\tfrac12\operatorname{osc}_\Gamma(u)\lVert\mu_1-\mu_2\rVert
+ \leq\tfrac12 L_R(\Gamma)^{1/2}D_\Gamma(u)^{1/2}
+                       \lVert\mu_1-\mu_2\rVert.
+\]
+If \(D_\Gamma(u)=0\) there is nothing to divide by.  Otherwise divide
+by its square root.  In both cases,
+\[
+ D_\Gamma(u)^{1/2}
+ \leq\tfrac12L_R(\Gamma)^{1/2}\lVert\mu_1-\mu_2\rVert,
+ \qquad
+ \operatorname{osc}_\Gamma u
+ \leq\tfrac12L_R(\Gamma)\lVert\mu_1-\mu_2\rVert.
+\]
+This proves the first asserted bound, with room to spare.
+
+\emph{The uniform norm on the analytic curve.}
+Both solutions factor through \(r\), so their difference has the same
+uniform norm on \(X^{\An}\) and on \(\Gamma\).  Each restriction has
+maximum zero.  At a maximum of \(u_2\), the difference is nonpositive;
+at a maximum of \(u_1\), it is nonnegative.  Thus
+\(\lVert u_1-u_2\rVert_\infty\leq\operatorname{osc}_\Gamma(u_1-u_2)\).
+The preceding estimate proves the second bound.  No factorization of
+an arbitrary higher-dimensional solution is being asserted.
+
+\emph{The dual energies.}
+The independent calculation in \cref{prop:ch28-curve-dual-energy} below
+uses \cref{lem:ch26-weighted-graph-real-bfj,prop:ch26-graph-energy}, not
+the present theorem, and gives \(E^\vee_\omega(\mu_a)=D_\Gamma(u_a)/2\).
+Put \(A_a=D_\Gamma(u_a)^{1/2}\) and \(B=D_\Gamma(u_1-u_2)^{1/2}\).
+The weighted derivative norm is a seminorm, so
+\[
+ |A_1-A_2|\leq B,\qquad A_1+A_2\leq2\min(A_1,A_2)+B.
+\]
+Consequently
+\[
+ \bigl|E^\vee_\omega(\mu_1)-E^\vee_\omega(\mu_2)\bigr|
+ \leq\tfrac12B^2+B\min(A_1,A_2).
+\]
+Use the weaker bound
+\(B\leq L_R(\Gamma)^{1/2}\lVert\mu_1-\mu_2\rVert\) already proved.
+This is the third estimate with \(L_R\), hence also with \(L\).
+The same estimates bound \(A_a\) on every total-variation bounded
+neighborhood of a fixed measure, proving the local Lipschitz assertion.
+For a point skeleton the sole measure of mass \(V\) is \(\mu_0\),
+the normalized solution is zero, and all three estimates read \(0\leq0\).
+\end{proof}
+
+\begin{remark}[What the constant measures, and what replaces it]
+\label{rem:ch28-curve-constant}
+The constant \(L(\Gamma)\) is the total analytic modulus length.
+The sharper \(L_R(\Gamma)\) is the total resistance length
+\(\sum_e\ell_e/c_e\).  Subdividing edges preserves both totals, because
+the sublengths sum to the old length and each piece retains \(c_e\).
+General domination may also attach branches, so it need not preserve
+either total.  For a function pulled back from the old skeleton, its
+derivative on an attached branch is zero and its weighted energy is
+unchanged.  One may retain the estimate on the old common support
+skeleton or use the possibly larger constant on the new one.
+
+There is no unconditional rule that finite scalar extension multiplies
+every analytic length by the ramification index.  With the absolute value
+extended from \(K\), the modulus \(-\log|\alpha|\) of a given lifted
+node chart \(xy=\alpha\) is unchanged; splitting, new components and
+residue degrees must still be accounted for.  If instead the discrete
+valuation is renormalized so that the new uniformizer has value one,
+all logarithmic lengths and potentials are being rescaled.  That is a
+different normalization, not the fixed-absolute-value scalar extension.
+Apply the estimates to the actual resulting weighted graph and the
+consistent measure conventions of \cref{thm:base-change-ma}.
+
+In dimension \(n\geq2\) the scalar Dirichlet coefficient is replaced by
+several mixed coefficients.  A bound for one of them does not control
+oscillation, for the reason in \cref{rem:ch28-uniqueness-gap}.
+The qualitative \cref{prop:fixed-skeleton-stability} and the
+measure estimate \cref{thm:finite-energy-measure-stability} remain the
+separately stated higher-dimensional results.
+\end{remark}

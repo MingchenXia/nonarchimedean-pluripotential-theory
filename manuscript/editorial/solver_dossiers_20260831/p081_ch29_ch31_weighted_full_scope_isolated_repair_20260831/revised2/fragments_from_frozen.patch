@@ -1,0 +1,452 @@
+--- a/ch29_curve_replacement.tex
++++ b/ch29_curve_replacement.tex
+@@ -1,5 +1,24 @@
+-% ISOLATED FUTURE INTEGRATION CANDIDATE. See GATE.md; not a live proof replacement.
++% ISOLATED REVISED2 CANDIDATE. See GATE.md; all new bytes remain review-gated.
+ 
++The next theorem concerns a precisely specified competitor class:
++\emph{real} describes the coefficients of the closed model form
++\(\theta\), whereas \emph{rational} describes the model functions
++allowed as competitors.  The symbol
++\(P_\theta^{\mathcal D_{\mathbf Q}}\) always means the displayed
++rational-model supremum.  We do not identify it with an envelope
++over the real span of model functions or over all singular psh functions.
++
++The envelope and equation arguments have different inputs.
++The envelope proof uses an explicit rational chord construction and
++finite normal descent.  For the equation proof one may first read
++\cref{lem:ch31-green-kernel}: its weighted graph argument uses only
++the outgoing-slope definition, not the analytic assertions preceding
++it in that chapter.  The graph potential and
++\cref{prop:ch29-curve-point-reference} first give a continuous current
++solution; rational model approximation is a later, separate step.
++The model-reference proposition \cref{prop:graph-ma-solution} is
++a specialization of the completed equation theorem, not an input to it.
++
+ \begin{theorem}
+ \label{thm:ch29-real-class-curve-model-envelope}
+ Let $K$ be a complete nontrivially valued non-Archimedean field, and let
+@@ -19,7 +38,9 @@
+  \qquad \sup\varnothing=-\infty.
+ \end{equation}
+ Here nefness is numerical nefness on a determining proper model, not
+-merely nefness of the generic class.  Then the following hold.
++merely nefness of the generic class.  Equality to zero in
++\(Z^{1,1}(C)\) below is equality of the real numerical model class.
++Then the following hold.
+ \begin{enumerate}
+ \item If $d>0$, the envelope in
+ \eqref{eq:ch29-real-rational-model-envelope} is a finite continuous function
+@@ -248,8 +269,8 @@
+ algebraically closed field.
+ 
+ \emph{Field descent, including real model forms.}
+-For a general $K$, put $\widehat{\overline K}=C_K$ and let
+-$q:C_{C_K}^{\mathrm{an}}\to C^{\mathrm{an}}$ be the projection.
++For a general $K$, put $\Omega=\widehat{\overline K}$ and let
++$q:C_{\Omega}^{\mathrm{an}}\to C^{\mathrm{an}}$ be the projection.
+ We claim, with empty suprema permitted, that
+ \begin{equation}
+ \label{eq:ch29-real-completed-algebraic-envelope-base-change}
+@@ -258,13 +279,13 @@
+ \end{equation}
+ Pulling back a competitor proves the inequality from left to right.
+ For the reverse inequality, take an actual model competitor $a$ on
+-$C_{C_K}$.  Applying \cite[Proposition~2.18(b)]{GM19} to its metric on
++$C_{\Omega}$.  Applying \cite[Proposition~2.18(b)]{GM19} to its metric on
+ the trivial line bundle gives a finite extension $K'/K$ inside
+ $\overline K$ and a model function $a'$ on $C_{K'}$ pulling back to
+ $a$.
+ 
+ The form $\theta_{K'}+\mathrm d\mathrm d^ca'$ is nef because its
+-pullback to $C_K$ is nef.  This implication is numerical and applies to
++pullback to $\Omega$ is nef.  This implication is numerical and applies to
+ \emph{real} model classes: put the finitely many classes representing
+ $\theta_{K'}$ and the model of $a'$ on a common proper model.
+ Nefness of a model numerical class is unchanged under scalar extension
+@@ -289,7 +310,7 @@
+            =q_{K''}^*P^{\mathcal D_{\mathbf Q}}_\theta(f).
+ \]
+ This proposition includes inseparable normal extensions; a Galois-only
+-quotient argument would not suffice.  Pull back once more to $C_K$ and
++quotient argument would not suffice.  Pull back once more to $\Omega$ and
+ take the supremum over $a$ to obtain
+ \eqref{eq:ch29-real-completed-algebraic-envelope-base-change}.
+ Geometric connectedness ensures the curve upstairs remains connected.
+@@ -302,7 +323,7 @@
+ 
+ \emph{The degree-zero case.}
+ Suppose now $d=0$ and $\psi$ is an actual model $\theta$-psh function.
+-Over $C_K$, choose a common strictly semistable model determining
++Over $\Omega$, choose a common strictly semistable model determining
+ $q^*\theta$, $q^*\psi$, and any other model competitor $q^*\varphi$.
+ All component degrees of
+ $q^*\theta+\mathrm d\mathrm d^c(q^*\psi)$ are nonnegative and their
+@@ -352,7 +373,12 @@
+ \paragraph{Curvature conventions.}
+ We use \(\mathrm d\mathrm d^c\) for Thuillier's operator and
+ \(\mathrm d'\mathrm d''\) for the CLD operator, with the outgoing-slope
+-sign.  Curvature is the operator applied to the additive weight
++sign.  Thuillier-lisse is not synonymous with ordinary CLD-smooth:
++in Thuillier's test complex, lisse \(1\)-forms are locally finite
++real combinations of Dirac masses at type-\(2\) or type-\(3\) points,
++and real piecewise affine skeletal pullbacks are lisse functions
++\cite[Definition~3.2.1 and Proposition~3.2.4]{Thu05}.
++Curvature is the operator applied to the additive weight
+ \(-\log\lVert e\rVert\).  A type-\(2\) or type-\(3\) point contributes
+ a unit Dirac \(\delta_q\); a closed algebraic point \(z\) contributes
+ \([\kappa(z):K]\delta_z\) to its divisor measure.
+@@ -400,6 +426,9 @@
+ Thuillier's terminology because \(q\) is of type \(2\) or \(3\).
+ Current regularity \cite[Proposition~3.3.11]{Thu05} therefore makes
+ \(T+\log|f_e|\) the current of a unique lisse real function \(h_e\).
++The sum is first taken as a current: the divisor terms cancel before
++regularity is applied.  Neither summand is presumed continuous
++separately.
+ 
+ On an overlap with \(e'=a e\), one has \(f_{e'}=f_e/a\), hence
+ \(h_{e'}=h_e-\log|a|\).  This is exactly the metric compatibility
+@@ -526,8 +555,10 @@
+ tending to zero, assign each interval's mass to one point in it, and
+ keep vertex masses at the vertices.  Only real masses are required.
+ The corresponding potentials \(U_j=U_{\mu_j-d\delta_q}\) converge
+-uniformly to \(U\).  Each \(U_j\) is real piecewise affine; its
+-breakpoints may be type \(2\) or type \(3\).
++uniformly to \(U\).  Since \(\mu_j\) is finitely atomic, \(U_j\) is
++a finite linear combination of the kernel functions \(g_q(\cdot,y)\).
++It is therefore real piecewise affine; its breakpoints may be of
++type \(2\) or type \(3\).
+ 
+ By \cref{prop:ch29-curve-point-reference} and \eqref{eq:ch29-curve-retraction-current},
+ the lisse metric
+@@ -536,6 +567,9 @@
+ \cite[Theorem~3.4.12(ii)]{Thu05}.  Their locally uniform limits are
+ subharmonic: on a compact analytic test domain, compare with a harmonic
+ majorant and use uniform convergence on the domain and its boundary.
++On a fixed local frame \(e\), write
++\(h_j=-\log\lVert e\rVert_q+U_j\circ\tau\) and
++\(h=-\log\lVert e\rVert_q+U\circ\tau\) for these local weights.
+ For a compactly supported lisse test function \(a\), the measure
+ \(\mathrm d\mathrm d^ca\) is finite.  Thus uniform convergence
+ also implies convergence of the local curvature currents by
+@@ -553,15 +587,19 @@
+ \eqref{eq:ch29-curve-model-reference-solution}; nefness of that
+ reference is not needed, since the approximating target curvatures
+ \(\mu_j\) are positive.
++
++At this point the approximating potentials are real piecewise affine.
++They have not been declared rational model functions.  The next two
++steps construct rational formal approximants by a different argument.
+ 
+ \emph{3. Rational approximation upstairs only.}
+-Put \(F=\widehat{K^{\mathrm a}}\).  By
++Put \(\Omega=\widehat{K^{\mathrm a}}\).  By
+ \cite[Corollary~3.4.5]{Thu05}, the pulled-back continuous metric has
+ Thuillier-subharmonic weights.  The curve remains smooth, proper and
+ connected because it is geometrically connected.  Apply \cref{thm:p063-current-psh-ordinary-regularization} over the
+-\emph{algebraically closed} field \(F\): these weights are locally
++\emph{algebraically closed} field \(\Omega\): these weights are locally
+ CLD-psh.  The positive branch of \cref{thm:p081-corrected-curve-comparison} gives semipositive rational
+-formal metrics on \(L_F\) converging uniformly to the pullback.
++formal metrics on \(L_\Omega\) converging uniformly to the pullback.
+ No continuous-curve comparison over the nonclosed field is assumed.
+ 
+ \emph{4. Descent of approximation, without a common semistable model.}
+@@ -575,15 +613,15 @@
+ \(\lVert\cdot\rVert_b\mathrm e^{-u}\), and let
+ \(\theta=c_1(L,\lVert\cdot\rVert_b)\).
+ The approximation in Step~3 gives model functions \(\varphi_j\)
+-over \(F\), with
+-\(\lVert\varphi_j-u_F\rVert_\infty<1/j\), such that
+-\(\theta_F+\mathrm d\mathrm d^c\varphi_j\) is nef.
++over \(\Omega\), with
++\(\lVert\varphi_j-u_\Omega\rVert_\infty<1/j\), such that
++\(\theta_\Omega+\mathrm d\mathrm d^c\varphi_j\) is nef.
+ 
+ By \cite[Proposition~2.18(b)]{GM19}, each rational piecewise linear
+ function \(\varphi_j\) is defined over a finite subextension
+ \(E_j/K\) inside \(K^{\mathrm a}\).  The corresponding metric
+ is semipositive over \(E_j\): represent it formally, pull its model
+-to \(F\), use the model-independence of semipositivity
++to \(\Omega\), use the model-independence of semipositivity
+ \cite[Proposition~3.5]{GM19}, and reflect nefness through the residue
+ field extension by \cite[Lemma~3.3]{GM19}.  Take a finite normal
+ extension \(N_j/K\) containing \(E_j\).  It can include a purely
+@@ -598,7 +636,7 @@
+ \[
+        u_{N_j}-3/j<\psi_j\leq u_{N_j}.
+ \]
+-The bounds descend from \(F\) by surjectivity of the scalar projection.
++The bounds descend from \(\Omega\) by surjectivity of the scalar projection.
+ 
+ Here use \emph{only} the rational-model envelope
+ \[
+--- a/ch31_curve_replacement.tex
++++ b/ch31_curve_replacement.tex
+@@ -1,4 +1,4 @@
+-% ISOLATED FUTURE INTEGRATION CANDIDATE. See GATE.md; not a live proof replacement.
++% ISOLATED REVISED2 CANDIDATE. See GATE.md; all new bytes remain review-gated.
+ 
+ \subsection{The skeleton, its lengths, and the Laplacian}
+ \label{sec:ch31-curve-setup}
+@@ -22,12 +22,12 @@
+ \cite[\S2.2.3, p.~41]{Thu05}.
+ Lengths are measured by the chosen absolute value, using the natural
+ logarithm: an annulus \(r<|t|<R\) has length \(\log(R/r)\).
+-Where an \'{e}tale node chart has equation \(xy=a\), this is
+-\(-\log|a|\).  A node need not be rational over \(\widetilde K\);
++Where an \'{e}tale node chart has equation \(xy=\alpha\), this is
++\(-\log|\alpha|\).  A node need not be rational over \(\widetilde K\);
+ one must use its \'{e}tale chart, not silently replace its completed
+ local ring by a rational-node equation.  In the discretely valued
+-examples with \(-\log|\pi|=1\), \(xy=\pi^a\) gives length \(a\).
+-Regularity of that total-space node forces \(a=1\); general
++examples with \(-\log|\pi|=1\), \(xy=\pi^n\) gives length \(n\).
++Regularity of that total-space node forces \(n=1\); general
+ semistable formal models need not be regular before resolution.
+ 
+ For a real continuous piecewise affine function \(F\) on \(\Gamma\),
+@@ -62,6 +62,15 @@
+ to give the displayed integral; equivalently use the bilinear
+ identity proved in \cref{lem:ch31-green-kernel}.
+ The weights are essential even when \(X\) is geometrically connected.
++For example, if \(F\) is affine on an edge from \(v\) to \(w\), its
++slope is \((F(w)-F(v))/\ell_e\).  Its energy contribution is
++\[
++             \frac{c_e}{\ell_e}\bigl(F(w)-F(v)\bigr)^2.
++\]
++Thus \(c_e\) is the weight in the differential energy, while
++\(c_e/\ell_e\) is the conductance of the entire edge in the finite
++vertex matrix.  Its reciprocal is the resistance length
++\(\ell_e/c_e\).
+ 
+ \begin{remark}[Lengths, subdivisions, and attached branches]
+ \label{rem:ch31-lengths}
+@@ -71,8 +80,9 @@
+ their retractions commute, each new connected piece attaches at one
+ point, and the weighted Laplacian pushes forward under the induced
+ retraction \cite[Proposition~2.2.26]{Thu05}.
+-Subdivision leaves both the analytic edge length and its conductance
+-unchanged on the subdivided pieces.  The resistance length
++A subdivision preserves the analytic length coordinate.  The lengths
++of the new pieces sum to the original edge length, and every new
++piece inherits the original conductance.  The resistance length
+ \(\ell_e/c_e\) used for the estimates below is an auxiliary metric;
+ it does not replace the analytic modulus length in the slope formula.
+ 
+@@ -169,23 +179,159 @@
+ Finally \eqref{eq:curve-poisson} is
+ \eqref{eq:curve-ma-laplacian} rearranged.
+ 
+-For the real-form criterion \eqref{eq:curve-slope-criterion},
+-the component-degree and outgoing-slope identities extend real-linearly
+-from model line bundles.  On a common semistable model over
+-\(\widehat{K^{\mathrm a}}\) determining the finitely many classes
+-representing \(\theta\) and the actual function \(F\circ p_{\cX}\),
+-nefness means that every special-fibre component degree is nonnegative.
+-This is the real-form criterion of \cite[Proposition~3.7]{GJKM19}.
+-Its original-field normalization uses the residue-degree weights
+-in \eqref{eq:ch31-graph-laplacian}.  Nefness reflects over \(K\)
+-for real numerical classes by the degree and projection-formula
+-argument in the proof of
+-\cref{thm:ch29-real-class-curve-model-envelope}.
+-Thus the same criterion holds over \(K\).
+-This argument never extends \(F\) by an assertion of factorization
+-for all functions on dominating models.
++We spell out the reverse implication for the real-form criterion
++\eqref{eq:curve-slope-criterion}, since positivity cannot be recovered
++from the positivity of a scalar pushforward.
++Choose a representative of \(\theta\) on its actual determining
++model \(\cX\) as a finite real linear combination
++\[
++       \theta=\sum_{i=1}^N r_i
++                   c_1(M_i,\lVert\cdot\rVert_i),
++       \qquad r_i\in\mathbf R,
++\]
++where the \(\lVert\cdot\rVert_i\) are rational formal metrics
++determined on \(\cX\).  Equivalently, the representative is a finite
++real combination of model line-bundle classes; tensor-power
++denominators may be absorbed into the \(r_i\).
++This representation does not turn \(\theta\) into the Chern class
++of one line bundle.
++
++On an analytic open set \(W\) where all \(M_i\) have invertible frames \(e_i\),
++put \(h_i=-\log\lVert e_i\rVert_i\) and
++\[
++                  H=\sum_{i=1}^N r_i h_i+F\circ p_{\cX}.
++\]
++Each \(h_i\) is Thuillier-lisse by the tensor-power and analytic-unit
++argument already used, and \(F\circ p_{\cX}\) is lisse by
++\eqref{eq:ch31-graph-laplacian}.  Thus \(H\) is a real lisse function,
++even when some \(r_i\) are negative or irrational.
++The component-degree and outgoing-slope identities extend
++real-linearly, giving on this open set
++\begin{equation}
++\label{eq:ch31-real-local-curvature}
++ \mathrm d\mathrm d^cH
++  =\left(\sum_{v\text{ an original vertex}}
++                 d_v(\theta)\delta_v
++                       +\iota_*\Delta_\Gamma F\right)\bigg|_W.
++\end{equation}
++The real linearity proves this equality of signed measures;
++it is not by itself an argument about positivity.
++
++These local calculations are independent of the choices.
++Changing a frame \(e_i\) adds a real multiple of the logarithm
++of an analytic unit to \(H\); that logarithm is harmonic by the
++Poincar\'e--Lelong formula, so its
++\(\mathrm d\mathrm d^c\) vanishes.
++Changing the line-bundle representative of the same numerical class
++on \(\cX\) leaves every component degree \(d_v(\theta)\) unchanged.
++Equation \eqref{eq:ch31-real-local-curvature} therefore gives the
++same local curvature current.  On overlaps the resulting weights
++differ by a harmonic function, by \cite[Lemma~3.3.12]{Thu05}.
++In particular subharmonicity is unaffected.  We do not need to
++glue the \(H\) into a global function or an actual metrized line bundle.
++
++Now suppose the weighted inequalities in
++\eqref{eq:curve-slope-criterion} hold.  They make the right side of
++\eqref{eq:ch31-real-local-curvature} positive, hence make \(H\)
++subharmonic by \cite[Theorem~3.4.12(ii)]{Thu05}.
++Put \(\Omega=\widehat{K^{\mathrm a}}\) and let
++\(\rho:X_\Omega^{\An}\to X^{\An}\) be the scalar projection.
++The functions \(H\circ\rho\) are subharmonic by
++\cite[Corollary~3.4.5]{Thu05}.
++Over \(\Omega\), choose a common strictly semistable model actually
++determining the finitely many pulled-back model metrics and the
++rational model function \(F\circ p_{\cX}\).
++On this model the curvature of \(H\circ\rho\), computed real-linearly,
++has as its vertex coefficients the individual component degrees of
++\(\theta_\Omega+\mathrm d\mathrm d^c(F\circ p_{\cX}\circ\rho)\);
++this is \cite[Proposition~3.7]{GJKM19}.
++Its positivity implies that each of those component degrees is
++nonnegative.  The pulled-back real numerical model class is therefore
++nef.  The degree and projection-formula argument in the proof of
++\cref{thm:ch29-real-class-curve-model-envelope} reflects nefness
++of real model classes through scalar extension, so the original
++class is nef over \(K\).
++
++Conversely, if the original real model class is nef, its pullback
++is nef.  The upstairs component-degree formula gives positive
++local curvature measures.  Their ordinary scalar pushforwards
++are \(\mathrm d\mathrm d^cH\) by
++\cite[Theorem~3.2.10(i)]{Thu05}, so
++\eqref{eq:ch31-real-local-curvature} is positive and yields the
++weighted inequalities.  This direction uses pushforward only to
++preserve positivity, not to reflect it.
++The reverse implication above instead uses pullback of
++subharmonic local weights before reading the individual upstairs
++degrees.  No positivity of individual terms is inferred from a
++positive sum of lifted degrees.
++Throughout, \(F\circ p_{\cX}\) is an actual rational model function
++with the stated factorization; domination alone never supplies it.
+ \end{proof}
++
++\begin{example}[A nonsplit node and its two degree factors]
++\label{ex:ch31-nonsplit-weight-normalization}
++Let \(R\) be a complete discrete valuation ring with fraction field \(K\)
++and residue field \(k\), normalized by \(-\log|\pi|=1\).
++Choose a closed point \(p\in\mathbf P^1_k\) whose residue field
++\(k'/k\) is finite separable of degree \(r>1\), and blow up
++\(\mathbf P^1_R\) at \(p\).  Complete this model formally along its
++special fibre.  Its generic fibre is still \(\mathbf P^1_K\), so it
++is geometrically connected.
++
++The special fibre has two multiplicity-one components: the strict
++transform \(D\simeq\mathbf P^1_k\) and the exceptional component
++\(E\simeq\mathbf P^1_{k'}\).  They meet transversely at a node of residue
++field \(k'\).  To see the local thickness, choose an \'{e}tale
++parameter \(t\) at \(p\).  The blowup chart containing their
++intersection has equation \(\pi=t z\); its two special-fibre
++branches are \(t=0\) and \(z=0\).  Thus the skeleton is a segment
++of analytic length one with endpoints \(v_D,v_E\), and its single
++edge has weight \(c_e=r\).
++
++Consider \(\mathcal O(E)\), which is trivial on the generic fibre.
++Since \(E\) cuts out the degree-\(r\) point \(p\) on \(D\),
++\[
++                 \mathcal O(E)|_D=\mathcal O_D(p),
++                 \qquad \deg_k\bigl(\mathcal O(E)|_D\bigr)=r.
++\]
++The tautological description of the exceptional divisor in a blowup
++gives \(\mathcal O(-E)|_E=\mathcal O_{\mathbf P^1_{k'}}(1)\).
++Consequently
++\[
++ \mathcal O(E)|_E=\mathcal O_{\mathbf P^1_{k'}}(-1),
++ \qquad
++ \deg_{k'}\bigl(\mathcal O(E)|_E\bigr)=-1,
++ \qquad
++ \deg_k\bigl(\mathcal O(E)|_E\bigr)=-r.
++\]
++The model metric on the trivial generic line bundle has potential
++\(F=-\log\lVert1\rVert\).  On the displayed chart a frame of
++\(\mathcal O(E)\) is \(t^{-1}\), so
++\(1=t(t^{-1})\) gives \(F=-\log|t|\).
++It follows that \(F(v_D)=0\), \(F(v_E)=1\), and \(F\) is affine
++with slope \(+1\) from \(v_D\) to \(v_E\).  The outgoing slope
++at the other endpoint is \(-1\).  Therefore
++\begin{equation}
++\label{eq:ch31-nonsplit-normalization-test}
++       \Delta_\Gamma F=r\delta_{v_D}-r\delta_{v_E},
++\end{equation}
++exactly the two component degrees over \(k\) computed above.
++The constant field of \(D\) is \(k\), while that of \(E\) is \(k'\);
++nevertheless both slope terms use the same node residue degree \(r\).
++The Dirac measures in \eqref{eq:ch31-nonsplit-normalization-test}
++are unit Diracs, and the total mass is zero, as required by the
++trivial generic line bundle.
+ 
++After an unramified scalar extension whose residue field splits
++\(k'/k\), the exceptional component splits into \(r\) components,
++each meeting the lifted \(D\) in a weight-one edge.  Their ordinary
++pushforward recovers the coefficient \(r\) of the original edge,
++in agreement with \eqref{eq:ch29-curve-scalar-weights}.
++This is a signed-curvature normalization test:
++\(\mathcal O(E)\) is not nef because its degree on \(E\) is negative.
++No semipositive degree-zero conclusion is asserted.
++\end{example}
++
+ \begin{warning}{Affine, not linear}
+ Equation \eqref{eq:curve-ma-laplacian} is affine in the potential,
+ with linear part \(\Delta_\Gamma\) and constant term \(\mu_0\).
+@@ -338,10 +484,38 @@
+ 
+ 
+ 
++\begin{example}[Rational masses need not give rational slopes]
++\label{ex:ch31-rational-mass-irrational-slope}
++Consider the finite metric graph with two vertices \(q,y\) joined by
++two edges of lengths \(1\) and \(\sqrt{2}\), each of weight one.
++This is a graph calculation; no realization over a particular
++ground field is assumed.  Orient both edges from \(q\) to \(y\),
++and seek the normalized potential
++\(\Delta_\Gamma U=\delta_y-\delta_q\), \(U(q)=0\).
++It must be affine on both open edges by
++\cref{lem:ch31-green-kernel}.  If \(A=U(y)\), continuity requires
++the two slopes to be \(A\) and \(A/\sqrt{2}\).
++The mass at \(q\) is their sum, hence
++\[
++        A+\frac{A}{\sqrt{2}}=-1,
++        \qquad
++        A=\sqrt{2}-2,\qquad
++        \frac{A}{\sqrt{2}}=1-\sqrt{2}.
++\]
++The outgoing slopes at \(y\) have the opposite signs and sum to \(1\),
++so these formulas satisfy the equation at both vertices.
++Both slopes are irrational, although the two prescribed atomic
++masses are integers.  Thus rational masses alone cannot justify
++rational slopes; value-group compatibility of vertex values is
++a further issue.  This example does not obstruct the continuous
++Green solution or the separate rational formal approximation
++argument for curve metrics.
++\end{example}
++
+ \begin{proposition}
+ \label{prop:graph-ma-solution}
+-With the given model reference above, let \(\mu\) be any positive Radon
+-measure on \(\Gamma\) of mass \(V\).  The function
++With the given model reference above, fix \(q\in\Gamma\), and let
++\(\mu\) be any positive Radon measure on \(\Gamma\) of mass \(V\).  The function
+ \(F=U_{\mu-\mu_0}\) of \cref{lem:ch31-green-kernel} is the unique
+ continuous solution of \eqref{eq:curve-poisson} normalized by \(F(q)=0\).
+ The metric

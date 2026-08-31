@@ -1,0 +1,30 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {spawn} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+const here=path.dirname(fileURLToPath(import.meta.url)),parent=path.dirname(here),dossiers=path.dirname(parent);
+const baseFile=path.join(parent,'revised2/STABILIZED_BUILD.json'),base=JSON.parse(fs.readFileSync(baseFile,'utf8'));
+const scratch=base.scratchDirectory;
+if(!/^\/private\/tmp\/nappt_weighted_syntax_20260831\.[A-Za-z0-9]+$/.test(scratch))throw Error('scratch');
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const rec=p=>{const b=fs.readFileSync(p);return{path:p,bytes:b.length,sha256:sha(b)};};
+const oldBuild=JSON.parse(fs.readFileSync(path.join(parent,'revised2/BUILD.json'),'utf8'));
+for(const e of oldBuild.overlays)if(rec(e.destination).sha256!==e.source.sha256)throw Error('previous overlay changed');
+const source=rec(path.join(dossiers,'p081_ch20_ch21_real_model_max_repair_20260831/revised2/patched/ch21_bfj_psh.tex'));
+if(source.sha256!=='81a1928677f59eba2e7eac6461480c5c90cadcccc70c15ea923ebbaeba6e0ed7')throw Error('source changed');
+const destination=path.join(scratch,'parts/part3/ch21_bfj_psh.tex'),prior=rec(destination);fs.copyFileSync(source.path,destination);
+const runs=[];let final;
+for(let pass=10;pass<=12;pass++){
+ const name='pass'+pass,stdout=path.join(scratch,name+'.stdout'),fd=fs.openSync(stdout,'wx');
+ const args=['-no-shell-escape','-draftmode','-interaction=nonstopmode','-halt-on-error','book.tex'];
+ const exitCode=await new Promise((resolve,reject)=>{const p=spawn('pdflatex',args,{cwd:scratch,stdio:['ignore',fd,fd]});p.on('error',reject);p.on('close',resolve);});
+ fs.closeSync(fd);const logPath=path.join(scratch,name+'.log');fs.copyFileSync(path.join(scratch,'book.log'),logPath);
+ const lines=fs.readFileSync(logPath,'utf8').split('\n');
+ final={exitCode,warnings:lines.filter(l=>/Warning|undefined|NA-BOOK-MISSING|^!/.test(l)),overfull:lines.filter(l=>/Overfull/.test(l)),underfullCount:lines.filter(l=>/Underfull/.test(l)).length};
+ runs.push({pass,args,...final,stdout:rec(stdout),log:rec(logPath)});console.log(JSON.stringify({pass,...final}));
+ if(exitCode!==0||!final.warnings.some(l=>/Label\(s\).*changed|undefined|Rerun/.test(l)))break;
+}
+const result={date:'2026-08-31',status:'eleven-chapter syntax review after rational-Cartier clarification; no mathematical or layout acceptance',base:rec(baseFile),scratchDirectory:scratch,overlays:[{source,prior,destination}],runs,...final,pdfProduced:fs.existsSync(path.join(scratch,'book.pdf'))};
+fs.writeFileSync(path.join(here,'BUILD.json'),JSON.stringify(result,null,2)+'\n',{flag:'wx'});
+if(result.exitCode!==0||result.pdfProduced)throw Error('build failure/PDF');

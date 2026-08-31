@@ -1,0 +1,218 @@
+--- a/manuscript/parts/part3/ch20_model_forms.tex
++++ b/manuscript/parts/part3/ch20_model_forms.tex
+@@ -1069,71 +1069,89 @@
+ higher-dimensional formulae in \Cref{chap:bfj-compactness} are modelled on
+ it.
+ 
++% Isolated source-corrective candidate; preserve all existing statement labels.
+ \begin{proposition}
+ \label{prop:ch20-curve-laplacian}
+ Let \(n=1\), let \(\mathcal X\) be a regular model of the smooth projective
+ curve \(X\), and write \(\mathcal X_s=\sum_{i\in I}b_iE_i\).  Let
+-\(D=\sum_ia_iE_i\) be a vertical \(\mathbf R\)-divisor, with associated
+-vertex values \(u_i=\varphi_D(x_{E_i})=a_i/b_i\).  Then, for every
+-\(i\in I\),
+-
++\(D=\sum_i a_iE_i\) be a vertical real divisor, with associated
++vertex values \(u_i=\varphi_D(x_{E_i})=a_i/b_i\).  Then
+ \begin{equation}
+ \label{eq:ch20-curve-laplacian}
+- (D\cdot E_i)=\sum_{j\neq i}b_j(E_j\cdot E_i)\,(u_j-u_i),
+- \qquad
+- \sum_{i}b_i\,(D\cdot E_i)=0 ,
++ (D\cdot E_i)=\sum_{j\ne i}b_j(E_j\cdot E_i)(u_j-u_i),
++ \qquad \sum_i b_i(D\cdot E_i)=0.
+ \end{equation}
++The off-diagonal coefficients \(b_j(E_j\cdot E_i)\) are nonnegative.
++Multiplying the first identity by \(b_i\) gives symmetric edge
++coefficients \(b_i b_j(E_i\cdot E_j)\).
+ 
+-and the weights \(b_j(E_j\cdot E_i)\), \(j\ne i\), are nonnegative.
+-Consequently the map \(u\mapsto\bigl((D\cdot E_i)\bigr)_i\) is the graph
+-Laplacian of the weighted incidence graph of \(\mathcal X_s\).  If moreover
+-\(\mathcal X\) is semistable, so that all \(b_i=1\), all singular points of
+-\(\mathcal X_s\) are nodes with local equation \(xy=\pi\), and all edges of
+-\(\Delta_{\mathcal X}\) have length one, then
+-
++Suppose moreover that \(\mathcal X\) is regular semistable, with reduced
++special fibre and skeleton \(\Gamma=\Delta_{\mathcal X}\).
++Write \(k=\widetilde K\).  To the edge corresponding to a closed node
++\(z_e\) assign the residue weight \(c_e=[\kappa(z_e):k]\).
++Its modulus length is one under \(-\log|\pi|=1\); the local equation
++\(xy=\pi\) is understood on an etale node chart, and does not assert
++that \(z_e\) is \(k\)-rational.  With the weighted outgoing-slope
++operator
++\[
++ \Delta^{(c)}_\Gamma F
++   :=\sum_{x\in\Gamma}
++       \left(\sum_{\nu\in T_x\Gamma}
++                   c_{e(\nu)}\partial_\nu F(x)\right)\delta_x,
++\]
++one has
+ \begin{equation}
+ \label{eq:ch20-curve-laplacian-graph}
+- \sum_{i}(D\cdot E_i)\,\delta_{x_{E_i}}
+- =\Delta_{\Delta_{\mathcal X}}\varphi_D
++ \sum_i(D\cdot E_i)\delta_{x_{E_i}}
++                 =\Delta^{(c)}_\Gamma\varphi_D.
+ \end{equation}
+-
+-with the sign convention of \eqref{eq:graph-laplacian}: a model function with
+-a convex corner at a vertex has positive Laplacian there.
++The sign is the outgoing-slope sign of \eqref{eq:graph-laplacian}:
++a convex corner has positive mass.  The operator itself agrees with
++that unweighted formula only when every node has residue degree one.
+ \end{proposition}
+ 
+ \begin{proof}
+-Write \(D=\sum_jb_ju_jE_j\).  Because
+-\(\cO_{\mathcal X}(\mathcal X_s)\simeq\cO_{\mathcal X}\) we have
+-\(\sum_jb_j(E_j\cdot E_i)=(\mathcal X_s\cdot E_i)=0\) for each \(i\), so
+-subtracting \(u_i\) times this identity from
+-\((D\cdot E_i)=\sum_jb_ju_j(E_j\cdot E_i)\) leaves
+-\(\sum_{j}b_j(E_j\cdot E_i)(u_j-u_i)\), and the term \(j=i\) vanishes.  This
+-is the first identity in \eqref{eq:ch20-curve-laplacian}.  The second is
+-\((D\cdot\mathcal X_s)=0\) again, now with the roles of \(D\) and
+-\(\mathcal X_s\) exchanged, using symmetry of the intersection pairing on
+-the regular surface \(\mathcal X\).  For \(j\neq i\), \(E_i\) and \(E_j\)
+-are distinct prime divisors on the regular two-dimensional scheme
+-\(\mathcal X\), so their intersection is a finite scheme and
+-\((E_j\cdot E_i)\geq0\); \(b_j>0\) by definition.
++Write \(D=\sum_j b_j u_jE_j\).  The special fibre is the principal
++divisor of \(\pi\), so \(\sum_j b_j(E_j\cdot E_i)=0\).
++Subtracting \(u_i\) times this equality from
++\(D\cdot E_i=\sum_j b_j u_j(E_j\cdot E_i)\) proves the first
++identity in \eqref{eq:ch20-curve-laplacian}; its \(j=i\) term is zero.
++The second is \(D\cdot\mathcal X_s=0\), or follows by multiplying
++by \(b_i\), summing, and cancelling terms using symmetry of the
++intersection pairing.  For distinct prime divisors the local
++intersection multiplicities are nonnegative, which proves the
++off-diagonal assertion.  All these equalities extend real-linearly.
+ 
+-For \eqref{eq:ch20-curve-laplacian-graph}, assume \(\mathcal X\) semistable.
+-The edges of \(\Delta_{\mathcal X}\) are in bijection with the nodes of
+-\(\mathcal X_s\), an edge joining \(x_{E_i}\) to \(x_{E_j}\) for each point
+-of \(E_i\cap E_j\); by \Cref{prop:ch08-annulus-skeleton}\,(3) each has length
+-\(1\), since the local equation is \(xy=\pi\) and \(v_K(\pi)=1\).  The number
+-of edges joining \(x_{E_i}\) to \(x_{E_j}\) is therefore \((E_i\cdot E_j)\).
+-By \Cref{lem:model-function-affine} the function \(\varphi_D\) is affine on
+-each edge with endpoint values \(u_i,u_j\), so its outgoing slope at
+-\(x_{E_i}\) along that edge is \(u_j-u_i\).  Summing the outgoing slopes at
+-\(x_{E_i}\) over all edges emanating from it gives
+-\(\sum_{j\neq i}(E_i\cdot E_j)(u_j-u_i)\), which by the first identity in
+-\eqref{eq:ch20-curve-laplacian} is \((D\cdot E_i)\).  Comparing with
+-\eqref{eq:graph-laplacian}, whose atom at \(x_{E_i}\) is exactly the sum of
+-outgoing slopes, gives \eqref{eq:ch20-curve-laplacian-graph}.  A model
+-function determined on \(\mathcal X\) has no slope breaks in the interior of
+-an edge, so no other atoms occur.
++In the semistable case the intersection at a node is transverse.
++Its local intersection length is one over \(\kappa(z_e)\); its
++degree over \(k\) is therefore \([\kappa(z_e):k]\).  Consequently
++\begin{equation}
++\label{eq:ch20-node-intersection-residue-degree}
++             (E_i\cdot E_j)
++        =\sum_{z\in E_i\cap E_j}[\kappa(z):k]
++                   \qquad(i\ne j).
++\end{equation}
++The right side is a degree-weighted sum, not the number of closed nodes.
++The length of each node annulus is
++\(-\log|\pi|=1\), computed on its etale chart.  The affine model
++function has endpoint values \(u_i,u_j\), so its outgoing slope
++at \(x_{E_i}\) on that edge is \(u_j-u_i\).  Summing with the
++node weights gives
++\[
++ \sum_{e\text{ incident to }i}c_e\partial_e\varphi_D(x_{E_i})
++    =\sum_{j\ne i}(E_i\cdot E_j)(u_j-u_i)
++    =D\cdot E_i.
++\]
++The first equality is \eqref{eq:ch20-node-intersection-residue-degree},
++and the second is \eqref{eq:ch20-curve-laplacian} with \(b_i=1\).
++There are no interior slope breaks, so this is the complete measure
++identity \eqref{eq:ch20-curve-laplacian-graph}.
++The residue-degree convention is also that of
++\cite[Remark~1.2.4 and \S2.2.3]{Thu05}; it agrees with the later
++arbitrary-field formula \eqref{eq:ch31-graph-laplacian}.
+ \end{proof}
+ 
++
+ \begin{remark}[Multiplicities and edge lengths]
+ \label{rem:ch20-multiplicities-lengths}
+ Identity \eqref{eq:ch20-curve-laplacian-graph} was stated only in the
+@@ -1145,8 +1163,11 @@
+ as \Cref{rem:divisorial-normalization} and the second remark of
+ \Cref{sec:appJ-valuations} insist.  The first identity in
+ \eqref{eq:ch20-curve-laplacian} is valid regardless; it is only the
+-identification of its right-hand side with the metric-graph Laplacian
+-\eqref{eq:graph-laplacian} that carries the normalization.
++identification with a metric-graph Laplacian that carries the
++normalization.  For the curvature measure on a nonreduced model, the
++coefficient is \(b_i(D\cdot E_i)\); node residue degrees must also be
++retained.  The semistable formula above uses \(\Delta^{(c)}\), not the
++unweighted operator \eqref{eq:graph-laplacian} unless all nodes are rational.
+ \end{remark}
+ 
+ \begin{example}[A model form on the running conic, carried to numbers]
+@@ -3052,7 +3073,8 @@
+  \quad\text{for every }i.
+ \end{equation}
+ 
+-For a reduced two-component fibre with one node, the intersection matrix is
++For a reduced two-component fibre with one node rational over the residue
++field, the intersection matrix is
+ 
+ \begin{equation}
+ \label{eq:ch20-two-component-matrix}
+--- a/manuscript/parts/part3/ch22_compactness.tex
++++ b/manuscript/parts/part3/ch22_compactness.tex
+@@ -1835,7 +1835,8 @@
+ \label{ex:ch22-two-vertex}
+ Let \(X\) be a smooth projective curve whose reduced special fibre on a
+ regular semistable model \(\mathcal X\) has two components meeting
+-transversally at one point, so that \(b_0=b_1=1\), \((E_0\cdot E_1)=1\) and
++transversally at one residue-field-rational point, so that
++\(b_0=b_1=1\), \((E_0\cdot E_1)=1\) and
+ \((E_i^2)=-1\) by \eqref{eq:ch20-two-component-matrix}.  Write
+ 
+ \[
+--- a/manuscript/parts/part3/ch24_bfj_ma.tex
++++ b/manuscript/parts/part3/ch24_bfj_ma.tex
+@@ -899,14 +899,15 @@
+ effective divisor gives a nonnegative model function
+ (\eqref{eq:ch20-sign}); a convex corner of a model function on a dual
+ complex gives \emph{positive} mass, since by
+-\Cref{prop:ch20-curve-laplacian} the Laplacian is the sum of outgoing
+-slopes; and the Dirichlet form
++\Cref{prop:ch20-curve-laplacian} the Laplacian is the residue-degree-weighted
++sum of outgoing slopes; and the Dirichlet form
+ \(f\mapsto\int f\,\ddc f\wedge\eta_\bullet\) is \emph{nonpositive}.  The
+ three are checked against the unit tests of \Cref{sec:appJ-unit-tests} as
+ follows: with \(f=1\) the first gives \(\varphi_{\cX_s}=1\), the second
+ gives \(\ddc1=0\), and the third gives \(0\), consistently.  On a curve
+-with the two-component fibre of \eqref{eq:ch20-two-component-matrix}, a
+-model function with vertex values \(u_0,u_1\) has
++with the residue-rational-node two-component fibre of
++\eqref{eq:ch20-two-component-matrix}, a model function with vertex
++values \(u_0,u_1\) has
+ \(\int f\,\ddc f=-(u_0-u_1)^2\leq0\), with equality exactly for constants;
+ this is the case \(n=1\) of \eqref{eq:model-dirichlet-negativity} and is the
+ smallest complete check available.
+@@ -2824,8 +2825,8 @@
+ 
+ \begin{example}[A semistable curve with two components]
+ \label{ex:two-vertex-ma}
+-Let a regular semistable model have special fibre \(E_0+E_1\), with one node,
+-and let the reference measure be
++Let a regular semistable model have special fibre \(E_0+E_1\), with one
++node rational over the residue field, and let the reference measure be
+ \(\theta=m_0\delta_{x_0}+m_1\delta_{x_1}\), where
+ \(m_0+m_1=\deg L\). Give the edge length one and let a model function have
+ vertex values \(a_0,a_1\). With the graph Laplacian convention forced by
+@@ -2858,7 +2859,7 @@
+ \label{ex:ch24-curve-mixed}
+ Keep the two-component model of \Cref{ex:two-vertex-ma} with
+ \((E_0^2)=(E_1^2)=-1\), \((E_0\cdot E_1)=1\), both multiplicities one, and
+-edge length one.  Let \(L_1,L_2\) be line bundles on \(X\) of degrees
++edge length and residue weight one.  Let \(L_1,L_2\) be line bundles on \(X\) of degrees
+ \(d_1=2\) and \(d_2=3\), extended to model line bundles
+ \(\cL_1,\cL_2\) with component degrees
+ \[

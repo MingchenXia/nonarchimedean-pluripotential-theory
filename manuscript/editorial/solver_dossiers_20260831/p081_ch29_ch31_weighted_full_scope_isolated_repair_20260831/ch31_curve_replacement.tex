@@ -1,0 +1,413 @@
+% ISOLATED FUTURE INTEGRATION CANDIDATE. See GATE.md; not a live proof replacement.
+
+\subsection{The skeleton, its lengths, and the Laplacian}
+\label{sec:ch31-curve-setup}
+
+In this subsection and through \cref{rem:ch31-curve-solution-scope},
+\(K\) is any complete nontrivially valued non-Archimedean field.
+Let \(X\) be a smooth projective geometrically connected \(K\)-curve,
+and suppose a proper strictly semistable formal model \(\cX\) over
+\(K^\circ\) is given.  Write \(\Gamma\) for its finite connected
+skeleton and \(p_{\cX}:X^{\An}\to\Gamma\) for its retraction.
+No assertion that every curve has such a model over the original
+\(K\) is implicit in this hypothesis.
+
+An edge \(e\), corresponding to a node \(p_e\) of the special fibre,
+has its analytic modulus length \(\ell_e>0\) and conductance
+\[
+                    c_e=[\kappa(p_e):\widetilde K].
+\]
+The conductance is the same at both ends, including both incidences
+of a loop, and is retained under subdivision
+\cite[\S2.2.3, p.~41]{Thu05}.
+Lengths are measured by the chosen absolute value, using the natural
+logarithm: an annulus \(r<|t|<R\) has length \(\log(R/r)\).
+Where an \'{e}tale node chart has equation \(xy=a\), this is
+\(-\log|a|\).  A node need not be rational over \(\widetilde K\);
+one must use its \'{e}tale chart, not silently replace its completed
+local ring by a rational-node equation.  In the discretely valued
+examples with \(-\log|\pi|=1\), \(xy=\pi^a\) gives length \(a\).
+Regularity of that total-space node forces \(a=1\); general
+semistable formal models need not be regular before resolution.
+
+For a real continuous piecewise affine function \(F\) on \(\Gamma\),
+define
+\begin{equation}
+\label{eq:ch31-graph-laplacian}
+ \Delta_\Gamma F
+   :=\sum_{x\in\Gamma}
+       \left(\sum_{\nu\in T_x\Gamma}
+              c_{e(\nu)}\partial_\nu F(x)\right)\delta_x,
+ \qquad
+ \mathrm d\mathrm d^c(F\circ p_{\cX})=\iota_*\Delta_\Gamma F ,
+\end{equation}
+where \(\iota:\Gamma\hookrightarrow X^{\An}\), and
+\(\partial_\nu\) is the outgoing derivative in the analytic length
+coordinate.  The second equality is
+\cite[Theorem~3.2.10(ii)]{Thu05}; properness removes its boundary
+exception.  It also says that \(F\circ p_{\cX}\) is Thuillier-lisse.
+It does not say that this function is a rational model function.
+That stronger assertion requires the slope, breakpoint, and value-group
+compatibilities of \cite[Proposition~3.5]{GJKM19}.
+
+Edgewise integration by parts, counting each edge once, gives
+\begin{equation}
+\label{eq:graph-dirichlet-sign}
+ \Delta_\Gamma F(\Gamma)=0,\qquad
+ \int_\Gamma F\,\mathrm d\Delta_\Gamma F
+       =-\sum_e c_e\int_e|F'|^2\,\mathrm ds\leq0.
+\end{equation}
+The two endpoint terms of every edge cancel in the total mass.
+For the second identity they combine with the interior slope jumps
+to give the displayed integral; equivalently use the bilinear
+identity proved in \cref{lem:ch31-green-kernel}.
+The weights are essential even when \(X\) is geometrically connected.
+
+\begin{remark}[Lengths, subdivisions, and attached branches]
+\label{rem:ch31-lengths}
+The combinatorial graph depends on the model.  An admissible
+semistable refinement can subdivide edges and can also attach new
+branches.  More precisely, the old skeleton embeds in the new one,
+their retractions commute, each new connected piece attaches at one
+point, and the weighted Laplacian pushes forward under the induced
+retraction \cite[Proposition~2.2.26]{Thu05}.
+Subdivision leaves both the analytic edge length and its conductance
+unchanged on the subdivided pieces.  The resistance length
+\(\ell_e/c_e\) used for the estimates below is an auxiliary metric;
+it does not replace the analytic modulus length in the slope formula.
+
+A model function determined on a dominating model can vary on an
+attached branch.  It need not factor through the original \(p_{\cX}\).
+One must either impose that factorization explicitly or compute on
+a skeleton that actually determines the function and the reference.
+A common semistable model can be used after the required scalar
+extension; its existence over the original \(K\) is not presumed.
+\end{remark}
+
+\subsection{The Monge--Amp\`ere operator is affine}
+\label{sec:ch31-curve-affine}
+
+Let \(L\) have degree \(V>0\).  In this subsection assume an actual
+relatively nef formal line bundle \(\cL\) on the given \(\cX\)
+extends \(L^{\otimes m}\), for an integer \(m>0\).
+Let \(\lVert\cdot\rVert_0\) be its rational formal metric and
+\(\omega=c_1(L,\lVert\cdot\rVert_0)\).
+This is additional data, not a consequence of the existence of
+\(\cX\).  Put \(\mu_0=\MA_\omega(0)\).
+
+\begin{lemma}
+\label{lem:ch31-curve-ma-affine}
+The reference measure is
+\[
+ \mu_0=\sum_v d_v\delta_v,\qquad
+ d_v=\frac1m\deg_{\widetilde K}(\cL|_{C_v}),\qquad
+ \sum_vd_v=V.
+\]
+It is positive and supported on the original vertex set.
+For every rational model function of the form
+\(u=F\circ p_{\cX}\), where \(F\) is real piecewise affine,
+\begin{equation}
+\label{eq:curve-ma-laplacian}
+                 \MA_\omega(u)=\mu_0+\iota_*\Delta_\Gamma F.
+\end{equation}
+Here for a model metric that is not nef the left side means its signed
+curvature measure.  The function \(u\) is \(\omega\)-psh in the
+model sense if and only if \(\mu_0+\Delta_\Gamma F\geq0\).
+For a measure \(\mu\) supported on \(\Gamma\), the equation becomes
+\begin{equation}
+\label{eq:curve-poisson}
+                      \Delta_\Gamma F=\mu-\mu_0 .
+\end{equation}
+Measures on \(\Gamma\) are identified with their pushforwards on
+\(X^{\An}\) when no confusion is possible.
+
+More generally, let \(\theta\) be a real closed model form determined
+on \(\cX\), let \(d_x(\theta)\) be its component degree over
+\(\widetilde K\) at an original vertex, and put \(d_x(\theta)=0\)
+elsewhere.  For an actual rational model function
+\(F\circ p_{\cX}\), the numerical criterion is
+\begin{equation}
+\label{eq:curve-slope-criterion}
+ \theta+\mathrm d\mathrm d^c(F\circ p_{\cX})\text{ is nef}
+ \quad\Longleftrightarrow\quad
+ d_x(\theta)+\sum_{\nu\in T_x\Gamma}
+       c_{e(\nu)}\partial_\nu F(x)\geq0
+ \quad\text{for every }x\in\Gamma.
+\end{equation}
+Only the original vertices and slope breaks impose nonzero conditions.
+\end{lemma}
+
+\begin{proof}
+For the reference model the curvature mass at \(v\) is its degree
+over the base residue field divided by \(m\).
+In \cite[Theorem~18.5.5 and Proposition~18.5.6(a)--(c)]{CLD25},
+the generic smoothness and geometrically reduced strictly semistable
+special fibre make the additional multiplicity, defect, and graded
+residue factors equal to one.  Total mass is \(V\) by
+\cite[Theorem~18.3.11]{CLD25}.
+If a component has constant field \(k_v\), its degree over
+\(\widetilde K\) is \([k_v:\widetilde K]\) times its degree over
+\(k_v\); the latter cannot be substituted without this factor.
+
+The formal weights are Thuillier-lisse by the tensor-power and
+analytic-unit argument in the proof of
+\cref{thm:curves-arbitrary-field-continuity}.
+The original-field model comparison there identifies Thuillier and
+CLD curvature, so additivity and \eqref{eq:ch31-graph-laplacian}
+prove \eqref{eq:curve-ma-laplacian}.
+For the positivity criterion, a nef model metric has positive
+curvature.  Conversely, positive curvature makes each lisse local
+weight Thuillier-subharmonic by \cite[Theorem~3.4.12(ii)]{Thu05}.
+This remains true after extension to \(\widehat{K^{\mathrm a}}\)
+by \cite[Corollary~3.4.5]{Thu05}.  There one may choose a common
+semistable model actually determining the pulled-back metric; the
+slope and component-degree formula
+\cite[Proposition~3.7]{GJKM19} says all its component degrees are
+nonnegative.  Thus that model metric is nef.
+Model-independence and reflection of nefness under scalar extension
+\cite[Proposition~3.5 and Lemma~3.3]{GM19} give nefness over \(K\).
+Finally \eqref{eq:curve-poisson} is
+\eqref{eq:curve-ma-laplacian} rearranged.
+
+For the real-form criterion \eqref{eq:curve-slope-criterion},
+the component-degree and outgoing-slope identities extend real-linearly
+from model line bundles.  On a common semistable model over
+\(\widehat{K^{\mathrm a}}\) determining the finitely many classes
+representing \(\theta\) and the actual function \(F\circ p_{\cX}\),
+nefness means that every special-fibre component degree is nonnegative.
+This is the real-form criterion of \cite[Proposition~3.7]{GJKM19}.
+Its original-field normalization uses the residue-degree weights
+in \eqref{eq:ch31-graph-laplacian}.  Nefness reflects over \(K\)
+for real numerical classes by the degree and projection-formula
+argument in the proof of
+\cref{thm:ch29-real-class-curve-model-envelope}.
+Thus the same criterion holds over \(K\).
+This argument never extends \(F\) by an assertion of factorization
+for all functions on dominating models.
+\end{proof}
+
+\begin{warning}{Affine, not linear}
+Equation \eqref{eq:curve-ma-laplacian} is affine in the potential,
+with linear part \(\Delta_\Gamma\) and constant term \(\mu_0\).
+The set of continuous semipositive metric weights relative to
+\(\lVert\cdot\rVert_0\) is a convex set, not in general a cone or a
+vector space: the constraint is
+\(\mu_0+\Delta_\Gamma F\geq0\).
+Within the rational model class, taking an arbitrary real convex
+combination need not remain a rational model function.
+\end{warning}
+
+\subsection{Solving the equation: the graph Green kernel}
+\label{sec:ch31-curve-green}
+
+The following graph lemma uses arbitrary positive conductances and
+does not depend on any analytic existence or envelope theorem.
+
+\begin{lemma}
+\label{lem:ch31-green-kernel}
+Let \(\Gamma\) be a finite connected metric graph.  Give each edge \(e\)
+a positive real constant \(c_e\), retained on every subdivision of that
+edge.  Use the weighted outgoing-slope Laplacian
+\eqref{eq:ch31-graph-laplacian}.
+Let \(q\in \Gamma\).  There is a unique symmetric continuous kernel
+\(g_q:\Gamma\times \Gamma\to\mathbf R\) for which
+\begin{equation}
+\label{eq:ch31-green-kernel}
+ \Delta_{\Gamma,x}g_q(x,y)=\delta_y-\delta_q,
+ \qquad g_q(q,y)=0,
+\end{equation}
+and \(g_q(\cdot,y)\) is affine outside the graph vertices and
+\(\{q,y\}\).  If \(d_R\) is the path metric assigning length
+\(\ell_e/c_e\) to \(e\), and \(D_R=\operatorname{diam}_{d_R}\Gamma\), then
+\begin{equation}
+\label{eq:ch31-green-kernel-estimates}
+ |g_q(x,y)|\leq D_R,
+ \qquad
+ |g_q(x,y)-g_q(x',y)|\leq\sqrt{D_Rd_R(x,x')}.
+\end{equation}
+For a finite signed Radon measure \(\nu\) of mass zero,
+\begin{equation}
+\label{eq:ch31-green-potential}
+ U_\nu(x)=\int_\Gamma g_q(x,y)\,\mathrm d\nu(y)
+\end{equation}
+is the unique continuous solution of \(\Delta_\Gamma U_\nu=\nu\) with
+\(U_\nu(q)=0\).  Distributional equality here means
+\(\int_\Gamma U_\nu\,\mathrm d\Delta_\Gamma F=\int_\Gamma F\,\mathrm d\nu\)
+for every continuous piecewise affine \(F\).
+If \(\nu_j\to\nu\) weakly and their total variations are uniformly
+bounded, then \(U_{\nu_j}\to U_\nu\) uniformly.
+\end{lemma}
+
+
+\begin{proof}
+Subdivide to include all breakpoints.  Edgewise integration by parts gives
+\begin{equation}
+\label{eq:ch31-weighted-green-energy}
+ \int_\Gamma F\,\mathrm d\Delta_\Gamma H
+   =-\sum_e c_e\int_e F'H'\,\mathrm ds
+   =\int_\Gamma H\,\mathrm d\Delta_\Gamma F.
+\end{equation}
+In particular \(\Delta_\Gamma F(\Gamma)=0\).  An edge is counted once in the
+energy and both of its tangent directions are counted in the vertex
+sum, including for loops.  This is the weighted version of
+\cite[Proposition~1.2.13]{Thu05}; it also follows immediately by
+cancelling the two endpoint terms of each edge.
+
+Fix \(y\), and insert \(q,y\) as vertices.  On functions affine on
+each resulting edge, minus the Laplacian has quadratic form
+\[
+                 \sum_{e=(v,w)}\frac{c_e}{\ell_e}
+                                      (a_v-a_w)^2.
+\]
+The associated matrix is symmetric; its kernel consists exactly of
+constants by connectedness.  Its image is consequently the vectors
+whose coordinate sum is zero.  Solve for \(\delta_y-\delta_q\),
+and normalize the solution to vanish at \(q\).  Further subdivisions
+do not change it, since the affine extension has zero mass at each
+new point.  If \(\Gamma\) is a point, the solution is identically zero.
+
+Suppose now that \(q\ne y\).  The maximum principle for this finite
+weighted matrix says that the maximum of \(h=g_q(\cdot,y)\) occurs
+at \(q\) and its minimum at \(y\).  Indeed at a maximum every
+outgoing slope is nonpositive.  If the Laplacian there is zero,
+positivity of every conductance forces all those slopes to vanish;
+propagate the maximum along edges until meeting a nonzero mass.
+A positive mass cannot occur at a maximum.  The argument for a
+minimum is the same with signs reversed.  Thus \(h(q)=0\),
+\(h\leq0\), and \eqref{eq:ch31-weighted-green-energy} gives
+\[
+ E(h):=\sum_e c_e\int_e|h'|^2\,\mathrm ds=-h(y)
+                                         =\operatorname{osc}(h).
+\]
+For any edge-simple path \(\gamma\) from \(a\) to \(b\), after
+subdivision at its endpoints, Cauchy--Schwarz gives
+\[
+ |h(a)-h(b)|^2
+ \leq\left(\int_\gamma\frac{\mathrm ds}{c_e}\right)
+       \left(\int_\gamma c_e|h'|^2\,\mathrm ds\right)
+ \leq\operatorname{length}_R(\gamma)E(h).
+\]
+The second inequality uses that no edge segment is traversed twice.
+Shortest resistance-length paths may be chosen edge-simple, since all
+edge lengths are positive.  Take such a path from \(q\) to \(y\) to
+obtain \(\operatorname{osc}(h)\leq d_R(q,y)\leq D_R\), then use
+a shortest path from \(x\) to \(x'\).  This proves
+\eqref{eq:ch31-green-kernel-estimates}.
+
+Apply \eqref{eq:ch31-weighted-green-energy} to
+\(g_q(\cdot,y)\) and \(g_q(\cdot,z)\), on a subdivision containing
+both \(y,z\).  The normalizing values at \(q\) vanish, giving
+\(g_q(z,y)=g_q(y,z)\).  Symmetry and the uniform estimate already
+proved give the same modulus of continuity in the second variable.
+Hence the kernel is jointly continuous.  This avoids assuming
+continuous dependence of a moving-vertex matrix at a degenerating edge.
+
+The integral in \eqref{eq:ch31-green-potential} is therefore
+continuous.  For piecewise affine \(F\), Fubini and
+\eqref{eq:ch31-weighted-green-energy} yield
+\[
+ \int_\Gamma U_\nu\,\mathrm d\Delta_\Gamma F
+  =\int_\Gamma\left(F(y)-F(q)\right)\mathrm d\nu(y)
+  =\int_\Gamma F\,\mathrm d\nu.
+\]
+Both integrations are against finite signed measures and a bounded
+continuous kernel, so Fubini applies.
+
+For uniqueness in the asserted \emph{continuous} class, do not assume
+an energy integral before proving piecewise affineness.  If \(w\) is
+continuous and distributionally harmonic, test with the piecewise
+affine tent on a closed subinterval \([a,b]\) of an open edge, of
+height one at \(x\in(a,b)\) and zero outside \((a,b)\).
+The equality \(\int w\,\mathrm d\Delta_\Gamma F=0\) becomes
+\[
+ \frac{w(a)}{x-a}+\frac{w(b)}{b-x}
+       -w(x)\left(\frac1{x-a}+\frac1{b-x}\right)=0.
+\]
+It follows that \(w\) is affine on every open edge, and continuity
+extends this to its endpoints.  Vertex tent tests then give the
+weighted zero-slope sum at the vertices.  The energy identity now
+applies and forces \(w\) to be constant.
+
+Finally, the family \(\{g_q(x,\cdot):x\in \Gamma\}\) is compact in
+\(C(\Gamma)\), being the continuous image of the compact graph.  Weak
+convergence of measures with a uniform total-variation bound is uniform
+on this compact family: approximate it by a finite sup-norm net and
+bound the error by that total-variation bound.  This proves the last
+assertion.
+\end{proof}
+
+
+
+\begin{proposition}
+\label{prop:graph-ma-solution}
+With the given model reference above, let \(\mu\) be any positive Radon
+measure on \(\Gamma\) of mass \(V\).  The function
+\(F=U_{\mu-\mu_0}\) of \cref{lem:ch31-green-kernel} is the unique
+continuous solution of \eqref{eq:curve-poisson} normalized by \(F(q)=0\).
+The metric
+\[
+             \lVert\cdot\rVert_0\mathrm e^{-F\circ p_{\cX}}
+\]
+is continuous and semipositive, and its Thuillier, Chambert--Loir,
+and CLD curvature measures all equal \(\mu\).
+The solution is unique up to an additive constant in the weight,
+or a positive constant scale in the metric.
+\end{proposition}
+
+\begin{proof}
+The measure \(\nu=\mu-\mu_0\) has mass zero.  The graph lemma gives
+the asserted continuous potential and its distributional uniqueness.
+To check its analytic curvature without assuming rational slopes,
+choose finite positive atomic measures \(\mu_j\) of mass exactly
+\(V\) converging weakly to \(\mu\).  Partition the finitely many
+edges into intervals of mesh tending to zero, place each interval's
+mass at one point, and retain vertex masses; this gives such measures
+with real, not necessarily rational, masses.
+Then \(F_j=U_{\mu_j-\mu_0}\) are real piecewise affine and converge
+uniformly to \(F\) by \cref{lem:ch31-green-kernel}.
+
+The reference weights and \(F_j\circ p_{\cX}\) are Thuillier-lisse.
+The slope formula gives curvature \(\mu_j\) for the corresponding
+metrics.  Their weights are subharmonic, and the uniform limits
+remain subharmonic by the harmonic comparison definition.
+For a compactly supported lisse test function \(a\), the error in
+curvature pairing is bounded by
+\(\lVert F_j-F\rVert_\infty
+  \lVert\mathrm d\mathrm d^ca\rVert_{\mathrm{TV}}\).
+Thus the limiting metric has Thuillier curvature \(\mu\);
+density of lisse tests \cite[Proposition~3.2.7]{Thu05} identifies
+the measures.
+
+The optional model-reference formula
+\eqref{eq:ch29-curve-model-reference-solution} in
+\cref{thm:curves-arbitrary-field-continuity} now applies to exactly
+this metric.  Its proof promotes the continuous positive-curvature
+metric to a uniform limit of semipositive rational formal metrics
+by comparison over the completed algebraic closure and finite
+normal descent, and identifies the three curvature measures.
+This use is not circular: that proof uses only the graph lemma above,
+not the present proposition.
+Uniqueness of analytic metrics follows because the logarithm of
+their ratio is a continuous harmonic function on the proper connected
+curve, hence constant, as proved in
+\cref{prop:ch29-curve-point-reference}.
+
+Neither the \(F_j\) nor their pullbacks have been declared rational
+model functions.  Rational atomic masses alone would not imply
+rational slopes on a graph with arbitrary modulus lengths.
+For a nonatomic measure the limiting potential is only asserted
+continuous; it need not be Thuillier-lisse.
+\end{proof}
+
+\begin{remark}[What this proposition is, and is not]
+\label{rem:ch31-curve-solution-scope}
+The proposition solves the equation for every positive measure of
+the right mass supported on this given finite skeleton.
+The quantitative bound is
+\(\sup|g_q|\leq D_R\), where \(D_R\) is the diameter for resistance
+lengths \(\ell_e/c_e\); the analytic lengths remain \(\ell_e\).
+Measures not supported on a finite skeleton are outside this
+continuous-solution assertion.
+No degree-zero rational-model existence claim, unrestricted envelope
+identity, or higher-dimensional reduction is inferred.
+\end{remark}

@@ -1,0 +1,388 @@
+--- a/manuscript/parts/part3/ch24_bfj_ma.tex
++++ b/manuscript/parts/part3/ch24_bfj_ma.tex
+@@ -899,14 +899,15 @@
+ effective divisor gives a nonnegative model function
+ (\eqref{eq:ch20-sign}); a convex corner of a model function on a dual
+ complex gives \emph{positive} mass, since by
+-\Cref{prop:ch20-curve-laplacian} the Laplacian is the sum of outgoing
+-slopes; and the Dirichlet form
++\Cref{prop:ch20-curve-laplacian} the Laplacian is the residue-degree-weighted
++sum of outgoing slopes; and the Dirichlet form
+ \(f\mapsto\int f\,\ddc f\wedge\eta_\bullet\) is \emph{nonpositive}.  The
+ three are checked against the unit tests of \Cref{sec:appJ-unit-tests} as
+ follows: with \(f=1\) the first gives \(\varphi_{\cX_s}=1\), the second
+ gives \(\ddc1=0\), and the third gives \(0\), consistently.  On a curve
+-with the two-component fibre of \eqref{eq:ch20-two-component-matrix}, a
+-model function with vertex values \(u_0,u_1\) has
++with the residue-rational-node two-component fibre of
++\eqref{eq:ch20-two-component-matrix}, a model function with vertex
++values \(u_0,u_1\) has
+ \(\int f\,\ddc f=-(u_0-u_1)^2\leq0\), with equality exactly for constants;
+ this is the case \(n=1\) of \eqref{eq:model-dirichlet-negativity} and is the
+ smallest complete check available.
+@@ -2311,20 +2312,22 @@
+ \label{sec:ch24-model-locality}
+ 
+ The full bounded maximum principle requires capacity and is proved in
+-\Cref{thm:bounded-maximum-principle}. Its model core is already
+-visible.
++\Cref{thm:bounded-maximum-principle}.  Here we retain real model inputs,
++but must distinguish them from rational model inputs: the maximum of
++real model functions can be continuous without being a model function.
++The measure of that maximum is already available from the bounded
++construction and \Cref{prop:ch24-continuous-uniform}.
+ 
+-The statement to be proved is a \emph{locality} statement: on the open set
+-where \(\varphi\) strictly exceeds \(\psi\), the measure of the maximum sees
+-only \(\varphi\).  At model level all measures are finite sums of Dirac
+-masses at divisorial points, so the assertion reduces to a comparison of
+-finitely many integers, and the proof is a statement about affine functions
+-on a simplicial complex.  This is worth doing carefully, because the bounded
+-version in \Cref{chap:bfj-capacity} is proved by approximation \emph{from}
+-this one, and because the geometric mechanism---that a coefficient of
+-\eqref{eq:model-mixed-measure} at \(x_E\) depends only on the divisor near
+-\(E\)---is the model-level shadow of the plurifine locality of the complex
+-theory.
++On the open set where \(\varphi\) strictly exceeds \(\psi\), the measure
++of the maximum should see only \(\varphi\).  For rational potentials we
++prove this by choosing a common SNC determination; the resulting
++measures are finite sums of Dirac masses, and their coefficients are
++intersection numbers, which can be real because \(\theta\) is real.
++The geometric mechanism is that the coefficient at \(x_E\) depends only
++on the divisor classes restricted to \(E\).  We then pass to real model
++inputs by uniform approximation at the fixed form \(\theta\), testing on
++compact subsets of the strict inequality locus.  Neither the bounded
++locality theorem nor capacity is used in this argument.
+ 
+ \begin{proposition}\label{prop:model-maximum-principle}
+ For \(\theta\)-psh model functions \(\varphi,\psi\),
+@@ -2337,61 +2340,100 @@
+ \end{proposition}
+ 
+ \begin{proof}
+-Model functions are stable under maximum, and the maximum of two
+-\(\theta\)-psh model functions is \(\theta\)-psh, by
+-\Cref{prop:ch20-model-max}; write \(\sigma:=\max\{\varphi,\psi\}\).
+-
+-\emph{Step 1: a determination on which all three are affine.}  Choose a
+-model on which \(\varphi\), \(\psi\), \(\sigma\) and \(\theta\) are all
+-determined; by \Cref{prop:snc-cofinal} we may take it to be SNC, and we call
+-it \(\cX\).  By \Cref{lem:model-function-affine} a model function determined
+-on \(\cX\) satisfies \(f=f\circ p_{\cX}\) and restricts to a function on the
+-dual complex \(\Delta_{\cX}\) that is affine on every face for the integral
+-affine structure of \Cref{def:integral-affine}.  Thus \(\varphi\), \(\psi\)
+-and \(\sigma\) are simultaneously affine on every face of \(\Delta_{\cX}\);
+-in particular any wall along which \(\varphi\) and \(\psi\) cross has already
+-been refined into the face structure.
+-
+-\emph{Step 2: the strict inequality locus is a union of stars.}  Since
+-\(\varphi,\psi\) factor through \(p_{\cX}\), the set \(\{\varphi>\psi\}\) is
+-\(p_{\cX}^{-1}\) of its trace on \(\Delta_{\cX}\), and the measures in
+-\eqref{eq:model-maximum-principle} are supported on the vertex set
+-\(\{x_E\}\).  It therefore suffices to prove, for every component \(E\) of
+-\(\cX_s\) with \(\varphi(x_E)>\psi(x_E)\), that the coefficients of
+-\(\delta_{x_E}\) in \(\MA_\theta(\sigma)\) and \(\MA_\theta(\varphi)\)
+-coincide.
+-
+-\emph{Step 3: the two divisors agree near \(E\).}  Fix such an \(E\), and
+-let \(F\) be any component of \(\cX_s\) with \(E\cap F\neq\varnothing\), so
+-that \([x_E,x_F]\) is an edge of \(\Delta_{\cX}\).  We claim
+-\(\varphi(x_F)\geq\psi(x_F)\).  Indeed \(\varphi\) and \(\psi\) restrict to
+-affine functions on the segment \([x_E,x_F]\), and so does \(\sigma\) by
+-Step~1; but the maximum of two affine functions on a segment is affine only
+-if one of them dominates the other throughout.  Since
+-\(\varphi(x_E)>\psi(x_E)\), it is \(\varphi\) that dominates, whence
+-\(\varphi(x_F)\geq\psi(x_F)\) and \(\sigma=\varphi\) on \([x_E,x_F]\).
+-
+-Write \(\sigma=\varphi_{D_\sigma}\) and \(\varphi=\varphi_{D}\) with
+-\(D_\sigma=\sum_Ga_G^\sigma G\), \(D=\sum_Ga_GG\).  By
+-\Cref{prop:metrics-divisor-model-function} the coefficients are recovered
+-from the values, \(a_G=b_G\varphi(x_G)\), so the previous paragraph gives
+-\[
+- a_E^\sigma=a_E,\qquad a_F^\sigma=a_F
+- \quad\text{for every }F\text{ with }E\cap F\neq\varnothing .
+-\]
+-Hence \(D_\sigma-D=\sum_Gc_GG\) with \(c_G=0\) whenever \(G=E\) or
+-\(G\cap E\neq\varnothing\); equivalently, \(\Supp(D_\sigma-D)\) is disjoint
+-from \(E\).
++The inputs may be real model functions.  Their maximum
++\(\sigma:=\max\{\varphi,\psi\}\) is continuous and \(\theta\)-psh,
++but need not be a model function.  Its measure is the bounded product of
++\Cref{thm:bounded-ma-extension}, restricted to continuous potentials as
++in \Cref{prop:ch24-continuous-uniform}.  We first prove the formula when
++the two potentials are rational; the reference form \(\theta\) remains
++the given real form throughout.
+ 
+-\emph{Step 4: conclusion.}  Consequently
+-\(\cO_{\cX}(D_\sigma-D)|_E\simeq\cO_E\), so
+-\((\theta+\ddc\sigma)|_E=(\theta+\ddc\varphi)|_E\) in \(N^1(E)\), and the
+-two coefficients
++\emph{Step 1: rational inputs on one common SNC model.}
++Suppose \(\varphi,\psi\) are rational model functions.  Then \(\sigma\)
++is a rational \(\theta\)-psh model function by
++\Cref{prop:ch20-model-max}.  Choose an SNC model \(\cX\) determining
++\(\theta\) and all three potentials, using \Cref{prop:snc-cofinal}.
++By \Cref{lem:model-function-affine}, all three factor through
++\(p_{\cX}\) and are affine on every face of \(\Delta_{\cX}\).
++The two measures are supported at its vertices by
++\eqref{eq:model-mixed-measure}.  We therefore compare their coefficients
++at each \(x_E\) with \(\varphi(x_E)>\psi(x_E)\).
++
++If another component \(F\) meets \(E\), consider an edge
++\([x_E,x_F]\).  The restrictions of \(\varphi\), \(\psi\), and their
++maximum \(\sigma\) are all affine.  The maximum of two affine functions
++on a segment cannot be affine if their strict order reverses along that
++segment.  Since \(\varphi(x_E)>\psi(x_E)\), it follows that
++\(\varphi(x_F)\geq\psi(x_F)\) and \(\sigma=\varphi\) on the whole
++edge.  Write \(\sigma=\varphi_{D_\sigma}\) and
++\(\varphi=\varphi_D\), with vertical rational Cartier divisors on
++\(\cX\).  The coefficient of any component \(G\) in \(D\) is
++\(b_G\varphi(x_G)\), by
++\Cref{prop:metrics-divisor-model-function}; the same formula holds for
++\(D_\sigma\).  Thus \(D_\sigma-D\) has zero coefficient along \(E\)
++and along every component meeting \(E\).  Its support is disjoint from
++\(E\).
++
++Choose a positive integer \(m\) clearing the denominators of these
++divisors.  The Cartier divisor \(m(D_\sigma-D)\) vanishes on a
++neighborhood of \(E\), so its associated line bundle restricts trivially
++to \(E\).  Dividing its numerical class by \(m\) gives
++\([D_\sigma-D]|_E=0\) in \(N^1(E)_{\mathbf R}\).  Consequently
++\[
++ (\theta+\ddc\sigma)|_E=(\theta+\ddc\varphi)|_E,
++\]
++and the two coefficients
+ \(b_E\bigl((\theta+\ddc\sigma)|_E\bigr)^n\) and
+ \(b_E\bigl((\theta+\ddc\varphi)|_E\bigr)^n\) in
+-\eqref{eq:model-mixed-measure} are equal.  Summing over the components \(E\)
+-with \(\varphi(x_E)>\psi(x_E)\) gives
+-\eqref{eq:model-maximum-principle}.
++\eqref{eq:model-mixed-measure} agree.  Summing over all strict vertices
++proves \eqref{eq:model-maximum-principle} for rational inputs, without
++any rationality assumption on \(\theta\).
++
++\emph{Step 2: approximation at the fixed real form.}
++For real \(\theta\)-psh model inputs, apply
++\Cref{lem:ch20-fixed-form-rational-approximation} to obtain rational
++\(\theta\)-psh model functions \(\varphi_m,\psi_m\) with
++\[
++ \varepsilon_m:=\max\{\|\varphi_m-\varphi\|_\infty,
++                         \|\psi_m-\psi\|_\infty\}\longrightarrow0.
++\]
++The ample generic class needed for this approximation is part of
++\eqref{eq:ch24-standing}; the form itself is not perturbed.
++Put \(\sigma_m=\max\{\varphi_m,\psi_m\}\), a rational
++\(\theta\)-psh model function.  The elementary maximum inequality gives
++\(\|\sigma_m-\sigma\|_\infty\leq\varepsilon_m\).
++In particular \(\sigma\) is \(\theta\)-psh by uniform stability,
++\Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:unif}.
++By \Cref{prop:ch24-continuous-uniform}\,\cref{itm:ch24-cu:unif},
++\[
++ \MA_\theta(\sigma_m)\longrightarrow\MA_\theta(\sigma),
++ \qquad
++ \MA_\theta(\varphi_m)\longrightarrow\MA_\theta(\varphi)
++ \quad\text{weakly}.
++\]
++
++\emph{Step 3: localization before taking the limit.}
++The set \(U=\{\varphi>\psi\}\) is open.  Let \(h\) be a continuous
++function on \(X^{\An}\) whose support \(K\) is a compact subset of
++\(U\).  If \(K\) is nonempty, continuity and compactness give
++\(\delta:=\min_K(\varphi-\psi)>0\).  For every sufficiently large
++\(m\), we have \(2\varepsilon_m<\delta\), hence
++\(K\subseteq\{\varphi_m>\psi_m\}\).  The rational formula from
++Step~1 therefore gives
++\[
++ \int h\,\MA_\theta(\sigma_m)
++       =\int h\,\MA_\theta(\varphi_m).
++\]
++The equality is automatic if \(K\) is empty.  Weak convergence from
++Step~2 now yields
++\(\int h\,\MA_\theta(\sigma)=\int h\,\MA_\theta(\varphi)\).
++The open subspace \(U\) of the compact Hausdorff space \(X^{\An}\)
++is locally compact Hausdorff.  Every continuous compactly supported
++function on \(U\) extends by zero to a continuous function of the type
++just used.  Uniqueness of Radon measures from these tests shows that the
++two measures restricted to \(U\) agree, proving
++\eqref{eq:model-maximum-principle}.  We have not passed masses of moving
++strict-inequality sets through a weak limit.
+ \end{proof}
+ 
+ \begin{corollary}
+@@ -2411,41 +2453,55 @@
+ \begin{proof}
+ We prove \cref{itm:ch24-mlo:mixed}, of which \cref{itm:ch24-mlo:agree} is the
+ diagonal case.  Choose an SNC model \(\cX\) on which \(\theta\) and all
+-\(2n\) potentials are determined (\Cref{prop:snc-cofinal}).  Both measures
+-are supported on the vertex set \(\{x_E\}\) of \(\Delta_{\cX}\) by
+-\Cref{prop:ch24-model-support}\,\cref{itm:ch24-ms:atomic}, so it suffices to
+-show that the coefficients at each \(x_E\in U\) agree.
++\(2n\) real model potentials are determined (\Cref{prop:snc-cofinal}).
++Both measures are supported on the vertex set \(\{x_E\}\) of
++\(\Delta_{\cX}\) by
++\Cref{prop:ch24-model-support}\,\cref{itm:ch24-ms:atomic}, so it suffices
++to show that the coefficients at each \(x_E\in U\) agree.
+ 
+ Fix such an \(E\).  The set \(U\cap\Delta_{\cX}\) is open in
+-\(\Delta_{\cX}\) and contains the vertex \(x_E\), so for every component
+-\(F\) with \(E\cap F\neq\varnothing\) it contains an initial segment of the
+-edge \([x_E,x_F]\) of positive length.  By
+-\Cref{lem:model-function-affine} the functions \(\varphi_i\) and
+-\(\psi_i\) are affine on that edge; two affine functions on a segment that
+-agree on a subsegment of positive length agree on the whole segment, so
+-\(\varphi_i(x_F)=\psi_i(x_F)\).  Also \(\varphi_i(x_E)=\psi_i(x_E)\).  By
+-\Cref{prop:metrics-divisor-model-function} the associated vertical divisors
+-\(D_i\), \(D_i'\) therefore satisfy: \(D_i-D_i'\) has zero coefficient along
+-\(E\) and along every component meeting \(E\).  Hence
+-\(\cO(D_i-D_i')|_E\simeq\cO_E\) and
+-\((\theta+\ddc\varphi_i)|_E=(\theta+\ddc\psi_i)|_E\) for every \(i\).  The
+-coefficients of \(\delta_{x_E}\) in the two mixed measures
+-\eqref{eq:model-mixed-measure} are the products of these restrictions,
+-hence equal.
++\(\Delta_{\cX}\) and contains \(x_E\), so for every component \(F\)
++meeting \(E\) it contains an initial segment of an edge
++\([x_E,x_F]\) of positive length.  By
++\Cref{lem:model-function-affine}, \(\varphi_i\) and \(\psi_i\) are
++affine on that edge.  Since they agree on an initial segment, they agree
++on the whole edge.  Thus \(\varphi_i(x_F)=\psi_i(x_F)\), and also
++\(\varphi_i(x_E)=\psi_i(x_E)\).
++
++Let \(D_i,D_i'\) be the vertical real Cartier divisors determining these
++potentials.  By \Cref{prop:metrics-divisor-model-function}, their
++coefficients agree along \(E\) and every component meeting \(E\).
++Their difference is therefore supported away from \(E\).  On the
++regular SNC model each component \(G\) is a Cartier divisor.  Writing
++\(D_i-D_i'=\sum_G c_{iG}G\), every term with nonzero coefficient is
++disjoint from \(E\), so \(\cO_{\cX}(G)|_E\) is trivial.  Taking the
++real linear combination of these numerical classes gives
++\([D_i-D_i']|_E=0\) in \(N^1(E)_{\mathbf R}\).  This is a statement
++about a real numerical class, not an assertion that an arbitrary real
++divisor has an associated honest line bundle.  Hence
++\[
++ (\theta+\ddc\varphi_i)|_E=(\theta+\ddc\psi_i)|_E
++ \qquad\text{for every }i.
++\]
++The coefficients of \(\delta_{x_E}\) in the two mixed measures
++\eqref{eq:model-mixed-measure} are \(b_E\) times the products of these
++restrictions, and are consequently equal.
+ \end{proof}
+ 
+ \begin{remark}[The mass on the contact set is genuinely new]
+ \label{rem:ch24-contact-mass}
+-Neither \eqref{eq:model-maximum-principle} nor
+-\Cref{cor:ch24-model-locality-open} says anything about the contact set
+-\(\{\varphi=\psi\}\), and nothing true can be said there in general: the
+-measure \(\MA_\theta(\max\{\varphi,\psi\})\) typically has an atom on the
+-contact set which is present in neither \(\MA_\theta(\varphi)\) nor
+-\(\MA_\theta(\psi)\).  \Cref{ex:ch24-locality-check} exhibits this on a
+-chain of three components, where a new atom of mass \(1\) appears at the
+-crossing point.  The total masses are of course equal, by
+-\Cref{thm:ch24-mass}: the mass that appears on the contact set is exactly
+-the mass that the two measures had elsewhere and the maximum does not.
++The strict-locus formula \eqref{eq:model-maximum-principle} does not
++determine the measure on the contact set \(\{\varphi=\psi\}\).
++Nor does \Cref{cor:ch24-model-locality-open} apply merely because the
++potentials agree on a set that is not open.  The measure
++\(\MA_\theta(\max\{\varphi,\psi\})\) can have an atom on the contact set
++that is present in neither input measure.
++\Cref{ex:ch24-locality-check} exhibits this on a chain of three
++components, where a new atom of mass \(1\) appears at the crossing point.
++The maximum is continuous even when it is not model, and its total
++mass is still \(V\) by \Cref{thm:bounded-ma-extension}.
++Thus the new atom represents redistribution of mass, not an increase
++of total mass.
+ \end{remark}
+ 
+ \subsection{The comparison principle on a model}
+@@ -2470,44 +2526,46 @@
+ \end{proposition}
+ 
+ \begin{proof}
+-Fix \(\varepsilon>0\) and put \(\sigma_\varepsilon
+-:=\max\{\varphi,\psi-\varepsilon\}\), a \(\theta\)-psh model function.  The
+-two sets
++Fix \(\varepsilon>0\) and put
++\(\sigma_\varepsilon:=\max\{\varphi,\psi-\varepsilon\}\).
++The shifted input \(\psi-\varepsilon\) is still a real \(\theta\)-psh
++model function, while \(\sigma_\varepsilon\) is continuous and
++\(\theta\)-psh and need not be a model function.  Its bounded
++Monge--Amp\`ere measure is positive and has mass \(V\), by
++\Cref{thm:bounded-ma-extension}.  The two sets
+ \[
+  U:=\{\varphi<\psi-\varepsilon\},
+- \qquad
+- W:=\{\varphi>\psi-\varepsilon\}
++ \qquad W:=\{\varphi>\psi-\varepsilon\}
+ \]
+-are disjoint, and \eqref{eq:model-maximum-principle}, applied once with the
+-pair \((\psi-\varepsilon,\varphi)\) and once with the pair
++are disjoint.  The full real-input formula
++\eqref{eq:model-maximum-principle}, applied to
++\((\psi-\varepsilon,\varphi)\) and
+ \((\varphi,\psi-\varepsilon)\), gives
+ \[
+- \MA_\theta(\sigma_\varepsilon)|_U=\MA_\theta(\psi-\varepsilon)|_U
+- =\MA_\theta(\psi)|_U,
++ \MA_\theta(\sigma_\varepsilon)|_U
++       =\MA_\theta(\psi-\varepsilon)|_U
++       =\MA_\theta(\psi)|_U,
+  \qquad
+- \MA_\theta(\sigma_\varepsilon)|_W=\MA_\theta(\varphi)|_W .
+-\]
+-Since \(\MA_\theta(\sigma_\varepsilon)\) is a positive measure of total mass
+-\(V\) by \Cref{thm:ch24-mass}, discarding its mass on the complement of
+-\(U\cup W\) yields
++ \MA_\theta(\sigma_\varepsilon)|_W
++       =\MA_\theta(\varphi)|_W.
++\]
++Here adding a constant does not change \(\ddc\) or the model measure.
++Discarding the nonnegative mass of \(\MA_\theta(\sigma_\varepsilon)\)
++on the complement of \(U\cup W\) yields
+ \[
+- V\ \geq\ \int_U\MA_\theta(\psi)+\int_W\MA_\theta(\varphi).
++ V\geq\int_U\MA_\theta(\psi)+\int_W\MA_\theta(\varphi).
+ \]
+-On the other hand \(\MA_\theta(\varphi)\) also has mass \(V\), so
++Since \(\MA_\theta(\varphi)\) also has mass \(V\), subtraction gives
+ \[
+- V=\int_W\MA_\theta(\varphi)+\int_{X^{\An}\setminus W}\MA_\theta(\varphi).
+-\]
+-Subtracting,
+-\[
+  \int_{\{\varphi<\psi-\varepsilon\}}\MA_\theta(\psi)
+  \leq\int_{\{\varphi\leq\psi-\varepsilon\}}\MA_\theta(\varphi)
+  \leq\int_{\{\varphi<\psi\}}\MA_\theta(\varphi).
+ \]
+-Finally the sets \(\{\varphi<\psi-\varepsilon\}\) increase to
+-\(\{\varphi<\psi\}\) as \(\varepsilon\downarrow0\), so the left-hand side
+-increases to \(\int_{\{\varphi<\psi\}}\MA_\theta(\psi)\) by countable
+-additivity along the increasing sequence \(\varepsilon=1/m\).  This is
+-\eqref{eq:ch24-model-comparison}.
++Along \(\varepsilon=1/m\), the sets on the left increase to
++\(\{\varphi<\psi\}\).  Continuity from below for the one fixed finite
++measure \(\MA_\theta(\psi)\) gives
++\eqref{eq:ch24-model-comparison}.  No model determination of
++\(\sigma_\varepsilon\) is used.
+ \end{proof}
+ 
+ \begin{corollary}
+@@ -2824,8 +2882,8 @@
+ 
+ \begin{example}[A semistable curve with two components]
+ \label{ex:two-vertex-ma}
+-Let a regular semistable model have special fibre \(E_0+E_1\), with one node,
+-and let the reference measure be
++Let a regular semistable model have special fibre \(E_0+E_1\), with one
++node rational over the residue field, and let the reference measure be
+ \(\theta=m_0\delta_{x_0}+m_1\delta_{x_1}\), where
+ \(m_0+m_1=\deg L\). Give the edge length one and let a model function have
+ vertex values \(a_0,a_1\). With the graph Laplacian convention forced by
+@@ -2858,7 +2916,7 @@
+ \label{ex:ch24-curve-mixed}
+ Keep the two-component model of \Cref{ex:two-vertex-ma} with
+ \((E_0^2)=(E_1^2)=-1\), \((E_0\cdot E_1)=1\), both multiplicities one, and
+-edge length one.  Let \(L_1,L_2\) be line bundles on \(X\) of degrees
++edge length and residue weight one.  Let \(L_1,L_2\) be line bundles on \(X\) of degrees
+ \(d_1=2\) and \(d_2=3\), extended to model line bundles
+ \(\cL_1,\cL_2\) with component degrees
+ \[

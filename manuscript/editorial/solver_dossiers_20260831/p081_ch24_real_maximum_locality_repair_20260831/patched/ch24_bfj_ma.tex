@@ -1,0 +1,3771 @@
+\chapter{The non-Archimedean Monge--Amp\`ere operator}
+\index{Monge--Ampere measure!BFJ}\index{nonpluripolar product!BFJ}
+\label{chap:bfj-ma}
+
+The psh functions of \Cref{chap:bfj-psh} are defined by positivity on
+all models. We now turn that positivity into a measure. There are two steps,
+and it is important not to merge them. For model functions the measure is an
+intersection product on one model. For bounded psh functions it is the unique
+monotone extension of those atomic measures. The first step is algebraic; the
+second is a non-Archimedean Bedford--Taylor theorem.
+
+Throughout the chapter we retain the original BFJ hypotheses: \(K\) is
+complete and discretely valued, its residue field has characteristic zero,
+\(X\) is smooth and projective of dimension \(n\), and
+\(\theta\in\mathcal Z^{1,1}(X)\) has ample generic numerical class
+\(\{\theta\}\in N^1(X)\), in the sense of \eqref{eq:ch20-generic-class}. Put
+\[
+                         V=(\{\theta\}^n)>0.
+\]
+Thus our Monge--Amp\`ere measures have mass \(V\), not mass one. The main
+construction and all monotone-continuity statements in this chapter are
+\cite[\S\S2.7 and~3]{BFJ15}.
+
+\section{Orientation}
+\label{sec:ch24-orientation}
+
+\subsection{What has to be built, and why}
+\label{sec:ch24-why}
+
+By the end of \Cref{chap:bfj-envelopes} the linear theory is complete.  We
+have a space \(\mathcal Z^{1,1}(X)\) of closed model forms
+(\Cref{def:ch20-closed-model-form}), an operator \(\ddc\) from model
+functions to closed model forms with known kernel and image
+(\Cref{thm:ch20-ddc-exact}), a class \(\PSH(X,\theta)\) of potentials that is
+stable under the operations one wants (\Cref{thm:ch21-stability}), a
+compactness theorem modulo constants (\Cref{thm:bfj-psh-compactness}), a
+decreasing regularization theorem (\Cref{thm:bfj-decreasing-regularization})
+and a continuity theorem for envelopes (\Cref{thm:bfj-envelope-regularity}).
+What is entirely missing is a \emph{nonlinear} invariant: a way of assigning
+to a potential a measure whose total mass is an intersection number and whose
+local behaviour reflects the curvature of the potential.  That invariant is
+the Monge--Amp\`ere measure, and constructing it is the business of this
+chapter.
+
+At model level there is no difficulty and no choice.  A closed model form
+determined on \(\cX\) restricts to each component \(E\) of the special fibre
+\(\cX_s=\sum_Eb_EE\); an \(n\)-fold product of such restrictions is a number,
+computed on the projective \(k\)-variety \(E\); weighting by the multiplicity
+\(b_E\) and putting the result at the divisorial point \(x_E\) produces an
+atomic measure.  That this is \emph{forced}---by multilinearity together with
+the requirement that the total mass be the generic intersection
+number---was already argued in \Cref{sec:metrics-cl-measure}, where the same
+measure appeared under the name of Chambert--Loir.  The only work at this
+level is bookkeeping: independence of the model, symmetry, positivity, mass,
+and the identity that converts an integral of a model function into a
+vertical intersection number.
+
+The difficulty begins one step later.  A bounded \(\theta\)-psh function is
+not determined on any single model; by
+\Cref{thm:bfj-decreasing-regularization} it is only a decreasing limit of a
+\emph{net} of \(\theta\)-psh model functions, and by
+\Cref{ex:ch22-no-countable-cofinal} a sequence will not in general do.  One
+would like to define its Monge--Amp\`ere measure as the weak limit of the
+model measures along such a net.  Three separate things then have to be
+proved, and they organize \Cref{sec:ch24-bounded}.
+
+\begin{enumerate}
+\item\label{itm:ch24-plan:exists}
+ \emph{The limit has to exist.}  Weak compactness of the space of positive
+ measures of mass \(V\) (\Cref{prop:measure-compactness}) gives convergent
+ subnets, not convergence.  Convergence has to come from a monotonicity
+ property of the model measures, and the only monotone quantities available
+ are \emph{numbers}, not measures.
+\item\label{itm:ch24-plan:unique}
+ \emph{The limit has to be independent of the net.}  Two decreasing nets of
+ model functions with the same limit are not comparable index by index; the
+ comparison has to be made by a compactness argument on \(X^{\An}\)
+ (\Cref{lem:ch24-sandwich}), which is where Dini's theorem for nets,
+ \Cref{prop:dini-nets}, enters.
+\item\label{itm:ch24-plan:symmetric}
+ \emph{The result has to be symmetric and multilinear.}  Any construction
+ that treats one slot at a time produces an object that is manifestly
+ well defined but not manifestly symmetric.  Symmetry is recovered by
+ factoring the whole construction through a single \emph{symmetric} scalar
+ invariant, the mixed energy pairing of \Cref{def:ch24-mixed-energy}.
+\end{enumerate}
+
+The device that settles all three at once is the following.  Instead of
+extending the measure-valued operator directly, we extend the
+\((n+1)\)-variable scalar
+\[
+ \mathfrak E(\varphi_0,\ldots,\varphi_n),
+\]
+the mixed energy pairing, which at model level is the sum of all vertical
+intersection numbers built from the potentials.  It is symmetric, monotone
+in each variable, and equal to
+\(\mathfrak E(0,\varphi_1,\ldots,\varphi_n)
+ +\int\varphi_0\,\MA_\theta(\varphi_1,\ldots,\varphi_n)\).
+Monotone quantities have monotone limits, so \(\mathfrak E\) extends without
+any compactness argument beyond \Cref{lem:monotone-net-converges}, and the
+measure is then recovered from it by the Riesz representation theorem
+(\Cref{thm:riesz-interface}).  Symmetry, multilinearity, monotone
+continuity, and the weighted monotone continuity
+\eqref{eq:weighted-monotone-ma} all become statements about
+\(\mathfrak E\), where they are visible.  This is the strategy of
+\Cref{sec:ch24-energy-bounded,sec:ch24-extension-theorem}.
+
+\subsection{Four Monge--Amp\`ere products, kept apart}
+\label{sec:ch24-four-products}
+
+A single symbol \(\MA_\theta\) is used in this book for four different
+objects.  They agree where their domains overlap---that is a theorem, not a
+convention---but they are constructed by four different mechanisms and enjoy
+four different continuity properties.  The governing rule of
+\Cref{part:bfj} is that no statement may be made without saying which of them
+is meant.
+
+\begin{center}
+\small
+\begin{tabular}{p{.16\textwidth}|p{.21\textwidth}|p{.24\textwidth}|p{.24\textwidth}}
+\toprule
+\textbf{Product}&\textbf{Domain}&\textbf{Mechanism}&\textbf{Continuity available}\\
+\midrule
+model
+ &\(\theta\)-psh model functions
+ &restriction to components of \(\cX_s\), \eqref{eq:model-mixed-measure}
+ &none needed; the measure is a finite sum of Dirac masses\\
+continuous
+ &continuous \(\theta\)-psh, i.e.\ uniform limits of model ones
+ &uniform density and the mass bound \(V\), \Cref{prop:ch24-continuous-uniform}
+ &continuous for the uniform topology on potentials\\
+bounded
+ &bounded \(\theta\)-psh
+ &monotone extension, \Cref{thm:bounded-ma-extension}
+ &continuous along decreasing nets with bounded limit, in the weighted form
+  \eqref{eq:weighted-monotone-ma}\\
+finite energy
+ &\(\cE^1(X,\theta)\), \Cref{def:e1}
+ &truncation and a nonpluripolar convention, \Cref{def:nonpluripolar-ma}
+ &continuous along decreasing nets, and along strong convergence;
+  \Cref{thm:e1-mixed-products}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This chapter constructs the first three.  The fourth is
+\Cref{chap:bfj-energy} and is \emph{not} obtained by taking a limit of the
+constructions here: an unbounded potential is a decreasing limit of bounded
+ones, but the measures need not converge to anything of mass \(V\), and mass
+may be lost to the polar set.  \Cref{prop:bounded-ma-no-polar-mass} is the
+precise statement that no mass is lost \emph{as long as the potentials stay
+bounded}, and \Cref{def:nonpluripolar-ma} is the convention that
+reinstates the loss for unbounded ones.  A fifth product, the
+Chambert--Loir--Ducros Bedford--Taylor product of \Cref{chap:cld-bedford-taylor},
+is a local object of a different nature and is compared with the present one
+only on the model and continuous loci; see
+\Cref{sec:ch24-comparison} and the delimitation table
+\Cref{sec:ch16-delimitation-table}.
+
+\begin{warning}{One symbol, four operators}
+Whenever \(\MA_\theta\) occurs below, the reader should be able to say
+without looking back which row of the table is in force.  The three
+constructions of this chapter are compatible by
+\Cref{thm:bounded-ma-extension}\,(1) and
+\Cref{prop:ch24-continuous-uniform}; compatibility with the fourth is
+\Cref{thm:e1-mixed-products}, and compatibility with the CLD product is
+\Cref{thm:bfj-cld-ma-common-locus}, whose scope clause is not decorative.
+No statement of this chapter concerns unbounded potentials except
+\Cref{prop:bounded-ma-no-polar-mass}, in which the unbounded function is
+integrated \emph{against} a bounded product and is never itself an entry.
+\end{warning}
+
+\subsection{The payoff, stated in advance}
+\label{sec:ch24-payoff}
+
+Five statements proved below are used continually in
+\Crefrange{chap:bfj-capacity}{chap:bfj-examples}, and it is worth seeing them
+before the constructions.
+
+\begin{enumerate}
+\item \emph{The mixed model measure is a positive atomic measure whose total
+ mass is the mixed intersection number \((\{\theta_1\}\cdots\{\theta_n\})\)}
+ (\Cref{prop:model-ma-basic}, \Cref{thm:ch24-mass}).  All later mass
+ bookkeeping---capacity in \Cref{chap:bfj-capacity}, energy in
+ \Cref{chap:bfj-energy}, the variational functional in
+ \Cref{chap:bfj-finite-energy-measures}---is this one number.
+\item \emph{Integrating a model function against a mixed model measure gives
+ a vertical intersection number} (\eqref{eq:model-test-intersection}, which
+ is \eqref{eq:metrics-cl-pairing}).  Every computation in this chapter is
+ an application of this identity.
+\item \emph{The mixed energy pairing is symmetric, monotone, and continuous
+ along decreasing nets} (\Cref{prop:ch24-energy-basic},
+ \Cref{thm:ch24-energy-extension}).  This is the engine; the extension
+ theorem is a corollary of it.
+\item \emph{The Monge--Amp\`ere operator extends uniquely to bounded psh
+ potentials, with weighted monotone continuity}
+ (\Cref{thm:bounded-ma-extension}).  This is the non-Archimedean
+ Bedford--Taylor theorem, and it is what makes \(\MA_\theta\) an operator
+ rather than a formula.
+\item \emph{Monge--Amp\`ere measures of bounded potentials are local on the
+ set where two potentials differ} (\Cref{prop:model-maximum-principle} at
+ model level, \Cref{thm:bounded-maximum-principle} in general), and satisfy
+ the comparison principle (\Cref{prop:ch24-model-comparison} at model
+ level).  Locality is what converts the operator into a tool for uniqueness
+ statements.
+\end{enumerate}
+
+A sixth statement is negative and belongs with the others.  Nothing in this
+chapter identifies a bounded \(\theta\)-psh function with a locally CLD-psh
+function, or the bounded monotone product with a CLD Bedford--Taylor product
+outside the model and continuous loci.  The exact boundary is
+\Cref{thm:ch19-cld-bfj-comparison}\,(C), quoted in
+\Cref{sec:ch24-scope-comparison}.
+
+\subsection{Standing hypotheses}
+\label{sec:ch24-hypotheses}
+
+Throughout the chapter we work under the original BFJ signature
+\eqref{eq:ch20-standing}, which we repeat in the form used here.
+
+\begin{equation}
+\label{eq:ch24-standing}
+\left\{
+\begin{aligned}
+ &\text{\(K\) is complete and \emph{discretely} valued, with residue field
+   \(k\) of characteristic \(0\);}\\
+ &\text{a uniformizer \(\pi\) is normalized by \(v_K(\pi)=1\); }\\
+ &\text{\(X\) is a smooth, connected, projective \(K\)-variety of dimension
+   \(n\geq1\), \(R=K^\circ\);}\\
+ &\text{models \(\cX\) are normal, flat and projective over \(R\) with
+   \(\cX_K\simeq X\);}\\
+ &\text{\(\theta\in\mathcal Z^{1,1}(X)\) is a closed model form whose generic
+   class \(\{\theta\}\) is ample.}
+\end{aligned}
+\right.
+\end{equation}
+
+By \Cref{prop:ch20-positive-representative} we may and do assume, whenever it
+is convenient, that \(\theta\) is itself \(\cX\)-positive on some model, so
+that in particular \(0\in\PSH(X,\theta)\) and constants are
+\(\theta\)-psh (\Cref{prop:ch21-constants}).  Replacing \(\theta\) by
+\(\theta+\ddc\psi\) and every potential \(\varphi\) by \(\varphi-\psi\)
+changes nothing in the statements below, by
+\Cref{cor:ch21-reference-independence}; the normalization is recorded
+explicitly at each place where it is used.  We write
+
+\begin{equation}
+\label{eq:ch24-volume}
+                V=(\{\theta\}^n)>0
+\end{equation}
+
+for the common total mass of all the measures constructed here.  BFJ
+normalize \(V=1\) in \cite{BFJ15}; we do not, and every displayed formula
+carries the factor.  The probability normalization \(V^{-1}\MA_\theta\) is
+used nowhere in this chapter and is recorded in
+\eqref{eq:appJ-prob-ma} only so that formulas quoted from the literature can
+be converted.
+
+Two normalizations are used constantly and are quoted so that no proof has
+to rederive them.  The first is the sign of a model function,
+\eqref{eq:ch20-sign}: if \(D\) is a vertical Cartier divisor with local
+equation \(f_D\), then \(\varphi_D=-\log|f_D|=v_\bullet(f_D)\), so effective
+vertical divisors give nonnegative model functions and
+\(\varphi_{\cX_s}=1\).  The second is the divisorial normalization
+\(x_E=b_E^{-1}\ord_E\) of \Cref{rem:divisorial-normalization}, which is why
+the multiplicity \(b_E\) appears in \eqref{eq:model-mixed-measure} and
+cancels in \eqref{eq:model-test-intersection}.
+
+\subsection{What is proved here and what is imported}
+\label{sec:ch24-imported}
+
+Everything in
+\Crefrange{sec:ch24-model-measure}{sec:ch24-comparison} is proved, with the
+following exceptions.
+
+\begin{enumerate}
+\item\label{itm:ch24-import:intersection}
+ \emph{Intersection theory of Cartier divisors on a scheme}, in the form of
+ commutativity of the first Chern class operators and the projection
+ formula, \cite[Chapters~1--2]{Ful}, used through
+ \Cref{prop:appF-mixed-cartier}, \Cref{thm:appF-projection},
+ \Cref{lem:vertical-intersection-degree} and
+ \Cref{thm:model-projection-formula}.  This is the only input to
+ \Cref{lem:ch24-vertical-numbers}, and hence to the whole of
+ \Cref{sec:ch24-model-measure}.
+\item\label{itm:ch24-import:kleiman}
+ \emph{Openness of the ample cone} on a projective scheme over a field,
+ which is Kleiman's criterion in the form already imported in
+ \Cref{chap:bfj-model-forms}
+ (\Cref{sec:ch20-imported}, item~\cref{itm:ch20-import:kleiman}); see
+ \cite[\S1.4]{PAG1}.  It is used once, in \Cref{lem:ch24-psh-difference},
+ to write an arbitrary model function as a multiple of a difference of two
+ \(\theta\)-psh model functions.
+\item\label{itm:ch24-import:regularization}
+ \emph{Decreasing regularization}, \Cref{thm:bfj-decreasing-regularization},
+ proved in \Cref{chap:bfj-compactness} from the envelope-continuity theorem
+ \Cref{thm:bfj-envelope-regularity}.  This is where residue characteristic
+ zero enters the present chapter, and it enters only here; see
+ \Cref{sec:ch24-scope}.
+\item\label{itm:ch24-import:density}
+ \emph{Density of model functions} in \(C^0(X^{\An})\),
+ \Cref{prop:metrics-model-function-density}, and the Hodge-type inequality
+ \Cref{thm:ch20-mixed-hodge}.  Both are proved earlier in this book.
+\item\label{itm:ch24-import:cld}
+ \emph{The CLD comparison} \Cref{thm:ch19-cld-bfj-comparison}, proved in
+ \Cref{chap:cld-examples}.  It is quoted, not reproved, in
+ \Cref{sec:ch24-comparison}; the part of it that this chapter uses,
+ statement~(A), is purely model-theoretic and involves no analysis, so no
+ circularity arises.
+\end{enumerate}
+
+No result of \Cref{chap:bfj-capacity} or later is used.  In particular the
+locality statements proved here are the model-level ones; their bounded
+counterparts require quasicontinuity and are proved in
+\Cref{chap:bfj-capacity}.  This separation is deliberate and is tabulated in
+\Cref{sec:ch24-needs-capacity}.
+
+\subsection{Plan}
+\label{sec:ch24-plan}
+
+\Cref{sec:ch24-model-measure} constructs the mixed model measure, proves its
+independence of the model, its symmetry, positivity and total mass,
+identifies it with the Chambert--Loir measure of
+\Cref{sec:metrics-cl-measure}, and proves the model integration-by-parts
+formula together with its Hodge-type consequences.
+\Cref{sec:ch24-formulae} introduces the mixed energy pairing, proves the
+intersection-theoretic formulae that will drive the extension, and verifies
+the total-mass statement in mixed form.
+\Cref{sec:ch24-bounded} proves the extension theorem, in the weighted
+monotone form, together with multilinearity, the negativity of the Dirichlet
+form, the Cauchy--Schwarz inequality, the continuous case, and the
+integrability statement that no pluripolar set is charged.
+\Cref{sec:ch24-locality} proves locality and the comparison and maximum
+principles at model level and says exactly which of their extensions need
+capacity.  \Cref{sec:ch24-comparison} compares the three model-level
+constructions and states the scope of the comparison with the CLD product.
+\Cref{sec:ch24-examples} carries six examples to explicit numbers,
+\Cref{sec:ch24-scope} is the hypothesis table, and
+\Cref{sec:ch24-dictionary} is the chapter dictionary.
+
+\section{The intersection measure on a model}
+\label{sec:ch24-model-measure}
+
+\subsection{Vertical intersection numbers}
+\label{sec:ch24-vertical-numbers}
+
+A model \(\cX\) has dimension \(n+1\) and is proper over \(R\), not over a
+field.  Its special fibre \(\cX_s\), on the other hand, is a projective
+scheme over \(k\), so \(0\)-cycles supported on \(\cX_s\) have a degree.
+Every number in this chapter is obtained by producing a \(0\)-cycle on
+\(\cX_s\) and taking its degree, and the mechanism that produces it is the
+presence of at least one \emph{vertical} factor.  We record the resulting
+formalism once, because the distinction between a vertical divisor as a
+cycle and as a line-bundle class is the single most common source of sign
+and mass errors in this subject; the point was already flagged in
+\Cref{sec:ch20-ddc-definition} after \eqref{eq:ch20-special-fibre-degree}.
+
+Throughout, \(\Div_0(\cX)_{\mathbf R}\) denotes the space of vertical
+\(\mathbf R\)-Cartier divisors on \(\cX\), that is, \(\mathbf R\)-linear
+combinations of the components of \(\cX_s\), and \(\cX_s=\sum_Eb_EE\).
+
+\begin{lemma}
+\label{lem:ch24-vertical-numbers}
+Let \(\cX\) be a model, let \(1\leq m\leq n+1\), let
+\(D_1,\ldots,D_m\in\Div_0(\cX)_{\mathbf R}\), and let
+\(\alpha_1,\ldots,\alpha_{n+1-m}\in N^1(\cX/R)\).  Then the recipe
+\begin{equation}
+\label{eq:ch24-vertical-number}
+ \bigl(D_1\cdots D_m\cdot\alpha_1\cdots\alpha_{n+1-m}\bigr)_{\cX}
+ :=\deg_k\Bigl(
+   c_1(D_2)\cdots c_1(D_m)\,\alpha_1\cdots\alpha_{n+1-m}\cap[D_1]
+   \Bigr)
+\end{equation}
+is well defined, and:
+\begin{enumerate}
+\item\label{itm:ch24-vn:welldef} the \(0\)-cycle in
+ \eqref{eq:ch24-vertical-number} is supported on \(\cX_s\), which is
+ projective over \(k\), so its degree is a well-defined real number;
+\item\label{itm:ch24-vn:sym} the number is symmetric and
+ \(\mathbf R\)-multilinear in \(D_1,\ldots,D_m\), and symmetric and
+ \(\mathbf R\)-multilinear in \(\alpha_1,\ldots,\alpha_{n+1-m}\);
+\item\label{itm:ch24-vn:m1} for \(m=1\) and \(D=\sum_Ea_EE\) it equals
+ \(\sum_Ea_E\,\bigl(\alpha_1|_E\cdots\alpha_n|_E\bigr)\);
+\item\label{itm:ch24-vn:pullback} it is unchanged under pullback along a
+ domination \(\rho:\cY\to\cX\), that is,
+ \((\rho^*D_1\cdots\rho^*D_m\cdot\rho^*\alpha_1\cdots)_{\cY}
+   =(D_1\cdots D_m\cdot\alpha_1\cdots)_{\cX}\);
+\item\label{itm:ch24-vn:fibre} \((\cX_s\cdot\alpha_1\cdots\alpha_n)_{\cX}
+ =(\{\alpha_1\}\cdots\{\alpha_n\})_X\), whereas for \(m\geq2\)
+ \[
+  \bigl(\cX_s\cdot D_2\cdots D_m\cdot\alpha_1\cdots\alpha_{n+1-m}\bigr)_{\cX}
+  =0 .
+ \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{\cref{itm:ch24-vn:welldef} and \cref{itm:ch24-vn:m1}.}  By linearity we
+may assume \(D_1=E\) is a prime component of \(\cX_s\).  Then
+\([D_1]=[E]\) is an \(n\)-cycle on the projective \(k\)-scheme \(\cX_s\), and
+capping with \(n\) first Chern classes produces a class in
+\(A_0(E)_{\mathbf R}\), whose degree over \(k\) is defined because \(E\) is
+proper over \(k\).  For \(m=1\) the classes \(\alpha_i\) may be restricted to
+\(E\) before intersecting, which is \Cref{lem:vertical-intersection-degree},
+and gives \cref{itm:ch24-vn:m1}.
+
+\emph{\cref{itm:ch24-vn:sym}.}  Multilinearity in each slot is additivity of
+\(c_1\) and of the cycle map \(D\mapsto[D]\).  Symmetry in the
+\(\alpha_i\) and among \(D_2,\ldots,D_m\) is commutativity of Chern class
+operators on Chow groups, \Cref{prop:appF-mixed-cartier}, applied on the
+proper \(k\)-scheme carrying the cycle.  It remains to see that the
+distinguished slot may be exchanged with any other, that is, that
+\[
+ \deg\bigl(c_1(D_2)\gamma\cap[D_1]\bigr)
+ =\deg\bigl(c_1(D_1)\gamma\cap[D_2]\bigr),
+ \qquad
+ \gamma=c_1(D_3)\cdots\alpha_1\cdots .
+\]
+Both sides are computed on the integral scheme \(\cX\): by the second
+assertion of \Cref{lem:vertical-intersection-degree}, \([D_i]\) represents
+\(c_1(\cO(D_i))\cap[\cX]\) in the Chow group of \(|D_i|\subseteq\cX_s\), so
+both sides equal the degree of
+\(c_1(D_1)c_1(D_2)\gamma\cap[\cX]\), computed in
+\(A_0(|D_1|\cap|D_2|)_{\mathbf R}\), by the commutativity of Chern class
+operators \cite[Corollary~2.4.2]{Ful}.  Since \(|D_1|\cap|D_2|\subseteq\cX_s\)
+is proper over \(k\), the degree is defined and the two computations agree.
+
+\emph{\cref{itm:ch24-vn:pullback}.}  This is
+\Cref{thm:model-projection-formula} with \(d=1\), applied with the
+distinguished slot \(D_1\), together with the Chow projection formula
+\Cref{thm:appF-projection} for the remaining factors; note that
+\(\rho_*[\rho^*D_1]=[D_1]\) because \(\rho\) is proper and birational.
+
+\emph{\cref{itm:ch24-vn:fibre}.}  For \(m=1\), \cref{itm:ch24-vn:m1} gives
+\(\sum_Eb_E(\alpha_1|_E\cdots\alpha_n|_E)\), which is
+\eqref{eq:ch20-special-fibre-degree}, that is,
+\Cref{cor:special-fibre-relation}: conservation of degree in the flat family
+\(\cX\to\Spec R\).  For \(m\geq2\), put \(\cX_s\) in the \emph{second} slot,
+which is legitimate by \cref{itm:ch24-vn:sym}: the number then contains the
+factor \(c_1(\cO_{\cX}(\cX_s))\), and \(\cO_{\cX}(\cX_s)\simeq\cO_{\cX}\)
+because \(\cX_s=\divis(\pi)\) is principal, so \(c_1=0\) and the number
+vanishes.
+\end{proof}
+
+\begin{warning}{The special fibre has two roles}
+\Cref{lem:ch24-vertical-numbers}\,\cref{itm:ch24-vn:fibre} contains both of
+them.  As a \emph{cycle}, \(\cX_s=\sum_Eb_EE\) has degree
+\((\{\alpha_1\}\cdots\{\alpha_n\})\) against \(n\) numerical classes; as a
+\emph{line bundle}, \(\cO(\cX_s)\) is trivial, so its first Chern class
+vanishes and any intersection number containing it as a class is zero.  The
+two roles are separated by the number of vertical factors: with exactly one
+vertical factor the cycle interpretation is forced, with two or more the
+class interpretation becomes available and gives zero.  Concretely, the
+model function of \(\cX_s\) is the constant \(1\)
+(\eqref{eq:ch20-sign}), so integrating it against a model measure returns the
+total mass, whereas \(\ddc1=0\) by \eqref{eq:ch20-ddc-constant}.  Confusing
+the two produces a total mass of zero; the warning after
+\eqref{eq:ch20-special-fibre-degree} makes the same point from the other
+side.
+\end{warning}
+
+\subsection{The mixed model measure}
+\label{sec:ch24-mixed-model}
+
+Choose a projective model \(\mathcal X\) on which closed forms
+\(\theta_1,\ldots,\theta_n\) are represented, and write
+\[
+                    \mathcal X_s=\sum_E b_EE.
+\]
+The divisorial point associated to \(E\) is denoted \(x_E\), normalized so
+that a vertical divisor \(D\) satisfies
+\(\varphi_D(x_E)=b_E^{-1}\ord_E(D)\). This normalization accounts for the
+factor \(b_E\) below.
+
+\begin{definition}[Mixed model measure]
+\index{Monge--Ampere measure!mixed model}
+\index{Chambert--Loir measure!mixed}
+\label{def:mixed-model-measure}
+If \(\theta_{i,\mathcal X}\in N^1(\mathcal X/K^\circ)\) represents
+\(\theta_i\), set
+\begin{equation}
+\label{eq:model-mixed-measure}
+ \theta_1\wedge\cdots\wedge\theta_n
+ =\sum_E b_E
+   \bigl(\theta_{1,\mathcal X}|_E\cdots
+         \theta_{n,\mathcal X}|_E\bigr)\delta_{x_E}.
+\end{equation}
+If \(\varphi_1,\ldots,\varphi_n\) are \(\theta\)-psh model functions, set
+\[
+ \MA_\theta(\varphi_1,\ldots,\varphi_n)
+ :=(\theta+\ddc\varphi_1)\wedge\cdots\wedge
+    (\theta+\ddc\varphi_n).
+\]
+The diagonal measure is
+\(\MA_\theta(\varphi):=\MA_\theta(\varphi,\ldots,\varphi)\).
+\end{definition}
+
+Three features of \eqref{eq:model-mixed-measure} deserve comment before
+anything is proved.  The sum is finite, because a model has finitely many
+special-fibre components; the measure is therefore atomic, supported on
+divisorial points, and every question about it is a question about finitely
+many numbers.  The multiplicity \(b_E\) is not a decoration: it compensates
+exactly for the normalization \(x_E=b_E^{-1}\ord_E\) and is what makes
+\eqref{eq:model-test-intersection} below come out as a clean intersection
+number.  And the right-hand side is written on a chosen model, so that
+independence of the choice is the first thing to prove.
+
+If \(f=\varphi_D\) is a model function determined on the same model, the
+definition says
+\begin{equation}
+\label{eq:model-test-intersection}
+ \int_{X^{\An}}f\,\theta_1\wedge\cdots\wedge\theta_n
+ =\sum_E\ord_E(D)
+   \bigl(\theta_{1,\mathcal X}|_E\cdots
+         \theta_{n,\mathcal X}|_E\bigr)
+ =D\cdot\theta_1\cdots\theta_n.
+\end{equation}
+The last expression is a vertical intersection number, in the sense of
+\eqref{eq:ch24-vertical-number} with \(m=1\).  The computation is one line:
+the measure is atomic with atoms at the points \(x_E\), and
+\(\varphi_D(x_E)=b_E^{-1}\ord_E(D)\) by
+\Cref{prop:metrics-divisor-model-function}, so the two occurrences of
+\(b_E\) cancel.  \emph{This cancellation is the whole content of the
+normalization conventions}, and \eqref{eq:model-test-intersection} is
+identical with \eqref{eq:metrics-cl-pairing}, proved in
+\Cref{prop:metrics-cl-model-function-integral}.  Every computation performed
+in this chapter is an instance of it.
+
+\begin{proposition}\label{prop:model-ma-basic}
+The measure in \Cref{def:mixed-model-measure} is independent of
+the common representing model. It is symmetric and multilinear. If all
+\(\theta_i\) are semipositive, it is positive and
+\begin{equation}
+\label{eq:mixed-total-mass}
+  \int_{X^{\An}}\theta_1\wedge\cdots\wedge\theta_n
+  =(\{\theta_1\}\cdots\{\theta_n\}).
+\end{equation}
+In particular every mixed \(\theta\)-Monge--Amp\`ere measure has mass \(V\).
+\end{proposition}
+
+\begin{proof}
+\emph{Step 1: independence of the model.}  Let \(\rho:\mathcal Y\to\mathcal
+X\) be a domination, and let \(\mu_{\cX}\), \(\mu_{\cY}\) be the two
+measures produced by \eqref{eq:model-mixed-measure} from the determinations
+\(\theta_{i,\cX}\) and \(\rho^*\theta_{i,\cX}\).  Both are finite atomic
+measures supported on divisorial points, so it is enough to compare
+coefficients.  Write \(\cX_s=\sum_Eb_EE\) and \(\cY_s=\sum_Fb_FF\).  We use
+three facts.
+
+\emph{(a) Contracted components contribute nothing.}  If \(F\subseteq\cY_s\)
+is a component whose image \(\rho(F)\) has dimension \(<n\), then
+\(\rho|_F\) factors through a projective \(k\)-scheme of dimension \(<n\), so
+the product of the \(n\) pulled-back classes
+\(\rho^*\theta_{i,\cX}|_F\) has degree \(0\) on \(F\) by the projection
+formula \Cref{thm:appF-projection}.
+
+\emph{(b) Dominating components transform by their degree.}  If \(F\)
+dominates a component \(E\subseteq\cX_s\), the induced map \(F\to E\) is
+generically finite of some degree \(e_F\), and the projection formula gives
+\[
+ \bigl(\rho^*\theta_{1,\cX}|_F\cdots\rho^*\theta_{n,\cX}|_F\bigr)
+ =e_F\bigl(\theta_{1,\cX}|_E\cdots\theta_{n,\cX}|_E\bigr).
+\]
+Moreover \(x_F=x_E\) as points of \(X^{\An}\): both are the normalized
+valuation \(b^{-1}\ord\) of the same divisorial valuation of \(K(X)\), by
+\Cref{prop:component-valuation}.
+
+\emph{(c) The multiplicities add up.}  For each \(E\),
+\[
+                \sum_{F\mapsto E}e_Fb_F=b_E ,
+\]
+the sum being over the components of \(\cY_s\) dominating \(E\).  Indeed
+\(\cY_s=\rho^*\cX_s\) as Cartier divisors, both being \(\divis(\pi)\), so by
+the projection formula for cycles
+\(\rho_*[\cY_s]=\rho_*\bigl(c_1(\cO(\rho^*\cX_s))\cap[\cY]\bigr)
+ =c_1(\cO(\cX_s))\cap\rho_*[\cY]=[\cX_s]\), using
+\(\rho_*[\cY]=[\cX]\) for a proper birational morphism.  Expanding the left
+side as \(\sum_Fb_F\rho_*[F]\) and using \(\rho_*[F]=0\) for contracted
+\(F\) and \(\rho_*[F]=e_F[E]\) otherwise gives the displayed identity.
+
+Combining (a)--(c),
+\[
+ \begin{aligned}
+ \mu_{\cY}
+ &=\sum_Fb_F\bigl(\rho^*\theta_{1,\cX}|_F\cdots\bigr)\delta_{x_F}\\
+ &=\sum_E\Bigl(\sum_{F\mapsto E}e_Fb_F\Bigr)
+   \bigl(\theta_{1,\cX}|_E\cdots\bigr)\delta_{x_E}\\
+ &=\sum_Eb_E\bigl(\theta_{1,\cX}|_E\cdots\bigr)\delta_{x_E}
+  =\mu_{\cX}.
+ \end{aligned}
+\]
+This is the computation carried out in the proof of
+\Cref{thm:cl-model-properties}, written out once because the multiplicity
+bookkeeping is where the normalization is tested.  Two arbitrary
+determinations are compared by passing to a common domination, which exists
+by \Cref{prop:common-domination}.
+
+It follows in particular that the two measures integrate every model
+function to the same number.  Conversely, that weaker statement would have
+sufficed: a Radon measure on the compact space \(X^{\An}\) is determined by
+its integrals against model functions, since these are dense in
+\(C^0(X^{\An})\) by \Cref{prop:metrics-model-function-density} and
+\Cref{cor:riesz-uniqueness} applies.  We shall use this remark repeatedly,
+in the form \Cref{lem:ch24-dense-tests}.
+
+\emph{Step 2: symmetry and multilinearity.}  Both are visible in
+\eqref{eq:model-mixed-measure}: the coefficient of \(\delta_{x_E}\) is the
+mixed degree \((\theta_{1}|_E\cdots\theta_{n}|_E)\) on the projective
+\(k\)-variety \(E\), which is symmetric and multilinear by
+\Cref{prop:appF-mixed-cartier}.  Multilinearity is understood in the
+following sense: if \(\theta_1=t'\theta_1'+t''\theta_1''\) with
+\(t',t''\in\mathbf R\) and all three forms determined on a common model,
+then the corresponding measures satisfy the same relation.  In particular,
+for \(\theta\)-psh model functions, the map
+\(\varphi_1\mapsto\MA_\theta(\varphi_1,\ldots,\varphi_n)\) is \emph{affine},
+because \(\varphi_1\mapsto\theta+\ddc\varphi_1\) is.
+
+\emph{Step 3: positivity.}  Suppose every \(\theta_i\) is semipositive.  By
+\Cref{prop:ch20-semipositive-well-defined} we may choose the common
+determination so that each \(\theta_{i,\cX}\) is relatively nef; its
+restriction \(\theta_{i,\cX}|_E\) to a component of \(\cX_s\) is then nef on
+the projective \(k\)-variety \(E\)
+(\Cref{lem:ch20-special-fibre-test}\,\cref{itm:ch20-sft:nef}).  A product of
+\(n\) nef classes on an \(n\)-dimensional projective variety has nonnegative
+degree, again by \Cref{prop:appF-mixed-cartier}.  Since \(b_E>0\), every
+coefficient in \eqref{eq:model-mixed-measure} is nonnegative, which is
+\eqref{eq:ch20-mixed-component-positive}.
+
+\emph{Step 4: total mass.}  Take \(f=1=\varphi_{\cX_s}\) in
+\eqref{eq:model-test-intersection}, using \eqref{eq:ch20-sign}.  The
+left-hand side is the total mass; the right-hand side is
+\((\cX_s\cdot\theta_1\cdots\theta_n)_{\cX}\), which is
+\((\{\theta_1\}\cdots\{\theta_n\})\) by
+\Cref{lem:ch24-vertical-numbers}\,\cref{itm:ch24-vn:fibre}.  This proves
+\eqref{eq:mixed-total-mass}.  Taking all \(\theta_i=\theta+\ddc\varphi_i\)
+and using \(\{\ddc\varphi_i\}=0\) (\Cref{thm:ch20-ddc-exact}) gives
+\(\{\theta_i\}=\{\theta\}\) for every \(i\), so the mass is
+\((\{\theta\}^n)=V\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch24-cl-identification}
+Let \(L_1,\ldots,L_n\) be line bundles on \(X\) equipped with semipositive
+model metrics \(\|\cdot\|_i\), determined by model line bundles \(\cL_i\)
+extending \(L_i^{\otimes m_i}\) on a common model \(\cX\), and let
+\(\theta_i\in\mathcal Z^{1,1}(X)\) be the closed model form determined by
+\(m_i^{-1}c_1(\cL_i)\).  Then
+\[
+ \theta_1\wedge\cdots\wedge\theta_n
+ =c_1(L_1,\|\cdot\|_1)\wedge\cdots\wedge c_1(L_n,\|\cdot\|_n),
+\]
+the mixed Chambert--Loir measure of \Cref{sec:metrics-cl-measure}.  In
+particular \Cref{def:mixed-model-measure} introduces no new object: it
+records the Chambert--Loir measure in the language of closed model forms.
+\end{corollary}
+
+\begin{proof}
+Both sides are given by \eqref{eq:model-mixed-measure} on the model \(\cX\),
+after dividing by \(m_1\cdots m_n\); the two total masses agree by
+\Cref{thm:cl-model-properties} and \eqref{eq:mixed-total-mass}, and the
+independence statements match.  Semipositivity of the metric \(\|\cdot\|_i\)
+means relative nefness of \(\cL_i\)
+(\Cref{sec:metrics-semipositive}), which is semipositivity of \(\theta_i\)
+in the sense of \Cref{def:ch20-semipositive}, by
+\Cref{lem:metrics-nef-independence}.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch24-model-support}
+Let \(\theta_1,\ldots,\theta_n\) be semipositive closed model forms
+determined on a model \(\cX\), and let
+\(\mu=\theta_1\wedge\cdots\wedge\theta_n\).
+\begin{enumerate}
+\item\label{itm:ch24-ms:atomic} \(\mu\) is a finite positive combination of
+ Dirac masses at divisorial points of \(\cX\); in particular
+ \(\Supp\mu\subseteq\Delta_{\cX}\), the dual complex of \(\cX\), and
+ \(\mu\) is supported on the set of vertices of \(\Delta_{\cX}\) when
+ \(\cX\) is SNC.
+\item\label{itm:ch24-ms:refine} If \(\rho:\cY\to\cX\) is a domination, the
+ atoms of \(\mu\) computed on \(\cY\) sit at the same points of
+ \(X^{\An}\); no mass appears at a divisorial point of \(\cY\) that is not
+ already a divisorial point of \(\cX\).
+\item\label{itm:ch24-ms:pluripolar} \(\mu\) gives no mass to
+ \(\{u=-\infty\}\) for any \(u\in\PSH(X,\theta)\) not identically
+ \(-\infty\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch24-ms:atomic} is \eqref{eq:model-mixed-measure} together with
+Step~3 of the previous proof; the divisorial points of an SNC model are the
+vertices of \(\Delta_{\cX}\) by \Cref{lem:dual-complex-simplicial}.
+\cref{itm:ch24-ms:refine} is Step~1 of the previous proof: a component of
+\(\cY_s\) contracted by \(\rho\) to a subset of dimension \(<n\) receives
+coefficient \(0\), and a component dominating \(E\) contributes at
+\(x_E\).  For \cref{itm:ch24-ms:pluripolar}, note that by
+\Cref{prop:ch21-first-consequences}\,\cref{itm:ch21-fc:quasimonomial} a
+\(\theta\)-psh function that is not identically \(-\infty\) is finite at every
+quasimonomial point, in particular at every divisorial point, so the polar
+set misses \(\Supp\mu\).
+\end{proof}
+
+\begin{example}[Good reduction]
+\label{ex:ch24-good-reduction}
+If \(\cX_s\) is irreducible and reduced---the case of good reduction---then
+\(\cX_s=E\) with \(b_E=1\), the dual complex is the single point \(x_E\),
+and \eqref{eq:model-mixed-measure} reduces to
+\[
+ \theta_1\wedge\cdots\wedge\theta_n=(\{\theta_1\}\cdots\{\theta_n\})\,
+ \delta_{x_E},
+\]
+because the restriction of \(\theta_{i,\cX}\) to \(E\) has the same degrees
+as \(\{\theta_i\}\) on \(X\) by
+\Cref{cor:special-fibre-relation}.  For \(X=\mathbf P^n_K\),
+\(\cX=\mathbf P^n_R\) and \(\theta_i=c_1(\cO(1))\) this is
+\(\delta_{x_{\cX_s}}\), of mass \(1\); for \(n=1\) it is the Dirac mass at
+the Gauss point, \eqref{eq:p1-standard-measure}.  No mixed information is
+present in this case: every mixed measure is a multiple of the same Dirac
+mass, and the only content is the mass.
+\end{example}
+
+\subsection{Multilinearity and polarization}
+\label{sec:ch24-polarization}
+
+Multilinearity of \eqref{eq:model-mixed-measure} has a useful converse: the
+mixed measures are determined by the diagonal ones.  This is not merely
+formal bookkeeping.  Once the extension theorem of
+\Cref{sec:ch24-bounded} is available, the polarization identity below shows
+that any statement proved for diagonal products---for instance a comparison
+with another theory---propagates to mixed products without further work,
+provided the class of potentials involved is stable under averages.  It is
+in this form that the toric computation of
+\Cref{ex:ch24-toric-surface-mixed} is checked.
+
+\begin{proposition}
+\label{prop:ch24-polarization}
+Let \(\varphi_1,\ldots,\varphi_n\) be \(\theta\)-psh model functions.  For a
+nonempty subset \(S\subseteq\{1,\ldots,n\}\) put
+\(\varphi_S:=|S|^{-1}\sum_{i\in S}\varphi_i\), again a \(\theta\)-psh model
+function by \Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:sum}.  Then
+\begin{equation}
+\label{eq:ch24-polarization}
+ n!\;\MA_\theta(\varphi_1,\ldots,\varphi_n)
+ =\sum_{\varnothing\neq S\subseteq\{1,\ldots,n\}}
+   (-1)^{\,n-|S|}\,|S|^{\,n}\;\MA_\theta(\varphi_S).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Write \(\eta_i=\theta+\ddc\varphi_i\) and let
+\(M(\eta_1,\ldots,\eta_n)\) denote the symmetric \(n\)-linear
+measure-valued form of \eqref{eq:model-mixed-measure}, so that
+\(\MA_\theta(\varphi_1,\ldots,\varphi_n)=M(\eta_1,\ldots,\eta_n)\) and
+\(Q(\eta):=M(\eta,\ldots,\eta)\).  The classical polarization identity for a
+symmetric \(n\)-linear form on a real vector space reads
+\[
+ n!\,M(\eta_1,\ldots,\eta_n)
+ =\sum_{S\subseteq\{1,\ldots,n\}}(-1)^{n-|S|}
+   Q\Bigl(\sum_{i\in S}\eta_i\Bigr),
+\]
+the term \(S=\varnothing\) being \(Q(0)=0\); it is proved by expanding
+\(Q(\sum_{i\in S}\eta_i)\) multilinearly and observing that a monomial
+\(M(\eta_{j_1},\ldots,\eta_{j_n})\) whose index set omits some
+\(i_0\in\{1,\ldots,n\}\) contributes with total coefficient
+\(\sum_{S}(-1)^{n-|S|}\), the sum being over subsets \(S\) containing the
+index set, which vanishes by pairing \(S\) with \(S\cup\{i_0\}\).  Now for
+\(S\neq\varnothing\),
+\[
+ \sum_{i\in S}\eta_i=|S|\Bigl(\theta+\ddc\varphi_S\Bigr),
+\]
+because \(\ddc\) is linear, and \(Q\) is homogeneous of degree \(n\); hence
+\(Q(\sum_{i\in S}\eta_i)=|S|^n\MA_\theta(\varphi_S)\).  Substituting gives
+\eqref{eq:ch24-polarization}.
+\end{proof}
+
+\begin{corollary}\label{cor:ch24-mixed-from-diagonal}
+Two symmetric multilinear measure-valued products defined on \(n\)-tuples of
+\(\theta\)-psh model functions agree if and only if their diagonals agree.
+The same holds on \(n\)-tuples of bounded \(\theta\)-psh functions, once
+\Cref{thm:bounded-ma-extension} has provided the extension, since the class
+of bounded \(\theta\)-psh functions is stable under averages.
+\end{corollary}
+
+\begin{proof}
+Necessity is trivial and sufficiency is \eqref{eq:ch24-polarization}, whose
+right-hand side involves only diagonal products.  For the bounded case,
+observe that \(\varphi_S\) is bounded \(\theta\)-psh when the \(\varphi_i\)
+are, by \Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:sum}, and that
+\eqref{eq:ch24-polarization} continues to hold there because both sides are
+continuous along decreasing nets by
+\Cref{thm:bounded-ma-extension}\,(2), and a decreasing net of model
+approximations of the \(\varphi_i\) induces one of \(\varphi_S\).
+\end{proof}
+
+\subsection{Integration by parts and the Hodge inequalities}
+\label{sec:ch24-model-ibp}
+
+By multilinearity, \eqref{eq:model-mixed-measure} makes sense for arbitrary
+closed model forms and produces a signed atomic measure.  We use this only
+in the following combination.  If \(f\) is a model function and
+\(\eta_1,\ldots,\eta_{n-1}\) are closed model forms determined on a common
+model, we write
+\[
+ \ddc f\wedge\eta_1\wedge\cdots\wedge\eta_{n-1}
+ :=(\theta+\ddc f)\wedge\eta_1\wedge\cdots\wedge\eta_{n-1}
+   -\theta\wedge\eta_1\wedge\cdots\wedge\eta_{n-1},
+\]
+a signed atomic measure of \emph{total mass zero}, by
+\eqref{eq:mixed-total-mass} and \(\{\ddc f\}=0\).  When \(f\) is
+\(\theta\)-psh and the \(\eta_i\) are semipositive, it is a difference of
+two positive measures of mass \((\{\theta\}\{\eta_1\}\cdots\{\eta_{n-1}\})\)
+each, so its total variation is at most twice that number.  This crude bound
+is used repeatedly below and is the reason the whole construction is stable.
+
+\begin{proposition}\label{prop:model-integration-by-parts}
+For model functions \(f,g\) and closed model forms
+\(\eta_1,\ldots,\eta_{n-1}\),
+\begin{equation}
+\label{eq:model-ibp}
+ \int f\,\ddc g\wedge\eta_1\wedge\cdots\wedge\eta_{n-1}
+ =\int g\,\ddc f\wedge\eta_1\wedge\cdots\wedge\eta_{n-1}.
+\end{equation}
+If the \(\eta_i\) are semipositive, then
+\begin{equation}
+\label{eq:model-dirichlet-negativity}
+ \int f\,\ddc f\wedge\eta_1\wedge\cdots\wedge\eta_{n-1}\leq0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+\emph{Step 1: both sides are the same intersection number.}  Choose a model
+\(\cX\) on which \(f=\varphi_D\), \(g=\varphi_{D'}\) and all the \(\eta_j\)
+are determined; this is possible by \Cref{prop:common-domination} and
+\Cref{cor:ch20-limit-structure}.  By definition of the signed measure and
+\eqref{eq:model-test-intersection},
+\[
+ \begin{aligned}
+ \int f\,\ddc g\wedge\eta_1\wedge\cdots\wedge\eta_{n-1}
+ &=\bigl(D\cdot(\theta+\ddc g)\cdot\eta_1\cdots\eta_{n-1}\bigr)\\
+ &\quad-\bigl(D\cdot\theta\cdot\eta_1\cdots\eta_{n-1}\bigr)\\
+ &=\bigl(D\cdot D'\cdot\eta_1\cdots\eta_{n-1}\bigr),
+ \end{aligned}
+\]
+where the last step uses multilinearity in the second slot and
+\(\ddc g=[D']\) in \(N^1(\cX/R)\).  All three numbers are vertical
+intersection numbers in the sense of \eqref{eq:ch24-vertical-number}, with
+\(m=2\) in the last one.  By
+\Cref{lem:ch24-vertical-numbers}\,\cref{itm:ch24-vn:sym} the number
+\((D\cdot D'\cdot\eta_1\cdots\eta_{n-1})\) is symmetric in \(D\) and
+\(D'\), so exchanging \(f\) and \(g\) gives the same value.  This is
+\eqref{eq:model-ibp}.  Independence of the chosen model is
+\Cref{lem:ch24-vertical-numbers}\,\cref{itm:ch24-vn:pullback}.
+
+\emph{Step 2: negativity.}  Taking \(g=f\) in Step~1,
+\[
+ \int f\,\ddc f\wedge\eta_1\wedge\cdots\wedge\eta_{n-1}
+ =\bigl(D^2\cdot\eta_1\cdots\eta_{n-1}\bigr),
+\]
+and if the \(\eta_j\) are semipositive, determined by relatively nef classes
+on \(\cX\), this is \(\leq0\) by the mixed relative Hodge index inequality
+\Cref{thm:ch20-mixed-hodge}, that is,
+\eqref{eq:ch20-mixed-hodge}.  Note that \Cref{thm:ch20-mixed-hodge} is
+stated on a \emph{regular} model; by \Cref{prop:snc-cofinal} the SNC, hence
+regular, models are cofinal, so after passing to a domination---which
+changes neither side, by Step~1---the hypothesis is met.
+\end{proof}
+
+The sign in \eqref{eq:model-dirichlet-negativity} is the algebraic origin of
+concavity of the Monge--Amp\`ere energy in \Cref{chap:bfj-energy}, and of
+every Cauchy--Schwarz estimate used in \Cref{chap:bfj-capacity}.  We record
+the polarized form.
+
+\begin{proposition}
+\label{prop:ch24-model-cauchy-schwarz}
+Let \(\eta_1,\ldots,\eta_{n-1}\) be semipositive closed model forms and let
+\(f,g\) be model functions.  Then
+\begin{equation}
+\label{eq:ch24-model-cauchy-schwarz}
+ \left|\int f\,\ddc g\wedge\eta_1\wedge\cdots\wedge\eta_{n-1}\right|^{2}
+ \leq
+ \left(\int f\,\ddc f\wedge\eta_\bullet\right)
+ \left(\int g\,\ddc g\wedge\eta_\bullet\right),
+\end{equation}
+where \(\eta_\bullet=\eta_1\wedge\cdots\wedge\eta_{n-1}\).  Both factors on
+the right are nonpositive, so their product is nonnegative.
+\end{proposition}
+
+\begin{proof}
+By Step~1 of the previous proof the three quantities are
+\((D\cdot D'\cdot\eta_\bullet)\), \((D^2\cdot\eta_\bullet)\) and
+\((D'^2\cdot\eta_\bullet)\) for vertical divisors \(D,D'\) on a common
+regular model.  The assertion is then
+\eqref{eq:ch20-mixed-cauchy-schwarz}.
+\end{proof}
+
+\begin{remark}[Sign audit]
+\label{rem:ch24-sign-audit}
+Three signs have now been fixed and are mutually consistent.  A vertical
+effective divisor gives a nonnegative model function
+(\eqref{eq:ch20-sign}); a convex corner of a model function on a dual
+complex gives \emph{positive} mass, since by
+\Cref{prop:ch20-curve-laplacian} the Laplacian is the residue-degree-weighted
+sum of outgoing slopes; and the Dirichlet form
+\(f\mapsto\int f\,\ddc f\wedge\eta_\bullet\) is \emph{nonpositive}.  The
+three are checked against the unit tests of \Cref{sec:appJ-unit-tests} as
+follows: with \(f=1\) the first gives \(\varphi_{\cX_s}=1\), the second
+gives \(\ddc1=0\), and the third gives \(0\), consistently.  On a curve
+with the residue-rational-node two-component fibre of
+\eqref{eq:ch20-two-component-matrix}, a model function with vertex
+values \(u_0,u_1\) has
+\(\int f\,\ddc f=-(u_0-u_1)^2\leq0\), with equality exactly for constants;
+this is the case \(n=1\) of \eqref{eq:model-dirichlet-negativity} and is the
+smallest complete check available.
+\end{remark}
+
+\section{Intersection-theoretic formulae}
+\label{sec:ch24-formulae}
+
+The measures of \Cref{sec:ch24-model-measure} are determined by the numbers
+\(\int f\,\theta_1\wedge\cdots\wedge\theta_n\).  This section organizes those
+numbers into a single symmetric object, the mixed energy pairing, and
+proves the identities that will carry the whole construction to bounded
+potentials in \Cref{sec:ch24-bounded}.  Nothing here is analysis: every
+statement is an identity between intersection numbers on one model, and
+every proof is an expansion by multilinearity.
+
+From here to the end of \Cref{sec:ch24-bounded} we use the normalization
+recorded in \Cref{sec:ch24-hypotheses}: \emph{\(\theta\) is semipositive}.
+By \Cref{prop:ch20-positive-representative} this may always be arranged by
+replacing \(\theta\) with \(\theta+\ddc\psi\) and each potential
+\(\varphi\) with \(\varphi-\psi\), and by
+\Cref{cor:ch21-reference-independence} no statement is affected.  Its only
+role is to make the constant functions \(\theta\)-psh
+(\Cref{prop:ch21-constants}), so that in particular the entry \(0\) and the
+entries \(\pm M\) are legitimate arguments of the pairing below.
+
+\subsection{The mixed energy pairing}
+\label{sec:ch24-energy-pairing}
+
+\begin{definition}[Mixed energy pairing]
+\index{energy!mixed pairing}
+\label{def:ch24-mixed-energy}
+Let \(\varphi_0,\ldots,\varphi_n\) be model functions, determined on a common
+model \(\cX\) by vertical \(\mathbf R\)-Cartier divisors
+\(D_0,\ldots,D_n\), and let \(\theta\) be determined on \(\cX\) as well.
+Put
+\begin{equation}
+\label{eq:ch24-mixed-energy}
+ \mathfrak E(\varphi_0,\ldots,\varphi_n)
+ :=\sum_{\varnothing\neq S\subseteq\{0,\ldots,n\}}
+    \Bigl(\prod_{i\in S}D_i\cdot\theta^{\,n+1-|S|}\Bigr)_{\cX},
+\end{equation}
+each summand being a vertical intersection number
+\eqref{eq:ch24-vertical-number} with \(m=|S|\geq1\).
+\end{definition}
+
+Informally, \(\mathfrak E(\varphi_0,\ldots,\varphi_n)\) is
+\(\bigl((\theta+\ddc\varphi_0)\cdots(\theta+\ddc\varphi_n)\bigr)
+ -(\theta^{n+1})\); we do not write it that way, because
+\((\theta^{n+1})\) is \emph{not} defined---there is no degree map on
+\(0\)-cycles of \(\cX\) with no vertical factor---and because the difference
+is exactly what is well defined.  This is the same distinction as in the
+warning after \Cref{lem:ch24-vertical-numbers}, and it is the reason the
+mixed energy pairing, and not a naive top self-intersection, is the object
+that extends.
+
+\begin{proposition}
+\label{prop:ch24-energy-basic}
+The quantity \eqref{eq:ch24-mixed-energy} is a real number depending only on
+the functions \(\varphi_0,\ldots,\varphi_n\) and on \(\theta\), and:
+\begin{enumerate}
+\item\label{itm:ch24-eb:model} it is independent of the common model on
+ which the data are determined;
+\item\label{itm:ch24-eb:sym} it is symmetric in \(\varphi_0,\ldots,\varphi_n\);
+\item\label{itm:ch24-eb:slot} for every \(j\),
+ \begin{equation}
+ \label{eq:ch24-energy-slot}
+  \begin{aligned}
+  \mathfrak E(\varphi_0,\ldots,\varphi_n)
+  &=\mathfrak E\bigl(\varphi_0,\ldots,\varphi_{j-1},0,
+      \varphi_{j+1},\ldots,\varphi_n\bigr)\\
+  &\quad+\int_{X^{\An}}\varphi_j\;
+     \MA_\theta\bigl(\varphi_0,\ldots,\widehat{\varphi_j},
+       \ldots,\varphi_n\bigr),
+  \end{aligned}
+ \end{equation}
+ the hat denoting omission;
+\item\label{itm:ch24-eb:const} for constants \(c_0,\ldots,c_n\),
+ \begin{equation}
+ \label{eq:ch24-energy-constants}
+  \mathfrak E(\varphi_0+c_0,\ldots,\varphi_n+c_n)
+  =\mathfrak E(\varphi_0,\ldots,\varphi_n)+\Bigl(\sum_jc_j\Bigr)V,
+  \qquad \mathfrak E(0,\ldots,0)=0;
+ \end{equation}
+\item\label{itm:ch24-eb:affine} it is affine in each variable separately;
+\item\label{itm:ch24-eb:mono} if all the \(\varphi_i\) are \(\theta\)-psh,
+ then \(\mathfrak E\) is nondecreasing in each variable: if
+ \(\varphi_j\leq\psi_j\) with \(\psi_j\) also \(\theta\)-psh, then
+ \(\mathfrak E(\ldots,\varphi_j,\ldots)\leq\mathfrak E(\ldots,\psi_j,\ldots)\),
+ and the increment is
+ \(\int(\psi_j-\varphi_j)\MA_\theta(\varphi_0,\ldots,\widehat{\varphi_j},
+ \ldots,\varphi_n)\);
+\item\label{itm:ch24-eb:telescope} \(\mathfrak E\) is given by the
+ telescoping formula
+ \begin{equation}
+ \label{eq:ch24-energy-telescoping}
+  \mathfrak E(\varphi_0,\ldots,\varphi_n)
+  =\sum_{j=0}^{n}\int_{X^{\An}}\varphi_j\;
+    \MA_\theta\bigl(\varphi_0,\ldots,\varphi_{j-1},
+      \underbrace{0,\ldots,0}_{n-j}\bigr).
+ \end{equation}
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{Well-definedness and \cref{itm:ch24-eb:model}.}  On a fixed normal model,
+a vertical \(\mathbf R\)-divisor is determined by its model function, since
+\(\ord_E(D)=b_E\varphi_D(x_E)\); so the \(D_i\) are determined by the
+\(\varphi_i\).  Independence of the model is
+\Cref{lem:ch24-vertical-numbers}\,\cref{itm:ch24-vn:pullback} applied to each
+summand, together with \(\rho^*\theta_{\cX}=\theta_{\cY}\) and
+\(\varphi_{\rho^*D}=\varphi_D\).
+
+\emph{\cref{itm:ch24-eb:sym}.}  The index set of the sum
+\eqref{eq:ch24-mixed-energy} is symmetric under permutations of
+\(\{0,\ldots,n\}\), and each summand is symmetric in the divisors it
+contains by \Cref{lem:ch24-vertical-numbers}\,\cref{itm:ch24-vn:sym}.
+
+\emph{\cref{itm:ch24-eb:slot}.}  Split the sum according to whether
+\(j\in S\).  The subsets with \(j\notin S\) reproduce
+\(\mathfrak E(\varphi_0,\ldots,0,\ldots,\varphi_n)\), since replacing
+\(\varphi_j\) by \(0\) replaces \(D_j\) by \(0\) and kills exactly the
+subsets containing \(j\).  The subsets with \(j\in S\) sum to
+\[
+ \begin{aligned}
+ &\sum_{T\subseteq\{0,\ldots,n\}\setminus\{j\}}
+  \Bigl(D_j\cdot\prod_{i\in T}D_i\cdot\theta^{\,n-|T|}\Bigr)\\
+ &\qquad=\Bigl(D_j\cdot\prod_{i\neq j}(\theta+\ddc\varphi_i)\Bigr)\\
+ &\qquad=\int\varphi_j\,\MA_\theta
+   (\varphi_0,\ldots,\widehat{\varphi_j},\ldots,\varphi_n),
+ \end{aligned}
+\]
+by multilinearity in the last \(n\) slots
+(\Cref{lem:ch24-vertical-numbers}\,\cref{itm:ch24-vn:sym}) and then
+\eqref{eq:model-test-intersection}.
+
+\emph{\cref{itm:ch24-eb:const}.}  Adding \(c_j\) to \(\varphi_j\) replaces
+\(D_j\) by \(D_j+c_j\cX_s\), by \eqref{eq:ch20-sign}.  Expanding
+\eqref{eq:ch24-mixed-energy}, a summand indexed by \(S\) acquires the extra
+terms
+\(c_j(\cX_s\cdot\prod_{i\in S\setminus\{j\}}D_i\cdot\theta^{n+1-|S|})\) for
+\(j\in S\), and these vanish unless \(S=\{j\}\) by
+\Cref{lem:ch24-vertical-numbers}\,\cref{itm:ch24-vn:fibre}; products of two
+or more factors \(\cX_s\) vanish for the same reason.  The surviving terms
+are \(c_j(\cX_s\cdot\theta^n)=c_jV\).  Finally
+\(\mathfrak E(0,\ldots,0)=0\) because all \(D_i\) vanish.
+
+\emph{\cref{itm:ch24-eb:affine}.}  Immediate from
+\eqref{eq:ch24-energy-slot}, whose right-hand side is affine in
+\(\varphi_j\): the first term does not involve \(\varphi_j\) and the second
+is linear in it.
+
+\emph{\cref{itm:ch24-eb:mono}.}  By \eqref{eq:ch24-energy-slot} applied
+twice,
+\[
+ \mathfrak E(\ldots,\psi_j,\ldots)-\mathfrak E(\ldots,\varphi_j,\ldots)
+ =\int(\psi_j-\varphi_j)\,
+   \MA_\theta(\varphi_0,\ldots,\widehat{\varphi_j},\ldots,\varphi_n),
+\]
+and the measure is positive by \Cref{prop:model-ma-basic}, the remaining
+\(\varphi_i\) being \(\theta\)-psh.
+
+\emph{\cref{itm:ch24-eb:telescope}.}  Apply \eqref{eq:ch24-energy-slot} with
+\(j=n\), then to the resulting term with \(j=n-1\), and so on; after \(n+1\)
+steps the remaining pairing is \(\mathfrak E(0,\ldots,0)=0\).
+\end{proof}
+
+\begin{remark}[Relation to the Monge--Amp\`ere energy]
+\label{rem:ch24-energy-vs-E}
+For \(\varphi_0=\cdots=\varphi_n=\varphi\), formula
+\eqref{eq:ch24-energy-telescoping} reads
+\(\mathfrak E(\varphi,\ldots,\varphi)
+ =\sum_{j=0}^n\int\varphi\,
+   \MA_\theta(\varphi^{(j)},0^{(n-j)})\),
+which is \((n+1)\) times the Monge--Amp\`ere energy of
+\Cref{def:model-energy}---there written \(E_\omega\), the reference form
+being called \(\omega\)---in the normalization
+\eqref{eq:model-energy}, that is, \eqref{eq:appJ-energy}.  We do not use
+that identification in this chapter,
+and we do not use any property of \(E_\theta\); the pairing
+\(\mathfrak E\) is introduced here purely as the monotone scalar through
+which the extension of \(\MA_\theta\) is routed.  \Cref{chap:bfj-energy}
+develops the energy proper, including the cocycle formula
+\eqref{eq:energy-cocycle} and the concavity that follows from
+\eqref{eq:model-dirichlet-negativity}.
+\end{remark}
+
+\subsection{Masses and mixed intersection numbers}
+\label{sec:ch24-masses}
+
+\begin{theorem}
+\label{thm:ch24-mass}
+Let \(\theta_1,\ldots,\theta_n\) be semipositive closed model forms.  Then
+\begin{equation}
+\label{eq:ch24-mass}
+ \bigl\|\theta_1\wedge\cdots\wedge\theta_n\bigr\|
+ =\int_{X^{\An}}\theta_1\wedge\cdots\wedge\theta_n
+ =\bigl(\{\theta_1\}\cdots\{\theta_n\}\bigr)_X ,
+\end{equation}
+the mixed intersection number of the generic numerical classes on \(X\).  In
+particular:
+\begin{enumerate}
+\item\label{itm:ch24-mass:psh} if \(\varphi_1,\ldots,\varphi_n\) are
+ \(\theta\)-psh model functions, then
+ \(\MA_\theta(\varphi_1,\ldots,\varphi_n)\) has total mass \(V\),
+ independently of the potentials;
+\item\label{itm:ch24-mass:pos} the number \eqref{eq:ch24-mass} is positive
+ as soon as the classes \(\{\theta_i\}\) are ample, and it is the sum of the
+ nonnegative componentwise degrees \(b_E(\theta_1|_E\cdots\theta_n|_E)\);
+\item\label{itm:ch24-mass:mixed} the assignment
+ \((\theta_1,\ldots,\theta_n)\mapsto\|\theta_1\wedge\cdots\wedge\theta_n\|\)
+ is the restriction to semipositive forms of a symmetric multilinear form on
+ \(\mathcal Z^{1,1}(X)\), namely the pullback of the mixed intersection form
+ of \(N^1(X)\) along \(\theta\mapsto\{\theta\}\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The first equality is the definition of total mass and the second is
+\eqref{eq:mixed-total-mass}, proved in Step~4 of
+\Cref{prop:model-ma-basic}.  For \cref{itm:ch24-mass:psh}, the generic class
+of \(\theta+\ddc\varphi_i\) is \(\{\theta\}\), because
+\(\{\ddc\psi\}=0\) for every model function \(\psi\) by exactness of
+\eqref{eq:ch20-ddc-exact} at \(\mathcal Z^{1,1}(X)\); hence the mixed number
+is \((\{\theta\}^n)=V\).  Statement \cref{itm:ch24-mass:pos} is
+\eqref{eq:ch20-mixed-component-positive} together with positivity of the top
+self-intersection of an ample class.  Statement \cref{itm:ch24-mass:mixed} is
+the observation that the right-hand side of \eqref{eq:ch24-mass} depends only
+on the generic classes and is symmetric multilinear there, by
+\Cref{prop:appF-mixed-cartier} applied on \(X\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch24-mass-independent}
+For \(\theta\)-psh model functions the total mass of
+\(\MA_\theta(\varphi_1,\ldots,\varphi_n)\) is \(V\) and does not depend on
+\(\varphi_1,\ldots,\varphi_n\).  Consequently, for any two \(n\)-tuples of
+\(\theta\)-psh model functions the signed measure
+\(\MA_\theta(\varphi_\bullet)-\MA_\theta(\psi_\bullet)\) has total mass
+\(0\), and its total variation is at most \(2V\).
+\end{corollary}
+
+\begin{proof}
+The first assertion is
+\Cref{thm:ch24-mass}\,\cref{itm:ch24-mass:psh}; the second follows since both
+measures are positive of mass \(V\).
+\end{proof}
+
+The next statement is the model-level shadow of the entire extension theorem
+and is worth isolating: it says that the map from potentials to measures is
+uniformly continuous for the sup norm on potentials and the weak topology on
+measures, with an explicit modulus.
+
+\begin{proposition}
+\label{prop:ch24-model-uniform-estimate}
+Let \(\varphi_1,\ldots,\varphi_n\) and \(\psi_1,\ldots,\psi_n\) be
+\(\theta\)-psh model functions, and let \(h\) be a \(\theta\)-psh model
+function.  Then
+\begin{equation}
+\label{eq:ch24-model-uniform-estimate}
+ \left|\int h\,\MA_\theta(\varphi_1,\ldots,\varphi_n)
+      -\int h\,\MA_\theta(\psi_1,\ldots,\psi_n)\right|
+ \leq 2V\sum_{i=1}^{n}\|\varphi_i-\psi_i\|_\infty .
+\end{equation}
+The same holds with \(h\) replaced by any difference of two \(\theta\)-psh
+model functions, with the right-hand side doubled.
+\end{proposition}
+
+\begin{proof}
+Telescoping in the \(n\) slots, it suffices to bound one difference in which
+a single slot changes.  So let \(\varphi,\psi\) be \(\theta\)-psh model
+functions and let \(\Theta\) denote a mixed product of \(n-1\) semipositive
+closed model forms with generic classes \(\{\theta\}\).  Then
+\[
+ \int h\bigl[(\theta+\ddc\varphi)\wedge\Theta
+   -(\theta+\ddc\psi)\wedge\Theta\bigr]
+ =\int h\,\ddc(\varphi-\psi)\wedge\Theta
+ =\int(\varphi-\psi)\,\ddc h\wedge\Theta,
+\]
+by \eqref{eq:model-ibp}.  The signed measure \(\ddc h\wedge\Theta\) is the
+difference of the two positive measures \((\theta+\ddc h)\wedge\Theta\) and
+\(\theta\wedge\Theta\), each of mass \(V\) by
+\eqref{eq:ch24-mass}, so its total variation is at most \(2V\).  Hence the
+displayed quantity is at most \(2V\|\varphi-\psi\|_\infty\) in absolute
+value.  Summing the \(n\) telescoping terms gives
+\eqref{eq:ch24-model-uniform-estimate}.  The last sentence follows by
+linearity in \(h\).
+\end{proof}
+
+\section{Monotone extension to bounded psh potentials}
+\label{sec:ch24-bounded}
+
+A bounded psh function need not live on one skeleton, so
+\eqref{eq:model-mixed-measure} cannot simply be applied to it. Decreasing
+regularization supplies model approximants, but defining a measure by taking
+a limit is legitimate only after proving independence of every choice.
+
+\subsection{Why a limit needs an argument}
+\label{sec:ch24-why-argument}
+
+Let \(\varphi\) be a bounded \(\theta\)-psh function.  By
+\Cref{thm:bfj-decreasing-regularization} there is a decreasing net
+\(\varphi^\alpha\) of \(\theta\)-psh model functions with
+\(\varphi^\alpha\searrow\varphi\) pointwise.  Each
+\(\MA_\theta(\varphi^\alpha)\) is a positive measure of mass \(V\), and the
+space of such measures is weakly compact
+(\Cref{prop:measure-compactness}).  So convergent subnets exist.  That is
+all that abstract nonsense supplies, and it is not enough for three separate
+reasons.
+
+\emph{First, subnets are not nets.}  A limit obtained along a subnet may
+depend on the subnet.  Nothing so far forbids two subnets of
+\(\bigl(\MA_\theta(\varphi^\alpha)\bigr)_\alpha\) from converging to
+different measures.
+
+\emph{Second, different regularizing nets must give the same answer.}  Even
+if the limit along one net exists, a second net \(\psi^\beta\searrow\varphi\)
+is not comparable to the first index by index; the two index sets are
+unrelated directed sets, and there is no monotonicity to exploit between
+them.  The comparison has to be made on \(X^{\An}\), and this is where
+compactness of \(X^{\An}\) and Dini's theorem for nets,
+\Cref{prop:dini-nets}, enter; see \Cref{lem:ch24-sandwich}.
+
+\emph{Third, sequences do not suffice.}  One might hope to avoid nets by
+extracting a decreasing \emph{sequence} of model functions converging to
+\(\varphi\).  This is possible when \(\varphi\) is continuous
+(\Cref{cor:ch22-continuous-decreasing-sequence}) but not in general:
+\Cref{ex:ch22-countable-blind-spot} produces a \(\theta\)-psh function that
+no countable family of model functions can approximate from above, and
+\Cref{lem:ch21-no-cofinal-sequence} explains the structural reason.  Every
+monotone statement in this chapter is therefore formulated for nets, and no
+sequential monotone convergence theorem is used.
+
+The strategy that resolves all three at once has already been announced in
+\Cref{sec:ch24-why}.  Instead of extending the measure directly, we extend
+the \emph{number} \(\mathfrak E\) of \Cref{def:ch24-mixed-energy}.  A
+decreasing net of real numbers converges, by
+\Cref{lem:monotone-net-converges}; independence of the net is a two-line
+sandwich argument; symmetry is inherited from
+\Cref{prop:ch24-energy-basic}\,\cref{itm:ch24-eb:sym}; and the measure is then
+recovered by the Riesz representation theorem.  The whole of the analysis is
+concentrated in \Cref{lem:ch24-sandwich}.
+
+\subsection{Two density lemmas}
+\label{sec:ch24-density}
+
+The test space for the Riesz theorem is \(C^0(X^{\An})\).  We shall only be
+able to compute integrals of \(\theta\)-psh model functions, so we must know
+that these span a dense subspace.
+
+\begin{lemma}
+\label{lem:ch24-psh-difference}
+Assume \eqref{eq:ch24-standing}.  For every model function \(f\) there are
+\(t>0\) and \(\theta\)-psh model functions \(f_+,f_-\) with
+\[
+              f=\tfrac1{2t}\,(f_+-f_-).
+\]
+More precisely, after choosing a common model for \(f\), one can find a
+model function \(\psi_f\), generally depending on that model, such that
+\(f_\pm=\psi_f\pm tf\) for all sufficiently small \(t>0\).
+\end{lemma}
+
+\begin{proof}
+By \Cref{prop:ch20-positive-representative} there are a model
+\(\mathcal W\) and a model function \(\psi_0\) such that
+\(\theta+\ddc\psi_0\) is determined on \(\mathcal W\) by a relatively
+ample class.  Choose a model \(\cX\) dominating \(\mathcal W\) on which
+\(f=\varphi_D\) is determined.  The pullback of the chosen ample class can
+lose strict positivity on exceptional curves; applying
+\Cref{lem:ch20-ample-propagation} supplies an exceptional correction and a
+model function \(\psi_f\) for which \(\theta+\ddc\psi_f\) is represented on
+\(\cX\) by a relatively ample class \(\mathcal A_f\).  This is why the
+auxiliary potential is allowed to depend on \(f\).  By
+\Cref{lem:ch20-special-fibre-test}\,\cref{itm:ch20-sft:ample} relative
+ampleness of a class in \(N^1(\cX/R)\) is ampleness of its image in
+\(N^1(\cX_s)\), and the ample cone of the projective \(k\)-scheme
+\(\cX_s\) is open (Kleiman's criterion, \cite[\S1.4]{PAG1}; this is the
+import recorded in \Cref{sec:ch20-imported},
+item~\cref{itm:ch20-import:kleiman}).  Hence \(\mathcal A_f\pm t[D]\) is
+relatively ample for all sufficiently small \(t>0\), so
+\(\theta+\ddc(\psi_f\pm tf)\) is semipositive, that is, \(\psi_f\pm tf\) is
+\(\theta\)-psh.  Finally
+\((\psi_f+tf)-(\psi_f-tf)=2tf\).
+\end{proof}
+
+\begin{lemma}
+\label{lem:ch24-dense-tests}
+Let \(\mathcal C\subseteq C^0(X^{\An})\) be the real linear span of the
+\(\theta\)-psh model functions.  Then \(\mathcal C\) is dense in
+\(C^0(X^{\An})\) for the uniform norm and contains the constants.
+Consequently:
+\begin{enumerate}
+\item\label{itm:ch24-dt:unique} two positive Radon measures on \(X^{\An}\)
+ agreeing on \(\mathcal C\) are equal;
+\item\label{itm:ch24-dt:conv} if \((\mu_\alpha)\) is a net of positive Radon
+ measures with \(\sup_\alpha\mu_\alpha(X^{\An})=:C<\infty\) and
+ \(\lim_\alpha\int h\,\rd\mu_\alpha\) exists for every
+ \(h\in\mathcal C\), then \((\mu_\alpha)\) converges weakly to a positive
+ Radon measure \(\mu\), and \(\mu(X^{\An})=\lim_\alpha\mu_\alpha(X^{\An})\).
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Model functions are dense in \(C^0(X^{\An})\) by
+\Cref{prop:metrics-model-function-density}, and each of them lies in
+\(\mathcal C\) by \Cref{lem:ch24-psh-difference}; the constants are
+\(\theta\)-psh by \Cref{prop:ch21-constants}.  Statement
+\cref{itm:ch24-dt:unique} is \Cref{cor:riesz-uniqueness} together with
+density.
+
+For \cref{itm:ch24-dt:conv}, let \(g\in C^0(X^{\An})\) and
+\(\varepsilon>0\), and choose \(h\in\mathcal C\) with
+\(\|g-h\|_\infty\leq\varepsilon\).  For all indices \(\alpha,\beta\),
+\[
+ \left|\int g\,\rd\mu_\alpha-\int g\,\rd\mu_\beta\right|
+ \leq 2C\varepsilon
+ +\left|\int h\,\rd\mu_\alpha-\int h\,\rd\mu_\beta\right| .
+\]
+Since \(\int h\,\rd\mu_\alpha\) converges, the right-hand side is at most
+\(2C\varepsilon+\varepsilon\) for \(\alpha,\beta\) large.  Hence
+\(\bigl(\int g\,\rd\mu_\alpha\bigr)_\alpha\) is a Cauchy net in \(\mathbf R\)
+and converges; write \(\Lambda(g)\) for its limit.  \(\Lambda\) is linear,
+and \(\Lambda(g)\geq0\) for \(g\geq0\), so \Cref{thm:riesz-interface} gives a
+unique positive Radon measure \(\mu\) with \(\Lambda(g)=\int g\,\rd\mu\).
+By construction \(\mu_\alpha\to\mu\) weakly, and taking \(g=1\) gives the
+mass statement.
+\end{proof}
+
+\begin{remark}[Why not test against all continuous functions directly]
+\label{rem:ch24-why-psh-tests}
+The reason for insisting on the smaller family \(\mathcal C\) is that the
+only formula available for computing \(\int h\,\MA_\theta(\varphi_\bullet)\)
+is \eqref{eq:ch24-energy-slot}, and it requires \(h\) to be a legitimate
+entry of the pairing \(\mathfrak E\), that is, a \(\theta\)-psh function.
+\Cref{lem:ch24-dense-tests} is what converts information about that small
+family into weak convergence of measures.  This is also why the constant
+\(2V\) and not a norm of \(h\) appears in
+\eqref{eq:ch24-model-uniform-estimate}.
+\end{remark}
+
+\subsection{The mixed energy pairing on bounded potentials}
+\label{sec:ch24-energy-bounded}
+
+The next lemma is the exact point at which the ambiguity of the regularizing
+net is removed, and the only place where compactness of \(X^{\An}\) is used
+to compare two unrelated nets.  Everything else in this section is either
+intersection theory or the Riesz representation theorem.
+
+\begin{lemma}
+\label{lem:ch24-sandwich}
+Let \(u\) be a bounded \(\theta\)-psh function, let
+\((u^\alpha)_{\alpha\in A}\) be a decreasing net of \(\theta\)-psh functions
+with \(u^\alpha\searrow u\) pointwise, and let \(\psi\) be a
+\emph{continuous} function on \(X^{\An}\) with \(\psi\geq u\).  Then for
+every \(\varepsilon>0\) there is \(\alpha_0\in A\) with
+\begin{equation}
+\label{eq:ch24-sandwich}
+       u^{\alpha}\leq\psi+\varepsilon
+       \qquad\text{on }X^{\An},\ \text{for all }\alpha\geq\alpha_0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Each \(u^\alpha\) is upper semicontinuous
+(\Cref{def:ch21-bfj-psh}) and \(\psi\) is continuous, so
+\(u^\alpha-\psi\) is upper semicontinuous and
+\[
+ U_\alpha:=\{x\in X^{\An}\ :\ u^\alpha(x)-\psi(x)<\varepsilon\}
+\]
+is open.  The net \((u^\alpha)\) is decreasing, so \((U_\alpha)\) is
+increasing.  Their union is all of \(X^{\An}\): for \(x\in X^{\An}\) we have
+\(\inf_\alpha u^\alpha(x)=u(x)\leq\psi(x)<\psi(x)+\varepsilon\), so
+\(u^{\alpha}(x)<\psi(x)+\varepsilon\) for some \(\alpha\).  Since
+\(X^{\An}\) is compact (\Cref{thm:berk-proper-compact}), finitely many
+\(U_{\alpha_1},\ldots,U_{\alpha_m}\) cover it; directedness of \(A\) supplies
+\(\alpha_0\geq\alpha_1,\ldots,\alpha_m\), and then
+\(U_{\alpha_0}=X^{\An}\), whence \(U_\alpha=X^{\An}\) for
+\(\alpha\geq\alpha_0\).
+\end{proof}
+
+\begin{remark}[This is Dini's theorem, in the only form that survives]
+\label{rem:ch24-dini-form}
+If \(u\) were continuous, \Cref{lem:ch24-sandwich} with \(\psi=u\) would say
+that \(u^\alpha\to u\) uniformly, which is exactly
+\Cref{prop:dini-nets}.  For merely bounded \(u\), uniform convergence is
+false in general---see \Cref{ex:ch24-branch-sum}, where the limit is
+discontinuous---and \eqref{eq:ch24-sandwich} with a continuous majorant
+\(\psi\) of \(u\) is the correct replacement.  The proof is the proof of
+Dini's theorem, and it uses only upper semicontinuity of the members of the
+net, not continuity.
+\end{remark}
+
+\begin{theorem}
+\label{thm:ch24-energy-extension}
+There is a unique extension of the mixed energy pairing
+\eqref{eq:ch24-mixed-energy} to \((n+1)\)-tuples of bounded \(\theta\)-psh
+functions such that
+\(\mathfrak E(\varphi^\alpha_0,\ldots,\varphi^\alpha_n)\to
+ \mathfrak E(\varphi_0,\ldots,\varphi_n)\)
+whenever \(\varphi_i^\alpha\searrow\varphi_i\) are decreasing nets of
+\(\theta\)-psh model functions.  It is given by
+\begin{equation}
+\label{eq:ch24-energy-inf}
+ \begin{aligned}
+ \mathfrak E(\varphi_0,\ldots,\varphi_n)
+ =\inf\bigl\{&\mathfrak E(\psi_0,\ldots,\psi_n):\\
+ &\psi_i\ \text{is a \(\theta\)-psh model function and }
+   \psi_i\geq\varphi_i\ \text{for all }i\bigr\},
+ \end{aligned}
+\end{equation}
+and it has the following properties.
+\begin{enumerate}
+\item\label{itm:ch24-ee:finite} It is finite: if \(m_i\leq\varphi_i\leq M_i\)
+ then
+ \(\bigl(\sum_im_i\bigr)V\leq\mathfrak E(\varphi_0,\ldots,\varphi_n)
+   \leq\bigl(\sum_iM_i\bigr)V\).
+\item\label{itm:ch24-ee:sym} It is symmetric in its \(n+1\) arguments.
+\item\label{itm:ch24-ee:mono} It is nondecreasing in each argument, and
+ \(\mathfrak E(\varphi_0+c_0,\ldots,\varphi_n+c_n)
+   =\mathfrak E(\varphi_0,\ldots,\varphi_n)+(\sum_jc_j)V\).
+\item\label{itm:ch24-ee:affine} It is affine in each argument: for bounded
+ \(\theta\)-psh \(\varphi_0,\varphi_0'\) and \(t\in[0,1]\),
+ \(\mathfrak E(t\varphi_0+(1-t)\varphi_0',\varphi_1,\ldots)
+  =t\,\mathfrak E(\varphi_0,\varphi_1,\ldots)
+   +(1-t)\,\mathfrak E(\varphi_0',\varphi_1,\ldots)\).
+\item\label{itm:ch24-ee:nets} It is continuous along decreasing nets of
+ \emph{bounded \(\theta\)-psh} functions: if
+ \(\varphi_i^\alpha\searrow\varphi_i\) with all functions bounded
+ \(\theta\)-psh and \(\varphi_i\) bounded, then
+ \(\mathfrak E(\varphi_\bullet^\alpha)\to\mathfrak E(\varphi_\bullet)\).
+\item\label{itm:ch24-ee:lip} It is \(V\)-Lipschitz in each argument for the
+ uniform norm:
+ \(|\mathfrak E(\varphi_0,\varphi_1,\ldots)
+  -\mathfrak E(\varphi_0',\varphi_1,\ldots)|
+  \leq V\|\varphi_0-\varphi_0'\|_\infty\).
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: the infimum is finite and monotone.}  Write \(\mathfrak E^-\)
+for the right-hand side of \eqref{eq:ch24-energy-inf}.  The admissible set is
+nonempty: by \Cref{thm:bfj-decreasing-regularization} each \(\varphi_i\)
+admits \(\theta\)-psh model majorants.  By
+\Cref{prop:ch24-energy-basic}\,\cref{itm:ch24-eb:mono} the pairing is
+nondecreasing in each slot, so if \(m_i\leq\varphi_i\leq M_i\), then for any
+admissible \(\psi_\bullet\) we may compare with the constant tuples: on the
+one hand \(\psi_i\geq\varphi_i\geq m_i\) gives
+\(\mathfrak E(\psi_\bullet)\geq\mathfrak E(m_0,\ldots,m_n)
+ =(\sum_im_i)V\) by \eqref{eq:ch24-energy-constants}; on the other hand the
+constant tuple \((M_0,\ldots,M_n)\) is itself admissible, so
+\(\mathfrak E^-\leq(\sum_iM_i)V\).  Hence \(\mathfrak E^-\) is finite and
+\cref{itm:ch24-ee:finite} holds.  Monotonicity of \(\mathfrak E^-\) in each
+argument is clear, since enlarging \(\varphi_i\) shrinks the admissible set.
+
+\emph{Step 2: \(\mathfrak E^-\) is the limit along any decreasing net of
+model majorants.}  Let \(\varphi_i^\alpha\searrow\varphi_i\) be decreasing
+nets of \(\theta\)-psh model functions.  We may index them by one directed
+set: replace the individual index sets \(A_0,\ldots,A_n\) by their product
+\(A:=A_0\times\cdots\times A_n\) with the componentwise order, which is
+directed, and set \(\varphi_i^{(\alpha_0,\ldots,\alpha_n)}
+:=\varphi_i^{\alpha_i}\).  Each of the resulting nets is decreasing with the
+same limit, so no generality is lost.  The
+numbers \(\mathfrak E(\varphi_\bullet^\alpha)\) form a decreasing net of
+reals, by \cref{itm:ch24-eb:mono} of \Cref{prop:ch24-energy-basic}, so they
+converge to their infimum, by \Cref{lem:monotone-net-converges}.  Each
+\(\varphi_\bullet^\alpha\) is admissible in \eqref{eq:ch24-energy-inf}, so
+\(\lim_\alpha\mathfrak E(\varphi^\alpha_\bullet)\geq\mathfrak E^-\).
+
+Conversely let \(\psi_\bullet\) be admissible and \(\varepsilon>0\).  Each
+\(\psi_i\) is a continuous function on \(X^{\An}\) with
+\(\psi_i\geq\varphi_i\), so \Cref{lem:ch24-sandwich} supplies
+\(\alpha_i\) with \(\varphi_i^\alpha\leq\psi_i+\varepsilon\) for
+\(\alpha\geq\alpha_i\).  Choosing \(\alpha_0\) above all \(\alpha_i\) and
+using monotonicity and \eqref{eq:ch24-energy-constants},
+\[
+ \mathfrak E(\varphi^\alpha_0,\ldots,\varphi^\alpha_n)
+ \leq\mathfrak E(\psi_0+\varepsilon,\ldots,\psi_n+\varepsilon)
+ =\mathfrak E(\psi_0,\ldots,\psi_n)+(n+1)\varepsilon V
+\]
+for \(\alpha\geq\alpha_0\).  Letting \(\alpha\) increase, then
+\(\varepsilon\downarrow0\), then taking the infimum over admissible
+\(\psi_\bullet\), gives
+\(\lim_\alpha\mathfrak E(\varphi^\alpha_\bullet)\leq\mathfrak E^-\).  The two
+inequalities give equality, which proves both the existence of the limit and
+its independence of the net, hence also uniqueness of the extension.  We
+write \(\mathfrak E\) for \(\mathfrak E^-\) from now on.
+
+\emph{Step 3: symmetry, affineness, constants.}  Each of these holds for
+model tuples by \Cref{prop:ch24-energy-basic} and passes to the limit along
+decreasing nets by Step~2.  For symmetry and \eqref{eq:ch24-energy-constants}
+this is immediate.  For affineness, note that if
+\(\varphi_0^\alpha\searrow\varphi_0\) and
+\(\varphi_0'^\alpha\searrow\varphi_0'\), then
+\(t\varphi_0^\alpha+(1-t)\varphi_0'^\alpha\) is again a decreasing net of
+\(\theta\)-psh model functions
+(\Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:sum}) decreasing to
+\(t\varphi_0+(1-t)\varphi_0'\); apply Step~2 to all three nets.
+
+\emph{Step 4: Lipschitz continuity.}  If
+\(\|\varphi_0-\varphi_0'\|_\infty\leq\delta\), then
+\(\varphi_0\leq\varphi_0'+\delta\) and \(\varphi_0'\leq\varphi_0+\delta\),
+so monotonicity and \eqref{eq:ch24-energy-constants} give
+\(|\mathfrak E(\varphi_0,\ldots)-\mathfrak E(\varphi_0',\ldots)|\leq\delta V\).
+This is \cref{itm:ch24-ee:lip}.
+
+\emph{Step 5: monotone continuity for bounded nets.}  Let
+\(\varphi_i^\alpha\searrow\varphi_i\) be decreasing nets of \emph{bounded
+\(\theta\)-psh} functions with bounded limits.  Monotonicity gives
+\(\mathfrak E(\varphi^\alpha_\bullet)\geq\mathfrak E(\varphi_\bullet)\) for
+every \(\alpha\), so
+\(\lim_\alpha\mathfrak E(\varphi^\alpha_\bullet)\geq
+ \mathfrak E(\varphi_\bullet)\), the limit existing because the net of
+numbers is decreasing.  For the reverse inequality, fix an admissible
+model tuple \(\psi_\bullet\geq\varphi_\bullet\) and \(\varepsilon>0\).  Each
+\(\psi_i\) is continuous and \(\geq\varphi_i\), so
+\Cref{lem:ch24-sandwich}---applied to the decreasing net
+\((\varphi_i^\alpha)_\alpha\) of \(\theta\)-psh functions, whose members are
+upper semicontinuous---gives \(\alpha_i\) with
+\(\varphi_i^\alpha\leq\psi_i+\varepsilon\) for \(\alpha\geq\alpha_i\).
+Hence, for \(\alpha\) above all the \(\alpha_i\),
+\[
+ \mathfrak E(\varphi^\alpha_\bullet)
+ \leq\mathfrak E(\psi_0+\varepsilon,\ldots,\psi_n+\varepsilon)
+ =\mathfrak E(\psi_\bullet)+(n+1)\varepsilon V .
+\]
+Taking the limit in \(\alpha\), then \(\varepsilon\downarrow0\), then the
+infimum over \(\psi_\bullet\), yields
+\(\lim_\alpha\mathfrak E(\varphi^\alpha_\bullet)\leq
+ \mathfrak E(\varphi_\bullet)\).  This proves \cref{itm:ch24-ee:nets} and
+completes the proof.
+\end{proof}
+
+\begin{remark}[What was and was not used]
+\label{rem:ch24-energy-extension-audit}
+The proof used: monotonicity and the constant-shift rule for model tuples,
+which are intersection-theoretic; the existence of \emph{some} decreasing
+net of \(\theta\)-psh model majorants, which is
+\Cref{thm:bfj-decreasing-regularization} and is the only place where
+residue characteristic zero enters; compactness of \(X^{\An}\) and upper
+semicontinuity of \(\theta\)-psh functions, through
+\Cref{lem:ch24-sandwich}; and convergence of monotone nets of real numbers,
+\Cref{lem:monotone-net-converges}.  It did \emph{not} use weak compactness
+of measures, any Choquet or countability reduction, or any property of the
+measures beyond their masses.  In particular no sequential monotone
+convergence theorem was invoked, and no statement was made about nets of
+unbounded potentials.
+\end{remark}
+
+\subsection{The extension theorem}
+\label{sec:ch24-extension-theorem}
+
+\begin{theorem}\label{thm:bounded-ma-extension}
+There is a unique symmetric map
+\[
+ (\varphi_1,\ldots,\varphi_n)\longmapsto
+ \MA_\theta(\varphi_1,\ldots,\varphi_n)
+\]
+from \(n\)-tuples of bounded \(\theta\)-psh functions to positive Radon
+measures of mass \(V\) with the following properties.
+\begin{enumerate}
+\item It agrees with \Cref{def:mixed-model-measure} on model
+functions.
+\item If \(\varphi_i^\alpha\searrow\varphi_i\) and
+\(h^\alpha\searrow h\) are decreasing nets of bounded
+\(\theta\)-psh functions, then
+\begin{equation}
+\label{eq:weighted-monotone-ma}
+ \int h^\alpha\,
+   \MA_\theta(\varphi_1^\alpha,\ldots,\varphi_n^\alpha)
+ \longrightarrow
+ \int h\,\MA_\theta(\varphi_1,\ldots,\varphi_n).
+\end{equation}
+\end{enumerate}
+This is \cite[Theorem~3.1]{BFJ15}.
+\end{theorem}
+
+\begin{proof}[Construction and independence]
+Throughout, \(\mathfrak E\) is the extended mixed energy pairing of
+\Cref{thm:ch24-energy-extension}.
+
+\emph{Step 1: the defining functional.}  Let \(\varphi_1,\ldots,\varphi_n\)
+be bounded \(\theta\)-psh functions.  For a \(\theta\)-psh model function
+\(h\) put
+\begin{equation}
+\label{eq:ch24-lambda}
+ \Lambda(h):=\mathfrak E(h,\varphi_1,\ldots,\varphi_n)
+             -\mathfrak E(0,\varphi_1,\ldots,\varphi_n).
+\end{equation}
+By \eqref{eq:ch24-energy-slot} this is exactly
+\(\int h\,\MA_\theta(\varphi_1,\ldots,\varphi_n)\) when all the
+\(\varphi_i\) are model functions, so \(\Lambda\) is the only candidate.
+Note that \(\Lambda\) is defined without reference to any approximating net.
+
+\emph{Step 2: \(\Lambda\) is the limit of model integrals.}  Choose
+decreasing nets \(\varphi_i^\alpha\searrow\varphi_i\) of \(\theta\)-psh
+model functions, indexed by a common directed set, and put
+\(\mu_\alpha:=\MA_\theta(\varphi_1^\alpha,\ldots,\varphi_n^\alpha)\), a
+positive measure of mass \(V\) by \Cref{prop:model-ma-basic}.  For every
+\(\theta\)-psh model function \(h\), \eqref{eq:ch24-energy-slot} gives
+\[
+ \int h\,\rd\mu_\alpha
+ =\mathfrak E(h,\varphi^\alpha_1,\ldots,\varphi^\alpha_n)
+  -\mathfrak E(0,\varphi^\alpha_1,\ldots,\varphi^\alpha_n)
+ \xrightarrow[\ \alpha\ ]{}\ \Lambda(h),
+\]
+by \Cref{thm:ch24-energy-extension} applied to the two constant-in-one-slot
+nets \((h,\varphi^\alpha_\bullet)\) and \((0,\varphi^\alpha_\bullet)\); a
+constant net is decreasing.
+
+\emph{Step 3: existence of the measure.}  The masses \(\mu_\alpha(X^{\An})\)
+are all equal to \(V\).  By Step~2 the limit
+\(\lim_\alpha\int h\,\rd\mu_\alpha\) exists for every \(\theta\)-psh model
+function \(h\); since \(h\mapsto\int h\,\rd\mu_\alpha\) is linear, the limit
+then exists for every \(h\) in the linear span \(\mathcal C\) of the
+\(\theta\)-psh model functions.  (No linearity of \(\Lambda\) is asserted or
+needed: it is the integrals, not the defining formula, that are linear in
+\(h\).)  By
+\Cref{lem:ch24-dense-tests}\,\cref{itm:ch24-dt:conv} the net
+\((\mu_\alpha)\) converges weakly to a positive Radon measure of mass
+\(V\).  Define
+\[
+ \MA_\theta(\varphi_1,\ldots,\varphi_n):=\lim_\alpha\mu_\alpha .
+\]
+Because \(\Lambda\) does not involve the net, the limit is the same for
+every choice of regularizing nets, which is the required independence.
+
+\emph{Step 4: symmetry and compatibility.}  Compatibility with
+\Cref{def:mixed-model-measure} is Step~1 read for model \(\varphi_i\).
+Symmetry follows from
+\Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:sym}: the functional
+\eqref{eq:ch24-lambda} is symmetric in \(\varphi_1,\ldots,\varphi_n\), hence
+so is the measure it determines, by
+\Cref{lem:ch24-dense-tests}\,\cref{itm:ch24-dt:unique}.
+
+\emph{Step 5: the identity \eqref{eq:ch24-energy-slot} for bounded
+entries.}  We claim that for bounded \(\theta\)-psh
+\(\varphi_0,\ldots,\varphi_n\),
+\begin{equation}
+\label{eq:ch24-energy-slot-bounded}
+ \mathfrak E(\varphi_0,\varphi_1,\ldots,\varphi_n)
+ -\mathfrak E(0,\varphi_1,\ldots,\varphi_n)
+ =\int_{X^{\An}}\varphi_0\,\MA_\theta(\varphi_1,\ldots,\varphi_n).
+\end{equation}
+Indeed, choose \(\theta\)-psh model functions
+\(\varphi_0^\beta\searrow\varphi_0\).  The left-hand side is the limit of the
+same expression with \(\varphi_0^\beta\) in place of \(\varphi_0\), by
+\Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:nets}, and that
+expression equals \(\int\varphi_0^\beta\,
+\MA_\theta(\varphi_1,\ldots,\varphi_n)\) by Step~1 and Step~3.  The
+right-hand side is the limit of these integrals by monotone convergence
+along a decreasing net of continuous functions against the \emph{fixed}
+Radon measure \(\MA_\theta(\varphi_1,\ldots,\varphi_n)\), which is
+\Cref{cor:usc-net-monotone-integral}.  This proves
+\eqref{eq:ch24-energy-slot-bounded}.
+
+\emph{Step 6: weighted monotone continuity.}  Let
+\(\varphi_i^\alpha\searrow\varphi_i\) and \(h^\alpha\searrow h\) be
+decreasing nets of bounded \(\theta\)-psh functions, indexed by a common
+directed set.  By Step~5,
+\[
+ \int h^\alpha\,\MA_\theta(\varphi^\alpha_1,\ldots,\varphi^\alpha_n)
+ =\mathfrak E(h^\alpha,\varphi^\alpha_1,\ldots,\varphi^\alpha_n)
+  -\mathfrak E(0,\varphi^\alpha_1,\ldots,\varphi^\alpha_n),
+\]
+and both terms converge, to
+\(\mathfrak E(h,\varphi_1,\ldots,\varphi_n)\) and
+\(\mathfrak E(0,\varphi_1,\ldots,\varphi_n)\) respectively, by
+\Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:nets} applied to the
+\((n+1)\)-tuples \((h^\alpha,\varphi^\alpha_\bullet)\) and
+\((0,\varphi^\alpha_\bullet)\).  By Step~5 again the limit is
+\(\int h\,\MA_\theta(\varphi_1,\ldots,\varphi_n)\).  This is
+\eqref{eq:weighted-monotone-ma}.  Taking \(h^\alpha=h\) constant in
+\(\alpha\), with \(h\) a \(\theta\)-psh model function, and then extending to
+\(\mathcal C\) by linearity of the integral in \(h\), one obtains from
+\Cref{lem:ch24-dense-tests}\,\cref{itm:ch24-dt:conv} the weak convergence
+\(\MA_\theta(\varphi^\alpha_\bullet)\to\MA_\theta(\varphi_\bullet)\).
+
+\emph{Step 7: uniqueness.}  Suppose \(N\) is another map with properties (1)
+and (2).  Given bounded \(\theta\)-psh \(\varphi_1,\ldots,\varphi_n\),
+choose decreasing nets of \(\theta\)-psh model functions
+\(\varphi_i^\alpha\searrow\varphi_i\).  Property (1) gives
+\(N(\varphi^\alpha_\bullet)=\MA_\theta(\varphi^\alpha_\bullet)\) for every
+\(\alpha\), and property (2), applied with the constant test net
+\(h^\alpha=h\) for a \(\theta\)-psh model function \(h\), forces
+\(\int h\,\rd N(\varphi_\bullet)=\lim_\alpha\int h\,
+\rd\MA_\theta(\varphi^\alpha_\bullet)
+=\int h\,\rd\MA_\theta(\varphi_\bullet)\), the last equality by Step~6.
+Both sides being linear in \(h\), the identity extends to \(\mathcal C\).  By
+\Cref{lem:ch24-dense-tests}\,\cref{itm:ch24-dt:unique},
+\(N(\varphi_\bullet)=\MA_\theta(\varphi_\bullet)\).
+\end{proof}
+
+\begin{remark}[Where each hypothesis is used]
+\label{rem:ch24-extension-audit}
+Boundedness of the potentials is used twice and is not removable by any
+formal device.  It is used in \Cref{thm:ch24-energy-extension} to keep
+\(\mathfrak E\) finite, and it is used in Step~5 through
+\Cref{cor:usc-net-monotone-integral}, whose conclusion may be \(-\infty\) for
+unbounded integrands.  Ampleness of \(\{\theta\}\) is used through
+\Cref{lem:ch24-psh-difference}, hence through the density
+\Cref{lem:ch24-dense-tests}; it also guarantees \(V>0\).  Residue
+characteristic zero is used only through
+\Cref{thm:bfj-decreasing-regularization}, that is, only to know that
+decreasing model regularizations exist at all; see \Cref{sec:ch24-scope}.
+Nothing in the proof requires \(X\) to be a curve, or the measures to be
+atomic, or the index sets to be countable.
+\end{remark}
+
+\subsection{Two formulae from the construction}
+\label{sec:ch24-two-formulae}
+
+The construction just given routes everything through the scalar
+\(\mathfrak E\).  The original argument of \cite[\S3]{BFJ15} instead
+constructs the measure one slot at a time, by \emph{forcing} the model
+integration-by-parts formula to hold.  Both formulae used there are now
+theorems, and we record them, both because they are the shape in which the
+result is usually quoted and because the second is the quantitative
+statement behind the qualitative monotone continuity.
+
+\begin{proposition}
+\label{prop:ch24-forced-ibp}
+Let \(1\leq p\leq n\), let \(\varphi_1,\ldots,\varphi_p\) be bounded
+\(\theta\)-psh functions, let \(\varphi_{p+1},\ldots,\varphi_n\) be
+\(\theta\)-psh model functions, and write
+\(M_p(\varphi_1,\ldots,\varphi_p):=
+\MA_\theta(\varphi_1,\ldots,\varphi_n)\) and
+\(T:=\MA_\theta(\varphi_1,\ldots,\varphi_{p-1},
+\varphi_{p+1},\ldots,\varphi_n)\) for the corresponding
+\((n-1)\)-fold product.  Then, for every \(\theta\)-psh model function
+\(h\),
+\begin{equation}
+\label{eq:inductive-ma-definition}
+\begin{split}
+ \int h\,M_p(\varphi_1,\ldots,\varphi_p)
+ ={}&\int\varphi_p(\theta+\ddc h)\wedge T\\
+     &+\int(h-\varphi_p)\theta\wedge T,
+\end{split}
+\end{equation}
+where \((\theta+\ddc h)\wedge T\) and \(\theta\wedge T\) denote the mixed
+products in which the \(p\)-th slot carries the model potential \(h\),
+respectively \(0\).  Equivalently,
+\[
+ \int h\,M_p(\varphi_1,\ldots,\varphi_p)
+ =\int h\,\theta\wedge T+\int\varphi_p\,\ddc h\wedge T .
+\]
+\end{proposition}
+
+\begin{proof}
+The two displayed forms are equivalent: subtract and add
+\(\int\varphi_p\,\theta\wedge T\).  For the second form, apply
+\eqref{eq:ch24-energy-slot-bounded} twice.  With
+\(\Phi:=(\varphi_1,\ldots,\varphi_{p-1},\varphi_{p+1},\ldots,\varphi_n)\)
+denoting the remaining \(n-1\) entries,
+\[
+ \begin{aligned}
+ \int h\,M_p(\varphi_1,\ldots,\varphi_p)
+   &=\mathfrak E(h,\varphi_p,\Phi)-\mathfrak E(0,\varphi_p,\Phi),\\
+ \int\varphi_p\,\ddc h\wedge T
+   &=\mathfrak E(\varphi_p,h,\Phi)-\mathfrak E(\varphi_p,0,\Phi),
+ \end{aligned}
+\]
+the second because \(\ddc h\wedge T\) is by definition the difference of the
+mixed measures with \(h\) and with \(0\) in the \(p\)-th slot, and because
+\eqref{eq:ch24-energy-slot-bounded} may be applied to each.  Also
+\(\int h\,\theta\wedge T=\mathfrak E(h,0,\Phi)-\mathfrak E(0,0,\Phi)\).
+Symmetry of \(\mathfrak E\)
+(\Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:sym}) gives
+\(\mathfrak E(\varphi_p,h,\Phi)=\mathfrak E(h,\varphi_p,\Phi)\) and
+\(\mathfrak E(\varphi_p,0,\Phi)=\mathfrak E(0,\varphi_p,\Phi)\), so
+  \begin{align*}
+ \int h\,\theta\wedge T+\int\varphi_p\,\ddc h\wedge T
+ ={}&\bigl[\mathfrak E(h,0,\Phi)-\mathfrak E(0,0,\Phi)\bigr]\\
+ &+\bigl[\mathfrak E(h,\varphi_p,\Phi)-\mathfrak E(h,0,\Phi)\bigr]\\
+ &-\bigl[\mathfrak E(0,\varphi_p,\Phi)-\mathfrak E(0,0,\Phi)\bigr],
+  \end{align*}
+which telescopes to
+\(\mathfrak E(h,\varphi_p,\Phi)-\mathfrak E(0,\varphi_p,\Phi)\), as
+required.
+\end{proof}
+
+\begin{remark}[Reading \eqref{eq:inductive-ma-definition} as a definition]
+\label{rem:ch24-forced-ibp-as-definition}
+The right-hand side of \eqref{eq:inductive-ma-definition} involves
+\(\varphi_p\) only through integration against the two \emph{fixed} positive
+measures \((\theta+\ddc h)\wedge T\) and \(\theta\wedge T\), which are built
+from the other entries.  This is why it can be used as a definition: if
+\(\varphi_p^\alpha\searrow\varphi_p\) is a decreasing net of bounded
+\(\theta\)-psh functions, the right-hand side converges by
+\Cref{cor:usc-net-monotone-integral}, applied separately to the two positive
+measures, and the limit is manifestly independent of the net.  What such an
+argument does not give directly is symmetry in the \(n\) slots, since it
+singles out the slot \(p\); this is the reason we have routed the
+construction through \(\mathfrak E\), where symmetry is built in.
+\end{remark}
+
+\begin{proposition}
+\label{prop:ch24-approximate-monotonicity}
+Let \(1\leq p\leq n\), let \(\varphi_i\leq\chi_i\) be \(\theta\)-psh model
+functions for \(1\leq i\leq p\), let the remaining entries
+\(\varphi_{p+1},\ldots,\varphi_n\) be \(\theta\)-psh model functions, and let
+\(h\) be a \(\theta\)-psh model function.  Write \(M_p\) as in
+\Cref{prop:ch24-forced-ibp}, the entry \(0\) meaning that the corresponding
+slot carries the form \(\theta\).  Then
+\begin{equation}
+\label{eq:approximate-monotonicity}
+\begin{split}
+ \int h\,M_p(\chi_1,\ldots,\chi_p)
+ \geq{}&\int h\,M_p(\varphi_1,\ldots,\varphi_p)\\
+ &+\sum_{i=1}^p\int(\varphi_i-\chi_i)
+       M_p(\varphi_1,\ldots,\varphi_{i-1},0,
+           \chi_{i+1},\ldots,\chi_p).
+\end{split}
+\end{equation}
+In particular
+\(\int h\,M_p(\chi_\bullet)\geq\int h\,M_p(\varphi_\bullet)
+ -V\sum_{i=1}^p\|\chi_i-\varphi_i\|_\infty\).
+\end{proposition}
+
+\begin{proof}
+Telescope.  For \(0\leq i\leq p\) put
+\(A_i:=M_p(\varphi_1,\ldots,\varphi_i,\chi_{i+1},\ldots,\chi_p)\), so that
+\(A_0=M_p(\chi_\bullet)\) and \(A_p=M_p(\varphi_\bullet)\).  Fix \(i\) and
+let \(S_i\) denote the \((n-1)\)-fold mixed product obtained by deleting the
+\(i\)-th slot from \(A_{i-1}\), that is, the product with entries
+\(\varphi_1,\ldots,\varphi_{i-1},\chi_{i+1},\ldots,\chi_p\) and
+\(\varphi_{p+1},\ldots,\varphi_n\).  Then
+\[
+ A_{i-1}-A_i=\ddc(\chi_i-\varphi_i)\wedge S_i ,
+\]
+by multilinearity in the \(i\)-th slot, and
+\eqref{eq:model-ibp} gives
+\[
+ \begin{aligned}
+ \int h\,\rd(A_{i-1}-A_i)
+ &=\int(\chi_i-\varphi_i)\,\ddc h\wedge S_i\\
+ &=\int(\chi_i-\varphi_i)(\theta+\ddc h)\wedge S_i\\
+ &\quad-\int(\chi_i-\varphi_i)\,\theta\wedge S_i .
+ \end{aligned}
+\]
+The first term on the right is nonnegative, since \(\chi_i-\varphi_i\geq0\)
+and \((\theta+\ddc h)\wedge S_i\) is a positive measure by
+\Cref{prop:model-ma-basic}.  Hence
+\[
+ \begin{aligned}
+ \int h\,\rd(A_{i-1}-A_i)
+ &\geq-\int(\chi_i-\varphi_i)\,\theta\wedge S_i\\
+ &=\int(\varphi_i-\chi_i)\,
+   M_p(\varphi_1,\ldots,\varphi_{i-1},0,
+       \chi_{i+1},\ldots,\chi_p),
+ \end{aligned}
+\]
+since \(\theta\wedge S_i\) is precisely the mixed product with \(0\) in the
+\(i\)-th slot.  Summing over \(i=1,\ldots,p\) gives
+\eqref{eq:approximate-monotonicity}.  The final inequality follows because
+each measure occurring there is positive of mass \(V\) by
+\Cref{thm:ch24-mass}.
+\end{proof}
+
+\begin{remark}[Two monotonicities, not one]
+\label{rem:ch24-two-monotonicities}
+\Cref{prop:ch24-approximate-monotonicity} is an inequality between integrals
+of a \emph{fixed} test function against measures attached to different
+potentials; the error term is controlled by the sup-norm distance of the
+potentials.  It is therefore adapted to \emph{uniform} approximation, and is
+what one uses to treat continuous potentials in
+\Cref{sec:ch24-continuous}.  It is \emph{not} what proves monotone
+continuity along a general decreasing net, where the sup-norm distance need
+not tend to zero: there the monotone quantity is
+\(\mathfrak E\), a number, and the mechanism is
+\Cref{thm:ch24-energy-extension}.  Conflating the two is the commonest
+error in this area, and the reason the statement
+\eqref{eq:weighted-monotone-ma} is weighted.
+\end{remark}
+
+\subsection{Multilinearity, convexity, and the Dirichlet form}
+\label{sec:ch24-bounded-calculus}
+
+\begin{corollary}\label{cor:bounded-ma-multilinearity}
+Mixed products are symmetric and affine in each psh entry. In particular,
+for \(0\leq t\leq1\),
+\begin{equation}
+\label{eq:ma-convex-lower-bound}
+ \MA_\theta(t\varphi+(1-t)\psi)
+ \geq t^n\MA_\theta(\varphi)+(1-t)^n\MA_\theta(\psi).
+\end{equation}
+Model integration by parts and its Cauchy--Schwarz inequality extend to
+bounded psh differences.
+\end{corollary}
+
+\begin{proof}
+\emph{Symmetry} is
+\Cref{thm:bounded-ma-extension}, Step~4.
+
+\emph{Affineness.}  Let \(\varphi,\varphi'\) be bounded \(\theta\)-psh and
+\(t\in[0,1]\); we must show
+\[
+ \begin{aligned}
+ &\MA_\theta\bigl(t\varphi+(1-t)\varphi',
+     \varphi_2,\ldots,\varphi_n\bigr)\\
+ &\qquad=t\,\MA_\theta(\varphi,\varphi_2,\ldots,\varphi_n)\\
+ &\qquad\quad+(1-t)\,\MA_\theta(\varphi',\varphi_2,\ldots,\varphi_n).
+ \end{aligned}
+\]
+By \Cref{lem:ch24-dense-tests}\,\cref{itm:ch24-dt:unique} it suffices to test
+against \(\theta\)-psh model functions \(h\), and by
+\eqref{eq:ch24-energy-slot-bounded} the required identity is
+\[
+ \mathfrak E\bigl(h,t\varphi+(1-t)\varphi',\varphi_2,\ldots\bigr)
+ -\mathfrak E\bigl(0,t\varphi+(1-t)\varphi',\varphi_2,\ldots\bigr)
+ =t\bigl[\cdots\bigr]+(1-t)\bigl[\cdots\bigr],
+\]
+which is
+\Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:affine} applied in the
+second slot.
+
+\emph{Inequality \eqref{eq:ma-convex-lower-bound}.}  Put
+\(u=t\varphi+(1-t)\psi\), a bounded \(\theta\)-psh function by
+\Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:sum}.  Expanding the diagonal
+product by affineness in each of the \(n\) slots,
+\[
+ \MA_\theta(u)=\sum_{k=0}^{n}\binom nk t^k(1-t)^{n-k}\,
+   \MA_\theta\bigl(\varphi^{(k)},\psi^{(n-k)}\bigr),
+\]
+where \(\varphi^{(k)}\) means \(k\) entries equal to \(\varphi\).  All terms
+are positive measures, and the terms \(k=n\) and \(k=0\) are
+\(t^n\MA_\theta(\varphi)\) and \((1-t)^n\MA_\theta(\psi)\).  Discarding the
+remaining \(n-1\) nonnegative terms gives
+\eqref{eq:ma-convex-lower-bound}.
+
+\emph{Integration by parts and Cauchy--Schwarz} are
+\Cref{prop:ch24-bounded-dirichlet} and
+\Cref{cor:ch24-bounded-cauchy-schwarz} below, which are stated separately
+because the correct formulation for bounded potentials is in terms of
+differences and not of individual entries.
+\end{proof}
+
+The naive extension of \eqref{eq:model-ibp} to bounded potentials is
+problematic for a reason worth naming.  A difference \(u_1-u_2\) of bounded
+\(\theta\)-psh functions is neither upper nor lower semicontinuous, so an
+expression such as \(\int(u_1-u_2)\,\rd\nu_\alpha\) does not behave well
+along a net \(\nu_\alpha\to\nu\) of measures.  The remedy is to write the
+\emph{whole} quadratic expression in terms of \(\mathfrak E\), where every
+entry is a genuine \(\theta\)-psh function and the monotone continuity
+theorem applies.
+
+\begin{proposition}
+\label{prop:ch24-bounded-dirichlet}
+Let \(u_1,u_2\) and \(w_1,\ldots,w_{n-1}\) be bounded \(\theta\)-psh
+functions.  Then
+\begin{equation}
+\label{eq:ch24-bounded-dirichlet}
+\begin{split}
+ Q_w(u_1,u_2)
+ :={}&\int(u_1-u_2)\,
+   \bigl[\MA_\theta(u_1,w_1,\ldots,w_{n-1})
+        -\MA_\theta(u_2,w_1,\ldots,w_{n-1})\bigr]\\
+ ={}&\mathfrak E(u_1,u_1,w_\bullet)-2\mathfrak E(u_1,u_2,w_\bullet)
+     +\mathfrak E(u_2,u_2,w_\bullet)\ \leq\ 0 .
+\end{split}
+\end{equation}
+Equality holds when \(u_1-u_2\) is constant.
+\end{proposition}
+
+\begin{proof}
+\emph{Step 1: the two expressions agree.}  Apply
+\eqref{eq:ch24-energy-slot-bounded} four times, with the two possible
+entries in the zeroth and first slots:
+\[
+ \int u_i\,\MA_\theta(u_j,w_\bullet)
+ =\mathfrak E(u_i,u_j,w_\bullet)-\mathfrak E(0,u_j,w_\bullet)
+ \qquad (i,j\in\{1,2\}).
+\]
+Expanding the first line of \eqref{eq:ch24-bounded-dirichlet} into four such
+integrals, the four terms \(\mathfrak E(0,u_j,w_\bullet)\) cancel in pairs,
+and what remains is
+\(\mathfrak E(u_1,u_1,w_\bullet)-\mathfrak E(u_1,u_2,w_\bullet)
+ -\mathfrak E(u_2,u_1,w_\bullet)+\mathfrak E(u_2,u_2,w_\bullet)\), which by
+symmetry (\Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:sym}) is the
+second line.  In particular the left-hand side is well defined, even though
+\(u_1-u_2\) is only a bounded Borel function: it is an integral of a bounded
+Borel function against a finite signed measure.
+
+\emph{Step 2: the model case.}  If all the entries are \(\theta\)-psh model
+functions, then by \eqref{eq:ch24-energy-slot} and
+\eqref{eq:model-test-intersection} the first line of
+\eqref{eq:ch24-bounded-dirichlet} equals
+\(\int(u_1-u_2)\,\ddc(u_1-u_2)\wedge\Theta_w\), where
+\(\Theta_w=(\theta+\ddc w_1)\wedge\cdots\wedge(\theta+\ddc w_{n-1})\), and
+this is \(\leq0\) by \eqref{eq:model-dirichlet-negativity}.
+
+\emph{Step 3: passage to bounded entries.}  Choose decreasing nets of
+\(\theta\)-psh model functions \(u_i^\alpha\searrow u_i\) and
+\(w_j^\alpha\searrow w_j\) on a common directed set.  Every one of the four
+terms in the second line of \eqref{eq:ch24-bounded-dirichlet} converges, by
+\Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:nets}, and by Step~2 the
+combination is \(\leq0\) at each index.  Hence the limit is \(\leq0\).  This
+is the point of writing \(Q_w\) through \(\mathfrak E\): no integral of a
+difference against a moving measure ever has to be passed to the limit.
+
+\emph{Step 4: the equality case.}  If \(u_1=u_2+c\), then by affineness and
+\eqref{eq:ch24-energy-constants} all four terms differ from
+\(\mathfrak E(u_2,u_2,w_\bullet)\) by multiples of \(cV\) which cancel; the
+same is seen from the first line, since \(\MA_\theta(u_2+c,w_\bullet)
+=\MA_\theta(u_2,w_\bullet)\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch24-bounded-cauchy-schwarz}
+Let \(u_1,u_2,v_1,v_2,w_1,\ldots,w_{n-1}\) be bounded \(\theta\)-psh
+functions and set
+\[
+ \begin{aligned}
+ B_w\bigl((u_1,u_2),(v_1,v_2)\bigr)
+ :={}&\mathfrak E(u_1,v_1,w_\bullet)-\mathfrak E(u_1,v_2,w_\bullet)\\
+ &-\mathfrak E(u_2,v_1,w_\bullet)+\mathfrak E(u_2,v_2,w_\bullet).
+ \end{aligned}
+\]
+Then \(B_w\) is symmetric and bilinear in the two differences, and
+\begin{equation}
+\label{eq:ch24-bounded-cauchy-schwarz}
+ \bigl|B_w\bigl((u_1,u_2),(v_1,v_2)\bigr)\bigr|^2
+ \leq Q_w(u_1,u_2)\;Q_w(v_1,v_2),
+\end{equation}
+both factors on the right being nonpositive.
+\end{corollary}
+
+\begin{proof}
+For model entries, Step~2 of the previous proof identifies
+\(B_w\) with \(\bigl(D\cdot D'\cdot\Theta_w\bigr)\), where
+\(\ddc(u_1-u_2)=[D]\) and \(\ddc(v_1-v_2)=[D']\), and
+\eqref{eq:ch24-bounded-cauchy-schwarz} is then
+\eqref{eq:ch20-mixed-cauchy-schwarz}, that is,
+\Cref{prop:ch24-model-cauchy-schwarz}.  Both sides converge along decreasing
+nets of model approximants by
+\Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:nets}, so the inequality
+persists.  Symmetry and bilinearity follow from
+\Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:sym} and
+\cref{itm:ch24-ee:affine}.
+\end{proof}
+
+\subsection{Continuous potentials}
+\label{sec:ch24-continuous}
+
+Between the model and the bounded theory sits the continuous one, where
+approximation is uniform and no net is needed.  It is worth isolating,
+because it is the level at which the comparison with Chambert--Loir's
+original construction and with the CLD calculus takes place
+(\Cref{sec:ch24-comparison}), and because the mechanism is completely
+different from that of \Cref{thm:bounded-ma-extension}.
+
+\begin{proposition}
+\label{prop:ch24-continuous-uniform}
+Let \(\varphi_1,\ldots,\varphi_n\) be continuous \(\theta\)-psh functions.
+\begin{enumerate}
+\item\label{itm:ch24-cu:seq} There are \(\theta\)-psh model functions
+ \(\varphi_i^m\) with \(\varphi_i^m\searrow\varphi_i\) \emph{uniformly}, and
+ for any such choice
+ \(\MA_\theta(\varphi_1^m,\ldots,\varphi_n^m)\to
+   \MA_\theta(\varphi_1,\ldots,\varphi_n)\) weakly.
+\item\label{itm:ch24-cu:unif} More generally, if \(\varphi_i^m\) are
+ \(\theta\)-psh model functions with
+ \(\|\varphi_i^m-\varphi_i\|_\infty\to0\), not necessarily monotonically,
+ then \(\MA_\theta(\varphi_1^m,\ldots,\varphi_n^m)\to
+ \MA_\theta(\varphi_1,\ldots,\varphi_n)\) weakly.  In particular the
+ bounded product restricted to continuous potentials is the unique
+ extension that is continuous for uniform convergence.
+\item\label{itm:ch24-cu:cont} The operator is continuous on continuous
+ potentials: if \(\|\varphi_i^{(k)}-\varphi_i\|_\infty\to0\) with all
+ functions continuous \(\theta\)-psh, then the measures converge weakly.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch24-cu:seq}.  Existence of a decreasing sequence of \(\theta\)-psh
+model functions converging uniformly to a continuous \(\theta\)-psh function
+is \Cref{cor:ch22-continuous-decreasing-sequence}.  A decreasing sequence is
+a decreasing net, so weak convergence is
+\Cref{thm:bounded-ma-extension}, Step~6.
+
+\cref{itm:ch24-cu:unif}.  Set \(\varepsilon_m:=\max_i\|\varphi_i^m
+-\varphi_i\|_\infty\).  By \Cref{prop:ch24-model-uniform-estimate}, for any
+\(\theta\)-psh model function \(h\) and any \(m,m'\),
+\[
+ \left|\int h\,\MA_\theta(\varphi^m_\bullet)
+      -\int h\,\MA_\theta(\varphi^{m'}_\bullet)\right|
+ \leq 2Vn\,(\varepsilon_m+\varepsilon_{m'}),
+\]
+so \(\bigl(\int h\,\MA_\theta(\varphi^m_\bullet)\bigr)_m\) is Cauchy.  Since
+all the measures have mass \(V\),
+\Cref{lem:ch24-dense-tests}\,\cref{itm:ch24-dt:conv} gives a weak limit
+\(\mu\), and the same estimate shows that \(\mu\) does not depend on the
+approximating sequence.  Comparing with a decreasing sequence as in
+\cref{itm:ch24-cu:seq} identifies \(\mu\) with
+\(\MA_\theta(\varphi_1,\ldots,\varphi_n)\).
+
+\cref{itm:ch24-cu:cont}.  First note that
+\eqref{eq:ch24-model-uniform-estimate} persists for \emph{continuous}
+\(\theta\)-psh entries: approximating each entry uniformly by model
+functions and using \cref{itm:ch24-cu:unif}, both sides pass to the limit, so
+that for continuous \(\theta\)-psh \(\varphi_\bullet,\psi_\bullet\) and
+\(\theta\)-psh model \(h\),
+\begin{equation}
+\label{eq:ch24-continuous-uniform-estimate}
+ \left|\int h\,\MA_\theta(\varphi_\bullet)
+      -\int h\,\MA_\theta(\psi_\bullet)\right|
+ \leq 2V\sum_{i=1}^{n}\|\varphi_i-\psi_i\|_\infty .
+\end{equation}
+Now let \(\varphi_i^{(k)}\to\varphi_i\) uniformly with all functions
+continuous \(\theta\)-psh.  By \eqref{eq:ch24-continuous-uniform-estimate},
+\(\int h\,\MA_\theta(\varphi^{(k)}_\bullet)\to
+\int h\,\MA_\theta(\varphi_\bullet)\) for every \(\theta\)-psh model
+function \(h\), and all the measures have mass \(V\); so
+\Cref{lem:ch24-dense-tests}\,\cref{itm:ch24-dt:conv} gives weak convergence.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch24-continuous-cl}
+Let \(L\) be an ample line bundle with a model metric \(\|\cdot\|_0\) of
+curvature \(\theta\), and let \(\varphi\) be a continuous \(\theta\)-psh
+function, so that \(\|\cdot\|_\varphi=\rme^{-\varphi}\|\cdot\|_0\) is a
+continuous semipositive metric in the sense of Zhang
+(\Cref{thm:ch21-continuous-zhang}).  Then
+\[
+ \MA_\theta(\varphi)=c_1\bigl(L,\|\cdot\|_\varphi\bigr)^{\wedge n},
+\]
+the Chambert--Loir measure of \Cref{thm:cl-continuous-extension}.  The same
+holds for mixed products of \(n\) continuous semipositive metrics.
+\end{corollary}
+
+\begin{proof}
+Both sides are the weak limit of the same model measures.  On the left this
+is \Cref{prop:ch24-continuous-uniform}\,\cref{itm:ch24-cu:unif} together with
+\Cref{cor:ch24-cl-identification}; on the right it is the definition of the
+continuous Chambert--Loir measure,
+\Cref{thm:cl-continuous-extension}.
+\end{proof}
+
+\subsection{Integrability and pluripolar sets}
+\label{sec:ch24-integrability}
+
+The last property of the bounded product needed downstream is that it is
+insensitive to the polar sets of psh functions.  This is what makes capacity
+work in \Cref{chap:bfj-capacity}, and it is also the precise place at which
+the bounded theory differs from the finite-energy theory of
+\Cref{chap:bfj-energy}: there the total mass may drop, and the drop is
+exactly the mass that a naive limit would place on a polar set.  Note that
+the unbounded function below is integrated \emph{against} the product; it is
+never an entry of it.
+
+\begin{proposition}\label{prop:bounded-ma-no-polar-mass}
+If \(\varphi_1,\ldots,\varphi_n\) are bounded \(\theta\)-psh and
+\(u\in\PSH(X,\theta)\), then \(u\) is integrable with respect to
+\(\MA_\theta(\varphi_1,\ldots,\varphi_n)\). Consequently the mixed measure
+gives mass zero to every pluripolar set.
+\end{proposition}
+
+\begin{proof}
+\emph{Step 0: normalizations.}  Replacing \(\theta\) by
+\(\theta+\ddc\psi\) and every potential by its difference with \(\psi\), we
+may assume by \Cref{prop:ch20-positive-representative} that \(\theta\) is
+semipositive, so that \(0\in\PSH(X,\theta)\) and the entry \(0\) is
+admissible in \(\mathfrak E\); by
+\Cref{cor:ch21-reference-independence} this changes neither the hypothesis
+nor the conclusion.  Adding constants to the \(\varphi_i\) changes neither
+\(\MA_\theta(\varphi_1,\ldots,\varphi_n)\) nor the class of \(\theta\)-psh
+functions, and adding a constant to \(u\) does not affect integrability; so
+we may assume
+\[
+ -M\leq\varphi_i\leq0\ \text{ for all }i,
+ \qquad \sup_{X^{\An}}u=0 ,
+\]
+the supremum being finite by
+\Cref{prop:ch21-first-consequences}\,\cref{itm:ch21-fc:bounded}.  Since
+\(u\leq0\), integrability of \(u\) means
+\(\int(-u)\,\MA_\theta(\varphi_\bullet)<\infty\).
+
+\emph{Step 1: truncation.}  For \(j\in\mathbf N\) put
+\(u_j:=\max\{u,-j\}\).  By
+\Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:max} and
+\cref{itm:ch21-stab:const} each \(u_j\) is \(\theta\)-psh, and it is bounded,
+with \(-j\leq u_j\leq0\).  Also \(u_j\searrow u\) pointwise, and
+\(-u_j=\min\{-u,j\}\) is a nonnegative, lower semicontinuous function
+increasing to \(-u\).
+
+\emph{Step 2: the basic estimate.}  Write
+\(\theta^{\wedge n}:=\MA_\theta(0,\ldots,0)\), the model measure of
+\(\theta\) itself, a positive atomic measure of mass \(V\).  By
+\eqref{eq:ch24-energy-slot-bounded},
+\[
+ \int(-u_j)\,\MA_\theta(\varphi_1,\ldots,\varphi_n)
+ =\mathfrak E(0,\varphi_1,\ldots,\varphi_n)
+  -\mathfrak E(u_j,\varphi_1,\ldots,\varphi_n).
+\]
+We bound the two terms separately, using monotonicity of \(\mathfrak E\)
+(\Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:mono}) and the
+constant-shift rule.  Since \(\varphi_i\leq0\),
+\[
+ \mathfrak E(0,\varphi_1,\ldots,\varphi_n)\leq\mathfrak E(0,0,\ldots,0)=0 ;
+\]
+since \(\varphi_i\geq-M\),
+\[
+ \mathfrak E(u_j,\varphi_1,\ldots,\varphi_n)
+ \geq\mathfrak E(u_j,-M,\ldots,-M)
+ =\mathfrak E(u_j,0,\ldots,0)-nMV .
+\]
+Combining, and using \eqref{eq:ch24-energy-slot-bounded} once more in the
+form \(\mathfrak E(u_j,0,\ldots,0)=\int u_j\,\theta^{\wedge n}\),
+\begin{equation}
+\label{eq:ch24-integrability-estimate}
+ 0\leq\int(-u_j)\,\MA_\theta(\varphi_1,\ldots,\varphi_n)
+ \leq\int(-u_j)\,\theta^{\wedge n}+nMV
+ \leq\int(-u)\,\theta^{\wedge n}+nMV .
+\end{equation}
+
+\emph{Step 3: the right-hand side is finite.}  The measure
+\(\theta^{\wedge n}\) is a finite positive combination of Dirac masses at
+divisorial points of a model determining \(\theta\)
+(\Cref{prop:ch24-model-support}\,\cref{itm:ch24-ms:atomic}).  A
+\(\theta\)-psh function is finite at every quasimonomial point, in
+particular at every divisorial point, by
+\Cref{prop:ch21-first-consequences}\,\cref{itm:ch21-fc:quasimonomial}; here
+we use that \(u\) is not identically \(-\infty\), which is part of
+\Cref{def:ch21-bfj-psh}.  Hence
+\(\int(-u)\theta^{\wedge n}=\sum_Eb_E(\theta|_E^{\,n})(-u(x_E))<\infty\).
+
+\emph{Step 4: passing to the limit.}  The functions \(-u_j\) are
+nonnegative, lower semicontinuous, and increase to \(-u\); by
+\Cref{prop:lsc-net-monotone} applied to the fixed Radon measure
+\(\MA_\theta(\varphi_\bullet)\),
+\[
+ \begin{aligned}
+ \int(-u)\,\MA_\theta(\varphi_1,\ldots,\varphi_n)
+ &=\sup_j\int(-u_j)\,\MA_\theta(\varphi_1,\ldots,\varphi_n)\\
+ &\leq\int(-u)\,\theta^{\wedge n}+nMV<\infty
+ \end{aligned}
+\]
+by \eqref{eq:ch24-integrability-estimate}.  Thus \(u\) is integrable.
+
+\emph{Step 5: pluripolar sets.}  Let \(E\subseteq X^{\An}\) be a Borel set
+contained in \(\{v=-\infty\}\) for some \(v\in\PSH(X,\theta)\).  By Step~4
+the function \(-v\) is \(\MA_\theta(\varphi_\bullet)\)-integrable, so the set
+where it equals \(+\infty\) is null; hence
+\(\MA_\theta(\varphi_\bullet)(E)=0\).
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch24-no-charge}
+For bounded \(\theta\)-psh \(\varphi_1,\ldots,\varphi_n\) and
+\(u\in\PSH(X,\theta)\),
+\[
+ \MA_\theta(\varphi_1,\ldots,\varphi_n)\bigl(\{u=-\infty\}\bigr)=0 ,
+\]
+and more generally every Borel pluripolar set is null for every mixed
+Monge--Amp\`ere measure of bounded potentials.  Consequently
+\(\MA_\theta(\varphi_1,\ldots,\varphi_n)\) does not charge the
+\(G_\delta\) set \(\{u=-\infty\}\) of
+\Cref{prop:ch21-polar-structure}\,\cref{itm:ch21-pol:gdelta}, and in
+particular assigns no mass to any countable union of polar sets.
+\end{corollary}
+
+\begin{proof}
+This is Step~5 of the preceding proof, followed by countable subadditivity
+of the fixed measure for the last assertion.  Note that no outer-regularity
+or capacity statement is used; the argument is a bare integrability
+statement.  The corresponding capacity-theoretic assertion---that pluripolar
+sets have capacity zero---is \Cref{prop:capacity-elementary}, which is
+deduced from \Cref{prop:bounded-ma-no-polar-mass} in
+\Cref{chap:bfj-capacity}.
+\end{proof}
+
+\begin{warning}{Nets, boundedness, and what monotone convergence means here}
+\Cref{thm:bounded-ma-extension} concerns decreasing nets whose limits
+remain bounded. Ordinary monotone convergence for measurable functions is
+not valid for arbitrary nets. The weighted assertion
+\eqref{eq:weighted-monotone-ma} is a theorem, not a formal use of the
+sequential monotone convergence theorem. For an unbounded limit the bounded
+operator is not used directly; truncation and finite energy enter in
+\Cref{chap:bfj-energy}.
+
+Three separate monotone statements have been used above and should be kept
+apart.  (i) \Cref{lem:monotone-net-converges}: a decreasing net of
+\emph{real numbers} converges to its infimum---no topology on \(X^{\An}\) is
+involved, and this is what drives
+\Cref{thm:ch24-energy-extension}.  (ii)
+\Cref{cor:usc-net-monotone-integral}: a decreasing net of upper
+semicontinuous \emph{functions}, integrated against one \emph{fixed} Radon
+measure, has convergent integrals---this is used in Step~5 of
+\Cref{thm:bounded-ma-extension} and in
+\Cref{rem:ch24-forced-ibp-as-definition}.  (iii) The statement that a
+decreasing net of functions integrated against a \emph{moving} net of
+measures has convergent integrals is \emph{false} in general; only the
+inequality \(\limsup\leq\) survives
+(\Cref{lem:usc-along-decreasing-net}).  It is precisely because (iii) fails
+that \eqref{eq:weighted-monotone-ma} cannot be proved by a portmanteau
+argument, and that the proof passes through \(\mathfrak E\).
+\end{warning}
+
+\section{Locality and maximum principles}
+\label{sec:ch24-locality}
+
+\subsection{Locality: the model checkpoint}
+\label{sec:ch24-model-locality}
+
+The full bounded maximum principle requires capacity and is proved in
+\Cref{thm:bounded-maximum-principle}.  Here we retain real model inputs,
+but must distinguish them from rational model inputs: the maximum of
+real model functions can be continuous without being a model function.
+The measure of that maximum is already available from the bounded
+construction and \Cref{prop:ch24-continuous-uniform}.
+
+On the open set where \(\varphi\) strictly exceeds \(\psi\), the measure
+of the maximum should see only \(\varphi\).  For rational potentials we
+prove this by choosing a common SNC determination; the resulting
+measures are finite sums of Dirac masses, and their coefficients are
+intersection numbers, which can be real because \(\theta\) is real.
+The geometric mechanism is that the coefficient at \(x_E\) depends only
+on the divisor classes restricted to \(E\).  We then pass to real model
+inputs by uniform approximation at the fixed form \(\theta\), testing on
+compact subsets of the strict inequality locus.  Neither the bounded
+locality theorem nor capacity is used in this argument.
+
+\begin{proposition}\label{prop:model-maximum-principle}
+For \(\theta\)-psh model functions \(\varphi,\psi\),
+\begin{equation}
+\label{eq:model-maximum-principle}
+ \one_{\{\varphi>\psi\}}
+ \MA_\theta(\max\{\varphi,\psi\})
+ =\one_{\{\varphi>\psi\}}\MA_\theta(\varphi).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The inputs may be real model functions.  Their maximum
+\(\sigma:=\max\{\varphi,\psi\}\) is continuous and \(\theta\)-psh,
+but need not be a model function.  Its measure is the bounded product of
+\Cref{thm:bounded-ma-extension}, restricted to continuous potentials as
+in \Cref{prop:ch24-continuous-uniform}.  We first prove the formula when
+the two potentials are rational; the reference form \(\theta\) remains
+the given real form throughout.
+
+\emph{Step 1: rational inputs on one common SNC model.}
+Suppose \(\varphi,\psi\) are rational model functions.  Then \(\sigma\)
+is a rational \(\theta\)-psh model function by
+\Cref{prop:ch20-model-max}.  Choose an SNC model \(\cX\) determining
+\(\theta\) and all three potentials, using \Cref{prop:snc-cofinal}.
+By \Cref{lem:model-function-affine}, all three factor through
+\(p_{\cX}\) and are affine on every face of \(\Delta_{\cX}\).
+The two measures are supported at its vertices by
+\eqref{eq:model-mixed-measure}.  We therefore compare their coefficients
+at each \(x_E\) with \(\varphi(x_E)>\psi(x_E)\).
+
+If another component \(F\) meets \(E\), consider an edge
+\([x_E,x_F]\).  The restrictions of \(\varphi\), \(\psi\), and their
+maximum \(\sigma\) are all affine.  The maximum of two affine functions
+on a segment cannot be affine if their strict order reverses along that
+segment.  Since \(\varphi(x_E)>\psi(x_E)\), it follows that
+\(\varphi(x_F)\geq\psi(x_F)\) and \(\sigma=\varphi\) on the whole
+edge.  Write \(\sigma=\varphi_{D_\sigma}\) and
+\(\varphi=\varphi_D\), with vertical rational Cartier divisors on
+\(\cX\).  The coefficient of any component \(G\) in \(D\) is
+\(b_G\varphi(x_G)\), by
+\Cref{prop:metrics-divisor-model-function}; the same formula holds for
+\(D_\sigma\).  Thus \(D_\sigma-D\) has zero coefficient along \(E\)
+and along every component meeting \(E\).  Its support is disjoint from
+\(E\).
+
+Choose a positive integer \(m\) clearing the denominators of these
+divisors.  The Cartier divisor \(m(D_\sigma-D)\) vanishes on a
+neighborhood of \(E\), so its associated line bundle restricts trivially
+to \(E\).  Dividing its numerical class by \(m\) gives
+\([D_\sigma-D]|_E=0\) in \(N^1(E)_{\mathbf R}\).  Consequently
+\[
+ (\theta+\ddc\sigma)|_E=(\theta+\ddc\varphi)|_E,
+\]
+and the two coefficients
+\(b_E\bigl((\theta+\ddc\sigma)|_E\bigr)^n\) and
+\(b_E\bigl((\theta+\ddc\varphi)|_E\bigr)^n\) in
+\eqref{eq:model-mixed-measure} agree.  Summing over all strict vertices
+proves \eqref{eq:model-maximum-principle} for rational inputs, without
+any rationality assumption on \(\theta\).
+
+\emph{Step 2: approximation at the fixed real form.}
+For real \(\theta\)-psh model inputs, apply
+\Cref{lem:ch20-fixed-form-rational-approximation} to obtain rational
+\(\theta\)-psh model functions \(\varphi_m,\psi_m\) with
+\[
+ \varepsilon_m:=\max\{\|\varphi_m-\varphi\|_\infty,
+                         \|\psi_m-\psi\|_\infty\}\longrightarrow0.
+\]
+The ample generic class needed for this approximation is part of
+\eqref{eq:ch24-standing}; the form itself is not perturbed.
+Put \(\sigma_m=\max\{\varphi_m,\psi_m\}\), a rational
+\(\theta\)-psh model function.  The elementary maximum inequality gives
+\(\|\sigma_m-\sigma\|_\infty\leq\varepsilon_m\).
+In particular \(\sigma\) is \(\theta\)-psh by uniform stability,
+\Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:unif}.
+By \Cref{prop:ch24-continuous-uniform}\,\cref{itm:ch24-cu:unif},
+\[
+ \MA_\theta(\sigma_m)\longrightarrow\MA_\theta(\sigma),
+ \qquad
+ \MA_\theta(\varphi_m)\longrightarrow\MA_\theta(\varphi)
+ \quad\text{weakly}.
+\]
+
+\emph{Step 3: localization before taking the limit.}
+The set \(U=\{\varphi>\psi\}\) is open.  Let \(h\) be a continuous
+function on \(X^{\An}\) whose support \(K\) is a compact subset of
+\(U\).  If \(K\) is nonempty, continuity and compactness give
+\(\delta:=\min_K(\varphi-\psi)>0\).  For every sufficiently large
+\(m\), we have \(2\varepsilon_m<\delta\), hence
+\(K\subseteq\{\varphi_m>\psi_m\}\).  The rational formula from
+Step~1 therefore gives
+\[
+ \int h\,\MA_\theta(\sigma_m)
+       =\int h\,\MA_\theta(\varphi_m).
+\]
+The equality is automatic if \(K\) is empty.  Weak convergence from
+Step~2 now yields
+\(\int h\,\MA_\theta(\sigma)=\int h\,\MA_\theta(\varphi)\).
+The open subspace \(U\) of the compact Hausdorff space \(X^{\An}\)
+is locally compact Hausdorff.  Every continuous compactly supported
+function on \(U\) extends by zero to a continuous function of the type
+just used.  Uniqueness of Radon measures from these tests shows that the
+two measures restricted to \(U\) agree, proving
+\eqref{eq:model-maximum-principle}.  We have not passed masses of moving
+strict-inequality sets through a weak limit.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch24-model-locality-open}
+Let \(\varphi,\psi\) be \(\theta\)-psh model functions and let
+\(U\subseteq X^{\An}\) be open.
+\begin{enumerate}
+\item\label{itm:ch24-mlo:agree} If \(\varphi=\psi\) on \(U\), then
+ \(\MA_\theta(\varphi)|_U=\MA_\theta(\psi)|_U\).
+\item\label{itm:ch24-mlo:mixed} The same holds for mixed measures: if
+ \(\varphi_i=\psi_i\) on \(U\) for all \(i\), then
+ \(\MA_\theta(\varphi_1,\ldots,\varphi_n)|_U
+   =\MA_\theta(\psi_1,\ldots,\psi_n)|_U\).
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+We prove \cref{itm:ch24-mlo:mixed}, of which \cref{itm:ch24-mlo:agree} is the
+diagonal case.  Choose an SNC model \(\cX\) on which \(\theta\) and all
+\(2n\) real model potentials are determined (\Cref{prop:snc-cofinal}).
+Both measures are supported on the vertex set \(\{x_E\}\) of
+\(\Delta_{\cX}\) by
+\Cref{prop:ch24-model-support}\,\cref{itm:ch24-ms:atomic}, so it suffices
+to show that the coefficients at each \(x_E\in U\) agree.
+
+Fix such an \(E\).  The set \(U\cap\Delta_{\cX}\) is open in
+\(\Delta_{\cX}\) and contains \(x_E\), so for every component \(F\)
+meeting \(E\) it contains an initial segment of an edge
+\([x_E,x_F]\) of positive length.  By
+\Cref{lem:model-function-affine}, \(\varphi_i\) and \(\psi_i\) are
+affine on that edge.  Since they agree on an initial segment, they agree
+on the whole edge.  Thus \(\varphi_i(x_F)=\psi_i(x_F)\), and also
+\(\varphi_i(x_E)=\psi_i(x_E)\).
+
+Let \(D_i,D_i'\) be the vertical real Cartier divisors determining these
+potentials.  By \Cref{prop:metrics-divisor-model-function}, their
+coefficients agree along \(E\) and every component meeting \(E\).
+Their difference is therefore supported away from \(E\).  On the
+regular SNC model each component \(G\) is a Cartier divisor.  Writing
+\(D_i-D_i'=\sum_G c_{iG}G\), every term with nonzero coefficient is
+disjoint from \(E\), so \(\cO_{\cX}(G)|_E\) is trivial.  Taking the
+real linear combination of these numerical classes gives
+\([D_i-D_i']|_E=0\) in \(N^1(E)_{\mathbf R}\).  This is a statement
+about a real numerical class, not an assertion that an arbitrary real
+divisor has an associated honest line bundle.  Hence
+\[
+ (\theta+\ddc\varphi_i)|_E=(\theta+\ddc\psi_i)|_E
+ \qquad\text{for every }i.
+\]
+The coefficients of \(\delta_{x_E}\) in the two mixed measures
+\eqref{eq:model-mixed-measure} are \(b_E\) times the products of these
+restrictions, and are consequently equal.
+\end{proof}
+
+\begin{remark}[The mass on the contact set is genuinely new]
+\label{rem:ch24-contact-mass}
+The strict-locus formula \eqref{eq:model-maximum-principle} does not
+determine the measure on the contact set \(\{\varphi=\psi\}\).
+Nor does \Cref{cor:ch24-model-locality-open} apply merely because the
+potentials agree on a set that is not open.  The measure
+\(\MA_\theta(\max\{\varphi,\psi\})\) can have an atom on the contact set
+that is present in neither input measure.
+\Cref{ex:ch24-locality-check} exhibits this on a chain of three
+components, where a new atom of mass \(1\) appears at the crossing point.
+The maximum is continuous even when it is not model, and its total
+mass is still \(V\) by \Cref{thm:bounded-ma-extension}.
+Thus the new atom represents redistribution of mass, not an increase
+of total mass.
+\end{remark}
+
+\subsection{The comparison principle on a model}
+\label{sec:ch24-model-comparison}
+
+The comparison principle is the first genuinely nonlinear consequence of
+locality, and it is what makes uniqueness statements possible.  We prove the
+model version here; the bounded version is
+\Cref{cor:bounded-comparison-principle}, deduced in
+\Cref{chap:bfj-capacity} from the bounded locality theorem by the same
+argument.
+
+\begin{proposition}
+\label{prop:ch24-model-comparison}
+For \(\theta\)-psh model functions \(\varphi,\psi\),
+\begin{equation}
+\label{eq:ch24-model-comparison}
+ \int_{\{\varphi<\psi\}}\MA_\theta(\psi)
+ \leq
+ \int_{\{\varphi<\psi\}}\MA_\theta(\varphi).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Fix \(\varepsilon>0\) and put
+\(\sigma_\varepsilon:=\max\{\varphi,\psi-\varepsilon\}\).
+The shifted input \(\psi-\varepsilon\) is still a real \(\theta\)-psh
+model function, while \(\sigma_\varepsilon\) is continuous and
+\(\theta\)-psh and need not be a model function.  Its bounded
+Monge--Amp\`ere measure is positive and has mass \(V\), by
+\Cref{thm:bounded-ma-extension}.  The two sets
+\[
+ U:=\{\varphi<\psi-\varepsilon\},
+ \qquad W:=\{\varphi>\psi-\varepsilon\}
+\]
+are disjoint.  The full real-input formula
+\eqref{eq:model-maximum-principle}, applied to
+\((\psi-\varepsilon,\varphi)\) and
+\((\varphi,\psi-\varepsilon)\), gives
+\[
+ \MA_\theta(\sigma_\varepsilon)|_U
+       =\MA_\theta(\psi-\varepsilon)|_U
+       =\MA_\theta(\psi)|_U,
+ \qquad
+ \MA_\theta(\sigma_\varepsilon)|_W
+       =\MA_\theta(\varphi)|_W.
+\]
+Here adding a constant does not change \(\ddc\) or the model measure.
+Discarding the nonnegative mass of \(\MA_\theta(\sigma_\varepsilon)\)
+on the complement of \(U\cup W\) yields
+\[
+ V\geq\int_U\MA_\theta(\psi)+\int_W\MA_\theta(\varphi).
+\]
+Since \(\MA_\theta(\varphi)\) also has mass \(V\), subtraction gives
+\[
+ \int_{\{\varphi<\psi-\varepsilon\}}\MA_\theta(\psi)
+ \leq\int_{\{\varphi\leq\psi-\varepsilon\}}\MA_\theta(\varphi)
+ \leq\int_{\{\varphi<\psi\}}\MA_\theta(\varphi).
+\]
+Along \(\varepsilon=1/m\), the sets on the left increase to
+\(\{\varphi<\psi\}\).  Continuity from below for the one fixed finite
+measure \(\MA_\theta(\psi)\) gives
+\eqref{eq:ch24-model-comparison}.  No model determination of
+\(\sigma_\varepsilon\) is used.
+\end{proof}
+
+\begin{corollary}
+\label{cor:ch24-model-uniqueness-curve}
+Let \(n=1\), let \(\cX\) be a semistable model of the curve \(X\), and let
+\(\varphi,\psi\) be \(\theta\)-psh model functions determined on \(\cX\)
+with \(\MA_\theta(\varphi)=\MA_\theta(\psi)\).  Then \(\varphi-\psi\) is
+constant.
+\end{corollary}
+
+\begin{proof}
+Write \(f:=\varphi-\psi\), a model function determined on \(\cX\).  By
+\eqref{eq:model-mixed-measure} with \(n=1\), the hypothesis says that the
+signed measure \(\ddc f\) vanishes; by
+\Cref{prop:ch20-curve-laplacian} this means that the weighted graph
+Laplacian of \(f|_{\Delta_{\cX}}\) vanishes at every vertex,
+\[
+ \sum_{F\neq E}b_F(E\cdot F)\bigl(f(x_F)-f(x_E)\bigr)=0
+ \qquad\text{for every }E .
+\]
+Multiplying by \(f(x_E)\) and summing gives, by
+\eqref{eq:ch20-hodge-laplacian},
+\(\sum_{E<F}w_{EF}\bigl(f(x_E)-f(x_F)\bigr)^2=0\) with
+\(w_{EF}=b_Eb_F(E\cdot F)\geq0\); since the dual graph of \(\cX_s\) is
+connected (\Cref{thm:ch20-ddc-exact}, Step~1) and \(w_{EF}>0\) exactly when
+\(E\cap F\neq\varnothing\), all the values \(f(x_E)\) are equal.  A model
+function determined on \(\cX\) is affine on each face of
+\(\Delta_{\cX}\) and factors through \(p_{\cX}\)
+(\Cref{lem:model-function-affine}), so \(f\) is constant on \(X^{\An}\).
+\end{proof}
+
+\begin{remark}[Uniqueness in higher dimension]
+\label{rem:ch24-uniqueness-scope}
+\Cref{cor:ch24-model-uniqueness-curve} is a statement about the
+\emph{linear} equation \(\ddc f=0\) and is available only because for
+\(n=1\) the Monge--Amp\`ere operator is linear.  For \(n\geq2\) uniqueness of
+solutions of \(\MA_\theta(\varphi)=\mu\) modulo constants is a genuine
+theorem, proved in \Cref{chap:bfj-continuity} for the continuous solutions
+of the original BFJ theorem and in \Cref{chap:bfj-finite-energy-measures} in
+the finite-energy setting; the mechanism there is the domination principle,
+which uses capacity.  Nothing in the present chapter proves uniqueness in
+dimension \(\geq2\), and \eqref{eq:ch24-model-comparison} alone does not
+suffice.
+\end{remark}
+
+\subsection{Maximum principles}
+\label{sec:ch24-max}
+
+Three statements go under the name of a maximum principle in this theory,
+and they have different depths.
+
+\begin{proposition}
+\label{prop:ch24-skeletal-maximum}
+Let \(\cX\) be an SNC model on which \(\theta\) is determined.
+\begin{enumerate}
+\item\label{itm:ch24-sm:model} If \(f\) is a model function determined on
+ \(\cX\), then \(\max_{X^{\An}}f=\max_{E}f(x_E)\) and
+ \(\min_{X^{\An}}f=\min_Ef(x_E)\), both attained at divisorial points of
+ \(\cX\).
+\item\label{itm:ch24-sm:psh} If \(u\in\PSH(X,\theta)\) and \(f\) is a model
+ function determined on \(\cX\), then
+ \(\sup_{X^{\An}}(u-f)=\max_{\Delta_{\cX}}(u-f)\).
+\item\label{itm:ch24-sm:supp} If \(\varphi\) is a \(\theta\)-psh model
+ function determined on \(\cX\) and \(u\in\PSH(X,\theta)\), then
+ \(\sup_{X^{\An}}(u-\varphi)\) is attained at a point of \(\Delta_{\cX}\),
+ and \(\Supp\MA_\theta(\varphi)\subseteq\Delta_{\cX}\).
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\cref{itm:ch24-sm:model} is \Cref{prop:ch20-maximum-principle}.  For
+\cref{itm:ch24-sm:psh}, \(f=f\circ p_{\cX}\) by
+\Cref{lem:model-function-affine} and \(u\leq u\circ p_{\cX}\) by
+\eqref{eq:ch21-retraction-inequality}, so
+\(u-f\leq(u-f)\circ p_{\cX}\); hence the supremum over \(X^{\An}\) is the
+supremum over \(\Delta_{\cX}\), which is attained because
+\(u|_{\Delta_{\cX}}\) is continuous
+(\Cref{prop:ch21-first-consequences}\,\cref{itm:ch21-fc:finite}) and
+\(\Delta_{\cX}\) is compact.  This is
+\Cref{prop:ch21-sup-on-skeleton} applied to \(u-f\), which is
+\((\theta+\ddc f)\)-psh.  Statement \cref{itm:ch24-sm:supp} is
+\cref{itm:ch24-sm:psh} together with
+\Cref{prop:ch24-model-support}\,\cref{itm:ch24-ms:atomic}.
+\end{proof}
+
+\begin{remark}[The domination principle is not proved here]
+\label{rem:ch24-domination-scope}
+The strongest statement of this type---if \(\varphi,\psi\) are bounded
+\(\theta\)-psh and \(\varphi\leq\psi\) holds
+\(\MA_\theta(\psi)\)-almost everywhere, then \(\varphi\leq\psi\)
+everywhere---is the \emph{domination principle}.  It is not proved in this
+chapter.  It requires the comparison principle for \emph{bounded}
+potentials, hence quasicontinuity, and is
+\Cref{prop:bounded-capacity-domination} in \Cref{chap:bfj-capacity}.  We
+flag this because \Cref{prop:ch24-skeletal-maximum} looks superficially like
+a domination statement and is not one: it locates a supremum on a skeleton,
+which is a consequence of the retraction inequality alone and carries no
+information about \(\Supp\MA_\theta(\psi)\).
+\end{remark}
+
+\subsection{What needs capacity, and what does not}
+\label{sec:ch24-needs-capacity}
+
+The following table records, for the four statements of this section, the
+model version proved here and the bounded version proved later, together
+with the extra input.
+
+\begin{center}
+\small
+\begin{tabular}{p{.25\textwidth}|p{.21\textwidth}|p{.21\textwidth}|p{.24\textwidth}}
+\toprule
+\textbf{Statement}&\textbf{Model level}&\textbf{Bounded level}
+ &\textbf{Extra input needed}\\
+\midrule
+locality of \(\MA\) on \(\{\varphi>\psi\}\)
+ &\Cref{prop:model-maximum-principle}
+ &\Cref{thm:bounded-maximum-principle}
+ &quasicontinuity, \Cref{thm:bounded-quasicontinuity}\\
+agreement on an open set
+ &\Cref{cor:ch24-model-locality-open}
+ &\Cref{thm:bounded-maximum-principle}, last sentence
+ &as above\\
+comparison principle
+ &\Cref{prop:ch24-model-comparison}
+ &\Cref{cor:bounded-comparison-principle}
+ &bounded locality only\\
+domination principle
+ &---
+ &\Cref{prop:bounded-capacity-domination}
+ &capacity estimate \Cref{lem:fundamental-capacity-estimate}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The reason the model level does not already give the bounded level is that
+the set \(\{\varphi>\psi\}\) is open when \(\varphi,\psi\) are continuous but
+merely a difference of upper semicontinuous functions in general; weak
+convergence of measures says nothing about the mass of such a set.
+Quasicontinuity replaces it by an open set up to small capacity, and this is
+the whole content of the passage from
+\Cref{prop:model-maximum-principle} to
+\Cref{thm:bounded-maximum-principle}.
+
+\section{Comparison with the Chambert--Loir and CLD constructions}
+\label{sec:ch24-comparison}
+
+\subsection{The three model-level measures}
+\label{sec:ch24-three-measures}
+
+Let \(L\) be ample, choose a model metric \(\|\cdot\|_0\) with curvature
+\(\theta\), and write a continuous semipositive metric as
+\(\|\cdot\|_\varphi=\rme^{-\varphi}\|\cdot\|_0\).
+
+\begin{theorem}\label{thm:bfj-cld-ma-common-locus}
+For semipositive model metrics, the intersection measure
+\eqref{eq:model-mixed-measure}, the Chambert--Loir measure, and the CLD
+product of the corresponding formal Chern currents agree. For continuous
+semipositive metrics, the BFJ measure \(\MA_\theta(\varphi)\) agrees with the
+Chambert--Loir measure obtained by uniform approximation by semipositive
+model metrics.
+\end{theorem}
+
+\begin{proof}
+The theorem is the specialization to the present notation of
+\Cref{thm:ch19-cld-bfj-comparison}, proved in \Cref{chap:cld-examples}; we
+indicate how the two statements match and which parts of that proof are used
+here, so that no circularity arises.
+
+\emph{The model case} is
+\Cref{thm:ch19-cld-bfj-comparison}\,(A), and specifically the chain of
+identities \eqref{eq:ch19-cld-bfj-model}.  In one line: for a model metric
+the coefficient at \(x_E\) in all three constructions is
+\(b_E\bigl(c_1(\mathcal L)|_E\bigr)^n\).  That this is the BFJ coefficient is
+\eqref{eq:model-mixed-measure}; that it is the Chambert--Loir coefficient is
+the defining formula of \cite{CL06}, recorded here as
+\Cref{cor:ch24-cl-identification}; and that it is the mass of the CLD
+Bedford--Taylor product of the corresponding formal Chern currents is
+\Cref{thm:cld-recovers-cl}, whose proof rests on the formal intersection
+formula \cite[Theorem~18.5.5 and Proposition~18.5.8]{CLD25}.  The
+identification of the divisorial normalizations on the two sides is
+\Cref{rem:divisorial-normalization}.  All of this is purely algebraic: no
+statement of the present chapter is used, so the argument may be quoted here
+without circularity.
+
+\emph{The continuous case} is
+\Cref{thm:ch19-cld-bfj-comparison}\,(B), and it is here that the analysis of
+the present chapter is used.  The mechanism is the reduction of uniform
+approximation to \emph{decreasing} uniform approximation.  Choose model
+weights converging uniformly to \(\varphi\), and pass to a subsequence with
+\(\|\varphi_m-\varphi\|_\infty\leq\varepsilon_m\), where
+\(\sum_m\varepsilon_m<\infty\). Put
+\[
+ d_m:=\sum_{j\geq m}(\varepsilon_j+\varepsilon_{j+1}),
+ \qquad \psi_m:=\varphi_m+d_m.
+\]
+Then \(\psi_m\) is a semipositive model weight and
+\(\psi_m\searrow\varphi\), since
+\(\|\varphi_m-\varphi_{m+1}\|_\infty
+ \leq\varepsilon_m+\varepsilon_{m+1}\).
+BFJ monotone continuity and Chambert--Loir's continuity under uniform
+semipositive approximation identify both limits with the weak limit of the
+same model measures \(\MA_\theta(\psi_m)\).  On the BFJ side this is
+\Cref{prop:ch24-continuous-uniform}\,\cref{itm:ch24-cu:seq} together with
+\Cref{cor:ch24-continuous-cl}; on the CLD side it is
+\Cref{thm:cld-bt-continuity}, whose hypotheses require exactly the local
+boundedness and uniform convergence supplied by the decreasing sequence
+\((\psi_m)\).  The mixed case follows either by repeating the argument with
+different potentials in different slots or, more economically, from the
+diagonal case by the polarization identity
+\eqref{eq:ch24-polarization} and \Cref{cor:ch24-mixed-from-diagonal}.
+\end{proof}
+
+\subsection{Exact scope of the comparison}
+\label{sec:ch24-scope-comparison}
+
+\begin{remark}[Boundary of the comparison]
+\label{rem:ch24-comparison-boundary}
+The theorem does not identify every bounded global BFJ-psh function with a
+locally CLD-psh function. Nor does it identify the BFJ monotone product with
+a CLD Bedford--Taylor current product outside the common regularizable
+locus. Boucksom--Eriksson give broader comparisons under their semiample and
+CLD hypotheses \cite[Theorems~7.14 and~8.4]{BE21}; these do not prove an
+unrestricted singular BFJ--CLD equivalence.
+\end{remark}
+
+It is worth spelling out what \Cref{rem:ch24-comparison-boundary} excludes,
+because the temptation to extend \Cref{thm:bfj-cld-ma-common-locus} by
+``continuity'' is strong and each of the four possible extensions fails for a
+different reason.  The list below is
+\Cref{thm:ch19-cld-bfj-comparison}\,(C), repeated here with the reasons
+attached; the limitations table of \Cref{sec:ch19-limitations} is the full
+account.
+
+\begin{warning}{Four statements this book does not prove}
+\begin{enumerate}
+\item\label{itm:ch24-notproved:psh}
+ That a bounded \(\theta\)-psh function is locally CLD-psh
+ (\Cref{thm:ch19-cld-bfj-comparison}, item~\cref{itm:ch19-cb:scope1}).  The
+ model identification propagates only along \emph{uniformly} convergent
+ sequences, whereas a bounded \(\theta\)-psh function is only a decreasing
+ pointwise limit of model functions and need not be continuous; see
+ \Cref{ex:ch24-branch-sum} for such a function.
+\item\label{itm:ch24-notproved:converse}
+ That a locally CLD-psh function on \(X^{\An}\) is \(\theta\)-psh for some
+ closed model form \(\theta\) (item~\cref{itm:ch19-cb:scope2} there).  The
+ CLD class is a sheaf and the BFJ class is defined by a global condition on
+ all models; \Cref{prop:ch21-bfj-vs-cld} isolates the two structural
+ differences.
+\item\label{itm:ch24-notproved:unbounded}
+ That the BFJ monotone product of an \emph{unbounded} \(\theta\)-psh
+ function equals a CLD Bedford--Taylor product
+ (item~\cref{itm:ch19-cb:scope3} there).  \Cref{thm:cld-bt-continuity}
+ requires local boundedness, and the BFJ extension beyond bounded
+ potentials is by a different mechanism altogether, the nonpluripolar
+ convention \Cref{def:nonpluripolar-ma}.
+\item\label{itm:ch24-notproved:polar}
+ That the two constructions assign the same mass to a pluripolar set
+ (item~\cref{itm:ch19-cb:scope4} there).  This is not a gap but a genuine
+ difference: \Cref{ex:ch16-polar-failure} exhibits a CLD product carrying
+ mass on a polar set, while \Cref{prop:bounded-ma-no-polar-mass} shows the
+ bounded BFJ product never does, and
+ \Cref{def:nonpluripolar-ma} discards such mass by construction.
+\end{enumerate}
+\end{warning}
+
+\begin{remark}[Which product the comparison concerns]
+\label{rem:ch24-which-product}
+\Cref{thm:bfj-cld-ma-common-locus} concerns the \emph{model} product in its
+first sentence and the \emph{continuous} product in its second.  It says
+nothing about the bounded product of \Cref{thm:bounded-ma-extension} beyond
+the continuous locus, and nothing at all about the finite-energy product of
+\Cref{chap:bfj-energy}.  On the CLD side it concerns the Bedford--Taylor
+product of \Cref{def:ch16-bt-current} for continuous psh weights, and not the
+extension to the wider classes of \Cref{def:ch16-psh-filtration}.  The
+three-level delimitation on the CLD side is
+\Cref{sec:ch16-three-levels}, and the corresponding table is
+\Cref{sec:ch16-delimitation-table}; the summary of everything that
+\emph{is} transferable is \Cref{cor:ch19-transfer}, and the synthesis at the
+end of \Cref{part:bfj} is
+\Cref{thm:bfj-cld-common-locus-synthesis}.
+\end{remark}
+
+\begin{remark}[Delta-forms and the third construction]
+\label{rem:ch24-delta-forms}
+On the model locus a fourth object agrees with the three of
+\Cref{thm:bfj-cld-ma-common-locus}: the product of Chern delta-forms of
+\Cref{chap:delta-forms}, by
+\Cref{thm:gk-delta-cl-measure}.  We mention it because it is the
+construction under which positivity of a formal metric is most easily
+recognized (\Cref{thm:ch19-cld-bfj-comparison},
+item~\cref{itm:ch19-cb:delta}), but it plays no role in
+\Cref{part:bfj} and no statement of this chapter depends on it.
+\end{remark}
+
+\section{Worked examples}
+\label{sec:ch24-examples}
+
+The six computations below test every normalization introduced in this
+chapter: the multiplicity \(b_E\), the sign of \(\ddc\), the total mass, the
+polarization identity, the monotone extension, and the locality identity.
+Each is carried to explicit numbers, and each is cross-checked against an
+independent computation wherever one is available.
+
+\subsection{Mixed measures on a curve}
+\label{sec:ch24-ex-curve}
+
+For \(n=1\) the Monge--Amp\`ere operator has only one slot, so ``mixed''
+means multilinear in the metrized line bundle rather than in the potential.
+That is nevertheless a genuine test: it checks the additivity of
+\eqref{eq:model-mixed-measure} in the classes, the additivity of masses, and
+the symmetry of the energy pairing \eqref{eq:ch24-mixed-energy}, all against
+the graph Laplacian of \Cref{chap:model-calculations}.  We begin with the
+running two-component curve.
+
+\begin{example}[A semistable curve with two components]
+\label{ex:two-vertex-ma}
+Let a regular semistable model have special fibre \(E_0+E_1\), with one
+node rational over the residue field, and let the reference measure be
+\(\theta=m_0\delta_{x_0}+m_1\delta_{x_1}\), where
+\(m_0+m_1=\deg L\). Give the edge length one and let a model function have
+vertex values \(a_0,a_1\). With the graph Laplacian convention forced by
+\(\ddc\varphi_D=[D]\),
+\[
+ \ddc\varphi=(a_1-a_0)\delta_{x_0}+(a_0-a_1)\delta_{x_1}.
+\]
+Hence
+\[
+ \MA_\theta(\varphi)
+ =(m_0+a_1-a_0)\delta_{x_0}
+ +(m_1+a_0-a_1)\delta_{x_1}.
+\]
+The metric is semipositive precisely when both coefficients are nonnegative,
+and their sum is always \(\deg L\).
+\end{example}
+
+The last sentence is \eqref{eq:ch24-mass} in dimension one: the mass
+\(\deg L\) is blind to the potential, as
+\Cref{cor:ch24-mass-independent} asserts, and the two nonnegativity
+conditions are the two componentwise inequalities
+\eqref{eq:ch20-mixed-component-positive}.  Explicitly, with
+\(m_0=m_1=1\) and \(\deg L=2\), the admissible pairs \((a_0,a_1)\) are those
+with \(|a_0-a_1|\leq1\), which is the nef interval
+\eqref{eq:running-nef-interval} of the running conic; at the two extremes the
+whole mass sits at one vertex.
+
+\begin{example}[Two metrized bundles on the same curve: bilinearity and the
+energy pairing]
+\label{ex:ch24-curve-mixed}
+Keep the two-component model of \Cref{ex:two-vertex-ma} with
+\((E_0^2)=(E_1^2)=-1\), \((E_0\cdot E_1)=1\), both multiplicities one, and
+edge length and residue weight one.  Let \(L_1,L_2\) be line bundles on \(X\) of degrees
+\(d_1=2\) and \(d_2=3\), extended to model line bundles
+\(\cL_1,\cL_2\) with component degrees
+\[
+ \bigl(\deg\cL_1|_{E_0},\deg\cL_1|_{E_1}\bigr)=(1,1),
+ \qquad
+ \bigl(\deg\cL_2|_{E_0},\deg\cL_2|_{E_1}\bigr)=(2,1).
+\]
+Write \(\theta_1,\theta_2\) for the corresponding closed model forms.  Then
+\[
+ \theta_1=\delta_{x_0}+\delta_{x_1},
+ \qquad
+ \theta_2=2\delta_{x_0}+\delta_{x_1},
+\]
+of masses \(2=d_1\) and \(3=d_2\), as \eqref{eq:ch24-mass} requires.
+
+\emph{Bilinearity.}  The model line bundle \(\cL_1\otimes\cL_2\) extends
+\(L_1\otimes L_2\), of degree \(5\), with component degrees \((3,2)\), so
+\[
+ \theta_1+\theta_2=3\delta_{x_0}+2\delta_{x_1},
+\]
+of mass \(5=d_1+d_2\).  This is additivity of
+\eqref{eq:model-mixed-measure} in the classes, and it is the case \(n=1\) of
+the multilinearity in \Cref{prop:model-ma-basic}.
+
+\emph{The energy pairing and its symmetry.}  Let \(\varphi=\varphi_D\) and
+\(\psi=\varphi_{D'}\) be model functions with vertex values \((a_0,a_1)\) and
+\((c_0,c_1)\); thus \(D=a_0E_0+a_1E_1\) and \(D'=c_0E_0+c_1E_1\).  Using
+\eqref{eq:model-test-intersection} and
+\(\ddc\varphi=(a_1-a_0)(\delta_{x_0}-\delta_{x_1})\),
+\[
+ \int\psi\,\ddc\varphi
+ =(c_0-c_1)(a_1-a_0)
+ =\int\varphi\,\ddc\psi ,
+\]
+which is \eqref{eq:model-ibp}, and directly
+\((D\cdot D')=-(a_0-a_1)(c_0-c_1)\) from the intersection matrix
+\eqref{eq:ch20-two-component-matrix}.  With \(\theta=\theta_1\), the mixed
+energy pairing of \Cref{def:ch24-mixed-energy} is, by
+\eqref{eq:ch24-mixed-energy} with \(n=1\),
+\[
+ \mathfrak E(\varphi,\psi)
+ =(D\cdot\theta_1)+(D'\cdot\theta_1)+(D\cdot D')
+ =(a_0+a_1)+(c_0+c_1)-(a_0-a_1)(c_0-c_1),
+\]
+manifestly symmetric, affine in each variable, and satisfying
+\(\mathfrak E(\varphi+t,\psi+s)=\mathfrak E(\varphi,\psi)+2(t+s)\), which is
+\eqref{eq:ch24-energy-constants} with \(V=2\).  Monotonicity
+(\Cref{prop:ch24-energy-basic}\,\cref{itm:ch24-eb:mono}) is visible: for
+\(\varphi\) fixed, the derivative of \(\mathfrak E\) in \(c_0\) is
+\(1-(a_0-a_1)\) and in \(c_1\) is \(1+(a_0-a_1)\), and these are exactly the
+two coefficients of \(\MA_{\theta_1}(\varphi)\), both nonnegative precisely
+when \(\varphi\) is \(\theta_1\)-psh.  This is
+\eqref{eq:ch24-energy-slot} written out.
+
+\emph{A numerical instance.}  For \((a_0,a_1)=(0,-1)\) and
+\((c_0,c_1)=(0,1)\) one gets
+\(\MA_{\theta_1}(\varphi)=0\cdot\delta_{x_0}+2\delta_{x_1}\),
+\(\int\psi\,\MA_{\theta_1}(\varphi)=2\), and
+\(\mathfrak E(\varphi,\psi)=(-1)+(1)-(1)(-1)=1\); the check
+\(\mathfrak E(\varphi,\psi)-\mathfrak E(\varphi,0)
+ =1-(-1)=2=\int\psi\,\MA_{\theta_1}(\varphi)\) confirms
+\eqref{eq:ch24-energy-slot}.
+\end{example}
+
+\subsection{A mixed measure on a toric surface}
+\label{sec:ch24-ex-toric}
+
+\begin{example}[A genuinely mixed Chambert--Loir measure on
+\(\mathbf P^2\)]
+\label{ex:ch24-toric-surface-mixed}
+We continue \Cref{ex:metrics-cl-toric-surface}, now computing a
+\emph{mixed} measure and checking it twice: once by intersection numbers on
+the two components of a special fibre, once by mixed volumes of subgradient
+polytopes.
+
+\emph{Setup.}  Let \(K\) be discretely valued with \(v(\pi)=1\), let
+\(X=\mathbf P^2_K\) with torus coordinates \(x=Z_1/Z_0\), \(y=Z_2/Z_0\), and
+let \(L=\cO(1)\), so \((L^2)=1\).  Write \(u=(v(x),v(y))\) for the
+tropical coordinate \eqref{eq:toric-trop}.  Consider two invariant model
+metrics on \(L\):
+\[
+ F_1(u)=\max\{0,-u_1,-u_2\},
+ \qquad
+ F_2(u)=\max\{-1,-u_1,-u_2\},
+\]
+the first the standard model metric determined by \(\mathbf P^2_R\), the
+second the Fubini--Study metric of \eqref{eq:metrics-toric-weight}
+determined by the sections \(\pi Z_0,Z_1,Z_2\).  Let \(\theta_1,\theta_2\)
+be the corresponding closed model forms; both have generic class
+\(c_1(\cO(1))\), so \((\{\theta_1\}\{\theta_2\})=(L^2)=1\).
+
+\emph{The common model.}  Let \(\rho:\cX\to\mathbf P^2_R\) be the blowup of
+the torus-fixed point \(p\) of the special fibre, with exceptional divisor
+\(E\simeq\mathbf P^2_k\) and strict transform \(\widetilde{X_s}\), both of
+multiplicity one:
+\(\cX_s=\widetilde{X_s}+E\).  As in
+\Cref{ex:metrics-cl-toric-surface}, \(\theta_1\) is determined by
+\(\rho^*\cO(1)\) and \(\theta_2\) by
+\(\rho^*\cO(1)\otimes\cO_{\cX}(-E)\).  Writing \(h\) for the pullback of the
+hyperplane class to \(\widetilde{X_s}\) and \(e\) for its exceptional curve,
+so \((h^2)=1\), \((h\cdot e)=0\), \((e^2)=-1\), the restrictions are
+\[
+ \theta_1|_{E}=0,\quad \theta_1|_{\widetilde{X_s}}=h;
+ \qquad
+ \theta_2|_{E}=\cO_{\mathbf P^2}(1),\quad
+ \theta_2|_{\widetilde{X_s}}=h-e .
+\]
+The first vanishes because \(\rho\) contracts \(E\).
+
+\emph{The three measures.}  By \eqref{eq:model-mixed-measure},
+\[
+ \theta_1\wedge\theta_1
+ =1\cdot(h^2)\,\delta_{x_{\widetilde{X_s}}}+1\cdot0\,\delta_{x_E}
+ =\delta_{x_0},
+\]
+where \(x_0=x_{\widetilde{X_s}}\) is the Gauss point, at \(u=(0,0)\);
+\[
+ \theta_2\wedge\theta_2
+ =1\cdot\bigl((h-e)^2\bigr)\delta_{x_0}
+  +1\cdot\bigl(\cO_{\mathbf P^2}(1)^2\bigr)\delta_{x_E}
+ =0\cdot\delta_{x_0}+1\cdot\delta_{x_E}
+ =\delta_{x_E},
+\]
+with \(x_E\) at \(u=(1,1)\), which is
+\eqref{eq:metrics-toric-measure}; and the mixed measure is
+\begin{equation}
+\label{eq:ch24-toric-mixed}
+ \theta_1\wedge\theta_2
+ =1\cdot\bigl(h\cdot(h-e)\bigr)\delta_{x_0}
+  +1\cdot\bigl(0\cdot\cO_{\mathbf P^2}(1)\bigr)\delta_{x_E}
+ =\delta_{x_0}.
+\end{equation}
+All three have mass \(1\), in accordance with \eqref{eq:ch24-mass}:
+\((\{\theta_1\}^2)=(\{\theta_1\}\{\theta_2\})=(\{\theta_2\}^2)=(L^2)=1\).
+Note that the mixed measure coincides with \(\theta_1\wedge\theta_1\) and
+not with \(\theta_2\wedge\theta_2\); mixed measures are not interpolations.
+
+\emph{Cross-check by convex geometry.}  By
+\Cref{thm:toric-ma-comparison} the pushforward under tropicalization of the
+diagonal measure of an invariant model metric with weight \(F\) is
+\(n!\operatorname{MA}_{\mathbf R}(F)=2\operatorname{MA}_{\mathbf R}(F)\),
+where \(\operatorname{MA}_{\mathbf R}\) is the Alexandrov measure
+\eqref{eq:alexandrov-ma}.  Applying this to \(F_1\), \(F_2\), and
+\(F_1+F_2\)---the last being the weight of the tensor product metric on
+\(\cO(2)\)---and using bilinearity of \(\wedge\), one obtains
+\[
+ \Trop_*\bigl(\theta_1\wedge\theta_2\bigr)
+ =\tfrac12\Bigl[
+   2\operatorname{MA}_{\mathbf R}(F_1+F_2)
+   -2\operatorname{MA}_{\mathbf R}(F_1)
+   -2\operatorname{MA}_{\mathbf R}(F_2)\Bigr].
+\]
+Now \(F_1\) is the maximum of three affine functions with slopes
+\(0,-e_1^*,-e_2^*\) coinciding only at \(u=(0,0)\), where
+\(\partial F_1=\operatorname{conv}\{0,-e_1,-e_2\}\) has area \(\tfrac12\);
+so \(\operatorname{MA}_{\mathbf R}(F_1)=\tfrac12\delta_{(0,0)}\) and
+\(2\operatorname{MA}_{\mathbf R}(F_1)=\delta_{(0,0)}\), matching
+\(\theta_1\wedge\theta_1=\delta_{x_0}\).  Likewise
+\(\operatorname{MA}_{\mathbf R}(F_2)=\tfrac12\delta_{(1,1)}\).  For the sum,
+\(\partial(F_1+F_2)(u)=\partial F_1(u)+\partial F_2(u)\), so a point
+contributes only if that Minkowski sum is two-dimensional.  Each
+\(\partial F_i(u)\) is a point, a segment, or a triangle; the triangles occur
+only at \(u=(0,0)\) for \(F_1\) and \(u=(1,1)\) for \(F_2\), and the two
+segment loci that could combine---the sets where exactly two affine pieces
+are active---are \(\{u_1=0,u_2>0\}\cup\{u_2=0,u_1>0\}\cup\{u_1=u_2\leq0\}\)
+for \(F_1\) and \(\{u_1=1,u_2>1\}\cup\{u_2=1,u_1>1\}
+\cup\{u_1=u_2\leq1\}\) for \(F_2\); they meet only along
+\(\{u_1=u_2\leq0\}\), where both subdifferentials are the \emph{same}
+segment \(\operatorname{conv}\{-e_1,-e_2\}\) and the sum is one-dimensional.
+Hence only \((0,0)\) and \((1,1)\) contribute.  At \((0,0)\),
+\[
+ \partial F_1(0,0)=\operatorname{conv}\{0,-e_1,-e_2\},
+ \qquad
+ \partial F_2(0,0)=\operatorname{conv}\{-e_1,-e_2\},
+\]
+and the Minkowski sum, of area \(\tfrac32\), has vertices
+\[
+ (-2,0),\quad(-1,0),\quad(0,-1),\quad(0,-2).
+\]
+At \((1,1)\),
+\(\partial F_1(1,1)=\{0\}\) and
+\(\partial F_2(1,1)=\operatorname{conv}\{0,-e_1,-e_2\}\), of area
+\(\tfrac12\).  Hence
+\[
+ \operatorname{MA}_{\mathbf R}(F_1+F_2)
+ =\tfrac32\delta_{(0,0)}+\tfrac12\delta_{(1,1)}.
+\]
+Consequently,
+\[
+ \Trop_*(\theta_1\wedge\theta_2)
+ =\tfrac12\bigl[(3-1-0)\delta_{(0,0)}+(1-0-1)\delta_{(1,1)}\bigr]
+ =\delta_{(0,0)},
+\]
+which is \eqref{eq:ch24-toric-mixed} transported to \(N_{\mathbf R}\).  The
+two computations---one by mixed degrees on the two components of a special
+fibre, one by mixed areas of subgradient polytopes---agree, including the
+factor \(n!=2\) of \Cref{lem:toric-real-total-mass}, and both give mass
+\(1\).
+
+\emph{Polarization check.}  \Cref{prop:ch24-polarization} with \(n=2\) reads
+\(2\MA_\theta(\varphi_1,\varphi_2)
+ =4\MA_\theta\bigl(\tfrac12(\varphi_1+\varphi_2)\bigr)
+  -\MA_\theta(\varphi_1)-\MA_\theta(\varphi_2)\).
+Here the potentials are the relative weights of the two metrics with respect
+to a common reference, and
+\(\tfrac12(F_1+F_2)\) is the weight of the metric on \(\cO(1)\) obtained as
+the square root of the tensor product.  Substituting the three measures
+computed above,
+\[
+ 2\delta_{x_0}
+ =4\cdot\tfrac14\bigl(3\delta_{x_0}+\delta_{x_E}\bigr)
+  -\delta_{x_0}-\delta_{x_E}
+ =3\delta_{x_0}+\delta_{x_E}-\delta_{x_0}-\delta_{x_E}
+ =2\delta_{x_0},
+\]
+as required, where
+\(\MA(\tfrac12(F_1+F_2))=\tfrac14(3\delta_{x_0}+\delta_{x_E})\) by
+homogeneity of the real Monge--Amp\`ere operator.
+\end{example}
+
+\subsection{A bounded psh function that is not a model function}
+\label{sec:ch24-ex-branch}
+
+The next example is the smallest complete illustration of
+\Cref{thm:bounded-ma-extension}: a bounded \(\theta\)-psh function that is
+\emph{not} a model function, is not even continuous, and whose
+Monge--Amp\`ere measure has infinitely many atoms---so that it is not a model
+measure either---and yet is computed exactly, by a decreasing sequence.
+
+\begin{example}[A branch sum on the Berkovich projective line]
+\label{ex:ch24-branch-sum}
+Let \(K\) be complete and discretely valued with \(v(\pi)=1\) and residue
+field \(k\) of characteristic \(0\); in particular \(k\supseteq\mathbf Q\) is
+infinite.  Let \(X=\mathbf P^1_K\), \(L=\cO(1)\), and let \(\theta\) be the
+closed model form of the standard model \(\mathbf P^1_R\), so that by
+\eqref{eq:p1-standard-measure}
+\[
+ \theta=\delta_{\zeta},\qquad \zeta:=\zeta_{0,1}
+ \ \text{the Gauss point},\qquad V=(L^1)=1 .
+\]
+We use the tree structure of \(\mathbf P^{1,\An}_K\) and the path metric
+\eqref{eq:ch08-path-metric} of \Cref{def:ch08-path-metric}.
+
+\emph{The pieces.}  By \Cref{prop:ch08-branching} the tangent directions at
+\(\zeta\) are in bijection with \(\mathbf P^1(k)\), an infinite set.  Choose
+pairwise distinct residues \(\bar a_1,\bar a_2,\ldots\in k\) with lifts
+\(a_k\in R\), put \(\ell_k:=2^k\), and let \(x_k\) be the point of
+\(\mathbf P^{1,\An}_K\) at distance \(\ell_k\) from \(\zeta\) in the
+direction \(\bar a_k\); concretely \(x_k=\zeta_{a_k,|\pi|^{\ell_k}}\), a
+divisorial point, obtained by blowing up the ideal
+\((\pi^{\ell_k},T-a_k)\).  Define
+\[
+ \psi_k:=-\frac1{\ell_k}\,
+   \min\bigl\{\ell_k,\ \max\{0,v_\bullet(T-a_k)\}\bigr\}
+   \ \in\ \mathcal D(X),
+\]
+so that \(\psi_k(\zeta)=0\), \(\psi_k\) decreases linearly with slope
+\(-1/\ell_k\) along the segment \([\zeta,x_k]\), equals \(-1\) on the whole
+branch beyond \(x_k\), and vanishes off that branch.  By the graph
+Laplacian convention \eqref{eq:graph-laplacian}, forced by
+\(\ddc\varphi_D=[D]\),
+\[
+ \ddc\psi_k=\frac1{\ell_k}\bigl(\delta_{x_k}-\delta_{\zeta}\bigr)
+ =2^{-k}\bigl(\delta_{x_k}-\delta_{\zeta}\bigr),
+\]
+of total mass zero as \eqref{eq:ch19-lap-mass-zero} requires.  In
+particular each \(\psi_k\) is \(\theta\)-psh, since
+\(\theta+\ddc\psi_k=(1-2^{-k})\delta_\zeta+2^{-k}\delta_{x_k}\geq0\).
+
+\emph{The function.}  Set
+\[
+ \varphi:=\sum_{k\geq1}\psi_k,
+ \qquad
+ \varphi_N:=\sum_{k=1}^{N}\psi_k .
+\]
+Because the branches are pairwise disjoint away from \(\zeta\), at every
+point at most one summand is nonzero, so the sum converges pointwise and
+\(-1\leq\varphi\leq0\).  Each \(\varphi_N\) is a \(\theta\)-psh model
+function: it is a finite \(\mathbf Q\)-linear combination of model functions,
+and
+\[
+ \theta+\ddc\varphi_N
+ =\Bigl(1-\sum_{k\leq N}2^{-k}\Bigr)\delta_\zeta
+  +\sum_{k\leq N}2^{-k}\delta_{x_k}
+ =2^{-N}\delta_\zeta+\sum_{k\leq N}2^{-k}\delta_{x_k}\ \geq\ 0 .
+\]
+Moreover \(\varphi_N-\varphi_{N+1}=-\psi_{N+1}\geq0\), so
+\(\varphi_N\searrow\varphi\) is a \emph{decreasing sequence} of
+\(\theta\)-psh model functions.  Hence \(\varphi\) is bounded and
+\(\theta\)-psh, by \Cref{thm:ch21-decreasing-stability}.
+
+\emph{\(\varphi\) is not continuous, hence not a model function.}  The
+points \(x_k\) converge to \(\zeta\).  Indeed, by the tree description
+\Cref{prop:berk-a1-tree} a basic neighbourhood of \(\zeta\) is obtained by
+deleting, in each of finitely many tangent directions at \(\zeta\), the
+closed sub-branch at distance \(\geq\delta\) from \(\zeta\); each such
+sub-branch is a closed disc (or, in the direction of \(\infty\), the
+complement of an open disc), hence closed, so the complement of finitely
+many of them is open.  A point \(x_k\) lies in this neighbourhood as soon as
+its direction \(\bar a_k\) is not among the finitely many deleted ones, which
+excludes only finitely many indices \(k\), the residues \(\bar a_k\) being
+pairwise distinct.
+But \(\varphi(x_k)=\psi_k(x_k)=-1\) for every \(k\), while
+\(\varphi(\zeta)=0\).  So \(\varphi\) is discontinuous at \(\zeta\); it is
+of course upper semicontinuous, being a decreasing limit of continuous
+functions, and indeed \(\limsup_k\varphi(x_k)=-1\leq0=\varphi(\zeta)\).
+
+\emph{The Monge--Amp\`ere measure.}  Since
+\(\sum_{k\geq1}2^{-k}=1\), we get \(\ddc\varphi=-\delta_\zeta
++\sum_{k\geq1}2^{-k}\delta_{x_k}\) as measures, and
+\Cref{thm:bounded-ma-extension} gives
+\begin{equation}
+\label{eq:ch24-branch-measure}
+ \MA_\theta(\varphi)
+ =\lim_{N\to\infty}\MA_\theta(\varphi_N)
+ =\lim_{N\to\infty}\Bigl(2^{-N}\delta_\zeta
+   +\sum_{k\leq N}2^{-k}\delta_{x_k}\Bigr)
+ =\sum_{k\geq1}2^{-k}\delta_{x_k},
+\end{equation}
+the limit being weak.  The total mass is
+\(\sum_{k\geq1}2^{-k}=1=V\) at every stage and in the limit, as
+\Cref{thm:bounded-ma-extension} requires.  Note that the mass \(2^{-N}\) at
+the Gauss point escapes in the limit, not to infinity---the space is
+compact---but into the accumulating atoms; and that the limit measure has
+infinitely many atoms, so it is not the measure of any model metric
+(\Cref{prop:ch24-model-support}\,\cref{itm:ch24-ms:atomic}).  This is the
+precise sense in which the bounded theory is strictly larger than the model
+theory.
+
+\emph{The energy pairing, computed.}  With \(n=1\),
+\eqref{eq:ch24-mixed-energy} gives, for model functions \(f=\varphi_D\),
+\(g=\varphi_{D'}\), the value
+\(\mathfrak E(f,g)=(D\cdot\theta)+(D'\cdot\theta)+(D\cdot D')\).  Taking
+\(f=g=\varphi_N\) and using
+\(\int\varphi_N\,\theta=\varphi_N(\zeta)=0\) and
+\(\int\varphi_N\,\ddc\varphi_N
+ =\sum_{k\leq N}2^{-k}\bigl(\varphi_N(x_k)-\varphi_N(\zeta)\bigr)
+ =-\sum_{k\leq N}2^{-k}\),
+we find
+\[
+ \mathfrak E(\varphi_N,\varphi_N)=0+0-\sum_{k\leq N}2^{-k}
+ =-(1-2^{-N})
+ \ \searrow\ -1 .
+\]
+By \Cref{thm:ch24-energy-extension} the limit is
+\(\mathfrak E(\varphi,\varphi)=-1\); and indeed
+\eqref{eq:ch24-energy-telescoping} gives
+\(\mathfrak E(\varphi,\varphi)=\int\varphi\,\theta
+ +\int\varphi\,\MA_\theta(\varphi)
+ =0+\sum_{k\geq1}2^{-k}\varphi(x_k)=-1\), which is the same number
+computed from the extended operator.  This is a complete numerical check of
+\eqref{eq:ch24-energy-slot-bounded}.
+
+\emph{A remark on nets.}  Here a decreasing \emph{sequence} sufficed,
+because the construction was countable by design.  That is a feature of the
+example, not of the theory: by
+\Cref{ex:ch22-countable-blind-spot} there are \(\theta\)-psh functions that
+no countable family of model functions approximates from above, and for
+those the net formulation of \Cref{thm:bounded-ma-extension} is the only one
+available.  The example does show that continuity of the potential is not
+needed anywhere in that theorem.
+\end{example}
+
+\subsection{A locality check}
+\label{sec:ch24-ex-locality}
+
+\begin{example}[Locality and the contact set on a chain of three
+components]
+\label{ex:ch24-locality-check}
+Let \(n=1\) and let \(\cX\) be a regular semistable model of a curve whose
+special fibre is a chain \(E_0,E_1,E_2\) of three components of
+multiplicity one, with \((E_0\cdot E_1)=(E_1\cdot E_2)=1\) and
+\((E_0\cdot E_2)=0\); the row-sum relation gives
+\((E_0^2)=(E_2^2)=-1\) and \((E_1^2)=-2\).  The dual complex is the segment
+\([0,2]\) with vertices \(v_0,v_1,v_2\) at the integers, and a model
+function determined on \(\cX\) is the piecewise affine function with
+prescribed vertex values.  Let \(\theta\) have component degrees
+\((1,0,1)\), so \(V=2\) and \(\MA_\theta(0)=\delta_{v_0}+\delta_{v_2}\).
+
+By \eqref{eq:ch20-curve-nef-test} a model function \(u\) with vertex values
+\((u_0,u_1,u_2)\) is \(\theta\)-psh exactly when
+\[
+ 1+(u_1-u_0)\geq0,
+ \quad
+ (u_0-u_1)+(u_2-u_1)\geq0,
+ \quad
+ 1+(u_1-u_2)\geq0 .
+\]
+
+\emph{Two potentials.}  Take \(\varphi\) with values \((0,-1,-2)\) and
+\(\psi:=-\tfrac12\), the constant.  Both are \(\theta\)-psh: for
+\(\varphi\) the three left-hand sides are \(0,0,2\); for a constant they are
+\(1,0,1\).  On the segment, parametrized by \(t\in[0,2]\),
+\(\varphi(t)=-t\) and \(\psi(t)=-\tfrac12\).  Their measures are
+\[
+ \MA_\theta(\varphi)=0\cdot\delta_{v_0}+0\cdot\delta_{v_1}+2\delta_{v_2},
+ \qquad
+ \MA_\theta(\psi)=\delta_{v_0}+\delta_{v_2},
+\]
+both of mass \(2\).
+
+\emph{The maximum.}  We have
+\(\sigma:=\max\{\varphi,\psi\}\) equal to \(-t\) for \(t\leq\tfrac12\) and to
+\(-\tfrac12\) for \(t\geq\tfrac12\).  This is a model function on the model
+\(\cX'\) obtained by blowing up the node \(E_0\cap E_1\): the new component
+has multiplicity \(b_0+b_1=2\), its divisorial point is the midpoint
+\(v_{1/2}\) of the edge \([v_0,v_1]\), and the two halves of that edge have
+length \(\tfrac12\).  The form \(\theta\) has degree \(0\) on the new
+component, since \(\rho^*\) of a class is trivial on a contracted curve, and
+its degrees on the remaining components are unchanged.  Summing outgoing
+slopes with respect to the subdivided lengths, as in
+\eqref{eq:graph-laplacian},
+\[
+ \MA_\theta(\sigma)
+ =0\cdot\delta_{v_0}+1\cdot\delta_{v_{1/2}}
+  +0\cdot\delta_{v_1}+1\cdot\delta_{v_2},
+\]
+of mass \(2\), as \Cref{thm:ch24-mass} requires.  Indeed at \(v_0\) the
+degree is \(1+\bigl(\sigma(\tfrac12)-\sigma(0)\bigr)/\tfrac12=1-1=0\); at
+\(v_{1/2}\) it is
+\(0+\bigl(\sigma(0)-\sigma(\tfrac12)\bigr)/\tfrac12
+ +\bigl(\sigma(1)-\sigma(\tfrac12)\bigr)/\tfrac12=1+0=1\); at \(v_1\) it is
+\(0+0+0=0\), because \(\sigma\) is constant from \(t=\tfrac12\) onwards; and
+at \(v_2\) it is \(1+0=1\).
+
+\emph{The locality identity.}  Here \(\{\psi>\varphi\}=\{t>\tfrac12\}\) and
+\(\{\varphi>\psi\}=\{t<\tfrac12\}\), both understood as their preimages
+under the retraction.  Then
+\[
+ \one_{\{\psi>\varphi\}}\MA_\theta(\sigma)=\delta_{v_2}
+ =\one_{\{\psi>\varphi\}}\MA_\theta(\psi),
+\]
+and
+\[
+ \one_{\{\varphi>\psi\}}\MA_\theta(\sigma)=0
+ =\one_{\{\varphi>\psi\}}\MA_\theta(\varphi),
+\]
+both instances of \eqref{eq:model-maximum-principle}.  Note that
+\(\MA_\theta(\sigma)\) carries an atom of mass \(1\) at the contact point
+\(v_{1/2}\), which is present in neither \(\MA_\theta(\varphi)\) nor
+\(\MA_\theta(\psi)\); this is the phenomenon of
+\Cref{rem:ch24-contact-mass}, and it is exactly compensated by the mass
+\(1\) that \(\MA_\theta(\psi)\) carries at \(v_0\) and
+\(\MA_\theta(\sigma)\) does not.
+
+\emph{The comparison principle.}  With
+\(\{\varphi<\psi\}=\{t>\tfrac12\}\),
+\[
+ \int_{\{\varphi<\psi\}}\MA_\theta(\psi)=1
+ \ \leq\
+ \int_{\{\varphi<\psi\}}\MA_\theta(\varphi)=2 ,
+\]
+an instance of \eqref{eq:ch24-model-comparison}, with strict inequality.
+\end{example}
+
+\subsection{A maximum-principle application}
+\label{sec:ch24-ex-maxprin}
+
+\begin{example}[Solving the model equation on a curve, with uniqueness]
+\label{ex:ch24-uniqueness-curve}
+Keep the two-component model of \Cref{ex:two-vertex-ma}: special fibre
+\(E_0+E_1\), one node, both multiplicities one, edge length one,
+\(\theta=m_0\delta_{x_0}+m_1\delta_{x_1}\) with \(m_0+m_1=d=\deg L=V\).
+Let
+\[
+ \mu=c_0\delta_{x_0}+c_1\delta_{x_1},
+ \qquad c_0,c_1\geq0,\quad c_0+c_1=d ,
+\]
+be a target measure supported on the two divisorial points.
+
+\emph{Existence.}  A model function \(\varphi\) with vertex values
+\((a_0,a_1)\) satisfies
+\(\MA_\theta(\varphi)=(m_0+a_1-a_0)\delta_{x_0}+(m_1+a_0-a_1)\delta_{x_1}\),
+by \Cref{ex:two-vertex-ma}.  Hence \(\MA_\theta(\varphi)=\mu\) if and only
+if
+\[
+ a_1-a_0=c_0-m_0 ,
+\]
+the second equation being the same one, because both measures have mass
+\(d\).  Such \(\varphi\) exists, and it is \(\theta\)-psh precisely because
+\(c_0,c_1\geq0\).  Thus the model Monge--Amp\`ere equation is solvable on
+this model exactly for the measures of mass \(V\) supported on the two
+divisorial points with nonnegative coefficients---which is
+\Cref{thm:ch24-mass} read as a necessary condition, and the computation
+above read as a sufficient one.
+
+\emph{Uniqueness.}  Any two solutions differ by a constant, by
+\Cref{cor:ch24-model-uniqueness-curve}; here this is visible, since the
+solution is determined by \(a_1-a_0\).
+
+\emph{A maximum-principle argument for the same conclusion.}  It is
+instructive to obtain uniqueness from
+\Cref{prop:ch24-model-comparison} instead, since that argument is the one
+that generalizes.  Suppose \(\MA_\theta(\varphi)=\MA_\theta(\psi)=\mu\) and,
+after adding a constant, that \(\max(\varphi-\psi)=0\).  If
+\(\varphi-\psi\) is not identically \(0\), then
+\(U:=\{\varphi<\psi\}\) is a nonempty open set, and
+\eqref{eq:ch24-model-comparison} gives
+\(\mu(U)=\int_U\MA_\theta(\psi)\leq\int_U\MA_\theta(\varphi)=\mu(U)\), which
+is no contradiction by itself.  What does give a contradiction is the
+sharper information available here: by
+\Cref{prop:ch24-skeletal-maximum}\,\cref{itm:ch24-sm:model} the maximum of
+the model function \(\varphi-\psi\) is attained at a divisorial point, say
+\(x_0\), so \(\varphi-\psi\) attains its maximum \(0\) there and is
+\(<0\) somewhere; then the linear equation \(\ddc(\varphi-\psi)=0\) forces
+the outgoing slope of \(\varphi-\psi\) at \(x_0\) to vanish, hence
+\((\varphi-\psi)(x_1)=(\varphi-\psi)(x_0)=0\), and \(\varphi-\psi\) is
+constant after all.  This is the argument of
+\Cref{cor:ch24-model-uniqueness-curve} written out on two vertices, and
+\Cref{rem:ch24-uniqueness-scope} explains why it does not generalize as it
+stands.
+
+\emph{A numerical instance.}  For \(d=2\), \((m_0,m_1)=(1,1)\), and
+\(\mu=2\delta_{x_1}\), one needs \(a_1-a_0=0-1=-1\); the normalized solution
+is \((a_0,a_1)=(0,-1)\).  Its measure is
+\((1-1)\delta_{x_0}+(1+1)\delta_{x_1}=2\delta_{x_1}=\mu\), and the energy
+pairing of \Cref{ex:ch24-curve-mixed} evaluates to
+\(\mathfrak E(\varphi,\varphi)=(a_0+a_1)+(a_0+a_1)-(a_0-a_1)^2
+ =-1-1-1=-3\).
+For \(\mu=\delta_{x_0}+\delta_{x_1}\) the solution is
+\((a_0,a_1)=(0,0)\) and \(\mathfrak E=0\); the drop from \(0\) to \(-3\)
+is the energy cost of concentrating the mass, and its sign is
+\eqref{eq:model-dirichlet-negativity}.
+\end{example}
+
+\subsection{The toric projective line}
+\label{sec:ch24-ex-toric-p1}
+
+\begin{example}[The toric projective line]
+\label{ex:ch24-toric-p1}
+On \(\mathbf P^1\) with \(L=\mathcal O(d)\), an invariant semipositive metric
+is encoded on the dense torus by a convex function with slopes in
+\([0,d]\). For \(F(x)=\max\{0,dx\}\), the slope jumps from \(0\) to \(d\)
+at \(x=0\). The lattice-normalized Alexandrov measure is \(d\delta_0\).
+Under tropicalization this is the BFJ measure, and its mass is
+\(d=(L^1)\). This checks both the absence of a hidden probability
+normalization and the sign of \(\ddc\).
+\end{example}
+
+\section{Scope: which hypothesis is used where}
+\label{sec:ch24-scope}
+
+The standing hypotheses \eqref{eq:ch24-standing} are not used uniformly.  The
+table records, for each of the principal statements, which of them the proof
+given here actually uses, and what is known about removing it.  As always in
+\Cref{part:bfj}, the original BFJ scope is kept visibly distinct from later
+extensions.
+
+\begin{center}
+\small
+\begin{tabular}{p{.28\textwidth}|p{.15\textwidth}|p{.15\textwidth}|p{.32\textwidth}}
+\toprule
+\textbf{Statement}&\textbf{Discrete valuation}&\textbf{Residue char.\ \(0\)}
+ &\textbf{Other hypotheses used}\\
+\midrule
+\Cref{lem:ch24-vertical-numbers},
+\Cref{prop:model-ma-basic},
+\eqref{eq:mixed-total-mass}
+ &yes, for the model theory of \Cref{chap:models}
+ &no
+ &\(X\) proper, flat projective models; not smoothness, not ampleness\\
+\Cref{prop:model-integration-by-parts},
+\Cref{prop:ch24-model-cauchy-schwarz}
+ &yes
+ &only through cofinality of SNC models in
+  \Cref{thm:ch20-mixed-hodge}
+ &regular models, relative Hodge index\\
+\Cref{prop:ch24-energy-basic},
+\Cref{thm:ch24-mass}
+ &yes
+ &no
+ &multilinearity of intersection numbers only\\
+\Cref{lem:ch24-psh-difference},
+\Cref{lem:ch24-dense-tests}
+ &yes
+ &no
+ &\(\{\theta\}\) ample; density
+  \Cref{prop:metrics-model-function-density}\\
+\Cref{thm:ch24-energy-extension},
+\Cref{thm:bounded-ma-extension}
+ &yes
+ &\textbf{yes}, only through
+  \Cref{thm:bfj-decreasing-regularization}
+ &compactness of \(X^{\An}\); \(\{\theta\}\) ample\\
+\Cref{prop:bounded-ma-no-polar-mass}
+ &yes
+ &as above
+ &finiteness of psh functions at quasimonomial points\\
+\Cref{prop:model-maximum-principle},
+\Cref{prop:ch24-model-comparison}
+ &yes
+ &only through cofinality of SNC models
+ &\Cref{prop:ch20-model-max}, hence smoothness of \(X\)\\
+\Cref{thm:bfj-cld-ma-common-locus}, model part
+ &yes, for \(b_E\) to be the multiplicity
+ &no
+ &\(X\) proper reduced only; see
+  \Cref{rem:ch19-cld-bfj-hypotheses}\\
+\Cref{thm:bfj-cld-ma-common-locus}, continuous part
+ &yes
+ &no
+ &density of model functions\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Three comments on the table.
+
+\emph{Residue characteristic zero enters once.}  It is used only through
+\Cref{thm:bfj-decreasing-regularization}, that is, only to know that every
+\(\theta\)-psh function is a decreasing limit of \(\theta\)-psh model
+functions.  Everything else in \Cref{sec:ch24-bounded} is a formal
+consequence of that statement together with intersection theory.  If
+decreasing regularization is available by other means---for instance for
+curves over an arbitrary complete field, or in the positive-characteristic
+situations opened up by test ideals in
+\Cref{sec:ch23-later-test-ideals}---then \Cref{thm:bounded-ma-extension}
+follows verbatim.  This is why the two statements are separated in this
+book: the analytic content of the extension theorem is
+\Cref{lem:ch24-sandwich}, and the arithmetic content is elsewhere.
+
+\emph{Ampleness is used for the test space, not for positivity.}  The
+hypothesis that \(\{\theta\}\) be ample enters through
+\Cref{lem:ch24-psh-difference}, whose role is to guarantee that
+\(\theta\)-psh model functions span a dense subspace of
+\(C^0(X^{\An})\).  If \(\{\theta\}\) is merely nef and big, one may still run
+the construction on the ample locus, but the density statement, and with it
+the uniqueness clause of \Cref{thm:bounded-ma-extension}, requires
+modification; we do not pursue this, and \Cref{chap:bfj-energy} likewise
+keeps \(\{\theta\}\) ample.
+
+\emph{Discreteness is structural.}  Every statement of this chapter is
+formulated in terms of models over \(R=K^\circ\) and the multiplicities
+\(b_E\) of a special fibre.  Over a general nontrivially valued field the
+Chambert--Loir measure of a formal metric still exists
+(\Cref{sec:metrics-cl-measure} and \Cref{thm:cld-formal-intersection}), but
+the BFJ framework of \Cref{chap:bfj-model-forms} has no substitute in the
+form used here.  The reader interested in that generality should consult the
+scope discussion in \Cref{rem:ch19-cld-bfj-hypotheses} and the treatment of
+Zhang semipositivity over arbitrary complete fields in \cite{GM19}.
+
+\section{Dictionary}
+\label{sec:ch24-dictionary}
+
+\subsection{Forward}
+\label{sec:ch24-dict-forward}
+
+\begin{center}
+\small
+\begin{tabular}{p{.32\textwidth}|p{.30\textwidth}|p{.30\textwidth}}
+\toprule
+\textbf{Algebraic object}&\textbf{Measure-theoretic object}
+ &\textbf{Where}\\
+\midrule
+mixed degree \(b_E(\theta_1|_E\cdots\theta_n|_E)\)
+ &atom of the mixed measure at \(x_E\)
+ &\eqref{eq:model-mixed-measure},
+  \Cref{def:mixed-model-measure}\\
+vertical intersection number \((D\cdot\theta_1\cdots\theta_n)\)
+ &\(\int\varphi_D\,\theta_1\wedge\cdots\wedge\theta_n\)
+ &\eqref{eq:model-test-intersection},
+  \eqref{eq:metrics-cl-pairing}\\
+generic mixed intersection number
+ &total mass of the mixed measure
+ &\eqref{eq:mixed-total-mass},
+  \Cref{thm:ch24-mass}\\
+sum of vertical intersection numbers
+ &mixed energy pairing \(\mathfrak E\)
+ &\eqref{eq:ch24-mixed-energy},
+  \Cref{prop:ch24-energy-basic}\\
+\((D\cdot D'\cdot\eta_1\cdots\eta_{n-1})\), symmetric
+ &integration by parts
+ &\eqref{eq:model-ibp}\\
+\((D^2\cdot\eta_1\cdots\eta_{n-1})\leq0\)
+ &nonpositivity of the Dirichlet form
+ &\eqref{eq:model-dirichlet-negativity},
+  \eqref{eq:ch24-bounded-dirichlet}\\
+divisors agreeing near \(E\)
+ &locality of \(\MA\) at \(x_E\)
+ &\Cref{prop:model-maximum-principle}\\
+relative nefness of a model line bundle
+ &positivity of the measure
+ &\Cref{prop:model-ma-basic}, Step~3\\
+decreasing net of vertical divisors
+ &weak convergence of measures
+ &\Cref{thm:bounded-ma-extension}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Backward}
+\label{sec:ch24-dict-backward}
+
+Four entries above are one-way, and it is worth saying which.
+
+\emph{From a measure back to a potential} there is no arrow in this chapter.
+Solving \(\MA_\theta(\varphi)=\mu\) is the subject of
+\Cref{chap:bfj-finite-energy-measures,chap:bfj-continuity}, and even the
+model-level solvability of \Cref{ex:ch24-uniqueness-curve} is special to
+\(n=1\), where the operator is linear.
+
+\emph{From the bounded product back to a model product} there is no arrow:
+\Cref{ex:ch24-branch-sum} produces a bounded \(\theta\)-psh function whose
+Monge--Amp\`ere measure has infinitely many atoms and is therefore not the
+measure of any model metric.
+
+\emph{From the BFJ product to a CLD Bedford--Taylor product} the arrow
+exists only on the model and continuous loci, by
+\Cref{thm:bfj-cld-ma-common-locus}; the four statements that are not proved
+are listed in \Cref{sec:ch24-scope-comparison}.
+
+\emph{From locality at model level to locality for bounded potentials} the
+arrow requires capacity, and passes through
+\Cref{thm:bounded-quasicontinuity}; see the table of
+\Cref{sec:ch24-needs-capacity}.
+
+\subsection{Numbers to remember}
+\label{sec:ch24-dict-numbers}
+
+\begin{center}
+\small
+\begin{tabular}{p{.36\textwidth}|p{.24\textwidth}|p{.32\textwidth}}
+\toprule
+\textbf{Quantity}&\textbf{Value}&\textbf{Where}\\
+\midrule
+total mass of every mixed
+ \(\theta\)-Monge--Amp\`ere measure
+ &\(V=(\{\theta\}^n)\)
+ &\eqref{eq:mixed-total-mass},
+  \Cref{thm:ch24-mass}\\
+total variation of \(\ddc h\wedge\Theta\), \(h\) \(\theta\)-psh
+ &\(\leq2V\)
+ &\Cref{sec:ch24-model-ibp}\\
+Lipschitz constant of \(\mathfrak E\) in one slot
+ &\(V\)
+ &\Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:lip}\\
+modulus in
+ \eqref{eq:ch24-model-uniform-estimate}
+ &\(2V\sum_i\|\varphi_i-\psi_i\|_\infty\)
+ &\Cref{prop:ch24-model-uniform-estimate}\\
+mixed measure on the toric surface
+ &\(\delta_{x_0}\), mass \(1\)
+ &\eqref{eq:ch24-toric-mixed}\\
+Minkowski area at \(u=(0,0)\) in the same example
+ &\(\tfrac32\)
+ &\Cref{ex:ch24-toric-surface-mixed}\\
+measure of the branch sum
+ &\(\sum_{k\geq1}2^{-k}\delta_{x_k}\), mass \(1\)
+ &\eqref{eq:ch24-branch-measure}\\
+energy pairing of the branch sum
+ &\(-1\)
+ &\Cref{ex:ch24-branch-sum}\\
+contact atom in the locality check
+ &\(1\) at \(t=\tfrac12\)
+ &\Cref{ex:ch24-locality-check}\\
+comparison-principle instance
+ &\(1\leq2\)
+ &\Cref{ex:ch24-locality-check}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Notes and further reading}
+
+The model formula, integration by parts, and bounded extension are
+\cite[Proposition--Definition~2.18, Propositions~2.19--2.21, and
+Theorem~3.1]{BFJ15}. The noncharging statement is
+\cite[Proposition~3.7]{BFJ15}. Agreement with the original Chambert--Loir
+measure is \cite[\S3.2]{BFJ15}. Only model and continuous semipositive
+comparison loci have been asserted here.
+
+\paragraph{Provenance, statement by statement.}
+\Cref{def:mixed-model-measure} and \Cref{prop:model-ma-basic} are
+\cite[\S2.7]{BFJ15}; the measure itself goes back to Chambert--Loir
+\cite{CL06}, and the version for arbitrary complete fields, together with
+the comparison of algebraic, formal, and piecewise linear semipositivity, is
+in \cite{GM19}.  \Cref{prop:model-integration-by-parts} and the negativity
+\eqref{eq:model-dirichlet-negativity} are \cite[\S2]{BFJ15}, resting on the
+relative Hodge index theorem proved here as \Cref{thm:ch20-mixed-hodge}.
+\Cref{thm:bounded-ma-extension} is \cite[Theorem~3.1]{BFJ15}; the earlier
+paper \cite{BFJ16} contains the psh formalism it uses, and the survey
+\cite{BFJ16b} is a short entry point.  \Cref{prop:model-maximum-principle}
+is the model case of the locality statement of \cite[\S3]{BFJ15}, whose
+bounded form is
+\Cref{thm:bounded-maximum-principle} here.  The trivially valued analogue of
+the entire chapter is developed in \cite{BJ22}, and the synthetic treatment of
+measures of finite energy that supersedes several of the later arguments is
+\cite{BJ25FiniteEnergy}.  The comparison with the Chambert--Loir--Ducros
+calculus, \Cref{thm:bfj-cld-ma-common-locus}, is proved in this book as
+\Cref{thm:ch19-cld-bfj-comparison}, on the basis of
+\cite[Theorem~18.5.5 and Proposition~18.5.8]{CLD25}; the delta-form version
+is due to Gubler--K\"unnemann \cite{GK17,GK19}, and the broader comparisons
+available under semiampleness hypotheses are
+\cite[Theorems~7.14 and~8.4]{BE21}.  The toric identification used in
+\Cref{ex:ch24-toric-surface-mixed} is classical in the arithmetic form of
+\cite{BGPS14} and in the tropical form of \cite{BGJKK25}.
+
+\paragraph{What is organized differently here.}
+Three choices depart from the arrangement in the sources.  First, the
+extension theorem is proved by extending the \emph{scalar} mixed energy
+pairing \(\mathfrak E\) of \Cref{def:ch24-mixed-energy} and recovering the
+measure by the Riesz theorem, rather than by an induction on the number of
+non-model slots.  The advantage is that symmetry, multilinearity, monotone
+continuity and the weighted statement \eqref{eq:weighted-monotone-ma} all
+become properties of a monotone function of \(n+1\) real variables, and that
+the only analytic input is the sandwich lemma
+\Cref{lem:ch24-sandwich}.  The inductive formulae of the original argument
+are retained as \Cref{prop:ch24-forced-ibp} and
+\Cref{prop:ch24-approximate-monotonicity}, now with proofs, because they are
+the shape in which the result is usually quoted and because the second is the
+quantitative statement behind the qualitative one.  Second, the distinction
+between a vertical divisor as a cycle and as a line-bundle class has been
+made into a lemma, \Cref{lem:ch24-vertical-numbers}, rather than left as a
+convention; without it the total mass \eqref{eq:mixed-total-mass} can be
+computed to be zero, a mistake the sources warn against implicitly and the
+warning after \Cref{lem:ch24-vertical-numbers} warns against explicitly.
+Third, the four Monge--Amp\`ere products of \Cref{sec:ch24-four-products} are
+tabulated at the outset, and every statement of the chapter names the one it
+concerns.
+
+\paragraph{Interfaces.}
+The measures of this chapter are the input to capacity
+(\Cref{chap:bfj-capacity}), whose very definition
+\eqref{eq:capacity-definition} is a supremum of the masses constructed here,
+and to the energy functional of \Cref{chap:bfj-energy}, which by
+\Cref{rem:ch24-energy-vs-E} is \((n+1)^{-1}\mathfrak E\) on the diagonal.
+The extension to finite energy, in which the mass may drop and the
+nonpluripolar convention \Cref{def:nonpluripolar-ma} is imposed, is
+\Cref{thm:e1-mixed-products}; that extension is \emph{not} a limit of the
+present one, and the two are compared in
+\Cref{rem:cma-no-universal-e1}.  Functoriality of the construction under
+finite and birational morphisms and under base change is
+\Cref{thm:finite-ma-projection} and \Cref{thm:base-change-ma}.  The complete
+worked catalogue of curves, toric varieties and abelian varieties is
+\Cref{chap:bfj-examples}, and the theorem-by-theorem compatibility table
+with the CLD calculus is \Cref{sec:ch19-limitations} together with
+\Cref{chap:compare-ma}.
+
+\paragraph{What is new here, and what is not.}
+No theorem of this chapter is new.  \Cref{lem:ch24-vertical-numbers},
+\Cref{prop:ch24-polarization}, \Cref{prop:ch24-energy-basic},
+\Cref{prop:ch24-model-uniform-estimate},
+\Cref{prop:ch24-model-comparison} and
+\Cref{cor:ch24-model-uniqueness-curve} are elementary consequences of
+statements in the sources; they have been written out because each is used
+later in a form that is easy to misremember.  The proof of
+\Cref{thm:bounded-ma-extension} given here is a rearrangement, not a new
+argument: every ingredient---monotonicity of intersection numbers, Dini's
+theorem for nets, the Riesz theorem---is in \cite{BFJ15}, and only the order
+is different.  \Cref{ex:ch24-branch-sum} has no counterpart in the sources
+and is the smallest example we know in which the bounded operator is computed
+exactly on a potential that is neither a model function nor continuous.
