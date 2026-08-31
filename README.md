@@ -83,12 +83,28 @@ intentionally excluded from version control.  Results proved only in the
 supplied envelope manuscript are identified as such and are not
 misrepresented as previously published theorems.
 
-The editorial records also keep the literal research-frontier inventory at 14
-open problem environments, all in Chapter 72, split into 53 active atoms with
-tier counts `(0,5,14,17,17)`, together with the source-cutoff
-dates, and every remaining mathematical boundary visible.  The clean-build
+As recorded on 1 September 2026, the current research-frontier inventory is 14
+open problem environments, all in Chapter 72, split into 51 active editorial
+research atoms with tier counts `(0,5,12,17,17)`. These are not 51 independent
+untouched literature conjectures. The editorial records retain the source-cutoff
+dates and make every remaining mathematical boundary explicit. The clean-build
 and exact-current Rethlas gates that have passed are recorded separately from
 source imports and unresolved packets.
+
+The 1 September local-comparison and source-cell-access research is preserved
+with its exact independent reviews in
+`manuscript/editorial/chapter72_local_access_checkpoint_20260901.md`.
+These conditional research results have not passed the production Rethlas
+gate and are not promoted to live-book theorems. P21.3 remains open. Historical
+verification hashes for the Bedford--Taylor subsection have been moved, without
+changing its mathematical statements, to
+`manuscript/editorial/chapter72_bedford_taylor_verification_archive_20260901.md`.
+
+A fresh 1 September whole-book build of the presentation-only revision has
+3,476 pages. Its local output is
+`output/pdf/Non-Archimedean_Pluripotential_Theory_current.pdf`; the older release
+PDF is preserved. Source hashes, build checks and the scoped visual review are
+in `manuscript/editorial/solver_dossiers_20260901/chapter72_presentation_build_20260901/BUILD_REPORT.md`.
 
 Downloaded reference copies, temporary build trees, TeX intermediate files,
 and superseded release PDFs are also intentionally excluded from version
