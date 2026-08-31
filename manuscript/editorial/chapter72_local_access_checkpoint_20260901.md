@@ -1,0 +1,55 @@
+# Chapter 72: ordinary-local comparison and source-cell access
+
+Date: 1 September 2026.
+
+## Status and mathematical boundary
+
+This continuation advances the bidegree-(0,0) route to P21.3. It does not solve full P21.3, all equivalences of non-Archimedean plurisubharmonicity, or the general envelope problem over nontrivially valued fields. No active atom is retired. The inventory remains 51 editorial research atoms in 14 formal problem environments; this is not a count of 51 independent untouched literature conjectures.
+
+The durable starting version is bbe24dad4225c6d17f97db81f22de38b278a728d, already pushed. The tracked durable worktree and index were clean when checked. Unrelated untracked files are not selected for this preservation.
+
+All new mathematical packets are conditional research. Independent AI review is distinct from production Rethlas acceptance, formal verification, external peer review and novelty/priority assessment. No new proof is promoted to a live-book theorem in this batch.
+
+## 1. Three completed local interfaces
+
+The point-retaining mixed blowup packet P is frozen at note SHA-256 1d8531a8cc4df4a11f21e56ba02ad4393f192f1ad8bec55c1c9cb27126ce4f55. Its independent report is 13697cdbb10c9e49dd576da4997f83974b5a0a420853e823c0ea684970a332cc. It keeps a given independent-normal point through a finite sequence of original-field vertical blowups, preserves the whole residual curve, and supplies determinant-one retained moment maps with entire punctured-source identities. Its optional current paragraph still assumes a whole original curve tube; the later local argument does not misuse that paragraph.
+
+The ordinary-open outer-collar packet O is frozen at note f629a77106d023763c7b99626c1ec1f8f449164f3749de475bf18bb0661e1d5b, with independent report 54baec9bfce2a4d664434b260ef6395c56357025f400925058380e58ff07cf4c. On the given all-vertical SNC model and at an assumed independent-normal point, finite regular-local expansions control every source point in sufficiently shallow collars inside an arbitrary ordinary W. The current is defined only on W. Compact principal-divisor primitives yield lambda(p)=c[kappa(p):k], conditional on the geometric finite-projection premise L. The separate dependent-weight diagnostic, note b9ac17874007e880fccddf8e33b7ff225a46a60624ced074e5a5e7e3abab91ce, shows that this whole-source containment cannot simply be asserted at dependent weights.
+
+The proper target-open comparison Q is frozen at note 35d4ae59a167025ef595aa50a45101619ed1aef586be39abebca1486c62857ec, with independent report 0ea9513fc0070fcc300bf3b43fa9da8ddc4363a8f063abae63527e3e80589603. It reconstructs the constant pushforward and, under the displayed R representation, individual coordinate-source coefficients on a full inverse image of any connected target open. No current extension to the whole original tube is needed. The source conclusion is for the indicated moment with arbitrary compact source multipliers, not all unrelated moments.
+
+Root read all three complete reports and source-interface ledgers. The initial seven-packet check, including the separate diagnostic, matched 103 manifest entries and 110 checksum lines.
+
+## 2. A completed mixed-model local synthesis
+
+The root-authored synthesis S is in solver_dossiers_20260901/p213_mixed_ordinary_local_comparison_20260901. Its note is 61e29bd02db4abe9f5e242e67d62249957c4049cdf269e6ae1dea13266c0bed2; manifest a8d380564b09eaf5b3f94590b61410fa0d5d5286a362e73c1f5156e888ef60c0. Its fresh independent report, read in full by root, is 71ebe33d506fb590c87db419d00508ee2466fa88ca250c7ff2aefca1df6ac27d; audit manifest 78e1ec6a98429169ce141284a812237c4f5a67528010e790e593e5f3324f89d8. The review found no required correction in the stated conditional scope.
+
+This combines P/O/Q without inheriting P's whole-current hypothesis. An original product collar maps into a final O collar, with equality of the entire source preimages. One identical compact top form compares the coefficients. O's primitives are already forms on the same generic analytic space and W. The result includes germ, parameter, shrinking and blowup-sequence independence for those coefficients. Omitting another selected vertical component multiplies the aggregate by N_j/N_0 and leaves the normalized ratio unchanged. A horizontal component cannot be omitted in that finite-projection argument.
+
+## 3. The source-cell geometry
+
+The independently authored finite-rank capture packet A is frozen at note 4cc25ff627af56aca05c8733e3e5bff65aea21015abe35e49726f9966bb1b384 and manifest 52b8f6a75dda7caca6d3449a4e5e969f3abd3f4a6800cb9cf6bc091230713265. Root read the entire frozen proof and ledger. On an algebraic analytification in residue characteristic zero, boundary resolution preserves the common algebraic unit-open of a finite rational moment. Outside finitely many lower-dimensional target planes, a full-dimensional source cell lies in an actual closed maximal-stratum tube, with F=Aq+b of rank n on the entire tube. Given such an adapted model the rank argument itself is characteristic independent. It does not by itself identify the entire coordinate-source patch with a model monomial cell or compute one common coefficient.
+
+The nearby-wall packet B is frozen at note 5ad7cc7f5899ba3a251ba6d3417ec4456f0fa5cdc21db05ea8f262dcc17ab38e and manifest 613cc1698a8cd517dd92eb50368182114a60ffeadc19f334a52f8ba401f278ef. Root read the whole draft and its completed exact Rees-chart and face-compatibility refinements. On a supplied original-field SNC model cell in residue characteristic zero, a finite positive-support subtraction algorithm extracts a primitive ray, and further stratum blowups contract an entire all-vertical simplex into a prescribed relative cell neighbourhood and ordinary W. Its facets have whole proper residual curves with dense independent normal points. This is an actual analytic-point statement, including the faces, but not containment of an entire analytic inverse image in W.
+
+The complete fresh independent audits of A and B are now frozen and were read in full by root, including their source-interface ledgers. The A report is 43bcf8078bbb57278f901bcab3b47cca0b78605245ea53404671c79066368c8c, with audit manifest 7bd8a9ce7f290f68399bffba592ac0c744f5c7b7f52c06463255fb11227f74b6. The B report is cc84188bf4bdfc63237e4ed42a1df27cbfe9204ef9b7211e6cd72884f560cbd8, with audit manifest 26f14d6f060ce22ef4e9a1412bb94f42a70f221a0666eba2ba398a6309d4e079. Neither review found a required correction in its exact stated scope. A's optional coefficient interpretation remains conditional on R; B is geometry only. Their passes do not constitute an independent audit of the separate cell-to-curve assembly.
+
+## 4. A separate cell-to-curve assembly and required statement clarification
+
+Root wrote the assembly in p213_source_cell_residual_curve_access_20260901, note 46eba8ebccb7d87c404c184a83ae51bce9f84e2d14f636fba19212d1fe73c596. Its independent reviewer required the geometric statement to say explicitly that Delta is a source cell of F restricted to W and is contained in W. The first version is preserved unchanged and remains correction-required, not passed. The separately frozen version 2 makes this hypothesis explicit: note 177d7ea0e2f5fd1cde5e9539b4cd88ce90623a1ee78202f9050b08cb00130d96, manifest c912270c7f14e791bea153775c628fb3f75d02b53dce327c91e92f04d738afb6, sums 8979b1174460a7cfe910094aef7d27faac46d2aecc12f9ab4d581becefb2b163. No mathematical proof paragraph was changed.
+
+The assembly's new bridge compares the continuous inverse of q on a compact source-cell patch with the continuous model monomial section. Finite leading-term uniqueness identifies them at dense independent radii, and Hausdorff continuity identifies the whole patch. B then supplies a nearby proper residual-curve wall INSIDE the original cell. On an adjacent closed-point collar the original F is affine full-rank in the final coordinates on the actual source. Under O/Q/R, one isolated common compact test identifies the curve's normalized coefficients with the pre-existing coefficient of that original source cell. An example with retained determinant 1/m records the necessary multiplicity factor.
+
+The final independent review is frozen in p213_source_cell_residual_curve_access_independent_audit_20260901. Its initial report is 64971970f02ee0174335528d029fc01796e490ede7f8afb25e8a5673c0949bfb; the version-2 addendum is a1376028919f6534e7b52078f43155ea4cbe35eb8a6247083917b7b038f81454. The audit manifest is f0f4f6b039640fa41d4712c2244614526715f784fec435c8349a9f16e1a2bb68 and its sums are 8491200e75448fd4786c6617e19078d4a9fa0356904398eae0410f4f1dceef9a. Root read both reports and the source-interface ledger completely. The revised assembly passes its exact conditional scope, with no further required correction found; the original version does not receive a retroactive pass. Its geometric premises A/B and its current premises O/Q/L/displayed R remain explicit. This assembly does NOT prove that unrelated original source cells have the same ratio.
+
+## 5. What remains
+
+The principal remaining interface in this route is propagation of one normalized ratio through arbitrary actual source incidences and moment refinements, including contracted directions and lower-dimensional attachments. Connectedness alone is not a proof. A separately frozen two-cluster diagnostic constructs disconnected full-dimensional fixed-moment sources whose selected patches are joined by an actual ambient analytic path; a larger moment exposes full-dimensional connecting strips contracted by the old moment. Its independent audit is in progress and it is not included as accepted research in this batch. A follow-up investigation is trying to supply the missing coefficient comparisons in this explicit example, not merely a conditional graph criterion.
+
+Separate source-based investigations are checking whether relevant top compact-support cohomology or duality results address this exact ordinary CLD current question. Results for a different form sheaf or only global proper cohomology cannot silently replace it. A possible continuous linear extension of a current to a larger test space is not, by itself, a separately closed or positive extension. No theorem based on those pending investigations is asserted here.
+
+Even completion of that interface in the present residue-characteristic-zero algebraic bidegree-(0,0) scope would leave the higher-bidegree, other-field and general analytic-space parts of P21.3.
+
+The book PDF has not been rebuilt; the previously recorded artifact remains the 3,476-page version, SHA-256 c840f3d714ca41841ec7d071902c5a0fcd6f8f5b053027fd06c7c3559bdd3176. These research packets are not newly typeset chapters.
+
+The production gate remains unresolved after the previously recorded automatic-permission-review timeouts on the original submission and its single allowed retry. No production call or alternate endpoint/verifier bypass was made in this continuation, and no live production job is claimed. Normal preservation and scoped git operations do not imply that this separate gate is cleared.
