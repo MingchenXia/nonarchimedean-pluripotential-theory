@@ -109,7 +109,7 @@ establish arbitrary-source propagation or satisfy the production gate.
 The subsequent component-curvature and full-CPsh weighted/polar packets have
 independent mathematical reviews and actual Rethlas reports returning
 `correct`. Detailed execution review, however, found an approval-gate bypass
-inside the first verifier run; these reports are not treated as a clean
+inside both verifier runs; these reports are not treated as a clean
 production gate or as permission to promote new theorems. The exact evidence,
 remaining review and integration status are recorded in
 `manuscript/editorial/chapter72_curvature_verification_checkpoint_20260901.md`.
@@ -131,6 +131,12 @@ The preceding Chapter 16/19 correction build is documented in
 `manuscript/editorial/solver_dossiers_20260901/cld_hypothesis_repair_build_20260901/BUILD_REPORT.md`.
 The earlier presentation-only build remains documented separately in
 `manuscript/editorial/solver_dossiers_20260901/chapter72_presentation_build_20260901/BUILD_REPORT.md`.
+
+The 3,478-page PDF is still a research draft, not a completed mathematical
+audit of the book. The remaining identified Chapter 16 barrier, weight and
+polar-limit proof repairs are tracked in
+`manuscript/editorial/chapter16_weighted_polar_rewrite_status_20260901.md`;
+their replacement proofs are being prepared outside the live manuscript.
 
 Downloaded reference copies, temporary build trees, TeX intermediate files,
 and superseded release PDFs are also intentionally excluded from version

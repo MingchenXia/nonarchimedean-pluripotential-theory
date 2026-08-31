@@ -1,0 +1,340 @@
+--- a/manuscript/parts/part2/ch14_currents.tex
++++ b/manuscript/parts/part2/ch14_currents.tex
+@@ -81,6 +81,13 @@
+   \cite[Theorem~4.2]{Ber26Convex}, and his minimality criterion,
+   \cite[Corollary~5.2]{Ber19Super}, both quoted verbatim in
+   \Cref{sec:ch14-berndtsson,sec:ch14-convex-bt}.
++\item the analytic-nullity theorem for locally approachable continuous
++  potentials, \cite[Corollary~16.9.4]{CLD25}, together with its
++  positive-curvature input \cite[Lemma~8.5.5]{CLD25} and the analytic
++  component geometry of \cite[Theorem~4.20]{Ducros09Excellence}, used in
++  the source-dependent deduction
++  \Cref{prop:ch14-component-curvature}.
++
+ \end{enumerate}
+ No other statement of this chapter is used without proof.
+ 
+@@ -2757,6 +2764,275 @@
+ each component and \Cref{prop:current-pushforward-formal}.
+ \end{proof}
+ 
++\subsection{Curvature on analytic components}
++\label{sec:ch14-component-curvature}
++
++Equality of canonical curvature need not be separated component by component
++by an algebraic cancellation of currents at their intersections.  The
++following consequence of the analytic-nullity theorem
++\cite[Corollary~16.9.4]{CLD25} supplies a sufficient condition.  It concerns
++curvatures of specified potentials, not arbitrary positive currents.
++
++We use two classes of functions.  Write
++$\operatorname{CPsh}_Y$ for the least subsheaf of the real continuous
++functions on $Y$ containing the ordinary CLD-smooth psh functions and stable
++under locally uniform limits.  This is
++\cite[Definition~8.1.7 and Lemma~8.1.8]{CLD25}, developed further in
++\Cref{sec:ch16-hypotheses,lem:ch16-cpsh-induction}.
++Write $\mathscr A(Y)$ for the real continuous functions which, on one
++ordinary neighbourhood of every point, are uniform limits of a sequence of
++ordinary smooth psh functions defined on that same neighbourhood.
++Compact-uniform convergence gives the same local condition after a
++relatively compact shrinking.  Unrelated shrinking domains for the terms
++of a sequence do not satisfy this definition.
++
++A member of $\mathscr A(Y)$ is locally approachable in the first-stage
++sense of \cite[Definition~8.1.13]{CLD25}.  Indeed, after shrinking, let
++$f_j\to f$ uniformly and put $e_j=\|f_j-f\|_\infty$.  If infinitely many
++$e_j$ vanish, $f$ is smooth psh.  Otherwise discard the zero-error terms
++and choose a subsequence with $e_{j+1}<e_j/3$.  Then
++\[
++ f_{j+1}+2e_{j+1}
++ \leq f+3e_{j+1}
++ \leq f+e_j
++ \leq f_j+2e_j,
++\]
++so these smooth psh functions decrease uniformly to $f$.  In particular
++$\mathscr A$ is contained in $\operatorname{CPsh}$.  We do not identify it
++with the full uniform-closure sheaf.
++
++\begin{proposition}
++\label{prop:ch14-component-curvature}
++Let $K$ be any complete non-Archimedean field, possibly trivially valued.
++Let $X$ be good, separated, usual-strictly $K$-analytic, boundaryless and
++pure of dimension $n\geq1$.  Let $(X_i)_i$ be its reduced analytic
++irreducible components, let $j_i:X_i\hookrightarrow X$, and put
++$\delta_i=(j_i)_*\delta_{X_i}$.  Write $m_i>0$ for the generic
++multiplicities of $X$, and set
++\[
++ B_i=X_i\cap\bigcup_{j\ne i}X_j,
++ \qquad B=\bigcup_iB_i.
++\]
++The components and these unions are understood over the original field
++$K$.  Then the following assertions hold.
++\begin{enumerate}
++\item\label{itm:ch14-component-curvature:approachable}
++For $u,v\in\mathscr A(X)$,
++\begin{equation}
++ \dprimeddprime(u\delta_X)=\dprimeddprime(v\delta_X)
++ \quad\Longleftrightarrow\quad
++ \dprimeddprime(u\delta_i)=\dprimeddprime(v\delta_i)
++ \ \text{for every }i .
++ \label{eq:ch14-component-curvature-equivalence}
++\end{equation}
++\item\label{itm:ch14-component-curvature:common}
++Let $u,v\in\operatorname{CPsh}_X(X)$ have common canonical curvature
++$S=\dprimeddprime[u]=\dprimeddprime[v]$, where $[w]=w\delta_X$.
++Suppose that, for every compactly supported positive smooth
++$(n-1,n-1)$-form $\alpha$, the positive Radon measure $S\wedge\alpha$
++gives zero mass to $B$.  Then
++\begin{equation}
++                 \dprimeddprime(u\delta_i)
++                    =\dprimeddprime(v\delta_i)
++                    \quad\text{for every }i .
++ \label{eq:ch14-component-common-curvature}
++\end{equation}
++The zero-mass hypothesis is equivalent to total-variation nullity on $B$
++for every signed coefficient measure $S\wedge\alpha$.  It is satisfied
++in each of the following cases:
++\begin{enumerate}
++\item\label{itm:ch14-component-curvature:one-side}
++one of $u,v$ belongs locally to $\mathscr A$;
++\item\label{itm:ch14-component-curvature:local-potential}
++every point has an ordinary neighbourhood on which $S=\dprimeddprime[a]$
++for some $a\in\mathscr A$;
++\item\label{itm:ch14-component-curvature:zero}
++$S=0$.
++\end{enumerate}
++\end{enumerate}
++No normality, reducedness, perfectness, discreteness or
++residue-characteristic restriction is imposed.  Component intersections
++may have dimension $n-1$.
++\end{proposition}
++
++\begin{proof}
++\emph{Component geometry and canonical normalization.}
++The component family is G-locally finite by
++\cite[Theorem~4.20]{Ducros09Excellence}; in particular, an affinoid domain
++meets only finitely many components.  A compact set in the good space $X$
++is covered by finitely many affinoid neighbourhoods, so only finitely many
++components occur near any compact test support.  The closed-union and
++dimension statements in
++\cite[\S4, especially Theorem~4.20 and paragraphs~4.21--4.24]{Ducros09Excellence}
++show that $B_i$ is closed analytic in $X$ and in $X_i$, of local dimension
++less than $n$.  The locally finite union $B$ has the same properties.
++These are analytic components over $K$, not geometric components after
++extension of the field.
++
++Each $j_i$ is a finite closed immersion and has no relative boundary.
++Thus $X_i$ is again good, separated, usual-strict and boundaryless, of pure
++dimension $n$.  Its integration current and its proper pushforward are
++positive and separately closed by Stokes and
++\Cref{prop:current-cycle-closed,prop:current-pushforward-formal}.
++The fundamental-cycle identity
++\Cref{thm:current-fundamental-cycle} gives the locally finite equality
++\begin{equation}
++                         \delta_X=\sum_i m_i\delta_i.
++ \label{eq:ch14-component-canonical-sum}
++\end{equation}
++The positive generic lengths $m_i$ are retained also when $X$ is
++nonreduced.
++
++\emph{Positive curvature and the first-stage nullity input.}
++For a positive separately closed current $Q$ and
++$w\in\operatorname{CPsh}$, the current
++$\dprimeddprime(wQ)$ is positive and separately closed by
++\cite[Lemma~8.5.5]{CLD25}.  The full uniform-closure scope is important:
++the continuous functions $w$ for which this current is positive form a
++subsheaf, contain the smooth psh functions, and are stable under locally
++uniform limits.  Continuous multiplication of the fixed positive current
++and differentiation are continuous, and the positive cone is closed.
++Minimality of $\operatorname{CPsh}$ proves the assertion without producing
++one smooth sequence for a general $w$.
++
++For $w\in\mathscr A(X)$ put $S_i^w=\dprimeddprime(w\delta_i)$.
++Pullback by $j_i$ preserves smooth psh functions and their uniform
++approximations on an ordinary neighbourhood.  Only functions and smooth
++forms are pulled back.  Proper pushforward, continuous multiplication and
++differentiation therefore give
++\begin{equation}
++ S_i^w
++    =(j_i)_*\dprimeddprime[w|_{X_i}],
++ \qquad
++ S_i^w\wedge\alpha
++    =(j_i)_*\bigl(\dprimeddprime[w|_{X_i}]
++                              \wedge j_i^*\alpha\bigr).
++ \label{eq:ch14-component-coefficient-pushforward}
++\end{equation}
++The first equality is also \cite[Proposition~8.5.6]{CLD25}.
++For the second, $j_i^*\alpha$ has compact support when $\alpha$ does,
++since $j_i$ is topologically proper.  Testing against compactly supported
++smooth scalar functions proves the displayed identity; density of those
++tests in continuous compact tests identifies the corresponding Radon
++measures.  This is not pullback of an arbitrary current through a singular
++map.
++
++Apply \cite[Corollary~16.9.4]{CLD25}, with one locally approachable
++continuous potential, on $X_i$.  It gives zero mass on $B_i$ for every
++positive coefficient measure on the right of
++\eqref{eq:ch14-component-coefficient-pushforward}.  We use precisely this
++published first-stage analytic-nullity input, not an extension to every
++member of $\operatorname{CPsh}$.  For a general smooth test $\alpha$,
++discard its antisymmetric part, which pairs to zero with a symmetric
++curvature current, and locally write its symmetric part as a difference
++of two positive compact smooth forms.  The total variation of the
++difference of the two resulting measures is bounded by their sum.
++Thus source nullity is total-variation nullity, not merely signed
++cancellation.  Proper pushforward of a signed measure satisfies
++$|(j_i)_*\mu|\leq(j_i)_*|\mu|$, and $j_i^{-1}(B_i)$ is the same crossing
++subset on $X_i$.  Consequently
++\begin{equation}
++                         |S_i^w\wedge\alpha|(B_i)=0
++                         \quad(w\in\mathscr A(X)).
++ \label{eq:ch14-component-curvature-nullity}
++\end{equation}
++Compact smooth partitions and cutoffs justify each localization.
++No global paracompactness or global finite-component assumption is needed.
++
++\emph{The equivalence for two first-stage potentials.}
++Set $R_i=S_i^u-S_i^v$.  Differentiating
++\eqref{eq:ch14-component-canonical-sum} gives
++\begin{equation}
++ \dprimeddprime(u\delta_X)-\dprimeddprime(v\delta_X)
++                              =\sum_i m_i R_i .
++ \label{eq:ch14-component-curvature-difference}
++\end{equation}
++This proves the reverse implication of
++\eqref{eq:ch14-component-curvature-equivalence}.
++For the forward implication, assume the left side of
++\eqref{eq:ch14-component-curvature-difference} is zero.
++The current $R_i$ vanishes outside $X_i$ by support.  On the ordinary
++open $X\setminus\bigcup_{j\ne i}X_j$ the canonical current is
++$m_i\delta_i$, so $m_iR_i=0$ there.  Since $m_i>0$, these two ordinary
++open sets give
++\begin{equation}
++                              \Supp R_i\subseteq B_i .
++ \label{eq:ch14-component-curvature-support}
++\end{equation}
++No division of a current identity at a shared point is involved.
++
++For any compact smooth $(n-1,n-1)$-test $\alpha$, the signed measure
++$R_i\wedge\alpha$ vanishes on $X\setminus B_i$, by
++\eqref{eq:ch14-component-curvature-support} and smooth-test density.
++Its total variation on $B_i$ is zero by applying
++\eqref{eq:ch14-component-curvature-nullity} separately to $u$ and $v$.
++It is therefore the zero measure.  A compact smooth scalar cutoff equal
++to one near $\Supp\alpha$ recovers
++$\langle R_i,\alpha\rangle=0$.  All compact tests have been accounted for,
++so $R_i=0$, proving
++\cref{itm:ch14-component-curvature:approachable}.
++
++\emph{The common-curvature criterion.}
++For arbitrary $u,v\in\operatorname{CPsh}_X(X)$ define
++$S_i^u=\dprimeddprime(u\delta_i)$ and
++$S_i^v=\dprimeddprime(v\delta_i)$ directly on $X$.  They are positive by
++the full-sheaf positivity argument above.  Their common canonical
++curvature has the two positive decompositions
++\begin{equation}
++                 S=\sum_jm_jS_j^u=\sum_jm_jS_j^v .
++ \label{eq:ch14-component-common-sums}
++\end{equation}
++For every compact positive $\alpha$, these are inequalities of positive
++Radon measures:
++\begin{equation}
++ 0\leq S_i^u\wedge\alpha\leq m_i^{-1}(S\wedge\alpha),
++ \qquad
++ 0\leq S_i^v\wedge\alpha\leq m_i^{-1}(S\wedge\alpha).
++ \label{eq:ch14-component-common-domination}
++\end{equation}
++Indeed, removing one summand from either locally finite sum in
++\eqref{eq:ch14-component-common-sums} leaves a positive current.
++Nonnegative smooth scalar tests and then their density among continuous
++compact tests give \eqref{eq:ch14-component-common-domination} as measure
++inequalities.  The assumed nullity on $B$ therefore gives nullity on
++$B_i$ for both component measures.  Decomposition into positive forms
++gives total-variation nullity for all their signed coefficients.
++
++The support argument
++\eqref{eq:ch14-component-curvature-support} used only continuous
++multipliers and equality of canonical curvature, so it still applies.
++Combining it with the just proved nullity proves $R_i=0$ exactly as
++before, and establishes
++\cref{itm:ch14-component-curvature:common}.
++The same decomposition of tests proves the stated equivalence between
++positive-coefficient nullity and signed total-variation nullity.
++
++For \cref{itm:ch14-component-curvature:one-side}, apply the first-stage
++theorem \cite[Corollary~16.9.4]{CLD25} to the one approachable potential
++representing $S$ on $X$.  For
++\cref{itm:ch14-component-curvature:local-potential}, apply it on each
++ordinary neighbourhood with potential $a$; a finite smooth partition
++near each compact test support gives nullity on all of $B$.  The source
++uses canonical integration also on nonreduced spaces.  Equivalently,
++apply it on the reduced components and retain the positive
++multiplicities in \eqref{eq:ch14-component-canonical-sum}.
++Finally, in \cref{itm:ch14-component-curvature:zero},
++\eqref{eq:ch14-component-common-sums} is a positive weighted sum equal
++to zero, so every component curvature already vanishes.
++\end{proof}
++
++All neighbourhoods and tests in this argument are ordinary analytic
++ones.  If the proposition is applied to an ordinary open satisfying its
++ambient hypotheses, its components are the components of that open,
++not presumed to be intersections with a fixed global component family.
++In particular no inheritance of usual strictness by every ordinary open
++over a trivially valued field is asserted.
++Nor does \Cref{prop:ch14-component-curvature} classify arbitrary positive
++closed currents or assert analytic-nullity for an arbitrary common
++$\operatorname{CPsh}$ curvature.  The first-stage condition, or the
++explicit common-curvature nullity condition, remains part of the result.
++
++
+ \section{Fibre integration}
+ \label{sec:ch14-fibre-integration}
+ 
+--- a/manuscript/parts/part6/ch72_major_open_problems.tex
++++ b/manuscript/parts/part6/ch72_major_open_problems.tex
+@@ -3124,6 +3124,26 @@
+ and component-intersection points in the nontrivial and trivial valuation
+ regimes, respectively.
+ 
++A separate comparison now applies in every dimension $n\geq1$ and over
++every complete non-Archimedean field:
++\Cref{prop:ch14-component-curvature} proves that equal canonical
++curvatures of two locally smoothly uniformly approachable continuous
++potentials are equal against every reduced analytic component current.
++Generic nonreduced multiplicities are retained, and divisorial
++component intersections are allowed.  More generally, the same conclusion
++holds for a continuous $\operatorname{CPsh}$ pair whose common curvature
++has zero coefficient-measure mass on the crossing locus.  One approachable
++member, a local approachable potential for that common curvature, or
++zero common curvature suffices; see
++\cref{itm:ch14-component-curvature:common}.
++This is a consequence of the first-stage analytic-nullity input, not a
++classification of arbitrary positive closed currents.  It therefore does
++not by itself prove the displayed every-current predicate, remove the
++crossing-nullity hypothesis for arbitrary $\operatorname{CPsh}$ pairs,
++or settle positive bidegrees.
++
++
++
+ There is now also a higher-dimensional local positive result.  Suppose that
+ a good topologically separated pure boundaryless analytic space has a
+ genuine basis of ordinary open sets on which every continuous function with
+--- a/manuscript/bibliography/NonArchimedean.bib
++++ b/manuscript/bibliography/NonArchimedean.bib
+@@ -900,3 +900,16 @@
+   note          = {Version 1, 23 March 2026},
+   url           = {https://arxiv.org/abs/2603.22194v1}
+ }
++
++@article{Ducros09Excellence,
++  author = {Ducros, Antoine},
++  title = {Les espaces de {Berkovich} sont excellents},
++  journal = {Annales de l'Institut Fourier},
++  volume = {59},
++  number = {4},
++  pages = {1443--1552},
++  year = {2009},
++  doi = {10.5802/aif.2470},
++  url = {https://www.numdam.org/item/AIF_2009__59_4_1443_0/}
++}
++
