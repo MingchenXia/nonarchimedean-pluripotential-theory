@@ -1,0 +1,402 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RethlasMemoryRecord",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/statement_check"
+    },
+    {
+      "$ref": "#/$defs/reference_check"
+    }
+  ],
+  "$defs": {
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "location",
+        "issue"
+      ],
+      "properties": {
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "issue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "severity": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "string"
+        }
+      }
+    },
+    "line_range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_line",
+        "end_line"
+      ],
+      "properties": {
+        "start_line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "end_line": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "source_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "sha256",
+        "search_query",
+        "search_result_sha256",
+        "search_result_count",
+        "line_ranges",
+        "comparison"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "search_query": {
+          "type": "string",
+          "minLength": 1
+        },
+        "search_result_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "search_result_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "line_ranges": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/line_range"
+          }
+        },
+        "comparison": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "statement_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "location",
+        "status",
+        "critical_errors",
+        "gaps",
+        "detail"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "statement_check"
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "verified",
+            "failed"
+          ]
+        },
+        "critical_errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/finding"
+          }
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/finding"
+          }
+        },
+        "detail": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "verified"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "critical_errors": {
+                "maxItems": 0
+              },
+              "gaps": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "failed"
+              }
+            }
+          },
+          "then": {
+            "anyOf": [
+              {
+                "properties": {
+                  "critical_errors": {
+                    "minItems": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "gaps": {
+                    "minItems": 1
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "reference_check": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "record_type",
+        "reference_mode",
+        "location",
+        "status",
+        "search_query",
+        "search_result_sha256",
+        "search_result_count",
+        "search_status",
+        "search_evidence",
+        "source_evidence",
+        "contextual_definition_comparison",
+        "applicability",
+        "critical_errors",
+        "gaps",
+        "detail"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "reference_check"
+        },
+        "reference_mode": {
+          "type": "string",
+          "enum": [
+            "external",
+            "no_external_references"
+          ]
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "verified",
+            "failed"
+          ]
+        },
+        "search_query": {
+          "type": "string"
+        },
+        "search_result_sha256": {
+          "type": "string"
+        },
+        "search_result_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "search_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "search_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "source_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_evidence"
+          }
+        },
+        "contextual_definition_comparison": {
+          "type": "string",
+          "minLength": 1
+        },
+        "applicability": {
+          "type": "string",
+          "minLength": 1
+        },
+        "critical_errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/finding"
+          }
+        },
+        "gaps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/finding"
+          }
+        },
+        "detail": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "verified"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "critical_errors": {
+                "maxItems": 0
+              },
+              "gaps": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "failed"
+              }
+            }
+          },
+          "then": {
+            "anyOf": [
+              {
+                "properties": {
+                  "critical_errors": {
+                    "minItems": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "gaps": {
+                    "minItems": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "reference_mode": {
+                "const": "no_external_references"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "status": {
+                "const": "verified"
+              },
+              "search_status": {
+                "const": "not_applicable_no_external_references"
+              },
+              "search_query": {
+                "const": ""
+              },
+              "search_result_sha256": {
+                "const": ""
+              },
+              "search_result_count": {
+                "const": 0
+              },
+              "search_evidence": {
+                "maxItems": 0
+              },
+              "source_evidence": {
+                "maxItems": 0
+              },
+              "critical_errors": {
+                "maxItems": 0
+              },
+              "gaps": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "reference_mode": {
+                "const": "external"
+              },
+              "status": {
+                "const": "verified"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "source_evidence": {
+                "minItems": 1
+              },
+              "search_query": {
+                "minLength": 1
+              },
+              "search_result_sha256": {
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

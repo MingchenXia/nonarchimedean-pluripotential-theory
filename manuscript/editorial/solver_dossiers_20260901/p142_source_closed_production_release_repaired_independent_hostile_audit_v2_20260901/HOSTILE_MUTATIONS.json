@@ -1,0 +1,107 @@
+{
+  "format": "p142-independent-hostile-mutations-v2",
+  "status": "PASS",
+  "case_count": 14,
+  "all_mutations_used_disposable_copies": true,
+  "source_dossier_mutated": false,
+  "cases": [
+    {
+      "name": "regular_mode_0644",
+      "mutation": "AUTHOR_REPORT.md mode changed from 0444 to 0644",
+      "return_code": 1,
+      "observed_gate": "regular file is not frozen 0444",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "top_symlink",
+      "mutation": "extra top-level symlink to RESULT.json",
+      "return_code": 1,
+      "observed_gate": "top-level inventory",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "nested_bytecode_cache",
+      "mutation": "release_stage/runtime/__pycache__/attack.pyc added",
+      "return_code": 1,
+      "observed_gate": "cache: release_stage/runtime/__pycache__/attack.pyc",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "nested_special_fifo",
+      "mutation": "FIFO inserted under release_stage/runtime",
+      "return_code": 1,
+      "observed_gate": "non-regular frozen-tree entry",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "forbidden_smoke_tree",
+      "mutation": "empty STATIC_MODEL_LONG_SMOKE directory inserted",
+      "return_code": 1,
+      "observed_gate": "unexpected smoke",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "forbidden_artifacts_tree",
+      "mutation": "empty artifacts directory inserted",
+      "return_code": 1,
+      "observed_gate": "unexpected production artifacts",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "source_byte_tamper",
+      "mutation": "terminal byte of pinned DXZ text changed",
+      "return_code": 1,
+      "observed_gate": "manifest byte mismatch",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "coherent_target_and_manifest_repin",
+      "mutation": "outer and staged statement changed and both mutable manifests recomputed",
+      "return_code": 1,
+      "observed_gate": "outer target digest",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "duplicate_json_key_with_top_repin",
+      "mutation": "duplicate RESULT format key inserted and top manifest recomputed",
+      "return_code": 1,
+      "observed_gate": "duplicate JSON key: format",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "lf_helper_splitlines",
+      "mutation": "byte-only LF split replaced by str.splitlines and release manifest recomputed",
+      "return_code": 1,
+      "observed_gate": "byte-level LF-only source split missing",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "merged_stderr",
+      "mutation": "runner stderr redirected to subprocess.STDOUT and release manifest recomputed",
+      "return_code": 1,
+      "observed_gate": "smoke stdout/stderr split missing",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "no_input_pty_removed",
+      "mutation": "os.openpty replaced by os.pipe and release manifest recomputed",
+      "return_code": 1,
+      "observed_gate": "dedicated terminal stdin strategy missing",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "poll_after_scan_removed",
+      "mutation": "second process.poll gate removed",
+      "return_code": 1,
+      "observed_gate": "exit-between-poll-and-scan regression failed: live != exited_during_scan",
+      "status": "PASS_REJECTED"
+    },
+    {
+      "name": "locator_downgrade",
+      "mutation": "DXZ 437-458 locator downgraded to 437-448 and release manifest recomputed",
+      "return_code": 1,
+      "observed_gate": "release_pins.py digest mismatch",
+      "status": "PASS_REJECTED"
+    }
+  ]
+}

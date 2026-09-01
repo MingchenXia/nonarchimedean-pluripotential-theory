@@ -1,0 +1,2464 @@
+   SINGULARITIES OF PLURISUBHARMONIC FUNCTIONS
+               AND MULTIPLIER IDEALS
+
+                                SÉBASTIEN BOUCKSOM
+
+
+
+
+                                     Contents
+  Introduction                                                            1
+  1. Subharmonic functions                                                1
+  2. Plurisubharmonic functions                                           5
+  3. Regularization of quasi-psh functions                               10
+  4. Basic analysis of first order differential operators                15
+  5. Fundamental identities of Kähler geometry                          20
+  6. L2 -estimates for the ∂-equation                                    23
+  7. The Ohsawa–Takegoshi extension theorem                              27
+  8. Blowups and valuations                                              30
+  9. Fundamental properties of multiplier ideals                         35
+  10. Valuative description of multiplier ideals                         41
+  References                                                             47
+
+Bibliography                                                             47
+
+
+
+
+                                   Introduction
+  These notes are based on second year Master course I delivered in Orsay in
+2015–2017.
+
+
+                              1. Subharmonic functions
+  We use [DemAG] as a reference.
+
+1.1. The Green-Riesz representation formula. Denote by
+                                           d
+                                           X ∂2
+                                    ∆ :=
+                                           i=1
+                                                 ∂x2i
+
+
+  Date: September 11, 2023.
+                                           1
+2                               SÉBASTIEN BOUCKSOM
+
+the usual (negative definite) Laplacian on Rd , and recall that a fundamental
+solution of ∆ is given by the Newton kernel
+                                                    1
+                                                      |x| for d = 1;
+                                                     2
+                               
+                               
+                               
+                               
+                                              1
+(1.1)                Nd (x) =                      log |x| for d = 2;
+                               
+                                             2π
+                                        1
+                                                   |x|2−d for d ≥ 3,
+                               
+                               
+                               
+                                   (2 − d)|S d−1 |
+where
+                           |S d−1 | = d|B d | = dπ d/2 /(d/2)!
+is the area of the unit sphere. Observe that Nr (x) only depends on r = |x|, with
+                                  ∂               1
+                                     Nd = d−1 d−1 .
+                                 ∂r         |S |r
+   Given a smoothly bounded domain Ω ⋐ Rd and f ∈ C ∞ (Ω), v ∈ C ∞ (∂Ω), ,
+the Dirichlet problem
+                                  ∆u = f
+                               
+(1.2)
+                                 u|∂Ω = v
+admits a unique solution u ∈ C ∞ (Ω) (uniqueness being a simple consequence of
+the maximum principle). The resulting isomorphism
+                             C ∞ (Ω) ⊕ C ∞ (∂Ω) ≃ C ∞ (Ω)
+gives rise to two kernels, the Green kernel
+                                GΩ : Ω × Ω → [−∞, 0]
+and the Poisson kernel
+                                  PΩ : Ω × ∂Ω → R
+with the property that
+                      ˆ                  ˆ
+(1.3)         u(x) =    GΩ (x, y)∆u(y) +                PΩ (x, y)u(y)dσ(y)
+                         Ω                         ∂Ω
+for all u ∈ C ∞ (Ω), with dσ(y) the Lebesgue measure ∂Ω. The Green kernel GΩ
+is the unique solution of
+                                (
+                                 ∆x GΩ (x, y) = δy
+(1.4)
+                                  GΩ (·, y)|∂Ω ≡ 0.
+It is symmetric in (x, y), smooth outside the diagonal of Ω × Ω, and satisfies
+                         GΩ (x, y) = Nd (x − y) mod C ∞
+on Ω × Ω. The Poisson kernel PΩ is smooth, and PΩ (x, y)dσ(y) is a probability
+measure on ∂Ω for all x ∈ ∂Ω.
+Example 1.1. The Poisson kernel of the open ball B(0, r) is given by
+                                              1      r2 − |x|2
+                             Pr (x, y) =                       .
+                                           |S d−1 |r |x − y|d
+                           SINGULARITIES AND MULTIPLIER IDEALS                            3
+
+  The unique solution of (1.4) on B(0, r) with y = 0 is given by
+                                                     ˆ |x|
+                                                 1          dt
+               Gr (x, 0) = Nd (x) − Nd (re1 ) = d−1         d−1
+                                                                .
+                                               |S | r t
+Injecting this in (1.3) and translating at a given a ∈ Rd , we get the fundamnetal
+Gauss-Jensen formula.
+Corollary 1.2.
+          ffl   For each u ∈ C ∞ (B̄(a, r)), the difference between u(a) and the
+mean value S(a,r) u on the sphere S(a, r) is expressed as
+                                           ˆ r       ˆ
+                                      1         dt
+(1.5)                     u − u(a) = d−1                   ∆u.
+                   S(a,r)           |S | 0 td−1 B(a,t)
+
+1.2. Subharmonic functions. In what follows, Ω ⊂ Rd denotes any open sub-
+set.
+Definition 1.3. A function u : Ω → [−∞, +∞) is subharmonic if:
+    (a) u is usc, not identically −∞ on any connected component fflof Ω;
+    (b) for each ball B̄(a, r) ⊂ Ω, the mean value inequality u(a) ≤ S(a,r) u holds.
+                                                            ´
+   Note that u is locally bounded above by (a), so that S(a,r) u dσ makes sense
+in [−∞, +∞). Since
+                      ˆ                 ˆ r ˆ
+(1.6)                         u(x)dx =     dt       u(y)dσ(y),
+                           B(a,r)           0      S(a,t)
+                     ffl
+(b) implies u(a) ≤     B(a,r) u. Using this, it is easy to see that u is locally integrable.
+
+Example 1.4. The Gauss-Jensen formula (1.5) directly shows that a smooth
+function u is subharmonic if and only if ∆u ≥ 0.
+Proposition 1.5. Subharmonic functions satisfy the following properties.
+    (i) For any family (uα ) of subharmonic functions on Ω, locally bounded above,
+        the usc regularization (supα uα )⋆ is subharmonic.
+   (ii) If u1 , . . . , ur are subharmonic on Ω, then χ(u1 , . . . , ur ) is subharmonic for
+        any convex function χ on Rr that is non-decreasing in each variable.
+  (iii) If u is subharmonic on Ω and ν is a probability measure supported on a
+        compact set K ⊂ Rd , then u ⋆ ν is subharmonic on any open set U such
+        that U + K ⊂ Ω.
+   Pick a nonnegative radial function ρ ∈ Cc∞ (Rd ), compactly supported in the
+                       ´                                                ´1
+unit ball and such that Rd ρ(x)dx = 1, i.e. ρ(x) = ρ̃(|x|) with |S d−1 | 0 ρ̃(r)rd−1 dr =
+1, and consider the associated approximation of unity
+(1.7)                               ρε (x) = ε−d ρ(ε−1 x)
+We then have the following key monotone regularization result.
+Theorem 1.6. Let u be subharmonic function on Ω. Then u ⋆ ρε is smooth and
+subharmonic on Ωε = {x ∈ Ω | d(x, ∂Ω) > ε}, and decreases to u as ε → 0.
+4                               SÉBASTIEN BOUCKSOM
+
+Proof. Since ρε is an approximation of unity, u ⋆ ρε is smooth on Ωε , u ⋆ ρε → u
+in L1loc , and lim supε→0 u ⋆ ρε ≤ u, u being usc. Noting that
+                                         ˆ 1
+                                     d−1
+(1.8)               (u ⋆ ρε )(a) = |S |      ρ̃(r)rd−1 dr    u dσ,
+                                            0               S(a,εr)
+
+the mean value inequality yields u ≤ u ⋆ ρε . By Proposition 1.5, u ⋆ ρε is subhar-
+monic, and it therefore remains to show that ε 7→ u ⋆ ρε is non-decreasing. When
+u is smooth, it follows
+                     ffl  from (1.8) and the Gauss-Jensen formula (Corollary 1.2),
+which shows that S(a,r) u is a non-decreasing function of r. In the general case,
+u ⋆ ρδ is smooth and subharmonic on Ωδ for any δ > 0. By the smooth case,
+ε 7→ (u ⋆ ρε ) ⋆ ρδ = (u ⋆ ρδ ) ⋆ ρε is thus non-decreasing, and hence so is ε 7→ u ⋆ ρε
+in the limit as δ → 0.                                                                □
+
+Corollary 1.7. If u is subharmonic, then ∆u ≥ 0 in the sense of distributions.
+Conversely, if v ∈ L1loc (Ω) satisfies ∆v ≥ 0, then there exists a unique subhar-
+monic function u on Ω with u = v a.e.
+
+  Using the monotone regularization procedure of Theorem 1.6, one easily ex-
+tends the Green-Riesz representation formula as follows.
+
+Corollary 1.8. Any subharmonic function u defined in a neighborhood of the
+closure of a smooth bounded domain Ω ⋐ Rd is integrable on ∂Ω, and
+                    ˆ                       ˆ
+             u(x) =    GΩ (x, y)(∆u)(y)dy +   PΩ (x, y)u(y)dσ(y).
+                       Ω                          ∂Ω
+
+for all x ∈ Ω.
+
+  By the maximum principle, we have GΩ ≤ 0, which yields the generalized
+submean value inequality
+                                ˆ
+                         u(x) ≤   PΩ (x, y)u(y)dσ(y)
+                                     ∂Ω
+
+for x ∈ Ω. In particular, a subharmonic function u defined on a neighborhood of
+B̄(0, 1) satisfies
+                                   ˆ
+                               1          1 − |x|2
+                     u(x) ≤ d−1                    u(y)dσ(y),
+                             |S | S(0,1) |x − y|d
+for all x ∈ B(0, 1). After translation and scaling, this implies the following basic
+Harnack inequality.
+
+Corollary 1.9. For any ε > 0, there exists a constant C = C(ε, d) such that
+
+                                 sup        u≤C            u.
+                              B(a,(1−ε)r)         S(a,r)
+
+for any non-positive subharmonic function u ≤ 0 defined on a neighborhood of a
+ball B̄(a, r).
+                      SINGULARITIES AND MULTIPLIER IDEALS                                5
+
+1.3. Regularity properties. As we next show, every subharmonic function be-
+longs to the Sobolev space W 1,1+ε for 0 < ε ≪ 1.
+Proposition 1.10. Let u be a subharmonic function on an open subset Ω ⊂ Rd .
+Then u ∈ Lploc for 1 ≤ p < d−2
+                             d
+                                 and ∇u ∈ Lploc for 1 ≤ p < d−1
+                                                              d
+                                                                .
+  When d = 2, e  −cu  is even locally integrable near any given a ∈ Ω for all c > 0
+small enough. More precisely, this holds as soon as c−1 > π1 ∆u({a}).
+Proof. A direct check shows that the Newton kernel Nd satisfies these properties.
+Let χ ∈ Cc∞ (Ω) be a cut-off function with χ ≡ 1 on a neighborhood U of a given
+a ∈ Ω, and consider the compactly supported positive measure µ := χ∆u. On
+U , the function v − Nd ⋆ µ is harmonic, and hence smooth, and it is thus enough
+to show the result for Nd ⋆ µ. For the Lp conditions, this follows directly from
+Lemma 1.11 below, by homogeneity of χ(t) = tp . Assume now that d = 2, and
+pick c > 0 with c−1 > π1 ∆u({a}). We may then choose supp χ such that the total
+mass m of µ satisfies (cm)−1 > π1 . Applying Lemma 1.11 with χ(t) = e−cmt and
+ν = m−1 µ, we get as desired that
+                    exp −(cm)Nd ⋆ (m−1 µ) = exp(−cNd ⋆ µ)
+                                            
+
+is integrable.                                                                           □
+Lemma 1.11. Let χ : [0, +∞) → [0, +∞) be a convex, nondecreasing function,
+f a measurable function on Rd , ν a compactly supported probability measure on
+Rd . Then              ˆ                  ˆ
+                          χ(|f ⋆ ν|) dx ≤    χ(|f |) dx.
+                          Rd                        Rd
+Proof. Since χ is non-decreasing and convex, Jensen’s inequality yields
+                           ˆ                  ˆ
+        χ (|f ⋆ ν|(x)) ≤ χ    |f (x − y)|dν(y) ≤ χ (|f (x − y)|) dν(y),
+
+and hence
+       ˆ                        ˆ           ˆ                        ˆ
+            χ(|f ⋆ ν|(x))dx ≤       dν(y)       χ(|f (x − y)|)dx =       χ(|f |)(x)dx.
+
+                                                                                         □
+
+                       2. Plurisubharmonic functions
+2.1. First properties. Let Ω ⊂ Cn be an open subset.
+Definition 2.1. A function u : Ω → [−∞, +∞) is plurisubharmonic (psh for
+short) if u is usc, not identically −∞ on any connected component of Ω, and the
+restriction of u to each complex line is subharmonic, i.e.
+                                       ˆ 2π
+                                     1
+                            u(a) ≤          u(a + ξeiθ )dθ
+                                    2π 0
+for all a ∈ Ω and ξ ∈ Cn such that {a + zξ | z ∈ D̄} ⊂ Ω.
+Proposition 2.2. Plurisubharmonic functions satisfy the following properties.
+   (i) If u is psh, then it is also subharmonic as a function of 2n real variables.
+6                                 SÉBASTIEN BOUCKSOM
+
+    (ii) If u is smooth, then u is psh iff its complex Hessian ∂ 2 u/∂zj ∂ z̄k 1≤j,k≤n
+                                                                              
+
+          is pointwise semipositive. Equivalently, i∂∂u ≥ 0.
+    (iii) For any family (uα ) of psh functions on Ω, locally bounded above, the usc
+          regularization (supα uα )⋆ is psh.
+    (iv) If u1 , . . . , ur are psh on Ω, then χ(u1 , . . . , ur ) is psh for any convex func-
+          tion χ on Rr that is non-decreasing in each variable.
+     (v) If u is psh on Ω and ν is a probability measure supported on a compact
+          set K ⊂ Rd , then u ⋆ ν is subharmonic on any open set U such that
+          U + K ⊂ Ω.
+    (vi) If u is psh and ρε is a radially symmetric approximation of unity as in
+          (1.7), then u ⋆ ρε is smooth, psh, and decreases pointwise to u as ε ↘ 0.
+    (vi) if u is psh on Ω and f : Ω′ → Ω is holomorphic on an open subset of Cp ,
+          then u ◦ f is psh, or u ◦ f ≡ −∞ on some component of Ω′ .
+  The above properties follow from those already established for subharmonic
+functions, except for the key new property (vi). The latter is true in the smooth
+case by (ii), and the general case follows by regularization. As a result, psh
+functions make sense on any complex manifold.
+
+2.2. Convexity properties. The class of psh functions contains that of convex
+functions, as follows:
+Lemma 2.3. Let ω ⊂ Rn be a convex open subset. A function f on ω is then
+convex if and only if f (x + iy) is a psh function of z = x + iy ∈ ω + iRn .
+Proof. This follows from the Hessian criterion when f is smooth, and the general
+case is obtained by regularizing f .                                          □
+
+  As a consequence, we get the following generalized Hadamard three-circle the-
+orem:
+Corollary 2.4. Let u be any psh function on an open subset Ω of Cn and a ∈ Ω.
+Let also ρr (z) = r−2n ρ(r−1 z) be a radial approximation of unity. The following
+quantities are then convex as functions of log r:
+      (i) supB(a,r) u;
+          ffl
+     (ii) S(a,r) u;
+          ffl
+    (iii) B(a,r) u;
+    (iv) (u ⋆ ρr )(a).
+Proof. After scaling, we assume for simplicity
+                                        ffl       that B̄(a, 1) is contained in Ω, so
+that f (t) = supB(a,et ) u and g(t) = S(a,et ) u are both defined on R− . By (1.6)
+           ffl
+and (1.8), B(a,et ) u and (u ⋆ ρet )(a) are both of the form
+                                   ˆ
+(2.1)                                  g(t − s)dµ(s)
+                                      R+
+
+with µ a probability measure on R+ , and it is thus enough to show that f and
+g are convex. For ξ ∈ B̄(0, 1), z 7→ u(a + ez ξ) is a subharmonic function on the
+                      SINGULARITIES AND MULTIPLIER IDEALS                           7
+
+half-plane {z ∈ C | Re z < 0}, and hence so are
+                                 sup u =          sup u(a + ez ξ)
+                                B(a,ez )       ξ∈B̄(0,1)
+
+and                                               ˆ
+                                           1
+                                u=                           u(a + ez ξ)dσ(ξ).
+                     S(a,ez )         |S 2n−1 |    S 2n−1
+Being independent of Im z, they are therefore convex functions of Re z.            □
+
+   When u is continuous, the various means of u considered in Corollary 2.4
+all converge to u(a) as r → 0. As observed in [BK07, Lemma 5], they remain
+equivalent as r → 0 when u is merely locally bounded:
+Lemma 2.5. Assume further that u is locally bounded in Corollary 2.4. Then the
+difference between any two of the quantities (i)—(iv), as well as those obtained
+by replacing r with by cr for some c > 0, all tend to 0 as r → 0, locally uniformly
+with respect to a ∈ Ω:
+   This fact will later allow us to easily compare the regularization by convolu-
+tion in various coordinate charts, which is the key point in the Blocki–Kolodziej
+extension of the Richberg regularization procedure, cf. §3.2.
+
+Proof. Using the above notation, we first claim that there exists C > 0 such that
+(2.2)                  0 ≤ f (t) − g(t) ≤ C (f (t) − f (t − 1)) .
+for all t ∈ R− . Indeed, u−f (t) is a non-positive subharmonic function on B(a, et ),
+and the Harnack inequality of Corollary 1.9 therefore shows that
+
+                            g(t) − f (t) =                       (u − f (t))
+                                                      S(a,et )
+
+                   ≥C      sup (u − f (t)) = C(f (t − 1) − f (t)),
+                        B(a,et−1 )
+
+which proves the claim. By convexity of f , we have for all t ∈ R− and s > 0
+                         f (t) − f (t − s)   f (0) − f (t − s)
+                                           ≤                   .
+                                 s                −t + s
+Since u is locally bounded, we infer
+                                                                      s
+(2.3)                      0 ≤ f (t) − f (t − δ) ≤ C
+                                                                    −t + s
+for some constant C > 0, which can be chosen locally uniformly with respect a.
+Combined with (2.2), this shows that
+                                                                   C
+                                  0 ≤ f (t) − g(t) ≤                    ,
+                                                                 −t + 1
+and hence
+                        f (t) = g(t) + o(1) = f (t − s) + o(1)
+8                               SÉBASTIEN BOUCKSOM
+                                  ffl
+as t → −∞. We have seen that B(a,et ) u and (u ⋆ ρet )(a) are both of the form
+´
+  R+ g(t − s)dµ(s) with µ a probability measure on R+ . The above estimates yield
+                             ˆ                    ˆ
+                 0 ≤ f (t) −    g(t − s)dµ(s) ≤ C      αt (s)dµ(s).
+                              R+                       R+
+                 s       1
+with αt (s) := −t+s + −t+s+1 . Since 0 ≤ αt (s) ≤ 2 and limt→−∞ αt (s) = 0 for all
+                                               ´
+s ∈ R+ , dominated convergence yields f (t) − R+ g(t − s)dµ(s) → 0 for t → −∞,
+and we are done.                                                            □
+2.3. Lelong numbers. In what follows, u still denotes a psh function on an
+open subset Ω ⊂ Cn . Pick a ∈ Ω and r > 0 with B̄(a, r) ⊂ Ω. By convexity of
+f (t) := supB(a,et ) u on (−∞, log r],
+                                   f (t) − f (log r)
+                                                       ≥0
+                                        t − log r
+is a non-decreasing function of t, and f (t)/t therefore admits a limit in R+ as
+t → −∞. In other words,
+                                                supB(a,r) u
+                                νa (u) := lim
+                                           r→0       log r
+exists is R+ , and is called the Lelong number of u at a. By convexity of f , we
+further have
+                                               f (t′ ) − f (log r)
+                                                                  
+     f (t) − f (log r) ≤ (t − log r) ′ lim                           = (t − log r)νa (u).
+                                       t →−∞       t′ − log r
+for t ≤ log r. In other words,
+                                               |z − a|
+(2.4)                       u(z) ≤ νa (u) log            + sup u
+                                                  r         B(a,r)
+
+for all z ∈ B(a, r). It follows that
+(2.5)       νa (u) = max{γ ∈ R+ | u(z) ≤ γ log |z − a| + O(1) near a}.
+which intuitively says that νa (u) is the ’vanishing order’ at a of eu , and hence
+measures the ’size’ of the singularity of u at a. Using the estimate (2.4), it is easy
+to establish:
+Lemma 2.6. The Lelong number νa (u) is usc with respect to a ∈ Ω, and also
+with respect the weak (equivalently, L1loc ) topology of psh functions. In particular,
+if (uj ) is an increasing sequence of psh functions converging a.e. to a psh function
+u, then νa (uj ) ↘ νa (u).
+   While a locally bounded psh function u has zero Lelong numbers, the converse
+is far from true.
+Example 2.7. For each convex, non-decreasing function χ : R− → R, u(z) =
+χ(log |z|) is subharmonic on the unit disc D ⊂ C, with
+                                                  χ(t)
+                           ν0 (u) = χ′ (−∞) = lim      .
+                                                   t
+                                                t→−∞
+If χ(t) = − log(−t) or (−t)α with 0 < α < 1, then u(0) = −∞ but ν0 (u) = 0.
+                       SINGULARITIES AND MULTIPLIER IDEALS                              9
+                                     ffl
+  Recall from Corollary 2.4 that           S(a,r) u is a convex function of log r.
+
+Lemma 2.8. For each psh function u on Ω and a ∈ Ω, we have
+                                       ffl
+                                          S(a,r) u
+                          νa (u) = lim             .
+                                   r→0 log r
+
+Proof. The Harnack inequality of Corollary 1.9 shows that
+                ffl
+                    S(a,r) u − supB(a,r) u    supB(a,r/2) u − supB(a,r) u
+(2.6)       0≤                             ≤C
+                             log r                       log r
+for 0 < r ≪ 1. The right-hand side clearly tends to 0, hence the result.               □
+Remark 2.9. Arguing as in the proof of Lemma 2.5, one similarly checks that
+                              ffl
+                                  B(a,r) u       (u ⋆ ρr )(a)
+                 νa (u) = lim              = lim              .
+                          r→0 log r          r→0    log r
+Corollary 2.10. For any two psh functions u, v we have
+                         νa (max{u, v}) = min{νa (u), νa (v)}
+and
+                             νa (u + v) = νa (u) + νa (v).
+   The next result provides an alternative characterization of νa (u) as a limit
+density. Set ω := 2i ∂∂|z|2 , which is the Kähler form associated to the Euclidian
+metric on Cn . The Lebesgue measure of Cn is then equal to ω n /n!. Since u is
+                                                                     ω n−1
+psh, T := πi ∂∂u is a closed positive (1, 1)-current, and σT := T ∧ (n−1)! is thus a
+positive measure on Ω, called the trace measure of T . The choice of normalization
+for T comes from the following special case:
+Example 2.11. When u = log |z1 |, the trace measure σT = σH coincides with
+the Lebesgue measure on the hyperplane H = (z1 = 0). For n = 1, this amounts
+to the well-known formula πi ∂∂ log |z| = δ0 . Pulling-back by the projection
+(z1 , . . . , zn ) 7→ z1 shows that πi ∂∂ log |z1 | is the integration current δH on H
+                                                                        ω n−1
+(a special case of the Lelong-Poincaré formula), and σH = δH ∧ (n−1)!        is thus the
+Lebesgue measure on H.
+  We are now in a position to decribe νa (u) as a ratio of trace measures:
+Proposition 2.12. If u is a psh function and T = πi ∂∂u, then
+                                σT (B(a, r))
+                                             ↘ νa (u)
+                                σH (B(0, r))
+as r ↘ 0.
+Proof. Set f (r) := σT (B(a, r)) /σH (B(0, r)). Since ω n /n! is the Lebesgue mea-
+sure on Cn , the Gauss-Jensen formula of Corollary 1.2 yields
+                                          ˆ r        ˆ
+                                      1          dt              ωn
+                         u − u(a) = 2n−1        2n−1
+                                                             ∆u .
+                  S(a,r)           |S    | 0 t        B(a,t)     n!
+10                                SÉBASTIEN BOUCKSOM
+
+Using
+                            ˆ                                   ˆ
+                 (n − 1)!              ω n−1        1
+        f (r) =                    T∧          = n−1 2n−2                T ∧ ω n−1 ,
+                (πr2 )n−1   B(a,r)    (n − 1)!  π   r           B(a,r)
+
+                                         ω n−1    1   ωn
+                                i∂∂u ∧       = ∆u ,
+                                    (n − 1)!      2     n!
+and |S 2n−1         2n      n
+            | = 2n|B | = 2π /(n − 1)!, we get
+                                              ˆ r
+                                                          dt
+(2.7)                             u − u(a) =        f (t) .
+                           S(a,r)                0          t
+      ffl
+Since S(a,r) u is a convex function of log r, it follows that f is non-decreasing,
+with                                         ffl
+                                                 S(a,r) u
+                             lim f (r) = lim              ,
+                            r→0          r→0 log r
+and we conclude by Lemma 2.8.                                                   □
+                                                              1
+Remark 2.13. When n = 1, Proposition 2.12 says that νa (u) = 2π ∆u({a}), and
+Proposition 1.10 can thus be rewritten as
+                            νa (u) < 1 =⇒ e−u ∈ L2loc near a.
+The converse is also true, and follows immediately from (10.1). By a nontrivial
+result originally due to Skoda, the above implication remains valid for all n,
+cf. Corollary 9.18.
+
+                 3. Regularization of quasi-psh functions
+3.1. Quasi-psh functions and singular metrics. As mentioned above, psh
+functions make sense on any complex manifold X.
+Definition 3.1. A usc function φ : X → [−∞, +∞) on a complex manifold X
+is quasi-psh if it is locally of the form φ = u + f where u is psh and f is smooth.
+   It will be convenient to introduce the real operator ddc := πi ∂∂ (the role of the
+normalization factor π will become apparent below). By the Poincaré lemma,
+any closed, real (1, 1)-form θ on X is locally of the form θ = ddc f for a smooth
+real-valued function f , called a local potential of θ. In particular, θ is a Kähler
+form if and only if its local potentials are strictly psh.
+Definition 3.2. A quasi-psh function φ is θ-psh if θ + ddc φ ≥ 0 in the sense of
+currents; equivalently, f + φ is (locally) psh for any choice of local potentials f
+for θ.
+   Let now L be a Hermitian holomorphic line bundle on X. The curvature form
+of L is the closed, real (1, 1)-form θ locally defined by θ := −ddc log |τ | for any
+local trivializing (holomorphic) section τ of L. This (1, 1)-form is indeed globally
+well-defined, as any other local trivializing section is of the form τ ′ = uτ with
+u ∈ O⋆X , and ddc log |τ ′ | = ddc log |τ | since log |u| pluriharmonic.
+   This definition of the curvature form θ is simply a concrete description of the
+curvature form of the Chern connection of L, normalized so that θ represents
+                      SINGULARITIES AND MULTIPLIER IDEALS                           11
+
+the first Chern class of L in de Rham cohomology, i.e. the image in H 2 (X, R) of
+c1 (L) ∈ H 2 (X, Z).
+    Any other Hermitian metric on L is of the form | · |′ = | · |e−φ with φ ∈ C ∞ (X),
+and the curvature forms are related by θ′ = θ + ddc φ. The data of a θ-psh
+function φ can thus be interpreted as that of a singular metric | · |e−φ on L with
+semipositive curvature current θ + ddc φ.
+
+3.2. Local regularization of quasi-psh functions. Local regularization of
+quasi-psh functions is easily achieved by convolution with a smoothing kernel.
+As above,
+     ´     choose a radially symmetric, nonnegative function ρ ∈ Cc∞ (Cn ) such
+that Cn ρ = 1, and consider the corresponding approximation of unity (ρj ),
+defined by
+                                ρj (z) := j 2n ρ(jz).
+Theorem 3.3. Let X be a complex manifold equipped with a reference positive
+(1, 1)-form ω. Let θ be a closed, real (1, 1)-form, and φ be a θ-psh function on
+X. Pick local holomorphic coordinates z centered at a given point a ∈ X, and
+denote by φ ⋆z ρj the (locally defined) smooth function obtained by convolution in
+these coordinates. Then the following holds:
+      (i) φ ⋆z ρj + cj decreases pointwise to φ for some sequence cj → 0+ ;
+     (ii) θ + ddc (φ ⋆z ρj ) ≥ −εj ω for some sequence εj → 0+ ;
+    (iii) if φ is further locally bounded and z ′ is any other local coordinate system
+          centered at a, then φ ⋆z ρj − φ ⋆z ′ ρj tends to 0 locally uniformly.
+Proof. Let f be a local potential of θ near a. Since u := f + φ is psh, Proposi-
+tion 2.2 shows that u ⋆z ρj is psh and decreases pointwise to u. As f is smooth,
+f ⋆z ρj → f in C ∞ topology. In particular, f ⋆z ρj → f locally uniformly, and
+                          −εj ω ≤ ddc (f ⋆z ρj − f ) ≤ εj ω
+with εj → 0+ , which proves (i) and (ii). Choose another local coordinate system
+z ′ centered at a, and denote by B(a, r) and B ′ (a, r) the corresponding Euclidian
+balls. Since z and z ′ are locally Lipschitz equivalent, we have
+                         B(a, C −1 ε) ⊂ B ′ (a, ε) ⊂ B(a, Cε)
+for some locally uniform constant C > 0, and hence
+                            sup        u ≤ sup u ≤ sup u.
+                         B(a,C −1 ε)       B ′ (a,ε)         B(a,Cε)
+
+By Lemma 2.5, we have
+                           (u ⋆z ′ ρε )(a) = sup u + o(1)
+                                                 B ′ (a,ε)
+
+and
+                (u ⋆z ρε )(a) =      sup        u + o(1) = sup u + o(1)
+                                  B(a,C −1 ε)                  B(a,Cε)
+locally uniformly with respect to a. As a result, u ⋆z ρε − u ⋆z ′ ρε → 0 locally
+uniformly. By continuity of f , we also have f ⋆z ρε −f ⋆z ′ ρε → 0 locally uniformly,
+hence (iii).                                                                        □
+12                                    SÉBASTIEN BOUCKSOM
+
+3.3. Global regularization of bounded quasi-psh functions. A classical
+result of Richberg [Ric68] (see also [DemAG, §5.E]) states that a continuous
+θ-psh φ on a complex manifold X can be written as the locally uniform limit
+of a sequence of smooth functions φj ∈ C ∞ (X) such that the negative part of
+θ + ddc φj tends to 0 on compact sets.
+   The following extension to the case where φ is merely locally bounded was
+initially obtained as a consequence of deep regularization results due to Demailly
+[Dem92], before Blocki and Kolodziej realized in [BK07] that it can in fact be
+proved along the lines of the Richberg argument. The importance of passing from
+the continuous to the locally bounded will be illustrated by Theorem 3.8 below.
+Theorem 3.4. Let X be a complex manifold, equipped with a reference positive
+(1, 1)-form ω. Given a locally bounded quasi-psh function φ on X, there exists
+a sequence φj ∈ C ∞ (X) with the following properties:
+     (i) φj ↘ φ pointwise on X;
+    (ii) for each closed, real (1, 1)-form θ such that θ+ddc φ ≥ 0 and each relatively
+         compact open U ⋐ X, there exists εj → 0+ such that θ + ddc φj ≥ −εj ω
+         on U .
+  The proof presented below combines [DemAG, §5.E] and [BK07]. Note first
+that the local boundedness assumption cannot be dropped:
+Example 3.5. Let E ⊂ X be the exceptional divisor of the blowup of a point
+in a compact Kähler surface, and recall that the cohomology class [E] ∈ H 2 (X)
+satisfies [E]2 = −1. Pick a Hermitian metric | · | on the line bundle O(E), with
+curvature form θ, and let s ∈ H 0 (X, O(E)) be the canonical section, so that
+φ := log |s| is θ-psh. Assume by contradiction that φ can be written as the weak
+limit of smooth functions φj ∈ C ∞ (X) such that θ + ddc φj ≥ −εj ω for some
+Kähler form ω on X and εj → 0. Then
+                  ˆ
+             0≤      (θ + ddc φj + εj ω)2 = ([E] + εj [ω])2 → [E]2 = −1,
+                      X
+a contradiction.
+     The Richberg patching technique relies on the use of regularized max functions.
+                                                                 ∞
+´Definition 3.6. Given a non-negative function ρ ∈ C (R) with supp ρ ⊂ [0, 1],
+  R ρ(t)dt = 1 and an r-tuple of positive numbers δ = (δ1 , . . . , δr ), the regularized
+ max function maxδ {x1 , . . . xr } is defined as the convolution product
+                           ˆ
+ maxδ {x1 , . . . , xr } =      max{x1 + δ1 t1 , . . . , xr + δr tr }ρ(t1 ) . . . ρ(tr )dt1 . . . dtr .
+                           t∈[0,1]r
+
+     The following properties are trivially satisfied:
+      (i) maxδ is smooth and convex on Rr , non-decreasing in each variable, and
+                    maxδ {x1 + c, . . . , xr + c} = maxδ {x1 , . . . , xr } + c
+           for all x1 , . . . , xr , c ∈ R.
+      (ii) If xi + δi ≤ maxj̸=i (xj − δj ), then
+                      maxδ {x1 , . . . , xr } = maxδ {x1 , . . . , xbi , . . . , xr }.
+                         SINGULARITIES AND MULTIPLIER IDEALS                                    13
+
+   (iii) max{x1 , . . . , xr } ≤ maxδ {x1 , . . . , xp } ≤ max{x1 + δ1 , . . . , xr + δr }.
+By (i) and Lemma 3.7 below, maxδ (φ1 , . . . , φr ) is thus θ-psh for any choice of
+θ-psh functions φi .
+Lemma 3.7. Suppose that χ : Rr → R is convex, non-decreasing in each variable
+and satisfies χ(t1 + c, . . . , tr + c) = χ(t1 , . . . , tr ) + c for all c ∈ R. If φ1 , . . . , φr
+are θ-psh functions, then so is χ(φ1 , . . . , φr ).
+Proof. Let f be a local potential of θ. Since f + φj is psh, Proposition 2.2 implies
+that
+                    χ(f + φ1 , . . . , f + φr ) = f + χ(φ1 , . . . , φr )
+is psh, and the result follows.                                                                 □
+Proof of Theorem 3.4. Choose a locally finite cover of X by coordinate charts
+(Vα ), and open subsets Uα′ ⋐ Uα ⋐ Vα with (Uα′ ) still covering K. For each α, the
+local regularization result of Theorem 3.3 yields a sequence of smooth functions
+φα,j defined on a neighborhood of U α such that
+     (i) φα,j ↘ φ;
+     (i) for every closed real (1, 1)-form θ with θ +ddc φ ≥ 0, we have θ+ddc φα,j ≥
+         −εα,j ω with εα,j → 0+ ;
+    (ii) supU α ∩U β |φα,j − φβ,j | ≤ δα,j with δα,j ↘ 0+ .
+For each α, choose a cut-off function χα ∈ Cc∞ (Uα ) with 0 ≤ χα ≤ 1 and χα ≡ 1
+                       ′
+on a neighborhood of U α , and set for each z ∈ X
+                         φj (z) := maxδα,j {φα,j (z) + 2δα,j χα (z)}
+with α ranging over all indices such that z ∈ Uα . The monotonicity properties of
+the regularized max then imply that
+      φ(z) ≤ φj+1 (z) ≤ φj (z) ≤ max{φα,j (z) + 2δα,j χα (z) + δα,j | z ∈ Uα },
+and hence φj (z) ↘ φ(z). Now pick z0 ∈ X and α0 ∈ A with z0 ∈ Uα′ 0 , and set
+                                                      
+                                 [         [
+                  V := Uα′ 0 \      Uα ∪      supp χα  .
+                                          ∈U α
+                                        z0 /          z0 ∈∂Uα
+
+Using the basic properties of regularized max functions, a simple check shows
+that for all z ∈ V we have
+                         φj (z) = maxδα,j {φα,j (z) + 2δα,j χα (z)},
+where α now ranges over the fixed set of indices such that z0 ∈ Uα . As a first
+consequence, φj is smooth on X. For each compact K ⊂ X, denote by AK ⊂ A
+the (finite) set indices such that Vα intersects K, and choose CK > 0 such that
+ddc χα ≥ −CK ω near K for all α ∈ AK . If θ + ddc φ ≥ 0 for a given θ, Lemma 3.7
+yields
+                    θ + ddc φj ≥ −( min εα,j + 2CK min δα,j )ω
+                                         α∈AK                   α∈AK
+near K, and we are done.                                                                        □
+14                               SÉBASTIEN BOUCKSOM
+
+3.4. Global regularization of unbounded quasi-psh functions. We now
+show how to get rid of the local boundedness condition in Theorem 3.4, under
+adequate extra assumptions. This is only briefly mentioned in [BK07], and we
+provide some details.
+   Recall that a complex manifold X is strongly pseudoconvex if it admits a
+smooth, strictly psh exhaustion function τ : X → R. If X is Stein, it admits
+a closed embedding in some CN , and the restriction to X of |z|2 yields a strictly
+psh exhaustion function. The Levi problem asked for the converse, and was pos-
+itively answered by Grauert in 1958. A proof using L2 -estimates for ∂ will be
+provided below.
+Theorem 3.8. Let φ be a quasi-psh function on a complex manifold X, and
+assume given finitely many closed, real (1, 1)-forms θα such that θα + ddc φ ≥ 0
+for all α. Suppose either that X is strongly pseudoconvex, or that θα > 0 for all
+α. Then we can find a sequence φj ∈ C ∞ (X) with the following properties:
+      (i) φj converges pointwise to φ;
+     (ii) for each relatively compact open subset U ⋐ X, there exists jU ≫ 1 such
+          that the sequence (φj ) becomes decreasing with θα + ddc φj > 0 for j ≥ jU .
+Proof. Suppose first that θα > 0 for all α. By Lemma 3.7, the locally bounded
+functions ψj := max{φ, −j} satisfy θα + ddc ψj ≥ 0 for all α, j. Note that ψj
+is generally not continuous, which is why the improvement from continuous to
+locally bounded functions in Richberg’s theorem is so crucial.
+   Choose next an exhaustion of X by compact subsets Kj ⊂ K̊j+1 . We are going
+to construct by induction on j ≥ 1 a sequence φj ∈ C ∞ (X) such that
+      (i) on Kj+1 , φj > ψj and θα + ddc φj > 0 for all α;
+     (ii) on Kj , φj ≤ φj−1 and ∥φj − ψj ∥L1 (Kj ) ≤ 1/j.
+Since ψj → φ in L1loc , (φj ) will then satisfy the conditions of the theorem. Start
+with any smooth function ψ0 > max{φ, 0}, and assume that ψ0 , . . . , ψk−1 have
+been constructed. Let ψj,k ∈ C ∞ (X) be a sequence obtained by applying Theo-
+rem 3.4 to the locally bounded quasi-psh function ψj , i.e. ψj,k ↘ ψj and
+(3.1)                            θα + ddc ψj,k > −εk θα
+on Kj+1 for some sequence εk ↘ 0 depending on j (but not on α), by positivity
+of θα . On Kj , we have by induction
+                            lim ψj,k = ψj ≤ ψj−1 < φj−1 ,
+                             k
+
+and hence ψj,k ≤ φj−1 − ηj on Kj for some constant ηj > 0 and all k ≫ 1, by
+Dini’s lemma. Set δk := 1 − (1 + εk )−1 and
+                       φj,k := (1 − δk )ψj,k + δk (1 + sup ψj ).
+                                                      Kj+1
+
+On Kj+1 , we have
+                      φj,k ≥ (1 − δk )ψj + δk (1 + sup ψj ) > ψj ,
+                                                  Kj+1
+                      SINGULARITIES AND MULTIPLIER IDEALS                           15
+
+and θα + ddc φj,k > 0 by (3.1). Since ψj,k ≤ φj−1 − ηj on Kj , we have φj,k < φj−1
+on Kj for k ≫ 1, and also ∥φj,k −ψj ∥L1 (Kj ) ≤ 1/j since φj,k → ψj in L1loc . Setting
+φj := φj,k with k ≫ 1 thus completes the inductive step.
+   Assume finally that X is strongly pseudoconvex, with θα not necessarily pos-
+itive anymore. Given a smooth, strictly psh exhaustion function τ : X → R, we
+can find a positive continuous function f : X → R+ such that f ddc τ + θα > 0
+for all α. Choosing a smooth, convex, non-decreasing function χ : R → R with
+fast enough growth to guarantee that χ′′ (c) ≥ sup{τ =c} f for all c ∈ R, we get
+                 ddc χ(τ ) = χ′′ (τ )ddc τ + χ′ (τ )dτ ∧ dc τ ≥ f ddc τ.
+For each α, θ̃α := θα + ddc χ(τ ) is thus positive with θ̃α + ddc [φ − χ(τ )] ≥ 0. The
+first case treated above yields a sequence φ̃i ∈ C ∞ (X) converging pointwise to
+φ − χ(τ ), and which becomes decreasing with θ̃α + ddc φ′j > 0 for j ≫ 1 on any
+given relatively compact open subset. Setting φj := φ̃j + χ(τ ) yields the desired
+sequence for φ.                                                                     □
+
+       4. Basic analysis of first order differential operators
+4.1. Differential operators. We use [Dem02, §2] as a reference for what follows.
+Let M be a smooth manifold and E, F be smooth, complex vector bundles on
+M . A linear differential operator of order (at most) δ is a C-linear map A :
+C ∞ (M, E) → C ∞ (M, F ) such that for any coordinate chart in which E, F are
+trivialized, we have
+                                     X
+(4.1)                         A=            aα Dα
+                                      α∈Nd ,|α|≤δ
+
+with aα ∈ Hom(E, F ). More invariantly, the space of differential operator of
+order δ can be written as
+                      Dδ (M ; E, F ) = C ∞ (M, Hom(J δ E, F ))
+with J δ E = JM
+              δ ⊗ E the vector bundle of δ-jets of sections of E. The jet exact
+
+sequence
+                                              δ−1
+                       0 → S δ TM
+                                ⋆
+                                  → JMd
+                                         → JM     →0
+gives rise to an isomorphism
+          Dδ (M ; E, F )/Dδ−1 (M ; E, F ) ≃ C ∞ (M, S δ TM ⊗ Hom(E, F )).
+The image σA ∈ C ∞ (M, S δ TM ⊗ Hom(E, F )) of A ∈ Dδ (M ; E, F ) is called the
+principal symbol of A, and is more concretely described as the Hom(E, F )-valued
+homogeneous form of degree δ on TM  ⋆
+                                        X
+                               σA (ξ) =      aα ξ α ,
+                                           |α|=δ
+
+when A is locally written in the form (4.1).
+Proposition 4.1. Let A : C ∞ (M, E) → C ∞ (M, F ) be a differential operator of
+order δ.
+16                                SÉBASTIEN BOUCKSOM
+
+     (i) If A′ : C ∞ (M, F ) → C ∞ (M, G) is a differential operator of order δ ′ , then
+         A′ A is a differential operator of order δ ′ + δ, and for each ξ ∈ TM
+                                                                             ⋆ we have
+
+
+                                  σA′ A (ξ) = σA′ (ξ)σA (ξ).
+     (ii) For δ = 1, we may view σA is an Hom(E, F )-valued vector field, and we
+          have the commutator relation
+(4.2)              [A, f ]u := A(f u) − f Au = σA (df )u = (σA · f )u
+         for each f ∈ C ∞ (M ) and u ∈ C ∞ (M, E).
+  In particular, the space of order 1 differential operators E → F with a given
+(degree 1) symbol is an affine space modeled on the space of bundle homomor-
+phisms.
+Example 4.2. A connection ∇ on E induces a differential operator of order 1
+                   D∇ : C ∞ (M, Λ• TM
+                                    ⋆
+                                      ⊗ E) → C ∞ (M, Λ• TM
+                                                         ⋆
+                                                           ⊗ E),
+with principal symbol ξ ∧ •.
+4.2. Adjoint. Now assume given a smooth volume form dV on M and Hermitian
+scalar products on E and F . If A : C ∞ (M, E) → C ∞ (M, F ) is a differential
+operator of order δ, its formal adjoint A⋆ : C ∞ (M, F ) → C ∞ (M, E) is uniquely
+determined by the requirement
+(4.3)                             ⟨Au, v⟩L2 = ⟨u, A⋆ v⟩L2
+for all u ∈ C ∞ (M, E), v ∈ C ∞ (M, F ) such that u (or v) has compact support.
+Lemma 4.3. Any differential operator A ∈ Dδ (M ; E, F ) admits a formal adjoint
+A⋆ ∈ Dδ (M ; F, E). Further, its principal symbol is given by
+                                      σA⋆ = (−1)δ σA
+                                                   ⋆
+                                                     .
+Further, given a section v ∈ C ∞ (M, F ), the value of A⋆ v at a given point only
+depends on the δ-jet of dV and of the metrics of E and F .
+Proof. By linearity and a partition of unity, we may assume that E, F are trivial
+and A = aDα with a ∈ Hom(E, F ). Denote by hE , hF the matrices representing
+the scalar product of E, F and write dV = f dx with f > 0. Then
+                            ˆ                    ˆ
+               ⟨Au, v⟩L2 = ⟨aD u, v⟩F dV = ⟨Dα u, a⋆ v⟩E dV
+                                   α
+
+
+                   ˆ                                 ˆ
+                        α t
+                                  a⋆ vf dx = (−1)d       t
+                                                             u Dα hE a⋆ vf dx,
+                                                                          
+               =       D ( u)hE
+
+and hence
+            A⋆ v = (−1)δ t h−1  α t
+                                    hE a⋆ vf f −1 = (−1)δ a⋆ Dα v + l.o.t.
+                                            
+                            E D
+
+                                                                                      □
+                     SINGULARITIES AND MULTIPLIER IDEALS                          17
+
+4.3. Friedrich’s lemma for complete metrics. A differential operator A ∈
+Dδ (M ; E, F ) acts in a natural way on distributional sections, and (4.3) remains
+valid when u is a distribution and v ∈ Cc∞ . In particular, A uniquely extends
+to a densely defined, closed operator (i.e. with closed graph) A : L2 (M, E) 99K
+L2 (M, F ), with u ∈ Dom A iff Au ∈ L2 . However, in general, (4.3) does not hold
+for all u ∈ Dom A, v ∈ Dom A⋆ (i.e. Dom A⋆ does not coincide with the domain
+of the Hilbert space adjoint of A).
+Example 4.4. Let I ⊂ R be a bounded open interval endowed with the Euclidian
+metric, and A = d/dx. Then A⋆ = −A, Dom A = Dom A⋆ is the Sobolev space
+                 ¯ and ⟨Au, v⟩ = ⟨u, A⋆ v⟩ + [uv]∂I for u, v ∈ W 1,2 .
+W 1,2 (I) ⊂ C 0 (I),
+Theorem 4.5. If the Riemannian metric g of M is complete, then any u ∈
+L2 (M, E) can be written as the L2 -limit of a sequence of test sections uj ∈
+Cc∞ (M, E) with the following property: for each first order linear differential
+operator A ∈ D1 (M ; E, F ) with bounded symbol σA , Au ∈ L2 (M, F ) implies
+Auj → Au in L2 .
+   The regularizing sequence uj will be obtained by truncation and local convo-
+lution.
+Lemma 4.6. Let (M, g) be a Riemannian manifold, possibly with boundary, fix
+p ∈ [1, ∞], and consider the following conditions:
+     (i) M admits a smooth exhaustion function ψ : M → R with dψ ∈ Lp ;
+    (ii) there exists an exhaustion by compact sets Kj ⊂ K̊j+1 ⋐ M and a se-
+         quence of cut-off functions χj ∈ Cc∞ (K̊j+1 ) with 0 ≤ χj ≤ 1, χj ≡ 1 on a
+         neighborhood of Kj , such that ∥dχj ∥Lp → 0;
+   (iii) there exists Kj , χj as in (ii) with dχj bounded in Lp .
+Then (i)=⇒(ii)=⇒(iii); when p > 1, we conversely have (iii)=⇒(i). For p = ∞,
+these conditions are also equivalent to the completeness of g.
+   The case of M = (0, 1] shows that (iii)=⇒(i) fails in general for p = 1. A Rie-
+mannian manifold (M, g) satisfying the above conditions with p = 2 is classically
+called parabolic, cf. [Gla83] and the references therein for more information.
+
+Proof. Suppose given ψ as in (i), and pick a smooth function cut-off function
+θ ∈ Cc∞ (R) with 0 ≤ θ ≤ 1, θ ≡ 1 near 0. Then χj (x) = θ(j −1 ψ(x)) satisfies (ii).
+(ii)=⇒(iii) is trivial. Let χj as in (iii) and p > 1. Then
+                                       X
+                                ψ :=       j −1 (1 − χj )
+                                    j≥1
+
+is a smooth exhaustion function, since we have ψ ≥ Sj outside Kj+1 with Sj =
+Pj       −1 → +∞. Since the supports of the gradients dχ are disjoint, we have
+   k=1 k                                                j
+                   ˆ               X       ˆ
+                       |dψ|p dV ≤     j −p   |dχj |p < +∞,
+                      M             j≥1      M
+
+which proves (i).
+18                               SÉBASTIEN BOUCKSOM
+
+   Fix a basepoint x0 ∈ M . By the Hopf-Rinow Lemma, g is complete iff d(•, x0 )
+is an exhaustion function. If ψ is a smooth exhaustion function with bounded gra-
+dient, then ψ(x) ≤ ψ(x0 )+Cd(x, x0 ), and d(•, x0 ) is thus exhaustive. Conversely,
+if the Lipschitz continuous function d(•, x0 ) is exhaustive, then a regularization
+argument shows the existence of a smooth exhaustion function with bounded
+gradient.                                                                         □
+
+Proof of Theorem 4.5. By Lemma 4.6, we may find an exhausting sequence of
+cut-off functions χj ∈ Cc∞ (M ) with |dχj |g ≤ 1. For each u ∈ L2 (M, E), we have
+χj u → u in L2 . Further, (4.2) yields A(χj u) = χj Au + σA (dχj )u with
+
+                                   |σA (dχj )u| ≤ C|u|
+
+since |dχj |g ≤ 1 and σA is bounded. By dominated convergence, we thus have
+σA (dχj )u → 0 in L2 , and hence A(χj u) → Au in L2 whenever the latter is in L2 .
+   We are thus reduced to the case where u has compact support. Using a parti-
+tion of unity, we can further assume that u is compactly supported in a coordinate
+chart. We then conclude using Lemma 4.7 below, usually known as Friedrich’s
+lemma.                                                                          □
+                                       ´
+Lemma 4.7. Pick ρ ∈ Cc∞ (Rd ) with ρ(x)dx = 1, and set ρε (x) = ε−d ρ(ε−1 x).
+Let also A = α aα Dα ∈ D1 (Rd ) be a first order linear differential operator with
+               P
+
+|daα | ≤ C. For each f ∈ L2 (Rd ), we then have A(f ⋆ ρε ) − (Af ) ⋆ ρε → 0 in
+L2 (Rd ) as ε → 0.
+
+Proof. The result is clearly true if f is a test function, since f ⋆ρε → f in C ∞ . By
+density of test funtions in L2 , it is thus enough to prove the existence of C > 0
+such that
+                         ∥A(f ⋆ ρε ) − (Af ) ⋆ ρε ∥L2 ≤ C∥f ∥L2
+for all f ∈ L2 . To do this, we may assume by linearity that A = a∂j where
+a ∈ C ∞ has bounded gradient. Write
+
+                      (a∂j f ) ⋆ ρε = (af ) ⋆ ∂j ρε − ((∂j a)f ) ⋆ ρε .
+
+Since L2 ⋆ L1 ⊂ L2 , the second term satisfies
+
+                 ∥ ((∂j a)f ) ⋆ ρε ∥L2 ≤ ∥(∂j a)f ∥L2 ∥ρε ∥L1 ≤ C∥f ∥L2 .
+
+Next,
+                                                ˆ
+ ((af ) ⋆ ∂j ρε ) (x) − a(x)(∂j f ⋆ ρε )(x) =       (a(x − y) − a(x))f (x − y)(∂j ρε )(y)dy
+
+yields
+                    |(af ) ⋆ ∂j ρε − a(∂j f ⋆ ρε )| ≤ C |f ⋆ (x∂j ρε )| ,
+whose L2 norm is bounded above by a uniform multiple of ∥f ∥L2 since ∥x∂j ρε ∥L1 =
+∥x∂j ρ∥L1 is bounded.                                                           □
+                     SINGULARITIES AND MULTIPLIER IDEALS                         19
+
+4.4. Removable singularities for first order PDEs.
+Proposition 4.8. Let A ∈ D1 (M ; E, F ) be a first order differential operator,
+u ∈ L2loc (M, E), v ∈ L1loc (M, F ), and assume that Au = v holds outside a closed
+submanifold N ⊂ M of codimension at least 2. Then Au = v on M .
+Lemma 4.9. If M is a compact Riemannian manifold with boundary and N ⊂ M
+is a closed submanifold of codimension at least 2, then M \ N is parabolic, i.e. it
+satisfies the equivalent condition of Lemma 4.6 with p = 2.
+Proof. Using a partition of unity, we are reduced to a local statement. We may
+then choose local coordinates x = (x′ , x′′ ) ∈ Rn × Rd such that N = {x′ = 0}.
+Pick any smooth function χ : R → R+ with χ = 0 near 0, χ ≡ 1 on [1, +∞), and
+set
+                              χj (x) := χ j∥x′ ∥ .
+                                                 
+      ´
+Then |dχj |2 dV ≤ Cj 2 Vol(∥x′ ∥ ≤ j −1 ) ≤ Cj 2−n is bounded since n ≥ 2 by
+assumption.                                                                  □
+Proof of Proposition 4.8. Let χj be a sequence of cut-off functions as in (ii) of
+Lemma 4.6, and write A(χj u) = χj v + σA (dχj )u. We have χj u → u and χj v → v
+in L1loc , which implies A(χj u) → Au in the sense of distributions. Further,
+∥σA (dχj )∥L2 → 0 since σA is bounded and dχj → 0 in L2 . Since u ∈ L2loc ,
+it follows that σA (dχj )u → 0 in L1loc , and we are done.                     □
+  More generally, we prove:
+                                                                    m
+Proposition 4.10. Let p ∈ (1, m] with conjugate exponent q ∈ [ d−1    , ∞). Let
+                                                               q
+A ∈ D (M ; E, F ) be a first order differential operator, u ∈ Lloc (M, E), v ∈
+         1
+
+L1loc (M, F ), and assume that Au = v as distributions outside a closed subset
+F ⊂ M of finite (m − p)-Hausdorff measure. Then Au = v on M .
+  The Heaviside function shows that result fails in general for p = 1. As before,
+Proposition 4.10 will be a direct consequence of the following result.
+Lemma 4.11. Let M be a compact Riemannian manifold with boundary, and let
+F ⊂ M be a closed subset of finite (m − p)-dimensional Hausdorff measure for
+some p ∈ [1, m]. Then M \ F admits an exhausting sequence of cut-off functions
+with gradient bounded in Lp , as in (iii) of Lemma 4.6.
+Proof. Following [EG92, p.154, Theorem 3], we are going to show that any com-
+pact set K ⊂ M \ F , we can find a cut-off function χ ∈ Cc∞ (M ) with 0 ≤ χ ≤ 1,
+χ ≡ 1 on a neighborhood of K, and ∥χ∥Lp ≤ C for a uniform constant C > 0.
+   Since F is compact and has finite Hm−p -measure, there exists a constant C > 0
+such that F can be covered by finitely many open balls B(xi , ri ) of radius ri ≪ 1
+such that i rim−p ≤ C.
+           P
+   Let θ : R → R be the piecewise affine function defined by θ(t) = 0 for t ≤ 1,
+θ(t) = t − 1 for 1 ≤ t ≤ 2, and χ(t) = 1 for t ≥ 2, and consider the Lipschitz
+continuous function
+                            χi (x) = θ ri−1 d(x, xi ) .
+                                                     
+20                               SÉBASTIEN BOUCKSOM
+
+Then χ := maxi χi is also Lipschitz continuous, it has compact support in M \ F ,
+and χ ≡ 1 on a neighborhood of K. Further, we have
+                   |dχ| ≤ max |dχi | ≤ max ri−1 1{x|ri ≤d(x,xi )≤2ri }
+                             i             i
+
+a.e. on M , hence
+           ˆ                X −p                       X m−p
+               |dχ|p dV ≤ C  ri Vol B(xi , 2ri ) ≤ C ′  ri   ≤ C ′′
+             M                   i                            i
+
+with C ′′ > 0 independent of K. This proves the claim, after regularizing χ near
+the boundary of {χ = 1}.                                                      □
+
+             5. Fundamental identities of Kähler geometry
+5.1. Some Hermitian algebra. Let V be a finite dimensional complex vector
+space, and denote by
+                               M
+                          Λ=       Λp,q V ⋆
+                                        p,q∈N
+
+the corresponding bigraded exterior algebra. The graded commutator of A, B ∈
+End(Λ) is defined by
+                            [A, B] = AB − (−1)|A||B| BA
+for A, B of pure degree |A|, |B|. It satisfies the graded Jacobi identity
+
+(5.1)             [[A, B], C] = [A, [B, C]] − (−1)|A||B| [B, [A, C]],
+which expresses that A 7→ ad(A) := [A, •] is a graded Lie algebra homomorphism.
+For each η ∈ Λ, we also denote by η the associated endomorphism η ∧• ∈ End(Λ).
+Note that [η, η ′ ] = 0 for any two η, η ′ ∈ Λ.
+   Now suppose that V is equipped with a Hermitian scalar product, and denote
+by ω ∈ Λ1,1 the corresponding positive (1, 1)-form. Given an orthonormal basis
+(ξi ) of Λ1,0 ≃ V ⋆ , (ξI ∧ ξ¯J )|I|=p,|J|=q is an orthonormal basis of Λp,q , and
+                                               X
+(5.2)                                   ω=i       ξj ∧ ξ¯j .
+                                           j
+
+For η ∈ Λ, denote by η ⋆ ∈ End(Λ) the adjoint of η ∧ •, which has bidegree
+(−p, −q) when η ∈ Λp,q V ⋆ .
+   We next discuss in more detail [η, ω ⋆ ] ∈ End(Λ) for η ∈ Λp,q V ⋆ of bidegree
+(p, q) = (1, 0) or (1, 1). The next result is the ’linear algebra’ part of the Kähler
+commutation identities.
+Lemma 5.1. For each ξ ∈ Λ1,0 ≃ V ⋆ , the following identities hold:
+    (i) [ξ, ω ⋆ ] = iξ¯⋆ ;
+                      ¯
+   (ii) [ξ ⋆ , ω] = iξ;
+              ¯⋆
+  (iii) [ω, ξ ] = iξ;
+  (iv) [ω ⋆ , ¯ξ] = iξ ⋆ .
+                      SINGULARITIES AND MULTIPLIER IDEALS                              21
+
+Proof. A direct check shows that ξ ⋆ is given by contraction against the dual vector
+ξ # ∈ V . As a result, ξ ⋆ is an anti-derivation of Λ, i.e.
+(5.3)                ξ ⋆ (α ∧ β) = ξ ⋆ (α) ∧ β + (−1)|α| α ∧ ξ ⋆ (β),
+                                                                                      ¯
+or, equivalently, [ξ ⋆ , α] = ξ ⋆ (α) for all α ∈ Λ. We get (ii) thanks to ξ ⋆ (ω) = iξ,
+which is easily seen using (5.2). Applying adjunction and conjugation yields the
+remaining identities.                                                                 □
+   Now fix a real (1, 1)-form θ ∈ Λ1,1 . The operator [θ, ω ⋆ ] will play a crucial role
+in the L2 estimates for ∂, and we therefore study it in some detail.
+Proposition 5.2. [Dem82, Lemme 3.2] Assume that θ ∈ Λ1,1 is positive, and fix
+an integer q ≥ 1.
+     (i) The endomorphism [θ, ω ⋆ ] = θω ⋆ of Λn,q is positive definite. More pre-
+         cisely, if we pick ε > 0 then θ ≥ εω implies [θ, ω ⋆ ] ≥ qε id on Λn,q V ⋆ ;
+    (ii) for each u ∈ Λn,q , ⟨[θ, ω ⋆ ]−1 u, u⟩dVω is non-increasing with respect to ω
+         and θ;
+   (iii) when u ∈ Λn,1 , ⟨[θ, ω ⋆ ]−1 u, u⟩dVω is independent of ω, and is given by
+                                                          2
+                           ⟨[θ, ω ⋆ ]−1 u, u⟩dVω = in {u, ū}θ ,
+        where {u, ū}θ denotes the the image of iu ⊗ ū under the contraction mor-
+        phism
+                                          ≃                     tr
+                 Λn,1 V ⋆ ⊗ Λ1,n V ⋆ −
+                                     → Λ1,1 ⊗ Λn,n V ⋆ −−→
+                                                         θ
+                                                           Λn,n V ⋆ .
+Proof of Proposition 5.2. Let λ1 ≤ · · · ≤ λn be the eigenvalues P of θ with respect
+to ω, and pick an ω-orthonormal basis (ξj ) such that θ = i j λj ξj ∧ ξ¯j . Setting
+Ω := ξ1 ∧ · · · ∧ ξn ∈ Λn,0 V ⋆ , a direct check shows that
+                                                X
+(5.4)                        θω ⋆ (Ω ∧ ξ¯J ) = (   λj )Ω ∧ ξ¯J ,
+                                                    j∈J
+
+which implies (i).   Pick u ∈ Λn,1 V ⋆ , and write u = Ω ∧ v with v =
+                                                                              P    ¯
+                                                                               j vj ξj in
+Λ0,1 . By (5.4), we have
+                                           X
+                    ⟨[θ, ω ⋆ ]−1 u, u⟩ =          λ−1     2
+                                                   j |vj | = trθ (iv ∧ v̄),
+                                              j
+
+and (iii) follows since
+                                                         2
+                                    ^
+                            dVω =          iξj ∧ ξ¯j = in Ω ∧ Ω̄.
+                                      j
+
+Monotonicity with respect to θ in (ii) is clear, in view of (5.4). Observe that the
+quadratic form
+                           qω (u) := ⟨[θ, ω ⋆ ]−1 u, u⟩ω
+satisfies
+                                                     |⟨u, v⟩ω |2
+(5.5)                      qω (u) =           sup       ⋆
+                                                                 .
+                                      0̸=v∈Λn,q V ⋆ ⟨θω v, v⟩ω
+22                                    SÉBASTIEN BOUCKSOM
+
+Now let ω ′ ≥ ω be another positive (1, 1)-form with eigenvalues µi ≥ 1 with
+respect    to ω, and let (ζj ) be an ω-orthonormal basis of Λ1,0 V such that ω ′ =
+                                                                              ′
+P
+   j µj ζj ∧ ζ̄j (which is however not necessarily diagonalizing θ). Then dVω =
+µ1 . . . µn dVω , and our goal is thus to show that
+(5.6)                                qω′ (u)µ1 . . . µn ≤ qω (u).
+Setting µ = diag(µj ), we have ω ′⋆ = µ1/2 ω ⋆ µ−1/2 , and (5.5) yields
+                                    |⟨u, v⟩ω′ |2                      |⟨u, v⟩ω |2
+         qω′ (u) =       sup           ′⋆
+                                                 =     sup          1/2 ω ⋆ µ1/2 v, v⟩
+                                                                                         .
+                     0̸=v∈Λn,q V ⋆ ⟨θω v, v⟩ω ′    0̸=v∈Λn,q V ⋆ ⟨θµ                   ω
+
+Using µj ≥ 1, one easily sees that
+                        ⟨θµ1/2 ω ⋆ µ1/2 v, v⟩ω ≥ µ1 . . . µn ⟨θω ⋆ v, v⟩ω ,
+which yields as desired (5.6).                                                               □
+
+5.2. Kähler identities. In what follows, (X, ω) is a Kähler manifold, and E is
+a Hermitian holomorphic vector bundle on X, with Chern connection ∂E + ∂ E .
+We start with the existence of local normal forms for ω and E.
+Lemma 5.3. Near each point of X, we may find:
+   (i) holomorphic coordinates (z0 , . . . , zn ) such that
+                                     ∂   ∂
+                                ⟨      ,    ⟩ω = δjk + O(|z|2 ).
+                                    ∂zj ∂zk
+     (ii) a holomorphic basis (ej ) of E such that ⟨ej , ek ⟩E = δjk + O(|z|2 ).
+  Conversely, note that a Hermitian metric ω admitting local holomorphic coor-
+dinates as in (i) is closed, and hence Kähler.
+Proof. Locally, we have ω = ddc φ for a smoothP(strictly psh) function φ. Choose
+holomorphic coordinates w such that ω =         j idwj ∧ dw̄j at 0. The Taylor
+expansion of φ at 0 then writes
+                                           
+                              X
+              φ = |w|2 + Re      Pj (w)w̄j  + Re P (w) + O(|w|4 )
+                                        j
+
+where each Pj (w) is a holomorphic quadratic polynomial, and P (w) is a holo-
+morphic polynomial of degree at most 3. Setting zj = wj − 12 Pj (w) yields (i).
+The proof of (ii) is similar and left to the reader.                         □
+Theorem 5.4. Assume that (X, ω) is Kähler, let E be a Hermitian holomorphic
+vector bundle on X, with Chern connection ∂E + ∂ E . Then
+                                              ⋆
+                                            [∂ E , ω] =i∂E
+                                              ⋆
+                                            [∂E , ω] = − i∂ E
+                                         [ω ⋆ , ∂ E ] = − i∂E
+                                                            ⋆
+
+                                                         ⋆
+                                         [ω ⋆ , ∂E ] =i∂ E .
+                      SINGULARITIES AND MULTIPLIER IDEALS                           23
+
+Proof. Since the adjoint of a first order operator only depends on the 1-jets of
+the metrics involves, the normal forms of Lemma 5.3 reduces us to the case of
+Cn with its Euclidian metric and E the trivial line bundle. In that case, the first
+order operators involved have constant coefficients. It is thus enough to prove
+that their symbols coincide, which is the content of Lemma 5.1.                  □
+
+  The key consequence for us is the following Bochner-type formula, which goes
+back to the work of Kodaira and Nakano.
+
+Corollary 5.5 (Bochner–Kodaira–Nakano identity). With the previous notation,
+the Laplacians of ∂E and ∂ E satisfy
+
+                                 ∆∂ E = ∆∂E + [θE , ω ⋆ ]
+
+with θE ∈ C ∞ (X, Λ1,1 TX⋆ ⊗ Hom(E, E)) the curvature tensor.
+
+Proof. The above Kähler identities combined with the Jacobi identity (5.1) yield
+                                       ⋆
+                          ∆∂ E = [∂ E , ∂ E ] = i[[∂E , ω ⋆ ], ∂ E ]
+
+                          = i[∂E , [ω ⋆ , ∂ E ]] − i[ω ⋆ , [∂E , ∂ E ]]
+                           ⋆
+                  = [∂E , ∂E ] + i[[∂E , ∂ E ], ω ⋆ ] = ∆∂E + i[θE , ω ⋆ ].
+                                                                                    □
+
+   As a first application, we obtain the following classical cohomology vanishing
+result.
+
+Theorem 5.6 (Kodaira vanishing). If L is a Hermitian holomorphic line bundle
+with positive curvature form θL > 0, then
+
+                         H n,q (X, L) = H q (X, KX + L) = 0
+
+for each q ≥ 1.
+
+Proof. By Hodge theory, it is enough to show that for every L-valued (n, q)-form
+u with ∆∂ L u = 0 vanishes. The Bochner–Kodaira–Nakano equality yields
+
+                     0 = ∥∂L u∥2 + ∥∂L⋆ u∥2 + ⟨[θL , ω ⋆ ]u, u⟩L2 .
+
+By Proposition 5.2, the operator [θ, ω ⋆ ] is positive definite on (n, q)-forms, hence
+the result.                                                                         □
+
+
+                     6. L2 -estimates for the ∂-equation
+  The results in this section go back to the fundamental work of Hörmander,
+with successive improvements and generalizations by Andreotti–Vesentini, Skoda,
+Demailly.
+24                               SÉBASTIEN BOUCKSOM
+
+6.1. The smooth, complete case.
+Theorem 6.1. Let (X, ω) be a Kähler manifold, and let be L a Hermitian holo-
+morphic line bundle on X with positive curvature form θ > 0. Assume also that
+X admits a complete Kähler metric (not necessarily equal to ω or θ). If
+                                v ∈ L2loc (X, Λn,q TX⋆ ⊗ L)
+satisfies ∂v = 0 and
+                            ˆ
+                                 ⟨[θ, ω ⋆ ]−1 v, v⟩dVω < +∞,
+                             X
+
+then v = ∂u for some u ∈ L2 (X, Λn,q−1 TX⋆ ⊗ L) such that
+                          ˆ              ˆ
+                     2
+                  ∥u∥L2 =       2
+                             |u| dVω ≤      ⟨[θ, ω ⋆ ]−1 v, v⟩dVω .
+                                X               X
+
+If v is smooth, then u can be chosen smooth.
+  Recall that the endomorphism [θ, ω ⋆ ] = θω ⋆ of Λn,q TX⋆ is positive definite, by
+Proposition 5.2.
+Remark 6.2. For q = 1, the result does in fact not involve ω, since
+                                                     2
+                           ⟨[θ, ω ⋆ ]−1 v, v⟩dV = in {v, v̄}θ
+and
+                                                2
+                                    |u|2 dV = in u ∧ ū.
+   As the next result shows, the assumption on X is satisfied by a fairly general
+class of Kähler manifolds.
+Lemma 6.3. Assume that X is weakly pseudoconvex, i.e. admits a smooth, psh
+exhaustion function. Then X admits a complete Kähler metric.
+     In particular, any Stein manifold admits a complete Kähler metric.
+
+Proof. Let φ : X → R be a smooth, psh exhaustion function. Since φ is bounded
+below, we may assume that φ ≥ 0. Then
+                          i∂∂(φ2 ) = 2φ i∂∂φ + 2i∂φ ∧ ∂φ
+shows the gradient of φ is bounded with respect to the Kähler metric ω +i∂∂(φ2 ),
+which is thus complete.                                                        □
+
+  The key tool in the proof of Theorem 6.1 the following consequence of the
+Bochner–Kodaira–Nakano identity.
+                                                                           ⋆
+Lemma 6.4. If ω is complete, then each u ∈ L2 (X, Λn,q TX⋆ ⊗L) with ∂u, ∂ u ∈ L2
+satisfies
+                                        ˆ
+                       2        ⋆  2
+                   ∥∂u∥L2 + ∥∂ u∥L2 ≥      ⟨[θ, ω ⋆ ]u, u⟩dV.
+                                                 X
+                      SINGULARITIES AND MULTIPLIER IDEALS                        25
+
+Proof. The symbol of
+                ∂ : C ∞ (X, Λn,q TX⋆ ⊗ L) → C ∞ (X, Λn,q+1 TX⋆ ⊗ L)
+is given by σ∂ (ξ) = ξ ∧ •, and is thus bounded. The symbol of its adjoint
+σ∂ ⋆ (ξ) = −σ∂ (ξ)⋆ is thus also bounded, and Theorem 4.5 yields a sequence uj ∈
+                                                       ⋆           ⋆
+Cc∞ (X, Λn,q TX⋆ ⊗ L) with uj → u, ∂uj → ∂u and ∂ uj → ∂ u in L2 norm. After
+passing to a subsequence, we may assume that uj → u a.e. and hence
+                  ˆ                             ˆ
+                            ⋆
+                      ⟨[θ, ω ]u, u⟩dV ≤ lim inf   ⟨[θ, ω ⋆ ]uj , uj ⟩dV,
+                  X                          j       X
+by Fatou’s lemma. For each j, the Bochner–Kodaira–Nakano identity implies
+                                        ˆ
+                       2       ⋆   2
+                 ∥∂uj ∥L2 + ∥∂ uj ∥L2 ≥   ⟨[θ, ω ⋆ ]uj , uj ⟩dV,
+                                                 X
+and we get the desired inequality in the limit.                                  □
+
+Proof of Theorem 6.1. Assume first that ω itself is complete. The existence of u
+clearly implies
+                                                     ⋆
+(6.1)                           |⟨w, v⟩|2 ≤ C∥∂ w∥2L2
+for all test forms w ∈ Cc∞ (X, Λn,q TX⋆ ⊗ L). Assume conversely that this estimate
+                ⋆
+holds. Then ∂ w 7→ ⟨w, v⟩ defines a continuous linear form of norm at most C 1/2
+on
+                   ⋆
+                  ∂ Cc∞ (X, Λn,q TX⋆ ⊗ L) ⊂ L2 (X, Λn,q−1 TX⋆ ⊗ L).
+By the Hahn-Banach theorem, this linear form admits a continuous extension to
+L2 (X, Λn,q−1 TX⋆ ⊗L) of norm at most C 1/2 . By the Riesz representation theorem,
+we may thus find u ∈ L2 (X, Λn,q−1 TX⋆ ⊗ L) with ∥u∥L2 ≤ C 1/2 such that
+                                         ⋆
+                           ⟨w, v⟩ = ⟨∂ w, u⟩ = ⟨w, ∂u⟩
+for all test forms w, and hence ∂u = v. In order to establish (6.1), consider the
+orthogonal decomposition w = w′ + w′′ in L2 (X, Λn,q−1 TX⋆ ⊗ L) with w′ ∈ ker ∂
+and w′′ ∈ (ker ∂)⊥ . For each test form η ∈ Cc∞ (X, Λn,q−2 TX⋆ ⊗ L), ∂η ∈ ker ∂
+                              ⋆
+implies ⟨w′′ , ∂η⟩ = 0, i.e. ∂ w′′ = 0 in the sense of distributions. Since ∂v = 0,
+the Cauchy-Schwarz inequality Lemma 6.4 yield
+                                ˆ                    ˆ                     
+               2        ′ 2               ⋆ −1                    ⋆ ′    ′
+       |⟨v, w⟩| = |⟨v, w ⟩| ≤       ⟨[θ, ω ] v, v⟩dV        ⟨[θ, ω ]w , w ⟩dV
+                                 X                           X
+                                     ⋆                   ⋆
+                            ≤ C∥∂ w′ ∥2 = C∥∂ w∥2 ,
+which proves (6.1).
+   Next, assume that ω is arbitrary, and let ω ′ be a complete Kähler metric. For
+each ε > 0, ωε := ω + εω ′ is then complete as well. The monotonicity property
+of Proposition 5.2 implies
+                           ˆ
+                              ⟨[θ, ωε⋆ ]−1 v, v⟩ωε dVωε ≤ C,
+                            X
+26                               SÉBASTIEN BOUCKSOM
+
+and the first part of
+                   ´ the proof  yields the existence of uε ∈ L2loc (X, Λn,q−1 TX⋆ ⊗ L)
+with ∂uε = v and X |uε |2ωε dVωε ≤ C. In particular, uε remains bounded in L2loc ,
+and an easy weak compactness argument yields the desired solution u.
+  To see the final point, note that we can always replace u by its orthogonal
+                                                  ⋆                               ⋆
+projection in (ker ∂)⊥ . As above, this implies ∂ u = 0 and hence ∆∂ u = ∂ v in
+the sense of distributions. If v is smooth, then u is smooth by ellipticity of the
+Laplacian.                                                                          □
+6.2. The singular case.
+Theorem 6.5. Let (X, ω) be a Kähler manifold, and assume that X contains a
+Stein Zariski open subset. Let L be a Hermitian holomorphic line bundle on X
+with curvature form θ, and let also φ be a quasi-psh function such that θ +i∂∂φ ≥
+η > 0 in the sense of currents for some positive (1, 1)-form η. If
+                                v ∈ L2loc (X, Λn,q TX⋆ ⊗ L)
+satisfies ∂v = 0 and
+                          ˆ
+                               ⟨[η, ω ⋆ ]−1 v, v⟩e−2φ dVω < +∞,
+                           X
+then v = ∂u for some u ∈ L2 (X, Λn,q−1 TX⋆ ⊗ L) such that
+                  ˆ                 ˆ
+                    |u|2 e−2φ dVω ≤    ⟨[η, ω ⋆ ]−1 v, v⟩e−2φ dVω .
+                      X                   X
+  Note that θ is not assumed to be positive here. The current θ + ddc φ should
+be interpreted as the curvature of the singular metric | · |L e−φ . As in Remark 6.2,
+the result does in fact not involve ω when q = 1.
+Lemma 6.6. If u, are L2loc L-valued forms on a complex manifold X such that
+∂u = v outside a closed analytic subset A ⊂ X, then ∂u = v on X.
+Proof. Arguing by induction on dim A, it is enough to prove that ∂u = v on
+X \ Asing , which follows from Proposition 4.8 since Areg is a closed submanifold
+of X \ Asing , of real codimension at least 2.                                 □
+Proof of Theorem 6.5. By Lemma 6.6, we may assume that X is Stein. By The-
+orem 3.8, we may then find an exhaustion of X by weakly pseudoconvex open
+subsets Ωj such that φ|Ωj is the decreasing limit of a sequence φj,k ∈ C ∞ (Ωj )
+with θ + ddc φj,k ≥ η. By Lemma 6.3, Ωj admits a complete Kähler metric,
+and Theorem 6.1 yields the existence of uj,k ∈ L2 (Ωj , Λn,q−1 TΩ⋆ j ⊗ L) such that
+∂uj,k = v on Ωj and
+              ˆ                         ˆ
+                         2 −2φj,k
+                  |uj,k | e       dVω ≤   ⟨[η, ω ⋆ ]−1 v, v⟩e−2φj,k dVω
+                 Ωj                         Ωj
+                                   ˆ
+                          ≤ C :=     ⟨[η, ω ⋆ ]−1 v, v⟩e−2φ dVω ,
+                                   X
+                                                       ´
+By monotonicity of (φj,k )k , we get for k ≥ l Ωj |uj,k |2 e−2φj,l dVω ≤ C, which
+shows in particular that (uj,k )k is bounded in L2 (Ωj , e−2φj,l ). After passing to a
+                      SINGULARITIES AND MULTIPLIER IDEALS                             27
+
+subsequence, we thus assume that that uj,k converges weakly in L2 (Ωj , e−2φj,l )
+to uj , which may further be asumed to´ be the same for all l, by a diagonal
+argument. We then have ∂uj = v, and Ωj |uj |2 e−2φj,l dVω ≤ C for all l, hence
+´         2 −2φ dV ≤ C by monotone convergence of φ
+  Ωj |uj | e      ω                                  j,l → φ. By a diagonal
+argument, we may finally arrange that uj → u weakly in L2 (K, e−2φ ) for each
+compact K ⊂ X, and we obtain the desired solution.                            □
+Corollary 6.7. Let (X, ω) be a Kähler manifold, and assume that X contains a
+Stein Zariski open subset. Let L be a Hermitian holomorphic line bundle on X
+with curvature form θ, and let also φ be a quasi-psh function such that θ +i∂∂φ ≥
+εω (resp. θ + i∂∂φ + Ric(ω) ≥ εω > 0) in the sense of currents for some positive
+(1, 1)-form η. If v ∈ L2 (X, Λn,1 TX⋆ ⊗ L) (resp. v ∈ L2 (X, Λ0,1 TX⋆ ⊗ L) satisfies
+∂v = 0, then v = ∂u for some u ∈ L2 (X, Λn,q−1 TX⋆ ⊗ L) (resp. L2 (X, Λ0,q−1 TX⋆ ⊗
+L)) such that         ˆ                      ˆ
+                                          1
+                          |u|2 e−2φ dVω ≤       |v|2 e−2φ dVω .
+                       X                  qε  X
+Proof. The case of (n, q)-forms is a direct consequence of Proposition 5.2 and
+Theorem 6.5. The case of (0, q)-forms follows by viewing a (0, q)-form v with
+values in L as an (n, 1)-form with values in L − KX , which has curvature θ +
+Ric(ω).                                                                      □
+
+              7. The Ohsawa–Takegoshi extension theorem
+   Extension theorems with L2 estimates have a rather long history, going back
+to an original result of Ohsawa and Takegoshi. The following version is a slight
+refinement of [Ber, Theorem 2.5] (compare [Dem12, Theorem 13.6]).
+   Recall that for a smooth hypersurface S in a complex manifold X, we have
+a canonical isomorphism KS ≃ (KX + S)|S , given by the Poincaré residue map
+ResS .
+Theorem 7.1. Let X be a complex manifold containing a Stein Zariski open
+subset, and consider the following data:
+     (i) a smooth complex hypersurface S ⊂ X with canonical section s ∈ H 0 (X, O(S)),
+         and a smooth metric on O(S) with curvature form θS , such that |s| ≤ e−1 ;
+    (ii) a Hermitian holomorphic line bundle L on X with curvature form θL ,
+         and a quasi-psh function φ such that θL + i∂∂φ ≥ 0 and θL + i∂∂φ ≥ θS ;
+                                                     ´
+Then for each σ ∈ H 0 (S, KS + L|S ) such that S |σ|2 e−2φ < +∞, there exists
+e ∈ H 0 (X, KX + S + L) with ResS (e
+σ                                       σ ) = σ and
+                       ˆ           2               ˆ
+                                |e
+                                 σ|         −2φ
+(7.1)                          2 log2 |s|
+                                          e     ≤C    |σ|2 e−2φ
+                         X |s|                      S
+with C > 0 a purely numerical constant.
+                            1
+  The singular weight |s|2 log 2
+                                 |s|
+                                     in the left-hand integral is said to have Poincaré
+                                                       2
+growth (by analogy with the Poincaré metric |z|2|dz|
+                                                  log2 |z|
+                                                           of the punctured disc). In
+particular, it is integrable, but more singular that |s|−2c for any c < 1.
+28                             SÉBASTIEN BOUCKSOM
+
+   Before entering the proof of Theorem 7.1, we state a ’local’ version of the
+result.
+Corollary 7.2. Let Ω ⋐ Cn be a bounded pseudoconvex domain, φ a psh function
+on Ω, and L ⊂ Cn a (complex) affine subspace. Then every holomorphic function
+f ∈ O(L ∩ Ω) such that |f |e−φ is L2 admits a holomorphic extension fe ∈ O(Ω)
+with                    ˆ                ˆ
+                                2 −2φ
+                            |f | e
+                             e        ≤C      |f |2 e−2φ
+                           Ω                L∩Ω
+for a constant C > 0 only depending on n and the diameter of Ω.
+Proof. Writing L as a successive intersection of affine hyperplanes, it is enough
+to treat the case where L = H is a hyperplane. The canonical bundles of Ω and
+H ∩ Ω are trivial, and the metrics they inherit from the Euclidian metric on Cn
+are flat. We thus obtain Corollary 7.2 as a direct consequence of Theorem 7.1,
+which would even allow to add a denominator |ℓ|2 log |ℓ|2 in the left-hand integral,
+with {ℓ = 0} an affine equation for H.                                            □
+
+   The proof of Theorem 7.1 presented below is essentially an adaptation to the
+’global setting’ of Blocki’s exposition [Blo13] of B.Y.Chen’s proof [Chen].
+
+7.1. Reduction to a twisted L2 -estimate. By the removable singularity prop-
+erty of L2 holomorphic functions, it is enough to prove Theorem 7.1 when X itself
+is Stein. By cohomology vanishing, σ automatically admits a holomorphic exten-
+sion σe ∈ H 0 (X, KX + F ) with F := S + L. Arguing by compactness as in the
+proof of Theorem 6.5, we may further assume that φ = 0, θL > 0 and θL > θS ,
+     ´      σ |2
+and X |s|2 |e
+            log2 |s|
+                     < +∞ (but without any uniform estimate!).
+   A natural approach to prove Theorem 7.1 is to introduce a cut-off function
+                                 χε := χ ε−1 |s|2
+                                                  
+
+with χ ∈ C ∞ (R) such that 0 ≤ χ ≤ 1, χ(t) = 1 for t ≤ 1/2 and χ(t) = 0 for
+t ≥ 1, and solve
+                              e) = ε−1 χ′ ε−1 |s|2 ∂ |s|2 σ
+                                                        
+(7.2)              ∂uε = ∂(χε σ                            e
+with an adequate L2 estimate with respect to singular weight log |s|. The F -
+valued (n, 0)-form
+                              σ        e − uε
+                              eε := χε σ
+is then also a holomorphic extension of σ, since uε is holomorphic near S, and
+hence vanishes on S (as a section of KX + F ) thanks to the L2 -estimate. Since
+                                 ˆ
+                                          e|2
+                                      |χε σ
+                             lim                 =0
+                             ε→0 X |s|2 log2 |s|
+
+by integrability of the Poincaré weight, it would thus be enough to solve (7.2)
+with an estimate of the form
+                      ˆ                   ˆ
+                           |uε |2 |s|−2
+(7.3)                       2      2
+                                        ≤             σ |2 |s|−2 .
+                                                     |e
+                       X log (|s| + ε)      supp ∂uε
+                         SINGULARITIES AND MULTIPLIER IDEALS                           29
+
+Indeed,                              ˆ                                 ˆ
+                                                       2     −2
+                          lim sup                   |e
+                                                     σ | |s|      ≤C       |σ|2
+                            ε→0          supp ∂uε                      S
+since
+                               supp ∂uε ⊂ {ε/2 ≤ |s|2 ≤ ε},
+and we would get the desired extension of σ as a weak L2loc limit of σ  eε .
+  In view of (7.2), a direct application of Theorem 6.5 with weight function
+ψ = log |s| yields instead
+               ˆ                    ˆ
+                                                            2 2 −2
+                   |uε |2 |s|−2 ≤ C             ε−1 ∂ |s|2 θ |e
+                                                              σ | |s| ,
+                 X                           {ε/2≤|s|2 ≤ε}
+
+where ε−1 ∂ |s|2 θ is a priori unbounded even when |s|2 ∼ ε. The trick will be
+                  
+
+to solve (7.2) with a twisted L2 -estimate, replacing in particular the right-hand
+side with            ˆ
+                                                 2
+                                  e2τε ε−1 ∂ |s|2 θε |e
+                                                      σ |2 |s|−2 ,
+                         {ε/2≤|s|2 ≤ε}
+where τε is a smooth function such that θε := θL + i∂∂τε > 0 and
+                             eτε ∂ |s|2 θε = O(ε)
+                                       
+
+when |s|2 ∼ ε.
+  The general principle underlying these twisted estimates is as follows.
+Lemma 7.3. Let X be a Stein manifold, F be a Hermitian holomorphic line
+bundle with curvature form θF , and ψ be a quasi-psh function such that θF +
+i∂∂ψ ≥ η with η a Kähler form. Pick a ∂-closed v ∈ L2loc (X, Λn,1 TX⋆ ⊗ F ), and
+assume given a strictly η-psh function τ ∈ C ∞ (X) such that
+    (i) |∂τ |2ητ ≤ 1/4 on X;
+   (ii) |∂τ |2ητ ≤ 1/8 on supp v.
+Then there exists u ∈ L2 (X, Λn,0 TX⋆ ⊗ F ) such that ∂u = v and
+            ˆ                                   ˆ
+                              2 2(τ −ψ)             2
+                           2
+                 1 − 4|∂τ |ητ |u| e        ≤ 10    in {v, v̄}ητ e2(τ −ψ) .
+                 X                                                X
+Proof. Arguing by regularization and weak compactness as in the proof of The-
+orem 6.5, we may assume that ψ = 0. Let u be the minimal solution of ∂u = v
+in L2 . Since u is orthogonal to ker ∂ in L2 (ψ), ue2τ is orthogonal to ker ∂ in
+L2 (τ ), and hence is the minimal solution of ∂(ue2τ ) = (v + 2u ∂τ )e2τ in L2 (τ ).
+By Theorem 6.1, we thus have
+                 ˆ            ˆ      n                    o
+                        2 2τ       2
+                     |u| e ≤    in v + 2u ∂τ, v + 2u ∂τ      e2τ .
+                     X                   X                                        ητ
+
+Using the Cauchy-Schwarz inequality combined with 2ab ≤ ta2 +t−1 b2 for a, b ∈ R
+and t > 0, we infer
+     ˆ                          ˆ                      ˆ
+                   2
+                      2τ 2              2 2τ       −1       2
+         1 − 4|∂τ |ητ e |u| ≤ t       |u| e + (1 + t )     in {v, v̄}ητ e2τ .
+        X                                     supp v                               X
+
+                     1 − 4|∂τ |2ητ
+                                     
+Since t := 1/4 ≤                         /2 on supp v, we get the desired result.      □
+30                                 SÉBASTIEN BOUCKSOM
+
+7.2. Proof of Theorem 7.1. Following the above strategy, suppose given τε
+such that
+     (i) θε := θL + i∂∂τε > 0;
+    (ii) 4|∂τε |2θε ≤ 1 on X;
+   (iii) 4|∂τε |2θε ≤ 1/2 on {ε/2 ≤ |s|2 ≤ ε}.
+Applying Lemma 7.3 to F = L + S, ψ = log |s| and η = θL , we get a solution uε
+of (7.2) such that
+   ˆ                                        ˆ
+                                                              2
+       e2τε 1 − 4|∂τε |2θε |uε |2 |s|−2 ≤ C    e2τε ε−1 ∂ |s|2 θε |e
+                                                                   σ |2 |s|−2 .
+                          
+     X                                         {ε/2≤|s|2 ≤ε}
+We will thus be done if τε further satisfies
+  (iv) e2τε 1 − 4|∂τε |2θε ≥ C −1 / log2 |s|2 + ε ;
+                                                
+
+   (v) eτε ∂ |s|2 θε ≤ Cε on {ε/2 ≤ |s|2 ≤ ε}.
+                  
+
+This will achieved by means of the following construction.
+Lemma 7.4. Set ρε := − log(|s|2 + ε). Then τε := − log (ρε + log ρε ) satisfies
+                   2
+(iv), (v), and ∂τε θτ ≤ C/ log ε−1 on {ε/2 ≤ |s|2 ≤ ε}.
+                        ε
+
+Proof. We have τε = − log f (ρε ) with f (t) = t + log t. Outside S, we compute
+                                                  ∂|s|2
+                                      −∂ρε =             ,
+                                                |s|2 + ε
+
+                                               f ′ (ρε )
+(7.4)                                −∂τε =              ∂ρε ,
+                                               f (ρε )
+                                ∂|s|2          ε                     |s|2
+                  −i∂∂ρε = i∂             =        i∂ρε ∧  ∂ρ  ε −          θS
+                              |s|2 + ε        |s|2                 |s|2 + ε
+                                    f (ρε ) 2
+                                             
+                             ε
+                       ≥ 2                       i∂τε ∧ ∂τε − θL ,
+                           |s|      f ′ (ρε )
+since θL ≥ θS and θL ≥ 0. This yields
+                        f ′ (ρε )
+                                                                 
+                                                        f (ρε )
+              i∂∂τε = −           i∂∂ρε + 1 + ′                     i∂τε ∧ ∂τε .
+                        f (ρε )                      f (ρε )2 ρ2ε
+Since |s| ≤ e−1 , we have ρε ≥ 2, and hence e−τε = f (ρε ) ≥ 2, f ′ (ρε ) ≤ 2. We
+infer                                                         
+                         −τε     ε                   1
+           θ + i∂∂τε ≥ e             +1+                         i∂τε ∧ ∂τε .
+                               2|s|2         4 log2 (|s|2 + ε)
+Finally,
+                                     f (ρε )
+                          ∂ |s|2 = ′         (|s|2 + ε)∂τε ,
+                                
+                                     f (ρε )
+and the desired estimates easily follow from this.                              □
+
+                             8. Blowups and valuations
+   The goal of this section is to recall a number of basic facts on blowups, integral
+closures and valuations, in the setting of complex analytic spaces.
+                     SINGULARITIES AND MULTIPLIER IDEALS                         31
+
+8.1. Blowing-up along an ideal. Assume that X is a reduced complex space.
+If a ⊂ OX is a coherent ideal (sheaf) defining a complex subspace Z ⊂ X, the
+blowup µ : X ′ → X of X along a (or Z) is defined by setting
+                                                      !
+                                               M
+                        ′                           m
+                      X = Bla (X) = ProjX          a    .
+                                                 m∈N
+Since X is reduced, the graded OX -algebra m∈N am is reduced, and X ′ is thus
+                                             L
+reduced as well. The morphism µ is projective, and an isomorphism over X \ Z;
+it is thus a proper bimeromorphic morphism, i.e. a modification. Note also that
+there is canonical isomorphism Blam (X) ≃ Bla (X) for any nonzero m ∈ N.
+   The blowup can be more concretely understood as the graph of a meromorphic
+map, as follows. After shrinking X near a given point, we can pick generators
+(f1 , . . . , fr ) of a. This induces a surjection
+                                                           M
+                                   OX [t1 , . . . , tr ] ↠   am ,
+                                              m∈N
+
+and hence a closed embeddding X ′ ,→ X × Pr−1 over X, which can be shown
+to coincide with the graph of the bimeromorphic map X 99K Pr−1 defined by
+[f1 : · · · : fr ] in homogeneous coordinates.
+   Blowups are characterized by the following universal property.
+Lemma 8.1. The scheme-theoretic inverse image E = µ−1 (Z) is a Cartier di-
+visor, i.e. a · OX ′ is locally principal ideal sheaf. Further, −E is µ-very ample,
+and
+                                  µ∗ OX ′ (−mE) = am
+near any given compact subset of X for all m ≫ 1. Finally, a proper bimeromor-
+phic morphism ρ : Y → X with Y reduced factors through µ if and only if ρ−1 (Z)
+is a Cartier divisor.
+  Assume now that the complex space X is normal. The normalized blowup
+π:X e → X of X along a coherent ideal a ⊂ OX is defined as the normalization of
+                                            e → X ′ the normalization morphism.
+the blowup Bla (X), i.e. π = µ ◦ ν with ν : X
+Again, π is a projective bimeromorphic morphism, and an isomorphism over
+X \ Z. Normalized blowups are again characterized by a universal property:
+Lemma 8.2. The scheme-theoretic inverse image D = π −1 (Z) is a Cartier di-
+visor, and a proper bimeromorphic morphism ρ : Y → X with Y normal factors
+through π if and only if ρ−1 (Z) is a Cartier divisor. Further, −D is π-ample and
+π-globally generated.
+  The meaning of this last property is that the evaluation map
+                     π ⋆ π∗ OXe (−D) ⊗ OXe → OXe (−D)
+                                     
+
+is surjective. Since X is normal, π∗ OXe = OX (i.e. , π has connected fiber), by
+Zariski’s ’main theorem’. We can thus interpret
+                         b := π∗ OXe (−D) ⊂ π∗ OXe = OX
+as an ideal sheaf, which satisfies b · OXe = OXe (−D). As we shall next see, b can
+be understood algebraically as the integral closure of a.
+32                             SÉBASTIEN BOUCKSOM
+
+8.2. The integral closure of an ideal. If I ⊂ A is an ideal in an integrally
+closed domain, the integral closure I¯ of I is defined as the set of f ∈ A satisfying
+a polynomial equation of the form
+                                       d
+                                       X
+(8.1)                           fd +         aj f d−j = 0
+                                       j=1
+
+with aj ∈ Ij.    Using the usual determinant trick, one shows that f ∈ A belongs
+to I¯ iff there exists a finitely generated nonzero ideal J ⊂ A such that f J ⊂ IJ.
+This implies in particular that I¯ is an ideal of A, and we say of course that I is
+integrally closed if I¯ = I.
+Example 8.3. If I ⊂ A is either principal or reduced, then I is integrally closed.
+   If now a ⊂ OX is a coherent ideal sheaf on a normal complex space X, the
+integral closure of a is the ideal sheaf ā ⊂ OX defined by taking the integral closure
+stalkwise. Coherence of ā is non-obvious, and a consequence of the following
+geometric characterization of ā.
+Theorem 8.4. Let π : X  e → X be the normalized blowup of the normal complex
+X along a coherent ideal sheaf a ⊂ OX , and denote by D the effective Cartier
+divisor it determines on X.
+                         e Then
+                                   π∗ OXe (−D) = a
+
+Remark 8.5. For each m ≥ 1, X     e is also the normalized blowup of am , and
+hence π∗ OXe (−mD) = a . In more algebraic terms, the result thus means that
+                       m
+       m                                                     m
+L                                                    L
+  m∈N a is the integral closure of the graded domain    m∈N a .
+
+   As a consequence of Theorem 8.4, we get the following neat analytic charac-
+terization of the integral closure.
+Corollary 8.6. Let a be an ideal with local generators (fi ). Then f ∈ OX belongs
+to a if and only if |f | ≤ O(maxi |fi |).
+Proof of Theorem 8.4. Recall that b := π∗ OXe (−D) is a coherent ideal sheaf on
+X, and
+                           a · OXe = b · OXe = OXe (−D).
+If f ∈ OX is integral over a, then f ◦ π is integral over the principal ideal b ·
+OXe = OXe (−D). By normality of e    X, it follows that f ◦ π ∈ OXe (−D), i.e. f ∈
+π∗ OXe (−D) = b, and we have proved that a ⊂ b. The converse inclusion is more
+difficult, and we reproduce the elegant geometric argument of [Laz, II.11.1.7]. The
+statement being local over X, we may choose a system of generators (f1 , . . . , fr )
+for a. This defines a surjection O⊕r
+                                   X → a, which induces, after pulling-back to X
+                                                                                  e
+and twisting by −mD, a surjection
+                 OXe (−mD)⊕r → a · OXe (−mD) = OXe (−(m + 1)D)
+for any m ≥ 1. Set bm := π∗ OXe (−mD), so that b = b1 . Since −D is π-ample,
+Serre vanishing implies that the induced map
+                                ⊕r
+                b⊕r
+                 m = π∗ OX
+                         e (−mD)   → bm+1 = π∗ OXe (−(m + 1)D)
+                      SINGULARITIES AND MULTIPLIER IDEALS                            33
+
+is surjective for m ≫ 1, i.e. a · bm = bm+1 . Since b · bm ⊂ bm+1 , b thus acts on the
+nonzero ideal bm by multiplication with a, and hence b ⊂ a by the determinantal
+trick recalled above.                                                               □
+Remark 8.7. The above proof shows that a · am = a · am = am+1 for all m ≫ 1.
+Proof of Corollary 8.6. If f ∈ OX satisfies an integral equation f d + di=1 ai f d−i =
+                                                                         P
+
+0 with ai ∈ ai , we have at each point |f |d ≤ d|ai ||f |d−i for some i, and hence
+                         |f | ≤ max(d|ai |)1/i = O(max |fi |).
+                                 i                       i
+
+If conversely |f | = O(maxi |fi |), then |f ◦ π| = O(|fD |) locally on X,
+                                                                       e with fD a
+local equation of D. By normality of e    X, it follows that f ◦ π ∈ OXe (−D), i.e.
+f ∈ π∗ OXe (−D) = a.                                                             □
+Example 8.8. If φ is a quasi-psh function on a complex manifold X, then the
+multiplier ideal sheaf J(φ) is integrally closed. Indeed, if f ∈ OX satisfies |f | =
+O(maxi |fi |) for a set of generators (fi ) of J(φ), then |fi |e−φ ∈ L2loc implies
+|f |e−φ ∈ L2loc , i.e. f ∈ J(φ).
+8.3. Valuative ideals. In what follows, X denotes a normal complex space, a
+condition which implies in particular that the singular locus Xsing has codimen-
+sion at least 2.
+   Let Z ⊂ X be an irreducible closed analytic subset, and assume that Z is not
+entirely contained in Xsing . For each f ∈ OX ,
+                            ordZ (f ) :=     inf      ordz (f )
+                                           z∈Z∩Xreg
+
+satisfies ordZ (f ) = ordz (f ) for a general point z ∈ Z (i.e. outside a strict closed
+analytic subset), and ordZ thus defines a valuation on OX .
+   The condition Z ̸⊂ Xsing is in particular satisfied if Z has codimension 1,
+i.e. is a prime divisor. More generally, consider a modification (i.e. a proper,
+bimeromorphic morphism) µ : Y → X with Y a complex manifold, and a prime
+divisor E on Y . We then say that E is a divisor over X, and attach to it a
+valuation ordE on germs f ∈ OX by setting
+                            ordE (f ) := ordE (f ◦ µ) ∈ N.
+The center of E on X is the irreducible closed analytic subset
+                                cX (E) := µ(E) ⊂ X.
+If ρ : Y ′ → Y is another modification and E ′ is the strict transform, then cX (E) =
+cX ′ (E ′ ) and ordE = ordE ′ as functions on OX .
+  Given a coherent ideal a ⊂ OX , we set
+                              ordE (a) := inf ordE (f )
+                                            f ∈ax
+
+for a general point x in µ(E). It is easy to see that the infimum is achieved
+among any given set of local generators of ax . For any two coherent ideals a, b,
+the valuation property of ordE yields
+                          ordE (a · b) = ordE (a) + ordE (b)
+34                              SÉBASTIEN BOUCKSOM
+
+and
+                      ordE (a + b) = min {ordE (a), ordE (b)} .
+Definition 8.9. A coherent ideal a ⊂ OX is valuative if
+                     a = {f ∈ OX | ordEα (f ) ≥ cα for all α}
+for a (possibly infinite) family of prime divisors Eα over X and constants cα ∈ R.
+   Clearly, the constants can always be taken to be cα = ordEα (a). The next
+result is simply a reformulation of Theorem 8.4. The next result is basically a
+reformulation of Theorem 8.4.
+Theorem 8.10. Let a ⊂ OX be a coherent ideal, and denote by Eα the irreducible
+                                                                      e →X
+components of the divisor D lying over a in the normalized blowup π : X
+along a. Then
+                    a = {f ∈ OX | ordEα (f ) ≥ ordEα (a)} .
+  The divisors Eα are known as the Rees divisors of a, and the corresponding
+valuations ordEα are the Rees valuations.
+Proof. By definition, we have
+           ordEα (a) = ordEα (a · OXe ) = ordEα (OXe (−D)) = ordEα (D),
+                    α ordEα (a)Eα . But then f ∈ OX belongs to the ideal a =
+                  P
+and hence D =
+π∗ OXe (−D) if and only if ordEα (f ) = ordEα (f ◦ π) ≥ ordEα (a) for all α. □
+Corollary 8.11. A coherent ideal is valuative if and only if it is integrally closed.
+Proof. Theorem 10.13 implies that any integrally closed ideal is valuative. The
+converse is elementary, and similar to the easy direction in Corollary 8.6. Assume
+that a = {f ∈ OX | ordEα (f ) ≥ ordEα (f ) for all α} for some family (Eα ) of prime
+divisors over X, and pick f ∈ OX such that f d + di=1 ai f d−i = 0 with ai ∈ ai .
+                                                     P
+Since ordEα is a valuation, we get
+         d ordEα (f ) = ordEα (f d ) ≥ min (ordEα (ai ) + (d − i) ordEα (f )).
+                                      1≤i≤d
+It we pick i achieving the minimum, we get
+                i ordEα (f ) ≥ ordEα (ai ) ≥ ordEα (ai ) = i ordEα (a),
+and hence f ∈ a.                                                                   □
+Example 8.12. Let Y ⊂ X be an irreducible closed analytic subset. For each
+m ∈ N, the ideal sheaf
+                          ⟨m⟩
+                         IY     := {f ∈ OX | ordY (f ) ≥ m}
+is called the m-th symbolic power of IY . If we denote by µ : Xe → X the normal-
+ized blowup of X along Y , the restriction of µ over the manifold Xreg \ Ysing is the
+blowup along the smooth connected submanifold Xreg ∩Yreg , and µ−1 (Xreg ∩Yreg )
+is thus irreducible. As a consequence, there exists a unique Rees divisor Eα of Y
+                                                                                  ⟨m⟩
+with cX (Eα ) meeting Xreg ∩ Yreg , and then ordY = ordEα . This shows that IY
+                                                                                 ⟨m⟩
+is (coherent and) valuative, and hence integrally closed. In particular, Im
+                                                                          Y ⊂ IY ,
+the inclusion being strict in general, even when X is smooth.
+                      SINGULARITIES AND MULTIPLIER IDEALS                            35
+
+   For later use, we now discuss an alternative valuative characterization of inte-
+gral closure. The data of a germ of holomorphic curve γ : (C, 0) → (X, x) defines
+a (semi)valuation ordγ on OX,x by setting for f ∈ OX,x
+                         ordγ (f ) := ord0 (f ◦ γ) ∈ N ∪ {∞}
+For a coherent ideal sheaf a, we set as above
+                              ordγ (a) := inf ordγ (f ),
+                                           f ∈ax
+
+which is again achieved among any given set of generators of ax .
+Proposition 8.13. Let a ⊂ OX be a coherent ideal sheaf. A germ f ∈ OX
+belongs to a if and only if ordγ (f ) ≥ ordγ (a) for all germs γ : (C, 0) → X.
+
+                           P the result says that for any function f ∈ OX that
+   In view of Corollary 8.6,
+does not satisfy |f | = O( i |fi |) near x ∈ X, there exists γ : (C, 0) → (X, x)
+such that f ◦ γ is not in the ideal of OC,0 generated by the fi ◦ γ, a result known
+as the curve selection lemma.
+
+Proof. Since ordγ is a (semi)valuation, f ∈ a implies ordγ (f ) ≥ ordγ (a) just as
+in the proof of Corollary 10.15. Assume conversely that this condition holds for
+all γ : (C, 0) → X, and denote by (Eα ) the Rees divisors of a, i.e. the irreducible
+components of D on the normalized blowup π : X           e → X. At a general point of
+Eα , X is smooth, and Eα is a smooth hypersurface. It is thus easy to find a local
+gern γ̃ : (C, 0) → X
+                   e transverse to Eα at a general point of X with ordγ̃ (f ◦ π) =
+ordEα (f ) and ordγ̃ (a · OXe ) = ordEα (a · OXe ). Setting γ := π ◦ γ : (C, 0) → X, we
+get
+                    ordEα (f ) = ordγ (f ) ≥ ordγ (a) = ordEα (a).
+This is true for all α, and hence f ∈ a.                                             □
+
+
+             9. Fundamental properties of multiplier ideals
+9.1. Singularities of psh functions. Given two quasi-psh functions φ, ψ, we
+say that φ is more singular than ψ if φ ≤ ψ + O(1) locally on X.
+Definition 9.1. A quasi-psh function φ on a complex manifold is said to have
+analytic singularities if there exists c > 0 and a coherent ideal sheaf a ⊂ OX such
+that we locally have
+                                                 
+                                         X
+                             φ = c log      |fj | + O(1)
+                                           j
+
+for some (and hence, any) choice of local generators (fj ) of a.
+   We sometimes say more precisely that φ has analytic singularities of type ac .
+If φ is less singular than a quasi-psh function ψ, we simply say that ac is less
+singular than ψ.
+36                               SÉBASTIEN BOUCKSOM
+
+9.2. Multiplier ideals. In what follows, X denotes a complex manifold.
+Definition 9.2. The multiplier ideal (sheaf ) of a quasi-psh function φ on a com-
+plex manifold X is the ideal sheaf J(φ) ⊂ OX of germs of holomorphic function
+f with |f |e−φ ∈ L2loc .
+     As a first key property, we have:
+Theorem 9.3. Multiplier ideal sheaves are coherent.
+   A we shall see later, a similar result actually holds for all Lploc with 1 ≤ p < ∞,
+cf. Theorem 10.20.
+Lemma 9.4. If νx (φ) ≥ n + k with k ∈ N, then I(φ)x ⊂ mk+1
+                                                       x .
+
+     A partial converse to this elementary result is provided by Corollary 9.18 below.
+Proof. Arguing in local coordinates, we may assume that (X, x) = (Cn , 0). By
+(10.1), we have φ(z) ≤ (n+k) log |z|+O(1), and hence J(φ)0 ⊂ J((n+k) log |z|)0 ,
+i.e.                          ˆ
+                                   |f (z)|2
+                                               < +∞
+                                  |z|2(n+k)
+on a small enough polydisc. By Lemma 9.5 below, we have
+                            ˆ
+                                      |zi |2αi
+                                 Q
+                               P i 2 n+k) < +∞
+                              ( i |zi | )
+for each monomial z α occuring
+                       P         in the Taylor expansion of f , and it is easy to see
+that this implies |α| = i αi ≥ k + 1 (a special case of Theorem 9.9 below). □
+Lemma 9.5. Let f = α∈Nn fα z α be a holomorphic function on Dn , and assume
+                       P
+that h ≥ 0 is measurable on Dn and radial, i.e. h(z1 , . . . , zn ) only depends on |zi |.
+Then                   ˆ             X          ˆ
+                          |f |2 h =      |fα |2   |zα |2 h(z).
+                           Dn         α∈Nn         Dn
+
+Proof. Pass to polar coordinates and use the Parseval formula for the L2 -norm
+of a Fourier series.                                                         □
+Lemma 9.6. Let A be an arbitrary set of holomorphic functions, and a ⊂ OX
+the ideal sheaf locally generated by A. Then a is coherent.
+Proof. Let I be the directed set of finite subsets of A. For each i ∈ I, the
+corresponding
+     S        (globally) finitely generated sheaf ai is coherent. We then have
+a = i ai , and for each compact set K ⊂ X, the strong noetherian property of
+coherent sheaves shows that a = ai near K for some i, hence the result.     □
+Proof of Theorem 9.3. Arguing locally, we may argue in the ball B ⊂ Cn , and
+assume that φ is psh. Let H =  ´ H(B,  φ) be the Bergman space of holomorphic
+functions f ∈ O(B) such that B |f | e < +∞. By Lemma 9.6, the ideal sheaf
+                                    2 −φ
+
+a ⊂ OB generated by H is coherent, and it is of course contained in J(φ). It will
+thus be enough to show that J(φ) = a. By the Rees lemma, it will be enough to
+show that J(φ)x ⊂ ax +mkx for any given x ∈ B and k ∈ N. Pick f ∈ J(φ)x , and let
+                         SINGULARITIES AND MULTIPLIER IDEALS                            37
+                                                               ´
+U ⊂ B be an open neighborhood of x such that f ∈ O(U ) and U |f |2 e−2φ < +∞.
+Let χ ∈ Cc∞ (U ) be a cut-off function with χ ≡ 1 near x. For C ≫ 1, the function
+                    ψ(z) := φ(z) + (n + k)χ(z) log |z − x| + C|z|2
+is satisfies i∂∂ψ + Ric(ω) = i∂∂ψ ≥ εω, where ω = 2i ∂∂|z|2 is the Kähler form of
+Cn . Note that
+                                v := ∂(χf ) = f ∂χ
+     2
+is L ´with respect to ψ. By Theorem 6.5, we may thus find a function u such
+that B |u|2 e−2ψ dV < +∞ and ∂u = v. Note that g := u − χf belongs to H.
+Since u is holomorphic near x and νx (ψ) ≥ n + k, Lemma 9.4 shows that u ∈ mkx ,
+and we are done.                                                                □
+9.3. An example: the toric case. The results in this section are due to Gue-
+nancia [Gue12]. A function defined on the polydisc Dn is toric if it invariant
+under the compact (S 1 )n , i.e. its value at (z1 , . . . , zn ) only depends on |zi |. By
+Lemma 2.3, a toric function φ on Dn is psh if and only if
+                    φ(z1 , . . . , zn ) = χ(log |z1 |, . . . , log |zn |)
+           n
+where χ : R− → R is convex and non-decreasing in each variable.
+Definition 9.7. The Newton set P (χ) of a convex function χ : Rn− → R is the
+set of α ∈ Rn such that ⟨α, ·⟩ ≤ χ + O(1) on Rn− .
+   It is easy to see that P (χ) is convex and invariant under positive translation
+P (χ) + Rn+ ⊂ P (χ). It is however neither open nor closed in general, and we
+denote by P̄ (χ) and P̊ (χ) its closure and interior. By definition, P (χ) is the
+domain of the Legendre transform
+                              χ⋆ (α) = sup (⟨α, x⟩ − χ(x)) ,
+                                      x∈Rn
+                                         −
+
+and hence
+(9.1)                         χ(x) = sup (⟨α, x⟩ − χ⋆ (α)),
+                                     α∈P (χ)
+
+by Legendre duality. In particular, χ is non-decreasing in each variable if and
+only if P (χ) ⊂ Rn+ .
+Example 9.8. If χ is convex and piecewise affine, i.e. χ = maxi (⟨αi , ·⟩ + ci )
+with αi ∈ Rn+ and cS
+                   i ∈ R, then P (χ) is the Newton polyhedron of the αi , i.e. the
+convex envelope of i (αi + Rn+ ). For φ(z) = log |z| = maxi log |zi | + O(1), we get
+for instance                    (                           )
+                                                  X
+                  P (log |z|) = α ∈ Rn+ | |α| :=      αi ≥ 1 .
+                                                        i
+  Set 1 := (1, . . . , 1) ∈ Rn+ .
+Theorem 9.9. If φ = χ(log |z1 |, . . . , log |zn |) is a toric psh function on Cn , then
+J(φ)0 is generated by monomials, and z β ∈ J(φ)0 if and only iff β + 1 ∈ P̊ (φ).
+   As a consequence, we recover the following description of algebraic multiplier
+ideals in the toric case, originally due to Howald.
+38                             SÉBASTIEN BOUCKSOM
+
+Corollary 9.10. If a is a monomial ideal generated by a (possibly infinite) family
+of monomials (z α )α∈A with A ⊂ Nn and c > 0, then z β ∈ J(ac )0 if and only
+β + 1 ∈ c P̊ , with P the Newton polyhedron of A, i.e. the convex envelope of
+            n
+S
+  α∈A (α + R+ ).
+                                             ⌈c⌉−n+1
+Example 9.11. We have J(c log |z|)0 = m0               .
+  As we shall see, passing to polar coordinates easily reduces Theorem 9.9 to
+the following convex-analytic discussion. Define the homogeneization of χ as the
+convex, positively homogeneous function
+                             χhom (x) := sup ⟨α, x⟩.
+                                          α∈P (χ)
+
+Using (9.1), one easily checks that for each a, x ∈ Rn− ,
+                                            χ(a + tx)
+                            χhom (x) = lim
+                                       t→+∞      t
+computes the slope at infinity of χ along the ray a + R+ x.
+Proposition 9.12. If χ : Rn− → R is convex, the following conditions are equiv-
+alent.
+     (i) e−χ is integrable;
+    (ii) 0 ∈ P̊ (φ);
+   (iii) χ decays at least linearly at infinity, i.e. χ(x) ≤ −δ|x| + C for some
+         δ, C > 0;
+   (iv) χhom (x) < 0 for each nonzero x ∈ Rn+ .
+Proof. It is clear that (ii)⇐⇒(iii)=⇒(i). Assume that e−χ ∈ L1 , and pick x ∈
+Rn− . By Fubini-Study, there exists a ∈ Rn− such that the restriction of e−χ to
+the ray R = a + R+ x is integrable. By convexity of the one-variable function
+χ|R , this clearly implies that the slope at infinity χhom
+                                                         (x) is negative, and we
+infer (i)=⇒(iv). By homogeneity and compactness of x ∈ Rn− | |x| = 1 , (iv) is
+equivalent to χhom (x) ≤ −δ|x| for some δ > 0, which is in turn equivalent to
+(iii).                                                                          □
+9.4. The Nadel vanishing theorem.
+Theorem 9.13 (Nadel vanishing). Let (X, ω) be Kähler manifold, and assume
+that X is weakly pseudonvex and contains a Stein Zariski open subset (e.g. X
+projective). Let L be a Hermitian holomorphic line bundle on X with curvature
+form θ, and let also φ be a quasi-psh function such that θ + i∂∂φ ≥ εω for some
+ε > 0. Then
+                         H q (X, O(KX + L) ⊗ J(φ)) = 0
+for all q ≥ 1.
+Proof. For each q ≥ 0, denote by Aq the sheaf of germs u of measurable sections
+of Λn,q TX⋆ ⊗ L such that both ue−φ and ∂ue−φ are L2loc . The ∂ operator induces
+a complex of sheaves
+                   0 → O(KX + L) ⊗ J(φ) → A0 → · · · → An .
+                      SINGULARITIES AND MULTIPLIER IDEALS                           39
+
+An application of Theorem 6.5 to a small ball in X shows that this complex is
+exact. Since each Aq is a C ∞ -module, the de Rham-Weil theorem implies that
+H q (X, O(KX +L)⊗J(φ)) is isomorphic to the q-th cohomology group of the com-
+plex of global sections of Aq . Let v be a ∂-closed global section on X of Aq , q ≥ 1,
+denote by U the Stein Zariski open subset ´of X, and pick a (strictly) psh exhaus-
+tion function ψ : X → R+ . For each t ≥ 0, {ψ<t} |v|2 e−2φ dV is finite, and we may
+                                                              ´
+thus choose χ : R+ → R+ convex, increasing such that X |v|2 e−2(φ+χ◦ψ) dV <
++∞. By Theorem 6.5, there exists u ∈ L2loc (X, Λn,q−1 TX⋆ ⊗ L) such that ∂u = v
+     ´
+and X |u|2 e−2(φ+χ◦ψ) dV < +∞. In particular, u defines a global section of Aq−1
+on X, and the result follows.                                                       □
+
+9.5. Restriction property and subadditivity. A fairly direct application of
+the ’local’ Ohsawa–Takegoshi theorem yields the following qualitative counterpart
+of it.
+Theorem 9.14. If φ is quasi-psh on a complex manifold X, then J(φ|Y ) ⊂
+J(φ)|Y for each complex submanifold Y ⊂ X.
+   Applying this to the diagonal in X × X, one can show (see [DEL, Theorem
+2.6]):
+Theorem 9.15. For any two quasi-psh functions φ, ψ, we have J(φ + ψ) ⊂
+J(φ) · J(ψ).
+
+Corollary 9.16. If k divides m, then J(mφ)1/m is more singular than J(kφ)1/k .
+9.6. Demailly’s and Skoda’s theorem. The following result is a ’qualitative’
+version of a famous regularization theorem due to Demailly [Dem92].
+Theorem 9.17. Let φ be a quasi-psh function on a complex manifold. Then the
+multiplier ideal J(φ) is less singular than φ.
+Proof. Ohsawa–Takegoshi extension from a point.                                     □
+Corollary 9.18. If νx (φ) < 1, then J(φ)x = OX,x .
+Proof. By Theorem 9.17, we have νx (φ) ≥ ordx J(φ), and hence ordx J(φ) = 0
+since the latter is an integer.                                          □
+
+9.7. Openness property. Let φ be a quasi-psh function on a complex manifold
+X, and set
+                              [
+                    J+ (φ) :=    J((1 + ε)φ) ⊂ OX .
+                                    ε>0
+
+Since the singularities of (1 + ε)φ decrease as ε ↘ 0, the strong noetherian
+property shows that J+ (φ) = J(((1 + ε)φ) for all 0 < ε ≪ 1 near any given
+compact subset of X.
+  The following result is known as the ‘strong openness conjecture’ of Demailly–
+Kollár [DK01], and was established by Guan–Zhou [GZ15].
+40                            SÉBASTIEN BOUCKSOM
+
+Theorem 9.19. For each quasi-psh function φ on a complex manifold, we have
+J+ (φ) = J(φ). Equivalently, for any holomorphic function f with |f |e−φ L2 in a
+neighborhood of a compact K ⊂ X, there exists ε > 0 such that |f |e−(1+ε)φ is L2
+in a neighborhood of K.
+  The proof presented below, which is basically that of Guan and Zhou, relies
+on the following two elementary facts.
+Lemma 9.20. If g is an integrable function near0 ∈ Rd , then there exists a
+sequence xj → 0 in Rd such that |g(xj )| = o |xj |−d .
+Proof. Applying the Fubini-Study in polar coordinates yields v ∈ S d−1 such that
+h(r) := rd−1 g(rv) is integrable near 0 ∈ R, and we are thus reduced to the case
+d = 1. If the result fails, then |h(r)| ≥ c/r near 0 for some c > 0, contradicting
+the integrability at 0.                                                          □
+Lemma 9.21. Let a, b be holomorphic functions near D ⊂ C such that ord0 (a) >
+ord0 (b), and assume that b is nowhere zero on D\{0}. Assume also given t0 ∈ D⋆
+with a = b on all k-th roots of t0 . Then
+                             |t0 | sup |a| ≥ inf |b| > 0.
+                                  ∂D        ∂D
+
+Proof. After replacing a with a(t)/b(t), we can assume that b = 1. As in [Lem14,
+Proposition 2.2], after averaging a with respect to the action of the k-th roots of
+unity we may further asume k = 1. By assumption, a vanishes as 0 and satisfies
+a(t0 ) = 1. Applying the maximum principle to the holomorphic function a(t)/t,
+we get as desired
+                   |t0 |−1 = |t−1                −1
+                               0 a(t0 )| ≤ sup |t a(t)| = sup |a|.
+                                          ∂D                ∂D
+                                                                                 □
+Proof of Theorem 9.19. The result being local, we can assume that φ is psh and
+φ ≤ 0. Pick a germ f such that |f |e−φ is L2loc at a point x ∈ X. Since J+ (φ)
+locally coincides with J((1 + ε)φ) for 0 < ε ≪ 1, it is integrally closed (cf. Ex-
+ample 8.8). By Proposition 8.13, it is thus enough to show that ordγ (f ) ≥
+ordγ (J+ (φ)) for each germ of curve γ : (C, 0) → (X, x). Arguing by contradic-
+tion, we assume ordγ (f ) < ordγ (J+ (φ)), which implies in particular that f ◦ γ
+has isolated zeroes.
+   Pick local coordinates z = (z1 , . . . , zn ) at x. After permuting the indices,
+we can assume that the image of γ is not entirely contained in {z1 = 0}.
+Reparametrizing γ and scaling the coordinates, we then arrange the following:
+                              ´
+     (i) f ∈ O(Dn ) satisfies Dn |f |2 e−2φ < +∞;
+    (ii) γ : U → Dn is defined on a neighborhood U of D̄;
+   (iii) γ1 (s) := z1 ◦ γ(s) = sk for some k ∈ N⋆ ;
+   (iv) f ◦ γ is nowhere zero on D̄ \ {0}.
+By (i) and Lemma 9.20, there exists a sequence tj ∈ D converging to 0 such that
+                           ˆ
+                                        |f |2 e−2φ = o |tj |−2 .
+                                                              
+                         {z1 =tj }∩Dn
+                           SINGULARITIES AND MULTIPLIER IDEALS                        41
+
+Since f ◦ γ is nonzero on any k-th root of tj , f |{z1 =tj }∩Dn is not identically zero,
+            ´
+and hence {z1 =tj }∩Dn |f |2 e−2φ > 0. Pick 0 < r < 1 such that γ(D̄) ⊂ Dnr .
+Arguing by induction on the dimension, we get εj > 0 such that
+         ˆ                               ˆ
+                         2 −2(1+εj )φ
+                                                       |f |2 e−2φ = o |tj |−2 .
+                                                                             
+                     |f | e           ≤2
+           {z1 =tj }∩Dn
+                      r                         {z1 =tj }∩Dn
+
+By the ’local version’ of the Ohsawa–Takegoshi extension theorem, there exists
+gj ∈ O(Dnr ) such that gj |{z1 =tj }∩Dnr = f |{z1 =tj }∩Dnr and
+          ˆ                            ˆ
+                    2 −2(1+εj )φ
+                                                     |f |2 e−2(1+εj )φ = o |tj |−2
+                                                                                   
+               |gj | e           ≤C
+             Dn
+              r                          {z1 =tj }∩Dn
+                                                    r
+
+for some uniform constant C > 0. By (iii), we have (gj ◦ γ)(s) = (f ◦ γ)(s) for all
+s ∈ D such that γ1 (s) = sk = tj . Also gj ∈ J+ (φ), and hence
+                      ord0 (gj ◦ γ) ≥ ordγ (J+ (φ)) > ord0 (f ◦ γ).
+By Lemma 9.21, it follows that
+                              |tj | sup |gj ◦ γ| ≥ inf |f ◦ γ| > 0,
+                                  ∂D              ∂D
+
+and hence sup∂D |gj ◦ γ|2 ≥ c|tj |−2 for some constant c > 0. On the other hand,
+since γ(∂D) is compact in Dnr , the mean value inequality gives
+                          ˆ               ˆ
+                     2              2
+                                             |gj |2 e−2(1+εj )φ = o |tj |−2 ,
+                                                                           
+         sup |gj ◦ γ| ≤ C      |gj | ≤ C
+           ∂D                    Dn
+                                  r              Dn
+                                                  r
+
+contradiction.                                                                        □
+Corollary 9.22. Let φ, ψ be quasi-psh functions, and assume that ψ has analytic
+singularities. If eψ−φ is L2 on a neighborhood a compact K ⊂ X, then there exists
+ε > 0 such that eψ−(1+ε)φ is L2 on a neighborhood of K.
+Proof.
+Pn      After passing to a log resolution, we may assume that X = Dn and ψ =
+  i=1 ci log |zi | with Q
+                        ci ∈ R+ . Writing ci = mi + ri with mi ∈ N, we see that
+eψ−φ ∈ L2loc iff f := i zimi belongs to J(φ + i ri log |zi |). By openness, we get
+                                                    P
+ε > 0 such that
+                              X                                 X
+           f ∈ J((1 + ε)(φ +      ri log |zi |)) ⊂ J((1 + ε)φ +   ri log |zi |),
+                                  i                                   i
+
+i.e. eψ−(1+ε)φ ∈ L2loc .                                                              □
+
+                10. Valuative description of multiplier ideals
+10.1. Analytic semicontinuity of Lelong numbers. Recall from Section 2.3
+that the Lelong number of a psh function u near 0 ∈ Cn satisfies
+(10.1)          ν0 (u) = max{γ ∈ R+ | u(z) ≤ γ log |z| + O(1) near 0}.
+Let now φ be a quasi-psh function on a complex manifold X. Near each point
+x ∈ X, we have by definition φ = u + f with u psh and f smooth. Choosing local
+42                             SÉBASTIEN BOUCKSOM
+
+coordinates z centered at x ∈ X, we can view u as a psh function near 0 ∈ Cn
+and we set νx (φ) := ν0 (u). Clearly,
+                νx (φ) = max{γ ∈ R+ | φ ≤ γ log |z| + O(1) near x},
+and the definition is thus independent of the choice of local coordinates at x, any
+two choices local coordinates being Lipschitz equivalent.
+Example 10.1. If φ has analytic singularities of type ac , then νx (φ) = c ordx (a).
+  By Lemma 2.6, νx (φ) is a usc function of x ∈ X, and also a usc function of φ
+with respect to the L1loc topology. The following deep result was originally proved
+by Siu [Siu74]. The much simpler argument we present here is due to Demailly.
+Theorem 10.2. If φ is a quasi-psh function on a complex manifold X, then x 7→
+νx (φ) is usc in the analytic Zariski topology. In other words, {x ∈ X | νx (φ) ≥ c}
+is a closed analytic subset of X for each c ∈ R.
+     The key point is the following consequence of the Ohsawa–Takegoshi theorem.
+Lemma 10.3. For each x ∈ X we have νx (φ) ≥ ordx J(φ) ≥ νx (φ) − n.
+Proof. By Theorem 9.17, φ is more singular than J(φ), and hence νx (φ) ≥
+ordx J(φ). To prove the converse, pick coordinates z at x, and set γ := νx (φ).
+Since φ ≤ γ log |z| + C near x, we have
+                         J(φ)x ⊂ J(γ log |z|)x = m⌈γ⌉−n+1
+                                                  x       ,
+and hence ordx J(φ) ≥ νx (φ) − n.                                                 □
+Proof of Theorem 10.2. When φ has analytic singularities, the result amounts to
+the fact that {x ∈ X | ordx (a) ≥ c} is closed analytic for a coherent ideal sheaf
+a ⊂ OX , which is easy to see. Applying Lemma 10.3 to kφ with k ∈ N⋆ , we get
+                          |νx (φ) − k −1 ordx J(kφ)| ≤ n/k,
+which proves that x 7→ νx (φ) is the uniform limit of x 7→ k −1 ordx J(kφ). By
+coherence of J(kφ), x 7→ k −1 ordx J(kφ) is usc in the analytic Zariski topology
+for each k, and hence so is their uniform limit x 7→ νx (φ).                   □
+10.2. Generic Lelong numbers. As above, φ is a quasi-psh function on a
+complex manifold X.
+Definition 10.4. The generic Lelong number of φ along an irreducible closed
+analytic subset Y ⊂ X is defined as
+                                νY (φ) := inf νy (φ).
+                                          y∈Y
+
+  The terminology is justified by the following consequence of the analytic semi-
+continuity theorem.
+Lemma 10.5. We have νy (φ) = νY (φ) for a very general point y ∈ Y , i.e. any
+point outside a countable union of strict closed analytic subsets Zj of Y .
+Proof. For each j ≥ 1, Zj := {y ∈ Y | νy (φ) ≥ νY (φ) +S1/j} is a strict closed
+anaytic subset of Y , and νy (φ) = νY (φ) for each x ∈ Y \ j Zj .             □
+                       SINGULARITIES AND MULTIPLIER IDEALS                               43
+
+   As a consequence, for any two quasi-psh functions φ, ψ we get the valuative
+formulae
+                          νY (φ + ψ) = νY (φ) + νY (ψ)
+and
+                    νY (max{φ, ψ}) = min{νY (φ), νY (ψ)}.
+Proposition 10.6. For each regular point y ∈ Yreg , νY (φ) is the largest c ∈ R+
+such that φ is more singular then IcY near y. When Y has codimension 1, this is
+also true when y is a singular point of Y .
+Proof. If φ is more singular than IcY near y, then νy′ (φ) ≥ c ordy′ IY ≥ c for
+all y ′ ∈ Y near y. Since νy′ (φ) = νY (φ) for a very general y ′ ∈ Y , we infer
+νY (φ) ≥ c. Conversely, pick y ∈ Yreg a regular point, and choose ocal coordinates
+z = (z1 , . . . , zn ) at x such that z1 , . . . , zp generate IY near y. By (2.4), there
+exists C > 0 such that
+                φ(z) ≤ νy (φ) log |z − y| + C ≤ νY (φ) log |z − y| + C
+for all z, y near x = 0. Choosing y = (0, . . . , 0, zp+1 , . . . , zn ) ∈ E, we get φ ≤
+                                                                                  ν (φ)
+νY (φ) log(|z1 |2 + · · · + |zp |2 )1/2 + C near x, i.e. φ is more singular then IYY    near
+y.
+   Assume now that Y is a prime divisor. Since X is smooth, Y admits a local
+equation fY near any given y ∈ Y . Arguing locally, we can assume that φ is psh.
+Since log |fY | is pluriharmonic outside Y , φ − νY (φ) log |fY | is psh outside Y .
+Being locally bounded above near each point of Yreg , it extends to a psh function
+ψ outside Ysing . But the latter has codimension at least 2 in X, and ψ is thus
+automatically bounded above near near Ysing . In particular, φ ≤ νY (φ) log |fY | +
+O(1) near y.                                                                              □
+Remark 10.7. The second part of Proposition 10.6 fails in general when Y
+has codimension at least 2. Indeed, a holomorphic function f ∈ OX satisfies
+                                                                           ⟨m⟩
+ordY (f ) = νY (log |f |) ≥ m if and only f belongs to the symbolic power IY . On
+the other hand, log |f | is more singular than IY if and only if f belongs to the
+                                                   m
+                                                       ⟨m⟩
+integral closure ImY , which is strictly contained in IY   is general.
+10.3. The case of analytic singularities. We start with a few preliminary
+facts. Let µ : Y → X be a modificatin with Y smooth. The Jacobian of µ, locally
+defined in coordinate charts, yields a global section of the relative canonical bundle
+KY /X := KY − µ⋆ KX . The corresponding divisor is identified with KY /X , and
+its support coincides with the exceptional locus Exc(µ). We may then show that
+A := µ(Exc(µ)) has codimension at least 2 in X, and µ induces an isomorphism
+over X \ A.
+   The log discrepancy of a prime divisor E ⊂ Y is defined as
+                          AX (E) := 1 + ordE (KY /X ).
+If Y is a modification of Y , the strict transform E ′ of E on Y ′ , then A
+    ′
+                                                                                   X (E) =
+AX   (E ′ ).
+Example 10.8. Let µ : Y → X be the blowup of a submanifold Z ⊂ X. Then
+Exc(µ) = E = P(NZ/X ), and KX ′ /X = (codim Z − 1)E, i.e. AX (E) = codim Z.
+44                                  SÉBASTIEN BOUCKSOM
+
+   Given a psh function φ on X, we define νE (φ) as the generic Lelong number
+of φ ◦ µ along E.
+Example 10.9. If φ has analytic singularities of type ac , then we have for each
+prime divisor E over X
+                          νE (φ) = ordE (ac ) := c min ordE (f ◦ µ),
+                                                  f ∈a
+
+Theorem 10.10. Let φ, ψ be two quasi-psh functions on a complex manifold X,
+and assume that ψ has analytic singularities. For each compact subset K ⊂ X,
+we then have
+                                         
+      νE (φ)
+inf          | νE (ψ) > 0, cX (E) ∩ K ̸= ∅ = max{γ ≥ R+ | φ ≤ γψ+O(1) near K},
+      νE (ψ)
+where the left-hand infimum ranges over all prime divisors E over X. Further,
+the infimum on the left-hand is achieved among the Rees valuations of ψ.
+Definition 10.11. A log resolution of a coherent ideal sheaf a ⊂ OX is a proper
+bimeromorphic morphism µ : X ′ → X with X ′ a complex manifold, such that
+    (i) a · OX ′ = OX ′ (−D) with D an effective divisor on X ′ ;
+   (ii) D + KX ′ /X has snc1 support.
+  The existence of a log resolution is guaranteed by Hironaka, later simplfiied by
+Bierstone-Milman, Wlodarczyk, etc...
+Proposition 10.12. Assume that φ has analytic singularities
+                                                    P         of type ac , and let
+µ : Y → X be a log resolution of a, with snc divisor i Ei . Then
+       J(φ) = J(ac ) = {f ∈ OX | ordEi (f ) > ordEi (ac ) − AX (ordEi ) for all i} .
+Proof. Change of variable. J(φ) = µ∗ OY (KY /X − ⌊D⌋).
+                                                                                       □
+10.4. Valuative characterization of integrability. Let X be a complex man-
+ifold.
+Theorem 10.13. Let φ, ψ be psh functions near 0 ∈ X.
+   (i) If eψ−φ ∈ L2loc near 0 ∈ X, then νE (ψ) ≥ νE (φ) − AX (E) for all prime
+       divisors E over X such that 0 ∈ cX (E).
+  (ii) Assume conversely that there exists ε > 0 such that
+                              νE (ψ) ≥ (1 + ε)νE (φ) − AX (E)
+           for all prime divisors E over X such that 0 ∈ cX (E). Then eψ−φ ∈ L2loc
+           at 0.
+Remark 10.14. Arguing by approximation as in [BFJ08, Proposition 3.7], one
+shows that it is enough to check (ii) for prime divisors E such that cX (E) = {0}.
+Corollary 10.15. If ψ further has analytic singularities, then eψ−φ ∈ L2loc iff
+there exists ε > 0 such that νE (ψ) ≥ (1 + ε)νE (φ) − AX (E) for all prime divisors
+E over X such that 0 ∈ cX (E).
+     1Short for simple normal crossing.
+                      SINGULARITIES AND MULTIPLIER IDEALS                                 45
+
+Proof. When ψ has analytic singularities, the condition eψ−φ ∈ L2loc implies
+eψ−(1+ε)φ ∈ L2loc for some ε > 0, by Corollary 9.22. The result is now a di-
+rect consequence of Theorem 10.13.                                        □
+   As the next example shows, the assumption on analytic singularities in Corol-
+lary 10.15 cannot be dispensed with.
+Example 10.16. Take ψ(z) = − log(− log |z|) and φ = log |z| on the unit disc
+                ´       ´   |dz|2
+X = D. Then e2(ψ−φ) = |z|2 (log |z|)2
+                                      converges near 0, but ν0 (ψ) = 0 and
+ν0 (φ) = AX (0) = 1.
+Lemma 10.17. Let φ, ψ be psh functions near 0 ∈ Cn , and assume that eψ−φ ∈
+L2loc at 0. Then νH (ψ) ≥ νH (φ) − 1 with H := (z1 = 0).
+Proof. Set c := νH (φ). Since φ is more singular than c log |z1 |, we may assume
+wlog that φ = c log |z1 |. After scaling, we may also assume that eψ−φ = eψ |z1 |−c
+is L2 on the unit polydisc Dn .
+        ffl first that n = 1, and hence H = {0}. For each t ∈ R large enough set
+   Assume
+χ(t) := S(0,e−t ) ψ. By Lemma 2.8,
+                                  lim χ(t)/t = −ν0 (ψ),
+                                  t→+∞
+
+and
+ffl we thus      need to show that limt→+∞ χ(t)/t ≤ 1 − c. By Jensen’s inequality,
+            e 2ψ ≥ e2χ(t) , and hence
+        −t
+   S(0,e )
+               ˆ                    ˆ +∞                          ˆ +∞
+            1      2ψ   −2c     2          2(c−1)t             2ψ
++∞ >              e |z| |dz| =           e         dt         e ≥      e2(χ(t)+(c−1)t) dt.
+           2π D                       0                    −t
+                                                      S(0,e )      0
+
+We may thus find a sequence ti → +∞ such that χ(ti ) + (c − 1)ti ≤ 0, and hence
+limt→+∞ χ(t)/t = lim χ(ti )/ti ≤ 1 − c.
+   In the general case, the Fubini–Torelli theorem yields
+                          ˆ
+                                      ′
+                             e2ψ(z1 ,z ) |z1 |−2c |dz1 |2 < +∞
+                              D
+for a.e. z ′ ∈ Cn−1 near 0.  By the one-variable case, we thus have ν0 (ψ(·, z ′ )) ≥
+                ′
+c − 1 for a.e. z , and (2.4) thus yields
+   ψ(z1 , z ′ ) ≤ (c − 1)(log |z1 | − log 2) + sup ψ(z1 , z ′ ) ≤ (c − 1) log |z1 | + C
+                                              |z1 |≤1/2
+
+for some uniform constant C and a.e. z ′ . As a result, this holds for all z ′ near 0,
+and we conclude as desired that νH (ψ) ≥ c − 1.                                     □
+Proof of Theorem 10.13. Assume that eψ−φ ∈ L2loc near 0 ∈ X. Let µ : Y → X
+be a modification and E a prime divisor over X with 0 ∈ cX (E) = µ(E). Choose
+local coordinates (z1 , . . . , zn ) on Y near a regular point of E close to a preimage
+of 0. The change of variable formula yields
+                                   eψ◦µ−φ◦µ |z1 |a ∈ L2loc
+with a := ordE (KY /X ) = AX (E) − 1. By Lemma 10.17, we infer
+                           νE (ψ ◦ µ) + a ≥ νE (φ ◦ µ) − 1,
+46                                       SÉBASTIEN BOUCKSOM
+
+i.e. νE (ψ) ≥ µE (φ) − AX (E), which proves (i).
+    Conversely, assume given ε > 0 such that νE (ψ) ≥ (1 + ε)νE (φ) − AX (E)
+for all prime divisors E over X with cX (E) = {0}. Assume first that φ, ψ have
+analytic singularities.
+                   P     We can then find a modification ψ : X ′ → X and an
+snc divisor D = i Ei supporting KX ′ /X and such that φ and ψ have divisorial
+singularities along D. The change of variable formula then shows that eψ−φ ∈ L2loc
+iff νEi (ψ) > νEi (φ) − AX (Ei ) for all i, and we are done.
+    Assume now that φ, ψ are arbitrary psh functions. For each k ∈ Z>0 , let
+φk (resp. ψk ) be a psh function with analytic singularities of type J(kφ)1/k
+(resp. J(kψ)1/k ). By Theorem 9.17, φk (resp. ψk ) is less singular then φ (resp. ψ).
+For each prime E over X we thus have
+                           νE (φ) ≥ νE (φk ) ≥ νE (φ) − k −1 AX (E),
+                           νE (ψ) ≥ νE (ψk ) ≥ νE (ψ) − k −1 AX (E).
+Thus
+                        νE (ψk ) ≥ (1 + ε)νE (φk ) − (1 + k −1 )AX (E),
+and hence
+               1                 1+ε
+νE (ψk ) ≥       −1
+                     νE (ψk ) ≥          νE (φk ) − AX (E) ≥ (1 + ε/2)νE (φk ) − AX (E)
+            1+k                 1 + k −1
+for all k ≫ 1. By the case of functions with analytic singularities, we infer
+eψk −(1+εk )φk ∈ L2loc for any εk ∈ [0, ε/2), hence also eψ−(1+εk )φk ∈ L2loc , since ψ is
+more singular than ψk . To conclude the proof of (i), it remains to note, following
+Demailly, that
+                           eψ−(1+εk )φk ∈ L2loc =⇒ eψ−φ ∈ L2loc
+for any εk ≥ k−11
+                   . To see this, note that ek(φk −φ) ∈ L2loc , by definition of the
+multiplier ideal J(kφ). Since ψ is locally bounded above, we have
+         ˆ            ˆ                                  ˆ
+            e2(ψ−φ) ≤               e2(ψ−(1+εk )φk ) + C               e−2φ
+                             {φ≥(1+εk )φk }                                 {φ≤(1+εk )φk }
+                 ˆ                            ˆ
+             ≤       e2(ψ−(1+εk )φk ) + C                           e2(−φ+k(φ−φk )) e2k(φk −φ)
+                                                {φ≤(1+εk )φk }
+                             ˆ                                  ˆ
+                                                            ′
+                         ≤       e   2(ψ−(1+εk )φk )
+                                                       +C           e2k(φk −φ) < ∞,
+                                                              k
+since φ + k(φ − φk ) is bounded above when φ ≤ (1 + εk )φk ≤ k−1 φk + O(1). □
+Corollary 10.18. A function f ∈ OX belongs to J(φ) iff there exists ε > 0 such
+that ordE (f ) ≥ (1 + ε)νE (φ) − AX (E) for all prime divisors E over X.
+Remark 10.19. Interestingly, the ideal sheaf of germs f ∈ OX such that ordE (f ) ≥
+νE (φ)−AX (E) for all prime divisors E over X is not coherent in general. Indeed,
+Corollary 10.18 implies that this ideal coincides with ∩δ>0 J((1 − δ)φ), which is
+not always coherent, by [Wu19, Proposition 2].
+     The following result is based on [Cao, Lemma 3.4] and [BFJ08].
+                         SINGULARITIES AND MULTIPLIER IDEALS                                       47
+
+Theorem 10.20. For each p ∈ (0, ∞), the sheaf
+                  Lp (φ) := f ∈ OX | |f |e−φ ∈ Lploc
+                            
+
+is coherent. Further, a germ f ∈ OX is in Lp (φ) iff there exists ε > 0 such that
+                          ordE (f ) ≥ (1 + ε)νE (φ) − p−1 AX (E)
+for all prime divisors E over X.
+Lemma 10.21. If φk has analytic singularities of type J(kφ)1/k , then there exists
+a sequence εk → 0 such that
+                                  [
+                         Lp (φ) =   Lp ((1 + εk )φk ).
+                                              k
+
+Proof. Note that e2k(φk −φ) ∈ L1loc . As in [Dem12, (16.12)], this implies
+ ˆ                  ˆ                               ˆ
+     |f |p e−pφ =                    |f |p e−pφ +                     |f |p e2k(φk −φ) e(2k−p)φ−2kφk
+                    {φ≥(1+εk )φk }                   {φ<(1+εk )φk }
+                               ˆ                             ˆ
+                                      p −(1+εk )φk
+                           ≤       |f | e               +C       e2k(φ−φk )
+                p                      2k
+whenever εk ≥ 2k−p , i.e. (1 + εk ) ≥ 2k−p , because (2k − p)φ − 2kφk is then
+bounded above on {φ < (1 + εk )φk }. This proves
+                                   Lp ((1 + εk )φk ) ⊂ Lp (φ).
+In the other direction, pick f ∈ Lp (φ). Pick a positive integer m such that
+2m > p, and note that
+                ˆ             ˆ
+                      p −pφ
+                  |f | e    = |f |2m e−(pφ+(2m−p) log |f |) < +∞,
+
+i.e. f d ∈ J(pφ + (2m − p) log |f |). The openness property of multiplier ideals
+yields 0 < ε ≪ 1 such that
+                          f d ∈ J((1 + ε)pφ + (2m − p) log |f |),
+    ´
+i.e. |f |p e−(1+ε)pφ < +∞. It follows that f ∈ Lp ((1 + ε)φ) ⊂ Lp ((1 + εk )φk ) for
+k ≫ 1, which concludes the proof.                                                 □
+
+                                            References
+[Ber]        B. Berndtsson. An introduction to things ∂. Analytic and algebraic geometry,
+             IAS/Park City Math. Ser. 17. Amer. Math. Soc. Providence, RI, 2010, 7–76.
+[BFJ08]      S. Boucksom, C. Favre, M. Jonsson. Valuations and plurisubharmonic singularities.
+             Publ. Res. Inst. Math. Sci. 44 (2008), no. 2, 449–494.
+[Blo13]      Z. Blocki. On the Ohsawa-Takegoshi extension theorem. Univ. Iagel. Acta Math.
+             No. 50, (2013), 53–61.
+[BK07]       Z. Blocki, S. Kolodziej. On regularization of plurisubharmonic functions on mani-
+             folds. Proc. Amer. Math. Soc. 135 (2007), no. 7, 2089–2093.
+[Cao]        J. Cao. Ohsawa–Takegoshi extension theorem for compact K ´   ”ahler manifolds and
+             applications.Complex and symplectic geometry, 19–38. Springer INdAM Ser. 21,
+             Springer, Cham, 2017.
+[Chen]       B.-Y. Chen. A simple proof of the Ohsawa-Takegoshi extension theorem.
+             arXiv:1105.2430.
+48                              SÉBASTIEN BOUCKSOM
+
+[DemAG]   J.-P. Demailly. Complex analytic and differential geometry. Book available at
+          https://www-fourier.ujf-grenoble.fr/ demailly/documents.html.
+[Dem82]   J.-P. Demailly. Estimations L2 pour l’opérateur ∂ d’un fibré vectoriel holomorphe
+          semi-positif au-dessus d’une variété kählérienne complète. Ann. Sci. École Norm.
+          Sup. (4) 15 (1982), no. 3, 457–511.
+[Dem92]   J.-P. Demailly. Regularization of closed positive currents.
+[Dem02]   J.-P. Demailly. Introduction to Hodge theory. American Mathematical Society,
+          Providence, RI; Société Mathématique de France, Paris, 2002.
+[Dem12]   J.-P. Demailly. Analytic methods in algebraic geometry. Surveys of Modern Math-
+          ematics, 1. International Press, Somerville, MA; Higher Education Press, Beijing,
+          2012.
+[DEL]     J.-P. Demailly, L. Ein, R. Lazarsfeld. A subadditivity property of multiplier ideals.
+          Michigan Math. J. 48 (2000), 137–156.
+[DK01]    J.-P. Demailly, J. Kollár. Semi-continuity of complex singularity exponents and
+          Kähler-Einstein metrics on Fano orbifolds. Ann. Sci. École Norm. Sup. (4) 34
+          (2001), no. 4, 525–556.
+[EG92]    L. Evans, R. Gariepy. Measure theory and fine properties of functions. Studies in
+          Advanced Mathematics. CRC Press, Boca Raton, FL, 1992.
+[Gla83]   M. Glasner. Stokes’ theorem and parabolicity of Riemannian manifolds. Proc. AMS
+          87, no. 1 (1983) 70–72.
+[Gue12]   H. Guenancia. Toric plurisubharmonic functions and analytic adjoint ideal sheaves.
+          Math. Z. 271 (2012), no. 3-4, 1011–1035.
+[GZ15]    Q. Guan, X. Zhou. A proof of Demailly’s strong openness conjecture. Ann. of Math.
+          (2) 182 (2015), no. 2, 605–616.
+[Laz]     R. Lazarsfeld: Positivity in algebraic geometry I, II. A Series of Modern Surveys
+          in Mathematics 48 and 49. Springer-Verlag, Berlin, 2004.
+[Lem14]   L. Lempert. Modules of square integrable holomorphic germs. arXiv:1404.0407.
+[Ric68]   R. Richberg. Stetige streng pseudokonvexe Funktionen. Math. Ann. 175 (1968),
+          257–286.
+[Siu74]   Y.T.Siu. Analyticity of sets associated to Lelong numbers and the extension of
+          closed positive currents. Invent. Math. 27 (1974), 53–156.
+[Wu19]    X. Wu. On the hard Lefschetz theorem for pseudoeffective line bundles.
+          arXiv:1911.13253.
+

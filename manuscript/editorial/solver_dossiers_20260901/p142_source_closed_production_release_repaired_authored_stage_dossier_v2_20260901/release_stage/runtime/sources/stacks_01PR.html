@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta name="theme-color" content="#d9d8d1">
+
+<title>Section 28.27 (01PR): Ample invertible sheaves&mdash;The Stacks project</title>
+
+<meta name="description" content="an open source textbook and reference work on algebraic geometry">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+<link rel="stylesheet" type="text/css" href="/static/css/print.css">
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ['tex2jax.js'],
+    jax: ['input/TeX','output/HTML-CSS'],
+    TeX: {
+      extensions: ['AMSmath.js', 'AMSsymbols.js', '/static/XyJax/extensions/TeX/xypic.js'],
+      Macros: {
+        linebreak: ["", 1, ""],
+        },
+      TagSide: 'left'
+    },
+    tex2jax: {
+      inlineMath: [['$','$']],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    },
+    'HTML-CSS': {
+    	scale: 100,
+	availableFonts: [],
+    }
+  });
+</script>
+
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" integrity="sha384-yBEPaZw444dClEfen526Q6x4nwuzGO6PreKpbRVSLFCci3oYGE5DnD1pNsubCxYW" crossorigin="anonymous">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" integrity="sha384-cd07Jx5KAMCf7qM+DveFKIzHXeCSYUrai+VWCPIXbYL7JraHMFL/IXaCKbLtsxyB" crossorigin="anonymous"></script>
+
+<link rel="icon" type="image/vnd.microsoft.icon" href="/static/stacks.ico">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/static/stacks.ico">
+
+
+  <script type="text/javascript" src="/static/js/toggle.js"></script>
+  <script type="text/javascript" src="/static/js/comments.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/easymde@2.0.1/dist/easymde.min.css" integrity="sha384-IRbzB9px0sfIx90vkN+geaX3F4LVcg/M+k5vmVkfjs5TnRX3MIhGS8Ma06ALKVYp" crossorigin="anonymous">
+  <script src="https://unpkg.com/easymde@2.0.1/dist/easymde.min.js" integrity="sha384-v06sb0t0ToY1YRtVlfD/GCGpIZ/QHYyeH2Gzjvr0ZJI62/50DIzT8XRgQ6JvptVu" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.3/jquery.bonsai.css" integrity="sha384-8xTxM5sJRAUB0ckdBghB5am+aw+0kC5FfSUzMI+KI+UD8uBCNeSkdi8I1J4+Wjwu" crossorigin="anonymous">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-bonsai@2.1.3/jquery.bonsai.js" integrity="sha384-gE5xOW4MVOjJL1A2SbxwvQw/qet6h8Vdv06j3JQGhBW4d1H5hXYB12WsrUBgU439" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+<div class="container-fluid bounded">
+  <div id="first-bar" class="row topbar inner-top top">
+    <header class="col">
+      <h1><a href="/">The Stacks project</a></h1>
+    </header>
+
+    <nav id="header">
+      <ul id="quicklinks">
+        <li><a href="/bibliography">bibliography</a>
+        <li><a href="https://www.math.columbia.edu/~dejong/wordpress/">blog</a>
+      </ul>
+
+      <form id="quicksearch" action="/search">
+        <span id="search-icon"><img src="/static/images/search.svg"></span>
+        <input type="search" name="query" size="16" placeholder="keywords or a tag" value="">
+      </form>
+    </nav>
+  </div>
+
+  <nav id="second-bar" class="row topbar sticky-top">
+    
+      <ul class="col-11 col-sm-11 col-md-11 col-lg-12 col-xl-12" id="crumbs">
+        <li><a href="/browse">Table of contents</a></li>
+        
+  
+  
+    <li>Part <a href="/tag/0ELP" data-tag="0ELP">2</a>: Schemes
+    
+  
+    <li>Chapter <a href="/tag/01OH" data-tag="01OH">28</a>: Properties of Schemes
+    
+  
+    <li class="active">Section <a href="/tag/01PR" data-tag="01PR">28.27</a>: Ample invertible sheaves
+    <span id="citation">(<a href="/tag/01PR/cite">cite</a>)</span>
+  
+
+
+      </ul>
+    
+
+    
+      <div class="col-1 col-sm-1 col-md-1" id="burger">
+        <input type="checkbox" id="burger-input"></input>
+
+        <label id="burger-icon" for="burger-input">
+          <span id="top-bun"></span>
+          <span id="meat"></span>
+          <span id="bottom-bun"></span>
+        </label>
+
+        <div id="burger-content">
+          
+  
+  <div class="interaction">
+    
+  
+
+  <ul class="neighbours">
+  
+    <li class="left"><a href="/tag/01PL">previous section</a>
+  
+  
+    <li class="right"><a href="/tag/01QD">next section</a>
+  
+  </ul>
+  <br style="clear:both">
+
+  </div>
+
+  
+
+
+        </div>
+      </div>
+    
+
+    
+  </nav>
+
+  <div class="row" id="content">
+    <section id="main" class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+      
+<div class="html" id="tag">
+  
+
+  
+
+  
+
+  <h2 id="properties-section-ample" class="tex-section"><span data-tag="01PR">28.27</span> Ample invertible sheaves</h2>
+
+<p>
+Recall from Modules, Lemma <a href="/tag/01CY" data-tag="01CY">17.25.10</a> that given an invertible sheaf $\mathcal{L}$ on a locally ringed space $X$, and given a global section $s$ of $\mathcal{L}$ the set $X_ s = \{ x \in X \mid s \not\in \mathfrak m_ x\mathcal{L}_ x\} $ is open. A general remark is that $X_ s \cap X_{s'} = X_{ss'}$, where $ss'$ denote the section $s \otimes s' \in \Gamma (X, \mathcal{L} \otimes \mathcal{L}')$. 
+</p>
+<p>
+<article class="env-definition" id="01PS"><a tabindex="0" role="button" data-trigger="focus" data-placement="bottom" class="btn badge badge-info" data-toggle="popover" title="Reference" data-html="true" data-content=' <span class="cite">[<span class="postnote">II Definition 4.5.3</span>, <a href="/bibliography/EGA">EGA</a>]</span> '>reference</a>
+       
+      
+  <p><a class="environment-identifier" href="/tag/01PS">Definition <span data-tag="01PS">28.27.1</span>.</a> Let $X$ be a scheme. Let $\mathcal{L}$ be an invertible $\mathcal{O}_ X$-module. We say $\mathcal{L}$ is <em>ample</em> if </p>
+  <p><ol>
+  <li><p>
+$X$ is quasi-compact, and 
+</p>
+</li><li><p>
+for every $x \in X$ there exists an $n \geq 1$ and $s \in \Gamma (X, \mathcal{L}^{\otimes n})$ such that $x \in X_ s$ and $X_ s$ is affine. 
+</p>
+</li>
+</ol></p>
+</article> 
+</p>
+<p>
+<article class="env-lemma" id="01PT"><a tabindex="0" role="button" data-trigger="focus" data-placement="bottom" class="btn badge badge-info" data-toggle="popover" title="Reference" data-html="true" data-content=' <span class="cite">[<span class="postnote">II Proposition 4.5.6(i)</span>, <a href="/bibliography/EGA">EGA</a>]</span> '>reference</a>
+       
+      
+  <p><a class="environment-identifier" href="/tag/01PT">Lemma <span data-tag="01PT">28.27.2</span>.</a> Let $X$ be a scheme. Let $\mathcal{L}$ be an invertible $\mathcal{O}_ X$-module. Let $n \geq 1$. Then $\mathcal{L}$ is ample if and only if $\mathcal{L}^{\otimes n}$ is ample. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      This follows from the fact that $X_{s^ n} = X_ s$. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="01PU">
+  <p><a class="environment-identifier" href="/tag/01PU">Lemma <span data-tag="01PU">28.27.3</span>.</a> Let $X$ be a scheme. Let $\mathcal{L}$ be an ample invertible $\mathcal{O}_ X$-module. For any closed subscheme $Z \subset X$ the restriction of $\mathcal{L}$ to $Z$ is ample. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      This is clear since a closed subset of a quasi-compact space is quasi-compact and a closed subscheme of an affine scheme is affine (see Schemes, Lemma <a href="/tag/01IH" data-tag="01IH">26.8.2</a>). 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="01PV">
+  <p><a class="environment-identifier" href="/tag/01PV">Lemma <span data-tag="01PV">28.27.4</span>.</a> Let $X$ be a scheme. Let $\mathcal{L}$ be an invertible $\mathcal{O}_ X$-module. Let $s \in \Gamma (X, \mathcal{L})$. For any affine $U \subset X$ the intersection $U \cap X_ s$ is affine. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      This translates into the following algebra problem. Let $R$ be a ring. Let $N$ be an invertible $R$-module (i.e., locally free of rank 1). Let $s \in N$ be an element. Then $V = \{ \mathfrak p \mid s \not\in \mathfrak p N\} $ is an affine open subset of $\mathop{\mathrm{Spec}}(R)$. 
+    <p>
+      Let $A = \bigoplus _{n \geq 0} A_ n$ be the symmetric algebra of $N$ (which is commutative) and view $s$ as an element of $A_1$. Set $B = A/(s - 1)A$. This is an $R$-algebra whose construction commutes with any base change $R \to R'$. Thus $B' = B \otimes _ R R'$ is the zero ring if $s$ maps to zero in $N' = N \otimes _ R R'$. It follows that if $x \in \mathop{\mathrm{Spec}}(R) \setminus V$, then $B \otimes _ R \kappa (x) = 0$. We conclude that $\mathop{\mathrm{Spec}}(B) \to \mathop{\mathrm{Spec}}(R)$ factors through $V$ as the fibres over $x \not\in V$ are empty. On the other hand, if $\mathop{\mathrm{Spec}}(R') \subset V$ is an affine open, then $s$ maps to a basis element of $N'$ and we see that $B' = R'[s]/(s - 1) \cong R'$. It follows that $\mathop{\mathrm{Spec}}(B) \to V$ is an isomorphism and $V$ is indeed affine. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="0890"><a tabindex="0" role="button" data-trigger="focus" data-placement="bottom" class="btn badge badge-info" data-toggle="popover" title="Reference" data-html="true" data-content=' <span class="cite">[<span class="postnote">II Proposition 4.5.6(ii)</span>, <a href="/bibliography/EGA">EGA</a>]</span> '>reference</a>
+       
+      
+  <p><a class="environment-identifier" href="/tag/0890">Lemma <span data-tag="0890">28.27.5</span>.</a> Let $X$ be a scheme. Let $\mathcal{L}$ and $\mathcal{M}$ be invertible $\mathcal{O}_ X$-modules. If </p>
+  <p><ol>
+  <li><p>
+$\mathcal{L}$ is ample, and 
+</p>
+</li><li><p>
+the open sets $X_ t$ where $t \in \Gamma (X, \mathcal{M}^{\otimes m})$ for $m > 0$ cover $X$, 
+</p>
+</li>
+</ol></p>
+  <p> then $\mathcal{L} \otimes \mathcal{M}$ is ample. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      We check the conditions of Definition <a href="/tag/01PS" data-tag="01PS">28.27.1</a>. As $\mathcal{L}$ is ample we see that $X$ is quasi-compact. Let $x \in X$. Choose $n \geq 1$, $m \geq 1$, $s \in \Gamma (X, \mathcal{L}^{\otimes n})$, and $t \in \Gamma (X, \mathcal{M}^{\otimes m})$ such that $x \in X_ s$, $x \in X_ t$ and $X_ s$ is affine. Then $s^ mt^ n \in \Gamma (X, (\mathcal{L} \otimes \mathcal{M})^{\otimes nm})$, $x \in X_{s^ mt^ n}$, and $X_{s^ mt^ n}$ is affine by Lemma <a href="/tag/01PV" data-tag="01PV">28.27.4</a>. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="01PX">
+  <p><a class="environment-identifier" href="/tag/01PX">Lemma <span data-tag="01PX">28.27.6</span>.</a> Let $X$ be a scheme. Let $\mathcal{L}$ be an invertible $\mathcal{O}_ X$-module. Assume the open sets $X_ s$, where $s \in \Gamma (X, \mathcal{L}^{\otimes n})$ and $n \geq 1$, form a basis for the topology on $X$. Then among those opens, the open sets $X_ s$ which are affine form a basis for the topology on $X$. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      Let $x \in X$. Choose an affine open neighbourhood $\mathop{\mathrm{Spec}}(R) = U \subset X$ of $x$. By assumption, there exists a $n \geq 1$ and a $s \in \Gamma (X, \mathcal{L}^{\otimes n})$ such that $X_ s \subset U$. By Lemma <a href="/tag/01PV" data-tag="01PV">28.27.4</a> above the intersection $X_ s = U \cap X_ s$ is affine. Since $U$ can be chosen arbitrarily small we win. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="01PY">
+  <p><a class="environment-identifier" href="/tag/01PY">Lemma <span data-tag="01PY">28.27.7</span>.</a> Let $X$ be a scheme and $\mathcal{L}$ be an invertible $\mathcal{O}_ X$-module. Assume for every point $x$ of $X$ there exists $n \geq 1$ and $s \in \Gamma (X, \mathcal{L}^{\otimes n})$ such that $x \in X_ s$ and $X_ s$ is affine. Then $X$ is separated. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      We show first that $X$ is quasi-separated. By assumption we can find a covering of $X$ by affine opens of the form $X_ s$. By Lemma <a href="/tag/01PV" data-tag="01PV">28.27.4</a>, the intersection of any two such sets is affine, so Schemes, Lemma <a href="/tag/01KO" data-tag="01KO">26.21.6</a> implies that $X$ is quasi-separated. 
+    <p>
+      To show that $X$ is separated, we can use the valuative criterion, Schemes, Lemma <a href="/tag/01L0" data-tag="01L0">26.22.2</a>. Thus, let $A$ be a valuation ring with fraction field $K$ and consider two morphisms $f, g : \mathop{\mathrm{Spec}}(A) \to X$ such that the two compositions $\mathop{\mathrm{Spec}}(K) \to \mathop{\mathrm{Spec}}(A) \to X$ agree. As $A$ is local, there exists $p, q \ge 1$, $s \in \Gamma (X, \mathcal{L}^{\otimes p})$, and $t \in \Gamma (X, \mathcal{L}^{\otimes q})$ such that $X_ s$ and $X_ t$ are affine, $f(\mathop{\mathrm{Spec}}A) \subseteq X_ s$, and $g(\mathop{\mathrm{Spec}}A) \subseteq X_ t$. We now replace $s$ by $s^ q$, $t$ by $t^ p$, and $\mathcal{L}$ by $\mathcal{L}^{\otimes pq}$. This is harmless as $X_ s = X_{s^ q}$ and $X_ t = X_{t^ p}$, and now $s$ and $t$ are both sections of the same sheaf $\mathcal{L}$. 
+    <p>
+      The quasi-coherent module $f^*\mathcal{L}$ corresponds to an $A$-module $M$ and $g^*\mathcal{L}$ corresponds to an $A$-module $N$ by our classification of quasi-coherent modules over affine schemes (Schemes, Lemma <a href="/tag/01IA" data-tag="01IA">26.7.4</a>). The $A$-modules $M$ and $N$ are locally free of rank $1$ (Lemma <a href="/tag/05JM" data-tag="05JM">28.21.1</a>) and as $A$ is local they are free (Algebra, Lemma <a href="/tag/00JJ" data-tag="00JJ">10.55.8</a>). Therefore we may identify $M$ and $N$ with $A$-submodules of $M \otimes _ A K$ and $N \otimes _ A K$. The equality $f|_{\mathop{\mathrm{Spec}}(K)} = g|_{\mathop{\mathrm{Spec}}(K)}$ determines an isomorphism $\phi \colon M \otimes _ A K \to N \otimes _ A K$. 
+    <p>
+      Let $x \in M$ and $y \in N$ be the elements corresponding to the pullback of $s$ along $f$ and $g$, respectively. These satisfy $\phi (x \otimes 1) = y \otimes 1$. The image of $f$ is contained in $X_ s$, so $x \not\in \mathfrak {m}_ A M$, that is, $x$ generates $M$. Hence $\phi $ determines an isomorphism of $M$ with the submodule of $N$ generated by $y$. Arguing symmetrically using $t$, $\phi ^{-1}$ determines an isomorphism of $N$ with a submodule of $M$. Consequently $\phi $ restricts to an isomorphism of $M$ and $N$. Since $x$ generates $M$, its image $y$ generates $N$, implying $y \not\in \mathfrak {m}_ A N$. Therefore $g(\mathop{\mathrm{Spec}}(A)) \subseteq X_ s$. Because $X_ s$ is affine, it is separated by Schemes, Lemma <a href="/tag/01KN" data-tag="01KN">26.21.15</a>, and we conclude $f = g$. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="09MP">
+  <p><a class="environment-identifier" href="/tag/09MP">Lemma <span data-tag="09MP">28.27.8</span>.</a> Let $X$ be a scheme. If there exists an ample invertible sheaf on $X$ then $X$ is separated. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      Follows immediately from Lemma <a href="/tag/01PY" data-tag="01PY">28.27.7</a> and Definition <a href="/tag/01PS" data-tag="01PS">28.27.1</a>. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="01PZ">
+  <p><a class="environment-identifier" href="/tag/01PZ">Lemma <span data-tag="01PZ">28.27.9</span>.</a> Let $X$ be a scheme. Let $\mathcal{L}$ be an invertible $\mathcal{O}_ X$-module. Set $S = \Gamma _*(X, \mathcal{L})$ as a graded ring. If every point of $X$ is contained in one of the open subschemes $X_ s$, for some $s \in S_{+}$ homogeneous, then there is a canonical morphism of schemes </p>
+  <div class="equation">
+  \[  f : X \longrightarrow Y = \text{Proj}(S),  \]
+</div>
+  <p> to the homogeneous spectrum of $S$ (see Constructions, Section <a href="/tag/01M3" data-tag="01M3">27.8</a>). This morphism has the following properties </p>
+  <p><ol>
+  <li><p>
+$f^{-1}(D_{+}(s)) = X_ s$ for any $s \in S_{+}$ homogeneous, 
+</p>
+</li><li><p>
+there are $\mathcal{O}_ X$-module maps $f^*\mathcal{O}_ Y(n) \to \mathcal{L}^{\otimes n}$ compatible with multiplication maps, see Constructions, Equation (<a href="/tag/01MO" data-tag="01MO">27.10.1.1</a>), 
+</p>
+</li><li><p>
+the composition $S_ n \to \Gamma (Y, \mathcal{O}_ Y(n)) \to \Gamma (X, \mathcal{L}^{\otimes n})$ is the identity map, and 
+</p>
+</li><li><p>
+for every $x \in X$ there is an integer $d \geq 1$ and an open neighbourhood $U \subset X$ of $x$ such that $f^*\mathcal{O}_ Y(dn)|_ U \to \mathcal{L}^{\otimes dn}|_ U$ is an isomorphism for all $n \in \mathbf{Z}$. 
+</p>
+</li>
+</ol></p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      Denote $\psi : S \to \Gamma _*(X, \mathcal{L})$ the identity map. We are going to use the triple $(U(\psi ), r_{\mathcal{L}, \psi }, \theta )$ of Constructions, Lemma <a href="/tag/01NK" data-tag="01NK">27.14.1</a>. By assumption the open subscheme $U(\psi )$ of equals $X$. Hence $r_{\mathcal{L}, \psi } : U(\psi ) \to Y$ is defined on all of $X$. We set $f = r_{\mathcal{L}, \psi }$. The maps in part (2) are the components of $\theta $. Part (3) follows from condition (2) in the lemma cited above. Part (1) follows from (3) combined with condition (1) in the lemma cited above. Part (4) follows from the last statement in Constructions, Lemma <a href="/tag/01NK" data-tag="01NK">27.14.1</a> since the map $\alpha $ mentioned there is an isomorphism. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="01Q0">
+  <p><a class="environment-identifier" href="/tag/01Q0">Lemma <span data-tag="01Q0">28.27.10</span>.</a> Let $X$ be a scheme. Let $\mathcal{L}$ be an invertible $\mathcal{O}_ X$-module. Set $S = \Gamma _*(X, \mathcal{L})$. Assume (a) every point of $X$ is contained in one of the open subschemes $X_ s$, for some $s \in S_{+}$ homogeneous, and (b) $X$ is quasi-compact. Then the canonical morphism of schemes $f : X \longrightarrow \text{Proj}(S)$ of Lemma <a href="/tag/01PZ" data-tag="01PZ">28.27.9</a> above is quasi-compact with dense image. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      To prove $f$ is quasi-compact it suffices to show that $f^{-1}(D_{+}(s))$ is quasi-compact for any $s \in S_{+}$ homogeneous. Write $X = \bigcup _{i = 1, \ldots , n} X_ i$ as a finite union of affine opens. By Lemma <a href="/tag/01PV" data-tag="01PV">28.27.4</a> each intersection $X_ s \cap X_ i$ is affine. Hence $X_ s = \bigcup _{i = 1, \ldots , n} X_ s \cap X_ i$ is quasi-compact. Assume that the image of $f$ is not dense to get a contradiction. Then, since the opens $D_+(s)$ with $s \in S_+$ homogeneous form a basis for the topology on $\text{Proj}(S)$, we can find such an $s$ with $D_+(s) \not= \emptyset $ and $f(X) \cap D_+(s) = \emptyset $. By Lemma <a href="/tag/01PZ" data-tag="01PZ">28.27.9</a> this means $X_ s = \emptyset $. By Lemma <a href="/tag/01PW" data-tag="01PW">28.18.2</a> this means that a power $s^ n$ is the zero section of $\mathcal{L}^{\otimes n\deg (s)}$. This in turn means that $D_+(s) = \emptyset $ which is the desired contradiction. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="01Q1">
+  <p><a class="environment-identifier" href="/tag/01Q1">Lemma <span data-tag="01Q1">28.27.11</span>.</a> Let $X$ be a scheme. Let $\mathcal{L}$ be an invertible $\mathcal{O}_ X$-module. Set $S = \Gamma _*(X, \mathcal{L})$. Assume $\mathcal{L}$ is ample. Then the canonical morphism of schemes $f : X \longrightarrow \text{Proj}(S)$ of Lemma <a href="/tag/01PZ" data-tag="01PZ">28.27.9</a> is an open immersion with dense image. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      By Lemma <a href="/tag/01PY" data-tag="01PY">28.27.7</a> we see that $X$ is quasi-separated. Choose finitely many $s_1, \ldots , s_ n \in S_{+}$ homogeneous such that $X_{s_ i}$ are affine, and $X = \bigcup X_{s_ i}$. Say $s_ i$ has degree $d_ i$. The inverse image of $D_{+}(s_ i)$ under $f$ is $X_{s_ i}$, see Lemma <a href="/tag/01PZ" data-tag="01PZ">28.27.9</a>. By Lemma <a href="/tag/01PW" data-tag="01PW">28.18.2</a> the ring map 
+    <p>
+      <div class="equation">
+  \[  (S^{(d_ i)})_{(s_ i)} = \Gamma (D_{+}(s_ i), \mathcal{O}_{\text{Proj}(S)}) \longrightarrow \Gamma (X_{s_ i}, \mathcal{O}_ X)  \]
+</div>
+    <p>
+       is an isomorphism. Hence $f$ induces an isomorphism $X_{s_ i} \to D_{+}(s_ i)$. Thus $f$ is an isomorphism of $X$ onto the open subscheme $\bigcup _{i = 1, \ldots , n} D_{+}(s_ i)$ of $\text{Proj}(S)$. The image is dense by Lemma <a href="/tag/01Q0" data-tag="01Q0">28.27.10</a>. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="01Q2">
+  <p><a class="environment-identifier" href="/tag/01Q2">Lemma <span data-tag="01Q2">28.27.12</span>.</a> Let $X$ be a scheme. Let $S$ be a graded ring. Assume $X$ is quasi-compact, and assume there exists an open immersion </p>
+  <div class="equation">
+  \[  j : X \longrightarrow Y = \text{Proj}(S).  \]
+</div>
+  <p> Then $j^*\mathcal{O}_ Y(d)$ is an invertible ample sheaf for some $d > 0$. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      This is Constructions, Lemma <a href="/tag/01MW" data-tag="01MW">27.10.6</a>. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-proposition" id="01Q3">
+  <p><a class="environment-identifier" href="/tag/01Q3">Proposition <span data-tag="01Q3">28.27.13</span>.</a> Let $X$ be a quasi-compact scheme. Let $\mathcal{L}$ be an invertible sheaf on $X$. Set $S = \Gamma _*(X, \mathcal{L})$. The following are equivalent: </p>
+  <p><ol>
+  <li class="custom-item" id="01Q4"><p>
+ $\mathcal{L}$ is ample, 
+</p>
+</li><li class="custom-item" id="01Q5"><p>
+ the open sets $X_ s$, with $s \in S_{+}$ homogeneous, cover $X$ and the associated morphism $X \to \text{Proj}(S)$ is an open immersion, 
+</p>
+</li><li class="custom-item" id="01Q6"><p>
+ the open sets $X_ s$, with $s \in S_{+}$ homogeneous, form a basis for the topology of $X$, 
+</p>
+</li><li class="custom-item" id="01Q7"><p>
+ the open sets $X_ s$, with $s \in S_{+}$ homogeneous, which are affine form a basis for the topology of $X$, 
+</p>
+</li><li class="custom-item" id="01Q8"><p>
+ for every quasi-coherent sheaf $\mathcal{F}$ on $X$ the sum of the images of the canonical maps 
+</p>
+<div class="equation">
+  \[  \Gamma (X, \mathcal{F} \otimes _{\mathcal{O}_ X} \mathcal{L}^{\otimes n}) \otimes _{\mathbf{Z}} \mathcal{L}^{\otimes -n} \longrightarrow \mathcal{F}  \]
+</div>
+<p>
+ with $n \geq 1$ equals $\mathcal{F}$, 
+</p>
+</li><li class="custom-item" id="01Q9"><p>
+ same property as (<a href="/tag/01Q8" data-tag="01Q8">5</a>) with $\mathcal{F}$ ranging over all quasi-coherent sheaves of ideals, 
+</p>
+</li><li class="custom-item" id="01QA"><p>
+ $X$ is quasi-separated and for every quasi-coherent sheaf $\mathcal{F}$ of finite type on $X$ there exists an integer $n_0$ such that $\mathcal{F} \otimes _{\mathcal{O}_ X} \mathcal{L}^{\otimes n}$ is globally generated for all $n \geq n_0$, 
+</p>
+</li><li class="custom-item" id="01QB"><p>
+ $X$ is quasi-separated and for every quasi-coherent sheaf $\mathcal{F}$ of finite type on $X$ there exist integers $n > 0$, $k \geq 0$ such that $\mathcal{F}$ is a quotient of a direct sum of $k$ copies of $\mathcal{L}^{\otimes - n}$, and 
+</p>
+</li><li class="custom-item" id="01QC"><p>
+ same as in (<a href="/tag/01QB" data-tag="01QB">8</a>) with $\mathcal{F}$ ranging over all sheaves of ideals of finite type on $X$. 
+</p>
+</li>
+</ol></p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      Lemma <a href="/tag/01Q1" data-tag="01Q1">28.27.11</a> is (<a href="/tag/01Q4" data-tag="01Q4">1</a>) $\Rightarrow $ (<a href="/tag/01Q5" data-tag="01Q5">2</a>). Lemmas <a href="/tag/01PT" data-tag="01PT">28.27.2</a> and <a href="/tag/01Q2" data-tag="01Q2">28.27.12</a> provide the implication (<a href="/tag/01Q4" data-tag="01Q4">1</a>) $\Leftarrow $ (<a href="/tag/01Q5" data-tag="01Q5">2</a>). The implications (<a href="/tag/01Q5" data-tag="01Q5">2</a>) $\Rightarrow $ (<a href="/tag/01Q7" data-tag="01Q7">4</a>) $\Rightarrow $ (<a href="/tag/01Q6" data-tag="01Q6">3</a>) are clear from Constructions, Section <a href="/tag/01M3" data-tag="01M3">27.8</a>. Lemma <a href="/tag/01PX" data-tag="01PX">28.27.6</a> is (<a href="/tag/01Q6" data-tag="01Q6">3</a>) $\Rightarrow $ (<a href="/tag/01Q4" data-tag="01Q4">1</a>). Thus we see that the first 4 conditions are all equivalent. 
+    <p>
+      Assume the equivalent conditions (1) – (4). Note that in particular $X$ is separated (as an open subscheme of the separated scheme $\text{Proj}(S)$). Let $\mathcal{F}$ be a quasi-coherent sheaf on $X$. Choose $s \in S_{+}$ homogeneous such that $X_ s$ is affine. We claim that any section $m \in \Gamma (X_ s, \mathcal{F})$ is in the image of one of the maps displayed in (<a href="/tag/01Q8" data-tag="01Q8">5</a>) above. This will imply (<a href="/tag/01Q8" data-tag="01Q8">5</a>) since these affines $X_ s$ cover $X$. Namely, by Lemma <a href="/tag/01PW" data-tag="01PW">28.18.2</a> we may write $m$ as the image of $m' \otimes s^{-n}$ for some $n \geq 1$, some $m' \in \Gamma (X, \mathcal{F} \otimes \mathcal{L}^{\otimes n})$. This proves the claim. 
+    <p>
+      Clearly (<a href="/tag/01Q8" data-tag="01Q8">5</a>) $\Rightarrow $ (<a href="/tag/01Q9" data-tag="01Q9">6</a>). Let us assume (<a href="/tag/01Q9" data-tag="01Q9">6</a>) and prove $\mathcal{L}$ is ample. Pick $x \in X$. Let $U \subset X$ be an affine open which contains $x$. Set $Z = X \setminus U$. We may think of $Z$ as a reduced closed subscheme, see Schemes, Section <a href="/tag/01IZ" data-tag="01IZ">26.12</a>. Let $\mathcal{I} \subset \mathcal{O}_ X$ be the quasi-coherent sheaf of ideals corresponding to the closed subscheme $Z$. By assumption (<a href="/tag/01Q9" data-tag="01Q9">6</a>), there exists an $n \geq 1$ and a section $s \in \Gamma (X, \mathcal{I} \otimes \mathcal{L}^{\otimes n})$ such that $s$ does not vanish at $x$ (more precisely such that $s \not\in \mathfrak m_ x \mathcal{I}_ x \otimes \mathcal{L}_ x^{\otimes n}$). We may think of $s$ as a section of $\mathcal{L}^{\otimes n}$. Since it clearly vanishes along $Z$ we see that $X_ s \subset U$. Hence $X_ s$ is affine, see Lemma <a href="/tag/01PV" data-tag="01PV">28.27.4</a>. This proves that $\mathcal{L}$ is ample. At this point we have proved that (1) – (6) are equivalent. 
+    <p>
+      Assume the equivalent conditions (1) – (6). In the following we will use the fact that the tensor product of two sheaves of modules which are globally generated is globally generated without further mention (see Modules, Lemma <a href="/tag/01AO" data-tag="01AO">17.4.3</a>). By (1) we can find elements $s_ i \in S_{d_ i}$ with $d_ i \geq 1$ such that $X = \bigcup _{i = 1, \ldots , n} X_{s_ i}$. Set $d = d_1\ldots d_ n$. It follows that $\mathcal{L}^{\otimes d}$ is globally generated by 
+    <p>
+      <div class="equation">
+  \[  s_1^{d/d_1}, \ldots , s_ n^{d/d_ n}.  \]
+</div>
+    <p>
+       This means that if $\mathcal{L}^{\otimes j}$ is globally generated then so is $\mathcal{L}^{\otimes j + dn}$ for all $n \geq 0$. Fix a $j \in \{ 0, \ldots , d - 1\} $. For any point $x \in X$ there exists an $n \geq 1$ and a global section $s$ of $\mathcal{L}^{j + dn}$ which does not vanish at $x$, as follows from (<a href="/tag/01Q8" data-tag="01Q8">5</a>) applied to $\mathcal{F} = \mathcal{L}^{\otimes j}$ and ample invertible sheaf $\mathcal{L}^{\otimes d}$. Since $X$ is quasi-compact there we may find a finite list of integers $n_ i$ and global sections $s_ i$ of $\mathcal{L}^{\otimes j + dn_ i}$ which do not vanish at any point of $X$. Since $\mathcal{L}^{\otimes d}$ is globally generated this means that $\mathcal{L}^{\otimes j + dn}$ is globally generated where $n = \max \{ n_ i\} $. Since we proved this for every congruence class mod $d$ we conclude that there exists an $n_0 = n_0(\mathcal{L})$ such that $\mathcal{L}^{\otimes n}$ is globally generated for all $n \geq n_0$. At this point we see that if $\mathcal{F}$ is globally generated then so is $\mathcal{F} \otimes \mathcal{L}^{\otimes n}$ for all $n \geq n_0$. 
+    <p>
+      We continue to assume the equivalent conditions (1) – (6). Let $\mathcal{F}$ be a quasi-coherent sheaf of $\mathcal{O}_ X$-modules of finite type. Denote $\mathcal{F}_ n \subset \mathcal{F}$ the image of the canonical map of (<a href="/tag/01Q8" data-tag="01Q8">5</a>). By construction $\mathcal{F}_ n \otimes \mathcal{L}^{\otimes n}$ is globally generated. By (<a href="/tag/01Q8" data-tag="01Q8">5</a>) we see $\mathcal{F}$ is the sum of the subsheaves $\mathcal{F}_ n$, $n \geq 1$. By Modules, Lemma <a href="/tag/01BB" data-tag="01BB">17.9.7</a> we see that $\mathcal{F} = \sum _{n = 1, \ldots , N} \mathcal{F}_ n$ for some $N \geq 1$. It follows that $\mathcal{F} \otimes \mathcal{L}^{\otimes n}$ is globally generated whenever $n \geq N + n_0(\mathcal{L})$ with $n_0(\mathcal{L})$ as above. We conclude that (1) – (6) implies (<a href="/tag/01QA" data-tag="01QA">7</a>). 
+    <p>
+      Assume (<a href="/tag/01QA" data-tag="01QA">7</a>). Let $\mathcal{F}$ be a quasi-coherent sheaf of $\mathcal{O}_ X$-modules of finite type. By (<a href="/tag/01QA" data-tag="01QA">7</a>) there exists an integer $n \geq 1$ such that the canonical map 
+    <p>
+      <div class="equation">
+  \[  \Gamma (X, \mathcal{F} \otimes _{\mathcal{O}_ X} \mathcal{L}^{\otimes n}) \otimes _{\mathbf{Z}} \mathcal{L}^{\otimes -n} \longrightarrow \mathcal{F}  \]
+</div>
+    <p>
+       is surjective. Let $I$ be the set of finite subsets of $\Gamma (X, \mathcal{F} \otimes _{\mathcal{O}_ X} \mathcal{L}^{\otimes n})$ partially ordered by inclusion. Then $I$ is a directed partially ordered set. For $i = \{ s_1, \ldots , s_{r(i)}\} $ let $\mathcal{F}_ i \subset \mathcal{F}$ be the image of the map 
+    <p>
+      <div class="equation">
+  \[  \bigoplus \nolimits _{j = 1, \ldots , r(i)} \mathcal{L}^{\otimes -n} \longrightarrow \mathcal{F}  \]
+</div>
+    <p>
+       which is multiplication by $s_ j$ on the $j$th factor. The surjectivity above implies that $\mathcal{F} = \mathop{\mathrm{colim}}\nolimits _{i \in I} \mathcal{F}_ i$. Hence Modules, Lemma <a href="/tag/01BB" data-tag="01BB">17.9.7</a> applies and we conclude that $\mathcal{F} = \mathcal{F}_ i$ for some $i$. Hence we have proved (<a href="/tag/01QB" data-tag="01QB">8</a>). In other words, (<a href="/tag/01QA" data-tag="01QA">7</a>) $\Rightarrow $ (<a href="/tag/01QB" data-tag="01QB">8</a>). 
+    <p>
+      The implication (<a href="/tag/01QB" data-tag="01QB">8</a>) $\Rightarrow $ (<a href="/tag/01QC" data-tag="01QC">9</a>) is trivial. 
+    <p>
+      Finally, assume (<a href="/tag/01QC" data-tag="01QC">9</a>). Let $\mathcal{I} \subset \mathcal{O}_ X$ be a quasi-coherent sheaf of ideals. By Lemma <a href="/tag/01PG" data-tag="01PG">28.23.3</a> (this is where we use the condition that $X$ be quasi-separated) we see that $\mathcal{I} = \mathop{\mathrm{colim}}\nolimits _\alpha I_\alpha $ with each $I_\alpha $ quasi-coherent of finite type. Since by assumption each of the $I_\alpha $ is a quotient of negative tensor powers of $\mathcal{L}$ we conclude the same for $\mathcal{I}$ (but of course without the finiteness or boundedness of the powers). Hence we conclude that (<a href="/tag/01QC" data-tag="01QC">9</a>) implies (<a href="/tag/01Q9" data-tag="01Q9">6</a>). This ends the proof of the proposition. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="0B3E">
+  <p><a class="environment-identifier" href="/tag/0B3E">Lemma <span data-tag="0B3E">28.27.14</span>.</a> Let $X$ be a scheme. Let $\mathcal{L}$ be an ample invertible $\mathcal{O}_ X$-module. Let $i : X' \to X$ be a morphism of schemes. Assume at least one of the following conditions holds </p>
+  <p><ol>
+  <li><p>
+$i$ is a quasi-compact immersion, 
+</p>
+</li><li><p>
+$X'$ is quasi-compact and $i$ is an immersion, 
+</p>
+</li><li><p>
+$i$ is quasi-compact and induces a homeomorphism between $X'$ and $i(X')$, 
+</p>
+</li><li><p>
+$X'$ is quasi-compact and $i$ induces a homeomorphism between $X'$ and $i(X')$. 
+</p>
+</li>
+</ol></p>
+  <p> Then $i^*\mathcal{L}$ is ample on $X'$. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      Observe that in cases (1) and (3) the scheme $X'$ is quasi-compact as $X$ is quasi-compact by Definition <a href="/tag/01PS" data-tag="01PS">28.27.1</a>. Thus it suffices to prove (2) and (4). Since (2) is a special case of (4) it suffices to prove (4). 
+    <p>
+      Assume condition (4) holds. For $s \in \Gamma (X, \mathcal{L}^{\otimes d})$ denote $s' = i^*s$ the pullback of $s$ to $X'$. Note that $s'$ is a section of $(i^*\mathcal{L})^{\otimes d}$. By Proposition <a href="/tag/01Q3" data-tag="01Q3">28.27.13</a> the opens $X_ s$, for $s \in \Gamma (X, \mathcal{L}^{\otimes d})$, form a basis for the topology on $X$. Since $X'_{s'} = i^{-1}(X_ s)$ by Modules, Remark <a href="/tag/0H78" data-tag="0H78">17.25.11</a> and since $X' \to i(X')$ is a homeomorphism, we conclude the opens $X'_{s'}$ form a basis for the topology of $X'$. Hence $i^*\mathcal{L}$ is ample by Proposition <a href="/tag/01Q3" data-tag="01Q3">28.27.13</a>. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+<p>
+<article class="env-lemma" id="0DNK">
+  <p><a class="environment-identifier" href="/tag/0DNK">Lemma <span data-tag="0DNK">28.27.15</span>.</a> Let $S$ be a quasi-separated scheme. Let $X$, $Y$ be schemes over $S$. Let $\mathcal{L}$ be an ample invertible $\mathcal{O}_ X$-module and let $\mathcal{N}$ be an ample invertible $\mathcal{O}_ Y$-module. Then $\mathcal{M} = \text{pr}_1^*\mathcal{L} \otimes _{\mathcal{O}_{X \times _ S Y}} \text{pr}_2^*\mathcal{N}$ is an ample invertible sheaf on $X \times _ S Y$. </p>
+</article> 
+</p>
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      The morphism $i : X \times _ S Y \to X \times Y$ is a quasi-compact immersion, see Schemes, Lemma <a href="/tag/01KR" data-tag="01KR">26.21.9</a>. On the other hand, $\mathcal{M}$ is the pullback by $i$ of the corresponding invertible module on $X \times Y$. By Lemma <a href="/tag/0B3E" data-tag="0B3E">28.27.14</a> it suffices to prove the lemma for $X \times Y$. We check (1) and (2) of Definition <a href="/tag/01PS" data-tag="01PS">28.27.1</a> for $\mathcal{M}$ on $X \times Y$. 
+    <p>
+      Since $X$ and $Y$ are quasi-compact, so is $X \times Y$. Let $z \in X \times Y$ be a point. Let $x \in X$ and $y \in Y$ be the projections. Choose $n > 0$ and $s \in \Gamma (X, \mathcal{L}^{\otimes n})$ such that $X_ s$ is an affine open neighbourhood of $x$. Choose $m > 0$ and $t \in \Gamma (Y, \mathcal{N}^{\otimes m})$ such that $Y_ t$ is an affine open neighbourhood of $y$. Then $r = \text{pr}_1^*s \otimes \text{pr}_2^*t$ is a section of $\mathcal{M}$ with $(X \times Y)_ r = X_ s \times Y_ t$. This is an affine open neighbourhood of $z$ and the proof is complete. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
+
+
+  <script type="text/javascript">
+$(document).ready(function() {
+  // move extras from parent element to after environment name and number
+  $("article a[data-toggle]").each(function(index, element) {
+    $(element).insertAfter(($(element).parent().find("a.environment-identifier")));
+  });
+
+  $('article a[data-toggle="popover"]').popover()
+
+  // render mathematics in popovers
+  $("[data-toggle=popover]").on('shown.bs.popover', function () {
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, $("div.popover-body").html()]);
+  });
+});
+  </script>
+
+  
+
+  
+</div>
+
+
+<hr>
+
+<section id="comments">
+  <h2>Comments (5)</h2>
+
+  
+    <a id="comment-8587" class="header-offset"></a>
+    <article>
+      <header>
+        <p><a href="/tag/01PR#comment-8587">Comment #8587</a>
+        by
+        <cite>Jinyong An</cite>
+        on <time datetime="2023-07-21 01:35:40.967504">July 21, 2023 at 01:35 </time>
+      </header>
+
+      <blockquote><p>Can I ask about ampleness of invertible sheaf?<br>
+ Let <script type="math/tex">X= U \cup V</script> be a scheme which is disjoint union of two open subschemes.
+ Let <script type="math/tex">\mathcal{L}</script> be an invertible <script type="math/tex">\mathcal{O}_X</script>-module.
+ If each <script type="math/tex">\mathcal{L}|_{U}</script> and <script type="math/tex">\mathcal{L}|_V</script> is ample, then <script type="math/tex">\mathcal{L}</script> is ample?</p></blockquote>
+    </article>
+  
+    <a id="comment-8591" class="header-offset"></a>
+    <article>
+      <header>
+        <p><a href="/tag/01PR#comment-8591">Comment #8591</a>
+        by
+        <cite>ZL</cite>
+        on <time datetime="2023-07-24 15:17:24.547618">July 24, 2023 at 15:17 </time>
+      </header>
+
+      <blockquote><p>@#8587 If you insist that <script type="math/tex">U</script> and <script type="math/tex">V</script> are disjoint, then your claim is true. Just unravel the definition <a href="/tag/01PS" data-tag="01PS">28.27.1</a>. Otherwise consider <script type="math/tex">(X,L)=(\mathbb{P}^1,\mathcal{O}(-1))</script>. On each standard affine <script type="math/tex">D_+(x_0)</script> and <script type="math/tex">D_+(x_1)</script> the line bundle <script type="math/tex">L</script> is trivial, hence it is ample on each affine. However <script type="math/tex">L</script> has no global section hence it cannot be ample.</p></blockquote>
+    </article>
+  
+    <a id="comment-8592" class="header-offset"></a>
+    <article>
+      <header>
+        <p><a href="/tag/01PR#comment-8592">Comment #8592</a>
+        by
+        <cite>Jinyong An</cite>
+        on <time datetime="2023-07-25 03:11:12.219558">July 25, 2023 at 03:11 </time>
+      </header>
+
+      <blockquote><p>O.K. Can you give more concrete hint? To show that <script type="math/tex">\mathcal{L}</script> is ample, it suffices to show that for every <script type="math/tex">x\in X</script>, there exists an <script type="math/tex">n \ge 1</script> and <script type="math/tex">s \in \Gamma(X, \mathcal{L}^{n}) = \Gamma(U, \mathcal{L}^n) \oplus \Gamma(V, \mathcal{L}^n)</script> (Sheaf axiom) such that <script type="math/tex">x\in X_s</script> and <script type="math/tex">X_s</script> is affine. Fix <script type="math/tex">x\in X = U \cup V</script>. We may assume that <script type="math/tex">x\in U</script>. Since <script type="math/tex">\mathcal{L}|_U</script>  is ample, by the definition, there exists an <script type="math/tex">m \ge 1</script> and <script type="math/tex">s' \in \Gamma(U, \mathcal{L}^m)</script> such that <script type="math/tex">x\in U_{s'} </script> and <script type="math/tex">U_{s'}</script> is affine in <script type="math/tex">U</script>. From this, how can we find such <script type="math/tex">n</script> and <script type="math/tex">s \in \Gamma(X, \mathcal{L}^{n}) </script> (lifting) as above so that  <script type="math/tex">x\in X_s</script> and <script type="math/tex">X_s</script> is affine.</p>
+<p>What should I catch? What whould be key point to breakthrough this difficulty? :)</p></blockquote>
+    </article>
+  
+    <a id="comment-8593" class="header-offset"></a>
+    <article>
+      <header>
+        <p><a href="/tag/01PR#comment-8593">Comment #8593</a>
+        by
+        <cite>ZL</cite>
+        on <time datetime="2023-07-25 03:33:56.302963">July 25, 2023 at 03:33 </time>
+      </header>
+
+      <blockquote><p>@#8592 You almost get there. Pick another <script type="math/tex">x'\in V</script>, then there exists an <script type="math/tex">s''\in \Gamma(V,\mathcal{L}^{m'})</script> such that <script type="math/tex">x'\in V_{s''}</script> is affine. Now set <script type="math/tex">s\in \Gamma(X,\mathcal{L}^{mm'})</script> to be <script type="math/tex">s| _U=s'^{\otimes m'}</script> and <script type="math/tex">s| _{V}=s''^{\otimes m}</script>. You get that <script type="math/tex">X_s=U_ {s'}\coprod V_ {s''}</script> is affine.</p></blockquote>
+    </article>
+  
+    <a id="comment-8594" class="header-offset"></a>
+    <article>
+      <header>
+        <p><a href="/tag/01PR#comment-8594">Comment #8594</a>
+        by
+        <cite>Jinyong An</cite>
+        on <time datetime="2023-07-25 05:01:11.090105">July 25, 2023 at 05:01 </time>
+      </header>
+
+      <blockquote><p>@8593 Thanks! I guessed that we may use the affiness of disjoint union of affine schemes but I didn't know how can we emdody it. Good Idea ~ Thank you. </p></blockquote>
+    </article>
+  
+
+  
+</section>
+
+<hr>
+
+<section id="post-comment">
+  <h2>Post a comment</h2>
+  <p>Your email address will not be published. Required fields are marked.
+  <p>In your comment you can use <a href="/markdown">Markdown</a> and LaTeX style mathematics (enclose it like <code>$\pi$</code>). A preview option is available if you wish to see how it works out (just click on the eye in the toolbar).
+  <noscript><p>Unfortunately JavaScript is disabled in your browser, so the comment preview function will not work.</p></noscript>
+
+  <p>All contributions are licensed under the <a href="https://github.com/stacks/stacks-project/blob/master/COPYING">GNU Free Documentation License</a>.
+
+  <form name="comment" id="comment-form" action="/post-comment" method="post">
+    <label for="name">Name<sup>*</sup>:</label>
+    <input type="text" name="name" id="name" required><br>
+
+    <label for="mail">E-mail<sup>*</sup>:</label>
+    <input type="email" name="mail" id="mail" required><br>
+
+    <label for="site">Site:</label>
+    <input type="url" name="site" id="site"><br>
+
+    <label>Comment:</label>
+    <textarea name="comment" id="comment-textarea" cols="80" rows="10" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+    <script type="text/javascript">
+var easymde = new EasyMDE({
+  autosave: {
+    enabled: true,
+    delay: 1000,
+    uniqueId: "comment-01PR",
+  },
+  element: $("#comment")[0],
+  forceSync: true,
+  insertTexts: { link: ["\\ref{", "}"], table: ["$", "$"], image: ["\\begin{equation}\n", "\n\\end{equation}\n"] }, // we hack into these insertion methods, I couldn't figure out how to write your own...
+  placeholder: "You can type your comment here, use the preview option to see what it will look like. If your comment is on a lemma, please leave your comment on the page of the lemma. Same with remarks, propositions, theorems, etc.",
+  previewRender: function(plaintext, preview) {
+    // deal with references
+    plaintext = plaintext.replace(/\\ref\{([0-9A-Z]{4})\}/g, "<span class=\"tag\">[$1](/tag/$1)</span>");
+    // deal with \[\] getting replaced to []
+    plaintext = plaintext.replace(/\\\[/g, "\\begin{equation}");
+    plaintext = plaintext.replace(/\\\]/g, "\\end{equation}");
+
+    output = this.parent.markdown(plaintext);
+
+    setTimeout(function() {
+      preview.innerHTML = output;
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }, 0);
+
+    return "";
+  },
+  spellChecker: false,
+  status: false,
+  toolbar: [
+    "link", {name: "inline", action: EasyMDE.drawTable, className: "fa fa-usd"}, {name: "block", action: EasyMDE.drawImage, className: "fa fa-square"}, "|",
+    "bold", "italic", "|",
+    "ordered-list", "unordered-list", "|",
+    "preview"
+  ],
+});
+
+// make sure to show tags, not numbers
+var tagToggleHappened = false; // only do this once to not annoy the user too much
+easymde.codemirror.on("change", function() {
+  // if data-tag elements do not have tag attribute we need to make tags visible
+  if (!$("*[data-tag]").hasClass("tag") && !tagToggleHappened)
+    $("section#meta input.toggle").bootstrapToggle("toggle");
+  tagToggleHappened = true;
+});
+
+// prevent form submit when the captcha isn't correct
+// it's a bit silly to use HTML5 validation for this, as bots can figure that out
+// also save the author information to localStorage
+easymde.element.form.addEventListener("submit", function(event) {
+  if ($("#check").val() != $("#hidden-tag").val()) {
+    // explain captcha
+    $("#captcha-message").toggle();
+
+    // stop submit
+    event.preventDefault();
+    return false;
+  }
+
+  // save author information
+  localStorage.setItem("name", $("input#name").val());
+  localStorage.setItem("mail", $("input#mail").val());
+  localStorage.setItem("site", $("input#site").val());
+});
+    </script>
+
+    <p>In order to prevent bots from posting comments, we would like you to prove that you are human. You can do this by <em>filling in the name of the current tag</em> in the following input field. As a reminder, this is tag <span class="tag">01PR</span>. Beware of the difference between the letter&nbsp;'<span class="tag">O</span>' and the digit&nbsp;'<span class="tag">0</span>'.</p>
+    <!--<p>This <abbr title="Completely Automated Public Turing test to tell Computers and Humans Apart">captcha</abbr> seems more appropriate than the usual illegible gibberish, right?<br>-->
+    <label for="check">Tag:</label>
+    <input type="text" name="check" id="check" required autocomplete="off">
+    <button type="submit" class="btn btn-primary">Post comment</button>
+    <input type="hidden" name="tag" id="hidden-tag" value="01PR"><br>
+
+    <p id="captcha-message" style="display: none" class="alert alert-warning" role="alert">The tag you filled in for the captcha is wrong. You need to write <span class="tag">01PR</span>, in case you are confused.</p>
+
+    <script type="text/javascript">
+// enter in captcha fields causes \ref to appear (?!)
+$("input#check").on("keypress", function(e) {
+  if (e.which == 13) {
+    // always stop the event
+    e.preventDefault();
+
+    // perform clientside check as for actual submit
+    if ($("#check").val() != $("#hidden-tag").val()) {
+      // explain captcha
+      $("#captcha-message").toggle();
+    }
+    else {
+      $("form#comment-form").submit();
+    }
+  }
+});
+    </script>
+  </form>
+</section>
+
+
+
+
+    </section>
+	  <div class="col-lg-4 col-xl-4">
+	    <section id="meta" class="row topbar sticky-top">
+        
+  
+  <div class="interaction">
+    
+  
+
+  <ul class="neighbours">
+  
+    <li class="left"><a href="/tag/01PL">previous section</a>
+  
+  
+    <li class="right"><a href="/tag/01QD">next section</a>
+  
+  </ul>
+  <br style="clear:both">
+
+  </div>
+
+  <hr>
+  
+    <a href="https://stacks.math.columbia.edu/download/properties.pdf#nameddest=01PR">View Section <span data-tag="01PR">28.27</span> as pdf</a>
+  
+
+  
+
+
+      </section>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js" integrity="sha384-3ziFidFTgxJXHMDttyPJKDuTlmxJlwbSkojudK/CkRqKDOmeSbN6KLrGdrBQnT2n" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
