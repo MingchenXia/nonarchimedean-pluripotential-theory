@@ -1,0 +1,41 @@
+{
+  "blockers": [
+    {
+      "id": "SOURCE_EXTRACTION_MODE_MISDECLARED",
+      "scope": [
+        "begz_0812_3674v2",
+        "bt82_new_capacity"
+      ],
+      "finding": "Both SOURCE_ROUTES.json files declare plain pdftotext, but their recorded pre-normalization hashes are produced by pdftotext -layout. Plain pdftotext produces different bytes and hashes.",
+      "repair": "In a new sibling packet and stage, declare pdftotext -layout for both routes and add a checker that reproduces each declared extraction command from the pinned PDF."
+    },
+    {
+      "id": "LF_ROUTE_AND_RUNTIME_LINE_NUMBERING_DIVERGE",
+      "scope": [
+        "runtime/hardened_service.py",
+        "runtime/hardened_mcp.py",
+        "runtime/contract.md",
+        "SOURCE_ROUTES.json"
+      ],
+      "finding": "The route contract uses one-based LF lines, while host and MCP use str.splitlines(), which also splits at form-feed bytes. Runtime fixed-source reads are shifted; Bedford--Taylor Theorem 6.9 is LF line 1107 but tool line 1131, outside the contracted 1104--1118 read.",
+      "repair": "Use an explicit LF-only splitter consistently in host and MCP, or repin every contract and route to the tool convention; add exact range-content regression tests."
+    },
+    {
+      "id": "KNOWN_FAILED_FINAL_PATH_SMOKE_RUNNER_REUSED",
+      "scope": [
+        "run_static_model_long_smoke.py"
+      ],
+      "finding": "The staged runner is byte-identical to the runner whose single P14.8 retry1 final-path smoke failed. It still merges stderr into the JSONL file and stops live-role sampling as soon as the root process exits, preserving the two documented infrastructure races.",
+      "repair": "Build a new sibling stage from the independently audited repaired smoke infrastructure; do not install or smoke this sibling."
+    }
+  ],
+  "date": "2026-09-01",
+  "format": "ch51-npp-ledger-packet-stage-independent-hostile-audit-v1",
+  "mathematical_target_rejected": false,
+  "packet": "ch51_npp_ledger_comprehensive_production_packet_v1_20260901",
+  "production_submission_authorized": false,
+  "ready_for_final_path_installation": false,
+  "ready_for_final_path_smoke": false,
+  "stage": "rethlas_hardened_v3_3_3_r5_ch51_npp_ledger_v2_source_closed_stage_20260901",
+  "verdict": "FAIL_REPAIR_REQUIRED"
+}

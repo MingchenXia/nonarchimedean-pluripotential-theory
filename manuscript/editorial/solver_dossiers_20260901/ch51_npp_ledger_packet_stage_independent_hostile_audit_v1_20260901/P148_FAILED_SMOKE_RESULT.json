@@ -1,0 +1,53 @@
+{
+  "format": "p148-final-path-smoke-authored-dossier-v1",
+  "problem": "P14.8",
+  "verdict": "FAIL",
+  "ready_for_independent_final_release_audit": false,
+  "smoke_run_count": 1,
+  "blockers": [
+    {
+      "id": "RAW_LIFECYCLE_NON_JSON_INTERLEAVING",
+      "gate": "check_release.py::validate_raw_smoke",
+      "observed": "non-JSON smoke output after JSON lifecycle at line 83",
+      "scope": "104 state-database warnings include lines after thread.started/turn.started; one shell-snapshot cleanup warning follows turn.completed at line 113"
+    },
+    {
+      "id": "TERMINAL_PROCESS_SAMPLE_EXIT_RACE",
+      "gate": "check_release.py::validate_process_samples and validate_cache_horizon_bracketing",
+      "observed": [
+        "process identity changed for PID 86859",
+        "post-horizon process sample lacks the bound Codex/host roles"
+      ],
+      "scope": "samples 0--21 contain the exact bound root command; the first post-horizon sample is sample 22, 2.896 seconds after MCP completion, and records only the same exited root as (codex)"
+    }
+  ],
+  "passed_gates": {
+    "source_authored_manifest_sha256": "a25f1ce2d370feadfc849b2040bed12a0dc3b91f5053921ce8cbf80883909187",
+    "source_release_stage_manifest_sha256": "e06616686dff546abe2e4e5269781273a8d9062f563fad10a618d2061044dea6",
+    "independent_stage_audit_manifest_sha256": "d4086f34593cdd1b02436efe9f8865b1f1b6049a87b5e11a9d9f8fc5d84b4fc3",
+    "final_release_manifest_sha256": "7f7e5a875ef7dcd08d806f64b0f0884ee083ae2edc383526bac0ddabde6b17a0",
+    "final_release_manifest_rows": 47,
+    "inherited_release_rows_unchanged": 44,
+    "new_smoke_rows": 3,
+    "runtime_tests": 135,
+    "runtime_tests_result": "OK",
+    "runtime_immutable": true,
+    "workspace_empty_before_and_after": true,
+    "receipt_status": "passed",
+    "completed_wait_calls": 1,
+    "model_manager_strategy": "StaticModelsManager",
+    "raw_model_refresh_diagnostic_count": 0
+  },
+  "smoke_artifacts": {
+    "receipt_sha256": "9b54171da78c6ed580b2ba1a1eb1d022f3559c10422685af8d06e8560ae4330c",
+    "raw_log_sha256": "68fad3795e6dba22226123c8c4540970a80d94b65a9f8810ca67f15ba8b7b360",
+    "process_samples_sha256": "e3458a20497ff7b8bf6bf72bdb8575a0bf1f56020e86ce9315c9862ce8947a23"
+  },
+  "prohibited_actions": {
+    "production_submit": false,
+    "live_manuscript_edit": false,
+    "p148_retirement": false,
+    "git_stage": false,
+    "smoke_rerun": false
+  }
+}
