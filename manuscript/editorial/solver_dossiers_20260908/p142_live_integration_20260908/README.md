@@ -103,3 +103,15 @@ authorized by this evidence.  A successor release must give these
 platform-diagnostic cases a narrow, independently audited treatment and then
 run a new final-path smoke and production verification of the unchanged pinned
 P14.2 pair.  Until that succeeds, P14.2 remains active in Chapter 72.
+
+## Chapter 72 status reconciliation
+
+On 8 September 2026, Chapter 72 and the atomic inventory were aligned with
+the live Chapter 71 theorem.  They now state that the audited candidate proves
+upper semicontinuity at all semivaluations, while retaining P14.2 as an active
+T3 atom because the required source-closed production verification is still
+pending.  The update removes the obsolete assertion that no upper
+semicontinuity is inferred, removes upper semicontinuity from the substantive
+residuals, and leaves every active-atom and tier count unchanged.  The full
+book was rebuilt successfully after this documentation-only reconciliation;
+it neither relaxes a verifier condition nor changes the mathematical target.

@@ -817,8 +817,10 @@ counted as an additional unresolved atom.
 
 - **P14.1** `[T4; open]` Intrinsically characterize the image of the raw
   ideal-valuative transform.
-- **P14.2** `[T3; open]` Decide upper semicontinuity at arbitrary
-  nondivisorial semivaluations.
+- **P14.2** `[T3; open; source-closed verification pending]` The audited
+  Chapter 71 candidate proves upper semicontinuity at arbitrary
+  nondivisorial semivaluations, but this atom remains active until its
+  source-closed production verification passes.
 - **P14.3** `[T4; open]` Decide MP positivity at those semivaluations.
 - **P14.4** `[T4; open]` Construct a \(P\)-sensitive positivity theory for
   big non-nef classes.
