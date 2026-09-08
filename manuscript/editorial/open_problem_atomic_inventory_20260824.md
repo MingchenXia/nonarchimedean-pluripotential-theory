@@ -1,6 +1,6 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 31 August 2026
+**Inventory date:** 1 September 2026
 **Literature cutoff:** 24 August 2026; targeted P14.7/P14.8 source update on 31 August 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
@@ -42,12 +42,15 @@ Mesquita--Piccione--Boucksom--Jonsson comparison described below, and
 retirement of P17.1 after the exact-live Banach-family Monge--Amp\`ere
 continuity theorem, retirement of P07.2 after the universal
 \(\omega_1\)-stage theorem, and retirement of P08.2 after the formal-twistor
-counterexample,
+counterexample, and retirement of P05.3 and P05.4 after the recursive
+CLD/delta projection comparison and its algebraic-chart realization, and
+retirement of P14.7 after the strict-interior raw-filtration maximality
+theorem,
 the exact count is
 
 ```text
-14 formal problem environments = 51 active atomic research questions.
-Tier counts: (T1,T2,T3,T4,T5) = (0,5,12,17,17).
+14 formal problem environments = 48 active atomic research questions.
+Tier counts: (T1,T2,T3,T4,T5) = (0,5,9,17,17).
 ```
 
 The active identifiers listed below form an editorial addressing scheme.
@@ -112,7 +115,9 @@ remain active only beyond the reducible product obstruction and, for P03.1,
 beyond the perfected-unibranch curve range; P03.3 is unchanged.  At the
 earlier verification checkpoint the total was 53 active atoms in 14 formal
 problem environments;
-the later P07.2 and P08.2 retirements give the current total of 51.
+the later P07.2 and P08.2 retirements gave a total of 51 at that checkpoint.
+The subsequent P05.3 and P05.4 retirements gave 49, and the P14.7
+retirement gives the current total of 48.
 
 ### `prob:frontier-local-ma` --- 4 atoms
 
@@ -132,22 +137,41 @@ The model-algebraizable and jointly realizable bounded core is verified.
 Probability normalization under literal restriction and uniqueness of an
 unrestricted unbounded continuation are disproved.
 
-### `prob:frontier-polyhedral-regularity` --- 5 atoms
+### `prob:frontier-polyhedral-regularity` --- 3 active atoms
 
 - **P05.1** `[T3; open]` Characterize the pairs \((\mathbf X,\gamma)\) for
   which the Botero--Mazzon--Pille-Schneider regularity property holds.
 - **P05.2** `[T3; open]` Characterize the pairs for which their
   orthogonality property holds.
-- **P05.3** `[T3; open]` Under realizability, compare the polyhedral
-  Monge--Amp\`ere operator with the CLD operator.
-- **P05.4** `[T3; open]` Under realizability, compare it with the delta-form
-  operator.
-- **P05.5** `[T4; open]` Under realizability, compare it with the
-  non-Archimedean Monge--Amp\`ere operator.
+- **P05.5** `[T4; open after the calibrated recursive model cases]`
+  Characterize polarized Monge--Amp\`ere realizations of
+  \((\mathbf X,\gamma)\), construct global semipositive lifts of the
+  relative potentials \(a_i-\gamma\) in a named BFJ domain, prove the exact
+  intersection-mass and component-calibration identities, and compare the
+  resulting global non-Archimedean Monge--Amp\`ere measure with the
+  polyhedral measure, including boundary and mixed products.
 
 Complete affine space, the exact normalization, and the abstract cross-fan
-counterexample are verified.  The recursive analytic comparison is only
-conditional; the general targets remain open.
+counterexample are verified.  P05.3 and P05.4 are retired by
+`prop:p053-projection-recursion-repaired-candidate` and
+`cor:p053-algebraic-chart-repaired-candidate`: the proof constructs the
+intermediate source currents, retains contractions and saturated lattice
+indices, identifies the CLD and delta-form products, and passes to
+regularizable weights.  P05.5 remains open precisely at the proper
+polarized realization, global lift, mass, calibration, and operator-domain
+gates stated above.  The production-verified
+`prop:p055-boundary-mass-completion` proves that a local pushforward equality
+and equality of finite positive total masses force zero source-boundary mass
+and the global extension-by-zero identity; it closes the last purely
+measure-theoretic step but supplies none of the geometric inputs.  The
+production-verified `prop:p055-model-calibration-transfer` now proves the
+full BFJ--Chambert--Loir--formal-CLD model-measure and proper-pushforward
+comparison once a proper polarized realization, global semipositive model
+lifts, exact mass matching, and componentwise intersection calibration are
+given.  It deliberately makes no GK assertion on the original
+analytification in this field scope.  Thus P05.5 remains active precisely at
+the construction and calibration inputs, not at the subsequent atomic
+measure bookkeeping.
 
 ### `prob:frontier-pluriharmonic` --- 2 atoms
 
@@ -813,7 +837,7 @@ bi-Lipschitz property onto its image are known.  Cross-polarization control
 and the image characterization remain open; uniqueness on the image is not
 counted as an additional unresolved atom.
 
-### `prob:frontier-mp-pseff` --- 8 atoms
+### `prob:frontier-mp-pseff` --- 7 active atoms
 
 - **P14.1** `[T4; open beyond finite-energy K\"ahler data]` Intrinsically
   characterize the image of the raw ideal-valuative transform.  In the
@@ -838,12 +862,6 @@ counted as an additional unresolved atom.
 - **P14.5** `[T5; open]` Construct the corresponding Monge--Amp\`ere
   measure theory.
 - **P14.6** `[T5; open]` Construct the corresponding energy theory.
-- **P14.7** `[T3; open in project verification queue]` Verify and
-  integrate raw maximality \(u_\tau=P[u_\tau]\) for DXZ filtration
-  curves of a big line bundle, for every strict-interior parameter.
-  The equality \(P[u_\tau]=P[u_\tau]_{\mathcal I}\) is already DXZ
-  Lemma 4.5. External literature status and this project's verification
-  status are distinguished below.
 - **P14.8** `[T5; open; exact dichotomy candidate awaiting production]` A
   frozen, independently audited candidate specifies reconstruction from a
   realizable \(\mathcal I\)-class in a compact K\"ahler class to its canonical
@@ -856,16 +874,16 @@ counted as an additional unresolved atom.
 
 The divisorial realization, the finite-energy K\"ahler comparison, and the
 projective real N\'eron--Severi DXZ--Boucksom--Jonsson comparison are known
-in their stated domains. The eight entries above remain administratively
-active; this does not assert that each is an untouched conjecture in the
-current literature. In particular, the source audit identifies P14.7 as
-a deduction from Finski's stated approximation theorem in the March 2026
-preprint [arXiv:2603.22194v1, Theorem 4.3](https://arxiv.org/html/2603.22194v1),
-after identifying its resolved envelope with the DXZ ordinary envelope.
-This is an explicitly attributed inference, not a claim that Finski
-states the DXZ conjecture verbatim or that his proof has been independently
-verified here. The project's separately written P14.7 proof has passed
-independent exact-byte audit but is still pending production Rethlas.
+in their stated domains.  P14.7 is retired by
+`thm:pseff-filtration-maximality`, which proves raw maximality for every
+strict-interior parameter without finite generation.  The equality of the
+ordinary and multiplier-ideal envelopes remains attributed to DXZ,
+Lemma 4.5.  Finski's March 2026 approximation theorem
+[arXiv:2603.22194v1, Theorem 4.3](https://arxiv.org/html/2603.22194v1)
+provides a separate published route after identifying its resolved envelope
+with the DXZ ordinary envelope.  This is an explicitly attributed inference,
+not a claim that Finski states the DXZ conjecture verbatim.
+
 P14.8 remains active and separate.  The terminal left-limit corollary
 `cor:pseff-terminal-filtration-slice` applies only to the particular DXZ
 terminal slice; it does not reconstruct arbitrary zero-mass data.  The
@@ -876,7 +894,8 @@ is not yet a production-verified retirement and not a sourced second interval
 of zero-mass slices.
 The exact source comparison is preserved in
 `solver_dossiers_20260831/p147_source_correction_independent_audit_20260831/SOURCE_CORRECTION_AUDIT.md`.
-No atom is retired by this source-only correction.
+That source-only correction did not itself retire an atom; the complete
+proof integrated in Chapter 71 is the retirement basis used here.
 
 ### `prob:frontier-zero-volume` --- 3 atoms
 
@@ -1182,8 +1201,9 @@ passed the superseding archive
 `correct`, zero critical errors, and zero gaps.  P00.1 and its Chapter 71
 problem environment are retired.
 At this 28 August milestone, the active inventory was 15 formal
-environments and 54 atoms.  After the 30 August retirements recorded above,
-the current inventory is 14 formal environments and 51 atoms.
+environments and 54 atoms.  After the 30 August retirements recorded above
+and the P14.7 retirement, the current inventory is 14 formal environments
+and 48 atoms.
 
 ## Easy-to-hard Rethlas queue
 
@@ -1199,10 +1219,10 @@ No active atom remains in this tier after retirement of `P01.1`.
 
 `P21.3`, `P07.1`, `P06.1`, `P06.2`, `P03.1`.
 
-### T3 --- major theorems within mature frameworks (12 atoms)
+### T3 --- major theorems within mature frameworks (9 atoms)
 
-`P02.1`, `P02.2`, `P02.3`, `P05.1`, `P05.2`, `P05.3`, `P05.4`,
-`P08.1`, `P14.2`, `P14.7`, `P03.2`,
+`P02.1`, `P02.2`, `P02.3`, `P05.1`, `P05.2`,
+`P08.1`, `P14.2`, `P03.2`,
 `P03.3`.
 
 ### T4 --- new comparison theories or several coupled inputs (17 atoms)
