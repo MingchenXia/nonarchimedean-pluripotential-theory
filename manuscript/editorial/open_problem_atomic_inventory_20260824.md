@@ -119,6 +119,16 @@ the later P07.2 and P08.2 retirements gave a total of 51 at that checkpoint.
 The subsequent P05.3 and P05.4 retirements gave 49, and the P14.7
 retirement gives the current total of 48.
 
+For a fixed nonempty competitor family, the separate source-scoped
+proposition `prop:p031-modulus-controlled-envelope-candidate` settles the
+classical-psh and continuity conclusions whenever the functions are
+finite-valued, their pointwise supremum is finite, and they have a common
+local modulus. It passed independent verification as
+`pi_2640874e3c1d992c29bd2646` with final `correct`, zero critical errors, and
+zero gaps. This is not an automatic property of the full local-FS/PL
+minorant family and makes no CLD-v2 assertion, so it narrows none of the
+three P03 atoms beyond that stated family-level regime.
+
 ### `prob:frontier-local-ma` --- 4 atoms
 
 Each atom must carry a stated boundary datum and satisfy model independence,
