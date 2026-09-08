@@ -29,5 +29,9 @@ considered for independent review.
 The patch applies exactly to the v2 postimage and the resulting v3 proof has
 a clean isolated draft build. See VALIDATION.md for the exact postimage and
 log hashes. `VERIFICATION_STATEMENT.md`, `VERIFICATION_PROOF.md`, and
-`LOCAL_SOURCE_AUDIT.md` are the refreshed v3 review materials. They are
-prepared locally only; no model-backed verification has been submitted.
+`LOCAL_SOURCE_AUDIT.md` are the refreshed v3 review materials.  The
+explicitly authorized model-backed review subsequently returned `correct`
+with zero critical errors and zero gaps; its immutable HTTP-200 receipt is
+archived in `VERIFICATION_RUN_20260908/` and summarized in
+`VERIFICATION_RESULT.md`.  This is not a source-closed production verdict,
+live-book integration, or P14.3 retirement.

@@ -48,7 +48,9 @@ These checks establish exact patch applicability, a clean v3 postimage, and
 its isolated typeset integrity. They are not an independent mathematical
 audit or a source-closed production verdict.
 
-The prepared markdown review packet in the extended-arithmetic dossier
-describes v2. It must be refreshed to the v3 wording and submitted anew if
-the model-backed verification is authorized; a v2 review result would not
-certify v3.
+The v3 markdown review packet was refreshed and then independently reviewed.
+`VERIFICATION_RESULT.md` records its `correct` verdict with zero critical
+errors and zero gaps; `VERIFICATION_RUN_20260908/` preserves the request and
+HTTP response.  Those review materials concern the exact v3 postimage above.
+They do not turn this local validation record into a source-closed production
+verdict or retire P14.3.

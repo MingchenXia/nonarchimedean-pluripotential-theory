@@ -54,8 +54,11 @@ semicontinuity is retained solely as the stated P14.2 hypothesis.
 
 ## Production boundary
 
-No model-backed verification was run for v3.  A prior v2 local
-source-alignment audit does not certify this changed postimage.  The v3
-packet is prepared so that one explicitly authorized, reproducible external
-review can inspect the exact current argument.  Until then P14.3 remains
-open and Chapter 72's count and status remain unchanged.
+After this local audit, the explicitly authorized model-backed review of the
+exact v3 packet returned `correct`, with zero critical errors and zero gaps.
+Its HTTP status was 200; the request, response, and headers are immutably
+archived in `VERIFICATION_RUN_20260908/` and their SHA-256 values are listed
+in `VERIFICATION_RESULT.md`.  This local source-alignment audit and the
+independent review do not supply a source-closed production verdict,
+live-book integration, or retirement: the finite-energy conclusion remains
+conditional on P14.2, and P14.3 remains active.
