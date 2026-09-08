@@ -8,12 +8,14 @@ The reviewed P14.3 v3 argument is now integrated into Chapter 71 as:
   divisorial density to a net `q <= v` on every coherent ideal; and
 - `cor:p143-all-point-kahler-comparison`, which applies that refinement to
   the upper-semicontinuous raw transform in the finite-energy Kähler domain.
+  Its immediate consequence `cor:p141-finite-energy-raw-image` identifies
+  the raw-transform image in that same domain with the finite-energy MP cone.
 
 The corollary identifies the literal raw ideal-valuative transform with the
 corresponding MP finite-energy potential at every semivaluation.  It does
 not assert MP positivity for arbitrary pseudoeffective, non-nef, or
 genuinely transcendental compact Kähler classes, construct a new
-Monge--Ampère theory, or retire P14.3.
+Monge--Ampère theory, or retire P14.1 or P14.3.
 
 ## Review binding
 

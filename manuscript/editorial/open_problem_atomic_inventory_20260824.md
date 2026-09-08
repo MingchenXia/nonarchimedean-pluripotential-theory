@@ -815,8 +815,11 @@ counted as an additional unresolved atom.
 
 ### `prob:frontier-mp-pseff` --- 8 atoms
 
-- **P14.1** `[T4; open]` Intrinsically characterize the image of the raw
-  ideal-valuative transform.
+- **P14.1** `[T4; open beyond finite-energy K\"ahler data]` Intrinsically
+  characterize the image of the raw ideal-valuative transform.  In the
+  finite-energy K\"ahler domain, `cor:p141-finite-energy-raw-image` identifies
+  that image exactly with the finite-energy MP cone.  The unrestricted
+  pseudoeffective characterization remains open.
 - **P14.2** `[T3; open; source-closed production verification pending]` The
   audited Chapter 71 candidate proves upper semicontinuity at arbitrary
   nondivisorial semivaluations and has passed a zero-finding independent
