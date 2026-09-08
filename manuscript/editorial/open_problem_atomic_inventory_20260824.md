@@ -838,11 +838,15 @@ counted as an additional unresolved atom.
   The equality \(P[u_\tau]=P[u_\tau]_{\mathcal I}\) is already DXZ
   Lemma 4.5. External literature status and this project's verification
   status are distinguished below.
-- **P14.8** `[T5; open; formulation incomplete]` Formulate precisely the
-  reconstruction of an \(\mathcal I\)-model potential from zero-mass
-  data, specifying the input, ambient class, normalization, target
-  equivalence relation, and meaning of reconstruction. This is not a
-  zero-mass strict-interior range of the DXZ filtration curve.
+- **P14.8** `[T5; open; exact dichotomy candidate awaiting production]` A
+  frozen, independently audited candidate specifies reconstruction from a
+  realizable \(\mathcal I\)-class in a compact K\"ahler class to its canonical
+  normalized \(\mathcal I\)-model representative.  It proves that this
+  canonical representative is reconstructible, while a polar Cantor family
+  shows that neither a raw representative nor raw nonpluripolar mass descends
+  to the \(\mathcal I\)-quotient.  Source-complete production verification and
+  live integration remain required; this is not a zero-mass strict-interior
+  range of the DXZ filtration curve.
 
 The divisorial realization, the finite-energy K\"ahler comparison, and the
 projective real N\'eron--Severi DXZ--Boucksom--Jonsson comparison are known
@@ -856,7 +860,14 @@ This is an explicitly attributed inference, not a claim that Finski
 states the DXZ conjecture verbatim or that his proof has been independently
 verified here. The project's separately written P14.7 proof has passed
 independent exact-byte audit but is still pending production Rethlas.
-P14.8 is underspecified, not a sourced second interval of zero-mass slices.
+P14.8 remains active and separate.  The terminal left-limit corollary
+`cor:pseff-terminal-filtration-slice` applies only to the particular DXZ
+terminal slice; it does not reconstruct arbitrary zero-mass data.  The
+frozen exact-dichotomy candidate in
+`solver_dossiers_20260901/p148_zero_mass_reconstruction_candidate_v2_20260901`
+is a source-scoped answer to the two defined reconstruction readings, but it
+is not yet a production-verified retirement and not a sourced second interval
+of zero-mass slices.
 The exact source comparison is preserved in
 `solver_dossiers_20260831/p147_source_correction_independent_audit_20260831/SOURCE_CORRECTION_AUDIT.md`.
 No atom is retired by this source-only correction.
