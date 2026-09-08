@@ -28,5 +28,6 @@ considered for independent review.
 
 The patch applies exactly to the v2 postimage and the resulting v3 proof has
 a clean isolated draft build. See VALIDATION.md for the exact postimage and
-log hashes. The prepared v2 markdown review packet must be refreshed before
-any authorized v3 verification run.
+log hashes. `VERIFICATION_STATEMENT.md`, `VERIFICATION_PROOF.md`, and
+`LOCAL_SOURCE_AUDIT.md` are the refreshed v3 review materials. They are
+prepared locally only; no model-backed verification has been submitted.
