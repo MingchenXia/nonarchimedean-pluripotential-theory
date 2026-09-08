@@ -817,10 +817,11 @@ counted as an additional unresolved atom.
 
 - **P14.1** `[T4; open]` Intrinsically characterize the image of the raw
   ideal-valuative transform.
-- **P14.2** `[T3; open; source-closed verification pending]` The audited
-  Chapter 71 candidate proves upper semicontinuity at arbitrary
-  nondivisorial semivaluations, but this atom remains active until its
-  source-closed production verification passes.
+- **P14.2** `[T3; open; source-closed production verification pending]` The
+  audited Chapter 71 candidate proves upper semicontinuity at arbitrary
+  nondivisorial semivaluations and has passed a zero-finding independent
+  model-backed review of its frozen proof and five cited source extracts.
+  This atom remains active until source-closed production verification passes.
 - **P14.3** `[T4; open; finite-energy K\"ahler reduction prepared]` Decide
   MP positivity at those semivaluations.  A reproducibly checked research
   candidate combines proposed dominated rational-divisorial approximation
