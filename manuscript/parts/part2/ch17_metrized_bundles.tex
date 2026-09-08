@@ -3852,7 +3852,8 @@ is not a blanket theorem that every positive current comes from a nef model.
 
 \begin{theorem}
 \label{thm:ch17-formal-positivity}
-Let \(X\) be boundaryless and topologically separated, let
+Let \(X\) be an almost-good, boundaryless, topologically separated, pure
+\(n\)-dimensional \(K\)-analytic space, let
 \(\overline L_1,\dots,\overline L_d\) be line bundles on \(X\) with integral
 parlinear metrics, and let \(x\in X\).  The current
 \(c_1(\overline L_1)\wedge\cdots\wedge c_1(\overline L_d)\) is positive
@@ -3862,53 +3863,318 @@ graded Chern classes
 \(\widetilde{(X,x)}\) is numerically effective (resp.\ numerically trivial).
 \end{theorem}
 
-\begin{proof}[Proof, in outline]
-A current, like a numerical cycle class, vanishes exactly when it is both
-positive and negative, so it suffices to treat positivity.  Let \(m\) be the
-analytic dimension of definition at \(x\) of the family
-\((\overline L_i)\), after replacing the \(L_i\) by a common power so that
-\(m\) is attained.  Choose a flat morphism of germs \(f:(X,x)\to(Y,y)\) with
-\(\dim Y=m\) and metrized bundles \(\overline M_i\) on \((Y,y)\) with
-\(\overline L_i\simeq f^*\overline M_i\); write \(T\) for the current in
-question.
+\begin{proof}
+Put
+\[
+ T=c_1(\overline L_1)\wedge\cdots\wedge c_1(\overline L_d),
+ \qquad
+ P_x=c_1(\widetilde{L_{1,x}})\cdots
+          c_1(\widetilde{L_{d,x}}).
+\]
+If \(d=0\), these are respectively the integration current and the unit
+numerical class, both positive and nonzero near \(x\), so both assertions
+are immediate.  If \(d>n\), the bidegree forces \(T=0\), while every
+residual premodel has dimension at most \(n<d\), so \(P_x=0\).  We may
+therefore assume \(1\leq d\leq n\).
 
-If \(m<d\), then \(T=0\) near \(x\) by the tropical-dimension argument in
-the proof of \Cref{thm:ch17-atomic-support}, and the graded class vanishes
-too, because a premodel of dimension \(<d\) carries no nonzero product of
-\(d\) Chern classes.
+The assertion is local at \(x\).  Since only finitely many line bundles
+occur, shrink to one almost-good neighbourhood of \(x\) on which every
+underlying \(L_i\) is trivial.  Boundarylessness, topological separation,
+and pure \(n\)-dimensionality are retained.  This puts the germ and the
+finite family exactly in the scope of the analytic-dimension definition
+and of \cite[Proposition~17.6.4]{CLD25}.
 
-If \(m=d\), \Cref{thm:cld-relative-ma} gives \(T=\lambda\delta_{f^{-1}(y)}\)
-near \(x\), where \(\lambda\) is a strictly positive multiple of the graded
-intersection number
-\(\bigl(c_1(\widetilde{M_{1,y}})\cdots c_1(\widetilde{M_{d,y}})
- \cap[\widetilde{(Y,y)}]\bigr)\).
-Since \(\delta_{f^{-1}(y)}\) is positive and nonzero near \(x\), positivity
-of \(T\) is equivalent to \(\lambda\ge0\), which is equivalent to nefness of
-the graded product; and any premodel of the \(\widetilde{M_{i,y}}\) yields a
-premodel of the \(\widetilde{L_{i,x}}\), giving the asserted equivalence.
+We first prove the assertion about positivity.  We use throughout the
+following numerical convention.  If \((Z,N_1,\ldots,N_d)\) is a proper
+graded common premodel of the residual data, then \(P_x\) is numerically
+effective precisely when
+\begin{equation}
+ \deg_W\bigl(c_1(N_1|_W)\cdots c_1(N_d|_W)\bigr)\geq0
+ \label{eq:ch17-formal-positivity-numerical-test}
+\end{equation}
+for every integral graded closed subvariety \(W\subseteq Z\) of dimension
+\(d\).  This condition is independent of the premodel and is preserved by
+graded base change and arbitrary proper pullback; see
+\cite[\S\S10.4.11 and 10.7.14]{CLD25}.  In particular, if
+\(\dim Z<d\), then \(P_x=0\).
 
-If \(m>d\), one localizes: choose finitely many
-\(\varphi_i\in\widetilde{\cH(x)}^\times\) so that on each of the
-\(2^{|I|}\) pieces \(U_\Phi^\varepsilon\) of the induced affine covering of
-\(\widetilde{(X,x)}\) each \(\widetilde{L_{j,x}}\) has an invertible
-homogeneous section, lift the \(\varphi_i\) and the sections to analytic
-data, and take an affinoid \(V\ni x\) on which they are defined.  The
-reductions \(\widetilde{V_\varepsilon}\) of the resulting affinoid domains
-glue to a graded scheme \(\mathscr S\) of finite type, the reduction maps
-glue to an anticontinuous \(\pi:V\to\mathscr S\), and the sections glue to
-graded line bundles \(\mathscr L_j\) on \(\mathscr S\) whose restriction to
-\(\overline{\{\pi(y)\}}\) is a premodel of \(\widetilde{L_{j,y}}\) for every
-\(y\).  Nefness of \(c_1(\widetilde{L_{1,x}})\cdots c_1(\widetilde{L_{d,x}})\)
-is then equivalent to
-\(c_1(\mathscr L_1|_W)\cdots c_1(\mathscr L_d|_W)\ge0\) for every
-irreducible \(W\subseteq\overline{\{\pi(x)\}}\) of dimension \(d\), and the
-case \(m\le d\) already proved, applied at points \(y\) with
-\(\dim\overline{\{\pi(y)\}}\le d\), propagates positivity to a
-neighbourhood; the exceptional locus is weakly analytic of dimension
-\(<n-d\) by \Cref{prop:ch17-dimdef-discrete}, hence tropically
-\(H^{n-d}\)-negligible and invisible to the current
-(\Cref{thm:cld-polar-negligibility}).  The converse implication runs the
-same comparison backwards.  This is \cite[Theorem~18.8.4]{CLD25}.
+\emph{Reduction to an attained analytic dimension of definition.}
+Let \(m\) be the least analytic dimension of definition obtained after
+replacing every \(\overline L_i\) by the same tensor power \(q\), where
+\(q\) runs through the powers of the exponent characteristic of
+\(\widetilde K\) (and includes \(q=1\)).  This is a minimum of a nonempty
+set of nonnegative integers, so choose a \(q\) attaining it.  The reason for
+allowing these powers is \cite[Proposition~17.6.4]{CLD25}: a family of
+residual dimension \(r\) acquires analytic dimension at most \(r\) after
+such a power.  Since
+\[
+ \bigwedge_{i=1}^d c_1(\overline L_i^{\otimes q})=q^dT,
+ \qquad
+ \prod_{i=1}^dc_1(\widetilde{L_{i,x}^{\otimes q}})=q^dP_x,
+\]
+this replacement changes neither positivity nor vanishing on either side.
+We may therefore assume that \(q=1\) and that \(m\) is attained.
+
+By the definition recalled in \Cref{sec:ch17-dimdef}, there exist an
+almost-good germ \((Y,y)\), a boundaryless flat morphism of separated
+analytic germs
+\[
+ f:(X,x)\longrightarrow(Y,y),\qquad \dim_yY=m,
+\]
+and integral parlinear metrized line bundles with trivializable underlying
+line bundles
+\(\overline M_1,\ldots,\overline M_d\) on \((Y,y)\) such that
+\(\overline L_i\simeq f^*\overline M_i\).  We shrink the representatives
+of the germs whenever necessary; the preceding hypotheses and the chosen
+trivializations persist.
+
+Suppose first that \(m<d\).  Locally, each weight of an
+\(\overline M_i\) is a difference of continuous psh functions by
+\Cref{prop:ch16-dpsh-smooth}.  Expand the product multilinearly.  Every
+term is the pullback of a product of \(d\) continuous psh curvatures from
+the \(m\)-dimensional space \(Y\), and hence vanishes by
+\Cref{prop:ch16-vanishing-above-dimension}.  Thus \(T=0\) near \(x\).
+The analytic model supplies a common residual premodel of dimension
+\(m<d\), so \(P_x=0\) as well.
+
+Suppose next that \(m=d\).  The residual dimension of the normalized family
+is also \(d\).  Indeed, it is at most its analytic dimension \(d\), while a
+strictly smaller residual dimension would, by
+\cite[Proposition~17.6.4]{CLD25}, produce another tensor power of analytic
+dimension smaller than the defining minimum \(m\).  The residual dimension
+at \(y\) of the family \((\overline M_i)\) is likewise \(d\): a smaller
+premodel at \(y\) would pull back to a smaller premodel at \(x\).  In
+particular, \(d_K(y)=d\), so \(y\) is a maximal Abhyankar point of \(Y\).
+Every irreducible component of the germ \((Y,y)\) then has dimension at
+least \(d_K(y)=d\), and at most \(\dim_yY=d\).  Thus, after shrinking,
+\(Y\) is pure \(d\)-dimensional.  The source \(X\) is pure
+\(n\)-dimensional by hypothesis, so the equidimensional hypotheses of the
+relative product formula are now explicit.
+The relative product formula \Cref{thm:cld-relative-ma}, together with the
+top-degree residual mass formula, gives on a neighbourhood of \(x\)
+\begin{equation}
+ T=\lambda_y\,\delta_{f^{-1}(y)},
+ \qquad
+ \lambda_y=b_{y,Z_y}\,
+   \deg_{Z_y}\bigl(c_1(N_1)\cdots c_1(N_d)\bigr),
+ \label{eq:ch17-formal-positivity-relative-coefficient}
+\end{equation}
+Here \((Z_y,N_1,\ldots,N_d)\) is any \(d\)-dimensional proper graded
+common premodel of the residual bundles \(\widetilde{M_{i,y}}\), and
+write \(K_{\mathrm{gr}}(Z_y)\) for its graded function field.  More
+precisely,
+\begin{equation}
+ b_{y,Z_y}
+ =m_Y(y)\mathrm{def}_K(y)
+   [\widetilde{\cH(y)}:K_{\mathrm{gr}}(Z_y)]>0.
+ \label{eq:ch17-formal-positivity-normalization-factor}
+\end{equation}
+In particular, \(b_{y,Z_y}>0\).
+Indeed, \cite[Proposition~18.6.1]{CLD25} attaches the top atomic
+coefficient to the base germ \((Y,y)\) and gives the factor
+\(m_Y(y)\mathrm{def}_K(y)\) multiplying the intrinsic residual
+intersection number.  The definition of that intrinsic number on an
+arbitrary proper graded premodel is
+\cite[\S10.7.11]{CLD25}: it is the premodel degree multiplied by the finite
+graded field degree
+\([\widetilde{\cH(y)}:K_{\mathrm{gr}}(Z_y)]\).  The local application is
+the one in \cite[\S18.8.3 and Theorem~18.8.4]{CLD25}.  Thus \(\lambda_y\)
+and the displayed degree have the same sign and vanish simultaneously.
+Flatness makes
+\(\delta_{f^{-1}(y)}\) a positive integration current of the expected
+bidimension, and it is nonzero on every sufficiently small neighbourhood
+of \(x\).  Since \(Z_y\) is integral of dimension \(d\), the numerical
+test \eqref{eq:ch17-formal-positivity-numerical-test} for its top product is
+exactly the nonnegativity of the degree in
+\eqref{eq:ch17-formal-positivity-relative-coefficient}.  By the
+field-of-definition construction, the same
+\((Z_y,N_1,\ldots,N_d)\) is a common premodel of the
+\(\widetilde{L_{i,x}}\).  Thus the numerical test for \(P_x\) is literally
+the same degree test, rather than a descent assertion inferred from
+pullback preservation alone.  It follows that \(T\) is positive near
+\(x\) if and only if \(P_x\) is numerically effective.  This completes all
+cases in which the residual dimension of definition is at most \(d\),
+because \cite[Proposition~17.6.4]{CLD25} and homogeneity reduce residual
+dimension \(\leq d\) to one of the two cases just treated.
+
+\emph{A simultaneous finite reduction near \(x\).}
+It remains to treat the case \(m>d\).  We spell out the local reduction
+construction because both directions of the argument use its
+specialization order.  The graded Zariski--Riemann space
+\(\widetilde{(X,x)}\) is quasi-compact.  We may therefore choose finitely
+many homogeneous elements
+\(\Phi=(\varphi_i)_{i\in I}\subset\widetilde{\cH(x)}^\times\) such that the
+rational opens
+\[
+ U_\Phi^\varepsilon
+ =P\{(\varphi_i^{\varepsilon_i})_{i\in I}\},
+ \qquad \varepsilon\in\{-1,1\}^I,
+\]
+cover \(\widetilde{(X,x)}\), and such that every
+\(\widetilde{L_{j,x}}\) has an invertible homogeneous section on each
+\(U_\Phi^\varepsilon\).  Lift \(\varphi_i\) to units
+\(f_i\in\cO_{X,x}^\times\), lift the chosen homogeneous sections to local
+invertible sections \(s_{j,\varepsilon}\) of \(L_j\), and choose an
+affinoid neighbourhood \(V\) with \(x\in V^\circ\) on which all these
+lifts are defined.  After shrinking \(V\), set
+\[
+ V_\varepsilon
+ =\{z\in V:|f_i(z)^{\varepsilon_i}|
+                    \leq |f_i(x)|^{\varepsilon_i}\text{ for all }i\}.
+\]
+The choice of the residual sections and continuity of an integral
+parlinear norm allow us to arrange that
+\(\|s_{j,\varepsilon}\|\) is constant on \(V_\varepsilon\).
+
+On overlaps, the graded reductions of the affinoid domains
+\(V_\varepsilon\) are related by the corresponding homogeneous
+localizations.  They consequently glue to a finite-type graded
+\(\widetilde K\)-scheme \(\mathscr S\), their reduction maps glue to an
+anticontinuous map
+\[
+                         \pi:V\longrightarrow\mathscr S,
+\]
+and the reductions of the normed modules generated by
+\(s_{j,\varepsilon}\) glue to graded line bundles \(\mathscr L_j\) on
+\(\mathscr S\).  For every \(z\in V^\circ\), put
+\[
+                         Z_z=\overline{\{\pi(z)\}}.
+\]
+Then \(Z_z\) is proper and
+\((Z_z,\mathscr L_1|_{Z_z},\ldots,\mathscr L_d|_{Z_z})\) is a common
+premodel of the residual data at \(z\).  Moreover,
+\begin{equation}
+ \overline{\pi^{-1}(s)}
+ =\bigcup_{t\text{ a generalization of }s}\pi^{-1}(t)
+ \quad(s\in\mathscr S),
+ \label{eq:ch17-formal-positivity-fibre-closure}
+\end{equation}
+where the closure is taken in \(V\).  All of these assertions are checked
+on the affinoids \(V_\varepsilon\), where they are the localization and
+specialization properties of graded reduction; this is the construction in
+\cite[proof of Theorem~18.8.4, pp.~539--540]{CLD25}.
+
+In particular, \(Z_x\) is a proper common premodel at \(x\), and the
+definition of numerical effectivity gives
+\begin{equation}
+ P_x\text{ is numerically effective}
+ \quad\Longleftrightarrow\quad
+ \deg_W\bigl(c_1(\mathscr L_1|_W)\cdots
+                  c_1(\mathscr L_d|_W)\bigr)\geq0
+ \label{eq:ch17-formal-positivity-finite-model-test}
+\end{equation}
+for every integral \(d\)-dimensional closed subvariety
+\(W\subseteq Z_x\).
+
+Assume first that \(P_x\) is numerically effective.  Since \(\pi\) is
+anticontinuous,
+\[
+                         U=\pi^{-1}(Z_x)\cap V^\circ
+\]
+is an ordinary open neighbourhood of \(x\).  If \(z\in U\), then
+\(Z_z\subseteq Z_x\).  If \(\dim Z_z<d\), the residual product at \(z\)
+is zero.  If \(\dim Z_z=d\), its only integral closed subvariety of
+dimension \(d\) is \(Z_z\) itself, and
+\eqref{eq:ch17-formal-positivity-finite-model-test} says that its degree is
+nonnegative.  Thus the residual product at every point \(z\in U\) with
+\(\dim Z_z\leq d\) is numerically effective.  By
+\cite[Proposition~17.6.4]{CLD25}, after an exponent-characteristic tensor
+power its analytic dimension of definition is at most \(d\).  The already
+proved low-dimensional case and homogeneity show that \(T\) is positive
+near every such \(z\).
+
+Let
+\[
+                         A=\{z\in U:\dim Z_z>d\}.
+\]
+The graded-transcendence-degree semicontinuity on each reduction chart
+\cite[Proposition~11.10.4]{CLD25} says that \(A\) is a closed weakly
+analytic subset of \(U\) of dimension strictly smaller than \(n-d\).
+Here \(n\) is the pure dimension in the theorem statement.  Notice that
+this is a statement about the particular finite
+reduction \(\pi\); it does not follow merely from
+\Cref{prop:ch17-dimdef-discrete}.  By
+\cite[Example~16.8.4]{CLD25}, the set \(A\) is tropically
+\(H^{n-d}\)-negligible.
+
+We now justify the extension of positivity across \(A\).  Fix a smooth
+\((n-d,n-d)\)-form \(\alpha\) with compact support in \(U\), use a finite
+partition of unity subordinate to local frames over a neighbourhood of its
+support, and work on one member of that finite cover.  Over a nontrivially
+valued field, write each parlinear weight as a difference of two continuous
+psh functions using \Cref{prop:ch16-dpsh-smooth}, and expand \(T\) by
+\Cref{thm:ch16-dpsh-product}.  Every unsigned summand is a positive closed
+current of bidegree \((d,d)\), hence of bidimension \((n-d,n-d)\).
+Applying \cref{itm:ch14-cld-support-corrected-nontrivial} to every summand,
+and then using subadditivity of total variation for the finite signed sum,
+shows that
+\begin{equation}
+                              |T\wedge\alpha|(A)=0.
+ \label{eq:ch17-formal-positivity-no-trace-mass}
+\end{equation}
+Over a trivially valued field, the local weights are continuous dpsh, and
+\cref{itm:ch14-cld-support-corrected-trivial} gives
+\eqref{eq:ch17-formal-positivity-no-trace-mass} on each member of the same
+finite cover directly with \(q=d\); summing the partition again gives the
+displayed equality for \(\alpha\).
+Thus the two valuation regimes give the same conclusion, although by
+different support statements.
+
+Let \(\alpha\) now be a compactly supported positive smooth test form of
+bidegree \((n-d,n-d)\) in \(U\).  The signed Radon measure
+\(\mu=T\wedge\alpha\) is nonnegative on \(U\setminus A\), because \(T\) is
+positive near every point there.  Equation
+\eqref{eq:ch17-formal-positivity-no-trace-mass} gives
+\(|\mu|(A)=0\).  Hence
+\[
+                         \langle T,\alpha\rangle
+                         =\mu(U\setminus A)\geq0.
+\]
+This is exactly positivity of \(T\) on \(U\).  The argument uses
+Hausdorff-null support and total variation; no polar-negligibility theorem
+is involved.
+
+Conversely, suppose that \(T\) is positive on an open neighbourhood
+\(U_0\subseteq V^\circ\) of \(x\).  Let \(W\subseteq Z_x\) be an integral
+closed subvariety of dimension \(d\), and let \(w\) be its generic point.
+Because \(w\in\overline{\{\pi(x)\}}\), the point \(\pi(x)\) is a
+generalization of \(w\).  Formula
+\eqref{eq:ch17-formal-positivity-fibre-closure} therefore implies
+\[
+                         x\in\overline{\pi^{-1}(w)}.
+\]
+The open set \(U_0\) meets \(\pi^{-1}(w)\); choose
+\(z\in U_0\cap\pi^{-1}(w)\).  Then \(Z_z=W\), and the restrictions
+\(\mathscr L_j|_W\) form a common premodel at \(z\) of dimension \(d\).
+The low-dimensional case, applied after the tensor power supplied by
+\cite[Proposition~17.6.4]{CLD25}, turns positivity of \(T\) near \(z\)
+into
+\[
+ \deg_W\bigl(c_1(\mathscr L_1|_W)\cdots
+                  c_1(\mathscr L_d|_W)\bigr)\geq0.
+\]
+Since this holds for every such \(W\),
+\eqref{eq:ch17-formal-positivity-finite-model-test} proves that \(P_x\) is
+numerically effective.  This finishes the proof of the positivity
+equivalence in every case.
+
+It remains to deduce the assertion about zero.  Replace
+\(\overline L_1\) by its dual.  The resulting current and numerical class
+are \(-T\) and \(-P_x\).  A real current is zero exactly when it and its
+negative are positive.  Likewise, by
+\eqref{eq:ch17-formal-positivity-numerical-test}, a numerical product is
+trivial exactly when it and its negative are numerically effective.
+Applying the positivity equivalence once to the original family and once
+to
+\((\overline L_1^\vee,\overline L_2,\ldots,\overline L_d)\) proves
+\[
+              T=0\text{ near }x
+              \quad\Longleftrightarrow\quad
+              P_x\text{ is numerically trivial},
+\]
+as required.  This is the detailed form of
+\cite[Theorem~18.8.4]{CLD25}, with its Hausdorff-null extension step made
+explicit.
 \end{proof}
 
 \begin{corollary}

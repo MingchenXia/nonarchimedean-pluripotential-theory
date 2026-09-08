@@ -147,10 +147,11 @@ point of use:
  (\Cref{prop:current-positivity-calculus}), proved in
  \Cref{chap:cld-currents} from \cite[Lemma~5.2.9 and
  Proposition~3.2.4]{CLD25};
-\item the existence of a smooth psh exhaustion barrier on a good analytic
- space (\Cref{thm:ch16-barrier}), which is
- \cite[Proposition~16.9.1]{CLD25} and rests on the affinoid and rational
- domain theory of \Cref{chap:berkovich};
+\item the affinoid-neighbourhood, rational-domain and ordinary-interior facts
+ used to construct the compact-sublevel barrier of
+ \Cref{thm:ch16-barrier}; the construction follows the strategy of
+ \cite[Proposition~16.9.1]{CLD25}, with its domain and sublevel conditions
+ stated in the corrected compatible form;
 \item the structure theory of harmonic charts underlying
  \Cref{thm:bt-harmonic-compatibility}, namely the vanishing of the boundary
  current of a harmonically tropicalized $G$-form
@@ -184,7 +185,10 @@ and proves their automaticity for the curve class of
 \Cref{sec:ch16-bt-curves}, and \Cref{sec:ch16-iteration} the iterated
 product, its symmetry, its
 extension to differences of psh functions and the resulting local and
-relative Monge--Amp\`ere measures.  \Cref{sec:ch16-continuity} proves the
+relative Monge--Amp\`ere measures.  The energy calculus of
+\Cref{sec:ch16-energy-currents} supplies positive first-order pairings for
+dpsh functions without a common smoothing sequence.
+\Cref{sec:ch16-continuity} proves the
 continuity theorem and its monotone corollaries.
 \Cref{sec:ch16-cln} proves the Chern--Levine--Nirenberg inequalities with
 explicit constants.  \Cref{sec:ch16-comparison} proves the comparison
@@ -1119,8 +1123,8 @@ continuous psh
   \Crefrange{sec:ch16-one-factor}{sec:ch16-cln}\\
 locally approachable
  &section of $\operatorname{Psh}_{X,1}$
- &needed only for polar negligibility,
-  \Cref{thm:cld-polar-negligibility}\\
+ &needed in \Cref{thm:cld-polar-negligibility} only for the auxiliary
+  polar function $V$, not for the continuous curvature factors\\
 locally bounded
  &bounded on compact sets
  &\emph{not} used: no locally bounded theory is asserted\\
@@ -2138,6 +2142,176 @@ current, or the approximation hypothesis of
 quotients, and \Cref{ex:ch16-cross-fan} shows that the gap is not empty.
 \end{warning}
 
+\subsection{Energy currents for dpsh functions}
+\label{sec:ch16-energy-currents}
+
+The weighted estimate below must be applied to continuous psh functions that
+need not share a smooth approximation neighbourhood.  We therefore isolate a
+first-order calculus whose objects are defined entirely by the
+Bedford--Taylor product.  No ordinary derivative of a nonsmooth function is
+used in the definitions.
+
+\begin{lemma}
+\label{lem:ch16-dpsh-algebra}
+The sheaf $\operatorname{CPsh}^{\pm}_X$ is closed under products.  More
+precisely, if $h$ and $\ell$ are dpsh, then $h^2$ and $h\ell$ are dpsh.
+\end{lemma}
+
+\begin{proof}
+Work on a relatively compact ordinary neighbourhood.  Write $h=u-v$ with
+$u,v$ continuous psh and choose one constant $M$ such that
+$f=u+M>1$ and $g=v+M>1$ there.  A globally smooth convex nondecreasing
+function agreeing with $t^2$ for $t\geq1/2$ exists, so
+\Cref{prop:ch16-composition} shows that $f^2$, $g^2$, and $(f+g)^2$ are
+continuous psh.  The identities
+\[
+ h^2=2f^2+2g^2-(f+g)^2,
+ \qquad
+ h\ell=\frac{(h+\ell)^2-h^2-\ell^2}{2}
+\]
+prove the assertions.  The construction is local and hence sheafwise.
+\end{proof}
+
+Let $S$ be a positive closed current.  For dpsh $h,\ell$ of degrees for
+which the displayed products are defined, put
+\begin{equation}
+\label{eq:ch16-energy-current}
+ \Gamma_S(h,\ell)
+ :=\frac12\bigl(
+   \dprimeddprime(h\ell S)-h\,\dprimeddprime(\ell S)
+        -\ell\,\dprimeddprime(hS)\bigr),
+ \qquad \Gamma_S(h):=\Gamma_S(h,h).
+\end{equation}
+Every term is a finite difference of positive order-zero currents by
+\Cref{thm:ch16-dpsh-product,lem:ch16-dpsh-algebra}; multiplication by the
+continuous coefficients is therefore legitimate.  The formula is symmetric
+and bilinear, independently of any chosen dpsh presentations.  For smooth
+$h,\ell$, the product rule and closedness of $S$ give
+\begin{equation}
+\label{eq:ch16-energy-smooth}
+ \Gamma_S(h,\ell)
+ =\frac12\bigl(\dprime h\wedge\ddprime\ell
+              +\dprime\ell\wedge\ddprime h\bigr)\wedge S.
+\end{equation}
+
+\begin{lemma}
+\label{lem:ch16-energy-continuity}
+Suppose $h_j=u_j-v_j$ and $\ell_j=a_j-b_j$, where the four displayed
+sequences consist of continuous psh functions and converge locally uniformly
+to the corresponding continuous psh limits.  Then
+\[
+                  \Gamma_S(h_j,\ell_j)\longrightarrow
+                  \Gamma_S(h,\ell)
+\]
+weakly.  The same statement holds after multiplication by an additional
+locally uniformly convergent continuous coefficient.  On every compact test
+support, the finitely many signed currents occurring in this assertion have
+a common finite coefficient-variation bound.
+\end{lemma}
+
+\begin{proof}
+After one common positive shift, the square identity in
+\Cref{lem:ch16-dpsh-algebra} expresses every square curvature as a fixed
+finite linear combination of positive curvatures of continuous psh
+functions.  The product identity treats mixed products.  Thus
+\eqref{eq:ch16-energy-current} expands into finitely many terms of the form
+$c_j\dprimeddprime(w_jS)$, with $c_j,w_j$ converging locally uniformly and
+$\dprimeddprime(w_jS)$ positive and weakly convergent by
+\Cref{thm:cld-bt-continuity}.  Pairing these positive currents against one
+fixed positive compact test majorant shows that their masses are uniformly
+bounded.  The multiplication lemma for continuous coefficients and positive
+currents now gives the claimed convergence, including the additional
+coefficient.  This argument never differentiates an arbitrary order-zero
+current and never claims convergence in total variation.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch16-energy-positivity}
+For every dpsh function $h$, the current $\Gamma_S(h)$ is positive.
+\end{proposition}
+
+\begin{proof}
+Fix a smooth psh function $v$.  The continuous psh functions $u$ for which
+$\Gamma_S(u-v)$ is positive form a subsheaf.  It contains the smooth psh
+functions by \eqref{eq:ch16-energy-smooth}, and it is closed under local
+uniform limits by \Cref{lem:ch16-energy-continuity}; the sheaf-closure
+principle therefore gives every continuous psh $u$.  Now fix such a $u$ and
+repeat the same argument in the variable $v$.  This proves the assertion for
+all differences $u-v$.  The two closure steps are separate: no common smooth
+approximation sequence for the pair is asserted.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ch16-energy-exponential}
+Let $u$ be continuous psh, let $B>0$, and put $w=\rme^{Bu}$.  Then
+\begin{align}
+ \dprimeddprime(wS)
+   &=Bw\,\dprimeddprime(uS)+B^2w\,\Gamma_S(u),
+       \label{eq:ch16-energy-exp-dd}\\
+ \Gamma_S(w)&=B^2w^2\Gamma_S(u).                \label{eq:ch16-energy-exp-gamma}
+\end{align}
+Consequently
+\begin{equation}
+\label{eq:ch16-energy-exp-combined}
+ \dprimeddprime(wS)
+   =Bw\,\dprimeddprime(uS)+w^{-1}\Gamma_S(w).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The function $w$ is continuous psh by
+\Cref{prop:ch16-composition}.  For smooth psh $u$, the statements are the
+ordinary chain rule and \eqref{eq:ch16-energy-smooth}.  The class of
+continuous psh functions satisfying the two identities is a subsheaf closed
+under local uniform limits: use
+\Cref{lem:ch16-energy-continuity}, the continuity of the positive curvatures,
+and the locally uniform convergence of $w$ and $w^{-1}$.  The sheaf-closure
+principle proves both identities for all continuous psh $u$; eliminating
+$\Gamma_S(u)$ gives the last formula.
+\end{proof}
+
+\begin{lemma}
+\label{lem:ch16-energy-schwarz}
+Let $Q$ be positive closed of bidegree $(n-1,n-1)$.  Then
+$\Gamma_Q(h)$ is a positive Radon measure for every dpsh $h$, and the signed
+measure $\Gamma_Q(h,\ell)$ satisfies the measure-level Schwarz inequality.
+Concretely, after domination by one positive Radon measure, its densities
+$A,B,C$ with those of $\Gamma_Q(h)$ and $\Gamma_Q(\ell)$ satisfy
+\begin{equation}
+\label{eq:ch16-energy-schwarz}
+                         B^2\leq AC
+\end{equation}
+almost everywhere.  If $\rho$ is smooth and dpsh, then
+\begin{equation}
+\label{eq:ch16-energy-mixed-derivative}
+             \dprime(hQ)\wedge\ddprime\rho
+                         =\Gamma_Q(h,\rho)
+\end{equation}
+in top degree.  Finally, for every smooth closed positive form $\theta$,
+\begin{equation}
+\label{eq:ch16-energy-closed-factor}
+ \Gamma_{\theta^j\wedge S}(h,\ell)
+                         =\theta^j\wedge\Gamma_S(h,\ell).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Positivity of $\Gamma_Q(h+t\ell)$ for rational $t$ gives
+$A+2tB+t^2C\geq0$ outside a common null set.  Continuity in $t$ extends this
+to all real $t$ and yields \eqref{eq:ch16-energy-schwarz}.  In particular,
+continuous nonnegative weights may be inserted in the usual Schwarz and
+Young inequalities for these measures.
+
+For smooth $h$, \eqref{eq:ch16-energy-mixed-derivative} follows from
+\eqref{eq:ch16-energy-smooth}: the two cross terms have the same top-degree
+pairing with the symmetric current $Q$.  For fixed smooth $\rho$, the left
+side is distributionally continuous in $h$, while the right side is
+continuous by \Cref{lem:ch16-energy-continuity}.  Two applications of the
+sheaf-closure principle, followed by linearity, give the identity for dpsh
+$h$.  The last formula follows directly from
+\eqref{eq:ch16-energy-current}, since $\theta$ is smooth and closed.
+\end{proof}
+
 \subsection{Local and relative Monge--Amp\`ere measures}
 \label{sec:ch16-ma-measures}
 
@@ -2564,43 +2738,90 @@ pairing with $\chi\Theta$, by
 The polar theorem of \Cref{sec:ch16-polar} requires a version of the
 estimate in which the outer function is an \emph{unbounded} psh function.
 The device is to replace the cutoff $\chi$ by a family of weights built from
-a psh exhaustion.  We first record the existence of such an exhaustion; this
-is the second of the three imported inputs of \Cref{sec:ch16-imported}.
+a psh barrier.  The precise object is a function on a larger ordinary open
+with a compact \emph{positive} closed sublevel.  It is not a function that is
+negative on its entire domain and whose nonpositive sublevel is compact; that
+literal pair of requirements would be impossible on a positive-dimensional
+open space.
 
 \begin{theorem}
 \label{thm:ch16-barrier}
-Let $X$ be a good, boundaryless $n$-dimensional $K$-analytic space.  Every
-point of $X$ has a basis of open neighbourhoods $U$ on which there is a
-smooth psh function $\rho:U\to\mathbf R$ with $\rho<0$ and
-$\{\rho\leq0\}$ compact.
+Let $X$ be a good, separated, strict, boundaryless, pure
+$n$-dimensional $K$-analytic space, where $K$ is any complete
+non-Archimedean field, possibly trivially valued.  Given $x\in X$ and an
+ordinary open neighbourhood $\Omega$ of $x$, there are an ordinary open
+$Y\subseteq\Omega$, a smooth psh function $\rho$ on $Y$, and $\delta>0$
+such that
+\[
+             \rho(x)<0,
+ \qquad K_\delta:=\{\rho\leq\delta\}\Subset Y .
+\]
+In particular $U:=\{\rho<0\}$ is a nonempty relatively compact ordinary
+open in $Y$.
 \end{theorem}
 
 \begin{proof}
-This is \cite[Proposition~16.9.1]{CLD25}.  We recall its shape, since the
-hypotheses matter.  Goodness supplies an affinoid neighbourhood $V$ of the
-given point $x$, and inside the relative interior of $V$ a rational
-subdomain $W\ni x$ cut out by $|f_i|\leq\lambda_i|g|$ for analytic
-$f_1,\ldots,f_m,g$ on $V$ with no common zero and $\lambda_i>0$.  On the
-locus $U\subseteq V$ where $g$ is invertible the functions
-$u_i=\log(|f_i/g|/\lambda_i)$ are psh and parlinear off their polar sets,
-and $u=\max_iu_i$ is psh with $\{u\leq t\}$ a compact rational domain for
-every $t\geq0$, because the $f_i$ and $g$ have no common zero.  Smoothing
-$u$ by the regularized maxima of \eqref{eq:ch16-softmax} produces smooth psh
-$u_\varepsilon$ with $u\leq u_\varepsilon\leq u+\varepsilon$; taking
-$\varepsilon=1$ and $\rho=u_1-u_1(x)-1$ gives a smooth psh function with
-$\rho(x)=-1<0$ and $\{\rho\leq0\}\subseteq\{u\leq u_1(x)+1\}$ compact.
+Choose an affinoid neighbourhood $A$ of $x$ contained in $\Omega$ and a
+rational affinoid neighbourhood $W$ of $x$ contained in
+$\operatorname{Int}(A)$.  Write
+\[
+ W=\bigl\{|f_i|\leq\lambda_i|g|\ (1\leq i\leq s)\bigr\},
+\]
+where $f_1,\ldots,f_s,g$ are analytic on $A$, have no common zero, and
+$\lambda_i>0$.  For $\mu>1$ put
+$W_\mu=\{|f_i|\leq\mu\lambda_i|g|\}$.  For some $\mu>1$ one has
+$W_\mu\subseteq\operatorname{Int}(A)$: otherwise the nested compact sets
+$W_\mu\cap(A\setminus\operatorname{Int}(A))$, as $\mu\downarrow1$, would
+have a point in $W\setminus\operatorname{Int}(A)$.  The no-common-zero
+condition also shows that $g$ has no zero on $W_\mu$.
+
+On $Y=\operatorname{Int}(A)\cap\{g\ne0\}$ put
+\[
+ a_i=\log(|f_i/g|/\lambda_i),\qquad a_0=-1,
+ \qquad t=\log\mu>0.
+\]
+Choose $0<\varepsilon<t/8$ and a smooth convex coordinatewise nondecreasing
+regularized maximum $M_\varepsilon$ satisfying
+\[
+ \max_i s_i\leq M_\varepsilon(s_0,\ldots,s_s)
+       \leq\max_i s_i+\varepsilon
+\]
+and ignoring a coordinate lying more than $2\varepsilon$ below the maximum.
+It is obtained by convolving the maximum with an even product probability
+kernel.  Define
+\[
+             \rho=M_\varepsilon(a_0,a_1,\ldots,a_s)-t/2.
+\]
+The constant branch $a_0$ keeps the maximum finite when all $f_i$ vanish.
+Near a zero of one $f_i$, that coordinate is ignored; the remaining
+coordinates are logarithms of analytic units.  Thus $\rho$ extends as a
+smooth psh function across every numerator-zero locus.  At $x$ all
+$a_i\leq0$, so $\rho(x)\leq\varepsilon-t/2<0$.
+
+Take $\delta=t/4$.  The inequality $\rho\leq\delta$ implies
+$a_i\leq3t/4$ for every $i$, hence
+\[
+ K_\delta\subseteq W_{\exp(3t/4)}\subseteq W_\mu\subseteq Y.
+\]
+The set $K_\delta$ is closed in the compact rational domain on the right and
+is therefore compact.  The construction uses only rational-domain radii in
+$\mathbf R_{>0}$, so it remains on the original field and also works when
+the valuation is trivial.  This is the corrected compact-sublevel form of
+the construction underlying \cite[Proposition~16.9.1]{CLD25}.
 \end{proof}
 
 \begin{definition}[The weight forms]
 \label{def:ch16-weight-forms}
-Let $\rho$ be smooth psh on $X$ with $U=\{\rho<0\}$ relatively compact, put
-$\rho_-=\max\{-\rho,0\}$, and fix a real number $a>1$.  For
-$0\leq k\leq n$ define an $(n-k,n-k)$-form on $U$ by
+Let $\rho$ be smooth psh on an ordinary open $Y$, suppose
+$K_\delta=\{\rho\leq\delta\}$ is compact for some $\delta>0$, put
+$U=\{\rho<0\}$ and $r=\max\{-\rho,0\}$, and fix a real number $a>1$.
+Write $\theta=\dprimeddprime\rho$ and
+$\eta=\dprime\rho\wedge\ddprime\rho$.  For $0\leq k\leq n$ define the
+continuous $(n-k,n-k)$ coefficient form
 \begin{equation}
 \label{eq:ch16-beta-k}
- \beta_k=\rho_-^{k+a}\,(\dprimeddprime\rho)^{n-k}
-   +(k+a)\,\rho_-^{k+a-1}\,
-     \dprime\rho\wedge\ddprime\rho\wedge(\dprimeddprime\rho)^{n-k-1},
+ \beta_k=r^{k+a}\theta^{n-k}
+   +(k+a)r^{k+a-1}\eta\wedge\theta^{n-k-1},
 \end{equation}
 the second term being omitted when $k=n$.
 \end{definition}
@@ -2610,61 +2831,79 @@ the second term being omitted when $k=n$.
 With the notation of \Cref{def:ch16-weight-forms}:
 \begin{enumerate}
 \item\label{itm:ch16-beta:reg}
- $\beta_k$ has coefficients of class $C^{\lfloor a\rfloor-1}$, is positive,
- and has compact support contained in $\overline U$;
+ $\beta_k$ is positive and continuous, has support in the compact set
+ $K_0$, and pairs canonically with order-zero currents;
 \item\label{itm:ch16-beta:dd}
- $\ddprime\beta_k
-   =-2(k+a)\rho_-^{k+a-1}\ddprime\rho\wedge(\dprimeddprime\rho)^{n-k}$ and
+ if $1\leq k\leq n$, $l=k+a$, and
+ $b_k=2$ for $k<n$ while $b_n=1$, then distributionally
  \[
+ \ddprime\beta_k=-b_klr^{l-1}\ddprime\rho\wedge\theta^{n-k},
+ \qquad
  \begin{aligned}
-  \dprimeddprime\beta_k
-  =2(k+a)\Bigl[&-\rho_-^{k+a-1}(\dprimeddprime\rho)^{n-k+1}\\
-   &+(k+a-1)\rho_-^{k+a-2}
-     \dprime\rho\wedge\ddprime\rho\wedge(\dprimeddprime\rho)^{n-k}\Bigr];
+ \dprimeddprime\beta_k
+   &=b_kl\bigl[-r^{l-1}\theta^{n-k+1}\\
+   &\hspace{2.8em}+(l-1)r^{l-2}\eta\wedge\theta^{n-k}\bigr];
  \end{aligned}
  \]
+ these derivatives are represented by continuous coefficient forms;
 \item\label{itm:ch16-beta:sandwich}
- $-2(k+a)\beta_{k-1}\leq\dprimeddprime\beta_k\leq2(k+a)\beta_{k-1}$ for
+ $-2(k+a)\beta_{k-1}\leq\dprimeddprime\beta_k
+                 \leq2(k+a)\beta_{k-1}$ for
  $1\leq k\leq n$.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-\cref{itm:ch16-beta:reg}  For $a>1$ the function
-$\theta_a(t)=\max\{-t,0\}^a$ is of class $C^{\lfloor a\rfloor}$ with
-$\theta_a'=-a\theta_{a-1}$, whence
-$\dprime\rho_-^{\,b}=-b\rho_-^{\,b-1}\dprime\rho$ and similarly for
-$\ddprime$, valid for $b>1$; since $k+a-1>0$, both terms of
-\eqref{eq:ch16-beta-k} are of class $C^{\lfloor a\rfloor-1}$ and vanish
-where $\rho\geq0$.  Positivity: $\dprimeddprime\rho$ is positive because
-$\rho$ is smooth psh, $\dprime\rho\wedge\ddprime\rho$ is positive by
+Positivity and compact support in \cref{itm:ch16-beta:reg} follow because
+$\theta$ and $\eta$ are positive, all scalar coefficients are nonnegative
+and continuous for $a>1$, and $K_0$ is compact.  Positivity of $\eta$ is
 \Cref{prop:ch09-positivity-dictionary}, and products of positive forms with
 nonnegative coefficients are positive
-(\Cref{prop:ch09-positivity-products}).
+(\Cref{prop:ch09-positivity-products}).  Continuous coefficients multiply
+the Radon coefficient measures of an order-zero current in each fixed
+tropical presentation; finite partitions make the pairing intrinsic.
 
-\cref{itm:ch16-beta:dd}  Differentiate \eqref{eq:ch16-beta-k}.  In the first
-term, $\ddprime\rho_-^{k+a}=-(k+a)\rho_-^{k+a-1}\ddprime\rho$.  In the
-second, the coefficient contributes
-$-(k+a)(k+a-1)\rho_-^{k+a-2}\ddprime\rho\wedge\dprime\rho\wedge
-\ddprime\rho\wedge(\cdots)$, which vanishes because
-$\ddprime\rho\wedge\ddprime\rho=0$; and
-$\ddprime(\dprime\rho\wedge\ddprime\rho)
- =-\dprimeddprime\rho\wedge\ddprime\rho$ by $\ddprime\dprime=-\dprimeddprime$
-and $(\ddprime)^2=0$.  Adding the two contributions gives the stated
-$\ddprime\beta_k$.  Applying $\dprime$ once more and using
-$\dprime\rho_-^{k+a-1}=-(k+a-1)\rho_-^{k+a-2}\dprime\rho$ gives the formula
-for $\dprimeddprime\beta_k$.
+For \cref{itm:ch16-beta:dd}, fix $k\geq1$, put $q=n-k$, and set
+$F(t)=\max\{-t,0\}^{l}$.  Since $l=k+a>2$, the functions
+\[
+ F'(t)=-l\max\{-t,0\}^{l-1},\qquad
+ F''(t)=l(l-1)\max\{-t,0\}^{l-2}
+\]
+are continuous.  Let $F_\varepsilon$ be the convolution of $F$ with a
+nonnegative smooth probability kernel supported in $[-\varepsilon,
+\varepsilon]$.  For $q>0$ put
+\[
+ \beta_{k,\varepsilon}=F_\varepsilon(\rho)\theta^q
+       -F_\varepsilon'(\rho)\eta\wedge\theta^{q-1},
+\]
+and for $q=0$ put $\beta_{n,\varepsilon}=F_\varepsilon(\rho)$.  These are
+smooth, supported in the one compact $K_\delta$ for
+$0<\varepsilon<\delta$, and their scalar coefficients are nonnegative.
+Using
+$\ddprime\eta=-\theta\wedge\ddprime\rho$ and
+$\ddprime\rho\wedge\eta=0$, direct differentiation gives
+\[
+ \ddprime\beta_{k,\varepsilon}
+     =b_kF_\varepsilon'(\rho)\ddprime\rho\wedge\theta^q,
+ \qquad
+ \dprimeddprime\beta_{k,\varepsilon}
+     =b_k\bigl(F_\varepsilon'(\rho)\theta^{q+1}
+              +F_\varepsilon''(\rho)\eta\wedge\theta^q\bigr).
+\]
+The forms and these two derivatives converge uniformly in coefficient norm
+on a finite chart cover of $K_\delta$, proving the displayed formulas and
+showing that no measure on $\{\rho=0\}$ is created.  Notice that only
+$F,F',F''$ are regularized.  The assertion does \emph{not} require all
+coefficients of $\beta_k$ to be $C^2$, and $\beta_0$ is never differentiated.
 
-\cref{itm:ch16-beta:sandwich}  Write
-$\beta_{k-1}=\rho_-^{k-1+a}(\dprimeddprime\rho)^{n-k+1}
- +(k-1+a)\rho_-^{k+a-2}\dprime\rho\wedge\ddprime\rho\wedge
-  (\dprimeddprime\rho)^{n-k}$; both summands are positive.  The upper bound
-follows by discarding the negative first term of $\dprimeddprime\beta_k$ and
-comparing the second with $2(k+a)$ times the second summand of
-$\beta_{k-1}$, the coefficients being $(k+a-1)$ and $(k-1+a)$, which are
-equal.  The lower bound follows by discarding the positive second term and
-comparing the first with $-2(k+a)$ times the first summand of
-$\beta_{k-1}$.  This is the computation of \cite[\S8.4.2]{CLD25}.
+For \cref{itm:ch16-beta:sandwich}, write
+$\beta_{k-1}=r^{l-1}\theta^{n-k+1}
+ +(l-1)r^{l-2}\eta\wedge\theta^{n-k}$.
+Both summands are positive and $b_k\leq2$, so the asserted two-sided bound
+follows by discarding in turn one of the two terms in the exact derivative.
+At $k=n$ the scalar $\beta_n=r^{n+a}$ has $b_n=1$: its derivative does not
+vanish by degree, and the factor two from the two-summand cases must not be
+inserted.
 \end{proof}
 
 \subsection{The weighted inequality with its constant}
@@ -2672,13 +2911,15 @@ $\beta_{k-1}$.  This is the computation of \cite[\S8.4.2]{CLD25}.
 
 \begin{theorem}
 \label{thm:ch16-weighted-cln}
-Assume $a\geq3$ and put
+Let the data of \Cref{def:ch16-weight-forms} be given, with any real
+$a>1$.  Let $V$ be smooth psh on a neighbourhood of $K_\delta$ and negative
+on $U$, and let $u_1,\ldots,u_k$ be continuous psh on a neighbourhood of
+$K_\delta$.  Put
 \begin{equation}
 \label{eq:ch16-cln-constant}
  C(k,a)=(4\rme)^k\,a^{-1}\,(k+a)\,(2+a)(3+a)\cdots(k+1+a).
 \end{equation}
-Let $V$ be a smooth negative psh function on $U=\{\rho<0\}$ and let
-$u_1,\ldots,u_k$ be smooth psh functions on $X$.  Then
+For $k=0$ set $C(0,a)=1$.  Then
 \begin{equation}
 \label{eq:ch16-weighted-cln-main}
  \int_U\beta_k\wedge(-V)\,\dprimeddprime u_1\wedge\cdots\wedge
@@ -2706,94 +2947,106 @@ $\prod_{j=1}^k(j+a+1)=(2+a)\cdots(k+1+a)$; multiplying by $(4\rme)^k$ gives
 \eqref{eq:ch16-cln-constant}.  For $k=0$ the inequality
 \eqref{eq:ch16-weighted-cln-main} is an equality, and $C(0,a)=1$.
 
-\emph{Step 1: two integrations by parts.}  Since $\beta_k$ vanishes off $U$
-and $X$ is boundaryless, Green's formula
-(\Cref{cor:analytic-stokes-green}) gives
+Fix $1\leq k\leq n$, put $l=k+a$, let $b=b_k$ be as in
+\Cref{lem:ch16-beta-properties}, and set
 \[
- J_k=\int_X(-V\beta_k)\wedge\dprimeddprime(u_k\psi_{k-1})
-    =\int_X\dprimeddprime(-V\beta_k)\wedge u_k\psi_{k-1}.
+ S=\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_{k-1},
+ \qquad Q=\theta^{n-k}\wedge S.
 \]
-Expanding $\dprimeddprime(V\beta_k)$ by the Leibniz rule and using symmetry
-of $V$, $\beta_k$ and $\psi_{k-1}$ to cancel the two mixed first-order terms
-against each other, then integrating by parts once more in the surviving
-mixed term $2\,\dprime V\wedge\ddprime\beta_k$, one obtains
+Both currents are positive and closed, and $Q$ has bidegree
+$(n-1,n-1)$.  Let $z$ be a positive continuous psh function, bounded above
+and below by positive constants near $K_\delta$, and put
+$J(z)=\int_U(-V)\beta_k\wedge\dprimeddprime(zS)$.
+
+\emph{Step 1: compact coefficient integration by parts.}
+Use the smooth forms $\beta_{k,\varepsilon}$ from the proof of
+\Cref{lem:ch16-beta-properties}.  Green's formula and the product rule give
+the identity with $\beta_{k,\varepsilon}$ in place of $\beta_k$.  The
+order-zero terms pass to the uniform coefficient limit on $K_\delta$.
+For the apparently order-one term, first use
+\eqref{eq:ch16-energy-mixed-derivative}:
+\[
+ \int V\,\dprime(zS)\wedge\ddprime\beta_{k,\varepsilon}
+ =b\int V F_\varepsilon'(\rho)\,\Gamma_Q(z,\rho).
+\]
+This is one fixed signed Radon measure multiplied by uniformly convergent
+coefficients; it is not an extension of an order-one current to arbitrary
+continuous tests.  Passing to the limit gives
 \begin{equation}
 \label{eq:ch16-cln-after-parts}
- J_k=\int_Uu_k\bigl(V\dprimeddprime\beta_k
-     -\dprimeddprime V\wedge\beta_k\bigr)\wedge\psi_{k-1}
-   +2\int_UV\,\dprime u_k\wedge\ddprime\beta_k\wedge\psi_{k-1}.
+ J(z)=\int_U z\bigl(V\dprimeddprime\beta_k
+     -\dprimeddprime V\wedge\beta_k\bigr)\wedge S
+   +2bl\int_U(-V)r^{l-1}\Gamma_Q(z,\rho).
 \end{equation}
+All regularized supports lie in the single compact $K_\delta$.  No sign of
+$V$ on the collar $0<\rho<\varepsilon$ is used: inequalities are applied
+only after the limiting identity, on $U$.
 
-\emph{Step 2: the Cauchy--Schwarz trick.}  For $C^1$ functions $u,v$ and
-$h>0$ the positivity of $(\dprime u-h\dprime v)\wedge(\ddprime u-h\ddprime
-v)$ gives
+\emph{Step 2: measure-level Schwarz and the coefficient comparison.}
+The Radon--Nikodym Schwarz inequality
+\eqref{eq:ch16-energy-schwarz}, followed by Young's inequality with the
+continuous weights $r^{l/2}z^{-1/2}$ and
+$blz^{1/2}r^{(l-2)/2}$, gives the signed-measure inequality
 \begin{equation}
 \label{eq:ch16-cln-cauchy}
- \dprime u\wedge\ddprime v+\dprime v\wedge\ddprime u
- \leq h^{-1}\dprime u\wedge\ddprime u+h\,\dprime v\wedge\ddprime v .
+ 2bl(-V)r^{l-1}\Gamma_Q(z,\rho)
+ \leq(-V)r^lz^{-1}\Gamma_Q(z)
+   +b^2l^2(-V)zr^{l-2}\Gamma_Q(\rho).
 \end{equation}
-Assume for the moment that $u_k>0$.  Using
-\Cref{lem:ch16-beta-properties}\,\cref{itm:ch16-beta:dd} to expand
-$\ddprime\beta_k$, applying \eqref{eq:ch16-cln-cauchy} with $h=u_k$ and
-$v=\rho$, and using $\dprimeddprime V\geq0$, the two displayed terms of
-\eqref{eq:ch16-cln-after-parts} are dominated by
+Every term is finite on $K_\delta$, $z^{-1}$ is bounded, and all powers
+extend continuously by zero at $r=0$.
+
+The term $-z\dprimeddprime V\wedge\beta_k\wedge S$ in
+\eqref{eq:ch16-cln-after-parts} is nonpositive.  Since
+$\Gamma_Q(\rho)=\eta\wedge\theta^{n-k}\wedge S$, the remaining coefficient
+form is
 \[
-\begin{aligned}
- &\int_Uu_k(-V)\Bigl[-\dprimeddprime\beta_k
-  +4(k+a)^2\rho_-^{k+a-2}\dprime\rho\wedge\ddprime\rho\wedge
-   (\dprimeddprime\rho)^{n-k}\Bigr]\wedge\psi_{k-1}\\
- &\qquad+\int_U(-V)\beta_k\wedge\psi_{k-1}\wedge u_k^{-1}
-   \dprime u_k\wedge\ddprime u_k .
-\end{aligned}
+ blr^{l-1}\theta^{n-k+1}
+ +bl\bigl((b-1)l+1\bigr)r^{l-2}\eta\wedge\theta^{n-k}.
 \]
-By \Cref{lem:ch16-beta-properties}\,\cref{itm:ch16-beta:dd} the bracket
-equals
-\[
- 2(k+a)\rho_-^{k+a-1}(\dprimeddprime\rho)^{n-k+1}
- +(k+a+1)\,2(k+a)\,\rho_-^{k+a-2}
-   \dprime\rho\wedge\ddprime\rho\wedge(\dprimeddprime\rho)^{n-k},
-\]
-which is at most $c\,\beta_{k-1}$ with
-$c=2(k+a)(k+a+1)/(k+a-1)$.  Hence
+For $b=2$ its coefficients are $2l$ and $2l(l+1)$; for $b=1$ they are
+$l$ and $l$.  In both cases it is at most
+\begin{equation}
+\label{eq:ch16-cln-coefficient}
+ c_l\beta_{k-1},\qquad c_l=\frac{2l(l+1)}{l-1}.
+\end{equation}
+Thus
 \begin{equation}
 \label{eq:ch16-cln-positive-case}
- J_k\ \leq\ c\,\|u_k\|_U\,J_{k-1}
-   +\int_U(-V)\beta_k\wedge\psi_{k-1}\wedge
-     u_k^{-1}\dprime u_k\wedge\ddprime u_k ,
+ J(z)\leq c_l\|z\|_U J_{k-1}
+   +\int_U(-V)r^lz^{-1}\Gamma_Q(z).
 \end{equation}
-valid whenever $u_k$ is strictly positive.
 
-\emph{Step 3: removing the last term by an exponential substitution.}  Let
-$M=\|u_k\|_U$, let $B>0$, and apply \eqref{eq:ch16-cln-positive-case} to
-$v_k=\exp(Bu_k)$, which is smooth, psh by
-\Cref{prop:ch16-composition}, and strictly positive.  From
-$\dprime v_k=Bv_k\dprime u_k$ one gets
+\emph{Step 3: exponential cancellation.}
+Let $M=\|u_k\|_U$.  If $M=0$, then $u_k=0$ on $U$ and locality gives
+$J_k=0$.  Assume $M>0$, choose $B>0$, and put $z=\rme^{Bu_k}$.
+By \eqref{eq:ch16-energy-exp-combined}, on $U$,
 \[
- \dprimeddprime v_k
- =v_k^{-1}\dprime v_k\wedge\ddprime v_k+Bv_k\,\dprimeddprime u_k
- \ \geq\ B\rme^{-BM}\dprimeddprime u_k
-   +v_k^{-1}\dprime v_k\wedge\ddprime v_k ,
+ \dprimeddprime(zS)\geq
+ B\rme^{-BM}\dprimeddprime(u_kS)+z^{-1}\Gamma_S(z).
 \]
-using $u_k\geq-M$ and positivity of $\dprimeddprime u_k$.  Therefore
+After multiplication by $(-V)\beta_k$, the first summand of $\beta_k$ and
+\eqref{eq:ch16-energy-closed-factor} give
 \[
-\begin{aligned}
  B\rme^{-BM}J_k
- &\leq\int_U\beta_k\wedge(-V)\psi_{k-1}\wedge\dprimeddprime v_k
-   -\int_U\beta_k\wedge(-V)\psi_{k-1}\wedge
-      v_k^{-1}\dprime v_k\wedge\ddprime v_k\\
- &\leq c\,\|v_k\|_UJ_{k-1}\ \leq\ c\,\rme^{BM}J_{k-1},
-\end{aligned}
+ \leq J(z)-\int_U(-V)r^lz^{-1}\Gamma_Q(z).
 \]
-the middle inequality being \eqref{eq:ch16-cln-positive-case} applied to
-$v_k$.  Thus $J_k\leq cB^{-1}\rme^{2BM}J_{k-1}$, and the choice
-$B=1/(2M)$ gives $J_k\leq2\rme\,c\,M\,J_{k-1}$, which is
-\eqref{eq:ch16-cln-recursion}.  This is
-\cite[Proposition~8.4.3]{CLD25}.
+The second summand of $\beta_k$ contributes another nonnegative energy
+measure and is discarded.  The displayed energy integral is finite and is
+exactly the one in \eqref{eq:ch16-cln-positive-case}; it cancels before any
+estimate is relaxed.  Since $\|z\|_U\leq\rme^{BM}$,
+\[
+ J_k\leq c_lB^{-1}\rme^{2BM}J_{k-1}.
+\]
+Taking $B=(2M)^{-1}$ proves \eqref{eq:ch16-cln-recursion}.  Iteration proves
+\eqref{eq:ch16-weighted-cln-main}.  The argument applies directly to the
+full continuous psh sheaf: the only approximation performed was the
+structured regularization of the fixed coefficient $\beta_k$.
 \end{proof}
 
 \begin{remark}[Size of the constant]
 \label{rem:ch16-cln-constant-size}
-For the standard choice $a=3$ used in \Cref{sec:ch16-polar} one has
+For the convenient choice $a=3$ one has
 \[
  C(k,3)=\frac{(4\rme)^k}{3}\,(k+3)\cdot5\cdot6\cdots(k+4)
  =\frac{(4\rme)^k(k+3)(k+4)!}{72}.
@@ -2802,8 +3055,12 @@ Thus $C(1,3)=4\rme\cdot4\cdot120/72=\tfrac{80}{3}\rme\approx72.5$.  The
 factorial growth in $k$ is an artifact of the exponential substitution in
 Step 3 and is irrelevant for the applications, in which $k\leq n$ is fixed
 and only finiteness matters.  What \emph{is} essential is that $C(k,a)$
-depends on neither $V$ nor the $u_i$; this is what allows both limits in
-\Cref{thm:cld-polar-negligibility} to be taken.
+depends on neither $V$ nor the $u_i$; this is what allows the coefficient
+regularization and the later one-variable monotone passage in
+\Cref{thm:cld-polar-negligibility} to be taken without approximating the
+curvature factors.  The proof works for every
+real $a>1$ without claiming that the coefficients of every $\beta_k$ are
+$C^2$.
 \end{remark}
 
 The CLN bound is the local mass estimate behind weak compactness and polar
@@ -3451,8 +3708,12 @@ The former pushes an
 already defined current; the latter identifies the pushforward of a smooth
 vertical form with actual integration over analytic fibres.
 
+The next proposition is a pushforward identity for local Hessian currents.
+It is not the Chern-current degree formula: total curvature mass on a proper
+algebraic variety is computed instead by \Cref{thm:ch17-degree}.
+
 \begin{proposition}
-\label{prop:ch16-degree-formula}
+\label{prop:ch16-generically-finite-pushforward}
 Let $X$ be a boundaryless good $n$-dimensional $K$-analytic space, let
 $f:Y\to X$ be a topologically compact morphism from a boundaryless
 $n$-dimensional space which is finite over a dense Zariski-open subset, and
@@ -3463,22 +3724,37 @@ continuous psh $u_1,\ldots,u_m$ that are locally approachable,
     \dprimeddprime(f^*u_m)\bigr)
  =\delta\cdot\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_m .
 \]
+If $X$ is in addition separated, strict, and pure of dimension $n$, the
+$u_i$ may be arbitrary continuous psh functions.
 \end{proposition}
 
 \begin{proof}
-The left-hand side is a positive current, being a proper pushforward of one.
-The right-hand side is the product of the positive current
-$\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_m$ by the bounded
-Borel function $\delta$; that this product is again a current requires that
-the measure attached to the product does not charge the locus where
-$\delta$ fails to be locally constant, which is a Zariski-closed set of
-dimension $<n$.  That is exactly
-\Cref{thm:cld-polar-negligibility}.  Off that locus $f$ is finite flat of
-degree $\delta$, and the identity is the projection formula
-\Cref{prop:bt-projection-formula} together with the multiplicity count of
-\Cref{thm:trop-finite-pushforward}.  This is
-\cite[Corollary~16.9.5]{CLD25}; the locally approachable hypothesis enters
-only through the negligibility theorem.
+Put
+\[
+ T=\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_m.
+\]
+For locally approachable potentials, the assertion is exactly
+\cite[Corollary~16.9.5]{CLD25}.  In particular that corollary proves, rather
+than assumes, that every extension $\delta$ of the generic local degree is
+locally integrable for the completed coefficient measures of $T$ and that
+the resulting current $\delta T$ is independent of the values assigned on
+the exceptional locus.
+
+It remains to justify the stated strict full-$\operatorname{CPsh}$ extension.
+Let $E$ be the Zariski-closed locus on which the generic finite-flat degree
+is not locally constant.  It has local dimension $<n$.  By
+\Cref{cor:ch16-cpsh-analytic-nullity}, every coefficient measure of $T$ has
+zero total variation on $E$.  Hence, after completing those measures, an
+arbitrary real-valued extension $\delta$ across $E$ is measurable and locally
+integrable, its values on $E$ are invisible, and $\delta T$ is well defined.
+On $X\setminus E$ the projection formula
+\Cref{prop:bt-projection-formula} and the finite-flat multiplicity count
+\Cref{thm:trop-finite-pushforward} give the displayed identity.  The same
+analytic-nullity statement makes the exceptional contribution in the
+projection-formula reduction vanish, so the identity holds on $X$.  This is
+precisely the extra step needed to extend the cited locally approachable
+result; no boundedness or Borel hypothesis on the chosen values of $\delta$
+along $E$ is used.
 \end{proof}
 
 \section{Skeletal currents and their products}
@@ -4149,120 +4425,134 @@ than merely belonging abstractly to the transfinite CLD sheaf.
 
 In the notation of \Cref{def:ch16-psh-filtration}, locally approachable means
 being a section of $\operatorname{Psh}_{X,1}$, which is
-\cite[Definition~8.1.13]{CLD25}.  The hypothesis is used twice in the proof
-below, and in both places it is used for what it literally says: to produce
-a decreasing sequence of \emph{smooth} psh functions to which
-\Cref{thm:ch16-weighted-cln} applies.  Since the collapse of the filtration
-at stage one is open (\Cref{prop:ch16-hierarchy-status}), the hypothesis
-cannot at present be removed.
+\cite[Definition~8.1.13]{CLD25}.  In the theorem below this hypothesis is
+retained only for the possibly unbounded auxiliary function $V$, where it
+supplies smooth psh truncations on one ordinary neighbourhood.  The
+continuous curvature factors $u_i$ may belong to the full minimal
+uniform-closure sheaf $\operatorname{CPsh}_X$; no collapse at stage one is
+asserted or needed.
 
 \begin{theorem}
 \label{thm:cld-polar-negligibility}
-Let $X$ be a good, pure $n$-dimensional boundaryless analytic space.  Let
-$u_1,\ldots,u_m$ be continuous psh functions that are locally approachable,
-let $V$ be locally approachable psh and locally integrable, and let $\alpha$
-be a smooth $(n-m,n-m)$-form.  Then $V$ is locally integrable for the signed
-measure
+Let $X$ be a boundaryless, locally differentially separated, pure
+$n$-dimensional tropical space.  Assume that every point has arbitrarily
+small ordinary neighbourhoods carrying a smooth psh function $\rho$ with
+$\rho(x)<0$ and $K_\delta=\{\rho\leq\delta\}$ compact for some
+$\delta>0$.  Let $u_1,\ldots,u_m$ be arbitrary continuous psh functions,
+let $V$ be locally approachable psh and locally integrable for smooth
+top-degree measures, and let $\alpha$ be a smooth
+$(n-m,n-m)$-form.  Then $V$ is locally integrable for the total variation of
+the signed measure
 \[
           \dprimeddprime u_1\wedge\cdots\wedge
           \dprimeddprime u_m\wedge\alpha.
 \]
-If $\alpha$ is positive, this measure does not charge the polar locus
-$\{V=-\infty\}$.  In particular it charges no analytic subset of dimension
-$<n$.
+Consequently this measure has zero total variation on the polar locus
+$\{V=-\infty\}$.
 \end{theorem}
+
 \begin{proof}
-The assertion is local.  Choose a rational affinoid neighborhood $W$ of a
-point and a smaller neighborhood $W'\Subset W$.  Finitely many functions
-defining $W'$ inside $W$, followed by a smooth regularized maximum of their
-logarithmic absolute values, give a smooth psh barrier $\rho$ whose relevant
-sublevel set is relatively compact in $W$.  This is the barrier construction
-of \cite[Proposition~16.9.1]{CLD25}.
-
-Choose decreasing smooth psh approximants $V_k\downarrow V$ and uniformly
-convergent smooth psh approximants $u_{i,k}\to u_i$ on $W$.  Insert cutoff
-functions obtained from $\rho$.  Repeated integration by parts and positivity
-give the weighted Chern--Levine--Nirenberg estimate
-\begin{equation}\label{eq:cld-weighted-cln}
- \int_{W'}(-V_k)
-   \dprimeddprime u_{1,k}\wedge\cdots\wedge
-   \dprimeddprime u_{m,k}\wedge\alpha
- \le C,
+It is enough first to treat $m=n$ and $\alpha=1$.  Fix $x$, choose one
+ordinary neighbourhood on which $V_p\downarrow V$ with every $V_p$ smooth
+psh, and choose the compact-sublevel barrier inside that neighbourhood and
+inside the domains of the finitely many $u_i$.  Subtract one constant from
+all $V_p$ and $V$ so that every $V_p<0$ near $K_\delta$; this is possible
+because $V_p\leq V_1$ there.  Fix an integer $a\geq4$.  For each fixed $p$,
+\Cref{thm:ch16-weighted-cln} applies directly to the full-CPsh factors and
+gives
+\begin{equation}
+\label{eq:cld-weighted-cln}
+ \int_U r^{n+a}(-V_p)\,
+       \dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_n
+ \leq C(n,a)\prod_{i=1}^n\|u_i\|_U\int_U(-V)\beta_0.
 \end{equation}
-after adding a harmless constant so that $V_k\le0$.  The constant depends on
-the compact inclusion, the barrier, the local sup norms of the $u_i$, and
-$\alpha$, but not on $k$.  To see the independence, move one
-$\dprimeddprime$ at a time from $u_{i,k}$ to the fixed cutoff; the boundary
-terms vanish because the cutoff has compact support, and each remaining term
-is bounded by positivity and the fixed oscillation of $u_{i,k}$.  At the last
-step the same operation moves $\dprimeddprime$ from $V_k$ to the barrier.
+Indeed $-V_p\leq -V$ after the common shift.  The last integral is finite:
+$\beta_0$ has compact continuous coefficients and, on fixed compact charts,
+is dominated by finitely many smooth positive top forms, against which $V$
+is locally integrable.  All coefficient regularizations in the weighted
+proof are taken with $p$ fixed; the bound uses no derivative of $V_p$.
 
-Uniform Bedford--Taylor continuity sends the mixed measures in
-\eqref{eq:cld-weighted-cln} to
-$\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_m\wedge\alpha$.
-Fatou's lemma and then monotone convergence give local integrability of
-$-V$, hence of $V$, for the resulting signed measure; decompose a general
-smooth $\alpha$ into a difference of positive forms on the fixed compact
-chart.  If $\alpha$ is positive, the measure is positive.  Since an
-integrable extended-real function is finite almost everywhere, it assigns
-zero mass to $\{V=-\infty\}$.
+Now let $p\to\infty$.  Monotone convergence for the one fixed positive
+Monge--Amp\`ere measure gives the same estimate with $-V$ on the left.
+On a smaller compact neighbourhood of $x$ in $U$, the factor $r^{n+a}$ has a
+positive lower bound.  Thus $V$ is locally integrable for
+$\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_n$.
 
-Finally, let $Z$ be an analytic subset of dimension less than $n$.  Locally
-choose an analytic function $f$ vanishing on $Z$ but on no top-dimensional
-component.  The functions
-$\max\{\log|f|,-k\}$ admit decreasing smooth psh regularizations, so
-$\log|f|$ is locally approachable, locally integrable, and equals
-$-\infty$ on $Z$.  The preceding paragraph shows that the mixed measure does
-not charge $Z$.  The estimate and limiting argument are
-\cite[Theorem~16.9.2 and Corollaries~16.9.3--16.9.4]{CLD25}.
+For $m<n$, work in one ordinary tropical presentation near a compact test
+support and replace $\alpha$ by its symmetric part; the antisymmetric part
+pairs to zero with the symmetric product current.  If $f$ is the chart, set
+$v=f^*\|t\|^2$.  The middle-positive interior estimate of
+\Cref{lem:ch14-eta-dominates} gives, for some $C>0$,
+\[
+ -C(\dprimeddprime v)^{n-m}\leq\alpha
+        \leq C(\dprimeddprime v)^{n-m}.
+\]
+Apply the top-degree case to $u_1,\ldots,u_m$ and $n-m$ copies of $v$.
+The resulting positive measure dominates the total variation of the trace
+with $\alpha$.  This also covers $m=0$; for $m=n$, a smooth scalar is locally
+bounded and the top-degree case applies directly.  A finite compact
+partition completes the local assertion.  Since an integrable extended-real
+function is finite almost everywhere for the total-variation measure, that
+measure is zero on $\{V=-\infty\}$.
 \end{proof}
 
-The barrier is \Cref{thm:ch16-barrier}, and the weighted estimate is
-\Cref{thm:ch16-weighted-cln}.  We record the two limits explicitly, since
-the order in which they are taken is the only delicate point.
+\begin{corollary}
+\label{cor:ch16-cpsh-analytic-nullity}
+Let $K$ be any complete non-Archimedean field, possibly trivially valued,
+and let $X$ be a good, separated, strict, boundaryless, pure
+$n$-dimensional $K$-analytic space.  If $u_1,\ldots,u_m$ are arbitrary
+continuous psh functions, $\alpha$ is a smooth $(n-m,n-m)$-form, and
+$Z\subseteq X$ is closed analytic of local dimension $<n$, then
+\[
+ \left|
+  \dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_m\wedge\alpha
+ \right|(Z)=0.
+\]
+Here the bars denote total variation of the signed trace measure.
+\end{corollary}
 
-\begin{proof}[Second proof of the integrability statement, for
-$m=n$ and $\alpha=1$]
-\leavevmode\par\noindent
-By \Cref{thm:ch16-barrier} we may assume that there is a smooth psh $\rho$
-on $X$ with $U=\{\rho<0\}$ a relatively compact neighbourhood of the given
-point; fix $a=3$ and let $\beta_0,\ldots,\beta_n$ be as in
-\Cref{def:ch16-weight-forms}.  Local approachability gives smooth psh
-$u_{i,\ell}\to u_i$ locally uniformly and smooth psh $V_p\downarrow V$; after
-subtracting constants, $V_p\leq0$.  \Cref{thm:ch16-weighted-cln} gives, for
-all $\ell,p$,
+\begin{proof}
+The compact-sublevel hypothesis in
+\Cref{thm:cld-polar-negligibility} is supplied, inside every prescribed
+ordinary neighbourhood, by \Cref{thm:ch16-barrier}.  Locally, prime
+avoidance produces an analytic function $f$ vanishing on $Z$ but not
+identically on any $n$-dimensional component.  Its zero set has dimension
+$<n$.  We use here the precise integrability input recorded in the proof of
+\cite[Corollary~16.9.4]{CLD25}: for such an $f$, the function $\log|f|$ is
+continuous on every skeletal subset of $X$ and is therefore locally
+integrable in the canonical sense.  Indeed, a compactly supported ordinary
+smooth top form is evaluated through finitely many tropical presentations on
+compact calibrated polyhedra; on each of the corresponding skeletal pieces
+the restriction of $\log|f|$ is continuous and the calibrated smooth
+top-form measure has finite mass.  Summing the finitely many chart integrals
+gives local integrability of $\log|f|$.  This argument does not claim that the
+support of the top form avoids $\{f=0\}$, and it imports only the
+source-established local-integrability fact, not the polar-nullity conclusion
+of \cite[Corollary~16.9.4]{CLD25}.
+
+The stage-one assertion for this particular pole can be made explicit.  Let
+$F$ be the convolution of $\max\{t,0\}$ with an even smooth probability
+kernel supported in $[-1,1]$.  Then $F$ is smooth and convex,
+$0\leq F'\leq1$, $F=0$ for $t\leq-1$, and $F(t)=t$ for $t\geq1$.  Put
 \[
- \int_X\beta_n\wedge(-V_p)\,\dprimeddprime u_{1,\ell}\wedge\cdots
-   \wedge\dprimeddprime u_{n,\ell}
- \ \leq\ C(n,3)\,\|u_{1,\ell}\|_U\cdots\|u_{n,\ell}\|_U
-   \int_U(-V_p)\beta_0 ,
+                         F_p(t)=-p+F(t+p).
 \]
-the extension of the integral from $U$ to $X$ being harmless because
-$\beta_n$ vanishes off $U$.  Let $\ell\to\infty$ with $p$ fixed: the
-left-hand side converges by \Cref{thm:cld-bt-continuity}, the outer factor
-$\beta_n\wedge(-V_p)$ being a fixed continuous compactly supported weight,
-and the sup-norms on the right converge to $\|u_i\|_U$.  Hence
-\[
- \int_X\beta_n\wedge(-V_p)\,\dprimeddprime u_1\wedge\cdots
-   \wedge\dprimeddprime u_n
- \ \leq\ C(n,3)\,\|u_1\|_U\cdots\|u_n\|_U\int_U(-V_p)\beta_0 .
-\]
-Now let $p\to\infty$.  On the left, $-V_p\uparrow-V$ and monotone
-convergence applies to the positive measure
-$\beta_n\wedge\dprimeddprime u_1\wedge\cdots\wedge\dprimeddprime u_n$; on
-the right, monotone convergence applies to the positive measure
-$\beta_0$, and the limit $\int_U(-V)\beta_0$ is finite because $V$ is
-locally integrable and $\beta_0$ has bounded density.  Since $\beta_n$ is
-continuous and strictly positive on $U$, we conclude that $-V$ is locally
-integrable on $U$ for $\dprimeddprime u_1\wedge\cdots\wedge
-\dprimeddprime u_n$.  The general $m$ and general smooth $\alpha$ follow by
-comparing $\alpha$ with $\pm c(\dprimeddprime\|t\|^2)^{n-m}$ in a fixed
-affine chart, as in \cite[Corollary~8.12.2]{CLD25}.
+The smooth functions $F_p(\log|f|)$, extended by the constant $-p$ where
+$f=0$, are psh: they are constant on an ordinary neighbourhood of every zero,
+and elsewhere are convex functions of the analytic log-unit.  Since
+$\partial F_p/\partial p=-1+F'(t+p)\leq0$, they decrease to $\log|f|$,
+also at its poles.  Thus $\log|f|$ is locally approachable without taking a
+limit of successive approximation stages.  Applying
+\Cref{thm:cld-polar-negligibility} with $V=\log|f|$, whose polar set contains
+$Z$, proves the asserted zero total-variation mass for the full-CPsh product
+trace.
 \end{proof}
 
-The goodness and local approachability assumptions are retained here.  The
-theorem is not a blanket assertion that every pluripolar set is negligible
-for every possible non-Archimedean Monge--Amp\`ere construction.
+The auxiliary polar function remains locally approachable and canonically
+locally integrable.  The new argument removes that hypothesis only from the
+continuous curvature factors.  It is not a blanket assertion that every
+pluripolar set is negligible for every non-Archimedean Monge--Amp\`ere
+construction, and it does not define products of unbounded potentials.
 
 \begin{warning}{Negligibility of polar sets is not extension across them}
 \Cref{thm:cld-polar-negligibility} says that a \emph{given} product of
@@ -4339,7 +4629,8 @@ mass control
  &global, total mass fixed by the class
  &\Cref{thm:cld-cln}; \Cref{chap:bfj-energy}; \Cref{chap:bj-energy}\\
 polar sets
- &not charged, under local approachability
+ &not charged by products of arbitrary continuous psh factors, provided the
+  auxiliary polar function is locally approachable and locally integrable
  &not charged, by construction
  &not charged, by construction
  &\Cref{thm:cld-polar-negligibility};
@@ -4441,6 +4732,10 @@ dpsh extension
  &unique multilinear extension
   (\Cref{thm:ch16-dpsh-product})
  &\Cref{thm:cld-fibre-projection}\\
+energy current
+ &positive first-order pairing for every dpsh difference
+  (\Cref{prop:ch16-energy-positivity})
+ &\Cref{thm:ch16-weighted-cln}\\
 continuity theorem
  &joint weak continuity
   (\Cref{thm:cld-bt-continuity})
@@ -4451,7 +4746,8 @@ CLN inequality
   (\Cref{thm:cld-cln})
  &\Cref{prop:positive-current-compactness}\\
 weighted CLN inequality
- &constant \eqref{eq:ch16-cln-constant}
+ &full continuous-psh factors, constant \eqref{eq:ch16-cln-constant}, and
+  endpoint coefficient $b_n=1$
  &\Cref{thm:cld-polar-negligibility}\\
 skeletal product formula
  &weights \eqref{eq:ch16-skeletal-weights}
@@ -4462,9 +4758,9 @@ harmonic compatibility
  &\Cref{sec:harmonic-trop},
   \Cref{thm:abelian-harmonic-tropicalization}\\
 polar negligibility
- &no mass on $\{V=-\infty\}$
+ &total-variation zero on $\{V=-\infty\}$ for full continuous-psh factors
   (\Cref{thm:cld-polar-negligibility})
- &\Cref{prop:ch16-degree-formula},
+ &\Cref{prop:ch16-generically-finite-pushforward},
   \Cref{chap:compare-ma}\\
 \end{tabular}
 \end{center}
@@ -4533,11 +4829,15 @@ harmonic chart
  &\Cref{thm:bt-harmonic-compatibility}; without harmonicity the boundary
   current $[\alpha]^\partial$ need not vanish\\
 locally approachable
- &\Cref{thm:cld-polar-negligibility}; the proof needs decreasing
-  \emph{smooth} approximants and stage-one collapse is open in general\\
+ &\Cref{thm:cld-polar-negligibility}, for the auxiliary function $V$ only;
+  the proof needs its decreasing smooth approximants, while the curvature
+  factors range over the full $\operatorname{CPsh}$ sheaf and stage-one
+  collapse remains open\\
 $X$ good
- &\Cref{thm:ch16-barrier}; no smooth psh exhaustion is available in
-  general\\
+ &\Cref{thm:ch16-barrier}; together with separatedness, strictness and
+  boundarylessness it supplies a compact positive closed sublevel on a larger
+  ordinary open, not a globally negative function with compact nonpositive
+  sublevel\\
 \end{tabular}
 \end{center}
 
@@ -4546,21 +4846,45 @@ $X$ good
 \paragraph{The construction.}
 The recursive product, the notion of Bedford--Taylor current, symmetry,
 local uniform continuity, the projection formula, the Chern--Levine--%
-Nirenberg estimates, the skeletal product formulae, harmonic-chart
-compatibility, and the polar theorem all follow
-\cite[\S\S8.1--8.12 and \S16.9]{CLD25}.  Our numbering of the imported
-statements records the 2025 revision: the local results are
-\cite[\S\S8.4--8.12]{CLD25} and their analytic transcriptions are
-\cite[\S16.9]{CLD25}, which is why \Cref{thm:cld-polar-negligibility} is
-cited from the latter while \Cref{thm:ch16-weighted-cln} is cited from the
-former.  The reader comparing with the source will find the same theorems in
-a different order: we have isolated the sheaf-closure principle
+Nirenberg estimate of \Cref{thm:cld-cln}, the skeletal product formulae, and
+harmonic-chart compatibility follow
+\cite[\S\S8.1--8.12]{CLD25}.  The compact-sublevel strategy, weighted
+integration by parts, and analytic polar application are compared with
+\cite[\S8.4 and \S16.9]{CLD25}, but the statements proved here are not
+literal transcriptions.  Three repairs are material: the barrier is defined
+on a larger ordinary open with a compact positive closed sublevel; the top
+weight has derivative coefficient $b_n=1$ rather than $2$; and each smooth
+auxiliary truncation is defined on a neighbourhood of the one compact
+$K_\delta$ used by the integration by parts.  The energy argument of
+\Cref{sec:ch16-energy-currents} then removes local approachability from the
+continuous curvature factors while retaining it for the auxiliary pole.
+
+The reader comparing the remaining construction with the source will find
+the same theorems in a different order: we have isolated the sheaf-closure principle
 (\Cref{lem:ch16-cpsh-induction}) as a lemma, whereas the source repeats the
 argument at each application; we have made the constant of
 \Cref{thm:cld-cln} explicit as a mass of $T$
 (\Cref{prop:ch16-cln-constant}), which the source does not do; and we have
 placed the harmonic-ambiguity material in one section rather than
 distributing it between \S8.6 and \S8.11.
+
+\paragraph{The full continuous-psh weighted repair.}
+The energy, weighted, polar, and analytic-nullity arguments above are
+book-level first-draft deductions from the cited CLD calculus and the explicit
+compact rational-domain construction; no novelty or priority is claimed.
+Their exact frozen research proof and fresh independent mathematical audit
+are recorded in the local dossiers
+\nolinkurl{p213_cpsh_weighted_polar_research_20260901} and
+\nolinkurl{p213_cpsh_weighted_polar_fresh_audit_20260901}.  The extension from
+integer parameters to every real $a>1$ is the separately frozen and
+independently audited structured-regularization argument in
+\nolinkurl{p213_weight_parameter_extension_research_20260901} and
+\nolinkurl{p213_weight_parameter_extension_independent_audit_20260901}; it
+regularizes $F=(-t)_+^{k+a}$ and uses $F'$ in the second weight summand, rather
+than asserting that every $\beta_k$ is $C^2$.  No componentwise curvature corollary is asserted here.  The preceding
+results concern the full integration current; a componentwise statement
+requires additional component-geometry input and a separate verification
+gate.
 
 \paragraph{The complex prototype.}
 The recursion \eqref{eq:ch16-recursion-schema} is Bedford and Taylor's
@@ -4825,9 +5149,10 @@ infinite-star collapse of
 \Cref{thm:p071-infinite-star-collapse-candidate} are likewise first-draft
 results.  The remaining theorem families in this chapter come from the
 cited sources.
-The organizational
-choices that differ from CLD are the four listed above: the sheaf-closure
-principle as a named lemma, the explicit CLN constant, the single
+The organizational and proof
+choices that differ from CLD include the sheaf-closure
+principle as a named lemma, the explicit CLN constant, the dpsh energy
+calculus and corrected full-continuous-psh weighted argument, the single
 harmonic-ambiguity section, and the delimitation table of
 \Cref{sec:ch16-delimitation-table}, which exists because
 \Cref{part:bfj,part:bj,part:comparisons} depend on not conflating the local
