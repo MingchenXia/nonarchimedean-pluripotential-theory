@@ -821,7 +821,12 @@ counted as an additional unresolved atom.
   Chapter 71 candidate proves upper semicontinuity at arbitrary
   nondivisorial semivaluations, but this atom remains active until its
   source-closed production verification passes.
-- **P14.3** `[T4; open]` Decide MP positivity at those semivaluations.
+- **P14.3** `[T4; open; finite-energy K\"ahler reduction prepared]` Decide
+  MP positivity at those semivaluations.  A reproducibly checked research
+  candidate combines proposed dominated rational-divisorial approximation
+  with P14.2 upper semicontinuity to recover the all-point finite-energy
+  K\"ahler comparison, but it awaits independent and source-closed
+  production verification and leaves the general problem open.
 - **P14.4** `[T4; open]` Construct a \(P\)-sensitive positivity theory for
   big non-nef classes.
 - **P14.5** `[T5; open]` Construct the corresponding Monge--Amp\`ere

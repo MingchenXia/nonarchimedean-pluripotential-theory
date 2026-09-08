@@ -36,3 +36,11 @@ Before any live promotion, the unchanged mathematical bytes still require an
 independent exact-byte mathematical audit and a source-closed production
 verification.  In particular, P14.2's current production-verification
 boundary remains a dependency of the conditional finite-energy corollary.
+
+## Chapter 72 interface
+
+On 8 September 2026, Chapter 72 and the atomic inventory were updated to
+describe this exact finite-energy K\"ahler reduction and its remaining gates.
+The update leaves P14.3 active, does not alter any count or tier, and does not
+present the candidate as a theorem of the book.  A full-book build completed
+successfully after that reader-facing clarification.
