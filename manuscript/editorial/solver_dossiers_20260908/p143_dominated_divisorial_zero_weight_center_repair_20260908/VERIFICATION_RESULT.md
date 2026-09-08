@@ -29,7 +29,8 @@ and DXZ23 source texts listed there.
 
 ## Production boundary
 
-This is an independent verification of P14.3 v3, not automatic Chapter 72
-retirement or integration.  The finite-energy conclusion remains explicitly
-conditional on the unresolved P14.2 upper-semicontinuity premise.  No Chapter
-72 count, status, or live theorem text is changed by this receipt.
+This independently verifies P14.3 v3, but did not itself authorize Chapter 72
+retirement or integration.  The later Chapter 71/72 integration is documented
+in `LIVE_INTEGRATION.md`; its source-closed production-verification record
+remains incomplete, and P14.3 remains active beyond the finite-energy Kähler
+conclusion.  No retirement or count change follows from this receipt.

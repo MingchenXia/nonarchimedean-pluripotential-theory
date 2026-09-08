@@ -823,12 +823,13 @@ counted as an additional unresolved atom.
   model-backed review of its frozen proof and five cited source extracts.
   This atom remains active until source-closed production verification passes.
 - **P14.3** `[T4; open; finite-energy K\"ahler reduction prepared]` Decide
-  MP positivity at those semivaluations.  A reproducibly checked research
-  candidate, which has passed a zero-finding independent model-backed review,
-  combines proposed dominated rational-divisorial approximation with P14.2
-  upper semicontinuity to recover the all-point finite-energy K\"ahler
-  comparison.  It still awaits source-closed production verification and
-  leaves the general problem open.
+  MP positivity at those semivaluations.  The Chapter 71
+  domination-preserving rational-divisorial theorem and its finite-energy
+  K\"ahler corollary recover the all-point comparison from P14.2 upper
+  semicontinuity and divisorial agreement.  Its exact v3 source packet has
+  passed a zero-finding independent model-backed review, while its
+  source-closed production-verification record remains incomplete.  The
+  general MP-positivity problem remains open.
 - **P14.4** `[T4; open]` Construct a \(P\)-sensitive positivity theory for
   big non-nef classes.
 - **P14.5** `[T5; open]` Construct the corresponding Monge--Amp\`ere

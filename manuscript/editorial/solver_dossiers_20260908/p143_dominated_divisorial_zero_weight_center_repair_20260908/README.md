@@ -13,9 +13,10 @@ stratum, its ideal would be contained in the positive central ideal, forcing
 its semivaluation weight to be positive.
 
 This repair preserves the theorem statement, the rational divisorial
-approximation claim, and every conclusion. It is not an independent
+approximation claim, and every conclusion. It is not by itself an independent
 mathematical audit, a source-closed production verdict, live-book integration,
-or P14.3 retirement evidence.
+or P14.3 retirement evidence. A later source-aligned live-book integration is
+recorded separately in `LIVE_INTEGRATION.md`.
 
 ## Exact boundary
 
@@ -33,5 +34,8 @@ log hashes. `VERIFICATION_STATEMENT.md`, `VERIFICATION_PROOF.md`, and
 explicitly authorized model-backed review subsequently returned `correct`
 with zero critical errors and zero gaps; its immutable HTTP-200 receipt is
 archived in `VERIFICATION_RUN_20260908/` and summarized in
-`VERIFICATION_RESULT.md`.  This is not a source-closed production verdict,
-live-book integration, or P14.3 retirement.
+`VERIFICATION_RESULT.md`.  This review did not itself supply a source-closed
+production verdict, live-book integration, or P14.3 retirement.  The later
+Chapter 71/72 integration is recorded in `LIVE_INTEGRATION.md`; its
+source-closed production-verification record remains incomplete, and P14.3
+remains active beyond the finite-energy Kähler conclusion.

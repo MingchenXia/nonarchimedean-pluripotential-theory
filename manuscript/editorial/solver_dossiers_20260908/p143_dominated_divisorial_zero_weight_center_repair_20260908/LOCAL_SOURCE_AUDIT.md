@@ -59,6 +59,8 @@ exact v3 packet returned `correct`, with zero critical errors and zero gaps.
 Its HTTP status was 200; the request, response, and headers are immutably
 archived in `VERIFICATION_RUN_20260908/` and their SHA-256 values are listed
 in `VERIFICATION_RESULT.md`.  This local source-alignment audit and the
-independent review do not supply a source-closed production verdict,
-live-book integration, or retirement: the finite-energy conclusion remains
-conditional on P14.2, and P14.3 remains active.
+independent review do not themselves supply a source-closed production verdict,
+live-book integration, or retirement.  The later source-aligned integration is
+recorded in `LIVE_INTEGRATION.md`; its source-closed production-verification
+record remains incomplete, and P14.3 remains active beyond the finite-energy
+Kähler conclusion.
