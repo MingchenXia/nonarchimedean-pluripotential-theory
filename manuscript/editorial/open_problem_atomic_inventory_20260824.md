@@ -999,7 +999,12 @@ open atoms.  The four corrected residual targets above remain open.
   standard strict open polycylinders are settled by
   `cor:p213-polycylinder-basis-v2-candidate`; on one standard strict open
   polycylinder, pairs defined on the whole polycylinder are settled by
-  `prop:p213-fixed-polycylinder-v2-candidate`.  The literal
+  `prop:p213-fixed-polycylinder-v2-candidate`.  The invariant
+  split-toric dense-orbit subcase is settled by
+  `prop:p213-invariant-split-toric-continuous-pairs-candidate`: it allows an
+  arbitrary positive closed CLD current, but requires maximal-compact-torus
+  invariant continuous psh potentials on an open tropical inverse image.
+  The literal
   discontinuous-potential predicate of CLD
   Definition 8.6.2 is a stronger scope boundary and is not a separately
   counted atom.
