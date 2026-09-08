@@ -23,5 +23,8 @@ Chapter 51 dependency that caused the rejection.
 
 ## Boundary
 
-This is a candidate review packet, not a verification result, production
-release, live integration, or evidence for retiring P14.8.
+The explicitly authorized model-backed review of this exact v4 packet returned
+`correct`, with zero critical errors and zero gaps.  Its immutable HTTP-200
+receipt is in `VERIFICATION_RUN_20260908/` and is summarized in
+`VERIFICATION_RESULT.md`.  That review is neither a source-complete production
+release nor, by itself, evidence for retiring P14.8.

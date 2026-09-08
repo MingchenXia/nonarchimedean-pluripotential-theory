@@ -26,5 +26,9 @@ and the divergent capacity sum starts at $m=1$.
 
 ## Boundary
 
-This is a local source and byte audit. A new model-backed review of the exact
-v4 packet is still required before any P14.8 integration or status change.
+This is a local source and byte audit.  The exact v4 packet was subsequently
+reviewed by the explicitly authorized model-backed verifier, which returned
+`correct` with zero critical errors and zero gaps; see
+`VERIFICATION_RESULT.md` and `VERIFICATION_RUN_20260908/`.  Neither that
+review nor this audit is a source-complete production verdict or P14.8
+retirement evidence.

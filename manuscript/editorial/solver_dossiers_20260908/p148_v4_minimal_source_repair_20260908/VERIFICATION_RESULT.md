@@ -37,9 +37,11 @@ it does not revise the v3 receipt.
 
 ## Remaining production gates
 
-P14.8 is still not retired or integrated into Chapter 72. The outstanding
-work is the previously specified fixed-source production path: an independent
-static audit of the exact source release, a fresh final-path smoke, an
-independent production-receipt audit, and a final live integration/build audit.
-The current Chapter 51 and Chapter 72 files have unrelated user modifications,
-so this packet intentionally makes no live edit or inventory-count change.
+The v4 review did not itself authorize a live edit.  The subsequently
+source-aligned reconstruction theorem and Cantor family were integrated in
+Chapter 51 and the Chapter 72 status note by commit `21068eb`; that commit did
+not retire P14.8 or change the inventory count.  The outstanding work remains
+the fixed-source production path: an independent static audit of the exact
+source release, a fresh final-path smoke, an independent production-receipt
+audit, and a final live-integration audit.  The review receipt alone does not
+satisfy those gates.
