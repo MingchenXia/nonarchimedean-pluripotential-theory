@@ -1494,6 +1494,14 @@ P19.3 or alter the active-atom count.
   with the restricted strong product and gives the equality.  This is not an
   assertion for an arbitrary strong lift, arbitrary positive closed current,
   or arbitrary continuous zero-Hessian difference.
+  The same bridge is now closed under the paired local closures recorded in
+  `def:ch18-weak-approximation-classes`: a weak limit of positive closed
+  locally weak-form-induced currents and a locally uniform limit of weakly
+  smooth zero-Hessian differences satisfy the equality by
+  `prop:ch18-weak-form-closure-bt`.  This uses two applications of the
+  ordinary order-zero multiplication-continuity lemma.  It is a conditional
+  closure statement, not a density theorem for arbitrary currents or
+  continuous zero-Hessian differences, so P21.3 remains active.
   Independently, a further pairwise class is now closed:
   when that difference locally factors through a proper full-rank moment
   satisfying every hypothesis of `prop:p062-proper-full-rank-moment`, its
