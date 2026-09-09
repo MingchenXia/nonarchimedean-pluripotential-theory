@@ -1,6 +1,6 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 1 September 2026
+**Inventory date:** 9 September 2026
 **Literature cutoff:** 24 August 2026; targeted P14.7/P14.8 source update on 31 August 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
@@ -193,8 +193,8 @@ measure bookkeeping.
   finite curve-factor, finite constant-group quotient, all-orbits split
   toric, split-toric quasi-smooth-product, finite-split toric-form,
   finite-split-form quasi-smooth-product, transverse toric-product, and
-  source-Zariski-local ordinary-etale and analytic standard-etale
-  split-toroidal cases]` On a good,
+  source-Zariski-local ordinary-etale finite-split-toroidal and analytic
+  standard-etale split-toroidal cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
   `thm:p061-arbitrary-curve-factors-ph-rpl` and the all-orbits split toric
@@ -368,6 +368,15 @@ errors and zero gaps.  The request/response/header hashes are
 `dab3e30657a5118304753fa1eb97a07c9bbb3cfd72cacc5d64181e3dfd4ff44f` /
 `7e06480126ac47adfa84bffba5dd9de913c6e73230808f710ddc8c9b73b0e1b5` /
 `8f2831a5383da9db987a8cdb4dad4d4246775fa50afb754120d9aba71ae9b4d7`.
+The same source-Zariski-local ordinary-etale conclusion now covers finite-split
+toric forms.  If the toric factor of a chart becomes split over a finite
+analytic field extension, base change puts that chart in the preceding
+ordinary-etale split-toroidal range; classical pluriharmonicity pulls back by
+GR25, Proposition 7.2(6),(7), and GJR26, Corollary 5.12 descends the resulting
+real-PL conclusion.  This direct source-cited corollary is live as
+`cor:p061-v3-zariski-etale-finite-split-toric-charts`; it has not been sent to
+a model-backed verifier.  It does not manufacture an ordinary-etale chart or
+cover forms without a finite splitting extension.
 The same tube argument has a direct analytic standard-etale extension.
 `prop:p061-analytic-standard-etale-toric-product` starts from an actual
 strict affinoid chart over a weighted pointed split toric domain times a
@@ -409,8 +418,8 @@ and zero gaps. P06.1 remains one active T2 atom, now confined to arbitrary
 nonproduct non-quasi-smooth points in dimension at least two outside the
 verified product and quotient ranges, products containing a reduced singular
 factor of dimension at least two outside those ranges, genuinely log-etale
-charts not covered by the verified ordinary-etale split-toroidal theorem,
-and nonsplit local models outside the finite-split range. No atom count, tier
+charts not covered by the verified ordinary-etale finite-split-toroidal
+theorem, and nonsplit local models outside the finite-split range. No atom count, tier
 count, or queue position changes.
 The proper full-rank moment-factor case is also verified by
 `prop:p062-proper-full-rank-moment`.  It applies only when \(X\) is pure of
