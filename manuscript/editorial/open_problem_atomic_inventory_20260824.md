@@ -202,8 +202,9 @@ convex-minorant family, the local envelope of finite convex
 minorants is also exactly the raw envelope over the invariant locally
 Fubini--Study minorants alone.  Finite supporting planes on an exhausting
 family of closed subballs are rounded from below to one character-lattice
-denominator at a time, so their maxima remain below the obstacle and converge
-locally uniformly from below to the convex envelope.  It excludes all
+denominator at a time.  Taking common-denominator finite maxima yields a
+pointwise increasing locally Fubini--Study sequence below the obstacle that
+converges locally uniformly to the convex envelope.  It excludes all
 noninvariant competitors; P03.1--P03.3 and every inventory count therefore
 remain unchanged.  The exact source and scope ledger is
 `solver_dossiers_20260910/p033_invariant_toric_lfs_minorant_envelope_20260910/`.

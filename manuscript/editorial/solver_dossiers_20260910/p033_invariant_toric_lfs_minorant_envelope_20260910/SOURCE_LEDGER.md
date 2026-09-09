@@ -11,11 +11,12 @@ is retired.
 
 | Step | Source / direct argument | Scope control |
 | --- | --- | --- |
-| Local convex minorant envelope is finite, continuous, and convex | Local specialization of the proof of `prop:p033-invariant-toric-real-pl-envelope` | The obstacle is finite and continuous; one finite convex minorant is inherited from the global P03 companion. |
+| Local convex minorant envelope is finite, continuous, and convex | Local specialization of the proof of `prop:p033-invariant-toric-real-pl-envelope` | The obstacle is upper semicontinuous and has one finite convex minorant. That minorant forces finiteness; upper semicontinuity supplies the local upper bounds. |
 | Invariant LFS minorant descends to convex data | Gubler--Jell--Rabinoff, Definition 7.8, Sections 7.9 and 7.14; Burgos Gil--Gubler--Jell--Künnemann, Theorem 5.3.11 | Finiteness, maximal-compact-torus invariance, a good separated strictly analytic boundaryless ball inverse image, and the dense split torus are essential. |
 | Finite support maxima for the local convex envelope | Elementary compactness of supporting affine functions on the exhausting closed balls | Supports are used only on compact subsets of the open ball. |
 | Character-lattice minorants | Direct rounding below, using one nonzero value-group element and a common denominator for each finite family | The fixed Euclidean ball is bounded; no density of the value group is assumed. |
 | LFS normal form | Gubler--Jell--Rabinoff, Section 7.9 | Torus characters are invertible on the whole dense split torus. |
+| Monotone recovery | Direct common-denominator maximum of the finite LFS normal forms | For finitely many denominators, their least common multiple preserves the character lattice and value-group constants. |
 
 Primary sources: J. I. Burgos Gil, W. Gubler, P. Jell, and K. Künnemann,
 *Pluripotential theory for tropical toric varieties and non-Archimedean
@@ -33,5 +34,6 @@ Math. France 154 (2026), 135--238, doi:10.24033/bsmf.2919.
 2. It identifies the invariant LFS-only family.  It does not turn the full
    noninvariant local-FS/semipositive-real-PL competitor family into an
    invariant one.
-3. The obstacle is finite and continuous.  No conclusion is drawn for an
-   arbitrary upper-semicontinuous obstacle or for a singular toric boundary.
+3. The obstacle is upper semicontinuous and must admit a finite convex
+   minorant.  No conclusion is drawn when that competitor family is empty,
+   or for a singular toric boundary.
