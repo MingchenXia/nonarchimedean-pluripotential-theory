@@ -1,7 +1,7 @@
 # Atomic crosswalk for the active problem environments
 
 **Inventory date:** 10 September 2026
-**Literature cutoff:** 10 September 2026; targeted P14.7/P14.8 source update on 31 August and P05/P13/P15/P16 source updates on 10 September 2026
+**Literature cutoff:** 10 September 2026; targeted P14.7/P14.8 source update on 31 August and P05/P13/P14/P15/P16 source updates on 10 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
 This file is an editorial crosswalk for solving, verifying, and retiring the
@@ -1218,6 +1218,17 @@ The exact source comparison is preserved in
 `solver_dossiers_20260831/p147_source_correction_independent_audit_20260831/SOURCE_CORRECTION_AUDIT.md`.
 That source-only correction did not itself retire an atom; the complete
 proof integrated in Chapter 71 is the retirement basis used here.
+
+Pang--Sun--Wang--Zhou's version-one preprint of 14 July 2026
+[arXiv:2607.12797, Theorem 1.2](https://arxiv.org/abs/2607.12797) proves
+on the complex side that, for every potential in a big class, the
+Darvas--Di Nezza--Lu ceiling equals the ordinary \(P\)-envelope and that
+this envelope is idempotent even at zero mass.  It does not construct a
+non-Archimedean realization or raw transform, realize arbitrary formal
+\(\mathcal I\)-data, identify an all-semivaluation formula, recover raw
+mass, or provide a second DXZ zero-mass filtration interval.  It narrows
+only that complex envelope subissue; P14.8 and the count remain active and
+unchanged.
 
 ### `prob:frontier-zero-volume` --- 3 atoms
 
