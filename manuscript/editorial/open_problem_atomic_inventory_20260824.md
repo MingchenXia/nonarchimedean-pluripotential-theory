@@ -872,6 +872,11 @@ counted as an additional unresolved atom.
   audited Chapter 71 candidate proves upper semicontinuity at arbitrary
   nondivisorial semivaluations and has passed a zero-finding independent
   model-backed review of its frozen proof and five cited source extracts.
+  The V7 local exact-live binding additionally replays the repaired V6
+  source-stage candidate's manifest, release gates, and 179 tests, and pins
+  its target statement, proof, and example to exact current Chapter 71
+  excerpts.  It is local reproducibility evidence, not the outstanding
+  independent hostile audit, final-path smoke, or production verification.
   This atom remains active until source-closed production verification passes.
 - **P14.3** `[T4; open; source-bound conditional theorem verified]` Decide
   MP positivity at those semivaluations.  The Chapter 71
