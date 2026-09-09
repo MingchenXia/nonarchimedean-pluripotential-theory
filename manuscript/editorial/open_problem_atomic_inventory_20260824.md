@@ -192,7 +192,7 @@ measure bookkeeping.
 - **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
   finite curve-factor, finite constant-group quotient, all-orbits split
   toric, split-toric quasi-smooth-product, finite-split toric-form,
-  transverse toric-product, and
+  finite-split-form quasi-smooth-product, transverse toric-product, and
   source-Zariski-local ordinary-etale split-toroidal cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
@@ -342,6 +342,15 @@ factor; this is again quasi-smooth, so
 verified all-orbits and fixed-fibre arguments, not a claim about nonsplit
 toric factors, non-quasi-smooth parameters, or spaces without an actual
 local product chart.
+The same conclusion descends to finite-split toric forms with a good strict
+quasi-smooth parameter.  Over a finite splitting extension the pullback lies
+in the preceding split-toric product range; classical pluriharmonicity and
+quasi-smoothness survive scalar extension, and `GJR26`, Corollary 5.12
+descends the resulting real-PL function.  Hence
+`cor:p061-toric-forms` now includes ordinary open subspaces of such products
+and their analytic local product models.  It does not cover forms without a
+finite splitting extension, non-quasi-smooth parameters, or arbitrary
+nonproduct germs.
 The ordinary-etale split-toroidal range is now also verified.
 `prop:p061-v3-etale-toric-product` constructs an actual affinoid product over
 a sufficiently deep weighted toric tube from a separated finite-type etale
