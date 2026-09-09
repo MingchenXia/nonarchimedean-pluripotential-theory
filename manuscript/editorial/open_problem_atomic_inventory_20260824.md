@@ -753,6 +753,17 @@ SHA-256 values are
 `3f31d65b71c13800f8486cf689d9fb508fa35c7b44e0b94084292abffd0dad66`.
 No automatic ascent of an arbitrary continuous current is asserted.
 
+A separate exact recovery endpoint is now recorded as
+`prop:ch15-pointwise-pluriharmonic-closure`: on any analytic space, a
+continuous pointwise limit of a sequence of classically pluriharmonic
+functions is classically pluriharmonic, with locally uniform convergence.
+It is the direct content of Gubler--Rabinoff Theorem 7.6, not a new
+regularization theorem.  In particular, it supplies the final step once a
+future P06.2 argument produces a pointwise curve-test approximation, but
+the zero-current equation itself produces no such sequence and the criterion
+does not give ordinary CLD-smooth harmonic approximants.  The atom count is
+unchanged.
+
 P06.2 remains one active T2 atom only for arbitrary analytic germs,
 nonproduct local domains, equations known merely on the coordinatewise
 strict radial core, and the classification of boundary-control hypotheses
