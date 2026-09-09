@@ -883,7 +883,9 @@ counted as an additional unresolved atom.
   (`pi_75b42272e15105bb6be0525c`).  It verifies only the conditional
   bridge: P14.2 upper semicontinuity and the finite-energy divisorial
   normalization are explicit premises.  The general MP-positivity problem
-  remains open.
+  remains open.  The local V4 exact-live audit additionally pins the current
+  Chapter 71 source range, the frozen V3 packet, and this live-open boundary;
+  it is an integrity check rather than a production verifier receipt.
 - **P14.4** `[T4; open]` Construct a \(P\)-sensitive positivity theory for
   big non-nef classes.
 - **P14.5** `[T5; open]` Construct the corresponding Monge--Amp\`ere
