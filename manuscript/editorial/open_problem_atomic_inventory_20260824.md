@@ -1092,6 +1092,12 @@ from uniform model stability to a cscK metric; they remain open.
   satisfying every hypothesis of `prop:p062-proper-full-rank-moment`, its
   affine source formula makes it smooth with zero Hessian, and
   `cor:ch18-local-proper-full-rank-moment-bt` gives the required independence.
+  The bare real-PL or GJR-harmonic outcomes occurring in P06.1/P06.2 remain
+  G-local/weakly smooth and do not themselves give this ordinary CLD-smooth
+  approximation: `prop:ch19-cld-smooth-harmonic-nonregularization` gives an
+  integral PL weakly smooth harmonic curve example with no locally uniform
+  ordinary CLD-smooth harmonic approximation.  That blocks this route, not the
+  separately proved one-dimensional P21.3 classification.
   P06.2 supplies no such local factorization for an arbitrary difference, so
   this is a pairwise exclusion rather than a spatial solution of P21.3.  The
   unresolved issue is therefore the higher-dimensional gluing/approximation
