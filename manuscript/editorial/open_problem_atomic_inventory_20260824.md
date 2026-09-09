@@ -381,6 +381,14 @@ corollary `cor:p061-analytic-standard-etale-toroidal-charts`.  This direct
 extension does not assert a standard-etale presentation for an arbitrary
 analytic etale map, and it does not cover a non-quasi-smooth parameter or a
 non-etale local model.
+At an arbitrary orbit of a split toric base,
+`cor:p061-analytic-standard-etale-all-orbits` applies the exact principal
+toric decomposition and absorbs its split-torus factor into the
+quasi-smooth parameter.  It therefore covers an actual standard-etale
+strict affinoid chart over an arbitrary split toric variety when its target
+affinoid is an ordinary neighbourhood of the image point.  This remains a
+chart criterion: it supplies neither that ordinary-target condition nor a
+standard-etale presentation for an arbitrary analytic etale map.
 P06.1 remains active only for arbitrary nonproduct singular germs, products
 containing higher-dimensional reduced singular factors outside the verified
 ranges, genuinely log-etale charts not covered by an ordinary-etale chart of
