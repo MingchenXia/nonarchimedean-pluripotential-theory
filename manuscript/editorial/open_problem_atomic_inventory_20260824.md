@@ -898,9 +898,16 @@ counted as an additional unresolved atom.
   to the \(\mathcal I\)-quotient.  The source-bound V6 packet appends the
   exact Boucksom, BEGZ, and Kellay--Mashreghi extracts and passed final
   independent model-backed review as `pi_af3d4e7db16b025b3ed90770`, with zero
-  critical errors and zero gaps.  A separate exact-live integration audit
-  remains required; this is not a zero-mass strict-interior range of the DXZ
-  filtration curve.
+  critical errors and zero gaps.  The exact-live V7 audit then passed a
+  source-and-boundary review (item `pi_c2863cf20cfa0c4bba834a16`) with zero
+  critical errors and zero gaps, conditional on the exact excerpts whose
+  local source hashes are pinned in
+  `solver_dossiers_20260909/p148_v6_source_closed_packet_20260909/`
+  `LIVE_INTEGRATION_AUDIT_V7_20260909`.  That review used
+  `gpt-6-astra`/`xhigh`; the retirement rule still requires a production
+  `gpt-5.6-sol`/`xhigh` verdict on the exact current statement and proof.
+  P14.8 remains open; this is not a zero-mass strict-interior range of the
+  DXZ filtration curve.
 
 The divisorial realization, the finite-energy K\"ahler comparison, and the
 projective real N\'eron--Severi DXZ--Boucksom--Jonsson comparison are known
@@ -918,10 +925,11 @@ P14.8 remains active and separate.  The terminal left-limit corollary
 `cor:pseff-terminal-filtration-slice` applies only to the particular DXZ
 terminal slice; it does not reconstruct arbitrary zero-mass data.  The
 frozen exact-dichotomy candidate in
-`solver_dossiers_20260901/p148_zero_mass_reconstruction_candidate_v2_20260901`
-is a source-scoped answer to the two defined reconstruction readings, but it
-is not yet a production-verified retirement and not a sourced second interval
-of zero-mass slices.
+`solver_dossiers_20260901/p148_zero_mass_reconstruction_candidate_v2_20260901`,
+its source-bound V6 successor, and its exact-live V7 audit are a source-scoped
+answer to the two defined reconstruction readings, but they are not yet a
+production-verified retirement and not a sourced second interval of zero-mass
+slices.
 The exact source comparison is preserved in
 `solver_dossiers_20260831/p147_source_correction_independent_audit_20260831/SOURCE_CORRECTION_AUDIT.md`.
 That source-only correction did not itself retire an atom; the complete
