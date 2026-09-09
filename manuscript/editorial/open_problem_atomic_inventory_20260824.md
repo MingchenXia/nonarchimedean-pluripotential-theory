@@ -534,11 +534,14 @@ Iterating it over the published Wanner curve scope gives
 finite product of that curve domain with standard strict open discs are
 classically pluriharmonic.  The proof descends the equation by a normalized
 compactly supported disc top form, rather than by an invalid current
-pullback along the zero section.  The same local argument gives
-`cor:p062-open-disc-bundles-over-curves`: a locally trivial standard strict
-open-disc bundle over that curve scope has the classical-pluriharmonicity
-conclusion without a global section or product decomposition.  It does not
-cover annuli, disc fibrations without the stated local product charts,
+pullback along the zero section.  The local product theorem globalizes by
+`prop:p062-open-disc-bundle-descent`: on every locally trivial standard
+strict open-disc bundle over a good separated strict pure-dimensional base,
+a continuous zero-current function uniquely descends to a zero-current
+function on the base.  In the published curve scope,
+`cor:p062-open-disc-bundles-over-curves` then makes it classically
+pluriharmonic, without a global section or product decomposition.  This does
+not cover annuli, disc fibrations without the stated local product charts,
 arbitrary nonproduct germs, or strict-core-only equations.  The atom count,
 tier count, and queue position are unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
