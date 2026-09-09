@@ -1478,6 +1478,16 @@ P19.3 or alter the active-atom count.
   satisfying every hypothesis of `prop:p062-proper-full-rank-moment`, its
   affine source formula makes it smooth with zero Hessian, and
   `cor:ch18-local-proper-full-rank-moment-bt` gives the required independence.
+  A further spatial class is now closed: if the ordinary topology has a
+  genuine basis of boundaryless strict finite towers of locally trivial
+  standard open-polydisc bundles over standard strict endpoint polycylinders,
+  `cor:p213-endpoint-tower-basis-bt` gives the required equality for every
+  positive closed CLD current.  The endpoint-tower formula makes the
+  difference ordinary CLD-smooth with zero Hessian, and the proof therefore
+  uses the local smooth criterion rather than pulling back the current.  It
+  requires that actual ordinary-open basis and does not apply to one such
+  chart inside an arbitrary germ, annular fibres, or fibrations lacking the
+  stated local product charts.
   The bare real-PL or GJR-harmonic outcomes occurring in P06.1/P06.2 remain
   G-local/weakly smooth and do not themselves give this ordinary CLD-smooth
   approximation: `prop:ch19-cld-smooth-harmonic-nonregularization` gives an
