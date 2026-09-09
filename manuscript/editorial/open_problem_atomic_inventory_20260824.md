@@ -1467,8 +1467,14 @@ P19.3 or alter the active-atom count.
   arbitrary positive closed current.  Its immediate linear extension
   `cor:ch16-cpsh-component-diagonal-current` covers every locally finite
   nonnegative component-diagonal \((0,0)\)-current
-  \(\sum_i c_i\delta_{W_i}\) on the same ordinary open.  This does not cover
-  a general positive current or any positive bidegree.
+  \(\sum_i c_i\delta_{W_i}\) on the same ordinary open.  Its smooth-factor
+  extension `cor:ch16-cpsh-smooth-component-current` also covers every fixed
+  smooth positive closed decoration
+  \(\bigl(\sum_i c_i\delta_{W_i}\bigr)\wedge\gamma\) in bidegree
+  \((q,q)\), \(0\leq q\leq n-1\).  This remains a component-diagonal
+  current with a prescribed smooth factor: it neither treats a general
+  positive closed current nor supplies a variable or singular
+  positive-bidegree factor.
   There is an exact sufficient bridge in the remaining scope: if the
   zero-Hessian difference of a continuous psh pair is locally uniformly
   approximable by smooth zero-Hessian functions, then
