@@ -133,6 +133,19 @@ zero gaps. This is not an automatic property of the full local-FS/PL
 minorant family and makes no CLD-v2 assertion, so it narrows none of the
 three P03 atoms beyond that stated family-level regime.
 
+There is now an automatic-modulus invariant toric companion result for
+P03.3.  On the
+inverse image of an ordinary open convex subset of the dense tropical vector
+space of a split torus, a finite continuous invariant obstacle has a finite,
+continuous, locally psh-approximable raw envelope over the nonempty family of
+invariant toric real-PL convex minorants.  The lower bound from one competitor
+and the upper obstacle bound make the tropical convex supremum locally
+Lipschitz.  The exact source and scope ledger is
+`solver_dossiers_20260909/p033_invariant_toric_convex_envelope_20260909/`.
+It treats only that invariant toric real-PL competitor family, not all
+local-FS/semipositive-real-PL minorants; P03.3 therefore remains active and
+the inventory count is unchanged.
+
 ### `prob:frontier-local-ma` --- 4 atoms
 
 Each atom must carry a stated boundary datum and satisfy model independence,
