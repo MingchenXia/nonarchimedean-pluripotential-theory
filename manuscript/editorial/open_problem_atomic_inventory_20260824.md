@@ -53,6 +53,10 @@ the exact count is
 Tier counts: (T1,T2,T3,T4,T5) = (0,5,9,17,17).
 ```
 
+The read-only command `python3 manuscript/editorial/tools/check_open_problem_inventory.py`
+mechanically checks these two declarations, the exact active identifiers and
+their placement, and the fourteen Chapter 72 problem labels.
+
 The active identifiers listed below form an editorial addressing scheme.
 Their prefixes record the corresponding formal environments, not theorem
 numbers in the book; retired and historically skipped identifiers are not
