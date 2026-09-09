@@ -1274,6 +1274,19 @@ does not construct a BFJ finite-energy theory or solve arbitrary-measure
 equations.  It is included to keep the proper/nonproper boundary explicit;
 it changes no atom or tier count.
 
+Fang's version-one preprint
+\(\cite[\mathrm{Proposition}\ 4.8]{Fang25Shilov}\) gives a different
+finite-atomic inverse statement under the standing assumptions that the
+ground field is maximally complete with
+\(\lvert K^\times\rvert=\mathbf R_{>0}\).  For a finite set of graded
+birational points on the affine cone of an ample line bundle, it realizes any
+probability vector as the source's equidistribution measure of a
+Shilov-finite, possibly singular metric.  This is not a P16.6 endpoint: the
+paper identifies comparison with the genuine Monge--Amp\`ere measure as a
+separate envelope-continuity step, so it constructs neither a continuous
+semipositive solution nor the BFJ finite-energy operator.  The atom and tier
+counts are unchanged.
+
 ### Retired P17 history --- 0 active atoms
 
 P17.1 asked whether fibrewise mixed Monge--Amp\`ere integrals vary
