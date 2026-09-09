@@ -886,15 +886,18 @@ counted as an additional unresolved atom.
 - **P14.5** `[T5; open]` Construct the corresponding Monge--Amp\`ere
   measure theory.
 - **P14.6** `[T5; open]` Construct the corresponding energy theory.
-- **P14.8** `[T5; open; exact dichotomy candidate awaiting production]` A
+- **P14.8** `[T5; open; source-bound exact dichotomy verified]` A
   frozen, independently audited candidate specifies reconstruction from a
   realizable \(\mathcal I\)-class in a compact K\"ahler class to its canonical
   normalized \(\mathcal I\)-model representative.  It proves that this
   canonical representative is reconstructible, while a polar Cantor family
   shows that neither a raw representative nor raw nonpluripolar mass descends
-  to the \(\mathcal I\)-quotient.  Source-complete production verification and
-  live integration remain required; this is not a zero-mass strict-interior
-  range of the DXZ filtration curve.
+  to the \(\mathcal I\)-quotient.  The source-bound V6 packet appends the
+  exact Boucksom, BEGZ, and Kellay--Mashreghi extracts and passed final
+  independent model-backed review as `pi_af3d4e7db16b025b3ed90770`, with zero
+  critical errors and zero gaps.  A separate exact-live integration audit
+  remains required; this is not a zero-mass strict-interior range of the DXZ
+  filtration curve.
 
 The divisorial realization, the finite-energy K\"ahler comparison, and the
 projective real N\'eron--Severi DXZ--Boucksom--Jonsson comparison are known
