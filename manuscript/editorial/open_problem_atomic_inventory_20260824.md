@@ -204,8 +204,8 @@ measure bookkeeping.
   moment-factor, good-strict invariant split-toric (including boundary),
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
-  smooth-proper-curve, and strict-open-disc product over published-curve
-  cases]` Decide
+  smooth-proper-curve, and strict-open-disc product or locally trivial bundle
+  over published-curve cases]` Decide
   whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
@@ -534,9 +534,13 @@ Iterating it over the published Wanner curve scope gives
 finite product of that curve domain with standard strict open discs are
 classically pluriharmonic.  The proof descends the equation by a normalized
 compactly supported disc top form, rather than by an invalid current
-pullback along the zero section.  It does not cover annuli, nontrivial disc
-fibrations, arbitrary nonproduct germs, or strict-core-only equations.  The
-atom count, tier count, and queue position are unchanged.
+pullback along the zero section.  The same local argument gives
+`cor:p062-open-disc-bundles-over-curves`: a locally trivial standard strict
+open-disc bundle over that curve scope has the classical-pluriharmonicity
+conclusion without a global section or product decomposition.  It does not
+cover annuli, disc fibrations without the stated local product charts,
+arbitrary nonproduct germs, or strict-core-only equations.  The atom count,
+tier count, and queue position are unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
