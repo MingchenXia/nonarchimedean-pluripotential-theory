@@ -327,7 +327,7 @@ either atom; see BMPS26, pp. 4 and 45.
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
   bundle or finite tower of such bundles over a published-curve,
-  endpoint-polycylinder-base, and lifted-
+  endpoint-polycylinder-base or a finite tower over such a base, and lifted-
   maximal-compact-torus-invariant split-toric-base cases]` Decide
   whether an arbitrary
   continuous function with zero
