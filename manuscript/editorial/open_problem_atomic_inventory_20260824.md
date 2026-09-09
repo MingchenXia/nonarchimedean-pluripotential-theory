@@ -204,8 +204,8 @@ measure bookkeeping.
   moment-factor, good-strict invariant split-toric (including boundary),
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
-  smooth-proper-curve, and strict-open-disc product or locally trivial bundle
-  over published-curve cases]` Decide
+  smooth-proper-curve, and strict-open-polydisc product or locally trivial
+  bundle over published-curve cases]` Decide
   whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
@@ -535,11 +535,11 @@ finite product of that curve domain with standard strict open discs are
 classically pluriharmonic.  The proof descends the equation by a normalized
 compactly supported disc top form, rather than by an invalid current
 pullback along the zero section.  The local product theorem globalizes by
-`prop:p062-open-disc-bundle-descent`: on every locally trivial standard
-strict open-disc bundle over a good separated strict pure-dimensional base,
+`prop:p062-open-polydisc-bundle-descent`: on every locally trivial standard
+strict open-polydisc bundle over a good separated strict pure-dimensional base,
 a continuous zero-current function uniquely descends to a zero-current
 function on the base.  In the published curve scope,
-`cor:p062-open-disc-bundles-over-curves` then makes it classically
+`cor:p062-open-polydisc-bundles-over-curves` then makes it classically
 pluriharmonic, without a global section or product decomposition.  This does
 not cover annuli, disc fibrations without the stated local product charts,
 arbitrary nonproduct germs, or strict-core-only equations.  The atom count,
