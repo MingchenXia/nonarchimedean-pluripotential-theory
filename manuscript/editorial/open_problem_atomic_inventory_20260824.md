@@ -122,13 +122,19 @@ P02 atom or count.
   unibranch higher-dimensional hypotheses, and determine sharp necessity,
   under which usc
   regularization of every upper-semicontinuous local
-  FS/semipositive-PL obstacle envelope is classically psh.  The
+  FS/semipositive-PL obstacle envelope with nonempty competitor family is
+  classically psh.  The
   perfected-unibranch reduced strict curve range is settled positively by
   `thm:p031-perfected-unibranch-curve-envelope`.
 - **P03.2** `[T3; open]` Determine the additional hypotheses under which the
   regularized envelope is CLD-v2 psh for every such obstacle.
 - **P03.3** `[T3; open]` For continuous finite obstacles, determine the
   additional hypotheses under which the regularized envelope is continuous.
+
+The nonempty-competitor restriction is necessary: for the obstacle
+`f = -infinity`, the raw envelope and its usc regularization are identically
+`-infinity`, while the book's curve-theoretic classical-psh convention excludes
+that value on a whole connected component.
 
 The continuous obstacle on the reduced strict nodal affinoid curve in
 `prop:ch15-nodal-local-envelope` disproves all three unconditional universal
@@ -173,40 +179,42 @@ minorant family and makes no CLD-v2 assertion, so it narrows none of the
 three P03 atoms beyond that stated family-level regime.
 
 There is now an automatic-modulus invariant toric companion result for
-P03.3.  On the
-inverse image of an ordinary open convex subset of the dense tropical vector
-space of a split torus, a finite continuous invariant obstacle has a finite,
+P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
+dense tropical vector space of a split torus, every upper-semicontinuous
+invariant obstacle with a nonempty finite convex minorant family has a finite,
 continuous, locally psh-approximable raw envelope over all continuous
 invariant psh minorants.  Under tropicalization it is the envelope of finite
 convex minorants, and supporting affine functions prove that it equals the
-smaller invariant toric real-PL envelope.  The lower bound from one
-competitor and the upper obstacle bound make the tropical convex supremum
-locally Lipschitz.  The exact source and scope ledger is
+smaller invariant toric real-PL envelope.  The lower bound from one competitor
+forces the obstacle to be finite; together with upper semicontinuity, it gives
+the local bounds that make the tropical convex supremum locally Lipschitz.
+The exact source and scope ledger is
 `solver_dossiers_20260909/p033_invariant_toric_convex_envelope_20260909/`.
 It treats only that invariant psh competitor family, not all
-local-FS/semipositive-real-PL minorants; P03.3 therefore remains active and
-the inventory count is unchanged.
+local-FS/semipositive-real-PL minorants; the P03 atoms therefore remain active
+and the inventory count is unchanged.
 
 There is now a further source-scoped LFS-only refinement on every Euclidean
 ball compactly contained in that split-toric chamber whose inverse image is
-good, separated, strictly analytic, and boundaryless.  For a finite continuous
-invariant obstacle, the local envelope of finite convex minorants is also
-exactly the raw envelope over the invariant locally Fubini--Study minorants
-alone.  Finite supporting planes on an exhausting family of closed subballs
-are rounded from below to one character-lattice denominator at a time, so
-their maxima remain below the obstacle and converge locally uniformly from
-below to the convex envelope.  It excludes all noninvariant competitors and
-all arbitrary upper-semicontinuous obstacles; P03.1--P03.3 and every inventory
-count therefore remain unchanged.  The exact source and scope ledger is
+good, separated, strictly analytic, and boundaryless.  For every
+upper-semicontinuous invariant obstacle with a nonempty finite
+convex-minorant family, the local envelope of finite convex
+minorants is also exactly the raw envelope over the invariant locally
+Fubini--Study minorants alone.  Finite supporting planes on an exhausting
+family of closed subballs are rounded from below to one character-lattice
+denominator at a time, so their maxima remain below the obstacle and converge
+locally uniformly from below to the convex envelope.  It excludes all
+noninvariant competitors; P03.1--P03.3 and every inventory count therefore
+remain unchanged.  The exact source and scope ledger is
 `solver_dossiers_20260910/p033_invariant_toric_lfs_minorant_envelope_20260910/`.
 
-The same finite continuous invariant envelope is also locally in the first
-decreasing CLD-smooth psh stage by
+The same invariant envelope is also locally in the first decreasing CLD-smooth
+psh stage by
 cor:p024-invariant-toric-cld-smooth-regularization.  Thus this exact
-invariant-toric chamber settles the finite-continuous-obstacle restricted
-P03.1 classical-psh and P03.2 CLD-v2 assertions as well as the continuity
-assertion.  It says nothing about arbitrary upper-semicontinuous obstacles
-or the noninvariant local-FS/semipositive-real-PL envelope, so none of
+invariant-toric chamber settles the nonempty-upper-semicontinuous-obstacle
+restricted P03.1 classical-psh and P03.2 CLD-v2 assertions; for continuous
+obstacles it also settles the P03.3 continuity assertion.  It says nothing
+about the noninvariant local-FS/semipositive-real-PL envelope, so none of
 P03.1--P03.3 retires.
 
 On a good separated strict boundaryless pure-dimensional such toric domain,
