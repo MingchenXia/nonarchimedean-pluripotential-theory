@@ -254,7 +254,16 @@ unrestricted unbounded continuation are disproved.
   polyhedral measure, including boundary and mixed products.
 
 Complete affine space, the exact normalization, and the abstract cross-fan
-counterexample are verified.  P05.3 and P05.4 are retired by
+counterexample are verified.  The positive-at-infinity Bergman-fan
+obstruction \(\texttt{prop:frontier-polyhedral-bergman-positive-infinity-obstruction}\)
+now strengthens the source's \(U_{3,4}\) example: for a polyhedrally convex
+reference with the required growth, the constructed envelope agrees with
+the source reference near its mass-four origin; hence, conditional only on
+the pair's regularity (which is exactly what supplies the global measure),
+its orthogonality integral is at most \(-4\varepsilon\).  Thus positive
+growth alone cannot yield a smooth-Bergman regularity-and-orthogonality
+theorem.  This does not decide either characterization atom.  P05.3 and
+P05.4 are retired by
 `prop:p053-projection-recursion-repaired-candidate` and
 `cor:p053-algebraic-chart-repaired-candidate`: the proof constructs the
 intermediate source currents, retains contractions and saturated lattice
