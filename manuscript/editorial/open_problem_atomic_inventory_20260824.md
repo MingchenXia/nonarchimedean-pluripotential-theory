@@ -161,10 +161,11 @@ the inventory count is unchanged.
 The same finite continuous invariant envelope is also locally in the first
 decreasing CLD-smooth psh stage by
 cor:p024-invariant-toric-cld-smooth-regularization.  Thus this exact
-invariant-toric chamber settles the corresponding restricted P03.1
-classical-psh and P03.2 CLD-v2 assertions as well as the continuity
-assertion.  It says nothing about the noninvariant
-local-FS/semipositive-real-PL envelope, so none of P03.1--P03.3 retires.
+invariant-toric chamber settles the finite-continuous-obstacle restricted
+P03.1 classical-psh and P03.2 CLD-v2 assertions as well as the continuity
+assertion.  It says nothing about arbitrary upper-semicontinuous obstacles
+or the noninvariant local-FS/semipositive-real-PL envelope, so none of
+P03.1--P03.3 retires.
 
 On a good separated strict boundaryless pure-dimensional such toric domain,
 the same envelope is exactly the raw envelope over the full

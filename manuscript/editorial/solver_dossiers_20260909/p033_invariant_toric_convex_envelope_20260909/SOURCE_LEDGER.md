@@ -45,8 +45,9 @@ https://smf.emath.fr/system/files/filepdf/GUBLER_JELL_RABINOFF.pdf
 3. Nonemptiness is essential to obtain the finite lower bound `a_0 <= p`.
 4. The first-stage CLD conclusion uses the separate P02.4 invariant-toric
    corollary, and its classical-psh conclusion uses the one-way CLD
-   comparison.  They make no statement about the book's unrestricted
-   classical-psh or CLD-v2 classification problems.
+   comparison.  They apply only to the displayed finite continuous obstacle,
+   and make no statement about arbitrary upper-semicontinuous obstacles or
+   the book's unrestricted classical-psh or CLD-v2 classification problems.
 5. The exact local-FS/semipositive-real-PL identification is only for the
    invariant subfamily and only on the additional strict, boundaryless
    domain.  It leaves every noninvariant competitor outside the conclusion.
