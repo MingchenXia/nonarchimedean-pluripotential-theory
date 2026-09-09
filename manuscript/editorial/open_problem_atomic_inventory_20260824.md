@@ -192,6 +192,7 @@ measure bookkeeping.
 - **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
   finite curve-factor, finite constant-group quotient, all-orbits split
   toric, split-toric quasi-smooth-product, algebraic-split toric-form,
+  algebraic-split analytic-toric-form,
   algebraic-split-form quasi-smooth-product, transverse toric-product, and
   source-Zariski-local ordinary-etale algebraic-split-toroidal and analytic
   standard-etale algebraic-split-toroidal cases]` On a good,
@@ -199,7 +200,8 @@ measure bookkeeping.
   arbitrary-curve-factor scope of
   `thm:p061-arbitrary-curve-factors-ph-rpl` and the all-orbits split toric
   and algebraic-split-form scope of `thm:p061-split-toric-all-orbits` and
-  `cor:p061-algebraic-split-toric-forms`, and outside the split-toric quasi-smooth-product
+  `cor:p061-algebraic-split-toric-forms` and
+  `cor:p061-algebraic-split-analytic-toric-forms`, and outside the split-toric quasi-smooth-product
   scope of `cor:p061-split-toric-quasismooth-products`, decide whether every
   classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
@@ -372,6 +374,12 @@ real-PL function.  Hence `cor:p061-algebraic-split-toric-forms` includes
 ordinary open subspaces of such products and their analytic local product
 models.  It does not cover forms without such an algebraic splitting
 extension, non-quasi-smooth parameters, or arbitrary nonproduct germs.
+The same scalar-extension proof is analytic local.  If every point has an
+ordinary neighbourhood which becomes an ordinary open subspace of a split
+toric variety after one displayed complete algebraic splitting extension,
+`cor:p061-algebraic-split-analytic-toric-forms` gives the same conclusion,
+also after product with a good strict quasi-smooth parameter.  It does not
+construct such a chart for an arbitrary analytic germ.
 The ordinary-etale split-toroidal range is now also verified.
 `prop:p061-v3-etale-toric-product` constructs an actual affinoid product over
 a sufficiently deep weighted toric tube from a separated finite-type etale
