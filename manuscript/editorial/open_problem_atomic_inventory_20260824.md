@@ -197,23 +197,37 @@ measure bookkeeping.
   classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
-  moment-factor, algebraically closed closed-polydisc, arbitrary-field
-  standard strict endpoint-polycylinder, arbitrary-radius scalar-stable
-  endpoint-polycylinder, and smooth-proper-curve cases]` Decide
+  moment-factor, good-strict invariant split-toric (including boundary),
+  algebraically closed closed-polydisc, arbitrary-field standard strict
+  endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
+  and smooth-proper-curve cases]` Decide
   whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
   harmonic whenever the classical notion is available, outside the verified
-  standard strict-coordinate-product, factorized, and curve scopes, with the
-  arbitrary-germ, nonproduct, strict-core-only, and weaker-than-scalar-stable
-  boundary-control residuals stated below.  The unrestricted arbitrary-radius
-  product extension is now known to be false.
+  standard strict-coordinate-product, invariant split-toric, factorized, and
+  curve scopes, with the arbitrary-germ, nonproduct, strict-core-only, and
+  weaker-than-scalar-stable boundary-control residuals stated below.  The
+  unrestricted arbitrary-radius product extension is now known to be false.
 
 The weakly smooth zero-current statement is known.  The real-PL
 zero-current implication is now verified on good separated boundaryless
 strict pure-dimensional spaces by production run
 `20260825T061351Z_655e7f503e5d`: it uses rational coefficients of calibrated
 skeletal currents and does not extend to arbitrary continuous functions.
+There is also a good-strict invariant split-toric boundary case.  On an open
+inverse image under extended tropicalization in a split toric variety, every
+finite continuous maximal-compact-torus-invariant function with zero CLD
+Hessian is locally CLD-smooth with zero Hessian, real-PL, GJR harmonic, and
+classically pluriharmonic; this includes the toric boundary strata.  The
+exact statement/proof SHA-256 values are
+`8d69697806c33d59531b5d3247a2f9e0c1d07e313d329c15a2432646134a544a` and
+`c17e99ebb54f45003d78f55670a978092294b44a7c4536b78d7207ec52cfda85`.
+The dependency-closed packet passed independent model-backed verification as
+item `pi_30ec53e8836ba1d2b08fdf64`, final `correct`, with zero critical errors
+and zero gaps.  It does not address noninvariant functions, nonsplit toric
+forms, arbitrary toroidal charts, or arbitrary analytic germs, so P06.2
+remains active and the inventory count is unchanged.
 The quasi-smooth scope of P06.1 is settled by
 `thm:p061-quasismooth-ph-rpl`: every classically pluriharmonic function on a
 good strict quasi-smooth analytic space is \(\mathbf R\)-PL and GJR
