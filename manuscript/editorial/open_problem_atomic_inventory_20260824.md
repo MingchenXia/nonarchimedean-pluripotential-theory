@@ -1347,6 +1347,10 @@ open atoms.  The four corrected residual targets above are independent hybrid
 targets, not prerequisites for the already cited Kähler-class implication
 from uniform model stability to a cscK metric; they remain open.
 
+Boucksom--Jonsson's 19 May 2026 version-two lecture notes are an orientation
+source that sketches a cscK YTD argument, not a separate approximation or
+hybrid-continuity result; they therefore do not narrow P19.1--P19.4.
+
 Wang's source-stated Theorem B supplies a different, nonproper endpoint: in
 each of its three affine/Calabi-model settings, explicitly rescaled
 Archimedean and non-Archimedean potentials glue continuously on the hybrid
