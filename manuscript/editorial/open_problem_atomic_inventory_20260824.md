@@ -1078,6 +1078,14 @@ open atoms.  The four corrected residual targets above remain open.
   extended tropicalization in a split toric variety, including its toric
   boundary strata, but requires finite maximal-compact-torus invariant
   continuous psh potentials.
+  There is an exact sufficient bridge in the remaining scope: if the
+  zero-Hessian difference of a continuous psh pair is locally uniformly
+  approximable by smooth zero-Hessian functions, then
+  `thm:ch16-pluriharmonic-criterion` gives the required independence for
+  every positive closed current.  The unresolved issue is therefore the
+  higher-dimensional gluing/approximation step.  This condition is related
+  to, but not identified with, P06.2: that atom does not itself assert this
+  smooth CLD approximation.
   The literal
   discontinuous-potential predicate of CLD
   Definition 8.6.2 is a stronger scope boundary and is not a separately
