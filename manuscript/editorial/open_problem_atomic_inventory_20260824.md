@@ -1458,7 +1458,11 @@ P19.3 or alter the active-atom count.
   curvature have equal products against each such component current, with
   generic nonreduced multiplicities and divisorial crossings retained.  It
   uses ordinary-local full-CPsh analytic nullity and does not classify an
-  arbitrary positive closed current.
+  arbitrary positive closed current.  Its immediate linear extension
+  `cor:ch16-cpsh-component-diagonal-current` covers every locally finite
+  nonnegative component-diagonal \((0,0)\)-current
+  \(\sum_i c_i\delta_{W_i}\) on the same ordinary open.  This does not cover
+  a general positive current or any positive bidegree.
   There is an exact sufficient bridge in the remaining scope: if the
   zero-Hessian difference of a continuous psh pair is locally uniformly
   approximable by smooth zero-Hessian functions, then
