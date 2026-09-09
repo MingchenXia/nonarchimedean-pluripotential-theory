@@ -321,7 +321,8 @@ either atom; see BMPS26, pp. 4 and 45.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
   moment-factor, good-strict invariant split-toric (including boundary) and
   algebraic-split scalar-stable invariant-toric, including its analytic-local
-  algebraic-split analytic-form version,
+  algebraic-split analytic-form and scalar-stable open-polydisc-bundle
+  versions,
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
@@ -379,6 +380,14 @@ descent to obtain a zero-current base function, whose invariance follows
 from equivariance and surjectivity, and then applies the split-toric boundary
 theorem.  This does not treat noninvariant functions, nonsplit forms,
 annular fibres, or bundles without the displayed local product charts.
+Its scalar-stable algebraic-split companion
+`cor:p062-algebraic-split-invariant-toric-open-polydisc-bundles` applies when
+the entire displayed bundle becomes such a toric bundle after a complete
+extension that is the completion of an algebraic extension, and the lifted
+action, invariance, and zero-current assumptions are all imposed upstairs.
+It descends the resulting real-PL, classical-pluriharmonic, and GJR-harmonic
+conclusions, but asserts neither automatic current ascent nor a toric-bundle
+presentation for an arbitrary germ.
 The quasi-smooth scope of P06.1 is settled by
 `thm:p061-quasismooth-ph-rpl`: every classically pluriharmonic function on a
 good strict quasi-smooth analytic space is \(\mathbf R\)-PL and GJR
