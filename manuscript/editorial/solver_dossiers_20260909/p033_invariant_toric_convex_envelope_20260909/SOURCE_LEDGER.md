@@ -15,6 +15,7 @@ not retire P03.3.
 | p is finite and convex | Direct supremum argument using one member a_0 of the nonempty competitor family | No compactness or global boundedness of O is used. |
 | p is continuous | Direct local chord-slope estimate: on a ball compactly contained in O, a_0 <= p <= phi gives uniform two-sided bounds | This is the automatic local modulus specific to one convex tropical chamber. |
 | The invariant real-PL and invariant continuous-psh envelopes agree | Direct supporting-hyperplane argument for the finite convex envelope p | A global affine support at every point belongs to the real-PL minorant class. |
+| The invariant semipositive-real-PL subenvelope agrees as well | Theorem 5.3.11 of BGJKK25 makes tropical affine supports psh; the book's P01 comparison turns positive Hessian current into real-PL semipositivity | Requires the added good, separated, strict, boundaryless, pure-dimensional hypotheses. |
 
 Primary source: J. I. Burgos Gil, W. Gubler, P. Jell, and K. Künnemann,
 *Pluripotential theory for tropical toric varieties and non-Archimedean
@@ -34,3 +35,7 @@ https://gubler.app.uni-regensburg.de/Publikationen/2102.07392.pdf
 3. Nonemptiness is essential to obtain the finite lower bound `a_0 <= p`.
 4. The theorem proves a continuous CLD-current psh envelope, but makes no
    statement about the book's unrestricted CLD-v2 classification problem.
+5. The semipositive-real-PL identification is only for the invariant
+   subfamily and only on the additional strict, boundaryless domain.  It
+   leaves all noninvariant local-FS and semipositive-real-PL competitors
+   outside the conclusion.
