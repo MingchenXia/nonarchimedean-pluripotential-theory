@@ -1055,7 +1055,9 @@ projective results described in the chapter.
   transcendental, and singular extensions.
 
 The dated smooth polarized projective claims listed in the chapter are not
-open atoms.  The four corrected residual targets above remain open.
+open atoms.  The four corrected residual targets above are independent hybrid
+targets, not prerequisites for the already cited Kähler-class implication
+from uniform model stability to a cscK metric; they remain open.
 
 ### `prob:frontier-cross-fan-upstairs` --- 1 atom
 
