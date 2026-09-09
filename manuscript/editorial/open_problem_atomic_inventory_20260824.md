@@ -1477,8 +1477,11 @@ P19.3 or alter the active-atom count.
   positive-bidegree factor.  More generally,
   `cor:ch16-cpsh-weak-component-current` covers the weak limits, with
   \(q\) fixed, of finite nonnegative sums of such smooth-component currents.
-  This is a stated weak-approximability condition, not a density theorem for
-  positive closed currents.
+  Its local extension
+  `cor:ch16-cpsh-local-weak-component-current` permits the component families
+  and approximating nets to vary over an ordinary open cover.  Both are stated
+  weak-approximability conditions, not density theorems for positive closed
+  currents.
   There is an exact sufficient bridge in the remaining scope: if the
   zero-Hessian difference of a continuous psh pair is locally uniformly
   approximable by smooth zero-Hessian functions, then
