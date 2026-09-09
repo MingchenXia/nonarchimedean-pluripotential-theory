@@ -907,7 +907,15 @@ counted as an additional unresolved atom.
   live-open boundary; it is a local integrity check, rather than a
   replayable release pin or production verifier receipt.
 - **P14.4** `[T4; open]` Construct a \(P\)-sensitive positivity theory for
-  big non-nef classes.
+  big non-nef classes.  The unchanged relatively nef MP model signature is
+  impossible, while the ideal-valuative transform and positive-volume DXZ
+  energy remain only \(\mathcal I\)-level data.  Since
+  \(\mathcal I\)-equivalence is strictly coarser than \(P\)-equivalence even
+  for positive-mass K\"ahler potentials, no construction depending only on
+  that transform can itself be \(P\)-sensitive or recover raw mass.  This is
+  a boundary condition on a solution, not a negative answer: a theory that
+  retains \(P\)-, movable-positive-part, or comparable extra data remains
+  open.
 - **P14.5** `[T5; open]` Construct the corresponding Monge--Amp\`ere
   measure theory.
 - **P14.6** `[T5; open]` Construct the corresponding energy theory.
