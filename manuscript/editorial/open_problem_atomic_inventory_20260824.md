@@ -1434,6 +1434,13 @@ P19.3 or alter the active-atom count.
   extended tropicalization in a split toric variety, including its toric
   boundary strata, but requires finite maximal-compact-torus invariant
   continuous psh potentials.
+  In every dimension, `cor:ch16-cpsh-component-curvature` additionally
+  settles the specified reduced analytic component integration currents on
+  every ordinary open: arbitrary continuous CPsh pairs of equal canonical
+  curvature have equal products against each such component current, with
+  generic nonreduced multiplicities and divisorial crossings retained.  It
+  uses ordinary-local full-CPsh analytic nullity and does not classify an
+  arbitrary positive closed current.
   There is an exact sufficient bridge in the remaining scope: if the
   zero-Hessian difference of a continuous psh pair is locally uniformly
   approximable by smooth zero-Hessian functions, then
