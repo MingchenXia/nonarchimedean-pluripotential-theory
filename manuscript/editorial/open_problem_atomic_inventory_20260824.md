@@ -194,7 +194,7 @@ measure bookkeeping.
   toric, split-toric quasi-smooth-product, finite-split toric-form,
   finite-split-form quasi-smooth-product, transverse toric-product, and
   source-Zariski-local ordinary-etale algebraic-split-toroidal and analytic
-  standard-etale split-toroidal cases]` On a good,
+  standard-etale algebraic-split-toroidal cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
   `thm:p061-arbitrary-curve-factors-ph-rpl` and the all-orbits split toric
@@ -418,11 +418,12 @@ strict affinoid chart over an arbitrary split toric variety when its target
 affinoid is an ordinary neighbourhood of the image point.  This remains a
 chart criterion: it supplies neither that ordinary-target condition nor a
 standard-etale presentation for an arbitrary analytic etale map.
-When the toric base has a finite analytic splitting extension,
-`cor:p061-analytic-standard-etale-finite-split-forms` pulls this chart to the
-split extension, applies the all-orbits conclusion there, and descends the
-resulting real-PL function.  It retains the ordinary-target condition and
-does not cover forms without a finite splitting extension.
+When the toric base becomes split over a complete analytic extension which is
+the completion of an algebraic extension,
+`cor:p061-analytic-standard-etale-algebraic-split-forms` pulls this chart to
+the split extension, applies the all-orbits conclusion there, and descends
+the resulting real-PL function.  It retains the ordinary-target condition and
+does not cover forms without such an algebraic splitting extension.
 P06.1 remains active only for arbitrary nonproduct singular germs, products
 containing higher-dimensional reduced singular factors outside the verified
 ranges, genuinely log-etale charts not covered by an ordinary-etale chart of
