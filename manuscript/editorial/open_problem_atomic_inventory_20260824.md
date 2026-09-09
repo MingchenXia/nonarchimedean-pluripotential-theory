@@ -1253,6 +1253,18 @@ arbitrary-field finite-energy operator or arbitrary-support result.  The
 unrestricted axes remain open, and known nonskeletal examples rule out a
 general reduction to one skeleton or to rational PL potentials.
 
+There is a separate adjacent nonproper endpoint.  Wang's preprint
+\(\cite[\mathrm{Theorem}\ A]{Wang25NACalabiYau}\) constructs, over trivially
+valued \(\mathbf C\), a continuous local-CLD psh solution whose
+Monge--Amp\`ere measure is the canonical Lebesgue measure on the essential
+skeleton of \(X=\overline X\setminus D\), when \(\overline X\) is a smooth
+projective Fano variety of dimension \(n>d\geq1\) and \(D\) is a reduced
+SNC anticanonical divisor with standard-simplex dual complex.  This does not
+narrow P16.2: the displayed \(X\) is affine, hence nonproper, and the source
+does not construct a BFJ finite-energy theory or solve arbitrary-measure
+equations.  It is included to keep the proper/nonproper boundary explicit;
+it changes no atom or tier count.
+
 ### Retired P17 history --- 0 active atoms
 
 P17.1 asked whether fibrewise mixed Monge--Amp\`ere integrals vary
