@@ -149,12 +149,14 @@ local-FS/semipositive-real-PL minorants; P03.3 therefore remains active and
 the inventory count is unchanged.
 
 On a good separated strict boundaryless pure-dimensional such toric domain,
-the same envelope is also exactly the raw envelope over the
-maximal-compact-torus-invariant semipositive real-PL minorants.  This is a
-literal invariant subfamily of the P03 competitor language: supporting
-affine functions are real PL and become semipositive by the verified
-positive-current/semipositivity comparison.  It does not control the
-noninvariant candidates in the original envelope.
+the same envelope is exactly the raw envelope over the full
+maximal-compact-torus-invariant part of the original
+local-Fubini--Study/semipositive-real-PL competitor union.  Indeed, a
+locally Fubini--Study function is real PL and semipositive at every point,
+so that alternative contributes no functions outside the invariant
+semipositive real-PL class; supporting affine functions give the reverse
+comparison.  This does not control any noninvariant candidate in the
+original envelope.
 
 ### `prob:frontier-local-ma` --- 4 atoms
 
