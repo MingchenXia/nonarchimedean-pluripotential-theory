@@ -205,7 +205,7 @@ measure bookkeeping.
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
-  bundle over published-curve cases]` Decide
+  bundle over published-curve and endpoint-polycylinder-base cases]` Decide
   whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
@@ -541,9 +541,12 @@ a continuous zero-current function uniquely descends to a zero-current
 function on the base.  In the published curve scope,
 `cor:p062-open-polydisc-bundles-over-curves` then makes it classically
 pluriharmonic, without a global section or product decomposition.  This does
-not cover annuli, disc fibrations without the stated local product charts,
-arbitrary nonproduct germs, or strict-core-only equations.  The atom count,
-tier count, and queue position are unchanged.
+not cover annular fibres, disc fibrations without the stated local product
+charts, arbitrary nonproduct germs, or strict-core-only equations.  For a
+positive-dimensional standard strict endpoint-polycylinder base,
+`prop:p062-open-polydisc-bundle-endpoint-base` further identifies the descended
+function with the affine combination of the base annular logarithms.  The
+atom count, tier count, and queue position are unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
