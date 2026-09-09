@@ -193,7 +193,7 @@ measure bookkeeping.
   finite curve-factor, finite constant-group quotient, all-orbits split
   toric, split-toric quasi-smooth-product, finite-split toric-form,
   finite-split-form quasi-smooth-product, transverse toric-product, and
-  source-Zariski-local ordinary-etale finite-split-toroidal and analytic
+  source-Zariski-local ordinary-etale algebraic-split-toroidal and analytic
   standard-etale split-toroidal cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
@@ -205,8 +205,8 @@ measure bookkeeping.
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
   moment-factor, good-strict invariant split-toric (including boundary) and
-  finite-split scalar-stable invariant-toric, including its analytic-local
-  finite-split analytic-form version,
+  algebraic-split scalar-stable invariant-toric, including its analytic-local
+  algebraic-split analytic-form version,
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
@@ -238,21 +238,23 @@ item `pi_30ec53e8836ba1d2b08fdf64`, final `correct`, with zero critical errors
 and zero gaps.  It does not address noninvariant functions, nonsplit toric
 forms, arbitrary toroidal charts, or arbitrary analytic germs, so P06.2
 remains active and the inventory count is unchanged.
-The finite-split scalar-stable invariant-toric range is now also live.  If a
-good strict analytic form becomes a split toric open inverse image over a
-finite analytic field extension, and the pulled-back finite continuous
-function is maximal-compact-torus-invariant with zero CLD Hessian there, then
-`cor:p062-finite-split-invariant-scalar-stable-zero-current` descends local
+The algebraic-split scalar-stable invariant-toric range is now also live.  If
+a good strict analytic form becomes a split toric open inverse image over a
+complete analytic extension which is the completion of an algebraic extension,
+and the pulled-back finite continuous function is maximal-compact-torus-invariant
+with zero CLD Hessian there, then
+`cor:p062-algebraic-split-invariant-scalar-stable-zero-current` descends local
 real-PL regularity, classical pluriharmonicity, and GJR harmonicity.  Its
 upstairs invariance and zero-current assumptions are explicit; no automatic
 ascent of the downstairs continuous Hessian current is asserted, and no
 model-backed verifier was used for this direct source-cited corollary.
 The analytic-local companion
-`cor:p062-local-finite-split-invariant-scalar-stable-zero-current` transfers
+`cor:p062-local-algebraic-split-invariant-scalar-stable-zero-current` transfers
 the same conclusion to every germ which becomes one such displayed split
-toric domain after a finite analytic extension, after imposing the upstairs
-assumptions.  It does not manufacture a model for a general analytic germ and
-uses no model-backed verifier.
+toric domain after an extension which is the completion of an algebraic
+extension, after imposing the
+upstairs assumptions.  It does not manufacture a model for a general analytic
+germ and uses no model-backed verifier.
 The quasi-smooth scope of P06.1 is settled by
 `thm:p061-quasismooth-ph-rpl`: every classically pluriharmonic function on a
 good strict quasi-smooth analytic space is \(\mathbf R\)-PL and GJR
@@ -385,15 +387,16 @@ errors and zero gaps.  The request/response/header hashes are
 `dab3e30657a5118304753fa1eb97a07c9bbb3cfd72cacc5d64181e3dfd4ff44f` /
 `7e06480126ac47adfa84bffba5dd9de913c6e73230808f710ddc8c9b73b0e1b5` /
 `8f2831a5383da9db987a8cdb4dad4d4246775fa50afb754120d9aba71ae9b4d7`.
-The same source-Zariski-local ordinary-etale conclusion now covers finite-split
-toric forms.  If the toric factor of a chart becomes split over a finite
-analytic field extension, base change puts that chart in the preceding
-ordinary-etale split-toroidal range; classical pluriharmonicity pulls back by
-GR25, Proposition 7.2(6),(7), and GJR26, Corollary 5.12 descends the resulting
+The same source-Zariski-local ordinary-etale conclusion now covers
+algebraic-split toric forms.  If the toric factor of a chart becomes split
+over a complete analytic extension which is the completion of an algebraic
+extension, base change puts that chart in the preceding ordinary-etale
+split-toroidal range; classical pluriharmonicity pulls back by GR25,
+Proposition 7.2(6),(7), and GJR26, Corollary 5.12 descends the resulting
 real-PL conclusion.  This direct source-cited corollary is live as
-`cor:p061-v3-zariski-etale-finite-split-toric-charts`; it has not been sent to
+`cor:p061-zariski-etale-algebraic-split-toric-charts`; it has not been sent to
 a model-backed verifier.  It does not manufacture an ordinary-etale chart or
-cover forms without a finite splitting extension.
+cover forms without such an algebraic splitting extension.
 The same tube argument has a direct analytic standard-etale extension.
 `prop:p061-analytic-standard-etale-toric-product` starts from an actual
 strict affinoid chart over a weighted pointed split toric domain times a
@@ -435,8 +438,8 @@ and zero gaps. P06.1 remains one active T2 atom, now confined to arbitrary
 nonproduct non-quasi-smooth points in dimension at least two outside the
 verified product and quotient ranges, products containing a reduced singular
 factor of dimension at least two outside those ranges, genuinely log-etale
-charts not covered by the verified ordinary-etale finite-split-toroidal
-theorem, and nonsplit local models outside the finite-split range. No atom count, tier
+charts not covered by the verified ordinary-etale algebraic-split-toroidal
+theorem, and nonsplit local models outside the algebraic-split range. No atom count, tier
 count, or queue position changes.
 The proper full-rank moment-factor case is also verified by
 `prop:p062-proper-full-rank-moment`.  It applies only when \(X\) is pure of
@@ -600,9 +603,9 @@ P06.2 remains one active T2 atom only for arbitrary analytic germs,
 nonproduct local domains, equations known merely on the coordinatewise
 strict radial core, and the classification of boundary-control hypotheses
 weaker than scalar stability.  Higher-dimensional standard strict product
-endpoints, the scalar-stable arbitrary-radius products, and the finite-split
+endpoints, the scalar-stable arbitrary-radius products, and the algebraic-split
 scalar-stable invariant-toric range, including its analytic-local
-finite-split analytic-form version, is removed from the residual; the
+algebraic-split analytic-form version, is removed from the residual; the
 unrestricted arbitrary-radius version is disproved.  The
 strict-open-disc descent proposition `prop:p062-open-disc-descent` also
 shows that a continuous zero-current function on
