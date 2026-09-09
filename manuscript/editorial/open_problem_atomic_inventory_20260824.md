@@ -1087,10 +1087,15 @@ from uniform model stability to a cscK metric; they remain open.
   zero-Hessian difference of a continuous psh pair is locally uniformly
   approximable by smooth zero-Hessian functions, then
   `cor:ch16-local-pluriharmonic-criterion` gives the required independence for
-  every positive closed current.  The unresolved issue is therefore the
-  higher-dimensional gluing/approximation step.  This condition is related
-  to, but not identified with, P06.2: that atom does not itself assert this
-  smooth CLD approximation.
+  every positive closed current.  A further pairwise class is now closed:
+  when that difference locally factors through a proper full-rank moment
+  satisfying every hypothesis of `prop:p062-proper-full-rank-moment`, its
+  affine source formula makes it smooth with zero Hessian, and
+  `cor:ch18-local-proper-full-rank-moment-bt` gives the required independence.
+  P06.2 supplies no such local factorization for an arbitrary difference, so
+  this is a pairwise exclusion rather than a spatial solution of P21.3.  The
+  unresolved issue is therefore the higher-dimensional gluing/approximation
+  step outside these factorized pairs.
   The literal
   discontinuous-potential predicate of CLD
   Definition 8.6.2 is a stronger scope boundary and is not a separately
