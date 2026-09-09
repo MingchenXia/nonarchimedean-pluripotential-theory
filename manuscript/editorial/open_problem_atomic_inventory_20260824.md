@@ -1222,6 +1222,15 @@ from uniform model stability to a cscK metric; they remain open.
   this is a pairwise exclusion rather than a spatial solution of P21.3.  The
   unresolved issue is therefore the higher-dimensional gluing/approximation
   step outside these factorized pairs.
+  Scalar extension alone is not an additional P21.3 narrowing: the present
+  cited base-change statements control specified CLD form/measure degrees or
+  top-degree Monge--Amp\`ere measures of semipositive metrics, not an arbitrary
+  positive closed CLD current together with faithful descent of its mixed
+  Bedford--Taylor current.  The source audit
+  `solver_dossiers_20260909/p213_scalar_extension_current_audit_20260909/`
+  records the exact boundary.  Consequently the scalar-stable potential
+  results for P06.1/P06.2 do not themselves supply an algebraic-split-form
+  P21.3 corollary.
   The literal
   discontinuous-potential predicate of CLD
   Definition 8.6.2 is a stronger scope boundary and is not a separately
