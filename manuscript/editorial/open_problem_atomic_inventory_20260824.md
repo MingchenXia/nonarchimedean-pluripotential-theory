@@ -193,7 +193,8 @@ measure bookkeeping.
   finite curve-factor, finite constant-group quotient, all-orbits split
   toric, split-toric quasi-smooth-product, finite-split toric-form,
   finite-split-form quasi-smooth-product, transverse toric-product, and
-  source-Zariski-local ordinary-etale split-toroidal cases]` On a good,
+  source-Zariski-local ordinary-etale and analytic standard-etale
+  split-toroidal cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
   `thm:p061-arbitrary-curve-factors-ph-rpl` and the all-orbits split toric
@@ -367,10 +368,24 @@ errors and zero gaps.  The request/response/header hashes are
 `dab3e30657a5118304753fa1eb97a07c9bbb3cfd72cacc5d64181e3dfd4ff44f` /
 `7e06480126ac47adfa84bffba5dd9de913c6e73230808f710ddc8c9b73b0e1b5` /
 `8f2831a5383da9db987a8cdb4dad4d4246775fa50afb754120d9aba71ae9b4d7`.
+The same tube argument has a direct analytic standard-etale extension.
+`prop:p061-analytic-standard-etale-toric-product` starts from an actual
+strict affinoid chart over a weighted pointed split toric domain times a
+good strict quasi-smooth affinoid parameter, with a monic standard-etale
+Tate presentation.  The normalized toric restriction makes every finite
+coefficient error contract to zero, so the existing common-Newton-radius
+lemma gives an actual product tube.  The fixed fibre is quasi-smooth and
+the fibrewise semigroup Gauss norm is singleton Shilov, yielding
+`thm:p061-analytic-standard-etale-toroidal-ph-rpl` and the local chart
+corollary `cor:p061-analytic-standard-etale-toroidal-charts`.  This direct
+extension does not assert a standard-etale presentation for an arbitrary
+analytic etale map, and it does not cover a non-quasi-smooth parameter or a
+non-etale local model.
 P06.1 remains active only for arbitrary nonproduct singular germs, products
 containing higher-dimensional reduced singular factors outside the verified
 ranges, genuinely log-etale charts not covered by an ordinary-etale chart of
-the displayed kind, and nonsplit local models outside the verified
+the displayed kind or by the displayed analytic standard-etale chart, and
+nonsplit local models outside the verified
 finite-split descent range.
 The coefficient cannot be strengthened: `prop:p061-integral-pl-counterexample`
 gives \(\sqrt2\log|T|\) on a strict semistable annulus, which is not
