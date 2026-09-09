@@ -867,11 +867,18 @@ counted as an additional unresolved atom.
 
 ### `prob:frontier-mp-pseff` --- 7 active atoms
 
-- **P14.1** `[T4; open beyond finite-energy K\"ahler data]` Intrinsically
+- **P14.1** `[T4; open beyond established K\"ahler and projective regimes]` Intrinsically
   characterize the image of the raw ideal-valuative transform.  In the
   finite-energy K\"ahler domain, `cor:p141-finite-energy-raw-image` identifies
-  that image exactly with the finite-energy MP cone.  The unrestricted
-  pseudoeffective characterization remains open.
+  that image exactly with the finite-energy MP cone.  For a connected smooth
+  projective variety and an ample \(\mathbf Q\)-line-bundle class,
+  `thm:pseff-projective-dxz-mp-bijection` identifies the literal raw transform
+  on every semivaluation with the full MP cone, without a finite-energy
+  hypothesis.  For a projective real N\'eron--Severi class, the full
+  DXZ--Boucksom--Jonsson identification is known, but the literal
+  ideal-valuative formula is asserted only in the \(\mathbf Q\)-line-bundle
+  case.  The genuinely transcendental or nonprojective compact K\"ahler,
+  and the big non-nef, image characterizations remain open.
 - **P14.2** `[T3; open; source-closed production verification pending]` The
   audited Chapter 71 candidate proves upper semicontinuity at arbitrary
   nondivisorial semivaluations and has passed a zero-finding independent
