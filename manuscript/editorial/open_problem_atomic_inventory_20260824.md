@@ -98,6 +98,14 @@ smoothness and positivity.  This starts with the invariant current-psh
 class, not an arbitrary classically psh function, and does not alter any
 P02 atom or count.
 
+The very same source-scoped invariant-toric sequence is also a P02.3
+companion.  The ordinary CLD-smooth approximants are weakly smooth by
+Gubler--Jell--Rabinoff Proposition 10.14, while their psh property remains
+the already proved positivity of their CLD Hessian currents.  This changes
+neither the finite-continuous invariant starting class nor the interior-ball
+scope, supplies no local-Fubini--Study conclusion, and does not alter any
+P02 atom or count.
+
 ### `prob:frontier-unibranch-local-envelope` --- 3 atoms
 
 - **P03.1** `[T2; open]` Classify the irreducible, normal, or analytically
