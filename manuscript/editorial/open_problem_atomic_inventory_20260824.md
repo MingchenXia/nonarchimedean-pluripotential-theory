@@ -187,6 +187,19 @@ It treats only that invariant psh competitor family, not all
 local-FS/semipositive-real-PL minorants; P03.3 therefore remains active and
 the inventory count is unchanged.
 
+There is now a further source-scoped LFS-only refinement on every Euclidean
+ball compactly contained in that split-toric chamber whose inverse image is
+good, separated, strictly analytic, and boundaryless.  For a finite continuous
+invariant obstacle, the local envelope of finite convex minorants is also
+exactly the raw envelope over the invariant locally Fubini--Study minorants
+alone.  Finite supporting planes on an exhausting family of closed subballs
+are rounded from below to one character-lattice denominator at a time, so
+their maxima remain below the obstacle and converge locally uniformly from
+below to the convex envelope.  It excludes all noninvariant competitors and
+all arbitrary upper-semicontinuous obstacles; P03.1--P03.3 and every inventory
+count therefore remain unchanged.  The exact source and scope ledger is
+`solver_dossiers_20260910/p033_invariant_toric_lfs_minorant_envelope_20260910/`.
+
 The same finite continuous invariant envelope is also locally in the first
 decreasing CLD-smooth psh stage by
 cor:p024-invariant-toric-cld-smooth-regularization.  Thus this exact
