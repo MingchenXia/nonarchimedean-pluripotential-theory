@@ -1,7 +1,7 @@
 # Atomic crosswalk for the active problem environments
 
 **Inventory date:** 10 September 2026
-**Literature cutoff:** 10 September 2026; targeted P14.7/P14.8 source update on 31 August and P05/P13/P14/P15/P16 source updates on 10 September 2026
+**Literature cutoff:** 10 September 2026; targeted P14.7/P14.8 source update on 31 August and P05/P12/P13/P14/P15/P16 source updates on 10 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
 This file is an editorial crosswalk for solving, verifying, and retiring the
@@ -1090,8 +1090,17 @@ displayed problem environment, and lowers the active count by one.
 - **P12.6** `[T4; open]` Establish finite-map functoriality, including
   branch and conductor descent.
 
-All six targets are open.  The two BdFF local-volume questions recorded as
-historical context in the chapter are resolved and are not atoms here.
+All six targets are open.  A 10 September 2026 primary-source recheck
+separates them from the global trivially-valued theory used in
+\cite[\S2]{BJKS2}: over an algebraically closed characteristic-zero field,
+that framework permits an integral projective variety before normality is
+assumed and supplies global psh, finite-energy, and Monge--Amp\`ere objects.
+Its exact Monge--Amp\`ere surjectivity is conditional on the envelope
+property (recorded there in the smooth case).  It supplies neither the
+normalizing datum of an excellent local germ nor conductor descent, local
+bounded products, or a local finite-map formula, so it changes no P12 atom
+or count.  The two BdFF local-volume questions recorded as historical context
+in the chapter are resolved and are not atoms here.
 
 ### `prob:frontier-affine-cone-ma` --- 2 atoms
 
