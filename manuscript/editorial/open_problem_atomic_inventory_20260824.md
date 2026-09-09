@@ -1,7 +1,7 @@
 # Atomic crosswalk for the active problem environments
 
 **Inventory date:** 10 September 2026
-**Literature cutoff:** 10 September 2026; targeted P14.7/P14.8 source update on 31 August and P05/P16 source updates on 10 September 2026
+**Literature cutoff:** 10 September 2026; targeted P14.7/P14.8 source update on 31 August and P05/P13/P16 source updates on 10 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
 This file is an editorial crosswalk for solving, verifying, and retiring the
@@ -1104,6 +1104,13 @@ For a fixed Reeb field the operator, decreasing continuity, and
 bi-Lipschitz property onto its image are known.  Cross-polarization control
 and the image characterization remain open; uniqueness on the image is not
 counted as an additional unresolved atom.
+
+A 10 September 2026 source recheck finds only version 1 of Wu's affine-cone
+preprint.  Its ``Outlook and relation to other works'' identifies uniform
+differentiability as the missing ingredient and specifically reduces it to
+comparing \(\PSH(\xi)\) and \(\PSH(\xi')\) for nonproportional Reeb fields.
+It supplies neither such a comparison nor a surjectivity theorem, so P13.1
+and P13.2 remain unchanged.
 
 ### `prob:frontier-mp-pseff` --- 7 active atoms
 
