@@ -204,7 +204,8 @@ measure bookkeeping.
   moment-factor, good-strict invariant split-toric (including boundary),
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
-  and smooth-proper-curve cases]` Decide
+  smooth-proper-curve, and strict-open-disc product over published-curve
+  cases]` Decide
   whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
@@ -524,6 +525,17 @@ strict radial core, and the classification of boundary-control hypotheses
 weaker than scalar stability.  Higher-dimensional standard strict product
 endpoints and the scalar-stable arbitrary-radius products are removed from
 the residual; the unrestricted arbitrary-radius version is disproved.  The
+strict-open-disc descent proposition `prop:p062-open-disc-descent` also
+shows that a continuous zero-current function on
+\(B\times_KD_R^-\) is pulled back from a unique continuous zero-current
+function on the good, topologically separated, pure strict base \(B\).
+Iterating it over the published Wanner curve scope gives
+`cor:p062-open-disc-products-over-curves`: all zero-current functions on a
+finite product of that curve domain with standard strict open discs are
+classically pluriharmonic.  The proof descends the equation by a normalized
+compactly supported disc top form, rather than by an invalid current
+pullback along the zero section.  It does not cover annuli, nontrivial disc
+fibrations, arbitrary nonproduct germs, or strict-core-only equations.  The
 atom count, tier count, and queue position are unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
