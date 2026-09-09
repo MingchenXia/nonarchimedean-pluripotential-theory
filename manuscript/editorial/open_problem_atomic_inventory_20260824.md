@@ -191,13 +191,15 @@ measure bookkeeping.
 
 - **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
   finite curve-factor, finite constant-group quotient, all-orbits split
-  toric, finite-split toric-form, transverse toric-product, and
+  toric, split-toric quasi-smooth-product, finite-split toric-form,
+  transverse toric-product, and
   source-Zariski-local ordinary-etale split-toroidal cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
   `thm:p061-arbitrary-curve-factors-ph-rpl` and the all-orbits split toric
   and finite-split-form scope of `thm:p061-split-toric-all-orbits` and
-  `cor:p061-toric-forms`, decide whether every
+  `cor:p061-toric-forms`, and outside the split-toric quasi-smooth-product
+  scope of `cor:p061-split-toric-quasismooth-products`, decide whether every
   classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
@@ -328,6 +330,18 @@ request/response/header SHA-256 values are
 `def28bf9f16539fadab9b8b99dbd435d00eed8c3730c496d2b8832ee865a29c9` /
 `718044118ee65e0d76b7c02b8b553552b8da974367513aa5ed4d57e8b6231f7d` /
 `4146f66712746a54a0f3f2be457e6ae87cd4ab1be92013e1e8480765492d7958`.
+The orbitwise proof has a further direct consequence:
+`cor:p061-split-toric-quasismooth-products` covers every ordinary open
+analytic subspace of a split toric variety times a good strict quasi-smooth
+analytic space, as well as analytic spaces locally modeled on such an open
+subspace.  At each orbit, the principal-open product chart replaces the
+parameter by the product of the orbit torus and the given quasi-smooth
+factor; this is again quasi-smooth, so
+`prop:p061-parameterized-toric-fixed-fibre` and
+`thm:p061-quasismooth-ph-rpl` apply.  This is a direct consequence of the
+verified all-orbits and fixed-fibre arguments, not a claim about nonsplit
+toric factors, non-quasi-smooth parameters, or spaces without an actual
+local product chart.
 The ordinary-etale split-toroidal range is now also verified.
 `prop:p061-v3-etale-toric-product` constructs an actual affinoid product over
 a sufficiently deep weighted toric tube from a separated finite-type etale
