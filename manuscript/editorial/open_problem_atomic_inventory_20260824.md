@@ -1,7 +1,7 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 9 September 2026
-**Literature cutoff:** 24 August 2026; targeted P14.7/P14.8 source update on 31 August 2026
+**Inventory date:** 10 September 2026
+**Literature cutoff:** 10 September 2026; targeted P14.7/P14.8 source update on 31 August and P05/P16 source updates on 10 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
 This file is an editorial crosswalk for solving, verifying, and retiring the
@@ -285,6 +285,11 @@ given.  It deliberately makes no GK assertion on the original
 analytification in this field scope.  Thus P05.5 remains active precisely at
 the construction and calibration inputs, not at the subsequent atomic
 measure bookkeeping.
+
+The source's only announced strict-positivity extension is an upcoming
+sequel, whose own bibliography labels it ``In preparation.''  It is not an
+available theorem for P05.1 or P05.2 and is therefore not used to narrow
+either atom; see BMPS26, pp. 4 and 45.
 
 ### `prob:frontier-pluriharmonic` --- 2 atoms
 
