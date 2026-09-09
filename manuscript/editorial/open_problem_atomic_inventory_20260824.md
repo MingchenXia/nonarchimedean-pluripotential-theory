@@ -322,7 +322,7 @@ either atom; see BMPS26, pp. 4 and 45.
   moment-factor, good-strict invariant split-toric (including boundary) and
   algebraic-split scalar-stable invariant-toric, including its analytic-local
   algebraic-split analytic-form and scalar-stable open-polydisc-bundle
-  versions,
+  versions, including the latter's analytic-local version,
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
@@ -388,6 +388,11 @@ action, invariance, and zero-current assumptions are all imposed upstairs.
 It descends the resulting real-PL, classical-pluriharmonic, and GJR-harmonic
 conclusions, but asserts neither automatic current ascent nor a toric-bundle
 presentation for an arbitrary germ.
+The analytic-local companion
+`cor:p062-local-algebraic-split-invariant-toric-open-polydisc-bundles`
+requires the preceding bundle, extension, action, invariance, and
+zero-current data only near each point of the total space.  It makes no
+claim where that local structure is absent.
 The quasi-smooth scope of P06.1 is settled by
 `thm:p061-quasismooth-ph-rpl`: every classically pluriharmonic function on a
 good strict quasi-smooth analytic space is \(\mathbf R\)-PL and GJR
