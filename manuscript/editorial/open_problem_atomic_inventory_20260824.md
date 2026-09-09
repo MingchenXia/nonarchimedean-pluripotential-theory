@@ -191,15 +191,15 @@ measure bookkeeping.
 
 - **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
   finite curve-factor, finite constant-group quotient, all-orbits split
-  toric, split-toric quasi-smooth-product, finite-split toric-form,
-  finite-split-form quasi-smooth-product, transverse toric-product, and
+  toric, split-toric quasi-smooth-product, algebraic-split toric-form,
+  algebraic-split-form quasi-smooth-product, transverse toric-product, and
   source-Zariski-local ordinary-etale algebraic-split-toroidal and analytic
   standard-etale algebraic-split-toroidal cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
   `thm:p061-arbitrary-curve-factors-ph-rpl` and the all-orbits split toric
-  and finite-split-form scope of `thm:p061-split-toric-all-orbits` and
-  `cor:p061-toric-forms`, and outside the split-toric quasi-smooth-product
+  and algebraic-split-form scope of `thm:p061-split-toric-all-orbits` and
+  `cor:p061-algebraic-split-toric-forms`, and outside the split-toric quasi-smooth-product
   scope of `cor:p061-split-toric-quasismooth-products`, decide whether every
   classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
@@ -336,8 +336,9 @@ result.  The stronger all-orbits theorem now removes simpliciality and the
 closed-orbit restriction.  `thm:p061-split-toric-all-orbits` and
 `cor:p061-split-toric-varieties` cover every ordinary open analytic subspace
 of every split toric variety, for arbitrary fans and at every orbit;
-`cor:p061-toric-forms` descends the conclusion for forms that split after a
-finite analytic extension.  The parameterized fixed-fibre theorem also
+`cor:p061-algebraic-split-toric-forms` descends the conclusion for forms that
+become split after the completion of an algebraic extension.  The
+parameterized fixed-fibre theorem also
 covers actual local products of a pointed full-dimensional affine toric
 factor with a quasi-smooth factor.  The exact statement/proof SHA-256 values
 are
@@ -362,15 +363,15 @@ factor; this is again quasi-smooth, so
 verified all-orbits and fixed-fibre arguments, not a claim about nonsplit
 toric factors, non-quasi-smooth parameters, or spaces without an actual
 local product chart.
-The same conclusion descends to finite-split toric forms with a good strict
-quasi-smooth parameter.  Over a finite splitting extension the pullback lies
-in the preceding split-toric product range; classical pluriharmonicity and
-quasi-smoothness survive scalar extension, and `GJR26`, Corollary 5.12
-descends the resulting real-PL function.  Hence
-`cor:p061-toric-forms` now includes ordinary open subspaces of such products
-and their analytic local product models.  It does not cover forms without a
-finite splitting extension, non-quasi-smooth parameters, or arbitrary
-nonproduct germs.
+The same conclusion descends to algebraic-split toric forms with a good
+strict quasi-smooth parameter.  Over a complete splitting extension which is
+the completion of an algebraic extension, the pullback lies in the preceding
+split-toric product range; classical pluriharmonicity and quasi-smoothness
+survive scalar extension, and `GJR26`, Corollary 5.12 descends the resulting
+real-PL function.  Hence `cor:p061-algebraic-split-toric-forms` includes
+ordinary open subspaces of such products and their analytic local product
+models.  It does not cover forms without such an algebraic splitting
+extension, non-quasi-smooth parameters, or arbitrary nonproduct germs.
 The ordinary-etale split-toroidal range is now also verified.
 `prop:p061-v3-etale-toric-product` constructs an actual affinoid product over
 a sufficiently deep weighted toric tube from a separated finite-type etale
@@ -428,8 +429,7 @@ P06.1 remains active only for arbitrary nonproduct singular germs, products
 containing higher-dimensional reduced singular factors outside the verified
 ranges, genuinely log-etale charts not covered by an ordinary-etale chart of
 the displayed kind or by the displayed analytic standard-etale chart, and
-nonsplit local models outside the verified
-finite-split descent range.
+nonsplit local models outside the verified algebraic-split descent range.
 The coefficient cannot be strengthened: `prop:p061-integral-pl-counterexample`
 gives \(\sqrt2\log|T|\) on a strict semistable annulus, which is not
 \(\mathbf Q\)-PL. The exact statement and proof passed production Rethlas
