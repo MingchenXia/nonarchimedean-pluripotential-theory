@@ -1086,7 +1086,7 @@ from uniform model stability to a cscK metric; they remain open.
   There is an exact sufficient bridge in the remaining scope: if the
   zero-Hessian difference of a continuous psh pair is locally uniformly
   approximable by smooth zero-Hessian functions, then
-  `thm:ch16-pluriharmonic-criterion` gives the required independence for
+  `cor:ch16-local-pluriharmonic-criterion` gives the required independence for
   every positive closed current.  The unresolved issue is therefore the
   higher-dimensional gluing/approximation step.  This condition is related
   to, but not identified with, P06.2: that atom does not itself assert this
