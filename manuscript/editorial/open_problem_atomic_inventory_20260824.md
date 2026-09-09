@@ -302,7 +302,8 @@ either atom; see BMPS26, pp. 4 and 45.
 ### `prob:frontier-pluriharmonic` --- 2 atoms
 
 - **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
-  finite curve-factor, finite constant-group quotient, all-orbits split
+  finite curve-factor, finite constant-group quotient, finite-flat cover of
+  a verified range, all-orbits split
   toric, split-toric quasi-smooth-product, algebraic-split toric-form,
   algebraic-split analytic-toric-form,
   algebraic-split-form quasi-smooth-product, transverse toric-product, and
@@ -377,6 +378,13 @@ boundarylessness. The proof combines Temkin's altered local uniformization
 with rigid étale sheaf descent. The published curve comparison already
 covers all strict analytic curves, including singular and nonreduced ones
 (`GR25Classical`, §4.1.2 and Proposition 3.15).
+The same conclusion now descends through every finite, flat, surjective map
+of good strictly analytic spaces: if the source is in any verified P06.1
+regularity range, `cor:p061-finite-flat-cover-descent` applies GJR26,
+Proposition 5.11 with divisible coefficient group \(\mathbf R\) to descend
+real-PL regularity, and GR25Classical, Theorem 4.3 supplies GJR harmonicity.
+This covers a neighbourhood only when such a finite-flat cover is actually
+given; it does not manufacture one for an arbitrary singular germ.
 The exact finite-product extension is now also verified.  By
 `thm:p061-curve-product-ph-rpl` and
 `cor:p061-finite-curve-products-ph-rpl`, every classically pluriharmonic
