@@ -205,7 +205,8 @@ measure bookkeeping.
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
   moment-factor, good-strict invariant split-toric (including boundary) and
-  finite-split scalar-stable invariant-toric,
+  finite-split scalar-stable invariant-toric, including its analytic-local
+  finite-split toric-model version,
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
@@ -246,6 +247,12 @@ real-PL regularity, classical pluriharmonicity, and GJR harmonicity.  Its
 upstairs invariance and zero-current assumptions are explicit; no automatic
 ascent of the downstairs continuous Hessian current is asserted, and no
 model-backed verifier was used for this direct source-cited corollary.
+The analytic-local companion
+`cor:p062-local-finite-split-invariant-scalar-stable-zero-current` transfers
+the same conclusion to every germ explicitly isomorphic to one such displayed
+finite-split toric model, after transporting the upstairs assumptions.  It
+does not manufacture a model for a general analytic germ and uses no
+model-backed verifier.
 The quasi-smooth scope of P06.1 is settled by
 `thm:p061-quasismooth-ph-rpl`: every classically pluriharmonic function on a
 good strict quasi-smooth analytic space is \(\mathbf R\)-PL and GJR
@@ -594,7 +601,8 @@ nonproduct local domains, equations known merely on the coordinatewise
 strict radial core, and the classification of boundary-control hypotheses
 weaker than scalar stability.  Higher-dimensional standard strict product
 endpoints, the scalar-stable arbitrary-radius products, and the finite-split
-scalar-stable invariant-toric range are removed from the residual; the
+scalar-stable invariant-toric range, including its analytic-local
+finite-split toric-model version, is removed from the residual; the
 unrestricted arbitrary-radius version is disproved.  The
 strict-open-disc descent proposition `prop:p062-open-disc-descent` also
 shows that a continuous zero-current function on
