@@ -258,11 +258,13 @@ counterexample are verified.  The positive-at-infinity Bergman-fan
 obstruction \(\texttt{prop:frontier-polyhedral-bergman-positive-infinity-obstruction}\)
 now strengthens the source's \(U_{3,4}\) example: for a polyhedrally convex
 reference with the required growth, the constructed envelope agrees with
-the source reference near its mass-four origin; hence, conditional only on
-the pair's regularity (which is exactly what supplies the global measure),
-its orthogonality integral is at most \(-4\varepsilon\).  Thus positive
-growth alone cannot yield a smooth-Bergman regularity-and-orthogonality
-theorem.  This does not decide either characterization atom.  P05.3 and
+the source reference near its mass-four origin.  A bounded PA reference
+shift identifies its envelope and regularization classes with those of a
+conical reference, so the displayed positive-at-infinity pair itself has
+regularity and its orthogonality integral is at most
+\(-4\varepsilon\).  Thus positive growth alone cannot yield a
+smooth-Bergman regularity-and-orthogonality theorem.  This does not decide
+either characterization atom.  P05.3 and
 P05.4 are retired by
 `prop:p053-projection-recursion-repaired-candidate` and
 `cor:p053-algebraic-chart-repaired-candidate`: the proof constructs the
