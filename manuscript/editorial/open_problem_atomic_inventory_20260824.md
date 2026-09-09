@@ -914,11 +914,15 @@ counted as an additional unresolved atom.
   critical errors and zero gaps, conditional on the exact excerpts whose
   local source hashes are pinned in
   `solver_dossiers_20260909/p148_v6_source_closed_packet_20260909/`
-  `LIVE_INTEGRATION_AUDIT_V7_20260909`.  That review used
-  `gpt-6-astra`/`xhigh`; the retirement rule still requires a production
-  `gpt-5.6-sol`/`xhigh` verdict on the exact current statement and proof.
-  P14.8 remains open; this is not a zero-mass strict-interior range of the
-  DXZ filtration curve.
+  `LIVE_INTEGRATION_AUDIT_V7_20260909`.  After the initial
+  `gpt-6-astra`/`xhigh` review, the same frozen V7 statement and proof
+  received a production `gpt-5.6-sol`/`xhigh` verdict of final `correct`,
+  with zero critical errors and zero gaps (`pi_c2863cf20cfa0c4bba834a16`).
+  Its exact request, response, strict receipt audit, and the immutable
+  release-pin boundary are archived in that dossier.  This discharges the
+  production-review gate for the frozen conditional comparison, not the
+  broader atom: P14.8 remains open, and this is not a zero-mass
+  strict-interior range of the DXZ filtration curve.
 
 The divisorial realization, the finite-energy K\"ahler comparison, and the
 projective real N\'eron--Severi DXZ--Boucksom--Jonsson comparison are known
