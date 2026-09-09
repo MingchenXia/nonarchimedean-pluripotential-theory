@@ -1232,15 +1232,26 @@ restriction.
 - **P16.1** `[T5; open]` Singular or unibranch varieties.
 - **P16.2** `[T5; open]` Nonprojective but algebraizable proper settings.
 - **P16.3** `[T5; open]` Positive residue characteristic.
-- **P16.4** `[T4; open]` Nondiscrete valuations and arbitrary complete
-  non-Archimedean fields.
+- **P16.4** `[T4; open after the arbitrary-field invariant toric,
+  skeleton-supported endpoint]` Nondiscrete valuations and arbitrary complete
+  non-Archimedean fields outside
+  `prop:p164-arbitrary-field-toric-skeletal-endpoint`.
 - **P16.5** `[T5; open]` Big or pseudoeffective nonample positivity classes.
-- **P16.6** `[T4; open]` Arbitrary finite-energy measure support.
+- **P16.6** `[T4; open after the invariant toric,
+  skeleton-supported endpoint]` Arbitrary finite-energy measure support,
+  beyond the skeletal measures in
+  `prop:p164-arbitrary-field-toric-skeletal-endpoint`.
 - **P16.7** `[T5; open]` Genuinely nonalgebraizable analytic spaces.
 
-Strictly delimited endpoints are known.  The unrestricted axes remain open,
-and known nonskeletal examples rule out a general reduction to one
-skeleton or to rational PL potentials.
+The arbitrary-field toric endpoint has a proper toric variety, an ample toric
+line bundle, a positive measure of the correct mass supported on the
+canonical skeleton with no tropical-boundary mass, and a unique (up to
+scaling) toric continuous singular psh solution; see
+`prop:p164-arbitrary-field-toric-skeletal-endpoint` and
+\(\cite[\mathrm{Theorem}\ 6.3.13]{BGJKK25}\).  It is not a general
+arbitrary-field finite-energy operator or arbitrary-support result.  The
+unrestricted axes remain open, and known nonskeletal examples rule out a
+general reduction to one skeleton or to rational PL potentials.
 
 ### Retired P17 history --- 0 active atoms
 
