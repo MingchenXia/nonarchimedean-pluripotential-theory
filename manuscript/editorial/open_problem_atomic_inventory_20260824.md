@@ -206,7 +206,7 @@ measure bookkeeping.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
   moment-factor, good-strict invariant split-toric (including boundary) and
   finite-split scalar-stable invariant-toric, including its analytic-local
-  finite-split toric-model version,
+  finite-split analytic-form version,
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
@@ -239,9 +239,9 @@ and zero gaps.  It does not address noninvariant functions, nonsplit toric
 forms, arbitrary toroidal charts, or arbitrary analytic germs, so P06.2
 remains active and the inventory count is unchanged.
 The finite-split scalar-stable invariant-toric range is now also live.  If a
-toric form becomes split over a finite analytic field extension, and the
-pulled-back finite continuous function is maximal-compact-torus-invariant
-with zero CLD Hessian on the displayed split open inverse image, then
+good strict analytic form becomes a split toric open inverse image over a
+finite analytic field extension, and the pulled-back finite continuous
+function is maximal-compact-torus-invariant with zero CLD Hessian there, then
 `cor:p062-finite-split-invariant-scalar-stable-zero-current` descends local
 real-PL regularity, classical pluriharmonicity, and GJR harmonicity.  Its
 upstairs invariance and zero-current assumptions are explicit; no automatic
@@ -249,10 +249,10 @@ ascent of the downstairs continuous Hessian current is asserted, and no
 model-backed verifier was used for this direct source-cited corollary.
 The analytic-local companion
 `cor:p062-local-finite-split-invariant-scalar-stable-zero-current` transfers
-the same conclusion to every germ explicitly isomorphic to one such displayed
-finite-split toric model, after transporting the upstairs assumptions.  It
-does not manufacture a model for a general analytic germ and uses no
-model-backed verifier.
+the same conclusion to every germ which becomes one such displayed split
+toric domain after a finite analytic extension, after imposing the upstairs
+assumptions.  It does not manufacture a model for a general analytic germ and
+uses no model-backed verifier.
 The quasi-smooth scope of P06.1 is settled by
 `thm:p061-quasismooth-ph-rpl`: every classically pluriharmonic function on a
 good strict quasi-smooth analytic space is \(\mathbf R\)-PL and GJR
@@ -602,7 +602,7 @@ strict radial core, and the classification of boundary-control hypotheses
 weaker than scalar stability.  Higher-dimensional standard strict product
 endpoints, the scalar-stable arbitrary-radius products, and the finite-split
 scalar-stable invariant-toric range, including its analytic-local
-finite-split toric-model version, is removed from the residual; the
+finite-split analytic-form version, is removed from the residual; the
 unrestricted arbitrary-radius version is disproved.  The
 strict-open-disc descent proposition `prop:p062-open-disc-descent` also
 shows that a continuous zero-current function on
