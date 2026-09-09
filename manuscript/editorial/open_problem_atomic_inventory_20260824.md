@@ -389,6 +389,11 @@ strict affinoid chart over an arbitrary split toric variety when its target
 affinoid is an ordinary neighbourhood of the image point.  This remains a
 chart criterion: it supplies neither that ordinary-target condition nor a
 standard-etale presentation for an arbitrary analytic etale map.
+When the toric base has a finite analytic splitting extension,
+`cor:p061-analytic-standard-etale-finite-split-forms` pulls this chart to the
+split extension, applies the all-orbits conclusion there, and descends the
+resulting real-PL function.  It retains the ordinary-target condition and
+does not cover forms without a finite splitting extension.
 P06.1 remains active only for arbitrary nonproduct singular germs, products
 containing higher-dimensional reduced singular factors outside the verified
 ranges, genuinely log-etale charts not covered by an ordinary-etale chart of
