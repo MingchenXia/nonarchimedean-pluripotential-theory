@@ -1243,6 +1243,15 @@ restriction.
   `prop:p164-arbitrary-field-toric-skeletal-endpoint`.
 - **P16.7** `[T5; open]` Genuinely nonalgebraizable analytic spaces.
 
+P16.2 has a necessary formulation boundary.  A proper algebraic
+\(K\)-scheme with an ample line bundle is already projective over \(K\)
+\(\cite[\mathrm{Tag}\ 0B5N]{StacksProject}\).  Hence it does not ask to
+retain the BFJ ample line-bundle datum while omitting projectivity.  It asks
+for a replacement positivity datum on a proper nonprojective algebraizable
+space, together with the psh, finite-energy, and comparison theory needed for
+an equation.  No such general replacement is currently supplied by the
+listed endpoints.
+
 The arbitrary-field toric endpoint has a proper toric variety, an ample toric
 line bundle, a positive measure of the correct mass supported on the
 canonical skeleton with no tropical-boundary mass, and a unique (up to
