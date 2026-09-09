@@ -77,6 +77,16 @@ reassigned.
 The curve and real-PL boundary cases recorded in the chapter are known; the
 four unrestricted higher-dimensional targets remain open.
 
+There is now a source-scoped P02.4 companion on the inverse image of an
+ordinary open convex tropical chamber in a split torus.  Every finite
+continuous maximal-compact-torus-invariant current-psh function there is a
+locally decreasing limit of invariant ordinary CLD-smooth psh functions:
+it descends to a finite convex tropical potential, whose radial
+mollifications decrease, and smooth tropical pullback preserves CLD
+smoothness and positivity.  This starts with the invariant current-psh
+class, not an arbitrary classically psh function, and does not alter any
+P02 atom or count.
+
 ### `prob:frontier-unibranch-local-envelope` --- 3 atoms
 
 - **P03.1** `[T2; open]` Classify the irreducible, normal, or analytically
