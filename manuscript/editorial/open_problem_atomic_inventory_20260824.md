@@ -204,7 +204,8 @@ measure bookkeeping.
   classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
-  moment-factor, good-strict invariant split-toric (including boundary),
+  moment-factor, good-strict invariant split-toric (including boundary) and
+  finite-split scalar-stable invariant-toric,
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
@@ -236,6 +237,15 @@ item `pi_30ec53e8836ba1d2b08fdf64`, final `correct`, with zero critical errors
 and zero gaps.  It does not address noninvariant functions, nonsplit toric
 forms, arbitrary toroidal charts, or arbitrary analytic germs, so P06.2
 remains active and the inventory count is unchanged.
+The finite-split scalar-stable invariant-toric range is now also live.  If a
+toric form becomes split over a finite analytic field extension, and the
+pulled-back finite continuous function is maximal-compact-torus-invariant
+with zero CLD Hessian on the displayed split open inverse image, then
+`cor:p062-finite-split-invariant-scalar-stable-zero-current` descends local
+real-PL regularity, classical pluriharmonicity, and GJR harmonicity.  Its
+upstairs invariance and zero-current assumptions are explicit; no automatic
+ascent of the downstairs continuous Hessian current is asserted, and no
+model-backed verifier was used for this direct source-cited corollary.
 The quasi-smooth scope of P06.1 is settled by
 `thm:p061-quasismooth-ph-rpl`: every classically pluriharmonic function on a
 good strict quasi-smooth analytic space is \(\mathbf R\)-PL and GJR
@@ -583,8 +593,9 @@ P06.2 remains one active T2 atom only for arbitrary analytic germs,
 nonproduct local domains, equations known merely on the coordinatewise
 strict radial core, and the classification of boundary-control hypotheses
 weaker than scalar stability.  Higher-dimensional standard strict product
-endpoints and the scalar-stable arbitrary-radius products are removed from
-the residual; the unrestricted arbitrary-radius version is disproved.  The
+endpoints, the scalar-stable arbitrary-radius products, and the finite-split
+scalar-stable invariant-toric range are removed from the residual; the
+unrestricted arbitrary-radius version is disproved.  The
 strict-open-disc descent proposition `prop:p062-open-disc-descent` also
 shows that a continuous zero-current function on
 \(B\times_KD_R^-\) is pulled back from a unique continuous zero-current
