@@ -17,6 +17,7 @@ not retire P03.3.
 | The invariant real-PL and invariant continuous-psh envelopes agree | Direct supporting-hyperplane argument for the finite convex envelope p | A global affine support at every point belongs to the real-PL minorant class. |
 | The invariant semipositive-real-PL subenvelope agrees as well | Theorem 5.3.11 of BGJKK25 makes tropical affine supports psh; the book's P01 comparison turns positive Hessian current into real-PL semipositivity | Requires the added good, separated, strict, boundaryless, pure-dimensional hypotheses. |
 | The full invariant local-FS/semipositive-real-PL competitor union is the same subenvelope | GJR26, Definition 7.8 and (7.9): an LFS function is real PL and semipositive at every point | Thus the first alternative contributes no extra \(S\)-invariant competitors beyond the semipositive real-PL class. |
+| The common invariant envelope is CLD-v2 psh, already at the first decreasing stage | \(\Cref{cor:p024-invariant-toric-cld-smooth-regularization}\) applied to \(P^S_Vf=p\circ\operatorname{trop}\) | Uses exactly the finite, continuous, maximal-compact-torus-invariant psh scope established above. |
 
 Primary source: J. I. Burgos Gil, W. Gubler, P. Jell, and K. Künnemann,
 *Pluripotential theory for tropical toric varieties and non-Archimedean
@@ -41,8 +42,9 @@ https://smf.emath.fr/system/files/filepdf/GUBLER_JELL_RABINOFF.pdf
    subenvelope does not identify either with the local-FS/semipositive-real-PL
    competitor union without \(S\)-invariance.
 3. Nonemptiness is essential to obtain the finite lower bound `a_0 <= p`.
-4. The theorem proves a continuous CLD-current psh envelope, but makes no
-   statement about the book's unrestricted CLD-v2 classification problem.
+4. The first-stage CLD conclusion uses the separate P02.4 invariant-toric
+   corollary.  It makes no statement about the book's unrestricted CLD-v2
+   classification problem.
 5. The exact local-FS/semipositive-real-PL identification is only for the
    invariant subfamily and only on the additional strict, boundaryless
    domain.  It leaves every noninvariant competitor outside the conclusion.

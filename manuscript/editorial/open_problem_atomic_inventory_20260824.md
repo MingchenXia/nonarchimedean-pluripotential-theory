@@ -158,6 +158,14 @@ It treats only that invariant psh competitor family, not all
 local-FS/semipositive-real-PL minorants; P03.3 therefore remains active and
 the inventory count is unchanged.
 
+The same finite continuous invariant envelope is also locally in the first
+decreasing CLD-smooth psh stage by
+cor:p024-invariant-toric-cld-smooth-regularization.  Thus this exact
+invariant-toric chamber settles the corresponding restricted P03.2 CLD-v2
+assertion as well as the continuity assertion.  It says nothing about the
+noninvariant local-FS/semipositive-real-PL envelope, so neither P03.2 nor
+P03.3 retires.
+
 On a good separated strict boundaryless pure-dimensional such toric domain,
 the same envelope is exactly the raw envelope over the full
 maximal-compact-torus-invariant part of the original
