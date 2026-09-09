@@ -77,6 +77,17 @@ reassigned.
 The curve and real-PL boundary cases recorded in the chapter are known; the
 four unrestricted higher-dimensional targets remain open.
 
+There is now a source-scoped P02.1 companion on an ordinary Euclidean ball
+compactly contained in a split-toric convex chamber.  If the ball inverse
+image is good, separated, strict, boundaryless, and pure-dimensional, every
+finite continuous maximal-compact-torus-invariant current-psh function there
+is a locally uniform decreasing limit of invariant semipositive real-PL
+functions.  Finite tangent-plane maxima approximate gently shifted radial
+convex smoothings from above, and their positive interstage gaps enforce
+monotonicity.  This begins with the invariant current-psh class and supplies
+neither locally Fubini--Study nor weakly smooth approximants, so it does not
+alter any P02 atom or count.
+
 There is now a source-scoped P02.4 companion on the inverse image of an
 ordinary open convex tropical chamber in a split torus.  Every finite
 continuous maximal-compact-torus-invariant current-psh function there is a
