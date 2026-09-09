@@ -173,8 +173,10 @@ local-Fubini--Study/semipositive-real-PL competitor union.  Indeed, a
 locally Fubini--Study function is real PL and semipositive at every point,
 so that alternative contributes no functions outside the invariant
 semipositive real-PL class; supporting affine functions give the reverse
-comparison.  This does not control any noninvariant candidate in the
-original envelope.
+comparison.  By the preceding first-stage result, this exact invariant
+local-Fubini--Study/semipositive-real-PL raw envelope is also locally CLD-v2
+psh.  This does not control any noninvariant candidate in the original
+envelope.
 
 ### `prob:frontier-local-ma` --- 4 atoms
 
