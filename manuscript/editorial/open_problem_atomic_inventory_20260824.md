@@ -1487,6 +1487,14 @@ P19.3 or alter the active-atom count.
   approximable by smooth zero-Hessian functions, then
   `cor:ch16-local-pluriharmonic-criterion` gives the required independence for
   every positive closed current.  A further pairwise class is now closed:
+  if the current is locally weak-form-induced from a closed weakly smooth
+  form in the sense of `def:ch18-weak-form-induced-current`, and the
+  zero-Hessian difference is weakly smooth, then
+  `prop:ch18-weak-form-induced-bt` identifies its order-zero ordinary product
+  with the restricted strong product and gives the equality.  This is not an
+  assertion for an arbitrary strong lift, arbitrary positive closed current,
+  or arbitrary continuous zero-Hessian difference.
+  Independently, a further pairwise class is now closed:
   when that difference locally factors through a proper full-rank moment
   satisfying every hypothesis of `prop:p062-proper-full-rank-moment`, its
   affine source formula makes it smooth with zero Hessian, and
