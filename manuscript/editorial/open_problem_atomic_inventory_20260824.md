@@ -887,14 +887,18 @@ counted as an additional unresolved atom.
   domination-preserving rational-divisorial theorem and its finite-energy
   K\"ahler corollary recover the all-point comparison from P14.2 upper
   semicontinuity and divisorial agreement.  Its frozen V3 source-bound
-  packet embeds hashed MP24 and DXZ23 excerpts and received final
-  `correct` review with zero critical errors and zero gaps
-  (`pi_75b42272e15105bb6be0525c`).  It verifies only the conditional
+  packet embeds hashed MP24 and DXZ23 excerpts.  After its initial review,
+  the same frozen V3 files passed an isolated `gpt-5.6-sol` / `xhigh`
+  production review: final `correct`, zero critical errors, and zero gaps
+  (`pi_75b42272e15105bb6be0525c`).  Its archived HTTP receipt and strict
+  protocol audit are in `p143_v3_source_bound_packet_20260909/`
+  `PRODUCTION_RECEIPT_SOL_20260909.md`.  It verifies only the conditional
   bridge: P14.2 upper semicontinuity and the finite-energy divisorial
   normalization are explicit premises.  The general MP-positivity problem
-  remains open.  The local V4 exact-live audit additionally pins the current
-  Chapter 71 source range, the frozen V3 packet, and this live-open boundary;
-  it is an integrity check rather than a production verifier receipt.
+  remains open.  The historical local V4 exact-live audit records
+  then-current Chapter 71 source ranges, the frozen V3 packet, and this
+  live-open boundary; it is a local integrity check, rather than a
+  replayable release pin or production verifier receipt.
 - **P14.4** `[T4; open]` Construct a \(P\)-sensitive positivity theory for
   big non-nef classes.
 - **P14.5** `[T5; open]` Construct the corresponding Monge--Amp\`ere

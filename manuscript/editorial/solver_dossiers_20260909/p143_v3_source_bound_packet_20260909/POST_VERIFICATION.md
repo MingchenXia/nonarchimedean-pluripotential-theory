@@ -26,3 +26,15 @@ byte-for-byte as submitted, including their end-of-file whitespace, so the
 receipt remains reproducible. This is evidence for the stated conditional
 bridge only; P14.3 remains open because its P14.2 and normalization premises
 are not discharged here.
+
+## Production re-review
+
+The same frozen `STATEMENT_V3.md` and `PROOF_V3.md` were separately submitted
+to the isolated production verifier on 9 September 2026.  The service run
+used `gpt-5.6-sol` at `xhigh`, and the HTTP-200 response is final `correct`
+for `pi_75b42272e15105bb6be0525c`, with zero critical errors and zero gaps.
+The exact production request, response, and safe headers are archived in
+`VERIFICATION_RUN_SOL_PRODUCTION_20260909/`; their hashes, service run time,
+and strict protocol audit are recorded in `PRODUCTION_RECEIPT_SOL_20260909.md`.
+This repeated review does not discharge the stated P14.2 or finite-energy
+normalization premises and does not change P14.3's open status.
