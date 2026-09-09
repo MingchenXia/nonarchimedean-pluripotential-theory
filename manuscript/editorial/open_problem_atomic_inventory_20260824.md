@@ -1,7 +1,7 @@
 # Atomic crosswalk for the active problem environments
 
 **Inventory date:** 10 September 2026
-**Literature cutoff:** 10 September 2026; targeted P14.7/P14.8 source update on 31 August and P05/P13/P16 source updates on 10 September 2026
+**Literature cutoff:** 10 September 2026; targeted P14.7/P14.8 source update on 31 August and P05/P13/P15/P16 source updates on 10 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
 This file is an editorial crosswalk for solving, verifying, and retiring the
@@ -1234,6 +1234,16 @@ Xia's Conjecture 8.8 is verified in the separately stated domain; the three
 zero-volume targets remain open.  Xia's numerical-dimension and Chebyshev
 independence questions are useful milestones for `P15.3`, not additional
 formal environments in this crosswalk.
+
+The published Darvas--Reboulet--Witt Nystr\"om--Xia--Zhang theorem gives a
+natural compact convex body for every pseudoeffective transcendental
+cohomology class with a chosen flag, whose full-dimensional volume is
+\(\operatorname{vol}(\alpha)/n!\).  At zero volume this supplies a
+class-level body of zero ambient volume only.  It neither identifies its
+lower-dimensional data with numerical dimension nor retains a prescribed
+\(P\)-singularity type, and it supplies no zero-volume energy or
+Monge--Amp\`ere theory.  Thus it narrows the context of P15.3 but leaves
+P15.1--P15.3 active.
 
 ### `prob:frontier-general-ma` --- 7 atoms
 
