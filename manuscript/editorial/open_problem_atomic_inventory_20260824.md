@@ -137,12 +137,14 @@ There is now an automatic-modulus invariant toric companion result for
 P03.3.  On the
 inverse image of an ordinary open convex subset of the dense tropical vector
 space of a split torus, a finite continuous invariant obstacle has a finite,
-continuous, locally psh-approximable raw envelope over the nonempty family of
-invariant toric real-PL convex minorants.  The lower bound from one competitor
-and the upper obstacle bound make the tropical convex supremum locally
-Lipschitz.  The exact source and scope ledger is
+continuous, locally psh-approximable raw envelope over all continuous
+invariant psh minorants.  Under tropicalization it is the envelope of finite
+convex minorants, and supporting affine functions prove that it equals the
+smaller invariant toric real-PL envelope.  The lower bound from one
+competitor and the upper obstacle bound make the tropical convex supremum
+locally Lipschitz.  The exact source and scope ledger is
 `solver_dossiers_20260909/p033_invariant_toric_convex_envelope_20260909/`.
-It treats only that invariant toric real-PL competitor family, not all
+It treats only that invariant psh competitor family, not all
 local-FS/semipositive-real-PL minorants; P03.3 therefore remains active and
 the inventory count is unchanged.
 
