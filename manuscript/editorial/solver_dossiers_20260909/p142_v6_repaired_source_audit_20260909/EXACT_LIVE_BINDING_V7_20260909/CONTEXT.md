@@ -5,7 +5,7 @@ Chapter 71 bytes. It is not an independent hostile audit, a final-path smoke
 receipt, or a production-verification result.
 
 Candidate manifest SHA-256: `3511b635413d7ace9013edd278216017096d7359ac5dd2b3155cbf179c83e97f`.
-Current Chapter 71 SHA-256: `629403ddde7f6dce25a8d1edd3d0d5a7a45bd1eec276b3125612b83c5e0ab6c9`.
+Current Chapter 71 SHA-256: `99360f8d2b3ec898d46a7920d36c00de44c09f11563fd0996e0fb5f051d3b34a`.
 
 ## target/STATEMENT.tex ← Chapter 71 lines 615-692, 850-865
 
