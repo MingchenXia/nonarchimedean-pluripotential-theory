@@ -325,7 +325,8 @@ either atom; see BMPS26, pp. 4 and 45.
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
-  bundle over published-curve and endpoint-polycylinder-base cases]` Decide
+  bundle over published-curve, endpoint-polycylinder-base, and lifted-
+  maximal-compact-torus-invariant split-toric-base cases]` Decide
   whether an arbitrary
   continuous function with zero
   \(\mathrm d'\mathrm d''\)-current is classically pluriharmonic, or
@@ -370,6 +371,14 @@ toric domain after an extension which is the completion of an algebraic
 extension, after imposing the
 upstairs assumptions.  It does not manufacture a model for a general analytic
 germ and uses no model-backed verifier.
+The invariant split-toric range also propagates through an actual locally
+trivial standard strict open-polydisc bundle when the maximal compact torus
+action lifts and the continuous zero-current function is invariant upstairs.
+`cor:p062-invariant-toric-open-polydisc-bundles` first uses the exact bundle
+descent to obtain a zero-current base function, whose invariance follows
+from equivariance and surjectivity, and then applies the split-toric boundary
+theorem.  This does not treat noninvariant functions, nonsplit forms,
+annular fibres, or bundles without the displayed local product charts.
 The quasi-smooth scope of P06.1 is settled by
 `thm:p061-quasismooth-ph-rpl`: every classically pluriharmonic function on a
 good strict quasi-smooth analytic space is \(\mathbf R\)-PL and GJR
