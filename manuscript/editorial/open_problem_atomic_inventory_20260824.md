@@ -85,8 +85,18 @@ is a locally uniform decreasing limit of invariant semipositive real-PL
 functions.  Finite tangent-plane maxima approximate gently shifted radial
 convex smoothings from above, and their positive interstage gaps enforce
 monotonicity.  This begins with the invariant current-psh class and supplies
-neither locally Fubini--Study nor weakly smooth approximants, so it does not
+only the real-PL conclusion by itself; the distinct companion arguments below
+add the locally Fubini--Study and weakly smooth conclusions.  It does not
 alter any P02 atom or count.
+
+There is now a source-scoped P02.2 companion on the same type of split-toric
+interior ball.  It approximates the finitely many supporting planes of
+successive convex smoothings directly, from above, by affine functions with
+one common character denominator.  Their finite maxima pull back to locally
+Fubini--Study functions on the same fixed ball, and the prescribed positive
+gaps retain monotonicity.  This starts with the invariant current-psh class,
+not an arbitrary classically psh function, and does not alter any P02 atom or
+count.
 
 There is now a source-scoped P02.4 companion on the inverse image of an
 ordinary open convex tropical chamber in a split torus.  Every finite
