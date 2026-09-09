@@ -1320,6 +1320,15 @@ open atoms.  The four corrected residual targets above are independent hybrid
 targets, not prerequisites for the already cited Kähler-class implication
 from uniform model stability to a cscK metric; they remain open.
 
+Wang's source-stated Theorem B supplies a different, nonproper endpoint: in
+each of its three affine/Calabi-model settings, explicitly rescaled
+Archimedean and non-Archimedean potentials glue continuously on the hybrid
+space, and the rescaled Archimedean Monge--Ampère measures converge weakly to
+the non-Archimedean measure \(\cite[\mathrm{Theorem}\ B]{Wang25NACalabiYau}\).
+It concerns a fixed quasi-projective variety under hybridization, rather than
+a degenerating family of compact Kähler manifolds, so it does not narrow
+P19.3 or alter the active-atom count.
+
 ### `prob:frontier-cross-fan-upstairs` --- 1 atom
 
 - **P21.3** `[T2; open residual]` In analytic dimension at least two,
