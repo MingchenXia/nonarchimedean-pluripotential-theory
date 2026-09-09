@@ -886,8 +886,11 @@ counted as an additional unresolved atom.
   The V7 local exact-live binding additionally replays the repaired V6
   source-stage candidate's manifest, release gates, and 179 tests, and pins
   its target statement, proof, and example to exact current Chapter 71
-  excerpts.  It is local reproducibility evidence, not the outstanding
-  independent hostile audit, final-path smoke, or production verification.
+  excerpts.  The preceding independent V5 source-stage hostile audit instead
+  returned `wrong`, with five critical errors and six gaps in the release and
+  smoke-control evidence; V6 is only a local repair replay.  It is not the
+  outstanding independent hostile audit, final-path smoke, or production
+  verification.
   This atom remains active until source-closed production verification passes.
 - **P14.3** `[T4; open; source-bound conditional theorem verified]` Decide
   MP positivity at those semivaluations.  The Chapter 71
