@@ -406,7 +406,8 @@ either atom; see BMPS26, pp. 4 and 45.
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
   bundle or finite tower of such bundles, locally trivial projective-space
-  bundles over a published curve, and finite globally coordinated
+  bundles or locally trivial proper smooth connected curve bundles over a
+  published curve, and finite globally coordinated
   standard strict-open-annulus products over a boundaryless finite tower of
   locally trivial standard strict-open-polydisc bundles over a published
   curve, or analytically locally trivial finite
@@ -979,6 +980,20 @@ pluriharmonicity, real-PL regularity, and GJR harmonicity in this range.  It
 is a proper-fibre globalization of the strict-disc result, not a conclusion
 for arbitrary nonproduct germs or arbitrary fibrations; the atom count, tier
 count, and queue position remain unchanged.
+There is a second verified proper-fibre range.  For a locally trivial bundle
+whose fibre is the analytification of a geometrically connected smooth proper
+algebraic curve, `prop:p062-proper-smooth-curve-bundle-descent` uses exact
+fibre slicing only over (K)-rational rigid base points.  The base field is
+algebraically closed, so those fibres remain over (K); Wanner comparison
+and the compact maximum principle make their restrictions constant.  Rigid
+points are dense in the entire local product, which extends the resulting
+function identity without scalar extension of a current, and a normalized
+fibre top form descends the current equation.  Consequently,
+`cor:p062-proper-smooth-curve-bundles-over-curves` gives classical
+pluriharmonicity, real-PL regularity, and GJR harmonicity over a published
+curve.  This does not assert the result for arbitrary proper or nonproper
+curve fibres, arbitrary fibrations, or arbitrary nonproduct germs; the atom
+count, tier count, and queue position remain unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
