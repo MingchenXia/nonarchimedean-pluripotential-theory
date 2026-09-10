@@ -328,7 +328,9 @@ either atom; see BMPS26, pp. 4 and 45.
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
   bundle or finite tower of such bundles, and finite globally coordinated
-  standard strict-open-annulus products or analytically locally trivial finite
+  standard strict-open-annulus products over a boundaryless finite tower of
+  locally trivial standard strict-open-polydisc bundles over a published
+  curve, or analytically locally trivial finite
   standard strict-open-polyannulus or mixed open-polycylinder bundles,
   including finite towers of strict-open-polydisc bundles over these
   product or bundle bases, over a published-curve,
@@ -808,6 +810,14 @@ strict open-polydisc bundles by
 pluriharmonicity for every such tower over a locally trivial polyannulus
 bundle.  Annular fibrations lacking these analytic product charts and
 arbitrary nonproduct germs remain outside the proved scope.
+Conversely, cor:p062-open-polyannulus-over-open-polydisc-towers reverses
+the order: after a boundaryless finite tower of locally trivial standard
+strict open-polydisc bundles over the published curve domain, it treats a
+globally coordinated finite strict-open-polyannulus product over the tower
+top.  The unique logarithmic formula has its base term and locally constant
+slope coefficients on that tower top, and yields classical
+pluriharmonicity.  It does not jointly trivialize the disc tower over the
+curve or claim real-PL or GJR regularity.
 The mixed local-product extension is also available.  If every analytic
 trivializing chart has both at least one standard strict open-annulus factor
 and at least one standard strict open-disc factor, then
