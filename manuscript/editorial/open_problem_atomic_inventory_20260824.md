@@ -1126,18 +1126,20 @@ This is not a counterexample to P08.1 or to ample envelope continuity.
 **Invariant projective toric global-smoothing range, 10 September 2026.**
 `prop:p081-invariant-projective-toric-global-smoothing` settles the literal
 CLD global-psh conclusion for a continuous maximal-compact-torus-invariant
-locally CLD-psh metric on a concave toric line bundle over a projective split
-toric variety with complete fan, in every dimension.  The proof applies the
-finite continuous/local-psh-approximable equivalence of BGJKK Theorem 5.3.11
-and its global decreasing smooth regularization in Corollary 5.4.5.  Dini's
-theorem on the compact tropical toric variety upgrades the pointwise monotone
-sequence to a uniform sequence, and surjective tropicalization transfers
-that uniform convergence to the metrics.  This is a literal global smooth
-psh approximation, rather than the separate fixed-line-bundle rational-model
-comparison.  It requires torus invariance and a concave toric support
-function; it gives no averaging or smoothing procedure for a noninvariant
-metric.  P08.1 therefore remains active outside this range, with no change
-to the atom or tier counts.
+locally CLD-psh metric on any toric line bundle over a projective split toric
+variety with complete fan, in every dimension.  BGJKK Theorem 5.3.11 first
+identifies the metric with a continuous semipositive toric metric.  Its
+concave logarithmic weight differs from the integral support function by a
+bounded amount; scaling the concavity inequality therefore shows that the
+support function is automatically concave.  BGJKK Corollary 5.4.5 then gives
+the global decreasing smooth regularization.  Dini's theorem on the compact
+tropical toric variety upgrades the pointwise monotone sequence to a uniform
+sequence, and surjective tropicalization transfers that uniform convergence
+to the metrics.  This is a literal global smooth psh approximation, rather
+than the separate fixed-line-bundle rational-model comparison.  It requires
+torus invariance, but no extra concavity assumption; it gives no averaging or
+smoothing procedure for a noninvariant metric.  P08.1 therefore remains
+active outside this range, with no change to the atom or tier counts.
 
 **Supersession.** The old unrestricted degree-zero theorem
 `thm:p081-curve-local-global`, its old analytic transfer, and the
