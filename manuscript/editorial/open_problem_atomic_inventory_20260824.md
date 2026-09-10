@@ -410,6 +410,15 @@ The analytic-local companion
 requires the preceding bundle, extension, action, invariance, and
 zero-current data only near each point of the total space.  It makes no
 claim where that local structure is absent.
+The finite-tower analogue,
+`cor:p062-local-iterated-algebraic-split-invariant-toric-open-polydisc-bundles`,
+likewise needs the entire displayed scalar-stable tower only near each point
+of the total space.  In particular, every tower level must carry the
+compatible lifted torus action and every bundle map must be equivariant after
+the specified algebraic-completion extension.  It yields the same local
+real-PL, classical-pluriharmonic, and GJR-harmonic conclusions, but neither
+constructs such local data nor supplies automatic ascent of a downstairs
+current equality.
 The quasi-smooth scope of P06.1 is settled by
 `thm:p061-quasismooth-ph-rpl`: every classically pluriharmonic function on a
 good strict quasi-smooth analytic space is \(\mathbf R\)-PL and GJR
