@@ -785,9 +785,10 @@ function on the good, topologically separated, pure strict base \(B\).
 Iterating it over the published Wanner curve scope gives
 `cor:p062-open-disc-products-over-curves`: all zero-current functions on a
 finite product of that curve domain with standard strict open discs are
-classically pluriharmonic.  The proof descends the equation by a normalized
-compactly supported disc top form, rather than by an invalid current
-pullback along the zero section.  The finite-polyannulus product theorem
+classically pluriharmonic, locally real-PL, and GJR harmonic.  The proof
+descends the equation by a normalized compactly supported disc top form,
+rather than by an invalid current pullback along the zero section.  The
+finite-polyannulus product theorem
 `thm:p062-open-polyannulus-products-over-curves` writes every zero-current
 function on \(W\times_K\prod_{i=1}^s A^-_{r_i,R_i}\) uniquely as
 \(p^*b+\sum_i(a_i\circ p)q_i^*\log|T_i|\), with \(b\) a zero-current curve
@@ -818,26 +819,31 @@ top.  The unique logarithmic formula has its base term and locally constant
 slope coefficients on that tower top, and yields classical
 pluriharmonicity.  It does not jointly trivialize the disc tower over the
 curve or claim real-PL or GJR regularity.
-The mixed local-product extension is also available.  If every analytic
-trivializing chart has both at least one standard strict open-annulus factor
-and at least one standard strict open-disc factor, then
-`cor:p062-mixed-open-polycylinder-bundles-over-curves` successively
-descends the disc factors and applies the polyannulus theorem, giving
-classical pluriharmonicity on the total space.  Its finite towers of locally
+There is also a globally coordinated mixed strict-open-polycylinder product
+range: `cor:p062-open-polycylinder-products-over-curves` first descends all
+disc factors and gives the unique logarithmic coefficient formula over the
+published curve, with classical pluriharmonic, real-PL, and GJR harmonic
+conclusions.  More generally, if every analytic trivializing chart has both
+at least one standard strict open-annulus factor and at least one standard
+strict open-disc factor, then
+`cor:p062-mixed-open-polycylinder-bundles-over-curves` gives the same three
+regularity conclusions on the total space.  Its finite towers of locally
 trivial standard strict open-polydisc bundles are covered by
-`cor:p062-mixed-open-polycylinder-bundle-open-polydisc-towers`.
-Neither result asserts a global logarithmic coefficient formula, a new
-real-PL or GJR conclusion, or a conclusion for fibrations without the
-stated analytic product charts.
+`cor:p062-mixed-open-polycylinder-bundle-open-polydisc-towers`, but the
+nontrivial tower conclusion remains only classical pluriharmonicity.
+The locally trivial mixed result asserts no global logarithmic coefficient
+formula, and none of these results treat fibrations without the stated
+analytic product charts.
 The local product theorem globalizes by
 `prop:p062-open-polydisc-bundle-descent`: on every locally trivial standard
 strict open-polydisc bundle over a good separated strict pure-dimensional base,
 a continuous zero-current function uniquely descends to a zero-current
 function on the base.  In the published curve scope,
 `cor:p062-open-polydisc-bundles-over-curves` then makes it classically
-pluriharmonic, without a global section or product decomposition.  This does
-not cover nontrivial annular fibres, disc fibrations without the stated local product
-charts, arbitrary nonproduct germs, or strict-core-only equations.  For a
+pluriharmonic, real-PL, and GJR harmonic, without a global section or product
+decomposition.  This does not cover nontrivial annular fibres, disc
+fibrations without the stated local product charts, arbitrary nonproduct
+germs, or strict-core-only equations.  For a
 positive-dimensional standard strict endpoint-polycylinder base,
 `prop:p062-open-polydisc-bundle-endpoint-base` further identifies the descended
 function with the affine combination of the base annular logarithms.  The
