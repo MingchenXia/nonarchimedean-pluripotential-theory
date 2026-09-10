@@ -120,6 +120,18 @@ neither the finite-continuous invariant starting class nor the relatively
 compact ordinary-open scope, supplies no local-Fubini--Study conclusion, and does not alter any
 P02 atom or count.
 
+The apparent convex-chamber restriction in these four companions is only
+global notation.  On an arbitrary ordinary open tropical domain in a split
+torus, every finite continuous maximal-compact-torus-invariant current-psh
+function has the locally Fubini--Study, weakly smooth psh, and CLD-smooth psh
+decreasing approximations around every tropical fibre: choose nested convex
+balls compactly contained in the given open set and apply the corresponding
+chamber theorem after restriction.  When the smaller inverse image is good
+and strictly analytic, the semipositive real-PL conclusion localizes in the
+same way.  This is the germwise result
+`cor:p02-invariant-toric-germwise-regularization`; it neither treats
+noninvariant functions nor changes a P02 atom or the total count.
+
 ### `prob:frontier-unibranch-local-envelope` --- 3 atoms
 
 - **P03.1** `[T2; open]` Classify the irreducible, normal, or analytically
