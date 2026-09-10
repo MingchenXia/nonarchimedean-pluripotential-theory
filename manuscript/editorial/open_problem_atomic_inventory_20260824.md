@@ -328,7 +328,8 @@ either atom; see BMPS26, pp. 4 and 45.
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
   bundle or finite tower of such bundles, and one standard strict-open-annulus
-  product, over a published-curve,
+  product or a finite tower of strict-open-polydisc bundles over that product,
+  over a published-curve,
   endpoint-polycylinder-base or a finite tower over such a base, and lifted-
   maximal-compact-torus-invariant split-toric-base cases]` Decide
   whether an arbitrary
@@ -791,7 +792,13 @@ Gauss sections and compact radial averages, then uses a mixed compact test
 to kill the first current of the slope coefficient.  Thus this strict
 product is classically pluriharmonic, locally real-PL, and GJR harmonic.
 The global annular coordinate is essential, so no annular-fibration or
-annular-bundle conclusion follows.  The local product theorem globalizes by
+annular-bundle conclusion follows.  The same coefficient formula persists
+through every finite tower of locally trivial standard strict open-polydisc
+bundles over this product by
+`cor:p062-annulus-base-open-polydisc-towers`: it first descends the function
+to the curve--annulus product and then applies the annular theorem.  The
+annulus is still a globally coordinated base factor, not a bundle fibre.
+The local product theorem globalizes by
 `prop:p062-open-polydisc-bundle-descent`: on every locally trivial standard
 strict open-polydisc bundle over a good separated strict pure-dimensional base,
 a continuous zero-current function uniquely descends to a zero-current
