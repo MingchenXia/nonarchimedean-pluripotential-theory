@@ -221,14 +221,17 @@ obstacles it also settles the P03.3 continuity assertion.  It says nothing
 about the noninvariant local-FS/semipositive-real-PL envelope, so none of
 P03.1--P03.3 retires.
 
-On a good separated strict boundaryless pure-dimensional such toric domain,
+On a good separated strictly analytic boundaryless such toric domain,
 the same envelope is exactly the raw envelope over the full
 maximal-compact-torus-invariant part of the original
 local-Fubini--Study/semipositive-real-PL competitor union.  Indeed, a
 locally Fubini--Study function is real PL and semipositive at every point,
 so that alternative contributes no functions outside the invariant
-semipositive real-PL class; supporting affine functions give the reverse
-comparison.  By the preceding first-stage result, this exact invariant
+semipositive real-PL class.  Every supporting affine function gives the
+reverse comparison through the CLD-to-classical and real-PL comparisons;
+GJR's one-way current theorem puts each semipositive competitor in the psh
+class without a pure-dimensionality assumption.  By the preceding
+first-stage result, this exact invariant
 local-Fubini--Study/semipositive-real-PL raw envelope is also locally CLD-v2
 and classically psh.  This does not control any noninvariant candidate in
 the original envelope.
