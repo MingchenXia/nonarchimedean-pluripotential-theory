@@ -808,17 +808,18 @@ formula persists through every finite tower of locally trivial standard
 strict open-polydisc bundles by
 `cor:p062-polyannulus-base-open-polydisc-towers`.  Separately,
 `cor:p062-open-polyannulus-bundle-open-polydisc-towers` supplies classical
-pluriharmonicity for every such tower over a locally trivial polyannulus
-bundle.  Annular fibrations lacking these analytic product charts and
-arbitrary nonproduct germs remain outside the proved scope.
+pluriharmonicity, local real-PL regularity, and GJR harmonicity for every
+such tower over a locally trivial polyannulus bundle.  Annular fibrations
+lacking these analytic product charts and arbitrary nonproduct germs remain
+outside the proved scope.
 Conversely, cor:p062-open-polyannulus-over-open-polydisc-towers reverses
 the order: after a boundaryless finite tower of locally trivial standard
 strict open-polydisc bundles over the published curve domain, it treats a
 globally coordinated finite strict-open-polyannulus product over the tower
 top.  The unique logarithmic formula has its base term and locally constant
 slope coefficients on that tower top, and yields classical
-pluriharmonicity.  It does not jointly trivialize the disc tower over the
-curve or claim real-PL or GJR regularity.
+pluriharmonicity, local real-PL regularity, and GJR harmonicity.  It does
+not jointly trivialize the disc tower over the curve.
 There is also a globally coordinated mixed strict-open-polycylinder product
 range: `cor:p062-open-polycylinder-products-over-curves` first descends all
 disc factors and gives the unique logarithmic coefficient formula over the
@@ -830,7 +831,7 @@ strict open-disc factor, then
 regularity conclusions on the total space.  Its finite towers of locally
 trivial standard strict open-polydisc bundles are covered by
 `cor:p062-mixed-open-polycylinder-bundle-open-polydisc-towers`, but the
-nontrivial tower conclusion remains only classical pluriharmonicity.
+nontrivial tower conclusion has the same three local regularity outcomes.
 The locally trivial mixed result asserts no global logarithmic coefficient
 formula, and none of these results treat fibrations without the stated
 analytic product charts.
@@ -848,9 +849,15 @@ positive-dimensional standard strict endpoint-polycylinder base,
 `prop:p062-open-polydisc-bundle-endpoint-base` further identifies the descended
 function with the affine combination of the base annular logarithms and
 makes the total-space function classically pluriharmonic, real-PL, and GJR
-harmonic.  This single-bundle upgrade does not pass automatically through a
-nontrivial open-polydisc-bundle tower.  The atom count, tier count, and queue
-position are unchanged.
+harmonic.  The local finite-curve-product presentation propagates through
+every displayed finite open-polydisc-bundle tower: over the published curve,
+the curve-polyannulus and mixed curve-polycylinder bases, and the standard
+strict endpoint-polycylinder base, the corresponding tower results therefore
+have the same classical-pluriharmonic, real-PL, and GJR-harmonic conclusions.
+They require every displayed local product chart and do not cover annular
+fibres, fibrations without those charts, arbitrary nonproduct germs, or
+strict-core-only equations.  The atom count, tier count, and queue position
+are unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
