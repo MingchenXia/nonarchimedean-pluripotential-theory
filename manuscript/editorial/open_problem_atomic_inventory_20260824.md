@@ -388,6 +388,10 @@ descent to obtain a zero-current base function, whose invariance follows
 from equivariance and surjectivity, and then applies the split-toric boundary
 theorem.  This does not treat noninvariant functions, nonsplit forms,
 annular fibres, or bundles without the displayed local product charts.
+The same split-toric conclusion persists through every finite such tower
+when the maximal compact torus acts on each level and every bundle map is
+equivariant: `cor:p062-iterated-invariant-toric-open-polydisc-bundles`
+successively descends the invariant zero-current function to the toric base.
 Its scalar-stable algebraic-split companion
 `cor:p062-algebraic-split-invariant-toric-open-polydisc-bundles` applies when
 the entire displayed bundle becomes such a toric bundle after a complete
@@ -396,6 +400,11 @@ action, invariance, and zero-current assumptions are all imposed upstairs.
 It descends the resulting real-PL, classical-pluriharmonic, and GJR-harmonic
 conclusions, but asserts neither automatic current ascent nor a toric-bundle
 presentation for an arbitrary germ.
+Its finite-tower version,
+`cor:p062-iterated-algebraic-split-invariant-toric-open-polydisc-bundles`,
+requires the entire compatible tower, lifted action, invariance, and
+zero-current equation after the chosen algebraic-completion extension; it
+then descends the same three conclusions to the original field.
 The analytic-local companion
 `cor:p062-local-algebraic-split-invariant-toric-open-polydisc-bundles`
 requires the preceding bundle, extension, action, invariance, and
