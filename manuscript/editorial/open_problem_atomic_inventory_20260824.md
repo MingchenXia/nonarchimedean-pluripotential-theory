@@ -327,9 +327,10 @@ either atom; see BMPS26, pp. 4 and 45.
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
-  bundle or finite tower of such bundles, and one standard strict-open-annulus
-  product or a finite tower of strict-open-polydisc bundles over that product,
-  over a published-curve,
+  bundle or finite tower of such bundles, and finite globally coordinated
+  standard strict-open-annulus products or analytically locally trivial finite
+  standard strict-open-polyannulus bundles, including finite towers of
+  strict-open-polydisc bundles over either, over a published-curve,
   endpoint-polycylinder-base or a finite tower over such a base, and lifted-
   maximal-compact-torus-invariant split-toric-base cases]` Decide
   whether an arbitrary
@@ -792,14 +793,20 @@ averages give the zero-current coefficients; a mixed compact test gives the
 slope coefficient zero first current, and an induction through lower
 polyannulus products makes it locally constant.  Thus this strict product is
 classically pluriharmonic, locally real-PL, and GJR harmonic.  The \(s=1\)
-case is `thm:p062-open-annulus-products-over-curves`.  Every annular
-coordinate is global, so no annular-fibration or annular-bundle conclusion
-follows.  The same coefficient formula persists through every finite tower
-of locally trivial standard strict open-polydisc bundles over the product by
-`cor:p062-polyannulus-base-open-polydisc-towers`: it first descends the
-function to the curve--polyannulus product and then applies the
-polyannulus theorem.  The annuli are still globally coordinated base factors,
-not bundle fibres.
+case is `thm:p062-open-annulus-products-over-curves`.  Its displayed
+coefficient formula needs globally coordinated annular coordinates, but
+`cor:p062-open-polyannulus-bundles-over-curves` globalizes the regularity
+conclusion to every analytically locally trivial finite standard strict
+open-polyannulus bundle over \(W\): it applies the product theorem in each
+analytic product chart and requires no global coordinate or coefficient
+compatibility.  For the globally coordinated product, the same coefficient
+formula persists through every finite tower of locally trivial standard
+strict open-polydisc bundles by
+`cor:p062-polyannulus-base-open-polydisc-towers`.  Separately,
+`cor:p062-open-polyannulus-bundle-open-polydisc-towers` supplies classical
+pluriharmonicity for every such tower over a locally trivial polyannulus
+bundle.  Annular fibrations lacking these analytic product charts and
+arbitrary nonproduct germs remain outside the proved scope.
 The local product theorem globalizes by
 `prop:p062-open-polydisc-bundle-descent`: on every locally trivial standard
 strict open-polydisc bundle over a good separated strict pure-dimensional base,
