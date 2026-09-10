@@ -243,7 +243,7 @@ identity \eqref{eq:pseff-finite-energy-divisorial-link} now lets us apply
 
 ```
 
-## chapter72_p143_boundary — lines 3411–3437
+## chapter72_p143_boundary — lines 3414–3440
 
 ```text
 is proved.  The domination-preserving rational-divisorial approximation in
@@ -275,7 +275,7 @@ production verifier receipt; the production receipt above likewise does not
 alter the P14.3 status.
 ```
 
-## inventory_p143_boundary — lines 1257–1273
+## inventory_p143_boundary — lines 1260–1276
 
 ```text
 - **P14.3** `[T4; open; source-bound conditional theorem verified]` Decide

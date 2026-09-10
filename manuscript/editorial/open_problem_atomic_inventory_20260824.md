@@ -846,8 +846,11 @@ fibrations without the stated local product charts, arbitrary nonproduct
 germs, or strict-core-only equations.  For a
 positive-dimensional standard strict endpoint-polycylinder base,
 `prop:p062-open-polydisc-bundle-endpoint-base` further identifies the descended
-function with the affine combination of the base annular logarithms.  The
-atom count, tier count, and queue position are unchanged.
+function with the affine combination of the base annular logarithms and
+makes the total-space function classically pluriharmonic, real-PL, and GJR
+harmonic.  This single-bundle upgrade does not pass automatically through a
+nontrivial open-polydisc-bundle tower.  The atom count, tier count, and queue
+position are unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
