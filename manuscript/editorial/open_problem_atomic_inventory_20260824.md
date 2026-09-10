@@ -243,9 +243,12 @@ minorants.  On each convex ball that supremum is finite convex, so it is
 continuous and supplies a current-psh function; the local toric
 correspondence gives the reverse envelope comparison.  The germwise P02
 regularization result then places it at the first decreasing CLD-smooth
-stage.  This handles nonconvex ambient tropical domains but deliberately
-does not compare with a real-PL, locally-Fubini--Study, semipositive-real-PL,
-or any noninvariant envelope there.  It therefore narrows the invariant
+stage.  The same germwise theorem also gives decreasing locally
+Fubini--Study, weakly smooth, and (on good strict pieces) semipositive-real-PL
+regularizations of this envelope, but it does not make those approximants
+minorants of the obstacle.  This handles nonconvex ambient tropical domains
+but deliberately does not compare with a real-PL, locally-Fubini--Study,
+semipositive-real-PL, or any noninvariant envelope there.  It therefore narrows the invariant
 P03 range without retiring P03.1--P03.3 or changing the count.
 
 On a good separated strictly analytic boundaryless such toric domain,
