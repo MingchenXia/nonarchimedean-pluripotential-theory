@@ -966,7 +966,8 @@ the residual scopes stated above.
 
 ### `prob:frontier-cld-hierarchy` --- 1 active atom
 
-- **P07.1** `[T2; open after the tropical-toric, finite ambient-star, two
+- **P07.1** `[T2; open after the tropical-toric, finite ambient-star,
+  finite ambient-star × open-convex-Euclidean joint-convex-generator, two
   nonambient interval, exact CLD infinite-star, Stone--Euclidean,
   Stone--polyhedral, and generator-convex arbitrary-incidence
   polyhedral-complex cases]`
@@ -980,6 +981,21 @@ exact finite ambient-induced real-affine-star theorem archived under
 `20260827T103835Z_c8131b22d800`; the direct endpoint assigned no run or item
 identifier and returned final `correct`, with zero critical errors and zero
 gaps.
+
+The finite ambient-star result now also has a genuine Euclidean product
+extension.  For a finite ambient real-affine star $S$ and an open convex
+Euclidean domain $\Omega$, if the ambient stage-zero generators on
+$S\times\Omega$ are jointly convex in all variables, then
+`thm:p071-finite-star-euclidean-collapse` identifies the first-stage, full,
+and explicit extended-real comparison sheaves.  The comparison condition is
+the product junction Jensen inequality only for tuples whose joining segments
+remain in the open set, and every germ has a decreasing smooth approximation
+on one fixed smaller product neighbourhood.  A compact-core partial Legendre
+transform, finite dual sampling, finite-star smoothing, and regularized
+maxima preserve the mixed Hessian positivity; direct radial chords do not.
+This book-local theorem does not apply to separately convex generators,
+nonambient or calibrated product stars, or branched/nonconvex chamber
+gluings.  It narrows P07.1 but does not retire it.
 
 Two additional nonambient interval models are now controlled.  For the
 finite constant-collar endpoint, the comparison sheaf is the extended-real
