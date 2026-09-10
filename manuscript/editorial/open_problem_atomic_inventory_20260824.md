@@ -405,7 +405,8 @@ either atom; see BMPS26, pp. 4 and 45.
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
-  bundle or finite tower of such bundles, and finite globally coordinated
+  bundle or finite tower of such bundles, locally trivial projective-space
+  bundles over a published curve, and finite globally coordinated
   standard strict-open-annulus products over a boundaryless finite tower of
   locally trivial standard strict-open-polydisc bundles over a published
   curve, or analytically locally trivial finite
@@ -965,6 +966,19 @@ They require every displayed local product chart and do not cover annular
 fibres, fibrations without those charts, arbitrary nonproduct germs, or
 strict-core-only equations.  The atom count, tier count, and queue position
 are unchanged.
+There is also a verified proper-fibre bundle consequence.  On a locally
+trivial projective-space bundle over a published curve,
+`prop:p062-projective-bundle-descent` exhausts every relative standard affine
+chart by strict open polydiscs, applies the existing open-disc descent on
+each such chart, and identifies the descended functions through the common
+projective point \([1:\cdots:1]\).  The statement explicitly requires the
+base to be locally holomorphically separated and paracompact, so its local
+zero-current identities glue by `prop:ch14-currents-sheaf`.
+`cor:p062-projective-bundles-over-curves` consequently gives classical
+pluriharmonicity, real-PL regularity, and GJR harmonicity in this range.  It
+is a proper-fibre globalization of the strict-disc result, not a conclusion
+for arbitrary nonproduct germs or arbitrary fibrations; the atom count, tier
+count, and queue position remain unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
