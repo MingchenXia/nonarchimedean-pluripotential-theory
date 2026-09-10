@@ -1608,9 +1608,12 @@ P19.3 or alter the active-atom count.
   positive closed CLD current.  The endpoint-tower formula makes the
   difference ordinary CLD-smooth with zero Hessian, and the proof therefore
   uses the local smooth criterion rather than pulling back the current.  It
-  requires that actual ordinary-open basis and does not apply to one such
-  chart inside an arbitrary germ, annular fibres, or fibrations lacking the
-  stated local product charts.
+  requires that actual ordinary-open basis only to obtain the conclusion for
+  every open set at once.  For one specified open set, an ordinary cover by
+  such actual endpoint towers suffices by
+  `cor:p213-endpoint-tower-cover-bt`.  Neither version applies to one chart
+  inside an arbitrary germ, annular fibres, or fibrations lacking the stated
+  local product charts.
   The bare real-PL or GJR-harmonic outcomes occurring in P06.1/P06.2 remain
   G-local/weakly smooth and do not themselves give this ordinary CLD-smooth
   approximation: `prop:ch19-cld-smooth-harmonic-nonregularization` gives an
@@ -1652,13 +1655,14 @@ P19.3 or alter the active-atom count.
   on every tower level, and equivariance of every map.  It does not cover
   pairs with noninvariant difference, nonsplit forms, or arbitrary-current
   descent through a scalar extension, so P21.3 remains active.
-  The spatial extension
-  `cor:p213-invariant-toric-open-polydisc-tower-basis-bt` applies on every
-  ordinary open when the ambient topology has a basis of such actual
-  boundaryless split-toric equivariant towers and the difference restricts
-  invariantly for each tower action.  This is a basis condition, not a claim
-  that arbitrary local charts glue to one action or that an arbitrary pair is
-  locally invariant.
+  For one specified ordinary open, the spatial extension
+  `cor:p213-invariant-toric-open-polydisc-tower-cover-bt` needs only an
+  ordinary cover by such actual boundaryless split-toric equivariant towers,
+  with the difference invariant for the action on each member.  The basis
+  version `cor:p213-invariant-toric-open-polydisc-tower-basis-bt` applies on
+  every ordinary open when the ambient topology has such a basis.  Neither
+  version claims that arbitrary local charts glue to one action or that an
+  arbitrary pair is locally invariant.
   The literal
   discontinuous-potential predicate of CLD
   Definition 8.6.2 is a stronger scope boundary and is not a separately
