@@ -134,12 +134,10 @@ noninvariant functions nor changes a P02 atom or the total count.
 
 ### `prob:frontier-unibranch-local-envelope` --- 3 atoms
 
-- **P03.1** `[T2; open]` Classify the irreducible, normal, or analytically
-  unibranch higher-dimensional hypotheses, and determine sharp necessity,
-  under which usc
-  regularization of every upper-semicontinuous local
-  FS/semipositive-PL obstacle envelope with nonempty competitor family is
-  classically psh.  The
+- **P03.1** `[T2; open]` Classify the normal or geometrically unibranch
+  higher-dimensional hypotheses, and determine sharp necessity, under which
+  usc regularization of every upper-semicontinuous local
+  FS/semipositive-PL obstacle envelope is classically psh.  The
   perfected-unibranch reduced strict curve range is settled positively by
   `thm:p031-perfected-unibranch-curve-envelope`.
 - **P03.2** `[T3; open]` Determine the additional hypotheses under which the
@@ -147,10 +145,11 @@ noninvariant functions nor changes a P02 atom or the total count.
 - **P03.3** `[T3; open]` For continuous finite obstacles, determine the
   additional hypotheses under which the regularized envelope is continuous.
 
-The nonempty-competitor restriction is necessary: for the obstacle
-`f = -infinity`, the raw envelope and its usc regularization are identically
-`-infinity`, while the book's curve-theoretic classical-psh convention excludes
-that value on a whole connected component.
+The empty-family case is harmless for the book's extended classical-psh
+convention: for the obstacle `f = -infinity`, the raw envelope and its usc
+regularization are identically `-infinity`, which is subharmonic under
+Gubler--Rabinoff Definition 3.4 and §3.4.1.  Nonempty families are required
+only by particular family-level sufficient conditions that explicitly say so.
 
 The continuous obstacle on the reduced strict nodal affinoid curve in
 `prop:ch15-nodal-local-envelope` disproves all three unconditional universal
@@ -176,8 +175,13 @@ disc.  Its exact statement/proof SHA-256 digests are
 `93ea55ab2a14a152ec7ea6008ca84d6984b6ca92fb1a1527af257da11d6974a8`;
 production Rethlas returned `correct`, zero critical errors and zero gaps.
 It makes no higher-dimensional continuity claim.  P03.1 and P03.2 therefore
-remain active only beyond the reducible product obstruction and, for P03.1,
-beyond the perfected-unibranch curve range; P03.3 is unchanged.  At the
+remain active only beyond the reducible and pointwise-unibranch nonsplit-node
+product obstructions and, for P03.1, beyond the perfected-unibranch curve
+range; P03.3 is unchanged.  The nonsplit-node strict-surface obstruction in
+`prop:p031-nonsplit-node-open-disc-envelope-obstruction` shows that mere
+pointwise bijectivity of normalization is not product-stable, even for an
+irreducible curve; the residual natural range is normal or geometrically
+unibranch.  At the
 earlier verification checkpoint the total was 53 active atoms in 14 formal
 problem environments;
 the later P07.2 and P08.2 retirements gave a total of 51 at that checkpoint.
