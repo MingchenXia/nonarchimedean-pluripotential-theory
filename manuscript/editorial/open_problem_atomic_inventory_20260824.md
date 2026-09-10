@@ -1550,8 +1550,8 @@ P19.3 or alter the active-atom count.
   `prop:p213-invariant-split-toric-continuous-pairs-candidate`: it allows an
   arbitrary positive closed CLD current on an open inverse image under
   extended tropicalization in a split toric variety, including its toric
-  boundary strata, but requires finite maximal-compact-torus invariant
-  continuous psh potentials.
+  boundary strata, but requires a finite continuous psh pair whose difference
+  is maximal-compact-torus invariant.
   In every dimension, `cor:ch16-cpsh-component-curvature` additionally
   settles the specified reduced analytic component integration currents on
   every ordinary open: arbitrary continuous CPsh pairs of equal canonical
@@ -1633,15 +1633,15 @@ P19.3 or alter the active-atom count.
   There is nevertheless a split, nonproduct P21.3 extension.  On a
   boundaryless top-level finite tower of equivariant locally trivial standard
   strict open-polydisc bundles over an actual split-toric base, every finite
-  continuous invariant equal-curvature psh pair has Bedford--Taylor
-  independence against every positive closed CLD current:
+  continuous equal-curvature psh pair with invariant difference has
+  Bedford--Taylor independence against every positive closed CLD current:
   `cor:p213-invariant-toric-open-polydisc-tower-bt`.  Exact descent moves the
   difference to the toric base; the compactified-ray argument makes that base
   difference ordinary CLD-smooth with zero Hessian, and CLD-form pullback
   preserves this through the tower.  This requires the split base, the action
   on every tower level, and equivariance of every map.  It does not cover
-  noninvariant pairs, nonsplit forms, or arbitrary-current descent through a
-  scalar extension, so P21.3 remains active.
+  pairs with noninvariant difference, nonsplit forms, or arbitrary-current
+  descent through a scalar extension, so P21.3 remains active.
   The literal
   discontinuous-potential predicate of CLD
   Definition 8.6.2 is a stronger scope boundary and is not a separately
