@@ -3,9 +3,8 @@
 Status: source-scoped positive companion result.  It constructs decreasing
 semipositive real-PL approximants only for finite continuous
 maximal-compact-torus-invariant current-psh functions on one ordinary convex chamber
-and on a displayed good, separated, strict, boundaryless, pure-dimensional
-subdomain.  It does not identify arbitrary classical psh functions with that
-class and does not retire P02.1.
+and on a displayed good strictly analytic subdomain.  It does not identify
+arbitrary classical psh functions with that class and does not retire P02.1.
 
 ## Claim-to-source map
 
@@ -14,7 +13,7 @@ class and does not retire P02.1.
 | Invariant finite continuous psh potentials descend to finite convex tropical potentials | BGJKK25, Theorem 5.3.11 | The argument starts with the invariant current-psh class, not every classically psh function. |
 | Decreasing smooth convex potentials exist on an interior ball | The book's \(\Cref{prop:ch09-radial-mollification}\) | The ball is compactly contained in the dense open convex chamber. |
 | Each smooth convex potential has a finite real-polyhedral upper approximation | Direct finite tangent-plane compactness argument | The positive additive gaps \(2^{-j}\) enforce monotonicity between successive polyhedral approximants. |
-| Tropical pullbacks of the polyhedral potentials are semipositive real PL | BGJKK25, Theorem 5.3.11, followed by \(\Cref{thm:p01-real-pl-positive-current-candidate}\) | The latter comparison requires exactly the displayed good, separated, strict, boundaryless, pure-dimensional domain. |
+| Tropical pullbacks of the polyhedral potentials are semipositive real PL | BGJKK25, Theorem 5.3.11; \(\Cref{thm:cld-to-classical-psh}\); and \(\Cref{thm:gr-pl-comparison}\) | Convexity first gives CLD-psh, hence classical psh; the real-PL comparison then needs only that the displayed domain be good and strictly analytic. |
 
 Primary source: J. I. Burgos Gil, W. Gubler, P. Jell, and K. Künnemann,
 Pluripotential theory for tropical toric varieties and non-Archimedean
@@ -29,7 +28,7 @@ https://gubler.app.uni-regensburg.de/Publikationen/2102.07392.pdf
    arbitrary classically psh functions.
 2. It is local on an ordinary Euclidean ball in the dense torus chamber; it
    makes no toric-boundary or nonconvex-domain assertion.
-3. The additional pure-dimensional real-PL comparison hypotheses are part of
-   the statement; they are not inferred for an arbitrary toric domain.
+3. The good strictly analytic real-PL comparison hypotheses are part of the
+   statement; they are not inferred for an arbitrary toric domain.
 4. No local-Fubini--Study, weakly smooth, or ordinary CLD-smooth conclusion
    follows from these real-PL approximants.

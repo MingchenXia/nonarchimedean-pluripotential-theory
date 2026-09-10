@@ -79,15 +79,18 @@ four unrestricted higher-dimensional targets remain open.
 
 There is now a source-scoped P02.1 companion on an ordinary Euclidean ball
 compactly contained in a split-toric convex chamber.  If the ball inverse
-image is good, separated, strict, boundaryless, and pure-dimensional, every
+image is good and strictly analytic, every
 finite continuous maximal-compact-torus-invariant current-psh function there
 is a locally uniform decreasing limit of invariant semipositive real-PL
 functions.  Finite tangent-plane maxima approximate gently shifted radial
 convex smoothings from above, and their positive interstage gaps enforce
-monotonicity.  This begins with the invariant current-psh class and supplies
-only the real-PL conclusion by itself; the distinct companion arguments below
-add the locally Fubini--Study and weakly smooth conclusions.  It does not
-alter any P02 atom or count.
+monotonicity.  Each explicit polyhedral pullback is CLD-psh and therefore
+classically psh; the good-strict real-PL comparison gives semipositivity
+without a separatedness, boundarylessness, or pure-dimensionality condition.
+This begins with the invariant current-psh class and supplies only the
+real-PL conclusion by itself; the distinct companion arguments below add the
+locally Fubini--Study and weakly smooth conclusions.  It does not alter any
+P02 atom or count.
 
 There is now a source-scoped P02.2 companion on the same type of split-toric
 interior ball.  It approximates the finitely many supporting planes of
