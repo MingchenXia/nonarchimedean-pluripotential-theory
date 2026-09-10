@@ -263,6 +263,16 @@ identifies the raw LFS envelope on the ambient nonconvex open set nor
 introduces a noninvariant competitor.  Thus it further records the local
 invariant P03 range without retiring an atom or changing the count.
 
+On the same strict boundaryless ball, the conclusion strengthens from the
+LFS subfamily to the full invariant part of the original local-
+Fubini--Study/semipositive-real-PL competitor union: its raw envelope, the
+semipositive-real-PL raw envelope, and the LFS raw envelope all equal the
+ball's convex-minorant envelope.  It is finite, continuous, CLD-v2 psh, and
+classically psh, with the preceding increasing LFS approximation.  This
+uses the strict-domain comparison only after restricting to the ball; it
+does not compare the corresponding global envelope on a nonconvex ambient
+open set and leaves all three P03 atoms active.
+
 On a good separated strictly analytic boundaryless such toric domain,
 the same envelope is exactly the raw envelope over the full
 maximal-compact-torus-invariant part of the original
