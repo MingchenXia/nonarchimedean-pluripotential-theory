@@ -783,21 +783,23 @@ Iterating it over the published Wanner curve scope gives
 finite product of that curve domain with standard strict open discs are
 classically pluriharmonic.  The proof descends the equation by a normalized
 compactly supported disc top form, rather than by an invalid current
-pullback along the zero section.  The corresponding one-annulus product
-theorem `thm:p062-open-annulus-products-over-curves` writes every
-zero-current function on (W\times_K A^-_{r,R}) uniquely as
-(\pi^*b+(a\circ\pi)q^*\log|T|), with (b) a zero-current curve function
-and (a) locally constant.  It obtains the two coefficients from relative
-Gauss sections and compact radial averages, then uses a mixed compact test
-to kill the first current of the slope coefficient.  Thus this strict
-product is classically pluriharmonic, locally real-PL, and GJR harmonic.
-The global annular coordinate is essential, so no annular-fibration or
-annular-bundle conclusion follows.  The same coefficient formula persists
-through every finite tower of locally trivial standard strict open-polydisc
-bundles over this product by
-`cor:p062-annulus-base-open-polydisc-towers`: it first descends the function
-to the curve--annulus product and then applies the annular theorem.  The
-annulus is still a globally coordinated base factor, not a bundle fibre.
+pullback along the zero section.  The finite-polyannulus product theorem
+`thm:p062-open-polyannulus-products-over-curves` writes every zero-current
+function on \(W\times_K\prod_{i=1}^s A^-_{r_i,R_i}\) uniquely as
+\(p^*b+\sum_i(a_i\circ p)q_i^*\log|T_i|\), with \(b\) a zero-current curve
+function and every \(a_i\) locally constant.  Exact fibre slicing and radial
+averages give the zero-current coefficients; a mixed compact test gives the
+slope coefficient zero first current, and an induction through lower
+polyannulus products makes it locally constant.  Thus this strict product is
+classically pluriharmonic, locally real-PL, and GJR harmonic.  The \(s=1\)
+case is `thm:p062-open-annulus-products-over-curves`.  Every annular
+coordinate is global, so no annular-fibration or annular-bundle conclusion
+follows.  The same coefficient formula persists through every finite tower
+of locally trivial standard strict open-polydisc bundles over the product by
+`cor:p062-polyannulus-base-open-polydisc-towers`: it first descends the
+function to the curve--polyannulus product and then applies the
+polyannulus theorem.  The annuli are still globally coordinated base factors,
+not bundle fibres.
 The local product theorem globalizes by
 `prop:p062-open-polydisc-bundle-descent`: on every locally trivial standard
 strict open-polydisc bundle over a good separated strict pure-dimensional base,
