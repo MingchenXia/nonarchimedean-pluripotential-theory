@@ -243,7 +243,7 @@ identity \eqref{eq:pseff-finite-energy-divisorial-link} now lets us apply
 
 ```
 
-## chapter72_p143_boundary — lines 3390–3416
+## chapter72_p143_boundary — lines 3392–3418
 
 ```text
 is proved.  The domination-preserving rational-divisorial approximation in

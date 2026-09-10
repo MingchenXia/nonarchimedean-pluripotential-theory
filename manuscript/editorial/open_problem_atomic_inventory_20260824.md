@@ -853,8 +853,8 @@ the residual scopes stated above.
 
 - **P07.1** `[T2; open after the tropical-toric, finite ambient-star, two
   nonambient interval, exact CLD infinite-star, Stone--Euclidean,
-  Stone--polyhedral, and generator-convex locally finite polyhedral-complex
-  cases]`
+  Stone--polyhedral, and generator-convex arbitrary-incidence
+  polyhedral-complex cases]`
   Decide whether the CLD psh hierarchy collapses after its first
   decreasing-limit stage.
 
@@ -954,19 +954,19 @@ statement/proof and request/response/header SHA-256 hashes are
 `dd51939097d53f3c1b195388d6312c6b2c5fc15816e88e444b3e5d8ca0dd4985` /
 `8bab39fea7dd28f75309d021731f23de1386f1801c6a8ae8362452b237b0106f` /
 `35f9ddd2168e155c0351c56b4bcae5b3b0d28a4922703d59413aa194280dea57`.
-The locally finite extension
+The arbitrary-incidence extension
 `cor:p071-locally-finite-generator-convex-collapse` is a formal local
-consequence of the finite-complex theorem: its proof uses only one
-generator-preserving convex chart with a finite local subdivision, so no
-global finiteness is needed.  It retains the fixed-neighbourhood decreasing
-smooth approximation at every germ, but asserts no global sequence.  The
-verified two-ray example shows that face-to-face topological
-unbranching plus independent cellwise positivity is insufficient: the
-ambient affine generator `-x-y` unfolds to the nonconvex function `-|t|`.
-Consequently the new theorem does not cover branched links, singular lower
-links, or generator germs without a generator-preserving convex
-development.  P07.1 remains one active T2 atom, and the active count and
-tier counts are unchanged.
+consequence of the single-chamber theorem: its proof uses only one
+generator-preserving convex chart and no finite local subdivision.  It
+therefore retains the fixed-neighbourhood decreasing smooth approximation at
+every germ even when infinitely many cells meet every neighbourhood, but
+asserts no global sequence.  The verified two-ray example shows that
+face-to-face topological unbranching plus independent cellwise positivity is
+insufficient: the ambient affine generator `-x-y` unfolds to the nonconvex
+function `-|t|`.  Consequently the extension does not cover branched links,
+singular lower links, or generator germs without a generator-preserving
+convex development.  P07.1 remains one active T2 atom, and the active count
+and tier counts are unchanged.
 
 The general cross-row order obstruction is also eliminated conditionally by
 `prop:p071-fixed-core-flattening`: if every row approximation is defined on
