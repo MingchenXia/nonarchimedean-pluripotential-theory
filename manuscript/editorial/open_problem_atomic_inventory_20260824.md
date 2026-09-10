@@ -381,13 +381,16 @@ either atom; see BMPS26, pp. 4 and 45.
   finite curve-factor, finite constant-group quotient, finite-flat cover of
   a verified range, all-orbits split
   toric, split-toric quasi-smooth-product, algebraic-split toric-form,
+  positive-weighted affine-cone vertex,
   algebraic-split analytic-toric-form,
   algebraic-split-form quasi-smooth-product, transverse toric-product, and
   source-Zariski-local ordinary-etale algebraic-split-toroidal and analytic
   standard-etale algebraic-split-toroidal cases]` On a good,
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
-  `thm:p061-arbitrary-curve-factors-ph-rpl` and the all-orbits split toric
+  `thm:p061-arbitrary-curve-factors-ph-rpl`, the positive-weighted-cone vertex
+  scope of `thm:p061-positive-weighted-cone-vertex-constancy`, and the
+  all-orbits split toric
   and algebraic-split-form scope of `thm:p061-split-toric-all-orbits` and
   `cor:p061-algebraic-split-toric-forms` and
   `cor:p061-algebraic-split-analytic-toric-forms`, and outside the split-toric quasi-smooth-product
@@ -536,6 +539,17 @@ spaces.  Its exact statement/proof SHA-256 values are
 `e308ba5df336e38717ac27413c6f669a7fa37535bed613a79f095811c6dba4a7`.
 Production item `pi_7dceb6442b4d586c4475feca` returned final `correct`,
 with zero critical errors and zero gaps.
+There is also a non-toric positive-weighted-cone vertex range.  By
+`thm:p061-positive-weighted-cone-vertex-constancy`, an affine cone defined by
+positive-weighted homogeneous equations has no nonconstant classically
+pluriharmonic germ at its vertex.  The proof contracts any point of a
+cofinal weighted affinoid neighbourhood to the vertex along a closed disc
+over its completed residue field; classical pluriharmonicity pulls back, and
+the disc maximum--minimum principle forces equality.  Thus the conclusion
+does not require the cone to be reduced, normal, irreducible, or toric.  It
+includes, for example, the normal isolated cubic cone
+`x^3+y^3+z^3=0`.  It neither creates a weighted-cone presentation for an
+arbitrary germ nor gives a conclusion away from the vertex.
 There is independently an affine toric scope:
 `thm:p061-toric-fixed-point-constancy` proves that every classically
 pluriharmonic germ at the torus-fixed point associated to a full-dimensional
