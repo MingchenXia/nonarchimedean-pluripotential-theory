@@ -295,6 +295,19 @@ analytification in this field scope.  Thus P05.5 remains active precisely at
 the construction and calibration inputs, not at the subsequent atomic
 measure bookkeeping.
 
+The new bounded-reference-shift proposition
+`prop:frontier-polyhedral-bounded-reference-shift` identifies the
+polyhedral psh, piecewise-affine, and regularizable classes for any two
+references differing by a bounded piecewise-affine function; it also
+identifies their envelope problems and transfers orthogonality in both
+directions.  In particular,
+`cor:frontier-polyhedral-boundedly-conical-regularity` puts every
+piecewise-affine polyhedrally convex reference that is a bounded
+piecewise-affine perturbation of a positive-at-infinity conical reference
+in the P05.1 regularity range.  This is a genuine reference-class reduction,
+not a characterization.  The conical source result gives regularity only,
+so it yields no new unconditional P05.2 case.
+
 The source's only announced strict-positivity extension is an upcoming
 sequel, whose own bibliography labels it ``In preparation.''  It is not an
 available theorem for P05.1 or P05.2 and is therefore not used to narrow
