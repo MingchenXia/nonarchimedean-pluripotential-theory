@@ -967,10 +967,10 @@ the residual scopes stated above.
 ### `prob:frontier-cld-hierarchy` --- 1 active atom
 
 - **P07.1** `[T2; open after the tropical-toric, finite ambient-star,
-  finite ambient-star × open-convex-Euclidean joint-convex-generator, two
-  nonambient interval, exact CLD infinite-star, Stone--Euclidean,
-  Stone--polyhedral, and generator-convex arbitrary-incidence
-  polyhedral-complex cases]`
+  finite ambient-star × open-convex-Euclidean and × convex-polyhedral
+  joint-convex-generator, two nonambient interval, exact CLD infinite-star,
+  Stone--Euclidean, Stone--polyhedral, and generator-convex
+  arbitrary-incidence polyhedral-complex cases]`
   Decide whether the CLD psh hierarchy collapses after its first
   decreasing-limit stage.
 
@@ -996,6 +996,21 @@ maxima preserve the mixed Hessian positivity; direct radial chords do not.
 This book-local theorem does not apply to separately convex generators,
 nonambient or calibrated product stars, or branched/nonconvex chamber
 gluings.  It narrows P07.1 but does not retire it.
+
+The same finite ambient-star model now also permits one nonempty convex
+polyhedron \(P\), including every face and corner and allowing \(P\) to be
+unbounded or zero-dimensional.  Under the same joint ambient convexity
+hypothesis, `thm:p071-finite-star-polyhedral-collapse` identifies the
+first-stage, full, and explicit extended-real comparison sheaves, and gives
+one decreasing smooth approximation on a fixed smaller product
+neighbourhood.  The new boundary step is a junction-convex envelope on a
+compact polytope core: it is needed because ordinary Legendre biconjugation
+can lose an upper boundary value of finite convex data.  Partial Legendre
+smoothing, finite dual sampling, finite-star smoothing, regularized maxima,
+and summable tail constants then preserve the full mixed Hessian condition.
+This book-local result does not extend to arbitrary compact convex factors,
+separately convex generators, nonambient product stars, or nonconvex or
+branched chamber gluings.  It narrows P07.1 but does not retire it.
 
 Two additional nonambient interval models are now controlled.  For the
 finite constant-collar endpoint, the comparison sheaf is the extended-real
