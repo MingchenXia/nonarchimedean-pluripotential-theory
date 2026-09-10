@@ -329,8 +329,9 @@ either atom; see BMPS26, pp. 4 and 45.
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
   bundle or finite tower of such bundles, and finite globally coordinated
   standard strict-open-annulus products or analytically locally trivial finite
-  standard strict-open-polyannulus bundles, including finite towers of
-  strict-open-polydisc bundles over either, over a published-curve,
+  standard strict-open-polyannulus or mixed open-polycylinder bundles,
+  including finite towers of strict-open-polydisc bundles over these
+  product or bundle bases, over a published-curve,
   endpoint-polycylinder-base or a finite tower over such a base, and lifted-
   maximal-compact-torus-invariant split-toric-base cases]` Decide
   whether an arbitrary
@@ -807,6 +808,17 @@ strict open-polydisc bundles by
 pluriharmonicity for every such tower over a locally trivial polyannulus
 bundle.  Annular fibrations lacking these analytic product charts and
 arbitrary nonproduct germs remain outside the proved scope.
+The mixed local-product extension is also available.  If every analytic
+trivializing chart has both at least one standard strict open-annulus factor
+and at least one standard strict open-disc factor, then
+`cor:p062-mixed-open-polycylinder-bundles-over-curves` successively
+descends the disc factors and applies the polyannulus theorem, giving
+classical pluriharmonicity on the total space.  Its finite towers of locally
+trivial standard strict open-polydisc bundles are covered by
+`cor:p062-mixed-open-polycylinder-bundle-open-polydisc-towers`.
+Neither result asserts a global logarithmic coefficient formula, a new
+real-PL or GJR conclusion, or a conclusion for fibrations without the
+stated analytic product charts.
 The local product theorem globalizes by
 `prop:p062-open-polydisc-bundle-descent`: on every locally trivial standard
 strict open-polydisc bundle over a good separated strict pure-dimensional base,
