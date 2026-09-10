@@ -1569,8 +1569,10 @@ P19.3 or alter the active-atom count.
   `prop:p213-invariant-split-toric-continuous-pairs-candidate`: it allows an
   arbitrary positive closed CLD current on an open inverse image under
   extended tropicalization in a split toric variety, including its toric
-  boundary strata, but requires a finite continuous psh pair whose difference
-  is maximal-compact-torus invariant.
+  boundary strata.  Its multiplier identity requires only a finite continuous
+  pair with equal current Hessian and maximal-compact-torus-invariant
+  difference; its stated Bedford--Taylor consequence retains psh pairs because
+  that is the P21.3 predicate.
   In every dimension, `cor:ch16-cpsh-component-curvature` additionally
   settles the specified reduced analytic component integration currents on
   every ordinary open: arbitrary continuous CPsh pairs of equal canonical
