@@ -1629,7 +1629,16 @@ P19.3 or alter the active-atom count.
   `solver_dossiers_20260909/p213_scalar_extension_current_audit_20260909/`
   records the exact boundary.  Consequently the scalar-stable potential
   results for P06.1/P06.2 do not themselves supply an algebraic-split-form
-  P21.3 corollary.
+  P21.3 corollary for an arbitrary positive closed current.  There is a
+  narrower paired extension: if the current is locally weak-form-induced and
+  the difference has the analytic-local algebraic-split invariant-toric tower
+  data, including the scalar-stable upstairs zero-current equality, then
+  `cor:p213-algebraic-split-scalar-stable-weak-form-bt` gives the ordinary
+  Bedford--Taylor equality.  This uses scalar stability only to obtain a
+  downstairs weakly smooth harmonic difference, then applies the existing
+  weak-form bridge; it creates neither current ascent nor current descent and
+  does not treat arbitrary currents or arbitrary continuous zero-current
+  differences.
   There is nevertheless a split, nonproduct P21.3 extension.  On a
   boundaryless top-level finite tower of equivariant locally trivial standard
   strict open-polydisc bundles over an actual split-toric base, every finite
