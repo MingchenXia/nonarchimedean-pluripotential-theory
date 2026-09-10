@@ -381,7 +381,8 @@ either atom; see BMPS26, pp. 4 and 45.
   finite curve-factor, finite constant-group quotient, finite-flat cover of
   a verified range, all-orbits split
   toric, split-toric quasi-smooth-product, algebraic-split toric-form,
-  positive-weighted affine-cone vertex,
+  positive-weighted affine-cone vertex and relative zero-section over a
+  quasi-smooth base,
   algebraic-split analytic-toric-form,
   algebraic-split-form quasi-smooth-product, transverse toric-product, and
   source-Zariski-local ordinary-etale algebraic-split-toroidal and analytic
@@ -389,7 +390,8 @@ either atom; see BMPS26, pp. 4 and 45.
   separated, strict, boundaryless analytic space, outside the local
   arbitrary-curve-factor scope of
   `thm:p061-arbitrary-curve-factors-ph-rpl`, the positive-weighted-cone vertex
-  scope of `thm:p061-positive-weighted-cone-vertex-constancy`, and the
+  scope of `thm:p061-positive-weighted-cone-vertex-constancy`, its relative
+  zero-section scope of `prop:p061-relative-positive-weighted-cone-descent`, and the
   all-orbits split toric
   and algebraic-split-form scope of `thm:p061-split-toric-all-orbits` and
   `cor:p061-algebraic-split-toric-forms` and
@@ -549,9 +551,20 @@ cofinal weighted affinoid neighbourhood to the vertex along a closed disc
 over its completed residue field; classical pluriharmonicity pulls back, and
 the disc maximum--minimum principle forces equality.  Thus the conclusion
 does not require the cone to be reduced, normal, irreducible, or toric.  It
-includes, for example, the normal isolated cubic cone
-`x^3+y^3+z^3=0`.  It neither creates a weighted-cone presentation for an
+includes, for example when \(\operatorname{char}K\ne3\), the normal isolated
+cubic cone `x^3+y^3+z^3=0`.  It neither creates a weighted-cone presentation for an
 arbitrary germ nor gives a conclusion away from the vertex.
+There is also a relative positive-weighted-cone zero-section range.  For a
+strict affinoid family defined over a quasi-smooth strict affinoid base by
+positive-weighted homogeneous fibre equations, including analytic
+base-dependent coefficients, `prop:p061-relative-positive-weighted-cone-descent`
+uses the fibrewise closed-disc contraction over every completed residue field
+to show that a classically pluriharmonic function factors through the base on
+a sufficiently small weighted tube around the zero section.  It is therefore
+locally real-PL and GJR harmonic there.  No product, flatness, reducedness,
+normality, or irreducibility is required.  This does not cover arbitrary
+points away from the zero section or an arbitrary singular base, so P06.1
+remains active and the count is unchanged.
 There is independently an affine toric scope:
 `thm:p061-toric-fixed-point-constancy` proves that every classically
 pluriharmonic germ at the torus-fixed point associated to a full-dimensional
