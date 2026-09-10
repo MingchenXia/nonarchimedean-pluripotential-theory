@@ -251,6 +251,18 @@ but deliberately does not compare with a real-PL, locally-Fubini--Study,
 semipositive-real-PL, or any noninvariant envelope there.  It therefore narrows the invariant
 P03 range without retiring P03.1--P03.3 or changing the count.
 
+The strict LFS-minorant comparison has a correspondingly local nonconvex
+form.  At every point admitting a relatively compact ordinary convex ball
+whose inverse image is good, separated, strictly analytic, and boundaryless,
+the raw invariant LFS envelope for the restricted obstacle is the pullback
+of the convex-minorant envelope on that ball and has an increasing locally
+uniform LFS approximation from below.  A locally convex global minorant
+supplies the required convex minorant after passing to a slightly larger
+ball.  This is a statement about that restricted ball only: it neither
+identifies the raw LFS envelope on the ambient nonconvex open set nor
+introduces a noninvariant competitor.  Thus it further records the local
+invariant P03 range without retiring an atom or changing the count.
+
 On a good separated strictly analytic boundaryless such toric domain,
 the same envelope is exactly the raw envelope over the full
 maximal-compact-torus-invariant part of the original
