@@ -234,6 +234,20 @@ obstacles it also settles the P03.3 continuity assertion.  It says nothing
 about the noninvariant local-FS/semipositive-real-PL envelope, so none of
 P03.1--P03.3 retires.
 
+The continuous invariant-psh portion now extends from convex tropical
+chambers to every ordinary tropical open set.  If an upper-semicontinuous
+invariant obstacle has one finite continuous locally convex minorant, the
+raw envelope over all finite continuous invariant current-psh minorants is
+the pullback of the supremum of its finite continuous locally convex
+minorants.  On each convex ball that supremum is finite convex, so it is
+continuous and supplies a current-psh function; the local toric
+correspondence gives the reverse envelope comparison.  The germwise P02
+regularization result then places it at the first decreasing CLD-smooth
+stage.  This handles nonconvex ambient tropical domains but deliberately
+does not compare with a real-PL, locally-Fubini--Study, semipositive-real-PL,
+or any noninvariant envelope there.  It therefore narrows the invariant
+P03 range without retiring P03.1--P03.3 or changing the count.
+
 On a good separated strictly analytic boundaryless such toric domain,
 the same envelope is exactly the raw envelope over the full
 maximal-compact-torus-invariant part of the original
