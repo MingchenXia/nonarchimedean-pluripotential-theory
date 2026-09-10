@@ -77,9 +77,9 @@ reassigned.
 The curve and real-PL boundary cases recorded in the chapter are known; the
 four unrestricted higher-dimensional targets remain open.
 
-There is now a source-scoped P02.1 companion on an ordinary Euclidean ball
-compactly contained in a split-toric convex chamber.  If the ball inverse
-image is good and strictly analytic, every
+There is now a source-scoped P02.1 companion on every ordinary open set
+compactly contained in a split-toric convex chamber.  If its inverse image
+is good and strictly analytic, every
 finite continuous maximal-compact-torus-invariant current-psh function there
 is a locally uniform decreasing limit of invariant semipositive real-PL
 functions.  Finite tangent-plane maxima approximate gently shifted radial
@@ -93,16 +93,17 @@ locally Fubini--Study and weakly smooth conclusions.  It does not alter any
 P02 atom or count.
 
 There is now a source-scoped P02.2 companion on the same type of split-toric
-interior ball.  It approximates the finitely many supporting planes of
+relatively compact ordinary open set.  It approximates the finitely many supporting planes of
 successive convex smoothings directly, from above, by affine functions with
 one common character denominator.  Their finite maxima pull back to locally
-Fubini--Study functions on the same fixed ball, and the prescribed positive
+Fubini--Study functions on the same fixed open set, and the prescribed positive
 gaps retain monotonicity.  This starts with the invariant current-psh class,
 not an arbitrary classically psh function, and does not alter any P02 atom or
 count.
 
-There is now a source-scoped P02.4 companion on the inverse image of an
-ordinary open convex tropical chamber in a split torus.  Every finite
+There is now a source-scoped P02.4 companion on the inverse image of every
+ordinary open set compactly contained in a convex tropical chamber in a split
+torus.  Every finite
 continuous maximal-compact-torus-invariant current-psh function there is a
 locally decreasing limit of invariant ordinary CLD-smooth psh functions:
 it descends to a finite convex tropical potential, whose radial
@@ -115,8 +116,8 @@ The very same source-scoped invariant-toric sequence is also a P02.3
 companion.  The ordinary CLD-smooth approximants are weakly smooth by
 Gubler--Jell--Rabinoff Proposition 10.14, while their psh property remains
 the already proved positivity of their CLD Hessian currents.  This changes
-neither the finite-continuous invariant starting class nor the interior-ball
-scope, supplies no local-Fubini--Study conclusion, and does not alter any
+neither the finite-continuous invariant starting class nor the relatively
+compact ordinary-open scope, supplies no local-Fubini--Study conclusion, and does not alter any
 P02 atom or count.
 
 ### `prob:frontier-unibranch-local-envelope` --- 3 atoms

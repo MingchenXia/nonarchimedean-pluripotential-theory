@@ -1,8 +1,8 @@
 # P02.3 invariant split-toric weakly smooth regularization — source ledger
 
 Status: source-scoped positive companion result.  It applies only to finite
-continuous maximal-compact-torus-invariant current-psh functions on a ball
-compactly contained in one ordinary open convex tropical chamber of a split
+continuous maximal-compact-torus-invariant current-psh functions on an
+ordinary open set compactly contained in one ordinary open convex tropical chamber of a split
 torus.  It does not identify arbitrary classically psh functions with this
 class and does not retire P02.3.
 
@@ -10,7 +10,7 @@ class and does not retire P02.3.
 
 | Step | Source / direct argument | Scope control |
 | --- | --- | --- |
-| Decreasing ordinary CLD-smooth psh sequence | `cor:p024-invariant-toric-cld-smooth-regularization` and its source ledger | This imports its finite, continuous, invariant, dense-torus and interior-ball hypotheses without enlargement. |
+| Decreasing ordinary CLD-smooth psh sequence | `cor:p024-invariant-toric-cld-smooth-regularization` and its source ledger | This imports its finite, continuous, invariant, dense-torus and relatively compact ordinary-open hypotheses without enlargement. |
 | Ordinary CLD-smooth forms are weakly smooth | Gubler--Jell--Rabinoff, Proposition 10.14 | This is an inclusion of differential-form sheaves; it supplies the regularity word ``weakly smooth''. |
 | Psh is the same current-positivity assertion | Gubler--Jell--Rabinoff, Section 7.13 | The proof does not compare distinct positivity cones: it retains the positive CLD Hessian current already proved in P02.4. |
 
