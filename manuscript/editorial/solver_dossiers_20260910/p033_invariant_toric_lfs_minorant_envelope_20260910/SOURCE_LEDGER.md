@@ -2,8 +2,9 @@
 
 Status: source-scoped positive refinement of the invariant toric P03
 companion.  It identifies the raw envelope of **only** invariant locally
-Fubini--Study minorants on an interior Euclidean tropical ball for a finite
-continuous invariant obstacle.  It neither admits noninvariant competitors
+Fubini--Study minorants on a relatively compact open convex tropical domain
+for an upper-semicontinuous invariant obstacle admitting a finite convex
+minorant.  It neither admits noninvariant competitors
 nor treats arbitrary upper-semicontinuous obstacles, so none of P03.1--P03.3
 is retired.
 
@@ -12,9 +13,9 @@ is retired.
 | Step | Source / direct argument | Scope control |
 | --- | --- | --- |
 | Local convex minorant envelope is finite, continuous, and convex | Local specialization of the proof of `prop:p033-invariant-toric-real-pl-envelope` | The obstacle is upper semicontinuous and has one finite convex minorant. That minorant forces finiteness; upper semicontinuity supplies the local upper bounds. |
-| Invariant LFS minorant descends to convex data | Gubler--Jell--Rabinoff, Definition 7.8, Sections 7.9 and 7.14; Burgos Gil--Gubler--Jell--Künnemann, Theorem 5.3.11 | Finiteness, maximal-compact-torus invariance, a good separated strictly analytic boundaryless ball inverse image, and the dense split torus are essential. |
-| Finite support maxima for the local convex envelope | Elementary compactness of supporting affine functions on the exhausting closed balls | Supports are used only on compact subsets of the open ball. |
-| Character-lattice minorants | Direct rounding below, using one nonzero value-group element and a common denominator for each finite family | The fixed Euclidean ball is bounded; no density of the value group is assumed. |
+| Invariant LFS minorant descends to convex data | Gubler--Jell--Rabinoff, Definition 7.8, Sections 7.9 and 7.14; Burgos Gil--Gubler--Jell--Künnemann, Theorem 5.3.11 | Finiteness, maximal-compact-torus invariance, a good separated strictly analytic boundaryless relatively compact convex-domain inverse image, and the dense split torus are essential. |
+| Finite support maxima for the local convex envelope | Elementary compactness of supporting affine functions on a compact exhaustion | Supports are used only on compact subsets of the open convex domain. |
+| Character-lattice minorants | Direct rounding below, using one nonzero value-group element and a common denominator for each finite family | The fixed relatively compact convex domain is bounded; no density of the value group is assumed. |
 | LFS normal form | Gubler--Jell--Rabinoff, Section 7.9 | Torus characters are invertible on the whole dense split torus. |
 | Monotone recovery | Direct common-denominator maximum of the finite LFS normal forms | For finitely many denominators, their least common multiple preserves the character lattice and value-group constants. |
 
@@ -27,8 +28,8 @@ Math. France 154 (2026), 135--238, doi:10.24033/bsmf.2919.
 
 ## Deliberate boundaries
 
-1. The result is a local interior-ball statement and assumes that its inverse
-   image is good, separated, strictly analytic, and boundaryless.  It does
+1. The result is a local relatively compact convex-domain statement and
+   assumes that its inverse image is good, separated, strictly analytic, and boundaryless.  It does
    not assert a global LFS minorant approximation on an arbitrary noncompact
    tropical chamber.
 2. It identifies the invariant LFS-only family.  It does not turn the full

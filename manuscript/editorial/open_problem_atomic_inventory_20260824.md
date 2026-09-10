@@ -198,14 +198,14 @@ It treats only that invariant psh competitor family, not all
 local-FS/semipositive-real-PL minorants; the P03 atoms therefore remain active
 and the inventory count is unchanged.
 
-There is now a further source-scoped LFS-only refinement on every Euclidean
-ball compactly contained in that split-toric chamber whose inverse image is
+There is now a further source-scoped LFS-only refinement on every ordinary
+open convex set compactly contained in that split-toric chamber whose inverse image is
 good, separated, strictly analytic, and boundaryless.  For every
 upper-semicontinuous invariant obstacle with a nonempty finite
 convex-minorant family, the local envelope of finite convex
 minorants is also exactly the raw envelope over the invariant locally
-Fubini--Study minorants alone.  Finite supporting planes on an exhausting
-family of closed subballs are rounded from below to one character-lattice
+Fubini--Study minorants alone.  Finite supporting planes on a compact
+exhaustion are rounded from below to one character-lattice
 denominator at a time.  Taking common-denominator finite maxima yields a
 pointwise increasing locally Fubini--Study sequence below the obstacle that
 converges locally uniformly to the convex envelope.  It excludes all
