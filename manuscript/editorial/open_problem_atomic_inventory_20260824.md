@@ -1642,6 +1642,13 @@ P19.3 or alter the active-atom count.
   on every tower level, and equivariance of every map.  It does not cover
   pairs with noninvariant difference, nonsplit forms, or arbitrary-current
   descent through a scalar extension, so P21.3 remains active.
+  The spatial extension
+  `cor:p213-invariant-toric-open-polydisc-tower-basis-bt` applies on every
+  ordinary open when the ambient topology has a basis of such actual
+  boundaryless split-toric equivariant towers and the difference restricts
+  invariantly for each tower action.  This is a basis condition, not a claim
+  that arbitrary local charts glue to one action or that an arbitrary pair is
+  locally invariant.
   The literal
   discontinuous-potential predicate of CLD
   Definition 8.6.2 is a stronger scope boundary and is not a separately
