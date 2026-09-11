@@ -1825,6 +1825,22 @@ P19.3 or alter the active-atom count.
   `cor:p213-endpoint-tower-cover-bt`.  Neither version applies to one chart
   inside an arbitrary germ, annular fibres, or fibrations lacking the stated
   local product charts.
+  This endpoint class is now closed under finite mixtures of all three
+  exact locally trivial descent geometries.  In
+  `thm:p213-endpoint-mixed-tower-classification`, each stage may be a
+  standard strict open-polydisc bundle, a projective-space bundle, or---when
+  the field is algebraically closed---a proper smooth connected curve
+  bundle.  A continuous zero-current function on the whole tower is the
+  pullback of a unique logarithmic-affine function on the endpoint base and
+  is therefore ordinary CLD-smooth with zero Hessian.  The whole-space,
+  cover, and genuine-basis consequences are respectively
+  `cor:p213-endpoint-mixed-tower-bt`,
+  `cor:p213-endpoint-mixed-tower-cover-bt`, and
+  `cor:p213-endpoint-mixed-tower-basis-bt`.  Each projective or proper-curve
+  stage retains the exact locally holomorphically separated and paracompact
+  base hypotheses of its descent theorem.  The result introduces no
+  annular bundle fibre and gives no conclusion from a tower chart that does
+  not refine the potentials' domain.
   A distinct residual-geometric spatial class is also closed.  On an open
   subset of the analytification of a smooth proper curve over an
   algebraically closed complete nontrivially valued field,
