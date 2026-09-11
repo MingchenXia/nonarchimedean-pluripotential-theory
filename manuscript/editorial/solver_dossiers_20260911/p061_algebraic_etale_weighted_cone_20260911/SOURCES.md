@@ -25,6 +25,13 @@ from the local-ring presentation alone.
   has the local real-PL and GJR-harmonic conclusion at a central-fibre point
   whenever the central fibre has the local pluriharmonic real-PL property;
   a quasi-smooth original base is sufficient.
+- `thm:p061-algebraic-etale-weighted-cone-towers`: the one-step algebraic
+  localization is iterated only after strengthening the induction statement
+  to every separated finite-type algebraic etale source over a shorter
+  tower.  The top central analytic domain is an ordinary neighbourhood in
+  the algebraic base change of the actual standard-etale source.  Thus the
+  induction hypothesis supplies the full central-germ condition without
+  asserting that a possibly singular intermediate base is quasi-smooth.
 - The algebraic-to-affinoid construction follows the already verified
   source-principal-open, target-shrink, and strict-variable-bound template in
   the proof of `prop:p061-v3-etale-toric-product`.  The new argument replaces
@@ -39,4 +46,8 @@ from the local-ring presentation alone.
   produces a weighted-cone chart for an arbitrary singular germ.
 - Flatness, reducedness, normality, and irreducibility of the cone are not
   assumed, but the positive grading of all displayed fibre equations is.
+- In a finite tower, each affine chart must contain the scheme-theoretic
+  support of the relevant composite zero-section point.  The stages need no
+  common grading, but the conclusion remains confined to that composite zero
+  section.
 - P06.1 remains active.

@@ -387,6 +387,7 @@ either atom; see BMPS26, pp. 4 and 45.
   perturbations at central-fibre points over a quasi-smooth or otherwise
   verified central fibre and algebraic ordinary-etale germs over the zero
   section of a relative positive-weighted cone with smooth algebraic base,
+  including finite algebraic towers at their composite zero sections,
   algebraic-split analytic-toric-form,
   algebraic-split-form quasi-smooth-product, transverse toric-product, and
   source-Zariski-local ordinary-etale algebraic-split-toroidal and analytic
@@ -400,7 +401,8 @@ either atom; see BMPS26, pp. 4 and 45.
   `cor:p061-iterated-relative-weighted-cone-closure`, the standard-etale
   central-fibre scope of `thm:p061-standard-etale-weighted-cone-tube`, the
   algebraic ordinary-etale zero-section scope of
-  `thm:p061-algebraic-etale-weighted-cone-zero-section`, and the
+  `thm:p061-algebraic-etale-weighted-cone-zero-section` and
+  `thm:p061-algebraic-etale-weighted-cone-towers`, and the
   all-orbits split toric
   and algebraic-split-form scope of `thm:p061-split-toric-all-orbits` and
   `cor:p061-algebraic-split-toric-forms` and
@@ -609,6 +611,17 @@ analytic neighbourhood before the preceding tube theorem is applied.  The
 result neither treats points away from the zero section nor produces a
 weighted-cone target for an arbitrary germ, so P06.1 and all counts remain
 unchanged.
+The same algebraic localization now propagates through every finite tower of
+the displayed relative weighted cones.
+`thm:p061-algebraic-etale-weighted-cone-towers` strengthens the induction
+statement to all separated finite-type algebraic etale sources over a shorter
+tower: after the top standard-etale tube is constructed, its central domain
+is proved to be an ordinary neighbourhood in an algebraic etale source over
+the preceding stage, so the induction hypothesis supplies the central-germ
+regularity.  This avoids assuming that singular intermediate bases are
+quasi-smooth.  Different stages need no common grading, but the result remains
+confined to the composite zero section and does not manufacture such a tower
+for an arbitrary singular germ.  P06.1 and all counts remain unchanged.
 There is independently an affine toric scope:
 `thm:p061-toric-fixed-point-constancy` proves that every classically
 pluriharmonic germ at the torus-fixed point associated to a full-dimensional
