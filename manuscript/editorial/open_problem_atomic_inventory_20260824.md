@@ -383,7 +383,9 @@ either atom; see BMPS26, pp. 4 and 45.
   toric, split-toric quasi-smooth-product, algebraic-split toric-form,
   positive-weighted affine-cone vertex and finite relative
   positive-weighted-cone towers over any verified base range along their
-  composite zero sections,
+  composite zero sections, together with displayed analytic standard-etale
+  perturbations at central-fibre points over a quasi-smooth or otherwise
+  verified central fibre,
   algebraic-split analytic-toric-form,
   algebraic-split-form quasi-smooth-product, transverse toric-product, and
   source-Zariski-local ordinary-etale algebraic-split-toroidal and analytic
@@ -394,7 +396,8 @@ either atom; see BMPS26, pp. 4 and 45.
   scope of `thm:p061-positive-weighted-cone-vertex-constancy`, its relative
   zero-section and finite-tower scope of
   `prop:p061-relative-positive-weighted-cone-descent` and
-  `cor:p061-iterated-relative-weighted-cone-closure`, and the
+  `cor:p061-iterated-relative-weighted-cone-closure`, the standard-etale
+  central-fibre scope of `thm:p061-standard-etale-weighted-cone-tube`, and the
   all-orbits split toric
   and algebraic-split-form scope of `thm:p061-split-toric-all-orbits` and
   `cor:p061-algebraic-split-toric-forms` and
@@ -575,6 +578,20 @@ two-stage example with equations `x^3+y^3+z^3=0` and
 positively homogeneous in its new variables.  This says nothing about
 points away from the composite zero section or a base outside the initial
 verified regularity range, so P06.1 remains active and the count is
+unchanged.
+The weighted-cone range is now also stable under the displayed strict
+analytic standard-etale presentations.  After shrinking the cone variables,
+the kernel of the zero-section retraction tends to zero in the quotient
+Gauss norms.  The existing contractive Newton lemma then identifies the
+source tube with the same relative cone after base change to the central
+standard-etale fibre.  Thus `thm:p061-standard-etale-weighted-cone-tube`
+propagates the local pluriharmonic real-PL property from that fibre to the
+source point; a quasi-smooth original base is sufficient because the
+Jacobian criterion makes the central fibre quasi-smooth over it.  The example
+`T^2-T-x=0`, with the derivative inverted, shows that the displayed source
+equations need not be positively homogeneous.  This treats only central-
+fibre points in an actual strict standard-etale presentation and asserts no
+uniformization of an arbitrary singular germ, so P06.1 and all counts remain
 unchanged.
 There is independently an affine toric scope:
 `thm:p061-toric-fixed-point-constancy` proves that every classically
