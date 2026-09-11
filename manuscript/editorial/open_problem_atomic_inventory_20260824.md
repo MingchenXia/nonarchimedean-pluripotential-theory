@@ -1442,25 +1442,34 @@ displayed problem environment, and lowers the active count by one.
 - **P12.1** `[T4; open after the reduced excellent curve-link
   classification]` Determine the normalizing boundary datum for excellent
   singular and nonnormal germs.
-- **P12.2** `[T4; open]` Construct the corresponding valuative psh class.
-- **P12.3** `[T4; open]` Construct its envelope theory.
+- **P12.2** `[T4; open after the conductor-controlled reduced-curve
+  ideal-profile range]` Construct the corresponding valuative psh class.
+- **P12.3** `[T4; open after the principal-ideal finite-link envelope
+  range]` Construct its envelope theory.
 - **P12.4** `[T5; open]` Construct model-independent bounded products.
 - **P12.5** `[T5; open]` Construct a finite-energy theory.
-- **P12.6** `[T4; open after normalized curve-branch functoriality]`
+- **P12.6** `[T4; open after normalized curve-branch functoriality and
+  high-order conductor descent]`
   Establish finite-map functoriality, including branch and conductor descent.
 
-All six targets remain active, but two now have exact one-dimensional
-boundary results.  Theorem `thm:p121-reduced-nagata-curve-link` identifies
+All six targets remain active, but four now have sharply delimited
+one-dimensional ranges.  Theorem `thm:p121-reduced-nagata-curve-link` identifies
 the primary-ideal-normalized link of every reduced Nagata curve germ with
 the finite set of points of its normalization above the closed point and
 proves the exact change-of-ideal cocycle.  Proposition
 `prop:p126-finite-reduced-curve-link` proves normalized restriction for
 arbitrary finite local maps in that class: branch ramification multiplies
 both the order and the extended-ideal denominator and therefore cancels.
-The restriction map need not be surjective.  Neither result descends
-functions through the conductor or constructs psh classes, products, or
-energy, so P12.1 and P12.6 are narrowed rather than retired and the atom
-count is unchanged.
+The restriction map need not be surjective.  Proposition
+`prop:p126-curve-conductor-principal-realization` realizes every sufficiently
+deep integral branch-order vector by one downstairs regular primary
+principal ideal.  Theorem `thm:p122-curve-principal-ideal-envelope` then
+identifies those profiles with the strictly negative rational orthant, their
+uniform closure with the nonpositive real orthant, and their raw finite-link
+envelope with pointwise truncation by zero.  This is not an identification
+with a singular nef or psh cone and supplies no product or energy theory.
+Thus P12.1, P12.2, P12.3, and P12.6 are narrowed rather than retired, and
+the atom count is unchanged.
 
 A 10 September 2026 primary-source recheck
 separates them from the global trivially-valued theory used in
@@ -1469,9 +1478,9 @@ that framework permits an integral projective variety before normality is
 assumed and supplies global psh, finite-energy, and Monge--Amp\`ere objects.
 Its exact Monge--Amp\`ere surjectivity is conditional on the envelope
 property (recorded there in the smooth case).  It supplies neither the
-normalizing datum of an excellent local germ nor conductor descent, local
-bounded products, or a local finite-map formula, so it had changed no P12
-atom or count before the curve-link theorem above.  The two BdFF local-volume
+normalizing datum of an excellent local germ nor the curve-local conductor
+realization, local bounded products, or a local finite-map formula, so it
+had changed no P12 atom or count before the curve results above.  The two BdFF local-volume
 questions recorded as historical context
 in the chapter are resolved and are not atoms here.
 

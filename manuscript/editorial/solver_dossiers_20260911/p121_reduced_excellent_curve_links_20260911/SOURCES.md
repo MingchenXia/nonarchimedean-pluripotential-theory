@@ -30,7 +30,25 @@ primary Stacks Project results.
 - [Tag 0BRL — ramification indices in towers](https://stacks.math.columbia.edu/tag/0BRL):
   ramification indices multiply in a tower.  This provides the branchwise
   check of compatibility with composition.
+- [Tag 034W — ideals in Dedekind domains](https://stacks.math.columbia.edu/tag/034W)
+  and [Tag 034X — characterizations of Dedekind domains](https://stacks.math.columbia.edu/tag/034X):
+  nonzero ideals in each normalization factor have unique maximal-ideal
+  factorizations.  Applied componentwise, this gives the conductor exponents
+  and the invertible ideal with prescribed sufficiently deep branch orders.
 
-No cited source is used to claim a singular psh, conductor-descent,
-intersection-product, Monge--Ampere, energy, or higher-dimensional theorem.
-Those layers remain open.
+The conductor is shown to contain a nonzerodivisor by directly clearing the
+denominators of finitely many module generators of the finite normalization.
+The required global generator is then selected by the Chinese remainder
+theorem in the nonzero fibres of the prescribed invertible ideal; localization
+and Nakayama prove that it generates on every branch.  These are elementary
+steps recorded in the proof rather than additional sourced classification
+claims.
+
+The new conclusion is exactly an ideal-function result: sufficiently deep
+integral branch orders descend to one primary principal ideal; the resulting
+profiles form the strictly negative rational orthant, whose uniform closure
+is the nonpositive real orthant; and its raw obstacle envelope is pointwise
+truncation by zero.  No cited source or book-local argument identifies that
+orthant with an independently constructed singular psh or nef cone, nor does
+it claim an intersection product, Monge--Ampere operator, energy theory, or
+higher-dimensional analogue.  Those layers remain open.
