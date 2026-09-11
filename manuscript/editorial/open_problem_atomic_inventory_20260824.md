@@ -1,7 +1,7 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 10 September 2026
-**Literature cutoff:** 10 September 2026; targeted P14.7/P14.8 source update on 31 August and P05/P12/P13/P14/P15/P16 source updates on 10 September 2026
+**Inventory date:** 11 September 2026
+**Literature cutoff:** 11 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, and P21.3 residual-Picard source audit on 11 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
 This file is an editorial crosswalk for solving, verifying, and retiring the
@@ -1825,6 +1825,30 @@ P19.3 or alter the active-atom count.
   `cor:p213-endpoint-tower-cover-bt`.  Neither version applies to one chart
   inside an arbitrary germ, annular fibres, or fibrations lacking the stated
   local product charts.
+  A distinct residual-geometric spatial class is also closed.  On an open
+  subset of the analytification of a smooth proper curve over an
+  algebraically closed complete nontrivially valued field,
+  `prop:p213-residual-picard-smooth-curve` identifies the exact obstruction
+  to ordinary CLD-smoothness of a continuous zero-current function at a
+  type-2 point with its class in
+  \(\operatorname{Pic}^0(C_x)\otimes_{\mathbf Z}\mathbf R\); at all other
+  point types the obstruction vanishes automatically.  If these Picard
+  tensors vanish throughout the base, then
+  `thm:p213-residual-picard-mixed-tower` propagates ordinary smooth
+  zero-Hessian regularity through every finite mixed tower of locally
+  trivial standard strict open-polydisc, projective-space, and proper smooth
+  connected curve bundles.  The projective and proper-curve stages retain
+  the exact locally holomorphically separated and paracompact base
+  hypotheses of their descent propositions.  On a boundaryless top level,
+  `cor:p213-residual-picard-mixed-tower-bt` gives whole-space independence
+  against every positive closed ordinary CLD current; an ordinary cover by
+  such towers gives the same result on that specified open by
+  `cor:p213-residual-picard-mixed-tower-cover-bt`, and a genuine basis gives
+  the every-open predicate by
+  `cor:p213-residual-picard-mixed-tower-basis-bt`.  This includes bases over
+  Mumford curves and over residue fields algebraic over a finite field.  It
+  neither treats a single tower chart that fails to refine the potentials'
+  domain nor removes the residual-Picard hypothesis.
   The bare real-PL or GJR-harmonic outcomes occurring in P06.1/P06.2 remain
   G-local/weakly smooth and do not themselves give this ordinary CLD-smooth
   approximation: `prop:ch19-cld-smooth-harmonic-nonregularization` gives an
