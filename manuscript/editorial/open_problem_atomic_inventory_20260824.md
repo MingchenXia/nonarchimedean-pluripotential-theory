@@ -1517,19 +1517,21 @@ and P13.2 remain unchanged.
   ideal-valuative formula is asserted only in the \(\mathbf Q\)-line-bundle
   case.  The genuinely transcendental or nonprojective compact K\"ahler,
   and the big non-nef, image characterizations remain open.
-- **P14.2** `[T3; open; source-closed production verification pending]` The
+- **P14.2** `[T3; open; production verification pending after V14 preflight]` The
   audited Chapter 71 candidate proves upper semicontinuity at arbitrary
   nondivisorial semivaluations and has passed a zero-finding independent
   model-backed review of its frozen proof and five cited source extracts.
-  The V7 local exact-live binding additionally replays the repaired V6
-  source-stage candidate's manifest, release gates, and 179 tests, and pins
-  its target statement, proof, and example to exact current Chapter 71
-  excerpts.  The preceding independent V5 source-stage hostile audit instead
-  returned `wrong`, with five critical errors and six gaps in the release and
-  smoke-control evidence; V6 is only a local repair replay.  It is not the
-  outstanding independent hostile audit, final-path smoke, or production
-  verification.
-  This atom remains active until source-closed production verification passes.
+  The V14 source-closed preproduction release pins its target statement,
+  proof, and example to those exact current Chapter 71 excerpts, together
+  with the current Codex executable, static model catalog, and fixed source
+  routes.  Its 58-row source manifest, 197 tests, release gates, final-path
+  310-second smoke, and two independent `gpt-6-astra` hostile audits all
+  passed with zero critical errors and zero material gaps.  The exact
+  evidence is archived in
+  `solver_dossiers_20260911/p142_v14_preproduction_gate_20260911/`.
+  No V14 production request has been sent and no mathematical production
+  verdict is claimed.  This atom remains active until a fresh V14 source-closed
+  production verification and live integration pass.
 - **P14.3** `[T4; open; source-bound conditional theorem verified]` Decide
   MP positivity at those semivaluations.  The Chapter 71
   domination-preserving rational-divisorial theorem and its finite-energy
