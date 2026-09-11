@@ -1,7 +1,7 @@
 # Atomic crosswalk for the active problem environments
 
 **Inventory date:** 11 September 2026
-**Literature cutoff:** 11 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, and P21.3 residual-Picard source audit on 11 September 2026
+**Literature cutoff:** 11 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, and P14.8 current-source production verification and P21.3 residual-Picard source audit on 11 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
 This file is an editorial crosswalk for solving, verifying, and retiring the
@@ -1583,8 +1583,22 @@ and P13.2 remain unchanged.
   Its exact request, response, strict receipt audit, and the immutable
   release-pin boundary are archived in that dossier.  This discharges the
   production-review gate for the frozen conditional comparison, not the
-  broader atom: P14.8 remains open, and this is not a zero-mass
-  strict-interior range of the DXZ filtration curve.
+  broader atom.  A current-source V2 release, pinned to Git commit
+  `01ba38fbd824f75ba4150f1913150950f9d4c19d`, now checks the same dichotomy
+  against the corrected Chapter 51 source (including the arbitrary-divisor
+  error `A(E)/m`).  Its source stage passed 197 tests and a zero-finding
+  `gpt-6-astra`/`xhigh` audit, and its final path passed the long smoke.  Two
+  earlier attempts were rejected and excluded.  The accepted
+  `gpt-5.6-sol`/`xhigh` run
+  `20260911T121602Z_4e4256d738ec_e04ebb78` returned `correct`, with zero
+  critical errors and zero gaps; independent hostile replay closed all 87
+  tool-call bindings with zero critical errors and zero material gaps.  The
+  exact release and receipts are in
+  `solver_dossiers_20260911/p148_current_source_release_v2_20260911`.  P14.8
+  remains open: this verifies only the realizable-I-data canonical
+  reconstruction/raw-data obstruction dichotomy, not arbitrary formal-data
+  realization, a general all-semivaluation reconstruction formula, or a
+  zero-mass strict-interior range of the DXZ filtration curve.
 
 The divisorial realization, the finite-energy K\"ahler comparison, and the
 projective real N\'eron--Severi DXZ--Boucksom--Jonsson comparison are known
@@ -1603,10 +1617,11 @@ P14.8 remains active and separate.  The terminal left-limit corollary
 terminal slice; it does not reconstruct arbitrary zero-mass data.  The
 frozen exact-dichotomy candidate in
 `solver_dossiers_20260901/p148_zero_mass_reconstruction_candidate_v2_20260901`,
-its source-bound V6 successor, and its exact-live V7 audit are a source-scoped
-answer to the two defined reconstruction readings, but they are not yet a
-production-verified retirement and not a sourced second interval of zero-mass
-slices.
+its source-bound V6 successor, its exact-live V7 audit, and the current-source
+V2 production release are a source-scoped answer to the two defined
+reconstruction readings.  The latest release is production verified, but it
+is not a retirement of the broad atom and not a sourced second interval of
+zero-mass slices.
 The exact source comparison is preserved in
 `solver_dossiers_20260831/p147_source_correction_independent_audit_20260831/SOURCE_CORRECTION_AUDIT.md`.
 That source-only correction did not itself retire an atom; the complete
