@@ -1409,16 +1409,30 @@ displayed problem environment, and lowers the active count by one.
 
 ### `prob:frontier-singular-local` --- 6 atoms
 
-- **P12.1** `[T4; open]` Determine the normalizing boundary datum for
-  excellent singular and nonnormal germs.
+- **P12.1** `[T4; open after the reduced excellent curve-link
+  classification]` Determine the normalizing boundary datum for excellent
+  singular and nonnormal germs.
 - **P12.2** `[T4; open]` Construct the corresponding valuative psh class.
 - **P12.3** `[T4; open]` Construct its envelope theory.
 - **P12.4** `[T5; open]` Construct model-independent bounded products.
 - **P12.5** `[T5; open]` Construct a finite-energy theory.
-- **P12.6** `[T4; open]` Establish finite-map functoriality, including
-  branch and conductor descent.
+- **P12.6** `[T4; open after normalized curve-branch functoriality]`
+  Establish finite-map functoriality, including branch and conductor descent.
 
-All six targets are open.  A 10 September 2026 primary-source recheck
+All six targets remain active, but two now have exact one-dimensional
+boundary results.  Theorem `thm:p121-reduced-nagata-curve-link` identifies
+the primary-ideal-normalized link of every reduced Nagata curve germ with
+the finite set of points of its normalization above the closed point and
+proves the exact change-of-ideal cocycle.  Proposition
+`prop:p126-finite-reduced-curve-link` proves normalized restriction for
+arbitrary finite local maps in that class: branch ramification multiplies
+both the order and the extended-ideal denominator and therefore cancels.
+The restriction map need not be surjective.  Neither result descends
+functions through the conductor or constructs psh classes, products, or
+energy, so P12.1 and P12.6 are narrowed rather than retired and the atom
+count is unchanged.
+
+A 10 September 2026 primary-source recheck
 separates them from the global trivially-valued theory used in
 \cite[\S2]{BJKS2}: over an algebraically closed characteristic-zero field,
 that framework permits an integral projective variety before normality is
@@ -1426,8 +1440,9 @@ assumed and supplies global psh, finite-energy, and Monge--Amp\`ere objects.
 Its exact Monge--Amp\`ere surjectivity is conditional on the envelope
 property (recorded there in the smooth case).  It supplies neither the
 normalizing datum of an excellent local germ nor conductor descent, local
-bounded products, or a local finite-map formula, so it changes no P12 atom
-or count.  The two BdFF local-volume questions recorded as historical context
+bounded products, or a local finite-map formula, so it had changed no P12
+atom or count before the curve-link theorem above.  The two BdFF local-volume
+questions recorded as historical context
 in the chapter are resolved and are not atoms here.
 
 ### `prob:frontier-affine-cone-ma` --- 2 atoms
