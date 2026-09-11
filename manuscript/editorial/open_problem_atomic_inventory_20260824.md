@@ -385,7 +385,8 @@ either atom; see BMPS26, pp. 4 and 45.
   positive-weighted-cone towers over any verified base range along their
   composite zero sections, together with displayed analytic standard-etale
   perturbations at central-fibre points over a quasi-smooth or otherwise
-  verified central fibre,
+  verified central fibre and algebraic ordinary-etale germs over the zero
+  section of a relative positive-weighted cone with smooth algebraic base,
   algebraic-split analytic-toric-form,
   algebraic-split-form quasi-smooth-product, transverse toric-product, and
   source-Zariski-local ordinary-etale algebraic-split-toroidal and analytic
@@ -397,7 +398,9 @@ either atom; see BMPS26, pp. 4 and 45.
   zero-section and finite-tower scope of
   `prop:p061-relative-positive-weighted-cone-descent` and
   `cor:p061-iterated-relative-weighted-cone-closure`, the standard-etale
-  central-fibre scope of `thm:p061-standard-etale-weighted-cone-tube`, and the
+  central-fibre scope of `thm:p061-standard-etale-weighted-cone-tube`, the
+  algebraic ordinary-etale zero-section scope of
+  `thm:p061-algebraic-etale-weighted-cone-zero-section`, and the
   all-orbits split toric
   and algebraic-split-form scope of `thm:p061-split-toric-all-orbits` and
   `cor:p061-algebraic-split-toric-forms` and
@@ -593,6 +596,19 @@ equations need not be positively homogeneous.  This treats only central-
 fibre points in an actual strict standard-etale presentation and asserts no
 uniformization of an arbitrary singular germ, so P06.1 and all counts remain
 unchanged.
+The displayed-chart hypothesis is now removed for the corresponding
+algebraic ordinary-etale zero-section germs.
+`thm:p061-algebraic-etale-weighted-cone-zero-section` starts with a separated
+finite-type algebraic etale morphism to a relative positive-weighted cone
+over a smooth algebraic base.  Stacks Project Tag 025C supplies only an open
+immersion into a standard-etale scheme; the proof then chooses a principal
+open inside its image, shrinks the target to an actual strict relative-cone
+affinoid, and imposes strict bounds on the standard-etale coordinate and its
+inverse.  These three firewalls put the chosen source point in an ordinary
+analytic neighbourhood before the preceding tube theorem is applied.  The
+result neither treats points away from the zero section nor produces a
+weighted-cone target for an arbitrary germ, so P06.1 and all counts remain
+unchanged.
 There is independently an affine toric scope:
 `thm:p061-toric-fixed-point-constancy` proves that every classically
 pluriharmonic germ at the torus-fixed point associated to a full-dimensional
@@ -737,7 +753,8 @@ does not cover forms without such an algebraic splitting extension.
 P06.1 remains active only for arbitrary nonproduct singular germs, products
 containing higher-dimensional reduced singular factors outside the verified
 ranges, genuinely log-etale charts not covered by an ordinary-etale chart of
-the displayed kind or by the displayed analytic standard-etale chart, and
+the displayed toroidal or weighted-cone kind or by the displayed analytic
+standard-etale charts, and
 nonsplit local models outside the verified algebraic-split descent range.
 The coefficient cannot be strengthened: `prop:p061-integral-pl-counterexample`
 gives \(\sqrt2\log|T|\) on a strict semistable annulus, which is not
