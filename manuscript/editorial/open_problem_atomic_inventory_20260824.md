@@ -1086,6 +1086,7 @@ the residual scopes stated above.
 
 - **P07.1** `[T2; open after the tropical-toric, finite ambient-star,
   finite ambient-star × open-convex-Euclidean and × convex-polyhedral
+  joint-convex-generator, Stone × finite-star × convex-polyhedral
   joint-convex-generator, two nonambient interval, exact CLD infinite-star,
   Stone--Euclidean, Stone--polyhedral, and generator-convex
   arbitrary-incidence polyhedral-complex cases]`
@@ -1129,6 +1130,33 @@ and summable tail constants then preserve the full mixed Hessian condition.
 This book-local result does not extend to arbitrary compact convex factors,
 separately convex generators, nonambient product stars, or nonconvex or
 branched chamber gluings.  It narrows P07.1 but does not retire it.
+
+The locally constant Stone parameter and the finite-star--polyhedral model
+may now occur simultaneously.  For
+\(X=Z\times S\times P\), where \(Z\) is any locally compact Hausdorff
+clopen-base space with only locally constant affine functions, \(S\) is a
+finite ambient real-affine star, and \(P\) is one convex polyhedron,
+`thm:p071-stone-finite-star-polyhedral-collapse` identifies the first-stage,
+full generated, and Stone-factorized fibrewise comparison sheaves.  Every
+germ has one decreasing smooth approximation on a fixed smaller product
+neighbourhood.  The proof combines the star--polytope junction-convex
+envelope with finite clopen discretizations of a compact metrizable quotient;
+the envelope is nonexpanding in the uniform norm, so the two mechanisms
+preserve exact monotonicity after a summable tail correction.  This permits
+nonmetrizability, finite branching, nonconstant polyhedral affine
+directions, and faces or corners simultaneously.  It does not permit
+nonconstant affine functions on the Stone factor, infinite non-CLD stars,
+separately convex generators, nonambient branch structures, or nonconvex
+chamber gluings.  P07.1 remains active, and the atom and tier counts do not
+change.  The exact statement/proof SHA-256 values are
+`4e73599647ca6d3181503d35d103750158b974a59ca9a003076b3ff633692d43` /
+`512578208462782ba27699d078b90d4b12cf47edf683947ee2276cb40703d268`.
+Model-backed verification run `20260913T013351Z_8e2841681a9a`, using
+`gpt-6-astra` at `xhigh`, returned final `correct` after 25 ordered checks,
+with zero critical errors and zero gaps.  The archived request/response
+SHA-256 values are
+`0d8331cede6a9aac67c13153fa14d54167f849d2192ea529369bf712e73fdee1` /
+`cfdd311cbbfe052e3791bcd00b63fdc44cdb5d78bf7b95879f457c944e6608fc`.
 
 Two additional nonambient interval models are now controlled.  For the
 finite constant-collar endpoint, the comparison sheaf is the extended-real
@@ -1271,12 +1299,12 @@ become `(0,5,13,17,17)`.
 
 P07.1 therefore retains branched or singular-link higher-dimensional
 chamber systems without a generator-preserving convex development,
-nonconstant affine parameter directions, and other nonambient local models
-outside the two exact interval structures, \(X_B\), and the verified
-locally constant-parameter models. The residual obstruction is sharpened
-to the existence of a compatible local convex development and to
-fixed-neighbourhood globalization beyond it, rather than diagonal order.
-It remains active.
+nonconstant affine structures on zero-dimensional parameters, infinite-star
+products, and other nonambient local models outside the two exact interval
+structures, \(X_B\), and the verified locally constant-parameter models.
+The residual obstruction is sharpened to the existence of a compatible
+local convex development and to fixed-neighbourhood globalization beyond
+it, rather than diagonal order.  It remains active.
 
 ### `prob:frontier-cld-global-metric` --- 1 active atom
 
