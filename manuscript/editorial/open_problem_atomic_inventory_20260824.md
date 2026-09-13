@@ -1087,8 +1087,9 @@ the residual scopes stated above.
 - **P07.1** `[T2; open after the tropical-toric, finite ambient-star,
   finite ambient-star × open-convex-Euclidean and × convex-polyhedral
   joint-convex-generator, Stone × finite-star × convex-polyhedral
-  joint-convex-generator, two nonambient interval, exact CLD infinite-star,
-  Stone--Euclidean, Stone--polyhedral, and generator-convex
+  joint-convex-generator, Stone × exact CLD infinite-star, two nonambient
+  interval, exact CLD infinite-star, Stone--Euclidean, Stone--polyhedral,
+  and generator-convex
   arbitrary-incidence polyhedral-complex cases]`
   Decide whether the CLD psh hierarchy collapses after its first
   decreasing-limit stage.
@@ -1157,6 +1158,29 @@ with zero critical errors and zero gaps.  The archived request/response
 SHA-256 values are
 `0d8331cede6a9aac67c13153fa14d54167f849d2192ea529369bf712e73fdee1` /
 `cfdd311cbbfe052e3791bcd00b63fdc44cdb5d78bf7b95879f457c944e6608fc`.
+
+The Stone parameter may now also be combined with the exact CLD star
+\(X_B\) for an arbitrary nonempty branch set \(B\).  Theorem
+thm:p071-stone-infinite-star-collapse identifies the first-stage, full
+generated, and explicit Stone-factorized comparison sheaves on
+\(Z\times X_B\).  At a node the family has one common countable set of
+active full branches.  The proof extracts this set and a common compact
+metrizable Stone quotient, proves that compact parameter maxima preserve
+the exact full-endpoint trace and the finite-point Jensen balance, truncates
+to finitely many active branches, and applies the exact-star slope budget
+and finite harmonic smoothing.  Every germ is approximated on one fixed
+product neighbourhood.  The result excludes nonconstant affine directions
+on the Stone factor, non-CLD infinite stars, an additional active
+polyhedral factor, and nonambient branch structures.  P07.1 therefore
+remains active, with unchanged atom and tier counts.  The exact
+statement/proof SHA-256 values are
+9f42a4c909f1aae06db633550a71b8fddffe08db87150864d29f7a9de0673d29 /
+68b480c7e063d7ebaea1c3af370020cded38dc3cfa076cbc41b5d4db446172cf.
+Dependency-closed local verification with gpt-6-astra at xhigh returned
+final correct, zero critical errors, and zero gaps.  The final archived
+request/response SHA-256 values are
+52edf497268a0bf7e4f6151535b1b3dcd2255a3a1ca511328b89ad028ef9d955 /
+10ee898d364bd93999884f9b63018b62b65e62283e542cb38e0a24c842cfa321.
 
 Two additional nonambient interval models are now controlled.  For the
 finite constant-collar endpoint, the comparison sheaf is the extended-real
@@ -1299,8 +1323,9 @@ become `(0,5,13,17,17)`.
 
 P07.1 therefore retains branched or singular-link higher-dimensional
 chamber systems without a generator-preserving convex development,
-nonconstant affine structures on zero-dimensional parameters, infinite-star
-products, and other nonambient local models outside the two exact interval
+nonconstant affine structures on zero-dimensional parameters, products of
+an infinite star with an additional active convex factor, non-CLD infinite
+stars, and other nonambient local models outside the two exact interval
 structures, \(X_B\), and the verified locally constant-parameter models.
 The residual obstruction is sharpened to the existence of a compatible
 local convex development and to fixed-neighbourhood globalization beyond
