@@ -385,6 +385,8 @@ either atom; see BMPS26, pp. 4 and 45.
   a verified range, all-orbits split
   toric, split-toric quasi-smooth-product and arbitrary-curve-factor
   product, algebraic-split toric-form and its arbitrary-curve-factor product,
+  pointwise analytic algebraic-split toric charts with arbitrary curve
+  factors,
   positive-weighted affine-cone vertex and finite relative
   positive-weighted-cone towers over any verified base range along their
   composite zero sections, together with displayed analytic standard-etale
@@ -413,8 +415,10 @@ either atom; see BMPS26, pp. 4 and 45.
   `cor:p061-algebraic-split-analytic-toric-forms`, and outside the split-toric
   quasi-smooth and arbitrary-curve-factor product scope of
   `cor:p061-split-toric-quasismooth-products` and
-  `cor:p061-toric-arbitrary-curve-factor-products`, decide whether every
-  classically pluriharmonic function is \(\mathbf R\)-PL near a
+  `cor:p061-toric-arbitrary-curve-factor-products`, and outside its pointwise
+  analytic algebraic-split extension
+  `cor:p061-analytic-toric-arbitrary-curve-factor-products`, decide whether
+  every classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
   moment-factor, good-strict invariant split-toric (including boundary) and
@@ -733,6 +737,15 @@ formal combination of the two verified mechanisms, not a theorem for a
 reduced higher-dimensional singular factor outside the toric factor, a form
 without such a splitting extension, or a nonproduct singular germ.  P06.1
 and all counts remain unchanged.
+The same range is pointwise analytic local in the toric factor.
+`cor:p061-analytic-toric-arbitrary-curve-factor-products` assumes that each
+point has an ordinary neighbourhood which becomes an ordinary open subspace
+of a split toric variety after a completed algebraic extension, carries the
+curve factors and the factor with quasi-smooth reduction through scalar
+extension, and descends the split product conclusion.  It does not produce
+the splitting chart, replace the algebraic extension by an arbitrary
+complete extension, or treat a nonproduct germ.  P06.1 and all counts remain
+unchanged.
 The same scalar-extension proof is analytic local.  If every point has an
 ordinary neighbourhood which becomes an ordinary open subspace of a split
 toric variety after one displayed complete algebraic splitting extension,
