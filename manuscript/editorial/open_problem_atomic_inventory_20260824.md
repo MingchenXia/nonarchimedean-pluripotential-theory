@@ -383,7 +383,8 @@ either atom; see BMPS26, pp. 4 and 45.
 - **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
   finite curve-factor, finite constant-group quotient, finite-flat cover of
   a verified range, all-orbits split
-  toric, split-toric quasi-smooth-product, algebraic-split toric-form,
+  toric, split-toric quasi-smooth-product and arbitrary-curve-factor
+  product, algebraic-split toric-form and its arbitrary-curve-factor product,
   positive-weighted affine-cone vertex and finite relative
   positive-weighted-cone towers over any verified base range along their
   composite zero sections, together with displayed analytic standard-etale
@@ -409,8 +410,10 @@ either atom; see BMPS26, pp. 4 and 45.
   all-orbits split toric
   and algebraic-split-form scope of `thm:p061-split-toric-all-orbits` and
   `cor:p061-algebraic-split-toric-forms` and
-  `cor:p061-algebraic-split-analytic-toric-forms`, and outside the split-toric quasi-smooth-product
-  scope of `cor:p061-split-toric-quasismooth-products`, decide whether every
+  `cor:p061-algebraic-split-analytic-toric-forms`, and outside the split-toric
+  quasi-smooth and arbitrary-curve-factor product scope of
+  `cor:p061-split-toric-quasismooth-products` and
+  `cor:p061-toric-arbitrary-curve-factor-products`, decide whether every
   classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
@@ -715,6 +718,21 @@ real-PL function.  Hence `cor:p061-algebraic-split-toric-forms` includes
 ordinary open subspaces of such products and their analytic local product
 models.  It does not cover forms without such an algebraic splitting
 extension, non-quasi-smooth parameters, or arbitrary nonproduct germs.
+The toric and curve-factor ranges also combine directly.
+`cor:p061-toric-arbitrary-curve-factor-products` treats every ordinary open
+analytic subspace of the product of a split toric variety, an arbitrary
+finite family of good strict analytic curves, and a good strict factor with
+quasi-smooth reduction.  At an arbitrary toric orbit, the exact principal
+open decomposition makes the transverse pointed toric factor visible and
+absorbs the orbit torus into the last factor; its reduction remains
+quasi-smooth.  The parameterized fixed-fibre theorem then factors a
+classically pluriharmonic function through a parameter in the scope of
+`thm:p061-arbitrary-curve-factors-ph-rpl`.  The same conclusion descends for
+a toric form split by the completion of an algebraic extension.  This is a
+formal combination of the two verified mechanisms, not a theorem for a
+reduced higher-dimensional singular factor outside the toric factor, a form
+without such a splitting extension, or a nonproduct singular germ.  P06.1
+and all counts remain unchanged.
 The same scalar-extension proof is analytic local.  If every point has an
 ordinary neighbourhood which becomes an ordinary open subspace of a split
 toric variety after one displayed complete algebraic splitting extension,
