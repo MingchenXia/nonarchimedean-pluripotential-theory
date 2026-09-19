@@ -389,6 +389,8 @@ either atom; see BMPS26, pp. 4 and 45.
   factors,
   source-Zariski-local ordinary-etale algebraic-split toric charts with
   arbitrary curve factors,
+  analytic standard-etale algebraic-split toric charts with arbitrary curve
+  factors,
   positive-weighted affine-cone vertex and finite relative
   positive-weighted-cone towers over any verified base range along their
   composite zero sections, together with displayed analytic standard-etale
@@ -421,7 +423,9 @@ either atom; see BMPS26, pp. 4 and 45.
   analytic algebraic-split extension
   `cor:p061-analytic-toric-arbitrary-curve-factor-products`, and outside the
   source-Zariski-local ordinary-etale algebraic-split product extension
-  `cor:p061-etale-toric-arbitrary-curve-factor-products`, decide whether
+  `cor:p061-etale-toric-arbitrary-curve-factor-products`, and outside the
+  analytic standard-etale algebraic-split product extension
+  `cor:p061-analytic-standard-etale-arbitrary-curve-factor-products`, decide whether
   every classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
@@ -821,6 +825,17 @@ the completion of an algebraic extension,
 the split extension, applies the all-orbits conclusion there, and descends
 the resulting real-PL function.  It retains the ordinary-target condition and
 does not cover forms without such an algebraic splitting extension.
+The same actual analytic standard-etale tube now carries arbitrary finite
+good strict analytic curve factors.  In
+`cor:p061-analytic-standard-etale-arbitrary-curve-factor-products`, the
+coefficient contraction manufactures the weighted toric product before
+singleton-Shilov factorization.  The retained quasi-smooth fixed fibre is
+grouped with a final factor having quasi-smooth reduction, and the existing
+arbitrary-curve theorem applies.  Completed-algebraic-extension descent
+includes algebraic-split toric bases.  This remains an explicit chart and
+external-product criterion: it does not manufacture a standard-etale chart
+for an arbitrary analytic etale map or cover a locally twisted nonproduct
+germ.  P06.1 and all counts remain unchanged.
 P06.1 remains active only for arbitrary nonproduct singular germs, products
 containing higher-dimensional reduced singular factors outside the verified
 ranges, genuinely log-etale charts not covered by an ordinary-etale chart of
