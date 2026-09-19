@@ -1355,7 +1355,15 @@ coefficient formula needs globally coordinated annular coordinates, but
 conclusion to every analytically locally trivial finite standard strict
 open-polyannulus bundle over \(W\): it applies the product theorem in each
 analytic product chart and requires no global coordinate or coefficient
-compatibility.  For the globally coordinated product, the same coefficient
+compatibility.  The overlap defect is now intrinsic rather than unspecified:
+`prop:p062-polyannulus-bundle-slope-local-system` writes every logarithmic
+coordinate change as a locally constant invertible real matrix plus a vector
+of zero-current base functions.  These transformations satisfy the affine
+Cech cocycle law, define a rank-\(s\) real local system, and make the local
+slope vectors of every zero-current function a global parallel section of
+the dual local system.  The proposition neither upgrades this real
+monodromy to integral monodromy nor trivializes it to give global annular
+coordinates.  For the globally coordinated product, the same coefficient
 formula persists through every finite tower of locally trivial standard
 strict open-polydisc bundles by
 `cor:p062-polyannulus-base-open-polydisc-towers`.  Separately,
@@ -1493,8 +1501,10 @@ globally coordinated annular product stages to occur at arbitrary levels.
 Its unique normal form contains every annular coordinate introduced in the
 tower, while the base coefficient and all locally constant slope
 coefficients live on the original curve.  That normal-form statement does
-not encode locally twisted annular coordinate changes or their coefficient
-monodromy.  For regularity without a global coefficient formula,
+not trivialize locally twisted annular coordinate changes.  Their
+single-bundle coefficient monodromy is nevertheless encoded by
+`prop:p062-polyannulus-bundle-slope-local-system` as the affine real local
+system described above.  For regularity without a global coefficient formula,
 `cor:p062-curve-local-annular-mixed-bundle-towers` now permits those annular
 coordinates, radii, and product trivializations to vary across one analytic
 open cover of the original curve.  On each member of that cover the whole
