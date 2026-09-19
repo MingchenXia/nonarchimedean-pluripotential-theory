@@ -1,0 +1,265 @@
+% P03.1 finite-flat local PL pullback proof, live integration version.
+
+\begin{proof}[\Cref{lem:p031-characteristic-spectral-maximum}]
+Fix $y\in U$, put $H:=\mathcal H(y)$, and base change
+\eqref{eq:p031-characteristic-polynomial} to the finite $H$-algebra of the
+analytic fiber.  After extension to an algebraic closure of $H$, its roots,
+counted with multiplicity, are the residue-field images of $h$ at the points
+of $\pi^{-1}(y)$.  Indeed, the fiber algebra is the product of its local
+Artinian factors.  On each factor multiplication by $h$ is triangular after
+scalar extension, with diagonal entries given by the residue-field
+conjugates of $h$.  Nilpotents change multiplicities but introduce no new
+eigenvalues.  Uniqueness of the extended absolute value on every finite
+extension of the complete field $H$ shows that the largest root modulus is
+\[
+                       R_y:=\max_{v\in\pi^{-1}(y)}|h(v)|.
+\]
+
+Write the roots as $\alpha_1,\ldots,\alpha_d$.  Since $c_i(y)$ is, up to
+sign, their $i$-th elementary symmetric function, the ultrametric inequality
+gives
+\[
+                           |c_i(y)|\leq R_y^i.
+\]
+Conversely, choose a root $\alpha$ with $|\alpha|=R_y$.  If
+$|c_i(y)|^{1/i}<R_y$ for every $i$, then in
+\[
+       \alpha^d+c_1(y)\alpha^{d-1}+\cdots+c_d(y)=0
+\]
+the first term would have strictly larger absolute value than every other
+term, contradicting the ultrametric triangle law.  This proves
+\eqref{eq:p031-characteristic-spectral-maximum}.
+
+Multiplication by the unit $h$ is an automorphism of the finite locally free
+module $\pi_*\mathcal O_V$, so $c_d$ is a unit.  Fix $y\in U$ and let
+\[
+                         I_y:=\{i:c_i(y)\ne0\}.
+\]
+After shrinking around $y$, each $c_i$ with $i\in I_y$ is a unit.  For
+$i\notin I_y$, continuity and the nonvanishing of $c_d$ give
+\[
+                 |c_i(z)|^{1/i}<|c_d(z)|^{1/d}
+\]
+on a smaller neighborhood.  These indices do not contribute to the
+spectral maximum there.  With $N:=\operatorname{lcm}(1,\ldots,d)$,
+\begin{equation}
+\label{eq:p031-local-characteristic-lfs-formula}
+ \log R_z
+  =\max_{i\in I_y}\frac1i\log|c_i(z)|
+  =\frac1N\max_{i\in I_y}
+       \{-\log|c_i(z)^{-N/i}|\}.
+\end{equation}
+This is a $\mathbf Q$-LFS presentation, proving the final assertion.
+\end{proof}
+
+\begin{proof}[\Cref{thm:p031-rational-lfs-fiber-maximum}]
+Fix $x\in X$ and write $\pi^{-1}(x)=\{e_1,\ldots,e_q\}$.  Choose pairwise
+disjoint ordinary open neighborhoods $V_k$ of the $e_k$ on which $u$ has
+a presentation \eqref{eq:p031-rational-lfs-normal-form}.  Since a finite
+morphism is proper,
+\[
+ U_0:=X\setminus\pi\bigl(E\setminus(V_1\cup\cdots\cup V_q)\bigr)
+\]
+is an open neighborhood of $x$, and $\pi^{-1}(U_0)$ is the disjoint union
+of the $V_k\cap\pi^{-1}(U_0)$.
+
+A finite flat analytic morphism is open by
+\cite[proof of Proposition~5.11, p.~175]{GJR26}.  Shrink $U_0$ to the
+intersection of the images of these finitely many branches and then along
+their locally constant rank strata.  We obtain an open neighborhood $U$ of
+$x$ and a decomposition
+\begin{equation}
+\label{eq:p031-local-finite-flat-branch-decomposition}
+                 \pi^{-1}(U)=E_1\amalg\cdots\amalg E_q
+\end{equation}
+such that each $E_k\to U$ is finite locally free, surjective, and of a
+fixed positive degree $d_k$.
+
+On $E_k$, take a common denominator in the selected rational presentation
+and distribute the finite maxima.  This gives
+\begin{equation}
+\label{eq:p031-rational-lfs-block-compression}
+ u=\frac1{D_k}\max_{F\in\mathcal F_k}\{-\log|F|\},
+ \qquad D_k\in\mathbf Z_{>0},
+\end{equation}
+where $\mathcal F_k$ is a finite family of analytic units on $E_k$.  For
+the empty sum, take $\mathcal F_k=\{1\}$.  Applying
+\Cref{lem:p031-characteristic-spectral-maximum} to $F^{-1}$ on every
+branch gives
+\begin{equation}
+\label{eq:p031-branchwise-spectral-compression}
+ \pi_{\max}u(z)
+  =\max_{1\leq k\leq q}\max_{F\in\mathcal F_k}
+      \frac1{D_k}
+      \log\max_{e\in(E_k)_z}|F(e)^{-1}|.
+\end{equation}
+Each function inside the finite maxima is $\mathbf Q$-LFS.  A finite
+maximum of rational presentations is again $\mathbf Q$-LFS: compress each
+presentation as in \eqref{eq:p031-rational-lfs-block-compression}, take a
+common denominator, and raise the finitely many analytic units to the
+corresponding positive integral powers.  Hence
+\eqref{eq:p031-branchwise-spectral-compression} is $\mathbf Q$-LFS on
+$U$.  Since $x$ was arbitrary, the fiber-maximum assertion follows.
+
+Pullback sends a base $\mathbf Q$-LFS minorant of $f$ to a cover minorant,
+so $s_{\mathbf Q,X}\circ\pi\leq s_{\mathbf Q,E}$.  Conversely, if
+$u\leq f\circ\pi$ is a cover competitor, then $\pi_{\max}u$ is a base
+$\mathbf Q$-LFS competitor and
+\[
+ u(e)\leq\pi_{\max}u(\pi(e))
+       \leq s_{\mathbf Q,X}(\pi(e)).
+\]
+Taking the supremum over $u$ proves the reverse inequality in
+\eqref{eq:p031-rational-lfs-envelope-pullback}.  It also proves that the
+two competitor families are empty simultaneously.
+\end{proof}
+
+\begin{proof}[\Cref{prop:p031-local-rational-lfs-cofinality}]
+By \cite[\S7.9, p.~190]{GJR26}, after shrinking around $y$ one may write
+\[
+ u=\sum_{\nu=1}^{r}a_\nu\phi_\nu,
+ \qquad
+ \phi_\nu=\max_{1\leq j\leq N_\nu}\{-\log|f_{\nu j}|\},
+ \qquad a_\nu\in\mathbf R_{\geq0},
+\]
+with analytic units $f_{\nu j}$.  Choose an arbitrarily small compact
+strictly analytic neighborhood $U$ of $y$ inside this presentation domain.
+The finitely many functions $\phi_\nu$ are bounded on $U$.
+
+Put $\eta_n:=1/(4n)$ and choose $a_{\nu,n}\in\mathbf Q_{\geq0}$ so that
+\[
+ \left\|\sum_{\nu=1}^{r}(a_{\nu,n}-a_\nu)\phi_\nu
+ \right\|_{U,\infty}<\eta_n.
+\]
+Set $w_n:=\sum_\nu a_{\nu,n}\phi_\nu$.  Nontriviality of the valuation
+gives $\gamma\in K^\times$ with $\tau:=-\log|\gamma|>0$.  Choose
+$q_n\in\mathbf Q_{>0}$ with
+\[
+                         \eta_n<q_n\tau<2\eta_n.
+\]
+The constant $-q_n\tau$ is $\mathbf Q$-LFS because
+\[
+              -q_n\tau=q_n\max\{-\log|\gamma^{-1}|\}.
+\]
+Thus $v_n:=w_n-q_n\tau$ is $\mathbf Q$-LFS and satisfies
+$u-3\eta_n<v_n<u$ on $U$, which proves
+\eqref{eq:p031-one-sided-local-rationalization}.
+
+The rational local competitor family is contained in the LFS family.  For
+the reverse inequality, apply the ordered approximation to an arbitrary
+local LFS minorant of $g$.  Restrict $v_n$ to an ordinary open neighborhood
+of $y$ contained in the interior of $U$.  It remains below that minorant and
+hence below $g$, while $v_n(y)\to u(y)$.  Taking the supremum proves
+\eqref{eq:p031-local-real-rational-lfs-cofinality}.  If the LFS family is
+empty, so is its rational subfamily, proving the final clause.
+\end{proof}
+
+\begin{proof}[\Cref{thm:p031-finite-flat-local-envelope-pullback}]
+Pullback of local LFS minorants gives
+\begin{equation}
+\label{eq:p031-finite-flat-easy-local-inequality}
+ P_{\mathrm{LFS}}^{\mathrm{loc}}f(x)
+   \leq P_{\mathrm{LFS}}^{\mathrm{loc}}(f\circ\pi)(e).
+\end{equation}
+
+For the reverse inequality, let $u$ be an LFS minorant of $f\circ\pi$ on
+an ordinary open neighborhood of $e$.  Write
+$\pi^{-1}(x)=\{e_1,\ldots,e_q\}$ with $e_1=e$, and let $b_0$ be the
+assumed LFS minorant on a neighborhood of the complete fiber.  Choose
+pairwise disjoint ordinary open neighborhoods $W_k$ of the $e_k$ such that
+$u$ is defined on $W_1$ and $b_0$ is defined on every $W_k$ for $k>1$.
+On their disjoint union, set
+\[
+ \widetilde u|_{W_1}:=u,
+ \qquad
+ \widetilde u|_{W_k}:=b_0\quad(k>1).
+\]
+This is an LFS minorant of $f\circ\pi$ near the complete fiber.
+
+Fix $\varepsilon>0$.  Apply
+\Cref{prop:p031-local-rational-lfs-cofinality} at each $e_k$, and restrict
+the resulting compact neighborhoods to pairwise disjoint ordinary open
+neighborhoods.  Their union is a neighborhood $W'$ of the complete fiber
+carrying a $\mathbf Q$-LFS function $v$ such that
+\begin{equation}
+\label{eq:p031-complete-fiber-rational-minorant}
+             v\leq\widetilde u\leq f\circ\pi,
+             \qquad v(e)>u(e)-\varepsilon.
+\end{equation}
+Since $\pi$ is finite and hence proper, after shrinking to an ordinary open
+neighborhood $U$ of $x$ one has $\pi^{-1}(U)\subset W'$.  By
+\Cref{thm:p031-rational-lfs-fiber-maximum},
+$m:=\pi_{\max}(v|_{\pi^{-1}(U)})$ is $\mathbf Q$-LFS on $U$, and
+\[
+                         m\leq f|_U,
+             \qquad m(x)\geq v(e)>u(e)-\varepsilon.
+\]
+Therefore $u(e)-\varepsilon<P_{\mathrm{LFS}}^{\mathrm{loc}}f(x)$.
+Letting $\varepsilon\downarrow0$ and taking the supremum over $u$ proves
+the reverse of \eqref{eq:p031-finite-flat-easy-local-inequality}.
+
+If both spaces are boundaryless, every point is interior.  Apply
+\Cref{thm:p031-local-pl-lfs-cofinality} on $E$ and $X$ to the two sides of
+\eqref{eq:p031-finite-flat-local-lfs-pullback}; this gives
+\eqref{eq:p031-finite-flat-local-pl-pullback}.
+\end{proof}
+
+\begin{proof}[\Cref{thm:p031-finite-flat-pl-defect-balance}]
+A global LFS minorant pulls back to a global cover LFS minorant, so
+\Cref{thm:p031-finite-flat-local-envelope-pullback} applies at every cover
+point.  It also makes all local and global envelope values finite.  Pullback
+of global PL competitors gives
+\[
+                   s_{\mathrm{PL},X}\circ\pi
+                      \leq s_{\mathrm{PL},E},
+\]
+so $\Gamma^{\mathrm{PL}}_{\pi,f}\geq0$.
+
+Fix $e\in E$, put $x:=\pi(e)$, and denote the common value in
+\eqref{eq:p031-finite-flat-local-pl-pullback} by $P_x$.  Then
+\begin{align*}
+ \Delta^{\mathrm{PL}}_{f,X}(x)
+   -\Delta^{\mathrm{PL}}_{f\circ\pi,E}(e)
+  &=(P_x-s_{\mathrm{PL},X}(x))
+      -(P_x-s_{\mathrm{PL},E}(e))\\
+  &=s_{\mathrm{PL},E}(e)-s_{\mathrm{PL},X}(x)\\
+  &=\Gamma^{\mathrm{PL}}_{\pi,f}(e),
+\end{align*}
+which proves \eqref{eq:p031-finite-flat-pl-defect-balance}.  Since the
+cover defect and the gain are nonnegative, the same identity gives
+\eqref{eq:p031-finite-flat-pl-defect-contraction} and
+\eqref{eq:p031-finite-flat-pl-gain-bound}.
+
+Every LFS function is semipositive real PL, so the full P03 union envelope
+is the PL envelope.  Its pullback defect is therefore the displayed gain,
+which vanishes exactly when
+\eqref{eq:p031-finite-flat-pl-defect-preservation} holds.  If the base
+defect vanishes at $x$, the two nonnegative summands
+\[
+ \Delta^{\mathrm{PL}}_{f\circ\pi,E}(e)
+       +\Gamma^{\mathrm{PL}}_{\pi,f}(e)
+       =\Delta^{\mathrm{PL}}_{f,X}(x)
+\]
+vanish for every $e\in\pi^{-1}(x)$.
+\end{proof}
+
+\begin{proof}[\Cref{cor:p031-finite-orbit-four-defect-balance}]
+For a finite analytic orbit presentation, the global PL pullback gain is
+$\Sigma_{\pi,f}$ by \eqref{eq:p031-full-union-symmetry-defect}.  Substitute
+the split identity \eqref{eq:p031-pl-lfs-defect-split} on $X$ and $E$ into
+\eqref{eq:p031-finite-flat-pl-defect-balance}.  This gives
+\eqref{eq:p031-finite-orbit-four-defect-balance} at every cover point.
+
+If the base LFS globalization defect vanishes at $x$, then
+\Cref{thm:p031-pl-lfs-defect-split} gives
+\[
+             \Delta^{\mathrm{PL}}_{f,X}(x)=B_{f,X}(x)=0.
+\]
+The finite-flat defect balance makes the cover PL defect and
+$\Sigma_{\pi,f}$ vanish throughout the fiber.  The envelope chain
+\eqref{eq:p031-lfs-pl-envelope-chain}, together with the zero base branch
+gap and zero symmetry defect, then forces the cover branch gap to vanish.
+The split identity makes the cover LFS defect vanish as well.  Exact
+full-envelope pullback compatibility follows from
+\eqref{eq:p031-full-union-symmetry-defect}.
+\end{proof}

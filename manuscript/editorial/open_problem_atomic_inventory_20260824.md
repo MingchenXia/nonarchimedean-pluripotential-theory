@@ -332,6 +332,20 @@ local-to-global cofinality closes the cover globally.  Neither local sections
 for scalar projection nor the required base globalization theorem is
 constructed, so no P03 atom is retired and the total count is unchanged.
 
+For a finite flat surjection between separated good strict analytic spaces,
+Theorem `thm:p031-rational-lfs-fiber-maximum` proves that fiberwise maximum
+preserves the rational LFS subclass by a characteristic-polynomial spectral
+formula.  Proposition `prop:p031-local-rational-lfs-cofinality` proves that
+this subclass is locally cofinal from below in the full real-coefficient LFS
+class.  Theorem `thm:p031-finite-flat-local-envelope-pullback` therefore
+gives exact local LFS pullback whenever an LFS baseline is available near the
+complete fiber, and exact local PL pullback on boundaryless spaces.  Theorem
+`thm:p031-finite-flat-pl-defect-balance` removes the local-section hypothesis
+from the defect-contraction formula; in the finite-orbit range the resulting
+four-defect identity holds at every cover point.  No base local-to-global
+cofinality theorem or general scalar-extension presentation is supplied, so
+no P03 atom is retired and the total count is unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
