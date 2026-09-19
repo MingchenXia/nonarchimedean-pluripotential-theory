@@ -997,7 +997,20 @@ strict open-polydisc bundles by
 pluriharmonicity, local real-PL regularity, and GJR harmonicity for every
 such tower over a locally trivial polyannulus bundle.  Annular fibrations
 lacking these analytic product charts and arbitrary nonproduct germs remain
-outside the proved scope.
+outside the proved scope.  The common transfer mechanism is now isolated in
+`prop:p062-mixed-exact-bundle-tower-transfer`: unique zero-current descent,
+classical-pluriharmonic transfer, real-harmonic transfer, and first-current
+rigidity pass through any finite interleaving of the three exact bundle
+types.  Hence `cor:p062-polyannulus-base-mixed-bundle-towers` preserves the
+same unique coefficient formula when the globally coordinated product is
+the bottom of an arbitrary such mixed tower.  The locally twisted
+polyannulus and mixed polycylinder bottoms retain all three regularity
+conclusions by
+`cor:p062-open-polyannulus-bundle-mixed-bundle-towers` and
+`cor:p062-mixed-open-polycylinder-bundle-mixed-bundle-towers`, without a
+global coefficient formula.  These results still require the displayed
+local annular charts and do not insert an annular stage at an arbitrary
+later level of the tower.
 Conversely, cor:p062-open-polyannulus-over-open-polydisc-towers reverses
 the order: after a boundaryless finite tower of locally trivial standard
 strict open-polydisc bundles over the published curve domain, it treats a
@@ -1089,8 +1102,11 @@ with finitely many globally coordinated standard strict open annuli.  The
 unique zero-current base coefficient and locally constant annular slope
 coefficients all descend to the original curve, and the total function is
 classically pluriharmonic, real-PL, and GJR harmonic.  This does not cover
-locally twisted annulus bundles or annular stages inside the tower; the atom
-count, tier count, and queue position remain unchanged.
+locally twisted annulus bundles at the top or annular stages inside the
+tower.  Together with the preceding annular-bottom mixed-tower results, it
+allows annular coordinates on either side of the three exact stage types,
+but not arbitrary interleaving.  The atom count, tier count, and queue
+position remain unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
