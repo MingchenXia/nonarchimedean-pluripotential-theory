@@ -1564,10 +1564,11 @@ the residual scopes stated above.
   finite ambient-star × open-convex-Euclidean and × convex-polyhedral
   joint-convex-generator, Stone × finite-star × convex-polyhedral
   joint-convex-generator, Stone × exact CLD infinite-star, exact CLD
-  infinite-star × convex-polyhedral and Stone × exact CLD infinite-star ×
-  convex-polyhedral joint-convex-generator, two nonambient interval, exact
-  CLD infinite-star, Stone--Euclidean, Stone--polyhedral, and generator-convex
-  arbitrary-incidence polyhedral-complex cases]`
+  infinite-star × open-convex-Euclidean and × convex-polyhedral, and Stone ×
+  exact CLD infinite-star × convex-polyhedral joint-convex-generator, two
+  nonambient interval, exact CLD infinite-star, Stone--Euclidean,
+  Stone--polyhedral, and generator-convex arbitrary-incidence
+  polyhedral-complex cases]`
   Decide whether the CLD psh hierarchy collapses after its first
   decreasing-limit stage.
 
@@ -1658,6 +1659,31 @@ final correct, zero critical errors, and zero gaps.  The final archived
 request/response SHA-256 values are
 52edf497268a0bf7e4f6151535b1b3dcd2255a3a1ca511328b89ad028ef9d955 /
 10ee898d364bd93999884f9b63018b62b65e62283e542cb38e0a24c842cfa321.
+
+The exact CLD star may now also be combined with a nonempty open convex
+Euclidean domain.  For every nonempty branch set \(B\) and
+\(\Omega\subset\mathbf R^d\), theorem
+`thm:p071-infinite-star-euclidean-collapse` identifies the first-stage,
+full generated, and explicit product-comparison sheaves on
+\(X_B\times\Omega\) under joint branch--Euclidean convexity.  The comparison
+condition consists of exact endpoint trace, one countable activity set, and
+the reciprocal-distance junction Jensen inequality with its Euclidean
+barycentre constraint.  Partial Legendre transformation, finite dual
+sampling, finite branch truncation, exact-star smoothing, and a summable
+tail produce one decreasing smooth-psh approximation on a fixed smaller
+product neighbourhood while retaining mixed Hessian terms.  The theorem
+does not cover a simultaneous Stone parameter, polyhedral faces or corners,
+separately convex generators, non-CLD infinite stars, or nonambient branch
+structures.  P07.1 remains active, with unchanged atom and tier counts.  The
+exact statement/proof SHA-256 values are
+`8b9c6605c4016b4c69e489e5165d214360a8d5d3a34bf08b8f96419acde97e15` /
+`452530d86fbc979d2e6f95e2c8a489a24fa87a2ba466477933455cd68cea3d94`.
+Dependency-closed local verification with `gpt-6-astra` at `xhigh` returned
+final `correct`, zero critical errors, and zero gaps.  The archived
+request/response/header SHA-256 values are
+`af8696b3af1527198e85a7559b592a310883a6911253225f8728aa3739cdbee8` /
+`e94df5b40ac7d3ae4f771fb708637466a38ba1898b30a712a85328fb26d7a8d7` /
+`794ea8f4c4fa06fb9f3a8a509cbbeb1020577224a26f327028dc45bfd45e5ff7`.
 
 The exact CLD star may now also be combined with one nonempty convex
 polyhedron.  For every nonempty branch set \(B\), theorem
