@@ -1371,7 +1371,15 @@ refinement; then every zero-current function has one global base coefficient
 and a pairing of its parallel slope with the global continuous logarithmic-
 radius section of the associated flat vector bundle.  These gauges are not
 claimed to be logarithms of analytic units, so the criterion does not give
-global analytic annular coordinates.  For the
+global analytic annular coordinates.  The sharper statement
+`prop:p062-polyannulus-slope-exact-sequence` requires no total vanishing:
+the slopes realized by global zero-current functions are exactly the kernel
+of scalar contraction with `rho_0(pi)`.  It gives a natural exact sequence
+from curve zero-current functions through total-space zero-current
+functions and parallel slopes to scalar Cech degree one.  If the contraction
+is injective---in particular, if there are no parallel dual sections---all
+zero-current functions descend uniquely to the curve; if `rho_0(pi)=0`, a
+chosen zero-current affine gauge splits the sequence.  For the
 globally coordinated product, the same coefficient
 formula persists through every finite tower of locally trivial standard
 strict open-polydisc bundles by
@@ -1517,6 +1525,11 @@ local system and real affine cocycle described above.  Its zero-current
 radiance class is the exact obstruction to removing the translations by
 zero-current affine gauge and hence to the resulting global metric
 coefficient formula; it is not an analytic-coordinate obstruction theorem.
+Before total vanishing, its contraction with a parallel slope is the exact
+obstruction to realizing that slope in a global zero-current function, by
+`prop:p062-polyannulus-slope-exact-sequence`.  Thus the coefficient system
+is now classified slope by slope, and an injective contraction forces every
+zero-current function to descend to the curve.
 For regularity without a global coefficient formula,
 `cor:p062-curve-local-annular-mixed-bundle-towers` now permits those annular
 coordinates, radii, and product trivializations to vary across one analytic
