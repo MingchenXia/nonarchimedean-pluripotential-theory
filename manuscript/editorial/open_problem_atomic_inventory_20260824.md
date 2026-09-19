@@ -308,6 +308,19 @@ extension or for a general finite flat cover, and it proves no envelope
 regularity.  It therefore retires no P03 atom and leaves the total count
 unchanged.
 
+At an analytically sectioned cover point, the local obstruction vanishes
+without any finite, flat, or orbit hypothesis.  Theorem
+`thm:p031-sectioned-local-pl-pullback` identifies the two local raw
+semipositive real-PL envelopes.  Theorem
+`thm:p031-sectioned-globalization-balance` then writes the global PL
+pullback gain as the base globalization defect minus the cover globalization
+defect.  For a finite orbit presentation, one local section and its group
+translates section the whole central fiber; zero base globalization defect
+forces both the cover defect and the symmetry-breaking defect to vanish
+there.  No local section is constructed for scalar extension or for a
+general finite flat cover, and no base local-to-global cofinality theorem is
+proved.  Thus no P03 atom is retired and the total count is unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
