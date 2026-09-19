@@ -436,6 +436,24 @@ vanish throughout the unresolved normal or geometrically unibranch
 higher-dimensional range.  P03.1--P03.3 and the total count therefore remain
 unchanged.
 
+The levelwise contacts now have a common terminal core.  Theorem
+`thm:p031-rational-defect-terminal-boundary-core` shows that, for every root
+point of positive rational defect, the nested compact boundary-contact sets
+of all strict superlevels have nonempty intersection.  Its rooted terminal
+trace is upper semicontinuous, lies below the full boundary trace, and has
+maximum exactly equal to the pointwise defect.  Corollary
+`cor:p031-rational-defect-rooted-terminal-formula` rewrites the complete
+rational globalization defect using these rooted maxima.  Under finite flat
+pullback, Corollary
+`cor:p031-finite-flat-persistent-terminal-anchor` further chooses, for every
+lift of a terminal endpoint, one central-fiber point that remains in the
+same pulled-back compact component at every strict level.  Thus a surviving
+obstruction has a persistent endpoint and cannot evade the finite-flat
+constraint by switching central sheets as the level rises.  This still does
+not exclude such a persistent end in the unresolved normal or geometrically
+unibranch higher-dimensional range, so P03.1--P03.3 and the total count
+remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
