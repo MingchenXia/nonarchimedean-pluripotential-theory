@@ -1,6 +1,6 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 19 September 2026
+**Inventory date:** 20 September 2026
 **Literature cutoff:** 19 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, P14.8 current-source production verification and P21.3 residual-Picard source audit on 11 September, and repaired exact-current P14.2 V15 plus unconditional P14.3 production verification on 19 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
@@ -2598,6 +2598,25 @@ P19.3 or alter the active-atom count.
   Mumford curves and over residue fields algebraic over a finite field.  It
   neither treats a single tower chart that fails to refine the potentials'
   domain nor removes the residual-Picard hypothesis.
+  This residual-geometric class now permits a locally twisted
+  open-polycylinder bundle at the bottom before the four exact bundle types
+  are iterated.  In
+  `thm:p213-residual-picard-open-polycylinder-mixed-tower`, the annular
+  coefficient formula is used only chartwise: its curve coefficient is
+  ordinary smooth by the residual-Picard criterion, its slopes are locally
+  constant, and every `log|T_i|` is ordinary smooth with zero Hessian.
+  Exact open-disc descent handles the optional disc factors, and exact mixed
+  descent plus CLD-form pullback handles the later tower.  Thus neither the
+  integral annular monodromy nor the zero-current radiance class must vanish.
+  The whole-space, cover, and genuine-basis consequences are
+  `cor:p213-residual-picard-open-polycylinder-mixed-tower-bt`,
+  `cor:p213-residual-picard-open-polycylinder-mixed-tower-cover-bt`, and
+  `cor:p213-residual-picard-open-polycylinder-mixed-tower-basis-bt`.
+  They give independence against every positive closed ordinary CLD current
+  in their stated scopes, but no global logarithmic coefficient formula and
+  no result without the displayed local product charts or the
+  residual-Picard hypothesis.  Hence P21.3 and the inventory count are
+  unchanged.
   The bare real-PL or GJR-harmonic outcomes occurring in P06.1/P06.2 remain
   G-local/weakly smooth and do not themselves give this ordinary CLD-smooth
   approximation: `prop:ch19-cld-smooth-harmonic-nonregularization` gives an
