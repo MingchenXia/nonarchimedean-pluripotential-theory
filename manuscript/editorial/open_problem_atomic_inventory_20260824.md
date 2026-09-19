@@ -744,7 +744,8 @@ either atom; see BMPS26, pp. 4 and 45.
   open-polyannulus product stages occur at arbitrary levels among those three
   exact bundle types, including curve-locally coordinated versions in which
   one analytic open cover of the original curve trivializes every annular
-  stage after base change, and finite
+  stage after base change, locally trivial smooth proper split-toric bundles
+  over a published curve, and finite
   globally coordinated
   standard strict-open-annulus products over a boundaryless finite tower of
   locally trivial standard strict-open-polydisc bundles over a published
@@ -1436,11 +1437,26 @@ pluriharmonicity, real-PL regularity, and GJR harmonicity in this range.  It
 is a proper-fibre globalization of the strict-disc result, not a conclusion
 for arbitrary nonproduct germs or arbitrary fibrations; the atom count, tier
 count, and queue position remain unchanged.
-There is a second verified proper-fibre range.  For a locally trivial bundle
+The same common-point mechanism gives a strictly larger verified
+proper-fibre range.  If the fibre is the analytification of a
+positive-dimensional smooth proper split toric variety,
+`prop:p062-smooth-proper-split-toric-bundle-descent` exhausts each affine
+space attached to a maximal cone of the complete regular fan by strict open
+polydiscs.  The identity of the dense split torus lies in every such
+exhaustion, so the local descended functions agree without any invariance
+hypothesis.  The base must again be locally holomorphically separated and
+paracompact for current gluing.  Consequently,
+`cor:p062-smooth-proper-split-toric-bundles-over-curves` gives classical
+pluriharmonicity, real-PL regularity, and GJR harmonicity over a published
+curve.  This subsumes the projective-space fibre but does not cover singular,
+nonsplit, or nonproper toric fibres, arbitrary fibrations, or arbitrary
+nonproduct germs; the atom count, tier count, and queue position remain
+unchanged.
+There is another verified proper-fibre range.  For a locally trivial bundle
 whose fibre is the analytification of a geometrically connected smooth proper
 algebraic curve, `prop:p062-proper-smooth-curve-bundle-descent` uses exact
-fibre slicing only over (K)-rational rigid base points.  The base field is
-algebraically closed, so those fibres remain over (K); Wanner comparison
+fibre slicing only over \(K\)-rational rigid base points.  The base field is
+algebraically closed, so those fibres remain over \(K\); Wanner comparison
 and the compact maximum principle make their restrictions constant.  Rigid
 points are dense in the entire local product, which extends the resulting
 function identity without scalar extension of a current, and a normalized
