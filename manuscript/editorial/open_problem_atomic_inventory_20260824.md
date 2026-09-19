@@ -321,6 +321,17 @@ there.  No local section is constructed for scalar extension or for a
 general finite flat cover, and no base local-to-global cofinality theorem is
 proved.  Thus no P03 atom is retired and the total count is unchanged.
 
+At every interior point, Theorem `thm:p031-local-pl-lfs-cofinality` proves
+that the local semipositive real-PL and LFS envelopes agree, including empty
+families.  Theorem `thm:p031-pl-lfs-defect-split` consequently decomposes the
+LFS globalization defect as the sum of the PL globalization defect and the
+global PL--LFS branch gap.  Zero LFS globalization defect therefore collapses
+all four envelopes.  In a locally sectioned finite orbit presentation this
+closes the entire fiber, and everywhere-local splitting plus base LFS
+local-to-global cofinality closes the cover globally.  Neither local sections
+for scalar projection nor the required base globalization theorem is
+constructed, so no P03 atom is retired and the total count is unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
