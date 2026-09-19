@@ -417,6 +417,25 @@ normal or geometrically unibranch higher-dimensional range would force the
 complete defect ledger to vanish, but no such exclusion is proved here.  All
 P03 atoms and the inventory count remain unchanged.
 
+The coherent carrier now has an exact numerical boundary signature.
+Theorem \`thm:p031-rational-defect-boundary-trace\` identifies the supremum
+of the positive rational defect profile on every relatively compact local
+domain with the maximum of its interior upper trace on the actual boundary.
+Corollary \`cor:p031-rational-defect-end-height\` recovers the pointwise
+excess as the supremal level of a connected carrier whose closure reaches
+that boundary, while
+\`cor:p031-rational-defect-open-set-trace-characterization\` makes zero
+rational defect on an open set equivalent to zero boundary trace for every
+relatively compact local rational competitor.  The finite-flat companion
+\`cor:p031-finite-flat-boundary-trace-and-carrier-anchor\` preserves each
+boundary trace at every lift and bounds the pullback components of a compact
+truncated carrier by the cardinality of one central fiber.  Thus finite flat
+pullback neither lowers the end height nor creates infinitely many
+unanchored compact branches.  No argument forces these boundary traces to
+vanish throughout the unresolved normal or geometrically unibranch
+higher-dimensional range.  P03.1--P03.3 and the total count therefore remain
+unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
