@@ -467,6 +467,24 @@ finite component-count bound.  Scalar projection still lacks the required
 general openness and analytic defect compatibility, so P03.1--P03.3 and the
 total count remain unchanged.
 
+The algebraically closed scalar-extension range now has a complementary
+section-selected anchor.  Lemma
+`lem:p031-continuous-section-pointwise-openness` proves that every continuous
+section makes its projection pointwise open along the section image and makes
+usc regularization commute with pullback there.  Theorem
+`thm:p031-continuous-section-persistent-component-anchor` shows that the
+component through a section-selected endpoint contains the section of every
+connected base carrier, maps onto that carrier, and has the explicit common
+anchor `sigma(x)` for every decreasing family.  Poineau's universal-point
+theorem supplies the required canonical continuous section for every scalar
+extension over an algebraically closed complete ground field, and Corollary
+`cor:p031-canonical-scalar-persistent-terminal-anchor` applies it to all
+strict levels of a rooted terminal carrier.  No properness, global openness,
+compactness, or fiber-cardinality condition is needed for this canonical
+component.  The result does not control arbitrary endpoint lifts and proves
+neither scalar-fiber constancy nor analytic defect compatibility, so
+P03.1--P03.3 and the total count remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
