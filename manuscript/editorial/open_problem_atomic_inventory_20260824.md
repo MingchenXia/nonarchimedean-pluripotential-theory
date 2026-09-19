@@ -423,7 +423,8 @@ either atom; see BMPS26, pp. 4 and 45.
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
   bundle or finite tower of such bundles, locally trivial projective-space
   bundles or locally trivial proper smooth connected curve bundles over a
-  published curve, and finite globally coordinated
+  published curve, including finite mixed towers in which these three bundle
+  types occur in any order, and finite globally coordinated
   standard strict-open-annulus products over a boundaryless finite tower of
   locally trivial standard strict-open-polydisc bundles over a published
   curve, or analytically locally trivial finite
@@ -1068,6 +1069,18 @@ pluriharmonicity, real-PL regularity, and GJR harmonicity over a published
 curve.  This does not assert the result for arbitrary proper or nonproper
 curve fibres, arbitrary fibrations, or arbitrary nonproduct germs; the atom
 count, tier count, and queue position remain unchanged.
+The three exact bundle descents may also be iterated together.
+`thm:p062-mixed-bundle-towers-over-curves` allows every stage of a finite
+tower over a published curve to be a locally trivial standard strict
+open-polydisc bundle, a projective-space bundle, or a proper smooth connected
+curve bundle, in arbitrary order.  Successive unique descent gives a
+zero-current function on the curve; curve comparison and harmonic pullback
+make the original function classically pluriharmonic, real-PL, and GJR
+harmonic.  Projective-space and proper-curve stages retain the exact locally
+holomorphically separated and paracompact base hypotheses of their source
+propositions.  Annular fibres, arbitrary fibrations, and nonproduct germs
+without the displayed local trivializations remain outside this range; the
+atom count, tier count, and queue position remain unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
