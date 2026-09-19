@@ -1,0 +1,158 @@
+% P03.1 rational collar minimax and boundary saturation proof, live integration.
+
+\begin{proof}[\Cref{lem:p031-rational-protected-collar-gluing}]
+The two displayed formulas agree on the overlap
+$D\setminus\overline V$ by
+\eqref{eq:p031-rational-protected-collar-order}, so they define a function
+$H$ on the ordinary open cover
+\[
+                         X=D\cup(X\setminus\overline V).
+\]
+The $\mathbf Q$-LFS class is local by
+\Cref{def:p031-rational-lfs}.  It is closed under finite maxima: locally
+compress the two rational presentations as in
+\eqref{eq:p031-rational-lfs-block-compression}, take a common denominator,
+and combine the resulting finite families of analytic units.  Hence $H$ is
+$\mathbf Q$-LFS.  Both $b$ and $u$ lie below $f$ on their domains, so the
+same is true of $H$.
+\end{proof}
+
+\begin{proof}[\Cref{lem:p031-small-nonempty-boundary-domain}]
+A separated good analytic space is locally compact Hausdorff and therefore
+regular.  Since a connected Hausdorff space with at least two points has no
+isolated point, the prescribed neighborhood contains a point $y\ne x$.
+Regularity and local compactness give an ordinary open neighborhood $D$ of
+$x$ whose compact closure is contained in the prescribed neighborhood
+minus $\{y\}$.  If $\partial D$ were empty, then $D$ would be a nonempty
+clopen proper subset of $X$, contradicting connectedness.  Thus
+$\partial D\ne\varnothing$.
+\end{proof}
+
+\begin{proof}[\Cref{thm:p031-rational-collar-minimax}]
+All functions in $\mathcal Q_f(U)$ are continuous.  A global
+$\mathbf Q$-LFS minorant forces $f$ to be real-valued, and it also makes
+$s_{\mathbf Q,X}$ and $P_{\mathbf Q}^{\mathrm{loc}}f$ finite.  In
+particular, every maximum and difference used below is finite.
+
+Fix an admissible $D$ and $b\in\mathcal Q_f(X)$.  We first prove
+\begin{equation}
+\label{eq:p031-rational-collar-lower-bound}
+                       \max_{\partial D}(v-b)\geq\delta_x(v).
+\end{equation}
+Suppose instead that this maximum is smaller than $\delta_x(v)$.  Choose
+$\gamma\in K^\times$ with $\tau:=-\log|\gamma|>0$.  Since
+$\mathbf Q\tau$ is dense in $\mathbf R$, there is a number
+\begin{equation}
+\label{eq:p031-rational-collar-shift-choice}
+ c=q\tau,\qquad q\in\mathbf Q_{>0},\qquad
+ \max\bigl\{0,\max_{\partial D}(v-b)\bigr\}<c<\delta_x(v).
+\end{equation}
+The constant $-c$ is $\mathbf Q$-LFS because
+\[
+                   -c=q\max\{-\log|\gamma^{-1}|\}.
+\]
+
+Put $\phi:=v-b$ on $\overline D$.  Compactness of $\partial D$ and
+continuity give a relative open neighborhood $N$ of $\partial D$ in
+$\overline D$ on which $\phi<c$.  On the other hand,
+\[
+ \phi(x)=v(x)-b(x)\geq v(x)-s_{\mathbf Q,X}(x)
+                         =\delta_x(v)>c,
+\]
+so $x\notin N$.  The compact set $\overline D\setminus N$ lies in $D$.
+Choose an ordinary open $V$ with
+\[
+ x\in\overline D\setminus N\subset V,
+                    \qquad\overline V\subset D.
+\]
+Then $v-c<b$ on $D\setminus\overline V$.  Apply
+\Cref{lem:p031-rational-protected-collar-gluing} to $u:=v-c$.  It produces
+a global $\mathbf Q$-LFS minorant $H$ of $f$ satisfying
+\[
+                    H(x)\geq v(x)-c>s_{\mathbf Q,X}(x),
+\]
+contrary to the definition of the global rational envelope.  This proves
+\eqref{eq:p031-rational-collar-lower-bound} and hence
+$\Lambda_x(v;W)\geq\delta_x(v)$.
+
+For the reverse inequality, fix $\varepsilon>0$.  Choose
+$b\in\mathcal Q_f(X)$ with
+\[
+                 b(x)>s_{\mathbf Q,X}(x)-\frac{\varepsilon}{3}.
+\]
+Continuity of $v-b$ gives an ordinary neighborhood $N$ of $x$, with
+$N\subset W$, such that
+\[
+ (v-b)(z)<(v-b)(x)+\frac{\varepsilon}{3}
+       <\delta_x(v)+\frac{2\varepsilon}{3}
+                  \qquad(z\in N).
+\]
+By \Cref{lem:p031-small-nonempty-boundary-domain}, choose an admissible
+$D$ with $\overline D\subset N$.  Then
+\[
+                  \max_{\partial D}(v-b)
+                       <\delta_x(v)+\varepsilon.
+\]
+Taking the two infima and then letting $\varepsilon\downarrow0$ proves
+\eqref{eq:p031-rational-collar-minimax}.
+
+Finally, the definition of the local rational envelope gives
+\[
+ \Delta^{\mathbf Q}_{f,X}(x)
+   =\sup_{\substack{x\in W\ \mathrm{ordinary\ open}\\
+                     v\in\mathcal Q_f(W)}}
+          \bigl(v(x)-s_{\mathbf Q,X}(x)\bigr).
+\]
+The left side is nonnegative.  If it is positive, the subfamily with
+positive gap has the same supremum; on that subfamily
+\eqref{eq:p031-rational-collar-minimax} replaces the gap by the collar
+load.  If it is zero, the positive-gap subfamily is empty.  This proves
+\eqref{eq:p031-rational-defect-collar-formula} with the stated convention.
+\end{proof}
+
+\begin{proof}[\Cref{cor:p031-rational-collar-absorption}]
+Assume first that $\Delta^{\mathbf Q}_{f,X}(x)=0$.  Then every
+$v\in\mathcal Q_f(W)$ satisfies $v(x)\leq s_{\mathbf Q,X}(x)$.  Given
+$\varepsilon>0$, choose $b\in\mathcal Q_f(X)$ with
+$b(x)>s_{\mathbf Q,X}(x)-\varepsilon/3$.  Continuity gives a neighborhood
+$N\subset W$ of $x$ on which $v-b<2\varepsilon/3$.  Choose $D$ with
+$\overline D\subset N$ and nonempty boundary by
+\Cref{lem:p031-small-nonempty-boundary-domain}.  This gives
+\eqref{eq:p031-rational-collar-absorption}.
+
+Conversely, if the defect were positive, there would be a pair $(W,v)$
+with $\delta_x(v)>0$.  By
+\eqref{eq:p031-rational-collar-minimax}, every admissible $D$ and $b$ would
+satisfy
+\[
+                         \max_{\partial D}(v-b)\geq\delta_x(v),
+\]
+contradicting \eqref{eq:p031-rational-collar-absorption} with
+$\varepsilon:=\delta_x(v)/2$.
+\end{proof}
+
+\begin{proof}[\Cref{cor:p031-rational-boundary-saturation-collapse}]
+For $v\in\mathcal Q_f(W)$ one has $v\leq f$, so rational boundary
+saturation implies the collar-absorption condition
+\eqref{eq:p031-rational-collar-absorption}.  Hence
+\Cref{cor:p031-rational-collar-absorption} gives
+$\Delta^{\mathbf Q}_{f,X}(x)=0$.  Apply the three-level ledger
+\eqref{eq:p031-three-level-defect-ledger}.  It writes zero as sums of the
+five nonnegative defects and gaps in
+\eqref{eq:p031-rational-boundary-saturation-zero-ledger}; all of them
+therefore vanish.  Their definitions and the local cofinality identities
+\eqref{eq:p031-local-real-rational-lfs-cofinality} and
+\Cref{thm:p031-local-pl-lfs-cofinality} give
+\eqref{eq:p031-rational-boundary-saturation-collapse}.
+\end{proof}
+
+\begin{proof}[\Cref{cor:p031-rational-boundary-saturation-tower-collapse}]
+By \Cref{cor:p031-rational-boundary-saturation-collapse},
+$\Delta_0^{\mathbf Q}(x_0)=0$.  Given
+$y\in\Pi_i^{-1}(x_0)$, its successive images form a compatible lift chain.
+Apply \Cref{cor:p031-rational-cofinality-tower-collapse} to that chain.
+This proves \eqref{eq:p031-rational-boundary-saturation-tower-zero} and
+\eqref{eq:p031-rational-boundary-saturation-tower-collapse}.  Since $y$
+was arbitrary, the conclusion holds on the complete inverse image at every
+stage.
+\end{proof}

@@ -367,6 +367,25 @@ scalar-extension reductions, not a construction of the required tower or a
 vanishing theorem for the base rational defect; all P03 atoms and the count
 remain unchanged.
 
+Theorem `thm:p031-rational-collar-minimax` now gives an exact geometric
+formula for that base rational defect.  The excess of any local rational LFS
+minorant over the global rational envelope is the infimum of its maximum
+boundary excess over all global rational minorants and all sufficiently small
+relatively compact domains.  Corollary `cor:p031-rational-collar-absorption`
+therefore characterizes zero rational defect by arbitrarily accurate
+boundary absorption of every local rational competitor.  Definition
+`def:p031-rational-boundary-saturation` imposes the stronger, obstacle-level
+condition that the obstacle itself can be approximated from below on one
+such surrounding boundary in every neighborhood.  Corollary
+`cor:p031-rational-boundary-saturation-collapse` then annihilates the
+rational, LFS, and PL defects and both global branch gaps at the central
+point; Corollary `cor:p031-rational-boundary-saturation-tower-collapse`
+propagates the six-envelope equality through every finite flat tower.  This
+is a precise characterization and a concrete sufficient condition, but no
+theorem makes arbitrary normal or geometrically unibranch
+higher-dimensional obstacles boundary-saturated.  All P03 atoms and the
+inventory count remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
