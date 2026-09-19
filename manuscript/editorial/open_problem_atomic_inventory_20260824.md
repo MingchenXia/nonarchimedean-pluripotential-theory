@@ -247,6 +247,16 @@ further analytic extensions.  The theorem does not identify the full
 local-FS/semipositive-real-PL obstacle families across scalar extension, so
 it retires no P03 atom and does not change the total inventory count.
 
+The defect-localization theorem `thm:p031-usc-defect-localization` further
+shows that the regularized supremum is classically psh away from the closure
+of its strict raw-supremum gap.  The corollary
+`cor:p031-completed-algebraic-closure-defect-support` proves that this gap
+and its closure pull back exactly to `completion(K^alg)`.  Hence the
+residual affine obstruction is supported on that closed set and is
+unchanged by the first scalar step.  No size or removability theorem is
+proved for the support, and no statement is made for further analytic
+extensions, so the P03 atoms and total count remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
