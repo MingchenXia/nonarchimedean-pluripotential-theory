@@ -1357,13 +1357,13 @@ open-polyannulus bundle over \(W\): it applies the product theorem in each
 analytic product chart and requires no global coordinate or coefficient
 compatibility.  The overlap defect is now intrinsic rather than unspecified:
 `prop:p062-polyannulus-bundle-slope-local-system` writes every logarithmic
-coordinate change as a locally constant invertible real matrix plus a vector
-of zero-current base functions.  These transformations satisfy the affine
-Cech cocycle law, define a rank-\(s\) real local system, and make the local
-slope vectors of every zero-current function a global parallel section of
-the dual local system.  The proposition neither upgrades this real
-monodromy to integral monodromy nor trivializes it to give global annular
-coordinates.  For the globally coordinated product, the same coefficient
+coordinate change as a locally constant unimodular integer matrix plus a
+vector of zero-current base functions.  These transformations satisfy the
+affine Cech cocycle law, define a rank-\(s\) local system of lattices, and
+make the local slope vectors of every zero-current function a global
+parallel section of the dual real local system.  The proposition does not
+trivialize the lattice system or give global annular coordinates.  For the
+globally coordinated product, the same coefficient
 formula persists through every finite tower of locally trivial standard
 strict open-polydisc bundles by
 `cor:p062-polyannulus-base-open-polydisc-towers`.  Separately,
@@ -1503,8 +1503,9 @@ tower, while the base coefficient and all locally constant slope
 coefficients live on the original curve.  That normal-form statement does
 not trivialize locally twisted annular coordinate changes.  Their
 single-bundle coefficient monodromy is nevertheless encoded by
-`prop:p062-polyannulus-bundle-slope-local-system` as the affine real local
-system described above.  For regularity without a global coefficient formula,
+`prop:p062-polyannulus-bundle-slope-local-system` as the integral lattice
+local system and real affine cocycle described above.  For regularity without
+a global coefficient formula,
 `cor:p062-curve-local-annular-mixed-bundle-towers` now permits those annular
 coordinates, radii, and product trivializations to vary across one analytic
 open cover of the original curve.  On each member of that cover the whole
