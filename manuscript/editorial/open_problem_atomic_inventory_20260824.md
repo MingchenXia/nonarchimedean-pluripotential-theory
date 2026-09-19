@@ -387,6 +387,8 @@ either atom; see BMPS26, pp. 4 and 45.
   product, algebraic-split toric-form and its arbitrary-curve-factor product,
   pointwise analytic algebraic-split toric charts with arbitrary curve
   factors,
+  source-Zariski-local ordinary-etale algebraic-split toric charts with
+  arbitrary curve factors,
   positive-weighted affine-cone vertex and finite relative
   positive-weighted-cone towers over any verified base range along their
   composite zero sections, together with displayed analytic standard-etale
@@ -417,7 +419,9 @@ either atom; see BMPS26, pp. 4 and 45.
   `cor:p061-split-toric-quasismooth-products` and
   `cor:p061-toric-arbitrary-curve-factor-products`, and outside its pointwise
   analytic algebraic-split extension
-  `cor:p061-analytic-toric-arbitrary-curve-factor-products`, decide whether
+  `cor:p061-analytic-toric-arbitrary-curve-factor-products`, and outside the
+  source-Zariski-local ordinary-etale algebraic-split product extension
+  `cor:p061-etale-toric-arbitrary-curve-factor-products`, decide whether
   every classically pluriharmonic function is \(\mathbf R\)-PL near a
   non-quasi-smooth point of analytic dimension at least two.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
@@ -778,6 +782,18 @@ real-PL conclusion.  This direct source-cited corollary is live as
 `cor:p061-zariski-etale-algebraic-split-toric-charts`; it has not been sent to
 a model-backed verifier.  It does not manufacture an ordinary-etale chart or
 cover forms without such an algebraic splitting extension.
+The manufactured ordinary-etale tube now also carries arbitrary finite good
+strict analytic curve factors.  In
+`cor:p061-etale-toric-arbitrary-curve-factor-products`, singleton-Shilov
+factorization leaves those curves, the quasi-smooth fixed-fibre factor and a
+final factor with quasi-smooth reduction.  The fixed fibre may be grouped
+with that final factor because the reduction of their product is
+quasi-smooth; the existing arbitrary-curve-factor theorem then applies, and
+completed-algebraic-extension descent returns the conclusion to the ground
+field.  This result requires the displayed source-Zariski-local
+ordinary-etale chart and an actual external product.  It does not cover a
+genuinely log-etale chart, a toric form outside the stated splitting class,
+or a locally twisted nonproduct germ.  P06.1 and all counts remain unchanged.
 The same tube argument has a direct analytic standard-etale extension.
 `prop:p061-analytic-standard-etale-toric-product` starts from an actual
 strict affinoid chart over a weighted pointed split toric domain times a
