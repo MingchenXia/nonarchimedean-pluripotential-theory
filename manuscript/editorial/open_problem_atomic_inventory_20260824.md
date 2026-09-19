@@ -1564,8 +1564,9 @@ the residual scopes stated above.
   finite ambient-star × open-convex-Euclidean and × convex-polyhedral
   joint-convex-generator, Stone × finite-star × convex-polyhedral
   joint-convex-generator, Stone × exact CLD infinite-star, exact CLD
-  infinite-star × open-convex-Euclidean and × convex-polyhedral, and Stone ×
-  exact CLD infinite-star × convex-polyhedral joint-convex-generator, two
+  infinite-star × open-convex-Euclidean and × convex-polyhedral, Stone ×
+  exact CLD infinite-star × convex-polyhedral, and Stone × exact CLD
+  infinite-star × arbitrary-open-Euclidean joint-convex-generator, two
   nonambient interval, exact CLD infinite-star, Stone--Euclidean,
   Stone--polyhedral, and generator-convex arbitrary-incidence
   polyhedral-complex cases]`
@@ -1727,6 +1728,21 @@ or nonambient infinite stars, separately convex generators, or nonconvex or
 branched chamber gluings.  P07.1 remains active, with unchanged atom and
 tier counts.
 
+The same three-factor theorem already contains the missing open-Euclidean
+combination.  The whole affine space $\mathbf R^d$ is a convex polyhedron,
+and the theorem identifies sheaves, so restriction to any nonempty ordinary
+open $\Omega\subset\mathbf R^d$ gives
+`cor:p071-stone-infinite-star-euclidean-collapse` on
+$Z\times X_B\times\Omega$.  Every germ has a decreasing generator sequence
+on one fixed smaller product neighbourhood, and at a node one countable set
+of active full branches is common to the compact Stone family and the
+Euclidean variable.  When $\Omega$ is convex, these are exactly the joint
+branch--Euclidean generator and comparison germs of the independent
+exact-star--Euclidean theorem.  This corrects the earlier scope ledger but
+still excludes nonconstant Stone-affine directions, non-CLD or nonambient
+infinite stars, separately convex generators, and nonconvex or branched
+chamber gluings.  P07.1 and the active count therefore remain unchanged.
+
 Two additional nonambient interval models are now controlled.  For the
 finite constant-collar endpoint, the comparison sheaf is the extended-real
 convex functions satisfying the boundary-minimum condition.  Its exact
@@ -1869,10 +1885,10 @@ become `(0,5,13,17,17)`.
 P07.1 therefore retains branched or singular-link higher-dimensional
 chamber systems without a generator-preserving convex development,
 nonconstant affine structures on zero-dimensional parameters, products of
-an exact infinite star with active factors other than one convex polyhedron,
-non-CLD infinite stars, and other nonambient local models outside the two
-exact interval structures, \(X_B\), and the verified locally
-constant-parameter models.
+an exact infinite star with active factors outside the verified
+single-polyhedron and arbitrary-open-Euclidean models, non-CLD infinite
+stars, and other nonambient local models outside the two exact interval
+structures, \(X_B\), and the verified locally constant-parameter models.
 The residual obstruction is sharpened to the existence of a compatible
 local convex development and to fixed-neighbourhood globalization beyond
 it, rather than diagonal order.  It remains active.
