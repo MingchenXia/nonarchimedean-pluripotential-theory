@@ -1,7 +1,7 @@
 # Atomic crosswalk for the active problem environments
 
 **Inventory date:** 19 September 2026
-**Literature cutoff:** 19 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, P14.8 current-source production verification and P21.3 residual-Picard source audit on 11 September, and P14.3 full Kähler truncation production verification on 19 September 2026
+**Literature cutoff:** 19 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, P14.8 current-source production verification and P21.3 residual-Picard source audit on 11 September, and repaired exact-current P14.2 V15 plus unconditional P14.3 production verification on 19 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
 This file is an editorial crosswalk for solving, verifying, and retiring the
@@ -45,13 +45,14 @@ continuity theorem, retirement of P07.2 after the universal
 counterexample, and retirement of P05.3 and P05.4 after the recursive
 CLD/delta projection comparison and its algebraic-chart realization, and
 retirement of P14.7 after the strict-interior raw-filtration maximality
-theorem, and retirement of P14.3 after the source-bound full Kähler
-truncation theorem,
+theorem, retirement of P14.3 after the exact-current unconditional full Kähler
+truncation verification, and retirement of P14.2 after its repaired V15
+production pass,
 the exact count is
 
 ```text
-14 formal problem environments = 47 active atomic research questions.
-Tier counts: (T1,T2,T3,T4,T5) = (0,5,9,16,17).
+14 formal problem environments = 46 active atomic research questions.
+Tier counts: (T1,T2,T3,T4,T5) = (0,5,8,16,17).
 ```
 
 The read-only command `python3 manuscript/editorial/tools/check_open_problem_inventory.py`
@@ -187,7 +188,8 @@ earlier verification checkpoint the total was 53 active atoms in 14 formal
 problem environments;
 the later P07.2 and P08.2 retirements gave a total of 51 at that checkpoint.
 The subsequent P05.3 and P05.4 retirements gave 49, the P14.7 retirement
-gave 48, and the P14.3 retirement gives the current total of 47.
+gave 48, the P14.3 retirement gave 47, and the P14.2 retirement gives the
+current total of 46.
 
 For a fixed nonempty competitor family, the separate source-scoped
 proposition `prop:p031-modulus-controlled-envelope-candidate` settles the
@@ -1643,11 +1645,10 @@ comparing \(\PSH(\xi)\) and \(\PSH(\xi')\) for nonproportional Reeb fields.
 It supplies neither such a comparison nor a surjectivity theorem, so P13.1
 and P13.2 remain unchanged.
 
-### `prob:frontier-mp-pseff` --- 6 active atoms
+### `prob:frontier-mp-pseff` --- 5 active atoms
 
 - **P14.1** `[T4; open beyond established K\"ahler and projective regimes]` Intrinsically
-  characterize the image of the raw ideal-valuative transform.  Conditional
-  on the P14.2 all-point upper-semicontinuity theorem,
+  characterize the image of the raw ideal-valuative transform.
   `thm:p143-full-kahler-comparison` identifies that image in every K\"ahler
   class exactly with the full MP cone, without projectivity, rationality, or
   a finite-energy restriction.  Its restriction to finite energy is
@@ -1658,24 +1659,25 @@ and P13.2 remain unchanged.
   hypothesis.  For a projective real N\'eron--Severi class, the full
   DXZ--Boucksom--Jonsson identification is known, but the literal
   ideal-valuative formula is asserted only in the \(\mathbf Q\)-line-bundle
-  case.  Removing the P14.2 conditionality and the big non-nef image
-  characterization remain open.
-- **P14.2** `[T3; open; production verification pending after V14 preflight]` The
-  audited Chapter 71 candidate proves upper semicontinuity at arbitrary
-  nondivisorial semivaluations and has passed a zero-finding independent
-  model-backed review of its frozen proof and five cited source extracts.
-  The V14 source-closed preproduction release pins its target statement,
-  proof, and example to those exact current Chapter 71 excerpts, together
-  with the current Codex executable, static model catalog, and fixed source
-  routes.  Its 58-row source manifest, 197 tests, release gates, final-path
-  310-second smoke, and two independent `gpt-6-astra` hostile audits all
-  passed with zero critical errors and zero material gaps.  The exact
-  evidence is archived in
+  case.  The big non-nef image characterization remains open.
+- **P14.2** `[retired 19 September 2026]` The Chapter 71 theorem proves
+  upper semicontinuity at arbitrary nondivisorial semivaluations by an
+  explicit decreasing sequence of continuous finite-ideal approximants.  Its
+  initial V14 source-closed review passed, but a later combined audit detected
+  that the proof had applied psh subadditivity to quasi-psh levels without
+  displaying the local bounded-perturbation reduction.  The live proof now
+  supplies that reduction.  The repaired exact-current V15 review by
+  `gpt-5.6-sol` at `xhigh` returned final `correct`, zero critical errors,
+  and zero gaps for item `pi_4e14dc8a6a26aa190cd191b5`.  The V15 target,
+  exact premise cards, first failed review, accepted retry, and hashes are
+  archived in
+  `solver_dossiers_20260919/p142_v15_qpsh_repair_production_20260919/`;
+  the superseded V14 pass remains archived in
+  `solver_dossiers_20260919/p142_v14_source_closed_production_20260919/`;
+  the 58-row source manifest, 197 tests, final-path smoke, and two earlier
+  `gpt-6-astra` hostile audits remain archived in
   `solver_dossiers_20260911/p142_v14_preproduction_gate_20260911/`.
-  No V14 production request has been sent and no mathematical production
-  verdict is claimed.  This atom remains active until a fresh V14 source-closed
-  production verification and live integration pass.
-- **P14.3** `[retired 19 September 2026; conditional on P14.2]` Decide MP
+- **P14.3** `[retired 19 September 2026]` Decide MP
   positivity at arbitrary semivaluations in a K\"ahler class.  The earlier
   source-bound dominated-divisorial theorem and finite-energy comparison
   passed production review as `pi_75b42272e15105bb6be0525c`.  The later
@@ -1687,15 +1689,23 @@ and P13.2 remain unchanged.
   `thm:p143-full-kahler-comparison`: for every DXZ object, the truncations
   `Gamma vee (0-j)` have a literal zero tail, positive volume, and finite
   energy, decrease to `Gamma`, and have MP images whose nontrivial decreasing
-  limit remains MP psh.  P14.2 upper semicontinuity and the dominated
+  limit remains MP psh.  The P14.2 upper-semicontinuity theorem and the dominated
   comparison identify that limit with the literal raw transform everywhere.
-  The exact statement, proof, source ranges, failed dependency-closure review,
-  and repaired production receipt are archived in
+  The original conditional exact statement, proof, source ranges, failed
+  dependency-closure review, and repaired V4 receipt are archived in
   `solver_dossiers_20260919/p143_full_kahler_truncation_integration_20260919/`.
   The V4 `gpt-5.6-sol` / `xhigh` verdict is `correct`, with zero critical
-  errors and zero gaps (`pi_88c7024842d3fd7d91b55d28`).  Thus P14.3 has no
-  independent K\"ahler residual.  P14.2 remains active and explicit, and the
-  big non-nef programme remains separated as P14.4--P14.6.
+  errors and zero gaps (`pi_88c7024842d3fd7d91b55d28`).  After the P14.2
+  repair, the exact current target was rematerialized with seventeen exact
+  internal premise cards, the accepted P14.2 V15 receipt, and one consistent
+  extract family for each cited source.  The repaired unconditional production
+  review returned `correct`, zero critical errors, and zero gaps for item
+  `pi_90c4637f53444d88823e88f3`; its failed diagnostic review and accepted
+  response are archived in
+  `solver_dossiers_20260919/p143_unconditional_post_p142_production_20260919/`.
+  Thus P14.3 has no independent K\"ahler residual and the full theorem is
+  unconditional in its stated setting.  The big non-nef programme remains
+  separated as P14.4--P14.6.
 - **P14.4** `[T4; open]` Construct a \(P\)-sensitive positivity theory for
   big non-nef classes.  The unchanged relatively nef MP model signature is
   impossible, while the ideal-valuative transform and positive-volume DXZ
@@ -2320,8 +2330,8 @@ passed the superseding archive
 problem environment are retired.
 At this 28 August milestone, the active inventory was 15 formal
 environments and 54 atoms.  After the 30 August retirements recorded above,
-the P14.7 retirement, and the P14.3 retirement, the current inventory is 14
-formal environments and 47 atoms.
+the P14.7, P14.3, and P14.2 retirements, the current inventory is 14 formal
+environments and 46 atoms.
 
 ## Easy-to-hard Rethlas queue
 
@@ -2337,10 +2347,10 @@ No active atom remains in this tier after retirement of `P01.1`.
 
 `P21.3`, `P07.1`, `P06.1`, `P06.2`, `P03.1`.
 
-### T3 --- major theorems within mature frameworks (9 atoms)
+### T3 --- major theorems within mature frameworks (8 atoms)
 
 `P02.1`, `P02.2`, `P02.3`, `P05.1`, `P05.2`,
-`P08.1`, `P14.2`, `P03.2`,
+`P08.1`, `P03.2`,
 `P03.3`.
 
 ### T4 --- new comparison theories or several coupled inputs (16 atoms)

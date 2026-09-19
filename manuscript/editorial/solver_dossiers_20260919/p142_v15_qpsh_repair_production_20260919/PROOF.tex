@@ -1,0 +1,221 @@
+P14.2 V15 EXACT LIVE PROOF PACKET
+
+BEGIN EXACT LIVE CHUNK
+label: lem:p142-monotone-parameter-supremum
+chunk-sha256: e8e25966ed2cfccd85f9d923a0cf78910e0947aea06623a08f5357458bdf7a55
+BEGIN CHUNK BYTES
+\begin{proof}[Proof of \cref{lem:p142-monotone-parameter-supremum}]
+For $N\geq1$ put $a=c-N$, and partition $[a,c)$ into the $N^2$
+half-open intervals
+\[
+ [\tau_{N,j},\tau_{N,j}+1/N),\qquad
+ \tau_{N,j}=c-N+j/N,\quad 0\leq j<N^2.
+\]
+Only left endpoints are sampled; the family is never evaluated at $c$.
+Set
+\[
+ F_N:=\max\{c-N,F\},\qquad
+ G_N:=\max\left\{c-N,
+      \max_{0\leq j<N^2}
+       (\tau_{N,j}-a_{\tau_{N,j}})\right\}.
+\]
+Every sampled term occurs in the supremum defining $F$, so $G_N\leq F_N$.
+If $\tau<c-N$, nonnegativity gives $\tau-a_\tau\leq c-N$.
+Otherwise there is $j$ with
+$\tau_{N,j}\leq\tau<\tau_{N,j}+1/N$. Monotonicity in the parameter
+gives, in extended-real order,
+\[
+ \tau-a_\tau
+ \leq \tau-a_{\tau_{N,j}}
+ \leq \tau_{N,j}-a_{\tau_{N,j}}+1/N
+ \leq G_N+1/N.
+\]
+This also holds when one or both of the ideal-type quantities are infinite:
+only a finite real number minus $+\infty$ occurs. Taking the supremum and
+including the floor proves
+\[
+             G_N\leq F_N\leq G_N+1/N.
+ \tag{71.33h}
+ \label{eq:p142-grid-sandwich}
+\]
+
+Each $G_N$ is a finite-valued upper-semicontinuous function, since
+$-a_{\tau_{N,j}}$ is upper semicontinuous. The sandwich gives the exact
+identity
+\[
+                  F=\inf_{N\geq1}(G_N+1/N).
+ \tag{71.33i}
+ \label{eq:p142-usc-infimum}
+\]
+Indeed, $F\leq F_N\leq G_N+1/N$, and
+$G_N+1/N\leq F_N+1/N$ tends pointwise to $F$ as $N\to\infty$.
+If $F(y)=-\infty$, then $F_N(y)=c-N$, so the same conclusion holds
+at that point. An arbitrary infimum of upper-semicontinuous functions is
+upper semicontinuous: its strict sublevel set is the union of the strict
+sublevel sets of its terms. This proves the first assertion on an
+arbitrary topological space.
+
+For the dense-parameter assertion, fix $y$ and $\tau<c$ with
+$a_\tau(y)<+\infty$. Given $\varepsilon>0$, choose
+$s\in D\cap(\tau-\varepsilon,\tau)$. Then
+\[
+ s-a_s(y)\geq s-a_\tau(y)
+              >\tau-a_\tau(y)-\varepsilon.
+\]
+Thus the supremum over $D$ is at least every finite term in the full
+supremum, after letting $\varepsilon$ tend to zero. Terms equal to
+$-\infty$ impose no further condition. If all terms are $-\infty$,
+both suprema are $-\infty$. The opposite inequality follows from
+$D\subset(-\infty,c)$, proving
+\eqref{eq:p142-dense-parameter-formula}.
+\end{proof}
+END CHUNK BYTES
+END EXACT LIVE CHUNK
+
+BEGIN EXACT LIVE CHUNK
+label: thm:p142-raw-transform-usc
+chunk-sha256: a2e7d4cb93120b24752bffc9b2c2e781aab37b607fe009ce9fbc41644295b892
+BEGIN CHUNK BYTES
+\begin{proof}[Proof of \cref{thm:p142-raw-transform-usc}]
+Multiplier ideal sheaves of quasi-psh functions on a complex manifold
+are coherent.  To apply the psh subadditivity theorem, work on a relatively
+compact coordinate neighbourhood and write
+\(\Gamma_\tau=\varphi_\tau+\rho_\tau\), where
+\(\varphi_\tau\) is psh and \(\rho_\tau\) is smooth.  For every
+\(r>0\), the factor \(\exp(-r\rho_\tau)\) is bounded above and below
+by positive constants on a smaller relatively compact neighbourhood.
+Consequently
+\[
+             \mathcal I(r\Gamma_\tau)
+             =\mathcal I(r\varphi_\tau)
+\]
+there.  Applying \cite[Theorem~2.6(ii)]{DEL00} to
+\(m\varphi_\tau\) and \(\ell\varphi_\tau\), and then using the
+same bounded-perturbation identity, gives
+\[
+ \mathcal I((m+\ell)\Gamma_\tau)
+ \subseteq\mathcal I(m\Gamma_\tau)
+               \mathcal I(\ell\Gamma_\tau).
+\]
+Ideal values reverse inclusion and add under multiplication. Hence
+$b_m=v(\mathcal I(m\Gamma_\tau))$ is a nonnegative extended-real
+superadditive sequence. If some $b_q=+\infty$, superadditivity implies
+$b_m=+\infty$ for every $m\geq q$: use $m=q+r$ for $r\geq1$.
+Otherwise, for a fixed $q$, writing $m=kq+r$, with $0\leq r<q$, gives
+$b_m\geq kb_q$ (put $b_0=0$). Therefore
+\[
+ \liminf_{m\to\infty}\frac{b_m}{m}\geq\frac{b_q}{q}.
+\]
+Taking the supremum over $q$ and comparing with the immediate upper
+bound proves the limit assertion, including an infinite supremum. This
+is the multiplier-ideal argument recorded in
+\cref{prop:pseff-ideal-valuative-basic}.
+
+By the topology of the tropical spectrum, the function
+$v\mapsto v(\mathfrak a)$ is continuous into $[0,+\infty]$ with its
+order topology for every coherent ideal $\mathfrak a$; see
+\cite[Definition~1.3.1]{MP24} and \eqref{eq:ts-evaluation}.
+It follows that
+\[
+ v\longmapsto\nu_v^{\mathcal I}(\Gamma_\tau)
+   =\sup_{m\geq1}\frac1m
+          v(\mathcal I(m\Gamma_\tau))
+\]
+is lower semicontinuous. If $s\leq t<c$, then
+$\Gamma_s\geq\Gamma_t$. Local integrability immediately implies
+\[
+ \mathcal I(m\Gamma_t)\subseteq\mathcal I(m\Gamma_s),
+ \qquad
+ \nu_v^{\mathcal I}(\Gamma_s)
+       \leq\nu_v^{\mathcal I}(\Gamma_t).
+\]
+For the first inclusion, multiplication of the weight by the bounded
+factor associated to an additive local constant would also suffice;
+the given pointwise order already yields it directly. No assertion
+about continuity of multiplier ideals in the parameter is used.
+The hypotheses of \cref{lem:p142-monotone-parameter-supremum} are now
+verified, and that lemma proves upper semicontinuity and the dense-set
+formula at every semivaluation.
+
+We prove the stronger explicit approximation assertion separately.
+For fixed $N,M$, all ideal evaluations in
+\eqref{eq:p142-upper-approximants} are continuous extended-real
+functions. Their displayed finite maxima and positive scalings are
+continuous in the order topology; subtracting from the finite
+$\tau_{N,j}$ gives a continuous function into $[-\infty,\tau_{N,j}]$.
+The outer maximum with $c-N$ then yields an ordinary real-valued
+continuous function. In particular,
+\[
+        c-N+1/N\leq B_{N,M}\leq c+1/N.
+\]
+This establishes boundedness without invoking compactness of $X^{\bethan}$.
+
+As $M$ increases, $A_{\tau,M}\nearrow\nu^{\mathcal I}(\Gamma_\tau)$.
+For the finite number of sampled parameters, taking the maximum commutes
+with these decreasing limits after changing the sign. To see this even
+at $-\infty$, if every limiting term is below a chosen real threshold,
+then every term is eventually below it; a maximum of finitely many
+indices works for all terms. The fixed finite floor is retained throughout.
+Consequently, with $G_N$ as in the preceding proof,
+\[
+           B_{N,M}\searrow G_N+1/N\quad(M\to\infty).
+\]
+The sandwich \eqref{eq:p142-grid-sandwich} gives
+\[
+ F_\Gamma\leq B_{N,M},\qquad
+ \inf_{N,M\geq1}B_{N,M}
+      =\inf_{N\geq1}(G_N+1/N)=F_\Gamma.
+ \tag{71.33j}
+ \label{eq:p142-double-infimum}
+\]
+Every $f_k$ is a finite minimum of bounded continuous real-valued
+functions. The squares $\{1,\ldots,k\}^2$ increase and exhaust
+$\mathbf Z_{>0}^2$, so their minima decrease to the double infimum
+in \eqref{eq:p142-double-infimum}. This is
+\eqref{eq:p142-exact-sequential-limit}.
+
+The construction is explicit. It does not extract a sequence from an
+arbitrary net on a nonmetrizable space. Nor does a minimum of these
+continuous functions acquire a positivity property merely because it
+is formed from ideal values. No positive approximation is asserted.
+\end{proof}
+END CHUNK BYTES
+END EXACT LIVE CHUNK
+
+BEGIN EXACT LIVE CHUNK
+label: cor:p142-pseudoeffective-raw-usc
+chunk-sha256: 3c2d39d5e3b2f48c67aecdb299d4438fb1345f72ff4dae3b6bb676c2f7bf65fd
+BEGIN CHUNK BYTES
+\begin{proof}[Proof of \cref{cor:p142-pseudoeffective-raw-usc}]
+Fix one K\"ahler perturbation component
+$\Gamma=(\Gamma^{\theta+\omega}_\tau)_{\tau<c}$, where
+$c=\boldsymbol\Gamma_{\max}$. The DXZ test-curve definition supplies
+a decreasing family of quasi-psh functions with finite terminal
+parameter, and its interior levels are not identically $-\infty$;
+see \cite[Section~2.2, Definition~3.3]{DXZ23}.
+\Cref{thm:p142-raw-transform-usc} therefore applies to this component.
+
+The identification with the raw inverse-system transform uses only the
+already established transition identity, not an MP comparison theorem.
+Under a transition the interior level is replaced by its
+$\mathcal I$-model envelope in the larger class. This preserves every
+integer multiplier ideal by \cite[Proposition~2.18(ii)]{DX22}; the
+standing hypotheses of its Section~2.4 allow an arbitrary compact
+K\"ahler manifold and a pseudoeffective background class. A common
+dominating component compares any
+two choices, and their terminal parameters coincide. Evaluating those
+same ideals at any semivaluation proves that both the raw transform and
+the explicit expressions \eqref{eq:p142-finite-ideal-values}--
+\eqref{eq:p142-decreasing-sequence} are unchanged. These are precisely
+the ideal equalities in
+\cref{thm:pseff-perturbation-independent-transform}; the source
+transition is \cite[formula~(28), Definition~3.3]{DXZ23}.
+
+All arguments take place on a perturbed component. No potential of
+positive mass in the unperturbed class is chosen, so zero-volume
+pseudoeffective classes are included. The proof does not construct
+relatively nef cohomological models, a Monge--Amp\`ere operator, or an
+energy. Those are distinct questions.
+\end{proof}
+END CHUNK BYTES
+END EXACT LIVE CHUNK
