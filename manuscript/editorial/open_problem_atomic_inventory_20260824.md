@@ -268,6 +268,21 @@ no such splitting is deduced for general finite flat, finite etale, or scalar
 maps, and the result does not cover every semipositive real-PL competitor.
 Thus it retires no P03 atom and leaves the total count unchanged.
 
+Finite symmetry supplies a complementary partial descent theorem.  Under an
+explicit finite analytic orbit presentation---a finite flat surjection with a
+finite group acting over the base and transitively on every set-theoretic
+fiber---`thm:p031-orbit-fiber-maximum` descends fiberwise maxima of
+semipositive rational PL functions and sends LFS functions to semipositive
+real-PL functions on the base.  Therefore
+`thm:p031-orbit-envelope-comparison` gives exact pullback compatibility for
+the raw semipositive rational-PL envelope and a four-term LFS/real-PL
+sandwich.  Proposition `prop:p031-real-pl-fiber-maximum-failure` shows that
+the rational restriction is genuine: a two-sheet fold presentation has a
+semipositive real-PL input whose fiberwise maximum has an irrational bend and
+is not real PL.  The result neither produces an orbit presentation for
+scalar extension nor descends LFS functions as LFS functions, so it retires
+no P03 atom and leaves the total count unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
