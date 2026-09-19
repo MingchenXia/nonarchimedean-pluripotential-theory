@@ -1,0 +1,262 @@
+% Book-local P03.1 affine ground-field curve-test proof,
+% 12 September 2026.  No novelty or priority claim is made.
+
+\begin{proof}[\Cref{lem:p031-open-pullback-usc}]
+For $x\in X$, write the upper-semicontinuous regularization as the
+neighborhood-filter limsup
+\[
+                  a^*(x)=\inf_{U\ni x}\sup_{z\in U}a(z).
+\]
+Fix $y\in Y$ and put $x=q(y)$.  If $N$ is a neighborhood of $y$,
+then $q(N)$ is a neighborhood of $x$ because $q$ is open.
+Conversely, if $U$ is a neighborhood of $x$, then $q^{-1}(U)$ is a
+neighborhood of $y$ and, by surjectivity, $q(q^{-1}(U))=U$.  Hence the
+sets $q(N)$, as $N$ runs over the neighborhoods of $y$, are cofinal
+among the neighborhoods of $x$.  Therefore
+\[
+ \begin{split}
+ (a\circ q)^*(y)
+   &=\inf_{N\ni y}\sup_{z\in N}a(q(z))\\
+   &=\inf_{N\ni y}\sup_{x'\in q(N)}a(x')
+    =a^*(x),
+ \end{split}
+\]
+which is the claimed identity.
+\end{proof}
+
+\begin{proof}[
+\Cref{thm:p031-affine-ground-field-perron}]
+Put $s:=\sup_i u_i$ and $u:=s^*$.  Local upper boundedness makes $u$
+an upper-semicontinuous function with values in
+$\mathbf R\cup\{-\infty\}$.
+
+Let $C$ be a smooth connected strict $K$-analytic curve and let
+$g:C\to V$ be a morphism.  We prove that $u\circ g$ is subharmonic.  It
+is enough, by \cite[Proposition~3.5(3)]{GR25Classical}, to work on each
+connected component of $\operatorname{Int}(C)$.  If $u\circ g$ is
+identically $-\infty$ there, there is nothing to prove.  Otherwise let
+$D$ be a strict affinoid domain in that component and let
+$h:D\to\mathbf R$ be harmonic with
+\begin{equation}
+\label{eq:p031-ground-field-boundary-hypothesis}
+                         u\circ g\leq h
+                         \qquad\text{on }\partial D.
+\end{equation}
+We must prove the same inequality on $D$.
+
+We first construct a small analytic tube around the graph of $g|_D$.
+Write $z_1,\ldots,z_n$ for the affine coordinates and
+$g_j:=z_j\circ g\in\mathcal O(D)$.  On
+$D\times\mathbf A_K^{n,\mathrm{an}}$, the translation
+\[
+  \Psi(t,w_1,\ldots,w_n)
+     =(t,g_1(t)+w_1,\ldots,g_n(t)+w_n)
+\]
+is an analytic automorphism.  The inverse image
+$\Psi^{-1}(D\times V)$ is an ordinary open neighborhood of the zero
+section.  Choose a sequence $\rho_m\in|K^\times|$ decreasing to zero.
+Compactness shows that, for all sufficiently large $m$,
+\begin{equation}
+\label{eq:p031-ground-field-tube-inclusion}
+ D\times\mathbb B^n_{\rho_m}
+       \subseteq\Psi^{-1}(D\times V).
+\end{equation}
+Indeed, otherwise the nonempty nested compact sets
+\[
+ \bigl(D\times\mathbb B^n_{\rho_m}\bigr)
+        \setminus\Psi^{-1}(D\times V)
+\]
+would have nonempty intersection, whereas their intersection is contained
+in the zero section and the zero section lies in
+$\Psi^{-1}(D\times V)$.
+
+Fix a radius $\rho$ satisfying
+\eqref{eq:p031-ground-field-tube-inclusion} and set
+\[
+ T_\rho:=D\times\mathbb B^n_\rho,
+ \qquad
+ p_\rho(t,w):=g(t)+w\in V,
+ \qquad
+ H_\rho(t,w):=h(t).
+\]
+Thus $T_\rho$ is a $K$-affinoid space.  Let
+$\sigma_\rho:D\to T_\rho$ be the relative Gauss section.  We need two
+elementary properties of this tube.
+
+First,
+\begin{equation}
+\label{eq:p031-relative-gauss-boundary}
+                  \sigma_\rho(\Gamma(D))
+                  \quad\text{is a boundary of }T_\rho,
+\end{equation}
+where $\Gamma(D)=\partial D$ is the finite Shilov boundary of the strict
+affinoid curve $D$, as recalled in
+\cite[\S3.1(3)]{GR25Classical}.  To see this, write an analytic function on
+the tube as $F=\sum_{\alpha}a_\alpha w^\alpha$, with
+$a_\alpha\in\mathcal O(D)$.  The defining property of the relative
+Gauss point gives
+\[
+ |F(\sigma_\rho(x))|
+        =\max_\alpha |a_\alpha(x)|\rho^{|\alpha|}.
+\]
+For every point of the fiber over $x$, the value of $|F|$ is bounded
+above by the right side.  Since every coefficient $a_\alpha$ attains its
+supremum on $\Gamma(D)$, and the weighted coefficient norms tend to
+zero, we get
+\[
+ \sup_{T_\rho}|F|
+   =\max_{b\in\Gamma(D)}|F(\sigma_\rho(b))|.
+\]
+This identifies the displayed finite set as a boundary of $T_\rho$.
+Consequently the Shilov boundary of $T_\rho$ is contained in that set.
+
+Second, if $t_0\in D\setminus\partial D$, then $p_\rho$ is open on an
+ordinary neighborhood of $(t_0,0)$.  In the $w$-coordinates, put
+\[
+ U_\rho^\circ
+    :=\operatorname{Int}(D)\times\mathbb B_{\rho}^{n,\circ}
+       \subseteq T_\rho,
+\]
+where the second factor is the open polydisc.  Before imposing the closed
+tube, $p_\rho$ is, through the translation $\Psi$, the projection
+\[
+             D\times\mathbf A_K^{n,\mathrm{an}}
+                     \longrightarrow\mathbf A_K^{n,\mathrm{an}}.
+\]
+The structural map of the smooth curve $\operatorname{Int}(D)$ is
+quasi-smooth and boundaryless.  Base change, the translation $\Psi$, and
+restriction to the ordinary open set $U_\rho^\circ$ preserve these two
+properties.  Thus
+\[
+                   p_\rho|_{U_\rho^\circ}:U_\rho^\circ\longrightarrow V
+\]
+is quasi-smooth and boundaryless, and is open by
+\cite[Corollary~6.2.5]{Ducros18Families}.  Since
+$(t_0,0)\in U_\rho^\circ$, this proves the local assertion.
+
+Return to the boundary comparison.  As $\rho\to0$, for every
+$b\in\Gamma(D)$ one has
+\begin{equation}
+\label{eq:p031-gauss-convergence}
+                 p_\rho(\sigma_\rho(b))\longrightarrow g(b).
+\end{equation}
+This follows directly from the Gauss formula: on every fixed large tube,
+the value of a convergent power series at the relative Gauss point tends
+to the value of its constant coefficient at the zero section.  The set
+$\Gamma(D)$ is finite.  Upper semicontinuity of $u$, together with
+\eqref{eq:p031-ground-field-boundary-hypothesis}, therefore shows that for every
+$\varepsilon>0$ one may choose $\rho\in|K^\times|$ small enough that
+\begin{equation}
+\label{eq:p031-gauss-bound}
+ u(p_\rho(\sigma_\rho(b)))
+       \leq h(b)+\varepsilon
+       \qquad(b\in\Gamma(D)).
+\end{equation}
+
+The harmonic function $h$ is pluriharmonic on $D$: this is
+\cite[Definition~3.13 and \S4.1.2]{GR25Classical}.  Hence $H_\rho$ is
+pluriharmonic by analytic pullback, using
+\cite[Proposition~7.2(7)]{GR25Classical}.  For every $i$, the function
+\[
+                         u_i\circ p_\rho-H_\rho
+\]
+is consequently classically psh on $T_\rho$.  Since
+$u_i\leq s\leq u$, equation \eqref{eq:p031-gauss-bound} bounds this
+function by $\varepsilon$ on $\sigma_\rho(\Gamma(D))$.  The global
+affinoid maximum principle \cite[Theorem~6.4]{GR25Classical}, together
+with \eqref{eq:p031-relative-gauss-boundary}, gives
+\[
+                    u_i\circ p_\rho-H_\rho\leq\varepsilon
+                    \qquad\text{on }T_\rho
+\]
+for every $i$, and hence
+\begin{equation}
+\label{eq:p031-raw-tube-bound}
+                    s\circ p_\rho\leq H_\rho+\varepsilon
+                    \qquad\text{on }T_\rho.
+\end{equation}
+
+Fix $t_0\in D\setminus\partial D$.  By the local openness proved above,
+we may choose an ordinary neighborhood $N$ of $(t_0,0)$ in $T_\rho$
+such that $p_\rho(N)$ is an ordinary open neighborhood of $g(t_0)$.
+Shrinking $N$, continuity of $h$ also gives
+$H_\rho<h(t_0)+\varepsilon$ on $N$.  It follows from
+\eqref{eq:p031-raw-tube-bound} that
+\[
+                    s<h(t_0)+2\varepsilon
+                    \qquad\text{on }p_\rho(N).
+\]
+The definition of usc regularization now yields
+\[
+                         u(g(t_0))\leq h(t_0)+2\varepsilon.
+\]
+Letting $\varepsilon\downarrow0$ proves $u\circ g\leq h$ at every
+point of $D\setminus\partial D$; the boundary inequality was assumed in
+\eqref{eq:p031-ground-field-boundary-hypothesis}.  Thuillier's comparison criterion
+shows that $u\circ g$ is subharmonic on each component of
+$\operatorname{Int}(C)$, and
+\cite[Proposition~3.5(3)]{GR25Classical} extends it across the relative
+boundary of $C$.  This is exactly the property in
+\Cref{def:p031-ground-field-curvewise-psh}.
+\end{proof}
+
+\begin{proof}[
+\Cref{cor:p031-scalar-compatibility-upgrade}]
+Fix an analytic extension $K'/K$.  Pointwise supremum commutes with
+pullback, so
+\[
+             s\circ\pi_{K'/K}=\sup_i(u_i\circ\pi_{K'/K}).
+\]
+The pulled-back functions are classically psh by
+\cite[Proposition~4.2(5)]{GR25Classical} and remain locally upper bounded.
+Applying \Cref{thm:p031-affine-ground-field-perron} over $K'$ shows
+that $(s\circ\pi_{K'/K})^*$ is $K'$-curvewise psh.  Under
+\eqref{eq:p031-scalar-compatibility}, this function equals
+$u\circ\pi_{K'/K}$.  Since this holds for every $K'/K$, the smooth
+strict curve test in \cite[Definition~4.1 and \S4.1.3]{GR25Classical}
+shows that $u$ is classically psh.
+
+If $\pi_{K'/K}$ is open, it is also continuous and surjective; the latter
+two properties of scalar projection are recalled in
+\cite[\S2.9]{GR25Classical}.  Apply
+\Cref{lem:p031-open-pullback-usc} to $a=s$ and use $u=s^*$ to get
+\[
+ u\circ\pi_{K'/K}
+   =s^*\circ\pi_{K'/K}
+   =(s\circ\pi_{K'/K})^*,
+\]
+which is the desired identity for that extension.
+\end{proof}
+
+\begin{proof}[
+\Cref{cor:p031-affine-obstacle-ground-field}]
+A locally Fubini--Study function is classically psh by the logarithm and
+sheaf properties, together with closure under positive linear combinations
+and finite maxima; see
+\cite[Proposition~4.2(1)--(3)]{GR25Classical}.  A semipositive real-PL
+function is classically psh by \cite[Theorem~4.3]{GR25Classical}.  The
+upper-semicontinuous obstacle $f$, which has no $+\infty$ value, is
+locally bounded above, and therefore bounds the whole family
+$\mathcal A_f$ locally.  If this family is nonempty, apply
+\Cref{thm:p031-affine-ground-field-perron}; the scalar-compatible
+conclusion follows from
+\Cref{cor:p031-scalar-compatibility-upgrade}.  If the family is empty,
+then $P_f=-\infty$, which is already classically psh by
+\cite[Definitions~3.4 and~4.1]{GR25Classical}.
+\end{proof}
+
+\begin{proof}[
+\Cref{prop:p031-scalar-openness-failure}]
+Poineau--Turchetti consider an algebraically closed complete field $K$
+which is not spherically complete, a maximally complete algebraically
+closed extension $K'/K$, and a type--$4$ point of
+$\mathbf A_K^{1,\mathrm{an}}$.  They identify its inverse image under
+scalar projection as a positive-radius closed disc
+\cite[Lemma~5.6.2]{PT21SchottkyI}; their
+\cite[Remark~5.6.4]{PT21SchottkyI} records explicitly that the projection
+is not open in general.  Thus the open-map hypothesis in
+\Cref{lem:p031-open-pullback-usc} is not automatic, even for the
+analytic affine line.  The final scope assertions follow because this
+topological example does not supply a psh family for which the envelope
+identity fails.
+\end{proof}

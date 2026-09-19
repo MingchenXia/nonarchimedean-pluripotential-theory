@@ -201,6 +201,25 @@ zero gaps. This is not an automatic property of the full local-FS/PL
 minorant family and makes no CLD-v2 assertion, so it narrows none of the
 three P03 atoms beyond that stated family-level regime.
 
+The affine graph-tube theorem
+`thm:p031-affine-ground-field-perron` gives a complementary
+higher-dimensional advance with no common-modulus hypothesis.  On every
+ordinary open subset of analytic affine space, the usc regularization of
+the supremum of any nonempty locally upper-bounded family of classically
+psh functions passes all smooth strict curve tests defined over the ground
+field.  Hence `cor:p031-affine-obstacle-ground-field` applies to the full
+local-FS/semipositive-real-PL obstacle family on every such chart.  The
+proof uses the finite relative-Gauss boundary of a small graph tube, the
+affinoid maximum principle, and local openness of its quasi-smooth
+boundaryless projection.  After scalar extension it controls the
+regularization of the pulled-back raw supremum.  Full classical psh-ness
+still requires that regularization to equal the pullback of the original
+regularization.  `prop:p031-scalar-openness-failure` records that general
+scalar projections need not be open, so this compatibility does not follow
+from topology alone.  No particular psh envelope is shown to violate it,
+and no CLD-v2 or continuity conclusion is obtained.  Thus P03.1--P03.3 and
+the total inventory count remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
