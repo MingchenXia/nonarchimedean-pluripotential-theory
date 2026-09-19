@@ -485,6 +485,21 @@ component.  The result does not control arbitrary endpoint lifts and proves
 neither scalar-fiber constancy nor analytic defect compatibility, so
 P03.1--P03.3 and the total count remain unchanged.
 
+The canonical section also puts the scalar usc defect into an exact
+retraction normal form.  Theorem
+`thm:p031-canonical-scalar-retraction-normal-form` defines the continuous
+idempotent retraction `r=sigma o pi` and proves that the value of the
+upstairs regularization at `r(y)` is both the downstairs regularization at
+`pi(y)` and the maximum over the whole scalar fiber.  Hence the strict
+defect locus is exactly `{b < b o r}`, is disjoint from the section image,
+and is empty exactly when `b` is fiberwise constant.  Corollary
+`cor:p031-affine-canonical-retraction-reduction` gives
+`u o pi = v o r` for the affine Perron family and reduces classical psh-ness
+to subharmonicity of `v o r` on every extended smooth strict curve.  The
+retraction is only continuous; no psh-preservation theorem for composition
+with it is proved.  Thus the analytic obstruction is sharper, but P03.1--P03.3
+and the total count remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
