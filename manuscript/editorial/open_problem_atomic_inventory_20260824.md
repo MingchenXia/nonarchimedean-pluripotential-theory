@@ -235,6 +235,18 @@ general bounded binary raw data.  They do not construct a psh family or a
 P03.1 counterexample.  The P03 atoms and total count therefore remain
 unchanged.
 
+The completed-algebraic-closure theorem
+`thm:p031-completed-algebraic-closure-reduction` removes the first scalar
+step from this obstruction.  For `L = completion(K^alg)`, the scalar map on
+the affine open set is open, so
+`s^*∘π_{L/K} = (s∘π_{L/K})^*`; classical psh-ness of that envelope is
+equivalent before and after passage to `L`.  Thus the stronger
+arbitrary-family affine Perron route may assume that the ground field is
+complete and algebraically closed, and its residual issue begins with
+further analytic extensions.  The theorem does not identify the full
+local-FS/semipositive-real-PL obstacle families across scalar extension, so
+it retires no P03 atom and does not change the total inventory count.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
