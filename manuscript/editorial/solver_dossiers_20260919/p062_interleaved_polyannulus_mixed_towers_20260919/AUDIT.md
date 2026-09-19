@@ -1,18 +1,18 @@
 # P06.2 interleaved coordinated annular stages — dependency audit
 
-Date: 19 September 2026
+Date: 19 September 2026; updated 20 September 2026 for the split-toric stage
 
 ## Claim boundary
 
 The theorem permits globally coordinated finite standard strict
 open-polyannulus product stages at arbitrary levels of a finite tower over a
 published curve.  The other stages may be admissible locally trivial
-standard strict open-polydisc, projective-space, or proper smooth connected
-curve bundles, in any order.
+standard strict open-polydisc, projective-space, smooth proper split-toric,
+or proper smooth connected curve bundles, in any order.
 
-Every intermediate space is assumed boundaryless.  Each projective-space
-or proper-curve stage retains the locally holomorphically separated and
-paracompact base hypotheses of its source proposition.  Every annular stage
+Every intermediate space is assumed boundaryless.  Each projective-space,
+split-toric, or proper-curve stage retains the locally holomorphically
+separated and paracompact base hypotheses of its source proposition.  Every annular stage
 has one globally specified product chart and globally specified annular
 coordinates.  Locally twisted annular transition maps and the resulting
 coefficient monodromy are not treated.
@@ -20,7 +20,8 @@ coefficient monodromy are not treated.
 ## Proof ledger
 
 1. Every displayed fibre is connected.  The local product charts provide
-   local sections for the three exact stage types; the coordinated annular
+   local sections for the four exact stage types; the split-toric section is
+   the identity of the dense torus, while the coordinated annular
    stage has a global section because algebraic closedness makes the value
    group divisible.  Hence locally constant functions descend uniquely
    through the whole tower to the original curve.

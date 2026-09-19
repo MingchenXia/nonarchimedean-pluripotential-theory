@@ -1,6 +1,6 @@
 # P06.2 polyannuli over mixed towers — dependency audit
 
-Date: 19 September 2026
+Date: 19 September 2026; updated 20 September 2026 for the split-toric stage
 
 ## Claim boundary
 
@@ -19,14 +19,15 @@ requires it.
 
 1. The mixed-tower theorem makes every continuous zero-current function on
    the tower top classically pluriharmonic.
-2. The strengthened first-current conclusions in the three exact descent
+2. The strengthened first-current conclusions in the four exact descent
    propositions, followed by curve first-current rigidity, give the second
    base hypothesis of `prop:p062-open-polyannulus-rigid-base`.
 3. That proposition supplies the unique coefficient formula over the tower
    top and makes all slope coefficients locally constant.
 4. The zero-current coefficient descends by the mixed-tower theorem.
    Connected fibres make each locally constant slope coefficient fibrewise
-   constant.  The displayed fibres have rational points, so the local
+   constant.  The displayed fibres have rational points---the split-toric
+   case uses the identity of the dense torus---so the local
    trivializations supply sections and hence a unique locally constant
    descent through the tower.
 5. Harmonic pullback, harmonicity of logarithms of units, and the sheaf

@@ -1,5 +1,9 @@
 # P06.2 smooth proper split-toric bundle descent: live audit
 
+This file records the v61 single-bundle checkpoint.  The v62 mixed-tower
+integration supersedes its temporary exclusion of split-toric stages from
+the mixed-tower statements while preserving every scope restriction below.
+
 ## Claim boundary
 
 The packet proves exact descent for a continuous zero-current function on an

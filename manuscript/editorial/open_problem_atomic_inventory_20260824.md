@@ -736,17 +736,16 @@ either atom; see BMPS26, pp. 4 and 45.
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
   smooth-proper-curve, and strict-open-polydisc product or locally trivial
   bundle or finite tower of such bundles, locally trivial projective-space
-  bundles or locally trivial proper smooth connected curve bundles over a
-  published curve, including finite mixed towers in which these three bundle
+  bundles, locally trivial smooth proper split-toric bundles, or locally
+  trivial proper smooth connected curve bundles over a published curve,
+  including finite mixed towers in which these four bundle
   types occur in any order and globally coordinated standard strict-open-
   annulus products over the boundaryless tops of such towers, including
   finite boundaryless towers in which globally coordinated standard strict-
-  open-polyannulus product stages occur at arbitrary levels among those three
+  open-polyannulus product stages occur at arbitrary levels among those four
   exact bundle types, including curve-locally coordinated versions in which
   one analytic open cover of the original curve trivializes every annular
-  stage after base change, locally trivial smooth proper split-toric bundles
-  over a published curve, and finite
-  globally coordinated
+  stage after base change, and finite globally coordinated
   standard strict-open-annulus products over a boundaryless finite tower of
   locally trivial standard strict-open-polydisc bundles over a published
   curve, or analytically locally trivial finite
@@ -1367,7 +1366,7 @@ lacking these analytic product charts and arbitrary nonproduct germs remain
 outside the proved scope.  The common transfer mechanism is now isolated in
 `prop:p062-mixed-exact-bundle-tower-transfer`: unique zero-current descent,
 classical-pluriharmonic transfer, real-harmonic transfer, and first-current
-rigidity pass through any finite interleaving of the three exact bundle
+rigidity pass through any finite interleaving of the four exact bundle
 types.  Hence `cor:p062-polyannulus-base-mixed-bundle-towers` preserves the
 same unique coefficient formula when the globally coordinated product is
 the bottom of an arbitrary such mixed tower.  The locally twisted
@@ -1466,16 +1465,18 @@ pluriharmonicity, real-PL regularity, and GJR harmonicity over a published
 curve.  This does not assert the result for arbitrary proper or nonproper
 curve fibres, arbitrary fibrations, or arbitrary nonproduct germs; the atom
 count, tier count, and queue position remain unchanged.
-The three exact bundle descents may also be iterated together.
+The four exact bundle descents may also be iterated together.
 `thm:p062-mixed-bundle-towers-over-curves` allows every stage of a finite
 tower over a published curve to be a locally trivial standard strict
-open-polydisc bundle, a projective-space bundle, or a proper smooth connected
-curve bundle, in arbitrary order.  Successive unique descent gives a
+open-polydisc bundle, a projective-space bundle, a smooth proper split-toric
+bundle, or a proper smooth connected curve bundle, in arbitrary order.
+Successive unique descent gives a
 zero-current function on the curve; curve comparison and harmonic pullback
 make the original function classically pluriharmonic, real-PL, and GJR
-harmonic.  Projective-space and proper-curve stages retain the exact locally
-holomorphically separated and paracompact base hypotheses of their source
-propositions.  Annular fibres, arbitrary fibrations, and nonproduct germs
+harmonic.  Projective-space, split-toric, and proper-curve stages retain the
+exact locally holomorphically separated and paracompact base hypotheses of
+their source propositions.  Annular fibres, arbitrary fibrations, and
+nonproduct germs
 without the displayed local trivializations remain outside this range; the
 atom count, tier count, and queue position remain unchanged.
 If the top of such a mixed tower is boundaryless, then
@@ -1486,7 +1487,7 @@ coefficients all descend to the original curve, and the total function is
 classically pluriharmonic, real-PL, and GJR harmonic.  This does not cover
 locally twisted annulus bundles at the top or annular stages inside the
 tower.  Together with the preceding annular-bottom mixed-tower results, it
-allows annular coordinates on either side of the three exact stage types,
+allows annular coordinates on either side of the four exact stage types,
 and `thm:p062-interleaved-polyannulus-mixed-bundle-towers` now allows the
 globally coordinated annular product stages to occur at arbitrary levels.
 Its unique normal form contains every annular coordinate introduced in the
@@ -2518,19 +2519,21 @@ P19.3 or alter the active-atom count.
   `cor:p213-endpoint-tower-cover-bt`.  Neither version applies to one chart
   inside an arbitrary germ, annular fibres, or fibrations lacking the stated
   local product charts.
-  This endpoint class is now closed under finite mixtures of all three
+  This endpoint class is now closed under finite mixtures of all four
   exact locally trivial descent geometries.  In
   `thm:p213-endpoint-mixed-tower-classification`, each stage may be a
-  standard strict open-polydisc bundle, a projective-space bundle, or---when
-  the field is algebraically closed---a proper smooth connected curve
-  bundle.  A continuous zero-current function on the whole tower is the
+  standard strict open-polydisc bundle, a projective-space bundle, a smooth
+  proper split-toric bundle, or---when the field is algebraically
+  closed---a proper smooth connected curve bundle.  A continuous
+  zero-current function on the whole tower is the
   pullback of a unique logarithmic-affine function on the endpoint base and
   is therefore ordinary CLD-smooth with zero Hessian.  The whole-space,
   cover, and genuine-basis consequences are respectively
   `cor:p213-endpoint-mixed-tower-bt`,
   `cor:p213-endpoint-mixed-tower-cover-bt`, and
-  `cor:p213-endpoint-mixed-tower-basis-bt`.  Each projective or proper-curve
-  stage retains the exact locally holomorphically separated and paracompact
+  `cor:p213-endpoint-mixed-tower-basis-bt`.  Each projective, split-toric,
+  or proper-curve stage retains the exact locally holomorphically separated
+  and paracompact
   base hypotheses of its descent theorem.  The result introduces no
   annular bundle fibre and gives no conclusion from a tower chart that does
   not refine the potentials' domain.
@@ -2545,8 +2548,9 @@ P19.3 or alter the active-atom count.
   tensors vanish throughout the base, then
   `thm:p213-residual-picard-mixed-tower` propagates ordinary smooth
   zero-Hessian regularity through every finite mixed tower of locally
-  trivial standard strict open-polydisc, projective-space, and proper smooth
-  connected curve bundles.  The projective and proper-curve stages retain
+  trivial standard strict open-polydisc, projective-space, smooth proper
+  split-toric, and proper smooth connected curve bundles.  The projective,
+  split-toric, and proper-curve stages retain
   the exact locally holomorphically separated and paracompact base
   hypotheses of their descent propositions.  On a boundaryless top level,
   `cor:p213-residual-picard-mixed-tower-bt` gives whole-space independence

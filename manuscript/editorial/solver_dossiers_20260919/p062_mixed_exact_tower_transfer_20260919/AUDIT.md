@@ -1,14 +1,15 @@
 # P06.2 mixed exact-tower transfer — dependency audit
 
-Date: 19 September 2026
+Date: 19 September 2026; updated 20 September 2026 for the split-toric stage
 
 ## Claim boundary
 
 The proposition treats only finite towers whose stages satisfy every
-hypothesis of one of the three integrated exact bundle-descent propositions.
-Projective-space and proper-curve stages retain local holomorphic separation
-and paracompactness of the preceding base; a proper-curve stage also retains
-algebraic closedness of the ground field.  Every space remains
+hypothesis of one of the four integrated exact bundle-descent propositions.
+Projective-space, smooth proper split-toric, and proper-curve stages retain
+local holomorphic separation and paracompactness of the preceding base; a
+proper-curve stage also retains algebraic closedness of the ground field.
+Every space remains
 positive-dimensional, good, topologically separated, pure, and strict.
 
 It transfers four properties from the bottom space: unique zero-current
@@ -18,7 +19,7 @@ fibration, or assert regularity that is absent on the bottom space.
 
 ## Proof ledger
 
-1. Apply the relevant one of the three exact descent propositions from the
+1. Apply the relevant one of the four exact descent propositions from the
    top stage down.  Uniqueness composes because every bundle is surjective
    with nonempty fibres.
 2. Classical pluriharmonicity transfers by applying classical-psh pullback

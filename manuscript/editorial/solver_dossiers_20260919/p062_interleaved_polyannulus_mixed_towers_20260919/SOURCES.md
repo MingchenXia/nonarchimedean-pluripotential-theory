@@ -1,6 +1,6 @@
 # Source and dependency ledger
 
-Date: 19 September 2026
+Date: 19 September 2026; updated 20 September 2026 for the split-toric stage
 
 ## Integrated dependencies
 
@@ -11,7 +11,7 @@ Date: 19 September 2026
   original curve.
 - `prop:p062-mixed-exact-bundle-tower-transfer`: unique zero-current descent,
   regularity transfer, and first-current-rigidity transfer through each of
-  the three exact bundle types.
+  the four exact bundle types.
 - `prop:p062-open-polyannulus-rigid-base`: the unique logarithmic coefficient
   formula, classical pluriharmonicity, and first-current rigidity after a
   globally coordinated standard strict open-polyannulus product stage.

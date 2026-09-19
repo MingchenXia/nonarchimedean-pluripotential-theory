@@ -2,6 +2,11 @@
 
 Date: 11 September 2026.
 
+Updated 20 September 2026: the live theorem now also admits smooth proper
+split-toric stages.  This is a formal application of
+`prop:p062-smooth-proper-split-toric-bundle-descent`; it does not alter the
+model-backed verdict on the original three-stage-type version.
+
 Status before integration: candidate passed a GPT-6 Astra mathematical
 audit against the live Chapter 19 curve comparison, the exact Thuillier
 stalk sequence, GJR Remark 15.10, and the three live bundle-descent
@@ -28,7 +33,8 @@ Verified firewalls:
    quotient away from type 2; no annular coordinate is imposed at type 4.
 4. Every tower stage retains the complete hypotheses of its live descent
    proposition.  Locally holomorphically separated and paracompact bases are
-   explicitly required at projective-space and proper-curve stages.
+   explicitly required at projective-space, split-toric, and proper-curve
+   stages.
 5. Proper curve fibres need no residual Picard assumption: a continuous
    zero-current function is constant along each complete connected fibre in
    the existing descent proof.

@@ -1,5 +1,8 @@
 # P06.2 smooth proper split-toric bundle descent v61: live build report
 
+This is the historical v61 build snapshot.  The v62 mixed-tower report
+supersedes the temporary single-bundle limitation recorded below.
+
 Date: 2026-09-20
 
 ## Integration

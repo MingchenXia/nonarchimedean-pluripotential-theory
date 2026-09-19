@@ -1,11 +1,11 @@
 # Source and dependency ledger
 
-Date: 19 September 2026
+Date: 19 September 2026; updated 20 September 2026 for the split-toric stage
 
 ## Integrated dependencies
 
 - `prop:p062-mixed-exact-bundle-tower-transfer`: unique zero-current and
-  regularity transfer through any finite interleaving of the three exact
+  regularity transfer through any finite interleaving of the four exact
   bundle types.
 - `thm:p062-open-polyannulus-products-over-curves`: the unique logarithmic
   coefficient formula and three regularity conclusions on a globally
