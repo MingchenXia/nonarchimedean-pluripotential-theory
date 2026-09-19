@@ -220,6 +220,21 @@ from topology alone.  No particular psh envelope is shown to violate it,
 and no CLD-v2 or continuity conclusion is obtained.  Thus P03.1--P03.3 and
 the total inventory count remain unchanged.
 
+The compact-fiber formula `cor:p031-scalar-fiber-maximum` makes the
+remaining compatibility condition geometric.  For
+`v_{K'} := (s∘π_{K'/K})^*`, closedness and surjectivity of scalar
+projection together with compactness of its fibers give
+`s^*∘π(y) = max_{z∈π^{-1}(π(y))} v_{K'}(z)`.  Hence the exact
+upgrade holds precisely when `v_{K'}` is constant on each scalar fiber.
+The graph-tube theorem already proves the extended-field curve tests for
+`v_{K'}`; what remains is fiberwise constancy or a direct psh theorem for
+its fiberwise maximum.  The open-map characterization
+`prop:p031-open-map-characterization` and the type-4 example
+`prop:p031-type-four-topological-defect` show that strict defects occur for
+general bounded binary raw data.  They do not construct a psh family or a
+P03.1 counterexample.  The P03 atoms and total count therefore remain
+unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
