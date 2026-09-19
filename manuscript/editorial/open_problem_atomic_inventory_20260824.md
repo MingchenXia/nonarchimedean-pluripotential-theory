@@ -357,6 +357,16 @@ rational defect collapses every defect and gap on the complete fiber.  The
 theorem supplies no mechanism forcing that vanishing and no scalar-extension
 presentation, so all P03 atoms and the total count remain unchanged.
 
+The conservation ledger is also additive in finite flat towers.  Theorem
+`thm:p031-finite-flat-tower-defect-additivity` expresses each composite LFS
+or full-P03 gain as a sum of nonnegative stage gains, and Corollary
+`cor:p031-finite-flat-tower-no-cancellation` shows that composite exactness is
+equivalent to exactness at every stage.  Thus a later cover cannot hide an
+intermediate globalization defect.  This is a constraint on tower-based
+scalar-extension reductions, not a construction of the required tower or a
+vanishing theorem for the base rational defect; all P03 atoms and the count
+remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
