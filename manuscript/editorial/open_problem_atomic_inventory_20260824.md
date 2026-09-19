@@ -425,7 +425,10 @@ either atom; see BMPS26, pp. 4 and 45.
   bundles or locally trivial proper smooth connected curve bundles over a
   published curve, including finite mixed towers in which these three bundle
   types occur in any order and globally coordinated standard strict-open-
-  annulus products over the boundaryless tops of such towers, and finite
+  annulus products over the boundaryless tops of such towers, including
+  finite boundaryless towers in which globally coordinated standard strict-
+  open-polyannulus product stages occur at arbitrary levels among those three
+  exact bundle types, and finite
   globally coordinated
   standard strict-open-annulus products over a boundaryless finite tower of
   locally trivial standard strict-open-polydisc bundles over a published
@@ -1105,8 +1108,13 @@ classically pluriharmonic, real-PL, and GJR harmonic.  This does not cover
 locally twisted annulus bundles at the top or annular stages inside the
 tower.  Together with the preceding annular-bottom mixed-tower results, it
 allows annular coordinates on either side of the three exact stage types,
-but not arbitrary interleaving.  The atom count, tier count, and queue
-position remain unchanged.
+and `thm:p062-interleaved-polyannulus-mixed-bundle-towers` now allows the
+globally coordinated annular product stages to occur at arbitrary levels.
+Its unique normal form contains every annular coordinate introduced in the
+tower, while the base coefficient and all locally constant slope
+coefficients live on the original curve.  It does not treat locally twisted
+annular coordinate changes or their coefficient monodromy.  The atom count,
+tier count, and queue position remain unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
