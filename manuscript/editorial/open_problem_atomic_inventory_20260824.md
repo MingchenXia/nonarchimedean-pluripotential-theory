@@ -2617,6 +2617,24 @@ P19.3 or alter the active-atom count.
   no result without the displayed local product charts or the
   residual-Picard hypothesis.  Hence P21.3 and the inventory count are
   unchanged.
+  The annular geometry need not be confined to the bottom of the tower.
+  In `thm:p213-residual-picard-curve-local-interleaved-tower`, one analytic
+  open cover of the residual-Picard curve base makes the base-changed tower
+  an arbitrary finite interleaving of globally coordinated standard strict
+  open-polyannulus products and the four exact bundle types.  Coordinates,
+  radii, and product trivializations may depend on the cover member and need
+  not agree on overlaps.  The local coefficient formula, residual-Picard
+  criterion, logarithmic smoothness, and functorial CLD pullback make every
+  continuous zero-current function on the top ordinary CLD-smooth with zero
+  smooth Hessian.  Its whole-space, specified-cover, and every-open basis
+  Bedford--Taylor consequences are
+  `cor:p213-residual-picard-curve-local-interleaved-tower-bt`,
+  `cor:p213-residual-picard-curve-local-interleaved-tower-cover-bt`, and
+  `cor:p213-residual-picard-curve-local-interleaved-tower-basis-bt`.
+  This removes the bottom-only placement restriction from the preceding
+  residual-Picard annular class, but retains the curve-local tower charts
+  and residual-Picard hypothesis and gives no global coefficient formula.
+  P21.3 and the active count therefore remain unchanged.
   The bare real-PL or GJR-harmonic outcomes occurring in P06.1/P06.2 remain
   G-local/weakly smooth and do not themselves give this ordinary CLD-smooth
   approximation: `prop:ch19-cld-smooth-harmonic-nonregularization` gives an
