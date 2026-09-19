@@ -1,7 +1,7 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 11 September 2026
-**Literature cutoff:** 11 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, and P14.8 current-source production verification and P21.3 residual-Picard source audit on 11 September 2026
+**Inventory date:** 19 September 2026
+**Literature cutoff:** 19 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, P14.8 current-source production verification and P21.3 residual-Picard source audit on 11 September, and P14.3 full Kähler truncation production verification on 19 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
 This file is an editorial crosswalk for solving, verifying, and retiring the
@@ -45,12 +45,13 @@ continuity theorem, retirement of P07.2 after the universal
 counterexample, and retirement of P05.3 and P05.4 after the recursive
 CLD/delta projection comparison and its algebraic-chart realization, and
 retirement of P14.7 after the strict-interior raw-filtration maximality
-theorem,
+theorem, and retirement of P14.3 after the source-bound full Kähler
+truncation theorem,
 the exact count is
 
 ```text
-14 formal problem environments = 48 active atomic research questions.
-Tier counts: (T1,T2,T3,T4,T5) = (0,5,9,17,17).
+14 formal problem environments = 47 active atomic research questions.
+Tier counts: (T1,T2,T3,T4,T5) = (0,5,9,16,17).
 ```
 
 The read-only command `python3 manuscript/editorial/tools/check_open_problem_inventory.py`
@@ -185,8 +186,8 @@ unibranch.  At the
 earlier verification checkpoint the total was 53 active atoms in 14 formal
 problem environments;
 the later P07.2 and P08.2 retirements gave a total of 51 at that checkpoint.
-The subsequent P05.3 and P05.4 retirements gave 49, and the P14.7
-retirement gives the current total of 48.
+The subsequent P05.3 and P05.4 retirements gave 49, the P14.7 retirement
+gave 48, and the P14.3 retirement gives the current total of 47.
 
 For a fixed nonempty competitor family, the separate source-scoped
 proposition `prop:p031-modulus-controlled-envelope-candidate` settles the
@@ -1642,26 +1643,23 @@ comparing \(\PSH(\xi)\) and \(\PSH(\xi')\) for nonproportional Reeb fields.
 It supplies neither such a comparison nor a surjectivity theorem, so P13.1
 and P13.2 remain unchanged.
 
-### `prob:frontier-mp-pseff` --- 7 active atoms
+### `prob:frontier-mp-pseff` --- 6 active atoms
 
 - **P14.1** `[T4; open beyond established K\"ahler and projective regimes]` Intrinsically
-  characterize the image of the raw ideal-valuative transform.  In the
-  finite-energy K\"ahler domain, `cor:p141-finite-energy-raw-image` identifies
-  that image exactly with the finite-energy MP cone.  Conditional on the
-  P14.2 all-point upper-semicontinuity theorem, `thm:p143-mp-section` further
-  constructs a unique order-preserving and order-reflecting DXZ preimage for
-  every MP potential by taking the infimum of the finite-energy preimages of
-  any decreasing rational PL model net.  Thus the full MP cone, including
-  possibly infinite-energy potentials, lies in the raw-transform image; the
-  reverse inclusion remains unknown.  For a connected smooth
+  characterize the image of the raw ideal-valuative transform.  Conditional
+  on the P14.2 all-point upper-semicontinuity theorem,
+  `thm:p143-full-kahler-comparison` identifies that image in every K\"ahler
+  class exactly with the full MP cone, without projectivity, rationality, or
+  a finite-energy restriction.  Its restriction to finite energy is
+  `cor:p141-finite-energy-raw-image`.  For a connected smooth
   projective variety and an ample \(\mathbf Q\)-line-bundle class,
   `thm:pseff-projective-dxz-mp-bijection` identifies the literal raw transform
   on every semivaluation with the full MP cone, without a finite-energy
   hypothesis.  For a projective real N\'eron--Severi class, the full
   DXZ--Boucksom--Jonsson identification is known, but the literal
   ideal-valuative formula is asserted only in the \(\mathbf Q\)-line-bundle
-  case.  The genuinely transcendental or nonprojective compact K\"ahler,
-  and the big non-nef, image characterizations remain open.
+  case.  Removing the P14.2 conditionality and the big non-nef image
+  characterization remain open.
 - **P14.2** `[T3; open; production verification pending after V14 preflight]` The
   audited Chapter 71 candidate proves upper semicontinuity at arbitrary
   nondivisorial semivaluations and has passed a zero-finding independent
@@ -1677,40 +1675,27 @@ and P13.2 remain unchanged.
   No V14 production request has been sent and no mathematical production
   verdict is claimed.  This atom remains active until a fresh V14 source-closed
   production verification and live integration pass.
-- **P14.3** `[T4; open; source-bound comparison and MP-section theorems verified]` Decide
-  MP positivity at those semivaluations.  The Chapter 71
-  domination-preserving rational-divisorial theorem and its finite-energy
-  K\"ahler corollary recover the all-point comparison from P14.2 upper
-  semicontinuity and divisorial agreement.  Its frozen V3 source-bound
-  packet embeds hashed MP24 and DXZ23 excerpts.  After its initial review,
-  the same frozen V3 files passed an isolated `gpt-5.6-sol` / `xhigh`
-  production review: final `correct`, zero critical errors, and zero gaps
-  (`pi_75b42272e15105bb6be0525c`).  Its archived HTTP receipt and strict
-  protocol audit are in `p143_v3_source_bound_packet_20260909/`
-  `PRODUCTION_RECEIPT_SOL_20260909.md`.  It verifies only the conditional
-  bridge: P14.2 upper semicontinuity and the finite-energy divisorial
-  normalization are explicit premises.  The general MP-positivity problem
-  remains open.  The historical local V4 exact-live audit records
-  then-current Chapter 71 source ranges, the frozen V3 packet, and this
-  live-open boundary; it is a local integrity check, rather than a
-  replayable release pin or production verifier receipt.  The later
-  `thm:p143-mp-section` uses that comparison, divisorial order reflection,
-  and the decreasing-infimum formula to construct a unique DXZ preimage for
-  every MP potential, without a finite-energy restriction.  An initial
-  `gpt-6-astra` / `xhigh` review correctly rejected the missing exclusion of
-  the identically `-infinity` model-net limit.  After repair, the statement
-  and proof passed both `gpt-6-astra` / `xhigh` and production
-  `gpt-5.6-sol` / `xhigh` review.  The September 15 adversarial manuscript
-  audit then found that the written proof had not separately displayed the
-  equality at the trivial semivaluation.  The final proof now computes the
-  endpoint of the decreasing DXZ infimum explicitly, obtains
-  `T_Gamma(0)=phi(0)`, and only then invokes the positive rational
-  divisorial formula.  A fresh read-only `gpt-5.6-sol` / `xhigh` review of
-  the final hashed files returned `correct`, zero critical errors, and zero
-  gaps; the rejected and accepted runs are archived in
+- **P14.3** `[retired 19 September 2026; conditional on P14.2]` Decide MP
+  positivity at arbitrary semivaluations in a K\"ahler class.  The earlier
+  source-bound dominated-divisorial theorem and finite-energy comparison
+  passed production review as `pi_75b42272e15105bb6be0525c`.  The later
+  `thm:p143-mp-section` constructs a unique DXZ preimage for every MP
+  potential, without a finite-energy restriction; its final endpoint-aware
+  version is archived in
   `solver_dossiers_20260913/p143_model_monotone_closure_20260913/`.
-  This proves the MP-to-DXZ direction only.  Whether every DXZ raw transform
-  is MP-psh remains open, so the atom and count are unchanged.
+  The remaining direction is now proved by
+  `thm:p143-full-kahler-comparison`: for every DXZ object, the truncations
+  `Gamma vee (0-j)` have a literal zero tail, positive volume, and finite
+  energy, decrease to `Gamma`, and have MP images whose nontrivial decreasing
+  limit remains MP psh.  P14.2 upper semicontinuity and the dominated
+  comparison identify that limit with the literal raw transform everywhere.
+  The exact statement, proof, source ranges, failed dependency-closure review,
+  and repaired production receipt are archived in
+  `solver_dossiers_20260919/p143_full_kahler_truncation_integration_20260919/`.
+  The V4 `gpt-5.6-sol` / `xhigh` verdict is `correct`, with zero critical
+  errors and zero gaps (`pi_88c7024842d3fd7d91b55d28`).  Thus P14.3 has no
+  independent K\"ahler residual.  P14.2 remains active and explicit, and the
+  big non-nef programme remains separated as P14.4--P14.6.
 - **P14.4** `[T4; open]` Construct a \(P\)-sensitive positivity theory for
   big non-nef classes.  The unchanged relatively nef MP model signature is
   impossible, while the ideal-valuative transform and positive-volume DXZ
@@ -2334,9 +2319,9 @@ passed the superseding archive
 `correct`, zero critical errors, and zero gaps.  P00.1 and its Chapter 71
 problem environment are retired.
 At this 28 August milestone, the active inventory was 15 formal
-environments and 54 atoms.  After the 30 August retirements recorded above
-and the P14.7 retirement, the current inventory is 14 formal environments
-and 48 atoms.
+environments and 54 atoms.  After the 30 August retirements recorded above,
+the P14.7 retirement, and the P14.3 retirement, the current inventory is 14
+formal environments and 47 atoms.
 
 ## Easy-to-hard Rethlas queue
 
@@ -2358,10 +2343,10 @@ No active atom remains in this tier after retirement of `P01.1`.
 `P08.1`, `P14.2`, `P03.2`,
 `P03.3`.
 
-### T4 --- new comparison theories or several coupled inputs (17 atoms)
+### T4 --- new comparison theories or several coupled inputs (16 atoms)
 
 `P02.4`, `P04.1`, `P04.2`, `P05.5`, `P12.1`, `P12.2`, `P12.3`,
-`P12.6`, `P13.1`, `P13.2`, `P14.1`, `P14.3`, `P14.4`, `P15.3`,
+`P12.6`, `P13.1`, `P13.2`, `P14.1`, `P14.4`, `P15.3`,
 `P16.4`, `P16.6`, `P19.2`.
 
 ### T5 --- foundational theory or programme-level targets (17 atoms)

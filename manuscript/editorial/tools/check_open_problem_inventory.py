@@ -31,16 +31,16 @@ EXPECTED_GROUPS = (
     ("prob:frontier-cld-global-metric", ("P08.1",)),
     ("prob:frontier-singular-local", ("P12.1", "P12.2", "P12.3", "P12.4", "P12.5", "P12.6")),
     ("prob:frontier-affine-cone-ma", ("P13.1", "P13.2")),
-    ("prob:frontier-mp-pseff", ("P14.1", "P14.2", "P14.3", "P14.4", "P14.5", "P14.6", "P14.8")),
+    ("prob:frontier-mp-pseff", ("P14.1", "P14.2", "P14.4", "P14.5", "P14.6", "P14.8")),
     ("prob:frontier-zero-volume", ("P15.1", "P15.2", "P15.3")),
     ("prob:frontier-general-ma", ("P16.1", "P16.2", "P16.3", "P16.4", "P16.5", "P16.6", "P16.7")),
     ("prob:frontier-hybrid-ytd", ("P19.1", "P19.2", "P19.3", "P19.4")),
     ("prob:frontier-cross-fan-upstairs", ("P21.3",)),
 )
 EXPECTED_IDENTIFIERS = tuple(identifier for _, identifiers in EXPECTED_GROUPS for identifier in identifiers)
-EXPECTED_TIERS = Counter({"T1": 0, "T2": 5, "T3": 9, "T4": 17, "T5": 17})
-COUNT_DECLARATION = "14 formal problem environments = 48 active atomic research questions."
-TIER_DECLARATION = "Tier counts: (T1,T2,T3,T4,T5) = (0,5,9,17,17)."
+EXPECTED_TIERS = Counter({"T1": 0, "T2": 5, "T3": 9, "T4": 16, "T5": 17})
+COUNT_DECLARATION = "14 formal problem environments = 47 active atomic research questions."
+TIER_DECLARATION = "Tier counts: (T1,T2,T3,T4,T5) = (0,5,9,16,17)."
 
 HEADING = re.compile(r"^### `(prob:frontier-[^`]+)` ---", re.MULTILINE)
 ACTIVE = re.compile(r"^- \*\*(P\d{2}\.\d+)\*\* `\[(T[1-5]); open(?:[;\] ])", re.MULTILINE)
@@ -77,7 +77,7 @@ def audit() -> dict[str, object]:
 
     active_atoms = [(match.group(1), match.group(2)) for match in ACTIVE.finditer(inventory)]
     identifiers = tuple(identifier for identifier, _ in active_atoms)
-    require(identifiers == EXPECTED_IDENTIFIERS, "active identifiers are not the exact ordered 48-atom list")
+    require(identifiers == EXPECTED_IDENTIFIERS, "active identifiers are not the exact ordered 47-atom list")
     tiers = Counter(tier for _, tier in active_atoms)
     require(tiers == EXPECTED_TIERS, "active tier totals drifted")
 

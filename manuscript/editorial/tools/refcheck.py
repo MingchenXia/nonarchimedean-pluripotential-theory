@@ -73,8 +73,12 @@ def main():
         env = dict(op - cl) or dict(cl - op)
         t = re.sub(r'\\[{}]', '', s)
         br = t.count('{') - t.count('}')
-        tags = [int(m) for m in re.findall(r'\\tag\{\d+\.(\d+)\}', s)]
-        tagbad = bool(tags) and tags != list(range(1, len(tags) + 1))
+        tags = re.findall(r'\\tag\{\d+\.(\d+[A-Za-z]?)\}', s)
+        tagbases = [int(re.match(r'\d+', tag).group()) for tag in tags]
+        tagbad = (
+            bool(tags)
+            and (tagbases != sorted(tagbases) or len(tags) != len(set(tags)))
+        )
         if env or br or tagbad:
             issues += 1
             print("%s: env=%s braces=%d tags=%s" %
