@@ -428,7 +428,9 @@ either atom; see BMPS26, pp. 4 and 45.
   annulus products over the boundaryless tops of such towers, including
   finite boundaryless towers in which globally coordinated standard strict-
   open-polyannulus product stages occur at arbitrary levels among those three
-  exact bundle types, and finite
+  exact bundle types, including curve-locally coordinated versions in which
+  one analytic open cover of the original curve trivializes every annular
+  stage after base change, and finite
   globally coordinated
   standard strict-open-annulus products over a boundaryless finite tower of
   locally trivial standard strict-open-polydisc bundles over a published
@@ -1112,9 +1114,19 @@ and `thm:p062-interleaved-polyannulus-mixed-bundle-towers` now allows the
 globally coordinated annular product stages to occur at arbitrary levels.
 Its unique normal form contains every annular coordinate introduced in the
 tower, while the base coefficient and all locally constant slope
-coefficients live on the original curve.  It does not treat locally twisted
-annular coordinate changes or their coefficient monodromy.  The atom count,
-tier count, and queue position remain unchanged.
+coefficients live on the original curve.  That normal-form statement does
+not encode locally twisted annular coordinate changes or their coefficient
+monodromy.  For regularity without a global coefficient formula,
+`cor:p062-curve-local-annular-mixed-bundle-towers` now permits those annular
+coordinates, radii, and product trivializations to vary across one analytic
+open cover of the original curve.  On each member of that cover the whole
+restricted tower satisfies the globally coordinated interleaved theorem, so
+classical pluriharmonicity, real-PL regularity, and GJR harmonicity glue
+without any overlap compatibility of the coefficient systems.  Annular
+charts existing only over arbitrary opens of intermediate tower levels
+remain outside the result, since those opens need not retain the preceding
+tower or its paracompactness hypotheses.  The atom count, tier count, and
+queue position remain unchanged.
 The former literal request for ordinary CLD-smooth harmonic approximants is
 disproved by exact-live production run `20260825T055907Z_b5c8f0719b60`;
 positive-curvature psh approximants are not covered by that obstruction.
