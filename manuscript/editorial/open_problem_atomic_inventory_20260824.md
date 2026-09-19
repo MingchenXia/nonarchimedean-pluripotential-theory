@@ -401,6 +401,22 @@ geometrically unibranch higher-dimensional range would force the complete
 defect ledger to vanish, but no such theorem is proved here.  All P03 atoms
 and the inventory count remain unchanged.
 
+The escape theorem also yields a genuine defect maximum principle.  Theorem
+`thm:p031-rational-defect-maximum-principle` proves that the positive part of
+the difference between a local rational minorant and the global rational
+envelope takes its maximum on the boundary of every relatively compact test
+domain.  Corollary `cor:p031-rational-defect-coherent-carrier` then shows
+that all truncated carriers through the point lie in one intrinsic connected
+superlevel component which crosses every smaller boundary and is not
+relatively compact in the local domain.  Corollary
+`cor:p031-rational-defect-end-characterization` makes existence of such a
+coherent end-reaching carrier that is not relatively compact equivalent to
+positivity of the complete
+rational globalization defect.  Excluding these carriers in the unresolved
+normal or geometrically unibranch higher-dimensional range would force the
+complete defect ledger to vanish, but no such exclusion is proved here.  All
+P03 atoms and the inventory count remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
