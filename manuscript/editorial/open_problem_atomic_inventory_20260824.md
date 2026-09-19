@@ -295,6 +295,19 @@ oscillation.  This is an exact cofinality criterion, not a vanishing theorem;
 it supplies neither regularity nor a scalar-extension orbit presentation.
 Thus it retires no P03 atom and leaves the total count unchanged.
 
+The finite-cover defect vanishes when a global section palette exists.
+Theorem `thm:p031-section-palette-envelope-descent` restricts each cover
+competitor along a palette section through the chosen cover point and thereby
+proves exact pullback compatibility for both the semipositive real-PL
+envelope and the full P03 union envelope.  One global section suffices in a
+finite analytic orbit presentation, since its group translates cover every
+fiber.  Corollary `cor:p031-fold-envelope-without-maximum-closure` shows that
+the fold example has exact envelope descent although its fiberwise maximum
+is not real PL.  The theorem does not produce a section palette for scalar
+extension or for a general finite flat cover, and it proves no envelope
+regularity.  It therefore retires no P03 atom and leaves the total count
+unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
