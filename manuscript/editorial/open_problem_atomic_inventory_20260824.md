@@ -346,6 +346,17 @@ four-defect identity holds at every cover point.  No base local-to-global
 cofinality theorem or general scalar-extension presentation is supplied, so
 no P03 atom is retired and the total count is unchanged.
 
+With a global rational LFS minorant, Theorem
+`thm:p031-rational-defect-conservation` gives a three-level conservation
+ledger.  The rational LFS globalization defect is exactly invariant under
+finite flat pullback.  The full LFS gain is the increase of the global
+rational-coefficient gap, and the PL/full-P03 gain is the increase of that
+gap plus the PL--LFS branch gap.  Hence full compatibility is equivalent to
+preservation of the total two-stage global gap; vanishing of the base
+rational defect collapses every defect and gap on the complete fiber.  The
+theorem supplies no mechanism forcing that vanishing and no scalar-extension
+presentation, so all P03 atoms and the total count remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
