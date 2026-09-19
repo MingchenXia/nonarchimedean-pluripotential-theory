@@ -1362,7 +1362,16 @@ vector of zero-current base functions.  These transformations satisfy the
 affine Cech cocycle law, define a rank-\(s\) local system of lattices, and
 make the local slope vectors of every zero-current function a global
 parallel section of the dual real local system.  The proposition does not
-trivialize the lattice system or give global annular coordinates.  For the
+trivialize the lattice system or give global annular coordinates.  The
+translation cocycle now defines the canonical zero-current radiance class
+`rho_0(pi)` in twisted Cech degree one.  Proposition
+`prop:p062-polyannulus-radiance-obstruction` proves that this class vanishes
+exactly when zero-current affine gauges remove all translations after a
+refinement; then every zero-current function has one global base coefficient
+and a pairing of its parallel slope with the global continuous logarithmic-
+radius section of the associated flat vector bundle.  These gauges are not
+claimed to be logarithms of analytic units, so the criterion does not give
+global analytic annular coordinates.  For the
 globally coordinated product, the same coefficient
 formula persists through every finite tower of locally trivial standard
 strict open-polydisc bundles by
@@ -1504,8 +1513,11 @@ coefficients live on the original curve.  That normal-form statement does
 not trivialize locally twisted annular coordinate changes.  Their
 single-bundle coefficient monodromy is nevertheless encoded by
 `prop:p062-polyannulus-bundle-slope-local-system` as the integral lattice
-local system and real affine cocycle described above.  For regularity without
-a global coefficient formula,
+local system and real affine cocycle described above.  Its zero-current
+radiance class is the exact obstruction to removing the translations by
+zero-current affine gauge and hence to the resulting global metric
+coefficient formula; it is not an analytic-coordinate obstruction theorem.
+For regularity without a global coefficient formula,
 `cor:p062-curve-local-annular-mixed-bundle-towers` now permits those annular
 coordinates, radii, and product trivializations to vary across one analytic
 open cover of the original curve.  On each member of that cover the whole
