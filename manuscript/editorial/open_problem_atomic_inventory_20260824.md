@@ -2635,6 +2635,25 @@ P19.3 or alter the active-atom count.
   residual-Picard annular class, but retains the curve-local tower charts
   and residual-Picard hypothesis and gives no global coefficient formula.
   P21.3 and the active count therefore remain unchanged.
+  The common curve-cover restriction can now be replaced by a stage-local
+  one.  `prop:p062-stage-local-polyannulus-smooth-rigidity-transfer` proves
+  that a locally trivial finite strict open-polyannulus bundle preserves
+  ordinary CLD-smooth zero-Hessian regularity and first-current rigidity
+  when every member of its chosen trivializing base cover already has those
+  properties (and classical pluriharmonicity) for continuous zero-current
+  functions.  Combining that transfer with the four exact bundle types gives
+  `thm:p213-residual-picard-stage-local-annular-tower`: annular charts may
+  occur over arbitrary intermediate bases and need not be pulled back from
+  one cover of the residual-Picard curve.  Its whole-space, cover, and basis
+  Bedford--Taylor consequences are
+  `cor:p213-residual-picard-stage-local-annular-tower-bt`,
+  `cor:p213-residual-picard-stage-local-annular-tower-cover-bt`, and
+  `cor:p213-residual-picard-stage-local-annular-tower-basis-bt`.
+  The remaining obstruction is stated rather than hidden: whole-space
+  regularity on an intermediate base is not known to imply the needed
+  regularity on every arbitrary open trivialization chart.  Thus the theorem
+  strictly enlarges the verified class without closing P21.3, and the active
+  count remains unchanged.
   The bare real-PL or GJR-harmonic outcomes occurring in P06.1/P06.2 remain
   G-local/weakly smooth and do not themselves give this ordinary CLD-smooth
   approximation: `prop:ch19-cld-smooth-harmonic-nonregularization` gives an
