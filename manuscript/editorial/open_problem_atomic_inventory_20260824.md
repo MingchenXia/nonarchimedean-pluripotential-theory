@@ -1150,9 +1150,9 @@ the residual scopes stated above.
   finite ambient-star × open-convex-Euclidean and × convex-polyhedral
   joint-convex-generator, Stone × finite-star × convex-polyhedral
   joint-convex-generator, Stone × exact CLD infinite-star, exact CLD
-  infinite-star × convex-polyhedral joint-convex-generator, two nonambient
-  interval, exact CLD infinite-star, Stone--Euclidean, Stone--polyhedral, and
-  generator-convex
+  infinite-star × convex-polyhedral and Stone × exact CLD infinite-star ×
+  convex-polyhedral joint-convex-generator, two nonambient interval, exact
+  CLD infinite-star, Stone--Euclidean, Stone--polyhedral, and generator-convex
   arbitrary-incidence polyhedral-complex cases]`
   Decide whether the CLD psh hierarchy collapses after its first
   decreasing-limit stage.
@@ -1267,6 +1267,25 @@ request/response/header SHA-256 values are
 `55b1ef2a48f52008cac7820cf81a0ac931e9688d504c311adf767b56dbb4475f` /
 `4e43d68634260430b157e261e485a133b50ca3517ddde2d8dbffd74d9c5c1da3` /
 `b2ea5d5f52042d3197d3358bf8460698df26d0d9e92842a8b9c31ed9531f93d9`.
+
+All three factors may now occur simultaneously.  For any locally compact
+Hausdorff clopen-base space $Z$ carrying only locally constant affine
+functions, any nonempty exact CLD branch set $B$, and any nonempty convex
+polyhedron $P$,
+`thm:p071-stone-infinite-star-polyhedral-collapse` identifies the
+first-stage, full generated, and Stone-factorized fibrewise comparison
+sheaves on $Z\times X_B\times P$.  Sequential generation forces one
+countable activity set common to the Stone family.  On that metrizable
+branch reduction, the exact star--polyhedral comparison envelope is
+nonexpanding, so finite clopen discretization, the uniform one-step
+smoothing estimate, and a summable tail give one decreasing generator
+sequence on a fixed smaller product neighbourhood.  This permits a
+nonmetrizable Stone factor, arbitrary exact CLD valence, and all affine
+directions, faces, and corners of one convex polyhedron simultaneously.  It
+does not cover nonconstant affine directions on the Stone factor, non-CLD
+or nonambient infinite stars, separately convex generators, or nonconvex or
+branched chamber gluings.  P07.1 remains active, with unchanged atom and
+tier counts.
 
 Two additional nonambient interval models are now controlled.  For the
 finite constant-collar endpoint, the comparison sheaf is the extended-real
