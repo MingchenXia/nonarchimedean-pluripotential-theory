@@ -1090,9 +1090,10 @@ the residual scopes stated above.
 - **P07.1** `[T2; open after the tropical-toric, finite ambient-star,
   finite ambient-star × open-convex-Euclidean and × convex-polyhedral
   joint-convex-generator, Stone × finite-star × convex-polyhedral
-  joint-convex-generator, Stone × exact CLD infinite-star, two nonambient
-  interval, exact CLD infinite-star, Stone--Euclidean, Stone--polyhedral,
-  and generator-convex
+  joint-convex-generator, Stone × exact CLD infinite-star, exact CLD
+  infinite-star × convex-polyhedral joint-convex-generator, two nonambient
+  interval, exact CLD infinite-star, Stone--Euclidean, Stone--polyhedral, and
+  generator-convex
   arbitrary-incidence polyhedral-complex cases]`
   Decide whether the CLD psh hierarchy collapses after its first
   decreasing-limit stage.
@@ -1184,6 +1185,29 @@ final correct, zero critical errors, and zero gaps.  The final archived
 request/response SHA-256 values are
 52edf497268a0bf7e4f6151535b1b3dcd2255a3a1ca511328b89ad028ef9d955 /
 10ee898d364bd93999884f9b63018b62b65e62283e542cb38e0a24c842cfa321.
+
+The exact CLD star may now also be combined with one nonempty convex
+polyhedron.  For every nonempty branch set \(B\), theorem
+`thm:p071-infinite-star-polyhedral-collapse` identifies the first-stage,
+full generated, and exact product-comparison sheaves on \(X_B\times P\)
+under joint ambient convexity in the branch and polyhedral variables.  All
+faces and corners are included, and every germ has a decreasing smooth-psh
+approximation on one fixed smaller product neighbourhood.  The proof uses a
+compact-core exact comparison envelope, finite-moment insertion, countable
+branch reduction, partial Legendre sampling, finite-star smoothing, and a
+summable-tail correction.  It does not cover separately convex generators,
+nonconstant affine directions on a Stone parameter, non-CLD infinite stars,
+nonambient branch structures, or nonconvex or branched chamber gluings.
+P07.1 therefore remains active, with unchanged atom and tier counts.  The
+exact statement/proof SHA-256 values are
+`9b3e2c4163f30ad26f606a06d591a064f57994b56aa7910eb012093777f3c1a1` /
+`0cc78aa605311e6709cbf33b0580c946b5b50cef610ffff28eb5fb7c1aae6d20`.
+Dependency-closed V2 verification with `gpt-6-astra` at `xhigh` returned
+final `correct`, zero critical errors, and zero gaps.  The archived
+request/response/header SHA-256 values are
+`55b1ef2a48f52008cac7820cf81a0ac931e9688d504c311adf767b56dbb4475f` /
+`4e43d68634260430b157e261e485a133b50ca3517ddde2d8dbffd74d9c5c1da3` /
+`b2ea5d5f52042d3197d3358bf8460698df26d0d9e92842a8b9c31ed9531f93d9`.
 
 Two additional nonambient interval models are now controlled.  For the
 finite constant-collar endpoint, the comparison sheaf is the extended-real
@@ -1327,9 +1351,10 @@ become `(0,5,13,17,17)`.
 P07.1 therefore retains branched or singular-link higher-dimensional
 chamber systems without a generator-preserving convex development,
 nonconstant affine structures on zero-dimensional parameters, products of
-an infinite star with an additional active convex factor, non-CLD infinite
-stars, and other nonambient local models outside the two exact interval
-structures, \(X_B\), and the verified locally constant-parameter models.
+an exact infinite star with active factors other than one convex polyhedron,
+non-CLD infinite stars, and other nonambient local models outside the two
+exact interval structures, \(X_B\), and the verified locally
+constant-parameter models.
 The residual obstruction is sharpened to the existence of a compatible
 local convex development and to fixed-neighbourhood globalization beyond
 it, rather than diagonal order.  It remains active.
