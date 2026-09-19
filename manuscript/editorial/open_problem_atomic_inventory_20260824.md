@@ -257,6 +257,17 @@ unchanged by the first scalar step.  No size or removability theorem is
 proved for the support, and no statement is made for further analytic
 extensions, so the P03 atoms and total count remain unchanged.
 
+The full-real LFS subfamily also has an exact descent theorem for
+ordinary-locally-split finite analytic covers.  The fiberwise maximum theorem
+`thm:p031-lfs-fiber-maximum` sends every LFS cover function to an LFS base
+function, and `thm:p031-lfs-envelope-pullback` therefore makes the raw LFS
+envelope of every pulled-back obstacle equal to the pullback of the base
+envelope, with simultaneous emptiness of the two competitor families.  The
+input is an explicit ordinary-local disjoint union of analytic isomorphisms;
+no such splitting is deduced for general finite flat, finite etale, or scalar
+maps, and the result does not cover every semipositive real-PL competitor.
+Thus it retires no P03 atom and leaves the total count unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
