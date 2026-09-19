@@ -283,6 +283,18 @@ is not real PL.  The result neither produces an orbit presentation for
 scalar extension nor descends LFS functions as LFS functions, so it retires
 no P03 atom and leaves the total count unchanged.
 
+The full real-PL branch also has an exact finite-orbit defect formula.
+Theorem `thm:p031-invariant-real-pl-descent` identifies base semipositive
+real-PL competitors with invariant cover competitors and shows that group
+averaging stays in this subfamily.  Under nonemptiness,
+`thm:p031-centered-symmetry-defect` identifies the full P03 pullback defect
+with a finite nonnegative function that is constant on every orbit fiber.  Its
+centered formula charges each competitor's asymmetry against the remaining
+headroom of its group average, and bounds the defect by the supremal orbit
+oscillation.  This is an exact cofinality criterion, not a vanishing theorem;
+it supplies neither regularity nor a scalar-extension orbit presentation.
+Thus it retires no P03 atom and leaves the total count unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
