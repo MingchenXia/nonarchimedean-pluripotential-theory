@@ -1,0 +1,104 @@
+% P03.1 rational-defect escape criterion proof, live integration.
+
+\begin{proof}[\Cref{lem:p031-compact-component-collar}]
+We first recall the needed compact-Hausdorff separation fact.  Fix $c\in C$
+and let $Q$ be the intersection of all clopen subsets of $F$ containing
+$c$.  Every one of those subsets contains $C$, so $C\subset Q$.  The set
+$Q$ is connected.  Indeed, if $Q=A\amalg B$ were a separation with
+$c\in A$, compact Hausdorff normality would give disjoint open subsets
+$G,H\subset F$ containing $A,B$, respectively.  The compact set
+$F\setminus(G\cup H)$ is disjoint from $Q$.  For each of its points, the
+definition of $Q$ supplies a clopen neighborhood of $c$ omitting that
+point.  A finite intersection gives a clopen neighborhood $N$ of $c$ with
+$N\subset G\cup H$.  Then $N\cap G$ and $N\cap H$ are complementary open
+subsets of the clopen set $N$.  Thus $N\cap G$ is clopen in $F$, contains
+$c$, and omits $B$, contradicting the definition of $Q$.  Hence $Q$ is connected,
+so maximality of the component gives $Q=C$.
+
+If $F\setminus O$ is empty, put $A:=F$.  Otherwise, for each point of the
+compact set $F\setminus O$, choose a clopen subset of $F$ that contains $C$
+and omits that point.  A finite intersection gives a clopen set
+$A\subset F$ with
+\[
+                         C\subset A\subset O.
+\]
+Both $A$ and $F\setminus A$ are compact.  The open set
+$O\setminus(F\setminus A)$ contains $A$.  Local compactness and regularity,
+followed by a finite subcover of $A$, give an open set $D$ such that
+\[
+ A\subset D\subset\overline D
+             \subset O\setminus(F\setminus A)
+\]
+and $\overline D$ is compact.  Its boundary misses $A$ because $A\subset D$
+and misses $F\setminus A$ because its closure does.  This proves
+\eqref{eq:p031-compact-component-collar}.
+\end{proof}
+
+\begin{proof}[\Cref{thm:p031-rational-defect-escape}]
+The global family $\mathcal Q_f(X)$ is nonempty, and its members are
+continuous.  Hence its pointwise supremum $s_{\mathbf Q,X}$ is lower
+semicontinuous.  The function $g_v=v-s_{\mathbf Q,X}$ is therefore upper
+semicontinuous on $W$, so $E_{\alpha,U}(v)$ is a compact subset of
+$\overline U$.  It contains $x$ by
+\eqref{eq:p031-rational-defect-escape-positive-gap}.
+
+Suppose that $C_{\alpha,U}(x)$ does not meet $\partial U$.  It is then
+contained in $U$.  Apply \Cref{lem:p031-compact-component-collar} with
+$F=E_{\alpha,U}(v)$ and $O=U$.  We obtain an ordinary open set $D$ such
+that
+\begin{equation}
+\label{eq:p031-rational-defect-trapping-domain}
+ x\in D,\qquad \overline D\subset U,\qquad
+ \overline D\text{ is compact},\qquad
+ \partial D\cap E_{\alpha,U}(v)=\varnothing.
+\end{equation}
+The boundary of $D$ is nonempty.  Otherwise $D$ would be a nonempty clopen
+proper subset of the connected space $X$; it is proper because
+$\overline D\subset U$ and $\partial U\ne\varnothing$.
+
+For each $y\in\partial D$, the last condition in
+\eqref{eq:p031-rational-defect-trapping-domain} gives
+\[
+                    s_{\mathbf Q,X}(y)>v(y)-\alpha.
+\]
+Choose $b_y\in\mathcal Q_f(X)$ with $b_y(y)>v(y)-\alpha$.  Since
+$v-b_y$ is continuous on $W$, it is smaller than $\alpha$ on a neighborhood
+of $y$.  Finitely many of these
+neighborhoods cover the compact set $\partial D$.  The maximum $b$ of the
+corresponding finitely many functions $b_y$ is again a global
+$\mathbf Q$-LFS minorant of $f$, and it satisfies
+\begin{equation}
+\label{eq:p031-rational-defect-subcritical-boundary-load}
+                         \max_{\partial D}(v-b)<\alpha.
+\end{equation}
+On the other hand, the lower-bound half of
+\Cref{thm:p031-rational-collar-minimax} applies to $D$ and $b$ and gives
+\[
+             \max_{\partial D}(v-b)\geq\delta_x(v)>\alpha,
+\]
+contradicting
+\eqref{eq:p031-rational-defect-subcritical-boundary-load}.  Thus
+$C_{\alpha,U}(x)$ meets $\partial U$.  It is a connected component of a
+compact Hausdorff space and is therefore compact, which gives the final
+assertion.
+\end{proof}
+
+\begin{proof}[\Cref{cor:p031-rational-defect-escape-characterization}]
+Suppose first that $\Delta^{\mathbf Q}_{f,X}(x)>0$.  By the definition of
+the local rational envelope, there are $W$ and $v\in\mathcal Q_f(W)$ with
+$\delta_x(v)>0$.  Choose $0<\alpha<\delta_x(v)$ and apply
+\Cref{thm:p031-rational-defect-escape} to every admissible $U$.  This proves
+\textup{(ii)}.
+
+Conversely, \textup{(ii)} includes $g_v(x)\geq\alpha>0$.  Since the local
+rational envelope dominates $v$ at $x$, one has
+\[
+ \Delta^{\mathbf Q}_{f,X}(x)
+   =P_{\mathbf Q}^{\mathrm{loc}}f(x)-s_{\mathbf Q,X}(x)
+   \geq v(x)-s_{\mathbf Q,X}(x)
+   =g_v(x)>0.
+\]
+This proves \textup{(i)}.  The last assertion follows from the equivalence
+just proved and the nonnegative three-level defect ledger
+\eqref{eq:p031-three-level-defect-ledger}.
+\end{proof}

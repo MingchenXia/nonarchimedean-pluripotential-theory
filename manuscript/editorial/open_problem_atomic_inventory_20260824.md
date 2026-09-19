@@ -386,6 +386,21 @@ theorem makes arbitrary normal or geometrically unibranch
 higher-dimensional obstacles boundary-saturated.  All P03 atoms and the
 inventory count remain unchanged.
 
+The collar obstruction also has an exact connected-carrier formulation.
+Theorem `thm:p031-rational-defect-escape` proves that every positive gap of a
+local rational competitor forces, at every lower positive level and on every
+smaller relatively compact domain, a compact connected high-defect component
+joining the central point to the surrounding boundary.  Corollary
+`cor:p031-rational-defect-escape-characterization` proves the converse: one
+local competitor and one positive level whose distinguished component
+escapes across every admissible smaller domain are equivalent to positivity
+of the complete rational globalization defect.
+Thus no counterexample can have only isolated or locally trapped
+high-defect components.  Trapping all such components in the normal or
+geometrically unibranch higher-dimensional range would force the complete
+defect ledger to vanish, but no such theorem is proved here.  All P03 atoms
+and the inventory count remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
