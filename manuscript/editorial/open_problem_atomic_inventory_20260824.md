@@ -454,6 +454,19 @@ not exclude such a persistent end in the unresolved normal or geometrically
 unibranch higher-dimensional range, so P03.1--P03.3 and the total count
 remain unchanged.
 
+The finite-fiber restriction in the terminal-anchor mechanism is now removed
+topologically.  Theorem `thm:p031-proper-open-component-surjectivity` proves
+that every component over a compact connected set maps onto that set under
+any continuous proper open surjection of locally compact Hausdorff spaces.
+Theorem `thm:p031-proper-open-persistent-component-anchor` consequently gives
+one common point in a fixed compact fiber for every decreasing family of
+components through a lifted endpoint, and Corollary
+`cor:p031-proper-open-persistent-terminal-anchor` applies this to the entire
+rooted terminal-carrier family.  Fiber finiteness is needed only for the
+finite component-count bound.  Scalar projection still lacks the required
+general openness and analytic defect compatibility, so P03.1--P03.3 and the
+total count remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
