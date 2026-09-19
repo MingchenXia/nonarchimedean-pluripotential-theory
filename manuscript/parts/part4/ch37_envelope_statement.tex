@@ -62,8 +62,11 @@ Three of the four hypotheses are necessary, and one is a convention:
       \Cref{sec:ch37-node-cusp} shows the failure concretely;
 \item \emph{nonempty} excludes the formal supremum \(-\infty\), which is not
       a psh function under \Cref{def:bj-psh}\,(2);
-\item \emph{bounded above by a constant} cannot be weakened to a pointwise
-      bound, as \Cref{ex:ch37-pointwise-not-uniform} shows;
+\item \emph{bounded above by a constant} cannot be dropped:
+      \Cref{ex:ch37-pointwise-not-uniform} exhibits a family in
+      \(\PSH_X(\theta)\) whose supremum is \(+\infty\).  It cannot be
+      weakened to a pointwise bound either, but only because there is
+      nothing to weaken --- see \Cref{rem:ch37-pointwise-equals-uniform};
 \item \emph{integral and projective} is the setting in which
       \(\PSH_X(\theta)\) was defined; properness is what makes
       \(X^{\An}\) compact, and compactness is used at every step.
@@ -83,9 +86,34 @@ A family
               (\varphi_i)_{i\in I}\subset\PSH_X(\theta)
 \]
 is \emph{bounded above} if there exists \(C\in\mathbf R\) such that
-\(\varphi_i\le C\) on \(X^{\An}\) for every \(i\in I\).  A pointwise
-upper bound depending on the analytic point is not enough.
+\(\varphi_i\le C\) on \(X^{\An}\) for every \(i\in I\).
 \end{definition}
+
+\begin{remark}[Pointwise and uniform bounds agree here]
+\label{rem:ch37-pointwise-equals-uniform}
+For families inside \(\PSH_X(\theta)\) the three conditions
+\[
+ \sup_i\sup_{X^{\An}}\varphi_i<\infty,
+ \qquad
+ \sup_i\varphi_i(v)<\infty\ \text{ for every }v,
+ \qquad
+ \sup_i\varphi_i(v_{\triv})<\infty
+\]
+are equivalent, so \Cref{def:bj-bounded-family} is not strengthening a
+pointwise hypothesis into a uniform one.  The reason is the maximum
+principle at the trivial valuation: every Fubini--Study function satisfies
+\(\sup_{X^{\An}}\phi=\phi(v_{\triv})\) by
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:decreasing}, and if
+\(\phi_j\searrow\varphi\) is an approximating net as in
+\Cref{def:bj-psh}, then
+\(\sup_{X^{\An}}\varphi\leq\inf_j\sup_{X^{\An}}\phi_j
+ =\inf_j\phi_j(v_{\triv})=\varphi(v_{\triv})\leq\sup_{X^{\An}}\varphi\),
+so \(\sup_{X^{\An}}\varphi=\varphi(v_{\triv})\) for every
+\(\varphi\in\PSH_X(\theta)\).  Hence a bound at the single point
+\(v_{\triv}\) is already a bound on \(X^{\An}\).  What \emph{does} fail is
+any attempt to drop the bound: see
+\Cref{ex:ch37-pointwise-not-uniform}.
+\end{remark}
 
 \begin{definition}[Envelope property]
 \label{def:bj-envelope-property-final}
@@ -364,8 +392,8 @@ complex-analytic equations.
 \label{sec:ch37-testing}
 
 The theorem is stated with four hypotheses.  This section shows by example
-that two of them cannot be relaxed in the obvious way, and explains why the
-other two are conventions rather than restrictions.  The examples are small
+that three of them cannot simply be dropped, and explains why the fourth is
+a convention rather than a restriction.  The examples are small
 and are meant to be checked by hand.
 
 \begin{example}[A pointwise bound is not enough]
@@ -381,11 +409,20 @@ that is \(0\) off the ray through \(\ord_0\) and satisfies
  \psi_j\equiv j\ \text{elsewhere}.
 \]
 Each \(\psi_j\) is \(\theta\)-psh, since adding a constant preserves the
-class by \Cref{thm:bj-basic-closure}\,(1).  At each fixed
-\(v\in X^{\An}\) the family \((\psi_j(v))_j\) is a set of real numbers, so
-the family is bounded pointwise in the trivial sense of being finite at each
-point; but \(\sup_j\psi_j\equiv+\infty\), which is not a psh function and
-whose usc regularization is again \(+\infty\).
+class by \Cref{thm:bj-basic-closure}\,(1).  Each individual \(\psi_j\) is
+finite at each point, and the family is unbounded above at every point of
+\(X^{\An}\) but one: \(\psi_j\equiv j\) off the ray, and
+\(\psi_j(t\ord_0)=\max\{j-t,0\}\to+\infty\) for each fixed \(t<\infty\),
+whereas at the endpoint \(v_{0,\triv}=\lim_{t\to\infty}t\ord_0\) one has
+\(\psi_j(v_{0,\triv})=0\) for \emph{every} \(j\).  So \(\sup_j\psi_j\) is
+\(+\infty\) on \(X^{\An}\setminus\{v_{0,\triv}\}\) and \(0\) at
+\(v_{0,\triv}\); it is not a psh function, and its usc regularization is
+identically \(+\infty\), because every neighbourhood of \(v_{0,\triv}\)
+meets the ray at finite parameter.  The
+example therefore shows that the boundedness hypothesis cannot simply be
+dropped; it does \emph{not} exhibit a pointwise-bounded family that fails to
+be uniformly bounded, and by
+\Cref{rem:ch37-pointwise-equals-uniform} no such family exists.
 
 The example is deliberately crude, and that is the point:
 \Cref{def:bj-bounded-family} demands a single constant \(C\) with

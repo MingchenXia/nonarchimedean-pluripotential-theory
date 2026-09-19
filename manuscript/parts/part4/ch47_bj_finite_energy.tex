@@ -369,9 +369,10 @@ reference and used only where indicated.
 \item\label{itm:ch47-import:quasitriangle}
       \emph{The quasi-triangle inequality} \eqref{eq:bj-I-quasitriangle},
       \cite[Theorem~3.31]{BJ22}.  Proved here for \(n=1\) with the sharp
-      constant \(C_1=2\) (\Cref{prop:ch47-curve-I-norm}); used only for the
-      statement that \(\mathbb I\) is a quasi-metric, and never inside a
-      proof of anything else in this chapter.
+      constant \(C_1=2\) (\Cref{prop:ch47-curve-I-norm}); used for the
+      statement that \(\mathbb I\) is a quasi-metric, and once inside a
+      proof, namely for the energy bound along an \(I\)-Cauchy net in the
+      proof of \Cref{thm:bj-cy-envelope-equivalence}.
 \item\label{itm:ch47-import:completeness}
       \emph{Continuity of energy along increasing nets and completeness of
       the strong space}, \cite[Theorems~12.4 and~12.5]{BJ22}.  Used only in
@@ -389,10 +390,12 @@ direction is the reverse, as the source note of that chapter records.
 The reason for listing the imports so prominently is that the four
 statements are of very different depths.
 Item~\cref{itm:ch47-import:quasitriangle} is a Hodge-type estimate that
-belongs to the finitary theory of \Cref{sec:ch46-model}; nothing in this
-chapter would change if it were withheld, except that
-\eqref{eq:bj-I-quasitriangle} would be unavailable and
-\(\mathbb I\) would be merely a symmetric separating gauge.
+belongs to the finitary theory of \Cref{sec:ch46-model}; withholding it
+would cost \(\mathbb I\) its quasi-metric status --- it would be merely a
+symmetric separating gauge --- and would remove the uniform energy bound
+along an \(I\)-Cauchy net in the proof of
+\Cref{thm:bj-cy-envelope-equivalence}, which is where the compactness
+argument there starts.
 Item~\cref{itm:ch47-import:uniqueness} is a genuine theorem whose failure
 would leave the Calabi--Yau theorem an existence statement without
 uniqueness.  Item~\cref{itm:ch47-import:diff} is the analytic heart:
@@ -1526,11 +1529,14 @@ which lies between the bound \(c_1t(1-t)I=\tfrac16t(1-t)I\) of
 \Cref{prop:ch47-scaling}\,\cref{itm:ch47-scal:JI}.  Notice that
 \(t\cdot\phi_c\ne\phi_{tc}\): the first moves the corner of the graph from
 \(\ord_p\) to \(t\,\ord_p\) keeping the slope \(-c\), while the second
-keeps the corner and changes the slope to \(-tc\).  They have the same
-energy only because the computation is one-dimensional.  In
+keeps the corner and changes the slope to \(-tc\).  Their energies differ
+too: \(E_\omega(t\cdot\phi_c)=-tc^2/(2d)\) is homogeneous of degree one in
+\(t\), as \Cref{thm:ch46-energy-homogeneous} requires, whereas
+\(E_\omega(\phi_{tc})=-t^2c^2/(2d)\) is homogeneous of degree \(n+1=2\).  In
 \Cref{ex:ch46-toric-p2} the analogous two operations on \(\mathbf P^2\)
-give \(-tc^3/3\) and \(-t^3c^3/3\) respectively, and are therefore visibly
-different.
+give \(-tc^3/3\) and \(-t^3c^3/3\), with exponents \(1\) and \(n+1=3\); the
+pattern is the same in both dimensions, and only the first operation is the
+scaling action.
 \end{example}
 
 \section{Dual energy of a measure}
@@ -1636,8 +1642,11 @@ that the supremum over \(\cH_{\mathrm{dom}}(\omega)\) dominates the one
 over \(\cE^1(\omega)\).
 
 \emph{The reverse inequality.}  Let \(\phi\in\cE^1(\omega)\).  By
-\Cref{lem:ch46-pl-domination} the family
-\(\mathcal F_{\mathrm{dom}}(\phi)=\{\psi\in\cH_{\mathrm{dom}}(\omega)\mid
+\Cref{lem:ch46-continuous-competitors} --- \Cref{lem:ch46-pl-domination}
+being available only when \(\omega\) is the class of an ample
+\(\mathbf Q\)-line bundle, whereas the standing hypothesis here is
+\(\omega\in\Amp(X)\) --- the family
+\(\mathcal F_{\mathrm{dom}}(\phi)=\{\psi\in C^0(X^{\An})\cap\PSH(\omega)\mid
 \psi\ge\phi\}\) is nonempty and, indexed as in Step~6 of the proof of
 \Cref{thm:bj-extended-energy-pairing}, produces a decreasing net
 \((\phi_j)\) in \(\cH_{\mathrm{dom}}(\omega)\) whose pointwise limit agrees
@@ -3053,9 +3062,13 @@ Let \(K\subset X^{\lin}\) be a compact subset of \(X^{\An}\) such that
       equicontinuous.
 \end{enumerate}
 Then every \(\mu\in\mathcal M\) carried by \(K\) is admissible for
-\(\omega\), with \(M(\mu)\le C_K\).  The dual complex
-\(\Delta_{\cX}\) of an SNC test configuration \(\cX\) satisfies
-\cref{itm:ch47-skel:T}--\cref{itm:ch47-skel:equi}.
+\(\omega\), with \(M(\mu)\le C_K\).  For an SNC test configuration
+\(\cX\) and \(c>0\), the truncated dual complex
+\[
+ \Delta_{\cX}^{(c)}:=\{\alpha\in\Delta_{\cX}:
+   \alpha_j\ge c\ \text{for every active coordinate }j\}
+\]
+satisfies \cref{itm:ch47-skel:T}--\cref{itm:ch47-skel:equi}.
 \end{proposition}
 
 \begin{proof}
@@ -3076,15 +3089,38 @@ and use pointwise convergence at the finitely many \(w_l\).  Hence
 \to0\).  The values are real because \(K\subset X^{\lin}\) and
 \eqref{eq:bj-e1-sublinear-growth} bounds \(|\phi|\) there.
 
-For the last assertion, \(\Delta_{\cX}\) is a compact subset of
-\(X^{\lin}\) whose rational points are divisorial and dense, and by the
-discussion preceding \Cref{prop:bj-psh-continuous-bounded-valuations} the
-inclusion \(\Delta_{\cX}\hookrightarrow(X^{\lin},d_{\infty,\omega})\) is
-Lipschitz; since every \(\omega\)-psh function is \(1\)-Lipschitz for
-\(d_{\infty,\omega}\) by \eqref{eq:bj-dinfty}, the restricted family is
-uniformly Lipschitz, hence equicontinuous, and \(T_\omega\) is bounded on
-\(\Delta_{\cX}\) by \eqref{eq:bj-dinfty-homogeneity}.
+For the last assertion, \(\Delta_{\cX}^{(c)}\) is a compact subset of
+\(X^{\lin}\) whose rational points are divisorial and dense, and
+\(T_\omega\) is bounded on \(\Delta_{\cX}\) by
+\eqref{eq:bj-dinfty-homogeneity}.  For \cref{itm:ch47-skel:equi},
+\Cref{prop:ch49-dual-complex}\,\cref{itm:ch49-dc:lipschitz} makes the
+inclusion \(\Delta_{\cX}\hookrightarrow(X^{\lin},d_{\infty,\omega})\)
+Lipschitz, with constant \(C_{\cX}/c\), on the part of each face at
+distance \(\ge c\) from the coordinate hyperplanes, hence on
+\(\Delta_{\cX}^{(c)}\); since every \(\omega\)-psh function is
+\(1\)-Lipschitz for \(d_{\infty,\omega}\) by \eqref{eq:bj-dinfty}, the
+restricted family is uniformly Lipschitz there, and on a set where the two
+topologies agree this is equicontinuity for the topology of
+\(X^{\An}\).
 \end{proof}
+
+\begin{warning}{Why the whole dual complex is not claimed}
+\label{warn:ch47-skeletal-boundary}
+The truncation by \(c>0\) is not cosmetic.  The Lipschitz constant of
+\Cref{prop:ch49-dual-complex}\,\cref{itm:ch49-dc:lipschitz} degenerates as
+\(c\downarrow0\), and \Cref{rem:ch49-dual-complex-lipschitz} declines to
+assert a global constant: were the inclusion Lipschitz up to the boundary
+of every face, compactness of \(\Delta_{\cX}\) would make the weak and the
+\(d_{\infty,\omega}\) topologies agree on \(\Delta_{\cX}\), which is not
+proved in this book.  In every case computed there --- the toric one in
+particular, through the closed formula \eqref{eq:ch49-toric-dinfty} --- the
+inclusion \emph{is} Lipschitz up to the boundary, and then
+\cref{itm:ch47-skel:T}--\cref{itm:ch47-skel:equi} hold for all of
+\(\Delta_{\cX}\).  Statements below that quote
+\Cref{prop:ch47-skeletal-admissible} for a measure carried by a dual
+complex should be read as quoting it for \(\Delta_{\cX}^{(c)}\), or as
+carrying that hypothesis.
+\end{warning}
 
 \begin{remark}[The trivially valued analogue of \Cref{lem:ch28-skeleton-admissible} is weaker]
 \label{rem:ch47-skeletal-weaker}
@@ -3714,9 +3750,22 @@ measure carried by the compact set \(\{t\,\ord_p\mid t\le R\}\), on which
 \Cref{lem:ch47-T-integrable} and
 \Cref{prop:ch47-skeletal-admissible}, and the corresponding potential is
 obtained by the same two integrations, being affine beyond \(t=R\).  As
-\(R\to\infty\) these potentials increase to \(\phi_\alpha\) and their
-energies increase to \(-\alpha^2/(2d)\); by
-\Cref{cor:ch47-monotone-I} the convergence is strong.  The example
+\(R\to\infty\) these potentials \emph{decrease} to \(\phi_\alpha\) and
+their energies decrease to \(-\alpha^2/(2d)\).  The direction is worth
+checking, because renormalization pushes the opposite way to deletion:
+removing the tail mass \(\alpha/(1+R)\) and rescaling multiplies
+\(\mu^{\mathrm u}([0,t])\) by \((1-\varepsilon)^{-1}>1\), where
+\(\varepsilon=\alpha/\bigl(d(1+R)\bigr)\), so that
+\(h_R'(t)=-d+\mu^{\mathrm u}_R([0,t])\ge h_\alpha'(t)\) for every \(t\)
+while \(h_R(0)=h_\alpha(0)=0\), whence \(\phi_R\ge\phi_\alpha\); and
+\(\varepsilon\) decreases in \(R\), so the net decreases.  With
+\(d=\alpha=1\) one gets \(h_R'(t)=(t/R-1)/(1+t)\) on \([0,R]\) and \(0\)
+beyond, hence \(E_\omega(\phi_R)=-\tfrac12(3-4\log2)\approx-0.114\) at
+\(R=1\) and \(\approx-0.463\) at \(R=100\), decreasing to
+\(-\tfrac12=-\alpha^2/(2d)\).  \Cref{cor:ch47-monotone-I} applies with
+\(\phi=\phi_\alpha\le\psi=\phi_R\) and gives
+\(I(\phi_\alpha,\phi_R)\le(n+1)\bigl(E(\phi_R)-E(\phi_\alpha)\bigr)\to0\),
+so the convergence is strong.  The example
 therefore also illustrates the passage from
 \Cref{thm:ch47-existence-admissible} to
 \Cref{cor:bj-cy-unibranch}: exhaustion by admissible data, plus

@@ -933,10 +933,14 @@ remain in force and are repeated here because they are used without further
 comment.  The \emph{domain} of \(F_\mu\) is the set of
 \(\varphi\in\cE^1(X,\omega)\) with \(\int\varphi\,\rd\mu\) finite; the
 integral is always defined in \([-\infty,+\infty)\) because \(\varphi\) is
-upper semicontinuous and bounded above, so finiteness is the only issue, and
-it is exactly what
-\eqref{eq:measure-fenchel-energy} guarantees for
-\(\mu\in\mathcal M^1_V\) once \Cref{prop:ch28-test-class} is available.  The
+upper semicontinuous and bounded above, so finiteness is the only issue.
+For \(\mu\in\mathcal M^1_V\) finiteness is automatic, by the truncation
+argument of \Cref{rem:ch28-two-energies}: it is
+\Cref{prop:ch28-test-class}\,\cref{itm:ch28-test:bdd} applied to
+\(\max\{\varphi,-j\}\), not \eqref{eq:measure-fenchel-energy}, which by
+itself covers only model functions.  The domain is therefore all of
+\(\cE^1(X,\omega)\) when \(\mu\in\mathcal M^1_V\), and a proper subset only
+for \(\mu\) of infinite dual energy.  The
 \emph{sign} is the concave one, and \(F_\mu\) is to be maximized.  The
 \emph{normalization} is \(\sup_{X^{\An}}\varphi=0\), which by
 \Cref{thm:bfj-psh-compactness} places the competitors in a compact set and
@@ -2185,7 +2189,7 @@ It remains to pass from the skeleta to \(X^{\An}\).  Both \(\varphi\) and
 \(\psi\) are determined by their skeletal restrictions, by
 \Cref{thm:bfj-skeletal-characterization}: for \(\omega\)-psh functions on a
 curve one has \(\varphi=\inf_\Gamma\varphi\circ p_\Gamma\), the infimum being
-over the cofinal system of semistable skeleta, by
+over the cofinal system of determining SNC skeleta, by
 \eqref{eq:ch21-decreasing-retractions}.  The constants \(c_\Gamma\) are
 compatible under refinement, since a larger skeleton contains a smaller one;
 so they are all equal to a single constant \(c\), and
@@ -2506,10 +2510,16 @@ which is the quantitative form of orthogonality used in the proof of
 \Cref{thm:finite-energy-measure-completion}, therefore gives a constant
 $A_f$ independent of $j$ such that, for $0<t\leq1$,
 \begin{equation}\label{eq:maximizing-uniform-differentiability}
- \widetilde E_\omega(\varphi_j+tf)-E_\omega(\varphi_j)
-   -t\int f\,\rd\mu_j
+ \Bigl|\,\widetilde E_\omega(\varphi_j+tf)-E_\omega(\varphi_j)
+   -t\int f\,\rd\mu_j\,\Bigr|
  \leq A_f t^2.
 \end{equation}
+The estimate is two-sided, and it is the \emph{lower} bound
+\(\widetilde E_\omega(\varphi_j+tf)\geq
+  E_\omega(\varphi_j)+t\int f\,\rd\mu_j-A_ft^2\)
+that is used below; an upper bound on
+\(\widetilde E_\omega(\varphi_j+tf)\) is already available from the
+definition of \(E^\vee_\omega(\mu)\) and would not combine with it.
 Here
 $\widetilde E_\omega(g):=E_\omega(P_\omega g)$ is the equilibrium-energy
 extension.  Since $P_\omega(\varphi_j+tf)\leq\varphi_j+tf$, the definition
@@ -3212,7 +3222,7 @@ sharper one is not stable under the refinements of \(\Gamma\) used in
  &=(\varepsilon-\varepsilon')^2,\\
  -\int_\Gamma(u_\varepsilon-u_{\varepsilon'})\,
   \rd(\mu_\varepsilon-\mu_{\varepsilon'})
- &=-(\varepsilon'-\varepsilon)(-1)(\varepsilon-\varepsilon')\\
+    &=-(\varepsilon-\varepsilon')(-1)(\varepsilon-\varepsilon')\\
  &=(\varepsilon-\varepsilon')^2 .
  \end{aligned}
 \]
@@ -3247,8 +3257,17 @@ measure \(\mu=2\delta_{x_0}\) has solution
  E_\omega(u)=u_0+u_N-\frac N2=-\frac{3N}2 ,
 \]
 and the ratio \(E^\vee_\omega/(-E_\omega)=\tfrac13\) is bounded away from
-both \(0\) and the upper bound \(n=1\).  The whole range \((0,1]\) of ratios
-therefore occurs already on curves.
+both \(0\) and the upper bound \(n=1\).  The family above realizes
+\(\varepsilon/(2+\varepsilon)\), hence only \((0,\tfrac13]\); the extreme
+value \(1\) occurs too.  For \(\mu=2\,\rd s\) on \(\Gamma=[0,1]\) the
+solution is \(u(t)=t^2-t\), with \(D_\Gamma(u)=\tfrac13\) and
+\(\int u\,\rd\mu_0=u(0)+u(1)=0\), so
+\(E^\vee_\omega/(-E_\omega)=1\).  Interpolating with
+\(u_{\lambda,s}(t)=\lambda(t^2-t)+s(t-1)\), where \(\lambda,s\geq0\) and
+\(\lambda+s\leq1\), gives ratio
+\(\bigl(\tfrac12(\tfrac{\lambda^2}3+s^2)\bigr)
+ /\bigl(\tfrac12(\tfrac{\lambda^2}3+s^2)+s\bigr)\),
+so the whole range \((0,1]\) occurs already on curves.
 \end{example}
 
 \subsection{A finite-energy measure not carried by any dual complex}
@@ -3493,9 +3512,13 @@ Continuity of the solution
 The first is implied by the second and implies neither of the last two.  The
 third is implied by the second, and also, for a different reason, by
 membership in \(\MA_\omega(\cE^1)\)
-(\Cref{prop:ch28-image-is-solvable}).  The fourth is implied by neither of
-the first three: \Cref{ex:ch28-unbounded-dual-energy} exhibits a measure of
-finite dual energy whose solution is unbounded.
+(\Cref{prop:ch28-image-is-solvable}).  The fourth is implied by neither the first nor the third:
+\Cref{ex:ch28-unbounded-dual-energy} exhibits a measure of finite dual
+energy whose maximizer exists and is unbounded.  That measure is not
+admissible --- uniform integrability fails for it --- so it says nothing
+about the second, and no counterexample to that implication is given here:
+no statement of this book asserts continuity of the solution without the
+support hypothesis of \Cref{thm:bfj-supported-regularity}.
 
 \subsection{Numbers to remember}
 \label{sec:ch28-dict-numbers}

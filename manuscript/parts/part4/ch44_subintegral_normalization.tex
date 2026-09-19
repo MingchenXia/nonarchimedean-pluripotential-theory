@@ -2497,8 +2497,10 @@ If \(\psi_0=-\infty\), both bounds force every selected approximant to equal
 
 The choice \eqref{eq:bj-char-zero-monotonicity-threshold} is possible, and
 it is worth carrying out once so that the reader sees how little room there
-is.  Since \(r_n=n/(n+C)\uparrow1\), pick \(a_j:=1-2^{-j}\) --- rational and
-increasing to \(1\) --- and then choose \(n_j\) recursively: given \(n_j\),
+is.  Since \(r_n=n/(n+C)\uparrow1\), pick \(a_j:=1-2^{-j}\) for \(j\geq1\) ---
+rational, \emph{positive} and increasing to \(1\); the index must start at
+\(1\), since \(a_0=0\) would produce the product \(0\cdot(-\infty)\) that
+\Cref{thm:bj-basic-closure}\,(3) prohibits --- and then choose \(n_j\) recursively: given \(n_j\),
 choose \(n_{j+1}>n_j\) with
 \[
  r_{n_{j+1}}\ \ge\ \frac{a_j}{a_{j+1}}
@@ -3178,16 +3180,18 @@ and \(\psi_0\le F_n\le\frac n{n+2}\psi_0\).  For \(n=4\), say, the class of
 \(F_4\) is \(\frac{20}{18}\cO_X(1)=\frac{10}9\cO_X(1)\) and
 \(r_4=\frac23\); for \(n=100\) the class is \(\frac{308}{306}\cO_X(1)\) and
 \(r_{100}=\frac{50}{51}\).  Monotonizing with \(a_j=1-2^{-j}\) and
-\(n_{j+1}=\max\{n_j+1,\lceil2(2^{j+1}-2)\rceil\}=\max\{n_j+1,2^{j+2}-4\}\),
+\(n_j=\max\{n_{j-1}+1,\lceil2(2^{j+1}-2)\rceil\}=\max\{n_{j-1}+1,2^{j+2}-4\}\)
+with \(n_1=4\), so that \(n_1,n_2,n_3=4,12,28\),
 the classes of the decreasing sequence are
 \[
  a_j\Bigl(1+\tfrac2{3(n_j+2)}\Bigr)\cO_X(1)
  \longrightarrow\cO_X(1),
 \]
-for instance \(\tfrac12\cdot\tfrac{10}{9}=\tfrac59\) at \(j=1,n_1=4\), then
-\(\tfrac34\cdot\tfrac{40}{36}=\tfrac56\) at \(j=2,n_2=12\), then
-\(\tfrac78\cdot\tfrac{88}{84}=\tfrac{11}{12}\) at \(j=3,n_3=28\), and so
-on, increasing to \(1\).
+for instance \(\tfrac12\cdot\tfrac{20}{18}=\tfrac59\) at \(j=1,n_1=4\),
+then \(\tfrac34\cdot\tfrac{44}{42}=\tfrac{11}{14}\) at \(j=2,n_2=12\), then
+\(\tfrac78\cdot\tfrac{92}{90}=\tfrac{161}{180}\) at \(j=3,n_3=28\), and so
+on, increasing to \(1\); the factor at stage \(j\) is
+\(\tfrac{3n_j+8}{3n_j+6}\), evaluated at that stage's own \(n_j\).
 
 \emph{Step 4: the estimate at three test points.}  Let \(v_\triv\) be the
 trivial valuation, \(v_0:=\operatorname{ord}_{t=0}\) the divisorial
@@ -3215,8 +3219,10 @@ hence \(F_n(v_\triv)=F_n(v_0)=0\) exactly, and
 \]
 so \(F_4(v_{-1})\in[-\tfrac13,-\tfrac29]\) and
 \(F_{100}(v_{-1})\in[-\tfrac13,-\tfrac{50}{153}]\).  The convergence to
-\(-\tfrac13\) is visible, and the width of the bracket is exactly the
-additive constant \(C=2\) divided by \(n+2\).
+\(-\tfrac13\) is visible, and the width of the bracket is exactly
+\(\rho\,C\,W_{v_{-1}}(\mathfrak a)/(n+2)=2/\bigl(3(n+2)\bigr)\): the additive
+constant \(C=2\) divided by \(n+2\), rescaled by \(\rho=\tfrac13\).  At
+\(n=4\) this is \(\tfrac19=\tfrac13-\tfrac29\).
 
 \emph{Step 5: what happens at the cusp.}  Note that \(v_0\) is the point at
 which \(A\ne B\), and yet the sandwich is exact there: both \(f_1=1+t\) and
@@ -3226,11 +3232,14 @@ this particular \(\psi\) does not see it.  A presentation that does see it
 --- for instance one with \(f_1=t\), whose \(v_0\)-value is \(1\) --- gives
 \(W_{v_0}(\mathfrak a)=\min\{3,1\}=1\) and the genuine bracket
 \(n\le W_{v_0}(\nu^{-1}\mathfrak K_n)\le n+2\).  In that case the descended
-family really does involve the corrected powers: the element
-\(a_{n+1}\) contributes, in \(\mathbf z\)-degree \(n+1\) and in the
-\(u\)-degree-zero part, the polynomial
-\(G_{n+1}=(1+t)^n(1-nt)\) of \Cref{ex:ch44-splitting-fails}, which lies in
-\(A\) although \((1+t)^{n+1}\) does not.
+family really does involve the corrected powers of
+\Cref{lem:bj-local-additive-sandwich}.  The mechanism is the one displayed
+in \Cref{ex:ch44-splitting-fails}, where \(g_1=1+t\) and \(q=1\): there the
+corrected element \(G_{n+1}=(1+t)^n(1-nt)\) lies in \(A\) although
+\((1+t)^{n+1}\) does not.  It is that phenomenon, not the literal
+polynomial \(G_{n+1}\), that the present presentation with \(f_1=t\)
+exhibits, its own corrected elements being computed from
+\(g_1=t^3\), \(g_2=u(2+t)^3\).
 \end{example}
 
 \begin{example}[The cone over the cuspidal cubic, end to end]
@@ -3428,7 +3437,9 @@ cone over the point \([\,1:-1\,]\in\mathbf P^1\).  Then
 \(W_{v_\ell}(\mathfrak a)=\min\{0,0+1\}=0\) and
 \(F_n(v_\ell)=\psi(v_\ell)=0\) exactly.  Since
 \(s_1=ab^2+b^3=b^2(a+b)\), the zero divisor of \(s_1\) on \(Y\) is
-\(2R_{[0:1]}+D\), where \(R_P\) is the ruling over \(P\); hence
+\(2R_{[1:0]}+D\), where \(R_P\) is the ruling over \(P\) --- the factor
+\(b^2\) vanishes where \(b=0\), not where \(a=0\), consistently with
+\(v_\ell(s_1)=0\) for \(\tilde\ell=R_{[0:1]}\); hence
 \(v_D(s_1)=1\),
 \(v_D(s_2)=0\), so
 \[

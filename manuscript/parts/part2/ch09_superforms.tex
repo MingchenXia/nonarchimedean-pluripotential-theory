@@ -946,9 +946,12 @@ terms into an alternating sum.
 \label{sec:ch09-contraction}
 
 Differentiation raises degrees; contraction lowers them.  Since a superform
-has two blocks, there are two contraction operators, and---as with
-$\dprime$ and $\ddprime$---the one acting on the second block carries a sign
-that records the passage across the first.  These operators are not needed
+has two blocks, there are two contraction operators, and---unlike
+$\dprime$ and $\ddprime$---the one acting on the second block is taken here
+\emph{without} the sign that would record the passage across the first.  That
+choice is a convention: it is the one in which the boundary formulas of
+\Cref{chap:tropical-integration} are written, the alternative differs from it
+by $(-1)^p$, and both are set out below.  These operators are not needed
 for the algebra of forms, but every boundary formula in
 \Cref{chap:tropical-integration} is written in them, as are the homogeneity
 conditions \eqref{eq:appD-strong-homogeneity} for the support currents of
@@ -961,27 +964,49 @@ degree $-1$ with $\iota_v\xi=\xi(v)$ for $\xi\in V^*$.
 
 \begin{definition}
 \label{def:ch09-contraction}
-For $v\in V$ define $\iota'_v:A^{p,q}(U)\to A^{p-1,q}(U)$ and
+For $v\in V$ define the \emph{block contractions}
+$\iota'_v:A^{p,q}(U)\to A^{p-1,q}(U)$ and
 $\iota''_v:A^{p,q}(U)\to A^{p,q-1}(U)$ by
 \[
  \begin{aligned}
   \iota'_v\bigl(a\,\dprime x_I\wedge\ddprime x_J\bigr)
    &=a\,(\iota_v\dprime x_I)\wedge\ddprime x_J,\\
   \iota''_v\bigl(a\,\dprime x_I\wedge\ddprime x_J\bigr)
-   &=(-1)^{p}\,a\,\dprime x_I\wedge(\iota_v\ddprime x_J),
+   &=a\,\dprime x_I\wedge(\iota_v\ddprime x_J),
  \end{aligned}
 \]
 with $|I|=p$, extended $C^\infty(U)$-linearly.  Here $\iota_v$ acts on the
 primed, respectively double-primed, exterior factor through the
-identification of each with $\bigwedge^\bullet V^*$.
+identification of each with $\bigwedge^\bullet V^*$; neither operator carries
+a traversal sign, each simply ignoring the block on which it does not act.
+Alongside $\iota''_v$ we also use the \emph{graded contraction}
+\[
+ \widetilde\iota''_v:=(-1)^p\,\iota''_v
+ \qquad\text{on }A^{p,q}(U),
+\]
+which, unlike $\iota''_v$, is an interior product for the total degree.
 \end{definition}
+
+\begin{remark}
+\label{rem:ch09-contraction-convention}
+The two normalizations of the double-primed contraction differ by the
+traversal sign $(-1)^p$, and both occur in the literature.  This book uses
+the block convention throughout: it is the convention in which the boundary
+traces of \Cref{chap:tropical-integration} are stated
+(\Cref{def:ch11-contractions} and \eqref{eq:superform-boundary-traces}), and
+it is recorded in \Cref{sec:appJ-currents}.  The graded variant
+$\widetilde\iota''_v$ is kept in play because it, and not $\iota''_v$, obeys
+the clean structural identities of \Cref{lem:ch09-contraction-basic} and
+\Cref{prop:ch09-cartan}.  Wherever a factor $(-1)^p$ appears beside
+$\iota''_v$ below, it is the conversion between the two.
+\end{remark}
 
 \begin{lemma}
 \label{lem:ch09-contraction-basic}
 Let $v,w\in V$.
 \begin{enumerate}
 \item Under the isomorphism of \Cref{lem:ch09-exterior-of-double}, $\iota'_v$
-  and $\iota''_v$ are the interior products of
+  and $\widetilde\iota''_v$ are the interior products of
   $\bigwedge^\bullet(V^*\oplus V^*)$ by the vectors $(v,0)$ and $(0,v)$ of
   $V\oplus V$.  In particular both are antiderivations for the total degree:
   \[
@@ -989,12 +1014,24 @@ Let $v,w\in V$.
    =\iota'_v\alpha\wedge\beta+(-1)^{p+q}\alpha\wedge\iota'_v\beta,
    \qquad\alpha\in A^{p,q}(U),
   \]
-  and likewise for $\iota''_v$.
-\item $\iota'_v\iota'_w=-\iota'_w\iota'_v$,
-  $\iota''_v\iota''_w=-\iota''_w\iota''_v$ and
-  $\iota'_v\iota''_w=-\iota''_w\iota'_v$; in particular
-  $(\iota'_v)^2=(\iota''_v)^2=0$.
-\item $J\iota'_vJ=\iota''_v$ and $J\iota''_vJ=\iota'_v$.
+  and likewise for $\widetilde\iota''_v$.  The block operator $\iota''_v$ is
+  an antiderivation within its own block only; its asymmetric Leibniz rule is
+  recorded in \Cref{lem:ch11-contraction-basic}.
+\item $\iota'_v\iota'_w=-\iota'_w\iota'_v$ and
+  $\iota''_v\iota''_w=-\iota''_w\iota''_v$, so
+  $(\iota'_v)^2=(\iota''_v)^2=0$.  The mixed pairs \emph{commute},
+  \[
+   \iota'_v\iota''_w=\iota''_w\iota'_v ,
+   \qquad\text{equivalently}\qquad
+   \iota'_v\widetilde\iota''_w=-\widetilde\iota''_w\iota'_v ,
+  \]
+  the first because the two operators act on different blocks.
+\item On $A^{p,q}(U)$,
+  \[
+   J\iota'_vJ=(-1)^p\iota''_v=\widetilde\iota''_v,
+   \qquad
+   J\iota''_vJ=(-1)^q\iota'_v .
+  \]
 \end{enumerate}
 \end{lemma}
 
@@ -1012,13 +1049,25 @@ which is $\iota'_v$.  Similarly $\iota_{(0,v)}$ annihilates the primed
 generators, so
 \[
  \iota_{(0,v)}\bigl(\dprime x_I\wedge\ddprime x_J\bigr)
- =(-1)^{|I|}\dprime x_I\wedge(\iota_v\ddprime x_J),
+ =(-1)^{|I|}\dprime x_I\wedge(\iota_v\ddprime x_J)
+ =(-1)^{p}\,\iota''_v\bigl(\dprime x_I\wedge\ddprime x_J\bigr),
 \]
-which is $\iota''_v$; the sign $(-1)^p$ of
-\Cref{def:ch09-contraction} is thus not an extra convention but the
-antiderivation sign incurred in crossing the primed block.  Assertion (2)
-is the standard identity $\iota_a\iota_b=-\iota_b\iota_a$ for interior
-products, applied to $a,b\in V\oplus V$.
+which is $\widetilde\iota''_v$.  The sign $(-1)^p$ separating the two
+operators is exactly the antiderivation sign incurred in crossing the primed
+block; the block operator $\iota''_v$ discards it by fiat, which is precisely
+why $\iota''_v$ is not an antiderivation for the total degree.
+
+(2) For $\iota'_v$ and $\widetilde\iota''_v$ all three relations, including
+$\iota'_v\widetilde\iota''_w=-\widetilde\iota''_w\iota'_v$, are the standard
+identity $\iota_a\iota_b=-\iota_b\iota_a$ for interior products, applied to
+$a,b\in V\oplus V$.  Passing to the block operator, $\iota''_v$ preserves the
+primed degree, so the two conversion factors $(-1)^p$ in
+$\widetilde\iota''_v\widetilde\iota''_w=-\widetilde\iota''_w
+\widetilde\iota''_v$ agree on the two sides and cancel, leaving
+$\iota''_v\iota''_w=-\iota''_w\iota''_v$.  In the mixed relation, by
+contrast, $\iota'_v$ lowers the primed degree by one, so the conversions on
+the two sides are $(-1)^p$ and $(-1)^{p-1}$; the resulting extra minus sign
+absorbs the one displayed, and $\iota'_v\iota''_w=\iota''_w\iota'_v$.
 
 (3) Let $\alpha=a\,\dprime x_I\wedge\ddprime x_J$ with $|I|=p$, $|J|=q$.
 By \eqref{eq:ch09-J-coordinates},
@@ -1032,12 +1081,13 @@ degree $p$.  Applying $J$ and using \eqref{eq:ch09-J-coordinates} again
 introduces the sign $(-1)^{(q-1)p}$, so
 \[
  J\iota'_vJ\alpha
- =(-1)^{pq+(q-1)p}a\,\dprime x_I\wedge(\iota_v\ddprime x_J)
+  =(-1)^{pq+(q-1)p}a\,\dprime x_I\wedge(\iota_v\ddprime x_J)
  =(-1)^{p}a\,\dprime x_I\wedge(\iota_v\ddprime x_J)
- =\iota''_v\alpha .
+ =(-1)^p\iota''_v\alpha
+ =\widetilde\iota''_v\alpha .
 \]
-The second identity follows on conjugating by $J$ and using
-$J^2=\operatorname{id}$.
+The second identity is the same computation with the roles of the two blocks
+interchanged, which replaces $p$ by $q$.
 \end{proof}
 
 The interaction with the differentials is the expected Cartan formula, with
@@ -1048,16 +1098,22 @@ defined because the generators are constant.
 
 \begin{proposition}
 \label{prop:ch09-cartan}
-For every $v\in V$,
+For every $v\in V$ the graded contractions satisfy
 \[
  \iota'_v\dprime+\dprime\iota'_v=\partial_v,
  \qquad
- \iota''_v\ddprime+\ddprime\iota''_v=\partial_v,
+ \widetilde\iota''_v\ddprime+\ddprime\widetilde\iota''_v=\partial_v,
 \]
 \[
  \iota'_v\ddprime+\ddprime\iota'_v=0,
  \qquad
- \iota''_v\dprime+\dprime\iota''_v=0 .
+ \widetilde\iota''_v\dprime+\dprime\widetilde\iota''_v=0 .
+\]
+Equivalently, in terms of the block contraction and on $A^{p,q}(U)$,
+\[
+ \iota''_v\ddprime+\ddprime\iota''_v=(-1)^p\partial_v,
+ \qquad
+ \iota''_v\dprime-\dprime\iota''_v=0 .
 \]
 \end{proposition}
 
@@ -1100,6 +1156,14 @@ whereas $\iota'_v\alpha$ has first degree $p-1$, so
 \]
 These cancel.  The fourth identity is obtained from the third by conjugating
 with $J$.
+
+For the block forms, substitute $\widetilde\iota''_v=(-1)^p\iota''_v$ and
+note that $\ddprime$ leaves the primed degree unchanged while $\dprime$
+raises it by one.  In the second identity the two conversion factors are both
+$(-1)^p$ and factor out, giving
+$\iota''_v\ddprime+\ddprime\iota''_v=(-1)^p\partial_v$; in the fourth they are
+$(-1)^{p+1}$ and $(-1)^p$, so the sum becomes a difference and
+$\iota''_v\dprime=\dprime\iota''_v$.
 \end{proof}
 
 \begin{example}[Contractions of the Hessian form and of the top form]
@@ -1111,29 +1175,37 @@ $\dprimeddprime u=\sum_{i,j}u_{ij}\dprime x_i\wedge\ddprime x_j$ gives
   \iota'_v\bigl(\dprimeddprime u\bigr)
    &=\sum_{i,j}u_{ij}v_i\,\ddprime x_j
      =\ddprime(\partial_vu),\\
-  \iota''_v\bigl(\dprimeddprime u\bigr)
-   &=-\sum_{i,j}u_{ij}v_j\,\dprime x_i
-     =-\dprime(\partial_vu),
+    \iota''_v\bigl(\dprimeddprime u\bigr)
+   &=\sum_{i,j}u_{ij}v_j\,\dprime x_i
+     =\dprime(\partial_vu),
  \end{aligned}
 \]
-the minus sign in the second formula being the factor $(-1)^p$ with $p=1$.
-Both identities also follow from \Cref{prop:ch09-cartan}, since
+with no sign in the second formula, the block convention of
+\Cref{def:ch09-contraction} leaving the primed factor untouched; the graded
+contraction returns the opposite sign,
+$\widetilde\iota''_v(\dprimeddprime u)=-\dprime(\partial_vu)$, since $p=1$
+here.  Both identities also follow from \Cref{prop:ch09-cartan}, since
 $\iota'_v\ddprime u=0$ and $\iota''_v\dprime u=0$.
 
-For the top form, let $n=2$ and $v=\partial/\partial x_2$.  Expanding
-$\iota''_v$ as an antiderivation across the four degree-one factors of
-$\tau_2=\dprime x_1\wedge\ddprime x_1\wedge\dprime x_2\wedge\ddprime x_2$,
-only the last contributes, with sign $(-1)^3$:
+For the top form, let $n=2$ and $v=\partial/\partial x_2$.  Regroup
+\[
+ \tau_2=\dprime x_1\wedge\ddprime x_1\wedge\dprime x_2\wedge\ddprime x_2
+ =-\,\dprime x_1\wedge\dprime x_2\wedge\ddprime x_1\wedge\ddprime x_2
+\]
+and contract in the double-primed block alone, where
+$\iota_{\partial/\partial x_2}(\ddprime x_1\wedge\ddprime x_2)
+=-\,\ddprime x_1$.  This gives
 \[
  \iota''_{\partial/\partial x_2}\tau_2
- =-\,\dprime x_1\wedge\ddprime x_1\wedge\dprime x_2
- =\dprime x_1\wedge\dprime x_2\wedge\ddprime x_1 .
+ =\dprime x_1\wedge\dprime x_2\wedge\ddprime x_1
+ =-\,\dprime x_1\wedge\ddprime x_1\wedge\dprime x_2 ,
 \]
-The reader should compare this with the boundary trace
-\eqref{eq:superform-boundary-traces} of
-\Cref{chap:tropical-integration}: the sign appearing there is precisely the
-one computed here, and the choice of the labelled block to contract is forced
-by the bidegree, a form of bidegree $(n-1,n)$ having no spare primed factor.
+and since $p=2$ the graded contraction returns the same form.  The boundary
+trace \eqref{eq:superform-boundary-traces} of
+\Cref{chap:tropical-integration} contracts the same block---the choice is
+forced by the bidegree, a form of bidegree $(n-1,n)$ having no spare primed
+factor---but carries in addition the prefactor $(-1)^{n-1}$, which comes from
+the interlacing constant $c_nc_{n-1}$ and not from the contraction.
 \end{example}
 
 \section{Pullback and coordinate independence}
@@ -2323,11 +2395,29 @@ computation.  The same phenomenon occurs for every $n\geq4$ and every $p$
 with $2\leq p\leq n-2$, by taking products with strongly positive forms in
 the remaining variables; we shall not need this and do not prove it.
 
-A last remark on terminology, since it is a standing source of confusion.  In
-complex geometry the cone called \emph{weakly positive} here is usually
-called simply \emph{positive}, and what is called positive here is sometimes
-called \emph{strongly positive} there; see \cite[Chapter~III]{DemBook} for
-the complex conventions.  The names used in this book are those of Lagerberg
+A last remark on terminology, since it is a standing source of confusion.
+In complex geometry, as in \cite[Chapter~III]{DemBook}, only two of the
+three cones are named: \emph{strongly positive} means the same there as
+here, and the cone called \emph{weakly positive} here is called simply
+\emph{positive} there.  The middle cone has no standard name in the complex
+literature, as the dictionary below records.  It is emphatically \emph{not}
+the complex \emph{strongly positive} cone: the middle cone is generated by
+the forms $c_p\eta\wedge J\eta$ with $\eta\in A^{p,0}$ \emph{arbitrary},
+whereas the strongly positive cone is generated by the same expressions with
+$\eta$ decomposable, and \Cref{ex:ch09-positive-not-strong} separates them.
+
+Getting this wrong makes \Cref{prop:ch09-positivity-products}\,(2) look
+false.  The familiar complex statement is that the wedge of two
+\emph{positive} forms need not be positive; in the names used here that is
+the wedge of two \emph{weakly} positive forms, which is exactly what the
+warning after that proposition says.  The middle cone, by contrast, is
+closed under wedge, in the complex setting no less than here, because its
+generating set is: $c_a\eta\wedge J\eta$ wedge $c_b\zeta\wedge J\zeta$ is
+$c_{a+b}(\eta\wedge\zeta)\wedge J(\eta\wedge\zeta)$, again a generator,
+since $\eta\wedge\zeta\in A^{a+b,0}$ and
+$c_ac_b(-1)^{ab}=c_{a+b}$.  No decomposability is used, which is why the
+reduction to generators is legitimate for (2) although it would not be for
+a claim about the strongly positive cone.  The names used in this book are those of Lagerberg
 and of \cite{CLD25}, and they are used consistently: \emph{strongly
 positive} always means a nonnegative combination of the products
 $\eta_1\wedge J\eta_1\wedge\cdots\wedge\eta_p\wedge J\eta_p$.  When a
@@ -2976,10 +3066,14 @@ memorizing in the form of the test that detects an error.
   past a primed block of degree $p'$ costs $(-1)^{qp'}$
   (\Cref{prop:ch09-wedge-signs}).  \emph{Test:} the commutation of two
   forms depends only on total degrees.
-\item \emph{The operator sign.}  $\ddprime$ and $\iota''_v$ carry $(-1)^p$
-  on $A^{p,q}$; $\dprime$ and $\iota'_v$ carry none
+\item \emph{The operator sign.}  $\ddprime$ carries $(-1)^p$ on $A^{p,q}$,
+  and so does the graded contraction $\widetilde\iota''_v=(-1)^p\iota''_v$;
+  $\dprime$, $\iota'_v$ and the block contraction $\iota''_v$ carry none
   (\Cref{def:ch09-operators}, \Cref{def:ch09-contraction}).  \emph{Test:}
-  $\ddprime=J\dprime J$ and $\iota''_v=J\iota'_vJ$.
+  $\ddprime=J\dprime J$ and $\widetilde\iota''_v=J\iota'_vJ$.  It is the
+  block contraction that appears in the boundary traces
+  \eqref{eq:superform-boundary-traces}, which is why those carry an explicit
+  $(-1)^{n-1}$.
 \item \emph{The involution.}  Here $J\ddprime x=\dprime x$ and symmetry is
   $J\alpha=(-1)^p\alpha$; in \cite{CLD25} the involution differs by
   $(-1)^q$ on $A^{p,q}$ and symmetry reads $J\alpha=\alpha$

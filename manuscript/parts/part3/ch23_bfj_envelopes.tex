@@ -392,7 +392,7 @@ Concavity gives
 Multiplying by \((d+r)/r>0\) and rearranging,
 \[
  h(\tau)-h(\tau')
- \leq\frac{d}{r}\bigl(h(\tau)-h(\tau'')\bigr)
+  \leq\frac{d}{r}\bigl(h(\tau')-h(\tau'')\bigr)
  \leq\frac{2M}{r}\,d ,
 \]
 the last step by \(|h|\leq M\).  Exchanging \(\tau\) and \(\tau'\) gives
@@ -727,17 +727,22 @@ By clause (2) of \Cref{def:ch21-bfj-psh} the restriction
  \bigl|\chi-\psi\bigr|<\varepsilon
  \qquad\text{on }\Delta_{\mathcal Z}.
 \end{equation}
-Enlarging \(\mathcal Z\) if necessary, we may and do assume that \(\chi\) is
-determined on \(\mathcal Z\); this does not disturb
-\eqref{eq:ch23-obstacle-retraction-error}, which persists on higher models,
-and it does not disturb \eqref{eq:ch23-skeletal-approximation-error} if the
-approximation of Step~2 is performed after the enlargement.
+No enlargement of \(\mathcal Z\) is needed here, and none is available.  It
+would be circular --- the enlargement is chosen to carry a function produced
+by approximating on that model's own skeleton --- and it cannot be arranged
+in general, because a \(\theta\)-psh model function determined on
+\(\mathcal Z\) is \emph{affine} on each face of \(\Delta_{\mathcal Z}\)
+(\Cref{lem:model-function-affine}), whereas
+\(\psi|_{\Delta_{\mathcal Z}}\) is in general only convex there.  What
+Step~3 uses is an inequality, and that is available for every
+\(\theta\)-psh function without any determinedness hypothesis.
 
 \emph{Step 3: pushing the inequality off the skeleton.}  Since \(\chi\) is
-determined on \(\mathcal Z\) we have \(\chi=\chi\circ p_{\mathcal Z}\), by
-\Cref{lem:ch21-model-skeletal-properties}.  For every \(x'\in X^{\An}\),
+\(\theta\)-psh and \(\mathcal Z\) determines \(\theta\), clause~(1) of
+\Cref{def:ch21-bfj-psh} gives \(\chi\leq\chi\circ p_{\mathcal Z}\).  For
+every \(x'\in X^{\An}\),
 \[
- \chi(x')=\chi(p_{\mathcal Z}(x'))
+ \chi(x')\leq\chi(p_{\mathcal Z}(x'))
  \overset{\eqref{eq:ch23-skeletal-approximation-error}}{<}
  \psi(p_{\mathcal Z}(x'))+\varepsilon
  \leq f(p_{\mathcal Z}(x'))+\varepsilon
@@ -1956,17 +1961,19 @@ determining \(\theta\), whose dual complex contains \(x\).  By clause (2) of
  \left|\varphi_D-(\psi-\varepsilon)\right|<\varepsilon
  \quad\text{on }\Delta_{\mathcal Y};
 \]
-after enlarging \(\mathcal Y\) we may assume \(\varphi_D\) is determined on
-\(\mathcal Y\).  On \(\Delta_{\mathcal Y}\) this gives
+On \(\Delta_{\mathcal Y}\) this gives
 \(\varphi_D<\psi\leq0\) and
 \(\varphi_D>\psi-2\varepsilon>P_\theta(0)(x)-3\varepsilon\) at \(x\).
-Because \(\varphi_D\) is determined on \(\mathcal Y\) we have
-\(\varphi_D=\varphi_D\circ p_{\mathcal Y}\)
-(\Cref{lem:ch21-model-skeletal-properties}), whence for every
+There is no need --- and, by the affineness of
+\Cref{lem:model-function-affine}, no possibility in general --- to enlarge
+\(\mathcal Y\) so as to make \(\varphi_D\) determined on it.  Since
+\(\varphi_D\) is \(\theta\)-psh and \(\mathcal Y\) determines \(\theta\),
+clause~(1) of \Cref{def:ch21-bfj-psh} already gives
+\(\varphi_D\leq\varphi_D\circ p_{\mathcal Y}\), whence for every
 \(x'\in X^{\An}\)
 \[
        \varphi_D(x')
-       =\varphi_D(p_{\mathcal Y}(x'))
+       \leq\varphi_D(p_{\mathcal Y}(x'))
        \leq\psi(p_{\mathcal Y}(x'))\leq0 ,
 \]
 the last inequality because \(\psi\leq0\) everywhere.  So \(\varphi_D\leq0\)
@@ -1980,9 +1987,11 @@ requires \Cref{lem:ch23-retraction-uniform}, as in
 \Cref{prop:ch23-model-vs-psh-envelope}.
 
 \emph{Step 3b: from a model competitor to a section.}
-Let \(\pi:\mathcal X'\to\mathcal X\) dominate both \(\mathcal X\) and
-\(\mathcal Y\), and regard \(\varphi_D=\varphi_{D}\) as attached to a
-vertical \(\mathbf Q\)-divisor \(D\) on \(\mathcal X'\).  By
+Let \(\pi:\mathcal X'\to\mathcal X\) dominate \(\mathcal X\),
+\(\mathcal Y\), and a model on which \(\varphi_D\) is determined --- which
+exists because \(\varphi_D\) is a model function, even though
+\(\mathcal Y\) itself need not be such a model --- and regard \(\varphi_D\)
+as attached to a vertical \(\mathbf Q\)-divisor \(D\) on \(\mathcal X'\).  By
 \Cref{prop:ch20-positive-representative}, applied to the semipositive class
 \(\pi^*\theta+[D]\), there is on a further model a vertical
 \(\mathbf Q\)-divisor \(D'\) with
@@ -2208,8 +2217,8 @@ Castelnuovo--Mumford regularity is reviewed in
 In the setting of \eqref{eq:ch23-integral-reference} there are constants
 \(m_0\) and \(C\), depending only on \(\mathcal X\) and \(\mathcal L\), with
 \begin{equation}\label{eq:ch23-explicit-rate}
- 0\leq P_\theta(0)-\varphi_m\leq\frac{C}{m}
- \qquad\text{on }X^{\An},\ m>m_0 .
+  0\leq P_\theta(0)-\varphi_m\leq\frac{C}{m}
+ \qquad\text{on }X^{\An},\ m\geq 2m_0 .
 \end{equation}
 \end{corollary}
 
@@ -2703,14 +2712,40 @@ in \Cref{cor:ch23-envelope-rate} one may take \(C=0\).  The
 multiplier-ideal correction becomes necessary only when the chosen
 model extension has vertical base locus.  For an example where it does, keep
 \(X=\mathbf P^1_K\) and replace \(\mathcal X\) by the blowup
-\(\mathcal X_1\) of \Cref{ex:ch23-pole-model-check} with
-\(\mathcal L_1:=\pi^*\cO(1)-E_1\), whose generic restriction is
-\(\cO(1)\).  Then \(H^0(\mathcal X_1,m\mathcal L_1)\) consists of those
-sections of \(m\cO(1)\) vanishing to order \(m\) along \(E_1\), and the
-resulting base ideal is nontrivial; the corresponding \(\varphi_m\) is
-\(-1\) at \(e_1\) for every \(m\), and the envelope \(P_\theta(0)\) is the
-function \(\psi_1=\max\{\psi,-1\}\) of
-\eqref{eq:ch23-truncated-pole}.
+\(\pi:\mathcal X_1\to\mathbf P^1_R\) of \Cref{ex:ch23-pole-model-check}
+with
+\(\mathcal L_1:=\pi^*\cO(1)+E_1\), whose generic restriction is again
+\(\cO(1)\).  Since \(E_1\) is \(\pi\)-exceptional,
+\(\pi_*\cO_{\mathcal X_1}(mE_1)=\cO_{\mathbf P^1_R}\), so
+\(H^0(\mathcal X_1,m\mathcal L_1)=H^0(\mathbf P^1_R,m\cO(1))\): adding
+\(E_1\) buys no new sections, and every section, read inside
+\(m\mathcal L_1\), vanishes to order \(m\) along \(E_1\).  The base ideal is
+therefore the nontrivial vertical ideal
+\(\mathfrak a_m=\mathcal I_{E_1}^{\,m}\).  Writing \(\varphi_{E_1}\) for the
+model function determined by the vertical divisor \(E_1\) on
+\(\mathcal X_1\), so that \(\varphi_{E_1}(e_0)=0\) and
+\(\varphi_{E_1}(e_1)=1\), this gives
+\[
+ \varphi_m=\tfrac1m\log|\mathfrak a_m|=-\varphi_{E_1}
+          =\max\{\psi,-1\}=\psi_1
+\]
+for every \(m\); in particular \(\varphi_m(e_1)=-1\) for every \(m\).
+The envelope is the same function.  Indeed
+\(\deg(\mathcal L_1|_{E_1})=(\pi^*\cO(1)\cdot E_1)+(E_1^2)=0-1=-1<0\), so
+\(\theta\) is not semipositive and \(0\) is not \(\theta\)-psh; and \(u\) is
+\(\theta\)-psh exactly when \(u+\varphi_{E_1}\) is psh for the standard
+model form of \(\cO_{\mathbf P^1_R}(1)\).  The largest such \(u\) with
+\(u\leq0\) is \(-\varphi_{E_1}\): a psh function \(v\) for the standard form
+satisfies \(\delta_{e_0}+\ddc v\geq0\), hence is convex, and being bounded
+above therefore nonincreasing, along the infinite branch through \(e_1\)
+towards the rigid point \(z=0\); since \(v\leq\varphi_{E_1}=0\) at
+\(e_0\), it follows that \(v\leq0\) on that branch, so the largest
+admissible \(v=u+\varphi_{E_1}\) is \(0\)  Hence
+\(P_\theta(0)=\psi_1=\max\{\psi,-1\}\), the function of
+\eqref{eq:ch23-truncated-pole}, and
+\eqref{eq:ch23-base-ideal-convergence} is again an equality at every finite
+level---but now with a nonzero envelope, produced by a vertical base
+locus.
 \end{example}
 
 \begin{example}[A convex obstacle on an interval]

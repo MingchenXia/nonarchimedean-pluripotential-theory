@@ -89,7 +89,8 @@ point of use:
   \Cref{prop:ch14-component-curvature}.
 
 \end{enumerate}
-No other statement of this chapter is used without proof.
+Apart from these, the chapter quotes without proof only the auxiliary
+results of \cite{CLD25} cited at their point of use.
 
 \subsection{The plan of the chapter}
 \label{sec:ch14-plan}
@@ -396,7 +397,16 @@ over $\mathbf C$.
 \begin{lemma}
 \label{lem:ch14-extension-by-zero}
 Let $U\subset X$ be open, $j:U\hookrightarrow X$ the inclusion, and
-$T\in D_{r,s}(U)$.  Suppose that the local tropical dimension satisfies
+$T\in D_{r,s}(U)$.  Write
+\[
+ d_{\trop}(x):=\sup_f\dim_{\mathrm{trop},x}(f),
+\]
+the supremum of the tropical dimensions of
+\Cref{def:trop-tropical-dimension} over all moment maps $f$ defined near
+$x$; the supremum, and not a single chart, is what is meant, since one small
+chart would otherwise make every point removable.  By
+\eqref{eq:trop-dimension-chain}, $d_{\trop}\le d_K$, with equality off
+$\partial X$.  Suppose that
 \[
  d_{\trop}(x)<\max\{r,s\}\qquad\text{for every }x\in X\setminus U .
 \]
@@ -477,6 +487,72 @@ Let $T\in D^{p,q}(X)$.  The current differentials are defined by
 \end{aligned}
 \]
 The exponent uses the \emph{bidegree} of $T$ before applying the operator.
+
+The involution acts on currents by
+\begin{equation}
+\label{eq:ch14-J-current}
+  \langle JT,\alpha\rangle=(-1)^n\langle T,J\alpha\rangle,
+ \qquad T\in D^{p,q}(X),\quad\alpha\in A_{X,c}^{n-q,n-p},
+\end{equation}
+with $n=\dim X$, so that $JT\in D^{q,p}(X)$.  The sign is forced, and it is
+not $+1$: the involution does
+\emph{not} fix the top orientation, but satisfies $J\tau_n=(-1)^n\tau_n$ by
+\eqref{eq:ch09-J-coordinates}.  Since $J^2$ is the identity on forms, it is
+the identity on currents.
+
+\begin{lemma}
+\label{lem:ch14-J-currents}
+Let $X$ be of pure dimension $n$.
+\begin{enumerate}
+\item $\int_XJ\eta=(-1)^n\int_X\eta$ for every $\eta\in A_{X,c}^{n,n}$.
+\item With \eqref{eq:ch14-J-current}, $J[\omega]=[J\omega]$ for every locally
+  integrable form $\omega$.
+\item A current $T$ of bidegree $(p,p)$, that is of bidimension
+  $(q,q)=(n-p,n-p)$, satisfies $JT=(-1)^pT$ if and only if
+  \[
+   \langle T,J\alpha\rangle=(-1)^q\langle T,\alpha\rangle
+   \qquad\text{for every }\alpha\in A_{X,c}^{q,q}.
+  \]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) $A^{n,n}$ is free of rank one on $\tau_n$ and $J\tau_n=(-1)^n\tau_n$, so
+$J\eta=(-1)^n\eta$ pointwise.  (2) Since $J$ is an algebra automorphism with
+$J^2=\operatorname{id}$, one has $J\omega\wedge\alpha=J(\omega\wedge J\alpha)$,
+whence by (1)
+\[
+ \langle[J\omega],\alpha\rangle
+ =\int_XJ(\omega\wedge J\alpha)
+ =(-1)^n\int_X\omega\wedge J\alpha
+ =(-1)^n\langle[\omega],J\alpha\rangle
+ =\langle J[\omega],\alpha\rangle .
+\]
+(3) Substitute $JT=(-1)^pT$ into \eqref{eq:ch14-J-current} and use
+$(-1)^{p-n}=(-1)^{n-p}=(-1)^q$.
+\end{proof}
+
+\begin{definition}[Symmetric current]
+\label{def:ch14-symmetric-current}
+\index{current!symmetric}
+A current $T$ of bidegree $(p,p)$, equivalently of bidimension
+$(q,q)=(n-p,n-p)$, is \emph{symmetric} if $JT=(-1)^pT$; by
+\Cref{lem:ch14-J-currents}\,(3) this says
+$\langle T,J\alpha\rangle=(-1)^q\langle T,\alpha\rangle$ for every test form
+$\alpha\in A_{X,c}^{q,q}$, so that $T$ pairs with $J\alpha$ exactly as a
+symmetric test form of bidegree $(q,q)$ transforms under $J$.
+\end{definition}
+
+The signs here are not decoration.  A symmetric superform
+$\alpha\in A^{q,q}$ satisfies $J\alpha=(-1)^q\alpha$, not $J\alpha=\alpha$
+(\Cref{cor:ch09-symmetric-exchange}); the antisymmetric forms are those with
+$J\alpha=(-1)^{q+1}\alpha$.  Imposing $\langle T,J\alpha\rangle
+=\langle T,\alpha\rangle$ instead would, for odd $q$, force $T$ to annihilate
+every \emph{symmetric} form, hence every positive one, and would make the
+positivity theory below vacuous in odd bidimension.  Under the alternative
+involution of \cite{CLD25} recorded in \Cref{rem:ch09-two-involutions} the
+sign is absorbed and symmetry does read $J\alpha=\alpha$; that is a different
+convention, not a simplification of this one.
 
 \subsection{Where the sign comes from}
 \label{sec:ch14-sign-derivation}
@@ -603,9 +679,12 @@ $\dprimeddprime$ symmetric and is the reason it, rather than $\dprime$ or
 $\ddprime$ separately, is the operator of potential theory.
 
 \emph{Smooth forms.}  This is \Cref{lem:ch14-sign-forced} for $\dprime$; for
-$\ddprime$ apply $J$ and use $J[\omega]=[J\omega]$, which holds because
-$\int_XJ\eta=\int_X\eta$ for a top-degree form, the involution acting
-trivially on $\tau_n$ by \eqref{eq:appJ-lagerberg-orientation}.
+$\ddprime$ apply $J$ and use $J[\omega]=[J\omega]$, which is
+\Cref{lem:ch14-J-currents}\,(2).  The sign $(-1)^n$ built into
+\eqref{eq:ch14-J-current} is exactly what absorbs
+$\int_XJ\eta=(-1)^n\int_X\eta$ for a top-degree form; the involution does not
+act trivially on the top orientation \eqref{eq:appJ-lagerberg-orientation},
+but by $J\tau_n=(-1)^n\tau_n$.
 \end{proof}
 
 \begin{proposition}
@@ -630,7 +709,8 @@ $\dprime[\omega]=[\dprime\omega]$, $\ddprime[\omega]=[\ddprime\omega]$.
 Repeat the computation of \Cref{lem:ch14-sign-forced}, but use the Stokes
 formula with boundary term,
 $\int_X\dprime\eta=\int_X^\partial\eta$, of
-\Cref{thm:cld-global-stokes} instead of
+\Cref{thm:ch13-stokes}, with the boundary integral of
+\Cref{def:ch13-boundary-integral}, instead of
 \Cref{cor:analytic-stokes-green}.  With
 $\eta=\omega\wedge\alpha$ this gives
 \[
@@ -933,7 +1013,9 @@ top-degree form against a positive calibration is nonnegative.  Thus
 $[\omega]$ is strongly positive.  The positive case uses the self-duality
 $\mathrm{P}_p=\mathrm{P}_{n-p}^\vee$, and the weakly positive case the
 duality $\mathrm{WP}_p=\mathrm{SP}_{n-p}^\vee$.  Symmetry of $[\omega]$
-follows from $J[\omega]=[J\omega]=[\omega]$.
+follows from $J[\omega]=[J\omega]=(-1)^p[\omega]$, by
+\Cref{lem:ch14-J-currents}\,(2) and $J\omega=(-1)^p\omega$; this is
+\Cref{def:ch14-symmetric-current} in bidegree $(p,p)$.
 \end{proof}
 
 \begin{remark}[Injectivity and the converse]
@@ -947,15 +1029,22 @@ boundaryless Berkovich space of pure dimension $n$, it holds, and the map
 $\omega\mapsto[\omega]$ is injective on forms with tropically continuous
 coefficients; this is \cite[Corollaries~7.3.9 and~7.3.10]{CLD25}.  We use
 only the direction proved above, except in
-\Cref{sec:ch14-compactness}, where the injectivity is quoted with this
-citation.
+\Cref{prop:ch14-positive-and-negative}\,(2),
+\Cref{cor:ch14-weakly-null-currents} and \Cref{sec:ch14-compactness}, where
+the injectivity is quoted with this citation.
 \end{remark}
 
 \begin{proposition}
 \label{prop:ch14-automatic-continuity}
 Let $X$ be locally holomorphically separated and paracompact, let $p\ge0$,
 and let $S:A_{X,c}^{p,p}\to\mathbf R$ be a linear map---\emph{not} assumed
-continuous---such that $S(J\omega)=S(\omega)$ for all $\omega$.
+continuous---which is symmetric in the sense of
+\Cref{def:ch14-symmetric-current}, that is,
+\[
+ S(J\omega)=(-1)^pS(\omega)
+ \qquad\text{for all }\omega\in A_{X,c}^{p,p}.
+\]
+Equivalently, $S$ annihilates every antisymmetric form.
 \begin{enumerate}
 \item If $S(\omega)\ge0$ for every positive $\omega$, then $S$ is a positive
   current, of order $0$ relative to every chart datum.
@@ -965,9 +1054,9 @@ continuous---such that $S(J\omega)=S(\omega)$ for all $\omega$.
 \end{proposition}
 
 \begin{proof}
-Only continuity has to be proved; symmetry is the hypothesis $S\circ J=S$,
-and the positivity type of the conclusion is the hypothesis read through
-\Cref{def:ch09-cones}.  We write the proof of (1); for (2) replace
+Only continuity has to be proved; symmetry is the hypothesis
+$S\circ J=(-1)^pS$, and the positivity type of the conclusion is the
+hypothesis read through \Cref{def:ch09-cones}.  We write the proof of (1); for (2) replace
 $\mathrm{P}_p$ by $\mathrm{WP}_p$ throughout, which is legitimate because
 $\eta^p$ is an interior point of both cones by
 \Cref{lem:ch14-eta-dominates}.
@@ -1045,9 +1134,11 @@ separated and paracompact.
 \end{proposition}
 
 \begin{proof}
-(1)  Let $\omega\in A_{X,c}^{p,p}$.  Since $T$ is symmetric, $\langle
-T,\omega\rangle=\langle T,J\omega\rangle$, so $T$ annihilates every
-antisymmetric form, and we may assume $\omega$ symmetric.  We claim that
+(1)  Let $\omega\in A_{X,c}^{p,p}$.  Since $T$ is symmetric,
+$\langle T,J\omega\rangle=(-1)^p\langle T,\omega\rangle$
+(\Cref{def:ch14-symmetric-current}), whereas an antisymmetric $\omega$
+satisfies $J\omega=(-1)^{p+1}\omega$; so $T$ annihilates every antisymmetric
+form, and we may assume $\omega$ symmetric.  We claim that
 $\omega$ is a difference of two positive compactly supported smooth forms.
 Cover $\Supp\omega$ by finitely many chart domains, choose a subordinate
 partition of unity $(\rho_i)$, and apply
@@ -1165,8 +1256,12 @@ definitions of \Cref{chap:tropical-spaces} transported by
 \begin{enumerate}
 \item A function $f$ on $X$ is smooth if and only if each $f_b:=f|_{X_b}$ is
   smooth on $[-\infty,0]$ and constant near $-\infty$, all but finitely many
-  $f_b$ are constant on the whole branch, and the outgoing slopes satisfy the
-  harmonicity relation $\sum_bf_b'(0)=0$.
+  $f_b$ are constant on the whole branch, and the slopes at $\eta$ satisfy
+  the harmonicity relation $\sum_bf_b'(0)=0$.  Here $f_b'(0)$ is the
+  derivative in the branch parameter $t$, hence \emph{minus} the slope
+  outgoing from $\eta$; the relation is unaffected by the sign, but the two
+  readings must not be interchanged in a formula that is not a sum to
+  zero.
 \item If $f:U\to\mathbf R^m$ is a tropical chart with $\eta\in U$, then there
   is a finite $B_1\subset B$ such that $f$ is constant on $X_b\cap U$ for
   every $b\notin B_1$.
@@ -1234,7 +1329,7 @@ each branch, and
 where $p_i\in X_{b_i}$ is the point with $t=-1$.  Indeed, on each branch the
 computation is that of \Cref{ex:ch14-convex-corner-restated}: a convex corner
 of slope jump $c_i$ at $t=-1$ contributes $c_i\delta_{p_i}$, and at $\eta$
-the outgoing slopes of $u$ are $c_i$ into the branch $b_i$ and $0$ elsewhere,
+the outgoing slopes of $u$ are $-c_i$ into the branch $b_i$ and $0$ elsewhere,
 and \Cref{thm:ch11-graph-green}\,(1) together with
 \Cref{lem:ch11-graph-trace} evaluates the atom at a vertex as the sum of the
 outgoing slopes, here $\sum_i(-c_i)$.  The total mass is zero, as it must be for a
@@ -1295,7 +1390,7 @@ where $W_b\subset X_b$ is a compact neighbourhood of the point $t=-1$.  By
 (3) Fix $m$ and let $N>m$.  Choose once and for all
 $\chi\in C_c^\infty(\mathbf R)$ with $\Supp\chi\subset[-1,1]$ and
 $\chi^{(N)}(0)=1$; for instance $\chi(u)=u^N\psi(u)/N!$ with $\psi$ a bump
-equal to $1$ near $0$.  For $\lambda\ge1$ put
+equal to $1$ near $0$.  For $\lambda\ge2$ put
 \[
  g_\lambda(t)=\lambda^{-N}\chi\bigl(\lambda(t+1)\bigr),
 \]
@@ -1304,9 +1399,10 @@ rest of $X$.  Each $g_\lambda$ is smooth on $X$: it is supported in
 $\{|t+1|\le1/\lambda\}$, hence away from $\eta$ and away from $-\infty$, so
 the constancy and harmonicity conditions of
 \Cref{lem:ch14-star-smooth}\,(1) hold trivially.  All the $g_\lambda$,
-$\lambda\ge1$, lie in the single chart datum $(\mathscr D,K)$ consisting of
+$\lambda\ge2$, lie in the single chart datum $(\mathscr D,K)$ consisting of
 the coordinate chart $t$ on the interior of $X_{b_N}$ together with
-$K=\{|t+1|\le1\}$.
+$K=\{|t+1|\le\tfrac12\}$, which is contained in that chart domain; the larger
+set $\{|t+1|\le1\}$ would contain $\eta$ and is therefore not admissible.
 
 Now $g_\lambda^{(N)}(-1)=\lambda^{-N}\lambda^{N}\chi^{(N)}(0)=1$, so
 $\langle T,g_\lambda\rangle=1$ for every $\lambda$, while for $j\le m<N$
@@ -1522,8 +1618,12 @@ total degree and therefore commutes with everything
 \]
 with $\tau_N$ the positive top orientation
 \eqref{eq:appJ-lagerberg-orientation}.  Integrating the density
-$a$ against $\rd S_M$ gives the formula.  Symmetry follows because $J$ fixes
-$\tau_N$ and permutes the two blocks of the normal factor; strong positivity
+$a$ against $\rd S_M$ gives the formula.  For symmetry, note that $J$ negates
+each factor $\dprime\theta_i\wedge\ddprime\theta_i$, hence multiplies the
+normal factor $\prod_{i>m}$ by $(-1)^{N-m}$ and $\tau_N$ by $(-1)^N$;
+applying $J$ to $\prod_{i>m}(\dprime\theta_i\wedge\ddprime\theta_i)\wedge
+J\alpha$ therefore gives $a(J\alpha)=(-1)^ma(\alpha)$, which is
+\Cref{def:ch14-symmetric-current} in bidimension $(m,m)$; strong positivity
 and order $0$ follow because the pairing is the integral of $a$, which is
 nonnegative whenever $\alpha$ is weakly positive---by
 \Cref{thm:ch09-positivity-duality} the tangential density of a weakly
@@ -1982,8 +2082,8 @@ For $q=N$ and $\Omega=1$, the measure
 $(\rd\rd^\#\phi)^N/N!$ agrees, with the Euclidean volume normalization, with the
 Alexandrov Monge--Amp\`ere measure defined by the subgradient image.  If
 $h_K$ is the support function of a convex body, the currents $\rd\rd^\#h_K$ are
-strongly homogeneous: they are closed, annihilated by the appropriate
-radial contraction, and invariant under positive scaling.  Mixed products
+strongly homogeneous: they are closed, annihilated by the appropriate radial contraction, and
+homogeneous of degree one under $s_t^*$.  Mixed products
 of such currents encode mixed volumes.  The resulting bilinear form has the
 Lorentzian signature behind the Alexandrov--Fenchel inequality
 \cite[\S\S5--6 and 10]{Ber26Convex}.  This is the real-convex counterpart of
@@ -2010,8 +2110,8 @@ polynomials of degree $1$ in $x$.
 
 \begin{definition}[Radial contraction of a current]
 \label{def:ch14-radial-contraction}
-For $T\in D^{p,q}(V)$ define $\iota'_ET\in D^{p+1,q}(V)$ and
-$\iota''_ET\in D^{p,q+1}(V)$ by
+For $T\in D^{p,q}(V)$ define $\iota'_ET\in D^{p-1,q}(V)$ and
+$\iota''_ET\in D^{p,q-1}(V)$ by
 \[
  \langle\iota'_ET,\alpha\rangle=\langle T,\iota'_E\alpha\rangle,
  \qquad
@@ -2124,9 +2224,11 @@ $\partial_jh(tx)=\partial_jh(x)$, valid for all $t>0$ because $\nabla h$ is
 homogeneous of degree $0$, with respect to $t$ at $t=1$ gives
 $\sum_ix_ih_{ij}(x)=0$ for every $j$.  Hence
 $\iota'_E(\dprimeddprime h)=0$, and $\iota''_E(\dprimeddprime h)=0$ follows by
-applying $J$ and using $J\iota'_EJ=\iota''_E$
-(\Cref{lem:ch09-contraction-basic}\,(3)) together with the symmetry
-$J\dprimeddprime h=\dprimeddprime h$.
+applying $J$ and using $J\iota'_EJ=(-1)^p\iota''_E$
+(\Cref{lem:ch09-contraction-basic}\,(3)), here with $p=1$, together with the
+symmetry $J\dprimeddprime h=-\dprimeddprime h$ of the $(1,1)$-form
+$\dprimeddprime h$ (\Cref{prop:ch09-symmetry-matrix}\,(4)); the two signs
+cancel, and in any case the conclusion is a vanishing.
 
 For general $h$, Euler's identity holds distributionally.  Indeed, $h$ is
 locally Lipschitz, the identity $\sum_i x_i\partial_i h=h$ holds almost
@@ -2139,8 +2241,10 @@ distributions.  Applying $\partial_j$ distributionally gives
 Multiplication by $x_i$ and distributional differentiation are continuous,
 so this calculation needs no homogeneous smoothing.  In the coefficient
 description of $\dprimeddprime[h]$, the displayed identities say precisely
-that $\iota'_ET_h=0$.  Finally $J T_h=T_h$, and
-$J\iota'_EJ=\iota''_E$, so $\iota''_ET_h=0$ as well.
+that $\iota'_ET_h=0$.  Finally $JT_h=-T_h$, since $T_h$ is a symmetric
+current of bidegree $(1,1)$ (\Cref{def:ch14-symmetric-current}), and
+$J\iota'_EJ=-\iota''_E$ in bidegree $(1,1)$; the two signs cancel, so
+$\iota''_ET_h=0$ as well.
 \end{proof}
 
 \begin{remark}
@@ -2317,17 +2421,29 @@ weak topology being that of pointwise convergence and $g_*$ being defined by
 composition.
 
 \emph{Commutation with $J$.}  $g^*J=Jg^*$ on forms
-(\Cref{prop:cld-form-pullback}), so
-$\langle g_*JT,\alpha\rangle=\langle JT,g^*\alpha\rangle
-=\langle T,J^{-1}g^*\alpha\rangle=\langle T,g^*J^{-1}\alpha\rangle
-=\langle Jg_*T,\alpha\rangle$.  In particular the pushforward of a symmetric
-current is symmetric.
+(\Cref{prop:cld-form-pullback}), so, writing $n_Y=\dim Y$, $n_X=\dim X$ and
+applying \eqref{eq:ch14-J-current} on each space,
+\[
+ \langle g_*JT,\alpha\rangle=\langle JT,g^*\alpha\rangle
+ =(-1)^{n_Y}\langle T,Jg^*\alpha\rangle
+ =(-1)^{n_Y}\langle T,g^*J\alpha\rangle
+ =(-1)^{n_Y}\langle g_*T,J\alpha\rangle
+ =(-1)^{n_Y-n_X}\langle Jg_*T,\alpha\rangle ,
+\]
+that is, $g_*J=(-1)^{n_Y-n_X}Jg_*$, which is $g_*J=Jg_*$ exactly when
+$\dim Y=\dim X$.  Pushforward preserves symmetry in all cases: if $T$ has
+bidegree $(u,u)$ with $JT=(-1)^uT$, then $g_*T$ has bidegree $(u',u')$ with
+$u'=u+n_X-n_Y$, and
+$Jg_*T=(-1)^{n_X-n_Y}g_*JT=(-1)^{u'}g_*T$.  Since $J$ enters the definition
+of $\ddprime$ conjugated, the sign cancels there and
+$g_*\ddprime=\ddprime g_*$ is unaffected.
 
 \emph{Commutation with $\dprime$.}  Let $T$ have bidegree $(u,v)$ on $Y$;
 then $g_*T$ has the same bidegree if $\dim Y=\dim X$, and in general the
-bidimension is preserved, so the sign $(-1)^{u+v+1}$ of
-\eqref{eq:ch14-dprime-sign} is the same on both sides by the parity remark
-after \Cref{lem:ch14-module-leibniz}.  Since $g^*\dprime=\dprime g^*$,
+bidimension is preserved, so the bidegree changes by
+$(\dim X-\dim Y,\dim X-\dim Y)$ and the total degree by an even number;
+hence the sign $(-1)^{u+v+1}$ of \eqref{eq:ch14-dprime-sign} is the same on
+both sides.  Since $g^*\dprime=\dprime g^*$,
 \[
  \langle g_*\dprime T,\alpha\rangle
  =\pm\langle T,g^*\dprime\alpha\rangle
@@ -2493,7 +2609,10 @@ then $i^*\alpha$ is weakly positive by
 \Cref{prop:ch09-positivity-inclusions}, and the integral of a weakly positive
 top-degree form is nonnegative, weak positivity in top bidegree being
 ordinary nonnegativity by \Cref{prop:ch09-positivity-inclusions}.  Symmetry
-follows from $J$ acting trivially on top-degree forms.  Now
+follows because $i^*$ commutes with $J$ and $J$ acts on top-degree forms of
+the $r$-dimensional $Y$ by $(-1)^r$, so that
+$\langle\delta_Y,J\alpha\rangle=(-1)^r\langle\delta_Y,\alpha\rangle$
+(\Cref{def:ch14-symmetric-current}).  Now
 \Cref{prop:ch14-automatic-continuity}\,(2) applies and delivers continuity and
 order $0$.  The identity $\delta_Y=i_*\delta_{Y}$ is
 \Cref{sec:ch14-pushforward} applied to the proper map $i$, together with
@@ -3399,8 +3518,8 @@ topology, provided $T$ is a current.
 
 \emph{$T$ is a positive current.}  Linearity passes to the limit.  For a
 positive $\alpha$ one has $\langle T_{i_\lambda},\alpha\rangle\ge0$, hence
-$\langle T,\alpha\rangle\ge0$; and $\langle T,J\alpha\rangle=\langle
-T,\alpha\rangle$ likewise.  Thus $T$ is a positive symmetric linear
+$\langle T,\alpha\rangle\ge0$; and, each $T_i$ being symmetric,
+$\langle T,J\alpha\rangle=(-1)^p\langle T,\alpha\rangle$ in the limit.  Thus $T$ is a positive symmetric linear
 functional, and \Cref{prop:ch14-automatic-continuity}\,(1) makes it a current
 of order $0$ relative to every chart datum, with no further estimate.
 
@@ -3659,6 +3778,11 @@ Involution
  & $J\rd x_i=-\rd\xi_i$, $J\rd\xi_i=\rd x_i$ in
    \cite[\S2]{Ber26Convex}; opposite sign in \cite{Ber19Super}
  & test $J^2$: ours is an involution \\
+Symmetry
+ & $J\alpha=(-1)^p\alpha$ on $A^{p,p}$; $JT=(-1)^pT$ on $D^{p,p}$
+ & $J\alpha=\alpha$ with the CLD involution
+ & \cref{def:ch14-symmetric-current},
+   \cref{rem:ch09-two-involutions} \\
 Second-order operator
  & $\dprimeddprime u=\sum u_{ij}\dprime x_i\wedge\ddprime x_j$
  & $\rd\rd^{\#}u$ with $\rd^{\#}=J^{-1}\rd J$
@@ -3759,7 +3883,7 @@ $\dprimeddprime\max\{0,t\}=\delta_0$
   &sign of the current differential
   &\cref{ex:ch14-convex-corner-restated}\\
 model function on a star
-  &vertex atom is minus the outgoing flux
+  &vertex atom is the sum of the outgoing slopes
   &\cref{ex:ch14-line-model-function}\\
 $k$-th derivative on the $k$-th branch
   &no global order

@@ -187,7 +187,7 @@ point of use.
 \item\label{itm:ch51-import:skoda}
       \emph{Skoda's integrability theorem}: \(\rme^{-\varphi}\) is locally
       integrable near \(x\) if \(\nu(\varphi,x)<1\) and fails to be
-      integrable if \(\nu(\varphi,x)>n\) \cite{Sko72}, in the
+      integrable if \(\nu(\varphi,x)\geq n\) \cite{Sko72}, in the
       normalization \eqref{eq:complex-lelong-number}.
 \item\label{itm:ch51-import:openness}
       \emph{The strong openness theorem}
@@ -515,11 +515,15 @@ invisible to every nonpluripolar product but is emphatically visible to a
 pointwise inequality.  All envelopes in this chapter --- \(V_\theta\), the
 rooftop \(\varphi\wedge_\theta\psi\), \(P_\theta[\varphi]\), and
 \(P_\theta[\varphi]_{\mathcal I}\) --- are defined with the
-regularization.  The one place where inserting an extra regularization
-would change a statement is the inverse Legendre transform of
-\Cref{sec:appH-test-curves}, where the infimum is already upper
-semicontinuous under the hypotheses of the Ross--Witt Nystr\"om
-correspondence; see \Cref{thm:rays-rwn}.
+regularization.  The one place where the \emph{absence} of a
+regularization is a substantive assertion is the \emph{forward} Legendre
+transform \eqref{eq:rays-forward-legendre}: a supremum of upper
+semicontinuous functions need not be upper semicontinuous, and that no star
+is needed there is part of the Ross--Witt Nystr\"om correspondence; see
+\Cref{thm:rays-rwn}.  The inverse transform
+\eqref{eq:rays-inverse-legendre} raises no such question, an infimum of
+upper semicontinuous functions being upper semicontinuous unconditionally:
+\(\{\inf_tf_t<c\}=\bigcup_t\{f_t<c\}\) is open.
 \end{warning}
 
 \subsection{Comparison of singularities}
@@ -587,14 +591,21 @@ On the unit disk \(\mathbf D\subset\mathbf C\), consider
  \begin{gathered}
  u_1=\log|z|^2,
  \qquad
- u_2=\log|z|^2+\log(-\log|z|^2)^{-1},\\
+ u_2=\log|z|^2-\log(-\log|z|^2),\\
  u_3=-\log(-\log|z|^2),
  \qquad
  u_4=0 .
  \end{gathered}
 \]
 The second and third are psh near \(0\) after shrinking the disk.  One has
-\(u_1\preceq u_2\preceq u_3\preceq u_4\) but no reverse relation, and
+\(u_2\preceq u_1\preceq u_3\preceq u_4\) but no reverse relation --- note
+the order of the first two, forced by \(u_2=u_1+u_3\) with \(u_3<0\) and
+merely \emph{consistent} with the additivity
+\Cref{prop:ch51-lelong-calculus}\,\cref{itm:ch51-lc:sum}, by which
+\(\nu(u_2,0)=\nu(u_1,0)+\nu(u_3,0)=1\); equality of Lelong numbers does
+\emph{not} by itself give a bounded difference, as
+\Cref{rem:ch51-lelong-not-faithful} and the pair \(u_3,u_4\) below show ---
+and
 \[
  \nu(u_1,0)=1,\qquad
  \nu(u_2,0)=1,\qquad
@@ -824,9 +835,13 @@ The class \(\{\theta\}\) is
 \end{enumerate}
 \end{definition}
 
-These four conditions are strictly decreasing in strength.  A K\"ahler
-class is nef and big; a nef class is pseudoeffective but need not be big;
-a big class need not be nef; a pseudoeffective class need not be big.
+K\"ahler implies both nef and big, and each of nef and big implies
+pseudoeffective; all four implications are strict, and nef and big are
+\emph{incomparable}, so the four conditions form a partial order and not a
+chain.  A nef class need not be big; a big class need not be nef; a
+pseudoeffective class need not be big.  The incomparability is the point of
+\Cref{ex:ch51-blowup-mass} (big, not nef) and
+\Cref{ex:ch51-nef-zero-volume} (nef, not big).
 \Cref{ex:ch51-blowup-mass} realizes a big non-nef class on a blown-up
 surface and computes its nonpluripolar volume, and
 \Cref{ex:ch51-nef-zero-volume} realizes a nef class of vanishing volume on
@@ -837,10 +852,15 @@ the same surface.  Neither example is exotic, and both occur in
 Let \(\{\theta\}\) be pseudoeffective.
 \begin{enumerate}
 \item\label{itm:ch51-vtheta:kahler}
-      \(V_\theta\) is bounded if and only if for some, equivalently every,
-      K\"ahler form \(\omega\) and every \(\epsilon>0\) the class
-      \(\{\theta\}+\epsilon\{\omega\}\) contains a smooth positive form;
-      that is, if and only if \(\{\theta\}\) is nef.
+            if \(V_\theta\) is bounded then \(\{\theta\}\) is nef; conversely, if
+      \(\{\theta\}\) contains a smooth semipositive form --- in particular if
+      it is a nonnegative combination of semiample classes --- then
+      \(V_\theta\) is bounded.  Nefness alone is not asserted here to imply
+      boundedness: it gives boundedness of \(V_{\theta+\epsilon\omega}\) for
+      every \(\epsilon>0\), and
+      \(V_\theta=\lim_{\epsilon\downarrow0}V_{\theta+\epsilon\omega}\) is a
+      \emph{decreasing} limit, against which
+      \Cref{warn:ch51-lelong-decreasing} warns.
 \item\label{itm:ch51-vtheta:continuous}
       If \(\{\theta\}\) is K\"ahler, then \(V_\theta\) may be taken to be
       \(0\) after changing the smooth representative.
@@ -857,14 +877,13 @@ Then \(\theta+\ddc V_\theta\geq0\) with bounded potential; regularizing
 \(V_\theta\) by Demailly's approximation with loss \(\epsilon\omega\)
 produces smooth \(\varphi_\epsilon\) with
 \(\theta+\ddc\varphi_\epsilon\geq-\epsilon\omega\), so \(\{\theta\}\) is
-nef.  Conversely, if \(\{\theta\}\) is nef, the smooth potentials
-\(\varphi_\epsilon\) satisfy
-\(\varphi_\epsilon\in\PSH(X,\theta+\epsilon\omega)\); normalizing
-\(\sup_X\varphi_\epsilon=0\) and using
-\Cref{prop:complex-l1-compactness} to extract an \(L^1\)-limit as
-\(\epsilon\downarrow0\) shows \(V_\theta\geq\lim\varphi_\epsilon>-\infty\)
-almost everywhere; the uniform bound on \(\sup_X\) and the sub-mean-value
-inequality then give a uniform lower bound.  Item
+nef.  Conversely, if \(\theta'\in\{\theta\}\) is smooth and semipositive, then
+\(0\in\PSH(X,\theta')\) and \(V_{\theta'}=0\), so \(V_\theta\) is bounded by
+\eqref{eq:complex-change-representative}.  One cannot argue instead from
+nefness by extracting an \(L^1\)-limit of normalized
+\(\varphi_\epsilon\in\PSH(X,\theta+\epsilon\omega)\): such a limit is only
+\(\theta\)-psh, and the sub-mean-value inequality bounds a psh function
+\emph{above} by its spherical means, never below.  Item
 \cref{itm:ch51-vtheta:continuous} is immediate: if
 \(\theta+\ddc f\) is a K\"ahler form, replace \(\theta\) by
 \(\theta+\ddc f\) and use \eqref{eq:complex-change-representative}; then
@@ -1037,7 +1056,7 @@ Let \(\varphi,\psi\) be quasi-psh on \(X\), let \(x\in X\), and let
 \item\label{itm:ch51-lc:smooth}
       \(\nu(\varphi,x)=0\) whenever \(\varphi\) is bounded near \(x\);
       \(\nu(\varphi,x)<1\) implies that \(\rme^{-\varphi}\) is integrable
-      near \(x\); and \(\nu(\varphi,x)>n\) implies that it is not.
+      near \(x\); and \(\nu(\varphi,x)\geq n\) implies that it is not.
 \end{enumerate}
 \end{proposition}
 
@@ -1060,12 +1079,18 @@ maximum, whence \(\gamma\geq\gamma'\).
 
 Item \cref{itm:ch51-lc:smooth} is Skoda's theorem \cite{Sko72}: if
 \(\nu(\varphi,x)<1\), then \(\rme^{-\varphi}\) is integrable near \(x\);
-if \(\nu(\varphi,x)>n\), it is not.  The bounds are sharp at both ends:
-\(\varphi=\log|z_1|^2\) has \(\nu=1\) and \(\rme^{-\varphi}=|z_1|^{-2}\)
-is not integrable, while
-\(\varphi=\log(|z_1|^2+\cdots+|z_n|^2)^n=n\log|z|^2\) has \(\nu=n\) and
-\(\rme^{-\varphi}=|z|^{-2n}\) is not integrable, whereas
-\(\varphi=\gamma\log|z|^2\) with \(\gamma<n\) gives an integrable weight.
+if \(\nu(\varphi,x)\geq n\), it is not.  The second bound is not strict:
+\(\nu\geq n\) gives \(\lambda_\varphi(t)\leq\lambda_\varphi(t_0)+n(t-t_0)\)
+by \Cref{prop:ch51-lelong-three}, items \cref{itm:ch51-lelong:convex} and
+\cref{itm:ch51-lelong:slope}, hence
+\(\varphi\leq n\log|z-x|^2+O(1)\) and
+\(\rme^{-\varphi}\geq c|z-x|^{-2n}\), whose integral
+\(c_n\int_0^1r^{-2n}r^{2n-1}\rd r\) diverges.  Neither \emph{constant} can
+be moved: \(\varphi=\log|z_1|^2\) has \(\nu=1\) and
+\(\rme^{-\varphi}=|z_1|^{-2}\) is not integrable, while
+\(\varphi=n\log|z|^2\) has \(\nu=n\) and \(\rme^{-\varphi}=|z|^{-2n}\) is
+not integrable, whereas \(\varphi=\gamma\log|z|^2\) with \(\gamma<n\) gives
+an integrable weight.
 \end{proof}
 
 \begin{remark}[Lelong numbers do not detect \(\preceq\)]
@@ -1448,13 +1473,23 @@ force.  For \(f=z^k\) one has
  =2\pi\int_0^1r^{2k-2\lambda+1}\,\rd r,
 \]
 which is finite exactly when \(2k-2\lambda+1>-1\), that is
-\(k>\lambda-1\).  For \(\lambda\notin\mathbf Z\) this means
-\(k\geq\lceil\lambda\rceil-1+1=\lfloor\lambda\rfloor\); for
-\(\lambda\in\mathbf Z\) it means \(k\geq\lambda=\lfloor\lambda\rfloor\).
+\(k>\lambda-1\), that is \(k\geq\lfloor\lambda\rfloor\) --- one formula
+valid at every real \(\lambda\), integral or not.  For
+\(\lambda\notin\mathbf Z\) one has
+\(\lfloor\lambda\rfloor>\lambda-1>\lfloor\lambda\rfloor-1\); for
+\(\lambda\in\mathbf Z\) the strict inequality forces
+\(k\geq\lambda=\lfloor\lambda\rfloor\).  Writing \(k\geq\lceil\lambda-1\rceil\)
+would be the \emph{non-strict} condition at integral \(\lambda\) and would
+give the wrong answer there.  For
+\(\lambda\notin\mathbf Z\) this is
+\(k\geq\lceil\lambda\rceil-1=\lfloor\lambda\rfloor\); for
+\(\lambda\in\mathbf Z\) it is \(k\geq\lambda=\lfloor\lambda\rfloor\).
 In both cases the answer is \((z^{\lfloor\lambda\rfloor})\), which is
 \eqref{eq:complex-multiplier-example}.  A source that reports
-\((z^{\lceil\lambda\rceil-1})\) is using the strict convention
-\(k>\lambda-1\) with a different treatment of the integral endpoint; a
+\((z^{\lceil\lambda\rceil-1})\) is using the \emph{non-strict} condition
+\(k\geq\lambda-1\), which differs from ours only at integral \(\lambda\):
+for \(\lambda=2\) the strict condition gives \((z^2)\) and the non-strict
+one \((z)\); a
 source that reports \((z^{\lfloor2\lambda\rfloor})\) is using the weight
 \(\rme^{-2\varphi}\) of \Cref{warn:ch51-half-log}.
 
@@ -1484,7 +1519,7 @@ Let \(\varphi,\psi\) be quasi-psh on \(X\), and \(\lambda,\mu>0\).
       Skoda's bounds hold:
       \(\nu(\varphi,x)<1\) implies
       \(\mathcal I(\varphi)_x=\cO_{X,x}\), and
-      \(\nu(\varphi,x)>n\) implies
+      \(\nu(\varphi,x)\geq n\) implies
       \(\mathcal I(\varphi)_x\subseteq\mathfrak m_x\).
 \end{enumerate}
 \end{proposition}
@@ -1515,8 +1550,8 @@ diagonal of \(X\times X\) using the Ohsawa--Takegoshi extension theorem
 \(\mathcal I(\varphi)\cdot\mathcal I(\psi)=\cO\not\subseteq(z)\).
 
 Item \cref{itm:ch51-if:skoda-bounds} is Skoda's theorem \cite{Sko72} in the
-normalization \eqref{eq:complex-lelong-number}.  Neither bound can be
-improved without further hypotheses: \(\varphi=\log|z_1|^2\) on
+normalization \eqref{eq:complex-lelong-number}.  Neither \emph{constant}
+can be improved: \(\varphi=\log|z_1|^2\) on
 \(\mathbf C^2\) has \(\nu(\varphi,0)=1\) and
 \(\mathcal I(\varphi)=(z_1)\subsetneq\cO\), while
 \(\varphi=\gamma\log|z|^2\) with \(\gamma<n\) has
@@ -1805,9 +1840,9 @@ outside these two points, and \Cref{prop:ch51-howald} computes its stalks.
 \item \(\lambda=\tfrac43\): the threshold, so
       \(\lct_{p_1}(\varphi)=1+\tfrac13=\tfrac43\).
 \item \(\lambda=1\): \(3k_1+k_2>-1\), so
-      \(\mathcal I(\varphi)_{p_1}=\cO\).  The point \(p_1\) is invisible
-      to \(\mathcal I(\varphi)\) and becomes visible only at
-      \(\lambda>4/3\).
+      \(\mathcal I(\varphi)_{p_1}=\cO\).  The point \(p_1\) is invisible to \(\mathcal I(\varphi)\) and becomes
+visible at \(\lambda=4/3\), where the condition reads \(3k_1+k_2>0\) and
+gives \(\mathcal I(\tfrac43\varphi)_{p_1}=\mathfrak m_{p_1}\).
 \item \(\lambda=2\): \(3k_1+k_2>2\), that is \(\geq3\), with minimal
       exponents \((1,0),(0,3)\):
       \(\mathcal I(2\varphi)_{p_1}=(w_0,w_1^3)\).
@@ -2088,9 +2123,14 @@ plurifine open set \cite{BT87}.  Consequently the measures
 \(\one_{O_k}\bigwedge_j\ddc\max\{u_j,-k\}\) form an increasing family in
 \(k\), and their increasing limit exists as a positive current.
 
-\emph{Why the limit is locally finite.}  On a compact K\"ahler manifold
-with a K\"ahler form \(\omega\), Stokes' theorem applied to the truncated
-potentials gives, for every \(k\),
+\emph{Why the limit is locally finite.}  Fix a K\"ahler form \(\omega\) and
+K\"ahler forms \(\omega_j\geq\theta_j\); then \(\varphi_j\in\PSH(X,\omega_j)\)
+and \(\max\{\varphi_j,-k\}\in\PSH(X,\omega_j)\), constants being
+\(\omega_j\)-psh.  The detour through \(\omega_j\) is necessary, not
+cosmetic: \(\max\{\varphi_j,-k\}\) is \(\theta_j\)-psh only when
+\(\theta_j\geq0\), which the standing hypotheses do not give and which
+\Cref{ex:ch51-blowup-mass} violates.  Stokes' theorem applied to the
+truncated potentials then gives, for every \(k\),
 \[
  \begin{aligned}
  \int_X\one_{O_k}\bigwedge_{j=1}^p\ddc\max\{u_j,-k\}\wedge\omega^{n-p}
@@ -2391,9 +2431,16 @@ nef \(\{\theta\}\), the smooth potentials \(\varphi_\epsilon\) of
 \Cref{def:ch51-positivity} make \(V_{\theta+\epsilon\omega}\) bounded, so
 \(\MA_{\theta+\epsilon\omega}(V_{\theta+\epsilon\omega})\) is the
 Bedford--Taylor measure of a bounded potential and has total mass
-\(\int_X(\{\theta\}+\epsilon\{\omega\})^n\); letting \(\epsilon\downarrow0\)
-and using item \cref{itm:ch51-mi:perturb} together with continuity of the
-cohomological expression gives the claim.  The surface statement is the
+\(\int_X(\{\theta\}+\epsilon\{\omega\})^n\).  Item
+\cref{itm:ch51-mi:perturb} therefore gives
+\(\vol(\{\theta\})\leq\int_X(\{\theta\}+\epsilon\{\omega\})^n\) for every
+\(\epsilon>0\), hence \(\vol(\{\theta\})\leq\int_X\{\theta\}^n\) in the
+limit.  The reverse inequality is \emph{not} obtained by letting
+\(\epsilon\downarrow0\) in the potentials, since
+\(V_{\theta+\epsilon\omega}\searrow V_\theta\) is a \emph{decreasing}
+family, against which \Cref{warn:ch51-continuity-rules} warns; it is the
+continuity of the volume function up to the boundary of the big cone,
+\cite[Theorem~1.16]{BEGZ10} and \cite{Bou02}, which is imported here.  The surface statement is the
 divisorial Zariski decomposition \(\{\theta\}=P+N\) of \cite{Bou04}: one
 has \(\vol(\{\theta\})=P^2\), \(P\cdot N=0\), and \(N^2\leq0\) with
 equality only for \(N=0\), whence
@@ -2594,9 +2641,14 @@ decomposition \(\alpha=P+N\) with \(P=H\), \(N=e\): indeed
  \eta_\tau:=\pi^*\omega_{\mathrm{FS}}-\tau\Theta
  \ \in\ H-\tau e ,
 \]
-a smooth form in a nef class, since \(H-\tau e=\tau\ell+(1-\tau)H\) lies
-in the nef cone.  By \Cref{prop:ch51-vtheta-bounded-iff}, item
-\cref{itm:ch51-vtheta:kahler}, the potential \(V_{\eta_\tau}\) is bounded.
+a smooth form in a nef class, since \(H-\tau e=\tau\ell+(1-\tau)H\).  Both
+\(H\) and \(\ell\) are semiample --- \(H\) is the pullback of
+\(\cO_{\mathbf P^2}(1)\) and \(\ell\) the pullback of
+\(\cO_{\mathbf P^1}(1)\) under the ruling of \(X\) --- so \(H-\tau e\) is a
+nonnegative combination of semiample classes, which is what
+\Cref{prop:ch51-vtheta-bounded-iff}, item \cref{itm:ch51-vtheta:kahler},
+requires; nefness alone would not suffice, as that item says.  The potential
+\(V_{\eta_\tau}\) is therefore bounded.
 Define
 \[
  \varphi_\tau:=(1+\tau)V+V_{\eta_\tau}\ \in\PSH(X,\theta),
@@ -2664,9 +2716,10 @@ kind lying below it.  Two such operators are needed in
 \cref{part:complex}, and they are genuinely different.  The
 \(P\)-envelope keeps the ordinary singularity type as a constraint and
 maximizes; the \(\mathcal I\)-envelope of \Cref{sec:ch51-i-envelope}
-keeps only the multiplier ideals and maximizes.  Since the second
-constraint is weaker, the second envelope is larger,
-\eqref{eq:complex-p-i-comparison}, and the two can differ.
+keeps only the multiplier ideals and maximizes.  The second envelope is the
+larger, \eqref{eq:complex-p-i-comparison}, and the two can differ --- but
+not because one competitor family contains the other: the two families are
+incomparable, as \Cref{sec:ch51-i-envelope} records.
 
 \subsection{Rooftops}
 \label{sec:ch51-rooftop}
@@ -2917,11 +2970,15 @@ For \(\varphi\) of positive mass,
 \]
 and in fact
 \(\MA_\theta(P_\theta[\varphi])\leq
-\one_{\{P_\theta[\varphi]=V_\theta\}}\MA_\theta(V_\theta)\).  For each
-fixed \(C\) this is \Cref{lem:ch51-rooftop-contact} applied to the pair
-\((\varphi+C,V_\theta)\); the passage to the increasing limit, which is
-where positivity of the mass is used, is \cite{DDNL18mono}; see also the
-survey \cite{DDNLsurv}.  On a curve the statement can be read off from
+\one_{\{P_\theta[\varphi]=V_\theta\}}\MA_\theta(V_\theta)\).  \Cref{lem:ch51-rooftop-contact} covers the case \(\varphi\sim V_\theta\),
+where the pair \((\varphi+C,V_\theta)\) does have bounded difference from the
+model potential \(V_\theta\).  For a general positive-mass \(\varphi\) it does
+not apply: \(\varphi-V_\theta\) is then unbounded --- already in
+\Cref{ex:ch51-p1-envelope}, where \(\varphi=\tfrac12G_0\) and
+\(V_\omega=0\) --- so no \(\phi\) as in that lemma exists for the pair.  Both
+the fixed-\(C\) statement and the passage to the increasing limit, which is
+where positivity of the mass is used, are imported from \cite{DDNL18mono};
+see also the survey \cite{DDNLsurv}.  On a curve the statement can be read off from
 \Cref{lem:ch51-npp-bidegree-one}, and
 \Cref{ex:ch51-p1-envelope} exhibits it with explicit measures.
 
@@ -3123,7 +3180,7 @@ and write
  \varphi\preceq_P\psi
  \quad\Longleftrightarrow\quad
  P_\theta[\varphi]\leq P_\theta[\psi].
-\tag{51.25}\label{eq:complex-p-preorder}
+\tag{51.26}\label{eq:complex-p-preorder}
 \]
 This condition is independent of the common background.  Write
 \(\varphi\sim_P\psi\) when both comparisons hold.
@@ -3211,9 +3268,20 @@ system are exactly the envelope operators for varying backgrounds.
 \label{sec:ch51-i-envelope}
 
 The second envelope replaces the constraint ``more singular than
-\(\varphi\)'' by the weaker constraint ``the same multiplier ideals as
-\(\varphi\)''.  Because the constraint is weaker, the envelope is larger,
-and because the constraint refers to no background form, the resulting
+\(\varphi\)'' by the constraint ``the same multiplier ideals as
+\(\varphi\)''.  The envelope is larger, but \emph{not} by a containment of
+competitor families, which fails in both directions: on \(\mathbf P^1\)
+with \(\varphi=\tfrac12G_0\) as in \Cref{ex:ch51-p1-envelope}, the
+competitor \(\psi=G_0\leq0\) satisfies \(\psi\preceq\varphi\) but has
+\(\nu(\psi,0)=1\neq\tfrac12\), so \(\psi\not\sim_{\mathcal I}\varphi\);
+and in \Cref{ex:ch51-cantor} the competitor \(\psi=0\) satisfies
+\(0\sim_{\mathcal I}\varphi_{1/2}\) but not \(0\preceq\varphi_{1/2}\).  The
+inequality follows instead from Step~3 of
+\Cref{thm:complex-i-projection}, which gives
+\(P_\theta[\varphi]\sim_{\mathcal I}\varphi\), so that
+\(P_\theta[\varphi]\) is itself a competitor for the
+\(\mathcal I\)-envelope.  Because the constraint refers to no background
+form, the resulting
 preorder is manifestly background-free.  That last feature is what makes
 the \(\mathcal I\)-envelope the right operator for the K\"ahler
 perturbation systems of \Cref{chap:transcendental-metrics} --- see
@@ -3231,7 +3299,7 @@ For quasi-psh \(\varphi,\psi\), write
  \quad\Longleftrightarrow\quad
  \mathcal I(m\varphi)\subseteq\mathcal I(m\psi)
  \quad\text{for every }m\geq1.
-\tag{51.26}\label{eq:complex-i-preorder}
+\tag{51.27}\label{eq:complex-i-preorder}
 \]
 Equivalently, \(\nu(\varphi,E)\geq\nu(\psi,E)\) for every prime divisor
 over \(X\).  Write \(\varphi\sim_{\mathcal I}\psi\) for equality in both
@@ -3307,7 +3375,7 @@ For \(\varphi\in\PSH(X,\theta)\), set
  P_\theta[\varphi]_{\mathcal I}
  :=\uscsup\{\psi\in\PSH(X,\theta)\mid
           \psi\leq0,\ \psi\sim_{\mathcal I}\varphi\}.
-\tag{51.27}\label{eq:complex-i-envelope}
+\tag{51.28}\label{eq:complex-i-envelope}
 \]
 It is \(\mathcal I\)-model if it is fixed by this operator.
 \end{definition}
@@ -3319,20 +3387,20 @@ For every \(\varphi\in\PSH(X,\theta)\),
 \qquad
  P_\theta[P_\theta[\varphi]_{\mathcal I}]_{\mathcal I}
       =P_\theta[\varphi]_{\mathcal I}.
-\tag{51.28}\label{eq:complex-i-projection}
+\tag{51.29}\label{eq:complex-i-projection}
 \]
 Furthermore,
 \[
  P_\theta[\varphi]\leq P_\theta[\varphi]_{\mathcal I},
 \qquad
  \varphi\sim_{\mathcal I}P_\theta[\varphi].
-\tag{51.29}\label{eq:complex-p-i-comparison}
+\tag{51.30}\label{eq:complex-p-i-comparison}
 \]
 If \(\varphi\) has analytic singularities, then
 \[
  \varphi\sim P_\theta[\varphi]
         \sim P_\theta[\varphi]_{\mathcal I}.
-\tag{51.30}\label{eq:complex-analytic-envelope-agreement}
+\tag{51.31}\label{eq:complex-analytic-envelope-agreement}
 \]
 \end{theorem}
 
@@ -3503,7 +3571,7 @@ For quasi-psh functions,
  \varphi\preceq_P\psi
  \Longrightarrow
  \varphi\preceq_{\mathcal I}\psi.
-\tag{51.31}\label{eq:complex-comparison-hierarchy}
+\tag{51.32}\label{eq:complex-comparison-hierarchy}
 \]
 Neither reverse implication is asserted.  In particular,
 \(\mathcal I\)-equivalence is coarser than \(P\)-equivalence.
@@ -3586,12 +3654,12 @@ For \(\varphi\in\PSH(X,\theta)\), define
  \vol(\theta,\varphi)
  :=\int_X\bigl(\theta+\ddc
              P_\theta[\varphi]_{\mathcal I}\bigr)^n.
-\tag{51.32}\label{eq:complex-current-volume}
+\tag{51.33}\label{eq:complex-current-volume}
 \]
 It depends only on the current \(\theta_\varphi\).  Moreover,
 \[
  M_\theta(\varphi)\leq\vol(\theta,\varphi),
-\tag{51.33}\label{eq:complex-mass-volume}
+\tag{51.34}\label{eq:complex-mass-volume}
 \]
 with equality for analytic singularities.
 \end{definition}
@@ -4259,7 +4327,8 @@ converge &
 \Cref{prop:complex-l1-compactness},
 \Cref{cor:ch51-hartogs}\\
 \(V_\theta\) &
-largest nonpositive potential; bounded iff \(\{\theta\}\) nef &
+largest nonpositive potential; bounded \(\Rightarrow\) nef, and bounded
+  whenever \(\{\theta\}\) contains a smooth semipositive form &
 \eqref{eq:complex-vtheta},
 \Cref{prop:ch51-vtheta-bounded-iff}\\
 Lelong number &

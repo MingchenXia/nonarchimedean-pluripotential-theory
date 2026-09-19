@@ -352,7 +352,8 @@ Consequently Thuillier's operator and Rumely's differ by a constant,
 \[
    \ddc=(\log p)^{-1}\,\ddc_{\mathrm R},
 \]
-and his smooth Green functions are $(\log p)^{-1}$ times Rumely's; this is
+and, the Green function of a metric graph scaling linearly in the edge
+lengths, his smooth Green functions are $\log p$ times Rumely's; this is
 \cite[\S5.1]{Thu05}.  A reader who takes edge lengths from the
 $p$-adic-normalized literature, where $|p|=p^{-1}$, and Laplacians from this
 book must therefore insert $\log p$ once.  We never do: the absolute value is
@@ -685,15 +686,26 @@ $f\in\pi^m\cO_{\cX,\xi}$.  Since $v_z$ is a semivaluation with
 $v_z(\pi)=1$ and $v_z\geq0$ on $\cO_{\cX,\xi}$, writing $f=\pi^mu$ with $u$ a
 unit gives $v_z(f)=m+v_z(u)\geq m=v_{r(z)}(f)$.
 
-If $\xi$ is a node, then $\cX$ is regular of dimension two at $\xi$, so
-$\widehat{\cO}_{\cX,\xi}\simeq\kappa(\xi)[[x,y]]$ with $\pi=u\,xy$ for a unit
-$u$, as in \cref{sec:skeleton-snc}.  Put
-$\alpha=(v_z(x),v_z(y))$; then $\alpha_1+\alpha_2=v_z(\pi)=1$ and, by
-\cref{prop:skeleton-retraction} and \cref{lem:monomial-valuation}, $r(z)$ is
-the monomial valuation $v_\alpha$, whose value on
-$f=\sum_{\beta\in\mathbf N^2}c_\beta x^{\beta_1}y^{\beta_2}$ is
+If $\xi$ is a node, then $\cX$ is regular of dimension two at $\xi$ and, by
+\cref{def:ch08-semistable-curve-model},
+$\widehat{\cO}_{\cX,\xi}\simeq R[[x,y]]/(xy-\pi)$, in which every element is
+uniquely
 \[
- v_{r(z)}(f)=\min_{c_\beta\neq0}\langle\alpha,\beta\rangle .
+ f=\sum_{i\geq0}a_ix^i+\sum_{j\geq1}b_jy^j,
+ \qquad a_i,b_j\in R .
+\]
+In equal characteristic zero a Cohen coefficient field turns this into
+$\kappa(\xi)[[x,y]]$ with $\pi=u\,xy$, as in \cref{sec:skeleton-snc}; the
+presentation over $R$ is the one available in every characteristic, and the
+monomial valuation below is likewise characteristic-free, being built from
+the $\alpha$-weighted filtration (\cref{sec:skeleton-monomial}).  Put
+$\alpha=(v_z(x),v_z(y))$; then $\alpha_1+\alpha_2=v_z(\pi)=1$ and, by
+\cref{prop:skeleton-retraction}, $r(z)$ is the monomial valuation $v_\alpha$,
+whose value on $f$ is
+\[
+ v_{r(z)}(f)=\min\Bigl\{
+   \min_{a_i\neq0}\bigl(v(a_i)+i\alpha_1\bigr),\
+   \min_{b_j\neq0}\bigl(v(b_j)+j\alpha_2\bigr)\Bigr\} .
 \]
 Since $z$ has centre $\xi$, both coordinates of $\alpha$ are strictly
 positive: if, say, $v_z(x)=0$, then $x$ would be a unit for $z$ and the
@@ -701,15 +713,23 @@ centre of $z$ would not lie on the component $\{x=0\}$.  Hence
 $v_z(\mathfrak m_\xi^n)\geq n\min\{\alpha_1,\alpha_2\}\to+\infty$, so $v_z$
 extends continuously to the $\mathfrak m_\xi$-adic completion.  Applying the
 ultrametric inequality to the partial sums of the series and passing to the
-limit gives
-$v_z(f)\geq\min_{c_\beta\neq0}\langle\alpha,\beta\rangle=v_{r(z)}(f)$.
+limit gives $v_z(f)\geq v_{r(z)}(f)$.
 
-Finally, if $\mathfrak a$ is generated near $\xi$ by $f_1,\ldots,f_N$, then
+Finally, if $\mathfrak a\subseteq\cO_{\cX}$ is generated near $\xi$ by
+$f_1,\ldots,f_N$, then
 $\log|\mathfrak a|(z)=-\min_\ell v_z(f_\ell)\leq-\min_\ell v_{r(z)}(f_\ell)
-=\log|\mathfrak a|(r(z))$.  For a vertical Cartier divisor the local equation
-is a single element, both inequalities apply to it and to its inverse, and
-equality $\varphi_D\circ r=\varphi_D$ follows; this is also the identity
-recorded in \cref{sec:skeleton-model-functions}.
+=\log|\mathfrak a|(r(z))$.  A vertical \emph{fractional} ideal is the unit
+ideal on the generic fibre, so $\pi^N\mathfrak a\subseteq\cO_{\cX}$ for some
+$N\geq0$ and $\log|\mathfrak a|=N+\log|\pi^N\mathfrak a|$; the inequality
+therefore persists.  For a vertical Cartier divisor $D$ the argument is not
+the inequality applied twice --- if $D$ is effective and $\xi\in\Supp D$ then
+its local equation $f$ lies in $\cO_{\cX,\xi}$ but $f^{-1}$ does not --- but
+a direct computation: by \Cref{lem:snc-normal-form}\,(1) one has
+$f=u\prod_jz_j^{a_j}$ with $u$ a unit and the $z_j$ local equations of the
+components of $\cX_s$ through $\xi$, so $v_z(u)=0$ and
+$v_z(z_j)=\alpha_j=v_{r(z)}(z_j)$ by the construction of $r$; both sides
+equal $\sum_ja_j\alpha_j$, and $\varphi_D\circ r=\varphi_D$.  This is also
+the identity recorded in \cref{sec:skeleton-model-functions}.
 \end{proof}
 
 \begin{remark}
@@ -1331,10 +1351,13 @@ simplest model of $X=\mathbf P^1_K$ is $\cX_0=\mathbf P^1_R$; its special
 fibre is the single reduced component $\mathbf P^1_{\widetilde K}$, its
 skeleton is the single point $\zeta_{0,1}$, and its retraction sends
 everything to the Gauss point.  All other models used here are obtained from
-$\cX_0$ by blowing up closed points of special fibres; by
-\cref{prop:ch08-branching}, the possible centres on $\cX_{0,s}$ are indexed
-by $\mathbf P^1(\widetilde K)$, and each blowup extends the skeleton by one
-edge of length one.
+$\cX_0$ by blowing up closed points of special fibres: the possible centres
+on $\cX_{0,s}$ are the closed points of $\mathbf P^1_{\widetilde K}$, which
+are indexed by $\mathbf P^1(\widetilde K)$ exactly when $\widetilde K$ is
+algebraically closed (\cref{prop:ch08-branching}); for
+$\widetilde K=\mathbf F_p$ there are infinitely many, one for each monic
+irreducible polynomial.  In every case each blowup extends the skeleton by
+one edge of length one, since the exceptional divisor has $b_E=1$.
 
 We compute three models completely.  In each case the curvature measure of a
 model metric on $\cO(1)$ is obtained twice, from intersection numbers by
@@ -1512,9 +1535,11 @@ model $\cX_4$ with special fibre $\widetilde C+E_1+E_2+E_3+E_4$ used in
 residual degrees are $1,0,0,0,0$, and the measure is still
 $\delta_{\zeta_{0,1}}$.  This is \cref{thm:cl-model-properties} in the
 smallest instance: passing to a higher model neither creates nor destroys
-mass, it only creates points at which mass \emph{could} sit.  The four zero
-coefficients are the reason the point $t=1$ contributed nothing in
-\cref{ex:ch08-newton-cubic}.
+mass, it only creates points at which mass \emph{could} sit.  The reason the
+point $t=1$ contributed nothing in \cref{ex:ch08-newton-cubic} is different,
+and local to that example: there $F$ is affine across $t=1$, the two
+outgoing slopes being $+3$ and $-3$, because $f$ has no root of valuation
+one.
 \end{example}
 
 \section{The trivially valued cone}
@@ -2597,8 +2622,16 @@ divisors, with rational multiples allowed explicitly and never silently.
 \label{rem:ch08-toric-model}
 A rational polyhedral convex $F$ with recession $\check h_P$ and constants in
 $v(K^\times)$ determines a fan in $N_{\mathbf R}\times\mathbf R_{\geq0}$,
-namely the normal fan of the epigraph-like polyhedron
-$\{(m,s):\langle m,u\rangle\leq -F(u)+s\ \forall u\}$, and hence a toric
+namely the normal fan of the epigraph
+$\{(m,s):\langle m,u\rangle\leq F(u)+s\ \forall u\}
+ =\{(m,s):s\geq F^{*}(m)\}$ of the Legendre transform
+$F^{*}(m)=\sup_u(\langle m,u\rangle-F(u))$, whose domain is $-P$; the sign
+matters, since with $-F$ in place of $F$ the set is empty whenever $P$ is
+full-dimensional, positive homogeneity of $\check h_P$ forcing
+$\langle m,u\rangle\leq-\check h_P(u)$ for all $u$ and hence
+$\sup_{m'\in P}\langle m',u\rangle\leq\inf_{m'\in P}\langle m',u\rangle$.
+The normal fan of that epigraph is a rational polyhedral fan in
+$N_{\mathbf R}\times\mathbf R_{\geq0}$, and hence defines a toric
 scheme over $K^\circ$ whose generic fibre is $X_\Sigma$ and whose special
 fibre is the union of the toric surfaces dual to the vertices of the corner
 locus of $F$.  In \cref{ex:ch08-toric-hirzebruch} the two vertices $(1,1)$
@@ -2838,7 +2871,7 @@ and let
 \]
 be the elliptic curve over $K$ with $v(\pi)=1$.  Its discriminant is
 $\Delta=-432\pi^2$, so $v(\Delta)=2$, and its $j$-invariant is $j=0$, so
-$v(j)=0\geq0$.  The Weierstrass model $\{y^2=x^3+\pi\}$ over $R$ has special
+$v(j)=+\infty\geq0$.  The Weierstrass model $\{y^2=x^3+\pi\}$ over $R$ has special
 fibre the cuspidal cubic $y^2=x^3$, which is not nodal: this model is not
 semistable, and no semistable model exists over $R$ itself.
 

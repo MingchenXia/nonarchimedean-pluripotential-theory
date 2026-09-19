@@ -11,9 +11,14 @@ one-dimensional torus.
 The entries below are conventions of this book, not claims that all the
 listed theories are defined on the same objects.  A displayed comparison is
 an identity only on the common locus established in the relevant comparison
-chapter.  In particular, the notation \(\ddc\) belongs to complex geometry,
-whereas \(\dprimeddprime\) belongs to the Chambert--Loir--Ducros calculus.
-They are never identified formally.
+chapter.  In particular, the notation \(\ddc\) is typed by its setting, not by its
+glyph: it is the complex operator \eqref{eq:appJ-ddc} in
+\cref{part:complex} and in the complex sections elsewhere, and the model
+operator on numerical classes of \Cref{sec:ch20-ddc} throughout
+\cref{part:bfj,part:bj}; the Chambert--Loir--Ducros operator is always
+written \(\dprimeddprime\).  The three are never identified formally, and
+their relations are theorems; see
+\Cref{sec:ch20-normalization-audit,sec:appK-collisions}.
 
 \section{Absolute values, valuations, and scaling}
 \label{sec:appJ-valuations}
@@ -34,7 +39,9 @@ Consequently
 \]
 A large positive value of \(v_x(f)\) means that \(f\) is small at \(x\).
 For a semivaluation, \(v_x(f)=+\infty\) is equivalent to
-\(f\in\Supp(x)\), or equivalently \(|f(x)|=0\).
+\(f\in\operatorname{supp}(x)\), the prime ideal of
+\Cref{sec:appK-valuations}, or equivalently \(|f(x)|=0\); the
+analytic support \emph{subspace} \(\Supp(x)\) is a different object.
 
 If \(K\) is discretely valued and \(\pi\) is a uniformizer, the default
 normalization is
@@ -48,6 +55,24 @@ valuation by \(cv\).  Thus lengths in a skeleton, values of model functions,
 and unnormalized log discrepancies scale by \(c\).  Intersection numbers on
 an algebraic model do not scale.  A formula mixing these quantities must
 therefore display the chosen normalization of the ground valuation.
+
+A skeleton carries \emph{two} lengths, and the choice is a normalization in
+its own right.  For an edge of \(\Delta_{\cX}\) joining components of
+multiplicities \(b_i,b_{i'}\) in \(\cX_s=\sum b_EE\),
+\begin{equation*}
+ \text{analytic length}=\frac1{b_ib_{i'}},
+ \qquad
+ \text{integral-affine lattice length}
+   =\frac1{\operatorname{lcm}(b_i,b_{i'})},
+ \tag{J.2a}\label{eq:appJ-edge-lengths}
+\end{equation*}
+so that the lattice length is \(\gcd(b_i,b_{i'})\) times the analytic one
+and the two agree exactly when \(\gcd(b_i,b_{i'})=1\), in particular in the
+strictly semistable case (\Cref{rem:lattice-length}).  The analytic length
+is the one that enters the Laplacian and the mass normalizations; the
+lattice length is the one that makes transition maps integral affine.  A
+statement that mixes them without saying which is meant is off by a factor
+\(\gcd\).
 
 Over a trivially valued field the scaling action is
 \begin{equation*}
@@ -102,6 +127,15 @@ The additive weight of the underlying norm is \(\varphi/2\).  Consequently,
 if a complex ray \(\varphi_t\) is compared to a non-Archimedean norm weight,
 one must first check whether the source uses \(-\log|s|_h\) or
 \(-\log|s|_h^2\).  In this book the complex potential is the latter.
+
+\emph{The letters are not typed.}  Both \(\phi\) and \(\varphi\) are used
+for non-Archimedean weights: \cref{part:bfj} writes
+\(\|\cdot\|_\varphi=\rme^{-\varphi}\|\cdot\|_0\) and
+\(\varphi_D=-\log|f_D|\), while \cref{part:bj} writes \(\phi\) for the same
+objects; and \(\varphi\) is also the complex squared-norm potential
+\eqref{eq:appJ-complex-weight}.  What decides the factor of two is the norm
+symbol, \(\|s\|\) against \(|s|_h^2\), together with the declared setting,
+never the glyph.
 
 Adding a constant has the same sign in both conventions:
 \[
@@ -267,10 +301,48 @@ complex squared norm and the non-Archimedean norm have been distinguished.
 \section{Currents, cycles, and boundary signs}
 \label{sec:appJ-currents}
 
+\paragraph{Contraction in a labelled block.}
+For $v$ a tangent vector, $\iota'_v$ and $\iota''_v$ denote contraction in
+the primed, respectively double-primed, exterior block.  Throughout this book
+\emph{neither carries a traversal sign}: on
+$a\,\dprime x_I\wedge\ddprime x_J$ with $|I|=p$,
+\[
+ \iota'_v=a\,(\iota_v\dprime x_I)\wedge\ddprime x_J,
+ \qquad
+ \iota''_v=a\,\dprime x_I\wedge(\iota_v\ddprime x_J),
+\]
+so that $\iota'_v\iota''_w=\iota''_w\iota'_v$
+(\Cref{def:ch09-contraction,def:ch11-contractions}).  The competing
+convention, in which the double-primed contraction is made an antiderivation
+for the total degree, is the graded operator
+$\widetilde\iota''_v=(-1)^p\iota''_v$ on $A^{p,q}$; it satisfies
+$J\iota'_vJ=\widetilde\iota''_v$ and the clean Cartan identities
+(\Cref{lem:ch09-contraction-basic,prop:ch09-cartan}), and differs from the
+book's operator by exactly $(-1)^p$.  \emph{Test:} with the book's
+convention the boundary traces \eqref{eq:superform-boundary-traces} carry the
+prefactors $(-1)^{n-1}$ and $-1$; with the graded convention the first
+prefactor disappears.  A formula that uses $\widetilde\iota''_v$ together
+with the prefactor $(-1)^{n-1}$ has counted the sign twice.
+
+\paragraph{Duality and differentials.}
 Currents act on compactly supported test forms by the conventions of
 \crefrange{chap:cld-forms}{chap:cld-bedford-taylor}.  The differential of a
-current is defined by duality with
-the sign that makes Stokes' formula hold.  Rather than memorize that sign in
+current is defined by duality with the sign that makes Stokes' formula hold,
+namely
+\begin{equation*}
+ \dprime=(-1)^{p+q+1}b',
+ \qquad
+ \ddprime=(-1)^{p+q+1}b''
+ \qquad\text{on }D^{p,q},
+ \tag{J.20a}\label{eq:appJ-current-differential}
+\end{equation*}
+where $b'$, $b''$ are the naked transposes and the exponent uses the
+bidegree \emph{before} the operator is applied
+(\Cref{lem:ch14-sign-forced}).  The involution acts by
+$\langle JT,\alpha\rangle=(-1)^n\langle T,J\alpha\rangle$, and a current of
+bidegree $(p,p)$ is symmetric when $JT=(-1)^pT$
+(\Cref{def:ch14-symmetric-current}); the sign $(-1)^n$ is forced by
+$J\tau_n=(-1)^n\tau_n$.  Rather than memorize that sign in
 isolation, use the following three checks:
 \begin{enumerate}
 \item the current associated to a smooth form differentiates to the current
@@ -446,6 +518,40 @@ Thus a toric comparison may use \(\MA_{\mathbf R}\),
 \section{Rays, test configurations, and Duistermaat--Heckman measures}
 \label{sec:appJ-rays}
 
+Two radial parameters occur in the literature, and both occur in this book.
+They differ by a factor of two, so the conversion is recorded first.  With
+\(\zeta\) the coordinate on the disk,
+\begin{equation*}
+ s=-\log|\zeta|,
+ \qquad
+ t=-\log|\zeta|^2=2s,
+ \qquad
+ \varphi_t=2\psi_s,
+ \tag{J.35}\label{eq:appJ-radial-parameter}
+\end{equation*}
+where \(\psi_s\) is an ordinary norm weight and \(\varphi_t\) is the book's
+squared-norm potential.  The squared-norm parameter is the default:
+\cref{chap:rays-test-curves} states the Legendre transform in it, and
+\cref{chap:valuative-analytification} normalizes the Gauss extension against
+it by giving the disk coordinate the value \(1\).  Chapters working with a
+test configuration whose base coordinate is itself called \(t\) write
+\(s=-\log|t|\) for the ordinary-norm parameter; the squared-norm ray time is
+then \(2s\).
+
+The distinction is invisible to slopes and visible to everything else.  The
+three quotients
+\(\lim_s\psi_s/s\), \(\lim_s\varphi_{2s}/(2s)\) and \(\lim_t\varphi_t/t\)
+agree, so an asymptotic slope is unaffected by the conversion, whereas a
+weight, a Lelong number, or a Gauss normalization is.
+\cref{sec:rf-factor-two-firewall} carries this out in full and names the
+group-action failure: writing that factor as \(\rme^{2t\lambda}\) rather
+than \(\rme^{t\lambda}\) counts the passage to squared norms twice.  The
+asymptotic failure is stated separately, in the hybrid notation of
+\cref{sec:hybrid-metrics}: dividing the squared-norm asymptotic
+\eqref{eq:hybrid-squared-norm-asymptotic} by \(\log_r|t|\) instead of by
+\(2\log_r|t|\), where \(\log_r\) is the base-\(r\) logarithm of that
+section.
+
 Let \(\varphi_t\) be a complex weak geodesic ray.  The book parametrizes it
 for \(t\geq0\); translating the associated non-Archimedean metric by \(c\)
 adds the linear function \(ct\) to the ray.  Consequently the asymptotic
@@ -458,7 +564,7 @@ the Legendre formulas
                  (\psi_\tau+t\tau),
  \qquad
  \psi_\tau=\inf_{t>0}(\varphi_t-t\tau),
- \tag{J.35}\label{eq:appJ-legendre-rays}
+ \tag{J.36}\label{eq:appJ-legendre-rays}
 \end{equation*}
 with the separate \(t=0\) convention stated in \cref{chap:rays-test-curves}.  Reversing
 \(t\tau\) to \(-t\tau\) reflects the Duistermaat--Heckman measure.  Moment
@@ -483,13 +589,13 @@ formulae before importing them.
 On a trivially valued cone, log discrepancy is homogeneous:
 \begin{equation*}
  A_X(tv)=tA_X(v).
- \tag{J.36}\label{eq:appJ-discrepancy-homogeneous}
+ \tag{J.37}\label{eq:appJ-discrepancy-homogeneous}
 \end{equation*}
 For a divisorial valuation \(v=c\ord_E\) over a normal \(\mathbf Q\)-Gorenstein
 variety,
 \begin{equation*}
  A_X(v)=c\bigl(1+\ord_E(K_Y-\pi^*K_X)\bigr).
- \tag{J.37}\label{eq:appJ-div-discrepancy}
+ \tag{J.38}\label{eq:appJ-div-discrepancy}
 \end{equation*}
 For a pair \((X,B)\), replace the relative canonical divisor by
 \(K_Y-\pi^*(K_X+B)\).  The coefficient \(1\) is part of log discrepancy;
@@ -498,7 +604,7 @@ omitting it gives the discrepancy coefficient instead.
 Entropy of a probability measure is
 \begin{equation*}
  \Ent_X(\mu)=\int A_X\,\rd \mu\in[0,+\infty].
- \tag{J.38}\label{eq:appJ-entropy}
+ \tag{J.39}\label{eq:appJ-entropy}
 \end{equation*}
 For measures of mass \(V\), the unnormalized entropy is the same integral and
 has mass scale \(V\).  Ding and Mabuchi functionals in \cref{chap:bj-stability} use a
@@ -537,11 +643,14 @@ Absolute value and valuation
  & \(v=-\log|\cdot|\)
  & \(|\pi|=\rme^{-1}\Rightarrow v(\pi)=1\) \\
 NA metric weight
- & \(\|s\|_\phi=\rme^{-\phi}\|s\|_0\)
- & larger \(\phi\) means smaller norm \\
+ & \(\|s\|_\phi=\rme^{-\phi}\|s\|_0\), written \(\varphi\) in \cref{part:bfj}
+ & larger weight means smaller norm; no squaring \\
 Complex metric weight
  & \(|s|_h^2=\rme^{-\varphi}|s|_{h_0}^2\)
- & norm weight is \(\varphi/2\) \\
+ & norm weight is \(\varphi/2\); the squaring decides, not the glyph \\
+Skeleton edge length
+ & analytic \(1/(b_ib_{i'})\), lattice \(1/\operatorname{lcm}(b_i,b_{i'})\)
+ & lattice \(=\gcd\times\) analytic, \eqref{eq:appJ-edge-lengths} \\
 Vertical divisor
  & \(\phi_D=v(f_D)\)
  & \(\phi_{\cX_s}=1\) \\
@@ -560,6 +669,9 @@ Monge--Amp\`ere mass
 Toric coordinate
  & \(u=-\log|\chi|\)
  & recession \(h_P(-u)\), image \(-P\) \\
+Radial parameter
+ & \(t=-\log|\zeta|^2=2s\), \(\varphi_t=2\psi_s\)
+ & slopes agree, weights do not \\
 Complex--NA Legendre sign
  & \(\varphi_t=\sup_\tau^*(\psi_\tau+t\tau)\)
  & weight translation gives \(ct\) \\
@@ -605,13 +717,20 @@ They are deliberately redundant.
   divides by the volume or invokes a probability Monge--Amp\`ere measure has
   left its domain of definition.
 
+\item \emph{Radial-parameter test.}  Halve the radial parameter.  A slope
+  must be unchanged and a weight must halve.  A formula established for
+  \(\psi_s\) and then reused for \(\varphi_t\) without the factor two of
+  \eqref{eq:appJ-radial-parameter} fails this test, and so does a
+  normalization such as \(v(\zeta)=1\) transported between the two
+  parameters without conversion.
+
 \item \emph{Support test.}  Evaluate at a semivaluation with proper support.
   A function vanishing on that support has value \(+\infty\), and its
   logarithmic norm is \(-\infty\).  Formulae written only on the
   function-field valuation locus must say so.
 \end{enumerate}
 
-Passing all eight tests does not prove a comparison theorem, but failing one
+Passing all nine tests does not prove a comparison theorem, but failing one
 of them disproves the proposed normalization.  They will be cited repeatedly
 in \cref{part:comparisons}.
 

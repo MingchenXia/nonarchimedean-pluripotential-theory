@@ -461,3 +461,1275 @@ box is an outstanding verification step, not a mathematical defect.
 - [ ] The whole-book semantic checks (signs, masses, net use, infinite-value
       conventions, and provenance labels) have been rerun on the expanded
       text.
+
+**14 September 2026 Chapter 16 repair closure and Chapter 53 rigor pass.**
+The five repairs tracked in
+`chapter16_weighted_polar_rewrite_status_20260901.md` were found already
+present in the live source, having entered in commit `10ccff9` on
+8 September 2026 without the status note being updated.  Each was
+re-derived independently: the compact-sublevel barrier and its handling of
+simultaneous numerator zeros, the real-parameter weight forms with
+`b_n = 1`, the neighbourhood hypothesis on `V` with the `2bl` cross term and
+the exponential cancellation reproducing `C(k,a)`, the fixed-measure polar
+limit, and the rescoped approachability remark.  The four Section 16.6
+energy identities the repaired proof consumes were checked to be stated and
+proved in the live source rather than imported.  That note is now a closed
+record.  This is an internal-consistency re-derivation only; it is not a
+production Rethlas gate and retires nothing.
+
+In Chapter 53 the transition mass identity, previously written inline inside
+the proof of `lem:tna-mass-drop-transition` and relied on a second time by
+the volume definition, was extracted as `lem:tna-transition-mass-identity`
+with its scope stated, and the three-line prose justification that
+`def:tna-volume` is well posed was replaced by
+`prop:tna-volume-welldefined` with a proof.  A second worked example,
+`ex:tna-rigid-negative-curve`, records the non-nef zero-volume mechanism on
+a `(-1)`-curve class alongside the existing nef product example.  Manual
+equation tags were renumbered to stay sequential.  No theorem statement in
+the chapter was changed in scope.
+
+**14 September 2026 Part 5 and Part 6 depth and correctness pass.**
+A single pass over Chapters 40, 51--53, 56--57 and 59--68, motivated by the
+depth gap between Parts 1--4 (130--260 KB per chapter, 15--37 examples) and
+Parts 5--6 (20--40 KB, 1--3 examples).  Nothing below changes the scope of an
+existing theorem; the new statements are all promotions of claims the
+chapters already made and used.
+
+*Corrected defects.*  Four chapters carried manual equation tags that were
+not sequential, so the printed numbers were wrong: Chapter 51 used
+`(51.25)` twice, for `eq:complex-p-characterization` and
+`eq:complex-p-preorder`; Chapter 40 began at `(40.4)`; Chapters 57 and 68
+skipped `(57.17)` and `(68.24)`.  All four were renumbered.  Chapter 71 has
+the same defect at `(71.33)--(71.35)` and was left alone because it has
+uncommitted edits.  In Chapter 59 the proof of `prop:mp-pl-vcar` wrote the
+flag-ideal pullback as `O(-D)`, which contradicts `(59.14e)` and the
+convention `(60.4)` used in Chapter 60; the sign was corrected and the
+derivation from `(59.3)` and `(59.14b)` written out.  Chapter 67 stated the
+base-change scaling ledger in the `v(t)=1` normalization, where its own
+item~(1) says the ray is unchanged; the factor `m` belongs to `v(s)=1`, and
+the proof's appeal to degree-one homogeneity was replaced by the projection
+formula for the degree-`m` map.  Also in Chapter 67: the finite-pushforward
+degree `d` is a sum over the components above a given component, not a
+componentwise factor; and two proofs concluded "Kähler" where their
+statements correctly say "Kähler current".  Chapter 62's invariance proof
+said both terms of `(62.6)` increase by `cV`, which would change `J^NA` by
+`2cV`; the subtracted term is now named explicitly.  Chapter 62 also claimed
+the PL-envelope test is "exactly" the beta criterion, though only
+`E^v ≍ J` holds; this is now stated as an equivalence with differing
+constants.  Chapter 61 said uniform lower energy bounds and lower
+semicontinuity were "equivalent"; they are not, and the text now says
+"combined with".  Chapter 63 weakened `thm:bfj-skeletal-characterization`
+to upper semicontinuity while widening it to every SNC complex, read its
+three-step check as if the hypotheses of `thm:gr-pl-comparison` alone gave
+classical psh-ness, and used the strongest arrow type for an
+affine-cone comparison its own ledger records only as recovery on the
+quasi-regular branch; all three now match their sources.
+
+*Promotions.*  Load-bearing claims that were carried in running prose, each
+now a numbered statement with a proof: the transition mass identity and
+well-posedness of the volume in Chapter 53
+(`lem:tna-transition-mass-identity`, `prop:tna-volume-welldefined`); the
+levelwise `I`-envelope of a test curve in Chapter 52
+(`lem:rays-levelwise-i-envelope`); independence of the analytification from
+the Kähler perturbation in Chapter 56 (`lem:va-omega-independence`), which
+Chapter 57 now cites instead of re-asserting; the trivial valuation reading
+the terminal parameter in Chapter 57 (`lem:comp-trivial-valuation`); the
+retraction lemma in Chapter 59 (`lem:mp-retraction`), whose continuity
+clause `thm:mp-inverse-limit-dual` had been using silently; the extension of
+`E_alpha` and `J_alpha` past PL in Chapter 60
+(`def:mp-energy-extended`), without which `(60.19)` evaluates an undefined
+functional; finite-energy integrability and the domination principle in
+Chapter 61 (`lem:mpwn-integrability`, `cor:mpwn-domination`); and
+integral-closure invariance in Chapter 65 (`lem:rf-integral-closure`).
+
+*Examples.*  Closed-form instances were added where a central construction
+had none: the hyperplane test curve on `P^n` in Chapter 52, carried through
+to its analytification in Chapter 56; a rigid negative curve as a second,
+non-nef zero-volume mechanism in Chapter 53; the failure mode excluded by
+the non-collapse condition in Chapter 57; the deformation to the normal cone
+with every invariant evaluated in Chapter 60; and the Calabi--Yau solution
+on `P^1` in Chapter 61, which also shows the constant `n+1` in
+`(61.10)` is sharp.  Chapter 64's semistable-curve example now derives its
+measure from both the graph Laplacian and the intersection side rather than
+asserting that three theories agree.
+
+*Cross-reference audit.*  A scan of every file reachable from `book.tex`
+found 149 reference targets that are used but carry no `\label` in any built
+file; 141 of these predate this pass and 8 come from the uncommitted
+Chapter 70--72 work.  None originate in the files edited here.  The
+inventory is `editorial/dangling_crossrefs_20260914.md`, together with the
+caveat that the 13 September `book.log` reports no undefined references,
+which that scan contradicts.
+
+*Verification.*  Every edited chapter passes an environment-balance,
+brace-balance, math-delimiter, duplicate-label and tag-sequence check, and
+every cross-reference in the edited files resolves.  No LaTeX build was run:
+`device_bash` reaches a Linux VM whose TeX lacks `newtx` and which has no
+network, whereas the 13 September build ran natively on macOS.  A full
+`latexmk` run is still required before any of this is treated as verified
+typeset output.
+
+**14 September 2026 cross-chapter convention audit.**
+Eight normalizations were traced across every file reachable from
+`book.tex` and compared against `frontmatter/conventions.tex` and
+Appendix J.  Two problems were found and fixed; six were verified
+consistent.  The record is `editorial/convention_audit_20260914.md`.
+
+The proof of `lem:ch33-effectivity` wrote the model function as
+`-b_E^{-1} ord_E(O(-D))`, which contradicts the lemma's own effectivity
+conclusion, the same criterion in Chapters 32, 34 and 35, and `(60.4)`.
+It now reads `b_E^{-1} ord_E(D)`, with the ideal-theoretic and
+divisor-theoretic senses of `ord_E` separated.
+
+Appendix J did not record the radial parameter in its ray section, its
+translation table or its unit tests, although the book uses both
+`t = -log|zeta|^2` (Chapters 52, 56, 71) and `s = -log|t|` (Chapters 65--68),
+which differ by a factor of two.  The conversion existed only in Chapter
+65's factor-two firewall and in local remarks in Chapters 66 and 68 --- and
+this is the convention that produced the Chapter 67 scaling-ledger error
+corrected earlier the same day.  Appendix J now declares it as `(J.35)`,
+carries a translation-table row, and has a ninth unit test; its tags were
+renumbered to stay sequential.
+
+Verified consistent and not to be re-opened without new evidence: the
+special-fibre test `phi_{X_s}=1`, the normalization `v_K(varpi)=1`, complex
+and CLD Poincare--Lelong, the Lelong normalization
+`nu_E(log|f|^2)=ord_E(f)`, `MA^u = V MA`, and the reduced-versus-total
+discrepancy shift.
+
+**14 September 2026 well-posedness sweep of Chapters 1--50: no changes needed.**
+The pathology repaired in Parts 5 and 6 --- a well-posedness or
+independence-of-choice claim carried in running prose and then consumed by a
+later theorem --- was searched for across Chapters 1--50.  Seventeen
+candidate sites were found and every one of them is already properly
+discharged.  Fourteen carry a complete argument in place (Chapters 2, 6, 8,
+10, 11, 12, 20, 23, 24, 26, 46, 49); of these, Chapter 24's is not a gap at
+all but a deliberate warning that `(theta^{n+1})` is undefined, and Chapter
+20's is a distinction between nefness and ampleness rather than a
+well-posedness claim.  The remaining three announce a check and then deliver
+it: Chapter 11 by `lem:ch11-lattice-measure-welldefined`, Chapter 12 by
+`lem:trop-calibration-subdivision` together with `sec:trop-refinement`, and
+Chapter 18 by `prop:ch18-weakly-smooth-welldefined`.
+
+This is recorded so the search is not repeated.  Combined with the census ---
+Chapters 1--50 contain 1,512 statements against 1,542 proofs, with no
+unproved statement anywhere, 600 examples, 635 remarks and 258 scope
+warnings --- Parts 1--4 do not share the structural weaknesses of Parts 5
+and 6, and effort there should go to mathematical content rather than to
+exposition or bookkeeping.
+
+**14 September 2026 mathematical audit of Chapters 14, 16, 18 and 19.**
+Seven independent read-throughs, every reported defect re-derived before
+editing.  Full record in `editorial/part2_math_audit_20260914.md`.
+
+Structurally these chapters are complete: 78/78 statements and proofs in
+Chapter 18, 25/25 in Chapter 19, 40 statements against 45 proofs in Chapter
+14, 72 against 78 in Chapter 16, with the only unproved numbered objects
+being the declared source-boundary imports.
+
+Twelve corrections were applied.  The most serious is that
+`thm:ch18-model-corner` clause (4) dropped the special-fibre multiplicity
+`b_E` from the curve corner cycle, justifying the omission by claiming the
+normalization `x_E = b_E^{-1} ord_E` absorbs it; that normalization fixes the
+location of an atom, not its mass.  The clause contradicted clause (3) of
+the same theorem, `eq:appJ-cl-measure`, and `prop:skeletal-curvature-curve`
+which its own proof cites.  Both worked examples have every `b_E` equal to
+one, which is why it survived numerically.  Also corrected: the positivity
+consistency lemma in Chapter 18 tested the positive cone against strongly
+positive forms, proving only weak positivity, against the dual-cone
+convention of `def:ch18-delta-current`; a factor `d` counted twice in
+Chapter 19's Tate curvature chain; reversed radial-contraction bidegrees and
+a reversed outgoing-slope sign in Chapter 14; `lem:ch16-leibniz-closed`
+stated in bidegree where its proof computes bidimension, which as printed
+excluded its most-used instance `S = delta_X`; a lost factor `n!` in the
+Chapter 18 toric comparison; and four smaller sign, wording and bidegree
+slips.
+
+Two reported defects were re-derived and **rejected**, and are recorded so
+they are not "fixed" later: the `I`-type / Lelong-number equivalence in
+Chapter 67 is genuinely an equivalence, by `prop:va-i-equivalence`; and
+Chapter 60's constant-ray Mabuchi slope display is correct as written.
+
+Eight further items are identified but deliberately not applied, because
+each needs a mathematical decision rather than a repair.  The largest is
+that Chapter 14 asserts both answers to whether a dimension gap gives
+removability, in three separate places, because `d_trop` is never defined
+and is used in two inequivalent senses.  The others are listed in the
+record.
+
+## 2026-09-14 — Part 3 and Part 4 mathematical audit (ch20–ch50)
+
+Full record: `editorial/part3_part4_math_audit_20260914.md`.
+
+Every chapter from ch20 to ch50 was read in full and audited for mathematical
+error.  Forty-two defects were found, re-derived by hand, and repaired; one
+reported defect (ch50's `+X_0` in the anticanonical identification) was
+re-derived and **rejected** as a false positive.
+
+The heaviest items, in order of consequence:
+
+* **ch21** — semistable models of a curve are *not* cofinal over a fixed
+  discretely valued field, and no blowup repairs this; `prop:ch21-curve-criterion`
+  and `prop:ch21-curve-retraction` now quantify over SNC models, with the
+  multiplicity-weighted Laplacian supplied by a new identity in ch20.
+* **ch31** — `lem:ch31-curve-ma-affine` took the Laplacian on the wrong
+  skeleton; corrected to the skeleton on which the potential is determined,
+  with `μ_0` shown invariant.
+* **ch38** — PSH2 was attached to the wrong clause of `thm:bj-basic-closure`,
+  and the drift warning denied the existence of a clause that exists.
+* **ch46** — the mixed-pairing inequality in `thm:bj-e1-basic` ran backwards,
+  and `ex:ch46-e1-curve` was missing the endpoint atom of the Monge–Ampère
+  measure (without which `E_ω(log|m_p|)` reads `0` instead of `−∞`).
+* **ch50** — Step 1 of `thm:ch50-J-L1` used a concavity bound outside its range;
+  replaced by a correct convex-duality argument that is sharp in both regimes.
+* **ch37** — for families in `PSH_X(θ)`, pointwise and uniform upper bounds
+  coincide, by the maximum principle at `v_triv`; the chapter claimed otherwise.
+
+Three items are flagged for editorial decision rather than silently patched:
+`prop:ch47-skeletal-admissible`'s dependence on a boundary-Lipschitz statement
+that ch49 declines to assert, the imported uniform bound in
+`thm:bj-strong-measures`, and the revised status of
+`cor:ch43-frobenius-all-affines`.
+
+Verified with `lint.py` and `refs.py` on every touched file: environments
+balanced, brace deltas zero, no duplicate labels, every cross-reference
+resolving, and all manual `\tag` sequences preserved.  **Not compile-verified** —
+`latexmk -pdf -interaction=nonstopmode -halt-on-error book.tex` must be run
+natively on macOS.
+
+## 2026-09-14 — Part 1 and appendix mathematical audit (ch01–ch08, appA–appL)
+
+Full record: `editorial/part1_appendices_math_audit_20260914.md`.
+
+Every chapter of Part 1 and every appendix was read in full and audited.
+Twenty defects were repaired.  ch01, appB, appC, appD, appE, appG, appI, appJ
+and appK were audited and found clean; appJ's twelve translation-table rows and
+nine unit tests were all recomputed.
+
+The structural item is a conflation of **two different lengths** on a skeleton
+edge.  `rem:lattice-length` computes the integral-affine lattice length
+correctly as `1/lcm(b_i,b_j)` and then calls it the metric of the Laplacian; the
+metric for which the graph Laplacian equals the Chambert–Loir measure is the
+**analytic** length `1/(b_i b_j)`, smaller by `gcd(b_i,b_j)`.  ch20 asserted the
+right number but attributed it to the integral affine structure, and ch22
+contained both claims.  All three are now corrected and cross-linked, with a
+worked witness on `P^1` (three blowups, two adjacent components of multiplicity
+two) verified twice — once against the model measure and once, independently of
+any length convention, against the slope formula applied to `f = T² − c̃π`.
+Every existing numerical example in the book has `gcd = 1` and is unaffected.
+
+Other items of consequence: ch03's SNC definition admitted an `I_1` degeneration
+it elsewhere excludes; ch04's disc-combinatorics lemma is false over `Q_p`
+without a dense value group; ch06 had the weight/section sign inverted;
+ch07's impossibility argument for `(+∞)+(−∞)` was invalid (inf-addition is
+associative — the obstruction is limits, not associativity); ch08's toric
+"epigraph-like polyhedron" is empty as written; and appH's test-curve definition
+dropped the upper semicontinuity in `τ` that appD and ch52 both require, which
+makes its inverse Legendre transform false at the endpoint.
+
+Verified with `lint.py` and `refs.py`; **not compile-verified**.
+
+## 2026-09-14 — Part 5 and Part 6 mathematical audit (ch51–ch71)
+
+Full record: `editorial/part5_part6_math_audit_20260914.md`.  Chapter 72 excluded
+by instruction.
+
+Every chapter of Parts 5 and 6 was read in full and audited.  Thirteen defects
+were repaired; ch54, ch55, ch57, ch58, ch60, ch61, ch62, ch63, ch64, ch65, ch67
+and ch70 were audited and found clean.
+
+The largest item is `ex:rays-hyperplane-test-curve` (ch52) and its propagation
+into ch56.  Definition (52.28) normalizes competing sections by their **sup
+norms**, which contributes an entropy term; the test curve is therefore not
+`τψ` but `τ log a_0 + (1−τ)log(1−a_0) + H_2(τ)` on `{a_0 ≤ τ}`, and the dual ray
+is the product geodesic `log(e^t a_0 + 1 − a_0)`, not `max{0, t+ψ}`.  The
+discrepancy is visible at `m = 2` with the admissible section `2x_0x_1`, and the
+claimed ray is ruled out outright by its energy, which is not affine
+(`E = (t−1+e^{−t})/2`).  The mass `(1−τ)^n`, the energy `1/(n+1)`, and ch56's
+`Γ^An = max{0, 1−v(H)}` all survive; only the intermediate formulas needed
+repair.  Note that ch65's `max{0, t+log|z|²}` is correct there, the monomials
+being unnormalized — the two chapters were computing different things.
+
+Other items: ch51 had the singularity chain of `ex:ch51-disk-three-types`
+reversed, Skoda's bound stated as `ν > n` where `ν ≥ n` holds, an off-by-one in
+the multiplier-ideal floor, and the same false competitor-family containment
+that appH carried; ch53 was missing the square in `log|s_E|²_h`; ch59 asserted
+an anti-effectivity its own definition of `PL^+` contradicts; ch66 described the
+hybrid-annulus algebra as Laurent series, which would put its spectrum on a
+circle; ch68 carried a subklt hypothesis its proof never uses; ch69 listed a
+consequence as a hypothesis; and ch71 had a one-line gap at the trivial
+semivaluation.
+
+With this pass, every chapter of the book except ch72 has now had a
+chapter-by-chapter adversarial mathematical audit.
+
+Verified with `lint.py` and `refs.py`; **not compile-verified**.
+
+---
+
+## 2026-09-14 — Part 2 mathematical audit (chs 10, 15–19) + cross-chapter conventions
+
+Record: `editorial/part2_math_audit_20260914.md`.
+
+Chapters edited: **ch10, ch15, ch16, ch17, ch18, ch19, ch20, ch25, ch26,
+ch28, ch29, ch39**.
+
+Substantive corrections (each re-derived before editing):
+
+- **Sign/direction errors.** ch15 `lem:ch15-vertex-atom` (unbalanced-case
+  atom was `-u(p)⟨dΨ,N⟩δ_p`; the two minus signs cancel, it is `+`);
+  ch17 Levine sketch (`ρ` pointed the wrong way — `log‖ρ‖⁻¹ = g*h` forces
+  `ρ: L_b → L_a`); ch17 `prop:ch17-mass-independent` (the stated definition
+  of `u_i` gives `c_1 = c_1' − d'd''u_i`, not `+`; repaired by flipping the
+  defining equation, and the expansion now uses the primed class).
+- **Bidegree.** ch16 `prop:ch16-skeletal-first-derivative`: `d'(uT)` has
+  bidimension `(p−1,p)`, so `ω` must be of type `(p−r−1,p)` with
+  `0 ≤ r ≤ p−1`.
+- **Arguments that did not support their conclusions.** ch16
+  `cor:ch16-max-psh` (took a uniform limit by citing a proposition about
+  none — would have collapsed the open hierarchy of
+  `prob:frontier-cld-hierarchy`; replaced by a diagonal argument); ch10
+  Stokes orientation-reversal (stated mechanism wrong; nothing flips);
+  ch18 very-affine basis (reason given yields no basis — counterexample
+  `G_m × A¹` supplied); ch18 `cor:ch18-delta-total-mass` "alternatively"
+  argument (wrong premise, overstated conclusion); ch18
+  `thm:harmonic-balancing` (misapplied `thm:analytic-tropical-balancing` to
+  a non-ordinary graph).
+- **A broken example.** ch18 `ex:ch18-harmonic-disc`: on the closed disc
+  `T` is not a unit and `h = −log|T|` is not `R`-valued, so the example met
+  none of its own hypotheses. Replaced by the closed annulus
+  `{|π| ≤ |T| ≤ 1}`; label kept, dictionary row and
+  `rem:ch18-balancing-boundary` updated.
+- **Numerical.** ch18 `ex:ch18-positivity-four-cases` silently symmetrized
+  three rays that are not Euclidean-symmetric (`|v₃|² = 2`); three displays
+  corrected, mass now `3 − (4+2√2)εR`. ch15 quartic: three *nonzero slopes*
+  at θ=1,2,3 and two at θ=4, with infinitely many tangent directions at any
+  type-II point.
+- **Terminology.** ch18 `ex:ch18-compare-toric` (recession function, not
+  Legendre transform); ch18 `ex:ch18-harmonic-abelian` (quotient torus
+  `N_R/trop(Λ)`, not a fundamental domain — as
+  `thm:abelian-harmonic-tropicalization` itself says).
+- **Hypothesis strengthened to match its proof.** ch18
+  `thm:gr-pl-curve-test` now quantifies over complete analytic extensions
+  `K'/K`, which the lifting step in its own proof requires. The following
+  "classically psh" definition was unlabelled and is now
+  `def:ch18-classically-psh`.
+- **Cross-chapter conventions.** Analytic edge length `1/(b_i b_j)` vs
+  lattice length `1/lcm(b_i,b_j)` — lattice = gcd × analytic, so the lattice
+  length is the *larger* (ch19, ch20; the ch20 statement had been left
+  inverted by an earlier wave of mine). Four "semistable" → "SNC" where
+  cofinality is actually needed (ch25, ch26, ch28, ch29). ch39's PSH2 gloss
+  quoted the fixed-class axiom instead of the varying-class one.
+
+**Correction to earlier records.** The "~149 pre-existing dangling `\Cref`
+targets" reported in previous waves were an artifact of my own reference
+checker, which omitted `editorial/**/*.tex` when collecting labels. Those
+targets are defined in the `rethlas_packets_*` sources the book inputs. With
+the correct glob, every file touched here reports **zero** missing
+references. Earlier audit records should be read with this in mind.
+
+Verified: environment balance, brace delta, math-delimiter counts, `\tag{}`
+sequences, duplicate labels, and full-glob reference resolution — all clean.
+**Not compile-verified**: the audit VM's TeX lacks `newtx` and has no
+network. Run `latexmk -pdf -interaction=nonstopmode -halt-on-error book.tex`
+natively.
+
+---
+
+## 2026-09-15 — the seven previously unaudited chapters (ch01, 27, 30, 45, 54, 55, 58)
+
+Record: `editorial/part1_part5_math_audit_20260915.md`.
+
+With this pass **every chapter of the book has had at least one adversarial
+mathematical audit.** ch54 and ch58 came back with no findings.
+
+Chapters edited: **ch01, ch27, ch30, ch45, ch55**.
+
+Errors in computed mathematics:
+
+- **ch27 `ex:ch27-toric-legendre`** — the contact set for `1<t<2` is all of
+  `N_R`, not `{-1,0,1}`. With `λ=t-1` the perturbed weight has slopes
+  `0, λ, 2-λ, 2`, nondecreasing exactly for `1≤t≤2`, so it is already convex
+  on the whole stated range and `u_t = w_{f+tg}`. The three displayed checks
+  give only `{-1,0,1} ⊆ C`. Orthogonality there is trivial, which inverts the
+  example's point; the measure itself was right.
+- **ch27 `ex:ch27-naive-failure-chain`** — the wrong binding constraint is
+  named. Raising `v_0` by `ε` gives `A_0 = -ε < 0` and `A_1 = +ε > 0`: blocked
+  at `e_0`, *relaxing* `e_1`. The text said the reverse, contradicting the
+  mechanism of `thm:ch23-model-orthogonality-curve` cited one sentence later.
+- **ch30 `ex:ch30-gauss-normal-cone`** — `(L_c + D)·E_i` double-counts the
+  twist, `L_c` being defined as `ρ*L + D`. Conclusion unaffected.
+- **ch55 `prop:ok-mvob-movable-upper`** — degree bookkeeping off by `n`: the
+  `s_j` are products of `n` sections of degree `q`, so they lie in `W_{1,nq}`.
+- **ch55 `rem:ok-mvob-normalizations`** — with `V(K,…,K)=λ_n(K)` the
+  coefficient of `t_1⋯t_n` is `n!V`, not `V`.
+- **ch55 `thm:ok-dh-flag-independent`** — the described truncation is not
+  concave; replaced by `Γ^ε_τ := Γ_{max{τ,-ε^{-1}}}`.
+
+Proofs whose cited authority does not supply the step:
+
+- **ch30 `prop:finite-pullback-psh`** cited `itm:ch20-import:ega` (openness of
+  *relative* ampleness, EGA III 4.7.1) for ampleness of a finite pullback.
+  True statement, wrong import; re-pointed to EGA II 5.1.12.
+- **ch30 `sec:ch30-descent-limits`** "repaired" the averaging step by passing
+  to finite *minima* — which do not preserve `θ`-psh-ness, and
+  `prop:ch20-model-max` is about finite *maxima*. No repair was needed at all.
+- **ch27 `prop:ch27-orthogonality-equivalences`** placed `(4)⇔(5)` among the
+  implications free of envelope continuity; it runs through
+  `prop:ch27-conjugate-identification`(2) and so spends
+  `thm:bfj-envelope-regularity` — recorded elsewhere in the chapter as (EC5).
+- **ch45 `warn:ch45-continuity-ample`** attributed unboundedness to
+  `cor:ch45-extremal` (which proves only `V_θ ≡ 0 ⟺ θ ∈ Nef`) and inferred
+  "not finite valued", which does not follow: `x ↦ -1/x` on `(0,1]`, extended
+  by `0`, is usc, finite, unbounded below.
+
+Claims stronger than what was proved:
+
+- **ch45 `rem:ch45-increasing-asymmetry`** — the *raw* envelope is always
+  `≤ h`; it is the regularization that can escape.
+- **ch45 `rem:ch45-fixed-class-cost`** — the construction does not break down
+  for a non-nef class; the competitor family always contains `u`. What fails
+  is continuity of the approximants, necessarily so.
+- **ch45** `thm:ch45-continuous-regularization` (generic finiteness) and
+  `ex:ch45-no-attainment` ("any subfamily").
+- **ch30** the "distinguishing invariant" (the function-field degree exceeds
+  one in *both* examples), and "the only place residue characteristic zero
+  enters"; plus `thm:ch30-gauss-image`'s "in particular" run backwards.
+- **ch01** four previews stronger than the theorems they preview, all handing
+  a complex or ideal-case generality to a restricted one. The serious one:
+  Bedford–Taylor is promised for *locally bounded* psh functions twice,
+  including in the master-diagram arrow legend, when ch16 opens by fixing the
+  CLD nonlinear domain as the *continuous* psh class and says "we do not
+  silently replace ``continuous'' by ``locally bounded.''" Also MA mass along
+  the singular half of arrow (B), "compact Kähler space" where both ch53 and
+  ch60 say manifold, and a model-metric theorem cited for a metric the example
+  concedes need not be one.
+
+Hypotheses restored to match their proofs:
+
+- **ch45** — "integral projective unibranch", omitted by
+  `thm:bj-final-decreasing-obstacles`, `prop:bj-final-obstacle-calculus` and
+  `cor:bj-final-finite-maxima` while the net version in the same subsection
+  carries it, and required via `thm:bj-final-obstacle-psh`.
+- **ch45** — non-metrizability of `X^an` needs `prop:ch36-no-sequences`'s
+  *uncountable* ground field.
+- **ch55** — positivity of interior levels is `lem:rays-test-positive-levels`,
+  not part of `def:rays-test-curve`, whose clause (3) is an endpoint condition.
+
+Left for the author (§G of the record): the `prop:ch45-noncircular`
+renumbering, where the proof's numbering diverges from `sec:ch45-inputs` and
+`cor:bj-universal-usc` goes unaudited despite being consumed in Step 3; the
+BHJ17 DH normalization qualifier; and a handful of prose items.
+
+Verified after the pass: `editorial/tools/refcheck.py` over the real input
+graph — 282 files, 10979 labels, 0 multiply-defined, 0 dangling; environment
+balance, brace delta, math delimiters and `\tag{}` sequences clean everywhere
+except the known ch71 gap 71.33–71.35 (work in progress).
+**Not compile-verified**: run `latexmk -pdf -interaction=nonstopmode
+-halt-on-error book.tex` natively.
+
+---
+
+## 2026-09-15 — second adversarial pass, Part 4 (ch31–ch50)
+
+Record: `editorial/part4_second_pass_20260915.md`.
+
+First pass findings were listed as off-limits, so this went after the
+arguments rather than the formulas. **ch33, ch36, ch37, ch46, ch47 and ch49
+came back clean**, as did ch42 apart from a step mislabel.
+
+Chapters edited: **ch31, ch32, ch34, ch35, ch38, ch39, ch40, ch42, ch43, ch44,
+ch48, ch50**.
+
+The one substantive mathematical error:
+
+- **ch35 `prop:ch35-curve-classification`** asserts that a homogeneous psh
+  function on a curve has only finitely many nonzero `c_r`. Only countability
+  follows from `Σ c_r ≤ deg θ`. Counterexample (verified): on `P¹` with
+  `θ = c_1(O(1))` take `c_n = 2^{−n}` at distinct points and
+  `ψ_N = 2^{−N} log|Π m_{r_n}^{2^{N−n}}|`; then `deg(O(2^N) ⊗ b_N) = 1`, so each
+  `ψ_N ∈ H^gf_Q(O(1))`, they decrease, and the limit lies in `PSH_hom,X(θ)`
+  with infinitely many nonzero slopes. It is therefore *not* the coefficient
+  function of a b-divisor, so `PSH_hom` on a curve is strictly larger than the
+  set of such functions. The old proof was circular, deducing local finiteness
+  from the b-divisor it was meant to produce.
+
+Computed mathematics corrected: ch31 `ex:ch31-p1-blowup` (the cited equation
+returns 0 at the stated `(m_0,m_1) = (1,0)`, not the `−½` computed two lines
+above; the right labelling is `(0,1)`); ch34 `ex:ch34-two-corner` (no factor of
+2 — the two edges have multiplicities `(1,2)` and `(2,1)`, both of lattice
+length `½`, as ch05 verifies for the same configuration); ch48
+`ex:ch48-p1-capacity` (`min{1,2/t}` and `2min{1,1/t}` agree only for `t ≥ 2`,
+not `t ≥ 1`); ch50 `thm:ch50-J-L1` (`‖μ_ε‖₁/A = 2ε → 2` as `ε → 1⁻`, not as
+`ε → 0`); plus ch31's census (11/4, not 12/3), row count (21, not 20),
+interpolation node spacing, and a `μ−ω` for `μ−μ_0`; and ch44's `a_0 = 0`,
+which produced the `0·(−∞)` the book prohibits.
+
+Citations that did not supply their step: ch43's main theorem routed its
+rational regularization through a ch41 corollary about determinant-norm
+averaging — in violation of the chapter's own "nothing from the averaging
+machinery of that chapter is used" — when `thm:ch34-fs-regularization` gives
+the statement verbatim; ch43's `cor:ch43-reflection-structure` applied the
+*homogeneous* normalization to general `θ`-psh functions, which would assert
+`φ(v_triv) = 0`; ch34 claimed comparable semivaluations have the same centre
+(`v_{X,triv} ≤ ord_p` have centres `η` and `p`); ch32's
+`cor:ch32-determination-divisorial` put its repair hypothesis on the wrong
+function, and its own counterexample satisfies the version offered.
+
+Hypotheses and overclaims: **ch38 `lem:ch38-activation` was missing nefness of
+the total class**, which its own Step 5 uses and which ch39 explicitly treats
+as a hypothesis (counterexample: `X = P²`, `π = id`, `B = 0`,
+`θ = −c_1(O(1))`); ch32 `prop:ch32-nodal-curve` used anticontinuity backwards
+and contradicted itself in one sentence; ch39 described `thm:bj-basic-closure`
+as carrying a standing nefness hypothesis it explicitly disclaims; ch39's
+`cor:ch39-nef-reflection` used a strict transform for curves that have none
+once `dim X ≥ 3`; ch38 claimed nefness is "used exactly once" and that an
+example shows it "cannot be weakened" when that example disclaims exactly
+that, and stated `Psef ⊋ Nef` in dimension ≥ 2 (false at Picard number one);
+ch40 took `h⁰` of a numerical class; ch50's `rem:ch50-p1-dnc-checks` labelled
+the anticanonical constant `c = 1` three lines before computing `c = 0`.
+
+**The new ch50 Step 1 proof of `γ ≥ n/(n+1)`, written from scratch in the
+first pass, was re-verified adversarially and is correct** — inverse-function
+setup, layer cake, subgradient step, both cases, both equality cases. One
+completeness gap closed: `ψ(γ) = A` needs `v` strictly increasing on `[0,A]`,
+which follows since otherwise concavity forces `γ = 1` and the bound is
+trivial.
+
+Seven items left unapplied in §F of the record, each with a reason — the ch50
+entropy-semicontinuity argument (a replacement was proposed but rests on an
+identity I did not verify), the non-load-bearing ch38 strict-transform gap
+where neither a proof nor a counterexample was found, ch31's Green-function
+parametrisation, ch33's `C_+` endpoint strictness, and three prose items.
+
+Verified: `editorial/tools/refcheck.py` after every batch — 282 files, 10979
+labels, 0 multiply-defined, 0 dangling; structure clean except the known ch71
+tag gap. **Not compile-verified.**
+
+---
+
+## 2026-09-15 — second adversarial pass, Parts 5 and 6 (ch51–ch71)
+
+Record: `editorial/part5_part6_second_pass_20260915.md`.
+
+**ch63 and ch69 came back mathematically clean.** Chapters edited: **ch51,
+ch52, ch53, ch64, ch65, ch66, ch67, ch68, ch69, ch70, ch71**.
+
+Two proofs were leaning on statements the book elsewhere disowns:
+
+- **ch53 `lem:tna-transition-mass-identity`** justified a mass *equality* by
+  asserting that the `I`-envelope preserves nonpluripolar mass, citing a
+  formula that supplies only the opposite inequality. ch51 says in as many
+  words: *"Not claimed: the `I`-envelope preserves mass. Only the `P`-envelope
+  does"*, and `ex:ch51-cantor` has it raising mass from `½` to `1`. The
+  needed input — `I`-goodness of the levels — is eleven lines earlier in the
+  same chapter, so the repair is local. The equality is load-bearing:
+  `lem:tna-mass-drop-transition` subtracts it at two parameters.
+- **ch51 `thm:complex-p-projection` Step 3** applies
+  `lem:ch51-rooftop-contact` to a pair violating its hypothesis. The lemma
+  needs both arguments within bounded distance of one model potential; the
+  pair is `(φ+C, V_θ)` with `φ − V_θ` unbounded — already in
+  `ex:ch51-p1-envelope`, which the same step cites as the illustration.
+
+Errors in computed or asserted mathematics:
+
+- **ch64 `thm:cma-test-curve-moments`** substituted `V = (L^n)` for ch55's
+  `vol(Γ) = ∫⟨θ^n_{Γ_{-∞}}⟩`. Legitimate only for a full-mass terminal level,
+  which no hypothesis gives. Counterexample on `P¹`: `Γ_τ ≡ P_θ[½log|z−p|²]`
+  has `DH` of mass `½`, and ch64's formula **diverges** where ch55's returns
+  `0`. Nothing downstream breaks (filtration curves have `Γ_{−∞} = V_θ`), but
+  the theorem was false.
+- **ch68 `eq:ytd-j-divisor`** diverges: past the pseudoeffective threshold the
+  integrand is `V`, not `0`. The "effectively cut off" clause is true of the
+  preceding display and does not transfer.
+- **ch65 `thm:rf-commutativity`** claimed both sides are `−∞` on
+  proper-support strata; the base ideal is trivial for large `m`, so both are
+  `≥ C_-` everywhere — contradicting the chapter's own `prop:rf-fg-pl` (both
+  are real-valued PL) and `ex:rf-p1-complete` (both equal `0`).
+- **ch70** — the "no probability normalization is local" example silently
+  depends on which point of the first exceptional curve is blown up. For the
+  `y = 0` direction `ord_{E_2}(a) = 3` and the measure has two atoms; for a
+  general point `ord_{E_2}(a) = 2`, `(−A)·E_2 = 0`, and it has **one**, which
+  collapses the argument the example exists to make.
+- **ch67 `prop:functor-scaling-ledger`(3)** attached the factor `m` to a
+  reading in which item (1) of the same proposition forces equality, i.e.
+  asserted `X = mX`.
+- **ch52 `ex:rays-hyperplane-test-curve`** claimed a singularity of coefficient
+  `1−τ` at `P_0`; `P_0` lies in the region where the level vanishes
+  identically.
+- **ch71** — a missing backslash (`qquad`) that would corrupt a display.
+
+Invalid arguments, wrong citations, overclaims: ch51's `V_θ` bounded ⟺ nef
+(the converse derives a *lower* bound from the sub-mean-value inequality,
+which only bounds above — weakened to what is proved plus the sufficient
+condition both call sites use); ch51's nonpluripolar local-finiteness bound
+(silently assumes `θ_j ≥ 0`, which its own headline example violates and the
+appendix warns about); two ch51 citations to a near-colliding label
+(`lc:convex` is about convex combinations of potentials, not convexity of the
+spherical mean); ch51's positivity hierarchy, which calls four conditions a
+chain and then refutes it in the next sentence; ch52's clause (2), which
+collides with ch51's reserved positive-mass sense of "model potential" and
+would make `lem:rays-test-positive-levels` vacuous; ch66's Laurent-series
+inference, which argues from `|t|_x = r` when by `eq:hybrid-lambda` *every*
+point of the hybrid base satisfies that; ch66's locally redefined `λ(t)` and
+its "arbitrary Banach ring" where the theorem needs an integral one; ch67's
+projective-only citation in a Kähler chapter and a diagram arrow landing in a
+sequence space; ch65's boundary item, stale relative to
+`thm:pseff-filtration-maximality`; and ch69's "eight outcomes" where nine are
+proved, plus an inconsistent `Cao14` page.
+
+Seven items left unapplied in §D, each with a reason — chiefly an increasing
+continuity property of the `I`-envelope used in three places for which ch51
+supplies only one inequality (no counterexample found; it should be imported
+or proved, not deduced), three decreasing-net continuity appeals in ch53, and
+the ch66 question of which Banach algebra the source uses.
+
+Verified: `refcheck.py` after every batch — 282 files, 10979 labels, 0
+multiply-defined, 0 dangling. Manual `\tag{}` sequences in ch66–ch69 checked
+complete before editing; no edit inserted a numbered display. **Not
+compile-verified.**
+
+---
+
+## 2026-09-15 — Part 2 foundations and appendices (waves 8–9)
+
+Full record: `editorial/part2_appendices_audit_20260915.md`.
+
+Covered: ch09–ch14 and appendices A–K, all read in full. 46 edits applied to
+live chapters. `refcheck.py` after every batch — 282 files, 10 985 labels,
+0 multiply defined, 0 dangling. Not compile-verified (the mounted shell's TeX
+tree lacks `newtxtext.sty`); verification was `refcheck.py`, which also checks
+environment and brace balance per file, plus hand re-derivation of every edit.
+
+**Two convention contradictions, both resolved.**
+
+*The double-primed contraction.* `def:ch09-contraction` defined the graded
+operator with the traversal sign `(−1)^p`; `def:ch11-contractions` defined the
+block operator without it and declared itself book-wide. The book's own
+declaration won, for three reasons: ch11's entire boundary-trace narrative —
+`c_n c_{n−1} = (−1)^{n−1}`, `thm:ch11-defect-stokes`, the sign table — is
+calibrated to it; `sec:appJ-currents`, which ch11 pointed at, recorded neither;
+and ch13 *mixed* them, carrying ch11's prefactor while citing ch09's
+definition, which is a genuine `(−1)^{n−1}` error in even dimension. ch09 now
+defines the block operators and keeps the graded one as
+`\widetilde\iota''_v = (−1)^p ι''_v`, which carries all of ch09's structural
+content unchanged: the `∧•(V*⊕V*)` identification, the anticommutation, the
+`J`-conjugation and a clean Cartan proposition, with the block forms recorded
+alongside. Eight further sites in ch09–ch14 and appJ brought into line.
+
+*ch14's J-symmetry.* ch14 wrote symmetry as `S ∘ J = S` and said `J` fixes
+`τ_n`. In this book `J τ_n = (−1)^n τ_n` and a symmetric `(p,p)`-form has
+`J α = (−1)^p α`, so for odd `p` the stated condition says the functional kills
+the symmetric forms — hence every positive one — and
+`prop:ch14-automatic-continuity`, on which `δ_Y`, the Dirac masses, fibre
+integration and weak compactness all rest, becomes vacuous. ch14 now *defines*
+`J` on currents (`⟨JT,α⟩ = (−1)^n⟨T,Jα⟩`) and what symmetry means
+(`JT = (−1)^pT`, equivalently `⟨T,Jα⟩ = (−1)^q⟨T,α⟩`), with a lemma tying the
+two and seven downstream sites corrected. Two consequences surfaced in the
+same wave: `J T_h = −T_h` in bidegree `(1,1)` (was `+`), and
+`g_*J = (−1)^{n_Y−n_X} J g_*` for pushforward (was stated as commuting);
+symmetry preservation survives both, because the bidegree shifts to match.
+
+**appJ, the registry ~70 chapters defer to, had five defects.** It said `ddc`
+"belongs to complex geometry", though it is also the model operator on
+numerical classes used 444 times in part 3. It typed the glyphs `φ` = NA and
+`varphi` = complex-squared, while part 3 writes `\varphi` for the NA weight
+5194 times against 69 `\phi` — a reader applying the table to part 3 halves
+every weight, which is the exact factor-two error the appendix exists to
+prevent. `f ∈ \Supp(x)` was a type error against appK's own distinction between
+the prime ideal and the analytic subspace. The factor-two paragraph credited
+both failure modes to a section naming one, and used `\log_r` undefined. And it
+carried no entry for the analytic-vs-lattice skeleton edge length, a hazard
+documented in four chapters. All five fixed; the edge lengths and the
+current-differential sign added as `J.2a` and `J.20a`.
+
+**appK**: `\Cap_ω` is not a macro this book defines — it is the AMS `⋒` glyph,
+so the capacity entry typeset silently as `⋒_ω(E)`, and its two subscripts were
+swapped relative to ch25 and ch48. Rewritten. Five stray `X^{\Div}` corrected
+to the registered `X^{\divis}`.
+
+**appH**, the complex reference the whole non-Archimedean theory is calibrated
+against, had two statements false as written: it imposed test-curve positive
+mass at interior levels, which ch52 explicitly warns would make
+`lem:rays-test-positive-levels` vacuous; and it put the `P`-projection theorem
+entirely under `M_θ(u) > 0`, though ch51 proves mass preservation for every
+potential and idempotence for every big class — and appH's own printed proof
+said so, so the statement contradicted the proof beneath it.
+
+**Eighteen further defects in ch11–ch14**, each re-derived before editing.
+Substantive ones: `thm:balanced-stokes` applied the *bounded*-polytope Stokes
+theorem cellwise to a complex with unbounded facets, when the chapter proves
+`cor:ch11-stokes-unbounded` for exactly that purpose; `cor:ch11-green-symmetry`
+asked for `α` "closed" where the two halves of its proof need `d'α = 0` and
+`d''α = 0` separately; `prop:ch11-pushforward-projection-informal` displayed an
+identity in an undefined pushforward of superforms; `thm:ch13-stokes` and
+`def:ch13-boundary-integral` omitted the hypotheses under which the partition
+of unity defining *both sides* exists; `prop:ch13-skeletal-faithful`'s global
+clause was narrower than its own use in `ex:ch13-tate-forms`; and `d_{trop}` was
+used twice in ch14 and defined nowhere. Wrong worked-example numbers: a
+tropical line met at `(t,t)` instead of `(0,t)` (a point not on the curve at
+all); a slicing parametrized from the wrong end; the ch08 comparison off by the
+mass of `δ_{x_{\tilde C}}`. Two counterexamples that proved nothing — ch13's
+`0 = 0` for noncompact support, and a faithfulness warning that promised a
+counterexample and delivered an instance of the opposite. And, in ch12, a
+characteristic criterion that misclassified the example's own field: `T^p = a`
+has `p` distinct roots over an algebraically closed field when `char K ≠ p`,
+not when `p ≠ char K̃`, and the example is `K = Q_p`, where `μ_p ⊂ C_p`.
+
+**Four items left unapplied**, each with a reason in §D of the record: the
+normalization of `def:ch14-radial-contraction` (irrelevant to its only use,
+which is a vanishing, but not to any quantitative use in appD); the properness
+hypothesis of `prop:ch13-finite-integral`, which needs CLD Prop. 15.4.3; a
+wording-only slope-formula quotation in ch12; and appJ J.36's `\uscsup`, which
+was raised and then found correct.
+
+**Clean after full reads**: appA, appC, appE, appF, appG, appI, and appD's
+convexity content; ch11 and ch12 apart from the items above, with every worked
+example recomputed by hand; ch13 and ch14's positivity bookkeeping, current
+differential signs and compactness argument.
+
+---
+
+## 2026-09-15 — Part 1 (ch02–ch08) and Part 3 (ch21–ch24, ch32), waves 10–11
+
+Full record: `editorial/part1_part3_audit_20260915.md`.
+
+All nine chapters read in full. 35 edits applied to live chapters.
+`refcheck.py` after every batch — 282 files, 10 985 labels, 0 multiply
+defined, 0 dangling. Not compile-verified (`newtxtext.sty` is missing from the
+TeX tree the mounted shell sees); verification was `refcheck.py`, which also
+checks environment and brace balance per file, plus hand re-derivation.
+
+**Three statements were false as written.**
+
+`prop:centers-proper-separated` said a valuation of `F` has a unique center on
+any proper `X`, with no base anywhere in the definition or the statement. A
+valuation of `C(z)` nontrivial on `C` has no center on `P^1_C` — and the same
+failure occurs in the setting the chapter cares about, `X` proper over `K°`
+with `R_v ⊉ K°`. It is exactly the gap relative to the cited Stacks tag, which
+is stated for a given morphism `Spec R_v → S`. The uniqueness half, which is
+all ch05 uses, was fine.
+
+`cor:ch32-determination-divisorial`(3) had its usc/lsc hypotheses swapped. The
+proof needs `{φ > c}` and `{ψ < c}` open, i.e. `φ` lsc and `ψ` usc, and both
+of its justifications named the opposite semicontinuity. The statement is not
+merely unproved: clause (2) of the *same corollary* is the counterexample —
+`ψ ≡ 0` and `φ = 1_{v_0}` for a non-divisorial `v_0`. The corrected pairing is
+also the one in `thm:bj-basic-closure`'s determination clause.
+
+The node normal form in `prop:ch08-retraction-max` cannot hold in mixed
+characteristic: `X` is flat over `R`, so `p ≠ 0` in the completed local ring
+while `p = 0` in `κ(ξ)[[x,y]]`. The chapter's own
+`def:ch08-semistable-curve-model` gets it right eight lines earlier. Fixed by
+using the presentation over `R` rather than by narrowing the section's
+hypotheses, with a note that ch05's power-series form needs a Cohen
+coefficient field — which ch05's standing-hypotheses paragraph already says.
+
+**Two proof steps did not establish what they claimed**, both leaving the
+statement true. ch23 twice said "enlarging the model, we may assume the
+approximant is determined on it" — circular, and impossible in general, since
+a determined θ-psh model function is *affine* on each face while the function
+being approximated is only convex. Determinedness is never needed: both proofs
+use the equality only through `≤`, and clause (1) of `def:ch21-bfj-psh` gives
+that for free. And `prop:ch21-curve-criterion` identified the Laplacian of a
+*restriction* with the vector of relative degrees, which holds only for model
+functions determined on that model — `ex:ch21-conic-refinement`, in the same
+chapter, is the counterexample. Replaced by the flux inequality
+`eq:ch21-curve-flux`, which is proved later in the chapter from
+`eq:ch20-nef-pullback-test` and `eq:graph-laplacian` alone, so the forward
+reference is safe.
+
+**A BFJ16 citation conflict resolved against the literature.** ch21 cited the
+decreasing-regularization theorem as Theorem 8.5, ch22 as Theorem 8.7. In
+Boucksom–Favre–Jonsson, *Singular semipositive metrics in non-Archimedean
+geometry*, §8, Theorem 8.7 is monotone regularization and Theorem 8.5 is the
+uniform convergence of model functions to the psh envelope. ch22 was right;
+ch21 corrected. This also makes ch21's citation of Corollary 8.8 read
+correctly as the corollary immediately following.
+
+**`prop:ch24-forced-ibp`** dropped two `𝔈(0,·)` terms from its intermediate
+identity. As printed, symmetry of `𝔈` makes the right-hand side equal the
+left-hand side of the preceding display, which would force `∫h θ∧T = 0` —
+false at `h = 1`, where it is `V`. The statement and the final telescoping
+display were already correct.
+
+**Also fixed:** ch05's subdivision proof, which called the support function
+strictly convex and took it to be a maximum while the blowup chart it then
+describes realizes a *minimum* (the book's own `lem:vertical-ideal-convex`
+settles the direction); `cor:ch23-envelope-rate`, whose `C/m` bound is proved
+only for `m ≥ 2m_0`; a wrong bracket in `lem:ch23-concave-lipschitz`; a hexagon
+in ch22 with two edges at distance `1/√2`, not one, as its own central-symmetry
+claim forces; `prop:ch08-branching` cited across two hypotheses the chapter
+declares incompatible, in a section whose running field is `Q_p`, where the
+claim is false; three wrong reference targets; `rem:ch21-semistable-not-cofinal`,
+whose argument would have excluded its own `x_{E_{1/2}}`; and half a dozen
+count, quantifier and truncated-sentence defects.
+
+**Four items left open**, with reasons in §D of the record: the normalization
+of `def:ch14-radial-contraction`; the properness hypothesis of
+`prop:ch13-finite-integral`; a wording-only slope-formula quotation in ch12;
+and the remaining unverifiable external locators.
+
+**Re-rejected:** `thm:p063-current-psh-ordinary-regularization` was reported a
+second time as a dangling label. It is live, via an `editorial/` packet that
+ch19 `\input`s. Recorded so it is not raised a third time.
+
+**Clean after full reads:** ch02, ch03, ch04 entirely; and every worked
+computation in ch06, ch07, ch08, ch21, ch22, ch23, ch24, ch32 recomputed by
+hand.
+
+---
+
+## 2026-09-15 — Part 4, ch33–ch44 (wave 12)
+
+Twelve chapters read in full (ch33–ch44, ~30 000 lines). 18 edits applied
+plus one tag renumbering. `refcheck.py` — 282 files, 10 985 labels, 0
+multiply defined, 0 dangling. Not compile-verified.
+
+**A proof that contradicted its own statement.** The proof of
+`prop:ch35-curve-classification` concluded that only finitely many slopes
+`c_r` can be nonzero, "because ψ must be the coefficient function of a
+divisor". The statement says the opposite, twice — "Only countability may be
+asserted… it cannot be improved" — and exhibits the witness: on `P^1` with
+`c_n = 2^{-n}`, `deg(O(2^N) ⊗ b_N) = 1`, so the decreasing limit is θ-psh with
+infinitely many nonzero slopes. That witness is the whole point of the second
+paragraph, which says `PSH_hom` is *strictly larger* than the set of b-divisor
+coefficient functions. (This matches the counterexample derived independently
+earlier in this project.) The proof now says finiteness is strictly stronger
+and is exactly the b-divisor condition.
+
+**A nefness hypothesis attributed to a theorem that has none.** ch39 says
+three times that it restates `thm:bj-basic-closure` "without its blanket
+nefness hypothesis". That theorem opens by saying it needs no positivity
+hypothesis at all, and ch39 itself says so 274 lines later. What
+`lem:ch39-closure-any-class` actually adds is the new clause (5), monotonicity
+of `PSH_X` in the class; nothing is removed. All three passages corrected.
+
+**A justification that does not survive a net.** In `lem:ch35-nef-limit`, `Z`
+is the normalized blowup of a curve in `Y`, the determination of the *limit*
+`B` — nothing makes it dominate a determination of `B_i`, whose trace on `Z`
+is then a pushforward, and pushforward does not preserve nefness. A single `Z`
+cannot be enlarged once to fix a whole net. The conclusion holds by the
+projection formula: pass to `W → Z` dominating a determination of `B_i` via
+`lem:appF-common-domination`, where the trace *is* a pullback, and push back
+down with `eq:appF-projection`.
+
+**Two worked examples with false intermediate claims.**
+`ex:ch37-pointwise-not-uniform` says the family is "bounded above at no point
+at all" and `sup_j ψ_j ≡ +∞`. At the endpoint `v_{0,triv}` of the ray,
+`ψ_j = max{j−t,0} → 0`, so `ψ_j(v_{0,triv}) = 0` for every `j` — the family is
+bounded there, and the sup is `0`. The example's conclusion survives (the usc
+regularization is still `+∞`), but this is exactly the proper-support
+phenomenon the chapter is otherwise careful about. And in
+`ex:ch41-rank-two` the vanishing of the middle coefficient is said to be "the
+degeneration of the trace" in the last two of three cases; it is
+`tr[[0,a],[1,0]] = 0` identically, in all three, including the separable one.
+What degenerates is the trace *form*, Gram matrix `diag(2,2a)` of determinant
+`4a`.
+
+**A cross-reference that over-claims.** `ex:ch33-toric-p2` says the decreasing
+density is what `cor:ch33-dh-structure`(2) "requires". That corollary asserts
+concavity of `vol{G≥τ}^{1/n}` and restricts the monotone-density consequence
+to `n = 1`; here `n = 2`, and concavity does not force it —
+`W(τ) = (1−τ)^{1/3}` is concave while `W²` has increasing density. What forces
+it here is that `W` is *affine*.
+
+**Also fixed:** `C_+ = 1/4` is not admissible in
+`eq:linear-bounds-filtration`, the bound being attained at
+`x^{m/2}y^{m/2}`; a weight label in `lem:ch33-flag-weight-decomposition` that
+makes `ϖ` have weight `+1`, against `rem:ch33-weight-sign`; a claim in ch40
+that the obstacle `φ_D` may be `−∞`, when it is PL hence bounded, contradicting
+a continuity hypothesis invoked two paragraphs earlier (and the vacuous
+safeguard clause that follows from it); `0·(−∞)` mis-diagnosed as `∞−∞` in
+`lem:ch39-closure-any-class`(3); a bracket width in ch44 missing its factor
+`ρ = 1/3` (the chapter's own numbers give `1/9`, not `1/3`); a garbled
+`(H−E)² = 0` clause in ch35 that asserted self-intersection 1; `\Amp(Y')` for
+`\Amp(W)` in a lemma stated for `ρ: W → X`; "an continuous function"; and
+"Three points… deserve comment" followed by four.
+
+**ch36 tag order.** The lettered block `36.6a`–`36.6h` was displayed *before*
+the bare `36.6`, so a reader citing "(36.6)" could not tell which was meant.
+Relabelled `36.5a`–`36.5h`, which follows `36.5` and leaves `36.6`–`36.8`
+untouched; the sequence is now monotone.
+
+**Clean:** ch42 and ch43 entirely. Tag sequences 39.1–39.55, 40.1–40.29,
+41.1–41.47, 42.1–42.10, 43.1–43.19, 44.1–44.32, 37.1–37.6, 38.1–38.47 all
+complete and non-repeating. Every worked example in all twelve chapters
+recomputed by hand.
+
+**Two UNCERTAIN items in ch36**, both needing [BJ22b]: whether Lemma 1.5 there
+controls divisorial valuations centred inside `B_+(L)` (the proof of
+`thm:bj-addendum-all-classes` jumps from "off `B_+`" to "on all of
+`X^div`"), and whether `E_ω` is defined on non-psh bounded `h`, which
+`eq:addendum-energy-envelope` presumes.
+
+---
+
+## 2026-09-15 — ch45–ch50 and ch59–ch64 (wave 13)
+
+Twelve chapters read in full. 10 edits applied. `refcheck.py` — 282 files,
+10 985 labels, 0 multiply defined, 0 dangling. Not compile-verified.
+
+**A constant that makes an integral diverge.** ch64's first-moment formula
+`eq:cma-first-moment` (64.27) is asserted as the `q = 1` case of (64.26), but
+(64.26) carries `vol(Γ)` in both slots where (64.27) writes `V`. The
+substitution is not harmless: `∫_X⟨θ_{Γ_τ}^n⟩ ↓ vol(Γ)` as `τ → −∞`, so with
+`vol(Γ)` the integrand vanishes at `−∞` and the integral converges, while with
+`V` it tends to `vol(Γ) − V < 0` over an infinite interval and the integral
+**diverges to −∞** whenever the terminal level has less than full mass. The
+paragraph five lines above says so itself — the DH measure has mass `vol(Γ)`,
+"not `V` in general" — and ch55 (55.23) and ch52 (52.9) both carry `vol(Γ)`.
+Corrected, with the full-mass case flagged.
+
+**A standing hypothesis that makes its own class trivial.** The section
+"Radial limits of complex psh rays" in ch60 fixes "an `S^1`-invariant **psh**
+ray, viewed as a psh function on `X × D*`". A genuinely psh function on
+`X × D*` with `X` compact is constant on each slice, so `U_s` would be
+constant, `ν_v(U) ≡ 0`, and `thm:mp-ray-to-na` vacuous. The intended condition
+is `ω`-psh, exactly as `def:rays-subgeodesic` in ch52 states it. Corrected.
+
+**A uniform bound cited from a theorem that gives only a pointwise one.** The
+boundary repair in `thm:mpwn-convex-restriction` (ch61) cites
+`thm:mp-psh-divisorial` for "a constant `C_σ`, independent of `φ`". That
+theorem states two things — `φ(v) > −∞` on `X^div`, and the comparison
+(60.17) — neither uniform in `φ`. The uniform estimate lives only inside its
+proof, imported from [MP24, Thm 4.3.3] for normalized *model* `α`-psh
+functions at the vertices of one fixed snc model. Uniformity is precisely what
+the repair needs, since it feeds the model-wide constant `M` and then
+`d_∞(v,w) ≤ M`. The citation now goes to the imported estimate, with the
+decreasing-net passage to the limit made explicit.
+
+**A signed integrand argued as if nonnegative.** In `prop:ch48-at-compact`,
+the orthogonality integrand is `f − h`; with `f = 0` on `K`, `f = +∞` off `K`
+and `0 ≤ h ≤ T`, it equals `−h ∈ [−T, 0]` on `K` — not `≥ 0`, as the text
+says. It is genuinely signed, because `f` is only lsc and the envelope need
+not lie under the obstacle. The conclusion `MA_ω(h)(K) = 1` holds, but by
+bounded negative part rather than by nonnegativity; rewritten.
+
+**An internal split about fixed-class regularization, resolved in favour of
+the five passages.** `thm:ch34-fs-regularization`'s last clause read "If
+`θ = ω` is ample, they may be chosen in `H_dom(ω)`", with `θ ∈ N^1(X)`
+arbitrary and the proof noting "No envelope theorem is used". Since
+`H_dom(ω) ⊂ PL ⊂ C^0`, that would give `thm:ch45-continuous-regularization`
+— decreasing continuous approximants in a *fixed* real ample class — for every
+projective `X`, with no unibranch hypothesis and no envelope theorem. ch45 and
+ch46 deny this five times, one of them (`rem:ch46-real-classes`) asserting
+outright that "`thm:ch34-fs-regularization` **is stated for classes of
+Q-line bundles**", which was false of the printed statement. The clause is now
+restricted to a rational ample class, with a following sentence pointing to
+`thm:ch45-continuous-regularization` for the real case. **Flagged for the
+author:** this turns on the hypothesis of [BJ22, Theorem 4.15(iii)], which I
+could not reach. If (iii) really is stated for an arbitrary real ample class,
+then ch34 was right and the five ch45/ch46 passages are wrong instead —
+restoring the stronger clause is then a one-line edit. Every downstream use
+supplies rationality independently, so nothing breaks either way.
+
+**A proposition used ~25 times outside its stated scope.**
+`prop:ch46-energy-usc` opens "Let `ω ∈ Amp(X)` be the class of an ample
+Q-line bundle", but ch47 and ch48 both run under `ω ∈ Amp(X)` real and cite it
+throughout, including for compactness of energy sublevels, completeness, the
+Monge–Ampère homeomorphism and the Fenchel defect. `rem:ch46-real-classes`
+supplies the real-class route for two neighbouring results but not for this
+one, and its closing sentence — "No statement later in this book uses the real
+case in an essential way" — is contradicted by those two chapters' own
+standing hypothesis. The remark now covers `prop:ch46-energy-usc` and that
+sentence is scoped.
+
+**Also fixed:** "the following four statements" under a box titled "The six
+imported statements" with six items (ch49); `cor:ch33-dh-structure`(1) cited
+for a closed tail when it gives the open one (ch50, harmless, the two agreeing
+off a countable set); and `ℒ_q` for `ℳ_q` in ch64.
+
+**Clean:** ch45, ch47, ch59, ch62, ch63 entirely; every worked example in all
+twelve chapters recomputed by hand, including ch60's dnc example, ch61's
+`P^1 × P^1` blowup Calabi–Yau, ch62's whole `s = −nC/V` coefficient
+comparison with an independent numerical check on `P^1`, and ch49's and ch50's
+sharp constants `n/((n+1)(n+2))` and `2n^n/(n+1)^{n+1}`. Tag sequences in
+ch45–ch50 and ch59–ch64 all complete and non-repeating.
+
+**One UNCERTAIN item**, recorded rather than acted on: ch60's proof of
+`thm:mp-model-closedness` reduces relative nefness to
+`[Y]·(α_X + D)·γ^{d−1} ≥ 0` "by the Demailly–Păun numerical criterion";
+Demailly–Păun's published theorem characterizes the *Kähler* cone by
+`∫_Y θ^p > 0`, and whether the displayed test is a correct standalone nefness
+criterion on a compact Kähler space needs [MP24, Thm 4.1.5].
+
+---
+
+## 2026-09-15 — ch15–ch20 and ch65–ch70 (wave 14)
+
+Twelve chapters read in full, including the `editorial/` packets that ch17,
+ch18 and ch19 `\input` into the live build. 12 edits applied. `refcheck.py` —
+282 files, 10 985 labels, 0 multiply defined, 0 dangling. Not
+compile-verified. **Every chapter of the book has now had at least one
+adversarial pass.**
+
+**A current that is not a measure, written as one.** `ex:ch15-boundary-max`
+takes `u(s) = s` on `Γ = [0,ℓ]` and asserts
+`d'd''[u] = δ_0 − δ_ℓ`. Two integrations by parts give
+`⟨d'd''[u],φ⟩ = ∫_0^ℓ s φ'' = φ(0) − φ(ℓ) + ℓφ'(ℓ)`, so there is a third term
+and the current is not a measure at all. This is exactly the unbalanced
+correction `u(p)⟨dΨ(p),N(p)⟩` of `lem:ch15-vertex-atom`, and the *previous*
+example says in as many words that it vanishes there "only because `u(0) = 0`"
+— here `u(ℓ) = ℓ ≠ 0`. What `ex:ch11-graph-segment-check` supplies is the
+graph Laplacian `Δ_Γ u`, not `d'd''[u]`. The example's conclusion survives;
+the identity is now stated correctly, with the boundary term displayed.
+
+**A convention declaration that the same chapter then contradicts twice.**
+ch19 opens by declaring `\ddc = \dprimeddprime`. It then uses `\ddc` for
+Thuillier's Laplacian `A^0 → A^1` (a degree-raising operator, not `d'd''`)
+throughout `sec:ch19-thuillier-currents`, and for the BFJ *model* operator on
+numerical classes in the `sec:ch19-cld-bfj-setup` dictionary — whose column is
+literally headed "BFJ name", and whose entries `θ + ddc φ` are false
+statements under the line-13 reading. appJ and appK both say the CLD operator
+is always written `\dprimeddprime` and that `\ddc` is typed by its setting.
+ch17 carries the same declaration inertly (one occurrence, no other use).
+Both replaced by a pointer to the collision rule.
+
+**A letter doing two jobs three lines apart.** Step 5 of the Poincaré–Lelong
+proof puts `τ = log t` "for a fixed `t ∈ ]s,r[`" and then writes `d''t` — but
+`lem:ch15-log-smooth`, in the same chapter, fixes `t = −log|f|` as the
+tropical coordinate and `d''log|f| = −d''t`. So either the display is off by a
+sign, or `t` means `log|f|` while simultaneously naming the radius. The two
+sign flips cancel and the theorem is unaffected, but Step 5 did not follow
+from the lemma it rests on. The radius is now `ρ` and the interval parameter
+`w = log|f| = −t`, with the relation to the lemma displayed.
+
+**A toric weight called concave when it is convex.** `ex:ch18-compare-toric`
+says the weight is "a piecewise affine concave function `ψ` whose recession
+function is the support function of `P_L`". ch19's
+`eq:toric-metric-potential` defines the weight as `φ = −log‖s‖` and states two
+paragraphs later that its recession function is the *reflected* support
+function `ȟ_P(u) = sup_{m∈P}⟨−m,u⟩` — a sup of linear functions, hence convex.
+The example's own later text confirms this: it works throughout with `−ψ`, and
+in the `P^2` instance `−ψ = max{0,x_1,x_2}`, which is the convex weight. Only
+the opening attribution was wrong; the numbers were right.
+
+**A hypothesis strengthened in the restatement, and a false exclusion.** ch69
+says `prop:p213-invariant-split-toric-continuous-pairs-candidate` settles
+independence "when the finite continuous psh potentials are invariant under
+the maximal compact torus", and that it "makes no claim for noninvariant
+potentials". The proposition hypothesizes only that the *difference* `u − v`
+is `S`-invariant, which is strictly weaker (add any non-invariant `w` to
+both), so the exclusion is false about the very result being cited and
+understates how far `prob:frontier-cross-fan-upstairs` has been narrowed. ch72
+states the scope correctly. ch69 brought into line, with the verifier receipt
+correctly attributed to the stored two-individually-invariant form and the
+difference-invariant version identified as the book-level strengthening.
+
+**Also fixed:** ch66 introduces `ε(t)` with an explicit "not to be confused
+with `λ(t)`" warning and then writes `λ(t)` in the two displays that follow —
+harmless inside `O(·)` and a linear substitution, but it is precisely the
+confusion warned against, and left `ε(t)` as dead notation; and a duplicated
+"; and" in ch69's nine-item list.
+
+**Clean:** ch16 and ch20 entirely, with no findings at all. Every worked
+example in all twelve chapters recomputed by hand, including ch16's weighted
+Chern–Levine–Nirenberg constant `C(k,a) = (4e)^k a^{-1}(k+a)(2+a)⋯(k+1+a)`,
+ch19's Tate-curve canonical measure, ch20's triple-product example with its
+Nakai–Moishezon check, and — in ch66 — the whole Favre/Pham–Sombra
+counterexample, `q_j(0) = −2^{−j} + O(4^{−j})` and all. Every factor-of-two
+crossing in ch65–ch70 was re-derived against the radial firewall (`t = 2s`,
+group factor `e^{tλ}`, squared-norm asymptotics divided by `2 log_r|t|`) and
+none violates it. Tag sequences 65.1–65.45, 66.1–66.45, 67.1–67.36,
+68.1–68.24, 69.1–69.39, 70.1–70.67 complete and non-repeating, lettered
+sub-sequences contiguous; ch15–ch20 use no manual tags.
+
+**Structural note for the author:** ch70 `\input`s six files from
+`editorial/solver_dossiers_20260911/`, so six theorems its prose leans on live
+under `editorial/` rather than in a stable location. The labels resolve and
+two were spot-checked against the prose and match, but these are load-bearing
+statements in an unstable directory.
+
+---
+
+## 2026-09-15 — ch25–ch31, ch51–ch58, ch10 (wave 15)
+
+Sixteen chapters read in full. 21 edits applied. `refcheck.py` — 282 files,
+10 986 labels, 0 multiply defined, 0 dangling. Not compile-verified.
+
+**A worked example that contradicts another chapter's explicit denial.**
+`ex:va-hyperplane-analytification` (ch56) says each level of the hyperplane
+test curve "has analytic singularities along *two* centres", the second being
+`P_0 = [1:0:⋯:0]` "where `1−a_0` vanishes", and displays
+`(Γ_τ)^an(v) = −τ v(H) − (1−τ) v(m_{P_0})`. But the level is `0` on
+`{a_0 ≥ τ}`, and `a_0 = 1 > τ` at `P_0` for every `τ < 1`, so the level
+vanishes identically near `P_0` and `log(1−a_0)` never acts there. ch52 says
+so outright: "of coefficient `τ` along `H` and nowhere else … In particular
+there is no singularity at `P_0`". The displayed formula returns `τ − 1 ≠ 0`
+at `ord_E` for the blowup at `P_0`, where the truth is `0`. The endpoint
+`max{0, 1 − v(H)}` was unaffected, the spurious term being discarded by the
+outer maximum — a false intermediate step, not a wrong answer.
+
+**A monotone family described backwards, turning a legal step into an illegal
+one.** `thm:ok-dh-flag-independent` (ch55) says its truncations
+`Γ^ε_τ = Γ_{max{τ,−1/ε}}` "decrease levelwise to `Γ`, and their volumes
+converge to `vol(Γ)`". They *increase*: for `τ < −1/ε`,
+`Γ^ε_τ = Γ_{−1/ε} ≤ Γ_τ` since levels are nonincreasing in `τ`. Read as
+decreasing, the volume convergence is exactly the decreasing-mass continuity
+that `warn:ch51-continuity-rules` forbids; read correctly it is
+`prop:complex-mass-continuity` and needs nothing extra.
+
+**A proposition asserted for all `C > 0` and proved for `C ≥ 1/2`.**
+`prop:ch26-no-strong-compactness`'s witness has `E_ω(τ_N) = −1/2`, so it lies
+in `𝒦_C` only when `C ≥ 1/2`; for smaller `C` the proof establishes nothing.
+The statement is true — rescale to `τ_N^ε = max{φ_{a_N}, −ε}` with
+`ε = min{1,2C}`, whose Monge–Ampère measure is a single Dirac and whose
+energy is `−ε/2 ≥ −C`.
+
+**Two chapters where the proof gives half of what is claimed.** ch51's
+`prop:ch51-mass-inequalities`(nef) derives `vol({θ}) ≤ ∫{θ}^n` from the
+perturbation item; the reverse inequality would need
+`V_{θ+εω} ↘ V_θ` to preserve mass, which is precisely what the chapter's own
+`warn:ch51-continuity-rules` says may fail. It is the continuity of the volume
+function up to the boundary of the big cone, now cited as the import it is.
+And ch51's `ex:ch51-disk-three-types` says equality of Lelong numbers "already
+gives `u_2 ≤ u_1 + O(1)`" — the very implication that
+`rem:ch51-lelong-not-faithful` and `warn:ch51-step5` refute *using this same
+example*. The real reason is `u_2 = u_1 + u_3` with `u_3 < 0`.
+
+**Two citations invoking the one direction their target disclaims.** ch51's
+`itm:ch51-vtheta:kahler` ends "Nefness alone is not asserted here to imply
+boundedness", and two examples cite it on nefness alone. The conclusions hold
+because on `Bl_p P^2` both `H` and `ℓ = H − e` are semiample, which is what
+the item actually requires; the citations now say so.
+
+**A quantitative bound cited from a qualitative statement.**
+`lem:ch25-joint-limit` uses `ν(E) ≤ (M^n n^n/n!) Capa*_θ(E)` three times and
+cites `cor:ch25-outer-ma-bound`(null), which asserts only that negligible sets
+are null. The constant appears only inside that corollary's proof. Promoted to
+a new item `itm:ch25-om:mixed`, with the proof's closing step rewritten to
+establish it.
+
+**A corollary proved from a proposition stated nine lines later.** ch25's
+`cor:ch25-sublevel-comparison` applies `eq:capacity-comparison`, which is the
+display inside `prop:bounded-capacity-domination` below it. There is no
+circularity — that proposition's proof does not use the corollary — so the
+forward dependency is now stated rather than hidden.
+
+**Also fixed:** ch51's `⌈λ−1⌉`, which is the *non-strict* condition at
+integral `λ` and gives `(z)` where the strict one gives `(z²)`, six lines
+before the text disavows exactly that reading (now `⌊λ⌋`, one formula for all
+real `λ`); ch51's usc warning, which names the *inverse* Legendre transform as
+the place a regularization would matter, when an infimum of usc functions is
+usc unconditionally and it is the *forward* transform that carries the
+content; a threshold stated as `λ > 4/3` where `λ = 4/3` already works; ch51's
+dictionary row still carrying the un-weakened "bounded iff nef"; a sign slip
+in a displayed step of `ex:ch28-affine-family` (`−(ε′−ε)(−1)(ε−ε′) = −d²`, not
+`+d²`); an over-claim that a family realizing `(0,1/3]` shows "the whole range
+`(0,1]`" (the extreme value `1` does occur — `μ = 2 ds` on `[0,1]` — and the
+interpolation is now displayed); an over-claim in ch28's "four statements that
+must never be merged", where the cited example refutes `(1)⇒(4)` and `(3)⇒(4)`
+but is itself not uniformly integrable and so says nothing about `(2)⇒(4)`; a
+ch29 claim that "no single closed formula in `m_0,m_1,ℓ`" can match two
+computed cases, when `λ` may depend on those very quantities and does;
+`$=mu$` for `$=\mu$`; a duplicated sentence in ch53; and ch31's row list,
+which said "only (C1), (C2), (C5), (C6)" where the consistency section
+correctly includes (C7).
+
+**Clean:** ch10, ch27, ch30, ch52, ch54, ch57, ch58 entirely. Every worked
+number in all sixteen chapters recomputed by hand, including ch31's full
+21-row mass ledger and 29-row comparison census (both of which tally exactly),
+ch51's `P^2` multiplier-ideal example at every `λ`, ch52's hyperplane
+test curve including the `m = 2` numerical check, and ch10's three
+stable-intersection computations. Tag sequences 51.1–51.34 through
+58.1–58.24 complete and non-repeating; ch10 and ch25–ch31 use no manual tags.
+
+**A factor `2^n` in a toric normalization, settled by a unit test.** ch55's
+toric section fixes `Log z = (log|z_1|,…)` and `F_T` = the *norm* weight in
+the proof of `thm:ok-toric-zero-mass`, but the setup display of
+`thm:ok-toric-real-products` writes `T = ddc(F_T ∘ Log)`, which under this
+book's `T = ddc Φ` forces `F_T = Φ`, not `Φ/2` — a factor `2` in `F_T`, hence
+`2^n` in every term of (55.51). The `P^1` unit test decides it: with
+`T = ω = ddc log(1+|z|^2)` and `Q = [0,1]`, the setup reading gives
+`F_T(x) = log(1+e^{2x})`, `K = [0,2]`, and turns the identity
+`1 = ∫_X⟨T⟩ = 1!·V(K)` into `1 = 2`; the proof's reading gives `K = [0,1]`
+and `1 = 1`. Only the second makes the theorem true, so the setup display now
+carries the factor `2`, with the unit test recorded beside it.
+
+---
+
+## Wave 16 — 2026-09-15 — ch22, ch46, ch47, ch71 (targeted re-audit)
+
+Two adversarial agent reports (one on ch71, one on ch22/ch46/ch47), every finding
+re-derived by hand before application. 12 edits applied, all matched uniquely.
+`refcheck.py` after the batch: 282 files, 10986 labels, 0 multiply-defined,
+0 dangling. Only structural anomaly manuscript-wide remains the author's
+in-progress ch71 tag gap 71.33–71.35.
+
+### ch71 `parts/part6/ch71_pseudoeffective_mp_dxz.tex` (3 edits)
+
+1. **`prop:pseff-big-nonnef-surviving-core` (71.49) — wrong functional and wrong
+   total mass.** The statement used `I_\theta^{\NA}` with the normalizing constant
+   `V`. Two independent defects:
+   - `def:rays-test-curve`(3) permits `\vol(\Gamma) < V`, and with `V` in the
+     denominator the first-moment integral diverges to `-\infty` exactly when the
+     terminal level fails to carry full mass. Replaced `V` by `\vol(\Gamma)` in
+     both slots.
+   - The functional is translation-*equivariant*, not translation-*invariant*, so
+     `I^{\NA}` (invariant) is the wrong object; `E^{\NA}` is correct. Replaced in
+     both slots.
+   Added a following paragraph recording both derivations so the normalization is
+   not "corrected" back.
+2. "valuative criterion for multiplier ideals" → "Monotonicity of multiplier
+   ideals" (the cited result is monotonicity; there is no valuative criterion at
+   that reference).
+3. `\sup_X\phi` → `\sup_{X^{\bethan}}\phi` (sup is over the Berkovich space, and
+   the plain-`X` form clashes with the book's use of `X` for the scheme).
+
+Deliberately left: the `71.41a`-before-`71.41` tag ordering, the "strict interior"
+idiom, and the `thm:p143-mp-section` production-gate wording — ch71 is the author's
+active work in progress.
+
+### ch46 `parts/part4/ch46_bj_energy.tex` (5 edits)
+
+1. **`thm:ch46-energy-homogeneous`, Steps 3–4 — the scaling action does not
+   preserve the competitor class.** The proof scaled within `PL_R(X)` / `H_dom(\omega)`
+   for arbitrary real `t`. Counterexample: `(t\cdot\varphi_c)(s\cdot\ord_p) = -c\min\{s,t\}`
+   has its corner at `t\cdot\ord_p`, which is divisorial only for rational `t`; and
+   `lem:ch34-pl-lattice`(1) asserts stability of `PL^+` under `\Q_{>0}` only.
+   Rewrote both steps to route through `lem:ch46-continuous-competitors`, which is
+   stated for the continuous class and so is stable under real scaling.
+2. `ex:ch46-homogeneous-mass-escapes`: the truncations exhibited are PL only for
+   rational `t`; said so, and noted which conclusion survives for real `t`.
+3. The normalization-uniqueness claim was false as stated; replaced by the correct
+   relation `\alpha = \beta V` together with `\alpha = 1`.
+4. A `lem:ch46-pl-domination` citation invoked under a *real* ample class rerouted
+   (that lemma is rational-class only).
+5. `rem:ch46-real-classes`: the Step-5 enumeration was truncated mid-list; completed.
+
+### ch47 `parts/part4/ch47_bj_finite_energy.tex` (2 edits)
+
+1. **`ex:ch47-p1-numbers` — false explanation.** The text read "They have the same
+   energy only because the computation is one-dimensional." But
+   `E(t\cdot\varphi_c) = -tc^2/(2d)` while `E(\varphi_{tc}) = -t^2c^2/(2d)`, so they
+   do *not* agree; dimension is irrelevant. Replaced with the correct account: the
+   two operations differ by degree, `1` in `t` for the scaled ray versus `n+1` for
+   the rescaled potential.
+2. A `lem:ch46-pl-domination` citation in `prop:ch47-test-class` rerouted to
+   `lem:ch46-continuous-competitors` (same rational/real defect as ch46 item 4).
+
+### ch22 `parts/part3/ch22_compactness.tex` (2 edits)
+
+1. **`prop:ch22-slope-estimate` — circular definition.** `C_{\mathrm{slope}}` was
+   defined as a maximum over faces of *all* dimensions, while `C_q` is itself
+   defined in terms of `C_{\mathrm{slope}}`; the recursion never grounds.
+   Introduced per-dimension constants `\lambda_q` and rebuilt the estimate on them.
+2. Added a remark recording why ranging over all dimensions at once breaks the
+   recursion, so the shortcut is not reintroduced.
+
+### Findings raised and rejected
+
+- `thm:p063-current-psh-ordinary-regularization` reported dangling. This is the
+  *second* time an agent has made this error; the label is defined in a file
+  `\input` from under `editorial/`, which a `parts/`-only glob misses. `refcheck.py`
+  resolves the real input graph from `book.tex` and confirms 0 dangling. **Do not
+  raise a third time.**
+
+### Carried forward (UNCERTAIN, not acted on)
+
+- The `\sup_{X^{\mathrm{lin}}} \le \sup_{X^{\mathrm{div}}}` step in
+  `cor:ch46-pl-lipschitz`, `prop:ch46-cocycle`(iii), `lem:ch47-IJ-elementary`(iv).
+- `prop:ch47-skeletal-admissible`(i): boundedness of `T_\omega` on `\Delta_X`.
+- `thm:bj-mixed-ma`: `\PSH(\theta_i)` vs `\cE^1(\theta_i)` hypothesis.
+- `rem:ch46-equality-scope`: attribution.

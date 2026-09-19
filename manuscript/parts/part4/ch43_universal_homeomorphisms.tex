@@ -111,10 +111,10 @@ and for all from the morphism \(\nu\) alone, because the cover trivializing
 \(mL\) depends on \(L\) and on \(m\), and both vary along a regularizing net:
 the net of \Cref{def:bj-psh}\,(3) has \emph{varying} classes \(L_i\), each
 requiring its own cover and its own denominator \(m_i\).  An exponent
-attached to one fixed cover would have to be re-chosen at every stage, the
-descended sections at different stages would live in unrelated Veronese
-multiples, and the descended functions would not form a net at all --- let
-alone a decreasing one.  What rescues the argument is that the
+attached to one fixed cover would have to be re-chosen at every stage, and
+the descended sections at different stages would live in unrelated Veronese
+multiples \(q_im_iL_i\) with \(q_i\to\infty\), so that no single downstairs
+Veronese multiple accommodates the whole net.  What rescues the argument is that the
 characteristic-\(p\) condition \(b^q\in A\) \emph{localizes}: it passes from
 a chart to its principal opens and hence, by a sheaf argument, to every
 affine open of \(X\).  A single \(q=p^e\), read off from a single finite
@@ -1301,13 +1301,23 @@ Suppose a regularizing net upstairs is presented with
  \qquad
  d_i=\frac32-\frac1{i},
 \]
-so \(c_1(M_i)\to\nu^*\theta\) as required, but no \(M_i\) is a pullback: the
-pullbacks of rational classes from \(C\) are exactly the multiples of
-\(3\), whereas \(d_i\notin3\mathbf Q\) in general --- and even when
-\(d_i\in3\mathbf Q\), a \emph{bundle} realizing it need not be a pullback,
-by the \(\mathbf G_a(k)\) ambiguity noted above.  Take \(A:=H\), so
-\(\nu^*c_1(A)=3\), and \(\epsilon_i:=i^{-1/2}\); then
-\(\lVert c_1(M_i)-\nu^*\theta\rVert=1/i=o(\epsilon_i)\).  Choose
+so \(c_1(M_i)\to\nu^*\theta\) as required, and the net is \emph{presented}
+with bundles that are not pullbacks.  On this particular \(C\) a pullback
+realizing each class does exist, because
+\(\nu^*:\Pic(C)_{\mathbf Q}\to\Pic(\mathbf P^1)_{\mathbf Q}\) is surjective
+(the conductor-square computation of \Cref{sec:ch43-promotion-problem});
+what is not
+given is a \emph{choice} of one, and the \(\mathbf G_a(k)\) kernel shows the
+choice is not unique.  For a general nonnormal \(X\) even existence fails,
+and that is the case the promotion lemma is designed for; the present
+example exhibits its mechanics in a case small enough to compute.  Take
+\(A:=H\), so
+\(\nu^*c_1(A)=3\), and \(\epsilon_i:=1/\lceil\sqrt i\,\rceil\in\mathbf
+Q_{>0}\) --- rationality matters, since
+\Cref{lem:bj-normalization-class-promotion} is stated for rational
+\(\epsilon_i\), and \(\epsilon_i\to0\) with
+\(\lVert c_1(M_i)-\nu^*\theta\rVert=1/i=o(\epsilon_i)\), because
+\(\lceil\sqrt i\,\rceil/i\to0\).  Choose
 \[
  L_i:=\Bigl(\tfrac12+\epsilon_i\Bigr)H
  \in\Pic(C)_{\mathbf Q},
@@ -1602,11 +1612,14 @@ rings \(A_\alpha\) and \(B_\alpha\).  Without
 \Cref{cor:ch43-frobenius-all-affines} the exponent would have to be
 recomputed on the refinement, and since the refinement depends on \(m\) and
 \(L\), the exponent would depend on the stage \(i\) of the regularizing net.
-That would be fatal: the descended sections at stage \(i\) would live in
-\(q_im_iL_i\) with \(q_i\) varying, the descended functions would still be
-correct pointwise but there would be no way to compare their presentations,
-and --- more seriously --- nothing would prevent \(q_i\to\infty\), in which
-case no single downstairs Veronese multiple accommodates the whole net.
+That would not be fatal --- the descended functions would still be correct
+pointwise, and since the denominator is \(q_im_i\) the class at stage \(i\)
+would still be \(L_i\), so the descended family would still be a decreasing
+net with the right classes --- but it would cost the single presentation
+discipline that the rest of the argument uses: the descended sections at
+stage \(i\) would live in \(q_im_iL_i\) with \(q_i\) varying, nothing would
+prevent \(q_i\to\infty\), and no single downstairs Veronese multiple would
+accommodate the whole net.
 
 The localization step is therefore load-bearing.  It works, and it works
 only in characteristic \(p\): the condition ``\(b^q\in A\)'' is stable under
@@ -2441,15 +2454,21 @@ Its pullback is \(\psi\), proving surjectivity.
 We restate the last three paragraphs with all the references discharged, in
 order to make the audit of \Cref{sec:ch43-audit} possible by inspection.
 
-\emph{The regularization exists.}  By \Cref{def:bj-psh}\,(3) applied on
-\(Y\), the function \(\psi\in\PSH_Y(\nu^*\theta)\) is the pointwise limit of
-a decreasing net \(\psi_i\in\cH^{\mathrm{gf}}_{\mathbf R}(M_i)\) with
-\(c_1(M_i)\to\nu^*\theta\).  The weights occurring there are real; to obtain
-\emph{rational} weights, as in \eqref{eq:bj-positive-upstairs-regularization},
-one perturbs each weight upwards to a nearby rational, which increases the
-function by an amount tending to zero and preserves monotonicity along a
-cofinal refinement --- this is the rational regularization recorded in
-\Cref{cor:ch41-real-weights}.  Nothing in this step involves \(X\).
+\emph{The regularization exists.}  By \Cref{thm:ch34-fs-regularization}
+applied on \(Y\), the function \(\psi\in\PSH_Y(\nu^*\theta)\) is the
+pointwise limit of a decreasing net
+\(\psi_i\in\cH^{\mathrm{gf}}_{\mathbf Q}(M_i)\) of \emph{rational}
+generically finite Fubini--Study functions with \(c_1(M_i)\to\nu^*\theta\);
+that is \eqref{eq:bj-positive-upstairs-regularization} verbatim, and no
+perturbation of weights is needed.  That theorem is the Fubini--Study
+refinement of \Cref{def:bj-psh}\,(3) and is proved in
+\Cref{chap:bj-fs-pl-psh} with no envelope input.  It is \emph{not}
+\Cref{cor:ch41-real-weights}, which runs the other way --- it extends the
+determinant-norm averaging \(\operatorname{Av}_q\) to weights in an arbitrary
+additive subgroup --- and invoking that corollary here would also contradict
+the declaration above that none of the averaging machinery of
+\Cref{chap:bj-finite-descent} is used.  Nothing in this step involves
+\(X\).
 
 \emph{The classes are promoted.}  \Cref{lem:bj-normalization-class-promotion}
 replaces the presentations by presentations in classes \(\nu^*L_i\) with
@@ -2537,9 +2556,17 @@ homeomorphism \(\nu^{\An}\), which is equivariant for the scaling action by
 carries \(w_\triv\) to \(v_\triv\).  Homogeneity is the statement that
 \(t\cdot\varphi=\varphi\) for the scaling action
 (\Cref{def:homogeneous-function}), hence is preserved and reflected.  The
-identity of suprema is \Cref{prop:ch35-homogeneous-normalization} applied on
-each side, together with the fact that both suprema are attained at the
-respective trivial valuations.  The last assertion is immediate from
+identity of suprema is \Cref{prop:ch32-maximum-principle}\,\cref{itm:ch32-mp:sup}
+applied on each side: a psh function is decreasing for
+\eqref{eq:semivaluation-order}, each of its Fubini--Study approximants being
+so by
+\Cref{prop:ch34-generic-finiteness}\,\cref{itm:ch34-gf:decreasing} and a
+decreasing limit of decreasing functions being decreasing, so each supremum
+is attained at the trivial valuation.  One may not cite
+\Cref{prop:ch35-homogeneous-normalization} here: it is a statement about
+\emph{homogeneous} psh functions, and applied to a general \(\theta\)-psh
+\(\varphi\) it would assert \(\varphi(v_{\triv})=0\), which fails for
+\(\varphi+\)\,constant.  The last assertion is immediate from
 bijectivity.  Notice that \Cref{lem:ch34-psh-nonempty} only gives
 \(\PSH_X(\theta)\ne\emptyset\Rightarrow\theta\) pseudoeffective; it does
 not by itself identify nonemptiness with pseudoeffectivity in this
@@ -2895,8 +2922,10 @@ opens \(U_\epsilon\times V_\delta\) with
  \qquad
  B=k[t][z],
 \]
-and \(B=A[t]\) with \(t^p\in A\); on the other three charts \(\nu\) is an
-isomorphism.  By \Cref{lem:bj-uniform-frobenius} and
+and \(B=A[t]\) with \(t^p\in A\); the same computation applies verbatim on
+\(U_1\times V_2\), with \(z\) replaced by \(z'=z_1/z_0\), because the
+singular locus \(\{P\}\times\mathbf P^1\) meets both \(V_1\) and \(V_2\);
+on the two charts over \(U_2\), \(\nu\) is an isomorphism.  By \Cref{lem:bj-uniform-frobenius} and
 \Cref{lem:ch43-minimal-exponent},
 \[
  q=p,
@@ -3053,7 +3082,8 @@ the class \(\theta\) is irrational, so the approximating classes genuinely
 vary and \Cref{def:bj-psh} must be used in its varying-class form; a
 formulation of the psh class with a fixed \(L\) would not even allow
 \(\psi\) to be written down.  Third, the exponent \(q=p\) is computed on a
-cover of four charts of which only one is singular, illustrating that the
+cover of four charts of which two are singular, both giving the same
+\(e=1\), illustrating that the
 maximum of \Cref{lem:bj-uniform-frobenius} is usually attained on a small
 part of the cover, while \Cref{cor:ch43-frobenius-all-affines} is what allows
 the cover to be chosen afterwards to trivialize \(b_nL_n\) --- and in

@@ -624,18 +624,21 @@ and, since $\omega_1=\omega$ near $X_0$, the theorem becomes the assertion
 \end{equation}
 
 \paragraph{Step 5: the tropical product.}
-Fix $E$ and put $\sigma=\log s$, $\tau=\log t$ for a fixed $t\in\,]s,r[$
-beyond which $u_1$ vanishes; write $V_{E,[s,t]}=V_E\cap\{s\le|f|\le t\}$.  On
-$V_{E,[s,t]}$ the map $h_E=(g_E,f)$ is a moment map and
+Fix $E$ and put $\sigma=\log s$, $\tau=\log\rho$ for a fixed
+$\rho\in\,]s,r[$ beyond which $u_1$ vanishes; write
+$V_{E,[s,\rho]}=V_E\cap\{s\le|f|\le\rho\}$.  On $V_{E,[s,\rho]}$ the map
+$h_E=(g_E,f)$ is a moment map.  Write $w=\log|f|$ for the parameter of the
+interval factor; the tropical coordinate of \Cref{lem:ch15-log-smooth} is
+$t=-\log|f|=-w$, so that $\ddprime\log|f|=\ddprime w=-\ddprime t$, and
 \[
- \omega_1|_{V_{E,[s,t]}}=h_{E,\mathrm{trop}}^*(u_1\alpha_E),
+ \omega_1|_{V_{E,[s,\rho]}}=h_{E,\mathrm{trop}}^*(u_1\alpha_E),
  \qquad
  \ddprime\log|f|\wedge\omega_1
- =h_{E,\mathrm{trop}}^*\bigl(\ddprime t\wedge u_1\alpha_E\bigr).
+ =h_{E,\mathrm{trop}}^*\bigl(\ddprime w\wedge u_1\alpha_E\bigr).
 \]
 Let $(P,\mu)$ be the calibrated polyhedron
 $g_{E,\mathrm{trop}}(V_{E,0})^{(n-1)}$ and $(Q,\nu)$ the calibrated
-polyhedron $h_{E,\mathrm{trop}}(V_{E,[s,t]})^{(n)}$.  The choice of $r$ in
+polyhedron $h_{E,\mathrm{trop}}(V_{E,[s,\rho]})^{(n)}$.  The choice of $r$ in
 Step 3 is exactly the choice for which
 \[
  (Q,\nu)=(P\times[\sigma,\tau],\ \mu\times\lambda),
@@ -652,11 +655,11 @@ $C\in\mathscr C$ decompose $P\times[\sigma,\tau]$ compatibly with its
 calibration, and the boundary of $Q$ has three parts.
 \begin{enumerate}
 \item \emph{The outer face $P\times\{\tau\}$ contributes zero}, because
-  $u_1$ vanishes near $\tau$ by the choice of $t$.
+    $u_1$ vanishes near $\tau$ by the choice of $\rho$.
 \item \emph{The lateral faces $\partial P\times[\sigma,\tau]$ contribute
   zero}.  Each such contribution is an integral over $F\times[\sigma,\tau]$,
   with $F$ a cell of $\mathscr C$ of dimension $n-2$, of an $(n-1)$-form that
-  has already had the differential $\ddprime t$ contracted away and therefore
+  has already had the differential $\ddprime w$ contracted away and therefore
   comes from a form on $F$ alone; such a form vanishes on a product with an
   interval for degree reasons.
 \item \emph{The inner face $P\times\{\sigma\}$ contributes
@@ -975,13 +978,23 @@ For
                     f(T)=c\frac{\prod_i(T-a_i)^{m_i}}
                                   {\prod_j(T-b_j)^{n_j}},
 \]
-Poincar\'e--Lelong gives
+Poincar\'e--Lelong gives, on the affine line,
 \[
  \dprimeddprime[\log|f|]
        =\sum_i m_i\delta_{a_i}-\sum_jn_j\delta_{b_j}.
 \]
-Its total mass is zero because a principal divisor on $\mathbf P^1$ has
-degree zero.  Retracting to a finite skeleton recovers the slope formula:
+On $\mathbf P^{1,\An}$ the divisor of $f$ carries the further coefficient
+$\sum_jn_j-\sum_im_i$ at $\infty$, so there
+\[
+ \dprimeddprime[\log|f|]
+       =\sum_i m_i\delta_{a_i}-\sum_jn_j\delta_{b_j}
+        +\Bigl(\sum_jn_j-\sum_im_i\Bigr)\delta_\infty ,
+\]
+and only now is the total mass zero, because a principal divisor on
+$\mathbf P^1$ has degree zero.  Dropping the term at infinity leaves mass
+$\sum_im_i-\sum_jn_j$, which is nonzero whenever the numerator and
+denominator degrees differ; the smallest instance is $f(T)=T$, computed in
+\Cref{ex:ch15-toric-compactified} as $\delta_0-\delta_\infty$.  Retracting to a finite skeleton recovers the slope formula:
 the sum of outgoing slopes at a vertex is the coefficient of the retracted
 divisor there.
 \end{example}
@@ -1060,8 +1073,11 @@ $\{\zeta_{0,\rme^{-\theta}}:0\le\theta\le4\}$ with a pendant edge attached at
 each $\theta=j$ running out to $P_j$.  Note in particular that the branch
 from $\theta=4$ towards $P_4$ is \emph{not} the continuation of the segment:
 the discs $\zeta_{0,\rme^{-\theta}}$ with $\theta>4$ have radius smaller than
-$|P_4|$ and do not contain $P_4$.  There are thus three tangent directions at
-each of $\theta=1,2,3,4$, in the sense of \Cref{prop:ch08-branching}.
+$|P_4|$ and do not contain $P_4$.  Exactly three of the tangent directions at $\theta=j$ carry a nonzero
+outgoing slope for $j=1,2,3$, and two do at $\theta=4$; on every other
+direction $\log|f|$ is constant.  There are of course infinitely many
+tangent directions at each of these type-II points, one for each element of
+$\mathbf P^1(\widetilde K)$, by \Cref{prop:ch08-branching}.
 
 \paragraph{The function $\log|f|$ on each branch.}
 Because $K$ is algebraically closed and $f$ is monic,
@@ -1715,16 +1731,22 @@ $\widetilde X$ the two line bundles $L_a=p^*\cO(1)$ and $L_b=q^*\cO(1)$ carry
 parlinear psh metrics with curvature currents $\widetilde\alpha$ and
 $\widetilde\beta$.  Over $U'=\widetilde X\setminus E$ they are canonically
 isomorphic, and this isomorphism extends to a morphism
-$\rho:L_a\to L_b$ of line bundles on $\widetilde X$ whose zero locus is
+$\rho:L_b\to L_a$ of line bundles on $\widetilde X$ whose zero locus is
 exactly $E$; equivalently, $\rho$ is a regular meromorphic section of
-$L_a^{-1}\otimes L_b$ with $\divis(\rho)=E$.  Its logarithmic weight is
-$\log\|\rho\|^{-1}=\widetilde h$.  \Cref{cor:ch15-pl-section} applied to
-$\rho$ gives
-$\dprimeddprime[\widetilde h]+\delta_E=c_1(L_a^{-1}\otimes L_b)
-=\widetilde\beta-\widetilde\alpha$, which is
+$L_b^{-1}\otimes L_a$ with $\divis(\rho)=E$.  The direction matters: on the
+blowup one has $q^*\cO(1)=p^*\cO(1)(-E)$, that is
+$L_b=L_a(-E)$, so it is $L_b^{-1}\otimes L_a$ that is $\cO(E)$ and carries a
+section with divisor $E$, while $L_a^{-1}\otimes L_b=\cO(-E)$ does not.  Its
+logarithmic weight is $\log\|\rho\|^{-1}=\widetilde h$.
+\Cref{cor:ch15-pl-section} applied to $\rho$ gives
+$\dprimeddprime[\widetilde h]+\delta_E=c_1(L_b^{-1}\otimes L_a)
+=\widetilde\alpha-\widetilde\beta$, which is
 \eqref{eq:levine-blowup-ddc} after moving terms; the sign is the one fixed in
 \Cref{sec:ch15-pl-constant} and it is the only place in the proof where a
-sign can go wrong.
+sign can go wrong.  The case $p=1$ is the check: there
+$\widetilde\beta=0$ and \Cref{ex:ch15-levine-p1} reads
+$\dprimeddprime[h]+\delta_Y=\alpha$, which the displayed orientation
+reproduces and the opposite one does not.
 
 \emph{The geometric-series identity.}  Writing $A=\widetilde\alpha$ and
 $B=\widetilde\beta$ for brevity, and using that both are closed so that
@@ -3388,8 +3410,11 @@ $p$,
   +\sum_{\sigma\in T_pX}m_\sigma\,u''\,\rd s|_\sigma .
 \]
 Without the balancing hypothesis the same computation produces the extra term
-$-u(p)\,\bigl\langle \rd\Psi(p),\mathbf N(p)\bigr\rangle\,\delta_p$, where
-$\Psi$ is any smooth ambient representative of the test function at $p$.
+$u(p)\,\bigl\langle \rd\Psi(p),\mathbf N(p)\bigr\rangle\,\delta_p$, where
+$\Psi$ is any smooth ambient representative of the test function at $p$; the
+sign is fixed by
+$\sum_\sigma m_\sigma d_\sigma\Psi(p)=\langle\rd\Psi(p),\sum_\sigma
+m_\sigma u_{\sigma/p}\rangle=-\langle\rd\Psi(p),\mathbf N(p)\rangle$.
 \end{lemma}
 
 \begin{proof}
@@ -3595,13 +3620,24 @@ one-dimensional case of the defect Stokes formula
 Let $\Gamma=[0,\ell]$ be a segment, regarded as a one-dimensional weighted
 complex with weight one; its defect is nonzero at each endpoint, so $\Gamma$
 has boundary.  Let $u(s)=s$, a smooth convex function.  Then $u$ attains its
-maximum at the endpoint $s=\ell$ and is not constant, and by
-\Cref{ex:ch11-graph-segment-check},
+maximum at the endpoint $s=\ell$ and is not constant, while by
+\Cref{ex:ch11-graph-segment-check} the \emph{graph Laplacian} is
 \[
- \dprimeddprime[u]=\delta_0-\delta_\ell ,
+ \Delta_\Gamma u=\delta_0-\delta_\ell ,
 \]
-which is not a positive current.  The negative atom sits exactly at the point
-where the maximum is attained.  This is the polyhedral shadow of the
+which is not a positive measure; the negative atom sits exactly at the point
+where the maximum is attained.  The current $\dprimeddprime[u]$ is not even a
+measure.  By \Cref{lem:ch15-vertex-atom}, applied at both endpoints with
+$\mathbf N(0)=-1$ and $\mathbf N(\ell)=+1$,
+\[
+ \langle\dprimeddprime[u],\varphi\rangle
+ =\varphi(0)-\varphi(\ell)+\ell\,\varphi'(\ell) ,
+\]
+the last term being the boundary correction
+$u(\ell)\langle\rd\Psi(\ell),\mathbf N(\ell)\rangle$, which vanished in the
+previous example only because $u$ vanished at the defect point.  It is not
+positive either: for $\varphi\geq0$ equal to $1$ near $\ell$ the value is
+$-1$.  This is the polyhedral shadow of the
 following analytic situation: on the closed unit disc $\cM(K\{T\})$, whose
 analytic boundary is the single Gauss point $\zeta_{0,1}$, the continuous
 function $\log\max\{|T|,r\}$ is psh, attains its maximum $0$ precisely on

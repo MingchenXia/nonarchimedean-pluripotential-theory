@@ -1495,14 +1495,19 @@ displayed problem environment, and lowers the active count by one.
 - **P12.1** `[T4; open after the reduced excellent curve-link
   classification]` Determine the normalizing boundary datum for excellent
   singular and nonnormal germs.
-- **P12.2** `[T4; open after the conductor-controlled reduced-curve
-  ideal-profile range]` Construct the corresponding valuative psh class.
-- **P12.3** `[T4; open after the principal-ideal finite-link envelope
-  range]` Construct its envelope theory.
+- **P12.2** `[T4; open beyond the book-local ideal-psh completion on
+  reduced-curve links]` Construct the corresponding independently geometric
+  valuative psh class.
+- **P12.3** `[T4; open beyond the complete book-local ideal-psh envelope
+  on reduced-curve links]` Construct its independently geometric envelope
+  theory.
 - **P12.4** `[T5; open]` Construct model-independent bounded products.
 - **P12.5** `[T5; open]` Construct a finite-energy theory.
-- **P12.6** `[T4; open after normalized curve-branch functoriality and
-  high-order conductor descent]`
+- **P12.6** `[T4; open after normalized curve-branch functoriality,
+  ideal-psh/envelope pullback, branch-surjective generic trace and
+  conductor-scaled principal descent, finite conditional-expectation
+  calculus, finite-flat canonical norm
+  pushforward, and high-order conductor realization]`
   Establish finite-map functoriality, including branch and conductor descent.
 
 All six targets remain active, but four now have sharply delimited
@@ -1519,8 +1524,89 @@ deep integral branch-order vector by one downstairs regular primary
 principal ideal.  Theorem `thm:p122-curve-principal-ideal-envelope` then
 identifies those profiles with the strictly negative rational orthant, their
 uniform closure with the nonpositive real orthant, and their raw finite-link
-envelope with pointwise truncation by zero.  This is not an identification
-with a singular nef or psh cone and supplies no product or energy theory.
+envelope with pointwise truncation by zero.  Theorem
+`thm:p122-curve-ideal-psh-functoriality` defines the book-local ideal-psh
+candidate by that uniform closure, computes its decreasing completion as all
+extended nonpositive branch functions, identifies its normalization-free
+homogeneous branch-cone form, and proves exact normalization, envelope, and
+finite-map pullback formulas.  The pullback image is exactly the
+fiber-constant subclass; pullback injectivity and surjectivity are
+equivalent, respectively, to surjectivity and injectivity of the finite
+branch map, and a surjective branch map gives a sup-norm isometry on the
+continuous class.  On the completed lattices, fiberwise supremum and
+infimum are the exact left and right adjoints to pullback, and their
+source-side composites give the least fiber-constant majorant and greatest
+fiber-constant minorant.  Example
+`ex:p122-curve-psh-pullback-bottom` shows sharply why the completed class
+must retain its bottom element: projection of a node onto one branch pulls
+the nonbottom profile `(-infinity,0)` back to the bottom.  The superscript
+`id` is a firewall: this is
+not an identification with an independently constructed singular nef,
+CLD-psh, or complex-analytic psh cone and supplies no product or energy
+theory.  Theorem `thm:p126-curve-generic-norm-trace-descent` supplies the
+reverse operation for every finite map surjective on branches.  The
+branchwise generic degree is `delta_q=sum e_(q'/q) f_(q'/q)`; the
+unnormalized weighted traces compose in arbitrary branch-surjective finite
+towers, while division by `delta_q` gives an infimum/supremum-bounded
+retraction of pullback.  This condition is sharp, since a missed base branch
+makes pullback noninjective and therefore rules out any left inverse.
+For finite obstacles, normalized pushforward after the ideal envelope is at
+most the ideal envelope after normalized pushforward; equality holds exactly
+on fibers without both strict signs.
+On finite-valued functions the pullback of the normalized average is a
+positive norm-one projection onto the fiber-constant descent image.  Its dual
+Markov kernel lifts all signed measures with weights `ef/delta_q`, is a
+total-variation isometry and a section of measure pushforward, and satisfies
+the exact function--measure pairing identity.  Lift after pushforward is the
+adjoint positive norm-one projection onto source measures with these
+canonical conditional fiber weights; no singular Monge--Ampere interpretation
+is claimed.  Relative to any full-support base probability and its canonical
+lift, the function projection is the finite conditional expectation onto the
+descent image: it satisfies the pullback-module identity, contracts every
+`L^p` norm, is the orthogonal projection in `L^2`, and has the exact
+within-fiber variance decomposition.  For `1<p<infinity`, equality in the
+contraction holds exactly for fiber-constant functions.
+Generic determinant orders of principal source models descend, after one
+sufficiently divisible common scaling, through the downstairs conductor to
+one regular primary principal element.  The normalized averages and their
+dual signed-measure lifts compose if and only if the upper generic degree is
+constant over intermediate branches.  Example
+`ex:p126-curve-variable-degree-average` makes the distinction sharp on an
+explicit reduced curve tower: direct and iterated normalized averages are
+`-2` and `-7/4`, while both unnormalized traces are `-6`; the direct and
+iterated lifts of unit mass are respectively `(1/3,1/3,1/3)` and
+`(1/2,1/4,1/4)`.  Theorem
+`thm:p126-curve-finite-flat-norm-descent` then makes this construction
+canonical in the finite flat range.  For a rank-`d` local map, the
+branch weights `e_(q'/q) f_(q'/q)` sum to `d`; the resulting normalized
+weighted average is an order-preserving retraction of pullback, is squeezed
+between the fiberwise infimum and supremum, commutes with changes of
+primary-ideal cross-section, and composes in towers.  The determinant-norm
+identity sends the principal source model `(g,N)` exactly to
+`(Norm(g),dN)` downstairs, so the source conductor realization has a
+genuine norm descent with no conductor scaling.  Flatness is essential only
+for this canonical global determinant norm; the preceding generic trace
+already covers arbitrary branch-surjective finite maps.  Theorem
+`thm:p122-conductorial-disc-radial-psh-classification` makes that firewall
+exact whenever the finite normalization is a union of closed discs, is an
+isomorphism away from one point, and its conductor contains separated high
+branch powers: the literal logarithmic radial extension is classically psh
+exactly when it is CLD-v2 psh, and the extendable cone is
+`{0} union [-infinity,0)^q`.  The conductor descends the normalized tuple
+whose retained components are `t_i^{k_i}` and whose negative-infinite
+components are zero; scaled logarithms and decreasing closure in the
+remaining finite slopes prove the positive direction.  Upper
+semicontinuity and the affinoid maximum principle exclude every mixed-zero
+face, including `(-1,0)`.  Theorem
+`thm:p122-multinode-radial-psh-classification` records the ordinary
+multinode as the explicit coordinate-ring instance in which the descended
+function is `sum_i x_i^{k_i}` over the retained branches.  The complementary
+unibranch cusp example `ex:p122-cusp-radial-psh-classification` has conductor
+`t^2K<t>` and every nonpositive radial profile extends, confirming that the
+mixed-zero obstruction begins only when distinct branches must share one
+singular value.  This classifies only
+the radial disc-normalized realization, not a different boundary-trace
+comparison or arbitrary singularities outside the stated conductor range.
 Thus P12.1, P12.2, P12.3, and P12.6 are narrowed rather than retired, and
 the atom count is unchanged.
 
@@ -1561,7 +1647,13 @@ and P13.2 remain unchanged.
 - **P14.1** `[T4; open beyond established K\"ahler and projective regimes]` Intrinsically
   characterize the image of the raw ideal-valuative transform.  In the
   finite-energy K\"ahler domain, `cor:p141-finite-energy-raw-image` identifies
-  that image exactly with the finite-energy MP cone.  For a connected smooth
+  that image exactly with the finite-energy MP cone.  Conditional on the
+  P14.2 all-point upper-semicontinuity theorem, `thm:p143-mp-section` further
+  constructs a unique order-preserving and order-reflecting DXZ preimage for
+  every MP potential by taking the infimum of the finite-energy preimages of
+  any decreasing rational PL model net.  Thus the full MP cone, including
+  possibly infinite-energy potentials, lies in the raw-transform image; the
+  reverse inclusion remains unknown.  For a connected smooth
   projective variety and an ample \(\mathbf Q\)-line-bundle class,
   `thm:pseff-projective-dxz-mp-bijection` identifies the literal raw transform
   on every semivaluation with the full MP cone, without a finite-energy
@@ -1585,7 +1677,7 @@ and P13.2 remain unchanged.
   No V14 production request has been sent and no mathematical production
   verdict is claimed.  This atom remains active until a fresh V14 source-closed
   production verification and live integration pass.
-- **P14.3** `[T4; open; source-bound conditional theorem verified]` Decide
+- **P14.3** `[T4; open; source-bound comparison and MP-section theorems verified]` Decide
   MP positivity at those semivaluations.  The Chapter 71
   domination-preserving rational-divisorial theorem and its finite-energy
   K\"ahler corollary recover the all-point comparison from P14.2 upper
@@ -1601,7 +1693,24 @@ and P13.2 remain unchanged.
   remains open.  The historical local V4 exact-live audit records
   then-current Chapter 71 source ranges, the frozen V3 packet, and this
   live-open boundary; it is a local integrity check, rather than a
-  replayable release pin or production verifier receipt.
+  replayable release pin or production verifier receipt.  The later
+  `thm:p143-mp-section` uses that comparison, divisorial order reflection,
+  and the decreasing-infimum formula to construct a unique DXZ preimage for
+  every MP potential, without a finite-energy restriction.  An initial
+  `gpt-6-astra` / `xhigh` review correctly rejected the missing exclusion of
+  the identically `-infinity` model-net limit.  After repair, the statement
+  and proof passed both `gpt-6-astra` / `xhigh` and production
+  `gpt-5.6-sol` / `xhigh` review.  The September 15 adversarial manuscript
+  audit then found that the written proof had not separately displayed the
+  equality at the trivial semivaluation.  The final proof now computes the
+  endpoint of the decreasing DXZ infimum explicitly, obtains
+  `T_Gamma(0)=phi(0)`, and only then invokes the positive rational
+  divisorial formula.  A fresh read-only `gpt-5.6-sol` / `xhigh` review of
+  the final hashed files returned `correct`, zero critical errors, and zero
+  gaps; the rejected and accepted runs are archived in
+  `solver_dossiers_20260913/p143_model_monotone_closure_20260913/`.
+  This proves the MP-to-DXZ direction only.  Whether every DXZ raw transform
+  is MP-psh remains open, so the atom and count are unchanged.
 - **P14.4** `[T4; open]` Construct a \(P\)-sensitive positivity theory for
   big non-nef classes.  The unchanged relatively nef MP model signature is
   impossible, while the ideal-valuative transform and positive-volume DXZ

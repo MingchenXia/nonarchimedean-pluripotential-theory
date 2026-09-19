@@ -257,13 +257,17 @@ which \Cref{chap:bj-alterations} applies
 variety, pulled back along an alteration, and there is no mechanism in that
 argument for making them nef.
 
-Because of this, the closure calculus of \Cref{thm:bj-basic-closure} is
-restated in \Cref{lem:ch39-closure-any-class} without its blanket nefness
-hypothesis, and it is that restatement which is used below.  As in
+Because of this, the closure calculus of \Cref{thm:bj-basic-closure} ---
+which already holds for arbitrary numerical classes, with no positivity
+hypothesis --- is supplemented in \Cref{lem:ch39-closure-any-class} by the
+monotonicity of \(\PSH_X(\theta)\) in \(\theta\), which that theorem does not
+contain, and it is the supplemented form which is used below.  As in
 \Cref{chap:bj-cartier-realization} we abbreviate by \emph{PSH2} the
-decreasing-limit axiom, \Cref{lem:ch39-closure-any-class}\,(4): a decreasing
-net in \(\PSH_X(\theta)\) whose pointwise limit is generically finite has
-\(\theta\)-psh limit.  Its two hypotheses --- a controlled class and a
+decreasing-limit axiom, \Cref{lem:ch39-closure-any-class}\,(4): if
+\(\theta_j\to\theta\) and \(\psi_j\in\PSH_X(\theta_j)\) is a decreasing net
+whose pointwise limit is generically finite, that limit is
+\(\theta\)-psh.  The fixed-class case, \Cref{thm:bj-basic-closure}\,(4), is
+its specialization \(\theta_j=\theta\).  Its two hypotheses --- a controlled class and a
 generically finite limit --- are verified explicitly at every application.
 
 \subsection{Dependencies}
@@ -530,8 +534,11 @@ in birational arguments over a trivially valued field.
 \subsection{Closure properties in a class that need not be nef}
 \label{sec:ch39-closure}
 
-\Cref{thm:bj-basic-closure} is stated for nef classes.  Its clauses are
-needed here for arbitrary real classes, since a homogeneous psh function
+\Cref{thm:bj-basic-closure} already covers arbitrary numerical classes ---
+it opens by saying so, and by \Cref{lem:ch34-psh-nonempty} its assertions are
+vacuous unless the relevant classes are pseudoeffective.  What it does not
+contain is the monotonicity of \(\PSH_X(\theta)\) in \(\theta\), which is
+needed here since a homogeneous psh function
 can exist in a class that is pseudoeffective but not nef, and since
 \Cref{chap:bj-alterations} applies \Cref{thm:bj-birational-ep-descent} to an
 arbitrary \(\theta\).  We prove the required statements directly from
@@ -611,8 +618,9 @@ Let \(X\) be a projective \(k\)-variety and let
  \(\max\{\phi,\psi\}\in\PSH_X(\theta)\).
 \item If \(\phi\in\PSH_X(\theta)\), \(\psi\in\PSH_X(\theta')\) and
  \(s,t\ge0\) are not both \(0\), then
- \(s\phi+t\psi\in\PSH_X(s\theta+t\theta')\), the sum being formed in
- \(\Rbar\) and unambiguous because both terms are bounded above.
+  \(s\phi+t\psi\in\PSH_X(s\theta+t\theta')\), the sum being formed in
+ \(\Rbar\); a summand whose coefficient is \(0\) is omitted, and is never
+ interpreted as \(0\cdot(-\infty)\).
 \item If \(\theta_j\to\theta\) in \(N^1(X)_{\mathbf R}\), if
  \(\psi_j\in\PSH_X(\theta_j)\) is a decreasing net, and if
  \(\psi:=\lim_j\psi_j\) is generically finite, then
@@ -633,9 +641,9 @@ Let \(X\) be a projective \(k\)-variety and let
 sections.  The net \((\phi_i+c)\) is decreasing with limit \(\phi+c\), which
 is generically finite because \(\phi\) is and \(c\) is finite.
 
-(4)  This is \Cref{thm:bj-basic-closure}\,(4) and~(5), and the only point
-requiring comment is that the nefness hypothesis standing in that theorem
-plays no role in the proof of those two clauses.  It does not: the argument
+(4)  This is \Cref{thm:bj-basic-closure}\,(4) and~(5), already stated there
+for arbitrary numerical classes; we recall why no positivity enters their
+proof. the argument
 there concatenates the approximating nets supplied by \Cref{def:bj-psh},
 indexing the concatenation by
 \(K:=\{(j,i):j\in J,\ i\in I_j\}\) with \((j,i)\le(j',i')\) when
@@ -749,9 +757,11 @@ generically finite Fubini--Study functions with classes
 
 \begin{remark}[What was and was not generalized]
 \label{rem:ch39-closure-scope}
-\Cref{lem:ch39-closure-any-class} reproduces clauses (1)--(5) of
-\Cref{thm:bj-basic-closure} without the standing nefness hypothesis of that
-theorem, and adds clause (5), the monotonicity of \(\PSH_X\) in the class.
+\Cref{lem:ch39-closure-any-class} restates clauses (1)--(5) of
+\Cref{thm:bj-basic-closure} --- which are already proved there for arbitrary
+numerical classes, that theorem carrying no positivity hypothesis --- merging
+its (4) and~(5) into a single clause~(4), and adds the new clause~(5), the
+monotonicity of \(\PSH_X\) in the class.
 It does \emph{not} generalize anything about suprema: there is still no
 statement about increasing families, and \Cref{warn:ch39-firewall} remains
 in force.  Nor does it assert that \(\PSH_X(\theta)\) is nonempty; by
@@ -2454,7 +2464,7 @@ deliberate: continuity there is proved only on \(X^{\divis}\), whereas the
 conclusion is needed on all of \(X^{\An}\).
 \end{remark}
 
-\begin{example}[The uncorrected grid limit is not visibly psh]
+\begin{example}[The grid maximum, and where the correction bites]
 \label{ex:ch39-grid-correction-needed}
 Take \(X=\mathbf P^1_k\), \(\theta=c_1(\cO(1))\), \(p=[0:1]\), and
 \(q_\lambda:=\max\{0,1+\lambda\}\log|\mathfrak m_p|\) for
@@ -2468,17 +2478,24 @@ family in \(\PSH_{\mathrm{hom},X}(\theta)\).  With \(M=1\), \(b=0\) and
 \]
 each a Fubini--Study function.  On the ray through \(p\), writing
 \(s=-\log|\mathfrak m_p|(v)\ge0\), one has
-\(G_n(v)=\max\{-s-1,\max_{a\in\Gamma_n}(a-(1+a)s)\}\), which increases
-strictly in \(n\) whenever \(s\ne1\), the maximum over a finer grid of the
-affine functions \(a\mapsto a-(1+a)s\) being strictly larger.  So
-\((G_n)\) is a genuinely increasing sequence, its limit is
-\(\max\{-s-1,\ \max\{-s,-1\}\}=\max\{-s,-1\}=u(v)\), and no closure property
-available at this stage applies to it directly.  The corrected sequence
-\(G_n+c_n\) with \(c_n=2^{1-n}\) is decreasing, and it is to that sequence
-that PSH2 is applied.  The example is small enough that one can watch the
-two monotonicities compete: at \(s=0\) one has \(G_n\equiv0\) for all
-\(n\), and \(c_n\downarrow0\), so the corrected sequence decreases to the
-correct value \(0\).
+\(G_n(v)=\max\{-s-1,\max_{a\in\Gamma_n}(a-(1+a)s)\}\).  Here the grid is
+\emph{exact} at every stage: \(a\mapsto a-(1+a)s=a(1-s)-s\) is affine in
+\(a\), and every \(\Gamma_n\) contains both endpoints \(-1\) and \(0\) of
+the window, so its maximum over \(\Gamma_n\) equals its maximum over
+\([-1,0]\), namely \(-s\) if \(s\le1\) and \(-1\) if \(s\ge1\).  Hence
+\[
+ G_n\equiv\max\{-s-1,\ \max\{-s,-1\}\}=\max\{-s,-1\}=u
+\]
+for every \(n\): the sequence \((G_n)\) is constant, the grid error
+\eqref{eq:bj-grid-error} is zero, and \(G_n\) is already visibly psh, being
+a Fubini--Study function.  A strictly increasing \((G_n)\) requires
+\(\lambda\mapsto q_\lambda(v)\) to be strictly concave at some \(v\);
+a family that is affine in \(\lambda\), as this one is, is invisible to
+refinement.  What the example does show is that the correction costs
+nothing: \(G_n+c_n\) with \(c_n=2^{1-n}\) decreases, and it decreases to
+\(u\), so PSH2 applies to it and returns the right answer.  At \(s=0\) one
+has \(G_n\equiv0\) and \(c_n\downarrow0\), so the corrected sequence
+decreases to the correct value \(0\).
 \end{example}
 
 \subsection{Carrier reflection}
@@ -2671,9 +2688,13 @@ is a bijection, with no further hypothesis.
 \begin{proof}
 The two nefness statements are equivalent: \(\beta^*\Nef(X)\subseteq\Nef(Y)\)
 by \Cref{lem:ch38-numerical-birational}\,\cref{itm:ch38-num:inj}, and
-conversely \(\theta\cdot C=\beta^*\theta\cdot\widetilde C\ge0\) for every
-integral curve \(C\subset X\) with strict transform \(\widetilde C\), by the
-projection formula.
+conversely \(\beta^*\theta\) nef implies \(\theta\) nef by the argument
+proving \Cref{lem:ch38-nef-total-intrinsic}\,\cref{itm:ch38-nt:indep}, which
+replaces a strict transform by an arbitrary integral curve dominating the
+given curve on \(X\).  One cannot simply write
+\(\theta\cdot C=\beta^*\theta\cdot\widetilde C\) for every integral
+\(C\subset X\): a curve contained in \(\beta(\operatorname{Exc}\beta)\), which
+exists as soon as \(\dim X\geq3\), has no strict transform at all.
 
 Assume them.  By \Cref{lem:ch34-psh-nonempty} the constant \(0\) is
 \(\beta^*\theta\)-psh, and it is homogeneous, so
@@ -3688,8 +3709,9 @@ formalism is that of \Cref{app:intersection-bdivisors}, ultimately
 \cite{BFJ09}.
 
 Six things in this chapter are not in the sources in this form and are
-supplied here.  The closure calculus is restated without a nefness
-hypothesis as \Cref{lem:ch39-closure-any-class}, on the basis of the
+supplied here.  The closure calculus is supplemented by the
+monotonicity in the class as \Cref{lem:ch39-closure-any-class}, on the basis
+of the
 elementary monotonicity \Cref{lem:ch39-hgf-monotone} of the Fubini--Study
 spaces in the line bundle; this is needed because the classes to which
 \Cref{chap:bj-alterations} applies the descent theorem are arbitrary real

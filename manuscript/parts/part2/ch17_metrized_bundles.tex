@@ -745,7 +745,7 @@ For the last assertion, work \(G\)-locally and choose an orthogonal frame
 \(\max_i|a_i|\rho_i\le r\), that is, the finite conjunction of the
 conditions \(|a_i|\le r/\rho_i\).  Each \(\rho_i\) is the exponential of a
 parlinear function, so on a further \(G\)-refinement each is of the form
-\(c|g|\), and the condition becomes \(|a_ig^{-1}|\le r/c\), which cuts out
+\(c|g|\), and the condition becomes \(|a_ig|\le r/c\), which cuts out
 an analytic domain.  Strictness under the stated hypothesis on \(r\) is the
 same computation with \(c\in|K^\times|\).
 \end{proof}
@@ -1271,10 +1271,10 @@ contained in it---as it must be, since the mass is \(1\ne0\).
 \section{First Chern forms and currents}
 \label{sec:ch17-chern}
 
-We use the normalization
-\[
-                              \dc=\ddprime,\qquad \ddc=\dprimeddprime.
-\]
+We write the Chambert--Loir--Ducros operator as $\dprimeddprime$ throughout;
+the glyph $\ddc$ is reserved for the complex operator
+\eqref{eq:appJ-ddc} and, in \cref{part:bfj,part:bj}, for the model operator
+of \Cref{sec:ch20-ddc} (\Cref{sec:appK-collisions}).
 Let \(\overline L=(L,\|\cdot\|)\) be smoothly metrized.  In a local frame
 \(e\), define
 \begin{equation}
@@ -1565,10 +1565,17 @@ This is the \(n=1\) case of \Cref{ex:ch17-support-projective} and reproves
 
 \emph{(b) A shifted formal metric.}  Fix \(\pi\in K^{\times}\) with
 \(|\pi|<1\) and put \(\|\cdot\|'=\rme^{-u}\|\cdot\|_{\mathrm{Weil}}\) with
-\(u=\min\{1,t^{+}\}\cdot v_K(\pi)^{-1}\cdot v_K(\pi)=\min\{1,t^{+}\}\); that
-is, \(u\) is the hat function of \eqref{eq:metrics-p1-blowup-hat}.  The new
-weight is \(\max\{0,t\}+\min\{1,t^+\}\); its slope is \(0\) for \(t\le0\),
-\(2\) on \([0,1]\), and \(1\) for \(t\ge1\).  So
+\(u=\min\{1,(-t)^{+}\}\).  This is the hat function of
+\eqref{eq:metrics-p1-blowup-hat}, but written in the coordinate of this
+example: \eqref{eq:metrics-p1-blowup-hat} is stated on the apartment
+parametrized by \(v(T)\), and here \(t=\log|T|=-v(T)\), so the two
+coordinates are negatives of one another and the hat must be reflected.  Its
+corner accordingly sits at \(t=-1\), which under \(v_K(\pi)=1\) is
+\(\zeta_{0,|\pi|}\); writing \(\min\{1,t^{+}\}\) would put it at
+\(\zeta_{0,|\pi|^{-1}}\) instead.  The new
+weight is \(\max\{0,t\}+\min\{1,(-t)^+\}\); its slope is \(0\) for
+\(t\le-1\), \(-1\) on \([-1,0]\), and \(1\) for \(t\ge0\), with jumps
+\(-1\) at \(t=-1\) and \(+2\) at \(t=0\).  So
 \[
  c_1(\overline L')=2\,\delta_{\zeta_{0,1}}-\delta_{\zeta_{0,|\pi|}},
 \]
@@ -1580,9 +1587,10 @@ statement about total mass, not about positivity.
 
 \emph{(c) The blowup metric of \Cref{ex:metrics-p1-blowup}.}  Take instead
 \(\|\cdot\|''=\rme^{+u}\|\cdot\|_{\mathrm{Weil}}\), so that the weight is
-\(\max\{0,t\}-\min\{1,t^+\}=\max\{-1,t-1\}+\) constant; concretely the
-weight is \(\max\{-1,t\}\) after adding the constant \(1\), which does not
-change the curvature.  The slope is \(0\) for \(t\le-1\) and \(1\) for
+\(\max\{0,t\}-\min\{1,(-t)^+\}=\max\{-1,t\}\) exactly, with no additive
+constant: for \(t\le-1\) both terms give \(-1\), on \([-1,0]\) the
+difference is \(0-(-t)=t\), and for \(t\ge0\) it is \(t\).  The slope is
+\(0\) for \(t\le-1\) and \(1\) for
 \(t\ge-1\), with a single jump of \(1\) at \(t=-1\).  Hence
 \[
  c_1(\overline L'')=\delta_{\zeta_{0,|\pi|}},
@@ -1594,7 +1602,8 @@ case of \Cref{thm:cld-recovers-cl}.
 
 \emph{(d) A metric that is not parlinear.}  Let
 \(\|\cdot\|_\theta=\rme^{-\theta u}\|\cdot\|_{\mathrm{Weil}}\) for
-\(\theta\in\mathbf R\).  Its weight is \(\max\{0,t\}+\theta\min\{1,t^+\}\)
+\(\theta\in\mathbf R\).  Its weight is
+\(\max\{0,t\}+\theta\min\{1,(-t)^+\}\)
 and
 \[
  c_1(\overline L_\theta)
@@ -2037,13 +2046,13 @@ depends only on \(L_1,\dots,L_n\).
 
 \begin{proof}
 Let \(u_i\) be the global function with
-\(\log\|s\|=u_i+\log\|s\|'\) for every local invertible section \(s\) of
+\(\log\|s\|'=u_i+\log\|s\|\) for every local invertible section \(s\) of
 \(L_i\); it is smooth (resp.\ dpsh) by hypothesis, and
 \(c_1(\overline L_i)=\dprimeddprime u_i+c_1(\overline L_i')\) by
 \Cref{prop:cld-c1-metric-change}.  Expanding the product,
 \(\bigwedge_ic_1(\overline L_i)-\bigwedge_ic_1(\overline L_i')\) is a sum of
 terms \(T_1\wedge\cdots\wedge T_n\) in which each \(T_i\) is either
-\(c_1(\overline L_i)\) or \(\dprimeddprime u_i\), with at least one index
+\(c_1(\overline L_i')\) or \(\dprimeddprime u_i\), with at least one index
 \(j\) of the second kind.  For such a term,
 \eqref{eq:ch16-dpsh-outer} gives
 \[
@@ -3711,8 +3720,11 @@ by \Cref{thm:ch17-weil-globally-psh}, and their curvature currents
 \(\widetilde\alpha,\widetilde\beta\) restrict over
 \(U'=\widetilde X\setminus E\) to \(\alpha,\beta\).  The canonical
 isomorphism of \(L_a\) and \(L_b\) over \(U'\) extends to a morphism
-\(\rho:L_a\to L_b\) with zero locus exactly \(E\), and
-\(\log\|\rho\|^{-1}=g^*h\).  \Cref{cor:ch15-pl-section} gives
+\(\rho:L_b\to L_a\) with zero locus exactly \(E\), and
+\(\log\|\rho\|^{-1}=g^*h\).  The direction matters: it is
+\(L_a=L_b\otimes\cO(E)\) that holds on the blowup, so
+\(\rho\in\Gamma(L_b^{-1}\otimes L_a)\) has divisor \(E\), whereas
+\(L_a^{-1}\otimes L_b=\cO(-E)\) has no nonzero section.  \Cref{cor:ch15-pl-section} gives
 \begin{equation}
 \label{eq:ch17-levine-blowup}
  \dprimeddprime[g^*h]+\delta_E=\widetilde\alpha-\widetilde\beta .

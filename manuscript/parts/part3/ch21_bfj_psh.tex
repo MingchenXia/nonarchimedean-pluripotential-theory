@@ -274,8 +274,7 @@ theorem and studies the inverse system of restrictions to dual complexes.
 \Cref{sec:ch21-stability} is the stability calculus.
 \Cref{sec:ch21-singularities} treats singularity types and polar sets.
 \Cref{sec:ch21-continuous} compares with continuous semipositive metrics and
-delimits the comparison with the CLD class.  \Cref{sec:ch21-worked} carries
-five examples to explicit numbers, and
+delimits the comparison with the CLD class.  \Cref{sec:ch21-worked} carries seven examples to explicit numbers, and
 \Cref{sec:ch21-dictionary} is the chapter dictionary.
 
 \section{The definition}
@@ -1214,9 +1213,9 @@ The constant function \(0\) belongs to \(\PSH(X,\theta)\) if and only if
 \(\theta\) is semipositive.  In that case \(\PSH(X,\theta)\) contains all
 constants and all bounded model psh functions.
 \item\label{itm:ch21-const:nonempty}
-\(\PSH(X,\theta)\) is nonempty, and there is a model function \(\psi\) with
-\(-\varepsilon\leq\psi\) whenever \(\theta\) is semipositive, such that
-\(\psi\in\PSH(X,\theta)\).
+\(\PSH(X,\theta)\) is nonempty; and if \(\theta\) is semipositive then for
+every \(\varepsilon>0\) there is a model function
+\(\psi\in\PSH(X,\theta)\) with \(-\varepsilon\leq\psi\leq0\).
 \end{enumerate}
 \end{proposition}
 
@@ -1400,9 +1399,12 @@ determined on a semistable model \(\mathcal C\), with dual complex
 \begin{enumerate}
 \item\label{itm:ch21-cc:inf}
 \(\varphi=\inf_{\mathcal C'}\varphi\circ p_{\mathcal C'}\), the infimum
-being over the semistable models \(\mathcal C'\geq\mathcal C\); and
+being over the SNC models \(\mathcal C'\geq\mathcal C\) --- not merely the
+semistable ones, which are not cofinal
+(\Cref{rem:ch21-semistable-not-cofinal}); and
 \item\label{itm:ch21-cc:pl}
-for every such \(\mathcal C'\), with skeleton \(\Gamma'\), the restriction
+for every such \(\mathcal C'\), with skeleton \(\Gamma'\) carrying its
+canonical metric (\Cref{rem:ch20-multiplicities-lengths}), the restriction
 \(\varphi|_{\Gamma'}\) is a uniform limit of piecewise affine functions
 \(u\) on the metric graph \(\Gamma'\) satisfying the finitely many
 inequalities
@@ -1422,22 +1424,53 @@ By \Cref{thm:ch21-equivalent},
 \cref{itm:ch21-eq:def}\(\Leftrightarrow\)\cref{itm:ch21-eq:inf}, membership is
 equivalent to \cref{itm:ch21-cc:inf} together with
 \(\varphi|_{\Gamma'}\in\mathcal P_{\mathcal C'}(\theta)\) for every
-\(\mathcal C'\) in the cofinal family of semistable models dominating
-\(\mathcal C\); semistable models are cofinal because SNC models are
-(\Cref{prop:snc-cofinal}) and an SNC model of a curve is semistable after a
-further blowup.  It therefore suffices to identify
+\(\mathcal C'\) in the cofinal family of SNC models dominating
+\(\mathcal C\), which is cofinal by \Cref{prop:snc-cofinal}.  It therefore
+suffices to identify
 \(\mathcal P_{\mathcal C'}(\theta)\) with the uniform closure of the
 piecewise affine functions satisfying
 \eqref{eq:ch21-curve-vertex-inequalities}.
 
-A \(\theta\)-psh model function restricts to a piecewise affine function on
-\(\Gamma'\) by \Cref{prop:skeleton-model-pa}, and
-\Cref{prop:ch08-curve-cl} identifies the relative degree of the associated
-model line bundle on a component \(E\) with
-\((\Delta_{\Gamma'}\varphi_D)(\{x_E\})\); together with
+A \(\theta\)-psh model function \(\psi\), determined on some
+\(\mathcal C''\geq\mathcal C'\) with skeleton
+\(\Gamma''\supseteq\Gamma'\), restricts to a piecewise affine function on
+\(\Gamma'\) by \Cref{prop:skeleton-model-pa}.  On \(\Gamma''\) itself,
+\eqref{eq:ch20-curve-laplacian-general} identifies the relative degree of
+the associated model line bundle on a component \(E\) with
+\(b_E^{-1}(\Delta_{\Gamma''}\psi)(\{x_E\})\), the factor \(b_E>0\) being
+irrelevant to the sign (when \(\mathcal C''\) is semistable this is
+\Cref{prop:ch08-curve-cl} with \(b_E=1\)); together with
 \eqref{eq:graph-curvature} and the nef test
-\eqref{eq:ch20-curve-nef-test}, relative nefness becomes exactly
-\eqref{eq:ch21-curve-vertex-inequalities}.  Conversely, a piecewise affine
+\eqref{eq:ch20-curve-nef-test}, relative nefness is exactly
+\(\mu_0+\Delta_{\Gamma''}\psi\geq0\) on \(\Gamma''\).
+
+That identity does \emph{not} pass to the restriction: the model functions
+occurring in \(\mathcal P_{\mathcal C'}(\theta)\) are not required to be
+determined on \(\mathcal C'\), and for one determined on a higher model the
+Laplacian of \(\psi|_{\Gamma'}\) is in general strictly larger than the
+vector of relative degrees --- \Cref{ex:ch21-conic-refinement} is the
+smallest instance.  What passes is the inequality.  Fix \(q\in\Gamma'\) and
+decompose \(\Gamma''\setminus\Gamma'\) into connected components, each
+attached to \(\Gamma'\) at a single point; then
+\[
+ \bigl(\Delta_{\Gamma''}\psi\bigr)(\{q\})
+ =\bigl(\Delta_{\Gamma'}(\psi|_{\Gamma'})\bigr)(\{q\})
+  +\sum_{T\ni q}\ \sum_{e\subset T,\ e\ni q}\partial_e\psi(q),
+\]
+the outer sum running over the components \(T\) attached at \(q\).  Each
+inner sum is \(\leq0\) by the flux inequality
+\eqref{eq:ch21-curve-flux}, proved in Step~2 of
+\Cref{prop:ch21-curve-retraction} below from
+\eqref{eq:ch20-nef-pullback-test} and
+\eqref{eq:graph-laplacian} alone, hence without reference to the present
+proposition.  Since \(\mu_0\) gains no mass on a higher skeleton
+\eqref{eq:ch21-curve-no-new-mass}, we conclude
+\[
+ \bigl(\Delta_{\Gamma'}(\psi|_{\Gamma'})\bigr)(\{q\})
+ \ \geq\ \bigl(\Delta_{\Gamma''}\psi\bigr)(\{q\})
+ \ \geq\ -\mu_0(\{q\}),
+\]
+which is \eqref{eq:ch21-curve-vertex-inequalities}.  Conversely, a piecewise affine
 \(u\) on \(\Gamma'\) satisfying
 \eqref{eq:ch21-curve-vertex-inequalities} is, after a rational
 approximation of its breakpoints and slopes, the restriction of a model
@@ -1448,6 +1481,40 @@ taken uniformly small and preserves
 which is absorbed by the uniform closure.  Taking uniform closures on both
 sides completes the identification.
 \end{proof}
+
+\begin{remark}[Semistable models are not cofinal]
+\label{rem:ch21-semistable-not-cofinal}
+Over a fixed complete discretely valued \(K\) the semistable models of
+\(C\) do \emph{not} form a cofinal family, and no blowup repairs this: a
+blowup can only raise multiplicities, never lower them.  The running conic
+is already a witness.  Blowing up the node of \(\mathcal C=\{xy=\pi\}\)
+produces a central component \(E_{1/2}\) of multiplicity \(2\)
+(\Cref{ex:ch21-conic-numbers}), and blowing up a closed point of
+\(E_{1/2}\) away from the nodes produces a further component \(E'\), again
+of multiplicity \(2\), whose divisorial point \(x_{E'}\) lies on no
+semistable skeleton: a point of \(C^{\An}\) is a \emph{vertex} of a semistable skeleton only if it
+is divisorial with multiplicity \(1\), and every point of an \emph{edge} lies
+on the geodesic joining two such vertices.  Multiplicity alone is therefore
+no obstruction: \(x_{E_{1/2}}\) itself has multiplicity \(2\) and is the
+midpoint of the semistable skeleton \(\Gamma_0\).  What excludes \(x_{E'}\)
+is its centre.  In the case at hand, \(C\) a conic over \(K=k((t))\) with
+\(k\) algebraically closed, the multiplicity-one divisorial points are the
+Gauss points of \(K\)-rational discs, so every point of a semistable edge is
+of the form \(\zeta_{c,r}\) with \(c\in K\); whereas \(x_{E'}\) is the Galois
+orbit of a pair of discs defined only over the ramified quadratic extension
+\(K(\pi^{1/2})\).  Removing the
+obstruction requires a ramified base extension \(K'/K\), which is the
+content of the semistable reduction theorem and is exactly what is
+\emph{not} available here, since \(\theta\), \(L\) and \(\PSH(C,\theta)\)
+are attached to \(K\).  Accordingly
+\Cref{prop:ch21-curve-criterion} quantifies over SNC models, which
+\emph{are} cofinal (\Cref{prop:snc-cofinal}), at the price of the
+multiplicities in \eqref{eq:ch20-curve-laplacian-general}.  Semistable
+models remain the right family for \emph{computations}---all of
+\Cref{sec:ch21-worked} stays inside them, and there the edge lengths are
+\(1\) and the weights disappear---but they are not the right family for a
+quantifier.
+\end{remark}
 
 \begin{remark}[What is finite and what is not]
 \label{rem:ch21-curve-finite}
@@ -1801,9 +1868,11 @@ determined on a semistable model \(\mathcal C\) with dual complex
 \(\Gamma=\Delta_{\mathcal C}\) and retraction \(p=p_{\mathcal C}\), and let
 \(\mu_0\) be the curvature measure of \(\theta\) on \(\Gamma\) in the sense
 of \eqref{eq:graph-curvature}.  Recall from
-\Cref{prop:ch08-curve-cl} and \eqref{eq:ch20-curve-nef-test} that a model
-function \(\psi\) determined on a semistable model with skeleton
-\(\Gamma'\supseteq\Gamma\) is \(\theta\)-psh if and only if
+\eqref{eq:ch20-curve-laplacian-general} and \eqref{eq:ch20-curve-nef-test}
+that a model
+function \(\psi\) determined on an SNC model with skeleton
+\(\Gamma'\supseteq\Gamma\), the latter carrying its canonical metric
+(\Cref{rem:ch20-multiplicities-lengths}), is \(\theta\)-psh if and only if
 \begin{equation}
 \label{eq:ch21-curve-psh-test}
  \mu_0+\Delta_{\Gamma'}\psi\ \geq\ 0
@@ -1811,7 +1880,10 @@ function \(\psi\) determined on a semistable model with skeleton
 \end{equation}
 with \(\Delta_{\Gamma'}\) the graph Laplacian
 \eqref{eq:graph-laplacian}; here \(\mu_0\) is regarded as a measure on
-\(\Gamma'\) through \(\Gamma\subseteq\Gamma'\).  Then, for every
+\(\Gamma'\) through \(\Gamma\subseteq\Gamma'\), and the multiplicities
+\(b_E\) of \eqref{eq:ch20-curve-laplacian-general}, being positive, do not
+affect the inequality (for \(\mathcal C'\) semistable they are all \(1\) and
+the criterion is \Cref{prop:ch08-curve-cl}).  Then, for every
 \(\varphi\in\PSH(C,\theta)\),
 \[
  \varphi\circ p\ \in\ \PSH(C,\theta)\cap C^0(C^{\An}),
@@ -1822,7 +1894,7 @@ limit of a net of \emph{continuous} \(\theta\)-psh functions.
 
 \begin{proof}
 \emph{Step 1: the reference measure does not charge the new part.}  Let
-\(\mathcal C'\geq\mathcal C\) be a semistable model with skeleton
+\(\mathcal C'\geq\mathcal C\) be an SNC model with skeleton
 \(\Gamma'\supseteq\Gamma\) and let \(\rho:\mathcal C'\to\mathcal C\) be the
 domination.  Since \(\theta\) is determined on \(\mathcal C\), its
 determination on \(\mathcal C'\) is \(\rho^*\theta_{\mathcal C}\), whose
@@ -2450,8 +2522,8 @@ operations stay inside \(\PSH(X,\theta)\) by
 
 \cref{itm:ch21-pol:curve}  On a smooth projective curve the quasimonomial
 points are exactly the points of type \(2\) and type \(3\), and every such
-point lies on the skeleton of some semistable model
-(\Cref{rem:quasimonomial-vs-divisorial},
+point lies on the skeleton of some SNC model---semistable models would not
+suffice, by \Cref{rem:ch21-semistable-not-cofinal}---(\Cref{rem:quasimonomial-vs-divisorial},
 \Cref{thm:berk-a1-classification} for \(\mathbf P^1\) and the
 corresponding classification for a general curve through
 \Cref{prop:ch08-annulus-skeleton}).  Now apply
@@ -2715,7 +2787,7 @@ metric loci in all dimensions and asserts nothing further.
 \section{Worked examples}
 \label{sec:ch21-worked}
 
-Five computations follow.  The first is the elementary kink and fixes the
+Seven computations follow, in six groups.  The first is the elementary kink and fixes the
 signs.  The second is a psh function on a curve skeleton whose restrictions
 to successive dual complexes are computed as the model is refined, with all
 masses checked against the degree.  The third computes a maximum and a
@@ -3477,8 +3549,10 @@ clause~(2) is independent
  \end{aligned}
 \]
 
-Only the second and fifth lines use inputs proved elsewhere in the book; all
-others are self-contained in this chapter.
+Only the second, fifth and sixth lines use theorems proved elsewhere in the
+book --- they are the three imports of \Cref{sec:ch21-imported} --- and the
+first uses the skeletal calculus of \Cref{chap:skeleta}; the remaining lines
+are self-contained in this chapter.
 
 \section*{Notes and further reading}
 
@@ -3519,7 +3593,7 @@ regularization are separated into \Cref{chap:bfj-compactness} and
 \cite[Sections~6--8]{BFJ16} rather than its order of exposition.  The
 equicontinuity estimate \Cref{thm:bfj-skeletal-equicontinuity} is
 \cite[Theorem~6.1]{BFJ16}; the decreasing regularization theorem
-\Cref{thm:bfj-decreasing-regularization} is \cite[Theorem~8.5]{BFJ16}.  We
+\Cref{thm:bfj-decreasing-regularization} is \cite[Theorem~8.7]{BFJ16}.  We
 have deliberately not used regularization to prove anything in the present
 chapter except \Cref{thm:ch21-continuous-zhang} and the continuous case of
 pullback, so that the reader can see that the class \(\PSH(X,\theta)\) has a

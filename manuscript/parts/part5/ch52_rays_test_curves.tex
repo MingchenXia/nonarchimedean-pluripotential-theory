@@ -152,8 +152,14 @@ A test curve \(\Gamma\) consists of
 such that:
 \begin{enumerate}
 \item \(\tau\mapsto\Gamma_\tau\) is decreasing and concave;
-\item every level is model:
-      \(P_\theta[\Gamma_\tau]=\Gamma_\tau\);
+\item every level is a fixed point of the \(P\)-envelope,
+      \(P_\theta[\Gamma_\tau]=\Gamma_\tau\).  Positive mass is \emph{not}
+      imposed here --- \Cref{def:complex-p-envelope} reserves the term
+      ``model potential'' for the positive-mass case, and reading it into
+      this clause would make \Cref{lem:rays-test-positive-levels} vacuous.
+      Positivity is imposed only at \(\Gamma_{-\infty}\), by
+      \eqref{eq:rays-test-minus-infinity}, and deduced at interior levels in
+      that lemma;
 \item
       \[
       \Gamma_{-\infty}
@@ -406,16 +412,65 @@ For any test curve, the levelwise operation
  :=P_\theta[\Gamma_\tau]_{\mathcal I}
 \tag{52.18}\label{eq:rays-test-i-envelope}
 \]
-is an \(\mathcal I\)-model test curve.  Indeed, the
-\(\mathcal I\)-envelope is monotone and concave under convex
-combinations:
+produces an \(\mathcal I\)-model test curve.  The two properties of the
+envelope that this uses are monotonicity and concavity under convex
+combinations,
 \[
  P_\theta[(1-s)u+sv]_{\mathcal I}
  \geq(1-s)P_\theta[u]_{\mathcal I}
        +sP_\theta[v]_{\mathcal I}.
 \tag{52.19}\label{eq:rays-i-concavity}
 \]
-Increasing continuity identifies the \(-\infty\) level.
+The verification is recorded as a statement rather than left in passing,
+because \Cref{chap:transcendental-metrics} invokes it at every K\"ahler
+perturbation and because each test-curve axiom consumes a different
+property of the envelope.
+
+\begin{lemma}[Levelwise \(\mathcal I\)-envelope of a test curve]
+\label{lem:rays-levelwise-i-envelope}
+Let \(\Gamma\) be a test curve in the big class \(\theta\).  Then
+\eqref{eq:rays-test-i-envelope} is an \(\mathcal I\)-model test curve with
+the same terminal parameter \(\Gamma_{\max}\), and its \(-\infty\) level is
+\[
+ \bigl(P_\theta[\Gamma]_{\mathcal I}\bigr)_{-\infty}
+ =P_\theta[\Gamma_{-\infty}]_{\mathcal I}.
+\]
+\end{lemma}
+
+\begin{proof}
+Write \(\Lambda_\tau:=P_\theta[\Gamma_\tau]_{\mathcal I}\).
+
+Monotonicity of the \(\mathcal I\)-envelope carries the decrease of
+\(\tau\mapsto\Gamma_\tau\) to the decrease of \(\tau\mapsto\Lambda_\tau\),
+which is the first axiom of \Cref{def:rays-test-curve}.  For concavity, let
+\(\tau=(1-s)\tau_1+s\tau_2\) with \(\tau_1,\tau_2<\Gamma_{\max}\) and
+\(s\in(0,1)\).  Concavity of \(\Gamma\) gives
+\(\Gamma_\tau\geq(1-s)\Gamma_{\tau_1}+s\Gamma_{\tau_2}\), so monotonicity
+followed by \eqref{eq:rays-i-concavity} yields
+\[
+ \Lambda_\tau
+ \geq P_\theta\bigl[(1-s)\Gamma_{\tau_1}+s\Gamma_{\tau_2}\bigr]_{\mathcal I}
+ \geq(1-s)\Lambda_{\tau_1}+s\Lambda_{\tau_2}.
+\]
+Every level is \(\mathcal I\)-model by idempotence of the
+\(\mathcal I\)-envelope, which is \eqref{eq:rays-i-model-level}.
+
+For the positive-mass axiom \eqref{eq:rays-test-minus-infinity}, the
+envelope dominates its argument, \(\Lambda_\tau\geq\Gamma_\tau\), so mass
+monotonicity gives
+\(M_\theta(\Lambda_\tau)\geq M_\theta(\Gamma_\tau)\), and the right side is
+positive for every \(\tau<\Gamma_{\max}\) by
+\Cref{lem:rays-test-positive-levels}.  No level below \(\Gamma_{\max}\) is
+therefore lost.  No level above it is created either: there
+\(\Gamma_\tau=-\infty\) by the extension convention
+\eqref{eq:rays-test-endpoint}, and the envelope of the identically
+\(-\infty\) function is again identically \(-\infty\).  Hence the terminal
+parameter is unchanged.
+
+The \(-\infty\) level is identified by increasing continuity of the
+\(\mathcal I\)-envelope along the increasing family
+\((\Gamma_\tau)\) as \(\tau\downarrow-\infty\).
+\end{proof}
 
 \begin{proposition}\label{prop:rays-kahler-transition}
 If \(\omega\) is a smooth positive \((1,1)\)-form, then
@@ -650,6 +705,123 @@ With \(t=-\log|z|^2\), the degree-\(m\) weighted Bergman expression uses
 simultaneously changing the weights would therefore produce the wrong
 product ray.  This checks the squared-norm convention on the simplest
 nonconstant example.
+\end{example}
+
+\begin{example}[The hyperplane test curve on \(\mathbf P^n\)]
+\label{ex:rays-hyperplane-test-curve}
+In the simplest divisorial case every object of this chapter is explicit,
+and one computation exercises the test-curve axioms, the Legendre
+transform, the linear-supremum lemma and the energy formula at once.
+
+Let \(X=\mathbf P^n\), let \(L=\mathcal O(1)\) carry the Fubini--Study
+metric \(h\), and put \(\theta=c_1(L,h)=\omega_{\mathrm{FS}}\), normalized
+so that \(\int_X\theta^n=1\).  Let \(H=\{x_0=0\}\) and
+\[
+ \psi:=\log|s_H|_h^2=\log\frac{|x_0|^2}{|x|^2},
+\]
+so that \(\theta+\ddc\psi=[H]\) and \(\sup_X\psi=0\), the normalization
+demanded before \eqref{eq:rays-linear-supremum}.  Let \(\mathcal F\) filter
+\(R(X,L)\) by order of vanishing along \(H\), so that
+\[
+ \mathcal F^{m\tau}H^0(X,mL)
+ =x_0^{\lceil m\tau\rceil}\,
+  H^0\bigl(X,\mathcal O(m-\lceil m\tau\rceil)\bigr).
+\]
+
+This vanishes exactly when \(\tau>1\), so
+\(\Gamma^{\mathcal F}_{\max}=1\).  Write \(a_i=|x_i|^2/|x|^2\), so that
+\(a_0=\rme^{\psi}\) and \(\sum_ia_i=1\).  The sup-norm normalization
+\(|s|^2_{h^m}\leq1\) in \eqref{eq:rays-bergman-test} is what makes the
+computation nontrivial: a monomial \(x^J\) with \(J_0\geq m\tau\) has
+\(\sup_X|x^J|^2_{h^m}=\prod_i(J_i/m)^{J_i}\), so the normalized monomial
+contributes
+\[
+ \sum_i\sigma_i\log a_i+H(\sigma),
+ \qquad\sigma=J/m\in\Delta_n,\quad
+ H(\sigma)=-\sum_i\sigma_i\log\sigma_i ,
+\]
+an entropy term that a naive count omits.  Maximizing over
+\(\sigma\in\Delta_n\) subject to \(\sigma_0\geq\tau\), the unconstrained
+maximum being \(0\) at \(\sigma=a\),
+\eqref{eq:rays-bergman-test}--\eqref{eq:rays-filtration-test-curve} give
+\[
+ \Gamma_\tau^{\mathcal F}
+ =\begin{cases}
+   V_\theta=0, & \tau\leq0\ \text{ or }\ a_0\geq\tau,\\[2pt]
+   \tau\log a_0+(1-\tau)\log(1-a_0)+H_2(\tau),
+     & a_0\leq\tau\leq1,
+  \end{cases}
+\]
+with \(H_2(\tau)=-\tau\log\tau-(1-\tau)\log(1-\tau)\).  This is
+\emph{not} \(\tau\psi\), and the discrepancy is visible at \(m=2\): for
+\(n=1\), \(\tau=\tfrac12\), the section \(s=2x_0x_1\) lies in
+\(\mathcal F^{1}H^0(\cO(2))\) and has \(|s|^2_{h^2}=4a_0(1-a_0)\leq1\),
+so it is admissible, and at \(a_0=\tfrac14\) it gives
+\(\tfrac12\log|s|^2_{h^2}=\tfrac12\log\tfrac34=-0.1438\), whereas
+\(\tfrac12\psi=\tfrac12\log\tfrac14=-0.6931\).  The displayed formula
+returns exactly \(-0.1438\) there.  Each level is still a model potential
+with analytic singularities, of coefficient \(\tau\) along \(H\) and nowhere
+else: \(\Gamma_\tau-\tau\psi\) equals \((1-\tau)\log(1-a_0)+H_2(\tau)\) on
+\(\{a_0<\tau\}\), where \(1-a_0>1-\tau>0\), and \(-\tau\log a_0\) on
+\(\{a_0>\tau\}\), where \(a_0>\tau>0\), so it is bounded.  In particular
+there is no singularity at \(P_0=[1:0:\cdots:0]\), which lies in the region
+\(\{a_0>\tau\}\) on which the level vanishes identically.  So its \(P\)- and
+\(\mathcal I\)-envelopes agree and the curve is \(\mathcal I\)-model, as
+\Cref{thm:rays-filtration-interface} asserts in general.
+
+The mass is unchanged by the correction.  On \(\{a_0>\tau\}\) one has
+\(\theta+\ddc\Gamma^{\mathcal F}_\tau=\theta\); on \(\{a_0<\tau\}\) it is
+\(\tau[H]+(1-\tau)\eta\), where \(\eta\) is the pullback of
+\(\omega_{\mathrm{FS}}\) under the projection from \(P_0\), so
+\(\eta^n=0\); and the nonpluripolar product puts no mass on the pluripolar
+set \(H\).  Since \(\theta^n\) pushes forward under \(x\mapsto a\) to the
+normalized Lebesgue measure of \(\Delta_n\),
+\[
+ M_\theta\bigl(\Gamma_\tau^{\mathcal F}\bigr)
+ =\int_{\{a_0>\tau\}}\theta^n
+ =(1-\tau)^n
+ \qquad(0\leq\tau\leq1).
+\]
+This is positive exactly for \(\tau<1\), which both confirms
+\Cref{lem:rays-test-positive-levels} and shows that the terminal parameter
+could not have been taken any larger.
+
+The Legendre transform is the associated log partition function, the
+supremum over \(\tau\) being attained at
+\(\tau=\rme^ta_0/(\rme^ta_0+1-a_0)\geq a_0\):
+\[
+ \Gamma_t^{\mathcal F*}
+ =\sup_{\tau\leq1}\bigl(\Gamma^{\mathcal F}_\tau+t\tau\bigr)
+ =\log\bigl(\rme^ta_0+1-a_0\bigr)
+ =\log\bigl(1+(\rme^t-1)\rme^{\psi}\bigr),
+ \qquad t>0 .
+\]
+This is the product geodesic ray attached to the deformation of
+\(\mathbf P^n\) to the normal cone of \(H\).  It is \emph{not}
+\(\max\{0,t+\psi\}\), which is not a geodesic ray at all: for \(n=1\),
+where \(\theta\) pushes forward to \(\rd a_0\) on \([0,1]\), one computes
+\(E(\max\{0,t+\psi\})=\tfrac12(t-1+\rme^{-t})\), so that
+\(E\) at \(t=2\) is \(\tfrac12(1+\rme^{-2})=0.5677\) while twice its value
+at \(t=1\) is \(\rme^{-1}=0.3679\) --- not affine, as a weak geodesic must
+be --- whereas the displayed ray has \(E(\Gamma^{\mathcal F*}_t)=t/2\)
+exactly.  Its supremum is \(t\), attained at \(P_0\) where \(a_0=1\), so
+\eqref{eq:rays-linear-supremum} holds with
+\(\sup_X\Gamma_1^{\mathcal F*}=1\).
+
+Finally \(\phi=\Gamma_{-\infty}^{\mathcal F}=0\) has
+\(M_\theta(\phi)=1\), and \eqref{eq:rays-test-energy} evaluates to
+\[
+ \mathbf E^\phi(\Gamma^{\mathcal F})
+ =1\cdot1+\int_{-\infty}^{1}
+    \bigl(M_\theta(\Gamma_\tau^{\mathcal F})-1\bigr)\,\rd\tau
+ =1+\int_0^1\bigl((1-\tau)^n-1\bigr)\,\rd\tau
+ =\frac1{n+1}.
+\]
+The integrand vanishes identically for \(\tau\leq0\), which is why the
+integral over a half-line converges; this is the mechanism behind the
+remark following \eqref{eq:rays-test-energy}.  For \(n=1\) the curve is the
+one of \Cref{ex:rays-p1-action}, with its weights and its energy
+\(\tfrac12\) now written out.
 \end{example}
 
 \begin{remark}[Source note]

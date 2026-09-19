@@ -699,7 +699,17 @@ contradiction.  Hence \(P=\varnothing\) and
 For the last assertion, pass to a multiple so that \(D\) is Cartier and
 apply the first part to \(\mathfrak a=\cO_{\cX}(-D)\), using
 \(\sigma(v_E)=w_E\) from \Cref{lem:ch33-gauss-component} and
-\(\phi_D(v_E)=\sigma(v_E)(D)=-b_E^{-1}\ord_E(\cO_{\cX}(-D))\).
+\[
+ \phi_D(v_E)=\sigma(v_E)(D)=b_E^{-1}\ord_E(D).
+\]
+The two occurrences of \(\ord_E\) here are of different kinds and must not
+be conflated: \(\ord_E(\mathfrak a)\) is the order of the \emph{ideal}
+\(\mathfrak a\) along \(E\), while \(\ord_E(D)\) is the coefficient of \(E\)
+in the \emph{divisor} \(D\).  For \(\mathfrak a=\cO_{\cX}(-D)\) the two
+agree, \(\ord_E(\mathfrak a)=\ord_E(D)=b_E\phi_D(v_E)\), so the first part
+gives \(\cO_{\cX}(-D)\subseteq\cO_{\cX}\), that is \(D\geq0\), exactly when
+\(\phi_D(v_E)\geq0\) for every \(E\).  This is the sign convention
+\eqref{eq:mp-divisor-potential} used throughout the book.
 \end{proof}
 
 \begin{remark}
@@ -813,10 +823,11 @@ For every \(v\in X^{\An}\) with Gauss extension \(\sigma(v)\) as in
 \begin{proof}
 Work on an affine chart \(\Spec A\subset X\), so that
 \(\Spec A[\varpi]\subset X_{\triv}\), and let \(I\subset A[\varpi,\varpi^{-1}]\)
-be the corresponding fractional ideal.  The \(\mathbf G_m\)-action is the
-grading of \(A[\varpi^{\pm1}]\) by powers of \(\varpi\), with \(A\) in
-weight \(0\).  By \Cref{lem:ch33-weight-decomposition}, \(I\) is the direct
-sum of its weight pieces, and the piece of weight \(-\lambda\) has the form
+be the corresponding fractional ideal.  The \(\mathbf G_m\)-action grades
+\(A[\varpi^{\pm1}]\) with \(A\) in weight \(0\) and \(\varpi\) in weight
+\(-1\), as fixed in \Cref{rem:ch33-weight-sign}.  By
+\Cref{lem:ch33-weight-decomposition}, \(I\) is the direct sum of its weight
+pieces, and the piece of weight \(\lambda\) has the form
 \(\mathfrak a_\lambda\varpi^{-\lambda}\) for a unique \(A\)-submodule
 \(\mathfrak a_\lambda\subset\operatorname{Frac}(A)\); it is an \(A\)-module
 because \(A\) has weight \(0\).  Multiplication by \(\varpi\) maps
@@ -1108,8 +1119,14 @@ invertibility of \(\mathfrak a\cO\), by
 closed test configuration.  Finally, for any \(v\in X^{\An}\), the Gauss
 extension \(\sigma(v)\) has a center on \(\cX_{\mathfrak a}\) by
 properness, and \(\sigma(v)(\mathfrak a)=\sigma(v)(\mathfrak a\cO)
-=\sigma(v)(\cO(-D))\), so \(\phi_{\mathfrak a}=\phi_D\) by the definition
-of \(\phi_D\) recalled in \Cref{sec:ch33-weight-conventions}.
+=\sigma(v)(\cO(D))\), so
+\(\phi_{\mathfrak a}=-\sigma(v)(\cO(D))=\phi_D\) by
+\eqref{eq:flag-ideal-function} and the definition
+of \(\phi_D\) recalled in \Cref{sec:ch33-weight-conventions}.  The sign is
+fixed by the unit test \(\mathfrak a=(\varpi)\): there \(D=-\cX_0\),
+\(\cO(D)=(\varpi)\), \(\sigma(v)(\cO(D))=1\) and
+\(\phi_{\mathfrak a}=-1=\phi_{-\cX_0}\), whereas \(\cO(-D)=(\varpi^{-1})\)
+would give \(+1\).
 
 (2)
 The sheaf \(\mu_\ast\cO_{\cX}(D)\) is coherent because \(\mu\) is
@@ -2842,7 +2859,13 @@ coefficient of \(x^{\ell}y^{m+m'-\ell}\) in \(ss'\) is a sum of products
 is---so
 \(\chi_{m+m'}(ss')\geq\chi_m(s)+\chi_{m'}(s')\).  Since
 \(0\leq\Psi(a,b)\leq(a+b)/4\), the filtration is linearly bounded with
-\(C_-=0\) and \(C_+=1/4\).  Note that every weight
+\(C_-=0\) and any \(C_+>1/4\), say \(C_+=1/2\).  The value \(C_+=1/4\) is
+\emph{not} admissible in \eqref{eq:linear-bounds-filtration}, the bound
+\(\Psi\leq(a+b)/4\) being attained: for even \(m\) the monomial
+\(x^{m/2}y^{m/2}\) has \(\Psi=m/4\) and so lies in
+\(\mathcal F^{m/4}R_m\).  Nothing downstream is affected ---
+\(\lambda_{\max}=1/4\) and \(\operatorname{supp}\DHm=[0,1/4]\) are unchanged.
+Note that every weight
 \(\Psi(a,m-a)=a(m-a)/m\) is a rational number.
 
 \emph{Its Fubini--Study function.}  As in the previous examples the
@@ -3170,9 +3193,14 @@ the one computed in \Cref{ex:dh-simplex}, where
 \end{equation}
 of total mass \(4(c-c^2)+1-4c+4c^2=1\).  The atom at \(\tau=c\) is
 \(\vol\{g=c\}/\vol(\Delta)\), which is the truncation locus of \(g\); the
-density \(4(1-2\tau)\) is decreasing, as
-\Cref{cor:ch33-dh-structure}\,(2) requires, since
-\(\vol\{g\geq\tau\}^{1/2}=2^{-1/2}(1-2\tau)\) is affine.
+density \(4(1-2\tau)\) is decreasing.  This is consistent with
+\Cref{cor:ch33-dh-structure}\,(2) but is not forced by it: for \(n\geq2\)
+concavity of \(\tau\mapsto\vol\{G\geq\tau\}^{1/n}\) leaves the monotonicity
+of the density open, as \(W(\tau)=(1-\tau)^{1/3}\) with \(n=2\) shows ---
+\(W\) is concave, yet \(W^2\) has density \(\tfrac23(1-\tau)^{-1/3}\), which
+increases.  What forces it here is the stronger fact that
+\(\vol\{g\geq\tau\}^{1/2}=2^{-1/2}(1-2\tau)\) is \emph{affine}, so that
+\(\vol\{g\geq\tau\}\) is a quadratic with nonincreasing derivative.
 
 \emph{Moments and intersection numbers.}  By the layer-cake formula
 \(\int_\Delta g=\int_0^c\vol\{g>\tau\}\rd\tau

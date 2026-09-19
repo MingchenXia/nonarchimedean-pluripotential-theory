@@ -358,8 +358,11 @@ equivalent:
 \end{enumerate}
 Moreover a homogeneous \(\psi\) satisfies
 \(\psi(v_{Y,\triv})\in\{0,-\infty\}\) for every irreducible
-\(Y\subseteq X\), and \(\psi\equiv0\) on \(X^{\An}\) as soon as \(\psi\) is
-bounded on one scaling orbit through a point where it is nonzero.
+\(Y\subseteq X\), and \(\psi(v)=0\) at every \(v\) at which \(\psi\) is bounded on the
+scaling orbit through \(v\); equivalently, a homogeneous \(\psi\) that is
+nonzero at \(v\) is unbounded on the orbit of \(v\).  This is local and
+cannot be globalized: \(\psi=\log|x|\) on \(\mathbf P^1\) is homogeneous and
+bounded on the orbit through every \(q\neq[0:1]\), yet \(\psi\not\equiv0\).
 \end{lemma}
 
 \begin{proof}
@@ -1020,8 +1023,11 @@ decreasing and so is the infimum.
 If \(\sup\phi<0\), then \(\phi(v_{\triv})\leq\sup\phi<0\), and
 \eqref{eq:homogenization-fixed-point} gives
 \(\widehat\phi(v_{\triv})=-\infty\).  Since \(\widehat\phi\) is decreasing
-and \(v_{\triv}\) is the maximum of \(X^{\An}\) for
-\eqref{eq:semivaluation-order} on an integral \(X\), it follows that
+and \(v_{\triv}\) is the \emph{minimum} of \(X^{\An}\) for
+\eqref{eq:semivaluation-order} on an integral \(X\) --- this is the left
+half of \eqref{eq:trivial-endpoints}, together with \(v(\mathfrak a)\geq0
+=v_{\triv}(\mathfrak a)\) for every nonzero \(\mathfrak a\) --- one has
+\(\widehat\phi\leq\widehat\phi(v_{\triv})\) everywhere, and it follows that
 \(\widehat\phi\equiv-\infty\).  Conversely, if \(\sup\phi\geq0\) then
 \(\phi(v_{\triv})\geq0\) when \(\phi\) is decreasing, whence
 \(\widehat\phi(v_{\triv})=0\) by
@@ -1304,12 +1310,19 @@ Continue \Cref{ex:ch35-p1-orbit} with
 \(r=2\), \((\lambda_1,\lambda_2)=(a,b)\), and
 \(\sup\phi=\max\{a,b\}\).
 
-If \(a=b\), then \(\phi=\max\{\log|x|,\log|y|\}+a\) and
-\Cref{lem:ch35-elimination}\,(2) with \(\max\lambda_i=a\) applies after
-subtracting \(a\); one finds
-\(\widehat\phi=\max\{\log|x|,\log|y|\}=0\), since \(x,y\) have no common
-zero.  So the homogenization of a Fubini--Study function with equal weights
-is the zero function.
+If \(a=b\), then \(\phi=\max\{\log|x|,\log|y|\}+a\equiv a\), since \(x,y\)
+have no common zero.  Suppose first \(a\geq0\).  Then
+\(\min_i\lambda_i=a\geq0\) and \Cref{lem:ch35-elimination}\,(2) applies
+\emph{directly}, with no subtraction, giving
+\(\widehat\phi=\max\{\log|x|,\log|y|\}=0\); the direct computation agrees,
+\(\widehat\phi(v)=\inf_{t>0}t\,\phi(t^{-1}v)=\inf_{t>0}ta=0\).  If instead
+\(a<0\), then \(\sup\phi=a<0\) and \Cref{prop:homogenization-gf} gives
+\(\widehat\phi\equiv-\infty\); again directly,
+\(\inf_{t>0}ta=-\infty\).  So the homogenization of a Fubini--Study
+function with equal weights \(a\) is the zero function when \(a\geq0\) and
+\(-\infty\) when \(a<0\).  One may \emph{not} normalize by subtracting
+\(a\) first: homogenization does not commute with the addition of a
+constant, by the warning preceding this example.
 
 If \(a>b\geq0\), then \(\min_i\lambda_i\geq0\).  Hence
 \Cref{lem:ch35-elimination}\,(2) gives
@@ -1416,9 +1429,10 @@ plurisubharmonicity: by
 \Cref{prop:ch35-homogeneous-normalization} a \(\theta\)-psh function attains
 its supremum at \(v_{\triv}\), whereas
 \(\sup f=1>0=f(v_{\triv})\).  Equivalently, \(f\) is not decreasing for the
-order \eqref{eq:semivaluation-order}, since
-\(v_{p,\triv}\geq v_{\triv}\) is false and in fact
-\(v_{\triv}\geq v_{p,\triv}\).
+order \eqref{eq:semivaluation-order}: by \eqref{eq:trivial-endpoints} the
+point \(v_{\triv}\) is the \emph{minimum} of \(X^{\An}\), so
+\(v_{p,\triv}\geq v_{\triv}\), whereas
+\(f(v_{p,\triv})=1>0=f(v_{\triv})\).
 \end{example}
 
 \subsection{The cited input}
@@ -2454,11 +2468,18 @@ hypothesis in \eqref{eq:ch35-slice-below-carrier} cannot be dropped.
 
 By contrast, the homogeneous function
 \(\psi:=\log|x|\) itself has \(\log|x|\) as a carrier with \(C=0\), and
-\Cref{thm:ch35-homogeneous-siu} splits it as
+\Cref{thm:ch35-homogeneous-siu-general} splits it as
 \(\psi=\log|s_E|+0\) with \(0\in\PSH_{\mathrm{hom},X}(c_1(\cO(1))-[p])=
 \PSH_{\mathrm{hom},X}(0)\); the residual class is trivial and the residual
 function is the zero function, in agreement with
-\Cref{cor:ch35-zero-class}.
+\Cref{cor:ch35-zero-class}.  The strict form
+\Cref{thm:ch35-homogeneous-siu} does \emph{not} apply here:
+\eqref{eq:ch35-siu-strict-hypothesis} asks for
+\(\psi\leq t_0\log|s_E|\) with \(t_0>1\), which for
+\(\psi=\log|s_E|=\log|x|\) would force \((t_0-1)\log|x|\geq0\), impossible
+since \(\log|x|<0\) off the vertex.  This is exactly the endpoint
+\(u=1\) of \Cref{rem:ch35-siu-boundary}, which is why the general form is
+the one cited.
 \end{example}
 
 \subsection{Homogeneous Siu decomposition}
@@ -3217,7 +3238,7 @@ Let \(X\) be a smooth connected projective curve over \(k\) and
 \(\theta\in N^1(X)=\mathbf R\), identified with \(\deg\theta\).  Then
 \(\psi:X^{\An}\to\mathbf R\cup\{-\infty\}\) belongs to
 \(\PSH_{\mathrm{hom},X}(\theta)\) if and only if there are numbers
-\(c_r\geq0\), indexed by the closed points \(r\in X(k)\), all but finitely
+\(c_r\geq0\), indexed by the closed points \(r\in X(k)\), all but countably
 many zero, with
 \begin{equation}
 \label{eq:ch35-curve-classification}
@@ -3226,8 +3247,25 @@ many zero, with
  \psi(s\,\ord_r)=-c_rs\quad(s\geq0),
 \end{equation}
 and \(\psi(v_{r,\triv})=-\infty\) when \(c_r>0\), \(\psi(v_{r,\triv})=0\)
-when \(c_r=0\).  The corresponding Cartier b-divisor is
-\(B=-\sum_rc_r\overline r\), and every b-divisor over \(X\) is Cartier,
+when \(c_r=0\).  Only countability may be asserted: it is what
+\(\sum_rc_r\leq\deg\theta\) forces, and it cannot be improved.  On
+\(X=\mathbf P^1\) with \(\theta=c_1(\cO(1))\), pick distinct closed points
+\(r_1,r_2,\dots\), set \(c_n=2^{-n}\), and let
+\(\psi_N:=\sum_{n\leq N}2^{-n}\log|\mathfrak m_{r_n}|
+=2^{-N}\log|\mathfrak b_N|\) with
+\(\mathfrak b_N=\prod_{n\leq N}\mathfrak m_{r_n}^{2^{N-n}}\): then
+\(\deg\bigl(\cO(2^N)\otimes\mathfrak b_N\bigr)=2^N-(2^N-1)=1\), so
+\(\psi_N\in\cH^{\mathrm{gf}}_{\mathbf Q}(\cO(1))\), the \(\psi_N\) decrease
+pointwise to a \(\psi\) with \(\psi(v_{\triv})=0\), and
+\(\sum_nc_n=1=\deg\theta\).  This \(\psi\) has infinitely many nonzero
+slopes.
+
+The coefficient function of a b-divisor requires more: \(\psi\) is of the
+form \(B=-\sum_rc_r\overline r\) for a (necessarily Cartier) b-divisor
+precisely when only finitely many \(c_r\) are nonzero, local finiteness on
+the single model \(X\) being exactly that condition.  So on a curve
+\(\PSH_{\mathrm{hom},X}(\theta)\) is strictly larger than the set of
+coefficient functions of b-divisors.  Every b-divisor over \(X\) is Cartier,
 determined on \(X\) itself.
 \end{proposition}
 
@@ -3256,11 +3294,13 @@ The characterization of \(\theta\)-psh functions on a smooth curve is
 For a homogeneous \(\psi\) the functions \(s\mapsto-c_rs\) are linear, hence
 convex, with right derivative \(-c_r\) at \(s=0\); the displayed condition
 becomes \(\sum_rc_r\leq\deg\theta\), and it forces all but countably many
-\(c_r\) to vanish.  Finiteness of the number of nonzero \(c_r\) then follows
-because \(\psi\) must be the coefficient function of a divisor, or directly
-because a convergent sum of nonnegative reals indexed by an uncountable set
-has only countably many nonzero terms while local finiteness on the single
-model \(X\) requires finiteness.  Finally the value at the endpoint
+\(c_r\) to vanish.  Countability is all that follows, and it is sharp: the
+example in the statement has infinitely many nonzero \(c_r\).  Finiteness is
+strictly stronger, and it is exactly the condition that \(\psi\) be the
+coefficient function of a b-divisor, local finiteness on the single model
+\(X\) being precisely the requirement that only finitely many \(c_r\) be
+nonzero; that is the second paragraph of the statement, and it is where the
+two classes differ.  Finally the value at the endpoint
 \(v_{r,\triv}=\lim_{s\to\infty}s\,\ord_r\) is
 \(\lim_{s\to\infty}(-c_rs)\), which is \(-\infty\) if \(c_r>0\) and \(0\) if
 \(c_r=0\); this is consistent with
@@ -3361,9 +3401,16 @@ and more generally \(\psi_B(v)=-v(\mathfrak m_q)\) for
 The total class is
 \(\pi^*c_1(\cO(1))-[E]=H-E\) in the notation of
 \Cref{ex:appF-blowup}, which is nef with
-\((H-E)^2=1-1=0\); it is semiample but not ample, being the pullback of
-\(\cO(1)\) under the map to \(\mathbf P^2\) contracting nothing but with
-\(E\) in the boundary of the nef cone.  Consistently,
+\((H-E)^2=1-1=0\); it is semiample but not ample.  It is \emph{not} the
+pullback of \(\cO(1)\) from \(\mathbf P^2\), which is \(H\): since
+\(h^0(Y,H-E)=h^0(\mathbf P^2,\cO(1)\otimes\mathfrak m_q)=2\), the linear
+system \(|H-E|\) is the pencil of strict transforms of the lines through
+\(q\) and defines a morphism \(f:Y\to\mathbf P^1\) with
+\(H-E=f^*\cO_{\mathbf P^1}(1)\); this is what
+\((H-E)^2=0\) records: a class pulled back along a morphism to a \emph{curve}
+squares to zero, in contrast to \(H=\pi^*\cO(1)\), which is pulled back along
+the birational morphism \(\pi\) and has \(H^2=1\).  The class on the boundary of the nef cone
+is \(H-E\) itself; \(E\) is not nef at all, having \((E^2)=-1\).  Consistently,
 \Cref{thm:ch35-semiample-criterion} certifies
 \(\psi_B\in\cH_{\mathrm{hom}}(\cO(1))\).
 
@@ -3404,10 +3451,25 @@ a positive multiple of that curve.  By the projection formula
 \[
  (\mu^*\pi^*\theta+B_Z)\cdot F\cdot A^{n-2}\geq0 .
 \]
-For each \(i\), nefness of \(\theta_i+B_i\) and the projection formula give
-\((\mu^*\pi^*\theta_i+B_{i,Z})\cdot F\cdot A^{n-2}\geq0\), because
-\(B_{i,Z}\) is the pullback of a determination of \(B_i\) and nefness is
-preserved by pullback, \Cref{lem:appF-nef-determination}.
+For each \(i\) we claim
+\((\mu^*\pi^*\theta_i+B_{i,Z})\cdot F\cdot A^{n-2}\geq0\).  The reason is not
+that \(B_{i,Z}\) is a pullback: \(Z\) was chosen to dominate \(Y\), a
+determination of the \emph{limit} \(B\), and nothing makes it dominate a
+determination of \(B_i\), whose trace on \(Z\) is then a pushforward --- and
+pushforward does not preserve nefness.  Instead, choose by
+\Cref{lem:appF-common-domination} a model \(\rho:W\to Z\) which also
+dominates a determination of \(B_i\).  On \(W\) the trace \(B_{i,W}\)
+\emph{is} the pullback of that determination, so
+\(\rho^*\mu^*\pi^*\theta_i+B_{i,W}\) is nef by
+\Cref{lem:appF-nef-determination}; and \(\rho^*F\cdot(\rho^*A)^{n-2}\) is the
+intersection of an effective divisor with nef classes, whence
+\[
+ \bigl(\rho^*\mu^*\pi^*\theta_i+B_{i,W}\bigr)\cdot\rho^*F\cdot
+ (\rho^*A)^{n-2}\geq0 .
+\]
+Applying \eqref{eq:appF-projection} three times, with \(\rho_*[W]=[Z]\) and
+\(\rho_*B_{i,W}=B_{i,Z}\), rewrites the left-hand side as
+\((\mu^*\pi^*\theta_i+B_{i,Z})\cdot F\cdot A^{n-2}\).
 
 It remains to pass to the limit.  Since \(B\leq B_i\leq0\) for all
 \(i\) --- the first inequality because the net is decreasing with limit
@@ -3943,13 +4005,18 @@ Thus, for each fixed \(v\), the function
 notation \eqref{eq:appD-concave-transform}, where
 \(g(\lambda):=\psi_\lambda(v)\) for \(\lambda\leq b\) and
 \(g(\lambda):=-\infty\) for \(\lambda>b\).  The function \(g\) is concave
-and nonincreasing by hypothesis, and it is upper semicontinuous on
-\((-\infty,b]\) when \(v\in X^{\divis}\), being finite and concave there;
-at \(\lambda=b\) the value is the limit from the left because a finite
-concave function on \((-\infty,b]\) is continuous at \(b\) from the left
-whenever it is finite at \(b\), which holds by
-\Cref{thm:bj-basic-closure}\,(7).  Hence \(g\) is proper, closed, concave,
-and nonincreasing, and \Cref{thm:appD-concave-duality} gives
+and nonincreasing by hypothesis, and it is finite on \((-\infty,b]\) when \(v\in X^{\divis}\), by
+\Cref{thm:bj-basic-closure}\,(7); being finite and concave, it is
+continuous on the open half-line \((-\infty,b)\).  It need \emph{not} be
+upper semicontinuous at \(\lambda=b\): a finite concave function on
+\((-\infty,b]\) may drop at the endpoint --- take \(g=0\) on
+\((-\infty,0)\) and \(g(0)=-1\), which is concave --- and
+\Cref{def:ch35-legendre-category}\,(2) does not forbid it.  This costs
+nothing here, because the conclusion is asserted only for \(\lambda<b\):
+the closure \(\operatorname{cl}g\) is proper, concave and nonincreasing,
+it has the same concave transform as \(g\), and it agrees with \(g\) on
+the relative interior \((-\infty,b)\) of its domain.  So
+\Cref{thm:appD-concave-duality} applied to \(\operatorname{cl}g\) gives
 \[
  \psi_\lambda(v)=g(\lambda)=\inf_{t>0}\{F(t)-t\lambda\}
  =\widehat\phi_\lambda(v)

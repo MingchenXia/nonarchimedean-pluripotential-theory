@@ -196,6 +196,65 @@ smooth function, so the maps commute with
 
 \section{Volume}
 
+The definition below is a limit of a net, so it needs the net to be
+monotone.  The required identity is the one comparison that every mass
+computation in this chapter performs, and it is isolated here rather than
+repeated inside individual proofs.
+
+\begin{lemma}[Transition mass identity]
+\label{lem:tna-transition-mass-identity}
+Let \(\Gamma\in\PSH^{\NA}(X,\theta)\), let \(\omega\geq\omega'\) be
+K\"ahler forms, and let \(\sigma\) be either \(-\infty\) or a parameter
+\(\tau<\Gamma_{\max}\).  Put
+\[
+ S^\sigma_{\omega'}
+ :=\theta+\omega'+\ddc\Gamma_\sigma^{\theta+\omega'},
+ \qquad
+ \gamma:=\omega-\omega'\geq0 .
+\]
+Then
+\[
+ \int_X\left(\theta+\omega+
+       \ddc\Gamma_\sigma^{\theta+\omega}\right)^n
+ =\int_X\left(S^\sigma_{\omega'}+\gamma\right)^n .
+\tag{53.12}\label{eq:tna-transition-mass-identity}
+\]
+\end{lemma}
+
+\begin{proof}
+Compatibility \eqref{eq:tna-component-compatibility} at the finite levels,
+and \eqref{eq:tna-minus-infinity-transition} at the \(-\infty\) level, give
+\(\Gamma_\sigma^{\theta+\omega}
+   =P_{\theta+\omega}[\Gamma_\sigma^{\theta+\omega'}]_{\mathcal I}\).
+The left side of \eqref{eq:tna-transition-mass-identity} is therefore
+\(\vol(\theta+\omega,\Gamma_\sigma^{\theta+\omega'})\) in the sense of
+\eqref{eq:complex-current-volume}.  The potential \(u:=\Gamma_\sigma^{\theta+\omega'}\) is the normalized
+\(\mathcal I\)-model representative in its own class, and the levels of a
+test curve are \(\mathcal I\)-good in every larger class, so
+\(P_{\theta+\omega}[u]=P_{\theta+\omega}[u]_{\mathcal I}\); this is the
+identity already used at \eqref{eq:tna-minus-infinity-transition}.  The mass
+identity \eqref{eq:complex-p-projection} for the \(P\)-envelope then gives
+\[
+ M_{\theta+\omega}(u)
+ =M_{\theta+\omega}\bigl(P_{\theta+\omega}[u]\bigr)
+ =M_{\theta+\omega}\bigl(P_{\theta+\omega}[u]_{\mathcal I}\bigr)
+ =\vol(\theta+\omega,u),
+\]
+the equality case of \eqref{eq:complex-mass-volume}.  The
+\(\mathcal I\)-goodness is essential and must not be replaced by an appeal to
+\eqref{eq:complex-current-volume}: that formula supplies only
+\(M_{\theta+\omega}(u)\leq\vol(\theta+\omega,u)\), and it is emphatically
+\emph{not} the case that the \(\mathcal I\)-envelope preserves mass --- see
+the paragraph ``Not claimed'' in \Cref{sec:ch51-not-claimed} and
+\Cref{ex:ch51-cantor}, where it raises the mass from \(\tfrac12\) to \(1\).
+Expanding \(\int_X(S^\sigma_{\omega'}+\gamma)^n\) gives the right side.
+\end{proof}
+
+The identity is used only through the two consequences recorded next.  It is
+a statement about \(\mathcal I\)-model levels of one compatible family, not
+about arbitrary quasi-psh potentials, and it is not asserted for a
+perturbation \(\gamma\) that fails to be semipositive.
+
 \begin{definition}[Volume of a transcendental metric]
 \label{def:tna-volume}
 For \(\Gamma\in\PSH^{\NA}(X,\theta)\), define
@@ -206,14 +265,51 @@ For \(\Gamma\in\PSH^{\NA}(X,\theta)\), define
  \left(\theta+\omega+
        \ddc\Gamma_{-\infty}^{\theta+\omega}\right)^n
  \in[0,+\infty).
-\tag{53.12}\label{eq:tna-volume}
+\tag{53.13}\label{eq:tna-volume}
 \]
 \end{definition}
 
+\begin{proposition}[The volume is well defined]
+\label{prop:tna-volume-welldefined}
 The net in \eqref{eq:tna-volume} is decreasing with respect to
-\eqref{eq:tna-kahler-order}.  Indeed, transition preserves the
-singularity data while removal of a positive form can only lower the
-mixed masses.  Hence the limit exists and is finite.
+\eqref{eq:tna-kahler-order} and bounded below by \(0\).  Its limit
+therefore exists and lies in \([0,+\infty)\), so
+\Cref{def:tna-volume} is well posed.
+\end{proposition}
+
+\begin{proof}
+Let \(\omega\geq\omega'\) be K\"ahler, so that \(\omega\preceq\omega'\) in
+\eqref{eq:tna-kahler-order} and \(\gamma=\omega-\omega'\) is smooth,
+closed and semipositive.  Apply
+\Cref{lem:tna-transition-mass-identity} with \(\sigma=-\infty\) and expand
+the right side of \eqref{eq:tna-transition-mass-identity} by multilinearity
+of the nonpluripolar product:
+\[
+ \int_X\left(\theta+\omega+
+       \ddc\Gamma_{-\infty}^{\theta+\omega}\right)^n
+ =\sum_{a=0}^n\binom na
+   \int_X\left(S^{-\infty}_{\omega'}\right)^a\wedge\gamma^{\,n-a}.
+\]
+Every summand is nonnegative, because \(S^{-\infty}_{\omega'}\) is a
+positive current and \(\gamma\) is a semipositive smooth form.  Discarding
+all summands except \(a=n\) gives
+\[
+ \int_X\left(\theta+\omega+
+       \ddc\Gamma_{-\infty}^{\theta+\omega}\right)^n
+ \geq
+ \int_X\left(\theta+\omega'+
+       \ddc\Gamma_{-\infty}^{\theta+\omega'}\right)^n ,
+\]
+which is precisely decrease along \eqref{eq:tna-kahler-order}.  The net is
+a net of nonpluripolar masses of positive currents, hence nonnegative.  A
+decreasing net of real numbers bounded below converges to its infimum, and
+the infimum lies in \([0,+\infty)\).
+\end{proof}
+
+The proof shows slightly more than monotonicity: the deficit between two
+values of the net is the sum of the mixed terms with \(a<n\), so the volume
+is reached only in the limit unless every mixed mass against \(\gamma\)
+vanishes.
 
 \begin{remark}[Cofinal one-parameter computation]
 \label{rem:tna-cofinal-volume}
@@ -225,7 +321,7 @@ Fix a K\"ahler form \(\omega_0\).  The sequence
  \int_X
  \left(\theta+m^{-1}\omega_0+
        \ddc\Gamma_{-\infty}^{\theta+m^{-1}\omega_0}\right)^n.
-\tag{53.13}\label{eq:tna-cofinal-volume}
+\tag{53.14}\label{eq:tna-cofinal-volume}
 \]
 The definition remains a net definition; this formula is a convenient
 cofinal computation, not a replacement of the index category in
@@ -244,7 +340,7 @@ the inverse limit by
 \[
  \Gamma\longmapsto
  \bigl(P_{\theta+\omega}[\Gamma]_{\mathcal I}\bigr)_\omega .
-\tag{53.14}\label{eq:tna-positive-embedding}
+\tag{53.15}\label{eq:tna-positive-embedding}
 \]
 
 \begin{lemma}\label{lem:tna-mass-drop-transition}
@@ -271,8 +367,10 @@ For \(\sigma\in\{-\infty,\tau\}\), put
  S_t^\sigma
  :=\theta+t\omega+\ddc\Gamma_\sigma^{\theta+t\omega}.
 \]
-Transition compatibility and preservation of total mixed mass by the
-\(\mathcal I\)-model projection give
+This is the notation of
+\Cref{lem:tna-transition-mass-identity} with \(\omega'=t\omega\) and
+\(\gamma=(1-t)\omega\), which is semipositive because \(t\leq1\).  That
+lemma gives
 \[
  \int_X\left(\theta+\omega+
        \ddc\Gamma_\sigma^{\theta+\omega}\right)^n
@@ -299,13 +397,13 @@ inequality.
 The image of \eqref{eq:tna-positive-embedding} is exactly
 \[
        \{\Gamma\in\PSH^{\NA}(X,\theta)\mid\vol(\Gamma)>0\}.
-\tag{53.15}\label{eq:tna-positive-volume-locus}
+\tag{53.16}\label{eq:tna-positive-volume-locus}
 \]
 For an object in this image,
 \[
                  \vol(\Gamma)
                  =\int_X\theta_{\Gamma_{-\infty}}^n.
-\tag{53.16}\label{eq:tna-positive-volume-formula}
+\tag{53.17}\label{eq:tna-positive-volume-formula}
 \]
 \end{theorem}
 
@@ -322,7 +420,7 @@ Conversely, assume \(\vol(\Gamma)=\epsilon>0\) and fix
  :=\lim_{m\to\infty}
        \Gamma_\tau^{\theta+m^{-1}\omega_0},
  \qquad \tau<\Gamma_{\max}.
-\tag{53.17}\label{eq:tna-positive-recovery}
+\tag{53.18}\label{eq:tna-positive-recovery}
 \]
 Choose \(\tau\ll\Gamma_{\max}\) so that at the reference perturbation
 \[
@@ -334,7 +432,7 @@ Choose \(\tau\ll\Gamma_{\max}\) so that at the reference perturbation
        \ddc\Gamma_\tau^{\theta+\omega_0})^n
  <\epsilon/2.
  \end{split}
-\tag{53.18}\label{eq:tna-mass-drop-choice}
+\tag{53.19}\label{eq:tna-mass-drop-choice}
 \]
 Apply \Cref{lem:tna-mass-drop-transition} with \(t=m^{-1}\).  The
 corresponding mass drop at \(\theta+m^{-1}\omega_0\) is no larger than
@@ -444,6 +542,55 @@ object has volume zero.  This is the basic geometric reason the
 perturbation index cannot be suppressed.
 \end{example}
 
+\begin{example}[Zero volume from a rigid negative curve]
+\label{ex:tna-rigid-negative-curve}
+The preceding class is nef.  Zero volume also occurs, for an unrelated
+reason, at classes that are not nef, and the inverse system absorbs both
+cases without modification.
+
+Let \(X\) be a compact K\"ahler surface carrying a smooth rational curve
+\(E\) with \(E^2=-1\), for instance the blow-up of \(\mathbf P^2\) at one
+point, and let \(\theta\) be a smooth closed real \((1,1)\)-form with
+\(\{\theta\}=c_1(\mathcal O_X(E))\).  Let \(s_E\) be the canonical section
+of \(\mathcal O_X(E)\), and normalize \(\varphi=\log|s_E|_h^2\) so that
+\(\theta+\ddc\varphi=[E]\), the integration current --- the square is the
+one demanded by the Lelong--Poincar\'e formula
+\(\ddc\log|s_D|_h^2=[D]-\Theta_D\) in the convention
+\(\ddc=\tfrac{i}{2\pi}\partial\bar\partial\); with \(\log|s_E|_h\) one
+would get \(\tfrac12(\theta+[E])\) instead.
+
+The class is pseudoeffective, being represented by an effective divisor, and
+is not nef, since \(\theta\cdot E=E^2=-1<0\).  The current \([E]\) is carried
+by \(E\), which is pluripolar, and the nonpluripolar product puts no mass on
+a pluripolar set; hence \(M_\theta(\varphi)=0\).  The potential \(\varphi\)
+has analytic singularities, so \eqref{eq:complex-mass-volume} is an equality
+and \(\vol(\theta,\varphi)=0\).  By
+\Cref{prop:tna-homogeneous-volume} the associated homogeneous metric has
+\[
+ \vol(\Gamma^\varphi)=\vol(\theta,\varphi)=0 .
+\]
+
+Its components are nevertheless of positive mass.  Fix a K\"ahler form
+\(\omega_0\) and put \(\omega_m=m^{-1}\omega_0\).  Then
+\(\theta+\omega_m+\ddc\varphi=[E]+\omega_m\), which agrees with the smooth
+form \(\omega_m\) off \(E\); since the nonpluripolar product ignores \(E\),
+\[
+ \int_X\bigl(\theta+\omega_m+\ddc\varphi\bigr)^2
+ =\int_X\omega_m^2
+ =m^{-2}\int_X\omega_0^2>0 ,
+\]
+and this tends to \(0\), which is the volume computed through the cofinal
+formula \eqref{eq:tna-cofinal-volume}.
+
+The two examples isolate the two mechanisms.  In
+\Cref{ex:tna-product-zero-volume} the class is nef and its top
+self-intersection vanishes.  Here the class is not nef, and its Zariski
+decomposition is \(\{E\}=0+\{E\}\): the positive part is zero and the class
+is entirely negative part, which is why \(\vol\{\theta\}=0\).  Neither
+mechanism is detectable at a single perturbation, where the component always
+has positive mass.
+\end{example}
+
 \section{Homogeneous metrics from complex singularities}
 
 \begin{definition}[Homogeneous metric]
@@ -455,7 +602,7 @@ Let \(\varphi\in\PSH(X,\theta)\).  Define
  \Gamma_{\tau}^{\varphi,\theta+\omega}
  =P_{\theta+\omega}[\varphi]_{\mathcal I}
  \quad(\tau<0).
-\tag{53.19}\label{eq:tna-homogeneous}
+\tag{53.20}\label{eq:tna-homogeneous}
 \]
 \end{definition}
 
@@ -466,7 +613,7 @@ component is
  (\Gamma^{\varphi,\theta+\omega})_t^*
        =P_{\theta+\omega}[\varphi]_{\mathcal I},
  \qquad t>0,
-\tag{53.20}\label{eq:tna-homogeneous-legendre}
+\tag{53.21}\label{eq:tna-homogeneous-legendre}
 \]
 with the prescribed value at \(t=0\) given by the relevant
 \(-\infty\) model level.  The potential need not have positive
@@ -477,7 +624,7 @@ For every \(\varphi\in\PSH(X,\theta)\),
 \[
                 \vol(\Gamma^\varphi)
                 =\vol(\theta,\varphi),
-\tag{53.21}\label{eq:tna-homogeneous-volume}
+\tag{53.22}\label{eq:tna-homogeneous-volume}
 \]
 where the right side is the multiplier-ideal volume
 \eqref{eq:complex-current-volume}.  It need not equal the raw
@@ -506,13 +653,13 @@ Pullback induces a canonical bijection
  \pi^*:\PSH^{\NA}(X,\theta)
        \xrightarrow{\sim}
        \PSH^{\NA}(Y,\pi^*\theta).
-\tag{53.22}\label{eq:tna-bimeromorphic}
+\tag{53.23}\label{eq:tna-bimeromorphic}
 \]
 It preserves the common terminal parameter, volume, positivity of
 volume, and homogeneous metrics:
 \[
  \pi^*\Gamma^\varphi=\Gamma^{\pi^*\varphi}.
-\tag{53.23}\label{eq:tna-bimeromorphic-homogeneous}
+\tag{53.24}\label{eq:tna-bimeromorphic-homogeneous}
 \]
 \end{theorem}
 
@@ -526,7 +673,7 @@ bimeromorphic identities
  P_{\pi^*(\theta+\omega)}
        [\pi^*u]_{\mathcal I}
  =\pi^*P_{\theta+\omega}[u]_{\mathcal I}
-\tag{53.24}\label{eq:tna-level-bimeromorphic}
+\tag{53.25}\label{eq:tna-level-bimeromorphic}
 \]
 give compatible maps in both directions.  Cofinality makes them
 inverse: after moving to a common perturbation, both composites are the

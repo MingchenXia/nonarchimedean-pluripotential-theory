@@ -253,6 +253,44 @@ If a model weight has vertex values \(a_0,a_1\), then
 The CLD graph Laplacian, the Chambert--Loir formula, and the BFJ model
 intersection give this same measure.
 Its mass is \(\deg L\), independently of \(a_0,a_1\).
+
+Because this is the one-dimensional case on which every later normalization
+is calibrated, it is worth seeing the two computations that are being
+claimed to agree.
+
+\emph{Laplacian side.}  The skeleton is the single edge \([x_0,x_1]\) of
+length one, and \(\phi\) is affine on it with the stated vertex values.  For
+a PL function on a metric graph, \(\ddc\phi\) places at each vertex the sum
+of the outgoing slopes along the incident edges.  Only one edge is
+incident to each vertex, so
+\[
+ \ddc\phi=(a_1-a_0)\delta_{x_0}+(a_0-a_1)\delta_{x_1},
+\]
+of total mass zero, and adding the reference
+\(m_0\delta_{x_0}+m_1\delta_{x_1}\) gives
+\eqref{eq:cma-two-vertex}.  For an edge of length \(\ell\) each slope is
+divided by \(\ell\), which is the parenthetical convention above.
+
+\emph{Intersection side.}  The model is semistable, so \(b_{E_0}=b_{E_1}=1\)
+and \(x_{E_i}=\ord_{E_i}\).  The model function \(\phi\) is the one attached
+to the vertical divisor \(D=a_0E_0+a_1E_1\), and
+\eqref{eq:cma-model-measure} applied to \(\mathcal L+D\) gives the atom at
+\(x_{E_0}\) the mass \(\deg\bigl((\mathcal L+D)|_{E_0}\bigr)
+ =m_0+a_0(E_0^2)+a_1(E_1\cdot E_0)\).
+The two components meet at one node, so \(E_0\cdot E_1=1\); and the special
+fibre is numerically trivial on itself, so
+\(0=(E_0+E_1)\cdot E_0\) forces \(E_0^2=-1\).  The atom is therefore
+\(m_0-a_0+a_1\), and symmetrically \(m_1-a_1+a_0\) at \(x_{E_1}\).  This is
+\eqref{eq:cma-two-vertex} again.
+
+The agreement is not a coincidence of this example: the intersection matrix
+of a fibre is exactly the graph Laplacian of its dual graph, which is why
+\Cref{prop:cma-model-test} and the Laplacian computation carry the same
+content.  Note also that both computations required the multiplicities, here
+trivially equal to one; the nonreduced calculation of
+\eqref{eq:cma-nonreduced-curve-measure} is the same check with
+\(b_{E_0}=2\), where dropping either occurrence of the multiplicity gives a
+different answer.
 \end{example}
 
 \section{The trivially valued BJ product}
@@ -513,32 +551,47 @@ product or Monge--Amp\`ere compatibility is asserted in this section.
 Let \(X\) now be a projective complex manifold, \(L\) ample, and
 \(\theta=c_1(L,h)\) for a smooth positive metric \(h\).
 Let \(\Gamma=(\Gamma_\tau)\) be a bounded positive-mass test curve with
-terminal value \(\Gamma_{\max}\).
+terminal value \(\Gamma_{\max}\), and write
+\(\vol(\Gamma)=\int_X\langle\theta_{\Gamma_{-\infty}}^n\rangle\).
 Its unnormalized DH measure from \Cref{chap:transcendental-okounkov-dh}
-has mass \(V\).
+has mass \(\vol(\Gamma)\), not \(V\) in general:
+\Cref{def:rays-test-curve}\,(3) requires only
+\(\int_X\theta_{\Gamma_{-\infty}}^n>0\), so \(\vol(\Gamma)=V\) exactly when the
+terminal level has full mass --- as it does for every filtration or
+test-configuration curve below, by \eqref{eq:rf-linear-bounds}.
 
 \begin{theorem}\label{thm:cma-test-curve-moments}
 For every integer \(q\geq1\),
 \[
 \begin{split}
- \int_{\mathbf R}\lambda^q\,\rd \DHm_\Gamma(\lambda)
- ={}&\Gamma_{\max}^qV\\
- &+q\int_{-\infty}^{\Gamma_{\max}}
-   \tau^{q-1}
-   \left(\int_X\langle\theta_{\Gamma_\tau}^n\rangle-V\right)\,\rd\tau.
+    \int_{\mathbf R}\lambda^q\,\rd \DHm_\Gamma(\lambda)
+   ={}&\Gamma_{\max}^q\vol(\Gamma)\\
+   &+q\int_{-\infty}^{\Gamma_{\max}}
+     \tau^{q-1}
+     \left(\int_X\langle\theta_{\Gamma_\tau}^n\rangle
+             -\vol(\Gamma)\right)\,\rd\tau.
 \end{split}
 \tag{64.26}\label{eq:cma-layer-cake-moments}
 \]
 In particular,
 \[
  \int_{\mathbf R}\lambda\,\rd \DHm_\Gamma(\lambda)
- =\Gamma_{\max}V+
+ =\Gamma_{\max}\vol(\Gamma)+
    \int_{-\infty}^{\Gamma_{\max}}
-   \left(\int_X\langle\theta_{\Gamma_\tau}^n\rangle-V\right)\,\rd\tau.
+   \left(\int_X\langle\theta_{\Gamma_\tau}^n\rangle-\vol(\Gamma)\right)
+   \,\rd\tau
+ =\mathbf E^{\Gamma_{-\infty}}(\Gamma).
 \tag{64.27}\label{eq:cma-first-moment}
 \]
 The right side of \eqref{eq:cma-first-moment} is the relative radial energy
-slope of the Legendre-dual ray in the unnormalized convention.
+slope of the Legendre-dual ray in the unnormalized convention,
+\eqref{eq:rays-test-energy} and \eqref{eq:rays-rwn-energy}.  The constant is
+\(\vol(\Gamma)\) and not \(V\): only in the full-mass case
+\(\vol(\Gamma)=V\) --- which holds for every filtration or
+test-configuration curve, by \eqref{eq:rf-linear-bounds} --- may the two be
+interchanged.  With \(\vol(\Gamma)<V\) the integrand written with \(V\)
+tends to \(\vol(\Gamma)-V<0\) as \(\tau\to-\infty\) and the integral
+diverges.
 \end{theorem}
 
 \begin{proof}
@@ -613,7 +666,7 @@ Corollary~3.4 of \cite{BHJ17} gives
 \[
  \int\lambda^q\,\rd \DHm^{\mathrm{BHJ}}
  =\binom{n+q}{n}^{-1}
-      \frac{(\mathcal L_q^{n+q})}{V}.
+            \frac{(\mathcal M_q^{n+q})}{V}.
 \]
 Multiplying by \(V\) proves
 \eqref{eq:cma-bhj-moments}.
@@ -733,7 +786,8 @@ Every comparison in this chapter survives the following tests.
 No probability measure is defined when \(V=0\).
 
 \item For a positive-mass complex test curve,
-\(\DHm_\Gamma(\mathbf R)=V\), while BHJ's empirical limit is a probability
+\(\DHm_\Gamma(\mathbf R)=\vol(\Gamma)\), which equals \(V\) precisely when the
+terminal level has full mass; BHJ's empirical limit is a probability
 measure.
 
 \item Adding a constant \(c\) to a metric leaves curvature unchanged but

@@ -179,7 +179,10 @@ Nothing in \Cref{chap:bj-finite-descent} may use, directly or transitively:
       \Cref{def:bj-envelope-property-final};
 \item the envelope property \(\operatorname{EP}\) of
       \Cref{def:bj-envelope-property} as a \emph{theorem} for any class on
-      any variety; below it occurs only as a hypothesis, displayed in the
+      any variety --- with the single exception of
+      \Cref{thm:bj-smooth-envelope} on a smooth source, and then only
+      inside illustrative examples such as \Cref{ex:ch41-descent-cone};
+      below it otherwise occurs only as a hypothesis, displayed in the
       statement of every result that carries it, and always on the
       \emph{source} of a morphism;
 \item closure of \(\PSH_X(\theta)\) or of \(\PSH_T(h^*\theta)\) under
@@ -193,13 +196,16 @@ Nothing in \Cref{chap:bj-finite-descent} may use, directly or transitively:
       \Cref{cor:ch35-monotone-approximation};
 \item any statement of \Cref{chap:bj-envelope-consequences}.
 \end{enumerate}
-Every limit taken below is a decreasing limit.  Every supremum that appears
-is a supremum over a \emph{finite} index set --- the finitely many
-multi-indices \(I\) with \(|I|=d\), or the finitely many weights \(\lambda_j\)
-of a Fubini--Study presentation --- with the single exception of the
-canonical carrier \eqref{eq:bj-canonical-carrier}, which is invoked through
-\Cref{lem:bj-canonical-carrier} at a point where
-\(\operatorname{EP}_T(h^*\theta)\) has been \emph{assumed}.
+Every limit taken below is a decreasing limit.  Every supremum
+\emph{constructed} below is a supremum over a \emph{finite} index set ---
+the finitely many multi-indices \(I\) with \(|I|=d\), or the finitely many
+weights \(\lambda_j\) of a Fubini--Study presentation.  Exactly two suprema
+over arbitrary families occur, and both are handled under the assumed
+\(\operatorname{EP}_T(h^*\theta)\): the given family of
+\Cref{def:bj-envelope-property}, pulled back in Step~0 of the proof of
+\Cref{thm:bj-finite-normal-descent}, and the canonical carrier
+\eqref{eq:bj-canonical-carrier}, invoked through
+\Cref{lem:bj-canonical-carrier}.
 \end{warning}
 
 \begin{remark}[Why the firewall is not vacuous here]
@@ -1378,11 +1384,14 @@ Proper pushforward of cycles and the projection formula
 classes because numerical equivalence is preserved by proper pushforward,
 which is the content of \Cref{app:intersection-bdivisors}.  For
 \eqref{eq:ch41-projection-formula}, apply the projection formula with
-\(\gamma=[W]\) and use \(q_*[W]=d\,[Z]\), which holds because \(q\) is
-generically finite of degree \(d\); this last equality is where constancy of
-the rank is used, and it would fail if \(q\) merely had generic rank \(d\)
-without being flat, since then \(q_*[W]\) would still be \(d[Z]\) but the
-argument below for divisors would break.  The divisor identity is
+\(\gamma=[W]\) and use \(q_*[W]=d\,[Z]\), which holds for any proper
+surjective generically finite \(q\) of degree \(d\) between integral
+varieties, flat or not; it is the identity used for the non-flat \(h\) in
+\Cref{lem:ch42-class-ledger}\,\cref{itm:ch42-cl:degree}.  Constancy of the
+rank is \emph{not} needed here.  Where it is needed is the divisor identity
+below: the norm \(\mathrm N_q\) is formed from determinants of
+multiplication and requires a locally free algebra of constant rank, as
+\Cref{rem:ch41-why-flat} explains.  The divisor identity is
 \eqref{eq:bj-norm-divisor}, proved in
 \Cref{prop:ch41-norm-line-properties}\,\cref{itm:ch41-nl:divisor}.
 \end{proof}
@@ -1757,10 +1766,15 @@ factors over a quadratic extension as
 vanishes.  If \(\operatorname{char}A=2\) and \(a\) is a nonsquare unit, the
 algebra is an inseparable field extension and the polynomial is
 \(T_0^2+aT_1^2=(T_0+\sqrt aT_1)^2\): again one sheet with weight \(2\), and
-again the middle coefficient --- which is the trace of \(u\) --- vanishes.
-In all three cases the total weight is \(2=d\), and in the last two the
-vanishing of the middle coefficient is exactly the degeneration of the
-trace discussed in \Cref{rem:ch41-norm-vs-trace}.
+again the middle coefficient --- which is \(\Tr(u)\) --- vanishes.
+In all three cases the total weight is \(2=d\).  The middle coefficient
+vanishes in \emph{all three} cases, since
+\(\Tr(u)=\operatorname{tr}\begin{psmallmatrix}0&a\\1&0\end{psmallmatrix}=0\)
+identically, so it is not what separates them.  What degenerates in the last
+two is the trace \emph{form} \((b,c)\mapsto\Tr(bc)\), whose Gram matrix in
+the basis \(1,u\) is \(\operatorname{diag}(2,2a)\), of determinant \(4a\) ---
+nonzero exactly in the first case.  That is the degeneration discussed in
+\Cref{rem:ch41-norm-vs-trace}.
 \end{example}
 
 \subsection{The norm of a line bundle and of a section}
@@ -2228,8 +2242,10 @@ structure in the fibre; the \emph{ramification}, which in positive
 characteristic includes wild and purely inseparable ramification; and the
 \emph{residue degree}.  A count of geometric points of the fibre sees none
 of them.  In the running examples: \Cref{ex:ch41-frobenius-average} has
-length \(1\) and a purely inseparable degree-\(p\) residue extension at
-divisorial points, and length \(p\) at trivially valued points;
+length \(1\) and purely inseparable \emph{ramification} of index \(p\) at
+divisorial points --- there \(e=p\) and \(f=1\), the value group being
+divided by \(p\) while the residue field does not grow --- and length
+\(p\) at trivially valued points;
 \Cref{ex:ch41-nonreduced-fibre} has a factor of length \(2\) over a
 trivially valued point and a ramification index \(2\) over a divisorial
 point.  In both cases the total is \(d\).
@@ -3218,8 +3234,9 @@ satisfies
 \tag{41.45}\label{eq:bj-uT-carrier}
 \]
 for a finite \(C\), for example \(C=\sup u_T\).  This is the second and
-last use of the assumed envelope property, and it is the only place where a
-supremum over an infinite family occurs in this chapter; the family in
+last use of the assumed envelope property, and the second of the two
+suprema over an infinite family in this chapter, the first being the
+pullback of the given family in Step~0; the family in
 \eqref{eq:bj-finite-source-carrier} is nonempty because
 \(u_T-\sup u_T\) belongs to it, and it is bounded above by \(0\).
 
@@ -3551,8 +3568,13 @@ since \(X\setminus\{o\}\) has complement of codimension two; and indeed each
 individual \(c_I\), being a section of a reflexive sheaf, does extend.  What
 does not extend is the \emph{bundle}: \(\mathrm N_h(M)\) would have to be a
 line bundle on \(X\) restricting to the given one, and the obstruction is
-exactly the nontrivial class in \(\operatorname{Cl}(X)\cong\mathbf Z/2\)
-computed in \Cref{ex:ch41-nonflat-cone}.  Without a line bundle there is no
+exactly the nontrivial class in the \emph{local} class group at the vertex,
+\(\operatorname{Cl}(\cO_{X,o})\cong\operatorname{Cl}(R)\cong\mathbf Z/2\),
+computed in \Cref{ex:ch41-nonflat-cone}.  Globally
+\(\operatorname{Cl}(X)=\mathbf Z\cdot\cO_X(1)\) and
+\(\Pic(X)=\mathbf Z\cdot H\) with \(H=\cO_X(2)\), so it is the quotient
+\(\operatorname{Cl}(X)/\Pic(X)\cong\mathbf Z/2\) that records the failure of
+invertibility.  Without a line bundle there is no
 numerical class \eqref{eq:bj-norm-class} and no Fubini--Study function.
 
 \emph{Drop the local Artin lengths.}  Replace \(e(w/z)\) in

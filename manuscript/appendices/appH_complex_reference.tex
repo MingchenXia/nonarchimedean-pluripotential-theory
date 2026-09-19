@@ -131,8 +131,11 @@ potential without being ordinarily equivalent to it.
 \section{Nonpluripolar products}
 \label{sec:appH-npp}
 
-Let \(T_j=\theta_j+\ddc u_j\) be closed positive \((1,1)\)-currents,
-\(1\leq j\leq p\). On a coordinate open set, put
+Let \(T_j=\theta_j+\ddc\varphi_j\) be closed positive \((1,1)\)-currents,
+\(1\leq j\leq p\), and on a coordinate open set write \(T_j=\ddc u_j\) with
+\(u_j\) \emph{psh} --- a local potential, not the global
+\(\theta_j\)-psh \(\varphi_j\), for which \(\ddc\varphi_j=T_j-\theta_j\) is
+not positive and \(\max\{\varphi_j,-k\}\) is not psh.  Put
 \[
  O_k=\bigcap_{j=1}^p\{u_j>-k\}.
 \]
@@ -451,15 +454,14 @@ Equivalently,
 \]
 
 \begin{theorem}\label{thm:appH-p-projection}
-If \(M_\theta(u)>0\), then
+For every \(u\in\PSH(X,\theta)\),
 \[
-\begin{aligned}
- P_\theta[P_\theta[u]]&=P_\theta[u],\\
- M_\theta(P_\theta[u])&=M_\theta(u).
-\end{aligned}
+ M_\theta(P_\theta[u])=M_\theta(u).
 \]
-Moreover, \(P_\theta[u]\) is the largest normalized potential that is less
-singular than \(u\) and has the same nonpluripolar mass.
+If \(\{\theta\}\) is big, then \(P_\theta[P_\theta[u]]=P_\theta[u]\).
+If moreover \(M_\theta(u)>0\), then \(P_\theta[u]\) is the largest
+normalized potential that is less singular than \(u\) and has the same
+nonpluripolar mass, and idempotence follows from that characterization.
 \end{theorem}
 
 \begin{proof}[From the model-envelope inputs]
@@ -475,13 +477,19 @@ relative comparison principle applied to \(w\) and the successive rooftops
 gives \(w\leq P_\theta[u]\).  Thus the envelope is the largest competitor
 in the statement.  Applying this characterization to \(P_\theta[u]\)
 itself proves idempotence.  Positivity of the common mass is used in the
-domination step.
+domination step, and there only; mass preservation uses no positivity, and
+idempotence at zero mass in a big class is the additional input
+\cite[Theorem~1.2]{PSWZ26} recorded in \Cref{thm:complex-p-projection}.
 \end{proof}
 
-The positive-mass hypothesis is part of the theorem. In zero mass there is
-no canonical projection theorem of this form in the supplied theory.
-\Cref{chap:transcendental-metrics} handles zero volume through a
-directed system of positive perturbations instead.
+Mass preservation needs no positivity hypothesis, and in a big class
+idempotence holds at zero mass as well, by \cite[Theorem~1.2]{PSWZ26}; see
+\Cref{warn:ch51-p-positive-mass} for exactly what that input does and does
+not supply.  Positive mass is needed for the maximality characterization,
+for the relative class \(\mathcal E^1(X,\theta,P_\theta[u])\), and for the
+probability normalization.  \Cref{chap:transcendental-metrics} handles zero
+volume through a directed system of positive perturbations for that
+reason.
 
 The ideal envelope is
 \[
@@ -515,9 +523,19 @@ the minimum of the divisorial Lelong numbers and hence the
 \(\mathcal I\)-type.  Strong openness and the valuative criterion for
 multiplier ideals show that the usc limit still has precisely the
 multiplier ideals of \(u\).  The envelope is therefore itself admissible;
-reapplying the construction proves idempotence.  Every ordinary-type
-competitor for \(P_\theta[u]\) has the required divisorial inequalities, so
-its competitor family is contained in the ideal-envelope family and
+reapplying the construction proves idempotence.  For
+\(P_\theta[u]\leq P_\theta[u]_{\mathcal I}\) one cannot argue by
+containment of competitor families --- the ordinary family asks only for
+the inequality \(w\preceq u\), the ideal family for equality of all
+multiplier ideals, and the first is strictly larger: for
+\(\theta=\omega_{\FS}\) on \(\mathbf P^1\) and \(u=0\), every
+\(w\in\PSH(X,\theta)\) with \(w\leq0\) satisfies \(w\preceq0\), yet
+\(w=\log(|z|^2/(1+|z|^2))\) has \(\mathcal I(w)=\mathfrak m_0\neq\cO_X
+=\mathcal I(u)\).  Argue instead through the envelope itself:
+idempotence gives \(P_\theta[u]\preceq_P u\) and
+\(u\preceq_P P_\theta[u]\), hence \(P_\theta[u]\sim_{\mathcal I}u\) by the
+hierarchy \(\preceq_P\Rightarrow\preceq_{\mathcal I}\), so
+\(P_\theta[u]\) is itself a competitor for the ideal envelope and
 \(P_\theta[u]\leq P_\theta[u]_{\mathcal I}\).
 
 The analytic-singularity conclusion is the final, separately proved part of
@@ -721,11 +739,27 @@ against \Cref{app:normalizations}.
 \label{sec:appH-test-curves}
 
 A test curve is a concave, decreasing family
-\(\tau\mapsto\psi_\tau\in\PSH(X,\theta)\cup\{-\infty\}\), with a left
+\(\tau\mapsto\psi_\tau\in\PSH(X,\theta)\cup\{-\infty\}\) that is
+\emph{pointwise upper semicontinuous in \(\tau\)}, with a left
 endpoint representing the chosen full-mass class and with
-\(\psi_\tau\equiv-\infty\) for large \(\tau\). For interior levels one
-imposes positive mass and, in the model correspondence, the appropriate
-\(\mathcal I\)- or \(P\)-model condition.
+\(\psi_\tau\equiv-\infty\) for large \(\tau\).  Every level is required to
+be a fixed point of the appropriate \(P\)- or \(\mathcal I\)-envelope;
+positive mass is \emph{not} imposed at interior levels.  It is imposed only
+at the left endpoint, by \eqref{eq:rays-test-minus-infinity}, and is then
+\emph{deduced} at every interior level in
+\Cref{lem:rays-test-positive-levels}.  Reading positivity into the
+level condition would make that lemma vacuous.  Upper semicontinuity in
+\(\tau\) is part of the definition, exactly as in
+\Cref{def:appD-test-curve} and \eqref{eq:rays-test-endpoint}: a
+concave nonincreasing family is automatically continuous in \(\tau\) on the
+interior of its finiteness interval, but it may drop at the right endpoint,
+and the inverse transform below then returns the regularized family rather
+than the given one.  On \(\mathbf P^1\) with \(\theta=\omega_{\FS}\), the
+family \(\psi_\tau=0\) for \(\tau<0\),
+\(\psi_0=P_\theta[\tfrac12u]\) with \(u=\log(|z|^2/(1+|z|^2))\), and
+\(\psi_\tau=-\infty\) for \(\tau>0\), satisfies every other condition
+listed and has \(u_t\equiv0\), so the inverse transform returns \(0\) at
+\(\tau=0\) instead of \(P_\theta[\tfrac12u]\).
 
 The forward Legendre transform is
 \[
@@ -830,7 +864,7 @@ additional choices:
 \[
 \begin{gathered}
  M_\theta(u)^{-1}\operatorname{MA}_\theta(u),\\
- \text{the positive-mass \(P\)-projection theorem},\qquad
+  \text{the maximality characterization in \Cref{thm:appH-p-projection}},\qquad
  \mathcal E^1(X,\theta,P_\theta[u]).
 \end{gathered}
 \]

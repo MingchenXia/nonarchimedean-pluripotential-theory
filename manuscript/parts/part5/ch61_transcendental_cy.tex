@@ -113,7 +113,34 @@ The expression is invariant under adding constants to \(\phi\).  Set
 \tag{61.7}\label{eq:mpwn-finite-energy-measures}
 \]
 Every \(\phi\in\mathcal E^1(\alpha)\) is integrable against every
-\(\mu\in\mathcal M^1(\alpha)\).  In particular,
+\(\mu\in\mathcal M^1(\alpha)\).  This is what makes every pairing
+\(\int\phi\,\rd\mu\) below a real number rather than a formal expression,
+so it is recorded with its proof.
+
+\begin{lemma}[Finite-energy pairing]
+\label{lem:mpwn-integrability}
+Let \(\phi\in\mathcal E^1(\alpha)\) and \(\mu\in\mathcal M^1(\alpha)\).
+Then \(\int\phi\,\rd\mu\) is finite, and
+\[
+ E_\alpha(\phi)-E_\alpha^\vee(\mu)\ \leq\ \int\phi\,\rd\mu\ \leq\ \sup\phi .
+\]
+\end{lemma}
+
+\begin{proof}
+A psh function is upper semicontinuous and \(X^{\bethan}\) is compact, so
+\(\phi\) is bounded above and \(\int\phi\,\rd\mu\) is well defined in
+\([-\infty,+\infty)\), with the stated upper bound since \(\mu\) is a
+probability measure.  For the lower bound, \(\phi\) is an admissible
+competitor in the supremum \eqref{eq:mpwn-dual-energy} defining
+\(E_\alpha^\vee(\mu)\), so
+\(E_\alpha(\phi)-\int\phi\,\rd\mu\leq E_\alpha^\vee(\mu)\).  Rearranging
+gives \(\int\phi\,\rd\mu\geq E_\alpha(\phi)-E_\alpha^\vee(\mu)\), and the
+right side is finite because \(E_\alpha(\phi)>-\infty\) by
+\eqref{eq:mp-e1} and \(E_\alpha^\vee(\mu)<+\infty\) by
+\eqref{eq:mpwn-finite-energy-measures}.
+\end{proof}
+
+In particular,
 \[
  E_\alpha^\vee(\MA_\alpha(\phi))
  =E_\alpha(\phi)-\int\phi\,\MA_\alpha(\phi)<+\infty.
@@ -390,8 +417,8 @@ identity
 \[
                     J_\alpha(\phi_i)=-E_\alpha(\phi_i).
 \]
-Thus the energies are uniformly bounded below.  Equivalently, lower
-semicontinuity of \(J_\alpha\) for weak convergence gives
+Thus the energies are uniformly bounded below.  Combined with lower
+semicontinuity of \(J_\alpha\) for weak convergence, this gives
 \(J_\alpha(\phi)<+\infty\), and hence
 \(\phi\in\mathcal E^1(\alpha)\).
 
@@ -437,7 +464,63 @@ bijection and its inverse are continuous.  This is Theorem~B of
 \cite[Theorem~12.8]{BJ22}.
 \end{proof}
 
+\begin{example}[The Calabi--Yau solution on \(\mathbf P^1\), in closed form]
+\label{ex:mpwn-p1-cy}
+\Cref{thm:mpwn-cy} is a homeomorphism theorem, and in the smallest
+nontrivial case both the solution and every functional attached to it can
+be written down.
+
+Let \(X=\mathbf P^1\) with \(\alpha=c_1(\cO(1))\), so \(n=1\) and
+\(V_\alpha=1\).  Then \(X^{\bethan}\) is the trivially valued Berkovich
+tree: a root \(v_{\triv}\) with one ray \(\{t\cdot\ord_x:t\geq0\}\) at each
+closed point \(x\).  Fix \(a\in(0,1)\) and take the divisorial measure
+\[
+ \mu=a\,\delta_{\ord_0}+(1-a)\,\delta_{\ord_\infty}\in\mathcal M^1(\alpha).
+\]
+
+The solution is piecewise linear: let \(\phi\) have slope \(-a\) along the
+ray at \(0\) and slope \(-(1-a)\) along the ray at \(\infty\), each until
+\(t=1\), and be constant thereafter.  Its Laplacian places
+\(-(a+(1-a))=-1\) at the root, cancelling
+\(\MA_\alpha(0)=\delta_{v_{\triv}}\), and places \(a\) and \(1-a\) at the
+two breakpoints, so \(\MA_\alpha(\phi)=\mu\).  It is sup-normalized, since
+\(\phi(v_{\triv})=0\), and
+\[
+ \phi(\ord_0)=-a,\qquad \phi(\ord_\infty)=-(1-a).
+\]
+
+Every functional is now a number.  Using
+\(E_\alpha(\phi)=\tfrac12\bigl(\int\phi\,\MA_\alpha(\phi)
+ +\int\phi\,\MA_\alpha(0)\bigr)\) and \(\int\phi\,\MA_\alpha(0)=\phi(v_{\triv})=0\),
+\[
+ E_\alpha(\phi)=-\tfrac12\bigl(a^2+(1-a)^2\bigr),
+ \qquad
+ J_\alpha(\phi)=E_\alpha^\vee(\mu)=\tfrac12\bigl(a^2+(1-a)^2\bigr),
+\]
+the middle equality because \(\sup\phi=0\) and the last by
+\eqref{eq:mpwn-dual-energy-ma}.
+
+The same picture shows that \eqref{eq:mpwn-point-energy} is sharp.  For
+\(s\in[0,1]\) let \(\phi_s\) have slope \(-s\) along the ray at \(0\) up to
+\(t=1\), be constant beyond it, and vanish on every other ray; then
+\(\MA_\alpha(\phi_s)=(1-s)\delta_{v_{\triv}}+s\,\delta_{\ord_0}\),
+\(\sup\phi_s=0\) and \(\phi_s(\ord_0)=-s\), so
+\(E_\alpha(\phi_s)=-s^2/2\).  Hence
+\[
+ E_\alpha^\vee(\delta_{\ord_0})
+ =\sup_{0\leq s\leq1}\Bigl\{-\frac{s^2}2+s\Bigr\}=\frac12,
+ \qquad
+ T(\ord_0)=\sup_{0\leq s\leq1}s=1,
+\]
+both attained at \(s=1\).  So
+\(E_\alpha^\vee(\delta_{\ord_0})=T(\ord_0)/(n+1)\) at \(n=1\): the left
+inequality of \eqref{eq:mpwn-point-energy} is an equality here, and its
+constant \(n+1\) cannot be improved.
+
+\end{example}
+
 \begin{example}[The trivial measure]
+\label{ex:mpwn-trivial-measure}
 The zero potential is sup-normalized and its model measure is
 \(\delta_{v_{\triv}}\).  Hence the Calabi--Yau homeomorphism sends
 \(\delta_{v_{\triv}}\) to \(0\).  Its dual energy is zero, and its reduced
@@ -478,10 +561,18 @@ extended-real sense.
 
 It remains to justify continuity at the boundary; checking only the finite
 vertex set would not suffice.  Let \(\sigma\) be a maximal face and choose a
-rational point \(w_\sigma\) in its relative interior.  It is divisorial, so
-the divisorial estimate of \Cref{thm:mp-psh-divisorial}, applied after the
-normalization \(\sup\phi=0\), gives a constant \(C_\sigma\), independent of
-\(\phi\), such that
+rational point \(w_\sigma\) in its relative interior.  It is divisorial,
+hence a vertex of some snc model \(\cX'\) dominating \(\cX\).  What is needed
+here is a bound \emph{uniform in \(\phi\)}, which
+\Cref{thm:mp-psh-divisorial} does not state --- its assertions are the
+pointwise finiteness \(\phi(v)>-\infty\) and the comparison
+\eqref{eq:mp-divisorial-comparison}.  The uniform estimate is the imported
+\cite[Theorem~4.3.3]{MP24} recalled in that theorem's proof: it bounds
+\(|u(w_\sigma)|\) by a constant \(C_\sigma=C(\cX',\alpha,\gamma)\) for every
+normalized model \(\alpha\)-psh \(u\).  Applying it to a decreasing net of
+normalized model approximants and passing to the limit gives, after the
+normalization \(\sup\phi=0\), a constant \(C_\sigma\) independent of
+\(\phi\) with
 \[
                        -C_\sigma\leq\phi(w_\sigma)\leq0.
 \]
@@ -638,11 +729,42 @@ no claim is made that the preceding summary reconstructs its model
 neighborhood argument independently.
 \end{proof}
 
-A useful domination consequence is: if
-\(K=\operatorname{supp}\MA_\alpha(\phi)\) and
-\(\phi\geq\psi\) on \(K\), then \(\phi\geq\psi\) everywhere.  Apply
-locality to \(\max\{\phi+\varepsilon,\psi\}\), use Calabi--Yau injectivity,
-and let \(\varepsilon\downarrow0\).
+The consequence actually used three times below --- in
+\Cref{thm:mpwn-dual-complex-regularity}, in
+\Cref{cor:mpwn-divisorial-envelope}, and again in
+\Cref{chap:mpwn-k-stability} --- is the following domination principle.
+
+\begin{corollary}[Domination on the support]
+\label{cor:mpwn-domination}
+Let \(\phi,\psi\in\mathcal E^1(\alpha)\) and put
+\(K=\operatorname{supp}\MA_\alpha(\phi)\).  If \(\phi\geq\psi\) on \(K\),
+then \(\phi\geq\psi\) on all of \(X^{\bethan}\).
+\end{corollary}
+
+\begin{proof}
+Fix \(\varepsilon>0\), put \(\chi:=\max\{\phi+\varepsilon,\psi\}\) and
+\(U:=\{\phi+\varepsilon>\psi\}\).  Adding a constant does not change a
+Monge--Amp\`ere measure, so \(\MA_\alpha(\phi+\varepsilon)=\MA_\alpha(\phi)\)
+and \Cref{thm:mpwn-locality} gives
+\(\mathbf1_U\MA_\alpha(\chi)=\mathbf1_U\MA_\alpha(\phi)\).
+
+By hypothesis \(\phi\geq\psi\) on \(K\), hence \(\phi+\varepsilon>\psi\)
+there, so \(K\subseteq U\).  As \(\MA_\alpha(\phi)\) is a probability
+measure carried by \(K\), this gives \(\MA_\alpha(\phi)(U)=1\) and therefore
+\(\MA_\alpha(\chi)(U)=1\).  Since \(\MA_\alpha(\chi)\) is itself a
+probability measure, it is carried by \(U\), and
+\[
+ \MA_\alpha(\chi)=\mathbf1_U\MA_\alpha(\chi)
+                 =\mathbf1_U\MA_\alpha(\phi)=\MA_\alpha(\phi).
+\]
+Injectivity in \Cref{thm:mpwn-cy} gives \(\chi=\phi+c\) for a constant
+\(c\).  Both sides are finite at \(\MA_\alpha(\phi)\)-almost every point of
+\(K\), by \Cref{lem:mpwn-integrability}, and on \(K\) we have
+\(\chi=\phi+\varepsilon\); evaluating there forces \(c=\varepsilon\).
+Hence \(\max\{\phi+\varepsilon,\psi\}=\phi+\varepsilon\) everywhere, that
+is, \(\psi\leq\phi+\varepsilon\).  Letting \(\varepsilon\downarrow0\)
+completes the proof.
+\end{proof}
 
 \begin{theorem}\label{thm:mpwn-dual-complex-regularity}
 Let \(\mu\in\mathcal M^1(\alpha)\).  If

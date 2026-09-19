@@ -72,7 +72,8 @@ the resulting net of psh functions decreasing.  The fixed-pole data of
 use the approximation package
 \Cref{cor:ch38-gf-regularization-bdivisor}: every homogeneous psh function
 is a decreasing limit of homogeneous Fubini--Study functions whose
-coefficient b-divisors are rational, antieffective, and increasing, and
+coefficient b-divisors are rational, antieffective, and decreasing ---
+equivalently, whose effective divisors \(-C_a\) increase --- and
 whose classes converge.  This is the form in which base ideals and test
 ideals are fed into the argument.
 
@@ -142,11 +143,14 @@ PL functions, the semiample criterion
 \Cref{thm:ch35-homogeneous-siu-general}.  Following the usage of
 \Crefrange{chap:bj-reflection}{chap:bj-envelope-consequences}, we
 abbreviate as \emph{PSH2} the decreasing-limit axiom, that is
-\Cref{thm:bj-basic-closure}\,(4): a decreasing net in
-\(\PSH_X(\theta)\) whose pointwise limit is not identically \(-\infty\) on
-a component has \(\theta\)-psh limit.  It is the only limit operation used
-below, and its two hypotheses --- a single fixed class, and a
-generically finite limit --- are checked explicitly at every application.  Each of these is unconditional;
+\Cref{thm:bj-basic-closure}\,(5): if \(\psi_j\in\PSH_X(\theta_j)\) with
+\(\theta_j\to\theta\), the net \((\psi_j)\) is decreasing and the limit is
+generically finite, then the limit is \(\theta\)-psh.  Part~(4), the
+fixed-class case, is its specialization.  It is the only limit operation
+used below, and its hypothesis --- a generically finite limit --- is
+checked explicitly at every application.  We nevertheless apply it in the
+fixed-class form throughout, for the reason given in
+\Cref{warn:ch38-drift-not-absorbed}.  Each of these is unconditional;
 \Cref{sec:ch35-dependencies} records that the only statement of
 \Cref{chap:bj-homogeneity-bdivisors} carrying an envelope hypothesis is
 \Cref{thm:ch35-cartier-psh-criterion}, which item~(4) of
@@ -612,12 +616,12 @@ Let \(B\) be a real Cartier b-divisor with determination \((Y,B_Y)\).
  \(Y^{\val}\simeq X^{\val}\), extends \(\psi_B\) to a real-valued
  continuous function, and the extension is unique.
 \item\label{itm:ch38-dom:an} If \(B\leq0\) is rational and \(B_Y\) is
- relatively semiample, then \(\psi_B\) extends further to an
- upper-semicontinuous function
+ relatively semiample, then \(\psi_B\) extends further to a
+ continuous function
  \(X^{\An}\to[-\infty,0]\), namely \(m^{-1}\log|\mathfrak b|\) for the
  ideal \(\mathfrak b=\pi_*\cO_Y(mB_Y)\subseteq\cO_X\) of Step~1 of the
- proof of \Cref{prop:cartier-homogeneous-pl}; this extension is again
- unique.
+ proof of \Cref{prop:cartier-homogeneous-pl}; this \emph{continuous}
+ extension is unique, but the upper-semicontinuous extension is not.
 \item\label{itm:ch38-dom:general} For a general real Cartier b-divisor
  there is no extension of \(\psi_B\) to \(X^{\An}\) given by a formula in
  \(B_Y\): the expression \(v(B_Y)\) is not defined at a point of proper
@@ -650,13 +654,22 @@ Step~1 of the proof of \Cref{prop:cartier-homogeneous-pl} produces a
 nonzero coherent ideal \(\mathfrak b=\pi_*\cO_Y(mB_Y)\subseteq\cO_X\) with
 \(\mathfrak b\cdot\cO_Y=\cO_Y(mB_Y)\) and
 \(\psi_B=m^{-1}\log|\mathfrak b|\) on \(X^{\val}\).  The right-hand side is
-defined on all of \(X^{\An}\) with values in \([-\infty,0]\) and is upper
-semicontinuous, by \Cref{prop:ch35-hom-pl-semiring}.  Uniqueness follows
-from \Cref{thm:triv-divisorial-density} together with upper
-semicontinuity: two upper-semicontinuous extensions of the same function
-from a dense set need not agree in general, but here both are continuous
-into \([-\infty,0]\), and continuous functions agreeing on a dense subset
-agree.
+defined on all of \(X^{\An}\) with values in \([-\infty,0]\); it is upper
+semicontinuous by \Cref{prop:ch35-hom-pl-semiring}, and in fact
+\emph{continuous} into \([-\infty,0]\), because
+\(v\mapsto v(\mathfrak b)\) is continuous into \([0,+\infty]\) by
+\Cref{thm:ch32-ideals-generate}\,\cref{itm:ch32-ig:continuous}.  Since
+\(X^{\val}\) is dense (\Cref{thm:triv-divisorial-density}) and continuous
+functions agreeing on a dense subset agree, this is the unique continuous
+extension.  Upper semicontinuity alone does \emph{not} force uniqueness:
+with \(X=\mathbf P^1\), \(B=-\overline p\) and \(m=1\), the function equal
+to \(\log|s_p|\) everywhere except at \(v_{p,\triv}\), where it is given
+the value \(-5\), is still upper semicontinuous --- every neighbourhood
+\(\{v(\mathfrak m_p)>t\}\) of \(v_{p,\triv}\) carries values \(\leq-t\) ---
+and it agrees with \(\psi_B\) on \(X^{\val}\).  This is why
+\cref{itm:ch38-dom:an} is stated for the continuous extension, and why
+\Cref{warn:ch38-proper-support-value} appeals to plurisubharmonicity and
+not merely to upper semicontinuity.
 
 \emph{\cref{itm:ch38-dom:general}} is
 \Cref{ex:ch38-evaluation-no-lift} and
@@ -903,10 +916,14 @@ inequality \(\sum_rc_r\leq\deg\theta\) fails.  Thus
 \Cref{thm:bj-real-cartier-realization} is not an assertion that
 homogeneous PL functions extend, nor that the extension is automatically
 psh; it is an assertion that the numerical hypothesis \eqref{eq:bj-nef-total}
-is exactly what makes the extension psh.  The example also shows that the
-hypothesis cannot be weakened to pseudoeffectivity of \(P\): on a curve,
-pseudoeffective and nef coincide, so already in dimension one nefness is
-sharp.
+is exactly what makes the extension psh.  The example says nothing, however, about weakening the
+hypothesis to pseudoeffectivity of \(P\): on a curve the pseudoeffective
+and nef cones coincide, so the two hypotheses are the same condition here
+and no one-dimensional example can separate them.  That question first
+arises in dimension \(\geq2\), where \(\operatorname{Psef}(X)\) may strictly
+contain \(\Nef(X)\) --- as it does on a blowup of \(\mathbf P^2\), though not
+on \(\mathbf P^2\) itself, where both cones are \(\mathbf R_{\geq0}H\) --- and
+it is not addressed here.
 \end{example}
 
 \subsection{A Cartier b-divisor on a blown-up surface, evaluated}
@@ -1793,10 +1810,16 @@ It is tempting to argue that since \(\omega_n\to\omega\) the classes are
 ``eventually \(\omega\) up to \(O(n^{-1})\)'' and the limit is therefore
 \(\omega\)-psh.  This is not an argument, and the reason is worth stating
 precisely.  The closure calculus available before the envelope theorem
-consists of \Cref{thm:bj-basic-closure}, whose only limit clause,
-part~(4), operates \emph{inside a fixed class}; and of part~(3), which
-enlarges the class along the nef cone.  There is no clause allowing the
-class to move to a limit.  Accordingly the correct statement is
+does contain a clause allowing the class to move:
+\Cref{thm:bj-basic-closure}\,(5) passes a decreasing net
+\(\psi_j\in\PSH_X(\theta_j)\) with \(\theta_j\to\theta\) to the limit,
+provided the limit is generically finite.  What that clause does
+\emph{not} do is supply the generic finiteness, and generic finiteness is
+the whole difficulty here: the limit of the drifting net is exactly the
+function whose nontriviality is at issue, so the clause cannot be used to
+establish it without assuming it.  Nothing is gained by observing that
+\(\|\omega-\omega_n\|\to0\).  Accordingly the argument below is run in the
+stronger form
 \Cref{prop:ch38-drift-ledger}\,\cref{itm:ch38-drift:dominated}, whose
 hypothesis is not \(\|\theta-\theta_i\|\to0\) but
 \(\theta-\theta_i\in\Nef(X)\).  What makes the construction below work is
@@ -1995,7 +2018,7 @@ those of \(E\), and \(R_{n-1}<E\) strictly, so
 \[
  R_{n-1}<R<E,
  \qquad
- \rho^*\Omega-R\in\Amp(Y'),
+  \rho^*\Omega-R\in\Amp(W),
  \qquad
  \|(R,\Omega)-(E_{t_n},\Omega_{t_n})\|<1/n
 \]
@@ -2158,7 +2181,13 @@ Then, after replacing \(Y\) by a model dominating it --- which replaces
 \Cref{lem:ch38-determination-equivalence} --- there exist an effective
 \(\mathbf Q\)-Cartier divisor \(G\) on \(Y\) and an effective Cartier
 divisor \(F\) on \(X\) with the following properties, where
-\(\omega:=\theta+[F]\), \(B':=B-\overline F\) and \(D':=D+\pi^*F\):
+\(\omega:=\theta+[F]\), \(B':=B-\overline F\) and \(D':=D+\pi^*F\).  Items
+\cref{itm:ch38-act:ample}--\cref{itm:ch38-act:dominated} require no further
+hypothesis; items \cref{itm:ch38-act:total} and \cref{itm:ch38-act:pinef}
+assume in addition that the total class \(P:=\pi^*\theta+B_Y\) is nef, which
+is not automatic --- on \(X=\mathbf P^2\) with \(\pi=\operatorname{id}\),
+\(B=0\) and \(\theta=-c_1(\cO(1))\) every hypothesis above holds and \(P\) is
+not nef.  (\Cref{chap:bj-reflection} quotes only the unconditional items.)
 \begin{enumerate}
 \item\label{itm:ch38-act:ample} \([F]\) is ample and \(\omega\) is ample;
 \item\label{itm:ch38-act:relample} \(-G\) is \(\pi\)-ample;
@@ -2839,9 +2868,11 @@ the regularity criterion inside the proof of
 twice: to make \(\psi_B\leq0\), which is what
 \Cref{thm:ch35-semiample-criterion} requires at each rational stage, and
 to give \eqref{eq:bj-realization-pole-bound}.  Nefness of the total class
-is used exactly once, in Step~2, to make
-\(P+t(\pi^*\omega-G)\) ample for \(t>0\); it is the only numerical input,
-and \Cref{ex:ch38-usc-not-psh} shows that it cannot be weakened.  That
+is the only numerical input; it is used in Step~2, to make
+\(P+t(\pi^*\omega-G)\) ample for \(t>0\), and again in Step~1, to make
+\(-D'\) \(\pi\)-nef.  \Cref{ex:ch38-usc-not-psh} shows that it cannot be
+\emph{dropped}; whether it can be weakened to pseudoeffectivity of \(P\) is
+addressed neither there nor here.  That
 \(B\) is Cartier, that is, determined on a single model, is used in
 Step~3, through the fixed-support hypothesis of
 \Cref{lem:ch38-ordered-rational-dominated}; \Cref{ex:ch38-moving-support}

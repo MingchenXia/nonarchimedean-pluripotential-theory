@@ -625,7 +625,8 @@ exactly as in the tropical picture.
 \emph{Constancy on discs.} If $D=\{|T-a|\le\varrho\}$ is a closed disc
 contained in the domain of definition of an invertible analytic function $f$,
 then $|f|$ is constant on $D$.  Indeed $f$ has no zero on $D$, so writing
-$f=c(1+h)$ with $c=f(\eta_{a,\varrho})$ and $\|h\|_D<1$ --- possible because
+$f=c(1+h)$ with $c=f(a)\in K^\times$, the value at the centre, and
+$\|h\|_D<1$ --- possible because
 $K$ is algebraically closed, by Weierstrass division on the disc --- gives
 $|f(y)|=|c|$ for all $y\in D$.  Consequently a smooth function is constant on
 every closed disc contained in a single chart domain.  This is the
@@ -708,9 +709,9 @@ $\Pi_f$ is the tropical line with all weights $1$, which is balanced ---
 this is \Cref{ex:ch10-standard-line} --- as
 \Cref{thm:analytic-tropical-balancing} demands.
 
-Now let $\chi$ be a smooth function on $\mathbf R^2$, supported in the ball
-of radius $\varepsilon<\tfrac12$ about the origin, with $\chi\equiv1$ near
-the origin, and set
+Now let $\chi$ be a smooth function on $\mathbf R^2$, supported in the
+cube $\{\max_i|x_i|<\varepsilon\}$ with $\varepsilon<\tfrac12$, with
+$\chi\equiv1$ near the origin, and set
 \[
  \theta=f_{\mathrm{trop}}^*\bigl(\chi\,\ddprime x_1\bigr)
  \ \in A^{0,1}_{X}(U).
@@ -1627,7 +1628,8 @@ check the result on an example where every number can be computed.
 \begin{definition}[Boundary measure of an $(n-1,n)$-form]
 \label{def:ch13-boundary-integral}
 \index{boundary measure}
-Let $X$ be topologically separated of pure dimension $n$, and let
+Let $X$ be topologically separated of pure dimension $n$, locally
+holomorphically separated and paracompact, and let
 $\omega\in A^{n-1,n}_{X,G}(X)$ have compact support and $C^1$ coefficients.
 Choose a finite family of compact analytic domains $V_i$ covering
 $\Supp\omega$, moment maps $f_i$ tropicalizing $\omega|_{V_i}$ with
@@ -1645,13 +1647,18 @@ superform on $\Pi_{f_i}$.  Set
 \end{equation}
 where $\mathbf N(\tau)\in N/N_\tau$ is the boundary defect
 (\Cref{def:ch11-defect}) of the calibrated complex
-$(\mathscr D_i,m_i)$ and $\iota''$ is contraction in the double-primed block
-(\Cref{def:ch09-contraction}).  For $\theta\in A^{n,n-1}_{X,G}(X)$ with
-compact support and $C^1$ coefficients, set
+$(\mathscr D_i,m_i)$ and $\iota''$ is contraction in the double-primed block,
+taken in the block convention of
+\Cref{def:ch09-contraction,def:ch11-contractions} without a traversal sign;
+the prefactor $(-1)^{n-1}$ is the one of
+\eqref{eq:superform-boundary-traces}.  For $\theta\in A^{n,n-1}_{X,G}(X)$ with
+compact support and $C^1$ coefficients, make the same choices with
+representatives $\beta_i$ of $\theta|_{V_i}$ in place of the $\alpha_i$, and
+set
 \[
  \int_X^{\partial}\theta
  =-\sum_i\ \sum_{\tau\in(\mathscr D_i)_{n-1}}
-   \int_\tau\bigl(\iota'_{\mathbf N(\tau)}(\rho_i\alpha_i)\bigr)\big|_\tau .
+   \int_\tau\bigl(\iota'_{\mathbf N(\tau)}(\rho_i\beta_i)\bigr)\big|_\tau .
 \]
 \end{definition}
 
@@ -1662,8 +1669,10 @@ choices, and
 \[
  \int_X^{\partial}\omega=\int_X\dprime\omega .
 \]
-Moreover only those $\tau$ whose preimage in $\Sigma_{f_i}^{(n)}$ meets
-$\partial X$ contribute; in particular $\int^\partial_X\omega=0$ whenever
+If the partition of unity is chosen with
+$\Supp\rho_i\subset\Int(V_i)$, then moreover only those $\tau$ whose
+preimage in $\Sigma_{f_i}^{(n)}$ meets $\partial X$ contribute, and in
+particular $\int^\partial_X\omega=0$ whenever
 $\Supp\omega\cap\partial X=\varnothing$.  The analogous statements hold for
 $\theta$ with $\ddprime$.
 \end{proposition}
@@ -1696,17 +1705,29 @@ the two agree, and since the left-hand side is independent of all choices by
 For the localization on $\partial X$: by
 \Cref{rem:ch13-tropical-structure-contents}\,\cref{itm:ch13-ts:harm}, the
 defect $\mathbf N(\tau)$ vanishes for every codimension-one cell $\tau$
-whose preimage in $\Sigma^{(n)}_{f_i}$ lies in $\Int(X)$, so those terms
+whose preimage in $\Sigma^{(n)}_{f_i}$ lies in $\Int(V_i)$, so those terms
 drop out of \eqref{eq:ch13-boundary-integral}; and the contraction
-$\iota''_{0}=0$.  If $\Supp\omega$ misses $\partial X$ altogether, every
+$\iota''_{0}=0$.  It is $\Int(V_i)$ and not $\Int(X)$ that appears here:
+$\mathbf N(\tau)$ is the defect of the calibrated complex of the compact
+analytic domain $V_i$, and $\partial V_i$ contains the relative boundary
+$\partial(V_i/X)$, which lies inside $\Int(X)$.  Cells over that relative
+boundary carry nonzero defect --- the two Shilov defects $\pm1$ of
+\Cref{ex:ch13-stokes-annulus} are exactly of this kind --- and cancel in the
+total rather than dropping out term by term.  The hypothesis
+$\Supp\rho_i\subset\Int(V_i)$ removes them from the sum in the first place;
+with it, if $\Supp\omega$ misses $\partial X$ altogether then every
 surviving $\tau$ is disjoint from the support and the whole sum vanishes.
+Without it, the identity $\int_X^\partial\omega=\int_X\dprime\omega$ still
+holds, since it is proved above independently.
 \end{proof}
 
 \begin{theorem}
 \label{thm:ch13-stokes}
 \index{Stokes formula@Stokes' formula!on an analytic space}
 Let $K$ be a complete non-Archimedean field and let $X$ be a topologically
-separated $K$-analytic space, purely of dimension $n$.  Let
+separated $K$-analytic space, purely of dimension $n$, locally
+holomorphically separated and paracompact, so that the partitions of unity of
+\Cref{thm:cld-smooth-partition} are available.  Let
 $\omega\in A^{n-1,n}_{X,G}(X)$ be a $G$-form with $C^1$ coefficients and
 compact support, and let $\theta\in A^{n,n-1}_{X,G}(X)$ be one of complementary
 type.  Then
@@ -1762,15 +1783,22 @@ $\partial V=\partial(V/X)$.
 all (\Cref{rem:ch13-tropical-structure-contents}).  \emph{Compact support} is
 needed twice: to make the sums finite, and because
 \Cref{thm:ch11-defect-stokes} is false for forms with noncompact support ---
-already on $\mathbf R$ with $\eta=\ddprime x$ one has
-$\int\dprime\eta=0$ but no boundary term to absorb it, and the correct
-statement requires either compact support or a limiting hypothesis.
+already on $\mathbf R$, taken as a single unbounded cell of weight one, the
+form $\eta=\varphi(x)\,\ddprime x$ with $\varphi$ smooth, $\varphi\equiv0$
+near $-\infty$ and $\varphi\equiv1$ near $+\infty$, has
+$\int_{\mathbf R}\dprime\eta=\int_{\mathbf R}\varphi'=1$, while the complex
+has no codimension-one cell and hence no boundary term to absorb it; the
+correct statement requires either compact support or a limiting
+hypothesis.
 \emph{The $G$-form hypothesis} matters when $\partial X\ne\varnothing$:
 boundary points of a compact analytic domain have no ordinary neighbourhood
 in the domain, and an ordinary form would not see them.  \emph{Topological
-separation} is what makes supports and partitions of unity behave.  What is
-\emph{not} needed is goodness of $X$, algebraic closedness of $K$, or
-nontriviality of the valuation.
+separation} is what makes supports behave, and \emph{local holomorphic
+separation together with paracompactness} is what supplies the partition of
+unity used to define both sides (\Cref{thm:cld-smooth-partition}); without
+them the identity survives only chartwise, as \Cref{sec:ch13-properness}
+records.  What is \emph{not} needed is goodness of $X$, algebraic closedness
+of $K$, or nontriviality of the valuation.
 \end{warning}
 
 \begin{corollary}\label{cor:analytic-stokes-green}
@@ -2049,9 +2077,8 @@ moment map $f$.  Then
  \iff
  \alpha|_{\Pi_f}=0,
 \]
-where $\omega=f_{\mathrm{trop}}^*\alpha$.  Consequently a form of bidegree
-$(n,n)$ or $(n-1,n)$ on $X$ is zero as soon as its restriction to every
-top-dimensional local skeleton vanishes.
+where $\omega=f_{\mathrm{trop}}^*\alpha$.  Consequently a form of bidegree $(p,q)$ with $\max(p,q)=n$ on $X$ is zero as
+soon as its restriction to every top-dimensional local skeleton vanishes.
 \end{proposition}
 
 \begin{proof}
@@ -2076,12 +2103,12 @@ each member of a $G$-cover by compact analytic domains, hence vanishes.
 
 \begin{warning}{Faithfulness fails below the top bidegree}
 \Cref{prop:ch13-skeletal-faithful} is stated for $\max(p,q)=n$ and is false
-in general otherwise.  A function, that is a form of bidegree $(0,0)$, is
-certainly not determined by its restriction to the $n$-dimensional local
-skeleta of a single chart: on the Berkovich affine line, $\Sigma_T$ is the
-real line of Gauss points $\eta_t$, and a smooth function is constant on
-every disc, so it \emph{is} determined by its restriction there; but that is
-a one-dimensional accident.  In general one must use all local skeleta, of
+in general otherwise: in bidegree $(0,0)$ the top-dimensional local skeleta
+of a single chart need not detect a function.  The Berkovich affine line is
+misleading here.  There $\Sigma_T$ is the real line of Gauss points
+$\eta_t$, and a smooth function, being constant on every disc, \emph{is}
+determined by its restriction to $\Sigma_T$; but that is a one-dimensional
+accident, and it is not what the proposition asserts.  In general one must use all local skeleta, of
 all dimensions, and the correct statement in low bidegree is that a form is
 determined by its restrictions to the loci $\Sigma_f$ of all moment maps.
 The reason integration only needs the top-dimensional part is precisely the

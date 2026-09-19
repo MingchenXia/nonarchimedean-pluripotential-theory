@@ -321,21 +321,31 @@ associated closed model form.  Write
 \label{lem:ch31-curve-ma-affine}
 With the above notation, \(\mu_0=\sum_E\deg(\cL|_E)\,\delta_{x_E}\) is a
 positive atomic measure of mass \(V\) supported on the vertex set of
-\(\Gamma\), and for every model function \(u\) determined on a model
-dominating \(\cX\),
+\(\Gamma\).  Let \(u\) be a model function, determined on a regular
+semistable model \(\cX_u\) dominating \(\cX\), and write
+\(\Gamma_u=\Sk(\cX_u)\) for the skeleton of that model, so that
+\(\Gamma\subseteq\Gamma_u\) and \(u\) is the pullback under
+\(p_{\cX_u}\) of a piecewise affine function on \(\Gamma_u\).  Then
 \begin{equation}
-                         \MA_\omega(u)=\omega+\Delta_\Gamma u
-                         =\mu_0+\Delta_\Gamma u .
+                         \MA_\omega(u)=\mu_0+\Delta_{\Gamma_u}u .
 \label{eq:curve-ma-laplacian}
 \end{equation}
 Consequently \(u\) is \(\omega\)-psh if and only if
-\(\mu_0+\Delta_\Gamma u\geq0\), a finite list of linear inequalities, one
-per point of \(\Gamma\) at which \(u\) breaks slope or \(\mu_0\) has an
+\(\mu_0+\Delta_{\Gamma_u}u\geq0\), a finite list of linear inequalities, one
+per point of \(\Gamma_u\) at which \(u\) breaks slope or \(\mu_0\) has an
 atom.  The equation \(\MA_\omega(u)=\mu\) is
 \begin{equation}
-                         \Delta_\Gamma u=\mu-\omega .
+                         \Delta_{\Gamma_u}u=\mu-\mu_0 .
 \label{eq:curve-poisson}
 \end{equation}
+If \(u\) is itself the pullback under \(p_{\cX}\) of a piecewise affine
+function on \(\Gamma\), then \(\Gamma_u\) may be taken to be a subdivision
+of \(\Gamma\), \(\Delta_{\Gamma_u}u=\Delta_\Gamma u\), and both sides of
+\eqref{eq:curve-ma-laplacian} are supported on \(\Gamma\); this is the case
+throughout \Cref{sec:ch31-curve-green} and
+\Cref{sec:ch31-two-component}.  In general \(\Gamma_u\) is strictly larger
+than \(\Gamma\) and \(\MA_\omega(u)\) charges points off \(\Gamma\):
+see \Cref{ex:ch31-p1-blowup}.
 \end{lemma}
 
 \begin{proof}
@@ -343,10 +353,24 @@ For \(n=1\) the model measure \eqref{eq:model-mixed-measure} reads
 \(\sum_Eb_E\deg(\cL|_E)\delta_{x_E}\), and \(b_E=1\) because \(\cX\) is
 semistable, so \(\cX_s\) is reduced.  Its mass is
 \(\sum_E\deg(\cL|_E)=\deg(\cL|_{\cX_s})=\deg L=V\) by flatness, which is
-\eqref{eq:mixed-total-mass}.  Since \(\MA_\omega\) is affine in the closed
+\eqref{eq:mixed-total-mass}.  Computing the same measure on \(\cX_u\)
+instead of \(\cX\) returns the same answer: the components of
+\((\cX_u)_s\) are the strict transforms of the \(E\), on which
+\(\deg\) is unchanged, together with components contracted by
+\(\cX_u\to\cX\), on which the pullback of \(\cL\) has degree \(0\); all
+multiplicities are again \(1\) by semistability.  Thus \(\mu_0\) is the
+constant term of \eqref{eq:curve-ma-laplacian} whichever of the two models
+is used to compute it, and only the Laplacian term is sensitive to the
+choice.  Since \(\MA_\omega\) is affine in the closed
 model form and \(\MA_{\omega+\ddc u}(0)=\MA_\omega(u)\) by definition,
-\eqref{eq:curve-ma-laplacian} is \eqref{eq:ch31-graph-laplacian} together
-with the additivity of the model measure.  The positivity criterion is
+\eqref{eq:curve-ma-laplacian} is \eqref{eq:ch31-graph-laplacian}, applied on
+\(\Gamma_u\), together with the additivity of the model measure.  It is
+essential that the Laplacian be taken on \(\Gamma_u\) and not on
+\(\Gamma\): a blowup at a smooth point of \(\cX_s\) attaches to \(\Gamma\)
+a new edge rather than subdividing an old one, and a \(u\) supported on
+that edge has \(\Delta_\Gamma u=0\) while \(\Delta_{\Gamma_u}u\neq0\).
+\Cref{ex:ch31-p1-blowup} is exactly that configuration.  The positivity
+criterion is
 \Cref{def:ch20-semipositive}: relative nefness of \(\cL_u\) means
 nonnegative degree on every component of the special fibre of the model on
 which \(u\) is determined, which is exactly nonnegativity of the
@@ -466,7 +490,7 @@ There is a continuous function \(u\), unique modulo constants, satisfying
 \end{proposition}
 
 \begin{proof}
-Since \((\mu-\omega)(\Gamma)=V-V=0\), \Cref{lem:ch31-green-kernel} applies
+Since \((\mu-\mu_0)(\Gamma)=V-V=0\), \Cref{lem:ch31-green-kernel} applies
 with \(\nu=\mu-\mu_0\): the function
 \[
                 u(x)=G_q(\mu-\mu_0)(x)
@@ -794,7 +818,7 @@ in \Cref{sec:ch24-four-products} and not of the first, and it is the
 smallest example in this chapter of a potential to which
 \Cref{thm:ch19-cld-bfj-comparison}\,(B) applies but not (A).  A model
 approximation is obtained by piecewise affine interpolation at
-\(t=0,\tfrac1N,\ldots,3\), whose measure is atomic of mass \(2\) and
+\(t=0,\tfrac3N,\tfrac6N,\ldots,3\), whose measure is atomic of mass \(2\) and
 converges weakly to \(\tfrac23\rd s\); the uniform error is
 \(\tfrac13\cdot\tfrac{(3/N)^2}{4}\cdot\tfrac{1}{1}=\tfrac{3}{4N^2}\), since
 the interpolation error of a function with \(u''=\tfrac23\) on an interval
@@ -1020,9 +1044,11 @@ example, and it is used in \Cref{ex:ch31-noninvariant}.
  =0-\tfrac12=-\tfrac12 .
 \]
 The reader may check \eqref{eq:two-component-energy} with
-\(m_0=1,m_1=0\) gives the same number: the present example is the
-degenerate case of \Cref{ex:two-component-complete} in which one of the two
-components carries no degree.
+\(m_0=0,m_1=1\), that is with \(x_0=x_E\) and \(x_1=x_{\mathrm G}\), gives
+the same number \(-\tfrac12\): the present example is the degenerate case of
+\Cref{ex:two-component-complete} in which the component carrying the mass is
+the one of degree zero.  (Taking \(m_0=1,m_1=0\) instead would return \(0\),
+which is the energy of the other degenerate configuration.)
 \end{example}
 
 \begin{remark}[What changes off the skeleton]
@@ -2642,7 +2668,10 @@ that \Cref{chap:cld-examples} declines to assert.
 
 \begin{warning}{The tables compare statements, not theories}
 A reader who reads down the \(=\) column and concludes that BFJ and CLD are
-the same theory has misread the tables.  Nineteen of the rows below concern
+the same theory has misread the tables.  Nineteen of the rows below have a model or continuous class as their locus,
+and it is only there that the two constructions are ever shown to agree ---
+even on that locus four rows are one-way and two are open.  Those nineteen
+rows concern
 model or continuous metrics, where the two constructions provably agree; the
 rows that concern singular potentials, global positivity, or existence
 theorems are \(?\) or \(\varnothing\) without exception.  The correct summary
@@ -3334,8 +3363,8 @@ each has been asserted somewhere in the literature or in conversation.
 
 \begin{enumerate}
 \item\label{itm:ch31-not:classes}
- \emph{That the BFJ and CLD psh classes coincide.}  They are compared only
- on the model and continuous loci, rows (C1), (C2), (C5), (C6).  Row (C4)
+ \emph{That the BFJ and CLD psh classes coincide.}  They are compared only on the model, \(\mathbf R\)-PL and continuous loci,
+rows (C1), (C2), (C5), (C6) and (C7).  Row (C4)
  is \(?\) and is \Cref{prob:frontier-cld-global-metric}.
 \item\label{itm:ch31-not:operators}
  \emph{That the two Monge--Amp\`ere operators coincide on their whole
@@ -3665,7 +3694,7 @@ abelian surface, \(B=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)\)
 \end{tabular}
 \end{center}
 
-Twenty rows, twenty masses, twenty intersection numbers.  A reader who
+Twenty-one rows, twenty-one masses, twenty-one intersection numbers.  A reader who
 reproduces the table has verified the normalization
 \eqref{eq:examples-global-normalization} in every regime in which it is used
 in this book.
@@ -3741,13 +3770,13 @@ number of rows of the compatibility tables
  &\(7+13+9=29\)
  &\Cref{sec:ch31-table}\\
 of which marked \(=\) outright
- &\(12\)
+ &\(11\)
  &\Cref{sec:ch31-table-consistency}\\
 of which equal only on a sub-locus
  &\(2\), namely (C7), (G8)
  &\Cref{sec:ch31-table-consistency}\\
 of which marked \(\Rightarrow\), \(?\), \(\varnothing\)
- &\(3\), \(5\), \(7\)
+ &\(4\), \(5\), \(7\)
  &\Cref{sec:ch31-table-consistency}\\
 \bottomrule
 \end{tabular}

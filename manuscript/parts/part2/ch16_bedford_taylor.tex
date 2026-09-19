@@ -1181,11 +1181,19 @@ neighbourhood $\Omega'$ of $(u_1(x),\ldots,u_m(x))$ in $\Omega$.  On
 $\Omega'$, convolution with a smooth kernel writes $g$ as a uniform limit of
 smooth functions $g_k$ that are again convex and nondecreasing in each
 variable; that the two properties survive convolution is immediate, since
-both are preserved by averaging translates.  By
-\Cref{prop:ch16-composition} each $g_k(u_1,\ldots,u_m)$ lies in
-$\operatorname{Psh}_{X,\alpha}$, and by
-\Cref{prop:ch16-hierarchy-status}\,\cref{itm:ch16-hier:cont} the uniform
-limit lies in $\operatorname{CPsh}_{X,\sup(1,\alpha)}$.  For the last
+both are preserved by averaging translates.  By \Cref{prop:ch16-composition} each $g_k(u_1,\ldots,u_m)$ lies in
+$\operatorname{Psh}_{X,\alpha}$.  The limit must not be taken by quoting
+\Cref{prop:ch16-hierarchy-status}\,\cref{itm:ch16-hier:cont}, which is only
+the identity $\operatorname{CPsh}_{X,\alpha}
+=C^0_X\cap\operatorname{Psh}_{X,\alpha}$ and says nothing about uniform
+limits; a uniform limit of stage-$\alpha$ functions lies at stage
+$\alpha+1$, and asserting otherwise would collapse the hierarchy that
+\Cref{prob:frontier-cld-hierarchy} leaves open.  Instead run the diagonal
+argument: for $\alpha=\beta+1$ choose decreasing $v_{i,k}\downarrow u_i$ in
+$\operatorname{Psh}_{X,\beta}$ and a decreasing uniform approximation
+$g_k\downarrow g$ by smooth convex coordinatewise-nondecreasing functions,
+so that $g_k(v_{1,k},\dots,v_{m,k})\downarrow g(u_1,\dots,u_m)$ and the
+stability of $\operatorname{Psh}$ under decreasing limits applies.  For the last
 assertion use the smoothing
 \begin{equation}
 \label{eq:ch16-softmax}
@@ -1467,7 +1475,7 @@ where closedness of $T$ and symmetry of positive currents are consumed.
 
 \begin{lemma}
 \label{lem:ch16-leibniz-closed}
-Let $S$ be a closed symmetric current of bidegree $(p,p)$, let
+Let $S$ be a closed symmetric current of \emph{bidimension} $(p,p)$, let
 $q\leq p-1$, and let $\alpha$ be a smooth symmetric $(q,q)$-form.  Then
 \[
               \dprimeddprime(\alpha\wedge S)
@@ -1476,6 +1484,13 @@ $q\leq p-1$, and let $\alpha$ be a smooth symmetric $(q,q)$-form.  Then
 \end{lemma}
 
 \begin{proof}
+The statement is in bidimension, not bidegree, unlike most of this chapter:
+with $S$ of bidimension $(p,p)$ the current $\alpha\wedge S$ has
+bidimension $(p-q,p-q)$ and $\dprimeddprime(\alpha\wedge S)$ has
+bidimension $(p-q-1,p-q-1)$, which is what the test form below matches.
+Reading $(p,p)$ as a bidegree would exclude the case used most often,
+$S=\delta_X$, which has bidimension $(n,n)$ and bidegree $(0,0)$.
+
 Let $\beta$ be a smooth test form of bidegree $(p-q-1,p-q-1)$.  Both
 $(\dprimeddprime\alpha)\wedge S$ and $\alpha\wedge S$ are symmetric, so it
 suffices to treat symmetric $\beta$.  By the definition of the current
@@ -3942,9 +3957,10 @@ $\int_C\dprime\eta=\int^\partial_C\eta$.
 \begin{proposition}
 \label{prop:ch16-skeletal-first-derivative}
 Let $T$ be closed skeletal of bidimension $(p,p)$ and let $u$ be $G$-smooth
-on $X$.  Then, for a tropical chart $f$ on $U$, an integer $r\leq p$, an
-$f$-tropical smooth $\omega$ of type $(p-r,p)$ and a compactly supported
-smooth $\rho$ of type $(r,0)$,
+on $X$.  Then, for a tropical chart $f$ on $U$, an integer $0\leq r\leq p-1$, an
+$f$-tropical smooth $\omega$ of type $(p-r-1,p)$ and a compactly supported
+smooth $\rho$ of type $(r,0)$ --- so that $\rho\wedge\omega$ has bidegree
+$(p-1,p)$, which is what a current of bidimension $(p-1,p)$ pairs with ---
 \[
  \bigl\langle\dprime(uT),\rho\wedge\omega\bigr\rangle
  =\int_{P^T_f}\dprime u\wedge\rho\wedge\omega .

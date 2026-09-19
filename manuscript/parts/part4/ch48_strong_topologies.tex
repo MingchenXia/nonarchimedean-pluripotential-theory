@@ -1431,13 +1431,24 @@ The equivalences \((1)\Leftrightarrow(2)\Leftrightarrow(3)\) in full are
 \cite[Theorems~10.12 and~10.14]{BJ22}, and each of the missing steps is an
 application of the pairing estimate.
 
-\emph{Proved: the compactness half of completeness.}  Let \((\mu_i)\) be
-\(I^\vee\)-Cauchy.  Then \(E^\vee_\omega(\mu_i)\) is bounded: indeed, fixing
-\(i_0\) with \(I^\vee(\mu_i,\mu_{i_0})\le1\) for \(i\ge i_0\) and choosing
-almost optimal potentials, the estimate
-\Cref{prop:ch48-Idual-elementary}\,\cref{itm:ch48-Id:energy} bounds
-\(E^\vee_\omega(\mu_i)\) once the pairing term is bounded, which it is by
-\Cref{prop:ch47-test-class}.  The sublevel set \(\cM^1_C\) of
+\emph{Proved, granted one imported bound: the compactness half of
+completeness.}  Let \((\mu_i)\) be
+\(I^\vee\)-Cauchy, fix \(i_0\) with \(I^\vee(\mu_i,\mu_{i_0})\le1\) for
+\(i\ge i_0\), and choose \(\phi_i\) almost optimal for the pair
+\((\mu_i,\mu_{i_0})\), normalized by \(\sup\phi_i=0\), which is legitimate
+by \Cref{prop:ch48-defect-elementary}\,\cref{itm:ch48-def:transl}.  Then
+\Cref{prop:ch48-Idual-elementary}\,\cref{itm:ch48-Id:energy} gives
+\[
+ \bigl|E^\vee_\omega(\mu_i)-E^\vee_\omega(\mu_{i_0})\bigr|
+ \le2+\Bigl|\int\phi_i\,\rd(\mu_i-\mu_{i_0})\Bigr| ,
+\]
+so \(E^\vee_\omega(\mu_i)\) is bounded as soon as the pairing term is
+bounded \emph{uniformly in \(i\)}.  That uniformity is not supplied by
+\Cref{prop:ch47-test-class}, which gives only
+\(\int(-\phi_i)\rd\mu\le E^\vee_\omega(\mu)+J(\phi_i)\) and therefore
+reintroduces both \(E^\vee_\omega(\mu_i)\) and the uncontrolled
+\(J(\phi_i)\) on the right; we import it, together with the upgrade below,
+from \cite[Theorem~10.14]{BJ22}.  Granted it, the sublevel set \(\cM^1_C\) of
 \eqref{eq:bj-measure-energy-sublevel} is weakly compact by
 \Cref{prop:ch47-dual-elementary}\,\cref{itm:ch47-dual:compact}, so some
 subnet converges weakly to a measure \(\mu\), and weak lower
@@ -2125,7 +2136,12 @@ capacity of the deep sublevel sets to decay faster than the trivial rate.
 infinite energy for which \(\Capa(\{\phi\le-t\})=t^{-1}\) exactly, so that
 the integrand in \eqref{eq:bj-cap-energy-criterion} is the constant \(1\)
 and the integral diverges; and a potential of finite energy for which the
-sublevel capacities decay like \(t^{-2}\) and the integral converges.  The
+sublevel capacities decay like \(t^{-4}\) and the integral converges.
+Since \(n=1\) here, the integrand of
+\eqref{eq:bj-cap-energy-criterion} is \(t\Capa(\{\phi\le-t\})\), and decay
+at the rate \(t^{-2}\) would still give the divergent \(\int_1^\infty
+t^{-1}\rd t\); in general convergence needs decay strictly faster than
+\(t^{-(n+1)}\).  The
 same pair of computations over a discretely valued base is
 \Cref{ex:ch25-pluripolar-computed}, where \eqref{eq:ch25-p1-capacity} gives
 \(\Capa_\theta(\{\varphi_0\le-t\})=\min\{1,1/t\}\); the two examples agree
@@ -2899,13 +2915,21 @@ applied to the lower semicontinuous obstacle \(f\),
 \[
  \int_{X^{\An}}\bigl(f-h\bigr)\,\MA_\omega(h)=0 .
 \]
-The integrand is \(+\infty\) on \(X^{\An}\setminus K\), because \(h\le T\)
-is finite there, and is \(\ge0\) on \(K\).  A nonnegative integrand with
-vanishing integral forces
+The integrand is \(+\infty\) on \(X^{\An}\setminus K\), because \(f=+\infty\)
+there while \(h\le T<\infty\); and on \(K\) it equals \(-h\), which lies in
+\([-T,0]\), since \(f=0\) and \(0\le h\le T\) there.  It is therefore
+\emph{signed} --- \(f\) is only lower semicontinuous, so the envelope need
+not lie under the obstacle --- and the argument is not that a nonnegative
+integrand with vanishing integral vanishes.  Rather, the negative part is
+bounded, hence integrable against the probability measure
+\(\MA_\omega(h)\), so any positive mass on \(X^{\An}\setminus K\) would make
+the integral \(+\infty\).  Vanishing of the integral therefore forces
 \(\MA_\omega(h)(X^{\An}\setminus K)=0\), that is,
 \[
- \MA_\omega(h)(K)=1 .
+ \MA_\omega(h)(K)=1 ,
 \]
+and then \(\int_Kh\,\MA_\omega(h)=0\), so \(h=0=f\) almost everywhere for
+\(\MA_\omega(h)\), in accordance with \eqref{eq:bj-obstacle-contact}.
 
 \emph{The admissible competitor.}  Put \(T':=\max\{T,1\}\ge1\) and
 \[
@@ -3522,9 +3546,11 @@ carried entirely by \(A_m(t)\); this gives \(\Capa_\omega(A_m(t))=1\).
  \Capa_\omega\bigl(\{t\ord_{p_1}\}\bigr)
  +\Capa_\omega\bigl(\{t\ord_{p_2}\}\bigr)=2\min\Bigl\{1,\frac1t\Bigr\}.
 \]
-For \(t\ge1\) the two sides agree and subadditivity is an equality; for
-\(t<1\) the left side is \(1\) and the right side is \(2\), so
-subadditivity is strict, with a loss of \(1\).  This is the exact analogue
+For \(t\ge2\) the two sides agree and subadditivity is an equality; for
+\(1\le t<2\) the left side is \(1\) while the right side is \(2/t>1\), so
+subadditivity is already strict there, with a loss of \(2/t-1\); and for
+\(t\le1\) the left side is \(1\) and the right side is \(2\), a loss of
+\(1\).  This is the exact analogue
 of \Cref{ex:ch25-subadditivity-strict}, where the same phenomenon occurs on
 a segment of length four with a loss of \(1\).
 

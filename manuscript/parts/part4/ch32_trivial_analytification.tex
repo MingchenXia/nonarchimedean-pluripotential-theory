@@ -1435,8 +1435,9 @@ injective; it is surjective onto \(X^{\triv}\) by definition.  Its
 composition with \(s\) is the identity of \(X\), since
 \(s(v_{Y,\triv})=\) generic point of \(Y\); and its composition with \(c\) is
 also the identity, since \(v_{Y,\triv}\) is nonnegative on
-\(\cO_{X,\eta_Y}\) and strictly positive on its maximal ideal, which is
-zero, so \(c(v_{Y,\triv})=\eta_Y\).
+\(\cO_{X,\eta_Y}\) and strictly positive --- indeed \(+\infty\) --- on its
+maximal ideal, which is precisely the support prime of \(v_{Y,\triv}\)
+(\Cref{cor:ch32-orbit-degenerate}); so \(c(v_{Y,\triv})=\eta_Y\).
 
 \cref{itm:ch32-tl:closure}  The inclusion \(\overline{X(k)}\subset X^{\triv}\)
 follows from \cref{itm:ch32-tl:char}, \(X^{\triv}\) being closed.  For the
@@ -1504,8 +1505,17 @@ fit together as follows.  Write \(\rightsquigarrow\) for specialization in
 \]
 by \Cref{thm:ch32-support-center-maps}\,\cref{itm:ch32-scm:order}; and by
 \Cref{thm:ch32-order-centers}, \(v\geq w\) forces
-\(c(w)\rightsquigarrow c(v)\).  Thus increasing in the analytic order means
-specializing the center, while the support stays put.  This is the exact
+\(c(w)\rightsquigarrow c(v)\).  It also forces \(s(v)\subseteq s(w)\):
+testing \eqref{eq:semivaluation-order} on \(\mathfrak a=\mathcal I_{s(w)}\),
+for which \(w(\mathfrak a)=+\infty\), gives \(v(\mathfrak a)=+\infty\) and
+hence \(s(v)\subseteq Z(\mathfrak a)=s(w)\).  Thus increasing in the
+analytic order specializes the center and can only shrink the support; it
+does not leave the support fixed.  Both movements are visible in
+\eqref{eq:trivial-endpoints}: passing from \(v\) up to
+\(v_{Z,\triv}\) replaces the support \(s(v)=Y\) by the smaller
+\(Z=\overline{\{c(v)\}}\).  On \(\mathbf P^1\), for instance,
+\(v_{p,\triv}\geq\ord_p\) while
+\(s(\ord_p)=\mathbf P^1\supsetneq\{p\}=s(v_{p,\triv})\).  This is the exact
 sense in which the analytic order refines the specialization order of the
 scheme, and it is the reason the two endpoints in
 \eqref{eq:trivial-endpoints} are the trivial semivaluations at the two ends
@@ -1907,12 +1917,15 @@ In multiplicative notation, the points of types
 the seminorms
 \[
  \Bigl|\sum_ic_i(T-a)^i\Bigr|_{a,r}=\max_{c_i\neq0}r^i,
- \qquad r=\rme^{-t}\in(0,+\infty),
+ \qquad r\in(0,+\infty),
 \]
-with \(r<1\) giving \cref{itm:ch32-a1:ray}, \(r=1\) giving
-\cref{itm:ch32-a1:triv} independently of \(a\), and \(r>1\) giving
+with \(r=\rme^{-t}<1\) giving \cref{itm:ch32-a1:ray}, \(r=1\) giving
+\cref{itm:ch32-a1:triv} independently of \(a\), and \(r=\rme^{t}>1\) giving
 \cref{itm:ch32-a1:infty}; and \cref{itm:ch32-a1:endpoint} is the limit
-\(r\to0^+\).
+\(r\to0^+\).  The exponent changes sign between the two unbounded branches
+because \(t\) runs over \((0,+\infty)\) in both
+\cref{itm:ch32-a1:ray} and \cref{itm:ch32-a1:infty}, while
+\(v_{a,t}(T-a)=+t\) and \(v_{\infty,t}(T)=-t\).
 \end{theorem}
 
 \begin{proof}
@@ -2097,9 +2110,12 @@ The morphism \(\nu\) is finite and surjective, hence
 (\Cref{thm:triv-berkovich-compactness}); surjectivity of analytification for
 a surjective finite morphism is the standard extension argument recalled in
 \Cref{thm:berk-proper-compact}.  Since \(\nu\) is an isomorphism over
-\(X\setminus\Sing(X)\), the map \(\nu^{\An}\) is bijective over the open set
-\(\{v:c(v)\notin\Sing(X)\}\), which is the complement of the finitely many
-half-open rays \(c^{-1}(p)\), \(p\in\Sing X\).
+\(X\setminus\Sing(X)\), the map \(\nu^{\An}\) is bijective over
+\(\{v:c(v)\notin\Sing(X)\}=c^{-1}(X\setminus\Sing X)\), which is
+\emph{closed}, indeed compact: the centre map is anticontinuous
+(\Cref{thm:ch32-center-compact}\,\cref{itm:ch32-cc:general}), so the preimage
+of the open set \(X\setminus\Sing X\) is closed.  It is the complement of the
+finitely many \emph{open} half-open rays \(c^{-1}(p)\), \(p\in\Sing X\).
 
 Fix \(p\in\Sing(X)\) with \(\nu^{-1}(p)=\{q_1,\ldots,q_m\}\), and consider
 the points of \((X^\nu)^{\An}\) with center some \(q_i\).  Such a point is
@@ -2465,13 +2481,22 @@ equal.
 \item\label{itm:ch32-dd:usc}
 If \(\varphi,\psi:X^{\An}\to[-\infty,+\infty)\) are upper semicontinuous
 and \(\varphi\leq\psi\) on \(X^{\divis}\), it does \emph{not} follow that
-\(\varphi\leq\psi\) on \(X^{\An}\); an additional structural hypothesis, such
-as \(\psi\) being the usc regularization of its restriction to a dense set,
-is required.
+\(\varphi\leq\psi\) on \(X^{\An}\); an additional structural hypothesis is
+required, and it is a hypothesis on \(\varphi\), not on \(\psi\): it suffices
+that \(\varphi\) be the usc regularization of its restriction to
+\(X^{\divis}\), as a \(\theta\)-psh function is by
+\Cref{thm:bj-basic-closure}\,\cref{itm:bj-closure:determination}, for then
+\(\varphi(v)=\limsup_{X^{\divis}\ni w\to v}\varphi(w)
+\leq\limsup_{w\to v}\psi(w)\leq\psi(v)\).  Asking it of \(\psi\) would not
+help: in the counterexample below \(\psi\equiv0\) already equals the usc
+regularization of its own restriction to \(X^{\divis}\).
 \item\label{itm:ch32-dd:sup}
-If \(\varphi\) is usc and \(\psi\) is lower semicontinuous, and
-\(\varphi\leq\psi\) on \(X^{\divis}\), then \(\varphi\leq\psi\) on
-\(X^{\An}\).
+If \(\varphi\) is \emph{lower} semicontinuous and \(\psi\) is \emph{upper}
+semicontinuous, and \(\varphi\leq\psi\) on \(X^{\divis}\), then
+\(\varphi\leq\psi\) on \(X^{\An}\).  The pairing is forced: with \(\varphi\)
+usc and \(\psi\) lsc the assertion is false, and the preceding clause is the
+counterexample --- take \(\psi\equiv0\) and
+\(\varphi=\mathbf 1_{\{v_0\}}\) for \(v_0\notin X^{\divis}\).
 \end{enumerate}
 \end{corollary}
 
@@ -2497,8 +2522,8 @@ theorem.
 \[
  U:=\{\varphi>c\}\cap\{\psi<c\}
 \]
-is open --- the first factor because \(\{\varphi\leq c\}\) is closed by upper
-semicontinuity, the second because \(\{\psi\geq c\}\) is closed by lower
+is open --- the first factor because \(\{\varphi\leq c\}\) is closed by lower
+semicontinuity, the second because \(\{\psi\geq c\}\) is closed by upper
 semicontinuity --- and it contains \(v\), hence is nonempty.  By
 \Cref{thm:triv-divisorial-density} it contains a point
 \(w\in X^{\divis}\), and there \(\varphi(w)>c>\psi(w)\), contradicting the
@@ -2592,14 +2617,22 @@ the exceptional divisor \(P\).  The associated divisorial valuations are
 \[
  v_{\widetilde X}=v_{X,\triv},
  \qquad
- v_P=\ord_{\mathfrak b}:=
- \bigl(f\mapsto\max\{m:f\in\mathfrak b^{(m)}\}\bigr),
+ v_P=b_P^{-1}\ord_P,
+ \qquad b_P=\ord_P(\varpi),
 \]
-where \(\ord_{\mathfrak b}\) is the order of vanishing along
-\(\mathfrak b\), that is, the divisorial valuation with
-\(\ord_{\mathfrak b}(\mathfrak b)=1\) attached to the exceptional divisor of
-the normalized blowup of \(\mathfrak b\)
-(\Cref{thm:appB-rees-valuations}).  In particular, for \(Z=\{p\}\) a smooth
+where \(P\) is the exceptional prime of the deformation to the normal cone.
+When \(\mathfrak b\) has a single Rees valuation \(\ord_E\)
+(\Cref{thm:appB-rees-valuations}), this is the normalized order of
+vanishing along \(\mathfrak b\), \(v_P=\ord_E(\mathfrak b)^{-1}\ord_E\).
+Two cautions.  The set-theoretic recipe
+\(f\mapsto\max\{m:f\in\overline{\mathfrak b^{\,m}}\}\) computes
+\(\lfloor v_P(f)\rfloor\), not \(v_P(f)\), and is not itself a valuation:
+for \(\mathfrak b=(x^2,y^3)\subset k[x,y]\) it returns \(0\) at \(x\) and
+\(1\) at \(x^2\), whereas the Rees valuation has \(v_P(x)=\tfrac12\) and
+\(v_P(y)=\tfrac13\) (\Cref{ex:appB-monomial-rees}).  And a general
+\(\mathfrak b\) has several Rees valuations --- take
+\(\mathfrak b=\mathfrak m_p\cap\mathfrak m_q\) for distinct closed points
+--- so there is no ``the'' exceptional divisor.  In particular, for \(Z=\{p\}\) a smooth
 closed point of a smooth \(X\), \(v_P=\ord_p\) is the order of vanishing at
 \(p\), the divisorial valuation of the exceptional divisor of the blowup of
 \(p\), and the associated PL function is
@@ -3289,8 +3322,14 @@ of \eqref{eq:ch08-ideal-potential}.  By
  =Z(\mathfrak a)^{\An}_{\mathrm{red}},
 \end{equation}
 the analytification of the reduced zero locus, a closed subset of
-\(X^{\An}\) contained in the proper-support locus whenever
-\(\mathfrak a\neq0\).  Three consequences deserve emphasis.
+\(X^{\An}\) contained in the proper-support locus whenever \(\mathfrak a\)
+is nonzero at every generic point of \(X\) --- automatic for integral
+\(X\), but not for the reducible \(X\) allowed by
+\Cref{sec:ch32-standing}: for \(X=V(x_0x_1)\subset\mathbf P^2\) and
+\(\mathfrak a=\mathcal I_{X_1}\), which is a nonzero coherent ideal because
+its stalk at the generic point of \(X_2\) is the whole local ring, the
+point \(v_{X_1,\triv}\) lies in \(\{\varphi_{\mathfrak a}=-\infty\}\) and
+has full support.  Three consequences deserve emphasis.
 
 \emph{The polar locus is never empty when \(\mathfrak a\) is a proper
 nonzero ideal.}  Indeed \(Z(\mathfrak a)\) then contains a closed point
@@ -3827,7 +3866,8 @@ which is the divisorial point of the special fibre of the trivial model
 \(v_{0,\triv}\), of proper support, and the image tends to
 \(\sigma(v_{0,\triv})\), the rigid point \(T=0\) of
 \((\mathbf P^1_K)^{\An}\), which carries no Monge--Amp\`ere mass of a bounded
-potential (\Cref{prop:ch24-model-support}).  Two numerical checks:
+potential, the rigid point being pluripolar
+(\Cref{ex:ch23-sup-not-usc}, \Cref{prop:bounded-ma-no-polar-mass}).  Two numerical checks:
 \(\sigma(v_t)(T^m)=mt\) for every \(m\), so the image ray is parametrized
 linearly; and \(\sigma(2v_t)=\sigma(v_{2t})\) has
 \(\sigma(2v_t)(T)=2t\) while \(\sigma(2v_t)(\varpi)=1\), confirming that

@@ -120,6 +120,7 @@ Notice that this is an asymptotic equality; no claim is made that
 \end{proof}
 
 \begin{example}[A logarithmic pole on \(\mathbf P^1\)]
+\label{ex:va-log-pole}
 Let \(X=\mathbf P^1\), let \(L=\mathcal O(1)\) carry a smooth positive
 metric \(h\) of curvature \(\theta\), and choose a section \(s\) vanishing
 simply at \(p\).  For \(0<\lambda\leq1\), set
@@ -229,7 +230,7 @@ It is represented, after adding an arbitrary K\"ahler form \(\omega\), by an
 
 \begin{definition}[Analytification of a test curve]
 \label{def:va-test-curve-analytification}
-For \(v\in X^{\Div}\), define
+For \(v\in X^{\divis}\), define
 \[
  \Gamma^{\An}(v)
  :=\sup_{\tau\leq\Gamma_{\max}}
@@ -242,11 +243,49 @@ The convention is
 \((-\infty)^{\An}(v)=-\infty\).
 \end{definition}
 
-The right side is independent of \(\omega\).
-Indeed, the transition from \(\theta+\omega\) to a larger K\"ahler
-perturbation is the \(\cI\)-projection, and that projection preserves all
-asymptotic multiplier-ideal values.
-Thus it preserves each summand in \eqref{eq:va-test-curve-an}.
+Nothing in the notation \(\Gamma^{\An}\) records \(\omega\), so the
+definition is only legitimate once the right side is known to be
+independent of it.  That is the content of the next lemma, and it is the
+reason the whole chapter may work with one arbitrary perturbation.
+
+\begin{lemma}[The analytification does not see the perturbation]
+\label{lem:va-omega-independence}
+The right side of \eqref{eq:va-test-curve-an} is independent of the choice
+of K\"ahler form \(\omega\).
+\Cref{def:va-test-curve-analytification} is therefore well posed.
+\end{lemma}
+
+\begin{proof}
+Let \(\omega\geq\omega'\) be K\"ahler.  Compatibility
+\eqref{eq:tna-component-compatibility} of the inverse system says that the
+component at the larger perturbation is the \(\cI\)-projection of the
+component at the smaller one,
+\[
+ \Gamma_\tau^{\theta+\omega}
+ =P_{\theta+\omega}\bigl[\Gamma_\tau^{\theta+\omega'}\bigr]_{\cI}.
+\]
+Passing to an \(\cI\)-model representative is by construction an
+\(\cI\)-equivalence, so
+\(\cI\bigl(k\Gamma_\tau^{\theta+\omega}\bigr)
+  =\cI\bigl(k\Gamma_\tau^{\theta+\omega'}\bigr)\)
+for every \(k\geq1\).  The implication
+\(\text{(i)}\Rightarrow\text{(iii)}\) of
+\Cref{prop:va-i-equivalence} then gives
+\[
+ \bigl(\Gamma_\tau^{\theta+\omega}\bigr)^{\An}
+ =\bigl(\Gamma_\tau^{\theta+\omega'}\bigr)^{\An}
+\]
+on divisorial valuations, for every \(\tau\).  Each summand of
+\eqref{eq:va-test-curve-an} is therefore unchanged.  The index set of the
+supremum is unchanged as well, because the terminal parameter
+\(\Gamma_{\max}\) does not depend on the perturbation, by
+\Cref{prop:tna-common-terminal}.  Hence the two suprema agree.
+
+Two arbitrary K\"ahler forms \(\omega_1,\omega_2\) are compared through a
+common lower bound: a sufficiently small positive multiple of a fixed
+K\"ahler form lies below both, and the previous paragraph applies to each
+comparison in turn.
+\end{proof}
 
 Suppose after translating the parameter that
 \(\Gamma_{\max}\leq0\).
@@ -286,6 +325,7 @@ upper-envelope statement is a theorem about generic Lelong numbers.
 \end{proof}
 
 \begin{example}[The constant endpoint sign check]
+\label{ex:va-constant-endpoint}
 Assume \(\theta\) is K\"ahler and let \(a\leq0\).  Take
 \(\Gamma_\tau=0\) for \(\tau\leq a\) and \(-\infty\) for \(\tau>a\).
 Then \(\Gamma^{\An}(v)=a\) for every full-support semivaluation, since all
@@ -299,6 +339,83 @@ which checks simultaneously the minus sign in
 \eqref{eq:va-gauss-identity}, the \(+\tau\) in
 \eqref{eq:va-test-curve-an}, and the normalization
 \(\sigma(v)(z)=1\).
+\end{example}
+
+\begin{example}[Analytifying the hyperplane test curve]
+\label{ex:va-hyperplane-analytification}
+The preceding check is constant in \(\tau\).  Carrying a nonconstant curve
+through the construction shows what \(\Gamma^{\An}\) actually is, and shows
+the machinery of the later sections collapsing to a single Fubini--Study
+function.
+
+Take the data of \Cref{ex:rays-hyperplane-test-curve}: \(X=\mathbf P^n\),
+\(L=\mathcal O(1)\), \(\theta=\omega_{\mathrm{FS}}\), \(H=\{x_0=0\}\),
+\(\psi=\log|s_H|_h^2\), and
+\[
+ \Gamma_\tau=\begin{cases}
+   0,&\tau\leq0\ \text{ or }\ a_0\geq\tau,\\
+   \tau\log a_0+(1-\tau)\log(1-a_0)+H_2(\tau),&a_0\leq\tau\leq1,
+  \end{cases}
+ \qquad \Gamma_{\max}=1 ,
+\]
+with \(a_0=\rme^{\psi}=|x_0|^2/|x|^2\) and
+\(H_2(\tau)=-\tau\log\tau-(1-\tau)\log(1-\tau)\).  The class is already
+K\"ahler, so no perturbation is needed and
+\Cref{lem:va-omega-independence} is vacuous here.
+
+Each level has analytic singularities along a \emph{single} centre, the
+divisor \(H\), with coefficient \(\tau\).  There is no second centre: the
+level vanishes identically on \(\{a_0>\tau\}\), and
+\(P_0=[1:0:\cdots:0]\) has \(a_0=1>\tau\) for every \(\tau<1\), so the
+factor \(\log(1-a_0)\) never acts there.  This is
+\Cref{ex:rays-hyperplane-test-curve}, which records the same point.  By
+\Cref{prop:va-divisorial-formula} the generic Lelong numbers give, for any
+semivaluation \(v\),
+\[
+ (\Gamma_\tau)^{\An}(v)=-\tau\,v(H),
+ \qquad v(H):=v(x_0).
+\]
+Splitting the supremum \eqref{eq:va-test-curve-an} at \(\tau=0\) and using
+linearity in \(\tau\) on \([0,1]\),
+\[
+ \Gamma^{\An}(v)=\max\bigl\{0,\ 1-v(H)\bigr\},
+\]
+the two candidates being the values at the endpoints \(\tau=0\) and
+\(\tau=1\).  The answer is therefore exactly the one the levels
+\(\tau\psi\) would have given: the correction
+\((1-\tau)\log(1-a_0)+H_2(\tau)\) is bounded on \(\{a_0<\tau\}\) and is
+invisible to every multiplier ideal.
+
+Two features are worth noting.  First, with the sign ledger
+\(\log|a|(v)=-v(a)\) this reads
+\(\Gamma^{\An}=\max\{0,\ 1+\log|s_H|\}\), which is a rational Fubini--Study
+function already at level \(m=1\): the dyadic limit of
+\Cref{thm:va-single-potential-bj-psh}, the auxiliary ample twist of
+\eqref{eq:va-global-generation}, and the algebraization of
+\Cref{lem:va-circle-ideal,lem:va-gaga-ideal} are all present in the general
+proof but invisible here.  Second, the Gauss identity can be verified by
+hand.  By \Cref{ex:rays-hyperplane-test-curve} the dual ray is
+\(\Gamma_t^*=\log(\rme^ta_0+1-a_0)\), so the complexification
+\eqref{eq:va-complexification} is
+\[
+ \Psi=\log\Bigl(\frac{|s_H|^2}{|z|^2}+\bigl(1-|s_H|^2\bigr)\Bigr).
+\]
+Since \(\sigma(v)(s_H)=v(H)\), \(\sigma(v)(z)=1\) and
+\(\sigma(v)(1-|s_H|^2)=v(\mathfrak m_{P_0})\), and a sum inside a
+logarithm corresponds to a minimum of valuations,
+\(\sigma(v)(\Psi)=\min\{v(H)-1,\ v(\mathfrak m_{P_0})\}\); and since
+\(H\) and \(P_0\) are disjoint, at most one of the two valuations is
+nonzero, so this is
+\[
+ \sigma(v)(\Psi)=\min\{0,\ v(H)-1\},
+ \qquad
+ -\sigma(v)(\Psi)=\max\{0,\ 1-v(H)\},
+\]
+which is \(\Gamma^{\An}(v)\), as \Cref{prop:va-gauss-identity} requires.
+At the trivial valuation \(v(H)=0\) and the value is
+\(1=\Gamma_{\max}\), as in the last paragraph of the proof of
+\Cref{thm:va-all-masses}; at a divisorial valuation with \(v(H)\geq1\) the
+value is \(0\).
 \end{example}
 
 \section{Piecewise-linear test curves}
@@ -565,7 +682,7 @@ axiom makes the decreasing GF limit a psh metric.
 
 Uniqueness follows from divisorial determination:
 if a BJ psh metric and an upper semicontinuous function agree in the relevant
-order on \(X^{\Div}\), they agree on \(X^{\An}\)
+order on \(X^{\divis}\), they agree on \(X^{\An}\)
 \cite[Theorem~4.22]{BJ22}.
 \end{proof}
 

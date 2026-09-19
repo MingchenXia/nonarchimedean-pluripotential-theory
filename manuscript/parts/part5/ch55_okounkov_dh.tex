@@ -386,8 +386,12 @@ The defining equality \(P_\theta[u]_{\mathcal I}=u\), inserted into
  =\int_X\bigl(\theta+\ddc u\bigr)^n
  =M_\theta(u).
 \]
-The last assertion follows from the positive-mass condition on the interior
-levels in \Cref{def:rays-test-curve}.
+The last assertion follows from positivity of the mass of every interior
+level, \Cref{lem:rays-test-positive-levels}, together with
+\eqref{eq:complex-mass-volume}.  It is not part of
+\Cref{def:rays-test-curve}, whose clause~(3) imposes positive mass at the
+endpoint \(\Gamma_{-\infty}\) alone; the interior statement is deduced from
+that and concavity.
 \end{proof}
 
 \begin{theorem}\label{thm:ok-analytic-to-convex}
@@ -565,9 +569,22 @@ interval.
 This proves flag independence in the bounded case.
 
 For general \(\Gamma\), translate so that \(\Gamma_{\max}=0\), and replace it
-by the bounded truncation obtained by joining
-\(\Gamma_{-\infty}\) at \(-\varepsilon^{-1}\) to the original levels.
-These truncations decrease levelwise to \(\Gamma\).
+by the bounded truncation
+\(\Gamma^\varepsilon_\tau:=\Gamma_{\max\{\tau,-\varepsilon^{-1}\}}\), again a
+concave nonincreasing test curve, with
+\(\Gamma^\varepsilon_{-\infty}=\Gamma_{-\varepsilon^{-1}}\).  Grafting
+\(\Gamma_{-\infty}\) itself onto the levels at \(-\varepsilon^{-1}\) would
+not do: it leaves a downward jump there and so violates concavity.  These truncations \emph{increase} levelwise to \(\Gamma\): for
+\(\tau<-\varepsilon^{-1}\) one has
+\(\Gamma^\varepsilon_\tau=\Gamma_{-\varepsilon^{-1}}\leq\Gamma_\tau\), the
+levels being nonincreasing in \(\tau\).  Since
+\(\Gamma^\varepsilon_{-\infty}=\Gamma_{-\varepsilon^{-1}}\) increases to
+\(\Gamma_{-\infty}\), their volumes
+\(M_\theta(\Gamma_{-\varepsilon^{-1}})\) increase to \(\vol(\Gamma)\) by
+\emph{increasing} continuity of masses,
+\Cref{prop:complex-mass-continuity}; no decreasing-continuity appeal is
+made, such an appeal being unavailable by
+\Cref{warn:ch51-continuity-rules}.
 Continuity of partial bodies and dominated convergence for compactly
 supported test functions give weak convergence of their DH measures.
 The bounded case passes to the limit.
@@ -673,9 +690,13 @@ Two conversions are needed before the source statements can be read against
 the conventions of this book.
 
 \emph{Mixed volume.}  For convex bodies \(K_1,\dots,K_n\subset\mathbf R^n\)
-this book writes \(V(K_1,\dots,K_n)\) for the coefficient of
-\(t_1\cdots t_n\) normalized by \(V(K,\dots,K)=\lambda_n(K)\), as in
-\Cref{thm:appD-minkowski-polynomial}.  The source writes \(\vol\) for the
+this book writes \(V(K_1,\dots,K_n)\) for the mixed volume normalized by
+\(V(K,\dots,K)=\lambda_n(K)\), so that \(n!\,V(K_1,\dots,K_n)\) --- not
+\(V(K_1,\dots,K_n)\) --- is the coefficient of \(t_1\cdots t_n\) in
+\(\lambda_n(\sum_it_iK_i)\), as in
+\Cref{thm:appD-minkowski-polynomial}.  (Setting every \(K_i=K\) checks the
+factor: the coefficient of \(t_1\cdots t_n\) in
+\((\sum_it_i)^n\lambda_n(K)\) is \(n!\,\lambda_n(K)\).)  The source writes \(\vol\) for the
 same quantity.  We use \(V\).
 
 \emph{Volume of a metric.}  The source's volume of a psh metric is the one
@@ -858,10 +879,10 @@ translates normalized bodies.  For a sufficiently divisible \(p\), every
 degree, use the degree-zero fraction field of the section ring of \(D_1\),
 which is \(\mathbf C(X)\).  Choose rational functions \(g_j\) with
 \(\nu(g_j)=e_j\), and write \(g_j=a_j/b_j\) with \(a_j,b_j\) homogeneous
-sections of the same degree.  After passing to one common degree \(p_0\), put
-\(s_0=\prod_jb_j\) and
-\(s_j=a_j\prod_{\ell\ne j}b_\ell\).  Then all \(s_j\) lie in one
-\(W_{1,p_0}\) and \(\nu(s_j)-\nu(s_0)=e_j\).  Replace the previously chosen
+sections of the same degree \(q\).  Put \(s_0=\prod_jb_j\) and
+\(s_j=a_j\prod_{\ell\ne j}b_\ell\), and set \(p_0=nq\): each of these is a
+product of \(n\) sections of degree \(q\), so all \(s_j\) lie in one
+\(W_{1,p_0}\), and \(\nu(s_j)-\nu(s_0)=\nu(a_j)-\nu(b_j)=e_j\).  Replace the previously chosen
 birational degree by a common multiple \(p=rp_0\), and replace these sections by
 \(s_0^r,s_js_0^{r-1}\).  For \(k=mp\), the sections
 \(s_0^{rm},s_js_0^{rm-1}\) retain the unit differences, while the
@@ -1306,13 +1327,22 @@ Let \(X=X_\Sigma\) be a smooth projective toric variety, and let \(M\) and
 \(N\) be its character and cocharacter lattices.  Invariance in this section
 means invariance under the maximal compact torus.  Normalize Lebesgue measure
 on \(M_{\mathbf R}\) so that a fundamental lattice parallelepiped has volume
-one.  If \(T\) is an invariant closed positive \((1,1)\)-current, its
-restriction to the dense torus has the form
+one.  Use the logarithmic coordinates characterized by
+\(\langle u,\operatorname{Log}z\rangle=\log|\chi^u(z)|\), as in the proof of
+\Cref{thm:ok-toric-zero-mass}.  If \(T\) is an invariant closed positive
+\((1,1)\)-current, its restriction to the dense torus has the form
 \[
-             T|_{(\mathbf C^*)^n}=\ddc(F_T\circ\operatorname{Log})
+             T|_{(\mathbf C^*)^n}=\ddc\bigl(2\,F_T\circ\operatorname{Log}\bigr)
 \]
 after an invariant smooth local primitive has been absorbed into a finite
-convex function \(F_T:N_{\mathbf R}\to\mathbf R\).  Changing the primitive
+convex function \(F_T:N_{\mathbf R}\to\mathbf R\), the convex weight of the
+\emph{norm}; the squared-norm weight of \Cref{sec:ch51-squared-norm} is
+\(2F_T\circ\operatorname{Log}\).  The factor \(2\) is what makes
+\(\Delta(\omega_A)\) the moment polytope of \(A\) rather than twice it, and
+hence what makes \eqref{eq:ok-toric-real-products} hold with no factor
+\(2^n\): on \(\mathbf P^1\) with \(T=\omega\), dropping it would give
+\(K=[0,2]\) and turn the identity \(1=\int_X\langle T\rangle=1!\,V(K)\) into
+\(1=2\).  Changing the primitive
 adds an affine function to \(F_T\).
 
 \begin{definition}\label{def:ok-closed-newton-body}

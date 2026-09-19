@@ -1232,21 +1232,34 @@ pointwise equality fails is already visible in
 Let \(X=\mathbf P^1\), \(L=\cO(1)\) and let \(\chi\) be the norm whose
 filtration is \(\mathcal F^\lambda R_m=R_m\) for \(\lambda\le0\),
 \(\mathcal F^\lambda R_m=\operatorname{span}\{x^ay^{m-a}:a\ge1\}\) for
-\(0<\lambda\le1\), and \(0\) for \(\lambda>1\); that is,
-\(\chi_m(s)=1\) if \(x\mid s\) and \(0\) otherwise, independently of
-\(m\).  Multiplicativity holds because \(x\mid ss'\) as soon as \(x\)
-divides one factor.  Linear boundedness is trivial, all weights lying in
-\(\{0,1\}\).  But \(\chi_{rm}(s^r)=\chi_m(s)\), so
-\(\chi^{\hom}_m(s)=\lim_r r^{-1}\chi_m(s)=0\): the homogenization is the
-trivial norm, and \(\chi\ne\chi^{\hom}\) pointwise.  Both have
-Fubini--Study function \(0\) and Duistermaat--Heckman measure
-\(\delta_0\); both are at \(d_1\)-distance \(0\) from the trivial norm,
-since \(N_m^{-1}\sum_j|\lambda_{m,j}|=m/(m+1)\cdot m^{-1}\to0\) after the
-normalization by \(m\) in \eqref{eq:ch50-dp-graded}.  This is the
+\(0<\lambda\le1\), and \(0\) for \(\lambda>1\); that is, \(\chi_m(s)=1\)
+if \(x\mid s\) and \(0\) otherwise, independently of \(m\).  This is
+\emph{not} a norm: superadditivity \eqref{eq:stability-norm-axioms} fails
+already at \(s=s'=x\), \(m=m'=1\), where
+\(\chi_2(x^2)=1<2=\chi_1(x)+\chi_1(x)\); equivalently the filtration is
+not multiplicative,
+\(\mathcal F^1R_1\cdot\mathcal F^1R_1\not\subseteq\mathcal F^2R_2=0\).
+A correct example on the same \(X\) and \(L\) is
+\[
+ \chi_m(x^ay^{m-a}):=\bigl\lfloor a/2\bigr\rfloor,
+\]
+extended to a general \(0\ne s\in R_m\) by the minimum over the monomials
+occurring in \(s\).  All three axioms hold: the non-Archimedean inequality
+by construction, superadditivity because
+\(\lfloor(a+a')/2\rfloor\ge\lfloor a/2\rfloor+\lfloor a'/2\rfloor\), and
+linear boundedness because \(0\le\chi_m\le m/2\).  Homogenization removes
+the floor: \(\chi_{rm}\bigl((x^ay^{m-a})^r\bigr)=\lfloor ra/2\rfloor\), so
+\(\chi^{\hom}_m(x^ay^{m-a})=a/2\), and \(\chi<\chi^{\hom}\) at every odd
+\(a\), the gap being exactly \(\tfrac12\) --- consistently with
+\(\chi\le\chi^{\hom}\) of \Cref{prop:ch50-homogenization}.  Yet
+\(|\chi_m-\chi^{\hom}_m|\le\tfrac12\) uniformly in \(m\) and in \(s\), so
+after the normalization by \(m\) in \eqref{eq:ch50-dp-graded} one gets
+\(d_1(\chi,\chi^{\hom})=0\), and the two have the same
+Duistermaat--Heckman measure and, by \eqref{eq:ch50-fs-homog}, the same
+Fubini--Study function.  This is the
 smallest example of the phenomenon recorded in
-\Cref{warn:ch50-pseudometric}: the norm is not asymptotically trivial in
-any degree, but it is asymptotically trivial \emph{per unit degree}, which
-is all the theory sees.
+\Cref{warn:ch50-pseudometric}: the two norms differ in every odd degree,
+but by \(O(1)\), and the normalization by \(m\) is all the theory sees.
 \end{example}
 
 \begin{lemma}
@@ -1837,7 +1850,8 @@ hence \(\|\mu\|_1=2\int(\lambda-\bar\lambda)_+\rd\mu\).  On the support,
 \(\|\mu\|_1\le2A\).  Equality would force \(\mu\) to be carried by
 \(\{a\}\cup\{\lambda:\lambda\le\bar\lambda\}\) with all the upper mass at
 \(a\); a two-atom measure \((1-\varepsilon)\delta_{-\ell}
-+\varepsilon\delta_0\) has \(\|\mu\|_1/A\to2\) as \(\varepsilon\to0\),
++\varepsilon\delta_0\) has \(\|\mu\|_1/A=2\varepsilon\to2\) as
+\(\varepsilon\to1^-\),
 but no measure with \(F^{1/n}\) concave attains it, concavity forcing
 \(F\) to be continuous on the interior of its support.
 
@@ -1854,27 +1868,54 @@ Write \(\gamma:=v(A)\); we may assume \(\gamma>0\), for otherwise
 \(F\equiv0\) on \([-A,0]\) and then \(\mu\) is carried by
 \([-\ell,-A]\), contradicting \(\int\lambda\,\rd\mu=-A\) unless
 \(\mu=\delta_{-A}\), a case in which \(\ell=A\) and
-\(v\equiv1\).  Concavity of \(v\) together with \(v(0)\ge0\) gives, for
-\(s\ge A\),
+\(v\equiv1\).  We may also assume \(\gamma<1\): if \(v(A_1)=v(A)\) for some \(A_1<A\) then
+\(v\), being concave and nondecreasing, is constant on \([A_1,\ell]\), so
+\(\gamma=v(\ell)=1\) and \eqref{eq:ch50-mass-above-mean} holds trivially.
+Hence \(v\) is strictly increasing on \([0,A]\) and \(\gamma\in(v_0,1)\).
+Put \(v_0:=v(0)\ge0\) and let \(\psi\) be the inverse of \(v\),
 \[
- v(s)\ \le\ v(A)+\frac{v(A)-v(0)}{A}(s-A)
- \ \le\ \gamma\,\frac sA .
-\tag{50.37}\label{eq:ch50-concave-upper}
+ \psi(w):=\bigl|\{s\in[0,\ell]:v(s)<w\}\bigr|
+ \qquad(v_0\le w\le1),
 \]
-Let \(s_0:=A/\gamma\).  Since \(v(\ell)=1\), \eqref{eq:ch50-concave-upper}
-forces \(1\le\gamma\ell/A\), that is \(\ell\ge s_0\).  Now
+which is convex and nondecreasing, being the inverse of an increasing
+concave function, with \(\psi(v_0)=0\) and \(\psi(\gamma)=A\).  The
+layer-cake formula rewrites the mass identity as
 \[
  A=\int(a-\lambda)\,\rd\mu
   =\int_{-\ell}^{0}\bigl(1-F(\tau)\bigr)\rd\tau
   =\int_0^{\ell}\bigl(1-v(s)^n\bigr)\rd s
-  \ \ge\ \int_0^{s_0}\Bigl(1-\bigl(\tfrac{\gamma s}{A}\bigr)^n\Bigr)\rd s,
+  =\int_0^{\ell}\!\!\int_{v(s)}^{1}nw^{n-1}\rd w\,\rd s
+  =n\int_{v_0}^{1}w^{n-1}\psi(w)\,\rd w .
 \]
-using \(v\le1\) on \([s_0,\ell]\) for the discarded part and
-\eqref{eq:ch50-concave-upper} on \([0,s_0]\).  The last integral equals
-\(s_0-\gamma^ns_0^{n+1}/\bigl((n+1)A^n\bigr)=s_0\bigl(1-\tfrac1{n+1}\bigr)
-=\tfrac{n}{n+1}s_0\), because \(\gamma s_0=A\).  Hence
-\(A\ge\frac n{n+1}\cdot\frac A\gamma\), which is
-\eqref{eq:ch50-mass-above-mean}.
+Write \(m:=n\int_{v_0}^1w^{n-1}\rd w=1-v_0^n\) and
+\(q:=n\int_{v_0}^1w^{n}\rd w=\tfrac n{n+1}\bigl(1-v_0^{n+1}\bigr)\), and let
+\(p\) be a subgradient of \(\psi\) at \(\gamma\); \(p>0\) because
+\(\psi(v_0)=0<A=\psi(\gamma)\).  Convexity supplies two inequalities,
+\[
+ \psi(w)\ \ge\ \psi(\gamma)+p\,(w-\gamma)\ \ (v_0\le w\le1),
+ \qquad
+ 0=\psi(v_0)\ \ge\ \psi(\gamma)+p\,(v_0-\gamma).
+\tag{50.37}\label{eq:ch50-concave-upper}
+\]
+Integrating the first against \(nw^{n-1}\rd w\) over \([v_0,1]\) and using
+\(\psi(\gamma)=A\) gives \(A\ge Am+p(q-\gamma m)\), that is
+\(Av_0^{n}\ge p\,(q-\gamma m)\); the second gives \(A\le p\,(\gamma-v_0)\).
+If \(q-\gamma m\le0\), then \(\gamma\ge q/m\ge\frac n{n+1}\), because
+\(1-v_0^{n+1}\ge1-v_0^{n}\).  Otherwise
+\(p(q-\gamma m)\le Av_0^{n}\le p(\gamma-v_0)v_0^{n}\), whence
+\(q\le\gamma m+\gamma v_0^{n}-v_0^{n+1}=\gamma-v_0^{n+1}\) and
+\[
+ \gamma\ \ge\ q+v_0^{n+1}
+ =\frac n{n+1}+\frac{v_0^{n+1}}{n+1}\ \ge\ \frac n{n+1},
+\]
+which is \eqref{eq:ch50-mass-above-mean}.  The argument has to be run this
+way round.  The tempting bound \(v(s)\le\gamma s/A\) is available only for
+\(s\ge A\); on \([0,A]\) concavity together with \(v(0)\ge0\) forces the
+\emph{opposite} inequality \(v(s)\ge\gamma s/A\), so it cannot be
+integrated over \([0,A/\gamma]\).  Both estimates above are attained:
+\(v(s)=s\) gives \(v_0=0\) and \(\gamma=\frac n{n+1}\), while
+\(v(s)=\frac12(1+s)\) on \([0,1]\) with \(n=1\) gives \(v_0=\frac12\),
+\(A=\frac14\), \(q=\frac38\) and \(\gamma=\frac58=q+v_0^{2}\).
 
 \emph{Lower bound, step 2: concavity above the mean.}  For
 \(\tau\in[\bar\lambda,a]\), concavity of \(F^{1/n}\) and
@@ -1952,9 +1993,16 @@ Dirac mass; \(\chi\) is a translate of the trivial norm up to
 \begin{proof}
 By \eqref{eq:stability-J-L1-comparison} and
 \eqref{eq:ch50-dp-interpolation}, \(\|\chi\|_1=0\) is equivalent to
-\(J(\phi)=0\) and to \(\|\chi\|_p=0\) for every \(p\), since
-\(\|\chi\|_1\le\|\chi\|_p\le\|\chi\|_\infty\le2J\) by H\"older and the
-same computation as in \Cref{thm:ch50-J-L1}.  That \(J(\phi)=0\) forces
+\(J(\phi)=0\), by the two-sided comparison
+\eqref{eq:stability-J-L1-comparison}, and to \(\|\chi\|_p=0\) for every
+\(p\in[1,\infty]\): the centred \(L^1\) norm of a probability measure
+vanishes exactly when the measure is the Dirac mass at its own mean, and
+then every centred \(L^p\) norm vanishes.  (One may \emph{not} argue by
+\(\|\chi\|_\infty\le2J\); that inequality is false.  On
+\Cref{ex:ch50-p1-dnc} with \(c=\tfrac15\) and \(L=\cO(2)\) one has
+\(\bar\lambda=-c^2/4=-0.01\), \(\lambda_{\min}=-0.2\), \(J=0.01\) and
+\(\|\chi\|_\infty=0.19>0.02=2J\).  Only \eqref{eq:stability-J-L1-comparison},
+for \(p=1\), is available.)  That \(J(\phi)=0\) forces
 \(\phi\) constant is \Cref{cor:ch47-J-vanishes}.  A constant \(\phi\) has
 \(E=\sup\phi\), so \(\DHm_\chi\) has zero variance and is a Dirac mass by
 \eqref{eq:stability-spectral-lp}; and then
@@ -3265,10 +3313,12 @@ The implication
 \[
  M^{\NA}_B\ge\delta J\quad\Longrightarrow\quad D^{\NA}_B\ge\delta J
 \]
-would be in the wrong
-direction: it gives \(D\ge\delta J\) only where \(D=M\).  What is true, and
-what we import, is the converse: if \(D^{\NA}_B\ge\delta J\) on positive
-model metrics, then \(M^{\NA}_B\ge\delta J\) as well.  The mechanism is a
+is the deep one, and it is what we import.  The
+opposite implication, from \(D^{\NA}_B\ge\delta J\) to
+\(M^{\NA}_B\ge\delta J\), is immediate from
+\eqref{eq:stability-ding-less-M}, which has just been proved: \(M\ge D\ge
+\delta J\) pointwise.  Nothing needs to be imported for it.  For the deep
+direction the mechanism is a
 reduction to \emph{special} test configurations by the minimal model
 program: given \((\cX,\cL)\), one produces from it an anticanonical
 representative with no larger \(\DF\) and comparable \(J\), on which
@@ -3759,7 +3809,9 @@ filtered piece being positive exactly when the piece is nonzero for
 decreasing function.  Indeed, with \(\mathcal F^{mt}R_m
 =\{s:v(s)\ge mt\}\), the Duistermaat--Heckman measure of \(\chi_v\)
 satisfies \(\DHm_{\chi_v}([t,\infty))=V^{-1}\vol(L-tv)\) by
-\Cref{cor:ch33-dh-structure}\,(1) and \eqref{eq:ch33-okounkov-volume}; and
+\Cref{cor:ch33-dh-structure}\,(1) --- which gives the open tail, the two
+agreeing for all but the countably many \(t\) carrying an atom, which
+suffices for the integration below --- and \eqref{eq:ch33-okounkov-volume}; and
 for a probability measure supported in \([0,\infty)\) one has
 \(\int\lambda\,\rd\DHm=\int_0^\infty\DHm([t,\infty))\rd t\).  This gives
 \(\int\lambda\,\rd\DHm_{\chi_v}=V^{-1}\int_0^\infty\vol(L-tv)\rd t
@@ -4197,8 +4249,11 @@ which is \(\ge0\) on \((0,2)\) and vanishes only at \(c=1\).  And
  =\mu^*\operatorname{pr}_1^*\cO(2)-E
  =\cL_1 ,
 \]
-which is \Cref{def:ch50-df}'s anticanonical condition with \(c=1\) in
-\eqref{eq:stability-Ding}'s sense; the pair
+which is the anticanonical condition of \Cref{sec:ch50-anticanonical} with
+constant \(c=0\), the divisor \(\cX_0\) being principal and so contributing
+nothing to the line bundle --- but note that \(c\) is not read off the bundle:
+it is pinned by \Cref{lem:ch50-anticanonical-constant}, as the computation
+just below does.  The pair
 \((\cX,\cX_{0,\mathrm{red}})\) is log smooth, hence sublc.  This is
 \Cref{thm:stability-ding-mabuchi} and
 \Cref{lem:ch50-anticanonical-constant}: indeed
@@ -4999,7 +5054,7 @@ Duistermaat--Heckman measure of a filtration; concave transform &
 \Cref{sec:ch50-mabuchi,sec:ch50-ding}; proved here except
 \eqref{eq:stability-ding-M-uniform}\\
 special test configurations (Prop.~7.32, Thm.~8.6);
-\(D\ge\delta J\Rightarrow M\ge\delta J\) &
+\(M\ge\delta J\Rightarrow D\ge\delta J\) &
 \cite{BHJ17} &
 2015 pre., 2017 pub. &
 the coercive half of \eqref{eq:stability-ding-M-uniform}; uses

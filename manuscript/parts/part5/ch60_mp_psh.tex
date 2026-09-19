@@ -73,13 +73,36 @@ ramified scaling, maxima, and pullback then agree with
 analytic cone \(\mathcal H(\alpha)\) is false, as the following warning
 records.
 
+The parenthetical ``equivalently every'' in
+\Cref{def:mp-model-psh} is what makes that definition independent of a
+presentation, and its descent half is not formal in the transcendental
+K\"ahler setting, so it is recorded separately.
+
+\begin{lemma}[Model independence of relative nefness]
+\label{lem:mp-relative-nef-independent}
+Let \(\phi\in\PL(X^{\bethan})\).  If \eqref{eq:mp-relative-nef} holds on one
+model on which \(\phi=\phi_D\), then it holds on every such model.
+\end{lemma}
+
+\begin{proof}
 Relative nefness means that the restriction to every compact analytic
-subspace contained in a fiber is nef.  The definition is independent of the
-model because nefness is invariant under pullback by a proper modification.
-Conversely, nefness of the pullback descends under a proper modification by
-the analytic numerical criterion for nef classes (or, equivalently, by
-pushing down arbitrarily small K\"ahler perturbations).  A curve test alone
-would not justify this assertion on a nonprojective K\"ahler space.
+subspace contained in a fibre is nef.  Any two models on which \(\phi\) is
+represented are dominated by a third, so it is enough to compare a model
+with a proper modification of it.  Nefness is preserved under pullback by a
+proper modification, which gives one direction.  For the converse, nefness
+of the pullback descends along a proper modification by the analytic
+numerical criterion for nef classes; equivalently, one pushes down
+arbitrarily small K\"ahler perturbations and passes to the limit.  A curve
+test alone would not justify the descent on a nonprojective K\"ahler space,
+which is why the numerical criterion is used and not a family of curves.
+\end{proof}
+
+The corresponding statement for \(\mathcal H(\alpha)\) is false: pullback of
+a relatively K\"ahler class to a higher model is only relatively nef, not
+relatively K\"ahler.  The clause defining \(\mathcal H(\alpha)\) in
+\Cref{def:mp-model-psh} is therefore to be read as ``represented by a
+relatively K\"ahler class on \emph{some} model'', and only the nef cone
+carries the ``one (equivalently every)'' quantifier.
 
 \begin{warning}{Not the algebraic Fubini--Study locus}
 \label{warn:mp-h-not-fs}
@@ -234,6 +257,50 @@ For \(D=-cE_1\) with \(c>0\) sufficiently small,
 \]
 This construction is meaningful for a transcendental \(\alpha\); no
 polarization of \(X\) is required.
+
+Every coefficient is computable once \(Z\) is a point.  Let
+\(Z=\{p\}\) with \(X\) of dimension \(n\), so that
+\(E_0=\operatorname{Bl}_pX\), \(E_1\cong\mathbf P^n\), and
+\(b_0=b_1=1\).  Write \(A=\alpha_{\cX}\) and \(B=A-c[E_1]\).  Since
+\(E_1\) maps to a point, \(A|_{E_1}=0\), while
+\(E_1|_{E_1}=-h\) for the hyperplane class \(h\) on \(E_1\); hence
+\(B|_{E_1}=ch\) and \((B|_{E_1})^n=c^n\).  On the strict transform,
+\(B|_{E_0}=\rho^*\alpha-c\,e\) for the exceptional divisor
+\(e\subset\operatorname{Bl}_pX\), and \(\rho^*\alpha\cdot e=0\) with
+\(e^n=(-1)^{n-1}\), so \((B|_{E_0})^n=V_\alpha-c^n\).  Therefore
+\[
+ \MA_\alpha(\phi_D)
+ =\Bigl(1-\frac{c^n}{V_\alpha}\Bigr)\delta_{v_{E_0}}
+  +\frac{c^n}{V_\alpha}\,\delta_{v_{E_1}},
+\]
+which is a probability measure, as
+\Cref{prop:mp-model-ma-mass} requires.
+
+Taking \(X=\mathbf P^2\) and \(\alpha=c_1(\cO(1))\), so that
+\(n=2\) and \(V_\alpha=1\), the remaining invariants are numbers.  All
+mixed terms in \(B^{3}\) vanish --- \(A^3=0\) because \(A\) is pulled back
+from a surface, and \(A\cdot E_1=0\) on \(E_1\) --- leaving
+\(B^3=-c^3E_1^3=-c^3\).  Hence
+\[
+ \MA_\alpha(\phi_D)=(1-c^2)\delta_{v_{E_0}}+c^2\delta_{v_{E_1}},
+ \qquad
+ E_\alpha(\phi_D)=-\frac{c^3}{3},
+ \qquad
+ J_\alpha(\phi_D)=\frac{c^3}{3},
+\]
+the last because \(B\cdot A^2=0\).  Finally
+\(K_{\cX/(X\times\mathbf P^1)}=nE_1\) gives
+\(A^{\mathrm{tot}}(v_{E_1})=n+1\) and
+\(A^{\mathrm{tot}}(v_{E_0})=1\), so the reduced discrepancies are
+\(A^{\NA}_X(v_{E_1})=2\) and \(A^{\NA}_X(v_{E_0})=0\), and the entropy is
+\[
+ \Ent^{\NA}_\alpha(\phi_D)
+ =\int A^{\NA}_X\,\rd\MA_\alpha(\phi_D)=2c^2 .
+\]
+This one configuration instantiates
+\eqref{eq:mp-divisor-potential}, \eqref{eq:mp-model-ma},
+\eqref{eq:mp-energy-j} and the reduced-versus-total shift
+\eqref{eq:mp-total-reduced-mabuchi} in closed form.
 \end{example}
 
 \section{Mixed energy and the Zariski inequality}
@@ -458,6 +525,37 @@ makes the definition canonical.  It is increasing in each potential,
 upper semicontinuous, and continuous along decreasing nets
 \cite[Lemma~4.4.1 and the discussion following it]{MP24}.
 
+Definition \ref{def:mp-energy-j} was stated only for
+\(\phi\in\PL\cap\PSH(\alpha)\), because \eqref{eq:mp-mixed-pairing} needs
+model representatives.  The extended pairing removes that restriction, and
+the extension must be recorded before \(E_\alpha\) is evaluated at an
+arbitrary psh potential --- which is exactly what the next definition does.
+
+\begin{definition}[Energy and \(J\) at arbitrary psh potentials]
+\label{def:mp-energy-extended}
+For \(\phi\in\PSH(\alpha)\), set
+\[
+ E_\alpha(\phi)
+   :=\frac1{(n+1)V_\alpha}(\alpha,\phi)^{n+1}
+   \in\mathbf R\cup\{-\infty\},
+ \qquad
+ J_\alpha(\phi)
+   :=V_\alpha^{-1}(\alpha,\phi)(\alpha,0)^n-E_\alpha(\phi),
+\]
+the pairings being the extended ones of
+\eqref{eq:mp-extended-pairing}.
+\end{definition}
+
+On \(\PL\cap\PSH(\alpha)\) this agrees with
+\Cref{def:mp-energy-j}.  Indeed such a \(\phi\) is the limit of a
+decreasing net of dominants in \(\mathcal H(\alpha)\); the extended pairing
+is increasing in each slot and continuous along decreasing nets, so the
+infimum in \eqref{eq:mp-extended-pairing} is realized along that net and
+returns the model pairing \eqref{eq:mp-mixed-pairing}.  Every later use of
+\(E_\alpha\) and \(J_\alpha\) outside \(\PL\) --- beginning with
+\eqref{eq:mp-e1} itself --- is understood through
+\Cref{def:mp-energy-extended}.
+
 \begin{definition}[Finite energy]
 \label{def:mp-e1}
 The finite-energy class is
@@ -492,9 +590,10 @@ follow by monotone approximation.
 
 \section{Radial limits of complex psh rays}
 
-Fix a K\"ahler form \(\omega\in\alpha\).  An \(S^1\)-invariant psh ray
-\(U=(U_s)_{s>0}\) is viewed as a psh function on
-\(X\times\mathbb D^*\) using
+Fix a K\"ahler form \(\omega\in\alpha\).  An \(S^1\)-invariant
+\(\omega\)-psh ray \(U=(U_s)_{s>0}\), that is, one with
+\(U_s\in\PSH(X,\omega)\) for every \(s>0\), is viewed as a
+\(p_1^*\omega\)-psh function on \(X\times\mathbb D^*\) using
 \[
                          s=-\log|\tau|^2,
  \qquad                   \tau=\rme^{-s/2}.

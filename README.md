@@ -133,10 +133,16 @@ The earlier presentation-only build remains documented separately in
 `manuscript/editorial/solver_dossiers_20260901/chapter72_presentation_build_20260901/BUILD_REPORT.md`.
 
 The 3,478-page PDF is still a research draft, not a completed mathematical
-audit of the book. The remaining identified Chapter 16 barrier, weight and
-polar-limit proof repairs are tracked in
-`manuscript/editorial/chapter16_weighted_polar_rewrite_status_20260901.md`;
-their replacement proofs are being prepared outside the live manuscript.
+audit of the book. The five identified Chapter 16 barrier, weight and
+polar-limit proof repairs are no longer outstanding: they entered the live
+manuscript in commit `10ccff9` on 8 September 2026 and were independently
+re-derived line by line on 14 September 2026. The closed record, including
+the re-derivation of the compact-sublevel barrier, the real-parameter weight
+forms with their corrected derivative factors, the constant `C(k,a)`, and the
+fixed-measure polar limit, is
+`manuscript/editorial/chapter16_weighted_polar_rewrite_status_20260901.md`.
+That re-derivation certifies internal consistency only; it is not a
+production Rethlas gate and authorizes no theorem promotion.
 
 Downloaded reference copies, temporary build trees, TeX intermediate files,
 and superseded release PDFs are also intentionally excluded from version

@@ -189,8 +189,14 @@ stability of \(\PSH(X,\theta)\) under decreasing nets,
 \Cref{thm:ch21-decreasing-stability}.  These two together upgrade every
 statement about model functions to a statement about arbitrary psh
 functions whenever the source and target both satisfy the ample-class BFJ
-signature, and they are the only place where residue characteristic zero
-enters this chapter.
+signature.  Apart from the separability invoked in
+\Cref{lem:ch30-base-change-model}\,\cref{itm:ch30-bcmod:mult} and in
+\eqref{eq:ch30-efn}, they are the only place where residue characteristic
+zero enters this chapter.  (That second use is avoidable: for a complete
+discretely valued field \(ef=[K':K]\) holds with no separability hypothesis,
+\(R'\) being a finite free \(R\)-module, and \(\cO_{\cX,\eta_E}\) is
+excellent, being essentially of finite type over the complete discrete
+valuation ring \(R\).)
 
 \item\label{itm:ch30-import:ma}
 The bounded Monge--Amp\`ere operator \Cref{thm:bounded-ma-extension},
@@ -607,11 +613,14 @@ Relative nefness is preserved by pullback
 model forms and hence about \(\theta\)-psh model functions through
 \eqref{eq:ch30-pullback-ddc}.
 
-For ampleness of the pulled-back class, recall that a finite pullback of an
+For ampleness of the pulled-back class, recall that the pullback of an
 ample line bundle along a finite morphism is ample: if \(A\) is ample on
-\(X\) then \(f^*A\) is ample on \(Y\), because \(f\) is finite and
-\(f^*A\) is the pullback of an ample bundle along an affine morphism
-(\Cref{sec:ch20-imported}\,\cref{itm:ch20-import:ega}).  Applying this to
+\(X\) then \(f^*A\) is ample on \(Y\), because \(f\) is finite, hence
+quasi-affine, and the pullback of an ample sheaf along a quasi-affine
+morphism of noetherian schemes is ample \cite[II, 5.1.12]{EGAII}.  This is
+not \Cref{sec:ch20-imported}\,\cref{itm:ch20-import:ega}, which is the
+fibrewise openness of \emph{relative} ampleness and says nothing about
+pullback.  Applying this to
 a positive representative of \(\{\theta\}\) shows that \(f^*\{\theta\}\) is
 ample, and therefore that \eqref{eq:ch20-standing} holds on \(Y\) with
 reference form \(f^*\theta\).
@@ -2833,9 +2842,16 @@ property, \Cref{thm:ch30-continuous-descent} holds for arbitrary
 \(u:X^{\An}\to[-\infty,+\infty)\) not identically \(-\infty\)}, by the same
 two steps with \Cref{thm:bfj-decreasing-regularization} and
 \Cref{thm:ch21-decreasing-stability} in place of
-\Cref{thm:ch21-continuous-zhang}, since the averaging in Step~1 preserves
-monotonicity of a net only after passing to the net of finite minima, which
-is again a net of model functions by \Cref{prop:ch20-model-max}.
+\Cref{thm:ch21-continuous-zhang}.  No repair to Step~1 is needed: each
+\(g\in G\) acts by a homeomorphism of \(X_{K'}^{\An}\), so
+\(\psi_\alpha\geq\psi_\beta\) gives \(g^*\psi_\alpha\geq g^*\psi_\beta\), and
+a finite convex combination of decreasing nets over one index set is
+decreasing with limit the same combination of the limits, which is
+\(u\circ\pi\) by \(G\)-invariance.  One should \emph{not} pass to finite
+minima instead: a finite minimum of \(\theta\)-psh model functions is a model
+function but need not be \(\theta\)-psh --- already on \(\mathbf P^1\) the
+minimum of two tent functions has a concave corner --- and
+\Cref{prop:ch20-model-max} is a statement about finite \emph{maxima}.
 
 \emph{Infinite and non-Galois extensions.}  For an infinite algebraic
 extension \(L/K\) one applies the above to each finite Galois subextension
@@ -3346,7 +3362,8 @@ of the structure of that space.  Only the second has a fixed point, namely
 \begin{theorem}
 \label{thm:ch30-gauss-image}
 \index{Gauss extension!image}
-Assume \(k\) infinite --- in particular algebraically closed.  Let
+Assume \(k\) infinite --- which holds here, \(k\) being algebraically
+closed by the standing hypothesis of \Cref{sec:ch30-gauss-setting}.  Let
 \(\mathbf G_m(k)=k^\times\) act on \(K=k(\!(t)\!)\) by \(t\mapsto\lambda t\)
 and hence on \(X_K=X\times_kK\) over \(X\), and therefore on
 \(X_K^{\An}\).  Then
@@ -3796,7 +3813,10 @@ support \(\mathfrak m_0\), maps to the point of \(X_K^{\An}\) of support
 where \(x_c\) is the divisorial point with \(v(z)=c\), \(v(t)=1\).  On the
 trivially valued side, \eqref{eq:bj-model-ma-atomic} applied to
 \(\cY_c\) gives the same coefficients, namely
-\(\bigl((\cL_c+D)\cdot E_i\bigr)=0\) for \(i<c\) and \(=1\) for \(i=c\), so
+\(\bigl(\cL_c\cdot E_i\bigr)
+ =\bigl((\rho^*L_{\mathbf A^1}+D)\cdot E_i\bigr)=0\) for \(i<c\) and
+\(=1\) for \(i=c\) --- the twist \(D\) is already part of \(\cL_c\) and must
+not be added twice --- so
 \[
  \MA^{\mathrm u}_\omega(\phi)=\delta_{c\,\ord_0},
  \qquad\text{mass }1=V,
@@ -4208,9 +4228,12 @@ hypotheses, is \Cref{sec:ch30-descent}.
 examples \Cref{ex:ch30-power-map} and
 \Cref{ex:ch30-conic-base-change} both begin with mass-\(V\) measures and
 end with mass-\(dV\) and mass-\(V\) measures respectively, and the numbers
-alone do not say which operation was performed.  The invariant that
-distinguishes them is the degree of the induced extension of function
-fields.
+alone do not say which operation was performed.  What distinguishes them is
+\emph{not} the degree of the induced extension of function fields: that
+degree is \(d\) in the first case and \([K':K]\) in the second, both greater
+than one, and only the first appears in the mass.  It is whether the ground
+field --- and with it the residue field over which special-fibre degrees are
+taken --- has changed; see \Cref{rem:ch30-two-inputs}.
 
 \emph{From an equality of intersection numbers to an equality of measures}
 there is no arrow.  \Cref{prop:gauss-model-compatibility} states the
