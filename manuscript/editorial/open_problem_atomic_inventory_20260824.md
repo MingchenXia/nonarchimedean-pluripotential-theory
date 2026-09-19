@@ -2649,11 +2649,19 @@ P19.3 or alter the active-atom count.
   `cor:p213-residual-picard-stage-local-annular-tower-bt`,
   `cor:p213-residual-picard-stage-local-annular-tower-cover-bt`, and
   `cor:p213-residual-picard-stage-local-annular-tower-basis-bt`.
-  The remaining obstruction is stated rather than hidden: whole-space
-  regularity on an intermediate base is not known to imply the needed
-  regularity on every arbitrary open trivialization chart.  Thus the theorem
-  strictly enlarges the verified class without closing P21.3, and the active
-  count remains unchanged.
+  The stage-local hypothesis cannot be replaced by the corresponding
+  whole-space conclusion in general.  Proposition
+  `prop:p213-zero-current-smoothness-not-open-hereditary` gives a smooth
+  proper surface `X = (P^1_K)^an x D^an` on which every global continuous
+  zero-current function is constant, yet an ordinary product open carries
+  a continuous zero-current function which is not ordinary CLD-smooth.  A
+  good-reduction elliptic curve over
+  `K = completion(overline(C((t))))` supplies an explicit instance.  The
+  projection of this `X` to `(P^1_K)^an` is itself the proper smooth
+  curve-bundle stage allowed by the mixed exact-tower theorem.  Hence the
+  failure occurs on an exact intermediate base and proves that the v69
+  stage-local premise is mathematically necessary for that route.  This is
+  not a counterexample to P21.3, so the active count remains unchanged.
   The bare real-PL or GJR-harmonic outcomes occurring in P06.1/P06.2 remain
   G-local/weakly smooth and do not themselves give this ordinary CLD-smooth
   approximation: `prop:ch19-cld-smooth-harmonic-nonregularization` gives an
