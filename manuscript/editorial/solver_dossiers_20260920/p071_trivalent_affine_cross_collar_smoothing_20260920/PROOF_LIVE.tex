@@ -1,0 +1,120 @@
+\begin{proof}
+Write
+\[
+                  \ell_{ij}(r,s)=c+A(rv_i)+B(sw_j).
+\]
+For each pair $(i,j)$, the convex function $u_{ij}-\ell_{ij}$ vanishes on
+a nonempty open subset of the rectangle.  The zero linear form is therefore
+a subgradient there, and convexity gives
+\begin{equation}
+                         \ell_{ij}\leq u_{ij}
+                         \quad\text{on }[0,R_0]^2.
+ \label{eq:p071-cross-collar-affine-minorant}
+\end{equation}
+
+Choose a finite affine maximum representation
+\begin{equation}
+                  u_{ij}(r,s)=\max_{1\leq k\leq q_{ij}}
+                                  L_{ij,k}(r,s)
+ \label{eq:p071-cross-collar-polyhedral-maximum}
+\end{equation}
+on the rectangle.  Every $L_{ij,k}$ is an affine minorant of $u_{ij}$
+there.  In particular, on the cross-collar of
+\eqref{eq:p071-cross-collar-affine-data},
+\begin{equation}
+                         L_{ij,k}\leq\ell_{ij}.
+ \label{eq:p071-cross-collar-piece-gap}
+\end{equation}
+
+We use an exact regularized maximum.  Fix a nonnegative even
+$C^\infty$ function $\theta$ on $\mathbf R$, supported in $[-1,1]$ and
+having integral one.  For $q\geq1$ and $\varepsilon>0$, let
+\[
+ \rho_{\varepsilon,q}(t)
+   =\prod_{k=1}^q\varepsilon^{-1}\theta(t_k/\varepsilon),
+ \qquad
+ M_{\varepsilon,q}(x)
+   =\int_{\mathbf R^q}\max_k(x_k+t_k)
+      \rho_{\varepsilon,q}(t)\,\mathrm dt.
+\]
+Then $M_{\varepsilon,q}$ is smooth, convex, and nondecreasing in every
+coordinate, and
+\begin{align}
+ \max_kx_k&\leq M_{\varepsilon,q}(x)
+       \leq\max_kx_k+\varepsilon,
+ \label{eq:p071-cross-collar-regularized-max-bound}\\
+ M_{\varepsilon,q}(x)&=x_a
+ \quad\text{if}\quad x_a>x_k+2\varepsilon\quad(k\ne a).
+ \label{eq:p071-cross-collar-regularized-max-exactness}
+\end{align}
+Indeed, convolution preserves convexity and coordinatewise monotonicity;
+the lower bound is Jensen's inequality, the upper bound follows from the
+support of the mollifier, and the last assertion follows because the
+$a$-th entry remains the unique maximum throughout that support.
+
+Put
+\[
+ C_n=4^{-n},\qquad \varepsilon_n=\frac14C_n,
+ \qquad e_n=C_n+\varepsilon_n,
+ \qquad d_n=\sum_{k>n}e_k.
+\]
+Thus
+\begin{equation}
+                         d_n=e_{n+1}+d_{n+1}.
+ \label{eq:p071-cross-collar-tail-identity}
+\end{equation}
+On branch rectangle $(i,j)$ define
+\begin{equation}
+ g_{n,ij}=M_{\varepsilon_n,q_{ij}+1}
+   \bigl(\ell_{ij}+C_n,L_{ij,1},\ldots,L_{ij,q_{ij}}\bigr).
+ \label{eq:p071-cross-collar-smoothed-maximum}
+\end{equation}
+Equations \eqref{eq:p071-cross-collar-affine-minorant},
+\eqref{eq:p071-cross-collar-polyhedral-maximum}, and
+\eqref{eq:p071-cross-collar-regularized-max-bound} give
+\begin{equation}
+                   u_{ij}\leq g_{n,ij}\leq u_{ij}+e_n
+                   \quad\text{on }[0,R_0]^2.
+ \label{eq:p071-cross-collar-uniform-sandwich}
+\end{equation}
+
+On the cross-collar, \eqref{eq:p071-cross-collar-piece-gap} and
+$C_n>2\varepsilon_n$ show that the first entry of
+\eqref{eq:p071-cross-collar-smoothed-maximum} dominates every other entry
+by more than $2\varepsilon_n$.  Hence
+\eqref{eq:p071-cross-collar-regularized-max-exactness} gives
+\begin{equation}
+                         g_{n,ij}=\ell_{ij}+C_n
+                         \quad\text{if }\min\{r,s\}<\delta.
+ \label{eq:p071-cross-collar-exact-collar}
+\end{equation}
+The nine functions therefore glue smoothly across both node axes.  Every
+branch restriction is jointly convex because it is a convex nondecreasing
+function of affine functions.  Moreover, on the first node axis,
+\[
+ \sum_{i=1}^3\partial_rg_{n,ij}(0,s)
+   =\sum_{i=1}^3 A(v_i)=A(v_1+v_2+v_3)=0,
+\]
+and the analogous identity with $B$ proves the second balance.  Thus the
+glued function $g_n$ belongs to $\mathcal G_0(V)$.
+
+Finally set
+\[
+                              G_n=g_n+d_n.
+\]
+By \eqref{eq:p071-cross-collar-uniform-sandwich} and
+\eqref{eq:p071-cross-collar-tail-identity},
+\[
+ G_{n+1}\leq u+e_{n+1}+d_{n+1}
+            =u+d_n\leq g_n+d_n=G_n.
+\]
+The same sandwich gives
+\[
+                 0\leq G_n-u\leq e_n+d_n\longrightarrow0
+\]
+uniformly.  Equation \eqref{eq:p071-cross-collar-exact-collar} also shows
+that $G_n$ equals the ambient affine function
+$c+C_n+d_n+A(x)+B(y)$ on the fixed cross-collar.  This proves
+\eqref{eq:p071-cross-collar-monotone-approximation} and the stated
+first-stage membership.
+\end{proof}

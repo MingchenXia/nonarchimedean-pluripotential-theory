@@ -1840,6 +1840,26 @@ critical errors, and zero gaps; its checked item is
 `pi_d4506c7b32b78fce239673a8`.  P07.1 and all inventory counts remain
 unchanged.
 
+There is now also a first-stage positive result with both factors genuinely
+branched.  Proposition
+`prop:p071-trivalent-affine-cross-collar-smoothing` treats every continuous
+finite function which is convex and piecewise affine on the nine
+trivalent-product rectangles and agrees with one ambient affine function on
+a fixed collar of the two node axes.  Finite affine-maximum
+representations, a raised common minorant, exact regularized maxima, and a
+summable tail give a uniformly convergent decreasing sequence of smooth
+two-star generators on one fixed product neighbourhood.  Independent
+finite polyhedral mixed coupling is permitted away from the collar.  The
+remaining gap is to derive compatible collars from the stratified
+comparison inequalities rather than assume one.  The exact statement/proof
+SHA-256 values are
+`2e538f70b29d2ce359902f5ff16931d750112dc4e6a81903075c08e604b1296e` /
+`396d2be290d6262c68468c0b1e0490bf919ec3e504f4c79edd7797d29593f922`.
+The local `gpt-6-astra` / `xhigh` run returned final `correct`, zero
+critical errors, and zero gaps; its checked item is
+`pi_725a917f37c426b97fa2db13`.  P07.1 and all inventory counts remain
+unchanged.
+
 The exact CLD star may now also be combined with one nonempty convex
 polyhedron.  For every nonempty branch set \(B\), theorem
 `thm:p071-infinite-star-polyhedral-collapse` identifies the first-stage,
