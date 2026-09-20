@@ -1800,6 +1800,26 @@ zero critical errors, and zero gaps; its checked item is
 it exposed the shrinking-neighbourhood gap repaired by radial propagation.
 P07.1 and all inventory counts remain unchanged.
 
+The coupled condition is nevertheless finite-rank.  Proposition
+`prop:p071-double-node-support-plane-reduction` proves, for every
+continuous real-valued function on the trivalent product chart, that the
+complete balanced double-node Jensen family is equivalent to its subfamily
+with at most five atoms.  It is also equivalent to one ambient affine
+minorant touching at the double node.  The proof uses an extreme point of
+the weight polytope for the five-atom bound, then collarwise convex
+envelopes and a nested compact family of dual feasible sets for one common
+supporting plane.  An explicit affinely independent five-point balanced
+configuration shows that five is sharp for barycentre representation.
+Thus infinite atomic support is removed from the residual P07.1 mechanism;
+sufficiency and stratified regularization remain open.  The exact
+statement/proof SHA-256 values are
+`12b983557fd9a0da9665170a5423275412230b334cd003cbe8559f7b3344a1d9` /
+`ec523a5fbe05d10ddc5d905eb80da4f2ba89c02c3282f16373fe6ed3fa95b573`.
+The repaired local `gpt-6-astra` / `xhigh` run returned final
+`correct`, zero critical errors, and zero gaps; its checked item is
+`pi_34acd32abc0bfae9990b71d7`.  P07.1 and all inventory counts remain
+unchanged.
+
 The same trivalent product admits an exact stage-zero obstruction to an
 overstrong ambient reformulation.  Proposition
 `prop:p071-offcenter-convex-roof-obstruction` gives a smooth quadratic
