@@ -1800,6 +1800,26 @@ zero critical errors, and zero gaps; its checked item is
 it exposed the shrinking-neighbourhood gap repaired by radial propagation.
 P07.1 and all inventory counts remain unchanged.
 
+The same trivalent product admits an exact stage-zero obstruction to an
+overstrong ambient reformulation.  Proposition
+`prop:p071-offcenter-convex-roof-obstruction` gives a smooth quadratic
+generator whose nine branch Hessians are positive semidefinite and whose
+mixed-coefficient matrix has zero row and column sums.  Five rationally
+weighted atoms have ambient barycentre `(p_2(1/4),q_2(2))`, but their
+weighted function value lies below the central value by exactly `7169/688`.
+Thus the generated sheaf does not satisfy unrestricted off-centre
+ambient-barycentric Jensen inequalities, and the usual convex-roof extension
+to the ambient hull cannot supply the missing sufficiency theorem.  This
+does not contradict the double-node mixed inequality; it proves that the
+remaining comparison class must be stratified.  The exact statement/proof
+SHA-256 values are
+`8d97947f837ea1b4c306e44040371ca313c158ae92f37c0f2faa31ea12fd4d70` /
+`068e16e7e4a07c0865facec516b192893dbbb7ee0a14f89c6b681c553904147a`.
+The local `gpt-6-astra` / `xhigh` run returned final `correct`, zero
+critical errors, and zero gaps; its checked item is
+`pi_d4506c7b32b78fce239673a8`.  P07.1 and all inventory counts remain
+unchanged.
+
 The exact CLD star may now also be combined with one nonempty convex
 polyhedron.  For every nonempty branch set \(B\), theorem
 `thm:p071-infinite-star-polyhedral-collapse` identifies the first-stage,
