@@ -1566,7 +1566,9 @@ the residual scopes stated above.
   joint-convex-generator, Stone × exact CLD infinite-star, exact CLD
   infinite-star × open-convex-Euclidean and × convex-polyhedral, Stone ×
   exact CLD infinite-star × convex-polyhedral, and Stone × exact CLD
-  infinite-star × arbitrary-open-Euclidean joint-convex-generator, two
+  infinite-star × arbitrary-open-Euclidean joint-convex-generator, Stone ×
+  exact CLD infinite-star × generator-convex arbitrary-incidence
+  polyhedral-complex, two
   nonambient interval, exact CLD infinite-star, Stone--Euclidean,
   Stone--polyhedral, and generator-convex arbitrary-incidence
   polyhedral-complex cases]`
@@ -1743,6 +1745,34 @@ still excludes nonconstant Stone-affine directions, non-CLD or nonambient
 infinite stars, separately convex generators, and nonconvex or branched
 chamber gluings.  P07.1 and the active count therefore remain unchanged.
 
+The three-factor sheaf identity also transports through every local
+two-sided generator-preserving convex development.  Let $\Sigma$ be a
+possibly infinite Hausdorff face-to-face polyhedral complex, not assumed
+locally finite, whose complete generator germ at each point is identified in
+both directions with the single-chamber generator sheaf on a relatively open
+convex subset of one polyhedron.  Then
+`cor:p071-stone-infinite-star-generator-convex-collapse` identifies the
+first-stage, full generated, and chartwise comparison sheaves on
+$Z\times X_B\times|\Sigma|$.  Every germ has a fixed-neighbourhood
+decreasing generator sequence.  At a node, one countable active-branch set
+works simultaneously for the compact Stone family and the developed
+polyhedral variable.  The proof is germwise and uses no finite subdivision,
+so arbitrary incidence, infinitely many cells through every neighbourhood,
+and global chamber monodromy are allowed.  It does not produce a convex
+development for branched or singular lower links and does not cover
+nonconstant Stone-affine directions, non-CLD or nonambient stars, or
+separately convex generators.  P07.1 and the atom and tier counts remain
+unchanged.  The exact statement/proof SHA-256 values are
+`fceb1f33684cd431298d020b0be3649a4ef1f96d0f06719562660ab9fcbb7615` /
+`9a693cc3d087557132a23584817de1dc8018ce35c8e101948c548a5f87996513`.
+Dependency-closed local verification with `gpt-6-astra` at `xhigh` returned
+final `correct`, zero critical errors, and zero gaps.  The checked item is
+`pi_289ea5bf00583ce43371f809`; the request/response/header SHA-256 values
+are
+`ac6d606c41cd9c1945dff1486e7e366108406db4c8968752cd1903a1d06e3d83` /
+`2ca78da177806f66dc9d79f91891f68640d68c604a5f17c2ab26bb7a696c34df` /
+`a05e697bb3131b6d2db9d32d1b2da1e27750ec4e5638fda78a7052e06f44e738`.
+
 Two additional nonambient interval models are now controlled.  For the
 finite constant-collar endpoint, the comparison sheaf is the extended-real
 convex functions satisfying the boundary-minimum condition.  Its exact
@@ -1886,9 +1916,10 @@ P07.1 therefore retains branched or singular-link higher-dimensional
 chamber systems without a generator-preserving convex development,
 nonconstant affine structures on zero-dimensional parameters, products of
 an exact infinite star with active factors outside the verified
-single-polyhedron and arbitrary-open-Euclidean models, non-CLD infinite
-stars, and other nonambient local models outside the two exact interval
-structures, \(X_B\), and the verified locally constant-parameter models.
+single-polyhedron, arbitrary-open-Euclidean, and locally
+generator-convex-development models, non-CLD infinite stars, and other
+nonambient local models outside the two exact interval structures, \(X_B\),
+and the verified locally constant-parameter models.
 The residual obstruction is sharpened to the existence of a compatible
 local convex development and to fixed-neighbourhood globalization beyond
 it, rather than diagonal order.  It remains active.
