@@ -1586,7 +1586,8 @@ the residual scopes stated above.
   joint-convex-generator, Stone × finite-star × convex-polyhedral
   joint-convex-generator, Stone × exact CLD infinite-star, exact CLD
   infinite-star × open-convex-Euclidean, × convex-polyhedral, and × both
-  constant-collar endpoints, Stone ×
+  constant-collar endpoints, exact CLD infinite-star × bivalent exact CLD
+  star, Stone ×
   exact CLD infinite-star × convex-polyhedral, and Stone × exact CLD
   infinite-star × arbitrary-open-Euclidean joint-convex-generator, Stone ×
   exact CLD infinite-star × generator-convex arbitrary-incidence
@@ -1754,6 +1755,26 @@ proof bytes.  The theorem does not cover
 products of two branched stars, non-CLD or nonambient infinite stars, or
 nonconstant affine directions on an added Stone factor.  P07.1 and all
 inventory counts remain unchanged.
+
+An exact CLD star may now also be paired with a second exact CLD star when
+one factor is bivalent.  Theorem
+`thm:p071-bivalent-star-product-collapse` unfolds the two-branch factor to
+`[-infinity,+infinity]`.  At its node, equality of the two branch slices
+matches tangential derivatives and the bivalent balance law matches normal
+derivatives, so natural two-star generators become jointly convex across
+the unfolded coordinate.  The reverse approximation is supplied by the
+exact star--Euclidean theorem at finite unfolded points and by the exact
+star--infinite-collar theorem at either endpoint.  The other star has an
+arbitrary nonempty branch set, and every germ has a decreasing generator
+sequence on one fixed smaller product neighbourhood.  The exact
+statement/proof SHA-256 values are
+`20063aa4bb331d0b48d23824867d6fcc4ba54964c8bb6d746fb181b479f2135c` /
+`e3083a681f91a97b64ccb67ac7b8105a7e3ce5fce30c58eab68acfb4cac23750`.
+Dependency-closed local verification with `gpt-6-astra` at `xhigh` returned
+final `correct`, zero critical errors, and zero gaps; its checked item is
+`pi_48270fe4a3ce7d5ad5251d47`.  Products in which both node valences are at
+least three, non-CLD stars, and nonambient branch structures remain open.
+P07.1 and all inventory counts are unchanged.
 
 The exact CLD star may now also be combined with one nonempty convex
 polyhedron.  For every nonempty branch set \(B\), theorem
@@ -1984,8 +2005,9 @@ chamber systems without a generator-preserving convex development,
 nonconstant affine structures on zero-dimensional parameters, products of
 an exact infinite star with active factors outside the verified
 single-polyhedron, arbitrary-open-Euclidean, finite constant-collar
-endpoint, infinite constant-collar endpoint, and locally
-generator-convex-development models, non-CLD
+endpoint, infinite constant-collar endpoint, bivalent exact-star, and
+locally generator-convex-development models, products whose two star nodes
+both have valence at least three, non-CLD
 infinite stars, and other
 nonambient local models outside the two exact interval structures, \(X_B\),
 and the verified locally constant-parameter models.
