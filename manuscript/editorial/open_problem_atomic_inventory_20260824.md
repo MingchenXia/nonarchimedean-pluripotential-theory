@@ -734,7 +734,9 @@ either atom; see BMPS26, pp. 4 and 45.
   versions, including the latter's analytic-local version,
   algebraically closed closed-polydisc, arbitrary-field standard strict
   endpoint-polycylinder, arbitrary-radius scalar-stable endpoint-polycylinder,
-  smooth-proper-curve, and strict-open-polydisc product or locally trivial
+  smooth-proper-curve, arbitrary-field scalar-stable locally trivial proper
+  smooth curve-bundle descent, and strict-open-polydisc product or locally
+  trivial
   bundle or finite tower of such bundles, locally trivial projective-space
   bundles, locally trivial smooth proper split-toric bundles, or locally
   trivial proper smooth connected curve bundles over a published curve,
@@ -1328,7 +1330,9 @@ strict radial core, and the classification of boundary-control hypotheses
 weaker than scalar stability.  Higher-dimensional standard strict product
 endpoints, the scalar-stable arbitrary-radius products, and the algebraic-split
 scalar-stable invariant-toric range, including its analytic-local
-algebraic-split analytic-form version, is removed from the residual; the
+algebraic-split analytic-form version, together with scalar-stable proper
+smooth curve-bundle descent over arbitrary complete nontrivially valued
+fields, are removed from the residual; the
 unrestricted arbitrary-radius version is disproved.  The
 strict-open-disc descent proposition `prop:p062-open-disc-descent` also
 shows that a continuous zero-current function on
@@ -1490,6 +1494,23 @@ pluriharmonicity, real-PL regularity, and GJR harmonicity over a published
 curve.  This does not assert the result for arbitrary proper or nonproper
 curve fibres, arbitrary fibrations, or arbitrary nonproduct germs; the atom
 count, tier count, and queue position remain unchanged.
+Over an arbitrary complete nontrivially valued field,
+`prop:p062-scalar-stable-proper-curve-bundle-descent` now gives the exact
+replacement under a fibrewise scalar-stability hypothesis at every rigid
+base point.  Wanner comparison after completed algebraic closure makes the
+rigid fibre restrictions constant.  A closed point of the fibre curve gives
+a finite faithfully flat multisection; equalizer descent and rigid-point
+density replace the unavailable rational section, and a normalized top form
+on the fixed fibre descends the current identities.  The proposition makes
+no automatic current-ascent claim.  Its exact statement/proof SHA-256 values
+are `cce5a5ff689f110e02564ee155b75027c3eec06d0e484af8e86dba0662fe9564` /
+`b371852f0f87b4a1b382d6f67d792d8b34ba5299ee43e40323b01f7df8ede2d5`.
+The repaired standalone packet passed local `gpt-6-astra`/`xhigh`
+verification as item `pi_3cceee63c457c144abd9869c`, final `correct`, with
+zero critical errors and zero gaps.  The rejected first packet is retained
+because it exposed and records the false separability claim repaired in the
+accepted version.  The atom count, tier count, and queue position remain
+unchanged.
 The four exact bundle descents may also be iterated together.
 `thm:p062-mixed-bundle-towers-over-curves` allows every stage of a finite
 tower over a published curve to be a locally trivial standard strict
