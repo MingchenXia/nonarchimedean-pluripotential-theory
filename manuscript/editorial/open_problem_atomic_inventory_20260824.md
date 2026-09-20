@@ -1585,7 +1585,8 @@ the residual scopes stated above.
   finite ambient-star × open-convex-Euclidean and × convex-polyhedral
   joint-convex-generator, Stone × finite-star × convex-polyhedral
   joint-convex-generator, Stone × exact CLD infinite-star, exact CLD
-  infinite-star × open-convex-Euclidean and × convex-polyhedral, Stone ×
+  infinite-star × open-convex-Euclidean, × convex-polyhedral, and × finite
+  constant-collar endpoint, Stone ×
   exact CLD infinite-star × convex-polyhedral, and Stone × exact CLD
   infinite-star × arbitrary-open-Euclidean joint-convex-generator, Stone ×
   exact CLD infinite-star × generator-convex arbitrary-incidence
@@ -1708,6 +1709,27 @@ request/response/header SHA-256 values are
 `af8696b3af1527198e85a7559b592a310883a6911253225f8728aa3739cdbee8` /
 `e94df5b40ac7d3ae4f771fb708637466a38ba1898b30a712a85328fb26d7a8d7` /
 `794ea8f4c4fa06fb9f3a8a509cbbeb1020577224a26f327028dc45bfd45e5ff7`.
+
+The nonambient finite constant-collar endpoint may now be used as an active
+factor with the exact CLD infinite star.  Theorem
+`thm:p071-infinite-star-finite-collar-product-collapse` identifies the
+first-stage, full generated, and explicit endpoint-comparison sheaves on
+`X_B × [0,R_0)`.  The proof extends by the positive-part map to the verified
+star--Euclidean comparison class, refines its partial-Legendre construction
+to retain nonnegative slopes in the endpoint coordinate, and restores exact
+constant collars by nested smooth convex clamps.  The exact statement/proof
+SHA-256 values are
+`55480e4cfcb6f0aff57af1644b3b7d7974cbeb2b25054bbc8579569879eede9c` /
+`004b9441221acb56c5dba3c098d9fcb8140eadb7c6f5925b36e55608921aa0cd`.
+The repaired four-dependency local verification with `gpt-6-astra` at
+`xhigh` returned final `correct`, zero critical errors, and zero gaps; its
+checked item is `pi_dab08cd0ade65f20ea9867b4`.  The two rejected precursor
+requests are retained: the first lacked all prior theorem records, and the
+second exposed one further missing dependency and the need to distinguish
+node, ordinary-branch, and full-endpoint compact cores.  The theorem does
+not treat the constant-collar endpoint at `-infinity`, products of two
+branched stars, non-CLD infinite stars, or nonconstant affine directions on
+an added Stone factor.  P07.1 and all inventory counts remain unchanged.
 
 The exact CLD star may now also be combined with one nonempty convex
 polyhedron.  For every nonempty branch set \(B\), theorem
@@ -1937,8 +1959,9 @@ P07.1 therefore retains branched or singular-link higher-dimensional
 chamber systems without a generator-preserving convex development,
 nonconstant affine structures on zero-dimensional parameters, products of
 an exact infinite star with active factors outside the verified
-single-polyhedron, arbitrary-open-Euclidean, and locally
-generator-convex-development models, non-CLD infinite stars, and other
+single-polyhedron, arbitrary-open-Euclidean, finite constant-collar
+endpoint, and locally generator-convex-development models, non-CLD
+infinite stars, and other
 nonambient local models outside the two exact interval structures, \(X_B\),
 and the verified locally constant-parameter models.
 The residual obstruction is sharpened to the existence of a compatible
