@@ -1776,6 +1776,30 @@ final `correct`, zero critical errors, and zero gaps; its checked item is
 least three, non-CLD stars, and nonambient branch structures remain open.
 P07.1 and all inventory counts are unchanged.
 
+The minimal remaining product of two trivalent exact-star node charts now
+has a sharp necessary comparison condition.  Proposition
+`prop:p071-trivalent-double-junction-obstruction` proves that every section
+of the full generated sheaf satisfies the mixed Jensen inequality for each
+finite atomic configuration whose radial marginals are balanced in both
+stars.  The hierarchy step is uniform despite shrinking local witnesses:
+simultaneous radial scaling makes the weighted value convex in the scale,
+so a local minimum at the double node propagates across the fixed product
+chart.  The explicit function
+`u_ij(r,s)=r+s-3 delta_ij min(r,s)` is jointly convex on all nine rectangles
+and passes both complete one-star--line junction families, but the three
+equally weighted diagonal atoms violate the mixed condition.  Hence separate
+iteration of the one-factor comparison tests cannot solve the remaining
+two-star case; coupled double-junction moments are mandatory.  Sufficiency
+of those conditions remains open.  The exact statement/proof SHA-256 values
+are
+`160f5a469a9a43cc0750932b40ba36108d547791dbd0e1a55eeba3221c7315f0` /
+`563f8b4992f16d95623684533cf4d126ecc74d9d0acf2a4ec527cb6b87318683`.
+The repaired local `gpt-6-astra` / `xhigh` run returned final `correct`,
+zero critical errors, and zero gaps; its checked item is
+`pi_5cdbc27108d6b165871775d9`.  The rejected precursor is retained because
+it exposed the shrinking-neighbourhood gap repaired by radial propagation.
+P07.1 and all inventory counts remain unchanged.
+
 The exact CLD star may now also be combined with one nonempty convex
 polyhedron.  For every nonempty branch set \(B\), theorem
 `thm:p071-infinite-star-polyhedral-collapse` identifies the first-stage,
