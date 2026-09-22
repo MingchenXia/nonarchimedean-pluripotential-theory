@@ -4,6 +4,20 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
+**Fresh-clone status, 22 September 2026:** the current Git source has one
+missing Chapter 70 input, `p122_curve_ideal_psh_functoriality_20260911/CURVE_PSH.tex`,
+and therefore does not currently reproduce the full builds recorded below.
+The source check now fails explicitly for this missing file and its thirteen
+unresolved references. Recovery is tracked in
+[`manuscript/editorial/continuation_20260922.md`](manuscript/editorial/continuation_20260922.md).
+The current checked editorial inventory is 46 active atoms in 14 formal
+problem environments, with tiers `(0,5,8,16,17)`.
+
+The same continuation adds a worked Chapter 16 example explaining the
+convexity-forced affine region and nonseparable mixed terms in the latest
+two-star smoothing proposition. Its scoped compilation and visual checks
+are recorded separately from the outstanding full-book build.
+
 The last clean 24 August 2026 release snapshot passed the final structural
 audit and produced a 3,081-page PDF from its exact 101-file production-source
 closure.  That snapshot records nine mathematical production Rethlas

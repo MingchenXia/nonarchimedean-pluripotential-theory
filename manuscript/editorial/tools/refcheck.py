@@ -1,90 +1,123 @@
 #!/usr/bin/env python3
-r"""Cross-reference checker for the monograph.
+r"""Check the actual TeX input closure of the monograph.
 
-Run from manuscript/:   python3 editorial/tools/refcheck.py
-
-Resolves the ACTUAL input graph starting at book.tex, following \input,
-\include and the book's own \draftinclude macro transitively.  This matters:
-several chapters \input files under editorial/ (solver dossiers, rethlas
-packets), so a checker that globs parts/+appendices/ alone reports hundreds
-of false "dangling" references -- and one that globs editorial/** instead is
-too permissive, since not every packet there is actually inputted.
-
-Reports: build closure size, label count, multiply-defined labels, dangling
-references, per-file environment balance, brace delta and \tag{} sequences.
+Run from manuscript/: python3 editorial/tools/refcheck.py
+Missing inputs, duplicate labels, dangling references, and structural
+defects return a nonzero exit status. Commented TeX is not part of the build.
 """
-import re, io, os, sys
+import os
+import re
 from collections import Counter
 
 PAT = re.compile(r'\\(?:input|include|draftinclude)\{([^}]*)\}')
 
-def read(p):
-    for cand in (p, p + '.tex'):
-        if os.path.isfile(cand):
-            return cand, io.open(cand, encoding='utf-8', errors='replace').read()
+
+def uncommented(text):
+    lines = []
+    for line in text.splitlines(keepends=True):
+        for index, char in enumerate(line):
+            if char != '%':
+                continue
+            cursor = index - 1
+            while cursor >= 0 and line[cursor] == '\\':
+                cursor -= 1
+            if (index - cursor - 1) % 2 == 0:
+                line = line[:index] + ('\n' if line.endswith('\n') else '')
+                break
+        lines.append(line)
+    return ''.join(lines)
+
+
+def read(path):
+    for candidate in (path, path + '.tex'):
+        if os.path.isfile(candidate):
+            candidate = os.path.normpath(candidate)
+            with open(candidate, encoding='utf-8') as stream:
+                return candidate, stream.read()
     return None, None
 
-def closure(root='book.tex'):
-    seen, stack, visited = [], [root], set()
-    while stack:
-        f, s = read(stack.pop())
-        if f is None or f in visited:
-            continue
-        visited.add(f); seen.append(f)
-        stack.extend(m.strip() for m in PAT.findall(s) if not m.startswith('#'))
-    return seen
 
-def refs_used(s):
-    used = set(re.findall(r'\\(?:C?ref|eqref)\{([^}]*)\}', s))
-    multi = set()
-    for u in list(used):
-        if ',' in u:
-            used.discard(u); multi |= {x.strip() for x in u.split(',')}
-    return used | multi
+def scan_closure(root='book.tex'):
+    files, missing, visited = [], [], set()
+    stack = [(None, root)]
+    while stack:
+        parent, requested = stack.pop()
+        filename, source = read(requested)
+        if filename is None:
+            missing.append((parent, requested))
+            continue
+        if filename in visited:
+            continue
+        visited.add(filename)
+        files.append(filename)
+        for child in PAT.findall(uncommented(source)):
+            child = child.strip()
+            # The definition of \draftinclude contains a literal #1 argument.
+            if not child.startswith('#'):
+                stack.append((filename, child))
+    return files, missing
+
+
+def closure(root='book.tex'):
+    files, missing = scan_closure(root)
+    if missing:
+        raise FileNotFoundError('Missing TeX inputs: ' + ', '.join(p for _, p in missing))
+    return files
+
+
+def refs_used(source):
+    groups = re.findall(
+        r'\\(?:[cC]ref|ref|eqref|pageref|autoref)\*?\{([^}]*)\}',
+        uncommented(source),
+    )
+    return {label.strip() for group in groups for label in group.split(',')}
+
 
 def main():
-    files = closure()
-    labs, srcof = Counter(), {}
-    for f in files:
-        s = io.open(f, encoding='utf-8', errors='replace').read()
-        for L in re.findall(r'\\label\{([^}]*)\}', s):
-            labs[L] += 1; srcof.setdefault(L, []).append(f)
-    dups = sorted(k for k, v in labs.items() if v > 1)
-    print("files in build closure: %d" % len(files))
-    print("labels in closure:      %d" % len(labs))
-    print("multiply defined:       %d" % len(dups))
-    for k in dups:
-        print("    %s -> %s" % (k, [os.path.basename(x) for x in srcof[k]]))
+    files, missing = scan_closure()
+    sources = {filename: uncommented(read(filename)[1]) for filename in files}
+    labels, source_of = Counter(), {}
+    for filename, source in sources.items():
+        for label in re.findall(r'\\label\{([^}]*)\}', source):
+            labels[label] += 1
+            source_of.setdefault(label, []).append(filename)
+    duplicates = sorted(label for label, count in labels.items() if count > 1)
+    print('files in build closure: %d' % len(files))
+    print('missing inputs:        %d' % len(missing))
+    for parent, requested in missing:
+        print('MISSING %s -> %s' % (parent or '<root>', requested))
+    print('labels in closure:      %d' % len(labels))
+    print('multiply defined:      %d' % len(duplicates))
+    for label in duplicates:
+        print('    %s -> %s' % (label, source_of[label]))
 
-    S = set(labs); dangling = 0
-    for f in files:
-        s = io.open(f, encoding='utf-8', errors='replace').read()
-        miss = sorted(u for u in refs_used(s) if u not in S and '%' not in u)
-        if miss:
-            dangling += len(miss); print("DANGLING %s: %s" % (f, miss))
-    print("dangling references:    %d" % dangling)
+    dangling = 0
+    for filename, source in sources.items():
+        absent = sorted(refs_used(source) - set(labels))
+        if absent:
+            dangling += len(absent)
+            print('DANGLING %s: %s' % (filename, absent))
+    print('dangling references:    %d' % dangling)
 
-    print("--- per-file structure ---")
+    print('--- per-file structure ---')
     issues = 0
-    for f in files:
-        s = io.open(f, encoding='utf-8', errors='replace').read()
-        op = Counter(re.findall(r'\\begin\{([a-zA-Z*]+)\}', s))
-        cl = Counter(re.findall(r'\\end\{([a-zA-Z*]+)\}', s))
-        env = dict(op - cl) or dict(cl - op)
-        t = re.sub(r'\\[{}]', '', s)
-        br = t.count('{') - t.count('}')
-        tags = re.findall(r'\\tag\{\d+\.(\d+[A-Za-z]?)\}', s)
-        tagbases = [int(re.match(r'\d+', tag).group()) for tag in tags]
-        tagbad = (
-            bool(tags)
-            and (tagbases != sorted(tagbases) or len(tags) != len(set(tags)))
-        )
-        if env or br or tagbad:
+    for filename, source in sources.items():
+        opened = Counter(re.findall(r'\\begin\{([a-zA-Z*]+)\}', source))
+        closed = Counter(re.findall(r'\\end\{([a-zA-Z*]+)\}', source))
+        environments = dict(opened - closed) or dict(closed - opened)
+        unescaped = re.sub(r'\\[{}]', '', source)
+        braces = unescaped.count('{') - unescaped.count('}')
+        tags = re.findall(r'\\tag\{\d+\.(\d+[A-Za-z]?)\}', source)
+        bases = [int(re.match(r'\d+', tag).group()) for tag in tags]
+        bad_tags = bool(tags) and (bases != sorted(bases) or len(tags) != len(set(tags)))
+        if environments or braces or bad_tags:
             issues += 1
-            print("%s: env=%s braces=%d tags=%s" %
-                  (f, env or 'ok', br, tags if tagbad else 'ok'))
+            print('%s: env=%s braces=%d tags=%s' % (
+                filename, environments or 'ok', braces, tags if bad_tags else 'ok'))
     if not issues:
-        print("all clean")
+        print('all clean')
+    return int(bool(missing or duplicates or dangling or issues))
+
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())
