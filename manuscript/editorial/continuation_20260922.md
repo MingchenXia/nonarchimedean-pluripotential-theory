@@ -85,16 +85,32 @@ incomplete graph.
 
 Temporary build drivers, logs, and PDFs follow the existing ignore rules.
 
+## Chapter 60: relative numerical nefness
+
+The numerical reduction in `thm:mp-model-closedness` now has a detailed
+proof using ambient Kähler test classes, fibrewise positivity, base-class
+correction, and a uniform shrinking parameter. The normalization in the
+polynomial identity is checked explicitly; a printed normalization slip in
+the primary source is recorded rather than repeated. The analytic-cycle
+core remains an import with its actually checked preprint version specified.
+
+The [source and validation audit](ch60_relative_nef_audit_20260922.md)
+records exact published Demailly–Păun locators, the distinction between the
+import and the reconstructed reduction, and the second-pass checks. The
+84-page scoped Chapter 60 build has no overfull box or unresolved citation;
+its two external-reference occurrences are inherited from the scoped
+baseline. The revised proof and the energy display were visually checked.
+This does not repair the missing Chapter 70 source or constitute a full build.
+
 ## Next work
 
 1. Restore the missing Chapter 70 source from the original working copy,
    retaining its proof and provenance. Re-run the strict source check and
    a complete LaTeX/BibTeX/MakeIndex build before claiming reproducibility.
-2. Continue the pending Chapter 60 numerical-nefness source audit. The
-   relevant linear criterion occurs in Demailly–Păun's published paper,
-   Corollary 0.4 and Theorem 4.3(iii). The ambient-versus-component Kähler
-   test classes must still be checked in the imported relative argument;
-   locating the theorem alone is not a proof of that reduction.
+2. Continue Chapter 60 with the model-independence lemma: replace the
+   compressed descent sentence by an explicit argument for proper
+   modifications, using the full analytic-cycle criterion rather than a
+   curve test or an unjustified pushdown of smooth positive forms.
 3. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from the stratified comparison
    conditions. No extension beyond the current hypotheses is asserted here.

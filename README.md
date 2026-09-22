@@ -17,6 +17,9 @@ The same continuation adds a worked Chapter 16 example explaining the
 convexity-forced affine region and nonseparable mixed terms in the latest
 two-star smoothing proposition. Its scoped compilation and visual checks
 are recorded separately from the outstanding full-book build.
+Chapter 60 now also spells out the relative numerical nefness reduction,
+with exact source locators, a checked normalization, and a separate
+[chapter audit](manuscript/editorial/ch60_relative_nef_audit_20260922.md).
 
 The last clean 24 August 2026 release snapshot passed the final structural
 audit and produced a 3,081-page PDF from its exact 101-file production-source

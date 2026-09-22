@@ -1733,3 +1733,17 @@ active work in progress.
 - `prop:ch47-skeletal-admissible`(i): boundedness of `T_\omega` on `\Delta_X`.
 - `thm:bj-mixed-ma`: `\PSH(\theta_i)` vs `\cE^1(\theta_i)` hypothesis.
 - `rem:ch46-equality-scope`: attribution.
+
+
+## 2026-09-22 — Chapter 60 relative numerical criterion
+
+The September 15 uncertainty concerning `thm:mp-model-closedness` is resolved
+in its stated smooth snc model setting. The exact linear criterion is
+Demailly–Păun Theorem 4.3(iii), and the relative reduction for ambient Kähler
+test classes is now written out. See
+[ch60_relative_nef_audit_20260922.md](ch60_relative_nef_audit_20260922.md)
+for the source normalization correction, proof dependencies, and scoped
+validation. The analytic-cycle core remains imported; the checked locator
+is explicitly identified as arXiv version 2 of `MP24`. No research problem
+is retired. Whole-book reproduction still awaits recovery of the missing
+Chapter 70 `CURVE_PSH.tex` source.
