@@ -137,14 +137,13 @@ in \Cref{app:normalizations} and none of them optional.
 outgoing slopes}, \eqref{eq:graph-laplacian}; a convex kink therefore has
 positive mass, and a harmonic function has vanishing outgoing-slope sums.
 \item\label{itm:ch19-norm:lattice} \emph{Lebesgue measure on
-\(N_{\mathbf R}\) is lattice-normalized}: a fundamental parallelepiped of
-\(N\) has volume \(1\), and lengths on a skeleton are lattice lengths --- which, on a dual
-complex with nonreduced special fibre, differ from the analytic length
-\(1/(b_ib_j)\) relevant to \(\Delta\) by the factor \(\gcd(b_i,b_j)\),
-though not in any example of this chapter, where every \(b\) is one
-(\Cref{rem:lattice-length}) --- and not
-Euclidean ones (\Cref{def:ch11-lattice-measure},
-\Cref{rem:lattice-length}).
+$N_{\mathbf R}$ is lattice-normalized}: a fundamental parallelepiped
+of $N$ has volume one (\Cref{def:ch11-lattice-measure}).
+On a strictly semistable curve edge $xy=a$, the length is
+$-\log|a|$ and the slope parameter is $-\log|x|$.
+The residue-degree weights and the nonreduced-model length convention
+are specified in \Cref{sec:ch19-graph-laplacian}; the distinction
+from primitive lattice length is recorded in \Cref{rem:lattice-length}.
 \item\label{itm:ch19-norm:factorial} \emph{No probability normalization.}
 The top wedge of \(n\) Chern currents of an ample \(L\) has mass \((L^n)\),
 which in the toric case is \(n!\vol_M(P)\), not \(\vol_M(P)\); the factor
@@ -180,157 +179,225 @@ limitations table, \Cref{sec:ch19-ledger} the comparison ledger, and
 \section{Curves and graph Laplacians}
 \label{sec:ch19-curves}
 
-Let \(C\) be a smooth proper curve over a complete nontrivially valued field,
-and suppose first that a finite extension of the ground field gives a strictly
-semistable model \(\mathfrak C\).  Its skeleton \(\Gamma\) is a finite metric
-graph, and the retraction is denoted
-\(\tau:C^{\mathrm{an}}\to\Gamma\).
+Let $C$ be a smooth proper curve over a complete nontrivially valued
+field $K$, and fix a strictly semistable formal model $\mathfrak C$ over
+$K^\circ$.  Its skeleton and retraction are denoted by
+$\Gamma$ and $\tau:C^{\An}\to\Gamma$.
+If a model exists only after extending $K$, these objects initially
+belong to the base-changed curve.  We specify below how the formulas
+descend when the model is defined over $K$.
 
-\subsection{The geometry behind the two-line answer}
+\subsection{The geometry behind the calculation}
 \label{sec:ch19-curve-geometry}
 
-Before any formula, it is worth saying what makes dimension one special, and
-why the answer is a graph Laplacian rather than something more elaborate.
+The skeleton is attached to the chosen model.  Over an algebraically
+closed field, its complement is a union of open discs; over a general
+field this description is made after scalar extension.
+A model function $u=F\circ\tau$ is constant along the branches outside
+$\Gamma$.  Its curvature is supported on $\Gamma$, but computing it
+against a smooth test function may require a larger skeleton adapted
+to that test function.  This distinction is used in the proof below.
 
-A smooth proper curve has, by semistable reduction
-(\Cref{thm:skeleton-deformation} and the discussion of
-\Cref{sec:ch08-semistable-reduction}), a canonical deformation retraction
-onto a finite metric graph.  Away from that graph, \(C^{\An}\) is a disjoint
-union of open discs.  For a model function, or more generally a function
-that factors through this retraction, the disc fibres contribute nothing to
-curvature, so its curvature lives on \(\Gamma\).  This restriction is
-essential: a general subharmonic function on a curve need not factor through
-one fixed finite skeleton.  For skeletal functions the whole of
-\Cref{chap:cld-currents,chap:cld-poincare-lelong} collapses to the vertex
-computation of \Cref{lem:ch15-vertex-atom}: a \((1,1)\)-current is a
-measure, and its atom at a vertex is the weighted sum of outgoing slopes.
-
-Two consequences are used repeatedly below.  First, positivity of the
-curvature of a model or piecewise affine skeletal function becomes finitely
-many numerical inequalities, one per vertex.  Second, the maximum principle
-\Cref{thm:ch15-max-onedim} is available for the curve-test class, which is
-what enters the comparison theorem of \Cref{sec:ch19-wanner}.
+The resulting curvature current is a finite signed measure with atoms
+given by slopes.  This conclusion concerns the specified model
+functions: a general $(1,1)$-current on a curve is a distribution,
+and need not be a measure.  Likewise, a continuous subharmonic function
+need not factor through one fixed finite skeleton.
 
 \subsection{The graph Laplacian}
 \label{sec:ch19-graph-laplacian}
 
-For a continuous piecewise affine function \(F\) on \(\Gamma\), define
-\begin{equation}
- \Delta_\Gamma F
-     =\sum_{v\in\Gamma}
-        \left(\sum_{e\ni v}m_e
-          \frac{\partial F}{\partial n_{v,e}}\right)\delta_v.
-\label{eq:cld-curve-graph-laplacian}
-\end{equation}
-After inserting vertices at all break points, the sum is finite.  An interior
-point of an edge is treated as a two-valent vertex; its mass is the jump of
-the derivative.  The sign in \eqref{eq:cld-curve-graph-laplacian} is chosen so that a
-convex kink has positive mass.
+Give an edge coming from a node chart $xy=a$ its annular length
+$\ell_e=-\log|a|$.  A coordinate along it is $t=-\log|x|$;
+the opposite orientation replaces $t$ by $\ell_e-t$.
+Let $k=\widetilde K$.  For a node $q_e$ of a strictly semistable
+model, the calibration weight is
+\[
+                         m_e=[\kappa(q_e):k].
+\]
+The extension here is separable: in a semistable chart the node
+stratum is \'etale over $k$.  After extension to a completed algebraic
+closure $\Omega$ of $K$, the edge has $m_e$ geometric lifts, each of
+weight one and the same annular length.  Thus $m_e=1$ over an
+algebraically closed residue field, or for a rational node; strict
+semistability alone does not force that value.
+This is the curve case of
+\Cref{prop:trop-calibration-base-change}.
 
-Here \(m_e\) is the calibration weight of the edge \(e\), equal to \(1\) for
-the skeleton of a strictly semistable model but not in general
-(\Cref{def:trop-canonical-calibration}), and
-\(\partial F/\partial n_{v,e}\) is the outgoing slope measured in the lattice
-length of \(e\).  With those two conventions,
-\eqref{eq:cld-curve-graph-laplacian} is verbatim
-\eqref{eq:graph-laplacian}, and the total mass vanishes:
+For a continuous piecewise affine function $F$ on $\Gamma$, define
+\begin{equation}
+\label{eq:cld-curve-graph-laplacian}
+ \Delta_\Gamma F
+   =\sum_{v\in\Gamma}
+      \left(\sum_{e\ni v}m_e\,d_eF(v)\right)\delta_v ,
+\end{equation}
+where $d_eF(v)$ is the outgoing derivative in annular length.
+The inner sum is over edge germs, so a loop contributes twice.
+After subdivision at all break points, the sum is finite.
+A convex kink has positive mass, and the two endpoint contributions
+of each affine edge cancel.  Consequently
 \begin{equation}
 \label{eq:ch19-lap-mass-zero}
- \Delta_\Gamma F(\Gamma)=0
+                          \Delta_\Gamma F(\Gamma)=0 .
 \end{equation}
-for every continuous piecewise affine \(F\), because each edge contributes
-its two endpoint slopes with opposite signs.  Identity
-\eqref{eq:ch19-lap-mass-zero} is \eqref{eq:lap-mass-zero}; it is the reason
-the mass of a curvature measure depends only on the line bundle and not on
-the metric.
+This is the weighted version of \eqref{eq:graph-laplacian}.
+Graph measures will also be viewed as measures on $C^{\An}$ by the
+inclusion $\Gamma\hookrightarrow C^{\An}$.
 
-\begin{proposition}\label{prop:skeletal-curvature-curve}
-If \(u=F\circ\tau\) is a model function, then
+For later use, write $p:C_\Omega^{\An}\to C^{\An}$ and
+$q:\Gamma_\Omega\to\Gamma$ for the maps under scalar extension.
+The semistable coordinates give
+$\tau\circ p=q\circ\tau_\Omega$.
+Each lifted edge maps isometrically to its original edge, since
+the absolute value on $K$ has not been rescaled.  Counting the
+geometric edge germs over a vertex gives
+\begin{equation}
+\label{eq:ch19-graph-scalar-descent}
+                 q_*\Delta_{\Gamma_\Omega}(F\circ q)
+                              =\Delta_\Gamma F .
+\end{equation}
+Indeed, the derivative along a lift of $e$ is $d_eF(v)$, and summing
+over all vertices above $v$ counts exactly $m_e$ such lifts.
+The assertion also holds at a subdivision point.
+
+\begin{proposition}
+\label{prop:skeletal-curvature-curve}
+If $u=F\circ\tau$ is a model function, then
 \[
-                              \dprimeddprime[u]=\Delta_\Gamma F.
+                           \dprimeddprime[u]=\Delta_\Gamma F .
 \]
-If \(u=-\log\|1\|\) is induced by a vertical line bundle
-\(\mathfrak M\) on \(\mathfrak C\), the coefficient at the vertex
-corresponding to a component \(Y\) of \(\mathfrak C_s\) is the degree of
-\(\mathfrak M|_Y\), with the special-fibre multiplicity included in the
-nonreduced case.
+If $u=-\log\|1\|_{\mathfrak M}$ is represented by a vertical line
+bundle $\mathfrak M$ on $\mathfrak C$, the coefficient at the vertex
+$x_Y$ of a component $Y$ is $\deg_k(\mathfrak M|_Y)$.
+For a rational model metric on a tensor power, this coefficient is
+divided by that tensor power.
 \end{proposition}
+
 \begin{proof}
-\emph{Step 1: reduction to the skeleton.}  Let $\varphi$ be a smooth test
-function on $C^{\An}$ with compact support.  Since $u=F\circ\tau$ is constant
-on the fibres of $\tau$ and $\tau$ is the retraction of a strictly semistable
-skeleton, the current $[u]$ is the pushforward of a current on $\Gamma$; by
-\Cref{prop:ch13-skeletal-faithful} the pairing
-$\langle\dprimeddprime[u],\varphi\rangle$ equals the corresponding pairing on
-$\Gamma$ against $\tau_*\varphi$, and the open discs of
-$C^{\An}\setminus\Gamma$ contribute nothing, because a smooth $(1,1)$-form on
-a disc pairs to zero against a function pulled back from a point.  Thus the
-computation may be carried out on the metric graph $\Gamma$, which is a
-boundaryless one-dimensional tropical space with unit weights
-(\Cref{ex:ch10-circle} for the circle, and the same argument in general).
+First suppose that $K$ is algebraically closed, so all edge weights
+are one.  Fix a smooth test function $\psi$ on $C^{\An}$.
+Choose a compact skeleton $\Sigma\supseteq\Gamma$ adapted to $\psi$:
+$\psi$ is constant on every component of the complement, and
+$\Sigma$ supports its differential forms.
+The existence of such a skeleton, and a finite subdivision on which
+the restrictions of $\psi$ are smooth in annular coordinates, are
+\cite[Lemma~18.2.14(a) and the calculation preceding
+Lemma~18.2.17]{CLD25}.  The function $u$ is affine on its subdivided
+edges and is constant along every added branch.
 
-\emph{Step 2: the vertex atom.}  Insert vertices at every break point of $F$,
-so that $F$ is affine on each closed edge.  On the interior of an edge, the
-edgewise second derivative of $F$ vanishes, so by \Cref{lem:ch15-vertex-atom}
-the current $\dprimeddprime[u]$ is the purely atomic measure
+The restrictions of an analytic smooth test function satisfy
 \[
- \sum_{v}\Bigl(\sum_{e\ni v}m_e\,d_eF(v)\Bigr)\delta_v ,
+                         \sum_{e\ni v}d_e\psi(v)=0
 \]
-where $d_eF(v)$ is the outgoing slope at $v$ along $e$.  Balancing of
-$\Gamma$---automatic, since $\Gamma$ is boundaryless---is what removes the
-extra term $-F(v)\langle\rd\Psi(v),\mathbf N(v)\rangle$ recorded in that
-lemma.  This is \eqref{eq:cld-curve-graph-laplacian}.
+at every vertex of this adapted skeleton.  To see the source of the
+identity, take a smooth cutoff $\chi$ equal to one near $v$ and
+supported away from the other vertices.  Apply analytic Stokes to
+$\chi\ddprime\psi$.  Its differential is supported on the same
+edge germs; the integral along each edge is the endpoint difference
+of $\chi\,d_e\psi$.  The outer endpoints contribute zero, and the
+inner endpoints give the negative of the displayed sum.
+This is \cite[Lemma~18.2.17]{CLD25}.  It is a restriction on
+analytic smooth test functions, not an assertion that an arbitrary
+abstract graph is a balanced affine tropical space.
 
-\emph{Step 3: the coefficient at a component.}  Let now
-$u=-\log\|1\|_{\mathfrak M}$ be the model function of a vertical line bundle
-$\mathfrak M$ on $\mathfrak C$, and let $Y$ be a component of
-$\mathfrak C_s$ with multiplicity $b_Y$.  By
-\Cref{prop:metrics-divisor-model-function} the function $u$ is the model
-function $\varphi_D$ of the vertical Cartier divisor $D$ with
-$\mathcal O(D)\simeq\mathfrak M$, so $u(x_Y)=b_Y^{-1}\ord_Y(D)$, and $u$ is
-affine on every edge by \Cref{lem:model-function-affine}.  By
-\Cref{lem:vertical-intersection-degree},
+The integral of the smooth top form $\dprimeddprime\psi$ is computed
+on $\Sigma$ in the annular coordinates.  Two integrations by parts
+on each edge give
 \[
- \deg\bigl(\mathfrak M|_Y\bigr)=(D\cdot Y)
-   =\sum_{Y'}\ord_{Y'}(D)\,(Y'\cdot Y).
+\begin{aligned}
+ \langle\dprimeddprime[u],\psi\rangle
+   &=\int_{C^{\An}}u\,\dprimeddprime\psi
+     =\sum_e\int_e u_e(t)\psi_e''(t)\,\rd t\\
+   &=\sum_v\left(
+        \psi(v)\sum_{e\ni v}d_eu(v)
+        -u(v)\sum_{e\ni v}d_e\psi(v)\right)\\
+   &=\sum_v\psi(v)\sum_{e\ni v}d_eu(v).
+\end{aligned}
 \]
-Using $(\mathfrak C_s\cdot Y)=0$ to eliminate the self-intersection, exactly
-as in Step~4 of the proof of \Cref{thm:ch08-slope-formula}, this becomes
-$\sum_{e\ni v_Y}m_e\,d_eu(v_Y)$, which is the coefficient in
-\eqref{eq:cld-curve-graph-laplacian}.  When $b_Y>1$ the divisorial point is
-normalized by $v_{x_Y}=b_Y^{-1}\ord_Y$, and the same computation carries the
-factor $b_Y$; this is the special-fibre multiplicity referred to in the
-statement.
+The added branches have zero $u$-slope.  Removing them leaves
+exactly $\langle\Delta_\Gamma F,\psi|_\Gamma\rangle$.
+In particular, only the differentiated current has been shown to
+be an atomic graph measure; the argument never replaces $[u]$ by a
+current supported on $\Gamma$.
 
-\emph{Step 4: consistency.}  Equivalently, Steps~2 and~3 are the
-one-dimensional case of \Cref{thm:cld-recovers-cl}: the Chambert--Loir
-measure of a formal metric on a curve is
-$\sum_Yb_Y\deg(\mathcal L|_Y)\delta_{x_Y}$, and the two computations of the
-coefficient---by slopes and by residual degrees---agree by the vertical
-intersection formula just used.
+For general $K$, apply this calculation on $C_\Omega$ to
+$u_\Omega=p^*u$.  Compatibility of integration with scalar
+extension gives
+\[
+                   p_*[u_\Omega]=[u],\qquad
+                   p_*\dprimeddprime[u_\Omega]=\dprimeddprime[u].
+\]
+For the first identity, test against a smooth top form and use its
+associated measure with the continuous coefficient $u$; the second
+follows because the current differentials commute with pushforward.
+These are the weighted form of
+\cite[Propositions~15.3.1 and 16.1.1]{CLD25}.
+Together with \eqref{eq:ch19-graph-scalar-descent}, they prove the
+claimed measure identity over $K$.
+
+For the coefficient assertion, apply
+\Cref{thm:cld-formal-intersection}, that is,
+\cite[Theorem~18.5.5]{CLD25}, to $\mathfrak M$.
+On a reduced strictly semistable model over $\Omega^\circ$ there
+is one point over each generic component, with multiplicity,
+value-group index and defect all equal to one.  Its coefficient is
+therefore the residual degree.  Under descent, the degrees on the
+geometric components above $Y$ sum to $\deg_k(\mathfrak M|_Y)$.
+This proves the coefficient formula over $K$ as well.
+Linearity gives the tensor-power denominator.
 \end{proof}
 
-Thus \(u\) is harmonic precisely when all interior outgoing-slope sums are
-zero, and it is subharmonic precisely when \(\Delta_\Gamma F\) is positive.
-For a formal metric on a line bundle \(L\), its Chern measure is
+\begin{remark}
+\label{rem:ch19-nonreduced-model-lengths}
+For a proper regular snc curve model over a discretely valued field,
+write $\mathcal C_s=\sum_Yb_YY$ and $D=\sum_Ya_YY$.
+The model-curvature coefficient at $x_Y$ is
+$b_Y(D\cdot Y)$ by \Cref{thm:cld-recovers-cl}.
+Its expression in the intersection graph keeps the multiplicities.
+Put $\lambda=v_K(\pi)$; the vertex value is
+$u_Y=\lambda a_Y/b_Y$.  With the intersection lengths
+$\ell_e=\lambda/(b_Yb_Z)$ at a node between $Y$ and $Z$ and
+weights $m_e=[\kappa(q_e):k]$, one obtains
+\[
+\begin{aligned}
+ \sum_{e\ni Y}m_e\frac{u_Z-u_Y}{\ell_e}
+   &=b_Y\sum_{Z\ne Y}
+         \left(a_Z-\frac{a_Yb_Z}{b_Y}\right)(Z\cdot Y)\\
+   &=b_Y(D\cdot Y).
+\end{aligned}
+\]
+The last equality uses $(\mathcal C_s\cdot Y)=0$.
+These are the lengths of \Cref{rem:lattice-length}; replacing them
+by a different lattice normalization requires the corresponding
+change of weights.  In the regular strictly semistable case all
+$b_Y$ are one and the node equation is $xy=\pi$.
+\end{remark}
+
+For a formal metric represented by $\mathcal L$ on $L^{\otimes m}$,
+the curve formula is
 \begin{equation}
 \label{eq:ch19-curve-formal-measure}
- c_1(\overline L)=
-     \sum_Y b_Y\deg(\mathcal L|_Y)\delta_{x_Y}
+ c_1(\overline L)
+    =\frac1m\sum_Yb_Y\deg_k(\mathcal L|_Y)\delta_{x_Y}.
 \end{equation}
-after the tensor-power denominator has been divided out.  Its total mass is
-\(\deg_CL\) by \Cref{cor:special-fibre-relation}, and it is positive exactly
-when every residual degree is nonnegative, that is, exactly when
-\(\mathcal L\) is relatively nef.  Formula
-\eqref{eq:ch19-curve-formal-measure} is
-\eqref{eq:ch08-curve-cl-measure}; nothing in the CLD calculus changes it.
+Here $b_Y=1$ on the strictly semistable model of the proposition;
+the displayed multiplicities apply to relatively normal models
+over a discrete valuation ring.  For other formal models the
+factors are those of \Cref{thm:cld-formal-intersection}.
+The total mass is $\deg_C L$, and positivity is equivalent to
+nonnegativity of each displayed residual degree, hence to relative
+nefness in these curve-model cases.  This recovers
+\eqref{eq:ch08-curve-cl-measure} in its discretely valued setting.
 
 \begin{proposition}
 \label{prop:ch19-curve-model-curvature}
 Let \(\overline L_0\) be a formal metric on \(L\) with Chern measure
 \(\mu_0\) as in \eqref{eq:ch19-curve-formal-measure}, and let
 \(\varphi=F\circ\tau\) be a model function, \(F\) piecewise affine on
-\(\Gamma\).  Write \(\overline L_\varphi\) for the metric
+\(\Gamma\).  Assume that the formal metric and the model function are
+represented on a common strictly semistable formal model.
+Use its skeleton \(\Gamma\), subdivided at the break points of \(F\);
+in particular, all atoms of \(\mu_0\) lie at vertices.  Write \(\overline L_\varphi\) for the metric
 \(\|\cdot\|_\varphi=\rme^{-\varphi}\|\cdot\|_0\).  Then
 \[
  c_1(\overline L_\varphi)=\mu_0+\Delta_\Gamma F ,
@@ -356,132 +423,174 @@ model, $\mu_0$ has no mass, and the condition reads that the slope of $F$ is
 nondecreasing there, that is, that $F$ is convex across that point.
 \end{proof}
 
-\begin{remark}[Why the list of inequalities is the whole story]
+\begin{remark}
 \label{rem:ch19-curve-finite-test}
-\Cref{prop:ch19-curve-model-curvature} is the reason curves are a complete
-test case.  Every question about positivity of a model or PL metric on a
-curve---semipositivity of the model, positivity of the Chern current,
-positivity of the Chern delta-form, functorial psh---reduces to the same
-finite list of linear inequalities, so all these notions coincide before any
-theorem is proved.  What requires proof is the passage from PL to
-\emph{continuous} potentials, which is \Cref{sec:ch19-wanner}, and the
-passage from continuous to \emph{singular} potentials, which is not carried
-out in this part at all; see \Cref{sec:ch19-limitations}.
+For the model metrics above, relative nefness and positivity of the
+curvature measure are equivalent to the same residual-degree
+inequalities.  The comparison with formal positivity and with the
+Chern delta-form uses
+\Cref{thm:ch17-psh-residual-nef,thm:gk-formal-positivity-comparison};
+it is not a consequence of the abstract graph definition alone.
+The passage to continuous potentials is considered in
+\Cref{sec:ch19-wanner}, with its separate hypotheses.
 \end{remark}
 
-\begin{example}[Blowing up a point of the special fibre]
-Let \(\mathcal C=\mathbf P^1_{K^\circ}\), and blow up a closed smooth point
-of its special fibre.  Write \(Y\) for the strict transform and \(E\) for
-the exceptional component.  Both have multiplicity one and
+\begin{example}
+\label{ex:ch19-blowup-residue-degree}
+Assume here that $K$ is discretely valued, with $v_K(\pi)=1$.
+Blow up a closed point $p$ of the special fibre of
+$\mathcal C=\mathbf P^1_{K^\circ}$, where $\kappa(p)/k$ is
+separable of degree $d$.  Let $Y$ be the strict transform and
+$E\simeq\mathbf P^1_{\kappa(p)}$ the exceptional component.
+Both have multiplicity one, and
 \[
-                             E\cdot Y=1,\qquad E^2=-1.
+                          E\cdot Y=d,\qquad E^2=-d .
 \]
-The vertical line bundle \(\mathcal O(E)\) is generically trivial.  Its model
-function \(\varphi_E\) satisfies
+The model metric of the generically trivial bundle $\mathcal O(E)$
+has weight $\varphi_E$, with values $0$ at $x_Y$ and $1$ at $x_E$.
+Its skeleton is the unit interval, but the edge has weight $d$.
+Thus
 \begin{equation}
-                     \dprimeddprime\varphi_E=\delta_{x_Y}-\delta_{x_E}.
 \label{eq:exceptional-model-laplacian}
+                   \dprimeddprime\varphi_E
+                           =d\,\delta_{x_Y}-d\,\delta_{x_E}.
 \end{equation}
-The total mass is zero, as it must be for a metric on the trivial generic
-line bundle.  This example simultaneously checks the sign convention and
-shows that a general model function is dsh, not psh.
-
-In coordinates: the skeleton of the blown-up model is the segment
-\([0,1]\) with \(x_Y\) at \(0\) and \(x_E\) at \(1\), and
-\(\varphi_E\) is the function \(F(s)=s\).  Its outgoing-slope sums are
-\(+1\) at \(s=0\) and \(-1\) at \(s=1\), which is
-\eqref{eq:exceptional-model-laplacian}.  Compare
-\Cref{ex:metrics-p1-blowup} and \eqref{eq:metrics-p1-blowup-laplacian},
-where the same computation is made from the divisor side.
+This agrees with the residual intersection degrees and has total
+mass zero.  After an unramified extension splitting $\kappa(p)/k$,
+there are $d$ exceptional components and $d$ unit-weight pendant
+edges; pushing their Laplacians down gives the same two coefficients.
+For a rational point, $d=1$, and the calculation is
+\Cref{ex:metrics-p1-blowup} and
+\eqref{eq:metrics-p1-blowup-laplacian}.
+It shows explicitly why a nonrational node cannot simply be given
+weight one.
 \end{example}
 
 \subsection{The slope formula as a Poincar\'e--Lelong formula}
 \label{sec:ch19-slope}
 
-The slope formula of \Cref{thm:ch08-slope-formula} was proved in
-\Cref{chap:model-calculations} by intersection theory on a semistable model,
-before any current existed.  We now recover it as the retraction of the CLD
-Poincar\'e--Lelong formula, which is the first genuine consistency check of
-the part.
+The intersection proof of \Cref{thm:ch08-slope-formula} treated a
+regular semistable model over a discrete valuation ring.  We now
+compare the analytic divisor measure with the weighted graph
+Laplacian.  Identifying that graph Laplacian requires the annular
+and residue-slope calculations in addition to Poincar\'e--Lelong.
 
 \begin{theorem}
 \label{thm:ch19-curve-slope-formula}
-Let \(K\) be complete and nontrivially valued, let \(C\) be a smooth proper
-\(K\)-curve, let \(\mathfrak C\) be a strictly semistable model with
-skeleton \(\Gamma\) and retraction \(\tau\), and let \(f\in K(C)^\times\) be
-such that every point of \(\Supp\divis(f)\) retracts to a vertex of
-\(\Gamma\).  Put \(F=v_\bullet(f)|_\Gamma\).  Then
+Let $K$ be complete and nontrivially valued, let $C$ be a smooth proper
+$K$-curve, and let $\mathfrak C$ be a strictly semistable model with
+skeleton $\Gamma$ and retraction $\tau$.  Let $f\in K(C)^\times$,
+and assume that every point of $\Supp\divis(f)$ retracts to a vertex
+of $\Gamma$.  Put $F=v_\bullet(f)|_\Gamma$.
+Regard the divisor as the measure
+$\sum_P\ord_P(f)[\kappa(P):K]\delta_P$.
+With the edge weights and annular lengths of
+\Cref{sec:ch19-graph-laplacian}, one has
 \begin{equation}
 \label{eq:ch19-slope-from-pl}
+\begin{gathered}
  \tau_*\bigl(\dprimeddprime[\log|f|]\bigr)
- =\tau_*\delta_{\divis(f)}
- =\tau_*\divis(f),
- \qquad\text{equivalently}\qquad
- \Delta_\Gamma F=-\tau_*\divis(f).
+     =\tau_*\delta_{\divis(f)}
+     =\tau_*\divis(f),\\
+                    \Delta_\Gamma F=-\tau_*\divis(f).
+\end{gathered}
 \end{equation}
-In particular, \(\log|f|\) is harmonic on \(C^{\An}\setminus\Supp\divis(f)\),
-and \(F\) is affine with integral slope on every edge of \(\Gamma\).
+The function $\log|f|$ is harmonic on
+$C^{\An}\setminus\Supp\divis(f)$, and $F$ is affine with integral
+slope on every edge of $\Gamma$.
 \end{theorem}
 
 \begin{proof}
-\emph{Step 1: the current identity.}  The function $f$ is a nonzero
-meromorphic function on the boundaryless pure-dimensional space $C^{\An}$, so
-\Cref{thm:cld-poincare-lelong} gives
-$\dprimeddprime[\log|f|]=\delta_{\divis(f)}$ as currents on $C^{\An}$.
-The right-hand side is the finite signed atomic measure of the divisor,
-so this identity represents the left-hand side by that measure as well.
-
-\emph{Step 2: pushing forward.}  Here $\tau_*$ is pushforward of finite
-signed Radon measures along the continuous retraction.  For such a
-measure $\mu$ and $a\in C^0(\Gamma)$, it is defined by
+\emph{The analytic measure.}
+By \Cref{thm:cld-poincare-lelong}, the current
+$\dprimeddprime[\log|f|]$ is the finite signed divisor measure.
+The factors $[\kappa(P):K]$ are those of integration over a
+zero-cycle (\Cref{prop:ch14-delta-Y-current}).
+Thus pushforward along the continuous retraction is defined by
 \[
-                 \int_\Gamma a\,\rd(\tau_*\mu)
-                    =\int_{C^{\An}}(a\circ\tau)\,\rd\mu .
+             \int_\Gamma a\,\rd(\tau_*\mu)
+                  =\int_{C^{\An}}(a\circ\tau)\,\rd\mu,
+             \qquad a\in C^0(\Gamma),
 \]
-Both spaces are compact.  Thus this operation applies directly to the
-measure identity in Step~1 and gives the first equality of
-\eqref{eq:ch19-slope-from-pl}; the second is the
-definition of the cycle current
-(\Cref{prop:ch14-delta-Y-current}), a divisor on a curve being a
-zero-cycle.
+and gives the first line of \eqref{eq:ch19-slope-from-pl}.
+This operation is pushforward of Radon measures; it does not require
+$\tau$ to be an analytic morphism.
+Off the divisor, $f$ is an analytic unit and $\log|f|$ is
+pluriharmonic.
 
-\emph{Step 3: identifying the left-hand side.}  We claim
-$\tau_*\dprimeddprime[\log|f|]=\Delta_\Gamma(\log|f|\,|_\Gamma)$.  Away from
-$\Supp\divis(f)$, the function $\log|f|$ is harmonic on every open disc of
-$C^{\An}\setminus\Gamma$: on such a disc $f$ is invertible, so
-$|f|$ is constant on the disc by the maximum modulus principle for
-Berkovich discs, and hence $\log|f|=\log|f|\circ\tau$ there.  By hypothesis
-no point of $\Supp\divis(f)$ lies over the interior of an edge, so each disc
-attached to an interior edge point carries an invertible $f$.  Over a vertex
-$v$, the fibre $\tau^{-1}(v)$ may contain zeros and poles of $f$, and their
-total contribution to the pushforward is exactly
-$(\tau_*\divis f)(\{v\})$, which is the right-hand side.  Subtracting, the
-remaining part of the pushforward is the atomic measure computed from
-$F=v_\bullet(f)|_\Gamma$ by \Cref{lem:ch15-vertex-atom}, and
-$\log|f|\,|_\Gamma=-F$.  This proves the displayed equivalence, with the sign
-of normalization~\cref{itm:ch19-norm:val}.
+\emph{The graph calculation over an algebraically closed field.}
+On an edge annulus there is no zero or pole of $f$.
+The Newton-polygon calculation
+\cite[Proposition~2.10]{BPR13Structure} gives
+$F(t)=c+mt$ with $m\in\mathbf Z$ in the annular coordinate $t$.
+This proves affineness and integrality before any vertex mass is
+computed.
 
-\emph{Step 4: affineness and integrality.}  Both are now consequences.  On
-the interior of an edge, $\Delta_\Gamma F$ vanishes by
-\eqref{eq:ch19-slope-from-pl}, so $F$ is affine there; and its slope is the
-difference of the orders $\ord_{Y'}(f)-\ord_Y(f)$ of $f$ along the two
-adjacent components, an integer.  This reproves Step~3 of the proof of
-\Cref{thm:ch08-slope-formula}, now without base change to $K(\pi^{1/q})$.
+At a vertex $v$, normalize $f$ by a scalar so that its value at $v$
+has absolute value one.  Its reduction $\widetilde f_v$ is a
+nonzero rational function on the smooth projective residue curve
+at $v$.  The local residue-slope formula
+\cite[Theorem~5.15(3)]{BPR13Structure} identifies the outgoing
+$F$-slope along a branch with the order of $\widetilde f_v$ at
+the corresponding residue point.  The degree of this principal
+divisor is zero, so the sum over all branches is zero.
+
+The branches outside $\Gamma$ are open discs.  If such a disc $D$
+is attached at $v$, choose a coordinate $z$ with $|z|<R$.
+There are only finitely many zeros and poles of $f$ in $D$.
+Writing them as $a_P$, with signed orders $n_P$, gives
+\[
+              f(z)=h(z)\prod_{P\in D}(z-a_P)^{n_P},
+\]
+where $h$ is an analytic unit on $D$ and $|h|$ is constant.
+Near its outer end, $|z-a_P|=|z|$ for all these points.
+The outward-from-$v$ parameter is $-\log|z|+\log R$, so the
+$F$-slope into $D$ is $\sum_{P\in D}n_P$.
+Separating these disc branches from the graph branches in the
+degree-zero relation yields
+\[
+             \sum_{e\ni v}d_eF(v)
+                  =-\sum_{\tau(P)=v}\ord_P(f).
+\]
+There is no mass in an edge interior, by affineness and the
+hypothesis on the divisor.  This proves the second line of
+\eqref{eq:ch19-slope-from-pl} over an algebraically closed field.
+The residue-slope identity is the analytic input in this argument;
+the disc calculation accounts explicitly for the divisor mass
+that is lost when the discs are retracted.
+
+\emph{Descent.}
+For general $K$, pass to the completed algebraic closure $\Omega$,
+and use the maps $p$ and $q$ of
+\eqref{eq:ch19-graph-scalar-descent}.
+The base-changed model is still strictly semistable, and
+$F_\Omega=F\circ q$.  The preceding argument applies on every
+geometric component.  On one side,
+$q_*\Delta_{\Gamma_\Omega}F_\Omega=\Delta_\Gamma F$.
+On the other, a closed point $P$ contributes total multiplicity
+$[\kappa(P):K]$ after scalar extension: these multiplicities are
+the lengths of the finite algebra $\kappa(P)\otimes_K\Omega$.
+They include the inseparable multiplicities.  Hence
+$p_*\divis(f_\Omega)=\divis(f)$ with the measure convention in the
+statement.  The identity
+$\tau\circ p=q\circ\tau_\Omega$ proves the required descent.
+Since lifted edges have the same lengths, their integral slopes
+also descend unchanged.
 \end{proof}
 
-\begin{remark}[Two proofs, two hypotheses]
+\begin{remark}
 \label{rem:ch19-slope-two-proofs}
-The model-theoretic proof of \Cref{thm:ch08-slope-formula} uses regularity
-and semistability of $\mathfrak C$ and a base change to make the edges
-arbitrarily finely subdivided; it produces the integrality of the slopes as
-part of its output.  The proof just given uses instead the full
-Poincar\'e--Lelong theorem, whose own proof
-(\Cref{sec:ch15-pl-proof-detail}) requires boundarylessness and purity of
-the relative dimension but no semistability.  The two proofs therefore have
-genuinely different hypotheses, and it is the model-theoretic one that
-extends to the higher-dimensional statements of
-\Cref{sec:ch19-models}, whereas it is the current-theoretic one that extends
-to nonalgebraic $f$ and to $\mathbf R$-coefficients.
+For an oriented edge from $v$ to $w$, the slope is
+$\bigl(F(w)-F(v)\bigr)/\ell_e$.
+It is a difference of the two normalized vertex values only when
+$\ell_e=1$.  For example, on $xy=\pi^r$ with $v_K(\pi)=1$,
+the function $v(x)$ has endpoint values $0$ and $r$ and slope
+$1$.  The unit-length case in \Cref{thm:ch08-slope-formula} is
+$xy=\pi$.  Its intersection proof and the analytic calculation
+above agree in their common scope.  The latter uses both
+Poincar\'e--Lelong and the local residue-slope formula; neither
+affineness nor the vertex identity follows just by naming the
+retraction.
 \end{remark}
 
 \subsection{An elliptic curve with multiplicative reduction}

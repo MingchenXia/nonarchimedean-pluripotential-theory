@@ -264,18 +264,30 @@ the metric-variation primitive; an annulus Hessian checks it.
 The final complete build has 3,915 pages and 11,489 resolved labels,
 with no horizontal or vertical overflow.
 
+## Chapter 19: curvature and the slope formula
+
+The [curvature and slope audit](ch19_curvature_slope_audit_20260922.md)
+replaces the graph-current shortcut by testing against analytic
+smooth functions and using Stokes on an adapted skeleton.
+The revised formulas retain annular lengths, residue-degree edge
+weights, tensor powers and nonreduced-model multiplicities.
+A closed-point blowup checks the weight explicitly.
+The slope proof now displays its annular and residue-slope inputs,
+the disc divisor calculation and scalar-extension descent, including
+inseparable point multiplicities. The common strictly semistable
+model is an explicit hypothesis of the finite positivity criterion.
+The full build has 3,915 pages and 11,492 resolved labels,
+with no horizontal or vertical overflow.
+
 ## Next work
 
-1. Audit the Chapter 19 curve section. The proof of skeletal
-   curvature incorrectly treats [u] as a pushed-forward graph current
-   merely because u factors through the retraction, and uses an
-   undefined pushforward of a test function. The later slope proof
-   still needs its vertex/residue calculation and correct annular
-   length normalization. Distinguish split or algebraically closed
-   cases from general residue-degree weights; do not silently use
-   the narrower discretely valued Chapter 8 theorem at greater
-   generality. A general (1,1)-current need not be a measure, and
-   an abstract graph is not automatically a balanced tropical chart.
+1. Clarify Chapter 5's nonreduced-model metric terminology against
+   Baker--Nicaise. The intersection length 1/(b_i b_j) and stable
+   lattice length 1/lcm(b_i,b_j) are different valid conventions.
+   Check how weights transform and distinguish the metric over K
+   from the geometric annular metric after scalar extension.
+   Preserve the multiplicity calculation already used in Chapters
+   17--19; do not change lengths without their weights.
 2. Continue the mathematical and source audit through Chapter 61.
    A useful next expansion is the point-mass energy estimate from
    truncated normalized psh functions and the zero-model Dirac mass.
