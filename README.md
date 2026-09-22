@@ -23,6 +23,8 @@ The [point-energy audit](manuscript/editorial/ch61_point_energy_audit_20260922.m
 proves the truncation bound and completes the global extrema calculation in the P1 example.
 The [variational-limit audit](manuscript/editorial/ch61_variational_limit_audit_20260922.md)
 reconstructs bounded-energy compactness and integral convergence, with a curve counterexample to weak-to-strong convergence.
+The [model-measure audit](manuscript/editorial/ch61_model_measure_audit_20260922.md)
+justifies directed integral limits and selects a sequence by strong quasi-distance and entropy.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the

@@ -983,24 +983,91 @@ with both sides allowed to be \(+\infty\).
 \end{theorem}
 
 \begin{proof}
-For every psh \(\phi\), the net
-\(\phi\circ i_{\cX}\circ p_{\cX}\) decreases to \(\phi\).  Hence
+Write $r_{\cX}=i_{\cX}\circ p_{\cX}$.  Every PL function $f$
+is represented on some snc model $\cY$, so
+$f\circ r_{\cX}=f$ on every model $\cX$ dominating $\cY$.
+Consequently
 \[
- \int\phi\,\rd \mu_{\cX}
- =\int(\phi\circ i_{\cX}\circ p_{\cX})\,\rd \mu
+                      \int f\,\rd\mu_{\cX}=\int f\,\rd\mu
 \]
-decreases to \(\int\phi\,\rd \mu\).  Taking the supremum in
-\eqref{eq:mpwn-dual-energy} proves
-\eqref{eq:mpwn-retracted-energy}, including eventual monotonicity.
-Weak convergence plus convergence of dual energy is strong convergence.
+eventually.  Uniform density of PL functions in $C^0(X^{\bethan})$,
+and the fact that all these measures have mass one, prove
+$\mu_{\cX}\rightharpoonup\mu$.
 
-For entropy, log discrepancy is the increasing supremum of its
-dual-complex approximants \(A^{\NA}_X\circ p_{\cX}\).  Monotone convergence
-therefore gives
-\(\sup_{\cX}\Ent(\mu_{\cX})=\Ent(\mu)\).  Select a sequence of models meeting
-increasingly sharp lower bounds for the two real quantities; no claim that
-the entire model category has a countable cofinal subsystem is needed.  This is
-\cite[Lemmas~7.2.1--7.2.2 and Corollary~7.2.3]{MPWN25}.
+For $\phi\in\PSH(\alpha)$, put $h_{\cX}=\phi\circ r_{\cX}$.
+It is finite and continuous by \Cref{thm:mpwn-convex-restriction},
+and $\phi\leq h_{\cX}\leq\sup\phi$.
+Retraction compatibility in \Cref{lem:mp-retraction} gives
+$r_{\cX}\circ r_{\cY}=r_{\cX}$ when $\cY$ dominates $\cX$.
+Applying \eqref{eq:mpwn-retraction-majorant} at $r_{\cY}(v)$
+then yields $h_{\cY}\leq h_{\cX}$.
+The limit is $\phi$: if a model psh function $u\geq\phi$ is
+represented on $\mathcal Z$, then $h_{\cX}\leq u\circ r_{\cX}=u$
+for every $\cX$ dominating $\mathcal Z$.  Taking decreasing model
+approximations to $\phi$ gives $\inf_{\cX}h_{\cX}=\phi$.
+
+The hypotheses of \Cref{cor:usc-net-monotone-integral} now hold
+for this decreasing net and the fixed Radon measure $\mu$.
+For $\phi\in\mathcal E^1(\alpha)$, it follows that
+\[
+ \int\phi\,\rd\mu_{\cX}
+       =\int h_{\cX}\,\rd\mu
+             \downarrow\int\phi\,\rd\mu\in\mathbf R.
+\]
+In particular,
+\[
+ E_\alpha(\phi)-\int\phi\,\rd\mu_{\cX}
+       \leq E_\alpha(\phi)-\int\phi\,\rd\mu
+       \leq E_\alpha^\vee(\mu).
+\]
+Taking the supremum over $\phi$ first proves that every
+$\mu_{\cX}$ has finite energy, bounded by $E_\alpha^\vee(\mu)$.
+The same variational expressions increase with the model.
+Taking their two suprema in either order gives
+\[
+ \begin{aligned}
+ \sup_{\cX}E_\alpha^\vee(\mu_{\cX})
+   &=\sup_{\phi\in\mathcal E^1(\alpha)}
+        \sup_{\cX}\left(E_\alpha(\phi)-\int\phi\,\rd\mu_{\cX}\right)\\
+   &=E_\alpha^\vee(\mu).
+ \end{aligned}
+\]
+This proves \eqref{eq:mpwn-retracted-energy}.  Together with
+weak convergence it proves strong convergence of the model net.
+
+For entropy, the model functions
+$a_{\cX}=A_X^{\NA}\circ r_{\cX}$ are nonnegative and continuous,
+and increase to $A_X^{\NA}$ by
+\eqref{eq:mp-discrepancy-envelope} and
+\eqref{eq:mp-reduced-discrepancy}.
+Applying \Cref{prop:lsc-net-monotone} therefore gives
+\[
+ \Ent(\mu_{\cX})=\int a_{\cX}\,\rd\mu
+                       \uparrow\Ent(\mu),
+\]
+including infinite entropy.
+
+To select a sequence, use the quasi-metric rather than only
+the numerical energy limits.  Strong convergence of the net
+gives $\delta_\alpha(\mu_{\cX},\mu)\to0$.
+Choose $\cX_j$ inductively to dominate $\cX_{j-1}$ and to satisfy
+\[
+ \delta_\alpha(\mu_{\cX_j},\mu)<\frac1j,\qquad
+ \begin{cases}
+ \Ent(\mu_{\cX_j})>\Ent(\mu)-1/j,
+                            &\Ent(\mu)<+\infty,\\
+ \Ent(\mu_{\cX_j})>j,        &\Ent(\mu)=+\infty.
+ \end{cases}
+\]
+Each requirement holds on a tail of the directed model system,
+so a common dominating model satisfies them simultaneously.
+The quasi-metric bound proves strong convergence of this
+sequence, while the entropy bounds prove
+\eqref{eq:mpwn-entropy-approximation}.
+No countable cofinal family of all models is needed.
+This reconstructs \cite[Lemmas~7.2.1--7.2.2 and
+Corollary~7.2.3]{MPWN25}, with the Radon hypotheses and the
+sequential selection explicit.
 \end{proof}
 
 \section{Comparison, locality, and regularity}

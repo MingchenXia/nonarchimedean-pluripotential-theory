@@ -312,12 +312,22 @@ integral limits. A curve example separates weak and strong convergence
 for both potentials and measures. The full build has 3,919 pages and
 11,500 resolved labels, with no horizontal or vertical overflow.
 
+## Chapter 61: model measures and sequential selection
+
+The [model-measure audit](ch61_model_measure_audit_20260922.md)
+proves weak convergence through PL tests, verifies the semicontinuous
+Radon hypotheses for the directed integrals, and establishes finite
+energy of retracted measures before taking their dual-energy limits.
+Nested models are selected using strong quasi-distance and entropy,
+including the infinite-entropy case. No countable cofinal model
+system is assumed. The full build has 3,919 pages and 11,500 labels,
+with no horizontal or vertical overflow.
+
 ## Next work
 
 1. Continue the mathematical and source audit through Chapter 61.
-   Next inspect dual-complex measure approximation, especially the
-   selection of a strongly convergent sequence without a countable
-   cofinal model family, and the directed integral limits.
+   Next correct the normalized coefficient sum in orthogonality
+   and expand the contact-set proof of the envelope first variation.
    General Kähler maximal-ray existence, sequential regularization
    and the full mixed-slope reduction remain explicit source inputs.
 2. For P07.1, separately examine continuous convex collar data and the
