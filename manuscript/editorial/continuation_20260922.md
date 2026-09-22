@@ -199,12 +199,25 @@ approximation and time limits for general psh rays.
 The full build has 3,405 pages and 11,480 resolved labels, with the same
 38 horizontal overflows.
 
+## Chapter 60: test-curve and mixed-slope normalization
+
+The [test-curve and mixed-slope audit](ch60_test_curve_mixed_slope_audit_20260922.md)
+fixes the zero base point in the DXZ correspondence and displays the
+volume-normalized energy integral. The mixed-slope calculation now
+records the intersection coefficient for the average term, the
+probability normalization of d1, and a bound uniform in the model
+index. The complete build has 3,405 pages and 11,481 resolved labels;
+the 38 horizontal overflows remain.
+
 ## Next work
 
-1. Audit Chapter 60's test-curve base point and mixed-slope hypotheses
-   against DXZ23's published Theorem 3.17 and MP24 arXiv version 2.
-   The general Kähler maximal-ray existence and sequential
-   regularization inputs remain explicit source dependencies.
+1. Examine Chapter 60's reduced-discrepancy entropy slope. The current
+   warning retains the failed total-discrepancy normalization and does
+   not yet certify the proposed reduced repair. Check the analytic
+   snc fiber integral in BHJ19 Lemma 3.11 and all model compatibility
+   and limit steps before changing that boundary.
+   General Kähler maximal-ray existence, sequential regularization
+   and the full mixed-slope reduction remain explicit source inputs.
 2. Review the 38 horizontal layout overflows in the full build.
    Repeat the complete build after coherent revisions; preserve dated
    checksum ledgers for their stated snapshots.
