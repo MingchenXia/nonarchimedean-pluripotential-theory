@@ -1950,3 +1950,23 @@ with no unresolved references, citations or layout overflow. Scoped strict
 style review, mathematical/source review and final page inspection pass.
 The active research inventory and frozen verification files are unchanged.
 The next unit checks order reflection and mass bounds under perturbation.
+
+
+## 2026-09-23 — Order reflection and decreasing inverse-system limits
+
+The [perturbation audit](ch53_54_perturbation_audit_20260923.md)
+proves order reflection for I-model transitions and derives a uniform
+positive-mass bound from the component at half the Kähler perturbation.
+The decreasing-envelope theorem is applied only after verifying its
+limiting-mass hypothesis. Endpoint, terminal-parameter and greatest-
+lower-bound assertions are explicit. The Kähler index set has a countable
+cofinal sequence; this is now distinguished from arbitrary metric nets.
+Chapter 54 citations identify the checked arXiv version separately from
+the published chapter.
+
+The final full build has 3,931 pages, 389 TeX inputs and 11,526 labels,
+with no unresolved references, citations or layout overflow.
+Mathematical/source review, scoped strict style review and final page
+inspection pass. Frozen verifier material and the research inventory
+are unchanged. The next unit checks the volume-continuity arguments
+and the role of the initial-level limit.

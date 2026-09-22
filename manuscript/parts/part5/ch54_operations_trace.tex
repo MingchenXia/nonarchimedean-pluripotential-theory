@@ -15,7 +15,7 @@ In \Crefrange{sec:operations-basic}{sec:operations-volume},
 \(\theta,\theta'\) are smooth closed forms in pseudoeffective classes.
 The operations themselves extend to reduced, irreducible, unibranch
 compact K\"ahler spaces with nonempty psh classes by
-\cite{Xia23Operations}; the smooth setting is retained here so that the
+\cite{XiaOperationsV3}; the smooth setting is retained here so that the
 components use \Cref{chap:complex-prerequisites} directly.
 
 The operations are typed.  Addition sends the pair of classes
@@ -47,9 +47,15 @@ Here both extended curves are used, so the condition also compares
 different terminal parameters.
 \end{definition}
 
-The independence of \(\omega\) follows from transition compatibility and
-levelwise monotonicity of the \(\mathcal I\)-envelope.  Antisymmetry is
-checked in one component and then propagated to all components.
+To compare arbitrary perturbations $\omega_1,\omega_2$, choose
+a K\"ahler form $\eta\leq\omega_1,\omega_2$.
+If the components are ordered at $\omega_1$, compatibility and
+\Cref{lem:tna-transition-order} reflect that order to the
+$\eta$-components, then preserve it on projection to $\omega_2$.
+This proves the equivalence between comparison at one perturbation
+and comparison at every perturbation.
+Reflexivity and transitivity are pointwise, and antisymmetry
+follows by the same argument in both directions.
 
 \begin{definition}[Addition]
 \label{def:operations-addition}
@@ -267,15 +273,20 @@ component.
 
 \begin{remark}[Why nets remain visible]
 \label{rem:operations-nets}
-Choquet reduction gives a countable subfamily representing one
-supremum.  It does not make the directed set of K\"ahler perturbations
-sequential, nor does it convert every monotone-continuity statement into
-a sequential statement.  We therefore retain nets in the monotone
-operation statements for which the cited source proves net-level
-continuity.  The analytic trace has the separate sequential scope stated
-in \Cref{prop:operations-trace-calculus}.
+The K\"ahler perturbations have the countable cofinal sequence
+$(m^{-1}\omega_0)_{m\geq1}$ described in
+\Cref{chap:transcendental-metrics}.
+This is distinct from the index set $I$ of a family of metrics:
+Choquet reduction selects a countable subfamily with the same
+supremum, without asserting that its indices are cofinal in $I$.
+It also gives no decreasing-limit theorem.
+We retain nets in the monotone operation statements for which
+the cited source proves net-level continuity.
+Trace continuity requires the additional $d_S$-convergence
+and domain hypotheses in \Cref{prop:operations-trace-calculus}.
 \end{remark}
 
+\clearpage
 \section{Decreasing infima and rescaling}
 
 \begin{definition}[Decreasing infimum]
@@ -293,20 +304,106 @@ Define its infimum by
 \]
 \end{definition}
 
-The pointwise infimum on the right is a test curve after the standard
-endpoint extension.  The lower bound in
-\eqref{eq:operations-inf-bound} prevents the effective interval from
-escaping to \(-\infty\).  The transition identity is
+The existence assertion in \eqref{eq:operations-infimum} requires
+positive mass in the limit, not just in each member of the net.
+For compatible inverse systems this follows from a smaller
+K\"ahler perturbation, as the following proof makes explicit.
+The inverse-system operation is
+\cite[Definition~4.9 and Lemma~4.10]{XiaOperationsV3}.
+
+\begin{proposition}\label{prop:operations-inf-positive-mass}
+Let $(\Gamma^i)_{i\in I}$ be a nonempty decreasing net in
+$\PSH^{\NA}(X,\theta)$, and put
+$T=\inf_i\Gamma^i_{\max}>-\infty$.
+For every K\"ahler form $\omega$ and every $\tau<T$, the potential
+$u_\tau^\omega:=\inf_i\Gamma_\tau^{i,\theta+\omega}$
+is $\mathcal I$-model and satisfies
 \[
+ M_{\theta+\omega}(u_\tau^\omega)
+       \geq 2^{-n}\int_X\omega^n>0.
+\tag{54.11a}\label{eq:operations-inf-mass-bound}
+\]
+The componentwise infima therefore define an element of
+$\PSH^{\NA}(X,\theta)$ with terminal parameter $T$.
+It is the greatest lower bound of the net.
+\end{proposition}
+
+\begin{proof}
+Fix $\omega$ and $\tau<T$, and set
+\[
+ u_i=\Gamma_\tau^{i,\theta+\omega},
+ \qquad
+ v_i=\Gamma_\tau^{i,\theta+\omega/2}.
+\]
+Both nets decrease, and all their members are normalized by
+$\sup_X u_i=\sup_X v_i=0$.
+The nonempty compact zero sets of either net have the finite
+intersection property: a common later index supplies a zero
+belonging to any prescribed finite collection.
+Consequently neither pointwise infimum collapses to $-\infty$.
+The decreasing-net compactness statement in
+\Cref{prop:complex-l1-compactness} gives
+\[
+ u:=\inf_i u_i\in\PSH(X,\theta+\omega),\qquad
+ v:=\inf_i v_i\in\PSH(X,\theta+\omega/2).
+\]
+Both have supremum zero. Envelope monotonicity gives
+$u\leq P_{\theta+\omega}[u]_{\mathcal I}\leq u_i$
+for every $i$, hence $u=P_{\theta+\omega}[u]_{\mathcal I}$.
+
+Compatibility says
+$u_i=P_{\theta+\omega}[v_i]_{\mathcal I}\geq v_i$,
+so $u\geq v$.
+Put $S=\theta+\omega/2+\ddc v\geq0$.
+Mass monotonicity and the nonpluripolar binomial expansion yield
+\[
+ \begin{split}
+ M_{\theta+\omega}(u)
+ &\geq M_{\theta+\omega}(v)
+   =\int_X\left\langle(S+\omega/2)^n\right\rangle\\
+ &\geq\int_X(\omega/2)^n.
+ \end{split}
+\]
+Indeed, every mixed term is positive, and the purely smooth term
+retains its full mass because pluripolar sets have smooth volume
+zero. This proves \eqref{eq:operations-inf-mass-bound} directly;
+it does not assume continuity of mass for arbitrary decreasing
+psh potentials.
+
+Concavity is preserved by decreasing limits.
+The mass bound now permits application of
+\Cref{prop:rays-test-limits} in each fixed background.
+The terminal parameter is $T$: every interior level is nontrivial,
+whereas for $\tau>T$ some member is identically $-\infty$.
+At $T$ use the closed endpoint extension.
+
+For K\"ahler forms $\eta\geq\omega$, the decreasing-envelope
+theorem \cite[Proposition~2.8]{XiaOperationsV3}, applied to the
+$\mathcal I$-model net $(u_i)_i$ with its now verified positive-mass
+limit, gives
+\[
+ \begin{split}
  P_{\theta+\eta}
-       \left[\inf_i\Gamma^i\right]_{\mathcal I}
- =\inf_iP_{\theta+\eta}[\Gamma^i]_{\mathcal I}.
+       \left[\inf_i\Gamma_\tau^{i,\theta+\omega}\right]_{\mathcal I}
+ &=\inf_iP_{\theta+\eta}
+       [\Gamma_\tau^{i,\theta+\omega}]_{\mathcal I}\\
+ &=\inf_i\Gamma_\tau^{i,\theta+\eta}
+ \qquad(\tau<T).
+ \end{split}
 \tag{54.12}\label{eq:operations-inf-transition}
 \]
-Here the positive mass of every level below the common terminal
-parameter is essential: the identity is
-\cite[Proposition~2.8]{Xia23Operations}, applied levelwise.  It is not an
-interchange of an envelope with an arbitrary infimum.
+The endpoint extension makes these equalities compatible as
+test curves. Hence the components form an inverse system.
+Their pointwise infimum property shows that this system is a
+lower bound and dominates every other lower bound.
+\end{proof}
+
+The lower bound \eqref{eq:operations-inf-mass-bound} depends
+on $\omega$ and tends to zero as the perturbation shrinks.
+In \Cref{ex:rays-decreasing-mass-collapse}, the fixed-class masses
+tend to zero, precluding compatible smaller components for that net.
+Thus inverse systems need only \eqref{eq:operations-inf-bound},
+whereas the fixed-big-class theorem retains its mass hypothesis.
 
 \begin{definition}[Positive rescaling]
 \label{def:operations-rescaling}
@@ -678,14 +775,14 @@ perturbation.  Since analytic traces are \(\mathcal I\)-good, the displayed
 \(\mathcal I\)-envelopes agree with their \(P\)-envelopes.  Hence the
 levels form the metric of
 \eqref{eq:operations-na-trace-target}.  This is
-\cite[Definition~4.20]{Xia23Operations}.
+\cite[Definition~4.20]{XiaOperationsV3}.
 
 For \eqref{eq:operations-na-trace-birational}, pull back
 quasi-equisingular approximants.  Away from the non-isomorphism locus their
 restrictions to the strict transform agree with the pullbacks of the
 original restrictions.  Passing first to \(d_S\)-limits and then to the
 normalized envelopes proves the identity level by level, as in
-\cite[Section~4.8]{Xia23Operations}.
+\cite[Section~4.8]{XiaOperationsV3}.
 \end{proof}
 
 \begin{remark}[Trace domain firewall]
@@ -701,8 +798,16 @@ extended convention rather than by analytic restriction.
 \begin{remark}[Source note]
 \label{rem:operations-source-note}
 The componentwise operations, Choquet theorem, monotone-limit rules,
-volume identities, and transcendental trace follow the supplied operations
-chapter and \cite{Xia23Operations}.  The analytic trace, its comparison
+volume identities, and transcendental trace follow the operations
+sections of the supplied lectures and \cite{XiaOperationsV3}.
+Numbered references to the operations paper in this chapter use
+arXiv version~3, dated 22 October 2024; the published chapter
+\cite{Xia23Operations} is a separate bibliography entry.
+The order-reflection input is also
+\cite[Proposition~6.1.3]{XiaBook}.
+The mass bound in \Cref{prop:operations-inf-positive-mass}
+verifies the positive-mass prerequisite of the decreasing-envelope
+theorem before its application to inverse systems.  The analytic trace, its comparison
 calculus, and its continuity follow \cite{DX24} and the complete supplied
 trace chapter.  The hypotheses
 used there are retained: broad operations extend to reduced,

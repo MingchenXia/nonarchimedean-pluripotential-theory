@@ -423,15 +423,32 @@ The final build has 3,929 pages and 11,522 labels, with no unresolved
 reference or citation and no overflow. The research inventory and
 frozen sources are unchanged.
 
+## Chapters 51, 53 and 54: perturbation and limits — 23 September 2026
+
+The [perturbation audit](ch53_54_perturbation_audit_20260923.md)
+proves order reflection for I-model transitions and derives a uniform
+positive-mass bound from the component at half the Kähler perturbation.
+The decreasing-envelope theorem is applied only after verifying its
+limiting-mass hypothesis. Endpoint, terminal-parameter and greatest-
+lower-bound assertions are explicit. The Kähler index set has a countable
+cofinal sequence; this is now distinguished from arbitrary metric nets.
+Chapter 54 citations identify the checked arXiv version separately from
+the published chapter.
+
+The final full build has 3,931 pages, 389 TeX inputs and 11,526 labels,
+with no unresolved references, citations or layout overflow.
+Mathematical/source review, scoped strict style review and final page
+inspection pass. Frozen verifier material and the research inventory
+are unchanged. The next unit checks the volume-continuity arguments
+and the role of the initial-level limit.
+
 ## Next work
 
-1. Audit Chapter 53--54 perturbation arguments: order reflection
-   and the uniform positive-mass bound from a smaller Kähler
-   perturbation before forming a decreasing inverse-system limit.
-   Match the operations-paper citations to the checked version;
-   the author reports an earlier version in the published volume.
-   The projected-operations correction now has a separate
-   23 September receipt. Keep the normalized model
+1. Audit Chapter 54 volume continuity: separate the monotone family
+   index, the initial-level limit and the Kähler perturbation.
+   Check the uniform mass-error estimate and the failure of decreasing
+   continuity of the total inverse-system volume. The perturbation
+   and positive-mass argument now has its own 23 September receipt. Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
    General Kähler maximal-ray existence, sequential regularization
