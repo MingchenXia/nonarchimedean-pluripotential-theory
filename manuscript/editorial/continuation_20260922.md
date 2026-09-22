@@ -364,12 +364,28 @@ The complete second-pass build has 3,921 pages and 11,507 labels,
 with no unresolved references or citations and no layout overflow.
 Frozen verification bytes and the active research inventory are unchanged.
 
+## Chapter 62: class derivatives at a fixed measure — 23 September 2026
+
+The [class-derivative audit](ch62_class_derivative_audit_20260923.md)
+identifies the exact published differentiability theorem and the
+class independence of the finite-energy measure space.
+The potential-energy intersection calculation now differentiates
+the volume denominator before invoking the fixed-measure theorem.
+A P1 calculation gives derivatives +1/8 and -1/8 for fixed and
+moving measures, respectively. The zero-energy ratio case is
+handled through the trivial Dirac measure.
+The complete final build has 3,923 pages and 11,509 labels,
+with no unresolved reference or citation and no layout overflow.
+The normalized stability scope and frozen verification bytes
+remain unchanged.
+
 ## Next work
 
-1. Continue the Chapter 62 audit of the class derivative at a fixed
-   measure and the finite-dimensional volume formula. The completion
-   argument is now recorded in the 23 September audit.
-   Keep the normalized model
+1. Continue the Chapter 62 audit of the finite-constraint envelope
+   and finite-dimensional volume formula, including the Legendre
+   reduction and the finite terminal parameter.
+   The completion and class derivative now have separate 23 September
+   receipts. Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
    General Kähler maximal-ray existence, sequential regularization

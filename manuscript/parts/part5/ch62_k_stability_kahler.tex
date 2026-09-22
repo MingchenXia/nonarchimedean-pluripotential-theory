@@ -577,10 +577,12 @@ inferred from these passages.
 
 \section{The beta invariant on measures}
 
-The K\"ahler cone is open, so \(\alpha+tK_X\) is K\"ahler for all
-sufficiently small \(|t|\) and \(K_X\) is an admissible tangent direction at
-\(\alpha\).  It is not itself a K\"ahler class, and nothing below requires
-it to be.  For \(\mu\in\mathcal M^1(\alpha)\), define
+The K\"ahler cone is open, so $\alpha+tK_X$ is K\"ahler for all
+sufficiently small $|t|$.  The class $K_X$ need not be positive.
+The finite-energy measure space and its strong topology are independent
+of the K\"ahler class by \cite[Theorem~3.1, pp.~187--188]{BJ25FiniteEnergy}.
+Thus a fixed $\mu\in\mathcal M^1(\alpha)$ belongs to
+$\mathcal M^1(\alpha+tK_X)$ throughout this interval.  Define
 \[
  \beta_\alpha(\mu)
  :=\Ent(\mu)+\nabla_{K_X}E_\alpha^\vee(\mu)
@@ -589,23 +591,33 @@ it to be.  For \(\mu\in\mathcal M^1(\alpha)\), define
        E_{\alpha+tK_X}^\vee(\mu).
 \tag{62.16}\label{eq:mpwn-beta}
 \]
-Differentiability in the class variable is not proved here.  It is the
-single imported analytic input of this section: every statement from
-\eqref{eq:mpwn-beta} onward, including
-\Cref{thm:mpwn-beta-mabuchi} and \Cref{thm:mpwn-valuative-criterion},
-presupposes that \(t\mapsto E_{\alpha+tK_X}^\vee(\mu)\) is differentiable at
-\(t=0\).  It is an imported theorem from the
-finite-energy measure formalism.  The entropy uses
-\(A_{X\times\mathbf P^1}-1\), not total discrepancy.
+Here $\mu$ is held fixed as $t$ varies.  The precise differentiability
+input is \cite[Theorem~4.8, pp.~195--197]{BJ25FiniteEnergy}.
+Writing $G_\alpha$ for the strongly continuous $K_X$-twisted
+functional used in the proof of
+\Cref{thm:mpwn-model-e1-equivalence}, it states that
+\[
+ \left.\frac{\rd}{\rd t}\right|_{t=0}
+       E_{\alpha+tK_X}^\vee(\mu)=G_\alpha(\mu).
+\tag{62.16a}\label{eq:mpwn-fixed-measure-class-derivative}
+\]
+The orthogonality and submean value hypotheses are the same as in
+that proof.  Proposition~4.5 of the cited work constructs
+$G_\alpha$ and proves its strong continuity; Theorem~4.8 identifies
+it with the derivative at a fixed measure.  We retain this
+identification as an imported theorem.  It is not obtained by
+differentiating an arbitrary maximizing potential inside the
+Legendre supremum.
 
-The definition is the transcendental counterpart of the divisorial-measure
-formalism of \cite{BJKS2}.  That source works with polarized projective
-varieties and algebraic norms.  Here the class derivative is taken in the
-K\"ahler cone and the measure space comes from analytic models; no projective
-specialization is used in the proof below.
+The entropy in \eqref{eq:mpwn-beta} uses the reduced discrepancy
+$A_X^{\NA}=A^{\mathrm{tot}}-1$.
+The definition is the transcendental counterpart of the
+divisorial-measure formalism of \cite{BJKS2}.  That source works
+with polarized projective varieties and algebraic norms; here the
+class direction and measure space come from analytic models.
 
 \begin{theorem}\label{thm:mpwn-beta-mabuchi}
-For every \(\phi\in\mathcal E^1(\alpha)\),
+For every $\phi\in\mathcal E^1(\alpha)$,
 \[
  \beta_\alpha(\MA_\alpha(\phi))
       =M_\alpha^{\NA}(\phi),
@@ -614,24 +626,100 @@ For every \(\phi\in\mathcal E^1(\alpha)\),
       \asymp J_\alpha(\phi),
 \tag{62.17}\label{eq:mpwn-beta-mabuchi}
 \]
-where the comparison constants depend only on \(n\).
+where the comparison constants depend only on $n$.
 \end{theorem}
 
-\begin{proof}[Imported class-derivative core]
-For a model potential, write the dual energy as an intersection number and
-differentiate it with respect to the background class.  The derivative equals
-\(sE_\alpha+E_\alpha^{K_X}\); adding entropy gives Mabuchi.  Approximate an
-arbitrary finite-energy potential decreasingly by model potentials and use
-continuity of the class derivative, as in
-\cite[Proposition~4.5]{BJ25FiniteEnergy}.  The second assertion follows from
+\begin{proof}
+The intersection calculation concerns the potential energy first.
+For a model potential $\phi=f_D$, write $A$ and $\kappa$ for the
+pullbacks of $\alpha$ and $K_X$ to its model.  The model energy
+polynomial, with $D$ fixed, is
+\[
+ E_{\alpha+tK_X}(\phi)
+       =\frac{(A+t\kappa+D)^{n+1}}{(n+1)V_t},
+       \qquad V_t:=(\alpha+tK_X)^n.
+\]
+Differentiating this polynomial quotient at zero gives
+\[
+ \begin{aligned}
+ \left.\frac{\rd}{\rd t}\right|_{t=0}E_{\alpha+tK_X}(\phi)
+ &=\frac{\kappa\cdot(A+D)^n}{V}
+       -\frac{n\alpha^{n-1}\cdot K_X}{V}E_\alpha(\phi)\\
+ &=E_\alpha^{K_X}(\phi)+sE_\alpha(\phi).
+ \end{aligned}
+\]
+The derivative of the normalizing volume supplies the second term.
+This calculation uses the energy polynomial on model functions;
+it does not assert that the fixed $\phi$ remains psh for every
+nearby class.  By \cite[(4.2), (4.11) and
+Proposition~4.5]{BJ25FiniteEnergy}, the result is
+$G_\alpha(\MA_\alpha(\phi))$.
+The passage to the dual-energy derivative with
+$\MA_\alpha(\phi)$ fixed is \eqref{eq:mpwn-fixed-measure-class-derivative}.
+
+For a general finite-energy $\phi$, the decreasing-net argument
+preceding \eqref{eq:mpwn-mabuchi-continuous-part} already proves
+\[
+ G_\alpha(\MA_\alpha(\phi))
+          =sE_\alpha(\phi)+E_\alpha^{K_X}(\phi).
+\]
+It uses strong continuity of $G_\alpha$ and decreasing continuity
+of finite mixed pairings, without interchanging a derivative with
+a limit.  Adding entropy gives the first identity in
+\eqref{eq:mpwn-beta-mabuchi}, also when the entropy is $+\infty$,
+since the other terms are finite.
+
+For the second assertion, \eqref{eq:mpwn-dual-energy-ma} gives
 \[
  E_\alpha^\vee(\MA_\alpha(\phi))
- =E_\alpha(\phi)-\int\phi\,\MA_\alpha(\phi)
- =J_\alpha(\phi,0)
+ =E_\alpha(\phi)-\int\phi\,\rd\MA_\alpha(\phi)
+ =J_\alpha(\phi,0).
 \]
-and quasi-symmetry of the Dirichlet energy.  This is
-\cite[Theorem~10.0.1]{MPWN25}.
+Quasi-symmetry of the Dirichlet energy compares this with
+$J_\alpha(0,\phi)=J_\alpha(\phi)$ by constants depending only
+on $n$.  This proves \cite[Theorem~10.0.1]{MPWN25}
+with the fixed-measure derivative input explicit.
 \end{proof}
+
+\begin{example}\label{ex:mpwn-fixed-measure-variation}
+Scaling the class tests which variable is fixed.
+For $a>0$, multiplication by $a$ identifies
+$\mathcal E^1(\alpha)$ with $\mathcal E^1(a\alpha)$, and
+homogeneity of the mixed pairing gives
+$E_{a\alpha}(a\psi)=aE_\alpha(\psi)$.
+Taking the variational supremum with a fixed
+$\mu\in\mathcal M^1(\alpha)$ therefore gives
+\[
+                       E_{a\alpha}^\vee(\mu)=aE_\alpha^\vee(\mu).
+\]
+In particular, the derivative in the class direction $\alpha$ is
+$E_\alpha^\vee(\mu)$.
+
+On $X=\mathbf P^1$ with $\alpha=c_1(\mathcal O(1))$, let $u$ have
+slope $-1/2$ on $r\ord_0$ for $0\leq r\leq1$, be constant
+beyond $r=1$, and vanish on every other ray.
+As in \Cref{ex:mpwn-weak-bounded-not-strong}, the curve criterion gives
+\[
+ \mu:=\MA_\alpha(u)
+       =\tfrac12\delta_{v_{\triv}}+\tfrac12\delta_{\ord_0},
+ \qquad E_\alpha(u)=-\tfrac18,\qquad E_\alpha^\vee(\mu)=\tfrac18.
+\]
+For $a>1/2$ the same $u$ remains $a\alpha$-psh, but its measure is
+\[
+ \nu_a:=\MA_{a\alpha}(u)
+       =\left(1-\frac1{2a}\right)\delta_{v_{\triv}}
+                     +\frac1{2a}\delta_{\ord_0}.
+\]
+Since $u(v_{\triv})=0$ and $u(\ord_0)=-1/2$, the curve energy
+formula gives $E_{a\alpha}(u)=-1/(8a)$ and hence
+\[
+              E_{a\alpha}^\vee(\mu)=\frac a8,
+       \qquad E_{a\alpha}^\vee(\nu_a)=\frac1{8a}.
+\]
+Their derivatives at $a=1$ are $1/8$ and $-1/8$, respectively.
+Thus differentiating the expression with the moving measure
+$\MA_{a\alpha}(u)$ computes a different quantity.
+\end{example}
 
 \begin{definition}[Divisorial measures]
 \label{def:mpwn-divisorial-measures}
@@ -677,18 +765,38 @@ thresholds: \Cref{thm:mpwn-beta-mabuchi} gives
 \(E^\vee_\alpha(\MA_\alpha\phi)\asymp J_\alpha(\phi)\), so the constant
 \(\delta\) in \eqref{eq:mpwn-beta-criterion} differs from the one in the
 normalized model test by the $n$-dependent comparison constants.
+
+To justify the ratio formulation, use
+\eqref{eq:mpwn-measure-quasimetric} at the zero potential:
+\[
+ E_\alpha^\vee(\mu)
+       =\delta_\alpha(\mu,\delta_{v_{\triv}}).
+\]
+Hence zero dual energy occurs only at $\delta_{v_{\triv}}$.
+For every K\"ahler class $\gamma$, the zero potential has this
+Monge--Amp\`ere measure and
+$E_\gamma^\vee(\delta_{v_{\triv}})=0$ by
+\eqref{eq:mpwn-dual-energy-ma}.  Its class derivative is therefore
+zero.  Its reduced entropy is also zero, so
+$\beta_\alpha(\delta_{v_{\triv}})=0$.
+The zero-energy case of \eqref{eq:mpwn-beta-criterion} is thus
+automatic; for positive energy, division gives
+\eqref{eq:mpwn-beta-ratio} and conversely.
+
 This proves the valuative equivalence in
 \cite[Theorem~10.0.4]{MPWN25} with the normalized model condition.
 The distinction from the raw all-big-model condition is
 \Cref{rem:mpwn-unnormalized-model-boundary}.
 \end{proof}
 
+\noindent\begin{minipage}{\linewidth}
 \begin{warning}{Measures, not only single divisors}
 The criterion ranges over finite weighted combinations of divisorial
 valuations.  Positivity only for Dirac masses is a different, generally
 weaker test.  Dreaminess is not assumed in
 \eqref{eq:mpwn-beta-criterion}.
 \end{warning}
+\end{minipage}\par
 
 \section{Finite-dimensional volume formula}
 

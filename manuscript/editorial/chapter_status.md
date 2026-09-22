@@ -1878,3 +1878,22 @@ No new research gate is claimed; the active inventory remains
 46 atoms in 14 formal environments with tiers (0,5,8,16,17).
 The next Chapter 62 unit is the class derivative at a fixed measure
 and its exact source theorem.
+
+
+## 2026-09-23 — Chapter 62 class derivative and zero-energy ratio
+
+The [class-derivative audit](ch62_class_derivative_audit_20260923.md)
+replaces the ambiguous differentiation of dual energy by the exact
+fixed-measure theorem. The model calculation concerns potential
+energy and includes the derivative of the volume denominator.
+An explicit P1 example distinguishes the two derivatives by sign.
+The zero-energy measure has zero beta invariant, so the ratio
+criterion loses no condition when zero denominators are excluded.
+The imported differentiability and normalized-model scopes are explicit.
+
+The final full source check has 389 TeX files and 11,509 labels;
+the 3,923-page full build has no unresolved references or citations
+and no layout overflow. The local warning split found in visual
+review is repaired. The research inventory and frozen verifier
+bytes are unchanged. The next unit is the finite-constraint
+envelope and volume formula.

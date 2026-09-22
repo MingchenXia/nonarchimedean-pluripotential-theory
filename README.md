@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,507 unique labels),
-and the full build produces a 3,921-page PDF with no unresolved reference
+The complete source check passes (389 TeX files, 11,509 unique labels),
+and the full build produces a 3,923-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
 records the final line-break checks and preservation of the research sources.
@@ -36,6 +36,11 @@ The [finite-energy completion audit](manuscript/editorial/ch62_finite_energy_com
 makes the strong continuity of the nonentropy term explicit and reconstructs
 fixed-complex interpolation, measure support and entropy convergence.
 The infinite-entropy case and central-fiber multiplicities are included.
+The [class-derivative audit](manuscript/editorial/ch62_class_derivative_audit_20260923.md)
+distinguishes differentiation at a fixed measure from differentiation
+with a moving Monge--Ampère measure, checks the exact published theorem,
+and supplies a curve calculation with opposite derivative signs.
+The zero-energy case of the valuative ratio test is now explicit.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the
