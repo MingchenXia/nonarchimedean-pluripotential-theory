@@ -800,107 +800,219 @@ weaker test.  Dreaminess is not assumed in
 
 \section{Finite-dimensional volume formula}
 
-Let \(F_1,\ldots,F_\ell\) be prime divisors on one modification
-\(\rho:Y\to X\), let \(v_i=\ord_{F_i}\), and take a rational probability
-vector \(\xi=(\xi_i)\).  Put
+Let $F_1,\ldots,F_\ell$, with $\ell\geq1$, be distinct prime divisors
+on a common smooth compact K\"ahler modification $\rho:Y\to X$.
+Put $v_i=\ord_{F_i}$ and let $\xi_i\in\mathbf Q_{\geq0}$ satisfy
+$\sum_i\xi_i=1$.  Thus
 \[
                          \mu_\xi:=\sum_{i=1}^\ell\xi_i\delta_{v_i}.
 \tag{62.21}\label{eq:mpwn-muxi}
 \]
-For \(t=(t_i)\in\mathbf R^\ell\), define the constrained envelope
+Repeated valuations in a presentation of the measure are first combined.
+For $t=(t_i)\in\mathbf R^\ell$, define
 \[
- \phi_t
- :=\sup\{\phi\in\PSH(\alpha)\mid
-                    \phi(v_i)\leq t_i,\ 1\leq i\leq\ell\},
-\qquad
- f_\alpha(t):=E_\alpha(\phi_t).
+ \phi_t:=\sup\{\phi\in\PSH(\alpha):
+                         \phi(v_i)\leq t_i\text{ for every }i\},
+ \qquad f_\alpha(t):=E_\alpha(\phi_t).
 \tag{62.22}\label{eq:mpwn-constrained-envelope}
 \]
-The supremum means its psh envelope; by the finite-constraint lemma it is
-continuous.  Convex duality gives
+We first justify that this supremum is a continuous psh function
+and still satisfies each constraint.
+
+\begin{lemma}\label{lem:mpwn-finite-constraint-obstacle}
+There is $h_t\in\PL_{\mathbf R}(X^{\bethan})$ for which the candidate
+set in \eqref{eq:mpwn-constrained-envelope} is
+$\{\phi\in\PSH(\alpha):\phi\leq h_t\}$.
+Consequently $\phi_t=P_\alpha(h_t)$ belongs to
+$C^0(X^{\bethan})\cap\mathcal E^1(\alpha)$ and $\phi_t(v_i)\leq t_i$.
+\end{lemma}
+
+\begin{proof}
+Choose an snc model whose full vertex set is
+$\{w_j=v_{E_j}\}_{j=1}^m$, with $w_i=v_i$ for $i\leq\ell$,
+and write $\cX_0=\sum_jb_jE_j$.
+For every candidate $\phi$, the finite point bound
+\eqref{eq:mpwn-dinfty} gives
+\[
+             \sup\phi\leq\phi(v_1)+T(v_1)
+                         \leq t_1+T(v_1)=:C.
+\]
+Assign $a_i=t_i$ at the prescribed vertices and $a_j=C$ at every
+remaining vertex.  Take
+$D=\sum_jb_ja_jE_j$ and $h_t=\phi_D$, so that $h_t(w_j)=a_j$.
+Convexity on every face and the retraction inequality
+\eqref{eq:mpwn-retraction-majorant} imply
+\[
+       \phi\leq\phi\circ p_{\cX}
+                    \leq h_t\circ p_{\cX}=h_t.
+\]
+Conversely, $\phi\leq h_t$ implies all the prescribed inequalities.
+The constant $\min_i t_i$ is a candidate, so the envelope is nonempty;
+\Cref{thm:mpwn-envelope-continuity} gives its continuity and its
+pointwise upper bound by $h_t$.
+This proves the finite-constraint assertion of
+\cite[Lemma~7.1.5]{MPWN25}, including the bounds at unprescribed
+vertices and the central-fiber multiplicities.
+\end{proof}
+
 \[
  E_\alpha^\vee(\mu_\xi)
     =\sup_{t\in\mathbf R^\ell}
-       \{f_\alpha(t)-\xi\cdot t\}.
+                     \{f_\alpha(t)-\xi\cdot t\}.
 \tag{62.23}\label{eq:mpwn-energy-legendre}
 \]
-
-The probability constraint is visible in the translation direction.  If
-\(\mathbf1=(1,\ldots,1)\), then the candidate sets in
-\eqref{eq:mpwn-constrained-envelope} give
+This follows directly from the variational definition.  Indeed,
+nonnegativity of the weights and $\phi_t(v_i)\leq t_i$ give
 \[
-            \phi_{t+c\mathbf1}=\phi_t+c,
- \qquad     f_\alpha(t+c\mathbf1)=f_\alpha(t)+c.
+ f_\alpha(t)-\xi\cdot t
+ \leq E_\alpha(\phi_t)-\int\phi_t\,\rd\mu_\xi
+ \leq E_\alpha^\vee(\mu_\xi).
 \]
-Since \(\xi\cdot\mathbf1=1\), the expression
-\(f_\alpha(t)-\xi\cdot t\) is unchanged by the same translation.  Thus the
-Legendre problem has exactly one redundant additive direction, matching the
-normalization of potentials modulo constants.
+Conversely, for $\psi\in\mathcal E^1(\alpha)$ put
+$t_i=\psi(v_i)$, which is finite because $v_i$ is divisorial.
+Then $\psi\leq\phi_t$, and energy monotonicity yields
+\[
+ E_\alpha(\psi)-\int\psi\,\rd\mu_\xi
+                  \leq f_\alpha(t)-\xi\cdot t.
+\]
+Taking the supremum proves the reverse inequality.  No equality
+$\phi_t(v_i)=t_i$ for arbitrary $t$ was used.
+The supremum is attained: choose the continuous solution
+$\psi$ of $\MA_\alpha(\psi)=\mu_\xi$ and again set
+$t_i=\psi(v_i)$.  Since $\psi\leq\phi_t$ and $\phi_t\leq\psi$
+on the support of $\mu_\xi$, \Cref{cor:mpwn-domination} gives
+$\phi_t=\psi$.  The variational identity
+\eqref{eq:mpwn-dual-energy-ma} then gives equality in
+\eqref{eq:mpwn-energy-legendre}.  This recovers
+\cite[Corollary~10.1.3]{MPWN25}.
+
+If $\mathbf1=(1,\ldots,1)$, translation of the candidate sets gives
+$\phi_{t+c\mathbf1}=\phi_t+c$ and
+$f_\alpha(t+c\mathbf1)=f_\alpha(t)+c$.
+Hence the objective in \eqref{eq:mpwn-energy-legendre} is unchanged,
+and one may impose $t_1=0$.  Inactive constraints may give further
+nonuniqueness.  If $\xi_i=0$, that point contributes nothing to
+the linear term, but its constraint can still affect $\phi_t$ for a
+fixed $t$.
 
 \begin{theorem}\label{thm:mpwn-volume-formula}
-For any \(\lambda_0<\min_i t_i\),
+For any $\lambda_0<\min_i t_i$,
 \[
  f_\alpha(t)
  =\lambda_0+\frac1V\int_{\lambda_0}^{+\infty}
      \left\langle
        \left(\rho^*\alpha-
          \sum_{i=1}^{\ell}(\lambda-t_i)_+F_i\right)^n
-     \right\rangle\,\rd \lambda.
+     \right\rangle\,\rd\lambda.
 \tag{62.24}\label{eq:mpwn-volume-formula}
 \]
-The positive product is declared zero after the class ceases to be
-pseudoeffective, so the improper integral is finite.
+Here the top positive product is the volume on the pseudoeffective
+cone, extended by zero outside it.  The integrand vanishes for all
+sufficiently large $\lambda$.
 \end{theorem}
 
-\begin{proof}[Imported test-curve energy formula]
-The family of maximal \(\omega\)-psh functions
+\begin{proof}
+Write $D_\lambda=\sum_i(\lambda-t_i)_+F_i$ and
+$\gamma_\lambda=\rho^*\alpha-\{D_\lambda\}$.
+For a K\"ahler class $\eta$ on $Y$, pseudoeffectivity implies
 \[
- G_\lambda
- :=\sup\{u\in\PSH_{\sup}(X,\omega)\mid
-              \nu_{F_i}(u)\geq\lambda-t_i\ \forall i\}
+ 0\leq\gamma_\lambda\cdot\eta^{n-1}
+   =\rho^*\alpha\cdot\eta^{n-1}
+      -\sum_i(\lambda-t_i)_+(F_i\cdot\eta^{n-1}).
+\]
+Each $F_i\cdot\eta^{n-1}$ is strictly positive.  The right-hand
+side is negative for sufficiently large $\lambda$, so
+\[
+ \tau(t):=\sup\{\lambda:\gamma_\lambda
+                               \text{ is pseudoeffective}\}<+\infty.
+\]
+The classes decrease by effective divisors as $\lambda$ increases.
+Since the pseudoeffective cone is closed and
+$\gamma_\lambda=\rho^*\alpha$ for $\lambda\leq\min_i t_i$,
+its parameter set is exactly $(-\infty,\tau(t)]$.
+The endpoint class is not big, by openness of the big cone.
+For $\lambda<\tau(t)$ the class is big: choose
+$a<\min\{\lambda,\min_i t_i\}$ and $\lambda<b<\tau(t)$.
+Convexity of the positive-part function shows that
+$\gamma_\lambda$ dominates, by an effective class, the convex
+combination of $\gamma_a$ and $\gamma_b$ with parameter $\lambda$.
+The first class is big and the second is pseudoeffective.
+
+For a K\"ahler form $\omega\in\alpha$, let
+\[
+ G_\lambda:=\sup\{u\in\PSH(X,\omega):u\leq0,\
+                 \nu_{F_i}(u)\geq(\lambda-t_i)_+
+                                      \text{ for every }i\}.
 \tag{62.25}\label{eq:mpwn-rwn-test-curve}
 \]
-is a concave \(\mathcal I\)-maximal test curve.  Its Ross--Witt Nystr\"om
-transform is the maximal ray associated to \(\phi_t\)
-\cite[Lemma~10.1.1]{MPWN25}.  The DXZ energy formula
-\cite[Theorem~2.6(iii)]{DXZ23} computes the ray slope by integrating the
-non-pluripolar masses of the \(G_\lambda\).
-Removing their divisorial singularities identifies that mass with
+Take the usual upper envelope in $x$, and put $G_\lambda=-\infty$
+when the set is empty.  Using $u\leq0$ gives the same envelope
+as using $\sup_Xu=0$, since addition of constants preserves the
+Lelong constraints.  Siu decomposition on $Y$ shows that the set
+is nonempty exactly when $\gamma_\lambda$ is pseudoeffective:
+subtract $[D_\lambda]$ from the pullback positive current in one
+direction; in the other, add $[D_\lambda]$ to a positive current
+in $\gamma_\lambda$ and descend the resulting current in
+$\rho^*\alpha$ to $X$.
+Thus the terminal parameter is $\tau(t)$.
+
+The test-curve identification is the source input
+\cite[Lemma~10.1.1]{MPWN25}: this family is
+$\mathcal I$-maximal and its Ross--Witt Nystr\"om transform is the
+maximal ray associated to $\phi_t$.  Its energy slope is
+$E_\alpha(\phi_t)$ under the radial correspondence.
+In particular, this is the finite-energy locus; the test curve
+is zero below $\min_i t_i$ and has a finite terminal parameter.
+
+We spell out the mass calculation in
+\cite[proof of Theorem~10.1.2]{MPWN25}.
+Choose a smooth representative $\theta_\lambda$ of $\{D_\lambda\}$
+and a divisor potential $q_\lambda$ with
+$\theta_\lambda+\ddc q_\lambda=[D_\lambda]$.
+For $\lambda<\tau(t)$ the residual current
 \[
- \left\langle
-   \left(\rho^*\alpha-
-       \sum_i(\lambda-t_i)_+F_i\right)^n
- \right\rangle.
+ \rho^*\omega-\theta_\lambda
+       +\ddc(G_\lambda\circ\rho-q_\lambda)
 \]
-Let \(\lambda_{\max}\) be the terminal parameter of the test curve and let
-\(m(\lambda)\) denote the displayed positive product.  The precise DXZ
-identity is
+is positive and has minimal singularities in $\gamma_\lambda$.
+For the latter assertion, take a potential $v_{\min}$ with
+minimal singularities in that class.
+The sum $v_{\min}+q_\lambda$ is $\rho^*\omega$-psh and descends
+to an $\omega$-psh potential.  After subtracting a constant it is
+a candidate for $G_\lambda$.  Consequently
+$G_\lambda\circ\rho-q_\lambda\geq v_{\min}-C_\lambda$;
+the reverse comparison up to a constant follows from minimality
+of $v_{\min}$.  Non-pluripolar products charge no divisor, so
+birational invariance and removal of $[D_\lambda]$ give
 \[
- f_\alpha(t)=\lambda_{\max}
-   +\int_{-\infty}^{\lambda_{\max}}
-        \bigl(-1+V^{-1}m(\lambda)\bigr)\,\rd\lambda.
+ m(\lambda):=\int_X\langle(\omega+\ddc G_\lambda)^n\rangle
+                         =\langle\gamma_\lambda^n\rangle.
 \]
-For \(\lambda\leq\lambda_0<\min_i t_i\), all positive parts vanish and
-\(m(\lambda)=V\), so the integrand is zero.  Therefore
+In particular $0\leq m(\lambda)\leq V$, and $m(\lambda)=V$
+for $\lambda\leq\min_i t_i$.
+
+The published energy identity
+\cite[equation~(5), Theorem~2.6(iii)]{DXZ23} now reads
 \[
- \begin{split}
- f_\alpha(t)
- &=\lambda_{\max}
-   +\int_{\lambda_0}^{\lambda_{\max}}
-       \bigl(-1+V^{-1}m(\lambda)\bigr)\,\rd\lambda\\
- &=\lambda_0+V^{-1}
-       \int_{\lambda_0}^{\lambda_{\max}}m(\lambda)\,\rd\lambda.
- \end{split}
+ f_\alpha(t)=\tau(t)+
+     \int_{-\infty}^{\tau(t)}
+                         \bigl(V^{-1}m(\lambda)-1\bigr)\,\rd\lambda.
 \]
-After \(\lambda_{\max}\) the class is not pseudoeffective and its positive
-product is zero, so extending the upper limit to \(+\infty\) gives
-\eqref{eq:mpwn-volume-formula}.  This is
-\cite[Theorem~10.1.2]{MPWN25}.  This use of \cite{DXZ23} is on the proved
-\(\mathcal I\)-maximal finite-energy locus only.
+Its integral is finite: the integrand is zero below $\lambda_0$
+and bounded on the remaining finite interval.  Hence
+\[
+ f_\alpha(t)=\lambda_0+
+                 V^{-1}\int_{\lambda_0}^{\tau(t)}m(\lambda)\,\rd\lambda.
+\]
+Extending the integrand by zero after $\tau(t)$ gives
+\eqref{eq:mpwn-volume-formula}.  The value at the single endpoint
+does not change the integral; the endpoint volume is zero.
+This also shows directly that changing $\lambda_0$ below
+$\min_i t_i$ leaves the answer unchanged.
 \end{proof}
 
-If \(g_\alpha(\xi)\) denotes the Legendre transform in
-\eqref{eq:mpwn-energy-legendre}, then
+Let $g_\alpha(\xi)$ denote the supremum in
+\eqref{eq:mpwn-energy-legendre}.  Then
 \[
  \beta_\alpha(\mu_\xi)
  =\sum_{i=1}^{\ell}\xi_iA_X(F_i)
@@ -908,37 +1020,76 @@ If \(g_\alpha(\xi)\) denotes the Legendre transform in
 \tag{62.26}\label{eq:mpwn-beta-explicit}
 \]
 This is \cite[Corollary~10.1.4]{MPWN25}.
+The divisors and weights, and hence the measure, are fixed during
+the class derivative.  The differentiability theorem used above
+applies to the value $g_\alpha(\xi)=E_\alpha^\vee(\mu_\xi)$;
+no interchange of differentiation with the supremum or integral
+is needed here.
 
-\begin{example}[One divisor]
-\label{ex:mpwn-one-divisor-beta}
-For \(\mu=\delta_{\ord_F}\), translation invariance reduces
-\eqref{eq:mpwn-volume-formula} to
+\begin{example}\label{ex:mpwn-one-divisor-beta}
+For one divisor, translation gives
+$f_\alpha(t)=f_\alpha(0)+t$, so
+\eqref{eq:mpwn-energy-legendre} yields
+$E_\alpha^\vee(\delta_{\ord_F})=f_\alpha(0)$.
+In fact $\phi_0(\ord_F)=0$: if it were negative, adding its
+opposite would give a strictly larger candidate with value zero,
+contrary to the envelope property.
+Taking $\lambda_0<0$ in \eqref{eq:mpwn-volume-formula} and cancelling
+the constant contribution on $[\lambda_0,0]$ gives
 \[
  E_\alpha^\vee(\delta_{\ord_F})
    =\frac1V\int_0^{+\infty}
-          \langle(\rho^*\alpha-\lambda F)^n\rangle\,\rd \lambda.
+          \langle(\rho^*\alpha-\lambda F)^n\rangle\,\rd\lambda.
 \tag{62.27}\label{eq:mpwn-one-divisor-energy}
 \]
-Indeed, normalize the one-point constrained envelope by
-\(\phi_0(\ord_F)=0\).  Orthogonality makes it the variational maximizer for
-\(\delta_{\ord_F}\), so its energy equals the dual energy, and
-\eqref{eq:mpwn-volume-formula} with \(t=0\) gives the displayed integral.
-The integrand vanishes beyond the pseudoeffective threshold.  Formula
-\eqref{eq:mpwn-beta-explicit} then differentiates this integral in the
-\(K_X\)-direction and adds \(A_X(F)\).  The signs match
-\(\rho^*\alpha-\lambda F\): imposing more vanishing consumes positivity.
+The finite cutoff is the pseudoeffective threshold of $F$.
+Formula \eqref{eq:mpwn-beta-explicit} takes the class derivative
+of this value and adds $A_X(F)$.
 \end{example}
 
-\begin{example}[Toric specialization]
-\label{ex:mpwn-toric-beta}
-If \(X\) is a smooth projective toric manifold and the \(F_i\) are toric
-prime divisors on a toric modification, the positive intersection in
-\eqref{eq:mpwn-volume-formula} is \(n!\) times the Euclidean volume of the
-moment polytope cut by the inequalities corresponding to
-\((\lambda-t_i)_+\).  Thus \(f_\alpha\) is an integral of sliced polytope
-volumes, and \eqref{eq:mpwn-energy-legendre} becomes ordinary finite
-dimensional convex duality.  This recovers the toric sign convention of
-\Cref{chap:transcendental-okounkov-dh} without asserting that every analytic model is toric.
+\begin{example}\label{ex:mpwn-two-point-constraints}
+On $X=\mathbf P^1$ with $\deg\alpha=1$, take $F_1=\{0\}$,
+$F_2=\{\infty\}$ and normalize $t=(0,b)$.
+The integrand in \eqref{eq:mpwn-volume-formula} is
+$(1-\lambda_+-(\lambda-b)_+)_+$, so elementary integration gives
+\[
+ f_\alpha(0,b)=
+ \begin{cases}
+ b+\frac12,& b\leq-1,\\
+ \frac14+\frac b2-\frac{b^2}{4},& -1\leq b\leq1,\\
+ \frac12,& b\geq1.
+ \end{cases}
+\]
+For $b>1$ the constraint at $\ord_\infty$ is inactive:
+the one-point envelope at $\ord_0$ already has value $1$ there,
+as in \Cref{ex:mpwn-p1-cy} after addition of $1$.
+For weights $(p,1-p)$, $0\leq p\leq1$, maximizing
+$f_\alpha(0,b)-(1-p)b$ gives
+\[
+ E_\alpha^\vee(p\delta_{\ord_0}+(1-p)\delta_{\ord_\infty})
+                        =\frac{p^2+(1-p)^2}{2}.
+\]
+For $0<p<1$ the maximizing $b$ is $2p-1$; at $p=1$ every
+$b\geq1$ maximizes, and at $p=0$ every $b\leq-1$ does.
+The tree calculation checks the normalization independently:
+a solution has slopes $-p$ and $-(1-p)$ on the two unit segments,
+zero slope beyond them, and no other outgoing slope.
+Its Dirichlet energy is $p^2+(1-p)^2$, and dual energy is half
+this quantity.  Thus the zero-weight cases illustrate the
+additional nonuniqueness beyond translation by constants.
+\end{example}
+
+\begin{example}\label{ex:mpwn-toric-beta}
+If $X$ is a smooth projective toric manifold and the $F_i$ are
+distinct toric prime divisors on a smooth toric modification,
+the positive intersection in \eqref{eq:mpwn-volume-formula} is
+$n!$ times lattice-normalized Euclidean volume of the polytope
+obtained by increasing the corresponding divisor inequalities
+by $(\lambda-t_i)_+$.  Thus $f_\alpha$ is an integral of polytope
+volumes, and \eqref{eq:mpwn-energy-legendre} becomes finite
+dimensional convex duality.  The sign agrees with
+\Cref{chap:transcendental-okounkov-dh}: increasing the vanishing
+requirement shrinks the polytope.
 \end{example}
 
 \section{Flag ideals, envelopes, and radial rays}

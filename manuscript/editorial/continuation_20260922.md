@@ -379,13 +379,27 @@ with no unresolved reference or citation and no layout overflow.
 The normalized stability scope and frozen verification bytes
 remain unchanged.
 
+## Chapter 62: finite constraints and volume — 23 September 2026
+
+The [finite-volume audit](ch62_finite_volume_audit_20260923.md)
+constructs the continuous obstacle using all model vertices and
+central-fiber multiplicities. The variational reduction now has both
+inequalities and an attainment argument, without assuming saturation.
+The volume proof establishes the finite pseudoeffective cutoff and
+minimal residual singularities, using the exact published DXZ energy
+normalization. A two-point P1 example checks inactive constraints,
+zero weights and the remaining maximizing half-lines.
+The final full build has 3,925 pages and 11,511 labels, with no unresolved
+reference or citation and no layout overflow. The research inventory,
+normalized-model scope and frozen verification bytes are unchanged.
+
 ## Next work
 
-1. Continue the Chapter 62 audit of the finite-constraint envelope
-   and finite-dimensional volume formula, including the Legendre
-   reduction and the finite terminal parameter.
-   The completion and class derivative now have separate 23 September
-   receipts. Keep the normalized model
+1. Check the Chapter 52 relative test-curve endpoint conventions
+   and ray-energy normalization against published DXZ equation (5)
+   and Theorem 2.6, then reconcile the Chapter 62 dated source map.
+   The completion, class derivative and finite-volume formula now
+   have separate 23 September receipts. Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
    General Kähler maximal-ray existence, sequential regularization

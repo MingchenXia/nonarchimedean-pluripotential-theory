@@ -1897,3 +1897,22 @@ and no layout overflow. The local warning split found in visual
 review is repaired. The research inventory and frozen verifier
 bytes are unchanged. The next unit is the finite-constraint
 envelope and volume formula.
+
+
+## 2026-09-23 — Chapter 62 finite constraints and volume
+
+The [finite-volume audit](ch62_finite_volume_audit_20260923.md)
+fills in the PL obstacle at unprescribed vertices, proves the two
+Legendre inequalities and attainment, and establishes the finite
+pseudoeffective threshold. The mass calculation includes minimal
+residual singularities and the exact published DXZ normalization.
+The two-point P1 example checks inactive constraints and zero weights.
+The class derivative keeps the measure fixed.
+
+The final full build has 3,925 pages; its 389-file source closure
+has 11,511 unique labels and no unresolved reference or citation.
+There is no horizontal or vertical overflow. The actual edited block
+passes the strict audit, and its final pages pass visual review.
+The active inventory, normalized-model scope and frozen verification
+bytes are unchanged. The next unit checks Chapter 52 test-curve
+endpoints and energy conventions against the published source.
