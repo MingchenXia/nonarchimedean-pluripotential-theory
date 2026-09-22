@@ -8,7 +8,9 @@ left blank in this release.
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
 The complete source check passes (389 TeX files, 11,486 unique labels),
 and the full build produces a 3,913-page PDF with no unresolved reference
-or citation. The build still reports eight horizontal layout overflows.
+or citation and no horizontal or vertical layout overflow.
+The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
+records the final line-break checks and preservation of the research sources.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables; the new page
 count reflects that reflow.

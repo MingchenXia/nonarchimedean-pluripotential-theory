@@ -233,12 +233,24 @@ references or citations, and eight horizontal overflows.
 The page increase is reflow only; no mathematical content or frozen
 proof bytes changed.
 
+## Whole-book layout: the remaining long lines
+
+The [display-layout audit](full_book_overflow_audit_20260922.md)
+records seven formula reflows and one local prose setting. Two
+external sources have separate layout editions with their original
+files and hashes preserved. The complete build has 3,913 pages,
+11,486 resolved labels and no horizontal or vertical overflow.
+The eight affected locations were rendered and inspected.
+
 ## Next work
 
-1. Resolve the eight remaining horizontal overflows listed in the
-   font-scope audit. Preserve frozen proof objects and exact audit
-   history when changing their presentation.
+1. Reconcile Chapter 14 Proposition 14.8.1 with the dimension sign
+   computed in its own proof: pushforward commutes with J only
+   after accounting for that convention. Check dependent statements
+   and the overstrong phrase claiming equal dimensions are necessary.
 2. Continue the mathematical and source audit through Chapter 61.
+   A useful next expansion is the point-mass energy estimate from
+   truncated normalized psh functions and the zero-model Dirac mass.
    General Kähler maximal-ray existence, sequential regularization
    and the full mixed-slope reduction remain explicit source inputs.
 3. For P07.1, separately examine continuous convex collar data and the
