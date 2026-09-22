@@ -291,11 +291,21 @@ use consistent definitions, and the model proof retains node
 residue degrees. The full build has 3,915 pages and 11,493
 resolved labels, with no horizontal or vertical overflow.
 
+## Chapter 61: non-pluripolar points and Dirac energy
+
+The [point-energy audit](ch61_point_energy_audit_20260922.md)
+expands metric finiteness and separation, identifies the finite-energy
+tangent input without a circular integrability inference, and proves
+the truncation bound from model mixed probability measures.
+The P1 example now controls all psh potentials and the full
+variational supremum. The complete build has 3,915 pages and 11,494
+resolved labels, with no horizontal or vertical overflow.
+
 ## Next work
 
 1. Continue the mathematical and source audit through Chapter 61.
-   A useful next expansion is the point-mass energy estimate from
-   truncated normalized psh functions and the zero-model Dirac mass.
+   Next inspect the strong-topology and variational proofs, especially
+   bounded-energy compactness and the fixed-measure integral limit.
    General Kähler maximal-ray existence, sequential regularization
    and the full mixed-slope reduction remain explicit source inputs.
 2. For P07.1, separately examine continuous convex collar data and the

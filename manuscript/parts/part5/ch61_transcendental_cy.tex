@@ -14,7 +14,7 @@ topologies.  These ingredients were established in the transcendental
 analytic setting by Mesquita-Piccione and Witt Nystr\"om
 \cite{MPWN25}.
 
-Throughout, \(X\) is a compact K\"ahler manifold, \(\dim_{\mathbf C}X=n\),
+Throughout, \(X\) is a connected compact K\"ahler manifold, \(\dim_{\mathbf C}X=n\),
 \(\alpha\) is a K\"ahler class, \(A\) denotes its pullback system on all
 analytic models, and \(V=\int_X\alpha^n\).  We use probability
 Monge--Amp\`ere measures.  Thus no hidden factor \(V\) occurs in
@@ -88,13 +88,39 @@ Write \(X^{\mathrm{np}}\) for this locus.  On it define
 \]
 \end{definition}
 
-Every divisorial point is non-pluripolar.  The quantity
-\eqref{eq:mpwn-dinfty} is finite: if potentials separated \(v\) from the
-trivial point by arbitrarily large amounts, a summable convex combination
-of normalized potentials would be \(-\infty\) at \(v\), contradicting
-\eqref{eq:mpwn-nonpluripolar}.  PL functions separate points, so
-\(d_\infty(v,w)=0\) implies \(v=w\).  Hence \(d_\infty\) is a metric on
-\(X^{\mathrm{np}}\), as in \cite[Proposition~3.2.2]{MPWN25}.
+Every divisorial point is non-pluripolar by
+\Cref{thm:mp-psh-divisorial}.  For $v\in X^{\mathrm{np}}$, the
+maximum principle gives
+\[
+            T(v)=\sup_{\phi\in\PSH_{\sup}(\alpha)}(-\phi(v)).
+\]
+To prove finiteness, suppose this supremum is infinite and choose
+$\phi_j\in\PSH_{\sup}(\alpha)$ with $\phi_j(v)\leq-2^j$.
+The finite convex combinations
+\[
+       s_m=2^{-m}\cdot0+\sum_{j=1}^m2^{-j}\phi_j
+\]
+are $\alpha$-psh.  This follows first from convexity of the
+relative nef cone for model potentials, then by taking decreasing
+model approximations in the finitely many slots.
+Their coefficients sum to one, $s_m(v_{\triv})=0$, and
+$s_{m+1}\leq s_m$ because every $\phi_j\leq0$.
+By \Cref{prop:mp-psh-decreasing-stability}, the limit is psh:
+its value at $v_{\triv}$ is zero, so it is not identically
+$-\infty$.  But $s_m(v)\leq-m$, contradicting non-pluripolarity.
+Thus $T(v)<+\infty$.
+
+It follows that $d_\infty(v,w)\leq T(v)+T(w)$.
+Symmetry and the triangle inequality hold for each potential
+before taking the supremum.  If $d_\infty(v,w)=0$, all
+$\alpha$-psh model potentials have the same values at $v$ and $w$.
+Every PL function is a scalar multiple of a difference of two
+such potentials: use the positive-pair decomposition preceding
+\Cref{prop:mp-e1-ma-existence} and divide both potentials by
+their common background multiplier.
+Since PL functions separate points, $v=w$.
+This proves the metric assertion of
+\cite[Proposition~3.2.2]{MPWN25}.
 
 \section{Finite-energy measures and dual energy}
 
@@ -140,31 +166,109 @@ right side is finite because \(E_\alpha(\phi)>-\infty\) by
 \eqref{eq:mpwn-finite-energy-measures}.
 \end{proof}
 
-In particular,
+For $\phi\in\mathcal E^1(\alpha)$, finite energy of
+$\MA_\alpha(\phi)$ uses the finite-energy tangent inequality
+\cite[Proposition~2.3.5 and its proof]{MPWN25}:
+\[
+ E_\alpha(\psi)
+       \leq E_\alpha(\phi)
+               +\int(\psi-\phi)\,\MA_\alpha(\phi),
+       \qquad \psi\in\mathcal E^1(\alpha).
+\]
+The mixed energy integrals here are finite as part of that
+finite-energy statement.  Taking the supremum over $\psi$
+gives the upper bound below, and the competitor $\psi=\phi$
+gives equality:
 \[
  E_\alpha^\vee(\MA_\alpha(\phi))
  =E_\alpha(\phi)-\int\phi\,\MA_\alpha(\phi)<+\infty.
 \tag{61.8}\label{eq:mpwn-dual-energy-ma}
 \]
+This establishes membership in $\mathcal M^1(\alpha)$ before
+\Cref{lem:mpwn-integrability} is applied to the measure.
 
-\begin{example}[Divisorial Dirac masses]
+\begin{example}
 \label{ex:mpwn-divisorial-dirac}
-If \(v\in X^{\divis}\), then \(\delta_v\in\mathcal M^1(\alpha)\).  Indeed,
+For a divisorial point $v$, monotonicity of energy and
+$E_\alpha(c)=c$ give
 \[
  E_\alpha^\vee(\delta_v)
  \leq\sup_{\phi\in\mathcal E^1(\alpha)}
-          \{\sup\phi-\phi(v)\}<+\infty,
+          \{\sup\phi-\phi(v)\}<+\infty.
 \tag{61.9}\label{eq:mpwn-dirac-energy-bound}
 \]
-where the last bound is the uniform divisorial estimate used in
-\Cref{thm:mpwn-weak-compactness}.  More generally,
-\cite[Proposition~3.2.3]{MPWN25} proves
+The last bound is the uniform divisorial estimate in
+\Cref{thm:mpwn-weak-compactness}.  Thus
+$\delta_v\in\mathcal M^1(\alpha)$.
+For every $v\in X^{\mathrm{np}}$, the more precise estimate is
 \[
               \frac1{n+1}T(v)
-              \leq E_\alpha^\vee(\delta_v)\leq T(v)
+              \leq E_\alpha^\vee(\delta_v)\leq T(v).
 \tag{61.10}\label{eq:mpwn-point-energy}
 \]
-for every \(v\in X^{\mathrm{np}}\).
+We give the truncation argument for
+\cite[Proposition~3.2.3]{MPWN25}, whose algebraic antecedent is
+\cite[proof of Proposition~11.1, (11.3)]{BJ22}.
+
+First let $\psi\in\PSH(\alpha)$ satisfy
+$-M\leq\psi\leq0$ and $\psi(v_{\triv})=0$, with $M\geq0$.
+Choose a decreasing model psh net $h_\lambda\downarrow\psi$.
+For $0\leq j\leq n$, let $\mu_{\lambda,j}$ be the probability
+mixed model measure of $j$ copies of $(\alpha,h_\lambda)$
+and $n-j$ copies of $(\alpha,0)$.
+Its coefficients are nonnegative mixed intersections of nef
+classes on the central components.  Their sum is one, since
+intersection with the central fibre can be computed on a
+general fibre, where all $n$ classes restrict to $\alpha$.
+This is the mixed version of \Cref{prop:mp-model-ma-mass}.
+In particular, $\mu_{\lambda,0}=\delta_{v_{\triv}}$.
+
+The model cocycle \eqref{eq:mp-energy-cocycle} and testing formula
+\eqref{eq:mp-mixed-testing} give
+\[
+ E_\alpha(h_\lambda)
+     =\frac1{n+1}\sum_{j=0}^n
+                      \int h_\lambda\,\rd\mu_{\lambda,j}.
+\]
+The $j=0$ term is $h_\lambda(v_{\triv})\geq0$ and decreases to
+zero.  Each other term is at least $-M$, because
+$h_\lambda\geq\psi\geq-M$ and the measures have mass one.
+Decreasing continuity of the extended pairing in
+\eqref{eq:mp-extended-pairing} therefore yields
+\[
+                 -\frac{n}{n+1}M
+                        \leq E_\alpha(\psi)\leq0.
+\tag{61.10a}\label{eq:mpwn-bounded-energy-floor}
+\]
+The upper bound is monotonicity.  This also proves
+$\psi\in\mathcal E^1(\alpha)$.
+Only model integrals were used before taking the energy limit;
+no unproved convergence of a variable integrand against a
+variable measure is required.
+
+If $0<M<T(v)$, choose $\phi\in\PSH_{\sup}(\alpha)$ with
+$\phi(v)<-M$, and put $\psi=\max\{\phi,-M\}$.
+This maximum is psh by model maximum stability and decreasing
+approximation; the real constant can itself be approximated
+from above by rational constants.
+It satisfies the hypotheses of \eqref{eq:mpwn-bounded-energy-floor}
+and $\psi(v)=-M$.  Hence
+\[
+ E_\alpha^\vee(\delta_v)
+       \geq E_\alpha(\psi)-\psi(v)
+       \geq\frac{M}{n+1}.
+\]
+Letting $M\uparrow T(v)$ proves the lower bound in
+\eqref{eq:mpwn-point-energy}.  If $T(v)=0$, the same bound follows
+by using a constant competitor.
+For the upper bound, any finite-energy $\phi$ satisfies
+\[
+ E_\alpha(\phi)-\phi(v)
+                \leq\sup\phi-\phi(v)\leq T(v).
+\]
+Taking the supremum proves the assertion.  In dimension zero,
+connectedness makes $X^{\bethan}$ a single point, and
+$T=E_\alpha^\vee(\delta_{v_{\triv}})=0$.
 \end{example}
 
 The potential--measure energy gap is
@@ -500,22 +604,46 @@ Every functional is now a number.  Using
 the middle equality because \(\sup\phi=0\) and the last by
 \eqref{eq:mpwn-dual-energy-ma}.
 
-The same picture shows that \eqref{eq:mpwn-point-energy} is sharp.  For
-\(s\in[0,1]\) let \(\phi_s\) have slope \(-s\) along the ray at \(0\) up to
-\(t=1\), be constant beyond it, and vanish on every other ray; then
-\(\MA_\alpha(\phi_s)=(1-s)\delta_{v_{\triv}}+s\,\delta_{\ord_0}\),
-\(\sup\phi_s=0\) and \(\phi_s(\ord_0)=-s\), so
-\(E_\alpha(\phi_s)=-s^2/2\).  Hence
+The lower bound in \eqref{eq:mpwn-point-energy} is attained in
+dimension one.  For $s\in[0,1]$, let $\phi_s$ have slope $-s$
+along the ray at $0$ up to $t=1$, be constant beyond it, and
+vanish on every other ray.  Then
+\[
+ \MA_\alpha(\phi_s)
+       =(1-s)\delta_{v_{\triv}}+s\,\delta_{\ord_0},
+ \qquad
+ \phi_s(\ord_0)=-s,
+ \qquad E_\alpha(\phi_s)=-\frac{s^2}{2}.
+\]
+At $s=1$ the measure is exactly $\delta_{\ord_0}$, so
+\eqref{eq:mpwn-dual-energy-ma} evaluates the full variational
+supremum:
 \[
  E_\alpha^\vee(\delta_{\ord_0})
- =\sup_{0\leq s\leq1}\Bigl\{-\frac{s^2}2+s\Bigr\}=\frac12,
- \qquad
- T(\ord_0)=\sup_{0\leq s\leq1}s=1,
+       =E_\alpha(\phi_1)-\phi_1(\ord_0)=\frac12.
 \]
-both attained at \(s=1\).  So
-\(E_\alpha^\vee(\delta_{\ord_0})=T(\ord_0)/(n+1)\) at \(n=1\): the left
-inequality of \eqref{eq:mpwn-point-energy} is an equality here, and its
-constant \(n+1\) cannot be improved.
+
+To compute $T(\ord_0)$, one must also bound potentials outside
+this family.  For a model psh potential $u$, all outgoing slopes
+at the root are nonpositive, by the maximum principle.  The
+root atom of its positive curvature measure is one plus the
+sum of these slopes.  Thus every root slope is at least $-1$.
+Positivity away from the root makes the slope nondecreasing
+along each ray, and hence
+\[
+                    u(\ord_0)\geq u(v_{\triv})-1.
+\]
+Passing to a decreasing model approximation proves the same
+inequality for every $\alpha$-psh potential.  Therefore
+$T(\ord_0)\leq1$, while $\phi_1$ attains this bound.
+Consequently
+\[
+       T(\ord_0)=1,\qquad
+       E_\alpha^\vee(\delta_{\ord_0})
+                         =\frac{T(\ord_0)}{n+1}
+                         \quad\text{when }n=1.
+\]
+This proves sharpness of the lower constant in dimension one.
 
 \end{example}
 
