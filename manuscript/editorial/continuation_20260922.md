@@ -222,13 +222,22 @@ deep cscK existence input remain separate.
 The full build has 3,407 pages and 11,486 resolved labels, with the
 same 38 horizontal overflows and unchanged open-problem inventory.
 
+## Whole-book layout: table font scope
+
+The [font-scope audit](ch18_font_scope_audit_20260922.md) traces the
+unexpected body-size reduction to two Chapter 18 longtables. Four
+grouping lines confine their small type to those tables. All 186
+entry/exit checks now report the template's 10-point body size and
+12-point baseline. The full build has 3,913 pages, no unresolved
+references or citations, and eight horizontal overflows.
+The page increase is reflow only; no mathematical content or frozen
+proof bytes changed.
+
 ## Next work
 
-1. Investigate the difference in body size between scoped Chapter 60
-   and the complete build before resolving the 38 horizontal layout
-   overflows. Determine whether a font declaration has escaped its
-   intended scope; do not assume the difference is intentional or a
-   defect without tracing it.
+1. Resolve the eight remaining horizontal overflows listed in the
+   font-scope audit. Preserve frozen proof objects and exact audit
+   history when changing their presentation.
 2. Continue the mathematical and source audit through Chapter 61.
    General Kähler maximal-ray existence, sequential regularization
    and the full mixed-slope reduction remain explicit source inputs.
