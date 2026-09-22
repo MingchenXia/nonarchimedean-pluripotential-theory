@@ -16,7 +16,7 @@ appeared in `b944553` without the target file.
 **The author has now supplied the original file.** It is restored without
 changes, with its hash and provenance in the
 [recovery build receipt](source_recovery_build_20260922.md).
-The full graph now contains 389 TeX files and 11,475 unique labels,
+The recovered graph contained 389 TeX files and 11,475 unique labels,
 with no missing input or unresolved reference. The current full build
 passes and produces 3,403 pages. Its 38 horizontal layout overflows remain
 to be reviewed. The historical release artifacts are preserved; the
@@ -165,19 +165,28 @@ representatives. A blowup intersection and an atomic curve calculation
 explain the invalid shortcuts. The scoped build has 124 pages; its 22
 external-reference occurrences disappear in the restored full build.
 
+## Chapters 47–49: support and capacity
+
+The [support audit](ch47_49_support_capacity_audit_20260922.md) replaces
+the unsupported general full-mass inference with the proved atomic
+statement, smooth-curve case and finite-height-moment criterion.
+The new model example has capacity one on every uniform height tail.
+Dependent Chapter 47 sup bounds and Chapter 48 endpoint arguments now
+use divisorial determination and integrability directly.
+The complete build still has 3,403 pages, now with 11,476 labels and no
+missing or dangling reference. The 38 horizontal overflows are unchanged.
+
 ## Next work
 
-1. Audit `cor:ch49-mass-in-lin` and its claimed outer-capacity bound for
-   the union of psh sublevel sets. Chapter 46 now makes only the
-   integrability and polar-set assertions proved there. Check every
-   downstream use of the stronger support claim.
-2. Repair the adjacent Chapter 46 curve discussion: distributional second
-   derivatives, endpoint terms and legitimate energy limits. Then continue
-   Chapter 60's maximal-ray argument, especially sequential approximation
-   and equality of energies.
+1. Repair the adjacent Chapter 46 curve discussion: distributional second
+   derivatives, endpoint terms and legitimate energy limits. Review its
+   finite-energy cocycle and integration-by-parts deductions where a
+   moving test function accompanies a varying measure.
+2. Continue Chapter 60's maximal-ray argument, especially sequential
+   approximation and equality of energies.
 3. Review the 38 horizontal layout overflows in the restored full build.
-   Repeat the complete build after coherent source revisions; preserve the
-   new dated checksum ledger as evidence for the recovery snapshot.
+   Repeat the complete build after coherent source revisions; preserve
+   dated checksum ledgers as evidence for their stated snapshots.
 4. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from the stratified comparison
    conditions. No extension beyond the current hypotheses is asserted.

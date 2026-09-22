@@ -1464,41 +1464,89 @@ Alexander--Taylor lower bound \eqref{eq:bj-alexander-taylor} applied to
 
 \begin{corollary}
 \label{cor:ch49-mass-in-lin}
-Every \(\mu\in\cM^1(\omega)\) satisfies \(\mu(X^{\lin})=1\).  In
-particular no mixed Monge--Amp\`ere measure of finite-energy potentials
-charges \(X^{\An}\setminus X^{\lin}\).
+Let $\mu\in\cM^1(\omega)$.  Every atom of $\mu$ belongs to $X^{\lin}$.
+In particular, $\mu(X^{\lin})=1$ if $\mu$ is purely atomic, or if $X$ is
+a smooth projective curve over an algebraically closed field.
+For an arbitrary Radon probability measure, the additional condition
+$\int T_\omega\,\rd\mu<\infty$ also implies $\mu(X^{\lin})=1$.
 \end{corollary}
 
 \begin{proof}
-By \Cref{prop:ch47-no-polar-mass} a finite-energy measure puts no mass on
-a pluripolar set.  The complement \(X^{\An}\setminus X^{\lin}\) is
-contained in \(\{\psi=-\infty\}\) for a single \(\psi\in\PSH(\omega)\)
-whenever it is countable; in general one argues with the sublevel sets
-directly.  Let \(A_N:=\{T_\omega\le N\}\), a compact subset of
-\(X^{\lin}\) by
-\Cref{prop:ch49-T-elementary}\,\cref{itm:ch49-T:lsc}, so that
-\(X^{\lin}=\bigcup_NA_N\) and
-\(X^{\An}\setminus X^{\lin}=\bigcap_N(X^{\An}\setminus A_N)\).  By
-\Cref{prop:ch48-at-upper},
-\(\Capa^*_\omega(X^{\An}\setminus A_N)\le n/N\); and by
-\Cref{prop:ch48-measure-vs-capacity} a measure of finite dual energy is
-absolutely continuous with respect to the outer capacity in the sense that
-\(\Capa^*_\omega(B)=0\) implies \(\mu(B)=0\).  Since
-\(\Capa^*_\omega\) is an outer capacity and the sets
-\(X^{\An}\setminus A_N\) decrease with intersection
-\(X^{\An}\setminus X^{\lin}\), the latter has vanishing outer capacity and
-hence \(\mu\)-measure zero.
+If $v\notin X^{\lin}$, then $\{v\}$ is pluripolar by
+\Cref{cor:ch49-nonpluripolar}.  By \cite[Corollary~7.48]{BJ22}, there
+is a finite-energy psh function $u$ with $u(v)=-\infty$.
+\Cref{prop:ch47-no-polar-mass} gives $\mu(\{v\})=0$.
+This proves the assertion about atoms and its purely atomic consequence.
+
+For a smooth curve, the complement of $X^{\lin}$ consists of the
+proper-support endpoints of the branches.
+It is Borel, since
+$X^{\lin}=\bigcup_{N\geq1}\{T_\omega\leq N\}$ and $T_\omega$ is lower
+semicontinuous.  Every compact subset $K$ of this complement is finite:
+the open branches, with their common trivial valuation removed, give
+an open cover of $K$, and each branch contains just one endpoint.
+Compactness gives a finite subcover.  Each such $K$ has measure zero by
+the first assertion, so inner regularity of $\mu$ gives
+$\mu(X^{\An}\setminus X^{\lin})=0$.
+
+Finally, if $M:=\int T_\omega\,\rd\mu<\infty$, then
+$\mu(\{T_\omega>N\})\leq M/N$ for every $N>0$.
+Letting $N\to\infty$ gives $\mu(\{T_\omega=\infty\})=0$, as required.
 \end{proof}
 
-\begin{remark}[Consistency with \Cref{chap:bj-energy}]
+\begin{example}
+\label{ex:ch49-uniform-tail-capacity}
+Uniform tails of the pointwise height need not have small capacity.
+Take $X=\mathbf P^1$ over an algebraically closed field and
+$\omega=c_1(\cO(1))$.  For $R>0$, set
+$B_R=\{v:T_\omega(v)>R\}$.
+Choose an integer $m>R$ and distinct points $p_1,\dots,p_m$.
+Define $\psi_m$ to vanish off their branches and put
+\[
+ \psi_m(t\,\ord_{p_i})=-\min\{t/m,1\},\qquad 1\leq i\leq m.
+\]
+Assign value $-1$ at the selected proper-support endpoints.
+This gives a continuous PL function with $-1\leq\psi_m\leq0$.
+Each branch profile is convex, and the sum of its initial outgoing
+slopes is $-m/m=-1$, so the curve criterion in
+\Cref{ex:ch34-psh-check} gives $\psi_m\in\PSH(\omega)$.
+Equivalently, if $s$ is a section of $\cO(m)$ with simple zeros
+$p_1,\dots,p_m$, then
+$\psi_m=\max\{m^{-1}\log|s|,-1\}$.
+The graph Laplacian gives
+\[
+ \MA_\omega(\psi_m)
+   =\frac1m\sum_{i=1}^m\delta_{m\,\ord_{p_i}}.
+\]
+There is no remaining atom at $v_{\triv}$: its mass is
+$1-m/m=0$.  Since $T_\omega(m\,\ord_{p_i})=m>R$, all the mass lies in
+$B_R$.  The defining capacity test therefore proves
+\[
+ \Capa_\omega(B_R)=\Capa_\omega^*(B_R)=1
+ \qquad\text{for every }R>0.
+\]
+In particular, the upper bound $1/R$ fails when $R>1$.
+The estimate in \Cref{prop:ch48-at-upper} uses the height of a
+\emph{set}, not the infimum of its pointwise heights.  These quantities
+have different orders of supremum and infimum; see
+\eqref{eq:bj-alexander-taylor-height}.
+This example concerns a family of measures varying with $R$.  It does
+not contradict the full-mass statement for any fixed finite-energy
+measure on a curve proved above.
+\end{example}
+
+\begin{remark}
 \label{rem:ch49-consistency-ch46}
-\Cref{cor:ch49-mass-in-lin} is a second proof of
-\Cref{prop:ch46-no-mass-outside-lin}, which was obtained there directly
-from the atomic formula and monotone approximation.  The two proofs use
-disjoint inputs --- the first is model-theoretic, the second
-capacitary --- and they agree.  This is the reason the ledger entry
-\Cref{sec:ch48-ledger} may form differences \(\phi-\psi\) on \(X^{\lin}\)
-without further comment.
+The conclusions needed for integration in \Cref{chap:bj-energy} concern
+each finite collection of psh functions.  Their polar sets are null,
+so their differences have well-defined integrable representatives,
+by \Cref{thm:bj-mixed-ma,prop:ch46-no-mass-outside-lin}.
+The atomic conclusion of \Cref{cor:ch49-mass-in-lin} and the full-mass
+conclusion under its stated additional hypotheses are compatible with
+this construction.  A general assertion that every finite-energy measure
+is carried by $X^{\lin}$ does not follow from the individual null-set
+statements, or from the capacity argument excluded by
+\Cref{ex:ch49-uniform-tail-capacity}; it is not used here.
 \end{remark}
 
 \section{Weak and strong topologies on

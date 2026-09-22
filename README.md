@@ -6,7 +6,7 @@ left blank in this release.
 
 **Current-source status, 22 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,475 unique labels),
+The complete source check passes (389 TeX files, 11,476 unique labels),
 and the full build produces a 3,403-page PDF with no unresolved reference
 or citation. The build still reports 38 horizontal layout overflows.
 Source provenance, exact input checksums and validation limits are in the
@@ -26,6 +26,9 @@ with exact source locators, a checked normalization, and a separate
 Chapter 46's finite-energy measure construction now uses differences of
 positive pairs, with explicit counterexamples to two invalid shortcuts;
 see its [pairing audit](manuscript/editorial/ch46_finite_pairing_audit_20260922.md).
+The subsequent [support and capacity audit](manuscript/editorial/ch47_49_support_capacity_audit_20260922.md)
+corrects the scope of the linear-growth support assertion and adds a
+model counterexample to its former capacity argument.
 
 The last clean 24 August 2026 release snapshot passed the final structural
 audit and produced a 3,081-page PDF from its exact 101-file production-source

@@ -1826,3 +1826,20 @@ restoration closes all references, and the full build now succeeds with
 3,403 pages. There remain 38 horizontal layout overflows. The
 [recovery receipt](source_recovery_build_20260922.md) records the
 exact file hash, 395 production-input checksums and build limits.
+
+
+## 2026-09-22 — Correcting the linear-growth support inference
+
+The capacity argument in `cor:ch49-mass-in-lin` is invalid: the new
+model example proves that uniform pointwise-height tails have capacity
+one on P1. The corollary now states the proved atomic conclusion and
+the full-mass conclusion for purely atomic measures, smooth curves,
+or under a finite height-moment condition. It does not assert the
+former unrestricted support claim.
+
+The dependent uses in Chapters 47 and 48 have been replaced by
+divisorial determination, almost-everywhere integrability and the
+finiteness of compact endpoint subsets. See
+[the support audit](ch47_49_support_capacity_audit_20260922.md).
+The full build passes with 3,403 pages and 11,476 labels. There are still
+38 horizontal overflows. No research question was retired.
