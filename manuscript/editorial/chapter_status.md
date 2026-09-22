@@ -1970,3 +1970,20 @@ Mathematical/source review, scoped strict style review and final page
 inspection pass. Frozen verifier material and the research inventory
 are unchanged. The next unit checks the volume-continuity arguments
 and the role of the initial-level limit.
+
+
+## 2026-09-23 — Volume continuity and the initial-level limit
+
+The [volume-continuity audit](ch54_volume_continuity_audit_20260923.md)
+separates the metric index, initial-level limit and Kähler perturbation.
+The proof gives a bound uniform in the metric and distinguishes integrated
+mass monotonicity from a current inequality. The increasing initial-level
+identity and fixed-background analytic inputs have precise sources.
+A decreasing family on P1 has volume 1 at every stage and limit volume
+1-a > 0; its exact mass profile displays the two noncommuting limits.
+
+The final full build has 3,933 pages, 389 TeX inputs and 11,531 labels,
+with no unresolved references, citations or layout overflow.
+The second mathematical/source pass, scoped strict style review and
+final page inspection pass. Frozen sources, production verifier records
+and the active research inventory are unchanged.

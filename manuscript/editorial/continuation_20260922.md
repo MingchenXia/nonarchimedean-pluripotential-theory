@@ -442,13 +442,29 @@ inspection pass. Frozen verifier material and the research inventory
 are unchanged. The next unit checks the volume-continuity arguments
 and the role of the initial-level limit.
 
+## Chapter 54: volume continuity — 23 September 2026
+
+The [volume-continuity audit](ch54_volume_continuity_audit_20260923.md)
+separates the metric index, initial-level limit and Kähler perturbation.
+The proof gives a bound uniform in the metric and distinguishes integrated
+mass monotonicity from a current inequality. The increasing initial-level
+identity and fixed-background analytic inputs have precise sources.
+A decreasing family on P1 has volume 1 at every stage and limit volume
+1-a > 0; its exact mass profile displays the two noncommuting limits.
+
+The final full build has 3,933 pages, 389 TeX inputs and 11,531 labels,
+with no unresolved references, citations or layout overflow.
+The second mathematical/source pass, scoped strict style review and
+final page inspection pass. Frozen sources, production verifier records
+and the active research inventory are unchanged.
+
 ## Next work
 
-1. Audit Chapter 54 volume continuity: separate the monotone family
-   index, the initial-level limit and the Kähler perturbation.
-   Check the uniform mass-error estimate and the failure of decreasing
-   continuity of the total inverse-system volume. The perturbation
-   and positive-mass argument now has its own 23 September receipt. Keep the normalized model
+1. Audit the Chapter 54 analytic trace construction: its natural domain,
+   a common target background and the exact source for independence
+   of the chosen approximation. The volume-continuity proof and positive-
+   volume decreasing example now have a separate 23 September receipt.
+   Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
    General Kähler maximal-ray existence, sequential regularization

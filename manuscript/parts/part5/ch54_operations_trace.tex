@@ -472,25 +472,186 @@ Let the displayed operations be defined.
 \end{theorem}
 
 \begin{proof}
-The first three assertions follow componentwise from mass monotonicity,
-translation invariance, and homogeneity, then from the perturbation
-limit defining volume.  For \eqref{eq:operations-volume-increasing},
-increasing continuity holds in every positive-mass component.  The
-remaining issue is uniformity as \(\omega\to0\).  Fix a K\"ahler form
-\(\omega_0\) and a K\"ahler form \(\Omega\geq\theta+\omega_0\).
-For \(0<\delta<1\), the binomial expansion bounds, uniformly in \(i\),
-the mass change from a smaller perturbation to
-\(\delta\omega_0\) by
+For a K\"ahler form $\omega$, abbreviate the initial-level mass by
 \[
+ V_\omega(\Gamma)
+ :=M_{\theta+\omega}
+       \bigl(\Gamma_{-\infty}^{\theta+\omega}\bigr).
+\]
+Thus $\vol(\Gamma)=\inf_\omega V_\omega(\Gamma)$.
+Order of test curves implies order of their initial levels, so
+mass monotonicity gives \eqref{eq:operations-volume-order}.
+Translation leaves the initial level unchanged and proves
+\eqref{eq:operations-volume-translation}.
+For rescaling, \eqref{eq:operations-rescaling} gives
+\[
+ M_{\lambda\theta+\omega}
+       \bigl((\lambda\Gamma)_{-\infty}^{\lambda\theta+\omega}\bigr)
+ =\lambda^n V_{\lambda^{-1}\omega}(\Gamma).
+\]
+The map $\omega\mapsto\lambda^{-1}\omega$ permutes the K\"ahler
+forms, so taking the infimum proves
+\eqref{eq:operations-volume-scale}.
+
+We first establish a perturbation bound uniform in the metric.
+Fix K\"ahler forms $\omega_0$ and $\Omega$ with
+$\Omega\geq\theta+\omega_0$.
+For $0<\delta<1$, set
+\[
+ C(\delta):=
  \sum_{a=0}^{n-1}\binom na
-     \int_X\Omega^a\wedge(\delta\omega_0)^{n-a},
+     \int_X\Omega^a\wedge(\delta\omega_0)^{n-a}.
 \tag{54.20}\label{eq:operations-uniform-mass-error}
 \]
-which tends to zero with \(\delta\).  This permits interchange of the
-two increasing limits.  Monotonicity gives
-\eqref{eq:operations-volume-decreasing}; examples with a mass drop show
-that equality is not formal and is not asserted.
+Every summand contains a positive power of $\delta$, hence
+$C(\delta)\to0$.
+For every $\Gamma\in\PSH^{\NA}(X,\theta)$ we claim
+\[
+ 0\leq V_{\delta\omega_0}(\Gamma)-\vol(\Gamma)
+       \leq C(\delta).
+\tag{54.20a}\label{eq:operations-uniform-volume-bound}
+\]
+
+Write $\omega=\delta\omega_0$, and choose any K\"ahler form
+$\omega'\leq\omega$.
+Put $\psi=\Gamma_{-\infty}^{\theta+\omega'}$,
+$S=\theta+\omega'+\ddc\psi$ and $\gamma=\omega-\omega'$.
+The transition mass identity
+\Cref{lem:tna-transition-mass-identity} gives
+\[
+ \begin{split}
+ V_\omega(\Gamma)-V_{\omega'}(\Gamma)
+ &=\sum_{a=0}^{n-1}\binom na
+       \int_X\langle S^a\rangle\wedge\gamma^{n-a}\\
+ &\leq\sum_{a=0}^{n-1}\binom na
+       \int_X\Omega^a\wedge\omega^{n-a}
+   =C(\delta).
+ \end{split}
+\]
+To justify the inequality, first replace $\gamma$ by the larger
+semipositive form $\omega$.
+The current $R:=\Omega+\ddc\psi$ is positive, with
+$R-S=\Omega-\theta-\omega'\geq0$ smooth.
+Multilinearity therefore bounds
+$\langle S^a\rangle$ by $\langle R^a\rangle$.
+Finally, mixed mass monotonicity in the class of $\Omega$
+compares the potential $\psi\leq0$ with $0$:
+\[
+ \int_X\langle R^a\rangle\wedge\omega^{n-a}
+       \leq\int_X\Omega^a\wedge\omega^{n-a}.
+\]
+This is a bound on integrated masses; we do not assert
+$S\leq\Omega$ as currents.
+The forms $\omega'\leq\omega$ are cofinal among shrinking
+K\"ahler perturbations. Taking their infimum proves
+\eqref{eq:operations-uniform-volume-bound}, including its
+nonnegativity by \Cref{prop:tna-volume-welldefined}.
+
+Now let $(\Gamma^i)_i$ be increasing as in the theorem, and put
+$\Gamma=\uscsup_i\Gamma^i$.
+At a fixed perturbation, the initial-level identity is
+\[
+ \Gamma_{-\infty}^{\theta+\omega}
+       =\uscsup_i\Gamma_{-\infty}^{i,\theta+\omega}.
+\tag{54.20b}\label{eq:operations-increasing-initial-level}
+\]
+One can check it without interchanging any decreasing limits:
+the two regularized suprema, over $i$ and over
+$\tau\to-\infty$, are the regularized supremum of the same
+family of psh levels.
+Equivalently, each side dominates every level
+$\Gamma_\tau^{i,\theta+\omega}$ and is bounded by the least
+psh upper bound of all these levels.
+This is also \cite[Proposition~9.4.3]{XiaBook}.
+The initial potentials form an increasing net bounded by zero.
+Increasing convergence in $d_S$ and continuity of mass,
+\cite[Corollaries~6.2.4--6.2.5]{XiaBook}, give
+$V_\omega(\Gamma)=\sup_iV_\omega(\Gamma^i)$.
+These are the fixed-background analytic inputs.
+
+Set $L=\sup_i\vol(\Gamma^i)$.
+Order already gives $L\leq\vol(\Gamma)$.
+By \eqref{eq:operations-uniform-volume-bound}, for every
+$0<\delta<1$,
+\[
+ \vol(\Gamma)
+ \leq V_{\delta\omega_0}(\Gamma)
+ =\sup_iV_{\delta\omega_0}(\Gamma^i)
+ \leq L+C(\delta).
+\]
+Letting $\delta\to0$ proves
+\eqref{eq:operations-volume-increasing}.
+The uniform bound justifies interchanging the increasing
+metric net with the decreasing perturbation net, as in
+\cite[Proposition~13.2.13]{XiaBook}.
+
+For a decreasing net, its infimum lies below each member,
+so \eqref{eq:operations-volume-order} gives
+\eqref{eq:operations-volume-decreasing}.
+The following example shows that the inequality can be strict
+even when the limit has positive volume.
 \end{proof}
+
+\begin{example}\label{ex:operations-decreasing-volume-drop}
+Take $X=\mathbf P^1$ and $\theta=\omega_{\mathrm{FS}}$ with
+$\int_X\theta=1$.
+Write $\Lambda$ for the hyperplane test curve of
+\Cref{ex:rays-hyperplane-test-curve}; thus
+$\Lambda_s=0$ for $s\leq0$ and
+$M_\theta(\Lambda_s)=1-s$ for $0\leq s\leq1$.
+Fix $0<a<1$.
+For $j\geq1$ define
+\[
+ \Gamma^j_\tau=
+ \begin{cases}
+   \Lambda_{a(1+\tau/j)},&\tau\leq0,\\
+   -\infty,&\tau>0.
+ \end{cases}
+\tag{54.20c}\label{eq:operations-volume-drop-curves}
+\]
+An increasing affine change of parameter preserves concavity
+and decrease, and truncation at the closed endpoint $0$
+preserves the test-curve axioms.
+Every nontrivial level is $\mathcal I$-model and has mass at least
+$1-a>0$.
+For fixed $\tau\leq0$, the parameter $a(1+\tau/j)$ increases
+with $j$, so the test curves decrease.
+They all have terminal parameter zero.
+
+For each $j$, the levels vanish when $\tau\leq-j$, hence
+$\Gamma^j_{-\infty}=0$.
+At each fixed finite $\tau\leq0$, however, the parameter
+increases to $a$, and the closed profile gives
+$\Gamma^j_\tau\searrow\Lambda_a$.
+The limit is the constant test curve $\Gamma_\tau=\Lambda_a$
+for $\tau\leq0$, extended by $-\infty$ for $\tau>0$.
+Its initial potential is $\Lambda_a$.
+Embedding these positive-mass test curves by
+\eqref{eq:tna-positive-embedding}, decreasing-limit compatibility
+identifies the same infimum in $\PSH^{\NA}(X,\theta)$.
+Formula \eqref{eq:tna-positive-volume-formula} therefore gives
+\[
+ \vol(\Gamma^j)=1,\qquad
+ \vol\!\left(\inf_j\Gamma^j\right)=1-a<1.
+\tag{54.20d}\label{eq:operations-strict-volume-drop}
+\]
+
+The two limits responsible for the drop are explicit:
+for $\tau\leq0$,
+\[
+ \begin{gathered}
+ m_j(\tau):=M_\theta(\Gamma^j_\tau)
+       =1-a\max\{1+\tau/j,0\},\\
+ \lim_j\lim_{\tau\to-\infty}m_j(\tau)=1,\qquad
+ \lim_{\tau\to-\infty}\lim_jm_j(\tau)=1-a.
+ \end{gathered}
+\]
+Thus the obstruction is already the passage to the initial
+level in a fixed positive class.
+The uniform perturbation estimate does not interchange a
+decreasing family with the increasing initial-level supremum.
+\end{example}
+
 
 \section{The analytic trace and its natural domain}
 
