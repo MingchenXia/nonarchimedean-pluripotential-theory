@@ -1024,25 +1024,109 @@ Potentials are considered modulo constants when a normalized space is
 needed.
 \end{definition}
 
-Mixed pairings of finite-energy inputs are finite.  If
-\(\beta\in H^{1,1}_{\mathrm{BC}}(X,\mathbf R)\), choose \(C>0\) such that
-\(C\alpha\pm\beta\) are K\"ahler and define the twisted energy
+Mixed pairings of finite-energy inputs are finite by
+\cite[Proposition~4.4.4, arXiv version~2]{MP24}.  This permits subtraction
+of such pairings.  In particular, for
+$\beta\in H^{1,1}_{\mathrm{BC}}(X,\mathbf R)$ and
+$\phi\in\mathcal E^1(\alpha)$, choose $C>0$ such that
+$C\alpha+\beta$ is K\"ahler and set
+\[
+ (\beta,0)(\alpha,\phi)^n
+ :=(C\alpha+\beta,0)(\alpha,\phi)^n
+      -(C\alpha,0)(\alpha,\phi)^n.
+\]
+The twisted energy is
 \[
  E^\beta_\alpha(\phi)
  :=\frac1{V_\alpha}(\beta,0)(\alpha,\phi)^n.
 \tag{60.20}\label{eq:mp-twisted-energy}
 \]
-Multilinearity shows independence of the auxiliary \(C\).  The
-Monge--Amp\`ere measure of \(\phi\in\mathcal E^1(\alpha)\) is the unique
-probability measure satisfying
+
+The two terms are finite.  To check independence of $C$, choose a
+decreasing model net $\phi_\lambda\downarrow\phi$.  On each model the
+difference is $(\beta,0)(\alpha,\phi_\lambda)^n$, by multilinearity.
+Decreasing continuity of the two finite pairings gives the same limit
+for every admissible $C$.  This is the extension by differences in
+\cite[Definition~4.4.6, arXiv version~2]{MP24}.
+
+The test-function pairing $(0,\psi)(\alpha,\phi)^n$ requires one more
+extension when $\psi\in\PL$: an arbitrary model function need not be
+psh in any multiple of the pulled-back background on its given model.
+Choose a smooth snc model representing $\psi=\phi_D$ and a rational
+vertical divisor $A$ such that $\alpha_{\cX}+[A]$ is relatively K\"ahler,
+as in \Cref{prop:mp-real-model-approximation}.  For a sufficiently large
+positive integer $N$, both
 \[
- \int\psi\,\MA_\alpha(\phi)
+ u=N\phi_A+\psi,\qquad w=N\phi_A
+\]
+belong to $\mathcal H(N\alpha)$.  Indeed, on each of the finitely many
+central components a sufficiently large multiple of the K\"ahler class
+$\alpha_{\cX}+[A]$ absorbs the fixed class $[D]$; the other fibres carry
+$N\alpha$.  Put $\gamma=N\alpha$ and define
+\[
+ (0,\psi)(\alpha,\phi)^n
+ :=(\gamma,u)(\alpha,\phi)^n
+      -(\gamma,w)(\alpha,\phi)^n.
+\]
+Both terms are finite because $u,w$ are model psh functions.  For any
+decreasing model net $\phi_\lambda\downarrow\phi$, model testing and
+decreasing continuity give
+\[
+ V_\alpha^{-1}(0,\psi)(\alpha,\phi)^n
+   =\lim_\lambda\int_{X^{\bethan}}\psi\,
+                         \MA_\alpha(\phi_\lambda).
+\]
+For a fixed net the right side depends only on $\psi$, so the definition
+does not depend on $A$, $N$, or the chosen representation of $\psi$.
+For a fixed representation, the left side is expressed by the canonical
+extended pairings, so the limit does not depend on the decreasing net.
+Finiteness of both terms is essential before taking their difference.
+
+\begin{proposition}
+\label{prop:mp-e1-ma-existence}
+For every $\phi\in\mathcal E^1(\alpha)$ there is a unique Radon
+probability measure $\MA_\alpha(\phi)$ such that
+\[
+ \int_{X^{\bethan}}\psi\,\MA_\alpha(\phi)
    =V_\alpha^{-1}(0,\psi)(\alpha,\phi)^n,
  \qquad \psi\in\PL(X^{\bethan}).
 \tag{60.21}\label{eq:mp-e1-ma}
 \]
-Density of PL functions makes the measure unique; positivity and mass one
-follow by monotone approximation.
+If $\phi_\lambda\downarrow\phi$ is any decreasing model psh net, then
+$\MA_\alpha(\phi_\lambda)$ converges weakly to $\MA_\alpha(\phi)$.
+\end{proposition}
+
+\begin{proof}
+Denote the right side of \eqref{eq:mp-e1-ma} by $L_\phi(\psi)$.
+The preceding limit formula expresses it as a limit of integrals
+against model probability measures.  Hence $L_\phi$ is rational-linear,
+is nonnegative on nonnegative model functions, and satisfies
+\[
+       L_\phi(1)=1,\qquad
+       |L_\phi(\psi)|\leq\|\psi\|_\infty.
+\]
+Uniform density of $\PL$ therefore extends it uniquely to a continuous
+real-linear functional on $C^0(X^{\bethan})$.  This extension is positive:
+for a nonnegative continuous function, choose uniformly approximating
+PL functions and shift them upward by rational bounds for their errors.
+Riesz representation on compact $X^{\bethan}$ gives a Radon
+probability measure, and density of $\PL$ makes it unique.  This gives
+the construction asserted in
+\cite[Remark~4.4.8, arXiv version~2]{MP24}.
+
+Finally, for $f\in C^0(X^{\bethan})$ and $\psi\in\PL$, the probability
+normalizations give
+\[
+ \left|\int f\,\MA_\alpha(\phi_\lambda)
+               -\int f\,\MA_\alpha(\phi)\right|
+ \leq 2\|f-\psi\|_\infty
+       +\left|\int\psi\,\MA_\alpha(\phi_\lambda)
+               -L_\phi(\psi)\right|.
+\]
+First choose $\psi$ with arbitrarily small uniform error, and then let
+$\lambda$ tend along its directed set.  The limit formula makes the
+last term tend to zero, proving weak convergence.
+\end{proof}
 
 \section{Radial limits of complex psh rays}
 

@@ -1791,3 +1791,9 @@ and the finiteness of the linear term in J are explicit. See the
 88-page scoped build, 11,430-label source closure and unchanged full-build
 limitation. The finite-energy measure construction and radial hypotheses
 are the next local checks.
+
+The finite-energy measure follow-up gives the difference constructions
+for arbitrary backgrounds and PL test functions, then proves existence,
+uniqueness and decreasing-net weak convergence by Riesz representation.
+The [measure and energy audit](ch60_model_measure_energy_audit_20260922.md)
+records the 89-page scoped validation and unchanged full-build failure.

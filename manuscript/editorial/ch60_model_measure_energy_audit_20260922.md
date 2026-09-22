@@ -113,3 +113,49 @@ The source, inventory and whitespace checks retain their previous status:
 388 available files, 11,429 labels, no duplicate or structural defects,
 and the same missing Chapter 70 input with thirteen file/label pairs.
 No full-build success, research novelty or problem retirement is claimed.
+
+
+## Finite-energy measures
+
+The mixed finiteness import is now identified as
+[MP24, arXiv version 2, Proposition 4.4.4](https://arxiv.org/html/2409.06221v2).
+The twisted pairing with a general background beta is explicitly the
+difference of the finite pairings with C alpha + beta and C alpha.
+Its independence of C follows by taking the two finite decreasing limits
+of the model identity. The coordinates remain (class, potential), as in
+MP24 Definition 4.4.6; the reversed coordinates printed in that version's
+Definition 4.4.7 are not copied.
+
+For an arbitrary rational PL test function psi, the proof first chooses
+a strictly positive rational vertical perturbation A on a fixed model.
+For sufficiently large integer N, both N phi_A + psi and N phi_A are
+model psh in N alpha. Their finite pairings define the test-function
+pairing by subtraction. Using one decreasing model net proves
+independence of this representation; the canonical extended pairings in
+turn prove independence of the net. The argument does not presume that
+psi itself becomes psh just by increasing its pulled-back background.
+
+`prop:mp-e1-ma-existence` now supplies the positive-functional construction
+implicit in MP24 Remark 4.4.8. Model testing gives rational linearity,
+positivity, norm at most one and value one on constants. Uniform density
+extends the functional to real continuous functions, and Riesz
+representation on the compact Hausdorff spectrum gives a unique Radon
+probability measure. An explicit uniform-approximation estimate proves
+weak convergence along every decreasing model net with finite-energy
+limit. No metrizability, countable model family or exchange of two
+infinite quantities is assumed.
+
+The second pass checked domains of both difference constructions,
+strict positivity on all central components, finiteness before subtraction,
+independence in both choices, rational-to-real extension, positivity and
+mass, and the directed-net weak-convergence estimate. The new text passes
+the strict writing audit with zero errors or warnings. The final scoped
+build has 89 pages, no overfull box or unresolved citation, and the same
+three external Chapter 71 reference occurrences. Physical pages 70–72
+were inspected after the second revision; the twisted-energy formula
+now stays with its introducing sentence. The source closure has 388 files
+and 11,431 labels, with the same missing Chapter 70 input and thirteen
+unresolved file/label pairs. Structure, inventory and whitespace checks
+retain their passing status. No full-build or research-retirement claim
+is made. The joint psh and growth hypotheses in the ray construction are
+the next check.

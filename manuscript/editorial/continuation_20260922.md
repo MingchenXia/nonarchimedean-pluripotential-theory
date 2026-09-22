@@ -147,13 +147,21 @@ handles dimension zero and preserves rationality in divisorial comparison.
 The [completion audit](ch60_monotone_completion_audit_20260922.md)
 records the exact dependencies and the 88-page scoped validation.
 
+The finite-energy measure pass now defines the required differences of
+finite pairings and proves positivity, mass, uniqueness and weak convergence
+using the positive-functional construction. The
+[measure and energy audit](ch60_model_measure_energy_audit_20260922.md)
+records the 89-page scoped validation and 11,431-label source closure.
+
 ## Next work
 
 1. Restore the missing Chapter 70 source from the original working copy,
    retaining its proof and provenance. Re-run the strict source check and
    a complete LaTeX/BibTeX/MakeIndex build before claiming reproducibility.
-2. Continue Chapter 60's finite-energy measure construction and radial
-   correspondence, including the joint psh hypothesis for a complex ray.
+2. Continue Chapter 60's radial correspondence, including the joint psh
+   and growth hypotheses, the Gauss normalization and the regularization
+   passage to the original Kähler class. The finite-energy measure
+   construction now has an explicit positive-functional proof.
    The real-model approximation and decreasing-net connection are now proved.
    Numerical nefness, snc model independence, the Fubini--Study warning,
    and maximum stability have received the present detailed passes.
