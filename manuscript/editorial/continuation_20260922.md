@@ -186,12 +186,25 @@ The cocycle, tangent and integration-by-parts identities now follow
 from the finite pairing; the Gram-matrix limit treats nef backgrounds.
 The full build remains 3,403 pages with all 11,476 labels resolved.
 
+## Chapter 60: maximal rays and limits
+
+The [maximal-ray audit](ch60_maximal_ray_audit_20260922.md) distinguishes
+fixed-time complex energy continuity from identification of the limiting
+non-Archimedean data. The latter remains part of the imported general
+Kähler existence theorem. The projective proof's additional energy
+inequality and strict monotonicity are identified by exact locators.
+A new proposition proves order preservation and translation, and a
+constant-in-space example computes the failure of interchanging the
+approximation and time limits for general psh rays.
+The full build has 3,405 pages and 11,480 resolved labels, with the same
+38 horizontal overflows.
+
 ## Next work
 
-1. Continue Chapter 60's maximal-ray argument, especially sequential
-   approximation and identification of the limit's non-Archimedean
-   energy. Then audit mixed-slope and test-curve hypotheses against
-   their exact checked source versions.
+1. Audit Chapter 60's test-curve base point and mixed-slope hypotheses
+   against DXZ23's published Theorem 3.17 and MP24 arXiv version 2.
+   The general Kähler maximal-ray existence and sequential
+   regularization inputs remain explicit source dependencies.
 2. Review the 38 horizontal layout overflows in the full build.
    Repeat the complete build after coherent revisions; preserve dated
    checksum ledgers for their stated snapshots.

@@ -1280,29 +1280,140 @@ so this gives the required extension.  Uniqueness follows from
 \end{proof}
 
 Conversely, a finite-energy potential determines a ray only after a complex
-initial potential is chosen.
+initial potential is chosen.  We first specify the comparison property.
+
+\begin{definition}\label{def:mp-maximal-ray}
+A finite-energy geodesic ray $U$ is maximal if, for every finite-energy
+geodesic ray $V$ of linear growth,
+\[
+ V_0\leq U_0,\qquad V^{\NA}\leq U^{\NA}
+ \quad\Longrightarrow\quad
+ V_s\leq U_s\quad(s\geq0).
+\]
+Here the initial values are the finite-energy boundary values.
+This is the geodesic comparison in
+\cite[Definition~5.1.6, arXiv version~2]{MP24}.
+\end{definition}
 
 \begin{theorem}\label{thm:mp-maximal-ray}
-For \(\phi\in\mathcal E^1(\alpha)\) and
-\(u\in\mathcal E^1(X,\omega)\), there is a unique maximal finite-energy
-geodesic ray \(U\) with \(U_0=u\) and \(U^{\NA}=\phi\).
+For $\phi\in\mathcal E^1(\alpha)$ and
+$u\in\mathcal E^1(X,\omega)$, there is a unique maximal finite-energy
+geodesic ray $U$ with $U_0=u$ and $U^{\NA}=\phi$.
 \end{theorem}
 
-\begin{proof}[Imported maximal-ray core]
-This is \cite[Theorem~5.1.7]{MP24}; its exact statement allows
-\(\phi\in\mathcal E^1(\alpha)\) and an arbitrary initial value
-\(u\in\mathcal E^1(X,\omega)\).  We record the limiting argument.
-Choose decreasing \(\phi_m\in\mathcal H(\alpha)\).  Associate to each
-\(\phi_m\) a subgeodesic ray compatible with its analytic test
-configuration, then take the maximal geodesic envelope with initial value
-\(u\).  Monotonicity gives a limit ray.  The energy bound
-\(E_\alpha(\phi)>-\infty\) prevents collapse to \(-\infty\).
-Maximality is stable under the limit.  Monotonicity gives
-\(U^{\NA}\leq\phi\), while continuity of energy along the decreasing
-approximants gives \(E_\alpha(U^{\NA})=E_\alpha(\phi)\); the finite-energy
-domination principle forces equality.  The domination principle for
-maximal rays yields uniqueness.
+\begin{proof}[Imported existence and direct uniqueness]
+Existence, including the identification of the non-Archimedean data of
+the limiting ray, is \cite[Theorem~5.1.7, arXiv version~2]{MP24}.
+Its model construction uses a dominating model on which the represented
+class is relatively K\"ahler; see
+\cite[Lemma~5.1.8]{MP24} in the same version.  The general finite-energy
+construction and the passage from model data to the prescribed
+$\phi$ are included in this imported assertion.
+
+Uniqueness follows directly from \Cref{def:mp-maximal-ray}.  If $U$ and
+$V$ have the same initial value and the same non-Archimedean data, the
+maximality of $U$ gives $V\leq U$, and that of $V$ gives $U\leq V$.
 \end{proof}
+
+\begin{remark}\label{rem:mp-maximal-limit-inputs}
+The energy calculation in the model approximation must be distinguished
+from the identification of the limiting non-Archimedean potential.
+Suppose that decreasing model data $\phi_m\downarrow\phi$ and smooth
+initial values $u_m\downarrow u$ have been chosen in the construction,
+with associated maximal rays $U^m$.  The model identity
+\cite[Remark~5.1.9, arXiv version~2]{MP24} and monotone energy continuity
+give, for each fixed $s$,
+\[
+ E_\omega(U^m_s)
+   =E_\omega(u_m)+sE_\alpha(\phi_m)
+   \downarrow E_\omega(u)+sE_\alpha(\phi).
+\]
+The finite lower bound controls the complex energy of the decreasing
+limit $U_s$.  Order gives $U^{\NA}\leq\phi$.  These observations alone
+do not identify $E_\alpha(U^{\NA})$.
+
+In the projective polarized argument,
+\cite[Theorem~6.4, arXiv version~3]{BBJ21} supplies the additional bound
+\[
+ E_\alpha(U^{\NA})
+ \geq\lim_{s\to\infty}s^{-1}E_\omega(U_s),
+\]
+and \cite[Lemma~6.3]{BBJ21} in the same version supplies strict
+monotonicity on ordered finite-energy potentials.  Together with
+$U^{\NA}\leq\phi$, these give
+\[
+ E_\alpha(\phi)\geq E_\alpha(U^{\NA})
+ \geq\lim_{s\to\infty}s^{-1}E_\omega(U_s)=E_\alpha(\phi).
+\]
+Equality of the energies then gives $U^{\NA}=\phi$.
+This is the identification in the proof of its Theorem~6.6, and it
+uses more than monotone continuity of the model energy.
+For the general K\"ahler assertion above, the identification remains
+part of the imported MP existence theorem; the projective theorem is
+not being applied to an arbitrary transcendental class.
+Likewise, replacing the model nets of
+\eqref{eq:mp-psh-decreasing-net} by a decreasing sequence is an additional
+regularization step in the construction, not a consequence of the
+definition of $\PSH(\alpha)$.
+\end{remark}
+
+\begin{proposition}\label{prop:mp-maximal-order}
+Write $U(u,\phi)$ for the ray in \Cref{thm:mp-maximal-ray}.
+If $u\leq v$ and $\phi\leq\psi$, then
+$U(u,\phi)_s\leq U(v,\psi)_s$ for every $s\geq0$.
+For $b,c\in\mathbf R$ one has
+\[
+ U(u+b,\phi+c)_s=U(u,\phi)_s+b+cs.
+\]
+In particular, if $u-C\leq v\leq u+C$ for $C\geq0$, then
+\[
+ U(u,\phi)_s-C\leq U(v,\phi)_s\leq U(u,\phi)_s+C
+ \qquad(s\geq0).
+\]
+\end{proposition}
+
+\begin{proof}
+The first assertion is the comparison property of $U(v,\psi)$.
+Adding $b+cs$ preserves the geodesic equation and changes the initial
+value by $b$.  By \eqref{eq:mp-normalized-ray-lelong}, it changes the
+non-Archimedean potential by $c$; the constant $b$ has no divisorial
+Lelong number.  To check maximality, subtract $b+cs$ from any competing
+ray and apply the maximality of $U(u,\phi)$.  Uniqueness then proves
+the translation formula.  Applying order preservation to
+$u-C\leq v\leq u+C$ and using that formula with $c=0$ proves the last
+assertion.
+\end{proof}
+
+\begin{example}\label{ex:mp-ray-limit-loss}
+The map $U\mapsto U^{\NA}$ and the energy slope need not commute
+with decreasing limits of psh rays.  On any compact K\"ahler manifold
+consider the spatially constant rays
+\[
+ U^j_s=-\min(s,j),\qquad U_s=-s,\qquad j\geq1.
+\]
+Their complexifications are
+$\max\{\log|\tau|^2,-j\}$ and $\log|\tau|^2$, respectively.
+Thus they are joint psh rays with initial value zero and finite-energy
+slices, and $U^j_s\downarrow U_s$ for every fixed $s$.
+Each $U^j$ is bounded near the central fibre, whereas $U$ has normalized
+Lelong number one there.  Consequently
+\[
+ (U^j)^{\NA}=0,\qquad U^{\NA}=-1.
+\]
+With $E_\omega(0)=0$, translation of the energy gives
+$E_\omega(U^j_s)=-\min(s,j)$ and $E_\omega(U_s)=-s$.  In particular,
+\[
+ \lim_{j\to\infty}\lim_{s\to\infty}
+       \frac{E_\omega(U^j_s)}s=0,
+ \qquad
+ \lim_{s\to\infty}\lim_{j\to\infty}
+       \frac{E_\omega(U^j_s)}s=-1.
+\]
+The approximating rays have a corner at $s=j$ and are not geodesic
+rays.  The example concerns general psh rays and does not contradict
+\Cref{thm:mp-maximal-ray}.  It shows why a decreasing limit alone cannot
+supply the energy identification in that theorem.
+\end{example}
 
 \section{Comparison with the test-curve construction}
 
