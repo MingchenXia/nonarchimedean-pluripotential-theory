@@ -1747,3 +1747,10 @@ validation. The analytic-cycle core remains imported; the checked locator
 is explicitly identified as arXiv version 2 of `MP24`. No research problem
 is retired. Whole-book reproduction still awaits recovery of the missing
 Chapter 70 `CURVE_PSH.tex` source.
+
+A subsequent Chapter 60 pass expands `lem:mp-relative-nef-independent` on
+smooth snc models using a dominating inverse-image cycle and the full
+Demailly–Păun criterion. The arbitrary normal-model clause remains explicitly
+imported. The same [audit](ch60_relative_nef_audit_20260922.md) records its
+scope, second-pass validation, and two introductory terminology corrections.
+The Fubini–Study warning is the next separate comparison audit.

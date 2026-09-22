@@ -4,10 +4,9 @@
 
 The tropical spectrum of \Cref{chap:mp-dual-complexes} carries a pluripotential theory once a
 K\"ahler class is fixed.  In the projective case positivity can be encoded by
-semipositive line-bundle metrics.  On a nonprojective K\"ahler manifold there
-need be no line bundle at all, so positivity must instead be expressed in
-Bott--Chern cohomology on analytic test configurations.  This is the basic
-insight of \cite{MP24}.
+semipositive line-bundle metrics.  A general K\"ahler class need not be the first Chern class of a
+line bundle, so positivity is expressed in Bott--Chern cohomology on analytic
+test configurations.  This is the approach of \cite{MP24}.
 
 Throughout this chapter, \(X\) is a compact K\"ahler manifold of dimension
 \(n\), \(\alpha\in H^{1,1}_{\mathrm{BC}}(X,\mathbf R)\) is a K\"ahler class,
@@ -61,7 +60,7 @@ A function \(\phi\in\PL(X^{\bethan})\) is \(\alpha\)-psh if, on one
                    \alpha_{\cX}+[D]\in\operatorname{Nef}(\cX/\mathbf P^1).
 \tag{60.5}\label{eq:mp-relative-nef}
 \]
-We write \(\PL\cap\PSH(\alpha)\) for this cone.  We write
+We write \(\PL\cap\PSH(\alpha)\) for this class of functions.  We write
 \(\mathcal H(\alpha)\) for the functions represented by a class
 \(\alpha_{\cX}+[D]\) that is relatively K\"ahler.
 \end{definition}
@@ -70,7 +69,7 @@ If \(X\) is projective and \(\alpha=c_1(L)\), this definition restricts to
 the usual algebraic semipositive model metrics.  The operations of addition,
 ramified scaling, maxima, and pullback then agree with
 \cite[Proposition~3.6]{BJ22}.  The converse identification with the entire
-analytic cone \(\mathcal H(\alpha)\) is false, as the following warning
+analytic class \(\mathcal H(\alpha)\) is false, as the following warning
 records.
 
 The parenthetical ``equivalently every'' in
@@ -85,16 +84,59 @@ model on which \(\phi=\phi_D\), then it holds on every such model.
 \end{lemma}
 
 \begin{proof}
-Relative nefness means that the restriction to every compact analytic
-subspace contained in a fibre is nef.  Any two models on which \(\phi\) is
-represented are dominated by a third, so it is enough to compare a model
-with a proper modification of it.  Nefness is preserved under pullback by a
-proper modification, which gives one direction.  For the converse, nefness
-of the pullback descends along a proper modification by the analytic
-numerical criterion for nef classes; equivalently, one pushes down
-arbitrarily small K\"ahler perturbations and passes to the limit.  A curve
-test alone would not justify the descent on a nonprojective K\"ahler space,
-which is why the numerical criterion is used and not a family of curves.
+For arbitrary normal models, the model-independence assertion is part of
+the imported construction in \cite[Definition~4.1.2, arXiv version~2]{MP24}.
+We give a direct proof on the smooth snc models used in the intersection
+formulas below.  It is a consequence of
+\cite[Theorem~4.3(iii), Proposition~3.3(ii)]{DP04}.
+
+Any two such models admit a common smooth snc domination.  On the common
+model, the two pulled-back vertical divisors have the same coefficient
+$b_F\phi(v_F)$ at every central prime $F$, so the represented classes
+agree.  It suffices to compare a smooth snc model $\cX$ with a smooth
+snc modification $q:\mathcal Y\to\cX$, writing
+$\beta=\alpha_{\cX}+[D]$.  Pullback preserves nefness on each fibre,
+which proves one implication.
+
+For the converse, assume $q^*\beta$ is relatively nef.  Fix a central
+component $E$ of $\cX$, an irreducible analytic subset $Z\subseteq E$
+of dimension $d\geq1$, and a K\"ahler form $\gamma$ on $E$.
+Choose an irreducible component $W$ of $q^{-1}(Z)$ which maps onto $Z$.
+Such a component exists because $q$ is proper and surjective.  An embedded
+resolution of $W$ in $\mathcal Y$ gives a compact K\"ahler manifold
+$\widetilde W$.  Put
+$r=\dim\widetilde W\geq d$, and let
+$g:\widetilde W\to E$ be the induced map.  Relative nefness upstairs
+implies that $g^*(\beta|_E)$ is nef: the resolution map factors through
+a central component of $\mathcal Y$.
+
+Choose a K\"ahler form $\kappa$ on $\widetilde W$.  The closed positive
+current $g_*(\kappa^{r-d})$ has bidimension $(d,d)$ and support $Z$.
+The support theorem therefore gives
+\[
+                 g_*(\kappa^{r-d})=c[Z],\qquad c>0.
+\]
+The strict positivity of $c$ follows by pairing with $\gamma^d$:
+$g$ has rank $d$ on a nonempty open subset, so
+$\int_{\widetilde W}\kappa^{r-d}\wedge g^*\gamma^d>0$.
+Projection formula now yields
+\[
+ c\int_Z\beta|_E\wedge\gamma^{d-1}
+ =\int_{\widetilde W}
+      g^*(\beta|_E)\wedge g^*\gamma^{d-1}\wedge\kappa^{r-d}
+ \geq0.
+\]
+The last inequality follows by approximating the nef class
+$g^*(\beta|_E)$ by K\"ahler classes; $g^*\gamma$ is semipositive.
+The numerical criterion gives nefness of $\beta|_E$.  The finite-union
+assertion gives nefness on the reduced central fibre; the other fibres
+carry the original K\"ahler class $\alpha$.  This proves relative nefness
+downstairs.  Zero-dimensional fibres require no numerical test.
+
+Choosing a component of the full inverse image is essential here: a
+subvariety contained in the exceptional image need not have a strict
+transform.  The proof uses every analytic dimension and every K\"ahler
+test class on $E$.
 \end{proof}
 
 The corresponding statement for \(\mathcal H(\alpha)\) is false: pullback of
@@ -123,11 +165,11 @@ not pointwise scalar multiplication.  It is induced by ramified base change
 and fixes \(v_{\triv}\).
 
 \begin{proposition}\label{prop:mp-model-psh-stability}
-The following operations preserve the indicated model psh cones:
+The following operations preserve the indicated model psh classes:
 \begin{enumerate}
 \item \(\phi\mapsto\phi+c\) preserves
       \(\PL\cap\PSH(\alpha)\) for \(c\in\mathbf Q\); for
-      \(c\in\mathbf R\), it preserves the real model cone
+      \(c\in\mathbf R\), it preserves the real model class
       \(\PL_{\mathbf R}\cap\PSH(\alpha)\);
 \item if \(q\in\mathbf Q_{>0}\), then
       \(q\cdot\phi\in\PL\cap\PSH(\alpha)\);

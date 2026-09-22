@@ -91,6 +91,41 @@ No common model for the entire net is assumed.
 - The inventory check passes: 46 active atoms, 14 formal problem
   environments, tiers `(0,5,8,16,17)`.
 
-The model-independence lemma earlier in Chapter 60 still deserves a separate
-explicit descent proof; this revision does not treat its compressed
-pushdown-of-perturbations sentence as established by the present audit.
+At the end of this numerical-criterion revision, the model-independence
+lemma still required a separate descent audit. That follow-up is recorded
+next.
+
+## Follow-up: model independence and terminology
+
+The proof of `lem:mp-relative-nef-independent` now supplies the descent
+argument on smooth snc models. Given a cycle downstairs, it chooses a
+component of its full inverse image that dominates it and then an embedded
+resolution. A Kähler form upstairs, raised to the relative dimension,
+pushes forward to a strictly positive multiple of the cycle. The projection
+formula transfers nonnegativity to every Kähler test class on the smooth
+central component. Demailly–Păun Theorem 4.3(iii) and Proposition 3.3(ii)
+then give fibrewise nefness. This also covers cycles inside the exceptional
+image, for which a strict-transform argument would be invalid.
+
+The proof explicitly separates the general normal-model assertion imported
+from `MP24`, Definition 4.1.2 in arXiv version 2, from the direct snc proof.
+It does not claim that a smooth positive representative pushes down smoothly,
+or that the direct argument establishes a numerical criterion on every
+singular compact space. Păun's 1998 paper was located bibliographically but
+its full text was not available; no uninspected theorem locator was added.
+
+The second reading checked equality of divisor coefficients on a common
+model, existence of a dominating inverse-image component, Kähler embedded
+resolution, the current's bidimension, positivity of its scalar coefficient,
+the case of equal dimensions, and zero-dimensional fibres. The strict
+writing audit passes. The final scoped build remains 84 pages with no
+overfull box or unresolved citation and the same two external-reference
+occurrences. Physical pages 56–59 were rendered; the changed introduction,
+proof, and transitions were inspected without clipping or overlap. The
+source check retains exactly the pre-existing Chapter 70 failure.
+
+The introduction now says that a general Kähler class need not be a
+line-bundle class, replacing the false assertion that there need be no
+line bundle at all. Fixed-background psh sets are called classes rather
+than cones. The separate Fubini–Study warning still needs a model-category
+and rationality audit; it is not validated by this descent proof.
