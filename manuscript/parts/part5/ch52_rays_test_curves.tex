@@ -180,8 +180,39 @@ Extend a test curve by
  =\inf_{\tau<\Gamma_{\max}}\Gamma_\tau .
 \tag{52.7}\label{eq:rays-test-endpoint}
 \]
-This is an extended-real convention, not a claim that the endpoint has
-positive mass.
+\begin{lemma}\label{lem:rays-closed-endpoint}
+The endpoint $\Gamma_{\Gamma_{\max}}$ in
+\eqref{eq:rays-test-endpoint} belongs to $\PSH(X,\theta)$ and has
+supremum zero.  Its mass may vanish.  At every $x\in X$, the
+extended function $\tau\mapsto\Gamma_\tau(x)$ is closed and concave,
+with the identically $-\infty$ case allowed.
+\end{lemma}
+
+\begin{proof}
+Each interior level has supremum zero: it is fixed by the
+zero-obstacle $P$-envelope, and a negative supremum could be
+increased by adding a constant without changing its singularity type.
+Choose $\tau_j\uparrow\Gamma_{\max}$.
+The sets $\{\Gamma_{\tau_j}=0\}$ are nonempty, compact and nested.
+Their intersection contains a point where the decreasing limit is
+zero.  The decreasing-limit theorem for psh functions therefore
+gives a nontrivial $\theta$-psh endpoint with supremum zero.
+
+For $a<\Gamma_{\max}$, the left limit
+$\inf_{\tau<a}\Gamma_\tau$ is likewise $\theta$-psh.
+Choose $b\in(a,\Gamma_{\max})$.  Outside
+$\{\Gamma_b=-\infty\}$ the scalar concave profile is finite near
+$a$, hence continuous there.  The left limit thus equals
+$\Gamma_a$ almost everywhere, and therefore everywhere by
+uniqueness of psh representatives.
+This proves upper semicontinuity in the parameter at interior
+points.  At the endpoint it is built into
+\eqref{eq:rays-test-endpoint}; beyond it the function is
+$-\infty$.  Concavity passes to this extension.
+These are the endpoint and closedness statements of
+\cite[Remark~9.1.1, Proposition~9.1.4]{XiaBook}.
+\end{proof}
+
 
 \begin{lemma}\label{lem:rays-test-positive-levels}
 If \(\Gamma\) is a test curve, then
@@ -218,8 +249,30 @@ negative \(\tau\).  It has finite energy if
  >-\infty .
 \tag{52.9}\label{eq:rays-test-energy}
 \]
-The integral is meaningful because the integrand is nonpositive and the
-level-mass function is continuous on the interior.
+The integral is well defined as an extended nonpositive integral:
+the masses decrease with $\tau$ and lie between $0$ and
+$m:=M_\theta(\phi)>0$.  This does not by itself make the integral
+finite.  Bounded curves have finite energy because the integrand
+is zero on a lower half-line and bounded on the remaining finite
+interval.
+
+The energy in \eqref{eq:rays-test-energy} is unnormalized.
+Dividing by the reference mass gives
+\[
+ \frac{\mathbf E^\phi(\Gamma)}{m}
+ =\Gamma_{\max}+
+   \int_{-\infty}^{\Gamma_{\max}}
+      \left(\frac{M_\theta(\Gamma_\tau)}{m}-1\right)\,\rd\tau.
+\tag{52.9a}\label{eq:rays-normalized-test-energy}
+\]
+For $\phi=V_\theta$, one has $m=\vol(\{\theta\})$; this is precisely
+the convention in \cite[equation~(5)]{DXZ23}.
+For a general reference model potential, the relative energy
+uses $m$, which may be strictly smaller than $\vol(\{\theta\})$.
+The endpoint mass is not substituted for this reference mass.
+The general relative formula is
+\cite[equation~(9.5)]{XiaBook}.
+
 
 \section{Legendre transform and the RWN correspondence}
 
@@ -308,16 +361,55 @@ For a ray \(\ell\), each \(\ell_\tau^*\) is
 \end{proposition}
 
 \begin{proof}
-For fixed \(x\), the functions in
-\eqref{eq:rays-forward-legendre} are affine in \(t\), hence their
-supremum is convex.  On the half-plane \(\Re z>0\), the family
-\(t\tau+\Gamma_\tau\) is locally uniformly bounded above by
-\(t\Gamma_{\max}\).  Kiselman's minimum principle and the psh supremum
-lemma give joint upper semicontinuity, hence
-\(\theta\)-psh slices.  For \eqref{eq:rays-inverse-legendre}, Kiselman's
-principle applies to the \(S^1\)-invariant complexification of the ray.
-The threshold follows from
-\(\sup_X\ell_t=t\sup_X\ell_1\).
+Write $F(x,t)=\Gamma_t^*(x)$ on $t>0$.
+The affine summands are locally uniformly bounded above by
+$t\Gamma_{\max}$, so their upper semicontinuous regularization
+$G$ is jointly $p_1^*\theta$-psh on the right half-plane.
+One must still prove $F=G$: a psh supremum theorem alone only
+produces the regularization.
+We use the argument of \cite[Lemma~9.2.1]{XiaBook};
+the published relative statement is \cite[Lemma~2.4]{DXZ23}.
+
+By closedness of the scalar profiles, the supremum defining $F$
+can be taken over rational $\tau<\Gamma_{\max}$, so $F$ is
+measurable.  The exceptional set $\{F<G\}$ has zero Lebesgue measure.
+Fubini's theorem and convexity in $t$ show that, for almost every
+$x$, $F(x,t)=G(x,t)$ for every $t>0$.
+Here the profiles are finite after also discarding the polar set
+of $\Gamma_{\Gamma_{\max}}$; two finite convex functions that
+agree almost everywhere in $t$ agree everywhere.
+For $\tau<\Gamma_{\max}$, Kiselman's principle makes
+\[
+                   \chi_\tau:=\inf_{t>0}(G_t-t\tau)
+\]
+a $\theta$-psh function or the identically $-\infty$ function.
+Scalar biconjugacy for the closed profiles in
+\Cref{lem:rays-closed-endpoint} gives
+$\chi_\tau=\Gamma_\tau$ for almost every $x$.
+Thus $\chi_\tau$ is nontrivial, and equality holds on $X$.
+The inverse profiles are decreasing and concave; their terminal
+value is recovered by the left limit and their values above
+$\Gamma_{\max}$ are $-\infty$ by $G_t\leq t\Gamma_{\max}$.
+Scalar biconjugacy now gives $F=G$; hence the forward transform
+is a subgeodesic without regularization.
+
+For the inverse transform, Kiselman's principle directly gives
+$\ell_\tau^*\in\PSH(X,\theta)\cup\{-\infty\}$.
+Put $C=\sup_X\ell_1$.  By \Cref{lem:rays-linear-supremum},
+$h_t:=\ell_t-Ct$ has supremum zero for every $t>0$.
+Its scalar profiles are convex and bounded above on a half-line,
+so they are decreasing; the resulting inequalities extend as
+inequalities of psh functions.
+The compact nested zero sets of $h_j$, $j\in\mathbf N$, show that
+$\inf_{t>0}h_t=\inf_jh_j$ is not identically $-\infty$.
+The decreasing-limit theorem therefore gives
+$\ell_C^*\in\PSH(X,\theta)$.
+For $\tau<C$, one has $\ell_\tau^*\geq\ell_C^*$, so these levels
+are nontrivial as well.
+For $\tau>C$, the bound
+$\ell_t-t\tau\leq t(C-\tau)$ tends to $-\infty$ as $t\to\infty$.
+This proves the closed threshold in \eqref{eq:rays-inverse-domain},
+including equality at $C$, as in \cite[Lemma~9.2.4]{XiaBook}.
 \end{proof}
 
 \begin{theorem}\label{thm:rays-rwn}
@@ -335,41 +427,87 @@ finite-energy test curve,
                        =\mathbf E^\phi(\Gamma^*),
 \tag{52.14}\label{eq:rays-rwn-energy}
 \]
-where the right side is the radial Monge--Amp\`ere energy slope.
+where the right side is the unnormalized relative radial energy
+\[
+ \mathbf E^\phi(\ell)
+ :=\lim_{t\to\infty}\frac{E_\theta^\phi(\ell_t)}{t}
+ =E_\theta^\phi(\ell_1).
+\]
+A ray has finite energy when $\ell_t\in\mathcal E^1(X,\theta;\phi)$
+for all $t>0$.  The displayed limit exists because relative energy
+is affine along such a ray and vanishes at $t=0$.
 \end{theorem}
 
-\begin{proof}[Source boundary and normalization check]
-The analytic assertions that the forward transform of a maximal test curve
-is a weak geodesic, that the inverse transform of a weak geodesic has model
-levels, and that their energies agree are the main theorems of
-\cite[Theorems~1.1--1.2]{RWN14}.  Their relative full-mass formulation is
-proved in the supplied test-curve chapter of \cite{XiaBook}.  These results
-use comparison principles and Monge--Amp\`ere energy estimates that are not
-reproved here.
+\begin{proof}
+The general relative correspondence, including the bounded and
+finite-energy restrictions, is \cite[Theorem~9.2.1]{XiaBook}.
+The published relative correspondence between maximal test curves
+and geodesic rays is \cite[Theorem~2.6(ii)]{DXZ23}.
+In its finite-energy statement, \cite[Theorem~2.6(iii)]{DXZ23}
+uses the reference $V_\theta$ and energy divided by
+$\vol(\{\theta\})$.
+We retain the relative theorem as an imported analytic input;
+scalar convex duality alone does not prove geodesicity or
+the equality of energies.
 
-We verify that the imported correspondence has exactly the conventions of
-this chapter.  At every point outside the common pluripolar locus, the
-closed concave function \(\tau\mapsto\Gamma_\tau(x)\) satisfies
-Fenchel--Moreau biconjugacy with the sign \(+t\tau\):
+The conventions can be checked directly.
+The scalar profiles of a test curve are closed by
+\Cref{lem:rays-closed-endpoint}, and their biconjugacy is
 \[
  \Gamma_\tau=\inf_{t>0}(\Gamma_t^*-t\tau).
 \tag{52.15}\label{eq:rays-biconjugate}
 \]
-Canonical pluripolar extension makes this an identity on \(X\).  Conversely,
-the imported inverse transform has effective domain
-\(\tau\leq\sup_X\ell_1\) by
-\eqref{eq:rays-inverse-domain}; its \(-\infty\) limit is
-\(\ell_0=\phi\).  Thus both transforms land in the spaces displayed in
-\eqref{eq:rays-rwn}, and biconjugacy makes them inverse.
+At a point where every level is $-\infty$, both sides are
+$-\infty$.  Otherwise, the negative-time forward transform
+is $+\infty$, because the profile is decreasing, so positive
+times suffice for biconjugacy.
+The inverse ray transform has the closed effective domain
+in \eqref{eq:rays-inverse-domain} and initial limit $\phi$.
+The imported analytic theorem identifies its interior levels
+with their $P$-envelopes.
 
-For bounded curves, the source energy identity is obtained from finite
-Legendre maxima and Riemann sums for
-\eqref{eq:rays-test-energy}.  The source then truncates below \(-A\) and
-uses monotone convergence.  With our squared-norm variable
-\(t=-\log|z|^2\), its slope is precisely the right side of
-\eqref{eq:rays-rwn-energy}; no factor of two occurs.  This proves the
-normalization and the stated bounded and finite-energy restrictions.
+For the energy normalization, set $m=M_\theta(\phi)$.
+The relative energy obeys
+$E_\theta^\phi(u+c)=E_\theta^\phi(u)+cm$ and
+$E_\theta^\phi(\phi)=0$.
+Shifting the test curve by $(\Gamma+c)_\tau=\Gamma_{\tau-c}$
+changes \eqref{eq:rays-test-energy} by $cm$ and changes the ray
+by $\Gamma_t^*\mapsto\Gamma_t^*+ct$.
+The radial energy therefore changes by the same $cm$.
+Dividing by $m$ yields \eqref{eq:rays-normalized-test-energy}.
+The relative energy identity itself is
+\cite[equation~(9.21)]{XiaBook}; in the case $\phi=V_\theta$ it
+agrees with the published identity of \cite[Theorem~2.6(iii)]{DXZ23}.
+The parameter in this identity is the $t$ in $t\tau$.
+DXZ uses $t=-\log|z|^2$ in \cite[equations~(6), (10)]{DXZ23},
+whereas \cite[Section~4.1]{XiaBook} also uses the annular parameter
+$\sigma=-\log|z|$.  For the same annular family the conversion is
+\[
+ \ell_t=\widetilde\ell_{t/2},\qquad
+ \Gamma_\tau=\widetilde\Gamma_{2\tau},\qquad
+ \mathbf E^\phi(\ell)=\tfrac12\mathbf E^\phi(\widetilde\ell).
+\]
+Thus one rescales both dual parameters before comparing radial slopes;
+the division by the reference mass is a separate normalization.
 \end{proof}
+
+\begin{example}\label{ex:rays-constant-slope-mass}
+Fix $c\in\mathbf R$ and a reference model potential $\phi$ of
+mass $m>0$.  The constant-level test curve
+$\Gamma_\tau=\phi$ for $\tau\leq c$, with
+$\Gamma_\tau=-\infty$ for $\tau>c$, has
+\[
+              \Gamma_t^*=\phi+ct,\qquad
+              \mathbf E^\phi(\Gamma)=cm.
+\]
+Its endpoint has mass $m$, so endpoint mass need not vanish.
+On $\mathbf P^1$ with $\theta=2\omega_{\mathrm{FS}}$ and
+$\phi=0$, the unnormalized energy is $2c$, while the
+probability-normalized energy is $c$.
+In contrast, the hyperplane test curve in
+\Cref{ex:rays-hyperplane-test-curve} has a nontrivial psh endpoint
+of mass zero.  The endpoint convention covers both cases.
+\end{example}
 
 \begin{remark}[Sign convention]
 \label{rem:rays-legendre-sign}
@@ -565,9 +703,13 @@ test curves.
       A countable subfamily has the same supremum.
 \item An increasing net with the same upper bound on
       \(\Gamma^i_{\max}\) converges to that regularized supremum.
-\item A decreasing net with
-      \(\inf_i\Gamma^i_{\max}>-\infty\) has a pointwise infimum test
-      curve.
+\item A decreasing net in a fixed big class $\theta$, with
+      $T:=\inf_i\Gamma^i_{\max}>-\infty$, has a pointwise infimum
+      test curve provided
+      \[
+       M_\theta\!\left(\inf_i\Gamma^i_{\tau_0}\right)>0
+                    \quad\text{for some }\tau_0<T.
+      \]
 \item For \(\lambda>0\), the rescaled curve is
       \[
       (\lambda\Gamma)_\tau
@@ -588,15 +730,25 @@ The rational-level family is decreasing in \(\tau\); taking its closed
 concave extension supplies the test curve and shows that no
 parameter-dependent choice of a countable subfamily remains.
 
-For a decreasing net, the lower bound on the terminal parameters keeps a
-nontrivial common interval.  At any fixed interior level, the positive-mass
-infimum identity \cite[Proposition~2.8]{Xia23Operations} identifies the
-pointwise limit with its \(\mathcal I\)-model projection.  Concavity passes
-to the infimum and the endpoint is supplied by the extended-curve
-convention.  Rescaling is checked by substituting
-\(\rho=\tau/\lambda\); the current scales as
-\(\lambda(\theta+\ddc\Gamma_\rho)\), so positivity and the model condition
-are preserved.
+For a decreasing net, put $T=\inf_i\Gamma^i_{\max}$.
+At each $\tau<T$ all levels are normalized with supremum zero.
+Compactness of their nested zero sets prevents their infimum
+$\Gamma_\tau$ from being identically $-\infty$.
+The required positive-mass hypothesis is separate.
+Once it holds at one $\tau_0<T$, mass monotonicity gives
+$M_\theta(\Gamma_{-\infty})\geq M_\theta(\Gamma_{\tau_0})>0$.
+Monotonicity and idempotence of the $\mathcal I$-envelope give
+\[
+ \Gamma_\tau\leq P_\theta[\Gamma_\tau]_{\mathcal I}
+       \leq\inf_iP_\theta[\Gamma^i_\tau]_{\mathcal I}
+       =\Gamma_\tau.
+\]
+Concavity passes to the infimum, and the endpoint is supplied
+by \eqref{eq:rays-test-endpoint}.
+This is \cite[Lemma~2.8]{DXZ23}, with its positive-mass
+assumption retained.
+Rescaling follows by substituting $\rho=\tau/\lambda$:
+the current becomes $\lambda(\theta+\ddc\Gamma_\rho)$.
 
 Compatibility with K\"ahler transition follows from the same
 \(\mathcal I\)-envelope identities for finite maxima, admissible suprema,
@@ -604,6 +756,24 @@ and decreasing infima.  Without the displayed bounds on
 \(\Gamma_{\max}\), the purported limit may be identically infinite or
 have empty effective domain.
 \end{proof}
+
+\begin{example}\label{ex:rays-decreasing-mass-collapse}
+The bound on terminal parameters in
+\Cref{prop:rays-test-limits} does not prevent loss of mass.
+On degree-one $\mathbf P^1$, let $H=\{0\}$ and take the
+hyperplane test curve $\Lambda$ of
+\Cref{ex:rays-hyperplane-test-curve}.
+For $j\geq2$, put $\phi_j=\Lambda_{1-1/j}$ and set
+$\Gamma^j_\tau=\phi_j$ for $\tau\leq0$, with
+$\Gamma^j_\tau=-\infty$ for $\tau>0$.
+These are decreasing $\mathcal I$-model test curves,
+all with terminal parameter zero, and $M_\theta(\phi_j)=1/j$.
+Their levelwise limit is the normalized Green potential
+$G_H$ below the terminal parameter.
+Since $\theta+\ddc G_H=[H]$, its non-pluripolar mass is zero.
+The limit therefore fails \eqref{eq:rays-test-minus-infinity}
+and lies outside the positive-mass class of test curves.
+\end{example}
 
 \section{Filtrations and projective test configurations}
 
@@ -826,13 +996,15 @@ one of \Cref{ex:rays-p1-action}, with its weights and its energy
 
 \begin{remark}[Source note]
 \label{rem:rays-source-note}
-The analytic correspondence is
-\cite[Theorems~1.1--1.2]{RWN14}; the filtration ray and its
-Phong--Sturm identification are \cite[Theorem~9.2]{RWN14}.  The relative
-and \(\mathcal I\)-model form
-used here follows the supplied chapters on rays and test curves and the
-transcendental framework of \cite{DXZ23}.  In particular, all test-curve
-levels in the notation \(\PSH^{\NA}(X,\theta)_{>0}\) have positive
-nonpluripolar mass; the zero-volume objects introduced next are inverse
-systems of such perturbed positive-mass components.
+The original analytic correspondence is due to \cite{RWN14};
+the filtration ray and its Phong--Sturm identification are
+\cite[Theorem~9.2]{RWN14}.  The relative correspondence used here is
+\cite[Theorem~9.2.1]{XiaBook}, with the normalized published
+finite-energy formula in \cite[equation~(5), Theorem~2.6(iii)]{DXZ23}.
+The positive-mass condition for decreasing curves is explicit in
+\cite[Lemma~2.8]{DXZ23}.
+Only the interior levels are required to have positive mass.
+The terminal level is a nontrivial psh function whose mass may be
+zero; the zero-volume metrics introduced next are inverse systems
+of positive-mass components after K\"ahler perturbation.
 \end{remark}

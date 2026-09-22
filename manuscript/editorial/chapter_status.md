@@ -1916,3 +1916,21 @@ passes the strict audit, and its final pages pass visual review.
 The active inventory, normalized-model scope and frozen verification
 bytes are unchanged. The next unit checks Chapter 52 test-curve
 endpoints and energy conventions against the published source.
+
+
+## 2026-09-23 — Chapter 52 endpoints, energy and positive-mass limits
+
+The [endpoint and energy audit](ch52_endpoint_energy_audit_20260923.md)
+supplies endpoint noncollapse, scalar closedness, the raw Legendre
+argument and the inverse closed threshold. It distinguishes reference
+mass, endpoint mass and radial parameter normalization, using exact
+locators in the published DXZ paper and the author's supplied lectures.
+The decreasing-limit theorem now retains the necessary positive-mass
+condition; a P1 family with masses 1/j shows why it cannot be omitted.
+Chapter 62 has only a matching September source-note date correction.
+
+The full build has 3,927 pages, 389 TeX inputs and 11,515 labels,
+with no unresolved reference or citation and no layout overflow.
+The final edited blocks pass strict and visual review. The research
+inventory and frozen verifier material are unchanged. The next unit
+checks addition and maximalization in the test-curve operations.

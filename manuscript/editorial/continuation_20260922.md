@@ -393,13 +393,27 @@ The final full build has 3,925 pages and 11,511 labels, with no unresolved
 reference or citation and no layout overflow. The research inventory,
 normalized-model scope and frozen verification bytes are unchanged.
 
+## Chapter 52: endpoints, energy and decreasing limits — 23 September 2026
+
+The [endpoint and energy audit](ch52_endpoint_energy_audit_20260923.md)
+proves that normalized terminal levels remain nontrivial, reconstructs
+the raw Legendre transform and the inverse closed domain, and separates
+reference mass from endpoint mass. The exact relative energy source and
+the half-logarithmic radial conversion are explicit.
+A decreasing family of constant test curves has masses 1/j and a zero-mass
+limit; the missing positive-mass assumption is restored to the limit theorem.
+The final full build has 3,927 pages and 11,515 labels, with no unresolved
+reference or citation and no layout overflow. The research inventory,
+frozen proofs and author sources are unchanged.
+
 ## Next work
 
-1. Check the Chapter 52 relative test-curve endpoint conventions
-   and ray-energy normalization against published DXZ equation (5)
-   and Theorem 2.6, then reconcile the Chapter 62 dated source map.
-   The completion, class derivative and finite-volume formula now
-   have separate 23 September receipts. Keep the normalized model
+1. Audit the remaining Chapter 52 operations: sup-convolution,
+   model envelopes, addition of rays, and their compatibility with
+   Kähler transition. Distinguish the raw subgeodesic from its
+   maximalization before claiming an identity of geodesic rays.
+   The endpoint and decreasing-limit corrections now have a separate
+   23 September receipt. Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
    General Kähler maximal-ray existence, sequential regularization
