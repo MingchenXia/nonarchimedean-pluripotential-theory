@@ -1087,7 +1087,7 @@ vertex values \(u_i=\varphi_D(x_{E_i})=a_i/b_i\).  Then, for every
 and the weights \(b_j(E_j\cdot E_i)\), \(j\ne i\), are nonnegative.
 Consequently the map \(u\mapsto\bigl((D\cdot E_i)\bigr)_i\) is the graph
 Laplacian of the weighted incidence graph of \(\mathcal X_s\).  If moreover
-\(\mathcal X\) is semistable, so that all \(b_i=1\), all singular points of
+\(\mathcal X\) is strictly semistable, so that all \(b_i=1\), all singular points of
 \(\mathcal X_s\) are nodes with local equation \(xy=\pi\), and all edges of
 \(\Delta_{\mathcal X}\) have length one, then
 
@@ -1097,8 +1097,9 @@ Laplacian of the weighted incidence graph of \(\mathcal X_s\).  If moreover
  =\Delta_{\Delta_{\mathcal X}}\varphi_D
 \end{equation}
 
-with the sign convention of \eqref{eq:graph-laplacian}: a model function with
-a convex corner at a vertex has positive Laplacian there.
+where an edge at a node $q$ has weight $[\kappa(q):k]$.
+The sign convention is that of \eqref{eq:graph-laplacian}:
+a model function with a convex corner has positive Laplacian there.
 \end{proposition}
 
 \begin{proof}
@@ -1116,63 +1117,60 @@ are distinct prime divisors on the regular two-dimensional scheme
 \(\mathcal X\), so their intersection is a finite scheme and
 \((E_j\cdot E_i)\geq0\); \(b_j>0\) by definition.
 
-For \eqref{eq:ch20-curve-laplacian-graph}, assume \(\mathcal X\) semistable.
-The edges of \(\Delta_{\mathcal X}\) are in bijection with the nodes of
-\(\mathcal X_s\), an edge joining \(x_{E_i}\) to \(x_{E_j}\) for each point
-of \(E_i\cap E_j\); by \Cref{prop:ch08-annulus-skeleton}\,(3) each has length
-\(1\), since the local equation is \(xy=\pi\) and \(v_K(\pi)=1\).  The number
-of edges joining \(x_{E_i}\) to \(x_{E_j}\) is therefore \((E_i\cdot E_j)\).
-By \Cref{lem:model-function-affine} the function \(\varphi_D\) is affine on
-each edge with endpoint values \(u_i,u_j\), so its outgoing slope at
-\(x_{E_i}\) along that edge is \(u_j-u_i\).  Summing the outgoing slopes at
-\(x_{E_i}\) over all edges emanating from it gives
-\(\sum_{j\neq i}(E_i\cdot E_j)(u_j-u_i)\), which by the first identity in
-\eqref{eq:ch20-curve-laplacian} is \((D\cdot E_i)\).  Comparing with
-\eqref{eq:graph-laplacian}, whose atom at \(x_{E_i}\) is exactly the sum of
-outgoing slopes, gives \eqref{eq:ch20-curve-laplacian-graph}.  A model
-function determined on \(\mathcal X\) has no slope breaks in the interior of
-an edge, so no other atoms occur.
+For \eqref{eq:ch20-curve-laplacian-graph}, assume
+$\mathcal X$ strictly semistable.  Each edge has length one, since its
+node equation is $xy=\pi$ and $v_K(\pi)=1$.
+For $i\ne j$, transverse intersection gives
+\[
+            E_i\cdot E_j
+                 =\sum_{q\in E_i\cap E_j}[\kappa(q):k].
+\]
+Thus this intersection number is the sum of the edge weights,
+and is the number of edges only when the nodes are rational.
+The model function is affine on each edge, with outgoing
+derivative $u_j-u_i$ at $x_{E_i}$.
+The weighted sum is therefore
+$\sum_{j\ne i}(E_i\cdot E_j)(u_j-u_i)=D\cdot E_i$.
+An edge with both ends on the same component has zero derivative,
+so it contributes nothing.  There are no interior break points.
+This proves the claimed graph-measure identity.
 \end{proof}
 
-\begin{remark}[Multiplicities and edge lengths]
+\begin{remark}
 \label{rem:ch20-multiplicities-lengths}
-Identity \eqref{eq:ch20-curve-laplacian-graph} was stated only in the
-semistable case, and the restriction is not cosmetic.  For a general regular
-model the edge of \(\Delta_{\mathcal X}\) attached to a point of
-\(E_i\cap E_j\) has \emph{analytic} length \(1/(b_ib_j)\) --- this is the
-metric inherited from \(X^{\An}\), and it is \emph{smaller} than the
-lattice length \(1/\operatorname{lcm}(b_i,b_j)\) of
-\Cref{rem:lattice-length} by the factor \(\gcd(b_i,b_j)\), the two
-agreeing exactly when that gcd is \(1\) --- and the divisorial point is
-\(x_{E_i}=b_i^{-1}\ord_{E_i}\).  Both conventions must be applied together,
-as \Cref{rem:divisorial-normalization} and the second remark of
-\Cref{sec:appJ-valuations} insist.  The first identity in
-\eqref{eq:ch20-curve-laplacian} is valid regardless; it is only the
-identification of its right-hand side with the metric-graph Laplacian
-\eqref{eq:graph-laplacian} that carries the normalization.
-
-Once both conventions are in force, the identification does survive, in the
-following form.  Summing outgoing slopes at \(x_{E_i}\) over the
-\((E_i\cdot E_j)\) edges to \(x_{E_j}\), each of length \(1/(b_ib_j)\),
-gives
-\(\sum_{j\ne i}b_ib_j(E_i\cdot E_j)(u_j-u_i)=b_i(D\cdot E_i)\) by the first
-identity in \eqref{eq:ch20-curve-laplacian}, whence
+For a regular snc curve model, give the edge at
+$q_e\in E_i\cap E_j$ intersection length $1/(b_i b_j)$ and
+weight $m_e=[\kappa(q_e):k]$.
+The vertex value remains $u_i=a_i/b_i$.
+Since the components meet transversally,
+$E_i\cdot E_j=\sum_{q_e\in E_i\cap E_j}m_e$.
+Consequently the weighted sum of outgoing derivatives is
+\[
+ \sum_{e\ni i}m_e\,\frac{u_j-u_i}{1/(b_i b_j)}
+      =\sum_{j\ne i}b_i b_j(E_i\cdot E_j)(u_j-u_i)
+      =b_i(D\cdot E_i).
+\]
+With this length and weight convention,
 \begin{equation}
 \label{eq:ch20-curve-laplacian-general}
  \Delta_{\Delta_{\mathcal X}}\varphi_D
-  =\sum_ib_i\,(D\cdot E_i)\,\delta_{x_{E_i}}
+       =\sum_i b_i(D\cdot E_i)\delta_{x_{E_i}} .
 \end{equation}
-for every regular model \(\mathcal X\) with \(\mathcal X_s\) a normal
-crossings divisor.  The right-hand side is not \(\sum_i(D\cdot E_i)\delta\)
-but the \emph{model measure} of \eqref{eq:model-mixed-measure} for \(n=1\),
-the same weighting that appears in the Chambert--Loir formula
-\eqref{eq:appJ-cl-measure}; the two factors \(b_i\) --- one from the edge
-lengths, one from the measure --- are what make the identity true, and they
-cancel only when \(\mathcal X\) is semistable, which is why
-\eqref{eq:ch20-curve-laplacian-graph} could be written without them.  Since
-\(b_i>0\), the sign of the atom at \(x_{E_i}\) is that of
-\((D\cdot E_i)\) either way, so every \emph{positivity} test is insensitive
-to the distinction; only the numerical value of the mass is not.
+This is the model measure of \eqref{eq:model-mixed-measure} in
+dimension one, including its special-fibre multiplicities.
+It also agrees with \Cref{rem:ch19-nonreduced-model-lengths}.
+
+One may instead use lattice length $1/\operatorname{lcm}(b_i,b_j)$.
+The corresponding edge weight is then
+$\gcd(b_i,b_j)m_e$, by \eqref{eq:ch05-length-weight-conversion}.
+The same measure results.  Thus the intersection and lattice
+conventions are both usable; changing the length without changing
+the weight is the incorrect operation.
+When all $b_i=1$, the formula reduces to
+\eqref{eq:ch20-curve-laplacian-graph}, still with residue-degree
+weights at nonrational nodes.
+The positive factors $b_i$ do not affect the sign of an individual
+residual degree, but they are necessary for the correct masses.
 \end{remark}
 
 \begin{example}[A model form on the running conic, carried to numbers]

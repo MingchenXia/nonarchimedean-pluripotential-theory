@@ -279,24 +279,29 @@ model is an explicit hypothesis of the finite positivity criterion.
 The full build has 3,915 pages and 11,492 resolved labels,
 with no horizontal or vertical overflow.
 
+## Curve lengths, weights and compatible norms
+
+The [length and norm audit](curve_length_norm_audit_20260922.md)
+distinguishes the intersection metric from the stable lattice
+metric using the published Baker--Nicaise source. Changing the
+length by the gcd factor requires changing the weight by that
+factor as well. A multiplicity-(2,2) blowup verifies both mass
+and Lipschitz scaling. Chapters 20 and 22 and Appendix J now
+use consistent definitions, and the model proof retains node
+residue degrees. The full build has 3,915 pages and 11,493
+resolved labels, with no horizontal or vertical overflow.
+
 ## Next work
 
-1. Clarify Chapter 5's nonreduced-model metric terminology against
-   Baker--Nicaise. The intersection length 1/(b_i b_j) and stable
-   lattice length 1/lcm(b_i,b_j) are different valid conventions.
-   Check how weights transform and distinguish the metric over K
-   from the geometric annular metric after scalar extension.
-   Preserve the multiplicity calculation already used in Chapters
-   17--19; do not change lengths without their weights.
-2. Continue the mathematical and source audit through Chapter 61.
+1. Continue the mathematical and source audit through Chapter 61.
    A useful next expansion is the point-mass energy estimate from
    truncated normalized psh functions and the zero-model Dirac mass.
    General Kähler maximal-ray existence, sequential regularization
    and the full mixed-slope reduction remain explicit source inputs.
-3. For P07.1, separately examine continuous convex collar data and the
+2. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from stratified comparison.
    No extension beyond the current hypotheses is asserted.
-4. Repeat the complete build after coherent revisions; preserve dated
+3. Repeat the complete build after coherent revisions; preserve dated
    checksum ledgers for their stated snapshots. Commit and push
    checked units with outstanding limits recorded; no force pushes
    or changes to visibility.
