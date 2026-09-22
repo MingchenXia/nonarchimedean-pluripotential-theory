@@ -333,11 +333,30 @@ both tangent inequalities and handles positive and negative
 parameters. The full build has 3,919 pages and 11,501 labels,
 with no horizontal or vertical overflow.
 
+## Chapters 61--62: domination and model normalization
+
+The [normalization audit](ch62_model_normalization_audit_20260922.md)
+repairs the domination proof at simultaneous minus-infinity points.
+A blowup of P1 x P1 shows that the raw positive-product M and J
+expressions change under adding a base class. The all-big-model
+definition is preserved and distinguished from the normalized
+model inequality with f_D >= 1.
+The latter is equivalent to the finite-energy and divisorial-measure
+conditions. The implication from all big models to cscK existence
+remains valid. The converse to the literal raw all-big-model
+condition needs an additional comparison; it is not inferred from
+the disproved invariance argument.
+Chapter 68 and the provenance appendix now reflect this scope.
+The full build has 3,921 pages and 11,506 labels, with no horizontal
+or vertical overflow. The factor-n verification block is unchanged.
+
 ## Next work
 
-1. Continue the mathematical and source audit through Chapter 61.
-   Continue through comparison, regularity, and the Chapter 62
-   uses of entropy-preserving approximation and strong convergence.
+1. Continue the Chapter 62 audit of entropy-preserving approximation,
+   fixed-complex PL approximation, the class derivative and the
+   finite-dimensional volume formula. Keep the normalized model
+   condition separate from the literal raw all-big-model condition;
+   examine any proposed comparison before restoring a converse.
    General Kähler maximal-ray existence, sequential regularization
    and the full mixed-slope reduction remain explicit source inputs.
 2. For P07.1, separately examine continuous convex collar data and the
