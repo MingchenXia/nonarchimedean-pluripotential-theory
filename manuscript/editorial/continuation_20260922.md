@@ -126,12 +126,20 @@ by both this proof and the numerical criterion. The final scoped build
 has 85 pages and no new unresolved source reference; the source graph has
 11,429 labels. The detailed audit records the second-pass checks.
 
+The model-measure pass proves mass one for signed model measures and
+nonnegativity for all relatively nef model classes. The deformation-to-the-
+normal-cone example now states the required center and rationality
+hypotheses and treats point blowups on curves separately. The
+[measure and energy audit](ch60_model_measure_energy_audit_20260922.md)
+records the second-pass checks and the next energy-domain issue.
+
 ## Next work
 
 1. Restore the missing Chapter 70 source from the original working copy,
    retaining its proof and provenance. Re-run the strict source check and
    a complete LaTeX/BibTeX/MakeIndex build before claiming reproducibility.
-2. Continue Chapter 60's approximation and monotone-completion proofs.
+2. Complete Chapter 60's energy-domain and Zariski-inequality audit, then
+   continue its approximation and monotone-completion proofs.
    Numerical nefness, snc model independence, the Fubini--Study warning,
    and maximum stability have received the present detailed passes.
    The arbitrary normal-model assertion remains an explicit import.

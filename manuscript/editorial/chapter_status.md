@@ -1767,3 +1767,10 @@ the sum ideal and a fixed-resolution relative-nef limit. Its shared base
 correction is `lem:mp-relative-kahler-extension`, also used in the
 numerical criterion. The second-pass source and build checks are in the
 same audit. The result's scope and open-problem inventory are unchanged.
+
+The [model-measure audit](ch60_model_measure_energy_audit_20260922.md)
+extends the explicit probability statement to relatively nef model classes,
+spells out model independence, and corrects the normal-cone example's
+center, rationality and curve hypotheses. The final scoped build has
+86 pages with the same external-reference limitation. Energy first
+variation and the Zariski proof are the next local audit.
