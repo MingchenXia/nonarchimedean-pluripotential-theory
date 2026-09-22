@@ -176,20 +176,28 @@ use divisorial determination and integrability directly.
 The complete build still has 3,403 pages, now with 11,476 labels and no
 missing or dangling reference. The 38 horizontal overflows are unchanged.
 
+## Chapter 46: curve energies and finite identities
+
+The [curve and identity audit](ch46_curve_and_finite_identities_audit_20260922.md)
+reconstructs the Dirichlet energy through finite convex model
+interpolation and branch exhaustion. It retains distributional corner
+atoms and separates the graph measure from the finite-energy operator.
+The cocycle, tangent and integration-by-parts identities now follow
+from the finite pairing; the Gram-matrix limit treats nef backgrounds.
+The full build remains 3,403 pages with all 11,476 labels resolved.
+
 ## Next work
 
-1. Repair the adjacent Chapter 46 curve discussion: distributional second
-   derivatives, endpoint terms and legitimate energy limits. Review its
-   finite-energy cocycle and integration-by-parts deductions where a
-   moving test function accompanies a varying measure.
-2. Continue Chapter 60's maximal-ray argument, especially sequential
-   approximation and equality of energies.
-3. Review the 38 horizontal layout overflows in the restored full build.
-   Repeat the complete build after coherent source revisions; preserve
-   dated checksum ledgers as evidence for their stated snapshots.
-4. For P07.1, separately examine continuous convex collar data and the
-   production of compatible collars from the stratified comparison
-   conditions. No extension beyond the current hypotheses is asserted.
-5. Continue chapter-level mathematical, source and editorial checks.
-   Commit and push each coherent checked unit, keeping outstanding limits
-   visible; no force pushes or changes to visibility.
+1. Continue Chapter 60's maximal-ray argument, especially sequential
+   approximation and identification of the limit's non-Archimedean
+   energy. Then audit mixed-slope and test-curve hypotheses against
+   their exact checked source versions.
+2. Review the 38 horizontal layout overflows in the full build.
+   Repeat the complete build after coherent revisions; preserve dated
+   checksum ledgers for their stated snapshots.
+3. For P07.1, separately examine continuous convex collar data and the
+   production of compatible collars from stratified comparison.
+   No extension beyond the current hypotheses is asserted.
+4. Continue chapter-level mathematical, source and editorial checks.
+   Commit and push coherent checked units with outstanding limits
+   recorded; no force pushes or changes to visibility.

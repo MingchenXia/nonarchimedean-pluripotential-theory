@@ -1843,3 +1843,16 @@ finiteness of compact endpoint subsets. See
 [the support audit](ch47_49_support_capacity_audit_20260922.md).
 The full build passes with 3,403 pages and 11,476 labels. There are still
 38 horizontal overflows. No research question was retired.
+
+
+## 2026-09-22 — Curve energies and finite-pairing identities
+
+The Chapter 46 curve pass replaces non-PL truncations and undefined
+endpoint products with finite convex model interpolation and two
+justified energy limits. The cocycle and integration-by-parts proofs
+use the finite pairing directly. The Dirichlet inequality follows
+from positive Gram matrices and a separate nef perturbation.
+See [the detailed audit](ch46_curve_and_finite_identities_audit_20260922.md).
+New blocks pass the strict writing audit. The complete 3,403-page
+build has no unresolved reference or citation; 38 horizontal overflows
+remain in the layout queue.

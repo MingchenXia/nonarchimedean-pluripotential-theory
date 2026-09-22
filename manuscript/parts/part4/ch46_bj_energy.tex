@@ -2108,65 +2108,86 @@ pairs from below by a fixed positive combination of the pure energies; they
 are not deduced here.
 \end{proof}
 
-\begin{example}[A finite-energy potential that is unbounded, and one that is not finite-energy]
+\begin{example}
 \label{ex:ch46-e1-curve}
-Let \(X=\mathbf P^1\), \(\omega=c_1(\cO(1))\), \(V=1\), and let
-\(p\in X(k)\).  Consider functions \(\phi\) that vanish off the ray of
-\(p\) and are given on it by
-\(\phi(t\,\ord_p)=h(t)\), where \(h:[0,\infty)\to\mathbf R\cup\{-\infty\}\)
-is convex and decreasing with \(h(0)=0\).  By the curve criterion
-\cite[Example~4.13]{BJ22}, recalled at the end of
-\Cref{ex:ch34-psh-check}, such a \(\phi\) is \(\omega\)-psh if and only if
-\(h'(0^+)\ge-1\).
+Let $X=\mathbf P^1$, $\omega=c_1(\cO(1))$, $V=1$, and $p\in X(k)$.
+Let $\phi$ vanish off the branch of $p$, with
+$\phi(t\,\ord_p)=h(t)$, where $h:[0,\infty)\to\mathbf R$ is continuous,
+convex and decreasing, and $h(0)=0$.
+At the proper-support endpoint set
+$\phi(v_{p,\triv})=h(\infty):=\lim_{t\to\infty}h(t)$.
+The curve criterion \cite[Example~4.13]{BJ22}, recalled in
+\Cref{ex:ch34-psh-check}, says that $\phi$ is $\omega$-psh exactly when
+$h'_+(0)\geq-1$.  Assume this condition.
 
-For the measure and the energy, apply the graph Laplacian as in
-\Cref{ex:ch46-p1-energy}: the outgoing slope at \(v_{\triv}\) is
-\(h'(0^+)\) and the second derivative of the convex \(h\) contributes along
-the ray, so
+Write $D^2h$ for the distributional second derivative on $(0,\infty)$,
+viewed as a measure on the branch.  It is a positive measure; at a
+corner its mass is the upward jump of the slope.  Put
+$\ell=\lim_{t\to\infty}h'_+(t)\in[-1,0]$.
+The graph measure attached to $h$ is
 \[
- \MA^{\mathrm u}_\omega(\phi)
- =\bigl(1+h'(0^+)\bigr)\delta_{v_{\triv}}+h''(t)\,\rd t
-   +\bigl(-h'(+\infty)\bigr)\delta_{v_{p,\triv}} ,
+ \nu_h=(1+h'_+(0))\delta_{v_{\triv}}
+          +D^2h-\ell\,\delta_{v_{p,\triv}}.
 \]
-a positive measure of total mass
-\(\bigl(1+h'(0^+)\bigr)+\bigl(h'(+\infty)-h'(0^+)\bigr)
- +\bigl(-h'(+\infty)\bigr)=1\), as
-\Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:mass} requires.  The
-endpoint atom must not be forgotten: for \(h(t)=-t\) it carries the
-\emph{whole} mass, and dropping it is exactly the error against which
-\Cref{ex:ch46-homogeneous-mass-escapes} warns.  Since
-\(\int\phi\,\MA^{\mathrm u}_\omega(0)=h(0)=0\), the formula
-\eqref{eq:ch46-pure-pairing-as-integrals} with \(n=1\) gives, first for
-the PL truncations \(h_j:=\max\{h,-j\}\) and then in the decreasing limit
-by \Cref{prop:ch46-energy-usc}\,\cref{itm:ch46-Eusc:decreasing},
-\[
- E_\omega(\phi)
- =\tfrac12\Bigl(\int_0^\infty h\,h''\,\rd t
-        -h'(+\infty)\,h(+\infty)\Bigr)
- =-\tfrac12\int_0^\infty|h'(t)|^2\,\rd t ,
-\]
-the second term being the contribution of the endpoint atom and the last
-equality following from
-\(\int_0^Lhh''=h(L)h'(L)-\int_0^L|h'|^2\) as \(L\to\infty\), the boundary
-terms cancelling against \(-h'(+\infty)h(+\infty)\).  Both sides are read
-in \([-\infty,0]\); when \(h'\in L^2\) one has \(h'(+\infty)=0\) and the
-endpoint term drops out, and when \(h'\notin L^2\) both sides are
-\(-\infty\).  So \(\phi\in\cE^1(\omega)\) if and only if
-\(h'\in L^2(0,\infty)\).
+Its total mass is
+$(1+h'_+(0))+(\ell-h'_+(0))-\ell=1$.
+Writing $h''(t)\,\rd t$ would lose the corner atoms unless this
+second derivative were understood distributionally.
+For finite-energy $\phi$, the graph measure agrees with
+$\MA_\omega(\phi)$; this is \cite[Example~7.20]{BJ22}, or the
+decreasing model construction in \Cref{thm:bj-mixed-ma}.
 
-Two instances.  For \(h(t)=-\log(1+t)\), which is convex and decreasing
-with \(h'(0^+)=-1\), one has \(\int_0^\infty(1+t)^{-2}\rd t=1\), so
-\(E_\omega(\phi)=-\tfrac12\); this \(\phi\) is unbounded below and has
-finite energy.  For \(h(t)=-t\), which corresponds to
-\(\phi=\log|\mathfrak m_p|\), the integral diverges and
-\(E_\omega(\phi)=-\infty\); so the generically finite Fubini--Study
-function of \Cref{ex:gf-proper-support-pole} is \(\omega\)-psh with
-infinite energy.  Together the two instances show that
-\(\cE^1(\omega)\) lies strictly between the bounded \(\omega\)-psh
-functions and \(\PSH(\omega)\).  The comparison with
-\Cref{ex:ch26-unbounded-finite-energy} and
-\Cref{ex:ch26-infinite-energy}, which make the same two points over a
-discretely valued base, is exact.
+We prove the energy formula using only finite model calculations.
+For an integer $R\geq1$, define $h_R(t)=h(\min\{t,R\})$.
+On $[0,R]$, interpolate $h$ linearly on the dyadic subdivisions and
+extend each interpolant constantly beyond $R$.  Call these functions
+$h_{R,j}$.  Convexity gives
+$h_{R,j}\downarrow h_R$ uniformly; their slopes lie in $[-1,0]$.
+They have rational breakpoints and real coefficients, so their branch
+potentials $\phi_{R,j}$ belong to
+$\PL(X)_{\mathbf R}\cap\PSH(\omega)$.
+The model pairing and integration by parts on this finite interval give
+\[
+ E_\omega(\phi_{R,j})
+    =\frac12\int_{(0,\infty)}h_{R,j}\,\rd(D^2h_{R,j})
+    =-\frac12\int_0^R|h'_{R,j}(t)|^2\,\rd t.
+\]
+The jump to zero slope at $R$ is included in $D^2h_{R,j}$.
+There is no boundary term at infinity, and the boundary term at zero
+vanishes because $h_{R,j}(0)=0$.
+
+The slopes converge to $h'$ almost everywhere on $[0,R]$ and are
+bounded in absolute value by one.  Dominated convergence and decreasing
+continuity of energy therefore give
+$E_\omega(\phi_R)=-\tfrac12\int_0^R|h'|^2\,\rd t$.
+Now $\phi_R\downarrow\phi$ on the entire analytification, including the
+endpoint.  Applying
+\Cref{prop:ch46-energy-usc}\,\cref{itm:ch46-Eusc:decreasing} once more
+proves
+\[
+ E_\omega(\phi)=-\frac12\int_0^\infty|h'(t)|^2\,\rd t
+       \in[-\infty,0],
+ \qquad
+ \phi\in\cE^1(\omega)\ \Longleftrightarrow\ h'\in L^2(0,\infty).
+\]
+No product of a limiting slope with the possibly infinite endpoint
+value has been used.  The same proof on a smooth curve with
+$\deg\omega=d>0$ allows initial slope at least $-d$ and replaces
+the coefficient $1/2$ by $1/(2d)$.
+
+For $h(t)=-\log(1+t)$, the squared derivative has integral one, so
+$E_\omega(\phi)=-1/2$ although $\phi(v_{p,\triv})=-\infty$.
+For $h(t)=-t$, the integral diverges and $E_\omega(\phi)=-\infty$;
+the graph measure is $\nu_h=\delta_{v_{p,\triv}}$.
+The latter is a graph measure outside the finite-energy domain of
+\Cref{thm:bj-mixed-ma}.
+The two profiles show that $\cE^1(\omega)$ lies strictly between
+the bounded $\omega$-psh functions and $\PSH(\omega)$, as in
+\Cref{ex:ch26-unbounded-finite-energy,ex:ch26-infinite-energy}.
+
+Vanishing of the endpoint atom alone is insufficient for finite energy.
+For $h(t)=-2(\sqrt{1+t}-1)$ the limiting slope is zero, while
+$\int_0^\infty|h'|^2\,\rd t=\int_0^\infty(1+t)^{-1}\,\rd t=\infty$.
 \end{example}
 
 Let $\vec{\cE}^{\,1}(X)$ be the vector space of functions on
@@ -2467,36 +2488,37 @@ The construction above uses integrable representatives, so it requires
 no such support inference.
 \end{remark}
 
-\begin{example}[A curve]
+\begin{example}
 \label{ex:ch46-curve-laplacian}
-When \(X\) is a smooth projective curve and \(\deg\omega=d\), the ray
-\(t\mapsto t\ord_p\) carries the convex function
-\(t\mapsto\phi(t\ord_p)\).  With the graph-Laplacian sign of
-\Cref{chap:model-calculations},
-
+Let $X$ be a smooth projective curve, $\deg\omega=d>0$, and
+$\phi\in\cE^1(\omega)$.  With the graph-Laplacian sign of
+\Cref{chap:model-calculations}, the unnormalized measure is
 \[
              \omega+\ddc\phi=d\,\delta_{v_{\triv}}+\Delta\phi.
 \tag{46.21}\label{eq:bj-curve-laplacian}
 \]
+The second derivative on each branch is a measure, including its
+corner atoms, as in \Cref{ex:ch46-e1-curve}.  The equality is the model
+intersection formula followed by decreasing approximation;
+see \cite[Example~7.20]{BJ22}.
+Every model Laplacian has total mass zero.  Weak convergence, tested
+against the constant function $1$, preserves this equality, so the
+measure in \eqref{eq:bj-curve-laplacian} has mass $d$.
+A general finite-energy profile need not be eventually constant.
 
-For \(\phi\in\cE^1\), the measure puts no mass at a proper-support
-endpoint; this is an integrability conclusion, not an omission of those
-points from \(X^{\An}\).
-
-Two things should be checked against \Cref{ex:ch46-p1-energy}.  First the
-mass: \(\Delta\phi\) has total mass \(0\), being the Laplacian of a
-function that is eventually constant on every ray, so
-\eqref{eq:bj-curve-laplacian} has mass \(d=V\).  Second the sign: with
-\(\phi=\phi_{-cE}\) and \(0\le c\le d\) one has
-\(\Delta\phi=-c\,\delta_{v_{\triv}}+c\,\delta_{\ord_p}\), because the
-outgoing slope of \(\phi\) at \(v_{\triv}\) along the ray of \(p\) is
-\(-c\) and along every other ray is \(0\), while at \(\ord_p\) the incoming
-slope is \(-c\) and the outgoing slope is \(0\).  Adding
-\(d\,\delta_{v_{\triv}}\) gives
-\((d-c)\delta_{v_{\triv}}+c\,\delta_{\ord_p}\), which is the measure
-computed by intersection theory in \Cref{ex:ch46-p1-energy}.  A reader who
-obtains \(-\Delta\phi\) here has the sign of \Cref{chap:model-calculations}
-reversed and will obtain a negative energy for the trivial metric.
+For $X=\mathbf P^1$ and $\phi=\phi_{-cE}$ with $0<c\leq d$,
+\Cref{ex:ch46-p1-energy} gives
+\[
+ \Delta\phi=-c\,\delta_{v_{\triv}}+c\,\delta_{\ord_p},
+ \qquad
+ \omega+\ddc\phi=(d-c)\delta_{v_{\triv}}+c\,\delta_{\ord_p}.
+\]
+The upward jump from slope $-c$ to zero at $\ord_p$ accounts for the
+positive atom there.  Reversing the sign of the Laplacian would give
+a negative atom at $\ord_p$ and violate positivity.
+For finite-energy $\phi$, the proper-support endpoints have no mass
+by integrability; they remain points of $X^{\An}$ and are not removed
+from the graph.
 \end{example}
 
 \begin{remark}[Comparison with the discretely valued mixed measure]
@@ -2547,8 +2569,8 @@ In particular,
 \tag{46.23}\label{eq:bj-energy-tangent-inequalities}
 \]
 
-Both displays are proved by the same three-line argument, and it is worth
-having it on record.
+The finite multilinear pairing proves the cocycle identity directly;
+concavity then gives the tangent inequalities.
 
 \begin{proposition}
 \label{prop:ch46-cocycle}
@@ -2578,23 +2600,29 @@ finite; consequently
 \end{proposition}
 
 \begin{proof}
-For \(\phi,\psi\in\PL^\omega(X)\), \eqref{eq:bj-energy-cocycle} is
-\Cref{cor:ch46-pl-tangent}\,\cref{itm:ch46-tan:cocycle} and
-\eqref{eq:bj-energy-tangent-inequalities} is
-\Cref{cor:ch46-pl-tangent}\,\cref{itm:ch46-tan:tangent}.  For finite-energy
-\(\phi,\psi\) choose decreasing nets \(\phi_j\downarrow\phi\),
-\(\psi_j\downarrow\psi\) of \emph{continuous} \(\omega\)-psh functions
-supplied by \Cref{lem:ch46-continuous-competitors} --- for a rational ample
-class one may take them PL, by \Cref{lem:ch46-pl-domination}, which is
-stated only there ---, indexed as in Step~6 of the proof of
-\Cref{thm:bj-extended-energy-pairing}; the left-hand sides converge by
-\Cref{prop:ch46-energy-usc}\,\cref{itm:ch46-Eusc:decreasing} and the
-right-hand sides by the continuity clause of \Cref{thm:bj-mixed-ma}
-together with the integrability of
-\Cref{prop:ch46-no-mass-outside-lin}.  Finiteness of every term is the
-last clause of \Cref{thm:bj-e1-basic}, and this is precisely where
-\Cref{warn:ch46-no-subtraction} is discharged: the difference
-\(\phi-\psi\) is formed on \(X^{\lin}\), where both are finite.
+Put $A=(\omega,\phi)$ and $B=(\omega,\psi)$ in the vector space of
+\eqref{eq:bj-e1-polarized-pairing}.  Every pairing below is finite, and
+multilinearity gives
+\[
+ A^{n+1}-B^{n+1}
+   =(A-B)\sum_{j=0}^n A^jB^{n-j}
+   =(0,\phi-\psi)\sum_{j=0}^n A^jB^{n-j}.
+\]
+Divide by $(n+1)V$ and use the finite-energy duality in
+\Cref{thm:bj-mixed-ma} to obtain \eqref{eq:bj-energy-cocycle}.
+For the inequalities, the function
+$F(t)=E_\omega((1-t)\psi+t\phi)$ is concave on $[0,1]$ and is a
+polynomial there by the same finite pairing.  Its endpoint derivatives
+are
+\[
+ F'(0)=\int(\phi-\psi)\,\MA_\omega(\psi),
+ \qquad F'(1)=\int(\phi-\psi)\,\MA_\omega(\phi).
+\]
+The concavity inequalities $F'(1)\leq F(1)-F(0)\leq F'(0)$ give
+\eqref{eq:bj-energy-tangent-inequalities}.
+All integrands are defined almost everywhere by finite-energy
+integrability.  This argument does not interchange a varying unbounded
+test function with a weakly convergent sequence of measures.
 
 \cref{itm:ch46-coc:mono}.  Monotonicity is
 \eqref{eq:bj-energy-cocycle} with a nonnegative integrand and positive
@@ -2607,15 +2635,14 @@ for it.
 \cref{itm:ch46-coc:cocycle} is immediate from the fact that each bracket is
 a difference of two finite numbers.
 
-\cref{itm:ch46-coc:lipschitz}.  Apply
-\eqref{eq:bj-energy-tangent-inequalities} and bound each integrand by
-\(\sup_{X^{\divis}}|\phi-\psi|\), using that \(\MA_\omega\) is a
-probability measure and, by \Cref{prop:ch46-no-mass-outside-lin}, carries
-no mass where \(\phi-\psi\) is undefined.  This is the extension of
-\Cref{cor:ch46-pl-lipschitz} from PL to finite-energy potentials, and it
-is what makes \(E_\omega\) continuous for the uniform norm on
-\(\cE^1(\omega)\); it is \emph{not} continuity for the weak topology, as
-\Cref{ex:ch46-energy-not-weakly-continuous} shows.
+\cref{itm:ch46-coc:lipschitz}.  Set
+$C=\sup_{X^{\divis}}|\phi-\psi|$.  The case $C=\infty$ is immediate.
+Otherwise, $\phi\leq\psi+C$ and $\psi\leq\phi+C$ on divisorial
+valuations imply the same inequalities on $X^{\An}$ by
+\Cref{cor:ch35-divisorial-determination}.  Thus
+$|\phi-\psi|\leq C$ almost everywhere for both probability measures
+in \eqref{eq:bj-energy-tangent-inequalities}.  These inequalities give
+the claimed energy bound.
 \end{proof}
 
 \begin{remark}[The same identity in \Cref{part:bfj}]
@@ -2650,24 +2677,18 @@ For \(f,g\in\vec{\cE}^{\,1}(X)\) and finite-energy pairs
 \end{proposition}
 
 \begin{proof}
-For PL data the two sides are the same symmetric intersection number
-\((0,f)(0,g)\prod(\theta_i,\phi_i)\).  Approximate each psh constituent by
-a decreasing net of PL psh functions.  Proposition~7.19(v) of \cite{BJ22}
-gives integrability and convergence of both sides.  No difference of two
-infinite integrals occurs because all functions belong to
-\(\vec{\cE}^{\,1}\).
-
-The PL case is \Cref{cor:ch46-pl-ibp}, and it is worth repeating why it is
-so short: both sides are values of one symmetric multilinear form, and the
-symmetry in question is the symmetry of an intersection number on
-\(\overline\cX\).  There is no analytic content in the PL case at all.  The
-analytic content of the general case is entirely in the passage to the
-limit, and it consists of two facts: that the mixed measures converge
-weakly along coordinatewise decreasing nets (\Cref{thm:bj-mixed-ma},
-Step~4), and that the test functions \(f,g\) remain integrable in the limit
-(\Cref{prop:ch46-no-mass-outside-lin}).  Neither is available for arbitrary
-psh functions, which is why the statement is confined to
-\(\vec\cE^{\,1}(X)\).
+Apply the finite-energy duality of \Cref{thm:bj-mixed-ma} to the signed
+measure with first pair $(0,g)$ and remaining pairs
+$(\theta_i,\phi_i)$.  Its integral against $f$ is
+\[
+ (0,f)(0,g)\prod_{i=1}^{n-1}(\theta_i,\phi_i).
+\]
+Interchanging $f$ and $g$ gives the other side of
+\eqref{eq:bj-integration-by-parts}, with the same value by symmetry of
+\eqref{eq:bj-e1-polarized-pairing}.
+Both tests are integrable against the corresponding signed measures.
+Their almost-everywhere representatives and the independence of these
+representatives were established in \Cref{thm:bj-mixed-ma}.
 \end{proof}
 
 \begin{corollary}
@@ -2686,12 +2707,27 @@ inequality
 \end{corollary}
 
 \begin{proof}
-Symmetry is \Cref{prop:bj-integration-by-parts}.  For PL data positivity
-and Cauchy--Schwarz are
-\Cref{prop:ch46-dirichlet-vertical}\,\cref{itm:ch46-dir:pos}.  Both survive
-passage to the limit along decreasing nets, an inequality between finite
-numbers being preserved by convergence, and the limits exist by the proof
-of \Cref{prop:bj-integration-by-parts}.
+Symmetry follows from \Cref{prop:bj-integration-by-parts}.
+Write $f$ and $g$ as differences of finite-energy psh functions in a
+common ample class $\eta$.
+First suppose the other backgrounds $\theta_i$ are ample.
+Approximate each psh constituent of $f,g$ and each $\phi_i$
+decreasingly by real PL psh functions in its own background.
+The model Dirichlet form is positive semidefinite by
+\Cref{prop:ch46-dirichlet-vertical}\,\cref{itm:ch46-dir:pos}.
+After expanding the differences, each entry of its two-by-two Gram
+matrix converges by the finite-pairing continuity in
+\cite[Theorem~7.14(iii)]{BJ22}, using a common larger ample class.
+Its limiting Gram matrix is therefore positive semidefinite.
+
+For nef $\theta_i$, replace them by $\theta_i+\varepsilon\eta$.
+The potentials belong to $\cE^1(\theta_i+\varepsilon\eta)$ by
+\cite[Lemma~7.13]{BJ22}, so the previous argument applies.
+The entries of the resulting Gram matrix are polynomials in
+$\varepsilon$, by finite multilinearity.
+Their limits as $\varepsilon\downarrow0$ give the desired positive
+semidefinite matrix.  Its determinant is nonnegative, which is the
+Cauchy--Schwarz inequality.
 \end{proof}
 
 \subsection{Locality and the comparison principle}
