@@ -1761,3 +1761,9 @@ published BJ distinction between dominating ample models and all ample
 models. Appendix I records Stacks Tag 0D2S. The exact Chapter 71 comparison
 text remains unchanged. Validation and the continuing full-build limit
 are recorded in the same audit.
+
+The maximum-stability proof in `prop:mp-model-psh-stability` now includes
+the sum ideal and a fixed-resolution relative-nef limit. Its shared base
+correction is `lem:mp-relative-kahler-extension`, also used in the
+numerical criterion. The second-pass source and build checks are in the
+same audit. The result's scope and open-problem inventory are unchanged.

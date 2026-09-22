@@ -119,13 +119,21 @@ all 21 rows are preserved, tags print upright, and explicit column spacing
 separates the longest statements from the chapter links. The complete table
 fits on one page in the final scoped build.
 
+The Chapter 60 maximum proof now specifies the sum ideal, its sign and
+denominators, and the fixed-resolution limit proving relative nefness.
+The common relative Kähler extension argument has a separate lemma used
+by both this proof and the numerical criterion. The final scoped build
+has 85 pages and no new unresolved source reference; the source graph has
+11,429 labels. The detailed audit records the second-pass checks.
+
 ## Next work
 
 1. Restore the missing Chapter 70 source from the original working copy,
    retaining its proof and provenance. Re-run the strict source check and
    a complete LaTeX/BibTeX/MakeIndex build before claiming reproducibility.
-2. Continue Chapter 60's operation and approximation proofs after the
-   completed numerical-nefness, model-independence and Fubini--Study audits.
+2. Continue Chapter 60's approximation and monotone-completion proofs.
+   Numerical nefness, snc model independence, the Fubini--Study warning,
+   and maximum stability have received the present detailed passes.
    The arbitrary normal-model assertion remains an explicit import.
 3. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from the stratified comparison

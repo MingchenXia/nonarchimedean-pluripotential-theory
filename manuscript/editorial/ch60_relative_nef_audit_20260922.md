@@ -202,3 +202,59 @@ unresolved reference, citation, or overfull box. The strict audit has zero
 errors or warnings, the whitespace check passes, and physical page 67
 was rendered and inspected after the final adjustment. The following
 paragraph is also clear of the table. No dependency statement was changed.
+
+## Follow-up: maxima of relatively nef model functions
+
+The maximum assertion in `prop:mp-model-psh-stability` retains the scope
+of MP24 Proposition 4.1.4. Its proof now states the ideal and supplies the
+approximation argument, rather than only referring to relatively Kähler
+approximants.
+
+On a common snc model, clearing denominators and a common integral shift
+give effective Cartier divisors `F=m(c X_0-D)` and `G=m(c X_0-E)`.
+Principalize `O(-F)+O(-G)=O(-H)` on one fixed higher model. The maximum
+is represented by `c Y_0-H/m`. The sign can already be checked for
+the constant functions 0 and 1: the ideal is `(t)+O=O`, so the maximum
+is represented by the central fibre and equals 1.
+
+For each positive epsilon, a small ambient Kähler perturbation and a
+sufficiently large base correction make both shifted divisor classes
+positive. Maxima of their logarithmic canonical-section norms have the
+singularity type of the sum ideal. On the fixed resolution, the residual
+potential is locally bounded because the residual generators have no
+common zero. The regularization input is explicitly imported from
+[MP24 Proposition 5.0.1, arXiv version 2](https://arxiv.org/html/2409.06221v2),
+whose statement and proof were checked. Restriction to central components
+kills the base correction before epsilon tends to zero. No uniform bound
+on that correction is asserted or needed.
+
+This writes out the canonical-section argument also for reducible and
+zero effective Cartier divisors; it does not apply the source's Lemma
+5.0.2 beyond its stated irreducible-divisor wording without explanation.
+The model, the resolved ideal and the representing divisor stay fixed in
+the limit. Equal inputs and the unit-ideal case satisfy the same argument.
+
+The previously written relative Kähler gluing argument has been extracted
+as `lem:mp-relative-kahler-extension`, before the stability proposition.
+Both the maximum proof and the numerical nefness reduction invoke this
+lemma. Its proof uses DP04 Proposition 3.3(i)--(ii), a partition of unity
+on the base and compactness of the unit tangent bundle. Thus the maximum
+proof no longer requires the later divisorial closedness theorem, and the
+closedness theorem does not depend on the maximum argument. This is an
+expository reorganization of existing sourced mathematics; no open problem
+is promoted or retired.
+
+The automatic second pass checked the signs, denominators, fixed-model
+limit, positivity of the common background class, adjustable Hermitian
+metrics, the zero-divisor case, and this dependency order. The revised
+lemma and proof pass the strict writing audit with zero errors or warnings.
+The final scoped Chapter 60 build has 85 pages, no overfull box or unresolved
+citation, and the same three occurrences of the external Chapter 71
+reference. Physical pages 58--61 were rendered and inspected after the
+final edit. Shortening the preceding warning's last sentence also keeps
+its closing rule on the page with its text.
+
+The source closure now has 11,429 labels, including the new lemma, with
+no duplicate or structural defect. The same single Chapter 70 input and
+thirteen file/label pairs remain missing. The exact problem inventory
+and whitespace checks pass; the Chapter 71 file hash is unchanged.
