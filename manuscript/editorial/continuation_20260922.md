@@ -301,11 +301,23 @@ The P1 example now controls all psh potentials and the full
 variational supremum. The complete build has 3,915 pages and 11,494
 resolved labels, with no horizontal or vertical overflow.
 
+## Chapter 61: strong topology and variational limits
+
+The [variational-limit audit](ch61_variational_limit_audit_20260922.md)
+proves weak upper semicontinuity and compactness at bounded energy,
+states the imported mixed estimates precisely, and reconstructs the
+fixed-measure L1 limit for nets. The Calabi--Yau proof now displays
+the maximizing-sequence energy bound and the order of the two
+integral limits. A curve example separates weak and strong convergence
+for both potentials and measures. The full build has 3,919 pages and
+11,500 resolved labels, with no horizontal or vertical overflow.
+
 ## Next work
 
 1. Continue the mathematical and source audit through Chapter 61.
-   Next inspect the strong-topology and variational proofs, especially
-   bounded-energy compactness and the fixed-measure integral limit.
+   Next inspect dual-complex measure approximation, especially the
+   selection of a strongly convergent sequence without a countable
+   cofinal model family, and the directed integral limits.
    General Kähler maximal-ray existence, sequential regularization
    and the full mixed-slope reduction remain explicit source inputs.
 2. For P07.1, separately examine continuous convex collar data and the

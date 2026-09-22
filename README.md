@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 22 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,494 unique labels),
-and the full build produces a 3,915-page PDF with no unresolved reference
+The complete source check passes (389 TeX files, 11,500 unique labels),
+and the full build produces a 3,919-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
 records the final line-break checks and preservation of the research sources.
@@ -21,6 +21,8 @@ The [curve length and norm audit](manuscript/editorial/curve_length_norm_audit_2
 separates intersection and lattice metrics and corrects the compatible-norm calculation.
 The [point-energy audit](manuscript/editorial/ch61_point_energy_audit_20260922.md)
 proves the truncation bound and completes the global extrema calculation in the P1 example.
+The [variational-limit audit](manuscript/editorial/ch61_variational_limit_audit_20260922.md)
+reconstructs bounded-energy compactness and integral convergence, with a curve counterexample to weak-to-strong convergence.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the

@@ -70,6 +70,35 @@ invoking Tychonoff; in the possibly nonmetrizable topology of the theorem,
 the convergent subnet argument just given is required.
 \end{proof}
 
+\begin{lemma}\label{lem:mpwn-energy-weak-upper}
+The energy $E_\alpha$ is upper semicontinuous on
+$\PSH_{\sup}(\alpha)$ for the weak topology.  Consequently, for
+each $R\geq0$, the set
+\[
+ \{\phi\in\PSH_{\sup}(\alpha)\mid E_\alpha(\phi)\geq-R\}
+\]
+is weakly compact and is contained in $\mathcal E^1(\alpha)$.
+\end{lemma}
+
+\begin{proof}
+Let $\phi_i$ converge weakly to $\phi$ in $\PSH_{\sup}(\alpha)$
+and form the tail envelopes $\psi_i$ as in
+\eqref{eq:mpwn-tail-envelope}.  They decrease to $\phi$:
+their divisorial values converge to those of $\phi$, and
+decreasing stability and divisorial determination identify the
+limit.  For every $j\succeq i$, monotonicity gives
+$E_\alpha(\psi_i)\geq E_\alpha(\phi_j)$.  Decreasing continuity
+of the extended energy, including the value $-\infty$, yields
+\[
+ E_\alpha(\phi)=\inf_i E_\alpha(\psi_i)
+                 \geq\limsup_i E_\alpha(\phi_i).
+\]
+The asserted set is therefore closed in the compact space of
+\Cref{thm:mpwn-weak-compactness}.  Its energy lower bound gives
+membership in $\mathcal E^1(\alpha)$.
+\end{proof}
+
+
 \begin{definition}[Non-pluripolar points]
 \label{def:mpwn-nonpluripolar-point}
 A point \(v\in X^{\bethan}\) is non-pluripolar if
@@ -282,6 +311,29 @@ It vanishes exactly when \(\phi\) maximizes the variational problem for
 \(\mu\).  For \(\mu=\MA_\alpha(\psi)\), it agrees with the asymmetric
 Dirichlet quantity \(J_\alpha(\psi,\phi)\).
 
+For clarity, the potential-side quantity has the order convention
+\[
+ J_\alpha(\psi,\phi)
+   :=E_\alpha(\psi)-E_\alpha(\phi)
+                     +\int(\phi-\psi)\,\MA_\alpha(\psi).
+\tag{61.11a}\label{eq:mpwn-potential-energy-gap}
+\]
+Thus $J_\alpha(\phi)=J_\alpha(0,\phi)$ and
+$J_\alpha(\MA_\alpha(\psi),\phi)=J_\alpha(\psi,\phi)$ by
+\eqref{eq:mpwn-dual-energy-ma}.  We will use the estimate
+\[
+ J_\alpha(\phi,\psi)
+       \leq C_n\bigl(J_\alpha(\mu,\phi)+J_\alpha(\mu,\psi)\bigr),
+\tag{61.11b}\label{eq:mpwn-gap-control}
+\]
+valid for $\phi,\psi\in\mathcal E^1(\alpha)$ and
+$\mu\in\mathcal M^1(\alpha)$, with a constant depending only on
+$n$.  This is the mixed-energy input
+\cite[Lemma~2.3.6(2)]{MPWN25}.  Its proof first applies the
+model estimate, then takes decreasing approximations using
+finite-energy pairings.
+
+
 This Legendre structure is the point at which the model construction becomes
 variational.  In the synthetic language of \cite{BJ25FiniteEnergy}, the
 energy gap controls both the potential and the measure variables.  What is
@@ -451,27 +503,104 @@ For \(\phi,\psi\in\mathcal E^1(\alpha)\), set
 \par
 \end{theorem}
 
-\begin{proof}[Imported mixed-energy estimates]
-The imported core is the quantitative estimate in
-\cite[Theorem~5.1.2(2)--(3)]{MPWN25}, with exponent \(2^{-n}\), together
-with its potential-side counterpart in Theorem~5.2.2 of that paper.  The
-mixed-energy H\"older estimate bounds integrals
-\(\int(\phi-\psi)(\rd\mu-\rd\nu)\) by fractional powers of the Dirichlet and
-dual-energy gaps.  It yields quasi-symmetry and the quasi-triangle
-inequality.  If \(\partial_\alpha(\phi,\psi)=0\), testing against the
-finite-energy masses \(\delta_v\), \(v\in X^{\divis}\), gives
-\(\phi(v)=\psi(v)\); divisorial determination then gives equality
-everywhere.  Convergence for \(\partial_\alpha\) implies divisorial
-convergence and energy convergence, and the converse follows from the same
-mixed estimate.  The measure-side construction is the dual version.
-Finally,
+\begin{proof}[Imported quasi-metric theorems]
+The first two assertions, including existence of the
+measure-side quasi-metric and identification of both topologies,
+are \cite[Theorems~5.2.2 and~5.1.2]{MPWN25}.
+The quasi-metrics may be asymmetric; their quasi-symmetry and
+quasi-triangle constants depend only on the dimension.
+We retain these results as source inputs.
+
+The quantitative estimate used below is
+\cite[Theorem~5.1.2(2)]{MPWN25}.  For $n\geq1$, put $q=2^{-n}$.
+For $\phi,\psi\in\mathcal E^1(\alpha)$,
+$\mu,\nu\in\mathcal M^1(\alpha)$, and
+\[
+ R\geq\max\{1,J_\alpha(\phi),J_\alpha(\psi),
+                        E_\alpha^\vee(\mu),E_\alpha^\vee(\nu)\},
+\]
+it gives
+\[
+ \left|\int(\phi-\psi)(\rd\mu-\rd\nu)\right|
+ \leq C_n J_\alpha(\phi,\psi)^q
+                  \delta_\alpha(\mu,\nu)^{1/2}R^{1/2-q}.
+\tag{61.21a}\label{eq:mpwn-mixed-gap-estimate}
+\]
+For example, if $\partial_\alpha(\phi,\psi)=0$, their root
+values coincide.  Applying this estimate to $\delta_v$ and
+$\delta_{v_{\triv}}$, which have finite energy, gives
+$\phi(v)=\psi(v)$ for every divisorial $v$.  Divisorial
+determination gives equality everywhere.
+
+If $\phi_i$ converges strongly to $\phi$, continuity of
+$\partial_\alpha$ gives $J_\alpha(\phi_i,\phi)\to0$.  Hence
 \[
  \delta_\alpha(\MA_\alpha(\phi_i),\MA_\alpha(\phi))
-          =J_\alpha(\phi_i,\phi)\longrightarrow0
+                   =J_\alpha(\phi_i,\phi)\longrightarrow0.
 \]
-under strong convergence.  This last assertion is
-\cite[Theorem~5.1.3]{MPWN25}.
+This proves the third assertion from the first two, as in
+\cite[Theorem~5.1.3]{MPWN25}.  In dimension zero every potential
+is constant, $\partial_\alpha$ is absolute difference, and the
+measure space has one point; all three assertions hold directly.
 \end{proof}
+
+\begin{lemma}\label{lem:mpwn-fixed-measure-integral}
+Let $\phi_i\in\mathcal E^1(\alpha)$ converge weakly to
+$\phi\in\mathcal E^1(\alpha)$, and suppose that $J_\alpha(\phi_i)$
+is bounded.  For every $\psi\in\mathcal E^1(\alpha)$ and
+$\mu=\MA_\alpha(\psi)$,
+\[
+                    \int|\phi_i-\phi|\,\rd\mu\longrightarrow0.
+\]
+\end{lemma}
+
+\begin{proof}
+The root values $\sup\phi_i$ converge to $\sup\phi$, so
+subtracting them reduces to sup-normalized potentials.
+We may also normalize $\psi$.  In dimension zero the assertion
+is convergence of these constants, so assume $n\geq1$.
+Choose a decreasing model net $\psi_\lambda\downarrow\psi$
+and put $\mu_\lambda=\MA_\alpha(\psi_\lambda)$.
+Decreasing energy continuity gives strong convergence of
+$\psi_\lambda$ to $\psi$; \Cref{thm:mpwn-strong-quasimetrics}
+then gives strong convergence of $\mu_\lambda$ to $\mu$.
+In particular, their dual energies are eventually bounded.
+
+Since $E_\alpha^\vee(\delta_{v_{\triv}})=0$, applying
+\eqref{eq:mpwn-gap-control} with that measure gives
+\[
+ J_\alpha(\phi_i,\phi)
+             \leq C_n\bigl(J_\alpha(\phi_i)+J_\alpha(\phi)\bigr).
+\]
+The right side is uniformly bounded in $i$.  A single $R$ in
+\eqref{eq:mpwn-mixed-gap-estimate} therefore works for all $i$
+and all sufficiently large $\lambda$.  Thus
+\[
+ \left|\int(\phi_i-\phi)\,\rd\mu\right|
+ \leq C_R\delta_\alpha(\mu,\mu_\lambda)^{1/2}
+                  +\left|\int(\phi_i-\phi)\,\rd\mu_\lambda\right|.
+\]
+For fixed $\lambda$, the last integral tends to zero because
+$\mu_\lambda$ has finite divisorial support and the convergence
+of potentials is divisorial.  Choose $\lambda$ first to make
+the first term small, then choose $i$ for the second term.
+This proves convergence of the signed integrals for nets.
+
+Set $w_i=\max\{\phi_i,\phi\}$.  These are sup-normalized psh
+potentials, and $E_\alpha(w_i)\geq E_\alpha(\phi)>-\infty$.
+They converge weakly to $\phi$ and have bounded $J_\alpha$.
+Apply the signed-integral conclusion also to $w_i$ and use
+\[
+ |\phi_i-\phi|=2(w_i-\phi)-(\phi_i-\phi)
+ \qquad\mu\text{-almost everywhere}.
+\]
+All terms are integrable by \Cref{lem:mpwn-integrability};
+the almost-everywhere qualification excludes their possible
+infinite values on null sets.  This proves the assertion.
+It reconstructs \cite[Lemma~5.0.5]{MPWN25} with the order of the
+two limits explicit.
+\end{proof}
+
 
 \begin{warning}{Strong is not weak}
 A weakly convergent, energy-bounded net need not converge strongly.  The
@@ -481,13 +610,46 @@ definitions \eqref{eq:mpwn-potential-strong} and
 \eqref{eq:mpwn-measure-strong} without weakening them.
 \end{warning}
 
+\begin{example}\label{ex:mpwn-weak-bounded-not-strong}
+On $X=\mathbf P^1$ with $\alpha=c_1(\mathcal O(1))$, let $u_j$
+have slope $-1/j$ on the ray $t\ord_0$ for $0\leq t\leq j^2$,
+be constant beyond $j^2$, and vanish on every other ray.
+The curve criterion in \Cref{ex:ch34-psh-check} makes these
+sup-normalized model psh potentials; their curvature measures are
+\[
+ \mu_j:=\MA_\alpha(u_j)
+      =\left(1-\frac1j\right)\delta_{v_{\triv}}
+                         +\frac1j\delta_{j^2\ord_0}.
+\]
+At each fixed divisorial point, $u_j$ tends to zero.  However,
+$u_j(j^2\ord_0)=-j$, so the model cocycle
+\eqref{eq:mp-energy-cocycle}, with zero root value, gives
+\[
+ E_\alpha(u_j)=\frac12\int u_j\,\rd\mu_j=-\frac12,
+ \qquad J_\alpha(u_j)=\frac12.
+\]
+Thus the potentials converge weakly with bounded energy, but
+do not converge strongly to zero.  On the measure side,
+$\mu_j$ tends weakly to $\delta_{v_{\triv}}$: for every bounded
+continuous $f$, the difference of its integrals is at most
+$2\|f\|_\infty/j$ in absolute value.  Yet
+\[
+ E_\alpha^\vee(\mu_j)
+      =E_\alpha(u_j)-\int u_j\,\rd\mu_j
+      =\frac12
+      \ne E_\alpha^\vee(\delta_{v_{\triv}})=0.
+\]
+The same example therefore separates the two measure topologies.
+\end{example}
+
+
 \section{The variational Calabi--Yau theorem}
 
 In the algebraic setting, \cite[Theorem~12.8]{BJ22} makes surjectivity of the
 Monge--Amp\`ere map equivalent to the envelope property and completeness of
-the finite-energy space.  Here continuity of envelopes and orthogonality were
-proved directly in the analytic-model category, so the same variational
-architecture yields a theorem for a possibly transcendental K\"ahler class.
+the finite-energy space.  The analytic-model envelope and orthogonality
+theorems above supply these inputs for a possibly transcendental
+K\"ahler class.
 
 \begin{theorem}\label{thm:mpwn-cy}
 The probability Monge--Amp\`ere operator is a homeomorphism
@@ -500,73 +662,92 @@ The probability Monge--Amp\`ere operator is a homeomorphism
 for the strong topologies.
 \end{theorem}
 
-\begin{proof}[Imported mixed-estimate core and variational deduction]
-For injectivity, if \(\MA_\alpha(\phi)=\MA_\alpha(\psi)\) and both
-potentials are sup-normalized, then
+\begin{proof}
+If two sup-normalized potentials $\phi,\psi$ have equal
+Monge--Amp\`ere measures, then
 \[
  J_\alpha(\phi,\psi)+J_\alpha(\psi,\phi)
-  =\int(\phi-\psi)
+   =\int(\phi-\psi)
        \bigl(\MA_\alpha(\psi)-\MA_\alpha(\phi)\bigr)=0.
 \]
-The quasi-metric theorem gives \(\phi=\psi\).
+Both summands are nonnegative.  Hence
+$\partial_\alpha(\phi,\psi)=0$, and the quasi-metric theorem
+gives $\phi=\psi$.
 
-For surjectivity, fix \(\mu\in\mathcal M^1(\alpha)\) and take a
-sup-normalized maximizing net \((\phi_i)\subset\mathcal H(\alpha)\) for
-\eqref{eq:mpwn-dual-energy}.  Weak compactness supplies a subnet converging
-to \(\phi\in\PSH_{\sup}(\alpha)\).  The energy gaps control
-\(J_\alpha(\phi_i)\).  Here
-\(\MA_\alpha(0)=\delta_{v_{\triv}}\) and
-\(\phi_i(v_{\triv})=\sup\phi_i=0\), so the definition gives the exact
-identity
+For surjectivity, fix $\mu\in\mathcal M^1(\alpha)$ and choose
+a sup-normalized maximizing sequence $u_m\in\mathcal E^1(\alpha)$:
 \[
-                    J_\alpha(\phi_i)=-E_\alpha(\phi_i).
+ g_m:=J_\alpha(\mu,u_m)
+      =E_\alpha^\vee(\mu)-E_\alpha(u_m)
+                            +\int u_m\,\rd\mu\longrightarrow0.
 \]
-Thus the energies are uniformly bounded below.  Combined with lower
-semicontinuity of \(J_\alpha\) for weak convergence, this gives
-\(J_\alpha(\phi)<+\infty\), and hence
-\(\phi\in\mathcal E^1(\alpha)\).
+Such a sequence exists because the supremum
+\eqref{eq:mpwn-dual-energy} is a finite real number.
+Applying \eqref{eq:mpwn-gap-control} to $0,u_m$ gives the
+explicit energy bound
+\[
+ -E_\alpha(u_m)=J_\alpha(u_m)
+       \leq C_n\bigl(E_\alpha^\vee(\mu)+g_m\bigr).
+\]
+After discarding finitely many terms, these energies lie in
+one bounded interval.  By \Cref{lem:mpwn-energy-weak-upper},
+a subnet $\phi_i=u_{m(i)}$ converges weakly to
+$\phi\in\mathcal E^1_{\sup}(\alpha)$.
+Compactness is used through a subnet; no sequential compactness
+of the weak topology is required.
 
-Choose a second maximizing net \((\psi_j)\), and put
-\(\mu_j=\MA_\alpha(\psi_j)\).  From
-\eqref{eq:mpwn-measure-quasimetric} and the maximizing property,
+Set $\mu_m=\MA_\alpha(u_m)$.  Before using surjectivity,
+\eqref{eq:mpwn-measure-quasimetric} gives
 \[
-       \delta_\alpha(\mu,\mu_j)=J_\alpha(\mu,\psi_j)\longrightarrow0.
+                   \delta_\alpha(\mu,\mu_m)=g_m\longrightarrow0.
 \]
-Thus this strong approximation by Monge--Amp\`ere measures is obtained
-before, and does not presuppose, surjectivity.  Fix a uniform bound for
-\(J_\alpha(\phi_i)\), \(J_\alpha(\phi)\),
-\(E_\alpha^\vee(\mu)\), and \(E_\alpha^\vee(\mu_j)\).  The mixed estimate
-of \Cref{thm:mpwn-strong-quasimetrics} bounds
+Thus $\mu_m$ converges strongly to $\mu$, and
+$E_\alpha^\vee(\mu_m)$ is eventually bounded.
+The already established bounds on $J_\alpha(\phi_i)$ and
+$J_\alpha(\phi)$, together with \eqref{eq:mpwn-gap-control}
+applied to $\delta_{v_{\triv}}$, also bound
+$J_\alpha(\phi_i,\phi)$.
+For $n\geq1$, \eqref{eq:mpwn-mixed-gap-estimate} consequently gives
 \[
- \left|\int(\phi-\phi_i)(\rd\mu-\rd\mu_j)\right|
+ \left|\int(\phi_i-\phi)\,\rd\mu\right|
+ \leq C_R g_m^{1/2}
+                  +\left|\int(\phi_i-\phi)\,\rd\mu_m\right|,
 \]
-by a fixed power of \(\delta_\alpha(\mu,\mu_j)\), uniformly in \(i\).
-For fixed \(j\), the bounded-\(J_\alpha\), weak-convergence integral lemma for
-the finite-energy measure \(\mu_j\) gives
-\(\int(\phi_i-\phi)\,\rd\mu_j\to0\).  First choose \(j\) and then let
-\(i\) tend along the convergent subnet.  This proves
+with $C_R$ independent of $i$ and of sufficiently large $m$.
+For fixed $m$, the last term tends to zero by
+\Cref{lem:mpwn-fixed-measure-integral}, since
+$\mu_m=\MA_\alpha(u_m)$.  Choosing $m$ first and then $i$ proves
 \[
-                 \int\phi_i\,\rd \mu\longrightarrow\int\phi\,\rd \mu.
+                    \int\phi_i\,\rd\mu\longrightarrow\int\phi\,\rd\mu.
 \tag{61.23}\label{eq:mpwn-maximizer-integral}
 \]
-Weak upper semicontinuity of \(E_\alpha\) now shows that \(\phi\) realizes
-the supremum in \eqref{eq:mpwn-dual-energy}.  Hence
-\(J_\alpha(\mu,\phi)=0\), and
-\eqref{eq:mpwn-measure-quasimetric} gives
-\(\MA_\alpha(\phi)=\mu\).  This is the variational argument of
-\cite[Propositions~6.0.3--6.0.4]{MPWN25}; the mixed estimate and the
-fixed-measure integral lemma are imported there, rather than reproved here.
+In dimension zero the normalized space has one potential, and
+surjectivity holds directly.
+
+Weak upper semicontinuity of energy now yields
+\[
+ E_\alpha^\vee(\mu)
+   \geq E_\alpha(\phi)-\int\phi\,\rd\mu
+   \geq\limsup_i\left(E_\alpha(\phi_i)-\int\phi_i\,\rd\mu\right)
+   =E_\alpha^\vee(\mu).
+\]
+Hence $J_\alpha(\mu,\phi)=0$, so
+$\MA_\alpha(\phi)=\mu$ by
+\eqref{eq:mpwn-measure-quasimetric}.
+This gives the variational deduction of
+\cite[Propositions~6.0.3--6.0.4]{MPWN25} from the displayed
+mixed estimates and the integral lemma.
 
 On sup-normalized potentials,
 \[
  \delta_\alpha(\MA_\alpha(\phi),\MA_\alpha(\psi))
-        =J_\alpha(\phi,\psi)=\partial_\alpha(\phi,\psi),
+       =J_\alpha(\phi,\psi)=\partial_\alpha(\phi,\psi).
 \]
-exactly, since the supremum term in \(\partial_\alpha\) vanishes.  Thus the
-bijection and its inverse are continuous.  This is Theorem~B of
-\cite{MPWN25}, proved in Section~6; the algebraic predecessor is
-\cite[Theorem~12.8]{BJ22}.
+The bijection and its inverse are therefore continuous for
+the strong topologies.  This is Theorem~B of \cite{MPWN25},
+with algebraic predecessor \cite[Theorem~12.8]{BJ22}.
 \end{proof}
+
 
 \begin{example}[The Calabi--Yau solution on \(\mathbf P^1\), in closed form]
 \label{ex:mpwn-p1-cy}
