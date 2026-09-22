@@ -153,15 +153,24 @@ using the positive-functional construction. The
 [measure and energy audit](ch60_model_measure_energy_audit_20260922.md)
 records the 89-page scoped validation and 11,431-label source closure.
 
+The ray pass now states joint psh and upper growth conditions, defines
+the signed normalized Lelong number with the central multiplicity, and
+exhausts logarithmic truncations in the regularization deduction. It also
+corrects the earlier maximum proof to use squared norms. The
+[ray audit](ch60_ray_normalization_audit_20260922.md) records both the
+remaining imported analytic input and the 90-page scoped validation.
+
 ## Next work
 
 1. Restore the missing Chapter 70 source from the original working copy,
    retaining its proof and provenance. Re-run the strict source check and
    a complete LaTeX/BibTeX/MakeIndex build before claiming reproducibility.
-2. Continue Chapter 60's radial correspondence, including the joint psh
-   and growth hypotheses, the Gauss normalization and the regularization
-   passage to the original Kähler class. The finite-energy measure
-   construction now has an explicit positive-functional proof.
+2. Audit Chapter 46's PL test-function pairing: the claim that a larger
+   pulled-back ample background makes every PL function psh needs repair.
+   Then continue Chapter 60's maximal-ray argument, especially sequential
+   approximation and the energy equality. The ray definition and truncation
+   deduction, and the finite-energy measure construction, now have explicit
+   proofs with their remaining analytic imports identified.
    The real-model approximation and decreasing-net connection are now proved.
    Numerical nefness, snc model independence, the Fubini--Study warning,
    and maximum stability have received the present detailed passes.

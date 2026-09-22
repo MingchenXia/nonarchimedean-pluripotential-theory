@@ -258,3 +258,15 @@ The source closure now has 11,429 labels, including the new lemma, with
 no duplicate or structural defect. The same single Chapter 70 input and
 thirteen file/label pairs remain missing. The exact problem inventory
 and whitespace checks pass; the Chapter 71 file hash is unchanged.
+
+
+## Subsequent squared-norm correction
+
+The ray normalization audit found that the maximum proof added in
+38506d9 used log|s| in the complex potentials, which would subtract only
+half the resolved divisor in this book's dd^c convention. The proof now
+uses log|s|^2, explicitly writes its curvature identity, and subtracts
+log|f_H|^2 from the pullback. See the
+[ray normalization audit](ch60_ray_normalization_audit_20260922.md) for
+the correction and final page checks. The earlier proof-validation
+paragraphs must be read with this correction.

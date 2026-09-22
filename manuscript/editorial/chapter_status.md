@@ -1797,3 +1797,11 @@ for arbitrary backgrounds and PL test functions, then proves existence,
 uniqueness and decreasing-net weak convergence by Riesz representation.
 The [measure and energy audit](ch60_model_measure_energy_audit_20260922.md)
 records the 89-page scoped validation and unchanged full-build failure.
+
+The ray follow-up corrects the joint psh hypothesis, makes the signed
+Lelong normalization explicit and supplies an exhaustion of logarithmic
+cutoffs in the regularization deduction. It also corrects the earlier
+new maximum proof from log norms to log squared norms. The
+[ray audit](ch60_ray_normalization_audit_20260922.md) records the
+90-page scoped validation, the still-imported regularization input and
+the related PL-test-function issue to check next in Chapter 46.
