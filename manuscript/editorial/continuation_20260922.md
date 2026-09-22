@@ -139,13 +139,22 @@ Monotonicity uses the difference of ordered endpoints only as a nonnegative
 function; concavity includes dimension zero. The same measure and energy
 audit records the source correction and the 87-page scoped validation.
 
+The monotone-completion pass now supplies fixed-model decreasing
+rational approximants for real nef model functions, closes the psh class
+under arbitrary decreasing nets, and proves agreement of the extended
+energy with real model intersections. It also restores connectedness,
+handles dimension zero and preserves rationality in divisorial comparison.
+The [completion audit](ch60_monotone_completion_audit_20260922.md)
+records the exact dependencies and the 88-page scoped validation.
+
 ## Next work
 
 1. Restore the missing Chapter 70 source from the original working copy,
    retaining its proof and provenance. Re-run the strict source check and
    a complete LaTeX/BibTeX/MakeIndex build before claiming reproducibility.
-2. Continue Chapter 60's approximation and monotone-completion proofs,
-   including the connection between real model classes and the completion.
+2. Continue Chapter 60's finite-energy measure construction and radial
+   correspondence, including the joint psh hypothesis for a complex ray.
+   The real-model approximation and decreasing-net connection are now proved.
    Numerical nefness, snc model independence, the Fubini--Study warning,
    and maximum stability have received the present detailed passes.
    The arbitrary normal-model assertion remains an explicit import.

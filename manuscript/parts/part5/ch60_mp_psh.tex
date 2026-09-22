@@ -8,7 +8,7 @@ semipositive line-bundle metrics.  A general K\"ahler class need not be the firs
 line bundle, so positivity is expressed in Bott--Chern cohomology on analytic
 test configurations.  This is the approach of \cite{MP24}.
 
-Throughout this chapter, \(X\) is a compact K\"ahler manifold of dimension
+Throughout this chapter, $X$ is a connected compact K\"ahler manifold of dimension
 \(n\), \(\alpha\in H^{1,1}_{\mathrm{BC}}(X,\mathbf R)\) is a K\"ahler class,
 and
 \[
@@ -490,7 +490,7 @@ nonnegative.  In dimension zero the top intersection is one.
 
 \begin{example}[A deformation to the normal cone]
 \label{ex:mp-dnc}
-Assume $X$ is connected and $n\geq1$.  Let $Z\subsetneq X$ be a
+Assume $n\geq1$.  Let $Z\subsetneq X$ be a
 nonempty connected closed complex submanifold and put
 $\cX=\operatorname{Bl}_{Z\times\{0\}}(X\times\mathbf P^1)$.
 The central fibre has exactly two irreducible components: the strict
@@ -726,80 +726,158 @@ pointwise on all of \(X^{\bethan}\).  The resulting space is
 \end{definition}
 
 Nets are part of the definition: the model category and the topology of the
-tropical spectrum need not be countably generated.  A sequence may be used
-only after a separate metrizability or cofinality argument.
+tropical spectrum need not be countably generated.  The next result gives
+a sequence when the target function has a model representative; it does
+not assert countable cofinality of the whole model category.
 
-\begin{proposition}[Decreasing stability]
-\label{prop:mp-psh-decreasing-stability}
-Let \((\phi_j)_{j\geq1}\) be a decreasing sequence in
-\(\PSH(\alpha)\).  If
-\[
-                         \phi:=\inf_j\phi_j
-\]
-is not identically \(-\infty\), then \(\phi\in\PSH(\alpha)\).
+\begin{proposition}
+\label{prop:mp-real-model-approximation}
+Let $\phi=\phi_D$ be a real model $\alpha$-psh function.
+There is a sequence $\psi_j\in\mathcal H(\alpha)$ decreasing uniformly
+to $\phi$.  The divisors representing $\psi_j$ may be chosen on one
+smooth snc model dominating the model of $D$, with their coefficients
+converging to those of the pullback of $D$.  In particular, every real
+model $\alpha$-psh function belongs to $\PSH(\alpha)$ as defined above.
 \end{proposition}
 
 \begin{proof}
-Put \(K=X^{\bethan}\) and
-\(\mathcal H=\PL(K)\cap\PSH(\alpha)\).  For every \(j\), choose a
+Pass to a smooth snc model $\mu:\mathcal Y\to X\times\mathbf P^1$
+obtained by equivariant blowups and dominating the model of $D$.
+The cofinality and relative-ampleness constructions used here are those
+of \cite[Remark~2.5.2 and the proof of Theorem~2.6.4,
+arXiv version~2]{MP24}.  They give an integral vertical divisor $F$
+such that $\mathcal O_{\mathcal Y}(F)$ is $\mu$-ample.  Concretely, on
+a sequence of blowups one combines the negatives of the exceptional
+divisors, choosing each earlier coefficient sufficiently large compared
+with the later ones.  We retain the notation $D$ for its pullback.
+
+There is a rational vertical divisor $A$ on $\mathcal Y$ such that
+$\alpha_{\mathcal Y}+[A]$ is relatively K\"ahler.  To see this, choose
+a smooth curvature form $\theta_F$ of $F$ which is positive on
+$\ker\mathrm d\mu$.  Such a form is obtained from local relative
+projective embeddings; metrics can be patched by a partition of unity
+on the base without changing their positivity on that kernel.
+For K\"ahler forms $\omega\in\alpha$ and $\omega_B$ on $\mathbf P^1$,
+compactness of the unit tangent bundle shows that
+\[
+ \mu^*(\operatorname{pr}_1^*\omega+
+             \operatorname{pr}_2^*\omega_B)+s\theta_F>0
+\]
+for all sufficiently small $s>0$.  Indeed, vectors violating this
+inequality as $s\downarrow0$ would converge to a unit vector in
+$\ker\mathrm d\mu$, where $\theta_F$ is positive.  Choose such an
+$s\in\mathbf Q$ and put $A=sF$.  Restricting to the fibres over
+$\mathbf P^1$ proves the assertion.
+
+For $0<t\leq1$, the divisor $D_t=(1-t)D+tA$ represents a relatively
+K\"ahler class: on every central component it is the sum of a nef
+class and a positive multiple of a K\"ahler class.  The same holds on
+their union by \cite[Proposition~3.3(ii)]{DP04}.  Relative K\"ahlerness
+is open in the finite-dimensional space of vertical coefficients on
+$\mathcal Y$.  This follows from openness on its finitely many smooth
+central components; every other fibre has the fixed class $\alpha$.
+Consequently there are rational vertical divisors $B_j$ converging
+coefficientwise to $D$ such that $\alpha_{\mathcal Y}+[B_j]$ is
+relatively K\"ahler and
+\[
+        \|\phi_{B_j}-\phi\|_\infty<\varepsilon_j,
+        \qquad \varepsilon_j=4^{-j}.
+\]
+Here coefficient convergence implies uniform convergence, since the
+model functions factor through the fixed finite dual complex and are
+affine on each face.
+
+Set $\psi_j=\phi_{B_j}+2\varepsilon_j$.  Rational translation preserves
+$\mathcal H(\alpha)$, and
+\[
+ \phi+\varepsilon_j<\psi_j<\phi+3\varepsilon_j,
+ \qquad 3\varepsilon_{j+1}<\varepsilon_j.
+\]
+Thus $\psi_{j+1}<\psi_j$ everywhere and $\psi_j\to\phi$ uniformly.
+Their divisors are $B_j+2\varepsilon_j\mathcal Y_0$, whose coefficients
+still converge to those of $D$.
+\end{proof}
+
+\begin{proposition}
+\label{prop:mp-psh-decreasing-stability}
+Let $I$ be a directed set and let $(\phi_j)_{j\in I}$ be a
+decreasing net in $\PSH(\alpha)$.  If
+\[
+                         \phi:=\inf_j\phi_j
+\]
+is not identically $-\infty$, then $\phi\in\PSH(\alpha)$.
+\end{proposition}
+
+\begin{proof}
+Put $K=X^{\bethan}$ and
+$\mathcal P=\PL(K)\cap\PSH(\alpha)$.  For every $j$, choose a
 decreasing net
 \[
                     h_{j,\lambda}\downarrow\phi_j,
-                    \qquad h_{j,\lambda}\in\mathcal H.
+                    \qquad h_{j,\lambda}\in\mathcal P.
 \]
-Let \(\mathcal S\) be the set of all \(h\in\mathcal H\) for which
+Let $\mathcal S$ be the set of all $h\in\mathcal P$ for which
 \[
                   h\geq\phi_j+\epsilon
 \tag{60.16a}\label{eq:mp-strict-model-dominant}
 \]
-for some \(j\geq1\) and some \(\epsilon\in\mathbf Q_{>0}\).  This set is
-nonempty because rational translation preserves the model psh cone.
+for some $j\in I$ and some $\epsilon\in\mathbf Q_{>0}$.  This set is
+nonempty because rational translation preserves the model psh class.
 
-We claim that \(\mathcal S\) is downward directed for pointwise order.
-Suppose that \(h_i\geq\phi_{j_i}+\epsilon_i\), \(i=1,2\), as in
+We claim that $\mathcal S$ is downward directed for pointwise order.
+Suppose that $h_i\geq\phi_{j_i}+\epsilon_i$, $i=1,2$, as in
 \eqref{eq:mp-strict-model-dominant}.  Choose
-\(j\geq\max\{j_1,j_2\}\) and a positive rational number
+$j\in I$ dominating $j_1$ and $j_2$, and choose a positive rational number
 \[
                   4\delta<\min\{\epsilon_1,\epsilon_2\}.
 \]
-The continuous function \(g=\min\{h_1,h_2\}\) then satisfies
-\(\phi_j+4\delta<g\) on the compact space \(K\).  The increasing open
+The continuous function $g=\min\{h_1,h_2\}$ then satisfies
+$\phi_j+4\delta<g$ on the compact space $K$.  The increasing open
 sets
 \[
                   \{h_{j,\lambda}+2\delta<g\}
 \]
-cover \(K\).  Compactness, followed by directedness of the approximating
-net, gives one index \(\lambda\) for which this set is all of \(K\).
+cover $K$.  Compactness, followed by directedness of the approximating
+net, gives one index $\lambda$ for which this set is all of $K$.
 Hence
 \[
                   h:=h_{j,\lambda}+\delta\in\mathcal S,
                   \qquad h\leq h_1,\ h_2.
 \]
-The minimum \(g\) is only a continuous comparison function; no closure of
-the psh cone under minima is being used.
+The minimum $g$ is only a continuous comparison function; no closure of
+the psh class under minima is being used.
 
-Order \(\mathcal S\) by reverse pointwise order.  The identity net is then
-a decreasing net in \(\mathcal H\).  Every member of \(\mathcal S\)
-dominates \(\phi\), so its infimum is at least \(\phi\).  Conversely, fix
-\(x\in K\) and \(b>\phi(x)\).  Choose \(j\) with \(\phi_j(x)<b\), then
-choose \(\epsilon\in\mathbf Q_{>0}\) and \(\lambda\) so that
-\(h_{j,\lambda}(x)+\epsilon<b\).  Then
-\(h_{j,\lambda}+\epsilon\in\mathcal S\) is smaller than \(b\) at
-\(x\).  This proves
+Order $\mathcal S$ by reverse pointwise order.  The identity net is then
+a decreasing net in $\mathcal P$.  Every member of $\mathcal S$
+dominates $\phi$, so its infimum is at least $\phi$.  Conversely, fix
+$x\in K$ and $b>\phi(x)$.  Choose $j$ with $\phi_j(x)<b$, then
+choose $\epsilon\in\mathbf Q_{>0}$ and $\lambda$ so that
+$h_{j,\lambda}(x)+\epsilon<b$.  Then
+$h_{j,\lambda}+\epsilon\in\mathcal S$ is smaller than $b$ at
+$x$.  This proves
 \[
                          \inf_{h\in\mathcal S}h=\phi
 \]
-pointwise, including at points where \(\phi=-\infty\).  Since the limit is
-not identically \(-\infty\), \Cref{def:mp-general-psh} gives
-\(\phi\in\PSH(\alpha)\).
+pointwise, including at points where $\phi=-\infty$.  Since the limit is
+not identically $-\infty$, \Cref{def:mp-general-psh} gives
+$\phi\in\PSH(\alpha)$.
 \end{proof}
 
-The class \(\PSH(\alpha)\) is stable under arbitrary real translations.
+The class $\PSH(\alpha)$ is stable under arbitrary real translations.
 Indeed, approximate a real constant from above by decreasing rational
 constants and use the product directed set together with
 \Cref{prop:mp-model-psh-stability}.  This observation does not turn an
 irrational translate of a rational PL function into a rational PL function;
 it applies only after passage to the monotone completion.
+
+The same construction gives decreasing approximation by
+$\mathcal H(\alpha)$ for every $\phi\in\PSH(\alpha)$.
+Indeed, start with the rational model net in
+\Cref{def:mp-general-psh}, approximate each of its terms by
+\Cref{prop:mp-real-model-approximation}, and repeat the proof with
+$\mathcal H(\alpha)$ in place of the auxiliary class $\mathcal P$.
+The directedness argument uses rational translation and the specified
+approximating sequences on compact $X^{\bethan}$.
 
 \begin{theorem}\label{thm:mp-psh-divisorial}
 Let \(\phi\in\PSH(\alpha)\).
@@ -818,7 +896,9 @@ Let \(\phi\in\PSH(\alpha)\).
 \end{theorem}
 
 \begin{proof}[Imported finite-dimensional estimate and deduction]
-For the first assertion, subtract a constant so that \(\sup\phi=0\), and
+In dimension zero, $X$ and $X^{\bethan}$ each consist of one point,
+so both assertions follow from the definition.  Assume $n\geq1$.
+For the first assertion, subtract a constant so that $\sup\phi=0$, and
 choose \(\phi_\lambda\downarrow\phi\) as in
 \eqref{eq:mp-psh-decreasing-net}.  Replacing each approximant by
 \(\phi_\lambda-\sup\phi_\lambda\) does not affect its model positivity, and
@@ -829,7 +909,7 @@ convergence.  Each supremum is a rational model value, so the normalized
 approximant remains in \(\PL\).  Fix
 \(v=v_{E_0}\in X^{\divis}\) and choose an snc model with central fiber
 \(\sum_{j=0}^N b_jE_j\) containing that vertex.  The imported
-finite-dimensional estimate of \cite[Theorem~4.3.3]{MP24} states that for
+finite-dimensional estimate of \cite[Theorem~4.3.3, arXiv version~2]{MP24} states that for
 every normalized model \(\alpha\)-psh function \(u\),
 \[
                   |u(v_{E_j})|\leq C(\cX,\alpha,\gamma)
@@ -844,7 +924,7 @@ bound.  Passing to the limit at \(v_{E_0}\) proves
 \(\phi(v)>-\infty\).
 
 For the second assertion, first suppose that \(\psi\in\PL\).
-Proposition~4.3.6 of \cite{MP24} gives a finite set
+\cite[Proposition~4.3.6, arXiv version~2]{MP24} gives a finite set
 \(\Sigma(\psi)\subset X^{\divis}\), depending only on \(\psi\), such that
 \[
              \sup_{X^{\bethan}}(u-\psi)
@@ -852,10 +932,12 @@ Proposition~4.3.6 of \cite{MP24} gives a finite set
              \quad\text{for every }u\in\PSH(\alpha).
 \]
 Hence the divisorial inequality implies \(\phi\leq\psi\) everywhere.
-If \(\psi\) is continuous, choose \(h_j\in\PL\) with
-\(\|h_j-\psi\|_\infty\to0\).  On the divisorial locus one has
-\(\phi\leq h_j+\|h_j-\psi\|_\infty\); the PL case, followed by the uniform
-limit, gives \(\phi\leq\psi\) on all of \(X^{\bethan}\).
+If $\psi$ is continuous, choose $h_j\in\PL$ converging uniformly
+to $\psi$ and rational numbers $q_j>\|h_j-\psi\|_\infty$ with
+$q_j\to0$.  Then $h_j+q_j$ remains in $\PL$, and
+$\phi\leq\psi<h_j+q_j$ on the divisorial locus.  The PL case gives
+$\phi\leq h_j+q_j$ everywhere; taking the uniform limit proves
+$\phi\leq\psi$ on $X^{\bethan}$.
 
 Finally, every extended-real upper semicontinuous function on a compact
 Hausdorff space is the pointwise decreasing limit of a net of continuous
@@ -863,7 +945,7 @@ real functions \(\psi_\lambda\).  If \(\phi\leq\psi\) on
 \(X^{\divis}\), then \(\phi\leq\psi_\lambda\) there for every \(\lambda\),
 so the continuous case gives \(\phi\leq\psi_\lambda\) everywhere.  Taking
 the decreasing limit proves \(\phi\leq\psi\).  The reverse implication is
-immediate.  This is \cite[Theorem~4.3.8]{MP24}.
+immediate.  This is \cite[Theorem~4.3.8, arXiv version~2]{MP24}.
 \end{proof}
 
 \begin{warning}{Scope of divisorial determination}
@@ -885,13 +967,12 @@ For arbitrary psh inputs the mixed energy pairing is defined by
 The use of dominants, rather than an arbitrarily chosen approximating net,
 makes the definition canonical.  It is increasing in each potential,
 upper semicontinuous, and continuous along decreasing nets
-\cite[Lemma~4.4.1 and the discussion following it]{MP24}.
+\cite[Lemma~4.4.1 and the discussion following it, arXiv version~2]{MP24}.
 
-Definition \ref{def:mp-energy-j} was stated only for
-\(\phi\in\PL\cap\PSH(\alpha)\), because \eqref{eq:mp-mixed-pairing} needs
-model representatives.  The extended pairing removes that restriction, and
-the extension must be recorded before \(E_\alpha\) is evaluated at an
-arbitrary psh potential --- which is exactly what the next definition does.
+The polynomial energy in \Cref{def:mp-energy-j} is defined on
+$\PL_{\mathbf R}$ using model representatives.  The extended pairing
+now defines energy at arbitrary psh potentials, which need not be model
+functions.
 
 \begin{definition}[Energy and \(J\) at arbitrary psh potentials]
 \label{def:mp-energy-extended}
@@ -907,14 +988,28 @@ the pairings being the extended ones of
 \eqref{eq:mp-extended-pairing}.
 \end{definition}
 
-On \(\PL\cap\PSH(\alpha)\) this agrees with
-\Cref{def:mp-energy-j}.  Indeed such a \(\phi\) is the limit of a
-decreasing net of dominants in \(\mathcal H(\alpha)\); the extended pairing
-is increasing in each slot and continuous along decreasing nets, so the
-infimum in \eqref{eq:mp-extended-pairing} is realized along that net and
-returns the model pairing \eqref{eq:mp-mixed-pairing}.  Every later use of
-\(E_\alpha\) and \(J_\alpha\) outside \(\PL\) --- beginning with
-\eqref{eq:mp-e1} itself --- is understood through
+On the real model $\alpha$-psh class this agrees with
+\Cref{def:mp-energy-j}.  More generally, let every $\phi_i$ in
+\eqref{eq:mp-extended-pairing} be a real model $\alpha_i$-psh function.
+The mixed testing formula \eqref{eq:mp-mixed-testing} and nefness show
+that every tuple of dominants has pairing at least the model pairing
+of the $\phi_i$.  Conversely, \Cref{prop:mp-real-model-approximation}
+gives dominants with coefficients converging on fixed models.  On one
+common domination of these finitely many models, their intersection
+polynomials converge to the model pairing.  The infimum therefore
+equals \eqref{eq:mp-mixed-pairing}.
+
+The first term defining $J_\alpha$ is finite.  The zero model potential
+has Monge--Amp\`ere measure $\delta_{v_{\triv}}$, so model testing
+and decreasing approximation give
+\[
+ V_\alpha^{-1}(\alpha,\phi)(\alpha,0)^n
+       =\phi(v_{\triv})\in\mathbf R.
+\]
+Finiteness follows from \Cref{thm:mp-psh-divisorial}.  Hence
+$J_\alpha(\phi)\in\mathbf R\cup\{+\infty\}$ is well defined even
+when $E_\alpha(\phi)=-\infty$.  For all subsequent psh inputs,
+$E_\alpha$ and $J_\alpha$ refer to
 \Cref{def:mp-energy-extended}.
 
 \begin{definition}[Finite energy]

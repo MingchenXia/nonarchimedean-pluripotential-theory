@@ -1781,3 +1781,13 @@ energy are defined before real-parameter differentiation, and monotonicity
 uses arbitrary differences of ordered psh endpoints. The dimension-zero
 case is separate. The same measure and energy audit records the final
 87-page scoped build and unchanged full-source limitation.
+
+The monotone-completion follow-up proves decreasing rational approximation
+of real nef model functions on a fixed model, generalizes decreasing
+stability to arbitrary nets, and proves model compatibility of the
+extended energy. Connectedness, dimension zero, rational obstacle errors
+and the finiteness of the linear term in J are explicit. See the
+[completion audit](ch60_monotone_completion_audit_20260922.md) for the
+88-page scoped build, 11,430-label source closure and unchanged full-build
+limitation. The finite-energy measure construction and radial hypotheses
+are the next local checks.
