@@ -114,6 +114,11 @@ ample locus. Appendix I includes the proper-morphism fibre criterion used
 in that explanation. The same source audit records the published BJ
 locators, second-pass checks, and the unchanged Chapter 71 comparison.
 
+Appendix I's compact dependency table has also passed its layout follow-up:
+all 21 rows are preserved, tags print upright, and explicit column spacing
+separates the longest statements from the chapter links. The complete table
+fits on one page in the final scoped build.
+
 ## Next work
 
 1. Restore the missing Chapter 70 source from the original working copy,
@@ -122,8 +127,6 @@ locators, second-pass checks, and the unchanged Chapter 71 comparison.
 2. Continue Chapter 60's operation and approximation proofs after the
    completed numerical-nefness, model-independence and Fubini--Study audits.
    The arbitrary normal-model assertion remains an explicit import.
-   Improve Appendix I's compact table column spacing found during visual
-   inspection, without changing its dependency statements.
 3. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from the stratified comparison
    conditions. No extension beyond the current hypotheses is asserted here.

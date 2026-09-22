@@ -185,3 +185,20 @@ Validation:
 - The source check retains the one missing Chapter 70 input and thirteen
   unresolved file/label pairs, with 388 available files and 11,428 labels.
   The open-problem inventory and whitespace check pass.
+
+
+## Appendix I layout follow-up
+
+The compact dependency ledger now uses a text table with explicit column
+widths and spacing, rather than a mathematical array. All 21 entries,
+their order, wording, and chapter references were compared with the prior
+version and preserved. Tags now print as upright text. The table has
+repeated headings available if a future revision requires a page break.
+
+The second layout pass keeps all 21 rows on one page at the book's small
+text size, with a visible gap between the longest description and its
+chapter reference. The final scoped build remains 81 pages with no
+unresolved reference, citation, or overfull box. The strict audit has zero
+errors or warnings, the whitespace check passes, and physical page 67
+was rendered and inspected after the final adjustment. The following
+paragraph is also clear of the table. No dependency statement was changed.
