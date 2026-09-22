@@ -1934,3 +1934,19 @@ with no unresolved reference or citation and no layout overflow.
 The final edited blocks pass strict and visual review. The research
 inventory and frozen verifier material are unchanged. The next unit
 checks addition and maximalization in the test-curve operations.
+
+## 2026-09-23 — Chapter 52 projected operations and Chapter 54 algebra
+
+The [operations audit](ch52_operations_projection_audit_20260923.md)
+separates raw Legendre identities from the subsequent model envelopes.
+It corrects general versus I-model input scope, proves the least-upper-bound
+property, and supplies a strict maximum example and a nongeodesic ordinary
+sum of two product rays on P1. Arbitrary suprema now use finite joins,
+followed by increasing closure and a rational-parameter Choquet reduction.
+The dependent Chapter 54 algebra proof retains the final model projection.
+
+The final full build has 3,929 pages, 389 TeX inputs and 11,522 labels,
+with no unresolved references, citations or layout overflow. Scoped strict
+style review, mathematical/source review and final page inspection pass.
+The active research inventory and frozen verification files are unchanged.
+The next unit checks order reflection and mass bounds under perturbation.

@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,515 unique labels),
-and the full build produces a 3,927-page PDF with no unresolved reference
+The complete source check passes (389 TeX files, 11,522 unique labels),
+and the full build produces a 3,929-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
 records the final line-break checks and preservation of the research sources.
@@ -49,6 +49,10 @@ The [test-curve endpoint and energy audit](manuscript/editorial/ch52_endpoint_en
 proves endpoint noncollapse and the raw Legendre transform, distinguishes
 reference-mass and radial-coordinate normalizations, and corrects
 decreasing limits with an explicit example of mass tending to zero.
+The [test-curve operations audit](manuscript/editorial/ch52_operations_projection_audit_20260923.md)
+restores the model-envelope step in sums and maxima, supplies strict
+projective-line examples, and reconstructs suprema through finite joins.
+The dependent Chapter 54 algebra proof uses the projected operations.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the

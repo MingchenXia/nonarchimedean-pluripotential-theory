@@ -406,13 +406,31 @@ The final full build has 3,927 pages and 11,515 labels, with no unresolved
 reference or citation and no layout overflow. The research inventory,
 frozen proofs and author sources are unchanged.
 
+## Chapters 52 and 54: projected operations — 23 September 2026
+
+The [operations audit](ch52_operations_projection_audit_20260923.md)
+corrects the Legendre formulas for sums and maxima: equality holds for
+the raw families, while model projection can strictly increase the ray.
+Opposite coordinate actions on P1 give an explicit strict maximum and
+an ordinary sum with energy second derivative 2/3, hence not a geodesic.
+The dependent Chapter 54 associativity proof now retains projection.
+
+Arbitrary suprema pass through finite joins before increasing closure.
+Countable reduction selects finite index sets at rational parameters,
+and closed profiles recover every real level. Transition hypotheses
+and the scaling of the Kähler perturbation are explicit.
+The final build has 3,929 pages and 11,522 labels, with no unresolved
+reference or citation and no overflow. The research inventory and
+frozen sources are unchanged.
+
 ## Next work
 
-1. Audit the remaining Chapter 52 operations: sup-convolution,
-   model envelopes, addition of rays, and their compatibility with
-   Kähler transition. Distinguish the raw subgeodesic from its
-   maximalization before claiming an identity of geodesic rays.
-   The endpoint and decreasing-limit corrections now have a separate
+1. Audit Chapter 53--54 perturbation arguments: order reflection
+   and the uniform positive-mass bound from a smaller Kähler
+   perturbation before forming a decreasing inverse-system limit.
+   Match the operations-paper citations to the checked version;
+   the author reports an earlier version in the published volume.
+   The projected-operations correction now has a separate
    23 September receipt. Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
