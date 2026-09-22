@@ -350,11 +350,26 @@ Chapter 68 and the provenance appendix now reflect this scope.
 The full build has 3,921 pages and 11,506 labels, with no horizontal
 or vertical overflow. The factor-n verification block is unchanged.
 
+## Chapter 62: finite-energy completion — 23 September 2026
+
+The [completion audit](ch62_finite_energy_completion_audit_20260923.md)
+separates the strongly continuous nonentropy term from entropy,
+using the checked published twisted-energy theorem.
+The fixed-complex argument now includes domination, compatible
+subdivisions, real interpolation with central-fiber multiplicities,
+normalization before the support formula, and one fixed discrepancy
+test function. Infinite entropy is handled separately.
+The normalized stability scope is unchanged.
+The complete second-pass build has 3,921 pages and 11,507 labels,
+with no unresolved references or citations and no layout overflow.
+Frozen verification bytes and the active research inventory are unchanged.
+
 ## Next work
 
-1. Continue the Chapter 62 audit of entropy-preserving approximation,
-   fixed-complex PL approximation, the class derivative and the
-   finite-dimensional volume formula. Keep the normalized model
+1. Continue the Chapter 62 audit of the class derivative at a fixed
+   measure and the finite-dimensional volume formula. The completion
+   argument is now recorded in the 23 September audit.
+   Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
    General Kähler maximal-ray existence, sequential regularization

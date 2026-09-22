@@ -1856,3 +1856,25 @@ See [the detailed audit](ch46_curve_and_finite_identities_audit_20260922.md).
 New blocks pass the strict writing audit. The complete 3,403-page
 build has no unresolved reference or citation; 38 horizontal overflows
 remain in the layout queue.
+
+
+## 2026-09-23 — Chapter 62 finite-energy completion
+
+The [current continuation](continuation_20260922.md) and
+[completion audit](ch62_finite_energy_completion_audit_20260923.md)
+record the checked proof of the equivalence between PL-envelope,
+fixed-dual-complex and full finite-energy coercivity.
+The proof separates strong continuity of the nonentropy term from
+entropy convergence, retains the geometric subdivision input,
+includes component multiplicities, and treats infinite entropy.
+The normalized model scope from the preceding audit is unchanged;
+no converse to the literal all-big-model condition is asserted.
+
+The full source closure passes with 389 TeX files and 11,507 labels.
+The second-pass full PDF has 3,921 pages, no unresolved references
+or citations, and no horizontal or vertical overflow.
+The factor-n block and author's CURVE_PSH.tex are byte-identical.
+No new research gate is claimed; the active inventory remains
+46 atoms in 14 formal environments with tiers (0,5,8,16,17).
+The next Chapter 62 unit is the class derivative at a fixed measure
+and its exact source theorem.
