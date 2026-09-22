@@ -1805,3 +1805,24 @@ new maximum proof from log norms to log squared norms. The
 [ray audit](ch60_ray_normalization_audit_20260922.md) records the
 90-page scoped validation, the still-imported regularization input and
 the related PL-test-function issue to check next in Chapter 46.
+
+
+## 2026-09-22 — Chapter 46 finite pairings and source recovery
+
+The earlier uncertainty about `thm:bj-mixed-ma` is resolved in the domain
+actually proved by BJ: nef classes with potentials in PSH(theta) intersect
+the finite-energy vector space. The proof now uses the finite vector-space
+pairing, differences of positive test potentials and ample perturbation
+for positivity. Signed measures use coupled positive pairs and a uniform
+total-variation bound. Integrability is stated using almost-everywhere
+representatives. See [the detailed audit](ch46_finite_pairing_audit_20260922.md).
+
+The next mathematical issue is the stronger support claim in Chapter 49,
+`cor:ch49-mass-in-lin`; its outer-capacity step has not been validated.
+The adjacent Chapter 46 curve formulas also remain in the next-pass queue.
+
+The author supplied the missing Chapter 70 source. Its byte-preserving
+restoration closes all references, and the full build now succeeds with
+3,403 pages. There remain 38 horizontal layout overflows. The
+[recovery receipt](source_recovery_build_20260922.md) records the
+exact file hash, 395 production-input checksums and build limits.

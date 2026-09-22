@@ -1,33 +1,29 @@
 # Continuation and fresh-clone audit — 22 September 2026
 
-## Starting point and current limitation
+## Starting point and source recovery
 
 Work resumed from commit `179c0cdd5697d18e9f5eba985dec286daa09a840`
 (`Add affine cross-collar smoothing for two stars`, 20 September 2026),
-in a complete fresh clone of the existing private repository. The working
-branch was clean and matched `origin/main` before any edits.
+in a fresh clone of the existing private repository, initially clean and
+matching `origin/main`.
 
-**The current Git source does not reproduce the previously recorded full
-build.** A fresh `latexmk -pdf -interaction=nonstopmode -halt-on-error
-book.tex` terminates in Chapter 70 because this included file is absent:
+The initial full build failed because Chapter 70 included
+`p122_curve_ideal_psh_functoriality_20260911/CURVE_PSH.tex`, absent from
+the fetched history. Eight missing labels caused thirteen unresolved
+file/label pairs in the 388-file available closure. The include had first
+appeared in `b944553` without the target file.
 
-```
-manuscript/editorial/solver_dossiers_20260911/
-  p122_curve_ideal_psh_functoriality_20260911/CURVE_PSH.tex
-```
+**The author has now supplied the original file.** It is restored without
+changes, with its hash and provenance in the
+[recovery build receipt](source_recovery_build_20260922.md).
+The full graph now contains 389 TeX files and 11,475 unique labels,
+with no missing input or unresolved reference. The current full build
+passes and produces 3,403 pages. Its 38 horizontal layout overflows remain
+to be reviewed. The historical release artifacts are preserved; the
+current build is not a declaration that the mathematical audit is complete.
 
-The file is not present in any fetched commit under that path. The include
-first appears in commit `b944553`, but its target is not included in that
-commit. The available source closure has 388 files, rather than the 389
-reported by the last full-build receipt. Eight missing labels cause thirteen
-unresolved file/label pairs across Chapters 70 and 72. No substitute
-proof, dummy labels, or successful full-build claim has been inserted.
-
-The author has been asked for the original editing directory or machine.
-Recovery of the original source and its provenance is the first build repair.
-The previously published release artifacts and all historical verification
-records remain unchanged; their successful builds are historical evidence,
-not evidence that this fresh clone currently builds.
+The earlier scoped receipts below describe the checks made while recovery
+was pending. Their former build limitation is superseded by this recovery.
 
 ## Chapter 16: explicit geometry of the affine collar
 
@@ -160,24 +156,31 @@ corrects the earlier maximum proof to use squared norms. The
 [ray audit](ch60_ray_normalization_audit_20260922.md) records both the
 remaining imported analytic input and the 90-page scoped validation.
 
+## Chapter 46: finite pairings and model tests
+
+The [pairing audit](ch46_finite_pairing_audit_20260922.md) records the
+corrected nef finite-energy domain, positive test decomposition,
+coupled-pair extension, signed-measure variation bound, and integrable
+representatives. A blowup intersection and an atomic curve calculation
+explain the invalid shortcuts. The scoped build has 124 pages; its 22
+external-reference occurrences disappear in the restored full build.
+
 ## Next work
 
-1. Restore the missing Chapter 70 source from the original working copy,
-   retaining its proof and provenance. Re-run the strict source check and
-   a complete LaTeX/BibTeX/MakeIndex build before claiming reproducibility.
-2. Audit Chapter 46's PL test-function pairing: the claim that a larger
-   pulled-back ample background makes every PL function psh needs repair.
-   Then continue Chapter 60's maximal-ray argument, especially sequential
-   approximation and the energy equality. The ray definition and truncation
-   deduction, and the finite-energy measure construction, now have explicit
-   proofs with their remaining analytic imports identified.
-   The real-model approximation and decreasing-net connection are now proved.
-   Numerical nefness, snc model independence, the Fubini--Study warning,
-   and maximum stability have received the present detailed passes.
-   The arbitrary normal-model assertion remains an explicit import.
-3. For P07.1, separately examine continuous convex collar data and the
+1. Audit `cor:ch49-mass-in-lin` and its claimed outer-capacity bound for
+   the union of psh sublevel sets. Chapter 46 now makes only the
+   integrability and polar-set assertions proved there. Check every
+   downstream use of the stronger support claim.
+2. Repair the adjacent Chapter 46 curve discussion: distributional second
+   derivatives, endpoint terms and legitimate energy limits. Then continue
+   Chapter 60's maximal-ray argument, especially sequential approximation
+   and equality of energies.
+3. Review the 38 horizontal layout overflows in the restored full build.
+   Repeat the complete build after coherent source revisions; preserve the
+   new dated checksum ledger as evidence for the recovery snapshot.
+4. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from the stratified comparison
-   conditions. No extension beyond the current hypotheses is asserted here.
-4. Continue chapter-level mathematical and editorial checks while source
-   recovery is pending. Commit and push each coherent checked unit, with
-   outstanding limits recorded; no force pushes or changes to visibility.
+   conditions. No extension beyond the current hypotheses is asserted.
+5. Continue chapter-level mathematical, source and editorial checks.
+   Commit and push each coherent checked unit, keeping outstanding limits
+   visible; no force pushes or changes to visibility.

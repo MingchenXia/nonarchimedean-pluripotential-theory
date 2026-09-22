@@ -4,11 +4,14 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
-**Fresh-clone status, 22 September 2026:** the current Git source has one
-missing Chapter 70 input, `p122_curve_ideal_psh_functoriality_20260911/CURVE_PSH.tex`,
-and therefore does not currently reproduce the full builds recorded below.
-The source check now fails explicitly for this missing file and its thirteen
-unresolved references. Recovery is tracked in
+**Current-source status, 22 September 2026:** the author supplied the
+missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
+The complete source check passes (389 TeX files, 11,475 unique labels),
+and the full build produces a 3,403-page PDF with no unresolved reference
+or citation. The build still reports 38 horizontal layout overflows.
+Source provenance, exact input checksums and validation limits are in the
+[recovery build receipt](manuscript/editorial/source_recovery_build_20260922.md).
+Continued mathematical and editorial work is tracked in
 [`manuscript/editorial/continuation_20260922.md`](manuscript/editorial/continuation_20260922.md).
 The current checked editorial inventory is 46 active atoms in 14 formal
 problem environments, with tiers `(0,5,8,16,17)`.
@@ -16,10 +19,13 @@ problem environments, with tiers `(0,5,8,16,17)`.
 The same continuation adds a worked Chapter 16 example explaining the
 convexity-forced affine region and nonseparable mixed terms in the latest
 two-star smoothing proposition. Its scoped compilation and visual checks
-are recorded separately from the outstanding full-book build.
+are recorded separately from the full-book build.
 Chapter 60 now also spells out the relative numerical nefness reduction,
 with exact source locators, a checked normalization, and a separate
 [chapter audit](manuscript/editorial/ch60_relative_nef_audit_20260922.md).
+Chapter 46's finite-energy measure construction now uses differences of
+positive pairs, with explicit counterexamples to two invalid shortcuts;
+see its [pairing audit](manuscript/editorial/ch46_finite_pairing_audit_20260922.md).
 
 The last clean 24 August 2026 release snapshot passed the final structural
 audit and produced a 3,081-page PDF from its exact 101-file production-source
