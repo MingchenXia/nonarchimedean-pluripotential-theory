@@ -417,9 +417,11 @@ Equivalently, the envelope measure is supported on the contact set
 \end{theorem}
 
 \begin{proof}[Imported restricted-volume core]
-Suppose first \(f=f_D\) is PL.  Add a constant so that, on a model
-\(\cX\), \(D\geq\cX_0\).  Then \(A+D\) is big and
-\cite[Proposition~4.2.2]{MPWN25} gives the exact restricted-volume formula
+First let $f=f_D$ be PL.  Translation of the obstacle translates
+its envelope by the same constant and leaves its measure unchanged.
+We may therefore assume that $D\geq\cX_0$ on an snc model $\cX$.
+The class $A+D$ is big, and
+\cite[Proposition~4.2.2]{MPWN25} gives
 \[
  \MA_\alpha(P_\alpha(f_D))
   =V^{-1}\sum_{E_i\subset\cX_0}
@@ -427,35 +429,89 @@ Suppose first \(f=f_D\) is PL.  Add a constant so that, on a model
        \delta_{v_{E_i}}.
 \tag{61.16}\label{eq:mpwn-envelope-ma-restricted-volume}
 \]
-The coefficients sum to \(V\).  If the generic minimal multiplicity of
-\(A+D\) along \(E_i\) is positive, its restricted volume is zero.  If it is
-zero, Demailly regularization constructs relatively K\"ahler competitors
-whose values tend to \(f_D(v_{E_i})\); hence
-\(P_\alpha(f_D)(v_{E_i})=f_D(v_{E_i})\).  Thus the integrand vanishes at
-every atom of \eqref{eq:mpwn-envelope-ma-restricted-volume}.
+The unnormalized masses satisfy
+\[
+       \sum_i b_i\left\langle(A+D)^n\right\rangle_{\cX\mid E_i}=V
+\]
+by \cite[Proposition~4.2.1]{MPWN25}; after division by $V$,
+the coefficients in \eqref{eq:mpwn-envelope-ma-restricted-volume}
+sum to one.
 
-For general continuous \(f\), choose PL \(f_j\to f\) uniformly.
-\Cref{prop:mpwn-envelope-calculus} gives uniform convergence of
-the envelopes, and the Chern--Levine--Nirenberg estimate gives weak
-convergence of their Monge--Amp\`ere measures.  Passing to the limit proves
-\eqref{eq:mpwn-orthogonality}.  The restricted-volume identity, its
-vanishing at positive minimal multiplicity, and the approximation in the
-zero-multiplicity case are the imported core of Propositions~4.2.1--4.2.3
-of \cite{MPWN25}; this proves \cite[Theorem~1.5.1]{MPWN25}.
+Let $\nu_i=\nu_{E_i}(A+D)$ be the generic minimal multiplicity.
+If $\nu_i>0$, the restricted volume along $E_i$ is zero.
+For each $i$, the regularization step in \cite[Proposition~4.2.3]{MPWN25}
+supplies, for every $\varepsilon>0$, a model psh competitor
+$\psi_\varepsilon\leq f_D$ such that
+\[
+ \psi_\varepsilon(v_{E_i})
+        \geq f_D(v_{E_i})-\frac{\nu_i+\varepsilon}{b_i}.
+\]
+Taking the envelope and then letting $\varepsilon\downarrow0$
+gives
+\[
+ 0\leq f_D(v_{E_i})-P_\alpha(f_D)(v_{E_i})
+                                      \leq\frac{\nu_i}{b_i}.
+\]
+In particular, every component with nonzero restricted-volume
+mass is a contact point.  This proves orthogonality for a PL
+obstacle.  The restricted-volume identity, its mass formula,
+the vanishing assertion and the regularization step are the
+imported geometric inputs.
+
+For continuous $f$, choose PL functions $f_j\to f$ uniformly.
+Put $u_j=P_\alpha(f_j)$ and $u=P_\alpha(f)$.
+By \Cref{prop:mpwn-envelope-calculus}, $u_j\to u$ uniformly.
+Continuity under uniform convergence
+\cite[Proposition~2.3.2]{MPWN25} gives
+$\mu_j:=\MA_\alpha(u_j)\rightharpoonup\mu:=\MA_\alpha(u)$.
+Set $q_j=f_j-u_j$ and $q=f-u$; these are continuous and
+$q_j\to q$ uniformly.  Since the measures have mass one,
+\[
+ \left|\int q_j\,\rd\mu_j-\int q\,\rd\mu\right|
+ \leq\|q_j-q\|_\infty
+                   +\left|\int q\,(\rd\mu_j-\rd\mu)\right|
+ \longrightarrow0.
+\]
+The left integrals for $q_j$ vanish by the PL case, proving
+\eqref{eq:mpwn-orthogonality}.
+This is the deduction of \cite[Theorem~1.5.1]{MPWN25}
+from its restricted-volume inputs.
 \end{proof}
 
-\begin{remark}[Differentiability of energy along envelopes]
-Orthogonality is the Euler condition for the obstacle problem.  For
-\(f,g\in C^0(X^{\bethan})\), it implies the first-variation identity
+\begin{remark}\label{rem:mpwn-envelope-first-variation}
+For $f,g\in C^0(X^{\bethan})$, orthogonality gives
 \[
  \left.\frac{\rd}{\rd t}\right|_{t=0}
  E_\alpha(P_\alpha(f+tg))
-   =\int g\,\MA_\alpha(P_\alpha(f)).
+                  =\int g\,\MA_\alpha(P_\alpha(f)).
 \tag{61.17}\label{eq:mpwn-envelope-differentiability}
 \]
-Indeed, compare the energies at \(t\) and \(0\) by concavity, use the two
-obstacle inequalities, divide by \(t\), and let \(t\to0^\pm\).
+Indeed, put $u_t=P_\alpha(f+tg)$ and
+$\mu_t=\MA_\alpha(u_t)$.  Each $u_t$ is bounded and psh,
+so has finite energy.  The tangent inequality in both orders
+gives
+\[
+ \int(u_t-u_0)\,\rd\mu_t
+       \leq E_\alpha(u_t)-E_\alpha(u_0)
+       \leq\int(u_t-u_0)\,\rd\mu_0.
+\]
+On the contact set carrying $\mu_t$, one has
+$u_t=f+tg$ and $u_0\leq f$; on the contact set carrying
+$\mu_0$, one has $u_0=f$ and $u_t\leq f+tg$.
+Hence, for every real $t$,
+\[
+ t\int g\,\rd\mu_t
+       \leq E_\alpha(u_t)-E_\alpha(u_0)
+       \leq t\int g\,\rd\mu_0.
+\]
+The envelope contraction gives
+$\|u_t-u_0\|_\infty\leq |t|\|g\|_\infty$, and uniform
+convergence of potentials gives $\mu_t\rightharpoonup\mu_0$.
+Divide by $t$, reversing the inequalities when $t<0$.
+Both one-sided limits equal $\int g\,\rd\mu_0$, which proves
+\eqref{eq:mpwn-envelope-differentiability}.
 \end{remark}
+
 
 \section{Strong topologies and quasi-metrics}
 

@@ -323,11 +323,21 @@ including the infinite-entropy case. No countable cofinal model
 system is assumed. The full build has 3,919 pages and 11,500 labels,
 with no horizontal or vertical overflow.
 
+## Chapter 61: orthogonality and envelope variation
+
+The [orthogonality and variation audit](ch61_orthogonality_variation_audit_20260922.md)
+separates raw restricted-volume mass from probability mass, writes
+the contact gap with its component multiplicity, and verifies the
+uniform-gap/weak-measure limit. The first-variation proof now shows
+both tangent inequalities and handles positive and negative
+parameters. The full build has 3,919 pages and 11,501 labels,
+with no horizontal or vertical overflow.
+
 ## Next work
 
 1. Continue the mathematical and source audit through Chapter 61.
-   Next correct the normalized coefficient sum in orthogonality
-   and expand the contact-set proof of the envelope first variation.
+   Continue through comparison, regularity, and the Chapter 62
+   uses of entropy-preserving approximation and strong convergence.
    General Kähler maximal-ray existence, sequential regularization
    and the full mixed-slope reduction remain explicit source inputs.
 2. For P07.1, separately examine continuous convex collar data and the
