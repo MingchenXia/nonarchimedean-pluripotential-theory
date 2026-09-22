@@ -1774,3 +1774,10 @@ spells out model independence, and corrects the normal-cone example's
 center, rationality and curve hypotheses. The final scoped build has
 86 pages with the same external-reference limitation. Energy first
 variation and the Zariski proof are the next local audit.
+
+The energy follow-up replaces the misattributed Zariski proof with the
+weighted central-component matrix calculation. Real model measures and
+energy are defined before real-parameter differentiation, and monotonicity
+uses arbitrary differences of ordered psh endpoints. The dimension-zero
+case is separate. The same measure and energy audit records the final
+87-page scoped build and unchanged full-source limitation.

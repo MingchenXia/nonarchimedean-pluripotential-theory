@@ -133,13 +133,19 @@ hypotheses and treats point blowups on curves separately. The
 [measure and energy audit](ch60_model_measure_energy_audit_20260922.md)
 records the second-pass checks and the next energy-domain issue.
 
+The energy pass now gives the weighted intersection-matrix proof of the
+Zariski inequality and defines the real model domain before differentiating.
+Monotonicity uses the difference of ordered endpoints only as a nonnegative
+function; concavity includes dimension zero. The same measure and energy
+audit records the source correction and the 87-page scoped validation.
+
 ## Next work
 
 1. Restore the missing Chapter 70 source from the original working copy,
    retaining its proof and provenance. Re-run the strict source check and
    a complete LaTeX/BibTeX/MakeIndex build before claiming reproducibility.
-2. Complete Chapter 60's energy-domain and Zariski-inequality audit, then
-   continue its approximation and monotone-completion proofs.
+2. Continue Chapter 60's approximation and monotone-completion proofs,
+   including the connection between real model classes and the completion.
    Numerical nefness, snc model independence, the Fubini--Study warning,
    and maximum stability have received the present detailed passes.
    The arbitrary normal-model assertion remains an explicit import.

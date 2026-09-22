@@ -59,3 +59,57 @@ inequality and the real-parameter domain used in first variation. In
 particular, a derivative along a real affine segment requires an explicitly
 defined real model energy, and a difference of two model psh functions
 need not itself be model psh.
+
+## Zariski inequality and real model energy
+
+The former Zariski paragraph attributed a componentwise Hodge-index
+argument to MP24 Lemma 4.2.6. The checked source instead uses the
+intersection matrix of central components. The book now gives that
+finite-dimensional argument explicitly. Writing the central fibre as
+`sum b_i E_i`, the divisor of psi as `sum b_i a_i E_i`, and the mixed
+intersection matrix as Q, one has nonnegative off-diagonal entries and
+`sum_j b_j Q_ij = 0`. Consequently
+
+`D^2 Gamma = -sum_{i<j} b_i b_j Q_ij (a_i-a_j)^2 <= 0`.
+
+The proof includes real coefficients, empty or disconnected pairwise
+intersections, zero weights and the empty mixed product in dimension one.
+An exact two-component arithmetic check with multiplicities 2 and 3,
+off-diagonal intersection 5 and values 1 and 4 gives -270 on both sides;
+the proof for all dimensions and all coefficients is the displayed
+weighted-row-sum calculation, not this check.
+
+The real model psh class is now explicitly defined by relative nefness of
+real vertical divisors. The signed model measure and its mass/positivity
+proof use the same real domain. Energy and J are defined as polynomials
+on the real divisor space of a fixed model, so differentiation along a
+real affine segment is meaningful. The rational energy agrees with
+[MP24 Definition 4.2.9, arXiv version 2](https://arxiv.org/html/2409.06221v2);
+the existing multilinear pairing supplies the real extension.
+
+The first-variation and cocycle identities now allow arbitrary real PL
+directions. For monotonicity between ordered model psh endpoints, the
+proof differentiates their affine segment and pairs their nonnegative
+difference with a positive Monge--Ampère measure. It does not assert that
+the difference is psh. Concavity uses the Zariski inequality for dimension
+at least one; in dimension zero the energy polynomial is affine. The
+definition of J was split into two displayed lines without changing its
+formula.
+
+The automatic second pass checked the b_i normalization, the off-diagonal
+intersection dimensions, the weighted row sums and their quadratic
+expansion, the signed-measure versus positive-measure scopes, both
+variation directions, and the dimension-zero exception. The writing
+audit has zero errors and one reviewed warning for the retained existing
+definition title “Energy and J”. The final scoped build has 87 pages,
+no overfull box or unresolved citation, and the same three occurrences
+of the external Chapter 71 reference. Physical pages 57--59 and 62--66
+were rendered and inspected, covering the real-class definition,
+measure extension, matrix proof, first variation and their transitions.
+The warning's closing rule remains with its final paragraph across its
+page break.
+
+The source, inventory and whitespace checks retain their previous status:
+388 available files, 11,429 labels, no duplicate or structural defects,
+and the same missing Chapter 70 input with thirteen file/label pairs.
+No full-build success, research novelty or problem retirement is claimed.
