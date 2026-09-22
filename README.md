@@ -6,16 +6,17 @@ left blank in this release.
 
 **Current-source status, 22 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,487 unique labels),
-and the full build produces a 3,913-page PDF with no unresolved reference
+The complete source check passes (389 TeX files, 11,489 unique labels),
+and the full build produces a 3,915-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
 records the final line-break checks and preservation of the research sources.
 The [current-pushforward audit](manuscript/editorial/ch14_pushforward_sign_audit_20260922.md)
 corrects the involution sign and the use of measure pushforward on a curve skeleton.
+The [projection and metric-variation audit](manuscript/editorial/ch17_projection_and_variation_audit_20260922.md)
+reconstructs the Chapter 17 proofs with their correct current domains and multiplicities.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
-restores normal body type after two Chapter 18 tables; the new page
-count reflects that reflow.
+restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the
 [recovery build receipt](manuscript/editorial/source_recovery_build_20260922.md).
 Continued mathematical and editorial work is tracked in

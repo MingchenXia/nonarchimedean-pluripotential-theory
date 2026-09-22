@@ -1985,44 +1985,75 @@ exactness is the identity \eqref{eq:ch16-dpsh-outer} read backwards,
 
 \begin{proposition}
 \label{prop:ch17-product-pushforward}
-Let \(\overline L_1,\dots,\overline L_q\) be dpsh metrized line bundles on
-\(X\).
+Let $\overline L_1,\dots,\overline L_q$ be dpsh metrized line bundles on
+$X$, with $0\leq q\leq n$.
 \begin{enumerate}
 \item\label{itm:ch17-pf:proper}
- If \(j:Y\to X\) is topologically proper between boundaryless,
- topologically separated spaces and \(S\) is a positive closed current on
- \(Y\), then
+ If $j:Y\to X$ is a topologically proper analytic morphism between
+ boundaryless, topologically separated spaces and $S$ is a positive
+ closed current on $Y$ of bidimension $(s,s)$, with $q\leq s\leq n$, then
  \[
   c_1(\overline L_1)\wedge\cdots\wedge c_1(\overline L_q)\wedge j_*S
   =j_*\bigl(c_1(j^*\overline L_1)\wedge\cdots\wedge
     c_1(j^*\overline L_q)\wedge S\bigr).
  \]
 \item\label{itm:ch17-pf:base}
- If \(K'/K\) is a complete valued extension and \(p:X_{K'}\to X\) the base
+ If $K'/K$ is a complete valued extension and $p:X_{K'}\to X$ the base
  change, then
- \(p_*\bigl(\bigwedge_ic_1(p^*\overline L_i)\bigr)
-   =\bigwedge_ic_1(\overline L_i)\).
+ $p_*\bigl(\bigwedge_ic_1(p^*\overline L_i)\bigr)
+   =\bigwedge_ic_1(\overline L_i)$.
 \item\label{itm:ch17-pf:finite}
- If \(f:Y\to X\) is a finite morphism of boundaryless \(n\)-dimensional
- spaces whose calibrated degree is constantly \(d\) on \(X^{\mathrm{gen}}\),
- then
- \(f_*\bigl(\bigwedge_ic_1(f^*\overline L_i)\bigr)
-   =d\cdot\bigwedge_ic_1(\overline L_i)\).
+ If $f:Y\to X$ is a finite morphism of boundaryless, topologically
+ separated, pure $n$-dimensional spaces whose calibrated degree is
+ constantly $d$ on $X^{\mathrm{gen}}$, then
+ $f_*\bigl(\bigwedge_ic_1(f^*\overline L_i)\bigr)
+   =d\cdot\bigwedge_ic_1(\overline L_i)$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-\cref{itm:ch17-pf:proper}: the statement is local on \(X\), and by
-multilinearity we may assume all metrics psh; then it is
-\Cref{prop:bt-projection-formula} applied to the local weights, using
-\(j^*\log\|s_i\|^{-1}=\log\|j^*s_i\|^{-1}\), which is
-\Cref{prop:ch17-metric-picard}\,\cref{itm:ch17-pic:pullback}.  Items
-\cref{itm:ch17-pf:base} and \cref{itm:ch17-pf:finite} follow from
-\cref{itm:ch17-pf:proper} together with the calibrated degree computations of
-\Cref{chap:cld-currents}: \Cref{prop:current-pushforward-formal} and
-\Cref{cor:ch14-pushforward-functorial} give
-\(p_*p^*=\mathrm{id}\) on currents for a base change, and
-\(f_*f^*=d\) for a finite morphism of constant calibrated degree \(d\).
+For \cref{itm:ch17-pf:proper}, work on an open subset of $X$ on which
+all the $L_i$ have frames.  Multilinearity reduces to psh weights,
+and \Cref{prop:bt-projection-formula} applies to those weights since
+$j^*\log\|s_i\|^{-1}=\log\|j^*s_i\|^{-1}$
+(\Cref{prop:ch17-metric-picard}\,\cref{itm:ch17-pic:pullback}).
+
+For the other two assertions, retain the canonical integration current
+omitted in \Cref{def:ch17-mixed-product}.  The required starting identities
+are
+\begin{equation}
+\label{eq:ch17-fundamental-pushforward}
+              p_*\delta_{X_{K'}}=\delta_X,
+              \qquad f_*\delta_Y=d\,\delta_X .
+\end{equation}
+These are \cite[Propositions~16.1.1--16.1.2]{CLD25}.
+Indeed, testing against a compactly supported smooth $(n,n)$-form
+$\alpha$ reduces them to
+\[
+       \int_{X_{K'}}p^*\alpha=\int_X\alpha,
+       \qquad
+       \int_Y f^*\alpha=\int_X\mathrm{dc}_f\,\alpha
+                       =d\int_X\alpha .
+\]
+The first equality is compatibility of integration with complete
+extension of scalars; the second is calibrated integration under a
+finite map \cite[Propositions~15.3.1 and 15.4.3]{CLD25}.
+The constant extension of $\mathrm{dc}_f$ from $X^{\mathrm{gen}}$
+can be used here because the integration current is independent of
+its values outside that locus.  Its generic multiplicities are retained.
+
+Apply \cref{itm:ch17-pf:proper} with $S=\delta_Y$ for the finite map.
+For base change the same proof uses $S=\delta_{X_{K'}}$:
+the map $p$ is topologically proper, and smooth-form pullback and
+continuous psh pullback commute with complete scalar extension
+(\Cref{prop:ch13-pullback-properties}\,\cref{itm:ch13-pb:base} and
+\Cref{prop:cld-psh-calculus}).  The integration currents are positive
+and closed because the spaces are boundaryless.  Substitution of
+\eqref{eq:ch17-fundamental-pushforward} proves both assertions.
+This also gives the curvature formulation of
+\cite[Corollary~18.3.3]{CLD25}.  Only forms, functions and metrized
+bundles have been pulled back in this argument; a pullback of
+arbitrary currents is not defined.
 \end{proof}
 
 \subsection{The total mass is an intersection number}
@@ -2034,40 +2065,69 @@ on an algebraic variety that mass is the classical intersection number.
 
 \begin{proposition}
 \label{prop:ch17-mass-independent}
-Let \(X\) be boundaryless of pure dimension \(n\) and let
-\(L_1,\dots,L_n\) be line bundles, each equipped with two smooth (resp.\
-two dpsh) metrics.  Then the difference of the two top products is
-\(\dprimeddprime\alpha\) for a smooth (resp.\ a symmetric closed)
-\((n-1,n-1)\)-form (resp.\ current) \(\alpha\).  If \(X\) is in addition
-proper, the number
-\(\int_Xc_1(\overline L_1)\wedge\cdots\wedge c_1(\overline L_n)\)
-depends only on \(L_1,\dots,L_n\).
+Let $X$ be boundaryless of pure dimension $n$ and let $L_1,\dots,L_n$
+be line bundles, each equipped with two smooth (resp.\ two dpsh)
+metrics.  If $n\geq1$, the difference of the two top products is
+$\dprimeddprime\alpha$ for a smooth $(n-1,n-1)$-form
+(resp.\ a symmetric $(n-1,n-1)$-current) $\alpha$.
+If $n=0$, both empty products are $\delta_X$.
+If $X$ is proper, the number
+$\int_Xc_1(\overline L_1)\wedge\cdots\wedge c_1(\overline L_n)$
+depends only on $L_1,\dots,L_n$.
 \end{proposition}
 
 \begin{proof}
-Let \(u_i\) be the global function with
-\(\log\|s\|'=u_i+\log\|s\|\) for every local invertible section \(s\) of
-\(L_i\); it is smooth (resp.\ dpsh) by hypothesis, and
-\(c_1(\overline L_i)=\dprimeddprime u_i+c_1(\overline L_i')\) by
-\Cref{prop:cld-c1-metric-change}.  Expanding the product,
-\(\bigwedge_ic_1(\overline L_i)-\bigwedge_ic_1(\overline L_i')\) is a sum of
-terms \(T_1\wedge\cdots\wedge T_n\) in which each \(T_i\) is either
-\(c_1(\overline L_i')\) or \(\dprimeddprime u_i\), with at least one index
-\(j\) of the second kind.  For such a term,
-\eqref{eq:ch16-dpsh-outer} gives
+Assume $n\geq1$.  Let $u_i$ be the global function determined by
+$\log\|s\|'=u_i+\log\|s\|$ for every local frame $s$ of $L_i$.
+It is smooth (resp.\ dpsh).  Put
 \[
- T_1\wedge\cdots\wedge T_n
- =\dprimeddprime\bigl(u_j\,T_1\wedge\cdots\widehat{T_j}\cdots\wedge T_n
-   \bigr),
+ A_i=c_1(\overline L_i),\qquad B_i=c_1(\overline L_i'),
+ \qquad A_i-B_i=\dprimeddprime u_i,
 \]
-so the difference is \(\dprimeddprime\alpha\) with \(\alpha\) a sum of such
-brackets, smooth in the smooth case and a symmetric closed
-\((n-1,n-1)\)-current in general.  If \(X\) is proper,
-\(\int_X\dprimeddprime\alpha=\langle\dprimeddprime\alpha,1\rangle
- =\langle\alpha,\dprimeddprime1\rangle=0\)
-by \Cref{prop:current-differential-calculus} and
-\Cref{cor:analytic-stokes-green}, the constant \(1\) being an admissible
-test form on a compact boundaryless space.
+where the last identity is \Cref{prop:cld-c1-metric-change}.
+All the following products are the mixed curvature products of
+\Cref{def:ch17-mixed-product}, with $\delta_X$ suppressed.
+Set
+\[
+ H_j=A_1\wedge\cdots\wedge A_{j-1}
+          \wedge B_{j+1}\wedge\cdots\wedge B_n,
+ \qquad
+ \alpha=\sum_{j=1}^n u_jH_j .
+\]
+Each $H_j$ is symmetric and closed; its product with the real
+continuous function $u_j$ is defined by
+\Cref{thm:ch16-dpsh-product}.  Thus $\alpha$ is symmetric and is
+smooth when the metrics are smooth.  The outer-potential identity
+\eqref{eq:ch16-dpsh-outer} and telescoping give
+\[
+\begin{aligned}
+ \dprimeddprime\alpha
+   &=\sum_{j=1}^n \dprimeddprime u_j\wedge H_j\\
+   &=A_1\wedge\cdots\wedge A_n-B_1\wedge\cdots\wedge B_n .
+\end{aligned}
+\]
+This is the metric-variation formula of
+\cite[Proposition~18.3.10]{CLD25}.
+
+The primitive $\alpha$ need not be closed.  Already on an open
+annulus with $t=-\log|T|$, the two smooth metrics on the trivial
+bundle with weights $u=t^2$ and $0$ give $\alpha=[u]$ and
+\[
+                  \dprimeddprime\alpha
+                        =2[\dprime t\wedge\ddprime t]\ne0 .
+\]
+Closedness of $H_j$ does not survive multiplication by $u_j$.
+
+If $X$ is proper, the constant function $1$ is an admissible compactly
+supported test function, so
+\[
+ \int_X\dprimeddprime\alpha
+      =\langle\dprimeddprime\alpha,1\rangle
+      =\langle\alpha,\dprimeddprime1\rangle=0
+\]
+by \Cref{prop:current-differential-calculus}.
+This proves equality of the masses.  For $n=0$ it follows directly
+from the equality of the empty products.
 \end{proof}
 
 \begin{theorem}
@@ -3811,42 +3871,105 @@ in \Cref{chap:compare-ma} and in \Cref{part:bfj}.
 
 \begin{proposition}
 \label{prop:ch17-projection}
-Let \(f:Y\to X\) be a morphism of proper \(K\)-analytic spaces of pure
-dimension \(n\) and let \(\overline L_1,\dots,\overline L_n\) be dpsh
-metrized line bundles on \(X\).
+Let $f:Y\to X$ be a morphism of proper $K$-analytic spaces of pure
+dimension $n$ and let $\overline L_1,\dots,\overline L_n$ be dpsh
+metrized line bundles on $X$.
 \begin{enumerate}
 \item\label{itm:ch17-proj:gf}
- If \(f\) is generically finite of calibrated degree \(e\), then
- \(f_*\bigl(\bigwedge_ic_1(f^*\overline L_i)\bigr)
-   =e\bigwedge_ic_1(\overline L_i)\), and in particular
- \(\int_Y\bigwedge_ic_1(f^*\overline L_i)=e\int_X\bigwedge_ic_1(\overline L_i)\).
+ Suppose that $f$ is finite over the complement of a Zariski-closed
+ subset of $X$ of dimension $<n$, and that its calibrated degree is
+ constantly $e$ on $X^{\mathrm{gen}}$.  Then
+ $f_*\bigl(\bigwedge_ic_1(f^*\overline L_i)\bigr)
+   =e\bigwedge_ic_1(\overline L_i)$, and
+ $\int_Y\bigwedge_ic_1(f^*\overline L_i)
+   =e\int_X\bigwedge_ic_1(\overline L_i)$.
 \item\label{itm:ch17-proj:bir}
- If \(f\) is birational then \(e=1\), and the total masses agree.
+ If $f$ is birational, then $e=1$ and the total masses agree.
 \item\label{itm:ch17-proj:model}
- If \(K\) is discretely valued, \(X\) and \(Y\) are proper varieties, and
- the metrics are model metrics, then \cref{itm:ch17-proj:gf} coincides with
- the algebraic projection formula \Cref{thm:model-projection-formula} applied
- to the special fibres of a common model.
+ Under the hypotheses of \cref{itm:ch17-proj:gf}, suppose further that
+ $K$ is discretely valued, $X$ and $Y$ are proper varieties, and the
+ metrics are model metrics.  Then the measure identity is the
+ special-fibre projection formula on compatible models.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-\cref{itm:ch17-proj:gf} is
-\Cref{prop:ch17-product-pushforward}\,\cref{itm:ch17-pf:finite} in the finite
-case; in general, factor \(f\) through the image of its finite locus and use
-that the calibrated degree of the pushforward of a current is constant on
-\(X^{\mathrm{gen}}\) by \Cref{prop:current-pushforward-formal}, the
-exceptional locus being of smaller dimension and hence negligible for a top
-product (\Cref{thm:ch14-support-dimension}).  Integrating and using
-properness gives the mass statement.  \cref{itm:ch17-proj:bir} is the special
-case \(e=1\).  For \cref{itm:ch17-proj:model}, both sides may be computed by
-\Cref{thm:cld-recovers-cl} on a common model dominating \(X\) and \(Y\), and
-the resulting identity of atomic measures is the special-fibre projection
-formula, atom by atom; the divisorial points match because a component of
-the special fibre of the model of \(Y\) dominating a component \(Y'\) of the
-special fibre of the model of \(X\) defines the same normalized valuation
-(\Cref{prop:component-valuation}).
+The canonical integration-current identity
+\[
+                            f_*\delta_Y=e\,\delta_X
+\]
+holds globally under the hypotheses of \cref{itm:ch17-proj:gf}, by
+\cite[Proposition~16.1.2]{CLD25}; its proof is the same calibrated
+integration calculation as in
+\eqref{eq:ch17-fundamental-pushforward}.  Apply
+\Cref{prop:ch17-product-pushforward}\,\cref{itm:ch17-pf:proper} with
+$S=\delta_Y$.  It gives
+\[
+\begin{aligned}
+ f_*\bigl(\bigwedge_i c_1(f^*\overline L_i)\wedge\delta_Y\bigr)
+   &=\bigwedge_i c_1(\overline L_i)\wedge f_*\delta_Y\\
+   &=e\,\bigwedge_i c_1(\overline L_i)\wedge\delta_X .
+\end{aligned}
+\]
+This proves the measure identity on all of $X$.  Equivalently, one
+can apply \cite[Proposition~16.1.5]{CLD25} to local dpsh weights
+and glue.  Pairing with the constant function $1$, whose support is
+compact here, gives the total mass.  A birational map has calibrated
+degree one, proving \cref{itm:ch17-proj:bir}.
+
+For \cref{itm:ch17-proj:model}, clear the tensor-power denominators
+of the model metrics.  Choose proper flat models, relatively normal
+in their generic fibres, and an extension $\rho:\mathcal Y\to\mathcal X$
+of $f$, with each metric
+represented by a line bundle $\mathcal L_i$ on $\mathcal X$.
+Such compatible models are obtained by taking the closure of the
+graph and then the relative normalization in the generic fibre.  Write
+\[
+               \mathcal X_s=\sum_F b_FF,\qquad
+               \mathcal Y_s=\sum_E b_EE .
+\]
+If $E$ dominates $F$, let $r_{E/F}$ be the ramification index of the
+corresponding discrete valuations.  For $h\in K(X)^\times$,
+\[
+ b_E=r_{E/F}b_F,\qquad
+ \frac{\ord_E(f^*h)}{b_E}=\frac{\ord_F(h)}{b_F}.
+\]
+Thus $f^{\mathrm{an}}(x_E)=x_F$: the normalized valuation on $K(Y)$
+restricts to the one on $K(X)$.  The residue-field degree
+$[\kappa(E):\kappa(F)]$ remains in the cycle pushforward.
+In fact,
+\[
+ \rho_*[\mathcal Y_s]=e[\mathcal X_s],
+ \qquad
+ \sum_{E\mapsto F}b_E[\kappa(E):\kappa(F)]=e b_F .
+\]
+The first equality follows by applying the Cartier-divisor projection
+formula to the special fibre, as in
+\Cref{thm:model-projection-formula}.  For each dominating component,
+the line-bundle projection formula gives
+\[
+ (\rho^*\mathcal L_1\cdots\rho^*\mathcal L_n\cdot E)
+   =[\kappa(E):\kappa(F)](\mathcal L_1\cdots\mathcal L_n\cdot F).
+\]
+If $\dim\rho(E)<n$, this intersection is zero because
+$\rho_*[E]=0$ as an $n$-cycle.  Insert these equalities into
+\eqref{eq:cld-chambert-loir-formula}.  The coefficient at each $x_F$
+is multiplied by $e$, and all other components contribute zero.
+This proves the atomic measure identity and survives division by
+the cleared tensor powers.
 \end{proof}
+
+\begin{remark}
+\label{rem:ch17-projection-exceptional-set}
+The proof starts with an identity of integration currents and then
+forms the curvature products.  It does not discard an exceptional set
+from a previously formed measure.  A top-degree current has
+bidimension $(0,0)$, so the hypothesis of
+\Cref{thm:ch14-support-dimension} would require tropical dimension
+$<0$; that theorem gives no such vanishing.  A Dirac mass at a
+point already explains why a dimension argument for arbitrary
+top-degree currents would fail.
+\end{remark}
 
 \section{Detection of positivity on a subvariety}
 \label{sec:ch17-positivity-detection}

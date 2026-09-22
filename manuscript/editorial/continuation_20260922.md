@@ -252,13 +252,30 @@ now pushes the identified Radon measure along a continuous map.
 The complete build has 3,913 pages and 11,487 resolved labels,
 with no horizontal or vertical overflow.
 
+## Chapter 17: projection and metric variation
+
+The [projection and variation audit](ch17_projection_and_variation_audit_20260922.md)
+replaces arbitrary-current pullback and exceptional-set shortcuts
+with canonical integration-current pushforward followed by the
+continuous-potential projection formula. The model proof now keeps
+ramification, residue degrees and the restriction of valuations.
+A telescoping formula repairs the false closedness assertion for
+the metric-variation primitive; an annulus Hessian checks it.
+The final complete build has 3,915 pages and 11,489 resolved labels,
+with no horizontal or vertical overflow.
+
 ## Next work
 
-1. Repair the Chapter 17 projection proofs using the canonical
-   integration-current identities of CLD Sections 16.1.1--16.1.5.
-   Do not use a pullback of arbitrary currents or discard exceptional
-   sets merely because their analytic dimension is smaller.
-   Then audit the remaining slope-identification steps in Chapter 19.
+1. Audit the Chapter 19 curve section. The proof of skeletal
+   curvature incorrectly treats [u] as a pushed-forward graph current
+   merely because u factors through the retraction, and uses an
+   undefined pushforward of a test function. The later slope proof
+   still needs its vertex/residue calculation and correct annular
+   length normalization. Distinguish split or algebraically closed
+   cases from general residue-degree weights; do not silently use
+   the narrower discretely valued Chapter 8 theorem at greater
+   generality. A general (1,1)-current need not be a measure, and
+   an abstract graph is not automatically a balanced tropical chart.
 2. Continue the mathematical and source audit through Chapter 61.
    A useful next expansion is the point-mass energy estimate from
    truncated normalized psh functions and the zero-model Dirac mass.
