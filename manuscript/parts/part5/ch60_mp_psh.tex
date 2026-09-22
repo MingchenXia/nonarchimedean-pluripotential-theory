@@ -1669,33 +1669,200 @@ value \(1\) at the zero non-Archimedean potential.  The function constructed
 in \cite[(3.2.4)]{MP24} is \(A^{\mathrm{tot}}\), while the reduced
 normalization is stated explicitly in \cite[Definition~2.4.1]{MPWN25}.
 
-\begin{warning}{Boundary of the entropy-slope argument}
-Proposition~6.2.2 and Corollary~6.2.3 of \cite{MP24} are printed with
-\(A^{\mathrm{tot}}\).  Their claimed inequality cannot hold in that
-normalization: for \(\phi=0\),
+\begin{warning}{Total and reduced entropy slopes}
+Proposition~6.2.2 and Corollary~6.2.3 of
+\cite[arXiv version~2]{MP24} use $A^{\mathrm{tot}}$.
+The stated inequality fails with that normalization: at $\phi=0$,
 \[
  \MA_\alpha(0)=\delta_{v_{\triv}},\qquad
- M_{\alpha,\mathrm{tot}}^{\NA}(0)=1,
- \qquad
+ M_{\alpha,\mathrm{tot}}^{\NA}(0)=1,\qquad
  \lim_{s\to+\infty}\frac{M_\omega(0)}s=0.
-\tag{60.28}\label{eq:mp-total-slope-obstruction}
+ \tag{60.28}\label{eq:mp-total-slope-obstruction}
 \]
-The later paper uses reduced discrepancy, but does not state a separate
-corrected entropy-slope theorem.  Replacing the PL approximants in the
-printed proof by \(A^{\mathrm{tot}}\circ p_{\cX}-1\) is the expected repair;
-without an independent verification of all compatibility and integrability
-steps, this book does not promote that repair to a theorem.  Formally, if
-the reduced entropy inequality, with \(H_\mu\) denoting complex entropy
-relative to the normalized volume measure,
+The reduced convention removes this obstruction.  The argument below
+verifies the corresponding volume estimate on analytic snc models and
+then proves the reduced entropy inequality using the mixed-slope theorem.
+\end{warning}
+
+\begin{lemma}\label{lem:mp-log-volume-test}
+Let $\rho:\cX\to X\times\mathbf P^1$ be a smooth dominating snc model
+with $\cX_0=\sum_E b_EE$, and let $\mu$ be a smooth positive probability
+volume form on $X$.  Set
+\[
+ g_{\cX}:=A^{\mathrm{tot}}\circ p_{\cX}-1.
+\]
+There is a smooth compatible family $f_s$ for the PL function $g_{\cX}$
+such that, for all sufficiently large $s$,
+\[
+ 0<c_{\cX}\leq\int_X\mathrm{e}^{f_s}\,\mathrm{d}\mu
+       \leq C_{\cX}(1+s)^n.
+ \tag{60.28a}\label{eq:mp-log-volume-bound}
+\]
+The constants may depend on the model, the reference volume and the
+chosen smooth metric, but not on $s$.
+\end{lemma}
+
+\begin{proof}
+Use the logarithmic relative canonical bundle
+\[
+ K^{\log}_{\cX/\mathbf P^1}
+ :=K_{\cX/\mathbf P^1}+(\cX_0)_{\mathrm{red}}-\cX_0.
+\]
+Its difference from $\rho^*p_1^*K_X$ is the vertical divisor
+\[
+ D_{\cX}
+ :=K_{\cX/(X\times\mathbf P^1)}
+           +(\cX_0)_{\mathrm{red}}-\cX_0.
+\]
+The coefficient at $E$ is
+$\operatorname{ord}_E K_{\cX/(X\times\mathbf P^1)}+1-b_E$.
+Dividing by $b_E$ gives
+$A^{\mathrm{tot}}(v_E)-1$ by
+\eqref{eq:mp-total-discrepancy}.  Both model functions are affine on the
+dual faces and invariant under $p_{\cX}$, so
+$\phi_{D_{\cX}}=g_{\cX}$ on the whole spectrum.
+
+Choose a smooth $S^1$-invariant Hermitian metric on
+$K^{\log}_{\cX/\mathbf P^1}$ near the central fibre.  On
+$\cX_\tau\simeq X$ for $\tau\ne0$ it induces a smooth positive volume
+form $\nu_\tau$.  Define, with $s=-\log|\tau|^2$,
+\[
+                  f_s:=\log\frac{\nu_\tau}{\mu}.
+\]
+The divisor identity
+$K^{\log}_{\cX/\mathbf P^1}=\rho^*p_1^*K_X+D_{\cX}$
+checks compatibility, including its sign.  Indeed, if $\zeta$ is a local
+frame of the logarithmic bundle and $h_D$ is a local equation of
+$D_{\cX}$, the pullback of a local canonical frame from $X$ is
+$h_D\zeta$, up to a holomorphic unit.  Thus
+\[
+                   f_s\circ\rho=-\log|h_D|^2+\chi
+\]
+on the punctured product, where $\chi$ extends smoothly across the
+central fibre.  Consequently $f_s$ is smoothly compatible with
+$D_{\cX}$ in the squared-norm convention.  Positivity of $f_s$ as a
+psh ray is not needed for a PL testing slot.
+
+We give the local integral calculation of
+\cite[Lemma~3.11, arXiv version~5]{BHJ19}.  It uses only analytic snc
+coordinates.  After shrinking a chart and absorbing a holomorphic unit,
+write
+\[
+ \tau=z_0^{b_0}\cdots z_p^{b_p},\qquad 0\leq p\leq n.
+\]
+On a nonzero fibre a local frame of the logarithmic relative canonical
+bundle restricts, up to sign, to
+\[
+ \zeta_\tau
+ =\frac1{b_0}\frac{\mathrm{d}z_1}{z_1}\wedge\cdots
+       \wedge\frac{\mathrm{d}z_p}{z_p}
+       \wedge\mathrm{d}z_{p+1}\wedge\cdots\wedge\mathrm{d}z_n .
+\]
+Its squared absolute value denotes the associated positive volume
+density.  Smoothness of the chosen metric bounds $\nu_\tau$ above and
+below by fixed positive multiples of $|\zeta_\tau|^2$ on a smaller
+closed polydisc.
+
+To bound its integral, solve for the $b_0$ possible values of $z_0$.
+For $1\leq j\leq p$ use logarithmic radii
+$t_j=-\log|z_j|$ and angular variables.  The radii satisfy fixed lower
+bounds and
+\[
+                \sum_{j=1}^p b_jt_j
+                       \leq \tfrac12s+C.
+\]
+The density in these variables is a fixed multiple of Lebesgue measure
+in the $t_j$, angular Haar measure, and ordinary volume in the remaining
+coordinates.  The radial region has volume $O((1+s)^p)$.
+The finite number of branches for $z_0$ changes only the constant.
+Thus this chart contributes at most $C(1+s)^p$.
+
+Compactness of $\cX_0$ supplies finitely many such charts, and properness
+places every sufficiently small fibre in their union.  Summing gives
+the upper bound in \eqref{eq:mp-log-volume-bound}.  A smaller chart
+centered at a point belonging to only one central component has $p=0$.
+On its nonzero fibres the same density integrates to a quantity bounded
+below by a positive constant.  This gives the lower bound, and hence
+\[
+          \lim_{s\to\infty}\frac1s
+              \log\int_X\mathrm{e}^{f_s}\,\mathrm{d}\mu=0.
+\]
+No projective embedding or integral K\"ahler class enters this
+calculation.
+\end{proof}
+
+The same construction for $D_{\cX}+\cX_0$ replaces $g_{\cX}$ by
+$A^{\mathrm{tot}}\circ p_{\cX}$ and the compatible test by $f_s+s$.
+Its entropy normalizing term has slope
+\[
+ \lim_{s\to\infty}\frac1s
+     \log\int_X\mathrm{e}^{f_s+s}\,\mathrm{d}\mu=1.
+\]
+Thus using the total discrepancy while discarding this term is precisely
+the missing unit in the total-normalization inequality.
+
+\begin{theorem}\label{thm:mp-reduced-entropy-slope}
+Let $\phi\in\mathcal E^1(\alpha)$ and let $U$ be its maximal
+finite-energy geodesic ray with any fixed finite-energy initial value.
+For $\mu=\omega^n/V_\alpha$, let $H_\mu(U_s)$ denote the relative entropy
+of the probability measure $\MA_\omega(U_s)$ with respect to $\mu$.
+Then
 \[
  \Ent_\alpha^{\NA}(\phi)
- \leq\liminf_{s\to+\infty}\frac{H_\mu(U_s)}s
+       \leq\liminf_{s\to\infty}\frac{H_\mu(U_s)}s,
+ \qquad
+ M_\alpha^{\NA}(\phi)
+       \leq\liminf_{s\to\infty}\frac{M_\omega(U_s)}s.
+ \tag{60.28b}\label{eq:mp-reduced-entropy-slope}
 \]
-holds for a maximal ray, then adding the first two proved identities in
-\eqref{eq:mp-basic-slopes} gives the corresponding Mabuchi inequality.
-No later argument in this book uses that formal implication as an
-independently proved result.
-\end{warning}
+Both inequalities are understood in the extended real sense.
+\end{theorem}
+
+\begin{proof}
+Fix one snc model $\cX$ and take $f_s$ from
+\Cref{lem:mp-log-volume-test}.  For each fixed $s$, this is a smooth
+bounded test function on $X$.  The variational formula for relative
+entropy gives
+\[
+ H_\mu(U_s)\geq
+       \int_X f_s\,\MA_\omega(U_s)
+          -\log\int_X\mathrm{e}^{f_s}\,\mathrm{d}\mu .
+\]
+This holds also for infinite entropy.  The first integral is the
+normalized mixed pairing with testing slot $(0,f_s)$.
+Applying \Cref{thm:mp-mixed-slope} to this smoothly compatible PL test gives
+\[
+ \lim_{s\to\infty}\frac1s\int_X f_s\,\MA_\omega(U_s)
+ =V_\alpha^{-1}(0,g_{\cX})(\alpha,\phi)^n
+ =\int_{X^{\bethan}}g_{\cX}\,\MA_\alpha(\phi).
+\]
+The logarithmic term divided by $s$ tends to zero by
+\eqref{eq:mp-log-volume-bound}.  We conclude that
+\[
+ \int g_{\cX}\,\MA_\alpha(\phi)
+       \leq\liminf_{s\to\infty}\frac{H_\mu(U_s)}s
+\]
+for each fixed model; no uniformity in $\cX$ is needed.
+
+By \eqref{eq:mp-discrepancy-envelope} and discrepancy monotonicity,
+the nonnegative continuous functions $g_{\cX}$ form an increasing
+directed family with supremum $A_X^{\NA}$.  For a Radon measure on a
+compact space, the integral of this supremum equals the supremum of
+their integrals.  To check the net passage, let $h$ be a nonnegative
+continuous function with $h\leq A_X^{\NA}$ and let $\varepsilon>0$.
+The open sets $\{g_{\cX}>h-\varepsilon\}$ cover the compact spectrum.
+A finite subcover and one common dominating model give
+$h\leq g_{\cX}+\varepsilon$ everywhere.  Integrating and then taking
+the supremum over such $h$ proves the asserted equality of integrals,
+by the Radon characterization of the integral of a nonnegative lower
+semicontinuous function.  Taking the supremum over $\cX$ proves the
+entropy inequality.
+
+The other two terms in the Chen--Tian expression for $M_\omega$
+have the finite slopes in \eqref{eq:mp-basic-slopes}.  Adding those
+limits to the entropy inequality proves the Mabuchi inequality.
+\end{proof}
+
 
 \begin{definition}[Uniform stability over finite energy]
 \label{def:mp-uniform-e1-stability}
@@ -1721,9 +1888,9 @@ part of the import: \cite[Definition~2.4.1]{MPWN25} defines entropy using
 with the independently verified factor recorded in
 \eqref{eq:mpwn-s-constant}.  Thus the hypotheses and functional in the
 cited theorem coincide with those above, and its conclusion gives the
-claimed cscK metric.  This proof treats the later theorem as a deep imported
-input; it does not derive it from the unverified normalization repair in the
-preceding warning.
+claimed cscK metric.  The reduced entropy lower bound is proved in
+\Cref{thm:mp-reduced-entropy-slope}; the cscK existence implication still
+uses the later theorem as a deep imported input.
 \end{proof}
 
 \section*{Source note}
@@ -1740,10 +1907,14 @@ the printed entropy-slope argument and cscK implication.  The literal
 discrepancy constructed in MP24 Section~3.2 is total, so
 \eqref{eq:mp-total-reduced-mabuchi} and
 \eqref{eq:mp-total-slope-obstruction} record the exact normalization
-boundary.  Reduced entropy and the finite-energy cscK implication are
-imported from \cite[Definitions~2.4.1--2.4.2 and
-Theorem~2.4.3]{MPWN25}; no independently corrected entropy-slope theorem is
-claimed here.
+boundary.  \Cref{lem:mp-log-volume-test} verifies the analytic snc
+volume estimate from \cite[Lemma~3.11, arXiv version~5]{BHJ19} in the
+squared-norm convention.  Together with the imported mixed-slope theorem,
+it yields the reduced entropy inequality of
+\Cref{thm:mp-reduced-entropy-slope}.  Reduced entropy and the finite-energy
+cscK implication are used with the conventions of
+\cite[Definitions~2.4.1--2.4.2 and Theorem~2.4.3]{MPWN25}; the latter
+existence theorem remains an imported result.
 \Cref{chap:mpwn-cy} uses later results of \cite{MPWN25} to
 upgrade this theory to a full finite-energy Calabi--Yau correspondence;
 \Cref{chap:mpwn-k-stability} explains why that upgrade is also needed before model test

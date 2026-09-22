@@ -209,21 +209,33 @@ probability normalization of d1, and a bound uniform in the model
 index. The complete build has 3,405 pages and 11,481 resolved labels;
 the 38 horizontal overflows remain.
 
+## Chapters 59–62: reduced entropy slopes
+
+The [reduced entropy audit](ch60_reduced_entropy_slope_audit_20260922.md)
+records the analytic snc fibre-volume calculation, its reduced
+discrepancy divisor, and the entropy variational argument. The
+normalizer for total discrepancy has slope one, explicitly exposing
+the old normalization error. Directed model limits are justified by
+compactness and Radon integration. Chapter 62 now records the
+corresponding Mabuchi lower bound, while entropy equality and the
+deep cscK existence input remain separate.
+The full build has 3,407 pages and 11,486 resolved labels, with the
+same 38 horizontal overflows and unchanged open-problem inventory.
+
 ## Next work
 
-1. Examine Chapter 60's reduced-discrepancy entropy slope. The current
-   warning retains the failed total-discrepancy normalization and does
-   not yet certify the proposed reduced repair. Check the analytic
-   snc fiber integral in BHJ19 Lemma 3.11 and all model compatibility
-   and limit steps before changing that boundary.
+1. Investigate the difference in body size between scoped Chapter 60
+   and the complete build before resolving the 38 horizontal layout
+   overflows. Determine whether a font declaration has escaped its
+   intended scope; do not assume the difference is intentional or a
+   defect without tracing it.
+2. Continue the mathematical and source audit through Chapter 61.
    General Kähler maximal-ray existence, sequential regularization
    and the full mixed-slope reduction remain explicit source inputs.
-2. Review the 38 horizontal layout overflows in the full build.
-   Repeat the complete build after coherent revisions; preserve dated
-   checksum ledgers for their stated snapshots.
 3. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from stratified comparison.
    No extension beyond the current hypotheses is asserted.
-4. Continue chapter-level mathematical, source and editorial checks.
-   Commit and push coherent checked units with outstanding limits
-   recorded; no force pushes or changes to visibility.
+4. Repeat the complete build after coherent revisions; preserve dated
+   checksum ledgers for their stated snapshots. Commit and push
+   checked units with outstanding limits recorded; no force pushes
+   or changes to visibility.

@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 22 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,481 unique labels),
-and the full build produces a 3,405-page PDF with no unresolved reference
+The complete source check passes (389 TeX files, 11,486 unique labels),
+and the full build produces a 3,407-page PDF with no unresolved reference
 or citation. The build still reports 38 horizontal layout overflows.
 Source provenance, exact input checksums and validation limits are in the
 [recovery build receipt](manuscript/editorial/source_recovery_build_20260922.md).
