@@ -242,12 +242,23 @@ files and hashes preserved. The complete build has 3,913 pages,
 11,486 resolved labels and no horizontal or vertical overflow.
 The eight affected locations were rendered and inspected.
 
+## Chapters 14 and 19: current and measure pushforward
+
+The [pushforward audit](ch14_pushforward_sign_audit_20260922.md)
+reconciles the involution statement with the book's duality convention,
+checks the negative sign by embedding a point in a line, and records
+the even-dimension case in Appendix J. The curve-skeleton argument
+now pushes the identified Radon measure along a continuous map.
+The complete build has 3,913 pages and 11,487 resolved labels,
+with no horizontal or vertical overflow.
+
 ## Next work
 
-1. Reconcile Chapter 14 Proposition 14.8.1 with the dimension sign
-   computed in its own proof: pushforward commutes with J only
-   after accounting for that convention. Check dependent statements
-   and the overstrong phrase claiming equal dimensions are necessary.
+1. Repair the Chapter 17 projection proofs using the canonical
+   integration-current identities of CLD Sections 16.1.1--16.1.5.
+   Do not use a pullback of arbitrary currents or discard exceptional
+   sets merely because their analytic dimension is smaller.
+   Then audit the remaining slope-identification steps in Chapter 19.
 2. Continue the mathematical and source audit through Chapter 61.
    A useful next expansion is the point-mass energy estimate from
    truncated normalized psh functions and the zero-model Dirac mass.
