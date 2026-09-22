@@ -1754,3 +1754,10 @@ Demailly–Păun criterion. The arbitrary normal-model clause remains explicitly
 imported. The same [audit](ch60_relative_nef_audit_20260922.md) records its
 scope, second-pass validation, and two introductory terminology corrections.
 The Fubini–Study warning is the next separate comparison audit.
+
+The Fubini--Study follow-up now replaces the unsupported blanket strict
+inclusion by the rational algebraic line-bundle calculation and the
+published BJ distinction between dominating ample models and all ample
+models. Appendix I records Stacks Tag 0D2S. The exact Chapter 71 comparison
+text remains unchanged. Validation and the continuing full-build limit
+are recorded in the same audit.

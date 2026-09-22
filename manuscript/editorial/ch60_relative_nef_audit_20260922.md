@@ -70,7 +70,7 @@ No common model for the entire net is assumed.
 ## Validation and remaining limits
 
 - Baseline scoped Chapter 60 build: 82 pages, two unresolved occurrences
-  of an external Chapter 69 label, and one 4.25891 pt overfull display.
+  of an external Chapter 71 label, and one 4.25891 pt overfull display.
 - Second-pass scoped build: 84 pages, the same two external-reference
   occurrences, no unresolved citation, and no overfull box. The old energy
   display was split into two aligned lines without changing its mathematics.
@@ -129,3 +129,59 @@ line-bundle class, replacing the false assertion that there need be no
 line bundle at all. Fixed-background psh sets are called classes rather
 than cones. The separate Fubini–Study warning still needs a model-category
 and rationality audit; it is not validated by this descent proof.
+
+## Follow-up: Fubini--Study comparisons
+
+The warning `warn:mp-h-not-fs` no longer asserts a blanket strict inclusion
+from the absence of a line bundle. For a smooth projective algebraic model,
+an ample rational polarization and a rational vertical Cartier divisor
+produce an actual line bundle after clearing denominators. Relative Kähler
+positivity then gives fibrewise ampleness by Nakai--Moishezon and relative
+ampleness by the fibre criterion. This is a statement about the specified
+algebraic model, not an algebraization theorem for all analytic models.
+
+The published [Boucksom--Jonsson PDF](https://afst.centre-mersenne.org/item/10.5802/afst.1705.pdf)
+was checked at Corollary 2.32 (p. 686), Definition 3.8 and Example 3.9
+(p. 694). These identify the algebraic Fubini--Study locus with ample,
+integrally closed test configurations, and distinguish its sublocus whose
+ample model dominates the trivial model. The warning now records that
+distinction and explains why passage to a common resolution cannot be used
+to identify the strictly positive loci: it preserves nefness but can lose
+ampleness. No equality or strict containment for the unrestricted analytic
+Kähler model locus is asserted by this revision.
+
+[Stacks Tag 0D2S](https://stacks.math.columbia.edu/tag/0D2S), checked on
+22 September 2026, is the proper-morphism fibre criterion actually used.
+Appendix I now records its hypotheses, first use, and algebraic scope.
+The definition of `H(alpha)` explicitly permits some normal model; it does
+not require positivity to survive every snc refinement.
+
+The full MP--BJ psh comparison is in **Chapter 71**, not Chapter 69; the
+earlier audit and continuation note have been corrected. That comparison
+uses common-model nefness and decreasing completions. Its frozen text,
+including its historical discussion of MP24 Remark 4.1.3, was not changed
+or newly certified. The Chapter 71 file's SHA-256 is unchanged:
+`05ce1967cb4d083613bcb72dae1c23ebbc60156840f9fa3555caba32d85ad634`.
+
+Validation:
+
+- The second reading checked rational denominators, the line-bundle class,
+  properness, the fibrewise criterion, the dominance condition, and the
+  distinction between nef and strictly positive representatives.
+- The scoped Chapter 60 build is 84 pages with no overfull box or
+  unresolved citation. The newly added pointer gives three occurrences
+  of the existing external Chapter 71 reference, rather than the baseline
+  two. That label exists in the full source graph.
+- The Appendix I scoped baseline has 79 pages; the revised scoped build
+  has 81 pages. Both have no overfull box, unresolved reference or citation.
+  These diagnostic drivers are not complete-book releases.
+- The strict writing audit of the new warning and appendix entry has zero
+  errors and one reviewed warning: the existing `warn:` label prefix is
+  outside the house audit's list. The established label is preserved.
+- The new warning, appendix dependency entry and table were rendered and
+  inspected (physical pages 58 of the Chapter 60 driver and 61, 67 of the
+  appendix driver). The existing compact table's close column spacing is
+  a separate layout follow-up.
+- The source check retains the one missing Chapter 70 input and thirteen
+  unresolved file/label pairs, with 388 available files and 11,428 labels.
+  The open-problem inventory and whitespace check pass.

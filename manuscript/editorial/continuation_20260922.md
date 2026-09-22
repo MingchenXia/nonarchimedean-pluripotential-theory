@@ -108,15 +108,22 @@ assertion as an explicit import and corrects the introduction's line-bundle
 claim and fixed-background cone terminology. The new proof has passed the
 second reading, scoped compilation, source check, and visual inspection.
 
+The Fubini--Study warning now distinguishes rational algebraic line-bundle
+models from unrestricted analytic models and records the BJ dominating
+ample locus. Appendix I includes the proper-morphism fibre criterion used
+in that explanation. The same source audit records the published BJ
+locators, second-pass checks, and the unchanged Chapter 71 comparison.
+
 ## Next work
 
 1. Restore the missing Chapter 70 source from the original working copy,
    retaining its proof and provenance. Re-run the strict source check and
    a complete LaTeX/BibTeX/MakeIndex build before claiming reproducibility.
-2. Audit Chapter 60's Fubini–Study warning against its actual rational
-   vertical-divisor convention and model category, and against the Chapter
-   69 comparison. The snc model-independence descent is now written out;
-   the general normal-model statement remains an explicit import.
+2. Continue Chapter 60's operation and approximation proofs after the
+   completed numerical-nefness, model-independence and Fubini--Study audits.
+   The arbitrary normal-model assertion remains an explicit import.
+   Improve Appendix I's compact table column spacing found during visual
+   inspection, without changing its dependency statements.
 3. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from the stratified comparison
    conditions. No extension beyond the current hypotheses is asserted here.
