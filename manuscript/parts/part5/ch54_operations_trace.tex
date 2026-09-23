@@ -1151,50 +1151,91 @@ outputs even though they do not agree on arbitrary quasi-psh functions.
 
 \section{Trace of a transcendental metric}
 
-\begin{definition}[Natural domain for NA trace]
+Retain the smooth ambient manifold $X$, the irreducible subset $Y$,
+and $\rho:\widetilde Y\to X$ from the preceding section.
+For a fixed interior parameter $\tau<\Gamma_{\max}$, transition
+compatibility \eqref{eq:tna-component-compatibility} implies
+\[
+ \Gamma_\tau^{\theta+\omega_1}
+ \sim_{\mathcal I}\Gamma_\tau^{\theta+\omega_2}
+ \quad\text{for all }\omega_1,\omega_2\in\operatorname{Kah}(X).
+\]
+Indeed, compare both components with a common smaller K\"ahler
+perturbation and use preservation of the $\mathcal I$-class by
+the envelope.  In particular, their generic Lelong numbers along
+$Y$ agree.
+
+\begin{definition}
 \label{def:operations-na-trace-domain}
-Let \(\Gamma\in\PSH^{\NA}(X,\theta)\).  Its trace along \(Y\) is defined
-when
+Let $\Gamma\in\PSH^{\NA}(X,\theta)$.
+Its trace along $Y$ is defined when
 \[
  \nu(\Gamma_\tau^{\theta+\omega},Y)=0
 \tag{54.28}\label{eq:operations-na-trace-domain}
 \]
-for every K\"ahler form \(\omega\) and all sufficiently negative
-\(\tau\).  In that case put
+for every K\"ahler form $\omega$ and all sufficiently negative
+$\tau$.  In that case put
 \[
- (\Tr_Y\Gamma)_{\max}
+ c_Y(\Gamma):=(\Tr_Y\Gamma)_{\max}
  :=\sup\{\tau<\Gamma_{\max}\mid
           \nu(\Gamma_\tau^{\theta+\omega},Y)=0\}.
 \tag{54.29}\label{eq:operations-na-trace-max}
 \]
-This value is independent of \(\omega\).
 \end{definition}
 
-For a K\"ahler form \(\eta\) on \(\widetilde Y\), choose a K\"ahler
-form \(\widetilde\omega\) on \(X\) with
-\(\eta\geq\widetilde\omega|_{\widetilde Y}\).  For
-\(\tau<(\Tr_Y\Gamma)_{\max}\), set
+The preceding comparison proves independence of $\omega$.
+Since the levels decrease in $\tau$, their generic Lelong numbers
+increase.  Their zero set is therefore an initial interval.
+Consequently \eqref{eq:operations-na-trace-domain} is equivalent
+to the existence of one K\"ahler form $\omega$ and one interior
+parameter $\tau_0$ with zero generic Lelong number.
+If the trace is defined, then
+$-\infty<c_Y(\Gamma)\leq\Gamma_{\max}$, and every
+$\tau<c_Y(\Gamma)$ lies in $D_Y$.
+No test at the ambient terminal level is required.
+
+For $\eta\in\operatorname{Kah}(\widetilde Y)$, put
+$\beta_\eta=\rho^*\theta+\eta$.
+Choose an ambient K\"ahler form $\widetilde\omega$ so small that
+$\rho^*\widetilde\omega\leq\eta/4$.
+Such a choice exists by compactness, after scaling a fixed ambient
+K\"ahler form.  For $\tau<c_Y(\Gamma)$, define
 \[
- (\Tr_Y\Gamma)_\tau^{\theta|_{\widetilde Y}+\eta}
+ T_\tau^\eta:=
+ (\Tr_Y\Gamma)_\tau^{\beta_\eta}
  :=
- P_{\theta|_{\widetilde Y}+\eta}
- \left[
- \Tr_Y^{\theta+\widetilde\omega}
-   \bigl(\Gamma_\tau^{\theta+\widetilde\omega}\bigr)
+ P_{\beta_\eta}
+ \left[\Tr_Y\bigl(\Gamma_\tau^{\theta+\widetilde\omega}\bigr)
  \right]_{\mathcal I}.
 \tag{54.30}\label{eq:operations-na-trace}
 \]
+Here the inner trace is the class-valued analytic trace of
+\Cref{def:operations-analytic-trace}.
+The construction below proves that this class has a positive-mass
+representative in $\beta_\eta$; it does not presuppose a trace
+representative in the smaller class
+$\rho^*(\theta+\widetilde\omega)$.
 
 \begin{proposition}\label{prop:operations-na-trace}
-Formula \eqref{eq:operations-na-trace} is independent of all choices and
-defines
+Formula \eqref{eq:operations-na-trace}, with the closed endpoint
+convention \eqref{eq:rays-test-endpoint}, is independent of all choices
+and defines
 \[
  \Tr_Y\Gamma\in
- \PSH^{\NA}(\widetilde Y,\theta|_{\widetilde Y}).
+ \PSH^{\NA}(\widetilde Y,\rho^*\theta).
 \tag{54.31}\label{eq:operations-na-trace-target}
 \]
-If \(\pi:X'\to X\) is proper bimeromorphic, \(Y\) is not contained in
-its non-isomorphism locus, and \(Y'\) is the strict transform, then
+For $m=\dim Y>0$, every target perturbation satisfies the uniform bound
+\[
+ \int_{\widetilde Y}
+ \bigl\langle(\beta_\eta+\ddc T_\tau^\eta)^m\bigr\rangle
+ \geq 2^{-m}\int_{\widetilde Y}\eta^m>0
+ \quad(\tau<c_Y(\Gamma)).
+\tag{54.31a}\label{eq:operations-na-trace-mass-floor}
+\]
+If $\pi:X'\to X$ is proper bimeromorphic with $X'$ a smooth compact
+K\"ahler manifold, $Y$ is not contained in its non-isomorphism locus,
+and $Y'$ is the strict transform, then
 \[
  \widetilde\pi^*\Tr_Y\Gamma
  =\Tr_{Y'}(\pi^*\Gamma)
@@ -1204,39 +1245,171 @@ on the normalizations.
 \end{proposition}
 
 \begin{proof}
-If two ambient perturbations are admissible in
-\eqref{eq:operations-na-trace}, move both to a common larger perturbation.
-Compatibility of the DXZ components makes the input levels
-\(\mathcal I\)-equivalent.  By
-\Cref{thm:operations-trace-well-defined}, their analytic traces are
-\(P\)-equivalent, hence also \(\mathcal I\)-equivalent; taking the
-displayed \(\mathcal I\)-envelope in one
-target class makes the normalized levels equal.  Repeating the argument
-for two target perturbations proves the inverse-system cocycle.  Order and
-concavity follow from \Cref{prop:operations-trace-calculus}, and the domain
-condition ensures the required positive-mass interior levels after target
-perturbation.  Since analytic traces are \(\mathcal I\)-good, the displayed
-\(\mathcal I\)-envelopes agree with their \(P\)-envelopes.  Hence the
-levels form the metric of
-\eqref{eq:operations-na-trace-target}.  This is
-\cite[Definition~4.20]{XiaOperationsV3}.
+Fix $\eta$ and write $\beta=\beta_\eta$, $c=c_Y(\Gamma)$.
+Suppose first that $m>0$.
+For $\tau<c$, take a quasi-equisingular approximation
+$a_k\downarrow\Gamma_\tau^{\theta+\widetilde\omega}$ with
+$a_k\in\PSH(X,\theta+\widetilde\omega+\epsilon_k\omega_0)$,
+where $\epsilon_k\downarrow0$ and $\omega_0$ is K\"ahler.
+Since $\rho^*\widetilde\omega\leq\eta/4$, a tail satisfies
+$\epsilon_k\rho^*\omega_0\leq\eta/4$.
+The restrictions $r_k=\rho^*a_k$ are nontrivial and analytic.
+Their curvature obeys
+\[
+ \begin{split}
+ \beta+\ddc r_k
+ &=\rho^*(\theta+\widetilde\omega+\epsilon_k\omega_0+\ddc a_k)\\
+ &\quad+\eta-\rho^*\widetilde\omega-\epsilon_k\rho^*\omega_0\\
+ &\geq\eta/2.
+ \end{split}
+\tag{54.32a}\label{eq:operations-na-trace-curvature-margin}
+\]
+Thus their non-pluripolar masses are at least
+$2^{-m}\int_{\widetilde Y}\eta^m$, independently of $\tau$ and $k$
+in the chosen tail.  The tail index may depend on $\tau$.
+In particular, $\beta$ is big.
+The decreasing normalized model envelopes $P_\beta[r_k]$ converge
+in $d_{S,\beta}$ with this mass bound, by
+\cite[Corollary~6.2.7]{XiaBook}.
+Their limit is $\mathcal I$-good and has the analytic trace class,
+by \Cref{thm:operations-trace-well-defined} and change of background.
+Its normalized $P$- and $\mathcal I$-envelopes therefore agree.
+This constructs exactly $T_\tau^\eta$ and proves
+\eqref{eq:operations-na-trace-mass-floor}.
+If $m=0$, all restricted approximants are finite constants; their
+normalized envelopes are zero, and the target mass is $1$.
 
-For \eqref{eq:operations-na-trace-birational}, pull back
-quasi-equisingular approximants.  Away from the non-isomorphism locus their
-restrictions to the strict transform agree with the pullbacks of the
-original restrictions.  Passing first to \(d_S\)-limits and then to the
-normalized envelopes proves the identity level by level, as in
-\cite[Section~4.8]{XiaOperationsV3}.
+Different ambient perturbations give $\mathcal I$-equivalent input
+levels.  Their analytic traces are $P$-equivalent by
+\Cref{thm:operations-trace-well-defined}.
+Taking the $\mathcal I$-envelope in the fixed class $\beta$
+therefore gives the same $T_\tau^\eta$.
+The smallness condition on $\widetilde\omega$ supplies the preceding
+construction, rather than imposing an additional condition on $\Gamma$.
+
+We check the test-curve axioms before passing to the inverse system.
+Every $T_\tau^\eta$ is an $\mathcal I$-model potential with supremum
+zero.  Monotonicity follows from the analytic trace order.
+For $a,b<c$, $0<s<1$ and $r=(1-s)a+sb$, ambient concavity and
+\Cref{prop:operations-trace-calculus} give
+\[
+ (1-s)T_a^\eta+sT_b^\eta\preceq_P T_r^\eta.
+\]
+The left side is $\beta$-psh and nonpositive.  Since $P$-order implies
+$\mathcal I$-order, it is a candidate in the order description of
+$P_\beta[T_r^\eta]_{\mathcal I}$,
+\cite[Corollary~6.1.3]{XiaBook}.  Hence
+\[
+             (1-s)T_a^\eta+sT_b^\eta\leq T_r^\eta.
+\tag{54.32b}\label{eq:operations-na-trace-concavity}
+\]
+This proves pointwise concavity of the normalized levels.
+The initial level
+$T_{-\infty}^\eta=(\sup_{\tau<c}T_\tau^\eta)^*$
+is $\beta$-psh, and its mass is positive since it dominates any
+fixed interior level.  Increasing closure of $\mathcal I$-model
+potentials, \cite[Proposition~3.2.13]{XiaBook}, gives its
+$\mathcal I$-model normalization.
+Thus $T^\eta$ is a positive-mass $\mathcal I$-model test curve.
+By \Cref{lem:rays-closed-endpoint}, it has the extension
+\[
+ T_c^\eta=\inf_{\tau<c}T_\tau^\eta,\qquad
+ T_\tau^\eta=-\infty\quad(\tau>c).
+\tag{54.32c}\label{eq:operations-na-trace-closed-endpoint}
+\]
+In fact, the uniform bound
+\eqref{eq:operations-na-trace-mass-floor} persists at $c$ by the
+decreasing model-envelope theorem.  Its $\mathcal I$-model property
+follows from \cite[Proposition~3.2.12]{XiaBook}.
+In particular the endpoint is not an identically $-\infty$ level.
+Closedness in the parameter follows from the same lemma.
+
+If $\eta_1\geq\eta_2$, the two normalized levels represent the same
+analytic trace class.  Uniqueness of the normalized
+$\mathcal I$-model representative gives
+\[
+       P_{\beta_{\eta_1}}[T_\tau^{\eta_2}]_{\mathcal I}
+       =T_\tau^{\eta_1}\qquad(\tau<c).
+\tag{54.32d}\label{eq:operations-na-trace-transition}
+\]
+All components have the same terminal parameter $c$.
+The endpoint identity follows by decreasing $d_S$-convergence with
+the uniform positive mass bound and continuity of the
+$\mathcal I$-envelope, \cite[Theorem~6.2.3]{XiaBook}.
+The initial-level identity follows by increasing envelope
+continuity, as in \eqref{eq:tna-minus-infinity-transition}.
+Consequently \eqref{eq:operations-na-trace-transition} is the
+required inverse-system compatibility, proving
+\eqref{eq:operations-na-trace-target}.
+
+Finally consider $\pi$ and $Y'$ as in the statement.
+Near the generic point of $Y$ the modification is an isomorphism,
+so generic Lelong numbers of corresponding pullback levels agree.
+The component classes upstairs are those of the pulled-back
+levels, after a K\"ahler perturbation and $\mathcal I$-projection.
+It follows that the two traces in
+\eqref{eq:operations-na-trace-birational} have the same domain
+and terminal parameter.
+For each common interior parameter, the analytic identity
+\[
+ \widetilde\pi^*\Tr_Y(\varphi)
+ \sim_P\Tr_{Y'}(\pi^*\varphi)
+\tag{54.32e}\label{eq:operations-na-trace-analytic-pullback}
+\]
+is \cite[Lemma~8.2.1]{XiaBook}.
+Its proof uses pullback of quasi-equisingular approximations
+and bimeromorphic invariance of $d_S$-convergence.
+At the analytic stage, equality of the restricted pullbacks holds
+on the entire normalization by functoriality of composition.
+Taking $\mathcal I$-envelopes in a common target background makes
+the two sides equal as normalized levels.
+The common terminal parameter and the closed endpoint convention
+then prove \eqref{eq:operations-na-trace-birational}.
 \end{proof}
 
-\begin{remark}[Trace domain firewall]
+This is the trace of
+\cite[Definitions~4.18 and 4.20, Section~4.8]{XiaOperationsV3}
+and \cite[Definition~13.2.8 and Proposition~13.2.19]{XiaBook}.
+The curvature estimate \eqref{eq:operations-na-trace-curvature-margin}
+verifies positive mass in every target perturbation before using
+the inverse-limit definition.
+
+\begin{example}
+\label{ex:operations-na-trace-cutoff}
+Take the hyperplane test curve of
+\Cref{ex:rays-hyperplane-test-curve} on $\mathbb P^2$, with
+$\theta=\omega_{\mathrm{FS}}$ and $Y=H$.
+Regard it as a transcendental metric through
+\eqref{eq:tna-positive-embedding}.
+It has $\Gamma_{\max}=1$ and, at every interior level,
+\[
+ \nu(\Gamma_\tau,H)=\max\{\tau,0\}.
+\]
+Projection to a perturbed background preserves this Lelong number.
+Thus $c_H(\Gamma)=0<1$.
+For $\tau<0$ the input has the bounded singularity class, so every
+target component of its trace is $T_\tau^\eta=V_{\beta_\eta}$.
+The closed extension is
+\[
+ T_\tau^\eta=
+ \begin{cases}
+ V_{\beta_\eta},&\tau\leq0,\\
+ -\infty,&\tau>0.
+ \end{cases}
+\tag{54.32f}\label{eq:operations-na-trace-cutoff-example}
+\]
+In particular, the cutoff level is retained.
+\end{example}
+
+\begin{remark}
 \label{rem:operations-trace-firewall}
-Condition \eqref{eq:operations-na-trace-domain} is part of the
-definition.  It is not enough to check one terminal level, nor may one
-replace it by nontrivial pointwise restriction.  The supremum in
-\eqref{eq:operations-na-trace-max} may be strictly smaller than
-\(\Gamma_{\max}\), and levels at or above it are governed by the
-extended convention rather than by analytic restriction.
+The trace domain is determined by the interior zero-Lelong interval.
+It can be tested at one interior level in one perturbation, using
+compatibility and monotonicity as above.
+Pointwise finiteness along $Y$ is not necessary.
+At $c_Y(\Gamma)$ the definition uses the left limit of normalized
+target levels, and only levels strictly beyond this cutoff are
+identically $-\infty$.
 \end{remark}
 
 \begin{remark}[Source note]
@@ -1252,8 +1425,8 @@ The order-reflection input is also
 The mass bound in \Cref{prop:operations-inf-positive-mass}
 verifies the positive-mass prerequisite of the decreasing-envelope
 theorem before its application to inverse systems.  The analytic trace, its comparison
-calculus, and its continuity follow \cite{DX24} and the complete supplied
-trace chapter.  The hypotheses
+calculus, and its continuity are treated in \cite[Section~3]{DXTraceV2}
+and \cite[Sections~8.1--8.2]{XiaBook}.  The hypotheses
 used there are retained: broad operations extend to reduced,
 irreducible, unibranch compact K\"ahler spaces, whereas the analytic
 trace and \Cref{thm:operations-trace-p-descent} are stated here on the

@@ -2029,3 +2029,29 @@ The second mathematical/source pass, scoped strict style review,
 reference/inventory checks and final page inspection pass.
 Frozen source and verifier records and the 46 active research atoms
 remain unchanged. No production verification or new atom closure is claimed.
+
+
+## 2026-09-23 — Non-Archimedean trace, mass and closed endpoints
+
+The [non-Archimedean trace audit](ch54_na_trace_audit_20260923.md)
+reconstructs Section 54.7 from the analytic trace class. The domain is
+tested at one interior level in one perturbation. A uniform lower bound
+of 2^(-m) times the target Kähler volume supplies positive mass before
+model-envelope completeness is used, and remains valid at the closed
+cutoff. The proof checks normalized concavity, initial and terminal
+limits, perturbation transitions and birational pullback with a smooth
+ambient manifold upstairs.
+
+The worked hyperplane example has ambient terminal parameter 1 and
+trace cutoff 0, with the cutoff level retained. Its Chapter 52 dependency
+now treats nonpositive filtration parameters correctly and uses
+I-goodness under real scaling instead of claiming irrational analytic
+singularities. Exact primary-source locators and the second mathematical
+pass are recorded in the audit.
+
+The final full build has 3,939 pages, 389 TeX inputs and 11,548 labels,
+with no unresolved references, citations or layout overflow. Scoped
+strict style, reference/inventory and final visual checks pass.
+Frozen source and verifier records, the supplied curve file and the
+46 active research atoms remain unchanged. No independent-agent or
+production verification and no new atom closure are claimed.
