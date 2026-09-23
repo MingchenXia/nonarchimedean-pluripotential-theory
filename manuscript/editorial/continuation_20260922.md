@@ -1182,15 +1182,41 @@ frozen packets, verifier receipts and dated releases retain their prior
 bytes. All 45 research atoms are unchanged. No independent-agent or
 production-verifier pass is asserted.
 
+## Chapter 61: finite divisorial approximation, 24 September 2026
+
+The [atomic-approximation audit](ch61_atomic_approximation_audit_20260924.md)
+constructs finite divisorial measures on a fixed dual complex by integrating
+the nodal functions of rational subdivisions. Convexity gives increasing
+dual energy and strong convergence; affinity of discrepancy preserves
+entropy exactly. A dyadic interval example checks the endpoint half-weights
+and entropy 1/2. The strong evaluation estimate and support domination
+give a uniform bound for normalized solutions, with a constant depending
+only on the fixed complex and class. Thus fixed-complex solutions admit
+uniform PL-envelope approximation. A separate diagonal choice gives
+strong PL-envelope approximation with entropy convergence for every
+finite-energy potential, including an infinite entropy limit.
+
+Two complete local proof/source passes and full builds are complete.
+The final PDF has 3,995 pages; 390 inputs and 11,673 labels pass the
+reference/structure check. There are no unresolved references/citations
+or layout overflows; physical pages 3406--3411 were visually inspected.
+The scoped house audit has zero errors and one reviewed preprint warning.
+Apart from one updated introductory sentence, all prior Chapter 61 bytes
+are preserved. Chapter 60, P12.1 integration/provenance, author originals,
+bibliography, frozen packets, verifier receipts and dated releases are
+unchanged. All 45 research atoms remain active as before. This is a local
+two-pass consequence audit, with no independent-agent or production-
+verifier verdict claimed.
+
 ## Next work
 
-1. Continue the Chapter 61 approximation interface on a fixed dual complex:
-   check energy and entropy convergence, the finite-support approximation
-   and its passage to continuous potentials, with exact source boundaries.
-   Preserve the existing verifier-backed convexity and boundary-continuity
-   passages and their receipts, the completed strong-pairing and variational
-   arguments, Chapter 60, and P12.1 integration/provenance. Retain the
-   distinction between normalized model inequalities and raw big-class tests.
+1. Continue the Chapter 62 completion argument using the now-proved
+   finite-divisorial entropy approximation: audit the exact testing set,
+   preservation of the same coercivity constant, and the continuous
+   part of Mabuchi under this limit. Preserve the source boundaries
+   between PL envelopes, normalized models and raw big-class inequalities,
+   all completed Chapter 60--61 proofs, P12.1 integration/provenance,
+   and exact verifier-backed passages and receipts.
 2. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from stratified comparison.
    No extension beyond the current hypotheses is asserted.

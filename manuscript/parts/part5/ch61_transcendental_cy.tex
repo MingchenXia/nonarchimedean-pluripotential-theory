@@ -1238,6 +1238,83 @@ Corollary~7.2.3]{MPWN25}, with the Radon hypotheses and the
 sequential selection explicit.
 \end{proof}
 
+Use the pushforward formula \eqref{eq:mpwn-retracted-measure} also for arbitrary Radon probability measures. For a fixed snc model $\cX$, entropy of the retracted measure is continuous under weak convergence. Indeed, the function $a_{\cX}=A_X^{\NA}\circ i_{\cX}\circ p_{\cX}$ is continuous and bounded. Thus, for any weakly convergent net of Radon probability measures $\nu_i\rightharpoonup\nu$,
+\[
+ \Ent((\nu_i)_{\cX})=\int a_{\cX}\,\rd\nu_i
+       \longrightarrow\int a_{\cX}\,\rd\nu
+       =\Ent(\nu_{\cX}).
+\tag{61.27a}\label{eq:mpwn-fixed-model-entropy}
+\]
+This is the argument of \cite[Lemma~7.2.4, p.~28]{MPWN25}; finiteness of the unretracted measures' energies is not used in this calculation.
+
+Barycentric interpolation on a fixed dual complex supplies finite divisorial support while preserving entropy.
+
+\begin{proposition}\label{prop:mpwn-barycentric-measures}
+Fix an snc model $\cX$ and identify its dual complex $\Delta=\Delta_{\cX}$ with its monomial image. Every Radon probability measure $\nu$ supported on $\Delta$ has finite energy and finite entropy. It admits a sequence $\nu_m$ of probability measures with finite divisorial support in $\Delta$ such that
+\[
+ \begin{gathered}
+ \nu_m\longrightarrow\nu\quad\text{strongly},\qquad
+ E_\alpha^\vee(\nu_m)\uparrow E_\alpha^\vee(\nu),\\
+ \Ent(\nu_m)=\Ent(\nu)\quad\text{for every }m.
+ \end{gathered}
+\tag{61.27b}\label{eq:mpwn-barycentric-convergence}
+\]
+\end{proposition}
+
+\begin{proof}
+The uniform bound in the proof of \Cref{thm:mpwn-convex-restriction} gives $0\leq M_\Delta<+\infty$ such that $-M_\Delta\leq u|_\Delta\leq0$ for every sup-normalized $u\in\PSH(\alpha)$. In particular $T(v)\leq M_\Delta$ for $v\in\Delta$. For normalized $u\in\mathcal E^1(\alpha)$, monotonicity gives $E_\alpha(u)\leq0$, so
+\[
+ 0\leq E_\alpha^\vee(\nu)
+      =\sup_{u\in\mathcal E^1_{\sup}(\alpha)}\left(E_\alpha(u)-\int u\,\rd\nu\right)
+      \leq M_\Delta.
+\]
+The discrepancy $A_X^{\NA}|_\Delta$ is finite, continuous and affine on each face by \eqref{eq:mp-total-discrepancy} and \eqref{eq:mp-reduced-discrepancy}. It is therefore bounded on $\Delta$, proving finite entropy.
+
+Choose nested finite rational triangulations $\mathcal T_m$ of $\Delta$, each subordinate to its original faces, with mesh tending to zero. Successive barycentric subdivisions of one compatible rational triangulation suffice. For each vertex $v$ of $\mathcal T_m$, let $\lambda_{m,v}$ be its continuous piecewise affine nodal function, taking value $1$ at $v$ and $0$ at every other vertex. On every simplex these functions are its barycentric coordinates; hence they are nonnegative and sum to one. Define
+\[
+ \nu_m:=\sum_{v\in\operatorname{Vert}(\mathcal T_m)}
+                  \left(\int_\Delta\lambda_{m,v}\,\rd\nu\right)\delta_v.
+\tag{61.27c}\label{eq:mpwn-barycentric-measure}
+\]
+Every vertex is rational and hence divisorial. The coefficients are nonnegative real numbers of sum one; zero coefficients may be omitted.
+
+For $g\in C^0(\Delta)$, put $I_mg=\sum_v g(v)\lambda_{m,v}$. Then
+\[
+                   \int g\,\rd\nu_m=\int I_mg\,\rd\nu.
+\]
+At each point, $I_mg$ is a convex combination of values of $g$ at vertices of its simplex. Uniform continuity of $g$ and the vanishing mesh therefore give $\|I_mg-g\|_\infty\to0$. Applying this to restrictions of continuous functions on $X^{\bethan}$ proves $\nu_m\rightharpoonup\nu$.
+
+For $u\in\mathcal E^1(\alpha)$, its restriction to each face is continuous and convex by \Cref{thm:mpwn-convex-restriction}. Convexity gives $u\leq I_mu$. Since every refined simplex lies in a simplex on which $I_mu$ is affine, the same barycentric comparison gives $I_{m+1}u\leq I_mu$. Thus $I_mu\downarrow u$ uniformly on $\Delta$, and
+\[
+ E_\alpha(u)-\int u\,\rd\nu_m
+       \uparrow E_\alpha(u)-\int u\,\rd\nu.
+\]
+Taking the two suprema in either order gives
+\[
+ \sup_m E_\alpha^\vee(\nu_m)
+   =\sup_{u\in\mathcal E^1(\alpha)}\sup_m
+       \left(E_\alpha(u)-\int I_mu\,\rd\nu\right)
+   =E_\alpha^\vee(\nu).
+\]
+This proves the energy assertion in \eqref{eq:mpwn-barycentric-convergence}. Together with weak convergence this proves strong convergence. Finally $I_m(A_X^{\NA}|_\Delta)=A_X^{\NA}|_\Delta$, because the discrepancy is affine on every original face. Integrating gives the exact entropy identity. The construction also applies to zero-dimensional faces, where interpolation leaves every function unchanged.
+\end{proof}
+
+\begin{example}\label{ex:mpwn-interval-barycentric-measures}
+Take $X=\mathbf P^1$ and $\alpha=c_1(\cO(1))$. On the model obtained by blowing up $(p,0)$, the dual interval consists of $v_t=t\ord_p$ for $0\leq t\leq1$, with $v_0=v_{\triv}$. The reduced discrepancy is affine on this interval. Its root value is $0$ and its exceptional value is $1$, since the exceptional divisor has central multiplicity $1$ and relative canonical coefficient $1$. Thus $A_X^{\NA}(v_t)=t$, consistently with \Cref{ex:mp-discrepancy-curve-normalization}. Let $\nu$ be the image of Lebesgue probability measure on $[0,1]$. For $N=2^m$ and $h=N^{-1}$, \eqref{eq:mpwn-barycentric-measure} becomes
+\[
+ \nu_m=\frac h2\delta_{v_0}
+              +h\sum_{k=1}^{N-1}\delta_{v_{kh}}
+              +\frac h2\delta_{v_1}.
+\]
+The endpoint hat functions have integral $h/2$ and the interior ones have integral $h$. These weights sum to one, and
+\[
+ \Ent(\nu_m)=h\sum_{k=1}^{N-1}kh+\frac h2
+            =\frac12=\Ent(\nu).
+\]
+Thus a measure with no atoms is approximated strongly by finite divisorial measures on the same interval, with exactly the same entropy.
+\end{example}
+
+
 \section{Comparison, locality, and regularity}
 
 \begin{theorem}\label{thm:mpwn-locality}
@@ -1273,10 +1350,7 @@ no claim is made that the preceding summary reconstructs its model
 neighborhood argument independently.
 \end{proof}
 
-The consequence actually used three times below --- in
-\Cref{thm:mpwn-dual-complex-regularity}, in
-\Cref{cor:mpwn-divisorial-envelope}, and again in
-\Cref{chap:mpwn-k-stability} --- is the following domination principle.
+The following domination principle will also be used in \Cref{chap:mpwn-k-stability}.
 
 \begin{corollary}[Domination on the support]
 \label{cor:mpwn-domination}
@@ -1382,6 +1456,49 @@ Hence \(\phi\leq P_\alpha(f)\).  On the other hand,
 Monge--Amp\`ere measure is \(\mu\).  This is
 \cite[Proposition~8.3.2]{MPWN25}.
 \end{proof}
+
+\begin{corollary}\label{cor:mpwn-fixed-complex-uniform-solutions}
+Fix an snc model $\cX$ and put $\Delta=\Delta_{\cX}$. For $n\geq1$, there is a constant $C_{\alpha,\Delta}$ such that the sup-normalized solutions $\phi,\psi$ for any two Radon probability measures $\mu,\nu$ supported on $\Delta$ satisfy
+\[
+ \|\phi-\psi\|_{C^0(X^{\bethan})}
+        \leq C_{\alpha,\Delta}\,
+                         \delta_\alpha(\mu,\nu)^{2^{-n}}.
+\tag{61.29a}\label{eq:mpwn-fixed-complex-uniform-bound}
+\]
+For every such $\mu$, its solution is a uniform and strong limit of normalized envelopes $P_\alpha(f_m)$ with $f_m\in\PL_{\mathbf R}(X^{\bethan})$, whose Monge--Amp\`ere measures have finite divisorial support in $\Delta$ and entropy equal to $\Ent(\mu)$.
+\end{corollary}
+
+\begin{proof}
+All the measures have finite energy by \Cref{prop:mpwn-barycentric-measures}, so the solutions exist by \Cref{thm:mpwn-cy} and are continuous by \Cref{thm:mpwn-dual-complex-regularity}. Use the constant $M_\Delta$ from the proof of \Cref{prop:mpwn-barycentric-measures}. Then $T|_\Delta\leq M_\Delta$ and both dual energies are at most $M_\Delta$. By \Cref{prop:mpwn-ordered-ma-distances}, both potential energies $J_\alpha$ are at most $D_nM_\Delta$. Set $R=\max\{1,D_nM_\Delta\}$ and $q=2^{-n}$. Equations \eqref{eq:mpwn-bounded-point-energy-evaluation} and \eqref{eq:mpwn-ma-distance-identity} give
+\[
+ \sup_\Delta|\phi-\psi|
+       \leq C_nR^{1-q}\delta_\alpha(\mu,\nu)^q=:\varepsilon.
+\]
+On $\operatorname{supp}\mu$ one has $\phi\geq\psi-\varepsilon$, so \Cref{cor:mpwn-domination} gives this inequality everywhere. Applying the same principle with reference potential $\psi$ gives $\psi\geq\phi-\varepsilon$ everywhere. This proves \eqref{eq:mpwn-fixed-complex-uniform-bound}, with $C_{\alpha,\Delta}=C_nR^{1-q}$ independent of the measures.
+
+Apply \Cref{prop:mpwn-barycentric-measures} to $\mu$. The solutions for its approximants converge strongly by \Cref{thm:mpwn-cy}, and uniformly by \eqref{eq:mpwn-fixed-complex-uniform-bound}. Each is an envelope of a real PL obstacle by \Cref{cor:mpwn-divisorial-envelope}; translating the obstacle normalizes its envelope. Their entropies equal $\Ent(\mu)$ by construction. In dimension zero all normalized solutions are zero, and the approximation statement holds with a constant sequence.
+\end{proof}
+
+\begin{corollary}\label{cor:mpwn-divisorial-entropy-density}
+For every $\phi\in\mathcal E^1_{\sup}(\alpha)$ there are $f_j\in\PL_{\mathbf R}(X^{\bethan})$ such that $\phi_j=P_\alpha(f_j)$ is sup-normalized, $\MA_\alpha(\phi_j)$ has finite divisorial support, and
+\[
+ \phi_j\longrightarrow\phi\quad\text{strongly},\qquad
+ \Ent(\MA_\alpha(\phi_j))
+           \longrightarrow\Ent(\MA_\alpha(\phi)).
+\tag{61.29b}\label{eq:mpwn-divisorial-entropy-density}
+\]
+The entropy limit may be infinite.
+\end{corollary}
+
+\begin{proof}
+Put $\mu=\MA_\alpha(\phi)$. Choose the retracted measures $\rho_j=\mu_{\cX_j}$ from \Cref{thm:mpwn-measure-approximation}, so $\rho_j\to\mu$ strongly and $\Ent(\rho_j)\to\Ent(\mu)$. On each fixed $\Delta_{\cX_j}$ apply \Cref{prop:mpwn-barycentric-measures} and select a finite divisorial measure $\nu_j$ satisfying
+\[
+ \delta_\alpha(\nu_j,\rho_j)<1/j,
+ \qquad \Ent(\nu_j)=\Ent(\rho_j).
+\]
+The quasi-triangle inequality gives $\delta_\alpha(\nu_j,\mu)\to0$. The Calabi--Yau homeomorphism and \Cref{cor:mpwn-divisorial-envelope} then give normalized $\phi_j=P_\alpha(f_j)$ converging strongly to $\phi$. The displayed entropy identity proves \eqref{eq:mpwn-divisorial-entropy-density}, including the infinite limit. The models may vary with $j$, so this argument yields strong convergence; the uniform estimate \eqref{eq:mpwn-fixed-complex-uniform-bound} applies when the supports lie in one fixed dual complex.
+\end{proof}
+
 
 \section*{Source note}
 
