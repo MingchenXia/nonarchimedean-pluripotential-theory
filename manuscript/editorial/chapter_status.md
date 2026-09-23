@@ -2167,3 +2167,30 @@ records and dated release artifacts are unchanged. No independent-agent
 or production verification and no atom closure are claimed.
 The next unit checks Chapter 58's support and center construction,
 prime coherent ideals, support descent and local point criteria.
+
+
+## 2026-09-23 — Support, center and local recovery
+
+The [support and center audit](ch58_support_center_audit_20260923.md)
+specifies the global coherent-ideal meaning of prime, proves its
+radical/irreducible interpretation, and explains the compactness
+needed for finite sums. A nodal cubic distinguishes this condition
+from primality of the analytic stalk at a node.
+
+The support-stratum proof now checks canonical ideal lifts and both
+inverse maps. Point-center reconstruction uses exact ideal sandwiches
+and the finite truncation formula v(a_k(f))=min(w(f),k v(m_p)),
+including infinite maximal-ideal value and the zero stalk.
+The revised section cites the checked final author version v2 through
+a separate bibliography entry; the published entry is preserved.
+
+The second local mathematical/source pass, strict section-wide style
+audit, reference/inventory checks and final page inspection pass.
+The full build has 3,943 pages, 389 TeX inputs and 11,572 labels,
+with no unresolved references, citations or layout overflow.
+All other Chapter 58 text and pre-existing bibliography entries retain
+their exact bytes. The 46 active atoms, author sources, frozen proofs,
+production verifier records and dated release artifacts are unchanged.
+No independent-agent or production verification and no atom closure
+are claimed. The next unit checks proper bimeromorphic transport,
+the lifted character's positivity, twist independence and resolution.

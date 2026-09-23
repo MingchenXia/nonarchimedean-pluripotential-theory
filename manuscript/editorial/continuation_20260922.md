@@ -641,13 +641,39 @@ or production verification and no atom closure are claimed.
 The next unit checks Chapter 58's support and center construction,
 prime coherent ideals, support descent and local point criteria.
 
+## Chapter 58: support, center and local recovery
+
+The [support and center audit](ch58_support_center_audit_20260923.md)
+specifies the global coherent-ideal meaning of prime, proves its
+radical/irreducible interpretation, and explains the compactness
+needed for finite sums. A nodal cubic distinguishes this condition
+from primality of the analytic stalk at a node.
+
+The support-stratum proof now checks canonical ideal lifts and both
+inverse maps. Point-center reconstruction uses exact ideal sandwiches
+and the finite truncation formula v(a_k(f))=min(w(f),k v(m_p)),
+including infinite maximal-ideal value and the zero stalk.
+The revised section cites the checked final author version v2 through
+a separate bibliography entry; the published entry is preserved.
+
+The second local mathematical/source pass, strict section-wide style
+audit, reference/inventory checks and final page inspection pass.
+The full build has 3,943 pages, 389 TeX inputs and 11,572 labels,
+with no unresolved references, citations or layout overflow.
+All other Chapter 58 text and pre-existing bibliography entries retain
+their exact bytes. The 46 active atoms, author sources, frozen proofs,
+production verifier records and dated release artifacts are unchanged.
+No independent-agent or production verification and no atom closure
+are claimed. The next unit checks proper bimeromorphic transport,
+the lifted character's positivity, twist independence and resolution.
+
 ## Next work
 
-1. Audit Chapter 58's support and center construction: check the exact
-   sheaf-theoretic finite-generation input and the meaning of prime
-   coherent ideals, then verify descent to the support and the local
-   point criteria against the exact Mesquita-Piccione source. Preserve
-   frozen comparison interfaces and the checked Chapter 57 proofs.
+1. Audit Chapter 58's proper bimeromorphic transport: check the lifted
+   character's nonnegativity and independence of twists, treatment of
+   the zero ideal, and the common-resolution argument. Keep algebraic
+   recovery and topology assertions as separate checks. Preserve the
+   frozen interfaces and the checked support/center construction.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
@@ -660,3 +686,7 @@ prime coherent ideals, support descent and local point criteria.
    checksum ledgers for their stated snapshots. Commit and push
    checked units with outstanding limits recorded; no force pushes
    or changes to visibility.
+
+4. In the later bibliography pass, inspect the pre-existing duplicate
+   Nakayama and Odaka entries on current printed page 3872. Any key
+   consolidation must preserve frozen citation sources and records.

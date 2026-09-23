@@ -358,18 +358,53 @@ support condition.
 
 \section{Support and center}
 
-Assume for the rest of this section that \(X\) is a compact reduced
+Assume throughout this section that $X$ is a compact reduced
 irreducible complex space.
-We use the strong Noetherian property of coherent ideal sheaves: locally,
-an increasing family of ideals locally of finite type is stationary.
-Consequently the sum of an arbitrary family of coherent ideals is locally a
-finite sum; compactness then makes it a finite sum globally.  This is the
-coherence input in \cite[Lemma~2.1.1 and Remark~2.1.5]{MP24}.  Ordinary
-Noetherianity of one stalk by itself would not justify the uniform
-neighborhood statement, so the strong sheaf-theoretic form is kept as an
-explicit source boundary.
+We use the strong Noetherian property in
+\cite[Lemma~2.1.1 and Remark~2.1.5]{MPTropicalV2}: an increasing
+sequence of coherent ideal sheaves is locally stationary.
+Compactness makes such a sequence stationary globally, by taking
+a finite cover and the largest of the corresponding indices.
+Consequently any sum of coherent ideal sheaves is a finite sum.
+Indeed, otherwise one could successively add an ideal not contained
+in the preceding finite sum and obtain a strictly increasing sequence.
+This uses local stationarity of sheaves, not just Noetherianity of
+an individual stalk.
 
-For \(v\in X^\bethan\), define
+We also specify the meaning of prime used in this section, following
+\cite[Notations and Conventions, p.~6]{MPTropicalV2}.
+A proper coherent ideal $\mathfrak p$ is \emph{globally prime} if,
+for coherent ideals $\mathfrak a,\mathfrak b$ on $X$,
+\[
+ \mathfrak a\mathfrak b\subseteq\mathfrak p
+ \quad\Longrightarrow\quad
+ \mathfrak a\subseteq\mathfrak p
+ \ \text{or}\ \mathfrak b\subseteq\mathfrak p.
+\tag{58.13a}\label{eq:ts-global-prime}
+\]
+This is equivalent to $\mathfrak p$ being the radical ideal of a
+nonempty irreducible analytic subspace.
+To see the forward implication, the coherent radical
+$\mathfrak q=\sqrt{\mathfrak p}$ satisfies
+$\mathfrak q^N\subseteq\mathfrak p$ for some $N$: local finite
+generation gives such a power near each point, and compactness
+gives a common exponent. Repeated use of
+\eqref{eq:ts-global-prime} gives $\mathfrak q\subseteq\mathfrak p$,
+so $\mathfrak p$ is radical.
+Its zero set has finitely many irreducible components by compactness.
+If there were at least two, take the ideals of one component and
+of the union of the remaining components.
+Their product is contained in $\mathfrak p$, but neither ideal is,
+contradicting \eqref{eq:ts-global-prime}.
+Conversely, if $Y$ is irreducible and
+$\mathfrak a\mathfrak b\subseteq\mathfrak i_Y$, then
+$Y\subseteq V(\mathfrak a)\cup V(\mathfrak b)$.
+Irreducibility and the analytic Nullstellensatz give one of the
+two ideal inclusions in \eqref{eq:ts-global-prime}.
+This global condition does not assert that every proper stalk
+$\mathfrak p_x$ is a prime ideal of $\mathcal O_{X,x}$.
+
+For $v\in X^\bethan$, define
 \[
 \begin{aligned}
  \mathfrak p_s(v)
@@ -379,10 +414,13 @@ For \(v\in X^\bethan\), define
 \end{aligned}
 \tag{58.14}\label{eq:ts-support-center-ideals}
 \]
-These sums are coherent.
+Both families contain the zero ideal. By the finite-sum argument,
+these are coherent ideals and their values are respectively
+$+\infty$ and strictly positive.
 
 \begin{proposition}\label{prop:ts-prime-support-center}
-The ideals \(\mathfrak p_s(v)\) and \(\mathfrak p_c(v)\) are prime.
+The ideals $\mathfrak p_s(v)$ and $\mathfrak p_c(v)$ are globally
+prime, hence define nonempty reduced irreducible analytic subspaces.
 Moreover,
 \[
                          \mathfrak p_s(v)\subseteq\mathfrak p_c(v).
@@ -391,44 +429,64 @@ Moreover,
 \end{proposition}
 
 \begin{proof}
-Finite generation of the sums implies
-\[
- v(\mathfrak p_s(v))=+\infty,
- \qquad
- v(\mathfrak p_c(v))>0.
-\]
-If \(\mathfrak a\mathfrak b\subseteq\mathfrak p_s(v)\), then order reversal
-and multiplicativity give
+Their positive values exclude the unit ideal, whose value is zero.
+If $\mathfrak a\mathfrak b\subseteq\mathfrak p_s(v)$, order
+reversal and multiplicativity give
 \[
  +\infty=v(\mathfrak p_s(v))
-       \leq v(\mathfrak a\mathfrak b)
-       =v(\mathfrak a)+v(\mathfrak b).
+       \leq v(\mathfrak a)+v(\mathfrak b).
 \]
-Thus one factor has infinite value and is contained in
-\(\mathfrak p_s(v)\).
-The same argument with \(>0\), using nonnegativity of both summands, proves
-primality of \(\mathfrak p_c(v)\).
-The inclusion follows from \(+\infty>0\).
+One summand is infinite, so its ideal is contained in
+$\mathfrak p_s(v)$ by the definition of that sum.
+For $\mathfrak p_c(v)$, the same reasoning gives
+$v(\mathfrak a)+v(\mathfrak b)>0$; nonnegativity forces at
+least one summand to be positive. Thus both ideals satisfy
+\eqref{eq:ts-global-prime}. The inclusion follows because an
+infinite value is positive.
 \end{proof}
 
-\begin{definition}[Support and center]
+\begin{samepage}
+\begin{definition}
 \label{def:ts-support-center}
-Set
+The \emph{support} and \emph{center} of $v$ are
 \[
  \Supp(v):=V(\mathfrak p_s(v)),
  \qquad
- Z(v):=V(\mathfrak p_c(v)).
+ Z(v):=V(\mathfrak p_c(v)),
 \tag{58.16}\label{eq:ts-support-center}
 \]
+with their reduced analytic structures.
 \end{definition}
+\end{samepage}
 
 Both are irreducible analytic subspaces, and
 \[
                               Z(v)\subseteq\Supp(v).
 \tag{58.17}\label{eq:ts-center-in-support}
 \]
-The support is where the semivaluation actually lives.
-The center is where it is positive.
+
+\begin{example}
+\label{ex:ts-node-global-prime}
+Consider the projective nodal cubic
+\[
+             C=\{y^2z=x^2(x+z)\}\subset\mathbf P^2.
+\]
+The polynomial $y^2-x^2(x+1)$ is irreducible over $\mathbf C[x,y]$,
+since $x^2(x+1)$ is not a square in $\mathbf C(x)$.
+Thus $C$ is an irreducible projective curve, and its trivial
+ideal character has $\mathfrak p_s=\mathfrak p_c=0$ and
+$\Supp(v_{\triv})=Z(v_{\triv})=C$.
+At $p=[0:0:1]$, however, the analytic local ring is
+\[
+ \mathcal O_{C,p}
+   =\mathbf C\{x,y\}/\bigl(y^2-x^2(1+x)\bigr).
+\]
+The convergent square root of $1+x$ gives two nonzero germs
+$y-x\sqrt{1+x}$ and $y+x\sqrt{1+x}$ whose product is zero.
+Hence the zero ideal is globally prime on $C$, while its stalk
+at the node is not prime. Global support strata retain this
+irreducible curve even though its germ has two branches.
+\end{example}
 
 \begin{proposition}\label{prop:ts-support-stratification}
 There is a disjoint decomposition
@@ -437,43 +495,47 @@ There is a disjoint decomposition
                 =\coprod_{Y\subseteq X}Y^{\val},
 \tag{58.18}\label{eq:ts-support-strata}
 \]
-over irreducible analytic subspaces \(Y\), where \(Y^{\val}\) consists of
-semivaluations with support exactly \(Y\).
-On this stratum, restriction to nonzero ideals of \(Y\) is finite and gives
-a full-support ideal semivaluation on \(Y\).
+over nonempty reduced irreducible analytic subspaces $Y$.
+Here $Y^{\val}$ is the space of ideal semivaluations on $Y$
+that are finite on every nonzero coherent ideal, mapped to
+$X^\bethan$ by $\mathfrak a\mapsto w(\mathfrak a\mathcal O_Y)$.
+Its image consists exactly of the characters with support $Y$.
 \end{proposition}
 
 \begin{proof}
-Every \(v\) has the unique irreducible support
-\(Y=V(\mathfrak p_s(v))\).
-Let \(\mathfrak i_Y=\mathfrak p_s(v)\).  If
-\(\mathfrak b\) is an ideal on \(Y\), choose an ideal
-\(\widetilde{\mathfrak b}\) on \(X\) mapping to it and put
+Let $\Supp(v)=Y$ and $\mathfrak i_Y=\mathfrak p_s(v)$.
+For a coherent ideal $\mathfrak b$ on $Y$, take its inverse
+image $\widetilde{\mathfrak b}$ under
+$\mathcal O_X\to\mathcal O_Y$ and set
+$w(\mathfrak b)=v(\widetilde{\mathfrak b})$.
+The inverse image is coherent and contains $\mathfrak i_Y$.
+Any other lift has the same value, because adjoining
+$\mathfrak i_Y$ does not change a value:
 \[
-                        w(\mathfrak b)
-                        :=v(\widetilde{\mathfrak b}).
+ v(\mathfrak a+\mathfrak i_Y)
+       =\min\{v(\mathfrak a),+\infty\}=v(\mathfrak a).
 \]
-This is independent of the lift.  Indeed, replacing a lift by its sum with
-\(\mathfrak i_Y\) does not change its value, since
-\[
- v(\widetilde{\mathfrak b}+\mathfrak i_Y)
- =\min\{v(\widetilde{\mathfrak b}),+\infty\}
- =v(\widetilde{\mathfrak b}),
-\]
-and two lifts have the same sum with \(\mathfrak i_Y\).
-The semiring laws descend to \(w\).  Moreover, a nonzero ideal on \(Y\)
-cannot have value \(+\infty\), since its lift would then be contained in
-the maximal infinite-valued ideal \(\mathfrak p_s(v)=\mathfrak i_Y\).
-Thus \(w\in Y^{\val}\), and the closed-embedding map sends \(w\) back to
-\(v\).  Conversely, the pushforward of a full-support character of \(Y\)
-has support exactly \(Y\).  Uniqueness of the support makes the union
-disjoint and proves \eqref{eq:ts-support-strata}.
+Sums of lifts lift sums, and the product of two lifts becomes
+the inverse image of the product after adjoining $\mathfrak i_Y$.
+Thus $w$ satisfies both semiring laws, with $w(0)=+\infty$
+and $w(\mathcal O_Y)=0$.
+If $w(\mathfrak b)=+\infty$, its inverse image is contained
+in $\mathfrak p_s(v)=\mathfrak i_Y$, so $\mathfrak b=0$.
+It follows that $w\in Y^{\val}$, and the displayed map in the
+statement recovers $v$.
+
+Conversely, for $w\in Y^{\val}$, the character
+$v(\mathfrak a)=w(\mathfrak a\mathcal O_Y)$ has infinite value
+exactly when $\mathfrak a\subseteq\mathfrak i_Y$.
+Consequently $\mathfrak p_s(v)=\mathfrak i_Y$ and its support
+is $Y$. These constructions are inverse, and uniqueness of the
+support makes the decomposition disjoint.
 \end{proof}
 
-Let \(p\in X\) and let \(\mathfrak m_p\) denote its coherent ideal sheaf.
+Let $p\in X$ and let $\mathfrak m_p$ denote its coherent ideal sheaf.
 
 \begin{proposition}\label{prop:ts-point-criteria}
-For \(v\in X^\bethan\),
+For $v\in X^\bethan$,
 \[
 \begin{aligned}
  Z(v)=\{p\}
@@ -486,13 +548,13 @@ For \(v\in X^\bethan\),
 \end{proposition}
 
 \begin{proof}
-If \(v(\mathfrak m_p)>0\), then
-\(\mathfrak m_p\subseteq\mathfrak p_c(v)\).
-Both ideals are prime and the zero set of the former is the point \(p\), so
-the center is \(p\).
-The converse follows from the radical equality defining that zero set and
-multiplicativity applied to a power of \(\mathfrak m_p\).
-The support statement is identical with \(+\infty\) in place of \(>0\).
+The ideal $\mathfrak m_p$ is maximal among proper coherent
+ideals on $X$. If $v(\mathfrak m_p)>0$, its inclusion in the
+proper ideal $\mathfrak p_c(v)$ therefore gives equality, and
+$Z(v)=\{p\}$. Conversely, a radical coherent ideal with zero
+set $\{p\}$ is exactly $\mathfrak m_p$, so this center condition
+gives $v(\mathfrak m_p)=v(\mathfrak p_c(v))>0$.
+The same argument for $\mathfrak p_s(v)$ proves the support criterion.
 \end{proof}
 
 \begin{proposition}\label{prop:ts-local-global-point}
@@ -502,78 +564,86 @@ The assignment
  v_w(\mathfrak a):=w(\mathfrak a_p),
 \]
 is a bijection from nonnegative semivaluations of
-\(\cO_{X,p}\) that are positive on its maximal ideal to the points of
-\(X^\bethan\) centered at \(p\).
+$\mathcal O_{X,p}$ that are positive on its maximal ideal to
+the points of $X^\bethan$ centered at $p$.
 \end{proposition}
 
 \begin{proof}
-Finite stalk generators show that \(v_w\) satisfies the semiring laws, and
-\(v_w(\mathfrak m_p)>0\); hence it is centered at \(p\) by
-\Cref{prop:ts-point-criteria}.
+Finite stalk generators show that $v_w$ satisfies the semiring
+laws and $v_w(\mathfrak m_p)>0$.
+Thus \Cref{prop:ts-point-criteria} gives its center.
 
-Conversely, let \(v\in X^\bethan\) be centered at \(p\), and put
-\(c:=v(\mathfrak m_p)>0\).  For a germ \(f\in\cO_{X,p}\), let
-\(\mathfrak a_k(f)\) be the global coherent ideal obtained by extending
-\((f)+\mathfrak m_{X,p}^k\) trivially outside \(p\).  Such an extension
-exists because the local ideal equals the unit ideal away from \(p\).
+Conversely, suppose $Z(v)=\{p\}$ and put
+$c=v(\mathfrak m_p)\in(0,+\infty]$.
+Write $A=\mathcal O_{X,p}$ and $\mathfrak m=\mathfrak m_{X,p}$.
+For $f\in A$ and $k\geq1$, the ideal
+$(f)+\mathfrak m^k$ determines a coherent ideal
+$\mathfrak a_k(f)$ on $X$ that is the unit ideal off $p$.
+One construction takes the inverse image of the ideal generated
+by the class of $f$ modulo $\mathfrak m^k$ in
+$\mathcal O_X/\mathfrak m_p^k$.
+This quotient is supported at $p$, so the construction depends
+only on the germ and requires no global extension of $f$.
+The ideals decrease in $k$, and hence their values increase.
 Define
 \[
- w(f):=\lim_{k\to\infty}v(\mathfrak a_k(f)).
+       w(f):=\lim_{k\to\infty}v(\mathfrak a_k(f)).
 \tag{58.19a}\label{eq:ts-local-recovery}
 \]
-The limit exists: the ideals \(\mathfrak a_k(f)\) decrease with \(k\), so
-their values increase, and they are bounded above by \(+\infty\).
-It is independent of the chosen representative of the germ, because two
-representatives agree on a neighborhood of \(p\), while both globalized
-ideals are the unit ideal off that neighborhood.
 
-We verify the semivaluation laws.  Clearly \(w(1)=0\), while
+The unit has value zero, whereas
+$v(\mathfrak a_k(0))=kc\to+\infty$, so $w(0)=+\infty$.
+Here $k(+\infty)=+\infty$, which includes $c=+\infty$.
+The exact ideal inclusions
 \[
- v(\mathfrak a_k(0))=v(\mathfrak m_p^k)=kc\longrightarrow+\infty,
-\]
-so \(w(0)=+\infty\).  For every fixed \(\ell\) and all sufficiently large
-\(k\), the local ideal inclusions
-\[
-\begin{aligned}
- \mathfrak a_k(f)\mathfrak a_k(g)
-      &\subseteq\mathfrak a_\ell(fg),\\
  \mathfrak a_{2k}(fg)
-      &\subseteq\mathfrak a_k(f)\mathfrak a_k(g)
-\end{aligned}
+   \subseteq\mathfrak a_k(f)\mathfrak a_k(g)
+   \subseteq\mathfrak a_k(fg)
 \]
-hold near \(p\); they also hold globally after trivial extension.  The
-first follows because the cross terms \(f\mathfrak m_p^k\) and
-\(g\mathfrak m_p^k\) eventually lie in \(\mathfrak m_p^\ell\), and the
-second from
-\((fg)+\mathfrak m_p^{2k}\subseteq
- ((f)+\mathfrak m_p^k)((g)+\mathfrak m_p^k)\).
-Order reversal and multiplicativity now give, after first letting
-\(k\to\infty\) and then \(\ell\to\infty\),
+hold at $p$ by expanding
+$((f)+\mathfrak m^k)((g)+\mathfrak m^k)$, and off $p$
+all three ideals are the unit ideal.
+Order reversal and multiplicativity give
 \[
-                         w(fg)=w(f)+w(g).
+ v(\mathfrak a_{2k}(fg))
+  \geq v(\mathfrak a_k(f))+v(\mathfrak a_k(g))
+  \geq v(\mathfrak a_k(fg)).
 \]
-Likewise,
-\[
- \mathfrak a_k(f+g)
- \subseteq\mathfrak a_k(f)+\mathfrak a_k(g)
-\]
-gives \(w(f+g)\geq\min\{w(f),w(g)\}\).
-If \(f\) lies in the maximal ideal, then
-\(\mathfrak a_k(f)\subseteq\mathfrak m_p\) for \(k\geq1\), so
-\(w(f)\geq c>0\).  Thus \(w\) is centered at \(p\).
+Taking increasing limits proves $w(fg)=w(f)+w(g)$.
+There is no subtraction of infinite values.
+Similarly,
+$\mathfrak a_k(f+g)\subseteq\mathfrak a_k(f)+\mathfrak a_k(g)$
+gives the semivaluation inequality for sums.
+If $f\in\mathfrak m$, then
+$\mathfrak a_k(f)\subseteq\mathfrak m_p$, so $w(f)\geq c>0$.
 
-Finally, for a coherent global ideal \(\mathfrak a\), finite generation of
-\(\mathfrak a_p\) and \eqref{eq:ts-local-recovery} give
+The reconstruction also has an exact finite-level form.
+For $\ell\geq k$,
+$\mathfrak a_\ell(f)+\mathfrak m_p^k=\mathfrak a_k(f)$.
+Applying $v$ and letting $\ell\to\infty$ yields
 \[
- w(\mathfrak a_p)
- =\lim_{k\to\infty}v(\mathfrak a+\mathfrak m_p^k)
- =\lim_{k\to\infty}\min\{v(\mathfrak a),kc\}
- =v(\mathfrak a).
+              v(\mathfrak a_k(f))=\min\{w(f),kc\}.
+\tag{58.19b}\label{eq:ts-local-finite-truncation}
 \]
-Hence \(v_w=v\).  The reverse composite is immediate from the same formula,
-so the two assignments are inverse.  This is
-\cite[Example~2.1.4]{MP24}, with the monotonicity of the limit made
-explicit.
+For a global coherent ideal $\mathfrak a$, choose finite
+generators $f_1,\ldots,f_r$ of $\mathfrak a_p$, taking $f_1=0$
+if that stalk is zero. Then $\mathfrak a+\mathfrak m_p^k=\sum_j\mathfrak a_k(f_j)$.
+Finite minima commute with these increasing limits, giving
+\[
+ \begin{split}
+ w(\mathfrak a_p)
+ &=\lim_{k\to\infty}v(\mathfrak a+\mathfrak m_p^k)\\
+ &=\lim_{k\to\infty}\min\{v(\mathfrak a),kc\}
+   =v(\mathfrak a).
+ \end{split}
+\]
+Thus $v_w=v$.
+Starting with $w$ instead, the same truncated-ideal formula gives
+$v_w(\mathfrak a_k(f))=\min\{w(f),kw(\mathfrak m)\}$,
+whose limit is $w(f)$ because $w(\mathfrak m)>0$.
+This proves the reverse composite and the bijection.
+It completes the reconstruction in
+\cite[Example~2.1.4, p.~12]{MPTropicalV2}.
 \end{proof}
 
 \section{Functoriality}
