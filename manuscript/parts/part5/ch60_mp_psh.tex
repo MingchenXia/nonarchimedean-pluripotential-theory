@@ -1118,19 +1118,19 @@ Thus $J_\alpha(\phi)\geq0$. When $n=0$, every model function is constant, $E_\al
 
 \section{The monotone completion}
 
-\begin{definition}[Transcendental non-Archimedean psh functions]
+\begin{definition}
 \label{def:mp-general-psh}
 An upper semicontinuous function
-\(\phi:X^{\bethan}\to\mathbf R\cup\{-\infty\}\) is
-\(\alpha\)-psh if it is not identically \(-\infty\) and there exists a
+$\phi:X^{\bethan}\to\mathbf R\cup\{-\infty\}$ is
+$\alpha$-psh if it is not identically $-\infty$ and there exists a
 decreasing net
 \[
         \phi_\lambda\in\PL\cap\PSH(\alpha),
         \qquad \phi_\lambda\downarrow\phi
 \tag{60.16}\label{eq:mp-psh-decreasing-net}
 \]
-pointwise on all of \(X^{\bethan}\).  The resulting space is
-\(\PSH(\alpha)\).
+pointwise on all of $X^{\bethan}$.  The resulting space is
+$\PSH(\alpha)$.
 \end{definition}
 
 Nets are part of the definition: the model category and the topology of the
@@ -1152,8 +1152,7 @@ model $\alpha$-psh function belongs to $\PSH(\alpha)$ as defined above.
 Pass to a smooth snc model $\mu:\mathcal Y\to X\times\mathbf P^1$
 obtained by equivariant blowups and dominating the model of $D$.
 The cofinality and relative-ampleness constructions used here are those
-of \cite[Remark~2.5.2 and the proof of Theorem~2.6.4,
-arXiv version~2]{MP24}.  They give an integral vertical divisor $F$
+of \cite[Remark~2.5.2 and the proof of Theorem~2.6.4]{MPTropicalV2}.  They give an integral vertical divisor $F$
 such that $\mathcal O_{\mathcal Y}(F)$ is $\mu$-ample.  Concretely, on
 a sequence of blowups one combines the negatives of the exceptional
 divisors, choosing each earlier coefficient sufficiently large compared
@@ -1287,12 +1286,123 @@ $\mathcal H(\alpha)$ in place of the auxiliary class $\mathcal P$.
 The directedness argument uses rational translation and the specified
 approximating sequences on compact $X^{\bethan}$.
 
+The finite vertex test rests on the following form of the negativity lemma. It applies to the projective analytic models used in this chapter.
+
+\begin{lemma}\label{lem:mp-vertical-negativity}
+Let $q:\mathcal Y\to\cX$ be a composition of blowups with smooth centers over the central fibre, between smooth snc models. Let $G$ be a real vertical divisor on $\mathcal Y$. Suppose that $G\cdot C\geq0$ for every irreducible curve contracted by $q$. If $q_*G\leq0$ coefficientwise, then $G\leq0$.
+\end{lemma}
+
+\begin{proof}
+If $q$ is an isomorphism, the assertion is immediate. Otherwise there is an effective $q$-exceptional divisor $F$, with positive coefficient along every exceptional prime, such that $-F$ is $q$-ample. For one nontrivial blowup, take its exceptional divisor. For a composite, add the last exceptional divisor to a sufficiently large positive multiple of the pullback of the preceding choice. The composition rule for relative ampleness, used in \cref{prop:mp-pl-vcar}, proves the assertion by induction.
+
+Suppose that $G$ has a positive coefficient. The condition $q_*G\leq0$ makes every such component exceptional. Set
+\[
+ t=\max_{E\text{ exceptional}}
+       \frac{\operatorname{coeff}_E(G)}{\operatorname{coeff}_E(F)}>0,
+ \qquad B=tF-G.
+\]
+Then $B$ is effective and some exceptional prime $E$ is not contained in its support. The general fibre of $E\to q(E)$ has positive dimension. Since $q$ is projective, a projective curve section through a general point of $E\setminus\operatorname{Supp}B$ gives an irreducible contracted curve $C\subset E$ not contained in $\operatorname{Supp}B$. Thus $B\cdot C\geq0$, whereas $F\cdot C<0$ by relative ampleness. It follows that
+\[
+             G\cdot C=tF\cdot C-B\cdot C<0,
+\]
+contrary to the hypothesis. Hence $G\leq0$.
+\end{proof}
+
+\begin{proposition}\label{prop:mp-finite-vertex-test}
+Let $\psi\in\PL(X^{\bethan})$ be represented by a vertical divisor on an snc model $\cX$. Put
+\[
+ \Sigma_{\cX}:=\{v_E:E\text{ is an irreducible component of }\cX_0\}.
+\]
+For every $\phi\in\PSH(\alpha)$,
+\[
+ \sup_{X^{\bethan}}(\phi-\psi)
+       =\max_{\Sigma_{\cX}}(\phi-\psi).
+\tag{60.16b}\label{eq:mp-finite-vertex-test}
+\]
+In particular, $\sup\phi=\phi(v_{\triv})$ is finite.
+\end{proposition}
+
+\begin{proof}
+First let $u$ be a model $\alpha$-psh function. By the equivariant resolution construction of \cref{chap:mp-dual-complexes}, choose a common snc domination $q:\mathcal Y\to\cX$, obtained by blowups with smooth centers over the central fibre, on which $u=\phi_D$. Write $\psi=\phi_{D_\psi}$ on $\cX$ and put
+\[
+ c=\max_{\Sigma_{\cX}}(u-\psi),\qquad
+ G=D-q^*D_\psi-c\mathcal Y_0.
+\]
+The coefficient of $q_*G$ along a central prime $E$ is
+$b_E\bigl(u(v_E)-\psi(v_E)-c\bigr)\leq0$.
+For a curve $C$ contracted by $q$, the pullbacks $\alpha_{\mathcal Y}$, $q^*[D_\psi]$ and $[\mathcal Y_0]$ have degree zero on $C$. Moreover $C$ lies in the central fibre, where $\alpha_{\mathcal Y}+[D]$ is nef. Consequently
+\[
+ G\cdot C=(\alpha_{\mathcal Y}+[D])\cdot C\geq0.
+\]
+By \cref{lem:mp-vertical-negativity}, $G\leq0$. Formula \eqref{eq:mp-model-potential-retraction} now gives $u-\psi-c=\phi_G\leq0$ on the whole spectrum: on each face it is a sum of nonpositive divisor coefficients with nonnegative weights. This includes proper-support characters. The reverse inequality in \eqref{eq:mp-finite-vertex-test} follows by evaluating at the vertices.
+
+For general $\phi$, choose a decreasing model net $u_\lambda\downarrow\phi$. Applying the model assertion at an arbitrary point $v$ gives
+\[
+ u_\lambda(v)-\psi(v)
+      \leq\max_{w\in\Sigma_{\cX}}
+                     \bigl(u_\lambda(w)-\psi(w)\bigr).
+\]
+A decreasing net commutes with the maximum over a finite set: for each strict upper bound on the limiting maximum, choose an index for every vertex and then a common dominating index. This also covers a limiting maximum of $-\infty$. Passing to the limit proves the required upper bound; the reverse bound again follows from inclusion of the vertices. This proves the finite-test assertion of \cite[Proposition~4.3.6, p.~41]{MPTropicalV2} with an explicit test set.
+
+For $\psi=0$, use the product model, whose sole vertex is $v_{\triv}$. Since $\phi$ is bounded above by any one model majorant and is not identically $-\infty$, its supremum is a finite real number. The last assertion follows.
+\end{proof}
+
+We next give the fixed-model estimate underlying \cite[Theorem~4.3.3, p.~40]{MPTropicalV2}. Its constant does not depend on the model representing the potential.
+
+\begin{proposition}\label{prop:mp-fixed-model-oscillation}
+Assume $n\geq1$. Fix an snc model $\cX$ and a K\"ahler class $\gamma$ on $\cX$. There is a constant $C=C(\cX,\alpha,\gamma)$ such that every model $\alpha$-psh function $u$ satisfies
+\[
+       0\leq\sup u-u(v_E)\leq C
+       \qquad (E\subset\cX_0).
+\tag{60.16c}\label{eq:mp-fixed-model-oscillation}
+\]
+\end{proposition}
+
+\begin{proof}
+Write $\cX_0=\sum_{j=0}^N b_jE_j$, and set
+\[
+ Q_{jk}=E_j\cdot E_k\cdot\gamma^{n-1},\qquad
+ A_j=E_j\cdot\alpha_{\cX}\cdot\gamma^{n-1}\geq0.
+\]
+The inequality for $A_j$ uses that $\alpha_{\cX}$ is the pullback of a K\"ahler class. For $j\ne k$, one has $Q_{jk}>0$ precisely when $E_j\cap E_k\ne\varnothing$, since $\gamma$ is K\"ahler. Also $\sum_kb_kQ_{jk}=0$, as in \eqref{eq:mp-zariski-weighted-graph}. The central fibre is connected: the proper modification $\cX\to X\times\mathbf P^1$ has connected fibres by Stein factorization and normality of the target, and $X$ is connected. Thus the graph of the positive $Q_{jk}$ is connected.
+
+Choose an snc domination $q:\mathcal Y\to\cX$ representing $u$ by $D$. In dimension one the powers $\gamma^{n-1}$ below are the empty product $1$. The divisor $q^*E_j$ is effective and vertical, and the classes $\alpha_{\mathcal Y}+[D]$ and $q^*\gamma$ restrict to nef classes on its components. Projection formula therefore gives
+\[
+ \begin{aligned}
+ 0&\leq q^*E_j\cdot(\alpha_{\mathcal Y}+[D])\cdot(q^*\gamma)^{n-1}\\
+  &=A_j+\sum_k b_k u(v_{E_k})Q_{jk}.
+ \end{aligned}
+\tag{60.16d}\label{eq:mp-vertex-intersection-bound}
+\]
+Here $q_*D=\sum_kb_k u(v_{E_k})E_k$; exceptional divisors upstairs have zero divisorial pushforward.
+
+Put $M=\sup u$ and $x_j=M-u(v_{E_j})$. By \cref{prop:mp-finite-vertex-test} with obstacle zero on $\cX$, the $x_j$ are nonnegative and at least one is zero. If $N=0$, this proves the result with $C=0$. Otherwise set, for $j\ne k$,
+\[
+ w_{jk}=b_jb_kQ_{jk},\qquad
+ d_j=\sum_{k\ne j}w_{jk},\qquad B_j=b_jA_j.
+\]
+Multiplying \eqref{eq:mp-vertex-intersection-bound} by $b_j$ and using the weighted row sum gives
+\[
+                 \sum_{k\ne j}w_{jk}x_k\leq d_jx_j+B_j.
+\tag{60.16e}\label{eq:mp-vertex-graph-bound}
+\]
+All terms on the left are nonnegative. Let
+\[
+ w=\min_{w_{jk}>0}w_{jk}>0,\qquad
+ d=\max_j d_j,\qquad B=\max_j B_j.
+\]
+Starting at a vertex with $x_j=0$, apply \eqref{eq:mp-vertex-graph-bound} along a path. If $x_j\leq C_\ell$ and $w_{jk}>0$, then $x_k\leq C_{\ell+1}$, where
+\[
+              C_0=0,\qquad C_{\ell+1}=\frac{dC_\ell+B}{w}.
+\]
+The case $N=0$ was removed before choosing $w$, so its defining set is nonempty. These constants are nondecreasing because $d\geq w$. Every vertex is reached by a path of at most $N$ edges, so $C=C_N$ proves \eqref{eq:mp-fixed-model-oscillation}. All coefficients in this recursion belong to the fixed model, background and K\"ahler class; none depends on $u$ or $\mathcal Y$.
+\end{proof}
+
 \begin{theorem}\label{thm:mp-psh-divisorial}
-Let \(\phi\in\PSH(\alpha)\).
+Let $\phi\in\PSH(\alpha)$.
 \begin{enumerate}
-\item \(\phi(v)>-\infty\) for every \(v\in X^{\divis}\).
-\item If \(\psi:X^{\bethan}\to\mathbf R\cup\{-\infty\}\) is upper
-      semicontinuous, then
+\item $\phi(v)>-\infty$ for every $v\in X^{\divis}$.
+\item If $\psi:X^{\bethan}\to\mathbf R\cup\{-\infty\}$ is upper semicontinuous, then
       \[
         \phi\leq\psi\text{ on }X^{\bethan}
         \quad\Longleftrightarrow\quad
@@ -1303,65 +1413,56 @@ Let \(\phi\in\PSH(\alpha)\).
 \par
 \end{theorem}
 
-\begin{proof}[Imported finite-dimensional estimate and deduction]
-In dimension zero, $X$ and $X^{\bethan}$ each consist of one point,
-so both assertions follow from the definition.  Assume $n\geq1$.
-For the first assertion, subtract a constant so that $\sup\phi=0$, and
-choose \(\phi_\lambda\downarrow\phi\) as in
-\eqref{eq:mp-psh-decreasing-net}.  Replacing each approximant by
-\(\phi_\lambda-\sup\phi_\lambda\) does not affect its model positivity, and
-the normalized net still converges pointwise to \(\phi\).  Here
-\(\sup\phi_\lambda\downarrow\sup\phi=0\): otherwise compactness applied to
-the decreasing closed superlevel sets would contradict pointwise
-convergence.  Each supremum is a rational model value, so the normalized
-approximant remains in \(\PL\).  Fix
-\(v=v_{E_0}\in X^{\divis}\) and choose an snc model with central fiber
-\(\sum_{j=0}^N b_jE_j\) containing that vertex.  The imported
-finite-dimensional estimate of \cite[Theorem~4.3.3, arXiv version~2]{MP24} states that for
-every normalized model \(\alpha\)-psh function \(u\),
+\begin{proof}
+\predisplaypenalty=10000
+If $n=0$, the spectrum and its divisorial locus consist of one point, so both assertions follow from the definition. Assume $n\geq1$. Given $v\in X^{\divis}$, choose an snc model containing it as a vertex, and a K\"ahler class on that model. For a decreasing model net $u_\lambda\downarrow\phi$, \cref{prop:mp-fixed-model-oscillation} gives
 \[
-                  |u(v_{E_j})|\leq C(\cX,\alpha,\gamma)
-                  \quad(0\leq j\leq N),
+ u_\lambda(v)\geq\sup u_\lambda-C\geq\sup\phi-C.
 \]
-where \(\gamma\) is any fixed K\"ahler class on \(\cX\).  Its proof
-intersects the pullback of \(E_j\) with the relatively nef class representing
-\(u\) and \(\gamma^{n-1}\); the relations
-\(E_j\cdot\cX_0\cdot\gamma^{n-1}=0\), positivity of the off-diagonal
-intersections, and connectedness of the central fiber give the uniform
-bound.  Passing to the limit at \(v_{E_0}\) proves
-\(\phi(v)>-\infty\).
+The last supremum is finite by \cref{prop:mp-finite-vertex-test}. Passing to the limit proves $\phi(v)>-\infty$. This argument keeps the original decreasing net; it does not require subtracting its varying suprema.
 
-For the second assertion, first suppose that \(\psi\in\PL\).
-\cite[Proposition~4.3.6, arXiv version~2]{MP24} gives a finite set
-\(\Sigma(\psi)\subset X^{\divis}\), depending only on \(\psi\), such that
+For the comparison, assume $\phi\leq\psi$ on $X^{\divis}$. If $\psi\in\PL$, \eqref{eq:mp-finite-vertex-test} gives $\sup(\phi-\psi)\leq0$. If $\psi$ is continuous, take $h_j\in\PL$ converging uniformly to $\psi$, and rational numbers $a_j>\|h_j-\psi\|_\infty$ tending to zero. Then $h_j+a_j\in\PL$ and $\phi\leq\psi<h_j+a_j$ on the divisorial locus. The PL case gives $\phi\leq h_j+a_j$ everywhere, and the uniform limit gives $\phi\leq\psi$ everywhere.
+
+Finally put $K=X^{\bethan}$ and let $\psi$ be upper semicontinuous. The continuous real majorants of $\psi$ form a nonempty downward directed set, since $K$ is compact and minima of two such majorants are continuous majorants. Their pointwise infimum is $\psi$. To verify this last assertion, fix $x\in K$ and a real $b>\psi(x)$. The set $U=\{\psi<b\}$ is a neighborhood of $x$. Choose $B\geq\max\{b,\sup_K\psi\}$ and, by normality of the compact Hausdorff space $K$, a continuous function $\chi:K\to[0,1]$ with $\chi(x)=0$ and $\chi=1$ on $K\setminus U$. Then
 \[
-             \sup_{X^{\bethan}}(u-\psi)
-             =\max_{\Sigma(\psi)}(u-\psi)
-             \quad\text{for every }u\in\PSH(\alpha).
+                        h=b+(B-b)\chi
 \]
-Hence the divisorial inequality implies \(\phi\leq\psi\) everywhere.
-If $\psi$ is continuous, choose $h_j\in\PL$ converging uniformly
-to $\psi$ and rational numbers $q_j>\|h_j-\psi\|_\infty$ with
-$q_j\to0$.  Then $h_j+q_j$ remains in $\PL$, and
-$\phi\leq\psi<h_j+q_j$ on the divisorial locus.  The PL case gives
-$\phi\leq h_j+q_j$ everywhere; taking the uniform limit proves
-$\phi\leq\psi$ on $X^{\bethan}$.
-
-Finally, every extended-real upper semicontinuous function on a compact
-Hausdorff space is the pointwise decreasing limit of a net of continuous
-real functions \(\psi_\lambda\).  If \(\phi\leq\psi\) on
-\(X^{\divis}\), then \(\phi\leq\psi_\lambda\) there for every \(\lambda\),
-so the continuous case gives \(\phi\leq\psi_\lambda\) everywhere.  Taking
-the decreasing limit proves \(\phi\leq\psi\).  The reverse implication is
-immediate.  This is \cite[Theorem~4.3.8, arXiv version~2]{MP24}.
+is a continuous majorant of $\psi$ with $h(x)=b$. Letting $b$ decrease to $\psi(x)$, including the value $-\infty$, proves the infimum assertion. Applying the continuous comparison to every such $h$ and taking their infimum yields $\phi\leq\psi$ on $K$. The reverse implication is restriction. This proves \cite[Theorem~4.3.8, p.~42]{MPTropicalV2}.
 \end{proof}
 
+\begin{example}\label{ex:mp-divisorial-finiteness-boundary}
+Let $X=\mathbf P^1$, $\alpha=c_1(\cO(1))$ and $p\in X$. For positive integers $j$, the functions
+\[
+                    u_j(v)=-\min\{v(\mathcal I_p),j\}
+\]
+are model $\alpha$-psh by \cref{ex:mp-scaling-breakpoint}. They decrease to $\phi(v)=-v(\mathcal I_p)$, which is not identically $-\infty$ since $\phi(v_{\triv})=0$. Hence $\phi\in\PSH(\alpha)$. On the ray $s\operatorname{ord}_p$, one has $\phi=-s$ for finite $s\geq0$, whereas at the character supported at $p$ its value is $-\infty$.
+
+For the blowup of $(p,0)$, use the notation of \cref{prop:mp-fixed-model-oscillation}. The central multiplicities are one, $Q_{01}=1$, $A_0=1$ and $A_1=0$. Its recursion gives $C=1$. Since $u_j(\operatorname{ord}_p)=-1$ and $\sup u_j=0$, this bound is attained. Thus the fixed-model estimate controls each finite divisorial point while permitting a pole at the supported endpoint.
+\end{example}
+
 \begin{warning}{Scope of divisorial determination}
-In \eqref{eq:mp-divisorial-comparison}, the function \(\phi\) on the left is
-\(\alpha\)-psh.  Density of \(X^{\divis}\) alone does not determine an arbitrary
-upper semicontinuous function: upper semicontinuity gives inequalities in
-the wrong direction.  We use the theorem only with its stated hypothesis.
+In \eqref{eq:mp-divisorial-comparison}, the function $\phi$ on the left is $\alpha$-psh. Density of $X^{\divis}$ alone does not determine an arbitrary upper semicontinuous function. For example, on the spectrum of $\mathbf P^1$, the function equal to $1$ at the character supported at $p$ and $0$ elsewhere is upper semicontinuous, since that singleton is closed. It agrees with zero on $X^{\divis}$ but is not zero. It cannot be psh, because its supremum differs from its value at $v_{\triv}$.
 \end{warning}
+
+Endow $\PSH(\alpha)$ with the topology of pointwise convergence on $X^{\divis}$. These evaluations are real-valued by \cref{thm:mp-psh-divisorial}, and the same theorem shows that the topology is Hausdorff.
+
+\begin{corollary}\label{cor:mp-obstacle-sup-continuity}
+For each $\psi\in C^0(X^{\bethan},\mathbf R)$, the function
+\[
+        \PSH(\alpha)\longrightarrow\mathbf R,\qquad
+        \phi\longmapsto\sup_{X^{\bethan}}(\phi-\psi)
+\]
+is continuous for the divisorial topology.
+\end{corollary}
+
+\begin{proof}
+All suprema here are finite: the potential has finite supremum by \cref{prop:mp-finite-vertex-test}, and each obstacle is bounded. For a PL obstacle, \eqref{eq:mp-finite-vertex-test} writes this function as the maximum of finitely many continuous evaluations. For a continuous obstacle, choose $h_j\in\PL$ converging uniformly to $\psi$. For every $\phi\in\PSH(\alpha)$,
+\[
+ \left|\sup(\phi-\psi)-\sup(\phi-h_j)\right|
+                  \leq\|\psi-h_j\|_\infty.
+\]
+The right-hand side is independent of $\phi$, so the continuous functions for the PL obstacles converge uniformly to the asserted function. This is \cite[Corollary~4.3.7, pp.~41--42]{MPTropicalV2}.
+\end{proof}
 
 For arbitrary psh inputs the mixed energy pairing is defined by
 \[

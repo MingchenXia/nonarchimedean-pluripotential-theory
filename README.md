@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (390 TeX files, 11,614 unique labels),
-and the full build produces a 3,973-page PDF with no unresolved reference
+The complete source check passes (390 TeX files, 11,623 unique labels),
+and the full build produces a 3,975-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [P12.1 integration audit](manuscript/editorial/p121_integration_audit_20260923.md)
 records the author's supplied normalized-link manuscript, its complete
@@ -16,6 +16,12 @@ normalization branches, conductor descent, nonprimary gauges and nilpotent
 reduction settle P12.1; P12.2--P12.6 remain active. The original PDF is
 preserved byte for byte. This source integration has no new production
 verifier or independent-agent receipt.
+The [divisorial comparison audit](manuscript/editorial/ch60_divisorial_comparison_audit_20260923.md)
+reconstructs the finite vertex test through analytic negativity and proves
+the fixed-model bound by an explicit weighted-graph recursion. Decreasing
+nets give divisorial finiteness and upper semicontinuous comparison;
+continuous obstacles give continuous suprema in the divisorial topology.
+A curve example attains the bound while retaining a pole at a supported endpoint.
 The [model measure and pairing audit](manuscript/editorial/ch60_model_measure_pairing_audit_20260923.md)
 proves rational-scaling identities for mixed intersections, model measures
 and energy. It establishes relative positivity in the normal-cone example

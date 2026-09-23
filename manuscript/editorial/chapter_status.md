@@ -2513,3 +2513,25 @@ their baseline bytes. All 45 research atoms, the completed P12.1 integration
 and supplied-source provenance, author originals, frozen packets, verifier
 records and dated releases are preserved. No independent-agent or
 production-verifier pass is claimed.
+
+## Chapter 60: finite vertices and divisorial comparison, 23 September 2026
+
+The [divisorial comparison audit](ch60_divisorial_comparison_audit_20260923.md)
+proves analytic negativity for the model blowups, the finite vertex test
+for PL obstacles, and a fixed-model oscillation bound by an explicit
+weighted-graph recursion. The proof handles arbitrary real Kähler weights,
+single-vertex models and dimension zero. It derives divisorial finiteness
+from the original decreasing net and constructs continuous majorants for
+upper semicontinuous comparison. The obstacle supremum is continuous in
+the divisorial topology; a P1 example attains the graph bound and has a pole
+at the supported endpoint.
+
+Two local proof/source passes, the final full build and scoped page review
+are complete: 3,975 pages, 390 inputs and 11,623 labels, with no unresolved
+reference/citation or layout overflow. The scoped house audit has zero
+errors and one reviewed exact-author-version warning. Earlier Chapter 60
+text and all text from the extended pairing onward retain their baseline
+bytes. All 45 research atoms, completed P12.1 integration and supplied-source
+provenance, author originals, frozen packets, verifier receipts and dated
+releases are unchanged. No independent-agent or production-verifier pass
+is claimed.
