@@ -2401,3 +2401,30 @@ Only Section 59.5 changed in the mathematical text. The 46 research atoms,
 author sources, frozen proofs, verifier records and dated releases remain
 unchanged in this unit; no new production or independent-agent pass is claimed.
 The author-supplied P12.1 manuscript is being integrated as the next unit.
+
+## P12.1 supplied-manuscript integration: 23 September 2026
+
+The author supplied *Normalized valuation links and boundary ideals on
+excellent local germs* and requested its integration as the solution of
+P12.1. The complete adapted proof is in Chapter 70, Section 70.1.1,
+before the existing curve classification. It constructs compact primary
+sections and their radial changes, proves lifting and the conductor
+quotient, and treats blowup gauges, nonprimary sections and reduction.
+The original four-page PDF is archived unchanged, with its hash and exact
+source checks in the [integration audit](p121_integration_audit_20260923.md).
+
+P12.1 is retired under the author's supplied-source instruction. The
+five targets P12.2--P12.6 retain their stated open scopes. Chapter 72,
+Appendix L, the inventory and tier queue, the count checker, BOOK_PLAN,
+research ledger and README now agree on 45 active atoms in 14 environments,
+tiers (0,5,8,15,17). This is supplied-manuscript provenance, not a new
+production Rethlas or independent-agent verification; historical receipts
+remain unchanged.
+
+Two local proof/source passes, strict fragment audit, full build and
+scoped final page review pass. The book has 3,965 pages, 390 TeX inputs
+and 11,597 labels, with no unresolved references/citations or layout
+overflow. The audit records all checked pages and preserved source bytes.
+The preceding Chapter 59 discrepancy unit is separately committed and
+pushed as fd272ed. Existing proof packets, author files, bibliography,
+verifier records and dated releases are unchanged.

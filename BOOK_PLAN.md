@@ -25,6 +25,19 @@ the mathematical narrative will be unified.
 
 ---
 
+## Current local-boundary result: 23 September 2026
+
+The author-supplied normalized-valuation-links manuscript is integrated in
+the live Chapter 70. It settles P12.1 for excellent local germs through
+primary normalized sections, their exact radial changes, and the quotient
+of normalization branches along the conductor. Nonprimary sections and
+nilpotent reduction are explicit. Chapter 72 and the atomic inventory now
+retain five singular-local targets, P12.2--P12.6; this boundary result does
+not construct their psh, envelope, product, energy or finite-map theory.
+The source and the two-pass local review are recorded in
+`manuscript/editorial/p121_integration_audit_20260923.md`; no new production
+verifier or independent-agent receipt is asserted.
+
 ## 1. Aim and governing principles
 
 The book will explain non-Archimedean pluripotential theory through four

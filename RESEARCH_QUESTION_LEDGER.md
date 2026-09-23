@@ -3,7 +3,7 @@
 ## Non-Archimedean pluripotential theory monograph
 
 **Snapshot date:** 15 August 2026  
-**Current controlling update:** 30 August 2026
+**Current controlling update:** 23 September 2026 (P12.1 supplied-manuscript integration; earlier receipts retain their dated scopes)
 **Research engine for Passes R1--R3:** `gpt-5.6-sol`, `xhigh` reasoning effort  
 **Scope:** explicit questions in the two supplied archives; directly relevant
 questions in the BFJ, BJ, CLD, Gubler--Künnemann--Jell--Rabinoff,
@@ -14,6 +14,19 @@ theorems.
 This is an internal research document, not a list of claims for publication.
 It records what has been tried, what is already known, and where a proof
 actually stops.
+
+**Controlling delta, 23 September 2026 (P12.1).** The author supplied
+*Normalized valuation links and boundary ideals on excellent local germs*.
+Chapter 70 now contains its complete proof: intrinsic centered rays,
+compact primary sections and exact rescaling, normalization-branch lifting,
+conductor quotient, blowup gauge, partial nonprimary sections, and
+nilpotent reduction. Exact Stacks algebraic anchors and two local proof
+passes are recorded in
+[the integration audit](manuscript/editorial/p121_integration_audit_20260923.md).
+P12.1 is retired; the inventory has 45 active atoms in 14 environments,
+with tiers (0,5,8,15,17). P12.2--P12.6 are unchanged. Provenance is an
+author-supplied manuscript, not a new independent-agent or production
+verifier receipt; no historical receipt is extended to this proof.
 
 **Controlling delta, 25 August 2026.**  Later exact production runs supersede
 the 15 August candidate classifications in five places.  The weighted cross
@@ -1494,7 +1507,7 @@ theory row.
 | Resolved history | Full projective ample-class MP--BJ comparison (former P00.1) | Finite flag-ideal GAGA, common-refinement relative-nef comparison, and equality of decreasing completions | Verified in `thm:pseff-projective-full-mp-bj`; production and exact-live Rethlas records are in the 28 August P00.1 receipts, with no novelty or priority claim |
 | P0 | Nontrivially valued MA existence and the arbitrary-field \(\mathcal E^1\) operator; BFJ and Pille--Schneider Remark 4.4 | Separate operator construction from solvability; remove one field/singularity/support hypothesis at a time and reconstruct every variational input | Exact source question and broader book programme are separated in Chapter 72 and this ledger |
 | Resolved history | BJ global Radon--Riesz, BJ Question 11.16 | Moving-centre valuations on \(\mathbf P^n\), \(n\ge2\), give weak convergence and identical exhaustion value one but a uniform strong gap | Disproved by `thm:ch49-global-radon-riesz-counterexample`; the fixed-SNC-complex positive theorem remains valid |
-| P1 | Singular/nonnormal local valuative theory; BFJ08, Bingener 1976, Xia *Stein spaces* (3 July 2026) | Test normalization, conductor, and finite-map descent on nodes, cusps, quotient and inseparable germs | Chapter 72 treats the smooth BFJ endpoint only |
+| P1 | Singular/nonnormal local valuative theory; BFJ08 and the supplied 23 September 2026 normalized-link manuscript | The boundary datum P12.1 is resolved in arbitrary dimension; develop the independently geometric psh, envelope, product, energy and finite-map layers | Chapter 70 proves the primary-link changes and conductor quotient; P12.2--P12.6 remain active beyond their established curve ranges |
 | Resolved history | GJR canonical ordinary \(\delta\)-metricity | The product--Gauss criterion detects ordinary delta-metricity coordinatewise and, for ample cubical metrics, by isotriviality of the residual Raynaud extension | The non-isotrivial mixed-reduction answer is negative by `20260826T055627Z_b68659fba1be`; P09.1 and unrestricted cohomology surjectivity are separately retired |
 | P1 | DXZ filtration-test-curve maximality, Xia Conjecture 5.29, and auxiliary-\(\eta\) independence | Start with finitely generated/toric/flag cases; do not recycle the already asserted \(H,\omega\)-independence or the now-proved positive-volume Conjecture 8.8 | The residual source-scoped packets remain open; Conjecture 8.8 is closed in its exact Chapter 55 positive-volume scope by separate exact-current gates |
 | Resolved history | Banach-family MA continuity; Pille--Schneider, JEP 10 (2023), Question 4.9 | Finite presentation; finite DFS/FS reduction; relative resultant and Deligne-weight continuity; uniform CLN estimate; cofinal product-net density passage | Settled in the full source scope by `thm:p171-full-assembly`; exact-live item `pi_87b42b938a8d830222bed78f` returned final `correct`, zero critical errors and zero gaps.  Principal live statement/proof SHA-256 are `0d95354a4cd2bd15d03020dde630779f4f423b73e9661eb8e65e0511dc765e24` / `9cab2f0f679b095b00b2d9f760a4a5315d3a24fe7b295a9d0a9bf414d91e434a`; materialized SHA-256 are `0ba26fe924a065af31198cfc74aa44e790feb128159eef24458f8ca0b151f8b4` / `cdce552b3750faed4dfbb6a0284405094be10b56c138363482cca0464e20f4af`.  No novelty or priority claim is made |

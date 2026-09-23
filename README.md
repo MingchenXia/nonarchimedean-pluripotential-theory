@@ -6,9 +6,16 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,585 unique labels),
-and the full build produces a 3,961-page PDF with no unresolved reference
+The complete source check passes (390 TeX files, 11,597 unique labels),
+and the full build produces a 3,965-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
+The [P12.1 integration audit](manuscript/editorial/p121_integration_audit_20260923.md)
+records the author's supplied normalized-link manuscript, its complete
+Chapter 70 proof and two local source/proof checks. Primary-ideal changes,
+normalization branches, conductor descent, nonprimary gauges and nilpotent
+reduction settle P12.1; P12.2--P12.6 remain active. The original PDF is
+preserved byte for byte. This source integration has no new production
+verifier or independent-agent receipt.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
 records the final line-break checks and preservation of the research sources.
 The [current-pushforward audit](manuscript/editorial/ch14_pushforward_sign_audit_20260922.md)
@@ -155,8 +162,8 @@ Source provenance, exact input checksums and validation limits are in the
 [recovery build receipt](manuscript/editorial/source_recovery_build_20260922.md).
 Continued mathematical and editorial work is tracked in
 [`manuscript/editorial/continuation_20260922.md`](manuscript/editorial/continuation_20260922.md).
-The current checked editorial inventory is 46 active atoms in 14 formal
-problem environments, with tiers `(0,5,8,16,17)`.
+The current checked editorial inventory is 45 active atoms in 14 formal
+problem environments, with tiers `(0,5,8,15,17)`.
 
 The same continuation adds a worked Chapter 16 example explaining the
 convexity-forced affine region and nonseparable mixed terms in the latest

@@ -1,6 +1,6 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 20 September 2026
+**Inventory date:** 23 September 2026
 **Literature cutoff:** 19 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, P14.8 current-source production verification and P21.3 residual-Picard source audit on 11 September, and repaired exact-current P14.2 V15 plus unconditional P14.3 production verification on 19 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
@@ -47,12 +47,12 @@ CLD/delta projection comparison and its algebraic-chart realization, and
 retirement of P14.7 after the strict-interior raw-filtration maximality
 theorem, retirement of P14.3 after the exact-current unconditional full Kähler
 truncation verification, and retirement of P14.2 after its repaired V15
-production pass,
-the exact count is
+production pass, and retirement of P12.1 after the author-supplied
+excellent-germ normalized-boundary construction, the exact count is
 
 ```text
-14 formal problem environments = 46 active atomic research questions.
-Tier counts: (T1,T2,T3,T4,T5) = (0,5,8,16,17).
+14 formal problem environments = 45 active atomic research questions.
+Tier counts: (T1,T2,T3,T4,T5) = (0,5,8,15,17).
 ```
 
 The read-only command `python3 manuscript/editorial/tools/check_open_problem_inventory.py`
@@ -188,8 +188,9 @@ earlier verification checkpoint the total was 53 active atoms in 14 formal
 problem environments;
 the later P07.2 and P08.2 retirements gave a total of 51 at that checkpoint.
 The subsequent P05.3 and P05.4 retirements gave 49, the P14.7 retirement
-gave 48, the P14.3 retirement gave 47, and the P14.2 retirement gives the
-current total of 46.
+gave 48, the P14.3 retirement gave 47, and the P14.2 retirement gave 46.
+The supplied excellent-germ boundary construction retires P12.1 and gives
+the current total of 45.
 
 For a fixed nonempty competitor family, the separate source-scoped
 proposition `prop:p031-modulus-controlled-envelope-candidate` settles the
@@ -2258,11 +2259,21 @@ displayed problem environment, and lowers the active count by one.
   `pi_062d99c623958fae25885125`, with the same verdict.  The fixed-SNC-complex positive result remains
   valid.  The identifier `P11.1` is retired and will not be reassigned.
 
-### `prob:frontier-singular-local` --- 6 atoms
+### `prob:frontier-singular-local` --- 5 active atoms
 
-- **P12.1** `[T4; open after the reduced excellent curve-link
-  classification]` Determine the normalizing boundary datum for excellent
-  singular and nonnormal germs.
+- **P12.1** `[retired; resolved by supplied manuscript]` The intrinsic
+  centered ray space, compact primary sections, exact radial changes,
+  normalization-branch quotient and conductor identifications are proved
+  for every positive-dimensional excellent reduced local ring in
+  `thm:p121-excellent-primary-links` and
+  `thm:p121-excellent-conductor-descent`. The same section treats the
+  partial nonprimary gauges, nilpotent reduction and empty
+  zero-dimensional case. The author's four-page manuscript supplied on
+  23 September 2026 is preserved byte for byte, and the complete adapted
+  proof and algebraic sources were checked in two local passes. This is
+  supplied-manuscript provenance, not a production Rethlas or
+  independent-agent receipt; see `p121_integration_audit_20260923.md`.
+  The identifier is retired and will not be reassigned.
 - **P12.2** `[T4; open beyond the book-local ideal-psh completion on
   reduced-curve links]` Construct the corresponding independently geometric
   valuative psh class.
@@ -2278,8 +2289,10 @@ displayed problem environment, and lowers the active count by one.
   pushforward, and high-order conductor realization]`
   Establish finite-map functoriality, including branch and conductor descent.
 
-All six targets remain active, but four now have sharply delimited
-one-dimensional ranges.  Theorem `thm:p121-reduced-nagata-curve-link` identifies
+The five remaining targets stay active. The boundary construction above
+does not identify a singular psh cone or provide products, energy, or
+general finite-map pluripotential functoriality. Three of these remaining
+targets have sharply delimited one-dimensional ranges.  Theorem `thm:p121-reduced-nagata-curve-link` identifies
 the primary-ideal-normalized link of every reduced Nagata curve germ with
 the finite set of points of its normalization above the closed point and
 proves the exact change-of-ideal cocycle.  Proposition
@@ -2375,8 +2388,10 @@ mixed-zero obstruction begins only when distinct branches must share one
 singular value.  This classifies only
 the radial disc-normalized realization, not a different boundary-trace
 comparison or arbitrary singularities outside the stated conductor range.
-Thus P12.1, P12.2, P12.3, and P12.6 are narrowed rather than retired, and
-the atom count is unchanged.
+These curve results narrowed P12.1, P12.2, P12.3 and P12.6 without
+changing the count at that checkpoint. The later arbitrary-dimensional
+boundary construction retires P12.1 alone; P12.2, P12.3 and P12.6 remain
+open in their stated residual scopes.
 
 A 10 September 2026 primary-source recheck
 separates them from the global trivially-valued theory used in
@@ -3162,8 +3177,8 @@ passed the superseding archive
 problem environment are retired.
 At this 28 August milestone, the active inventory was 15 formal
 environments and 54 atoms.  After the 30 August retirements recorded above,
-the P14.7, P14.3, and P14.2 retirements, the current inventory is 14 formal
-environments and 46 atoms.
+the P14.7, P14.3, P14.2 and P12.1 retirements, the current inventory is
+14 formal environments and 45 atoms.
 
 ## Easy-to-hard Rethlas queue
 
@@ -3185,9 +3200,9 @@ No active atom remains in this tier after retirement of `P01.1`.
 `P08.1`, `P03.2`,
 `P03.3`.
 
-### T4 --- new comparison theories or several coupled inputs (16 atoms)
+### T4 --- new comparison theories or several coupled inputs (15 atoms)
 
-`P02.4`, `P04.1`, `P04.2`, `P05.5`, `P12.1`, `P12.2`, `P12.3`,
+`P02.4`, `P04.1`, `P04.2`, `P05.5`, `P12.2`, `P12.3`,
 `P12.6`, `P13.1`, `P13.2`, `P14.1`, `P14.4`, `P15.3`,
 `P16.4`, `P16.6`, `P19.2`.
 
@@ -3205,3 +3220,12 @@ proof or counterexample receive a production Rethlas
 gaps, survive source and boundary audits, and are integrated into the live
 book.  Removing one atom from a compound environment does not retire the
 remaining atoms.
+
+**Author-directed supplied-source exception, 23 September 2026:** the
+author explicitly supplied `normalized-valuation-links.pdf` as the solution
+of P12.1 and requested its integration. P12.1 is retired on that instruction
+and the checked complete supplied proof, with the separate provenance
+`supplied manuscript`. The two local proof/source passes are not described
+as a production verdict. This specific source integration does not satisfy,
+waive, or change the production rule for newly proposed agent results,
+and it changes no historical receipt or remaining P12 atom.
