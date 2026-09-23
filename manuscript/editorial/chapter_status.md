@@ -2252,3 +2252,32 @@ packets, verifier receipts and dated releases remain unchanged.
 No independent-agent or production verification and no atom closure
 are claimed. The next unit checks Chapter 59's normalized blowups,
 integral-closure values and the divisorial converse.
+
+
+## 2026-09-23 — Integral-closure values and the finite divisorial test
+
+The [integral-closure comparison audit](ch59_integral_closure_audit_20260923.md)
+replaces unsupported local-germ evaluation by a uniform identity of
+global coherent ideals and proves value invariance for all semivaluations,
+including infinite values. The analytic normalized-blowup formula now
+states its hypotheses and exact published source. The divisorial
+converse is proved by a finite test, with zero ideals, unit ideals,
+local branches and nonexceptional divisors treated explicitly.
+A projective-plane calculation and a curve example show why neither
+divisors on X alone nor exceptional divisors alone suffice.
+
+The second local mathematical/source pass, strict full-block style
+audit, reference/inventory checks and final page inspection pass.
+The full build has 3,949 pages, 389 TeX inputs and 11,577 labels,
+with no unresolved references, citations or layout overflow. The
+new published Lejeune-Jalabert--Teissier entry preserves all earlier
+bibliography bytes. The exact-version MPTropicalV2 warning and
+publisher-access limitation are recorded in the audit.
+
+Chapter 58 and all Chapter 59 text outside this unit retain their exact
+bytes. The 46 active atoms, supplied CURVE_PSH.tex, author sources,
+frozen proofs, verifier receipts and dated releases remain unchanged.
+No independent-agent or production verification and no atom closure
+are claimed. The next unit checks monomial valuations, adapted
+coordinates, globalization along strata, zero weights and rational
+divisorial realization in Chapter 59.
