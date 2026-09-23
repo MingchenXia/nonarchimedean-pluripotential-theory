@@ -1464,7 +1464,7 @@ All suprema here are finite: the potential has finite supremum by \cref{prop:mp-
 The right-hand side is independent of $\phi$, so the continuous functions for the PL obstacles converge uniformly to the asserted function. This is \cite[Corollary~4.3.7, pp.~41--42]{MPTropicalV2}.
 \end{proof}
 
-For arbitrary psh inputs the mixed energy pairing is defined by
+Let $\alpha_0,\ldots,\alpha_n$ be K\"ahler classes on the connected compact K\"ahler manifold $X$, and let $\phi_i\in\PSH(\alpha_i)$. Define the extended mixed pairing by
 \[
  (\alpha_0,\phi_0)\cdots(\alpha_n,\phi_n)
  :=\inf_{\substack{\psi_i\in\mathcal H(\alpha_i)\\
@@ -1473,169 +1473,199 @@ For arbitrary psh inputs the mixed energy pairing is defined by
  \in\mathbf R\cup\{-\infty\}.
 \tag{60.18}\label{eq:mp-extended-pairing}
 \]
-The use of dominants, rather than an arbitrarily chosen approximating net,
-makes the definition canonical.  It is increasing in each potential,
-upper semicontinuous, and continuous along decreasing nets
-\cite[Lemma~4.4.1 and the discussion following it, arXiv version~2]{MP24}.
+The decreasing approximation by $\mathcal H(\alpha_i)$ established above supplies a majorant in every slot, so the set in this infimum is nonempty and contains finite numbers. In particular, the pairing cannot be $+\infty$. It is symmetric and increasing in each potential, since increasing a potential restricts the set of admissible majorants.
 
-The polynomial energy in \Cref{def:mp-energy-j} is defined on
-$\PL_{\mathbf R}$ using model representatives.  The extended pairing
-now defines energy at arbitrary psh potentials, which need not be model
-functions.
+For real model $\alpha_i$-psh inputs this agrees with \eqref{eq:mp-mixed-pairing}. Indeed, the mixed testing formula \eqref{eq:mp-mixed-testing} and nefness show that every tuple of majorants has pairing at least the model pairing of the $\phi_i$. Conversely, \cref{prop:mp-real-model-approximation} gives majorants whose coefficients converge on fixed models. On one common domination of these finitely many models, their intersection polynomials converge to the model pairing. Taking the infimum proves the equality.
 
-\begin{definition}[Energy and \(J\) at arbitrary psh potentials]
-\label{def:mp-energy-extended}
-For \(\phi\in\PSH(\alpha)\), set
+\begin{proposition}\label{prop:mp-extended-pairing-continuity}
+The pairing \eqref{eq:mp-extended-pairing} is upper semicontinuous on $\prod_{i=0}^n\PSH(\alpha_i)$ for the product of the divisorial topologies. If $\phi_{i,\lambda}\downarrow\phi_i\in\PSH(\alpha_i)$ for every $i$, then
+\[
+ (\alpha_0,\phi_{0,\lambda})\cdots(\alpha_n,\phi_{n,\lambda})
+ \downarrow(\alpha_0,\phi_0)\cdots(\alpha_n,\phi_n).
+\tag{60.18a}\label{eq:mp-extended-pairing-decreasing}
+\]
+Different directed sets in the individual slots may be replaced by their finite product.
+\end{proposition}
+
+\begin{proof}
+\predisplaypenalty=10000
+Write $P(\phi_0,\ldots,\phi_n)$ for the pairing. Fix a real $a>P(\phi_0,\ldots,\phi_n)$. By the infimum definition, choose $\psi_i\in\mathcal H(\alpha_i)$ with $\psi_i\geq\phi_i$ and $P(\psi_0,\ldots,\psi_n)<a$. This also applies when the infimum is $-\infty$. Put
+\[
+ V_i=\int_X\prod_{j\ne i}\alpha_j>0.
+\]
+For a positive rational $\varepsilon$, the model normalization \eqref{eq:mp-pairing-normalization} gives
+\[
+ P(\psi_0+\varepsilon,\ldots,\psi_n+\varepsilon)
+       =P(\psi_0,\ldots,\psi_n)+\varepsilon\sum_iV_i.
+\]
+Terms with two fibre factors vanish. Choose $\varepsilon$ so that this number is still less than $a$. By \cref{cor:mp-obstacle-sup-continuity}, the conditions
+\[
+             \sup(\eta_i-\psi_i)<\varepsilon
+             \qquad(0\leq i\leq n)
+\]
+define an open neighborhood of $(\phi_i)_i$. In this neighborhood each $\psi_i+\varepsilon$ majorizes $\eta_i$, so $P(\eta_0,\ldots,\eta_n)<a$. Thus $P$ is upper semicontinuous, as asserted in \cite[Lemma~4.4.1, p.~42]{MPTropicalV2}; compare the algebraic argument in \cite[Theorem~7.1, pp.~747--748]{BJ22}.
+
+For a decreasing net, monotonicity gives $P(\phi_{0,\lambda},\ldots,\phi_{n,\lambda})\geq P(\phi_0,\ldots,\phi_n)$. Pointwise convergence on divisorial points gives convergence in the stated product topology. Upper semicontinuity gives the reverse inequality for the limit superior, proving \eqref{eq:mp-extended-pairing-decreasing}, including a limit of $-\infty$.
+\end{proof}
+
+Real translations can now be computed before any subtraction of singular pairings. For $a_0,\ldots,a_n\in\mathbf R$, model approximation, \eqref{eq:mp-pairing-normalization} and \eqref{eq:mp-extended-pairing-decreasing} give
+\[
+ \prod_{i=0}^n(\alpha_i,\phi_i+a_i)
+ =\prod_{i=0}^n(\alpha_i,\phi_i)
+     +\sum_{i=0}^n a_i\int_X\prod_{j\ne i}\alpha_j.
+\tag{60.18b}\label{eq:mp-extended-pairing-translation}
+\]
+Indeed, adding a constant preserves real model psh functions and decreasing convergence. On a common model all terms with two copies of the full fibre vanish, and insertion of one fibre gives the corresponding background volume. The right side adds a finite real number to the original pairing and is therefore defined even when that pairing is $-\infty$.
+
+\begin{definition}\label{def:mp-energy-extended}
+For $\phi\in\PSH(\alpha)$, set
 \begin{align*}
- E_\alpha(\phi)
-   &:=\frac1{(n+1)V_\alpha}(\alpha,\phi)^{n+1}
+ E_\alpha(\phi)&:=\frac1{(n+1)V_\alpha}(\alpha,\phi)^{n+1}
      \in\mathbf R\cup\{-\infty\},\\
- J_\alpha(\phi)
-   &:=V_\alpha^{-1}(\alpha,\phi)(\alpha,0)^n-E_\alpha(\phi),
+ J_\alpha(\phi)&:=V_\alpha^{-1}(\alpha,\phi)(\alpha,0)^n-E_\alpha(\phi),
 \end{align*}
-the pairings being the extended ones of
-\eqref{eq:mp-extended-pairing}.
+using the extended pairings of \eqref{eq:mp-extended-pairing}.
 \end{definition}
 
-On the real model $\alpha$-psh class this agrees with
-\Cref{def:mp-energy-j}.  More generally, let every $\phi_i$ in
-\eqref{eq:mp-extended-pairing} be a real model $\alpha_i$-psh function.
-The mixed testing formula \eqref{eq:mp-mixed-testing} and nefness show
-that every tuple of dominants has pairing at least the model pairing
-of the $\phi_i$.  Conversely, \Cref{prop:mp-real-model-approximation}
-gives dominants with coefficients converging on fixed models.  On one
-common domination of these finitely many models, their intersection
-polynomials converge to the model pairing.  The infimum therefore
-equals \eqref{eq:mp-mixed-pairing}.
-
-The first term defining $J_\alpha$ is finite.  The zero model potential
-has Monge--Amp\`ere measure $\delta_{v_{\triv}}$, so model testing
-and decreasing approximation give
+These formulas agree with \cref{def:mp-energy-j} on the real model psh class. The zero model potential has measure $\delta_{v_{\triv}}$, so model testing and decreasing approximation yield
 \[
  V_\alpha^{-1}(\alpha,\phi)(\alpha,0)^n
        =\phi(v_{\triv})\in\mathbf R.
 \]
-Finiteness follows from \Cref{thm:mp-psh-divisorial}.  Hence
-$J_\alpha(\phi)\in\mathbf R\cup\{+\infty\}$ is well defined even
-when $E_\alpha(\phi)=-\infty$.  For all subsequent psh inputs,
-$E_\alpha$ and $J_\alpha$ refer to
-\Cref{def:mp-energy-extended}.
+Finiteness follows from \cref{thm:mp-psh-divisorial}. Thus $J_\alpha$ is defined with values in $\mathbf R\cup\{+\infty\}$. The model inequality $E_\alpha(u)\leq u(v_{\triv})$ passes to decreasing limits and gives $J_\alpha\geq0$. Formula \eqref{eq:mp-extended-pairing-translation} gives $E_\alpha(\phi+a)=E_\alpha(\phi)+a$ and $J_\alpha(\phi+a)=J_\alpha(\phi)$. Moreover, $E_\alpha$ is upper semicontinuous and $J_\alpha$ is lower semicontinuous for the divisorial topology; the latter follows because evaluation at $v_{\triv}$ is finite and continuous. In dimension zero, $E_\alpha(\phi)=\phi(v_{\triv})$ and $J_\alpha=0$.
 
-\begin{definition}[Finite energy]
-\label{def:mp-e1}
+\begin{definition}\label{def:mp-e1}
 The finite-energy class is
 \[
  \mathcal E^1(\alpha)
  :=\{\phi\in\PSH(\alpha)\mid E_\alpha(\phi)>-\infty\}.
 \tag{60.19}\label{eq:mp-e1}
 \]
-Potentials are considered modulo constants when a normalized space is
-needed.
+Potentials are considered modulo constants when a normalized space is needed.
 \end{definition}
 
-Mixed pairings of finite-energy inputs are finite by
-\cite[Proposition~4.4.4, arXiv version~2]{MP24}.  This permits subtraction
-of such pairings.  In particular, for
-$\beta\in H^{1,1}_{\mathrm{BC}}(X,\mathbf R)$ and
-$\phi\in\mathcal E^1(\alpha)$, choose $C>0$ such that
-$C\alpha+\beta$ is K\"ahler and set
+We prove finiteness of mixed pairings before using differences of them. The following estimate uses the model intersection calculus and its concavity. The background comparison and polarization follow the algebraic arguments in \cite[Lemma~7.9 and Corollary~7.11, pp.~752--753]{BJ22}; we give the calculation on the analytic models, with an explicit constant.
+
+\begin{proposition}\label{prop:mp-mixed-energy-finite}
+Let $\alpha_0,\ldots,\alpha_n$ be K\"ahler classes. If $\phi_i\in\mathcal E^1(\alpha_i)$ for all $i$, then $(\alpha_0,\phi_0)\cdots(\alpha_n,\phi_n)$ is finite.
+
+More precisely, suppose $n\geq1$, put $m=n+1$ and $\beta=\sum_{i=0}^n\alpha_i$, and choose an integer $T\geq1$ such that $T\alpha_i-\beta$ is nef for every $i$. For $\phi_i\in\PSH(\alpha_i)$ with $\phi_i\leq0$, one has
+\[
+ 0\geq\prod_{i=0}^n(\alpha_i,\phi_i)
+ \geq\frac{m^{m-1}T^n}{m!}
+       \sum_{i=0}^n(\alpha_i,\phi_i)^m.
+\tag{60.19a}\label{eq:mp-mixed-energy-bound}
+\]
+The coefficient depends only on the dimension and the chosen background classes.
+\end{proposition}
+
+\begin{proof}
+\predisplaypenalty=10000
+The integer $T$ exists because each $\alpha_i$ is K\"ahler and there are finitely many background classes. First let all potentials be real model psh functions with $\phi_i\leq0$. Each $\phi_i$ is also model $\beta$-psh, since $\beta-\alpha_i$ is nef. On a common snc model, the mixed testing formula shows that a pairing of relatively nef pairs is increasing in each potential. In particular, every mixed monomial in the pairs $(\beta,\phi_i)$ is nonpositive, because raising all its potentials to zero gives the zero intersection of $n+1$ classes pulled back from $X$.
+
+Increasing the background in one slot from $\alpha_i$ to $\beta$ changes the pairing by one with the factor $(\beta-\alpha_i,0)$. This factor is nef on every fibre. Raising the other potentials to zero shows that the change is nonpositive. Replacing the backgrounds one at a time therefore gives
+\[
+           \prod_i(\alpha_i,\phi_i)\geq\prod_i(\beta,\phi_i).
+\]
+Write $B_i=(\beta,\phi_i)$ in the model intersection algebra and $\bar\phi=m^{-1}\sum_i\phi_i$. Expansion of $(\sum_iB_i)^m$ contains $m!\prod_iB_i$ and other nonpositive mixed monomials. Concavity from \cref{prop:mp-energy-first-variation} consequently gives
+\[
+ \begin{aligned}
+ \prod_iB_i
+ &\geq\frac1{m!}\Bigl(\sum_iB_i\Bigr)^m
+   =\frac{m^m}{m!}(\beta,\bar\phi)^m\\
+ &\geq\frac{m^{m-1}}{m!}\sum_i(\beta,\phi_i)^m.
+ \end{aligned}
+\]
+
+It remains to compare each diagonal pairing with its original background. For a nonpositive model $\alpha_i$-psh function $u$, the identity
+\[
+ (\eta,u)^m
+   =\sum_{k=0}^n(0,u)(\eta,u)^k(\eta,0)^{n-k}
+\]
+holds for $\eta=\beta$ and $\eta=T\alpha_i$, since $(\eta,0)^m=0$. Replacing $\beta$ by $T\alpha_i$ in each term adds nef classes on the central components. Testing against $u\leq0$ shows that this replacement decreases the sum. Concavity along the segment from $0$ to $u$, and multilinearity, give
+\[
+ (\beta,u)^m\geq(T\alpha_i,u)^m
+       =T^m(\alpha_i,u/T)^m
+       \geq T^{m-1}(\alpha_i,u)^m.
+\]
+All restrictions appearing in this comparison are nef: $u$ is $\alpha_i$-psh, and both $\beta-\alpha_i$ and $T\alpha_i-\beta$ are nef. This proves \eqref{eq:mp-mixed-energy-bound} for real model inputs.
+
+For general nonpositive $\phi_i$, choose decreasing model nets $u_{i,\lambda_i}\downarrow\phi_i$ and use their product directed set. Fix $\varepsilon>0$. The equality $\sup u_{i,\lambda_i}=u_{i,\lambda_i}(v_{\triv})$ shows that eventually $u_{i,\lambda_i}\leq\varepsilon$ for every $i$. Apply the model inequality to $u_{i,\lambda_i}-\varepsilon$ and pass to the limit by \eqref{eq:mp-extended-pairing-decreasing}. If a diagonal pairing on the right of \eqref{eq:mp-mixed-energy-bound} is $-\infty$, the desired lower bound is vacuous. Otherwise the limiting right side is finite, so it also proves finiteness of the shifted mixed pairing. Formula \eqref{eq:mp-extended-pairing-translation} then permits $\varepsilon\downarrow0$ and proves the claimed bound. The upper bound follows from monotonicity and the zero-potential pairing.
+
+For finite-energy inputs, subtract their finite suprema to make them nonpositive. Their diagonal pairings are finite, so \eqref{eq:mp-mixed-energy-bound} and translation prove finiteness of the original mixed pairing. If $n=0$, the pairing is simply the finite value at the unique point. This proves the finiteness assertion of \cite[Proposition~4.4.4, p.~43]{MPTropicalV2} by the explicit model bound above.
+\end{proof}
+
+For $\beta\in H^{1,1}_{\mathrm{BC}}(X,\mathbf R)$ and $\phi\in\mathcal E^1(\alpha)$, choose $C>0$ such that $C\alpha+\beta$ is K\"ahler and set
 \[
  (\beta,0)(\alpha,\phi)^n
  :=(C\alpha+\beta,0)(\alpha,\phi)^n
       -(C\alpha,0)(\alpha,\phi)^n.
 \]
-The twisted energy is
+Both terms are finite by \cref{prop:mp-mixed-energy-finite}. The twisted energy is
 \[
  E^\beta_\alpha(\phi)
  :=\frac1{V_\alpha}(\beta,0)(\alpha,\phi)^n.
 \tag{60.20}\label{eq:mp-twisted-energy}
 \]
+To check independence of $C$, choose a decreasing model net $\phi_\lambda\downarrow\phi$. On each model the difference is $(\beta,0)(\alpha,\phi_\lambda)^n$, by multilinearity. Decreasing continuity of the two finite pairings gives the same limit for every admissible $C$. This is the extension by differences in \cite[Definition~4.4.6, p.~43]{MPTropicalV2}.
 
-The two terms are finite.  To check independence of $C$, choose a
-decreasing model net $\phi_\lambda\downarrow\phi$.  On each model the
-difference is $(\beta,0)(\alpha,\phi_\lambda)^n$, by multilinearity.
-Decreasing continuity of the two finite pairings gives the same limit
-for every admissible $C$.  This is the extension by differences in
-\cite[Definition~4.4.6, arXiv version~2]{MP24}.
-
-The test-function pairing $(0,\psi)(\alpha,\phi)^n$ requires one more
-extension when $\psi\in\PL$: an arbitrary model function need not be
-psh in any multiple of the pulled-back background on its given model.
-Choose a smooth snc model representing $\psi=\phi_D$ and a rational
-vertical divisor $A$ such that $\alpha_{\cX}+[A]$ is relatively K\"ahler,
-as in \Cref{prop:mp-real-model-approximation}.  For a sufficiently large
-positive integer $N$, both
+The test-function pairing $(0,\psi)(\alpha,\phi)^n$ requires one more extension when $\psi\in\PL$: an arbitrary model function need not be psh in a multiple of the pulled-back background on its given model. Pass to a smooth snc domination representing $\psi=\phi_D$ on which a rational vertical divisor $A$ satisfies that $\alpha_{\cX}+[A]$ is relatively K\"ahler, as in \cref{prop:mp-real-model-approximation}. For a sufficiently large positive integer $N$, both
 \[
  u=N\phi_A+\psi,\qquad w=N\phi_A
 \]
-belong to $\mathcal H(N\alpha)$.  Indeed, on each of the finitely many
-central components a sufficiently large multiple of the K\"ahler class
-$\alpha_{\cX}+[A]$ absorbs the fixed class $[D]$; the other fibres carry
-$N\alpha$.  Put $\gamma=N\alpha$ and define
+belong to $\mathcal H(N\alpha)$. Indeed, on each central component a sufficiently large multiple of the K\"ahler class $\alpha_{\cX}+[A]$ absorbs $[D]$; choose one $N$ for the finitely many components. The other fibres carry $N\alpha$. Put $\gamma=N\alpha$ and define
 \[
  (0,\psi)(\alpha,\phi)^n
  :=(\gamma,u)(\alpha,\phi)^n
       -(\gamma,w)(\alpha,\phi)^n.
 \]
-Both terms are finite because $u,w$ are model psh functions.  For any
-decreasing model net $\phi_\lambda\downarrow\phi$, model testing and
-decreasing continuity give
+The model functions $u,w$ have finite energy, so \cref{prop:mp-mixed-energy-finite} makes both terms finite. For any decreasing model net $\phi_\lambda\downarrow\phi$, model testing and decreasing continuity give
 \[
  V_\alpha^{-1}(0,\psi)(\alpha,\phi)^n
-   =\lim_\lambda\int_{X^{\bethan}}\psi\,
-                         \MA_\alpha(\phi_\lambda).
+   =\lim_\lambda\int_{X^{\bethan}}\psi\,\MA_\alpha(\phi_\lambda).
+\tag{60.20a}\label{eq:mp-test-pairing-limit}
 \]
-For a fixed net the right side depends only on $\psi$, so the definition
-does not depend on $A$, $N$, or the chosen representation of $\psi$.
-For a fixed representation, the left side is expressed by the canonical
-extended pairings, so the limit does not depend on the decreasing net.
-Finiteness of both terms is essential before taking their difference.
+For a fixed net the right side depends only on $\psi$, so the definition is independent of $A$, $N$ and the representation of $\psi$. For a fixed representation, the left side is expressed by canonical extended pairings, so the limit is independent of the decreasing net. Finiteness of both terms is essential before taking their difference.
 
-\begin{proposition}
-\label{prop:mp-e1-ma-existence}
-For every $\phi\in\mathcal E^1(\alpha)$ there is a unique Radon
-probability measure $\MA_\alpha(\phi)$ such that
+\begin{proposition}\label{prop:mp-e1-ma-existence}
+For every $\phi\in\mathcal E^1(\alpha)$ there is a unique Radon probability measure $\MA_\alpha(\phi)$ such that
 \[
  \int_{X^{\bethan}}\psi\,\MA_\alpha(\phi)
    =V_\alpha^{-1}(0,\psi)(\alpha,\phi)^n,
- \qquad \psi\in\PL(X^{\bethan}).
+ \qquad\psi\in\PL(X^{\bethan}).
 \tag{60.21}\label{eq:mp-e1-ma}
 \]
-If $\phi_\lambda\downarrow\phi$ is any decreasing model psh net, then
-$\MA_\alpha(\phi_\lambda)$ converges weakly to $\MA_\alpha(\phi)$.
+If $\phi_\lambda\downarrow\phi$ is any decreasing model psh net, then $\MA_\alpha(\phi_\lambda)$ converges weakly to $\MA_\alpha(\phi)$.
 \end{proposition}
 
 \begin{proof}
-Denote the right side of \eqref{eq:mp-e1-ma} by $L_\phi(\psi)$.
-The preceding limit formula expresses it as a limit of integrals
-against model probability measures.  Hence $L_\phi$ is rational-linear,
-is nonnegative on nonnegative model functions, and satisfies
+Denote the right side of \eqref{eq:mp-e1-ma} by $L_\phi(\psi)$. Formula \eqref{eq:mp-test-pairing-limit} expresses it as a limit of integrals against model probability measures. Hence $L_\phi$ is rational-linear, is nonnegative on nonnegative model functions, and satisfies
 \[
-       L_\phi(1)=1,\qquad
-       |L_\phi(\psi)|\leq\|\psi\|_\infty.
+       L_\phi(1)=1,\qquad |L_\phi(\psi)|\leq\|\psi\|_\infty.
 \]
-Uniform density of $\PL$ therefore extends it uniquely to a continuous
-real-linear functional on $C^0(X^{\bethan})$.  This extension is positive:
-for a nonnegative continuous function, choose uniformly approximating
-PL functions and shift them upward by rational bounds for their errors.
-Riesz representation on compact $X^{\bethan}$ gives a Radon
-probability measure, and density of $\PL$ makes it unique.  This gives
-the construction asserted in
-\cite[Remark~4.4.8, arXiv version~2]{MP24}.
+Uniform density of $\PL$ extends it uniquely to a continuous real-linear functional on $C^0(X^{\bethan})$. This extension is positive: for a nonnegative continuous function, choose uniformly approximating PL functions and shift them upward by rational bounds for their errors. Riesz representation on the compact Hausdorff spectrum gives a Radon probability measure, and density of $\PL$ makes it unique. This gives the construction asserted in \cite[Remark~4.4.8, p.~43]{MPTropicalV2}.
 
-Finally, for $f\in C^0(X^{\bethan})$ and $\psi\in\PL$, the probability
-normalizations give
+Finally, for $f\in C^0(X^{\bethan})$ and $\psi\in\PL$, the probability normalizations give
 \[
- \left|\int f\,\MA_\alpha(\phi_\lambda)
-               -\int f\,\MA_\alpha(\phi)\right|
- \leq 2\|f-\psi\|_\infty
-       +\left|\int\psi\,\MA_\alpha(\phi_\lambda)
-               -L_\phi(\psi)\right|.
+ \left|\int f\,\MA_\alpha(\phi_\lambda)-\int f\,\MA_\alpha(\phi)\right|
+ \leq2\|f-\psi\|_\infty
+       +\left|\int\psi\,\MA_\alpha(\phi_\lambda)-L_\phi(\psi)\right|.
 \]
-First choose $\psi$ with arbitrarily small uniform error, and then let
-$\lambda$ tend along its directed set.  The limit formula makes the
-last term tend to zero, proving weak convergence.
+First choose $\psi$ with arbitrarily small uniform error, and then let $\lambda$ tend along its directed set. Formula \eqref{eq:mp-test-pairing-limit} makes the last term tend to zero, proving weak convergence. In dimension zero this measure is the unit mass at the unique point.
 \end{proof}
+
+\begin{example}\label{ex:mp-infinite-energy-endpoint}
+On $\mathbf P^1$ with $\alpha=c_1(\cO(1))$, take the functions from \cref{ex:mp-divisorial-finiteness-boundary}:
+\[
+                 u_j(v)=-\min\{v(\mathcal I_p),j\}.
+\]
+The point-blowup calculation gives $\MA_\alpha(u_1)=\delta_{\operatorname{ord}_p}$ and $E_\alpha(u_1)=-1/2$. Since $u_j=j\cdot u_1$ for the rational scaling action, \eqref{eq:mp-ma-rational-scaling} and \eqref{eq:mp-energy-normalization} give
+\[
+ \MA_\alpha(u_j)=\delta_{j\operatorname{ord}_p},\qquad
+ E_\alpha(u_j)=-j/2.
+\]
+Thus the decreasing limit $\phi=-v(\mathcal I_p)$ has $E_\alpha(\phi)=-\infty$. Nevertheless, the model measures converge weakly to the unit mass at the character supported at $p$. Indeed, a nonzero coherent ideal $\mathcal I$ has an order $a=\operatorname{ord}_p(\mathcal I)\geq0$. Its value at $j\operatorname{ord}_p$ is $ja$, which tends to $0$ if $a=0$ and to $+\infty$ if $a>0$, exactly as at the supported endpoint. The zero ideal has value $+\infty$ throughout. These ideal coordinates give convergence in the spectrum. Weak convergence of the model measures therefore does not by itself imply that the limiting potential has finite energy.
+\end{example}
 
 \section{Radial limits of complex psh rays}
 

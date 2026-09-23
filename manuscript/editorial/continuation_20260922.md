@@ -1002,21 +1002,40 @@ provenance, author originals, frozen packets, verifier receipts and dated
 releases are unchanged. No independent-agent or production-verifier pass
 is claimed.
 
+## Chapter 60: extended pairings and finite-energy measures, 23 September 2026
+
+The [extended pairing audit](ch60_extended_pairing_audit_20260923.md)
+proves upper semicontinuity from continuous obstacle suprema and derives
+decreasing-net continuity and exact real translation. An explicit common-
+background estimate, proved by concavity and intersection expansion,
+establishes mixed finiteness before twisted and test-function differences.
+The measure construction now depends on these proved steps. A curve example
+has convergent model measures but energy tending to minus infinity.
+
+Two local mathematical/source passes, final full compilation and scoped
+page review are complete: 3,979 pages, 390 inputs and 11,630 labels, with
+no unresolved references/citations or layout overflow. The scoped house
+audit has zero errors and one reviewed author-version warning. All earlier
+Chapter 60 text and the radial-limit section onward retain their baseline
+bytes. The 45 research atoms, P12.1 integration/provenance, supplied originals,
+bibliography, frozen packets, verifier records and dated releases are
+unchanged. No independent-agent or production-verifier pass is claimed.
+
 ## Next work
 
-1. Continue Chapter 60 with extended mixed pairings and the finite-energy
-   measure construction: check infima over model majorants, product directed
-   nets, upper semicontinuity in the divisorial topology, decreasing
-   continuity, and finiteness before subtracting twisted pairings. Preserve
-   the finite vertex test, fixed-model graph estimate, comparison theorem,
-   model-measure normalization and energy calculus. Keep the checked maximum
-   and relative numerical-criterion proofs unless a concrete defect is
-   found, and retain the analytic-cycle source boundary. Preserve P12.1's
-   completed integration and supplied-manuscript provenance, the checked
-   Chapters 58–59 comparisons, and the distinction between normalized and
-   literal raw all-big-model tests. General Kähler maximal-ray existence,
-   sequential regularization and full mixed-slope reduction remain explicit
-   source inputs until separately reconstructed.
+1. Continue Chapter 60 with the radial limits of complex psh rays:
+   recheck growth correction, squared-norm and Gauss normalizations,
+   truncation levels and multiplier-ideal approximation, and the exact
+   regularization input needed for all-divisorial convergence. Then audit
+   maximal-ray order and the test-curve correspondence. Preserve the newly
+   proved extended-pairing continuity, mixed-energy bound and finite-energy
+   measure construction. Keep the checked model, scaling, graph and
+   comparison proofs unless a concrete defect is found. The analytic-cycle
+   criterion, general Kähler maximal-ray existence, sequential regularization
+   and full mixed-slope reduction retain their explicit source boundaries
+   until separately reconstructed. Preserve P12.1 integration/provenance,
+   the Chapters 58–59 comparisons, and the distinction between normalized
+   and literal raw all-big-model tests.
 2. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from stratified comparison.
    No extension beyond the current hypotheses is asserted.

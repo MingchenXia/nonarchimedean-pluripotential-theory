@@ -2535,3 +2535,22 @@ bytes. All 45 research atoms, completed P12.1 integration and supplied-source
 provenance, author originals, frozen packets, verifier receipts and dated
 releases are unchanged. No independent-agent or production-verifier pass
 is claimed.
+
+## Chapter 60: extended pairings and finite-energy measures, 23 September 2026
+
+The [extended pairing audit](ch60_extended_pairing_audit_20260923.md)
+proves upper semicontinuity from continuous obstacle suprema and derives
+decreasing-net continuity and exact real translation. An explicit common-
+background estimate, proved by concavity and intersection expansion,
+establishes mixed finiteness before twisted and test-function differences.
+The measure construction now depends on these proved steps. A curve example
+has convergent model measures but energy tending to minus infinity.
+
+Two local mathematical/source passes, final full compilation and scoped
+page review are complete: 3,979 pages, 390 inputs and 11,630 labels, with
+no unresolved references/citations or layout overflow. The scoped house
+audit has zero errors and one reviewed author-version warning. All earlier
+Chapter 60 text and the radial-limit section onward retain their baseline
+bytes. The 45 research atoms, P12.1 integration/provenance, supplied originals,
+bibliography, frozen packets, verifier records and dated releases are
+unchanged. No independent-agent or production-verifier pass is claimed.
