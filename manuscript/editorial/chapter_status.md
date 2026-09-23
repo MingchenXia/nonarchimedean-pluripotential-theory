@@ -2620,3 +2620,26 @@ their baseline bytes. The 45 active atoms, P12.1 integration/provenance,
 supplied originals, bibliography, frozen packets, verifier records and
 dated releases remain unchanged. No independent-agent or production-verifier
 pass is claimed.
+
+## Chapter 60: simultaneous mixed-energy slopes, 24 September 2026
+
+The [mixed-slope audit](ch60_mixed_slope_audit_20260924.md) defines the
+two-point J quantity, proves its separate-translation invariance and its
+bound by n times the ordered energy gap, and restores the signed
+cohomological coefficient in every translated pairing slot. The proof
+now regularizes all finite-energy slots simultaneously, with a uniform
+error bound that tends to zero after taking slopes. The average slope
+comes from the preceding cutoff identity. A Kähler-background decomposition
+justifies signed-form continuity, and constant rays test the centering
+terms and failure of separate-translation invariance for d1. The
+dimension-zero case and full theorem's imported boundaries are explicit.
+
+Two complete local proof/source passes, the final full build and scoped
+page review are complete: 3,985 pages, 390 inputs and 11,652 labels, with
+no unresolved references/citations or layout overflow. The scoped house
+audit has zero errors and one reviewed exact-version warning. Earlier
+Chapter 60 text and the reduced entropy definition onward retain their
+baseline bytes. The 45 active atoms, P12.1 integration/provenance, supplied
+originals, bibliography, frozen packets, verifier records and dated
+releases remain unchanged. No independent-agent or production-verifier
+pass is claimed.

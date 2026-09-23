@@ -2072,14 +2072,57 @@ equality.
 
 \section{Slope formulas and stability functionals}
 
-Let \(\eta_i\) be smooth closed real \((1,1)\)-forms.  If
-\(\phi_i\in\PL\), choose smooth rays \(U_i\) compatible with the
-corresponding analytic models.  If
-\(\phi_i\in\mathcal E^1(\alpha)\), choose the maximal rays of
-\Cref{thm:mp-maximal-ray}.
+Keep the connected compact K\"ahler manifold $(X,\omega)$, its dimension $n$, the class $\alpha=[\omega]$ and the volume $V_\alpha=\int_X\omega^n$. Complex energies and Monge--Amp\`ere measures in this section are probability-normalized. For $u,v\in\mathcal E^1(X,\omega)$, put
+\[
+ \mathcal J_\omega(u,v)
+ :=E_\omega(u)-E_\omega(v)
+       +\int_X(v-u)\,\MA_\omega(u).
+\]
+This is the two-point $J$ functional in \cite[Proposition~2.2 and its proof]{BJ25FiniteEnergy}; in particular, $J_\omega(u)=\mathcal J_\omega(0,u) =V_\alpha^{-1}\int_Xu\,\omega^n-E_\omega(u)$. The integrals are finite on the common finite-energy class.
+
+\begin{lemma}\label{lem:mp-mixed-centering}
+For real constants $a,b$, one has
+\[
+ \mathcal J_\omega(u+a,v+b)=\mathcal J_\omega(u,v).
+\]
+If $u\leq v$, then
+\[
+ 0\leq\mathcal J_\omega(u,v)
+ \leq n\bigl(E_\omega(v)-E_\omega(u)\bigr)
+ =n\,d_1(u,v).
+\]
+Here $d_1$ is the probability-normalized metric used in \cref{prop:mp-maximal-ordered-distance}.
+
+For smooth closed real $(1,1)$-forms $\eta_0,\ldots,\eta_n$ and $u_0,\ldots,u_n\in\mathcal E^1(X,\omega)$, write
+\[
+ Q(u_0,\ldots,u_n):=\prod_{i=0}^n(\eta_i,u_i),\qquad
+ C_i:=\int_X\bigwedge_{j\ne i}\eta_j.
+\]
+Whenever the mixed pairing is defined on these finite-energy inputs, its translation formula, for $a_0,\ldots,a_n\in\mathbf R$, is
+\[
+ Q(u_0+a_0,\ldots,u_n+a_n)
+       =Q(u_0,\ldots,u_n)+\sum_{i=0}^n a_iC_i.
+\]
+The coefficients $C_i$ are signed cohomological intersections.
+\end{lemma}
+
+\begin{proof}
+Translation changes the energy difference by $a-b$ and the integral by $b-a$, since $\MA_\omega(u)$ has mass one. This proves the first identity. Concavity of $E_\omega$ gives $\mathcal J_\omega(u,v)\geq0$. For $u\leq v$, set $\Delta=E_\omega(v)-E_\omega(u)$. The cocycle formula of \cref{prop:appH-energy-formulas}, divided by $V_\alpha$, gives
+\[
+ (n+1)\Delta
+   =V_\alpha^{-1}\sum_{j=0}^n
+       \int_X(v-u)\langle\omega_u^j\wedge\omega_v^{n-j}\rangle,
+ \qquad \omega_u:=\omega+\ddc u.
+\]
+Every summand is nonnegative; the $j=n$ term is $\int_X(v-u)\,\MA_\omega(u)$. Hence $\mathcal J_\omega(u,v)\leq n\Delta$. The rooftop of ordered inputs is the smaller input, so $\Delta=d_1(u,v)$.
+
+Adding a constant in slot $i$ changes the mixed pairing by its integral against the other $n$ currents. Their mixed mass is $C_i$, by Stokes and finite-energy approximation. The currents are unchanged by all the other constant translations, so the $n+1$ contributions add without cross terms. This proves the formula, also for signed forms by multilinearity.
+\end{proof}
+
+Let $\eta_i$ be smooth closed real $(1,1)$-forms. If $\phi_i\in\PL$, choose smooth rays $U_i$ compatible with the corresponding analytic models. If $\phi_i\in\mathcal E^1(\alpha)$, choose the maximal rays of \cref{thm:mp-maximal-ray}.
 
 \begin{theorem}\label{thm:mp-mixed-slope}
-Suppose
+Let $-1\leq k\leq n$, with an empty PL block when $k=-1$. Suppose
 \[
  \phi_0,\ldots,\phi_k\in\PL,
  \qquad
@@ -2094,109 +2137,103 @@ With compatible rays as above,
 \]
 \end{theorem}
 
-\begin{proof}[Imported estimate and limit passage]
-The full assertion is \cite[Theorem~5.3.4, arXiv version~2]{MP24}.
-We spell out its quantitative limit step when a single finite-energy
-input is approximated and the other inputs have psh compatible rays in
-the common background $\omega$.
+\begin{proof}[Simultaneous approximation]
+The full assertion is \cite[Theorem~5.3.4]{MPTropicalV2}. We prove the limit passage for all finite-energy slots simultaneously in the common background $\omega$, with zero initial value. The compatible model-ray slope formula and the general PL reduction remain inputs from that theorem.
 
-Write $U=U(0,\phi)$ for the last ray and
-$U^m=U(0,\phi_m)$ for its model approximants, where
-$\phi_m\downarrow\phi$ is the regularization in the imported construction.
-Put
+First, for $\phi\in\mathcal E^1(\alpha)$ and $U=U(0,\phi)$, put $c=\phi(v_{\triv})$ and $a_s=V_\alpha^{-1}\int_XU_s\,\omega^n$. The cutoff identity in \cref{cor:mp-test-curve-mass-defect} gives $\sup_XU_s=sc$. The compactness bound for normalized $\omega$-psh functions gives a finite constant $T_\omega$ such that
 \[
- \delta_m:=E_\alpha(\phi_m)-E_\alpha(\phi),\qquad
- \varepsilon_m:=\phi_m(v_{\triv})-\phi(v_{\triv}).
+ 0\leq\sup_Xu-V_\alpha^{-1}\int_Xu\,\omega^n\leq T_\omega
+ \quad(u\in\mathcal E^1(X,\omega)).
 \]
-Both are nonnegative and tend to zero.  The affine energy identity for
-these maximal rays is part of the construction in
-\cite[Theorem~5.1.7 and Remark~5.1.9, arXiv version~2]{MP24};
-it is not inferred here from the mixed-slope formula being proved.
-By \Cref{prop:mp-maximal-order}, $U_s\leq U^m_s$.  With the
-probability-normalized complex $d_1$ metric, the ordered-pair formula is
-therefore
+For this analytic input see \cite[Lemma~5.3.1 and Remark~5.3.3]{MPTropicalV2}. Consequently,
 \[
- d_1(U_s,U^m_s)
-   =E_\omega(U^m_s)-E_\omega(U_s)=s\delta_m.
+       sc-T_\omega\leq a_s\leq sc,\qquad
+       \lim_{s\to\infty}a_s/s=c.
+\tag{60.24a}\label{eq:mp-maximal-average-slope}
 \]
-Here $d_1$ is $V_\alpha^{-1}$ times the relative metric in
-\Cref{def:appH-i-d1}.  The equality follows from its rooftop formula,
-since the rooftop of two ordered potentials is the smaller one.
+This recovers the average-slope formula without using the mixed-slope identity under proof.
 
-Use normalized averages
+Assume $n\geq1$. For each $i=0,\ldots,n$, choose model regularizations $\phi_{i,m}\downarrow\phi_i\in\mathcal E^1(\alpha)$ from \cref{thm:mp-maximal-ray}. Set
 \[
- a_s:=V_\alpha^{-1}\int_XU_s\,\omega^n,\qquad
- a^m_s:=V_\alpha^{-1}\int_XU^m_s\,\omega^n .
+ U_i=U(0,\phi_i),\qquad U_i^m=U(0,\phi_{i,m}),\qquad
+ c_{i,m}=\phi_{i,m}(v_{\triv}),\quad c_i=\phi_i(v_{\triv}),
 \]
-The average-slope formula
-\cite[Lemma~5.3.1, arXiv version~2]{MP24} gives
+and define
 \[
- a^m_s-a_s\geq0,\qquad
- \lim_{s\to\infty}\frac{a^m_s-a_s}{s}=\varepsilon_m.
+ \delta_m=\max_i\{E_\alpha(\phi_{i,m})-E_\alpha(\phi_i)\},
+ \qquad \varepsilon_{i,m}=c_{i,m}-c_i.
 \]
-For the fixed other inputs set
+These numbers are nonnegative and tend to zero. Order and the affine energy identity in \cref{thm:mp-maximal-ray} give
 \[
- G_s:=\prod_{i=0}^{n-1}(\eta_i,U_{i,s}),\qquad
- B:=\left|\int_X\eta_0\wedge\cdots\wedge\eta_{n-1}\right|.
+ U_{i,s}\leq U^m_{i,s}\leq U^1_{i,s},\qquad
+ d_1(U_{i,s},U^m_{i,s})
+ =s\bigl(E_\alpha(\phi_{i,m})-E_\alpha(\phi_i)\bigr)
+ \leq s\delta_m.
 \]
-Subtract their $\omega^n/V_\alpha$ averages as well.  This leaves
-the currents $\eta_i+\ddc U_{i,s}$ unchanged and hence does not affect
-$G_s(0,U_s-U^m_s)$.  Subtracting the average in the last slot gives
-the additional term bounded by $B(a^m_s-a_s)$.  This coefficient is
-the absolute value of a cohomological intersection number; it need
-not equal one.
+This use of the energy identity is independent of the mixed-slope theorem. Let $a_{i,s}$ and $a^m_{i,s}$ be the normalized averages of these rays. By \eqref{eq:mp-maximal-average-slope},
+\[
+ a^m_{i,s}-a_{i,s}\geq0,\qquad
+ \lim_{s\to\infty}\frac{a^m_{i,s}-a_{i,s}}s=\varepsilon_{i,m}.
+\]
+There is also a bound uniform in $m$:
+\[
+ 0\leq J_\omega(U^m_{i,s})
+ \leq s\bigl(c_{i,1}-E_\alpha(\phi_i)\bigr),\qquad
+ 0\leq J_\omega(U_{i,s})
+ \leq s\bigl(c_{i,1}-E_\alpha(\phi_i)\bigr).
+\]
+Indeed, each average is at most $s c_{i,1}$ and each energy is at least $sE_\alpha(\phi_i)$.
 
-For $n\geq1$, the normalized mixed-energy estimate
-\cite[Lemma~5.3.2 and the proof of Theorem~5.3.4,
-arXiv version~2]{MP24}, with $q=2^{-n}$, yields
+Subtract the corresponding average from every potential, writing $\widetilde U_{i,s}=U_{i,s}-a_{i,s}$ and $\widetilde U^m_{i,s}=U^m_{i,s}-a^m_{i,s}$. The normalized mixed-energy estimate of \cite[Lemma~5.3.2]{MPTropicalV2}, whose smooth case is \cite[Theorem~3.6]{BJ25FiniteEnergy}, has exponent $q=2^{-n}$. It bounds the difference of the two centered pairings by a constant times
 \[
- |G_s(0,U_s-U^m_s)|
- \leq C(s\delta_m)^q(s+1)^{1-q}+B(a^m_s-a_s)
- \qquad(s\geq1).
+ \Bigl(\max_i\mathcal J_\omega
+       (\widetilde U_{i,s},\widetilde U^m_{i,s})\Bigr)^q
+ \Bigl(1+T_\omega+
+       \max_i\{J_\omega(U_{i,s}),J_\omega(U^m_{i,s})\}\Bigr)^{1-q}.
 \]
-Here $C$ depends on the fixed background and forms, the dimension,
-and common bounds for the energy growth of the psh inputs, but not on
-$m$ or $s$.  The required uniformity can be checked directly:
+By \cref{lem:mp-mixed-centering}, the first maximum is at most $ns\delta_m$. The second factor has the required uniform linear growth before taking its power. The constant may depend on the fixed forms, background, dimension, first approximants and limiting energies, but it is independent of $m$ and $s$.
+
+Restoring the averages by \cref{lem:mp-mixed-centering} therefore gives
 \[
- 0\leq J_\omega(U^m_s)
-   =a^m_s-E_\omega(U^m_s)
-   \leq a^1_s-E_\omega(U_s)=O(s+1).
+ \begin{split}
+ &|Q(U_{0,s},\ldots,U_{n,s})-Q(U^m_{0,s},\ldots,U^m_{n,s})|\\
+ &\qquad\leq C(s\delta_m)^q(s+1)^{1-q}
+          +\sum_{i=0}^n|C_i|(a^m_{i,s}-a_{i,s})\qquad(s\geq1).
+ \end{split}
+\tag{60.24b}\label{eq:mp-mixed-simultaneous-error}
 \]
-The inequality uses $U_s\leq U^m_s\leq U^1_s$, and the last bound
-uses the model average slope and the affine energy of $U$.
-The fixed compatible psh inputs have the same linear bound for $J$
-by their model slope formulas.
-Dividing by $s$ gives
+In particular, after division by $s$,
 \[
  \limsup_{s\to\infty}
- \frac{|G_s(0,U_s-U^m_s)|}{s}
- \leq C\delta_m^q+B\varepsilon_m\longrightarrow0.
+ \frac{|Q(U_{0,s},\ldots,U_{n,s})-Q(U^m_{0,s},\ldots,U^m_{n,s})|}{s}
+ \leq C\delta_m^q+\sum_{i=0}^n|C_i|\varepsilon_{i,m}
+ \longrightarrow0.
 \]
-If $L_m$ is the model mixed slope, the model intersection formula and
-monotone continuity of the finite pairing give $L_m\to L$, the asserted
-non-Archimedean pairing.  The triangle inequality now bounds the
-limsup of the distance to $L$ by
-$C\delta_m^q+B\varepsilon_m+|L_m-L|$, which tends to zero.
-This supplies the limit interchange, rather than assuming it from
-pointwise convergence of rays.
+The constant invariance used here belongs to $\mathcal J_\omega$; the $d_1$ distance need not be preserved when the two averages are subtracted separately.
 
-The reduction of general PL inputs to compatible positive model
-pairings and the iteration over the finite-energy slots are included
-in the cited mixed-slope theorem.  The calculation above states the
-common-background estimate used in that reduction.
-For a finite-energy slot, an arbitrary smooth closed form is restored
-by the exact pair identity
+For fixed $m$, the compatible model-ray formula gives the slope $L_m$ of the approximating pairing. Decreasing continuity and finiteness of the non-Archimedean mixed pairing, proved in \cref{prop:mp-extended-pairing-continuity,prop:mp-mixed-energy-finite}, give $L_m\to L$, where $L$ is the right hand side of \eqref{eq:mp-mixed-slope}. For signed background forms, use the pair identity $(\eta,U)=(\omega,U)+(\eta-\omega,0)$ and multilinearity, then write the fixed smooth term as
 \[
-             (\eta,U)=(\omega,U)+(\eta-\omega,0)
+ (\eta-\omega,0)=(\eta+(A-1)\omega,0)-(A\omega,0),
 \]
-and multilinearity; the second summand has zero model potential.
-In dimension zero, a connected $X$ is one point and every geodesic
-ray is affine; smooth model compatibility changes an affine ray by a
-bounded function.  The slope identity then follows from the calculation
-after \eqref{eq:mp-normalized-ray-lelong}.
+where $A>0$ is fixed and large enough to make both backgrounds K\"ahler. Each resulting mixed term is thus within the positive-background continuity statement. The triangle inequality now bounds the limsup of $|s^{-1}Q(U_{0,s},\ldots,U_{n,s})-L|$ by
+\[
+          C\delta_m^q+\sum_{i=0}^n|C_i|\varepsilon_{i,m}+|L_m-L|.
+\]
+Letting $m\to\infty$ proves the slope formula in this common-background, zero-initial-value case. Fixed maximal model slots can be left unapproximated, with their approximation errors set equal to zero.
+
+General PL slots, their reduction to compatible positive model data, and the choice of initial potential are covered by the full cited theorem. They are not deduced from the estimate for zero-initial maximal rays alone. The model-ray slope input includes the passage from smooth model-compatible representatives to the associated maximal model rays. In dimension zero, connected $X$ is one point. The two-point quantity vanishes, the mixed pairing is the sole potential, and the slope is its affine coefficient. A smooth compatible representative changes that affine ray by a bounded function, leaving its slope unchanged.
 \end{proof}
 
-In particular, for the maximal ray \(U\) associated to \(\phi\),
+\begin{example}\label{ex:mp-mixed-constant-slopes}
+Let $X$ be a compact K\"ahler curve, $\eta_0=\lambda\omega$ and $\eta_1=\omega$, with $\lambda\in\mathbf R$. For $a,b\in\mathbf R$ and the constant rays $U_{0,s}=as$ and $U_{1,s}=bs$, the translation formula gives
+\[
+       (\lambda\omega,as)(\omega,bs)
+                  =sV_\alpha(a+\lambda b).
+\]
+Both centered rays are zero, so the centered mixed pairing and all their one-point and two-point $J$ quantities vanish. The entire slope comes from the average terms, with coefficients $V_\alpha$ and $\lambda V_\alpha$. These coefficients need not be positive or equal to one. For $u=0$ and $v=bs$ with $b>0$, one also has $\mathcal J_\omega(u,v)=0$ but $d_1(u,v)=bs$; centering both potentials reduces the latter distance to zero.
+\end{example}
+
+In particular, for the maximal ray $U$ associated to $\phi$,
 \[
  \lim_{s\to\infty}\frac{E_\omega(U_s)}s=E_\alpha(\phi),
  \quad
@@ -2206,6 +2243,8 @@ In particular, for the maximal ray \(U\) associated to \(\phi\),
  \lim_{s\to\infty}\frac{J_\omega(U_s)}s=J_\alpha(\phi).
 \tag{60.25}\label{eq:mp-basic-slopes}
 \]
+The first two identities use the corresponding diagonal mixed pairings. For zero initial value, the first identity is already the exact affine energy formula; the third also follows directly from \eqref{eq:mp-maximal-average-slope} and $J_\alpha(\phi)=\phi(v_{\triv})-E_\alpha(\phi)$.
+
 
 Define the reduced entropy and non-Archimedean Mabuchi functional by
 \[
