@@ -703,63 +703,226 @@ proper noncompact open set.
 The construction is global in coherent ideals, not a naive topological
 gluing of open Berkovich charts.
 
+The bimeromorphic statement requires control of ideal descent. We first
+separate the finite case, which also permits nonnormal spaces.
+
+\begin{lemma}\label{lem:ts-finite-bimeromorphic}
+Let $q:Y\to X$ be a finite bimeromorphic morphism of reduced irreducible
+compact complex spaces. Then $q^\bethan:Y^{\val}\to X^{\val}$ is bijective.
+\end{lemma}
+
+\begin{proof}
+Put $\mathcal A=\cO_X$ and $\mathcal B=q_*\cO_Y$, and regard
+$\mathcal A\subset\mathcal B$ by bimeromorphicity. The finite mapping
+theorem makes $\mathcal B$ a coherent $\mathcal A$-module
+\cite[Chapter~3, \S1]{CAS}. A nonzero ideal on $X$ is nonzero on the
+dense isomorphism locus, so its pullback is nonzero; thus $q^\bethan$
+maps full-support characters to full-support characters. The conductor
+\[
+ \mathfrak c=\operatorname{Ann}_{\mathcal A}(\mathcal B/\mathcal A)
+\]
+is a coherent ideal of both $\mathcal A$ and $\mathcal B$; it is nonzero,
+since it is the unit ideal where $q$ is an isomorphism. For a coherent
+ideal $\mathfrak j$ on $Y$, set
+$\mathfrak a_{\mathfrak j}=\mathfrak c\,q_*\mathfrak j\subset\mathcal A$.
+These are coherent ideals on $X$. Products and sums can be checked in
+the finite algebra $\mathcal B$, giving
+\[
+\begin{aligned}
+ \mathfrak a_{\mathfrak j+\mathfrak l}
+   &=\mathfrak a_{\mathfrak j}+\mathfrak a_{\mathfrak l},&
+ \mathfrak a_{\mathfrak j}\mathfrak a_{\mathfrak l}
+   &=\mathfrak c\,\mathfrak a_{\mathfrak j\mathfrak l},\\
+ \mathfrak a_{\cO_Y}&=\mathfrak c,&
+ \mathfrak a_{q^*\mathfrak a}&=\mathfrak c\mathfrak a.
+\end{aligned}
+\]
+For $v\in X^{\val}$ define
+\[
+ \widetilde v(0)=+\infty,\qquad
+ \widetilde v(\mathfrak j)
+   =v(\mathfrak a_{\mathfrak j})-v(\mathfrak c)
+       \quad(\mathfrak j\ne0).
+\]
+For nonzero $\mathfrak j$, its product with the conductor is nonzero on
+the dense isomorphism locus. Thus both terms are finite. Moreover,
+$\mathfrak a_{\mathfrak j}\subset\mathfrak c$ proves
+$\widetilde v(\mathfrak j)\geq0$. The four identities prove the sum,
+product and unit laws and $q^\bethan(\widetilde v)=v$; the laws involving
+the zero ideal follow from the prescribed infinite value.
+
+Conversely, $q^*\mathfrak a_{\mathfrak j}
+=(q^*\mathfrak c)\mathfrak j$. A full-support lift $w$ of $v$ must
+therefore satisfy
+$w(\mathfrak j)+v(\mathfrak c)=v(\mathfrak a_{\mathfrak j})$ for every
+nonzero $\mathfrak j$. Finite cancellation forces the displayed formula
+and proves uniqueness. In particular, using a different nonzero coherent
+common ideal of $\mathcal A$ and $\mathcal B$ would give the same lift.
+\end{proof}
+
+\begin{lemma}\label{lem:ts-projective-ideal-reflection}
+Let $f:Y\to X$ be a projective bimeromorphic morphism of normal
+irreducible compact complex spaces. If $\mathfrak a,\mathfrak b$ are
+nonzero coherent ideals on $X$ and
+$f^*\mathfrak a\subset f^*\mathfrak b$, then
+$v(\mathfrak a)\geq v(\mathfrak b)$ for every $v\in X^{\val}$.
+In particular, equal pullback ideals have equal values.
+\end{lemma}
+
+\begin{proof}
+Write $\overline{\mathfrak b}$ for the integral closure of an ideal.
+Locally, its elements satisfy
+$g^d+a_1g^{d-1}+\cdots+a_d=0$ with $a_i\in\mathfrak b^i$.
+We use the normalized-blowup description of this coherent ideal in
+\cite[Proposition~2.2.2 and Corollary~2.2.3]{MPTropicalV2}.
+First, $v(\overline{\mathfrak b})=v(\mathfrak b)$, as in
+\cite[Lemma~2.2.4]{MPTropicalV2}. Indeed, local finite generation and
+integral dependence make the Rees algebra of $\overline{\mathfrak b}$
+finite over that of $\mathfrak b$; the integral equations for the
+degree-one generators are those of \cite[Tag~00H3]{stacks-project}.
+In degrees above those of a finite set of homogeneous module generators
+this gives
+\[
+ (\overline{\mathfrak b})^{N+1}
+     =\mathfrak b(\overline{\mathfrak b})^N.
+\]
+Once this equality holds it holds for every larger $N$. A finite cover
+of $X$ therefore provides a single exponent. Applying $v$ and cancelling
+the finite value $N v(\overline{\mathfrak b})$ proves the assertion.
+
+Let $g:Z\to Y$ be the normalized blowup of $f^*\mathfrak b$ and put
+$h=f\circ g$. The ideal $h^*\mathfrak b=\cO_Z(-D)$ is invertible,
+with $D$ effective, and $h$ is a normal projective modification.
+The cited direct-image formula gives
+$h_*\cO_Z(-D)=\overline{\mathfrak b}$. Pulling back the assumed inclusion
+and then pushing forward yields
+\[
+ \mathfrak a\subset h_*h^*\mathfrak a
+      \subset h_*h^*\mathfrak b=\overline{\mathfrak b}.
+\]
+Thus $v(\mathfrak a)\geq v(\overline{\mathfrak b})=v(\mathfrak b)$.
+Apply the same argument in both directions for equal pullbacks.
+\end{proof}
+
 \begin{proposition}\label{prop:ts-bimeromorphic-valuations}
-Let \(f:X'\to X\) be a proper bimeromorphic morphism of reduced irreducible
-compact complex spaces.
-Then \(f^\bethan\) induces a bijection between the strata of valuations with
-full support \(X'\) and \(X\).
+Let $f:X'\to X$ be a proper bimeromorphic morphism of reduced irreducible
+compact complex spaces. Then $f^\bethan$ induces a bijection
+$X'^{\val}\to X^{\val}$ between the full-support strata.
 \end{proposition}
 
 \begin{proof}
-First, a nonzero ideal on \(X\) has nonzero pullback to \(X'\): on any open
-set where the ideal is nonzero, bimeromorphicity prevents its inverse image
-from being contained in the proper zero locus.  Thus \(f^\bethan\) sends a
-full-support character to a full-support character.
+This is \cite[Proposition~2.1.6]{MPTropicalV2}. A nonzero coherent ideal on an irreducible reduced space is the unit ideal on a
+dense open set. Intersecting that set with the isomorphism locus of
+$f$ shows that its pullback is nonzero. Hence $f^\bethan$ sends
+full-support characters to full-support characters.
 
-We import the relative-ampleness construction of
-\cite[Proposition~2.1.6]{MP24}, but record its formulas.  Suppose first
-that \(X'\) admits an anti-effective \(f\)-ample divisor \(E\).  For every
-coherent ideal \(\mathfrak j\) on \(X'\), relative global generation gives
-an integer \(m_{\mathfrak j}\) and ideals
-\(\mathfrak i_{\mathfrak j},\mathfrak k\) on \(X\) such that
-\[
-\begin{aligned}
- f^{-1}\mathfrak i_{\mathfrak j}\cdot\cO_{X'}
-   &=\mathfrak j\cdot\cO_{X'}(E)^{m_{\mathfrak j}},\\
- f^{-1}\mathfrak k\cdot\cO_{X'}
-   &=\cO_{X'}(E).
-\end{aligned}
-\]
-If \(v\in X^{\val}\), define
-\[
- \widetilde v(\mathfrak j)
- :=v(\mathfrak i_{\mathfrak j})
-      -m_{\mathfrak j}v(\mathfrak k).
-\]
-All quantities are finite, which is precisely where full support is used.
-Passing two ideals to a common sufficiently large twist and using the
-semiring laws shows that this value is independent of the choices and that
-\(\widetilde v\) is a tropical character.  The displayed pullback
-identities then give
-\[
- f^\bethan(\widetilde v)=v.
-\]
-They also recover the value of every \(\mathfrak j\) from its pushforward
-data, proving injectivity in this case.
+\emph{Step 1: a relatively ample ideal on normal spaces.}
+Assume first that $X$ and $X'$ are normal and that
+$L=\cO_{X'}(E)\subset\cO_{X'}$ is $f$-ample, with $E$ an
+anti-effective Cartier divisor. Replace $L$ by a positive power so
+that it is relatively generated. Properness bounds holomorphic
+functions over smaller base neighbourhoods, and normality extends
+them across the exceptional image, giving $f_*\cO_{X'}=\cO_X$. Thus
+$\mathfrak k=f_*L$ is a coherent ideal and $f^*\mathfrak k=L$.
+Relative generation, with one exponent over the compact base, also
+gives, for every nonzero coherent ideal $\mathfrak j$ on $X'$ and some $m\geq0$, a nonzero ideal
+$\mathfrak a=f_*(\mathfrak jL^m)$ with
+$f^*\mathfrak a=\mathfrak jL^m$.
 
-For a general proper bimeromorphic \(f\), the resolution and negativity
-argument in \cite[Proposition~2.1.6]{MP24} produces a smooth space \(Z\)
-dominating both \(X'\) and \(X\), with the morphism \(Z\to X\) a sequence
-of blowups whose anti-effective exceptional divisor is relatively ample.
-The special case gives bijections on full-support strata for the resulting
-morphisms.  In the commutative triangle, surjectivity for \(Z\to X'\) and
-bijectivity for \(Z\to X\) force both injectivity and surjectivity for
-\(f^\bethan:X'^{\val}\to X^{\val}\).
+For $v\in X^{\val}$ set
+\[
+ \widetilde v(0)=+\infty,\qquad
+ \widetilde v(\mathfrak j)=v(\mathfrak a)-m v(\mathfrak k)
+       \quad(\mathfrak j\ne0).
+\]
+All subtractions here involve finite values. Since
+$f^*\mathfrak a\subset L^m=f^*(\mathfrak k^m)$,
+\cref{lem:ts-projective-ideal-reflection} proves nonnegativity.
+If $(\mathfrak a,m)$ and $(\mathfrak a',m')$ are two representations
+of $\mathfrak j$, choose $M\geq m,m'$. Then
+\[
+ f^*(\mathfrak a\mathfrak k^{M-m})
+   =\mathfrak jL^M
+   =f^*(\mathfrak a'\mathfrak k^{M-m'}).
+\]
+The same lemma equates their values, proving independence of both
+the numerator and the exponent for every such representation.
+
+Represent two nonzero ideals $\mathfrak j,\mathfrak l$ by
+$(\mathfrak a,m)$ and $(\mathfrak b,n)$. Their product is represented
+by $(\mathfrak a\mathfrak b,m+n)$, proving the product law. After
+replacing both exponents by $M\geq m,n$, their sum is represented by
+\[
+ (\mathfrak a\mathfrak k^{M-m}
+       +\mathfrak b\mathfrak k^{M-n},M).
+\]
+The minimum law for $v$ proves the sum law. The pair $(\cO_X,0)$
+represents $\cO_{X'}$, and $(\mathfrak a,0)$ represents
+$f^*\mathfrak a$, so the unit law and
+$f^\bethan(\widetilde v)=v$ follow. Zero ideals obey the same laws
+with the prescribed value $+\infty$. Thus $\widetilde v$ is a
+full-support character.
+
+If $w$ is any full-support lift of $v$, then
+$w(L)=v(\mathfrak k)$ and
+$w(\mathfrak j)+m w(L)=v(\mathfrak a)$. This forces the formula for
+$\widetilde v$, proving uniqueness and also independence of the
+chosen relatively ample ideal $L$.
+
+\emph{Step 2: an arbitrary modification of normal spaces.}
+Use the domination construction in the proof of
+\cite[Proposition~2.1.6, pp.~13--14]{MPTropicalV2}: there is a smooth
+compact $Z$ and proper bimeromorphic maps
+$\nu:Z\to X'$ and $\mu:Z\to X$ with $\mu=f\circ\nu$, such that
+$\mu$ admits an anti-effective relatively ample Cartier divisor.
+For a composite of blowups, this divisor is obtained by choosing
+sufficiently large positive weights on the pullbacks of their negative
+exceptional divisors. It need not be the unweighted exceptional divisor.
+Step~1 makes $\mu^\bethan$ bijective, so $f^\bethan$ is surjective.
+This proves surjectivity for every proper bimeromorphic map between
+normal spaces before any injectivity assertion is used.
+
+Apply that surjectivity conclusion to $\nu$. If
+$f^\bethan(v_1)=f^\bethan(v_2)$, choose lifts $u_1,u_2\in Z^{\val}$
+with $\nu^\bethan(u_i)=v_i$. Then
+$\mu^\bethan(u_1)=\mu^\bethan(u_2)$; injectivity for $\mu$ gives
+$u_1=u_2$, and hence $v_1=v_2$. No relatively ample divisor for
+$\nu$ is being assumed.
+
+\emph{Step 3: normalization.}
+The finite normalization maps $n':X'^\nu\to X'$ and
+$n:X^\nu\to X$ and the induced proper bimeromorphic map
+$f^\nu:X'^\nu\to X^\nu$ satisfy $n\circ f^\nu=f\circ n'$.
+We use here the analytic normalization theorem
+\cite[Chapter~8]{CAS}. By \cref{lem:ts-finite-bimeromorphic},
+$n'^\bethan$ and $n^\bethan$ are bijective on full-support strata.
+Step~2 gives the same conclusion for $(f^\nu)^\bethan$, so the
+commutative square proves it for $f^\bethan$.
 \end{proof}
 
-We assert only a bijection on the full-support strata.
-A statement about all support strata, or a homeomorphism without additional
-hypotheses, would be stronger and is not used here.
+\begin{example}\label{ex:ts-nodal-ideal-descent}
+Let $q:\widetilde C\to C$ normalize the nodal cubic of
+\cref{ex:ts-node-global-prime}, and let $p_+,p_-$ lie over its node.
+The ideal $\mathfrak j=\cO_{\widetilde C}(-p_+)$ is not the pullback
+of any ideal on $C$. Indeed, a germ at the node is a pair
+$(a(u),b(t))$ with $a(0)=b(0)$. An ideal whose pullback is the unit
+ideal at $p_-$ contains a germ with $b(0)\ne0$, so its pullback is
+also the unit ideal at $p_+$.
+
+The conductor on the normalization is
+$\cO_{\widetilde C}(-p_+-p_-)$. Multiplying $\mathfrak j$ by it gives
+$\cO_{\widetilde C}(-2p_+-p_-)$, which does descend: its local pairs
+have $a(u)\in(u^2)$ and $b(t)\in(t)$. This is the correction used in
+\cref{lem:ts-finite-bimeromorphic}. Since $q$ is finite, the trivial
+line bundle is $q$-ample and every coherent sheaf is relatively
+generated. Thus relative generation alone on a nonnormal base would
+not justify descent as an ideal of $\cO_C$.
+
+The point characters at $p_+$ and $p_-$ are distinct but both map to
+the point character at the node. Hence the full-support restriction
+in \cref{prop:ts-bimeromorphic-valuations} cannot be dropped. No
+topological strengthening is needed here.
+\end{example}
 
 \section{Recovery of projective algebraic analytification}
 

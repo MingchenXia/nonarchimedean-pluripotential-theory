@@ -667,13 +667,42 @@ No independent-agent or production verification and no atom closure
 are claimed. The next unit checks proper bimeromorphic transport,
 the lifted character's positivity, twist independence and resolution.
 
+## Chapter 58: bimeromorphic transport and conductor descent
+
+The [bimeromorphic transport audit](ch58_bimeromorphic_audit_20260923.md)
+reconstructs the full-support bijection for proper bimeromorphic maps
+without dropping nonnormal spaces. A conductor calculation handles
+finite maps; normalized blowups and integral closure justify positivity
+and equality of values for equal pullbacks on a normal base. The
+relative-ampleness formula now checks every choice, sum and product,
+the zero ideal, the unit, and uniqueness. The common-resolution
+argument proves general surjectivity before using it for the second
+arrow, and finite normalization recovers the original scope.
+
+A nodal cubic gives an explicit ideal that does not descend despite
+relative generation, then shows how the conductor repairs it. Its
+two point characters also disprove bijectivity on all support strata.
+Geometric source inputs and the limits of primary-source access are
+identified in the audit; no new research theorem is promoted.
+
+The second local mathematical/source pass, strict full-block style
+audit, reference/inventory checks and final page inspection pass.
+The final full build has 3,945 pages, 389 TeX inputs and 11,575 labels,
+with no unresolved references, citations or layout overflow. The
+chapter's text outside the unit and the bibliography retain their
+exact bytes. The 46 active atoms, supplied CURVE_PSH.tex, author sources,
+frozen proofs, verifier receipts and dated releases are unchanged.
+No independent-agent or production verification and no atom closure
+are claimed. The next unit checks proper algebraic recovery, GAGA,
+centering and the comparison topology in Chapter 58.
+
 ## Next work
 
-1. Audit Chapter 58's proper bimeromorphic transport: check the lifted
-   character's nonnegativity and independence of twists, treatment of
-   the zero ideal, and the common-resolution argument. Keep algebraic
-   recovery and topology assertions as separate checks. Preserve the
-   frozen interfaces and the checked support/center construction.
+1. Audit Chapter 58's proper algebraic recovery: verify the algebraic
+   ideal-semiring comparison, the GAGA identification, the centering
+   argument and equality of topologies. Keep nonproper analytic spaces
+   separate. Preserve the frozen interfaces and the checked support,
+   center and bimeromorphic constructions.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
