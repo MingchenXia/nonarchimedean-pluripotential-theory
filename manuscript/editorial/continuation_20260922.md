@@ -1042,22 +1042,43 @@ The 45 research atoms, P12.1 integration/provenance, supplied originals,
 bibliography, frozen packets, verifier records and dated releases remain
 unchanged. No independent-agent or production-verifier pass is claimed.
 
+## Chapter 60: quantitative stability of maximal rays, 24 September 2026
+
+The [maximal-ray stability audit](ch60_maximal_stability_audit_20260924.md)
+proves that the ray order reflects both initial values and non-Archimedean
+data. Affine translation gives the sharp B+C s perturbation bound.
+The explicitly cited energy identity yields an exact ordered d1 formula,
+a finite-energy maximality criterion, and decreasing convergence uniformly
+on bounded time intervals. The pointwise limit is identified by its energy.
+Constant rays show why uniformity on the whole half-line fails; the earlier
+non-geodesic counterexample remains. General Kähler existence and its
+data identification retain their explicit source boundary.
+
+Two local proof/source passes, final full compilation and scoped page
+review are complete: 3,981 pages, 390 inputs and 11,643 labels, with no
+unresolved references/citations or layout overflow. The scoped house
+audit has zero errors and one reviewed exact-version warning. The entire
+earlier Chapter 60 text and all text from the test-curve comparison onward
+retain their baseline bytes. The 45 active atoms, completed P12.1
+integration/provenance, supplied originals, bibliography, frozen packets,
+verifier receipts and dated releases are preserved. No independent-agent
+or production-verifier pass is claimed.
+
 ## Next work
 
-1. Continue Chapter 60 with maximal-ray order and existence, then the
-   test-curve correspondence. Recheck the exact sequential approximation,
-   noncollapse and identification of the limiting non-Archimedean data;
-   distinguish the general Kähler input from projective energy inequalities.
-   Preserve the new flag expansion, product curvature correction,
-   quantified divisorial limits and cutoff exhaustion. The analytic
-   regularization theorem is now directly sourced but remains a cited
-   input. Keep the checked model, scaling, graph, comparison and pairing
-   proofs unless a concrete defect is found. The analytic-cycle criterion,
-   general Kähler maximal-ray existence, sequential regularization and
-   full mixed-slope reduction retain their explicit source boundaries
-   until separately reconstructed. Preserve P12.1 integration/provenance,
-   the Chapters 58–59 comparisons, and the distinction between normalized
-   and literal raw all-big-model tests.
+1. Continue Chapter 60 with the finite-energy test-curve comparison:
+   check the exact I-maximality correspondence, the fixed zero initial
+   value, endpoint normalization and probability-normalized energy.
+   Keep the maximal-ray existence/data-identification input separate
+   from its now proved order, ordered-distance and decreasing-stability
+   consequences. Preserve the finite-time convergence domain and its
+   two counterexamples. The analytic regularization theorem, general
+   Kähler maximal-ray existence, sequential model regularization and
+   full mixed-slope reduction remain explicitly cited inputs until
+   separately reconstructed. Preserve the checked radial-limit, model,
+   scaling, graph, comparison and pairing proofs, P12.1 integration and
+   provenance, the Chapters 58–59 comparisons, and the distinction
+   between normalized and literal raw all-big-model tests.
 2. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from stratified comparison.
    No extension beyond the current hypotheses is asserted.

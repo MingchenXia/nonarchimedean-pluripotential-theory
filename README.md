@@ -4,10 +4,10 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
-**Current-source status, 23 September 2026:** the author supplied the
+**Current-source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (390 TeX files, 11,637 unique labels),
-and the full build produces a 3,979-page PDF with no unresolved reference
+The complete source check passes (390 TeX files, 11,643 unique labels),
+and the full build produces a 3,981-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [P12.1 integration audit](manuscript/editorial/p121_integration_audit_20260923.md)
 records the author's supplied normalized-link manuscript, its complete
@@ -16,6 +16,12 @@ normalization branches, conductor descent, nonprimary gauges and nilpotent
 reduction settle P12.1; P12.2--P12.6 remain active. The original PDF is
 preserved byte for byte. This source integration has no new production
 verifier or independent-agent receipt.
+The [maximal-ray stability audit](manuscript/editorial/ch60_maximal_stability_audit_20260924.md)
+proves order reflection, sharp perturbation bounds and an exact ordered
+distance formula. Decreasing finite-energy data give ray convergence
+uniformly on bounded time intervals; a constant-ray example excludes
+uniformity on the whole half-line. The general Kähler existence theorem
+and its energy identity remain explicitly cited inputs.
 The [radial regularization audit](manuscript/editorial/ch60_ray_regularization_audit_20260923.md)
 proves the invariant flag expansion and explains how a smooth disc
 correction removes the curvature error in Bergman regularization.

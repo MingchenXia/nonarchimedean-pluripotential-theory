@@ -2575,3 +2575,25 @@ text and all text from maximal rays onward retain their baseline bytes.
 The 45 research atoms, P12.1 integration/provenance, supplied originals,
 bibliography, frozen packets, verifier records and dated releases remain
 unchanged. No independent-agent or production-verifier pass is claimed.
+
+## Chapter 60: quantitative stability of maximal rays, 24 September 2026
+
+The [maximal-ray stability audit](ch60_maximal_stability_audit_20260924.md)
+proves that the ray order reflects both initial values and non-Archimedean
+data. Affine translation gives the sharp B+C s perturbation bound.
+The explicitly cited energy identity yields an exact ordered d1 formula,
+a finite-energy maximality criterion, and decreasing convergence uniformly
+on bounded time intervals. The pointwise limit is identified by its energy.
+Constant rays show why uniformity on the whole half-line fails; the earlier
+non-geodesic counterexample remains. General Kähler existence and its
+data identification retain their explicit source boundary.
+
+Two local proof/source passes, final full compilation and scoped page
+review are complete: 3,981 pages, 390 inputs and 11,643 labels, with no
+unresolved references/citations or layout overflow. The scoped house
+audit has zero errors and one reviewed exact-version warning. The entire
+earlier Chapter 60 text and all text from the test-curve comparison onward
+retain their baseline bytes. The 45 active atoms, completed P12.1
+integration/provenance, supplied originals, bibliography, frozen packets,
+verifier receipts and dated releases are preserved. No independent-agent
+or production-verifier pass is claimed.
