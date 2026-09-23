@@ -2469,58 +2469,115 @@ Apply the entropy result with $\mu=\omega^n/V_\alpha$. The remaining terms in th
 When the non-Archimedean entropy is finite, this argument gives a lower bound for the entropy slope; no upper bound or equality is asserted here.
 
 
-\begin{definition}[Uniform stability over finite energy]
-\label{def:mp-uniform-e1-stability}
-The pair \((X,\alpha)\) is uniformly K-stable over
-\(\mathcal E^1\) if some \(\delta>0\) satisfies
+\begin{definition}\label{def:mp-uniform-e1-stability}
+The connected compact K\"ahler pair $(X,\alpha)$ is uniformly K-stable over $\mathcal E^1$ if some $\delta>0$ satisfies
 \[
             M_\alpha^{\NA}(\phi)\geq\delta J_\alpha(\phi)
        \quad\text{for all }\phi\in\mathcal E^1(\alpha).
 \tag{60.29}\label{eq:mp-uniform-e1}
 \]
+This is uniform $\widehat K$-stability in \cite[Definition~2.4.2, p.~13]{MPWN25}, with the reduced entropy and scalar coefficient in \eqref{eq:mp-na-mabuchi}--\eqref{eq:mp-average-scalar}.
 \end{definition}
 
+\begin{proposition}\label{prop:mp-stability-normalized-tests}
+For every $\phi\in\mathcal E^1(\alpha)$ and $c\in\mathbf R$,
+\[
+ \begin{aligned}
+ \MA_\alpha(\phi+c)&=\MA_\alpha(\phi),&
+ J_\alpha(\phi+c)&=J_\alpha(\phi),\\
+ \Ent_\alpha^{\NA}(\phi+c)&=\Ent_\alpha^{\NA}(\phi),&
+ M_\alpha^{\NA}(\phi+c)&=M_\alpha^{\NA}(\phi).
+ \end{aligned}
+\]
+Moreover, $J_\alpha(\phi)=0$ precisely for constant $\phi$, and $M_\alpha^{\NA}$ vanishes on constants. Define
+\[
+ \delta_{\max}(X,\alpha):=
+ \inf_{\substack{\phi\in\mathcal E^1(\alpha),\ \phi(v_{\triv})=0\\
+              J_\alpha(\phi)>0,\ \Ent_\alpha^{\NA}(\phi)<+\infty}}
+          \frac{M_\alpha^{\NA}(\phi)}{J_\alpha(\phi)},
+\]
+with $\inf\varnothing=+\infty$; the infimum is allowed to be $-\infty$. For every real $\delta>0$, inequality \eqref{eq:mp-uniform-e1} holds if and only if $\delta\leq\delta_{\max}(X,\alpha)$. In particular, uniform stability over $\mathcal E^1$ is equivalent to $\delta_{\max}(X,\alpha)>0$.
+\end{proposition}
+
+\begin{proof}
+\predisplaypenalty=10000
+The model measure identity \eqref{eq:mp-ma-translation} passes to finite energy by the decreasing convergence in \cref{prop:mp-e1-ma-existence}. It proves entropy invariance, including infinite entropy. Translation of the finite mixed pairings in \eqref{eq:mp-extended-pairing-translation} gives
+\[
+ E_\alpha(\phi+c)=E_\alpha(\phi)+c,
+ \qquad
+ E^\beta_\alpha(\phi+c)
+   =E^\beta_\alpha(\phi)
+      +nc\,\frac{\beta\cdot\alpha^{n-1}}{V_\alpha}
+\]
+for $n\geq1$ and every real Bott--Chern class $\beta$. For a signed class, apply the identity to the two K\"ahler terms defining \eqref{eq:mp-twisted-energy}. With $\beta=-c_1(X)$, the second translation term is $-c\bar S_\alpha$, cancelling the first term in the Mabuchi expression. This proves its invariance without subtracting infinite entropies. The identity $J_\alpha(\phi)=\phi(v_{\triv})-E_\alpha(\phi)$ proves invariance of $J_\alpha$.
+
+The zero set of $J_\alpha$ is given by \cref{cor:mp-test-curve-mass-defect}. A constant has measure $\delta_{v_{\triv}}$ and reduced entropy zero. Since both energies vanish at the zero potential, translation gives $M_\alpha^{\NA}(c)=0$. For $n=0$ all potentials are constant and both functionals vanish, as stipulated above.
+
+Every finite-energy potential has a finite value at $v_{\triv}$. Subtract that value to impose $\phi(v_{\triv})=0$, which changes none of the quantities being tested. Constants satisfy \eqref{eq:mp-uniform-e1} with equality. If the entropy is infinite, the two finite energy terms give $M_\alpha^{\NA}(\phi)=+\infty$, so the inequality is automatic. On the remaining set, $0<J_\alpha(\phi)<+\infty$ and $M_\alpha^{\NA}(\phi)$ is finite, so division proves the characterization. An empty testing set imposes no restriction on $\delta$, as in dimension zero.
+\end{proof}
+
+\begin{example}\label{ex:mp-p1-stability-obstruction}
+Take $X=\mathbf P^1$ and $\alpha=c_1(\cO(1))$, so $V_\alpha=1$. Blow up $(0,0)$ in $X\times\mathbf P^1$, and denote the exceptional curve by $E$ and the strict transform of the central fibre by $F$. Both have multiplicity one. If $A$ is the pullback of $\alpha$ and $0\leq a\leq1$, then $A-aE$ has degrees $a$ and $1-a$ on $E$ and $F$. Thus the real model function $\phi_a=\phi_{-aE}$ is $\alpha$-psh throughout the closed interval. It is sup-normalized, has value $-a$ at $\operatorname{ord}_0$, and satisfies
+\[
+ \MA_\alpha(\phi_a)
+   =(1-a)\delta_{v_{\triv}}+a\delta_{\operatorname{ord}_0}.
+\]
+Here $A^2=A\cdot E=0$ and $E^2=-1$, so the model pairing gives
+\[
+ E_\alpha(\phi_a)=-\frac{a^2}{2},\qquad
+ J_\alpha(\phi_a)=\frac{a^2}{2},\qquad
+ E_\alpha^{-c_1(X)}(\phi_a)=(-2A)\cdot(A-aE)=0.
+\]
+The reduced discrepancy is zero at $v_{\triv}$ and one at $\operatorname{ord}_0$, by the same blowup calculation as in \cref{ex:mp-log-volume-node}. Since $\bar S_\alpha=2$, it follows that
+\[
+ \Ent_\alpha^{\NA}(\phi_a)=a,\qquad
+ M_\alpha^{\NA}(\phi_a)=a-a^2,
+ \qquad
+ \frac{M_\alpha^{\NA}(\phi_a)}{J_\alpha(\phi_a)}
+       =\frac{2(1-a)}a\quad(0<a\leq1).
+\]
+The value $a=0$ gives the zero potential and is excluded from the ratio. At $a=1$ the potential is nonconstant, has $J_\alpha=1/2$ and has zero Mabuchi functional. Hence this pair is not uniformly K-stable over $\mathcal E^1$. Even testing the open interval $0<a<1$ requires a common constant: its positive ratios tend to zero at the endpoint. The Fubini--Study metric has $\operatorname{Ric}(\omega_{\mathrm{FS}})=2\omega_{\mathrm{FS}}$, so it is a cscK metric in this class. Existence of a cscK metric therefore does not imply \eqref{eq:mp-uniform-e1}, which uses the ordinary $J_\alpha$ and takes no quotient by automorphisms.
+\end{example}
+
+\begin{corollary}\label{cor:mp-stability-maximal-ray-growth}
+Suppose \eqref{eq:mp-uniform-e1} holds with $\delta>0$. For each nonconstant $\phi\in\mathcal E^1(\alpha)$ normalized by $\phi(v_{\triv})=0$, let $U=U(0,\phi)$ be its maximal ray with initial value zero. Then
+\[
+ U_s\leq0,\qquad d_{1,\omega}(U_s,0)=sJ_\alpha(\phi)>0
+                  \quad(s>0),
+\]
+and
+\[
+       \liminf_{s\to\infty}
+        \frac{M_\omega(U_s)}{d_{1,\omega}(U_s,0)}\geq\delta.
+\]
+For each fixed such ray and every $\varepsilon>0$, there is $S>0$ such that $M_\omega(U_s)\geq(\delta-\varepsilon)d_{1,\omega}(U_s,0)$ whenever $s\geq S$. The threshold $S$ may depend on the ray and on $\varepsilon$.
+\end{corollary}
+
+\begin{proof}
+\predisplaypenalty=10000
+By \cref{prop:mp-maximal-order}, comparison with the zero datum gives $U_s\leq0$. The energy identity and ordered distance formula, equivalently \eqref{eq:mp-test-curve-defect-distance} with cutoff zero, give the asserted distance. It is positive because $\phi$ is nonconstant. By \cref{thm:mp-reduced-entropy-slope},
+\[
+ \liminf_{s\to\infty}\frac{M_\omega(U_s)}s
+       \geq M_\alpha^{\NA}(\phi)
+       \geq\delta J_\alpha(\phi).
+\]
+Divide by the fixed positive number $J_\alpha(\phi)$ and use the definition of the liminf. Infinite entropy gives divergence to $+\infty$ and satisfies the same bound. The argument takes a limit on each fixed maximal ray; it does not supply an estimate uniform over all rays or identify arbitrary rays with maximal ones.
+\end{proof}
+
 \begin{theorem}\label{thm:mp-e1-stability-csck}
-If a compact K\"ahler pair \((X,\alpha)\) is uniformly K-stable over
-\(\mathcal E^1\), then \(\alpha\) contains a unique cscK metric.
+If a connected compact K\"ahler pair $(X,\alpha)$ is uniformly K-stable over $\mathcal E^1$, then $\alpha$ contains a unique cscK metric.
 \end{theorem}
 
 \begin{proof}[Imported later-source theorem]
-This is exactly \cite[Theorem~2.4.3]{MPWN25}.  The normalization check is
-part of the import: \cite[Definition~2.4.1]{MPWN25} defines entropy using
-\(A_{X\times\mathbf P^1}-1\), and its Definition~2.4.2 is
-\eqref{eq:mp-uniform-e1}; the scalar-curvature coefficient is understood
-with the independently verified factor recorded in
-\eqref{eq:mpwn-s-constant}.  Thus the hypotheses and functional in the
-cited theorem coincide with those above, and its conclusion gives the
-claimed cscK metric.  The reduced entropy lower bound is proved in
-\Cref{thm:mp-reduced-entropy-slope}; the cscK existence implication still
-uses the later theorem as a deep imported input.
+In positive dimension this is \cite[Theorem~2.4.3, p.~13]{MPWN25}. Its Definition~2.4.1 uses the reduced discrepancy $A_{X\times\mathbf P^1}-1$, and Definition~2.4.2 tests all finite-energy potentials against one positive constant. The scalar coefficient is interpreted with the factor $n$ checked in \eqref{eq:mpwn-s-constant}; the calculation in \cref{prop:mp-stability-normalized-tests} also shows why this factor is required for invariance under constants. These conventions identify the cited stability hypothesis with \eqref{eq:mp-uniform-e1}. The cited theorem gives literal uniqueness under this ordinary coercive hypothesis. Its analytic existence implication remains an imported result; the preceding fixed-ray estimate alone does not prove it. In dimension zero, connected $X$ is one point and the conclusion is immediate.
 \end{proof}
+
+The remaining reduction from finite-energy potentials to models uses the Calabi--Yau homeomorphism in \cref{thm:mpwn-cy} and the entropy-controlled approximation in \cref{thm:mpwn-model-e1-equivalence}. That theorem proves, with the same $\delta$, equivalence between \eqref{eq:mp-uniform-e1}, its restriction to continuous potentials with measure supported on one dual complex, and its restriction to real PL envelopes $P_\alpha(f)$. The relevant tests are envelopes of PL obstacles; decreasing model approximation alone does not supply the entropy convergence needed to pass the inequality.
+
+By \cref{cor:mpwn-model-stability-pl-envelopes}, these conditions are also equivalent to the normalized model inequality with $f_D\geq1$. The condition on every raw big total-space class implies them by restriction. The converse needs the additional comparison recorded in \cref{rem:mpwn-unnormalized-model-boundary}; invariance of potential functionals under constants does not establish invariance of those raw positive-product expressions.
 
 \section*{Source note}
 
-Model psh functions and their closedness are MP24 Section~4.1.  The atomic
-Monge--Amp\`ere measure, mixed pairing, and energy are Sections~4.2--4.4.
-Their algebraic model-calculus antecedents include
-\cite[Proposition~3.6 and Lemma~3.24]{BJ22}; the analytic maximum theorem and
-closedness argument are MP inputs and are not inferred from that algebraic
-specialization.
-The radial construction, maximal rays, comparison with test curves, and
-mixed slope theorem are Sections~5.1--5.3.  MP24 Sections~6.2--6.3 contain
-the printed entropy-slope argument and cscK implication.  The literal
-discrepancy constructed in MP24 Section~3.2 is total, so
-\eqref{eq:mp-total-reduced-mabuchi} and
-\eqref{eq:mp-total-slope-obstruction} record the exact normalization
-boundary.  \Cref{lem:mp-log-volume-test} verifies the analytic snc
-volume estimate from \cite[Lemma~3.11, p.~2924]{BHJ19} in the
-squared-norm convention, with its dual-complex growth exponent and central-fibre multiplicities.  Together with the imported mixed-slope theorem,
-it yields the reduced entropy inequality of
-\Cref{thm:mp-reduced-entropy-slope}.  Reduced entropy and the finite-energy
-cscK implication are used with the conventions of
-\cite[Definitions~2.4.1--2.4.2 and Theorem~2.4.3]{MPWN25}; the latter
-existence theorem remains an imported result.
-\Cref{chap:mpwn-cy} uses later results of \cite{MPWN25} to
-upgrade this theory to a full finite-energy Calabi--Yau correspondence;
-\Cref{chap:mpwn-k-stability} explains why that upgrade is also needed before model test
-configurations can be used as a complete stability test.
+The model definitions, closedness and atomic mixed calculus follow \cite[Sections~4.1--4.4]{MPTropicalV2}. Their algebraic antecedents include \cite[Proposition~3.6 and Lemma~3.24]{BJ22}; the analytic maximum theorem and closedness input are used in their stated complex-analytic scope. The local intersection and graph calculations above reconstruct positivity, finite-vertex comparison and mixed finiteness in that setting. The radial construction, maximal-ray existence, test-curve comparison and full mixed-slope theorem use \cite[Sections~5.1--5.3]{MPTropicalV2}, with the imported steps identified in their proofs. In particular, the finite-energy comparison does not assert a full-cone identification for arbitrary transcendental classes.
+
+The source discrepancy in \cite[(3.2.4)]{MPTropicalV2} is total. Equations \eqref{eq:mp-total-reduced-mabuchi} and \eqref{eq:mp-total-slope-obstruction} record its normalization boundary. The analytic snc calculation in \cref{lem:mp-log-volume-test} reconstructs \cite[Lemma~3.11, p.~2924]{BHJ19} with its dual-complex exponent and central multiplicities; together with the full mixed-slope input, it proves the reduced entropy lower bound. Reduced entropy, finite-energy stability and the cscK conclusion use \cite[Definitions~2.4.1--2.4.2 and Theorem~2.4.3, p.~13]{MPWN25}, with the scalar coefficient corrected as in \eqref{eq:mpwn-s-constant}. The elementary normalization and ray consequences above do not replace that existence input. The model completion and its precise normalization are developed in \cref{chap:mpwn-cy,chap:mpwn-k-stability}, using \cite[Theorem~9.2.1 and Corollary~9.2.2, pp.~34--35]{MPWN25} with the raw-model comparison boundary stated explicitly.

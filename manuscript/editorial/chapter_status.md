@@ -2667,3 +2667,27 @@ its baseline bytes. The 45 active atoms, P12.1 integration/provenance,
 supplied originals, bibliography, frozen packets, verifier records and
 dated releases are preserved. No independent-agent or production-verifier
 pass is claimed.
+
+## Chapter 60: finite-energy stability and its model interface, 24 September 2026
+
+The [stability-interface audit](ch60_stability_interface_audit_20260924.md)
+proves invariance of the Mabuchi functional under constants, with the
+scalar and twisted-energy translations cancelling. The optimal coercivity
+constant is reduced to normalized nonconstant data of finite entropy;
+constant, infinite-entropy and zero-dimensional cases are explicit.
+A projective-line blowup gives M=a-a^2 and J=a^2/2, showing both failure
+of a common positive bound and failure of the converse from cscK existence.
+The maximal-ray consequence records its exact d1 growth and permits the
+eventual time to depend on the ray. The closing interface distinguishes
+PL envelopes, normalized models and raw big classes. The cscK theorem
+remains imported, now checked on the exact source PDF together with the
+model-completion passages.
+
+Two complete local proof/source passes, final full compilation and scoped
+page review are complete: 3,989 pages, 390 inputs and 11,657 labels, with
+no unresolved references/citations or layout overflow. The scoped house
+audit has zero errors and two reviewed bibliography warnings. All earlier
+Chapter 60 text, P12.1 integration/provenance, supplied originals,
+bibliography, frozen packets, verifier records and dated releases retain
+their previous bytes. All 45 research atoms are unchanged. No independent-
+agent or production-verifier pass is claimed.
