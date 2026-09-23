@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (390 TeX files, 11,599 unique labels),
-and the full build produces a 3,965-page PDF with no unresolved reference
+The complete source check passes (390 TeX files, 11,601 unique labels),
+and the full build produces a 3,967-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [P12.1 integration audit](manuscript/editorial/p121_integration_audit_20260923.md)
 records the author's supplied normalized-link manuscript, its complete
@@ -16,6 +16,12 @@ normalization branches, conductor descent, nonprimary gauges and nilpotent
 reduction settle P12.1; P12.2--P12.6 remain active. The original PDF is
 preserved byte for byte. This source integration has no new production
 verifier or independent-agent receipt.
+The [notation and model-definition audit](manuscript/editorial/ch59_notation_ch60_model_definitions_audit_20260923.md)
+finishes Chapter 59's inline notation and exact-version citation pass.
+Chapter 60 now defines model potentials on the whole spectrum and explains
+relative positivity on reduced fibres. A point-blowup example computes
+the closed nef interval and open Kähler interval, and distinguishes relative
+positivity from total-space nefness. The zero-dimensional case is also explicit.
 The [projective comparison and nonalgebraic examples audit](manuscript/editorial/ch59_projective_examples_audit_20260923.md)
 matches the dual complexes and PL divisors with the precise algebraic
 construction, and supplies explicit torus and K3 calculations, including

@@ -2448,3 +2448,26 @@ Chapter 59 text and discrepancy section, P12.1 proof and supplied-source
 provenance, all 45 active research atoms, frozen packets, verifier records
 and dated releases are preserved. No new research theorem, atom closure,
 independent-agent pass or production-verifier receipt is claimed.
+
+## Chapters 59–60: notation and model definitions, 23 September 2026
+
+The [notation and model-definition audit](ch59_notation_ch60_model_definitions_audit_20260923.md)
+completes Chapter 59's remaining inline notation, definition-heading and
+source-version pass. Its 17 proofs retain their mathematical content.
+Chapter 60 defines the potential on all characters through the model
+retraction, specifies relative positivity on reduced fibres, and separates
+the rational and real classes. The point-blowup example computes the
+nef interval [0,1], the relatively Kähler interval (0,1), and a horizontal
+curve of negative degree. The zero-dimensional case and the some-model
+quantifier for H(alpha) are explicit.
+
+Two local mathematical/source passes and the final build/render check are
+complete: 3,967 pages, 390 TeX inputs, 11,601 labels, no unresolved references,
+citations or layout overflow. Chapter 59 and the changed Chapter 60 block
+have zero house-audit errors; the audit records their reviewed label and
+source-version warnings. All 19 existing Chapter 60 proofs and its text
+from the model-category warning onward are preserved, apart from the exact
+source locator in the first proof. The completed P12.1 integration and
+author provenance, all 45 active atoms, supplied sources, frozen packets,
+verifier receipts and dated releases are unchanged. No new independent-agent
+or production-verifier pass is claimed.

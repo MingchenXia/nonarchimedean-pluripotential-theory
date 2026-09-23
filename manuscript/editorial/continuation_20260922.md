@@ -915,14 +915,37 @@ provenance, all 45 active research atoms, frozen packets, verifier records
 and dated releases are preserved. No new research theorem, atom closure,
 independent-agent pass or production-verifier receipt is claimed.
 
+## Chapters 59–60: notation and model definitions, 23 September 2026
+
+The [notation and model-definition audit](ch59_notation_ch60_model_definitions_audit_20260923.md)
+completes Chapter 59's remaining inline notation, definition-heading and
+source-version pass. Its 17 proofs retain their mathematical content.
+Chapter 60 defines the potential on all characters through the model
+retraction, specifies relative positivity on reduced fibres, and separates
+the rational and real classes. The point-blowup example computes the
+nef interval [0,1], the relatively Kähler interval (0,1), and a horizontal
+curve of negative degree. The zero-dimensional case and the some-model
+quantifier for H(alpha) are explicit.
+
+Two local mathematical/source passes and the final build/render check are
+complete: 3,967 pages, 390 TeX inputs, 11,601 labels, no unresolved references,
+citations or layout overflow. Chapter 59 and the changed Chapter 60 block
+have zero house-audit errors; the audit records their reviewed label and
+source-version warnings. All 19 existing Chapter 60 proofs and its text
+from the model-category warning onward are preserved, apart from the exact
+source locator in the first proof. The completed P12.1 integration and
+author provenance, all 45 active atoms, supplied sources, frozen packets,
+verifier receipts and dated releases are unchanged. No new independent-agent
+or production-verifier pass is claimed.
+
 ## Next work
 
-1. Finish Chapter 59's remaining notation and citation-format pass:
-   the legacy inline delimiters, two optional definition titles, and
-   the published MP24 compound-surname label. Preserve every checked
-   proof and its version-specific source locators. Then audit Chapter
-   60's cohomological-model and model-potential definitions, with the
-   precise relative positivity hypotheses and boundary cases.
+1. Audit Chapter 60's rational ramified-scaling construction and the
+   domain hypotheses for finite holomorphic pullback. Explain the PL
+   representation and descent for rational scaling without changing
+   the already checked maximum and relative numerical-criterion proofs
+   unless a concrete defect is found. Keep the analytic-cycle core
+   explicitly imported with its exact checked source version.
    Preserve the completed P12.1 integration and its supplied-manuscript
    provenance, and the checked Chapter 58 and 59 comparisons.
    Keep the normalized model
