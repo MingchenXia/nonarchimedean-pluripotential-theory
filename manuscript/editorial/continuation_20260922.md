@@ -1158,16 +1158,39 @@ bibliography, frozen packets, verifier records and dated releases retain
 their previous bytes. All 45 research atoms are unchanged. No independent-
 agent or production-verifier pass is claimed.
 
+## Chapter 61: ordered quasi-distances and strong pairings, 24 September 2026
+
+The [strong-pairing audit](ch61_strong_pairing_audit_20260924.md)
+fixes the order of the two root distances and proves the exact comparison
+between potential and measure quasi-distances. On normalized potentials,
+MA is a strong topological embedding into its image; its surjectivity is
+left to the existing variational proof. Quasi-symmetry compares J with
+the dual energy of MA. A quantitative two-pair estimate proves joint
+strong continuity of finite-energy integration, with one energy bound
+on a tail of each convergent net. Point evaluations are uniform on sets
+with bounded T. The P2 point-blowup example has the two ordered distances
+a^3/3 and 2a^3/3. The imported quasi-metric theorems and mixed-gap estimate
+were checked on the exact source PDF at pp. 20--22.
+
+Two complete local proof/source passes, full compilation and scoped page
+review are complete: 3,991 pages, 390 inputs and 11,664 labels, with no
+unresolved reference/citation or layout overflow. The scoped house audit
+has zero errors and one reviewed preprint warning. Earlier Chapter 61
+arguments, the following integral-convergence and variational proofs,
+Chapter 60, P12.1 integration/provenance, author originals, bibliography,
+frozen packets, verifier receipts and dated releases retain their prior
+bytes. All 45 research atoms are unchanged. No independent-agent or
+production-verifier pass is asserted.
+
 ## Next work
 
-1. Continue the remaining Chapter 61 strong-topology interface: check
-   the exact asymmetric quasi-metric estimates, their energy bounds and
-   the deductions for the Monge--Ampere map, with explicit low-dimensional
-   examples and imported theorem boundaries. Preserve the completed
-   Chapter 60 stability, entropy, mixed-slope, maximal-ray and test-curve
-   arguments; preserve the earlier Chapter 61 variational and integral-
-   convergence proofs, P12.1 integration/provenance, and the distinction
-   between normalized model inequalities and literal raw big-class tests.
+1. Continue the Chapter 61 approximation interface on a fixed dual complex:
+   check energy and entropy convergence, the finite-support approximation
+   and its passage to continuous potentials, with exact source boundaries.
+   Preserve the existing verifier-backed convexity and boundary-continuity
+   passages and their receipts, the completed strong-pairing and variational
+   arguments, Chapter 60, and P12.1 integration/provenance. Retain the
+   distinction between normalized model inequalities and raw big-class tests.
 2. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from stratified comparison.
    No extension beyond the current hypotheses is asserted.

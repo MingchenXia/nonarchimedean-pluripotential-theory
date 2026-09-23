@@ -515,16 +515,16 @@ Both one-sided limits equal $\int g\,\rd\mu_0$, which proves
 
 \section{Strong topologies and quasi-metrics}
 
-The strong topology on \(\mathcal E^1(\alpha)\) is the coarsest topology
-finer than weak convergence for which \(E_\alpha\) is continuous.  Thus a
-net \(\phi_i\) converges strongly to \(\phi\) exactly when
+The strong topology on $\mathcal E^1(\alpha)$ is the coarsest topology
+finer than weak convergence for which $E_\alpha$ is continuous.  Thus a
+net $\phi_i$ converges strongly to $\phi$ exactly when
 \[
  \phi_i\to\phi\text{ on }X^{\divis},
  \qquad E_\alpha(\phi_i)\to E_\alpha(\phi).
 \tag{61.18}\label{eq:mpwn-potential-strong}
 \]
-The strong topology on \(\mathcal M^1(\alpha)\) is the coarsest topology
-finer than weak convergence of measures for which \(E_\alpha^\vee\) is
+The strong topology on $\mathcal M^1(\alpha)$ is the coarsest topology
+finer than weak convergence of measures for which $E_\alpha^\vee$ is
 continuous:
 \[
  \mu_i\rightharpoonup\mu,
@@ -532,9 +532,16 @@ continuous:
 \tag{61.19}\label{eq:mpwn-measure-strong}
 \]
 
-\begin{definition}[Potential quasi-distance]
+We use the quasi-metric convention of \cite[Definition~5.1.1, p.~20]{MPWN25}: a continuous function $d:M\times M\to[0,+\infty)$ vanishes exactly on the diagonal and satisfies
+\[
+ d(x,z)\leq C\bigl(d(x,y)+d(y,z)\bigr),
+ \qquad d(y,x)\leq Dd(x,y)
+\]
+for all $x,y,z\in M$ and fixed $C,D\geq1$. Its balls induce the specified topology. In particular, symmetry is replaced by comparability of the two orders.
+
+\begin{definition}
 \label{def:mpwn-potential-quasidistance}
-For \(\phi,\psi\in\mathcal E^1(\alpha)\), set
+For $\phi,\psi\in\mathcal E^1(\alpha)$, set
 \[
  \partial_\alpha(\phi,\psi)
  :=J_\alpha(\phi,\psi)+|\sup\phi-\sup\psi|.
@@ -544,10 +551,10 @@ For \(\phi,\psi\in\mathcal E^1(\alpha)\), set
 
 \begin{theorem}\label{thm:mpwn-strong-quasimetrics}
 \begin{enumerate}
-\item The function \(\partial_\alpha\) is a continuous quasi-metric
-      inducing the strong topology on \(\mathcal E^1(\alpha)\).
+\item The function $\partial_\alpha$ is a continuous quasi-metric
+      inducing the strong topology on $\mathcal E^1(\alpha)$.
 \item There is a unique continuous quasi-metric
-      \(\delta_\alpha\) on \(\mathcal M^1(\alpha)\) inducing the strong
+      $\delta_\alpha$ on $\mathcal M^1(\alpha)$ inducing the strong
       topology and satisfying
       \[
        \delta_\alpha(\mu,\MA_\alpha(\phi))
@@ -562,13 +569,13 @@ For \(\phi,\psi\in\mathcal E^1(\alpha)\), set
 \begin{proof}[Imported quasi-metric theorems]
 The first two assertions, including existence of the
 measure-side quasi-metric and identification of both topologies,
-are \cite[Theorems~5.2.2 and~5.1.2]{MPWN25}.
+are \cite[Theorems~5.2.2 and~5.1.2, pp.~20--22]{MPWN25}.
 The quasi-metrics may be asymmetric; their quasi-symmetry and
 quasi-triangle constants depend only on the dimension.
 We retain these results as source inputs.
 
 The quantitative estimate used below is
-\cite[Theorem~5.1.2(2)]{MPWN25}.  For $n\geq1$, put $q=2^{-n}$.
+\cite[Theorem~5.1.2(2), p.~21]{MPWN25}.  For $n\geq1$, put $q=2^{-n}$.
 For $\phi,\psi\in\mathcal E^1(\alpha)$,
 $\mu,\nu\in\mathcal M^1(\alpha)$, and
 \[
@@ -595,10 +602,115 @@ $\partial_\alpha$ gives $J_\alpha(\phi_i,\phi)\to0$.  Hence
                    =J_\alpha(\phi_i,\phi)\longrightarrow0.
 \]
 This proves the third assertion from the first two, as in
-\cite[Theorem~5.1.3]{MPWN25}.  In dimension zero every potential
+\cite[Theorem~5.1.3, p.~21]{MPWN25}.  In dimension zero every potential
 is constant, $\partial_\alpha$ is absolute difference, and the
 measure space has one point; all three assertions hold directly.
 \end{proof}
+
+\begin{proposition}\label{prop:mpwn-ordered-ma-distances}
+Put $\mu_0=\delta_{v_{\triv}}=\MA_\alpha(0)$. For $\mu\in\mathcal M^1(\alpha)$ and $\phi,\psi\in\mathcal E^1(\alpha)$, one has
+\[
+ \delta_\alpha(\mu,\mu_0)=E_\alpha^\vee(\mu),
+ \qquad
+ \delta_\alpha(\mu_0,\MA_\alpha(\phi))=J_\alpha(\phi),
+\tag{61.21b}\label{eq:mpwn-root-distances}
+\]
+and
+\[
+ \begin{aligned}
+ \delta_\alpha(\MA_\alpha(\phi),\MA_\alpha(\psi))
+     &=J_\alpha(\phi,\psi),\\
+ \partial_\alpha(\phi,\psi)
+     &=\delta_\alpha(\MA_\alpha(\phi),\MA_\alpha(\psi))
+       +|\phi(v_{\triv})-\psi(v_{\triv})|.
+ \end{aligned}
+\tag{61.21c}\label{eq:mpwn-ma-distance-identity}
+\]
+Consequently, on the sup-normalized space
+\[
+ \mathcal E^1_{\sup}(\alpha)
+       :=\{\phi\in\mathcal E^1(\alpha):\sup\phi=0\},
+\]
+the Monge--Amp\`ere map preserves the ordered quasi-distances and is a homeomorphism onto its image for the strong topologies. Moreover, a constant $D_n\geq1$ depending only on $n$ satisfies
+\[
+ D_n^{-1}J_\alpha(\phi)
+       \leq E_\alpha^\vee(\MA_\alpha(\phi))
+       \leq D_nJ_\alpha(\phi)
+       \qquad(\phi\in\mathcal E^1(\alpha)).
+\]
+\end{proposition}
+
+\begin{proof}
+Monotonicity gives $E_\alpha(u)\leq\sup u=u(v_{\triv})$, with equality for constants, so $E_\alpha^\vee(\mu_0)=0$. Substituting $0$ or $\mu_0$ in \eqref{eq:mpwn-measure-quasimetric} gives \eqref{eq:mpwn-root-distances}. Substituting $\mu=\MA_\alpha(\phi)$ gives the first equality in \eqref{eq:mpwn-ma-distance-identity} by \eqref{eq:mpwn-dual-energy-ma} and \eqref{eq:mpwn-potential-energy-gap}. The second follows from $\sup\phi=\phi(v_{\triv})$. Quasi-symmetry of $\delta_\alpha$ applied to the two root distances gives the energy comparison.
+
+On $\mathcal E^1_{\sup}(\alpha)$ the root term vanishes. Equality of the measures therefore forces $\partial_\alpha(\phi,\psi)=0$, hence $\phi=\psi$. The same identity identifies convergence of arbitrary nets on the normalized space with convergence of their images to an image point. Surjectivity onto all of $\mathcal M^1(\alpha)$ will be proved in \Cref{thm:mpwn-cy}. For $c\in\mathbf R$ on the unnormalized space, $\MA_\alpha(\phi+c)=\MA_\alpha(\phi)$ while $\partial_\alpha(\phi+c,\phi)=|c|$; this explains the root term.
+\end{proof}
+
+\begin{corollary}\label{cor:mpwn-strong-pairing}
+For $n\geq1$, put $q=2^{-n}$. Let $\phi,\psi\in\mathcal E^1(\alpha)$ and $\mu,\nu\in\mathcal M^1(\alpha)$, and choose
+\[
+ R\geq\max\{1,J_\alpha(\phi),J_\alpha(\psi),
+                   E_\alpha^\vee(\mu),E_\alpha^\vee(\nu)\}.
+\]
+Then
+\[
+ \begin{split}
+ \left|\int\phi\,\rd\mu-\int\psi\,\rd\nu\right|
+ &\leq |\phi(v_{\triv})-\psi(v_{\triv})|\\
+ &\quad+C_n R^{1/2-q}\bigl(
+      J_\alpha(\phi,\psi)^q E_\alpha^\vee(\mu)^{1/2}
+      +J_\alpha(\psi)^q\delta_\alpha(\mu,\nu)^{1/2}\bigr).
+ \end{split}
+\tag{61.21d}\label{eq:mpwn-joint-pairing-bound}
+\]
+Here $C_n$ depends only on $n$. In every dimension the finite-energy pairing $(\phi,\mu)\mapsto\int\phi\,\rd\mu$ is jointly continuous for the strong topologies.
+\end{corollary}
+
+\begin{proof}
+Every integral is finite by \Cref{lem:mpwn-integrability}. With $\mu_0=\delta_{v_{\triv}}$, write
+\[
+ \begin{split}
+ \int\phi\,\rd\mu-\int\psi\,\rd\nu
+ &=\phi(v_{\triv})-\psi(v_{\triv})\\
+ &\quad+\int(\phi-\psi)(\rd\mu-\rd\mu_0)
+        +\int(\psi-0)(\rd\mu-\rd\nu).
+ \end{split}
+\]
+Apply \eqref{eq:mpwn-mixed-gap-estimate} to the last two terms. For the first, \eqref{eq:mpwn-root-distances} gives $\delta_\alpha(\mu,\mu_0)=E_\alpha^\vee(\mu)$; for the second, $J_\alpha(\psi,0)=E_\alpha^\vee(\MA_\alpha(\psi))\leq D_nJ_\alpha(\psi)$ by \Cref{prop:mpwn-ordered-ma-distances}. Enlarging $C_n$ gives \eqref{eq:mpwn-joint-pairing-bound}.
+
+If $\phi_i\to\phi$ and $\mu_i\to\mu$ strongly, one common $R$ bounds the required energies on a tail of the net: $J_\alpha(\phi_i)=\sup\phi_i-E_\alpha(\phi_i)$ and $E_\alpha^\vee(\mu_i)$ converge. Moreover, the root values converge, $J_\alpha(\phi_i,\phi)\to0$, and $\delta_\alpha(\mu_i,\mu)\to0$. Apply \eqref{eq:mpwn-joint-pairing-bound} with $(\psi,\nu)=(\phi,\mu)$. In dimension zero the potentials are constants and there is only one probability measure, so the conclusion holds directly.
+\end{proof}
+
+For $v\in X^{\mathrm{np}}$, recall $T(v)=\sup_{u\in\PSH(\alpha)}(\sup u-u(v))$ from \eqref{eq:mpwn-dinfty}. Take $\phi,\psi\in\mathcal E^1_{\sup}(\alpha)$, $n\geq1$, put $q=2^{-n}$, and choose $R\geq\max\{1,J_\alpha(\phi),J_\alpha(\psi)\}$. Applying \eqref{eq:mpwn-joint-pairing-bound} with $\mu=\nu=\delta_v$ and using \eqref{eq:mpwn-point-energy} gives
+\[
+ \sup_{\substack{v\in X^{\mathrm{np}}\\T(v)\leq R}}
+       |\phi(v)-\psi(v)|
+       \leq C_n R^{1-q}J_\alpha(\phi,\psi)^q.
+\tag{61.21e}\label{eq:mpwn-bounded-point-energy-evaluation}
+\]
+The bound $E_\alpha^\vee(\delta_v)\leq T(v)$ makes all evaluations in this display finite. Thus strong convergence of normalized potentials is uniform on each set with bounded $T$.
+
+\begin{example}\label{ex:mpwn-asymmetric-surface-distance}
+Let $X=\mathbf P^2$ and $\alpha=c_1(\cO(1))$, so $V=1$. Blow up $(p,0)$ in $X\times\mathbf P^1$, write $E_1$ for the exceptional divisor and $A$ for the pullback of $\alpha$, and choose a rational $0<a<1$ sufficiently small that $A-a[E_1]$ is relatively K\"ahler, as in \Cref{ex:mp-dnc}. Both central multiplicities are one. The model potential $\phi=\phi_{-aE_1}$ is sup-normalized, with values $0$ and $-a$ at the two central vertices $v_{\triv}$ and $v_{E_1}$. The component degrees give
+\[
+ \mu:=\MA_\alpha(\phi)
+       =(1-a^2)\delta_{v_{\triv}}+a^2\delta_{v_{E_1}}.
+\]
+Since $A|_{E_1}=0$, $A^3=0$, and $E_1^3=1$, the model energy and its measure integral are
+\[
+ E_\alpha(\phi)=\frac{(A-aE_1)^3}{3}=-\frac{a^3}{3},
+ \qquad \int\phi\,\rd\mu=-a^3.
+\]
+Therefore \eqref{eq:mpwn-root-distances} gives
+\[
+ \delta_\alpha(\delta_{v_{\triv}},\mu)=J_\alpha(\phi)=\frac{a^3}{3},
+ \qquad
+ \delta_\alpha(\mu,\delta_{v_{\triv}})
+       =E_\alpha^\vee(\mu)=\frac{2a^3}{3}.
+\]
+Both measures have finite energy, but the two ordered distances differ.
+\end{example}
+
 
 \begin{lemma}\label{lem:mpwn-fixed-measure-integral}
 Let $\phi_i\in\mathcal E^1(\alpha)$ converge weakly to
