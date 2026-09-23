@@ -895,13 +895,36 @@ The preceding Chapter 59 discrepancy unit is separately committed and
 pushed as fd272ed. Existing proof packets, author files, bibliography,
 verifier records and dated releases are unchanged.
 
+## Chapter 59 projective comparison and examples: 23 September 2026
+
+The [projective comparison and nonalgebraic examples audit](ch59_projective_examples_audit_20260923.md)
+matches algebraic and analytic ideal coordinates, boundary multiplicities,
+retractions and PL divisor coefficients, with exact BJ22 locators.
+The torus example proves generic existence with NS = 0 and computes the
+point-blowup dual interval. The K3 example computes both blowup charts,
+all weight faces, two global separating ideals and discrepancy 2s+3t.
+The source note identifies the exact MP author version; the K3 sources
+are added with verified publication metadata.
+
+Two local mathematical/source passes, final rendering and the complete
+build pass: 3,965 pages, 390 inputs, 11,599 labels, no unresolved references,
+citations or layout overflow. The scoped strict style audit passes; the
+remaining legacy chapter style reports are recorded separately. The earlier
+Chapter 59 text and discrepancy section, P12.1 proof and supplied-source
+provenance, all 45 active research atoms, frozen packets, verifier records
+and dated releases are preserved. No new research theorem, atom closure,
+independent-agent pass or production-verifier receipt is claimed.
+
 ## Next work
 
-1. Audit Chapter 59's remaining projective comparison, nonalgebraic
-   examples and source note. Preserve the completed P12.1 integration
-   and its supplied-manuscript provenance. Preserve
-   the checked dual-complex, flag/Cartier, vertical-divisor, monomial,
-   integral-closure and Chapter 58 comparisons.
+1. Finish Chapter 59's remaining notation and citation-format pass:
+   the legacy inline delimiters, two optional definition titles, and
+   the published MP24 compound-surname label. Preserve every checked
+   proof and its version-specific source locators. Then audit Chapter
+   60's cohomological-model and model-potential definitions, with the
+   precise relative positivity hypotheses and boundary cases.
+   Preserve the completed P12.1 integration and its supplied-manuscript
+   provenance, and the checked Chapter 58 and 59 comparisons.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
@@ -916,5 +939,5 @@ verifier records and dated releases are unchanged.
    or changes to visibility.
 
 4. In the later bibliography pass, inspect the pre-existing duplicate
-   Nakayama and Odaka entries on current printed page 3872. Any key
+   Nadel and Odaka entries on current printed page 3895. Any key
    consolidation must preserve frozen citation sources and records.

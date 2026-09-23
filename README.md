@@ -6,7 +6,7 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (390 TeX files, 11,597 unique labels),
+The complete source check passes (390 TeX files, 11,599 unique labels),
 and the full build produces a 3,965-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [P12.1 integration audit](manuscript/editorial/p121_integration_audit_20260923.md)
@@ -16,6 +16,10 @@ normalization branches, conductor descent, nonprimary gauges and nilpotent
 reduction settle P12.1; P12.2--P12.6 remain active. The original PDF is
 preserved byte for byte. This source integration has no new production
 verifier or independent-agent receipt.
+The [projective comparison and nonalgebraic examples audit](manuscript/editorial/ch59_projective_examples_audit_20260923.md)
+matches the dual complexes and PL divisors with the precise algebraic
+construction, and supplies explicit torus and K3 calculations, including
+zero weights and global ideals that recover local valuations.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
 records the final line-break checks and preservation of the research sources.
 The [current-pushforward audit](manuscript/editorial/ch14_pushforward_sign_audit_20260922.md)
