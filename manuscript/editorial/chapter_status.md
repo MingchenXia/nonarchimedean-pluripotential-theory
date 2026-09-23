@@ -2005,3 +2005,27 @@ Source, mathematical, scoped style and final visual checks pass.
 Frozen verifier material and the active research inventory are unchanged.
 The next unit checks the analytic trace calculus and decreasing
 continuity hypotheses.
+
+
+## 2026-09-23 — Trace calculus and decreasing continuity
+
+The [trace-calculus audit](ch54_trace_calculus_audit_20260923.md)
+proves compatibility of quasi-equisingular approximation with sums,
+maxima and positive real scaling, using rational coefficients at the
+analytic stage. Decreasing continuity is reconstructed with separate
+ambient and restricted diagonal errors, normalized model envelopes,
+and an explicit reduction from nets to sequences. The domain of every
+net input and the absence of an I-goodness assumption on the original
+inputs are checked.
+
+The increasing counterexample now consists of global Fubini--Study
+divisor weights on P2. Its inputs converge to zero in d_S, while all
+traces have mass 1 in a target class where the trace of zero has mass 2.
+Source versions and exact hypotheses are recorded separately.
+
+The final full build has 3,937 pages, 389 TeX inputs and 11,540 labels,
+with no unresolved references, citations or layout overflow.
+The second mathematical/source pass, scoped strict style review,
+reference/inventory checks and final page inspection pass.
+Frozen source and verifier records and the 46 active research atoms
+remain unchanged. No production verification or new atom closure is claimed.

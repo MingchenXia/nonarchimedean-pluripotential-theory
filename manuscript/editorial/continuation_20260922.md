@@ -485,13 +485,36 @@ The 46 active research atoms, frozen proof files and production records
 are unchanged. The next unit audits the trace calculus and the exact
 hypotheses of decreasing continuity.
 
+## Chapter 54: trace calculus and decreasing continuity
+
+The [trace-calculus audit](ch54_trace_calculus_audit_20260923.md)
+proves compatibility of quasi-equisingular approximation with sums,
+maxima and positive real scaling, using rational coefficients at the
+analytic stage. Decreasing continuity is reconstructed with separate
+ambient and restricted diagonal errors, normalized model envelopes,
+and an explicit reduction from nets to sequences. The domain of every
+net input and the absence of an I-goodness assumption on the original
+inputs are checked.
+
+The increasing counterexample now consists of global Fubini--Study
+divisor weights on P2. Its inputs converge to zero in d_S, while all
+traces have mass 1 in a target class where the trace of zero has mass 2.
+Source versions and exact hypotheses are recorded separately.
+
+The final full build has 3,937 pages, 389 TeX inputs and 11,540 labels,
+with no unresolved references, citations or layout overflow.
+The second mathematical/source pass, scoped strict style review,
+reference/inventory checks and final page inspection pass.
+Frozen source and verifier records and the 46 active research atoms
+remain unchanged. No production verification or new atom closure is claimed.
+
 ## Next work
 
-1. Audit the Chapter 54 analytic trace calculus: compatible approximations
-   for sums, positive real scaling and maxima, and the exact I-goodness,
-   common-class and convergence hypotheses in sequential and net continuity.
-   The volume proof and the trace construction now have separate
-   23 September receipts.
+1. Audit the passage from analytic trace classes to the Chapter 54
+   non-Archimedean trace: levelwise domain, concavity, upper-semicontinuous
+   regularization, endpoint and Kähler-perturbation compatibility.
+   The volume proof, trace construction and analytic trace calculus now
+   have separate 23 September receipts.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.

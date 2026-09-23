@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,531 unique labels),
-and the full build produces a 3,933-page PDF with no unresolved reference
+The complete source check passes (389 TeX files, 11,540 unique labels),
+and the full build produces a 3,937-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
 records the final line-break checks and preservation of the research sources.
@@ -66,6 +66,11 @@ supplies the uniform positive-mass bound needed for completeness and
 proves approximation independence by diagonal singularity comparison.
 It separates the model-envelope limit from pointwise restriction and
 checks background independence, the point case and the finer output P-class.
+The [trace-calculus audit](manuscript/editorial/ch54_trace_calculus_audit_20260923.md)
+checks quasi-equisingular approximation under sums, maxima and real scaling,
+and reconstructs decreasing-net continuity through two diagonal error bounds.
+A global projective-plane example has increasing inputs converging in d_S
+but traces with a persistent mass gap.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the
