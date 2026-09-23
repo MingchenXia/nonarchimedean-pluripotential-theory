@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (390 TeX files, 11,652 unique labels),
-and the full build produces a 3,985-page PDF with no unresolved reference
+The complete source check passes (390 TeX files, 11,654 unique labels),
+and the full build produces a 3,987-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [P12.1 integration audit](manuscript/editorial/p121_integration_audit_20260923.md)
 records the author's supplied normalized-link manuscript, its complete
@@ -16,6 +16,12 @@ normalization branches, conductor descent, nonprimary gauges and nilpotent
 reduction settle P12.1; P12.2--P12.6 remain active. The original PDF is
 preserved byte for byte. This source integration has no new production
 verifier or independent-agent receipt.
+The [entropy-slope audit](manuscript/editorial/ch60_entropy_slope_audit_20260924.md)
+proves the two-sided logarithmic volume estimate with its dual-complex
+exponent and central multiplicities. It establishes reference-volume
+independence of entropy slopes, handles infinite entropy, and supplies
+a nodal curve example with an unbounded logarithmic correction. The full
+mixed-slope theorem and cscK existence remain explicitly cited inputs.
 The [mixed-slope audit](manuscript/editorial/ch60_mixed_slope_audit_20260924.md)
 proves the two-point J bound and the simultaneous finite-energy limit
 with uniform constants and signed cohomological translation terms.

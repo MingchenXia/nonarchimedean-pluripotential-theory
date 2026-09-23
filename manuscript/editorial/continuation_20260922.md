@@ -1110,18 +1110,40 @@ originals, bibliography, frozen packets, verifier records and dated
 releases remain unchanged. No independent-agent or production-verifier
 pass is claimed.
 
+## Chapter 60: logarithmic volume and reduced entropy slopes, 24 September 2026
+
+The [entropy-slope audit](ch60_entropy_slope_audit_20260924.md)
+reconstructs the two-sided logarithmic volume estimate with exponent
+equal to the dual-complex dimension. It computes the local weighted
+simplex and central multiplicities; a nodal curve model shows that the
+logarithmic error can be unbounded. Reference-volume change is proved
+for all probability measures, including infinite entropy. The reduced
+entropy/Mabuchi slope proof now gives the fixed-model error explicitly,
+justifies the directed discrepancy supremum, and proves divergence to
+infinity in the infinite-entropy case. Dimension zero and the existing
+total-normalization obstruction are explicit. The full mixed-slope input
+and cscK existence theorem retain their cited boundaries.
+
+Two complete local mathematical/source passes, final full compilation
+and scoped page review are complete: 3,987 pages, 390 inputs and 11,654
+labels, with no unresolved references/citations or layout overflow. The
+scoped house audit has zero errors and two reviewed bibliography warnings.
+Source outside the revised block and its BHJ source-note update retains
+its baseline bytes. The 45 active atoms, P12.1 integration/provenance,
+supplied originals, bibliography, frozen packets, verifier records and
+dated releases are preserved. No independent-agent or production-verifier
+pass is claimed.
+
 ## Next work
 
-1. Continue Chapter 60 with the reduced entropy and Mabuchi slope
-   argument: audit the snc logarithmic volume calculation, multiplicities,
-   squared-norm signs, the directed supremum of discrepancy tests and
-   the infinite-entropy case. Then check the exact scope of the later
-   stability application. Preserve the existing total-versus-reduced
-   normalization obstruction and the full mixed-slope theorem's cited
-   PL/model-compatibility boundary. Keep the completed simultaneous
-   finite-energy estimate, maximal-ray and test-curve proofs, P12.1
-   integration and provenance, and the distinction between normalized
-   and literal raw all-big-model tests.
+1. Complete the remaining Chapter 60 finite-energy stability interface
+   and closing provenance: check the hypotheses and exact normalization
+   of the imported cscK theorem and its links to Chapters 61 and 62.
+   Preserve the completed entropy, logarithmic-volume and simultaneous
+   mixed-slope proofs, their total-versus-reduced normalization warning,
+   and the explicit PL/model-compatibility input. Keep the maximal-ray
+   and test-curve arguments, P12.1 integration and provenance, and the
+   distinction between normalized and literal raw all-big-model tests.
 2. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from stratified comparison.
    No extension beyond the current hypotheses is asserted.
