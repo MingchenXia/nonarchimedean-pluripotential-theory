@@ -2138,3 +2138,32 @@ verifier records and dated release artifacts are preserved.
 No independent-agent or production verification and no atom closure
 are claimed. The next unit checks decreasing-net comparison, uniform
 positive mass and the Legendre limit in Chapter 57.
+
+
+## 2026-09-23 — Decreasing nets and the Legendre limit
+
+The [decreasing-net audit](ch57_decreasing_net_audit_20260923.md)
+reconstructs Chapter 57's limit comparison from the uniform positive-mass
+bound in Chapter 54. A countable subfamily with the same pointwise
+infimum permits the sequential Lelong theorem to control the whole net;
+no cofinal sequence is assumed. A compact-parameter subnet argument
+then proves the Legendre limit, including maximizers approaching a
+zero-mass endpoint. BJ closure and divisorial determination give the
+identity on every analytic point.
+
+The new P1 calculation identifies the metrics as max(-a v(I_p),-j).
+Their values at p tend to minus infinity while the trivial valuation
+stays at zero. Their volumes are 1 and the limiting volume is 1-a,
+making the distinction from decreasing volume continuity explicit.
+The constant-collapse example now uses the full divisorial formula.
+
+The second local mathematical/source pass, strict section-wide style
+audit, reference/inventory checks and final page inspection pass.
+The final full build has 3,943 pages, 389 TeX inputs and 11,569 labels,
+with no unresolved references, citations or layout overflow.
+All Chapter 57 bytes outside the decreasing-limits section are preserved.
+The 46 active atoms, author sources, frozen proofs, production verifier
+records and dated release artifacts are unchanged. No independent-agent
+or production verification and no atom closure are claimed.
+The next unit checks Chapter 58's support and center construction,
+prime coherent ideals, support descent and local point criteria.
