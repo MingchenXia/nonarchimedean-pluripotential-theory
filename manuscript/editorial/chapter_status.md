@@ -2111,3 +2111,30 @@ verifier records and dated release artifacts are preserved.
 No independent-agent or production verification and no atom closure
 are claimed. The next unit checks Chapter 57's order reflection,
 valuation scaling and closed parameter profiles for Legendre inversion.
+
+
+## 2026-09-23 — Order reflection and rational valuation rays
+
+The [order-reflection audit](ch57_order_reflection_audit_20260923.md)
+reconstructs the comparison proof using positive rational valuation
+scaling. The new interior inversion lemma proves finiteness and
+continuity of the scalar dual, including its limit at zero. Interior
+I-model order is then extended to the endpoint by decreasing potential
+limits, including zero terminal mass. BJ domination supplies the
+passage from divisorial inequalities to all analytic points.
+
+Two explicit O(2) metrics on P1 agree at the trivial valuation and
+every unscaled prime order, but differ at half of one prime order.
+The dependent operations proof now treats real parameter rescaling
+separately and identifies arbitrary suprema as least upper bounds.
+
+The final full build has 3,941 pages, 389 TeX inputs and 11,566 labels,
+with no unresolved references, citations or layout overflow. The
+second local mathematical/source pass, strict scoped style audit,
+reference/inventory checks and final page inspection pass.
+Previously checked GF and trace blocks retain their exact bytes.
+The 46 active atoms, frozen proofs, author sources, production
+verifier records and dated release artifacts are preserved.
+No independent-agent or production verification and no atom closure
+are claimed. The next unit checks decreasing-net comparison, uniform
+positive mass and the Legendre limit in Chapter 57.

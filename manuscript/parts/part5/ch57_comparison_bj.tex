@@ -95,8 +95,72 @@ nonzero section, so
 \(\sup_{\tau\leq\Gamma_{\max}}\tau=\Gamma_{\max}\).
 \end{proof}
 
+\begin{lemma}
+\label{lem:comp-interior-valuative-inversion}
+Fix a component $\Gamma^{\theta+\omega}$, put
+$c=\Gamma_{\max}$, and let $v\in X^{\divis}$.
+For $\tau<c$, write
+$f_v(\tau)=(\Gamma_\tau^{\theta+\omega})^{\An}(v)$.
+Then $f_v$ is finite, nonpositive, decreasing and concave on
+$(-\infty,c)$, and
+\[
+ f_v(\tau)=\inf_{t\in\mathbf Q_{>0}}
+       \{t\Gamma^{\An}(t^{-1}v)-t\tau\},
+                         \qquad \tau<c.
+\tag{57.4a}\label{eq:comp-interior-recovery}
+\]
+\end{lemma}
+
+\begin{proof}
+For $v=q\ord_E$, the profile is $-q\nu_E(\Gamma_\tau^{\theta+\omega})$;
+for $v=v_{\triv}$ it is zero. Generic Lelong numbers are finite
+for every nontrivial level. The decreasing order and concavity of
+the potentials, together with additivity and monotonicity of
+generic Lelong numbers, give the asserted properties of $f_v$.
+In particular it is continuous at every interior parameter.
+
+Define, for $t>0$,
+\[
+ B_v(t):=\sup_{\sigma<c}\{f_v(\sigma)+t\sigma\}.
+\]
+For any fixed $\sigma_0<c$,
+$f_v(\sigma_0)+t\sigma_0\leq B_v(t)\leq tc$.
+Thus $B_v$ is a finite convex function on $(0,\infty)$ and is
+continuous there. Also, putting $B_v(0)=\sup_{\sigma<c}f_v(\sigma)$,
+one has
+\[
+ f_v(\sigma_0)+t\sigma_0\leq B_v(t)\leq B_v(0)+tc.
+\]
+Letting $t\downarrow0$ and then taking the supremum over $\sigma_0$
+shows that $B_v(t)\to B_v(0)$.
+
+At an interior point $\tau$, a supporting affine function for the
+finite concave profile has slope $-t$ with $t\geq0$, because
+$f_v$ is decreasing. If $t>0$, the supporting inequality gives
+$B_v(t)-t\tau=f_v(\tau)$. If $t=0$, it gives
+$B_v(0)=f_v(\tau)$, and the same value is approached as
+$t\downarrow0$. Since $B_v(t)-t\tau\geq f_v(\tau)$ for every
+$t>0$, this proves the inverse formula with $t\in\mathbf R_{>0}$.
+Continuity of $B_v$ allows restriction of the infimum to positive
+rational $t$.
+
+For such a rational $t$, the point $t^{-1}v$ belongs to
+$X^{\divis}$ by \Cref{def:ch32-divisorial}.
+Homogeneity of the analytification of each level then gives
+$B_v(t)=t\Gamma^{\An}(t^{-1}v)$.
+The terminal level does not change this supremum: it is below
+every earlier level, so its contribution is bounded by the limit
+of the contributions as $\sigma\uparrow c$.
+This proves \eqref{eq:comp-interior-recovery}.
+\end{proof}
+
+The recovery formula uses interior parameters. Endpoint comparisons
+will instead use the decreasing limit of the potentials in
+\Cref{lem:rays-closed-endpoint}, which remains available when the
+terminal level has zero mass.
+
 \begin{proposition}\label{prop:comp-order-reflection}
-For \(\Gamma,\Lambda\in\PSH^{\NA}_{\mathrm{tc}}(X,\theta)\),
+For $\Gamma,\Lambda\in\PSH^{\NA}_{\mathrm{tc}}(X,\theta)$,
 \[
             \Gamma\leq\Lambda
        \quad\Longleftrightarrow\quad
@@ -104,59 +168,103 @@ For \(\Gamma,\Lambda\in\PSH^{\NA}_{\mathrm{tc}}(X,\theta)\),
             \text{ on }X^{\An}.
 \tag{57.5}\label{eq:comp-order-equivalence}
 \]
-In particular, \(\mathfrak A\) is injective.
+It suffices to test the inequality on $X^{\divis}$.
+In particular, $\mathfrak A$ is injective.
 \end{proposition}
 
 \begin{proof}
-The forward implication follows term by term from
-\eqref{eq:comp-legendre}.
+Suppose first that $\Gamma\leq\Lambda$.
+Monotonicity of ideal values and \eqref{eq:comp-legendre} give
+$\Gamma^{\An}\leq\Lambda^{\An}$ on $X^{\divis}$.
+Both functions are BJ psh metrics, so divisorial domination
+\cite[Theorem~4.22]{BJ22} extends this inequality to $X^{\An}$.
 
-Conversely, suppose
-\(\Gamma^{\An}\leq\Lambda^{\An}\).
-Fix \(v\in X^{\divis}\) and \(t>0\).
-Homogeneity gives
+Conversely, assume the inequality only on $X^{\divis}$.
+The value at $v_{\triv}$ gives
+$c_\Gamma:=\Gamma_{\max}\leq c_\Lambda:=\Lambda_{\max}$.
+Fix a component at $\theta+\omega$ and $v\in X^{\divis}$.
+For $t\in\mathbf Q_{>0}$, levelwise homogeneity gives
 \[
  t\Gamma^{\An}(t^{-1}v)
-   =\sup_{\tau\in\mathbf R}
-       \left\{
-       (\Gamma_\tau^{\theta+\omega})^{\An}(v)+t\tau
-       \right\}.
+   =\sup_{\sigma<c_\Gamma}
+       \left\{(\Gamma_\sigma^{\theta+\omega})^{\An}(v)
+                    +t\sigma\right\},
 \tag{57.6}\label{eq:comp-scaled-legendre}
 \]
-The assumed pointwise inequality therefore gives an inequality between the
-two right sides for every \(t>0\).  For fixed \(v\), the functions
-\(\tau\mapsto-(\Gamma_\tau^{\theta+\omega})^{\An}(v)\) and its
-\(\Lambda\)-analogue are closed convex functions on their effective
-intervals.  Legendre--Fenchel biconjugacy gives
+and the analogous formula holds for $\Lambda$.
+The assumed inequality compares the left sides for every such $t$.
+For every $\tau<c_\Gamma$, applying
+\eqref{eq:comp-interior-recovery} to both curves therefore gives
 \[
  (\Gamma_\tau^{\theta+\omega})^{\An}(v)
  \leq
- (\Lambda_\tau^{\theta+\omega})^{\An}(v)
+ (\Lambda_\tau^{\theta+\omega})^{\An}(v),
+                         \qquad \tau<c_\Gamma.
 \tag{57.7}\label{eq:comp-level-valuations}
 \]
-for every \(\tau\) and every divisorial \(v\).
-
 The divisorial multiplier-ideal criterion turns this into
+$\Gamma_\tau^{\theta+\omega}\preceq_{\cI}
+\Lambda_\tau^{\theta+\omega}$.
+Both are interior $\cI$-model levels; applying their normalized
+$\cI$-envelopes gives
+$\Gamma_\tau^{\theta+\omega}\leq
+\Lambda_\tau^{\theta+\omega}$.
+
+Choose $\tau_j\uparrow c_\Gamma$. The closed potential profiles
+of \Cref{lem:rays-closed-endpoint} give
 \[
- \Gamma_\tau^{\theta+\omega}
-       \preceq_{\cI}
- \Lambda_\tau^{\theta+\omega}.
+ \Gamma_{c_\Gamma}^{\theta+\omega}
+    =\inf_j\Gamma_{\tau_j}^{\theta+\omega}
+    \leq\inf_j\Lambda_{\tau_j}^{\theta+\omega}
+    =\Lambda_{c_\Gamma}^{\theta+\omega}.
 \]
-Both levels are \(\cI\)-model potentials.
-Applying the monotone \(\cI\)-envelope to representatives of the displayed
-\(\cI\)-order shows that an \(\cI\)-model is the maximal normalized
-representative of its constraint.  Hence
-\[
- \Gamma_\tau^{\theta+\omega}
-       \leq\Lambda_\tau^{\theta+\omega}.
-\]
-This is exactly \(\Gamma\leq\Lambda\).
+This also covers $c_\Gamma=c_\Lambda$.
+For $\tau>c_\Gamma$ the first level is $-\infty$.
+Thus the componentwise inequality holds at every parameter, and
+$\omega$ was arbitrary. This proves $\Gamma\leq\Lambda$.
+The argument supplies the rational scaling and endpoint steps in
+\cite[Theorem~3.12(i) and Theorem~3.14]{DXZ23}.
 \end{proof}
 
-No envelope theorem is used in
-\Cref{prop:comp-order-reflection}.
-Only homogeneous Legendre inversion, the valuative multiplier-ideal
-criterion, and maximality of \(\cI\)-model levels enter.
+Order reflection uses scalar inversion, the valuative multiplier-ideal
+criterion, and normalized $\mathcal I$-model representatives.
+The BJ divisorial domination theorem passes from divisorial order
+to order on all points. The envelope property used for surjectivity
+will enter separately below.
+
+\begin{example}
+\label{ex:comp-rational-ray-test}
+The rational multiples in the divisorial test set cannot be omitted.
+On $X=\mathbf P^1$ with coordinates $[x:y]$, consider the following
+Fubini--Study metrics of $\mathcal O(2)$:
+\[
+ \begin{split}
+ F&=\max\{\log|x^2|+1,\log|xy|+1,\log|y^2|\},\\
+ G&=\max\{\log|x^2|+1,\log|y^2|\}.
+ \end{split}
+\tag{57.7a}\label{eq:comp-prime-order-counterexample}
+\]
+Let $p=\{x=0\}$ and put $d=v(\mathcal I_p)$.
+The ideals of $\{x=0\}$ and $\{y=0\}$ are comaximal, so
+at least one has value zero. It follows on every semivaluation that
+\[
+                  F(v)=\max\{0,1-d\},\qquad
+                  G(v)=\max\{0,1-2d\}.
+\]
+Both functions equal $1$ at $v_{\triv}$. At the unscaled prime
+order $\ord_p$ they both equal $0$, and at $\ord_q$ for every
+other closed point $q$ they both equal $1$.
+These are all unscaled prime divisorial orders over the smooth
+curve. Nevertheless,
+\[
+             F\bigl(\tfrac12\ord_p\bigr)=\tfrac12,
+             \qquad G\bigl(\tfrac12\ord_p\bigr)=0.
+\]
+Thus equality at the trivial valuation and at every unscaled prime
+order does not determine a BJ psh metric. The whole rational
+valuation ray used in \eqref{eq:comp-interior-recovery} detects
+the missing information.
+\end{example}
 
 \section{The generically finite Fubini--Study core}
 
@@ -468,8 +576,8 @@ Whenever the displayed operations are defined,
 \end{aligned}
 \tag{57.17}\label{eq:comp-elementary-operations}
 \]
-If \((\Gamma^i)\) is nonempty and
-\(\sup_i\Gamma^i_{\max}<+\infty\), then
+If $(\Gamma^i)$ is nonempty and
+$\sup_i\Gamma^i_{\max}<+\infty$, then
 \[
  \left(\uscsup_i\Gamma^i\right)^{\An}
        =\left(\sup_i(\Gamma^i)^{\An}\right)^*.
@@ -479,30 +587,48 @@ For a decreasing net satisfying \eqref{eq:comp-noncollapse},
 \eqref{eq:comp-decreasing} holds.
 \end{theorem}
 
+For real $\lambda$, rescaling takes values in the real numerical
+BJ class $\lambda c_1(L)$. The left side of the rescaling identity
+means the BJ extension of the divisorial function of $\lambda\Gamma$;
+the following calculation constructs that extension explicitly.
+
 \begin{proof}
-Translations and finite maxima follow directly from the Legendre formula.
-Positive rescaling follows from
+Parameter translation gives the first identity directly from
+\eqref{eq:comp-legendre}. Positive rescaling of the test curve has
+levels $(\lambda\Gamma)_\tau=\lambda\Gamma_{\tau/\lambda}$ in
+the corresponding rescaled background. At $v\in X^{\divis}$,
+homogeneity of generic Lelong numbers and the substitution
+$\tau=\lambda\sigma$ give
+\[
+ \sup_\tau\{(\lambda\Gamma_{\tau/\lambda})^{\An}(v)+\tau\}
+   =\lambda\sup_\sigma\{\Gamma_\sigma^{\An}(v)+\sigma\}.
+\]
+The right side extends to the BJ psh metric $\lambda\Gamma^{\An}$
+in class $\lambda c_1(L)$ by \cite[Theorem~4.7]{BJ22}.
+Divisorial domination gives uniqueness of this extension, also
+when $\lambda$ is irrational. This rescaling of the test-curve
+parameter is distinct from rescaling the valuation in
 \eqref{eq:comp-scaled-legendre}.
-Addition follows levelwise from addition of psh singularities and the
-infimal-convolution formula for test curves; analytification of a sum of
-complex singularities adds their divisorial values.
 
-The divisorial maximum identity is
-\cite[Corollary~4.8]{XiaOperationsV3}; addition and rescaling are
-\cite[Lemma~4.17]{XiaOperationsV3}.  Since both sides of each identity are
-BJ psh metrics, divisorial determination extends the equality to
-\(X^{\An}\).  This is where the proved projective comparison is used; the
-same sentence would not justify equality on arbitrary nondivisorial points
-of the tropical spectrum of a nonprojective complex space.
+For sums and maxima, the divisorial identities are
+\cite[Lemma~4.17 and Corollary~4.8]{XiaOperationsV3}.
+The maximum there includes concavification and model projection;
+it is the operation constructed earlier in this book.
+Both sides of each identity are BJ psh metrics in the same
+numerical class, so divisorial determination extends the identities
+to $X^{\An}$.
 
-For the supremum, the test-curve construction is the levelwise regularized
-supremum followed by \(\cI\)-projection.
-The projection preserves analytification, and the projective envelope
-property makes the upper semicontinuous regularization on the right of
-\eqref{eq:comp-sup} a BJ psh metric.
-Order reflection identifies it with the left side.
-The decreasing statement is
-\Cref{prop:comp-decreasing-nets}.
+For the supremum, the test-curve construction through finite joins
+is the least upper bound in its order. On the BJ side,
+\eqref{eq:comp-max} and the maximum principle give the common
+upper bound $\sup_i\Gamma^i_{\max}$ on all of $X^{\An}$.
+The projective envelope property therefore makes
+$(\sup_i(\Gamma^i)^{\An})^*$ a BJ psh metric. It is the least
+psh upper bound, since every psh upper bound is usc and hence
+dominates the usc regularization of the pointwise supremum.
+The order isomorphism \Cref{thm:comp-dxz} identifies these two
+least upper bounds, proving \eqref{eq:comp-sup}.
+The decreasing statement is \Cref{prop:comp-decreasing-nets}.
 \end{proof}
 
 \begin{remark}[Envelope firewall]
