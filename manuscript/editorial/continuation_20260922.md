@@ -960,21 +960,41 @@ atoms, P12.1 integration/provenance, supplied sources, frozen packets,
 verifier records and dated releases are unchanged. This unit claims no
 new independent-agent or production-verifier pass.
 
+## Chapter 60: model measure and pairing normalization, 23 September 2026
+
+The [model measure and pairing audit](ch60_model_measure_pairing_audit_20260923.md)
+proves the constant-fibre, zero-potential and rational-scaling pairing
+identities, and derives the correctly oriented pushforward of model
+Monge–Ampère measures. It supplies the relative Kähler argument in the
+normal-cone example, the exact Zariski equality graph and a nonconstant
+zero-seminorm example. Energy translation, rational homogeneity and
+nonnegativity of J are proved from the model pairing, including dimension zero.
+
+Two local proof/source passes, the final full build and scoped page review
+are complete: 3,973 pages, 390 inputs and 11,614 labels, with no unresolved
+reference/citation or layout overflow. The scoped house audit has zero
+errors and one reviewed exact-author-version warning. Earlier Chapter 60
+model constructions and all text from monotone completion onward retain
+their baseline bytes. All 45 research atoms, the completed P12.1 integration
+and supplied-source provenance, author originals, frozen packets, verifier
+records and dated releases are preserved. No independent-agent or
+production-verifier pass is claimed.
+
 ## Next work
 
-1. Audit Chapter 60's model Monge–Ampère and mixed-intersection sections:
-   central multiplicities, model independence, the Zariski inequality,
-   and the deformation-to-the-normal-cone example. Preserve the checked
-   rational-scaling and finite-pullback constructions. Keep the maximum
-   and relative numerical-criterion proofs unless a concrete defect is
-   found, and retain the explicit source boundary of the analytic-cycle core.
-   Preserve the completed P12.1 integration and its supplied-manuscript
-   provenance, and the checked Chapter 58 and 59 comparisons.
-   Keep the normalized model
-   condition separate from the literal raw all-big-model condition;
-   examine any proposed comparison before restoring a converse.
-   General Kähler maximal-ray existence, sequential regularization
-   and the full mixed-slope reduction remain explicit source inputs.
+1. Continue Chapter 60 with the monotone completion and divisorial
+   estimates: audit the normalized fixed-model bound, the finite vertex
+   test for a PL obstacle, and the passage from model functions to nets
+   and upper semicontinuous comparison functions. Preserve the checked
+   rational-scaling and finite-pullback constructions, model-measure
+   normalizations, exact Zariski kernel and energy calculus. Keep the
+   maximum and relative numerical-criterion proofs unless a concrete
+   defect is found, and retain the analytic-cycle source boundary.
+   Preserve P12.1's completed integration and supplied-manuscript provenance,
+   the checked Chapters 58–59 comparisons, and the distinction between
+   normalized and literal raw all-big-model tests. General Kähler maximal-ray
+   existence, sequential regularization and full mixed-slope reduction
+   remain explicit source inputs until separately reconstructed.
 2. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from stratified comparison.
    No extension beyond the current hypotheses is asserted.

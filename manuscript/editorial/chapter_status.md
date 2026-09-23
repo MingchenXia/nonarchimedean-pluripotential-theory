@@ -2493,3 +2493,23 @@ primary locators, source hashes and the final PDF hash. All 45 research
 atoms, P12.1 integration/provenance, supplied sources, frozen packets,
 verifier records and dated releases are unchanged. This unit claims no
 new independent-agent or production-verifier pass.
+
+## Chapter 60: model measure and pairing normalization, 23 September 2026
+
+The [model measure and pairing audit](ch60_model_measure_pairing_audit_20260923.md)
+proves the constant-fibre, zero-potential and rational-scaling pairing
+identities, and derives the correctly oriented pushforward of model
+Monge–Ampère measures. It supplies the relative Kähler argument in the
+normal-cone example, the exact Zariski equality graph and a nonconstant
+zero-seminorm example. Energy translation, rational homogeneity and
+nonnegativity of J are proved from the model pairing, including dimension zero.
+
+Two local proof/source passes, the final full build and scoped page review
+are complete: 3,973 pages, 390 inputs and 11,614 labels, with no unresolved
+reference/citation or layout overflow. The scoped house audit has zero
+errors and one reviewed exact-author-version warning. Earlier Chapter 60
+model constructions and all text from monotone completion onward retain
+their baseline bytes. All 45 research atoms, the completed P12.1 integration
+and supplied-source provenance, author originals, frozen packets, verifier
+records and dated releases are preserved. No independent-agent or
+production-verifier pass is claimed.
