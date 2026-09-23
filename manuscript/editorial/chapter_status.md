@@ -2597,3 +2597,26 @@ retain their baseline bytes. The 45 active atoms, completed P12.1
 integration/provenance, supplied originals, bibliography, frozen packets,
 verifier receipts and dated releases are preserved. No independent-agent
 or production-verifier pass is claimed.
+
+## Chapter 60: test-curve order and mass defect, 24 September 2026
+
+The [test-curve comparison audit](ch60_test_curve_comparison_audit_20260924.md)
+gives the inverse transform at all parameters with the closed endpoint,
+proves the finite-energy order correspondence and parameter translation,
+and identifies the cutoff by comparison with constant data. The mass
+defect equals J and the distance from the upper constant ray is exactly
+s J; its vanishing characterizes constant data. The projective-line
+example checks a zero-mass terminal level and equal-energy incomparable
+data. The probability energy identity now uses the preceding maximal-ray
+identity rather than the later mixed-slope theorem. The analytic
+correspondence and I-maximality of the inverse remain cited inputs.
+
+Two complete local proof/source passes, final full compilation and scoped
+page review are complete: 3,983 pages, 390 inputs and 11,648 labels, with
+no unresolved references/citations or layout overflow. The scoped house
+audit has zero errors and one reviewed exact-version warning. Earlier
+Chapter 60 text, the full-cone scope warning and all following text retain
+their baseline bytes. The 45 active atoms, P12.1 integration/provenance,
+supplied originals, bibliography, frozen packets, verifier records and
+dated releases remain unchanged. No independent-agent or production-verifier
+pass is claimed.

@@ -1064,21 +1064,43 @@ integration/provenance, supplied originals, bibliography, frozen packets,
 verifier receipts and dated releases are preserved. No independent-agent
 or production-verifier pass is claimed.
 
+## Chapter 60: test-curve order and mass defect, 24 September 2026
+
+The [test-curve comparison audit](ch60_test_curve_comparison_audit_20260924.md)
+gives the inverse transform at all parameters with the closed endpoint,
+proves the finite-energy order correspondence and parameter translation,
+and identifies the cutoff by comparison with constant data. The mass
+defect equals J and the distance from the upper constant ray is exactly
+s J; its vanishing characterizes constant data. The projective-line
+example checks a zero-mass terminal level and equal-energy incomparable
+data. The probability energy identity now uses the preceding maximal-ray
+identity rather than the later mixed-slope theorem. The analytic
+correspondence and I-maximality of the inverse remain cited inputs.
+
+Two complete local proof/source passes, final full compilation and scoped
+page review are complete: 3,983 pages, 390 inputs and 11,648 labels, with
+no unresolved references/citations or layout overflow. The scoped house
+audit has zero errors and one reviewed exact-version warning. Earlier
+Chapter 60 text, the full-cone scope warning and all following text retain
+their baseline bytes. The 45 active atoms, P12.1 integration/provenance,
+supplied originals, bibliography, frozen packets, verifier records and
+dated releases remain unchanged. No independent-agent or production-verifier
+pass is claimed.
+
 ## Next work
 
-1. Continue Chapter 60 with the finite-energy test-curve comparison:
-   check the exact I-maximality correspondence, the fixed zero initial
-   value, endpoint normalization and probability-normalized energy.
-   Keep the maximal-ray existence/data-identification input separate
-   from its now proved order, ordered-distance and decreasing-stability
-   consequences. Preserve the finite-time convergence domain and its
-   two counterexamples. The analytic regularization theorem, general
-   Kähler maximal-ray existence, sequential model regularization and
-   full mixed-slope reduction remain explicitly cited inputs until
-   separately reconstructed. Preserve the checked radial-limit, model,
-   scaling, graph, comparison and pairing proofs, P12.1 integration and
-   provenance, the Chapters 58–59 comparisons, and the distinction
-   between normalized and literal raw all-big-model tests.
+1. Continue Chapter 60 with the mixed-energy slope formula: audit
+   the common-background reductions, uniform constants, all approximated
+   slots, dimension zero and the passage from model rays to finite energy.
+   Reuse the proved maximal-ray distance formula and the test-curve cutoff
+   identification where applicable. Preserve the explicit source boundary
+   for the full mixed-slope theorem, general Kähler maximal-ray existence,
+   sequential model regularization and the analytic MP/DXZ correspondence.
+   Keep the fixed zero initial value, closed test-curve endpoint, finite-time
+   stability domain and the checked counterexamples. Preserve earlier
+   model, radial-limit, pairing and comparison proofs, P12.1 integration
+   and provenance, and the distinction between normalized and literal
+   raw all-big-model tests.
 2. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from stratified comparison.
    No extension beyond the current hypotheses is asserted.
