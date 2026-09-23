@@ -2384,3 +2384,20 @@ The 46 research atoms, author sources, supplied CURVE_PSH.tex, frozen
 proofs, verifier receipts and dated releases are unchanged. No independent-
 agent or production-verifier pass, research theorem or atom closure is
 claimed. Next: log discrepancy, retraction inequalities and normalization.
+
+## Chapter 59 log discrepancy: 23 September 2026
+
+The [log-discrepancy audit](ch59_discrepancy_audit_20260923.md)
+reconstructs the analytic Jacobian bound, monomial independence, model
+monotonicity and supremum extension. It corrects the exceptional-boundary
+hypothesis and the domain of the Gauss comparison, with surface and curve
+examples. The reduced model identity used by the entropy chapters is explicit.
+
+Two local mathematical/source passes, the full build and final page review
+pass: 3,961 pages, 389 inputs, 11,585 labels, no unresolved references,
+citations or layout overflow. The scoped style audit passes; legacy chapter
+reports and the exact-version source limitation are recorded in the audit.
+Only Section 59.5 changed in the mathematical text. The 46 research atoms,
+author sources, frozen proofs, verifier records and dated releases remain
+unchanged in this unit; no new production or independent-agent pass is claimed.
+The author-supplied P12.1 manuscript is being integrated as the next unit.

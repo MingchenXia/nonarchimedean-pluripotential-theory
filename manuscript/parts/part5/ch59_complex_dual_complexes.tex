@@ -1550,98 +1550,345 @@ local-to-global passage replace that unavailable algebraic model.
 
 \section{Log discrepancy}
 
-For a prime divisor \(F\) on a smooth modification \(Y\to X\), put
-
+For a proper modification $\pi:Y\to X$ between smooth manifolds,
+$K_{Y/X}$ denotes the effective divisor of the holomorphic
+Jacobian. For a prime divisor $F$ on $Y$, put
 \[
- A_X(r\ord_F)
-   :=r\bigl(1+\ord_F(K_{Y/X})\bigr),
- \qquad r\in\mathbf Q_{>0}.
+ A_X(r\ord_F):=r\bigl(1+\ord_F(K_{Y/X})\bigr),
+ \qquad r\in\mathbf Q_{>0},\qquad A_X(v_{\triv})=0.
 \tag{59.20}\label{eq:mp-ordinary-discrepancy}
 \]
+The identity $K_{Z/X}=K_{Z/Y}+\mu^*K_{Y/X}$ on a common
+smooth model proves independence of the model containing $F$:
+the map is an isomorphism at the general point of its strict
+transform. The following local estimate controls retractions.
 
-On each monomial cone this extends as the unique linear function with the
-prescribed values at the rays.  Under further snc blowups, the pullback
-retraction satisfies
-
+\begin{lemma}\label{lem:mp-log-jacobian-bound}
+Let $B=\sum_i B_i$ be a reduced snc divisor on a smooth
+manifold $Y$. If $\mu:Z\to Y$ is a proper modification with
+$Z$ smooth and $G$ is a prime divisor on $Z$, then
 \[
-              A_X\circ r_{Y',Y}\leq A_X.
+                  1+\ord_G(K_{Z/Y})\geq\sum_i\ord_G(\mu^*B_i).
+\]
+\end{lemma}
+
+\begin{proof}
+Near a general point of the center of $G$, choose coordinates
+with $B=(z_1\cdots z_k=0)$. The meromorphic top form
+\[
+ \omega=\frac{\mathrm{d}z_1}{z_1}\wedge\cdots\wedge
+ \frac{\mathrm{d}z_k}{z_k}\wedge
+ \mathrm{d}z_{k+1}\wedge\cdots\wedge\mathrm{d}z_n
+\]
+has divisor $-B$ on this chart. At a general point of $G=(u=0)$,
+write $\mu^*z_i=u^{m_i}a_i$, with $a_i$ a holomorphic unit.
+Then
+$\mu^*(\mathrm{d}z_i/z_i)=m_i\mathrm{d}u/u+
+\mathrm{d}a_i/a_i$. In the wedge product, at most one
+factor $\mathrm{d}u/u$ survives. The remaining pulled-back
+differentials are holomorphic. Thus $\mu^*\omega$ has pole
+order at most one along $G$, which is precisely the inequality.
+This is the analytic-coordinate proof of
+\cite[Lemma~1.5(i), pp.~2156--2157]{JM12}.
+\end{proof}
+
+For the cone formula, a log-smooth pair over $X$ means a smooth
+proper modification $Y\to X$ and a reduced snc divisor
+$B=\sum_i B_i$ containing its exceptional locus; compare
+\cite[Definition~3.2, p.~2168]{JM12}. In particular
+$K_{Y/X}=\sum_i k_iB_i$, with $k_i\geq0$. This condition
+on the boundary is additional to the hypotheses used merely
+to construct monomial valuations in
+\cref{prop:mp-monomial-globalization}.
+
+For $v\in X^{\val}$, lift $v$ to its unique full-support
+character on $Y$ using \cref{prop:ts-bimeromorphic-valuations}.
+Its boundary orders and the smallest closed boundary stratum
+containing its center define a monomial retraction $r_{Y,B}(v)$.
+If all boundary orders vanish, take the common zero of the cone
+complex. Under a domination $\mu:Y'\to Y$ with
+$\operatorname{Supp}(\mu^*B)\subseteq B'$, denote the induced
+map of cone complexes by $r_{Y',Y}$.
+
+\begin{proposition}\label{prop:mp-monomial-discrepancy}
+On the cone complex of a log-smooth pair, the formula
+\[
+                  A_X(\val_w)=\sum_i w_i(1+k_i)
+\]
+extends \eqref{eq:mp-ordinary-discrepancy}, including zero
+weights, and is independent of the log-smooth presentation
+of the monomial valuation. Under the domination just described,
+\[
+                         A_X\circ r_{Y',Y}\leq A_X.
 \tag{59.21}\label{eq:mp-discrepancy-monotonicity}
 \]
-
-For a vertical component \(E\subset\cX_0\), normalized by
-\(v_E=b_E^{-1}\ord_E\), define the total discrepancy
-
-\[
- A^{\mathrm{tot}}(v_E)
- :=b_E^{-1}\bigl(1+\ord_E K_{\cX/(X\times\mathbf P^1)}\bigr).
-\tag{59.22}\label{eq:mp-total-discrepancy}
-\]
-
-It is affine on every dual face.  The function on all of
-\(X^{\bethan}\) is
-
-\[
- A^{\mathrm{tot}}(v)
- :=\sup_{\cX}A^{\mathrm{tot}}(p_{\cX}(v))
- \in[1,+\infty].
-\tag{59.23}\label{eq:mp-discrepancy-envelope}
-\]
-
-The lower bound uses smoothness of \(X\).  The supremum makes
-\(A^{\mathrm{tot}}\) lower semicontinuous.  The later entropy convention of
-\cite[Definition~2.4.1]{MPWN25} removes the discrepancy of the base divisor
-\(X\times\{0\}\):
-
-\[
-                    A^{\NA}_X:=A^{\mathrm{tot}}-1.
-\tag{59.24}\label{eq:mp-reduced-discrepancy}
-\]
-
-\begin{proposition}\label{prop:mp-gauss-discrepancy}
-For a divisor \(F\) over \(X\), the Gauss extension \(\sigma(\ord_F)\)
-satisfies
-\[
- A_{X\times\mathbf P^1}(\sigma(\ord_F))=A_X(\ord_F)+1.
-\tag{59.25}\label{eq:mp-gauss-discrepancy}
-\]
-Thus \(A_X^{\NA}\) agrees with ordinary log discrepancy on Gauss extensions.
 \end{proposition}
 
 \begin{proof}
-On \(Y\times\mathbf P^1\), the Gauss extension is monomial with weight
-\((1,1)\) along \(F\times\mathbf P^1\) and \(Y\times\{0\}\).  Additivity of
-monomial discrepancy gives
+Temporarily write $L_{Y,B}(w)=\sum_i w_i(1+k_i)$.
+For rational $w$, use the successive stratum blowups in
+\cref{prop:mp-monomial-globalization}. At each nontrivial step,
+blowing up a stratum of codimension $k\geq2$ has relative
+canonical divisor $(k-1)G$.
+If $B'$ is the reduced total transform, then
 \[
- A_{X\times\mathbf P^1}(F\times\mathbf P^1)
- +A_{X\times\mathbf P^1}(Y\times\{0\})
- =A_X(F)+1.
+                    K_{Y'/X}+B'=\mu^*(K_{Y/X}+B).
 \]
-This is \cite[(3.2.3)]{MP24}.
+Indeed, the stratum lies in exactly $k$ boundary components.
+The identity preserves $L$ under the weight transformation in
+that construction. When the rational monomial valuation becomes
+$r\ord_F$, it gives $L_{Y,B}(w)=r(1+\ord_FK_{Z/X})$.
+For $w=0$ both sides are zero.
+
+For any divisorial $v$ over $X$, apply
+\cref{lem:mp-log-jacobian-bound} on a common model over $Y$.
+The canonical-divisor identity and the support of $K_{Y/X}$
+give
+\[
+ \begin{aligned}
+ A_X(v)&=A_Y(v)+v(K_{Y/X})\\
+       &\geq\sum_i v(B_i)(1+k_i)
+        =L_{Y,B}(r_{Y,B}(v)).
+ \end{aligned}
+\]
+The same inequality holds for $v_{\triv}$.
+
+We check the continuity needed to pass between different
+cones. For a modification admitting an anti-effective
+relatively ample divisor, the proof of
+\cref{prop:ts-bimeromorphic-valuations} expresses the value
+of each nonzero ideal on $Y$ as
+$v(\mathfrak a)-m v(\mathfrak k)$, for fixed nonzero ideals
+on $X$. Both values are finite on $X^{\val}$, so this lift
+is continuous. A general smooth modification is dominated
+by one of this form; its lift is the continuous pushforward
+of the latter lift. On $Y$, use the ideals of the closed
+strata contained in $B$, as in the proof of \cref{lem:mp-retraction}.
+Their monomial values distinguish both weights and intersection
+components. They give a proper embedding of the finite cone
+complex into a Euclidean space: its boundary-divisor coordinates
+bound all weights, and the part with bounded weights is compact.
+The stratum formulas therefore show that $r_{Y,B}$ is continuous.
+
+Fix a second log-smooth pair $(Z,C)$. Approximate a point $w$
+in a cone of $(Y,B)$ by rational points of that same cone.
+The preceding divisorial inequality and continuity give
+\[
+           L_{Z,C}(r_{Z,C}(\val_w))\leq L_{Y,B}(w).
+\]
+If $\val_w$ is also monomial on $(Z,C)$, interchange the
+pairs to obtain equality. This proves independence and
+defines $A_X$ on their monomial valuations. Taking
+$(Y,B)$ to be a dominated pair gives
+\eqref{eq:mp-discrepancy-monotonicity}. This reconstructs
+\cite[Proposition~5.1 and the inequality in Lemma~5.3,
+pp.~2179--2181]{JM12} using global ideal characters and
+local analytic Jacobians.
 \end{proof}
 
-The product model is the normalization unit test.  Its only central
-component is \(X\times\{0\}\), with multiplicity one and relative canonical
-coefficient zero.  Hence \(A^{\mathrm{tot}}(v_{\triv})=1\) and
-\(A_X^{\NA}(v_{\triv})=0\).  After deforming a divisor \(F\) to the normal
-cone, the new monomial component represents the Gauss extension of
-\(\ord_F\); \eqref{eq:mp-gauss-discrepancy} then reads
-\(A_X^{\NA}(\sigma(\ord_F))=A_X(F)\).  These two values detect exactly the
-shift that is needed by the entropy convention below.
+\begin{example}\label{ex:mp-discrepancy-missing-boundary}
+Blow up $p=(0,0)$ in an affine chart of $X=\mathbf P^2$.
+On the chart $x=u$, $y=uv$ of $Y$, the exceptional divisor
+is $E=(u=0)$ and $K_{Y/X}=E$. The strict transforms $B_1,B_2$
+of the projective line $y=0$ and conic $y=x^2$ have equations
+$v=0$ and $v=u$. They meet transversely at $q=(0,0)$, so
+$B_1+B_2$ is snc, but it omits $E$.
+
+The monomial valuation of weights $(1,1)$ in these two
+boundary equations is $\ord_G$, where $G$ is the exceptional
+curve of the blowup of $q$. Since $K_{Z/Y}=G$ and
+$\mu^*E=E'+G$, one has $K_{Z/X}=E'+2G$ and
+$A_X(\ord_G)=3$. The two boundary rays both have discrepancy
+$1$, so their linear interpolation would give $2$.
+This is why the exceptional-locus condition cannot be omitted.
+\end{example}
+
+Return to $T=X\times\mathbf P^1$ and an snc model
+$\rho:\cX\to T$. Write
+$\cX_0=\sum_i b_iE_i$ and $K_{\cX/T}=\sum_i k_iE_i$;
+the latter is vertical since $\rho$ is an isomorphism off
+$T_0$. The preceding proposition gives the affine function
+$a_{\cX}(w)=\sum_i(1+k_i)w_i$ on $\Delta_{\cX}$.
+At a normalized vertical prime $v_E=b_E^{-1}\ord_E$, its value is
+\[
+                 A^{\mathrm{tot}}(r(v_E))
+                    :=b_E^{-1}\bigl(1+\ord_EK_{\cX/T}\bigr).
+\tag{59.22}\label{eq:mp-total-discrepancy}
+\]
+These prescriptions agree when the restricted divisorial
+point is represented on another model. Indeed, on a common
+smooth model, two distinct vertical primes are separated
+by the PL function corresponding to one of them, by
+\eqref{eq:mp-vcar-coefficients}. Thus a given restriction
+determines its normalized vertical prime valuation uniquely.
+Canonical-divisor transitivity preserves its discrepancy.
+
+Define on the whole spectrum
+\[
+ A^{\mathrm{tot}}(v)
+       :=\sup_{\cX}a_{\cX}(p_{\cX}(v))\in[1,+\infty].
+\tag{59.23}\label{eq:mp-discrepancy-envelope}
+\]
+The next proposition verifies both the stated range and
+agreement with the prescribed values.
+
+\begin{proposition}\label{prop:mp-discrepancy-model-envelope}
+The functions $a_{\cX}\circ p_{\cX}$ are continuous PL
+functions, are at least $1$, and increase under domination.
+Their supremum is lower semicontinuous and satisfies
+$A^{\mathrm{tot}}\circ i_{\cX}=a_{\cX}$ on every dual complex.
+In particular it extends \eqref{eq:mp-total-discrepancy}.
+\end{proposition}
+
+\begin{proof}
+The PL/Cartier correspondence identifies
+$a_{\cX}\circ p_{\cX}$ with the vertical divisor
+$K_{\cX/T}+(\cX_0)_{\mathrm{red}}$.
+Apply \cref{lem:mp-log-jacobian-bound} to the smooth pair
+$(T,T_0)$: it gives $1+k_i\geq b_i$. Hence
+$a_{\cX}(w)\geq\sum_i b_iw_i=1$.
+
+\par\noindent\begin{minipage}{\linewidth}
+For $\mu:\cX'\to\cX$, write
+$\mu^*E_i=\sum_j m_{ij}E'_j$ and
+$k'_j=\ord_{E'_j}K_{\cX'/T}$. The difference on
+$\Delta_{\cX'}$ is
+\[
+ \begin{aligned}
+ a_{\cX'}(w')-a_{\cX}(r_{\cX',\cX}(w'))
+   &=\sum_j w'_j\left(1+k'_j-\sum_i m_{ij}(1+k_i)\right)\\
+   &=\sum_j w'_j\left(1+\ord_{E'_j}K_{\cX'/\cX}
+                           -\sum_i m_{ij}\right)\geq0.
+\end{aligned}
+\]
+\end{minipage}\par
+The last inequality is the lemma for
+$(\cX,(\cX_0)_{\mathrm{red}})$. Retraction compatibility
+then proves monotonicity on all of $X^{\bethan}$.
+
+For $v\in X^{\divis}$, the same Jacobian inequality on a
+common model shows that every $a_{\cX}(p_{\cX}(v))$ is at
+most the discrepancy of its normalized Gauss divisor. A
+model containing that divisor attains equality. Thus the
+supremum has the prescribed divisorial values.
+Now fix $w\in\Delta_{\cX}$ and another model $\cY$.
+For rational $w$, the monomial formula and the divisorial
+case give
+$a_{\cY}(p_{\cY}(i_{\cX}(w)))\leq a_{\cX}(w)$.
+The two sides are continuous on the fixed finite complex,
+so rational density gives this inequality for every $w$.
+Taking the supremum over $\cY$, and using $\cY=\cX$ for
+the reverse inequality, proves
+$A^{\mathrm{tot}}(i_{\cX}(w))=a_{\cX}(w)$.
+Finally a supremum of continuous functions is lower
+semicontinuous. This proves the properties of the extension
+in \cite[Section~3.2, equation~(3.2.4) and
+Remark~3.2.1, pp.~31--32]{MPTropicalV2}.
+\end{proof}
+
+The reduced convention used in the entropy of
+\cite[Definition~2.4.1]{MPWN25} is
+\[
+                    A_X^{\NA}:=A^{\mathrm{tot}}-1.
+\tag{59.24}\label{eq:mp-reduced-discrepancy}
+\]
+It is nonnegative and lower semicontinuous, with $+\infty-1=+\infty$.
+Writing $R_{\cX}=i_{\cX}p_{\cX}$, the preceding proposition gives
+\[
+ A_X^{\NA}\circ R_{\cX}
+   =a_{\cX}\circ p_{\cX}-1
+   =\varphi_{K_{\cX/T}+(\cX_0)_{\mathrm{red}}-\cX_0}.
+\]
+These are nonnegative continuous PL functions increasing to
+$A_X^{\NA}$. This is the model identity used in the entropy
+arguments of \cref{lem:mp-log-volume-test,thm:mp-reduced-entropy-slope}.
+
+\begin{proposition}\label{prop:mp-gauss-discrepancy}
+For a prime divisor $F$ over $X$ and $r\in\mathbf Q_{>0}$,
+the normalized Gauss extension satisfies
+\[
+ \begin{aligned}
+ A_{X\times\mathbf P^1}(\sigma(r\ord_F))
+      &=A_X(r\ord_F)+1,\\
+ A_X^{\NA}(r\ord_F)&=A_X(r\ord_F).
+ \end{aligned}
+\tag{59.25}\label{eq:mp-gauss-discrepancy}
+\]
+Also $A^{\mathrm{tot}}(v_{\triv})=1$ and
+$A_X^{\NA}(v_{\triv})=0$.
+\end{proposition}
+
+\begin{proof}
+Choose a smooth model $Y\to X$ on which the strict transform
+of $F$ and the exceptional locus have snc support. On
+$Y\times\mathbf P^1$, the Gauss extension is monomial with
+weights $(r,1)$ along $F\times\mathbf P^1$ and
+$Y\times\{0\}$. At a general point of their intersection
+the other boundary weights are zero. The relative canonical
+divisor is the pullback of $K_{Y/X}$. Thus
+\cref{prop:mp-monomial-discrepancy}, applied over $T$, gives
+$A_T(\sigma(r\ord_F))=r(1+\ord_FK_{Y/X})+1$.
+The invariant-divisor realization and
+\cref{prop:mp-discrepancy-model-envelope} identify this with
+$A^{\mathrm{tot}}(r\ord_F)$. Subtracting $1$ gives the second
+identity. For $v_{\triv}$ the Gauss extension is $\ord_{T_0}$,
+whose discrepancy is $1$. This includes the product model
+and $\dim X=0$. The case $r=1$ is
+\cite[equation~(3.2.3), p.~32]{MPTropicalV2}.
+\end{proof}
+
+\begin{example}\label{ex:mp-discrepancy-curve-normalization}
+Let $X=\mathbf P^1$ and let $x$ be a local parameter at $p$.
+For $v=(2/3)\ord_p$, the Gauss weights in $(x,t)$ are
+$(2/3,1)=(2,3)/3$. The primitive vector $(2,3)$ is realized
+by a prime $G$ after successive invariant point blowups.
+Its central multiplicity is $b_G=3$ and its relative
+canonical coefficient is $2+3-1=4$. Hence
+\[
+                 A^{\mathrm{tot}}(v)=\frac53,
+                 \qquad A_X^{\NA}(v)=\frac23.
+\]
+The central multiplicity cannot be discarded even on a curve.
+
+For an infinite-valued example, let $v_p$ be the character
+supported at $p$, so $v_p(\mathcal I_p)=+\infty$.
+Blow up $(p,0)$ and then repeatedly blow up the intersection
+of the latest exceptional divisor with the strict transform
+of $\{p\}\times\mathbf P^1$. After $N$ blowups, the central
+fiber is a chain with all multiplicities one. In the last
+chart $x=t^Nu$, so the last component represents
+$N\ord_p$ and has relative canonical coefficient $N$.
+These blowups principalize $\mathcal I_p+(t^N)$: after $j$
+steps its residual ideal in the distinguished chart is
+$(u,t^{N-j})$, while the other chart is already principal.
+Its normalized order function is
+$\min\{v(\mathcal I_p),N\}$. On this dual complex its vertex
+values are $0,1,\ldots,N$, with the unique maximum at the
+last component. Its value at $v_p$ is $N$, so $p_{\cX_N}(v_p)$
+is that vertex. Consequently
+$A_X^{\NA}(R_{\cX_N}(v_p))=N$ and $A_X^{\NA}(v_p)=+\infty$.
+This also illustrates why the supremum in
+\eqref{eq:mp-discrepancy-envelope} is allowed to be infinite.
+\end{example}
 
 \begin{warning}{The shift by one}
-The total discrepancy \eqref{eq:mp-total-discrepancy} and the reduced
-discrepancy \eqref{eq:mp-reduced-discrepancy} are both used in the literature.
-The entropy in \cite[Definition~2.4.1]{MPWN25} and in
+The total discrepancy \eqref{eq:mp-total-discrepancy} and the
+reduced discrepancy \eqref{eq:mp-reduced-discrepancy} are both
+used in the literature. The entropy in
+\cite[Definition~2.4.1]{MPWN25} and in
 \Cref{chap:mp-psh,chap:mpwn-cy,chap:mpwn-k-stability} is
-\(\int(A^{\mathrm{tot}}-1)\,\rd \mu\).  By contrast,
-\cite[(3.2.4) and Definition~6.2.1]{MP24} first constructs and then integrates
-the total function.  Omitting the shift changes the Mabuchi functional by the
-total mass, which is \(1\) in our normalization.  Thus the reduced convention
-is the convention of the later primary source.
-\Cref{lem:mp-log-volume-test,thm:mp-reduced-entropy-slope} verify the
-corresponding model volume estimate and deduce the reduced entropy lower
-bound.  The product-model obstruction to using the total function remains
-\eqref{eq:mp-total-slope-obstruction}.
+$\int(A^{\mathrm{tot}}-1)\,\mathrm{d}\mu$.
+The exact author version
+\cite[equation~(3.2.4) and Definition~6.2.1,
+pp.~32 and~51]{MPTropicalV2} instead integrates the total
+function. For a probability measure, total entropy equals
+reduced entropy plus $1$; when reduced entropy is infinite,
+both are infinite. With the other terms fixed, the
+same shift occurs in the Mabuchi functional.
+\Cref{lem:mp-log-volume-test,thm:mp-reduced-entropy-slope}
+verify the model volume estimate and reduced entropy lower
+bound. The product-model obstruction to using the total
+function is \eqref{eq:mp-total-slope-obstruction}.
 \end{warning}
 
 \section{Compactness, approximation, and nonalgebraic examples}
