@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,579 unique labels),
-and the full build produces a 3,951-page PDF with no unresolved reference
+The complete source check passes (389 TeX files, 11,581 unique labels),
+and the full build produces a 3,953-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
 records the final line-break checks and preservation of the research sources.
@@ -126,6 +126,11 @@ separates different intersection components. It reconstructs rational
 divisorial realization by ordinary blowups with the correct scale, and
 checks zero weights, continuity and the dimension-one exception.
 A two-intersection surface example tests the whole cone construction.
+The [invariant vertical-divisor audit](manuscript/editorial/ch59_vertical_divisor_audit_20260923.md)
+corrects projection pullback and the source locator, proves the local
+divisorial restriction, and reconstructs finite global center extraction.
+It verifies triviality off the central fiber and retains rational factors,
+with explicit examples of normalization and the product-model obstruction.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the

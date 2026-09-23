@@ -777,13 +777,37 @@ unchanged. No independent-agent or production verification and no atom
 closure are claimed. The next unit checks normalized invariant vertical
 divisors, projection pullback, local algebra and global model realization.
 
+## Chapter 59: invariant vertical divisors and model realization
+
+The [invariant vertical-divisor audit](ch59_vertical_divisor_audit_20260923.md)
+corrects the projection-pullback map and the BHJ theorem locator, proves
+the relative local-ring restriction lemma, and supplies finite termination
+of center blowups. It retains local branches and rational normalization.
+A separate extraction on X x P1 now verifies every model condition,
+including triviality off the central fiber. The examples compute the
+factor 2/3 and exhibit why a product modification is insufficient.
+
+The published BHJ and Jonsson--Mustata statements and the exact MP author
+version were checked. The second mathematical/source pass, strict block
+style audit, reference/inventory checks and final rendered-page inspection
+pass. The complete build has 3,953 pages, 389 TeX inputs and 11,581 labels,
+with no unresolved references, citations or horizontal or vertical overflow.
+The exact-version preprint warning and its access limit remain documented.
+
+All Chapter 59 text outside the unit, Chapter 58 and the bibliography
+retain their baseline bytes. The 46 research atoms, author sources,
+supplied CURVE_PSH.tex, frozen proofs, verifier receipts and dated releases
+are unchanged. No independent-agent or production verification, new research
+theorem or atom closure is claimed. The next unit checks the PL/vertical-
+Cartier correspondence, its denominators and fractional flag-ideal evaluation.
+
 ## Next work
 
-1. Audit Chapter 59's invariant vertical-divisor comparison: identify
-   the restriction map via projection pullback, verify the exact local
-   algebra hypotheses, and check global realization on models trivial
-   away from the central fiber. Preserve the checked monomial,
-   integral-closure and Chapter 58 comparisons.
+1. Audit Chapter 59's PL/vertical-Cartier correspondence: retain the
+   rational denominators, evaluate fractional flag ideals through the
+   Gauss extension on X x P1, and prove generation on a dominating model
+   before using divisorial density. Preserve the checked vertical-divisor,
+   monomial, integral-closure and Chapter 58 comparisons.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
