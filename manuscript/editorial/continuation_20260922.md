@@ -828,15 +828,36 @@ agent or production verification, new research theorem or atom closure
 is claimed. The next unit checks dual-complex strata, retraction continuity,
 model evaluation, transition maps and inverse-limit separation.
 
+## Chapter 59: retractions and the inverse limit
+
+The [dual-complex retraction audit](ch59_retraction_audit_20260923.md)
+retains every intersection component, constructs model-ideal values at
+proper-support characters, and proves continuity through a finite set of
+stratum ideals. It checks the monomial section and transition maps, then
+proves inverse-limit surjectivity by the finite intersection property.
+A two-blowup surface example has distinct edges with the same vertices.
+The affine/Cartier factors, product model and convergence of the retraction
+net are explicit, including the composition used in Chapter 61.
+
+The second local mathematical/source pass and final rendered-page review
+are complete. The full build has 3,957 pages, 389 TeX inputs and 11,580
+labels, with no unresolved references, citations or horizontal or vertical
+overflow. The strict changed-block style audit passes; the audit records
+the remaining legacy whole-chapter reports and exact-version source limit.
+The earlier Chapter 59 units, its projective comparison and later sections,
+Chapters 58 and 61, and the bibliography retain their baseline bytes.
+The 46 research atoms, author sources, supplied CURVE_PSH.tex, frozen
+proofs, verifier receipts and dated releases are unchanged. No independent-
+agent or production-verifier pass, research theorem or atom closure is
+claimed. Next: log discrepancy, retraction inequalities and normalization.
+
 ## Next work
 
-1. Audit Chapter 59's dual-complex retractions and inverse-limit
-   identification. Retain stratum labels for disconnected intersections:
-   continuity of the global component weights alone does not establish
-   continuity into the dual complex. Check evaluation on model ideals,
-   proper-support characters, transition maps and separation before
-   invoking the inverse-limit theorem. Preserve the checked flag/Cartier,
-   vertical-divisor, monomial, integral-closure and Chapter 58 comparisons.
+1. Audit Chapter 59's log-discrepancy extension, monotonicity under
+   retraction, total-versus-reduced normalization and Gauss comparison.
+   Check the exact sources and adjacent nonalgebraic examples. Preserve
+   the checked dual-complex, flag/Cartier, vertical-divisor, monomial,
+   integral-closure and Chapter 58 comparisons.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.

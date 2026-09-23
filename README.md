@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,583 unique labels),
-and the full build produces a 3,955-page PDF with no unresolved reference
+The complete source check passes (389 TeX files, 11,580 unique labels),
+and the full build produces a 3,957-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
 records the final line-break checks and preservation of the research sources.
@@ -138,6 +138,12 @@ It constructs a vertical relatively ample divisor and a uniform generation
 exponent. A P1 blowup checks the signs, constant shift and proper-support value.
 The audit distinguishes the clean changed block from remaining legacy
 whole-chapter style reports.
+The [dual-complex retraction audit](manuscript/editorial/ch59_retraction_audit_20260923.md)
+retains intersection-component labels, defines model-ideal values at
+proper-support characters, and proves retraction continuity and compatibility.
+It supplies a compact finite-intersection proof of the inverse-limit theorem
+and proves convergence of the retraction net. A two-blowup example shows
+why component weights alone do not distinguish points of a dual complex.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the

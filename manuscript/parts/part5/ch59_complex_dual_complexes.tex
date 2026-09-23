@@ -1251,109 +1251,219 @@ $\phi(v_0)>0$.  Thus $F=X^{\bethan}$.  This is the proof of
 point-versus-closed-set lattice separation used there.
 \end{proof}
 
-For a stratum \(Z\) of \(\cX_{0,\mathrm{red}}\), contained precisely in
-the components indexed by \(J\subset I\), define
-
+Fix an snc model $\cX$, with central fiber
+$\cX_0=\sum_{i\in I}b_iE_i$ as in
+\eqref{eq:mp-central-fiber}. For every nonempty $J\subseteq I$
+and every connected component $Z$ of
+$E_J:=\bigcap_{i\in J}E_i$, take a simplex
 \[
  \sigma_Z:=\left\{w\in(\mathbf R_{\geq0})^J\ \middle|\
                      \sum_{i\in J}b_iw_i=1\right\}.
 \tag{59.15}\label{eq:mp-dual-simplex}
 \]
+The snc condition makes $Z$ smooth and irreducible. If
+$\varnothing\ne K\subseteq J$, glue the face with weights zero
+outside $K$ to the simplex of the unique component of $E_K$
+containing $Z$. The resulting finite complex is $\Delta_{\cX}$.
+We retain the label $Z$: different components of $E_J$ give
+different simplices, even when their vertex sets agree. The
+vertex $\xi_i$ corresponding to $E_i$ has weight $1/b_i$, not
+$1$. The equality in \eqref{eq:mp-dual-simplex} says that the
+monomial valuation has value $1$ on $t$.
 
-Gluing these simplices along faces gives \(\Delta_{\cX}\).  The equality in
-\eqref{eq:mp-dual-simplex} is the Gauss normalization.  Replacing it by an
-inequality would introduce an extra radial parameter and would not describe
-the normalized dual complex used in \cite[Section~3.1]{MP24}.
-
-There are two maps with different roles:
-
+Restriction of these monomial valuations along
+$\cX\to X\times\mathbf P^1\to X$ gives a continuous map
+$i_{\cX}$ by \cref{prop:mp-monomial-globalization}, applied
+over $X\times\mathbf P^1$. We shall construct the second map in
 \[
  i_{\cX}:\Delta_{\cX}\hookrightarrow X^{\bethan},
  \qquad
- p_{\cX}:X^{\bethan}\longrightarrow\Delta_{\cX}.
+ p_{\cX}:X^{\bethan}\longrightarrow\Delta_{\cX},
 \tag{59.16}\label{eq:mp-inclusion-retraction}
 \]
+and prove that it is a continuous left inverse of the first.
+For characters of proper support, evaluation on an ideal of
+$\cX$ requires a definition; such an ideal is not an ideal on $X$.
 
-The first is the monomial embedding.  For the second, let \(\sigma(v)\) be
-the Gauss extension of \(v\) in the sense of
-\Cref{def:va-gauss-extension}, and assign to \(v\) the coordinate vector
-\(\bigl(\sigma(v)(E_i)\bigr)_i\), indexed by all components of \(\cX_0\).
-The coordinate attached to a component not passing through the center of
-\(\sigma(v)\) vanishes, so the vector is supported on the components
-through that center.
-
-If \(\cX'\to\cX\) dominates two snc models, pullback of the components gives
-a facewise integral-affine map
-
+Write $\varphi_D\in\PL(X^{\bethan})$ for the function
+corresponding to a vertical rational Cartier divisor $D$ by
+\cref{prop:mp-pl-vcar}. Let $\mathfrak a\subseteq\cO_{\cX}$
+be a coherent invariant ideal equal to the unit ideal off
+$\cX_0$. On its normalized blowup, followed by an snc
+domination, write
 \[
-                  r_{\cX',\cX}:\Delta_{\cX'}\to\Delta_{\cX}.
+ \mathfrak a\cO_{\cY}=\cO_{\cY}(-F_{\mathfrak a}),
+ \qquad u_{\mathfrak a}:=\varphi_{F_{\mathfrak a}}.
+\]
+Here $F_{\mathfrak a}$ is effective and vertical. Further
+domination pulls it back, so the definition is independent
+of the chosen domination. If a prime $G$ on a common model
+represents $v=r(v_G)\in X^{\divis}$, the coefficient formula
+\eqref{eq:mp-vcar-coefficients} gives
+$u_{\mathfrak a}(v)=b_G^{-1}\ord_G(\mathfrak a\cO)$.
+Thus $u_{\mathfrak a}$ continuously extends the normalized
+ideal order. It is nonnegative by divisorial
+density. In particular,
+$u_{\cO_{\cX}(-E_i)}=\varphi_{E_i}$ and
+$\varphi_{\cX_0}=1$. The sign here is positive: the function
+associated to the ideal order uses $F_{\mathfrak a}$, whereas
+the logarithm of the flag ideal uses $-F_{\mathfrak a}$.
+
+\begin{lemma}\label{lem:mp-retraction}
+For every snc model $\cX$, the map $p_{\cX}$ in
+\eqref{eq:mp-inclusion-retraction} is well defined and continuous,
+and $p_{\cX}i_{\cX}=\mathrm{id}_{\Delta_{\cX}}$.
+If $\mu:\cX'\to\cX$ dominates snc models, pullback gives a
+continuous facewise integral-affine map
+\[
+ r_{\cX',\cX}:\Delta_{\cX'}\longrightarrow\Delta_{\cX},
+ \qquad r_{\cX',\cX}p_{\cX'}=p_{\cX}.
 \tag{59.17}\label{eq:mp-dual-transition}
 \]
-
-\Cref{thm:mp-inverse-limit-dual} treats the family \((p_{\cX})_{\cX}\) as a
-single map into an inverse limit, and its proof uses continuity of the
-individual retractions.  The properties that make this legitimate are
-therefore collected before the theorem rather than used silently.
-
-\begin{lemma}[Retraction lemma]
-\label{lem:mp-retraction}
-Let \(\cX\) be an snc model.  Then:
-\begin{enumerate}
-\item\label{itm:mp-retraction:welldef}
- \(p_{\cX}\) is well defined, that is, the coordinate vector above lies in
- \(\Delta_{\cX}\);
-\item\label{itm:mp-retraction:cont}
- \(p_{\cX}\) is continuous;
-\item\label{itm:mp-retraction:section}
- \(p_{\cX}\circ i_{\cX}=\mathrm{id}_{\Delta_{\cX}}\), while in general
- \(i_{\cX}\circ p_{\cX}\neq\mathrm{id}\);
-\item\label{itm:mp-retraction:compat}
- \(r_{\cX',\cX}\circ p_{\cX'}=p_{\cX}\) whenever \(\cX'\) dominates
- \(\cX\).
-\end{enumerate}
+These transition maps compose under further domination.
 \end{lemma}
 
 \begin{proof}
-\cref{itm:mp-retraction:welldef}.  The center of \(\sigma(v)\) is a point of
-\(\cX_0\), and on an snc special fibre it lies on a well-defined set of
-components, indexed by some \(J\); the coordinates outside \(J\) vanish.
-Work in local coordinates at the center with \(E_i=\{z_i=0\}\) for
-\(i\in J\).  Since \(\cX_0=\sum_ib_iE_i\), the function \(t\) factors as
-\(t=u\prod_{i\in J}z_i^{b_i}\) with \(u\) a unit, so
+\emph{Strata and continuity.}
+Let $\mathcal S$ be the finite set of closed strata $Z$
+used in constructing $\Delta_{\cX}$. Each ideal
+$\mathcal I_Z$ is invariant and is the unit ideal off
+$\cX_0$. Define $h_Z$ on the complex by taking the
+monomial value of $\mathcal I_Z$. On a closed simplex
+$\sigma_W$ its formula is
 \[
- \sum_{i\in J}b_i\,\sigma(v)(E_i)
- =\sigma(v)\Bigl(\prod_{i\in J}z_i^{b_i}\Bigr)
- =\sigma(v)(t)=1,
+ h_Z(w)=
+ \begin{cases}
+  \min_{i\in J_Z}w_i,&W\subseteq Z,\\
+  0,&W\not\subseteq Z,
+ \end{cases}
 \]
-the last equality being the Gauss normalization \(\sigma(v)(t)=1\).  The
-coordinates are nonnegative, so the vector lies in the simplex
-\eqref{eq:mp-dual-simplex}.  This is exactly why the normalization in
-\eqref{eq:mp-dual-simplex} is an equality and not an inequality.
+where $Z$ is a component of $E_{J_Z}$. Indeed, along
+$W\subseteq Z$ the ideal is generated by the corresponding
+boundary equations; otherwise it is the unit ideal at a
+general point of $W$. The formulas agree on faces. When a
+face lies in a larger stratum not contained in $Z$, at least
+one of the coordinates indexed by $J_Z$ has become zero.
+Consequently every $h_Z$ is continuous.
 
-\cref{itm:mp-retraction:cont}.  Each coordinate is the value of
-\(\sigma(v)\) on the coherent ideal of \(E_i\), and evaluation on a fixed
-coherent ideal is continuous for the topology of
-\eqref{eq:mp-semivaluation-ideals}.  A map into a finite-dimensional space
-with continuous coordinates is continuous.  Indexing by all components,
-rather than by a stratum-dependent \(J\), is what makes this argument
-uniform in \(v\).
+These functions separate points of the complex. The functions
+$h_{E_i}$ recover the weights, extended by zero to $I$. If
+two points have the same weights with positive support $J$
+but lie on different components $W,W'$ of $E_J$, then
+\[
+ h_W(w)=\min_{i\in J}w_i>0,\qquad h_W(w')=0.
+\]
+Thus $H:=(h_Z)_{Z\in\mathcal S}$ is a continuous injection
+of the compact finite complex into $\mathbf R^{\mathcal S}$.
+It is a homeomorphism onto its closed image; in particular
+$\Delta_{\cX}$ is Hausdorff.
 
-\cref{itm:mp-retraction:section}.  A point \(w\in\Delta_{\cX}\) is by
-construction the monomial semivaluation with
-\(\sigma(i_{\cX}(w))(E_i)=w_i\), whose center is the stratum indexing
-\(w\); reading off the coordinates returns \(w\).  The composite in the
-other order sends every semivaluation with a given retraction to a single
-monomial point, so it is not the identity unless
-\(\Delta_{\cX}=X^{\bethan}\).
+Now consider the continuous map
+\[
+ A:X^{\bethan}\longrightarrow\mathbf R^{\mathcal S},
+ \qquad A(v)=(u_{\mathcal I_Z}(v))_{Z\in\mathcal S}.
+\]
+For $v\in X^{\divis}$ choose a representing vertical prime
+$G$ on a model dominating $\cX$, using
+\cref{thm:mp-invariant-divisorial-comparison}. Its center
+$C$ on $\cX$ is an irreducible analytic subvariety. Put
+$J=\{i:C\subseteq E_i\}$ and
+$w_i=b_G^{-1}\ord_G(E_i)$. These weights are positive
+exactly for $i\in J$, and
+$\sum_i b_iw_i=b_G^{-1}\ord_G(t)=1$.
+The unique component $W$ of $E_J$ containing $C$ specifies
+a point $w\in\sigma_W$. One has $C\subseteq Z$ exactly
+when $W\subseteq Z$: containment specifies both the boundary
+indices and the component of their intersection.
+The local generators of every $\mathcal I_Z$ therefore give
+$u_{\mathcal I_Z}(v)=h_Z(w)$. Hence $A(v)\in H(\Delta_{\cX})$.
+Divisorial density and closedness of this image give the same
+inclusion for all $v\in X^{\bethan}$. Define
+$p_{\cX}:=H^{-1}A$. This proves existence and continuity,
+including proper-support characters. In particular,
+$w_i(p_{\cX}(v))=\varphi_{E_i}(v)$ for every $i\in I$.
 
-\cref{itm:mp-retraction:compat}.  This is the compatibility recorded in
-\cite[Section~3.1]{MP24}: the map \eqref{eq:mp-dual-transition} is defined
-by pulling back the components of \(\cX_0\) to \(\cX'\), and the
-coordinates of \(p_{\cX'}(v)\) transform under that pullback into those of
-\(p_{\cX}(v)\).  It is the imported input of the four, and it is what makes
-the tuple in \eqref{eq:mp-inverse-limit-dual} an element of the inverse
-limit at all.
+\emph{The section.}
+For a rational $w\in\Delta_{\cX}$, the blowup construction in
+\cref{prop:mp-monomial-globalization} realizes its monomial
+valuation by a vertical prime $G$ on a dominating snc model.
+Each blowup center is a component of an intersection of
+invariant boundary divisors, so it is invariant under the
+connected group $\mathbf C^*$. The resulting prime is invariant
+as well. Since the monomial value of $t$ is $1$, the scale
+is $b_G^{-1}$. Thus $i_{\cX}(w)=r(v_G)\in X^{\divis}$,
+and the preceding construction returns both its weights and
+its stratum: $p_{\cX}i_{\cX}(w)=w$.
+Rational points are dense in every simplex. The continuity
+already proved therefore gives $p_{\cX}i_{\cX}=\mathrm{id}$
+everywhere. In particular $i_{\cX}$ is an embedding and
+$p_{\cX}$ is surjective.
+
+\emph{Domination.}
+Write
+\[
+ \mu^*E_i=\sum_j a_{ij}E'_j,\qquad
+ a_{ij}\in\mathbf Z_{\geq0},\qquad
+ b'_j=\sum_i b_i a_{ij}.
+\]
+On the relative interior of the simplex indexed by $W'$,
+send $w'$ to the weights
+$w_i=\sum_j a_{ij}w'_j$, in the simplex of the smallest
+closed stratum containing $\mu(W')$. A weight $w_i$ is
+positive exactly when $\mu(W')\subseteq E_i$: the pullback
+divisor has only central components, and at a general point
+of $W'$ its local equation is a unit times the corresponding
+boundary monomial. The displayed identity for $b'_j$ gives
+$\sum_i b_iw_i=1$. On a face the source stratum becomes
+larger; its image selects the unique containing component
+of the smaller target intersection. Thus the formulas glue
+to a continuous facewise integral-affine map $r_{\cX',\cX}$.
+Pullback of divisors and containment of these strata also
+show that the maps compose.
+
+For a divisorial $v$ represented on a common dominating
+model, orders of the pullbacks give the same weight formula.
+The center on $\cX$ is the image of the center on $\cX'$.
+Its smallest containing stratum agrees with the one just
+specified: the boundary divisors containing the image are
+exactly those with positive pullback order, and containment
+fixes the intersection component. This proves
+$r_{\cX',\cX}p_{\cX'}(v)=p_{\cX}(v)$ on $X^{\divis}$.
+Both maps are continuous, so density gives the identity on
+$X^{\bethan}$. These constructions supply the ideal evaluation
+and stratum labels in \cite[Section~3.1.1, pp.~28--29]{MPTropicalV2}.
 \end{proof}
+
+For the product model, the complex has a single vertex,
+whose image is $v_{\triv}$; the retraction is constant.
+This also covers the case $\dim X=0$.
+
+\begin{example}\label{ex:mp-dual-repeated-edges}
+Let $X=\mathbf P^1\times\mathbf P^1$. The graphs $C_1$ and
+$C_2$ of $z\mapsto z$ and $z\mapsto-z$ meet transversely at
+$p=(0,0)$ and $q=(\infty,\infty)$. Blow up $C_1\times\{0\}$
+in $X\times\mathbf P^1$, and then blow up the strict transform
+of $C_2\times\{0\}$. Denote the final strict transforms of
+the original central fiber and the first exceptional divisor
+by $H$ and $E$, and the second exceptional divisor by $F$.
+Then $\cX_0=H+E+F$ is snc. Near either intersection point,
+after the first blowup one has $t=uv$, with the second center
+$(u,z)$. Its two blowup charts have
+$t=zsv$ and $t=uv$, respectively, which verify the assertion
+and the multiplicities.
+
+The intersection $E\cap F$ consists of two disjoint
+$\mathbf P^1$ fibers $Z_p,Z_q$, one over each intersection
+point. Thus the dual complex has two different edges with
+vertices $E,F$. Their midpoints $w_p,w_q$ have the same
+component weights $(w_H,w_E,w_F)=(0,1/2,1/2)$, but satisfy
+$h_{Z_p}(w_p)=1/2$ and $h_{Z_p}(w_q)=0$.
+\end{example}
+
+Write $\operatorname{Aff}_{\mathbf Q}(\Delta_{\cX})$ for the
+continuous functions that are affine on each of its simplices
+and rational at the vertices. This refers to the given
+simplices, before any subdivision.
 
 \begin{theorem}\label{thm:mp-inverse-limit-dual}
 The canonical map
@@ -1362,7 +1472,7 @@ The canonical map
  \qquad v\longmapsto(p_{\cX}(v))_{\cX},
 \tag{59.18}\label{eq:mp-inverse-limit-dual}
 \]
-is a homeomorphism.  Moreover,
+is a homeomorphism. Moreover,
 \[
  \PL(X^{\bethan})
    \simeq\varinjlim_{\cX}\operatorname{Aff}_{\mathbf Q}(\Delta_{\cX})
@@ -1372,51 +1482,62 @@ is a homeomorphism.  Moreover,
 \end{theorem}
 
 \begin{proof}
-A vertical divisor \(D=\sum_Ed_EE\) on \(\cX\) determines the rational
-affine function whose value at the vertex corresponding to \(E\) is
-\(d_E/b_E\).  Pullback of divisors agrees with the transition maps
-\eqref{eq:mp-dual-transition}.  Hence
+A vertical divisor $D=\sum_i d_iE_i$ on $\cX$ defines
+$f_D(w)=\sum_i d_iw_i$, affine on each simplex, with
+$f_D(\xi_i)=d_i/b_i$. Conversely, an element $f$ of
+$\operatorname{Aff}_{\mathbf Q}(\Delta_{\cX})$ is determined
+on each simplex by its vertex values and corresponds to
+$\sum_i b_if(\xi_i)E_i$. This remains true when two
+simplices have the same vertices. Pullback of divisors
+agrees with pullback by $r_{\cX',\cX}$. Taking direct limits
+and applying \cref{prop:mp-pl-vcar} proves
+\eqref{eq:mp-pl-vcar-dual}. The construction of $p_{\cX}$
+also gives the equality of functions on all of $X^{\bethan}$,
 \[
- \varinjlim_{\cX}\operatorname{Aff}_{\mathbf Q}(\Delta_{\cX})
- \simeq
- \varinjlim_{\cX}\operatorname{VCar}(\cX)_{\mathbf Q}.
+ \varphi_D(v)=\sum_i d_i\varphi_{E_i}(v)
+             =f_D(p_{\cX}(v)).
 \]
-Together with \Cref{prop:mp-pl-vcar}, this proves the algebraic
-identifications in \eqref{eq:mp-pl-vcar-dual}.
-
-It remains to check that this abstract identification is pullback by the
-displayed canonical map.  Both sides consist of continuous functions, so by
-\Cref{thm:mp-divisorial-density} it is enough to evaluate at
-\(v\in X^{\divis}\).  By
-\Cref{thm:mp-invariant-divisorial-comparison}, after passing to a dominating
-model, \(v\) is represented by a vertical component.  The equality then
-reduces to the coefficient formula
-\eqref{eq:mp-vcar-coefficients}.  Thus pullback by the canonical map is the
-isomorphism \eqref{eq:mp-pl-vcar-dual}.
+This checks the evaluation identity of
+\cite[Lemma~3.1.2, equations~(3.1.2)--(3.1.4)]{MPTropicalV2}
+with the normalized vertex coordinates retained.
 
 The canonical map is well defined and continuous by
-\cref{itm:mp-retraction:welldef,itm:mp-retraction:compat,itm:mp-retraction:cont}
-of \Cref{lem:mp-retraction}: parts
-\cref{itm:mp-retraction:welldef,itm:mp-retraction:compat} put the tuple in
-the inverse limit, and part \cref{itm:mp-retraction:cont} makes each
-component continuous, hence the map into the limit continuous.
-
-The functions in \(\PL(X^{\bethan})\) separate points, so the canonical map
-is injective.  Its image is closed because \(X^{\bethan}\) is compact and
-the inverse limit is Hausdorff.  If the image were not the entire inverse
-limit, the rational piecewise-affine lattice on the inverse limit would
-separate a point from that closed image: the same finite minimum followed
-by a maximum with zero as in the proof of
-\Cref{thm:mp-divisorial-density} produces a nonzero PL function vanishing on
-the image.  Its pullback would be zero, contradicting the injectivity of
-\eqref{eq:mp-pl-vcar-dual}.  The canonical map is therefore a continuous
-bijection from a compact space to a Hausdorff space, hence a homeomorphism.
-This is \cite[Theorem~3.1.1]{MP24}.
+\cref{lem:mp-retraction}. It is injective because the
+functions in $\PL(X^{\bethan})$ separate points and each
+factors through one of the maps $p_{\cX}$.
+For surjectivity, fix a compatible tuple
+$(w_{\cX})_{\cX}$. The sets
+\[
+                  F_{\cX}:=p_{\cX}^{-1}(w_{\cX})
+\]
+are closed and nonempty, since $p_{\cX}$ has a section.
+For finitely many models choose a common dominating snc
+model $\cY$. Compatibility puts $i_{\cY}(w_{\cY})$ in
+all the corresponding sets $F_{\cX}$. They therefore have
+the finite intersection property. Compactness of $X^{\bethan}$
+gives a point in their total intersection, proving surjectivity.
+The inverse limit is Hausdorff, so this continuous bijection
+from a compact space is a homeomorphism. This proves
+\cite[Theorem~3.1.1, pp.~29--31]{MPTropicalV2} using the
+retraction sections for the surjectivity step.
 \end{proof}
 
-The theorem is a net statement.  The category of all snc models need not have
-a countable cofinal subsystem, so \(i_{\cX}p_{\cX}(v)\to v\) is naturally a
-net, not a sequence.
+Put $R_{\cX}:=i_{\cX}p_{\cX}$. For a dominating model
+$\cY\to\cX$, \cref{lem:mp-retraction} gives
+$p_{\cX}i_{\cY}=r_{\cY,\cX}$ and hence
+$R_{\cX}R_{\cY}=R_{\cX}$. Moreover, for every
+$v\in X^{\bethan}$,
+\[
+                            R_{\cX}(v)\longrightarrow v
+\]
+as the snc models are ordered by domination. Indeed, if
+$\phi=f_D\circ p_{\cY}\in\PL(X^{\bethan})$, then
+$\phi(R_{\cX}(v))=\phi(v)$ for every $\cX$ dominating
+$\cY$. Uniform density of $\PL$ in
+$C^0(X^{\bethan},\mathbf R)$, from \cref{prop:mp-pl-dense},
+gives convergence of every continuous function on this net,
+and hence convergence in the compact Hausdorff space
+$X^{\bethan}$. No countable cofinal family of models is used.
 
 When \(X\) is projective, this description specializes to the trivially
 valued algebraic framework of \cite[Appendix~A]{BJ22}: GAGA identifies the
