@@ -61,6 +61,11 @@ The [volume-continuity audit](manuscript/editorial/ch54_volume_continuity_audit_
 proves the uniform perturbation estimate and the increasing initial-level
 identity. A decreasing projective-line family has volumes 1 and limit
 volume 1-a, explicitly locating the failure of decreasing continuity.
+The [analytic-trace construction audit](manuscript/editorial/ch54_trace_construction_audit_20260923.md)
+supplies the uniform positive-mass bound needed for completeness and
+proves approximation independence by diagonal singularity comparison.
+It separates the model-envelope limit from pointwise restriction and
+checks background independence, the point case and the finer output P-class.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the

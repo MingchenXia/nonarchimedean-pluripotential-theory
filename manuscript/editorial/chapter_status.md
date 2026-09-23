@@ -1987,3 +1987,21 @@ with no unresolved references, citations or layout overflow.
 The second mathematical/source pass, scoped strict style review and
 final page inspection pass. Frozen sources, production verifier records
 and the active research inventory are unchanged.
+
+
+## 2026-09-23 — Analytic trace: existence and approximation independence
+
+The [trace-construction audit](ch54_trace_construction_audit_20260923.md)
+replaces an unqualified positive-mass completeness assertion by its
+uniform lower bound and supplies that bound on the normalization.
+The proof distinguishes raw restrictions from normalized model
+representatives, compares two approximations through a cofinal
+subsequence, and checks background independence and input I-class
+dependence. The point case and the smooth ambient hypothesis are explicit.
+
+The final full build has 3,935 pages, 389 TeX inputs and 11,536 labels,
+with no unresolved references, citations or layout overflow.
+Source, mathematical, scoped style and final visual checks pass.
+Frozen verifier material and the active research inventory are unchanged.
+The next unit checks the analytic trace calculus and decreasing
+continuity hypotheses.

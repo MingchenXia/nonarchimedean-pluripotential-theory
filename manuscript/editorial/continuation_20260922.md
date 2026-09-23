@@ -458,12 +458,40 @@ The second mathematical/source pass, scoped strict style review and
 final page inspection pass. Frozen sources, production verifier records
 and the active research inventory are unchanged.
 
+## Chapter 54: the analytic trace construction
+
+The [trace-construction audit](ch54_trace_construction_audit_20260923.md)
+reconstructs Theorem 54.5.1 in a fixed target background
+Theta = rho^* Omega + kappa. The explicit lower bound integral kappa^m
+is independent of the approximant and verifies the completeness
+hypothesis before taking a singularity-metric limit.
+The normalized model envelopes converge even when the raw restrictions
+have pointwise limit -infinity.
+
+Two quasi-equisingular approximations are compared with a vanishing
+coefficient loss and a cofinal subsequence. A uniform scaling estimate
+and closed P-order give independence in both directions. Analytic
+closure, background change and canonical dyadic multiplier ideals give
+I-goodness and dependence on the ambient I-class. Dimension zero is
+handled separately. The approximation definition and primary-source
+locators are explicit; the accepted trace-paper version has its own
+bibliography entry.
+
+The final full build has 3,935 pages and no unresolved references,
+citations or layout overflow. The 389-file closure has 11,536 labels.
+The second mathematical/source pass, strict scoped style review,
+reference and inventory checks, and final page inspection pass.
+The 46 active research atoms, frozen proof files and production records
+are unchanged. The next unit audits the trace calculus and the exact
+hypotheses of decreasing continuity.
+
 ## Next work
 
-1. Audit the Chapter 54 analytic trace construction: its natural domain,
-   a common target background and the exact source for independence
-   of the chosen approximation. The volume-continuity proof and positive-
-   volume decreasing example now have a separate 23 September receipt.
+1. Audit the Chapter 54 analytic trace calculus: compatible approximations
+   for sums, positive real scaling and maxima, and the exact I-goodness,
+   common-class and convergence hypotheses in sequential and net continuity.
+   The volume proof and the trace construction now have separate
+   23 September receipts.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
