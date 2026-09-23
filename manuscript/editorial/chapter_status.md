@@ -2554,3 +2554,24 @@ Chapter 60 text and the radial-limit section onward retain their baseline
 bytes. The 45 research atoms, P12.1 integration/provenance, supplied originals,
 bibliography, frozen packets, verifier records and dated releases are
 unchanged. No independent-agent or production-verifier pass is claimed.
+
+## Chapter 60: radial limits and flag regularization, 23 September 2026
+
+The [radial regularization audit](ch60_ray_regularization_audit_20260923.md)
+proves the finite invariant flag expansion and reconstructs the passage
+from Demailly's local Bergman regularization to relatively nef model
+classes. A smooth disc correction removes the product curvature loss.
+The proof quantifies divisorial approximation by the product discrepancy
+and keeps the dyadic, background and cutoff limits separate. A constant
+ray computes the exact multiplier ideals and tests the necessity of
+cutoff exhaustion. The original Demailly source is now directly checked;
+the analytic regularization theorem remains explicitly cited.
+
+Two local proof/source passes, the final full build and scoped page review
+are complete: 3,979 pages, 390 inputs and 11,637 labels, with no unresolved
+reference/citation or layout overflow. The scoped house audit has zero
+errors and one reviewed exact-author-version warning. All earlier Chapter 60
+text and all text from maximal rays onward retain their baseline bytes.
+The 45 research atoms, P12.1 integration/provenance, supplied originals,
+bibliography, frozen packets, verifier records and dated releases remain
+unchanged. No independent-agent or production-verifier pass is claimed.

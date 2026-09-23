@@ -6,7 +6,7 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (390 TeX files, 11,630 unique labels),
+The complete source check passes (390 TeX files, 11,637 unique labels),
 and the full build produces a 3,979-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [P12.1 integration audit](manuscript/editorial/p121_integration_audit_20260923.md)
@@ -16,6 +16,12 @@ normalization branches, conductor descent, nonprimary gauges and nilpotent
 reduction settle P12.1; P12.2--P12.6 remain active. The original PDF is
 preserved byte for byte. This source integration has no new production
 verifier or independent-agent receipt.
+The [radial regularization audit](manuscript/editorial/ch60_ray_regularization_audit_20260923.md)
+proves the invariant flag expansion and explains how a smooth disc
+correction removes the curvature error in Bergman regularization.
+It derives relative nefness, quantifies the divisorial limit and computes
+exact multiplier ideals for a constant ray to test cutoff exhaustion.
+The Demailly input is now checked directly in the original source.
 The [extended pairing audit](manuscript/editorial/ch60_extended_pairing_audit_20260923.md)
 proves upper semicontinuity and decreasing-net continuity, supplies an
 explicit mixed-energy lower bound, and establishes finiteness before

@@ -1021,18 +1021,40 @@ bytes. The 45 research atoms, P12.1 integration/provenance, supplied originals,
 bibliography, frozen packets, verifier records and dated releases are
 unchanged. No independent-agent or production-verifier pass is claimed.
 
+## Chapter 60: radial limits and flag regularization, 23 September 2026
+
+The [radial regularization audit](ch60_ray_regularization_audit_20260923.md)
+proves the finite invariant flag expansion and reconstructs the passage
+from Demailly's local Bergman regularization to relatively nef model
+classes. A smooth disc correction removes the product curvature loss.
+The proof quantifies divisorial approximation by the product discrepancy
+and keeps the dyadic, background and cutoff limits separate. A constant
+ray computes the exact multiplier ideals and tests the necessity of
+cutoff exhaustion. The original Demailly source is now directly checked;
+the analytic regularization theorem remains explicitly cited.
+
+Two local proof/source passes, the final full build and scoped page review
+are complete: 3,979 pages, 390 inputs and 11,637 labels, with no unresolved
+reference/citation or layout overflow. The scoped house audit has zero
+errors and one reviewed exact-author-version warning. All earlier Chapter 60
+text and all text from maximal rays onward retain their baseline bytes.
+The 45 research atoms, P12.1 integration/provenance, supplied originals,
+bibliography, frozen packets, verifier records and dated releases remain
+unchanged. No independent-agent or production-verifier pass is claimed.
+
 ## Next work
 
-1. Continue Chapter 60 with the radial limits of complex psh rays:
-   recheck growth correction, squared-norm and Gauss normalizations,
-   truncation levels and multiplier-ideal approximation, and the exact
-   regularization input needed for all-divisorial convergence. Then audit
-   maximal-ray order and the test-curve correspondence. Preserve the newly
-   proved extended-pairing continuity, mixed-energy bound and finite-energy
-   measure construction. Keep the checked model, scaling, graph and
-   comparison proofs unless a concrete defect is found. The analytic-cycle
-   criterion, general Kähler maximal-ray existence, sequential regularization
-   and full mixed-slope reduction retain their explicit source boundaries
+1. Continue Chapter 60 with maximal-ray order and existence, then the
+   test-curve correspondence. Recheck the exact sequential approximation,
+   noncollapse and identification of the limiting non-Archimedean data;
+   distinguish the general Kähler input from projective energy inequalities.
+   Preserve the new flag expansion, product curvature correction,
+   quantified divisorial limits and cutoff exhaustion. The analytic
+   regularization theorem is now directly sourced but remains a cited
+   input. Keep the checked model, scaling, graph, comparison and pairing
+   proofs unless a concrete defect is found. The analytic-cycle criterion,
+   general Kähler maximal-ray existence, sequential regularization and
+   full mixed-slope reduction retain their explicit source boundaries
    until separately reconstructed. Preserve P12.1 integration/provenance,
    the Chapters 58–59 comparisons, and the distinction between normalized
    and literal raw all-big-model tests.
