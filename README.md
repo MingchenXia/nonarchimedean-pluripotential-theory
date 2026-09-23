@@ -6,7 +6,7 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,556 unique labels),
+The complete source check passes (389 TeX files, 11,562 unique labels),
 and the full build produces a 3,941-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
@@ -82,6 +82,12 @@ gives an explicit finite-section realization, proves convergence of trace
 cutoffs, and justifies the Legendre supremum limit. It checks the ample
 perturbation needed in the realization theorem and includes a line-versus-point
 restriction example with precise domain conditions.
+The [Gauss and multiplier-ideal audit](manuscript/editorial/ch56_gauss_multiplier_audit_20260923.md)
+corrects the central-fiber normalization in the hyperplane example and
+computes its dyadic multiplier ideals explicitly. It proves the annulus
+ideal identity, explains uniform generation of the coefficient ideals,
+and applies divisorial domination in both directions to psh extensions.
+Proper-support values and the pseudoeffective boundary are included.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the

@@ -560,14 +560,42 @@ No independent-agent or production verification and no atom closure are
 claimed. The next unit checks Chapter 56's Gauss complexification and
 multiplier-ideal approximation, including proper-support behavior.
 
+## Chapter 56: Gauss normalization and multiplier-ideal approximation
+
+The [Gauss and multiplier-ideal audit](ch56_gauss_multiplier_audit_20260923.md)
+checks the rational Gauss normalization and the common upper bound
+needed for complexification. The hyperplane example is shifted to
+terminal parameter zero before its central-fiber calculation. Its
+ideal is that of H times {0}, and its exact multiplier ideals give
+explicit dyadic approximants, including proper-support values.
+
+The product-ideal equality over the punctured disk is proved with
+an annulus rooftop sandwich. The uniform generation argument now
+extracts global generators of every coefficient ideal, retaining
+the possibly nonunit terminal ideal. The decreasing GF formula has
+explicit section weights, a noncollapse check, and uniqueness by
+two-sided divisorial domination among psh extensions. The same
+argument identifies different perturbations at all points.
+
+The final full build has 3,941 pages, 389 TeX inputs and 11,562 labels,
+with no unresolved references, citations or layout overflow. The
+second local mathematical/source pass, strict scoped style audit,
+reference/inventory checks and final visual inspection pass.
+The 46 active atoms, frozen proofs, author sources, production
+verifier records and dated release artifacts are preserved.
+No independent-agent or production verification and no atom closure
+are claimed. The next unit checks Chapter 57's order reflection,
+valuation scaling and closed parameter profiles for Legendre inversion.
+
 ## Next work
 
-1. Audit Chapter 56's Gauss complexification and multiplier-ideal GF
-   approximation: signs and parameter conventions, uniform generation,
-   decreasing convergence, and semivaluations with proper support.
-   Check existing frozen comparison interfaces before dependent edits.
-   Chapter 54's trace construction and Chapter 57's trace comparison
-   now have separate 23 September receipts with their domain checks.
+1. Audit Chapter 57's order-reflection proof: rational versus real
+   valuation scaling, closedness at the endpoints of the valuative
+   parameter profiles, and the Legendre inversion hypotheses.
+   Check extension from divisorial order to all analytic points
+   in a common larger class. Preserve frozen comparison interfaces.
+   Chapters 54, 56 and 57 have separate receipts for the completed
+   trace and multiplier-ideal units.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
