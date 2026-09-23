@@ -751,13 +751,39 @@ are claimed. The next unit checks monomial valuations, adapted
 coordinates, globalization along strata, zero weights and rational
 divisorial realization in Chapter 59.
 
+## Chapter 59: monomial valuations and cone faces
+
+The [monomial-valuation audit](ch59_monomial_globalization_audit_20260923.md)
+reconstructs coordinate independence by intrinsic divisor-ideal filtrations,
+point independence by coefficient germs, and continuity by finite minimal
+supports. It defines the cone faces and supplies the missing separation
+of different components of a divisor intersection. Rational weights are
+realized by a terminating sequence of ordinary blowups with the scalar
+normalization retained. Zero weights and the dimension-one blowup are
+treated explicitly. A P1 x P1 example distinguishes two cones with the
+same boundary coordinates and computes a rational prime-order multiple.
+
+The exact author-version source and the published Jonsson--Mustata
+statements were checked. The second local mathematical/source pass,
+strict full-block style audit, reference/inventory checks and final page
+inspection pass. The final full build has 3,951 pages, 389 TeX inputs
+and 11,579 labels, with no unresolved references, citations or overflow.
+The exact-version preprint warning and publisher-access limit are recorded.
+
+The earlier integral-closure unit, all other Chapter 59 text, Chapter 58,
+the bibliography, 46 active research atoms, supplied CURVE_PSH.tex,
+author sources, frozen proofs, verifier receipts and dated releases remain
+unchanged. No independent-agent or production verification and no atom
+closure are claimed. The next unit checks normalized invariant vertical
+divisors, projection pullback, local algebra and global model realization.
+
 ## Next work
 
-1. Audit Chapter 59's monomial valuations: check adapted-coordinate
-   independence, globalization from a stratum, zero weights and rational
-   divisorial realization against the exact source statements. Preserve
-   the checked integral-closure, support, center, bimeromorphic and
-   proper algebraic comparisons.
+1. Audit Chapter 59's invariant vertical-divisor comparison: identify
+   the restriction map via projection pullback, verify the exact local
+   algebra hypotheses, and check global realization on models trivial
+   away from the central fiber. Preserve the checked monomial,
+   integral-closure and Chapter 58 comparisons.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
