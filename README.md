@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,548 unique labels),
-and the full build produces a 3,939-page PDF with no unresolved reference
+The complete source check passes (389 TeX files, 11,556 unique labels),
+and the full build produces a 3,941-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
 records the final line-break checks and preservation of the research sources.
@@ -77,6 +77,11 @@ proves concavity, closed endpoints and perturbation compatibility,
 and checks birational pullback. A hyperplane example computes a strict
 drop in the terminal parameter; its filtration and real-coefficient
 singularity conventions are corrected in Chapter 52.
+The [projective trace-comparison audit](manuscript/editorial/ch57_trace_comparison_audit_20260923.md)
+gives an explicit finite-section realization, proves convergence of trace
+cutoffs, and justifies the Legendre supremum limit. It checks the ample
+perturbation needed in the realization theorem and includes a line-versus-point
+restriction example with precise domain conditions.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the

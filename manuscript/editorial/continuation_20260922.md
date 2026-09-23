@@ -533,14 +533,41 @@ Frozen source and verifier records, the supplied curve file and the
 46 active research atoms remain unchanged. No independent-agent or
 production verification and no new atom closure are claimed.
 
+## Chapter 57: finite-section realization and trace comparison
+
+The [trace-comparison audit](ch57_trace_comparison_audit_20260923.md)
+replaces the finite-section concavification sketch by an explicit sliced
+simplex formula. Rational levels have analytic singularities; real levels
+use I-goodness. The existing P1 example now displays its raw maximum.
+The big-class hypotheses in the imported realization theorem are checked
+using half of the chosen ample perturbation.
+
+The nontriviality criterion is proved with a common-background GF
+approximation and its uniform mass bound. This establishes the cutoff
+identity at the proper-support trivial valuation before the trace theorem
+is used. Restriction of finite-section levels is performed on the face of
+surviving sections and only inside the trace domain. Convergence of the
+cutoffs and a compact interval for maximizing parameters justify the
+Legendre supremum limit. A P2 example distinguishes a nontrivial line
+restriction from an undefined trace at a point on that line.
+
+The final complete build has 3,941 pages, 389 TeX inputs and 11,556 labels,
+with no unresolved references, citations or layout overflow. The second
+mathematical/source pass, strict scoped style audit, reference/inventory
+checks and final visual inspection pass. Frozen proofs, author sources,
+production verifier records and all 46 active research atoms are preserved.
+No independent-agent or production verification and no atom closure are
+claimed. The next unit checks Chapter 56's Gauss complexification and
+multiplier-ideal approximation, including proper-support behavior.
+
 ## Next work
 
-1. Audit Chapter 57's comparison of analytic trace with divisorial
-   restriction: the nontriviality criterion, approximation domain, and
-   exchange of decreasing approximation with the Legendre supremum.
-   Check the source scope and frozen interfaces before editing.
-   The Chapter 54 volume, analytic trace construction and calculus,
-   and non-Archimedean trace now have separate 23 September receipts.
+1. Audit Chapter 56's Gauss complexification and multiplier-ideal GF
+   approximation: signs and parameter conventions, uniform generation,
+   decreasing convergence, and semivaluations with proper support.
+   Check existing frozen comparison interfaces before dependent edits.
+   Chapter 54's trace construction and Chapter 57's trace comparison
+   now have separate 23 September receipts with their domain checks.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.
