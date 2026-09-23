@@ -938,14 +938,36 @@ author provenance, all 45 active atoms, supplied sources, frozen packets,
 verifier receipts and dated releases are unchanged. No new independent-agent
 or production-verifier pass is claimed.
 
+## Chapter 60: rational scaling and finite pullback, 23 September 2026
+
+The [scaling and finite-pullback audit](ch60_scaling_pullback_audit_20260923.md)
+supplies a PL representative before rational descent, computes the flag
+base-change formula, and proves nef reflection after resolution using
+dominating inverse-image cycles. It reconstructs finite pullback on graph
+models and proves that the pulled-back background is Kähler; the finite
+map need not be surjective. The P1 examples distinguish 2·phi from 2 phi,
+exclude irrational breakpoints from PL_R, and compute the change under
+z -> z^d.
+
+Two local mathematical/source passes, the final full build and the scoped
+page review are complete. The book has 3,969 pages, 390 TeX inputs and
+11,607 labels, with no unresolved references, citations or layout overflow.
+The changed-block style audit has zero errors and one reviewed exact-version
+source warning. The earlier model definitions, entire maximum proof and
+all text from model closedness onward are preserved. The audit records
+primary locators, source hashes and the final PDF hash. All 45 research
+atoms, P12.1 integration/provenance, supplied sources, frozen packets,
+verifier records and dated releases are unchanged. This unit claims no
+new independent-agent or production-verifier pass.
+
 ## Next work
 
-1. Audit Chapter 60's rational ramified-scaling construction and the
-   domain hypotheses for finite holomorphic pullback. Explain the PL
-   representation and descent for rational scaling without changing
-   the already checked maximum and relative numerical-criterion proofs
-   unless a concrete defect is found. Keep the analytic-cycle core
-   explicitly imported with its exact checked source version.
+1. Audit Chapter 60's model Monge–Ampère and mixed-intersection sections:
+   central multiplicities, model independence, the Zariski inequality,
+   and the deformation-to-the-normal-cone example. Preserve the checked
+   rational-scaling and finite-pullback constructions. Keep the maximum
+   and relative numerical-criterion proofs unless a concrete defect is
+   found, and retain the explicit source boundary of the analytic-cycle core.
    Preserve the completed P12.1 integration and its supplied-manuscript
    provenance, and the checked Chapter 58 and 59 comparisons.
    Keep the normalized model
