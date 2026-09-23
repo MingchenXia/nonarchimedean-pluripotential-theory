@@ -801,13 +801,42 @@ are unchanged. No independent-agent or production verification, new research
 theorem or atom closure is claimed. The next unit checks the PL/vertical-
 Cartier correspondence, its denominators and fractional flag-ideal evaluation.
 
+## Chapter 59: fractional flags and vertical Cartier divisors
+
+The [PL and vertical-Cartier audit](ch59_pl_vcar_audit_20260923.md)
+restores rational denominators and evaluates fractional flags through
+the Gauss formula on X x P1. It proves finite integral-closure invariance
+and injectivity before using divisorial density, constructs a vertical
+relatively ample divisor, and supplies uniform relative generation.
+A P1 blowup computes the signs, rational factors, constant shift and
+proper-support value. The density consequence uses its checked exact
+source version and rational constants.
+
+The second local mathematical/source pass, strict changed-block style
+audit, reference/inventory checks and final rendered-page review pass.
+The complete build has 3,955 pages, 389 TeX inputs and 11,583 labels,
+with no unresolved references, citations or horizontal or vertical overflow.
+The whole-chapter style audit still reports legacy delimiter, label and
+heading issues; its baseline comparison and source-access limits are
+recorded separately. No clean whole-chapter style audit is claimed.
+
+The earlier Chapter 59 units, the text from its dual-simplex definition
+onward, Chapter 58 and the bibliography retain their exact baseline bytes.
+The 46 research atoms, author sources, supplied CURVE_PSH.tex, frozen
+proofs, verifier receipts and dated releases are unchanged. No independent-
+agent or production verification, new research theorem or atom closure
+is claimed. The next unit checks dual-complex strata, retraction continuity,
+model evaluation, transition maps and inverse-limit separation.
+
 ## Next work
 
-1. Audit Chapter 59's PL/vertical-Cartier correspondence: retain the
-   rational denominators, evaluate fractional flag ideals through the
-   Gauss extension on X x P1, and prove generation on a dominating model
-   before using divisorial density. Preserve the checked vertical-divisor,
-   monomial, integral-closure and Chapter 58 comparisons.
+1. Audit Chapter 59's dual-complex retractions and inverse-limit
+   identification. Retain stratum labels for disconnected intersections:
+   continuity of the global component weights alone does not establish
+   continuity into the dual complex. Check evaluation on model ideals,
+   proper-support characters, transition maps and separation before
+   invoking the inverse-limit theorem. Preserve the checked flag/Cartier,
+   vertical-divisor, monomial, integral-closure and Chapter 58 comparisons.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.

@@ -2333,3 +2333,31 @@ supplied CURVE_PSH.tex, frozen proofs, verifier receipts and dated releases
 are unchanged. No independent-agent or production verification, new research
 theorem or atom closure is claimed. The next unit checks the PL/vertical-
 Cartier correspondence, its denominators and fractional flag-ideal evaluation.
+
+
+## 2026-09-23 — Fractional flags and the PL/vertical-Cartier correspondence
+
+The [PL and vertical-Cartier audit](ch59_pl_vcar_audit_20260923.md)
+restores rational denominators and evaluates fractional flags through
+the Gauss formula on X x P1. It proves finite integral-closure invariance
+and injectivity before using divisorial density, constructs a vertical
+relatively ample divisor, and supplies uniform relative generation.
+A P1 blowup computes the signs, rational factors, constant shift and
+proper-support value. The density consequence uses its checked exact
+source version and rational constants.
+
+The second local mathematical/source pass, strict changed-block style
+audit, reference/inventory checks and final rendered-page review pass.
+The complete build has 3,955 pages, 389 TeX inputs and 11,583 labels,
+with no unresolved references, citations or horizontal or vertical overflow.
+The whole-chapter style audit still reports legacy delimiter, label and
+heading issues; its baseline comparison and source-access limits are
+recorded separately. No clean whole-chapter style audit is claimed.
+
+The earlier Chapter 59 units, the text from its dual-simplex definition
+onward, Chapter 58 and the bibliography retain their exact baseline bytes.
+The 46 research atoms, author sources, supplied CURVE_PSH.tex, frozen
+proofs, verifier receipts and dated releases are unchanged. No independent-
+agent or production verification, new research theorem or atom closure
+is claimed. The next unit checks dual-complex strata, retraction continuity,
+model evaluation, transition maps and inverse-limit separation.
