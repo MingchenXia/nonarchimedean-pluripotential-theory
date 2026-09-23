@@ -924,14 +924,15 @@ in \cref{prop:ts-bimeromorphic-valuations} cannot be dropped. No
 topological strengthening is needed here.
 \end{example}
 
-\section{Recovery of projective algebraic analytification}
+\section{Recovery of proper algebraic analytification}
 
-Let \(X\) now be a complex algebraic variety and
-\(X^{\mathrm{an,triv}}\) its Berkovich analytification with respect to the
-trivial norm on \(\mathbf C\).
+For a complex algebraic variety $X$, write $X_{\mathrm{hol}}$ for
+its complex analytification and $X^{\mathrm{an,triv}}$ for its
+trivially valued Berkovich analytification. Here
+$X^\bethan=(X_{\mathrm{hol}})^\bethan$.
 
 \begin{theorem}\label{thm:ts-algebraic-recovery}
-If \(X\) is proper, there is a canonical functorial homeomorphism
+If $X$ is proper, there is a canonical functorial homeomorphism
 \[
                          X^\bethan
                     \xrightarrow{\ \sim\ }
@@ -940,30 +941,180 @@ If \(X\) is proper, there is a canonical functorial homeomorphism
 \]
 \end{theorem}
 
-\begin{proof}
-GAGA identifies algebraic coherent ideals with analytic coherent ideals when
-\(X\) is proper, so passing to the associated complex space does not
-enlarge or shrink the ideal semiring.  For the algebraic locally ringed
-space, \cite[Example~1.3.2(1)]{MP24} identifies the tropical spectrum with
-the subspace of the Berkovich analytification consisting of semivaluations
-centered on \(X\).  Properness makes every semivaluation centered, by the
-valuative criterion of properness.  The construction is functorial, and
-the pointwise topologies agree, proving the claimed homeomorphism.
+The comparison is stated in
+\cite[Example~1.3.2(1) and Remark~1.3.3]{MPTropicalV2}.
+We give the recovery of local valuations and the topology explicitly;
+neither projectivity nor normality is required.
 
-For a nonproper algebraic scheme the cited result still applies to the
-algebraic ideal semiring.  We do not identify that semiring with the
-semiring of analytic coherent ideals without a GAGA hypothesis.
+\begin{proof}
+\emph{Step 1. Algebraic and analytic ideals.}
+Write $\mathscr I_X^{\mathrm{alg}}$ for the semiring of algebraic
+coherent ideals on $X$.
+Proper GAGA gives an exact equivalence between the categories of
+algebraic and analytic coherent sheaves
+\cite[Expos\'e~XII, Proposition~1.3.1 and Theorem~4.4]{SGA1Reprint}.
+An analytic ideal inclusion $\mathfrak a\hookrightarrow
+\mathcal O_{X_{\mathrm{hol}}}$ therefore comes from a unique
+algebraic subobject of $\mathcal O_X$. Exactness and faithfulness
+make the algebraic map injective. Analytification commutes with
+tensor products and preserves images, hence preserves ideal sums
+and products, as well as the zero and unit ideals. It follows that
+\[
+ \mathscr I_X^{\mathrm{alg}}\simeq\mathscr I_{X_{\mathrm{hol}}}.
+\]
+Reindexing the evaluation coordinates gives a homeomorphism of
+their tropical spectra. Here the cited proper GAGA theorem includes
+the nonprojective case.
+
+\emph{Step 2. Recovering the center and its local valuation.}
+Let $\chi\in\operatorname{tSpec}(\mathscr I_X^{\mathrm{alg}})$ and set
+\[
+                 \mathfrak c=\sum_{\chi(\mathfrak a)>0}\mathfrak a.
+\]
+Since $X$ is noetherian, this is a finite sum and
+$\chi(\mathfrak c)>0$. The product argument in
+\cref{prop:ts-prime-support-center} shows that $\mathfrak c$ is
+globally prime. On a noetherian scheme, the same radical-power and
+finite-component argument preceding that proposition shows that
+$\mathfrak c$ is the radical ideal of a nonempty irreducible closed
+subset. Let $\xi$ be its generic point. For every coherent ideal,
+\[
+ \chi(\mathfrak a)>0
+ \quad\Longleftrightarrow\quad
+ \mathfrak a\subseteq\mathfrak c
+ \quad\Longleftrightarrow\quad
+ \mathfrak a_\xi\subseteq\mathfrak m_\xi.
+\]
+In particular, $\chi(\mathfrak a)=0$ exactly when
+$\mathfrak a_\xi=\mathcal O_{X,\xi}$.
+
+If $\mathfrak a_\xi=\mathfrak b_\xi$, the coherent colon ideal
+$\mathfrak h=(\mathfrak b:\mathfrak a)$ has unit stalk at $\xi$,
+so $\chi(\mathfrak h)=0$. The inclusion
+$\mathfrak h\mathfrak a\subseteq\mathfrak b$ gives
+$\chi(\mathfrak a)\geq\chi(\mathfrak b)$; reversing the two ideals
+gives equality, including infinite values.
+Every ideal of $R=\mathcal O_{X,\xi}$ extends to a coherent ideal
+on $X$: choose its finitely many generators on an affine
+neighbourhood of $\xi$, and extend the resulting finite type
+submodule of $\mathcal O_X$ by \cite[Tag~01PF]{stacks-project}.
+The noetherian hypothesis makes the extension coherent.
+Thus
+\[
+             \chi_\xi(J):=\chi(\mathfrak a),
+             \qquad \mathfrak a_\xi=J,
+\]
+is well defined on the ideals of $R$. Sums and products of extensions
+extend the corresponding local operations, so $\chi_\xi$ is a
+tropical character. By \cref{thm:ts-affine-homeomorphism}, it gives
+a nonnegative semivaluation $w$ on $R$ satisfying
+\[
+                  w(g)>0\quad\Longleftrightarrow\quad
+                  g\in\mathfrak m_\xi.
+\]
+Its kernel $\mathfrak p=\{g:w(g)=+\infty\}$ is prime. The induced
+semivaluation on $R/\mathfrak p$ extends to a valuation on
+$\operatorname{Frac}(R/\mathfrak p)$ by subtracting finite values
+of nonzero denominators. This is the residue field of a point
+$\eta$ generalizing $\xi$. Constants in $\mathbf C^*$ are units
+of $R$, so the valuation is trivial on $\mathbf C$.
+It defines a Berkovich point with support $\overline{\{\eta\}}$
+and center $\xi$.
+
+For an ideal $\mathfrak a$ with stalk generated by $g_1,\ldots,g_r$,
+the construction gives
+\[
+                  \chi(\mathfrak a)=\min_i w(g_i).
+\]
+Conversely, a Berkovich point centered at $\xi$ defines a character
+by this formula. Its positive ideals are precisely those contained
+in the radical ideal of $\overline{\{\xi\}}$, so the construction
+recovers the same center and local valuation. These are inverse
+assignments. The zero ideal and a valuation supported on a proper
+subvariety are included; no subtraction of infinite values occurs.
+
+\emph{Step 3. Properness and the topology.}
+For any Berkovich point with support point $\eta$ and valuation
+$w$ on $K=\kappa(\eta)$, let $R_w=\{a\in K:w(a)\geq0\}$.
+It is a valuation ring containing
+$\mathbf C$. Properness extends $\operatorname{Spec}K\to X$
+uniquely to $\operatorname{Spec}R_w\to X$
+\cite[Tag~0BX5]{stacks-project}. The image of the closed point
+is the center. This also covers the trivial valuation, for which
+$R_w=K$. Thus every Berkovich point is centered.
+
+Choose a finite affine cover $X=\bigcup_i U_i$, with
+$U_i=\operatorname{Spec}A_i$. Let $F_i$ be the points whose center
+lies in $U_i$. Such a point is exactly a nonnegative semivaluation
+on $A_i$: the positive elements define its center prime, and
+elements outside that prime have value zero and can be inverted.
+Under $w\mapsto\mathrm{e}^{-w}$ its pointwise topology
+is the subspace topology from $U_i^{\mathrm{an,triv}}$.
+By \cref{thm:ts-affine-homeomorphism,prop:ts-compact}, $F_i$ is
+compact. Since $X$ is separated, $X^{\mathrm{an,triv}}$ is
+Hausdorff by \cref{thm:berk-proper-compact}; hence each $F_i$ is
+closed in it. Properness shows that these finitely many sets cover
+$X^{\mathrm{an,triv}}$.
+
+If $\mathfrak a|_{U_i}$ has generators $f_{i1},\ldots,f_{ir_i}$,
+then on $F_i$ its value is
+\[
+                     w(\mathfrak a)=\min_j w(f_{ij}).
+\]
+This is continuous with values in $[0,+\infty]$. Pasting over the
+finite closed cover proves continuity of every global ideal
+coordinate, hence of the bijection
+$X^{\mathrm{an,triv}}\to\operatorname{tSpec}
+(\mathscr I_X^{\mathrm{alg}})$. Its domain is compact and its
+target is Hausdorff, so it is a homeomorphism. Together with
+Step~1 this proves \eqref{eq:ts-algebraic-recovery}.
+
+For a morphism $f:Y\to X$ between proper complex varieties,
+the center maps to the center and ideal values satisfy
+$(f^{\mathrm{an,triv}}w)(\mathfrak a)
+=w(\mathfrak a\mathcal O_Y)$.
+Analytification commutes with this ideal pullback. Thus the
+homeomorphisms intertwine $f^{\mathrm{an,triv}}$ with
+\eqref{eq:ts-functorial-map}, proving functoriality.
 \end{proof}
 
 Under \eqref{eq:ts-algebraic-recovery}, the ideal function
-\(\log|\mathfrak a|\) is the usual model ideal function
+$\log|\mathfrak a|$ is the usual function
+$v\mapsto-v(\mathfrak a)$.
+
+\begin{example}\label{ex:ts-proper-center-charts}
+On $\mathbf P^1$, let $T$ be the affine coordinate and consider,
+for $t\in\mathbf R$, the Gauss valuation
 \[
-                              v\longmapsto-v(\mathfrak a),
+ w_t\left(\sum_i a_iT^i\right)
+       =\min_{a_i\ne0} it,
+ \qquad w_t(0)=+\infty.
 \]
-and the functorial map \eqref{eq:ts-functorial-map} is ordinary Berkovich
-analytification.
-Thus the tropical construction genuinely extends, rather than replaces, the
-projective algebraic space used in the preceding chapter.
+It extends to $\mathbf C(T)$. The displayed finite minimum shows
+that $t\mapsto w_t$ is continuous in the affine analytification.
+For $t>0$ its center is $0$;
+for $t<0$ its center is $\infty$, since $w_t(T^{-1})=-t>0$;
+for $t=0$ it is the trivial valuation with generic center.
+The global point ideals therefore satisfy
+\[
+       w_t(\mathcal I_0)=\max\{t,0\},
+       \qquad
+       w_t(\mathcal I_\infty)=\max\{-t,0\}.
+\]
+Both ideal coordinates are continuous across $t=0$, although the
+center map is not continuous: the open set
+$\mathbf P^1\setminus\{0\}$ contains the center at $t=0$ but
+not the centers for $t>0$. On $\mathbf A^1$ only $t\geq0$ is
+centered. The points with $t<0$, equivalently $|T|>1$, belong to
+its Berkovich analytification but not to its algebraic ideal spectrum.
+
+The GAGA step has a separate nonproper obstruction. On the complex
+line the coherent ideal $(\sin\pi z)$ has zero set $\mathbf Z$.
+It cannot be the analytification of an ideal of $\mathbf C[T]$,
+whose zero set is finite, empty, or the whole line. Thus the
+algebraic centered-locus comparison does not identify the analytic
+ideal semiring in the nonproper case.
+\end{example}
 
 \begin{proposition}
 \label{prop:ts-multiplier-bridge}

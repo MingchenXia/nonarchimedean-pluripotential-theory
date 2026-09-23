@@ -696,13 +696,40 @@ No independent-agent or production verification and no atom closure
 are claimed. The next unit checks proper algebraic recovery, GAGA,
 centering and the comparison topology in Chapter 58.
 
+## Chapter 58: proper algebraic recovery and topology
+
+The [proper algebraic recovery audit](ch58_algebraic_recovery_audit_20260923.md)
+reconstructs GAGA as an ideal-semiring identification, recovers a local
+valuation using colon ideals and extension of finite ideal generators,
+and proves the comparison topology by finite closed affine bounded sets.
+The original proper scope, including nonprojective and nonnormal
+varieties, is preserved. A P1 Gauss family distinguishes continuous
+ideal coordinates from the discontinuous center map; the complex-line
+sine ideal exhibits the separate nonproper GAGA obstruction.
+
+The exact SGA 1 reprint was checked against its publisher record and
+the cited pages. Its new bibliography entry preserves the 1971 entry.
+The second local mathematical/source pass, strict block style audit,
+reference/inventory checks, final full build and page inspection pass.
+The build has 3,947 pages, 389 TeX inputs and 11,576 labels, with no
+unresolved references, citations or layout overflow. The bibliography
+audit's exact-version preprint warning was reviewed and its source-access
+limit recorded. All earlier bibliography entries and the Chapter 58
+text outside the recovery unit retain their exact bytes.
+
+The 46 active atoms, author sources, supplied CURVE_PSH.tex, frozen
+packets, verifier receipts and dated releases remain unchanged.
+No independent-agent or production verification and no atom closure
+are claimed. The next unit checks Chapter 59's normalized blowups,
+integral-closure values and the divisorial converse.
+
 ## Next work
 
-1. Audit Chapter 58's proper algebraic recovery: verify the algebraic
-   ideal-semiring comparison, the GAGA identification, the centering
-   argument and equality of topologies. Keep nonproper analytic spaces
-   separate. Preserve the frozen interfaces and the checked support,
-   center and bimeromorphic constructions.
+1. Audit Chapter 59's integral-closure comparison: check nonzero-ideal
+   assumptions in normalized blowups, justify the use of global ideal
+   characters in place of unsupported local-germ evaluation, and verify
+   the divisorial converse and exact analytic source. Preserve the
+   checked support, center, bimeromorphic and algebraic comparisons.
    Keep the normalized model
    condition separate from the literal raw all-big-model condition;
    examine any proposed comparison before restoring a converse.

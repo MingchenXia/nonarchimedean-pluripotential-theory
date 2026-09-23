@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 23 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (389 TeX files, 11,575 unique labels),
-and the full build produces a 3,945-page PDF with no unresolved reference
+The complete source check passes (389 TeX files, 11,576 unique labels),
+and the full build produces a 3,947-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [display-layout audit](manuscript/editorial/full_book_overflow_audit_20260922.md)
 records the final line-break checks and preservation of the research sources.
@@ -109,6 +109,11 @@ reconstructs finite descent by conductor ideals, proves nonnegativity
 and choice independence of lifted characters, and repairs the general
 resolution argument. A nodal curve explains both the nonnormal
 descent obstruction and the restriction to full-support strata.
+The [proper algebraic recovery audit](manuscript/editorial/ch58_algebraic_recovery_audit_20260923.md)
+reconstructs local valuations from global ideal characters and proves the
+comparison topology using finite closed affine bounded sets. Proper GAGA
+is checked in its nonprojective scope. A P1 family and a nonalgebraizable
+analytic ideal explain the centering and GAGA boundaries separately.
 The [font-scope correction](manuscript/editorial/ch18_font_scope_audit_20260922.md)
 restores normal body type after two Chapter 18 tables.
 Source provenance, exact input checksums and validation limits are in the
