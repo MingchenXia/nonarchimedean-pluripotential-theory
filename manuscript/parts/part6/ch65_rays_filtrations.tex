@@ -286,107 +286,125 @@ finite-generator calculation used in \Cref{prop:rf-fg-pl}; they do not
 assert finite generation for a general filtration.
 
 \section{Filtered sections and test curves}
+\label{sec:rf-filtered-test-curves}
 
-Fix a smooth positive metric \(h\) on \(L\) and let
-\(\theta=c_1(L,h)\).
-For \(\tau\in\mathbf R\), define the degree-\(m\) partial Bergman obstacle
+Let $X$ be a connected projective complex manifold of dimension $n$, let $L$ be ample, and let $h$ be a smooth positive Hermitian metric on $L$. Put $\theta=c_1(L,h)$ and use zero as the reference potential. Let $\mathcal F$ be a decreasing, left-continuous, multiplicative, linearly bounded filtration of the full section ring $R(X,L)$. For a rational polarization all degrees below are sufficiently divisible. Fix a smooth probability volume form $\mathrm dV$ and write
+\[
+ \|s\|_{2,m}^2=\int_X|s|_{h^m}^2\,\mathrm dV,
+ \qquad \|s\|_{\infty,m}^2=\sup_X|s|_{h^m}^2.
+\]
+For $\tau\in\mathbb R$, the sup-norm partial Bergman obstacle is
 \[
  B_{m,\tau}
- :=\uscsup\left\{
-       \frac1m\log|s|_{h^m}^2\ \middle|\
-       s\in\mathcal F^{m\tau}R_m,
-       \sup_X|s|_{h^m}^2\leq1
-       \right\}.
+ :=\uscsup\left\{\frac1m\log|s|_{h^m}^2\ \middle|\
+ s\in\mathcal F^{m\tau}R_m,\ \|s\|_{\infty,m}\leq1\right\}.
 \tag{65.14}\label{eq:rf-partial-bergman}
 \]
-When the filtered space is zero, \(B_{m,\tau}=-\infty\).
+It is $-\infty$ when the filtered space is zero. Let $B^{(2)}_{m,\tau}$ be the same extremum with $\|s\|_{2,m}\leq1$. For an $L^2$-orthonormal basis $s_{m,j}$ adapted to the filtration, with weights $\lambda_{m,j}$, the norm of the evaluation functional gives
+\[
+ B^{(2)}_{m,\tau}
+   =\frac1m\log\sum_{\lambda_{m,j}\geq m\tau}|s_{m,j}|_{h^m}^2.
+\]
+The two normalizations agree asymptotically, with a bound uniform in the filtered subspace.
+
+\begin{lemma}\label{lem:rf-bergman-norm-comparison}
+There is a constant $C\geq1$, depending only on $X,L,h,\mathrm dV$, such that
+\[
+ \begin{gathered}
+ \|s\|_{2,m}^2\leq\|s\|_{\infty,m}^2
+          \leq C m^n\|s\|_{2,m}^2,\\
+ B_{m,\tau}\leq B^{(2)}_{m,\tau}
+       \leq B_{m,\tau}+\varepsilon_m,
+ \qquad \varepsilon_m=\frac{\log C+n\log m}{m}.
+ \end{gathered}
+\tag{65.14a}\label{eq:rf-bergman-norm-comparison}
+\]
+The inequalities include zero spaces and common zero loci, using $-\infty+\varepsilon_m=-\infty$.
+\end{lemma}
+
+\begin{proof}
+The first inequality uses the unit mass of $\mathrm dV$. For the reverse one choose local coordinates and a holomorphic frame at a point so that the first derivative of the metric weight vanishes there. On a ball of radius $m^{-1/2}$ the variation of $m$ times that weight is uniformly bounded. The holomorphic mean-value inequality on this ball bounds the squared value at its center by $C m^n$ times the global squared $L^2$-norm. Compactness makes $C$ uniform in the center; finitely many small degrees can be absorbed into $C$. The evaluation-functional formula and rescaling the two unit balls give the second line. This is the uniform norm comparison in the proof of \cite[Lemmas~7.4 and~7.6]{RWN14}.
+\end{proof}
+
 Put
 \[
- g_\tau^{\mathcal F}
- :=\uscsup_{m\geq1}B_{m,\tau},
+ g_\tau^{\mathcal F}:=\uscsup_{m\geq1}B_{m,\tau},
  \qquad
- \Gamma_\tau^{\mathcal F}
- :=P_\theta[g_\tau^{\mathcal F}].
+ c_{\mathcal F}:=\sup_{\substack{m\geq1\\R_m\ne0}}
+           \max_{0\ne s\in R_m}\frac{\chi_m(s)}m.
+\]
+Linear boundedness makes $c_{\mathcal F}$ finite. Define the interior levels by
+\[
+ \Gamma_\tau^{\mathcal F}:=P_\theta[g_\tau^{\mathcal F}],
+                 \qquad \tau<c_{\mathcal F},
 \tag{65.15}\label{eq:rf-filtration-test-curve}
 \]
+and use the closed endpoint convention
+\[
+ \Gamma_{c_{\mathcal F}}^{\mathcal F}
+       :=\inf_{\tau<c_{\mathcal F}}\Gamma_\tau^{\mathcal F},
+ \qquad
+ \Gamma_\tau^{\mathcal F}:=-\infty\quad(\tau>c_{\mathcal F}).
+\tag{65.15a}\label{eq:rf-filtration-closed-endpoint}
+\]
+The endpoint is taken from the interior levels, not from a single extremal filtered piece.
 
 \begin{theorem}\label{thm:rf-filtration-test-curve}
-Let \(\mathcal F\) be decreasing, left-continuous, multiplicative, and
-linearly bounded.
-Then \(\Gamma^{\mathcal F}\) is a bounded maximal test curve.
-Its Legendre transform
+The family $\Gamma^{\mathcal F}$ is a bounded maximal test curve with terminal parameter $c_{\mathcal F}$ and reference potential zero. For $\tau<c_{\mathcal F}$ one has $g_\tau^{\mathcal F}=\Gamma_\tau^{\mathcal F}$. Its Legendre transform
 \[
-                    \ell_t^{\mathcal F}
-       :=\uscsup_{\tau\in\mathbf R}
-          \bigl(\Gamma_\tau^{\mathcal F}+t\tau\bigr),
-       \qquad t>0,
+ \ell_t^{\mathcal F}:=\sup_{\tau\in\mathbb R}
+             \bigl(\Gamma_\tau^{\mathcal F}+t\tau\bigr),\qquad t>0,
 \tag{65.16}\label{eq:rf-filtration-ray}
 \]
-is a weak geodesic ray from the chosen reference potential.
-Here \(t\) is the radial parameter for squared-norm potentials.  Thus, if
-\(\zeta\) is the punctured-disc coordinate and
-\(s=-\log|\zeta|\), then
+is a weak geodesic ray from zero. The supremum is already $\theta$-psh, and
 \[
-                         t=-\log|\zeta|^2=2s.
+              C_-t\leq\ell_t^{\mathcal F}\leq c_{\mathcal F}t.
 \]
-For ample \(L\), the maximal-envelope construction agrees with
-\cite[Theorems~1.1--1.2]{RWN14}; in the more general big setting the outer
-\(P_\theta\) is retained.
+Here $C_-$ is as in \eqref{eq:rf-linear-bounds}. The radial parameter for squared-norm potentials is $t=-\log|\zeta|^2$.
 \end{theorem}
 
 \begin{proof}
-Multiplicativity of the filtration gives
+Powers of normalized sections give $B_{qm,\tau}\geq B_{m,\tau}$. Hence for every $k$ the regularized supremum over $m\geq k$ equals $g_\tau^{\mathcal F}$. Along factorial degrees the obstacles increase and recover the same regularized supremum. Combining this with \eqref{eq:rf-bergman-norm-comparison} gives
 \[
- \frac{m}{m+m'}B_{m,\tau}
- +\frac{m'}{m+m'}B_{m',\tau'}
- \leq B_{m+m',\frac{m\tau+m'\tau'}{m+m'}}
+ g_\tau^{\mathcal F}
+ =\lim_{k\to\infty}\left(\sup_{m\geq k}B^{(2)}_{m,\tau}\right)^*.
+\tag{65.16a}\label{eq:rf-partial-bergman-tail}
 \]
-after multiplying normalized sections.
-Fekete's lemma and upper regularization yield concavity in \(\tau\).
-The linear bounds \eqref{eq:rf-linear-bounds} make the curve equal to the
-reference envelope for \(\tau\ll0\) and identically \(-\infty\) for
-\(\tau\gg0\).
+This argument allows zero pieces in infinitely many degrees; it makes no assertion of pointwise convergence along every degree at such a level.
 
-Maximalization by \(P_\theta\) preserves concavity and produces maximal
-singularity types level by level.
-The Ross--Witt Nystr\"om theorem says that the Legendre transform of a
-maximal test curve is a weak geodesic ray.
-The usc regularization in \eqref{eq:rf-filtration-ray} is harmless in the
-published convention; in the convention of \Cref{chap:rays-test-curves} the resulting
-supremum is already psh and the same ray is obtained.
+For concavity, take normalized sections in degrees $m,m'$ at parameters $\tau,\tau'$. If $a=p/q\in[0,1]\cap\mathbb Q$, their powers with exponents $pm'$ and $(q-p)m$ give a section in degree $qmm'$ at parameter $a\tau+(1-a)\tau'$. Its normalized logarithm is the corresponding convex combination. Taking suprema yields the concavity inequality outside the pluripolar exceptional sets of upper regularization; uniqueness of psh representatives extends it to all of $X$. Monotonicity in the parameter extends the inequality from rational to real $a$. This is the argument of \cite[Proposition~7.7]{RWN14}.
+
+The definition of $c_{\mathcal F}$ gives a nonzero filtered section at each $\tau<c_{\mathcal F}$, so $g_\tau^{\mathcal F}\not\equiv-\infty$ and it has small unbounded locus. The analytic input is the interior maximality theorem \cite[Proposition~7.11 and Corollary~7.12]{RWN14}. Together with \cite[proof of Proposition~6.10, equation~(6.6)]{RWN14}, it says that the regularized supremum just constructed is fixed by the maximal envelope for every $\tau<c_{\mathcal F}$. Thus $g_\tau^{\mathcal F}=P_\theta[g_\tau^{\mathcal F}]$. This step uses the source's division and envelope argument; it does not follow just from multiplicativity.
+
+For $\tau\leq C_-$ a globally generated degree gives a bounded lower obstacle, while $g_\tau^{\mathcal F}\leq0$. Its maximal envelope is therefore zero. Above $c_{\mathcal F}$ all filtered pieces vanish. Interior maximality gives supremum zero at each interior level. Their nested compact zero sets prevent the decreasing endpoint from collapsing identically to $-\infty$. By \Cref{lem:rays-closed-endpoint}, \eqref{eq:rf-filtration-closed-endpoint} gives the closed concave extension. The bounded RWN correspondence, \cite[Corollary~7.12]{RWN14} and \Cref{thm:rays-rwn}, now gives the weak geodesic. The absence of a further regularization is \Cref{prop:rays-legendre-well-defined}. Restricting the supremum to $[C_-,c_{\mathcal F}]$ proves the bounds and uniform convergence to zero as $t\downarrow0$.
 \end{proof}
 
-The inverse transform is
+The raw value $g_{c_{\mathcal F}}^{\mathcal F}$ is at most the closed endpoint, and that endpoint is the decreasing limit of the interior levels. Consequently $g^{\mathcal F}$ and $\Gamma^{\mathcal F}$ have the same forward Legendre supremum. The inverse transform, however, recovers the closed curve:
 \[
-             \Gamma_\tau^{\mathcal F}
-             =\inf_{t>0}(\ell_t^{\mathcal F}-t\tau).
+ \Gamma_\tau^{\mathcal F}
+       =\inf_{t>0}(\ell_t^{\mathcal F}-t\tau).
 \tag{65.17}\label{eq:rf-inverse-legendre}
 \]
-The value \(-\infty\) is retained when the infimum diverges downward.
+The value $-\infty$ is retained when the infimum diverges downward.
 
 \begin{proposition}\label{prop:rf-legendre-biconjugacy}
-On bounded maximal test curves and the corresponding weak geodesic rays,
-\eqref{eq:rf-filtration-ray} and
-\eqref{eq:rf-inverse-legendre} are inverse.
-Translation of filtration weights by \(mc\) gives
+On bounded maximal test curves with the closed endpoint convention and their weak geodesic rays, \eqref{eq:rf-filtration-ray} and \eqref{eq:rf-inverse-legendre} are inverse. Translation of filtration weights by $mc$ gives
 \[
  \Gamma_\tau\longmapsto\Gamma_{\tau-c},
- \qquad
- \ell_t\longmapsto\ell_t+ct.
+ \qquad \ell_t\longmapsto\ell_t+ct.
 \tag{65.18}\label{eq:rf-translation}
 \]
 \end{proposition}
 
 \begin{proof}
-For each \(x\) outside the common polar set,
-\(\tau\mapsto\Gamma_\tau(x)\) is a closed concave extended-real function.
-Fenchel--Moreau duality with the sign
-\(+t\tau\) gives pointwise biconjugacy.
-Maximality ensures that the psh regularizations do not enlarge a level after
-the inverse transform.
-Replacing \(\tau\) by \(\tau-c\) in the supremum gives
-\eqref{eq:rf-translation} directly.
+For every $x$, the profile $\tau\mapsto\Gamma_\tau(x)$ is closed, concave and decreasing, and is zero on a lower half-line. Its conjugate needs only slopes $t\geq0$; the value at $t=0$ is recovered by taking $t\downarrow0$. Fenchel--Moreau duality with the sign $+t\tau$ therefore gives the infimum over $t>0$. By \Cref{prop:rays-legendre-well-defined}, the forward supremum is already psh, so this scalar duality applies to the actual ray. For $\tau>c_{\mathcal F}$ the upper bound $\ell_t\leq c_{\mathcal F}t$ gives the required value $-\infty$. The endpoint is included by closedness. Substituting $\tau-c$ in the supremum proves \eqref{eq:rf-translation}, including the translated endpoint.
 \end{proof}
+
+\begin{example}\label{ex:rf-unattained-filtration-endpoint}
+On $(\mathbb P^1,\mathcal O(1))$ with the Fubini--Study reference, give every nonzero section of degree $m\geq1$ weight $m-1$. This is multiplicative because $m+m'-1\geq(m-1)+(m'-1)$; its filtration is left-continuous and linearly bounded. Here $c_{\mathcal F}=1$, $g_\tau^{\mathcal F}=0$ for $\tau<1$, but $g_1^{\mathcal F}=-\infty$: no degree attains normalized weight one. The closed endpoint is $\Gamma_1^{\mathcal F}=0$ and the ray is $\ell_t=t$. Its inverse at one equals zero, so it cannot recover the raw value $g_1^{\mathcal F}$.
+
+If instead every degree-$m$ section has weight $2\lfloor m/2\rfloor$, multiplicativity again holds. At $\tau=1$ all even-degree spaces are full and all odd-degree spaces vanish. The partial obstacles have no pointwise limit along all degrees: the even-degree sup-norm obstacles are zero for this reference, and the odd ones are $-\infty$. Indeed, at each point a unit linear form attains Fubini--Study norm one, and its $m$th power gives the full-series obstacle zero in degree $m$. Powers and tail suprema still give $g_1^{\mathcal F}=0$ and the same closed curve and ray. Thus left-continuity in the filtration index does not justify an unrestricted pointwise degree limit or supply the closed terminal value by itself.
+\end{example}
 
 \section{The factor-two firewall}
 \label{sec:rf-factor-two-firewall}
@@ -446,57 +464,90 @@ convention by changing only the numerator or only the radial parameter.
 
 \section{Algebraic test configurations and the Phong--Sturm ray}
 
-For a test configuration, choose an orthonormal basis
-\(s_{m,1},\ldots,s_{m,N_m}\) adapted to the filtration, with weights
-\(\lambda_{m,j}=\chi_m(s_{m,j})\).
-The weighted Bergman ray is
+Let $X$ be a connected projective complex manifold of dimension $n$ and let the ample line bundle $L$ carry the smooth positive metric $h$. Use the fixed smooth probability volume form $\mathrm dV$ and the $L^2$-norms of \Cref{sec:rf-filtered-test-curves}. For a decreasing, left-continuous, linearly bounded multiplicative filtration $\mathcal F$, choose an $L^2$-orthonormal basis $s_{m,1},\ldots,s_{m,N_m}$ adapted to the filtration, with weights $\lambda_{m,j}=\chi_m(s_{m,j})$. The weighted Bergman potential is
 \[
- \Phi_{m,t}
- :=\frac1m\log\left(
+ \Phi_{m,t}:=\frac1m\log\left(
        \sum_{j=1}^{N_m}\rme^{t\lambda_{m,j}}
-                 |s_{m,j}|_{h^m}^2\right).
+                    |s_{m,j}|_{h^m}^2\right),\qquad t\geq0.
 \tag{65.23}\label{eq:rf-bergman-ray}
 \]
-Our use of squared norms and the exponential in
-\eqref{eq:rf-bergman-ray} is fixed together; changing either convention
-requires changing the weights.
+It is independent of the choice of orthonormal bases in the orthogonal graded pieces. Degrees are sufficiently divisible for a rational polarization. The exponential uses the squared-norm radial variable $t=-\log|\zeta|^2$.
+
+\begin{lemma}\label{lem:rf-weighted-bergman-comparison}
+For all large admissible $m$, put
+\[
+ H_{m,t}:=\sup_\tau(B_{m,\tau}+t\tau),
+ \qquad H^{(2)}_{m,t}:=\sup_\tau(B^{(2)}_{m,\tau}+t\tau).
+\]
+With $\varepsilon_m$ from \eqref{eq:rf-bergman-norm-comparison},
+\[
+ \begin{gathered}
+ H^{(2)}_{m,t}\leq\Phi_{m,t}
+           \leq H^{(2)}_{m,t}+\frac{\log N_m}{m},\\
+ H_{m,t}\leq\Phi_{m,t}
+           \leq H_{m,t}+\varepsilon_m+\frac{\log N_m}{m}.
+ \end{gathered}
+\tag{65.23a}\label{eq:rf-weighted-bergman-comparison}
+\]
+The bounds are uniform in $x\in X$, $t\geq0$ and the filtration.
+\end{lemma}
+
+\begin{proof}
+Write $a_j=|s_{m,j}(x)|_{h^m}^2$. For every threshold $\tau$,
+\[
+ \sum_j\rme^{t\lambda_{m,j}}a_j
+   \geq\rme^{mt\tau}\sum_{\lambda_{m,j}\geq m\tau}a_j,
+\]
+since $t\geq0$. This proves the lower bound by $H^{(2)}_{m,t}$. Conversely the summand with index $j$ is at most $\exp(mH^{(2)}_{m,t})$, by taking threshold $\lambda_{m,j}/m$ and using the partial sum containing $a_j$. Summing the $N_m$ bounds proves the upper bound. Global generation makes all three full suprema finite in large degrees. The second line follows from \Cref{lem:rf-bergman-norm-comparison}. The logarithmic sum estimate compares $\Phi_{m,t}$ directly with the $L^2$ obstacles; passage to the sup-norm obstacles costs the additional $\varepsilon_m$.
+\end{proof}
+
+The norm error cannot in general be omitted, even in large degrees. On $(\mathbb P^1,\mathcal O(1))$ with the Fubini--Study metric, put $p=|x|^2/(|x|^2+|y|^2)$ and choose $\mathrm dV=(p+1/2)\omega_{\mathrm{FS}}$, with $\int\omega_{\mathrm{FS}}=1$. This is a smooth positive probability volume form. Give all sections weight zero. Monomials are orthogonal for this volume form, and
+\[
+ \|y^m\|_{2,m}^2
+   =\int_0^1(1-p)^m(p+1/2)\,\mathrm dp
+   =\frac{m+4}{2(m+1)(m+2)}.
+\]
+At $p=0$ only $y^m$ contributes to the Bergman sum. Thus $H_{m,t}=0$, while
+\[
+ \Phi_{m,t}=\frac1m\log\frac{2(m+1)(m+2)}{m+4}
+              >\frac{\log(m+1)}m=\frac{\log N_m}m
+ \qquad(m\geq1).
+\]
+The logarithmic sum error alone therefore does not compare the two norm conventions.
 
 \begin{theorem}\label{thm:rf-phong-sturm}
-Let \((\mathcal X,\mathcal L)\) be a normal relatively ample test
-configuration.
-The usc tail envelope
+For the filtration above, the usc tail envelope
 \[
- \Phi_t
- :=\lim_{k\to\infty}
-       \left(\sup_{m\geq k}\Phi_{m,t}\right)^*
+ \Phi_t:=\lim_{k\to\infty}
+               \left(\sup_{m\geq k}\Phi_{m,t}\right)^*
 \tag{65.24}\label{eq:rf-bergman-limit}
 \]
-is the Phong--Sturm weak geodesic ray.
-It equals the Legendre ray \(\ell_t^{\mathcal F}\) of the filtration
-defined by \eqref{eq:rf-tc-filtration}.
+equals $\ell_t^{\mathcal F}$ for $t\geq0$. For a normal relatively ample test configuration, with filtration \eqref{eq:rf-tc-filtration}, it is the Phong--Sturm weak geodesic ray in the fixed-linearization convention of \cite[Definition~9.1]{RWN14}. The limiting ray is independent of the auxiliary smooth probability volume form.
 \end{theorem}
 
 \begin{proof}
-For fixed \(m\), the elementary identity
+Put $\delta_m=\varepsilon_m+m^{-1}\log N_m$. Since $N_m=O(m^n)$, one has $\delta_m\to0$. The pointwise inequality $B_{m,\tau}\leq g_\tau^{\mathcal F}$ and the equality of the raw and closed Legendre suprema give
 \[
- \frac1m\log\sum_j \rme^{t\lambda_{m,j}}|s_{m,j}|^2
- \quad\text{is a logarithmic regularization of}\quad
- \sup_\tau\{B_{m,\tau}+t\tau\}
+ \Phi_{m,t}\leq\ell_t^{\mathcal F}+\delta_m.
 \]
-has error at most \(m^{-1}\log N_m\).
-Since \(N_m=O(m^n)\), the error tends to zero.
-Taking usc tail envelopes commutes with the asymptotic maximal envelope of
-the partial Bergman levels.
-Thus \eqref{eq:rf-bergman-limit} is the Legendre transform of
-\(\Gamma^{\mathcal F}\).
-Ross--Witt Nystr\"om
-\cite[Theorem~9.2]{RWN14} identifies this ray with the Phong--Sturm
-construction of \cite{PS07}.
+The ray is already psh and upper semicontinuous, so upper regularization preserves this bound. Taking a tail and then its decreasing limit gives $\Phi_t\leq\ell_t^{\mathcal F}$.
+
+For the reverse inequality, for every fixed $\tau$ the partial-sum estimate in the preceding proof gives
+\[
+            \Phi_{m,t}\geq B^{(2)}_{m,\tau}+t\tau.
+\]
+Take tail suprema and upper regularizations, then use \eqref{eq:rf-partial-bergman-tail} to obtain $\Phi_t\geq g_\tau^{\mathcal F}+t\tau$. Taking the supremum over $\tau<c_{\mathcal F}$ recovers $\ell_t^{\mathcal F}$, including the closed endpoint by its left limit. Thus both inequalities are proved without interchanging a parameter supremum with a limit. At $t=0$ the same bounds give $\Phi_0=0$. The estimates also apply to the joint envelopes on compact time intervals.
+
+For a test configuration, the resulting construction is \cite[Definition~9.1 and Theorem~9.2]{RWN14}, with the original weak-ray existence theorem in \cite[Theorem~1.1]{PS07}. The two inequalities above reconstruct the published proof of Theorem~9.2 using the uniform estimate from its Lemma~7.6. Since the sup-norm obstacles and their test curve do not involve $\mathrm dV$, equality with their ray proves the last assertion.
 \end{proof}
 
-The theorem gives convergence to a weak ray.
-It does not assert smooth convergence, uniform Hessian bounds, or regularity
-beyond that supplied by the cited construction.
+The fixed-linearization convention retains all weights. The original construction uses the traceless part of the generator and also rescales the basis by $m^{-n/2}$; see \cite[Sections~2.1 and~4.2]{PS07}. In the book's weight sign and time convention, put
+\[
+ \overline\lambda_m=\frac{1}{mN_m}\sum_j\lambda_{m,j}.
+\]
+Replacing $\lambda_{m,j}$ by $\lambda_{m,j}-m\overline\lambda_m$ changes $\Phi_{m,t}$ exactly to $\Phi_{m,t}-t\overline\lambda_m$. By the compactly supported spectral convergence in \Cref{thm:rf-dh-quantization}, $\overline\lambda_m$ tends to $\overline\lambda=\int\lambda\,\mathrm d\DHm^{\mathrm{prob}}(\mathcal F)$. The centered tail envelope is consequently $\ell_t^{\mathcal F}-t\overline\lambda$; the error $t|\overline\lambda_m-\overline\lambda|$ is uniform on compact time intervals. The basis rescaling subtracts $n\log m/m$ and has zero limit. These scalar corrections must be distinguished from the radial factor of two in \Cref{sec:rf-factor-two-firewall}.
+
+The conclusion is equality of usc tail envelopes. No smooth convergence or convergence of curvature tensors is inferred from the logarithmic sum estimate.
 
 \section{The exact commutative diagrams}
 
@@ -665,21 +716,23 @@ The first equality is exact at every level; the second records the first
 nontrivial convergence error.  Since the supports remain in \([0,1]\),
 these moment limits agree with Lebesgue measure on that interval.
 
-The associated Bergman expression can also be audited directly.  On the
-chart \(y\ne0\), put \(z=x/y\) and ignore the fixed smooth reference term.
-Then
+For the complex ray, use the Fubini--Study metric on $\mathcal O(1)$ and its curvature volume form of mass one. The squared $L^2$-norm of $x^j y^{m-j}$ is
 \[
- \frac1m\log\sum_{j=0}^m
-      \rme^{tj}|z|^{2j}
- \longrightarrow
- \max\{0,t+\log|z|^2\},
+ \int_0^1p^j(1-p)^{m-j}\,\mathrm dp
+      =\frac{j!(m-j)!}{(m+1)!},
+\]
+where $p=|x|^2/(|x|^2+|y|^2)$. Angular integration makes distinct monomials orthogonal, so the adapted orthonormal basis is
+\[
+                 s_{m,j}=\sqrt{(m+1)\binom mj}\,x^jy^{m-j}.
+\]
+The binomial theorem gives the exact identity
+\[
+ \Phi_{m,t}
+   =\frac{\log(m+1)}m+
+       \log\frac{|y|^2+\rme^t|x|^2}{|x|^2+|y|^2}.
 \tag{65.30}\label{eq:rf-p1-log-sum-limit}
 \]
-because the logarithm of a sum lies between the largest logarithm and that
-largest logarithm plus \(\log(m+1)\).  Formula
-\eqref{eq:rf-p1-log-sum-limit} checks the sign in the Legendre transform and
-the exponent in the squared-norm convention without invoking a regularity
-theorem.
+Thus the ray is $\ell_t=\log(1-p+\rme^t p)$, and the error is the constant $m^{-1}\log(m+1)$ for every $x$ and $t\geq0$. Since $\overline\lambda_m=1/2$ in every degree, the centered ray is $\ell_t-t/2$. The orthonormalizing coefficients are essential. On the chart $y\ne0$, the unnormalized sum $\sum_j\rme^{tj}|x/y|^{2j}$ instead gives the limit $\max\{0,t+\log|x/y|^2\}$ before subtracting the reference weight. At $t=0$ this would give $\max\{0,\log|x/y|^2\}-\log(1+|x/y|^2)$, which is not the chosen zero reference. It is therefore not the Bergman quantization in \eqref{eq:rf-bergman-ray}.
 
 For the induced action on \(\mathcal O(d)\), the degree-\(m\) weights are
 \(0,1,\ldots,dm\).  The probability DH limit has density \(d^{-1}\) on
@@ -1036,11 +1089,18 @@ The normalized energy slope is
 \tag{65.45}\label{eq:rf-p1-energy-slope}
 \]
 
-The partial Bergman space at level \(\tau\) is spanned asymptotically by
-monomials with \(j/m\geq\tau\).
-Its maximal envelope is constant at the reference level for \(\tau\leq0\),
-decreases for \(0<\tau<1\), and is \(-\infty\) for \(\tau>1\).
-Legendre transform gives the product weak ray.
+Use the Fubini--Study reference and write $p=|x|^2/(|x|^2+|y|^2)$. Formula \eqref{eq:rf-p1-log-sum-limit} gives the ray $\ell_t=\log(1-p+\rme^t p)$. For $0<p<1$, minimizing $\ell_t-t\tau$ over $t>0$ gives
+\[
+ \Gamma_\tau^{\mathcal F}
+ =\begin{cases}
+  0,&\tau\leq p,\\
+  \displaystyle\tau\log\frac p\tau
+       +(1-\tau)\log\frac{1-p}{1-\tau},&p<\tau<1,\\
+  \log p,&\tau=1,\\
+  -\infty,&\tau>1.
+ \end{cases}
+\]
+Indeed, for $p<\tau<1$ the minimizing time satisfies $\rme^t=\tau(1-p)/(p(1-\tau))$; for $\tau\leq p$ the infimum is the limit at $t=0$. At $p=0$ the level is zero for $\tau\leq0$ and $-\infty$ for $\tau>0$; at $p=1$ it is zero for $\tau\leq1$ and $-\infty$ for $\tau>1$. These are also the psh limiting values of the displayed formula. The endpoint is $\log p$ and the initial levels are zero for $\tau\leq0$, in agreement with the hyperplane calculation in \Cref{ex:rays-hyperplane-test-curve}.
 
 Twisting the linearization by \(c\) changes every weight to \(j+mc\).
 Equations \eqref{eq:rf-translation} and

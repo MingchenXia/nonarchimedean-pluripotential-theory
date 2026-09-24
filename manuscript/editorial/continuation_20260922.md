@@ -1446,16 +1446,45 @@ erratum quarantine, frozen records, verifier receipts and dated releases
 remain unchanged. This is a local exposition/proof audit, not a new
 independent-agent or production-verifier result.
 
+## Chapters 52 and 65: filtered Bergman envelopes and endpoints, 24 September 2026
+
+The [filtered Bergman and endpoint audit](ch65_filtered_bergman_endpoint_audit_20260924.md)
+proves the uniform L2/sup-norm comparison, cofinal tail identity and
+concavity of filtered obstacles. Interior maximality remains a precisely
+located source input. The closed terminal level is defined by its left
+limit, and scalar-weight P1 examples show why neither the raw terminal
+piece nor an unrestricted all-degree pointwise limit suffices.
+
+The weighted Bergman comparison includes the norm error. A smooth
+probability volume on P1 shows that this error cannot be omitted in any
+degree. Two inequalities identify the tail envelope with the Legendre ray;
+no envelope/limit interchange is assumed. The correct orthonormal P1 basis
+gives log(1-p+exp(t)p), its full inverse curve, and the centered ray obtained
+by subtracting t/2. The general mean-weight correction distinguishes the
+fixed-linearization convention from the original trace-free construction.
+Chapter 52's dependent hypotheses, endpoints and norm estimate are repaired.
+
+Two source/proof passes and full builds are complete. The final PDF has
+4,054 pages, with 396 inputs and 11,812 labels. Source, inventory and scoped
+house checks pass, with no unresolved references/citations, rerun requests
+or layout overflows. The 13 inherited Chapter 70 destination warnings
+remain. Fifteen final pages were visually reviewed. Exact arithmetic and
+separate numerical checks test the counterexamples, binomial formula and
+Legendre convention. The 43 active atoms, supplied integrations and
+originals, earlier Rees unit, factor-two section, BHJ19 quarantine, frozen
+records, verifier receipts and dated releases are unchanged. No new
+independent-agent or production-verifier result is claimed.
+
 ## Next work
 
-1. Continue with Chapter 65's filtered-section/test-curve construction:
-   check section-norm choices, concavity, endpoint closure, Legendre
-   limits and the Phong--Sturm comparison against the exact sources.
-   The algebraic Rees, normalization and raw/normalized base-change unit
-   is now checked. Keep the BHJ19 erratum scope explicit and preserve
-   the Chapter 64 continuity/truncation units and supplied integrations.
-   An order isomorphism of psh cones still does not identify distinct
-   singular measure operators.
+1. Continue with Chapter 65's DH quantization, energy/moment identities
+   and analytic commutative diagram: check the filtered-volume and
+   positive-mass hypotheses, raw/probability factors and precise primary
+   sources. The filtered Bergman, closed-endpoint and fixed-linearization
+   unit is now checked, as are the Rees/normalization and Chapter 64
+   continuity/truncation units. Keep the BHJ19 erratum scope explicit and
+   preserve the supplied integrations. An order isomorphism of psh cones
+   still does not identify distinct singular measure operators.
 2. P06.2, P03.1, P12.6 and P21.3 retain the boundaries in the new integration
    audit. In particular, finite ideal-gauge transfer does not by itself
    give singular geometric psh or Monge--Ampere functoriality. Do not reopen

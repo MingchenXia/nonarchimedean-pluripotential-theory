@@ -6,9 +6,16 @@ left blank in this release.
 
 **Current-source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (396 TeX files, 11,804 unique labels),
-and the full build produces a 4,050-page PDF with no unresolved reference
+The complete source check passes (396 TeX files, 11,812 unique labels),
+and the full build produces a 4,054-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
+The [filtered Bergman and endpoint audit](manuscript/editorial/ch65_filtered_bergman_endpoint_audit_20260924.md)
+closes the terminal filtration level, proves uniform norm comparison and
+identifies the Bergman tail envelope by two explicit inequalities.
+Counterexamples distinguish endpoint closure, missing degrees and the
+norm error. The projective-line ray uses the correct orthonormal basis;
+fixed linearization and trace-free normalization are related explicitly.
+Chapter 52's dependent statements are corrected.
 The [Rees and normalization audit](manuscript/editorial/ch65_rees_normalization_audit_20260924.md)
 reconstructs the filtration correspondence with section saturation and
 integral closure distinguished. A relative conic example shows that
