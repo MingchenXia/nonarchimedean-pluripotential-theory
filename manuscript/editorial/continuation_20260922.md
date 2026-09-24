@@ -1208,15 +1208,41 @@ unchanged. All 45 research atoms remain active as before. This is a local
 two-pass consequence audit, with no independent-agent or production-
 verifier verdict claimed.
 
+## Chapter 62: rational divisorial tests, 24 September 2026
+
+The [rational-testing audit](ch62_rational_tests_audit_20260924.md)
+proves a uniform dual-energy bound for varying masses on a fixed finite
+divisorial support. It gives strong and uniform continuity of normalized
+solutions, including zero weights. Rational mass vectors suffice to test
+the same finite-energy coercivity inequality with exactly the same
+constant. The completion proof now uses Chapter 61's simultaneous strong
+and entropy approximation directly. The optimal M/J infimum is unchanged
+when restricted to rational masses, with positive denominators and
+infinite/empty infima handled explicitly. This does not identify the
+different beta/E-dual threshold or remove the raw big-class restriction.
+
+Two complete local proof/source passes and full builds are complete.
+The final PDF has 3,995 pages; 390 inputs and 11,677 unique labels pass
+the reference/structure check, with no unresolved references/citations
+or layout overflows. Physical pages 3418--3421 and 3429--3430 were
+visually inspected. The scoped house audit has zero errors and one
+reviewed preprint warning. Following two automatic permission-review
+timeouts, the final build was performed in a temporary baseline export;
+the delivered source and PDF are the checked bytes. The factor-n block,
+all other Chapter 62 mathematics, Chapters 60--61, P12.1 integration,
+author originals, bibliography, frozen packets, verifier receipts and
+dated releases are preserved. All 45 research atoms are unchanged.
+No independent-agent audit or production-verifier pass is asserted.
+
 ## Next work
 
-1. Continue the Chapter 62 completion argument using the now-proved
-   finite-divisorial entropy approximation: audit the exact testing set,
-   preservation of the same coercivity constant, and the continuous
-   part of Mabuchi under this limit. Preserve the source boundaries
-   between PL envelopes, normalized models and raw big-class inequalities,
-   all completed Chapter 60--61 proofs, P12.1 integration/provenance,
-   and exact verifier-backed passages and receipts.
+1. Continue Chapter 62 at the finite-dimensional volume formula:
+   examine continuity and one-sided variations on the probability
+   simplex, especially zero weights and inactive constraints. Keep the
+   fixed-measure class derivative explicit, and preserve the distinction
+   between the exact M/J threshold and the comparable beta/E-dual one.
+   Preserve completed Chapter 60--61 proofs, the rational testing unit,
+   P12.1 integration/provenance and exact verifier-backed passages.
 2. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from stratified comparison.
    No extension beyond the current hypotheses is asserted.

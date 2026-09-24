@@ -6,7 +6,7 @@ left blank in this release.
 
 **Current-source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (390 TeX files, 11,673 unique labels),
+The complete source check passes (390 TeX files, 11,677 unique labels),
 and the full build produces a 3,995-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [P12.1 integration audit](manuscript/editorial/p121_integration_audit_20260923.md)
@@ -16,6 +16,13 @@ normalization branches, conductor descent, nonprimary gauges and nilpotent
 reduction settle P12.1; P12.2--P12.6 remain active. The original PDF is
 preserved byte for byte. This source integration has no new production
 verifier or independent-agent receipt.
+The [rational-testing audit](manuscript/editorial/ch62_rational_tests_audit_20260924.md)
+proves continuity under variation of finitely many divisorial masses and
+reduces finite-energy coercivity to rational-mass tests with the same
+constant. The optimal Mabuchi/J infimum is preserved, including its
+boundary cases. The completion proof now uses the established entropy
+approximation directly; normalized models and raw big classes retain
+their distinct scopes.
 The [atomic-approximation audit](manuscript/editorial/ch61_atomic_approximation_audit_20260924.md)
 constructs finite divisorial approximations with increasing energy and
 exactly preserved entropy on a fixed dual complex. It derives uniform

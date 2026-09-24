@@ -392,28 +392,77 @@ uniform \(\widehat K\)-stability (also called uniform
 test configurations; it is coercivity of a functional on the completed
 potential space.
 
+\begin{proposition}
+\label{prop:mpwn-finite-mass-continuity}
+Fix $N\geq1$ and $v_1,\ldots,v_N\in X^{\divis}$. For a probability vector
+$a=(a_1,\ldots,a_N)$, put $\mu_a=\sum_i a_i\delta_{v_i}$, and let
+$u_a\in\mathcal E^1_{\sup}(\alpha)$ solve $\MA_\alpha(u_a)=\mu_a$.
+Set $M=\max_iT(v_i)<+\infty$. For any two such vectors,
+\[
+ \begin{aligned}
+ |E_\alpha^\vee(\mu_a)-E_\alpha^\vee(\mu_b)|
+       &\leq M\sum_i|a_i-b_i|,\\
+ \Ent(\mu_a)-\Ent(\mu_b)
+       &=\sum_i(a_i-b_i)A_X^{\NA}(v_i).
+ \end{aligned}
+\tag{62.15a}\label{eq:mpwn-finite-mass-continuity}
+\]
+The maps $a\mapsto\mu_a$ and $a\mapsto u_a$ are strongly continuous,
+and the latter is also continuous for the uniform norm.
+\end{proposition}
+
+\begin{proof}
+For every sup-normalized $u\in\mathcal E^1(\alpha)$, the definition
+of $T$ gives $-M\leq u(v_i)\leq0$. Since $E_\alpha(u)\leq0$,
+the variational formula \eqref{eq:mpwn-dual-energy} gives
+$0\leq E_\alpha^\vee(\mu_a)\leq M$. Thus all the measures have
+finite energy, and their solutions exist by \Cref{thm:mpwn-cy}.
+The same bound gives
+\[
+ \left|\sum_i(a_i-b_i)u(v_i)\right|
+          \leq M\sum_i|a_i-b_i|.
+\]
+Take the supremum over normalized $u$ in the two dual energies,
+in both orders, to obtain the first estimate. The entropy identity
+follows by integration; each divisorial discrepancy is finite.
+Coordinate convergence of the masses gives weak convergence of
+the measures, and the first estimate gives convergence of their
+dual energies. This is strong convergence. The Calabi--Yau
+homeomorphism then gives strong convergence of the solutions.
+Finally put all $v_i$ in one dual complex and apply
+\Cref{cor:mpwn-fixed-complex-uniform-solutions} to obtain uniform
+convergence. Zero masses and the case $M=0$ are included.
+\end{proof}
+
+Let $\mathcal T_{\mathbf Q}(\alpha)$ denote the sup-normalized
+solutions whose Monge--Amp\`ere measures have finite divisorial
+support and rational nonnegative masses. The masses sum to one;
+no restriction to one fixed finite support is imposed.
+
 \begin{theorem}\label{thm:mpwn-model-e1-equivalence}
-The following conditions are equivalent:
+Fix $\delta\in\mathbf R$. The following conditions, with this
+same $\delta$, are equivalent:
 \begin{enumerate}
-\item there is \(\delta>0\) such that
-      \eqref{eq:mpwn-bk-stability} holds on all
-      \(\mathcal E^1(\alpha)\);
-\item it holds for every continuous \(\alpha\)-psh \(\phi\) whose
+\item inequality \eqref{eq:mpwn-bk-stability} holds for every
+      $u\in\mathcal E^1(\alpha)$;
+\item it holds for every continuous $\alpha$-psh $u$ whose
       Monge--Amp\`ere measure is supported on one dual complex;
-\item it holds for every real PL envelope \(P_\alpha(f)\), with
-      \(f\in\PL_{\mathbf R}\).
+\item it holds for every real PL envelope $P_\alpha(f)$,
+      with $f\in\PL_{\mathbf R}$;
+\item it holds for every sup-normalized $u$ whose
+      Monge--Amp\`ere measure has finite divisorial support;
+\item it holds for every $u\in\mathcal T_{\mathbf Q}(\alpha)$.
 \end{enumerate}
-Consequently, the normalized model inequality is equivalent to uniform
-$\widehat K$-stability.  Uniform K-stability for all big models implies
-these equivalent conditions.
+For $\delta>0$, these conditions are equivalent to the normalized
+model inequality with the same constant. Uniform K-stability for
+all big models implies these conditions with its given constant.
 \end{theorem}
 
 \begin{proof}
-Fix the same $\delta>0$ in all three conditions.
-We first record the continuity needed in the two limiting arguments.
+We first record the continuity needed for passing to limits.
 The submean value property is supplied by
 $u(v_{\triv})=\sup u$, and orthogonality by
-\Cref{thm:mpwn-orthogonality}.  Applied to the analytic-model
+\Cref{thm:mpwn-orthogonality}. Applied to the analytic-model
 energy pairing, \cite[(4.2) and Proposition~4.5,
 pp.~191--193]{BJ25FiniteEnergy} therefore provides a strongly
 continuous twisted-energy functional
@@ -429,124 +478,104 @@ This identity extends to every $u\in\mathcal E^1(\alpha)$.
 Indeed, take a decreasing model net $u_\lambda\downarrow u$.
 Decreasing continuity of energy makes this convergence strong,
 so $\MA_\alpha(u_\lambda)\to\MA_\alpha(u)$ strongly by
-\Cref{thm:mpwn-strong-quasimetrics}.  On the right, decreasing
+\Cref{thm:mpwn-strong-quasimetrics}. On the right, decreasing
 continuity of the finite mixed pairings defining
 \eqref{eq:mp-twisted-energy} gives the asserted limit.
 Consequently
 \[
  M_\alpha^{\NA}(u)
        =G_\alpha(\MA_\alpha(u))+\Ent(\MA_\alpha(u)).
-\tag{62.15a}\label{eq:mpwn-mabuchi-continuous-part}
+\tag{62.15b}\label{eq:mpwn-mabuchi-continuous-part}
 \]
-The first summand is finite and strongly continuous.  The entropy
-summand requires a separate argument at each limit below.
+The first summand is finite and strongly continuous. Entropy
+convergence will be checked separately in each application.
+We may normalize potentials throughout by
+\Cref{prop:mp-stability-normalized-tests}.
 
-Condition (1) implies (2) by restriction.  To prove (2) implies (3),
+Condition (1) implies (2) by restriction. To prove (2) implies (3),
 write $f=f_D$ on an snc model and choose $c$ with $f+c\geq1$.
 The envelope is continuous by \Cref{thm:mpwn-envelope-continuity}.
 Formula \eqref{eq:mpwn-big-envelope-ma}, applied to $D+c\cX_0$,
 shows that $\MA_\alpha(P_\alpha(f))$ is supported on the finite
 vertex set of that model: adding $c$ translates the envelope and
-leaves its Monge--Amp\`ere measure unchanged.  Condition (2) therefore
-applies.
+leaves its Monge--Amp\`ere measure unchanged. Condition (2)
+therefore applies. Condition (3) implies (4) by
+\Cref{cor:mpwn-divisorial-envelope}, and (4) implies (5) by restriction.
 
-Suppose (2) holds, and let $u\in\mathcal E^1(\alpha)$.
-Normalize $\sup u=0$ and put $\mu=\MA_\alpha(u)$.
-If $\Ent(\mu)=+\infty$, then \eqref{eq:mpwn-mabuchi-continuous-part}
-gives $M_\alpha^{\NA}(u)=+\infty$, whereas $J_\alpha(u)$ is finite.
-The desired inequality follows in this case.
-Otherwise, \Cref{thm:mpwn-measure-approximation} gives a sequence
-$\mu_j$ supported on dual complexes, converging strongly to $\mu$
-with $\Ent(\mu_j)\to\Ent(\mu)$.
-By \Cref{thm:mpwn-cy,thm:mpwn-dual-complex-regularity}, their
-sup-normalized solutions $u_j$ are continuous and converge strongly
-to $u$.  Hence $J_\alpha(u_j)\to J_\alpha(u)$, and
-\eqref{eq:mpwn-mabuchi-continuous-part} gives
-$M_\alpha^{\NA}(u_j)\to M_\alpha^{\NA}(u)$.
-Passing the inequality in (2) to the limit proves (1).
+For (5) implies (4), write $\MA_\alpha(u)=\sum_i a_i\delta_{v_i}$
+and choose rational probability vectors $a^{(j)}\to a$ on this
+same finite support. Explicitly, take
+$a_i^{(j)}=\lfloor ja_i\rfloor/j$ for $i<N$ and
+$a_N^{(j)}=1-\sum_{i<N}a_i^{(j)}$. These are nonnegative
+and converge to the prescribed masses, including on the boundary
+of the probability simplex. By \Cref{prop:mpwn-finite-mass-continuity},
+the normalized solutions $u_j$ converge strongly to $u$, and
+$\Ent(\MA_\alpha(u_j))\to\Ent(\MA_\alpha(u))$.
+Equation \eqref{eq:mpwn-mabuchi-continuous-part} and strong
+continuity of $J_\alpha$ give
+\[
+ M_\alpha^{\NA}(u_j)-\delta J_\alpha(u_j)
+       \longrightarrow M_\alpha^{\NA}(u)-\delta J_\alpha(u).
+\]
+All these numbers are finite, so nonnegativity passes to the limit.
 
-It remains to prove (3) implies (2).
-Let $u$ be continuous and $\alpha$-psh, with
-$\operatorname{supp}\mu\subseteq\Delta:=i_{\cX}(\Delta_{\cX})$
-for $\mu=\MA_\alpha(u)$.
-Write $r=i_{\cX}\circ p_{\cX}$ and $h=u|_\Delta$.
-The retraction inequality \eqref{eq:mpwn-retraction-majorant}
-gives $u\leq h\circ r$.  Therefore
-$u\leq P_\alpha(h\circ r)$, with equality on $\Delta$,
-since $r|_\Delta$ is the identity and the envelope lies below its
-continuous obstacle.  Applying \Cref{cor:mpwn-domination} with
-reference potential $u$ gives
-\[
-                         P_\alpha(h\circ r)=u.
-\]
+Finally suppose (4) holds and let $u\in\mathcal E^1_{\sup}(\alpha)$.
+If its entropy is infinite, \eqref{eq:mpwn-mabuchi-continuous-part}
+gives $M_\alpha^{\NA}(u)=+\infty$, while $\delta J_\alpha(u)$ is
+finite. Otherwise \Cref{cor:mpwn-divisorial-entropy-density} gives
+normalized PL envelopes $u_j\to u$ strongly, with finite divisorial
+Monge--Amp\`ere support and convergent entropy. Thus the preceding
+display again holds, proving (1). The test constant does not change
+in either limit; no comparison with the reverse distance
+$E_\alpha^\vee(\MA_\alpha(u))$ is used here.
 
-We use the toroidal subdivision construction in the proof of
-\cite[Theorem~9.2.1, implication $(3)\Rightarrow(2)$]{MPWN25}.
-It gives snc models $\cX_j$ whose embedded dual complexes are
-subdivisions of this same subset $\Delta$, with mesh tending to zero.
-Their retractions agree with $r$: retraction compatibility gives
-$r\circ r_{\cX_j}=r$, while their common image is $\Delta$.
-This is the geometric input; an arbitrary smooth-center blowup
-need not preserve the embedded dual complex.
-
-On each subdivision let $h_j$ be the affine interpolant of the
-values of $h$ at its vertices.  If a simplex has vertices
-$w_{j,k}$ and $w=\sum_k\lambda_k w_{j,k}$, then
-\[
-             h_j(w)=\sum_k\lambda_k h(w_{j,k}).
-\]
-The restriction $h$ is convex on each original face by
-\Cref{thm:mpwn-convex-restriction}.  Uniform continuity on the
-finite complex thus gives
-\[
-       0\leq h_j-h\leq\varepsilon_j,\qquad
-       \varepsilon_j\longrightarrow0,
-\]
-where $\varepsilon_j$ is the largest oscillation of $h$ on a
-simplex of the subdivision.
-Write $(\cX_j)_0=\sum_k b_{j,k}E_{j,k}$ and
-$w_{j,k}=v_{E_{j,k}}$.  The real vertical divisor
-\[
-                 D_j:=\sum_k b_{j,k}h(w_{j,k})E_{j,k}
-\]
-represents $f_j:=h_j\circ r$.
-The factors $b_{j,k}$ ensure $f_{D_j}(w_{j,k})=h(w_{j,k})$;
-no rational approximation of the vertex values is needed for
-$\PL_{\mathbf R}$.
-Monotonicity and translation invariance of the envelope give
-\[
- u\leq u_j:=P_\alpha(f_j)\leq u+\varepsilon_j.
-\]
-In particular, $u_j\to u$ uniformly and strongly:
-pointwise convergence holds on the divisorial locus, and
-monotonicity of energy gives
-$0\leq E_\alpha(u_j)-E_\alpha(u)\leq\varepsilon_j$.
-Thus $\mu_j:=\MA_\alpha(u_j)$ converges strongly, hence weakly,
-to $\mu$.
-
-Choose $c_j$ with $f_j+c_j\geq1$ and apply
-\eqref{eq:mpwn-big-envelope-ma} to $D_j+c_j(\cX_j)_0$.
-It gives $\operatorname{supp}\mu_j\subseteq\{w_{j,k}\}_k\subseteq\Delta$.
-The reduced discrepancy has the fixed continuous model representative
-\[
-                   a_{\cX}:=(A_X^{\NA}|_\Delta)\circ r
-\]
-on $X^{\bethan}$, because it is affine on every face of $\Delta$.
-Since all the measures in question are supported on $\Delta$,
-\[
- \Ent(\mu_j)=\int a_{\cX}\,\rd\mu_j
-       \longrightarrow\int a_{\cX}\,\rd\mu=\Ent(\mu).
-\]
-This uses one continuous test function independent of $j$;
-weak convergence alone would not suffice for the globally
-lower semicontinuous discrepancy.
-Now \eqref{eq:mpwn-mabuchi-continuous-part} and strong continuity
-of $J_\alpha$ allow the inequality in (3) to pass to $u$.
-
-Finally, \Cref{cor:mpwn-model-stability-pl-envelopes} identifies
-(3) with the normalized model inequality, with the same $\delta$.
-The all-big-model condition implies it by restriction to $f_D\geq1$.
+For positive $\delta$, \Cref{cor:mpwn-model-stability-pl-envelopes}
+identifies (3) with the normalized model inequality with the same
+constant. Stability for every big model implies it by restriction
+to $f_D\geq1$.
 \end{proof}
+
+\begin{corollary}\label{cor:mpwn-rational-stability-threshold}
+The optimal constant defined in
+\Cref{prop:mp-stability-normalized-tests} satisfies
+\[
+ \delta_{\max}(X,\alpha)
+    =\inf_{\substack{u\in\mathcal T_{\mathbf Q}(\alpha)\\
+                          J_\alpha(u)>0}}
+                       \frac{M_\alpha^{\NA}(u)}{J_\alpha(u)}.
+\tag{62.15c}\label{eq:mpwn-rational-stability-threshold}
+\]
+The infimum can be $-\infty$, and an empty testing set has
+infimum $+\infty$.
+\end{corollary}
+
+\begin{proof}
+Every test on the right has finite entropy, so the original
+infimum is at most this one. Conversely take a normalized
+finite-entropy $u$ with $J_\alpha(u)>0$. Approximate it strongly
+with entropy convergence by solutions with finite divisorial support, as above.
+Their $J$ values converge to the positive number $J_\alpha(u)$,
+so the ratios converge to $M_\alpha^{\NA}(u)/J_\alpha(u)$.
+For each approximant, rationally approximate its masses on its
+own finite support. The same ratio convergence follows from
+\Cref{prop:mpwn-finite-mass-continuity} and
+\eqref{eq:mpwn-mabuchi-continuous-part}. Discarding finitely many terms keeps both denominators positive.
+A diagonal choice makes the two ratio errors tend to zero,
+proving the reverse inequality.
+This also treats an infimum of $-\infty$. If the full testing set
+is empty then the restricted one is empty; conversely the
+approximation just proved turns any full test into a restricted
+test with positive $J$.
+\end{proof}
+
+Only the masses in this test are rational. The associated PL
+obstacles may have real coefficients, and their envelopes need
+not be model psh functions. The finite supports still range over
+all divisorial points. In \Cref{ex:mp-p1-stability-obstruction},
+the rational parameters $0<a<1$ give positive ratios tending to
+zero as $a\to1$; the endpoint itself has positive $J$ and zero
+Mabuchi energy. Positivity of each ratio in a family therefore
+does not provide a common positive coercivity constant.
 
 \begin{corollary}\label{cor:mpwn-model-stability-csck}
 If \((X,\alpha)\) is uniformly K-stable for models, then it satisfies the
@@ -1157,8 +1186,11 @@ Normalized model inequality
 $\Leftrightarrow$ finite-energy uniform stability\par\nopagebreak
 
 \textbf{Status used here}\par\nopagebreak
-\Cref{thm:mpwn-model-e1-equivalence}, using
-\cite[Theorem~9.2.1]{MPWN25}.\par\nopagebreak
+\Cref{thm:mpwn-model-e1-equivalence}, proved from the entropy
+approximation in \Cref{cor:mpwn-divisorial-entropy-density}; compare
+\cite[Theorem~9.2.1, pp.~34--35]{MPWN25}. The finite-support
+continuity argument also permits rational masses with the same
+constant.\par\nopagebreak
 
 \textbf{What it does not imply}\par\nopagebreak
 The converse to stability for every raw big class requires the
@@ -1209,11 +1241,15 @@ nonprojective compact K\"ahler class.
 
 Definitions and positive-intersection invariants are MPWN25
 Sections~1.1 and 2.1.  The exact envelope/intersection identities are
-Section~9.1, with the independently verified coefficient correction isolated
-at \eqref{eq:mpwn-s-constant}.  Finite-energy stability implies cscK is
-\cite[Theorem~2.4.3]{MPWN25}; equivalence of model and finite-energy
-stability and the model cscK implication are Section~9.2.  These conclusions
-are imported from that later source.  The reduced entropy lower bound
+Section~9.1, with the independently verified coefficient correction isolated at \eqref{eq:mpwn-s-constant}.
+The cscK implications are imported from
+\cite[Theorem~2.4.3 and Corollary~9.2.2]{MPWN25}.
+Theorem~9.2.1 of that source supplies the completion argument's
+antecedent. Here the normalized model equivalence is deduced from
+\Cref{cor:mpwn-divisorial-entropy-density} and the continuous
+twisted energy of \cite[Proposition~4.5]{BJ25FiniteEnergy}.
+The fixed-mass estimates and rational testing formula are proved
+above, with the raw big-class distinction retained.  The reduced entropy lower bound
 proved in \Cref{thm:mp-reduced-entropy-slope} also gives
 \eqref{eq:mpwn-model-mabuchi-slope}, but does not replace the imported
 cscK existence theorem.  The measure-theoretic beta invariant and valuative
