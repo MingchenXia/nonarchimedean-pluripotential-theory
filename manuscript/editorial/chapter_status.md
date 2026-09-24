@@ -2817,3 +2817,27 @@ All other chapters, P12.1 provenance, author originals, bibliography,
 frozen packets, verifier receipts and dated releases are preserved.
 All 45 research atoms are unchanged. No independent-agent or production-
 verifier pass is claimed.
+
+## Chapter 63: volume normalization and contact masses, 24 September 2026
+
+The [normalization audit](ch63_normalization_audit_20260924.md) records the
+fixed-class conversion between probability and mass-V energies, dual
+energies and Monge--Ampere measures. Both finite-constraint Legendre
+formulas are transported to the closed mass-V simplex. The threshold
+gradient gives raw contact masses, and the inward mass derivative pairs
+with the same normalized solution. A degree-d projective-line example
+checks the volume factor, both boundary half-lines and the degree-two
+mass/probability distinction. The model/ray comparison keeps f_D >= 1,
+the corrected scalar coefficient and the Mabuchi slope inequality;
+a constant ray separately detects the discrepancy shift.
+
+Two complete local proof/source passes and full build rounds are complete.
+The final PDF has 4,001 pages; 390 inputs and 11,695 unique labels pass
+the reference/structure check. No unresolved references/citations or layout
+overflows remain. The final new section, its transition and the edited
+comparison-ledger entry were visually inspected. The scoped house audit
+has zero errors and one reviewed exact-preprint warning. All 45 research
+atoms, Chapters 60--62, P12.1 provenance, supplied originals, bibliography,
+frozen packets, verifier receipts and dated releases retain their baseline
+bytes. No independent-agent or production-verifier pass is claimed.
+The previously pending commit 569bace was successfully pushed this round.

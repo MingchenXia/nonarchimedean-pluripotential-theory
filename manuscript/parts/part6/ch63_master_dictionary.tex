@@ -768,6 +768,106 @@ argument.  For a non-nef pseudo-effective class,
 relatively nef MP model signature cannot even have the required
 generic-fibre class.
 
+\section{Volume normalization of energies and contact masses}
+\label{sec:dict-volume-normalization}
+
+Let $(X,\omega)$ be a connected compact K\"ahler manifold of dimension $n\geq1$, and put $\alpha=[\omega]$ and $V=\int_X\omega^n$. The functionals $E_\alpha$ and $E_\omega$ in \cref{chap:mp-psh} are divided by $V$. To express the same data in the mass-$V$ convention of \eqref{eq:dict-energy-translation}, write
+\[
+ \mathscr E_\alpha:=VE_\alpha,\qquad
+ \mathscr{MA}_\alpha:=V\MA_\alpha,\qquad
+ \mathscr E_\omega:=VE_\omega.
+\]
+The class $\alpha$ and every potential remain fixed in this conversion. In particular, $\mathscr E_\alpha(\phi+c)=\mathscr E_\alpha(\phi)+Vc$ and $\mathscr{MA}_\alpha(\phi)$ has mass $V$.
+
+For a finite-energy $\mathcal I$-maximal test curve $\Gamma$ with least singular limit zero, let $U=U(0,\phi)$ be the corresponding maximal ray of \cref{thm:mp-dxz-common-locus}. With the book's parameter $s=-\log|z|^2$, its numerical dictionary is
+\[
+ \mathbf E^0(\Gamma)=\mathscr E_\alpha(\phi)
+       =\frac{\mathscr E_\omega(U_s)}s
+       =V E_\alpha(\phi)\qquad(s>0).
+\tag{63.14b}\label{eq:dict-raw-radial-energy}
+\]
+Here $\mathbf E^0$ is the unnormalized test-curve energy in \eqref{eq:rays-test-energy}. This is \eqref{eq:mp-test-curve-energy}, equivalently \cite[Theorem~2.6(iii), equation~(34)]{DXZ23}, multiplied by the reference volume. The volume is not the mass of the terminal level, which may vanish. Changing from the ordinary-norm to the squared-norm convention also changes the potential, as explained before \cref{thm:pseff-kahler-finite-energy-link}; it is a separate operation from dividing an energy by $V$.
+
+For a positive Radon measure $\nu$ of mass $V$ such that $\nu/V$ has finite energy, define
+\[
+ \mathscr E_\alpha^\vee(\nu)
+  :=\sup_{\phi\in\mathcal E^1(\alpha)}
+       \left\{\mathscr E_\alpha(\phi)-\int\phi\,\rd\nu\right\}
+  =V E_\alpha^\vee(\nu/V).
+\tag{63.14c}\label{eq:dict-raw-dual-energy}
+\]
+Every integral is finite by the finite-energy hypothesis. Factoring $V>0$ out of each competitor proves the equality, in agreement with the probability convention of \cite[Section~2.3.2, p.~12]{MPWN25}.
+
+\begin{proposition}\label{prop:dict-contact-mass-normalization}
+\predisplaypenalty=10000
+Let $F_1,\ldots,F_\ell$, with $\ell\geq1$, be distinct prime divisors on a common smooth compact K\"ahler modification of $X$, and put $v_i=\ord_{F_i}$. For $t\in\mathbf R^\ell$, let $\phi_t$ be the finite-constraint envelope in \eqref{eq:mpwn-constrained-envelope} and set
+\[
+ \begin{gathered}
+ \Sigma_{\ell,V}:=\{m\in\mathbf R_{\geq0}^\ell:\textstyle\sum_i m_i=V\},\\
+ \mathscr f(t):=\mathscr E_\alpha(\phi_t),\qquad
+ \mathscr g(m):=\mathscr E_\alpha^\vee
+                          \Bigl(\sum_i m_i\delta_{v_i}\Bigr).
+ \end{gathered}
+\]
+For $m\in\Sigma_{\ell,V}$,
+\begin{align}
+ \mathscr g(m)&=\sup_{t\in\mathbf R^\ell}
+                         \{\mathscr f(t)-m\cdot t\},\notag\\
+ \mathscr f(t)&=\min_{m\in\Sigma_{\ell,V}}
+                         \{\mathscr g(m)+m\cdot t\}.
+\tag{63.14d}\label{eq:dict-raw-legendre-duality}
+\end{align}
+The function $\mathscr f$ is concave and $C^1$. Its gradient is the unique minimizer in the second line and gives the unnormalized contact measure:
+\[
+ \mathscr{MA}_\alpha(\phi_t)
+       =\sum_i\frac{\partial\mathscr f}{\partial t_i}(t)\delta_{v_i},
+ \qquad
+ \sum_i\frac{\partial\mathscr f}{\partial t_i}(t)=V.
+\tag{63.14e}\label{eq:dict-raw-contact-gradient}
+\]
+If $u_{m/V}$ is the sup-normalized solution with probability measure $\sum_i(m_i/V)\delta_{v_i}$, and $h\in\mathbf R^\ell$ satisfies $\sum_i h_i=0$ and $m+\varepsilon h\in\Sigma_{\ell,V}$ for all sufficiently small $\varepsilon\geq0$, then
+\[
+ \left.\frac{\rd}{\rd\varepsilon}\right|_{\varepsilon=0+}
+        \mathscr g(m+\varepsilon h)
+             =-\sum_i h_i u_{m/V}(v_i).
+\tag{63.14f}\label{eq:dict-raw-mass-derivative}
+\]
+\end{proposition}
+
+\begin{proof}
+Write $\xi=m/V$ and $g_\alpha(\xi)=E_\alpha^\vee(\sum_i\xi_i\delta_{v_i})$. Equations \eqref{eq:dict-raw-dual-energy} and \eqref{eq:mpwn-energy-legendre} give $\mathscr g(m)=Vg_\alpha(\xi)$ and $\mathscr f=Vf_\alpha$. Multiplication of \eqref{eq:mpwn-energy-legendre} and \eqref{eq:mpwn-threshold-duality} by $V$ proves the two duality formulas, since $\xi\mapsto V\xi$ is a bijection of the closed mass simplices. The regularity, gradient and uniqueness assertions follow from \cref{prop:mpwn-threshold-derivative}; specifically, $\nabla\mathscr f=V\nabla f_\alpha$. For the last formula apply \eqref{eq:mpwn-mass-derivative} in direction $h/V$ and multiply by $V$. The factors cancel. This proves the one-sided assertion also at zero masses; an arbitrary maximizing threshold with inactive slack cannot replace the normalized solution there.
+\end{proof}
+
+\begin{example}\label{ex:dict-degree-d-contact-masses}
+Take $X=\mathbf P^1$, $\alpha=d\,c_1(\cO(1))$ with $d>0$, and the two divisors $0,\infty$. Here $V=d$. For thresholds $(0,b)$, \cref{thm:mpwn-volume-formula} uses the residual degree
+\[
+                    \bigl(d-\lambda_+-(\lambda-b)_+\bigr)_+.
+\]
+Integrating this piecewise affine function gives
+\[
+ \mathscr f(0,b)=
+ \begin{cases}
+   db+d^2/2,&b\leq-d,\\
+   d^2/4+db/2-b^2/4,&-d\leq b\leq d,\\
+   d^2/2,&b\geq d.
+ \end{cases}
+\]
+Its derivative with respect to $b$ is respectively $d$, $(d-b)/2$ and $0$, the mass at $\ord_\infty$; the other mass is $d$ minus this derivative. Maximizing $\mathscr f(0,b)-m_2b$ for $m_1+m_2=d$ gives
+\[
+                    \mathscr g(m_1,m_2)=\frac{m_1^2+m_2^2}{2}.
+\]
+The maximizing thresholds are $b=m_1-m_2$ if $m_1m_2>0$, $b\geq d$ if $m_2=0$, and $b\leq-d$ if $m_1=0$. At $d=2$ and $b=0$, the mass-$d$ and probability gradients are $(1,1)$ and $(1/2,1/2)$, respectively.
+\end{example}
+
+The same factor controls the model/ray comparison. For a smooth dominating model $(\mathcal X,A+D)$ of this fixed $(X,\alpha)$ with $A$ the pullback of $\alpha$, $f_D\geq1$, and $\phi_D=P_\alpha(f_D)$, \eqref{eq:mpwn-model-functional-identities} gives
+\[
+ J^{\NA}(\mathcal X,A+D)=VJ_\alpha(\phi_D),\qquad
+ M^{\NA}(\mathcal X,A+D)=VM_\alpha^{\NA}(\phi_D).
+\]
+These are the identities of \cite[Theorem~9.1.1, p.~31]{MPWN25}, with the scalar coefficient corrected in \eqref{eq:mpwn-s-constant}. Thus dividing both sides of the model coercivity inequality by $V$ preserves its constant. By \eqref{eq:mpwn-model-ray-slopes}--\eqref{eq:mpwn-model-mabuchi-slope}, the $J$ identity continues to the ray slope, while the Mabuchi comparison gives only a lower bound for that slope. The model condition $f_D\geq1$ remains part of this arrow.
+
+The discrepancy convention must also be retained. Since $A^{\mathrm{tot}}=A_X^{\NA}+1$, replacing the reduced discrepancy by the total discrepancy adds $1$ to the probability entropy and $V$ to its mass-$V$ counterpart. For a constant datum $\phi=c$, the maximal ray is $U_s=cs$, $M_\alpha^{\NA}(c)=M_\omega(U_s)=0$, and its Mabuchi slope is zero. The total-discrepancy replacement in $VM_\alpha^{\NA}$ would instead give the positive value $V$. Thus the constant-ray test detects the entropy shift independently of the volume factor.
+
 \section{Degenerations, filtrations, and rays}
 
 There is a second diagram inside the projective complex domain.
@@ -965,7 +1065,7 @@ connected smooth projective complex variety and an ample
 DXZ finite-energy metrics / MP finite-energy psh functions\par\nopagebreak
 
 \textbf{Status}\par\nopagebreak
-bijection with matching radial energy\par\nopagebreak
+bijection with probability-normalized radial energy\par\nopagebreak
 
 \textbf{Exact common locus}\par\nopagebreak
 K\"ahler class on a compact K\"ahler manifold; finite-energy maximal radial
