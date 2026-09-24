@@ -3038,3 +3038,33 @@ Supplied integrations, originals, prior checked sections, frozen records,
 verifier receipts and dated releases are unchanged. The analytic diagram
 and the remaining BHJ19 slope proof are still queued for review. No new
 independent-agent or production-verifier result is claimed.
+
+## Chapter 65: analytic comparison and normalization, 24 September 2026
+
+The [analytic comparison audit](ch65_analytic_square_audit_20260924.md)
+replaces the unjustified valuation/supremum/envelope passage with a finite
+flag-ideal comparison. Rees generation gives inclusion in the coefficient-
+ideal filtration; the precise DXZ flag-ideal lemma supplies the analytic
+upper bound, and individual sections give the reverse bound. Veronese
+degree, character shift, zero spread and closed endpoints are explicit.
+BJ divisorial determination then gives equality at every semivaluation.
+
+Section saturation and integral closure preserve the closed test curve
+and its ray with fixed reference metric, by the checked I-model order
+reflection theorem. A P1 example quantifies the finite-level discrepancy:
+normalization changes Bergman potentials by at most t/m, although their
+limiting rays coincide. Odd degrees at t=m show why this bound cannot
+give uniform convergence on the entire half-line.
+
+Two proof/source passes and full builds are complete. The final PDF has
+4,062 pages, and source checks pass with 396 inputs and 11,821 labels.
+The inventory remains 43 atoms in 13 environments. There are no scoped
+house-audit errors or warnings, unresolved references/citations, rerun
+requests or layout overflows. The 13 inherited Chapter 70 destination
+warnings remain. Seven final PDF pages were visually checked. Exact
+flag/coefficient calculations and numerical Bergman checks test the
+example conventions. The earlier chapter sections, supplied integrations
+and originals, ledgers, frozen packets, verifier receipts and dated
+releases are unchanged. This is a local proof/exposition audit, not a new
+independent-agent or production-verifier result. The remaining BHJ19
+slope proof is the next bounded review unit.

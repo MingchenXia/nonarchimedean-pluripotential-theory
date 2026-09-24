@@ -1505,16 +1505,44 @@ verifier receipts and dated releases are unchanged. The analytic diagram
 and the remaining BHJ19 slope proof are still queued for review. No new
 independent-agent or production-verifier result is claimed.
 
+## Chapter 65: analytic comparison and normalization, 24 September 2026
+
+The [analytic comparison audit](ch65_analytic_square_audit_20260924.md)
+replaces the unjustified valuation/supremum/envelope passage with a finite
+flag-ideal comparison. Rees generation gives inclusion in the coefficient-
+ideal filtration; the precise DXZ flag-ideal lemma supplies the analytic
+upper bound, and individual sections give the reverse bound. Veronese
+degree, character shift, zero spread and closed endpoints are explicit.
+BJ divisorial determination then gives equality at every semivaluation.
+
+Section saturation and integral closure preserve the closed test curve
+and its ray with fixed reference metric, by the checked I-model order
+reflection theorem. A P1 example quantifies the finite-level discrepancy:
+normalization changes Bergman potentials by at most t/m, although their
+limiting rays coincide. Odd degrees at t=m show why this bound cannot
+give uniform convergence on the entire half-line.
+
+Two proof/source passes and full builds are complete. The final PDF has
+4,062 pages, and source checks pass with 396 inputs and 11,821 labels.
+The inventory remains 43 atoms in 13 environments. There are no scoped
+house-audit errors or warnings, unresolved references/citations, rerun
+requests or layout overflows. The 13 inherited Chapter 70 destination
+warnings remain. Seven final PDF pages were visually checked. Exact
+flag/coefficient calculations and numerical Bergman checks test the
+example conventions. The earlier chapter sections, supplied integrations
+and originals, ledgers, frozen packets, verifier receipts and dated
+releases are unchanged. This is a local proof/exposition audit, not a new
+independent-agent or production-verifier result. The remaining BHJ19
+slope proof is the next bounded review unit.
+
 ## Next work
 
-1. Continue with Chapter 65's analytic commutative diagram and the
-   remaining BHJ19 slope proof. In the diagram, justify the passage from
-   finite base ideals through envelopes to divisorial analytification;
-   the current supremum/envelope sentence requires a precise source or
-   a reconstruction. The DH volume/mass, endpoint-atom and energy/moment
-   unit is now checked, as are the earlier Bergman, Rees/normalization
-   and Chapter 64 continuity/truncation units. Keep the BHJ19 erratum
-   scope explicit and preserve the supplied integrations. An order
+1. Continue with Chapter 65's remaining BHJ19 slope proof and concluding
+   comparison dictionary. The analytic commutative diagram is now checked
+   through the flag-ideal comparison, including normalization invariance
+   of the closed test curve and its ray. The DH volume/mass, endpoint-atom,
+   energy/moment, Bergman and Rees units are also checked. Keep the BHJ19
+   erratum scope explicit and preserve the supplied integrations. An order
    isomorphism of psh cones still does not identify distinct singular
    measure operators.
 2. P06.2, P03.1, P12.6 and P21.3 retain the boundaries in the new integration

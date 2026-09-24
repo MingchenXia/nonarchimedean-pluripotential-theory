@@ -6,9 +6,16 @@ left blank in this release.
 
 **Current-source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (396 TeX files, 11,818 unique labels),
-and the full build produces a 4,058-page PDF with no unresolved reference
+The complete source check passes (396 TeX files, 11,821 unique labels),
+and the full build produces a 4,062-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
+The [analytic comparison audit](manuscript/editorial/ch65_analytic_square_audit_20260924.md)
+proves Chapter 65's analytic diagram by flag-ideal inclusion and section
+bounds, with the exact DXZ input and all degree and weight factors.
+Section saturation and integral closure preserve the closed test curve
+and its ray. A projective-line example bounds the finite Bergman change
+by t/m and shows the failure of uniformity over the entire time half-line.
+The comparison includes proper-support semivaluations and closed endpoints.
 The [DH quantization and energy audit](manuscript/editorial/ch65_dh_quantization_energy_audit_20260924.md)
 proves the interior filtered-volume/Monge--Ampère-mass identity with its
 birationality hypothesis and uses tails to identify the two DH measures.
