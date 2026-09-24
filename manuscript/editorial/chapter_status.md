@@ -2948,3 +2948,34 @@ reviewed; 100 exact harmonic truncation calculations pass. Supplied
 sources, frozen records, existing verifier receipts and dated releases
 are unchanged. This is a consequence/exposition audit, with no new
 independent-agent or production-verifier verdict.
+
+## Chapters 33 and 65: Rees reconstruction and normalization, 24 September 2026
+
+The [Rees and normalization audit](ch65_rees_normalization_audit_20260924.md)
+proves the section-lattice and finite-generator formulas with explicit
+weight signs, ceiling convention and rational character shifts. Rees
+reconstruction distinguishes section saturation and integral closure;
+normal ample models correspond to saturated integral-closure classes.
+Chapter 33's semiample model is obtained by contraction, not by an
+embedding of the original total space.
+
+A Gauss semivaluation proves invariance of the FS supremum under graded
+integral closure, including proper-support points. The full ample
+supremum is finite everywhere. An explicit relative conic and its double
+base change show that individual weights and base ideals can change;
+the full section-lattice calculation rules out a mere low-degree
+presentation artifact. The dependent DH proof now uses normalization
+invariance of the limiting measure separately from raw weight dilation.
+
+Two local source/proof passes and full builds are complete. The final PDF
+has 4,050 pages, with 396 inputs and 11,804 unique labels. Reference,
+structure and 43-atom inventory checks pass; there are no unresolved
+references/citations, rerun requests or layout overflows. The 13 inherited
+Chapter 70 PDF destination warnings remain. The scoped house audits have
+zero errors and one reviewed inherited warning-label convention. Seventeen
+final pages were visually inspected. Exact arithmetic checks cover the
+monomial weights, multiplicativity, FS values, normal semigroup and conic
+section bases. Supplied-source integrations and originals, the BHJ19
+erratum quarantine, frozen records, verifier receipts and dated releases
+remain unchanged. This is a local exposition/proof audit, not a new
+independent-agent or production-verifier result.

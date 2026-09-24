@@ -28,208 +28,187 @@ configuration polarization is rational.
 
 \section{From a test configuration to a filtration}
 
-Let \((\mathcal X,\mathcal L)\) be a normal relatively ample test
-configuration for \((X,L)\).
-Its punctured-product trivialization identifies a section
-\(s\in R_m\) with an equivariant rational section \(\bar s\) over
-\(\mathcal X\setminus\mathcal X_0\).
+Let $X$ be a connected projective complex manifold, let $L$ be ample, and let $(\mathcal X,\mathcal L)$ be a relatively ample test configuration for $(X,L)$, with parameter $\varpi$ on $\mathbb A^1$. The total space is not assumed normal in this construction. Work in degrees $m$ for which $mL$ and $m\mathcal L$ are line bundles. The punctured-product trivialization associates to $s\in R_m$ an invariant section $\bar s$ over $\mathcal X\setminus\mathcal X_0$.
 
-\begin{definition}[Filtration sign convention]
-\label{def:rf-tc-filtration}
-For \(\lambda\in\mathbf R\), set
+\begin{definition}\label{def:rf-tc-filtration}
+For $\lambda\in\mathbb R$, set
 \[
  \mathcal F^\lambda R_m
  :=\left\{s\in R_m\ \middle|\
        \varpi^{-\lceil\lambda\rceil}\bar s
-       \text{ extends to a regular section of }m\mathcal L
-       \text{ on }\mathcal X\right\}.
+       \in H^0(\mathcal X,m\mathcal L)\right\}.
 \tag{65.2}\label{eq:rf-tc-filtration}
 \]
-We take the left-continuous extension in \(\lambda\).
+This is the filtration of the actual model, before normalization. For normal models it agrees with \Cref{def:ch33-tc-filtration}, whose convention first takes integral closure in the generic fibre.
 \end{definition}
 
-Thus \(\mathcal F^\lambda R_m\) decreases as \(\lambda\) increases.
-The additive weight of \(0\ne s\in R_m\) is
+The ceiling makes the filtration left-continuous. For $0\ne s\in R_m$, its additive weight is
 \[
-               \chi_m(s)=\sup\{\lambda\mid
-                                  s\in\mathcal F^\lambda R_m\}.
+               \chi_m(s)=\sup\{\lambda\mid s\in\mathcal F^\lambda R_m\}.
 \tag{65.3}\label{eq:rf-additive-weight}
 \]
-With this sign, twisting the linearization by weight \(c\) sends
-\(\chi_m\) to \(\chi_m+mc\).
+This is an integer and the supremum is attained. Our convention assigns weight $\lambda$ to $s\varpi^{-\lambda}$. A character twist of weight $c$ adds $mc$ to $\chi_m$; rational $c$ is allowed after clearing denominators in the polarization. A real shift also defines a filtration, but need not be an algebraic character twist.
 
 \begin{proposition}\label{prop:rf-filtration-properties}
-The filtration \(\mathcal F\) is decreasing, left-continuous,
-multiplicative, and linearly bounded.
-Its rational Rees algebra is finitely generated after a Veronese change.
+The filtration \eqref{eq:rf-tc-filtration} is decreasing, exhaustive, separated, left-continuous, multiplicative, and linearly bounded. Its Rees algebra is finitely generated over $\mathbb C[\varpi]$ after clearing the polarization denominators.
 \end{proposition}
 
 \begin{proof}
-Decreasingness follows from
-\(\varpi^{-(\lambda+1)}\bar s
- =\varpi^{-1}(\varpi^{-\lambda}\bar s)\): extending after a larger pole
-order is a stronger condition.
-Left-continuity is imposed at the finitely many integer jumps.
+For each admissible $m$, the module $H^0(\mathcal X,m\mathcal L)$ is a finite torsion-free $\mathbb C[\varpi]$-module whose localization is $R_m[\varpi,\varpi^{-1}]$. It is therefore a full lattice. An equivariant basis of this lattice gives finitely many integer jumps, proving exhaustivity, separation and attainment of \eqref{eq:rf-additive-weight}. Multiplication by $\varpi$ proves decreasingness. The ceiling convention gives left-continuity.
 
-If \(s\in\mathcal F^\lambda R_m\) and
-\(s'\in\mathcal F^\mu R_{m'}\), the product of their extending sections is
-regular in \((m+m')\mathcal L\), giving
+The product of the extending sections attached to $s\in\mathcal F^\lambda R_m$ and $s'\in\mathcal F^\mu R_{m'}$ has pole exponent $\lceil\lambda\rceil+\lceil\mu\rceil$. Since this is at least $\lceil\lambda+\mu\rceil$, multiplication by the corresponding nonnegative power of $\varpi$ gives
 \[
  \mathcal F^\lambda R_m\cdot\mathcal F^\mu R_{m'}
        \subset\mathcal F^{\lambda+\mu}R_{m+m'}.
 \tag{65.4}\label{eq:rf-multiplicativity}
 \]
-Relative ampleness embeds \(\mathcal X\) equivariantly using one multiple of
-\(\mathcal L\).
-The finitely many generator weights give constants \(C_-<C_+\) such that
+The weight decomposition identifies the Rees algebra with the relative section algebra $\bigoplus_m H^0(\mathcal X,m\mathcal L)$. Relative ampleness makes it finitely generated. Choose homogeneous equivariant generators $s_j\varpi^{-\lambda_j}$, of positive section degrees $d_j$, together with $\varpi$ in degree zero. Their sections $s_j$ generate the generic section ring. Thus every section of degree $m$ is a sum of monomials with weight at least $m\min_j(\lambda_j/d_j)$. Conversely, a homogeneous expression in the Rees algebra has weight at most $m\max_j(\lambda_j/d_j)$, since a power of $\varpi$ lowers weight. Any constants $C_-<\min_j(\lambda_j/d_j)$ and $C_+>\max_j(\lambda_j/d_j)$ satisfy
 \[
- \mathcal F^{mC_-}R_m=R_m,
- \qquad
- \mathcal F^{mC_+}R_m=0.
+ \mathcal F^{mC_-}R_m=R_m,\qquad \mathcal F^{mC_+}R_m=0
+ \quad(m>0).
 \tag{65.5}\label{eq:rf-linear-bounds}
 \]
-The homogeneous coordinate algebra of that embedding is the required
-finitely generated Rees algebra after taking a suitable Veronese.
+These constants are independent of $m$. The lattice and Rees identifications are those of \cite[Section~1.2 and Proposition~2.15]{BHJ17}.
 \end{proof}
 
-Conversely, a rational finitely generated multiplicative filtration has
-Rees algebra
+For the converse, let $\mathcal F$ be a multiplicative, exhaustive, separated, left-continuous filtration with the bounds \eqref{eq:rf-linear-bounds}. In the Rees statements, ``rational'' has the convention of \Cref{def:ch33-fg-filtration}: after a Veronese restriction the jumping numbers are integral. Put $\mathcal F^\lambda R_0=\mathbb C$ for $\lambda\leq0$, and zero otherwise. Its Rees algebra is
 \[
- \mathcal R(\mathcal F)
- =\bigoplus_{m\geq0}\bigoplus_{\lambda\in\mathbf Z}
-       \mathcal F^\lambda R_m\,\varpi^{-\lambda}.
+ A=\mathcal R(\mathcal F)
+ :=\bigoplus_{m\geq0}\bigoplus_{\lambda\in\mathbb Z}
+       \mathcal F^\lambda R_m\,\varpi^{-\lambda}
+       \subset R(X,L)[\varpi,\varpi^{-1}].
 \tag{65.6}\label{eq:rf-rees-algebra}
 \]
+The $\Proj$ grading is the section degree $m$; the second grading records the action. In particular $A_0=\mathbb C[\varpi]$.
 
 \begin{theorem}\label{thm:rf-rees-reconstruction}
-After a Veronese change, relative \(\Proj\) of
-\(\mathcal R(\mathcal F)\), followed by integral closure in the generic
-fibre, reconstructs an integrally closed semiample test configuration.
-Starting from a normal relatively ample test configuration and applying
-this construction returns an equivalent test configuration.
-Write \(\mathsf{TC}^{\mathrm{n,ra}}\) for the normal relatively ample
-objects modulo equivariant domination and Veronese change, and write
-\(\mathsf{Fil}^{\mathrm{fg},\mathbf Q}\) for finitely generated rational
-filtrations with fixed linearization.
-In the usual semiample equivalence class, there is an equivalence
-\begin{equation}
+Assume $A$ is finitely generated. Choose $r$ so that $A^{(r)}=\bigoplus_{k\geq0}A_{rk}$ is generated in degree one. Then
+\[
+ \mathcal Y=\Proj_{\mathbb C[\varpi]}A^{(r)},\qquad
+ \mathcal M=r^{-1}\mathcal O_{\mathcal Y}(1)
+\]
+is a relatively ample test configuration for $(X,L)$. Its normalization $\nu:\mathcal Y^\nu\to\mathcal Y$, with polarization $\nu^*\mathcal M$, is a normal relatively ample test configuration. The filtration obtained from $\mathcal Y$ is the section saturation of $A$; normalization can enlarge it further. Starting from a normal relatively ample configuration recovers that configuration.
+
+With polarization and linearization retained, the resulting normal correspondence is
+\[
  \mathsf{TC}^{\mathrm{n,ra}}
- \xleftrightarrow{\ \sim\ }
- \mathsf{Fil}^{\mathrm{fg},\mathbf Q}.
+       \xleftrightarrow{\ \sim\ }
+ \mathsf{Fil}^{\mathrm{fg},\mathbb Q}/\!\sim_{\mathrm{sat,ic}}.
 \tag{65.7}\label{eq:rf-rees-equivalence}
-\end{equation}
+\]
+Here the left side consists of normal relatively ample test configurations up to equivariant polarized isomorphism. On the right, the equivalence relation is equality after passing to saturated integral closures of Rees algebras and a common Veronese restriction. Section saturation means replacing $A_{rk}$ by $H^0(\mathcal Y,\mathcal O_{\mathcal Y}(k))$ inside the common generic section space.
 \end{theorem}
 
 \begin{proof}
-Finite generation makes relative \(\Proj\) projective and flat after
-discarding irrelevant torsion; the degree-zero parameter supplies the map
-to \(\mathbf A^1\).
-Localization at \(\varpi\) gives
-\(R(X,L)[\varpi,\varpi^{-1}]\), hence the punctured product.
-The grading gives the \(\mathbf G_m\)-action and polarization.
+Generation in degree one gives projectivity and the relatively ample $\mathcal O(1)$. Every affine $\Proj$ chart is a subring of the common function field, so it is torsion-free over the principal ideal domain $\mathbb C[\varpi]$ and hence flat. No torsion needs to be discarded. Exhaustivity gives
+\[
+ A^{(r)}[\varpi^{-1}]
+       =R(X,rL)[\varpi,\varpi^{-1}],
+\]
+which identifies the punctured family with $X\times\mathbb G_m$ and the polarization with $L$. The weight grading gives the equivariant structure.
 
-Integral closure does not change any filtration weight: a valuation is
-nonnegative on an algebra precisely when it is nonnegative on its integral
-closure.
-Starting with a normal test configuration, equivariant global generation of
-a large multiple of \(\mathcal L\) identifies its homogeneous coordinate
-algebra with the corresponding Veronese Rees algebra.
-Relative \(\Proj\) therefore returns a common domination of the original
-configuration.
+The natural maps $A_{rk}\to H^0(\mathcal Y,\mathcal O(k))$ are isomorphisms for sufficiently large $k$. This is relative section-ring reconstruction; after a further Veronese restriction it gives the ample Rees correspondence of \cite[Proposition~2.15]{BHJ17}. The normalization is finite, since $\mathcal Y$ is of finite type over $\mathbb C$, and it is an isomorphism over the normal punctured product. Finite pullback preserves ampleness. Its affine charts remain torsion-free over $\mathbb C[\varpi]$, so the normalized family is also flat. Integral closure commutes with localization; taking the degree-zero parts on the homogeneous charts therefore gives the normalization of $\Proj A^{(r)}$. Taking all sections of the pulled-back polarization then gives the section saturation of this integral closure in the generic section ring.
+
+For a normal relatively ample configuration the full section algebra reconstructs the original polarized scheme, and no normalization is needed. More generally, pulling back to a common normal domination preserves these sections by the projection formula and $\mu_*\mathcal O=\mathcal O$; see \cite[Lemma~2.13]{BHJ17}. Conversely equality of the saturated section algebras recovers the same polarized $\Proj$. The uniqueness of the normal ample representative in a semiample equivalence class is \cite[Proposition~2.30]{BJ22}. This proves \eqref{eq:rf-rees-equivalence}. The quotient on the filtration side is essential.
 \end{proof}
 
-\begin{warning}{Infinite generation}
-\label{warn:rf-infinite-generation}
-A linearly bounded multiplicative filtration need not be finitely generated.
-It still defines asymptotic metrics and a DH measure, but
-\Cref{thm:rf-rees-reconstruction} does not produce a finite-type test
-configuration from it.
+\begin{samepage}
+\begin{warning}{Infinite generation}\label{warn:rf-infinite-generation}
+A linearly bounded multiplicative filtration need not be finitely generated. It still defines asymptotic metrics and a DH measure, but \Cref{thm:rf-rees-reconstruction} does not produce a finite-type test configuration from it.
 \end{warning}
+\end{samepage}
 
 \section{The Fubini--Study metric}
 
-Let \(v\in X^{\An}\) be a semivaluation for the trivial norm on
-\(\mathbf C\).
-For a local frame of \(mL\), write \(v(s)\in[0,+\infty]\) for the value of a
-section.
+Let $X$ be a connected projective complex manifold with ample $L$, and let $\mathcal F$ be a linearly bounded multiplicative filtration of its full section ring. For a semivaluation $v\in X^{\An}$, evaluate a section $s\in R_m$ in a local frame of $mL$ at the center of $v$. A change of frame multiplies by a unit of value zero, so $v(s)\in[0,+\infty]$ is well defined. A section vanishing on the support of $v$ has value $+\infty$.
 
-\begin{definition}[Asymptotic FS metric]
-\label{def:rf-fs-metric}
-The FS metric of a linearly bounded multiplicative filtration is
+\begin{definition}\label{def:rf-fs-metric}
+The Fubini--Study function of $\mathcal F$ is
 \[
  \phi_{\mathcal F}(v)
  :=\sup_{m\geq1}\ \sup_{0\ne s\in R_m}
              \frac{\chi_m(s)-v(s)}{m}.
 \tag{65.8}\label{eq:rf-fs-metric}
 \]
-If \(v(s)=+\infty\), that term is \(-\infty\).
+A term with $v(s)=+\infty$ is $-\infty$.
 \end{definition}
 
-No subtraction of two infinite quantities occurs in
-\eqref{eq:rf-fs-metric} because \(\chi_m(s)\) is finite for \(s\ne0\).
-If the support of \(v\) lies in every relevant base ideal, the supremum may
-be \(-\infty\).
-This proper-support behavior is part of the metric.
+There is no subtraction of two infinite values, since $\chi_m(s)$ is finite. In fact the whole supremum is finite even at proper-support semivaluations. The upper linear bound and $v(s)\geq0$ give $\phi_{\mathcal F}\leq C_+$. For a sufficiently divisible globally generated degree $m$, a section not vanishing at the center has value zero and weight at least $mC_-$. Thus $C_-\leq\phi_{\mathcal F}$ everywhere. Individual filtered pieces may have base loci; the full series has no common base locus in large divisible degrees.
 
 \begin{proposition}\label{prop:rf-fg-pl}
-If \(\mathcal F\) is finitely generated and rational, then after a Veronese
-change \(\phi_{\mathcal F}\) is a finite maximum
+If $\mathcal F$ is finitely generated and rational in the Rees convention above, there is a degree $r$ and a basis $s_1,\ldots,s_N$ of $R_r$ adapted to its filtration such that
 \[
-          \phi_{\mathcal F}(v)
-          =\frac1r\max_{1\leq j\leq N}
+ \phi_{\mathcal F}(v)
+       =\frac1r\max_{1\leq j\leq N}
                      \{\chi_r(s_j)-v(s_j)\}.
 \tag{65.9}\label{eq:rf-finite-fs}
 \]
-It is the rational PL metric of the reconstructed test configuration.
+It is the rational semipositive PL function of the Rees test configuration and of its normalization.
 \end{proposition}
 
 \begin{proof}
-Choose homogeneous generators \(s_j\varpi^{-\chi_r(s_j)}\) in one
-Veronese degree \(r\).
-Multiplicativity shows that every monomial quotient in
-\eqref{eq:rf-fs-metric} is a convex combination of the generator
-quotients.
-The non-Archimedean triangle inequality shows that sums cannot exceed their
-maximum.
-Thus the full supremum equals \eqref{eq:rf-finite-fs}.
-The flag-ideal construction of the relative \(\Proj\) attaches the same
-maximum to its vertical Cartier divisor.
+Restriction to a Veronese ring does not change \eqref{eq:rf-fs-metric}: a section $s$ in an omitted degree may be replaced by a power $s^q$ in an included degree, with $\chi(s^q)\geq q\chi(s)$ and $v(s^q)=qv(s)$. Choose $r$ so that $A^{(r)}$ is generated by its degree-one lattice, and take an equivariant lattice basis $s_j\varpi^{-\chi_r(s_j)}$. Each filtered section is a sum of monomials in these generators multiplied by nonnegative powers of $\varpi$. The quotient of each monomial in \eqref{eq:rf-fs-metric} is bounded by the maximum in \eqref{eq:rf-finite-fs}; the ultrametric inequality gives the same bound for its sum. The reverse bound holds because each generator occurs in the supremum. The basis generates $rL$ after increasing $r$, so the maximum is finite on all of $X^{\An}$.
+
+On a common model dominating the Rees configuration and the trivial family, the generating sections give this same maximum for the vertical divisor of the polarization. Pullback to the normalization does not change that model function. This is the finite-section realization of \cite[Theorem~2.31 and Corollary~2.32]{BJ22}. The direct algebraic invariance, including proper-support points, is proved next.
 \end{proof}
 
-Integral closure leaves \(\phi_{\mathcal F}\) unchanged, so the metric
-remembers the integrally closed test-configuration class rather than a
-chosen nonnormal presentation.  Since the equivalence \eqref{eq:rf-rees-equivalence}
-is stated modulo integral closure and the invariance is used again in the
-proofs of \Cref{thm:rf-rees-reconstruction} and
-\Cref{thm:rf-commutativity}, it is recorded as a statement.
-
-\begin{lemma}[Integral-closure invariance]
-\label{lem:rf-integral-closure}
-Let \(v\) be a semivaluation and \(\mathfrak a\) a coherent ideal with
-integral closure \(\overline{\mathfrak a}\).  Then
-\(v(\mathfrak a)=v(\overline{\mathfrak a})\).  Consequently
-\(\phi_{\mathcal F}\) depends only on the integral closure of the bigraded
-Rees algebra of \(\mathcal F\).
+\begin{lemma}\label{lem:rf-integral-closure}
+For a coherent ideal $\mathfrak a$ on $X$ and a semivaluation $v$, one has $v(\mathfrak a)=v(\overline{\mathfrak a})$. If $\overline{\mathcal F}$ is defined by the integral closure $\overline A$ of a finitely generated Rees algebra $A$ in $R(X,L)[\varpi,\varpi^{-1}]$, then $\phi_{\overline{\mathcal F}}=\phi_{\mathcal F}$. Section saturation also preserves this function. These assertions do not say that the individual filtered pieces are unchanged.
 \end{lemma}
 
 \begin{proof}
-Since \(\mathfrak a\subseteq\overline{\mathfrak a}\) and \(v\) is decreasing
-for inclusion of ideals, \(v(\overline{\mathfrak a})\leq v(\mathfrak a)\).
-For the reverse inequality let \(f\in\overline{\mathfrak a}\), so that
-\(f^k+a_1f^{k-1}+\cdots+a_k=0\) with \(a_j\in\mathfrak a^{\,j}\).  Suppose
-\(v(f)<v(\mathfrak a)\).  For every \(j\geq1\),
-\[
- v(a_jf^{k-j})\geq j\,v(\mathfrak a)+(k-j)v(f)>k\,v(f),
-\]
-so the ultrametric inequality forces
-\(v(f^k)=v(-\sum_{j\geq1}a_jf^{k-j})>k\,v(f)\), contradicting
-\(v(f^k)=k\,v(f)\).  Hence \(v(f)\geq v(\mathfrak a)\) for every
-\(f\in\overline{\mathfrak a}\), giving
-\(v(\overline{\mathfrak a})\geq v(\mathfrak a)\).
+Inclusion gives $v(\overline{\mathfrak a})\leq v(\mathfrak a)$. If $f\in\overline{\mathfrak a}$ and $v(f)<v(\mathfrak a)$, an integral equation $f^k+a_1f^{k-1}+\cdots+a_k=0$, with $a_j\in\mathfrak a^j$, has a unique term of least value, namely $f^k$. This contradicts the ultrametric inequality. The argument also applies when $v(\mathfrak a)=+\infty$, since the supposed value $v(f)$ is then finite. This proves the ideal assertion.
 
-The last assertion follows because \(\phi_{\mathcal F}\) is built from the
-numbers \(v(\mathfrak a_{m,\lambda})\) alone.
+For the graded assertion, fix $v$ and put $b=\phi_{\mathcal F}(v)\in\mathbb R$. Choose a local frame of $L$ at its center; after clearing denominators this may be done with an honest line bundle. Introduce a variable $z$ recording section degree. The Gauss extension $W$ of $v$ with $W(z)=b$ and $W(\varpi)=1$ satisfies
+\[
+ W(s z^m\varpi^{-\lambda})=v(s)+mb-\lambda\geq0
+ \quad\text{for }s\in\mathcal F^\lambda R_m.
+\]
+Here a section is represented by its coefficient in the chosen frame. Gauss extension is valid for a semivaluation by first quotienting by its support and then extending the resulting valuation. Thus $W$ is nonnegative on $A$. If a homogeneous $h$ integral over $A$ had $W(h)<0$, its monic integral equation would again have a unique least-value term. Hence $W(h)\geq0$. Taking $h=s z^m\varpi^{-\lambda}$ shows $\lambda-v(s)\leq mb$ for every new filtered section with finite value; sections of infinite value contribute $-\infty$. Therefore $\phi_{\overline{\mathcal F}}\leq\phi_{\mathcal F}$, and inclusion gives equality.
+
+Finally, section saturation agrees with the original graded algebra in all sufficiently large degrees. A section in any added positive degree has a power in that range, and the same power argument used in \Cref{prop:rf-fg-pl} bounds its Fubini--Study contribution. Thus section saturation also preserves the function. This proves invariance of the supremum without asserting invariance of any fixed-degree base ideal.
 \end{proof}
+
+\begin{example}\label{ex:rf-normalization-changes-weights}
+Take $X=\mathbb P^1$ and $L=\mathcal O(1)$, with section ring $\mathbb C[x,y]$. The Rees algebra
+\[
+ A=\mathbb C[\varpi,x,y,\varpi^{-2}x^2]
+      \subset\mathbb C[x,y,\varpi,\varpi^{-1}]
+\]
+defines a multiplicative filtration with monomial weights
+\[
+ \chi_m(x^a y^{m-a})=2\lfloor a/2\rfloor,
+ \qquad 0\leq a\leq m.
+\tag{65.9a}\label{eq:rf-nonnormal-weights}
+\]
+The filtered pieces are spanned by the monomials satisfying the weight threshold. They are linearly bounded since $0\leq2\lfloor a/2\rfloor\leq m$. Put $u=\varpi^{-1}x$. Then $u$ is integral over $A$, since $u^2=\varpi^{-2}x^2$, and
+\[
+                    \overline A=\mathbb C[\varpi,u,y].
+\]
+Indeed this polynomial ring is integral over $A$, is normal, and has the same fraction field. The new monomial weight is $\overline\chi_m(x^a y^{m-a})=a$. In particular $\mathcal F^1R_1=0$, whereas $\overline{\mathcal F}^{1}R_1=\mathbb Cx$. The corresponding base ideals are $0$ and the ideal of $(x=0)$, whose values differ wherever $v(x)$ is finite. Nevertheless
+\[
+ \phi_{\mathcal F}(v)=\phi_{\overline{\mathcal F}}(v)
+                         =\max\{-v(y),\,1-v(x)\}.
+\tag{65.9b}\label{eq:rf-normalization-same-fs}
+\]
+For the original filtration the two terms are already realized by $y$ and $x^2$ in degrees one and two. The remaining monomials give convex combinations bounded by this maximum. For the normalized filtration the terms are realized by $y$ and $x$. This also verifies the equality at proper-support semivaluations.
+
+The same example tests normalized base change. Start with
+\[
+ A_0=\mathbb C[t,x,y,t^{-1}x^2],\qquad
+       \chi^0_m(x^a y^{m-a})=\lfloor a/2\rfloor.
+\]
+This ring is normal: it is the intersection of $\mathbb C[t,t^{-1},x,y]$ with the valuation ring of the weight valuation $w(t)=2$, $w(x)=1$, $w(y)=0$. Both rings are integrally closed. After $t=\varpi^2$, the unnormalized base change has algebra $A$ and weights $2\chi^0_m$. Its normalization has weights $a$, which are strictly larger for odd $a$. Such monomials occur in arbitrarily large divisible section degrees.
+
+These weights occur in the full section lattices of actual test configurations. Indeed, the second Veronese algebras have presentations
+\[
+ \begin{aligned}
+ A_0^{(2)}&=\mathbb C[t,U,V,W]/(V^2-tUW),\\
+ A^{(2)}&=\mathbb C[\varpi,U,V,W]/(V^2-\varpi^2UW),
+ \end{aligned}
+\]
+where $U=y^2$, $V=xy$, and $W=t^{-1}x^2$ or $\varpi^{-2}x^2$, respectively. Give $U,V,W$ degree one. The relative $\Proj$ schemes are plane conics with polarization $\mathcal O(1)/2$. Their hypersurface exact sequences identify the displayed graded pieces with the full spaces of sections in every nonnegative degree: the obstruction group is $H^1(\mathbb P^2_B,\mathcal O(k-2))=0$ for $B=\mathbb C[t]$ or $\mathbb C[\varpi]$. Thus the discrepancy is not removed by section saturation. Normalized base change preserves the expected scaling of the metric, but its finite-level weights need not equal the base-change degree times the old weights.
+\end{example}
 
 \section{The finite-level algebra behind the metric}
 \label{sec:rf-finite-level-algebra}
@@ -277,12 +256,7 @@ complex partial Bergman obstacles: the non-Archimedean side evaluates the
 base ideals by \(v\), while the complex side evaluates their sections by
 logarithmic squared norms and then takes maximal envelopes.
 
-The role of integral closure is now transparent.  A semivaluation has the
-same infimum on an ideal and its integral closure.  Consequently replacing
-the bigraded Rees algebra by its integral closure changes neither
-\(v(\mathfrak a_{m,\lambda})\) nor the right side of
-\eqref{eq:rf-filtration-ideal-metric-factorization}.  What can change is the
-chosen finite-type presentation, not the metric.
+For each fixed ideal, integral closure preserves its value by \Cref{lem:rf-integral-closure}. Normalizing the entire Rees algebra is a different operation: it may enlarge a filtered piece by using an integral relation involving higher degrees. Hence the individual values $v(\mathfrak a_{m,\lambda})$ may change. What remains invariant is the supremum in \eqref{eq:rf-filtration-ideal-metric-factorization}, by the graded argument of \Cref{lem:rf-integral-closure}. The difference is explicit in \Cref{ex:rf-normalization-changes-weights}.
 
 \subsection{A three-check reconstruction audit}
 
@@ -305,8 +279,7 @@ arrows.
 \end{enumerate}
 
 \paragraph{Source boundary for the finite-level factorization.}
-The filtration, base-ideal, Rees, and FS constructions are the projective
-trivially valued constructions of \cite[Sections~1--2]{BJ22}.  Equations
+The Rees correspondence is \cite[Proposition~2.15]{BHJ17}; normal ample representatives and their Fubini--Study functions are \cite[Proposition~2.30 and Theorem~2.31]{BJ22}.  Equations
 \eqref{eq:rf-filtered-base-ideal}--
 \eqref{eq:rf-filtration-ideal-metric-factorization} merely expand the
 finite-generator calculation used in \Cref{prop:rf-fg-pl}; they do not
@@ -529,12 +502,12 @@ beyond that supplied by the cited construction.
 
 There are two useful diagrams for finitely generated rational
 filtrations.
-The first is algebraic and lives over the trivially valued field:
+The first is algebraic and uses the relatively ample Rees configuration before normalization, together with its section-saturated filtration; the Veronese index is chosen so that this is the given filtration. It lives over the trivially valued field:
 \[
 \begin{array}{ccc}
 \left.
  \begin{array}{c}
- \text{normal relatively ample}\\[-1mm]
+ \text{relatively ample}\\[-1mm]
  (\mathcal X,\mathcal L)
  \end{array}
 \right\}
@@ -583,8 +556,7 @@ Phong--Sturm ray.
 
 \begin{proof}
 For \eqref{eq:rf-algebraic-square}, take homogeneous Rees generators.
-Both lower paths give the finite maximum
-\eqref{eq:rf-finite-fs}; integral closure changes neither side.
+Both lower paths give the finite maximum \eqref{eq:rf-finite-fs}. Passing to the normalization changes neither lower function by \Cref{lem:rf-integral-closure}; the upper filtration can change, as \Cref{ex:rf-normalization-changes-weights} shows.
 
 For \eqref{eq:rf-analytic-square}, the valuative analytification of the
 partial Bergman level records the base ideal of

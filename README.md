@@ -6,9 +6,16 @@ left blank in this release.
 
 **Current-source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (396 TeX files, 11,801 unique labels),
-and the full build produces a 4,046-page PDF with no unresolved reference
+The complete source check passes (396 TeX files, 11,804 unique labels),
+and the full build produces a 4,050-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
+The [Rees and normalization audit](manuscript/editorial/ch65_rees_normalization_audit_20260924.md)
+reconstructs the filtration correspondence with section saturation and
+integral closure distinguished. A relative conic example shows that
+normalization can change finite weights and individual base ideals while
+preserving the Fubini--Study function and limiting DH measure. It corrects
+the dependent base-change, character-twist and semiample-model arguments
+in Chapter 33, including the finiteness of the full ample FS supremum.
 The [finite-energy truncation audit](manuscript/editorial/ch64_finite_energy_truncation_audit_20260924.md)
 proves total variation convergence for canonical mixed truncations with
 independent levels, with precise energy and volume factors. It corrects
