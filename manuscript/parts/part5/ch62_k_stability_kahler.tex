@@ -1003,6 +1003,70 @@ The conditions on $h$ ensure that $\xi+sh\in\Sigma_\ell$ for all sufficiently sm
 
 This differentiates the masses with the class $\alpha$ fixed. The class derivative in the beta formula below instead keeps the measure fixed.
 
+\begin{proposition}\label{prop:mpwn-threshold-derivative}
+The function $f_\alpha:\mathbf R^\ell\to\mathbf R$ is concave and belongs to $C^1(\mathbf R^\ell)$. For $s,t\in\mathbf R^\ell$,
+\[
+ \|\phi_s-\phi_t\|_{C^0(X^{\bethan})}\leq\|s-t\|_\infty,
+ \qquad |f_\alpha(s)-f_\alpha(t)|\leq\|s-t\|_\infty.
+\tag{62.23e}\label{eq:mpwn-threshold-contraction}
+\]
+The gradient $\xi(t):=\nabla f_\alpha(t)$ is a continuous map to $\Sigma_\ell$ and satisfies
+\[
+ \MA_\alpha(\phi_t)=\sum_i\xi_i(t)\delta_{v_i},
+ \qquad \xi_i(t)\bigl(t_i-\phi_t(v_i)\bigr)=0,
+\tag{62.23f}\label{eq:mpwn-threshold-contact}
+\]
+\par\noindent\begin{minipage}{\linewidth}
+Moreover,
+\[
+ f_\alpha(t)=\min_{\eta\in\Sigma_\ell}
+                      \bigl(g_\alpha(\eta)+\eta\cdot t\bigr),
+\tag{62.23g}\label{eq:mpwn-threshold-duality}
+\]
+with unique minimizer $\eta=\xi(t)$.
+\end{minipage}\par
+\end{proposition}
+
+\begin{proof}
+If $\varepsilon=\|s-t\|_\infty$, translation of candidates gives
+$\phi_t-\varepsilon\leq\phi_s\leq\phi_t+\varepsilon$.
+Monotonicity and translation of energy prove \eqref{eq:mpwn-threshold-contraction}.
+For $0\leq\theta\leq1$, the potential $(1-\theta)\phi_s+\theta\phi_t$ satisfies the constraints at $(1-\theta)s+\theta t$. Monotonicity and concavity of energy therefore give
+\[
+ f_\alpha((1-\theta)s+\theta t)\geq(1-\theta)f_\alpha(s)+\theta f_\alpha(t).
+\]
+
+Fix the snc model used in \Cref{lem:mpwn-finite-constraint-obstacle}, with vertices $w_1,\ldots,w_m$ and $w_i=v_i$ for $i\leq\ell$.
+In its obstacle construction, assign the values $t_i$ at the prescribed vertices and $t_1+T(v_1)+1$ at every remaining vertex. Denote the resulting real PL function by $\widetilde h_t$; its vertical divisor uses the coefficients $b_j\widetilde h_t(w_j)$, where $\cX_0=\sum_jb_jE_j$.
+Every candidate has supremum at most $t_1+T(v_1)$, so the same convexity and retraction argument gives
+\[
+ \phi_t=P_\alpha(\widetilde h_t),
+ \qquad \phi_t(w_j)<\widetilde h_t(w_j)\quad(j>\ell).
+\]
+The restricted-volume formula \eqref{eq:mpwn-envelope-ma-restricted-volume} puts the measure on the full vertex set of this fixed model. For its normalization hypothesis, add a constant to $\widetilde h_t$ so that it is at least $1$; its envelope translates by the same constant and its measure is unchanged. Orthogonality in \Cref{thm:mpwn-orthogonality} then removes every unprescribed vertex and gives the contact identities in \eqref{eq:mpwn-threshold-contact}. These are applications of the imported formula \cite[Proposition~4.2.2, p.~17, and proof of Theorem~1.5.1, p.~18]{MPWN25}.
+
+Let $L_i$ be the real PL function with value $1$ at $w_i$ and $0$ at every other vertex of this model. Then
+\[
+                 \xi_i(t)=\int L_i\,\rd\MA_\alpha(\phi_t).
+\]
+When $t_k\to t$, the contraction just proved gives uniform convergence of the continuous finite-energy potentials $\phi_{t_k}$ to $\phi_t$. Their measures converge weakly by \cite[Proposition~2.3.2, pp.~11--12]{MPWN25}. Testing against the fixed continuous function $L_i$ proves continuity of $\xi_i$.
+
+For a direction $a\in\mathbf R^\ell$ and parameter $\tau\in\mathbf R$, the affine dependence of the vertex values gives
+$\widetilde h_{t+\tau a}=\widetilde h_t+\tau H_a$, where $H_a$ is real PL, has value $a_i$ at $v_i$, and value $a_1$ at unprescribed vertices. Both obstacles are continuous. The envelope first-variation formula \eqref{eq:mpwn-envelope-differentiability} applies for both signs of $\tau$ and gives
+\[
+ \left.\frac{\rd}{\rd\tau}\right|_{\tau=0}f_\alpha(t+\tau a)
+ =\int H_a\,\rd\MA_\alpha(\phi_t)
+ =\sum_i a_i\xi_i(t).
+\]
+The partial derivatives are thus the continuous functions $\xi_i$, proving $C^1$ regularity and the stated gradient formula.
+
+Finally, \eqref{eq:mpwn-energy-legendre} gives
+$f_\alpha(t)\leq g_\alpha(\eta)+\eta\cdot t$ for every $\eta\in\Sigma_\ell$.
+For $\eta=\xi(t)$, the contact identity and \eqref{eq:mpwn-dual-energy-ma} give equality. If another $\eta$ gives equality, $t$ maximizes its Legendre objective; \Cref{prop:mpwn-legendre-maximizers} then gives $\MA_\alpha(\phi_t)=\mu_\eta$. Distinctness of the $v_i$ forces $\eta=\xi(t)$.
+\end{proof}
+
+Every probability vector occurs as $\xi(t)$: for $\eta\in\Sigma_\ell$, take $t_i=u_\eta(v_i)$ and apply \Cref{prop:mpwn-legendre-maximizers}. A strict constraint gap forces zero mass by \eqref{eq:mpwn-threshold-contact}; contact alone need not force positive mass, as the following curve example will show. Constant translations give $\xi(t+c\mathbf1)=\xi(t)$ and $\sum_i\partial f_\alpha/\partial t_i=1$.
+
 \begin{theorem}\label{thm:mpwn-volume-formula}
 For any $\lambda_0<\min_i t_i$,
 \[
@@ -1204,6 +1268,20 @@ At the endpoint $\xi=(1,0)$, every $t=(0,b)$ with $b\geq1$ maximizes, but along 
  \left.\frac{\rd}{\rd s}\right|_{s=0+}g_\alpha(\xi(s))=-1.
 \]
 The fixed optimizer $(0,b)$ only gives the lower bound $g_\alpha(\xi(s))\geq\frac12-bs$. Its slope $-b$ equals the actual derivative only at $b=1$, the value supplied by the solution's evaluations after imposing $t_1=0$. Thus arbitrary slack in a zero-weight coordinate cannot be used to compute the inward derivative.
+
+\par\noindent\begin{minipage}{\linewidth}
+The derivative with respect to $b$ also determines the constraint measure:
+\[
+ \xi_2(0,b)=\frac{\rd}{\rd b}f_\alpha(0,b)
+ =\begin{cases}
+ 1,&b\leq-1,\\
+ (1-b)/2,&-1\leq b\leq1,\\
+ 0,&b\geq1,
+ \end{cases}
+ \qquad \xi_1(0,b)=1-\xi_2(0,b).
+\]
+\end{minipage}\par
+The endpoint values agree, so this derivative is continuous across both changes of contact. Its slope jumps at $b=\pm1$, and $f_\alpha$ is not $C^2$ there. At $b=1$, both constraints are attained by $u_1+1$, but the mass at $\ord_\infty$ is zero. For $b>1$ that constraint is strict and the same envelope persists. Thus equality at a constraint does not imply positive mass, and the restriction of $f_\alpha$ to $t_1=0$ need not be strictly concave.
 \end{example}
 
 \begin{example}\label{ex:mpwn-toric-beta}

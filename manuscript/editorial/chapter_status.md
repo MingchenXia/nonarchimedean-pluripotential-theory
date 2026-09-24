@@ -2792,3 +2792,28 @@ theorem/proof, Chapter 62 outside the section, all other chapters, P12.1
 integration/provenance, author originals, bibliography, frozen packets,
 verifier receipts and dated releases are preserved. All 45 research atoms
 are unchanged. No independent-agent or production-verifier pass is claimed.
+
+## Chapter 62: threshold derivatives and contact masses, 24 September 2026
+
+The [threshold-variation audit](ch62_threshold_variation_audit_20260924.md)
+proves that finite-constraint envelopes contract in the uniform norm and
+that their energy is concave and C1 in all real thresholds. A strict
+auxiliary-vertex obstacle removes unprescribed masses by orthogonality.
+The gradient is exactly the continuous vector of prescribed-point masses,
+with complementary contact identities. The inverse Legendre minimum has
+a unique mass vector, and the gradient maps onto the closed simplex.
+The curve example distinguishes contact from positive mass and shows why
+C2 regularity and strict concavity on the normalized slice can fail.
+
+Two complete local proof/source passes, full builds and scoped visual
+review are complete. The final PDF has 3,999 pages; 390 inputs and 11,687
+unique labels pass the reference/structure check. There are no unresolved
+references/citations or layout overflows. Physical pages 3427--3433 were
+visually inspected in both passes. The scoped house audit has zero errors
+and one reviewed preprint warning. Both builds used a temporary baseline
+export; the delivered sources and ignored PDF are the checked bytes.
+Removing only the two additions recovers the entire baseline Chapter 62.
+All other chapters, P12.1 provenance, author originals, bibliography,
+frozen packets, verifier receipts and dated releases are preserved.
+All 45 research atoms are unchanged. No independent-agent or production-
+verifier pass is claimed.
