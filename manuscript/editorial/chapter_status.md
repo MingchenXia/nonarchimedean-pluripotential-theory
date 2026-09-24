@@ -2920,3 +2920,31 @@ polarization tuples, 171 decreasing replacements and 390 curve comparisons.
 All 43 research atoms, supplied-source integrations, originals, frozen
 packets, verifier receipts and dated releases retain their baseline bytes.
 No independent-agent or production-verifier result is claimed.
+
+## Chapters 24, 26 and 64: finite-energy truncations, 24 September 2026
+
+The [finite-energy truncation audit](ch64_finite_energy_truncation_audit_20260924.md)
+proves a quantitative total variation estimate for canonical mixed
+truncations with independent cutoff levels, separately in the BFJ and BJ
+settings. The Borel maximum formula, common-tail mass and raw/probability
+energy factors are explicit. A harmonic-series curve has exact norm
+2/(m+1); a decreasing moving-atom example excludes the same conclusion
+for arbitrary decreasing approximation. The conditional comparison of
+finite-energy operators requires agreement on bounded tuples and weak
+truncation continuity on the same space.
+
+Chapter 24's claims of E1 mass loss and absence of a truncation limit are
+corrected. Chapter 26 proves invariance of finite energy under bounded
+changes of singularity type, distinguishes this from the polar set, and
+repairs the truncation table and curve endpoint statements.
+
+Two local source/proof passes and full builds are complete. The final PDF
+has 4,046 pages, with 396 inputs and 11,801 unique labels. Reference,
+structure and 43-atom inventory checks pass; no unresolved references or
+citations, rerun requests or layout overflows remain. The 13 inherited
+Chapter 70 destination warnings are unchanged. The scoped house audit is
+clean. Thirteen final pages and four BJ source pages were visually
+reviewed; 100 exact harmonic truncation calculations pass. Supplied
+sources, frozen records, existing verifier receipts and dated releases
+are unchanged. This is a consequence/exposition audit, with no new
+independent-agent or production-verifier verdict.

@@ -6,9 +6,15 @@ left blank in this release.
 
 **Current-source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (396 TeX files, 11,795 unique labels),
-and the full build produces a 4,042-page PDF with no unresolved reference
+The complete source check passes (396 TeX files, 11,801 unique labels),
+and the full build produces a 4,046-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
+The [finite-energy truncation audit](manuscript/editorial/ch64_finite_energy_truncation_audit_20260924.md)
+proves total variation convergence for canonical mixed truncations with
+independent levels, with precise energy and volume factors. It corrects
+claims of mass loss in E1 and proves invariance of finite energy under
+bounded changes of singularity type. Curve examples distinguish these
+truncations from arbitrary decreasing approximation.
 The [common-model continuity audit](manuscript/editorial/ch64_common_model_continuity_audit_20260924.md)
 proves the uniform model-test bound and the mixed BFJ comparison through
 common rational decreasing approximants and polarization. A curve example

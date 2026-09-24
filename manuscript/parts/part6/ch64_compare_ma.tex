@@ -858,13 +858,98 @@ changes by \((n+1)cV\).
 There are several published finite-energy products, but they live in
 different categories.
 
+The limiting argument can be quantified within each category. In the BFJ setting, let $K$ be complete and discretely valued with residue characteristic zero, let $X$ be a smooth projective $K$-variety, and fix a semipositive model form $\omega$ with ample class. In the BJ setting, let $X$ be an integral projective variety over an algebraically closed trivially valued field and let $\omega$ be an ample numerical class. Put $n=\dim X$ in either setting. Assume $n\geq1$ and put $V=(\omega^n)>0$. Write $E^{\mathrm u}$ for the energy with $E^{\mathrm u}(0)=0$ and translation rule $E^{\mathrm u}(\varphi+c)=E^{\mathrm u}(\varphi)+cV$. This is $E_\omega$ in \Cref{chap:bfj-energy} and $VE_\omega$ in \Cref{chap:bj-energy}. In both settings use the unnormalized mixed measure
+\[
+ \mu(\boldsymbol\varphi)
+       :=\bigwedge_{i=1}^n(\omega+\ddc\varphi_i),
+ \qquad \boldsymbol\varphi=(\varphi_1,\ldots,\varphi_n).
+\]
+In BJ notation this has mass $V$, although the pure measure denoted by $\MA_\omega$ has mass one.
+
+\begin{proposition}\label{prop:cma-finite-energy-truncation}
+Let $\varphi_i\in\cE^1(\omega)$ with $\varphi_i\leq0$, set $\bar\varphi=n^{-1}\sum_i\varphi_i$, and put $\kappa_n=n^{n+1}(n+1)/n!$. For $\boldsymbol t=(t_1,\ldots,t_n)$ with $t_i>0$, define
+\[
+ \nu_{\boldsymbol t}
+       :=\mu\bigl(\max\{\varphi_1,-t_1\},\ldots,
+                  \max\{\varphi_n,-t_n\}\bigr),
+ \qquad T:=\min_i t_i.
+\]
+Then
+\[
+ \|\nu_{\boldsymbol t}-\mu(\boldsymbol\varphi)\|_{\mathrm{TV}}
+       \leq\frac{2\kappa_n}{T}\bigl(-E^{\mathrm u}(\bar\varphi)\bigr).
+\tag{64.31}\label{eq:cma-truncation-variation}
+\]
+Here $\|\sigma\|_{\mathrm{TV}}=|\sigma|(X^{\An})$ is the total variation norm of a signed Radon measure. Thus the truncation levels may tend independently to infinity, and convergence is uniform over tuples with a common upper bound on $-E^{\mathrm u}(\bar\varphi)$.
+\end{proposition}
+
+\begin{proof}
+Set $U_T=\bigcap_i\{\varphi_i>-T\}$ and $B_T=X^{\An}\setminus U_T$, and denote by $\nu_T$ the equal-level truncation measure. The sets are Borel; they need not be open. If every $t_i\geq T$, the bounded mixed maximum principle, applied one entry at a time, gives
+\[
+                    \one_{U_T}\nu_{\boldsymbol t}
+                         =\one_{U_T}\nu_T.
+\tag{64.32}\label{eq:cma-truncation-layer}
+\]
+For BFJ this is \eqref{eq:ch26-mixed-maximum-principle}. For BJ use \cite[Theorem~7.40]{BJ22}. Given bounded $\omega$-psh functions $u,v,\eta_2,\ldots,\eta_n$ and $c_j\geq0$, put $a=1+\sum_{j=2}^n c_j$ and apply the pure maximum formula to
+\[
+       a^{-1}\left(u+\sum_{j=2}^n c_j\eta_j\right),
+       \qquad
+       a^{-1}\left(v+\sum_{j=2}^n c_j\eta_j\right).
+\]
+These functions are $\omega$-psh and their strict inequality set is $\{u>v\}$. Multiply the measure identity by $a^n$ and compare the coefficient of $c_2\cdots c_n$. This gives the mixed maximum identity with the other $n-1$ entries fixed. Taking $u=\max\{\varphi_i,-t_i\}$ and $v=-T$ proves \eqref{eq:cma-truncation-layer} one entry at a time. Ordinary open-set locality is not being applied to $U_T$.
+
+Put $w_T=n^{-1}\sum_i\max\{\varphi_i,-T\}$. Multilinearity and positivity, followed by the bounded energy formula, give
+\[
+ \nu_T\leq\frac{n^n}{n!}\mu(w_T,\ldots,w_T),\qquad
+ \int(-w_T)\,\rd\mu(w_T,\ldots,w_T)
+       \leq(n+1)(-E^{\mathrm u}(w_T)).
+\]
+The first inequality retains the term with one copy of each factor in the expansion of the average. For the second, the pure $w_T$ term is one of the $n+1$ nonnegative terms in $-(n+1)E^{\mathrm u}(w_T)$. On $B_T$ one has $-w_T\geq T/n$, and $w_T\geq\bar\varphi$. Energy monotonicity therefore yields
+\[
+ \nu_T(B_T)\leq\frac{\kappa_n}{T}
+                         \bigl(-E^{\mathrm u}(\bar\varphi)\bigr).
+\tag{64.33}\label{eq:cma-common-tail}
+\]
+Convexity of $\cE^1$ makes the right-hand side finite. This is the proof of \Cref{lem:ch26-mixed-tail}, with the same unnormalized energy convention in both theories.
+
+Let $r\geq T$. Both $\nu_{\boldsymbol t}$ and the equal-level measure $\nu_r$ have mass $V$ and agree with $\nu_T$ on $U_T$. Each consequently has mass $\nu_T(B_T)$ on $B_T$, so
+\[
+              \|\nu_{\boldsymbol t}-\nu_r\|_{\mathrm{TV}}
+                         \leq2\nu_T(B_T).
+\]
+As $r\to\infty$, the measures $\nu_r$ converge weakly to $\mu(\boldsymbol\varphi)$ by \Cref{thm:e1-mixed-products} in the BFJ case and \cite[Proposition~7.19(iv)]{BJ22} in the BJ case. For each continuous $f$ with $\|f\|_\infty\leq1$, pass to this limit in its integral, then take the supremum over $f$. The dual characterization of total variation for finite Radon measures proves \eqref{eq:cma-truncation-variation}.
+\end{proof}
+
+Dividing \eqref{eq:cma-truncation-variation} by $V$ gives the probability version with $E^{\mathrm u}/V$. No additional factor of $V$ is hidden in $\kappa_n$. The diagonal predecessor of the estimate is \cite[Lemma~6.8]{BFJ15}, used there to prove decreasing weak continuity in \cite[Proposition~6.9]{BFJ15}.
+
+If two finite-energy constructions on the same analytification agree for bounded tuples and both are weakly continuous along common truncations, they agree on every tuple belonging to both finite-energy domains. Indeed, the measures of the bounded truncations are identical at each level, so their weak limits are identical. This criterion requires a comparison of the bounded operators and the stated continuity in both domains; an order isomorphism of psh cones alone supplies neither assertion.
+
+\begin{example}\label{ex:cma-truncation-mass-test}
+In the BFJ projective-line example \Cref{ex:ch26-unbounded-finite-energy}, let $x_k$ be the point of ray parameter $k$ and let $H_m=\sum_{k=1}^m k^{-1}$. The potential has slope $-1/k$ on $[k-1,k]$ and energy $-\pi^2/12$. For its truncation $\Phi_m=\max\{\varphi,-H_m\}$, the measures are
+\[
+ \begin{split}
+ \MA_\omega(\Phi_m)
+    &=\sum_{k<m}\frac{\delta_{x_k}}{k(k+1)}
+                           +\frac1m\delta_{x_m},\\
+ \MA_\omega(\varphi)
+    &=\sum_{k\geq1}\frac{\delta_{x_k}}{k(k+1)}.
+ \end{split}
+\]
+Both have mass one. Their difference is a positive atom of mass $1/(m+1)$ at $x_m$ minus a tail of the same mass on $\{x_k:k>m\}$. Hence
+\[
+ \|\MA_\omega(\Phi_m)-\MA_\omega(\varphi)\|_{\mathrm{TV}}
+                          =\frac{2}{m+1}\longrightarrow0.
+\tag{64.34}\label{eq:cma-harmonic-truncation-variation}
+\]
+For the logarithmic pole $\varphi_0$ of \Cref{ex:ch26-infinite-energy}, the truncations instead have energy $-m/2$ and measure $\delta_{x_m}$. They converge weakly to a unit atom at the polar point, while the nonpluripolar measure of $\varphi_0$ is zero. The finite-energy hypothesis excludes this loss of mass.
+
+The total variation conclusion is specific to canonical truncations. In \Cref{ex:cma-weak-not-variation}, adding the constant $dt$ to $\phi_t$ gives $\chi_t(s)=d\max\{t-s,0\}$. As rational $t$ decreases to zero, these bounded semipositive model weights decrease uniformly to zero, but their measures are still $d\delta_{x_t}$, at total variation distance $2d$ from $d\delta_{x_0}$. General decreasing finite-energy approximation therefore gives weak convergence, not total variation convergence.
+\end{example}
+
 \begin{theorem}\label{thm:cma-finite-energy-ledger}
 The following statements hold independently.
 \begin{enumerate}
-\item Under the original BFJ hypotheses, mixed Monge--Amp\`ere products of
-BFJ \(\mathcal E^1\)-potentials are defined by truncation and decreasing
-approximation, have mass \(V\), and satisfy the finite-energy continuity
-proved in \cite{BFJ15}.
+\item Under the original BFJ hypotheses, for one fixed semipositive reference form $\omega$ with ample class, mixed products of $\cE^1(X,\omega)$ potentials have mass $V=(\omega^n)$. Their common-truncation construction and decreasing weak continuity are \Cref{thm:e1-mixed-products}; the pure continuity statement is \cite[Proposition~6.9]{BFJ15}. Canonical truncations satisfy \eqref{eq:cma-truncation-variation}.
 
 \item Under the BJ projective trivially valued hypotheses, the polarized
 pairing on \(\mathcal E^1\) and the mixed Radon measures are defined by
@@ -898,9 +983,7 @@ identification of their Monge--Amp\`ere operators.
 \end{theorem}
 
 \begin{proof}
-Items (1) and (2) are the decreasing-extension theorems in the cited
-papers; their constructions begin from their respective model intersection
-products.
+Item (1) follows from the bounded-layer construction and mixed tail estimate in \Cref{thm:e1-mixed-products}; \Cref{prop:cma-finite-energy-truncation} gives the quantitative statement. Item (2) is the finite-pairing construction in the cited BJ results, with decreasing continuity in Proposition~7.19(iv). Each construction starts from its own model intersection products.
 Item (3) is \Cref{thm:rays-rwn} and its energy identity.
 Item (4) is \Cref{thm:cma-algebraic-dh} together with the unaffected
 Section~3 theorem of \cite{BHJ19}; the 2022 erratum explicitly states that
