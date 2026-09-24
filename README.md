@@ -6,9 +6,14 @@ left blank in this release.
 
 **Current-source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (396 TeX files, 11,788 unique labels),
-and the full build produces a 4,040-page PDF with no unresolved reference
+The complete source check passes (396 TeX files, 11,795 unique labels),
+and the full build produces a 4,042-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
+The [common-model continuity audit](manuscript/editorial/ch64_common_model_continuity_audit_20260924.md)
+proves the uniform model-test bound and the mixed BFJ comparison through
+common rational decreasing approximants and polarization. A curve example
+shows why the measure convergence is weak and cannot be strengthened to
+total variation. The source and example hypotheses are explicit.
 The [supplied-solutions audit](manuscript/editorial/supplied_solutions_integration_audit_20260924.md)
 records six further source manuscripts integrated with their proofs in
 Chapters 15, 16, 18 and 70. P06.1 is resolved for arbitrary singularities

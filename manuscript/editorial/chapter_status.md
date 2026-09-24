@@ -2895,3 +2895,28 @@ were visually reviewed; the five proof-caption repairs received a final
 scoped recheck. The house audit has zero errors and two reviewed warnings
 for the exact CLD and Gubler--Rabinoff preprint versions. The checked
 current PDF remains a local ignored artifact, separate from dated releases.
+
+## Chapter 64: common models and uniform continuity, 24 September 2026
+
+The [common-model continuity audit](ch64_common_model_continuity_audit_20260924.md)
+proves an explicit model-test estimate with constants given by mixed
+intersection numbers. Projection under domination preserves the atomic
+multiplicities; Riesz representation gives the continuous mixed measure
+and approximation independence, including zero total mass. A common
+rational decreasing replacement and finite polarization justify the BFJ
+comparison for different ample classes. A projective-line example has
+uniformly convergent metrics but total variation norm 2d for the measure
+difference. Pure dimension, a rational node and the Q-Cartier condition
+needed in the examples are explicit.
+
+Two local proof/source passes and full builds are complete. The final PDF
+has 4,042 pages, with 396 inputs and 11,795 unique labels. Reference,
+structure and inventory checks pass; no unresolved references/citations,
+rerun requests or layout overflows remain. The 13 inherited Chapter 70
+PDF destination warnings are unchanged. The scoped house audit has zero
+errors and zero warnings. Eleven final pages covering all changes and
+transitions were visually reviewed. Exact rational checks cover 363
+polarization tuples, 171 decreasing replacements and 390 curve comparisons.
+All 43 research atoms, supplied-source integrations, originals, frozen
+packets, verifier receipts and dated releases retain their baseline bytes.
+No independent-agent or production-verifier result is claimed.

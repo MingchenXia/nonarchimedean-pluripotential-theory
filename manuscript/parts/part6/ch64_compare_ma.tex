@@ -25,8 +25,8 @@ and its Monge--Amp\`ere and Duistermaat--Heckman measures have mass \(V\).
 
 Let \(K\) be complete and discretely valued with
 \(v_K(\pi)=1\).
-Let \(X\) be a proper reduced \(n\)-dimensional \(K\)-scheme and let
-\(\mathcal X\) be a proper flat model relatively normal in \(X\).
+Let $X$ be a proper reduced $K$-scheme of pure dimension $n$ and let
+$\mathcal X$ be a proper flat model relatively normal in $X$.
 Write
 \[
                          \mathcal X_s=\sum_E b_EE.
@@ -128,6 +128,13 @@ Summing over \(E\) is precisely the vertical intersection with \(D\).
 This identity is the common algebraic core of the three operators.
 It also explains why the multiplicity \(b_E\) must not be omitted.
 
+The common model can be refined without changing the measure. Indeed, let $\rho\colon\mathcal Y\to\mathcal X$ be a domination inducing the identity on $X$, with both models relatively normal in $X$. If a special-fibre component $F$ maps to a subset of dimension less than $n$, the projection formula makes its mixed degree against the $\rho^*\mathcal L_i$ zero. If $F$ dominates $E$, put $e_F=[\kappa(F):\kappa(E)]$. Then $x_F=x_E$, its mixed degree is $e_F$ times the degree on $E$, and
+\[
+             \sum_{F\to E}b_Fe_F=b_E.
+\tag{64.6a}\label{eq:cma-refinement-multiplicity}
+\]
+The last identity follows by pushing forward the divisor of $\pi$. Thus the coefficients at each analytic point agree. This is the projection-formula argument of \Cref{prop:model-ma-basic}; it also shows why a newly introduced exceptional component need not carry mass for a pulled-back metric.
+
 \section{Continuous semipositive metrics}
 
 Let now \(X\) be projective and \(L_i\) line bundles.
@@ -135,6 +142,46 @@ A continuous semipositive metric in Zhang's sense is a uniform limit of
 semipositive rational model metrics.
 For CLD products we impose the additional common-regularization hypothesis
 that their Bedford--Taylor product is defined by such formal approximants.
+
+Assume $n\geq1$ in the estimates below. In dimension zero the mixed product has no metric slots and is the fixed analytic zero-cycle, so the continuity statement is immediate.
+
+\begin{proposition}\label{prop:cma-uniform-test-bound}
+Let $f$ be a rational model function. There is an ample rational line bundle $A$ with two semipositive rational model metrics $\overline A^+$ and $\overline A^-$ whose difference of weights is $f$. Fix such a pair and put
+\[
+               c_i=(A\cdot L_1\cdots\widehat{L_i}\cdots L_n).
+\]
+For two tuples $\boldsymbol\phi=(\phi_i)$ and $\boldsymbol\psi=(\psi_i)$ of semipositive rational model weights on the $L_i$, relative to fixed reference metrics, let $\mu_{\boldsymbol\phi}$ and $\mu_{\boldsymbol\psi}$ denote their mixed model measures. Then
+\[
+ \left|\int f\,\rd\mu_{\boldsymbol\phi}
+              -\int f\,\rd\mu_{\boldsymbol\psi}\right|
+ \leq 2\sum_{i=1}^n c_i\|\phi_i-\psi_i\|_\infty.
+\tag{64.6b}\label{eq:cma-uniform-test-bound}
+\]
+In particular, the constants are independent of the models and metrics in the two tuples.
+\end{proposition}
+
+\begin{proof}
+Represent $f=\phi_D$ on a projective model. Choose a relatively ample line bundle $\mathcal B$ and an integer $q>0$ clearing the denominators of $D$. For $N$ sufficiently large, both $\mathcal B^{\otimes N}$ and $\mathcal B^{\otimes N}(qD)$ are relatively ample. Their $q$th-root metrics have the same ample rational generic line bundle $A$ and difference $f$.
+
+Pull these bundles and both metric tuples to a common model. Write $T_i$ for the product of the curvature factors with indices less than $i$ from $\boldsymbol\phi$ and indices greater than $i$ from $\boldsymbol\psi$, and put $\delta_i=\phi_i-\psi_i$. Multilinearity gives
+\[
+ \mu_{\boldsymbol\phi}-\mu_{\boldsymbol\psi}
+       =\sum_{i=1}^n\ddc\delta_i\wedge T_i.
+\]
+All products in this calculation are model intersection measures; differences are taken in their multilinear extension. Symmetry of the two vertical Cartier intersections in \eqref{eq:cma-model-duality} gives
+\[
+ \begin{split}
+ \int f\,\ddc\delta_i\wedge T_i
+   &=\int\delta_i\,\ddc f\wedge T_i\\
+   &=\int\delta_i\,c_1(\overline A^+)\wedge T_i
+      -\int\delta_i\,c_1(\overline A^-)\wedge T_i.
+ \end{split}
+\tag{64.6c}\label{eq:cma-model-integration-by-parts}
+\]
+The two measures in the last line are positive and each has mass $c_i$, by \eqref{eq:cma-model-mass}. The absolute value is at most $2c_i\|\delta_i\|_\infty$, and summing proves \eqref{eq:cma-uniform-test-bound}. Pullback preserves relative nefness, and \eqref{eq:cma-refinement-multiplicity} preserves the measures, so the bound is independent of the chosen common model.
+\end{proof}
+
+This gives an explicit version of \eqref{eq:cl-model-cauchy-bound}. The same integration-by-parts estimate for smooth semipositive metrics is \cite[Lemma~8.6]{BE21}; its use in extending the mixed product is the proof of \cite[Theorem~8.4]{BE21}. Here the argument is carried out directly on models.
 
 \begin{theorem}\label{thm:cma-continuous-comparison}
 For \(1\leq i\leq n\), let
@@ -148,45 +195,37 @@ Then the model measures
 converge weakly to a positive Radon measure \(\mu\), independently of the
 chosen semipositive approximants.
 This limit is the mixed Chambert--Loir measure.
-On the original BFJ domain it is the BFJ product of the continuous weights.
+On the original BFJ domain, with every $L_i$ ample, it is the BFJ product of the continuous weights.
 Whenever the CLD product is defined by the same formal regularization, it is
 also that CLD product.
 Its total mass is \((L_1\cdots L_n)\).
 \end{theorem}
 
 \begin{proof}
-By multilinearity, it is enough to control the effect of changing one
-metric by at most \(\varepsilon\) in uniform norm.
-The local height change formula bounds its integral against a fixed model
-test function by a constant times \(\varepsilon\); density of model
-functions in continuous functions and the fixed mass bound give weak
-Cauchy convergence.
-The same estimate compares two approximating systems, proving independence.
-This is the continuity theorem built into the definition of the continuous
-Chambert--Loir product.
-
-On the BFJ domain, take a rapidly convergent subsequence with errors
-\(\varepsilon_j\) satisfying
-\(\sum_j\varepsilon_j<\infty\).
-For one weight \(\phi_j\to\phi\), put
+Put $M=(L_1\cdots L_n)$. For every rational model function $f$, \eqref{eq:cma-uniform-test-bound} shows that $\int f\,\rd\mu_j$ is Cauchy. The measures are positive and have mass $M$. By \Cref{prop:metrics-model-function-density}, for every $g\in C(X^{\An})$ and $\varepsilon>0$ there is such an $f$ with $\|g-f\|_\infty<\varepsilon$. Hence
 \[
- d_j=\sum_{q\geq j}(\varepsilon_q+\varepsilon_{q+1}),
- \qquad
- \psi_j=\phi_j+d_j.
+ \left|\int g\,\rd\mu_j-\int g\,\rd\mu_k\right|
+ \leq 2M\varepsilon
+       +\left|\int f\,\rd\mu_j-\int f\,\rd\mu_k\right|.
+\]
+The limits define a positive bounded linear functional $I$ on $C(X^{\An})$, with $I(1)=M$. Riesz representation on the compact Hausdorff space $X^{\An}$ supplies the required Radon measure. This argument requires no metrizability of the analytification. Comparing two approximating tuples in \eqref{eq:cma-uniform-test-bound} proves independence, and gives the continuous Chambert--Loir product of \Cref{thm:cl-continuous-extension}. If $M=0$, every approximating measure and its limit are zero; no division by $M$ is involved.
+
+For the BFJ comparison, assume the original BFJ hypotheses recalled in the next section, with each $L_i$ ample. Choose semipositive model reference forms $\theta_i$ representing $c_1(L_i)$, and let $\phi_{i,j}$ and $\phi_i$ be the corresponding weights. Use a common subsequence in the finitely many slots, relabelled so that $\|\phi_{i,j}-\phi_i\|_\infty\leq2^{-j}$. Set
+\[
+ d_j=3\cdot2^{-j},\qquad
+ \psi_{i,j}=\phi_{i,j}+d_j.
 \tag{64.8}\label{eq:cma-decreasing-replacement}
 \]
-Then \(\psi_j\searrow\phi\).
-Constants have zero curvature, so replacing \(\phi_j\) by \(\psi_j\) does
-not change the measure.
-Apply the BFJ monotone-continuity theorem successively in the mixed slots.
-The BFJ limit is therefore the weak limit of the same model measures.
+Since $d_j-d_{j+1}=2^{-j}+2^{-j-1}$, one has $\psi_{i,j}\geq\psi_{i,j+1}$ and $\psi_{i,j}\searrow\phi_i$ for every $i$. The rational constants correspond to rational multiples of the full special fibre, preserve semipositivity and leave every curvature measure unchanged. For a single ample reference form, the joint bounded monotone-continuity statement is \cite[Theorem~3.1]{BFJ15}, as reconstructed in \Cref{thm:bounded-ma-extension}. To include the different $L_i$, put $T_i=\theta_i+\ddc\phi_i$. The polarization identity is
+\[
+ n!\,T_1\wedge\cdots\wedge T_n
+   =\sum_{\varnothing\ne I\subseteq\{1,\ldots,n\}}
+       (-1)^{n-|I|}\left(\sum_{i\in I}T_i\right)^n.
+\tag{64.8a}\label{eq:cma-mixed-polarization}
+\]
+For each nonempty $I$, the class of $\sum_{i\in I}\theta_i$ is ample and $\sum_{i\in I}\psi_{i,j}$ decreases to the bounded potential $\sum_{i\in I}\phi_i$. Apply the pure case of that theorem to each term in the finite sum. The identity holds for model intersections and defines the mixed extension, so it identifies the BFJ product with the limit of the same subsequence of $\mu_j$. The whole sequence already has the unique weak limit constructed above.
 
-If the CLD Bedford--Taylor product is defined through this formal
-regularization, weak continuity of that product again gives the limit of
-the same \(\mu_j\).
-Finally, every \(\mu_j\) has mass \((L_1\cdots L_n)\) by
-\eqref{eq:cma-model-mass}; weak convergence on the proper space preserves
-total mass.
+If the CLD Bedford--Taylor product is defined through the stipulated formal regularization, its weak continuity identifies it with the same limit. The total mass is $I(1)=M$. The model-test estimate also applies to uniformly convergent nets and to varying continuous semipositive tuples, by approximating each finite tuple uniformly by model metrics. Thus the resulting mixed product is jointly continuous from uniform convergence of metrics to weak convergence of measures.
 \end{proof}
 
 \begin{remark}[No unrestricted singular conclusion]
@@ -237,7 +276,7 @@ operator has been defined and proved continuous.
 \begin{example}[Semistable curve]
 \label{ex:cma-semistable-curve}
 Let a regular semistable curve model have two components \(E_0,E_1\)
-meeting at one node, and normalize the unique skeleton edge to have length
+meeting at one $\widetilde K$-rational node, and normalize the unique skeleton edge to have length
 one.  (For an edge of length \(\ell\), each difference
 \(a_1-a_0\) below is divided by \(\ell\).)
 Write the reference measure as
@@ -291,6 +330,18 @@ trivially equal to one; the nonreduced calculation of
 \eqref{eq:cma-nonreduced-curve-measure} is the same check with
 \(b_{E_0}=2\), where dropping either occurrence of the multiplicity gives a
 different answer.
+\end{example}
+
+\begin{example}\label{ex:cma-weak-not-variation}
+Take $K=\mathbf C((\pi))$ with $|\pi|=\rme^{-1}$ and $X=\mathbf P^1_K$. Blow up a closed point of the special fibre of $\mathbf P^1_{K^\circ}$. The resulting regular semistable model has the two-component skeleton of \Cref{ex:cma-semistable-curve}, parametrized by $s\in[0,1]$. Let $x_0$ correspond to the strict transform of the original fibre, and let $\theta$ be the curvature of the pulled-back model metric on $L=\mathcal O(d)$, where $d\geq1$. Its measure is $d\delta_{x_0}$.
+
+For rational $t,u\in(0,1)$, set $\phi_t(s)=-d\min\{s,t\}$ and extend it constantly on the fibres of the skeleton retraction. Subdividing at the rational point $x_t$ gives a rational model function. Its outgoing slopes contribute $-d$ at $x_0$, $d$ at $x_t$, and zero elsewhere. Consequently,
+\[
+ \MA_\theta(\phi_t)=d\delta_{x_t},\qquad
+ \|\phi_t-\phi_u\|_\infty=d|t-u|.
+\tag{64.10a}\label{eq:cma-moving-atom}
+\]
+The model metric is semipositive because the degrees on every special-fibre component are nonnegative. As $t\downarrow0$ through rational values, $\phi_t\to0$ uniformly and $d\delta_{x_t}\to d\delta_{x_0}$ weakly. Nevertheless the total variation norm of $d\delta_{x_t}-d\delta_{x_0}$ is $2d$ for every $t>0$. Thus uniform convergence of metrics does not give convergence of measures in total variation. After dividing the measures by $d$, the same example has probability mass one and total variation norm two.
 \end{example}
 
 \section{The trivially valued BJ product}
@@ -478,15 +529,14 @@ extraneous factor \(\log r\) enters a hybrid measure formula.
 
 \subsection{A nonreduced curve calculation}
 
-Let a proper curve model have special fibre \(2E_0+E_1\), and suppose a
-relatively nef model line bundle satisfies
+Let a proper curve model have special fibre $2E_0+E_1$, assume that $E_0$ is $\mathbf Q$-Cartier, and suppose a relatively nef model line bundle satisfies
 \[
                   \deg(\mathcal L|_{E_0})=2,
              \qquad
                   \deg(\mathcal L|_{E_1})=1.
 \tag{64.23}\label{eq:cma-nonreduced-curve-degrees}
 \]
-The generic degree is therefore \(2\cdot2+1\cdot1=5\), and the model
+The generic degree is therefore $2\cdot2+1\cdot1=5$, and the model
 measure is
 \[
                        4\delta_{x_0}+\delta_{x_1},
@@ -494,18 +544,18 @@ measure is
                     \quad x_1=\ord_{E_1}.
 \tag{64.24}\label{eq:cma-nonreduced-curve-measure}
 \]
-Take \(D=E_0\).  Its model function has values
-\(f_D(x_0)=1/2\) and \(f_D(x_1)=0\), so
+Take $D=E_0$, which defines a rational model function by the $\mathbf Q$-Cartier assumption. Its values are
+$f_D(x_0)=1/2$ and $f_D(x_1)=0$, so
 \[
              \int f_D\,\rd\mu_{\mathcal X}
               =\frac12\cdot4=2
               =D\cdot\mathcal L.
 \tag{64.25}\label{eq:cma-nonreduced-curve-duality}
 \]
-Dropping the coefficient \(b_{E_0}=2\) would make the total mass \(3\)
-and the duality integral \(1\).  Dropping the factor \(b_{E_0}^{-1}\) in
+Dropping the coefficient $b_{E_0}=2$ would make the total mass $3$
+and the duality integral $1$.  Dropping the factor $b_{E_0}^{-1}$ in
 the divisorial point would keep the mass but make the duality integral
-\(4\).  The two appearances of the multiplicity serve different purposes
+$4$.  The two appearances of the multiplicity serve different purposes
 and must both remain.
 
 \subsection{What the four main theories contribute}
@@ -917,6 +967,8 @@ missing factor before it propagates into a slope formula.
 
 The model and formal comparison is
 \cite[Theorem~18.5.5 and Proposition~18.5.8]{CLD25} and \cite{CL06}.
+The explicit uniform estimate uses the model counterpart of
+\cite[Lemma~8.6 and the proof of Theorem~8.4]{BE21}.
 BFJ model, bounded, and finite-energy products are developed in
 \cite{BFJ15}; the common continuous semipositive comparison is recorded in
 \Cref{chap:bfj-ma}.
