@@ -2841,3 +2841,25 @@ atoms, Chapters 60--62, P12.1 provenance, supplied originals, bibliography,
 frozen packets, verifier receipts and dated releases retain their baseline
 bytes. No independent-agent or production-verifier pass is claimed.
 The previously pending commit 569bace was successfully pushed this round.
+
+## Chapter 64: DH mass and endpoint atoms, 24 September 2026
+
+The [DH mass audit](ch64_dh_mass_audit_20260924.md) corrects the two
+places where the terminal mass was substituted for the initial mass.
+The partial-body moment formula now explicitly requires an I-model test
+curve. Its tail distribution, interior absolute continuity and terminal
+atom are proved from the existing body comparison. A two-parameter curve
+example distinguishes the initial mass, terminal mass and probability mean.
+The published source's missing n! factor relative to our convention is
+made explicit without changing either convention.
+
+Two local proof/source passes and full build rounds are complete. The final
+PDF has 4,003 pages; 390 inputs and 11,700 unique labels pass the source
+check. There are no unresolved references/citations or layout overflows.
+Both visual review passes include the revised formulas and their transitions.
+The scoped house audit passes strict mode with zero errors and zero warnings.
+Exact rational checks cover 1,950 translated moments, including negative
+cutoffs, odd moments and constant curves. All 45 research atoms, Chapters
+60--63, P12.1 provenance, author originals, bibliography, frozen packets,
+verifier receipts and dated releases retain their baseline bytes. No new
+independent-agent or production-verifier pass is claimed.

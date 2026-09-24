@@ -548,20 +548,92 @@ product or Monge--Amp\`ere compatibility is asserted in this section.
 
 \section{Test curves and Duistermaat--Heckman moments}
 
-Let \(X\) now be a projective complex manifold, \(L\) ample, and
-\(\theta=c_1(L,h)\) for a smooth positive metric \(h\).
-Let \(\Gamma=(\Gamma_\tau)\) be a bounded positive-mass test curve with
-terminal value \(\Gamma_{\max}\), and write
-\(\vol(\Gamma)=\int_X\langle\theta_{\Gamma_{-\infty}}^n\rangle\).
-Its unnormalized DH measure from \Cref{chap:transcendental-okounkov-dh}
-has mass \(\vol(\Gamma)\), not \(V\) in general:
-\Cref{def:rays-test-curve}\,(3) requires only
-\(\int_X\theta_{\Gamma_{-\infty}}^n>0\), so \(\vol(\Gamma)=V\) exactly when the
-terminal level has full mass --- as it does for every filtration or
-test-configuration curve below, by \eqref{eq:rf-linear-bounds}.
+Let $X$ now be a connected projective complex manifold of dimension
+$n\geq1$, let $L$ be ample, and put $\theta=c_1(L,h)$ for a smooth
+positive metric $h$. Let $\Gamma$ be a bounded positive-mass
+$\mathcal I$-model test curve in the sense of
+\Cref{def:rays-i-model-test}. Put $\phi=\Gamma_{-\infty}$ and
+$c=\Gamma_{\max}$, and write
+\[
+ \begin{aligned}
+ m&=\vol(\Gamma)=\int_X\langle\theta_\phi^n\rangle>0,\\
+ M(\tau)&=\int_X\langle\theta_{\Gamma_\tau}^n\rangle
+                 \qquad(\tau<c).
+ \end{aligned}
+\]
+The $\mathcal I$-model hypothesis is needed here: partial Okounkov bodies
+compute multiplier-ideal volume, and
+\Cref{lem:ok-i-model-mass-volume} identifies this with non-pluripolar
+mass in this class. For general test curves this identification is not
+available; see \Cref{rem:ok-ideal-volume-necessity}.
+The total DH mass is $m$, so it equals $V$ precisely when the
+\emph{initial} level $\phi$ has full mass. The linear bounds
+\eqref{eq:rf-linear-bounds} give the full initial level for the filtration
+and test-configuration curves considered below. They impose no full-mass
+condition at the terminal level.
+
+\begin{proposition}\label{prop:cma-dh-tail-density}
+Under these hypotheses, $M$ is locally Lipschitz on $(-\infty,c)$ and
+\[
+ \begin{aligned}
+ \DHm_\Gamma([\tau,c])&=M(\tau)\quad(\tau<c),
+              &\DHm_\Gamma(\mathbf R)&=m,\\
+ \DHm_\Gamma(\{c\})&=M(c-):=\lim_{\tau\uparrow c}M(\tau).
+ \end{aligned}
+ \tag{64.25a}\label{eq:cma-dh-tail}
+\]
+More precisely,
+\[
+ \DHm_\Gamma
+ =-M'(\tau)\mathbf 1_{(-\infty,c)}(\tau)\,\rd\tau
+   +M(c-)\delta_c.
+ \tag{64.25b}\label{eq:cma-dh-density}
+\]
+Thus there are no atoms below $c$. The endpoint coefficient is the
+one-sided limit of the interior masses.
+\end{proposition}
+
+\begin{proof}
+Fix a smooth admissible flag. By \Cref{thm:ok-analytic-to-convex}, the
+partial bodies $\Delta_\tau=\Delta(\theta,\Gamma_\tau)$ form a bounded
+Okounkov test curve relative to $\Delta=\Delta(\theta,\phi)$, with
+$n!\operatorname{vol}(\Delta)=m$ and
+$n!\operatorname{vol}(\Delta_\tau)=M(\tau)$ for $\tau<c$.
+The concave transform $G$ satisfies
+$\{G\geq\tau\}=\Delta_\tau$ by \eqref{eq:ok-inverse-legendre}, and
+\eqref{eq:ok-dh-metric} gives
+$\DHm_\Gamma=n!G_*(\lambda_n|_\Delta)$.
+There is an $a<c$ such that $\Gamma_\tau=\phi$ for $\tau\leq a$;
+hence $a\leq G\leq c$ on $\Delta$. Taking the measure of a superlevel
+set gives the tail formula, and taking the whole body gives the total
+mass. Continuity from above of this finite measure on the decreasing
+sets $[\tau,c]$ gives the endpoint atom.
+
+The Minkowski inclusion \eqref{eq:ok-body-concavity} and the
+Brunn--Minkowski inequality show that $M^{1/n}$ is finite and concave on
+$(-\infty,c)$. It is therefore locally Lipschitz, as is $M$.
+For $u<v<c$, subtraction of the two tails gives
+\[
+ \DHm_\Gamma([u,v))=M(u)-M(v)
+                  =-\int_u^v M'(\tau)\,\rd\tau.
+\]
+This identifies the measure on every compact subinterval of
+$(-\infty,c)$. Exhausting that interval and adding the endpoint atom
+proves \eqref{eq:cma-dh-density}.
+\end{proof}
+
+The pushforward construction is \cite[Definition~7.6, p.~1329]{Xia21}.
+Our convention in \eqref{eq:ok-dh-metric} multiplies that measure by
+$n!$. The analytic construction in \cite[Lemma~7.7 and Definition~7.8,
+pp.~1329--1330]{Xia21} uses $\mathcal I$-model curves with full initial
+volume; the relative initial body used here is supplied by
+\Cref{thm:ok-analytic-to-convex}. The proof of
+\eqref{eq:cma-dh-tail} uses the limiting terminal body and does not
+require identifying its volume with the mass of an analytic endpoint.
 
 \begin{theorem}\label{thm:cma-test-curve-moments}
-For every integer \(q\geq1\),
+For a bounded positive-mass $\mathcal I$-model test curve as above, all
+moments are finite, and for every integer $q\geq1$,
 \[
 \begin{split}
     \int_{\mathbf R}\lambda^q\,\rd \DHm_\Gamma(\lambda)
@@ -575,46 +647,84 @@ For every integer \(q\geq1\),
 \]
 In particular,
 \[
+ \begin{split}
  \int_{\mathbf R}\lambda\,\rd \DHm_\Gamma(\lambda)
- =\Gamma_{\max}\vol(\Gamma)+
+ ={}&\Gamma_{\max}\vol(\Gamma)+
    \int_{-\infty}^{\Gamma_{\max}}
    \left(\int_X\langle\theta_{\Gamma_\tau}^n\rangle-\vol(\Gamma)\right)
-   \,\rd\tau
- =\mathbf E^{\Gamma_{-\infty}}(\Gamma).
+   \,\rd\tau\\
+ ={}&\mathbf E^{\Gamma_{-\infty}}(\Gamma).
+ \end{split}
 \tag{64.27}\label{eq:cma-first-moment}
 \]
-The right side of \eqref{eq:cma-first-moment} is the relative radial energy
-slope of the Legendre-dual ray in the unnormalized convention,
-\eqref{eq:rays-test-energy} and \eqref{eq:rays-rwn-energy}.  The constant is
-\(\vol(\Gamma)\) and not \(V\): only in the full-mass case
-\(\vol(\Gamma)=V\) --- which holds for every filtration or
-test-configuration curve, by \eqref{eq:rf-linear-bounds} --- may the two be
-interchanged.  With \(\vol(\Gamma)<V\) the integrand written with \(V\)
-tends to \(\vol(\Gamma)-V<0\) as \(\tau\to-\infty\) and the integral
-diverges.
+The last expression is the relative radial energy slope of the
+Legendre-dual ray in the unnormalized convention,
+\eqref{eq:rays-test-energy} and \eqref{eq:rays-rwn-energy}.
+Replacing $m$ by $V$ in this first-moment formula is valid only when
+$m=V$. If $m<V$, the altered integrand equals $m-V<0$ on a lower
+half-line, so its integral diverges to $-\infty$.
 \end{theorem}
 
 \begin{proof}
-Choose a smooth admissible flag.
-The concave transform \(G\) of the nested partial Okounkov bodies satisfies
-\(\{G\geq\tau\}=\Delta_\tau\).
-The DH measure is
-\(n!G_*(\lambda_n|_\Delta)\).
-Apply Fubini to
+Use the body $\Delta$ and bounded transform $a\leq G\leq c$ from
+\Cref{prop:cma-dh-tail-density}. For every $x\in\Delta$,
 \[
- G(a)^q=\Gamma_{\max}^q-
-        \int_{G(a)}^{\Gamma_{\max}}q\tau^{q-1}\,\rd \tau.
+ G(x)^q=c^q-\int_{G(x)}^c q\tau^{q-1}\,\rd\tau.
 \]
-The partial-body volume theorem gives
-\(n!\lambda_n(\Delta_\tau)
-  =\int_X\langle\theta_{\Gamma_\tau}^n\rangle\).
-This proves \eqref{eq:cma-layer-cake-moments}.
-For \(q=1\), the right side is the test-curve energy
-\(\mathbf E(\Gamma)\).
-The Ross--Witt Nystr\"om energy identity
-\eqref{eq:rays-rwn-energy} identifies it with the radial energy slope of
-\(\Gamma^*\).
+All integrands are bounded on the finite interval $[a,c]$, so Fubini
+applies also for odd $q$ and negative $a$ or $c$. Since
+$n!\lambda_n(\{G<\tau\})=m-M(\tau)$ for $\tau<c$, integration over
+$\Delta$ gives
+\[
+ \int_{\mathbf R}\lambda^q\,\rd\DHm_\Gamma
+ =c^qm+q\int_a^c\tau^{q-1}(M(\tau)-m)\,\rd\tau.
+\]
+The integrand vanishes for $\tau\leq a$, proving
+\eqref{eq:cma-layer-cake-moments}. At $q=1$ the expression is exactly
+\eqref{eq:rays-test-energy}; \eqref{eq:rays-rwn-energy} identifies it
+with the relative radial energy slope.
 \end{proof}
+
+\begin{example}\label{ex:cma-initial-terminal-masses}
+On $\mathbf P^1$ with $L=\mathcal O(1)$ and Fubini--Study volume $1$,
+write $H_\sigma$ for the hyperplane test curve of
+\Cref{ex:rays-hyperplane-test-curve}. For $0\leq\sigma\leq1$ its
+non-pluripolar mass is $1-\sigma$. For the flag at the pole $0$, its
+partial body is $[\sigma,1]$ when $\sigma<1$: sections with the
+multiplier-ideal condition have asymptotic vanishing order at least
+$k\sigma$ in degree $k$, and all orders up to $k$ occur.
+
+Fix $0\leq a\leq b\leq1$ with $a<1$, and set
+\[
+ \Gamma^{a,b}_\tau=
+ \begin{cases}
+ H_{\max\{a,\tau\}},&\tau\leq b,\\
+ -\infty,&\tau>b.
+ \end{cases}
+\]
+This is a bounded positive-mass $\mathcal I$-model test curve with
+initial level $H_a$ and cutoff $b$. Indeed, $H$ is concave and decreasing,
+so composition with the convex function $\tau\mapsto\max\{a,\tau\}$
+preserves concavity, and each interior level is $\mathcal I$-model.
+The closed value at $b$ is inherited from $H$, and the initial mass
+is $1-a>0$. The reference body is $[a,1]$, the interior bodies are
+$[\max\{a,\tau\},1]$, and the transform is $G(x)=\min\{x,b\}$.
+Consequently,
+\[
+ \DHm_{\Gamma^{a,b}}=\mathbf 1_{(a,b)}(\lambda)\,\rd\lambda
+                         +(1-b)\delta_b,
+ \qquad
+ \int_{\mathbf R}\lambda\,\rd\DHm_{\Gamma^{a,b}}
+       =b-\frac{a^2+b^2}{2}.
+ \tag{64.27a}\label{eq:cma-two-cutoff-dh}
+\]
+Its total mass is $1-a$, while the analytic terminal mass in this example
+is $1-b$. In particular, $a=0$, $b=1$ gives full DH mass and zero
+terminal mass. At $a=1/4$, $b=3/4$, the total mass is $3/4$, the endpoint
+atom is $1/4$, and the first moment is $7/16$; the probability mean is
+$7/12$. At $a=b$ the entire measure is $(1-a)\delta_a$, as required for
+a constant test curve up to its cutoff.
+\end{example}
 
 \begin{theorem}\label{thm:cma-algebraic-dh}
 Let \((\mathcal X,\mathcal L)\) be a normal ample test configuration for
@@ -785,10 +895,10 @@ Every comparison in this chapter survives the following tests.
 \(\MA_\omega(\phi)=V^{-1}\MA^{\mathrm u}_\omega(\phi)\).
 No probability measure is defined when \(V=0\).
 
-\item For a positive-mass complex test curve,
-\(\DHm_\Gamma(\mathbf R)=\vol(\Gamma)\), which equals \(V\) precisely when the
-terminal level has full mass; BHJ's empirical limit is a probability
-measure.
+\item For a bounded positive-mass $\mathcal I$-model complex test curve,
+$\DHm_\Gamma(\mathbf R)=\vol(\Gamma)$, which equals $V$ precisely when the
+initial level has full mass. The endpoint atom is given by
+\eqref{eq:cma-dh-tail}; BHJ's empirical limit is a probability measure.
 
 \item Adding a constant \(c\) to a metric leaves curvature unchanged but
 adds \(cV\) to unnormalized energy.
@@ -814,7 +924,7 @@ The trivially valued projective pairing and mixed measures are
 \cite[Sections~3 and~7]{BJ22}.
 The algebraic DH probability measure and its intersection moments are
 \cite[Theorem~3.1 and Corollary~3.4]{BHJ17}.
-The positive-mass Okounkov/test-curve formula is
+The positive-mass $\mathcal I$-model Okounkov/test-curve formula is
 \Cref{chap:transcendental-okounkov-dh}, and the ray energy identity is
 \cite{RWN14} in the analytic setting used in \Cref{chap:rays-test-curves}.
 The finite-energy comparison boundary in
