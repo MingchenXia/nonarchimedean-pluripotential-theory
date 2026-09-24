@@ -78,7 +78,12 @@ def audit() -> dict[str, object]:
     identifiers = tuple(identifier for identifier, _ in active_atoms)
     require(identifiers == EXPECTED_IDENTIFIERS, "active identifiers are not the exact ordered 43-atom list")
     tiers = Counter(tier for _, tier in active_atoms)
-    require(tiers == EXPECTED_TIERS, "active tier totals drifted")
+    tier_order = ("T1", "T2", "T3", "T4", "T5")
+    require(
+        tuple(tiers[tier] for tier in tier_order)
+        == tuple(EXPECTED_TIERS[tier] for tier in tier_order),
+        "active tier totals drifted",
+    )
 
     problem_blocks = re.findall(r"\\begin\{problem\}(.*?)\\end\{problem\}", chapter, re.DOTALL)
     chapter_labels = tuple(label for block in problem_blocks for label in CHAPTER_LABEL.findall(block))
@@ -95,7 +100,7 @@ def audit() -> dict[str, object]:
         "scope": "editorial identifiers, placement, tier totals, and Chapter 72 labels; not mathematical openness",
         "formal_problem_environments": len(expected_labels),
         "active_atomic_questions": len(identifiers),
-        "tiers": {tier: tiers[tier] for tier in ("T1", "T2", "T3", "T4", "T5")},
+        "tiers": {tier: tiers[tier] for tier in tier_order},
         "identifiers": identifiers,
     }
 
