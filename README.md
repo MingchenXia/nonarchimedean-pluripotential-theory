@@ -6,9 +6,17 @@ left blank in this release.
 
 **Current-source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (396 TeX files, 11,812 unique labels),
-and the full build produces a 4,054-page PDF with no unresolved reference
+The complete source check passes (396 TeX files, 11,818 unique labels),
+and the full build produces a 4,058-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
+The [DH quantization and energy audit](manuscript/editorial/ch65_dh_quantization_energy_audit_20260924.md)
+proves the interior filtered-volume/Monge--Ampère-mass identity with its
+birationality hypothesis and uses tails to identify the two DH measures.
+Examples isolate the finite-cover factor and an endpoint atom invisible
+in every raw terminal piece. The energy equality is exact at every
+positive time; determinant degrees give the compactified intersection
+formula. Chapter 64's dependent proof and the published source locators
+are corrected.
 The [filtered Bergman and endpoint audit](manuscript/editorial/ch65_filtered_bergman_endpoint_audit_20260924.md)
 closes the terminal filtration level, proves uniform norm comparison and
 identifies the Bergman tail envelope by two explicit inequalities.

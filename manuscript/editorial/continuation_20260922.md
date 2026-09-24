@@ -1475,16 +1475,48 @@ originals, earlier Rees unit, factor-two section, BHJ19 quarantine, frozen
 records, verifier receipts and dated releases are unchanged. No new
 independent-agent or production-verifier result is claimed.
 
+## Chapters 64 and 65: DH quantization and energy, 24 September 2026
+
+The [DH quantization and energy audit](ch65_dh_quantization_energy_audit_20260924.md)
+proves that each interior filtered series contains an ample series and is
+birational. Resolving its base ideals and taking a divisibility-cofinal
+increasing sequence identifies its volume with the equilibrium mass;
+the exact I-envelope input supplies the I-model property. This closes
+the missing step in both chapters' spectral/analytic DH comparison.
+
+The comparison uses interior tails and includes terminal atoms. A degree-q
+cover shows the failure of mass=volume for nonbirational series. A second
+P1 example has zero terminal pieces in every degree and a positive limiting
+endpoint atom. The energy first-moment equality holds at every positive
+time in the bounded ample setting. Determinant degrees and Riemann--Roch
+supply the compactified intersection formula with the fixed linearization,
+actual-degree convention and explicit probability/volume factors.
+
+Two source/proof passes and full builds are complete. The final PDF has
+4,058 pages; 396 inputs and 11,818 unique labels pass the source check.
+The 43-atom inventory is unchanged. The scoped house audit has no errors
+or warnings, and the build has no unresolved references/citations, rerun
+requests or layout overflows. The 13 inherited Chapter 70 destination
+warnings remain. Ten final PDF pages and the cited primary-source pages
+were visually inspected. Exact rational tests cover multiplicativity,
+interior tails, the terminal atom, means and character normalization.
+Supplied integrations, originals, prior checked sections, frozen records,
+verifier receipts and dated releases are unchanged. The analytic diagram
+and the remaining BHJ19 slope proof are still queued for review. No new
+independent-agent or production-verifier result is claimed.
+
 ## Next work
 
-1. Continue with Chapter 65's DH quantization, energy/moment identities
-   and analytic commutative diagram: check the filtered-volume and
-   positive-mass hypotheses, raw/probability factors and precise primary
-   sources. The filtered Bergman, closed-endpoint and fixed-linearization
-   unit is now checked, as are the Rees/normalization and Chapter 64
-   continuity/truncation units. Keep the BHJ19 erratum scope explicit and
-   preserve the supplied integrations. An order isomorphism of psh cones
-   still does not identify distinct singular measure operators.
+1. Continue with Chapter 65's analytic commutative diagram and the
+   remaining BHJ19 slope proof. In the diagram, justify the passage from
+   finite base ideals through envelopes to divisorial analytification;
+   the current supremum/envelope sentence requires a precise source or
+   a reconstruction. The DH volume/mass, endpoint-atom and energy/moment
+   unit is now checked, as are the earlier Bergman, Rees/normalization
+   and Chapter 64 continuity/truncation units. Keep the BHJ19 erratum
+   scope explicit and preserve the supplied integrations. An order
+   isomorphism of psh cones still does not identify distinct singular
+   measure operators.
 2. P06.2, P03.1, P12.6 and P21.3 retain the boundaries in the new integration
    audit. In particular, finite ideal-gauge transfer does not by itself
    give singular geometric psh or Monge--Ampere functoriality. Do not reopen
