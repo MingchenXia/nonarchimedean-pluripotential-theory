@@ -6,8 +6,8 @@ left blank in this release.
 
 **Current-source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (390 TeX files, 11,677 unique labels),
-and the full build produces a 3,995-page PDF with no unresolved reference
+The complete source check passes (390 TeX files, 11,683 unique labels),
+and the full build produces a 3,997-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
 The [P12.1 integration audit](manuscript/editorial/p121_integration_audit_20260923.md)
 records the author's supplied normalized-link manuscript, its complete
@@ -16,6 +16,11 @@ normalization branches, conductor descent, nonprimary gauges and nilpotent
 reduction settle P12.1; P12.2--P12.6 remain active. The original PDF is
 preserved byte for byte. This source integration has no new production
 verifier or independent-agent receipt.
+The [mass-variation audit](manuscript/editorial/ch62_mass_variation_audit_20260924.md)
+identifies all maximizing constraint parameters and proves quantitative
+continuity and inward derivatives for real divisorial masses, including
+zero weights. A curve example shows why the derivative must use the
+normalized solution rather than an arbitrary optimizer with inactive slack.
 The [rational-testing audit](manuscript/editorial/ch62_rational_tests_audit_20260924.md)
 proves continuity under variation of finitely many divisorial masses and
 reduces finite-energy coercivity to rational-mass tests with the same

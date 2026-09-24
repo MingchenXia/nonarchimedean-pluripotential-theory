@@ -829,10 +829,11 @@ weaker test.  Dreaminess is not assumed in
 
 \section{Finite-dimensional volume formula}
 
-Let $F_1,\ldots,F_\ell$, with $\ell\geq1$, be distinct prime divisors
-on a common smooth compact K\"ahler modification $\rho:Y\to X$.
-Put $v_i=\ord_{F_i}$ and let $\xi_i\in\mathbf Q_{\geq0}$ satisfy
-$\sum_i\xi_i=1$.  Thus
+Let $X$ be a connected compact K\"ahler manifold of dimension $n\geq1$ and $\alpha$ a K\"ahler class, with $V=\alpha^n$. Let $F_1,\ldots,F_\ell$, with $\ell\geq1$, be distinct prime divisors on a common smooth compact K\"ahler modification $\rho:Y\to X$, and put $v_i=\ord_{F_i}$. We allow all real probability vectors
+\[
+ \Sigma_\ell:=\{\xi\in\mathbf R_{\geq0}^{\ell}:\sum_i\xi_i=1\}.
+\]
+For $\xi\in\Sigma_\ell$, set
 \[
                          \mu_\xi:=\sum_{i=1}^\ell\xi_i\delta_{v_i}.
 \tag{62.21}\label{eq:mpwn-muxi}
@@ -912,17 +913,95 @@ $t_i=\psi(v_i)$.  Since $\psi\leq\phi_t$ and $\phi_t\leq\psi$
 on the support of $\mu_\xi$, \Cref{cor:mpwn-domination} gives
 $\phi_t=\psi$.  The variational identity
 \eqref{eq:mpwn-dual-energy-ma} then gives equality in
-\eqref{eq:mpwn-energy-legendre}.  This recovers
-\cite[Corollary~10.1.3]{MPWN25}.
+\eqref{eq:mpwn-energy-legendre}.  This proves the formula of \cite[Corollary~10.1.3, p.~40]{MPWN25} for real weights. The source's initial setup on p.~37 uses rational weights; the argument here uses only their nonnegativity and sum one.
 
 If $\mathbf1=(1,\ldots,1)$, translation of the candidate sets gives
 $\phi_{t+c\mathbf1}=\phi_t+c$ and
 $f_\alpha(t+c\mathbf1)=f_\alpha(t)+c$.
 Hence the objective in \eqref{eq:mpwn-energy-legendre} is unchanged,
-and one may impose $t_1=0$.  Inactive constraints may give further
-nonuniqueness.  If $\xi_i=0$, that point contributes nothing to
-the linear term, but its constraint can still affect $\phi_t$ for a
-fixed $t$.
+and one may impose $t_1=0$. A zero weight removes a coordinate from the linear term, but its constraint can still affect $\phi_t$ for a fixed $t$. The full set of maximizing parameters is described below.
+
+Write $g_\alpha(\xi)=E_\alpha^\vee(\mu_\xi)$ for the value in \eqref{eq:mpwn-energy-legendre}, and let $u_\xi$ be the sup-normalized solution of $\MA_\alpha(u_\xi)=\mu_\xi$. These solutions exist and are continuous by \Cref{thm:mpwn-cy,cor:mpwn-divisorial-envelope}.
+
+\begin{proposition}\label{prop:mpwn-legendre-maximizers}
+For $\xi\in\Sigma_\ell$, a vector $t\in\mathbf R^\ell$ attains the supremum in \eqref{eq:mpwn-energy-legendre} if and only if some $c\in\mathbf R$ satisfies
+\[
+ \begin{cases}
+ t_i=u_\xi(v_i)+c,&\xi_i>0,\\
+ t_i\geq u_\xi(v_i)+c,&\xi_i=0.
+ \end{cases}
+\tag{62.23a}\label{eq:mpwn-legendre-maximizers}
+\]
+In that case $\phi_t=u_\xi+c$. If every weight is positive, the maximizing vector is unique modulo addition of $c\mathbf1$. Zero weights allow the corresponding coordinates to increase independently.
+\end{proposition}
+
+\begin{proof}
+The variational gap \eqref{eq:mpwn-measure-quasimetric} gives
+\[
+ \begin{aligned}
+ g_\alpha(\xi)-\bigl(f_\alpha(t)-\xi\cdot t\bigr)
+ &=\delta_\alpha(\mu_\xi,\MA_\alpha(\phi_t))\\
+ &\quad+\sum_i\xi_i\bigl(t_i-\phi_t(v_i)\bigr).
+ \end{aligned}
+\]
+Both terms on the right are nonnegative. If the left side vanishes, the quasi-metric separates measures, so $\MA_\alpha(\phi_t)=\mu_\xi$. Uniqueness in \Cref{thm:mpwn-cy} then gives $\phi_t=u_\xi+c$. The weighted sum vanishes precisely when every positive-weight constraint is saturated, yielding \eqref{eq:mpwn-legendre-maximizers}.
+
+Conversely, under these inequalities $u_\xi+c$ is a candidate for $\phi_t$, and $\phi_t\leq u_\xi+c$ at every point carrying positive mass. Applying \Cref{cor:mpwn-domination} with reference potential $u_\xi+c$ gives $\phi_t=u_\xi+c$ everywhere. The identity \eqref{eq:mpwn-dual-energy-ma} and saturation at the positive masses then give equality in \eqref{eq:mpwn-energy-legendre}.
+\end{proof}
+
+\begin{proposition}\label{prop:mpwn-mass-derivative}
+The function $g_\alpha$ is convex on $\Sigma_\ell$. Put $r=(2^n-1)^{-1}$ and use $\|a\|_1=\sum_i|a_i|$ on $\mathbf R^\ell$. There is a constant $C$, depending on $\alpha$ and the fixed divisorial support, such that, for $\xi,\eta\in\Sigma_\ell$, the remainder
+\[
+ \begin{aligned}
+ R_\alpha(\eta,\xi)
+ &:=g_\alpha(\eta)-g_\alpha(\xi)
+            +\sum_i(\eta_i-\xi_i)u_\xi(v_i)\\
+ &=\delta_\alpha(\mu_\eta,\mu_\xi)
+ \end{aligned}
+\tag{62.23b}\label{eq:mpwn-mass-remainder}
+\]
+satisfies
+\[
+ \begin{aligned}
+ 0\leq R_\alpha(\eta,\xi)&\leq C\|\eta-\xi\|_1^{1+r},\\
+ \|u_\eta-u_\xi\|_{C^0(X^{\bethan})}
+                       &\leq C\|\eta-\xi\|_1^r.
+ \end{aligned}
+\tag{62.23c}\label{eq:mpwn-mass-holder}
+\]
+\par\noindent\begin{minipage}{\linewidth}
+For every $h\in\mathbf R^\ell$ with $\sum_i h_i=0$ and $h_i\geq0$ whenever $\xi_i=0$, one has the inward derivative
+\[
+ \left.\frac{\rd}{\rd s}\right|_{s=0+}g_\alpha(\xi+sh)
+                         =-\sum_i h_i u_\xi(v_i).
+\tag{62.23d}\label{eq:mpwn-mass-derivative}
+\]
+\end{minipage}\par
+On the relative interior this is the differential in every tangent direction. Its normalized coefficient vector $(-u_\xi(v_i))_i$ is H\"older continuous on the closed simplex with exponent $r$.
+\end{proposition}
+
+\begin{proof}
+The variational formula expresses $g_\alpha$ as a supremum of affine functions of the masses, proving convexity. Applying \eqref{eq:mpwn-measure-quasimetric} with the solution $u_\xi$ gives the identity in \eqref{eq:mpwn-mass-remainder}. The variational formula with competitor $u_\eta$ also gives
+\[
+ 0\leq R_\alpha(\eta,\xi)
+   \leq\sum_i(\eta_i-\xi_i)(u_\xi-u_\eta)(v_i)
+   \leq\|\eta-\xi\|_1\|u_\eta-u_\xi\|_{C^0}.
+\]
+Place all $v_i$ in one fixed dual complex $\Delta$. By \Cref{cor:mpwn-fixed-complex-uniform-solutions}, with $q=2^{-n}$, there is $C_0>0$ independent of the masses such that
+\[
+ \|u_\eta-u_\xi\|_{C^0}
+                   \leq C_0R_\alpha(\eta,\xi)^q.
+\]
+If the remainder is zero, both estimates follow directly. Otherwise divide the preceding bounds by its $q$-th power to obtain
+\[
+ R_\alpha(\eta,\xi)^{1-q}\leq C_0\|\eta-\xi\|_1.
+\]
+Since $1/(1-q)=1+r$ and $q/(1-q)=r$, substitution proves \eqref{eq:mpwn-mass-holder} with $C=C_0^{1/(1-q)}$. The dual complex, and hence this constant, is fixed before varying $\xi$ and $\eta$.
+
+The conditions on $h$ ensure that $\xi+sh\in\Sigma_\ell$ for all sufficiently small $s\geq0$. Substitute $\eta=\xi+sh$ in the remainder estimate and divide by $s>0$. The error is at most $Cs^r\|h\|_1^{1+r}$, which tends to zero. This proves \eqref{eq:mpwn-mass-derivative}. Evaluation of the uniform estimate at each $v_i$ gives continuity of the coefficients. Adding a constant to the solution leaves the derivative unchanged because $\sum_i h_i=0$.
+\end{proof}
+
+This differentiates the masses with the class $\alpha$ fixed. The class derivative in the beta formula below instead keeps the measure fixed.
 
 \begin{theorem}\label{thm:mpwn-volume-formula}
 For any $\lambda_0<\min_i t_i$,
@@ -1040,15 +1119,14 @@ This also shows directly that changing $\lambda_0$ below
 $\min_i t_i$ leaves the answer unchanged.
 \end{proof}
 
-Let $g_\alpha(\xi)$ denote the supremum in
-\eqref{eq:mpwn-energy-legendre}.  Then
+For the value $g_\alpha(\xi)=E_\alpha^\vee(\mu_\xi)$ already defined above, the beta identity gives
 \[
  \beta_\alpha(\mu_\xi)
  =\sum_{i=1}^{\ell}\xi_iA_X(F_i)
       +\nabla_{K_X}g_\alpha(\xi).
 \tag{62.26}\label{eq:mpwn-beta-explicit}
 \]
-This is \cite[Corollary~10.1.4]{MPWN25}.
+This is the formula in \cite[Corollary~10.1.4, p.~40]{MPWN25}, now for every $\xi\in\Sigma_\ell$ by the real-weight Legendre identity.
 The divisors and weights, and hence the measure, are fixed during
 the class derivative.  The differentiability theorem used above
 applies to the value $g_\alpha(\xi)=E_\alpha^\vee(\mu_\xi)$;
@@ -1106,6 +1184,26 @@ zero slope beyond them, and no other outgoing slope.
 Its Dirichlet energy is $p^2+(1-p)^2$, and dual energy is half
 this quantity.  Thus the zero-weight cases illustrate the
 additional nonuniqueness beyond translation by constants.
+
+Write $u_p$ for the sup-normalized solution at weights $(p,1-p)$. The same tree calculation gives
+\[
+ u_p(\ord_0)=-p,\qquad u_p(\ord_\infty)=-(1-p),
+\]
+and, for $0\leq p,q\leq1$,
+\[
+ \begin{aligned}
+ R_\alpha\bigl((p,1-p),(q,1-q)\bigr)&=(p-q)^2,\\
+ \|u_p-u_q\|_{C^0}&=|p-q|.
+ \end{aligned}
+\]
+These identities check both estimates of \Cref{prop:mpwn-mass-derivative} in dimension one, where $r=1$.
+At the endpoint $\xi=(1,0)$, every $t=(0,b)$ with $b\geq1$ maximizes, but along the inward path $\xi(s)=(1-s,s)$ one has
+\[
+ g_\alpha(\xi(s))=\frac12-s+s^2,
+ \qquad
+ \left.\frac{\rd}{\rd s}\right|_{s=0+}g_\alpha(\xi(s))=-1.
+\]
+The fixed optimizer $(0,b)$ only gives the lower bound $g_\alpha(\xi(s))\geq\frac12-bs$. Its slope $-b$ equals the actual derivative only at $b=1$, the value supplied by the solution's evaluations after imposing $t_1=0$. Thus arbitrary slack in a zero-weight coordinate cannot be used to compute the inward derivative.
 \end{example}
 
 \begin{example}\label{ex:mpwn-toric-beta}

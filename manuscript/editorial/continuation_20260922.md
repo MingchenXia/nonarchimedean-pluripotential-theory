@@ -1234,15 +1234,40 @@ author originals, bibliography, frozen packets, verifier receipts and
 dated releases are preserved. All 45 research atoms are unchanged.
 No independent-agent audit or production-verifier pass is asserted.
 
+## Chapter 62: boundary variation of divisorial masses, 24 September 2026
+
+The [mass-variation audit](ch62_mass_variation_audit_20260924.md)
+extends the finite-dimensional Legendre formula to real probability
+weights and identifies all maximizing parameters, including the independent
+slack at zero weights. The exact remainder is the ordered measure
+quasi-distance. A fixed-complex estimate gives a uniform remainder of
+order 1+r and Hölder continuity of normalized solutions with exponent
+r=1/(2^n-1). It yields the inward mass derivative on every boundary face.
+The projective-line example verifies the estimates and shows why arbitrary
+inactive slack in an optimizer cannot compute that derivative. The class
+derivative in the beta formula continues to hold the measure fixed.
+
+Two complete local proof/source passes, full builds and scoped visual
+review are complete. The final PDF has 3,997 pages; 390 inputs and 11,683
+unique labels pass the reference/structure check. There are no unresolved
+references/citations or layout overflows. Physical pages 3424--3430 were
+visually inspected in both passes. The scoped house audit has zero errors
+and one reviewed preprint warning. The final sources and ignored PDF are
+the checked bytes from a temporary baseline export. The complete volume
+theorem/proof, Chapter 62 outside the section, all other chapters, P12.1
+integration/provenance, author originals, bibliography, frozen packets,
+verifier receipts and dated releases are preserved. All 45 research atoms
+are unchanged. No independent-agent or production-verifier pass is claimed.
+
 ## Next work
 
-1. Continue Chapter 62 at the finite-dimensional volume formula:
-   examine continuity and one-sided variations on the probability
-   simplex, especially zero weights and inactive constraints. Keep the
-   fixed-measure class derivative explicit, and preserve the distinction
-   between the exact M/J threshold and the comparable beta/E-dual one.
-   Preserve completed Chapter 60--61 proofs, the rational testing unit,
-   P12.1 integration/provenance and exact verifier-backed passages.
+1. Continue Chapter 62 at the finite-constraint envelope as a function
+   of its thresholds: examine concavity, contact and the finite-support
+   measure, with precise first-variation hypotheses. Preserve the completed
+   mass-variation and rational-testing arguments, and keep class derivatives
+   at fixed measure separate from threshold and mass derivatives.
+   Preserve completed Chapters 60--61, P12.1 provenance and exact
+   verifier-backed passages.
 2. For P07.1, separately examine continuous convex collar data and the
    production of compatible collars from stratified comparison.
    No extension beyond the current hypotheses is asserted.
