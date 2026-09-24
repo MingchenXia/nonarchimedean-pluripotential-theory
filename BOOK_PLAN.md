@@ -25,6 +25,25 @@ the mathematical narrative will be unified.
 
 ---
 
+## Supplied solutions integrated on 24 September 2026
+
+Six distinct supplied papers are integrated with complete arguments in
+Chapters 15, 16, 18 and 70. P06.1 is settled for arbitrary singularities in
+its original good, separated, strict, boundaryless, nontrivially valued
+scope. P07.1 is false for general affine G-tropical spaces and true for good
+separated analytic spaces; the arbitrary-star product theorem applies at
+node tuples. These two atoms are retired: **43 active atoms in 13 formal
+problem environments**, tiers **(0,3,8,15,17)**.
+
+The codimension-two envelope obstruction narrows P03.1. The continuous and
+ideal-generated finite-transfer calculus, including normal nonflat targets
+and conductor descent, narrows P12.6. The full-polycylinder proof adds an
+independent argument in an already established P21.3 range. Those three
+atoms and P06.2 remain active. Supplied manuscripts, archived Xean evidence,
+two local checks and historical production receipts have distinct scopes;
+no new production or independent-agent verdict is asserted. See
+`manuscript/editorial/supplied_solutions_integration_audit_20260924.md`.
+
 ## Current local-boundary result: 23 September 2026
 
 The author-supplied normalized-valuation-links manuscript is integrated in

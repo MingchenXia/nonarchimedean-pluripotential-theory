@@ -3,7 +3,7 @@
 ## Non-Archimedean pluripotential theory monograph
 
 **Snapshot date:** 15 August 2026  
-**Current controlling update:** 23 September 2026 (P12.1 supplied-manuscript integration; earlier receipts retain their dated scopes)
+**Current controlling update:** 24 September 2026 (six supplied solutions; earlier receipts retain their dated scopes)
 **Research engine for Passes R1--R3:** `gpt-5.6-sol`, `xhigh` reasoning effort  
 **Scope:** explicit questions in the two supplied archives; directly relevant
 questions in the BFJ, BJ, CLD, Gubler--Künnemann--Jell--Rabinoff,
@@ -15,7 +15,26 @@ This is an internal research document, not a list of claims for publication.
 It records what has been tried, what is already known, and where a proof
 actually stops.
 
-**Controlling delta, 23 September 2026 (P12.1).** The author supplied
+## Supplied solutions integrated on 24 September 2026
+
+Six distinct supplied papers are integrated with complete arguments in
+Chapters 15, 16, 18 and 70. P06.1 is settled for arbitrary singularities in
+its original good, separated, strict, boundaryless, nontrivially valued
+scope. P07.1 is false for general affine G-tropical spaces and true for good
+separated analytic spaces; the arbitrary-star product theorem applies at
+node tuples. These two atoms are retired: **43 active atoms in 13 formal
+problem environments**, tiers **(0,3,8,15,17)**.
+
+The codimension-two envelope obstruction narrows P03.1. The continuous and
+ideal-generated finite-transfer calculus, including normal nonflat targets
+and conductor descent, narrows P12.6. The full-polycylinder proof adds an
+independent argument in an already established P21.3 range. Those three
+atoms and P06.2 remain active. Supplied manuscripts, archived Xean evidence,
+two local checks and historical production receipts have distinct scopes;
+no new production or independent-agent verdict is asserted. See
+`manuscript/editorial/supplied_solutions_integration_audit_20260924.md`.
+
+**Historical controlling delta, 23 September 2026 (P12.1).** The author supplied
 *Normalized valuation links and boundary ideals on excellent local germs*.
 Chapter 70 now contains its complete proof: intrinsic centered rays,
 compact primary sections and exact rescaling, normalization-branch lifting,

@@ -6,9 +6,20 @@ left blank in this release.
 
 **Current-source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
-The complete source check passes (390 TeX files, 11,700 unique labels),
-and the full build produces a 4,003-page PDF with no unresolved reference
+The complete source check passes (396 TeX files, 11,788 unique labels),
+and the full build produces a 4,040-page PDF with no unresolved reference
 or citation and no horizontal or vertical layout overflow.
+The [supplied-solutions audit](manuscript/editorial/supplied_solutions_integration_audit_20260924.md)
+records six further source manuscripts integrated with their proofs in
+Chapters 15, 16, 18 and 70. P06.1 is resolved for arbitrary singularities
+under its original hypotheses. P07.1 has a negative answer for general
+affine G-tropical spaces and a positive answer for good separated analytic
+spaces. The codimension-two envelope obstruction, finite-transfer and
+conductor calculus, and independent polycylinder argument are incorporated
+with their exact scopes; P03.1, P06.2, P12.6 and P21.3 remain active.
+The original supplied files and their hashes are preserved. Archived Xean
+checks are distinguished from the local integration review and from
+production Rethlas verification.
 The [P12.1 integration audit](manuscript/editorial/p121_integration_audit_20260923.md)
 records the author's supplied normalized-link manuscript, its complete
 Chapter 70 proof and two local source/proof checks. Primary-ideal changes,
@@ -272,8 +283,8 @@ Source provenance, exact input checksums and validation limits are in the
 [recovery build receipt](manuscript/editorial/source_recovery_build_20260922.md).
 Continued mathematical and editorial work is tracked in
 [`manuscript/editorial/continuation_20260922.md`](manuscript/editorial/continuation_20260922.md).
-The current checked editorial inventory is 45 active atoms in 14 formal
-problem environments, with tiers `(0,5,8,15,17)`.
+The current checked editorial inventory is 43 active atoms in 13 formal
+problem environments, with tiers `(0,3,8,15,17)`.
 
 The same continuation adds a worked Chapter 16 example explaining the
 convexity-forced affine region and nonseparable mixed terms in the latest

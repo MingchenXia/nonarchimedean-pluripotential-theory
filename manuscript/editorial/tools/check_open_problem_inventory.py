@@ -2,7 +2,7 @@
 """Check the exact active-problem crosswalk for Chapter 72.
 
 This is an editorial consistency gate.  It verifies the active identifiers,
-their placement under the fourteen formal Chapter 72 problem environments,
+their placement under the thirteen formal Chapter 72 problem environments,
 and the published tier totals.  It deliberately does not make a mathematical
 claim about whether any problem is open.
 """
@@ -26,8 +26,7 @@ EXPECTED_GROUPS = (
     ("prob:frontier-unibranch-local-envelope", ("P03.1", "P03.2", "P03.3")),
     ("prob:frontier-local-ma", ("P04.1", "P04.2", "P04.3", "P04.4")),
     ("prob:frontier-polyhedral-regularity", ("P05.1", "P05.2", "P05.5")),
-    ("prob:frontier-pluriharmonic", ("P06.1", "P06.2")),
-    ("prob:frontier-cld-hierarchy", ("P07.1",)),
+    ("prob:frontier-pluriharmonic", ("P06.2",)),
     ("prob:frontier-cld-global-metric", ("P08.1",)),
     ("prob:frontier-singular-local", ("P12.2", "P12.3", "P12.4", "P12.5", "P12.6")),
     ("prob:frontier-affine-cone-ma", ("P13.1", "P13.2")),
@@ -38,9 +37,9 @@ EXPECTED_GROUPS = (
     ("prob:frontier-cross-fan-upstairs", ("P21.3",)),
 )
 EXPECTED_IDENTIFIERS = tuple(identifier for _, identifiers in EXPECTED_GROUPS for identifier in identifiers)
-EXPECTED_TIERS = Counter({"T1": 0, "T2": 5, "T3": 8, "T4": 15, "T5": 17})
-COUNT_DECLARATION = "14 formal problem environments = 45 active atomic research questions."
-TIER_DECLARATION = "Tier counts: (T1,T2,T3,T4,T5) = (0,5,8,15,17)."
+EXPECTED_TIERS = Counter({"T1": 0, "T2": 3, "T3": 8, "T4": 15, "T5": 17})
+COUNT_DECLARATION = "13 formal problem environments = 43 active atomic research questions."
+TIER_DECLARATION = "Tier counts: (T1,T2,T3,T4,T5) = (0,3,8,15,17)."
 
 HEADING = re.compile(r"^### `(prob:frontier-[^`]+)` ---", re.MULTILINE)
 ACTIVE = re.compile(r"^- \*\*(P\d{2}\.\d+)\*\* `\[(T[1-5]); open(?:[;\] ])", re.MULTILINE)
@@ -77,11 +76,16 @@ def audit() -> dict[str, object]:
 
     active_atoms = [(match.group(1), match.group(2)) for match in ACTIVE.finditer(inventory)]
     identifiers = tuple(identifier for identifier, _ in active_atoms)
-    require(identifiers == EXPECTED_IDENTIFIERS, "active identifiers are not the exact ordered 45-atom list")
+    require(identifiers == EXPECTED_IDENTIFIERS, "active identifiers are not the exact ordered 43-atom list")
     tiers = Counter(tier for _, tier in active_atoms)
     require(tiers == EXPECTED_TIERS, "active tier totals drifted")
 
-    chapter_labels = tuple(CHAPTER_LABEL.findall(chapter))
+    problem_blocks = re.findall(r"\\begin\{problem\}(.*?)\\end\{problem\}", chapter, re.DOTALL)
+    chapter_labels = tuple(label for block in problem_blocks for label in CHAPTER_LABEL.findall(block))
+    require(len(CHAPTER_LABEL.findall(chapter)) == len(chapter_labels) + 1,
+            "expected exactly one retained historical frontier label")
+    require(r"\begin{remark}\label{prob:frontier-cld-hierarchy}" in chapter,
+            "retired CLD hierarchy label must remain on its historical remark")
     expected_labels = tuple(label for label, _ in EXPECTED_GROUPS)
     require(chapter.count(r"\begin{problem}") == len(expected_labels), "Chapter 72 formal problem-environment count drifted")
     require(chapter_labels == expected_labels, "Chapter 72 formal problem labels drifted")

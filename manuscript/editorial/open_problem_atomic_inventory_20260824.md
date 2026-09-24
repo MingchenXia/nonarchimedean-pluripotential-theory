@@ -1,6 +1,6 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 23 September 2026
+**Inventory date:** 24 September 2026
 **Literature cutoff:** 19 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, P14.8 current-source production verification and P21.3 residual-Picard source audit on 11 September, and repaired exact-current P14.2 V15 plus unconditional P14.3 production verification on 19 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
@@ -12,7 +12,7 @@ surrounding literature.
 
 ## Counting method
 
-The current source contains exactly fourteen formal problem environments,
+The current source contains exactly thirteen formal problem environments,
 all in Chapter 72.  A compound environment is
 split below into independently auditable theorem or construction targets.
 Equivalent reformulations are counted only once.  The compatibility axioms
@@ -48,21 +48,46 @@ retirement of P14.7 after the strict-interior raw-filtration maximality
 theorem, retirement of P14.3 after the exact-current unconditional full Kähler
 truncation verification, and retirement of P14.2 after its repaired V15
 production pass, and retirement of P12.1 after the author-supplied
-excellent-germ normalized-boundary construction, the exact count is
+excellent-germ normalized-boundary construction, and retirement of P06.1 and
+P07.1 through the author-supplied solutions integrated on 24 September,
+the exact count is
 
 ```text
-14 formal problem environments = 45 active atomic research questions.
-Tier counts: (T1,T2,T3,T4,T5) = (0,5,8,15,17).
+13 formal problem environments = 43 active atomic research questions.
+Tier counts: (T1,T2,T3,T4,T5) = (0,3,8,15,17).
 ```
 
 The read-only command `python3 manuscript/editorial/tools/check_open_problem_inventory.py`
 mechanically checks these two declarations, the exact active identifiers and
-their placement, and the fourteen Chapter 72 problem labels.
+their placement, and the thirteen active Chapter 72 problem labels.
 
 The active identifiers listed below form an editorial addressing scheme.
 Their prefixes record the corresponding formal environments, not theorem
 numbers in the book; retired and historically skipped identifiers are not
 reassigned.
+
+## Controlling supplied-source update, 24 September 2026
+
+P06.1 is settled in its full original scope by
+`thm:supplied-p061-singular-pluriharmonic`. P07.1 is answered negatively in
+its unrestricted affine G-tropical scope by
+`thm:supplied-p071b-second-stage-star`; on good separated analytic spaces
+`thm:supplied-p071a-analytic-first-stage` gives a positive answer. Arbitrary
+finite products of the standard CLD stars have first-stage germs at their
+node tuples. The counterexample has a different affinage and no analytic
+realization is asserted. Together with the earlier P07.2 retirement, this
+retires the CLD hierarchy environment; its semantic label is retained on a
+historical remark for stable cross-references.
+
+The pinched-bidisc obstruction rules out codimension-one sufficiency for
+P03.1, but leaves P03.1--P03.3 active. P12.6 now has continuous and
+ideal-generated transfer, normal-target trace without flatness, and exact
+conductor descent; the independently geometric singular psh and product
+compatibilities remain active. The full-polycylinder argument for P21.3 is
+an additional proof of an established positive range, not its retirement.
+All earlier dated status statements below retain their checkpoint meaning.
+The source map, local checks and distinction from production verification
+are in `supplied_solutions_integration_audit_20260924.md`.
 
 ## Atomic inventory
 
@@ -678,56 +703,16 @@ sequel, whose own bibliography labels it ``In preparation.''  It is not an
 available theorem for P05.1 or P05.2 and is therefore not used to narrow
 either atom; see BMPS26, pp. 4 and 45.
 
-### `prob:frontier-pluriharmonic` --- 2 atoms
+### `prob:frontier-pluriharmonic` --- 1 active atom
 
-- **P06.1** `[T2; open after the quasi-smooth, all strict-curve, arbitrary
-  finite curve-factor, finite constant-group quotient, finite-flat cover of
-  a verified range, all-orbits split
-  toric, split-toric quasi-smooth-product and arbitrary-curve-factor
-  product, algebraic-split toric-form and its arbitrary-curve-factor product,
-  pointwise analytic algebraic-split toric charts with arbitrary curve
-  factors,
-  source-Zariski-local ordinary-etale algebraic-split toric charts with
-  arbitrary curve factors,
-  analytic standard-etale algebraic-split toric charts with arbitrary curve
-  factors,
-  positive-weighted affine-cone vertex and finite relative
-  positive-weighted-cone towers over any verified base range along their
-  composite zero sections, together with displayed analytic standard-etale
-  perturbations at central-fibre points over a quasi-smooth or otherwise
-  verified central fibre and algebraic ordinary-etale germs over the zero
-  section of a relative positive-weighted cone with smooth algebraic base,
-  including finite algebraic towers at their composite zero sections,
-  algebraic-split analytic-toric-form,
-  algebraic-split-form quasi-smooth-product, transverse toric-product, and
-  source-Zariski-local ordinary-etale algebraic-split-toroidal and analytic
-  standard-etale algebraic-split-toroidal cases]` On a good,
-  separated, strict, boundaryless analytic space, outside the local
-  arbitrary-curve-factor scope of
-  `thm:p061-arbitrary-curve-factors-ph-rpl`, the positive-weighted-cone vertex
-  scope of `thm:p061-positive-weighted-cone-vertex-constancy`, its relative
-  zero-section and finite-tower scope of
-  `prop:p061-relative-positive-weighted-cone-descent` and
-  `cor:p061-iterated-relative-weighted-cone-closure`, the standard-etale
-  central-fibre scope of `thm:p061-standard-etale-weighted-cone-tube`, the
-  algebraic ordinary-etale zero-section scope of
-  `thm:p061-algebraic-etale-weighted-cone-zero-section` and
-  `thm:p061-algebraic-etale-weighted-cone-towers`, and the
-  all-orbits split toric
-  and algebraic-split-form scope of `thm:p061-split-toric-all-orbits` and
-  `cor:p061-algebraic-split-toric-forms` and
-  `cor:p061-algebraic-split-analytic-toric-forms`, and outside the split-toric
-  quasi-smooth and arbitrary-curve-factor product scope of
-  `cor:p061-split-toric-quasismooth-products` and
-  `cor:p061-toric-arbitrary-curve-factor-products`, and outside its pointwise
-  analytic algebraic-split extension
-  `cor:p061-analytic-toric-arbitrary-curve-factor-products`, and outside the
-  source-Zariski-local ordinary-etale algebraic-split product extension
-  `cor:p061-etale-toric-arbitrary-curve-factor-products`, and outside the
-  analytic standard-etale algebraic-split product extension
-  `cor:p061-analytic-standard-etale-arbitrary-curve-factor-products`, decide whether
-  every classically pluriharmonic function is \(\mathbf R\)-PL near a
-  non-quasi-smooth point of analytic dimension at least two.
+- **P06.1** `[retired; supplied manuscript, 24 September 2026]`
+  Every classically pluriharmonic function is locally real PL on a good,
+  separated, strict, boundaryless analytic space over a complete
+  nontrivially valued field, including arbitrary singularities. The complete
+  descent proof is `thm:supplied-p061-singular-pluriharmonic`. No finite-flat,
+  toroidal, product, characteristic-zero or algebraically closed hypothesis
+  is added to the original target. This does not prove P06.2's passage from
+  a continuous zero-Hessian current to classical pluriharmonicity.
 - **P06.2** `[T2; open after the weakly smooth, real-PL, proper full-rank
   moment-factor, good-strict invariant split-toric (including boundary) and
   algebraic-split scalar-stable invariant-toric, including its analytic-local
@@ -1580,24 +1565,19 @@ and
 The direct endpoint assigned no item identifier.  P06.1 and P06.2 retain
 the residual scopes stated above.
 
-### `prob:frontier-cld-hierarchy` --- 1 active atom
+### Retired CLD hierarchy: `prob:frontier-cld-hierarchy`
 
-- **P07.1** `[T2; open after the tropical-toric, finite ambient-star,
-  finite ambient-star × open-convex-Euclidean and × convex-polyhedral
-  joint-convex-generator, Stone × finite-star × convex-polyhedral
-  joint-convex-generator, Stone × exact CLD infinite-star, exact CLD
-  infinite-star × open-convex-Euclidean, × convex-polyhedral, and × both
-  constant-collar endpoints, exact CLD infinite-star × bivalent exact CLD
-  star, Stone ×
-  exact CLD infinite-star × convex-polyhedral, and Stone × exact CLD
-  infinite-star × arbitrary-open-Euclidean joint-convex-generator, Stone ×
-  exact CLD infinite-star × generator-convex arbitrary-incidence
-  polyhedral-complex, two
-  nonambient interval, exact CLD infinite-star, Stone--Euclidean,
-  Stone--polyhedral, and generator-convex arbitrary-incidence
-  polyhedral-complex cases]`
-  Decide whether the CLD psh hierarchy collapses after its first
-  decreasing-limit stage.
+- **P07.1** `[retired; supplied counterexample, 24 September 2026]`
+  Universal first-stage collapse on affine G-tropical spaces is false.
+  The compact countable restricted-slope star supports a bounded continuous
+  second-stage function which is no pointwise limit of ordinary smooth psh
+  functions on any fixed node neighborhood. See
+  `thm:supplied-p071b-second-stage-star`. On good separated Berkovich spaces
+  the first stage does suffice, by `thm:supplied-p071a-analytic-first-stage`.
+  No counterexample with the analytic affinage is claimed.
+
+The following verification history precedes this supplied-source solution;
+its residual-scope statements are superseded by the controlling update.
 
 Eventual cardinal stabilization is known.  Production run
 `20260825T024707Z_d1b8d7eaf79e` controls the tropical toric case and the
@@ -2282,12 +2262,15 @@ displayed problem environment, and lowers the active count by one.
   theory.
 - **P12.4** `[T5; open]` Construct model-independent bounded products.
 - **P12.5** `[T5; open]` Construct a finite-energy theory.
-- **P12.6** `[T4; open after normalized curve-branch functoriality,
-  ideal-psh/envelope pullback, branch-surjective generic trace and
-  conductor-scaled principal descent, finite conditional-expectation
-  calculus, finite-flat canonical norm
-  pushforward, and high-order conductor realization]`
-  Establish finite-map functoriality, including branch and conductor descent.
+- **P12.6** `[T4; open beyond the finite valuative-transfer and
+  conductor-compatible descent calculus integrated on 24 September]`
+  Establish compatibility with independently geometric psh cones and
+  Monge--Ampere constructions. Chapter 70 now proves finite restriction,
+  extrema, normal-domain norm traces, conductor-compatible branch descent,
+  finite-flat determinant traces and their precise tower and gauge rules.
+  The singular-surface obstruction excludes an unrestricted continuous
+  degree trace. The ideal-generated cone and the geometric psh cone remain
+  distinct; the supplied manuscript does not identify their operators.
 
 The five remaining targets stay active. The boundary construction above
 does not identify a singular psh cone or provide products, energy, or
@@ -3178,7 +3161,7 @@ problem environment are retired.
 At this 28 August milestone, the active inventory was 15 formal
 environments and 54 atoms.  After the 30 August retirements recorded above,
 the P14.7, P14.3, P14.2 and P12.1 retirements, the current inventory is
-14 formal environments and 45 atoms.
+13 formal environments and 43 atoms, after the supplied P06.1/P07.1 solutions.
 
 ## Easy-to-hard Rethlas queue
 
@@ -3190,9 +3173,9 @@ counterexample retires an atom just as a verified proof does.
 
 No active atom remains in this tier after retirement of `P01.1`.
 
-### T2 --- focused problems with one principal missing bridge (5 atoms)
+### T2 --- focused problems with one principal missing bridge (3 atoms)
 
-`P21.3`, `P07.1`, `P06.1`, `P06.2`, `P03.1`.
+`P21.3`, `P06.2`, `P03.1`.
 
 ### T3 --- major theorems within mature frameworks (8 atoms)
 
@@ -3229,3 +3212,12 @@ and the checked complete supplied proof, with the separate provenance
 as a production verdict. This specific source integration does not satisfy,
 waive, or change the production rule for newly proposed agent results,
 and it changes no historical receipt or remaining P12 atom.
+
+**Author-directed supplied-source integration, 24 September 2026:** the
+same provenance distinction applies to the six papers supplied for
+integration. The complete P06.1 proof and unrestricted P07.1 counterexample
+retire those two atoms after two local source/proof passes. The P06.1 archive
+contains an external Xean verification history, summarized without extending
+its verdicts to edited book bytes. No new production Rethlas or independent
+agent verdict is claimed. The ordinary production rule still controls newly
+proposed agent results. P03.1, P06.2, P12.6 and P21.3 remain active.

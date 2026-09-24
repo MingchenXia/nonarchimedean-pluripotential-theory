@@ -1330,25 +1330,51 @@ cutoffs, odd moments and constant curves. All 45 research atoms, Chapters
 verifier receipts and dated releases retain their baseline bytes. No new
 independent-agent or production-verifier pass is claimed.
 
+## Six supplied solution manuscripts integrated, 24 September 2026
+
+The [integration audit](supplied_solutions_integration_audit_20260924.md)
+records the complete proofs adapted into Chapters 15, 16, 18 and 70.
+P06.1 is resolved at arbitrary singularities under its original hypotheses.
+P07.1 has a negative answer for unrestricted affine G-tropical spaces and
+first-stage collapse on good separated analytic spaces. Arbitrary star
+products at node tuples are also covered. The codimension-two envelope
+obstruction, full polycylinder rigidity and finite-transfer/conductor
+calculus have their exact scopes recorded; P03.1, P06.2, P12.6 and P21.3
+remain active. The current inventory is 43 atoms in 13 formal problem
+environments, with tiers (0,3,8,15,17).
+
+All six original PDFs, five original TeX files, five individual source
+archives and the supplied index are preserved with hashes. The separate
+P06.1 PDF is identical to the bundled copy. The archived P06.1 Xean
+verdicts are extracted with their qualifications and distinguished from
+the two local proof/source review passes. No new independent-agent or
+production Rethlas verdict is claimed. Existing frozen research passages,
+verifier receipts, dated releases, P12.1 sources and Chapters 60--64 retain
+their baseline bytes.
+
+The full build has 4,040 pages, with 396 inputs and 11,788 unique labels.
+The reference, structure and 43-atom inventory checks pass; no unresolved
+reference/citation or horizontal/vertical overflow remains. The 13 existing
+Chapter 70 PDF destination warnings are unchanged. All 31 supplied PDF
+pages and 52 final book pages covering the additions and their transitions
+were visually reviewed; the five proof-caption repairs received a final
+scoped recheck. The house audit has zero errors and two reviewed warnings
+for the exact CLD and Gubler--Rabinoff preprint versions. The checked
+current PDF remains a local ignored artifact, separate from dated releases.
+
 ## Next work
 
-1. Integrate the author's newly supplied 24 September solution bundle,
-   P12.6.pdf and P06.1.pdf after checking exact hypotheses and proofs.
-   Preserve the supplied originals and distinguish local verification
-   from production-verifier receipts. Then audit Chapter 64's common-model and finite-energy Monge--Ampere
-   comparisons against the now explicit Chapter 63 volume normalization.
-   Check the exact common domains, multiplicities and limiting arguments;
-   a psh-cone order isomorphism alone does not identify measure operators.
-   Preserve Chapters 60--63, the rational-mass and finite-constraint units,
-   P12.1 provenance and exact verifier-backed passages.
-2. For P07.1, separately examine continuous convex collar data and the
-   production of compatible collars from stratified comparison.
-   No extension beyond the current hypotheses is asserted.
-3. Repeat the complete build after coherent revisions; preserve dated
-   checksum ledgers for their stated snapshots. Commit and push
-   checked units with outstanding limits recorded; no force pushes
-   or changes to visibility.
-
-4. In the later bibliography pass, inspect the pre-existing duplicate
-   Nadel and Odaka entries on current printed page 3895. Any key
-   consolidation must preserve frozen citation sources and records.
+1. Continue Chapter 64's common-model and finite-energy Monge--Ampere
+   comparison audit against the explicit Chapter 63 volume normalization.
+   Check exact domains, multiplicities and limiting arguments: a psh-cone
+   order isomorphism alone does not identify measure operators. Preserve
+   the completed Chapters 60--64 units and the supplied solution sources.
+2. P06.2, P03.1, P12.6 and P21.3 retain the boundaries in the new integration
+   audit. In particular, finite ideal-gauge transfer does not by itself
+   give singular geometric psh or Monge--Ampere functoriality. Do not reopen
+   the retired literal P06.1 and unrestricted affine G-tropical P07.1 atoms.
+3. Build after coherent revisions; preserve dated checksum ledgers for
+   their stated snapshots. Commit and push checked units with outstanding
+   limits recorded, without force pushes or visibility changes.
+4. In a later bibliography pass, inspect the pre-existing duplicate Nadel
+   and Odaka entries, preserving frozen citation sources and records.
