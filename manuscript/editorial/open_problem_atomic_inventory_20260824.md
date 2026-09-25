@@ -558,6 +558,17 @@ retraction defect.  This is only a necessary witness condition: no converse,
 removability result, or defect vanishing is proved.  P03.1--P03.3 and the
 total count remain unchanged.
 
+Theorem `thm:p031-isolated-scalar-defect-nonremovability` gives the sharp
+local converse at isolated strict-defect points.  Upper semicontinuity of
+the subharmonic comparison function makes each such point a strict local
+maximum of the retracted pullback, so it is an actual curve-test failure
+point.  For a closed discrete or locally finite defect locus, the defect and
+failure loci agree, and subharmonicity is equivalent to emptiness of the
+defect.  Hence a classically psh envelope permits no isolated
+canonical-retraction defect on any extended test curve.  The theorem neither
+produces an isolated defect nor excludes a nonempty defect locus without
+isolated points, so P03.1--P03.3 and the total count remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
