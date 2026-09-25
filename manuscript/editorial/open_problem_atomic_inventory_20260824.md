@@ -783,6 +783,25 @@ either atom; see BMPS26, pp. 4 and 45.
   weaker-than-scalar-stable boundary-control residuals stated below.  The
   unrestricted arbitrary-radius product extension is now known to be false.
 
+The live two-gate reduction
+`prop:p062-scalar-regularization-two-gate` now separates the general atom
+into two exact obligations.  After an analytic extension $L/K$, it is
+enough that the zero Hessian equation ascend and that current positivity
+regularize the two signs of the pulled-back function into the CLD-psh
+hierarchy.  The CLD-to-classical comparison, scalar descent for classical
+pluriharmonicity, and the supplied P06.1 theorem then give classical
+pluriharmonicity and local real-PL regularity downstairs; in the
+pure-dimensional case the real-PL positive-current comparison also gives
+GJR harmonicity.
+Conversely, `cor:p062-counterexample-two-gate-obstruction` shows that every
+P06.2 counterexample forces scalar ascent to fail over each extension where
+the second gate succeeds, and already over $K$ makes one of its two signs
+a continuous zero-current function outside the CLD-psh hierarchy.  In the
+pure-dimensional scope this also contradicts the missing nonsmooth converse
+to the positive-current comparison.  No automatic current pullback or
+positive-current regularization is asserted; P06.2 remains one active T2
+atom and the total active count is unchanged.
+
 The weakly smooth zero-current statement is known.  The real-PL
 zero-current implication is now verified on good separated boundaryless
 strict pure-dimensional spaces by production run
