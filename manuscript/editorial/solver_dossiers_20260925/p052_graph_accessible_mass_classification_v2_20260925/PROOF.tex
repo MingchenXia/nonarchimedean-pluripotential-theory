@@ -1,0 +1,184 @@
+% P05.2 one-dimensional graph classification proof, 25 September 2026.
+
+\begin{proof}[\Cref{lem:frontier-polyhedral-ambient-vertex-accessibility}]
+Choose a rational polyhedral norm $\lVert\cdot\rVert$ on $N_{\mathbf R}$.
+On every unbounded edge $e$, let $r_e>0$ be the eventual slope of $\gamma$
+in the primitive outgoing direction $u_e$.  Since there are only finitely
+many such edges, choose $\varepsilon>0$ such that
+\[
+                         \varepsilon\lVert u_e\rVert<r_e
+                         \qquad\text{for every unbounded }e.
+\]
+If $\mathbf X$ has no unbounded edge, any positive $\varepsilon$ will do.
+
+Fix a vertex $v$ and choose $C>\gamma(v)$.  The restriction to $\mathbf X$
+of the ambient convex function
+\[
+                         h(x):=C+\varepsilon\lVert x-v\rVert
+\]
+is polyhedrally convex and is affine on a finite rational polyhedral
+refinement.  A finite maximum preserves every polyhedral Jensen inequality,
+so the continuous function
+\[
+                         F:=\max\{\gamma,h\}
+\]
+is polyhedrally convex and has only finitely many affine pieces on every
+edge.  Its breakpoints need not be rational, so one further rational
+interpolation is required.
+
+Along every unbounded edge the eventual slope of $\gamma-h$ is positive.
+Hence $F=\gamma$ outside a compact subset of $\mathbf X$.  On each edge,
+choose finitely many rational points which include its endpoints, meet the
+affine germ of $F$ at every incident vertex, and, on an unbounded edge,
+include a point beyond which $F=\gamma$.  Let $\varphi$ be the affine
+interpolation of the values of $F$ at these points, extended by $\gamma$ on
+the remaining unbounded tails.  Secant slopes of a convex function on an
+interval are nondecreasing, so $\varphi$ is convex on each edge.  Its
+outgoing slopes at every original vertex equal those of $F$; hence all local
+nonnegative-cycle inequalities are preserved.  The one-dimensional local
+slope criterion gives
+\[
+ \varphi\in\mathrm{PA}_{\mathbf R}(\mathbf X)\cap
+ \mathrm{PC}(\mathbf X),
+ \qquad
+ \varphi-\gamma\in\mathrm{PA}_{\mathbf R,b}(\mathbf X).
+\]
+
+The strict inequality $C>\gamma(v)$ persists on a sufficiently small closed
+star about $v$.  Choose the first rational interpolation points inside this
+star.  Then $\varphi=h$ on their incident segments, and its outgoing slope
+along every incident edge is
+$\varepsilon\lVert u_{e/v}\rVert>0$.  Therefore
+\[
+ \MA_{\mathrm{poly},\mathbf R}(\varphi)\{v\}
+ =\varepsilon\sum_{e\in E(v)}w_e\lVert u_{e/v}\rVert>0.
+\]
+Thus $v$ is $\gamma$-mass-accessible.
+\end{proof}
+
+\begin{proof}[\Cref{lem:frontier-polyhedral-accessible-mass-obstruction}]
+Choose $\varphi$ as in
+\Cref{def:frontier-polyhedral-mass-accessible}.  Let
+$s=(s_e)_{e\in E(v)}$ be its outgoing slope vector at $v$, let
+$w=(w_e)_{e\in E(v)}$, and put
+\[
+                         m:=w\mathbin{\cdot}s>0.
+\]
+The local convexity criterion gives
+$\lambda\mathbin{\cdot}s\geq0$ for every $\lambda\in K_v$.
+
+Let $L_v$ be the linear span of $K_v$.  Since $\dim K_v>1$ and
+$w\mathbin{\cdot}s>0$, choose a positive rational vector
+$c=(c_e)_{e\in E(v)}$ such that the restrictions of $c$ and $s$ to $L_v$
+are not proportional.  Multiplying $c$ by a sufficiently large positive
+rational number, choose points $x_e$ at integral-affine distance
+$\rho_e=c_e^{-1}$ from $v$ such that every segment $[v,x_e]$ contains no
+other vertex and $\varphi$ is affine on it.  The slice
+\[
+                       B_c:=\{\lambda\in K_v:\lambda\mathbin{\cdot}c=1\}
+\]
+is nonempty and compact.  Set
+\[
+                       \tau:=\min_{\lambda\in B_c}
+                       \lambda\mathbin{\cdot}s\geq0.
+\]
+
+Raise $\varphi(v)$ by $\tau$, interpolate affinely to the unchanged values
+$\varphi(x_e)$, and leave $\varphi$ unchanged off the closed star.  Denote
+the resulting function by $\widetilde\varphi$.  Its outgoing slope vector
+at $v$ is
+\[
+                         \widetilde s=s-\tau c.
+\]
+The definition of $\tau$ gives
+$\lambda\mathbin{\cdot}\widetilde s\geq0$ for every $\lambda\in K_v$,
+and a minimizer $\lambda^0\in B_c$ satisfies
+\begin{equation}
+                  \lambda^0\mathbin{\cdot}\widetilde s=0.
+                  \label{eq:frontier-polyhedral-supporting-relation}
+\end{equation}
+At each $x_e$ the modified slope increases back to the old slope, so
+one-variable convexity is preserved.  All other local inequalities are
+unchanged.  Thus $\widetilde\varphi$ is polyhedrally convex and remains
+$\gamma$-bounded.
+
+Its mass at $v$ is still positive.  This is immediate when $\tau=0$.
+If $\tau>0$, the linear functional
+$\lambda\mapsto\lambda\mathbin{\cdot}s$ is nonconstant on $B_c$ by the
+choice of $c$.  The point
+$w/(w\mathbin{\cdot}c)$ lies in the relative interior of $B_c$, so its
+value is strictly larger than the minimum.  Hence
+\begin{equation}
+ \frac{w\mathbin{\cdot}s}{w\mathbin{\cdot}c}>\tau,
+ \qquad
+ w\mathbin{\cdot}\widetilde s>0.
+ \label{eq:frontier-polyhedral-positive-projected-mass}
+\end{equation}
+
+Let $b$ be the real-piecewise-affine function which is one at $v$, zero at
+every $x_e$, affine on $[v,x_e]$, and zero off the closed star.  Put
+\[
+                         a:=\widetilde\varphi+b,
+                         \qquad
+                         u:=a-\gamma.
+\]
+Then $u$ is bounded and real-piecewise affine, and
+$\widetilde\varphi$ is an admissible competitor for $P_\gamma(u)$.
+
+Let $q\leq a$ be any polyhedrally convex envelope competitor and put
+\[
+ C_0:=\sum_e\frac{\lambda^0_e}{\rho_e},
+ \qquad
+ \alpha_e:=\frac{\lambda^0_e/\rho_e}{C_0}.
+\]
+Because $x_e=v+\rho_eu_{e/v}$ and $\lambda^0\in K_v$, the points $x_e$
+with coefficients $\alpha_e$ form a polyhedral convex combination with
+barycentre $v$.  Since $b(x_e)=0$, polyhedral convexity and
+\eqref{eq:frontier-polyhedral-supporting-relation} give
+\[
+ \begin{aligned}
+ q(v)
+ &\leq\sum_e\alpha_eq(x_e)
+ \leq\sum_e\alpha_e\widetilde\varphi(x_e)\\
+ &=\widetilde\varphi(v)
+   +\frac{1}{C_0}\sum_e\lambda^0_e\widetilde s_e
+ =\widetilde\varphi(v).
+ \end{aligned}
+\]
+Taking the supremum over competitors and using the competitor
+$\widetilde\varphi$ shows that, for $P:=P_\gamma(u)$,
+\[
+                         P(v)=\widetilde\varphi(v),
+                         \qquad
+                         P\geq\widetilde\varphi.
+\]
+
+The one-dimensional real-affine envelope theorem makes $P$
+real-piecewise affine.  Since $P-\widetilde\varphi$ is nonnegative and
+vanishes at $v$, every outgoing slope of $P$ at $v$ is at least the
+corresponding slope of $\widetilde\varphi$.  By
+\eqref{eq:frontier-polyhedral-positive-projected-mass},
+\[
+              \MA_{\mathrm{poly},\mathbf R}(P)\{v\}
+              \geq w\mathbin{\cdot}\widetilde s>0.
+\]
+At $v$ one has $P-a=-1$, while $P-a\leq0$ everywhere and
+$\MA_{\mathrm{poly},\mathbf R}(P)$ is nonnegative.  Therefore
+\[
+ \int_{\mathbf X}(P-a)\MA_{\mathrm{poly},\mathbf R}(P)
+ \leq-\MA_{\mathrm{poly},\mathbf R}(P)\{v\}<0.
+\]
+This is the required failure of orthogonality.
+\end{proof}
+
+\begin{proof}[\Cref{thm:frontier-polyhedral-graph-orthogonality-classification}]
+If $\dim K_v=1$ at every vertex, orthogonality is
+\Cref{thm:frontier-polyhedral-local-rank-one-graph}.
+
+Conversely, suppose that $\dim K_v>1$ at some vertex.  By
+\Cref{lem:frontier-polyhedral-ambient-vertex-accessibility}, this vertex is
+$\gamma$-mass-accessible.  Then
+\Cref{lem:frontier-polyhedral-accessible-mass-obstruction} gives a bounded
+real-piecewise-affine obstacle with a strictly negative orthogonality
+integral.  Thus orthogonality fails.
+\end{proof}

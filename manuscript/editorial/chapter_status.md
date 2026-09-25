@@ -3214,3 +3214,37 @@ Physical pages 3798--3800 were visually inspected.  Exact receipts and hashes
 are recorded in the
 [integration audit](p052_local_rank_one_graph_integration_audit_20260925.md)
 and accompanying solver dossier.
+
+## Chapter 72: full real-PA graph orthogonality classification, 25 September 2026
+
+The later same-day theorem
+`thm:frontier-polyhedral-graph-orthogonality-classification`
+closes the global-realization gap left by the preceding local-rank-one stage.
+Every vertex of a finite one-dimensional balanced rational polyhedral space
+is mass-accessible for a real-piecewise-affine reference positive at infinity:
+a slow ambient rational-polyhedral norm creates the desired local mass, and
+rational chordal interpolation restores the required rational subdivision
+without changing the original vertex slopes or the tails.  The higher-rank
+cone-slice and balanced-barycentre construction then gives a noncontact
+positive-mass envelope point.  Consequently real-polyhedral orthogonality
+holds exactly when every local nonnegative balancing-relation cone is
+one-dimensional.  Bounded edges, graph cycles, and lattice saturation add no
+condition.
+
+The exact current dependency-closed statement/proof passed local
+`gpt-6-astra`/`xhigh` review in service archive
+`20260925T194546Z_f78de6ebe9ec`: `correct`, zero critical errors and zero
+gaps.  The decoded request matches the live dependency materialization and
+principal files byte for byte.  The literal integral-slope problem and
+higher-dimensional balanced spaces remain open, so P05.2 and the inventory
+remain unchanged at 42 atoms in 12 environments, tiers `(0,3,7,15,17)`.
+
+The scoped writing audit, 407-input and 11,853-label source check, six checker
+tests, minimal compile and full build pass.  The final 4,082-page PDF has
+19,432,997 bytes and SHA-256
+`dda782a92de87a6c5b66702251e6a00932dc49e06ad501046a51e5f981d0fbdd`.
+There are no unresolved references/citations, rerun requests or overflows;
+the 13 inherited Chapter 70 duplicate destinations remain.  Physical pages
+3799--3804 were visually inspected.  Exact evidence is recorded in the
+[integration audit](p052_graph_classification_integration_audit_20260925.md)
+and accompanying solver dossier.

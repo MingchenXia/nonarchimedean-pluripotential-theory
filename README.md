@@ -462,15 +462,14 @@ and exact-current Rethlas evidence are recorded with distinct scopes.
 
 Within P05.2, the real-piecewise-affine one-dimensional one-vertex case is
 classified: real-polyhedral orthogonality is equivalent to the cone of
-nonnegative balancing relations being one-dimensional.  The contact argument
-now extends to every one-dimensional balanced graph whose local relation cone
-is one-dimensional at every vertex, with arbitrary bounded edges and cycles;
-this includes every bivalent/trivalent balanced graph and requires no lattice
-saturation.  Chapter 72 also records that the literal integral-slope class in
+nonnegative balancing relations being one-dimensional.  The global
+accessibility argument now gives the same equivalence for every
+one-dimensional balanced graph with finite structure: bounded edges and
+cycles introduce no further obstruction, and lattice saturation is
+irrelevant.  Chapter 72 also records that the literal integral-slope class in
 BMPS Definition 2.28 is not closed under the envelopes asserted in
-Proposition 6.13.  That convention repair, the converse at higher-rank graph
-vertices and the higher-dimensional classification remain open, so the atom
-count is unchanged.
+Proposition 6.13.  That convention repair and the higher-dimensional
+classification remain open, so the atom count is unchanged.
 
 The 1 September local-comparison and source-cell-access research is preserved
 with its exact independent reviews in

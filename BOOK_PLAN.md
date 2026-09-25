@@ -57,12 +57,13 @@ The literal integral-slope PA class in BMPS Definition 2.28 is not closed
 under the envelopes asserted in Proposition 6.13; Chapter 72 gives the
 explicit real-line slope-$1/2$ counterexample.  Thus this classifies the
 real scalar extension, not the literal integral-slope P05.2 formulation.
-The book-local contact argument now also covers every one-dimensional
-balanced graph whose cone of nonnegative balancing relations is
-one-dimensional at each vertex.  It allows bounded edges and cycles, hence
-includes all bivalent/trivalent balanced graphs without lattice saturation.
-The converse at higher-rank vertices and higher dimensions remain open.
-P05.2 stays active;
+The book-local contact and accessibility arguments now completely classify
+the repaired real-piecewise-affine problem on every one-dimensional balanced
+graph with finite structure: orthogonality holds exactly when the cone of
+nonnegative balancing relations is one-dimensional at every vertex.  The
+criterion allows bounded edges and cycles and is independent of lattice
+saturation.  The literal integral-slope formulation and higher dimensions
+remain open. P05.2 stays active;
 the inventory remains **42 active atoms in 12 formal problem environments**,
 tiers **(0,3,7,15,17)**.
 

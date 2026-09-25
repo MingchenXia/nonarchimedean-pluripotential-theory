@@ -30,14 +30,13 @@ saturation is not required.
 
 ## Exact boundary
 
-The result is a sufficient criterion.  At a vertex with `dim K_v>1`, the
-supplied extreme-relation construction gives a one-vertex obstruction germ,
-but extending it through all bounded edges while preserving global
-polyhedral convexity and prescribed growth is an additional realization
-problem.  No converse is claimed.  The literal integral-slope convention and
-higher-dimensional balanced spaces also remain open.  P05.2 stays active;
-the inventory remains 42 atoms in 12 formal problem environments, with tiers
-`(0,3,7,15,17)`.
+This result was proved as a sufficient criterion.  The later same-day
+[full graph-classification audit](p052_graph_classification_integration_audit_20260925.md)
+records the ambient-norm construction that globalizes every higher-rank
+local obstruction and supplies the converse.  The literal integral-slope
+convention and higher-dimensional balanced spaces remain open.  P05.2 stays
+active; the inventory remains 42 atoms in 12 formal problem environments,
+with tiers `(0,3,7,15,17)`.
 
 ## Verification
 
