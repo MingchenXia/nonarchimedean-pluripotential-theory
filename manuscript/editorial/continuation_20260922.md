@@ -1578,19 +1578,41 @@ inventory, build, log and visual checks pass. The final PDF remains 4,066
 pages; the inventory remains 42 atoms in 12 environments. No new research
 atom, independent-agent review or model-verifier verdict is claimed.
 
+## Chapter 65: concluding comparison dictionary, 25 September 2026
+
+The [comparison-dictionary audit](ch65_comparison_dictionary_audit_20260925.md)
+completes the chapter's final synthesis. A six-row table now records the
+exact input, canonical output, reverse hypothesis, and lost finite-level
+information for the test-configuration, filtration, analytic-ray, DH,
+Legendre-energy, and BHJ-slope passages. Character translation and the
+norm/squared-norm factor-two conversion are independent operations.
+
+The following section now states six strict boundaries: no general reverse
+finite-type construction, the big-class envelope boundary, no smooth or
+nonlinear-functional conclusion from Bergman/spectral convergence alone,
+the projective scope of the DXZ--BJ arrow, the distinction between cone order
+and Monge--Ampere operators, and the finite-level information lost under
+saturation and graded integral closure. The source note has pinpoint
+locators in BHJ17, BJ22, BC11, RWN14, DXZ23, BHJ19, and the erratum.
+
+The scoped house audit has zero errors and four reviewed semantic-label
+warnings. The 397-input, 11,831-label source closure, unchanged 42-atom
+inventory, full 4,068-page build, log audit, and printed pages 3,471--3,474
+all pass. No research atom is retired and no new verifier or independent-
+agent verdict is claimed.
+
 ## Next work
 
-1. Continue with Chapter 65's concluding comparison dictionary. The analytic
-   commutative diagram, normalization invariance, DH volume/mass,
-   endpoint-atom, energy/moment, Bergman, Rees and BHJ19 functional-slope
-   units are now checked. Keep the erratum scope explicit and preserve the
-   supplied integrations. An order isomorphism of psh cones still does not
-   identify distinct singular measure operators.
-2. P06.2, P03.1, P12.6 and P21.3 retain the boundaries in the new integration
-   audit. In particular, finite ideal-gauge transfer does not by itself
-   give singular geometric psh or Monge--Ampere functoriality. Do not reopen
-   the retired literal P06.1, unrestricted affine G-tropical P07.1 or
-   local-to-global smooth-approximation P08.1 atoms.
+1. Take P03.1 as the next bounded research unit. Audit the existing scalar-
+   extension and product-obstruction dossiers against the live problem
+   statement, then isolate the first unresolved implication between the
+   ground-field envelope and its scalar pullback. Do not promote the
+   canonical retraction to an analytic or subharmonicity-preserving map
+   without a proof.
+2. Keep the other T2 frontiers P06.2 and P21.3 available as alternatives.
+   P12.6 remains T4. Do not reopen the retired literal P06.1, unrestricted
+   affine G-tropical P07.1, or local-to-global smooth-approximation P08.1
+   atoms.
 3. Build after coherent revisions; preserve dated checksum ledgers for
    their stated snapshots. Commit and push checked units with outstanding
    limits recorded, without force pushes or visibility changes.

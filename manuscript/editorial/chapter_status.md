@@ -3123,3 +3123,29 @@ references or citations, rerun requests, or horizontal or vertical overflows;
 the 13 inherited Chapter 70 destination warnings remain. Seven BHJ source
 pages, both erratum pages and six final-book pages were visually inspected.
 No new research atom or verifier verdict is claimed.
+
+## Chapter 65: concluding comparison dictionary, 25 September 2026
+
+The [comparison-dictionary audit](ch65_comparison_dictionary_audit_20260925.md)
+completes the Chapter 65 synthesis. Its six rows state the exact domains and
+losses for the test-configuration/filtration correspondence, filtration
+outputs, projective analytic square, probability and mass-normalized DH
+measures, closed test-curve/Legendre energy identity, and BHJ functional
+slopes. The character shift and norm/squared-norm factor-two conversion are
+recorded as separate operations.
+
+Six strict limitations now replace the former four-item sketch. In
+particular, neither Bergman nor spectral convergence supplies smooth or
+general nonlinear-functional convergence; the DXZ--BJ arrow retains its
+projective scope; psh-cone order does not identify Monge--Ampere operators;
+and normalization preserves the asymptotic objects without preserving all
+finite-level data. The source note gives exact BHJ17, BJ22, BC11, RWN14,
+DXZ23, BHJ19, and erratum locators.
+
+The scoped house audit has zero errors and four reviewed label-prefix
+warnings. Source checks pass with 397 inputs and 11,831 labels, the
+inventory remains 42 atoms in 12 environments, and the full PDF has 4,068
+pages. The log contains no unresolved references/citations, rerun request,
+missing input, or overfull box; printed pages 3,471--3,474 were visually
+checked. No open atom is retired and no new independent-agent or verifier
+result is claimed.

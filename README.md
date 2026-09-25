@@ -14,8 +14,8 @@ now **42 atoms in 12 formal problem environments**, with tiers
 **(0,3,7,15,17)**.  The original PDF and exact hash are preserved in
 `manuscript/author_sources_20260925/`; the proof/source review is recorded in
 `manuscript/editorial/p081_global_smooth_psh_counterexample_integration_audit_20260925.md`.
-The checked source closure has 397 inputs and 11,828 unique labels; the full
-build produces a 4,066-page PDF with no unresolved reference or citation and
+The checked source closure has 397 inputs and 11,831 unique labels; the full
+build produces a 4,068-page PDF with no unresolved reference or citation and
 no horizontal layout overflow.  The frozen proof packet received a `correct`
 gpt-6-astra/xhigh verdict with zero critical errors and zero gaps.
 
@@ -26,8 +26,18 @@ relative-entropy normalization and the exact Chen--Tian coefficient are made
 explicit. The logarithmic statement now reproduces the precise hypotheses of
 BHJ19 Theorem 4.2, while the official erratum firewall remains confined to
 the affected Section 5 results. Seven source pages, both erratum pages and six
-final-book pages were visually checked. The 4,066-page build and the current
-42-atom inventory remain unchanged.
+final-book pages were visually checked. That milestone left a 4,066-page
+build and the current 42-atom inventory unchanged.
+
+Chapter 65 now ends with a checked
+[comparison dictionary](manuscript/editorial/ch65_comparison_dictionary_audit_20260925.md).
+Its six rows distinguish the hypotheses for test configurations,
+filtrations, analytic rays, the two DH normalizations, Legendre energy, and
+BHJ slopes; its six boundary clauses record exactly what cannot be reversed.
+Character translation is separated from the norm/squared-norm factor-two
+conversion, and the source note now gives pinpoint primary-source locators.
+The final 4,068-page build, 397-input and 11,831-label source closure, current
+42-atom inventory, log checks, and rendered-page review all pass.
 
 **Previous checked source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
