@@ -12,6 +12,11 @@ The earlier source bytes, SHA-256
 `b69aacb76afd056894811f8ac73932c7b82176ba7d9934d1e2d7386f7869f8d8`,
 remain recoverable from Git history.
 
+A subsequently supplied copy was compared byte for byte with the preserved
+withdrawal version and has the same SHA-256 value.  The source-directory
+checksum ledger now records the replacement bytes rather than the superseded
+pre-withdrawal digest.
+
 The replacement withdraws its positive theorem because its literal
 integral-slope class conflicts with the real-affine envelope used in the
 proof.  Chapter 72 now records that status and does not cite the retained body
