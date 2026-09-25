@@ -3181,3 +3181,36 @@ There are no unresolved references/citations, rerun requests or overflows;
 the 13 inherited Chapter 70 duplicate destinations remain.  Six Chapter 72
 pages, two provenance pages, the bibliography page and all three supplied
 source pages were visually inspected.
+
+## Chapter 72: local rank-one graph orthogonality, 25 September 2026
+
+The book-local theorem
+`thm:frontier-polyhedral-local-rank-one-graph` extends the positive half of
+the supplied one-vertex criterion to arbitrary one-dimensional balanced
+rational polyhedral spaces.  If the cone of nonnegative balancing relations
+is one-dimensional at every vertex, a local tent perturbation raises any
+positive-mass noncontact vertex while preserving every local Jensen
+inequality.  Hence the envelope measure is supported on the contact set and
+real-polyhedral orthogonality follows.  Bounded edges and graph cycles play
+no role in this local argument.  Every bivalent/trivalent balanced graph is
+covered, without a lattice-saturation hypothesis.
+
+The result is intentionally one-sided.  At a higher-relation-rank vertex the
+one-vertex extreme-relation obstruction is available as a germ, but its
+extension through all bounded edges with prescribed growth is not automatic.
+That global realization problem, the literal integral-slope convention and
+higher dimensions remain open.  P05.2 and all inventory counts are unchanged.
+
+Three dependency-closed local gpt-6-astra/xhigh reviews returned `correct`,
+with zero critical errors and zero gaps.  The final exact-current run is
+`20260925T191853Z_a6da387d529c`; its request matches the final live
+dependencies and principal files byte for byte.  The scoped writing audit,
+405-input and 11,847-label checks, six checker tests and unchanged 42-atom
+inventory pass.  The final 4,080-page PDF has 19,422,086 bytes and SHA-256
+`08bf262b09f23b26c5b85f7414fcb222592fb295c7b6feb83e1fc1adeb46b79c`.
+There are no unresolved references or citations, rerun requests or
+overflows; the 13 inherited Chapter 70 duplicate destinations remain.
+Physical pages 3798--3800 were visually inspected.  Exact receipts and hashes
+are recorded in the
+[integration audit](p052_local_rank_one_graph_integration_audit_20260925.md)
+and accompanying solver dossier.

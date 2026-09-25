@@ -748,10 +748,17 @@ criterion to every real-piecewise-affine positive reference on the same fan,
 and the nonsaturated tripod shows that lattice smoothness is unnecessary in
 this repaired class.  The literal integral-slope PA class of BMPS Definition
 2.28 is not closed under the envelopes asserted in Proposition 6.13; the
-book records the explicit slope-\(1/2\) real-line envelope.  That convention
-repair, graphs with bounded edges and the higher-dimensional characterization
-remain open.  P05.2 stays one active T3 atom and all inventory counts are
-unchanged.
+book records the explicit slope-\(1/2\) real-line envelope.  The book-local
+extension thm:frontier-polyhedral-local-rank-one-graph proves
+real-polyhedral orthogonality on every one-dimensional balanced rational
+polyhedral space whose local cone of nonnegative balancing relations is a
+ray.  Bounded edges and graph cycles are allowed; in particular every
+balanced graph with only bivalent and trivalent vertices is covered, without
+a lattice-saturation hypothesis.  The converse at a higher-rank vertex is a
+global germ-realization problem and is not claimed.  That residual
+classification, the literal integral-slope repair and the
+higher-dimensional characterization remain open.  P05.2 stays one active T3
+atom and all inventory counts are unchanged.
 
 ### `prob:frontier-pluriharmonic` --- 1 active atom
 

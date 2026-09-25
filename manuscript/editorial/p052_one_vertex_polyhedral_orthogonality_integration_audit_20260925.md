@@ -44,10 +44,13 @@ references to every finite real-piecewise-affine polyhedrally convex
 reference positive at infinity.
 
 The nonsaturated weighted tripod shows that lattice saturation is not
-necessary in this repaired category.  The literal integral-slope source
-formulation, graphs with bounded edges and higher-dimensional singular fans
-remain open.  P05.2 stays active, and the inventory remains 42 atoms in 12
-formal problem environments, with tiers `(0,3,7,15,17)`.
+necessary in this repaired category.  At this integration stage, the literal
+integral-slope source formulation, graphs with bounded edges and
+higher-dimensional singular fans remained open.  The later same-day
+[local rank-one graph audit](p052_local_rank_one_graph_integration_audit_20260925.md)
+records the subsequent book-local extension across bounded edges and cycles.
+P05.2 stays active, and the inventory remains 42 atoms in 12 formal problem
+environments, with tiers `(0,3,7,15,17)`.
 
 ## Verification history
 
