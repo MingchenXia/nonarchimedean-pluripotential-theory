@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{cleveref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\let\BookCref\Cref
+\newcommand{\MinimalCref}[1]{%
+  \def\MinimalRefArgument{#1}%
+  \def\OneDimensionalRegularityLabel{thm:frontier-polyhedral-one-dimensional-real-regularity}%
+  \def\AffineOrthogonalityLabel{thm:frontier-polyhedral-affine-orthogonality}%
+  \ifx\MinimalRefArgument\OneDimensionalRegularityLabel
+    the one-dimensional regularity theorem%
+  \else
+    \ifx\MinimalRefArgument\AffineOrthogonalityLabel
+      the complete-affine theorem%
+    \else
+      \BookCref{#1}%
+    \fi
+  \fi}
+\renewcommand{\Cref}[1]{\MinimalCref{#1}}
+\begin{document}
+\input{STATEMENT.tex}
+\input{PROOF.tex}
+\end{document}

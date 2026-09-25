@@ -58,8 +58,12 @@ book-local contact and accessibility arguments classify real-PA
 orthogonality on every finite balanced graph: it holds exactly when the cone
 of nonnegative balancing relations is one-dimensional at every vertex.
 Bounded edges, cycles, and lattice saturation add no condition.  The
-higher-dimensional real-PA characterizations and the source convention
-repair remain open. P05.1 and P05.2 stay active;
+book also proves exact factorization of the envelope for every separable
+bounded obstacle on a finite product.  Thus products of finite balanced
+graphs and complete affine spaces have real-PA envelopes throughout the
+separable class, even with branched graph factors.  Arbitrary nonseparable
+obstacles, the higher-dimensional real-PA characterizations, and the source
+convention repair remain open. P05.1 and P05.2 stay active;
 the inventory remains **42 active atoms in 12 formal problem environments**,
 tiers **(0,3,7,15,17)**.
 

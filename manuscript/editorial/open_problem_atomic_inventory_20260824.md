@@ -676,9 +676,12 @@ unrestricted unbounded continuation are disproved.
   which the Botero--Mazzon--Pille-Schneider regularity property holds.  The
   literal integral-slope property fails even for
   \((\mathbf R,|\cdot|)\); in the explicit real scalar extension, every
-  one-dimensional finite balanced rational polyhedral space has regularity.
-  The higher-dimensional real-PA characterization and the source convention
-  repair remain open.
+  one-dimensional finite balanced rational polyhedral space has regularity,
+  and envelopes factor exactly for separable bounded obstacles on finite
+  products.  In particular, products of finite balanced graphs and complete
+  affine spaces have real-PA envelopes throughout the separable obstacle
+  class.  Arbitrary nonseparable obstacles, the higher-dimensional real-PA
+  characterization, and the source convention repair remain open.
 - **P05.2** `[T3; open]` Characterize the pairs for which their
   orthogonality property holds.
 - **P05.5** `[T4; open after the calibrated recursive model cases]`
@@ -694,11 +697,13 @@ counterexample are verified.  The positive-at-infinity Bergman-fan
 obstruction \(\texttt{prop:frontier-polyhedral-bergman-positive-infinity-obstruction}\)
 now strengthens the source's \(U_{3,4}\) example: for a polyhedrally convex
 reference with the required growth, the constructed envelope agrees with
-the source reference near its mass-four origin.  A bounded PA reference
-shift identifies its envelope and regularization classes with those of a
-conical reference, so the displayed positive-at-infinity pair itself has
-regularity and its orthogonality integral is at most
-\(-4\varepsilon\).  Thus positive growth alone cannot yield a
+the source reference near its mass-four origin.  The bounded PA reference
+shift identifies its envelope problem and regularization class with those
+for a conical reference, but it does not prove that this particular envelope
+is regularizable.  The rigorous conclusion is the following dichotomy:
+either the displayed envelope is not real-regularizable, or its real
+polyhedral Monge--Amp\`ere measure is defined and its orthogonality integral
+is at most \(-4\varepsilon\).  Thus positive growth alone cannot yield a
 smooth-Bergman regularity-and-orthogonality theorem.  This does not decide
 either characterization atom.  P05.3 and
 P05.4 are retired by
@@ -733,6 +738,22 @@ In particular, the conical regularization statement in BMPS Remark 6.6
 concerns conical functions and does not imply regularity for every bounded
 perturbation of a conical reference.  The former boundedly-conical
 corollary has therefore been removed.
+
+Theorem `thm:frontier-polyhedral-separable-product-envelope` supplies a
+higher-dimensional positive range without importing any assertion from the
+withdrawn one-vertex note.  For a finite product and a separable obstacle
+\(u=\sum_i p_i^*u_i\), it proves the exact identity
+\[
+P_{\sum_i p_i^*\gamma_i}(u)=\sum_i p_i^*P_{\gamma_i}(u_i)
+\]
+whenever the factor envelopes are real piecewise affine.  The proof slices a
+global competitor at rational fixed coordinates, invokes factorwise
+maximality one coordinate at a time, and extends the resulting inequality by
+density and continuity.  Combining the one-dimensional graph theorem with
+the complete-affine theorem therefore gives real-PA envelopes for all
+separable bounded obstacles on products of finite balanced graphs and
+complete affine spaces.  No approximation of a nonseparable obstacle by
+separable ones is asserted, so P05.1 and the inventory counts are unchanged.
 
 The source's only announced strict-positivity extension is an upcoming
 sequel, whose own bibliography labels it ``In preparation.''  It is not an

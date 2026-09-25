@@ -3245,3 +3245,35 @@ the 13 inherited Chapter 70 duplicate destinations remain.  Physical pages
 3799--3804 were visually inspected.  Exact evidence is recorded in the
 [integration audit](p052_graph_classification_integration_audit_20260925.md)
 and accompanying solver dossier.
+
+## Chapter 72: separable product envelopes, 25 September 2026
+
+The book-local theorem
+`thm:frontier-polyhedral-separable-product-envelope` proves that the envelope
+of a finite sum of factorwise bounded real-piecewise-affine obstacles is the
+sum of the factor envelopes, provided those factor envelopes are real
+piecewise affine.  A global competitor is sliced at rational fixed
+coordinates; factorwise maximality replaces one obstacle term at a time, and
+density plus continuity gives the inequality everywhere.  Together with the
+one-dimensional graph and complete-affine regularity theorems, this yields
+real-PA envelopes for every separable bounded obstacle on products of finite
+balanced graphs and complete affine spaces, including products with branched
+graph factors.
+
+This theorem does not approximate a nonseparable obstacle by separable ones
+and therefore does not prove regularity of a product pair for arbitrary
+bounded obstacles.  The supplied one-vertex PDF is byte-identical to the
+withdrawn source already integrated in commit `953ae96`; no assertion from
+its retained body is restored.  P05.1 and the inventory remain unchanged at
+42 atoms in 12 environments, tiers `(0,3,7,15,17)`.  No model-verifier result
+is claimed for the new product packet.
+
+The scoped writing audit, 411-input and 11,858-label source check, six checker
+tests, inventory check, minimal compile, and full build pass.  The final
+4,086-page PDF has 19,450,702 bytes and SHA-256
+`d7cee9fcefd13a7f588028764bfdd94142d7486b690095b098914d7366e30570`.
+There are no unresolved references or citations, rerun requests, overflows,
+or fatal errors; the 13 inherited Chapter 70 duplicate destinations remain.
+Physical pages 3807--3808 and 4063 and both minimal-packet pages were visually
+inspected.  Exact evidence is recorded in the dedicated integration audit
+and solver dossier.

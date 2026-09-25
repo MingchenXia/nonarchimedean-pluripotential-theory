@@ -466,12 +466,17 @@ instead gives independent real-scalar proofs.  Every finite
 one-dimensional balanced space has real-PA regularity, and real-PA
 orthogonality holds exactly when the cone of nonnegative balancing relations
 is one-dimensional at every vertex.  Bounded edges, cycles, and lattice
-saturation introduce no additional condition.  On the other hand, the
+saturation introduce no additional condition.  For finite products, the
+envelope of a separable bounded obstacle is exactly the sum of the factor
+envelopes.  Consequently, products of finite balanced graphs and complete
+affine spaces have real-PA envelopes for every separable bounded obstacle,
+including products with branched graph factors.  This does not cover an
+arbitrary nonseparable obstacle.  On the other hand, the
 literal BMPS integral-slope class already fails regularity on the affine
 line: the slope-$1/2$ envelope remains at uniform distance at least $1/4$
 from every literal convex PA approximant.  The higher-dimensional real-PA
-characterizations and the source convention repair remain open, so the atom
-count is unchanged.
+characterization for arbitrary obstacles and the source convention repair
+remain open, so the atom count is unchanged.
 
 The 1 September local-comparison and source-cell-access research is preserved
 with its exact independent reviews in
