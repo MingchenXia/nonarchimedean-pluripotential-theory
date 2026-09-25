@@ -19,6 +19,16 @@ build produces a 4,066-page PDF with no unresolved reference or citation and
 no horizontal layout overflow.  The frozen proof packet received a `correct`
 gpt-6-astra/xhigh verdict with zero critical errors and zero gaps.
 
+Chapter 65's remaining BHJ19 functional-slope proof has now received a
+separate [source and erratum audit](manuscript/editorial/ch65_bhj19_slope_audit_20260925.md).
+The Deligne-pairing reference term, the two distinct canonical metrics, the
+relative-entropy normalization and the exact Chen--Tian coefficient are made
+explicit. The logarithmic statement now reproduces the precise hypotheses of
+BHJ19 Theorem 4.2, while the official erratum firewall remains confined to
+the affected Section 5 results. Seven source pages, both erratum pages and six
+final-book pages were visually checked. The 4,066-page build and the current
+42-atom inventory remain unchanged.
+
 **Previous checked source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
 The complete source check passes (396 TeX files, 11,821 unique labels),

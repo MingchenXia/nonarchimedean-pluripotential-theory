@@ -1560,16 +1560,32 @@ The final build has 4,066 pages; the 397-input, 11,828-label source closure,
 42-atom inventory and rendered-page checks pass without a new layout
 overflow or unresolved reference or citation.
 
+## Chapter 65: BHJ19 functional slopes, 25 September 2026
+
+The [BHJ19 slope audit](ch65_bhj19_slope_audit_20260925.md) checks the final
+queued slope proof against corrected BHJ19 v5 and the official JEMS erratum.
+It restores the fixed reference Deligne pairing, separates the fixed
+canonical metric from the smooth relative-canonical ray, proves the
+`O(log s)` entropy replacement error with the exact normalized relative
+entropy and local coordinate bound, and writes the Chen--Tian coefficient
+as `Sbar` rather than an unspecified scalar.
+
+The logarithmic assertion now has the exact Theorem 4.2 scope and includes
+the finite boundary-component energy reduction. The erratum boundary is
+unchanged: all inputs lie in Sections 1--4, while the affected Section 5
+claims stay quarantined. Two proof/source passes and the full source,
+inventory, build, log and visual checks pass. The final PDF remains 4,066
+pages; the inventory remains 42 atoms in 12 environments. No new research
+atom, independent-agent review or model-verifier verdict is claimed.
+
 ## Next work
 
-1. Continue with Chapter 65's remaining BHJ19 slope proof and concluding
-   comparison dictionary. The analytic commutative diagram is now checked
-   through the flag-ideal comparison, including normalization invariance
-   of the closed test curve and its ray. The DH volume/mass, endpoint-atom,
-   energy/moment, Bergman and Rees units are also checked. Keep the BHJ19
-   erratum scope explicit and preserve the supplied integrations. An order
-   isomorphism of psh cones still does not identify distinct singular
-   measure operators.
+1. Continue with Chapter 65's concluding comparison dictionary. The analytic
+   commutative diagram, normalization invariance, DH volume/mass,
+   endpoint-atom, energy/moment, Bergman, Rees and BHJ19 functional-slope
+   units are now checked. Keep the erratum scope explicit and preserve the
+   supplied integrations. An order isomorphism of psh cones still does not
+   identify distinct singular measure operators.
 2. P06.2, P03.1, P12.6 and P21.3 retain the boundaries in the new integration
    audit. In particular, finite ideal-gauge transfer does not by itself
    give singular geometric psh or Monge--Ampere functoriality. Do not reopen

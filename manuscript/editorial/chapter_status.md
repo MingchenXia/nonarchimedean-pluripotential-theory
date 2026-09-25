@@ -3098,3 +3098,28 @@ The frozen P08.1 packet then passed local Rethlas run
 critical errors and zero gaps. The final 4,066-page build, 397-input and
 11,828-label source closure, inventory and rendered-page checks pass. Exact
 request, response, safe headers and hashes are preserved in the packet.
+
+## Chapter 65: BHJ19 functional slopes, 25 September 2026
+
+The [BHJ19 slope audit](ch65_bhj19_slope_audit_20260925.md) checks the
+remaining functional-slope proof directly against corrected BHJ19 v5 and the
+official JEMS erratum. The Deligne-pairing formula now includes its fixed
+reference term; the base parameter no longer collides with the chapter's
+squared-norm time. The fixed canonical metric in the Chen--Tian identity is
+distinguished from the ray induced by a smooth relative log-canonical metric.
+The relative-entropy lower bound, local monomial upper bound and exact
+`M=H+R+Sbar E` coefficient are explicit.
+
+The logarithmic statement imports exactly BHJ19 Theorem 4.2: `E,I,J` hold for
+a big and nef rational polarization, `R_B` after fixing the log-canonical
+reference metric, and `H_B,M_B` only for a subklt pair with semipositive
+total-space metric. The source's finite boundary-energy reduction is included.
+The official erratum affects Theorem 5.6, Theorem 5.4, Theorem C and
+Corollaries D--E, but expressly preserves all results through Section 4.
+
+Two proof/source passes, the 397-input and 11,828-label checks, the unchanged
+42-atom inventory and the full 4,066-page build pass. There are no unresolved
+references or citations, rerun requests, or horizontal or vertical overflows;
+the 13 inherited Chapter 70 destination warnings remain. Seven BHJ source
+pages, both erratum pages and six final-book pages were visually inspected.
+No new research atom or verifier verdict is claimed.
