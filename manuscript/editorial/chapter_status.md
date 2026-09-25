@@ -3277,3 +3277,39 @@ or fatal errors; the 13 inherited Chapter 70 duplicate destinations remain.
 Physical pages 3807--3808 and 4063 and both minimal-packet pages were visually
 inspected.  Exact evidence is recorded in the dedicated integration audit
 and solver dossier.
+
+## Chapter 72: universal one-vertex literal nonregularity, 26 September 2026
+
+The book-local theorem
+`thm:frontier-polyhedral-one-vertex-integral-nonregularity` strengthens the
+earlier affine-line warning to every one-vertex balanced rational fan and
+every positive-at-infinity literal reference.  For any chosen ray and integer
+`N>=2`, an explicit bounded integral-slope obstacle has envelope slope
+`g_j-1/N` on its initial segment.  Every literal integral-slope convex
+piecewise-affine approximant remains at uniform distance at least
+`(N-1)/(2N)`.  Bounded reference shift extends the result from a raywise
+affine tail reference to an arbitrary finite-subdivision reference.
+
+Consequently none of these literal one-vertex pairs has regularity, and the
+source's literal orthogonality definition, which assumes regularity, does not
+apply to them.  This is separate from the book's positive real-PA regularity
+and orthogonality theorems.  Literal regularity on general finite graphs,
+arbitrary nonseparable product obstacles, and the higher-dimensional and
+source-convention problems remain open.  P05.1, P05.2, and all inventory
+counts are unchanged at 42 atoms in 12 environments, tiers
+`(0,3,7,15,17)`.
+
+The supplied PDF is an explicitly withdrawn draft, preserved byte for byte at
+SHA-256
+`0ad51074108eb2202d4b624637c035610d275c67fd8456dab59282d543d5f5fb`;
+its retained positive theorem is not cited or restored.  No model-verifier
+result is claimed for the new theorem.  The scoped writing audit, 415-input
+and 11,864-label source check, six checker tests, inventory check, minimal
+compile, and full build pass.  The final 4,090-page PDF has 19,465,527 bytes
+and SHA-256
+`1aced01d8f8c57975d09a6ed9d1b8510a44d651c42a3f773213faf969f413717`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, overflows, or fatal errors; the 13 inherited Chapter 70
+duplicate destinations remain.  Physical pages 3797--3800 and both minimal
+pages were visually inspected.  Exact evidence is recorded in the dedicated
+integration audit and solver dossier.

@@ -39,6 +39,16 @@ Chapter 72 now separates two coefficient categories.
    convex PA function stays at uniform distance at least `1/4` from that
    envelope.
 
+A later same-day strengthening, recorded in its own integration audit,
+replaces item 2 by a universal one-vertex theorem.  For every
+positive-at-infinity literal reference on every one-vertex balanced rational
+fan, every chosen ray and every integer `N>=2` give a bounded integral-slope
+obstacle whose envelope has initial slope `g_j-1/N` and remains at uniform
+distance at least `(N-1)/(2N)` from every literal convex PA approximant.  The
+affine-line example above is its `N=2` special case.  This addendum does not
+alter the release evidence below, which records the earlier integration
+checkpoint.
+
 The one-vertex and finite-graph orthogonality criteria remain book-local
 results in the explicit real category.  Their source preambles and evidence
 records no longer attribute the theorem to the withdrawn note.  The complete

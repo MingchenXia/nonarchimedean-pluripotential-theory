@@ -685,14 +685,15 @@ unrestricted unbounded continuation are disproved.
 
 - **P05.1** `[T3; open]` Characterize the pairs \((\mathbf X,\gamma)\) for
   which the Botero--Mazzon--Pille-Schneider regularity property holds.  The
-  literal integral-slope property fails even for
-  \((\mathbf R,|\cdot|)\); in the explicit real scalar extension, every
-  one-dimensional finite balanced rational polyhedral space has regularity,
-  and envelopes factor exactly for separable bounded obstacles on finite
-  products.  In particular, products of finite balanced graphs and complete
-  affine spaces have real-PA envelopes throughout the separable obstacle
-  class.  Arbitrary nonseparable obstacles, the higher-dimensional real-PA
-  characterization, and the source convention repair remain open.
+  literal integral-slope property fails for every positive-at-infinity
+  reference on every one-vertex balanced rational fan; in the explicit real
+  scalar extension, every one-dimensional finite balanced rational
+  polyhedral space has regularity, and envelopes factor exactly for separable
+  bounded obstacles on finite products.  In particular, products of finite
+  balanced graphs and complete affine spaces have real-PA envelopes
+  throughout the separable obstacle class.  Literal regularity on general
+  finite graphs, arbitrary nonseparable obstacles, the higher-dimensional
+  real-PA characterization, and the source convention repair remain open.
 - **P05.2** `[T3; open]` Characterize the pairs for which their
   orthogonality property holds.
 - **P05.5** `[T4; open after the calibrated recursive model cases]`
@@ -785,9 +786,16 @@ reference shift extends the criterion to every real-piecewise-affine
 positive reference on the same fan, and the nonsaturated tripod shows that
 lattice smoothness is unnecessary in this repaired class.  The literal
 integral-slope PA class of BMPS Definition 2.28 is not closed under the
-envelopes asserted in Proposition 6.13: the book's slope-\(1/2\) real-line
-envelope stays at uniform distance at least \(1/4\) from every literal
-convex PA approximant, so literal regularity fails even on the affine line.
+envelopes asserted in Proposition 6.13.  More precisely,
+`thm:frontier-polyhedral-one-vertex-integral-nonregularity` proves that for
+every one-vertex fan, every positive-at-infinity literal reference, every
+chosen ray, and every integer \(N\geq2\), a bounded integral-slope obstacle
+has an envelope with initial slope \(g_j-1/N\).  That envelope stays at
+uniform distance at least \((N-1)/(2N)\) from every literal convex PA
+approximant.  Hence no such one-vertex pair has literal regularity, and none
+lies in the domain of the source's literal orthogonality property, whose
+definition assumes regularity.  The original slope-\(1/2\) affine-line
+example is the case \(N=2\).
 The book-local
 theorem thm:frontier-polyhedral-graph-orthogonality-classification completely
 classifies this repaired real-piecewise-affine problem on every
@@ -799,8 +807,9 @@ to a supporting relation then globalizes the one-vertex obstruction at every
 higher-rank vertex.  Bounded edges, graph cycles and lattice saturation
 introduce no additional condition.  The source convention repair and the
 higher-dimensional real-PA regularity and orthogonality characterizations
-remain open.  P05.1 and P05.2 stay active T3 atoms and all inventory counts
-are unchanged.
+remain open.  Literal regularity on general finite graphs is not classified
+by the one-vertex theorem.  P05.1 and P05.2 stay active T3 atoms and all
+inventory counts are unchanged.
 
 ### `prob:frontier-pluriharmonic` --- 1 active atom
 

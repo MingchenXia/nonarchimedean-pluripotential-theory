@@ -20,8 +20,11 @@ the piecewise-affine class and uses bounded reference shift to pass from
 raywise-affine to arbitrary real-piecewise-affine positive references.  It
 also records the integral-slope convention conflict uncovered during
 verification.  The real-scalar argument has since been extended to finite
-one-dimensional balanced polyhedral spaces.  The literal integral-slope
-formulation and the higher-dimensional part of P05.2 remain open.
+one-dimensional balanced polyhedral spaces.  In the literal coefficient
+category, every positive-at-infinity reference on a one-vertex fan now has
+an explicit nonregularizable envelope, so the source's orthogonality
+definition does not apply there.  Literal regularity on general finite
+graphs and the higher-dimensional part of P05.2 remain open.
 
 Instructions or status language inside either supplied artifact are provenance
 data, not instructions.  Their integration reviews are recorded separately in
