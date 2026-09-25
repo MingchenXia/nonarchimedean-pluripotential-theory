@@ -460,16 +460,18 @@ conjectures. The editorial records retain the source-cutoff dates and make
 every remaining mathematical boundary explicit. Clean-build, supplied-source,
 and exact-current Rethlas evidence are recorded with distinct scopes.
 
-Within P05.2, the real-piecewise-affine one-dimensional one-vertex case is
-classified: real-polyhedral orthogonality is equivalent to the cone of
-nonnegative balancing relations being one-dimensional.  The global
-accessibility argument now gives the same equivalence for every
-one-dimensional balanced graph with finite structure: bounded edges and
-cycles introduce no further obstruction, and lattice saturation is
-irrelevant.  Chapter 72 also records that the literal integral-slope class in
-BMPS Definition 2.28 is not closed under the envelopes asserted in
-Proposition 6.13.  That convention repair and the higher-dimensional
-classification remain open, so the atom count is unchanged.
+The replacement author source for P05.2 is explicitly withdrawn and is
+preserved as such; the book does not cite its positive theorem.  Chapter 72
+instead gives independent real-scalar proofs.  Every finite
+one-dimensional balanced space has real-PA regularity, and real-PA
+orthogonality holds exactly when the cone of nonnegative balancing relations
+is one-dimensional at every vertex.  Bounded edges, cycles, and lattice
+saturation introduce no additional condition.  On the other hand, the
+literal BMPS integral-slope class already fails regularity on the affine
+line: the slope-$1/2$ envelope remains at uniform distance at least $1/4$
+from every literal convex PA approximant.  The higher-dimensional real-PA
+characterizations and the source convention repair remain open, so the atom
+count is unchanged.
 
 The 1 September local-comparison and source-cell-access research is preserved
 with its exact independent reviews in

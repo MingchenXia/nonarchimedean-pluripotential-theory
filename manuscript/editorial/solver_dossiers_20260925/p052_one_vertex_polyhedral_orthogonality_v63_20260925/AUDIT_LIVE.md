@@ -3,9 +3,10 @@
 Date: 25 September 2026.
 Baseline: `4ab75e05a227b8a85ca478861562c43410bb0628`.
 
-The three-page author-supplied PDF was read in full and preserved byte for
-byte.  Its SHA-256 value is
-`b69aacb76afd056894811f8ac73932c7b82176ba7d9934d1e2d7386f7869f8d8`.
+The original three-page author-supplied PDF was read in full.  It was later
+superseded by the explicitly withdrawn replacement now preserved byte for
+byte, SHA-256
+`0ad51074108eb2202d4b624637c035610d275c67fd8456dab59282d543d5f5fb`.
 The corresponding BMPS v1 PDF was checked directly at Definition 2.28,
 Definitions 3.2--3.3, Proposition 6.13, Definition 6.15, Proposition 6.17
 and Definition 6.9.
@@ -57,12 +58,15 @@ the arbitrary finite real-piecewise-affine positive reference.  The
 nonsaturated tripod confirms that lattice saturation is unnecessary in this
 repaired category.
 
-The exact final statement and proof passed the local gpt-6-astra/xhigh
-verifier with verdict `correct`, zero critical errors and zero gaps.  The two
-earlier negative responses are preserved because they caused the primitive
-normalization, full definitions and integral/real convention repair.
+The archived dependency-closed statement and proof passed the local
+gpt-6-astra/xhigh verifier with verdict `correct`, zero critical errors and
+zero gaps.  The two earlier negative responses are preserved because they
+caused the primitive normalization, full definitions and integral/real
+convention repair.  The later withdrawal edit to the live preamble is not
+covered by that exact-byte receipt, and no new verifier result is claimed.
 
-P05.2 remains active.  The literal source convention, graphs with bounded
-edges and higher-dimensional singular fans are not classified.  The active
-inventory remains 42 atoms in 12 formal problem environments, with tiers
+P05.2 remains active.  Later book-local arguments classify real-PA
+orthogonality on finite graphs; the literal source convention and
+higher-dimensional singular fans are not classified.  The active inventory
+remains 42 atoms in 12 formal problem environments, with tiers
 `(0,3,7,15,17)`.

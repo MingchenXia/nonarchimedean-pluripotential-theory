@@ -673,7 +673,12 @@ unrestricted unbounded continuation are disproved.
 ### `prob:frontier-polyhedral-regularity` --- 3 active atoms
 
 - **P05.1** `[T3; open]` Characterize the pairs \((\mathbf X,\gamma)\) for
-  which the Botero--Mazzon--Pille-Schneider regularity property holds.
+  which the Botero--Mazzon--Pille-Schneider regularity property holds.  The
+  literal integral-slope property fails even for
+  \((\mathbf R,|\cdot|)\); in the explicit real scalar extension, every
+  one-dimensional finite balanced rational polyhedral space has regularity.
+  The higher-dimensional real-PA characterization and the source convention
+  repair remain open.
 - **P05.2** `[T3; open]` Characterize the pairs for which their
   orthogonality property holds.
 - **P05.5** `[T4; open after the calibrated recursive model cases]`
@@ -722,33 +727,36 @@ The new bounded-reference-shift proposition
 polyhedral psh, piecewise-affine, and regularizable classes for any two
 references differing by a bounded piecewise-affine function; it also
 identifies their envelope problems and transfers orthogonality in both
-directions.  In particular,
-`cor:frontier-polyhedral-boundedly-conical-regularity` puts every
-piecewise-affine polyhedrally convex reference that is a bounded
-piecewise-affine perturbation of a positive-at-infinity conical reference
-in the P05.1 regularity range.  This is a genuine reference-class reduction,
-not a characterization.  The conical source result gives regularity only,
-so it yields no new unconditional P05.2 case.
+directions, within either the literal or real coefficient category.  This is
+a genuine reference-class reduction, not a source of regularity by itself.
+In particular, the conical regularization statement in BMPS Remark 6.6
+concerns conical functions and does not imply regularity for every bounded
+perturbation of a conical reference.  The former boundedly-conical
+corollary has therefore been removed.
 
 The source's only announced strict-positivity extension is an upcoming
 sequel, whose own bibliography labels it ``In preparation.''  It is not an
 available theorem for P05.1 or P05.2 and is therefore not used to narrow
 either atom; see BMPS26, pp. 4 and 45.
 
-The author-supplied one-vertex theorem
-thm:frontier-polyhedral-one-vertex-orthogonality now classifies the real
-scalar extension of P05.2 on every one-dimensional balanced rational fan
-consisting of finitely many rays from one vertex.  For a raywise-affine
-positive reference, real-polyhedral orthogonality holds exactly when the cone
-of nonnegative balancing relations has dimension one, or equivalently when
-the ray directions have real rank \(r-1\).  An extreme relation with proper
-support gives an explicit obstacle and a strictly negative orthogonality
-integral in every higher-relation case.  Bounded reference shift extends the
-criterion to every real-piecewise-affine positive reference on the same fan,
-and the nonsaturated tripod shows that lattice smoothness is unnecessary in
-this repaired class.  The literal integral-slope PA class of BMPS Definition
-2.28 is not closed under the envelopes asserted in Proposition 6.13; the
-book records the explicit slope-\(1/2\) real-line envelope.  The book-local
+The replacement author source for the one-vertex criterion is explicitly
+withdrawn and is not cited as a positive result.  The book-local theorem
+thm:frontier-polyhedral-one-vertex-orthogonality independently classifies
+the real scalar extension of P05.2 on every one-dimensional balanced
+rational fan consisting of finitely many rays from one vertex.  For a
+raywise-affine positive reference, real-polyhedral orthogonality holds
+exactly when the cone of nonnegative balancing relations has dimension one,
+or equivalently when the ray directions have real rank \(r-1\).  An extreme
+relation with proper support gives an explicit obstacle and a strictly
+negative orthogonality integral in every higher-relation case.  Bounded
+reference shift extends the criterion to every real-piecewise-affine
+positive reference on the same fan, and the nonsaturated tripod shows that
+lattice smoothness is unnecessary in this repaired class.  The literal
+integral-slope PA class of BMPS Definition 2.28 is not closed under the
+envelopes asserted in Proposition 6.13: the book's slope-\(1/2\) real-line
+envelope stays at uniform distance at least \(1/4\) from every literal
+convex PA approximant, so literal regularity fails even on the affine line.
+The book-local
 theorem thm:frontier-polyhedral-graph-orthogonality-classification completely
 classifies this repaired real-piecewise-affine problem on every
 one-dimensional balanced rational polyhedral space with finite structure:
@@ -757,9 +765,10 @@ relations is a ray.  A slow ambient rational-polyhedral norm makes every
 vertex carry positive mass without changing the reference growth; projection
 to a supporting relation then globalizes the one-vertex obstruction at every
 higher-rank vertex.  Bounded edges, graph cycles and lattice saturation
-introduce no additional condition.  The literal integral-slope repair and
-the higher-dimensional characterization remain open.  P05.2 stays one active
-T3 atom and all inventory counts are unchanged.
+introduce no additional condition.  The source convention repair and the
+higher-dimensional real-PA regularity and orthogonality characterizations
+remain open.  P05.1 and P05.2 stay active T3 atoms and all inventory counts
+are unchanged.
 
 ### `prob:frontier-pluriharmonic` --- 1 active atom
 

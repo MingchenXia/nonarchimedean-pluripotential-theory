@@ -317,11 +317,16 @@ source questions under one common framework.
   orthogonality.
 - **Book questions:** an intrinsic singular-fan contact theorem and recursive
   calibrated comparison with CLD/delta/non-Archimedean measures.
-- **Verified core:** complete affine space, including contact and
-  orthogonality; exact factorial normalization; strict cross-fan
-  counterexample; conditional recursive analytic comparison.
-- **Status:** the general higher-dimensional and analytic-realization
-  questions remain open.
+- **Verified core:** the real-PA scalar extension on complete affine space,
+  including contact and orthogonality; real-PA regularity on every finite
+  one-dimensional balanced space; exact factorial normalization; strict
+  cross-fan counterexample; conditional recursive analytic comparison.
+- **Disproved literal claim:** with integral slopes, regularity fails already
+  for the affine line with reference \(|x|\); the supplied one-vertex draft
+  has accordingly been withdrawn.
+- **Status:** the higher-dimensional real-PA characterizations, the source
+  coefficient-convention repair, and the analytic-realization questions
+  remain open.
 - **Packets:** balanced_polyhedral_regularity.md (run and verified in its
   exact core) and bmps_exact_source_questions.md (prepared, not run).
 

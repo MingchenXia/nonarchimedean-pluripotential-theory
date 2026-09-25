@@ -17,8 +17,8 @@ The theorem was consequently reformulated in the real scalar extension
 `PA_R`, with its Monge--Ampere operator defined by the weighted
 one-dimensional Laplacian.  The next submission returned `correct`, with zero
 critical errors and zero gaps.  A final submission was then made after the
-last LaTeX spelling correction so that the archived request is byte-identical
-to the live statement and proof.
+last LaTeX spelling correction so that the archived request was byte-identical
+to the then-live statement and proof.
 
 Final exact-byte response:
 
@@ -36,12 +36,13 @@ The final request and response SHA-256 values are respectively
 `26d67209c7c5350a1d34aa08ecaca0a440954a9b90f2b586e1d5cb9ca9573fef`
 and
 `d28e0bfde39434ef8bee5aeea31408730fea2d2fbb9147ab45d12739dbd5ee40`.
-The live statement and proof SHA-256 values are respectively
+The then-live statement and proof SHA-256 values were respectively
 `52e37fd75cd64bb9d7c74dd1f701168a07be94352286da92010479ba03dbb665`
 and
 `fa95a393cd1a8c9101b6c5875b7a976632e04f22b0f2946cb117db8423409ecf`.
-Direct comparison of the decoded request fields with the two live files
-passes byte for byte.
+Direct comparison of the decoded request fields with those archived bytes
+passed byte for byte.  The later source-withdrawal edit to the live statement
+preamble is outside this receipt, and no new verifier result is claimed.
 
 This is a model-backed mathematical review, not formal verification, peer
 review or a novelty certificate.  Its scope is the exact archived statement

@@ -42,28 +42,24 @@ formal problem environments**, tiers **(0,3,7,15,17)**.  The original PDF,
 source correction and two-pass integration review are recorded separately;
 no earlier verification receipt is extended to the edited book bytes.
 
-## Supplied P05.2 one-vertex real-PA criterion integrated on 25 September 2026
+## Withdrawn P05.2 note and book-local real-PA repair, 25 September 2026
 
-The author-supplied *Orthogonality on one-dimensional balanced fans* is
-integrated in Chapter 72 after an essential convention repair.  For a balanced
-rational fan made of finitely many rays from one vertex, real-polyhedral
-orthogonality holds exactly when the cone of nonnegative balancing relations
-is one-dimensional.  The explicit higher-rank obstacle and nonsaturated
-tripod are retained, and bounded reference shift extends the criterion to
-every real-piecewise-affine polyhedrally convex reference positive at
-infinity.
+The replacement author source is explicitly titled *Withdrawn draft:
+Orthogonality on one-dimensional balanced fans*.  It withdraws the positive
+theorem because the old statement used the literal integral-slope PA class
+while its envelope proof used arbitrary real slopes.  Chapter 72 preserves
+that withdrawal and does not cite the note as a positive result.
 
-The literal integral-slope PA class in BMPS Definition 2.28 is not closed
-under the envelopes asserted in Proposition 6.13; Chapter 72 gives the
-explicit real-line slope-$1/2$ counterexample.  Thus this classifies the
-real scalar extension, not the literal integral-slope P05.2 formulation.
-The book-local contact and accessibility arguments now completely classify
-the repaired real-piecewise-affine problem on every one-dimensional balanced
-graph with finite structure: orthogonality holds exactly when the cone of
-nonnegative balancing relations is one-dimensional at every vertex.  The
-criterion allows bounded edges and cycles and is independent of lattice
-saturation.  The literal integral-slope formulation and higher dimensions
-remain open. P05.2 stays active;
+The book now independently proves that every finite one-dimensional balanced
+space has regularity in the real-PA scalar extension.  It also strengthens
+the real-line slope-$1/2$ warning to a uniform-distance-$1/4$ obstruction,
+so the literal integral-slope affine line fails regularity.  Separate
+book-local contact and accessibility arguments classify real-PA
+orthogonality on every finite balanced graph: it holds exactly when the cone
+of nonnegative balancing relations is one-dimensional at every vertex.
+Bounded edges, cycles, and lattice saturation add no condition.  The
+higher-dimensional real-PA characterizations and the source convention
+repair remain open. P05.1 and P05.2 stay active;
 the inventory remains **42 active atoms in 12 formal problem environments**,
 tiers **(0,3,7,15,17)**.
 

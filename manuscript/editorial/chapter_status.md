@@ -3150,43 +3150,40 @@ missing input, or overfull box; printed pages 3,471--3,474 were visually
 checked. No open atom is retired and no new independent-agent or verifier
 result is claimed.
 
-## Chapter 72: supplied one-vertex real-PA orthogonality criterion, 25 September 2026
+## Chapter 72: withdrawn one-vertex note and real-PA repair, 25 September 2026
 
-The author-supplied *Orthogonality on one-dimensional balanced fans* is
-preserved byte for byte and integrated after an essential convention repair.
-For a balanced rational fan made of finitely many primitive rays from one
-vertex, real-polyhedral orthogonality holds exactly when the cone of
-nonnegative balancing relations is one-dimensional.  The proof includes the
-rank-one contact perturbations, the higher-rank extreme-relation obstacle,
-the nonsaturated tripod and bounded reference shift to arbitrary finite
-real-piecewise-affine positive references.
+The replacement author source is explicitly titled *Withdrawn draft:
+Orthogonality on one-dimensional balanced fans* and is preserved byte for
+byte, SHA-256
+`0ad51074108eb2202d4b624637c035610d275c67fd8456dab59282d543d5f5fb`.
+The book respects the withdrawal and no longer cites its retained body as a
+positive result.
 
 Verification exposed that BMPS Definition 2.28 literally imposes integral
 slopes while the later convex-vector-space arguments and Proposition 6.13
 use real affine functions.  On the real line an integral-slope obstacle has
-an envelope with slope `1/2`.  The book now displays this counterexample and
-states the theorem only in the real scalar extension.  It does not claim to
-repair the literal source category.  P05.2 remains active; the inventory is
-unchanged at 42 atoms in 12 environments, tiers `(0,3,7,15,17)`.
+an envelope with slope `1/2`, uniformly separated by at least `1/4` from
+every literal integral-slope convex PA function.  Thus literal regularity
+fails even on the complete affine line.  Independently, the book proves
+real-PA regularity for every finite one-dimensional balanced space and
+real-PA orthogonality for a one-vertex fan exactly when its nonnegative
+balancing-relation cone is one-dimensional.  P05.1 and P05.2 remain active;
+the inventory is unchanged at 42 atoms in 12 environments, tiers
+`(0,3,7,15,17)`.
 
-The first two local gpt-6-astra/xhigh responses returned `wrong` and caused
-the definition/normalization expansion and convention repair.  The final
-exact-byte request returned `correct`, zero critical errors and zero gaps,
-for item `pi_60bf598a8e3322e961b1d97a`.  All four request/response histories
-are preserved.  Source and inventory checks pass with 403 inputs and 11,845
-labels; all six checker tests pass.  The final 4,078-page PDF has 19,413,171
-bytes and SHA-256
-`c4995111acb2f92c645f296816179de5ac103fce925272c64454e6f09ad67bd6`.
-There are no unresolved references/citations, rerun requests or overflows;
-the 13 inherited Chapter 70 duplicate destinations remain.  Six Chapter 72
-pages, two provenance pages, the bibliography page and all three supplied
-source pages were visually inspected.
+The historical gpt-6-astra/xhigh packets remain archived, but their receipts
+do not cover the later withdrawal edits or the new P05.1 proof.  No new
+model-verifier result is claimed for this correction.  The final 4,084-page
+book has 19,443,419 bytes and SHA-256
+`05c0b1e154fd57c570068a49e6cbb5a221193f6351019b8735eaddfd469c5407`;
+source-graph, inventory, unit, log, minimal-build, and rendered-page checks all
+pass.  Full evidence is recorded in the dedicated withdrawal/regularity audit.
 
 ## Chapter 72: local rank-one graph orthogonality, 25 September 2026
 
 The book-local theorem
 `thm:frontier-polyhedral-local-rank-one-graph` extends the positive half of
-the supplied one-vertex criterion to arbitrary one-dimensional balanced
+the book-local one-vertex criterion to arbitrary one-dimensional balanced
 rational polyhedral spaces.  If the cone of nonnegative balancing relations
 is one-dimensional at every vertex, a local tent perturbation raises any
 positive-mass noncontact vertex while preserving every local Jensen

@@ -1,14 +1,14 @@
 # Review scope
 
 The principal claim is the exact one-vertex classification in the real scalar
-extension of the piecewise-affine class.  The supplied manuscript gives the
-raywise-affine argument.  Verification exposed a convention conflict in the
-source it invokes: BMPS Definition 2.28 literally requires integral slopes,
-while Proposition 6.13 and the intervening convex-vector-space arguments use
-real affine functions.  The live statement now defines `PA_R`, gives the
-explicit slope-`1/2` envelope disproving closure of the literal integral
-class, and makes no claim to settle that literal formulation.  The book also
-adds the displayed bounded-reference-shift corollary.
+extension of the piecewise-affine class.  The original supplied draft
+contained the raywise-affine argument, but its replacement withdraws the
+positive theorem.  The live theorem is therefore book-local.  Verification
+exposed the same convention conflict: BMPS Definition 2.28 literally
+requires integral slopes, while Proposition 6.13 and the intervening
+convex-vector-space arguments use real affine functions.  The live statement
+uses `PA_R`, makes no claim to settle the literal formulation, and adds the
+displayed bounded-reference-shift corollary.
 
 The review must check:
 

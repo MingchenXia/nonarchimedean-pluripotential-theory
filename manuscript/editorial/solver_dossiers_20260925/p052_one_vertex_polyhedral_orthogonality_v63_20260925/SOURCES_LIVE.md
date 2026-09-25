@@ -1,12 +1,13 @@
 # Source ledger
 
-- Author-supplied manuscript, *Orthogonality on one-dimensional balanced
-  fans*, dated 25 September 2026, preserved as
+- Author-supplied replacement, *Withdrawn draft: Orthogonality on
+  one-dimensional balanced fans*, dated 25 September 2026, preserved as
   `manuscript/author_sources_20260925/one-vertex-polyhedral-orthogonality.pdf`.
-  It supplies the lemma, the raywise-affine classification argument, the
-  explicit nonorthogonal obstacle, and the nonsaturated tripod example.  Its
-  reliance on BMPS Proposition 6.13 is retained only after passing explicitly
-  to real piecewise-affine functions.
+  It says that the positive theorem and derived examples in its retained body
+  are not to be cited as results, because the statement used the literal
+  integral-slope convention while the envelope proof used real slopes.  The
+  book respects that withdrawal and treats its own real-PA theorem as
+  book-local.
 - Botero--Mazzon--Pille-Schneider, *Monge--Ampere measures on balanced
   polyhedral spaces*, arXiv:2603.08664v1: Definitions 3.2--3.3 define
   polyhedral convex combinations and PC functions.  Definition 2.28 literally
@@ -22,7 +23,7 @@
   `prop:frontier-polyhedral-bounded-reference-shift` identifies envelope,
   regularity, and orthogonality problems for references differing by a
   bounded piecewise-affine function.  It is the only extra input in the
-  corollary extending the supplied raywise-affine theorem.
+  corollary extending the book-local raywise-affine theorem.
 
 No source is cited for a repair of the literal integral-slope regularity
 claim, a general one-dimensional graph classification or a higher-dimensional
