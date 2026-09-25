@@ -1,0 +1,181 @@
+% P05.2 one-vertex orthogonality classification proof, live integration.
+
+\begin{proof}[\Cref{lem:frontier-polyhedral-one-vertex-convexity}]
+At a point in the relative interior of a ray, the incident-face condition
+in the definition of a polyhedral convex combination forces all of its
+points to lie on that ray.  The defining inequality is therefore ordinary
+one-variable convexity.  At the origin,
+let $x_i(t_{ij})=t_{ij}u_i$ be the points occurring in a polyhedral convex
+combination, with coefficients $a_{ij}\geq0$ whose sum is one, and set
+$
+ \lambda_i:=\sum_j a_{ij}t_{ij}
+$.
+The barycentre condition gives
+$
+ \sum_i\lambda_i u_i=0
+$, so $\lambda\in K$.  Convexity on each ray gives
+\[
+ f(x_i(t_{ij}))\geq f(0)+s_i t_{ij};
+\]
+after multiplication by $a_{ij}$ and summation, the required Jensen
+inequality follows from $\lambda\cdot s\geq0$.
+
+Conversely, fix $\lambda\in K\setminus\{0\}$, choose a small positive
+rational $t$ on which every ray restriction is affine, and use the points
+$x_i(t)$ with coefficients
+$
+ \lambda_i/\sum_j\lambda_j
+$.
+They form a polyhedral convex combination with barycentre zero.  Its Jensen
+inequality gives $\lambda\cdot s\geq0$.  This proves the convexity
+criterion.  Since each $u_i$ is primitive, $t$ is the integral-affine
+coordinate on its ray.  The one-dimensional Laplacian formula for the
+polyhedral Monge--Amp\`ere measure therefore assigns to the origin the
+weighted sum of these normalized outgoing slopes.  This gives the last
+formula.
+\end{proof}
+
+\begin{proof}[\Cref{thm:frontier-polyhedral-one-vertex-orthogonality}]
+The positive vector $w=(w_i)$ belongs to the relative interior of $K$.
+Consequently
+\[
+ \dim K=r-\dim_{\mathbf R}\operatorname{span}\{u_1,\ldots,u_r\},
+\]
+which proves the final equivalence.
+
+Assume first that $K=\mathbf R_{\geq0}w$.  The definition of
+real-polyhedral orthogonality quantifies exactly over bounded
+real-piecewise-affine obstacles, so fix one such
+$u$ and put
+\[
+             a:=\gamma+u,
+             \qquad f:=P_\gamma(u).
+\]
+The one-dimensional real-affine envelope statement quoted above makes $f$
+real-piecewise-affine and polyhedrally convex on a common finite subdivision of
+the rays.  Its Monge--Amp\`ere measure is consequently supported on the
+vertices of that subdivision.  No approximation or larger obstacle class
+is involved in the definition of orthogonality.
+
+Let $x$ be an interior subdivision vertex with positive mass.  On a small
+interval $[a_0,b_0]$ around $x$, containing no other subdivision vertex,
+the left and right slopes of $f$ satisfy $m_-<m_+$.  If $f(x)<a(x)$,
+then $a-f$ has a positive lower bound on a smaller such interval.  Raise
+$f(x)$ by $\delta>0$, retain the values at $a_0,b_0$, and interpolate
+linearly.  When $\delta$ is smaller than the obstacle gap and
+\[
+ \delta\bigl((x-a_0)^{-1}+(b_0-x)^{-1}\bigr)<m_+-m_-,
+\]
+the two new inner slopes remain ordered.  At $a_0$ the inner slope has
+increased, and at $b_0$ it has decreased, so convexity is preserved there
+as well.  The modified function is continuous and polyhedrally convex,
+differs boundedly from $f$, and stays below the obstacle.  Thus it is a
+larger admissible envelope competitor (competitors need not themselves be
+piecewise affine), a contradiction.  Hence every positive atom in the
+interior of a ray is a contact point.
+
+At the origin, choose $\rho>0$ so that the segments
+$[0,\rho]u_i$ contain no other subdivision vertex, and let $s_i$ be the
+outgoing slopes of $f$ there.  If the vertex mass
+$
+ m=\sum_iw_i s_i
+$
+is positive and $f(0)<a(0)$, shrink $\rho$ so that $a-f$ has a
+positive lower bound on the resulting compact star.  Raise $f(0)$ by
+$\delta>0$ and interpolate to the unchanged values $f(\rho u_i)$.  The
+new outgoing slopes are $s_i-\delta/\rho$, and for sufficiently small
+$\delta$,
+\[
+ \sum_iw_i(s_i-\delta/\rho)
+       =m-\frac{\delta}{\rho}\sum_iw_i>0.
+\]
+Because $K=\mathbf R_{\geq0}w$,
+\Cref{lem:frontier-polyhedral-one-vertex-convexity} preserves polyhedral
+convexity at the origin.  Along each ray the modified slope increases back
+to $s_i$ at $\rho u_i$, so raywise convexity is also preserved.  Taking
+$\delta$ below the obstacle gap gives a larger admissible competitor,
+again a contradiction.  Thus every positive atom of
+$\MA_{\mathrm{poly},\mathbf R}(f)$ lies in the contact set $\{f=a\}$, and the
+orthogonality integral vanishes.
+
+Now suppose that $\dim K>1$.  Choose an extreme ray
+$\mathbf R_{\geq0}\lambda$ of $K$.  Its support
+$
+ S:=\{i:\lambda_i>0\}
+$
+is a proper subset of $\{1,\ldots,r\}$: a vector of full support belongs
+to the relative interior of $K$, and an extreme ray can meet that
+relative interior only when $K$ is one-dimensional.  After temporarily
+subtracting $\gamma(0)$, define
+\[
+ f(tu_i):=
+ \begin{cases}
+   g_i\max\{t-2,0\},&i\in S,\\
+   g_i t,&i\notin S.
+ \end{cases}
+\]
+Its outgoing slopes are zero on $S$ and $g_i>0$ off $S$, so
+\Cref{lem:frontier-polyhedral-one-vertex-convexity} makes $f$
+polyhedrally convex.  It is real-piecewise-affine, and
+$f-\gamma$ is bounded because its eventual slope on every ray is $g_i$.
+After restoring the constant $\gamma(0)$, its vertex mass is
+\[
+             \MA_{\mathrm{poly},\mathbf R}(f)\{0\}
+             =\sum_{i\notin S}w_i g_i>0.
+\]
+
+Set $b(tu_i):=\max\{1-t,0\}$ and $u:=f+b-\gamma$.  Then $u$ is
+bounded and real-piecewise-affine, and $f$ is a competitor below
+$\gamma+u=f+b$.  If $h\leq f+b$ is any other polyhedrally convex
+competitor, the points $u_i=x_i(1)$, for $i\in S$, have a balanced
+convex combination with coefficients
+$
+ \lambda_i/\sum_{j\in S}\lambda_j
+$.
+Since $b(u_i)=0$ and $f(u_i)=f(0)$ on $S$, polyhedral convexity gives
+\[
+ h(0)\leq
+ \sum_{i\in S}\frac{\lambda_i}{\sum_{j\in S}\lambda_j}h(u_i)
+ \leq f(0).
+\]
+On every segment $[0,u_i]$, ordinary convexity and the endpoint bounds
+give $h\leq f$, because $f$ is affine there.  For $t\geq1$ the bump
+$b$ vanishes, so the obstacle inequality gives $h\leq f$ directly.
+Therefore $P_\gamma(u)=f$.
+
+The only positive masses of $f$ occur at the origin and at $2u_i$ for
+$i\in S$.  The bump $b$ equals one at the origin and vanishes at all
+the latter points.  Hence
+\[
+ \int_{\mathbf X}
+ \bigl(P_\gamma(u)-(\gamma+u)\bigr)
+ \MA_{\mathrm{poly},\mathbf R}(P_\gamma(u))
+ =-\sum_{i\notin S}w_i g_i<0.
+\]
+Orthogonality fails, proving the converse.
+\end{proof}
+
+\begin{proof}[\Cref{cor:frontier-polyhedral-one-vertex-bounded-shift}]
+On each ray, let $g_i>0$ be the eventual slope of $\gamma$, and define
+the raywise affine reference
+\[
+                    \gamma_\infty(tu_i):=\gamma(0)+g_i t.
+\]
+The positivity of the slopes and
+\Cref{lem:frontier-polyhedral-one-vertex-convexity} show that
+$\gamma_\infty$ is polyhedrally convex and positive at infinity.  Since
+$\gamma$ has only finitely many affine pieces, the difference
+$\gamma-\gamma_\infty$ is bounded and real-piecewise-affine.  Put
+$\delta:=\gamma-\gamma_\infty$.  The two bounded-growth conditions agree,
+and the defining competitor sets give the bounded reference-shift identity
+\[
+                  P_\gamma(u)=P_{\gamma_\infty}(u+\delta).
+\]
+Translation by $\delta$ is a bijection of the bounded real-piecewise-affine
+obstacles.  For corresponding obstacles the envelope, its
+Monge--Amp\`ere measure, and the difference between envelope and obstacle
+are identical, so the two orthogonality integrals agree.  This also proves
+directly the instance of
+\Cref{prop:frontier-polyhedral-bounded-reference-shift} used here.  Apply
+\Cref{thm:frontier-polyhedral-one-vertex-orthogonality}.
+\end{proof}

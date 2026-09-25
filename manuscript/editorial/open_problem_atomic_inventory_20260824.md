@@ -735,6 +735,24 @@ sequel, whose own bibliography labels it ``In preparation.''  It is not an
 available theorem for P05.1 or P05.2 and is therefore not used to narrow
 either atom; see BMPS26, pp. 4 and 45.
 
+The author-supplied one-vertex theorem
+thm:frontier-polyhedral-one-vertex-orthogonality now classifies the real
+scalar extension of P05.2 on every one-dimensional balanced rational fan
+consisting of finitely many rays from one vertex.  For a raywise-affine
+positive reference, real-polyhedral orthogonality holds exactly when the cone
+of nonnegative balancing relations has dimension one, or equivalently when
+the ray directions have real rank \(r-1\).  An extreme relation with proper
+support gives an explicit obstacle and a strictly negative orthogonality
+integral in every higher-relation case.  Bounded reference shift extends the
+criterion to every real-piecewise-affine positive reference on the same fan,
+and the nonsaturated tripod shows that lattice smoothness is unnecessary in
+this repaired class.  The literal integral-slope PA class of BMPS Definition
+2.28 is not closed under the envelopes asserted in Proposition 6.13; the
+book records the explicit slope-\(1/2\) real-line envelope.  That convention
+repair, graphs with bounded edges and the higher-dimensional characterization
+remain open.  P05.2 stays one active T3 atom and all inventory counts are
+unchanged.
+
 ### `prob:frontier-pluriharmonic` --- 1 active atom
 
 - **P06.1** `[retired; supplied manuscript, 24 September 2026]`

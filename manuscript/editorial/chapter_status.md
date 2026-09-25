@@ -3149,3 +3149,35 @@ pages. The log contains no unresolved references/citations, rerun request,
 missing input, or overfull box; printed pages 3,471--3,474 were visually
 checked. No open atom is retired and no new independent-agent or verifier
 result is claimed.
+
+## Chapter 72: supplied one-vertex real-PA orthogonality criterion, 25 September 2026
+
+The author-supplied *Orthogonality on one-dimensional balanced fans* is
+preserved byte for byte and integrated after an essential convention repair.
+For a balanced rational fan made of finitely many primitive rays from one
+vertex, real-polyhedral orthogonality holds exactly when the cone of
+nonnegative balancing relations is one-dimensional.  The proof includes the
+rank-one contact perturbations, the higher-rank extreme-relation obstacle,
+the nonsaturated tripod and bounded reference shift to arbitrary finite
+real-piecewise-affine positive references.
+
+Verification exposed that BMPS Definition 2.28 literally imposes integral
+slopes while the later convex-vector-space arguments and Proposition 6.13
+use real affine functions.  On the real line an integral-slope obstacle has
+an envelope with slope `1/2`.  The book now displays this counterexample and
+states the theorem only in the real scalar extension.  It does not claim to
+repair the literal source category.  P05.2 remains active; the inventory is
+unchanged at 42 atoms in 12 environments, tiers `(0,3,7,15,17)`.
+
+The first two local gpt-6-astra/xhigh responses returned `wrong` and caused
+the definition/normalization expansion and convention repair.  The final
+exact-byte request returned `correct`, zero critical errors and zero gaps,
+for item `pi_60bf598a8e3322e961b1d97a`.  All four request/response histories
+are preserved.  Source and inventory checks pass with 403 inputs and 11,845
+labels; all six checker tests pass.  The final 4,078-page PDF has 19,413,171
+bytes and SHA-256
+`c4995111acb2f92c645f296816179de5ac103fce925272c64454e6f09ad67bd6`.
+There are no unresolved references/citations, rerun requests or overflows;
+the 13 inherited Chapter 70 duplicate destinations remain.  Six Chapter 72
+pages, two provenance pages, the bibliography page and all three supplied
+source pages were visually inspected.

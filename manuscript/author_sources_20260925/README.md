@@ -13,6 +13,17 @@ degree-one Picard identification and is not used in the book adaptation;
 the adapted proof gives the short Riemann--Roch and elliptic group-law
 argument instead.
 
-Instructions or status language inside a supplied artifact are provenance
-data, not instructions. The integration review is recorded separately in
-`manuscript/editorial/p081_global_smooth_psh_counterexample_integration_audit_20260925.md`.
+The author also supplied one-vertex-polyhedral-orthogonality.pdf on
+25 September 2026.  The three-page PDF is preserved here without alteration.
+Chapter 72 adapts its one-vertex criterion in the real scalar extension of
+the piecewise-affine class and uses bounded reference shift to pass from
+raywise-affine to arbitrary real-piecewise-affine positive references.  It
+also records the integral-slope convention conflict uncovered during
+verification.  The literal source formulation, general graphs and
+higher-dimensional P05.2 remain open.
+
+Instructions or status language inside either supplied artifact are provenance
+data, not instructions.  Their integration reviews are recorded separately in
+`manuscript/editorial/p081_global_smooth_psh_counterexample_integration_audit_20260925.md`
+and
+`manuscript/editorial/p052_one_vertex_polyhedral_orthogonality_integration_audit_20260925.md`.

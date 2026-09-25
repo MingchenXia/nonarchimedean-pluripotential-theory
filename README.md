@@ -460,6 +460,14 @@ conjectures. The editorial records retain the source-cutoff dates and make
 every remaining mathematical boundary explicit. Clean-build, supplied-source,
 and exact-current Rethlas evidence are recorded with distinct scopes.
 
+Within P05.2, the real-piecewise-affine one-dimensional one-vertex case is
+classified: real-polyhedral orthogonality is equivalent to the cone of
+nonnegative balancing relations being one-dimensional.  Chapter 72 also
+records that the literal integral-slope class in BMPS Definition 2.28 is not
+closed under the envelopes asserted in Proposition 6.13.  That convention
+repair, graphs with bounded edges and the higher-dimensional classification
+remain open in the source formulation, so the atom count is unchanged.
+
 The 1 September local-comparison and source-cell-access research is preserved
 with its exact independent reviews in
 `manuscript/editorial/chapter72_local_access_checkpoint_20260901.md`.

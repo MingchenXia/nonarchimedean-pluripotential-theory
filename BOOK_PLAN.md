@@ -42,6 +42,26 @@ formal problem environments**, tiers **(0,3,7,15,17)**.  The original PDF,
 source correction and two-pass integration review are recorded separately;
 no earlier verification receipt is extended to the edited book bytes.
 
+## Supplied P05.2 one-vertex real-PA criterion integrated on 25 September 2026
+
+The author-supplied *Orthogonality on one-dimensional balanced fans* is
+integrated in Chapter 72 after an essential convention repair.  For a balanced
+rational fan made of finitely many rays from one vertex, real-polyhedral
+orthogonality holds exactly when the cone of nonnegative balancing relations
+is one-dimensional.  The explicit higher-rank obstacle and nonsaturated
+tripod are retained, and bounded reference shift extends the criterion to
+every real-piecewise-affine polyhedrally convex reference positive at
+infinity.
+
+The literal integral-slope PA class in BMPS Definition 2.28 is not closed
+under the envelopes asserted in Proposition 6.13; Chapter 72 gives the
+explicit real-line slope-$1/2$ counterexample.  Thus this classifies the
+real scalar extension, not the literal integral-slope P05.2 formulation.
+Graphs with bounded edges and higher dimensions also remain open.  P05.2
+stays active;
+the inventory remains **42 active atoms in 12 formal problem environments**,
+tiers **(0,3,7,15,17)**.
+
 ## Supplied solutions integrated on 24 September 2026
 
 Six distinct supplied papers are integrated with complete arguments in
