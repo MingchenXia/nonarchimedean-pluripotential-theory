@@ -545,6 +545,19 @@ retraction is only continuous; no psh-preservation theorem for composition
 with it is proved.  Thus the analytic obstruction is sharper, but P03.1--P03.3
 and the total count remain unchanged.
 
+Theorem `thm:p031-curvewise-scalar-defect-localization` now splits the
+defect on every extended smooth strict test curve into two ordered gaps.
+The intrinsic curve regularization and the pullback of the extended-field
+regularization are both subharmonic.  The pullback of the ground-field
+envelope agrees locally with the latter, and is therefore subharmonic, away
+from the closure of the strict canonical-retraction gap.  Consequently the
+intrinsic-to-ambient regularization gap cannot by itself support a failed
+curve test.  Corollary `cor:p031-scalar-defect-curve-witness` shows that any
+affine P03.1 failure has a curve and a point accumulated by genuine scalar
+retraction defect.  This is only a necessary witness condition: no converse,
+removability result, or defect vanishing is proved.  P03.1--P03.3 and the
+total count remain unchanged.
+
 There is now an automatic-modulus invariant toric companion result for
 P03.1--P03.3.  On the inverse image of an ordinary open convex subset of the
 dense tropical vector space of a split torus, every upper-semicontinuous
