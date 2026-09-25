@@ -3068,3 +3068,33 @@ and originals, ledgers, frozen packets, verifier receipts and dated
 releases are unchanged. This is a local proof/exposition audit, not a new
 independent-agent or production-verifier result. The remaining BHJ19
 slope proof is the next bounded review unit.
+
+## Chapter 17 and Chapter 72: supplied P08.1 counterexample, 25 September 2026
+
+The author-supplied *A locally plurisubharmonic metric without any global
+smooth plurisubharmonic metric* is integrated with its complete argument in
+Chapter 17. On a constant good-reduction elliptic curve over `C((t))`, a
+non-torsion degree-zero line bundle has a nef integral model metric whose
+local weights are ordinary CLD-psh, including explicit smooth psh
+approximation on a fixed neighborhood, but the bundle has no globally
+ordinary smooth psh metric. The outgoing-slope divisor and positivity on
+the residual discs force any degree-zero bundle carrying such a global
+metric to be torsion.
+
+This gives a negative answer to the literal first question in CLD Remark
+17.8.10 and retires P08.1. The current inventory is 42 atoms in 12 formal
+problem environments, with tiers (0,3,7,15,17). The original three-page PDF
+is preserved byte for byte with its SHA-256 value. The adaptation corrects
+the supplied manuscript's unrelated Stacks Tag 0DSV citation by giving the
+needed Riemann--Roch and elliptic group-law argument directly. The local
+proof/source review, model-verifier response and full-build evidence are
+scoped separately in the integration audit. At the author's instruction,
+the obsolete tracked `author_source_repairs/` working directory is removed;
+its bytes remain recoverable from Git history and frozen historical archives
+are not rewritten.
+
+The frozen P08.1 packet then passed local Rethlas run
+`20260925T000718Z_60d573d3ec8e` using gpt-6-astra at xhigh: `correct`, zero
+critical errors and zero gaps. The final 4,066-page build, 397-input and
+11,828-label source closure, inventory and rendered-page checks pass. Exact
+request, response, safe headers and hashes are preserved in the packet.

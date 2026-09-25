@@ -1,7 +1,7 @@
 # Atomic crosswalk for the active problem environments
 
-**Inventory date:** 24 September 2026
-**Literature cutoff:** 19 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, P14.8 current-source production verification and P21.3 residual-Picard source audit on 11 September, and repaired exact-current P14.2 V15 plus unconditional P14.3 production verification on 19 September 2026
+**Inventory date:** 25 September 2026
+**Literature cutoff:** 19 September 2026; targeted P14.7/P14.8 source update on 31 August, P05/P12/P13/P14/P15/P16 source updates on 10 September, P14.8 current-source production verification and P21.3 residual-Picard source audit on 11 September, repaired exact-current P14.2 V15 plus unconditional P14.3 production verification on 19 September 2026, and author-supplied P08.1 counterexample received on 25 September 2026
 **Source scope:** the formal `problem` environments in Chapter 72
 
 This file is an editorial crosswalk for solving, verifying, and retiring the
@@ -12,7 +12,7 @@ surrounding literature.
 
 ## Counting method
 
-The current source contains exactly thirteen formal problem environments,
+The current source contains exactly twelve formal problem environments,
 all in Chapter 72.  A compound environment is
 split below into independently auditable theorem or construction targets.
 Equivalent reformulations are counted only once.  The compatibility axioms
@@ -48,18 +48,20 @@ retirement of P14.7 after the strict-interior raw-filtration maximality
 theorem, retirement of P14.3 after the exact-current unconditional full Kähler
 truncation verification, and retirement of P14.2 after its repaired V15
 production pass, and retirement of P12.1 after the author-supplied
-excellent-germ normalized-boundary construction, and retirement of P06.1 and
-P07.1 through the author-supplied solutions integrated on 24 September,
+excellent-germ normalized-boundary construction, retirement of P06.1 and
+P07.1 through the author-supplied solutions integrated on 24 September, and
+retirement of P08.1 through the author-supplied counterexample integrated on
+25 September,
 the exact count is
 
 ```text
-13 formal problem environments = 43 active atomic research questions.
-Tier counts: (T1,T2,T3,T4,T5) = (0,3,8,15,17).
+12 formal problem environments = 42 active atomic research questions.
+Tier counts: (T1,T2,T3,T4,T5) = (0,3,7,15,17).
 ```
 
 The read-only command `python3 manuscript/editorial/tools/check_open_problem_inventory.py`
 mechanically checks these two declarations, the exact active identifiers and
-their placement, and the thirteen active Chapter 72 problem labels.
+their placement, and the twelve active Chapter 72 problem labels.
 
 The active identifiers listed below form an editorial addressing scheme.
 Their prefixes record the corresponding formal environments, not theorem
@@ -88,6 +90,23 @@ an additional proof of an established positive range, not its retirement.
 All earlier dated status statements below retain their checkpoint meaning.
 The source map, local checks and distinction from production verification
 are in `supplied_solutions_integration_audit_20260924.md`.
+
+## Controlling supplied-source update, 25 September 2026
+
+P08.1 is answered negatively by
+`thm:supplied-p081-global-smooth-counterexample`. On the constant
+good-reduction elliptic curve over `C((t))`, a non-torsion degree-zero line
+bundle carries a continuous locally ordinary-CLD-psh integral model metric
+but no globally ordinary smooth psh metric. The model is already nef. The
+smooth outgoing-slope divisor at the good-reduction point is real-principal;
+positivity on every residual disc would force it to equal the non-torsion
+divisor defining the bundle, a contradiction. Explicit smooth psh functions
+converge uniformly on a fixed neighborhood of the good-reduction point.
+Thus the literal universal question in CLD Remark 17.8.10 is false, and the
+P08.1 problem environment is retired. The earlier positive-degree curve,
+invariant toric and Tate rational-model results retain their stated scopes.
+The integration and source corrections are recorded in
+`p081_global_smooth_psh_counterexample_integration_audit_20260925.md`.
 
 ## Atomic inventory
 
@@ -2080,12 +2099,19 @@ The residual obstruction is sharpened to the existence of a compatible
 local convex development and to fixed-neighbourhood globalization beyond
 it, rather than diagonal order.  It remains active.
 
-### `prob:frontier-cld-global-metric` --- 1 active atom
+### Retired P08.1: `prob:frontier-cld-global-metric`
 
-- **P08.1** `[T3; open beyond the verified implications below]` Decide
-  whether a continuous locally CLD-psh metric on a projective
-  non-Archimedean variety is globally psh in CLD's literal sense: a
-  uniform limit of globally defined smooth psh metrics.
+- **P08.1** `[retired; supplied counterexample, 25 September 2026]` The
+  literal local-to-global smooth approximation assertion is false. On a
+  constant good-reduction elliptic curve over `C((t))`, the non-torsion
+  degree-zero bundle `O(P-O)` has a nef integral model metric whose local
+  weights are ordinary CLD-psh, but the bundle admits no globally ordinary
+  smooth psh metric. See
+  `thm:supplied-p081-global-smooth-counterexample`.
+
+The following comparison history precedes this supplied-source solution;
+its statements remain valid in their displayed scopes, but its assertions
+that P08.1 remains active are superseded by the controlling update above.
 
 **Correction of the comparison scope, 31 August 2026.** The source question
 is CLD Remark 17.8.10, first paragraph. Fixed-line-bundle approximation by
@@ -3160,8 +3186,9 @@ passed the superseding archive
 problem environment are retired.
 At this 28 August milestone, the active inventory was 15 formal
 environments and 54 atoms.  After the 30 August retirements recorded above,
-the P14.7, P14.3, P14.2 and P12.1 retirements, the current inventory is
-13 formal environments and 43 atoms, after the supplied P06.1/P07.1 solutions.
+the P14.7, P14.3, P14.2 and P12.1 retirements, the supplied P06.1/P07.1
+solutions, and the supplied P08.1 counterexample, the current inventory is
+12 formal environments and 42 atoms.
 
 ## Easy-to-hard Rethlas queue
 
@@ -3177,11 +3204,10 @@ No active atom remains in this tier after retirement of `P01.1`.
 
 `P21.3`, `P06.2`, `P03.1`.
 
-### T3 --- major theorems within mature frameworks (8 atoms)
+### T3 --- major theorems within mature frameworks (7 atoms)
 
 `P02.1`, `P02.2`, `P02.3`, `P05.1`, `P05.2`,
-`P08.1`, `P03.2`,
-`P03.3`.
+`P03.2`, `P03.3`.
 
 ### T4 --- new comparison theories or several coupled inputs (15 atoms)
 
@@ -3221,3 +3247,14 @@ contains an external Xean verification history, summarized without extending
 its verdicts to edited book bytes. No new production Rethlas or independent
 agent verdict is claimed. The ordinary production rule still controls newly
 proposed agent results. P03.1, P06.2, P12.6 and P21.3 remain active.
+
+**Author-directed supplied-source integration, 25 September 2026:** the
+same provenance distinction applies to
+`global-smooth-psh-counterexample.pdf`. The complete counterexample retires
+P08.1 after two local source/proof passes. Its original PDF is preserved
+with an exact hash; the edited book proof corrects one unrelated Stacks tag
+in the supplied bibliography by giving the needed elliptic Picard argument
+directly. The local review and any separately archived model-verifier result
+are not described as an independent-agent or formal proof-assistant
+certificate. The ordinary production rule for newly proposed agent results
+is unchanged.

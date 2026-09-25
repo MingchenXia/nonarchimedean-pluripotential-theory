@@ -25,6 +25,23 @@ the mathematical narrative will be unified.
 
 ---
 
+## Supplied P08.1 counterexample integrated on 25 September 2026
+
+The author-supplied *A locally plurisubharmonic metric without any global
+smooth plurisubharmonic metric* is integrated with its complete argument in
+Chapter 17.  On a constant good-reduction elliptic curve over `C((t))`, a
+non-torsion degree-zero line bundle has a continuous locally ordinary-CLD-psh
+nef integral model metric but no globally ordinary smooth psh metric.  The
+outgoing-slope divisor makes the obstruction explicit, and the proof also
+constructs smooth psh approximants on a fixed neighborhood of the
+good-reduction point.
+
+This gives a negative answer to the literal first question in CLD Remark
+17.8.10 and retires P08.1.  The inventory is now **42 active atoms in 12
+formal problem environments**, tiers **(0,3,7,15,17)**.  The original PDF,
+source correction and two-pass integration review are recorded separately;
+no earlier verification receipt is extended to the edited book bytes.
+
 ## Supplied solutions integrated on 24 September 2026
 
 Six distinct supplied papers are integrated with complete arguments in

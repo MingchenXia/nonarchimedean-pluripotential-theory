@@ -1535,6 +1535,31 @@ releases are unchanged. This is a local proof/exposition audit, not a new
 independent-agent or production-verifier result. The remaining BHJ19
 slope proof is the next bounded review unit.
 
+## Supplied P08.1 counterexample integrated, 25 September 2026
+
+The author-supplied *A locally plurisubharmonic metric without any global
+smooth plurisubharmonic metric* is integrated in Chapter 17 and summarized
+in Chapter 72. The constant good-reduction elliptic-curve example gives a
+nef integral model metric with locally ordinary CLD-psh weights and explicit
+fixed-neighborhood smooth psh approximation, while an outgoing-slope
+divisor argument excludes every globally ordinary smooth psh metric on the
+non-torsion degree-zero bundle. P08.1 is therefore retired negatively.
+
+The controlling inventory is now 42 atoms in 12 formal problem
+environments, tiers (0,3,7,15,17). The supplied PDF and exact hash are
+preserved separately from the adapted proof. The book corrects the supplied
+manuscript's unrelated Stacks Tag 0DSV citation by using a direct
+Riemann--Roch and elliptic group-law argument. At the author's instruction,
+the obsolete tracked `author_source_repairs/` working tree is removed while
+Git history and frozen dated archives are preserved.
+
+The frozen P08.1 packet passed local Rethlas run
+`20260925T000718Z_60d573d3ec8e` with gpt-6-astra at xhigh: `correct`, zero
+critical errors and zero gaps. The exact request and response are archived.
+The final build has 4,066 pages; the 397-input, 11,828-label source closure,
+42-atom inventory and rendered-page checks pass without a new layout
+overflow or unresolved reference or citation.
+
 ## Next work
 
 1. Continue with Chapter 65's remaining BHJ19 slope proof and concluding
@@ -1548,7 +1573,8 @@ slope proof is the next bounded review unit.
 2. P06.2, P03.1, P12.6 and P21.3 retain the boundaries in the new integration
    audit. In particular, finite ideal-gauge transfer does not by itself
    give singular geometric psh or Monge--Ampere functoriality. Do not reopen
-   the retired literal P06.1 and unrestricted affine G-tropical P07.1 atoms.
+   the retired literal P06.1, unrestricted affine G-tropical P07.1 or
+   local-to-global smooth-approximation P08.1 atoms.
 3. Build after coherent revisions; preserve dated checksum ledgers for
    their stated snapshots. Commit and push checked units with outstanding
    limits recorded, without force pushes or visibility changes.

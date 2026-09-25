@@ -4,7 +4,22 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
-**Current-source status, 24 September 2026:** the author supplied the
+**Current-source status, 25 September 2026:** the author-supplied
+`global-smooth-psh-counterexample.pdf` is integrated in Chapter 17.  On a
+constant good-reduction elliptic curve, a non-torsion degree-zero line bundle
+has a continuous locally ordinary-CLD-psh nef integral model metric but no
+globally ordinary smooth psh metric.  This gives a negative answer to CLD's
+literal local-to-global question and retires P08.1.  The active inventory is
+now **42 atoms in 12 formal problem environments**, with tiers
+**(0,3,7,15,17)**.  The original PDF and exact hash are preserved in
+`manuscript/author_sources_20260925/`; the proof/source review is recorded in
+`manuscript/editorial/p081_global_smooth_psh_counterexample_integration_audit_20260925.md`.
+The checked source closure has 397 inputs and 11,828 unique labels; the full
+build produces a 4,066-page PDF with no unresolved reference or citation and
+no horizontal layout overflow.  The frozen proof packet received a `correct`
+gpt-6-astra/xhigh verdict with zero critical errors and zero gaps.
+
+**Previous checked source status, 24 September 2026:** the author supplied the
 missing Chapter 70 `CURVE_PSH.tex`, which is now restored byte for byte.
 The complete source check passes (396 TeX files, 11,821 unique labels),
 and the full build produces a 4,062-page PDF with no unresolved reference
@@ -323,8 +338,9 @@ Source provenance, exact input checksums and validation limits are in the
 [recovery build receipt](manuscript/editorial/source_recovery_build_20260922.md).
 Continued mathematical and editorial work is tracked in
 [`manuscript/editorial/continuation_20260922.md`](manuscript/editorial/continuation_20260922.md).
-The current checked editorial inventory is 43 active atoms in 13 formal
-problem environments, with tiers `(0,3,8,15,17)`.
+At that 22 September checkpoint, the checked editorial inventory was 43
+active atoms in 13 formal problem environments, with tiers
+`(0,3,8,15,17)`; the controlling 25 September status is stated above.
 
 The same continuation adds a worked Chapter 16 example explaining the
 convexity-forced affine region and nonseparable mixed terms in the latest
@@ -408,8 +424,6 @@ and `output/RELEASE_ARTIFACT_SHA256SUMS`.
 - `LITERATURE_MAP.md`: annotated primary-literature map;
 - `RESEARCH_QUESTION_LEDGER.md`: solver and hostile-audit record for open
   questions;
-- `author_source_repairs/Mixed_volumes_of_partial_Okounkov_bodies/`: repaired
-  source files and the repair log for the supplied proof of Conjecture 8.8;
 - `manuscript/editorial/`: hypothesis, notation, provenance, status, and
   mathematical-revision ledgers;
 - Appendix L: reader-facing provenance and theorem-status ledger.
@@ -419,13 +433,12 @@ intentionally excluded from version control.  Results proved only in the
 supplied envelope manuscript are identified as such and are not
 misrepresented as previously published theorems.
 
-As recorded on 1 September 2026, the current research-frontier inventory is 14
-open problem environments, all in Chapter 72, split into 51 active editorial
-research atoms with tier counts `(0,5,12,17,17)`. These are not 51 independent
-untouched literature conjectures. The editorial records retain the source-cutoff
-dates and make every remaining mathematical boundary explicit. The clean-build
-and exact-current Rethlas gates that have passed are recorded separately from
-source imports and unresolved packets.
+The current research-frontier inventory is 12 open problem environments, all
+in Chapter 72, split into 42 active editorial research atoms with tier counts
+`(0,3,7,15,17)`. These are not 42 independent untouched literature
+conjectures. The editorial records retain the source-cutoff dates and make
+every remaining mathematical boundary explicit. Clean-build, supplied-source,
+and exact-current Rethlas evidence are recorded with distinct scopes.
 
 The 1 September local-comparison and source-cell-access research is preserved
 with its exact independent reviews in

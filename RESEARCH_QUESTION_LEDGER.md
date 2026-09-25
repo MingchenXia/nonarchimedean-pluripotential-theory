@@ -3,7 +3,7 @@
 ## Non-Archimedean pluripotential theory monograph
 
 **Snapshot date:** 15 August 2026  
-**Current controlling update:** 24 September 2026 (six supplied solutions; earlier receipts retain their dated scopes)
+**Current controlling update:** 25 September 2026 (supplied P08.1 counterexample; earlier receipts retain their dated scopes)
 **Research engine for Passes R1--R3:** `gpt-5.6-sol`, `xhigh` reasoning effort  
 **Scope:** explicit questions in the two supplied archives; directly relevant
 questions in the BFJ, BJ, CLD, Gubler--Künnemann--Jell--Rabinoff,
@@ -14,6 +14,26 @@ theorems.
 This is an internal research document, not a list of claims for publication.
 It records what has been tried, what is already known, and where a proof
 actually stops.
+
+## Supplied P08.1 counterexample integrated on 25 September 2026
+
+The author-supplied *A locally plurisubharmonic metric without any global
+smooth plurisubharmonic metric* gives a negative answer to P08.1 in its
+literal scope.  On a constant good-reduction elliptic curve over `C((t))`,
+the non-torsion degree-zero bundle `O(P-O)` has a nef integral model metric
+whose local weights are ordinary CLD-psh.  Any globally ordinary smooth psh
+metric would make its outgoing slope divisor real-principal; residual-disc
+positivity forces that divisor to be `P-O`, hence torsion after rational row
+reduction, a contradiction.  Explicit smooth psh functions converge
+uniformly to the model weight on a fixed neighborhood of the good-reduction
+point.
+
+P08.1 is retired.  The active inventory is **42 atoms in 12 formal problem
+environments**, tiers **(0,3,7,15,17)**.  The earlier positive-degree curve,
+invariant toric, Tate rational-model and P08.2 formal-twistor results retain
+their exact scopes.  The original supplied PDF, source correction and local
+review are recorded in
+[the integration audit](manuscript/editorial/p081_global_smooth_psh_counterexample_integration_audit_20260925.md).
 
 ## Supplied solutions integrated on 24 September 2026
 
