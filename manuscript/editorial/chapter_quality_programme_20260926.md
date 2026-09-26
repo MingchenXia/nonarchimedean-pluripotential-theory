@@ -37,7 +37,7 @@ than mechanically rewritten.
 
 - **Part I, Chapters 1--8:** complete. All eight chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part II, Chapters 9--19:** active. Chapters 9--11 are complete; Chapter 12
+- **Part II, Chapters 9--19:** active. Chapters 9--12 are complete; Chapter 13
   is next.
 - **Parts III--VI, Chapters 20--72:** queued in reading order after Part II.
 - **Appendices and front matter:** final consistency pass after the chapters,
@@ -293,3 +293,37 @@ errors; its forty-three remaining warnings are reviewed project conventions
 and descriptive titles. The project-wide reference check, full build,
 automatic second pass, and rendered-page inspection all pass. Exact evidence
 is recorded in `chapter_status.md`.
+
+### Chapter 12
+
+The pass now distinguishes an analytic space from the polyhedral subspaces
+and local skeleta on which tropical calibrations actually live. The chapter's
+opening, gluing theorem, and final dictionary consequently state that the CLD
+calculus is transported chartwise, rather than identifying the analytic space
+itself with a calibrated tropical space. The compact tropical-image theorem is
+imported at its exact strength, and multiplicities are introduced only after
+the analytic degree and calibration machinery has been built.
+
+The local dimension criterion now uses the full graded transcendence degree
+of the moment functions. This replaces the false claim that value-group
+rational rank alone detects a top-dimensional tropical germ; the revised
+discussion explains how residue transcendence at type-II points and value
+rank at type-III points give complementary contributions. The proper-image
+argument over a maximal-dimensional cell now obtains one target neighbourhood
+from compactness of the fibre, instead of assuming a uniform source
+neighbourhood without proof.
+
+Canonical scalar weights are integral relative to the saturated tangent
+lattice. Nonreduced generic length is incorporated in the analytic degree and
+does not by itself create fractional canonical weights; rational coefficients
+arise only from noncanonical lattice normalizations or rational analytic
+cycles. Cycle pushforwards now state the required properness on skeletal
+support. The analytic boundary is no longer conflated with the Shilov
+boundary, and the smooth partition-of-unity theorem is stated with its exact
+good, separated, paracompact hypotheses and source. Seven reusable objects
+received semantic labels.
+
+The scoped writing audit has zero errors; its sixty remaining warnings are
+reviewed label namespaces and descriptive titles. The project-wide reference
+check, checker tests, full build, automatic second pass, and rendered-page
+inspection all pass. Exact evidence is recorded in `chapter_status.md`.

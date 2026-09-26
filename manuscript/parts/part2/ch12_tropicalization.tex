@@ -64,11 +64,11 @@ sense; what they have is a \emph{product}, and the argument is that both
 calibrations agree with the product calibration cell by cell.
 
 Once these three layers are in place, the chapter's final structural
-statement (\Cref{cor:trop-calibration-glue}) says that every analytic space
-of pure dimension $n$ carries a canonical calibrated tropical structure, and
-the real calculus of
-\Cref{chap:superforms,chap:tropical-spaces,chap:tropical-integration} can be
-transported to it. That is the input to
+statement (\Cref{cor:trop-calibration-glue}) says that every polyhedral
+subspace of a pure $n$-dimensional analytic space carries a canonical
+calibration, compatible across tropical charts.  The real calculus of
+\Cref{chap:superforms,chap:tropical-spaces,chap:tropical-integration} can
+therefore be transported chartwise to the analytic space. That is the input to
 \Cref{chap:cld-forms,chap:cld-currents}.
 
 \paragraph{Roadmap.}
@@ -240,6 +240,7 @@ theorems are about the functor being well defined.
 \label{sec:trop-moment}
 
 \begin{definition}
+\label{def:trop-moment-map}
 Let $U\subset X$ be an analytic domain. A \emph{moment map} is an analytic
 morphism
 \[
@@ -508,6 +509,7 @@ lying in the smaller --- and the transcendence degrees agree.
 \end{proof}
 
 \begin{example}[The annulus]
+\label{ex:trop-annulus}
 Assume here that $v_K(\pi)=1$.  On
 $U=\{|\pi|\leq|T|\leq1\}$ the moment map $T:U\to\mathbf G_m$ has tropical
 image $[0,1]$. Its canonical section is the family of Gauss points $v_r$ with
@@ -516,6 +518,7 @@ skeleton studied in \Cref{chap:four-entrances}.
 \end{example}
 
 \begin{example}[A Laurent polynomial and the max/min firewall]
+\label{ex:trop-max-min}
 Let $f=a_0+a_1T+a_2S$ on the two-dimensional torus and put
 $u=(-\log|T|,-\log|S|)$.  Away from cancellation, the ultrametric inequality
 gives
@@ -532,58 +535,19 @@ cycle is carried to the other convention by the reflection $u\mapsto-u$.
 
 \begin{theorem}\label{thm:analytic-tropical-polyhedrality}
 For a compact analytic domain $U$ and a moment map $\varphi$, the tropical
-image has a locally finite rational polyhedral structure of dimension at most
-$\dim U$. If $U$ is pure of dimension $n$, its $n$-dimensional cells carry
-canonical positive integral multiplicities.  If no such cell occurs, the
-dimension-$n$ tropical pushforward cycle is zero.
+image is a finite rational polyhedral set of dimension at most $\dim U$.
 \end{theorem}
 \begin{proof}
-Compactness gives a finite cover by affinoid domains on which the coordinates
-of $\varphi$ and their inverses belong to the affinoid algebra.  We first
-work on one such domain $\mathcal M(A)$.  Choose a topologically finite
-presentation of $A$ and add Laurent variables for the invertible functions
-$f_1,\ldots,f_r$.  For $u\in\mathbf R^r$, give those Laurent variables Gauss
-weight $u$.  A multiplicative seminorm on $A$ with
-$-\log|f_i|=u_i$ exists exactly when the corresponding weighted initial
-ideal does not contain a monomial.  This is the initial-form criterion of
-\Cref{sec:appG-initial-tropical}, applied to the graph presentation.
-
-The possible $u$ lie in a compact box because each $f_i$ and $f_i^{-1}$ is
-bounded on $\mathcal M(A)$.  On that box, only finitely many terms of each
-convergent power series can be initial.  Noetherianity of the affinoid
-algebra then gives finitely many initial generators.  The region on which a
-fixed collection of their terms is initial is cut out by inequalities
-\[
-                    \langle m-m',u\rangle
-                    \leq v(a_{m'})-v(a_m),
-\]
-whose linear parts are integral.  There are finitely many such regions, and
-the monomial-free regions form a rational polyhedral complex.  In the
-non-strict case the same argument is made in the graded reduction; the
-degrees record the relevant value-group constants.  Taking a common
-refinement over the finite affinoid cover gives the asserted locally finite
-structure on $\operatorname{Trop}_\varphi(U)$.
-
-Let $\sigma$ be a cell of dimension $d$ and choose a point in its relative
-interior.  Varying the $d$ independent affine coordinates on $\sigma$
-produces $d$ rationally independent value parameters in the associated
-graded residue field.  The Abhyankar inequality bounds their rational rank
-by the analytic dimension of $A$, so $d\leq\dim U$.
-
-Assume now that $U$ is pure of dimension $n$, and let $\sigma$ be an
-$n$-dimensional cell.  On its relative interior the weighted initial algebra
-is constant.  Define the
-multiplicity to be the sum, over its top-dimensional irreducible components,
-of the component length times its graded residue-field degree.  Each summand
-is a positive integer.  Constancy of the initial algebra on the cell makes
-the multiplicity locally constant, and additivity of lengths shows that it
-is preserved under subdivision.  These are the canonical tropical
-multiplicities.
-
-The affinoid initial-ideal and graded-reduction steps are the substantive
-analytic inputs; their full invariant formulation is
-\cite[\S\S12--15]{CLD25}.  The argument also shows why the conclusion is a
-polyhedral complex rather than necessarily one polyhedron.
+This is the compact polyhedrality theorem
+\cite[Theorem~12.2.4]{CLD25}.  Its substantive input is the reduction theory
+of analytic germs: after passing to affinoid pieces, weighted graded
+reductions describe the possible vectors
+$(-\log|f_1|,\ldots,-\log|f_r|)$ by finitely many rational affine
+inequalities.  The dimension bound follows from the graded Abhyankar
+inequality.  Compactness turns the resulting locally finite polyhedral
+structure into a finite one.  Multiplicities are deliberately not included
+in this imported statement; they are constructed intrinsically from local
+analytic degrees in \Cref{sec:trop-calibration,sec:trop-multiplicities}.
 \end{proof}
 
 \section{The canonical skeleton of a torus}
@@ -637,7 +601,7 @@ $M=\mathbf Z^n$; it is compatible with addition. Let $m_0=\max_{\mathrm{lex}}S$
 and $m_0'=\max_{\mathrm{lex}}S'$, and set $\ell=m_0+m_0'$. The coefficient
 of $T^\ell$ in $fg$ is
 \[
- c_\ell=a_{m_0}b_{m_0'}+\sum_{\substack{m+m'=\ell\\(m,m')\ne(m_0,m_0')}}
+ c_\ell=a_{m_0}b_{m_0'}+\sum_{\substack{m+m'=\ell\\ (m,m')\ne(m_0,m_0')}}
  a_mb_{m'} .
 \]
 Consider a pair $(m,m')\ne(m_0,m_0')$ with $m+m'=\ell$. If $m\notin S$ or
@@ -910,6 +874,7 @@ local degree of a finite flat morphism and never with a cardinality.
 \label{sec:trop-charts}
 
 \begin{definition}
+\label{def:trop-chart}
 A \emph{tropical chart} on $X$ is a pair $(V,\varphi)$ consisting of a moment
 map on an analytic domain $U$ and an open subset
 $\Omega\subset\operatorname{Trop}_\varphi(U)$ such that
@@ -962,6 +927,7 @@ intersection of the two domains, by \Cref{lem:trop-moment-basic}
 \end{proof}
 
 \begin{definition}
+\label{def:trop-chart-refinement}
 A chart $(V',\psi)$ \emph{refines} $(V,\varphi)$ if $V'\subset V$ and there is
 an integer-affine map $F$ between tropical targets with
 \[
@@ -1045,6 +1011,7 @@ index \eqref{eq:appG-lattice-index}.
 \end{warning}
 
 \begin{example}[A common refinement with a nontrivial index]
+\label{ex:trop-common-refinement-index}
 Let $A=\{r\leq |T|\leq1\}$ be a closed annulus and fix an integer
 $m\geq1$.  The two moment maps $T$ and $T^m$ have tropical coordinates
 $u=-\log|T|$ and $u'=mu$.  Their product has image
@@ -1106,7 +1073,7 @@ $\dim_x\Sigma_f=n$.
 \end{definition}
 
 Two remarks before the theorem. First, \eqref{eq:trop-sigma-def} is a union
-over an infinite set, so it is not obviously closed; the theorem shows it is
+over an infinite set, so closedness does not follow formally; the theorem shows it is
 a finite union. Second, the number $n$ in \eqref{eq:trop-sigma-def} is the
 level, not $\dim T$: one always projects to a torus of dimension exactly $n$,
 and $\Sigma_f=\varnothing$ as soon as $\dim T<n$.
@@ -1329,8 +1296,9 @@ $d_x(f)$.
 
 For \eqref{eq:trop-dimension-sup}: the inequality $\ge$ is clear because
 $f_{\mathrm{trop}}(V)\subset\Trop_f(X)$ for every $V$. For $\le$, let
-$\xi\in\Trop_f(X)$ be a point at which the polyhedron $\Trop_f(X)$ --- which
-is a polyhedron by \Cref{thm:analytic-tropical-polyhedrality} --- has its
+$\xi\in\Trop_f(X)$ be a point at which the finite polyhedral set
+$\Trop_f(X)$ --- polyhedral by
+\Cref{thm:analytic-tropical-polyhedrality} --- has its
 maximal dimension $\delta$, and choose a $\delta$-dimensional cell $C$ of it
 containing $\xi$ in its relative interior. Since $X$ is compact,
 $f_{\mathrm{trop}}^{-1}(C)$ is a compact analytic domain whose tropical image
@@ -1445,13 +1413,20 @@ piecewise immersion from a space purely of dimension $n$, its image is
 purely of dimension $n$ and is closed when $f_{\mathrm{trop}}$ is proper;
 hence it is contained in $\Trop_f(X)^{(n)}$. Conversely let
 $\xi\in\Trop_f(X)$ not lie in $f_{\mathrm{trop}}(\Sigma_f^{(n)})$ and let
-$x$ be any preimage. Then $x\notin\Sigma_f^{(n)}$, so
-$\dim_{\mathrm{trop},x}(f)<n$ by \cref{itm:trop-dimsig:a}. Properness gives a
-compact analytic neighbourhood $V$ of $f_{\mathrm{trop}}^{-1}(\xi)$ and a
-polyhedral neighbourhood $U$ of $\xi$ in $\Trop_f(X)$ with
-$f_{\mathrm{trop}}^{-1}(U)\subset V$ and
-$\dim f_{\mathrm{trop}}(V)\le n-1$; then $U$ has dimension $\le n-1$ and
-$\xi\notin\Trop_f(X)^{(n)}$.
+$F=f_{\mathrm{trop}}^{-1}(\xi)$. Every $x\in F$ lies outside
+$\Sigma_f^{(n)}$, so \cref{itm:trop-dimsig:a} and the definition of local
+tropical dimension give a compact analytic neighbourhood $V_x$ of $x$ with
+$\dim f_{\mathrm{trop}}(V_x)\le n-1$. Properness makes $F$ compact; choose
+$x_1,\ldots,x_r$ with $F\subset V:=\bigcup_i\mathring V_{x_i}$. The closed
+set $X\setminus V$ has closed image under the proper map
+$f_{\mathrm{trop}}$, and that image does not contain $\xi$. Hence some
+polyhedral neighbourhood $U$ of $\xi$ in $\Trop_f(X)$ satisfies
+$f_{\mathrm{trop}}^{-1}(U)\subset V$. Therefore
+\[
+ U\subset\bigcup_{i=1}^r f_{\mathrm{trop}}(V_{x_i}),
+\]
+a finite union of polyhedral sets of dimension at most $n-1$. Thus
+$\dim U\le n-1$ and $\xi\notin\Trop_f(X)^{(n)}$.
 
 \cref{itm:trop-dimsig:d} If $X$ is boundaryless then $X=\Int(X)$ and
 \cref{itm:trop-dimsig:b} gives $\Sigma_f=\Sigma_f^{(n)}$. By
@@ -1494,46 +1469,34 @@ concerns cycles rather than spaces, in its context.
 
 \begin{proposition}
 \label{prop:analytic-tropical-dimension}
-Let $Z$ be an irreducible analytic cycle of dimension $d$. Every tropical
-image of $Z$ has dimension at most $d$. A $d$-cell occurs precisely where the
-chosen moment functions have rational rank $d$ in the associated graded
-residue field.
+Let $Z$ be an irreducible analytic cycle of dimension $d$ and let $f$ be a
+moment map defined near its support. Every tropical image of $Z$ has
+dimension at most $d$. For an interior point $x$ of the reduced support,
+\[
+ \dim_{\mathrm{trop},x}(f)=d
+ \quad\Longleftrightarrow\quad
+ d_x(f)=d.
+\]
+Equivalently, the local tropical image has full dimension at $x$ precisely
+when the initial forms of the chosen moment functions generate a graded
+subfield of $\widetilde{\mathcal H(x)}$ of transcendence degree $d$ over
+$\widetilde K$.
 \end{proposition}
 \begin{proof}
-Choose a point $x$ mapping to the relative interior of a cell $\sigma$ and
-let $\Gamma_x$ be the value group of the completed residue field
-$\mathcal H(x)$.  The slopes of the moment coordinates generate a subgroup
-of $\Gamma_x/\Gamma_K$.  If $\dim\sigma=q$, then $q$ independent
-integer-linear combinations of the coordinate values vary on $\sigma$;
-their classes are rationally independent in the graded residue data at a
-generic point.  Thus
-\[
- q\leq
- \operatorname{rat.rank}(\Gamma_x/\Gamma_K).
-\]
-The Abhyankar inequality bounds the right-hand side, together with the
-residue transcendence degree, by the local analytic dimension of $Z$, which
-is $d$ at its generic points.  Hence $q\leq d$.
-
-Conversely, if the chosen moment functions have rational rank $d$, select
-$d$ integer-linear combinations with independent value classes.  In the
-weighted initial presentation used in the proof of
-\Cref{thm:analytic-tropical-polyhedrality}, no nontrivial rational affine
-relation can hold among their weights on a neighborhood of the generic
-initial stratum.  Their projection therefore contains a $d$-dimensional
-polyhedron.  Since the first part forbids larger dimension, the cell has
-dimension $d$.  The argument takes place in the graded residue field and is
-therefore invariant under extension of the ground-field value group.
+Apply \eqref{eq:trop-dimension-chain} to the reduced support of $Z$:
+$\dim_{\mathrm{trop},x}(f)\le d_x(f)\le d_K(x)\le d$.  Together with
+\eqref{eq:trop-dimension-sup} on compact analytic domains, this bounds every
+cell of the tropical image by $d$. If $x$ is interior, the first inequality
+is an equality by \Cref{thm:trop-local-germ}; hence the local image has full
+dimension exactly when $d_x(f)=d$. The last formulation is the definition of
+$d_x(f)$ in \Cref{def:trop-residual-degree}.
 \end{proof}
 
 \begin{remark}
 \label{rem:trop-dimension-two-halves}
-\Cref{prop:analytic-tropical-dimension} and
-\Cref{thm:trop-dimension-formula} split the same statement along different
-seams. The former isolates the rational-rank half of the graded transcendence
-degree, which is the half visible in the value group and hence the half that
-a purely valuative argument sees; the latter keeps the two halves together in
-the single invariant $d_K(x)$. The identity relating them is the graded
+The full-dimensionality criterion must use graded transcendence degree, not
+the rational rank of the value group alone. The identity separating its two
+contributions is the graded
 Abhyankar equality
 \[
  d_K(x)=\operatorname{trdeg}_{\widetilde K}\widetilde{\mathcal H(x)}
@@ -1544,13 +1507,13 @@ Abhyankar equality
 where the subscript zero denotes the degree-zero part, that is the ordinary
 residue field.  The left-hand transcendence degree is the graded one of
 \Cref{sec:appG-graded-reduction}, which is what
-\Cref{def:trop-residual-degree} takes as the definition of $d_K(x)$; without
-the subscript the identity would read $d_K(x)=d_K(x)+\text{rational rank}$
-and would force the rational rank to vanish.  That identity is, for curves, the
-equality $d_K(x)=s(x)+t(x)$ of \Cref{prop:berk-type-invariants}. Points of type II contribute through the
-residue field, points of type III through the value group, and both give a
-one-dimensional tropical germ; a type-IV point has $d_K(x)=0$ and never lies
-on a local skeleton.
+\Cref{def:trop-residual-degree} uses in defining $d_K(x)$. For curves this is
+the equality $d_K(x)=s(x)+t(x)$ of
+\Cref{prop:berk-type-invariants}. A type-II point contributes through residue
+transcendence while a type-III point contributes through value-group rank,
+yet both can support a one-dimensional tropical germ. Neither summand alone
+detects tropical dimension. A type-IV point has $d_K(x)=0$ and never lies on a
+local skeleton.
 \end{remark}
 
 \section{The canonical calibration}
@@ -1636,8 +1599,8 @@ These are \cite[Lemma~11.5.1, Lemma~11.6.5, Proposition~13.4.2 and
 Proposition~13.3.10]{CLD25}. Assertion \cref{itm:trop-input:qf} is the
 fibre-dimension inequality
 $\dim_xg^{-1}(g(x))\le\dim_xX-d_K(g(x))$ of Ducros; \cref{itm:trop-input:flat}
-combines quasi-finiteness at an interior point with the local criterion of
-flatness over a reduced base; \cref{itm:trop-input:sc} is proved by
+uses that the target local ring at a point with $d_K(g(x))=n$ is artinian and,
+when reduced, a field; \cref{itm:trop-input:sc} is proved by
 Nakayama's lemma after a local factorization of $g$ into a finite morphism
 followed by a quasi-\'etale one; \cref{itm:trop-input:mult} is the
 composition rule for calibrated degrees, discussed again in
@@ -1874,8 +1837,9 @@ point of $S(\mathbf G_m^n)$ has a unique preimage in
 $S(\mathbf G_{m,\widehat{K^{\mathrm{alg}}}}^n)$ --- visible on the defining
 formula \eqref{eq:trop-gauss-seminorm}, which is invariant under
 $\mathrm{Aut}(\widehat{K^{\mathrm{alg}}}/K)$ --- together with the base-change
-additivity of degrees. Over an algebraically closed field, constancy of
-$|f_i'/f_i|$ near an interior point forces
+additivity of degrees. Over an algebraically closed field, the local
+constant-norm theorem \cite[Proposition~12.2.12]{CLD25}, applied to
+$f_i'/f_i$, gives
 $f_i'=(1+g_i)\lambda_if_i$ with $\lambda_i\in K^\times$ and $|g_i|<1$; after
 translating $f$ one may take $\lambda_i=1$. One then interpolates by the
 family
@@ -2083,8 +2047,9 @@ in $V$ agrees with the one computed in $X$.
 \end{corollary}
 
 \begin{proof}
-Choose a decomposition $\mathscr C'$ of $\Sigma$ into convenient $f$-cells
-refining the trace on $\Sigma$ of a decomposition of $\Sigma'$; then
+Choose compatible decompositions of $\Sigma$ and $\Sigma'$ and pass to a
+common subdivision so that every cell of $\Sigma'$ is the trace of a cell of
+$\Sigma$. Then
 \Cref{def:trop-canonical-calibration} computes $\mu_{\Sigma'}$ from the
 cells contained in $\Sigma'$, with the same $q$ and the same degrees, and
 \Cref{lem:trop-calibration-subdivision} removes the dependence on the
@@ -2104,9 +2069,12 @@ domain $V$, every moment map $f$ on $V$, and every paracompact polyhedral
 subspace $\Sigma'\subset\Sigma\cap\Sigma_f$, one has
 $\mu_\Sigma|_{\Sigma'}=\mu_{\Sigma'}$ in the sense of
 \Cref{def:trop-canonical-calibration}. In particular every $K$-analytic
-space of pure dimension $n$ carries a canonical structure of calibrated
-tropical space of dimension $n$, and the calculus of
-\Cref{chap:tropical-spaces,chap:tropical-integration} applies to it.
+space of pure dimension $n$ has compatible calibrated tropical charts: each
+$n$-dimensional polyhedral subspace, and in particular each local skeleton,
+carries its canonical calibration. The calculus of
+\Cref{chap:tropical-spaces,chap:tropical-integration} therefore applies
+chartwise; the analytic space itself is not being identified with a
+polyhedral tropical space.
 \end{corollary}
 
 \begin{proof}
@@ -2312,38 +2280,43 @@ of $d_D$ are \Cref{prop:trop-degree-constant}.
 \end{proof}
 
 \begin{warning}{The scalar weight is not the invariant}
-\Cref{cor:trop-weights-integral} shows that the number $m_D$ depends on the
-ambient lattice $N$ and on the embedding of $D$ into $N_{\mathbf R}$; only
-the $n$-vector $\mu_D$ is intrinsic. Three situations produce
-non-integral scalars and are the reason
-\Cref{def:appG-calibration} packages the lattice, the orientation and the
-multiplicity together rather than recording a number. First, a
-non-saturated ambient lattice --- for instance after restricting attention
-to a sublattice of $N$ that does not contain $N_D$ --- makes
-$j>1$ unavoidable and $m_D$ a fraction. Second, the calibrated degrees of
-\Cref{sec:trop-graded} are rational whenever the source is nonreduced, by
-\Cref{prop:trop-calibrated-degree} \cref{itm:trop-dc:red}, so
-\eqref{eq:trop-finite-pushforward} produces rational coefficients. Third,
-cycles with rational coefficients occur naturally in
-\Cref{chap:cld-currents}. The balancing condition
-\eqref{eq:appG-balancing} and the whole integration theory are insensitive
-to all of this, because they use $\mu_D$ and never $m_D$ alone; compare the
-caveat in \Cref{sec:appG-analytic-multiplicity}.
+In the integral setting of \Cref{cor:trop-weights-integral}, the tangent
+lattice is the saturated lattice
+$N_D=N\cap\operatorname{span}_{\mathbf R}(D-D)$ and $m_D$ is a positive
+integer. What is invariant under changes of chart and subdivision is the
+calibrated volume vector $\mu_D=m_De_D$, not a coefficient written relative
+to an arbitrary auxiliary lattice. Re-expressing the same vector relative
+to a non-saturated auxiliary lattice can produce a rational coefficient,
+but that coefficient is not the canonical integral weight. Likewise a
+nonreduced source contributes its integral generic length to the fundamental
+cycle; the rational calibrated degree of the reduction map in
+\Cref{prop:trop-calibrated-degree} \cref{itm:trop-dc:red} compensates for
+that length and does not make the canonical space weight fractional.
+Genuinely rational weights enter only after rational coefficients are
+allowed on analytic cycles, as in \Cref{chap:cld-currents}. This is why
+\Cref{def:appG-calibration} records $\mu_D$ rather than a bare number.
 \end{warning}
 
 We can now restate the multiplicity in the language of cycles, which is the
 form in which \Cref{chap:cld-currents} uses it. Let $Z$ be an irreducible
-$n$-dimensional analytic cycle in $U$. On the relative interior of an
-$n$-dimensional cell $\sigma$ of $\operatorname{Trop}_\varphi(Z)$, the
+$n$-dimensional analytic cycle in $X$, and let $f$ be a moment map defined
+near its support. On the relative interior of an
+$n$-dimensional cell $\sigma$ of $\operatorname{Trop}_f(Z)$, the
 tropicalization is generically finite in the graded-reduction sense, by
 \Cref{prop:trop-degree-constant} applied to the components of $Z$.
 
 \begin{definition}
-The \emph{tropical multiplicity} $m_\sigma(Z,\varphi)$ is the degree of the
-corresponding initial degeneration, counted with lengths of its irreducible
-components and residue-field degrees. The associated oriented tangent
-$n$-vector, multiplied by $m_\sigma$, is the \emph{canonical calibration} of
-$Z$ in the chart.
+\label{def:trop-cycle-multiplicity}
+Let $e_\sigma$ be the primitive volume vector of the saturated tangent
+lattice of $\sigma$. The \emph{tropical multiplicity}
+$m_\sigma(Z,f)$ is the unique positive scalar for which the local
+pushforward of the canonical calibration of $Z$ is
+$m_\sigma(Z,f)e_\sigma$ on $\mathring\sigma$. Equivalently, for an
+admissible projection $q$ it is the sum of the local analytic degrees above
+$\sigma$, divided by the lattice index in
+\eqref{eq:trop-weight-index}. By \Cref{thm:trop-degree-graded}, each analytic
+degree already contains the length, graded residue degree, and possible
+defect; none of these factors is to be inserted a second time.
 \end{definition}
 
 This definition is intentionally conceptual. In non-strict or non-algebraically
@@ -2788,7 +2761,10 @@ additivity.
 Let $X$ be a $K$-analytic space and let $Z=\sum_j n_j[Z_j]$ be an effective
 analytic cycle of pure dimension $n$ on $X$, the $Z_j$ being the reduced
 irreducible closed analytic subspaces of dimension $n$ and $n_j>0$. For a
-moment map $f$ defined near the support of $Z$, put
+moment map $f$ defined near the support of $Z$, assume that
+$f_{\mathrm{trop}}$ is proper on the top-dimensional skeletal support
+$\bigcup_j\Sigma_{f|_{Z_j}}^{(n)}$; this holds, for example, when the support
+of $Z$ is compact. Put
 \[
  \Sigma_f(Z)=\bigcup_j\Sigma_{f|_{Z_j}},
  \qquad
@@ -2801,7 +2777,8 @@ $\Trop_f(Z)=f_{\mathrm{trop},*}\mu_{\Sigma_f(Z)}$.
 
 \begin{proposition}
 \label{prop:trop-cycle-additive}
-The assignment $Z\mapsto\Trop_f(Z)$ is additive in $Z$, compatible with
+Whenever the pushforwards involved are proper on their skeletal supports,
+the assignment $Z\mapsto\Trop_f(Z)$ is additive in $Z$, compatible with
 restriction to analytic domains and with extension of the base field, and
 satisfies
 \[
@@ -2911,23 +2888,19 @@ affinoid, $f_{\mathrm{trop}}(\partial X)$ is itself such a subset.
 \end{proposition}
 
 \begin{proof}
-For $X=\mathcal M(\mathcal A)$ affinoid with graded reduction
-$\widetilde{\mathcal A}$ and reduction map
-$\pi:X\to\Spec\widetilde{\mathcal A}$, the locus
-$\{x:\dim\pi(x)\ge d\}$ is weakly analytic of dimension at most
-$\dim X-d$: choosing $h_1,\ldots,h_N\in\mathcal A$ with nonzero spectral
-norms whose initial forms generate $\widetilde{\mathcal A}$, the condition
-$\dim\pi(x)\ge d$ says that some $d$-element subfamily of the
-$\widetilde{h_i(\pi(x))}$ is algebraically independent over $\widetilde K$,
-which is a finite union of conditions of the required shape; this is
-\cite[Proposition~11.10.4]{CLD25}. Taking $d=\dim X$ identifies the locus
-with the Shilov boundary, and the boundary $\partial X$ of an affinoid space
-is weakly analytic of dimension at most $\dim X-1$
-(\cite[Example~11.10.2]{CLD25}). In general $\partial X$ is a locally finite
-union of such boundaries taken in an affinoid $G$-cover, so it is weakly
-analytic of dimension at most $n-1$. The assertions about
-$f_{\mathrm{trop}}(\partial X)$ now follow from
-\Cref{prop:trop-weakly-analytic-image}.
+For an affinoid space, the boundary theorem of Ducros gives directly that
+$\partial X$ is weakly analytic of dimension at most $\dim X-1$; this is
+\cite[Example~11.10.2]{CLD25}. The nearby
+\cite[Proposition~11.10.4]{CLD25} gives a complementary graded-reduction
+description of weakly analytic strata, but the Shilov boundary is not to be
+confused with the whole analytic boundary. In general, take an affinoid
+$G$-cover: the analytic boundary is $G$-locally contained in the
+corresponding affinoid boundaries, and weak analyticity is $G$-local and
+stable under locally finite unions. Thus $\partial X$ has dimension at most
+$n-1$. The assertions about $f_{\mathrm{trop}}(\partial X)$ now follow from
+\Cref{prop:trop-weakly-analytic-image}; in the affinoid case that proposition
+applies directly to $\partial X$, while in general it gives the asserted
+containing polyhedral set.
 \end{proof}
 
 \begin{corollary}
@@ -2951,50 +2924,19 @@ $n-1$ carrying no mass for a calibrated $n$-dimensional integral.
 \subsection{Partitions of unity}
 
 \begin{theorem}\label{thm:cld-partitions-unity}
-On a good paracompact Berkovich analytic space, every locally finite cover by
-suitable analytic domains admits a subordinate smooth partition of unity in
-the CLD sheaf. Compactly supported forms can therefore be integrated using
-finitely many tropical charts.
+Let $X$ be a good, topologically separated, paracompact Berkovich analytic
+space. Every open cover of $X$ admits a subordinate smooth partition of
+unity in the CLD sheaf. Compactly supported forms can therefore be integrated
+using finitely many tropical charts.
 \end{theorem}
 \begin{proof}
-Goodness gives neighborhoods modeled on affinoid domains, hence local
-compactness.  Paracompactness allows the given cover to be refined by a
-locally finite family of pairs
-\[
-                         W_i\Subset V_i
-\]
-such that the $W_i$ still cover $X$ and each $V_i$ lies in one member of the
-original cover and in one tropical chart.
-
-We recall the chartwise bump construction.  A compact subset of a good
-analytic domain can be separated from its complement by finitely many strict
-inequalities among absolute values of invertible analytic functions.  After
-applying $-\log$, these become strict affine inequalities on a tropical
-chart.  Choose ordinary $C^\infty$ cutoff functions on $\mathbf R$ that are
-one on the smaller closed intervals and zero outside the larger open
-intervals; take finite products of their pullbacks.  This produces a smooth
-function $\chi_i$ with
-\[
- 0\leq\chi_i\leq1,\qquad
- \chi_i=1\ \text{on }W_i,\qquad
- \operatorname{supp}\chi_i\subset V_i.
-\]
-Product-moment refinements show that this construction is independent of the
-chosen finite list of tropical coordinates.
-
-The locally finite sum $s=\sum_i\chi_i$ is smooth and satisfies $s\geq1$,
-because the $W_i$ cover.  Therefore
-\[
-                         \rho_i=\frac{\chi_i}{s}
-\]
-is smooth, subordinate to $V_i$, locally finite, and
-$\sum_i\rho_i=1$.  This is the desired partition.  A compact set meets only
-finitely many supports, so a compactly supported form is integrated using
-finitely many charts.
-
-The separation and bump-function step in the full parlinear category is
-proved in \cite[\S15]{CLD25}; the normalization argument above is the usual
-locally finite partition construction.
+A good topologically separated analytic space is locally holomorphically
+separated, because each point has an affinoid neighbourhood. The partition
+theorem is therefore exactly \cite[Proposition~15.2.8]{CLD25}, obtained by
+applying the smooth partition theorem for locally differentially separated
+tropical spaces. Local finiteness implies that a compact support meets only
+finitely many members of the partition; after refining those members by
+tropical charts, integration is a finite chartwise sum.
 \end{proof}
 
 For spaces not satisfying goodness or paracompactness, we do not silently use
@@ -3317,10 +3259,13 @@ $q\circ f=T_1|_Z$ over $\eta$ is
 \]
 Because $|T_1|<1$ and $p\ne2$, Hensel's lemma provides
 $c\in\mathcal H(\eta)$ with $c^2=1+T_1$, so the algebra is
-$\mathcal H(\eta)[\sqrt{-1}]$. The residue field of $\mathcal H(\eta)$ is
-$\mathbf F_p$ when $\rho\notin|K^\times|$ and $\mathbf F_p(\bar\theta)$
-otherwise; in both cases $-1$ is not a square in it, because $\mathbf F_p$ is
-relatively algebraically closed in $\mathbf F_p(\bar\theta)$; and a square
+$\mathcal H(\eta)[\sqrt{-1}]$. The degree-zero residue field of
+$\mathcal H(\eta)$ is $\mathbf F_p$ when the class of $\rho$ in
+$\mathbf R_{>0}/|K^\times|$ has infinite order, and it is
+$\mathbf F_p(\bar\theta)$ when $\rho^m\in|K^\times|$ for some $m\ge1$ (after
+normalizing a suitable power of the coordinate). In both cases $-1$ is not a
+square in it, because $\mathbf F_p$ is relatively algebraically closed in
+$\mathbf F_p(\bar\theta)$; and a square
 in $\mathcal H(\eta)$ of absolute value $1$ reduces to a square in the
 residue field. So $\mathcal H(\eta)[\sqrt{-1}]$ is a field, the fibre is the
 single point $x=\mathcal M(\mathcal H(x))$ with
@@ -3432,9 +3377,9 @@ The following correspondences are used without further comment from
 \text{boundary }\partial X
  &\longleftrightarrow&
  \text{tropically thin, weakly analytic set},\\[1mm]
-\text{pure-dimensional analytic space}
- &\longrightarrow&
- \text{calibrated tropical space}.
+\text{polyhedral subspace of an analytic space}
+ &\longleftrightarrow&
+ \text{canonically calibrated tropical charts}.
 \end{array}
 \]
 The third line is \Cref{thm:trop-sigma-characterization}. The fourth and
@@ -3457,16 +3402,16 @@ related by $\Pi_f=f_{\mathrm{trop}}(\Sigma_f^{(n)})=\Trop_f(X)^{(n)}$ in the
 proper case (\Cref{thm:trop-dimension-sigma} \cref{itm:trop-dimsig:c}), and
 not otherwise.
 
-Second, \emph{the multiplicity is not a number of points}. It is a local
-degree, which over a nonalgebraically closed field can be a residue degree
-and over a nonreduced space can be a length
-(\Cref{ex:trop-multiplicity-two,ex:trop-length-factor}). The scalar weight
-$m_D$ is moreover only defined after a lattice has been chosen.  Under the
-hypotheses of \Cref{cor:trop-weights-integral} it is a positive integer;
-it is rational rather than integral only in the three situations collected
-in the warning after that corollary, namely a non-saturated ambient
-lattice, a nonreduced source, and the rational-coefficient cycles of
-\Cref{chap:cld-currents}.
+Second, \emph{the multiplicity is not a number of points}. It is built from
+a local analytic degree, which over a nonalgebraically closed field can
+contain a residue degree and over a nonreduced space can contain a length
+(\Cref{ex:trop-multiplicity-two,ex:trop-length-factor}). Relative to the
+canonical saturated tangent lattice, the scalar weight $m_D$ of the
+fundamental cycle is a positive integer
+(\Cref{cor:trop-weights-integral}). Fractional coefficients arise only after
+changing to a noncanonical lattice normalization or allowing
+rational-coefficient cycles; a nonreduced source by itself does not make the
+canonical weight fractional.
 
 Third, \emph{refinement is not symmetric}. Charts are compared by passing up
 to a product, and a comparison of weights is therefore always a pushforward
@@ -3554,8 +3499,10 @@ whose algebraizable case is due to Berkovich \cite[Corollary~6.2.2]{Berk93};
 \Cref{thm:trop-finite-pushforward} is \cite[Proposition~14.4.2]{CLD25}; and
 \Cref{prop:trop-weakly-analytic-image} together with
 \Cref{prop:trop-boundary-thin} is \cite[\S11.10]{CLD25}, whose
-affinoid-boundary case goes back to Ducros. The proofs given here are our
-own arrangement; those of
+affinoid-boundary case goes back to Ducros. Finally,
+\Cref{thm:cld-partitions-unity} is
+\cite[Proposition~15.2.8]{CLD25}. The proofs given here are our own
+arrangement where supplied; those of
 \Cref{thm:trop-sigma-characterization},
 \Cref{cor:trop-sigma-abhyankar},
 \Cref{thm:trop-dimension-formula},
@@ -3565,11 +3512,14 @@ own arrangement; those of
 \Cref{thm:trop-calibration-canonical},
 \Cref{thm:trop-calibration-chart-independent},
 \Cref{thm:trop-degree-graded} and all examples are complete, whereas
+\Cref{thm:analytic-tropical-polyhedrality},
 \Cref{thm:trop-local-germ},
 \Cref{thm:trop-sigma-polyhedral},
 \Cref{prop:trop-analytic-inputs} and
 \Cref{thm:trop-degree-translation} are imported with exact references and a
-description of the mechanism.
+description of the mechanism; \Cref{prop:trop-boundary-thin} and
+\Cref{thm:cld-partitions-unity} are direct applications of the cited CLD
+results.
 
 \paragraph{Adjacent literature not used as a hypothesis.}
 Several treatments of tropicalization on Berkovich spaces run parallel to

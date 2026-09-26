@@ -3862,3 +3862,50 @@ integral normalization, boundary contractions, balanced Stokes, Green and
 Dirichlet signs, pushforward, affine regularization, stable-intersection
 convergence, examples, tables, and source notes; no clipping, overlap, bad
 glyph, formula overflow, or hierarchy defect was found.
+
+## Chapter 12: analytic tropicalization, dimension, and canonical calibration, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 12; Chapter 13
+is next. The chapter now separates analytic spaces from the calibrated
+polyhedral subspaces and local skeleta used to transport the CLD calculus.
+The compact tropical-image theorem is stated at its exact imported strength,
+and the chapter defers multiplicities until local analytic degrees and
+calibrations have been constructed. The source locators and hypotheses were
+checked against the official July 2025 Chambert-Loir--Ducros source, including
+Theorem 12.2.4, Example 11.10.2, Proposition 12.2.12, Theorem 14.2.7, and
+Proposition 15.2.8.
+
+The former top-dimensionality criterion in terms of value-group rational rank
+was false at residue-transcendental points. It has been replaced by the full
+graded transcendence degree `d_x(f)`, with type-II and type-III curve points
+used to explain the two complementary contributions. The proper-image proof
+now obtains a uniform target neighbourhood by covering the compact fibre with
+finitely many source neighbourhoods and removing the closed image of their
+complement. The flatness input identifies the full-dimensional target local
+ring as artinian and, under reducedness, a field.
+
+The canonical-weight discussion now records integrality relative to the
+saturated tangent lattice and explains why nonreduced length does not make a
+fundamental-cycle weight fractional. Tropical multiplicities are defined from
+the pushed canonical calibration, with length, graded residue degree, and
+defect already contained in the analytic degree. Cycle pushforwards carry the
+properness hypothesis actually needed on skeletal support. The boundary
+argument uses the analytic-boundary theorem directly and explicitly avoids
+identifying that boundary with the Shilov boundary. The partition-of-unity
+statement now has the exact good, topologically separated, paracompact scope.
+Seven reusable definitions and examples received semantic labels.
+
+The automatic second pass has zero Chapter 12 writing-audit errors; its sixty
+reviewed warnings are the established label namespaces and descriptive
+titles. The project-wide source check covers 423 inputs and 11,992 labels,
+with zero missing inputs, duplicate labels, dangling references, or structural
+defects, and all six checker tests pass. The full 4,100-page PDF has 19,516,530
+bytes and SHA-256
+`b4ff974372c5dd8cee3b3068d42488310b5127d9f076bb8b462f8251edb2d564`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, horizontal or vertical overflows, emergency stops, or fatal
+errors; the thirteen inherited Chapter 70 duplicate destinations remain.
+Physical pages 507, 516, 527, 531, 545, 548, 551, and 557 were visually inspected
+for the chapter opening, dimension criterion, calibration, cycle weights,
+partitions of unity, examples, and source notes; no clipping, overlap, bad
+glyph, formula overflow, or hierarchy defect was found.
