@@ -35,8 +35,8 @@ than mechanically rewritten.
 
 ## Order and progress
 
-- **Part I, Chapters 1--8:** active. Chapters 1--5 have completed their
-  semantic, mathematical, and structural pass; Chapter 6 is next.
+- **Part I, Chapters 1--8:** active. Chapters 1--6 have completed their
+  semantic, mathematical, and structural pass; Chapter 7 is next.
 - **Parts II--VI, Chapters 9--72:** queued in reading order after Part I.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -133,3 +133,28 @@ arbitrary bent PL functions onto model functions was removed. The scoped
 writing audit has zero errors; its remaining thirty-two warnings are
 reviewed project conventions and descriptive titles. Full build and
 rendered-page evidence is recorded in `chapter_status.md`.
+
+### Chapter 6
+
+The pass now separates the integral and rational levels of the metric
+dictionary. Integral algebraic, formal, and PL metrics agree on proper
+schemes; algebraic model, Q-formal, and Q-PL metrics agree only after
+Q-linearization; arbitrary real-weight Fubini--Study metrics are uniform
+limits rather than automatically model metrics. The formal discussion is
+correspondingly restricted to the possibly nondiscrete rank-one setting.
+
+The descent of relative nefness no longer relies on repeated hyperplane cuts:
+it uses the closure of a closed point of the generic fibre to produce a
+finite multisection over the test curve. The maximum and pointwise-closedness
+results now carry exact Gubler--Martin locators, while the model-measure proof
+checks independence from both the model and the chosen extension. The
+continuous Chambert--Loir theorem now states all of its data and explains why
+the internal density-and-Riesz argument does not require Chambert--Loir's
+auxiliary metrizability hypothesis. Change-of-reference and constant-shift
+formulas have also been separated and normalized.
+
+Reusable definitions, examples, and remarks received semantic labels, inline
+mathematics follows the book convention, and the scoped writing audit has
+zero errors. Its twenty-one remaining warnings are reviewed project
+conventions and descriptive titles. Full build and rendered-page evidence is
+recorded in `chapter_status.md`.
