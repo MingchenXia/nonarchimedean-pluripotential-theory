@@ -41,9 +41,10 @@ logarithmic interval; the extra coordinate is $\log|f|$ itself; and the whole
 theorem becomes a computation of one boundary face in Stokes' formula.  The
 multiplicity that appears is not read off from a Taylor expansion but from
 the canonical calibration of \Cref{def:trop-canonical-calibration}, and it is
-this that makes the right-hand side the current of the \emph{Cartier}
-divisor, with its lengths and residue degrees, rather than the current of the
-reduced zero set.  The reader who wants a one-line summary of the mechanism
+this that makes the right-hand side the current of the cycle associated with
+the principal Cartier divisor, with its lengths and residue degrees, rather
+than the current of the reduced zero set.  The reader who wants a one-line
+summary of the mechanism
 may take this: \emph{Poincar\'e--Lelong is the Stokes formula of
 \Cref{thm:ch11-balancing-iff-stokes} applied to the cylinder over the zero
 locus, and the divisor multiplicity is the calibration of the base of that
@@ -87,13 +88,12 @@ By the end of the chapter the reader should be able to:
 \subsection*{Roadmap}
 
 \Cref{sec:ch15-meromorphic,sec:ch15-current-log} set up the two objects in
-the formula: the Cartier divisor $\divis(f)$ of a regular meromorphic
-function, and the current $[\log|f|]$.  Neither is automatic.  Regularity is
-what makes $\divis(f)$ a Cartier divisor of pure codimension one, and it is
-also what makes the local product description at the heart of the proof
-correct; the construction of $[\log|f|]$ is an extension theorem across a
-Zariski-closed set of small local tropical dimension, and it is
-\emph{constructed}, not characterized by a uniqueness principle.
+the formula: the codimension-one cycle $\divis(f)$ attached to the principal
+Cartier divisor of a regular meromorphic function, and the current
+$[\log|f|]$.  Neither is automatic.  Regularity makes the divisor cycle and
+the local product description at the heart of the proof available; the
+current is the unique zero extension across a Zariski-closed set of smaller
+local tropical dimension.
 
 \Cref{sec:ch15-pl} proves the formula.  The proof is organized in four
 movements: a formal reduction to a holomorphic function defining a morphism
@@ -125,8 +125,14 @@ whole theory collapses to classical convex analysis.
 
 \Cref{sec:ch15-polar,sec:ch15-maximum,sec:ch15-pullback} treat polar loci,
 maximum principles, and functoriality.  \Cref{sec:ch15-classical} compares
-the CLD class with the Gubler--Rabinoff curve-test class, and
-\Cref{sec:ch15-dictionary} collects the dictionary.
+the CLD class with the Gubler--Rabinoff curve-test class.
+\Cref{sec:ch15-envelopes} separates positive envelope mechanisms from the
+nodal and scalar-extension obstructions.  The two final structural sections
+then locate the first-stage boundary sharply: \Cref{sec:supplied-p071a}
+proves collapse on good separated analytic spaces, whereas
+\Cref{sec:supplied-p071b} gives a second-stage function for a restricted
+affinage on a compact infinite star.  \Cref{sec:ch15-dictionary} collects the
+dictionary.
 
 \subsection*{What is deliberately absent}
 
@@ -169,15 +175,14 @@ integral case.
 \label{sec:ch15-meromorphic-sheaf}
 \index{meromorphic function!on an analytic space}
 
-Let $X$ be a $K$-analytic space.  For an affinoid domain $V=\cM(\mathcal A)$ of $X$
-let $S_V\subset\mathcal A$ be the multiplicative set of non-zero-divisors and put
-$\cM_X(V)=S_V^{-1}\mathcal A$.  Sheafifying the presheaf $V\mapsto\cM_X(V)$ on the
-$G$-topology gives the sheaf $\cM_X$ of \emph{meromorphic functions}, exactly
-as in algebraic geometry \cite[20.1.8]{EGAIV4}; the corresponding statement
-in the analytic category is \cite[\S18.1.5]{CLD25}.  A section of $\cM_X$ is
-thus locally of the form $g/h$ with $g,h\in\cO_X(V)$ and $h$ a
-non-zero-divisor.  We write $\cM_X^\times$ for the sheaf of invertible
-sections of $\cM_X$.
+Let $X$ be a $K$-analytic space.  For an affinoid domain
+$V=\cM(\mathcal A)$ of $X$, let $S_V\subset\mathcal A$ be the multiplicative
+set of non-zero-divisors.  The meromorphic sheaf $\cM_X$ is the
+$G$-sheafification of $V\mapsto S_V^{-1}\mathcal A$; this is
+\cite[\S13.6.2--13.6.5]{CLD25}, following the algebraic construction of
+\cite[20.1.8]{EGAIV4}.  Thus a meromorphic function is locally a quotient
+$g/h$ with $h$ a non-zero-divisor.  We write $\cM_X^\times$ for the sheaf of
+invertible sections of $\cM_X$.
 
 Three degeneracies must be kept apart, and it costs nothing to name them.
 
@@ -200,67 +205,69 @@ and it is exactly the hypothesis that has to be created by hand in
 \subsection{Regularity}
 
 \begin{definition}
-A meromorphic function $f$ on $X$ is \emph{regular} if, on every affinoid
-domain on which it is represented in the total meromorphic ring, it is
-invertible there; equivalently its numerator and denominator can locally be
-chosen to be non-zero-divisors.  Its Cartier divisor is denoted
-$\operatorname{div}(f)$.
+\label{def:ch15-regular-meromorphic}
+A meromorphic function $f$ on $X$ is \emph{regular} if its restriction to
+every affinoid domain is a non-zero-divisor in the meromorphic ring;
+equivalently, it is a section of $\cM_X^\times$, or locally a quotient $g/h$
+with both $g$ and $h$ non-zero-divisors.  Following
+\cite[\S13.7]{CLD25}, we denote by $\operatorname{div}(f)$ the
+codimension-one cycle associated with its principal Cartier divisor.
 \end{definition}
 
-In sheaf-theoretic language, a regular meromorphic function is a section of
-$\cM_X^\times$.  Its divisor is the associated Cartier divisor: if
-$f=g/h$ on $V$ with $g$ and $h$ non-zero-divisors, then
+If $f=g/h$ on $V$ with $g$ and $h$ non-zero-divisors, then
 \[
  \divis(f)|_V=\divis(g)|_V-\divis(h)|_V,
 \]
-and $\divis(g)$ is the Cartier divisor cut out by the single equation $g=0$.
-The next lemma collects the properties of $\divis$ used below; all of them
-are formal, but the reader who has met divisors only on integral schemes
-should notice which of them survive.
+where $\divis(g)$ is the effective cycle of the analytic hypersurface cut
+out by $g$.  The distinction between the Cartier divisor and its associated
+cycle matters on a nonnormal space, and the multiplicity formula below keeps
+it visible.
 
 \begin{lemma}
 \label{lem:ch15-divisor-basic}
 Let $f,f_1,f_2$ be regular meromorphic functions on $X$.
 \begin{enumerate}
-\item\label{itm:ch15-div-supp} The support of $\divis(f)$ is a Zariski-closed
-  subset, purely of codimension one, on whose complement $f$ is invertible.
+\item\label{itm:ch15-div-supp} The locus $U_f$ on which $f$ is represented by
+  an invertible analytic function is a dense Zariski-open subset.  Its
+  complement has dimension smaller than that of $X$ locally.
+\item\label{itm:ch15-div-effective} If $f$ is analytic, then
+  $\divis(f)$ is effective, its support is the pure codimension-one
+  hypersurface $V(f)$, and it is zero exactly when $f$ is an analytic unit.
 \item\label{itm:ch15-div-add} $\divis(f_1f_2)=\divis(f_1)+\divis(f_2)$ and
   $\divis(f^{-1})=-\divis(f)$.
-\item\label{itm:ch15-div-unit} $\divis(f)=0$ if and only if $f$ is a section
-  of $\cO_X^\times$.
-\item\label{itm:ch15-div-cycle} The associated cycle $[\divis(f)]$ is a
-  locally finite $\mathbf Z$-linear combination of irreducible closed
-  analytic subsets of codimension one, and the multiplicity along a component
-  $Y$ is the length of the local ring of $\divis(f)$ at the generic point of
-  $Y$.
+\item\label{itm:ch15-div-cycle} The cycle $\divis(f)$ is a locally finite
+  $\mathbf Z$-linear combination of irreducible closed analytic subsets of
+  codimension one.  If $f=g/h$ locally and $Y$ is such a component, then its
+  coefficient is $m_Y(g)-m_Y(h)$, where each $m_Y$ is the generic length of
+  the corresponding effective hypersurface.
 \item\label{itm:ch15-div-pullback} If $g:X'\to X$ is a morphism such that
   $g^*f$ is again a regular meromorphic function, then
-  $\divis(g^*f)=g^*\divis(f)$ as Cartier divisors.
+  the principal Cartier divisor of $g^*f$ is the pullback of that of $f$;
+  consequently $\divis(g^*f)$ is the cycle associated with this pullback.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
 \cref{itm:ch15-div-supp}
-The assertion is local, so assume $f=g/h$ with $g,h$ non-zero-divisors on an
-affinoid $V=\cM(\mathcal A)$.  The locus where $f$ is not invertible is
-$V(g)\cup V(h)$, a Zariski-closed subset.  If $g$ is a non-zero-divisor of
-$\mathcal A$, then $g$ lies in no associated prime of $\mathcal A$; hence for every minimal
-prime $\mathfrak p$ of $\mathcal A$ the image of $g$ in $\mathcal A/\mathfrak p$ is
-nonzero, and Krull's Hauptidealsatz gives that every minimal prime over
-$(g)$ has height one.  Therefore $V(g)$ is purely of codimension one in $V$;
-the same for $h$, and the union of two pure codimension-one sets is again
-pure of codimension one.  The Hauptidealsatz in the analytic category is
-\cite[Lemma~11.5.2]{CLD25}.
+This is \cite[\S13.6.4 and \S13.6.7]{CLD25}.  More concretely, on an
+affinoid on which $f=g/h$ with $g,h$ non-zero-divisors, both functions are
+units away from $V(g)\cup V(h)$, so $f$ is an analytic unit there.  Neither
+zero set contains an irreducible component of the affinoid, hence their
+union has smaller dimension.
 
-\cref{itm:ch15-div-add} and \cref{itm:ch15-div-unit} are immediate from
-the definition of the Cartier divisor of a section of $\cM_X^\times$: the map
-$f\mapsto\divis(f)$ is the connecting map of the exact sequence
-$1\to\cO_X^\times\to\cM_X^\times\to\cM_X^\times/\cO_X^\times\to1$, hence a
-homomorphism of sheaves of abelian groups with kernel $\cO_X^\times$.
+For \cref{itm:ch15-div-effective}, a non-zero-divisor lies in no associated
+prime.  The analytic Hauptidealsatz
+\cite[Lemma~11.5.2]{CLD25} therefore makes $V(f)$ pure of codimension one;
+the effective cycle and its vanishing criterion are
+\cite[\S13.7.1]{CLD25}.
 
-\cref{itm:ch15-div-cycle} is the general passage from a Cartier divisor to
-its associated Weil cycle, together with \Cref{thm:current-fundamental-cycle}
-for the identification of the multiplicity with a length.
+The additivity in \cref{itm:ch15-div-add} is
+\cite[Lemma~13.7.3 and Proposition~13.7.4]{CLD25}.  The same proposition
+extends the effective-cycle construction to regular meromorphic functions,
+and \cite[Lemma~13.7.2]{CLD25} identifies $m_Y(g)$ and $m_Y(h)$ with the
+appropriate generic lengths.  Subtracting gives
+\cref{itm:ch15-div-cycle}; in particular, a pole contributes a negative
+coefficient rather than the length of one quotient ring.
 
 \cref{itm:ch15-div-pullback} follows because $\divis$ is defined by local
 equations and pullback of local equations computes the pullback of a Cartier
@@ -300,12 +307,10 @@ and a semicontinuity theorem for relative dimension.
 
 Let $U\subset X$ be the locus where $f$ is represented by an invertible
 analytic function.  The function $\log|f|$ is smooth on $U$.  For a regular
-meromorphic $f$, CLD prove that $\log|f|$ is locally integrable and construct
-its canonical $L^1_{\mathrm{loc}}$ current on $X$; see
-\cite[\S16.7.2, using Proposition~7.1.12]{CLD25}.  We denote this current by
-$[\log|f|]$.  Its construction is theorem-specific, not a consequence of a
-general uniqueness-by-codimension principle, and the notation does not say
-that $\log|f|$ is everywhere finite.
+meromorphic $f$, CLD extend the smooth current $[\log|f|]$ on $U$ uniquely
+by zero to $X$; see \cite[\S16.7.2 and Lemma~7.1.13]{CLD25}.  We use the
+same notation for the extension.  This is a current-theoretic zero extension,
+not the assertion that $\log|f|$ is an everywhere finite function on $X$.
 
 We spell out both halves of this construction, because the two are used
 separately later and because the phrase ``canonical extension'' is used in
@@ -346,7 +351,7 @@ $\dprimeddprime$-closed on $U$, but it is not the pullback of a bounded
 function, and its extension across $X\setminus U$ is where all the content
 lies.
 
-\subsection{Local integrability and the extension across the polar locus}
+\subsection{Zero extension across the noninvertibility locus}
 
 \begin{proposition}
 \label{prop:ch15-log-current}
@@ -354,11 +359,11 @@ Let $f$ be a regular meromorphic function on $X$ and let $U$ be its
 invertibility locus, a dense Zariski-open subset whose complement $Z$
 satisfies $d_K(x)<\dim X$ for every $x\in Z$.  Then:
 \begin{enumerate}
-\item\label{itm:ch15-logcur-int} $\log|f|$ is locally integrable on $X$ for
-  every measure of the form $|\omega|$ with $\omega$ a smooth $(n,n)$-form;
-\item\label{itm:ch15-logcur-ext} the current $[\log|f|]$ on $U$ extends
-  uniquely to a current of bidegree $(0,0)$ on $X$, again denoted
-  $[\log|f|]$;
+\item\label{itm:ch15-logcur-test} every compactly supported smooth
+  $(n,n)$-form on $X$ has support contained in $U$;
+\item\label{itm:ch15-logcur-ext} the current defined by the smooth function
+  $\log|f|$ on $U$ extends uniquely by zero to a current of bidegree $(0,0)$
+  on $X$, again denoted $[\log|f|]$;
 \item\label{itm:ch15-logcur-add} the extension is additive:
   $[\log|f_1f_2|]=[\log|f_1|]+[\log|f_2|]$ and
   $[\log|f^{-1}|]=-[\log|f|]$.
@@ -367,13 +372,14 @@ satisfies $d_K(x)<\dim X$ for every $x\in Z$.  Then:
 
 \begin{proof}
 That $U$ is Zariski-dense and that $d_K(x)<\dim X$ on its complement is
-\cite[\S16.7.2]{CLD25}: $Z$ is a Zariski-closed subset of codimension one by
-\Cref{lem:ch15-divisor-basic}\,\cref{itm:ch15-div-supp}, and a point of a
-Zariski-closed subset of dimension $<n$ has $d_K(x)<n$ by
+\cite[\S16.7.2]{CLD25}: by
+\Cref{lem:ch15-divisor-basic}\,\cref{itm:ch15-div-supp}, the complement is
+Zariski closed and has dimension $<n$, and a point of such a set has
+$d_K(x)<n$ by
 \Cref{prop:analytic-tropical-dimension}.
 
-\cref{itm:ch15-logcur-int}
-The key point is that a top-degree test form has no support at all near $Z$.
+\cref{itm:ch15-logcur-test}
+A top-degree test form has no support near $Z$.
 Indeed, a smooth form of bidegree $(p,q)$ vanishes as a germ at every point
 $x$ whose local tropical dimension is smaller than $\max\{p,q\}$
 \cite[Proposition~15.2.1]{CLD25}; for $(p,q)=(n,n)$ this applies at every
@@ -382,32 +388,20 @@ a neighbourhood, so
 \[
  \Supp\omega\cap Z=\varnothing .
 \]
-Now $\Supp\omega$ is compact and $Z$ is closed, so $|f|$ attains a positive
-minimum on $\Supp\omega$ and $\log|f|$ is bounded there.  A bounded function
-is integrable against the Radon measure $|\omega|$ of
-\Cref{thm:cld-analytic-integration}, whose support is contained in
-$\Supp\omega$.  Hence $\int_X\log|f|\,\omega$ is a well-defined finite
-number.
-
-The same remark shows why no growth estimate on $\log|f|$ is needed here, in
-contrast with the complex case: in the complex setting the analogous integral
-really does have a logarithmic singularity along the divisor and converges
-only because $\log$ is locally integrable, whereas here the test form
-disappears before the singularity is reached.
-
 \cref{itm:ch15-logcur-ext}
-Existence follows from \cref{itm:ch15-logcur-int}: the assignment
-$\omega\mapsto\int_X\log|f|\,\omega$ is a well-defined linear functional on
-$A_{X,c}^{n,n}$, and it is continuous, since on fixed compact chart data the
-integral is bounded by
-$\bigl(\sup_{\Supp\omega}|\log|f||\bigr)\,\|\omega\|_{C^0}$ times a fixed
-finite mass, by \Cref{prop:test-form-continuity-criterion}.  For uniqueness,
-suppose $T$ and $T'$ are two currents on $X$ of bidegree $(0,0)$ restricting
-to $[\log|f|]$ on $U$.  Their difference is supported on $Z$.  A current of
-bidegree $(0,0)$ supported on a closed set all of whose points have local
-tropical dimension $<n$ vanishes: by the germ-vanishing statement just
-recalled, every $(n,n)$-test form vanishes near $Z$, hence is supported in
-$U$, where the difference is zero.  This is \cite[Lemma~7.1.13]{CLD25}.
+Restriction is a topological isomorphism
+$A_{X,c}^{n,n}\simeq A_{U,c}^{n,n}$ by
+\cite[Lemma~7.1.13]{CLD25}.  Its transpose therefore extends the current on
+$U$ continuously and uniquely.  Explicitly, for a test form $\omega$ on
+$X$,
+\[
+ \langle[\log|f|],\omega\rangle
+   =\int_U\log|f|\,\omega;
+\]
+the integral is finite because \cref{itm:ch15-logcur-test} makes
+$\Supp\omega$ a compact subset of the locus on which $\log|f|$ is smooth.
+This topological-isomorphism argument, rather than an estimate depending on
+the moving support of $\omega$, proves continuity.
 
 \cref{itm:ch15-logcur-add}
 Both sides are currents on $X$ restricting on the common invertibility locus
@@ -419,10 +413,11 @@ just proved.
 This chapter uses the phrase three times, with three different contents, and
 they must not be interchanged.
 \begin{enumerate}
-\item In \Cref{prop:ch15-log-current} the extension is by \emph{local
-  integrability}: the extended current is integration against a function that
-  happens to be integrable.  Uniqueness holds because the difference of two
-  extensions is a $(0,0)$-current supported on a small set.
+\item In \Cref{prop:ch15-log-current} the extension is the unique
+  \emph{zero extension} of a current from the invertibility locus.  Its
+  existence and uniqueness come from the topological isomorphism on
+  top-degree test forms; no value of $\log|f|$ is assigned on the removed
+  locus.
 \item In \Cref{thm:cld-local-bochner-martinelli} the extension is
   \emph{by zero} across a set of codimension $d$, applied to currents of
   bidegree $(r,r)$ with $r<d$.  Uniqueness there is
@@ -468,7 +463,7 @@ cancel by balancing.  With the boundary orientation fixed in
 \Cref{thm:polyhedral-stokes}, the inner face contributes exactly the
 calibrated integral over $f=0$.  Its calibration is the order of vanishing,
 including the generic length and residue degree, so the contribution is the
-Cartier divisor current rather than the current of the reduced zero set.
+divisor cycle current rather than the current of the reduced zero set.
 Inclusion--exclusion over the finite chart cover now gives
 \[
  \langle\dprimeddprime[\log|f|],\omega\rangle
@@ -514,7 +509,7 @@ in $\cO_{X,x}$; by \Cref{lem:ch15-divisor-basic}\,\cref{itm:ch15-div-add} and
 additive under this decomposition, so we may assume $f$ holomorphic.  If
 $f(x)\neq0$ then $f$ is invertible near $x$ and both sides vanish there, by
 \Cref{lem:ch15-log-smooth} and
-\Cref{lem:ch15-divisor-basic}\,\cref{itm:ch15-div-unit}.  Assume then
+\Cref{lem:ch15-divisor-basic}\,\cref{itm:ch15-div-effective}.  Assume then
 $f(x)=0$.  Because $f$ is a non-zero-divisor, the fibre of
 $f:X\to\mathbf A^1$ through $x$ has dimension $n-1$ at $x$, and by upper
 semicontinuity of fibre dimension the morphism has relative dimension
@@ -682,7 +677,7 @@ $\mu$ of $\Trop(V_{E,0})$, that is, through
 \Cref{def:trop-canonical-calibration}, and by
 \Cref{thm:trop-multiplicity-formula} that calibration is a product of a
 length, a residue degree, and a lattice index.  This is why the right-hand
-side is the Cartier divisor current and not the current of the reduced zero
+side is the divisor cycle current and not the current of the reduced zero
 set: the length factor is built into the calibration.  The reader who wants
 to see the length appear concretely should look at
 \Cref{ex:trop-multiplicity-two,ex:trop-length-factor}.
@@ -767,6 +762,7 @@ Therefore $c=\langle c\delta_o,\varphi\rangle=1$.
 \end{proof}
 
 \begin{remark}[Why one test function is enough]
+\label{rem:ch15-one-test-function}
 The step that makes \Cref{lem:ch15-pl-constant} short is the observation that
 the current is a measure supported at a point, so that a \emph{single}
 normalized test function determines it.  One should resist the temptation to
@@ -1585,10 +1581,9 @@ of \Cref{prop:ch15-log-current}, and $Y=\divis(f_1)$ as a cycle, because a
 single non-zero-divisor generates a Cartier divisor whose associated cycle is
 $[V(f_1)]$ by \Cref{thm:current-fundamental-cycle}.  The formula becomes
 $\dprimeddprime[\log|f_1|]=\delta_{\divis(f_1)}$, that is,
-\Cref{thm:cld-poincare-lelong}.  Notice that the two extension mechanisms
-agree here: extension by local integrability and extension by zero in
-bidegree $(0,0)$ both give the same current, because a $(0,0)$-current
-supported on a set of local tropical dimension $<n$ vanishes.
+\Cref{thm:cld-poincare-lelong}.  The extension used in both statements is the
+unique zero extension in bidegree $(0,0)$; uniqueness follows because a
+$(0,0)$-current supported on a set of local tropical dimension $<n$ vanishes.
 \end{example}
 
 \begin{example}[$d=n$: a finite fibre on the affine plane]
@@ -1719,9 +1714,9 @@ Finally put
 $\Lambda=p_*[\widetilde h\widetilde\Omega]$.  It agrees with $h\Omega$ on
 $X\setminus Y$, is canonical because the blowup and tautological metrics are
 canonical, and satisfies
-\(
+$
                   \dprimeddprime\Lambda+\delta_Y=\alpha^p.
-\)
+$
 This is the proof of \cite[Theorem~18.7.5]{CLD25}.
 
 We expand three of the steps.
@@ -1830,6 +1825,7 @@ Let $S$ be an affine $G$-tropical space, in particular an analytic space with
 its CLD structure.
 
 \begin{definition}[CLD-psh]
+\label{def:ch15-cld-psh}
 The sheaf $\PSH_{\mathrm{CLD}}$ is the smallest sheaf of functions with
 values in $\mathbf R\cup\{-\infty\}$ that
 \begin{enumerate}
@@ -1917,8 +1913,8 @@ smooth with vanishing $\dprimeddprime$, hence psh.
 
 \emph{Sums.}  We argue in two steps, because the naive one-step argument
 fails: the set of $u$ such that $u+v$ is psh, for a \emph{fixed} psh $v$, is
-not obviously stable under the operations, since we do not yet know that it
-contains the smooth psh functions.
+not yet known to contain the smooth psh functions, so it does not yet satisfy
+the first hypothesis of \Cref{lem:ch15-minimality}.
 
 First fix a \emph{smooth} psh $w$ on $U$ and let $\mathscr F_w$ be the
 subsheaf of functions $u$ with $u+w$ psh.  It contains the smooth psh
@@ -1940,6 +1936,7 @@ $u,v$.  This is \cite[Lemma~8.1.2]{CLD25}.
 \end{proof}
 
 \begin{remark}[Why the two-step argument is necessary]
+\label{rem:ch15-two-step-sum}
 The order of quantifiers in the proof of \Cref{prop:ch15-psh-cone} is not an
 artefact.  If one tries to prove stability under sums in one step by fixing
 $v$ psh and applying \Cref{lem:ch15-minimality} to $\mathscr G_v$, the
@@ -2032,7 +2029,9 @@ This is CLD's \emph{localement approchable}
 \cite[Definition~8.1.13]{CLD25}.  We keep their terminology, in the English
 rendering \emph{locally approachable}, because it names exactly the property
 that the theorems of \Cref{chap:cld-bedford-taylor} require and that the
-general psh class is not known to have.
+generated psh class need not have on an arbitrary affine $G$-tropical space.
+On good topologically separated analytic spaces the two classes do agree, by
+\Cref{thm:supplied-p071a-analytic-first-stage} below.
 
 \begin{warning}{What is known and what is open}
 \index{CLD hierarchy!early collapse}
@@ -2050,8 +2049,13 @@ intended content, namely that every known example lies at the first stage.
 We therefore use the corrected formulation throughout and never assert that
 eventual stabilization is unknown.
 
-\emph{Collapse at stage one is open in general.}  Positive cases include
-real affine spaces, tropical toric partial compactifications, finite
+\emph{Collapse at stage one holds in the good analytic category but fails
+for general affine $G$-tropical spaces.}
+The analytic result is
+\Cref{thm:supplied-p071a-analytic-first-stage}: every good topologically
+separated Berkovich analytic space with its CLD affine structure collapses at
+stage one.  Further positive cases include real affine spaces, tropical toric
+partial compactifications, finite
 ambient-induced real-affine stars, their products with open convex Euclidean
 domains or with one convex polyhedron for jointly convex ambient product
 generators, the two constant-tail interval models, and the exact CLD stars
@@ -2064,11 +2068,17 @@ thm:p071-cld-constant-collar-endpoint,thm:p071-cld-infinite-collar-endpoint,%
 thm:p071-infinite-star-collapse-candidate}).  Separately,
 \Cref{thm:p063-current-psh-ordinary-regularization} settles continuous
 current-psh functions on smooth proper algebraic curves in its stated field
-scope.  The unrestricted question is
-\Cref{prob:frontier-cld-hierarchy}.  In complex geometry the corresponding
-statement is the smoothing theorem \cite{FN80}, cited by CLD as motivation
-for their definition; the unrestricted non-Archimedean analogue has neither
-a known proof nor a known counterexample.
+scope.  In the opposite direction,
+\Cref{thm:supplied-p071b-second-stage-star} constructs a compact affine
+$G$-tropical space and a bounded continuous member of
+$\operatorname{Psh}_{X,2}$ whose germ at the node is not in
+$\operatorname{Psh}_{X,1}$.  Thus the unrestricted assertion is false.  The
+counterexample uses a restricted affinage and supplies no Berkovich analytic
+realization; the results here do not classify nongood or nonseparated
+analytic spaces.  The status and the retirement of the former unrestricted
+problem are recorded in \Cref{prob:frontier-cld-hierarchy}.  In complex
+geometry the corresponding positive statement is the smoothing theorem
+\cite{FN80}, cited by CLD as motivation for their definition.
 \end{warning}
 
 \begin{proposition}
@@ -2196,6 +2206,7 @@ $M_\varepsilon(s)=g(\varepsilon)\le g(\varepsilon')=M_{\varepsilon'}(s)$.
 \end{proof}
 
 \begin{remark}[Two regularized maxima]
+\label{rem:ch15-regularized-maxima}
 \Cref{lem:ch15-regmax} is the kernel-based construction used by CLD in the
 proof of \cite[Proposition~16.9.1]{CLD25}, following
 \cite[Lemma~5.18]{DemBook}.  A second, more familiar smooth substitute for
@@ -2426,9 +2437,13 @@ $v_j=u_j+2\epsilon_j$ is smooth psh,
 $v_{j+1}\leq v_j$, and $v_j\downarrow u$.  The stagewise identity follows by
 the transfinite induction of \cite[\S8.1]{CLD25}.  At a successor stage the
 predecessor functions may already be nonsmooth, so Dini's theorem does not
-collapse the hierarchy.  Indeed, CLD leave stabilization at stage one open;
-locally approachable psh functions are, by definition, the stage-one class
-\cite[Definition~8.1.13]{CLD25}.
+by itself collapse the hierarchy.  CLD therefore distinguish the first-stage
+class, whose members they call locally approachable
+\cite[Definition~8.1.13]{CLD25}, from the generated sheaf.  The later results
+\Cref{thm:supplied-p071a-analytic-first-stage,%
+thm:supplied-p071b-second-stage-star} show respectively that the two classes
+agree for good separated analytic spaces and can differ for an abstract
+affine $G$-tropical structure.
 \end{proof}
 
 \subsection{Uniform limits and the continuous class}
@@ -2506,10 +2521,12 @@ serving all accuracies.  If one is only given, for every $\varepsilon>0$, a
 neighbourhood $W_\varepsilon$ and a smooth psh $v$ on $W_\varepsilon$ with
 $\sup_{W_\varepsilon}|v-u|<\varepsilon$, the neighbourhoods may shrink to the
 point and the conclusion does not follow.  This distinction is not pedantry:
-it is exactly the gap between the two formulations, and closing it in general
-would require a patching construction --- a regularized maximum together with
-a strictly positive smooth reserve --- for which no analogue is available on
-an arbitrary Berkovich germ.  See \Cref{prob:frontier-cld-hierarchy}.
+the stated hypothesis alone does not put all approximants on one domain.  On
+good separated analytic spaces the stronger gluing argument of
+\Cref{thm:supplied-p071a-analytic-first-stage} supplies a fixed-domain
+sequence for every psh germ.  No such conclusion follows formally for an
+arbitrary affine $G$-tropical germ, as the counterexample
+\Cref{thm:supplied-p071b-second-stage-star} shows.
 \end{warning}
 
 \begin{proposition}
@@ -2841,9 +2858,12 @@ the value $-\infty$ this book asserts no such
 comparison, and \Cref{thm:cld-to-classical-psh} supplies only one implication.
 
 Finally, and most importantly, \Cref{thm:ch15-thuillier-approximation} is a
-statement \emph{about curves}.  Transferring it to the CLD class in
-dimension $\ge2$ is not licensed by anything proved here, and the open
-problem \Cref{prob:frontier-cld-hierarchy} is stated in that generality.
+statement \emph{about curves}.  It cannot by itself be transferred to the
+CLD class in higher dimension.  The relevant higher-dimensional analytic
+result is instead \Cref{thm:supplied-p071a-analytic-first-stage}, whose proof
+uses affinoid compactness and psh gluing; outside the analytic setting,
+\Cref{thm:supplied-p071b-second-stage-star} shows that first-stage collapse
+can fail.
 \end{warning}
 
 \begin{remark}[Why tree geometry is decisive]
@@ -3094,11 +3114,12 @@ and $\max\{u,\log t_k\}\downarrow u$ pointwise, including at points of
 $\{f=0\}$, where both sides tend to $-\infty$.  Hence $w_k\downarrow u$ and
 $u\in\operatorname{Psh}_{S,1}$.
 
-\emph{Step 3: the polar locus and integrability.}  By construction
+\emph{Step 3: the polar locus and the current.}  By construction
 $u(x)=-\infty$ exactly when $|f(x)|=0$, that is, on $\{f=0\}$.  If $f$ is a
-non-zero-divisor, local integrability is
-\Cref{prop:ch15-log-current}\,\cref{itm:ch15-logcur-int} and the codimension
-statement is \Cref{lem:ch15-divisor-basic}\,\cref{itm:ch15-div-supp}.
+non-zero-divisor, the zero-extension current is
+\Cref{prop:ch15-log-current}\,\cref{itm:ch15-logcur-ext} and the codimension
+statement is
+\Cref{lem:ch15-divisor-basic}\,\cref{itm:ch15-div-effective}.
 \end{proof}
 
 \begin{corollary}
@@ -3470,7 +3491,7 @@ supremum at a point of $X$, then $u$ is constant.
 
 \begin{proof}
 Let $M=\sup_Xu$, attained at some point, and let $A=\{u=M\}$, nonempty and
-closed by continuity.  We show that $A$ is open; connectedness then gives
+closed because $u$ is continuous.  We show that $A$ is open; connectedness then gives
 $A=X$.
 
 Let $a\in A$.  If $a$ lies in the interior of an edge, then a neighbourhood
@@ -3760,7 +3781,7 @@ proved by verifying a test on every curve, and properties of the class are
 inherited from the corresponding properties of subharmonic functions on
 curves --- for which the primary source is Thuillier's thesis \cite{Thu05},
 summarized in \Cref{sec:ch15-thuillier-curves}.  Neither definition is
-obviously stronger in general, and the two closure
+formally stronger than the other, and the two closure
 mechanisms are genuinely different: the first uses smooth approximation and
 no field extension, the second uses arbitrary analytic extensions of the
 ground field and no approximation at all.  One implication is a theorem
@@ -3771,6 +3792,7 @@ smooth proper curves, the current-positive bridge of
 local ordinary-smooth converse.
 
 \begin{definition}[Classically psh]
+\label{def:ch15-classical-psh}
 An upper semicontinuous function
 $u:X\to\mathbf R\cup\{-\infty\}$ is \emph{classically psh} if for every
 analytic extension field $K'/K$, every $K'$-analytic curve $C$, and every
@@ -3940,7 +3962,18 @@ known, which is the statement recorded in \cite[\S0.3.5]{CLD25}.
 results overlap and neither contains the other.
 \end{warning}
 
-\subsection{Failure of regularization across a reducible node}
+\section{Semipositive envelopes and regularization}
+\label{sec:ch15-envelopes}
+
+The upper-semicontinuous regularization of a semipositive minorant envelope
+does not preserve plurisubharmonicity on every analytic space.  This section
+first gives the basic nodal obstruction, then records the positive mechanisms
+that survive under unibranch, modulus, affine, and finite-flat hypotheses.
+The statements are deliberately local: the unresolved step is identified at
+each transition rather than absorbed into a global envelope claim.
+
+\subsection{Failure across a reducible node}
+\label{sec:ch15-nodal-envelope}
 
 The next example shows that upper-semicontinuous regularization of a local
 semipositive envelope can create a branch jump.  The obstacle is continuous,
@@ -3950,20 +3983,20 @@ continuity.
 
 \begin{proposition}
 \label{prop:ch15-nodal-local-envelope}
-Let \(K\) be a complete nontrivially valued non-Archimedean field.  Choose
-\(\varpi\in K\) with \(0<|\varpi|<1\), and put
+Let $K$ be a complete nontrivially valued non-Archimedean field.  Choose
+$\varpi\in K$ with $0<|\varpi|<1$, and put
 \[
                   r:=|\varpi|,
           \qquad  a:=-\log r>0.
 \]
-Consider the reduced strict \(K\)-affinoid curve
+Consider the reduced strict $K$-affinoid curve
 \[
  U:=\mathcal M\bigl(K\langle x,y\rangle/(xy)\bigr),
  \qquad
  A:=V(y),\quad B:=V(x),\quad o:=V(x,y).
 \]
-Thus \(A\) and \(B\) are closed unit discs meeting only at \(o\).  Define
-\(f:U\to\mathbf R\) by
+Thus $A$ and $B$ are closed unit discs meeting only at $o$.  Define
+$f:U\to\mathbf R$ by
 \begin{equation}
 \label{eq:ch15-nodal-obstacle}
  f(z):=
@@ -3974,11 +4007,11 @@ Thus \(A\) and \(B\) are closed unit discs meeting only at \(o\).  Define
        & z\in B.
  \end{cases}
 \end{equation}
-Then \(f\) is continuous.  If
+Then $f$ is continuous.  If
 \[
  P_U^{\mathrm{raw}}f
  :=\sup\{g:g\text{ is locally Fubini--Study or semipositive
-                    \(\mathbf R\)-PL on \(U\), and }g\leq f\},
+                    $\mathbf R$-PL on $U$, and }g\leq f\},
 \]
 then
 \begin{equation}
@@ -4003,33 +4036,33 @@ classically psh nor CLD-v2 psh, and it is not continuous.
 \end{proposition}
 
 \begin{proof}
-Since \(xy=0\), every point of \(U\) belongs to \(A\) or to \(B\), and
-\(A\cap B=\{o\}\).  The two expressions in
+Since $xy=0$, every point of $U$ belongs to $A$ or to $B$, and
+$A\cap B=\{o\}$.  The two expressions in
 \eqref{eq:ch15-nodal-obstacle} are continuous on their respective closed
-branches and both take the value \(0\) at \(o\).  The finite closed-pasting
-lemma therefore shows that \(f\) is continuous.
+branches and both take the value $0$ at $o$.  The finite closed-pasting
+lemma therefore shows that $f$ is continuous.
 
 We first construct admissible minorants which detect the whole branch
-\(A\setminus\{o\}\).  For \(m\geq1\), set, with the convention
-\(\log0=-\infty\),
+$A\setminus\{o\}$.  For $m\geq1$, set, with the convention
+$\log0=-\infty$,
 \begin{equation}
 \label{eq:ch15-nodal-hm}
                   h_m:=\max\{m^{-1}\log|x|,-a\}.
 \end{equation}
-Although \(x\) vanishes identically on \(B\), the function \(h_m\) is a
-real-valued \(\mathbf R\)-PL function.  Indeed, the two strict affinoid
+Although $x$ vanishes identically on $B$, the function $h_m$ is a
+real-valued $\mathbf R$-PL function.  Indeed, the two strict affinoid
 domains
 \[
  U_m^-:=\{|x|\leq r^m\},
  \qquad
  U_m^+:=\{|x|\geq r^m\}
 \]
-form a Laurent \(G\)-cover of \(U\), since \(r^m=|\varpi^m|\).  On \(U_m^-\)
+form a Laurent $G$-cover of $U$, since $r^m=|\varpi^m|$.  On $U_m^-$
 one has
 \[
                          h_m=-a=\log|\varpi|.
 \]
-On \(U_m^+\), the element \(x\) is an analytic unit: in the rational-domain
+On $U_m^+$, the element $x$ is an analytic unit: in the rational-domain
 algebra its inverse is
 \[
                   x^{-1}=\varpi^{-m}(\varpi^m/x).
@@ -4039,10 +4072,10 @@ Consequently
                          h_m=m^{-1}\log|x|
                          \qquad\text{on }U_m^+.
 \]
-These two \(\mathbf R\)-PL expressions agree on the overlap.  Notice in
-particular that the zero locus of \(x\) is contained entirely in \(U_m^-\),
-where the expression involving \(\log|x|\) has been replaced by the finite
-constant \(-a\).
+These two $\mathbf R$-PL expressions agree on the overlap.  Notice in
+particular that the zero locus of $x$ is contained entirely in $U_m^-$,
+where the expression involving $\log|x|$ has been replaced by the finite
+constant $-a$.
 
 We next verify semipositivity, including at the node.  The normalization is
 the finite surjective morphism
@@ -4061,53 +4094,53 @@ Its pullback is
   -a,&\text{on }D_y.
  \end{cases}
 \]
-On \(D_x\), this is subharmonic by the logarithm, positive-scaling, and
+On $D_x$, this is subharmonic by the logarithm, positive-scaling, and
 finite-maximum properties
-\cite[Proposition~3.5(2),(4)]{GR25Classical}; on \(D_y\) it is constant and
+\cite[Proposition~3.5(2),(4)]{GR25Classical}; on $D_y$ it is constant and
 hence subharmonic.  Subharmonicity descends under a finite surjective
-morphism by \cite[Proposition~3.5(8)]{GR25Classical}.  Thus \(h_m\) is
-subharmonic on the possibly singular curve \(U\).  On analytic curves,
+morphism by \cite[Proposition~3.5(8)]{GR25Classical}.  Thus $h_m$ is
+subharmonic on the possibly singular curve $U$.  On analytic curves,
 subharmonicity agrees with classical plurisubharmonicity
-\cite[\S4.1.2]{GR25Classical}.  Since \(h_m\) is real-valued
-\(\mathbf R\)-PL, \cite[Theorem~4.3]{GR25Classical} now shows that \(h_m\)
+\cite[\S4.1.2]{GR25Classical}.  Since $h_m$ is real-valued
+$\mathbf R$-PL, \cite[Theorem~4.3]{GR25Classical} now shows that $h_m$
 is semipositive.
 
-For \(z\in A\), one has \(|x(z)|\leq1\), so \(h_m(z)\leq0=f(z)\).
-On \(B\), one has \(x=0\), hence \(h_m=-a\), while
-\(-a\leq f\leq0\).  Therefore every \(h_m\) is admissible.  The constant
-function \(-a=\log|\varpi|\) is also an admissible semipositive
-\(\mathbf R\)-PL function.
+For $z\in A$, one has $|x(z)|\leq1$, so $h_m(z)\leq0=f(z)$.
+On $B$, one has $x=0$, hence $h_m=-a$, while
+$-a\leq f\leq0$.  Therefore every $h_m$ is admissible.  The constant
+function $-a=\log|\varpi|$ is also an admissible semipositive
+$\mathbf R$-PL function.
 
-It remains to show that no admissible function can exceed \(-a\) anywhere
-on \(B\).  Put
+It remains to show that no admissible function can exceed $-a$ anywhere
+on $B$.  Put
 \[
  D_r:=\{z\in B:|y(z)|\leq r\}
        \simeq\mathcal M\bigl(K\langle r^{-1}y\rangle\bigr).
 \]
-This closed disc has the unique Shilov point \(\eta_r\), namely the
-\(r\)-Gauss point
+This closed disc has the unique Shilov point $\eta_r$, namely the
+$r$-Gauss point
 \begin{equation}
 \label{eq:ch15-nodal-r-gauss}
  \left|\sum_{n\geq0}c_ny^n\right|_{\eta_r}
        =\max_{n\geq0}|c_n|r^n.
 \end{equation}
-For completeness, after writing \(y=\varpi T\), the algebra of \(D_r\)
-becomes \(K\langle T\rangle\).  The Gauss norm of every element of
-\(K\langle T\rangle\) is its supremum norm on the closed unit disc and is
+For completeness, after writing $y=\varpi T$, the algebra of $D_r$
+becomes $K\langle T\rangle$.  The Gauss norm of every element of
+$K\langle T\rangle$ is its supremum norm on the closed unit disc and is
 its value at the Gauss point.  Hence the singleton consisting of that point
 is already a boundary for every analytic function.  Since the Shilov
 boundary is the smallest nonempty closed boundary, it is precisely that
-singleton.  Transporting it by \(y=\varpi T\) gives \(\eta_r\).
+singleton.  Transporting it by $y=\varpi T$ gives $\eta_r$.
 
 Every function occurring in the defining supremum is classically psh.  For
-semipositive \(\mathbf R\)-PL functions this is
+semipositive $\mathbf R$-PL functions this is
 \cite[Theorem~4.3]{GR25Classical}.  Locally Fubini--Study functions are,
 locally, positive scalar multiples of finite maxima of logarithms of
 analytic functions, up to additive constants; hence their classical
 plurisubharmonicity follows from
 \cite[Proposition~4.2(1)--(3)]{GR25Classical}.  Classical psh functions are
-functorial under analytic pullback, so an admissible \(g\) restricts to a
-classically psh function on \(D_r\).  The affinoid maximum principle
+functorial under analytic pullback, so an admissible $g$ restricts to a
+classically psh function on $D_r$.  The affinoid maximum principle
 \cite[Theorem~6.4]{GR25Classical} and the uniqueness of the Shilov point give
 \begin{equation}
 \label{eq:ch15-nodal-disc-maximum}
@@ -4116,23 +4149,23 @@ classically psh function on \(D_r\).  The affinoid maximum principle
                     =-a
              \qquad (z\in D_r).
 \end{equation}
-On \(B\setminus D_r=\{|y|>r\}\), the obstacle itself equals \(-a\).
-Thus \(g\leq-a\) on all of \(B\).  Since the constant \(-a\) is admissible,
+On $B\setminus D_r=\{|y|>r\}$, the obstacle itself equals $-a$.
+Thus $g\leq-a$ on all of $B$.  Since the constant $-a$ is admissible,
 \begin{equation}
 \label{eq:ch15-nodal-raw-on-b}
                          P_U^{\mathrm{raw}}f=-a
                          \quad\text{on }B.
 \end{equation}
 
-Now fix \(z\in A\setminus\{o\}\).  Then \(|x(z)|>0\), and hence
+Now fix $z\in A\setminus\{o\}$.  Then $|x(z)|>0$, and hence
 \[
  \lim_{m\to\infty}h_m(z)
  =\lim_{m\to\infty}
        \max\{m^{-1}\log|x(z)|,-a\}
  =0.
 \]
-Since every candidate is bounded above by \(f=0\) on \(A\), the raw
-envelope equals \(0\) at \(z\).  Together with
+Since every candidate is bounded above by $f=0$ on $A$, the raw
+envelope equals $0$ at $z$.  Together with
 \eqref{eq:ch15-nodal-raw-on-b}, this proves
 \eqref{eq:ch15-nodal-raw-envelope}.
 
@@ -4142,37 +4175,37 @@ The sets
  \qquad
  B\setminus\{o\}=\{|y|>0\}
 \]
-are open in \(U\).  Hence the raw envelope is locally constant away from
-\(o\), and its upper-semicontinuous regularization has the same values
-there.  Globally the raw envelope is at most \(0\).  On the other hand, the
+are open in $U$.  Hence the raw envelope is locally constant away from
+$o$, and its upper-semicontinuous regularization has the same values
+there.  Globally the raw envelope is at most $0$.  On the other hand, the
 rigid points
 \[
                   z_n=(x=\varpi^n,y=0)\in A\setminus\{o\}
 \]
-converge to \(o\), and the raw envelope takes the value \(0\) at each
-\(z_n\).  Therefore
+converge to $o$, and the raw envelope takes the value $0$ at each
+$z_n$.  Therefore
 \[
                  \bigl(P_U^{\mathrm{raw}}f\bigr)^*(o)=0,
 \]
 which proves \eqref{eq:ch15-nodal-regularized-envelope}.
 
-Let \(u=(P_U^{\mathrm{raw}}f)^*\).  If \(u\) were classically psh, then its
-restriction to \(D_r\) would be classically psh.  But
+Let $u=(P_U^{\mathrm{raw}}f)^*$.  If $u$ were classically psh, then its
+restriction to $D_r$ would be classically psh.  But
 \[
                  \max_{D_r}u=u(o)=0,
  \qquad
                  u(\eta_r)=-a<0,
 \]
 contradicting the affinoid maximum principle
-\cite[Theorem~6.4]{GR25Classical}.  Thus \(u\) is not classically psh.
+\cite[Theorem~6.4]{GR25Classical}.  Thus $u$ is not classically psh.
 Every CLD-v2 psh function is classically psh by
 \Cref{thm:cld-to-classical-psh}; this is the implication recorded in
-\cite[\S1.2]{GR25Classical}.  Hence \(u\) is not CLD-v2 psh either.
+\cite[\S1.2]{GR25Classical}.  Hence $u$ is not CLD-v2 psh either.
 Finally, the points
 \[
                   w_n=(x=0,y=\varpi^n)\in B\setminus\{o\}
 \]
-converge to \(o\), while \(u(w_n)=-a\) and \(u(o)=0\).  Therefore \(u\) is
+converge to $o$, while $u(w_n)=-a$ and $u(o)=0$.  Therefore $u$ is
 not continuous.
 \end{proof}
 
@@ -4187,13 +4220,13 @@ upper-semicontinuous regularization is needed.
 \input{editorial/solver_dossiers_20260830/p031_nodal_product_envelope_obstruction_20260830/statement.tex}
 \input{editorial/solver_dossiers_20260830/p031_nodal_product_envelope_obstruction_20260830/proof.tex}
 
-The exact statement and proof passed an independent exact-byte hostile audit
-and then a dependency-closed production verification using
-\texttt{gpt-5.6-sol} at \texttt{xhigh}; the final verdict was
-\texttt{correct}, with zero critical errors and zero gaps.  The conclusion
-deliberately does not assert a formula for the raw envelope away from the
-zero section and does not assert continuity or discontinuity of the
-higher-dimensional regularized envelope.
+The product statement determines the envelope only along the zero section.
+It therefore asserts neither a formula for the raw envelope away from that
+section nor continuity or discontinuity of the higher-dimensional
+regularized envelope.
+
+\subsection{Products and perfected-unibranch curves}
+\label{sec:ch15-envelope-products-unibranch}
 
 The mechanism in both propositions is reducibility at the rigid node: the
 obstacle pins every admissible minorant to the negative boundary value on one
@@ -4209,9 +4242,8 @@ CLD-v2 conclusion nor continuity of the envelope is inferred.
 
 \input{editorial/rethlas_packets_20260830/p031_perfected_unibranch_curve_envelope_20260830/p031_perfected_unibranch_curve_envelope_statement_20260830.tex}
 
-% The frozen proof headings already contain the words ``Proof of''.  This
-% local style adjustment suppresses ntheorem's redundant outer
-% ``Proof (...)'' wrapper without changing any verified packet byte.
+% The imported proof headings already contain the words ``Proof of''.  This
+% local style adjustment suppresses ntheorem's redundant outer wrapper.
 \begingroup
 \makeatletter
 \let\pzeroonethree@original@nonumberplain\th@nonumberplain
@@ -4237,6 +4269,9 @@ disc product.  It leaves untouched the separate normal-curve product range,
 or any possible higher-dimensional theorem under a genuinely geometric
 unibranch hypothesis; the present obstruction only rules out the weaker
 pointwise normalization condition.
+
+\subsection{Higher-dimensional criteria and scalar extension}
+\label{sec:ch15-envelope-scalar-extension}
 
 There is also a higher-dimensional criterion that isolates precisely one way
 to avoid the raw-envelope regularization gap: require a common local modulus
@@ -4373,6 +4408,9 @@ the LFS globalization defect and the global PL--LFS branch gap.
 
 \input{editorial/solver_dossiers_20260912/p031_local_pl_lfs_defect_split_v47_20260913/STATEMENT_LIVE.tex}
 \input{editorial/solver_dossiers_20260912/p031_local_pl_lfs_defect_split_v47_20260913/PROOF_LIVE.tex}
+
+\subsection{Finite-flat descent and boundary defects}
+\label{sec:ch15-envelope-finite-flat}
 
 The local-section hypothesis can be removed for finite flat covers.  First,
 rational LFS formulas survive fiberwise maximum: the characteristic
@@ -4603,10 +4641,10 @@ defect.  No removability property of that closed set is asserted.
 
 \input{parts/part2/fragments/ch15_codimension_two_obstruction.tex}
 
-The supplied results above distinguish the analytic and general affine
+These results distinguish the analytic and general affine
 tropical categories: first-stage approximation holds on good separated
 analytic spaces, while the restricted-slope star is a second-stage
-counterexample. The pinched bidisc shows that codimension-one conditions
+counterexample.  The pinched bidisc shows that codimension-one conditions
 alone do not ensure the envelope property at a singular point.
 
 \section{Dictionary and checklist}
@@ -4620,7 +4658,7 @@ The following correspondences are used without further comment from
 \begin{array}{ccl}
  \text{regular meromorphic }f
  &\longleftrightarrow&
- \text{section of }\cM_X^\times,\ \divis(f)\text{ Cartier},\\[1mm]
+ \text{section of }\cM_X^\times,\ \divis(f)\text{ a codimension-one cycle},\\[1mm]
  \text{invertibility locus of }f
  &\longleftrightarrow&
  \text{locus where }\log|f|\text{ is smooth},\\[1mm]
@@ -4676,12 +4714,12 @@ notation are not the same, and each has been the source of an error in the
 literature or in a first draft of this book.
 
 \emph{First, three different canonical extensions.}  The current
-$[\log|f|]$ extends by local integrability; the currents
-$u(\dprimeddprime u)^k$ with $k<d$ extend by zero; and the Levine current
-$\Lambda$ extends as a pushforward from a blowup.  Only the first two are
-characterized by a uniqueness statement, and the second only in bidegree
-$<d$.  None of the three follows from a general
-uniqueness-by-codimension principle.
+$[\log|f|]$ is the unique zero extension from the invertibility locus; the
+currents $u(\dprimeddprime u)^k$ with $k<d$ are likewise extended by zero,
+but in a different bidegree range; and the Levine current $\Lambda$ is a
+pushforward from a blowup.  Only the first two are characterized by a
+uniqueness statement, and the second only for $k<d$.  None of the three is
+an unrestricted uniqueness-by-codimension principle.
 
 \emph{Second, smooth psh and positive current.}  On a boundaryless space
 these agree for smooth functions (\Cref{prop:cld-psh-positive-current}).
@@ -4692,17 +4730,23 @@ on smooth proper curves
 (\Cref{thm:p063-current-psh-ordinary-regularization}).
 
 \emph{Third, the two hierarchy questions.}  Eventual stabilization is a
-theorem (\Cref{prop:ch15-hierarchy-stabilizes}); collapse at stage one is open
-in general (\Cref{prob:frontier-cld-hierarchy}).  It does hold on real affine
-spaces, tropical toric partial compactifications, finite ambient-induced
+theorem (\Cref{prop:ch15-hierarchy-stabilizes}).  Stage-one collapse holds
+for good topologically separated analytic spaces
+(\Cref{thm:supplied-p071a-analytic-first-stage}) but fails for general affine
+$G$-tropical spaces (\Cref{thm:supplied-p071b-second-stage-star}).  Further
+positive models include real affine spaces, tropical toric partial
+compactifications, finite ambient-induced
 real-affine stars, the two constant-tail interval models, and the exact CLD
 stars $X_B$ for arbitrary nonempty branch sets, in the scopes of
 \Cref{thm:ch15-convexity-model,prop:ch16-collapse-tropical-toric,%
 thm:ch16-collapse-finite-tropical-curves,%
 thm:p071-cld-constant-collar-endpoint,thm:p071-cld-infinite-collar-endpoint,%
 thm:p071-infinite-star-collapse-candidate}.  The class named by CLD is the
-stage-one class, and the adjective is \emph{locally approachable}; a psh
-function that is not known to be approachable is not thereby known not to be.
+stage-one class, and the adjective is \emph{locally approachable}.  The
+second-stage example uses a restricted affinage and gives no analytic
+counterexample; the good analytic theorem and the abstract tropical
+counterexample therefore have disjoint scopes rather than conflicting
+conclusions.
 Thuillier's \Cref{thm:ch15-thuillier-approximation} is a stage-one theorem
 on curves for \emph{his} subharmonic class and \emph{his} smooth functions;
 it is not by itself a collapse theorem for the CLD hierarchy, for the three
@@ -4760,9 +4804,10 @@ These two psh languages meet in the
 directions stated above; no unproved converse is used.
 
 In detail: \Cref{lem:ch15-divisor-basic} and
-\Cref{prop:ch15-log-current} assemble \cite[\S\S16.7.1--16.7.2 and
-18.1.5]{CLD25} with the extension lemma \cite[Lemma~7.1.13]{CLD25} and the
-analytic Hauptidealsatz \cite[Lemma~11.5.2]{CLD25}.
+\Cref{prop:ch15-log-current} assemble
+\cite[\S\S13.6--13.7 and \S\S16.7.1--16.7.2]{CLD25} with the zero-extension
+lemma \cite[Lemma~7.1.13]{CLD25} and the analytic Hauptidealsatz
+\cite[Lemma~11.5.2]{CLD25}.
 \Cref{thm:cld-poincare-lelong} and \Cref{lem:pl-formal-reductions} are
 \cite[Theorem~16.7.3 and Lemmas~16.7.4--16.7.5]{CLD25}, and the six-step
 presentation of \Cref{sec:ch15-pl-proof-detail} follows that proof, with the
@@ -4829,15 +4874,16 @@ transfinite psh hierarchy is not known is superseded by the same authors'
 \cite[Lemma~8.1.4]{CLD25}, which proves eventual stationarity by a
 cardinality argument and which they use repeatedly.  We have therefore stated
 eventual stabilization as a theorem
-(\Cref{prop:ch15-hierarchy-stabilizes}) and identified the live question as
-collapse at stage one, that is, whether every psh function is
-\emph{locally approachable} in the sense of
-\cite[Definition~8.1.13]{CLD25}.  That question is
-\Cref{prob:frontier-cld-hierarchy}.  Readers comparing this chapter with the
-source should be aware of the discrepancy; the second sentence of
-\cite[Remark~8.1.6]{CLD25}, that all known examples lie at the first stage,
-records the intended content and is consistent with
-\Cref{thm:ch15-approachable-stability}.
+(\Cref{prop:ch15-hierarchy-stabilizes}).  The source's next sentence --- that
+all examples then known lay at the first stage --- should be read as a
+historical report, not as a current theorem.  The present book separates the
+two outcomes: \Cref{thm:supplied-p071a-analytic-first-stage} proves
+first-stage collapse for good topologically separated analytic spaces, while
+\Cref{thm:supplied-p071b-second-stage-star} disproves it for unrestricted
+affine $G$-tropical spaces by changing the affinage on a compact infinite
+star.  The counterexample has no claimed analytic realization.  The former
+unrestricted problem and its retirement are recorded in
+\Cref{prob:frontier-cld-hierarchy}.
 
 \paragraph{Historical note.}
 The complex Poincar\'e--Lelong formula, in the form
