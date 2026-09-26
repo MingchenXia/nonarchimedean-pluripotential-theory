@@ -35,8 +35,8 @@ than mechanically rewritten.
 
 ## Order and progress
 
-- **Part I, Chapters 1--8:** active. Chapters 1 and 2 have completed their
-  first semantic and structural pass; Chapter 3 is next.
+- **Part I, Chapters 1--8:** active. Chapters 1--3 have completed their
+  semantic, mathematical, and structural pass; Chapter 4 is next.
 - **Parts II--VI, Chapters 9--72:** queued in reading order after Part I.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -60,3 +60,24 @@ example titles and the established chapter-label namespace.
 
 Build and rendered-page evidence for this milestone is recorded in
 `chapter_status.md` after the full verification gate.
+
+### Chapter 3
+
+The pass corrected the intersection-theoretic level at which vertical
+projection is proved. A vertical Cartier divisor now acts first as a class
+with support on the special fibre; only its pushforward to the total space is
+the ordinary first-Chern-class action. The projection formula is consequently
+applied first to the supported divisor class and then to the remaining Chern
+classes. This also explains without contradiction why the principal special
+fibre has zero pushforward in the total-space Chow group but a generally
+nonzero relative degree.
+
+The common-domination statement now includes the general finite-presentation
+conclusion proved later in the section, and its properness argument is reduced
+to base change plus a closed immersion. Fourteen previously unlabelled reusable
+definitions and remarks now have semantic labels, and the degree-conservation
+proposition has a proposition-prefixed label throughout the live manuscript.
+The scoped writing audit has zero errors; the remaining twelve warnings are
+reviewed descriptive example titles and the established chapter-label
+namespace. Full build and rendered-page evidence is recorded in
+`chapter_status.md`.

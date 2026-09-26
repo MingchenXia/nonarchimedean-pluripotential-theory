@@ -3473,3 +3473,40 @@ pages 73, 77, 95, 96, and 120 were visually inspected for chapter openings,
 the valuative-substrate heading, the newly numbered definitions, and the
 linear-growth section; no clipping, overlap, bad glyph, or hierarchy defect
 was found.
+
+## Chapter 3: supported vertical intersections and model architecture, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 3; Chapter 4
+is next. The principal mathematical repair distinguishes the supported
+Cartier-divisor class
+`D . [X] in A_n(|D|)` from its pushforward
+`c_1(O(D)) cap [X]` on the total space. The model projection formula now uses
+Fulton's supported Cartier-divisor projection formula before applying the
+remaining Chern class operators. In particular, for the principal special
+fibre, the supported class can carry the nonzero relative degree even though
+its pushforward to the total space is zero. This removes the former
+contradiction between the proof of birational invariance and conservation of
+fibre degree.
+
+The common-domination proposition now states the general algebraic-model
+conclusion actually supplied by the later flattening argument, and properness
+of its projections is proved by proper base change followed by a closed
+immersion. Fourteen reusable definitions and remarks received semantic
+labels. The former corollary-prefixed label on the degree-conservation
+proposition was replaced by `prop:special-fibre-degree-conservation`, and all
+live references in Chapters 3, 6, 8, 19, 20, and 24 were migrated.
+
+The automatic second pass has zero Chapter 3 writing-audit errors; its twelve
+reviewed warnings are the established `chap:` label namespace and descriptive
+example titles. The project-wide source check covers 423 inputs and 11,915
+labels, with zero missing inputs, duplicate labels, or dangling references,
+and all six checker tests pass. The full 4,100-page PDF has 19,501,882 bytes
+and SHA-256
+`8d1785ec41339921a2d52a84a758758f577738b4b2da284c65b8797da40c695f`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, horizontal or vertical overflows, emergency stops, or fatal
+errors; the thirteen inherited Chapter 70 duplicate destinations remain.
+Physical pages 123--124, 129--135, and 141--145 were visually inspected for
+the chapter opening, common-domination proof, supported projection formula,
+principal-fibre warning, and transition to relative nefness; no clipping,
+overlap, bad glyph, formula overflow, or hierarchy defect was found.

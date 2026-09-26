@@ -154,7 +154,7 @@ The gluing of the affine constructions into a closed subscheme is carried
 out in \Cref{lem:flat-closure-generic-fibre} below.
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{rem:dense-value-group-model-limitations}
 If the value group is dense, $K^\circ$ is usually nonnoetherian and
 $K^{\circ\circ}$ need not be principal. Assertions involving a uniformizer,
 multiplicities of the special fibre, or ordinary noetherian intersection
@@ -169,7 +169,7 @@ a ring and records exactly which finiteness statements survive.
 
 \section{Algebraic and formal models}
 
-\begin{definition}
+\begin{definition}\label{def:algebraic-projective-model}
 Let $X$ be a proper $K$-scheme. An \emph{algebraic model} of $X$ is a flat,
 proper, finitely presented $K^\circ$-scheme $\mathcal X$ together with an
 identification $\mathcal X_K\simeq X$. It is a \emph{projective model} if
@@ -216,7 +216,7 @@ fibre.  This tiny example is the mechanism behind
 construction of \Cref{prop:common-domination}.
 \end{example}
 
-\begin{definition}
+\begin{definition}\label{def:admissible-formal-model}
 An \emph{admissible formal $K^\circ$-scheme} is a flat formal scheme locally
 topologically of finite presentation over $K^\circ$. An \emph{admissible
 formal model} of a compact strictly $K$-analytic space $X$ is such a formal
@@ -231,7 +231,7 @@ are deep foundations of formal analytic geometry; we use
 along the special fibre. Conversely, not every formal model is algebraizable
 without extra hypotheses.
 
-\begin{definition}
+\begin{definition}\label{def:model-generic-special-fibres}
 For an algebraic model $\mathcal X$, its \emph{generic fibre} and
 \emph{special fibre} are
 \[
@@ -266,7 +266,7 @@ computable test case.
 
 \section{Vertical divisors and divisorial points}
 
-\begin{definition}
+\begin{definition}\label{def:vertical-horizontal-divisors}
 A Cartier or Weil divisor on $\mathcal X$ is \emph{vertical} if its support
 is contained in $\mathcal X_s$. A divisor is \emph{horizontal} if every
 irreducible component dominates $\operatorname{Spec}K^\circ$.
@@ -472,7 +472,7 @@ Restrictions of model functions to skeleta are studied systematically in
 
 \section{Domination and common refinements}
 
-\begin{definition}
+\begin{definition}\label{def:model-domination}
 A model $\mathcal Y$ \emph{dominates} a model $\mathcal X$ if there is a
 proper $K^\circ$-morphism
 $\rho:\mathcal Y\to\mathcal X$ whose generic fibre is the identity of $X$.
@@ -588,14 +588,18 @@ point, and $|\overline W|$ is the closure of $|W|$.
 
 \begin{proposition}\label{prop:common-domination}
 Any two proper algebraic models $\mathcal X_1,\mathcal X_2$ of $X$ admit a
-common proper flat $K^\circ$-scheme $\mathcal Y$ dominating both. If
-$K^\circ$ is noetherian, then $\mathcal Y$ is again an algebraic model. If
-the given models are projective, the common refinement may be chosen inside
-their projective fibre product. When normalization is finite in the category
-under consideration, $\mathcal Y$ may also be chosen normal.
+common algebraic model $\mathcal Y$ dominating both.  It may be chosen as
+the flat closure of the diagonal generic fibre inside
+$\mathcal X_1\times_{K^\circ}\mathcal X_2$.  If the given models are
+projective, then $\mathcal Y$ may be chosen projective.  If $X$ is integral
+and normal and normalization is finite in the category under consideration,
+then $\mathcal Y$ may also be chosen normal.
 \end{proposition}
 \begin{proof}
-We spell out the graph-closure construction in five steps.  Write
+If the valuation is trivial, then $K^\circ=K$, every model is its own generic
+fibre, and the marked identifications make $X$ itself a common model.  We may
+therefore assume that the valuation is nontrivial.  We spell out the
+graph-closure construction in five steps.  Write
 $j_i:X\xrightarrow{\ \sim\ }(\mathcal X_i)_K\subset\mathcal X_i$ for the
 two marked identifications followed by the open immersions of the generic
 fibres (\Cref{prop:vertical-horizontal}\,(1)), and set
@@ -624,8 +628,11 @@ over $K^\circ$, and a closed subscheme of a proper scheme is proper.
 
 \emph{Step 3: the projections dominate.}  Let
 $\rho_i=\operatorname{pr}_i|_{\mathcal Y}:\mathcal Y\to\mathcal X_i$.  Each
-$\rho_i$ is a morphism between proper $K^\circ$-schemes and is therefore
-proper.  On the generic fibre, $\rho_i$ restricts to
+$\rho_i$ is proper: the product projection
+$\mathcal P\to\mathcal X_i$ is the base change of the proper morphism
+$\mathcal X_j\to\operatorname{Spec}K^\circ$ for $j\ne i$, and
+$\mathcal Y\hookrightarrow\mathcal P$ is a closed immersion.  On the
+generic fibre, $\rho_i$ restricts to
 $\operatorname{pr}_i\circ\gamma=j_i$, which is the marked identification;
 so $\rho_i$ is a domination of models.
 
@@ -638,7 +645,9 @@ a discrete valuation ring or a field
 (\Cref{prop:noetherian-valuation-dvr}), then $\mathcal P$ is of finite
 type over $K^\circ$, hence noetherian, and the closed subscheme $\mathcal
 Y$ is of finite type; over a noetherian base, finite type and finite
-presentation agree, so $\mathcal Y$ is an algebraic model.  Finally,
+presentation agree, so $\mathcal Y$ is an algebraic model.  Without the
+noetherian hypothesis, finite presentation of this same flat closure is
+proved in \Cref{prop:flat-closure-finite-presentation} below.  Finally,
 suppose $X$ is integral and normal, and that normalization is finite in
 the category at hand---for instance, $K^\circ$ a complete discrete
 valuation ring, which is excellent \cite[Scholie~7.8.3]{EGAIV2}, so that
@@ -648,8 +657,10 @@ reduced, its closure $\mathcal Y$ is integral: irreducibility passes to
 closures, and on charts $A/I$ embeds into the reduced ring $A_K/I_W$ of
 functions on $X$.  The normalization
 $\nu:\mathcal Y^\nu\to\mathcal Y$ is then finite, so $\mathcal Y^\nu$ is
-proper over $K^\circ$; it is flat because it is integral with
-$K^\circ$-torsion-free function field.  Over the generic fibre, $\nu$ is an
+proper over $K^\circ$.  On every affine chart its coordinate ring injects
+into its function field, in which every nonzero element of $K^\circ$ remains
+nonzero; it is therefore $K^\circ$-torsion-free and hence flat by
+\Cref{lem:torsion-free-flat-valuation}.  Over the generic fibre, $\nu$ is an
 isomorphism: the local rings of $\mathcal Y$ at points of
 $\mathcal Y_K\simeq X$ are local rings of the normal scheme $X$, and
 normalization does not change an integral scheme over its normal locus.
@@ -657,7 +668,7 @@ Hence $\mathcal Y^\nu$ is again a model of $X$, normal, and dominates both
 $\mathcal X_i$ through $\nu$.
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{rem:normal-common-domination-scope}
 The normality assertion requires $X$ itself to be normal: normalizing a
 model changes the generic fibre into the normalization of $X$, which is a
 model of $X$ only when $X$ was already normal.  For non-normal $X$, the
@@ -666,11 +677,13 @@ normalization $X^\nu$; the interplay between the two levels is exactly the
 subject of the descent chapters of \cref{part:bj}.
 \end{remark}
 
-\begin{remark}
-The proposition deliberately says \emph{proper flat model}, not automatically
-\emph{finitely presented model}, over an arbitrary nonnoetherian valuation
-ring. In applications that require finite presentation we either work over a
-discrete valuation ring or invoke a separate approximation theorem.
+\begin{remark}\label{rem:common-domination-finite-presentation}
+The graph-closure argument itself first produces a proper flat scheme.  Over
+an arbitrary nonnoetherian valuation ring, finite presentation is a separate
+conclusion rather than a formal property of a closed subscheme.  The next
+proposition supplies precisely this missing step, so the object asserted in
+\Cref{prop:common-domination} is an algebraic model over every valuation
+ring covered by the chapter.
 \end{remark}
 
 The required approximation theorem is in fact available with the tools of
@@ -750,7 +763,7 @@ $\mathcal Y=\overline W$ is proper, flat, and finitely presented, i.e.\ an
 algebraic model.
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{rem:flat-closure-raynaud-gruson}
 \Cref{prop:flat-closure-finite-presentation} is a special case of the
 theorem of Raynaud--Gruson that a flat finite-type module over an integral
 scheme is automatically of finite presentation; both statements originate
@@ -831,7 +844,7 @@ a discrete valuation ring---is the reason the chapter states its standing
 hypotheses section by section.
 \end{example}
 
-\begin{definition}
+\begin{definition}\label{def:vertical-admissible-blowup}
 Let $\mathcal I\subset\mathcal O_{\mathcal X}$ be a coherent ideal whose
 restriction to the generic fibre is the unit ideal. The blowup
 $\operatorname{Bl}_{\mathcal I}\mathcal X\to\mathcal X$ is a
@@ -1062,7 +1075,7 @@ identifications, to $L+qA$ and $qA$, so
 $\mathcal L_K\simeq(L+qA)-(qA)=L$, as required.
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{rem:line-bundle-extension-twist}
 The auxiliary twist by $qA$ is a device in the proof: $L$ itself need not
 be very ample or effective, but the difference of the two extended very
 ample bundles extends $L$ itself.  The $\mathbf Q$-models used for model
@@ -1083,7 +1096,7 @@ open set $U\subset S$. There is a blowup $S'\to S$, with center disjoint from
 $U$, such that the strict transform of $\mathcal F$ on the strict transform
 of $Y$ is flat over $S'$.
 \end{theorem}
-\begin{proof}[Foundational flattening input]
+\begin{proof}
 This is precisely flattening by blowup in
 \cite[Tag 0815]{stacks-project}.  In the notation of that result, the
 schematically dense open is $U$, the center furnished by the theorem is
@@ -1097,7 +1110,7 @@ domination statement \cite[Tag 081T]{stacks-project} is not used.
 
 \section{SNC, dlt, and altered models}
 
-\begin{definition}
+\begin{definition}\label{def:snc-model}
 Assume $K$ is discretely valued. A regular model $\mathcal X$ is an
 \emph{SNC model} if its special fibre has simple normal crossings: every
 irreducible component $E_i$ of $\mathcal X_s$ is regular, and for every
@@ -1270,9 +1283,12 @@ in $\mathcal L_1,\ldots,\mathcal L_n$, and depends only on their restrictions
 to the support of $D$.
 \end{proposition}
 \begin{proof}
-All assertions follow directly from linearity on cycles and the symmetry and
-multilinearity of first Chern class operators on the Chow groups of the proper
-$\widetilde K$-schemes $E$.
+Linearity in $D$ is linearity of the associated cycle $[D]$.  Symmetry and
+multilinearity in the line bundles are the corresponding properties of first
+Chern class operators on the Chow groups of the proper
+$\widetilde K$-schemes $E$.  Since every summand is computed on a component
+of $|D|$, replacing a line bundle by another with the same restriction to
+$|D|$ leaves every summand unchanged.
 \end{proof}
 
 Before proving the projection formula we record the intersection-theoretic
@@ -1298,17 +1314,27 @@ $[D]=\sum_Ea_E[E]\in Z_n(\mathcal X_s)$ be its Weil cycle.  Then
  (D\cdot\mathcal L_1\cdots\mathcal L_n)_{\mathcal X}
  =\deg\bigl(c_1(\mathcal L_1)\cdots c_1(\mathcal L_n)\cap[D]\bigr).
 \]
-Moreover, if $\mathcal X$ is integral, then
-$[D]$ represents the class $c_1(\cO(D))\cap[\mathcal X]$ in the Chow group
-of the support of $D$.
+Moreover, if $\mathcal X$ is integral, then $[D]$ represents the
+Cartier-divisor intersection with support
+\[
+                      D\mathbin{\cdot}[\mathcal X]\in A_n(|D|).
+\]
+For the closed immersion $i:|D|\hookrightarrow\mathcal X$, its pushforward
+is
+\[
+ i_*\bigl(D\mathbin{\cdot}[\mathcal X]\bigr)
+       =c_1(\cO(D))\cap[\mathcal X]\qquad\text{in }A_n(\mathcal X),
+\]
+but the supported class and its pushforward must not be identified.
 \end{lemma}
 \begin{proof}
 Both sides of the displayed identity are additive in the cycle $[D]$, so it
 suffices to treat a single prime component $E$, where it is the definition
-of $\deg_E$.  The second assertion is the definition of intersecting a
-Cartier divisor with the fundamental cycle of an integral scheme: the
-class $D\cdot[\mathcal X]$ is the associated Weil divisor class, supported
-on $|D|$ \cite[\S2.3]{Ful}.
+of $\deg_E$.  The supported Cartier-divisor intersection
+$D\mathbin{\cdot}[\mathcal X]$ is represented by the associated Weil cycle
+$[D]$ \cite[\S2.3]{Ful}.  Its pushforward to $\mathcal X$ is the ordinary
+first-Chern-class action by the same construction, giving the last displayed
+identity.
 \end{proof}
 
 \begin{theorem}\label{thm:model-projection-formula}
@@ -1339,58 +1365,46 @@ $R(\mathcal X)=K(X)$, and the extension degree is the degree $d$ of the
 generically finite generic fibre of $\rho$.  Hence
 $\rho_*[\mathcal Y]=d[\mathcal X]$.
 
-\emph{Step 2: rewriting both sides as degrees.}  By
-\Cref{lem:vertical-intersection-degree}, applied on $\mathcal Y$ and on
-$\mathcal X$,
+\emph{Step 2: projection for the supported divisor class.}  Write
+$\rho_D:|\rho^*D|\to|D|$ for the proper morphism induced by $\rho$.
+The projection formula for intersection with a Cartier divisor, formulated
+with support, gives
 \[
- \begin{aligned}
- (\rho^*D\cdot\rho^*\mathcal L_1\cdots\rho^*\mathcal L_n)_{\mathcal Y}
- &=\deg\bigl(c_1(\rho^*\mathcal L_1)\cdots c_1(\rho^*\mathcal L_n)
-   c_1(\cO(\rho^*D))\cap[\mathcal Y]\bigr),\\
- (D\cdot\mathcal L_1\cdots\mathcal L_n)_{\mathcal X}
- &=\deg\bigl(c_1(\mathcal L_1)\cdots c_1(\mathcal L_n)
-   c_1(\cO(D))\cap[\mathcal X]\bigr),
- \end{aligned}
+ \rho_{D*}\bigl(\rho^*D\mathbin{\cdot}[\mathcal Y]\bigr)
+   =D\mathbin{\cdot}\rho_*[\mathcal Y]
+   =d\bigl(D\mathbin{\cdot}[\mathcal X]\bigr)
+       \qquad\text{in }A_n(|D|);
 \]
-where we used that first Chern class operators commute with one another
-\cite[\S2.4]{Ful} to move $c_1(\cO(\rho^*D))$ and $c_1(\cO(D))$ innermost,
-and $\cO(\rho^*D)=\rho^*\cO(D)$.
+see \cite[Proposition~2.3(c)]{Ful}.  This is the essential supported
+identity.  Replacing it by an identity involving only
+$c_1(\cO(D))\cap[\mathcal X]$ would lose information whenever that class
+vanishes after pushforward to the total space.
 
-\emph{Step 3: projection formula.}  The projection formula for Chern
-classes of line bundles \cite[Proposition~2.5(c)]{Ful} states that for a
-proper morphism $\rho$, a line bundle $\mathcal M$ on the target, and any
-cycle class $\alpha$,
-\[
- \rho_*\bigl(c_1(\rho^*\mathcal M)\cap\alpha\bigr)
- =c_1(\mathcal M)\cap\rho_*\alpha .
-\]
-Applying this once for each of the $n+1$ line bundles
-$\mathcal L_1,\ldots,\mathcal L_n,\cO(D)$, from the outermost operator
-inwards, and then using Step 1,
+\emph{Step 3: apply the remaining Chern classes.}  The projection formula
+for first Chern class operators \cite[Proposition~2.5(c)]{Ful}, applied on
+the supports once for each $\mathcal L_i$, now yields
 \[
  \begin{aligned}
- &\rho_*\!\left(
+ &\rho_{D*}\!\left(
  c_1(\rho^*\mathcal L_1)\cdots c_1(\rho^*\mathcal L_n)
- c_1(\rho^*\cO(D))\cap[\mathcal Y]\right)\\
- &\quad=
- c_1(\mathcal L_1)\cdots c_1(\mathcal L_n)
- c_1(\cO(D))\cap\rho_*[\mathcal Y]\\
- &\quad=d\,c_1(\mathcal L_1)\cdots c_1(\mathcal L_n)
- c_1(\cO(D))\cap[\mathcal X].
+ \cap\bigl(\rho^*D\mathbin{\cdot}[\mathcal Y]\bigr)\right)\\
+ &\qquad=d\,c_1(\mathcal L_1)\cdots c_1(\mathcal L_n)
+ \cap\bigl(D\mathbin{\cdot}[\mathcal X]\bigr).
  \end{aligned}
 \]
-All classes here live in the Chow groups of closed subsets of the special
-fibres, and $\rho$ restricts to a proper morphism
-$\mathcal Y_s\to\mathcal X_s$ of proper $\widetilde K$-schemes.
+Both sides are zero-cycle classes supported on the special fibres, and
+$\rho_D$ is a proper morphism between closed subschemes of proper
+$\widetilde K$-schemes.
 
 \emph{Step 4: take degrees.}  Degrees of zero-cycles supported on the
-special fibres are preserved by $\rho_*$, since pushing forward to
-$\operatorname{Spec}\widetilde K$ factors through $\rho$.  Taking
-$\deg$ of the identity in Step 3 and inserting the two formulae of Step 2
-yields the theorem.  The final sentence is the case $d=1$.
+special fibres are preserved by $\rho_{D*}$, since pushing forward to
+$\operatorname{Spec}\widetilde K$ factors through $\rho_D$.  Taking
+$\deg$ of the identity in Step 3 and using
+\Cref{lem:vertical-intersection-degree} on both models yields the theorem.
+The final sentence is the case $d=1$.
 \end{proof}
 
-\begin{proposition}\label{cor:special-fibre-relation}
+\begin{proposition}\label{prop:special-fibre-degree-conservation}
 Assume in addition that $\mathcal X$ is normal.
 Writing $\mathcal X_s=\sum_Eb_EE$, one has
 \[
@@ -1469,17 +1483,32 @@ $\mathcal L$, and the identity reads $1+0+1=2$: domination redistributes
 degree along the chain but conserves the total.
 \end{example}
 
-\begin{remark}
-Although $\mathcal X_s=\operatorname{div}(\pi)$ is principal on the total
-space, its relative vertical intersection is generally nonzero. It equals the
-generic degree above. Confusing this relative degree with the degree of a
-principal cycle in the Chow group of the nonproper-over-a-field total space
-would incorrectly force every Chambert--Loir mass to vanish.
+\begin{remark}\label{rem:principal-special-fibre-relative-degree}
+Let $i:\mathcal X_s\hookrightarrow\mathcal X$.  The supported Cartier-divisor
+class
+\[
+              \mathcal X_s\mathbin{\cdot}[\mathcal X]
+                    =[\mathcal X_s]\in A_n(\mathcal X_s)
+\]
+can be nonzero even though its pushforward is zero: since
+$\mathcal X_s=\operatorname{div}(\pi)$ is principal,
+$\cO(\mathcal X_s)\simeq\cO_{\mathcal X}$ and hence
+\[
+ i_*[\mathcal X_s]
+   =c_1(\cO(\mathcal X_s))\cap[\mathcal X]=0
+       \qquad\text{in }A_n(\mathcal X).
+\]
+The relative vertical intersection takes the degree only after the other
+Chern class operators have acted on the supported class in the proper special
+fibre.  It is therefore generally nonzero and, by
+\Cref{prop:special-fibre-degree-conservation}, equals the generic degree.
+Confusing the supported class with its zero pushforward would incorrectly
+force every Chambert--Loir mass to vanish.
 \end{remark}
 
 \section{Relative nefness and model semipositivity}
 
-\begin{definition}
+\begin{definition}\label{def:relative-nefness-model-semipositivity}
 A line bundle $\mathcal L$ on a proper model $\mathcal X$ is
 \emph{relatively nef} if
 \[
@@ -1561,7 +1590,8 @@ accordance with the curvature computation
 \eqref{eq:running-perturbed-measure} and the nef interval
 \eqref{eq:running-nef-interval} of the length-one model.  Two degenerate
 checks: the sum of the three numbers is
-$2$ for every $(a_0,a_1,a_2)$, as \Cref{cor:special-fibre-relation}
+$2$ for every $(a_0,a_1,a_2)$, as
+\Cref{prop:special-fibre-degree-conservation}
 requires, since adding a multiple of the full fibre changes the metric by a
 constant; and taking $D=E$ alone gives
 $(\mathcal L\cdot E)=-2<0$, so the exceptional curve itself is never a nef
