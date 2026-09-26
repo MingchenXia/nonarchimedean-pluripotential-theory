@@ -4667,3 +4667,60 @@ pages 2007--2010, and the Chapter 32 opening at page 2011. Pages 1961, 1986,
 explicit curve computation, abelian approximation, dense compatibility
 tables, and source notes. No clipping, overlap, bad glyph, formula overflow,
 or hierarchy defect was found.
+
+## Chapter 32: the trivially valued analytification, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 32; Chapter 33
+is next. The chapter now distinguishes the valuation-theoretic structures that
+are special to the trivial norm from features shared by general
+analytifications. The affine-line classification correctly separates type III
+and type IV points, and the curve section uses the general classification of
+valuations on smooth projective curves. The proof that a finite surjective
+morphism remains surjective after analytification now passes through the
+nonempty completed-residue-field fibre. The discussion of the proper-support
+locus no longer overstates the absence of Radon theory; it identifies the
+missing compact global domain needed by the later compactness and energy
+arguments.
+
+The converse divisorial criterion now uses the Zariski--Abhyankar theorem,
+whereas its inequality supplies only one direction. The deformation-to-the-
+normal-cone discussion has been rebuilt on the normalized blowup: its
+exceptional prime components give the Rees valuations, their multiplicities
+fix the normalization, and the integral-closure formula takes the minimum over
+all of them. A unique exceptional component is asserted only for a smooth
+closed point. The quasimonomial cone is now obtained from closed orthants glued
+along faces, with continuity at a face proved from the finite set of minimal
+exponents furnished by Dickson's lemma. Coordinate independence is expressed
+through the induced filtration by boundary ideals, and divisorial rays are
+identified with primitive positive integral weights up to rational scaling.
+
+The affine-plane table, midpoint calculation, and weighted-blowup discrepancy
+now share that primitive normalization. The Gauss comparison distinguishes a
+change in ground-field normalization from the scaling action and records the
+exact relation $\sigma(tv)=t\sigma_{1/t}(v)$; its base-change warning has been
+narrowed from a universal strict increase to the possibility of new
+divisorial points. Redundant roadmaps, repeated summary ledgers, and evaluative
+prose were removed, while the surviving dictionary gives exact internal proof
+locations. The official BJ22 publication was checked directly in Sections 1
+and 2 and Appendix A. All 2,871 legacy inline delimiters were
+normalized.
+
+The automatic second pass has zero Chapter 32 writing-audit errors; its
+ninety-seven reviewed warnings are the established chapter and item label
+namespaces and descriptive result titles. The project-wide source check covers
+425 inputs and 12,043 labels, with zero missing inputs, duplicate labels,
+dangling references, or structural defects, and all six checker tests pass.
+The open-problem inventory remains unchanged at forty-two active atoms and
+passes. The full build produces a 4,106-page PDF of 19,485,638 bytes with
+SHA-256 `e5e5dad375397ed2d940892b1a85b8566a6cea60c3dd9d99ef90fc86dc7fcce4`.
+The final log has no unresolved references or citations, rerun requests,
+missing glyphs, emergency stops, or fatal errors. The two inherited overfull
+boxes in Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; Chapter 32 introduces none. All fifty-six physical
+chapter pages 2011--2066 were inspected in the final render, together with the
+Part IV transition at pages 2007--2010 and the Chapter 33 opening at page 2067.
+Pages 2010--2011, 2044--2045, 2050, 2055, 2058, 2062, and 2066--2067 were also
+inspected at full resolution for both seams, the normal-cone and quasimonomial
+repairs, the affine-plane table, proper-support density, the Gauss comparison,
+and the final dictionary. No clipping, overlap, bad glyph, formula overflow,
+or hierarchy defect was found.

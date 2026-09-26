@@ -842,3 +842,39 @@ warnings. The project-wide reference check, checker tests, open-problem
 inventory check, full build, log scan, primary-source check, and rendered
 inspection of the entire chapter and both adjoining seams pass. Exact evidence
 is recorded in `chapter_status.md`. Part III is complete; Chapter 32 is next.
+
+### Chapter 32
+
+The opening chapter of Part IV now distinguishes the topology of the trivially
+valued analytification from the valuation-theoretic structures that are special
+to it. The affine-line classification separates type III from type IV points,
+and the curve discussion uses the general smooth-projective-curve
+classification rather than importing the special description of the projective
+line. Finite-surjective analytification is justified through completed residue
+fields, while the discussion of proper support states precisely which compact
+global arguments fail on the proper-support locus alone.
+
+The divisorial and quasimonomial sections have been repaired at their two main
+interfaces. The converse divisorial criterion now invokes the
+Zariski--Abhyankar theorem rather than the inequality alone. The normal cone is
+described on the normalized blowup by all of its Rees valuations, with their
+multiplicities, instead of being assigned a single exceptional component. The
+quasimonomial cone is the quotient of closed orthants glued along faces;
+continuity at a face follows from Dickson's lemma, and the divisorial rays are
+exactly the rational rays represented by primitive positive integral weights.
+The affine-plane table and discrepancy computation use the same normalization.
+
+The Gauss comparison now separates rescaling of the ground-field norm from the
+scaling action on the trivially valued space and records the exact identity
+$\sigma(tv)=t\sigma_{1/t}(v)$. Its extension-of-scalars warning says only that
+new divisorial points may appear. Redundant roadmaps and repeated summary
+tables were removed, while the final dictionary now points to the precise
+results proved in the chapter. The official BJ22 text was checked at the
+relevant sections and appendix, and all 2,871 legacy inline delimiters were
+normalized to the book convention.
+
+The scoped writing audit has zero errors and ninety-seven reviewed convention
+warnings. The project-wide reference check, checker tests, open-problem
+inventory check, full build, automatic second pass, log scan, source audit, and
+rendered inspection of all fifty-six chapter pages and both adjoining seams
+pass. Exact evidence is recorded in `chapter_status.md`. Chapter 33 is next.
