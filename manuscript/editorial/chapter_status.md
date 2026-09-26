@@ -5147,3 +5147,61 @@ render, together with the intentional blank verso at page 2332 and the Chapter
 blowup trace, dictionary, source note, and adjoining seam were re-rendered at
 high resolution.  No clipping, overlap, bad glyph, formula overflow, or
 hierarchy defect remains in the chapter.
+
+## Chapter 40: smooth varieties in arbitrary characteristic, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 40; Chapter 41
+is next.  The duplicate roadmap subsection has been removed, leaving the
+opening six-task map as the chapter's single structural guide.  The chapter
+now keeps the common output of the multiplier-ideal and test-ideal engines
+separate from the different mechanisms that produce it, and it states
+explicitly that both the rational approximants and the finite-stage classes
+dominate the target class in nef order.  Their distinction lies in the
+limiting argument, not in opposite orientations.
+
+The mathematical audit repaired five substantive interfaces.  The cusp
+example now uses the exact $F$-pure-threshold formula from
+Musta\c{t}\u{a}--Takagi--Watanabe and records that the exponent $4/5$ forces a
+difference only in characteristic $5$: for $p>5$ with $p\equiv2\pmod3$, the
+threshold $5/6-1/(6p)$ is greater than $4/5$.  Reduction modulo $p$ is
+therefore rejected for the correct fixed-datum and uniform-in-$m$ reasons,
+without the former false density claim.  The singular-scheme warning now
+acknowledges broader multiplier- and test-ideal theories while isolating the
+boundary-free four-property package needed here.  The worked cusp conclusion
+compares the resulting ideal functions at the exceptional divisorial
+valuation rather than invoking a vague Gauss extension.  Finally, the proof
+concludes that the raw supremum equals the upper-semicontinuous limit, and
+hence that its regularization is the same function.
+
+The source audit checked Musta\c{t}\u{a}, Proposition 3.1 and Theorem 4.1;
+Canton, Definition 3.2 and Proposition 4.1; Boucksom--Jonsson's smooth
+addendum; Hara--Yoshida, Theorem 6.8; Schwede--Tucker, Theorem 6.6; and
+Musta\c{t}\u{a}--Takagi--Watanabe, Example 4.3.  The source note now makes
+clear that the supplied envelope manuscript is the source for the
+arbitrary-dimensional positive-characteristic theorem, whereas the published
+smooth addendum proves the positive result only in characteristic zero or in
+dimension at most two.  All 1,948 legacy inline math spans were normalized,
+and the finished chapter was read continuously twice.  This is a direct
+manuscript revision and primary-source audit; no independent-agent or
+exact-current model-verifier review is asserted.
+
+The final house audit has zero errors and 66 reviewed warnings, all from the
+established label namespace or descriptive result titles.  The project-wide
+source check covers 425 inputs and 12,037 labels, with zero missing inputs,
+duplicate labels, dangling references, or structural defects; all six checker
+regression tests pass.  The open-problem inventory remains unchanged at
+forty-two active atoms across twelve Chapter 72 environments and passes.  The
+final full build produces a 4,104-page PDF of 22,134,038 bytes with SHA-256
+`092ffc00610673c7bdf34d680a9986722e670032a12671eeb5382e0a10238d51`.
+The log has no unresolved references or citations, rerun requests, emergency
+stops, or fatal errors.  The sixteen inherited missing-glyph warnings, nine
+inherited overfull boxes, and thirteen inherited Chapter 70 duplicate
+destinations are all outside Chapter 40; this revision introduces none.
+
+All fifty physical Chapter 40 pages 2333--2382 were scanned in the final
+render, together with the intentional blank verso at page 2332 and the Chapter
+41 opening at page 2383.  The opening, orientation safeguards, class-error
+comparison, ideal-engine interface, corrected cusp computation, final
+envelope identification, dictionary, source note, and both adjoining seams
+were also checked at full resolution.  No clipping, overlap, bad glyph,
+formula overflow, or hierarchy defect remains in the chapter.

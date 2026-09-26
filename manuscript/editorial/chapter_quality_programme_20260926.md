@@ -41,8 +41,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--39 are complete;
-  Chapter 40 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--40 are complete;
+  Chapter 41 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -1102,3 +1102,35 @@ was read continuously twice.  The scoped audit, project-wide reference
 check, checker tests, open-problem inventory check, full build, log scan, and
 rendered scan of all forty-nine chapter pages and both adjoining seams pass.
 Exact evidence is recorded in `chapter_status.md`. Chapter 40 is next.
+
+### Chapter 40
+
+The smooth-envelope chapter now presents its characteristic-zero and
+positive-characteristic arguments as two genuinely different ideal engines
+with the same four outputs, rather than suggesting that reduction modulo
+$p$ identifies them.  The rational approximation classes and the finite
+stage classes are both oriented above the target in nef order; what differs
+is their limiting mechanism.  The former duplicate roadmap was removed, so
+the opening six-task map now carries the chapter by itself.
+
+The cusp calculation has been corrected at the only prime detected by the
+chosen exponent: at exponent $4/5$ it separates multiplier and test ideals in
+characteristic $5$, while for every prime $p>5$ with $p\equiv2\pmod3$ the
+$F$-pure threshold is still greater than $4/5$.  The exact threshold formula
+is now attributed to Musta\c{t}\u{a}--Takagi--Watanabe, Example 4.3.  The text
+also distinguishes the wider theory of ideals on singular schemes from the
+boundary-free regular package actually used in the proof, and the final
+envelope identity now states correctly that the raw supremum already equals
+the upper-semicontinuous limit.
+
+The primary-source audit separates the supplied manuscript's
+arbitrary-dimensional positive-characteristic theorem from the published
+characteristic-zero or dimension-at-most-two result.  Musta\c{t}\u{a}'s
+Proposition 3.1 and Theorem 4.1 were checked for the test-ideal architecture,
+and the comparison, cusp, and smooth-envelope sources were checked at the
+precise results cited.  All 1,948 legacy inline math spans were normalized,
+and the chapter was read continuously twice.  The scoped audit,
+project-wide reference check, checker tests, open-problem inventory check,
+full build, log scan, and rendered scan of all fifty chapter pages and both
+adjoining seams pass.  Exact evidence is recorded in `chapter_status.md`.
+Chapter 41 is next.
