@@ -39,8 +39,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part II, Chapters 9--19:** complete. All eleven chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part III, Chapters 20--31:** active. Chapters 20--26 are complete; Chapter
-  27 is next.
+- **Part III, Chapters 20--31:** active. Chapters 20--27 are complete; Chapter
+  28 is next.
 - **Parts IV--VI, Chapters 32--72:** queued in reading order after Part III.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -661,3 +661,41 @@ project-wide reference check, checker tests, clean full build, automatic
 second pass, two continuous chapter reads, and rendered inspection of the
 whole chapter pass. Exact evidence is recorded in `chapter_status.md`.
 Chapter 27 is next.
+
+### Chapter 27
+
+The differentiability chapter now keeps its four variational objects separate:
+energy along a segment in $\mathcal E^1$, energy after projection of a
+continuous obstacle, the associated linearized functional, and the
+Euler--Lagrange functional.  The dependency ledger follows those distinctions
+through the energy sandwich, the superdifferential, orthogonality, projected
+differentiability, finite-energy variations, and the existence theorem of
+Chapter 28.  In particular, the singleton-supergradient corollary now appears
+only after continuous-direction differentiability has been proved; its former
+position silently applied the model-direction theorem to an arbitrary
+continuous base obstacle.
+
+The two limiting arguments have been made exact.  The continuous-direction
+proof uses a sequence of model approximants and therefore does not require a
+non-countably-cofinal net, whereas the finite-energy projected variation does.
+For the latter, continuity in the real parameter is now proved by the full
+subsequence criterion: every subsequence admits a further summable subsequence
+with the required limit.  This closes the former gap between convergence along
+one chosen subsequence and convergence of the original sequence.
+
+The primary-source audit also repaired the historical route.  In BGGJKM20,
+Theorem 5.4.3 is the differentiability input, Theorem 6.3.2 turns a continuous
+semipositive envelope into metric orthogonality, and Theorem 6.3.3 records the
+residue-characteristic-zero BFJ statement.  Equal-characteristic-$p$
+orthogonality uses this later volume route after the GJKM test-ideal continuity
+theorem and the required resolution hypotheses; it is not an extension of the
+original algebraizable asymptotic route.  The BFJ segment, projected-energy,
+and finite-energy-variation locators were checked directly as well.
+
+All 1,807 legacy inline delimiters were normalized to the book convention and
+four reusable remarks and examples received semantic labels.  The scoped
+writing audit has zero errors and thirty-nine reviewed convention warnings.
+The project-wide reference check, checker tests, full build, automatic second
+pass, continuous chapter read, primary-source audit, and rendered inspection
+of all sixty-four chapter pages pass.  Exact evidence is recorded in
+`chapter_status.md`. Chapter 28 is next.
