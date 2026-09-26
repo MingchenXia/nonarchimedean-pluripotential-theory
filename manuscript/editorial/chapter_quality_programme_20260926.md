@@ -1045,3 +1045,32 @@ twice, and the scoped audit, project-wide reference check, checker tests,
 open-problem inventory check, full builds, log scans, and rendered inspection
 of every chapter page and both adjoining seams pass.  Exact evidence is
 recorded in `chapter_status.md`. Chapter 38 is next.
+
+### Chapter 38
+
+The Cartier-realization chapter now exposes the exact proof mechanism without
+using the envelope theorem: one fixed-pole activation, an ample buffer, ordered
+rational stages whose class drift is oriented below the target, a decreasing
+limit in one psh class, and homogeneous Siu division.  The activation scaling
+is integral so that the auxiliary divisor stays rational; the buffer statement
+agrees with relative-to-absolute ampleness; and the non-nef target-class
+example is reconciled with the bounded-psh nefness criterion.
+
+The analytic and extended-real interfaces were tightened throughout.
+Coefficient functions are evaluated on the full-support locus before
+realization, while values at proper-support points come only from the realized
+psh function and psh divisorial determination.  The pole-removal identity is
+kept as a global sum and never converted into an undefined difference of two
+minus-infinite values.  A concrete two-line example demonstrates that no
+pointwise convention can repair that subtraction.  The final dictionary now
+distinguishes equivalences, canonical extensions, the book's theorem, and
+later results not proved in the chapter.
+
+The relevant published BJ22 results were checked directly, the boundary
+between the supplied envelope manuscript and published inputs is explicit,
+all 2,220 legacy inline math spans were normalized, and the chapter was read
+continuously twice.  The scoped audit, project-wide reference check, checker
+tests, open-problem inventory check, full builds, log scan, and rendered scan
+of all fifty chapter pages pass; key proof and seam pages were inspected at
+full resolution.  Exact evidence is recorded in `chapter_status.md`. Chapter
+39 is next.

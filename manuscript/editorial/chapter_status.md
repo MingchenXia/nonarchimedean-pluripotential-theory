@@ -5037,3 +5037,59 @@ ledger, proof map, and source note were checked at full resolution.  A run-in
 spacing defect before Proposition 37.4.1 found during the first render was
 fixed and the affected page was re-rendered.  No clipping, overlap, bad glyph,
 formula overflow, or hierarchy defect remains.
+
+## Chapter 38: Cartier b-divisors and homogeneous realization, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 38; Chapter 39
+is next.  The chapter now presents the real Cartier-realization theorem as a
+five-stage construction with an explicit dependency firewall: activate one
+fixed pole, insert an ample buffer, choose ordered rational stages, take a
+decreasing psh limit in one dominated class, and remove the pole by the global
+homogeneous Siu identity.  The opening roadmap was shortened, the duplicate
+roadmap section was removed, the final dictionary was converted from a cramped
+three-column table to a term-by-term interface list, and all 2,220 legacy inline
+math spans were normalized.
+
+The mathematical audit repaired five substantive interfaces.  The activation
+normalization now chooses an integer scaling factor, so the auxiliary divisor
+remains rational.  Coefficient identities involving the fixed pole are formed
+only on the full-support locus, where every term is finite; the analytic
+identity on all of $X^{\mathrm{An}}$ appears only after realization as the Siu
+sum and is never rearranged at a proper-support point.  Divisorial data are
+said to determine a function only inside the psh class, not among arbitrary
+upper-semicontinuous extensions.  The ample-buffer discussion now agrees with
+the relative-to-absolute ampleness lemma: an ample base class plus the
+relatively ample correction becomes ample for large scaling, and activation
+normalizes the correction so that scaling one suffices.  Finally, the chapter
+distinguishes bounded psh functions, which force nefness of the target class,
+from the unbounded realization possible in a non-nef pseudoeffective class.
+
+The published Boucksom--Jonsson source was checked directly at Theorem 4.22,
+Corollary 4.23, Corollary 6.17, Theorem 6.21, Corollary 6.22, Theorem 6.32,
+Lemma 6.34, Theorem 6.35 and Theorem 6.40.  The source note now separates the
+Cartier-realization argument supplied by the envelope manuscript from the
+published coefficient, comparison, regularization, and Siu-division inputs;
+it also records that compactness in Corollary 6.22 carries the envelope
+hypothesis.  The finished chapter was read continuously twice.  This is a
+direct manuscript revision and primary-source audit; no independent-agent or
+exact-current model-verifier review is asserted.
+
+The final house audit has zero errors and 105 reviewed warnings, all from the
+established label namespace or descriptive result titles.  The project-wide
+source check covers 425 inputs and 12,039 labels, with zero missing inputs,
+duplicate labels, dangling references, or structural defects; all six checker
+regression tests pass.  The open-problem inventory remains unchanged at
+forty-two active atoms across twelve Chapter 72 environments and passes.  The
+final full build produces a 4,106-page PDF of 22,146,824 bytes with SHA-256
+`e13d0721defbd698cfab2d9698c6ca6bb35021f8ad831b8cf93bb4edec778f83`.
+The log has no unresolved references or citations, rerun requests, emergency
+stops, or fatal errors.  The sixteen inherited missing-glyph warnings, nine
+inherited overfull boxes, and thirteen inherited Chapter 70 duplicate
+destinations are all outside Chapter 38; this revision introduces none.
+
+All fifty physical Chapter 38 pages 2233--2282 were scanned in the final
+render, and the opening, activation normalization, ample buffer, extended-real
+audit, failure example, dictionary, source note, and Chapter 39 seam were also
+checked at full resolution.  The cramped dictionary found in the first render
+was replaced and re-rendered.  No clipping, overlap, bad glyph, formula
+overflow, or hierarchy defect remains in the chapter.
