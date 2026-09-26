@@ -37,7 +37,7 @@ than mechanically rewritten.
 
 - **Part I, Chapters 1--8:** complete. All eight chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part II, Chapters 9--19:** active. Chapters 9--12 are complete; Chapter 13
+- **Part II, Chapters 9--19:** active. Chapters 9--17 are complete; Chapter 18
   is next.
 - **Parts III--VI, Chapters 20--72:** queued in reading order after Part II.
 - **Appendices and front matter:** final consistency pass after the chapters,
@@ -327,3 +327,59 @@ The scoped writing audit has zero errors; its sixty remaining warnings are
 reviewed label namespaces and descriptive titles. The project-wide reference
 check, checker tests, full build, automatic second pass, and rendered-page
 inspection all pass. Exact evidence is recorded in `chapter_status.md`.
+
+### Chapter 13
+
+The pass reorganized the CLD differential-form calculus around explicit local
+models and functorial interfaces. Pullback, wedge product, differential,
+support, and integration statements now expose the hypotheses actually used,
+while reusable constructions have semantic labels and exact source locators.
+The chapter's proof order now follows the dependency chain from local moments
+to global forms and integration, and its conventions agree with Chapters
+9--12 and the current theory of Chapter 14.
+
+### Chapter 14
+
+The pass tightened the topology and functoriality of currents. Test-form
+spaces, weak convergence, positivity, support, differential operators,
+integration currents, and proper pushforward now have compatible scopes and
+normalizations. Compactness and approximation arguments were separated from
+purely formal current calculus, and the interfaces used by Poincar\'e--Lelong
+and Bedford--Taylor theory now point to precise internal statements.
+
+### Chapter 15
+
+The pass rebuilt the divisor and psh layer around exact regularity and source
+boundaries. Poincar\'e--Lelong, extension across polar sets, envelope
+operations, and the comparison among smooth, continuous, PL, and classical
+psh notions now state the hypotheses needed by later chapters. Examples and
+warnings distinguish genuine theorems from tempting but false local-to-global
+inferences, and the chapter's reusable objects carry semantic labels.
+
+### Chapter 16
+
+The pass streamlined the Bedford--Taylor construction from local psh
+potentials through mixed dpsh products. Symmetry, locality, continuity,
+skeletal support, and vanishing above the relevant dimension are now arranged
+in dependency order, with exact interfaces for the metrized-bundle products
+of Chapter 17. Redundant exposition was removed, the local/global boundary was
+made explicit, and the worked tropical computations were checked against the
+book's normalization ledger.
+
+### Chapter 17
+
+The pass now begins with the universal base-change-compatible definition of a
+continuous metric and makes the higher-rank smoothness obstruction an exact
+orthogonalization-and-Dirac-mass argument. The four parlinear classes agree
+with the CLD definitions; formal, residual, and dimension-of-definition data
+are kept distinct; and the rank-two and type-III examples have the correct
+orthogonality and value-group scope.
+
+The curvature section now cleanly separates construction, psh criteria,
+mixed products, residual intersection masses, and recovery of
+Chambert--Loir measures. The curve total-mass proof is componentwise, the
+global-dpsh decomposition uses the actual parlinear theorem, and the two
+counterexamples answer the two source questions without exposing editorial
+verification machinery in the reader-facing text. Exact provenance replaces
+priority language, reusable definitions have semantic labels, and the
+Chapter 72 references were synchronized with the final proposition names.

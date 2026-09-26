@@ -3909,3 +3909,48 @@ Physical pages 507, 516, 527, 531, 545, 548, 551, and 557 were visually inspecte
 for the chapter opening, dimension criterion, calibration, cycle weights,
 partitions of unity, examples, and source notes; no clipping, overlap, bad
 glyph, formula overflow, or hierarchy defect was found.
+
+## Chapters 13--17: CLD forms through metrized bundles, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapters 13--17;
+Chapter 18 is next. Chapters 13--16 now provide the checked dependency chain
+from differential forms and currents through Poincar\'e--Lelong and the
+Bedford--Taylor product. Their local constructions, topology, positivity,
+support, functoriality, and approximation interfaces have been placed in
+dependency order, scoped to the hypotheses actually used, and connected by
+semantic labels and exact source locators.
+
+Chapter 17 now starts from the universal base-change-compatible definition of
+a continuous metric. Its proof that smooth higher-rank metrics do not exist is
+the source-based orthogonalization and Dirac-mass obstruction, while the
+rank-two example is explicitly restricted to an orthogonal metric and the
+type-III criterion uses the divisible closure of the value group. The four
+parlinear classes match the CLD definitions, and formal, residual, and
+dimension-of-definition data are kept distinct.
+
+The curvature architecture now separates first Chern currents, psh and dpsh
+metrics, mixed Bedford--Taylor products, residual intersection masses, formal
+special-fibre formulas, and recovery of Chambert--Loir measures. The total-mass
+argument on a reducible curve is componentwise, and the parlinear/global-dpsh
+statement uses the precise projective decomposition theorem. The two supplied
+counterexamples answer the two questions in CLD Remark 17.8.10 at their exact
+scopes; verifier metadata and priority language have been removed from the
+reader-facing chapter, and the Chapter 72 references use the final proposition
+names. A second full read also corrected two impossible phrases that called
+nonconstant meromorphic functions with prescribed nonzero divisors
+``constant rational functions.''
+
+The automatic second pass has zero Chapter 17 writing-audit errors; its
+seventy-seven reviewed warnings are the established `chap:` and `itm:` label
+namespaces and descriptive titles. The project-wide source check covers 423
+inputs and 12,018 labels, with zero missing inputs, duplicate labels, dangling
+references, or structural defects, and all six checker tests pass. The full
+4,092-page PDF has 19,475,213 bytes and SHA-256
+`6b69d1a2dccc5846d037f85063cc1f8554e3e01638ee993ed1399d2c8ba1f438`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, horizontal or vertical overflows, emergency stops, or fatal
+errors; the thirteen inherited Chapter 70 duplicate destinations remain.
+Physical pages 1091, 1097, 1100, 1128, and 1175 were visually inspected for
+the chapter opening, higher-rank obstruction, parlinear definitions, the
+counterexample transition, and the closing source note; no clipping, overlap,
+bad glyph, formula overflow, or hierarchy defect was found.
