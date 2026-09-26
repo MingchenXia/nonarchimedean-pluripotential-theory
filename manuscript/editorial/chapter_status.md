@@ -5093,3 +5093,57 @@ audit, failure example, dictionary, source note, and Chapter 39 seam were also
 checked at full resolution.  The cramped dictionary found in the first render
 was replaced and re-rendered.  No clipping, overlap, bad glyph, formula
 overflow, or hierarchy defect remains in the chapter.
+
+## Chapter 39: birational reflection and envelope descent, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 39; Chapter 40
+is next.  The chapter now keeps three logically different statements apart:
+homogeneous reflection under a projective birational morphism, reflection of
+a psh carrier already belonging to the same numerical class, and descent of
+the envelope property.  The revised dependency diagram records both uses of
+the envelope property: it supplies a canonical psh carrier and it closes an
+increasing bounded net.  The psh-space bijection alone is therefore not
+presented as a proof of the envelope property downstairs.
+
+The mathematical audit repaired six interfaces.  A fixed-class psh space is
+an ordered convex set, not a cone; arbitrary positive combinations live in
+the correspondingly graded class.  Monotonicity in the numerical class is
+proved with the oriented perturbation $\eta+\varepsilon A\to\eta$ and rational
+density in the ample cone.  The Fubini--Study comparison requires only that at
+each point some generating section be nonzero.  The polar-locus statement is
+restricted to the linear locus and does not promote a finite-stage equality
+to a limit without proof.  The chapter dictionary no longer identifies every
+homogeneous psh function with a single Cartier b-divisor.  Finally, the blowup
+example derives coefficientwise convergence on its determining model and
+hence the full divisorial trace on every higher model before applying
+divisorial determination.
+
+The published Boucksom--Jonsson paper was checked directly at Theorem 4.22,
+Corollary 4.23, Corollary 6.17, Theorem 6.21, Lemma 6.23, Theorem 6.24 and
+Theorem 6.31.  Corollary 4.25 is no longer misidentified as a determination
+result.  The source note separates published comparison, regularization, and
+division inputs from the supplied envelope manuscript.  All 1,938 legacy
+inline math spans were normalized, and the finished chapter was read
+continuously twice.  This is a direct manuscript revision and primary-source
+audit; no independent-agent or exact-current model-verifier review is
+asserted.
+
+The final house audit has zero errors and 85 reviewed warnings, all from the
+established label namespace or descriptive result titles.  The project-wide
+source check covers 425 inputs and 12,038 labels, with zero missing inputs,
+duplicate labels, dangling references, or structural defects; all six checker
+regression tests pass.  The open-problem inventory remains unchanged at
+forty-two active atoms across twelve Chapter 72 environments and passes.  The
+final full build produces a 4,106-page PDF of 22,136,047 bytes with SHA-256
+`809d2936cd86b0730e79ea289a9486d25c3dec665d6237ec46ba27251bfef8a5`.
+The log has no unresolved references or citations, rerun requests, emergency
+stops, or fatal errors.  The sixteen inherited missing-glyph warnings, nine
+inherited overfull boxes, and thirteen inherited Chapter 70 duplicate
+destinations are all outside Chapter 39; this revision introduces none.
+
+All forty-nine physical Chapter 39 pages 2283--2331 were scanned in the final
+render, together with the intentional blank verso at page 2332 and the Chapter
+40 opening at pages 2333--2334.  After the second continuous read, the revised
+blowup trace, dictionary, source note, and adjoining seam were re-rendered at
+high resolution.  No clipping, overlap, bad glyph, formula overflow, or
+hierarchy defect remains in the chapter.

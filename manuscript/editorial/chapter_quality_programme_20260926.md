@@ -41,8 +41,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--37 are complete;
-  Chapter 38 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--39 are complete;
+  Chapter 40 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -1074,3 +1074,31 @@ tests, open-problem inventory check, full builds, log scan, and rendered scan
 of all fifty chapter pages pass; key proof and seam pages were inspected at
 full resolution.  Exact evidence is recorded in `chapter_status.md`. Chapter
 39 is next.
+
+### Chapter 39
+
+The birational-reflection chapter now separates three layers that were
+previously too easy to conflate: unconditional homogeneous reflection,
+reflection of a psh carrier already living in the same numerical class, and
+the envelope-property descent argument.  Its dependency diagram records that
+the bijection of psh spaces does not by itself imply the envelope property;
+one still needs the increasing-net closure supplied by the envelope property
+upstairs.
+
+The fixed-class psh space is now described as an ordered convex set rather
+than a cone, the class-monotonicity argument uses an oriented ample
+perturbation, and the Fubini--Study monotonicity proof no longer assumes that
+one section is nonzero everywhere.  The polar-locus discussion distinguishes
+the linear locus from proper-support and non-linear points and does not pass a
+finite-stage polar formula automatically to a psh limit.  In the blowup
+example, coefficientwise convergence on the determining model now yields the
+entire divisorial trace, including divisors on higher models, before
+divisorial determination is invoked.
+
+The BJ22 comparison, regularization, and Siu-division inputs were checked
+directly, the published and supplied-manuscript boundaries were made
+explicit, all 1,938 legacy inline math spans were normalized, and the chapter
+was read continuously twice.  The scoped audit, project-wide reference
+check, checker tests, open-problem inventory check, full build, log scan, and
+rendered scan of all forty-nine chapter pages and both adjoining seams pass.
+Exact evidence is recorded in `chapter_status.md`. Chapter 40 is next.
