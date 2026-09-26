@@ -12,7 +12,7 @@ Status vocabulary:
 
 | Chapter | Short title | Status | Mathematical audit | Source audit |
 |---:|---|---|---|---|
-| 1--8 | Foundations | chapter-quality pass in progress | Chapters 1--4 completed the new structural and semantic pass; Chapter 5 is next | first-pass source record retained; exact provenance is rechecked chapter by chapter |
+| 1--8 | Foundations | chapter-quality pass in progress | Chapters 1--5 completed the new structural and semantic pass; Chapter 6 is next | first-pass source record retained; exact provenance is rechecked chapter by chapter |
 | 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the earlier Chapter 18 GJR gates, the pure-dimensional real-PL positive-current/residue-nef equivalence passed `20260825T080059Z_80f35689475f`; first-stage CLD collapse on tropical toric partial compactifications passed `20260825T024707Z_d1b8d7eaf79e`, and its finite ambient-induced-star extension passed the direct endpoint archived locally as `20260827T103835Z_c8131b22d800`; the real-PL zero-current theorem and curve counterexample passed `20260825T061351Z_655e7f503e5d` and `20260825T055907Z_b5c8f0719b60`; the cubical reduction and product--Gauss criterion passed `20260825T145229Z_b37e13478cc7` and `20260826T055627Z_b68659fba1be`; unrestricted continuous smooth-proper-curve ordinary-smooth psh regularization passed `20260827T090645Z_767cbf81c723`; the canonical-collar bridge, rigid-point zero-atom estimate, and arbitrary-field reduced dimension-one positive-current classification passed exact-live run `20260828T042906Z_f2a1c1b9f2a3`; the arbitrary-field nonreduced combined packet passed production run `20260828T044008Z_dfdaa04a1cea`, and its separately materialized exact-live statement/proof, SHA-256 `e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c` / `25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`, passed HTTP-archived exact-live closure run `20260828T051601Z_db92555a72e1`; the dependency-closed componentwise rigid-exception materialization, SHA-256 `2bf673687e935bcdae91550158344647cb1ca1cd4ae0a5040109aeb5fb2f3cbc` / `a27c40fbb1328b008acab07b871f50a778c34bab2b0f1d05e3a6d9d229839716`, passed `20260829T061505Z_2bf673687e93`, item `pi_ee24d64b88f0c4e60ad1acbd`, final `correct`, zero critical errors, and zero gaps | The P06.3 proof uses Thuillier, Baker--Payne--Rabinoff, Gubler--Jell--Rabinoff, and Wanner in their exact source scopes.  The P21.3 proof uses ordinary-open nilreduction, canonical full virtual-annular collars with exact source preimages, Riemann--Roch on normal residual curves over the actual residue field, and rigid-point zero-atom arguments at the strict conductor locus and at normal rigid exceptional points.  It now covers reducible and nonreduced curves whose component-normalization non-rig-smooth loci lie in locally finite rigid sets, separates reduction-invariant ordinary CLD calculus from multiplicity-sensitive integration, and proves only continuous-pair Bedford--Taylor independence.  No novelty or priority claim is made.  The product--Gauss theorem remains a separate book-level deduction in the GK field and ordinary algebraic-chart categories |
 | 20--27 | BFJ forms, psh, envelopes, MA, capacity, and energy | first-draft-final (historical) | first-pass record; the exact-current Chapter 23 fixed-skeleton selection passed production Rethlas run `20260824T044830Z_25024c43d265` with final `correct`, 0 critical errors, 0 gaps | first-pass record; the Chapter 23 book-local result is separated from its published BFJ inputs and makes no global sequential claim |
 | 28--31 | BFJ measures, continuity, functoriality, and examples | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
@@ -3545,3 +3545,50 @@ the chapter opening, completion argument, properness and center interfaces,
 spherical completeness, the real-tree figure, base change and GAGA, the
 dictionary, and source notes; no clipping, overlap, bad glyph, formula
 overflow, or hierarchy defect was found.
+
+## Chapter 5: skeleta, refinement, and canonical weights, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 5; Chapter 6
+is next. The monomial-minorant proof now descends from the localization by a
+finite \(\mathfrak q\)-adic filtration whose graded pieces are free on the
+surviving monomials, removing the false claim that the quotient itself is a
+free module. Connectedness of the dual complex is proved through Stein
+factorization and connectedness of the special fibre. The retraction text no
+longer says that every residue class is collapsed to one skeletal point: it
+records exactly which monomial boundary data are retained.
+
+The cross-model polyhedral statements have been restricted to their proved
+scope. Arbitrary dominating models give compatible piecewise-affine
+structures after common rational refinement, whereas literal subdivision of
+old cells is asserted only for projective toroidal modifications. The same
+distinction is now reflected in Chapter 21. The former projection claim for
+arbitrary bent rational PL functions was removed, since such a function may
+require a higher model.
+
+The canonical-weight section now uses the model-independent
+Mustaţă--Nicaise weight function, states piecewise affineness rather than
+facewise affineness in the presence of horizontal zeroes, and separates the
+Kontsevich--Soibelman minimum locus from an arbitrary model skeleton. Exact
+source locators are recorded for the BFJ compatibility and inverse-limit
+interfaces, Berkovich deformation retractions and local contractibility,
+canonical weights, and the dlt minimal-model identification. In the Hesse
+cubic example, adjunction and the Poincaré residue now prove that the weight
+is constant on the circle, and the one-dimensionality of every
+pluricanonical space closes the argument that the essential skeleton is
+exactly that circle.
+
+The automatic second pass has zero Chapter 5 writing-audit errors; its
+thirty-two reviewed warnings are established label conventions and
+descriptive titles. The project-wide source check covers 423 inputs and
+11,931 labels, with zero missing inputs, duplicate labels, or dangling
+references, and all six checker tests pass. The full 4,100-page PDF has
+19,505,901 bytes and SHA-256
+`031258c6526a7c1f45a3284c5bda309b55f9aeed719eb9e96f3afdc4f7c4ebed`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, horizontal or vertical overflows, emergency stops, or fatal
+errors; the thirteen inherited Chapter 70 duplicate destinations remain.
+Physical pages 177, 196, 200, 214, 219, and 222 were visually inspected for
+the chapter opening, monomial-minorant proof, refinement interface,
+canonical-weight section, elliptic essential-skeleton computation, and
+source notes; no clipping, overlap, bad glyph, formula overflow, or hierarchy
+defect was found.

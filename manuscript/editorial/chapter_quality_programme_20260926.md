@@ -35,8 +35,8 @@ than mechanically rewritten.
 
 ## Order and progress
 
-- **Part I, Chapters 1--8:** active. Chapters 1--4 have completed their
-  semantic, mathematical, and structural pass; Chapter 5 is next.
+- **Part I, Chapters 1--8:** active. Chapters 1--5 have completed their
+  semantic, mathematical, and structural pass; Chapter 6 is next.
 - **Parts II--VI, Chapters 9--72:** queued in reading order after Part I.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -103,3 +103,33 @@ convention. The scoped writing audit has zero errors; its remaining
 twenty-three warnings are reviewed project conventions and descriptive
 titles. Full build and rendered-page evidence is recorded in
 `chapter_status.md`.
+
+### Chapter 5
+
+The pass repaired the algebra behind the monomial-minorant inequality: the
+descent from the localized monomial ideal now uses the finite
+\(\mathfrak q\)-adic filtration and the freeness of its surviving monomial
+pieces, rather than the false assertion that the quotient itself is free.
+The retraction discussion now distinguishes forgetting residue directions
+from collapsing an entire residue class to one point, and the connectedness
+of the dual complex is deduced through Stein factorization and the special
+fibre rather than through an invalid clopen-cell argument.
+
+Cross-model polyhedral claims are now stated at their correct strength.
+Arbitrary higher models induce compatible piecewise-affine structures only
+after common rational refinement; literal subdivision of every old cell is
+reserved for projective toroidal modifications. The corresponding summary
+in Chapter 21 was synchronized. The canonical-weight section now uses the
+model-independent Mustaţă--Nicaise weight function, allows horizontal zeroes
+to create bends, and separates model skeleta from the essential skeleton.
+Exact source interfaces were added for Berkovich deformation retractions,
+BFJ compatibility, canonical weight functions, and dlt minimal skeleta. The
+Hesse cubic example now proves, via adjunction and the Poincaré residue, that
+every pluricanonical minimum locus is the whole circle.
+
+Reusable definitions and remarks received semantic labels, inline
+mathematics follows the book convention, and the unsupported projection of
+arbitrary bent PL functions onto model functions was removed. The scoped
+writing audit has zero errors; its remaining thirty-two warnings are
+reviewed project conventions and descriptive titles. Full build and
+rendered-page evidence is recorded in `chapter_status.md`.
