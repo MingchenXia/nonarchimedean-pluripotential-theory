@@ -3995,3 +3995,44 @@ opening, regularity bridge, harmonic-tropicalization transition, scope
 firewall, Chapter 19 seam, appendix opening, hypothesis ledger, and source-note
 range; no clipping, overlap, bad glyph, formula overflow, or hierarchy defect
 was found.
+
+## Chapter 19: curves, toric varieties, and abelian varieties, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 19; Chapter 20
+is next. The chapter keeps the four main theorem statements where they enter
+the curve and abelian examples, while the corresponding 37-, 593-, 231-, and
+430-line proofs now form Appendix N, *Curve regularization and cubical
+delta-metricity*. This removes 1,291 lines from the chapter's recursive proof
+path while preserving every argument and label in the build. Reader-facing
+transitions replace the former production-packet commentary.
+
+The mathematical audit corrected three substantive scope defects. The former
+example of a model of $\mathbf P^1$ with entire special fibre $2Y$ was
+impossible in the presence of a rational section. It is now a conditional
+normalization check for a proper curve possessing such a model: if
+$e=\deg(\mathcal L|_Y)$ and $d=\deg L$, then the model measure has mass
+$2e=d$; an honest model line bundle forces $d$ even, while odd degree requires
+rational coefficients in this one-component configuration. The Tate-curve
+piecewise-affine interpolants are now claimed to decrease only along a nested
+sequence $N_k=N_0 2^k$; arbitrary $N\to\infty$ retains uniform and weak
+convergence but not monotonicity. Finally, the abelian transfer statement now
+requires $L$ ample with its cubical metric, exactly as required by the Haar
+measure theorem. The mass ledger was updated from the false degree-one
+$\mathbf P^1$ row to the general identity $2e=d$.
+
+The automatic second pass has zero Chapter 19 and Appendix N writing-audit
+errors; its eighty-six reviewed warnings are the established label namespaces
+and descriptive titles. The project-wide source check covers 425 inputs and
+12,028 labels, with zero missing inputs, duplicate labels, dangling references,
+or structural defects, and all six checker tests pass. The full 4,100-page PDF
+has 19,483,727 bytes and SHA-256
+`21d57503043267167133b597e92205b6913e0f56471ce0c175cb6a9f28cecd09`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, emergency stops, or fatal errors. The two inherited overfull
+boxes in Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; Chapter 19 and Appendix N introduce none. Physical pages
+1269, 1301, 1316--1317, 1338, 4061, 4073, and 4077 were visually inspected for
+the chapter opening, corrected multiplicity-two calculation, Tate quadratic
+and nested interpolation, source-note typography, appendix opening,
+product--Gauss proof, and appendix close; no clipping, overlap, bad glyph,
+formula overflow, or hierarchy defect was found.

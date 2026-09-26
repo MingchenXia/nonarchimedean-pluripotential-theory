@@ -408,3 +408,30 @@ The scoped writing audit has zero errors; its remaining warnings are reviewed
 label namespaces and descriptive titles. The project-wide reference check,
 checker tests, full build, automatic second pass, and rendered-page inspection
 all pass. Exact evidence is recorded in `chapter_status.md`.
+
+### Chapter 19
+
+The pass now presents curves, toric varieties, model measures, and abelian
+varieties as one uninterrupted sequence of worked comparison tests. Four long
+proofs concerning residual Picard obstructions, ordinary smooth curve
+regularization, reduction of cubical delta-metricity, and the product--Gauss
+criterion have been moved to the new Appendix N. Their statements remain in
+Chapter 19 where they are used, and direct forward references keep the proof
+interfaces explicit. This removes 1,291 lines of proof from the chapter's
+reading path without removing any mathematical content from the book.
+
+The multiplicity-two special-fibre example no longer asserts the impossible
+existence of such a model for $\mathbf P^1$. It is now a conditional
+normalization calculation for a proper curve with special fibre $2Y$, with
+$2e=d$ and the honest-line-bundle parity constraint stated explicitly. The
+Tate-curve interpolation argument now obtains a decreasing approximation only
+along nested subdivisions, while retaining convergence for arbitrary
+$N\to\infty$. The abelian transfer corollary now states the ampleness needed
+for the canonical Haar-measure conclusion, and the mass ledger has been
+synchronized with the corrected example.
+
+The scoped writing audit has zero errors; its remaining warnings are reviewed
+label namespaces and descriptive titles. The project-wide reference check,
+checker tests, full build, automatic second pass, and rendered-page inspection
+all pass. Exact evidence is recorded in `chapter_status.md`. Chapter 20 is
+next.
