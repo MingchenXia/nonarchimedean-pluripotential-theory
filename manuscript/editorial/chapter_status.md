@@ -4847,3 +4847,78 @@ inspected during the pass.  After the final second-pass edits, pages 2123,
 ray endpoint, truncation direction, energy homogeneity, dual-energy test class,
 regularization dependency, and hypothesis ledger.  No clipping, overlap, bad
 glyph, formula overflow, or hierarchy defect was found.
+
+## Chapter 35: homogeneity, Legendre duality, and b-divisors, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 35; Chapter 36
+is next.  The opening now explains one object through three distinct
+mechanisms---the scaling action, Legendre slices, and numerical b-divisors---
+without repeating an eight-item payoff list.  All 2,624 legacy inline math
+spans were normalized, and the two formerly crowded dictionary tables were
+replaced by description lists whose hypotheses remain visible.
+
+The scaling and convex-analytic core was repaired in several places.  Weight
+zero characterizes a homogeneous function even when a presentation contains
+redundant nonzero weights.  Exact convergence along the scaling orbit uses the
+trivial valuation and the endpoint is attached by the proved closure theorem.
+In the finite elimination lemma, Fenchel--Moreau is applied to the displayed
+polyhedral function rather than to its transform; coordinates equal to
+$-\infty$ are handled by commuting the two infima, and continuity together
+with $\max_i\lambda_i\geq 0$ justifies adjoining $t=0$ before projecting the
+epigraph.  The divisorial comparison uses uniform PL density directly and
+treats the identically $-\infty$ function separately.  Legendre reconstruction
+first proves continuity of each finite orbit function and only then invokes
+Fenchel--Moreau at the parameter value one.
+
+The algebraic dictionary now matches its actual proof.  Finite attainment for
+an ideal function is proved on the normalized blowup through the coherent
+fractional ideal
+$(\mathfrak a')^r\otimes\mathcal O_X(rcX_0-rD)$.  General Cartier b-divisors
+are represented as differences of relatively semiample summands and their
+coherent fractional ideals; the converse starts from the image of the global
+evaluation map.  Numerical b-divisors carry modelwise finite support, the nef
+limit proof separates dimension one, and monotone approximation uses
+$C_i\downarrow B_\alpha-\overline H$ and
+$B_i\downarrow B_\alpha+\overline D$, with convergence of base traces instead
+of false termwise equality.  The homogeneous Siu proof is explicitly marked
+as the stricter book-local statement, while the endpoint approximation is
+imported from BJ22.
+
+The forward and backward Legendre dictionaries now have the correct domain.
+The raw transform $\Sigma(b,\lambda)=\sup_t(\phi_t+\lambda t)$ exists for any
+family but need not be upper semicontinuous or psh; exact reconstruction
+requires that raw transform to be psh, that its supremum equal the endpoint,
+and the stated closure condition.  The envelope property guarantees only the
+upper-semicontinuous regularization.  The general maximum principle is
+attributed to the decreasing function and the minimal trivial valuation, not
+to a homogeneous-only result.
+
+The published Boucksom--Jonsson paper was checked directly at Lemmas 2.13 and
+2.23; Theorem 6.21; Corollary 6.22; Lemma 6.23; Theorem 6.24; Lemma 6.29;
+Theorem 6.32; Lemma 6.34; Theorem 6.35; Lemma 6.37; Definition 6.38; Lemma
+6.39; Theorem 6.40; and Corollary 6.41.  The finished chapter was read
+continuously twice.  This is a direct manuscript revision and primary-source
+audit; no independent-agent or exact-current model-verifier review is
+asserted.
+
+The automatic second pass has zero Chapter 35 writing-audit errors; its
+twenty-nine reviewed warnings are the established chapter-label namespace and
+descriptive result titles.  The project-wide source check covers 425 inputs
+and 12,035 labels, with zero missing inputs, duplicate labels, dangling
+references, or structural defects, and all six checker tests pass.  The
+open-problem inventory remains unchanged at forty-two active atoms across
+twelve Chapter 72 environments and passes.  The final full build produces a
+4,106-page PDF of 19,475,524 bytes with SHA-256
+`0e830c72eef28f647e0138471c0f381d0e50eaa68c9facc0d8aea278d4959f38`.
+The log has no unresolved references or citations, rerun requests, missing
+glyphs, emergency stops, or fatal errors.  The two inherited overfull boxes in
+Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; this revision introduces none.
+
+All fifty-five physical Chapter 35 pages 2155--2209 were inspected in the
+final render, together with the intentional blank verso at page 2210 and the
+Chapter 36 opening at page 2211.  The opening, scaling convexity and
+elimination, divisorial comparison, strict Siu decomposition, b-divisor
+approximation, translation dictionary, and source note were also inspected at
+full resolution during the two render passes.  No clipping, overlap, bad
+glyph, formula overflow, or hierarchy defect was found.

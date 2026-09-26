@@ -41,8 +41,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--34 are complete;
-  Chapter 35 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--35 are complete;
+  Chapter 36 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -954,3 +954,35 @@ inline delimiters were normalized.  The scoped writing audit, project-wide
 reference check, checker tests, open-problem inventory check, two full builds,
 log scan, and rendered-page inspection pass.  Exact evidence is recorded in
 `chapter_status.md`. Chapter 35 is next.
+
+### Chapter 35
+
+The homogeneity chapter now begins from three sharply separated descriptions:
+scaling on the trivially valued analytification, Legendre slices, and numerical
+b-divisors.  Redundant roadmaps and two dense dictionary tables were replaced
+by a compact mechanism-level orientation and readable term-by-term ledgers.
+The scaling argument handles the trivial-valuation endpoint through closure,
+and the polyhedral elimination proof now uses Fenchel--Moreau on the correct
+function, commutes the relevant infima at coordinates equal to minus infinity,
+and justifies the boundary value at zero.
+
+The divisorial comparison and Legendre-reconstruction arguments were repaired
+at their limiting steps.  Uniform density of PL functions replaces an invalid
+rational-scaling reduction; the identically minus-infinity case is explicit;
+and finite orbit functions are continuous before Fenchel--Moreau is applied.
+Finite attainment is proved on the normalized blowup using the coherent
+fractional ideal from the published argument.  The strict homogeneous Siu
+decomposition is distinguished from the imported endpoint theorem, and the
+raw backward Legendre transform is no longer claimed to be psh without the
+necessary upper-semicontinuity and endpoint conditions.
+
+The Cartier and nef b-divisor dictionaries now keep relative semiampleness,
+fractional ideals, modelwise finite support, and the curve case visible.  In
+particular, monotone approximation uses decreasing Cartier approximants whose
+base traces converge rather than being termwise equal.  The published BJ22
+text was checked directly at the complete chain of results used in Sections
+2 and 6, the chapter was read continuously twice, and all 2,624 legacy inline
+math spans were normalized.  The scoped writing audit, project-wide reference
+check, checker tests, open-problem inventory check, full build, log scan, and
+rendered inspection of all fifty-five chapter pages pass.  Exact evidence is
+recorded in `chapter_status.md`. Chapter 36 is next.
