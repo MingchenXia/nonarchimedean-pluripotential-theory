@@ -37,7 +37,7 @@ than mechanically rewritten.
 
 - **Part I, Chapters 1--8:** complete. All eight chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part II, Chapters 9--19:** active. Chapters 9--17 are complete; Chapter 18
+- **Part II, Chapters 9--19:** active. Chapters 9--18 are complete; Chapter 19
   is next.
 - **Parts III--VI, Chapters 20--72:** queued in reading order after Part II.
 - **Appendices and front matter:** final consistency pass after the chapters,
@@ -383,3 +383,28 @@ counterexamples answer the two source questions without exposing editorial
 verification machinery in the reader-facing text. Exact provenance replaces
 priority language, reusable definitions have semantic labels, and the
 Chapter 72 references were synchronized with the final proposition names.
+
+### Chapter 18
+
+The pass separates the chapter's two genuine enlargements of the CLD
+calculus. Delta-forms retain ordinary tropical charts while adjoining
+polyhedral current coefficients; weakly smooth forms retain smooth
+coefficients while allowing harmonic tropicalizations. The opening route,
+the regularity bridge, and the closing scope firewall now keep these
+constructions distinct and state exactly where model metrics, classical psh
+functions, and continuous zero-current functions enter.
+
+The core chapter retains the wall-curvature calculation, tropical cycles and
+delta-preforms, delta-forms and currents, Poincar\'e--Lelong, Chern
+delta-forms, positivity, harmonic tropicalizations, weakly smooth forms, and
+the model comparison. Four reusable definitions received semantic labels.
+The extensive regularity catalogue, transfer lemmas, counterexamples,
+hypothesis tables, source notes, and verification records are preserved
+verbatim at the mathematical-content level in the new Appendix M rather than
+interrupting the core exposition. Cross-references now provide the interface
+between the chapter and that catalogue.
+
+The scoped writing audit has zero errors; its remaining warnings are reviewed
+label namespaces and descriptive titles. The project-wide reference check,
+checker tests, full build, automatic second pass, and rendered-page inspection
+all pass. Exact evidence is recorded in `chapter_status.md`.

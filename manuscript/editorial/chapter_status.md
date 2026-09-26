@@ -3954,3 +3954,44 @@ Physical pages 1091, 1097, 1100, 1128, and 1175 were visually inspected for
 the chapter opening, higher-rank obstruction, parlinear definitions, the
 counterexample transition, and the closing source note; no clipping, overlap,
 bad glyph, formula overflow, or hierarchy defect was found.
+
+## Chapter 18: delta-forms and harmonic tropicalizations, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 18; Chapter 19
+is next. The chapter now presents its two enlargements of the CLD calculus as
+separate constructions: delta-forms add polyhedral current coefficients to
+ordinary tropical charts, whereas weakly smooth forms enlarge the coordinate
+maps to harmonic tropicalizations. The opening route, a new regularity-bridge
+subsection, and the closing scope firewall state the comparison boundary with
+classical pluriharmonicity, R-PL regularity, continuous zero-current
+functions, formal metrics, and classically psh functions.
+
+The core differential theory remains in Chapter 18: wall curvature, tropical
+cycles and delta-preforms, delta-forms and currents, Poincar\'e--Lelong, Chern
+delta-forms, positivity, harmonic tropicalizations, weakly smooth forms, and
+model comparison. Four reusable definitions received semantic labels. The
+3,274-line regularity catalogue and the 1,144-line hypothesis, comparison,
+and source ledgers were moved without mathematical-content loss into the new
+4,430-line Appendix M. Mechanical comparison with the pre-edit source, after
+normalizing inline-math delimiters, confirms that both moved blocks are
+preserved. Chapter 18 is consequently shorter and navigable while every
+detailed theorem, proof, transfer argument, counterexample, source note, and
+verification record remains in the book.
+
+The automatic second pass has zero Chapter 18 and Appendix M writing-audit
+errors; its 121 reviewed warnings are the established label namespaces and
+descriptive titles. The project-wide source check covers 424 inputs and 12,021
+labels, with zero missing inputs, duplicate labels, dangling references, or
+structural defects, and all six checker tests pass. The full 4,096-page PDF
+has 19,479,579 bytes and SHA-256
+`6ce3920cd120785de8a4bdaeb1d6b1f26d4f0a9b4b89771ade6e6cabd9040270`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, emergency stops, or fatal errors. The two inherited overfull
+boxes in Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; no new overflow or duplicate destination is introduced
+by Chapter 18 or Appendix M. Physical pages 65, 1179, 1230--1231, 1267, 1269,
+3885, 4055, and 4067 were visually inspected for the contents entry, chapter
+opening, regularity bridge, harmonic-tropicalization transition, scope
+firewall, Chapter 19 seam, appendix opening, hypothesis ledger, and source-note
+range; no clipping, overlap, bad glyph, formula overflow, or hierarchy defect
+was found.
