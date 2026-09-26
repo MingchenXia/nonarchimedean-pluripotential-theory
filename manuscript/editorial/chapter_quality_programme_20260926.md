@@ -37,7 +37,8 @@ than mechanically rewritten.
 
 - **Part I, Chapters 1--8:** complete. All eight chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part II, Chapters 9--19:** active. Chapter 9 is next.
+- **Part II, Chapters 9--19:** active. Chapter 9 is complete; Chapter 10 is
+  next.
 - **Parts III--VI, Chapters 20--72:** queued in reading order after Part II.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -211,3 +212,32 @@ labels. The scoped writing audit has zero errors; its forty-five warnings are
 reviewed project conventions and descriptive titles. The project-wide
 reference check, full build, automatic second pass, and rendered-page
 inspection all pass. Exact evidence is recorded in `chapter_status.md`.
+
+### Chapter 9
+
+The pass separated the infinite-dimensional space of smooth superforms from
+its finite-dimensional constant-coefficient fibre. The doubled exterior
+algebra, coefficient matrices, complementary pairing, and positivity cones
+now use the fibre notation consistently, and the algebra structure is
+introduced by transporting the exterior product rather than presupposed in
+the vector-space identification.
+
+Positivity is now defined pointwise from the outset. This removes the former
+contradiction between a local smooth-decomposition definition and the later
+statement that no such decomposition is asserted. The decomposable cone is
+closed by its Plücker equations, the duality discussion states exactly which
+cones are canonically self-dual or exchange under duality, and an unused
+higher-dimensional strictness claim has been removed rather than left
+unproved.
+
+The distributional convexity proof now supplies the local approximate-
+identity argument and a diagonal almost-everywhere subsequence. Most
+importantly, the invalid midpoint argument for excluding a value of minus
+infinity has been replaced by a null-set contradiction under a
+positive-measure homothety. The Lagerberg source is cited directly, the CLD
+involution translation is stated at the attribution point, and the two
+previously unlabelled reusable items now have semantic labels. The scoped
+writing audit has zero errors; its fifteen remaining warnings are reviewed
+project conventions and descriptive titles. The project-wide reference
+check, full build, automatic second pass, and rendered-page inspection all
+pass. Exact evidence is recorded in `chapter_status.md`.

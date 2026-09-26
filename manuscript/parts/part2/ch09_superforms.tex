@@ -160,8 +160,10 @@ objects that make $\dprimeddprime\max\{0,x\}$ legitimate---are constructed in
 \label{def:ch09-superform-space}
 The space of superforms of bidegree $(p,q)$ on $U$ is
 \[
- A^{p,q}(U)=C^\infty(U)\otimes_{\mathbf R}
-             \bigwedge^pV^*\otimes_{\mathbf R}\bigwedge^qV^*.
+ A^{p,q}(U)=C^\infty(U)\otimes_{\mathbf R}A_{\mathrm{const}}^{p,q}(V),
+ \qquad
+ A_{\mathrm{const}}^{p,q}(V)
+ :=\bigwedge^pV^*\otimes_{\mathbf R}\bigwedge^qV^*.
 \]
 In affine coordinates $x_1,\ldots,x_n$ we denote the two copies of $\rd x_i$ by
 $\dprime x_i$ and $\ddprime x_i$. Thus
@@ -211,15 +213,16 @@ proves that nothing depends on it.  The affine formulation is the one needed
 in \Cref{chap:tropical-spaces}, where the charts of a tropical space are
 open subsets of affine spaces and the transition maps are affine.
 
-Third, the total dimension is
+Third, the constant-coefficient fibre is finite-dimensional:
 \[
- \dim_{\mathbf R}A^{p,q}(V)=\binom np\binom nq,
+ \dim_{\mathbf R}A_{\mathrm{const}}^{p,q}(V)=\binom np\binom nq,
  \qquad
- \sum_{p,q}\dim_{\mathbf R}A^{p,q}(V)=4^n,
+ \sum_{p,q}\dim_{\mathbf R}A_{\mathrm{const}}^{p,q}(V)=4^n.
 \]
-which is $2^{2n}$, the dimension of the exterior algebra of a $2n$-dimensional
-vector space.  That is not a coincidence, and it is the cleanest way to
-organize the sign rules.
+Thus its total dimension is $2^{2n}$, the dimension of the exterior algebra
+of a $2n$-dimensional vector space.  That is not a coincidence, and it is the
+cleanest way to organize the sign rules.  The space $A^{p,q}(U)$ of smooth
+sections is, of course, infinite-dimensional whenever $U$ is nonempty.
 
 \begin{lemma}
 \label{lem:ch09-exterior-of-double}
@@ -234,14 +237,15 @@ Then the assignment
   \qquad \xi=\xi_1\wedge\cdots\wedge\xi_q,
  \end{aligned}
 \]
-extends to an isomorphism of graded algebras
+extends to a canonical isomorphism of bigraded vector spaces
 \[
- \bigoplus_{p,q}A^{p,q}(V)
+ \bigoplus_{p,q}A_{\mathrm{const}}^{p,q}(V)
  \;\xrightarrow{\ \sim\ }\;
  \bigwedge\nolimits^{\bullet}W ,
 \]
-where the left side is graded by total degree $p+q$.  Under this
-isomorphism $\dprime x_i$ and $\ddprime x_i$ correspond to
+where the left side is graded by total degree $p+q$.  Transporting the
+exterior product through this isomorphism makes it an isomorphism of graded
+algebras.  Under the isomorphism $\dprime x_i$ and $\ddprime x_i$ correspond to
 $\iota'(x_i)$ and $\iota''(x_i)$, and the elements
 $\dprime x_I\wedge\ddprime x_J$, for $I$ and $J$ strictly increasing
 multi-indices, form a basis.
@@ -255,12 +259,13 @@ of the direct sum decomposes canonically as
  =\bigoplus_{p+q=m}
    \bigwedge\nolimits^{p}W_1\otimes\bigwedge\nolimits^{q}W_2 ,
 \]
-the isomorphism from right to left being induced by the multiplication map
-$(\eta,\xi)\mapsto \eta\wedge\xi$ in $\bigwedge^\bullet(W_1\oplus W_2)$; that
-this is an isomorphism is the standard computation with bases, and it is
-clearly compatible with products up to the reordering sign recorded below.
-Applying it with $W_1=W_2=V^*$ and summing over $m$ gives the displayed
-bijection.  If $x_1,\ldots,x_n$ is a basis of $V^*$, then the $2n$ elements
+the map from right to left being induced by the exterior multiplication map
+$(\eta,\xi)\mapsto \eta\wedge\xi$ in $\bigwedge^\bullet(W_1\oplus W_2)$.
+Choosing bases of $W_1$ and $W_2$ shows that the displayed map carries a
+basis to a basis and hence is an isomorphism.  Applying it with
+$W_1=W_2=V^*$ and summing over $m$ gives the asserted vector-space
+isomorphism; transporting exterior multiplication supplies the algebra
+structure on its source.  If $x_1,\ldots,x_n$ is a basis of $V^*$, then the $2n$ elements
 $\iota'(x_1),\ldots,\iota'(x_n),\iota''(x_1),\ldots,\iota''(x_n)$ form a basis
 of $W$, so the products of strictly increasing subfamilies form a basis of
 $\bigwedge^\bullet W$; sorting each such product into its primed and
@@ -1515,7 +1520,8 @@ symmetric matrices, and the classical counterexamples become explicit.
 
 Throughout, $S_p$ denotes the set of $p$-element subsets of
 $\{1,\ldots,n\}$, written as strictly increasing multi-indices; thus
-$\#S_p=\binom np$ and $\dim A^{p,q}(V)=\#S_p\cdot\#S_q$.  For $I\in S_p$ we
+$\#S_p=\binom np$ and
+$\dim A_{\mathrm{const}}^{p,q}(V)=\#S_p\cdot\#S_q$.  For $I\in S_p$ we
 write $\complement I\in S_{n-p}$ for the complementary multi-index, and
 \[
  \varepsilon_I\in\{\pm1\}
@@ -1567,9 +1573,9 @@ and $J$ is coordinate-independent by
 (3) $J$ is an algebra automorphism, so
 $J(\alpha\wedge\beta)=J\alpha\wedge J\beta=(-1)^{p+q}\alpha\wedge\beta$.
 
-(4) The space $A^{n,n}$ is spanned by
+(4) The space $A_{\mathrm{const}}^{n,n}(V)$ is spanned by
 $\dprime x_{\{1,\ldots,n\}}\wedge\ddprime x_{\{1,\ldots,n\}}$, whose single
-coefficient array is trivially symmetric.  For $\dprimeddprime u$ the
+one-by-one coefficient array is symmetric.  For $\dprimeddprime u$ the
 coefficient matrix is the Hessian, symmetric by the equality of mixed partial
 derivatives.
 \end{proof}
@@ -1584,7 +1590,8 @@ $(n-p,n-p)$-form.
 
 \begin{definition}
 \label{def:ch09-coefficient-matrix}
-Fix a basis $x_1,\ldots,x_n$ of $V^*$ and let $\alpha\in A^{p,p}(V)$.  The
+Fix a basis $x_1,\ldots,x_n$ of $V^*$ and let
+$\alpha\in A_{\mathrm{const}}^{p,p}(V)$.  The
 \emph{normalized coefficient matrix} of $\alpha$ is the array
 $M(\alpha)=(\alpha_{IJ})_{I,J\in S_p}$ determined by
 \[
@@ -1592,7 +1599,8 @@ $M(\alpha)=(\alpha_{IJ})_{I,J\in S_p}$ determined by
  \qquad c_p=(-1)^{p(p-1)/2}.
 \]
 It is a symmetric matrix precisely when $\alpha$ is a symmetric form, and
-$\alpha\mapsto M(\alpha)$ is a linear isomorphism from $A^{p,p}(V)$ onto the
+$\alpha\mapsto M(\alpha)$ is a linear isomorphism from
+$A_{\mathrm{const}}^{p,p}(V)$ onto the
 space of $\binom np\times\binom np$ matrices.
 \end{definition}
 
@@ -1606,8 +1614,8 @@ has $M(\alpha)=g$ where $\alpha=g\,\tau_n$, since $c_n\lambda\wedge J\lambda
 
 \begin{lemma}
 \label{lem:ch09-complement-pairing}
-Let $0\leq p\leq n$, $\alpha\in A^{p,p}(V)$ and
-$\beta\in A^{n-p,n-p}(V)$.  Then
+Let $0\leq p\leq n$, $\alpha\in A_{\mathrm{const}}^{p,p}(V)$ and
+$\beta\in A_{\mathrm{const}}^{n-p,n-p}(V)$.  Then
 \[
  \alpha\wedge\beta
  =\Bigl(\sum_{I,J\in S_p}
@@ -1691,17 +1699,14 @@ criteria use.  For $b=(b_K)_{K\in S_{n-p}}$ set
 \]
 Then $\star(bb^{\mathsf T})=(\star b)(\star b)^{\mathsf T}$, directly from the
 definitions.  We identify a vector $(a_I)_{I\in S_p}$ with the element
-$\sum_Ia_I\,\dprime x_I$ of $A^{p,0}(V)=\bigwedge^pV^*$ and call it
+$\sum_Ia_I\,\dprime x_I$ of
+$A_{\mathrm{const}}^{p,0}(V)=\bigwedge^pV^*$ and call it
 \emph{decomposable} if that element is a product
 $\eta_1\wedge\cdots\wedge\eta_p$ of elements of $V^*$; the zero vector is
 decomposable.  Write $\Gamma_p\subset\bigwedge^pV^*$ for the set of
-decomposable elements.  It is a closed cone, being the zero locus of the
-finitely many quadratic Pl\"ucker relations, or, more elementarily, the image
-of the continuous proper-on-spheres map
-$(V^*)^p\to\bigwedge^pV^*$ restricted to bounded sets; we shall only use that
-it is closed and stable under scaling, both of which are clear from the
-description as an image of a map, together with the fact that a limit of
-decomposable elements is decomposable.
+decomposable elements.  It is the closed cone cut out by the quadratic
+Pl\"ucker relations (with the edge degrees tautological).  We shall use only
+its closedness and its stability under scaling.
 
 \begin{lemma}
 \label{lem:ch09-star-decomposable}
@@ -1770,16 +1775,21 @@ each other up to the sign computed in
 
 \begin{definition}
 \label{def:ch09-positivity}
-A symmetric $(p,p)$-form is \emph{strongly positive} if locally it is a finite
-sum with nonnegative smooth coefficients of forms
+Let $\alpha\in A^{p,p}(U)$ be symmetric.  At a point $x\in U$, it is
+\emph{strongly positive} if $\alpha_x$ is a finite nonnegative linear
+combination of forms
 \[
-\eta_1\wedge J\eta_1\wedge\cdots\wedge
-                 \eta_p\wedge J\eta_p,\qquad \eta_i\in A^{1,0}.
+ \eta_1\wedge J\eta_1\wedge\cdots\wedge
+ \eta_p\wedge J\eta_p,
+ \qquad \eta_i\in V^*.
 \]
-It is \emph{positive} if it is locally a nonnegative sum of
-$c_p\eta\wedge J\eta$ with $\eta\in A^{p,0}$. It is \emph{weakly positive} if
-$\alpha\wedge\beta$ is a nonnegative top form for every strongly positive
-$(n-p,n-p)$-form $\beta$.
+It is \emph{positive} at $x$ if $\alpha_x$ is a finite nonnegative linear
+combination of $c_p\eta\wedge J\eta$ with $\eta\in\bigwedge^pV^*$.  It is
+\emph{weakly positive} at $x$ if $\alpha_x\wedge\beta$ is a nonnegative top
+form for every strongly positive
+$\beta\in A_{\mathrm{const}}^{n-p,n-p}(V)$.  The form $\alpha$ has any one
+of these three positivity properties on $U$ when it has that property at
+every point of $U$.
 \end{definition}
 
 Here the Lagerberg orientation associated to an affine basis is
@@ -1793,34 +1803,31 @@ has been chosen; $\tau_n$ depends on the basis only through the square of the
 determinant of the base change.
 
 \paragraph{Positivity is tested pointwise.}
-Throughout this section we first define three convex cones inside the
-finite-dimensional vector space $A^{p,p}(V)$ and then declare a superform on
-$U$ to be strongly positive, positive, or weakly positive when its value at
-each point of $U$ lies in the corresponding cone.  A superform which is
-locally a finite sum with nonnegative smooth coefficients of the generators
-listed in \Cref{def:ch09-positivity} clearly has this property, so the reading
-adopted here is the weaker and safer one.  The converse question---whether a
-pointwise decomposition into generators can be chosen to depend smoothly on
-the point---is a delicate matter of real analysis; it is never used in this
-book and is not asserted anywhere in it.  Every criterion proved below is
-pointwise, and every application is pointwise.
+The definition uses three convex cones inside the finite-dimensional fibre
+$A_{\mathrm{const}}^{p,p}(V)$.  A local expression as a finite sum of the
+displayed generators with nonnegative smooth coefficients implies the
+corresponding pointwise property.  We do not assert the converse: choosing a
+pointwise conic decomposition smoothly is a separate real-analytic problem,
+and no argument in this book requires such a choice.  Every criterion and
+application below is pointwise.
 
 \begin{definition}
 \label{def:ch09-cones}
 For $0\leq p\leq n$ define subsets of the space
-$A^{p,p}_{\mathrm{sym}}(V)$ of symmetric $(p,p)$-forms on $V$ by
+$A_{\mathrm{const},\mathrm{sym}}^{p,p}(V)$ of symmetric constant-coefficient
+$(p,p)$-forms on $V$ by
 \[
 \begin{aligned}
  \mathrm{SP}_p(V)
  &=\Bigl\{\textstyle\sum_{s}a_s\,
     \eta_{1,s}\wedge J\eta_{1,s}\wedge\cdots\wedge
     \eta_{p,s}\wedge J\eta_{p,s}
-   \;:\;a_s\geq0,\ \eta_{i,s}\in A^{1,0}(V)\Bigr\},\\
+   \;:\;a_s\geq0,\ \eta_{i,s}\in V^*\Bigr\},\\
  \mathrm{P}_p(V)
  &=\Bigl\{\textstyle\sum_{s}a_s\,c_p\,\eta_s\wedge J\eta_s
-   \;:\;a_s\geq0,\ \eta_s\in A^{p,0}(V)\Bigr\},\\
+   \;:\;a_s\geq0,\ \eta_s\in\bigwedge^pV^*\Bigr\},\\
  \mathrm{WP}_p(V)
- &=\bigl\{\alpha\in A^{p,p}_{\mathrm{sym}}(V)\;:\;
+ &=\bigl\{\alpha\in A_{\mathrm{const},\mathrm{sym}}^{p,p}(V)\;:\;
    \alpha\wedge\beta\in\mathbf R_{\geq0}\,\tau_n
    \text{ for all }\beta\in\mathrm{SP}_{n-p}(V)\bigr\},
 \end{aligned}
@@ -1836,19 +1843,21 @@ linear inequalities.
 
 \begin{lemma}
 \label{lem:ch09-generators}
-Let $\eta_1,\ldots,\eta_p\in A^{1,0}(V)$ and put
-$\eta=\eta_1\wedge\cdots\wedge\eta_p\in A^{p,0}(V)$.  Then
+Let $\eta_1,\ldots,\eta_p\in V^*$ and put
+$\eta=\eta_1\wedge\cdots\wedge\eta_p\in\bigwedge^pV^*$.  Then
 \[
  \eta_1\wedge J\eta_1\wedge\cdots\wedge\eta_p\wedge J\eta_p
  =c_p\,\eta\wedge J\eta .
 \]
-More generally, for $\eta\in A^{a,0}(V)$ and $\zeta\in A^{b,0}(V)$,
+More generally, for $\eta\in\bigwedge^aV^*$ and
+$\zeta\in\bigwedge^bV^*$,
 \[
  \bigl(c_a\,\eta\wedge J\eta\bigr)\wedge
  \bigl(c_b\,\zeta\wedge J\zeta\bigr)
  =c_{a+b}\,(\eta\wedge\zeta)\wedge J(\eta\wedge\zeta).
 \]
-Every form $c_a\eta\wedge J\eta$ with $\eta\in A^{a,0}(V)$ is symmetric, and
+Every form $c_a\eta\wedge J\eta$ with $\eta\in\bigwedge^aV^*$ is symmetric,
+and
 its normalized coefficient matrix is $vv^{\mathsf T}$, where
 $v=(\eta_I)_{I\in S_a}$ is the coefficient vector of $\eta$.  Consequently
 $\mathrm{SP}_p(V)\subset\mathrm{P}_p(V)$, and both consist of symmetric
@@ -1891,7 +1900,8 @@ next proposition turns this observation into a complete dictionary.
 
 \begin{proposition}
 \label{prop:ch09-positivity-dictionary}
-Fix a basis of $V^*$, let $\alpha\in A^{p,p}_{\mathrm{sym}}(V)$ and let
+Fix a basis of $V^*$, let
+$\alpha\in A_{\mathrm{const},\mathrm{sym}}^{p,p}(V)$ and let
 $M=M(\alpha)$ be its normalized coefficient matrix, a symmetric matrix
 indexed by $S_p$.  Recall $\Gamma_p\subset\bigwedge^pV^*$ from
 \Cref{sec:ch09-symmetry}, identified with a subset of $\mathbf R^{S_p}$ by
@@ -1959,7 +1969,7 @@ positive semidefiniteness of a symmetric matrix; duality gives $p=n-1$.
 
 We now give the details.  The first inclusion is
 \Cref{lem:ch09-generators}.  For the second, let $\alpha=c_p\eta\wedge J\eta$
-with $\eta\in A^{p,0}(V)$ and let
+with $\eta\in\bigwedge^pV^*$ and let
 $\beta=c_{n-p}\zeta\wedge J\zeta$ with $\zeta\in\Gamma_{n-p}$ be a generator
 of $\mathrm{SP}_{n-p}(V)$, which is legitimate by
 \Cref{lem:ch09-generators}.  By the second formula of that lemma,
@@ -2040,7 +2050,8 @@ and why it is so often mislaid.
 
 \begin{proposition}
 \label{prop:ch09-positivity-products}
-Let $\alpha\in A^{p,p}(V)$ and $\beta\in A^{q,q}(V)$ with $p+q\leq n$.
+Let $\alpha\in A_{\mathrm{const}}^{p,p}(V)$ and
+$\beta\in A_{\mathrm{const}}^{q,q}(V)$ with $p+q\leq n$.
 \begin{enumerate}
 \item If $\alpha$ and $\beta$ are strongly positive, so is
   $\alpha\wedge\beta$.
@@ -2095,12 +2106,14 @@ positivity, and it is one of the sources of the hypotheses in
 \label{thm:ch09-positivity-duality}
 Under the pairing
 \[
- A^{p,p}_{\mathrm{sym}}(V)\times A^{n-p,n-p}_{\mathrm{sym}}(V)
- \longrightarrow\mathbf R,
+ \begin{aligned}
+ A_{\mathrm{const},\mathrm{sym}}^{p,p}(V)
+ \times A_{\mathrm{const},\mathrm{sym}}^{n-p,n-p}(V)
+ &\longrightarrow\mathbf R,\\
+ (\alpha,\beta)&\longmapsto\langle\alpha,\beta\rangle,
  \qquad
- (\alpha,\beta)\longmapsto
- \langle\alpha,\beta\rangle\ \text{ defined by }\
  \alpha\wedge\beta=\langle\alpha,\beta\rangle\,\tau_n,
+ \end{aligned}
 \]
 which is a perfect pairing of finite-dimensional vector spaces, the three
 cones satisfy
@@ -2176,10 +2189,10 @@ $\star$ maps positive semidefinite matrices to positive semidefinite matrices
 is a linear bijection on vectors---the assertion follows.
 \end{proof}
 
-The duality theorem is the reason the middle cone is the good one for many
-purposes: it is the unique self-dual member of the triple, and, as
-\Cref{prop:ch09-positivity-products}\,(2) shows, it is stable under products.
-The extreme cones trade places under duality, which is also why statements
+The duality theorem is the reason the middle cone is useful in many
+arguments: it is canonically self-dual and, as
+\Cref{prop:ch09-positivity-products}\,(2) shows, stable under products.  The
+extreme cones trade places under duality, which is also why statements
 about weakly positive forms are so often proved by testing against strongly
 positive ones rather than directly.
 
@@ -2301,7 +2314,8 @@ decomposable then $w\wedge w=0$, hence
 \[
  w\in\Gamma_2\ \Longrightarrow\ P(w)=0 .
 \]
-Only this implication will be used.  Now let $\beta\in A^{2,2}(V)$ be the
+Only this implication will be used.  Now let
+$\beta\in A_{\mathrm{const}}^{2,2}(V)$ be the
 symmetric form whose normalized coefficient matrix is
 \[
  M(\beta)=\mathrm{Id}-4\widehat P,
@@ -2347,7 +2361,7 @@ Keep $n=4$, $p=2$ and $w_0=\dprime x_{12}+\dprime x_{34}$ as in
  \omega=c_2\,\eta\wedge J\eta,
  \qquad
  \eta=\dprime x_1\wedge\dprime x_2+\dprime x_3\wedge\dprime x_4
-     \in A^{2,0}(V),
+     \in\bigwedge^2V^*,
 \]
 so that $M(\omega)=w_0w_0^{\mathsf T}$ by \Cref{lem:ch09-generators}.
 Explicitly,
@@ -2393,9 +2407,8 @@ only that the quadratic form $M$ be nonnegative \emph{on} decomposable
 vectors.  When every vector is decomposable the three conditions collapse to
 one.  When they do not, the middle condition is strictly between the other
 two, and the two examples exhibit both gaps with the same six-dimensional
-computation.  The same phenomenon occurs for every $n\geq4$ and every $p$
-with $2\leq p\leq n-2$, by taking products with strongly positive forms in
-the remaining variables; we shall not need this and do not prove it.
+computation.  These examples establish the first nontrivial case; no
+higher-dimensional strictness assertion is needed in this book.
 
 A last remark on terminology, since it is a standing source of confusion.
 In complex geometry, as in \cite[Chapter~III]{DemBook}, only two of the
@@ -2550,6 +2563,7 @@ nonnegative functions.
 \end{proof}
 
 \begin{example}[Log-sum-exp]
+\label{ex:ch09-log-sum-exp}
 For affine functions $\ell_1,\ldots,\ell_N$ and $\varepsilon>0$, put
 \[
  L_\varepsilon(x)=\varepsilon\log
@@ -2709,8 +2723,11 @@ asserted.
 \begin{proof}
 For fixed $y$, the translate $x\mapsto f(x-y)$ is convex.  A positive average
 of convex functions is convex, so $f_\varepsilon$ is convex.  Smoothness is
-the standard differentiation-under-convolution argument.  On a compact
-subset of $U$, continuity of a convex function is uniform; hence
+explicit: since $f$ is locally integrable and $\rho_\varepsilon$ is smooth
+with compact support,
+$\partial^\alpha f_\varepsilon=f*\partial^\alpha\rho_\varepsilon$ wherever
+the convolution is defined.  On a compact subset of $U$, continuity of a
+convex function is uniform; hence
 \[
  |f_\varepsilon(x)-f(x)|
  \leq\sup_{|y|\leq\varepsilon}|f(x-y)-f(x)|
@@ -2865,10 +2882,22 @@ $\varepsilon\downarrow0$.
 
 \begin{proof}
 Throughout, $\rho$ is radial and $u_\varepsilon=u*\rho_\varepsilon$, defined
-and smooth on $U_\varepsilon$.  We use two standard properties of mollifiers,
-for which we refer to \cite{EvansGariepy}: $u_\varepsilon\to u$ in
-$L^1_{\loc}(U)$ as $\varepsilon\downarrow0$, and $u_\varepsilon\to u$
-locally uniformly if $u$ is continuous.
+and smooth on $U_\varepsilon$.  We shall use the elementary approximate
+identity property $u_\varepsilon\to u$ in $L^1_{\loc}(U)$.  Indeed, for
+$K\Subset U$ and all sufficiently small $\varepsilon$,
+\[
+ \lVert u_\varepsilon-u\rVert_{L^1(K)}
+ \leq \int\rho(z)
+    \lVert u(\,\cdot-\varepsilon z)-u\rVert_{L^1(K)}\,\rd z
+ \longrightarrow0,
+\]
+To justify the limit, choose $K'\Subset U$ containing a fixed neighbourhood
+of $K$ and extend $u|_{K'}$ by zero to an $L^1(\mathbf R^n)$ function.  Its
+translations converge to it in $L^1(\mathbf R^n)$, hence in $L^1(K)$; the
+integrand is bounded by $2\lVert u\rVert_{L^1(K')}$, so dominated convergence
+applies to the $z$-integral.
+If $u$ is continuous, the locally uniform convergence needed below is already
+\Cref{prop:superform-convex-mollification}.
 
 \emph{(2) $\Rightarrow$ (1).}  A finite convex function on an open convex
 subset of $\mathbf R^n$ is locally Lipschitz, hence continuous and locally
@@ -2925,23 +2954,31 @@ pointwise decreasing limit of convex functions, $\tilde u$ satisfies the
 convexity inequality
 $\tilde u((1-s)x_0+sx_1)\leq(1-s)\tilde u(x_0)+s\tilde u(x_1)$, all terms
 being limits of decreasing real sequences and hence well defined in
-$[-\infty,+\infty)$.
+$[-\infty,+\infty)$.  Here the inequality is first applied for
+$\varepsilon$ small enough that the compact segment $[x_0,x_1]$ lies in
+$U_\varepsilon$, and then passed to the limit.
 
 We claim $\tilde u$ is finite.  Since $u_\varepsilon\to u$ in
-$L^1_{\loc}$, some sequence $\varepsilon_k\downarrow0$ satisfies
-$u_{\varepsilon_k}\to u$ almost everywhere; combined with the pointwise
-monotone convergence this gives $\tilde u=u$ almost everywhere, so
-$\tilde u>-\infty$ outside a null set.  Suppose $\tilde u(x_0)=-\infty$ for
-some $x_0\in U$ and choose $r>0$ with $B(x_0,r)\subset U$.  The reflection
-$y\mapsto2x_0-y$ preserves $B(x_0,r)$ and Lebesgue measure, so the set
-$Z=\{y\in B(x_0,r):\tilde u(y)=-\infty\}$, which is null, has null
-reflection; hence there is $y\in B(x_0,r)$ with $\tilde u(y)$ and
-$\tilde u(2x_0-y)$ both finite.  The convexity inequality at the midpoint
-$x_0$ then gives
-$\tilde u(x_0)\leq\tfrac12(\tilde u(y)+\tilde u(2x_0-y))>-\infty$, a
-contradiction.  Thus $\tilde u$ is a finite convex function equal to $u$
-almost everywhere, which is (2), and the displayed formula for $\tilde u$ has
-been proved along the way.
+$L^1_{\loc}$, choose a compact exhaustion $K_k$ of $U$ and a sequence
+$\varepsilon_k\downarrow0$ such that
+$\lVert u_{\varepsilon_k}-u\rVert_{L^1(K_k)}<2^{-k}$.  For each fixed $m$,
+the corresponding differences have summable $L^1(K_m)$-norm for $k\geq m$;
+therefore $u_{\varepsilon_k}\to u$ almost everywhere on $K_m$.  It follows
+that $\tilde u=u$ almost everywhere.  Thus
+\[
+ Z:=\{x\in U:\tilde u(x)=-\infty\}
+\]
+is null.  If $x_0\in Z$, choose $r>0$ with $B(x_0,r)\subset U$ and put
+$E=B(x_0,r)\setminus Z$.  For every $y\in E$, convexity at the midpoint gives
+\[
+ \tilde u\!\left(\frac{x_0+y}{2}\right)
+ \leq\frac{\tilde u(x_0)+\tilde u(y)}2=-\infty.
+\]
+Hence the image of $E$ under the homothety
+$y\mapsto(x_0+y)/2$ is contained in $Z$.  That image has positive Lebesgue
+measure, contradicting the nullity of $Z$.  Thus $\tilde u$ is a finite
+convex function equal to $u$ almost everywhere, which is (2), and the
+displayed formula for $\tilde u$ has been proved along the way.
 
 \emph{Uniqueness.}  Two finite convex functions on an open convex set which
 agree almost everywhere are equal, both being continuous by
@@ -2981,6 +3018,7 @@ shape of the statement: a decreasing family of regular objects, converging
 locally uniformly, each of which is positive.
 
 \begin{remark}[The boundary of the smooth category]
+\label{rem:ch09-smooth-boundary}
 The function $\max\{0,x\}$ is convex but not smooth; its second derivative is
 a Dirac mass. Hence curvature of a piecewise affine model metric is generally
 not a smooth superform. \Cref{chap:cld-currents} treats it as a current, while
@@ -3129,19 +3167,20 @@ their first use.
 \end{itemize}
 
 \section{Source notes}
+\label{sec:ch09-source-notes}
 
-Superforms were introduced by Lagerberg. Our signs and positivity cones agree
-with the 2025 revision of Chambert--Loir--Ducros
-\cite[\S\S1--2]{CLD25}. The presentation begins with the Hessian test because
-this is the portion used most frequently in pluripotential theory.
+Superforms were introduced by Lagerberg \cite{Lag12Super}.  After the
+involution translation explained in \Cref{rem:ch09-two-involutions}, our
+differential signs and positivity cones agree with the 2025 revision of
+Chambert--Loir--Ducros \cite[\S\S1--2]{CLD25}.  The presentation begins with
+the Hessian test because this is the portion used most frequently in
+pluripotential theory.
 
 The bigraded algebra $A^{\bullet,\bullet}$, the operators $\dprime$ and
 $\ddprime$, the involution, the three positivity cones, and the associated
 supercurrents are due to A.~Lagerberg, in his paper on super currents and
-tropical geometry (\emph{Math.\ Z.}, 2012).  That work is not in the
-bibliography of this book, because no proof here takes an unproved statement
-from it; it is named rather than cited, and the reader who wishes to consult
-it will find its results reproved above with the conventions of this book.
+tropical geometry \cite{Lag12Super}.  The results needed here are proved
+above with the conventions of this book.
 Two of Lagerberg's contributions should be attributed precisely: the
 observation that the doubled differential calculus reproduces the formal
 apparatus of complex geometry over $\mathbf R$, and the definition of the
