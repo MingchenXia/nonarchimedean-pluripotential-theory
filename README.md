@@ -483,8 +483,11 @@ exactly when the space is compact.  In positive degree the exact envelope
 of a bounded literal obstacle is a rational convex combination of
 \(\gamma\) and \(\max\{\gamma,C\}\), with a nonintegral slope on a bounded
 edge cell and a quantitative uniform separation from every literal convex
-PA approximant.  The higher-dimensional real-PA and literal
-characterizations for arbitrary obstacles, arbitrary nonseparable product
+PA approximant.  A vertex-cone obstacle extends this failure to every
+noncompact finite rational polyhedral space in every dimension, without any
+balancing hypothesis.  Thus literal complete-affine regularity fails in
+every positive dimension.  The higher-dimensional real-PA characterization,
+the compact higher-dimensional literal case, arbitrary nonseparable product
 obstacles, and the source convention repair remain open, so the atom count
 is unchanged.
 

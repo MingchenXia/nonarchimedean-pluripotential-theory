@@ -336,8 +336,13 @@ Rethlas verification receipt for the exact displayed statement and proof.
 - **Book disposition:** the complete-affine theorem and proof, the cross
   example, the Bergman boundary, the conditional recursive comparison, and
   the source's exact toric realization scope are integrated in the balanced
-  polyhedral subsection of the major-open-problems chapter.  The general
-  singular-fan contact problem remains open.
+  polyhedral subsection of the major-open-problems chapter.  Here the
+  complete-affine theorem is explicitly a real-scalar PA result.  A later
+  book-local vertex-cone construction disproves literal integral-slope
+  regularity on every noncompact finite rational polyhedral space, hence on
+  every positive-dimensional complete affine space.  The compact
+  higher-dimensional literal case and the general singular-fan contact
+  problem remain open.
 
 ## General non-Archimedean Monge--Amp\`ere residues
 

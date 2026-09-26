@@ -691,13 +691,19 @@ unrestricted unbounded continuation are disproved.
   edgewise integral-roof obstacle has an exact rational-combination envelope
   with a nonintegral slope and a quantitative uniform separation from every
   literal convex PA approximant, independently of the local relation cones.
+  In every dimension, a vertex-cone obstacle gives the same kind of exact
+  rational-combination envelope on every noncompact finite rational
+  polyhedral space, without using balancing.  Hence literal regularity fails
+  for every such noncompact pair, including all positive-dimensional
+  complete affine spaces.
   In the explicit real scalar extension, every one-dimensional finite
   balanced rational polyhedral space has regularity, and envelopes factor
   exactly for separable bounded obstacles on finite products.  In particular,
   products of finite balanced graphs and complete affine spaces have real-PA
   envelopes throughout the separable obstacle class.  Arbitrary nonseparable
-  obstacles, the higher-dimensional real-PA and literal characterizations,
-  and the source convention repair remain open.
+  obstacles, the higher-dimensional real-PA characterization, the compact
+  higher-dimensional literal case, and the source convention repair remain
+  open.
 - **P05.2** `[T3; open]` Characterize the pairs for which their
   orthogonality property holds.
 - **P05.5** `[T4; open after the calibrated recursive model cases]`
@@ -815,9 +821,15 @@ remain open.  The strict-vertex theorem gives a local quantitative literal
 obstruction.  The subsequent one-dimensional classification removes that
 hypothesis: an integral-roof obstacle disproves literal regularity for every
 positive-degree reference, while the compact balanced-graph maximum
-principle proves literal regularity in degree zero.  P05.1 and P05.2 stay
-active T3 atoms because their higher-dimensional scopes remain open, and all
-inventory counts are unchanged.
+principle proves literal regularity in degree zero.  The further theorem
+`thm:frontier-polyhedral-noncompact-literal-nonregularity` replaces edgewise
+roofs by minima of ambient integral lattice cones.  It proves literal
+nonregularity on every noncompact finite rational polyhedral space in every
+dimension, even without balancing, and leaves only the compact
+higher-dimensional literal case.  P05.1 and P05.2 stay active T3 atoms
+because the real-PA higher-dimensional classification, the compact literal
+case, and higher-dimensional orthogonality remain open; all inventory counts
+are unchanged.
 
 ### `prob:frontier-pluriharmonic` --- 1 active atom
 

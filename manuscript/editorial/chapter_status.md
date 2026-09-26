@@ -3403,3 +3403,39 @@ errors; the 13 inherited Chapter 70 duplicate destinations remain.  Physical
 pages 3812--3818 and all three minimal-packet pages were visually inspected.
 Exact evidence is recorded in the dedicated integration audit and solver
 dossier.
+
+## Chapter 72: all-dimensional noncompact literal nonregularity, 26 September 2026
+
+The book-local theorem
+`thm:frontier-polyhedral-noncompact-literal-nonregularity` extends the
+negative half of P05.1 from graphs to every noncompact finite embedded
+rational polyhedral space.  A rational truncation of the reference supplies
+a compactly supported integral gap.  Finitely many ambient integral lattice
+cones majorize a rational fraction of that gap and make vertex contact; their
+minimum with the gap is a bounded literal obstacle.  Vertex convexity on
+bounded cells and direct obstacle contact on unbounded cells identify the
+exact envelope.  Its nonintegral slope on a primitive rational segment gives
+the quantitative separation `L*dist(q,Z)/4` from every literal convex PA
+approximant.
+
+The proof uses neither balancing nor weights, purity, degree, or local
+relation cones.  Literal complete-affine regularity therefore fails in every
+positive dimension.  P05.1 remains active for the compact
+higher-dimensional literal case, the higher-dimensional real-PA
+classification, arbitrary nonseparable product obstacles, and source
+coefficient-convention repair.  P05.2 remains active outside its
+one-dimensional real-PA classification.  The inventory remains 42 active
+atoms in 12 environments, tiers `(0,3,7,15,17)`.  No model-verifier result
+is claimed.
+
+The scoped writing audit has zero errors and one reviewed arXiv-only warning.
+The 423-input, 11,884-label source check, six checker tests, inventory check,
+minimal compile, automatic second pass, and full build pass.  The final
+4,100-page PDF has 19,505,879 bytes and SHA-256
+`97e82fc6d2c5ceb3622e50292aebf1b0866958bffdea8e9ae7a83fa6b1e61775`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, horizontal or vertical overflows, emergency stops, or fatal
+errors; the 13 inherited Chapter 70 duplicate destinations remain.  Physical
+pages 3815--3819 and all 3 minimal-packet pages were visually inspected.
+Exact evidence is recorded in the dedicated integration audit and solver
+dossier.

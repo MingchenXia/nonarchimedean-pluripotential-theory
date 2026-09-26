@@ -72,10 +72,13 @@ holds exactly in degree zero, equivalently exactly when the space is
 compact.  In positive degree, an edgewise integral-roof obstacle has a
 rational-combination envelope with a nonintegral slope and a quantitative
 uniform separation from every literal convex PA approximant; this no longer
-requires any hypothesis on the local relation cones.  Arbitrary
-nonseparable obstacles, the higher-dimensional real-PA and literal
-characterizations, and the source convention repair remain open. P05.1 and
-P05.2 stay active;
+requires any hypothesis on the local relation cones.  A vertex-cone
+construction now extends the negative half to every noncompact finite
+rational polyhedral space in every dimension, without balancing; in
+particular, literal complete-affine regularity fails in every positive
+dimension.  Arbitrary nonseparable obstacles, the higher-dimensional
+real-PA characterization, the compact higher-dimensional literal case, and
+the source convention repair remain open. P05.1 and P05.2 stay active;
 the inventory remains **42 active atoms in 12 formal problem environments**,
 tiers **(0,3,7,15,17)**.
 
