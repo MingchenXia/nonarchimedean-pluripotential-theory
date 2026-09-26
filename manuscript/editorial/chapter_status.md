@@ -4433,3 +4433,57 @@ pages 1723--1786 were inspected in the final render, with pages 1749, 1765,
 architecture, finite-energy limit, characteristic table, and chapter
 dictionary; the Chapter 28 seam at page 1787 was inspected separately.  No
 clipping, overlap, bad glyph, formula overflow, or hierarchy defect was found.
+
+## Chapter 28: finite-energy measures and variational solutions, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 28; Chapter 29
+is next. The logical architecture now distinguishes finite dual energy,
+admissibility, existence of a maximizer, solvability, and continuity of the
+solution. In particular, the former claim that admissible and solvable
+measures were incomparable has been corrected: under orthogonality every
+admissible measure is solvable, while the unbounded slope-tower example is a
+solvable measure whose uniform-integrability constant is infinite. The
+rational-point example now proves exactly that a positive type-1 atom forces
+infinite dual energy and explicitly declines the stronger unsupported claim
+for measures that merely charge every neighbourhood of the point.
+
+The one-dimensional arguments were tightened at both levels. Analytic
+uniqueness for a connected smooth projective curve now follows directly from
+$\ddc(\varphi-\psi)=0$ and Thuillier's maximum principle, without silently
+assuming geometric connectedness, a semistable skeleton, or a cofinal
+retraction system. The quantitative graph subsection states those additional
+semistable hypotheses explicitly where they are genuinely needed. Its new
+Green--Dirichlet lemma obtains edgewise absolute continuity, finite Dirichlet
+energy, and the integration-by-parts identity for arbitrary positive Radon
+data by rational atomic approximation. This closes the former gap in which
+continuity alone was treated as control of the derivative integral.
+
+The resulting estimates have their sharp constants:
+$D_\Gamma(u_1-u_2)\leq L(\Gamma)\lVert\mu_1-\mu_2\rVert^2/4$ and
+$\lVert u_1-u_2\rVert_\infty\leq
+L(\Gamma)\lVert\mu_1-\mu_2\rVert/2$. The affine one-edge family attains the
+second bound, and subdivision preserves both the total modulus length and the
+coefficient. The dual-energy formula for arbitrary graph measures now uses
+the same atomic approximation, energy Lipschitz continuity, and strong
+derivative convergence. The completion theorem's source note was checked
+directly against Boucksom--Jonsson: Theorems 2.23, 2.24, and 2.26 are the exact
+components of its Theorem A. All 2,842 legacy inline delimiters were
+normalized.
+
+The automatic second pass has zero Chapter 28 writing-audit errors; its
+fifty-six reviewed warnings are the established chapter and item label
+namespaces and descriptive result titles. The project-wide source check
+covers 425 inputs and 12,054 labels, with zero missing inputs, duplicate
+labels, dangling references, or structural defects, and all six checker tests
+pass. The full build produces a 4,110-page PDF of 19,510,036 bytes with
+SHA-256 `cda9ce7c1624674ea76f0d7ea64706e88e32bfeb1ac3b4402faf331e150ff72e`.
+The final log has no unresolved references or citations, rerun requests,
+missing glyphs, emergency stops, or fatal errors. The two inherited overfull
+boxes in Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; Chapter 28 introduces none. All fifty-four physical
+pages 1787--1840 were inspected in the final render; page 1840 is the
+intentional blank verso. Pages 1787 and 1825--1827 were also inspected at
+full resolution for the opening, the new Green--Dirichlet lemma, the sharp
+stability theorem, and its subdivision and scalar-extension scope; the
+Chapter 29 seam at page 1841 was inspected separately. No clipping, overlap,
+bad glyph, formula overflow, or hierarchy defect was found.

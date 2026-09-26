@@ -39,8 +39,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part II, Chapters 9--19:** complete. All eleven chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part III, Chapters 20--31:** active. Chapters 20--27 are complete; Chapter
-  28 is next.
+- **Part III, Chapters 20--31:** active. Chapters 20--28 are complete; Chapter
+  29 is next.
 - **Parts IV--VI, Chapters 32--72:** queued in reading order after Part III.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -699,3 +699,39 @@ The project-wide reference check, checker tests, full build, automatic second
 pass, continuous chapter read, primary-source audit, and rendered inspection
 of all sixty-four chapter pages pass.  Exact evidence is recorded in
 `chapter_status.md`. Chapter 28 is next.
+
+### Chapter 28
+
+The finite-energy-measure chapter now keeps duality, completion, attainment,
+and regularity logically separate. Its admissibility discussion no longer
+claims that the admissible and solvable classes are incomparable: under
+orthogonality admissibility implies solvability, while the chapter's
+unbounded curve example proves that the converse fails. The rational-point
+counterexample has also been narrowed to the statement its calculation
+actually proves---a positive type-1 atom forces infinite dual energy---without
+making the unsupported stronger assertion about measures merely charging all
+neighbourhoods of that point.
+
+The curve theory has been rebuilt at the exact level of its hypotheses. The
+general uniqueness proof now uses the harmonic maximum principle directly and
+therefore does not import geometric connectedness, semistable reduction, or a
+cofinal retraction argument. The quantitative graph subsection separately
+states the geometrically connected semistable hypotheses it really needs. A
+new Green--Dirichlet lemma proves finite edge energy for arbitrary Radon data
+before the derivative integral is used; it yields the sharp estimates
+$D_\Gamma(u_1-u_2)\leq L(\Gamma)\lVert\mu_1-\mu_2\rVert^2/4$ and
+$\lVert u_1-u_2\rVert_\infty\leq
+L(\Gamma)\lVert\mu_1-\mu_2\rVert/2$. The one-edge example shows that the
+second coefficient is sharp and stable under subdivision. The graph formula
+for the dual energy now passes through atomic approximation and strong
+derivative convergence instead of treating uniform convergence as control of
+Dirichlet energy.
+
+The source audit checked the precise finite-energy-measure completion
+locators: Theorems 2.23, 2.24, and 2.26 of Boucksom--Jonsson together form the
+quoted Theorem A. All 2,842 legacy inline delimiters were normalized to the
+book convention. The scoped writing audit has zero errors and fifty-six
+reviewed convention warnings. The project-wide reference check, checker
+tests, full build, automatic second pass, two continuous chapter reads, and
+rendered inspection of all fifty-four chapter pages and the Chapter 29 seam
+pass. Exact evidence is recorded in `chapter_status.md`. Chapter 29 is next.
