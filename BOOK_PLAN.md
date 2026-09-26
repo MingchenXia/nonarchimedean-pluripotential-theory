@@ -282,7 +282,8 @@ planning ranges, not quotas.
 foundations.
 
 1. Complex potentials and their non-Archimedean analogues.
-2. Degenerations, valuations, and Berkovich points.
+2. The common valuative substrate: degenerations, valuations, and Berkovich
+   points.
 3. Local differential forms versus global model functions.
 4. The trivially valued cone and homogeneous potentials.
 5. A nodal degeneration, a toric variety, and a test configuration as the
