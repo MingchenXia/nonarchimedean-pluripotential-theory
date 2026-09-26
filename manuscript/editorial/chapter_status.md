@@ -4174,3 +4174,62 @@ table, norm and path metric, simplex proof, slope estimate, source correction,
 compactness limit, countable blind spot, characteristic boundary, closing
 notes, and provenance record; no clipping, overlap, bad glyph, formula
 overflow, or hierarchy defect was found.
+
+## Chapter 23: envelopes, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 23; Chapter 24
+is next. The chapter now keeps the raw all-psh envelope, the real-model BFJ
+envelope, and the rational-model GJKM envelope distinct at every statement
+where the competitor class matters. A direct source check of GJKM19,
+Definition 2.8, Theorem 8.2, and Section 9 confirms that the
+positive-characteristic continuity theorem concerns the rational-model
+envelope first and that comparison with the all-psh envelope comes later with
+additional SNC and cofinality hypotheses. The positive-characteristic
+theorem, hypothesis atlas, dictionary, and notes have been synchronized with
+that source order.
+
+The reduction from a continuous obstacle and a real model form to the
+integral zero-obstacle theorem has been made quantitatively exact. The
+approximating obstacle is rational, the shifted rational class is required
+only to retain an ample generic class, and the class approximation is chosen
+within $\varepsilon^2$ before setting $t_\varepsilon=\varepsilon$. Thus the
+bracketing class converges to the fixed relatively ample reference and the
+convex curvature correction is justified without silently declaring the
+shifted class relatively ample. The formal dependence on the reference class
+now takes place on a fixed common higher model with a uniform ample
+neighborhood. Fixed-model envelope comparisons are conditional on existence,
+as required by their definition.
+
+The topological interfaces were also repaired. Pointwise convergence of
+retractions for a bounded obstacle is no longer promoted to uniform
+convergence; neither second countability nor a countably cofinal system of SNC
+models is inferred from the standing hypotheses; and the fixed-skeleton
+selection theorem records that both its Lipschitz constant and its chosen
+sequence depend on the model. The upper-semicontinuous-obstacle corollary now
+applies the upper-envelope theorem directly from its actual hypotheses instead
+of invoking an inapplicable lower-boundedness lemma. The closing comparison
+table states all nonemptiness and boundedness assumptions and was redesigned
+from four narrow columns to three readable ones. The chapter opening now
+distinguishes the original multiplier-ideal use of residue characteristic
+zero from later test-ideal replacements under extra hypotheses. All 1,582
+legacy inline delimiters were normalized, minor prose defects were removed,
+and the two occurrences of Musta\c{t}\u{a} use LaTeX accents supported by the
+book fonts.
+
+The automatic second pass has zero Chapter 23 writing-audit errors; its
+twenty-seven reviewed warnings are the established chapter-label namespace
+and descriptive result titles. The project-wide source check covers 425
+inputs and 12,036 labels, with zero missing inputs, duplicate labels, dangling
+references, or structural defects, and all six checker tests pass. The full
+4,104-page PDF has 22,173,541 bytes and SHA-256
+`5fe81fd2b384de4b8d03eab0641c113c5651df042862217b1babcb67d8fdb540`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, emergency stops, or fatal errors. Nine pre-existing overfull
+boxes, thirteen Chapter 70 duplicate destinations, and missing-glyph warnings
+in unchanged chapters and appendices remain; Chapter 23 introduces no
+overfull box, missing glyph, or `tabularx` width warning. All fifty physical
+pages 1499--1548 were inspected as rendered thumbnails, with pages 1499,
+1522, 1542, and 1545 additionally inspected at full resolution for the
+opening, curvature correction, rational-envelope theorem, and closing
+dictionary tables. No clipping, overlap, bad glyph, formula overflow, or
+hierarchy defect was found.

@@ -39,8 +39,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part II, Chapters 9--19:** complete. All eleven chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part III, Chapters 20--31:** active. Chapters 20--22 are complete; Chapter
-  23 is next.
+- **Part III, Chapters 20--31:** active. Chapters 20--23 are complete; Chapter
+  24 is next.
 - **Parts IV--VI, Chapters 32--72:** queued in reading order after Part III.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -524,3 +524,42 @@ are reviewed label namespaces and descriptive titles. The project-wide
 reference check, checker tests, full build, automatic second pass, two
 continuous source reads, and rendered-page inspection all pass. Exact
 evidence is recorded in `chapter_status.md`. Chapter 23 is next.
+
+### Chapter 23
+
+The pass now separates three operators throughout: the raw all-psh obstacle
+envelope, the real-model obstacle envelope used in the BFJ setting, and the
+rational-model envelope used by Gubler--Jell--K\"unnemann--Martin. Direct
+inspection of GJKM19, Definition 2.8, Theorem 8.2, and Section 9 confirms that
+its positive-characteristic theorem first proves continuity for the
+rational-model envelope and identifies it with the all-psh envelope only
+later, under the additional SNC/cofinality framework. The theorem, hypothesis
+atlas, dictionary, and source notes now preserve that order.
+
+The BFJ reduction to base ideals was repaired at the level where rationality
+and positivity interact. The model obstacle is chosen rationally; the
+perturbed class is required only to have ample generic class rather than the
+unsupported stronger property of relative ampleness; and an explicit
+$\varepsilon^2$ class approximation with $t_\varepsilon=\varepsilon$ makes
+the convex curvature correction converge. The formal class-continuity
+argument now works on one fixed higher model with a uniform ample
+neighborhood. The fixed-model comparison is asserted only when the relevant
+largest elements exist.
+
+The topological scope was tightened as well. Retraction convergence for a
+bounded obstacle is no longer called uniform, the standing hypotheses no
+longer imply second countability or a countably cofinal model system, and the
+fixed-skeleton selection records explicitly that its Lipschitz constant and
+chosen sequence depend on the model. The upper-semicontinuous-obstacle proof
+now uses exactly its stated hypotheses instead of citing a lower-boundedness
+lemma that does not apply. The closing envelope comparison table was rebuilt
+so that these hypotheses remain visible and the rendered page no longer
+overflows.
+
+All 1,582 legacy inline delimiters were normalized to the book convention.
+The scoped writing audit has zero errors; its twenty-seven remaining warnings
+are reviewed chapter-label and descriptive-title conventions. The
+project-wide reference check, checker tests, full build, automatic second
+pass, two continuous chapter reads, and rendered inspection of all fifty
+chapter pages pass. Exact evidence is recorded in `chapter_status.md`.
+Chapter 24 is next.
