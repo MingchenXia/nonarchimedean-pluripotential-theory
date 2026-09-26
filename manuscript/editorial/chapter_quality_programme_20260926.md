@@ -37,8 +37,8 @@ than mechanically rewritten.
 
 - **Part I, Chapters 1--8:** complete. All eight chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part II, Chapters 9--19:** active. Chapter 9 is complete; Chapter 10 is
-  next.
+- **Part II, Chapters 9--19:** active. Chapters 9--10 are complete; Chapter 11
+  is next.
 - **Parts III--VI, Chapters 20--72:** queued in reading order after Part II.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -241,3 +241,29 @@ writing audit has zero errors; its fifteen remaining warnings are reviewed
 project conventions and descriptive titles. The project-wide reference
 check, full build, automatic second pass, and rendered-page inspection all
 pass. Exact evidence is recorded in `chapter_status.md`.
+
+### Chapter 10
+
+The pass made forms on a polyhedral support intrinsic: they are now germs in
+ambient neighbourhoods, organized by a direct limit, rather than quotients
+depending on one undeclared neighbourhood. The sheaf proof constructs a
+locally finite ambient refinement and uses a partition of unity there; the
+cellwise boundary condition and pullback scope are stated explicitly.
+
+The tropical-space definition now fixes a pure dimension, signed transition
+weights produce signed densities rather than positive measures, and
+calibrations are separated cleanly into oriented top-lattice multiplicities
+and signed cycle weights. The formerly false global count of two
+orientation--weight pairs is corrected to two choices per facet, independent
+from facet to facet. The circle non-embedding argument is now proved directly
+from balancing, without a forward dependency on Chapter 11.
+
+Subdivision invariance and pushforward functoriality have single consolidated
+proofs, stable-intersection and Gysin edge cases have their correct scope, and
+the Bergman-fan discussion no longer turns nonrealizability as a linear space
+into a stronger unsupported claim. Six reusable definitions, examples, and
+remarks received semantic labels. The scoped writing audit has zero errors;
+its forty-seven remaining warnings are reviewed project conventions and
+descriptive titles. The project-wide reference check, full build, automatic
+second pass, and rendered-page inspection all pass. Exact evidence is recorded
+in `chapter_status.md`.

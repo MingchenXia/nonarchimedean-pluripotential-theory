@@ -3768,3 +3768,49 @@ Physical pages 368, 390, 394, 406, and 409 were visually inspected for the
 constant-coefficient fibre, pointwise positivity, duality pairing,
 distributional finiteness argument, and source notes; no clipping, overlap,
 bad glyph, formula overflow, or hierarchy defect was found.
+
+## Chapter 10: polyhedral forms, tropical spaces, and calibrations, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 10; Chapter 11
+is next. Forms on a polyhedral support are now defined intrinsically as germs
+in a direct limit over ambient neighbourhoods. Their equality relation is
+tested after restriction to a common neighbourhood, and the sheaf proof now
+uses a locally finite ambient refinement and partition of unity instead of an
+undeclared fixed neighbourhood. Operations preserve the cellwise boundary
+condition, and the pullback statement is scoped to maps carrying source cells
+into target cells.
+
+Tropical spaces now have a fixed pure dimension, and the transition theorem
+distinguishes signed densities from positive measures. An orientation is a
+choice of primitive generator of the top exterior tangent lattice, while a
+calibration is the resulting oriented multiplicity. The factorization into an
+orientation and a signed cycle weight is explicitly noncanonical until one of
+the two is fixed. Accordingly, the former global assertion of exactly two
+pairs is corrected to exactly two pairs on each facet, with independent
+choices across facets. The proof that a tropical circle cannot embed in a
+line is now a direct maximum-vertex argument from balancing and no longer
+depends forward on Chapter 11.
+
+The subdivision and pushforward arguments have been consolidated into single
+proofs that establish invariance and functoriality. Cycle addition uses a
+locally finite common overlay, the Gysin statement treats negative expected
+dimension as the zero cycle, and the Bergman-fan discussion now says precisely
+that a nonrealizable matroid cannot arise as the tropicalization of the
+corresponding linear space, without excluding unrelated realizations. Six
+reusable items received semantic labels.
+
+The automatic second pass has zero Chapter 10 writing-audit errors; its
+forty-seven reviewed warnings are the established label namespaces and
+descriptive titles. The project-wide source check covers 423 inputs and 11,985
+labels, with zero missing inputs, duplicate labels, or dangling references,
+and all six checker tests pass. The full 4,100-page PDF has 19,520,404 bytes
+and SHA-256
+`9b907de60c8823b32f7238fabaa23ab8ae5c3dea058292e4861004a4b3902415`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, horizontal or vertical overflows, emergency stops, or fatal
+errors; the thirteen inherited Chapter 70 duplicate destinations remain.
+Physical pages 411, 430, 436, 438--439, 441, 447, 452, and 456 were visually
+inspected for the chapter opening, intrinsic support forms, tropical-space
+dimension, the circle obstruction, calibration signs, pushforward,
+stable intersection, Gysin pullback, and source notes; no clipping, overlap,
+bad glyph, formula overflow, or hierarchy defect was found.
