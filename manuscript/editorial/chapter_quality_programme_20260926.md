@@ -35,8 +35,8 @@ than mechanically rewritten.
 
 ## Order and progress
 
-- **Part I, Chapters 1--8:** active. Chapters 1--3 have completed their
-  semantic, mathematical, and structural pass; Chapter 4 is next.
+- **Part I, Chapters 1--8:** active. Chapters 1--4 have completed their
+  semantic, mathematical, and structural pass; Chapter 5 is next.
 - **Parts II--VI, Chapters 9--72:** queued in reading order after Part I.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -80,4 +80,26 @@ proposition has a proposition-prefixed label throughout the live manuscript.
 The scoped writing audit has zero errors; the remaining twelve warnings are
 reviewed descriptive example titles and the established chapter-label
 namespace. Full build and rendered-page evidence is recorded in
+`chapter_status.md`.
+
+### Chapter 4
+
+The pass now separates the chapter's elementary constructions from its
+imported analytic-space inputs with exact interfaces. Support-surjectivity
+reuses the valuation-extension results proved in Chapter 2, properness is
+cited separately in the nontrivially and trivially valued cases, and the
+base-change, fibre, and GAGA statements carry precise Berkovich--Temkin
+locators. The Newton--Puiseux and completed-algebraic-closure inputs in the
+explicit type-IV example, together with the real-tree topology of the
+Berkovich projective line, now have exact sources.
+
+The proof architecture was also tightened internally: continuity of the
+support map is proved by an explicit inverse-image formula, the
+countable-cofinal reduction in spherical completeness is written out, and
+the polydisc-extension argument uses the uniform seminorm inequality needed
+to pass to the completion. Nine reusable definitions, examples, and remarks
+now have semantic labels, and inline mathematics follows the book
+convention. The scoped writing audit has zero errors; its remaining
+twenty-three warnings are reviewed project conventions and descriptive
+titles. Full build and rendered-page evidence is recorded in
 `chapter_status.md`.
