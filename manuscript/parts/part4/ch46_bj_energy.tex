@@ -19,10 +19,11 @@ were forbidden to use the envelope property, because they were proving it;
 \Cref{part:bj} both are used without further comment, and the present
 chapter is where the first genuine dividend is collected: the passage from
 a finitary intersection number to a functional on singular psh functions
-requires exactly the fixed-class monotone approximation that only the
-envelope theorem supplies.  \Cref{sec:ch46-where-envelope} isolates the
-four places where it is used, and \Cref{rem:ch46-without-envelope} records
-what would remain without it.
+uses the unconditional fixed-ample-class regularization of
+\Cref{thm:ch34-fs-regularization}.  The envelope theorem enters later
+through compactness, extremal functions, and obstacle calculus.
+\Cref{sec:ch46-where-envelope} isolates those uses, and
+\Cref{rem:ch46-without-envelope} records what remains without them.
 
 \section{Orientation}
 \label{sec:ch46-orientation}
@@ -57,33 +58,34 @@ numbers on a projective \((n+1)\)-dimensional \(k\)-scheme.  The inputs are
 Hodge index inequality for divisors supported in one fibre.  No analysis
 occurs, and no envelope.
 
-The second step is a monotone extension.  It is here that the analysis, and
-the envelope theorem, enter.  The extension is by an infimum over PL, or
-continuous, psh competitors lying above the given psh functions, and three
-things have to be proved about it: that the competitor family is nonempty,
-that the infimum reproduces the intersection number on PL data, and that
-the resulting functional is continuous along decreasing nets.  The third is
-a compactness statement --- a Dini argument on \(X^{\An}\) --- and the first
-two are where fixed-class approximation is needed.
+The second step is a monotone extension, and this is where analysis enters.
+The extension is by an infimum over PL psh competitors lying above the
+given psh functions.  One must prove that the competitor family is
+nonempty, that the infimum reproduces the intersection number on PL data,
+and that the resulting functional is continuous along decreasing nets.
+Fixed-class PL regularization from \Cref{thm:ch34-fs-regularization},
+together with a compact-space Dini argument, supplies these facts; the
+envelope property is not needed for this foundational extension.
 
 \subsection{The envelope theorem is available here}
 \label{sec:ch46-envelope-available}
 
-\begin{important}{The two statements imported from \Cref{chap:bj-envelope-consequences}}
+\begin{important}{Regularization and envelope inputs}
 \label{imp:ch46-envelope-imported}
 Throughout this chapter \(X\) is integral projective and \emph{unibranch},
-so that \Cref{thm:bj-final-envelope} applies to every real class.  Two of
-its consequences are used repeatedly and are recorded here in the exact
-form in which they will be quoted.
+so that \Cref{thm:bj-final-envelope} applies to every real class.  The two
+inputs below have different provenance, which matters for tracking what
+survives without unibranchness.
 \begin{enumerate}
 \item\label{itm:ch46-imp:regularization}
       \emph{Fixed-class monotone approximation.}  For
       \(\omega\in\Amp(X)\) and \(u\in\PSH_X(\omega)\) there is a downward
-      directed net \((u_g)\) of \emph{continuous} \(\omega\)-psh functions
-      with \(u_g\downarrow u\) pointwise on \(X^{\An}\)
-      (\Cref{thm:ch45-continuous-regularization}).  The approximants live
-      in the class \(\omega\) itself, not in classes converging to
-      \(\omega\) as in \Cref{def:bj-psh}\,(3).
+      directed net in $\cH_{\mathrm{dom}}(\omega)$, hence of continuous
+      PL $\omega$-psh functions, with $u_g\downarrow u$ pointwise on
+      $X^{\An}$ (\Cref{thm:ch34-fs-regularization}).  This is
+      unconditional and valid for every real ample class.  The envelope
+      construction \Cref{thm:ch45-continuous-regularization} gives a second
+      such net, indexed by continuous obstacles.
 \item\label{itm:ch46-imp:compactness}
       \emph{Compactness.}  The normalized space
       \(\PSH^{\sup}_X(\theta)\) of \eqref{eq:normalized-psh-space} is
@@ -101,12 +103,12 @@ are quoted rather than reproved.
 \end{important}
 
 The reader who wants to see the dependence made explicit should turn to
-\Cref{sec:ch46-where-envelope}, where the four uses are listed with the
-statements they support, and to \Cref{rem:ch46-without-envelope}, which
+\Cref{sec:ch46-where-envelope}, where the inputs are separated by
+provenance, and to \Cref{rem:ch46-without-envelope}, which
 describes the theory that survives if the envelope theorem is withheld.
-The short version is: the PL theory and the theory of \emph{bounded} psh
-functions survive intact; the extension to unbounded psh functions, the
-identification of \(\cE^1\), and every compactness statement do not.
+The short version is: the PL theory and the monotone energy extension to
+unbounded psh functions survive intact; compactness, extremal envelopes,
+and the variational existence package do not.
 
 \subsection{The five tasks}
 \label{sec:ch46-tasks}
@@ -172,10 +174,12 @@ on a test configuration \(\cX\) dominating \(X\times\mathbf A^1\) and
 which by \Cref{prop:ch34-pl-consistency} is the same thing whether pshness
 is tested by \Cref{def:bj-psh} or by the relative nefness condition
 \eqref{eq:pl-relative-nefness} of \Cref{def:positive-pl-function}.  The
-unibranch hypothesis is used only through
-\Cref{imp:ch46-envelope-imported}; every statement about PL data holds for
-an arbitrary integral projective \(X\), and this is recorded statement by
-statement in \Cref{sec:ch46-hypothesis-use}.
+unibranch hypothesis is used only for the envelope-dependent inputs in
+\Cref{imp:ch46-envelope-imported}; in particular it is not used for the
+fixed-class regularization in item~\cref{itm:ch46-imp:regularization}.
+Every statement about PL data holds for an arbitrary integral projective
+$X$, and the wider scope of the monotone extension is recorded statement
+by statement in \Cref{sec:ch46-hypothesis-use}.
 
 \subsection{The normalization, declared}
 \label{sec:ch46-normalization}
@@ -1380,9 +1384,9 @@ live in classes that merely converge to \(\omega\); see
 
 \begin{lemma}
 \label{lem:ch46-pl-domination}
-Let \(L\) be an ample \(\mathbf Q\)-line bundle on \(X\), let
-\(\omega=c_1(L)\), let \(u\in\PSH(\omega)\), let \(S\subset X^{\divis}\) be
-finite and let \(\varepsilon>0\).  Then there is
+Let $\omega\in\Amp(X)$ be a real ample class, let
+$u\in\PSH(\omega)$, let $S\subset X^{\divis}$ be finite, and let
+$\varepsilon>0$.  Then there is
 \(\psi\in\cH_{\mathrm{dom}}(\omega)\) with
 \[
  \psi\ge u\ \text{ on }X^{\An},
@@ -1395,78 +1399,15 @@ Consequently
 \end{lemma}
 
 \begin{proof}
-\emph{Step 1: a generically finite regularization in the fixed class.}
-The class \(\omega\) is ample, hence nef, and is the class of a
-\(\mathbf Q\)-line bundle; so \Cref{thm:ch34-fs-regularization} applies and
-gives a decreasing net \((\phi_\iota)\) with
-\(\phi_\iota\in\cH^{\mathrm{gf}}_{\mathbf R}(L)\), each \(\phi_\iota\)
-being \(\omega\)-psh, and \(\phi_\iota\downarrow u\) pointwise on
-\(X^{\An}\).  A \(\theta\)-psh function is finite at every divisorial point
-(\Cref{thm:ch34-psh-compactness}), and \(S\) is finite, so there is
-\(\iota\) with
-\[
- \phi_\iota(v)\le u(v)+\tfrac{\varepsilon}{4}
- \qquad\text{for every }v\in S .
-\]
-Fix such an \(\iota\) and write, as in \eqref{eq:gf-fs-presentation},
-\[
- \phi_\iota=\frac1m\max_{1\le j\le r}\{\log|s_j|+\lambda_j\},
- \qquad
- 0\ne s_j\in H^0(X,mL),\ \lambda_j\in\mathbf R .
-\]
+By \Cref{thm:ch34-fs-regularization} there is a decreasing net
+$(\psi_i)\subset\cH_{\mathrm{dom}}(\omega)$ with
+$\psi_i\downarrow u$ pointwise on $X^{\An}$.  Thus every
+$\psi_i\ge u$.  Since $S$ is finite, directedness supplies one index
+$i$ for which
+$\psi_i(v)\le u(v)+\varepsilon$ simultaneously for all $v\in S$.
+Take $\psi=\psi_i$.
 
-\emph{Step 2: truncation from below.}  Choose \(c\in\mathbf Q\) with
-\(c\le\min_{v\in S}u(v)\), which is possible because \(S\) is finite and
-\(u\) is finite on \(X^{\divis}\).  Since \(\omega\) is nef, the constant
-\(c\) is \(\omega\)-psh (\Cref{lem:ch34-psh-nonempty}), so
-\(\chi:=\max\{\phi_\iota,c\}\) is \(\omega\)-psh by
-\Cref{thm:bj-basic-closure}\,(2).  It satisfies \(\chi\ge\phi_\iota\ge u\)
-and, for \(v\in S\),
-\(\chi(v)=\max\{\phi_\iota(v),c\}\le\max\{u(v)+\varepsilon/4,u(v)\}
- =u(v)+\varepsilon/4\).
-
-\emph{Step 3: \(\chi\) is a Fubini--Study function.}  Enlarging \(m\) by a
-Veronese substitution (\Cref{lem:ch34-veronese}) we may assume that \(mL\)
-is an honest globally generated line bundle; let \(t_1,\dots,t_N\) be
-sections of \(mL\) without common zero.  Then
-\(\max_k\log|t_k|\equiv0\), because
-\(\max_k\log|t_k|(v)=-v(\mathfrak b)\) with \(\mathfrak b\) the base ideal,
-which is \(\cO_X\); this is \eqref{eq:ch34-log-ideal}.  Consequently
-\[
- \chi=\frac1m\max\bigl\{
-   \log|s_1|+\lambda_1,\ \dots,\ \log|s_r|+\lambda_r,\
-   \log|t_1|+mc,\ \dots,\ \log|t_N|+mc\bigr\},
-\]
-a weighted section system for \(L\) whose sections have no common zero.
-Hence \(\chi\in\cH_{\mathbf R}(L)\) by \Cref{def:gf-fs-functions}; in
-particular \(\chi\) is real valued and continuous.
-
-\emph{Step 4: rationalizing the weights.}  Choose rational
-\(\lambda_j'\in[\lambda_j,\lambda_j+m\varepsilon/4]\) and put
-\(\chi':=\frac1m\max\{\log|s_j|+\lambda_j',\ \log|t_k|+mc\}\).  Then
-\(\chi\le\chi'\le\chi+\varepsilon/4\), the weights are rational, and the
-sections still have no common zero, so \(\chi'\in\cH(L)\).  By
-\Cref{thm:tc-pl-correspondence}, \(\chi'\) corresponds to a semiample test
-configuration, hence lies in \(\PL(X)\) and is \(\omega\)-psh at PL level;
-by \Cref{prop:ch34-pl-consistency} the two notions of pshness agree.
-
-\emph{Step 5: entering \(\cH_{\mathrm{dom}}(\omega)\).}  By
-\cite[Proposition~3.10]{BJ22}, recorded after \Cref{def:ch34-hdom}, every
-element of \(\PL_{\mathbf R}(X)\cap\PSH(\omega)\) is a uniform limit of
-elements of \(\cH_{\mathrm{dom}}(\omega)\); choose
-\(\eta\in\cH_{\mathrm{dom}}(\omega)\) with
-\(\lVert\eta-\chi'\rVert_\infty\le\varepsilon/8\) and a rational
-\(\delta\in[\varepsilon/8,\varepsilon/4]\), and set
-\(\psi:=\eta+\delta\).  Then \(\psi\in\cH_{\mathrm{dom}}(\omega)\) by
-\Cref{lem:ch46-competitors-nonempty}, and
-\[
- \psi\ge\chi'-\tfrac\varepsilon8+\tfrac\varepsilon8=\chi'\ge\chi\ge u,
- \qquad
- \psi\le\chi'+\tfrac\varepsilon8+\tfrac\varepsilon4
-   \le\chi+\tfrac\varepsilon4+\tfrac{3\varepsilon}8 .
-\]
-On \(S\) this gives \(\psi\le u+\varepsilon/4+5\varepsilon/8\le
-u+\varepsilon\).  The last assertion of the lemma follows by letting
+The last assertion of the lemma follows by letting
 \(S=\{v\}\) and \(\varepsilon\downarrow0\), the reverse inequality being
 the definition of \(\mathcal F_{\mathrm{dom}}\).
 \end{proof}
@@ -1522,12 +1463,10 @@ along decreasing nets.  Explicitly,
 \begin{proof}[Proof of the foundational extension]
 Write \(I(\phi_0,\dots,\phi_n)\) for the right-hand side of
 \eqref{eq:bj-energy-infimum} and \(P\) for the PL pairing of
-\Cref{def:bj-pl-energy-pairing}.  Throughout the proof the classes
-\(\omega_i\) are assumed to be classes of ample \(\mathbf Q\)-line bundles,
-which is the case in which \Cref{lem:ch46-pl-domination} is available; the
-passage to arbitrary real ample classes is discussed in
-\Cref{rem:ch46-real-classes} and is part of the statement quoted from
-\cite[Theorem~7.1]{BJ22}.
+\Cref{def:bj-pl-energy-pairing}.  The classes $\omega_i$ may be arbitrary
+real ample classes: \Cref{lem:ch46-pl-domination} has exactly that scope,
+by the fixed-class regularization of
+\Cref{thm:ch34-fs-regularization}.
 
 \emph{Step 1: \(I\) is well defined and increasing.}  The competitor family
 is nonempty by \Cref{lem:ch46-competitors-nonempty}, so the infimum is
@@ -1663,49 +1602,29 @@ the potentials, so a varying-class approximation would produce a family of
 numbers \(\bigl(c_1(L_{0,\iota}),\phi_{0,\iota}\bigr)\cdots\) whose limit
 would have to be shown independent of the approximating classes before it
 could be called the pairing of \((\omega_i,\phi_i)\).  What
-\Cref{thm:ch34-fs-regularization} and \Cref{thm:ch45-continuous-regularization}
-supply, and what \Cref{def:bj-psh} does not, is a monotone approximation in
-the class \(\omega\) itself.  This is the sense in which
-\Cref{sec:ch46-where-envelope} claims that the envelope theorem is what
-makes the extension possible: for a class that is not the class of a
-\(\mathbf Q\)-line bundle, \Cref{thm:ch45-continuous-regularization} is the
-only fixed-class monotone approximation available in this book.
+\Cref{thm:ch34-fs-regularization} supplies, and what the bare definition
+does not, is a monotone PL approximation in the fixed class $\omega$
+itself.  This holds for every real ample class, whether or not it is the
+class of a $\mathbf Q$-line bundle, and requires no envelope property.
+\Cref{thm:ch45-continuous-regularization} supplies a different,
+obstacle-indexed net that is useful for envelope calculus but is not needed
+to define the extended pairing.
 \end{remark}
 
 \begin{remark}[Real ample classes]
 \label{rem:ch46-real-classes}
-\Cref{lem:ch46-pl-domination} was proved for \(\omega=c_1(L)\) with \(L\)
-an ample \(\mathbf Q\)-line bundle, because
-\Cref{thm:ch34-fs-regularization} is stated for classes of
-\(\mathbf Q\)-line bundles.  For an arbitrary real ample class \(\omega\)
-the corresponding statement with \(\cH_{\mathrm{dom}}(\omega)\) replaced by
-\(C^0(X^{\An})\cap\PSH(\omega)\) is
-\Cref{thm:ch45-continuous-regularization}, which holds for every real
-ample class on a unibranch \(X\); and the competitor family
-\(\{w\in C^0\cap\PSH(\omega):w\ge u\}\) is then downward directed with
-infimum \(u\), by \Cref{lem:ch46-continuous-competitors} below.  The
-statement of \Cref{thm:bj-extended-energy-pairing} for real ample classes
-is \cite[Theorem~7.1]{BJ22}; the proof given above is complete for classes
-of ample \(\mathbf Q\)-line bundles, and Steps~1, 3, 4 and~6 are valid verbatim for real classes once Step~2 and
-\Cref{lem:ch46-pl-domination} are, and so is Step~5, whose only use of that
-lemma is to compute an infimum against a measure carried by a finite subset
-of \(X^{\divis}\), supplied for a real class by
-\Cref{lem:ch46-continuous-competitors}.  The same substitution widens \Cref{prop:ch46-energy-usc}, which is
-stated here for a rational ample class because its proof of
-\cref{itm:ch46-Eusc:rep} goes through
-\Cref{lem:ch46-pl-domination}: replace \(\cH_{\mathrm{dom}}(\omega)\) by
-\(C^0(X^{\An})\cap\PSH(\omega)\) throughout, the only step that changes
-being that appeal, which for a real class is supplied by
-\Cref{lem:ch46-continuous-competitors} together with the fact that
-\(\MA_\omega(\psi)\) is carried by a finite subset of \(X^{\divis}\).  That
-widened form is the one used in \Cref{chap:bj-finite-energy} and
-\Cref{chap:bj-strong-topologies}, both of which run under the standing
-hypothesis \(\omega\in\Amp(X)\) with no rationality assumption.  Apart from
-this, no statement later in this book uses the real case in an essential
-way: the polarization of \Cref{sec:ch46-e1} and the measures of
-\Cref{sec:ch46-mixed} are stated for classes in \(N^1(X)\), and their
-proofs proceed by approximating a real class by rational ones inside the
-open ample cone.
+The set $\cH_{\mathrm{dom}}(\omega)$ and the regularization theorem are
+defined for every real $\omega\in\Amp(X)$; rationality is required only
+of the vertical divisor determining each PL approximant, not of $\omega$
+itself.  Consequently \Cref{lem:ch46-pl-domination} and the proof of
+\Cref{thm:bj-extended-energy-pairing} apply verbatim to arbitrary real
+ample classes, as in \cite[Theorem~7.1]{BJ22}.  The same observation gives
+the real-class form of \Cref{prop:ch46-energy-usc}, whose proof of
+\cref{itm:ch46-Eusc:rep} uses only
+\Cref{lem:ch46-pl-domination}.  The larger obstacle family
+$\{w\in C^0\cap\PSH(\omega):w\ge u\}$ from
+\Cref{lem:ch46-continuous-competitors} remains useful for envelope
+arguments, but it is not needed to bridge rational and real ample classes.
 \end{remark}
 
 \begin{lemma}
@@ -1791,8 +1710,8 @@ representation formula it produces is used again in
 
 \begin{proposition}
 \label{prop:ch46-energy-usc}
-Let \(\omega\in\Amp(X)\) be the class of an ample \(\mathbf Q\)-line
-bundle.  Then, on \(\PSH(\omega)\),
+Let $\omega\in\Amp(X)$ be a real ample class.  Then, on
+$\PSH(\omega)$,
 \begin{enumerate}
 \item\label{itm:ch46-Eusc:rep}
       \(\displaystyle
@@ -1946,18 +1865,17 @@ theorem and which are not.
       \Cref{thm:bj-final-obstacle-psh},
       \Cref{cor:ch45-continuity-envelopes} and
       \Cref{thm:ch45-continuous-regularization}, that is, the envelope
-      theorem three times.  It is what makes ``the limit along the
-      competitor family'' a statement about a \emph{net} rather than about
-      an unordered infimum, and it is what
-      \Cref{thm:bj-mixed-ma} needs in order to speak of coordinatewise
-      decreasing nets.
+      theorem three times.  It packages continuous majorants as an
+      obstacle-indexed decreasing net.  The foundational pairing and the
+      mixed-measure construction do not require this package: their
+      monotone PL approximants come directly from
+      \Cref{thm:ch34-fs-regularization}.
 \item\label{itm:ch46-env:real}
-      \emph{Real ample classes.}  \Cref{thm:ch34-fs-regularization}
-      regularizes in a fixed class only when that class is the class of a
-      \(\mathbf Q\)-line bundle.  For an arbitrary real ample class the
-      only fixed-class monotone approximation available is
-      \Cref{thm:ch45-continuous-regularization}, which is a consequence of
-      the envelope theorem; see \Cref{rem:ch46-real-classes}.
+      \emph{Real ample classes do not consume the envelope theorem.}
+      \Cref{thm:ch34-fs-regularization} regularizes in
+      $\cH_{\mathrm{dom}}(\omega)$ for every real ample $\omega$.
+      This is the input used by \Cref{lem:ch46-pl-domination} and the
+      extension theorem; see \Cref{rem:ch46-real-classes}.
 \item\label{itm:ch46-env:compactness}
       \emph{Compactness.}  \Cref{cor:ch45-compactness} together with the
       upper semicontinuity of \Cref{prop:ch46-energy-usc} is what makes
@@ -1980,24 +1898,24 @@ theorem and which are not.
 Everything in \Cref{sec:ch46-model,sec:ch46-pl-measure,sec:ch46-p1}
 survives, for an arbitrary integral projective \(X\) over an arbitrary
 trivially valued field: those sections are intersection theory on a
-projective \((n+1)\)-fold.  So does the extension
-\Cref{thm:bj-extended-energy-pairing} for classes of ample
-\(\mathbf Q\)-line bundles, since \Cref{lem:ch46-pl-domination} was proved
-from \Cref{thm:ch34-fs-regularization}; and so do the mixed measures of
-\Cref{thm:bj-mixed-ma} on \emph{bounded} psh functions, since there the
-competitor family may be replaced by a sandwich between two constants.
+projective $(n+1)$-fold.  So do the extension
+\Cref{thm:bj-extended-energy-pairing} for arbitrary real ample classes and
+the mixed measures and finite-energy formalism built from it: their
+fixed-class PL approximation is \Cref{thm:ch34-fs-regularization}, which
+does not require the envelope property.
 
-What does not survive is the passage to unbounded potentials with a usable
-calculus: without \Cref{cor:ch45-compactness} there is no compactness of
+What does not survive is the compact variational and envelope package:
+without \Cref{cor:ch45-compactness} there is no compactness of
 \(\PSH^{\sup}(\omega)\), hence no attainment of suprema of \(E_\omega\),
 hence no variational solution of the Monge--Amp\`ere equation; without
 \Cref{cor:ch45-extremal} there is no \(V_\theta\), hence no energy relative
 to a non-nef class; and without
 \Cref{thm:ch45-continuous-regularization} there is no fixed-class
-approximation for a real class.  This is the sense in which
-\Cref{chap:bj-envelope-consequences} is the hinge of \Cref{part:bj}: the
-finitary theory was always available, and it is the analytic completion of
-it that had to wait.
+obstacle-indexed approximation outside the ample regime.  This is the
+sense in which \Cref{chap:bj-envelope-consequences} is the hinge of
+\Cref{part:bj}: the finitary theory and its monotone ample-class extension
+were already available, while compactness, extremal envelopes, and the
+variational existence theory had to wait.
 \end{remark}
 
 \section{Finite energy and polarization}
@@ -2905,13 +2823,15 @@ makes the energy homogeneous of degree one.
 
 \begin{theorem}
 \label{thm:ch46-energy-homogeneous}
-For \(t>0\) and pairs \((\theta_i,\phi_i)\) that are psh at PL level,
+For $t\in\mathbf Q_{>0}$ and pairs $(\theta_i,\phi_i)$ that are psh at
+PL level,
 \[
  (\theta_0,t\cdot\phi_0)\cdots(\theta_n,t\cdot\phi_n)
  =t\,(\theta_0,\phi_0)\cdots(\theta_n,\phi_n),
 \]
 where \(t\cdot\phi\) is the scaling action
-\eqref{eq:function-scaling-action}.  Consequently
+\eqref{eq:function-scaling-action}.  For every real $t>0$, the pure energy
+satisfies
 \[
  E_\omega(t\cdot\phi)=t\,E_\omega(\phi)
  \qquad\text{for every }\phi\in\PSH(\omega),
@@ -2971,17 +2891,23 @@ map \(t\mapsto E_\omega(t\cdot\phi)\) is continuous, \(E_\omega\) being
 \(1\)-Lipschitz for the uniform norm and \(t\mapsto t\cdot\phi\) continuous
 into \(C^0(X^{\An})\) by Step~3; so
 \(E_\omega(t\cdot\phi)=tE_\omega(\phi)\) for every \(t>0\), from the
-rational case.  For general \(\phi\), the action is an order isomorphism by
-\Cref{lem:ch35-action-basic}\,(2) and therefore carries the family
-\(\{w\in C^0(X^{\An})\cap\PSH(\omega):w\ge\phi\}\) of
-\Cref{lem:ch46-continuous-competitors} onto the corresponding family for
-\(t\cdot\phi\) --- it does \emph{not} carry
-\(\cH_{\mathrm{dom}}(\omega)\) onto itself, that family being indexed by
-\(\mathbf Q\)-Cartier data; combining this with the bounded case just proved
-gives \(E_\omega(t\cdot\phi)=t\,E_\omega(\phi)\), the factor \(t>0\)
-commuting with the infimum by ledger entry~(3).  Since
-\(t>0\), the value \(-\infty\) is preserved, so \(\cE^1(\omega)\) is
-stable.
+rational case.  For general $\phi$, choose by
+\Cref{thm:ch34-fs-regularization} a decreasing net
+$\phi_i\in\cH_{\mathrm{dom}}(\omega)$ with $\phi_i\downarrow\phi$.
+The action is an order isomorphism by
+\Cref{lem:ch35-action-basic}\,(2), and directly from its definition
+$t\cdot\phi_i\downarrow t\cdot\phi$.  The bounded case gives
+$E_\omega(t\cdot\phi_i)=tE_\omega(\phi_i)$, while continuity of the
+energy along decreasing nets gives
+\[
+ E_\omega(t\cdot\phi)
+ =\lim_iE_\omega(t\cdot\phi_i)
+ =t\lim_iE_\omega(\phi_i)
+ =tE_\omega(\phi).
+\]
+Thus no envelope input is hidden in the passage to arbitrary $\phi$.
+Since $t>0$, the value $-\infty$ is preserved, so
+$\cE^1(\omega)$ is stable.
 \end{proof}
 
 \begin{example}[Homogeneity checked on \(\mathbf P^1\)]
@@ -3745,8 +3671,9 @@ in the correspondence between test configurations and PL functions
 (\Cref{thm:tc-pl-correspondence}), and in every statement about the
 scaling action\\
 \(X\) unibranch &
-only through \Cref{imp:ch46-envelope-imported}; see
-\Cref{sec:ch46-where-envelope} for the four uses and
+only through the compactness and obstacle-envelope parts of
+\Cref{imp:ch46-envelope-imported}; see
+\Cref{sec:ch46-where-envelope} for the uses and
 \Cref{rem:ch46-without-envelope} for what survives without it\\
 \(\omega\) ample &
 in \eqref{eq:bj-volume} so that \(V>0\) and the probability normalization
@@ -3754,8 +3681,10 @@ is legitimate; in \Cref{lem:ch46-competitors-nonempty} so that constants
 are competitors; in \Cref{cor:ch45-continuity-envelopes}, hence in
 \Cref{lem:ch46-continuous-competitors}\\
 \(\omega\) the class of a \(\mathbf Q\)-line bundle &
-in \Cref{lem:ch46-pl-domination}, through
-\Cref{thm:ch34-fs-regularization}; see \Cref{rem:ch46-real-classes}\\
+only when a member of $\cH_{\mathrm{dom}}(\omega)$ is to be interpreted
+as a Fubini--Study function of one line bundle; neither
+\Cref{lem:ch46-pl-domination} nor the extended pairing requires this
+rationality; see \Cref{rem:ch46-real-classes}\\
 \(\theta_i\) nef and \(\phi_i\) psh &
 in the positivity clauses
 \Cref{prop:ch46-pl-measure}\,\cref{itm:ch46-pl-ma:pos},
@@ -3886,7 +3815,9 @@ Four separations should be carried forward.
 \emph{Finitary versus analytic.}  Everything through
 \Cref{sec:ch46-p1} is intersection theory on a projective
 \((n+1)\)-fold and holds for any integral projective \(X\); everything
-after it is analysis and uses the envelope theorem
+after it is analysis.  The monotone extension to singular potentials still
+uses no envelope theorem; compactness, extremal functions, obstacle
+calculus, and the resulting variational applications do
 (\Cref{sec:ch46-where-envelope}).
 
 \emph{Normalized versus unnormalized.}  \(\MA_\omega\) is a probability
@@ -3924,15 +3855,13 @@ the envelope property.
 
 That last sentence has to be read carefully, and the care is the subject of
 \Cref{sec:ch46-where-envelope}.  It is true of the \emph{constructions}:
-the pairing, the measures and their formal properties are intersection
-theory.  It is not true of the \emph{calculus}: the fixed-class monotone
-approximation on which the extension rests is
-\Cref{thm:ch34-fs-regularization} for classes of \(\mathbf Q\)-line
-bundles and \Cref{thm:ch45-continuous-regularization} in general, and the
-compactness that makes the energy usable is
-\Cref{cor:ch45-compactness}.  Both of the latter are consequences of the
-envelope theorem.  The correct summary is that the finitary theory predates
-the envelope theorem and the analytic theory does not.
+the pairing, the measures, their formal properties, and the fixed-real-ample
+PL regularization used to extend them are available without the envelope
+property.  What the envelope theorem adds is
+\Cref{cor:ch45-compactness}, the extremal functions and obstacle operators,
+and hence the variational applications that require attainment.  The
+correct summary is that monotone analytic extension predates the envelope
+theorem, whereas compact variational theory does not.
 
 The Duistermaat--Heckman interpretation \Cref{prop:ch46-energy-dh} rests on
 \Cref{thm:ch33-dh-weight-count}\,(3), quoted there from
@@ -3984,12 +3913,12 @@ here, and it is what fixes the normalization of
 \Cref{lem:ch46-pl-domination},
 \Cref{lem:ch46-dini},
 \Cref{lem:ch46-continuous-competitors}: the three preparatory statements
-for the extension, and the directedness of the continuous competitor
-family.  \Cref{lem:ch46-pl-domination} is the technical heart of
-\Cref{thm:bj-extended-energy-pairing} and its proof --- generically finite
-regularization, truncation, Veronese, rationalization, relative ampleness
---- is written out in five steps because each step consumes a different
-statement of \Cref{chap:bj-fs-pl-psh}.
+for the extension, followed by the envelope-dependent directedness of the
+larger continuous competitor family.  The short proof of
+\Cref{lem:ch46-pl-domination} now exposes its exact input: the
+fixed-real-ample regularization
+\Cref{thm:ch34-fs-regularization} already supplies the required
+dominating net in $\cH_{\mathrm{dom}}(\omega)$.
 
 \Cref{prop:ch46-energy-usc}: the representation of \(E_\omega\) as an
 infimum of weakly continuous affine functions, from which concavity and
@@ -4068,19 +3997,16 @@ non-Archimedean Aubin--Mabuchi energy is the observation that made the
 valuative approach to K-stability possible, and it is developed in
 \Cref{chap:bj-stability}.
 
-What was missing, and what \Cref{chap:bj-envelope-consequences} supplied,
-was the analysis.  The finitary theory --- one test configuration, one
-intersection number --- was available from the beginning and is the content
-of \Cref{sec:ch46-model,sec:ch46-pl-measure}.  Extending it to singular
-potentials requires a monotone approximation in a \emph{fixed} class, and
-the natural definition of the psh class supplies only a varying-class
-approximation (\Cref{rem:ch46-fixed-class-is-the-point}); worse, the
-compactness that makes the resulting functional useful was, until the
-envelope theorem, a conjecture.  The chapter is therefore best read as the
-moment at which an algebraic invariant becomes an analytic functional, and
-the reader should notice that the price of the transition is exactly one
-theorem: the one proved in
-\Crefrange{chap:bj-cartier-realization}{chap:bj-envelope-consequences}.
+The finitary theory --- one test configuration, one intersection number ---
+is the content of \Cref{sec:ch46-model,sec:ch46-pl-measure}.  Its extension
+to singular potentials uses the unconditional fixed-class PL
+regularization of \Cref{thm:ch34-fs-regularization}; this is the moment at
+which an algebraic invariant becomes an analytic functional.  What
+\Cref{chap:bj-envelope-consequences} subsequently supplies is the
+compactness and envelope calculus that make the functional variationally
+effective.  Keeping those two transitions separate is essential: the
+monotone energy theory does not require unibranchness, while its compact
+variational applications do.
 
 A final remark on normalization, since it is the commonest source of error
 in this subject.  Three conventions are in circulation: the unnormalized

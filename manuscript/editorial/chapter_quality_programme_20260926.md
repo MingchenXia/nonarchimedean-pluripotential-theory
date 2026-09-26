@@ -41,8 +41,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--33 are complete;
-  Chapter 34 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--34 are complete;
+  Chapter 35 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -915,3 +915,42 @@ open-problem inventory check, full build, automatic second pass, continuous
 chapter read, source audit, log scan, and rendered inspection of all forty-eight
 chapter pages and both adjoining seams pass. Exact evidence is recorded in
 `chapter_status.md`. Chapter 34 is next.
+
+### Chapter 34
+
+The chapter now keeps four function classes separate from the outset:
+Fubini--Study functions, rational PL functions, real PL functions, and psh
+functions.  Their closure operations and approximation topologies are stated
+at the level at which they are valid.  Scaling rays acquire at $t=0$ the
+trivial semivaluation of the closure of the centre, rather than an arbitrary
+proper-support endpoint.  The maximum principle, convexity along rays, and
+decreasing-limit closure are recorded together from the published
+Boucksom--Jonsson source.
+
+The dual-complex description now indexes a face by a connected component of a
+stratum, so repeated components no longer collapse.  Affineness on a face is
+proved using real-linearity of valuations on real Cartier divisors, without
+clearing irrational coefficients.  In arbitrary characteristic the
+test-configuration comparison uses equivariant graph closure rather than an
+unavailable equivariant resolution.  Closedness of the real PL-positive cone
+is cited from the exact source instead of placing an arbitrary convergent
+family on one model.
+
+The main regularization statement has been corrected to its full scope: for
+every real ample class, each psh function decreases from
+$\mathcal H_{\mathrm{dom}}(\omega)$, with no envelope or unibranch hypothesis.
+This changes the logical architecture downstream.  Chapters 45--48 now use
+Chapter 34 for fixed-class approximation and reserve the envelope theorem for
+obstacle operators, compactness, increasing-envelope calculus, and
+variational attainment; Chapter 49 follows the repaired generic-constancy
+label.  The energy homogeneity proof in Chapter 46 and the dual-energy test
+class in Chapter 47 were rewritten so that this distinction is visible in the
+proof itself.
+
+The official published source was checked directly at Corollary 3.22,
+Proposition 4.12, and Theorem 4.15.  Bibliographic records were repaired, the
+entire chapter was read continuously after revision, and all 1,812 legacy
+inline delimiters were normalized.  The scoped writing audit, project-wide
+reference check, checker tests, open-problem inventory check, two full builds,
+log scan, and rendered-page inspection pass.  Exact evidence is recorded in
+`chapter_status.md`. Chapter 35 is next.

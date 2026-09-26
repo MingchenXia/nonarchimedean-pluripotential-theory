@@ -4786,3 +4786,64 @@ rules, Boucksom--Chen theorem, examples, erratum boundary, final dictionary,
 and source note. No clipping, overlap, bad glyph, formula overflow, or hierarchy
 defect was found. This is a direct chapter revision and verification pass; no
 independent-agent or model-verifier review is asserted.
+
+## Chapter 34: Fubini--Study, PL, and psh functions, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 34; Chapter 35
+is next.  The chapter now distinguishes Fubini--Study, rational PL, real PL,
+and psh functions before relating them.  The scaling endpoint at $t=0$ is the
+trivial semivaluation of the closure of the centre of the original point; the
+ray statement is made on $(0,+\infty)$ before that endpoint is attached.  The
+proof also handles the case in which every surviving logarithmic slope is
+$-\infty$.  The truncation example now records the correct decreasing limit.
+
+Dual-complex faces are indexed by connected components of strata and the
+retraction remembers that component.  Affineness on faces uses real-linearity
+on real Cartier divisors, not a false denominator-clearing step.  The
+arbitrary-characteristic comparison with test configurations is obtained by
+equivariant graph closure, so no equivariant resolution theorem is assumed.
+The closedness of the real PL-positive cone is taken from BJ22, Corollary 3.22,
+instead of forcing an arbitrary convergent family onto one model.  BJ22,
+Proposition 4.12 supplies decreasing-limit closure, the maximum principle, and
+ray convexity with its scaling endpoint.
+
+The central correction is fixed-class regularization.  BJ22, Theorem 4.15(iii)
+gives, for every real ample class $\omega$, a decreasing net in
+$\mathcal H_{\mathrm{dom}}(\omega)$ converging to any $\omega$-psh function;
+it uses neither the envelope property nor unibranchness.  Chapters 45--48 were
+revised accordingly.  Chapter 45 presents envelope regularization as an
+obstacle-compatible alternative; Chapter 46 uses the unconditional net for
+the extended pairing, upper semicontinuity, and homogeneity; Chapter 47 uses it
+for the dual-energy test class; and Chapter 48 uses it for quasicontinuity while
+reserving unibranchness and the envelope theorem for compactness, obstacle
+operators, increasing envelopes, and the imported capacity implications.
+Chapter 49 now points to the corrected generic-constancy label.
+
+The published BJ22 paper was checked directly at Corollary 3.22, Proposition
+4.12, and Theorem 4.15.  The Mustaţă test-configuration bibliography entry was
+updated to its published 2013 Clay Mathematics Proceedings version, and the
+Kolodziej entry now carries the house citation label.  All 1,812 legacy inline
+delimiters in Chapter 34 were normalized.  This is a direct chapter revision
+and source audit; no independent-agent or exact-current model-verifier review
+is asserted.
+
+The automatic second pass has zero Chapter 34 writing-audit errors; its
+thirty-one reviewed warnings are established label namespaces and descriptive
+result titles.  The project-wide source check covers 425 inputs and 12,045
+labels, with zero missing inputs, duplicate labels, dangling references, or
+structural defects, and all six checker tests pass.  The open-problem inventory
+remains unchanged at forty-two active atoms across twelve Chapter 72
+environments and passes.  The final full build produces a 4,106-page PDF of
+19,483,209 bytes with SHA-256
+`21e361baef20b7dfb29c407c1d2a06d1b31b0f9add6349f61cd4051fc0521ba6`.
+The log has no unresolved references or citations, rerun requests, missing
+glyphs, emergency stops, or fatal errors.  The two inherited overfull boxes in
+Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; this revision introduces none.
+
+All forty physical Chapter 34 pages 2115--2154 and both adjoining seams were
+inspected during the pass.  After the final second-pass edits, pages 2123,
+2132, 2684, 2723--2724, 2762, and 2812 were re-rendered and inspected for the
+ray endpoint, truncation direction, energy homogeneity, dual-energy test class,
+regularization dependency, and hypothesis ledger.  No clipping, overlap, bad
+glyph, formula overflow, or hierarchy defect was found.
