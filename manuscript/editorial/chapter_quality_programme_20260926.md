@@ -35,8 +35,8 @@ than mechanically rewritten.
 
 ## Order and progress
 
-- **Part I, Chapters 1--8:** active. Chapters 1--6 have completed their
-  semantic, mathematical, and structural pass; Chapter 7 is next.
+- **Part I, Chapters 1--8:** active. Chapters 1--7 have completed their
+  semantic, mathematical, and structural pass; Chapter 8 is next.
 - **Parts II--VI, Chapters 9--72:** queued in reading order after Part I.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -158,3 +158,28 @@ mathematics follows the book convention, and the scoped writing audit has
 zero errors. Its twenty-one remaining warnings are reviewed project
 conventions and descriptive titles. Full build and rendered-page evidence is
 recorded in `chapter_status.md`.
+
+### Chapter 7
+
+The pass reconciled the main text and Appendix E on directed preorders,
+tail-cofinal order-preserving subnets, and compact-set exhaustion. The weak
+limit argument for moving Dirac masses now proves that a multiplicative limit
+measure is itself Dirac, while the Riesz and pushforward interfaces distinguish
+nonnegative Borel functions from genuinely integrable signed ones. Weak,
+vague, and narrow convergence are now separated according to their compact,
+compact-support, and bounded-continuous test-function regimes.
+
+Convergence in capacity is formulated for metric-valued maps, with an explicit
+order-topology metric for extended-real potentials. The quasicontinuity
+calculus consequently has well-defined sum, product, and uniform-limit
+clauses. The Duistermaat--Heckman section distinguishes closed and strict
+tails, records atoms as their jumps, and gives the correct one-dimensional
+density monotonicity. The extended-real ledger now supplies a complete case
+split for the limsup-of-sums inequality and explains why no convention for
+zero times infinity is compatible with both pointwise and regularized limits.
+
+Twelve missing semantic labels were supplied. The scoped writing audit has
+zero errors; its thirty remaining warnings are reviewed project conventions
+and descriptive titles. The project-wide reference check, full build,
+automatic second pass, and rendered-page inspection all pass. Exact evidence
+is recorded in `chapter_status.md`.

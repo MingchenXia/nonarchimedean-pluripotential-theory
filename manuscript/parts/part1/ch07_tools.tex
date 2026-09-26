@@ -53,10 +53,10 @@ test curves without presupposing them.
 
 Two appendices carry the same material at a different level of generality, and
 the division of labour is deliberate.
-\Cref{app:nets} is a reference sheet on directed sets: it distinguishes
-Willard subnets from order-preserving Moore--Smith subnets, proves the
-cluster-point and compactness equivalences for both, and records the
-extended-real identities in their most general form.
+\Cref{app:nets} is a reference sheet on directed sets: it fixes the
+order-preserving tail convention for subnets, proves the cluster-point and
+compactness equivalences for that convention, and records the extended-real
+identities in their most general form.
 \Cref{app:convexity} is a reference sheet on convex analysis: closed convex
 functions on a finite-dimensional vector space, Legendre--Fenchel duality,
 mixed volumes, and Alexandrov Monge--Amp\`ere measures.
@@ -98,7 +98,8 @@ The closing section collects the dictionary and the sources.
 \label{sec:nets-compactness}
 
 \begin{definition}
-A \emph{directed set} is a partially ordered set $(A,\leq)$ such that for any
+\label{def:directed-net}
+A \emph{directed set} is a nonempty preordered set $(A,\leq)$ such that for any
 $a_1,a_2\in A$ there exists $a_3\in A$ with $a_1,a_2\leq a_3$.  A \emph{net}
 in a set $X$ indexed by $A$ is a map $A\to X$, written $(x_a)_{a\in A}$.
 If $X$ is a topological space, the net converges to $x\in X$ if for every
@@ -111,10 +112,10 @@ of an arbitrary space.  We will therefore state compactness and continuity in
 terms of nets unless a metrizability or countability argument has already
 reduced the discussion to sequences.
 
-Antisymmetry of $\leq$ is never used below, and \Cref{def:appE-directed}
-drops it; a directed preorder is enough, and some of the index sets occurring
-in this book are naturally preordered rather than ordered.  Two pieces of
-vocabulary shorten every later statement.  A property $P(a)$ holds
+Thus antisymmetry is not required; this agrees with
+\Cref{def:appE-directed}, and some of the index sets occurring in this book
+are naturally preordered rather than ordered.  Two pieces of vocabulary
+shorten every later statement.  A property $P(a)$ holds
 \emph{eventually} if there is $a_0$ with $P(a)$ for all $a\geq a_0$, and it
 holds \emph{frequently} if for every $a_0$ there is $a\geq a_0$ with $P(a)$.
 Thus $x_a\to x$ means that $x_a$ is eventually in every neighborhood of $x$,
@@ -159,13 +160,14 @@ Each of the following is directed, for the stated reason.
 Directedness fails, by contrast, for the family of \emph{all} subsets of $S$
 of cardinality exactly one, since $\{s\}$ and $\{s'\}$ have no common upper
 bound of cardinality one; that family is not used as an index set.  Note
-that the compact subsets of a noncompact space \emph{are} directed by
-reverse inclusion, $K_1\cap K_2$ being a compact lower bound for the
-inclusion order; what they lack under reverse inclusion is a cofinal
-exhaustion, which is why \cref{sec:radon-weak} orders them by inclusion.
+that the compact subsets of any space are directed by inclusion, since
+$K_1\cup K_2$ is a compact upper bound.  This is the exhaustion order used
+in \cref{sec:radon-weak}; reverse inclusion instead records shrinking
+intersections and is not an exhaustion order.
 \end{example}
 
 \begin{definition}
+\label{def:subnet}
 Let $(x_a)_{a\in A}$ be a net.  A \emph{subnet} is a net
 $(x_{\sigma(b)})_{b\in B}$, where $B$ is directed and
 $\sigma:B\to A$ is order preserving and cofinal.  For an order-preserving
@@ -184,19 +186,15 @@ the topological sense.
 
 \begin{remark}[Which subnet convention is in force]
 \label{rem:subnet-conventions}
-Three inequivalent definitions of ``subnet'' circulate.  The most restrictive
-requires $\sigma$ to be order preserving \emph{and} cofinal, as above; the
-Willard convention of \Cref{def:appE-willard-subnet} requires only that
-$\sigma$ be eventually in every tail, without order preservation; the
-Kelley convention requires cofinality of the image in a weaker sense.  All
-three yield the same class of \emph{convergent-subnet} statements, because
-\Cref{thm:appE-cluster-subnet} produces an order-preserving Moore--Smith
-subnet whenever a Willard subnet exists.  We therefore use the definition
-above in the main text and quote the appendix when the more flexible Willard
-form is convenient.  What is never permissible is to replace a subnet by a
-subsequence: a subsequence of a net indexed by $A$ is not even defined unless
-a cofinal map $\mathbf N\to A$ exists, and \cref{ex:no-cofinal-sequence} shows
-that such a map need not exist.
+Terminology for subnets varies between topology texts, so the displayed
+formula, rather than the name, controls every use in this book.  Our map
+$\sigma$ is order preserving and is eventually in every tail of $A$; this is
+exactly the convention of \Cref{def:appE-willard-subnet,def:appE-ms-subnet}.
+With this convention \Cref{thm:appE-cluster-subnet} characterizes cluster
+points by convergent subnets.  What is never permissible is to replace a
+subnet by a subsequence: a sequence of selected terms can be cofinal only if
+there is a tail-cofinal map $\mathbf N\to A$, and
+\cref{ex:no-cofinal-sequence} shows that such a map need not exist.
 \end{remark}
 
 \begin{example}[A directed set with no cofinal sequence]
@@ -304,6 +302,7 @@ V=\varnothing$.
 \end{proof}
 
 \begin{remark}
+\label{rem:nets-safe-default}
 On a first-countable space, limits are detected by sequences, and on a metric
 space compactness is equivalent to sequential compactness.  Berkovich spaces
 that occur in this book are compact Hausdorff under properness hypotheses,
@@ -549,6 +548,7 @@ estimate.
 \end{remark}
 
 \begin{remark}[Warning]
+\label{rem:monotone-net-integration-warning}
 The measure-theoretic monotone convergence theorem does not hold for
 arbitrary nets of measurable functions.  Let $X=[0,1]$ with Lebesgue measure,
 direct the finite subsets $F\subset X$ by inclusion, and put
@@ -744,8 +744,8 @@ Let $X$ be a topological space, $f:X\to\Rbar$, and $x\in X$.  Then
  f^*(x)=\max\Bigl\{f(x),\ \sup\bigl\{\limsup_a f(x_a):
  (x_a)\text{ a net in }X,\ x_a\to x\bigr\}\Bigr\},
 \end{equation}
-and the inner supremum is attained by the neighborhood net of
-\Cref{ex:appE-neighborhood-net}.  If $x$ is not isolated and $f$ is arbitrary,
+and the inner supremum is attained by the neighborhood--tolerance refinement
+constructed below.  If $x$ is not isolated and $f$ is arbitrary,
 \eqref{eq:usc-limsup-description} may be rewritten as
 \[
  f^*(x)=\max\Bigl\{f(x),\ \limsup_{y\to x}f(y)\Bigr\},
@@ -806,6 +806,7 @@ therefore
 This operation occurs in every construction of a psh obstacle envelope.
 
 \begin{example}
+\label{ex:usc-spike-regularization}
 On $[-1,1]$, let $f_n$ be the continuous triangular function supported in
 $[-1/n,1/n]$ with $f_n(0)=1$.  The supremum of the tail family
 $\{f_n:n\geq N\}$ is upper semicontinuous, but the pointwise limsup is the
@@ -870,8 +871,9 @@ open.  Its regularization is
 \]
 by \Cref{prop:usc-limsup-description}, because
 $\limsup_{z\to0}u(z)=0$.  The exceptional set $\{u<u^*\}=\{0\}$ is polar,
-which is the general phenomenon: for an increasing family of psh functions the
-regularization changes the supremum only on a small set, and quantifying
+which is the general phenomenon: for a locally uniformly bounded-above
+increasing family of psh functions, the regularization changes the supremum
+only on a small set, and quantifying
 ``small'' is the subject of \cref{sec:capacity-preview} and of
 \cref{chap:bfj-capacity}.  Observe also that $u^*=0$ is again subharmonic;
 the corresponding statement for arbitrary bounded-above families in the
@@ -1030,6 +1032,7 @@ nonempty when every $M_B$ equals $-\infty$.
 \end{proof}
 
 \begin{remark}
+\label{rem:choquet-envelope-only}
 The lemma does not assert pointwise equality of the two suprema.  It selects
 the same upper semicontinuous envelope, which is exactly what is required in
 envelope arguments.  Second countability, or a substitute providing a
@@ -1173,7 +1176,8 @@ Throughout this section, $X$ is locally compact Hausdorff.  A positive Borel
 measure $\mu$ is \emph{Radon} if it is finite on compact sets, inner regular
 on open sets, and outer regular on Borel sets.  When $X$ is compact we write
 $\mathcal M^+(X)$ for the cone of finite positive Radon measures and
-$\mathcal P(X)$ for the probability measures.
+$\mathcal P(X)$ for the probability measures.  The function spaces
+$C_c(X)$, $C_b(X)$, and $C(X)$ are real-valued throughout this section.
 
 Spelled out, the two regularity requirements are
 \begin{equation}
@@ -1204,18 +1208,18 @@ use it as a black box and state it precisely once.
 \begin{theorem}
 \label{thm:riesz-interface}
 Let $X$ be locally compact Hausdorff and let
-$\Lambda:C_c(X)\to\mathbf R$ be a positive linear functional, that is, a
+$\Lambda:C_c(X,\mathbf R)\to\mathbf R$ be a positive linear functional, that is, a
 linear map with $\Lambda(h)\geq0$ whenever $h\geq0$.  Then there is a unique
 Radon measure $\mu$ on $X$ with
 \begin{equation}
 \label{eq:riesz}
- \Lambda(h)=\int_Xh\,\rd\mu\qquad\text{for all }h\in C_c(X).
+ \Lambda(h)=\int_Xh\,\rd\mu\qquad\text{for all }h\in C_c(X,\mathbf R).
 \end{equation}
-If $X$ is compact, so that $C_c(X)=C(X)$, the correspondence
+If $X$ is compact, so that $C_c(X,\mathbf R)=C(X,\mathbf R)$, the correspondence
 $\mu\mapsto\bigl(h\mapsto\int h\,\rd\mu\bigr)$ is a bijection from
-$\mathcal M^+(X)$ onto the positive linear functionals on $C(X)$, and it
+$\mathcal M^+(X)$ onto the positive linear functionals on $C(X,\mathbf R)$, and it
 carries $\mathcal P(X)$ onto those with $\Lambda(1)=1$.  Moreover the
-continuous linear functionals on $C(X)$, with the supremum norm, are exactly
+continuous linear functionals on $C(X,\mathbf R)$, with the supremum norm, are exactly
 the differences of two such integrals, and $\lVert\Lambda\rVert$ is the total
 variation of the representing signed measure.
 \end{theorem}
@@ -1253,8 +1257,12 @@ The common functional is positive and linear on $C(X)$, and both $\mu$ and
 $\nu$ represent it.  Uniqueness in \Cref{thm:riesz-interface} gives
 $\mu=\nu$.  For the reader who prefers a direct argument: by
 \eqref{eq:radon-regularity} it suffices to prove $\mu(K)=\nu(K)$ for compact
-$K$.  Given $\varepsilon>0$, outer regularity supplies an open $U\supseteq K$
-with $\mu(U)+\nu(U)\leq\mu(K)+\nu(K)+\varepsilon$, and Urysohn's lemma
+$K$.  Given $\varepsilon>0$, choose open neighborhoods
+$U_\mu,U_\nu\supseteq K$ with
+$\mu(U_\mu)\leq\mu(K)+\varepsilon/2$ and
+$\nu(U_\nu)\leq\nu(K)+\varepsilon/2$, and put
+$U=U_\mu\cap U_\nu$.  Then
+$\mu(U)+\nu(U)\leq\mu(K)+\nu(K)+\varepsilon$, and Urysohn's lemma
 supplies $h\in C(X)$ with $\mathbf 1_K\leq h\leq\mathbf 1_U$.  Then
 \[
  \mu(K)\leq\int h\,\rd\mu=\int h\,\rd\nu\leq\nu(U)\leq\nu(K)+\varepsilon,
@@ -1275,8 +1283,9 @@ Dirac mass at $x$ is denoted by $\delta_x$.
 \begin{lemma}\label{lem:pushforward-radon}
 Let $p:X\to Y$ be a continuous proper map of locally compact Hausdorff spaces
 and let $\mu$ be a Radon measure on $X$.  Then $p_*\mu$ is a Radon measure on
-$Y$, the displayed change-of-variables identity holds for every bounded Borel
-function $g$ and for every nonnegative Borel function $g$, and
+$Y$, the displayed change-of-variables identity holds for every nonnegative
+Borel function $g:Y\to[0,+\infty]$ and for every real-valued Borel function
+$g$ that is integrable with respect to $p_*\mu$, and
 $p_*\delta_x=\delta_{p(x)}$.  If $X$ is compact then
 $p_*\mu(Y)=\mu(X)$, so pushforward preserves total mass.
 \end{lemma}
@@ -1296,9 +1305,13 @@ $K\subseteq p^{-1}(U)$ with $\mu(K)\geq p_*\mu(U)-\varepsilon$, and $p(K)$ is
 a compact subset of $U$ with $p_*\mu(p(K))=\mu(p^{-1}p(K))\geq\mu(K)$.
 
 The change-of-variables identity holds for $g=\mathbf 1_B$ by definition,
-hence for simple functions by linearity, hence for nonnegative Borel $g$ by
-monotone convergence along an increasing sequence of simple functions, hence
-for bounded Borel $g$ by decomposition into positive and negative parts.  The
+hence for simple functions by linearity and for nonnegative Borel $g$ by
+monotone convergence along an increasing sequence of simple functions.  If
+$g$ is integrable with respect to $p_*\mu$, applying the nonnegative identity
+to $g^+$ and $g^-$ shows that $g\circ p$ is $\mu$-integrable and gives the
+signed identity.  This integrability hypothesis cannot be replaced by
+boundedness when $\mu(X)=+\infty$, since both positive and negative parts may
+then have infinite integral.  The
 identity $p_*\delta_x=\delta_{p(x)}$ is the case $\mu=\delta_x$ of the
 definition, and the mass statement is the case $B=Y$.
 \end{proof}
@@ -1306,6 +1319,7 @@ definition, and the mass statement is the case $B=Y$.
 \subsection{Weak convergence}
 
 \begin{definition}
+\label{def:weak-convergence}
 A net $(\mu_a)$ of finite Radon measures on a compact Hausdorff space $X$
 \emph{converges weakly} to $\mu$ if
 \[
@@ -1320,11 +1334,14 @@ weak topology on $\mathcal M^+(X)$ is the initial topology for the maps
 $\mu\mapsto\int f\,\rd\mu$, $f\in C(X)$, and it is Hausdorff for the same
 reason.  Testing against $f=1$ shows that the total mass
 $\mu\mapsto\mu(X)$ is weakly continuous on a compact $X$.  On a noncompact
-locally compact space the constant $1$ is not a legitimate test function, and
-mass can escape to infinity; the resulting topology, defined by testing
-against $C_c(X)$, is the \emph{vague} topology, and it is not the same
-notion.  We reserve the word ``weak'' for the compact case and mark every
-vague statement explicitly.
+locally compact space the constant $1$ is not a compactly supported test
+function, and mass can escape to infinity.  Convergence against $C_c(X)$ is
+the \emph{vague} topology.  For finite measures on a noncompact space,
+convergence against the bounded continuous functions $C_b(X)$ is the stronger
+\emph{narrow}, also commonly
+called weak, topology.  We use ``weak'' on compact spaces, ``vague'' for
+$C_c$-testing, and ``narrow'' for $C_b$-testing on $\mathbf R$ in
+\cref{sec:dh-preview}.
 
 \begin{proposition}\label{prop:measure-compactness}
 If $X$ is compact Hausdorff, then $\mathcal P(X)$ is compact for the weak
@@ -1333,14 +1350,7 @@ sequence in $\mathcal P(X)$ has a weakly convergent subsequence.
 \end{proposition}
 
 \begin{proof}
-By the Riesz representation theorem, finite signed Radon measures form the
-dual of $C(X)$.  Probability measures constitute a weak-* closed subset of
-the unit ball, hence are compact by Banach--Alaoglu.  When $C(X)$ is separable,
-the weak-* topology on its dual unit ball is metrizable; compact metrizable
-$X$ makes $C(X)$ separable.
-
-We give the argument again in the net language of this chapter, since only
-this form is used later and since it avoids invoking Banach--Alaoglu.
+We argue directly in the net language used later.
 Consider the map
 \[
  \iota:\mathcal P(X)\longrightarrow
@@ -1395,15 +1405,29 @@ subsequences, and it requires $X$ to be compact metrizable.  For a general
 compact Hausdorff $X$ the space $\mathcal P(X)$ is compact but need not be
 sequentially compact; the space $X=\{0,1\}^{[0,1]}$ of
 \Cref{ex:net-no-subsequence} already gives a sequence $\delta_{x_n}$ with no
-weakly convergent subsequence, because $\delta_{x_{n_j}}\to\delta_x$ would
-force $x_{n_j}\to x$ by \Cref{ex:moving-atoms} below.  This is the reason that
+weakly convergent subsequence.  Indeed, if
+$\delta_{x_{n_j}}\to\mu$, then for $f,g\in C(X)$,
+\[
+ \int_Xfg\,\rd\mu
+ =\lim_j f(x_{n_j})g(x_{n_j})
+ =\left(\int_Xf\,\rd\mu\right)
+  \left(\int_Xg\,\rd\mu\right).
+\]
+Thus integration against $\mu$ is a unital multiplicative functional on
+$C(X)$.  It follows directly that $\mu$ is a Dirac mass: multiplicativity
+with $g=f$ gives zero variance for every $f\in C(X)$, while a Radon
+probability measure whose support contained distinct points $x,y$ would admit
+an $f\in C(X)$ with $f(x)=0$ and $f(y)=1$, and neighborhoods of $x$ and $y$
+of positive $\mu$-mass would make that variance positive.  Hence the support
+is a singleton and $\mu=\delta_x$.  Then \Cref{ex:moving-atoms} below would force
+$x_{n_j}\to x$, contrary to \Cref{ex:net-no-subsequence}.  This is the reason that
 the compactness theorems of \cref{chap:bfj-compactness} and
 \cref{chap:bj-strong-topologies} are formulated with nets, and that their
 sequential corollaries carry explicit countability hypotheses.
 \end{remark}
 
 \begin{proposition}\label{prop:portmanteau}
-If $\mu_a\to\mu$ weakly in $\mathcal P(X)$, then
+Let $X$ be compact Hausdorff.  If $\mu_a\to\mu$ weakly in $\mathcal P(X)$, then
 \[
  \liminf_a\int_X f\,\rd \mu_a\geq\int_Xf\,\rd \mu
 \]
@@ -1468,8 +1492,9 @@ only after the boundary has been shown to be negligible.
 
 \begin{example}[Moving atoms]
 \label{ex:moving-atoms}
-If $x_a\to x$ in $X$, then $\delta_{x_a}\to\delta_x$ weakly.  Conversely, if
-$X$ is compact Hausdorff and $\delta_{x_a}\to\delta_x$, then $x_a\to x$:
+Let $X$ be compact Hausdorff.  If $x_a\to x$ in $X$, then
+$\delta_{x_a}\to\delta_x$ weakly.  Conversely, if
+$\delta_{x_a}\to\delta_x$, then $x_a\to x$:
 continuous functions separate $x$ from every closed set not containing it.
 Thus the Dirac embedding $x\mapsto\delta_x$ is a topological embedding.
 \end{example}
@@ -1572,8 +1597,8 @@ capacity estimate, as in \cref{chap:bfj-capacity}.
 \subsection{Concave energy and its dual}
 
 The variational theories later in the book fit the following elementary
-pattern.  Let $\mathcal H$ be a convex set of real-valued functions on a
-compact space $X$, stable under addition of constants, and let
+pattern.  Let $\mathcal H$ be a convex subset of $C(X)$ for a compact
+Hausdorff space $X$, stable under addition of constants, and let
 $E:\mathcal H\to\mathbf R\cup\{-\infty\}$ be concave.  Assume that for a
 fixed number $M>0$,
 \begin{equation}
@@ -1896,6 +1921,7 @@ it is the axiom that fails most easily and the one on which the useful
 statements depend.
 
 \begin{definition}
+\label{def:choquet-capacity}
 Let $X$ be a topological space.  A \emph{Choquet capacity} is a function
 \[
                  \operatorname{Cap}:2^X\longrightarrow[0,+\infty]
@@ -1914,7 +1940,19 @@ it is not part of every author's minimal definition of a Choquet capacity.
 \end{definition}
 
 A set $P$ is \emph{polar} for the capacity if
-$\operatorname{Cap}(P)=0$.  A function $f:X\to\overline{\mathbf R}$ is
+$\operatorname{Cap}(P)=0$.  Equip $\Rbar$ with the metric
+\[
+ \rho(s,t)=|\vartheta(s)-\vartheta(t)|,
+ \qquad
+ \vartheta(t)=\frac{2}{\pi}\arctan t,
+ \qquad
+ \vartheta(\pm\infty)=\pm1.
+\]
+This metric induces the order topology.  Throughout this section, uniform
+convergence of $\Rbar$-valued functions is taken with respect to $\rho$; on
+functions with values in a fixed compact interval of $\mathbf R$, it is
+equivalent to ordinary uniform convergence.  A function
+$f:X\to\overline{\mathbf R}$ is
 \emph{quasicontinuous} if for every $\varepsilon>0$ there is an open set $U$
 with $\operatorname{Cap}(U)<\varepsilon$ such that
 $f|_{X\setminus U}$ is continuous.
@@ -1987,14 +2025,17 @@ Let $\Capa$ be a countably subadditive Choquet capacity on $X$.
 \item If $f_1,\dots,f_k$ are quasicontinuous, then for every $\varepsilon>0$
   there is a single open $U$ with $\Capa(U)<\varepsilon$ such that every
   $f_i|_{X\setminus U}$ is continuous.  The same holds for a countable family.
-\item Finite sums, whenever defined, finite maxima, finite minima, and
-  products of real-valued quasicontinuous functions are quasicontinuous, as is
+\item Finite sums of $\mathbf R\cup\{-\infty\}$-valued
+  quasicontinuous functions, finite maxima, finite minima, and products of
+  real-valued quasicontinuous functions are quasicontinuous, as is
   $\chi\circ f$ for $\chi:\Rbar\to\Rbar$ continuous.
-\item A uniform limit of quasicontinuous functions is quasicontinuous.
+\item A $\rho$-uniform limit of quasicontinuous functions is
+  quasicontinuous.
 \item If $f_j$ is quasicontinuous for each $j$ and $f_j\to f$ uniformly
   outside a set of arbitrarily small capacity, in the sense that for every
   $\varepsilon>0$ there is an open $U$ with $\Capa(U)<\varepsilon$ and
-  $f_j\to f$ uniformly on $X\setminus U$, then $f$ is quasicontinuous.
+  $f_j\to f$ $\rho$-uniformly on $X\setminus U$, then $f$ is
+  quasicontinuous.
 \end{enumerate}
 \par
 \end{proposition}
@@ -2008,9 +2049,11 @@ For each $j$, the set $X\setminus U$ is a subspace of $X\setminus U_j$, and a
 restriction of a continuous map to a subspace is continuous.
 
 \emph{(2).}  By (1) there is one open $U$ of capacity $<\varepsilon$ outside
-which all the given functions are continuous.  Sums, maxima, minima, and
-products of continuous real-valued functions on the subspace $X\setminus U$
-are continuous there, and so is $\chi\circ f$ for continuous $\chi$.
+which all the given functions are continuous.  Addition on
+$\mathbf R\cup\{-\infty\}$, with $-\infty$ absorbing, and maximum and minimum
+on $\Rbar$ are continuous for the order topology.  Products of continuous
+real-valued functions on the subspace $X\setminus U$ are continuous there,
+and so is $\chi\circ f$ for continuous $\chi$.
 
 \emph{(3).}  Let $f_j\to f$ uniformly with each $f_j$ quasicontinuous.  By (1)
 choose an open $U$ with $\Capa(U)<\varepsilon$ outside which every $f_j$ is
@@ -2042,26 +2085,30 @@ been proved for the capacity at hand.
 \end{remark}
 
 \begin{definition}
-Let the capacity be finite.  A sequence $f_j$ converges to $f$ in capacity if
+\label{def:capacity-convergence}
+Let the capacity be finite, meaning $\operatorname{Cap}(X)<+\infty$, let
+$(Y,d)$ be a metric space, and let
+$f_j,f:X\to Y$.  The sequence $f_j$ \emph{converges to $f$ in capacity} if
 for every $\varepsilon>0$,
 \[
- \operatorname{Cap}\bigl(\{|f_j-f|>\varepsilon\}\bigr)\longrightarrow0,
+ \operatorname{Cap}\bigl(\{d(f_j,f)>\varepsilon\}\bigr)\longrightarrow0.
 \]
-where the difference is considered only when both functions are finite.  In
-applications, the polar sets on which a potential is $-\infty$ are handled
-separately.
+For real-valued functions we take $d(s,t)=|s-t|$.  For $\Rbar$-valued
+functions we may take the metric $\rho$ above, so no undefined difference of
+infinite values occurs.  On uniformly bounded real-valued families the two
+choices give the same notion of convergence.
 \end{definition}
 
 \begin{proposition}\label{prop:capacity-subsequence}
 Assume that $\operatorname{Cap}$ is countably subadditive.  If
-$f_j\to f$ in capacity, then some subsequence converges pointwise to $f$
-outside a polar set.
+$f_j:X\to(Y,d)$ converges in capacity to $f:X\to(Y,d)$, then some
+subsequence converges pointwise to $f$ outside a polar set.
 \end{proposition}
 
 \begin{proof}
 Choose $j_m$ so that
 \[
- \operatorname{Cap}\bigl(\{|f_{j_m}-f|>2^{-m}\}\bigr)<2^{-m}.
+ \operatorname{Cap}\bigl(\{d(f_{j_m},f)>2^{-m}\}\bigr)<2^{-m}.
 \]
 The limsup of these exceptional sets has capacity zero, since for every $N$
 it is contained in their union over $m\geq N$, whose capacity is at most
@@ -2069,6 +2116,7 @@ $2^{1-N}$.  Outside the limsup, the desired convergence holds.
 \end{proof}
 
 \begin{remark}
+\label{rem:capacity-subsequence-sequential}
 The proposition is deliberately sequential.  A convergent net in capacity
 need not contain a useful sequence unless the directed set or the capacity
 space has an additional countability property.  Later compactness theorems
@@ -2156,6 +2204,7 @@ potential.
 \end{remark}
 
 \begin{definition}
+\label{def:dh-distribution}
 Assume that $G$ is finite almost everywhere, and let
 $N=\{G=-\infty\}$, a null set.  Choose any finite-valued Borel function
 $\widetilde G$ that agrees with $G$ on $\Delta\setminus N$.  The
@@ -2166,13 +2215,19 @@ $\widetilde G$ that agrees with $G$ on $\Delta\setminus N$.  The
 \]
 It is a positive Radon measure on $\mathbf R$ of total mass
 $\operatorname{vol}(\Delta)$ and is independent of the chosen values on
-$N$, because $N$ is null.
+$N$, because $N$ is null.  Indeed it is a finite Borel measure, and every
+finite Borel measure on $\mathbf R$ is Radon; continuity of $\widetilde G$ is
+neither assumed nor needed.
 \end{definition}
 
 This normalization is designed for later Okounkov-body constructions.  If
 the total Monge--Amp\`ere mass is $(L^n)=n!\operatorname{vol}(\Delta)$, the
 corresponding unnormalized geometric distribution is
 $n!\operatorname{DH}_{\Delta,G}$.
+
+The same pushforward formula defines $\operatorname{DH}_{\Delta,G}$ for any
+finite-valued Borel function $G$ on $\Delta$.  Concavity is needed for the
+tail geometry, not for the next two convergence statements.
 
 \begin{proposition}\label{prop:dh-tail}
 For every $\tau\in\mathbf R$,
@@ -2201,8 +2256,8 @@ the null set $\{G=-\infty\}$, and the last set is Borel by
 nonincreasing because the sets $\{G>\tau\}$ decrease with $\tau$.  It is
 right-continuous because
 $\{G>\tau\}=\bigcup_{m\geq1}\{G>\tau+1/m\}$ is an increasing union, so
-$V(\tau)=\lim_mV(\tau+1/m)$ by continuity of a finite measure along increasing
-sequences.  Consequently $V$ is the tail function of the finite Borel measure
+$\lambda_\Delta$ evaluated on this increasing union gives
+$V(\tau)=\lim_mV(\tau+1/m)$.  Consequently $V$ is the tail function of the finite Borel measure
 $\DHm_{\Delta,G}$ on $\mathbf R$, which is therefore determined by $V$: the
 measure of an interval $(\tau_0,\tau_1]$ is $V(\tau_0)-V(\tau_1)$, and these
 intervals generate the Borel $\sigma$-algebra.  Left limits are given by
@@ -2241,7 +2296,7 @@ $B=\mathbf R$, using that $T_c$ and $m_\lambda$ are bijections of
 $\mathbf R$.
 \end{proof}
 
-The Duistermaat--Heckman distribution is weakly continuous under uniform
+The Duistermaat--Heckman distribution is narrowly continuous under uniform
 convergence of the concave transform.  This is the only continuity statement
 used in \cref{chap:transcendental-okounkov-dh}, and it is elementary; the
 delicate continuity statements there concern the dependence of $G$ itself on
@@ -2250,8 +2305,8 @@ the geometric data.
 \begin{proposition}
 \label{prop:dh-continuity}
 Let $\Delta$ be a compact convex body and let $G_j,G:\Delta\to\mathbf R$ be
-bounded functions with $G_j\to G$ uniformly on $\Delta$.  Then
-$\DHm_{\Delta,G_j}\to\DHm_{\Delta,G}$ weakly on $\mathbf R$, that is,
+bounded Borel functions with $G_j\to G$ uniformly on $\Delta$.  Then
+$\DHm_{\Delta,G_j}\to\DHm_{\Delta,G}$ narrowly on $\mathbf R$, that is,
 \[
  \int_{\mathbf R}\chi\,\rd\DHm_{\Delta,G_j}
  \longrightarrow
@@ -2280,7 +2335,7 @@ as soon as $\lVert G_j-G\rVert_\infty<\delta$.
 \label{cor:dh-continuity-ae}
 Let $G_j,G:\Delta\to\mathbf R$ be Borel functions with $G_j\to G$ Lebesgue
 almost everywhere on $\Delta$.  Then
-$\DHm_{\Delta,G_j}\to\DHm_{\Delta,G}$ weakly on $\mathbf R$.
+$\DHm_{\Delta,G_j}\to\DHm_{\Delta,G}$ narrowly on $\mathbf R$.
 \end{corollary}
 
 \begin{proof}
@@ -2294,12 +2349,12 @@ bounded set $\Delta$.  Dominated convergence and \Cref{lem:dh-moments} give
  \longrightarrow\int_\Delta\chi(G)\,\rd x
  =\int_{\mathbf R}\chi\,\rd\DHm_{\Delta,G}.
 \]
-Since $\chi$ was arbitrary, this is weak convergence.
+Since $\chi$ was arbitrary, this is narrow convergence.
 \end{proof}
 
-\begin{remark}[Weak convergence does not give convergence of moments]
+\begin{remark}[Narrow convergence does not give convergence of moments]
 \label{rem:dh-moments-not-continuous}
-Weak convergence of Duistermaat--Heckman distributions controls only bounded
+Narrow convergence of Duistermaat--Heckman distributions controls only bounded
 continuous test functions, and the unbounded test function $\chi(t)=t$, whose
 integral is the barycenter, is genuinely not continuous for it.  On
 $\Delta=[0,1]$ put
@@ -2308,7 +2363,7 @@ $\Delta=[0,1]$ put
 \]
 a minimum of two affine functions, hence concave, with $G_j(0)=-j^2$ and
 $G_j\equiv0$ on $[j^{-2},1]$.  Then $G_j\to0$ pointwise on $(0,1]$, so
-$\DHm_{[0,1],G_j}\to\delta_0$ weakly by \Cref{cor:dh-continuity-ae}.
+$\DHm_{[0,1],G_j}\to\delta_0$ narrowly by \Cref{cor:dh-continuity-ae}.
 Explicitly, $\DHm_{[0,1],G_j}$ is the sum of an atom of mass $1-j^{-2}$ at
 $0$ and the uniform measure of density $j^{-4}$ on $[-j^2,0]$.  Its barycenter
 is
@@ -2320,7 +2375,7 @@ for every $j$, whereas the barycenter of $\delta_0$ is $0$.  Mass escapes to
 $-\infty$ while carrying a fixed first moment.  This is the reason that
 \cref{chap:transcendental-okounkov-dh} states energy and entropy statements
 with explicit uniform integrability or monotonicity hypotheses, and never
-deduces convergence of a moment from weak convergence alone.
+deduces convergence of a moment from narrow convergence alone.
 \end{remark}
 
 \begin{proposition}\label{prop:dh-brunn-minkowski}
@@ -2360,17 +2415,21 @@ using the homogeneity $\vol(sK)=s^n\vol(K)$.  This is the asserted concavity.
 \begin{remark}
 \label{rem:dh-log-concavity}
 \Cref{prop:dh-brunn-minkowski} is the source of every log-concavity statement
-about Duistermaat--Heckman measures in this book.  It says that the tail
-function $V(\tau)=\vol\{G>\tau\}$, which differs from
-$\vol\{G\geq\tau\}$ only at the countably many atoms of $\DHm_{\Delta,G}$, has
-a concave $n$-th root; in dimension $n=1$ this is exactly concavity of $V$,
-that is, monotonicity of the density of $\DHm_{\Delta,G}$.  The corresponding
+about Duistermaat--Heckman measures in this book.  It says that the closed-tail
+function $W(\tau)=\vol\{G\geq\tau\}$ has a concave $n$-th root on the interval
+where $W>0$.  The strict tail $V(\tau)=\vol\{G>\tau\}$ is its right-continuous
+version and differs from $W$ precisely at the atoms of $\DHm_{\Delta,G}$; no
+concavity assertion is made across those jumps.  In dimension $n=1$,
+concavity of $W$ implies that the absolutely continuous density
+$-W'$ is nondecreasing wherever it is defined; an atom at a terminal plateau
+is recorded separately by the jump from $W$ to $V$.  The corresponding
 statement in \cref{chap:bj-test-configurations} for Duistermaat--Heckman
 measures of test configurations is proved by the same Brunn--Minkowski
 mechanism after passing to Okounkov bodies, not by a separate argument.
 \end{remark}
 
 \begin{example}[Affine transform]
+\label{ex:dh-affine-transform}
 For $\Delta=[a,b]$ and $G(x)=x$, one has
 $\operatorname{DH}_{\Delta,G}=\mathbf 1_{[a,b]}\,\rd t$.  If instead
 $\Delta=[0,1]$ and $G(x)=\min\{x,1-x\}$, then
@@ -2580,12 +2639,13 @@ pointwise limit as $\lambda\downarrow0$ is
  \begin{cases}0,&z\neq0,\\ -\infty,&z=0,\end{cases}
 \]
 whereas the regularized limit is the constant $0$, and the ``value at
-$\lambda=0$'' suggested by continuity of the scaling action is again $0$.
-Declaring $0\cdot(-\infty)=0$ would make the pointwise limit disagree with the
-pointwise value, and declaring $0\cdot(-\infty)=-\infty$ would make the
-scaling action of \cref{chap:trivial-analytification} discontinuous at the
-origin of the cone.  We therefore leave the product undefined and state the
-scaling limit as a statement about regularized limits, exactly as in
+$\lambda=0$'' suggested by the usc-envelope topology is again $0$.
+Declaring $0\cdot(-\infty)=0$ agrees with the regularized limit but not with
+the pointwise limit at the origin; declaring it to be $-\infty$ agrees with
+the pointwise limit but not with the regularized one.  Thus no pointwise
+convention is continuous for both limiting procedures.  We leave the product
+undefined and, in \cref{chap:trivial-analytification}, state the topology and
+the regularization used by each scaling limit, exactly as in
 \Cref{ex:sup-not-usc-log}.
 
 \emph{(4) Differences.}  A difference is formed only when it is not of the
@@ -2628,8 +2688,8 @@ $0\cdot(+\infty)=0$, justified by monotone truncation: if $\mu(A)=0$ then
 \[
  \int_A f\,\rd\mu=\lim_{M\to\infty}\int_A\min(f,M)\,\rd\mu=0
 \]
-for $f\geq0$, by \Cref{prop:lsc-net-monotone} applied on the measure space or
-by ordinary monotone convergence, since each truncated integral vanishes.
+for $f\geq0$, by ordinary monotone convergence, since each truncated integral
+vanishes.
 Without this convention a set of measure zero on which a potential equals
 $-\infty$ would contribute an undefined term to
 $\int\varphi\,\rd\mu$, and the finite-energy classes of
@@ -2673,12 +2733,20 @@ that tail, hence $\sup_{a\geq a_0}(r_a+s_a)=-\infty$ and the inequality is
 trivial.  Otherwise $R_{a_0}+S_{a_0}$ is defined and
 $r_a+s_a\leq R_{a_0}+S_{a_0}$ for $a\geq a_0$, so
 $\sup_{a\geq a_0}(r_a+s_a)\leq R_{a_0}+S_{a_0}$.  Both $R_{a_0}$ and
-$S_{a_0}$ decrease as $a_0$ increases, with infima $\limsup_ar_a$ and
-$\limsup_as_a$; taking $\inf_{a_0}$ and using continuity of addition along
-decreasing nets, which is \Cref{lem:monotone-net-converges} together with part
-(5) whenever the limit sum is defined, gives the inequality.  For strictness
-take $r_n=(-1)^n$ and $s_n=(-1)^{n+1}$ in $\mathbf R$: the left side is $0$
-and the right side is $2$.
+$S_{a_0}$ decrease as $a_0$ increases, with infima
+$R=\limsup_ar_a$ and $S=\limsup_as_a$.  If $R+S=+\infty$, the desired
+inequality is automatic.  If $R,S$ are finite, then for every
+$\varepsilon>0$ both tail suprema are eventually below $R+\varepsilon$ and
+$S+\varepsilon$, respectively, so
+$\limsup_a(r_a+s_a)\leq R+S+2\varepsilon$; let
+$\varepsilon\downarrow0$.  It remains to consider $R+S=-\infty$.  After
+interchanging the two nets, we may assume $R=-\infty$ and $S<+\infty$.
+Choose a tail on which $S_{a_0}\leq B$ for some $B\in\mathbf R$.  Given
+$T\in\mathbf R$, refine it until $R_{a_0}<T-B$; on that tail
+$r_a+s_a<T$.  Since $T$ was arbitrary, the left-hand limsup is $-\infty$.
+These cases exhaust all defined values of $R+S$.  For strictness take
+$r_n=(-1)^n$ and $s_n=(-1)^{n+1}$ in $\mathbf R$: the left side is $0$ and
+the right side is $2$.
 
 \emph{(5).}  If $s$ is finite this is continuity of addition on
 $\mathbf R\times\mathbf R$ together with the observation that both nets are
@@ -2890,10 +2958,10 @@ back to the 1920s and 1930s; the treatment we follow, including the tail
 formulation of subnets, is Willard's \cite[Chapters~4--5]{Wil70}, with
 Kelley \cite{Kel75} as a second reference and as the source of the Tychonoff
 theorem in the form used in \Cref{ex:net-no-subsequence} and
-\Cref{prop:measure-compactness}.  The distinction between Willard and
-Moore--Smith subnets is developed in \cref{app:nets}; the reader should be
-aware that the three standard definitions are not equivalent as definitions,
-even though they generate the same convergence theory.  The compact space
+\Cref{prop:measure-compactness}.  The terminological variation surrounding
+Willard and Moore--Smith subnets is recorded in \cref{app:nets}; throughout
+this book the defining condition is the order-preserving tail condition
+\eqref{eq:appE-willard}.  The compact space
 $\{0,1\}^{[0,1]}$ of \Cref{ex:net-no-subsequence} and the one-point
 compactification of an uncountable discrete set used in
 \Cref{ex:decreasing-net-not-sequential} and
