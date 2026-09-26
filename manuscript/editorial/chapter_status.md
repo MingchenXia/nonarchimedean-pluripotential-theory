@@ -4613,3 +4613,57 @@ at full resolution for the opening, unified projection formula, descent and
 Gauss transitions, repaired Gauss proof, numerical ledger, source notes, and
 chapter ending. No
 clipping, overlap, bad glyph, formula overflow, or hierarchy defect was found.
+
+## Chapter 31: examples and synthesis, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 31 and Part
+III; Chapter 32 is next. The chapter now makes its four examples carry the
+proof architecture of the preceding chapters without enlarging their scope.
+The curve computations explicitly assume a split regular semistable model
+when unit edge weights and rational subdivisions are used. The Green-kernel
+estimate is proved from the unit-current interpretation and Kirchhoff's law,
+and the graph approximation argument records the rationality needed to
+recover model functions. The toric section solves its noncompact
+one-dimensional example directly and realizes rational polyhedral data by
+clearing denominators rather than by an unsupported scalar extension.
+
+The pole-envelope section was checked directly against BFJ15 Lemma 8.5 and
+Proposition 8.6. Its finite-pole theorem is now restricted to divisorial
+points, its normalization and contact-set statements are exact, and the
+type-1 comparison correctly gives an infinite envelope at every point other
+than the pole. The two-pole programme uses the explicit differential
+$D\mathcal F(t)[h]=\sum_i h_i a_i(t)$ supplied by energy--envelope
+differentiability. In the abelian section, arbitrary affine interpolation was
+replaced by semipositive convex rational polyhedral quasi-periodic
+approximants arising from Mumford models; Chapter 19 was repaired at the same
+cross-chapter interface. The BFJ discrete-valuation hypotheses are no longer
+mixed with the separate arbitrary-complete-field CLD theorem.
+
+The compatibility table was recomputed rather than merely reworded. It now
+distinguishes absent counterparts from collapsed hypotheses, records residue-
+degree weights in the nonsplit curve case, and has the corrected census of
+four exact agreements, four one-way implications, and eight rows with no
+counterpart. A redundant prose ledger was removed. The final synthesis now
+uses the actual dependency chain and a six-question transport diagnostic,
+while its provenance notes separate imported results from the chapter's own
+derivations. All 1,712 legacy inline delimiters were normalized.
+
+The automatic second pass has zero Chapter 31 writing-audit errors; its
+seventy-three reviewed warnings are the established chapter and item label
+namespaces and descriptive result titles. The project-wide source check
+covers 425 inputs and 12,050 labels, with zero missing inputs, duplicate
+labels, dangling references, or structural defects, and all six checker tests
+pass. The open-problem inventory remains unchanged at forty-two active atoms
+and passes. The full build produces a 4,106-page PDF of 19,490,817 bytes with
+SHA-256 `881697b657322082eb27f6ffc048b95865df81e68fd7ed6d849d870e90a68dd1`.
+The final log has no unresolved references or citations, rerun requests,
+missing glyphs, emergency stops, or fatal errors. The two inherited overfull
+boxes in Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; Chapter 31 introduces none. All fifty-six physical
+chapter pages 1951--2006 were inspected in the final render, together with
+the Chapter 30 blank verso at page 1950, the four-page Part IV transition at
+pages 2007--2010, and the Chapter 32 opening at page 2011. Pages 1961, 1986,
+1991, 1994, and 2005 were additionally inspected at full resolution for the
+explicit curve computation, abelian approximation, dense compatibility
+tables, and source notes. No clipping, overlap, bad glyph, formula overflow,
+or hierarchy defect was found.

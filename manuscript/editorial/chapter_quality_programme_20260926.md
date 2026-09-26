@@ -39,9 +39,10 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part II, Chapters 9--19:** complete. All eleven chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part III, Chapters 20--31:** active. Chapters 20--29 are complete; Chapter
-  30 is next.
-- **Parts IV--VI, Chapters 32--72:** queued in reading order after Part III.
+- **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
+  semantic, mathematical, structural, mechanical, and rendered-page gates.
+- **Part IV, Chapters 32--50:** active. Chapter 32 is next.
+- **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -805,3 +806,39 @@ warnings. The project-wide reference check, checker tests, open-problem
 inventory check, full build, log scan, and rendered inspection of all
 sixty-two physical pages pass. Exact evidence is recorded in
 `chapter_status.md`. Chapter 31 is next.
+
+### Chapter 31
+
+The examples chapter now functions as a checked synthesis of Part III rather
+than as a second survey. Its curve computations state the split regular
+semistable hypotheses actually used, the Green-kernel estimate is proved by
+unit current and Kirchhoff's law, and rational graph approximation is kept at
+the exact discrete-valuation scope where it produces model functions. The
+toric section no longer applies a compact-graph proposition to a noncompact
+skeleton, and rational polyhedral data are realized by clearing denominators
+rather than by an unsupported field extension.
+
+The divisorial-pole discussion now matches BFJ15 Lemma 8.5 and Proposition
+8.6 exactly: the finite-pole theorem is stated for divisorial points, its
+normalization and zero locus are correct, and the type-1 analogue is recorded
+as an infinite envelope off the pole rather than a finite Green function. The
+finite-dimensional programme gives the precise energy derivative used for
+its Lagrange multipliers. The abelian example now obtains semipositive model
+approximants from convex rational polyhedral Mumford data; the same repair was
+propagated to Chapter 19. This replaces an arbitrary interpolation step that
+did not preserve convexity.
+
+The BFJ--CLD tables were recomputed row by row. They now distinguish a missing
+CLD counterpart from a collapse of hypotheses, record the nonsplit
+residue-degree weights, and give the corrected census of four exact
+agreements, four one-way implications, and eight rows with no counterpart.
+The field hypotheses separate the discretely valued BFJ theory from the more
+general CLD abelian statement, and the Part III synthesis now presents a
+dependency chain and a transport diagnostic instead of unsupported claims of
+formal equivalence. All 1,712 legacy inline delimiters were normalized.
+
+The scoped writing audit has zero errors and seventy-three reviewed convention
+warnings. The project-wide reference check, checker tests, open-problem
+inventory check, full build, log scan, primary-source check, and rendered
+inspection of the entire chapter and both adjoining seams pass. Exact evidence
+is recorded in `chapter_status.md`. Part III is complete; Chapter 32 is next.
