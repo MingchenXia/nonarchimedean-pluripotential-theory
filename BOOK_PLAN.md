@@ -66,13 +66,14 @@ Bounded edges, cycles, and lattice saturation add no condition.  The
 book also proves exact factorization of the envelope for every separable
 bounded obstacle on a finite product.  Thus products of finite balanced
 graphs and complete affine spaces have real-PA envelopes throughout the
-separable class, even with branched graph factors.  For positive-degree
-references, literal regularity remains open only if the graph has a
-higher-rank local relation cone and the reference slope vector lies on a
-proper dual face at every positive-mass vertex.  The zero-degree case,
-arbitrary nonseparable obstacles, the higher-dimensional real-PA
-characterizations, and the source convention repair also remain open. P05.1
-and P05.2 stay active;
+separable class, even with branched graph factors.  The zero-degree literal
+case is regular: zero degree is equivalent to compactness, where every
+polyhedrally convex function is componentwise constant.  For positive-degree
+references, literal regularity remains open only when every positive-mass
+vertex has a higher-rank local relation cone and the reference slope vector
+lies on a proper dual face there.  Arbitrary nonseparable obstacles, the
+higher-dimensional real-PA characterizations, and the source convention
+repair also remain open. P05.1 and P05.2 stay active;
 the inventory remains **42 active atoms in 12 formal problem environments**,
 tiers **(0,3,7,15,17)**.
 

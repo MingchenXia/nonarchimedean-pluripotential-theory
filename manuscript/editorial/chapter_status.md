@@ -3344,3 +3344,31 @@ missing inputs, overflows, or fatal errors; the 13 inherited Chapter 70
 duplicate destinations remain.  Physical pages 3809--3813 and all three
 minimal-packet pages were visually inspected.  Exact evidence is recorded in
 the dedicated integration audit and solver dossier.
+
+## Chapter 72: zero-degree literal graph regularity, 26 September 2026
+
+The book-local theorem
+`thm:frontier-polyhedral-zero-degree-integral-regularity` closes the
+zero-degree branch of P05.1 in dimension one.  Positivity at infinity and
+bounded-edge cancellation show that zero degree is equivalent to compactness.
+The balancing barycentre at a maximum vertex then forces every polyhedrally
+convex function to be constant on each connected component.  Consequently
+the envelope of every literal obstacle is its rational componentwise
+minimum, and literal integral-slope regularity holds.
+
+Together with the preceding strict-vertex obstruction, this leaves only the
+positive-degree finite-graph case in which every positive-mass vertex has a
+higher-dimensional local relation cone and the reference slope vector lies
+on a proper face of its dual cone.  P05.1 remains active, and the inventory
+remains 42 active atoms in 12 environments, tiers `(0,3,7,15,17)`.  No
+model-verifier result is claimed.
+
+The scoped writing audit, 419-input and 11,873-label source check, six checker
+tests, inventory check, minimal compile, and full build pass.  The final
+4,096-page PDF has 19,484,300 bytes and SHA-256
+`e8a719af038ed6d6f836c5c7b15b9d4eda6777feebc0e97eea7033ff2ff94cc8`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, overflows, or fatal errors; the 13 inherited Chapter 70
+duplicate destinations remain.  Physical pages 3811--3815 and both minimal
+pages were visually inspected.  Exact evidence is recorded in the dedicated
+integration audit and solver dossier.

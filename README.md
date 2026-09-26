@@ -478,12 +478,14 @@ nonzero local balancing relation.  The construction gives an explicit
 fractional-slope envelope and a quantitative uniform separation from every
 literal convex PA approximant.  In particular, every positive-degree
 reference on a finite graph with one-dimensional local relation cones fails
-literal regularity.  For positive-degree references, any remaining literal
-graph case must have at least one higher-rank local relation cone, with the
-reference on a proper dual face at every positive-mass vertex.  The
-zero-degree case, that higher-rank case, the higher-dimensional real-PA
-characterization for arbitrary obstacles, and the source convention repair
-remain open, so the atom count is unchanged.
+literal regularity.  The zero-degree case is regular: positivity at infinity
+makes zero degree equivalent to compactness, and every polyhedrally convex
+function on a compact connected balanced graph is constant.  For
+positive-degree references, any remaining literal graph case must have a
+higher-rank local relation cone at every positive-mass vertex, with the
+reference on a proper dual face there.  That higher-rank case, the
+higher-dimensional real-PA characterization for arbitrary obstacles, and
+the source convention repair remain open, so the atom count is unchanged.
 
 The 1 September local-comparison and source-cell-access research is preserved
 with its exact independent reviews in

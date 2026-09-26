@@ -330,13 +330,16 @@ source questions under one common framework.
   one-dimensional.  The explicit obstruction has fractional slope and a
   quantitative uniform separation from every literal convex PA approximant;
   the supplied one-vertex draft has accordingly been withdrawn.
+- **Verified literal zero-degree case:** positivity at infinity makes zero
+  degree equivalent to compactness.  Every polyhedrally convex function on a
+  compact connected balanced graph is constant, and every literal obstacle
+  has a rational constant envelope on each component.
 - **Status:** for a positive-degree reference, any remaining literal graph
-  case has at least one higher-rank local relation cone and has reference
-  slopes on a proper dual face at every positive-mass vertex.  The
-  zero-degree case, that higher-rank case, arbitrary nonseparable product
-  obstacles, the higher-dimensional real-PA characterizations, the source
-  coefficient-convention repair, and the analytic-realization questions
-  remain open.
+  case has a higher-rank local relation cone at every positive-mass vertex
+  and has reference slopes on a proper dual face there.  That higher-rank
+  case, arbitrary nonseparable product obstacles, the higher-dimensional
+  real-PA characterizations, the source coefficient-convention repair, and
+  the analytic-realization questions remain open.
 - **Packets:** balanced_polyhedral_regularity.md (run and verified in its
   exact core) and bmps_exact_source_questions.md (prepared, not run).
 

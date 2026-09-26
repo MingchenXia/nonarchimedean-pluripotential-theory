@@ -694,10 +694,12 @@ unrestricted unbounded continuation are disproved.
   separable bounded obstacles on finite products.  In particular, products
   of finite balanced graphs and complete affine spaces have real-PA envelopes
   throughout the separable obstacle class.  The zero-degree literal graph
-  case and the positive-degree higher-rank case where the reference lies on a
-  proper dual face at every positive-mass vertex, arbitrary nonseparable
-  obstacles, the higher-dimensional real-PA characterization, and the source
-  convention repair remain open.
+  case is regular: zero degree is equivalent to compactness, and every
+  polyhedrally convex function is componentwise constant.  The
+  positive-degree case where every positive-mass vertex has a higher-rank
+  local relation cone and the reference lies on a proper dual face there,
+  arbitrary nonseparable obstacles, the higher-dimensional real-PA
+  characterization, and the source convention repair remain open.
 - **P05.2** `[T3; open]` Characterize the pairs for which their
   orthogonality property holds.
 - **P05.5** `[T4; open after the calibrated recursive model cases]`
@@ -814,10 +816,11 @@ higher-dimensional real-PA regularity and orthogonality characterizations
 remain open.  The strict-vertex theorem now disproves literal regularity
 whenever the reference slope is positive on all nonzero local relations; in
 particular it covers every positive-degree local-rank-one graph.  For a
-positive-degree reference, any remaining literal graph case has at least one
-higher-rank local cone and has reference slopes on a proper dual face at
-every positive-mass vertex.  The zero-degree case is not addressed.  P05.1
-and P05.2 stay active T3 atoms and all inventory counts are unchanged.
+positive-degree reference, any remaining literal graph case has a
+higher-rank local cone at every positive-mass vertex and has reference slopes
+on a proper dual face there.  The zero-degree case is regular by the compact
+balanced-graph maximum principle.  P05.1 and P05.2 stay active T3 atoms and
+all inventory counts are unchanged.
 
 ### `prob:frontier-pluriharmonic` --- 1 active atom
 
