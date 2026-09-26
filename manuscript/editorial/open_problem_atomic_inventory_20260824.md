@@ -685,21 +685,19 @@ unrestricted unbounded continuation are disproved.
 
 - **P05.1** `[T3; open]` Characterize the pairs \((\mathbf X,\gamma)\) for
   which the Botero--Mazzon--Pille-Schneider regularity property holds.  The
-  literal integral-slope property fails whenever a finite graph has a vertex
-  where the reference slope vector is strictly positive on every nonzero
-  local balancing relation; in particular it fails for every positive-degree
-  reference on a finite graph with one-dimensional local relation cones.  In
-  the explicit real scalar extension, every one-dimensional finite balanced
-  rational polyhedral space has regularity, and envelopes factor exactly for
-  separable bounded obstacles on finite products.  In particular, products
-  of finite balanced graphs and complete affine spaces have real-PA envelopes
-  throughout the separable obstacle class.  The zero-degree literal graph
-  case is regular: zero degree is equivalent to compactness, and every
-  polyhedrally convex function is componentwise constant.  The
-  positive-degree case where every positive-mass vertex has a higher-rank
-  local relation cone and the reference lies on a proper dual face there,
-  arbitrary nonseparable obstacles, the higher-dimensional real-PA
-  characterization, and the source convention repair remain open.
+  literal integral-slope property is completely classified on finite
+  one-dimensional balanced spaces: it holds exactly in degree zero,
+  equivalently exactly when the space is compact.  In positive degree an
+  edgewise integral-roof obstacle has an exact rational-combination envelope
+  with a nonintegral slope and a quantitative uniform separation from every
+  literal convex PA approximant, independently of the local relation cones.
+  In the explicit real scalar extension, every one-dimensional finite
+  balanced rational polyhedral space has regularity, and envelopes factor
+  exactly for separable bounded obstacles on finite products.  In particular,
+  products of finite balanced graphs and complete affine spaces have real-PA
+  envelopes throughout the separable obstacle class.  Arbitrary nonseparable
+  obstacles, the higher-dimensional real-PA and literal characterizations,
+  and the source convention repair remain open.
 - **P05.2** `[T3; open]` Characterize the pairs for which their
   orthogonality property holds.
 - **P05.5** `[T4; open after the calibrated recursive model cases]`
@@ -813,14 +811,13 @@ to a supporting relation then globalizes the one-vertex obstruction at every
 higher-rank vertex.  Bounded edges, graph cycles and lattice saturation
 introduce no additional condition.  The source convention repair and the
 higher-dimensional real-PA regularity and orthogonality characterizations
-remain open.  The strict-vertex theorem now disproves literal regularity
-whenever the reference slope is positive on all nonzero local relations; in
-particular it covers every positive-degree local-rank-one graph.  For a
-positive-degree reference, any remaining literal graph case has a
-higher-rank local cone at every positive-mass vertex and has reference slopes
-on a proper dual face there.  The zero-degree case is regular by the compact
-balanced-graph maximum principle.  P05.1 and P05.2 stay active T3 atoms and
-all inventory counts are unchanged.
+remain open.  The strict-vertex theorem gives a local quantitative literal
+obstruction.  The subsequent one-dimensional classification removes that
+hypothesis: an integral-roof obstacle disproves literal regularity for every
+positive-degree reference, while the compact balanced-graph maximum
+principle proves literal regularity in degree zero.  P05.1 and P05.2 stay
+active T3 atoms because their higher-dimensional scopes remain open, and all
+inventory counts are unchanged.
 
 ### `prob:frontier-pluriharmonic` --- 1 active atom
 

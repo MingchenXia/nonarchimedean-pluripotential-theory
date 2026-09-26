@@ -476,16 +476,17 @@ literal BMPS integral-slope class fails regularity whenever a finite graph
 has a vertex where the reference slope vector is strictly positive on every
 nonzero local balancing relation.  The construction gives an explicit
 fractional-slope envelope and a quantitative uniform separation from every
-literal convex PA approximant.  In particular, every positive-degree
-reference on a finite graph with one-dimensional local relation cones fails
-literal regularity.  The zero-degree case is regular: positivity at infinity
-makes zero degree equivalent to compactness, and every polyhedrally convex
-function on a compact connected balanced graph is constant.  For
-positive-degree references, any remaining literal graph case must have a
-higher-rank local relation cone at every positive-mass vertex, with the
-reference on a proper dual face there.  That higher-rank case, the
-higher-dimensional real-PA characterization for arbitrary obstacles, and
-the source convention repair remain open, so the atom count is unchanged.
+literal convex PA approximant.  A global integral-roof construction removes
+the local strictness hypothesis: literal regularity on every finite
+one-dimensional balanced space holds exactly in degree zero, equivalently
+exactly when the space is compact.  In positive degree the exact envelope
+of a bounded literal obstacle is a rational convex combination of
+\(\gamma\) and \(\max\{\gamma,C\}\), with a nonintegral slope on a bounded
+edge cell and a quantitative uniform separation from every literal convex
+PA approximant.  The higher-dimensional real-PA and literal
+characterizations for arbitrary obstacles, arbitrary nonseparable product
+obstacles, and the source convention repair remain open, so the atom count
+is unchanged.
 
 The 1 September local-comparison and source-cell-access research is preserved
 with its exact independent reviews in

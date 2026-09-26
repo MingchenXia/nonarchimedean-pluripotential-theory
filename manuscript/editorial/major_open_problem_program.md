@@ -323,23 +323,20 @@ source questions under one common framework.
   separable bounded obstacles on finite products, including products of
   balanced graphs and complete affine spaces; exact factorial normalization;
   strict cross-fan counterexample; conditional recursive analytic comparison.
-- **Disproved literal claim:** with integral slopes, regularity fails at any
-  graph vertex where the reference slope vector is strictly positive on all
-  nonzero local balancing relations.  This includes every positive-degree
-  reference on a finite graph whose local relation cones are
-  one-dimensional.  The explicit obstruction has fractional slope and a
-  quantitative uniform separation from every literal convex PA approximant;
-  the supplied one-vertex draft has accordingly been withdrawn.
-- **Verified literal zero-degree case:** positivity at infinity makes zero
-  degree equivalent to compactness.  Every polyhedrally convex function on a
-  compact connected balanced graph is constant, and every literal obstacle
-  has a rational constant envelope on each component.
-- **Status:** for a positive-degree reference, any remaining literal graph
-  case has a higher-rank local relation cone at every positive-mass vertex
-  and has reference slopes on a proper dual face there.  That higher-rank
-  case, arbitrary nonseparable product obstacles, the higher-dimensional
-  real-PA characterizations, the source coefficient-convention repair, and
-  the analytic-realization questions remain open.
+- **Literal one-dimensional classification:** with integral slopes,
+  regularity holds exactly in degree zero, equivalently exactly when the
+  space is compact.  In zero degree every polyhedrally convex function is
+  componentwise constant.  In positive degree, edgewise integral-slope
+  concave roofs produce a literal obstacle whose exact envelope is a
+  rational convex combination of the reference and
+  $\max\{\gamma,C\}$.  A nonintegral edge slope gives a quantitative uniform
+  separation from every literal convex PA approximant.  This removes the
+  strict-vertex and local-rank hypotheses from the earlier obstruction; the
+  supplied one-vertex draft remains withdrawn.
+- **Status:** arbitrary nonseparable product obstacles, the
+  higher-dimensional real-PA and literal characterizations, the source
+  coefficient-convention repair, and the analytic-realization questions
+  remain open.
 - **Packets:** balanced_polyhedral_regularity.md (run and verified in its
   exact core) and bmps_exact_source_questions.md (prepared, not run).
 

@@ -3372,3 +3372,34 @@ missing inputs, overflows, or fatal errors; the 13 inherited Chapter 70
 duplicate destinations remain.  Physical pages 3811--3815 and both minimal
 pages were visually inspected.  Exact evidence is recorded in the dedicated
 integration audit and solver dossier.
+
+## Chapter 72: one-dimensional literal regularity classification, 26 September 2026
+
+The book-local theorem
+`thm:frontier-polyhedral-one-dimensional-literal-classification` completes
+P05.1 in dimension one for the literal coefficient category.  Literal
+regularity holds exactly in degree zero, equivalently exactly when the
+balanced polyhedral space is compact.  In positive degree, set
+`phi=max(gamma,C)` and take a proper rational convex combination of `gamma`
+and `phi`.  Edgewise integral-slope concave roofs produce a bounded literal
+obstacle whose exact envelope is that combination.  A nonintegral slope on
+one bounded cell gives the quantitative separation
+`L*dist(q,Z)/4` from every literal convex PA approximant.
+
+This global construction removes the strict-vertex, local-rank, and
+proper-dual-face restrictions from the preceding negative results.  P05.1
+remains active only in its higher-dimensional, nonseparable-product, and
+source-convention scopes; P05.2 remains active outside its one-dimensional
+real-PA classification.  The inventory remains 42 active atoms in 12
+environments, tiers `(0,3,7,15,17)`.  No model-verifier result is claimed.
+
+The scoped writing audit, 421-input and 11,877-label source check, six checker
+tests, inventory check, minimal compile, automatic second pass, and full build
+pass.  The final 4,098-page PDF has 19,494,764 bytes and SHA-256
+`c28a0be795db2faa104ac080b91bf3f699a78b1e0910233fb478b48b76f141b4`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, horizontal or vertical overflows, emergency stops, or fatal
+errors; the 13 inherited Chapter 70 duplicate destinations remain.  Physical
+pages 3812--3818 and all three minimal-packet pages were visually inspected.
+Exact evidence is recorded in the dedicated integration audit and solver
+dossier.
