@@ -39,8 +39,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part II, Chapters 9--19:** complete. All eleven chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part III, Chapters 20--31:** active. Chapters 20--21 are complete; Chapter
-  22 is next.
+- **Part III, Chapters 20--31:** active. Chapters 20--22 are complete; Chapter
+  23 is next.
 - **Parts IV--VI, Chapters 32--72:** queued in reading order after Part III.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -492,3 +492,35 @@ warnings are reviewed label namespaces and descriptive titles. The
 project-wide reference check, checker tests, full build, automatic second
 pass, and rendered-page inspection all pass. Exact evidence is recorded in
 `chapter_status.md`. Chapter 22 is next.
+
+### Chapter 22
+
+The pass separated the characteristic-free fixed-skeleton estimate from the
+global compactness theorem, whose topology additionally needs cofinal SNC
+models and skeletal reconstruction. The norm and path-metric discussion now
+states the correct refinement invariant: new lower-dimensional cells may
+carry different compatible norms, while every fixed finite refinement gives
+bi-Lipschitz equivalent path metrics. The simplex lemma explicitly verifies
+that its directional hypothesis descends to every facet before invoking
+induction.
+
+The slope proof was rebuilt around the actual dimension of the dual complex,
+with noncircular constants and a dense-good-point extension that no longer
+uses the desired bound before it is constructed. A direct audit of the
+original BFJ source confirms that display (6.3) prints one too few powers of
+the ample class: since $\dim E_J=n+1-|J|$, pullback positivity requires
+$n-|J|$ powers. The corrected exponent is now justified in the proof, the
+source note, and Appendix L, including the decisive curve-case check.
+
+The compactness limit is now verified against an arbitrary model by passing
+to a common domination. The countable-blind-spot example likewise tests
+centres on a common model, and the cusp discussion states the precise
+fixed-exponent scope of the Hara--Yoshida comparison. The chapter's imported
+geometric inputs, topological toolkit, characteristic ledger, and theorem
+labels are now mutually consistent.
+
+The scoped writing audit has zero errors; its fifty-two remaining warnings
+are reviewed label namespaces and descriptive titles. The project-wide
+reference check, checker tests, full build, automatic second pass, two
+continuous source reads, and rendered-page inspection all pass. Exact
+evidence is recorded in `chapter_status.md`. Chapter 23 is next.
