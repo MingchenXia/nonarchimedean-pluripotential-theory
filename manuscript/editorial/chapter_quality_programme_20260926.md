@@ -41,8 +41,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--35 are complete;
-  Chapter 36 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--36 are complete;
+  Chapter 37 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -986,3 +986,30 @@ math spans were normalized.  The scoped writing audit, project-wide reference
 check, checker tests, open-problem inventory check, full build, log scan, and
 rendered inspection of all fifty-five chapter pages pass.  Exact evidence is
 recorded in `chapter_status.md`. Chapter 36 is next.
+
+### Chapter 36
+
+The historical envelope chapter now separates four operations that had been
+easy to conflate: decreasing limits, increasing nets, arbitrary families via
+finite maxima, and obstacle envelopes before they are known to be psh.  The
+PL-obstacle criterion and continuity-of-envelopes criterion have complete
+proofs, and the implication from the envelope property in one ample class to
+unibranchness follows the normalization argument with its birational pullback
+input visible.
+
+The former broad claim that sequences never suffice was replaced by the exact
+cofinality theorem for the directed set of nonempty finite subsets.  This
+corrects the downstream discussion in Chapter 45 without excluding special
+sequential reductions.  The two published smooth cases now distinguish the
+nef theorem from the addendum's all-class theorem; the Fubini--Study envelope
+$Q_L$, the divisibility order, the multiplier/test-ideal inclusions, and the
+weak-envelope energy statement are all kept separate from the all-psh
+obstacle envelope $P_L$.
+
+The published BJ22 paper, its addendum, and the GJKM19 positive-characteristic
+inputs were checked directly at the precise results used.  The chapter was
+read continuously twice, all 251 legacy inline math spans were normalized,
+and the scoped writing audit, project-wide reference check, checker tests,
+open-problem inventory check, two full builds, log scans, and rendered-page
+inspection pass.  Exact evidence is recorded in `chapter_status.md`. Chapter
+37 is next.

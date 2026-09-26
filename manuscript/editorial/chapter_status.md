@@ -4922,3 +4922,64 @@ elimination, divisorial comparison, strict Siu decomposition, b-divisor
 approximation, translation dictionary, and source note were also inspected at
 full resolution during the two render passes.  No clipping, overlap, bad
 glyph, formula overflow, or hierarchy defect was found.
+
+## Chapter 36: envelopes before the general theorem, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 36; Chapter 37
+is next.  The chapter now distinguishes decreasing limits, increasing nets,
+arbitrary bounded-above families, and obstacle envelopes before the envelope
+theorem.  All 251 legacy inline math spans were normalized.  The formal
+obstacle calculus is stated without pretending that $P_\theta(h)$ is already
+psh, and its idempotence is correctly identified as equality of competitor
+sets.
+
+The mathematical core was repaired against the primary sources.  The
+PL-obstacle criterion now uses decreasing PL majorants and the proved
+decreasing-limit closure.  Continuity of envelopes is a labeled proposition
+with both implications proved, including the necessary downward shift of a
+continuous psh approximant.  The earlier nonmetrizability claim was replaced
+by the exact theorem that the directed set of nonempty finite subsets has a
+countable cofinal subset exactly when the original set is countable; Chapter
+45 was corrected at the only downstream use.  The normalization proof of
+unibranch necessity now exposes the scaled ample classes, birational pullback
+surjectivity, point separation, and analytification step.
+
+The smooth positive cases now have their actual interfaces.  The nef theorem
+records the base-ideal limit and uniform multiplier/test-ideal squeeze.  The
+addendum theorem defines the Fubini--Study envelope $Q_L$ before using it,
+keeps the divisibility order explicit, separates $Q_L$ from the all-psh
+obstacle envelope $P_L$, and identifies the weak-envelope energy theorem as a
+strictly weaker statement.  Equation labels and the historical proof map were
+made coherent.
+
+The published BJ22 text was checked directly at Theorem 2.31, Theorem 4.22,
+Lemma 5.9, Theorems 5.11--5.12, Lemmas 5.13, 5.17, 5.19 and 5.22, and Theorem
+5.20.  The published addendum was checked at Definition 1.1, Lemmas 1.2--1.3
+and 1.5--1.7, and Theorems A--B.  GJKM19 Section 4, Remark 4.4(3), and Theorem
+4.6 were checked for the positive-characteristic ideal inputs.  The finished
+chapter was read continuously twice.  This is a direct manuscript revision
+and primary-source audit; no independent-agent or exact-current
+model-verifier review is asserted.
+
+The automatic second pass has zero Chapter 36 writing-audit errors; its six
+reviewed warnings are the established chapter/warning label namespaces and
+source-given or descriptive result titles.  The two project bibliographies
+together resolve all citations.  The project-wide source check covers 425
+inputs and 12,035 labels, with zero missing inputs, duplicate labels, dangling
+references, or structural defects, and all six checker tests pass.  The
+open-problem inventory remains unchanged at forty-two active atoms across
+twelve Chapter 72 environments and passes.  The final full build produces a
+4,106-page PDF of 19,475,223 bytes with SHA-256
+`4c4cb2befcfa30e739bd141d54dfe2c2aa36a3c52c6f7c7d2681b1e5619e1fab`.
+The log has no unresolved references or citations, rerun requests, missing
+glyphs, emergency stops, or fatal errors.  The two inherited overfull boxes in
+Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; this revision introduces none.
+
+All eleven physical Chapter 36 pages 2211--2221 were inspected in the first
+render, together with the intentional blank versos at pages 2210 and 2222 and
+the Chapter 37 opening at page 2223.  After the second read, the affected
+orientation, finite-maximum proofs, published-case heading, and the dependent
+Chapter 45 discussion at physical page 2612 were re-rendered and inspected at
+full resolution.  No clipping, overlap, bad glyph, formula overflow, or
+hierarchy defect was found.
