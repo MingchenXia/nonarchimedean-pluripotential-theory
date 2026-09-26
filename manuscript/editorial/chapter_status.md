@@ -4724,3 +4724,65 @@ inspected at full resolution for both seams, the normal-cone and quasimonomial
 repairs, the affine-plane table, proper-support density, the Gauss comparison,
 and the final dictionary. No clipping, overlap, bad glyph, formula overflow,
 or hierarchy defect was found.
+
+## Chapter 33: test configurations, norms, and filtrations, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 33; Chapter 34
+is next. The chapter now distinguishes the hypotheses carried by each part of
+the test-configuration dictionary. Flatness makes the central fibre Cartier
+and excludes vertical irreducible components, but does not exclude its embedded
+points; that is supplied by the vertical $S_2$ condition. Equivariant weight
+decomposition is stated on invariant affine charts. Integral closure in the
+generic fibre is distinguished from normalization when $X$ is not normal, and
+the morphism in the blowup reconstruction has the correct direction from the
+dominating model to the blowup.
+
+The filtration calculus has been corrected at its three main normalization
+interfaces. A character twist translates weights, raw degree-$d$ base change
+dilates them before integral closure, and a Veronese restriction carries the
+old degree-$rm$ weights in new degree $m$. Accordingly the reindexed
+Duistermaat--Heckman measure is the dilation by $r$, becoming unchanged only
+after weights are divided by $r$ or normalized by the actual degree $rm$.
+Degree-specific base ideals are retained until a generating Veronese is fixed;
+after that choice their integral closures propagate with exponent $\ell$, not
+$r\ell$. The central-fibre weight proof uses coherence and torsion-freeness
+before applying Serre vanishing, and the finite-generation criterion now has
+its continuity hypothesis and a complete support-set proof for the semigroup
+algebra implication.
+
+The Boucksom--Chen concave transform is treated as intrinsically upper
+semicontinuous, and the probability, unnormalized, and Okounkov-body measure
+normalizations are kept separate. The four worked examples now test the sign,
+base-ideal, first-moment, and Veronese rules explicitly. In particular, the
+product filtration uses an admissible strict upper linear bound, the
+deformation-to-the-normal-cone example has
+$\mathfrak a_{(2)}=\mathfrak a$ rather than $\mathfrak a^2$, and the toric
+example first produces the tautological polarization for $4L$. The complex
+geodesic discussion is deferred to Chapter 65 behind the existing erratum
+firewall. The final dictionary marks only genuine equivalences as such and
+records the Duistermaat--Heckman measure as a coarse invariant. Exact BHJ17,
+BJ22, and BC11 locators were supplied, the official BHJ17 DOI and publication
+URL were corrected, and all 1,840 legacy inline delimiters were normalized.
+
+The automatic second pass has zero Chapter 33 writing-audit errors; its
+seventeen reviewed warnings are the established chapter, item, warning, and
+figure label namespaces. The project-wide source check covers 425 inputs and
+12,043 labels, with zero missing inputs, duplicate labels, dangling references,
+or structural defects, and all six checker tests pass. The open-problem
+inventory remains unchanged at forty-two active atoms across twelve Chapter 72
+environments and passes. The full build produces a 4,106-page PDF of
+19,488,174 bytes with SHA-256
+`dc9aa7f9bf0a51b7f76fcd62cdde2d0deb09fa1341da7fe78f9edb3af21fcd02`.
+The final log has no unresolved references or citations, rerun requests,
+missing glyphs, emergency stops, or fatal errors. The two inherited overfull
+boxes in Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; Chapter 33 introduces none. The finished chapter was read
+continuously after compilation. All forty-eight physical chapter pages
+2067--2114 were inspected in the final render, together with the Chapter 32
+ending at page 2066 and the Chapter 34 opening at page 2115. Pages 2071, 2089--
+2090, 2092--2096, 2103, 2110, and 2112--2114 were also inspected individually
+for the flatness and weight-decomposition repair, transformation and base-ideal
+rules, Boucksom--Chen theorem, examples, erratum boundary, final dictionary,
+and source note. No clipping, overlap, bad glyph, formula overflow, or hierarchy
+defect was found. This is a direct chapter revision and verification pass; no
+independent-agent or model-verifier review is asserted.

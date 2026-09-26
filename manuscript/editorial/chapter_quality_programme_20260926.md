@@ -41,7 +41,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapter 32 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--33 are complete;
+  Chapter 34 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -878,3 +879,39 @@ warnings. The project-wide reference check, checker tests, open-problem
 inventory check, full build, automatic second pass, log scan, source audit, and
 rendered inspection of all fifty-six chapter pages and both adjoining seams
 pass. Exact evidence is recorded in `chapter_status.md`. Chapter 33 is next.
+
+### Chapter 33
+
+The test-configuration chapter now states the dictionary at the exact level
+where each arrow is valid. Flatness makes the central fibre Cartier and rules
+out vertical irreducible components, but embedded points are excluded only by
+the vertical $S_2$ condition. Weight decompositions are used on invariant
+affine charts. Integral closure in the generic fibre is distinguished from
+normalization, and the direction of the morphism from a dominating model to
+the blowup is fixed throughout.
+
+The filtration side now separates character twists, raw base change, integral
+closure after base change, and Veronese restriction. A Veronese filtration of
+$R(X,rL)$ carries the old degree-$rm$ weights in new degree $m$, so its
+Duistermaat--Heckman measure is dilated by $r$ unless the weights retain their
+actual-degree normalization. Degree-specific base ideals are kept until a
+generating Veronese is chosen; after that choice their integral closures
+propagate with exponent $\ell$, not $r\ell$. The central-fibre weight proof,
+finite-generation criterion, and semigroup argument now state their precise
+coherence, continuity, saturation, and integral-closure hypotheses.
+
+The Boucksom--Chen concave transform is treated as intrinsically upper
+semicontinuous, with probability, unnormalized, and Okounkov-body measures
+kept separate. The product, deformation-to-the-normal-cone, non-finitely
+generated, and toric examples now test all signs and normalization rules
+numerically. The complex geodesic material is deferred to Chapter 65 behind
+the existing erratum firewall, while the final table distinguishes genuine
+equivalences from one-way constructions and coarse invariants. Exact source
+locators were added for the BJ22, BHJ17, and BC11 inputs, and all 1,840 legacy
+inline delimiters were normalized.
+
+The scoped writing audit, project-wide reference check, checker tests,
+open-problem inventory check, full build, automatic second pass, continuous
+chapter read, source audit, log scan, and rendered inspection of all forty-eight
+chapter pages and both adjoining seams pass. Exact evidence is recorded in
+`chapter_status.md`. Chapter 34 is next.
