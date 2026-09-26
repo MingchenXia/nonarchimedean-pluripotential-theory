@@ -3687,3 +3687,45 @@ visually inspected for the chapter opening, subnet convention, Riesz
 interface, capacity metric, Duistermaat--Heckman tails, extended-real ledger,
 and source notes; no clipping, overlap, bad glyph, formula overflow, or
 hierarchy defect was found.
+
+## Chapter 8: model calculations, valuation cones, and toric measures, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 8 and with it
+Part I; Chapter 9 is next. The normalized-link proof on a trivially valued
+smooth projective curve no longer confuses the analytic support of an order
+valuation with its centre. It chooses a rational function vanishing at the
+target point, deletes its finite pole set, and uses generators of the maximal
+ideal on that affine open to isolate the target even from valuations centred
+at the deleted points. The ideal-potential proposition now writes every
+nonzero ideal as `O_X(-D)`, proves the formula
+`phi_a(v_{b,t})=-m_b t`, and checks continuity at the common vertex and all
+proper-support endpoints.
+
+The projective-line branching proof now handles type-IV points through late
+discs in their defining families. The finite-residue-field model discussion
+includes the point at infinity, and the degree-two graph example now separates
+arbitrary graph-potential measures from the integral and rational constraints
+on model and Q-model metrics. The toric continuous Monge--Ampere comparison
+distinguishes vague from narrow convergence, extends compactly supported
+tropical test functions by zero to the proper toric analytification, and uses
+the full mass to exclude boundary loss. The potentially-good elliptic example
+now uses the integer-normalized extension valuation to show that any good-
+reduction extension has ramification index divisible by six. Nineteen reusable
+definitions, examples, and remarks received semantic labels.
+
+The automatic second pass has zero Chapter 8 writing-audit errors; its
+forty-five reviewed warnings are the established `chap:` namespace and
+descriptive titles. The project-wide source check covers 423 inputs and 11,975
+labels, with zero missing inputs, duplicate labels, or dangling references,
+and all six checker tests pass. The full 4,100-page PDF has 19,518,284 bytes
+and SHA-256
+`0082373f4e424fd6ed6625d5f4a5c3d38860b7f0b80b89419a0583055a5e7a69`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, horizontal or vertical overflows, emergency stops, or fatal
+errors; the thirteen inherited Chapter 70 duplicate destinations remain.
+Physical pages 311--312, 328--329, 333, 335--338, 345, and 353--358 were
+visually inspected for the chapter opening, type-IV branching, projective-line
+measure scope, normalized-link and ideal-potential proofs, toric convergence,
+elliptic discriminant normalization, and the concluding dictionaries and mass
+ledger; no clipping, overlap, bad glyph, formula overflow, or hierarchy defect
+was found.

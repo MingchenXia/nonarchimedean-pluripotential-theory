@@ -35,9 +35,10 @@ than mechanically rewritten.
 
 ## Order and progress
 
-- **Part I, Chapters 1--8:** active. Chapters 1--7 have completed their
-  semantic, mathematical, and structural pass; Chapter 8 is next.
-- **Parts II--VI, Chapters 9--72:** queued in reading order after Part I.
+- **Part I, Chapters 1--8:** complete. All eight chapters have passed the
+  semantic, mathematical, structural, mechanical, and rendered-page gates.
+- **Part II, Chapters 9--19:** active. Chapter 9 is next.
+- **Parts III--VI, Chapters 20--72:** queued in reading order after Part II.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -183,3 +184,30 @@ zero errors; its thirty remaining warnings are reviewed project conventions
 and descriptive titles. The project-wide reference check, full build,
 automatic second pass, and rendered-page inspection all pass. Exact evidence
 is recorded in `chapter_status.md`.
+
+### Chapter 8
+
+The pass repaired the normalized-link discreteness proof over a trivially
+valued curve by separating analytic support from the centre of a valuation.
+It now constructs a single affine-open test function that isolates every
+normalized order valuation, including valuations centred at the deleted pole
+set. The ideal-potential proposition now gives the global divisor formula on
+a smooth projective curve and proves continuity at both the common vertex and
+the proper-support endpoints.
+
+The projective-line branching proof now includes type-IV points explicitly,
+and the residue-field discussion correctly lists the point at infinity over a
+finite field. The graph Poisson statement is restricted to graph potentials;
+the additional integral or rational slope and support conditions required by
+model metrics are recorded separately. In the toric continuous comparison,
+vague and narrow convergence are distinguished and compactly supported tests
+are extended across the toric boundary before the full-mass argument excludes
+boundary loss. The potentially-good elliptic example now uses the
+integer-normalized extension valuation to prove that ramification index six
+is minimal.
+
+Nineteen reusable definitions, examples, and remarks received semantic
+labels. The scoped writing audit has zero errors; its forty-five warnings are
+reviewed project conventions and descriptive titles. The project-wide
+reference check, full build, automatic second pass, and rendered-page
+inspection all pass. Exact evidence is recorded in `chapter_status.md`.
