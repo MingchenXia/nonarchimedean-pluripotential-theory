@@ -14,7 +14,7 @@ Status vocabulary:
 |---:|---|---|---|---|
 | 1--8 | Foundations | chapter-quality pass complete | Chapters 1--8 completed the new structural and semantic pass | first-pass source record retained; exact provenance was rechecked chapter by chapter |
 | 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the earlier Chapter 18 GJR gates, the pure-dimensional real-PL positive-current/residue-nef equivalence passed `20260825T080059Z_80f35689475f`; first-stage CLD collapse on tropical toric partial compactifications passed `20260825T024707Z_d1b8d7eaf79e`, and its finite ambient-induced-star extension passed the direct endpoint archived locally as `20260827T103835Z_c8131b22d800`; the real-PL zero-current theorem and curve counterexample passed `20260825T061351Z_655e7f503e5d` and `20260825T055907Z_b5c8f0719b60`; the cubical reduction and product--Gauss criterion passed `20260825T145229Z_b37e13478cc7` and `20260826T055627Z_b68659fba1be`; unrestricted continuous smooth-proper-curve ordinary-smooth psh regularization passed `20260827T090645Z_767cbf81c723`; the canonical-collar bridge, rigid-point zero-atom estimate, and arbitrary-field reduced dimension-one positive-current classification passed exact-live run `20260828T042906Z_f2a1c1b9f2a3`; the arbitrary-field nonreduced combined packet passed production run `20260828T044008Z_dfdaa04a1cea`, and its separately materialized exact-live statement/proof, SHA-256 `e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c` / `25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`, passed HTTP-archived exact-live closure run `20260828T051601Z_db92555a72e1`; the dependency-closed componentwise rigid-exception materialization, SHA-256 `2bf673687e935bcdae91550158344647cb1ca1cd4ae0a5040109aeb5fb2f3cbc` / `a27c40fbb1328b008acab07b871f50a778c34bab2b0f1d05e3a6d9d229839716`, passed `20260829T061505Z_2bf673687e93`, item `pi_ee24d64b88f0c4e60ad1acbd`, final `correct`, zero critical errors, and zero gaps | The P06.3 proof uses Thuillier, Baker--Payne--Rabinoff, Gubler--Jell--Rabinoff, and Wanner in their exact source scopes.  The P21.3 proof uses ordinary-open nilreduction, canonical full virtual-annular collars with exact source preimages, Riemann--Roch on normal residual curves over the actual residue field, and rigid-point zero-atom arguments at the strict conductor locus and at normal rigid exceptional points.  It now covers reducible and nonreduced curves whose component-normalization non-rig-smooth loci lie in locally finite rigid sets, separates reduction-invariant ordinary CLD calculus from multiplicity-sensitive integration, and proves only continuous-pair Bedford--Taylor independence.  No novelty or priority claim is made.  The product--Gauss theorem remains a separate book-level deduction in the GK field and ordinary algebraic-chart categories |
-| 20--27 | BFJ forms, psh, envelopes, MA, capacity, and energy | sequential chapter-quality pass in progress; Chapters 20--25 complete | Chapter 20 separates rational finite-maximum stability from real fixed-form approximation; Chapter 21 uses the multiplicity- and residue-weighted curve Laplacian and proves the regular-SNC curve retraction theorem; Chapter 22 separates fixed-skeleton estimates from global compactness and repairs the slope induction and product-limit argument; Chapter 23 distinguishes the all-psh, real-model, and rational-model envelopes; Chapter 24 separates the model, continuous, bounded, and finite-energy Monge--Amp\`ere products, strengthens the dense-test and locality proofs, and states the exact three-way BFJ--Chambert--Loir--CLD comparison locus; Chapter 25 corrects every decreasing-net quasicontinuity argument, gives extended-real capacity convergence an intrinsic metric formulation, and removes the unnecessary finite-energy forward dependency | Chapters 20--22 were checked directly against their BFJ and auxiliary inputs; the Chapter 23 book-local result remains separated from its published inputs and makes no global sequential claim; Chapter 24's weighted decreasing-net continuity was checked against BFJ15 Theorem 3.1, and its noncharging statement against BFJ15 Proposition 3.7; Chapter 25's use of weighted continuity was checked against BFJ15 Theorem 3.1 and Proposition 4.3, and its curve statements against Thuillier's Proposition 3.4.10 and Theorem 3.6.11 |
+| 20--27 | BFJ forms, psh, envelopes, MA, capacity, and energy | sequential chapter-quality pass in progress; Chapters 20--26 complete | Chapter 20 separates rational finite-maximum stability from real fixed-form approximation; Chapter 21 uses the multiplicity- and residue-weighted curve Laplacian and proves the regular-SNC curve retraction theorem; Chapter 22 separates fixed-skeleton estimates from global compactness and repairs the slope induction and product-limit argument; Chapter 23 distinguishes the all-psh, real-model, and rational-model envelopes; Chapter 24 separates the model, continuous, bounded, and finite-energy Monge--Amp\`ere products, strengthens the dense-test and locality proofs, and states the exact three-way BFJ--Chambert--Loir--CLD comparison locus; Chapter 25 corrects every decreasing-net quasicontinuity argument, gives extended-real capacity convergence an intrinsic metric formulation, and removes the unnecessary finite-energy forward dependency; Chapter 26 separates finite energy from full mass, repairs extended-energy and mixed-product limits, and gives a full-mass infinite-energy example | Chapters 20--22 were checked directly against their BFJ and auxiliary inputs; the Chapter 23 book-local result remains separated from its published inputs and makes no global sequential claim; Chapter 24's weighted decreasing-net continuity was checked against BFJ15 Theorem 3.1, and its noncharging statement against BFJ15 Proposition 3.7; Chapter 25's use of weighted continuity was checked against BFJ15 Theorem 3.1 and Proposition 4.3, and its curve statements against Thuillier's Proposition 3.4.10 and Theorem 3.6.11; Chapter 26's bounded, finite-energy, and monotone-continuity interfaces were checked against BFJ15, while the one-dimensional measure discussion was reconciled with Thuillier's terminology and scope |
 | 28--31 | BFJ measures, continuity, functoriality, and examples | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 32--34 | Trivially valued foundations and psh closure | first-draft-final (historical) | first-pass record; Ch. 34 closure integration awaits Rethlas review | first-pass record; primary anchors rechecked for the closure repair |
 | 35 | Homogeneity and b-divisors | post-expansion depth-audited | strict homogeneous Siu division proved internally; the critical endpoint is transparently imported, and the independent repair packet is quarantined pending Rethlas | BJ22 proof step and later post-envelope confirmation checked at their exact scopes |
@@ -4330,3 +4330,53 @@ also inspected at full resolution for the opening, fundamental estimate,
 quasicontinuity proof, convergence definition, all-psh truncation theorem,
 curve comparison, dictionary, source notes, and chapter transition. No
 clipping, overlap, bad glyph, formula overflow, or hierarchy defect was found.
+
+## Chapter 26: energy and finite-energy potentials, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 26; Chapter 27
+is next. The opening and theorem architecture now distinguish finite energy
+from full nonpluripolar Monge--Amp\`ere mass. The bounded theory records the
+actual mixed-energy and intersection-theoretic inputs, while the extended
+energy proof handles infinite endpoint values and product-directed decreasing
+nets explicitly. Its monotone-continuity step is logically independent of the
+concavity argument that it later completes.
+
+The singular constructions were repaired at their limiting interfaces. The
+nonpluripolar measure uses Borel strict superlevels without calling them open,
+and the finite-energy capacity tail follows directly from the bounded cocycle
+formula. Mixed finite-energy products now pass to the limit through a uniform
+tail estimate before invoking weak convergence. The compactness corollary for
+arbitrary nets normalizes by the varying suprema, extracts in the compact
+product of the normalized superlevel and the bounded constants, and first
+chooses a subnet realizing the original energy limsup. This supplies the
+claimed upper-semicontinuity inequality for the original net rather than only
+for an unspecified subnet.
+
+The worked examples now exhibit both sides of the mass boundary. The polar-ray
+example has infinite energy and loses nonpluripolar mass, whereas the new
+slope-tower example has full mass but harmonic-series energy divergence. Thus
+the book proves internally that the full-mass class is strictly larger than
+$\mathcal E^1$ in the present non-Archimedean setting. The curve discussion
+separates Thuillier's finite-energy measures from finite-energy potentials,
+and the scope ledger distinguishes the original BFJ residue-characteristic-
+zero inputs from later replacements. All 1,742 legacy inline delimiters were
+normalized.
+
+The automatic second pass has zero Chapter 26 writing-audit errors; its
+eighty-eight reviewed warnings are established label namespaces and
+descriptive titles. The project-wide source check covers 425 inputs and 12,048
+labels, with zero missing inputs, duplicate labels, dangling references, or
+structural defects, and all six checker tests pass. The clean full build
+produces a 4,108-page PDF of 19,508,638 bytes with SHA-256
+`8b68ba315cf6a837aab59c2bb6067fdfd600507ae06b14e38d47d65cc7f11feb`.
+The final log has no unresolved references or citations, rerun requests,
+missing glyphs, emergency stops, or fatal errors. The two inherited overfull
+boxes in Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; Chapter 26 introduces none. All sixty-two physical pages
+1661--1722 were inspected as rendered thumbnails; page 1722 is the intentional
+blank verso. Pages 1661, 1666, 1668, 1678--1679, 1684, 1686, 1692--1693,
+1702--1703, 1709--1711, 1715--1716, 1719, and the Chapter 27 seam at 1723 were
+also inspected at full resolution for the opening, bounded and extended energy
+proofs, finite-energy tail, mixed-product limit, net compactness, singular
+examples, scope table, source notes, and chapter transition. No clipping,
+overlap, bad glyph, formula overflow, or hierarchy defect was found.

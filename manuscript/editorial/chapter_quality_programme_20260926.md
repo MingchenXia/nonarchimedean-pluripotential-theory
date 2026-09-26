@@ -39,8 +39,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part II, Chapters 9--19:** complete. All eleven chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part III, Chapters 20--31:** active. Chapters 20--25 are complete; Chapter
-  26 is next.
+- **Part III, Chapters 20--31:** active. Chapters 20--26 are complete; Chapter
+  27 is next.
 - **Parts IV--VI, Chapters 32--72:** queued in reading order after Part III.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -629,3 +629,35 @@ has zero errors and eighty-two reviewed convention warnings. The project-wide
 reference check, checker tests, full build, automatic second pass, two
 continuous source reads, and inspection of all sixty rendered chapter pages
 pass. Exact evidence is recorded in `chapter_status.md`. Chapter 26 is next.
+
+### Chapter 26
+
+The energy chapter now distinguishes finite energy from full Monge--Amp\`ere
+mass at its point of entry and follows that distinction through truncations,
+nonpluripolar products, compactness, and the worked examples. The extended
+energy proof treats endpoint values and product-directed decreasing nets
+explicitly, and its continuity statement no longer imports an argument that
+depends on the concavity currently being proved. The finite-energy tail
+estimate is derived directly from the bounded cocycle formula and identifies
+the precise step that forces full mass.
+
+The singular theory has been tightened at each limiting interface. Strict
+superlevel sets are used only as Borel sets, mixed products are constructed
+with a uniform tail estimate before weak convergence, and arbitrary nets are
+kept distinct from sequences. The normalized-superlevel compactness
+corollary now tracks the varying constants in a compact product and chooses a
+subnet realizing the original energy limsup. A new slope-tower example on the
+non-Archimedean projective line proves concretely that full mass is strictly
+weaker than finite energy, complementing the polar example where mass is
+lost.
+
+The scope and provenance sections now separate the original residue-
+characteristic-zero BFJ inputs from later positive-characteristic
+replacements, and distinguish Thuillier's finite-energy measure space on a
+curve from the book's class of finite-energy potentials. All 1,742 legacy
+inline delimiters were normalized to the book convention. The scoped writing
+audit has zero errors and eighty-eight reviewed convention warnings. The
+project-wide reference check, checker tests, clean full build, automatic
+second pass, two continuous chapter reads, and rendered inspection of the
+whole chapter pass. Exact evidence is recorded in `chapter_status.md`.
+Chapter 27 is next.
