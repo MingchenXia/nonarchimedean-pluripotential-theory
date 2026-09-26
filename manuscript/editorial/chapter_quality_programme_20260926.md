@@ -765,3 +765,43 @@ warnings. The project-wide reference check, checker tests, clean full build,
 automatic second pass, continuous chapter read, primary-source audit, and
 rendered inspection of all forty-eight physical pages pass. Exact evidence
 is recorded in `chapter_status.md`. Chapter 30 is next.
+
+### Chapter 30
+
+The functoriality chapter now separates three constructions that had been
+allowed to drift together: a morphism over a fixed ground field, the ordinary
+analytic projection attached to an extension of complete valued fields, and
+the additional Gauss section available for $k\subset k((t))$ when $k$ is
+trivially valued. In particular, the Gauss section is no longer described as
+though it were the base-change projection or were induced by a morphism of
+schemes. The projection formula ledger also distinguishes the degree factor
+for a finite morphism from the degree-one birational formula, while recording
+that the latter leaves the ample cone and therefore has a different analytic
+scope.
+
+The Gauss construction has been repaired at the proof level. Semivaluations
+are allowed to take values in $\mathbf R\cup\{+\infty\}$; a finite-dimensional
+coefficient-space bound proves that the defining minimum is attained; and a
+local bound on a finite basis proves continuity, replacing the former false
+global assertion that every coefficient has norm at most one. The same
+coefficient bound controls the infinite Laurent-series truncation. The
+descent theorem now covers singular psh potentials by decreasing model
+regularization, finite-group averaging, model descent, and decreasing
+stability. Ramified and infinite extensions are kept at their proved scope:
+skeletal compatibility is not presented as model-and-Cartier descent, and no
+quotient after completion is asserted without an inverse-limit theorem.
+
+The chapter now keeps model, continuous, bounded, and finite-energy
+functoriality distinct and narrows its exceptional-mass warning to a model
+function and its model Monge--Amp\`ere measure. The official BJ22 publication
+record and the section-level Gauss attribution were checked, while the
+chapter continues to avoid identifying the full psh theories over the
+trivially and nontrivially valued fields. All 2,230 legacy inline delimiters
+were normalized, one reusable remark received a semantic label, and three
+bibliography family labels were made house-compliant.
+
+The scoped writing audit has zero errors and sixty-five reviewed convention
+warnings. The project-wide reference check, checker tests, open-problem
+inventory check, full build, log scan, and rendered inspection of all
+sixty-two physical pages pass. Exact evidence is recorded in
+`chapter_status.md`. Chapter 31 is next.
