@@ -19,7 +19,7 @@ Status vocabulary:
 | 32--34 | Trivially valued foundations and psh closure | first-draft-final (historical) | first-pass record; Ch. 34 closure integration awaits Rethlas review | first-pass record; primary anchors rechecked for the closure repair |
 | 35 | Homogeneity and b-divisors | post-expansion depth-audited | strict homogeneous Siu division proved internally; the critical endpoint is transparently imported, and the independent repair packet is quarantined pending Rethlas | BJ22 proof step and later post-envelope confirmation checked at their exact scopes |
 | 36 | Envelope history | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
-| 37--41 | Envelope theorem, first proof block | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
+| 37--41 | Envelope theorem, first proof block | sequential chapter-quality pass complete | Chapters 37--41 passed the post-expansion mathematical gate; Chapter 41 now distinguishes Artin length, completed residue-field degree, defectless ramification data, split analytic fibres, and determinant-norm descent | Chapter 41's flattening, quotient, residue-field, universal-homeomorphism, finite-flat, determinant-norm, and polynomial-law inputs were checked directly against the Stacks Project, Ferrand, and Roby; the earlier chapter records remain in the chapter-quality programme and theorem-provenance ledger |
 | 42--45 | Envelope theorem, second proof block | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 46--49 | BJ energy, topology, and valuations | post-expansion synchronization complete for the listed gates | the exact-current Chapter 49 truncation-energy package passed `20260824T041218Z_0c95825dbb06`; the \(\mathbf P^n\), \(n\ge2\), global Radon--Riesz counterexample passed frozen run `20260825T044839Z_326e2035bbb9` and exact-live run `20260825T051642Z_049da6197deb`; all returned final `correct`, 0 critical errors, 0 gaps | the truncation theorem is restricted to the positive-volume probability-normalized BJ framework; the Radon--Riesz counterexample is characteristic-free on projective space and the later gate controls the adapted live theorem-and-proof bytes |
 | 50 | Stability and completions | post-expansion depth-audited | quotient, Hausdorffization, completion extension, independence, and uniqueness arguments expanded in full after explicit imported inputs | BJKS and BJ theorem scopes rechecked against the formal completion argument |
@@ -5205,3 +5205,53 @@ comparison, ideal-engine interface, corrected cusp computation, final
 envelope identification, dictionary, source note, and both adjoining seams
 were also checked at full resolution.  No clipping, overlap, bad glyph,
 formula overflow, or hierarchy defect remains in the chapter.
+
+## Chapter 41: determinant norms and finite descent, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 41; Chapter 42
+is next.  The duplicate roadmap subsection has been removed, leaving the
+opening orientation as the single guide to the chapter.  The analytic fibre
+weight is now described as the dimension of the local Artinian fibre factor
+over the completed residue field, or equivalently as the sum of geometric
+Artin lengths after algebraic closure.  This formulation retains
+inseparability and valuation defect rather than silently replacing every
+completed field degree by ramification index times residue degree.
+
+The mathematical audit repaired four substantive interfaces.  The weight
+anatomy now gives the unconditional identity
+$\dim_H C=\ell_C(C)[K:H]$ and invokes $[K:H]=ef$ only in the defectless case.
+The quadratic-cone example restricts its two weight-one lifts to the split
+étale locus and warns that an analytic fibre away from the branch divisor may
+be one nonsplit point of weight two.  Its global identity is instead derived
+from the determinant norm on the function field and the explicit norm-line
+identification.  Finally, the projection formula requires only generic degree
+for $q_*q^*=d$, whereas the divisor formula for a norm section uses finite
+local freeness.
+
+The source audit checked Stacks Project Tags `0815`, `0BRI`, `0BRJ`, `0CNF`,
+`02K9`, and `0BD2`, Ferrand's norm-functor paper, and Roby's original
+polynomial-law paper.  The source note now records Roby's contribution and
+distinguishes it from Ferrand's norm functor.  All 2,264 legacy inline math
+spans were normalized, and the finished chapter was read continuously twice.
+This is a direct manuscript revision and primary-source audit; no
+independent-agent or exact-current model-verifier review is asserted.
+
+The final house audit has zero errors and 70 reviewed warnings, all from the
+established label namespace or descriptive result titles.  The project-wide
+source check covers 425 inputs and 12,036 labels, with zero missing inputs,
+duplicate labels, dangling references, or structural defects; all six checker
+regression tests pass.  The open-problem inventory remains unchanged at
+forty-two active atoms across twelve Chapter 72 environments and passes.  The
+final full build produces a 4,104-page PDF of 22,134,661 bytes with SHA-256
+`a4b58199dd0c7e2914247954646f83408bc3ae0dc20a922920df7fabfe9884ca`.
+The log has no unresolved references or citations, rerun requests, emergency
+stops, or fatal errors.  The sixteen inherited missing-glyph warnings, nine
+inherited overfull boxes, and thirteen inherited Chapter 70 duplicate
+destinations are all outside Chapter 41; this revision introduces none.
+
+All fifty-four physical Chapter 41 pages 2383--2436 were scanned in the final
+render, together with the Chapter 40 closing page 2382 and the Chapter 42
+opening at page 2437.  The opening, fibre-weight anatomy, corrected quadratic-
+cone example, dictionary, source note, and both adjoining seams were also
+checked at full resolution.  No clipping, overlap, bad glyph, formula
+overflow, or hierarchy defect remains in the chapter.

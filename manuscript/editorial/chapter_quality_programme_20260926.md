@@ -41,8 +41,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--40 are complete;
-  Chapter 41 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--41 are complete;
+  Chapter 42 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -1134,3 +1134,32 @@ project-wide reference check, checker tests, open-problem inventory check,
 full build, log scan, and rendered scan of all fifty chapter pages and both
 adjoining seams pass.  Exact evidence is recorded in `chapter_status.md`.
 Chapter 41 is next.
+
+### Chapter 41
+
+The finite-descent chapter now identifies the analytic fibre weight at its
+correct generality: it is the dimension of the local Artinian fibre factor
+over the completed residue field, equivalently the sum of geometric Artin
+lengths after algebraic closure.  The unconditional identity separates this
+Artin length from the completed residue-field degree, while the familiar
+ramification-index times residue-degree formula is confined to the defectless
+case.  The chapter therefore no longer suppresses inseparability or defect.
+
+The double-cover example has also been repaired.  Its two weight-one lifts
+exist on the split étale locus, not at every analytic point away from the
+branch divisor; a nonsplit analytic fibre may instead be one point of weight
+two.  The global averaging formula is now proved with the determinant norm
+and an explicit identification of the norm line, so it does not depend on the
+split-fibre picture.  The projection-formula discussion likewise separates
+the generic-degree identity from the finite-local-freeness required for the
+norm-divisor identity.
+
+The source audit checked the flattening, quotient, residue-field, universal-
+homeomorphism, finite-locally-free, and determinant-norm inputs against the
+Stacks Project, and the norm-law provenance against Ferrand and Roby.  The
+source note now credits Roby's original polynomial-law formalism.  All 2,264
+legacy inline math spans were normalized, and the chapter was read
+continuously twice.  The scoped audit, project-wide reference check, checker
+tests, open-problem inventory check, full build, log scan, and rendered scan
+of all fifty-four chapter pages and both adjoining seams pass.  Exact evidence
+is recorded in `chapter_status.md`.  Chapter 42 is next.
