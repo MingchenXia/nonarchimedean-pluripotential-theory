@@ -39,8 +39,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part II, Chapters 9--19:** complete. All eleven chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part III, Chapters 20--31:** active. Chapter 20 is complete; Chapter 21 is
-  next.
+- **Part III, Chapters 20--31:** active. Chapters 20--21 are complete; Chapter
+  22 is next.
 - **Parts IV--VI, Chapters 32--72:** queued in reading order after Part III.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -463,5 +463,32 @@ approximation rather than the false real maximum closure.
 The scoped writing audit has zero errors; its remaining warnings are reviewed
 label namespaces and descriptive titles. The project-wide reference check,
 checker tests, full build, automatic second pass, and rendered-page inspection
-all pass. Exact evidence is recorded in `chapter_status.md`. Chapter 21 is
-next.
+all pass. Exact evidence is recorded in `chapter_status.md`.
+
+### Chapter 21
+
+The pass rebuilt the chapter's curve interface with the two weights required
+by the model intersection formula: special-fibre multiplicities and node
+residue degrees. The psh criterion, model measure, Laplacian, flux argument,
+and worked examples now distinguish the general weighted theory from the
+unit-weight examples. The curve retraction theorem is restricted to regular
+SNC models and its single-attachment geometry is proved by factorization of a
+birational map of regular surfaces into point blowups. The proof also uses
+real model-PL functions directly, rather than silently replacing them by
+rational Cartier data.
+
+The global definition was tightened at the same time. Its two clauses are
+shown to be logically independent by an example that works on the full model
+system, the no-cofinal-sequence result is no longer overextended to arbitrary
+nets, and the toric retraction inequality is separated from facewise
+convexity. The hypothesis ledger now records both uses of residue
+characteristic zero and the additional uses of ampleness. Language comparing
+the global BFJ class with the local CLD sheaf has been made exact.
+
+The weighted interface was propagated to the curve-capacity calculation in
+Chapter 25, the Chapter 26 graph example, and the Chapter 28 curve-uniqueness
+argument. The scoped Chapter 21 writing audit has zero errors; its remaining
+warnings are reviewed label namespaces and descriptive titles. The
+project-wide reference check, checker tests, full build, automatic second
+pass, and rendered-page inspection all pass. Exact evidence is recorded in
+`chapter_status.md`. Chapter 22 is next.

@@ -2846,16 +2846,26 @@ canonical metric, \(p=p_{\mathcal C}:C^{\An}\to\Gamma\) the retraction, and
 \(\mu_0\) the curvature measure of \(\theta\) on \(\Gamma\) in the sense of
 \eqref{eq:graph-curvature}, a positive measure of total mass \(V=\deg L\)
 supported on the vertices.  Recall from \eqref{eq:ch21-curve-psh-test} that a
-model function \(\psi\) determined on a semistable model with skeleton
-\(\Gamma'\supseteq\Gamma\) is \(\theta\)-psh precisely when
-\(\mu_0+\Delta_{\Gamma'}\psi\geq0\) on \(\Gamma'\), and from
-\Cref{prop:ch20-curve-laplacian} and \Cref{prop:ch08-curve-cl} that
+model function \(\psi\) determined on a regular SNC model
+\(\mathcal C'\geq\mathcal C\), with skeleton
+\(\Gamma'\supseteq\Gamma\), is \(\theta\)-psh precisely when
+\(\mu_{\theta,\mathcal C'}+
+\Delta^{\mathrm w}_{\Gamma'}\psi\geq0\) on \(\Gamma'\).  Moreover,
+\Cref{prop:ch20-curve-laplacian} and
+\eqref{eq:ch20-curve-laplacian-general} give
 \begin{equation}
 \label{eq:ch25-curve-ma}
- \MA_\theta(\psi)=\mu_0+\Delta_{\Gamma'}\psi
+ \MA_\theta(\psi)
+ =\mu_{\theta,\mathcal C'}+\Delta^{\mathrm w}_{\Gamma'}\psi
 \end{equation}
-as measures on \(\Gamma'\subseteq C^{\An}\), the right-hand side being the
-weighted graph Laplacian \eqref{eq:graph-laplacian}.
+as measures on \(\Gamma'\subseteq C^{\An}\).  Here the reference measure is
+\eqref{eq:ch21-curve-reference-measure} and the weighted Laplacian is
+\eqref{eq:ch21-weighted-graph-laplacian}; on \(\Gamma\) we write the
+reference measure simply as \(\mu_0\).
+For a continuous function on the finite weighted graph, the same notation
+\(\Delta^{\mathrm w}_\Gamma\) denotes the distributional weighted
+Laplacian; positivity means that the resulting distribution is a positive
+Radon measure.
 
 \begin{proposition}
 \label{prop:ch25-curve-pushforward}
@@ -2870,9 +2880,8 @@ Borel \(A\subseteq\Gamma\).
 
 \begin{proof}
 \emph{Step 1: model functions.}  Let \(\psi\) be a \(\theta\)-psh model
-function, determined on a semistable model with skeleton
-\(\Gamma'\supseteq\Gamma\); such a \(\Gamma'\) exists after passing to a
-higher semistable model, which does not change \(\psi\).  By
+function.  Choose a regular SNC model \(\mathcal C'\geq\mathcal C\)
+determining it, and write \(\Gamma'=\Delta_{\mathcal C'}\).  By
 \Cref{prop:ch21-curve-retraction}, \(\psi\circ p\) is again a \(\theta\)-psh
 model function, determined on a model with skeleton \(\Gamma\), and
 \eqref{eq:ch25-curve-ma} computes both measures.  Both are supported on
@@ -2892,25 +2901,28 @@ have
 \]
 Now \(\mu_0(\Gamma'\setminus\Gamma)=0\) by
 \eqref{eq:ch21-curve-no-new-mass}, and summing
-\eqref{eq:graph-laplacian} over the points of \(T\setminus\{q\}\) gives, as
-in \eqref{eq:ch21-curve-flux},
+\eqref{eq:ch21-weighted-graph-laplacian} over the points of
+\(T\setminus\{q\}\) gives, as in \eqref{eq:ch21-curve-flux},
 \[
- \Delta_{\Gamma'}\psi\bigl(T\setminus\{q\}\bigr)
- =-\sum_{e\subseteq T,\ e\ni q}\partial_e\psi(q),
+ \Delta^{\mathrm w}_{\Gamma'}\psi\bigl(T\setminus\{q\}\bigr)
+ =-\sum_{e\subseteq T,\ e\ni q}m_e\partial_e\psi(q),
 \]
 all interior edges contributing twice with opposite signs.  On the other
 hand, at \(q\) itself,
 \[
- \Delta_{\Gamma'}\psi(\{q\})
- =\sum_{e\subseteq\Gamma,\ e\ni q}\partial_e\psi(q)
-  +\sum_{T:\,q(T)=q}\ \sum_{e\subseteq T,\ e\ni q}\partial_e\psi(q).
+ \Delta^{\mathrm w}_{\Gamma'}\psi(\{q\})
+ =\sum_{e\subseteq\Gamma,\ e\ni q}m_e\partial_e\psi(q)
+  +\sum_{T:\,q(T)=q}\ \sum_{e\subseteq T,\ e\ni q}
+       m_e\partial_e\psi(q).
 \]
 Adding the two displays, the branch terms cancel and
 \[
  \begin{aligned}
  \MA_\theta(\psi)\bigl(p^{-1}(\{q\})\bigr)
- &=\mu_0(\{q\})+\sum_{e\subseteq\Gamma,\ e\ni q}\partial_e\psi(q)\\
- &=\bigl(\mu_0+\Delta_\Gamma(\psi|_\Gamma)\bigr)(\{q\})\\
+ &=\mu_0(\{q\})+
+   \sum_{e\subseteq\Gamma,\ e\ni q}m_e\partial_e\psi(q)\\
+ &=\bigl(\mu_0+\Delta^{\mathrm w}_\Gamma
+                 (\psi|_\Gamma)\bigr)(\{q\})\\
  &=\MA_\theta(\psi\circ p)(\{q\}),
  \end{aligned}
 \]
@@ -2932,7 +2944,13 @@ all by \Cref{prop:ch21-curve-retraction}.  By
 along the continuous map \(p\) preserves weak convergence, since
 \(\int f\,\rd(p_*\nu)=\int(f\circ p)\,\rd\nu\) and \(f\circ p\) is continuous
 for continuous \(f\) (\Cref{lem:pushforward-radon}).  Passing to the limit in
-Step~1 gives \eqref{eq:ch25-curve-pushforward}.
+Step~1 gives \eqref{eq:ch25-curve-pushforward}.  The same passage to the
+limit in \eqref{eq:ch25-curve-ma}, tested against continuous piecewise
+affine functions on \(\Gamma\), also gives the distributional identity
+\[
+ \MA_\theta(u\circ p)
+ =\mu_0+\Delta^{\mathrm w}_\Gamma(u|_\Gamma).
+\]
 \end{proof}
 
 \begin{corollary}
@@ -2947,17 +2965,19 @@ Then for every Borel \(A\subseteq\Gamma\),
 \begin{equation}
 \label{eq:ch25-curve-capacity}
  \Capa_\theta\bigl(p^{-1}(A)\bigr)
- =\sup_{f\in\mathcal P_\Gamma}\bigl(\mu_0+\Delta_\Gamma f\bigr)(A).
+ =\sup_{f\in\mathcal P_\Gamma}
+     \bigl(\mu_0+\Delta^{\mathrm w}_\Gamma f\bigr)(A).
 \end{equation}
 Moreover \(\mathcal P_\Gamma\) is contained in
 \[
  \mathcal Q_\Gamma:=\bigl\{f:\Gamma\to[-1,0]\ \text{continuous}\ :\
-    \mu_0+\Delta_\Gamma f\geq0\bigr\}
+    \mu_0+\Delta^{\mathrm w}_\Gamma f\geq0\bigr\}
 \]
 and contains every piecewise affine member of \(\mathcal Q_\Gamma\) whose
 breakpoints lie at points of \(\Gamma\) with rational coordinates and whose
 values are rational.  Consequently, if the supremum of
-\((\mu_0+\Delta_\Gamma f)(A)\) over \(\mathcal Q_\Gamma\) is attained at such
+\((\mu_0+\Delta^{\mathrm w}_\Gamma f)(A)\) over
+\(\mathcal Q_\Gamma\) is attained at such
 a piecewise affine \(f\), then it equals
 \(\Capa_\theta(p^{-1}(A))\).
 \end{corollary}
@@ -2965,10 +2985,10 @@ a piecewise affine \(f\), then it equals
 \begin{proof}
 For \(u\in\mathcal U_\theta\) we have, by
 \Cref{prop:ch25-curve-pushforward} and
-\eqref{eq:ch25-curve-ma} applied to \(u\circ p\),
+the distributional identity at the end of its proof,
 \[
  \MA_\theta(u)\bigl(p^{-1}(A)\bigr)=\MA_\theta(u\circ p)(A)
- =\bigl(\mu_0+\Delta_\Gamma(u|_\Gamma)\bigr)(A),
+ =\bigl(\mu_0+\Delta^{\mathrm w}_\Gamma(u|_\Gamma)\bigr)(A),
 \]
 where we used \(u\circ p|_\Gamma=u|_\Gamma\).  Taking the supremum over
 \(u\in\mathcal U_\theta\) gives ``\(\leq\)'' in
@@ -2978,22 +2998,22 @@ display read backwards gives ``\(\geq\)''.
 
 For the inclusion \(\mathcal P_\Gamma\subseteq\mathcal Q_\Gamma\): if
 \(f=u|_\Gamma\) with \(u\in\mathcal U_\theta\), then \(u\circ p\) is
-\(\theta\)-psh, so \eqref{eq:ch21-curve-psh-test} applied on \(\Gamma\) gives
-\(\mu_0+\Delta_\Gamma f\geq0\), and \(f\) is continuous because
+\(\theta\)-psh.  The model approximation used in Step~2 of
+\Cref{prop:ch25-curve-pushforward}, together with
+\eqref{eq:ch25-curve-ma}, gives
+\(\MA_\theta(u\circ p)=\mu_0+\Delta^{\mathrm w}_\Gamma f\geq0\); and \(f\) is continuous because
 \(\theta\)-psh functions restrict continuously to dual complexes
 (\Cref{thm:bfj-skeletal-equicontinuity}).  Conversely let \(f\) be piecewise
-affine on \(\Gamma\) with \(\mu_0+\Delta_\Gamma f\geq0\), with values in
+affine on \(\Gamma\) with
+\(\mu_0+\Delta^{\mathrm w}_\Gamma f\geq0\), with values in
 \([-1,0]\), and with rational breakpoints and values.  Then \(f\circ p\) is a
 model function: by \Cref{thm:skeleton-subdivision} there is a vertical blowup
 of \(\mathcal C\) with the same skeleton \(\Gamma\), subdivided so that
 \(f\) is affine on each cell, and \(f\circ p\) is the model function of the
 corresponding vertical \(\mathbf Q\)-Cartier divisor
-(\Cref{lem:model-function-affine}).  It is \(\theta\)-psh: on any larger
-skeleton \(\Gamma'\), the function \(f\circ p\) is constant on
-\(\Gamma'\setminus\Gamma\), where \(\mu_0+\Delta_{\Gamma'}(f\circ p)
-=\mu_0\geq0\), while at \(q\in\Gamma\) the branch slopes vanish and
-\(\bigl(\mu_0+\Delta_{\Gamma'}(f\circ p)\bigr)(\{q\})
-=\bigl(\mu_0+\Delta_\Gamma f\bigr)(\{q\})\geq0\).  Its values lie in
+(\Cref{lem:model-function-affine}).  The weighted finite criterion
+\eqref{eq:ch21-curve-psh-test}, or equivalently
+\Cref{thm:ch21-model-consistency}, makes it \(\theta\)-psh.  Its values lie in
 \([-1,0]\), so \(f\circ p\in\mathcal U_\theta\) and
 \(f=(f\circ p)|_\Gamma\in\mathcal P_\Gamma\).  The final assertion is
 immediate from the two inclusions.
@@ -3005,7 +3025,8 @@ immediate from the two inclusions.
 We now specialize to the running example.  Let \(\Gamma\subset C^{\An}\)
 be a skeleton whose underlying metric graph is a segment of length
 \(\ell>0\); we suppress any valence-two vertices and parametrize it by
-\(x\in[0,\ell]\).  Assume that the reference measure on \(\Gamma\) is
+\(x\in[0,\ell]\).  Assume here that every edge weight is one---for example,
+all nodes in the chain are residue-rational---and that the reference measure on \(\Gamma\) is
 supported at the endpoints \(x_{E_0}\) and \(x_{E_1}\).  This includes a
 regular semistable chain on which the reference line bundle has degree zero
 on every intermediate component.  Put

@@ -14,7 +14,7 @@ Status vocabulary:
 |---:|---|---|---|---|
 | 1--8 | Foundations | chapter-quality pass complete | Chapters 1--8 completed the new structural and semantic pass | first-pass source record retained; exact provenance was rechecked chapter by chapter |
 | 9--19 | CLD, delta-forms, and harmonic tropicalizations | post-expansion audit in progress | besides the earlier Chapter 18 GJR gates, the pure-dimensional real-PL positive-current/residue-nef equivalence passed `20260825T080059Z_80f35689475f`; first-stage CLD collapse on tropical toric partial compactifications passed `20260825T024707Z_d1b8d7eaf79e`, and its finite ambient-induced-star extension passed the direct endpoint archived locally as `20260827T103835Z_c8131b22d800`; the real-PL zero-current theorem and curve counterexample passed `20260825T061351Z_655e7f503e5d` and `20260825T055907Z_b5c8f0719b60`; the cubical reduction and product--Gauss criterion passed `20260825T145229Z_b37e13478cc7` and `20260826T055627Z_b68659fba1be`; unrestricted continuous smooth-proper-curve ordinary-smooth psh regularization passed `20260827T090645Z_767cbf81c723`; the canonical-collar bridge, rigid-point zero-atom estimate, and arbitrary-field reduced dimension-one positive-current classification passed exact-live run `20260828T042906Z_f2a1c1b9f2a3`; the arbitrary-field nonreduced combined packet passed production run `20260828T044008Z_dfdaa04a1cea`, and its separately materialized exact-live statement/proof, SHA-256 `e7b9889f6c063d9952d61c0472290183aac07b58c8d0569cfebc5e9ea73f1a9c` / `25fe49a46b1c5cd62b0d1a5024095b47cdd49c66f594d1d86eec4f9f270c83ec`, passed HTTP-archived exact-live closure run `20260828T051601Z_db92555a72e1`; the dependency-closed componentwise rigid-exception materialization, SHA-256 `2bf673687e935bcdae91550158344647cb1ca1cd4ae0a5040109aeb5fb2f3cbc` / `a27c40fbb1328b008acab07b871f50a778c34bab2b0f1d05e3a6d9d229839716`, passed `20260829T061505Z_2bf673687e93`, item `pi_ee24d64b88f0c4e60ad1acbd`, final `correct`, zero critical errors, and zero gaps | The P06.3 proof uses Thuillier, Baker--Payne--Rabinoff, Gubler--Jell--Rabinoff, and Wanner in their exact source scopes.  The P21.3 proof uses ordinary-open nilreduction, canonical full virtual-annular collars with exact source preimages, Riemann--Roch on normal residual curves over the actual residue field, and rigid-point zero-atom arguments at the strict conductor locus and at normal rigid exceptional points.  It now covers reducible and nonreduced curves whose component-normalization non-rig-smooth loci lie in locally finite rigid sets, separates reduction-invariant ordinary CLD calculus from multiplicity-sensitive integration, and proves only continuous-pair Bedford--Taylor independence.  No novelty or priority claim is made.  The product--Gauss theorem remains a separate book-level deduction in the GK field and ordinary algebraic-chart categories |
-| 20--27 | BFJ forms, psh, envelopes, MA, capacity, and energy | sequential chapter-quality pass in progress; Chapter 20 complete | Chapter 20 now separates rational finite-maximum stability from real fixed-form approximation and repairs the model-envelope directedness boundary; the exact-current Chapter 23 fixed-skeleton selection passed production Rethlas run `20260824T044830Z_25024c43d265` with final `correct`, 0 critical errors, 0 gaps | Chapter 20's fixed-model exact sequence and Künnemann correspondence were rechecked against BFJ16 Theorem 4.3 and proof; the Chapter 23 book-local result remains separated from its published BFJ inputs and makes no global sequential claim |
+| 20--27 | BFJ forms, psh, envelopes, MA, capacity, and energy | sequential chapter-quality pass in progress; Chapters 20--21 complete | Chapter 20 separates rational finite-maximum stability from real fixed-form approximation; Chapter 21 now uses the multiplicity- and residue-weighted curve Laplacian, proves the regular-SNC curve retraction theorem by surface factorization, and propagates the corrected interface to Chapters 25, 26, and 28; the exact-current Chapter 23 fixed-skeleton selection passed production Rethlas run `20260824T044830Z_25024c43d265` with final `correct`, 0 critical errors, 0 gaps | Chapter 20's fixed-model exact sequence and Künnemann correspondence were rechecked against BFJ16 Theorem 4.3 and proof; Chapter 21 was rechecked against BFJ16's definition, model consistency, and retraction results, with the regular-surface factorization anchored at Stacks Project Tag 0C5R; the Chapter 23 book-local result remains separated from its published BFJ inputs and makes no global sequential claim |
 | 28--31 | BFJ measures, continuity, functoriality, and examples | first-draft-final (historical) | first-pass record; post-expansion audit pending | first-pass record; post-expansion audit pending |
 | 32--34 | Trivially valued foundations and psh closure | first-draft-final (historical) | first-pass record; Ch. 34 closure integration awaits Rethlas review | first-pass record; primary anchors rechecked for the closure repair |
 | 35 | Homogeneity and b-divisors | post-expansion depth-audited | strict homogeneous Siu division proved internally; the critical endpoint is transparently imported, and the independent repair packet is quarantined pending Rethlas | BJ22 proof step and later post-envelope confirmation checked at their exact scopes |
@@ -4079,3 +4079,50 @@ destinations remain; Chapters 20 and 21 introduce none. Physical pages 1345,
 opening, exact-sequence statement, corrected pushforward step, irrational-
 breakpoint example, model-envelope theorem, and Chapter 21 seam; no clipping,
 overlap, bad glyph, formula overflow, or hierarchy defect was found.
+
+## Chapter 21: non-Archimedean psh functions, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 21; Chapter 22
+is next. The main mathematical correction is the curve interface. The graph
+Laplacian and model measure now retain both special-fibre multiplicities and
+node residue degrees, and the psh criterion quantifies over regular SNC models
+rather than the noncofinal family of reduced semistable models. The curve
+retraction theorem is correspondingly stated for a regular SNC determining
+model. Its proof factors every higher regular model into blowups at closed
+points, distinguishes node subdivisions from trees attached at smooth points,
+and proves the required inequality by weighted branch flux. Real model-PL
+functions are handled by real-linear extension, so no real function is
+silently promoted to a rational Cartier divisor.
+
+The global definition and its scope have also been tightened. Clause (1) and
+clause (2) are separated by an example valid on the full model system; the
+no-cofinal-sequence lemma now proves exactly the absence of a cofinal
+sequential subnet and does not claim that every special approximation must be
+nonsequential. The toric discussion separates the Gauss retraction inequality
+from facewise convexity, the BFJ/CLD comparison distinguishes a global class
+from a local sheaf without asserting nonexistence, and the hypothesis ledger
+records the two distinct jobs of residue characteristic zero as well as the
+uses of ampleness beyond nonemptiness.
+
+The correction was propagated through every immediate live caller found in
+the book. Chapter 25 now uses the weighted Laplacian in the curve
+Monge--Ampere and capacity formulas and proves pushforward by weighted branch
+flux. Chapter 26 marks its displayed graph as unit-weight, and Chapter 28 uses
+the weighted Dirichlet identity in curve uniqueness. This downstream pass
+removes the former implicit assumption that every node is residue-rational.
+
+The automatic second pass has zero Chapter 21 writing-audit errors; its
+sixty-three reviewed warnings are the established label namespaces and
+descriptive titles. The project-wide source check covers 425 inputs and 12,034
+labels, with zero missing inputs, duplicate labels, dangling references, or
+structural defects, and all six checker tests pass. The full 4,104-page PDF
+has 19,494,973 bytes and SHA-256
+`263ffa9aea198be990e2cb22b0fbb58397be02dfd5ff17528454739daf17126b`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, emergency stops, or fatal errors. The two inherited overfull
+boxes in Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; Chapters 21, 25, 26, and 28 introduce none. Physical
+pages 1399, 1417--1418, 1422--1424, 1638--1641, and 1812--1813 were visually
+inspected for the chapter opening, weighted criterion, curve-retraction proof,
+curve-capacity formula, and curve-uniqueness argument; no clipping, overlap,
+bad glyph, formula overflow, or hierarchy defect was found.
