@@ -39,8 +39,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part II, Chapters 9--19:** complete. All eleven chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part III, Chapters 20--31:** active. Chapters 20--28 are complete; Chapter
-  29 is next.
+- **Part III, Chapters 20--31:** active. Chapters 20--29 are complete; Chapter
+  30 is next.
 - **Parts IV--VI, Chapters 32--72:** queued in reading order after Part III.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -735,3 +735,33 @@ reviewed convention warnings. The project-wide reference check, checker
 tests, full build, automatic second pass, two continuous chapter reads, and
 rendered inspection of all fifty-four chapter pages and the Chapter 29 seam
 pass. Exact evidence is recorded in `chapter_status.md`. Chapter 29 is next.
+
+### Chapter 29
+
+The continuity chapter now separates envelope continuity, continuity of an
+individual Monge--Amp\`ere solution, and continuity of the solution map
+without asserting a bare implication among them. The supported regularity
+proof has been shortened to its actual mechanism: decreasing model
+regularization, Dini convergence on the fixed supporting skeleton, and the
+capacity domination lemma. A redundant global normalization step and its
+second Dini application were removed, while the passage from a uniform net to
+a uniform sequence now chooses a genuinely increasing chain of indices.
+
+The historical and field-theoretic scope has also been tightened. The
+completion in the BFJ algebraizability hypothesis is correctly identified as
+the fraction field of the completed local ring, the role of a proper global
+base is deferred to compactification, and the residue-characteristic-zero,
+equal-characteristic-$p$, arbitrary-field curve, and conditional
+mixed-characteristic routes remain separate. The chapter's curve theorem is
+no longer followed by a self-contained proof reconstruction whose descent and
+semipositivity steps were explicitly unresolved. It now has an exact source
+boundary at GJKM19 Theorems 1.1 and 3.1 and Propositions 1.2, 3.5, 3.7, and
+3.8. The slope criterion retained for later use is source-exact, and the
+backward caller in Chapter 23 now cites GJKM19 Proposition 3.10 directly.
+
+All 1,186 legacy inline delimiters were normalized to the book convention.
+The scoped writing audit has zero errors and fifty-six reviewed convention
+warnings. The project-wide reference check, checker tests, clean full build,
+automatic second pass, continuous chapter read, primary-source audit, and
+rendered inspection of all forty-eight physical pages pass. Exact evidence
+is recorded in `chapter_status.md`. Chapter 30 is next.

@@ -4487,3 +4487,65 @@ full resolution for the opening, the new Green--Dirichlet lemma, the sharp
 stability theorem, and its subdivision and scalar-extension scope; the
 Chapter 29 seam at page 1841 was inspected separately. No clipping, overlap,
 bad glyph, formula overflow, or hierarchy defect was found.
+
+## Chapter 29: continuity of solutions, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 29; Chapter 30
+is next. The chapter now distinguishes three logically separate notions:
+continuity of envelopes, continuity of one prescribed Monge--Amp\`ere
+solution, and continuity of the solution map. Envelope regularity is described
+as an input to the supported existence-and-regularity argument rather than as
+a bare implication to solution continuity; the chapter's own finite-energy
+boundary example continues to show why that distinction matters.
+
+The supported regularity proof now uses only the steps it needs. Decreasing
+model regularization supplies the net, skeletal equicontinuity makes its limit
+continuous on the fixed dual complex, Dini gives uniform convergence there,
+and the domination lemma propagates the inequality to all of the analytic
+space. The former global normalization and whole-space upper-semicontinuous
+Dini step were redundant and have been removed. The uniform-model-sequence
+corollary now chooses indices inductively so that they dominate their
+predecessors as well as the index required at tolerance $1/k$. The abstract
+iteration lemma likewise no longer assumes decay at infinity after its entry
+point has already been supplied; the application records separately how its
+capacity profile produces that entry point.
+
+The hypothesis and provenance audit corrected two scope defects. In the BFJ
+algebraizability signature, $K$ is the fraction field of
+$\widehat{\mathcal O_{B,b}}$, not the completion of the local ring itself; a
+proper global base is obtained only after compactifying the curve and the
+spread-out data. The later results are counted consistently as the 2020
+removal of algebraizability followed by three further routes: curves over
+arbitrary complete nontrivially valued fields, equal characteristic $p$ under
+geometric-origin and resolution hypotheses, and the conditional
+mixed-characteristic theorem.
+
+The curve theorem's explicitly unfinished proof reconstruction has been
+replaced by a source boundary. The official published GJKM19 text was checked
+directly: Theorems 1.1 and 3.1 give curve envelope continuity, Proposition 1.2
+and Propositions 3.5 and 3.8 give the retraction mechanism used with
+Thuillier's singular solution, and Proposition 3.7 gives the exact weighted
+slope criterion retained in the chapter. Chapter 23's chord argument now
+cites GJKM19 Proposition 3.10 directly, so it no longer depends on the deleted
+local reconstruction. The source note states explicitly that descent,
+value-group approximation, and comparison between Thuillier and model
+semipositivity are imported rather than reproved.
+
+All 1,186 legacy inline delimiters were normalized. The automatic second pass
+has zero Chapter 29 writing-audit errors; its fifty-six reviewed warnings are
+the established chapter and item label namespaces and descriptive result
+titles. The project-wide source check covers 425 inputs and 12,051 labels,
+with zero missing inputs, duplicate labels, dangling references, or structural
+defects, and all six checker tests pass. The clean full build produces a
+4,108-page PDF of 19,500,050 bytes with SHA-256
+`8d6b9b0079c46e2c9d1e928f4abaf44328d21522797baf8dba81dead373e1b0f`.
+The final log has no unresolved references or citations, rerun requests,
+missing glyphs, emergency stops, or fatal errors. The two inherited overfull
+boxes in Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; Chapter 29 introduces none. All forty-eight physical
+pages 1841--1888 were inspected in the final render; page 1888 is the
+intentional blank verso. Pages 1868--1870 and 1884--1887 were also inspected
+at full resolution for the transition from the BFJ hypothesis audit to the
+later theorems, the new curve source boundary, the dictionary, the source
+notes, and the chapter ending. No clipping, overlap, bad glyph, formula
+overflow, or hierarchy defect was found.
