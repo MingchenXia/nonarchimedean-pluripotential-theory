@@ -37,7 +37,7 @@ than mechanically rewritten.
 
 - **Part I, Chapters 1--8:** complete. All eight chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part II, Chapters 9--19:** active. Chapters 9--10 are complete; Chapter 11
+- **Part II, Chapters 9--19:** active. Chapters 9--11 are complete; Chapter 12
   is next.
 - **Parts III--VI, Chapters 20--72:** queued in reading order after Part II.
 - **Appendices and front matter:** final consistency pass after the chapters,
@@ -267,3 +267,29 @@ its forty-seven remaining warnings are reviewed project conventions and
 descriptive titles. The project-wide reference check, full build, automatic
 second pass, and rendered-page inspection all pass. Exact evidence is recorded
 in `chapter_status.md`.
+
+### Chapter 11
+
+The pass rebuilt the integration layer around an intrinsic unsigned
+top-degree integral. It now explains why a change of lattice basis contributes
+the square of its determinant, and the subdivision proof correctly reduces a
+locally finite refinement to the finitely many cells meeting the compact
+support. Boundary traces, the two Stokes signs, the Green identities, and the
+Dirichlet sign are stated with one consistent normalization; redundant proofs
+and unnecessary orientation hypotheses were removed.
+
+The affine regularization argument now uses integer-affine equations, rather
+than falsely treating an arbitrary affine subspace as linear. Pushforward
+functoriality has the properness hypothesis actually needed for the second
+map. The zero-dimensional stable-intersection proof no longer assumes that
+the set-theoretic intersection is finite: it clusters displaced transverse
+points around the finite stable cycle and derives weak convergence from the
+local displacement weights. The accompanying examples now distinguish cycles
+from their associated currents, and the scope of the imported global CLD
+Stokes theorem is explicit.
+
+Two reusable items received semantic labels. The scoped writing audit has zero
+errors; its forty-three remaining warnings are reviewed project conventions
+and descriptive titles. The project-wide reference check, full build,
+automatic second pass, and rendered-page inspection all pass. Exact evidence
+is recorded in `chapter_status.md`.

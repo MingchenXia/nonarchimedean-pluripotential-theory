@@ -3814,3 +3814,51 @@ inspected for the chapter opening, intrinsic support forms, tropical-space
 dimension, the circle obstruction, calibration signs, pushforward,
 stable intersection, Gysin pullback, and source notes; no clipping, overlap,
 bad glyph, formula overflow, or hierarchy defect was found.
+
+## Chapter 11: integration, Stokes formulae, and stable intersections, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 11; Chapter 12
+is next. The integral of a compactly supported top-degree superform is now
+defined intrinsically from the covolume-one tangent-lattice measure. Its basis
+independence is traced to the square of the determinant, so no orientation is
+part of the datum. The subdivision proof now handles a locally finite
+refinement by restricting to the finitely many cells that meet the compact
+support. The duplicate cycle-invariance proof was consolidated into this
+argument.
+
+Boundary traces are expressed through outward primitive normal classes and
+the two labelled contractions. The polyhedral and balanced Stokes statements
+no longer carry unnecessary orientation or boundary hypotheses, and the
+balanced proof is reduced to the already established defect formula. The
+global CLD Stokes proof now identifies the exact imported theorem and
+separates its chart and refinement inputs from the local calculation. Green
+symmetry has explicit bidegree and closedness hypotheses, while the Dirichlet
+sign now assumes a positive calibration and a strongly positive test form.
+
+The affine-cycle regularization proof now writes an affine subspace using
+integer-affine equations with lattice-linear parts and a unimodular affine
+coordinate change. Pushforward functoriality requires the second map to be
+proper on the image of the first cycle. In the stable zero-cycle theorem, the
+proof no longer enumerates the potentially positive-dimensional
+set-theoretic intersection. Instead it clusters the finite displaced cycles
+around the stable support and applies the local displacement multiplicity
+formula to obtain weak convergence. The tropical-line examples distinguish
+the stable cycles from the corresponding Dirac currents, and the unproved
+positive-dimensional convergence claim has been removed.
+
+The automatic second pass has zero Chapter 11 writing-audit errors; its
+forty-three reviewed warnings are the established label namespaces and
+descriptive titles. The project-wide source check covers 423 inputs and 11,985
+labels, with zero missing inputs, duplicate labels, or dangling references,
+and all six checker tests pass. The full 4,100-page PDF has 19,518,944 bytes
+and SHA-256
+`aa4d69eb6ade3dc6cf6bac15a5fc3163ebb94adf66ad7fa9381a7c66d48837b5`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, horizontal or vertical overflows, emergency stops, or fatal
+errors; the thirteen inherited Chapter 70 duplicate destinations remain.
+Physical pages 459, 462--463, 467, 477, 480, 485--486, 489, 493, 495--496,
+498--500, 503, and 505 were visually inspected for the chapter opening,
+integral normalization, boundary contractions, balanced Stokes, Green and
+Dirichlet signs, pushforward, affine regularization, stable-intersection
+convergence, examples, tables, and source notes; no clipping, overlap, bad
+glyph, formula overflow, or hierarchy defect was found.
