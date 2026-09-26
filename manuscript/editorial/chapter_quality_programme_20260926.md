@@ -39,8 +39,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part II, Chapters 9--19:** complete. All eleven chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part III, Chapters 20--31:** active. Chapters 20--23 are complete; Chapter
-  24 is next.
+- **Part III, Chapters 20--31:** active. Chapters 20--24 are complete; Chapter
+  25 is next.
 - **Parts IV--VI, Chapters 32--72:** queued in reading order after Part III.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -563,3 +563,38 @@ project-wide reference check, checker tests, full build, automatic second
 pass, two continuous chapter reads, and rendered inspection of all fifty
 chapter pages pass. Exact evidence is recorded in `chapter_status.md`.
 Chapter 24 is next.
+
+### Chapter 24
+
+The pass now keeps four distinct Monge--Amp\`ere products visible from the
+outset: model, continuous, bounded, and finite-energy. Their construction
+mechanisms, domains, and continuity statements are separated in the opening
+table and reinforced by reusable warnings at the points where a formal
+passage would be invalid. The two central constructions---the mixed model
+measure and the mixed energy pairing---now have semantic definition labels,
+and the special fibre's different roles as a cycle and as a line-bundle class
+are isolated explicitly so that the mass computation cannot be confused with
+the vanishing of its first Chern class.
+
+The bounded extension proof has been tightened at both analytic interfaces.
+The dense-test lemma now constructs a bounded positive functional before
+invoking Riesz representation, and the locality proof first passes to one
+common model determining both potentials, their maximum, and the reference
+form before using facewise affineness. The supporting-vertex reduction is
+stated at exactly the strength proved. The comparison theorem now says in its
+statement what its proof establishes: on the model locus the BFJ intersection
+measure, the Chambert--Loir measure, and the CLD product agree, and on the
+continuous locus the three corresponding continuous products agree, including
+mixed products. The four excluded singular extensions are collected in a
+single labeled scope warning and linked from the dictionary.
+
+A direct check of BFJ15 confirms that its Theorem 3.1 is precisely the full
+weighted continuity statement along simultaneous decreasing nets used here;
+the notes now say explicitly that this is the cited theorem itself, not a
+formal consequence of weak convergence. All 1,134 legacy inline delimiters
+were normalized to the book convention. The scoped writing audit has zero
+errors; its remaining warnings are reviewed project conventions and
+descriptive titles. The project-wide reference check, checker tests, full
+build, automatic second pass, two continuous chapter reads, and rendered-page
+inspection all pass. Exact evidence is recorded in `chapter_status.md`.
+Chapter 25 is next.
