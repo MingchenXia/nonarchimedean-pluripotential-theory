@@ -19,11 +19,13 @@ The three preceding chapters built a sheaf of smooth forms
 $A_X^{p,q}$ on a Berkovich space, an integral
 $\int_X:A_{X,c}^{n,n}\to\mathbf R$ normalized by lattice measures and
 analytic multiplicities, and a Stokes formula
-(\Cref{cor:analytic-stokes-green}).  Every object so far has been
-\emph{smooth}: a form is, by construction, the pullback of a superform with
-$C^\infty$ coefficients along a tropical chart.  This is already enough to
-formulate curvature for a smooth metric, but it is not enough for anything
-singular.  Three demands force the enlargement.
+(\Cref{cor:analytic-stokes-green}).  The core sheaf and differential
+calculus developed there are \emph{smooth}: locally, a form is the pullback
+of a superform with $C^\infty$ coefficients along a tropical chart.  The
+integration theory also admits the coefficient extensions recorded in
+\Cref{chap:cld-forms}, but smooth forms remain the test objects.  This is
+enough to formulate curvature for a smooth metric, but it is not enough for
+anything singular.  Three demands force the enlargement.
 
 \begin{enumerate}
 \item \emph{Singular curvature.}  The function $u=\max\{0,t\}$ on the
@@ -38,8 +40,8 @@ singular.  Three demands force the enlargement.
   functionals.
 \item \emph{Limits.}  Envelopes, monotone limits of psh functions, and
   Bedford--Taylor products are all constructed by passing to a limit which is
-  not uniform in any $C^k$ norm.  The only topology in which such limits
-  converge is the weak one.
+  not uniform in any fixed $C^k$ norm.  The natural topology retained by the
+  current formalism is the weak one.
 \end{enumerate}
 
 Each demand is met by the same device: replace the object by the functional
@@ -70,10 +72,10 @@ Everything in
 following imported inputs, each of which is used with an exact citation at the
 point of use:
 \begin{enumerate}
-\item the continuity and piecewise smoothness of fibre integrals in the
-  general, non-skeletal case, \cite[Theorem~16.3.3]{CLD25}, which is what
-  licenses the use of $u_\omega$ as the coefficient of a test form in the
-  limit argument of \Cref{thm:cld-fibre-projection};
+\item the piecewise smoothness of fibre integrals on the controlling skeleton
+  in the general, non-skeletal case, \cite[Theorem~16.3.3]{CLD25}, which is
+  the regularity used in the limiting-measure argument of
+  \Cref{thm:cld-fibre-projection};
 \item Lagerberg's Euclidean vanishing theorem for positive closed
   supercurrents, \cite[Corollary~4.1]{Lag12Super}, used through
   \cite[Theorem~16.8.5]{CLD25};
@@ -98,7 +100,7 @@ results of \cite{CLD25} cited at their point of use.
 By the end of the chapter the reader should be able to
 \begin{enumerate}
 \item write down the continuity condition defining a current, and produce a
-  current whose order is not bounded over chart data;
+  current whose order is not bounded over the test-form stages;
 \item pass between the three positivity cones for forms and the three
   positivity cones for currents, and know which of the two orderings is
   reversed;
@@ -130,40 +132,31 @@ Because every later statement about weak convergence refers to it, we restate
 the topology of \Cref{chap:cld-forms} in the exact form in which it will be
 used.  Fix $p,q\ge0$.
 
-\begin{definition}[Chart datum]
-\label{def:ch14-chart-datum}
-\index{chart datum}
-A \emph{chart datum} on $X$ is a pair $(\mathscr D,K)$ consisting of a finite
-family
-\[
- \mathscr D=\bigl(f_i:U_i\to\mathbf G_m^{r_i}\bigr)_{i=1}^N
-\]
-of moment maps on open subsets of $X$ and a compact set
-$K\subset\bigcup_iU_i$.  The letter $K$ is used for the compact set
-throughout this chapter whenever a chart datum is in play; the ground field,
-elsewhere denoted $K$, will be written explicitly when it is needed.  We write $A_{\mathscr D,K}^{p,q}(X)$ for the space of
-smooth $(p,q)$-forms $\omega$ with $\Supp\omega\subset K$ that admit, on each
-$U_i$, a representation $\omega|_{U_i}=f_{i,\trop}^*\alpha_i$.
+\begin{definition}[Test-form stage]
+\label{def:ch14-test-form-stage}
+\index{test-form stage}\index{covering system of tropical charts}
+Retain the notation of \Cref{sec:ch13-topology}.  A \emph{test-form stage}
+on $X$ is a pair $(\mathscr D,F)$ with $\mathscr D\in\Gamma_X$ a covering
+system of tropical charts and $F\in\Phi_c$ a compact support.  The space
+$A_{\mathscr D,F}^{p,q}(X)$ consists of the smooth $(p,q)$-forms supported in
+$F$ and tropicalized by $\mathscr D$.
 \end{definition}
 
-For a compact subset $W$ of some $U_i$ and an integer $r\ge0$ one has the
-seminorm $\|\cdot\|_{W,r}$ of \Cref{chap:cld-forms}: choose a finite
-polyhedral decomposition of $f_{i,\trop}(W)$ and affine coordinates on each
-cell, and take the maximum of the absolute values of all partial derivatives
-of order $\le r$ of all coefficients of $\alpha_i$ on the relevant cells.  Two
-such choices give equivalent seminorms.  The space
-$A_{\mathscr D,K}^{p,q}(X)$ carries the locally convex topology defined by all
-these seminorms, and
+For a compact cell set $C$ in a chart of $\mathscr D$ and an integer
+$r\ge0$, the coefficient seminorm $\|\cdot\|_{C,r}$ is the one defined in
+\Cref{sec:ch13-topology}: it is the maximum of the absolute values of all
+partial derivatives of order at most $r$ of all coefficients on $C$.
+Compatible refinements give equivalent families of seminorms.  The space
+$A_{\mathscr D,F}^{p,q}(X)$ carries their locally convex topology, and
 \[
- A_{X,c}^{p,q}=\varinjlim_{(\mathscr D,K)}A_{\mathscr D,K}^{p,q}(X)
+ A_{X,c}^{p,q}=\varinjlim_{(\mathscr D,F)}A_{\mathscr D,F}^{p,q}(X)
 \]
-carries the final locally convex topology.  \emph{Chart data are finite
-families}: this is what makes \Cref{prop:test-form-continuity-criterion}
-usable, and it is exactly the point at which the non-Archimedean theory
-diverges from the classical one, since a finite family of charts on a compact
-Berkovich space need not exhaust the local tropical directions available
-there.  \Cref{ex:ch14-star-unbounded-order} below turns this remark into a
-counterexample.
+carries the final locally convex topology.  The covering system
+$\mathscr D$ need not be finite.  Finiteness enters only after the support is
+fixed: compactness of $F$ permits a finite chart subcover, and continuity of
+a linear functional on the stage is controlled by finitely many coefficient
+seminorms.  This is precisely the distinction encoded in
+\Cref{prop:test-form-continuity-criterion}.
 
 \begin{definition}
 \label{def:ch14-current}
@@ -186,30 +179,31 @@ topology} is pointwise convergence on test forms:
 \end{definition}
 
 Continuity refers exactly to the final $C^\infty$ topology constructed in
-\Cref{chap:cld-forms}.  A current has order at most $r$ on fixed
-compact chart data if it satisfies the corresponding $C^r$ estimate.  There
-need not be a single order valid for every chart datum.
+\Cref{chap:cld-forms}.  A current has order at most $r$ on a fixed test-form
+stage if it satisfies the corresponding $C^r$ estimate.  There need not be a
+single order valid for every stage.
 
 \begin{definition}[Relative order]
 \label{def:ch14-relative-order}
 \index{current!order of}
-Let $T\in D_{r,s}(X)$ and let $(\mathscr D,K)$ be a chart datum.  The
-\emph{order of $T$ relative to $(\mathscr D,K)$} is the least integer
+Let $T\in D_{r,s}(X)$ and let $(\mathscr D,F)$ be a test-form stage.  The
+\emph{order of $T$ relative to $(\mathscr D,F)$} is the least integer
 $m\ge0$, if one exists, for which there are a constant $C>0$ and finitely many
-compact chart domains $W_1,\ldots,W_k$ with
+compact cell sets $C_1,\ldots,C_k$ with
 \begin{equation}
 \label{eq:ch14-order-bound}
- |\langle T,\omega\rangle|\le C\max_j\|\omega\|_{W_j,m}
- \qquad\text{for all }\omega\in A_{\mathscr D,K}^{r,s}(X).
+ |\langle T,\omega\rangle|\le C\max_j\|\omega\|_{C_j,m}
+ \qquad\text{for all }\omega\in A_{\mathscr D,F}^{r,s}(X).
 \end{equation}
 We say that $T$ has \emph{global order $\le m$} if the same $m$ works for
-every chart datum, with a constant $C$ allowed to depend on the compact set
-but not on the chart datum; equivalently, if $T$ is continuous for the $C^m$
-topology on $A_{X,c}^{r,s}$.
+every stage, while the constant and the finitely many controlling seminorms
+may depend on $(\mathscr D,F)$; equivalently, if $T$ is continuous for the
+locally convex colimit of the stagewise $C^m$ topologies on
+$A_{X,c}^{r,s}$.
 \end{definition}
 
 By \Cref{prop:test-form-continuity-criterion} a linear functional is a current
-if and only if it has a finite relative order for each chart datum.  The
+if and only if it has a finite relative order for each test-form stage.  The
 distinction between relative and global order is not pedantry: it is the
 hinge on which \Cref{sec:ch14-compactness} turns.
 
@@ -222,10 +216,12 @@ for the measures attached to the charts.  Then
  \langle[\omega],\alpha\rangle=\int_X\omega\wedge\alpha,
  \qquad \alpha\in A_{X,c}^{n-p,n-q},
 \]
-defines a current of bidegree $(p,q)$ of global order $0$: on a chart datum
-$(\mathscr D,K)$ the integral is bounded by
-$\|\omega\|_{L^1(K)}\|\alpha\|_{K,0}$ up to the calibration weights, which are
-bounded on $K$.  The assignment $\omega\mapsto[\omega]$ is linear and weakly
+defines a current of bidegree $(p,q)$ of global order $0$: on a stage
+$(\mathscr D,F)$, choose a finite chart subcover of $F$ and a subordinate
+partition of unity.  The resulting finite sum is bounded by the local
+$L^1$ norms of $\omega$ times the corresponding coefficient $C^0$
+seminorms of $\alpha$; the calibration weights are bounded on the relevant
+compact cell sets.  The assignment $\omega\mapsto[\omega]$ is linear and weakly
 continuous, and it is compatible with the notation
 $[\mu]$ for a measure $\mu$ used below.  Its injectivity is a separate matter
 and is discussed in \Cref{rem:ch14-form-injectivity}.
@@ -270,8 +266,9 @@ is a general phenomenon is the content of
 
 For an open $U\subset X$ let $j:U\hookrightarrow X$ be the inclusion.
 Extension by zero of compactly supported test forms is a continuous linear map
-$j_!:A_{U,c}^{r,s}\to A_{X,c}^{r,s}$, since a chart datum on $U$ is one on
-$X$.  Its transpose is the \emph{restriction} $T\mapsto T|_U$,
+$j_!:A_{U,c}^{r,s}\to A_{X,c}^{r,s}$: a fixed-support stage on $U$ maps
+continuously into a stage on $X$ after adjoining charts away from its compact
+support.  Its transpose is the \emph{restriction} $T\mapsto T|_U$,
 \[
  \langle T|_U,\alpha\rangle=\langle T,j_!\alpha\rangle,
  \qquad \alpha\in A_{U,c}^{r,s}.
@@ -318,11 +315,12 @@ $\varphi'_j\varphi_i\alpha$ is compactly supported in $U_i\cap U_j$, so
 the middle equality being the agreement of $T_i$ and $T_j$ on
 $U_i\cap U_j$.  Thus $T$ is well defined, and it is visibly linear.
 
-\emph{Continuity.}  Fix a chart datum $(\mathscr D,K)$ on $U$.  Choose
-$(\varphi_i)$ equal to $1$ near $K$, with $\Supp\varphi_i\subset U_i$; this is
-a finite family.  For $\omega\in A^{r,s}_{\mathscr D,K}(U)$ we have
+\emph{Continuity.}  Fix a stage $(\mathscr D,F)$ on $U$.  By compactness of
+$F$, choose finitely many $U_i$ and a subordinate family $(\varphi_i)$ with
+$\Supp\varphi_i\subset U_i$ and $\sum_i\varphi_i=1$ near $F$.  For
+$\omega\in A^{r,s}_{\mathscr D,F}(U)$ we have
 $\langle T,\omega\rangle=\sum_i\langle T_i,\varphi_i\omega\rangle$, and
-$\omega\mapsto\varphi_i\omega$ is continuous from $A^{r,s}_{\mathscr D,K}(U)$
+$\omega\mapsto\varphi_i\omega$ is continuous from $A^{r,s}_{\mathscr D,F}(U)$
 into $A_{U_i,c}^{r,s}$ because multiplication by a fixed smooth function is
 continuous for each seminorm by the Leibniz rule.  A finite sum of continuous
 functionals is continuous, so $T$ is a current.
@@ -433,8 +431,8 @@ vanishes identically on a neighbourhood of $x$.  As $x$ was arbitrary,
 $\Supp\alpha\subset U$.
 
 Therefore restriction $A_{X,c}^{r,s}\to A_{U,c}^{r,s}$ is a bijection with
-inverse $j_!$; both directions are continuous because a chart datum on one
-side is a chart datum on the other with the same seminorms.  Dualizing gives
+inverse $j_!$; both directions are continuous because the corresponding
+fixed-support stages have the same coefficient seminorms.  Dualizing gives
 the assertion about currents; the formula for $j_!T$ is the transpose of the
 inverse map.
 \end{proof}
@@ -770,7 +768,7 @@ Let $T\in D_{r,s}(X)$ and let $\alpha\in A_X^{p,q}$, $\beta\in A_X^{p',q'}$.
 \begin{proof}
 (1) and (2) are immediate from associativity and the multiplicativity of $J$
 on forms, \Cref{prop:cld-intrinsic-calculus}; continuity of
-$\beta\mapsto\alpha\wedge\beta$ on each $A^{r,s}_{\mathscr D,K}$ follows from
+$\beta\mapsto\alpha\wedge\beta$ on each $A^{r,s}_{\mathscr D,F}$ follows from
 the Leibniz rule applied to the coefficients in a chart, which produces a
 bound by the $C^m$ seminorms of $\beta$ times fixed $C^m$ seminorms of
 $\alpha$.
@@ -817,6 +815,7 @@ makes it harmless: for currents defined by forms the two hierarchies agree
 term by term.
 
 \begin{definition}
+\label{def:ch14-current-positivity}
 A symmetric current $T$ of bidimension $(p,p)$ is
 \begin{enumerate}
 \item weakly positive if it is nonnegative on strongly positive test forms;
@@ -838,7 +837,7 @@ properties:
 \item if $\alpha$ is weakly positive and $T$ is strongly positive, then
       $T\wedge\alpha$ is weakly positive.
 \end{enumerate}
-Positive currents are of order zero on fixed compact chart data.
+Positive currents are of order zero relative to every test-form stage.
 \end{proposition}
 \begin{proof}
 Locality follows by multiplying a positive test form by a nonnegative
@@ -848,11 +847,11 @@ transpose, proper pushforward, preserves positivity of currents.  The wedge
 statements follow by combining the corresponding wedge-product rules for
 smooth forms with the reversed test cones in the definition of positivity for
 currents.  In particular, the wedge of two positive smooth superforms is
-positive.  Finally, on compact chart data a symmetric form is bounded above
+positive.  Finally, on a fixed stage a symmetric form is bounded above
 and below, up to a fixed constant, by a fixed strongly positive form times its
 $C^0$ norm.  Testing these two inequalities against $T$ gives an order-zero
 bound.  The wedge-product assertions are
-\cite[Lemma~5.2.9 and Proposition~3.2.4]{CLD25}.
+\cite[Lemma~7.2.7 and Proposition~3.5.5]{CLD25}.
 
 We now supply the details, since each of the four assertions is used later.
 
@@ -900,26 +899,26 @@ determined by which factor was allowed to be the weaker one; this is the
 current-level shadow of the warning after
 \Cref{prop:ch09-positivity-products}.
 
-\emph{Order zero.}  Fix a chart datum $(\mathscr D,K)$ and a chart
-$f:U\to\mathbf G_m^r$ of $\mathscr D$.  Give the target
-$\mathbf R^r$ a Euclidean norm and put
-$\eta=\dprimeddprime\|x\|^2$, a strongly positive $(1,1)$-superform with
-constant coefficients.  Let $W\subset U$ be a compact chart domain
-containing $\Supp\rho$ for a fixed cutoff $\rho$.  By
-\Cref{lem:ch14-eta-dominates} below, $\eta^p$ is an interior point of the
-positive cone $\mathrm{P}_p$; hence there is $c>0$ with
-$\alpha\pm c\|\alpha\|_{W,0}\,\eta^{p}$ positive for every
-symmetric $\alpha$ on $f_{\trop}(W)$.  Pulling back preserves positivity by
-\Cref{prop:ch09-positivity-inclusions}, and multiplying by
-$\rho\ge0$ preserves it as well, so testing against the positive current $T$
-gives
+\emph{Order zero.}  Fix a stage $(\mathscr D,F)$.  Choose finitely many
+charts $f_j:U_j\to\mathbf G_m^{r_j}$ covering $F$ and a subordinate
+partition $(\rho_j)$.  After symmetrizing chart representatives, write a
+symmetric test form as
+$\alpha=\sum_j\rho_j f_{j,\trop}^*\alpha_j$.  Give each target a Euclidean
+norm and put
+$\eta_j=\dprimeddprime\|x\|^2$.  On a compact chart domain $W_j$ containing
+$\Supp\rho_j$, \Cref{lem:ch14-eta-dominates} below gives a constant $c_j>0$
+such that
+$\alpha_j\pm c_j\|\alpha_j\|_{W_j,0}\eta_j^p$ is positive for every
+symmetric coefficient form $\alpha_j$.  Pullback and multiplication by
+$\rho_j\ge0$ preserve positivity, hence
 \[
- |\langle T,\rho f_{\trop}^*\alpha\rangle|
- \le c\,\langle T,\rho f_{\trop}^*\eta^p\rangle\,\|\alpha\|_{W,0},
+ |\langle T,\rho_j f_{j,\trop}^*\alpha_j\rangle|
+ \le c_j\,\langle T,\rho_j f_{j,\trop}^*\eta_j^p\rangle
+       \|\alpha_j\|_{W_j,0}.
 \]
-an order-zero bound.  Since the constant $c\langle
-T,\rho f_{\trop}^*\eta^p\rangle$ depends on the chart, this proves order zero
-\emph{relative to each chart datum}, which is all that is claimed.
+Summing the finitely many estimates proves order zero relative to
+$(\mathscr D,F)$.  The constants and controlling seminorms may depend on the
+stage, exactly as allowed by \Cref{def:ch14-relative-order}.
 \end{proof}
 
 \begin{lemma}
@@ -1047,9 +1046,9 @@ continuous---which is symmetric in the sense of
 Equivalently, $S$ annihilates every antisymmetric form.
 \begin{enumerate}
 \item If $S(\omega)\ge0$ for every positive $\omega$, then $S$ is a positive
-  current, of order $0$ relative to every chart datum.
+  current, of order $0$ relative to every test-form stage.
 \item If $S(\omega)\ge0$ for every weakly positive $\omega$, then $S$ is a
-  strongly positive current, of order $0$ relative to every chart datum.
+  strongly positive current, of order $0$ relative to every test-form stage.
 \end{enumerate}
 \end{proposition}
 
@@ -1062,11 +1061,12 @@ $\eta^p$ is an interior point of both cones by
 \Cref{lem:ch14-eta-dominates}.
 
 By \Cref{prop:test-form-continuity-criterion} it suffices to bound $S$ on
-each $A_{\mathscr D,K}^{p,p}(X)$, and by a partition of unity subordinate to
-the finitely many chart domains of $\mathscr D$ it suffices to treat forms of
-the shape $\rho\,f_{\trop}^*\alpha$, where $f:U\to\mathbf G_m^r$ is one
-chart, $\rho\ge0$ is smooth with compact support in $U$, and $\alpha$ is a
-symmetric superform on a compact polyhedral $W\supset f_{\trop}(\Supp\rho)$.
+each $A_{\mathscr D,F}^{p,p}(X)$.  Compactness of $F$ gives a finite chart
+subcover and a subordinate partition of unity, so it suffices to treat forms
+of the shape $\rho\,f_{\trop}^*\alpha$, where
+$f:U\to\mathbf G_m^r$ is one chart, $\rho\ge0$ is smooth with compact
+support in $U$, and $\alpha$ is a symmetric superform on a compact
+polyhedral $W\supset f_{\trop}(\Supp\rho)$.
 
 Let $\eta=\dprimeddprime\|x\|^2$ on $\mathbf R^r$ and let $c$ be the constant
 of \Cref{lem:ch14-eta-dominates}.  Then
@@ -1089,7 +1089,7 @@ Applying the same inequality to $-\alpha$ and combining,
 which is the required $C^0$ bound; the constant
 $c\,S(\rho f_{\trop}^*\eta^p)$ is finite and nonnegative, being the value of
 $S$ on a fixed positive form.  Thus $S$ is continuous, hence a current of
-order $0$ relative to $(\mathscr D,K)$.
+order $0$ relative to $(\mathscr D,F)$.
 \end{proof}
 
 \begin{remark}[The missing third case]
@@ -1112,6 +1112,7 @@ positive.
 \end{remark}
 
 \begin{remark}
+\label{rem:ch14-positivity-gives-continuity}
 \Cref{prop:ch14-automatic-continuity} is the reason why, in this chapter, a
 positive object is almost never checked for continuity: constructing a
 positive functional constructs a current.  It is used below to see that
@@ -1353,8 +1354,8 @@ where $f^{(k)}$ is the $k$-th derivative in the branch coordinate $t$.  Then:
 \item the sum has only finitely many nonzero terms, so $T$ is a well-defined
   linear functional;
 \item $T$ is a current of bidimension $(0,0)$;
-\item $T$ has no global order: for every $m$ there is a chart datum relative
-  to which $T$ is not of order $\le m$.
+\item $T$ has no global order: for every $m$ there is a test-form stage
+  relative to which $T$ is not of order $\le m$.
 \end{enumerate}
 \end{example}
 
@@ -1363,13 +1364,13 @@ where $f^{(k)}$ is the $k$-th derivative in the branch coordinate $t$.  Then:
 constant, and a constant function has vanishing derivatives of all positive
 orders.
 
-(2) Let $(\mathscr D,K)$ be a chart datum.  We claim there is a finite
-$B_0\subset B$ such that every $\omega\in A^{0,0}_{\mathscr D,K}(X)$ is
-constant on $X_b$ for $b\notin B_0$.  If $\eta\notin K$, take for $B_0$ the
-finite set of branches meeting $K$, which is finite by
-\Cref{lem:ch14-star-smooth}\,(3); a form supported in $K$ vanishes on the
-other branches.  If $\eta\in K$, choose a chart $f_j:U_j\to\mathbf R^{m_j}$
-of the finite family $\mathscr D$ with $\eta\in U_j$.  Let $B_1$ be the
+(2) Let $(\mathscr D,F)$ be a test-form stage.  We claim there is a finite
+$B_0\subset B$ such that every $\omega\in A^{0,0}_{\mathscr D,F}(X)$ is
+constant on $X_b$ for $b\notin B_0$.  If $\eta\notin F$, take for $B_0$ the
+finite set of branches meeting $F$, which is finite by
+\Cref{lem:ch14-star-smooth}\,(3); a form supported in $F$ vanishes on the
+other branches.  If $\eta\in F$, choose a chart $f_j:U_j\to\mathbf R^{m_j}$
+of the covering system $\mathscr D$ with $\eta\in U_j$.  Let $B_1$ be the
 finite exceptional set of \Cref{lem:ch14-star-smooth}\,(2) for $f_j$, and let
 $B_2$ be the finite set of branches not entirely contained in $U_j$; both are
 finite, the second because $U_j$ is an open neighbourhood of $\eta$.  Put
@@ -1378,7 +1379,7 @@ $f_j$ is constant on it, so any $\omega$ with
 $\omega|_{U_j}=f_{j,\trop}^*\alpha_j$ is constant on $X_b$.
 
 Set $m=\max\{k:b_k\in B_0\}$, a finite number, with $m=0$ if no $b_k$ lies in
-$B_0$.  Then for $\omega\in A^{0,0}_{\mathscr D,K}(X)$,
+$B_0$.  Then for $\omega\in A^{0,0}_{\mathscr D,F}(X)$,
 \[
  |\langle T,\omega\rangle|
  =\Bigl|\sum_{k:\,b_k\in B_0}\omega_{b_k}^{(k)}(-1)\Bigr|
@@ -1398,10 +1399,10 @@ regarded as a function on the branch $X_{b_N}$ and extended by $0$ to the
 rest of $X$.  Each $g_\lambda$ is smooth on $X$: it is supported in
 $\{|t+1|\le1/\lambda\}$, hence away from $\eta$ and away from $-\infty$, so
 the constancy and harmonicity conditions of
-\Cref{lem:ch14-star-smooth}\,(1) hold trivially.  All the $g_\lambda$,
-$\lambda\ge2$, lie in the single chart datum $(\mathscr D,K)$ consisting of
-the coordinate chart $t$ on the interior of $X_{b_N}$ together with
-$K=\{|t+1|\le\tfrac12\}$, which is contained in that chart domain; the larger
+\Cref{lem:ch14-star-smooth}\,(1) hold trivially.  Complete the coordinate
+chart $t$ on the interior of $X_{b_N}$ to a covering system $\mathscr D$ of
+$X$ and take $F=\{|t+1|\le\tfrac12\}$.  All the $g_\lambda$, $\lambda\ge2$,
+lie in the single stage $(\mathscr D,F)$; the larger
 set $\{|t+1|\le1\}$ would contain $\eta$ and is therefore not admissible.
 
 Now $g_\lambda^{(N)}(-1)=\lambda^{-N}\lambda^{N}\chi^{(N)}(0)=1$, so
@@ -1409,7 +1410,7 @@ $\langle T,g_\lambda\rangle=1$ for every $\lambda$, while for $j\le m<N$
 \[
  g_\lambda^{(j)}(t)=\lambda^{j-N}\chi^{(j)}\bigl(\lambda(t+1)\bigr),
  \qquad\text{so}\qquad
- \|g_\lambda\|_{K,m}\le\lambda^{m-N}\|\chi\|_{C^m}
+ \|g_\lambda\|_{t(F),m}\le\lambda^{m-N}\|\chi\|_{C^m}
  \xrightarrow[\lambda\to\infty]{}0 .
 \]
 Hence no bound of the shape \eqref{eq:ch14-order-bound} with this $m$ can
@@ -1424,8 +1425,8 @@ Keep $B$ infinite and let $(c_b)_{b\in B}$ be real numbers.  Define
  =\sum_{b\in B}c_b\bigl(f_b(0)-f_b(-\infty)\bigr).
 \]
 Then $S$ is a current of bidimension $(0,0)$, of order $0$ relative to every
-chart datum, and $S$ is the current attached to a signed Radon measure if and
-only if $(c_b)$ is summable, in which case
+test-form stage, and $S$ is the current attached to a signed Radon measure if
+and only if $(c_b)$ is summable, in which case
 \[
  S=\Bigl(\sum_bc_b\Bigr)\delta_\eta-\sum_bc_b\delta_{x_b}.
 \]
@@ -1437,7 +1438,7 @@ not a measure.
 Well-definedness and continuity: by \Cref{lem:ch14-star-smooth}\,(1) all but
 finitely many $f_b$ are constant, and for those
 $f_b(0)-f_b(-\infty)=0$; the argument of
-\Cref{ex:ch14-star-unbounded-order}\,(2) produces, for each chart datum, a
+\Cref{ex:ch14-star-unbounded-order}\,(2) produces, for each test-form stage, a
 finite $B_0$ outside which every admissible $\omega$ is constant on the
 branch, so
 \[
@@ -1478,7 +1479,7 @@ On a complex manifold, a current of order $0$ is a form whose coefficients
 are Radon measures, by the Riesz representation theorem applied on each
 compact set.  \Cref{ex:ch14-star-not-measure} shows that the corresponding
 statement is \emph{false} on a Berkovich space, even a compact one: the
-constant in the order-zero estimate depends on the chart datum, and no single
+constant in the order-zero estimate depends on the stage, and no single
 constant works for the compact space $X$.  The Riesz theorem is not being
 contradicted; its hypothesis, boundedness for one supremum norm on
 $C_c(X)$, simply fails.  This is a first, entirely elementary, instance of
@@ -1525,6 +1526,7 @@ weakly positive test forms; hence $T$ is not strongly positive.
 \end{proof}
 
 \begin{remark}
+\label{rem:ch14-cones-low-dimension}
 The example uses dimension $4$ and bidegree $(2,2)$ because, by the
 discussion after \Cref{prop:ch09-positivity-inclusions}, the three cones
 coincide for $p\in\{0,1,n-1,n\}$, hence for every $p$ when $n\le3$.  On
@@ -2420,7 +2422,7 @@ In detail.  \emph{$g_*T$ is a current.}  By
 \Cref{prop:cld-form-pullback} the map $g^*$ is continuous
 $A_X^{r,s}\to g_*A_Y^{r,s}$, and topological properness makes it carry
 $A_{X,c}^{r,s}$ into $A_{Y,c}^{r,s}$ continuously: the preimage of a compact
-set is compact, and a chart datum on $X$ pulls back to one on $Y$ with the
+set is compact, and a test-form stage on $X$ pulls back to one on $Y$ with the
 same seminorm estimates, because $g^*$ of a chart representative is the
 representative for the composed moment map.  Hence the transpose is defined,
 and it preserves relative order.  \emph{Weak continuity} is immediate, the
@@ -2568,6 +2570,7 @@ for every $\varepsilon$.  Weak continuity would give $0=1$.
 \end{proof}
 
 \begin{remark}
+\label{rem:ch14-pullback-obstruction}
 The mechanism is the one familiar from distribution theory: weak convergence
 of currents controls integrals, not pointwise values, and a closed immersion
 asks precisely for a pointwise value in the transverse directions.  Over
@@ -2622,7 +2625,7 @@ $i:Y\to X$ be the inclusion.
 \begin{enumerate}
 \item The functional $\alpha\mapsto\int_Yi^*\alpha$ is a well-defined,
   strongly positive, symmetric current of bidimension $(r,r)$, of order $0$
-  relative to every chart datum, and $\delta_Y$ is the pushforward along $i$
+  relative to every test-form stage, and $\delta_Y$ is the pushforward along $i$
   of the integration current of the tropical space $Y$ itself.
 \item For a locally finite $r$-cycle $Z=\sum_jm_jY_j$ the sum
   $\sum_jm_j\delta_{Y_j}$ is locally finite and defines a current; it is
@@ -2649,10 +2652,10 @@ order $0$.  The identity $\delta_Y=i_*\delta_{Y}$ is
 \Cref{sec:ch14-pushforward} applied to the proper map $i$, together with
 $\langle\delta_Y,\beta\rangle=\int_Y\beta$ for $\beta$ on $Y$.
 
-(2) Let $\alpha$ have compact support $K$.  By local finiteness only finitely
-many $Y_j$ meet $K$, and for the others $i_j^*\alpha=0$; so the sum is
-finite.  Continuity on a fixed chart datum follows because the same finite
-subfamily works for every form supported in $K$.
+(2) Let $\alpha$ have compact support $F$.  By local finiteness only finitely
+many $Y_j$ meet $F$, and for the others $i_j^*\alpha=0$; so the sum is
+finite.  Continuity on a fixed stage follows because the same finite
+subfamily works for every form supported in $F$.
 
 (3) Let $U$ be open and meet $Y$.  Choose $y\in U\cap Y$ at which the local
 tropical dimension of $Y$ equals $r$; such a point exists by
@@ -3288,13 +3291,16 @@ meeting the supports.  The Bedford--Taylor products
 $\bigwedge_j\dprimeddprime u_{j,k}$ converge weakly to the corresponding
 products for $u_j$, and the same is true after pullback to $Y$.  The fibre
 function $u_\omega$ is locally integrable by
-\Cref{thm:cld-fibre-integration}; the uniform local bounds in the
-Bedford--Taylor construction allow it to be used as the coefficient of the
-test form.  Passing to the limit in the smooth identity gives the displayed
-formula.  Independence of the decompositions into differences follows from
-the same continuity.  These approximation and convergence steps are
-\cite[Theorem~16.5.7]{CLD25}; the local products themselves are constructed
-in \Cref{chap:cld-bedford-taylor}.
+\Cref{thm:cld-fibre-integration}, and its restriction to the controlling
+skeleton is piecewise smooth by \cite[Theorem~16.3.3]{CLD25}.  This is the
+regularity used to pair $u_\omega$ with the limiting measures; one is not
+formally multiplying an arbitrary locally integrable function by a current.
+The uniform local bounds in the Bedford--Taylor construction then justify
+passage to the limit in the smooth identity.  Independence of the
+decompositions into differences follows from the same continuity.  These
+approximation and convergence steps are \cite[Theorem~16.5.7]{CLD25}; the
+local products themselves are constructed in
+\Cref{chap:cld-bedford-taylor}.
 \end{proof}
 
 \subsection{Two fibre integrations carried to numbers}
@@ -3448,11 +3454,11 @@ detectably.
 
 The full support theory of positive closed currents uses scalar extension and
 skeletal descriptions.  We record the conclusions needed later and diagnose
-the Hausdorff index in the scalar-extension case.  The archival comments in
-the next two inputs are retained solely so that the bytes used by the book
-remain identical to the production-verified packet.  For the same reason,
-the theorem, index remark, and diagnostic proposition are grouped before
-their two proofs; each proof is explicitly headed by the result it proves.
+the Hausdorff index in the scalar-extension case.  The next theorem separates
+the nontrivially valued support theorem from the scalar-extension argument
+needed in the trivially valued case; the accompanying remark records the
+resulting index correction.  The statements are grouped before their proofs,
+and each proof is headed by the result it establishes.
 
 \input{editorial/rethlas_packets_20260829/ch14_cld_support_correction_packet_20260829/ch14_cld_support_correction_statement_20260829.tex}
 \input{editorial/rethlas_packets_20260829/ch14_cld_support_correction_packet_20260829/ch14_cld_support_correction_proof_20260829.tex}
@@ -3482,7 +3488,7 @@ Then the family is pointwise bounded on every fixed compact test-form space.
 Consequently every weak cluster point is positive.
 \end{proposition}
 \begin{proof}
-On fixed compact chart data, every symmetric test form $\alpha$ satisfies
+On a fixed compact test-form stage, every symmetric test form $\alpha$ satisfies
 \[
  -C\|\alpha\|_{C^0}\Omega_U\leq\alpha\leq
  C\|\alpha\|_{C^0}\Omega_U.
@@ -3497,8 +3503,8 @@ compactness theorem and is not asserted here without its hypotheses.
 \label{sec:ch14-compactness-positive}
 
 The hypotheses alluded to at the end of the last proof can in fact be
-supplied, provided one accepts nets rather than sequences.  We state the
-result in the form in which it is used in
+supplied using nets at this level of generality.  We state the result in the
+form in which it is used in
 \Cref{chap:cld-bedford-taylor,part:bfj}.
 
 \begin{theorem}
@@ -3513,7 +3519,7 @@ $1$ on $L$ and compactly supported in $U$, the masses
 \]
 are finite, where $\eta=\dprimeddprime\|x\|^2$.  Then the net has a subnet
 converging weakly to a positive current $T$ of bidimension $(p,p)$, and $T$
-is of order $0$ relative to every chart datum.  If moreover every $T_i$ is
+is of order $0$ relative to every test-form stage.  If moreover every $T_i$ is
 closed, then so is $T$.
 \end{theorem}
 
@@ -3552,7 +3558,7 @@ positive $\alpha$ one has $\langle T_{i_\lambda},\alpha\rangle\ge0$, hence
 $\langle T,\alpha\rangle\ge0$; and, each $T_i$ being symmetric,
 $\langle T,J\alpha\rangle=(-1)^p\langle T,\alpha\rangle$ in the limit.  Thus $T$ is a positive symmetric linear
 functional, and \Cref{prop:ch14-automatic-continuity}\,(1) makes it a current
-of order $0$ relative to every chart datum, with no further estimate.
+of order $0$ relative to every test-form stage, with no further estimate.
 
 \emph{Closedness.}  If $\dprime T_i=0$ for all $i$, then for a test form
 $\beta$ of the appropriate bidegree
@@ -3562,15 +3568,13 @@ $\langle T,\dprime\beta\rangle=\lim\langle T_{i_\lambda},\dprime\beta\rangle
 fixed.  Hence $\dprime T=0$, and likewise for $\ddprime$.
 \end{proof}
 
-\begin{warning}{Subnets, not subsequences}
-\Cref{thm:ch14-positive-compactness} produces a subnet.  A subsequence
-cannot be expected: by \Cref{ex:ch14-star-unbounded-order} the space
-$A_{X,c}^{p,p}$ is not normable, so the weak topology on bounded sets of
-currents is not metrizable, and the usual sequential extraction is
-unavailable.  This is one reason why the convention of
-\Cref{chap:topological-tools}, that convergence statements are formulated for
-nets unless a sequential reduction has been proved, is not a pedantry in this
-part of the book.
+\begin{warning}{Why the conclusion is a subnet}
+\Cref{thm:ch14-positive-compactness} uses compactness of a product indexed by
+all test forms, so its conclusion is a convergent subnet.  A subsequence may
+be available under additional countability or metrizability hypotheses, but
+none is assumed or proved here.  Accordingly, the convention of
+\Cref{chap:topological-tools} is to formulate convergence for nets until a
+sequential reduction has been established.
 \end{warning}
 
 \subsection{What fails, relative to the complex case}
@@ -3580,26 +3584,26 @@ We now list precisely the parts of the classical package that are unavailable
 here, with the example that obstructs each.  The list is short, and each item
 has been proved above.
 
-\paragraph{(F1) There is no global order, hence no normed duality.}
+\paragraph{(F1) There need not be a single global finite order.}
 On a complex manifold, currents of order $\le m$ with support in a fixed
 compact set form the dual of a Banach space, and Banach--Alaoglu applies.
 Here, by \Cref{ex:ch14-star-unbounded-order}, a compact space---the Berkovich
 projective line over a trivially valued field---carries a current of
-bidimension $(0,0)$ whose order relative to a chart datum is unbounded as the
-datum varies.  The space $A_{X,c}^{p,q}$ is an inductive limit over a
-system of chart data admitting no cofinal sequence, and the resulting weak
-topology on currents is not metrizable.  Consequently:
+bidimension $(0,0)$ whose order relative to a test-form stage is unbounded as
+the stage varies.  Thus the full current space cannot be placed in one fixed
+$C^m$ dual by definition alone.  Consequently:
 \begin{itemize}
-\item ``bounded mass'' is not a meaningful hypothesis for a general current;
-\item compactness statements must be net statements, as in
-  \Cref{thm:ch14-positive-compactness};
-\item there is no diagonal-extraction argument available.
+\item the fixed-order Banach--Alaoglu argument does not apply to all currents;
+\item positive compactness is instead expressed through local mass bounds and
+  the product-compactness argument of \Cref{thm:ch14-positive-compactness};
+\item replacing its subnet by a subsequence requires extra topological
+  hypotheses.
 \end{itemize}
 
 \paragraph{(F2) Order zero does not mean measure coefficients.}
 By \Cref{ex:ch14-star-not-measure} there is a current of bidimension $(0,0)$
-on a compact Berkovich space which is of order $0$ relative to every chart
-datum but is not induced by any signed Radon measure.  Over $\mathbf C$ this
+on a compact Berkovich space which is of order $0$ relative to every test-form
+stage but is not induced by any signed Radon measure.  Over $\mathbf C$ this
 cannot happen.  The failure is not exotic: it occurs on
 $\mathbf P^{1,\An}_k$ for $k$ trivially valued.  Note that positivity
 repairs it, by the last assertion of
@@ -3709,7 +3713,7 @@ Chern--Levine--Nirenberg inequalities.
 \begin{tabular}{p{.30\textwidth}|p{.28\textwidth}|p{.32\textwidth}}
 \textbf{Established here}&\textbf{Used as}&\textbf{Where}\\ \hline
 test-form topology
-  (\cref{def:ch14-chart-datum})
+  (\cref{def:ch14-test-form-stage})
   &domain of weak convergence
   &\cref{prop:test-form-continuity-criterion},
    \cref{chap:cld-bedford-taylor}\\
@@ -3958,8 +3962,9 @@ $h$ homogeneous of degree $1$
 
 Five points are worth memorizing on leaving the chapter.
 \begin{enumerate}
-\item A current has an order relative to a chart datum, never in general a
-  global one; every compactness statement must be read accordingly.
+\item Every current has a finite order relative to each test-form stage, but
+  it need not admit one global finite order; compactness statements must be
+  read accordingly.
 \item Duality reverses the two extreme positivity cones for the \emph{test}
   forms, but not for the objects: a current defined by a positive form is
   positive.
@@ -3983,8 +3988,8 @@ statements of that source.
 
 \paragraph{Provenance of the individual statements.}
 The definition of a current on a tropical space, the description of
-continuity relative to a covering chart datum, and the observation that the
-resulting orders need not be bounded are
+continuity relative to a covering chart system and compact support, and the
+observation that the resulting orders need not be bounded are
 \cite[\S7.1]{CLD25}; our
 \Cref{ex:ch14-star-unbounded-order} makes that observation explicit on the
 star of \cite[\S6.7.3]{CLD25}, which is the Berkovich projective line over a
