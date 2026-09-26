@@ -685,15 +685,19 @@ unrestricted unbounded continuation are disproved.
 
 - **P05.1** `[T3; open]` Characterize the pairs \((\mathbf X,\gamma)\) for
   which the Botero--Mazzon--Pille-Schneider regularity property holds.  The
-  literal integral-slope property fails for every positive-at-infinity
-  reference on every one-vertex balanced rational fan; in the explicit real
-  scalar extension, every one-dimensional finite balanced rational
-  polyhedral space has regularity, and envelopes factor exactly for separable
-  bounded obstacles on finite products.  In particular, products of finite
-  balanced graphs and complete affine spaces have real-PA envelopes
-  throughout the separable obstacle class.  Literal regularity on general
-  finite graphs, arbitrary nonseparable obstacles, the higher-dimensional
-  real-PA characterization, and the source convention repair remain open.
+  literal integral-slope property fails whenever a finite graph has a vertex
+  where the reference slope vector is strictly positive on every nonzero
+  local balancing relation; in particular it fails for every positive-degree
+  reference on a finite graph with one-dimensional local relation cones.  In
+  the explicit real scalar extension, every one-dimensional finite balanced
+  rational polyhedral space has regularity, and envelopes factor exactly for
+  separable bounded obstacles on finite products.  In particular, products
+  of finite balanced graphs and complete affine spaces have real-PA envelopes
+  throughout the separable obstacle class.  The zero-degree literal graph
+  case and the positive-degree higher-rank case where the reference lies on a
+  proper dual face at every positive-mass vertex, arbitrary nonseparable
+  obstacles, the higher-dimensional real-PA characterization, and the source
+  convention repair remain open.
 - **P05.2** `[T3; open]` Characterize the pairs for which their
   orthogonality property holds.
 - **P05.5** `[T4; open after the calibrated recursive model cases]`
@@ -807,9 +811,13 @@ to a supporting relation then globalizes the one-vertex obstruction at every
 higher-rank vertex.  Bounded edges, graph cycles and lattice saturation
 introduce no additional condition.  The source convention repair and the
 higher-dimensional real-PA regularity and orthogonality characterizations
-remain open.  Literal regularity on general finite graphs is not classified
-by the one-vertex theorem.  P05.1 and P05.2 stay active T3 atoms and all
-inventory counts are unchanged.
+remain open.  The strict-vertex theorem now disproves literal regularity
+whenever the reference slope is positive on all nonzero local relations; in
+particular it covers every positive-degree local-rank-one graph.  For a
+positive-degree reference, any remaining literal graph case has at least one
+higher-rank local cone and has reference slopes on a proper dual face at
+every positive-mass vertex.  The zero-degree case is not addressed.  P05.1
+and P05.2 stay active T3 atoms and all inventory counts are unchanged.
 
 ### `prob:frontier-pluriharmonic` --- 1 active atom
 

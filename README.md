@@ -472,14 +472,18 @@ envelopes.  Consequently, products of finite balanced graphs and complete
 affine spaces have real-PA envelopes for every separable bounded obstacle,
 including products with branched graph factors.  This does not cover an
 arbitrary nonseparable obstacle.  On the other hand, the
-literal BMPS integral-slope class fails regularity for every
-positive-at-infinity reference on every one-vertex balanced rational fan.
-For a chosen ray and integer $N\geq2$, the constructed envelope has slope
-$g_j-1/N$ and stays at uniform distance at least $(N-1)/(2N)$ from every
-literal convex PA approximant.  The higher-dimensional real-PA
-characterization for arbitrary obstacles, literal regularity on general
-finite graphs, and the source convention repair remain open, so the atom
-count is unchanged.
+literal BMPS integral-slope class fails regularity whenever a finite graph
+has a vertex where the reference slope vector is strictly positive on every
+nonzero local balancing relation.  The construction gives an explicit
+fractional-slope envelope and a quantitative uniform separation from every
+literal convex PA approximant.  In particular, every positive-degree
+reference on a finite graph with one-dimensional local relation cones fails
+literal regularity.  For positive-degree references, any remaining literal
+graph case must have at least one higher-rank local relation cone, with the
+reference on a proper dual face at every positive-mass vertex.  The
+zero-degree case, that higher-rank case, the higher-dimensional real-PA
+characterization for arbitrary obstacles, and the source convention repair
+remain open, so the atom count is unchanged.
 
 The 1 September local-comparison and source-cell-access research is preserved
 with its exact independent reviews in

@@ -52,12 +52,13 @@ that withdrawal and does not cite the note as a positive result.
 
 The book now independently proves that every finite one-dimensional balanced
 space has regularity in the real-PA scalar extension.  It also strengthens
-the real-line slope-$1/2$ warning to a universal one-vertex obstruction:
-for every chosen ray and integer $N\geq2$, a bounded integral-slope obstacle
-has an envelope of slope $g_j-1/N$, uniformly separated by at least
-$(N-1)/(2N)$ from every literal convex PA approximant.  Thus every
-positive-at-infinity literal reference on a one-vertex balanced rational fan
-fails regularity.  Separate
+the real-line slope-$1/2$ warning first to every one-vertex fan and then to
+every finite graph having a vertex where the reference slope vector is
+strictly positive on every nonzero local balancing relation.  The explicit
+fractional-slope envelope is uniformly separated from every literal convex
+PA approximant.  Consequently every positive-degree literal reference on a
+finite graph with one-dimensional local relation cones fails regularity.
+Separate
 book-local contact and accessibility arguments classify real-PA
 orthogonality on every finite balanced graph: it holds exactly when the cone
 of nonnegative balancing relations is one-dimensional at every vertex.
@@ -65,10 +66,13 @@ Bounded edges, cycles, and lattice saturation add no condition.  The
 book also proves exact factorization of the envelope for every separable
 bounded obstacle on a finite product.  Thus products of finite balanced
 graphs and complete affine spaces have real-PA envelopes throughout the
-separable class, even with branched graph factors.  Literal regularity on
-general finite graphs, arbitrary nonseparable obstacles, the
-higher-dimensional real-PA characterizations, and the source convention
-repair remain open. P05.1 and P05.2 stay active;
+separable class, even with branched graph factors.  For positive-degree
+references, literal regularity remains open only if the graph has a
+higher-rank local relation cone and the reference slope vector lies on a
+proper dual face at every positive-mass vertex.  The zero-degree case,
+arbitrary nonseparable obstacles, the higher-dimensional real-PA
+characterizations, and the source convention repair also remain open. P05.1
+and P05.2 stay active;
 the inventory remains **42 active atoms in 12 formal problem environments**,
 tiers **(0,3,7,15,17)**.
 

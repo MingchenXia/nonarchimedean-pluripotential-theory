@@ -323,15 +323,20 @@ source questions under one common framework.
   separable bounded obstacles on finite products, including products of
   balanced graphs and complete affine spaces; exact factorial normalization;
   strict cross-fan counterexample; conditional recursive analytic comparison.
-- **Disproved literal claim:** with integral slopes, regularity fails for
-  every positive-at-infinity reference on every one-vertex balanced rational
-  fan.  The obstruction produces slopes \(g_j-1/N\) and a uniform separation
-  of at least \((N-1)/(2N)\); the supplied one-vertex draft has accordingly
-  been withdrawn.
-- **Status:** literal regularity on general finite graphs, arbitrary
-  nonseparable product obstacles, the higher-dimensional real-PA
-  characterizations, the source coefficient-convention repair, and the
-  analytic-realization questions remain open.
+- **Disproved literal claim:** with integral slopes, regularity fails at any
+  graph vertex where the reference slope vector is strictly positive on all
+  nonzero local balancing relations.  This includes every positive-degree
+  reference on a finite graph whose local relation cones are
+  one-dimensional.  The explicit obstruction has fractional slope and a
+  quantitative uniform separation from every literal convex PA approximant;
+  the supplied one-vertex draft has accordingly been withdrawn.
+- **Status:** for a positive-degree reference, any remaining literal graph
+  case has at least one higher-rank local relation cone and has reference
+  slopes on a proper dual face at every positive-mass vertex.  The
+  zero-degree case, that higher-rank case, arbitrary nonseparable product
+  obstacles, the higher-dimensional real-PA characterizations, the source
+  coefficient-convention repair, and the analytic-realization questions
+  remain open.
 - **Packets:** balanced_polyhedral_regularity.md (run and verified in its
   exact core) and bmps_exact_source_questions.md (prepared, not run).
 

@@ -3313,3 +3313,34 @@ missing inputs, overflows, or fatal errors; the 13 inherited Chapter 70
 duplicate destinations remain.  Physical pages 3797--3800 and both minimal
 pages were visually inspected.  Exact evidence is recorded in the dedicated
 integration audit and solver dossier.
+
+## Chapter 72: strict-vertex literal nonregularity, 26 September 2026
+
+The book-local theorem
+`thm:frontier-polyhedral-strict-vertex-integral-nonregularity` extends the
+one-vertex coefficient obstruction to every vertex of a finite balanced
+graph where the reference slope vector is strictly positive on all nonzero
+local balancing relations.  A bounded integral-slope star obstacle has an
+explicit fractional-slope envelope, and every literal convex PA approximant
+stays at distance at least `(N-1)R/(2N^2)`.  The positive-degree rank-one
+corollary shows that literal regularity fails for every positive-degree
+reference on a finite graph whose local relation cones are one-dimensional.
+
+This does not retire P05.1.  The zero-degree graph case remains open.  For a
+positive-degree reference, any remaining case must have a higher-rank local
+relation cone and put the reference slope vector on a proper dual face at
+every positive-mass vertex.  The result concerns the literal integral-slope
+category and does not alter the positive real-PA regularity and orthogonality
+theorems.  The author-supplied withdrawn draft is not cited as a positive
+source, and no model-verifier result is claimed.  The inventory therefore
+remains 42 active atoms in 12 environments, tiers `(0,3,7,15,17)`.
+
+The scoped writing audit, 417-input and 11,870-label source check, six checker
+tests, inventory check, minimal compile, and full build pass.  The final
+4,094-page PDF has 19,477,911 bytes and SHA-256
+`2a444ce73c727fa400277c0cad69c27d8f7dfab5b5ea7d24db83518daa20f60e`.
+The final log has no unresolved references or citations, rerun requests,
+missing inputs, overflows, or fatal errors; the 13 inherited Chapter 70
+duplicate destinations remain.  Physical pages 3809--3813 and all three
+minimal-packet pages were visually inspected.  Exact evidence is recorded in
+the dedicated integration audit and solver dossier.
