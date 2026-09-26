@@ -53,11 +53,15 @@ theorem.
 
 Once these three points are settled, the chapter's structural statement is
 that a topologically separated $K$-analytic space purely of dimension $n$,
-equipped with its analytic boundary, \emph{is} a calibrated tropical space of
-level $n$ (\Cref{thm:analytic-is-tropical-space}).  Stokes' formula on $X$ is
-then not a new theorem but the tropical Stokes formula
-\Cref{thm:cld-global-stokes} read through that identification, and the
-substance lies in identifying the analytic boundary with the tropical one.
+equipped with its analytic boundary, has an associated affine calibrated
+$G$-tropical structure which is a tropical space of level $n$ in the abstract
+sense of Chambert--Loir--Ducros
+(\Cref{thm:analytic-is-tropical-space}).  This is an atlas-like structure made
+from all moment maps; it is not an identification of $X$ with one polyhedral
+tropical space of \Cref{chap:tropical-spaces}.  Stokes' formula on $X$ is then
+the abstract tropical Stokes formula \Cref{thm:cld-global-stokes} read through
+that structure, and the substance lies in identifying its parlinear boundary
+with the analytic boundary.
 
 \paragraph{Roadmap.}
 \Cref{sec:ch13-charts} constructs the sheaves $A_X^{p,q}$, proves the
@@ -74,7 +78,8 @@ space, deducing well-definedness from the chart independence of
 \Cref{sec:ch13-stokes} states and proves Stokes' formula on analytic domains
 with boundary, with the hypotheses spelled out, and verifies it on an annulus
 with explicit numbers.  \Cref{sec:ch13-skeleton} compares forms on $X$ with
-forms on a skeleton and computes the Tate curve completely.
+forms on local skeleta and identifies the skeleton-generated forms on a Tate
+curve, while explaining why the minimal skeleton does not carry all forms.
 \Cref{sec:ch13-properness} isolates where properness and boundarylessness are
 genuinely required.  \Cref{sec:ch13-partitions} records the partition of
 unity theorem in the exact form used later, and
@@ -496,13 +501,12 @@ $\alpha|_{\Trop_f(V_i)}=0$.  Since the kernel is defined by a pointwise
 cellwise condition and is unchanged by subdivision, $\alpha|_{\Trop_f(V)}=0$,
 whence $f_{\mathrm{trop}}^*\alpha=0$.
 
-\cref{itm:ch13-sheaf:GvsO} Injectivity may be checked on germs, and even on
-compact analytic neighbourhoods.  Let $\omega\in A^{p,q}_X(U)$ have zero
-image.  Near a point $x$ write $\omega=f_{\mathrm{trop}}^*\alpha$ on an open
-$W\ni x$, and choose a compact analytic neighbourhood $V\subset W$ of $x$;
-then $f_{\mathrm{trop}}^*(\alpha)|_V$ is zero as a $G$-form, so
-$\alpha|_{\Trop_f(V)}=0$ by \cref{itm:ch13-sheaf:faithful}, so
-$\omega|_{\Int(V)}=0$.  As $x$ was arbitrary, $\omega=0$.
+\cref{itm:ch13-sheaf:GvsO} In the CLD definition, an ordinary form is a
+$G$-form which is tropicalizable on an ordinary open neighbourhood of every
+point.  Thus the displayed map is the inclusion of that ordinary-open
+subsheaf into the $G$-sheaf, hence is injective.  This formulation also makes
+clear that the comparison concerns local representability, not a second
+quotient of the same chart data.
 \end{proof}
 
 \begin{corollary}
@@ -529,17 +533,16 @@ be reduced to either language, but the two sheaves should not be identified
 without stating the required comparison.
 
 The precise relation is the one just proved: $A^{p,q}_X\to A^{p,q}_{X,G}$ is
-injective, so an ordinary form is a $G$-form and nothing is lost by working
-$G$-locally; but the map is not surjective, because a $G$-cover of an open
-set by compact analytic domains need not refine to an open cover, and a
-$G$-form assembled from charts on such domains need not be representable on
-any ordinary neighbourhood of a boundary point.  This is exactly the
-situation on a closed annulus viewed inside the affine line: the two Shilov
-points have no ordinary neighbourhood inside the annulus, so a $G$-form built
-from the annulus chart is not, without further argument, an ordinary form of
-the ambient space.  The distinction is invisible for boundaryless spaces and
-unavoidable for boundary formulae, which is why
-\Cref{sec:ch13-stokes} is stated for $G$-forms.
+injective, so an ordinary form is a $G$-form.  The distinction is one of local
+representability.  An ordinary form must be tropicalizable on ordinary open
+neighbourhoods, whereas a $G$-form need only be tropicalizable on a
+$G$-cover by analytic domains.  Boundary points of a closed annulus do have
+ordinary neighbourhoods in the relative topology; what is not automatic is
+that chart data given on a compact domain extend to such a neighbourhood (or
+to an ordinary neighbourhood in an ambient space).  Thus one must not replace
+the two local conditions by each other without a comparison theorem.  The
+$G$-language is the natural one for analytic domains and their boundary
+formulae, which is why \Cref{sec:ch13-stokes} uses it.
 
 \begin{proposition}\label{prop:cld-local-normal-form}
 Every form $\omega\in A_X^{p,q}(U)$ admits an open cover $(V_i)$ and
@@ -592,10 +595,11 @@ The formula also fixes the sign used in
 \subsection{Forms on the Berkovich affine line}
 \label{sec:ch13-line}
 
-Before any general theory is used, it is worth writing out every sheaf
-$A^{p,q}$ on the simplest Berkovich space.  The computation is short and it
-fixes the intuition for the rest of the chapter: forms live on the tree, not
-on the disc.
+Before any general theory is used, it is worth writing out the possible
+bidegrees on the simplest Berkovich space.  The computation fixes the
+intuition for the rest of the chapter: forms are detected on suitable local
+skeleta, and a single global radial coordinate does not see every branch of
+the Berkovich tree.
 
 \begin{example}[The sheaves $A^{p,q}$ on $\mathbf A^{1,\An}$]
 \label{ex:ch13-affine-line}
@@ -639,16 +643,18 @@ from the origin it is smooth, being $\rme^{-t}$ in the chart $t=-\log|T|$.
 The same example, in the $G$-topology, is
 \cite[\S3.4.8]{CLD25}.
 
-\emph{Bidegree $(1,1)$.} On the open subset
+\emph{Radial forms of bidegree $(1,1)$.} On the open subset
 $\{0<|T|<\infty\}=\mathbf G_{m}^{\An}$ take the chart $f=T$, so
 $t=-\log|T|$ is an affine coordinate on $\Trop_f(\mathbf G_m^{\An})
 =\mathbf R$.  Then
 \[
- A^{1,1}_X\big|_{\mathbf G_m^{\An}}
+ \{\text{$(1,1)$-forms represented in the chart $T$}\}
  =\{\rho(t)\,\dprime t\wedge\ddprime t\},
 \]
-with $\rho$ smooth; and the integral of a compactly supported such form is
-$\int_{\mathbf R}\rho(t)\,\rd t$, the canonical calibration of the skeleton
+with $\rho$ smooth.  This is the radial subspace, not the whole sheaf:
+additional moment maps detect annular segments in residue-disc branches that
+the coordinate $t$ collapses.  The integral of a compactly supported radial
+form is $\int_{\mathbf R}\rho(t)\,\rd t$, the canonical calibration of the skeleton
 $S(\mathbf G_m)$ being the constant $1$-vector
 (\Cref{ex:trop-torus-explicit}).  A type-$1$ point contributes nothing:
 $d_K=0$ there, and the tropical image of a small disc around it is a point.
@@ -750,9 +756,10 @@ The cancellation is the balancing relation $u_1+u_2+u_3=0$ at the vertex,
 which here is the statement that the three ends of $U$ carry total slope
 zero --- the degree-zero divisor formula for $T$ on $\mathbf P^1$, in the
 guise of \Cref{thm:analytic-tropical-balancing}.  Had we used a punctured
-space with an unbalanced star, Stokes would have failed, exactly as in
-\Cref{ex:ch11-tripod-unbalanced}; but no such star arises from an analytic
-space, and that is the content of interior harmony.
+space with an unbalanced interior star, Stokes would have failed, exactly as
+in \Cref{ex:ch11-tripod-unbalanced}.  Interior harmony excludes that defect
+away from the analytic boundary; unbalanced stars may occur at the boundary
+and supply precisely the boundary term.
 \end{example}
 
 \section{Operations, locality, and pullback}
@@ -969,6 +976,7 @@ operators are chartwise identities.
 \end{proof}
 
 \begin{remark}[Vanishing by dimension]
+\label{rem:ch13-vanishing-dimension}
 At a point $x$, a form of bidegree $(p,q)$ vanishes if the local tropical
 dimension is smaller than $\max\{p,q\}$; see
 \cite[Proposition~15.2.1]{CLD25}.  More generally, if an analytic subspace
@@ -1075,14 +1083,15 @@ for any $g$ whose image misses part of the support: if $Z\subset X$ is a
 closed analytic subspace with $\dim Z<\max(p,q)$ and $i:Z\to X$ is the
 inclusion, then $i^*\omega=0$ for every $\omega\in A^{p,q}_X$ by
 \Cref{prop:ch13-locality}\,\cref{itm:ch13-loc:dim} applied on $Z$, no matter
-how large $\Supp\omega$ is.  Surjectivity fails already for a closed
-immersion of a point, and for the normalization of a nodal curve.
+how large $\Supp\omega$ is.  There is likewise no general surjectivity
+theorem: a form on $Y$ may use tropical coordinates that do not descend
+through $g$.
 
-\emph{There is no pushforward of forms.}  A map $g_*:A^{p,q}_Y\to
-A^{p,q}_X$ does not exist, not even for finite $g$: a form on $Y$ has no
-canonical trace to $X$ because the chart data on $Y$ have no reason to come
-from $X$.  What does exist is a pushforward of \emph{measures} and of
-\emph{currents}, and only under properness hypotheses; see
+\emph{There is no general chartwise pushforward of smooth forms.}  The CLD
+calculus does not assign to an arbitrary analytic morphism a canonical map
+$A^{p,q}_Y\to A^{p,q}_X$: chart data on $Y$ need not descend to $X$.
+Pushforwards of \emph{measures} and of \emph{currents} do exist under the
+appropriate properness hypotheses; see
 \Cref{prop:ch13-finite-integral} and \Cref{chap:cld-currents}.
 \end{warning}
 
@@ -1123,44 +1132,51 @@ Currents require more than the vector space $A_{X,c}^{p,q}$: they require its
 locally convex topology.  We spell it out because weak convergence of
 currents always refers to this choice.
 
-Fix a compact set $C\subset X$ and finitely many tropical charts covering
-$C$.  Refine their tropical images by finite polyhedral complexes and choose
-affine coordinates on all cells.  For a chartwise representative $\alpha$,
-let
+Let $\Gamma_X$ be the filtered family of systems of tropical charts whose
+domain interiors cover $X$, and let $\Phi_c$ be the family of compact
+supports.  For a covering system $\mathscr D\in\Gamma_X$ and
+$F\in\Phi_c$, write $A^{p,q}_{\mathscr D,F}(X)$ for the forms supported in
+$F$ and tropicalized by $\mathscr D$.  After choosing compatible polyhedral
+decompositions, its $C^m$ topology is defined by the usual coefficient
+seminorms
 \[
  \|\alpha\|_{C,r}
  =\max\bigl\{|\partial^I\alpha_{KL}(x)|:
-      |I|\leq r,\ x\text{ in a relevant cell},\ K,L\bigr\}.
+      |I|\leq r,\ x\in C,\ K,L\bigr\},
+ \qquad r\leq m,
 \]
-Changing the finite refinement or affine coordinates gives an equivalent
-family of seminorms.  The fixed-support, fixed-chart space is given the
-$C^\infty$ topology generated by all $\|\cdot\|_{C,r}$.  Finally,
-$A_{X,c}^{p,q}$ is given the final locally convex topology as the support and
-finite chart data vary.
+on compact subsets $C$ of the relevant cells.  Refining the charts or the
+cell decompositions gives continuous transition maps.  The test-form space
+$A_{X,c}^{p,q}$ carries the locally convex colimit topology over the stages
+$A^{p,q}_{\mathscr D,F}(X)$; its $C^\infty$ topology is generated by the
+finite-order topologies.  This is the construction of
+\cite[\S\S3.8 and~5.3]{CLD25}.  The topology on ordinary forms is no finer
+than the topology induced from $G$-forms, and the inclusion is continuous.
 
 \begin{proposition}\label{prop:test-form-continuity-criterion}
 A linear functional $T$ on $A_{X,c}^{p,q}$ is continuous if and only if its
-restriction to every fixed compact-support, finite-chart space is continuous.
-Equivalently, for each such datum there exist $C>0$, an integer $r$, and
-finitely many compact chart domains $W_i$ such that
+restriction to every stage $A^{p,q}_{\mathscr D,F}(X)$ is continuous.
+Equivalently, on each such stage there exist $C>0$, an integer $r$, and
+finitely many coefficient seminorms such that
 \[
                 |\langle T,\omega\rangle|
-               \leq C\max_i\|\omega\|_{W_i,r}.
+               \leq C\max_i\|\omega\|_{C_i,r}.
 \]
-The integer $r$ may depend on both the compact set and the chart datum.
+The constants, the compact cell sets $C_i$, and the order $r$ may depend on
+the stage $(\mathscr D,F)$.
 \end{proposition}
 \begin{proof}
-This is the defining universal property of the final topology.  A continuous
+This is the defining universal property of the locally convex colimit
+topology.  A continuous
 linear functional on a locally convex space controlled by a family of
 seminorms is bounded by a finite maximum of those seminorms.  Conversely,
 such bounds on every member of the final system imply continuity there and
 hence on the final space.
 \end{proof}
 
-The dependence on the chart datum is real: even on a compact tropical space,
-a current need not have one globally bounded distributional order.  This is
-why later compactness assertions are stated in the weak topology rather than
-in a fixed-order norm.
+The definition supplies stagewise finite-order bounds, not a single order
+uniform over every chart system.  Later compactness assertions are therefore
+stated in the weak topology rather than in a fixed-order norm.
 
 Two features of this topology deserve to be stated as a proposition, because
 they are what make the operations of \Cref{sec:ch13-operations} usable
@@ -1176,8 +1192,8 @@ Let $X$ be topologically separated.
   $A^{p,q}_{X,c}\to A^{p,q}_{X,c}$, respectively
   $A^{p,q}_{X,c}\to A^{p+r,q+s}_{X,c}$.
 \item\label{itm:ch13-tc:diff} $\dprime:A^{p,q}_{X,c}\to A^{p+1,q}_{X,c}$
-  and $\ddprime$ are continuous, and increase by at most one the integer $r$
-  occurring in \Cref{prop:test-form-continuity-criterion}.
+  and $\ddprime$ are continuous for the $C^\infty$ topology; at finite order
+  they are continuous from $C^m$ to $C^{m-1}$ for $m\ge1$.
 \item\label{itm:ch13-tc:pullback} If $g:Y\to X$ is a morphism which is
   topologically proper, then $g^*:A^{p,q}_{X,c}\to A^{p,q}_{Y,c}$ is
   continuous.
@@ -1206,19 +1222,13 @@ without changing the target polyhedron or the representative, so all the
 seminorms $\|\cdot\|_{C,r}$ are literally unchanged.
 \end{proof}
 
-\begin{warning}{The order is not uniform}
-\Cref{prop:test-form-continuity-criterion} permits the integer $r$ to depend
-on the chart datum as well as on the compact set, and this cannot be
-improved.  The reason is the same as in the real-analytic setting: the space
-$A^{p,q}_{X,c}$ is an inductive limit over an uncountable directed family of
-chart data, not merely over compact subsets, and the finite subfamilies grow
-in two independent directions --- more coordinates, and finer cells.  A
-functional bounded by $\|\cdot\|_{C,r}$ for a fixed $r$ on every chart datum
-is much more special than a continuous one, and no compactness theorem below
-produces such a bound.  The distinction is not academic: it is why weak
-limits of currents are taken in the weak-$*$ topology and why the mass
-bounds of \Cref{chap:cld-bedford-taylor} are stated as bounds on measures
-rather than as bounds on distributional orders.
+\begin{warning}{Stagewise control is the invariant statement}
+\Cref{prop:test-form-continuity-criterion} permits the order $r$ to depend on
+the chart system and support.  The definition alone gives no uniform order
+over the entire filtered family.  Thus weak limits of currents are taken in
+the weak-$*$ topology, and the mass estimates of
+\Cref{chap:cld-bedford-taylor} are stated as measure bounds rather than as an
+unstated global distributional-order bound.
 \end{warning}
 
 \section{Positivity of analytic forms}
@@ -1240,7 +1250,9 @@ everywhere else in this chapter.
 \begin{definition}
 \label{def:ch13-positivity}
 A symmetric $(p,p)$-form on $X$ is strongly positive, positive, or weakly
-positive if it has that property in every tropical chart.  We write
+positive if every point has a tropical neighbourhood on which the form has a
+representative with that property.  Equivalently, the corresponding $G$-form
+is positive in the chart-independent CLD cone.  We write
 \[
  A_{X,+,\mathrm{s}}^{p,p}\subset
  A_{X,+}^{p,p}\subset
@@ -1263,6 +1275,7 @@ superforms.  The last assertion is the definition of smooth psh.
 \end{proof}
 
 \begin{example}[Toric Hessian]
+\label{ex:ch13-toric-hessian}
 On an analytic torus, let $u=F\circ\operatorname{trop}$ with $F$ smooth.
 Then
 \[
@@ -1370,127 +1383,86 @@ field or a nonreduced space it is not a number of points, as
 \Cref{ex:trop-multiplicity-two} and \Cref{ex:trop-length-factor} show.
 \end{remark}
 
-For $\omega\in A_{X,c}^{n,n}$, choose finitely many chart domains
-$V_i$, a smooth partition of unity $(\rho_i)$, and representations
-$\rho_i\omega=f_{i,\mathrm{trop}}^*\alpha_i$.  Define
+The intrinsic construction precedes the partition formula.  A $G$-form
+$\omega$ of bidegree $(n,n)$ with tropically Borel coefficients determines,
+chart by chart, an $n$-dimensional volume form on the skeletal part, obtained
+by pairing its restriction with the canonical calibration.  Pushing those
+volume forms to $X$ gives the Borel measure of the following theorem.  For a
+compactly supported smooth form we set
 \[
-                       \int_X\omega
-                  =\sum_i\int_{f_{i,\mathrm{trop}}(V_i)}
-                            \alpha_i
+                         \int_X\omega:=\omega_{\mathrm{Rad}}(X).
 \]
-with the canonical calibrations.
-
-Each summand is \eqref{eq:ch13-chart-integral} for the chart $f_i$; the sum
-is finite because $\Supp\omega$ is compact and the partition is locally
-finite (\Cref{thm:cld-partitions-unity}).  The theorem below is the assertion
-that nothing in this recipe was a choice.
+If $X$ is locally holomorphically separated and paracompact, a smooth
+partition of unity $(\rho_i)$ subordinate to finitely many chart domains over
+$\Supp\omega$ gives the computational formula
+\[
+ \int_X\omega
+ =\sum_i I_{f_i}(\alpha_i),
+ \qquad
+ \rho_i\omega=f_{i,\mathrm{trop}}^*\alpha_i.
+\]
+The measure construction itself does not require this auxiliary partition.
 
 \begin{theorem}\label{thm:cld-analytic-integration}
-The integral is independent of the cover, partition of unity, moment maps,
-and subdivisions.  A locally integrable $(n,n)$-form defines a Radon measure.
-Formation of this measure is compatible with complete extension of the
-ground field.
+Let $X$ be topologically separated and pure of dimension $n$.  Every
+$(n,n)$-$G$-form $\omega$ with tropically Borel coefficients defines a
+canonical Borel measure $\omega_{\mathrm{Bor}}$.  If $\omega$ is locally
+integrable, this is a Radon measure $\omega_{\mathrm{Rad}}$.  It is computed
+by \eqref{eq:ch13-chart-integral} on a compact chart domain and is independent
+of moment maps and subdivisions; whenever a smooth partition formula as
+above is available, that formula gives the same measure.  If $L/K$ is a
+complete extension and $p:X_L\to X$, then
+\[
+ p_*\bigl((p^*\omega)_{\mathrm{Bor}}\bigr)=\omega_{\mathrm{Bor}},
+ \qquad
+ p_*\bigl((p^*\omega)_{\mathrm{Rad}}\bigr)=\omega_{\mathrm{Rad}}
+\]
+in the locally integrable case.
 \end{theorem}
 \begin{proof}
-Take two choices of covers, partitions, and moment maps.  Compact support
-leaves finitely many chart pieces.  Intersect the two covers and replace the
-two moment maps on every intersection by their product moment map.  After a
-common rational polyhedral subdivision, all representatives live on one
-finite family of calibrated complexes.  The tropical projection formula
-\eqref{eq:analytic-tropical-pushforward} identifies the integral before and
-after each projection from a product chart, while
-\Cref{prop:integral-subdivision-independent} removes the subdivision.  The
-two partitions disappear because their products form a common partition and
-\(
-                 \sum_{i,j}\rho_i\rho'_j=1.
-\)
-This proves independence.
+On a chart, pair $\omega$ with the canonical calibration to obtain a
+top-dimensional volume form on the skeletal part.  Its pushforward to the
+analytic domain is the weighted lattice measure of
+\eqref{eq:ch13-chart-integral}.  Subdivision independence is
+\Cref{prop:integral-subdivision-independent}.  For two moment maps, pass to
+their product.  Chart independence of the canonical calibration and the
+tropical projection formula \eqref{eq:analytic-tropical-pushforward} identify
+the two pushed-forward volume forms.  The chartwise Borel measures therefore
+glue, and local integrability of their coefficients is exactly what promotes
+them to Radon measures.  A partition formula, when available, follows from
+locality and $\sum_i\rho_i=1$.
 
-We spell out the comparison step, since it is the one that uses the results
-of \Cref{chap:analytic-tropicalization} rather than formal manipulation.
-Let $V$ be a compact analytic domain carrying two moment maps $f:V\to T$ and
-$g:V\to T'$, both tropicalizing $\omega$, and let $h=(f,g):V\to T\times T'$
-be the product, with projections $p,p'$.  Then $h$ is again skeletally
-proper and $\Sigma_f\cap V\subset\Sigma_h$ by
-\Cref{lem:trop-refinement-calculus}\,\cref{itm:trop-ref:sigma}, so
-$\Sigma_h^{(n)}=\Sigma_f^{(n)}\cap V$ by
-\Cref{thm:trop-sigma-characterization}, both being the locus $d_x=n$.  By
-\Cref{thm:trop-calibration-chart-independent} the canonical calibrations of
-this common local skeleton computed with $f$ and with $h$ coincide.
-Pushing forward along $f_{\mathrm{trop}}$, respectively
-$h_{\mathrm{trop}}$, and using
-$f_{\mathrm{trop}}=p_{\mathrm{trop}}\circ h_{\mathrm{trop}}$, we get
-$p_{\mathrm{trop},*}\mu_{\Pi_h}=\mu_{\Pi_f}$, which is exactly
-\eqref{eq:analytic-tropical-pushforward} with the lattice index appearing
-once.  Since $\omega|_V=f_{\mathrm{trop}}^*\alpha
-=h_{\mathrm{trop}}^*(p_{\mathrm{trop}}^*\alpha)$, the change-of-variables
-identity for a piecewise immersion (\Cref{lem:ch11-cell-change-of-variables}
-and \Cref{prop:ch11-pushforward-integral}) gives
-\[
- \int_{(\mathscr D_h,m_h)}p_{\mathrm{trop}}^*\alpha
- =\int_{(\mathscr D_f,m_f)}\alpha ,
-\]
-that is, $I_h(p_{\mathrm{trop}}^*\alpha)=I_f(\alpha)$ in the notation of
-\eqref{eq:ch13-chart-integral}.  The same computation with $g$ and $p'$ gives
-$I_h((p')_{\mathrm{trop}}^*\beta)=I_g(\beta)$, and the two left-hand sides
-agree because $p_{\mathrm{trop}}^*\alpha$ and $(p')_{\mathrm{trop}}^*\beta$
-have the same class in the chart $h$, by
-\Cref{prop:ch13-chart-integral}.  This is the required comparison.
-
-In a chart, a locally integrable top form is a locally integrable density
-with respect to lattice-normalized Lebesgue measure on finitely many
-polyhedra.  Multiplication by the positive calibration weights and summation
-therefore give a Radon measure.  The preceding independence shows that these
-chartwise measures glue.  Explicitly, for $u$ a continuous function with
-compact support and $\omega$ a smooth $(n,n)$-form, the assignment
-\[
- u\longmapsto\int_Xu\,\omega
-\]
-is linear, and nonnegative when $u\ge0$ and $\omega$ is positive, by the last
-clause of \Cref{prop:ch13-chart-integral}; the Riesz representation theorem
-of \Cref{chap:topological-tools} then produces the measure, which is Radon
-because $X$ is locally compact Hausdorff and the functional is locally
-bounded by \Cref{prop:test-form-continuity-criterion}.  The measure does not
-charge $\partial X$, by \Cref{cor:trop-boundary-negligible}.
-
-Let $K'/K$ be a complete extension.  Refine a chart after base change so
-that every target facet maps onto a facet of the original tropicalization.
-Conservation of degree for graded reductions says that the sum of the
-residue degrees and component lengths over a source facet equals its
-original calibration.  Applying the tropical projection formula cellwise
-therefore identifies the pushforward of the base-changed measure with the
-original measure.  This proves scalar-extension compatibility.  The graded
-degree statement and its non-strict-field formulation are
-\cite[Propositions~15.3.1--15.3.2]{CLD25}.  In the language of
-\Cref{chap:analytic-tropicalization} the mechanism is
-\Cref{prop:trop-calibration-base-change}: the base-change morphism
-$p:X_{K'}\to X$ satisfies $p_*\mu_{\Sigma_{K'}}=\mu_\Sigma$ on every
-polyhedral subspace, and the tropical targets are literally unchanged, so
-pairing with a form gives $p_*\bigl((p^*\omega)_{\mathrm{Rad}}\bigr)
-=\omega_{\mathrm{Rad}}$.
+Under a complete extension of the ground field, the tropical targets are
+unchanged and the canonical calibration satisfies
+$p_*\mu_{\Sigma_L}=\mu_\Sigma$ by
+\Cref{prop:trop-calibration-base-change}.  Pairing with the pulled-back form
+gives the two displayed identities.  This is precisely
+\cite[Propositions~15.3.1--15.3.2]{CLD25}; the underlying measure construction
+is recalled at the start of \cite[\S15.3]{CLD25}.
 \end{proof}
 
 \begin{corollary}
 \label{cor:ch13-measure}
 Let $X$ be topologically separated of pure dimension $n$ and let
 $\omega\in A^{n,n}_{X,G}(X)$ be a $G$-form with locally integrable
-coefficients.  Then there is a unique Radon measure $\omega_{\mathrm{Rad}}$
-on $X$ with
+coefficients.  Then there is a canonical Radon measure
+$\omega_{\mathrm{Rad}}$ on $X$ with
 \[
  \int_Xu\,\omega_{\mathrm{Rad}}=\int_Xu\,\omega
 \]
 for every smooth compactly supported $u$; it is positive when $\omega$ is
-positive, its total mass on a compact analytic domain $V$ tropicalized by $f$
-is computed by \eqref{eq:ch13-chart-integral}, and it gives no mass to
-$\partial X$ nor to any weakly analytic subset of dimension $<n$.
+positive, its mass on a compact analytic domain $V$ tropicalized by $f$ is
+computed chartwise by \eqref{eq:ch13-chart-integral}, and it gives no mass to
+$\partial X$ nor to any weakly analytic subset of dimension $<n$.  If $X$ is
+locally holomorphically separated, the displayed testing identity uniquely
+characterizes the measure.
 \end{corollary}
 
 \begin{proof}
-Uniqueness holds because smooth compactly supported functions are dense in
-$C_c(X)$ for a locally holomorphically separated space, by the
-Stone--Weierstrass theorem \cite[Theorem~15.2.6]{CLD25}; existence and
-positivity are contained in the proof of
-\Cref{thm:cld-analytic-integration}.  For the last clause,
+Existence and positivity are contained in
+\Cref{thm:cld-analytic-integration}.  Under local holomorphic separation,
+uniqueness follows because smooth compactly supported functions are dense in
+$C_c(X)$, by \cite[Corollary~15.2.7]{CLD25}.  For the last clause,
 \Cref{prop:trop-weakly-analytic-image} shows that such a subset has tropical
 image of dimension $<n$ in every chart, and a subset of dimension $<n$ is
 $\omega_D$-null in each $n$-cell; the boundary case is
@@ -1506,75 +1478,57 @@ analytic counterpart of the projection formula of
 \label{prop:ch13-finite-integral}
 Let $p:Y\to X$ be a morphism of topologically separated $K$-analytic spaces
 of level $n$, finite above the complement of a Zariski-closed subset of $X$
-of dimension $<n$, and let $\mathrm{dc}(p)$ be the calibrated degree of
-\Cref{thm:trop-finite-pushforward}.  Then for every $\omega\in
-A^{n,n}_{X,G}(X)$ with compact support and locally integrable coefficients,
-$p^*\omega$ is again such a form on $Y$ and
+of dimension $<n$, and let
+$\mathrm{dc}_p:x\mapsto\mathrm{dc}_x(p)$ be its calibrated-degree function
+on the complement of the thin exceptional set.  Then for every locally
+integrable $\omega\in A^{n,n}_{X,G}(X)$, the form $p^*\omega$ is locally
+integrable and
 \[
  p_*\bigl((p^*\omega)_{\mathrm{Rad}}\bigr)
- =\mathrm{dc}(p)\,\omega_{\mathrm{Rad}} .
+ =\mathrm{dc}_p\,\omega_{\mathrm{Rad}} .
 \]
-In particular, if $p$ is finite and flat of degree $d$ then
+The measures involved do not charge the exceptional set, so the right-hand
+side is unambiguous.  In particular, if $p$ is finite and flat of degree $d$
+and $\omega$ has compact support, then
 $\int_Yp^*\omega=d\int_X\omega$.
 \end{proposition}
 
 \begin{proof}
-Both sides are Radon measures, so it suffices to test against smooth
-compactly supported functions and, by a partition of unity, to work on a
-compact analytic domain $V\subset X$ carrying a moment map $f$ with
-$\Sigma\subset\Sigma_f$, replacing $Y$ by a compact analytic neighbourhood
-$W$ of $p^{-1}(\Sigma)$.  Set $\Sigma=\Sigma_f^{(n)}\cap V$ and
-$\mathrm T=p^{-1}(\Sigma)$.  Then $\mathrm T$ is a polyhedral subspace of $W$
-with canonical calibration $\mu_{\mathrm T}$, and
-\Cref{thm:trop-finite-pushforward} gives
-$p_*\mu_{\mathrm T}=\mathrm{dc}(p)\,\mu_\Sigma$.  Now
-$p^*\omega|_{\mathrm T}=(p|_{\mathrm T})^*(\omega|_\Sigma)$, because
-restriction of forms to polyhedral subspaces commutes with pullback along a
-morphism carrying one into the other.  Pairing the two sides of the
-calibration identity with $\omega|_\Sigma$ and integrating, using the
-change-of-variables formula \Cref{prop:ch11-pushforward-integral} for the
-piecewise immersion $p|_{\mathrm T}$, gives the asserted equality of
-measures.  The flat case is the statement that
-$\mathrm{dc}_x(p)=d$ for every $x$
-(\Cref{prop:trop-calibrated-degree}\,\cref{itm:trop-dc:flat}).  The general
-statement, including the case where $p$ is not flat, is
-\cite[Proposition~15.4.3]{CLD25}.
+This is \cite[Proposition~15.4.3]{CLD25}.  Its geometric mechanism is the
+calibration identity
+\[
+ p_*\mu_{p^{-1}(\Sigma)}=\mathrm{dc}_p\,\mu_\Sigma
+\]
+on every skeletal part $\Sigma$ strongly supporting $\omega$.  Pairing this
+identity with $\omega|_\Sigma$ gives the asserted equality of measures.  Both
+measures avoid nowhere-dense Zariski-closed subsets, so the locus on which
+$\mathrm{dc}_p$ is defined has full measure.  In the finite flat case
+$\mathrm{dc}_x(p)=d$ everywhere by
+\Cref{prop:trop-calibrated-degree}\,\cref{itm:trop-dc:flat}; taking total mass
+then gives the integral formula.
 \end{proof}
 
 \begin{theorem}\label{thm:analytic-is-tropical-space}
 Let $X$ be topologically separated and pure of dimension $n$.  With its
-analytic boundary and canonical calibration, $X$ is a tropical space of
-level $n$ in the sense of CLD.  Its analytic interior is harmonic.
+analytic boundary, the affine calibrated $G$-tropical space of level $n$
+associated with all moment maps on $X$ is a tropical space of level $n$ in
+the abstract sense of CLD.  Its analytic interior is harmonious.  This does
+not assert that $X$ is one polyhedral tropical space or that one global
+tropicalization determines the structure.
 \end{theorem}
 \begin{proof}
-Choose a point of $X$ and a moment map whose tropicalization has dimension
-$n$ near that point.  After an integer-affine generic projection, we may
-assume that the tropicalization is generically finite over an open subset of
-$\mathbf R^n$.  At a codimension-one cell $\tau$, take a small transversal
-interval.  The corresponding analytic restriction is a finite morphism of
-one-dimensional affinoid germs.  Generic flatness makes its degree constant
-on each connected side.  Conservation of degree at the point over $\tau$
-therefore gives
-\[
-              \sum_{\sigma\supset\tau}
-                 m_\sigma u_{\sigma/\tau}=0
-                 \quad\text{in }N/N_\tau,
-\]
-which is the balancing equation.  Equivalently, pairing with every character
-reduces the identity to the degree-zero divisor formula on the transversal
-analytic curve, as in the proof of
-\Cref{thm:analytic-tropical-balancing}.  Product moment maps show that the
-result is independent of the chart and that the canonical calibrations agree
-under transitions.  Thus the analytic interior has the required harmonic
-balanced tropical charts.
-
-For a point on the analytic boundary, the same local finite map is made over
-a half-polyhedron.  A face contributes to the calibrated tropical boundary
-exactly when the corresponding affinoid germ has nonempty relative analytic
-boundary; interior faces occur in opposite pairs and cancel.  This identifies
-the parlinear boundary with the analytic boundary and completes the tropical
-space axioms.  The finite-flat degree argument and the boundary comparison
-are \cite[Theorems~15.6.1 and 15.7.1]{CLD25}.
+This is \cite[Theorem~15.7.1]{CLD25}.  Its hypotheses match ours exactly.
+The verification is worth unpacking.  The interior $\Int(X)$ is locally
+holomorphically separated, hence locally differentially separated; being
+boundaryless, it is good and therefore decent.  It is very rich, and the
+interior-harmony theorem \cite[Theorem~15.6.1]{CLD25} supplies the balancing
+axiom for the canonical calibration.  Finally, the intersection of the
+analytic boundary with every parlinear subset is $n$-negligible, and the same
+holds for relative boundaries of analytic domains.  These are precisely the
+remaining axioms of an abstract tropical space of level $n$.  Chart
+compatibility and calibration compatibility are built into the associated
+affine calibrated $G$-tropical structure, not obtained by choosing a single
+global chart.
 \end{proof}
 
 \begin{remark}[What \Cref{thm:analytic-is-tropical-space} actually supplies]
@@ -1583,9 +1537,9 @@ The statement bundles five separate properties, and it is worth listing them
 because different later results use different ones.
 \begin{enumerate}
 \item\label{itm:ch13-ts:charts} \emph{Charts.} Every point has a
-  neighbourhood carried by a tropical chart, so forms and calibrations are
-  defined; this is \Cref{lem:trop-charts-basis} and it needs goodness, which
-  is automatic in the interior.
+  $G$-neighbourhood covered by moment charts; on the analytic interior,
+  goodness supplies ordinary-open chart neighbourhoods.  The full structure
+  is the compatible family of all these charts.
 \item\label{itm:ch13-ts:calib} \emph{A canonical calibration.} Provided by
   \Cref{cor:trop-calibration-glue}, and it is the unique piece of data that
   is genuinely global.
@@ -1598,10 +1552,11 @@ because different later results use different ones.
   \Cref{rem:trop-balancing-two-routes}.
 \item\label{itm:ch13-ts:bdry} \emph{Boundary identification.} The parlinear
   boundary of the calibrated structure is the analytic boundary $\partial X$.
-\item\label{itm:ch13-ts:thin} \emph{Thinness of the boundary.} $\partial X$
-  is weakly analytic of dimension $\le n-1$
-  (\Cref{prop:trop-boundary-thin}), so it is negligible for $n$-dimensional
-  integration but carries the $(n-1)$-dimensional boundary measure.
+\item\label{itm:ch13-ts:thin} \emph{Negligibility of the boundary.} The
+  intersection of $\partial X$ with every parlinear subset is
+  $n$-negligible (\Cref{cor:trop-boundary-negligible}), so it is invisible to
+  top-dimensional integration while still supporting boundary volume forms
+  of dimension $n-1$.
 \end{enumerate}
 Purity of dimension is not decoration: if $X$ has a nonempty compact analytic
 domain of dimension $<n$, then that domain has empty local skeleton, its
@@ -1791,9 +1746,11 @@ has no codimension-one cell and hence no boundary term to absorb it; the
 correct statement requires either compact support or a limiting
 hypothesis.
 \emph{The $G$-form hypothesis} matters when $\partial X\ne\varnothing$:
-boundary points of a compact analytic domain have no ordinary neighbourhood
-in the domain, and an ordinary form would not see them.  \emph{Topological
-separation} is what makes supports behave, and \emph{local holomorphic
+the boundary calculation is assembled from charts on compact analytic
+domains, and such $G$-local chart data need not extend to an ordinary-open
+tropicalization.  This is a representability issue, not an absence of
+ordinary neighbourhoods at boundary points.  \emph{Topological separation}
+is what makes supports behave, and \emph{local holomorphic
 separation together with paracompactness} is what supplies the partition of
 unity used to define both sides (\Cref{thm:cld-smooth-partition}); without
 them the identity survives only chartwise, as \Cref{sec:ch13-properness}
@@ -1833,8 +1790,9 @@ capacities in \Cref{chap:cld-bedford-taylor}.
 
 \begin{theorem}
 \label{thm:ch13-green-boundary}
-Let $X$ be topologically separated of pure dimension $n$, and let $\alpha$
-and $\beta$ be symmetric $G$-forms with $C^2$ coefficients, of bidegrees
+Let $X$ be topologically separated of pure dimension $n$, locally
+holomorphically separated and paracompact, and let $\alpha$ and $\beta$ be
+symmetric $G$-forms with $C^2$ coefficients, of bidegrees
 $(p,p)$ and $(q,q)$ with $p+q=n-1$, whose supports have compact
 intersection.  Then
 \[
@@ -1970,10 +1928,12 @@ There is no contradiction with
 \Cref{thm:ch13-stokes}\,\cref{itm:ch13-stokes:bdryless}: the form
 $t\,\ddprime t$ does not have compact support on $\mathring V$, since its
 tropical support is all of $(0,\lambda)$ whose closure meets the two removed
-Shilov points.  Second, forget that $V$ is compact and try to work with
-ordinary forms: the Shilov points $\eta_0,\eta_\lambda$ have no ordinary
-neighbourhood inside $V$, and the ordinary sheaf $A^{0,1}_V$ does not see
-them.  This is exactly why \Cref{thm:ch13-stokes} is stated for $G$-forms.
+Shilov points.  Second, try to use only ordinary-open chart data.  The Shilov
+points $\eta_0,\eta_\lambda$ do have ordinary neighbourhoods in $V$, but the
+compact annulus chart used above is $G$-local data and need not extend across
+either endpoint to an ordinary-open chart in the ambient curve.  The
+$G$-form formalism records exactly the domain chart and its relative
+boundary, which is why \Cref{thm:ch13-stokes} is stated in that language.
 \end{example}
 
 \begin{example}[The same annulus after a degree-$m$ cover: the index appears
@@ -2039,12 +1999,12 @@ $t'=0$ and $t'=\lambda/m$.
 \label{sec:ch13-skeleton}
 
 A form on $X$ is, by construction, a chartwise object; the calibrated
-integration theory says that in top bidegree only its restriction to local
-skeleta matters.  This section makes that precise, in the two directions
-that get used: a faithfulness statement, which says forms are determined by
-their skeletal restrictions, and a comparison statement, which identifies
-$A^{p,q}_X$ with forms on a skeleton in favourable cases.  The Tate curve is
-computed completely.
+integration theory says that in top bidegree its restriction to the local
+skeleton of a chart that tropicalizes it detects the form.  This section
+makes that statement precise and then separates it from a tempting false
+claim: one fixed global skeleton need not carry all forms.  The Tate curve
+exhibits both the useful skeleton-generated sector and the missing branch
+directions.
 
 \subsection{Restriction to a polyhedral subspace}
 
@@ -2104,20 +2064,18 @@ each member of a $G$-cover by compact analytic domains, hence vanishes.
 \begin{warning}{Faithfulness fails below the top bidegree}
 \Cref{prop:ch13-skeletal-faithful} is stated for $\max(p,q)=n$ and is false
 in general otherwise: in bidegree $(0,0)$ the top-dimensional local skeleta
-of a single chart need not detect a function.  The Berkovich affine line is
-misleading here.  There $\Sigma_T$ is the real line of Gauss points
-$\eta_t$, and a smooth function, being constant on every disc, \emph{is}
-determined by its restriction to $\Sigma_T$; but that is a one-dimensional
-accident, and it is not what the proposition asserts.  In general one must use all local skeleta, of
-all dimensions, and the correct statement in low bidegree is that a form is
-determined by its restrictions to the loci $\Sigma_f$ of all moment maps.
-The reason integration only needs the top-dimensional part is precisely the
-dimension count in the proof above.
+of a single chart need not detect a function.  This already happens on a
+curve: the skeleton of the chart $T$ on $\mathbf G_m^{\An}$ collapses residue
+disc branches, and a smooth function supported on an annular segment inside
+one such branch restricts to zero on that skeleton.  In low bidegree one must
+allow the loci $\Sigma_f$ of all moment maps.  The reason integration only
+needs the top-dimensional part of a chart that tropicalizes the given form is
+precisely the dimension count in the proof above.
 \end{warning}
 
-\subsection{A skeleton that carries all the forms: the Tate curve}
+\subsection{Skeleton-generated forms on the Tate curve}
 
-\begin{example}[Forms on a Tate curve]
+\begin{example}[What the minimal skeleton does and does not detect]
 \label{ex:ch13-tate-forms}
 Let $K$ be complete, algebraically closed and nontrivially valued, let
 $q\in K^\times$ with $0<|q|<1$, put $\lambda=v(q)$, and let
@@ -2127,72 +2085,56 @@ $q\in K^\times$ with $0<|q|<1$, put $\lambda=v(q)$, and let
 be the Tate curve, with quotient map $\pi:\mathbf G_m^{\An}\to E$ and
 skeleton
 \[
- \Sk(E)=\pi\bigl(S(\mathbf G_m)\bigr)\simeq\mathbf R/\lambda\mathbf Z,
+ \Sk(E)=\pi\bigl(S(\mathbf G_m)\bigr)\simeq\mathbf R/\lambda\mathbf Z.
 \]
-a circle of lattice circumference $\lambda$, as computed in
+It is a circle of lattice circumference $\lambda$, as computed in
 \Cref{ex:trop-tate-curve} and, from the model side, in
-\Cref{ex:ch08-tate-curve}.  Write $\rho:E\to\Sk(E)$ for the retraction.  We
-claim:
+\Cref{ex:ch08-tate-curve}.
+
+A superform on the circle can be lifted through the two Tate charts of
+\Cref{ex:trop-tate-curve}: lift its coefficients to $\lambda$-periodic
+functions on $\mathbf R$ and use the coordinates $v(T)$ in the two chart
+domains.  The transition is translation by $\lambda$, so the local forms
+agree on overlaps.  Denote the image of this construction by
+$A^{p,q}_{\Sk}(E)\subset A^{p,q}_E(E)$.  Restriction to the minimal skeleton
+then gives an isomorphism
 \[
- A^{p,q}_E(E)\ \simeq\ A^{p,q}\bigl(\mathbf R/\lambda\mathbf Z\bigr)
- \qquad\text{for all }p,q,
+ A^{p,q}_{\Sk}(E)\ \xrightarrow{\ \sim\ }\
+ A^{p,q}\bigl(\mathbf R/\lambda\mathbf Z\bigr).
 \]
-the right-hand side being superforms on the circle with its integral affine
-structure; explicitly $A^{0,0}=C^\infty(\mathbf R/\lambda\mathbf Z)$,
-$A^{1,0}=C^\infty\cdot\dprime s$, $A^{0,1}=C^\infty\cdot\ddprime s$,
-$A^{1,1}=C^\infty\cdot\dprime s\wedge\ddprime s$, and $A^{p,q}=0$ when
-$\max(p,q)\ge2$.
+Thus the skeleton-generated forms have the familiar periodic descriptions
+$C^\infty$, $C^\infty\dprime s$, $C^\infty\ddprime s$, and
+$C^\infty\dprime s\wedge\ddprime s$ in bidegrees $(0,0)$, $(1,0)$,
+$(0,1)$, and $(1,1)$ respectively.  All bidegrees with
+$\max(p,q)\ge2$ vanish on $E$ by
+\Cref{prop:ch13-locality}\,\cref{itm:ch13-loc:dim}.
 
-\emph{Injectivity.}  $E$ is purely of dimension $1$ and $\Sk(E)$ is the
-top-dimensional local skeleton of the two charts $f_1,f_2$ of
-\Cref{ex:trop-tate-curve}.  For $\max(p,q)=1$ this is
-\Cref{prop:ch13-skeletal-faithful}.  For $p=q=0$ we argue by differentiating.
-Let $u$ be a smooth function on $E$ with $u|_{\Sk(E)}=0$.  Restriction to a
-polyhedral subspace commutes with $\dprime$, so
+The inclusion $A^{p,q}_{\Sk}(E)\subset A^{p,q}_E(E)$ is generally strict,
+already for functions.  Indeed, a connected component $D$ of
+$E\setminus\Sk(E)$ is an open Berkovich disc.  Choose a coordinate $z$ on a
+smaller disc in $D$, a closed annulus
 \[
- (\dprime u)|_{\Sk(E)}=\dprime\bigl(u|_{\Sk(E)}\bigr)=0,
+                 r\le |z-a|\le R
 \]
-and $\dprime u$ has bidegree $(1,0)$ with $\max(1,0)=1=\dim E$, so
-$\dprime u=0$ by \Cref{prop:ch13-skeletal-faithful}.  Now let $V\subset E$ be
-a connected open set on which $u=\varphi\circ f_{\mathrm{trop}}$ for a moment
-map $f$ and a smooth $\varphi$.  Then $f_{\mathrm{trop}}^*(\dprime\varphi)=0$,
-so $\dprime\varphi$ vanishes in $A^{1,0}(\Trop_f(V))$ by
-\Cref{prop:ch13-nullity} applied on compact analytic domains exhausting $V$;
-that is, all tangential derivatives of $\varphi$ along the cells of
-$\Trop_f(V)$ vanish.  Since $\Trop_f(V)$ is the continuous image of a
-connected set, it is connected, and a polyhedral set is path-connected by
-paths lying in its cells, so $\varphi$ is constant on $\Trop_f(V)$ and $u$ is
-constant on $V$.  Hence $u$ is locally constant on $E$; as $E$ is connected,
-$u$ is constant, and $u|_{\Sk(E)}=0$ forces $u=0$.
-
-\emph{Surjectivity.}  Let $\psi$ be smooth on $\mathbf R/\lambda\mathbf Z$
-and lift it to a $\lambda$-periodic $\widetilde\psi$ on $\mathbf R$.  On the
-chart domain $U_1=\pi(\{0<v(T)<\lambda\})$ the moment map $f_1$ has
-$f_{1,\mathrm{trop}}=v(T)\circ s_1$, and on $U_2$ likewise, with
-$f_{2,\mathrm{trop}}=f_{1,\mathrm{trop}}+\lambda$ on one of the two
-components of $U_1\cap U_2$ (\Cref{ex:trop-tate-curve}).  Since
-$\widetilde\psi$ is $\lambda$-periodic, the two local forms
-$f_{j,\mathrm{trop}}^*\bigl(\text{expression in }\widetilde\psi\bigr)$ agree
-on the overlap, so they glue to a global form on $E$ restricting to the
-given one on $\Sk(E)$.  This is a second, concrete instance of refinement
-independence: the transition is a translation, and translations act
-trivially on the local skeleton and on its calibration by
-\Cref{cor:trop-sigma-translation} and
-\Cref{thm:trop-degree-translation}.
-
-\emph{Vanishing above bidegree one} is
-\Cref{prop:ch13-locality}\,\cref{itm:ch13-loc:dim}, since
-$\dim E=1$.
+compactly contained in $D$, and a nonzero smooth function $\chi$ compactly
+supported in the interior of $[-\log R,-\log r]$.  On that annulus the
+function $\chi(-\log|z-a|)$ is smooth; because it vanishes near both boundary
+circles, it glues with zero to a global smooth function on $E$.  It is
+nonzero and vanishes on a neighbourhood of $\Sk(E)$.  Hence restriction to
+the minimal skeleton is not injective on all CLD forms.  The minimal skeleton
+records the radial, skeleton-generated sector, while other moment maps detect
+forms in the attached disc branches.
 \end{example}
 
 \begin{example}[Integration over the skeleton of a Tate curve, against the
 conventions of \Cref{chap:model-calculations}]
 \label{ex:ch13-tate-integration}
 Keep the notation of \Cref{ex:ch13-tate-forms}, and let $s$ be the affine
-coordinate on $\Sk(E)=\mathbf R/\lambda\mathbf Z$ induced by $v(T)$.  Every
-$(1,1)$-form on $E$ is $\omega=\varrho(s)\,\dprime s\wedge\ddprime s$ with
-$\varrho$ smooth and $\lambda$-periodic, the canonical calibration is the
-constant primitive $1$-vector (all local degrees are $1$, by
+coordinate on $\Sk(E)=\mathbf R/\lambda\mathbf Z$ induced by $v(T)$.  Let
+$\omega\in A^{1,1}_{\Sk}(E)$ be the skeleton-generated form corresponding to
+$\varrho(s)\,\dprime s\wedge\ddprime s$, with $\varrho$ smooth and
+$\lambda$-periodic.  The canonical calibration is the constant primitive
+$1$-vector (all local degrees are $1$, by
 \Cref{ex:trop-tate-curve}), and \eqref{eq:ch13-chart-integral} gives
 \begin{equation}
 \label{eq:ch13-tate-integral}
@@ -2202,8 +2144,9 @@ Three consistency checks follow.
 
 \emph{(i) Exact forms integrate to zero.}  $E$ is proper, hence
 boundaryless, so \Cref{thm:ch13-stokes}\,\cref{itm:ch13-stokes:bdryless}
-gives $\int_E\dprimeddprime u=0$ for every smooth $u$.  Directly: with
-$u=\psi(s)$, \eqref{eq:ch13-tate-integral} gives
+gives $\int_E\dprimeddprime u=0$ for every smooth $u$.  For a
+skeleton-generated function $u=\psi(s)$, the same conclusion is visible
+directly from \eqref{eq:ch13-tate-integral}:
 $\int_0^\lambda\psi''(s)\,\rd s=\psi'(\lambda)-\psi'(0)=0$ by periodicity.
 The two computations agree, and the second exhibits the boundarylessness of
 $E$ as the periodicity of the skeleton.
@@ -2217,8 +2160,8 @@ $\sum_id_i\delta_{v_i}$, of total mass $\sum_id_i=d$.  The two agree in
 total mass, as they must, and they differ in kind: a smooth CLD form produces
 an \emph{absolutely continuous} measure with respect to the lattice length
 $\rd s$, whereas a model metric produces an \emph{atomic} measure at the
-divisorial points.  Neither is a smooth approximation of the other in the
-sense of forms; the correct comparison passes through currents
+divisorial points.  The model measure is not itself represented by a smooth
+form; the correct common category is that of currents
 (\Cref{chap:cld-currents}) and metrics
 (\Cref{chap:cld-metrized-bundles,chap:compare-ma}).
 
@@ -2248,8 +2191,8 @@ easy to lose track of, because in the applications one usually works with a
 proper $X$, where all of them hold.  This section lists them and says which
 conclusion each protects.
 
-\paragraph{Boundarylessness is needed for Stokes without boundary terms, and
-for nothing else.}
+\paragraph{Boundarylessness is the hypothesis that kills the Stokes boundary
+term.}
 \Cref{thm:ch13-stokes} holds with no hypothesis on $\partial X$; it is only
 the vanishing of the right-hand side that requires
 $\partial X=\varnothing$, or the weaker condition
@@ -2275,14 +2218,13 @@ disc minus the origin the same chart is not proper onto its image once one
 allows the radius to tend to $0$, and integrals of non-compactly-supported
 forms genuinely diverge.
 
-\paragraph{Compactness of supports is needed for every integral formula.}
-Both \Cref{thm:cld-analytic-integration} and \Cref{thm:ch13-stokes} fail
-without it, as the second failure recorded in
-\Cref{ex:ch13-stokes-annulus} shows.  Where a noncompact statement is wanted
---- for instance for the Monge--Amp\`ere measure of a psh function on a
-noncompact space --- one either passes to Radon measures, as in
-\Cref{cor:ch13-measure}, or imposes a growth condition, and the two are not
-interchangeable.
+\paragraph{Compact support is the default hypothesis for global scalar
+integrals and Stokes without conditions at infinity.}
+The measure construction of \Cref{thm:cld-analytic-integration} is local and
+does not require compact support.  Compact support is a sufficient condition
+for a finite global scalar integral and for Stokes with no term at infinity.
+Without it one needs integrability or an explicit decay/limiting hypothesis,
+as the open-annulus calculation in \Cref{ex:ch13-stokes-annulus} shows.
 
 \paragraph{Purity of dimension is needed for the calibrated structure.}
 See \Cref{rem:ch13-tropical-structure-contents}.  On a space with components
@@ -2291,25 +2233,24 @@ must work component by component; the integral of an $(n,n)$-form then
 ignores the components of dimension $<n$, which is consistent but is a
 convention, not a theorem.
 
-\paragraph{Properness of a morphism is needed for pushforward, never for
-pullback.}
+\paragraph{Pullback needs no properness; current pushforward does.}
 \Cref{prop:cld-form-pullback} has no properness hypothesis: pullback of forms
-along any morphism exists.  Pushforward does not exist for forms at all, and
-for measures and currents it requires properness of the morphism on the
-support: \Cref{prop:ch13-finite-integral} assumes finiteness away from a
-thin set, and the fibre-integration and projection formulae of
-\Cref{chap:cld-currents} assume relative properness of the support together
-with density of the flat locus.  Dropping the flatness hypothesis makes the
-projection formula false, the defect being measured by generic
-multiplicities; the precise statement and counterexample are
+along any morphism exists.  There is no general pushforward operation on
+smooth forms.  Pushforward of a Borel measure is defined measure-theoretically
+in \Cref{prop:ch13-finite-integral}, where the finite-off-a-thin-set
+hypothesis ensures the asserted Radon identity.  Pushforward of a current
+requires properness on its support.  Nonflatness does not invalidate the
+finite-morphism measure formula: it replaces a constant degree by the
+calibrated-degree function $\mathrm{dc}_p$.  Later fibre-integration formulae
+for currents carry their own relative-properness and flatness hypotheses; see
 \cite[Theorem~16.5.4 and Remark~16.5.6]{CLD25}.
 
-\paragraph{Goodness, holomorphic separation and paracompactness are needed
-for partitions of unity.}
+\paragraph{Local holomorphic separation and paracompactness produce smooth
+partitions of unity.}
 This is the subject of the next section.  They are used to produce bump
-functions and hence to globalize chartwise constructions; without them the
-statements of this chapter remain true chartwise and on explicitly given
-finite covers, and only the assembly step is lost.
+functions and hence to globalize chartwise constructions.  Goodness is a
+useful sufficient local hypothesis in many applications, but it is not an
+extra hypothesis of the partition theorem.
 
 \section{Partitions of unity and precise hypotheses}
 \label{sec:ch13-partitions}
@@ -2324,28 +2265,13 @@ admits a subordinate smooth partition of unity.  Consequently the sheaves
 $A_X^{p,q}$ are fine.
 \end{theorem}
 \begin{proof}
-Local holomorphic separation gives, near every point, finitely many
-invertible analytic functions whose logarithmic absolute values separate a
-chosen compact neighborhood from a prescribed disjoint closed set.  Smooth
-functions of these logarithms form an algebra containing constants and
-separating the two compact sets.  Smooth Stone--Weierstrass approximation,
-followed by a one-variable cutoff, produces a smooth function $\chi$ equal
-to one on the smaller compact set and supported in the chosen open set.
-Thus smooth compactly supported bump functions exist.
-
-Paracompactness refines an arbitrary open cover to a locally finite family
-of pairs $W_i\Subset V_i$, with the $W_i$ covering and each $V_i$ contained
-in a member of the original cover.  Choose bumps $0\le\chi_i\le1$ satisfying
-$\chi_i=1$ on $W_i$ and $\operatorname{supp}\chi_i\subset V_i$.  The sum
-$s=\sum_i\chi_i$ is locally finite, smooth, and at least one.  Hence
-\[
-                         \rho_i=\chi_i/s
-\]
-is a locally finite subordinate smooth partition of unity.  Multiplication
-by $(\rho_i)$ gives the usual sheaf-theoretic endomorphisms with locally
-finite supports, so each $A_X^{p,q}$ is fine.  The separation and
-approximation steps are
-\cite[Proposition~15.2.8 and Corollary~15.2.10]{CLD25}.
+This is the analytic specialization of
+\Cref{thm:cld-partitions-unity}, equivalently
+\cite[Proposition~15.2.8]{CLD25}.  Local holomorphic separation implies local
+differential separation; the smooth Stone--Weierstrass theorem supplies the
+compactly supported cutoffs, and paracompactness organizes them into a
+locally finite partition.  Multiplication by the partition functions gives
+the standard sheaf endomorphisms, hence fineness.
 
 Without the stated separation and paracompactness hypotheses, the argument
 does not apply; later uses are then chartwise or use an explicitly given
@@ -2408,14 +2334,14 @@ f_{\mathrm{trop}}^*\alpha
  \text{boundary measure }\textstyle\int^\partial,\\[1mm]
 \text{analytic boundary }\partial X
  &\longleftrightarrow&
- \text{support of }\textstyle\int^\partial,\\[1mm]
+ \text{support locus for the localized }\textstyle\int^\partial,\\[1mm]
 \text{interior harmony}
  &\longleftrightarrow&
  \mathbf N(\tau)=0\text{ off }\partial X,\\[1mm]
 \text{pure }n\text{-dimensional }X
  &\longrightarrow&
- \text{tropical space of level }n,\\[1mm]
-\text{calibrated degree }\mathrm{dc}(p)
+ \text{abstract CLD tropical space of level }n,\\[1mm]
+\text{calibrated-degree function }\mathrm{dc}_p
  &\longleftrightarrow&
  \text{factor in }p_*(p^*\omega)_{\mathrm{Rad}} .
 \end{array}
@@ -2445,11 +2371,12 @@ determined by its restrictions to local skeleta, and in top bidegree by the
 top-dimensional ones only (\Cref{prop:ch13-skeletal-faithful}).  Below the
 top bidegree, restriction to the top-dimensional skeleta loses information.
 
-Third, \emph{ordinary forms are not $G$-forms}.  The comparison map is
-injective and not surjective
-(\Cref{thm:ch13-sheaf}\,\cref{itm:ch13-sheaf:GvsO}), and the difference is
-carried by the boundary of a compact analytic domain.  All boundary formulae
-are stated for $G$-forms.
+Third, \emph{ordinary and $G$-local representability are different
+conditions}.  Ordinary forms form a subsheaf of the $G$-forms
+(\Cref{thm:ch13-sheaf}\,\cref{itm:ch13-sheaf:GvsO}); the former are locally
+tropicalizable on ordinary open neighbourhoods, while the latter only need
+$G$-local tropicalizations on analytic domains.  Boundary formulae are
+naturally stated for $G$-forms.
 
 Fourth, \emph{fineness is not exactness}.  The sheaves $A^{p,q}_X$ are fine
 on a paracompact locally holomorphically separated space, but the complexes
@@ -2458,7 +2385,8 @@ they form need not be locally exact; see the warning above.
 Fifth, \emph{the measure of a smooth form is not the measure of a model
 metric}.  On the Tate curve the first is absolutely continuous on the
 skeleton and the second is atomic
-(\Cref{ex:ch13-tate-integration}); they agree in total mass and nowhere else.
+(\Cref{ex:ch13-tate-integration}); the examples have the same total mass but
+generally different distributions.
 The comparison of the two is the subject of
 \Cref{chap:cld-metrized-bundles,chap:compare-ma} and requires currents.
 
@@ -2505,8 +2433,9 @@ morphism and the calibrated degree are \cite[\S15.4]{CLD25}, our
 \Cref{prop:ch13-finite-integral}.  Interior harmony is
 \cite[Theorem~15.6.1]{CLD25} and the identification of an analytic space with
 a tropical space of level $n$ is \cite[Theorem~15.7.1]{CLD25}; both are quoted
-in \Cref{thm:analytic-is-tropical-space}, whose statement and proof are those
-of the first draft of this chapter and are not modified here.  The remark
+in \Cref{thm:analytic-is-tropical-space}, with the qualification that this is
+the associated abstract affine calibrated $G$-tropical structure, not one
+polyhedral tropicalization.  The remark
 that purity of dimension is necessary is their Remark~15.7.3.  The Stokes and
 Green formulae for a calibrated $G$-tropical space are
 \cite[Proposition~5.11.1]{CLD25}; our \Cref{thm:ch13-stokes} is that
@@ -2563,7 +2492,7 @@ Three natural questions are outside the scope of this chapter and are
 recorded so that they are not mistaken for consequences of what is proved.
 The local exactness of $(A^{\bullet,\bullet}_X,\dprime,\ddprime)$ is not
 established; the relation between $H^{p,q}$ of these sheaves and any
-cohomology of $X$ is not discussed; and the surjectivity of the comparison
-map $A^{p,q}_X\to A^{p,q}_{X,G}$, which fails, is not repaired by passing to
-a larger class of charts.  Each of these is addressed, in the cases where an
-answer is known, in \Cref{chap:delta-forms}.
+cohomology of $X$ is not discussed; and no general surjectivity theorem for
+the inclusion $A^{p,q}_X\to A^{p,q}_{X,G}$ is asserted.  Each of these is
+addressed, in the cases where an answer is known, in
+\Cref{chap:delta-forms}.
