@@ -39,8 +39,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part II, Chapters 9--19:** complete. All eleven chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part III, Chapters 20--31:** active. Chapters 20--24 are complete; Chapter
-  25 is next.
+- **Part III, Chapters 20--31:** active. Chapters 20--25 are complete; Chapter
+  26 is next.
 - **Parts IV--VI, Chapters 32--72:** queued in reading order after Part III.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -598,3 +598,34 @@ descriptive titles. The project-wide reference check, checker tests, full
 build, automatic second pass, two continuous chapter reads, and rendered-page
 inspection all pass. Exact evidence is recorded in `chapter_status.md`.
 Chapter 25 is next.
+
+### Chapter 25
+
+The capacity chapter now uses the correct analytic mechanism throughout its
+quasicontinuity arguments. A continuous approximant minus an upper
+semicontinuous limit is lower semicontinuous, and ordinary monotone
+convergence is unavailable for an arbitrary net. The fundamental estimate,
+bounded quasicontinuity, diagonal sequential regularization, and decreasing
+convergence in capacity therefore invoke the weighted decreasing-net
+continuity established in Chapter 24. The warning on increasing
+regularizations also separates the fixed-measure monotone theorem from the
+weighted theorem with a moving Monge--Amp\`ere measure.
+
+Quasicontinuity is now formulated for extended-real-valued maps with the order
+topology, and convergence in capacity uses the Chapter 7 metric on
+$\overline{\mathbf R}$. Truncations consequently converge without assigning a
+value to the undefined expression $(-\infty)-(-\infty)$. The universal
+$O(T^{-1})$ sublevel estimate already proves quasicontinuity for every
+$\theta$-psh function, so the former forward dependency on finite-energy
+theory has been removed; Chapter 26 supplies a sharper tail estimate instead.
+The positive-characteristic scope discussion now lists all of the required
+inputs rather than treating regularization alone as sufficient.
+
+The source audit checked BFJ15 Theorem 3.1 and Proposition 4.3 directly for
+the weighted decreasing-net argument, and rechecked Thuillier's Proposition
+3.4.10 and Theorem 3.6.11 for the curve statements. All 1,849 legacy inline
+delimiters were normalized to the book convention. The scoped writing audit
+has zero errors and eighty-two reviewed convention warnings. The project-wide
+reference check, checker tests, full build, automatic second pass, two
+continuous source reads, and inspection of all sixty rendered chapter pages
+pass. Exact evidence is recorded in `chapter_status.md`. Chapter 26 is next.
