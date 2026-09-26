@@ -4983,3 +4983,57 @@ orientation, finite-maximum proofs, published-case heading, and the dependent
 Chapter 45 discussion at physical page 2612 were re-rendered and inspected at
 full resolution.  No clipping, overlap, bad glyph, formula overflow, or
 hierarchy defect was found.
+
+## Chapter 37: envelope theorem statement and sharpness, 26 September 2026
+
+The sequential chapter-quality programme has completed Chapter 37; Chapter 38
+is next.  The chapter now distinguishes the geometric unibranch hypothesis,
+the nonemptiness and common-bound conditions on the family, and the ambient
+scope of Part IV.  Unibranchness is claimed sharp only where the published
+ample-class converse applies.  The node--cusp example diagnoses the
+normalization-reflection obstruction without being substituted for that
+converse.  A nonempty psh family forces the class to be pseudoeffective but not
+nef; the envelope-property statement is vacuous for a non-pseudoeffective
+class.
+
+The boundedness interface was corrected at theorem level.  The maximum
+principle at the trivial valuation shows that pointwise boundedness of a family
+inside one psh class is already a common uniform bound.  The projective-line
+example therefore tests the actual failure caused by dropping the bound and is
+now built from the Fubini--Study function already computed in Chapter 34.
+Normalization of a compactness slice is kept separate from normalization of
+the members of a prescribed envelope family.  The real-class discussion now
+records the oriented approximation
+$\theta_j-\theta\in\operatorname{Amp}(X)$ and the exact
+$c_1(L)+m^{-1}c_1(A)$ class drift rather than an unspecified perturbation.
+
+The source audit separates the unpublished supplied manuscript, which is the
+source for unibranch sufficiency, from BJ22 Definition 5.8, Theorems 4.22,
+5.11, 5.12 and Conjecture 5.14, and from the published smooth partial result
+BJ22b, Theorem A.  No published-source status or independent model-verifier
+review is asserted for the supplied-manuscript proof.  Four semantic labels
+were added and all 147 legacy inline math spans were normalized.  The chapter
+was read continuously twice.
+
+The final house audit has zero errors and fourteen reviewed warnings, all from
+the established chapter-label namespace or descriptive result titles.  The
+project-wide source check covers 425 inputs and 12,039 labels, with zero
+missing inputs, duplicate labels, dangling references, or structural defects;
+all six checker regression tests pass.  The open-problem inventory remains
+unchanged at forty-two active atoms across twelve Chapter 72 environments and
+passes.  The final full build produces a 4,106-page PDF of 19,477,756 bytes
+with SHA-256
+`562961bbb6cfe629e357720ab5299a57081b7998571a5ebc63f2f7b545a397b5`.
+The log has no unresolved references or citations, rerun requests, missing
+glyphs, emergency stops, or fatal errors.  The two inherited overfull boxes in
+Chapters 12 and 15 and the thirteen inherited Chapter 70 duplicate
+destinations remain; Chapter 37 introduces none.
+
+All ten physical Chapter 37 pages 2223--2232 were inspected in the final
+render, together with the intentional blank verso at page 2222 and the Chapter
+38 opening at page 2233.  The opening, exact statement, equivalent
+formulations, extended-real boundary, node--cusp test, hypothesis tests,
+ledger, proof map, and source note were checked at full resolution.  A run-in
+spacing defect before Proposition 37.4.1 found during the first render was
+fixed and the affected page was re-rendered.  No clipping, overlap, bad glyph,
+formula overflow, or hierarchy defect remains.

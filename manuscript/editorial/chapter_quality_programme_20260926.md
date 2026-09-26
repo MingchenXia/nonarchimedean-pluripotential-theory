@@ -41,8 +41,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--36 are complete;
-  Chapter 37 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--37 are complete;
+  Chapter 38 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -1013,3 +1013,35 @@ and the scoped writing audit, project-wide reference check, checker tests,
 open-problem inventory check, two full builds, log scans, and rendered-page
 inspection pass.  Exact evidence is recorded in `chapter_status.md`. Chapter
 37 is next.
+
+### Chapter 37
+
+The envelope-theorem statement chapter now separates the exact roles of its
+hypotheses.  Unibranchness is the geometric condition and is known to be
+necessary in an ample class; nonemptiness and one common upper bound are
+family-level admissibility conditions; and the ambient field and projectivity
+assumptions delimit the theory proved in Part IV without being advertised as
+a sharp list for every extension.  The nonempty-family hypothesis forces the
+class to be pseudoeffective but not nef, while the envelope-property statement
+for a non-pseudoeffective class is vacuous.
+
+The boundedness discussion now proves that, inside one psh class, a family
+bounded at every analytic point is already uniformly bounded, because the
+trivial valuation controls the maximum.  The projective-line example is
+anchored to the explicit Fubini--Study function computed in Chapter 34 and
+tests what actually fails when the common bound is dropped.  Normalizing the
+members separately is no longer conflated with bounding a prescribed family.
+The real-class paragraph records the oriented rational-big approximation
+$\theta_j-\theta\in\operatorname{Amp}(X)$ and the exact
+$c_1(L)+m^{-1}c_1(A)$ drift used by the proof.
+
+The source note now distinguishes the unpublished supplied-manuscript proof
+of unibranch sufficiency from the published comparison theorem, increasing-net
+equivalence, ample-class converse, historical conjecture, and smooth partial
+result.  The node--cusp example is explicitly only a diagnosis of the
+normalization-reflection mechanism.  Four semantic labels were added, all 147
+legacy inline math spans were normalized, the chapter was read continuously
+twice, and the scoped audit, project-wide reference check, checker tests,
+open-problem inventory check, full builds, log scans, and rendered inspection
+of every chapter page and both adjoining seams pass.  Exact evidence is
+recorded in `chapter_status.md`. Chapter 38 is next.
