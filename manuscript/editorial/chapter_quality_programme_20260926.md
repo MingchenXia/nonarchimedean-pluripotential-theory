@@ -37,9 +37,11 @@ than mechanically rewritten.
 
 - **Part I, Chapters 1--8:** complete. All eight chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part II, Chapters 9--19:** active. Chapters 9--18 are complete; Chapter 19
-  is next.
-- **Parts III--VI, Chapters 20--72:** queued in reading order after Part II.
+- **Part II, Chapters 9--19:** complete. All eleven chapters have passed the
+  semantic, mathematical, structural, mechanical, and rendered-page gates.
+- **Part III, Chapters 20--31:** active. Chapter 20 is complete; Chapter 21 is
+  next.
+- **Parts IV--VI, Chapters 32--72:** queued in reading order after Part III.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -433,5 +435,33 @@ synchronized with the corrected example.
 The scoped writing audit has zero errors; its remaining warnings are reviewed
 label namespaces and descriptive titles. The project-wide reference check,
 checker tests, full build, automatic second pass, and rendered-page inspection
-all pass. Exact evidence is recorded in `chapter_status.md`. Chapter 20 is
+all pass. Exact evidence is recorded in `chapter_status.md`.
+
+### Chapter 20
+
+The pass now draws the exact boundary between rational and real model
+functions. Rational theta-psh model functions are stable under finite maxima,
+whereas their real span need not be: an explicit blowup of the projective line
+produces a maximum with an irrational breakpoint. A fixed-form rational
+approximation lemma replaces the false real maximum assertion and proves that,
+in an ample generic class, real maxima are uniformly approximable by rational
+theta-psh model functions. The model-envelope theorem consequently uses the
+rational subfamily for directedness and proves that it computes the same
+supremum as the full real family.
+
+The exact-sequence proof was also reconciled with the primary BFJ source. Its
+fixed-regular-model strengthening is retained, while Künnemann's
+correspondence now uses the pushforward from the auxiliary curve product back
+to the original variety. Thus the constructed class already lies on the
+original model and no unsupported descent step remains. The positive-
+representative argument now identifies the single place where semipositivity
+enters, and the correction-size example distinguishes an explicit size-two
+repair from the sharp lower bound one. The opening of Chapter 21 was
+synchronized so that its real case passes through fixed-form rational
+approximation rather than the false real maximum closure.
+
+The scoped writing audit has zero errors; its remaining warnings are reviewed
+label namespaces and descriptive titles. The project-wide reference check,
+checker tests, full build, automatic second pass, and rendered-page inspection
+all pass. Exact evidence is recorded in `chapter_status.md`. Chapter 21 is
 next.
