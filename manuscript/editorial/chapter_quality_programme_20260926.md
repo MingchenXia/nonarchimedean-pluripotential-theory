@@ -1230,3 +1230,37 @@ twice.  The scoped audit, project-wide reference check, checker tests,
 open-problem inventory check, full build, log scan, and rendered inspection
 of all fifty chapter pages and both adjoining seams pass.  Exact evidence is
 recorded in `chapter_status.md`.  Chapter 44 is next.
+
+### Chapter 44
+
+The characteristic-zero subintegral-normalization chapter now separates the
+finite universal-homeomorphism criterion, the Roberts--Singh additive-power
+system, and the global reflection argument instead of allowing their scopes
+to overlap.  In characteristic zero the residue extensions are trivial, while
+the cited Stacks Project base-change lemma applies to the elementary
+square--cube steps rather than supplying the additive-power theorem.  The
+proof also records that birationality is automatic for a finite universal
+homeomorphism between integral varieties in this setting, and that source
+normality is not used by the reflection theorem.
+
+The algebraic and analytic interfaces have been tightened.  The Gauss
+construction is stated for semivaluations and finitely generated ideals, the
+uniform cutoffs are derived from coherence rather than from an unsupported
+uniform Roberts--Singh length, and the extended-real formulas exclude the
+ambiguous product $0(\pm\infty)$.  The example
+$k[t^2,t^5]\subset k[t]$ now has its minimal correction length and
+coefficients computed correctly, and its quotient filtration is proved using
+actual elements of the square of the maximal ideal.  The final psh assembly
+uses generic finiteness of the limit instead of asserting that every
+approximant vanishes at the trivial valuation.  A branch-asymmetric nodal
+example now gives the promised failure beyond universal homeomorphisms.
+
+The source audit checked the Roberts--Singh theorem and its finite-difference
+inputs, the Reid--Roberts--Singh background, Stacks Project Tags `0CND` and
+`0EUH`, and the published Boucksom--Jonsson inputs, while keeping the supplied
+unpublished manuscript visibly separate.  All 2,033 legacy inline math spans
+were normalized, and the chapter was read continuously twice.  The scoped
+audit, project-wide reference check, checker tests, open-problem inventory
+check, full build, log scan, and rendered inspection of all fifty-eight
+chapter pages and both adjoining seams pass.  Exact evidence is recorded in
+`chapter_status.md`.  Chapter 45 is next.

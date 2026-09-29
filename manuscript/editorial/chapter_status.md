@@ -5371,3 +5371,64 @@ bounded-psh nef chain, dictionary, source note, and adjoining seams were also
 checked at full resolution.  The two pages changed during the automatic
 second pass were re-rendered from the final PDF.  No clipping, overlap, bad
 glyph, formula overflow, or hierarchy defect remains in the chapter.
+
+## Chapter 44: subintegral normalization in characteristic zero, 30 September 2026
+
+The sequential chapter-quality programme has completed Chapter 44; Chapter 45
+is next.  The chapter now distinguishes the characteristic-zero
+subintegrality criterion, the Roberts--Singh additive-power theorem, and the
+global psh-reflection assembly.  Stacks Project Tag `0EUH` is used only for
+base change of each elementary square--cube step; it is no longer presented as
+the source of the additive-power system.  The finite universal homeomorphism
+has trivial residue extensions in characteristic zero, is automatically
+birational between integral varieties, and does not require the source to be
+normal for reflection.
+
+The mathematical audit repaired the main interfaces.  The Roberts--Singh
+correction length is local rather than uniformly bounded by the cited theorem;
+global uniformity instead comes from a finite cover, coherent quotient
+filtrations, and ample twists.  The Gauss extension is stated for
+semivaluations and finitely generated ideals.  The finite-difference lemma now
+defines its zeroth coefficient and records the needed range of the integer
+parameter.  The approximating sequence starts at a positive integer and its
+threshold is at least one, excluding undefined products of zero with infinite
+values.  Generic finiteness of the final limit replaces an incorrect
+stagewise normalization claim.  For
+$A=\mathbf Q[t^2,t^5]\subset B=\mathbf Q[t]$, the minimal correction length
+is $2$, with $c_1=-t$ and $c_2=\frac23t^2$; the quotient-filtration example
+now proves $\mathfrak m^2(B/A)=0$ using genuine elements of
+$\mathfrak m^2$.  The nodal example gives a direct branch-asymmetric GF/psh
+counterexample outside the radicial setting.
+
+The source audit checked Roberts--Singh, Theorem 4.17, Proposition 4.2, and
+Corollary 4.3, Reid--Roberts--Singh's background treatment, Stacks Project
+Tags `0CND` and `0EUH`, and the published Boucksom--Jonsson comparison and
+regularization inputs.  The source note keeps these references separate from
+the supplied unpublished universal-homeomorphic-normalization manuscript.
+All 2,033 legacy inline math spans were normalized, and the finished chapter
+was read continuously twice.  This is a direct manuscript revision and
+primary-source audit; no independent-agent or exact-current model-verifier
+review is asserted.
+
+The final house audit has zero errors and 57 reviewed warnings, all from the
+established label namespace or descriptive result titles.  The project-wide
+source check covers 425 inputs and 12,035 labels, with zero missing inputs,
+duplicate labels, dangling references, or structural defects; all six checker
+regression tests pass.  The open-problem inventory remains unchanged at
+forty-two active atoms across twelve Chapter 72 environments and passes.  The
+final full build produces a 4,106-page PDF of 19,463,237 bytes with SHA-256
+`cf12e0e5c88cca4e6349bfd4a78a948838032c4914497532b4b9524001c2d8ca`.
+The log has no unresolved references or citations, rerun requests, missing
+glyphs, emergency stops, or fatal errors.  Its two overfull boxes are in
+Chapters 12 and 15, and its thirteen duplicate destinations are in Chapter
+70; Chapter 44 introduces none.
+
+All fifty-eight physical Chapter 44 pages 2535--2592 were scanned in the final
+render, together with the Chapter 43 closing page 2534 and the Chapter 45
+opening at page 2593.  The opening, Roberts--Singh system, corrected
+$\mathbf Q[t^2,t^5]$ example, coherent-quotient cutoffs, global estimate,
+monotonization, reflection theorem, extended-real checkpoint, historical
+note, and both adjoining seams were checked at full resolution.  The page
+changed by the final quotient-filtration correction was re-rendered from the
+final PDF.  No clipping, overlap, bad glyph, formula overflow, or hierarchy
+defect remains in the chapter.
