@@ -41,8 +41,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--41 are complete;
-  Chapter 42 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--42 are complete;
+  Chapter 43 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -1163,3 +1163,34 @@ continuously twice.  The scoped audit, project-wide reference check, checker
 tests, open-problem inventory check, full build, log scan, and rendered scan
 of all fifty-four chapter pages and both adjoining seams pass.  Exact evidence
 is recorded in `chapter_status.md`.  Chapter 42 is next.
+
+### Chapter 42
+
+The alteration chapter now presents its main transport statement as the exact
+assembly of the already proved birational and finite descent mechanisms.  The
+Stein factorization is constructed with its normal integral projective middle
+term, the birational factor is used before the finite factor, and the class
+ledger shows explicitly that the generic degree enters only at the finite
+stage.  The family-level proof now pulls an arbitrary family from the base all
+the way to the alteration source before invoking the envelope property there.
+
+The geometric scope has been tightened throughout.  Generic finiteness is
+equivalent to a finite function-field extension and zero-dimensional generic
+fibre, while finiteness over a nonempty open is asserted under properness.
+De Jong's theorem is stated with its finite ground-field extension and
+strict-normal-crossings boundary visible; over the present perfect field a
+generically étale choice is available, but neither the descent theorem nor its
+examples assume separability.  The characteristic-two quadratic-cone
+calculation now exhibits a purely inseparable rank-two finite factor, a
+vanishing trace, and a determinant norm whose mixed coefficient disappears
+without damaging the maximum formula.  A separate varying-class family shows
+why one cannot average directly over the positive-dimensional fibres of an
+alteration.
+
+The de Jong paper and the relative-normalization and finiteness inputs in the
+Stacks Project were checked directly.  All 1,529 legacy inline math spans were
+normalized, and the chapter was read continuously twice.  The scoped audit,
+project-wide reference check, checker tests, open-problem inventory check,
+full build, log scan, and rendered inspection of all forty-seven chapter pages
+and both adjoining seams pass.  Exact evidence is recorded in
+`chapter_status.md`.  Chapter 43 is next.

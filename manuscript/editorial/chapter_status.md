@@ -5255,3 +5255,57 @@ opening at page 2437.  The opening, fibre-weight anatomy, corrected quadratic-
 cone example, dictionary, source note, and both adjoining seams were also
 checked at full resolution.  No clipping, overlap, bad glyph, formula
 overflow, or hierarchy defect remains in the chapter.
+
+## Chapter 42: alterations and the normal case, 29 September 2026
+
+The sequential chapter-quality programme has completed Chapter 42; Chapter 43
+is next.  The former duplicate roadmap has been removed, leaving the opening
+orientation as the structural guide.  The chapter now states its transport
+theorem as an assembly of the birational and finite descent theorems already
+proved, and its Stein factorization ledger identifies the normal integral
+projective middle term, the forced order of the two descents, and the unique
+place where the generic degree enters.
+
+The mathematical audit repaired the main interfaces.  Generic finiteness is
+equated with the finite function-field extension and zero-dimensional generic
+fibre; the additional finite-over-an-open conclusion is made only under
+properness.  De Jong's perfect-field generically étale choice is recorded but
+not imposed, so the descent theorem still covers inseparable alterations.  At
+the family level the proof now pulls an arbitrary family from the base to the
+alteration source before using the envelope property.  In characteristic two,
+the quadratic-cone computation uses an honest local frame, invariant norm
+coefficients, and the correct extended-real conventions when one or both pure
+coefficients vanish.  A varying-class Fubini--Study sequence gives a concrete
+obstruction to averaging over a positive-dimensional alteration fibre, and
+the proper-support audit distinguishes one vanishing summand from two.
+
+The source audit checked de Jong's Theorem 4.1 and Remark 4.2 and Stacks
+Project Tags `03H0`, `035L`, and `035S`.  It now distinguishes the available
+generically étale choice from the arbitrary alteration actually used and the
+stable lack of a resolution theorem in every positive-characteristic
+dimension from stronger time-sensitive claims.  All 1,529 legacy inline math
+spans were normalized, and the finished chapter was read continuously twice.
+This is a direct manuscript revision and primary-source audit; no
+independent-agent or exact-current model-verifier review is asserted.
+
+The final house audit has zero errors and 56 reviewed warnings, all from the
+established label namespace or descriptive result titles.  The project-wide
+source check covers 425 inputs and 12,035 labels, with zero missing inputs,
+duplicate labels, dangling references, or structural defects; all six checker
+regression tests pass.  The open-problem inventory remains unchanged at
+forty-two active atoms across twelve Chapter 72 environments and passes.  The
+final full build produces a 4,104-page PDF of 22,128,914 bytes with SHA-256
+`d462783854c4586320804271b9249b76db809649e2ec5e39137c826a5ad21f67`.
+The log has no unresolved references or citations, rerun requests, emergency
+stops, or fatal errors.  The sixteen inherited missing-glyph warnings, nine
+inherited overfull boxes, and thirteen inherited Chapter 70 duplicate
+destinations are all outside Chapter 42; this revision introduces none.
+
+All forty-seven physical Chapter 42 pages 2437--2483 were scanned in the final
+render, together with the Chapter 41 closing page 2436, the intentional blank
+verso at page 2484, and the Chapter 43 opening at page 2485.  The opening, de
+Jong statement, generic-finiteness lemma, descent theorem, normal-envelope
+theorem, inseparable norm calculation, varying-class obstruction, dictionary,
+source note, and both adjoining seams were also checked at full resolution.
+No clipping, overlap, bad glyph, formula overflow, or hierarchy defect remains
+in the chapter.
