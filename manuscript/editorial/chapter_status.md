@@ -5309,3 +5309,65 @@ theorem, inseparable norm calculation, varying-class obstruction, dictionary,
 source note, and both adjoining seams were also checked at full resolution.
 No clipping, overlap, bad glyph, formula overflow, or hierarchy defect remains
 in the chapter.
+
+## Chapter 43: universal homeomorphisms in positive characteristic, 30 September 2026
+
+The sequential chapter-quality programme has completed Chapter 43; Chapter 44
+is next.  The duplicate roadmap has been removed, leaving the opening five-task
+map as the chapter's structural guide.  The revised chapter distinguishes the
+elementwise Frobenius criterion, a common exponent for one GF presentation,
+and the stronger morphism-level exponent valid on every affine open.  It now
+states explicitly that the last strengthening is useful but not required by
+the reflection proof: a fresh common exponent at each GF stage would still
+preserve the represented class.
+
+The mathematical audit repaired the main interfaces.  Analytic points with
+proper support are retained throughout, while singleton topological fibres
+are no longer treated as reduced scheme fibres or as a degree-one instance of
+the normal-target averaging theorem.  The class-promotion proof gives an
+explicit cofinal reindexing for arbitrary directed nets and preserves both
+the pointwise function and its common-zero locus.  Unsupported exponent bounds
+were removed, the non-quasi-compact counterexample was corrected, and the
+hypothesis ledger now records that dominance between integral schemes supplies
+the ring injections, while birationality and source normality are not used by
+positive-characteristic reflection itself.  The uniform sheaf-level exponent
+also proves
+$\nu^*:\operatorname{Pic}(X)_{\mathbf Q}\simeq
+\operatorname{Pic}(Y)_{\mathbf Q}$; this is presented as an alternative to
+the characteristic-free ample-buffer route, not as a hidden input.  The nef
+corollary uses the bounded-psh characterization rather than mere nonemptiness,
+and the Frobenius example now distinguishes identification through
+$\mu^{\mathrm{an}}$ from the fixed-coordinate picture in which that map is a
+scaling.
+
+The source audit checked Stacks Project Tags `01S4`, `04DF`, `0CNF`, and
+`035S`, together with the published Boucksom--Jonsson pullback and
+regularization inputs.  The source note separates those inputs from the
+supplied unpublished universal-homeomorphic-normalization manuscript and
+marks the Picard-group consequence and the non-birational extension as
+book-level deductions from the proved argument.  All 1,743 legacy inline math
+spans were normalized, and the finished chapter was read continuously twice.
+This is a direct manuscript revision and primary-source audit; no
+independent-agent or exact-current model-verifier review is asserted.
+
+The final house audit has zero errors and 69 reviewed warnings, all from the
+established label namespace or descriptive result titles.  The project-wide
+source check covers 425 inputs and 12,035 labels, with zero missing inputs,
+duplicate labels, dangling references, or structural defects; all six checker
+regression tests pass.  The open-problem inventory remains unchanged at
+forty-two active atoms across twelve Chapter 72 environments and passes.  The
+final full build produces a 4,104-page PDF of 19,460,621 bytes with SHA-256
+`3a83a60d6d514f879bd72d8d4899aa8ea4ad5848d76b5128610260c105173c0c`.
+The log has no unresolved references or citations, rerun requests, missing
+glyphs, emergency stops, or fatal errors.  Its two overfull boxes are in
+Chapters 12 and 15, and its thirteen duplicate destinations are in Chapter
+70; Chapter 43 introduces none.
+
+All fifty physical Chapter 43 pages 2485--2534 were scanned in the final
+render, together with the intentional blank verso at page 2484 and the Chapter
+44 opening at page 2535.  The opening, uniformity warning, arbitrary-net class
+promotion, Picard consequence, GF descent theorem, psh reflection theorem,
+bounded-psh nef chain, dictionary, source note, and adjoining seams were also
+checked at full resolution.  The two pages changed during the automatic
+second pass were re-rendered from the final PDF.  No clipping, overlap, bad
+glyph, formula overflow, or hierarchy defect remains in the chapter.

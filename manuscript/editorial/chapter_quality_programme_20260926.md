@@ -1194,3 +1194,39 @@ project-wide reference check, checker tests, open-problem inventory check,
 full build, log scan, and rendered inspection of all forty-seven chapter pages
 and both adjoining seams pass.  Exact evidence is recorded in
 `chapter_status.md`.  Chapter 43 is next.
+
+### Chapter 43
+
+The universal-homeomorphism chapter now separates three assertions that the
+older presentation allowed to blur: the elementwise Stacks Project
+criterion, the common exponent needed for one Fubini--Study presentation,
+and the stronger morphism-level exponent valid on every affine open.  The
+last statement is recorded as useful uniform structure rather than as a
+logical necessity for reflection, since stage-dependent common exponents
+would already suffice.  The analytic homeomorphism is proved at all support
+primes, including proper-support semivaluations, and no singleton
+topological fibre is confused with a reduced scheme fibre or with the
+normal-target averaging theorem.
+
+The class-promotion argument now handles arbitrary directed nets by an
+explicit cofinal reindexing, preserves the function and its common-zero
+locus exactly, and distinguishes numerical convergence from actual
+line-bundle descent.  In positive characteristic the uniform Frobenius
+exponent also yields the rational Picard-group isomorphism; the chapter
+records this as an alternative route, while retaining the
+characteristic-free ample-buffer proof used by the main argument.  The
+reflection theorem, its nef consequence and its failure boundaries now
+state precisely where finiteness, radiciality, characteristic, projectivity,
+integrality, normality and birationality enter.  The Frobenius example also
+distinguishes identification through the analytic homeomorphism from the
+separate fixed-coordinate identification under which the map is a scaling.
+
+The source audit checked Stacks Project Tags `01S4`, `04DF`, `0CNF`, and
+`035S`, separated the supplied unpublished manuscript from the published
+Boucksom--Jonsson inputs, and marked the rational Picard consequence as a
+derived observation rather than an imported theorem.  All 1,743 legacy
+inline math spans were normalized, and the chapter was read continuously
+twice.  The scoped audit, project-wide reference check, checker tests,
+open-problem inventory check, full build, log scan, and rendered inspection
+of all fifty chapter pages and both adjoining seams pass.  Exact evidence is
+recorded in `chapter_status.md`.  Chapter 44 is next.
