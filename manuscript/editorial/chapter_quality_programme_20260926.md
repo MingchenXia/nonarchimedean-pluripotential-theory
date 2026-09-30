@@ -1284,3 +1284,15 @@ checkpoint, **not** the completed Chapter 45 gate. Next: inspect each
 numbered assertion and worked example against its proof, then audit the
 external-source interfaces and remaining rendered pages before advancing
 to Chapter 46.
+
+The second checkpoint audited the monotone-obstacle, lattice, and curve-example
+sections at statement-to-proof scale. The cuspidal-cubic example now produces
+an explicit global section for each denominator $m\ge2$, distinguishes
+generically finite Fubini--Study presentations from finite-valued ones, and
+does not infer a characteristic-zero GF-space bijection from psh reflection.
+The redundant node/cusp recap has been removed. The reducible-scheme boundary
+now cites the exact published componentwise and connected-case statement,
+Boucksom--Jonsson Remark 5.15. Scoped source, reference, inventory, full-build,
+and changed-page checks pass; details are in `chapter_status.md`. The chapter
+remains in progress: the earlier proof blocks, the remaining external-source
+interfaces, and the uninspected rendered pages still need the complete gate.

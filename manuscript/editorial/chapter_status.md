@@ -5470,3 +5470,34 @@ This is a direct editorial and internal-dependency audit, not an
 independent-agent or exact-current model-verifier verdict. The remaining
 Chapter 45 gate is an assertion-by-assertion proof and example review,
 external-source interface check, and rendered inspection of the other pages.
+
+## Chapter 45: curve example and reducible-boundary checkpoint, 30 September 2026
+
+Chapter 45 remains **in progress**. This pass checked the monotone-obstacle
+and conditional-lattice statements against their cited closure and obstacle
+inputs, then reviewed the node and cusp calculations through the failure
+boundaries. The cusp's missing-slope argument now uses the explicit section
+$x^ay^bz^{m-a-b}\in H^0(C,\cO_C(m))$ for each $m=2a+3b\ge2$; the text
+specifies that the resulting one-section presentation is generically finite,
+not necessarily finite-valued. It also distinguishes the exact
+characteristic-$p$ GF descent from the characteristic-zero limiting psh
+reflection of Chapter 44, without asserting an unproved GF-space bijection.
+An unused node/cusp recap was removed. The connected-reducible and
+componentwise statements are now attributed at their exact published source,
+Boucksom--Jonsson, Remark 5.15; the published PDF and its
+hypotheses were checked directly.
+
+The scoped writing audit has zero errors and 58 reviewed warnings from
+established label namespaces and descriptive titles. The project-wide source
+check covers 425 inputs and 12,028 labels, with no missing inputs, duplicate
+labels, dangling references, or structural defects; all six checker tests
+pass. The Chapter 72 inventory remains 42 active atoms in 12 environments
+and passes. The final full build succeeds at 4,104 pages, 19,455,707 bytes,
+SHA-256 `8374b688f279393e319cc5f266a727394d52432b7e011d1815fc05fb50fc5e94`.
+The log has no unresolved references or citations, missing glyphs, rerun
+requests, emergency stops, or fatal errors; the two overfull boxes remain
+outside Chapter 45. The changed cusp and reducible-boundary pages (physical
+pages 2629--2630 and 2634) were rendered and inspected. This is a direct
+editorial and source check, not a complete fresh proof audit of the chapter.
+The remaining Chapter 45 gate includes the earlier proof blocks, all
+remaining external-source interfaces, and the uninspected rendered pages.
