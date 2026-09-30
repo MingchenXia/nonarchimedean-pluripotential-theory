@@ -889,10 +889,11 @@ Let $X=\mathbf P^1$ with $\theta=c_1(\cO(1))$, so $\deg\theta=1$, and
 let $p=0$ be a closed point.  For $a\in(0,1]$ let
 $\varphi_a:X^{\An}\to\mathbf R\cup\{-\infty\}$ be the function
 \[
- \varphi_a(t\ord_p)=-at\ \ (t\in[0,+\infty)),
+ \varphi_a(t\ord_p)=-at\ \ (t\in[0,+\infty]),
  \qquad
- \varphi_a\equiv0\ \text{ off the ray through }\ord_p .
+ \varphi_a\equiv0\ \text{ off this closed ray},
 \]
+where $t=+\infty$ denotes $v_{p,\triv}$ and $-a(+\infty)=-\infty$.
 By the curve criterion recorded at the end of
 \Cref{sec:ch34-pl-positivity}, $\varphi_a\in\PSH_X(\theta)$: the
 restriction to each ray is affine, hence convex, and the slope condition
@@ -1314,8 +1315,9 @@ trap occurs in the energy chapters.  Given a pseudoeffective $\theta$ and
 an ample $\alpha$, the perturbed classes $\theta+\varepsilon\alpha$ do
 converge to $\theta$ with nef --- indeed ample --- difference, which is what
 \Cref{lem:ch40-ep-nef-limit} requires; but $\theta+\varepsilon\alpha$ is
-ample only when $\theta$ is nef, and a pseudoeffective class need not be
-nef.  What \Cref{lem:ch40-rational-approximation} does provide is bigness of
+ample for arbitrarily small $\varepsilon$ only if $\theta$ is nef, by
+closedness of the nef cone; a pseudoeffective class need not be nef.
+What \Cref{lem:ch40-rational-approximation} does provide is bigness of
 $\theta+\varepsilon\alpha$, by an asymptotic Riemann--Roch argument, and
 bigness is exactly the positivity that the obstacle machinery of
 \Cref{chap:bj-smooth-characteristic} needs: a big class has enough sections
@@ -1763,7 +1765,9 @@ theorem and is not available before this chapter.
 \label{prop:ch45-trichotomy}
 Let $X$ be integral projective unibranch, $\theta\in N^1(X)_{\mathbf R}$
 with $\PSH_X(\theta)\ne\emptyset$, and let
-$h:X^{\An}\to\Rbar$ be arbitrary.  Then exactly one of the following holds:
+$h:X^{\An}\to\Rbar$ be arbitrary.  Here $P_\theta(h)$ denotes the raw supremum of
+\Cref{def:bj-obstacle-envelope}, which is defined even for an
+inadmissible obstacle.  Then exactly one of the following holds:
 \begin{enumerate}
 \item $\mathcal F_\theta(h)=\emptyset$, and $P_\theta(h)\equiv-\infty$;
 \item $\mathcal F_\theta(h)\ne\emptyset$ and is not bounded above by any real
@@ -1977,12 +1981,12 @@ $\mathcal F_\theta(h)$ is bounded above by a real constant.  Then
       $P_\theta(h_j)\in\PSH_X(\theta)$ for every $j\ge j_0$, and the net
       $(P_\theta(h_j))_{j\ge j_0}$ is increasing;
 \item\label{itm:ch45-inc:sup}
-      $\sup_{j}P_\theta(h_j)=\sup\mathcal F_\theta(h)$ pointwise on
+      $\sup_{j\ge j_0}P_\theta(h_j)=\sup\mathcal F_\theta(h)$ pointwise on
       $X^{\An}$;
 \item\label{itm:ch45-inc:star}
-      $\bigl(\sup_jP_\theta(h_j)\bigr)^*
+      $\bigl(\sup_{j\ge j_0}P_\theta(h_j)\bigr)^*
        =\bigl(\sup\mathcal F_\theta(h)\bigr)^*\in\PSH_X(\theta)$, and this
-      function is the least upper bound of $\{P_\theta(h_j)\}_j$ in
+      function is the least upper bound of $\{P_\theta(h_j)\}_{j\ge j_0}$ in
       $\PSH_X(\theta)$.
 \end{enumerate}
 \end{theorem}
@@ -1995,16 +1999,17 @@ is nonempty.  Thus $h_j$ is an admissible obstacle and
 \Cref{thm:bj-final-obstacle-psh} applies.  Monotonicity is
 \Cref{prop:bj-final-obstacle-calculus}\,(1).
 
-\cref{itm:ch45-inc:sup}.  Each $h_j$ is continuous, hence lower
-semicontinuous and bounded below, and $h_j\uparrow h$.
+\cref{itm:ch45-inc:sup}.  The tail $J_{\ge j_0}:=\{j\in J:j\ge j_0\}$
+is cofinal, so $h=\sup_{j\ge j_0}h_j$.  Each $h_j$ on this tail is
+continuous, hence lower semicontinuous and bounded below.
 \Cref{lem:obstacle-envelope-formal}\,(4), proved in
 \Cref{chap:bj-envelope-history} for raw suprema and without any envelope
 input, gives
-$\sup_jP^{\mathrm{raw}}_\theta(h_j)=P^{\mathrm{raw}}_\theta(h)$, where
+$\sup_{j\ge j_0}P^{\mathrm{raw}}_\theta(h_j)=P^{\mathrm{raw}}_\theta(h)$, where
 $P^{\mathrm{raw}}_\theta(\cdot)=\sup\mathcal F_\theta(\cdot)$.  By
 \Cref{lem:ch45-raw-equals-regularized} the raw and starred envelopes agree
 for the admissible obstacles $h_j$, so the left-hand side is
-$\sup_jP_\theta(h_j)$.  The right-hand side is $\sup\mathcal F_\theta(h)$ by
+$\sup_{j\ge j_0}P_\theta(h_j)$.  The right-hand side is $\sup\mathcal F_\theta(h)$ by
 definition.
 
 \cref{itm:ch45-inc:star}.  The net $(P_\theta(h_j))_{j\ge j_0}$ is an
@@ -2024,8 +2029,8 @@ only after a star.  The asymmetry is not an artefact.  The limit $h$ of an
 increasing net of continuous functions is lower semicontinuous, not upper
 semicontinuous, so $h$ is in general \emph{not} an admissible obstacle,
 and $\bigl(\sup\mathcal F_\theta(h)\bigr)^*$ need not be $\le h$ --- the
-raw supremum always is, every competitor being $\le h$ by
-\Cref{def:ch45-admissible-obstacle}\,(3), and it is exactly the
+raw supremum always is, every competitor being $\le h$ by the definition
+of $\mathcal F_\theta(h)$ in \Cref{def:bj-obstacle-envelope}, and it is exactly the
 regularization that can escape, as
 \Cref{lem:ch45-raw-equals-regularized} and \Cref{rem:ch45-admissibility}
 isolate; one cannot even write
@@ -2869,7 +2874,8 @@ using $u(\tau\ord_p)\le h(\tau\ord_p)=-1$; and for $t\ge\tau$,
 $u\le h=u_0$.  Hence $P_\theta(h)=u_0$.
 
 \emph{What the example shows.}  The class is ample and the obstacle is
-real analytic along the ray, yet the envelope is only $C^1$: its
+real analytic along the ray, yet the envelope is only $C^1$ along that
+ray: its
 second derivative jumps at $t=\tau$, from $0$ to $2\rme^{-\tau}=1$.
 It is not a PL function, not a Fubini--Study function, and the constant
 $\tau-1=\log2-1$ is transcendental.  So no algebraic or piecewise-linear
@@ -2939,15 +2945,16 @@ schemes as written.
 \subsection{Dropping projectivity}
 \label{sec:ch45-failure-projective}
 
-Projectivity is used in four places and each use is essential to the proof
-as written.  It supplies compactness of $X^{\An}$, without which
-``bounded above'' loses its force; it supplies the ample class in which the
-alterations of \Cref{chap:bj-alterations} and the Stein factorization
-operate; it supplies the semiample approximations in the Cartier realization
-of \Cref{chap:bj-cartier-realization}; and it supplies the very definition
-of $N^1(X)_{\mathbf R}$ and of Fubini--Study functions, which are built
-from global sections.  For a proper non-projective $X$ the statement can
-be formulated by Chow's lemma but is not proved here.
+Projectivity supplies ample line bundles and the global sections used in
+Fubini--Study and semiample approximation.  Those inputs enter the
+alterations of \Cref{chap:bj-alterations}, the Cartier realization of
+\Cref{chap:bj-cartier-realization}, and the assembly proof.  Compactness of
+$X^{\An}$ already follows from properness
+(\Cref{thm:triv-berkovich-compactness}), and $N^1(X)_{\mathbf R}$ can
+also be defined for a proper non-projective $X$; neither fact by itself
+supplies the missing ample approximations.  Extending this argument to
+proper non-projective varieties would require additional work, including
+descent from a projective modification, and is not done here.
 
 \subsection{Dropping the trivial absolute value}
 \label{sec:ch45-failure-trivial}
@@ -2981,7 +2988,8 @@ semicontinuous regularization; \Cref{ex:ch45-raw-sup-not-usc} refutes it.
 No claim is made that the supremum is attained;
 \Cref{ex:ch45-no-attainment} refutes it.  No claim is made about
 regularity; \Cref{ex:ch45-no-regularity} shows that even in the best case
---- ample class, real analytic obstacle --- the envelope is only $C^1$ and
+--- ample class, real analytic obstacle along a ray --- the envelope is
+only $C^1$ along that ray and
 involves transcendental constants.  No claim is made that
 $P_\theta$ is continuous for the topology of pointwise convergence, nor
 that it commutes with arbitrary limits: what is proved is

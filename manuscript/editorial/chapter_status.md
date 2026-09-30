@@ -5501,3 +5501,43 @@ pages 2629--2630 and 2634) were rendered and inspected. This is a direct
 editorial and source check, not a complete fresh proof audit of the chapter.
 The remaining Chapter 45 gate includes the earlier proof blocks, all
 remaining external-source interfaces, and the uninspected rendered pages.
+
+## Chapter 45: obstacle-domain and scope checkpoint, 30 September 2026
+
+Chapter 45 remains **in progress**. This pass read the chapter continuously
+and repaired four mathematical-domain or scope points. The increasing-obstacle
+theorem now takes the supremum only over the cofinal tail $j\ge j_0$ on which
+competitors are known to exist; the cited raw-envelope lemma applies to that
+tail. The arbitrary-obstacle trichotomy identifies its $P_\theta$ as the raw
+supremum, rather than silently extending the admissible operator. The
+raw-supremum curve example explicitly assigns $-\infty$ at the closed-ray
+endpoint. The class-perturbation warning now says that ampleness for
+arbitrarily small perturbations forces nefness, instead of incorrectly
+excluding ampleness at every fixed perturbation size. The failure-boundary
+paragraph now attributes analytification's compactness to properness, not
+projectivity, citing the book's properness theorem; the regularity example
+specifies that its $C^1$-but-not-$C^2$ assertion is along the chosen ray.
+
+The Chapter 40 rational-approximation proof was checked as a dependency.
+Its difference $c_1(L)-\theta$ may be irrational; the class subsequently
+multiplied to an ample line bundle is rational because it equals
+$c_1(L)-c_1(E_i)$ for a rational line bundle and an effective
+$\mathbf Q$-Cartier divisor. The proof now says both things explicitly.
+
+The final scoped writing audit of Chapters 40 and 45 has zero errors and
+124 reviewed warnings from established label namespaces and descriptive
+titles. The project-wide source check covers 425 inputs and 12,028 labels,
+with no missing inputs, duplicate labels, dangling references, or structural
+defects; all six checker regression tests pass. The Chapter 72 inventory
+remains 42 active atoms in 12 environments and passes. The full book build
+succeeds at 4,106 pages, 19,457,805 bytes, SHA-256
+`183330b63db8f49554a35bf40080f6e5164e3d21ddd3bb73967ab3a0c5df0394`.
+The final log has no unresolved references or citations, rerun requests,
+missing glyphs, emergency stops, or fatal errors. The two overfull boxes
+remain in Chapters 12 and 15, and the thirteen duplicate PDF destinations
+remain in Chapter 70. The affected physical pages 2339--2340, 2608--2609,
+2614, 2620, 2623--2624, and 2634--2637 were rendered and inspected; no
+clipping, overlap, bad glyph, formula overflow, or hierarchy defect was seen.
+This is a direct proof/scope and rendered-page checkpoint, not an independent
+verifier verdict or a completed chapter gate. The remaining Chapter 45 gate
+includes external-source interfaces and the uninspected rendered pages.

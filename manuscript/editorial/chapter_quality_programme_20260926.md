@@ -1296,3 +1296,13 @@ Boucksom--Jonsson Remark 5.15. Scoped source, reference, inventory, full-build,
 and changed-page checks pass; details are in `chapter_status.md`. The chapter
 remains in progress: the earlier proof blocks, the remaining external-source
 interfaces, and the uninspected rendered pages still need the complete gate.
+
+The third checkpoint corrects the domain of the increasing-obstacle theorem:
+only the cofinal tail with a known competitor has a psh envelope. It also
+distinguishes raw envelopes of arbitrary obstacles from the admissible
+operator, makes the proper-support endpoint explicit in the raw-supremum
+example, and narrows the perturbation and non-projective scope claims. The
+Chapter 40 rational-approximation input now separates a possibly irrational
+ample difference from the rational ample class used for integral multiples.
+The full build and changed-page inspection pass; the remaining Chapter 45
+gate is the uncompleted external-source and whole-chapter rendered audit.
