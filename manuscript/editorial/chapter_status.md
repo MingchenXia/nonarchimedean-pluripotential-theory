@@ -5432,3 +5432,41 @@ note, and both adjoining seams were checked at full resolution.  The page
 changed by the final quotient-filtration correction was re-rendered from the
 final PDF.  No clipping, overlap, bad glyph, formula overflow, or hierarchy
 defect remains in the chapter.
+
+## Chapter 45: dependency and navigation checkpoint, 30 September 2026
+
+Chapter 45 is **in progress**, not yet through its complete chapter gate.
+This checkpoint removes the repeated task inventory and roadmap and repairs
+the non-circularity audit: its numbering now matches the seven input groups,
+with the published converse kept separate from the six assembly inputs.
+The homeomorphism's upper-semicontinuous-regularization identity is now
+audited explicitly. The chapter's $X^{\divis}$ notation again means rational
+multiples, as defined in Chapter 34; the alteration degree is no longer
+assumed greater than one, convexity is not mistaken for decreasingness on a
+curve ray, and the obstacle-calculus proposition states admissibility of its
+obstacles. Two overstrong claims about nonnormal finite descent and
+inadmissible obstacles were narrowed. The unreadable three-column
+dependency and dictionary tables were replaced by a proof-ordered source
+chain and a two-column dictionary. All 1,445 legacy inline-math spans were
+normalized.
+
+The final scoped writing audit has zero errors and 59 reviewed warnings,
+from descriptive result titles and established label namespaces. The
+project-wide reference check covers 425 inputs and 12,029 labels, with no
+missing inputs, duplicate labels, dangling references, or structural
+defects; all six checker tests pass. The open-problem inventory is unchanged
+at 42 active atoms in 12 Chapter 72 environments and passes. The full book
+build succeeds at 4,104 pages, 19,456,158 bytes, SHA-256
+`af1151ba56f687b9fd31fdff42623d8688b077bd8118ecbc2c455b2a49d7cada`.
+The final log has no unresolved references or citations, missing glyphs,
+rerun requests, emergency stops, or fatal errors. Its two overfull boxes
+remain outside Chapter 45 (in Chapters 12 and 15).
+
+Changed Chapter 45 pages, including the opening, attributed dependency
+chain, non-circularity proof, assembly, chapter dictionary and source note,
+were inspected in the final render, as were the Chapter 44/45 and 45/46
+seams. The former dependency table and dictionary collisions are gone.
+This is a direct editorial and internal-dependency audit, not an
+independent-agent or exact-current model-verifier verdict. The remaining
+Chapter 45 gate is an assertion-by-assertion proof and example review,
+external-source interface check, and rendered inspection of the other pages.

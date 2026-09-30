@@ -41,8 +41,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--42 are complete;
-  Chapter 43 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--44 are complete;
+  Chapter 45 is in progress.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -1264,3 +1264,23 @@ audit, project-wide reference check, checker tests, open-problem inventory
 check, full build, log scan, and rendered inspection of all fifty-eight
 chapter pages and both adjoining seams pass.  Exact evidence is recorded in
 `chapter_status.md`.  Chapter 45 is next.
+
+### Chapter 45 — in progress
+
+The first revision checkpoint removes the duplicate six-task list and
+roadmap, reconciles the seven input groups with the non-circularity audit,
+and explicitly audits upper-semicontinuous regularization under the
+normalization homeomorphism. It restores the book's rational-multiple
+definition of $X^{\divis}$, corrects the alteration-degree and curve
+monotonicity explanations, and states the obstacle-calculus hypotheses at
+the proposition. The dependency-attribution table and chapter dictionary
+have been recast for legible rendered pages. Legacy inline mathematics has
+been normalized to the current house style.
+
+The scoped house audit, reference checker, checker tests, inventory check,
+full build, log scan, and inspection of the altered pages and both chapter
+seams pass; details are in `chapter_status.md`. This is a verified editorial
+checkpoint, **not** the completed Chapter 45 gate. Next: inspect each
+numbered assertion and worked example against its proof, then audit the
+external-source interfaces and remaining rendered pages before advancing
+to Chapter 46.
