@@ -52,8 +52,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
   the sequential quality gates.
-- **Parts V--VI, Chapters 51--72:** active. Chapters 51--52 are complete;
-  Chapter 53 is next.
+- **Parts V--VI, Chapters 51--72:** active. Chapters 51--53 are complete;
+  Chapter 54 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1505,3 +1505,22 @@ in Chapter 70 remain recorded. Evidence and hashes are in
 [`ch52_quality_audit_20261001.md`](ch52_quality_audit_20261001.md).
 Chapter 53 is next; the whole-book goal continues. Verified commits remain
 local pending explicit remote-push approval.
+
+
+### Chapter 53
+
+The inverse system now has an explicit componentwise order and a proof that
+one component detects order. Positive-volume recovery identifies the actual
+limiting masses, verifies model normalization, and uses positive-mass
+divisorial continuity to recover every original component. The homogeneous
+volume proof handles zero mass separately. Birational invariance imports
+the exact semipositive-component extension and proves the pullback/descent
+composites and volume comparison without a false cofinality argument.
+
+All thirteen assertions and three examples were reviewed against the exact
+source interfaces. Three primary PDFs and 21 rendered source pages were
+checked; 2,172 symbolic/exact-rational checks pass. The full build, all
+fourteen chapter pages and both seams, post-render scoped checks, reference
+checker and six regression tests pass. Evidence is recorded in
+`ch53_quality_audit_20261001.md` and `chapter_status.md`. Chapter 54 is next;
+the whole-book completion goal continues.
