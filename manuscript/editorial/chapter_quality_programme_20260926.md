@@ -50,9 +50,9 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--48 are complete;
-  Chapter 49 is next.
-- **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
+- **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
+  the sequential quality gates.
+- **Parts V--VI, Chapters 51--72:** active. Chapter 51 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1432,3 +1432,28 @@ boxes elsewhere and 13 duplicate destinations in Chapter 70. Evidence and
 hashes are in [`ch49_quality_audit_20261001.md`](ch49_quality_audit_20261001.md).
 Chapter 50 is next; the whole-book goal continues. Verified commits remain
 local while explicit remote-push approval is pending.
+
+### Chapter 50 — complete
+
+The norms and stability chapter now separates raw and regularized FS,
+homogenization, finite-type and rational model domains, and compatible
+metrics and quasi-metrics. Discrepancy extension, entropy recovery and
+strong derivative continuity retain their exact scopes. The sharp J/L1
+argument, threshold deduction, exact Fano divisorial threshold, DNC,
+toric and harmonic examples have been repaired and checked. An explicit
+normal model with central fibre of multiplicity two verifies the DF/Mabuchi
+correction. The source ledger distinguishes the foundational and later
+literature without asserting numerical equality of ordinary and divisorial
+K thresholds.
+
+All 40 formal assertions have proofs or explicit source interfaces, and
+all 99 reusable environments have labels. Seven primary PDFs and twenty
+rendered source pages were checked. The 321,388 calculation checks, scoped
+and project reference checks, six checker tests, unchanged inventory,
+full build, all 72 rendered pages, adjoining seams and automatic second
+pass pass. Chapter 50 has no overfull boxes or LaTeX/package warnings.
+Nineteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded. Evidence and hashes are in
+[`ch50_quality_audit_20261001.md`](ch50_quality_audit_20261001.md).
+Part IV is complete; Chapter 51 is next and the whole-book goal continues.
+Verified commits remain local pending explicit remote-push approval.

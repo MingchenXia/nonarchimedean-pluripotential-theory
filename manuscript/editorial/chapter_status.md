@@ -5736,3 +5736,37 @@ No chapter layout defect remains. Frozen releases and checksum ledgers are
 unchanged. This direct editorial/source audit does not claim an independent
 verifier verdict or extend historical research receipts to the new bytes.
 Verified work remains local pending explicit approval for remote pushes.
+
+
+## Chapter 50: complete chapter-quality gate, 1 October 2026
+
+Chapter 50 completes Part IV under the sequential quality programme;
+Chapter 51 is next. The whole-book goal continues, with independent
+Chapter 72 research paused. Detailed repairs and source interfaces are in
+[`ch50_quality_audit_20261001.md`](ch50_quality_audit_20261001.md).
+
+There are 40 formal assertions with proofs or explicit source interfaces,
+99 labelled reusable environments and 352 labels. Seven primary PDFs
+and twenty rendered source pages were checked. The exact-rational/symbolic
+supplement passes 321,388 comparisons. Reference verification passes for
+425 inputs and 12,028 labels; all six checker tests pass. The research
+inventory remains 42 atoms in twelve environments, tiers (0,3,7,15,17).
+Post-render scoped and reference checks pass, as does `git diff --check`.
+
+The full build gives 4,102 pages and 19,154,421 bytes, PDF SHA-256
+`330cf8cb045079ac40ab34fdb8d8ecfd12595f7a278a7d54df6adbcd63b48851`.
+Final chapter source SHA-256:
+`2ebb217676e90ee7657506c62265c365f06b43e63c1233ea53c39147cb48de4f`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 50 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All 72 physical chapter pages 2881--2952 (printed 2813--2884) were scanned
+in the final PDF, including every page reflowed by the final corrections.
+Thirty-three pre-final and eighteen final detail pages were inspected,
+covering 43 distinct chapter pages, together with adjoining pages 2880
+and 2953. No chapter layout defect remains. Frozen releases and checksum
+ledgers are unchanged. This direct editorial/source audit does not claim
+an independent verifier verdict. Verified work remains local pending
+explicit approval for remote pushes.
