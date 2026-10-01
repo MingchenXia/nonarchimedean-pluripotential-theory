@@ -52,8 +52,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
   the sequential quality gates.
-- **Parts V--VI, Chapters 51--72:** active. Chapters 51--54 are complete;
-  Chapter 55 is next.
+- **Parts V--VI, Chapters 51--72:** active. Chapters 51--55 are complete;
+  Chapter 56 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1538,3 +1538,19 @@ The metric trace proof now identifies the target base class before forming
 its inverse system, and ambient and point traces give two explicit examples.
 Exact source interfaces, the full build and rendered-page evidence are in
 `ch54_quality_audit_20261001.md` and `chapter_status.md`.
+
+
+### Chapter 55
+
+The partial-body construction now gives its counting-completion interface,
+valuation lattice, source boundary and pole example. Transcendental
+approximation keeps its strict margin and scaled comparisons. Convex duality
+and extended energy have full proofs; intrinsic tails prove flag independence
+and the weak-limit argument retains its mass and tightness hypotheses. The
+DH mass conversion is explicit and checked on a product square and an
+infinite-energy example. Validated mixed-volume and toric proofs retain their
+scope and frozen receipts. Six primary PDFs and 81 source pages were checked.
+All 23 assertions, eight examples, 93,604 calculation checks, full build,
+32 rendered chapter pages and both seams, post-render scoped and reference
+checks pass. Evidence is in `ch55_quality_audit_20261001.md` and
+`chapter_status.md`. Chapter 56 is next; the whole-book goal continues.
