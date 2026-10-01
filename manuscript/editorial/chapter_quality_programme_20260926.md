@@ -50,8 +50,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--46 are complete;
-  Chapter 47 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--47 are complete;
+  Chapter 48 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -1364,3 +1364,25 @@ destinations in Chapter 70 remain recorded. The unavailable legacy audit
 executable's warning counts are not claimed. Exact evidence is in
 [`ch46_quality_audit_20261001.md`](ch46_quality_audit_20261001.md) and
 `chapter_status.md`. Chapter 47 is next; the whole-book goal continues.
+
+### Chapter 47 — complete
+
+The finite-energy and variational chapter now keeps its probability
+normalization and extended-real domains explicit. The Bernstein/Dirichlet
+argument supplies the concavity constant, the projective-space example
+verifies the sharp I/J factors, and the curve proof uses a fixed slope
+inner product. Differentiability, domination, fixed-measure pairing
+continuity, general strong completeness, and lower-semicontinuous contact
+have exact published interfaces. The logarithmic, toric-product,
+infinite-energy, restriction, and normalization examples were repaired;
+trivially valued non-Q-PL Green examples have the correct source locators.
+
+All 40 formal assertions have proofs and all 73 reusable environments have
+labels. The 17,317 exact-rational checks, reference checker, six regression
+tests, unchanged research inventory, full build, all-page scan, and automatic
+second pass pass. Chapter 47 has no overfull boxes or LaTeX/package warnings.
+The full book retains 23 overfull boxes elsewhere and 13 duplicate PDF
+destinations in Chapter 70. Evidence and hashes are in
+[`ch47_quality_audit_20261001.md`](ch47_quality_audit_20261001.md).
+Chapter 48 is next; the whole-book goal continues. Commits remain local
+while explicit remote-push approval is pending.

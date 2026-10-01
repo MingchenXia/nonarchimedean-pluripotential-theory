@@ -5635,3 +5635,37 @@ displays were re-rendered and inspected. No clipping, overlap, bad glyph,
 formula overflow, or hierarchy defect was found in the chapter. Generated
 PDFs remain local review artifacts; frozen release artifacts are unchanged.
 This is a direct editorial/source audit, not an independent-verifier verdict.
+
+## Chapter 47: complete chapter-quality gate, 1 October 2026
+
+Chapter 47 is complete under the sequential quality programme; Chapter 48
+is next. The whole-book completion goal continues, with independent
+Chapter 72 research paused. Detailed changes and direct source interfaces
+are recorded in [`ch47_quality_audit_20261001.md`](ch47_quality_audit_20261001.md).
+
+The chapter has 40 proved formal assertions, 73 labelled reusable
+environments, and 209 semantic labels. The Bernstein concavity, sharp I/J
+examples, curve separation, differentiability, domination, general strong
+theory, toric and logarithmic examples, and Green-function provenance have
+been checked and repaired. The exact-rational supplement passes 17,317
+comparisons. Reference verification passes with 425 inputs and 12,020
+labels; all six checker tests pass, and the inventory remains 42 atoms
+in 12 environments, tiers (0,3,7,15,17). The post-render scoped scan and
+reference check pass, as does `git diff --check`.
+
+The full build gives 4,104 pages and 19,183,549 bytes, PDF SHA-256
+`8e0da4accd432fc6dcb9cbbadd17a0844aec2fc0d08d124c8796cf7b242b512a`.
+Final chapter source SHA-256:
+`5e125a4e3a5d18ada8a4bbdb93a3c231553a4ea77e6810ec1268d1cba67e26a8`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests, or fatal errors. Chapter 47 has no overfull boxes or LaTeX/package
+warnings. There are 23 overfull boxes elsewhere and 13 duplicate PDF
+destinations in Chapter 70.
+
+All 60 physical chapter pages 2699--2758 (printed 2631--2690) were scanned,
+with 22 detail pages and adjoining seams inspected. The four pages changed
+by final wording and display fixes were inspected again in the final PDF.
+No chapter layout defect remains. Generated PDFs are local review artifacts;
+frozen releases and checksum ledgers are unchanged. This direct editorial
+audit does not claim an independent verifier verdict. The work is committed
+locally; remote pushes await explicit approval.
