@@ -50,8 +50,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--47 are complete;
-  Chapter 48 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--48 are complete;
+  Chapter 49 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -1386,3 +1386,25 @@ destinations in Chapter 70. Evidence and hashes are in
 [`ch47_quality_audit_20261001.md`](ch47_quality_audit_20261001.md).
 Chapter 48 is next; the whole-book goal continues. Commits remain local
 while explicit remote-push approval is pending.
+
+
+### Chapter 48 — complete
+
+The strong-topology and capacity chapter now proves completeness with the
+correct fixed-measure continuity input and supplies the measure-completeness
+argument. The gauge/d1 distinction, fixed-range capacity, quasicontinuity,
+outer-capacity convergence, negligible sets, and arbitrary obstacle limits
+retain their actual domains and exact source interfaces. Curve examples
+separate open and closed tails, graph measures and finite-energy MA, and
+inner and outer capacity. Scope and historical claims were narrowed to the
+proved or published statements.
+
+All 31 formal assertions have proofs; all 64 reusable environments have
+labels. The 33,815 exact-rational comparisons, scoped and reference checks,
+six checker tests, inventory, full build, all 58 rendered pages, adjoining
+seams, and automatic second pass pass. Chapter 48 has no overfull boxes or
+LaTeX/package warnings. The book retains 20 overfull boxes elsewhere and 13
+duplicate PDF destinations in Chapter 70. Evidence and hashes are in
+[`ch48_quality_audit_20261001.md`](ch48_quality_audit_20261001.md).
+Chapter 49 is next; the whole-book goal continues. Verified commits remain
+local while explicit remote-push approval is pending.
