@@ -5869,3 +5869,35 @@ intentionally blank. No chapter layout defect remains. Frozen releases
 and checksum ledgers are unchanged. This direct editorial/source audit
 does not claim an independent verifier verdict. Verified work remains
 local pending explicit remote-push approval.
+
+
+## Chapter 54: complete chapter-quality gate, 1 October 2026
+
+Chapter 54 has passed the sequential programme; Chapter 55 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Detailed repairs and exact source interfaces are in
+[`ch54_quality_audit_20261001.md`](ch54_quality_audit_20261001.md).
+
+Nine formal assertions, 28 labelled reusable environments and 92 labels were
+reviewed. Three primary PDFs and 57 rendered source pages were checked. The
+symbolic/exact-rational supplement passes 74,374 checks. References pass for
+425 inputs and 12,069 labels; all six checker tests pass. The inventory remains
+42 atoms in 12 environments, tiers (0,3,7,15,17). Post-render scoped and
+reference checks and `git diff --check` pass.
+
+The full build gives 4,114 pages and 19,213,194 bytes, PDF SHA-256
+`787504de38d41716a6937381273251e80507ef961df47adea223e52e3e41b18a`.
+Final source SHA-256:
+`88a938f762f6fa99d4a057b86ac8a86e4d670d6e5c0749806902b616a35f4edd`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 54 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All twenty physical chapter pages 3063--3082 (printed 2995--3014) and both
+adjoining seams were inspected at detail size, including reinspection after
+the closing-note layout repair. Physical 3082 is intentionally blank. No
+reviewed chapter layout defect remains. Frozen releases and checksum
+ledgers are unchanged. This direct editorial/source audit does not claim an
+independent verifier verdict. Verified work remains local pending explicit
+remote-push approval.
