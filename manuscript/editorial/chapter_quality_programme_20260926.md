@@ -52,7 +52,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
   the sequential quality gates.
-- **Parts V--VI, Chapters 51--72:** active. Chapter 51 is next.
+- **Parts V--VI, Chapters 51--72:** active. Chapter 51 is complete;
+  Chapter 52 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1457,3 +1458,26 @@ in Chapter 70 remain recorded. Evidence and hashes are in
 [`ch50_quality_audit_20261001.md`](ch50_quality_audit_20261001.md).
 Part IV is complete; Chapter 51 is next and the whole-book goal continues.
 Verified commits remain local pending explicit remote-push approval.
+
+
+### Chapter 51 — complete
+
+The complex prerequisites now give locally finite nonpluripolar products,
+precise Lelong and multiplier-ideal conventions, correctly ordered
+quasi-equisingular recovery, and a noncircular projection argument. The
+big-class zero-mass extension is distinguished from positive-mass
+domination. The half-pole and Cantor examples have full calculations and
+proofs; background changes, convergence and import boundaries are explicit.
+
+All 31 formal assertions and two separately numbered foundational inputs
+have proofs or exact source boundaries. All 84 reusable environments have
+labels. Eight primary PDFs and 32 rendered source pages were checked.
+The 119,417 calculation checks, scoped and project reference checks, six
+checker tests, unchanged inventory, full build, all 70 rendered chapter
+pages, 32 distinct chapter detail pages, adjoining seams and automatic
+second pass pass. Chapter 51 has no overfull boxes or LaTeX/package warnings.
+Nineteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded. Evidence and hashes are in
+[`ch51_quality_audit_20261001.md`](ch51_quality_audit_20261001.md).
+Chapter 52 is next; the whole-book goal continues. Verified commits remain
+local pending explicit remote-push approval.
