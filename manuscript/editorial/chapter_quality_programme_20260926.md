@@ -9,6 +9,15 @@ Independent research on the open problems in Chapter 72 is paused. An open
 problem may still be edited when a chapter needs an exact boundary statement,
 but it is not the driver of the present pass.
 
+Completion goal set on 1 October 2026: finish the whole manuscript under this
+programme, continuing through Chapters 46--72 in reading order, then the
+appendices and front matter, followed by the final whole-book consistency,
+reference, build, and rendered-page review. Commit and push verified units
+and keep the progress records current. Individual chapter checkpoints are
+milestones toward that goal, rather than the end of the continuation. This
+goal does not change the paused independent-research scope: unresolved
+frontiers remain explicitly identified rather than asserted as solved.
+
 ## Chapter gate
 
 Each chapter is processed in reading order and must pass the following gates:
@@ -41,8 +50,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--45 are complete;
-  Chapter 46 is next.
+- **Part IV, Chapters 32--50:** active. Chapters 32--46 are complete;
+  Chapter 47 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -1331,3 +1340,27 @@ destinations in Chapter 70; these are recorded rather than described as a
 globally clean layout. Exact scope, source locators, and checksums are in
 [`ch45_quality_audit_20261001.md`](ch45_quality_audit_20261001.md) and
 `chapter_status.md`. Chapter 46 is next.
+
+### Chapter 46 — complete
+
+The pairing and mixed-measure chapter now distinguishes relative nefness from
+global nefness, proves the fixed-model measure formula by projection, and
+uses the finite divisorial maximum formula in the monotone extension.
+Locality uses the exact weighted-convergence input, with Borel comparison
+sets and almost-everywhere integrability. Irrational scaling, homogeneous
+truncation limits, proper-support masses, and the b-class and Legendre
+dictionaries now retain their actual domains. Curve and toric computations
+carry the probability normalization explicitly. The redundant task list and
+legacy inline delimiters were removed, and the tables and two long displays
+were repaired for the rendered page.
+
+All 28 formal assertions and 68 reusable environments pass the proof and
+label review. Direct source interfaces, 20,184 exact arithmetic comparisons,
+the scoped manual and mechanical reviews, project references, six checker
+tests, inventory, full build, all 56 rendered pages, adjoining seams, and
+automatic second pass pass. Chapter 46 has no overfull boxes or LaTeX/package
+warnings; 23 whole-book overfull boxes outside the chapter and 13 duplicate
+destinations in Chapter 70 remain recorded. The unavailable legacy audit
+executable's warning counts are not claimed. Exact evidence is in
+[`ch46_quality_audit_20261001.md`](ch46_quality_audit_20261001.md) and
+`chapter_status.md`. Chapter 47 is next; the whole-book goal continues.

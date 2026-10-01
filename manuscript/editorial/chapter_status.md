@@ -5599,3 +5599,39 @@ at full resolution, and late changes on pages 2599, 2629, and 2641 were
 re-rendered from the final PDF. No clipping, overlap, bad glyph, formula
 overflow, or hierarchy defect was found in the chapter. Generated review
 PDFs are local artifacts; frozen release artifacts are unchanged.
+
+## Chapter 46: complete chapter-quality gate, 1 October 2026
+
+Chapter 46 is complete under the sequential quality programme; Chapter 47
+is next. The whole-book completion goal continues, with independent
+Chapter 72 research paused. Mathematical, expository, primary-source, and
+rendered evidence is recorded in
+[`ch46_quality_audit_20261001.md`](ch46_quality_audit_20261001.md).
+
+All 28 formal assertions have following proofs, and all 68 reusable
+environments have semantic labels. The scoped manual review and mechanical
+scan pass, including the repeat after rendered review. The unavailable legacy
+standalone writing-audit executable's numerical warning counts are not
+asserted. The reference check passes for 425 inputs and 12,022 labels with
+zero missing inputs, duplicate labels, dangling references, or structural
+defects. All six checker regression tests pass. The inventory remains 42
+active atoms in 12 environments, tiers T1=0, T2=3, T3=7, T4=15, T5=17.
+Auxiliary exact-rational checks pass 20,184 comparisons.
+
+The full build succeeds at 4,106 pages and 19,196,260 bytes. PDF SHA-256:
+`fbcab479ea05550395e759d06b37013843b48ae777b5b7d91fc5b7677323f6e4`.
+Chapter source SHA-256:
+`fb2abf67fd3eb5beb412de446259a0be2e236425c177658c2b938c89e4297e7e`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests, or fatal errors. Chapter 46 has no overfull boxes or LaTeX/package
+warnings. The full log records 23 overfull boxes outside this chapter and
+13 duplicate PDF destinations in Chapter 70.
+
+All 56 chapter pages, physical 2645--2700 (printed 2575--2630), were scanned,
+including the intentional blank verso at 2700. Nineteen mathematical and
+dictionary pages were inspected at full resolution, as were Chapter 45's
+closing pages 2643--2644 and Chapter 47's opening 2701. The final repaired
+displays were re-rendered and inspected. No clipping, overlap, bad glyph,
+formula overflow, or hierarchy defect was found in the chapter. Generated
+PDFs remain local review artifacts; frozen release artifacts are unchanged.
+This is a direct editorial/source audit, not an independent-verifier verdict.
