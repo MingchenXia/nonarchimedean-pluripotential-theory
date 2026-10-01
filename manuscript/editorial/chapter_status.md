@@ -5541,3 +5541,61 @@ clipping, overlap, bad glyph, formula overflow, or hierarchy defect was seen.
 This is a direct proof/scope and rendered-page checkpoint, not an independent
 verifier verdict or a completed chapter gate. The remaining Chapter 45 gate
 includes external-source interfaces and the uninspected rendered pages.
+
+## Chapter 45: complete chapter-quality gate, 1 October 2026
+
+The sequential quality programme has completed Chapter 45; Chapter 46 is
+next. This pass finishes the assertion-by-assertion proof/example review,
+external-source interfaces, and rendered pages left open by the preceding
+checkpoints. The chapter's 29 formal assertions all have following proofs;
+the additional proof block supplies the Chapter 37 assembly theorem. All 65
+reusable environments, including important and warning boxes, have semantic
+labels. The complete review and primary-source locators are recorded in
+[`ch45_quality_audit_20261001.md`](ch45_quality_audit_20261001.md).
+
+The pass separates normal-target descent hypotheses from the definition of
+generic degree and source normality from characteristic-zero subintegrality.
+It distinguishes bounds on individual psh functions from a common family
+bound, invokes divisorial nonnegligibility at its direct source, and corrects
+the usual-order sequence and divisibility-net discussion. Two sections on
+the projective line now give the lower-bound counterexample without a
+cardinality assumption. Positive scaling is explicit in the ample-class
+converse. The curve criterion now includes upper semicontinuity, the finite
+trivial value, and endpoint limits; its centres and normalization endpoint
+notation are corrected. The cusp's candidate/maximality proof and reflection
+are separated, the nonnegative slope range is explicit, and the source note
+identifies the addendum's arbitrary-class obstacle results. Historical claims
+retain the addendum's all-class scope and the supplied manuscript's
+unpublished provenance.
+
+The manual scoped house review and limited mechanical scan pass, including
+the repeat after rendered review. No legacy inline delimiters, double-dollar
+displays, placeholders, unlabelled reusable environments, or proofless formal
+assertions remain. The historical standalone Mingchen writing-audit executable
+is unavailable here; no numerical warning count from that program is claimed.
+The project-wide reference check covers 425 inputs and 12,028 labels, with
+zero missing inputs, duplicate labels, dangling references, or structural
+defects. All six checker regression tests pass. The open-problem inventory
+passes unchanged at 42 active atoms in 12 Chapter 72 environments, with tiers
+T1=0, T2=3, T3=7, T4=15, T5=17. The auxiliary curve arithmetic check passes
+2,519 comparisons. No research atom or independent-verifier verdict changes.
+
+The final full build succeeds at 4,106 pages and 19,202,090 bytes, SHA-256
+`eae448686e661c97d70f422c28b14dfbf859dfd4cd60653c39d1b50f93e6c677`.
+The final chapter source SHA-256 is
+`e945955113b55ec7989217126946c43d2a32702067633b565213b10d4a9d1c70`.
+The log has no unresolved references or citations, missing glyphs, rerun
+requests, emergency stops, or fatal errors. Chapter 45 has no overfull boxes
+or LaTeX/package warnings. The whole-book log records 24 overfull boxes
+outside Chapter 45 and 13 duplicate PDF destinations in Chapter 70. Font
+dependencies were restored in a workspace-local tree from the frozen TeX
+Live 2025 archive; this is not a byte-identical reproduction of the earlier
+two-overflow build snapshots. Their dated evidence remains unchanged.
+
+All fifty Chapter 45 pages, physical 2595--2644 (printed 2525--2574), were
+scanned, with the Chapter 44 closing page 2593, intentional blank verso 2594,
+and Chapter 46 opening at 2645. Altered mathematical passages were inspected
+at full resolution, and late changes on pages 2599, 2629, and 2641 were
+re-rendered from the final PDF. No clipping, overlap, bad glyph, formula
+overflow, or hierarchy defect was found in the chapter. Generated review
+PDFs are local artifacts; frozen release artifacts are unchanged.

@@ -41,8 +41,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part III, Chapters 20--31:** complete. All twelve chapters have passed the
   semantic, mathematical, structural, mechanical, and rendered-page gates.
-- **Part IV, Chapters 32--50:** active. Chapters 32--44 are complete;
-  Chapter 45 is in progress.
+- **Part IV, Chapters 32--50:** active. Chapters 32--45 are complete;
+  Chapter 46 is next.
 - **Parts V--VI, Chapters 51--72:** queued in reading order after Part IV.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
@@ -1265,7 +1265,7 @@ check, full build, log scan, and rendered inspection of all fifty-eight
 chapter pages and both adjoining seams pass.  Exact evidence is recorded in
 `chapter_status.md`.  Chapter 45 is next.
 
-### Chapter 45 — in progress
+### Chapter 45 — complete
 
 The first revision checkpoint removes the duplicate six-task list and
 roadmap, reconciles the seven input groups with the non-circularity audit,
@@ -1306,3 +1306,28 @@ Chapter 40 rational-approximation input now separates a possibly irrational
 ample difference from the rational ample class used for integral multiples.
 The full build and changed-page inspection pass; the remaining Chapter 45
 gate is the uncompleted external-source and whole-chapter rendered audit.
+
+The completion pass of 1 October 2026 resolves those outstanding gates.
+Every formal assertion and worked example was reviewed against its proof,
+and the published Boucksom--Jonsson paper, its addendum, and the normalization
+source were checked directly. The pass separates normal-target descent
+hypotheses from the definition of generic degree, corrects the direction of
+sequential indexing, supplies the scaling step in the converse, and states
+the curve criterion on its full function domain. A two-element slope-budget
+example replaces the unnecessary uncountability argument. The cusp-envelope
+discussion now identifies its direct maximality proof, and the historical
+note distinguishes the addendum's all-class theorem from the supplied
+manuscript's extensions of singularity and characteristic scope.
+
+The manual house review and scoped mechanical checks, project-wide reference
+check, six checker tests, open-problem inventory check, full build, log scan,
+whole-chapter rendered review, and automatic second pass all pass. The legacy
+standalone writing-audit executable is unavailable in this environment; no
+legacy warning count is asserted. All fifty chapter pages and both adjoining
+seams were inspected, with late changes re-rendered from the final PDF.
+Chapter 45 has no overfull boxes or LaTeX warnings. The full build records
+twenty-four overfull boxes outside this chapter and thirteen duplicate
+destinations in Chapter 70; these are recorded rather than described as a
+globally clean layout. Exact scope, source locators, and checksums are in
+[`ch45_quality_audit_20261001.md`](ch45_quality_audit_20261001.md) and
+`chapter_status.md`. Chapter 46 is next.
