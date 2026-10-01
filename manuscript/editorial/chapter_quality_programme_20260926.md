@@ -1408,3 +1408,27 @@ duplicate PDF destinations in Chapter 70. Evidence and hashes are in
 [`ch48_quality_audit_20261001.md`](ch48_quality_audit_20261001.md).
 Chapter 49 is next; the whole-book goal continues. Verified commits remain
 local while explicit remote-push approval is pending.
+
+
+### Chapter 49 — complete
+
+The linear-growth and toric chapter now supplies the exact section/potential
+exhaustion identity, conductor descent in the divisorial threshold proof,
+the general Green height and sup-norm isometry, and the all-characteristic
+pointwise topology argument. SNC scope, approximation from below and closed-
+face equicontinuity have precise source interfaces. Toric invariant
+approximation, real MA limits, energy variation and arbitrary-net strong/L1
+convergence retain their correct domains and proofs or explicit imports.
+The blowup, transcendental-branch and conic examples were repaired. A small
+Chapter 34 dependency correction separates smooth SNC cofinality from the
+resolution-free flag-ideal restriction proof.
+
+All 40 formal assertions have proofs; all 77 reusable environments have
+labels. The 39,110 exact-rational comparisons, scoped and reference checks,
+six checker tests, unchanged inventory, full build, all 64 rendered pages,
+adjoining seams, dependency pages and automatic second pass pass. Chapter 49
+has no overfull boxes or LaTeX/package warnings. The book retains 20 overfull
+boxes elsewhere and 13 duplicate destinations in Chapter 70. Evidence and
+hashes are in [`ch49_quality_audit_20261001.md`](ch49_quality_audit_20261001.md).
+Chapter 50 is next; the whole-book goal continues. Verified commits remain
+local while explicit remote-push approval is pending.

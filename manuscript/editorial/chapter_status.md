@@ -5703,3 +5703,36 @@ layout defect remains. Generated PDFs are local review artifacts; frozen
 releases and checksum ledgers are unchanged. This direct editorial/source
 audit does not claim an independent-verifier verdict. Verified work remains
 local pending explicit approval for remote pushes.
+
+
+## Chapter 49: complete chapter-quality gate, 1 October 2026
+
+Chapter 49 is complete under the sequential quality programme; Chapter 50
+is next. The whole-book goal continues, with independent Chapter 72 research
+paused. Detailed changes and source interfaces, including the Chapter 34
+dependency correction, are in
+[`ch49_quality_audit_20261001.md`](ch49_quality_audit_20261001.md).
+
+The chapter has 40 proved formal assertions, 77 labelled reusable
+environments and 247 labels. The exact-rational supplement passes 39,110
+comparisons. Reference verification passes for 425 inputs and 12,028 labels;
+all six checker tests pass. The inventory remains 42 atoms in 12 environments,
+tiers (0,3,7,15,17). Post-render scoped and reference checks pass, as does
+`git diff --check`.
+
+The full build gives 4,102 pages and 19,162,373 bytes, PDF SHA-256
+`6ae832e275e4a7778bf9e7aa9e0084f14c3c8a53f8b0ff57b3a62e1459dc9502`.
+Final chapter source SHA-256:
+`30b61901c2b7fc592440eb8b89a5c03e46f617552bde85dbf1c1e9bab53e0385`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 49 has no overfull boxes or LaTeX/package
+warnings. The book retains 20 overfull boxes elsewhere and 13 duplicate PDF
+destinations in Chapter 70.
+
+All 64 physical chapter pages 2817--2880 (printed 2749--2812) were scanned,
+with 34 detail pages, three adjoining seams and three Chapter 34 dependency
+pages inspected. The one page changed by final wording was inspected again.
+No chapter layout defect remains. Frozen releases and checksum ledgers are
+unchanged. This direct editorial/source audit does not claim an independent
+verifier verdict or extend historical research receipts to the new bytes.
+Verified work remains local pending explicit approval for remote pushes.
