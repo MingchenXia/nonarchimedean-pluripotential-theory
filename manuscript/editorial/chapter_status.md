@@ -5804,3 +5804,36 @@ chapter detail pages and two adjoining seams across the reviews. Physical
 releases, production packets and checksum ledgers are unchanged. This is a
 direct editorial/source audit, not an independent verifier verdict.
 Verified work remains local pending explicit remote-push approval.
+
+
+## Chapter 52: complete chapter-quality gate, 1 October 2026
+
+Chapter 52 has passed the sequential quality programme; Chapter 53 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Detailed repairs and source interfaces are in
+[`ch52_quality_audit_20261001.md`](ch52_quality_audit_20261001.md).
+
+There are eleven formal assertions, 25 labelled reusable environments and
+70 labels. Three primary PDFs and 42 rendered source pages were checked.
+The symbolic, rational and numerical supplement passes 199,941 checks;
+floating-point comparisons are distinguished from exact calculations.
+Reference verification passes for 425 inputs and 12,045 labels; all six
+checker tests pass. The unchanged inventory has 42 atoms in twelve
+environments, tiers (0,3,7,15,17). Post-render scoped and reference checks
+and `git diff --check` pass.
+
+The full build gives 4,110 pages and 19,192,417 bytes, PDF SHA-256
+`39808bcc7dfaebe8104550debfd9d1c80edc97c59fa8845a2637f109dfd82fc5`.
+Final chapter source SHA-256:
+`4b62e042d3250af528c549ba405d5207165ff859da775c33adc9916212303a82`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 52 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All twenty physical chapter pages 3029--3048 (printed 2961--2980) were
+scanned and inspected at detail size, with both adjoining seams. Physical
+3048 is intentionally blank. No chapter layout defect remains. Frozen
+releases and checksum ledgers are unchanged. This direct editorial/source
+audit does not claim an independent verifier verdict. Verified work
+remains local pending explicit remote-push approval.

@@ -52,8 +52,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
   the sequential quality gates.
-- **Parts V--VI, Chapters 51--72:** active. Chapter 51 is complete;
-  Chapter 52 is next.
+- **Parts V--VI, Chapters 51--72:** active. Chapters 51--52 are complete;
+  Chapter 53 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1480,4 +1480,28 @@ Nineteen overfull boxes elsewhere and thirteen duplicate PDF destinations
 in Chapter 70 remain recorded. Evidence and hashes are in
 [`ch51_quality_audit_20261001.md`](ch51_quality_audit_20261001.md).
 Chapter 52 is next; the whole-book goal continues. Verified commits remain
+local pending explicit remote-push approval.
+
+
+### Chapter 52 — complete
+
+The rays and test-curves chapter now supplies exact relative Perron and
+linear-supremum inputs, an explicit relative-energy definition, and precise
+normalization and parameter translations. Ideal-envelope monotonicity,
+concavity and increasing-net continuity have proofs or exact interfaces.
+The big-line-bundle filtration construction identifies its ideal-goodness
+and ideal-volume inputs. The hyperplane example controls arbitrary sections
+by monomials, handles endpoints and interface mass, and directly computes
+the product and truncated-ray energies.
+
+All eleven formal assertions have proofs or exact imports; all 25 reusable
+environments have labels. Three primary PDFs and 42 rendered source pages
+were checked. The 199,941 symbolic, rational and numerical checks, scoped
+and reference checks, six checker tests, unchanged inventory, full build,
+all twenty chapter pages at detail size, both seams and automatic second
+pass pass. Chapter 52 has no overfull boxes or LaTeX/package warnings.
+Nineteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded. Evidence and hashes are in
+[`ch52_quality_audit_20261001.md`](ch52_quality_audit_20261001.md).
+Chapter 53 is next; the whole-book goal continues. Verified commits remain
 local pending explicit remote-push approval.
