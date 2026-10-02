@@ -6408,3 +6408,43 @@ The direct audit claims no new independent verifier verdict.
 Evidence: editorial/ch69_quality_audit_20261002.md. Review PDF:
 /workspace/book-completion-drafts/Chapter_69_Final_Review_2026-10-02.pdf.
 Work remains local pending explicit remote-push approval.
+
+
+## Chapter 70: complete chapter-quality gate, 2 October 2026
+
+Chapter 70 has passed the sequential programme; Chapter 71 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+The full affine-cone link is distinguished from its invariant retract.
+Density is proved on that retract, and a counterexample prevents its
+extension to the full link. Probability measures keep invariant support;
+the projective comparison uses invariant metrics. Excellent boundary,
+curve ideal-profile, conductor transfer and Gauss-shell statements retain
+their exact domains. Two receipt-linked live blocks and six frozen inputs
+remain byte-identical. Thirteen duplicate PDF destinations are repaired.
+
+The audit covers the entire nine-file closure: 31 formal assertions/proofs,
+one foundational source input, 54 reusable environments and 192 labels.
+Seven PDFs and 85 selected pages were checked in text and visually; nineteen
+Stacks proof interfaces were read. The supplement passes 20,915 exact and
+240 numerical checks. Two full builds pass. The final PDF has 4,152 pages
+and 19,375,484 bytes. Main source SHA-256:
+76ff372e5ff7c62af3454945d9edcabbd657ba2f10015b66702e1bbb18bc8f31.
+PDF SHA-256:
+05d7ae70087c70154ec11d013941b929c3c653ea980957eb79f2af36ae5d1298.
+No unresolved references/citations, missing glyphs, rerun requests, fatal
+errors or duplicate PDF destinations remain. Chapter overflow and warning
+counts are zero; eighteen inherited overfull boxes elsewhere remain.
+
+All physical chapter pages 3503--3570 (printed 3433--3500) and adjoining
+pages 3502/3571 were visually inspected. The final build differs at only
+physical page 3505 in a unit-scale pixel comparison; that page was separately
+rendered and visually inspected. Post-render scoped review, frozen-byte
+checks and references pass for 425 inputs and 12,371 labels. All six checker
+tests, the unchanged 42-atom inventory and whitespace gates pass. The
+unavailable legacy house audit is replaced by the manual/scoped review.
+This audit claims no new independent verifier verdict or priority.
+
+Evidence: [ch70_quality_audit_20261002.md](ch70_quality_audit_20261002.md).
+Review PDF:
+/workspace/book-completion-drafts/Chapter_70_Final_Review_2026-10-02.pdf.
+Work remains local pending explicit remote-push approval.

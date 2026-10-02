@@ -54,7 +54,7 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part V, Chapters 51--62:** complete. All twelve chapters have passed
   the sequential quality gates.
-- **Part VI, Chapters 63--72:** active. Chapters 63--69 are complete; Chapter 70 is next.
+- **Part VI, Chapters 63--72:** active. Chapters 63--70 are complete; Chapter 71 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1859,4 +1859,31 @@ post-render audit, 425-input/12,354-label reference check, six tests,
 open-problem inventory and whitespace gates pass. Exact evidence is in
 [ch69_quality_audit_20261002.md](ch69_quality_audit_20261002.md).
 Chapter 70 is next; the whole-book goal continues. Work remains local
+pending explicit remote-push approval.
+
+
+### Chapter 70
+
+Chapter 70 now distinguishes the full affine-cone link from its invariant
+retract. A complete density proof on the invariant carrier and a full-link
+counterexample correct the source's broader density wording. Finite-energy
+measures keep invariant support, and the rational projective comparison
+uses invariant metrics. The excellent-ring and curve calculus retains its
+conductor, tower and radial scopes; the Gauss core remains a subset of the
+shell. The finite-mass positivity bound and exact strong-openness interface
+are explicit. Two receipt-linked live blocks and six frozen inputs remain
+byte-identical. Tagged display repairs remove all thirteen duplicate PDF
+destinations.
+
+The nine-file review covers 31 formal assertions/proofs and one separately
+typeset foundational import, 54 reusable environments and 192 labels. Seven
+PDFs, 85 selected pages and nineteen Stacks tag interfaces were checked.
+The supplement passes 20,915 exact and 240 numerical checks. Two full builds
+pass; all 68 chapter pages and two seams were inspected, with the sole final
+changed page separately reviewed. Chapter warning/overflow counts are zero.
+Post-render references pass for 425 inputs and 12,371 labels; all six tests,
+the unchanged 42-atom inventory and scoped/whitespace gates pass. Eighteen
+inherited overfull boxes remain for the whole-book pass. Exact evidence is
+in [ch70_quality_audit_20261002.md](ch70_quality_audit_20261002.md).
+Chapter 71 is next; the whole-book goal continues. Work remains local
 pending explicit remote-push approval.
