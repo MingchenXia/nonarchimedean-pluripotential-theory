@@ -56,8 +56,8 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part VI, Chapters 63--72:** complete. All ten chapters have passed the
   sequential quality gates.
-- **Appendices and front matter:** active. Appendices A--I are complete.
-  Appendix J is next, followed by the remaining appendices, front matter
+- **Appendices and front matter:** active. Appendices A--L are complete.
+  Appendix M is next, followed by the remaining appendix, front matter
   and final whole-book checks.
 
 ### Chapter 1
@@ -2005,4 +2005,25 @@ inventory, scope preservation and whitespace checks pass. No scoped
 overflow remains. Evidence is in
 [appendices_GHI_quality_audit_20261002.md](appendices_GHI_quality_audit_20261002.md).
 J--N and front matter are next; the whole-book completion goal continues.
+Work remains local pending explicit remote-push approval.
+
+
+### Appendices J--L
+
+The complete pass repairs calibrated orientation, model mass and energy
+normalizations, and the order-preserving ray transforms. It adds the worked
+two-length edge calculation. The provenance ledger distinguishes historical
+receipts from current statements, reconciles appendix source locators and
+records the current 42-atom inventory without extending a verifier verdict.
+
+All 4,614 source lines, 122 labels, 64 headings and seven reusable
+environments were reviewed. Six finite example families pass 3,298 checks.
+The other 119 appendix files, including 108 frozen input fragments, and
+archival receipt hashes are preserved. The 4,166-page full build passes;
+all 78 appendix pages and two seams were viewed in twenty sheets.
+Post-render references pass for 425 inputs and 12,508 labels; six checker
+tests, unchanged inventory, scope and whitespace gates pass. No scoped
+overflow remains. Evidence is in
+[appendices_JKL_quality_audit_20261002.md](appendices_JKL_quality_audit_20261002.md).
+M--N and front matter are next; the whole-book completion goal continues.
 Work remains local pending explicit remote-push approval.

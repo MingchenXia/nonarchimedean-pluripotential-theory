@@ -143,7 +143,8 @@ All 46 appendix pages and two seams were visually reviewed in twelve sheets:
 G physical 3813--3824 (printed 3743--3754), H 3825--3840 (3755--3770),
 I 3841--3858 (3771--3788), plus 3812 and 3859. A final navigation wording
 change in I was rebuilt and its affected sheets inspected again. Terminal
-blank pages are intentional chapter alignment. Warning boxes, equations,+the sign table and all supplemental table continuations are readable.
+blank pages are intentional chapter alignment. Warning boxes, equations,
+the sign table and all supplemental table continuations are readable.
 
 Post-render references pass for 425 inputs and 12,488 labels, with no
 missing input, duplicate label or dangling reference. Six checker tests,

@@ -6597,3 +6597,29 @@ Review: /workspace/book-completion-drafts/Appendices_GHI_Final_Review_2026-10-02
 This is a direct editorial/source audit without a new independent verifier
 verdict. J--N and front matter are next. Work remains local pending
 explicit remote-push approval.
+
+
+## Appendices J--L: complete quality gate, 2 October 2026
+
+Appendices A--L now pass the sequential programme. All three complete
+reference sources were read: 4,614 lines, 122 labels, 64 labelled headings
+and seven labelled reusable environments. The pass repairs calibrated
+orientation, typed model and energy mass conventions, ray-transform order
+and current-versus-historical source status. Six finite example families
+pass 3,298 checks. Precise imports reuse the completed chapter and A--I
+source gates; no fresh external PDF or independent verifier verdict is
+claimed. The other 119 appendix files, 108 frozen input fragments and
+archival hash fragments remain unchanged.
+
+The final full build has 4,166 pages and 19,452,255 bytes. All 78 appendix
+pages and two seams were visually inspected in twenty sheets. Post-render
+references pass for 425 inputs and 12,508 labels. Six checker tests, the
+unchanged 42-atom inventory, scope and whitespace checks pass. No scoped
+overflow remains. Eighteen inherited overfull boxes elsewhere and the
+class-path warning remain for the whole-book pass.
+
+Evidence: [appendices_JKL_quality_audit_20261002.md](appendices_JKL_quality_audit_20261002.md).
+PDF SHA-256: 20a9bc09018991cac0c2f9f7435f53b4db1b795f0e9fd90d7e8bb62216baef40.
+Review: /workspace/book-completion-drafts/Appendices_JKL_Final_Review_2026-10-02.pdf.
+M--N and front matter are next. Work remains local pending explicit
+remote-push approval.
