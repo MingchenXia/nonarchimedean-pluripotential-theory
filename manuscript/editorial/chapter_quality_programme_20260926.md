@@ -54,7 +54,7 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part V, Chapters 51--62:** complete. All twelve chapters have passed
   the sequential quality gates.
-- **Part VI, Chapters 63--72:** active. Chapter 63 is complete; Chapter 64 is next.
+- **Part VI, Chapters 63--72:** active. Chapters 63--64 are complete; Chapter 65 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1705,3 +1705,27 @@ unchanged 42-atom inventory pass. The precise source and preservation record
 is [ch63_quality_audit_20261002.md](ch63_quality_audit_20261002.md).
 Chapter 64 is next, and the whole-book goal continues. Work remains local
 pending explicit remote-push approval.
+
+
+### Chapter 64
+
+The comparison now fixes valuation units and rational presentations in the
+model product, states the exact connected BFJ signature, and separates BJ
+compactified energy from the divisorial coefficient dictionary. A false
+homogeneous intersection assertion is replaced by the exact scaling theorem
+and a conditional full-limit statement. A new curve example computes full
+limiting mass with infinite energy. First variation has its precise model
+segment scope. DH tail, moment and algebraic comparison proofs retain their
+initial mass and terminal atom. The mixed truncation estimate includes the
+Borel maximum rule, independent cutoffs and the raw energy constant.
+
+All twelve formal assertions, 21 reusable environments and 77 labels passed
+review. Six primary PDFs and 35 selected pages were checked. The exact
+supplement passes 10,835 checks in 25 families. The full build has 4,140 pages
+and 19,307,224 bytes. All twenty chapter pages and both seams were inspected;
+all final changed pages were reinspected. There is no chapter overflow or
+warning. Post-render references pass for 425 inputs and 12,275 labels; six
+checker tests and the unchanged 42-atom inventory pass. The precise evidence
+is [ch64_quality_audit_20261002.md](ch64_quality_audit_20261002.md).
+Chapter 65 is next; the whole-book goal continues. Work remains local pending
+explicit remote-push approval.

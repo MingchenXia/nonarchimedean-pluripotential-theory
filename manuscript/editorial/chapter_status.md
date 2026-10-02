@@ -6199,3 +6199,37 @@ inspected preceding versions byte for byte. No reviewed layout defect
 remains. Frozen releases and checksum ledgers are unchanged. This direct
 audit does not claim a new independent verifier verdict. Verified work
 remains local pending explicit remote-push approval.
+
+
+## Chapter 64: complete chapter-quality gate, 2 October 2026
+
+Chapter 64 has passed the sequential programme; Chapter 65 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch64_quality_audit_20261002.md](ch64_quality_audit_20261002.md).
+
+Twelve formal assertions, 21 labelled reusable environments and 77 labels
+were reviewed. Six primary PDFs and 35 selected pages were checked. The
+exact supplement passes 10,835 checks in 25 families. References pass for
+425 inputs and 12,275 labels; all six checker tests pass. The inventory
+remains 42 atoms in twelve environments, tiers (0,3,7,15,17). Post-render
+scoped/reference checks and git diff --check pass. The unavailable legacy
+house audit is replaced by the recorded manual and scoped review.
+
+The full build has 4,140 pages and 19,307,224 bytes. PDF SHA-256:
+a7398c0af89f1ad4e238b8c31a313f03d7d1047b3e4c46eba300697202ef25d0.
+Final source SHA-256:
+16b882eeec3371c660eee5fb22fc51c6c3b4caf13033c9fb06307a2f5a6c3159.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 64 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All twenty physical chapter pages 3327--3346 (printed 3257--3276) and both
+seams were visually inspected at detail size. All fourteen pages changed
+in the second build and all seven changed in the final repair were checked.
+The other fifteen final chapter/seam images match inspected preceding
+images byte for byte at the same render resolution. No reviewed layout
+defect remains. Frozen releases and checksum ledgers are unchanged. This
+direct audit does not claim a new independent verifier verdict. Verified
+work remains local pending explicit remote-push approval.
