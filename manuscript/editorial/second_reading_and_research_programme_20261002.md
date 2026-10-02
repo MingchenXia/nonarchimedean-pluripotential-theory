@@ -32,17 +32,18 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--7 pass the new source, build,
+Current reading position: Chapters 1--8 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
 [Chapter 3 audit](second_reading_ch03_audit_20261002.md),
 [Chapter 4 audit](second_reading_ch04_audit_20261002.md),
 [Chapter 5 audit](second_reading_ch05_audit_20261002.md),
-[Chapter 6 audit](second_reading_ch06_audit_20261002.md), and
-[Chapter 7 audit](second_reading_ch07_audit_20261002.md).
-Chapter 8's reading is underway, with slope-formula and normalization repairs
-identified. It has not passed its new reading gate.
+[Chapter 6 audit](second_reading_ch06_audit_20261002.md),
+[Chapter 7 audit](second_reading_ch07_audit_20261002.md), and
+[Chapter 8 audit](second_reading_ch08_audit_20261002.md).
+Chapter 9's source reading has reached line 1,920; no edits are made yet.
+It has not passed its new reading gate.
 No later chapter is marked reread.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
