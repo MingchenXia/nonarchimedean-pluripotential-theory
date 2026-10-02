@@ -15,9 +15,9 @@ fields, and graded reduction. Valuation rings, centers, and the extension
 theory of valuations along field extensions follow. The numerical invariants
 of a valuation---rank, rational rank, and residue transcendence
 degree---are then tied together by Abhyankar's inequality, and a gallery of
-fully computed valuations on $k(x,y)$ realizes every phenomenon the
-inequality permits. The chapter closes with the linear-growth condition used
-in \cref{part:bj}, a map from each class of valuations to its later role,
+fully computed valuations on $k(x,y)$ distinguishes equality from strict
+inequality and rank from rational rank. The chapter closes with the
+linear-growth condition used in \cref{part:bj}, a map from each class of valuations to its later role,
 and the multiplicative--additive dictionary.
 
 Throughout, rings are commutative with unit. Unless an ordered group is
@@ -142,9 +142,10 @@ $v_p(a)=m\log p$. The frequent normalization $v_p(p)=1$ replaces the base
 $\rme$ by the base $p$; by the remark above, this changes nothing
 structural.
 
-(3) On the Laurent series field $k((t))$, the assignment
-$v(f)=\operatorname{ord}_t(f)$ is a complete discretely valued absolute
-value $|f|=\rme^{-\operatorname{ord}_t f}$, trivial on $k$. Restricting
+(3) On the Laurent series field $k((t))$, the discrete valuation
+$v(f)=\operatorname{ord}_t(f)$ defines the absolute value
+$|f|=\rme^{-\operatorname{ord}_t f}$, trivial on $k$, for which
+$k((t))$ is complete. Restricting
 along $k(t)\subset k((t))$ gives the $t$-adic valuation of the rational
 function field. This pair is the algebraic model for all
 equicharacteristic discretely valued fields appearing in our
@@ -280,8 +281,11 @@ minimum convention, of its Newton polyhedron.
 \end{example}
 
 The monomial-ideal computation is the germ of the tropical point of view:
-the family of all monomial valuations, evaluated on the semiring of
-monomial ideals, is a compact tropical spectrum. This is proved in
+the family of monomial semivaluations, including infinite weights and
+proper-support points, evaluated on the semiring of monomial ideals, is a
+compact tropical spectrum. The finite-weight locus is
+$[0,+\infty)^n$; compactness comes from adding the infinite-weight
+boundary. This is proved in
 \cref{ex:monomial-tropical-spectrum} and generalized in
 \cref{app:tropical-algebra} and \cref{chap:tropical-spectra-complex}.
 
@@ -353,9 +357,10 @@ Consequently the two classical invariants of a point
 $x\in X^{\mathrm{an}}$---the value group $|\mathcal H(x)^\times|$ and the
 residue field $\widetilde{\mathcal H(x)}$---can be computed before
 completion, on the fraction field of $A/\mathfrak p_x$ itself. The graded
-computations of the next section do exactly this. For points of analytic
-curves, these two invariants separate types II and III from each other and
-from the pair \{I,\,IV\}: a point of type II enlarges the residue field,
+computations of the next section do exactly this. Over a complete,
+algebraically closed, nontrivially valued field $K$, these two invariants
+for points of the analytic affine line separate types II and III from
+each other and from the pair \{I,\,IV\}: a point of type II enlarges the residue field,
 a point of type III enlarges the value group, and a point of type I or IV
 enlarges neither.  They do \emph{not} separate I from IV, since
 $\mathcal H(x)$ is an immediate extension of $K$ in both cases
@@ -680,9 +685,12 @@ $\Gamma=F^\times/R^\times$ becomes totally ordered by
        [f]\leq[g]\quad\Longleftrightarrow\quad g/f\in R.
 \]
 The assumed alternative gives totality, and a direct check gives a
-translation-invariant order. The quotient map $F^\times\to\Gamma$, with the
-order reversed if necessary, is a valuation whose nonnegative elements are
-exactly $R$. See \cite[Chapter~VI, \S1]{ZariskiSamuelII} for the full
+translation-invariant order. With this order the quotient map
+$v:F^\times\to\Gamma$ has $v(f)\geq0$ exactly when $f\in R$.
+If $v(f)\leq v(g)$, then $g/f\in R$ and
+$(f+g)/f=1+g/f\in R$, so $v(f+g)\geq v(f)$; set $v(0)=+\infty$
+when the sum vanishes. Thus the quotient map is a valuation with
+valuation ring $R$. See \cite[Chapter~VI, \S1]{ZariskiSamuelII} for the full
 ordered-group formulation.
 \end{proof}
 
@@ -1039,9 +1047,9 @@ value; this is what makes fibres of finite morphisms over $x$
 well-defined analytic spaces over $\mathcal H(x)$, as used from
 \cref{chap:berkovich} onwards. When $K$ is trivially valued and $L/K$ is
 algebraic, the theorem also shows that the trivial valuation is the only
-extension: this is the reason closed points of a variety over a trivially
-valued field carry no moduli of semivaluations beyond scaling of their
-supports.
+extension. Thus, at a closed point of a variety over a trivially valued
+field, the associated semivaluation is uniquely determined: it is
+$+\infty$ on the support and $0$ elsewhere.
 \end{remark}
 
 \section{Rank and Abhyankar invariants}
@@ -1283,12 +1291,13 @@ $\operatorname{rank}(v)\leq\operatorname{rat.rk}(v)$ from
 \cref{lem:rank-leq-rational-rank}.
 \end{proof}
 
-Equality defines an \emph{Abhyankar valuation}.
+Equality in \cref{thm:abhyankar-inequality}, using rational rank,
+defines an \emph{Abhyankar valuation}.
 
 The refinement in \cref{thm:abhyankar-relative} is not decorative. It
-says that an Abhyankar valuation has value group $\mathbf Z^{\,r}$ for
-some $r$ and a residue field which is again a function field; both facts
-propagate through the gallery of the next section, where the refinement
+says that an Abhyankar valuation over a trivially valued ground field
+has value group $\mathbf Z^{\,r}$ for some $r$ and a residue field
+which is again a function field. Both facts propagate through the gallery of the next section, where the refinement
 is used to compute a residue field that resists direct attack. Every
 quasimonomial valuation is Abhyankar: by
 \cref{lem:monomial-invariants} below, a monomial valuation on an
@@ -1577,8 +1586,9 @@ an instance of composite valuations, whose ranks add; see
 
 \emph{Relation to the rank-one world.} The points of our analytic spaces
 are real semivaluations, so $v_{\mathrm{lex}}$ is not a point of
-$(\mathbf A^2)^{\mathrm{an}}$. It is, however, a limit of monomial
-points: for $f=\sum c_{ij}x^iy^j$ and all sufficiently small
+$(\mathbf A^2)^{\mathrm{an}}$. Its two components can nevertheless be
+recovered from a family of monomial points: for
+$f=\sum c_{ij}x^iy^j$ and all sufficiently small
 $\varepsilon>0$,
 \[
  v_{(1,\varepsilon)}(f)=\min_{c_{ij}\neq0}(i+\varepsilon j)
@@ -1875,13 +1885,7 @@ checked against this table.
 
 \section*{Source notes}
 
-The valuation-theoretic foundations are classical; we use
-\cite{ZariskiSamuelII} and the Stacks Project for scheme-theoretic valuative
-criteria. Berkovich points and completed residue fields follow
-\cite[Chapter~1]{Berk12}. Graded reduction in this form is due to Temkin;
-see \cite[\S1]{Temkin2004}.
-Abhyankar valuations and their monomialization are
-subtle in positive characteristic; no local uniformization theorem is being
-asserted here. Quasimonomial means \emph{monomial on an already available
-regular model}; it does not assert monomialization of every Abhyankar
-valuation in every characteristic.
+Classical valuation theory follows \cite{ZariskiSamuelII}; scheme-theoretic
+valuative criteria follow the Stacks Project. Completed residue fields follow
+\cite[Chapter~1]{Berk12}, and graded reduction follows
+\cite[\S1]{Temkin2004}.

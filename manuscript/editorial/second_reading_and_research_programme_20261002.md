@@ -28,9 +28,12 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapter 1 passes the new source, build, reference,
-and rendered-page gates; see [its audit](second_reading_ch01_audit_20261002.md).
-Chapter 2 is being read. No later chapter is marked reread.
+Current reading position: Chapters 1 and 2 pass the new source, build,
+reference, and rendered-page gates; see the
+[Chapter 1 audit](second_reading_ch01_audit_20261002.md)
+and [Chapter 2 audit](second_reading_ch02_audit_20261002.md).
+Chapter 3 source reading is complete and its editorial repairs are next.
+No later chapter is marked reread.
 
 The first repairs distinguish affine analytification from a compact affinoid
 spectrum, state integrality where the valuation cone has one trivial vertex,
@@ -73,11 +76,14 @@ Frozen dependency installation succeeds. CLI version and help succeed;
 the deterministic kernel smoke returns completed/result 25.
 The pinned Pi catalog contains the requested `openai/gpt-6.1-sol` model.
 
-The cloud environment currently provides no OpenAI API secret for the Pi
-solver. Codex CLI reports authenticated, but its initial model smoke fails
-before inference because its managed state path is read-only. These are
-infrastructure states, not mathematical failures or verifier findings.
-Provider setup is being resolved while the reading pass continues.
+The user now explicitly requests the local Codex subscription for execution.
+The installed Codex CLI is confirmed logged in through ChatGPT, rather than
+an API key. Its model smoke fails before inference because its managed state
+path is read-only, and this cloud chat has no attached local app terminal.
+Xean's Pi roles do not automatically inherit native CLI login. Supported
+subscription integration is being investigated; no API-key substitution is
+assumed. These are infrastructure states, not mathematical failures or
+verifier findings. The reading pass continues independently.
 P02.1 has been initialized with frozen task and settings, zero admitted model
 calls, and no generated mathematical notes. No Xean mathematical campaign
 has yet run, and no new problem is solved.

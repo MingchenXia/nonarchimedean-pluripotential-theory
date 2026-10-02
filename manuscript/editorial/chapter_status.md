@@ -4,8 +4,8 @@
 
 On 2 October 2026 the user requested another complete reading pass from
 Chapter 1 for coherence and readability, together with sequential research
-using Xean and `gpt-6.1-sol`/`xhigh`. Chapter 1 passes the new reading gate;
-Chapter 2 is being read. This new pass is tracked in
+using Xean and `gpt-6.1-sol`/`xhigh`. Chapters 1--2 pass the new reading
+gates; Chapter 3 source reading is complete and editorial repairs are next. This new pass is tracked in
 [the second reading and research programme](second_reading_and_research_programme_20261002.md).
 The completed second-draft status below describes its frozen edition.
 
