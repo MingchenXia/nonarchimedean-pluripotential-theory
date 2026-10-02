@@ -3,10 +3,10 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--13 pass the new reading
-gates; see the [Chapter 13 audit](second_reading_ch13_audit_20261002.md).
-Chapter 14 has been freshly read through lines 1--1320 of its 4,073-line
-source; its two active proof inputs have not yet been freshly read. There
+Chapter 1 for coherence and readability. Chapters 1--14 pass the new reading
+gates; see the [Chapter 14 audit](second_reading_ch14_audit_20261002.md).
+Chapter 15 has been freshly read through lines 1--1095 of its 4,920-line
+source; its 57 direct active inputs have not yet been freshly read. There
 are no edits, and its remaining reading and verification gates remain open.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and

@@ -32,7 +32,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--13 pass the new source, build,
+Current reading position: Chapters 1--14 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -45,10 +45,11 @@ reference, and rendered-page gates; see the
 [Chapter 9 audit](second_reading_ch09_audit_20261002.md),
 [Chapter 10 audit](second_reading_ch10_audit_20261002.md),
 [Chapter 11 audit](second_reading_ch11_audit_20261002.md),
-[Chapter 12 audit](second_reading_ch12_audit_20261002.md), and
-[Chapter 13 audit](second_reading_ch13_audit_20261002.md).
-Chapter 14 has been freshly read through lines 1--1320 of its 4,073-line
-source; its two active proof inputs have not yet been freshly read. There
+[Chapter 12 audit](second_reading_ch12_audit_20261002.md),
+[Chapter 13 audit](second_reading_ch13_audit_20261002.md), and
+[Chapter 14 audit](second_reading_ch14_audit_20261002.md).
+Chapter 15 has been freshly read through lines 1--1095 of its 4,920-line
+source; its 57 direct active inputs have not yet been freshly read. There
 are no edits, and its remaining reading, scope and rendered-page gates
 remain open.
 No later chapter is marked reread.
