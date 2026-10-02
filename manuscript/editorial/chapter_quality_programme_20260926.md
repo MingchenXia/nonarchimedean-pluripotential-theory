@@ -56,9 +56,8 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part VI, Chapters 63--72:** complete. All ten chapters have passed the
   sequential quality gates.
-- **Appendices and front matter:** active. Appendices A--L are complete.
-  Appendix M is next, followed by the remaining appendix, front matter
-  and final whole-book checks.
+- **Appendices and front matter:** active. Appendices A--N are complete.
+  Front matter is next, followed by final whole-book checks.
 
 ### Chapter 1
 
@@ -2027,3 +2026,28 @@ overflow remains. Evidence is in
 [appendices_JKL_quality_audit_20261002.md](appendices_JKL_quality_audit_20261002.md).
 M--N and front matter are next; the whole-book completion goal continues.
 Work remains local pending explicit remote-push approval.
+
+
+### Appendices M--N
+
+The complete pass reconciles the full supplied pluriharmonic theorem with
+M's earlier specialized proofs and both hypothesis ledgers. The arbitrary
+continuous zero-current residual remains explicit. Source notes distinguish
+the CLD core, later extensions and further descent dependencies. N adds a
+reader route and a precise boundary for its four archived comparison proofs.
+
+Both complete roots were read: 4,557 lines, 82 labels, twelve labelled
+headings, 46 labelled reusable environments and 40 assertion/proof pairs.
+N's four unchanged proof files, 1,291 lines and nine proofs, were freshly
+read in full. M's 104 unchanged fragments reuse the completed Chapter 18
+source/proof gates; no fresh complete reading of those fragments is claimed.
+All 108 included fragments, 120 other appendix files and archival hashes
+remain unchanged. The 4,166-page build passes; all 208 appendix pages and
+two seams were viewed in 53 sheets. Post-render references pass for 425
+inputs and 12,514 labels; six checker tests, unchanged inventory, scope,
+semantic-label, delimiter and whitespace gates pass. No scoped overflow
+remains. Evidence is in
+[appendices_MN_quality_audit_20261002.md](appendices_MN_quality_audit_20261002.md).
+All Chapters 1--72 and Appendices A--N are complete under the programme.
+Front matter and final whole-book checks are next. Work remains local
+pending explicit remote-push approval; the completion goal continues.

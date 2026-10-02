@@ -6623,3 +6623,28 @@ PDF SHA-256: 20a9bc09018991cac0c2f9f7435f53b4db1b795f0e9fd90d7e8bb62216baef40.
 Review: /workspace/book-completion-drafts/Appendices_JKL_Final_Review_2026-10-02.pdf.
 M--N and front matter are next. Work remains local pending explicit
 remote-push approval.
+
+
+## Appendices M--N: complete quality gate, 2 October 2026
+
+All Chapters 1--72 and Appendices A--N pass the sequential programme. Both
+appendix roots were read in full; N's four archived proof files received a
+fresh complete proof review, while M's 104 unchanged fragments reuse the
+completed Chapter 18 gate. The pass corrects current pluriharmonic scope,
+retains the continuous zero-current residual and makes comparison-proof
+and historical-receipt boundaries explicit. All 108 included fragments,
+120 other appendix files and historical hash fragments remain unchanged.
+
+The full build has 4,166 pages and 19,454,939 bytes. All 208 appendix pages
+and two seams were visually inspected in 53 sheets. Post-render references
+pass for 425 inputs and 12,514 labels. Six checker tests, the unchanged
+42-atom inventory, scope, semantic-label, delimiter and whitespace checks
+pass. No scoped overflow remains. Eighteen inherited overfull boxes and
+the class-path warning remain for the final whole-book pass.
+
+Evidence: [appendices_MN_quality_audit_20261002.md](appendices_MN_quality_audit_20261002.md).
+PDF SHA-256: 0e3ee8af63008b85d11e0582a10448ec1ea9a27d77fd67e489209101006ce51c.
+Review: /workspace/book-completion-drafts/Appendices_MN_Final_Review_2026-10-02.pdf.
+No new independent verifier verdict is claimed. Front matter and final
+whole-book checks are next. Work remains local pending explicit remote-push
+approval; the completion goal continues.
