@@ -6060,3 +6060,38 @@ intentionally blank. No reviewed chapter layout defect remains. Frozen
 releases and checksum ledgers are unchanged. This direct editorial/source
 audit does not claim an independent verifier verdict. Verified work remains
 local pending explicit remote-push approval.
+
+
+## Chapter 60: complete chapter-quality gate, 2 October 2026
+
+Chapter 60 has passed the sequential programme; Chapter 61 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are in
+[`ch60_quality_audit_20261002.md`](ch60_quality_audit_20261002.md).
+
+There are 37 formal assertions, 63 labelled reusable environments and
+152 labels. Ten primary PDFs and 64 rendered source pages were checked,
+along with a fresh Stacks statement and proof. The exact supplement
+passes 42,871 checks. References pass for 425 inputs and 12,187 labels;
+all six checker tests pass. The inventory remains 42 atoms in twelve
+environments, tiers (0,3,7,15,17). Post-render scoped and reference checks
+and `git diff --check` pass. The unavailable legacy house-audit command
+is replaced by the recorded manual and scoped structural review.
+
+The full build gives 4,128 pages and 19,271,700 bytes, PDF SHA-256
+`67fca7a82075f3846a384889ef1b3ceae48c34990beee5e97c52c1f9c407c4f3`.
+Final source SHA-256:
+`464a26e21671b6f9d1845a53ad46e21c1632f050559fbfa027f2412cc4a298eb`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 60 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All 54 physical chapter pages 3195--3248 (printed 3125--3178) and both
+adjoining seams were inspected at detail size. All thirteen pages changed
+by the final layout repair were reinspected; the other final page images
+match the inspected preceding build byte for byte. Physical 3248 is
+intentionally blank. No reviewed chapter layout defect remains. Frozen
+releases and checksum ledgers are unchanged. This direct editorial/source
+audit does not claim an independent verifier verdict. Verified work remains
+local pending explicit remote-push approval.

@@ -52,8 +52,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
   the sequential quality gates.
-- **Parts V--VI, Chapters 51--72:** active. Chapters 51--59 are complete;
-  Chapter 60 is next.
+- **Parts V--VI, Chapters 51--72:** active. Chapters 51--60 are complete;
+  Chapter 61 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1619,3 +1619,26 @@ checked. All seventeen assertions, twelve examples, 15,136 calculation checks,
 full build, thirty chapter pages and both seams, post-render scoped and
 reference checks pass. Evidence is in `ch59_quality_audit_20261002.md` and
 `chapter_status.md`. Chapter 60 is next; the whole-book goal continues.
+
+
+### Chapter 60
+
+The probability convention now has an explicit conversion to the book's
+unnormalized measures, energies and distances. A new arbitrary-volume
+curve example checks both conventions, the nef interval, endpoint atoms
+and the entropy mass shift. The rational scaling calculation has its
+correct ideal exponent. Thirteen labelled subsections expose the model,
+completion, ray, mixed-slope, entropy and stability dependencies; all
+63 reusable environments are labelled. Exact author-version citations
+replace two imprecise source keys.
+
+The complete proof review retains the precise imported analytic inputs,
+net arguments, finite-energy differences, terminal test-curve convention,
+reduced entropy and normalized-model boundary. Ten primary PDFs and
+64 rendered source pages, plus the Stacks fiber-ampleness statement and
+proof, were checked. Exact calculations pass 42,871 checks. All 54
+chapter pages and both seams were inspected at detail size, including
+the final repairs that keep compact statements and warnings together.
+Build, scoped structure and post-render reference checks pass; evidence
+is in `ch60_quality_audit_20261002.md` and `chapter_status.md`.
+Chapter 61 is next, and the whole-book goal continues.
