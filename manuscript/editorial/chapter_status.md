@@ -6374,3 +6374,37 @@ No reviewed layout defect remains. Historical releases, receipts and
 checksum ledgers are unchanged. The literature cutoff remains 22 August
 2026; no new research promotion or independent verifier verdict is claimed.
 Work remains local pending explicit remote-push approval.
+
+
+## Chapter 69: complete chapter-quality gate, 2 October 2026
+
+Chapter 69 has passed the sequential programme; Chapter 70 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+All ten outcomes are identified. Analytic equality is distinguished from
+proper-pushforward equality, and the fixed-complex proof locates its weak
+limit. The I-input/P-output trace map and split trace use the exact Chapter
+67 reconstruction, including uniform positivity and Xia's canonical-limit
+interface. The mass-body counterexample constructs its Green potential;
+the toric volume and PL Dirac-curvature examples are explicit. Five
+receipt-linked live baseline blocks are byte-identical; historical packets
+and checksum ledgers are untouched.
+
+The audit covers seventeen formal assertions/proofs, 33 labelled reusable
+environments and 108 labels. Eight PDFs and 61 selected pages were checked
+in text and visually, with recent Xia/BEGZ text reuse identified. Twelve
+calculation families pass 11,863 exact and 90 numerical checks. Two full
+builds pass; the final PDF has 4,150 pages and 19,368,105 bytes. Main source
+SHA-256: 6f736a9ae43301ba572744a33c7009ad57fe45fee057cd8cf6810342038b312a.
+PDF SHA-256: 60922228dcf6bd2009babe5ada78bd4e50aef5aed87edb0d4502440b947b8db5.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 69 has zero overfull boxes or LaTeX/package warnings.
+All final physical pages 3477--3502 (printed 3407--3432), and seam pages
+3476/3503, were visually inspected. Post-render scoped review and references
+pass for 425 inputs and 12,354 labels; six checker tests, the 42-atom inventory
+and whitespace gates pass. Eighteen inherited overfull boxes and thirteen
+Chapter 70 duplicate PDF destinations remain for the final book pass.
+The direct audit claims no new independent verifier verdict.
+
+Evidence: editorial/ch69_quality_audit_20261002.md. Review PDF:
+/workspace/book-completion-drafts/Chapter_69_Final_Review_2026-10-02.pdf.
+Work remains local pending explicit remote-push approval.

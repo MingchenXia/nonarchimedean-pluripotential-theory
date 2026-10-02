@@ -54,7 +54,7 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part V, Chapters 51--62:** complete. All twelve chapters have passed
   the sequential quality gates.
-- **Part VI, Chapters 63--72:** active. Chapters 63--68 are complete; Chapter 69 is next.
+- **Part VI, Chapters 63--72:** active. Chapters 63--69 are complete; Chapter 70 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1834,4 +1834,29 @@ Post-render scope and references, all six checker tests, the unchanged
 42-atom inventory and whitespace gates pass. Exact evidence is recorded in
 [ch68_quality_audit_20261002.md](ch68_quality_audit_20261002.md).
 Chapter 69 is next; the whole-book goal continues. Work remains local
+pending explicit remote-push approval.
+
+
+### Chapter 69
+
+Chapter 69 now distinguishes all ten outcomes and analytic equality upstairs
+from equality after tropical pushforward. The five receipt-linked live
+baseline proof blocks remain byte-identical. Fixed-complex weak limits are
+shown to remain in the compact image. The trace quotient uses its exact
+I-input/P-output interface, and the split proof supplies uniform positivity,
+Fubini pullback and the canonical P_I approximation limit. The no-go proof
+constructs its potential with a normalized Green kernel. The segment and
+nonsmooth PL examples now expose the volume and Dirac-curvature calculations.
+Exact regularization source locators and all boundary restrictions remain
+explicit.
+
+Seventeen formal assertions, 33 labelled reusable environments and 108
+labels pass. Eight PDFs and 61 selected pages pass the text/interface and
+visual checks, with documented reuse of recent Xia/BEGZ text checks. The
+supplement passes 11,863 exact and 90 numerical checks. Two full builds pass;
+all 26 final chapter pages and two seams were visually inspected. The scoped
+post-render audit, 425-input/12,354-label reference check, six tests,
+open-problem inventory and whitespace gates pass. Exact evidence is in
+[ch69_quality_audit_20261002.md](ch69_quality_audit_20261002.md).
+Chapter 70 is next; the whole-book goal continues. Work remains local
 pending explicit remote-push approval.
