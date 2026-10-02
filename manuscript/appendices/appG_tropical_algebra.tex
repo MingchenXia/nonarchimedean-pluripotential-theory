@@ -39,8 +39,11 @@ Its natural order is
 \]
 \end{definition}
 
-Associativity and idempotence show that \(\preceq\) is a partial order.
-Addition is supremum for this order, and multiplication is order preserving.
+Reflexivity is idempotence.  If \(a\oplus b=b\) and \(b\oplus a=a\),
+commutativity gives \(a=b\).  If also \(b\oplus c=c\), then
+\(a\oplus c=a\oplus(b\oplus c)=(a\oplus b)\oplus c=c\), proving
+transitivity.  The same identities show that \(a\oplus b\) is the least
+upper bound of \(a,b\); distributivity makes multiplication order preserving.
 
 \begin{example}[Max-plus and min-plus]
 \label{ex:appG-max-min}
@@ -62,6 +65,7 @@ The natural order of \(\mathbf T_{\max}\) is the usual order, while that of
 \end{example}
 
 \begin{warning}{Do not adjoin both infinities}
+\label{warn:appG-two-infinities}
 The expression \(+\infty+(-\infty)\) is undefined.
 Thus \(\mathbf R\cup\{-\infty,+\infty\}\), with tropical multiplication
 given by ordinary addition, is not a semifield without an extra convention.
@@ -115,8 +119,9 @@ Its support
 is prime.
 Indeed, it is an ideal by the ultrametric inequality and nonnegativity, and
 \(fg\in\mathfrak p_v\) forces one of \(v(f),v(g)\) to be infinite.
-The semivaluation descends to a valuation on the fraction field of
-\(A/\mathfrak p_v\) whenever that quotient is a domain.
+Since the support is prime, the quotient \(A/\mathfrak p_v\) is a domain.
+The semivaluation extends to its fraction field by
+\(v(\bar f/\bar g)=v(f)-v(g)\) for \(\bar g\neq0\).
 
 \begin{definition}[Ideal semiring]
 \label{def:appG-ideal-semiring}
@@ -180,11 +185,13 @@ Since \((f+g)\subseteq(f,g)\), the natural semiring order gives
 \]
 The two constructions are inverse because principal ideals generate all
 values in the first formula.
-Finally, every coordinate on either side is one of the evaluation maps in
-\eqref{eq:appG-character-correspondence}, proving the topological claim.
+Finally, the inverse uses principal-ideal evaluations, while each forward
+coordinate is a finite minimum of evaluations.  Finite minimum is
+continuous on the one-sided extended real line, proving the topological claim.
 \end{proof}
 
 \begin{remark}[Noetherian and coherent versions]
+\label{rem:appG-coherent-version}
 If \(A\) is Noetherian, every ideal is finitely generated.
 For a complex space, coherent ideal sheaves replace finitely generated
 ideals.
@@ -215,6 +222,7 @@ all evaluation coordinates.
 ideal semirings on compact complex spaces.
 
 \subsection{Extended tropical affine space}
+\label{sec:appG-extended-affine}
 
 Give \(\mathbf R\cup\{+\infty\}\) the topology transported from
 \([0,+\infty)\) by \(u\mapsto \rme^{-u}\), with \(\rme^{-\infty}=0\).
@@ -267,11 +275,12 @@ If \(|f|,|g|>0\), then
                     \widetilde{fg}=\widetilde f\,\widetilde g.
 \tag{G.14}\label{eq:appG-initial-product}
 \]
-If \(|f|=|g|=r\), then
+If \(|f|=|g|=r\), write \([h]_r\) for the degree-\(r\) class of an
+element \(h\in A_{\leq r}\).  Then
 \[
- \widetilde{f+g}=
+ [f+g]_r=\widetilde f+\widetilde g=
  \begin{cases}
- \widetilde f+\widetilde g,&|f+g|=r,\\
+ \widetilde{f+g},&|f+g|=r,\\
  0\text{ in degree }r,&|f+g|<r.
  \end{cases}
 \tag{G.15}\label{eq:appG-initial-sum}
@@ -285,6 +294,15 @@ For sums, the ultrametric inequality puts \(f+g\) in \(A_{\leq r}\).
 Its degree-\(r\) class is the sum of the two classes, which vanishes exactly
 when cancellation lowers the norm.
 \end{proof}
+
+\begin{example}[Cancellation and the new degree]
+\label{ex:appG-cancelled-degree}
+If the norm drops but \(f+g\neq0\), its initial form in its new degree
+need not vanish.  For example, on \(\mathbf Q((T))\) with
+\(|T|=\rme^{-1}\), take \(f=1\) and \(g=-1+T\).  Their degree-one
+classes cancel, while \(f+g=T\) has a nonzero initial form in degree
+\(\rme^{-1}\).
+\end{example}
 
 In additive notation, for a semivaluation \(v\) with support
 \(\mathfrak p_v\), set
@@ -307,6 +325,7 @@ The changes of variables \(r=\rme^{-\gamma}\) and \(v=-\log|\cdot|\) identify
 \eqref{eq:appG-additive-graded}.
 
 \begin{warning}{Ordinary residue loses radii}
+\label{warn:appG-residue-radii}
 The degree-one part alone records only elements of norm at most one modulo
 elements of norm less than one.
 Different radii, and hence rational ranks used in tropical dimension
@@ -325,12 +344,14 @@ This appendix uses only the elementary filtration calculus above.
 \section{Initial forms and tropical hypersurfaces}
 \label{sec:appG-initial-tropical}
 
-Let \(M\) be a lattice, \(N=M^\vee\), and consider a Laurent polynomial
+Let \(K\) be a valued field, with \(v=-\log|\cdot|\), let \(M\) be a
+lattice and \(N=M^\vee\), and consider a nonzero Laurent polynomial over \(K\)
 \[
                               f=\sum_{m\in S}a_m\chi^m
 \tag{G.17}\label{eq:appG-laurent}
 \]
-whose finite support \(S\subset M\) has been collected by exponent.
+whose finite support \(S\subset M\) has been collected by exponent, with
+\(a_m\neq0\) for every \(m\in S\).
 For \(u\in N_{\mathbf R}\), define
 \[
  \operatorname{trop}(f)(u)
@@ -357,14 +378,19 @@ The point \(u\) lies in the corner locus if and only if
 \end{proposition}
 
 \begin{proof}
-Rescale every term by its weight.
-Terms of strictly larger weight vanish in the leading graded piece, while
-the minimum-weight terms survive.
+Give the coefficient initial form of \(a_m\) its valuation degree
+\(v(a_m)\), and give \(\chi^m\) the additional degree
+\(\langle m,u\rangle\) in the weighted graded Laurent algebra.
+At the minimum total degree, retain precisely those nonzero coefficient
+initial forms whose total degrees attain the minimum.
+This construction does not require an element of \(K\) realizing the
+real weight \(\langle m,u\rangle\).
 Because the polynomial was collected by exponent, one surviving exponent
 gives a monomial and at least two give a nonmonomial initial form.
 \end{proof}
 
 \begin{warning}{Fundamental-theorem boundary}
+\label{warn:appG-fundamental-boundary}
 \Cref{prop:appG-initial-form-test} is algebraic bookkeeping.
 Identifying the corner locus with the closure of valuations of actual zeros
 is the fundamental theorem of tropical geometry and requires hypotheses on
@@ -474,9 +500,13 @@ the calibrated pushforward.
 \item Subdivision preserves a calibrated integral: new top cells inherit the
       old calibration, and new internal codimension-one faces cancel in
       pairs.
-\item Under a generically finite integer-affine map, calibrated pushforward
-      preserves integrals: the source calibration, which already contains
-      its geometric multiplicity, is multiplied once by
+\item Under a generically finite integer-affine map \(F\) with locally
+      finite pushed-forward calibration and properness on the support
+      of the test form, calibrated
+      pushforward satisfies \(\int F^*\alpha=\int\alpha\) for a
+      compactly supported target \((q,q)\)-superform \(\alpha\), with
+      the right integral taken against the pushed-forward calibration.
+      Each source weight is multiplied once by
       \eqref{eq:appG-lattice-index}.
 \item Reversing orientation changes a top real form integral by a sign, but
       does not change the positive measure of a positive \((q,q)\)-form,
@@ -488,14 +518,19 @@ the calibrated pushforward.
 \begin{proof}
 On an internal codimension-one face, the primitive normal vectors of the two
 adjacent new cells are opposite.
-For projection, choose lattice bases; the determinant of the lattice map is
-the index \eqref{eq:appG-lattice-index}, which is exactly the Jacobian of
-lattice-normalized measure.
+For projection, choose lattice bases and let \(D\) be the absolute
+determinant of the full-rank tangent lattice map.  Pullback of a
+\((q,q)\)-superform contributes \(D^2\), one determinant from each
+exterior factor.  Changing variables in the ordinary integral contributes
+\(D^{-1}\), leaving exactly the index \(D\) in
+\eqref{eq:appG-lattice-index}.  Sum this calculation over the locally
+finite source cells.
 The last assertion follows because the two exterior factors contribute the
 same orientation sign, whose square is one.
 \end{proof}
 
 \begin{warning}{Inward versus outward}
+\label{warn:appG-boundary-orientation}
 Our vector \(u_{\sigma/\tau}\) points into \(\sigma\), as in
 \eqref{eq:appG-primitive-normal}.
 An outward-normal-first Stokes convention uses its negative.
@@ -521,12 +556,14 @@ A calculation giving one has discarded the lattice calibration.
 \section{Analytic tropical multiplicities}
 \label{sec:appG-analytic-multiplicity}
 
+Work over a complete non-Archimedean ground field.
 Let \(Z\) be a pure \(q\)-dimensional effective analytic cycle on a good Hausdorff
 boundaryless analytic space, and let
 \(f:U\to\mathbf G_m^r\) be a moment map on a neighborhood of its support.
-Assume that \(f\) has tropical dimension \(q\) along \(Z\); equivalently, on
-each top cell used below a generic integer-affine projection of \(f\) to a
-\(q\)-torus is generically finite on \(Z\).  Denote by \(\Sigma_f(Z)\) the
+Assume that \(f\) has tropical dimension \(q\) along \(Z\).  Work on the
+convenient top cells where an auxiliary projection to a \(q\)-torus
+has the finite flat local degree specified in \cite[\S14.3.2]{CLD25}.
+Denote by \(\Sigma_f(Z)\) the
 \(q\)-dimensional characteristic skeletal locus of the moment map on \(Z\),
 and choose a convenient cellular decomposition of it in the sense of
 \cite[\S14.3.2]{CLD25}.  Let \(C\) be a top cell and put
@@ -536,7 +573,7 @@ tropicalization is injective on the affine span of \(\sigma\), let
 \(s_p:\mathbf R^q\to\langle\sigma\rangle\) be the resulting affine inverse,
 and let \(e_q\) be the lattice volume vector on \(\mathbf R^q\).  On the
 relative interior of \(C\), the analytic local degree
-\(d_C=\deg_x(p\circ f|_Z)\) is constant, with degree extended additively
+\(d_C=\deg_x(p\circ f|_Z)\) is a constant positive integer, with degree extended additively
 over the effective cycle \(Z\).  The canonical calibration is
 \[
 \begin{aligned}
@@ -555,12 +592,19 @@ same target cell, their pushed-forward calibrations are added.  After choosing
 the lattice orientation \(e_\sigma\), write the resulting target calibration
 as \(\mu_\sigma=m(\sigma)e_\sigma\); these are the positive calibration
 weights used below (and need not be integral without additional strictness and
-ground-field hypotheses).
+ground-field hypotheses).  This target construction is used on
+polyhedral subcharts where the map of calibrated skeletal supports is
+topologically compact, so that the sums of source calibrations are locally
+finite.  A global target statement additionally assumes this compactness
+and properness of \(f\) on the support of \(Z\).
 
 \begin{theorem}\label{thm:appG-analytic-calibration}
-In the preceding setting, the \(q\)-dimensional tropicalization
-\(\operatorname{Trop}_f(Z)\) is balanced with the
-multiplicities \eqref{eq:appG-analytic-multiplicity}.
+In the preceding setting, the target calibration is balanced on such
+polyhedral subcharts at faces whose preimages lie in the boundaryless
+interior.  Under the global compactness and properness conditions just
+stated, the locally finite \(q\)-dimensional tropicalization
+\(\operatorname{Trop}_f(Z)\) is balanced with the multiplicities
+\eqref{eq:appG-analytic-multiplicity}.
 These calibrations are compatible with product refinements and with
 generically finite integer-affine projections on polyhedral subcharts for
 which the induced map on the calibrated support is topologically compact; a
@@ -583,9 +627,9 @@ The imported input for balancing is
 \(q\), with the canonical calibration just described, is harmonious.  By the
 definition of harmony, the calibrated discordance vector at every
 codimension-one face \(\tau\) is zero.  Pair that vector with an integer
-covector \(\ell\) vanishing on \(N_\tau\).  Since the outgoing primitive
-normal of a top cell \(\sigma\supset\tau\) is
-\(u_{\sigma/\tau}\), the resulting scalar identity is
+covector \(\ell\) vanishing on \(N_\tau\).  Using the primitive normal
+\(u_{\sigma/\tau}\) pointing into each incident top cell
+\(\sigma\supset\tau\), the resulting scalar identity is
 \[
        \sum_{\sigma\supset\tau}
        m(\sigma)\,\ell(u_{\sigma/\tau})=0.
@@ -608,6 +652,28 @@ and target bases contributes exactly
 \Cref{prop:appG-calibration-tests}.  This proves the two asserted
 compatibilities and also explains the properness clause in the statement.
 \end{proof}
+
+\begin{example}[Degree and inverse lattice index]
+\label{ex:appG-degree-index}
+For the identity moment on an analytic one-dimensional torus, use the
+auxiliary projection \(p(t)=t^2\).  Its finite flat degree is two, even
+in residue characteristic two.  The tropical map is \(u\mapsto2u\),
+so its inverse sends the lattice vector to one half of that vector.
+Thus \(d_C(s_p)_*e_1=2\cdot\tfrac12e_1=e_1\), agreeing with the
+identity projection.  The integer local degree and the coefficient of
+the calibration are distinct data.
+\end{example}
+
+\begin{example}[An infinite target fibre]
+\label{ex:appG-infinite-target-fibre}
+Take a countable disjoint union of analytic one-dimensional tori and let
+\(f\) be the identity moment on every component.  The source is good,
+Hausdorff and boundaryless, and each local calibration has weight one.
+Every target skeletal point has infinitely many source preimages, however,
+so summing the target weights gives infinity.  The compactness condition
+in \Cref{thm:appG-analytic-calibration} excludes this example; local
+harmony alone does not make a global pushed-forward calibration finite.
+\end{example}
 
 The goodness and boundarylessness hypotheses are part of the statement.
 For spaces with boundary or without the goodness assumptions, the chapter
@@ -638,7 +704,8 @@ tropical-cycle top-cell weight &
 nonzero integer, positive for an effective tropical subspace &
 orientation is separate from the sign of a cycle weight\\
 analytic calibration weight &
-positive real local degree in the general CLD setting &
+positive real coefficient obtained from integer local degree and inverse
+lattice map &
 integrality requires the additional strictness and ground-field hypotheses
 stated near \eqref{eq:appG-analytic-multiplicity}\\
 stable intersection &
@@ -683,6 +750,7 @@ identity stated at the beginning of the appendix.  Thus these are checked
 normalizations.
 
 \section*{Source note}
+\label{sec:appG-source-note}
 
 Graded reductions in analytic geometry follow Temkin
 \cite{Temkin2004}.

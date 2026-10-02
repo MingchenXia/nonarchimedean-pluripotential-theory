@@ -56,8 +56,8 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part VI, Chapters 63--72:** complete. All ten chapters have passed the
   sequential quality gates.
-- **Appendices and front matter:** active. Appendices A--F are complete.
-  Appendix G is next, followed by the remaining appendices, front matter
+- **Appendices and front matter:** active. Appendices A--I are complete.
+  Appendix J is next, followed by the remaining appendices, front matter
   and final whole-book checks.
 
 ### Chapter 1
@@ -1981,3 +1981,28 @@ No scoped overflow remains. The other 119 appendix files are preserved.
 Evidence is in [appendices_DEF_quality_audit_20261002.md](appendices_DEF_quality_audit_20261002.md).
 G--I are the next active unit. Work remains local pending explicit
 remote-push approval; the whole-book completion goal continues.
+
+
+### Appendices G--I
+
+The complete pass repairs initial-degree cancellation and calibrated
+analytic pushforward, including local finiteness, integer local degree and
+the determinant for top-degree superforms. The complex reference sheet now
+uses exact relative-energy, metric, domination, multiplier-ideal and ray
+inputs, with a local uniform valuative margin and separate continuity
+hypotheses. The Stacks supplement records 57 additional dependency tags;
+a rejected Picard citation and two decimal false matches are excluded.
+
+All 13 assertion/proof pairs, 51 reusable environments, 61 headings and
+138 labels were reviewed. Seven PDFs and 41 source pages were read and
+viewed in fourteen sheets. All 78 catalogued tag statements were checked
+at their actual imported scope; a complete proof review of every external
+source is not claimed. Twelve finite calculation families pass 118,721
+example checks. The 4,164-page build passes; all 46 appendix pages and
+two seams were viewed in twelve sheets. Post-render references pass for
+425 inputs and 12,488 labels; six checker tests, the unchanged research
+inventory, scope preservation and whitespace checks pass. No scoped
+overflow remains. Evidence is in
+[appendices_GHI_quality_audit_20261002.md](appendices_GHI_quality_audit_20261002.md).
+J--N and front matter are next; the whole-book completion goal continues.
+Work remains local pending explicit remote-push approval.

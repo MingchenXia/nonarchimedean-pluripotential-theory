@@ -6569,3 +6569,31 @@ PDF SHA-256: f5fb5cc118b48afd5d86229756963870d386e012fe62f20ee6e9ddcdb3d08ede.
 Review: /workspace/book-completion-drafts/Appendices_DEF_Final_Review_2026-10-02.pdf.
 This is a direct editorial/source audit, without a new independent verifier
 verdict. Work remains local pending explicit remote-push approval.
+
+
+## Appendices G--I: complete quality gate, 2 October 2026
+
+Appendices A--I now pass the sequential programme. The pass repairs
+tropical cancellation and calibration scope, exact complex relative-energy
+and singularity interfaces, and the compiled-source Stacks dependency map.
+All three complete sources were read: 13 assertion/proof pairs, 51 reusable
+environments, 61 headings and 138 labels. Seven primary PDFs and 41 pages
+were read and viewed in fourteen sheets. The 21 principal and 57
+supplemental Stacks statements were checked; 0DSV is recorded as a rejected
+citation, and two numerical false matches are excluded. Twelve finite
+calculation families pass 118,721 example checks. The other 119 appendix
+files, including all 108 frozen input fragments, are preserved.
+
+The final full build has 4,164 pages and 19,445,205 bytes. All 46 appendix
+pages and two seams were visually inspected in twelve sheets. Post-render
+references pass for 425 inputs and 12,488 labels. Six checker tests, the
+unchanged 42-atom inventory, scoped review and whitespace checks pass. No
+scoped overflow remains. Eighteen inherited overfull boxes elsewhere and
+the class-path warning remain for the whole-book pass.
+
+Evidence: [appendices_GHI_quality_audit_20261002.md](appendices_GHI_quality_audit_20261002.md).
+PDF SHA-256: 2d7bc147fb4d435c0834613e25f60659213228633e48514edc8db82af30fdd3d.
+Review: /workspace/book-completion-drafts/Appendices_GHI_Final_Review_2026-10-02.pdf.
+This is a direct editorial/source audit without a new independent verifier
+verdict. J--N and front matter are next. Work remains local pending
+explicit remote-push approval.

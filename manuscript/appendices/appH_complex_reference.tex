@@ -65,7 +65,10 @@ For quasi-psh functions \(u,v\), write
  \quad\text{for some }C\in\mathbf R.
 \]
 Thus \(u\preceq v\) means that \(u\) is \emph{more singular} than \(v\).
-Write \(u\sim v\) when \(u-v\) is globally bounded.
+Write \(u\sim v\) when both \(u\preceq v\) and \(v\preceq u\) hold.
+Equivalently, their difference is bounded on the common finite locus and
+the two comparison inequalities hold everywhere.  This formulation avoids
+subtracting \(-\infty\) from \(-\infty\).
 \end{definition}
 
 There are two coarser comparisons.
@@ -118,14 +121,21 @@ nondivisorial behavior\\
 
 \begin{example}[A zero-Lelong singularity]
 \label{ex:appH-loglog}
-On a disk, the function
+On \(0<|z|<e^{-1}\), the function
 \[
                          u(z)=-\log\bigl(-\log|z|^2\bigr)
 \]
-has Lelong number zero at the origin but is unbounded below there. After
-globalization on \(\mathbf P^1\), this gives a full-mass potential that can
-be \(P\)-equivalent, hence also \(\mathcal I\)-equivalent, to a bounded
-potential without being ordinarily equivalent to it.
+is subharmonic: as a function of \(s=\log|z|^2<0\), its first and second
+derivatives are \(-1/s>0\) and \(1/s^2>0\).  Moreover,
+\(u/\log|z|^2\to0\) at the origin, so its Lelong number is zero although
+it is unbounded below.  Patch it smoothly away from a smaller disk and
+multiply by a sufficiently small positive constant to obtain an
+\(\omega_{\FS}\)-psh function on \(\mathbf P^1\).  Its only unbounded
+point has no atom in its curvature measure; in dimension one the
+nonpluripolar product therefore retains the entire cohomological mass.
+By \Cref{thm:appH-p-projection}, its normalized model envelope is
+\(V_{\omega_{\FS}}=0\).  It is \(P\)-equivalent, hence also
+\(\mathcal I\)-equivalent, to zero, but not ordinarily equivalent to zero.
 \end{example}
 
 \section{Nonpluripolar products}
@@ -139,8 +149,10 @@ not positive and \(\max\{\varphi_j,-k\}\) is not psh.  Put
 \[
  O_k=\bigcap_{j=1}^p\{u_j>-k\}.
 \]
-Bedford--Taylor theory defines the bounded product on \(O_k\), and
-plurifine locality gives
+Bedford--Taylor theory defines the bounded truncation product.  On the
+plurifine open set \(O_k\), locality identifies its restriction with the
+product of the finite local potentials; the notation on the left below
+means this restriction, not an unrestricted product of unbounded currents:
 \[
  \one_{O_k}\bigwedge_{j=1}^p\ddc u_j
  =
@@ -155,31 +167,38 @@ the limit produces
 \begin{theorem}\label{thm:appH-npp-ledger}
 The nonpluripolar product is a closed positive \((p,p)\)-current. It is:
 \begin{enumerate}
-\item symmetric and multilinear in the currents;
+\item symmetric and multilinear on the cone of positive currents;
 \item local for the plurifine topology;
 \item equal to the Bedford--Taylor product for locally bounded potentials;
 \item zero on every pluripolar set;
-\item monotone in total mass when any potential is replaced by a less
+\item monotone in mixed mass, after wedging with a fixed K\"ahler form
+to complementary degree, when any potential is replaced by a less
 singular one in the same cohomology class.
 \end{enumerate}
-Its total mixed masses are invariant under proper bimeromorphic pullback.
+For a proper bimeromorphic morphism \(\pi:Y\to X\) of compact K\"ahler
+manifolds, its pullback construction satisfies
+\[
+ \pi_*\langle\pi^*T_1\wedge\cdots\wedge\pi^*T_p\rangle
+       =\langle T_1\wedge\cdots\wedge T_p\rangle.
+\]
+Consequently the integrals against corresponding smooth closed test forms
+of complementary degree agree.  For \(p=n\) these are the total masses.
 \end{theorem}
 
 \begin{proof}[From the nonpluripolar-product inputs]
-This is the reference-sheet form of \Cref{thm:complex-npp-ledger}, whose
-proof starts from the compatible truncations
-\eqref{eq:complex-npp-truncation}.  Plurifine locality identifies two
-truncations wherever both sets of potentials are finite.  Bedford--Taylor
-integration by parts gives closedness, symmetry, and multilinearity before
-the limit, while positivity and monotone convergence pass these properties
-to the limit.  Extension by zero across the discarded pluripolar sets proves
-that the product charges none of them.  The unrestricted total-mass
-monotonicity used here is the foundational theorem
-\cite[Theorem~1.1]{DDNL18mono}; \cite[Theorem~1.16]{BEGZ10} proves its
-small-unbounded-locus predecessor.  Finally, for a proper
-bimeromorphic map, pull the truncations to the common isomorphism locus;
-the exceptional and indeterminacy loci are pluripolar, so extension by zero
-and the change-of-variables formula preserve each mixed total mass.
+Apply \Cref{thm:complex-npp-ledger} to the indicated currents.
+The global local-mass bound needed for the construction is
+\cite[Proposition~1.6]{BEGZ10}; closedness is
+\cite[Theorem~1.8]{BEGZ10}.  Restrictions by \(\one_{O_k}\) need not be
+closed, so closedness of the limit cannot be obtained by applying Stokes
+to those restricted truncations.  Positivity, symmetry, plurifine
+locality and multilinearity on the cone of positive currents are the
+remaining inputs recorded in that internal theorem.  The unrestricted
+mixed-mass monotonicity is \cite[Theorem~1.1]{DDNL18mono}, with the fixed
+complementary K\"ahler factors included as additional currents.
+The modification identity is \eqref{eq:complex-npp-modification}; pairing
+it with a complementary smooth closed form and applying the projection
+formula gives the stated equality of integrals.
 \end{proof}
 
 The nonpluripolar construction is due to \cite{BEGZ10}; the unrestricted
@@ -213,9 +232,10 @@ bounded above, and \(u=\uscsup_i u_i\), then
 \[
                          M_\theta(u)=\lim_iM_\theta(u_i).
 \]
-\item If \(u_j\) decreases to \(u\) and all \(u_j\) have a common
-singularity type with uniformly controlled energy, then the corresponding
-nonpluripolar products converge weakly.
+\item In a big class, if \(u_j\searrow u\) and \(u_j\sim u\) for every
+\(j\), then \(\operatorname{MA}_\theta(u_j)\) converges weakly to
+\(\operatorname{MA}_\theta(u)\).  The limit is explicitly included in
+the common ordinary singularity type.
 \item For an arbitrary decreasing family, neither preservation of mass nor
 weak convergence of Monge--Amp\`ere measures is a formal consequence of
 monotonicity.
@@ -223,10 +243,12 @@ monotonicity.
 
 The first item follows from Choquet reduction and the sequential
 nonpluripolar continuity theorem; its proof for genuine nets is
-\Cref{prop:complex-mass-continuity}. The second is deliberately
-stated with an energy hypothesis. A later chapter must cite its specific
-strong-convergence theorem rather than refer vaguely to decreasing
-continuity.
+\Cref{prop:complex-mass-continuity}.  For the second, decreasing psh
+convergence gives capacity convergence and the common type gives equality
+of total masses.  These are precisely the hypotheses of
+\cite[Theorem~2.3]{DDNL18mono}.  Continuity in a relative finite-energy
+class has its own hypotheses; it is not an assertion about an arbitrary
+decreasing family.
 
 \section{Relative full mass and finite energy}
 \label{sec:appH-relative-energy}
@@ -256,7 +278,7 @@ Thus a member of \(\mathcal E(X,\theta,\phi)\) may be strictly more
 singular than \(\phi\), but loses no nonpluripolar mass relative to
 \(\phi\).
 
-If \(u-\phi\) is bounded, define the unnormalized relative Aubin--Mabuchi
+If \(u\sim\phi\), define the unnormalized relative Aubin--Mabuchi
 energy by
 \[
  E_\phi(u)
@@ -264,11 +286,13 @@ energy by
    \int_X (u-\phi)
    \langle\theta_u^j\wedge\theta_\phi^{\,n-j}\rangle.
 \]
-After adding a constant, assume \(u\leq\phi\), and put
+The difference in the integral is taken on the common finite locus and
+extended arbitrarily across the pluripolar set, which the measures do not
+charge.  For \(u\preceq\phi\), choose \(C\) with \(u\leq\phi+C\) and put
 \[
                          u_k=\max\{u,\phi-k\}.
 \]
-For general \(u\preceq\phi\), set
+Then \(\phi-k\leq u_k\leq\phi+C\), so each \(u_k\sim\phi\).  Set
 \[
                          E_\phi(u)
  :=\lim_{k\to\infty}E_\phi(u_k)\in[-\infty,+\infty).
@@ -297,7 +321,7 @@ first for bounded relative difference and then by monotone approximation:
                          u\leq v\Longrightarrow
                          E_\phi(u)\leq E_\phi(v);
 \]
-\item cocycle formula, when the mixed expressions are directly integrable:
+\item cocycle formula (all the displayed mixed integrals are finite):
 \[
  E_\phi(u)-E_\phi(v)
  =\frac1{n+1}\sum_{j=0}^n
@@ -312,37 +336,27 @@ first for bounded relative difference and then by monotone approximation:
 \end{enumerate}
 \end{proposition}
 
-\begin{proof}[From bounded Bedford--Taylor calculus]
-Assume first that \(u-\phi\) and \(v-\phi\) are bounded.  Translation does
-not change \(\theta_u\), so inserting \(u+c\) in the defining sum adds
-\(c/(n+1)\) times \(n+1\) mixed masses.  Each mixed mass equals
-\(M_\theta(\phi)\) by Stokes, which proves the translation formula.
+\begin{proof}[From relative integration by parts]
+For \(u\sim\phi\) and \(v\sim\phi\), all mixed masses equal
+\(M_\theta(\phi)\), by \cite[Propositions~3.1.3 and 3.1.14]{XiaBook}.
+Translation leaves the currents unchanged, so its contribution to the
+polarized sum is exactly \(cM_\theta(\phi)\).  The relative
+nonpluripolar integration-by-parts formula in
+\cite[Lemma~3.1.3, equation~(3.32)]{XiaBook} gives the cocycle identity.
+Its positive mixed measures prove monotonicity.  Bounded relative
+difference does not make \(\phi\) locally bounded, so ordinary bounded
+Bedford--Taylor integration by parts alone would not justify this step.
 
-For the cocycle identity, subtract the two polarized energy sums and
-replace the factors \(\theta_u^j-\theta_v^j\) by
-\[
- \theta_u^j-\theta_v^j
- =\ddc(u-v)\wedge
-   \sum_{a=0}^{j-1}\theta_u^a\wedge\theta_v^{j-1-a}.
-\]
-Bedford--Taylor integration by parts moves \(\ddc\) from \(u-v\) to the
-other potential difference.  The resulting double sum telescopes, leaving
-exactly the displayed cocycle formula.  If \(u\leq v\), every mixed measure
-in that formula is positive, so monotonicity follows.  Repeating the same
-calculation with \(u_t=u+tf\) and differentiating the finite polarized sum
-shows that all terms containing \(\ddc f\) cancel pairwise after integration
-by parts; the remaining term is
-\(\int_X f\,\operatorname{MA}_\theta(u)\).
-
-For general finite-energy potentials use the relative truncations
-\(u_k=\max\{u,\phi-k\}\) and \(v_k=\max\{v,\phi-k\}\).  The bounded
-identities just proved apply to each \(k\).  Relative full mass, plurifine
-locality, and the defining monotone convergence of \(E_\phi\) let
-\(k\to\infty\); the finite-energy assumption gives uniform integrability of
-the potential differences against the mixed products.  This proves the
-first three formulas.  The same truncation argument proves the first
-variation whenever the bounded direction is admissible, meaning that
-\(u+tf\) remains in the common relative psh domain for \(|t|\) small.
+For general \(u,v\in\mathcal E^1\), mixed integrability is
+\cite[Corollary~3.1.6]{XiaBook}.  The relative truncation-tail estimates
+in \cite[Proposition~3.1.18, equations~(3.40)--(3.43)]{XiaBook} pass the
+cocycle identity to the limit; this requires control of the weighted
+integrals, not just weak convergence of measures.  Translation follows
+from \cite[equation~(3.31)]{XiaBook}, and monotonicity again follows
+from the cocycle formula.  An admissible bounded direction means that
+\(u+tf\) remains in the relative psh domain for \(|t|\) small.  These
+potentials remain finite energy; apply the affine-segment variation
+formula \cite[Lemma~3.1.11]{XiaBook} to obtain the fourth assertion.
 \end{proof}
 
 If one divides \(E_\phi\) by \(M_\theta(\phi)\), the translation formula
@@ -369,20 +383,25 @@ Then
  :=E_\phi(u)+E_\phi(v)-2E_\phi(P_\theta(u,v))
 \]
 is the relative \(d_1\)-metric on \(\mathcal E^1(X,\theta,\phi)\).
+The nonnegativity of \(I_\phi\) follows by adding the two endpoint energy
+inequalities in \cite[Proposition~3.1.19]{XiaBook}.
 \end{definition}
 
-The metric topology is stronger than \(L^1\)-convergence: it records
-convergence of the energy as well. A useful criterion is
+The relative metric and its completeness are
+\cite[Lemma~4.3.1 and Theorem~4.3.2]{XiaBook}; the rooftop remains in
+\(\mathcal E^1\) by \cite[Proposition~3.1.21]{XiaBook}.
+Convergence in this metric implies \(L^1\)-convergence and energy
+convergence, by \cite[Lemma~4.3.5 and Theorem~4.3.3]{XiaBook}.
+For a pointwise monotone sequence with limit in the same relative
+finite-energy class, an exact criterion is
 \[
  u_j\longrightarrow u\text{ in }d_{1,\phi}
  \quad\Longleftrightarrow\quad
- \begin{cases}
- u_j\to u\text{ in }L^1,\\
- E_\phi(u_j)\to E_\phi(u),
- \end{cases}
+ E_\phi(u_j)\longrightarrow E_\phi(u).
 \]
-under the standard normalization and common relative full-mass hypothesis.
-See \cite{Dar15,DDNLmetric} and the energy chapters of \cite{XiaBook}.
+Indeed, the two potentials are ordered, so their rooftop is the smaller
+one and their distance is the absolute energy difference.  The
+singularity-type metric \(d_S\) of \cite{DDNLmetric} is a different metric.
 
 \begin{theorem}\label{thm:appH-comparison}
 If \(u,v\in\mathcal E(X,\theta,\phi)\), then
@@ -391,15 +410,16 @@ If \(u,v\in\mathcal E(X,\theta,\phi)\), then
  \leq
  \int_{\{u<v\}}\operatorname{MA}_\theta(u).
 \]
-Consequently the usual domination principle holds in the relative
-full-mass class.
+The relative domination principle also holds: if
+\(\operatorname{MA}_\theta(u)(\{u<v\})=0\), then \(u\geq v\) everywhere.
 \end{theorem}
 
 \begin{proof}[From the relative comparison input]
-Adding constants, we may suppose \(u,v\leq\phi\).  Put
+Subtracting one common constant, we may suppose \(u,v\leq\phi\).  Put
 \(u_j=\max\{u,\phi-j\}\) and
 \(v_j=\max\{v,\phi-j\}\).  Their differences from \(\phi\) are bounded,
-so the Bedford--Taylor comparison principle gives, for every \(\delta>0\),
+so the relative comparison input \cite[Proposition~3.1.15]{XiaBook}
+gives, for every \(\delta>0\),
 \[
  \int_{\{u_j<v_j-\delta\}}\operatorname{MA}_\theta(v_j)
  \leq
@@ -425,8 +445,10 @@ gives
 \]
 The possible set where a potential is \(-\infty\) is pluripolar and is not
 charged.  Finally let \(\delta\downarrow0\) and use monotone convergence.
-The domination principle follows by applying the comparison inequality to
-\(u\) and \(v-\epsilon\), then letting \(\epsilon\downarrow0\).
+The domination assertion is the separate positive-mass input
+\cite[Theorem~2.4.5 and Remark~2.4.3]{XiaBook}.  Its hypotheses are the
+common relative full mass and the vanishing mass of \(\{u<v\}\) stated
+here; the comparison inequality alone does not prove domination.
 \end{proof}
 
 This theorem is not asserted for arbitrary \(\theta\)-psh functions of
@@ -465,21 +487,20 @@ nonpluripolar mass, and idempotence follows from that characterization.
 \end{theorem}
 
 \begin{proof}[From the model-envelope inputs]
-This is \Cref{thm:complex-p-projection}; we recall the argument.  By
-\eqref{eq:complex-p-envelope-rooftop}, \(P_\theta[u]\) is the increasing
-usc limit of \(P_\theta(u+C,V_\theta)\).  These rooftops have the
-singularity type of \(u\) on their contact sets.  Mass monotonicity and
-increasing mass continuity give
-\(M_\theta(P_\theta[u])=M_\theta(u)\).  The rooftop contact inequality
-places the Monge--Amp\`ere measure of the limit on its normalized contact
-set.  If \(w\leq0\) is less singular than \(u\) and has the same mass, the
-relative comparison principle applied to \(w\) and the successive rooftops
-gives \(w\leq P_\theta[u]\).  Thus the envelope is the largest competitor
-in the statement.  Applying this characterization to \(P_\theta[u]\)
-itself proves idempotence.  Positivity of the common mass is used in the
-domination step, and there only; mass preservation uses no positivity, and
-idempotence at zero mass in a big class is the additional input
-\cite[Theorem~1.2]{PSWZ26} recorded in \Cref{thm:complex-p-projection}.
+Apply \Cref{thm:complex-p-projection}.  To recall the mass argument, put
+\(a=\sup_Xu\).  For \(C\) sufficiently large, the rooftop
+\(w_C=P_\theta(u+C,V_\theta)\) satisfies
+\[
+                   u-a\leq w_C\leq u+C.
+\]
+The first inequality holds because \(u-a\leq V_\theta\) and
+\(u-a\leq u+C\).  Hence \(w_C\sim u\) globally, and its mass equals
+\(M_\theta(u)\).  Increasing mass continuity gives the mass identity
+for the envelope.  The positive-mass maximality characterization is
+\eqref{eq:complex-p-characterization}, with its proof in that internal
+theorem.  It gives idempotence at positive mass.  The zero-mass big-class
+case is the additional input \cite[Theorem~1.2]{PSWZ26}; it is not a
+consequence of positive-mass domination.
 \end{proof}
 
 Mass preservation needs no positivity hypothesis, and in a big class
@@ -516,36 +537,26 @@ If \(u\) has analytic singularities, then
 \end{theorem}
 
 \begin{proof}[From the ideal-envelope inputs]
-This is \Cref{thm:complex-i-projection}.  Choose by Choquet's lemma an
-increasing sequence of finite maxima with the same usc supremum as the
-family defining \(P_\theta[u]_{\mathcal I}\).  A finite maximum preserves
-the minimum of the divisorial Lelong numbers and hence the
-\(\mathcal I\)-type.  Strong openness and the valuative criterion for
-multiplier ideals show that the usc limit still has precisely the
-multiplier ideals of \(u\).  The envelope is therefore itself admissible;
-reapplying the construction proves idempotence.  For
-\(P_\theta[u]\leq P_\theta[u]_{\mathcal I}\) one cannot argue by
-containment of competitor families --- the ordinary family asks only for
-the inequality \(w\preceq u\), the ideal family for equality of all
-multiplier ideals, and the first is strictly larger: for
-\(\theta=\omega_{\FS}\) on \(\mathbf P^1\) and \(u=0\), every
-\(w\in\PSH(X,\theta)\) with \(w\leq0\) satisfies \(w\preceq0\), yet
-\(w=\log(|z|^2/(1+|z|^2))\) has \(\mathcal I(w)=\mathfrak m_0\neq\cO_X
-=\mathcal I(u)\).  Argue instead through the envelope itself:
-idempotence gives \(P_\theta[u]\preceq_P u\) and
-\(u\preceq_P P_\theta[u]\), hence \(P_\theta[u]\sim_{\mathcal I}u\) by the
-hierarchy \(\preceq_P\Rightarrow\preceq_{\mathcal I}\), so
-\(P_\theta[u]\) is itself a competitor for the ideal envelope and
-\(P_\theta[u]\leq P_\theta[u]_{\mathcal I}\).
+Apply \Cref{thm:complex-i-projection}, which proves all four assertions
+without a positive-mass hypothesis.  Its ideal-envelope argument uses
+finite maxima, increasing-envelope continuity of divisorial Lelong
+numbers, and the valuative criterion to show that the envelope has
+exactly the same multiplier ideals as \(u\).  It is then the largest
+member of its own competitor family, proving idempotence.
 
-The analytic-singularity conclusion is the final, separately proved part of
-\Cref{thm:complex-i-projection}.  Its foundational input is the modelity of
-analytic singularities, proved there after pulling the defining ideal to a
-log resolution and applying the maximality of the two envelopes.  We do not
-deduce bounded difference from equality of divisorial orders alone: an
-arbitrary quasi-psh competitor may carry an unbounded zero-Lelong remainder.
-Envelope maximality is precisely what removes that remainder and yields
-\(u\sim P_\theta[u]\sim P_\theta[u]_{\mathcal I}\).
+For the inequality between envelopes, competitor-family containment is
+insufficient: \(w\preceq u\) need not imply \(w\sim_{\mathcal I}u\).
+Instead, the rooftops in the preceding proof have ordinary type \(u\),
+and their increasing envelope preserves its divisorial orders, as proved
+in Step~3 of \Cref{thm:complex-i-projection}.  Thus
+\(P_\theta[u]\sim_{\mathcal I}u\); since it is normalized, it is itself
+an ideal-envelope competitor.  This argument does not use big-class
+idempotence in a merely pseudoeffective class.
+
+The analytic-singularity assertion is the separate log-resolution and
+modelity argument in Step~5 of the same internal theorem.  Equality of
+divisorial orders alone would not remove an unbounded zero-Lelong
+remainder of an arbitrary quasi-psh competitor.
 \end{proof}
 
 The final assertion uses a log resolution: among analytic singularities,
@@ -599,26 +610,23 @@ of all divisorial Lelong numbers.
 \begin{proof}[From strong openness and the valuative criterion]
 The first identity is the strong openness theorem
 \cite[Theorem~1.1]{GZ15}, in the normalization of
-\Cref{thm:complex-strong-openness}.  For the second, resolve
-\(\mathcal I(m u)\).  Local integrability along a prime divisor \(E\)
-compares \(\ord_E\mathcal I(m u)\) with
-\(m\nu(u,E)-A(E)\), where the discrepancy term \(A(E)\) is independent of
-\(m\).  Dividing by \(m\) and letting \(m\to\infty\) gives the displayed
-limit.  Conversely, reconstruction uses the following exact valuative
-criterion in the book's squared-norm normalization:
+\Cref{thm:complex-strong-openness}.  The second identity uses Demailly's approximation theorem
+\cite{Dem92reg}, as recorded in \Cref{thm:complex-strong-openness},
+item \cref{itm:ch51-so:lelong}.  The valuative integrability lower bound
+alone is not a two-sided approximation estimate.  Conversely, reconstruction
+uses the following exact local valuative
+criterion in the book's squared-norm normalization.  A holomorphic germ
+\(f\) belongs to \(\mathcal I(\lambda u)_x\) if and only if there are a
+neighborhood \(U_x\) and \(\eta_x>0\) such that, for every prime divisor
+\(E\) over \(U_x\),
 \[
-\begin{aligned}
- f\in\mathcal I(\lambda u)
- &\quad\Longleftrightarrow\quad
- \text{there exists }\eta>0\text{ such that}\notag\\
- &\ord_E(f)\geq(1+\eta)\lambda\nu(u,E)-A(E)
- \quad\text{for every prime divisor }E\text{ over }X.
-\end{aligned}
+ \ord_E(f)\geq(1+\eta_x)\lambda\nu(u,E)-A(E).
 \]
 This is \cite[Corollary~10.18]{Bou17} after replacing the source's weight by
 \(\lambda u/2\) and translating its \(\log|z|\) Lelong normalization to
 the book's \(\log|z|^2\) normalization.  Thus the divisorial Lelong numbers determine every multiplier
-ideal.  The single \(\eta\), uniform over all divisors, is essential; mere
+ideal.  Here \(A(E)\) is the log discrepancy.  The single \(\eta_x\),
+uniform over divisors on that neighborhood, is essential; mere
 pointwise strict inequalities are not a substitute.  Strong openness
 removes the boundary ambiguity and shows that ideals at integral scales
 determine those at every positive real scale.
@@ -627,8 +635,11 @@ determine those at every positive real scale.
 A quasi-equisingular approximation of \(u\) is a decreasing, or suitably
 almost decreasing, family \(u_j\) with analytic singularities whose
 multiplier ideals stabilize at every fixed scale in the strong-openness
-sense. Such an approximation preserves \(\mathcal I\)-type, not necessarily
-ordinary singularity type.
+sense.  Its limiting ideal data recover the \(\mathcal I\)-type;
+an individual analytic approximant need not have exactly the multiplier
+ideals of \(u\).  See \Cref{prop:ch51-qes-preserves-i} for the precise
+scaled-ideal stabilization, which does not assert preservation of ordinary
+type.
 
 \begin{remark}[Restriction and trace]
 \label{rem:appH-restriction-trace}
@@ -677,34 +688,31 @@ Let \(\phi\) be a positive-mass model potential and let
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}[From the bounded geodesic construction]
-Set \(u_{i,j}=\max\{u_i,\phi-j\}\) for \(i=0,1\).  The Perron geodesic
-\(u_{t,j}\) between the truncated endpoints has bounded difference from
-\(\phi\).  The bounded Bedford--Taylor construction gives
+\begin{proof}[From the relative geodesic inputs]
+The Perron construction, full mass of its slices and endpoint
+\(L^1\)-limits are \cite[Proposition~4.2.1]{XiaBook}, in the scope
+recorded by \Cref{thm:rays-relative-geodesic}.  Affine relative energy
+and the homogeneous nonpluripolar equation are
+\cite[Proposition~4.3.3, equations~(4.33)--(4.35)]{XiaBook}.
+The complexified equation is
 \[
-  (\pi_X^*\theta+\ddc_{x,\tau}U_j)^{n+1}=0
+              \bigl\langle(\pi_X^*\theta+\ddc U)^{n+1}\bigr\rangle=0.
 \]
-on \(X\times A\), and integration by parts shows that
-\(t\mapsto E_\phi(u_{t,j})\) is affine.  The maximum principle makes
-\(u_{t,j}\) decrease in \(j\); its limit is the Perron geodesic between
-\(u_0,u_1\), by the boundary barriers and the relative full-mass comparison
-principle.  This is the construction in
-\Cref{thm:rays-relative-geodesic}.
+These are imported relative analytic inputs.  Even the truncated endpoints
+\(\max\{u_i,\phi-j\}\) can be unbounded in ordinary local coordinates,
+so an unrestricted Bedford--Taylor equation would be unjustified.
 
-Monotone continuity of relative energy now yields
-\[
- E_\phi(u_t)=(1-t)E_\phi(u_0)+tE_\phi(u_1),
-\]
-so every slice has finite energy.  The rooftop formula for
-\(d_{1,\phi}\), applied first to the bounded geodesics and then to their
-decreasing limit, gives
-\[
- d_{1,\phi}(u_s,u_t)=|s-t|d_{1,\phi}(u_0,u_1).
-\]
-Finally, the nonpluripolar products of the decreasing bounded solutions
-converge on every finite-energy truncation set.  Their zero
-\((n+1)\)-fold products therefore pass to the limit, proving the homogeneous
-Monge--Amp\`ere equation in the nonpluripolar sense.
+The rooftop lower bound \(P_\theta(u_0,u_1)\leq u_t\) and the convex
+upper bound show that the slices lie in \(\mathcal E^1\), using
+\cite[Propositions~3.1.21 and 3.1.22]{XiaBook}.  For the metric assertion,
+use convexity of distance along two relative geodesics,
+\cite[Proposition~4.3.5]{XiaBook}.  If
+\(D=d_{1,\phi}(u_0,u_1)\), comparison with a constant endpoint gives
+\(d_{1,\phi}(u_s,u_1)\leq(1-s)D\).  Apply the same convexity on
+\([s,1]\), whose restriction is again a Perron geodesic, to obtain
+\(d_{1,\phi}(u_s,u_t)\leq(t-s)D\).  The triangle inequality together
+with the two endpoint bounds forces equality.  In particular, the
+endpoints are attained in \(d_{1,\phi}\).
 \end{proof}
 
 The boundary values are interpreted in the finite-energy topology. For
@@ -778,41 +786,33 @@ extra usc regularization changes the convention and can alter endpoint
 statements.
 
 \begin{theorem}\label{thm:appH-rwn}
-After the standard maximality and normalization conditions are imposed,
-Legendre transform gives mutually inverse order-preserving correspondences
-between maximal test curves and finite-energy geodesic rays. The
-correspondence intertwines monotone limits and converts the test-curve
-energy integral into the affine energy slope of the ray.
+Fix the positive-mass model reference \(\phi\).  In the precise test-curve
+classes of \Cref{def:rays-test-curve}, impose maximality of the levels,
+pointwise upper semicontinuity in the parameter and left endpoint \(\phi\).
+The displayed Legendre transforms give mutually inverse order-preserving
+maps between maximal relative test curves and geodesic rays starting at
+\(\phi\).  They restrict to bounded-relative and finite-energy
+correspondences.  In the finite-energy case, the test-curve energy
+\eqref{eq:rays-test-energy} equals the affine energy slope of the ray,
+with the same raw-mass normalization.
 \end{theorem}
 
-\begin{proof}[From the Ross--Witt Nystr\"om inputs]
-This is \Cref{thm:rays-rwn}.  For each point of \(X\), ordinary closed
-concave duality gives the biconjugacy formulas
-\[
- u_t=\uscsup_\tau(\psi_\tau+t\tau),
- \qquad
- \psi_\tau=\inf_{t>0}(u_t-t\tau).
-\]
-Kiselman's minimum principle and the psh supremum lemma make the first
-transform a subgeodesic and the second a concave psh test curve.  If the
-first transform were not the Perron geodesic on some strip, replacing it by
-the larger Perron solution and dualizing back would produce a normalized
-competitor of the same singularity type strictly above one of the maximal
-levels.  This contradicts maximality.  The reverse argument proves that
-the transforms are inverse and order preserving.
-
-For bounded test curves, approximate the supremum by finite maxima on a
-dyadic parameter grid.  The energy increment between adjacent maxima is
-squeezed between the corresponding level masses.  Summing gives lower and
-upper Riemann sums for the test-curve energy integral, both converging to
-the affine energy slope.  Truncate an arbitrary finite-energy curve and use
-monotone convergence to obtain the general identity.  The same finite
-maxima and truncation argument proves compatibility with monotone limits.
+\begin{proof}[From the relative Ross--Witt Nystr\"om input]
+This is \Cref{thm:rays-rwn}, imported from
+\cite[Theorem~9.2.1, equations~(9.19)--(9.21)]{XiaBook}.
+That theorem supplies the analytic statements that the forward transform
+is geodesic, the inverse has maximal levels and the two energy expressions
+agree.  Scalar closed-concave biconjugacy alone proves none of those
+analytic assertions.  Order preservation follows directly from the
+supremum and infimum formulas.  Monotone-limit statements are used in the
+specific classes and with the regularizations of that internal theorem;
+an arbitrary pointwise limit need not preserve the endpoint conditions.
 \end{proof}
 
 See \cite{RWN14} and \Cref{chap:rays-test-curves}. In a big class,
-the maximality operation includes the \(P\)-envelope. It can be omitted in
-the ample locally bounded special case, but not in general.
+the maximality operation includes the \(P\)-envelope.  Maximality is
+required in the ample case as well; ordinary boundedness of a level is
+not a replacement for its envelope fixed-point condition.
 
 \section{Unit tests and failure modes}
 \label{sec:appH-unit-tests}
@@ -820,6 +820,7 @@ the ample locally bounded special case, but not in general.
 The following checks detect most convention errors.
 
 \subsection*{Constants}
+\label{sec:appH-constants}
 
 If \(u\) is finite energy and \(c\in\mathbf R\), then
 \[
@@ -833,12 +834,13 @@ Any formula giving a different energy coefficient has silently normalized
 the mass.
 
 \subsection*{One logarithmic pole}
+\label{sec:appH-one-pole}
 
 On a disk,
 \[
                          u=\lambda\log|z|^2+O(1)
 \]
-has Lelong number \(\lambda\), and
+with \(\lambda\geq0\) has Lelong number \(\lambda\), and
 \[
                          \mathcal I(u)
           =\mathcal O(-\lfloor\lambda\rfloor\{0\}).
@@ -848,6 +850,7 @@ multiplier ideal, and the inclusion direction in
 \(\preceq_{\mathcal I}\).
 
 \subsection*{Minimal singularities}
+\label{sec:appH-minimal-type}
 
 For \(u=V_\theta+c\),
 \[
@@ -858,6 +861,7 @@ When \(\{\theta\}\) is big, the latter mass is the volume
 \(\operatorname{vol}(\{\theta\})\).
 
 \subsection*{Zero mass}
+\label{sec:appH-zero-mass}
 
 If \(M_\theta(u)=0\), the following expressions are not defined without
 additional choices:
@@ -872,6 +876,7 @@ The perturbative inverse systems of \cref{part:complex} were designed precisely 
 avoid assigning fictitious values to these expressions.
 
 \subsection*{Decreasing limits}
+\label{sec:appH-decreasing-limits}
 
 From \(u_j\searrow u\) one may infer pointwise and \(L^1\) convergence under
 the usual noncollapse hypothesis. One may not infer
@@ -904,8 +909,9 @@ test curves and Legendre correspondence & Test curves\\
 \end{center}
 
 The foundational construction of global nonpluripolar products is
-\cite{BEGZ10}; metric finite-energy geometry is developed in
-\cite{Dar15,DDNLmetric}; and the test-curve correspondence is
+\cite{BEGZ10}; relative finite-energy metric geometry is
+\cite[\S4.3]{XiaBook}, extending the K\"ahler metric of \cite{Dar15};
+the distinct metric on singularity types is \cite{DDNLmetric}; and the test-curve correspondence is
 \cite{RWN14}. This appendix follows the conventions of the supplied book,
 even when another source uses \(\ddc=\rmi\partial\bar\partial/\pi\), the
 weight \(-\log|s|_h\) instead of \(-\log|s|_h^2\), or probability-normalized
