@@ -3,9 +3,11 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--4 pass the new reading
-gates; see the [Chapter 4 audit](second_reading_ch04_audit_20261002.md).
-Chapter 5 source reading is complete; its proof and scope repairs are next.
+Chapter 1 for coherence and readability. Chapters 1--6 pass the new reading
+gates; see the [Chapter 5 audit](second_reading_ch05_audit_20261002.md) and
+[Chapter 6 audit](second_reading_ch06_audit_20261002.md).
+Chapter 7's complete source has been read; its countability, capacity and
+duality scope repairs are next.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
