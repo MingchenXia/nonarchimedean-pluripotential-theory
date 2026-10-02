@@ -1,5 +1,37 @@
 # Chapter production status
 
+## Controlling status: 2 October 2026
+
+The editorial second draft is complete under
+[the chapter quality programme](chapter_quality_programme_20260926.md).
+This table supersedes the older milestone statuses retained below.
+
+| Scope | Current status |
+|---|---|
+| Part I, Chapters 1--8 | Sequential quality pass complete |
+| Part II, Chapters 9--19 | Sequential quality pass complete |
+| Part III, Chapters 20--31 | Sequential quality pass complete |
+| Part IV, Chapters 32--50 | Sequential quality pass complete |
+| Part V, Chapters 51--62 | Sequential quality pass complete |
+| Part VI, Chapters 63--72 | Sequential quality pass complete |
+| Appendices A--N | Scoped quality gates complete |
+| Preface, acknowledgements, conventions, six part introductions | Complete |
+| Final whole-book consistency, references, build, navigation, scoped rendering | Pass |
+
+The final PDF has 4,164 pages; the active closure has 425 TeX inputs and
+12,561 unique labels. The final visual scope is 380 physical pages in 95
+contact sheets. Exact checks, source preservation, reused prior proof/source
+gates, and remaining nonfatal underfull diagnostics are recorded in
+[the completion audit](book_completion_quality_audit_20261002.md),
+[manifest](book_completion_manifest_20261002.json), and
+[active-source ledger](book_completion_source_closure_20261002.sha256).
+Completion does not supply a new independent mathematical-verifier verdict.
+The 42 active research atoms in twelve Chapter 72 problem environments remain
+explicit; independent research is paused. Work is committed locally and
+GitHub publication awaits explicit approval.
+
+## Historical vocabulary and milestone ledger
+
 Status vocabulary:
 
 - `planned`: no prose file yet;

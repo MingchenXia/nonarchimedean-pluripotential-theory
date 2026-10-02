@@ -4,7 +4,23 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
-**Current-source status, 25 September 2026:** the author-supplied
+**Second-draft completion, 2 October 2026:** all 72 chapters, Appendices A--N,
+and the nine front-matter files have completed the
+[sequential quality programme](manuscript/editorial/chapter_quality_programme_20260926.md).
+The final whole-book build has **4,164 pages**, 425 active TeX inputs, and
+12,561 unique labels, with no unresolved reference/citation or overfull box.
+The final scoped visual gate covers 380 physical pages, including the complete
+contents, index, and bibliography. Exact scope, inherited proof-gate reuse,
+remaining underfull diagnostics, and reproducibility evidence are recorded in
+the [completion audit](manuscript/editorial/book_completion_quality_audit_20261002.md)
+and [manifest](manuscript/editorial/book_completion_manifest_20261002.json).
+The 42 active research atoms in twelve Chapter 72 environments remain
+explicit; independent open-problem research is paused. This is completion
+of the editorial second draft. Earlier status entries below are dated
+milestones. The completed continuation is committed locally; publication
+to GitHub is pending explicit remote-push approval.
+
+**Historical source-integration status, 25 September 2026:** the author-supplied
 `global-smooth-psh-counterexample.pdf` is integrated in Chapter 17.  On a
 constant good-reduction elliptic curve, a non-torsion degree-zero line bundle
 has a continuous locally ordinary-CLD-psh nef integral model metric but no
@@ -431,8 +447,12 @@ From `manuscript/`, run:
 latexmk -pdf -interaction=nonstopmode -halt-on-error book.tex
 ```
 
-The build runs BibTeX and MakeIndex through `latexmkrc`.  The generated PDF is
-`manuscript/book.pdf`.  The audited release PDF is
+The build runs BibTeX and MakeIndex through `latexmkrc`, which also locates
+the bundled class under `style/`. The generated PDF is `manuscript/book.pdf`.
+The completed 2 October second draft is bound by
+`manuscript/editorial/book_completion_manifest_20261002.json` and
+`manuscript/editorial/book_completion_source_closure_20261002.sha256`.
+The frozen earlier release PDF is
 `output/pdf/Non-Archimedean_Pluripotential_Theory.pdf`; the corresponding
 source archive is in `output/source/`.  Exact hashes and audit evidence are in
 `output/BUILD_AND_AUDIT_SUMMARY.md`, `output/PRODUCTION_SOURCE_SHA256SUMS`,
@@ -514,7 +534,7 @@ production gate or as permission to promote new theorems. The exact evidence,
 remaining review and integration status are recorded in
 `manuscript/editorial/chapter72_curvature_verification_checkpoint_20260901.md`.
 
-The latest 1 September whole-book build has 3,478 pages. It incorporates
+The historical 1 September whole-book build has 3,478 pages. It incorporates
 Chapter 14 corrections distinguishing skeleton measures from integration
 currents, retaining nonreduced multiplicities, and explaining the thickening
 counterexample to the unrestricted fibre formula. It also retains the
@@ -532,7 +552,7 @@ The preceding Chapter 16/19 correction build is documented in
 The earlier presentation-only build remains documented separately in
 `manuscript/editorial/solver_dossiers_20260901/chapter72_presentation_build_20260901/BUILD_REPORT.md`.
 
-The 3,478-page PDF is still a research draft, not a completed mathematical
+That 3,478-page checkpoint was a research draft, not a completed mathematical
 audit of the book. The five identified Chapter 16 barrier, weight and
 polar-limit proof repairs are no longer outstanding: they entered the live
 manuscript in commit `10ccff9` on 8 September 2026 and were independently

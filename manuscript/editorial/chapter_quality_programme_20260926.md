@@ -2,6 +2,15 @@
 
 Date: 26 September 2026
 
+Completion update: 2 October 2026. All 72 chapters, Appendices A--N, the nine
+front-matter files, and final whole-book consistency, reference, build, and
+rendered-page gates are complete. This is the controlling current status;
+the unit entries below retain their historical next-unit milestones.
+Exact final scope and evidence are in
+[the completion audit](book_completion_quality_audit_20261002.md) and
+[manifest](book_completion_manifest_20261002.json). The editorial second
+draft is complete locally. Remote publication awaits explicit approval.
+
 ## Priority
 
 The active editorial priority is the quality of every chapter of the book.
@@ -56,8 +65,43 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part VI, Chapters 63--72:** complete. All ten chapters have passed the
   sequential quality gates.
-- **Appendices and front matter:** active. Appendices A--N are complete.
-  Front matter is next, followed by final whole-book checks.
+- **Appendices and front matter:** complete. Appendices A--N and all nine
+  front-matter files have passed their scoped quality gates.
+- **Final whole-book checks:** complete. The 4,164-page final build,
+  425-input/12,561-label reference closure, PDF navigation, exact research
+  inventory, and 380-page scoped visual gate pass.
+
+### Front matter and final whole-book gate
+
+Completed on 2 October 2026. All nine front-matter files were read and revised.
+The preface and part introductions now describe the completed second draft,
+its exact comparison hypotheses, and the 42 remaining research atoms.
+Conventions distinguish supports and semivaluation values, finite reference
+weights, raw/probability mass, full mass and finite energy. Historical
+independent receipts retain their original scopes.
+
+Seventeen inherited layout sites in fourteen chapter roots were repaired;
+the final build has zero overfull boxes, unresolved references/citations,
+LaTeX/package warnings, errors, or rerun requests. Nonfatal underfull
+diagnostics remain recorded. Contents spacing, appendix-reference types,
+class lookup, index and bibliography pass their checks. All 380 selected
+physical pages in 95 contact sheets were reviewed, including the full
+contents, index, and bibliography. After the final punctuation rebuild,
+six changed sheets were reviewed again and the other 89 were verified by
+bitmap identity.
+
+The post-render reference checker, all six checker tests, the exact
+open-problem inventory, closure/range/citation checks, and whitespace gate
+pass. All 401 active inputs outside this unit, including 108 frozen M--N
+fragments, remain unchanged. Earlier completed chapter/appendix proof and
+source gates are reused; this unit supplies no new independent verifier
+verdict. Evidence is in
+[book_completion_quality_audit_20261002.md](book_completion_quality_audit_20261002.md),
+[book_completion_manifest_20261002.json](book_completion_manifest_20261002.json),
+and [the source ledger](book_completion_source_closure_20261002.sha256).
+The whole-book editorial goal is complete locally. GitHub publication
+remains pending explicit approval after automatic review rejected the
+default-branch update.
 
 ### Chapter 1
 
