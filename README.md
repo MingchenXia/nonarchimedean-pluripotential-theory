@@ -425,6 +425,10 @@ develops:
 
 ## Build
 
+For a reproducible TeX Live 2025 setup on another account or machine, follow
+[the development environment instructions](docs/DEVELOPMENT.md). The setup
+and validation commands are versioned in `scripts/`.
+
 From `manuscript/`, run:
 
 ```sh
