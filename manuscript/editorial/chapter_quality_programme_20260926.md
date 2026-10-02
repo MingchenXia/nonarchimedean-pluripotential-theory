@@ -54,7 +54,7 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part V, Chapters 51--62:** complete. All twelve chapters have passed
   the sequential quality gates.
-- **Part VI, Chapters 63--72:** active. Chapters 63--65 are complete; Chapter 66 is next.
+- **Part VI, Chapters 63--72:** active. Chapters 63--66 are complete; Chapter 67 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1753,4 +1753,33 @@ Post-render references pass for 425 inputs and 12,295 labels; six checker
 tests and the unchanged 42-atom inventory pass. The precise evidence is
 [ch65_quality_audit_20261002.md](ch65_quality_audit_20261002.md). Chapter 66 is
 next; the whole-book goal continues. Work remains local pending explicit
+remote-push approval.
+
+
+### Chapter 66
+
+The hybrid base, metric unpowering and valuation units are explicit.
+Coordinate-rate convergence is separated from analytic convergence; psh
+extension uses the synchronized corrected decreasing approximation. Model
+Monge--Ampere convergence fixes its approximants before the fibre limit.
+Volume-form convergence includes its residual boundary, simplex-preserving
+Jacobian and all-model passage to the full hybrid space. Canonical metric
+regularity precedes its measure limit; stable-curve weights count self-nodes.
+Energy and weak-ray E/J slopes retain their exact reference and filtration
+interfaces. Entropy lower semicontinuity assumes weak convergence of both
+measures, and a worked concentration example disproves entropy equality.
+The historical counterexample and all eleven Banach proof fragments are
+byte-identical.
+
+All 26 formal assertions, 47 reusable environments and 240 closure labels
+passed review. Five primary PDFs and 79 selected pages were checked; the
+Favre proof check explicitly uses its dated v2 preprint. The supplement
+passes 22,509 exact and 768 numerical checks in 25 families. The full build
+has 4,146 pages and 19,333,673 bytes. All 64 chapter pages and both seams
+were inspected; all three final changed pages were reinspected. Chapter
+overflow and warning counts are zero. Post-render references pass for 425
+inputs and 12,316 labels; six checker tests and the unchanged 42-atom
+inventory pass. Exact evidence and preservation exceptions are recorded in
+[ch66_quality_audit_20261002.md](ch66_quality_audit_20261002.md). Chapter 67
+is next; the whole-book goal continues. Work remains local pending explicit
 remote-push approval.

@@ -6268,3 +6268,39 @@ second-build and ten final changed images were reinspected. The other
 releases, receipts and checksum ledgers are unchanged. This direct audit
 claims no new independent verifier verdict. Verified work remains local
 pending explicit remote-push approval.
+
+
+## Chapter 66: complete chapter-quality gate, 2 October 2026
+
+Chapter 66 has passed the sequential programme; Chapter 67 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch66_quality_audit_20261002.md](ch66_quality_audit_20261002.md).
+
+Twenty-six formal assertions, 47 labelled reusable environments and 240
+closure labels were reviewed. Five primary PDFs and 79 selected pages were
+checked. The supplement passes 22,509 exact and 768 numerical checks in
+25 families. References pass for 425 inputs and 12,316 labels; all six
+checker tests pass. The inventory remains 42 atoms in twelve environments,
+tiers (0,3,7,15,17). Post-render scoped/reference checks and git diff --check
+pass. The unavailable legacy house audit is replaced by manual and scoped
+review. The P18 counterexample and eleven proof fragments are byte-identical;
+their preserved legacy delimiters are the only house-style exceptions.
+
+The full build has 4,146 pages and 19,333,673 bytes. PDF SHA-256:
+fc0fef5c2dcd94d4705a7715bc425addd9ebf74b22a0b37ff372d7babc0b57aa.
+Main source SHA-256:
+1732620b261bb26c259d8af5b6e0dffd3e56f60b7c504cfbde01147cf153ea90.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 66 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All 64 physical chapter pages 3381--3444 (printed 3311--3374) and both
+adjoining seams were visually inspected at detail size. All three final
+changed pages were reinspected; the other 63 chapter/seam images match
+inspected first-build images byte for byte. Physical 3444 is intentionally
+blank. No reviewed layout defect remains. Frozen releases, receipts and
+checksum ledgers are unchanged. This direct audit claims no new independent
+verifier verdict. Verified work remains local pending explicit remote-push
+approval.
