@@ -38,8 +38,17 @@ reference, and rendered-page gates; see the
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md), and
 [Chapter 3 audit](second_reading_ch03_audit_20261002.md).
 Chapter 4 source reading is complete; its normalization and scope repairs
-remain pending while the user's standalone LaTeX catalogue of the complete
-active open-problem inventory is prepared. No later chapter is marked reread.
+are next. No later chapter is marked reread.
+
+The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
+[85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and
+[audit](open_problem_catalogue_audit_20261002.md). All 42 active items in
+twelve families retain their exact scopes, known cases, obstructions,
+completion criteria and references. Its general literature cutoff is
+24 August, targeted updates reach 19 September, and dated verification and
+supplied-source integrations reach 26 September. It claims no new literature
+search or solution. The source compiles in the built-in editor; all 85 pages
+and the final internal navigation were checked.
 
 The first repairs distinguish affine analytification from a compact affinoid
 spectrum, state integrality where the valuation cone has one trivial vertex,

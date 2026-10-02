@@ -4,8 +4,13 @@
 
 On 2 October 2026 the user requested another complete reading pass from
 Chapter 1 for coherence and readability. Chapters 1--3 pass the new reading
-gates; Chapter 4 source reading is complete and its repairs remain pending
-while the requested standalone open-problem catalogue is prepared. The latest
+gates; Chapter 4 source reading is complete and its repairs are next.
+The requested standalone open-problem catalogue is complete: all 42 active
+items, twelve full family statements, source-dated state of the art and
+completion criteria in an 85-page independent LaTeX document. See its
+[audit](open_problem_catalogue_audit_20261002.md),
+[source](../../output/open_problems_catalogue_2026-10-02.tex) and
+[PDF](../../output/open_problems_catalogue_2026-10-02.pdf). The latest
 steering requires cloud-only execution and suspends Xean setup. This pass is
 tracked in [the second reading and research programme](second_reading_and_research_programme_20261002.md).
 The completed second-draft status below describes its frozen edition.
