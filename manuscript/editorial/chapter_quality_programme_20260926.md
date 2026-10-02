@@ -52,8 +52,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
   the sequential quality gates.
-- **Parts V--VI, Chapters 51--72:** active. Chapters 51--60 are complete;
-  Chapter 61 is next.
+- **Parts V--VI, Chapters 51--72:** active. Chapters 51--61 are complete;
+  Chapter 62 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1642,3 +1642,21 @@ the final repairs that keep compact statements and warnings together.
 Build, scoped structure and post-render reference checks pass; evidence
 is in `ch60_quality_audit_20261002.md` and `chapter_status.md`.
 Chapter 61 is next, and the whole-book goal continues.
+
+
+### Chapter 61
+
+The chapter now exposes the compactness, duality, envelope, strong-topology,
+variational and approximation dependencies in eleven labelled subsections.
+Rational envelope translations stay in the model class. The weak/strong curve
+counterexample derives its model potentials explicitly, and the interval
+example computes a continuous non-PL solution, exact dyadic errors, energies
+and entropy. General locality retains its full imported scope and explains
+the stronger weighted limit needed by the algebraic proof. The verified
+whole-complex boundary argument remains byte-identical.
+
+All twenty formal assertions and 32 reusable environments were reviewed.
+Four primary PDFs and 46 rendered source pages, 6,374 calculation checks,
+the full build, all 26 chapter pages and both seams, post-render scoped and
+reference checks pass. Evidence is in `ch61_quality_audit_20261002.md` and
+`chapter_status.md`. Chapter 62 is next; the whole-book goal continues.

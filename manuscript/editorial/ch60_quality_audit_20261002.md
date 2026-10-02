@@ -121,7 +121,7 @@ The inspected page list is version-specific:
 | Demailly, author-hosted 1992 regularization PDF | Bergman regularization, curvature bounds, gluing and weight normalization | 13--17 |
 | Boucksom--Hisamoto--Jonsson, published JEMS 21 (2019) author offprint | Logarithmic relative canonical model, snc volume and its proof | 19--21 |
 | BHJ, published 2022 erratum | Affected later theorem and the stated unaffected scope through Section 4 | 1--2 |
-| Boucksom--Jonsson, published JAMS 38 (2025) author offprint | Ordered two-point J and the mixed-energy estimate with proof | 19--20, 32--33 |
+| Boucksom--Jonsson, published Contemporary Mathematics 810 (2025) author offprint | Ordered two-point J and the mixed-energy estimate with proof | 19--20, 32--33 |
 | Berman--Boucksom--Jonsson, arXiv 1509.04561 v3 | Ordered Darvas metric and projective maximal-ray energy identification | 10, 25--26 |
 | Darvas--Xia--Zhang, published 2025 PDF | Squared radial convention, Legendre correspondence, terminal level and mass defect | 12--14, 31 |
 | Mesquita-Piccione--Witt Nystrom, arXiv 2509.09442 v1 | Reduced entropy, stability, normalized-model approximation and raw-model boundary | 13, 31, 34--35 |
@@ -144,7 +144,7 @@ Fresh access included the [Annals PDF](https://annals.math.princeton.edu/wp-cont
 [Demailly PDF](https://www-fourier.univ-grenoble-alpes.fr/~demailly/manuscripts/regularization.pdf),
 [BHJ published offprint](https://sebastien.boucksom.perso.math.cnrs.fr/publis/BHJ2.pdf),
 [BHJ erratum](https://ems.press/content/serial-article-files/32635?nt=1),
-[JAMS published offprint](https://sebastien.boucksom.perso.math.cnrs.fr/publis/BJ_synthetic.pdf),
+[published synthetic-energy offprint](https://sebastien.boucksom.perso.math.cnrs.fr/publis/BJ_synthetic.pdf),
 and [BBJ v3](https://arxiv.org/pdf/1509.04561v3).
 The author offprints resolve the access limitations recorded in earlier
 scoped audits for the specific passages reviewed here. No uninspected

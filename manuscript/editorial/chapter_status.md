@@ -6095,3 +6095,38 @@ intentionally blank. No reviewed chapter layout defect remains. Frozen
 releases and checksum ledgers are unchanged. This direct editorial/source
 audit does not claim an independent verifier verdict. Verified work remains
 local pending explicit remote-push approval.
+
+
+## Chapter 61: complete chapter-quality gate, 2 October 2026
+
+Chapter 61 has passed the sequential programme; Chapter 62 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are in
+[`ch61_quality_audit_20261002.md`](ch61_quality_audit_20261002.md).
+
+There are twenty formal assertions, 32 labelled reusable environments and
+98 labels. Four primary PDFs and 46 rendered source pages were checked.
+The exact supplement passes 6,374 checks across 23 families. References
+pass for 425 inputs and 12,213 labels; all six checker tests pass. The
+inventory remains 42 atoms in twelve environments, tiers (0,3,7,15,17).
+Post-render scoped and reference checks and `git diff --check` pass.
+The unavailable legacy house-audit command is replaced by the recorded
+manual and scoped review. Legacy inline delimiters are confined to the
+byte-preserved verified boundary block, whose hash is unchanged.
+
+The full build gives 4,130 pages and 19,279,694 bytes, PDF SHA-256
+`d0dac3594638a156def90702dbf62620fe8edcbe457720bcd00f1d624d5947a4`.
+Final source SHA-256:
+`9c3ed4e4b4c7813c63d728c4dfa6721dc24784323cfc91a1a78d6c28bdab0b0e`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 61 has no overfull boxes or LaTeX/package
+warnings. Eighteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All 26 physical chapter pages 3249--3274 (printed 3179--3204) and both
+adjoining seams were inspected at detail size. All ten pages changed by
+the last layout repair were reinspected; the other final images match the
+inspected preceding build byte for byte. No reviewed chapter layout defect
+remains. Frozen releases and checksum ledgers are unchanged. This direct
+editorial/source audit does not claim a new independent verifier verdict.
+Verified work remains local pending explicit remote-push approval.
