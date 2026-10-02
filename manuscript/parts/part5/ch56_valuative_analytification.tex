@@ -7,7 +7,7 @@ semivaluations.
 The construction is elementary at a fixed singularity, but two points need
 care.
 First, an ideal can vanish identically on the support of a semivaluation, so
-the correct value is \(+\infty\) before changing sign.
+the correct value is $+\infty$ before changing sign.
 Second, the analytification of a test curve is initially defined by a
 Legendre supremum on divisorial valuations; proving that it is a
 Boucksom--Jonsson psh metric requires algebraization and uniform global
@@ -15,39 +15,52 @@ generation.
 
 The chapter develops those steps in the order used in
 \cite{DXZ23}.
-Throughout, \(X\) is a connected projective manifold over \(\mathbf C\).
-It has dimension \(n\), \(L\) is a pseudo-effective
-\(\mathbf Q\)-line bundle, \(h\) is a smooth reference metric, and
-\(\theta=c_1(L,h)\).
+The proof uses the positive-mass recovery of
+\Cref{thm:tna-positive-volume}, the relative ray correspondence of
+\Cref{thm:rays-rwn}, and the BJ closure and divisorial determination
+of \Cref{thm:bj-basic-closure}. The published comparison section assumes
+a big line-bundle class. Here the fixed-potential generation argument also
+works in a pseudoeffective class, and the final perturbation step treats
+zero mass explicitly.
+Throughout, $X$ is a connected projective manifold over $\mathbf C$.
+It has dimension $n$, $L$ is a pseudo-effective
+$\mathbf Q$-line bundle, $h$ is a smooth reference metric, and
+$\theta=c_1(L,h)$.
 
 The sign ledger is fixed as follows.  Ideal values are nonnegative,
-\(\log|\mathfrak a|(v)=-v(\mathfrak a)\), and a complex singularity is
+$\log|\mathfrak a|(v)=-v(\mathfrak a)$, and a complex singularity is
 sent to a nonpositive function.  We normalize
-\(\nu_{\ord_E}(\log|f|^2)=\ord_E(f)\), use
-\(t=-\log|z|^2\), and normalize the Gauss extension by
-\(\sigma(v)(z)=1\).  With these choices the Legendre term is \(+\tau\)
+$\nu_{\ord_E}(\log|f|^2)=\ord_E(f)$, use
+$t=-\log|z|^2$, and normalize the Gauss extension by
+$\sigma(v)(z)=1$.  With these choices the Legendre term is $+\tau$
 in \eqref{eq:va-test-curve-an}, and no factor of two occurs in the
 divisorial formula.
 
 \section{Ideal values and the multiplier-ideal formula}
+\label{sec:va-ideal-values}
 
-A point \(v\in X^{\An}\) is a semivaluation on an irreducible subvariety
-\(Y\subseteq X\), called its support.
-Because \(X\) is proper, it has a center on \(X\).
-For a coherent ideal \(\mathfrak a\), define
+A point $v\in X^{\An}$ is a semivaluation on an irreducible subvariety
+$Y\subseteq X$, called its support.
+Because $X$ is proper, it has a center on $X$.
+For a coherent ideal $\mathfrak a$, define
 \[
  v(\mathfrak a)
  :=\min\{v(f):f\text{ is a local generator of }\mathfrak a
                     \text{ at }c(v)\}\in[0,+\infty].
 \tag{56.1}\label{eq:va-ideal-value}
 \]
-This does not depend on the generators.
-It equals \(+\infty\) exactly when the restriction of \(\mathfrak a\) to
-the support of \(v\) is the zero ideal near the center.
+If $g_j=\sum_i a_{ij}f_i$ is another local generating family, then
+$v(a_{ij})\geq0$ and the valuation inequality gives
+$v(g_j)\geq\min_i v(f_i)$. Reversing the families proves independence.
+These are the tropical ideal rules of
+\Cref{eq:ideal-tropical-identities}: products add values, sums take minima,
+and ideal inclusion reverses their order. Local units have value zero.
+The minimum equals $+\infty$ exactly when the restriction of $\mathfrak a$ to
+the support of $v$ is the zero ideal near the center.
 
 \begin{definition}[Analytification of a psh singularity]
 \label{def:va-psh-analytification}
-For \(\varphi\in\PSH(X,\theta)\), set
+For $\varphi\in\PSH(X,\theta)$, set
 \[
  \varphi^{\An}(v)
  :=-v(\varphi)
@@ -57,6 +70,12 @@ For \(\varphi\in\PSH(X,\theta)\), set
 \tag{56.2}\label{eq:va-multiplier-limit}
 \]
 \end{definition}
+
+The formula contains no background form. It therefore also defines
+$\varphi^{\An}$ for every $\varphi\in\QPSH(X)$: choose a sufficiently
+large positive multiple of an ample curvature form to make $\varphi$
+psh, and use the same multiplier ideals.
+
 
 \begin{proposition}\label{prop:va-fekete}
 The limit in \eqref{eq:va-multiplier-limit} exists for every semivaluation,
@@ -70,76 +89,82 @@ including semivaluations of proper support, and
 \end{proposition}
 
 \begin{proof}
-Subadditivity of multiplier ideals gives
+Put $a_0=0$ and $a_k=v(\cI(k\varphi))$ for $k\geq1$.
+Subadditivity of multiplier ideals and the ideal product rule give
 \[
- \cI((k+\ell)\varphi)
-       \subseteq\cI(k\varphi)\cI(\ell\varphi).
+ \cI((k+\ell)\varphi)\subseteq\cI(k\varphi)\cI(\ell\varphi),
+ \qquad a_{k+\ell}\geq a_k+a_\ell.
 \]
-Hence, with \(a_k=v(\cI(k\varphi))\),
+All values lie in $[0,+\infty]$. Fix $k\geq1$ and write
+$N=qk+r$, $0\leq r<k$. Then
 \[
-                         a_{k+\ell}\geq a_k+a_\ell
+                  a_N\geq qa_k+a_r\geq qa_k.
 \]
-in \([0,+\infty]\).
-Fekete's lemma for a superadditive extended-real sequence gives existence of
-\(\lim k^{-1}a_k=\sup k^{-1}a_k\).
-Applying the same inclusion along powers of two shows that
-\(2^{-j}a_{2^j}\) is increasing.  To see that its limit is the full
-supremum, fix \(k\) and write \(2^j=q_jk+r_j\), with
-\(0\leq r_j<k\).  Superadditivity gives
+If $a_k=+\infty$, this forces $a_N=+\infty$ for every $N\geq k$.
+Otherwise, dividing by $N$ and letting $N\to\infty$ gives
+$\liminf_N N^{-1}a_N\geq k^{-1}a_k$. Taking the supremum over $k$
+and using the reverse limsup bound proves
 \[
- a_{2^j}\geq q_ja_k+a_{r_j}.
+           \lim_{N\to\infty}N^{-1}a_N
+           =\sup_{k\geq1}k^{-1}a_k.
 \]
-If all terms are finite, division by \(2^j\) and passage to the limit gives
-\(\lim_j2^{-j}a_{2^j}\geq k^{-1}a_k\); taking the supremum over \(k\)
-proves equality.  If some \(a_k=+\infty\), then
-\(a_{qk}=+\infty\) and the same decomposition, after increasing \(j\) if
-necessary, forces the dyadic limit to be \(+\infty\).
-Changing signs gives \eqref{eq:va-dyadic}.
-If some \(a_k=+\infty\), the same argument is interpreted in the ordered
-monoid \([0,+\infty]\) and gives the value \(-\infty\), so no support is
-discarded.
+The same argument with $N=2^j$ proves that the dyadic subsequence
+has this limit. Its terms $2^{-j}a_{2^j}$ are increasing by
+$a_{2k}\geq2a_k$. Changing signs proves \eqref{eq:va-dyadic},
+including the value $-\infty$ on proper supports.
 \end{proof}
 
 \begin{proposition}\label{prop:va-divisorial-formula}
-For a prime divisor \(E\) on a modification of \(X\) and \(t>0\),
+For a prime divisor $E$ on a modification of $X$ and $t>0$,
 \[
              \varphi^{\An}(t\ord_E)=-t\,\nu_E(\varphi),
 \tag{56.4}\label{eq:va-divisorial}
 \]
-where \(\nu_E(\varphi)\) is the generic Lelong number.
+where $\nu_E(\varphi)$ is the generic Lelong number.
 \end{proposition}
 
 \begin{proof}
-The valuative characterization of multiplier ideals gives
+The asymptotic multiplier-ideal input is the divisorial Bergman
+approximation estimate, recorded in the proof of
+\cite[Theorem~5.1]{BFJ08}. In the squared-norm convention of this book,
+if $A_X(E)=1+\ord_E(K_{Y/X})$ on a smooth model carrying $E$, it gives
+\[
+ k\nu_E(\varphi)-A_X(E)
+ \leq\ord_E\cI(k\varphi)\leq k\nu_E(\varphi).
+\]
+The lower bound comes from change of variables and local integrability
+at the generic point of $E$; the upper bound comes from the Bergman
+approximation being less singular than the original potential. Smooth
+background terms change neither quantity. Dividing by $k$ proves
 \[
  \lim_{k\to\infty}k^{-1}\ord_E\cI(k\varphi)=\nu_E(\varphi).
 \]
-Homogeneity of ideal values under \(t\ord_E\) proves the formula.
+Homogeneity of ideal values under $t\ord_E$ proves the formula.
 Notice that this is an asymptotic equality; no claim is made that
-\(\ord_E\cI(k\varphi)=k\nu_E(\varphi)\) at a fixed \(k\).
+$\ord_E\cI(k\varphi)=k\nu_E(\varphi)$ at a fixed $k$.
 \end{proof}
 
-\begin{example}[A logarithmic pole on \(\mathbf P^1\)]
+\begin{example}[A logarithmic pole on $\mathbf P^1$]
 \label{ex:va-log-pole}
-Let \(X=\mathbf P^1\), let \(L=\mathcal O(1)\) carry a smooth positive
-metric \(h\) of curvature \(\theta\), and choose a section \(s\) vanishing
-simply at \(p\).  For \(0<\lambda\leq1\), set
+Let $X=\mathbf P^1$, let $L=\mathcal O(1)$ carry a smooth positive
+metric $h$ of curvature $\theta$, and choose a section $s$ vanishing
+simply at $p$.  For $0<\lambda\leq1$, set
 \[
                        \varphi=\lambda\log|s|_h^2,
 \]
 with the Poincar\'e--Lelong normalization
-\(\nu_p(\log|s|_h^2)=1\).  Then
+$\nu_p(\log|s|_h^2)=1$.  Then
 \[
               \theta+\ddc\varphi=(1-\lambda)\theta+\lambda[p]\geq0,
 \]
-so \(\varphi\in\PSH(X,\theta)\).
+so $\varphi\in\PSH(X,\theta)$.
 
-If \(z\) is a local coordinate at \(p\), the one-variable multiplier-ideal
+If $z$ is a local coordinate at $p$, the one-variable multiplier-ideal
 calculation \eqref{eq:complex-multiplier-example} gives
 \[
                  \cI(k\varphi)_p=(z^{\lfloor k\lambda\rfloor}).
 \]
-For \(v_c=c\,\ord_p\), with \(c>0\), it follows that
+For $v_c=c\,\ord_p$, with $c>0$, it follows that
 \[
  \varphi^{\An}(v_c)
    =-\lim_{k\to\infty}\frac{c\lfloor k\lambda\rfloor}{k}
@@ -147,9 +172,9 @@ For \(v_c=c\,\ord_p\), with \(c>0\), it follows that
 \]
 in agreement with \Cref{prop:va-divisorial-formula}.  At the trivial
 valuation the value is zero.  At a semivaluation supported on the point
-\(p\), the ideal restricts to zero once
-\(\lfloor k\lambda\rfloor>0\); its ideal value is then \(+\infty\), and
-\(\varphi^{\An}=-\infty\).  Thus this example also exhibits the
+$p$, the ideal restricts to zero once
+$\lfloor k\lambda\rfloor>0$; its ideal value is then $+\infty$, and
+$\varphi^{\An}=-\infty$.  Thus this example also exhibits the
 proper-support convention in \eqref{eq:va-multiplier-limit}.
 \end{example}
 
@@ -161,43 +186,48 @@ The formula immediately implies
 \tag{56.5}\label{eq:va-i-order}
 \]
 Conversely, comparison on all divisorial valuations recovers the
-\(\cI\)-order by the valuative criterion for multiplier ideals.
+$\cI$-order by the valuative criterion for multiplier ideals.
 
 \begin{proposition}
 \label{prop:va-i-equivalence}
-For \(\varphi,\psi\in\QPSH(X)\), the following are equivalent:
+For $\varphi,\psi\in\QPSH(X)$, the following are equivalent:
 \begin{enumerate}
-\item \(\cI(m\varphi)=\cI(m\psi)\) for every integer \(m\geq1\);
-\item \(\nu_E(\varphi)=\nu_E(\psi)\) for every prime divisor \(E\) over
-      \(X\);
-\item \(\varphi^{\An}=\psi^{\An}\) on all divisorial semivaluations.
+\item $\cI(m\varphi)=\cI(m\psi)$ for every real $m>0$;
+\item $\nu_E(\varphi)=\nu_E(\psi)$ for every prime divisor $E$ over
+      $X$;
+\item $\varphi^{\An}=\psi^{\An}$ on all divisorial semivaluations;
+\item $\varphi^{\An}=\psi^{\An}$ on all of $X^{\An}$.
 \end{enumerate}
-Thus analytification records \(\mathcal I\)-equivalence.  It does not, for
-arbitrary singularities, identify \(P\)-equivalence classes.
+Thus analytification records $\mathcal I$-equivalence.  It does not, for
+arbitrary singularities, identify $P$-equivalence classes.
 \end{proposition}
 
 \begin{proof}
-The first condition implies the third by
-\eqref{eq:va-multiplier-limit}; the third is equivalent to the second by
+The first condition implies the fourth by
+\eqref{eq:va-multiplier-limit}, and the fourth implies the third.
+The third is equivalent to the second by
 \Cref{prop:va-divisorial-formula}.  Conversely, equality of all divisorial
 Lelong numbers gives equality of the upper-regularized multiplier ideals by
 the valuative characterization \cite[Theorem~A]{BFJ08}.  Strong openness
 \cite{GZ15} identifies those upper-regularized ideals with
-\(\cI(m\varphi)\) and \(\cI(m\psi)\), proving the first condition.  The
-last sentence follows because the \(P\)-envelope is defined by ordinary
-singularity comparison, whereas the construction above used only
-multiplier ideals.  Equality of the two relations requires the separate
-\(\mathcal I\)-good hypothesis.
+$\cI(m\varphi)$ and $\cI(m\psi)$, proving the first condition.  The
+last sentence is witnessed by the polar Cantor example in
+\Cref{prop:ok-i-invariant-obstruction}: its potential is ideal-equivalent
+to zero, but its raw mass is zero rather than one. The $P$-envelope
+preserves raw mass, by \eqref{eq:complex-p-projection}, so their
+$P$-classes differ. On the positive-mass ideal-good domain the two envelope
+constructions agree, by \cite[Theorem~7.1.1]{XiaBook}.
 \end{proof}
 
 \section{Gauss extension and complexification}
+\label{sec:va-gauss}
 
-Let \(z\) be the coordinate on \(\mathbf A^1\); the letter \(t\) remains
+Let $z$ be the coordinate on $\mathbf A^1$; the letter $t$ remains
 reserved for geodesic time.
 
 \begin{definition}[Gauss extension]
 \label{def:va-gauss-extension}
-For a semivaluation \(v\) on \(X\), its Gauss extension is
+For a semivaluation $v$ on $X$, its Gauss extension is
 \[
  \sigma(v)\!\left(\sum_i f_iz^i\right)
        :=\min_i\{v(f_i)+i\}.
@@ -238,15 +268,15 @@ Our normalization is
 in the divisorial case. The corresponding geodesic time remains
 $t=-\log|z|^2$.
 
-Let \(\Gamma=(\Gamma_\tau)\) be a transcendental non-Archimedean metric in
-the class \(\{\theta\}\).
-It is represented, after adding an arbitrary K\"ahler form \(\omega\), by an
-\(\cI\)-model test curve
-\(\Gamma^{\theta+\omega}\).
+Let $\Gamma=(\Gamma_\tau)$ be a transcendental non-Archimedean metric in
+the class $\{\theta\}$.
+It is represented, after adding an arbitrary K\"ahler form $\omega$, by an
+$\cI$-model test curve
+$\Gamma^{\theta+\omega}$.
 
 \begin{definition}[Analytification of a test curve]
 \label{def:va-test-curve-analytification}
-For \(v\in X^{\divis}\), define
+For $v\in X^{\divis}$, define
 \[
  \Gamma^{\An}(v)
  :=\sup_{\tau\leq\Gamma_{\max}}
@@ -256,10 +286,23 @@ For \(v\in X^{\divis}\), define
 \tag{56.7}\label{eq:va-test-curve-an}
 \]
 The convention is
-\((-\infty)^{\An}(v)=-\infty\).
+$(-\infty)^{\An}(v)=-\infty$.
 \end{definition}
 
-Nothing in the notation \(\Gamma^{\An}\) records \(\omega\), so the
+On $X^{\divis}$ this supremum is real: each nontrivial level has
+finite generic divisorial Lelong numbers, at least one level is nontrivial,
+and every summand is at most $\Gamma_{\max}$. At $v_{\triv}$ its value
+is $\Gamma_{\max}$, since every nonzero multiplier ideal has value zero.
+For a parameter translation $\Gamma'_\tau=\Gamma_{\tau-b}$,
+\[
+ (\Gamma')^{\An}=\Gamma^{\An}+b,\qquad
+ \Gamma'_{\max}=\Gamma_{\max}+b.
+\tag{56.7a}\label{eq:va-parameter-translation}
+\]
+This follows by reindexing the supremum and remains valid when a level
+is $-\infty$.
+
+Nothing in the notation $\Gamma^{\An}$ records $\omega$, so the
 definition is only legitimate once the right side is known to be
 independent of it.  That is the content of the next lemma, and it is the
 reason the whole chapter may work with one arbitrary perturbation.
@@ -267,44 +310,52 @@ reason the whole chapter may work with one arbitrary perturbation.
 \begin{lemma}[The analytification does not see the perturbation]
 \label{lem:va-omega-independence}
 The right side of \eqref{eq:va-test-curve-an} is independent of the choice
-of K\"ahler form \(\omega\).
+of K\"ahler form $\omega$.
 \Cref{def:va-test-curve-analytification} is therefore well posed.
 \end{lemma}
 
 \begin{proof}
-Let \(\omega\geq\omega'\) be K\"ahler.  Compatibility
+Let $\omega\geq\omega'$ be K\"ahler.  Compatibility
 \eqref{eq:tna-component-compatibility} of the inverse system says that the
-component at the larger perturbation is the \(\cI\)-projection of the
+component at the larger perturbation is the $\cI$-projection of the
 component at the smaller one,
 \[
  \Gamma_\tau^{\theta+\omega}
  =P_{\theta+\omega}\bigl[\Gamma_\tau^{\theta+\omega'}\bigr]_{\cI}.
 \]
-Passing to an \(\cI\)-model representative is by construction an
-\(\cI\)-equivalence, so
-\(\cI\bigl(k\Gamma_\tau^{\theta+\omega}\bigr)
-  =\cI\bigl(k\Gamma_\tau^{\theta+\omega'}\bigr)\)
-for every \(k\geq1\).  The implication
-\(\text{(i)}\Rightarrow\text{(iii)}\) of
+Passing to an $\cI$-model representative is by construction an
+$\cI$-equivalence, so
+$\cI\bigl(k\Gamma_\tau^{\theta+\omega}\bigr)
+  =\cI\bigl(k\Gamma_\tau^{\theta+\omega'}\bigr)$
+for every $k\geq1$.  The implication
+$\text{(i)}\Rightarrow\text{(iii)}$ of
 \Cref{prop:va-i-equivalence} then gives
 \[
  \bigl(\Gamma_\tau^{\theta+\omega}\bigr)^{\An}
  =\bigl(\Gamma_\tau^{\theta+\omega'}\bigr)^{\An}
 \]
-on divisorial valuations, for every \(\tau\).  Each summand of
+on divisorial valuations, for every $\tau$.  Each summand of
 \eqref{eq:va-test-curve-an} is therefore unchanged.  The index set of the
 supremum is unchanged as well, because the terminal parameter
-\(\Gamma_{\max}\) does not depend on the perturbation, by
+$\Gamma_{\max}$ does not depend on the perturbation, by
 \Cref{prop:tna-common-terminal}.  Hence the two suprema agree.
 
-Two arbitrary K\"ahler forms \(\omega_1,\omega_2\) are compared through a
+Two arbitrary K\"ahler forms $\omega_1,\omega_2$ are compared through a
 common lower bound: a sufficiently small positive multiple of a fixed
 K\"ahler form lies below both, and the previous paragraph applies to each
 comparison in turn.
 \end{proof}
 
-For the Gauss computation, take a positive-mass test-curve
-representative in its own background class, denoted by $\theta$.
+For the Gauss computation, take the positive-mass representative
+in its own background class supplied by \Cref{thm:tna-positive-volume},
+and denote that background by $\theta$.
+We also use the same divisorial Legendre formula for a relative curve
+in the sense of \cite[Section~2.2]{DXZ23}: its parameter profile is
+concave, decreasing and upper semicontinuous, with finite cutoff and
+nontrivial initial potential. Such a curve need not have $P$-fixed
+levels. This broader source terminology will be needed for PL
+concavification below; it is not the maximal curve of
+\Cref{def:rays-test-curve}.
 Translate its parameter so that $\Gamma_{\max}\leq0$.
 The complexification of the dual ray is the usc regularization of
 \[
@@ -322,7 +373,8 @@ $X\times\Delta$. A nontrivial level prevents its collapse to
 $-\infty$.
 
 \begin{proposition}\label{prop:va-gauss-identity}
-If $\Gamma$ has positive mass, then for every $v\in X^{\divis}$,
+For a relative curve $\Gamma$ with positive-mass initial potential
+and $\Gamma_{\max}\leq0$, and every $v\in X^{\divis}$,
 \[
                        \Gamma^{\An}(v)=-\sigma(v)(\Psi).
 \tag{56.9}\label{eq:va-gauss-identity}
@@ -362,19 +414,19 @@ to points with proper support will be constructed from ideals below.
 
 \begin{example}[The constant endpoint sign check]
 \label{ex:va-constant-endpoint}
-Assume \(\theta\) is K\"ahler and let \(a\leq0\).  Take
-\(\Gamma_\tau=0\) for \(\tau\leq a\) and \(-\infty\) for \(\tau>a\).
-Then \(\Gamma^{\An}(v)=a\) for every full-support semivaluation, since all
-multiplier-ideal values are zero.  The dual ray is \(u_t=at\), while its
+Assume $\theta$ is K\"ahler and let $a\leq0$.  Take
+$\Gamma_\tau=0$ for $\tau\leq a$ and $-\infty$ for $\tau>a$.
+Then $\Gamma^{\An}(v)=a$ for every full-support semivaluation, since all
+multiplier-ideal values are zero.  The dual ray is $u_t=at$, while its
 complexification is
-\(\Psi=-a\log|z|^2\).  Hence
+$\Psi=-a\log|z|^2$.  Hence
 \[
                    -\sigma(v)(\Psi)=-(-a)=a,
 \]
 which checks simultaneously the minus sign in
-\eqref{eq:va-gauss-identity}, the \(+\tau\) in
+\eqref{eq:va-gauss-identity}, the $+\tau$ in
 \eqref{eq:va-test-curve-an}, and the normalization
-\(\sigma(v)(z)=1\).
+$\sigma(v)(z)=1$.
 \end{example}
 
 \begin{example}
@@ -460,35 +512,44 @@ proper-support values directly.
 \end{example}
 
 \section{Piecewise-linear test curves}
+\label{sec:va-pl}
 
 Fix numbers
 \[
                   \tau_0>\tau_1>\cdots>\tau_N
 \]
-and potentials \(A_i\in\PSH(X,\theta)\).
-Let \(A_\tau\) interpolate affinely between
-\((\tau_i,A_i)\), be constant for \(\tau\leq\tau_N\), and equal
-\(-\infty\) for \(\tau>\tau_0\).
+and potentials $A_i\in\PSH(X,\theta)$.
+Let $A_\tau$ interpolate affinely between
+$(\tau_i,A_i)$, be constant for $\tau\leq\tau_N$, and equal
+$-\infty$ for $\tau>\tau_0$.
 
 \begin{definition}
 \label{def:va-pl-analytification}
-The analytification of this piecewise-linear curve is
+Define its valuative function on every semivaluation by
 \[
- A^{\An}(v)
- :=\sup_{\tau\leq\tau_0}\{A_\tau^{\An}(v)+\tau\}
-  =\max_{0\leq i\leq N}\{A_i^{\An}(v)+\tau_i\}.
+ A^{\An}(v):=\max_{0\leq i\leq N}\{A_i^{\An}(v)+\tau_i\},
+                         \qquad v\in X^{\An}.
 \tag{56.10}\label{eq:va-pl-max}
 \]
+On divisorial valuations this equals
+$\sup_{\tau\leq\tau_0}(A_\tau^{\An}(v)+\tau)$.
+The same equality on all semivaluations follows from
+\Cref{prop:va-affine-compatibility}, proved below without using
+PL concavification.
 \end{definition}
 
-The last equality is ordinary convex duality:
-an affine function on each parameter interval reaches its maximum at an
-endpoint.
-It remains valid when one or more terms are \(-\infty\).
+For the divisorial equality, generic Lelong numbers are additive under
+positive linear combinations, so $A_\tau^{\An}(v)+\tau$ is affine
+on each parameter interval. It reaches its maximum at an endpoint.
+For $\tau\leq\tau_N$ the potential is constant and the added parameter
+is maximized at $\tau_N$. Endpoint values are evaluated directly,
+without multiplying $-\infty$ by zero. The finite maximum itself is
+always defined on proper supports, including when every term is
+$-\infty$.
 
 The interpolated curve need not itself be concave.  Assume that its
-\(-\infty\) level has positive mass, as will always be the case when this
-construction is used below.  Let \(\widetilde A\) be its upper concave
+$-\infty$ level has positive mass, as will always be the case when this
+construction is used below.  Let $\widetilde A$ be its upper concave
 envelope in the Legendre sense: define
 \[
  \check A_t:=\sup_{\tau\in\mathbf R}(A_\tau+t\tau)
@@ -496,13 +557,18 @@ envelope in the Legendre sense: define
  \qquad
  \widetilde A_\tau:=\inf_{t>0}(\check A_t-t\tau).
 \]
-The finite maximum \(\check A_t\) is a subgeodesic, since each
-\(A_i+t\tau_i\) is one.  The inverse Legendre theorem
+The new initial potential is $\max_i A_i$, since
+$\check A_t\to\max_i A_i$ in $L^1$ as $t\downarrow0$.
+It dominates $A_N$, so mass monotonicity retains positivity. The
+initial potential can therefore change during concavification.
+The finite maximum $\check A_t$ is a subgeodesic, since each
+$A_i+t\tau_i$ is one.  The inverse Legendre theorem
 for subgeodesics, in the form used in
-\cite[Lemma~3.2]{DXZ23}, therefore makes \(\widetilde A\) a genuine
-relative test curve.  This maximalization statement is the imported
-analytic input here.  No additional \(\mathcal I\)-projection is part of
-the concavification.
+\cite[Lemma~3.2]{DXZ23}, therefore makes $\widetilde A$ a relative curve in the broader
+source sense just specified. It does not make every level $P$-fixed:
+concavification and model maximalization are different operations.
+The former is the imported analytic input here. No $P$- or
+$\mathcal I$-projection is part of this concavification.
 
 \begin{proposition}\label{prop:va-pl-replacement}
 On divisorial valuations,
@@ -513,21 +579,57 @@ On divisorial valuations,
 \end{proposition}
 
 \begin{proof}
-Translate the parameters so that \(\tau_0\leq0\), and let \(\Psi\) be the
-\(S^1\)-invariant potential corresponding to the subgeodesic
-\(\check A_t\).  The same generic-Lelong-number computation as in
+Translate the parameters so that $\tau_0\leq0$, and let $\Psi$ be the
+$S^1$-invariant potential corresponding to the subgeodesic
+$\check A_t$.  The same generic-Lelong-number computation as in
 \Cref{prop:va-gauss-identity} gives
 \[
  A^{\An}(v)=-\sigma(v)(\Psi)
 \]
-for divisorial \(v\).  The curve \(\widetilde A\) has the same dual
-subgeodesic \(\check A\), by scalar Legendre biconjugacy.  Applying
-\Cref{prop:va-gauss-identity} to \(\widetilde A\) therefore gives
-\(\widetilde A^{\An}(v)=-\sigma(v)(\Psi)\), proving
+for divisorial $v$.  The curve $\widetilde A$ has the same dual
+subgeodesic $\check A$, by scalar Legendre biconjugacy.  Applying
+\Cref{prop:va-gauss-identity} to $\widetilde A$ therefore gives
+$\widetilde A^{\An}(v)=-\sigma(v)(\Psi)$, proving
 \eqref{eq:va-pl-replacement}.
 \end{proof}
 
+\begin{example}[Two poles and a PL curve]
+\label{ex:va-pl-two-poles}
+On $\mathbf P^1$ take distinct points $p,q$, the Fubini--Study
+background $\theta$, and sections $s_p,s_q$ of $\mathcal O(1)$
+vanishing there. For $0<\lambda<1$, put
+\[
+ A_0=\lambda\log|s_p|^2,\qquad
+ A_1=\lambda\log|s_q|^2,\qquad
+ \tau_0=1,\quad\tau_1=0,
+\]
+where the norms use the Fubini--Study metric. Both currents have raw
+mass $1-\lambda>0$, by the pole calculation above. Their PL
+valuative function is
+\[
+ A^{\An}(v)=\max\{1-\lambda v(\mathcal I_p),
+                         -\lambda v(\mathcal I_q)\}.
+\tag{56.11a}\label{eq:va-pl-two-poles}
+\]
+The pole ideal formula proves each term on every semivaluation,
+including infinite ideal values. Since
+$\mathcal I_p+\mathcal I_q=\mathcal O_X$, at least one ideal value
+is zero. Thus $0\leq A^{\An}\leq1$. It takes value $1$ at
+$v_{\triv}$, value $0$ at the point-support semivaluation of $p$,
+and value $1$ at that of $q$. For $c\ord_p$ its value is
+$\max(1-\lambda c,0)$.
+
+The initial potential after concavification is
+$\max(A_0,A_1)$. It is bounded because the poles are disjoint, so
+its raw mass is one; the original left-tail potential $A_1$ had mass
+$1-\lambda$. This explicitly shows why the concave envelope need
+not retain the original initial potential. The divisorial function
+is nevertheless preserved by \eqref{eq:va-pl-replacement}, and its
+psh extension is the finite maximum in \Cref{cor:va-pl-bj-psh}.
+\end{example}
+
 \section{From multiplier ideals to Fubini--Study functions}
+\label{sec:va-fs}
 
 We now prove that the valuative functions above are psh metrics in the sense
 of Boucksom--Jonsson.
@@ -542,7 +644,10 @@ For every $\varphi\in\PSH(X,\theta)$,
 
 \begin{proof}
 Choose a positive integer $r$ such that $rL$ is a line bundle.
-Homogeneity reduces the assertion to $(rL,r\theta,r\varphi)$;
+Equation \eqref{eq:va-multiplier-limit}, evaluated along the subsequence
+$rk$, gives $(r\varphi)^{\An}=r\varphi^{\An}$ on every
+semivaluation. Thus homogeneity of the BJ cone reduces the assertion
+to $(rL,r\theta,r\varphi)$;
 we reset notation and assume that $L$ is integral.
 Fix a very ample line bundle $H$, and choose $b$ so large that
 $H^b\otimes K_X^{-1}\otimes H^{-q}$ is ample for
@@ -560,7 +665,7 @@ Castelnuovo--Mumford regularity therefore makes
 \]
 globally generated for every $k\geq1$, with the same $b$.
 This is the uniform-generation input of
-\cite[Theorem~6.27]{Dem12} and \cite[Lemma~3.5]{DXZ23}.
+\cite[Theorem~6.27]{DemAMAGAuthor2011} and \cite[Lemma~3.5]{DXZ23}.
 
 Choose global generators $s_{k,j}$ and read them in a local frame
 of $H^b\otimes L^k$ at the center of $v$. Changes of frame are
@@ -580,74 +685,107 @@ Consequently
 is a rational generically finite Fubini--Study function in the class
 $L+(b/k)H$. By \eqref{eq:va-dyadic}, $\phi_{2^j}$ decreases
 pointwise to $\varphi^{\An}$, while the auxiliary classes decrease
-to $L$. The BJ closedness axiom therefore gives
+to $L$. The varying-class closedness clause of \Cref{thm:bj-basic-closure},
+equivalently \cite[Theorem~4.5, property (PSH2)]{BJ22}, therefore gives
 $\varphi^{\An}\in\PSH(L^{\An})$.
 At the trivial valuation every nonzero multiplier ideal has value
 zero, so the limit is not identically $-\infty$.
 \end{proof}
 
+\begin{proposition}[Affine compatibility]
+\label{prop:va-affine-compatibility}
+For $A,B\in\PSH(X,\theta)$ and $0<s<1$,
+\[
+ ((1-s)A+sB)^{\An}=(1-s)A^{\An}+sB^{\An}
+                          \quad\text{on }X^{\An}.
+\tag{56.15a}\label{eq:va-affine-compatibility}
+\]
+Consequently, the finite maximum in \eqref{eq:va-pl-max} equals its
+Legendre supremum on all semivaluations.
+\end{proposition}
+
+\begin{proof}
+Both sides are BJ psh in $L$: the left side by
+\Cref{thm:va-single-potential-bj-psh}, the right side by the
+positive-linear-combination clause of \Cref{thm:bj-basic-closure}.
+Generic Lelong numbers are linear under positive combinations of
+positive currents, so \eqref{eq:va-divisorial} identifies their
+values on $X^{\divis}$. Divisorial determination in
+\Cref{thm:bj-basic-closure} identifies them everywhere.
+This proves additivity using psh extensions, rather than a false
+finite-level multiplier-ideal equality.
+Apply it on each open interpolation interval. An affine expression
+with finite endpoint values has its supremum at an endpoint; if an
+endpoint is $-\infty$, every interior combination involving it is
+$-\infty$ and the other endpoint still controls the supremum.
+At endpoints evaluate the specified potential directly. The constant
+left tail is maximized at $\tau_N$. This proves the final claim,
+including proper supports.
+\end{proof}
+
 \begin{corollary}\label{cor:va-pl-bj-psh}
-The function \(A^{\An}\) in \eqref{eq:va-pl-max} belongs to
-\(\PSH(L^{\An})\).
+The function $A^{\An}$ in \eqref{eq:va-pl-max} belongs to
+$\PSH(L^{\An})$.
 \end{corollary}
 
 \begin{proof}
-Each \(A_i^{\An}\) is psh by
+Each $A_i^{\An}$ is psh by
 \Cref{thm:va-single-potential-bj-psh}.
 Boucksom--Jonsson psh metrics are stable under translations and finite
 maxima \cite[Theorem~4.7]{BJ22}.
 \end{proof}
 
 \section{Algebraizing the complexified multiplier ideals}
+\label{sec:va-algebraization}
 
 For general test curves, finite maxima are replaced by multiplier ideals on
-\(X\times\Delta\).
+$X\times\Delta$.
 Two elementary algebraization facts isolate the geometry.
 
 \begin{lemma}\label{lem:va-circle-ideal}
-Let \(R\) be a finitely generated \(\mathbf C\)-algebra and
-\(I\subset R[z]\) an ideal invariant under \(z\mapsto\rho z\) for every
-\(\rho\in S^1\).
-Then \(I\) is \(\mathbf C^*\)-invariant and
+Let $R$ be a finitely generated $\mathbf C$-algebra and
+$I\subset R[z]$ an ideal invariant under $z\mapsto\rho z$ for every
+$\rho\in S^1$.
+Then $I$ is $\mathbf C^*$-invariant and
 \[
              I=I_0+I_1z+\cdots+I_m(z^m)
 \tag{56.16}\label{eq:va-ideal-expansion}
 \]
-for ideals \(I_0\subseteq I_1\subseteq\cdots\subseteq I_m\) of \(R\).
+for ideals $I_0\subseteq I_1\subseteq\cdots\subseteq I_m$ of $R$.
 \end{lemma}
 
 \begin{proof}
-If \(a=\sum_{i=0}^Na_iz^i\in I\), evaluate its circle translates at
-\(N+1\) distinct points.
-The Vandermonde matrix is invertible, hence each \(a_iz^i\) belongs to
-\(I\).
-Thus \(I=\sum_{i\geq0}I_iz^i\) with \(I_i\subseteq I_{i+1}\), because
-multiplication by \(z\) preserves \(I\).
+If $a=\sum_{i=0}^Na_iz^i\in I$, evaluate its circle translates at
+$N+1$ distinct points.
+The Vandermonde matrix is invertible, hence each $a_iz^i$ belongs to
+$I$.
+Thus $I=\sum_{i\geq0}I_iz^i$ with $I_i\subseteq I_{i+1}$, because
+multiplication by $z$ preserves $I$.
 Noetherianity stabilizes this chain, giving
 \eqref{eq:va-ideal-expansion}.
-The homogeneous expansion also proves \(\mathbf C^*\)-invariance.
+The homogeneous expansion also proves $\mathbf C^*$-invariance.
 \end{proof}
 
 \begin{lemma}\label{lem:va-gaga-ideal}
-Let \(\mathfrak A\) be a coherent analytic ideal on
-\(X\times\mathbf C\).
+Let $\mathfrak A$ be a coherent analytic ideal on
+$X\times\mathbf C$.
 Assume
 \[
  \mathfrak A|_{X\times\mathbf C^*}
        =p_1^*\mathfrak J|_{X\times\mathbf C^*}
 \]
-for an algebraic coherent ideal \(\mathfrak J\) on \(X\).
-Then \(\mathfrak A\) is algebraic.
+for an algebraic coherent ideal $\mathfrak J$ on $X$.
+Then $\mathfrak A$ is algebraic.
 \end{lemma}
 
 \begin{proof}
-Glue \(\mathfrak A\) near \(0\) to
-\(p_1^*\mathfrak J\) on
-\(X\times(\mathbf P^1\setminus\{0\})\).
+Glue $\mathfrak A$ near $0$ to
+$p_1^*\mathfrak J$ on
+$X\times(\mathbf P^1\setminus\{0\})$.
 This gives a coherent analytic ideal on the projective variety
-\(X\times\mathbf P^1\).
+$X\times\mathbf P^1$.
 GAGA algebraizes it, and restriction to
-\(X\times\mathbf C\) algebraizes \(\mathfrak A\).
+$X\times\mathbf C$ algebraizes $\mathfrak A$.
 \end{proof}
 
 Let $\Psi$ be the complexification of the geodesic ray dual to
@@ -757,7 +895,8 @@ If $\Gamma$ has positive mass, the function
 Choose a positive integer $r$ with $rL$ integral. Homogeneity reduces
 the assertion to the rescaled curve $r\Gamma$ in $rL$; divide the
 resulting extension by $r$. We reset notation and assume that $L$
-is a line bundle. Take the positive-mass model representative,
+is a line bundle. Use \Cref{thm:tna-positive-volume} to take the positive-mass
+model representative in the base class,
 translate so that $\Gamma_{\max}\leq0$, and form $\Psi$.
 Define on every semivaluation
 \[
@@ -805,6 +944,7 @@ domination theorem.
 \end{proof}
 
 \section{The zero-mass safeguard}
+\label{sec:va-zero-mass}
 
 The complexification proof used positive mass.
 It would be circular to assert that an arbitrary zero-mass metric has a
@@ -823,8 +963,10 @@ $\Gamma$ in the pseudo-effective class $c_1(L)$, the divisorial function
 
 \begin{proof}
 Choose an ample line bundle $H$ with K\"ahler form $\omega$.
-For every $q\geq1$, the $\cI$-projection of $\Gamma$ to
-$\theta+q^{-1}\omega$ has positive mass.
+For every $q\geq1$, the component
+$\Gamma^{\theta+q^{-1}\omega}$ has positive mass by
+\Cref{def:tna-pshna}. It is a curve in the rational big class
+$c_1(L+q^{-1}H)$, so the preceding positive-mass construction applies.
 \Cref{thm:va-positive-mass-metric} therefore gives
 \[
  \Gamma^{\An}\in
@@ -833,7 +975,10 @@ $\theta+q^{-1}\omega$ has positive mass.
 \]
 These extensions agree first on $X^{\divis}$ by
 \Cref{lem:va-omega-independence}. For two choices of $q$, both
-extensions are psh in the larger of their two background classes.
+extensions are psh in the larger of their two background classes:
+its difference from the smaller class is nef, and the constant zero
+is psh in that difference by \Cref{lem:ch34-psh-nonempty}.
+Adding it uses the sum rule in \Cref{thm:bj-basic-closure}.
 Applying \cite[Theorem~4.22]{BJ22} in both directions shows that
 they agree on $X^{\An}$, including points with proper support.
 Thus there is one fixed extended-real function which is psh in every class
@@ -851,6 +996,7 @@ identically $-\infty$.
 \end{proof}
 
 \section{What the construction has proved}
+\label{sec:va-conclusion}
 
 The analytification map
 \[
@@ -861,8 +1007,10 @@ is now defined on every transcendental non-Archimedean metric in a
 pseudo-effective rational projective class.
 Its values are extended-real functions on the whole trivially valued
 analytification, not merely numerical data on divisorial points.
-The construction is compatible with \(\cI\)-projection, translations of the
-test-curve parameter, and finite PL maxima.
+Perturbation independence proves compatibility with $\cI$-projection.
+Equation \eqref{eq:va-parameter-translation} proves parameter-translation
+compatibility on divisorial points and uniqueness extends it everywhere.
+The finite PL maximum is given by \eqref{eq:va-pl-max}.
 
 Surjectivity, order reflection, general monotone limits, operations, and
 trace are not consequences of the construction alone.
@@ -874,8 +1022,14 @@ chapter.
 The divisorial Gauss identity is \cite[Proposition~3.1]{DXZ23}.
 The algebraization and approximation follow
 \cite[Lemmas~3.5 and~3.7--3.9, Proposition~3.10 and Corollary~3.11]{DXZ23}.
-Uniform generation uses \cite[Theorem~6.27]{Dem12} in the fixed
+Uniform generation uses \cite[Theorem~6.27]{DemAMAGAuthor2011} in the fixed
 case and \cite[Theorem~1.7]{Mat16} in the family case.
+The PL step uses the unmaximalized relative-curve convention of
+\cite[Section~2.2 and Lemma~3.2]{DXZ23}; it does not claim that concave
+envelopes are model envelopes. Affine compatibility on proper supports
+uses the fixed-potential theorem and divisorial determination.
+The uniform-generation locator refers to the identified July 2011
+author PDF, separately from the 2012 print edition.
 The annulus argument retains relative full-mass rooftop stability
 and full-mass multiplier-ideal equality as analytic inputs.
 The target cone, decreasing GF closedness, and divisorial domination

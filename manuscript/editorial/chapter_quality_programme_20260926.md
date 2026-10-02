@@ -52,8 +52,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
   the sequential quality gates.
-- **Parts V--VI, Chapters 51--72:** active. Chapters 51--55 are complete;
-  Chapter 56 is next.
+- **Parts V--VI, Chapters 51--72:** active. Chapters 51--56 are complete;
+  Chapter 57 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1554,3 +1554,19 @@ All 23 assertions, eight examples, 93,604 calculation checks, full build,
 32 rendered chapter pages and both seams, post-render scoped and reference
 checks pass. Evidence is in `ch55_quality_audit_20261001.md` and
 `chapter_status.md`. Chapter 56 is next; the whole-book goal continues.
+
+
+### Chapter 56
+
+Valuative analytification now gives the extended-real asymptotic proof,
+exact divisorial bounds and ideal-equivalence domain. The published relative
+curve convention is distinguished from maximal curves. Concavification has
+its correct initial maximum and a full two-pole calculation. Affine
+compatibility proves the PL formula on proper supports; fixed-potential and
+family generation retain exact source versions. Zero-mass metrics use
+positive rational components and explicit common-background comparison.
+Six primary PDFs and 33 source pages were checked. All fourteen assertions,
+four examples, 9,228 calculation checks, full build, fourteen rendered
+chapter pages and both seams, post-render scoped and reference checks pass.
+Evidence is in `ch56_quality_audit_20261002.md` and `chapter_status.md`.
+Chapter 57 is next; the whole-book goal continues.
