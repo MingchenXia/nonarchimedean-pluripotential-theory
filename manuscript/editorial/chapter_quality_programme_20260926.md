@@ -52,8 +52,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
   the sequential quality gates.
-- **Parts V--VI, Chapters 51--72:** active. Chapters 51--56 are complete;
-  Chapter 57 is next.
+- **Parts V--VI, Chapters 51--72:** active. Chapters 51--57 are complete;
+  Chapter 58 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1570,3 +1570,20 @@ four examples, 9,228 calculation checks, full build, fourteen rendered
 chapter pages and both seams, post-render scoped and reference checks pass.
 Evidence is in `ch56_quality_audit_20261002.md` and `chapter_status.md`.
 Chapter 57 is next; the whole-book goal continues.
+
+
+### Chapter 57
+
+The projective comparison now states operation classes, the fixed-family
+supremum domain and the exact envelope theorem. The weighted-section example
+computes its full curve, multiplier ideals and mass floor. Increasing volume
+continuity gives the uniform-error squeeze. The perturbed-family criterion
+starts without a compatibility assumption and proves its divisorial converse
+in any real background before taking the common rational-base extension.
+Trace notation retains rational prime rays and its separate trivial cutoff.
+Existing detailed order, decreasing-net and trace proofs retain their domains.
+Four primary PDFs and 32 source pages were checked. All eleven assertions,
+five examples, 4,242 calculation checks, full build, sixteen rendered chapter
+pages and both seams, post-render scoped and reference checks pass. Evidence
+is in `ch57_quality_audit_20261002.md` and `chapter_status.md`. Chapter 58 is
+next; the whole-book goal continues.
