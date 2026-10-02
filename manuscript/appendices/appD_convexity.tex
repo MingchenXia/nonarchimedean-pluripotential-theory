@@ -21,6 +21,7 @@ Duistermaat--Heckman measures.
 
 Let \(N\) be a finite-dimensional real vector space, let
 \(M=N^\vee\), and write the pairing as \(\langle m,x\rangle\).
+Write \(n=\dim N\); the volume formulas below assume \(n\geq1\).
 The extended real line is
 \[
  \overline{\mathbf R}=\mathbf R\cup\{-\infty,+\infty\}.
@@ -56,22 +57,23 @@ The maximum of finitely many closed convex functions is closed convex.
 \begin{proof}
 An epigraph of a supremum is the intersection of the epigraphs.
 For the decreasing-net assertion, let \(f=\inf_a f_a\).
-Given \(x,y\), \(s\in[0,1]\), and \(\varepsilon>0\), directedness supplies
+The endpoint cases of the convexity inequality are identities.
+For \(0<s<1\), suppose first that \(f(x)\) and \(f(y)\) are finite.
+Given \(\varepsilon>0\), directedness supplies
 one index \(a\) such that
 \[
  f_a(x)<f(x)+\varepsilon,\qquad
  f_a(y)<f(y)+\varepsilon.
 \]
-Here there is something to prove only when both \(f(x)\) and \(f(y)\) are
-finite; otherwise the convexity inequality has right-hand side
-\(+\infty\).
 Convexity of \(f_a\), followed by \(\varepsilon\downarrow0\), gives convexity
-of \(f\).
+of \(f\).  If either endpoint value is infinite, the right-hand side is
+\(+\infty\) for \(0<s<1\), so the inequality is automatic.
 Finally, the epigraph of a finite maximum is a finite intersection of closed
 convex sets.
 \end{proof}
 
 \begin{warning}{Infima}
+\label{warn:appD-arbitrary-infima}
 An arbitrary infimum of convex functions need not be convex.
 For example, the minimum of
 \(x\mapsto(x-1)^2\) and \(x\mapsto(x+1)^2\) has two wells.
@@ -117,7 +119,12 @@ Equality says
  \leq \langle m,x\rangle-f(x)
 \]
 for every \(y\), which rearranges to \eqref{eq:appD-subgradient}.
-The same equality, read with the variables reversed, gives the last claim.
+For the last claim, retain \(x\) in the supremum defining \(f^*(m')\):
+\[
+ f^*(m')\geq\langle m',x\rangle-f(x)
+ =f^*(m)+\langle m'-m,x\rangle.
+\]
+Thus \(x\in\partial f^*(m)\), without assuming that \(f\) is closed.
 \end{proof}
 
 \begin{theorem}\label{thm:appD-fenchel-moreau}
@@ -132,6 +139,17 @@ In particular, \(f^{**}=f\) exactly when \(f\) is lower semicontinuous.
 
 \begin{proof}
 The function \(f^*\) is a supremum of continuous affine functions.
+We first explain why \(\overline f\) is still proper.  Choose
+\(x_1\) in the relative interior of \(\operatorname{dom}(f)\), and put
+\(H=\operatorname{aff}(\operatorname{dom}(f))\).  Convex continuity on
+the relative interior, \cite[Theorem~10.1]{Roc70}, places
+\((x_1,f(x_1)-1)\) outside the closed epigraph in \(H\times\mathbf R\).
+Strong separation there gives a separator with positive vertical
+coefficient: a zero coefficient could not distinguish this point from
+\((x_1,f(x_1))\).  After normalization and extension of the affine
+functional from \(H\) to \(N\), it gives an affine minorant \(h\leq f\).
+Then \(h\leq\overline f\), while
+\(\overline f(x_1)=f(x_1)<+\infty\); hence \(\overline f\) is proper.
 Fenchel's inequality gives \(f^{**}\leq f\), hence
 \(f^{**}\leq\overline f\).
 Fix \(x_0\) and \(a<\overline f(x_0)\).
@@ -148,10 +166,11 @@ For completeness, this form follows from ordinary strong separation as
 follows.  Upward closedness forces the vertical coefficient, with the
 orientation chosen so that the epigraph lies above the separating
 hyperplane, to be nonnegative.  If it is positive, normalize it to one.  If
-it is zero, combine the horizontal separator with a positive-vertical
-supporting hyperplane at a relative-interior point of the proper epigraph;
-a sufficiently small positive multiple preserves strictness at
-\((x_0,a)\), and normalization again gives the displayed affine minorant.
+it is zero, add a small positive multiple of the valid halfspace
+\(r\geq h(x)\) constructed above.  The epigraph satisfies both
+inequalities, and strict separation at \((x_0,a)\) persists for a
+sufficiently small coefficient.  The combined vertical coefficient is
+positive, so normalization again gives the displayed affine minorant.
 The first inequality says \(f^*(m)\leq c\), so \(f^{**}(x_0)>a\).
 Let \(a\uparrow\overline f(x_0)\).
 This is the finite-dimensional argument behind
@@ -223,8 +242,11 @@ is closed concave and nonincreasing, and \(\mathcal Lg=\ell\).
 
 \begin{proof}
 Apply \Cref{thm:appD-fenchel-moreau} to \(f=-g\).
-Because \(g\) is nonincreasing, all slopes of \(f\) are nonnegative, so
-the effective domain of \(f^*\) lies in \([0,+\infty)\).
+Choose \(\tau_0\) with \(f(\tau_0)<+\infty\).  Since \(f=-g\) is
+nondecreasing, \(f(\tau)\leq f(\tau_0)\) for \(\tau\leq\tau_0\).
+For \(t<0\), the quantity \(t\tau-f(\tau)\) therefore tends to
+\(+\infty\) as \(\tau\to-\infty\).  Thus the effective domain of
+\(f^*\) lies in \([0,+\infty)\).
 Now
 \[
  f^*(t)=\sup_\tau\{t\tau+g(\tau)\}=\mathcal Lg(t),
@@ -271,13 +293,16 @@ The order assertion follows by taking suprema in
 \eqref{eq:appD-test-curve-ray}.
 \end{proof}
 
+\noindent\begin{minipage}{\linewidth}
 \begin{warning}{Analytic regularization}
+\label{warn:appD-analytic-regularization}
 Formula \eqref{eq:appD-pointwise-inversion} is scalar convex analysis.
 If \(\ell_t\) is replaced by an upper-semicontinuous or psh regularization
 in \(x\), exact inversion is an additional maximality theorem.
 \Cref{chap:rays-filtrations} supplies it only on the stated analytic
 domain.
 \end{warning}
+\end{minipage}\par
 
 \begin{example}[Single break]
 \label{ex:appD-single-break}
@@ -291,16 +316,28 @@ Let \(a<b\), \(c>0\), and
  \end{cases}
 \]
 This is closed, concave, and nonincreasing.
-Direct maximization gives a convex piecewise affine \(\mathcal Lg\) whose
-slopes lie in \([a,b]\).
+On \(( -\infty,a]\), the maximum of \(t\tau\), for \(t\geq0\),
+is \(ta\).  On \([a,b]\), the maximized affine expression is
+\(ca+(t-c)\tau\), so
+\[
+ \mathcal Lg(t)=
+ \begin{cases}
+ at,&0\leq t\leq c,\\
+ bt-c(b-a),&t\geq c.
+ \end{cases}
+\]
+The two values agree at \(t=c\).  The slopes are \(a\) and \(b\),
+and taking the infimum in \eqref{eq:appD-concave-inversion} recovers
+each of the three branches of \(g\).
 \end{example}
 
 \section{Convex bodies and mixed volume}
 \label{sec:appD-mixed-volume}
 
-Assume that \(N\) carries a lattice and normalize Lebesgue measure so a
-fundamental parallelepiped has volume one.
-A convex body is a nonempty compact convex subset.
+Assume that \(N\) carries a lattice, equip \(M\) with the dual lattice,
+and normalize \(\operatorname{Leb}_M\) so a fundamental parallelepiped
+has volume one.  In this section a convex body is a nonempty compact
+convex subset of \(M\); its support function lives on \(N\).
 For \(s,t\geq0\),
 \[
  sK+tL=\{sx+ty:x\in K,\ y\in L\}.
@@ -308,7 +345,7 @@ For \(s,t\geq0\),
 \]
 
 \begin{lemma}\label{lem:appD-support-calculus}
-For convex bodies \(K,L\), \(s,t\geq0\), and \(a\in N_{\mathbf R}\),
+For convex bodies \(K,L\), \(s,t\geq0\), and \(a\in M\),
 \[
 \begin{aligned}
  h_{sK+tL}&=s h_K+t h_L,\\
@@ -326,7 +363,7 @@ from \(L\) gives \(u\) with \(h_K(u)>h_L(u)\).
 \end{proof}
 
 \begin{theorem}\label{thm:appD-minkowski-polynomial}
-For convex bodies \(K_1,\ldots,K_r\subset N_{\mathbf R}\),
+For convex bodies \(K_1,\ldots,K_r\subset M\),
 \[
  \operatorname{vol}\!\left(\sum_{i=1}^r t_iK_i\right)
  =
@@ -430,9 +467,13 @@ nondegeneracy hypotheses.
 
 \begin{proof}
 We give the complete reduction to one imported finite-dimensional core.
-First suppose that all bodies have smooth strictly convex support
-functions \(h_1,\ldots,h_n\).  Fix \(h_3,\ldots,h_n\) and, on the unit
-sphere, set
+First suppose that the bodies have support functions
+\(h_1,\ldots,h_n\) that are smooth away from the origin and have positive
+definite Hessian on the tangent spaces of the unit sphere.  Homogeneity
+leaves a zero Hessian direction along each radial line.  Translate these
+bodies to contain the origin in their interiors.  Fix
+\(h_3,\ldots,h_n\) and, for smooth functions on the unit sphere,
+use their degree-one homogeneous extensions to set
 \[
  Q(f,g):=\frac1{n!}\int_{S^{n-1}}
        f\,\dprimeddprime g\wedge
@@ -507,6 +548,7 @@ Letting the radius of the added ball tend to zero proves
 
 Let \(\Omega\subset N_{\mathbf R}\) be open and convex and
 \(u:\Omega\to\mathbf R\) convex.
+For conjugation, extend \(u\) by \(+\infty\) off \(\Omega\).
 For \(E\subset\Omega\), put
 \(\partial u(E)=\bigcup_{x\in E}\partial u(x)\).
 
@@ -558,8 +600,9 @@ at \(x\pm\rho e\) bounds \(|\langle m,e\rangle|\) by
 This proves that \(\MA_{\mathbf R}(u)\) is a positive Borel measure.
 
 Assume next that \(u\in C^2\).  Then
-\(\partial u(x)=\{\nabla u(x)\}\).  The area formula
-\cite[Theorem~3.8]{EvansGariepy} gives
+\(\partial u(x)=\{\nabla u(x)\}\).  Apply the area formula
+\cite[Theorem~3.8]{EvansGariepy} locally to the \(C^1\), hence locally
+Lipschitz, map \(\nabla u\), and exhaust \(\Omega\).  It gives
 \[
  \int_E\det D^2u\,\rd x
  =\int_M N(\nabla u,E,m)\,\rd m.
@@ -620,6 +663,15 @@ then at a vertex \(x_0\),
 \tag{D.21}\label{eq:appD-polyhedral-atom}
 \]
 Only full-dimensional subdifferentials contribute.
+For example, consider
+\[
+ u(x_1,x_2)=\max\{0,x_1,x_2\}.
+\]
+Its subdifferential \(\partial u(0)=\operatorname{conv}\{0,e_1,e_2\}\)
+has lattice-normalized area \(1/2\).  Away from the origin the subgradients lie on the boundary
+of this triangle, so \(\MA_{\mathbf R}(u)=\tfrac12\delta_0\).
+Its supercurrent square has mass \(2!\cdot\tfrac12=1\), in accordance
+with \eqref{eq:appD-current-mixed-volume} below.
 \end{example}
 
 \begin{proposition}\label{prop:appD-legendre-pushforward}
@@ -664,6 +716,7 @@ equivalence to Borel sets \(E\) proves the pushforward identity.
 \end{proof}
 
 \begin{warning}{The \(n!\)-test}
+\label{warn:appD-factorial-normalization}
 Our \(\MA_{\mathbf R}\) is exactly
 \eqref{eq:appD-alexandrov-measure}.
 For a toric line bundle,
@@ -722,6 +775,7 @@ Flag independence is a geometric theorem of
 \Cref{chap:transcendental-okounkov-dh}, not a formal pushforward fact.
 
 \begin{warning}{Zero mass and signed moments}
+\label{warn:appD-zero-and-signed-moments}
 If \(\lambda(P)=0\), no probability normalization is defined.
 If \(G=-\infty\) on a set of positive measure, then \(\nu_G\) has an atom at
 \(-\infty\); it is not silently regarded as a Radon measure on
@@ -733,7 +787,8 @@ subtract \(+\infty\) from \(+\infty\).
 \section{Mixed Monge--Amp\`ere and homogeneous supercurrents}
 \label{sec:appD-supercurrents}
 
-Polarization gives a symmetric positive measure
+For finite convex \(u_1,\ldots,u_r\) on a common open convex domain,
+polarization gives a symmetric positive measure
 \(\MA_{\mathbf R}(u_1,\ldots,u_n)\) characterized by
 \[
  \MA_{\mathbf R}\!\left(\sum_i t_i u_i\right)
@@ -745,7 +800,10 @@ Polarization gives a symmetric positive measure
 \]
 for \(t_i\geq0\).
 In the smooth case its density is the mixed discriminant of the Hessians.
-Positivity and weak continuity extend it to finite convex functions.
+Smooth convex regularization, followed by the convex Bedford--Taylor
+input \Cref{thm:ch14-convex-bt-imported}, gives positivity and weak
+continuity for finite convex functions.  Comparing polynomial
+coefficients after this limit gives the displayed polarization identity.
 
 For a convex body \(K\), put
 \[
@@ -753,7 +811,7 @@ For a convex body \(K\), put
 \tag{D.28}\label{eq:appD-support-current}
 \]
 in the Lagerberg convention of \Cref{chap:cld-currents}.
-If \(s_t(x)=tx\) and \(E\) denotes the Euler (radial) vector field
+If \(s_t(x)=tx\), \(t>0\), and \(E\) denotes the Euler (radial) vector field
 \(E(x)=x\) of \Cref{def:ch14-radial-contraction}---not a Borel set, as
 elsewhere in this appendix---then Euler's identity gives
 \[
@@ -765,6 +823,18 @@ elsewhere in this appendix---then Euler's identity gives
 These closed positive currents are strongly homogeneous.
 The phrase does not license products of arbitrary weakly positive currents.
 
+\begin{remark}[Dilation convention]
+\label{rem:appD-dilation-convention}
+The usual Lagerberg pullback by \(s_t\) scales both families of
+covectors.  The Hessian coefficients of a degree-one homogeneous
+support function have degree minus one, so its \((1,1)\)-current has
+the factor \(t^2t^{-1}=t\) in
+\eqref{eq:appD-strong-homogeneity}.  Berndtsson's partial dilation
+scales only the \(x\)-covectors and has degree zero instead
+\cite[Section~7]{Ber26Convex}.  The contraction identities are the
+same in both conventions.
+\end{remark}
+
 \begin{theorem}\label{thm:appD-support-current-mixed-volume}
 With lattice-normalized integration and the book's Lagerberg signs,
 \[
@@ -774,7 +844,7 @@ With lattice-normalized integration and the book's Lagerberg signs,
  V(K_1,\ldots,K_n)\,\delta_0.
 \tag{D.30}\label{eq:appD-current-mixed-volume}
 \]
-The Alexandrov--Fenchel inequality is the reversed Cauchy--Schwarz
+For \(n\geq2\), the Alexandrov--Fenchel inequality is the reversed Cauchy--Schwarz
 inequality for the Lorentzian form obtained after fixing
 \(T_{K_3},\ldots,T_{K_n}\).
 \end{theorem}
@@ -816,7 +886,7 @@ mixed-volume identity are recorded in
 have here been translated to
 \Cref{chap:tropical-spaces,chap:cld-currents}.
 
-After fixing \(K_3,\ldots,K_n\), the bilinear form represented by wedging
+When \(n\geq2\), after fixing \(K_3,\ldots,K_n\), the bilinear form represented by wedging
 with \(T_{K_3}\wedge\cdots\wedge T_{K_n}\) is exactly \(n!\) times the
 mixed-volume form \(Q\) used in the proof of \Cref{thm:appD-af}.
 Its Lorentzian signature therefore turns \eqref{eq:appD-af} into the
@@ -833,11 +903,13 @@ reversed Cauchy--Schwarz inequality claimed in the theorem.
 \item For \(f(x)=|x|\),
       \(f^*=\iota_{[-1,1]}\) and
       \(\MA_{\mathbf R}(f)=2\delta_0\).
-\item For \(K=[0,a]\), \(L=[0,b]\),
+\item For \(a,b,s,t\geq0\), \(K=[0,a]\), \(L=[0,b]\),
       \(\operatorname{vol}(sK+tL)=sa+tb\).
-\item Translating \(G\) by \(c\) preserves mass and changes its first moment
-      by \(c\,\lambda(P)\).
-\item If \(P\) has zero volume, both
+\item Translating \(G\) by a finite constant \(c\) preserves mass.  If
+      \(G\in L^1(P,\lambda)\), it changes the first moment by
+      \(c\,\lambda(P)\).
+\item If \(P\) is a convex body of zero volume and
+      \(\lambda=n!\operatorname{Leb}_M|_P\), both
       \(\MA_{\mathbf R}(h_P)\) and the unnormalized moment measure have zero
       mass, and neither can be normalized to a probability.
 \end{enumerate}
@@ -853,6 +925,7 @@ probability normalization.  Thus every item is a proved consequence of the
 normalizations above.
 
 \section*{Source note}
+\label{sec:appD-source-note}
 
 Closed convex duality and subgradients follow
 \cite[Chapters~7, 12, and~23--25]{Roc70}.

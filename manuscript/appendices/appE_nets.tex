@@ -54,8 +54,9 @@ Direct the neighborhoods of \(x\) by reverse inclusion:
  U\preceq V\quad\Longleftrightarrow\quad V\subseteq U.
 \]
 Choosing \(x_U\in U\) gives a net converging to \(x\).
-This construction, unavailable to sequences without first countability,
-is the basic closure test.
+This construction is the basic closure test and requires no countability
+hypothesis.  A replacement by a sequence requires an additional selection
+property of the space.
 \end{example}
 
 \section{Willard and Moore--Smith subnets}
@@ -135,7 +136,7 @@ which converges to \(x\).
 \end{proposition}
 
 \begin{proof}
-Some neighborhood \(U\) of \(x\) fails to contain a tail.
+Some open neighborhood \(U\) of \(x\) fails to contain a tail.
 Thus the original net is frequently in \(X\setminus U\).
 Let \(B\) consist of pairs \((a,c)\) with
 \(c\geq a\) and \(x_c\in X\setminus U\), ordered coordinatewise.
@@ -185,8 +186,10 @@ thresholds, proving sufficiency.
 \end{proof}
 
 \begin{warning}{Sequential shortcuts}
-The closure criterion with sequences characterizes sequential spaces, not
-all spaces.
+\label{warn:appE-sequential-shortcuts}
+The pointwise closure criterion with sequences characterizes
+Fr\'echet--Urysohn spaces.  The weaker closed-set test characterizes
+sequential spaces; these two conditions must not be conflated.
 Likewise, sequential compactness does not imply compactness in arbitrary
 topological spaces.
 \Cref{thm:appE-net-tests} has no countability hypothesis because it
@@ -276,7 +279,7 @@ is the smallest upper-semicontinuous majorant of \(f\).
 
 \begin{proof}
 The condition \(f^*(x)<c\) means that
-\(\sup_Uf<c\) for some neighborhood \(U\) of \(x\); it persists throughout
+\(\sup_Uf<c\) for some open neighborhood \(U\) of \(x\); it persists throughout
 \(U\).
 Thus \(\{f^*<c\}\) is open.
 Every neighborhood of \(x\) contains \(x\), so \(f\leq f^*\).
@@ -312,6 +315,7 @@ and infima in \eqref{eq:appE-usc-regularization}.
 \end{proof}
 
 \begin{warning}{Regularization is not continuity}
+\label{warn:appE-regularization-not-continuity}
 On \([-1,1]\), the function equal to one at \(0\) and zero elsewhere is
 upper semicontinuous but discontinuous.
 Upper-semicontinuous regularization preserves that spike.
@@ -391,11 +395,25 @@ If finite maxima stay in \(\mathcal F\), replace an enumeration \(g_j\) by
 \end{proof}
 
 \begin{warning}{What was selected}
+\label{warn:appE-choquet-scope}
 The pointwise suprema in \eqref{eq:appE-choquet} may differ.
 Only their usc regularizations agree.
 Second countability cannot be omitted unless a different countable
 determining family is available.
 \end{warning}
+
+\begin{example}[Countable spikes]
+\label{ex:appE-choquet-spikes}
+On \([0,1]\), take \(\mathcal F=\{\mathbf1_F:F\text{ finite}\}\).
+Every member is usc, the family is stable under finite maxima, and its
+pointwise supremum is one.  Enumerating the rational points as \(q_j\)
+gives the increasing selection
+\(f_j=\mathbf1_{\{q_1,\ldots,q_j\}}\).  Its pointwise supremum is
+\(\mathbf1_{\mathbf Q\cap[0,1]}\), whose usc regularization is one by
+density.  Every countable subfamily is supported on a countable set, so
+none has pointwise supremum one everywhere.  This proves the distinction
+in \Cref{warn:appE-choquet-scope} even for a compact metric space.
+\end{example}
 
 \section{Monotone integration firewalls}
 \label{sec:appE-monotone-integration}
@@ -415,7 +433,8 @@ Then
 
 \begin{proof}
 Let \(f=\sup_af_a\), which is lsc.
-Radon regularity on compact Hausdorff spaces gives
+Radon regularity on compact Hausdorff spaces gives the integral-minorant
+formula proved explicitly in \eqref{eq:appE-lsc-integral-minorants} below:
 \[
  \int_Kf\,\rd \mu
  =
@@ -472,6 +491,7 @@ contradict \Cref{thm:appE-lsc-monotone}.
 \end{example}
 
 \begin{warning}{Fatou is also sequential}
+\label{warn:appE-fatou-nets}
 The usual proof of Fatou's lemma invokes countable monotone convergence.
 There is no unrestricted Fatou lemma for arbitrary nets of measurable
 functions.
@@ -564,8 +584,9 @@ Taking the supremum over \(h\) and using
 
 If \(K\) is compact metrizable, \(C(K)\) is separable and the weak topology
 on \(\mathcal P(K)\) is metrizable.
-Only in this case may compactness arguments be rewritten automatically with
-subsequences.
+Under this hypothesis compactness arguments may be rewritten with
+subsequences.  Otherwise a separate sequential compactness criterion is
+needed for that replacement.
 
 \section{Extended-real ledger}
 \label{sec:appE-extended-ledger}
@@ -594,16 +615,23 @@ For the last inequality, every \(\inf_a r_{i,a}\) is at most every
 \(\sup_i r_{i,a}\); take the indicated supremum and infimum.
 \end{proof}
 
+\noindent\begin{minipage}{\linewidth}
 \begin{warning}{Forbidden rewrites}
-None of the following is valid without finiteness or integrability:
+\label{warn:appE-forbidden-rewrites}
+Even finite values do not decouple an indexed supremum.  For
+\(f_0=g_0=0\) and \(f_1=g_1=1\),
 \[
- \sup_i(f_i-g_i)=\sup_if_i-\inf_ig_i,\qquad
- \int(f-g)=\int f-\int g,
+ \sup_i(f_i-g_i)=0<1=\sup_if_i-\inf_ig_i.
 \]
-when both terms on the right can be infinite.
+Only the inequality \(\sup_i(f_i-g_i)\leq\sup_i f_i-\inf_i g_i\)
+is automatic when its expressions are defined.  The integral identity
+\(\int(f-g)=\int f-\int g\) requires the relevant integrability or
+well-defined extended-real subtraction; it cannot subtract two infinite
+terms.
 Likewise, from a carrier inequality \(f\leq p+C\) one may not form
 \(f-p\) at a point where \(f=p=-\infty\).
 \end{warning}
+\end{minipage}\par
 
 \section{Unit tests}
 \label{sec:appE-unit-tests}
@@ -630,6 +658,7 @@ Likewise, from a carrier inequality \(f\leq p+C\) one may not form
 \end{enumerate}
 
 \section*{Source note}
+\label{sec:appE-source-note}
 
 The subnet, compactness, and Moore--Smith convergence facts follow
 \cite[Chapters~4--5]{Wil70}; see also \cite{Kel75}.

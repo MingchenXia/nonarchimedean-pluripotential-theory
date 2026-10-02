@@ -6541,3 +6541,31 @@ PDF SHA-256: 34ae55e3300413bbf8419c0ab132717d10ea1ec48fe652518bd8dcfda1bbdcae.
 Review: /workspace/book-completion-drafts/Appendices_ABC_Final_Review_2026-10-02.pdf.
 This is a direct editorial/source audit, without a new independent verifier
 verdict. Work remains local pending explicit remote-push approval.
+
+
+## Appendices D--F: complete quality gate, 2 October 2026
+
+Appendices D--F now pass the sequential programme. G--I are next. The pass
+repairs convex separation and dual lattices, distinguishes two current
+dilations, gives the triangle mass check, clarifies sequential topology
+and Choquet selection, and repairs projection and non-Cartier b-divisor
+arguments at their exact domains.
+
+All three complete sources were read: 40 assertions/proofs, 74 labelled
+reusable environments, 35 labelled headings and 169 labels. Two primary
+PDFs and 35 pages were read and visually reviewed in ten sheets, and two
+precise Stacks lemmas were read. Eight calculation families pass 18,225
+exact checks. The other 119 appendix-closure files are preserved. The final
+full build has 4,160 pages and 19,407,769 bytes. All 34 appendix pages and
+two seams were visually inspected in nine sheets. Post-render references
+pass for 425 inputs and 12,445 labels. Six checker tests, the unchanged
+42-atom research inventory, scoped review and whitespace checks pass.
+No scoped overflow or reviewed layout defect remains. The inherited
+class-path warning and eighteen overfull boxes elsewhere remain for the
+whole-book pass.
+
+Evidence: [appendices_DEF_quality_audit_20261002.md](appendices_DEF_quality_audit_20261002.md).
+PDF SHA-256: f5fb5cc118b48afd5d86229756963870d386e012fe62f20ee6e9ddcdb3d08ede.
+Review: /workspace/book-completion-drafts/Appendices_DEF_Final_Review_2026-10-02.pdf.
+This is a direct editorial/source audit, without a new independent verifier
+verdict. Work remains local pending explicit remote-push approval.

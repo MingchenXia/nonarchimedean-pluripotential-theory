@@ -75,6 +75,7 @@ See \cite[Chapters~1 and~19]{Ful}.
 \end{proof}
 
 \begin{warning}{Weil is not Cartier}
+\label{warn:appF-weil-not-cartier}
 On a normal non-\(\mathbf Q\)-factorial variety, a prime Weil divisor need
 not admit a pullback as a Cartier divisor and need not define an element of
 \(N^1(X)\).
@@ -98,20 +99,25 @@ Then
  D_1\cdots D_r\cap f_*\gamma.
 \tag{F.3}\label{eq:appF-projection}
 \]
+Here \(f^*D_i\) acts as \(c_1(f^*\mathcal O_X(D_i))\).
+This operator is defined even when the image of \(f\) lies in the
+support of \(D_i\), so the local equations do not pull back to a
+Cartier divisor.
 \end{theorem}
 
 \begin{proof}
-For one Cartier divisor \(D\), a local equation for \(D\) pulls back to a
-local equation for \(f^*D\).
-Orders along components and residue-field degrees are exactly those in the
-definition of proper pushforward of cycles.
-Thus
+For one line bundle \(L\), the first-Chern-class projection formula is
+\cite[Proposition~2.3(c)]{Ful}; see also
+\cite[Tag~02SU]{StacksProject}:
 \[
- f_*(f^*D\cap\gamma)=D\cap f_*\gamma.
+ f_*\bigl(c_1(f^*L)\cap\gamma\bigr)
+ =c_1(L)\cap f_*\gamma.
 \]
-Iterate this identity.
-This is the operational-Chow projection formula
-\cite[Proposition~2.3(c)]{Ful}.
+This is the foundational cycle-level input.  Apply it successively with
+\(L=\mathcal O_X(D_i)\), starting with the remaining first-Chern
+operators applied to \(\gamma\).  Each application removes one pulled
+back operator and gives \eqref{eq:appF-projection} after \(r\) steps.
+No pullback of a vanishing local equation is used.
 \end{proof}
 
 \begin{corollary}\label{cor:appF-generically-finite}
@@ -133,6 +139,7 @@ zero-cycles.
 \end{proof}
 
 \begin{warning}{Domain of the formula}
+\label{warn:appF-projection-domain}
 Properness is used to push cycles and take degrees.
 Generic finiteness is used only for \(f_*[Y]=d[X]\).
 Formula \eqref{eq:appF-degree-formula} does not say that an arbitrary
@@ -253,24 +260,29 @@ traces are compatible under pushforward.
 
 \begin{example}[A non-Cartier Weil b-divisor]
 \label{ex:appF-non-cartier-bdivisor}
-On a smooth projective surface, choose an infinite chain of point blowups
+On a smooth projective surface, choose infinitely many distinct closed
+points \(p_j\).  Let \(Y_j\) be the blowup of the first \(j\) points:
 \[
  \cdots\longrightarrow Y_3\longrightarrow Y_2\longrightarrow Y_1
  \longrightarrow X
 \]
-and let \(E_j\) be the new exceptional prime on \(Y_j\).
+let \(E_j\) be the prime over \(p_j\), identified with its strict
+transform on every higher model where it occurs.
 Assign coefficient one to every \(E_j\) and zero to every other prime over
 \(X\).
-Each fixed trace is a finite sum and the traces push forward compatibly.
-No finite model determines the b-divisor.  Indeed, if its trace on a model
-is zero, the next designated \(E_j\) contradicts pullback determination.
-If the trace is nonzero, blow up a general smooth point on one of its
-nonzero components, away from the designated chain.  Pullback gives the
-new exceptional prime a nonzero coefficient, whereas the assigned
-b-divisor gives it coefficient zero.
+Every normal surface model has only finitely many exceptional primes,
+so each fixed trace is finite and the traces push forward compatibly.
+For any proposed determination \(Z\to X\), the map is an isomorphism
+outside a finite set of closed points.  Choose \(p_j\) outside that set.
+The trace \(B_Z\) vanishes near \(p_j\), since every nonzero assigned
+coefficient lies on a prime exceptional over \(X\).  Blowing up \(Z\)
+at this point therefore gives coefficient zero on the pullback of
+\(B_Z\), whereas the assigned coefficient of \(E_j\) is one.
+Thus no finite model determines this Weil b-divisor.
 \end{example}
 
 \begin{warning}{Two orders}
+\label{warn:appF-two-orders}
 Coefficientwise effectivity of \(B-C\) is an order on Weil b-divisors.
 Pseudo-effectivity of numerical traces is an order on numerical b-divisor
 classes.
@@ -326,6 +338,7 @@ Apply \eqref{eq:appF-projection} to the cycle \([B_{Y'}]\) and take degrees.
 \end{proof}
 
 \begin{warning}{Two Weil factors}
+\label{warn:appF-two-weil-factors}
 Formula \eqref{eq:appF-one-weil-product} works because every intersection
 operator except the initial cycle is Cartier.
 There is no resulting product
@@ -357,6 +370,9 @@ For an integral curve \(\Gamma\subset Y'\),
 If \(\Gamma\) is contracted, the right side is zero.
 Conversely, for every integral curve \(C\subset Y\), choose an integral
 curve \(\Gamma\subset Y'\) mapping generically finitely onto \(C\).
+Such a curve is obtained by choosing a closed point of the nonempty
+generic fibre over \(\eta_C\) and taking its closure; its residue field
+is finite over \(k(C)\).
 Then
 \[
  (\mu^*C_Y)\cdot\Gamma
@@ -374,8 +390,8 @@ If \(C_1,\ldots,C_n\) are nef Cartier b-divisors, then
 \]
 \end{corollary}
 \begin{proof}
-Choose one projective model $Y$ determining all the $C_i$.  By
-\Cref{lem:appF-nef-determination}, their traces $C_{i,Y}$ are nef.
+Choose one projective model \(Y\) determining all the \(C_i\).  By
+\Cref{lem:appF-nef-determination}, their traces \(C_{i,Y}\) are nef.
 Their mixed intersection is nonnegative by
 \Cref{prop:appF-mixed-cartier}.  By
 \eqref{eq:appF-cartier-bdivisor-product}, this is precisely
@@ -403,6 +419,10 @@ Set
 \tag{F.13}\label{eq:appF-numerical-limits}
 \]
 with pullback and divisor pushforward respectively.
+These maps descend to numerical classes on smooth models, by the Chow
+projection formula and numerical equivalence; this is the model category
+reviewed in \cite[Sections~1.1--1.2]{DF20}.  No corresponding numerical
+pushforward on arbitrary singular models is assumed here.
 The inverse limit has the projective-limit topology.
 For a numerical b-class \(\alpha\), write \(\alpha\geq0\) when every
 trace \(\alpha_Y\) is pseudoeffective; write \(\alpha\leq\beta\) when
@@ -541,11 +561,11 @@ If this number is zero, no positive-volume normalization is permitted.
 \end{corollary}
 \begin{proof}
 Apply \Cref{thm:appF-df-nef-intersection} with
-$\alpha_1=\cdots=\alpha_n=\alpha$.  On a nef Cartier approximation
-$\alpha_i\to\alpha$, the resulting number is
-$(\alpha_i^n)$, the usual volume of the nef class $\alpha_i$.  Decreasing
+\(\alpha_1=\cdots=\alpha_n=\alpha\).  On a decreasing nef Cartier approximation
+\(\alpha_i\to\alpha\), the resulting number is
+\((\alpha_i^n)\), the usual volume of the nef class \(\alpha_i\).  Decreasing
 continuity in \Cref{thm:appF-df-nef-intersection} identifies its limit with
-$(\alpha^n)_{\mathfrak X}$, which is the b-divisorial volume by definition.
+\((\alpha^n)_{\mathfrak X}\), which is the b-divisorial volume by definition.
 Nonnegativity follows from the same theorem.  If the value is zero, division
 by it is undefined, so none of the probability normalizations used in the
 positive-volume theory applies.
@@ -589,7 +609,8 @@ expression & valid input & reason\\
 \midrule
 \(f^*D\) &
 \(D\) Cartier or \(\mathbf Q\)-Cartier after clearing denominators &
-pullback of local equations\\
+line-bundle class; actual divisor pullback also requires nonvanishing
+pulled-back equations\\
 \((f^*D_1\cdots f^*D_n)\) &
 proper generically finite \(f\), Cartier \(D_i\) &
 Chow projection formula\\
@@ -637,6 +658,7 @@ The fifth is the obstruction isolated after
 consequences.
 
 \section*{Source note}
+\label{sec:appF-source-note}
 
 The cycle-level projection formula and Cartier intersections follow
 \cite{Ful}.

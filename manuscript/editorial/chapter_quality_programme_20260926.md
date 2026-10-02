@@ -56,8 +56,8 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part VI, Chapters 63--72:** complete. All ten chapters have passed the
   sequential quality gates.
-- **Appendices and front matter:** active. Appendices A--C are complete.
-  Appendix D is next, followed by the remaining appendices, front matter
+- **Appendices and front matter:** active. Appendices A--F are complete.
+  Appendix G is next, followed by the remaining appendices, front matter
   and final whole-book checks.
 
 ### Chapter 1
@@ -1957,3 +1957,27 @@ integral-exponent boundary. All sources, examples, labels, references and
 rendered pages pass the documented gates. Evidence is recorded in
 `appendices_ABC_quality_audit_20261002.md` and `chapter_status.md`.
 Appendix D is the active next unit.
+
+
+### Appendices D--F
+
+The complete pass repairs affine-minorant separation, dual-lattice volume
+conventions and homogeneous-current dilation, and adds an explicit
+triangle factorial check. Net topology distinguishes pointwise sequential
+closure from closed-set sequentiality; the countable-spikes example shows
+why Choquet regularizations need not agree pointwise. The intersection
+appendix now uses line-bundle Chern operators when divisor equations vanish
+on the image, proves its non-Cartier example on infinitely many point
+blowups, and limits numerical transitions to smooth models.
+
+All 40 assertions/proofs, 74 reusable environments, 35 headings and 169
+labels were reviewed. Two PDFs and 35 source pages were read and visually
+reviewed; two precise Stacks lemmas were read. Eight finite calculation
+families pass 18,225 exact checks. The 4,160-page build passes; all 34
+appendix pages and two seams were visually reviewed in nine sheets.
+Post-render references pass for 425 inputs and 12,445 labels; six checker
+tests, the unchanged research inventory and scoped/whitespace gates pass.
+No scoped overflow remains. The other 119 appendix files are preserved.
+Evidence is in [appendices_DEF_quality_audit_20261002.md](appendices_DEF_quality_audit_20261002.md).
+G--I are the next active unit. Work remains local pending explicit
+remote-push approval; the whole-book completion goal continues.
