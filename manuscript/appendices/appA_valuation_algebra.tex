@@ -27,7 +27,10 @@ A valuation on a field \(K\) is a map
 \]
 such that
 \[
- v(0)=+\infty,\qquad v(fg)=v(f)+v(g),\qquad
+ v(0)=+\infty,\qquad v(K^\times)\subset\Gamma,\qquad v(1)=0,
+\]
+\[
+ v(fg)=v(f)+v(g),\qquad
  v(f+g)\geq\min\{v(f),v(g)\}.
 \]
 Its valuation ring and maximal ideal are
@@ -80,6 +83,7 @@ directly from \eqref{eq:appA-ideal-value}.
 \end{proof}
 
 \begin{remark}[Checkpoint]
+\label{rem:appA-ideal-sign}
 The book uses \(\phi_{\mathfrak a}(v)=-v(\mathfrak a)\).  Thus ideal
 inclusion and function order point in opposite directions:
 \[
@@ -179,7 +183,8 @@ for every \(i\geq1\).  A sum cannot vanish when exactly one summand has
 strictly smallest value, a contradiction.  The converse and finite
 reduction to Rees valuations are the foundational valuative theorem for
 integral dependence; we import precisely this converse and finite-reduction
-statement from \cite[Chapter~VI]{ZariskiSamuelII}.  The Rees valuations
+statement from \cite[Theorem~6.8.3 and Theorem~10.2.2]{SwansonHuneke2006};
+see also \cite[Chapter~VI]{ZariskiSamuelII}.  The Rees valuations
 are the valuations of the prime components of the Cartier divisor cut out
 by \(\mathfrak a\) on the normalized blowup.  Components dominating a
 divisor of \(\Spec A\) need not be exceptional.
@@ -210,16 +215,27 @@ The inequalities against \(v_{\alpha,\beta}(\mathfrak a)\), for all
 \[
  \overline{(x^2,y^3)}=(x^2,xy^2,y^3).
 \]
-The Newton polygon is the convex shadow of
-\eqref{eq:appA-valuative-integral-closure}.
+Here is a direct check that avoids assuming a monomial theorem.  The
+monomial valuation with \((\alpha,\beta)=(3,2)\) assigns value \(6\) to
+\(\mathfrak a\).  For a polynomial it takes the minimum of \(3i+2j\)
+over its nonzero monomials, so every element of
+\(\overline{\mathfrak a}\) consists of monomials satisfying
+\(3i+2j\geq6\).  For nonnegative integer exponents, these monomials
+are exactly those divisible by \(x^2\), \(xy^2\), or \(y^3\).
+Conversely, the two original generators are integral, and \(z=xy^2\)
+satisfies \(z^2-x^2y^4=0\), with
+\(x^2y^4=y(x^2y^3)\in\mathfrak a^2\).  Thus \(xy^2\) is integral
+over \(\mathfrak a\), proving both inclusions.  The Newton polygon is
+the convex shadow of \eqref{eq:appA-valuative-integral-closure}.
 \end{example}
 
 \section{Rees algebras, filtrations, and blowups}
 \label{sec:appA-rees-algebras}
 
-A multiplicative filtration \(F^\lambda R_m\) becomes algebraic only when
-its Rees algebra is finitely generated.  After clearing denominators one
-meets the bigraded algebra
+A multiplicative filtration \(F^\lambda R_m\) has a Rees algebra even
+without finite generation.  A finite-type test configuration requires that
+Rees algebra to be finitely generated.  For rational weights with a common
+denominator, clearing that denominator gives the bigraded algebra
 \[
  \mathcal R(F)=
  \bigoplus_{m\geq0}\ \bigoplus_{\ell\in\mathbf Z}
@@ -249,7 +265,8 @@ factors uniquely through the corresponding charts.
 
 \begin{definition}[Normalized blowup]
 \label{def:appA-normalized-blowup}
-If \(X\) is integral, the normalized blowup is the normalization, in the
+If \(X\) is integral and \(\mathcal I\) is a nonzero finite-type ideal,
+the normalized blowup is the normalization, in the
 unchanged function field \(K(X)\), of
 \(\operatorname{Bl}_{\mathcal I}X\).  If \(X\) is Nagata, normalization is
 finite by
@@ -257,7 +274,8 @@ finite by
 {stacks-project}.
 \end{definition}
 
-Suppose in addition that \(A\) is normal.  The normalization of the Rees
+Suppose in addition that \(A\) is normal and \(\mathfrak a\ne0\).
+The normalization of the Rees
 algebra in \(K(T)\) is then the graded algebra
 \[
  \bigoplus_{m\geq0}\overline{\mathfrak a^m}T^m
@@ -279,6 +297,7 @@ on a nonnormal affine chart.  All later uses of this formula, in particular
 \Cref{thm:appB-rees-valuations}, are over a normal base.
 
 \begin{remark}[Checkpoint]
+\label{rem:appA-normalization-versus-saturation}
 Replacing each homogeneous piece by its integral closure is compatible
 with normalization in \eqref{eq:appA-normalized-rees}.  Replacing a Rees
 algebra by an arbitrary saturation is a different operation.  In
@@ -392,9 +411,10 @@ A subintegral extension yields a universal homeomorphism.  The converse
 fails: Frobenius in characteristic \(p\) is a universal homeomorphism but
 need not induce identity residue extensions.  In characteristic zero, a
 finite universal homeomorphism has trivial residue extensions, and it is
-subintegral as soon as it is injective --- for instance whenever the source
-is reduced, the kernel then lying inside every prime, hence inside the
-nilradical.  Injectivity cannot be dropped, \Cref{def:appA-subintegral}
+subintegral as soon as the ring map \(A\to B\) is injective --- for
+instance whenever \(A\) is reduced, since the kernel lies inside every
+prime of \(A\), hence inside its nilradical.  Injectivity cannot be dropped,
+\Cref{def:appA-subintegral}
 being a condition on an extension: \(\mathbf Q[x]/(x^2)\to\mathbf Q\) is a
 finite universal homeomorphism with trivial residue extension and nonzero
 kernel.
@@ -436,7 +456,11 @@ For finite locally free \(q:W\to Z\) and a line bundle \(M\) on \(W\),
  =\det(q_*M)\otimes\det(q_*\cO_W)^{-1}.
 \tag{A.9}\label{eq:appA-norm-line}
 \]
-This is multiplicative and base-change compatible; see
+Locally on \(Z\), trivialize \(M\) over the finite preimage.  Changing
+a generator by \(u\in\cO_W^\times\) changes its determinant transition
+by \(\operatorname N_q(u)\); the denominator cancels the underlying
+finite-algebra determinant.  The element-norm identities therefore make
+this line-bundle norm multiplicative and base-change compatible; see
 \cite{FerrandNorm} and
 \cite[\href{https://stacks.math.columbia.edu/tag/0BD2}{Tag 0BD2}]
 {stacks-project}.  \Cref{chap:bj-finite-descent} uses the universal
@@ -444,6 +468,7 @@ polynomial in the \(T_j\), not a product over geometric points, because
 fibres may be inseparable or nonreduced.
 
 \begin{remark}[Checkpoint: flatten before taking norms]
+\label{rem:appA-flatten-before-norms}
 For a merely finite morphism, \(q_*\cO_W\) need not be locally free.
 \Cref{chap:bj-finite-descent} first flattens the finite algebra and
 only then takes determinant norms.  This order is part of the proof.
@@ -454,7 +479,7 @@ only then takes determinant norms.  This order is part of the proof.
 
 \begin{theorem}\label{thm:appA-roberts-singh}
 Let \(A\subset B\) be a subintegral extension of \(\mathbf Q\)-algebras
-and let \(b\in B\).  There exist \(p,N\geq0\) and
+and let \(b\in B\).  There exist integers \(N\geq p\geq0\) and
 \(c_1,\ldots,c_p\in B\), independent of \(m\), such that
 \begin{equation*}
  b^m+\sum_{i=1}^{p}\binom mi c_i b^{m-i}\in A
@@ -468,7 +493,8 @@ and let \(b\in B\).  There exist \(p,N\geq0\) and
 elementwise sense used there.
 \cite[Proposition~4.2 and Corollary~4.3]{RobertsSingh} identify this with
 the exponent-zero formula \eqref{eq:appA-RS}; exponent zero means precisely
-that the \(c_i\) do not depend on \(m\).
+that the \(c_i\) do not depend on \(m\).  Enlarging \(N\) to at least
+\(p\) keeps every power \(b^{m-i}\) nonnegative, even when \(b=0\).
 \end{proof}
 
 \begin{corollary}\label{cor:appA-RS-generic}
@@ -519,6 +545,7 @@ Roberts--Singh additive powers
 \end{center}
 
 \section{Source note}
+\label{sec:appA-source-note}
 Integral dependence and its valuative criterion follow
 \cite[Chapters~V--VI]{ZariskiSamuelII}; noetherian normalization facts may
 also be found in \cite{Mat89}.  Stable tags are audited in

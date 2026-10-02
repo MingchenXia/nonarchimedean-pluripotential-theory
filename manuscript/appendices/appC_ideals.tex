@@ -63,19 +63,28 @@ on relatively compact open sets, after adding a constant so that
 \begin{proof}[Elementary deductions and foundational inputs]
 The bounded-invariance, monotonicity, and ideal properties follow directly
 from local integrability.  We import coherence as Nadel's coherence theorem
-in the normalization of \cite[Theorem~10.20]{Bou17}.  We import
+as stated in \cite[Theorem~10.20]{Bou17}, applied with \(p=2\) and
+weight \(\varphi/2\) to match \eqref{eq:appC-analytic-integrability}.  We import
 \eqref{eq:appC-strong-openness} exactly from the strong openness theorem
 \cite[Theorem~1.1]{GZ15}.  These analytic theorems are not inputs to the
 algebraic envelope proof.
 \end{proof}
 
-For orientation, on a disc one computes
-\(\mathcal J(c\log|z|^2)=(z^{\lfloor c\rfloor})\): if
-\(f=z^m u\), \(u(0)\ne0\), integrability is exactly \(m>c-1\).
+\begin{example}[One logarithmic pole]
+\label{ex:appC-disc-multiplier}
+For \(c\geq0\) on a disc,
+\(\mathcal J(c\log|z|^2)=(z^{\lfloor c\rfloor})\).
+Indeed, if \(f=z^m u\), \(u(0)\ne0\), its weighted radial integral is
+finite precisely when
+\(\int_0^\varepsilon r^{2m-2c+1}\,dr<+\infty\), or \(m>c-1\).
+For integer \(m\geq0\) this is \(m\geq\lfloor c\rfloor\), including
+integral \(c\), where the previous exponent gives logarithmic divergence.
+\end{example}
 
 \section{Algebraic multiplier ideals}
 \label{sec:appC-algebraic-multiplier}
 
+In the algebraic sections, \(X\) is an integral smooth variety.
 Let \(X\) be smooth over a field of characteristic zero, and let
 \(\mathfrak a\subset\cO_X\) be a nonzero coherent ideal.
 Choose a log resolution
@@ -114,10 +123,17 @@ and local vanishing
   \bigl(K_{Z/Y}-\lfloor\nu^*(cF)\rfloor\bigr)=0
  \quad(i>0).
 \]
-Projection formula then identifies the pushforwards.  Local vanishing is
+The birational transformation rule identifies the degree-zero
+pushforwards; this uses that the fractional part of \(cF\) is an SNC
+divisor with coefficients strictly less than one.  Projection formula
+then gives the displayed multiplier ideal on \(Y\).  The transformation
+rule is the input treated in \cite[Section~9.2]{PAG2}; local vanishing is
 the foundational input, in the form of
 \cite[Theorem~9.4.1]{PAG2}.  Coherence follows from
-properness of \(\mu\).
+properness of \(\mu\).  Along the strict transform of each prime
+divisor of \(X\), the relative canonical coefficient is zero and
+\(\lfloor cF\rfloor\) is effective, so a section has no pole there.
+Normality of \(X\) then places the pushforward inside \(\cO_X\).
 \end{proof}
 
 For a prime divisor \(E\) on a smooth model over \(X\), write
@@ -215,14 +231,20 @@ In particular,
 
 \begin{proof}[Foundational input]
 This is the subadditivity theorem of Demailly, Ein, and Lazarsfeld
-\cite[Theorem~2.3]{DEL00}.  Its proof resolves the product ideal on
+\cite[Theorem~2.3 and Variant~2.5]{DEL00}.  For real exponents, choose
+slightly larger rational exponents that preserve the finitely many floors
+on a simultaneous log resolution.  The characteristic-zero field version
+follows locally by descending the finite-type data to a finitely generated
+subfield, embedding it in \(\mathbf C\), and using field-base-change
+compatibility of the resolution formula.  The proof resolves the product ideal on
 \(X^\ell\), applies the
 restriction theorem to the diagonal, and uses the external-product formula
 for multiplier ideals.  Smoothness of the diagonal is essential.
 \end{proof}
 
 \begin{theorem}\label{thm:appC-skoda-multiplier}
-Let \(X\) be smooth of dimension \(n\).  For every nonzero coherent ideal
+Let \(X\) be smooth in characteristic zero of dimension \(n\geq1\).
+For every nonzero coherent ideal
 \(\mathfrak a\) and every real \(c\geq n\),
 \[
  \mathcal J_X(\mathfrak a^c)
@@ -243,6 +265,7 @@ see \cite[Section~9.6]{PAG2}.
 \end{proof}
 
 \begin{remark}
+\label{rem:appC-skoda-versus-integral-closure}
 Skoda division controls high exponents by finitely many initial multiplier
 ideals.  It is not used to identify multiplier ideals with integral
 closures: the two operations have different discrepancy terms.
@@ -261,7 +284,8 @@ A graded sequence of ideals is a family
 \tag{C.13}\label{eq:appC-graded-sequence}
 \]
 It is nonzero if some, hence all sufficiently divisible, terms are nonzero.
-For a valuation \(v\), subadditivity of the numerical sequence
+For a real valuation \(v\) of \(K(X)\) centered on \(X\),
+put \(v((0))=+\infty\).  Subadditivity of the numerical sequence
 \(v(\mathfrak a_m)\) gives
 \[
  v(\mathfrak a_\bullet)
@@ -274,8 +298,38 @@ where the limit is taken only through the nonzero terms.  Equivalently,
 it is the limit along every cofinal divisibility net of nonzero indices.
 This qualification is necessary because ``nonzero'' for a graded
 sequence means that one term is nonzero; it does not rule out zero terms
-at other indices.
+at other indices.  Full support is also essential here: on a supported
+semivaluation, nonzero terms can have value \(+\infty\), and this limit
+through all nonzero indices is not asserted.
 \end{definition}
+
+To justify the limit through all nonzero terms, fix an index \(q\) with
+\(\mathfrak a_q\ne0\).  The nonzero indices form an additive subsemigroup
+of \(\mathbf N\).  For each residue class modulo \(q\) that occurs,
+choose one nonzero index \(b_r\) in that class.  Every sufficiently large
+nonzero index in that class is \(b_r+kq\), so gradedness gives
+\[
+ v(\mathfrak a_{b_r+kq})
+      \leq v(\mathfrak a_{b_r})+k v(\mathfrak a_q).
+\]
+The finitely many \(v(\mathfrak a_{b_r})\) are finite by full support.
+Dividing by the index bounds the upper limit by
+\(v(\mathfrak a_q)/q\); the infimum in
+\eqref{eq:appC-asymptotic-order} bounds the lower limit.  Take the infimum
+over \(q\).  The divisibility-net statement follows from the same
+inequality at multiples of each fixed \(q\).
+
+\begin{example}[A supported semivaluation does not have the same limit]
+\label{ex:appC-supported-graded-limit}
+On \(\operatorname{Spec}k[x]\), set \(\mathfrak a_{2j}=\cO_X\)
+and \(\mathfrak a_{2j+1}=(x)\).  This is a graded sequence with every
+term nonzero: an odd--odd product is \((x^2)\subset\cO_X\), and the
+other products have the required parity.  A full-support valuation with
+\(v(x)=1\) has normalized values \(0\) or \(1/m\), tending to zero.
+The semivaluation supported at \(x=0\), however, gives \(0\) at even
+indices and \(+\infty\) at odd indices.  It has no limit through all
+nonzero terms, although its cofinal even divisibility net has limit zero.
+\end{example}
 
 \begin{definition}[Asymptotic multiplier ideal]
 \label{def:appC-asymptotic-multiplier}
@@ -330,7 +384,8 @@ For a nonzero graded sequence on a smooth characteristic-zero variety:
 
 \begin{proof}
 Choose \(q\) divisible by \(m\) and sufficiently divisible for
-\eqref{eq:appC-asymptotic-stabilization}.  Gradedness gives
+\eqref{eq:appC-asymptotic-stabilization} at both exponents \(m\) and
+\(m\ell\), taking \(q\) with \(\mathfrak a_q\ne0\).  Gradedness gives
 \(\mathfrak a_m^{q/m}\subset\mathfrak a_q\).  Thus, for
 \(f\in\mathfrak a_m\) and every divisorial \(v\),
 \[
@@ -393,6 +448,7 @@ for all \(m\).  This is the uniform generation input used in the proof of
 \end{proof}
 
 \begin{remark}[Checkpoint]
+\label{rem:appC-fixed-twist}
 The fixed twist in \eqref{eq:appC-uniform-generation-multiplier} is
 essential.  If the auxiliary line bundle were allowed to grow linearly
 with \(m\), the normalized numerical classes would not converge to
@@ -410,8 +466,9 @@ coherent.
 \begin{definition}[Generalized test ideal]
 \label{def:appC-test-ideal}
 For an ideal \(J\subset\cO_S\), write \(J^{[1/p^e]}\) for the smallest
-ideal \(K\) such that \(J\subset K^{[p^e]}\).  For a nonzero ideal
-\(I\subset\cO_S\) and \(t\geq0\), the generalized test ideal is the stable
+ideal \(K\) such that \(J\subset K^{[p^e]}\).  For a coherent ideal
+\(I\subset\cO_S\) that is nonzero on every
+integral component and \(t\geq0\), the generalized test ideal is the stable
 value, computed locally, of the increasing sequence
 \[
  \left(I^{\lceil tp^e\rceil}\right)^{[1/p^e]}.
@@ -430,7 +487,14 @@ definition is equivalently characterized, after tensoring by
 \]
 \end{definition}
 
+The existence and localization of Frobenius roots, and the stabilized
+real-exponent definition, are exactly
+\cite[Definition~2.2, Proposition~2.5, Lemma~2.7 and Definition~2.9]
+{BMS08}.  Their standing hypothesis is a regular \(F\)-finite ring;
+no perfect-field hypothesis is needed for these constructions.
+
 \begin{remark}[Conventions]
+\label{rem:appC-test-rounding-conventions}
 The Frobenius-root ideals, and equivalently the trace images when
 \(\omega_S\) is available, form an increasing sequence and stabilize by
 noetherianity.  The schemes \(S=X\times\mathbf A^1\) used below possess
@@ -444,7 +508,8 @@ silently discarded.
 
 \begin{definition}[Asymptotic test ideal]
 \label{def:appC-asymptotic-test}
-For a nonzero graded sequence \(\mathfrak a_\bullet\), define
+For a nonzero graded sequence \(\mathfrak a_\bullet\) on an integral
+noetherian regular \(F\)-finite scheme \(S\), define
 \[
  \tau_S(\mathfrak a_\bullet^t)
  :=\max_{\mathfrak a_q\ne0}\tau_S(\mathfrak a_q^{t/q}).
@@ -460,6 +525,8 @@ indices \(q\),
 \end{definition}
 
 \begin{theorem}\label{thm:appC-test-properties}
+Let \(S\) be integral, noetherian, regular and \(F\)-finite, and let
+\(\mathfrak a_\bullet\) be a nonzero graded sequence on \(S\).
 For integers \(m,\ell\geq1\),
 \[
  \mathfrak a_m\subset\tau_S(\mathfrak a_\bullet^m),
@@ -468,7 +535,11 @@ For integers \(m,\ell\geq1\),
  \subset\tau_S(\mathfrak a_\bullet^m)^\ell.
 \tag{C.23}\label{eq:appC-test-subadditivity}
 \]
-If \(w\) is divisorial and centered on \(S\), then
+For the discrepancy assertion, suppose further that \(S\) is a smooth
+variety over an algebraically closed field of characteristic \(p>0\).
+If \(w\) is divisorial and centered on \(S\), with ordinary geometric
+log discrepancy \(A_S(w)\), then for every nonzero coherent ideal
+\(I\) and real \(t\geq0\),
 \[
  w(\tau_S(I^t))
  \geq t\,w(I)-A_S(w).
@@ -477,7 +548,11 @@ If \(w\) is divisorial and centered on \(S\), then
 \end{theorem}
 
 \begin{proof}[Foundational inputs and deduction]
-The containment and asymptotic subadditivity are
+On a regular \(F\)-finite affine ring, containment follows from
+\(I\subset\tau(I)\), which can be read directly from Frobenius roots.
+Subadditivity is \cite[Proposition~2.11(4)]{BMS08}.  Applying these at a
+common sufficiently divisible stabilization index proves the two
+asymptotic assertions; compare
 \cite[Section~3 and Proposition~3.1]{MustataTest}.  For
 \eqref{eq:appC-test-discrepancy}, trivialize \(\omega_S\) near the center
 of \(w\).  The trace becomes a \(p^{-e}\)-linear map
@@ -488,11 +563,16 @@ Cartier-algebra discrepancy gives
 \]
 Taking \(f\in I^{\lceil tp^e\rceil}\), minimizing over trace generators,
 and stabilizing proves \eqref{eq:appC-test-discrepancy}; see
-\cite[Definition~3.2 and Proposition~4.1]{Canton}.
+\cite[Definition~3.3 and Proposition~4.1 in arXiv v3]{Canton}.
+The cited v3 definition numbers the trace quotient as (3.3.1); earlier
+book/source locators call the definition 3.2.  The geometric identification
+is used here only in the displayed smooth, algebraically closed scope,
+which includes the envelope setup \(S=X\times\mathbf A^1\).
 \end{proof}
 
 \begin{theorem}\label{thm:appC-skoda-test}
-If \(I\) is locally generated by at most \(r\) elements, then
+For a nonzero ideal \(I\) locally generated by at most \(r\geq1\)
+elements on the regular \(F\)-finite scheme \(S\), one has
 \[
  \tau_S(I^t)=I\,\tau_S(I^{t-1})
  \qquad(t\geq r).
@@ -500,14 +580,29 @@ If \(I\) is locally generated by at most \(r\) elements, then
 \]
 \end{theorem}
 
-\begin{proof}[Foundational input]
-This is the Brian\c con--Skoda property for generalized test ideals; see
-\cite[Theorem~6.9(iii)]{ST12}; see also
-\cite[Theorem~2.1]{HY03}.  These sources state the rational-exponent form.
-The real-exponent form follows by choosing a decreasing rational sequence
-on which the test ideal is constant, using right-continuity
-\cite[Theorem~6.6]{ST12}.  The proof expands sufficiently high powers of an
-\(r\)-generated ideal and passes the identity through Frobenius roots.
+\begin{proof}[Frobenius-root computation]
+Work locally with generators \(f_1,\ldots,f_r\) of \(I\), put
+\(q=p^e\) and \(a=\lceil tq\rceil\).  Since \(t\geq r\),
+\(a\geq rq>r(q-1)\).  Every degree-\(a\) generator monomial has
+an exponent at least \(q\), so
+\[
+                    I^a=I^{[q]}I^{a-q}.
+\]
+The local Frobenius-basis description of roots in
+\cite[Proposition~2.5]{BMS08} gives
+\((I^{[q]}J)^{[1/q]}=I J^{[1/q]}\) for every ideal \(J\):
+multiplication by \(f_i^q\) multiplies each root coefficient by \(f_i\).
+Thus, since \(a-q=\lceil(t-1)q\rceil\),
+\[
+ (I^{\lceil tq\rceil})^{[1/q]}
+       =I(I^{\lceil(t-1)q\rceil})^{[1/q]}.
+\]
+Choose \(e\) large enough to stabilize both sides.  This proves
+\eqref{eq:appC-skoda-test} directly for real \(t\).
+The exact identity is also \cite[Proposition~2.25]{BMS08}.
+Related Brian\c con--Skoda properties appear in
+\cite[Theorem~6.9(iii)]{ST12}; \cite[Theorem~2.1]{HY03} states
+the corresponding containment.
 \end{proof}
 
 \begin{proposition}\label{prop:appC-test-fixed-twist}
@@ -526,7 +621,7 @@ Then
  \tau_S(J_\bullet^m)(mL+A)
 \tag{C.26}\label{eq:appC-test-fixed-twist}
 \]
-is generated relative to \(\mathbf A^1\) for every \(m>0\).
+is generated relative to \(\mathbf A^1\) for every integer \(m>0\).
 \end{proposition}
 
 \begin{proof}
@@ -546,8 +641,9 @@ This is the exact reason a twist independent of \(m\) is available.
 \label{sec:appC-comparison-characteristic}
 
 \begin{theorem}\label{thm:appC-hara-yoshida}
-Let \(X,\mathfrak a,c\) be defined in characteristic zero, with
-\(\mathfrak a\) an algebraic ideal and \(c\in\mathbf Q_{\geq0}\).
+Let \(X\) be a smooth characteristic-zero variety, let
+\(\mathfrak a\ne0\) be a coherent algebraic ideal, and let
+\(c\in\mathbf Q_{\geq0}\).
 After spreading the data over a finitely generated
 \(\mathbf Z\)-algebra, for closed fibres in a suitable dense open set one
 has
@@ -588,7 +684,7 @@ sequence \(J_\bullet\) on \(S\) satisfying
  J_mJ_r\subset J_{m+r}.
 \tag{C.28}\label{eq:appC-envelope-graded-sequence}
 \]
-For \(m>0\), define
+For integers \(m>0\), define
 \[
  B_m=
  \begin{cases}
@@ -645,6 +741,7 @@ whole analytification.  It never subtracts two infinite values.
 \end{remark}
 
 \begin{remark}[What is not imported]
+\label{rem:appC-excluded-imports}
 No step requires resolution in characteristic \(p\), continuity of every
 ideal function, or a valuative criterion over supported semivaluations.
 Skoda division is structural background; it does not replace fixed-twist
@@ -681,6 +778,7 @@ Reduction modulo \(p\)
 \end{center}
 
 \section{Source note}
+\label{sec:appC-source-note}
 Multiplier ideals, local vanishing, Skoda division, and asymptotic ideals
 are treated in \cite{PAG2}; subadditivity is \cite{DEL00}, and valuation
 asymptotics are developed in \cite{JM12}.  Generalized test ideals and

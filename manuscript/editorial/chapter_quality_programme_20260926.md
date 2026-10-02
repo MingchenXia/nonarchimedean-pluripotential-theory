@@ -56,8 +56,9 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part VI, Chapters 63--72:** complete. All ten chapters have passed the
   sequential quality gates.
-- **Appendices and front matter:** active. Appendix A is next, followed by
-  the remaining appendices, front matter and final whole-book checks.
+- **Appendices and front matter:** active. Appendices A--C are complete.
+  Appendix D is next, followed by the remaining appendices, front matter
+  and final whole-book checks.
 
 ### Chapter 1
 
@@ -1942,3 +1943,17 @@ does not claim a new independent-verifier receipt. Evidence is in
 [ch72_quality_audit_20261002.md](ch72_quality_audit_20261002.md).
 All 72 chapters are complete under this programme; Appendix A is next.
 Work remains local pending explicit remote-push approval.
+
+
+### Appendices A--C
+
+The complete quality pass repairs valuation and normalized-Rees hypotheses,
+line-bundle norms and projective alteration scope. Multiplier/test-ideal
+inputs now distinguish real-exponent Skoda, subadditivity, geometric
+discrepancy and characteristic comparison at their exact scopes. The
+full-support graded limit has a complete proof and a supported-point
+counterexample. The analytic one-pole example displays the floor and
+integral-exponent boundary. All sources, examples, labels, references and
+rendered pages pass the documented gates. Evidence is recorded in
+`appendices_ABC_quality_audit_20261002.md` and `chapter_status.md`.
+Appendix D is the active next unit.

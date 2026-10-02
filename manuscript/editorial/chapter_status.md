@@ -6513,3 +6513,31 @@ Main SHA-256: 4527a1f2da94b57ca7409e4cd8bc34ae0ab88430b9989155a6aa287953c95640.
 PDF SHA-256: 726374c0b2c8c3532022af678998a2a4093b342b9af62f7b68b07bfaf9d3f6ef.
 Review: /workspace/book-completion-drafts/Chapter_72_Final_Review_2026-10-02.pdf.
 Work remains local pending explicit remote-push approval.
+
+
+## Appendices A--C: complete quality gate, 2 October 2026
+
+Appendices A--C now pass the sequential programme. Appendix D is next.
+The review repairs valuation and Rees hypotheses, the line-bundle norm,
+projective alteration scope, real-exponent ideal inputs, full-support
+valuation limits and the geometric scope of test-ideal discrepancy.
+Appendix C adds the one-pole and supported-semivaluation examples and a
+complete real-exponent Frobenius-root Skoda calculation.
+
+All three complete sources were read: 37 assertions, 38 proofs, 81 labelled
+reusable environments, 33 labelled headings and 162 labels. Eleven primary
+PDFs and 49 selected pages were read and visually reviewed; ten cited Stacks
+tags were read in full. The finite supplement passes 29,513 exact checks in
+seven families. All 119 other appendix-closure files remain unchanged.
+The full build has 4,158 pages and 19,399,397 bytes. All 28 appendix pages,
+two seams and two bibliography pages were visually inspected. Post-render
+references pass for 425 inputs and 12,427 labels. Six checker tests, the
+42-atom inventory, scoped review and whitespace checks pass. No appendix
+overflow or reviewed layout defect remains. The inherited class-path
+warning and eighteen overfull boxes elsewhere remain for the final pass.
+
+Evidence: [appendices_ABC_quality_audit_20261002.md](appendices_ABC_quality_audit_20261002.md).
+PDF SHA-256: 34ae55e3300413bbf8419c0ab132717d10ea1ec48fe652518bd8dcfda1bbdcae.
+Review: /workspace/book-completion-drafts/Appendices_ABC_Final_Review_2026-10-02.pdf.
+This is a direct editorial/source audit, without a new independent verifier
+verdict. Work remains local pending explicit remote-push approval.
