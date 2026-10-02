@@ -5,6 +5,16 @@
 **Snapshot date:** 15 August 2026  
 **Current controlling update:** 25 September 2026 (supplied P08.1 counterexample; earlier receipts retain their dated scopes)
 **Research engine for Passes R1--R3:** `gpt-5.6-sol`, `xhigh` reasoning effort  
+
+**New research continuation, 2 October 2026:** the user has resumed
+one-by-one attempts on the 42 active atoms using Xean and `gpt-6.1-sol` at
+`xhigh`. The first target is P02.1. New campaign execution and results are
+tracked in
+[the second reading and research programme](manuscript/editorial/second_reading_and_research_programme_20261002.md).
+Earlier model settings, receipts, source cutoffs, and solved/open counts
+remain historical records; no atom is retired by setup or an unverified
+candidate. The previously paused research scope is superseded by this request.
+
 **Scope:** explicit questions in the two supplied archives; directly relevant
 questions in the BFJ, BJ, CLD, Gubler--Künnemann--Jell--Rabinoff,
 DXZ/Xia, Mesquita-Piccione, Mesquita-Piccione--Witt Nyström, Bingener,

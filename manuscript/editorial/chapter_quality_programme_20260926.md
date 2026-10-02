@@ -2,6 +2,12 @@
 
 Date: 26 September 2026
 
+Current continuation, 2 October 2026: the user has requested a new complete
+reading pass and resumed sequential open-problem attempts with Xean and
+`gpt-6.1-sol`/`xhigh`. The controlling new work is recorded in
+[the second reading and research programme](second_reading_and_research_programme_20261002.md).
+The completed pass and its research pause below are retained as history.
+
 Completion update: 2 October 2026. All 72 chapters, Appendices A--N, the nine
 front-matter files, and final whole-book consistency, reference, build, and
 rendered-page gates are complete. This is the controlling current status;
