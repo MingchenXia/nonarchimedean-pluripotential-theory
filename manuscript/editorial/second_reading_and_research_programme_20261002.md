@@ -8,7 +8,11 @@ editorial second draft in commit `f0d7942`.
 Read the entire book again from the beginning and polish its coherence and
 readability. Resume attempts on the active open problems one by one using
 [Xean](https://github.com/chaoxu/xean) and `gpt-6.1-sol` at `xhigh` reasoning.
-This instruction supersedes the previous pause on independent research.
+This instruction initially superseded the previous pause on independent
+research. Subsequent user steering suspends Xean setup and requires all
+current execution to remain in the cloud. The active work is the complete
+book rereading and polishing pass; the prepared research queue remains
+historical preparation, with no new solved status.
 The earlier completion manifest, source ledger, PDF, source package, audits,
 and verifier receipts remain records of that completed edition.
 
@@ -28,12 +32,14 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1 and 2 pass the new source, build,
+Current reading position: Chapters 1--3 pass the new source, build,
 reference, and rendered-page gates; see the
-[Chapter 1 audit](second_reading_ch01_audit_20261002.md)
-and [Chapter 2 audit](second_reading_ch02_audit_20261002.md).
-Chapter 3 source reading is complete and its editorial repairs are next.
-No later chapter is marked reread.
+[Chapter 1 audit](second_reading_ch01_audit_20261002.md),
+[Chapter 2 audit](second_reading_ch02_audit_20261002.md), and
+[Chapter 3 audit](second_reading_ch03_audit_20261002.md).
+Chapter 4 source reading is complete; its normalization and scope repairs
+remain pending while the user's standalone LaTeX catalogue of the complete
+active open-problem inventory is prepared. No later chapter is marked reread.
 
 The first repairs distinguish affine analytification from a compact affinoid
 spectrum, state integrality where the valuation cone has one trivial vertex,
@@ -76,14 +82,15 @@ Frozen dependency installation succeeds. CLI version and help succeed;
 the deterministic kernel smoke returns completed/result 25.
 The pinned Pi catalog contains the requested `openai/gpt-6.1-sol` model.
 
-The user now explicitly requests the local Codex subscription for execution.
-The installed Codex CLI is confirmed logged in through ChatGPT, rather than
-an API key. Its model smoke fails before inference because its managed state
-path is read-only, and this cloud chat has no attached local app terminal.
-Xean's Pi roles do not automatically inherit native CLI login. Supported
-subscription integration is being investigated; no API-key substitution is
-assumed. These are infrastructure states, not mathematical failures or
-verifier findings. The reading pass continues independently.
+The latest user instruction is to ignore the Xean setup issue and continue
+execution exclusively in the cloud. Xean setup and local-machine startup
+are suspended. The earlier subscription investigation is retained as
+infrastructure history: Codex is ChatGPT-subscription authenticated, but its
+native model smoke failed before inference on the read-only managed state
+path, and Pi roles do not automatically inherit native CLI login. No
+API-key substitution or further local-machine setup is being pursued.
+The authorized whole-book reading and polishing pass continues in the cloud.
+
 P02.1 has been initialized with frozen task and settings, zero admitted model
 calls, and no generated mathematical notes. No Xean mathematical campaign
 has yet run, and no new problem is solved.

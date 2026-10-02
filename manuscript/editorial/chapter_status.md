@@ -3,10 +3,11 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability, together with sequential research
-using Xean and `gpt-6.1-sol`/`xhigh`. Chapters 1--2 pass the new reading
-gates; Chapter 3 source reading is complete and editorial repairs are next. This new pass is tracked in
-[the second reading and research programme](second_reading_and_research_programme_20261002.md).
+Chapter 1 for coherence and readability. Chapters 1--3 pass the new reading
+gates; Chapter 4 source reading is complete and its repairs remain pending
+while the requested standalone open-problem catalogue is prepared. The latest
+steering requires cloud-only execution and suspends Xean setup. This pass is
+tracked in [the second reading and research programme](second_reading_and_research_programme_20261002.md).
 The completed second-draft status below describes its frozen edition.
 
 ## Controlling status: 2 October 2026

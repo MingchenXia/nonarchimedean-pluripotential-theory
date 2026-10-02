@@ -6,9 +6,15 @@ The global non-Archimedean theory turns analytic questions on $X^{\mathrm{an}}$
 into algebraic questions on models of $X$. This chapter establishes the model
 language used throughout the book. Two regimes must be distinguished.
 Admissible formal geometry works over rather general complete rank-one valued
-fields. Classical intersection theory and the original BFJ construction are
-most transparent over a discrete valuation ring. We state explicitly when
+fields with nontrivial absolute value. Classical intersection theory and the
+original BFJ construction are most transparent over a discrete valuation ring. We state explicitly when
 discreteness or noetherianity is used.
+
+Starting from the valuation rings of \cref{chap:valuations}, we introduce
+models, vertical divisors, and common dominations, then explain flattening
+and the availability of SNC or altered models. Intersection numbers and
+relative nefness prepare the model metrics of \cref{chap:metrics}; the
+closing dictionary keeps their algebraic and analytic roles distinct.
 
 Throughout, $K$ is a complete non-Archimedean field,
 \[
@@ -17,7 +23,8 @@ Throughout, $K$ is a complete non-Archimedean field,
  \widetilde K=K^\circ/K^{\circ\circ}.
 \]
 The valuation is $v_K=-\log|\cdot|$. In sections involving a uniformizer we
-assume that $K$ is discretely valued and normalize $v_K(\pi)=1$.
+assume that $K$ is discretely valued and use the rescaled absolute value
+with $|\pi|=\rme^{-1}$, so $v_K(\pi)=1$.
 
 \section{Algebra over a valuation ring}
 
@@ -155,9 +162,8 @@ out in \Cref{lem:flat-closure-generic-fibre} below.
 \end{proof}
 
 \begin{remark}\label{rem:dense-value-group-model-limitations}
-If the value group is dense, $K^\circ$ is usually nonnoetherian and
-$K^{\circ\circ}$ need not be principal. Assertions involving a uniformizer,
-multiplicities of the special fibre, or ordinary noetherian intersection
+If the value group is dense, $K^\circ$ is nonnoetherian. Assertions involving
+a uniformizer, multiplicities of the special fibre, or ordinary noetherian intersection
 theory are not automatically valid in that regime.
 By \Cref{prop:noetherian-valuation-dvr} this is not an occasional pathology
 but the general case: for a dense value group $K^\circ$ is \emph{never}
@@ -181,6 +187,9 @@ $\mathcal L$ is a line bundle on $\mathcal X$ identified with $L$ on the
 generic fibre. A model of $mL$ for some $m\geq1$ is called a
 \emph{$\mathbf Q$-model} of $L$.
 \end{definition}
+
+Affine equations below describe local model charts; properness is imposed
+on the global models, including their displayed projective compactifications.
 
 Three comments on this definition are worth fixing once and for all.  First,
 the identification $\mathcal X_K\simeq X$ is part of the datum: the same
@@ -215,6 +224,9 @@ fibre.  This tiny example is the mechanism behind
 \Cref{lem:torsion-free-flat-valuation} and behind the graph-closure
 construction of \Cref{prop:common-domination}.
 \end{example}
+
+For the formal generic-fibre constructions in this chapter, assume that
+$K$ is nontrivially valued.
 
 \begin{definition}\label{def:admissible-formal-model}
 An \emph{admissible formal $K^\circ$-scheme} is a flat formal scheme locally
@@ -377,8 +389,9 @@ $\operatorname{Spec}R$.  None of the constructions of this book requires
 that generality.
 \end{remark}
 
-Assume for the remainder of this section that $K$ is discretely valued and
-$\mathcal X$ is normal. Write the Cartier divisor of $\pi$ as
+Assume for the remainder of this section that $K$ is discretely valued,
+$X$ is integral, and $\mathcal X$ is normal. Write the Cartier divisor
+of $\pi$ as
 \[
                        \operatorname{div}_{\mathcal X}(\pi)
                        =\mathcal X_s=\sum_E b_EE.
@@ -921,7 +934,8 @@ a complete discrete valuation ring is excellent
 the normalization of a Nagata scheme is finite by
 \cite[Tag 035S]{stacks-project}.
 In greater generality this finiteness is a hypothesis, not a convention.
-The composite of blowup and normalization is again a vertical modification,
+When the generic fibre $X$ is normal, the composite of blowup and
+normalization is again a vertical modification,
 projective when the model is
 (\Cref{prop:vertical-blowup-generic-iso} together with finiteness of
 $\nu$); the systematic theory, including the Rees valuations that the
@@ -1508,6 +1522,9 @@ force every Chambert--Loir mass to vanish.
 
 \section{Relative nefness and model semipositivity}
 
+We retain the discretely valued hypothesis of the preceding section for
+these intersection-theoretic nefness tests.
+
 \begin{definition}\label{def:relative-nefness-model-semipositivity}
 A line bundle $\mathcal L$ on a proper model $\mathcal X$ is
 \emph{relatively nef} if
@@ -1519,9 +1536,14 @@ $\mathcal X\to\operatorname{Spec}K^\circ$. A $\mathbf Q$-model of $L$ is
 \emph{semipositive} if its model line bundle is relatively nef.
 \end{definition}
 
-When the base is the spectrum of a valuation ring there is only one
-non-generic fibre, so relative nefness is tested on curves in $\mathcal X_s$.
-It is preserved by pullback.
+Relative nefness can be checked on the special fibre. Indeed, the flat
+closure of an integral proper curve in $X$ is a proper flat family over
+$K^\circ$. The Euler-characteristic argument used in
+\cref{prop:special-fibre-degree-conservation} expresses its generic degree
+as the sum of the degrees on the special-fibre components, with their
+positive length multiplicities \cite[7.9.4]{EGAIII2}. Nonnegative degrees
+on all special-fibre curves therefore imply nonnegative degree on the
+generic curve as well. Relative nefness is preserved by pullback.
 
 \begin{proposition}
 \label{prop:nef-pullback}
@@ -1540,15 +1562,15 @@ formula gives
 \]
 \end{proof}
 
-Semipositivity of the induced model metric is defined by the
-existence of one, equivalently any pulled-back, nef representative. The
-comparison among algebraic, formal, and piecewise linear semipositive metrics
+A model metric is semipositive when it admits a relatively nef model
+representative. The proposition shows that every domination of this
+representative remains nef. The comparison among algebraic, formal, and piecewise linear semipositive metrics
 is proved in \cite{GM19} and developed in \cref{chap:metrics}.
 
 \begin{example}[Relative nefness on the chain model]
 \label{ex:chain-nef-functions}
 \index{nef!relatively nef example}\index{model function!nefness}
-We compute the full nef cone of vertical twists on the semistable chain
+We compute the nef region among vertical twists on the semistable chain
 model $\widetilde{\mathcal C}=\widetilde{\mathcal C}^{(2)}$ of
 \Cref{ex:snc-chain-models}, obtained from
 $\mathcal C^{(2)}=\{XY=\pi^2Z^2\}$ by one blowup.  Its special fibre is the
@@ -1569,8 +1591,11 @@ fibre curve, the self-intersections follow:
    (C_0^2)=(C_2^2)=-1,\qquad (E^2)=-2 .
 \]
 
-Now let $D=a_0C_0+a_1E+a_2C_2$ be a vertical divisor, with model function
-taking the values $a_0,a_1,a_2$ at the three divisorial points, and set
+Now let $D=a_0C_0+a_1E+a_2C_2$ be a vertical divisor with $a_i\in\mathbf Z$,
+or with $a_i\in\mathbf Q$ after passing to $\mathbf Q$-models. The same
+inequalities describe the corresponding region in the space of real
+vertical classes. The model function takes the values $a_0,a_1,a_2$ at the
+three divisorial points. Set
 $\mathcal L=\mathcal L_0\otimes\cO(D)$, a model of $\mathcal O(1)|_C$ on
 which the metric has been perturbed by $\varphi_D$.  Testing against the
 three fibre curves:
@@ -1588,12 +1613,12 @@ These are exactly the conditions under which the piecewise affine metric
 weight on the segment is semipositive for the degree-two polarization, in
 accordance with the curvature computation
 \eqref{eq:running-perturbed-measure} and the nef interval
-\eqref{eq:running-nef-interval} of the length-one model.  Two degenerate
-checks: the sum of the three numbers is
+\eqref{eq:running-nef-interval} of the length-one model. For a consistency
+check, the sum of the three numbers is
 $2$ for every $(a_0,a_1,a_2)$, as
 \Cref{prop:special-fibre-degree-conservation}
-requires, since adding a multiple of the full fibre changes the metric by a
-constant; and taking $D=E$ alone gives
+requires. Adding a multiple of the full fibre changes the metric by a
+constant and leaves each number unchanged. Taking $D=E$ alone gives
 $(\mathcal L\cdot E)=-2<0$, so the exceptional curve itself is never a nef
 direction.  The three intersection numbers will be reinterpreted in
 \cref{chap:metrics} as the masses of the Chambert--Loir measure at the
@@ -1660,7 +1685,9 @@ along $E$ is $b_E$. Linearity gives the final assertion.
 The chapter has built one half of several correspondences whose other
 halves appear in \cref{chap:berkovich,chap:skeleta,chap:metrics}.  We
 record the dictionary in the state it has reached, with pointers to where
-each entry is established or completed.
+each entry is established or completed. Entries involving $b_E$ or $\pi$
+use the discrete normalization fixed above; the component-valuation formula
+also assumes a normal model.
 
 \medskip
 \noindent
@@ -1691,8 +1718,8 @@ blowup of a semistable node
 SNC model
  & simplicial skeleton, PA functions
  & \cref{sec:skeleton-snc,sec:skeleton-model-functions}\\
-relatively nef vertical twist
- & convexity/slope inequalities on the skeleton
+vertical twist on the running chain model
+ & relative nefness as convexity and slope inequalities
  & \Cref{ex:chain-nef-functions}\\
 relatively nef model bundle
  & semipositive model metric
@@ -1721,15 +1748,16 @@ The following ledger will govern later chapters.
   closures, vertical blowups, and the intersection identities above may be
   used directly by chapter and proposition number.
 \item Raynaud generic fibres and invariance under admissible formal blowup are
-  cited to formal analytic geometry.
-\item Flattening is cited to the precise Stacks Project tags and retains its
-  noetherian hypotheses.
+  cited to formal analytic geometry over nontrivially valued fields.
+\item Flattening is cited to the precise Stacks Project tags. The
+  noetherian model version is distinguished from the general
+  finite-presentation argument over a valuation ring.
 \item Resolution, semistable reduction, and alterations are named external
   inputs; their characteristic and degree hypotheses remain visible.
 \item Chow intersection theory is used only for noetherian proper models over
   a discrete valuation ring unless a later chapter explicitly supplies a
   more general theory.
-\item Over a valuation ring with dense value group, only the
+\item Over a valuation ring with dense value group, the
   torsion-freeness, flat-closure, and finite-presentation statements
   (\Cref{lem:torsion-free-flat-valuation},
   \Cref{lem:flat-closure-generic-fibre},

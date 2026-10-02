@@ -4,12 +4,13 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
-**Active continuation, 2 October 2026:** a new full reading pass has begun
-from Chapter 1 for coherence and readability. The user has also resumed
-sequential open-problem attempts using Xean and `gpt-6.1-sol`/`xhigh`.
+**Active continuation, 2 October 2026:** a new full reading pass continues
+from Chapter 1 for coherence and readability; Chapters 1--3 pass its gates.
+All current execution remains in the cloud, and Xean setup is suspended by
+the latest user instruction. A standalone LaTeX catalogue of all 42 active
+open-problem items is also being prepared.
 [The new programme](manuscript/editorial/second_reading_and_research_programme_20261002.md)
-tracks both streams and distinguishes infrastructure setup, candidates,
-verified results, and the preserved completed edition below.
+tracks this work and preserves the completed edition below.
 
 **Second-draft completion, 2 October 2026:** all 72 chapters, Appendices A--N,
 and the nine front-matter files have completed the
