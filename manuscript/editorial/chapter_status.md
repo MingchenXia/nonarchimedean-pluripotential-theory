@@ -6165,3 +6165,37 @@ versions byte for byte. Physical 3300 is intentionally blank. No reviewed
 chapter layout defect remains. Frozen releases and checksum ledgers are
 unchanged. This direct audit does not claim an independent verifier verdict.
 Verified work remains local pending explicit remote-push approval.
+
+
+## Chapter 63: complete chapter-quality gate, 2 October 2026
+
+Chapter 63 has passed the sequential programme; Chapter 64 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch63_quality_audit_20261002.md](ch63_quality_audit_20261002.md).
+
+Seven formal assertions, eighteen labelled reusable environments and
+66 labels were reviewed. Eight primary PDFs and 39 selected pages were
+checked. The exact supplement passes 17,279 checks in 24 families.
+References pass for 425 inputs and 12,262 labels; all six checker tests
+pass. The inventory remains 42 atoms in twelve environments, tiers
+(0,3,7,15,17). Post-render scoped/reference checks and git diff --check
+pass. The unavailable legacy house audit is replaced by the recorded
+manual and scoped review; there are no legacy inline delimiters.
+
+The full build has 4,138 pages and 19,302,055 bytes. PDF SHA-256:
+654c92606e7dd61620677ece169380fd98f7bad252c6c0e3da63bd9521d3b702.
+Final source SHA-256:
+c84134626d64fb0365c8726b71fbae2b19cd6ac7658c3c79578351475f52d8bb.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 63 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All 22 physical chapter pages 3305--3326 (printed 3235--3256) and both
+seams were inspected at detail size. All twenty final changed chapter
+images were reinspected; the other four chapter/seam images match their
+inspected preceding versions byte for byte. No reviewed layout defect
+remains. Frozen releases and checksum ledgers are unchanged. This direct
+audit does not claim a new independent verifier verdict. Verified work
+remains local pending explicit remote-push approval.

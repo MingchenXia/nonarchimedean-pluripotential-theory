@@ -54,7 +54,7 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part V, Chapters 51--62:** complete. All twelve chapters have passed
   the sequential quality gates.
-- **Part VI, Chapters 63--72:** active. Chapter 63 is next.
+- **Part VI, Chapters 63--72:** active. Chapter 63 is complete; Chapter 64 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1682,3 +1682,26 @@ six checker tests, inventory and diff check pass. Exact evidence is in
 [ch62_quality_audit_20261002.md](ch62_quality_audit_20261002.md) and
 chapter_status.md. Part V is complete; Chapter 63 is next and the whole-book
 goal continues. Verified commits remain local pending remote-push approval.
+
+
+### Chapter 63
+
+The master dictionary now fixes the exact domains, generic reference
+metrics, valuation units and typed function maps. Rational PL and positive
+FS correspondences are separated. BFJ skeletal recovery includes both
+membership clauses; common continuous measures use an explicit rapidly
+decreasing sequence. Local and Reeb interfaces retain their additional
+boundary data. Raw contact duality keeps the class and potential fixed,
+and the ray comparison fixes its initial weight. The curve and O(d)
+product-action examples compute the unit, mass and energy conversions.
+
+All seven formal assertions, eighteen reusable environments and 66 labels
+passed review. Eight primary PDFs and 39 selected source pages were checked;
+the exact supplement passes 17,279 checks in 24 families. The full build
+has 4,138 pages and 19,302,055 bytes. All 22 chapter pages and both seams
+were visually verified, with zero chapter overflow or warning. Post-render
+references pass for 425 inputs and 12,262 labels; six checker tests and the
+unchanged 42-atom inventory pass. The precise source and preservation record
+is [ch63_quality_audit_20261002.md](ch63_quality_audit_20261002.md).
+Chapter 64 is next, and the whole-book goal continues. Work remains local
+pending explicit remote-push approval.

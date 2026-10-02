@@ -125,7 +125,7 @@ of either recent preprint.
 | --- | --- | --- |
 | MPWN, arXiv 2509.09442 v1 | Definitions, entropy/cscK scope, orthogonality, constraints, model identities, completion, beta and volume | 1--3, 13, 17--18, 27, 30--40 |
 | BJ, published Contemporary Mathematics 810 (2025) author offprint | Class-independent spaces, twisted continuity and fixed-measure differentiability with proofs | 29--30, 33--35, 37--39 |
-| Published DXZ, Geometry and Topology 29 (2025) | Test-curve energy, finite-energy RWN correspondence and proof | 11, 14--15 |
+| Published DXZ, Commentarii Mathematici Helvetici 100 (2025) | Test-curve energy, finite-energy RWN correspondence and proof | 11, 14--15 |
 | Published BJ divisorial-stability author offprint, DOI 10.1515/crelle-2023-0062 | Projective scope, finite divisorial combinations, dual energy and beta orientation | 1--5 |
 | BJ, arXiv 2602.10800 v2 | Reported projective YTD overview and hypotheses | 1--3 |
 | Trusiani, arXiv 2605.30063 v2 | Reported relative projective theorem, approximation and entropy statements | 1--3 |

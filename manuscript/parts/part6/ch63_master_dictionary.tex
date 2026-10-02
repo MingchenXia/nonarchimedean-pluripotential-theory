@@ -10,7 +10,17 @@ The resulting diagram is deliberately smaller than the collection of all
 objects introduced in the book.
 Every solid identification below is made on a locus where both sides are
 defined and is supported either by a published comparison theorem or by an
-explicitly verified synthesis of published model and approximation results.
+explicit synthesis of the model and approximation results proved at the cited locations.
+
+The dependencies are the formal measure comparison of
+\Cref{thm:cld-recovers-cl}, the BFJ reconstruction and monotone theory of
+\Crefrange{chap:bfj-model-forms}{chap:bfj-continuity}, and the projective
+and K\"ahler comparisons of
+\Cref{thm:comp-dxz,thm:pseff-projective-full-mp-bj,thm:mp-dxz-common-locus}.
+We first specify the domains and the model core, then assemble the
+differential, skeletal and complex branches. The last sections convert
+energy and contact masses, compare filtrations with rays, and test the
+normalizations on curves.
 
 Four warnings govern the chapter.
 First, the BFJ theory over a nontrivially valued field is not obtained by
@@ -23,6 +33,7 @@ Fourth, the normalized BFJ local link and the Reeb-normalized affine-cone
 link cut different radial actions and may not be identified by notation.
 
 \section{Arrow types and domain signatures}
+\label{sec:dict-domains}
 
 We use the following three arrow styles throughout:
 \[
@@ -44,18 +55,18 @@ We now name the domains that occur in the diagram.
 
 \begin{definition}[Nontrivially valued model domain]
 \label{def:dict-ntv-model-domain}
-Let \(\mathsf D_{\mathrm{mod}}(K)\) consist of tuples
+Let $\mathsf D_{\mathrm{mod}}(K)$ consist of tuples
 \[
  (K,X,L_1,\ldots,L_n,\mathcal X,
        \mathcal L_1,\ldots,\mathcal L_n)
 \]
-such that \(K\) is complete and discretely valued,
-\(X\) is a proper reduced \(n\)-dimensional \(K\)-scheme,
-\(\mathcal X\) is a proper flat \(K^\circ\)-model relatively normal in
-\(X\), and \(\mathcal L_i\) extends \(L_i^{\otimes m_i}\) for some
-\(m_i>0\).
-The model metric on \(L_i\) is the rational metric obtained by dividing the
-formal metric of \(\mathcal L_i\) by \(m_i\).
+such that $K$ is complete and discretely valued,
+$X$ is a proper reduced $K$-scheme of pure dimension $n$,
+$\mathcal X$ is a proper flat $K^\circ$-model relatively normal in
+$X$, and $\mathcal L_i$ extends $L_i^{\otimes m_i}$ for some
+$m_i>0$.
+The model metric on $L_i$ is the rational metric obtained by dividing the
+formal metric of $\mathcal L_i$ by $m_i$.
 \end{definition}
 
 Relative normality is included because it gives one divisorial analytic
@@ -65,27 +76,29 @@ defect factors; the clean Chambert--Loir formula uses the domain just stated.
 
 \begin{definition}[CLD formal domain]
 \label{def:dict-cld-domain}
-Let \(\mathsf D_{\mathrm{CLD}}(K)\) consist of a flat formal
-\(K^\circ\)-scheme \(\mathfrak X\), locally topologically of finite
-presentation and pure of relative dimension \(n\), whose generic fibre is
+Let $\mathsf D_{\mathrm{CLD}}(K)$ consist of a flat formal
+$K^\circ$-scheme $\mathfrak X$, locally topologically of finite
+presentation and pure of relative dimension $n$, whose generic fibre is
 boundaryless, together with strictly integral PL formal line bundles
-\(\mathfrak L_1,\ldots,\mathfrak L_n\).
+$\mathfrak L_1,\ldots,\mathfrak L_n$.
 \end{definition}
 
-Proper algebraic models in
-\(\mathsf D_{\mathrm{mod}}(K)\) enter
-\(\mathsf D_{\mathrm{CLD}}(K)\) by completion along the special fibre.
-This is a functor, not an equivalence between all algebraic and formal
-models.
+Complete a model in $\mathsf D_{\mathrm{mod}}(K)$ along its
+special fibre, together with the extension line bundles $\mathcal L_i$.
+These integral formal bundles enter $\mathsf D_{\mathrm{CLD}}(K)$;
+their Chern product is then divided by $m_1\cdots m_n$.
+Completion is a functor. An equivalence with every formal model is not
+asserted. Relative nefness is an additional positivity hypothesis:
+without it the intersection and curvature measures can be signed.
 
 \begin{definition}[Original BFJ domain]
 \label{def:dict-bfj-domain}
-The signature \(\mathsf D_{\mathrm{BFJ}}\) means:
-\(K\) is complete and discretely valued, the residue field has
-characteristic zero, \(X\) is smooth and projective over \(K\), and
-\(L\) is ample.
-A semipositive closed model form \(\theta\) with generic class
-\(c_1(L)\) is fixed.
+The signature $\mathsf D_{\mathrm{BFJ}}$ means:
+$K$ is complete and discretely valued, the residue field has
+characteristic zero, $X$ is smooth, connected and projective over $K$, and
+$L$ is ample.
+A semipositive closed model form $\theta$ with generic class
+$c_1(L)$ is fixed.
 \end{definition}
 
 These are the hypotheses of the foundational singular theory used in
@@ -95,24 +108,24 @@ the signature.
 
 \begin{definition}[Trivially valued projective domain]
 \label{def:dict-bj-domain}
-The signature \(\mathsf D_{\mathrm{BJ}}\) means that \(k\) is trivially
-valued, \(X\) is an integral projective \(k\)-variety of pure dimension
-\(n\), and \(L\) is ample or, where explicitly stated, a
-\(\mathbf Q\)-line bundle in a specified numerical class.
+The signature $\mathsf D_{\mathrm{BJ}}$ means that $k$ is trivially
+valued, $X$ is an integral projective $k$-variety of pure dimension
+$n$, and $L$ is ample or, where explicitly stated, a
+$\mathbf Q$-line bundle in a specified numerical class.
 Test configurations carry a fixed punctured-product trivialization and a
 fixed linearization.
 \end{definition}
 
 Fixing the linearization is essential.
-Twisting it by the character of weight \(c\) translates the corresponding
-metric by \(c\).
+Twisting it by the character of weight $c$ translates the corresponding
+metric by $c$.
 
 \begin{definition}[Projective complex comparison domain]
 \label{def:dict-complex-domain}
-The signature \(\mathsf D_{\mathbf C}^{\mathrm{proj}}\) means that
-\(X\) is a connected projective manifold over \(\mathbf C\),
-\(L\) is a pseudo-effective \(\mathbf Q\)-line bundle,
-\(h\) is smooth on \(L\), and \(\theta=c_1(L,h)\).
+The signature $\mathsf D_{\mathbf C}^{\mathrm{proj}}$ means that
+$X$ is a connected projective manifold over $\mathbf C$,
+$L$ is a pseudo-effective $\mathbf Q$-line bundle,
+$h$ is smooth on $L$, and $\theta=c_1(L,h)$.
 \end{definition}
 
 This is the domain of the Darvas--Xia--Zhang comparison used in
@@ -122,9 +135,9 @@ K\"ahler manifold, or an arbitrary transcendental class.
 
 \begin{definition}[Tropical-spectrum domain]
 \label{def:dict-mp-domain}
-The signature \(\mathsf D_{\mathrm{trop}}\) means a reduced irreducible
+The signature $\mathsf D_{\mathrm{trop}}$ means a reduced irreducible
 compact complex space equipped with the idempotent semiring of coherent
-ideals and its tropical spectrum \(X^\bethan\).
+ideals and its tropical spectrum $X^\bethan$.
 \end{definition}
 
 No positivity is part of this signature.
@@ -169,13 +182,15 @@ squared-norm weight.
 Thus an arrow in this chapter should be read as a six-entry packet.  For
 example, the first row of \eqref{eq:dict-master-diagram} has the packet
 \[
-\begin{array}{c|c|c|c|c|c}
-\text{base}&\text{carrier}&\text{representative}&\text{positivity}
- &\text{limit}&\text{mass}\\
+\begin{array}{l|l}
+\text{coordinate}&\text{value}\\
 \hline
-K,\ |\pi|<1&X^{\An}&(\mathcal X,m_i^{-1}\mathcal L_i)
- &\mathcal L_i\text{ relatively nef}&\text{model level}
- &(L_1\cdots L_n).
+\text{base}&K,\ |\pi|<1\\
+\text{carrier}&X^{\An}\\
+\text{representative}&(\mathcal X,m_i^{-1}\mathcal L_i)\\
+\text{positivity}&\mathcal L_i\text{ relatively nef}\\
+\text{limit}&\text{model level}\\
+\text{mass}&(L_1\cdots L_n)
 \end{array}
 \tag{63.2}\label{eq:dict-six-coordinate-packet}
 \]
@@ -184,37 +199,44 @@ the special-fibre normalization by radial homogeneity, while changing the
 limit from model level to finite energy requires a separate monotone
 extension theorem.
 
-There are also three distinct uses of the word \emph{valuation} in the
-comparison literature.  If
-\(\mathcal X_s=\sum_Eb_EE\), the BFJ/Chambert--Loir divisorial point is
+There are also three distinct valuation normalizations in the comparison
+literature. Put $\lambda=-\log|\pi|>0$. If
+$\mathcal X_s=\sum_Eb_EE$, the BFJ/Chambert--Loir divisorial point,
+written in the book's additive convention, is
 \[
-                       x_E=b_E^{-1}\ord_E,
-              \qquad x_E(\pi)=1.
+ x_E=\lambda b_E^{-1}\ord_E,\qquad x_E(\pi)=\lambda,
+ \qquad \lambda^{-1}x_E(\pi)=1.
 \tag{63.3}\label{eq:dict-nontrivial-divisorial-normalization}
 \]
-For a test configuration over a trivially valued field, the restriction of
-\(b_E^{-1}\ord_E\) to the function field of \(X\) is instead placed on a
-radial cone and is moved by \(v\mapsto tv\).  In the hybrid chapter, the
-book's additive valuation is
-\((-\log r)b_E^{-1}\ord_E\).  These are compatible rescalings inside their
-own constructions, not literally the same normalized point.
+The frequently used expression $b_E^{-1}\ord_E$ is the valuation
+measured in units of $\lambda$; it is literally the book's additive
+valuation only when $|\pi|=\rme^{-1}$.
+For a test configuration over a trivially valued field, the parameter
+valuation is normalized by $v(\varpi)=1$, and its restriction to
+the function field of $X$ lies on the radial cone with action
+$v\mapsto tv$. In the hybrid chapter the additive valuation instead
+includes the factor $-\log r$. These scales belong to their respective
+constructions.
 
 \section{The diagram with hypotheses attached}
+\label{sec:dict-master}
 
 The master diagram is a family of diagrams, not one rectangle in a single
 category.
-Its proved part is the following.
+Its proved part is the following. For the first row, fix a reference
+model metric on each generic-fibre line bundle $L_i$. Vertical twists
+then parametrize model metrics by their difference from that reference.
 
 \begin{theorem}\label{thm:dict-master-diagram}
 The following rows commute on the stated domains.
-Every \(\sim\) is an equivalence after imposing the quotient written below
+Every $\sim$ is an equivalence after imposing the quotient written below
 it; every unmarked arrow is one-way.
 \[
 \begin{array}{c@{\quad}c@{\quad}c}
 \multicolumn{3}{c}{\mathsf D_{\mathrm{mod}}(K)}\\[2mm]
 \left.
  \begin{array}{c}
- \text{vertical rational Cartier data}\\
+ \text{vertical rational Cartier twists}\\
  \text{modulo common domination}
  \end{array}
 \right\}
@@ -222,7 +244,7 @@ it; every unmarked arrow is one-way.
 \left\{
  \begin{array}{c}
  \text{rational model metrics}\\
- \text{with fixed generic metric datum}
+ \text{on fixed line bundles}
  \end{array}
 \right.
 \\[-1mm]
@@ -243,7 +265,7 @@ it; every unmarked arrow is one-way.
 &\xleftrightarrow{\ \sim\ }&
 \left\{
  \begin{array}{c}
- \text{rational PL/FS metrics}\\
+ \text{rational PL metrics}\\
  \text{with fixed linearization}
  \end{array}
 \right.
@@ -260,9 +282,9 @@ X^{\mathrm{an,triv}}.
 \end{array}
 \tag{63.4}\label{eq:dict-master-diagram}
 \]
-In the first row, \(\mathcal M_{\mathrm{int}}\) is the special-fibre
-intersection measure, \(\mathcal M_{\mathrm{CL}}\) the
-Chambert--Loir measure, and \(\mathcal M_{\mathrm{CLD}}\) the CLD current
+In the first row, $\mathcal M_{\mathrm{int}}$ is the special-fibre
+intersection measure, $\mathcal M_{\mathrm{CL}}$ the
+Chambert--Loir measure, and $\mathcal M_{\mathrm{CLD}}$ the CLD current
 product.
 The equality is asserted only after the model datum has entered the CLD
 formal domain.
@@ -295,9 +317,13 @@ Integral closure does not change its valuative function.
 With the punctured-product trivialization and linearization fixed, values at
 central-fibre divisorial valuations recover that divisor on a common
 domination.
-This is the injectivity statement of
-\cite[Theorem~2.31(i)]{BJ22}; the Rees construction supplies the inverse on
-rational FS data.
+This is the full PL correspondence of
+\cite[Theorem~2.31(i), pp.~685--686]{BJ22}.
+The positive subdomain is a separate statement: its Theorem~2.31(ii)
+identifies semiample test configurations with rational FS metrics.
+For an ample $L$, Corollary~2.32 chooses the unique ample integrally
+closed representative. Thus PL and FS are not interchangeable names
+for the entire row.
 
 For the complex projective row, \Cref{thm:comp-dxz} proves that
 analytification is an order isomorphism.
@@ -316,7 +342,7 @@ homeomorphism.
 \begin{remark}[Meaning of the last row]
 \label{rem:dict-space-not-psh}
 The last row compares underlying spaces and ideal evaluations only.
-It does not by itself provide a vertical \(\sim\)-arrow in
+It does not by itself provide a vertical $\sim$-arrow in
 \eqref{eq:dict-master-diagram} from the DXZ test-curve cone to a
 Mesquita--Piccione psh cone.
 Such an arrow would be an additional positivity theorem, not topology or
@@ -324,26 +350,27 @@ GAGA.
 That additional theorem is now available in precisely the projective ample
 range: \Cref{thm:pseff-projective-full-mp-bj} identifies the MP and BJ
 cones for a connected smooth projective variety and a real ample
-N\'eron--Severi class, and, for an ample \(\mathbf Q\)-class, its
+N\'eron--Severi class, and, for an ample $\mathbf Q$-class, its
 composition with \Cref{thm:comp-dxz} gives the full DXZ--MP equivalence.
 This does not turn the last row into such an arrow for a nonprojective
 compact K\"ahler manifold, a transcendental class, or a non-nef class.
 \end{remark}
 
 \section{The common model core}
+\label{sec:dict-model-core}
 
 The most robust meeting point of the global and differential theories is a
 formal metric.
 We spell out what is and is not forgotten there.
 
 \begin{proposition}\label{prop:dict-model-core}
-On \(\mathsf D_{\mathrm{mod}}(K)\), the assignment
+On $\mathsf D_{\mathrm{mod}}(K)$, the assignment
 \[
  \overline L\longmapsto c_1(\overline L)
 \tag{63.6}\label{eq:dict-metric-to-current}
 \]
 is a functorial one-way construction.
-Its \(n\)-fold product agrees with the Chambert--Loir intersection measure.
+Its $n$-fold product agrees with the Chambert--Loir intersection measure.
 It is not an equivalence of metric spaces with current spaces.
 \end{proposition}
 
@@ -359,17 +386,17 @@ normalization.
 \end{proof}
 
 The distinction is visible in energy.
-If \(V=(L^n)\), then the unnormalized energy satisfies
+If $V=(L^n)$, then the unnormalized energy satisfies
 \[
                          E(\phi+c)=E(\phi)+cV,
 \tag{63.7}\label{eq:dict-energy-translation}
 \]
-whereas \(c_1(\overline L \rme^{-c})=c_1(\overline L)\).
+whereas $c_1(\overline L \rme^{-c})=c_1(\overline L)$.
 Any dictionary that identifies a metric with its curvature current must
 therefore either quotient by constants or retain an auxiliary normalization.
 
 \begin{corollary}\label{cor:dict-continuous-common-locus}
-Assume \(\mathsf D_{\mathrm{BFJ}}\), and let a continuous semipositive
+Assume $\mathsf D_{\mathrm{BFJ}}$, and let a continuous semipositive
 metric be a uniform limit of semipositive model metrics.
 Its BFJ Monge--Amp\`ere measure equals its Chambert--Loir measure.
 If, in addition, a CLD Bedford--Taylor product is defined by the same
@@ -378,16 +405,24 @@ limit.
 \end{corollary}
 
 \begin{proof}
-Choose semipositive model weights \(\phi_j\to\phi\) uniformly.
-All model measures agree by
-\eqref{eq:dict-model-measure}.
-BFJ monotone continuity, after replacing a rapidly convergent subsequence by
-a decreasing translated sequence, identifies its limit with
-\(\MA_\theta(\phi)\).
-Chambert--Loir continuity identifies the same weak limit with the continuous
-semipositive measure.
-When the CLD product is constructed from this regularization, its weak
-continuity gives the third equality.
+Uniform approximation permits choosing model weights $\phi_j$ with
+$\|\phi_j-\phi\|_\infty\leq e_j:=\lambda2^{-j}$, where
+$\lambda=-\log|\pi|$. Put $\psi_j=\phi_j+3e_j$.
+These are still rational model weights, since $3e_j\in\lambda\mathbf Q$,
+and
+\[
+ \psi_{j+1}-\psi_j
+ \leq e_{j+1}+e_j+3(e_{j+1}-e_j)=0.
+\]
+They decrease uniformly to $\phi$. Additive constants do not change
+their curvature or measures, so all model measures agree by
+\eqref{eq:dict-model-measure}. BFJ decreasing continuity
+(\Cref{thm:bounded-ma-extension}) identifies the weak limit with
+$\MA_\theta(\phi)$; Chambert--Loir uniform continuity identifies it with
+the continuous semipositive measure. If the CLD product is constructed
+from this same regularization, its stipulated weak continuity gives the
+third equality. The sequence is selected using uniform error, without
+claiming a countable cofinal system of models.
 \end{proof}
 
 The last conditional clause is part of the theorem's domain.
@@ -399,7 +434,7 @@ local CLD-psh function or that every singular CLD product is the BFJ product.
 
 The phrase ``CLD approach'' is often used for several later enlargements.
 For comparison purposes they must be separated.  On a boundaryless strict
-analytic space the relevant diagram is
+algebraic analytification the relevant diagram is
 \[
 \begin{array}{ccccc}
 \text{CLD smooth forms}
@@ -411,7 +446,7 @@ analytic space the relevant diagram is
  &\longrightarrow&
 \text{currents}
 \\[2mm]
-\downarrow&&&&\uparrow
+&&&&\uparrow
 \\[-1mm]
 \text{formal/PL metrics}
  &\longrightarrow&
@@ -428,8 +463,13 @@ The upper left arrow is an enlargement of the class of charts.  The lower
 row is an enlargement of the coefficients that permits polyhedral corner
 terms.  Neither row is the definition of BFJ-psh functions.
 
-At the common PL locus, however, there is a precise three-step check.  Let
-\(h\) be the weight of a formal metric.
+At the common PL locus there is a precise three-step check. For the
+Gubler--K\"unnemann comparison take $K$ algebraically closed, complete
+and nontrivially valued, $X$ algebraic, $W\subset X^{\An}$ open,
+and $h$ a local weight of a PL metric on a line bundle over $W$.
+These are the hypotheses of \Cref{thm:gk-formal-positivity-comparison};
+a discretely valued model can be pulled back to a completed algebraic
+closure before applying this interface.
 
 \begin{enumerate}
 \item Relative nefness of the formal model is the algebraic positivity
@@ -439,10 +479,10 @@ certificate.
 delta-current on the exact formal domain of
 \Cref{thm:gk-formal-positivity-comparison}.
 
-\item When \(K\) is nontrivially valued and the analytic space is good and
-strict, \Cref{thm:gr-pl-comparison} says that \(h\) is classically psh in
+\item When $K$ is nontrivially valued and the analytic space is good and
+strict, \Cref{thm:gr-pl-comparison} says that $h$ is classically psh in
 the Gubler--Rabinoff curve-test sense if and only if it is semipositive.
-Given item~(1), \(h\) is therefore classically psh.  The hypotheses of that
+Given item~(1), $h$ is therefore classically psh.  The hypotheses of that
 theorem do not by themselves give classical psh-ness; the positivity
 certificate is what supplies it.
 \end{enumerate}
@@ -472,12 +512,14 @@ spelled out in \Cref{chap:delta-forms}.  The present section only assembles
 those already proved arrows and imports no singular comparison theorem.
 
 \subsection{A multiplicity calculation at the common model core}
+\label{subsec:dict-multiplicities}
 
-Write \(D=\sum_Ed_EE\) for a vertical rational Cartier divisor on
-\(\mathcal X\), and let \(f_D\) be its model function.  The two
-normalizations in the model formula cancel:
+Write $D=\sum_Ed_EE$ for a vertical rational Cartier divisor on
+$\mathcal X$, and let $f_D$ be its model function. Keep
+$\lambda=-\log|\pi|$. The central multiplicities cancel, while the
+valuation unit remains:
 \[
- f_D(x_E)=\frac{d_E}{b_E},
+ f_D(x_E)=\lambda\frac{d_E}{b_E},
  \qquad
  \mu_{\mathcal X}(\{x_E\})
  =\frac{b_E}{m_1\cdots m_n}
@@ -488,61 +530,71 @@ normalizations in the model formula cancel:
 Consequently
 \[
  \int f_D\,\rd\mu_{\mathcal X}
- =\frac1{m_1\cdots m_n}
+ =\frac{\lambda}{m_1\cdots m_n}
    \sum_Ed_E
    \bigl(c_1(\mathcal L_1|_E)\cdots
          c_1(\mathcal L_n|_E)\bigr),
 \tag{63.11}\label{eq:dict-model-duality-expanded}
 \]
-which is the vertical intersection number.  Omitting \(b_E\) from the
-measure or from the normalization of \(x_E\) destroys this identity.  This
+which is $\lambda$ times the vertical intersection number. Pairing
+$f_D/\lambda$ instead gives the intersection number itself. Omitting $b_E$ from the
+measure or from the normalization of $x_E$ destroys this identity.  This
 is the quickest local audit of a proposed CLD--Chambert--Loir comparison.
 
 Replacing every extension by
-\(\mathcal L_i^{\otimes q_i}\), representing
-\(L_i^{\otimes m_iq_i}\), multiplies the intersection on each component by
-\(q_1\cdots q_n\) and the denominator by the same product.  Hence the
+$\mathcal L_i^{\otimes q_i}$, representing
+$L_i^{\otimes m_iq_i}$, multiplies the intersection on each component by
+$q_1\cdots q_n$ and the denominator by the same product.  Hence the
 measure is unchanged.  This tensor-power test explains why rational model
 metrics, rather than chosen integral presentations, are the correct common
 objects.
 
 \section{Inverse systems and their realizations}
+\label{sec:dict-inverse-systems}
 
 The fourth row of the planning table concerns inverse systems of models.
 Here the arrows are less symmetric.
 
+\noindent\begin{minipage}{\linewidth}
 \begin{proposition}\label{prop:dict-bfj-skeletal}
-Under \(\mathsf D_{\mathrm{BFJ}}\), a BFJ-psh function determines compatible
+Under $\mathsf D_{\mathrm{BFJ}}$, a BFJ-psh function determines compatible
 restrictions to every \emph{determining} SNC dual complex, each of them
 finite, continuous, and convex on each face, and
 \[
                   \phi=\inf_{\mathcal X}\phi\circ p_{\mathcal X}.
 \tag{63.12}\label{eq:dict-bfj-inverse-system}
 \]
-This gives an injective map from BFJ-psh functions to compatible skeletal
-data satisfying the BFJ convexity, nefness, and retraction inequalities.
-Its image is characterized by those inequalities.
+This gives an injective map to skeletal data compatible under restriction
+to embedded lower skeleta. Its exact image is specified by
+\Cref{def:ch21-bfj-psh}: the reconstructed function must be upper
+semicontinuous and not identically minus infinity, satisfy the retraction
+inequality, and restrict on every determining complex to the uniform
+closure of restrictions of $\theta$-psh model functions.
+Facewise convexity alone does not give this closure condition.
 \end{proposition}
+\end{minipage}
 
 \begin{proof}
 This is the skeletal characterization
 \cite[Section~7]{BFJ16}, recalled in
 \Cref{thm:bfj-skeletal-characterization}.
 The retraction inequality
-\(\phi\leq\phi\circ p_{\mathcal X}\) is essential.
-Without it, compatible convex functions on dual complexes need not recover a
-psh function on all of \(X^{\An}\).
+$\phi\leq\phi\circ p_{\mathcal X}$ is essential.
+The skeletal model-closure condition is also indispensable. The two
+clauses of \Cref{def:ch21-bfj-psh}, rather than an unspecified nefness
+inequality, provide the converse. Without those clauses, compatible convex
+functions need not reconstruct a psh function on $X^{\An}$.
 \end{proof}
 
 The analogous BJ statement uses decreasing generalized FS approximation on
 the valuation cone.
 Its input is not the same inverse system: the ground valuation is trivial,
 the radial scaling action is part of the space, and proper-support
-semivaluations may take the value \(-\infty\).
+semivaluations may take the value $-\infty$.
 
 \begin{proposition}\label{prop:dict-projective-realization}
-Under \(\mathsf D_{\mathbf C}^{\mathrm{proj}}\), a compatible DXZ inverse
-system of positive-mass \(\cI\)-model test curves determines a unique BJ-psh
+Under $\mathsf D_{\mathbf C}^{\mathrm{proj}}$, a compatible DXZ inverse
+system of positive-mass $\cI$-model test curves determines a unique BJ-psh
 metric, and every BJ-psh metric arises in this way.
 Order, admissible decreasing limits, and the operations established in
 \Cref{chap:dxz-bj-comparison} are preserved.
@@ -558,6 +610,7 @@ requires the relevant envelope theorems exactly where recorded there.
 \end{proof}
 
 \begin{remark}[Zero-mass safeguard]
+\label{rem:dict-zero-mass}
 The DXZ inverse system uses K\"ahler perturbations because a
 pseudo-effective class may have zero volume.
 No single positive-mass test curve then represents the unperturbed object.
@@ -568,51 +621,59 @@ it turn the positive-mass Okounkov body formula into a zero-mass formula.
 \section{The projective complex branch: carrier and positivity}
 \label{sec:dict-projective-complex-branch}
 
-Suppose \(X\) is projective over \(\mathbf C\).  The MP tropical spectrum
+Suppose $X$ is projective over $\mathbf C$.  The MP tropical spectrum
 and the trivially valued Berkovich analytification have the same points:
 a tropical character on coherent ideals is recovered from its values on
-principal ideals, and a semivaluation \(v\) gives the ideal value
+principal ideals, and a semivaluation $v$ gives the ideal value
 \[
                     v(\mathfrak a)
        =\min\{v(f):f\text{ is a local generator of }\mathfrak a\}.
 \tag{63.13}\label{eq:dict-ideal-valuation-recovery}
 \]
-Coherence makes the minimum local and finite generation makes it independent
-of the chosen generators.  Multiplication of ideals becomes addition of
-values, while a sum of ideals becomes a minimum.  This explains the
+The minimum is taken in the local ring at the center. If another generating
+set is used, the nonnegative values of its local coefficients and the
+valuation inequality give both comparisons, so the value is unchanged.
+It may be $+\infty$ when the ideal lies in the support prime.
+The zero and unit ideals have values $+\infty$ and $0$, respectively.
+Multiplication becomes addition, with the extended-value convention,
+and ideal sums become minima.  This explains the
 underlying-space homeomorphism in the last row of
 \eqref{eq:dict-master-diagram}.
 
 The DXZ-to-BJ arrow attaches more structure to the same carrier.  Its input
-is a compatible system of positive-mass \(\cI\)-model test curves; its
+is a compatible system of positive-mass $\cI$-model test curves; its
 output is a psh metric obtained by generalized FS approximation.  In
 particular, its positivity remembers the numerical class and its envelope
 theory.  Formula \eqref{eq:dict-ideal-valuation-recovery} remembers neither.
-The logical relation is therefore
+To give a square of actual maps, let
+$\mathcal F(S)$ be the set of all functions $S\to[-\infty,+\infty)$,
+and let $\iota:X^\bethan\to X^{\mathrm{an,triv}}$ be the carrier
+homeomorphism. The comparison on the projective complex domain is
 \[
 \begin{array}{ccc}
-\text{DXZ test-curve datum}&\xrightarrow{\ \mathfrak A\ }&
-     \text{BJ psh metric}\\
-\downarrow\text{ forget positivity}&&\downarrow\text{ forget metric}\\
-\text{coherent-ideal evaluations}&=&
-     \text{MP/Berkovich semivaluation carrier}.
+\PSH^{\NA}_{\mathrm{tc}}(X,\theta)&
+ \xrightarrow{\ \mathfrak A\,\sim\ }&\PSH(L^{\An})\\
+\downarrow\text{ valuative realization}&&\downarrow\text{ inclusion}\\
+\mathcal F(X^\bethan)&
+ \xleftarrow{\ \iota^*\,\sim\ }&\mathcal F(X^{\mathrm{an,triv}}).
 \end{array}
 \tag{63.14}\label{eq:dict-dxz-mp-forgetful-square}
 \]
-In this diagram only the top arrow and the bottom equality are comparison
-theorems; the vertical arrows are forgetful descriptions.  Reading the
-square upward would amount to reconstructing a psh metric from a bare point,
-which is impossible.  The genuine positivity comparison is instead
+The bottom map pulls back functions along the homeomorphism. The top map
+includes the positivity theorem; its two realizations give the same
+function. Reading the lower row upward still requires proving membership
+in the corresponding psh cones. A point of the carrier does not by itself
+specify such a function.  The genuine positivity comparison is instead
 \Cref{thm:pseff-projective-full-mp-bj}: after a real ample
 N\'eron--Severi class is fixed, it identifies the rational PL model cones
 and then their decreasing completions.
 
 \paragraph{Source boundary for the projective branch.}
 The top arrow is bounded by the projective manifold and
-pseudo-effective \(\mathbf Q\)-line-bundle hypotheses of
+pseudo-effective $\mathbf Q$-line-bundle hypotheses of
 \cite{DXZ23}.  The lower row is the tropical-spectrum construction of
 \cite{MP24} together with projective GAGA.  Neither statement alone is a
-DXZ--MP equivalence.  In the ample \(\mathbf Q\)-line-bundle case, the
+DXZ--MP equivalence.  In the ample $\mathbf Q$-line-bundle case, the
 additional positivity theorem
 \Cref{thm:pseff-projective-full-mp-bj} makes their composition the full
 DXZ--MP order isomorphism; the statement remains bounded by its smooth
@@ -628,10 +689,11 @@ positivity domains.  Keeping them separate prevents the carrier of a theory
 from being confused with its psh cone.
 
 \subsection{The normalized local link and a Gauss shell}
+\label{subsec:dict-gauss-shell}
 
-Let \((Y,0)\) be a smooth complex germ of dimension \(n\geq2\), let
-\(\mathfrak m\) be its maximal ideal, and let
-\(\mathcal V_0=\{v:v(\mathfrak m)=1\}\) be the normalized BFJ link.  After
+Let $(Y,0)$ be a smooth complex germ of dimension $n\geq2$, let
+$\mathfrak m$ be its maximal ideal, and let
+$\mathcal V_0=\{v:v(\mathfrak m)=1\}$ be the normalized BFJ link.  After
 passing to
 \[
                  K=\mathbf C((t)),\qquad |t|=\rme^{-1},
@@ -644,22 +706,22 @@ and retraction
  \xrightarrow{\ p\ }\mathcal V_0,
  \qquad p\circ\iota=\operatorname{id}_{\mathcal V_0}.
 \]
-For every \(\mathfrak m\)-primary ideal \(\mathfrak a\), the analytic model
-function \(u_{\mathfrak a}=\log\max_j|f_j|\) satisfies
+For every $\mathfrak m$-primary ideal $\mathfrak a$, the analytic model
+function $u_{\mathfrak a}=\log\max_j|f_j|$ satisfies
 \[
              u_{\mathfrak a}\circ\iota=-v(\mathfrak a).
 \]
 Thus the model functions agree literally; the measures agree only after the
 reference ideal supplies one further boundary factor.  More precisely,
 \Cref{thm:local-cld-model-comparison} identifies the BFJ mixed measure on
-\(\mathcal V_0\) with the pushforward by \(p\) of the swept CLD boundary
+$\mathcal V_0$ with the pushforward by $p$ of the swept CLD boundary
 product in \eqref{eq:local-cld-swept-product}.  The equality holds for ideal
 models and algebraizable rational semipositive models, and
 \Cref{prop:local-cld-bounded-closure} extends it to the explicitly defined
 joint bounded closure.
 
 Three pieces of data are indispensable: the normalization ideal
-\(\mathfrak m\), the level \(-1\), and the swept reference factor.  Removing
+$\mathfrak m$, the level $-1$, and the swept reference factor.  Removing
 any of them changes the carrier or the mass.  In particular, the comparison
 does not identify arbitrary formal psh functions with arbitrary CLD-v2 psh
 functions, and it does not select a canonical treatment of unbounded polar
@@ -667,8 +729,9 @@ mass.  The two competing continuations at a polar endpoint are exhibited in
 \eqref{eq:local-cld-polar-endpoint}.
 
 \subsection{The Reeb-polarized affine-cone branch}
+\label{subsec:dict-reeb}
 
-Let \((X=\Spec R,T;\xi)\) be a normal polarized affine cone over a trivially
+Let $(X=\Spec R,T;\xi)$ be a normal polarized affine cone over a trivially
 valued algebraically closed field of characteristic zero.  Wu's analytic
 link and the BFJ normalized local link have visibly different signatures:
 \[
@@ -682,8 +745,8 @@ link and the BFJ normalized local link have visibly different signatures:
 The set in the second line depends only on the pointed affine cone; after a
 good torus action and a Reeb field have been fixed, it is a cross-section for
 the corresponding translation orbits.  Its reference function
-\(\varphi_\xi\) satisfies
-\(X_0=\{\varphi_\xi=0\}\), and the model measure is
+$\varphi_\xi$ satisfies
+$X_0=\{\varphi_\xi=0\}$, and the model measure is
 \[
  \frac{1}{\vol(\xi)}
  \dprimeddprime\varphi_1\wedge\cdots\wedge
@@ -692,8 +755,8 @@ the corresponding translation orbits.  Its reference function
 \]
 This formula exhibits two solid interfaces.  First, homogeneous
 Fubini--Study functions are CLD-approachable, so the displayed expression is
-a literal CLD Bedford--Taylor product supported on \(X_0\).  Second, when
-\(\xi\) is rational, the projective quotient identifies it with the global
+a literal CLD Bedford--Taylor product supported on $X_0$.  Second, when
+$\xi$ is rational, the projective quotient identifies it with the global
 normalized Chambert--Loir probability measure on the polarized orbifold
 quotient, and Wu's finite-energy class and energy recover their global BJ
 counterparts.  The complete domains,
@@ -708,7 +771,7 @@ The resulting comparison chain is therefore
   \subset\mathcal E^1(\xi),
   \\[1mm]
   \mathcal E^1(\xi)
-  \xleftarrow{\ \sim\ }
+  \xleftarrow{\ \text{quotient recovery}\ }
   \mathcal E^1_{\mathrm{BJ}}(V_\xi,L_\xi)
   \qquad(\xi\text{ rational}).
  \end{gathered}
@@ -721,7 +784,7 @@ identification of the whole projective Boucksom--Jonsson finite-energy
 theory with the affine-cone theory, and it is not asserted for a pair of
 nonproportional polarizations.
 
-On \(\mathcal H(\xi)\), the operator \(\MA_\xi\) is separately realized
+On $\mathcal H(\xi)$, the operator $\MA_\xi$ is separately realized
 by the normalized CLD shell product displayed above.  Thus the diagram
 compares potential classes, while the preceding formula compares measures.
 By contrast,
@@ -731,15 +794,16 @@ By contrast,
  \text{affine-cone }\mathcal E^1(\xi).
 \]
 The non-arrow is substantive, not typographical.  No theorem identifies the
-two links, transports the finite-energy class after forgetting \(\xi\), or
+two links, transports the finite-energy class after forgetting $\xi$, or
 compares psh classes for two nonproportional Reeb fields.  The source boundary is
 \cite{Wu22AffineEnergy,Wu24AffineCones}; the present subsection only places
 their established arrows in the dictionary.
 
 \subsection{The DXZ--MP--BJ comparison domains}
+\label{subsec:dict-dxz-mp-bj}
 
-Let \(X\) be connected and smooth projective, and let \(L\) be an ample
-\(\mathbf Q\)-line bundle.  The full projective comparison is the chain
+Let $X$ be connected and smooth projective, and let $L$ be an ample
+$\mathbf Q$-line bundle.  The full projective comparison is the chain
 \[
  \PSH^{\NA}_{\mathrm{DXZ}}(X,\theta)
  \xrightarrow[\Cref{thm:comp-dxz}]{\ \sim\ }
@@ -751,12 +815,12 @@ Let \(X\) be connected and smooth projective, and let \(L\) be an ample
 \]
 No finite-energy hypothesis occurs.  More generally, the second arrow is
 an order isomorphism for every
-\(\alpha\in\operatorname{Amp}(X)\subset N^1(X)_{\mathbf R}\), even when
-\(\alpha\) is not rational; no DXZ assertion for that irrational class is
+$\alpha\in\operatorname{Amp}(X)\subset N^1(X)_{\mathbf R}$, even when
+$\alpha$ is not rational; no DXZ assertion for that irrational class is
 being added here.
 
 Independently, \Cref{thm:pseff-kahler-finite-energy-link} identifies the
-finite-energy DXZ radial data with \(\mathcal E^1_{\mathrm{MP}}(\alpha)\)
+finite-energy DXZ radial data with $\mathcal E^1_{\mathrm{MP}}(\alpha)$
 for a K\"ahler class on a compact K\"ahler manifold and matches radial
 energy.  This compact-K\"ahler theorem remains the relevant bridge for a
 transcendental class and for the energy statement.  The full projective
@@ -788,6 +852,9 @@ For a finite-energy $\mathcal I$-maximal test curve $\Gamma$ with least singular
 \]
 Here $\mathbf E^0$ is the unnormalized test-curve energy in \eqref{eq:rays-test-energy}. This is \eqref{eq:mp-test-curve-energy}, equivalently \cite[Theorem~2.6(iii), equation~(34)]{DXZ23}, multiplied by the reference volume. The volume is not the mass of the terminal level, which may vanish. Changing from the ordinary-norm to the squared-norm convention also changes the potential, as explained before \cref{thm:pseff-kahler-finite-energy-link}; it is a separate operation from dividing an energy by $V$.
 
+\subsection{Dual energy and the raw mass simplex}
+\label{subsec:dict-raw-duality}
+
 For a positive Radon measure $\nu$ of mass $V$ such that $\nu/V$ has finite energy, define
 \[
  \mathscr E_\alpha^\vee(\nu)
@@ -798,6 +865,7 @@ For a positive Radon measure $\nu$ of mass $V$ such that $\nu/V$ has finite ener
 \]
 Every integral is finite by the finite-energy hypothesis. Factoring $V>0$ out of each competitor proves the equality, in agreement with the probability convention of \cite[Section~2.3.2, p.~12]{MPWN25}.
 
+\noindent\begin{minipage}{\linewidth}
 \begin{proposition}\label{prop:dict-contact-mass-normalization}
 \predisplaypenalty=10000
 Let $F_1,\ldots,F_\ell$, with $\ell\geq1$, be distinct prime divisors on a common smooth compact K\"ahler modification of $X$, and put $v_i=\ord_{F_i}$. For $t\in\mathbf R^\ell$, let $\phi_t$ be the finite-constraint envelope in \eqref{eq:mpwn-constrained-envelope} and set
@@ -833,12 +901,15 @@ If $u_{m/V}$ is the sup-normalized solution with probability measure $\sum_i(m_i
 \tag{63.14f}\label{eq:dict-raw-mass-derivative}
 \]
 \end{proposition}
+\end{minipage}
 
 \begin{proof}
 Write $\xi=m/V$ and $g_\alpha(\xi)=E_\alpha^\vee(\sum_i\xi_i\delta_{v_i})$. Equations \eqref{eq:dict-raw-dual-energy} and \eqref{eq:mpwn-energy-legendre} give $\mathscr g(m)=Vg_\alpha(\xi)$ and $\mathscr f=Vf_\alpha$. Multiplication of \eqref{eq:mpwn-energy-legendre} and \eqref{eq:mpwn-threshold-duality} by $V$ proves the two duality formulas, since $\xi\mapsto V\xi$ is a bijection of the closed mass simplices. The regularity, gradient and uniqueness assertions follow from \cref{prop:mpwn-threshold-derivative}; specifically, $\nabla\mathscr f=V\nabla f_\alpha$. For the last formula apply \eqref{eq:mpwn-mass-derivative} in direction $h/V$ and multiply by $V$. The factors cancel. This proves the one-sided assertion also at zero masses; an arbitrary maximizing threshold with inactive slack cannot replace the normalized solution there.
 \end{proof}
 
-\begin{example}\label{ex:dict-degree-d-contact-masses}
+\noindent\begin{minipage}{\linewidth}
+\begin{example}[Raw contact masses in degree $d$]
+\label{ex:dict-degree-d-contact-masses}
 Take $X=\mathbf P^1$, $\alpha=d\,c_1(\cO(1))$ with $d>0$, and the two divisors $0,\infty$. Here $V=d$. For thresholds $(0,b)$, \cref{thm:mpwn-volume-formula} uses the residual degree
 \[
                     \bigl(d-\lambda_+-(\lambda-b)_+\bigr)_+.
@@ -858,6 +929,10 @@ Its derivative with respect to $b$ is respectively $d$, $(d-b)/2$ and $0$, the m
 \]
 The maximizing thresholds are $b=m_1-m_2$ if $m_1m_2>0$, $b\geq d$ if $m_2=0$, and $b\leq-d$ if $m_1=0$. At $d=2$ and $b=0$, the mass-$d$ and probability gradients are $(1,1)$ and $(1/2,1/2)$, respectively.
 \end{example}
+\end{minipage}
+
+\subsection{Model slopes and reduced discrepancy}
+\label{subsec:dict-raw-model-slopes}
 
 The same factor controls the model/ray comparison. For a smooth dominating model $(\mathcal X,A+D)$ of this fixed $(X,\alpha)$ with $A$ the pullback of $\alpha$, $f_D\geq1$, and $\phi_D=P_\alpha(f_D)$, \eqref{eq:mpwn-model-functional-identities} gives
 \[
@@ -869,6 +944,7 @@ These are the identities of \cite[Theorem~9.1.1, p.~31]{MPWN25}, with the scalar
 The discrepancy convention must also be retained. Since $A^{\mathrm{tot}}=A_X^{\NA}+1$, replacing the reduced discrepancy by the total discrepancy adds $1$ to the probability entropy and $V$ to its mass-$V$ counterpart. For a constant datum $\phi=c$, the maximal ray is $U_s=cs$, $M_\alpha^{\NA}(c)=M_\omega(U_s)=0$, and its Mabuchi slope is zero. The total-discrepancy replacement in $VM_\alpha^{\NA}$ would instead give the positive value $V$. Thus the constant-ray test detects the entropy shift independently of the volume factor.
 
 \section{Degenerations, filtrations, and rays}
+\label{sec:dict-degenerations}
 
 There is a second diagram inside the projective complex domain.
 Its exact form is developed in \Cref{chap:rays-filtrations}; here we
@@ -899,21 +975,22 @@ The bottom equivalence is the Ross--Witt Nystr\"om correspondence in its
 stated analytic domain.
 
 \begin{proposition}\label{prop:dict-degeneration-commutes}
-Let \((X,L)\) be a polarized complex manifold and let
-\((\mathcal X,\mathcal L)\) be a normal relatively ample test
-configuration.
-The ray obtained from its filtered section ring by maximal envelopes and
-Legendre transform is the Phong--Sturm weak geodesic ray of the test
-configuration.
+Let $(X,L)$ be a connected polarized complex manifold, fix a smooth strictly
+positive initial metric weight $\chi$, and let
+$(\mathcal X,\mathcal L)$ be a normal relatively ample test
+configuration. Use the same weight, norm convention and parameter in both
+constructions. The ray obtained from its filtered section ring by maximal
+envelopes and Legendre transform is the Phong--Sturm weak geodesic ray
+emanating from $\chi$.
 \end{proposition}
 
-\begin{proof}
+\begin{proof}[Cited comparison]
 Equivariant extension of a section gives the filtration.
-Its partial Bergman kernels give the level obstacles of the test curve.
+Using the inner products induced by $\chi$, its partial Bergman kernels give the level obstacles of the test curve.
 The Legendre transform of their maximal envelopes is the limit of the
 weighted Bergman rays.
 Ross--Witt Nystr\"om
-\cite[Theorem~9.2]{RWN14} identifies this limit with the Phong--Sturm ray.
+\cite[Theorem~9.2 and Section~9]{RWN14} identifies this limit with the Phong--Sturm ray.
 \end{proof}
 
 This comparison is independent of the flawed invariant-theory assertion in
@@ -923,6 +1000,7 @@ The erratum boundary is treated explicitly in
 
 \pagebreak
 \section{The comparison-status ledger}
+\label{sec:dict-status-ledger}
 
 The following ledger is a compact audit of the master dictionary.
 
@@ -1026,7 +1104,7 @@ order isomorphism\par\nopagebreak
 
 \textbf{Exact common locus}\par\nopagebreak
 connected projective complex manifold and pseudo-effective
-\(\mathbf Q\)-line bundle
+$\mathbf Q$-line bundle
 
 \medskip
 \textbf{Pair of realizations}\par\nopagebreak
@@ -1058,7 +1136,7 @@ order isomorphism of full cones\par\nopagebreak
 
 \textbf{Exact common locus}\par\nopagebreak
 connected smooth projective complex variety and an ample
-\(\mathbf Q\)-line-bundle class; equality is on all semivaluations
+$\mathbf Q$-line-bundle class; equality is on all semivaluations
 
 \medskip
 \textbf{Pair of realizations}\par\nopagebreak
@@ -1094,40 +1172,99 @@ different ground norms and different radial geometry
 \endgroup
 
 \section{Two diagnostic examples}
+\label{sec:dict-diagnostics}
 
+\noindent\begin{minipage}{\linewidth}
 \begin{example}[A two-component model curve]
 \label{ex:dict-two-component}
-Let \(X\) be a smooth projective curve over a discretely valued field and
-let a regular semistable model have special fibre \(E_0+E_1\).
-For a semipositive model line bundle \(\mathcal L\), all three model
-realizations give
+Let $R=K^\circ$, with $\lambda=-\log|\pi|>0$, and blow up
+$\mathbf P^1_R$ at a rational point of its special fibre. Write
+$E_0$ for the strict transform and $E_1$ for the exceptional curve.
+Then
 \[
- \deg(\mathcal L|_{E_0})\delta_{x_0}
- +\deg(\mathcal L|_{E_1})\delta_{x_1}.
+ \mathcal X_s=E_0+E_1,\qquad
+ E_0^2=E_1^2=-1,\qquad E_0\cdot E_1=1.
+\]
+For the blowup map $q$, the model bundle
+$\mathcal L=q^*\mathcal O(3)\otimes\mathcal O(-E_1)$
+has residual degrees $2,1$. It is relatively nef: these are all
+special-fibre curves, and both degrees are positive. Its generic bundle
+is $L=\mathcal O(3)$. All three model realizations therefore give
+\[
+                     \mu=2\delta_{x_0}+\delta_{x_1},
+                     \qquad \mu(X^{\An})=3.
 \tag{63.16}\label{eq:dict-two-component-measure}
 \]
-The total mass is \(\deg L\).
-The equality is literal because every object comes from the same model.
-If one now takes an arbitrary singular BFJ limit, the example no longer
-proves that a CLD singular wedge exists.
+For $D=\frac12E_1$, the raw model values are $0,\lambda/2$, and
+\[
+ \int f_D\,\rd\mu=\frac{\lambda}{2}
+       =\lambda(D\cdot\mathcal L).
+\tag{63.16a}\label{eq:dict-curve-valuation-unit}
+\]
+At $\lambda=2$, this pairing is $1$, whereas the intersection
+number is $1/2$. Dividing the potential by $\lambda$ restores
+intersection units; dividing the measure by $3$ instead gives
+a probability pairing of $\lambda/6$. These are different conversions.
+Adding a constant $c$ leaves the curvature measure unchanged and
+changes raw energy by $3c$. The equality of the three model measures
+uses their common model; an arbitrary singular BFJ limit still needs
+a separate theorem before a CLD singular wedge can be identified.
 \end{example}
+\end{minipage}
 
-\begin{example}[The product action on \(\mathbf P^1\)]
+\begin{example}[The product action on $\mathbf P^1$]
 \label{ex:dict-product-action}
-Let \(\mathbf G_m\) act on \((\mathbf P^1,\mathcal O(1))\) with weights
-\(0,1\).
-The associated filtration has degree-\(m\) weights
-\(0,1,\ldots,m\).
-Its FS metric, maximal test curve, and product geodesic ray are linked by
-\eqref{eq:dict-degeneration-diagram}.
-The limiting probability DH measure is Lebesgue measure on \([0,1]\), while
-the unnormalized measure has mass
-\(V=(\mathcal O(1)^1)=1\), so the two happen to coincide.
-For \(\mathcal O(d)\), the coincidence disappears unless the mass factor
-\(d\) is displayed.
+Let $\mathbf G_m$ act with section weights $0,1$, in the increasing
+weight convention of \Cref{chap:bj-test-configurations}. For
+$L=\mathcal O(d)$, with an integer $d\geq1$, the degree-$m$ basis is
+\[
+ Z_0^{md-j}Z_1^j,\qquad 0\leq j\leq md,
+\]
+and the normalized weights are $j/m$. The raw and probability empirical
+measures are
+\[
+ \nu_m=\frac1m\sum_{j=0}^{md}\delta_{j/m},\qquad
+ \widehat\nu_m=\frac1{md+1}\sum_{j=0}^{md}\delta_{j/m}.
+\tag{63.16b}\label{eq:dict-product-dh-empirical}
+\]
+For a continuous test function these are ordinary Riemann sums, so
+\[
+ \nu_m\longrightarrow\mathbf1_{[0,d]}\,\rd a,\qquad
+ \widehat\nu_m\longrightarrow\frac1d\mathbf1_{[0,d]}\,\rd a.
+\tag{63.16c}\label{eq:dict-product-dh-limits}
+\]
+The first limiting mass is $d=(L^1)$; the second is $1$.
+Their first moments follow already from the finite sums:
+\[
+ \int a\,\rd\nu_m=\frac{d^2}{2}+\frac{d}{2m},
+ \qquad
+ \int a\,\rd\widehat\nu_m=\frac d2.
+\]
+The associated rational FS function is
+\[
+ f_d(v)=\max\{-d\,v(Z_0),\,d-d\,v(Z_1)\}.
+\tag{63.16d}\label{eq:dict-product-fs-function}
+\]
+Here the section values use the fixed reference metric; equivalently
+they are evaluated in local unit frames. On the ray $t\ord_0$, where
+$Z_1$ vanishes, $f_d=d\max\{0,1-t\}$; on every other ray it is $d$.
+Thus $u_d=f_d-d$ has slope $-d$ up to $t=1$, slope zero beyond it,
+and is zero on the other rays. Its raw Monge--Amp\`ere measure is
+$d\delta_{\ord_0}$. The curve energy cocycle gives
+\[
+ \mathscr E(u_d)=-\frac{d^2}{2},\qquad
+ \mathscr E(f_d)=\mathscr E(u_d)+d^2=\frac{d^2}{2}.
+\tag{63.16e}\label{eq:dict-product-energy-moment}
+\]
+This is the first moment of the raw limiting DH measure; division by
+$d$ gives $d/2$. The filtration, FS metric, maximal test curve and
+geodesic ray are linked by \eqref{eq:dict-degeneration-diagram} after
+the initial metric is fixed. For $d=1$ raw and probability DH measures
+coincide; at $d=2$ their masses and first moments are $2,2$ and $1,1$.
 \end{example}
 
 \section{Forbidden inferences}
+\label{sec:dict-inferences}
 
 We finish with four rules that will be used in the comparison chapters.
 
@@ -1154,6 +1291,7 @@ be stated.
 \end{enumerate}
 
 \section*{Source note}
+\label{sec:dict-source-note}
 
 The formal intersection formula is
 \cite[Theorem~18.5.5 and Proposition~18.5.8]{CLD25}, and the original
