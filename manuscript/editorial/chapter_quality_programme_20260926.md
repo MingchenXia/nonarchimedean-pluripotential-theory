@@ -54,7 +54,7 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part V, Chapters 51--62:** complete. All twelve chapters have passed
   the sequential quality gates.
-- **Part VI, Chapters 63--72:** active. Chapters 63--70 are complete; Chapter 71 is next.
+- **Part VI, Chapters 63--72:** active. Chapters 63--71 are complete; Chapter 72 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1886,4 +1886,30 @@ the unchanged 42-atom inventory and scoped/whitespace gates pass. Eighteen
 inherited overfull boxes remain for the whole-book pass. Exact evidence is
 in [ch70_quality_audit_20261002.md](ch70_quality_audit_20261002.md).
 Chapter 71 is next; the whole-book goal continues. Work remains local
+pending explicit remote-push approval.
+
+
+### Chapter 71
+
+Chapter 71's opening, comparison ladder and ledger now state the full
+compact-Kähler DXZ--MP order isomorphism already proved in the chapter.
+Finite-energy comparison uses the source class volume. The relative
+radial/DH functional uses initial mass and is explicitly distinguished
+from source DXZ energy: at smaller initial mass, source energy is minus
+infinity even when relative energy is finite. Proper-support and finite-grid
+worked calculations expose the extended-real values and ordered limits.
+The finite ideal limit holds on every semivaluation by the monotone-parameter
+lemma. General non-nef and zero-volume boundaries remain explicit.
+
+The review covers 23 assertions/proofs, 37 reusable environments and 136
+labels. Twenty-eight receipt-linked chunks, 60,397 bytes, remain identical
+to the entry baseline. Eleven PDFs, 87 selected pages and four Stacks tags
+were checked. Sixteen exact-calculation families pass 35,379 checks. Four
+full builds pass; the final 36 chapter pages and two seams were inspected.
+Chapter warnings/overflows and duplicate PDF destinations are zero.
+Post-render references pass for 425 inputs and 12,388 labels; six checker
+tests, the unchanged 42-atom inventory and scoped/whitespace gates pass.
+Eighteen inherited overfull boxes remain for the whole-book pass. Evidence
+is in [ch71_quality_audit_20261002.md](ch71_quality_audit_20261002.md).
+Chapter 72 is next; the whole-book goal continues. Work remains local
 pending explicit remote-push approval.

@@ -6448,3 +6448,33 @@ Evidence: [ch70_quality_audit_20261002.md](ch70_quality_audit_20261002.md).
 Review PDF:
 /workspace/book-completion-drafts/Chapter_70_Final_Review_2026-10-02.pdf.
 Work remains local pending explicit remote-push approval.
+
+
+## Chapter 71: complete chapter-quality gate, 2 October 2026
+
+Chapter 71 has passed the sequential programme; Chapter 72 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+The introduction and ledger now match the proved full Kähler DXZ--MP
+comparison. Finite ideal limits cover every semivaluation in the stated
+order. Source DXZ class-normalized energy is distinguished from normalized
+relative radial energy at smaller initial mass; the initial/terminal mass
+wording is corrected. Proper-support, grid and zero-volume examples keep
+their exact domains. Twenty-eight protected live chunks remain byte-identical.
+
+The direct audit covers 23 assertions/proofs, 37 reusable environments and
+136 labels. Eleven PDFs and 87 selected pages were read and visually checked;
+four Stacks proof interfaces were read. The supplement passes 35,379 exact
+checks in sixteen families. Four full builds pass; the final PDF has 4,154
+pages and 19,381,539 bytes. All 36 final chapter pages and two seams were
+visually inspected. Post-render references pass for 425 inputs and 12,388
+labels; six checker tests, the unchanged 42-atom inventory and
+scoped/whitespace gates pass. Chapter warnings/overflows, unresolved
+references/citations, missing glyphs, rerun requests, fatal errors and
+duplicate PDF destinations are zero. Eighteen inherited overfull boxes
+elsewhere remain for the final book pass. No new verifier verdict is claimed.
+
+Evidence: editorial/ch71_quality_audit_20261002.md. Main SHA-256:
+fd2f4eca661cfc46fc3d540ef607bb9a4c59df9c45f7b2f06d96667ead89c6de.
+PDF SHA-256: 790057a461c08ea7eb3aaf010bb2ecb937e44c79980a87e99b0dd0824c700ca0.
+Review: /workspace/book-completion-drafts/Chapter_71_Final_Review_2026-10-02.pdf.
+Work remains local pending explicit remote-push approval.
