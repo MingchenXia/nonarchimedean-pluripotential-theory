@@ -733,7 +733,15 @@ P05.4 are retired by
 `cor:p053-algebraic-chart-repaired-candidate`: the proof constructs the
 intermediate source currents, retains contractions and saturated lattice
 indices, identifies the CLD and delta-form products, and passes to
-regularizable weights.  P05.5 remains open precisely at the proper
+regularizable weights, under the displayed generated-psh pullback
+hypothesis.  The 2 October 2026 direct source review makes the algebraic
+corollary's sufficient value-group condition explicit:
+\(\mathbf Q\subseteq-\log|K^\times|\).  Rational polyhedral constants
+alone do not provide real-PL pullback over every valued field; the
+general-field generated-psh bridge is therefore an additional
+operator-domain input in the realization problem, not a consequence of
+ordinary current positivity.  This repair does not extend the historical
+production receipt to the new live proof.  P05.5 remains open precisely at the proper
 polarized realization, global lift, mass, calibration, and operator-domain
 gates stated above.  The production-verified
 `prop:p055-boundary-mass-completion` proves that a local pushforward equality

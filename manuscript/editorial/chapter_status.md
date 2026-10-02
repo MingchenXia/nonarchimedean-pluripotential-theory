@@ -6478,3 +6478,38 @@ fd2f4eca661cfc46fc3d540ef607bb9a4c59df9c45f7b2f06d96667ead89c6de.
 PDF SHA-256: 790057a461c08ea7eb3aaf010bb2ecb937e44c79980a87e99b0dd0824c700ca0.
 Review: /workspace/book-completion-drafts/Chapter_71_Final_Review_2026-10-02.pdf.
 Work remains local pending explicit remote-push approval.
+
+
+## Chapter 72: complete chapter-quality gate, 2 October 2026
+
+All 72 chapters now pass the sequential quality programme. Appendix A is
+next, followed by the other appendices, front matter and final whole-book
+checks. Independent open-problem research remains paused. Chapter 72 now
+matches twelve active groups and 42 atoms, dates historical checkpoints,
+and retires the supplied P06.1/P07.1/P08.1 answers with stable locators.
+
+The P05.3 adapted live proof required a material scope repair: its algebraic
+corollary now assumes Q is contained in the logarithmic value group, proving
+the real-PL/generated-psh bridge on strict G-covers. General-field use still
+requires the explicit abstract operator-domain hypothesis. Mixed boundary
+nullity now uses an integral sum of references. This repaired live payload
+is not claimed to have the historical accepted receipt or a new verifier
+verdict. Frozen receipts and all 36 packet inputs remain unchanged; all
+32 protected main-source objects also remain identical to the entry baseline.
+
+The forty-file review covers 51 assertions/proofs, 69 labelled reusable
+environments and 207 labels. Five PDFs and 73 source pages were checked in
+twenty contact sheets. The finite supplement passes 1,872 exact checks in
+twenty families. The full build has 4,156 pages and 19,389,423 bytes. All
+144 final chapter pages and two seams were visually inspected. Post-render
+references pass for 425 inputs and 12,411 labels; six checker tests, the
+42-atom inventory and scoped/whitespace gates pass. Chapter warnings and
+overflows, unresolved references/citations, missing glyphs, rerun requests,
+fatal errors and duplicate PDF destinations are zero. Eighteen inherited
+overfull boxes elsewhere remain for the final book pass.
+
+Evidence: [ch72_quality_audit_20261002.md](ch72_quality_audit_20261002.md).
+Main SHA-256: 4527a1f2da94b57ca7409e4cd8bc34ae0ab88430b9989155a6aa287953c95640.
+PDF SHA-256: 726374c0b2c8c3532022af678998a2a4093b342b9af62f7b68b07bfaf9d3f6ef.
+Review: /workspace/book-completion-drafts/Chapter_72_Final_Review_2026-10-02.pdf.
+Work remains local pending explicit remote-push approval.

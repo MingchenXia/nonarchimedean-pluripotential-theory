@@ -54,9 +54,10 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part V, Chapters 51--62:** complete. All twelve chapters have passed
   the sequential quality gates.
-- **Part VI, Chapters 63--72:** active. Chapters 63--71 are complete; Chapter 72 is next.
-- **Appendices and front matter:** final consistency pass after the chapters,
-  with earlier intervention when a chapter depends on them.
+- **Part VI, Chapters 63--72:** complete. All ten chapters have passed the
+  sequential quality gates.
+- **Appendices and front matter:** active. Appendix A is next, followed by
+  the remaining appendices, front matter and final whole-book checks.
 
 ### Chapter 1
 
@@ -1913,3 +1914,31 @@ Eighteen inherited overfull boxes remain for the whole-book pass. Evidence
 is in [ch71_quality_audit_20261002.md](ch71_quality_audit_20261002.md).
 Chapter 72 is next; the whole-book goal continues. Work remains local
 pending explicit remote-push approval.
+
+
+### Chapter 72
+
+Chapter 72 now matches the live twelve-group, 42-atom inventory and dates its
+historical checkpoints. Singular PL regularity and the supplied P07.1/P08.1
+negative answers retire their former targets. The P05.3 live proof now uses
+a genuine real-PL/generated-psh bridge under an explicit logarithmic
+value-group hypothesis; general fields retain the abstract operator-domain
+assumption. Mixed boundary nullity uses an integral sum of references,
+avoiding the invalid average in the literal integral-slope class. Toric
+extended continuity, invariant affine-cone support, full compact-Kahler
+comparison and residual current compatibility keep their precise domains.
+
+The full forty-file closure contains 51 assertions/proofs, 69 labelled
+reusable environments and 207 labels. All 36 frozen inputs and 32 protected
+main-source objects remain unchanged. Five PDFs, 73 selected source pages
+and twenty source contact sheets were reviewed. Twenty calculation families
+pass 1,872 exact checks. The full build passes with 4,156 pages; all 144
+chapter pages and two seams were inspected in 37 contact sheets. Chapter
+warning/overflow counts and duplicate PDF destinations are zero. Post-render
+references pass for 425 inputs and 12,411 labels; six checker tests, the
+42-atom inventory and scoped/whitespace gates pass. Eighteen inherited
+overfull boxes remain for the whole-book pass. The P05.3 scope correction
+does not claim a new independent-verifier receipt. Evidence is in
+[ch72_quality_audit_20261002.md](ch72_quality_audit_20261002.md).
+All 72 chapters are complete under this programme; Appendix A is next.
+Work remains local pending explicit remote-push approval.
