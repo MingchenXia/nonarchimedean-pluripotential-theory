@@ -6130,3 +6130,38 @@ inspected preceding build byte for byte. No reviewed chapter layout defect
 remains. Frozen releases and checksum ledgers are unchanged. This direct
 editorial/source audit does not claim a new independent verifier verdict.
 Verified work remains local pending explicit remote-push approval.
+
+
+## Chapter 62: complete chapter-quality gate, 2 October 2026
+
+Chapter 62 has passed the sequential programme. Part V is complete and
+Chapter 63 is next; the whole-book goal continues, with independent Chapter
+72 research paused. Repairs and exact source interfaces are recorded in
+[ch62_quality_audit_20261002.md](ch62_quality_audit_20261002.md).
+
+There are fourteen formal assertions, 28 labelled reusable environments
+and 99 labels. Six primary PDFs and forty rendered source pages were checked,
+with recent announcement checks explicitly limited to claims and scope.
+The exact supplement passes 11,194 checks in 41 families. References pass
+for 425 inputs and 12,241 labels; all six checker tests pass. The inventory
+remains 42 atoms in twelve environments, tiers (0,3,7,15,17). Post-render
+scoped/reference checks and git diff --check pass. The unavailable legacy
+house audit is replaced by the recorded manual and scoped review. Legacy
+inline delimiters occur only in the byte-preserved coefficient correction.
+
+The full build has 4,134 pages and 19,291,465 bytes. PDF SHA-256:
+21ab050f731bf67c05cfe8fda67f53ac1b40d614223f26f68273e5387b4d5b89.
+Final source SHA-256:
+82b7486fd410b47a2c47ecf99377920003c0110f3e2cac6ae5fd3e06ccaea358.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 62 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All 26 physical chapter pages 3275--3300 (printed 3205--3230) and both
+adjoining seams were inspected at detail size. The 26 images changed by the
+last repair were reinspected; the other two match their inspected preceding
+versions byte for byte. Physical 3300 is intentionally blank. No reviewed
+chapter layout defect remains. Frozen releases and checksum ledgers are
+unchanged. This direct audit does not claim an independent verifier verdict.
+Verified work remains local pending explicit remote-push approval.

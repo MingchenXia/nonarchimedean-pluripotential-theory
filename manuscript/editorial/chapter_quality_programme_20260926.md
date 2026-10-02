@@ -52,8 +52,9 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
   the sequential quality gates.
-- **Parts V--VI, Chapters 51--72:** active. Chapters 51--61 are complete;
-  Chapter 62 is next.
+- **Part V, Chapters 51--62:** complete. All twelve chapters have passed
+  the sequential quality gates.
+- **Part VI, Chapters 63--72:** active. Chapter 63 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1660,3 +1661,24 @@ Four primary PDFs and 46 rendered source pages, 6,374 calculation checks,
 the full build, all 26 chapter pages and both seams, post-render scoped and
 reference checks pass. Evidence is in `ch61_quality_audit_20261002.md` and
 `chapter_status.md`. Chapter 62 is next; the whole-book goal continues.
+
+
+### Chapter 62
+
+The chapter has passed the full sequential quality gate. Its eight numbered
+sections and twelve subsections separate raw big-model invariants,
+normalized envelopes, completion, fixed-measure beta, mass and threshold
+derivatives, volume and radial slopes. The continuous-measure example now
+computes the rational-test ratios and exact entropy; the toric P2 example
+computes positive dual energy and zero beta. The prior coefficient correction
+is byte-identical. All fourteen formal assertions and 28 labelled reusable
+environments were reviewed against the full chapter and seven prior audits.
+
+Six primary PDFs and forty rendered source pages were inspected; six recent
+announcement pages have their limited claim/hypothesis scope recorded.
+The exact supplement passes 11,194 checks in 41 families. The full build,
+all 26 chapter pages and both seams, scoped review, post-render references,
+six checker tests, inventory and diff check pass. Exact evidence is in
+[ch62_quality_audit_20261002.md](ch62_quality_audit_20261002.md) and
+chapter_status.md. Part V is complete; Chapter 63 is next and the whole-book
+goal continues. Verified commits remain local pending remote-push approval.
