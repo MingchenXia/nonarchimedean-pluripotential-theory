@@ -3,10 +3,10 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--10 pass the new reading
-gates; see the [Chapter 10 audit](second_reading_ch10_audit_20261002.md).
-Chapter 11's source reading has reached line 1,680; no edits are made yet.
-It has not passed its new reading gate.
+Chapter 1 for coherence and readability. Chapters 1--11 pass the new reading
+gates; see the [Chapter 11 audit](second_reading_ch11_audit_20261002.md).
+Chapter 12's complete 3,551-line source has been freshly read; no edits are
+made yet. It has not passed its new reading gate.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
