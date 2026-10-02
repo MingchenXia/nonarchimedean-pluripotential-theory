@@ -6233,3 +6233,38 @@ images byte for byte at the same render resolution. No reviewed layout
 defect remains. Frozen releases and checksum ledgers are unchanged. This
 direct audit does not claim a new independent verifier verdict. Verified
 work remains local pending explicit remote-push approval.
+
+
+## Chapter 65: complete chapter-quality gate, 2 October 2026
+
+Chapter 65 has passed the sequential programme; Chapter 66 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch65_quality_audit_20261002.md](ch65_quality_audit_20261002.md).
+
+Seventeen formal assertions, thirty labelled reusable environments and
+108 labels were reviewed. Nine primary PDFs and 63 selected pages were
+checked. The supplement passes 81,126 exact and 312 numerical checks in
+33 families. References pass for 425 inputs and 12,295 labels; all six
+checker tests pass. The inventory remains 42 atoms in twelve environments,
+tiers (0,3,7,15,17). Post-render scoped/reference checks and git diff --check
+pass. The unavailable legacy house audit is replaced by recorded manual
+and scoped review.
+
+The full build has 4,142 pages and 19,313,995 bytes. PDF SHA-256:
+2facc7a395165016d6b06c0a0c223e8994dd6ff009652d86573363b60bd0adbd.
+Final source SHA-256:
+b64f2ba076040fe26d1b861dc2c510c05a03fcd93f7abcddfbb9b78bbc8030e4.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 65 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All 34 physical chapter pages 3347--3380 (printed 3277--3310) and both
+adjoining seams were visually inspected at detail size. All seventeen
+second-build and ten final changed images were reinspected. The other
+26 final images match inspected preceding versions byte for byte. Physical
+3380 is intentionally blank. No reviewed layout defect remains. Frozen
+releases, receipts and checksum ledgers are unchanged. This direct audit
+claims no new independent verifier verdict. Verified work remains local
+pending explicit remote-push approval.

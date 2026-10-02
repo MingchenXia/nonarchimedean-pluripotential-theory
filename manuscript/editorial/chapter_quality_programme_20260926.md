@@ -54,7 +54,7 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part V, Chapters 51--62:** complete. All twelve chapters have passed
   the sequential quality gates.
-- **Part VI, Chapters 63--72:** active. Chapters 63--64 are complete; Chapter 65 is next.
+- **Part VI, Chapters 63--72:** active. Chapters 63--65 are complete; Chapter 66 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1729,3 +1729,28 @@ checker tests and the unchanged 42-atom inventory pass. The precise evidence
 is [ch64_quality_audit_20261002.md](ch64_quality_audit_20261002.md).
 Chapter 65 is next; the whole-book goal continues. Work remains local pending
 explicit remote-push approval.
+
+
+### Chapter 65
+
+The filtration/ray comparison now tracks the differential operator alongside
+weights and time. The logarithmic slope proof uses raw boundary Deligne
+pairings when restricted volume vanishes, with a complete big-nef blowup
+example. The norm-error example is a reusable labelled calculation, and the
+terminal-atom example explicitly tests a moving threshold. The inverse
+Legendre formula and all section interfaces have semantic labels. The
+algebraic square, birational mass proof, spectral tails, radial energy and
+BHJ erratum ledger retain their exact hypotheses and normalization.
+
+All seventeen formal assertions, thirty reusable environments and 108
+labels passed review. Nine primary PDFs and 63 selected pages were checked;
+Hisamoto's current proof check is explicitly the v3 preprint rather than a
+fresh publisher PDF. The supplement passes 81,126 exact and 312 numerical
+checks in 33 families. The full build has 4,142 pages and 19,313,995 bytes.
+All 34 chapter pages and both adjoining seams were inspected; every final
+changed image was reinspected. Chapter overflow and warning counts are zero.
+Post-render references pass for 425 inputs and 12,295 labels; six checker
+tests and the unchanged 42-atom inventory pass. The precise evidence is
+[ch65_quality_audit_20261002.md](ch65_quality_audit_20261002.md). Chapter 66 is
+next; the whole-book goal continues. Work remains local pending explicit
+remote-push approval.
