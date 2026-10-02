@@ -54,7 +54,7 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part V, Chapters 51--62:** complete. All twelve chapters have passed
   the sequential quality gates.
-- **Part VI, Chapters 63--72:** active. Chapters 63--66 are complete; Chapter 67 is next.
+- **Part VI, Chapters 63--72:** active. Chapters 63--67 are complete; Chapter 68 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1781,5 +1781,31 @@ overflow and warning counts are zero. Post-render references pass for 425
 inputs and 12,316 labels; six checker tests and the unchanged 42-atom
 inventory pass. Exact evidence and preservation exceptions are recorded in
 [ch66_quality_audit_20261002.md](ch66_quality_audit_20261002.md). Chapter 67
+is next; the whole-book goal continues. Work remains local pending explicit
+remote-push approval.
+
+
+### Chapter 67
+
+Birational multiplier transformation now covers arbitrary quasi-psh weights
+by a Jacobian integrability proof. Pulled-back positive currents descend;
+nonpluripolar mass is preserved under modification. Determinant norms include
+residue degree and prove continuity through coalescing fibres. The base-change
+operator scales the valuation argument as well as the value. Analytic trace
+uses the exact rational interface, while product and retraction limits keep
+positive mass and the I-to-P uniqueness theorem. Worked blowup, branched-cover,
+radicial, coalescing and logarithmic-product examples make the distinctions
+explicit. Unibranch trace and general Dirichlet scope remain open.
+
+All eleven formal assertions, thirty reusable environments and 86 labels
+passed review. Four primary PDFs and forty selected pages were checked;
+the source versions and rationality restriction are recorded explicitly.
+The supplement passes 6,021 exact and 1,518 numerical checks in 24 families.
+The full build has 4,148 pages and 19,351,391 bytes. All sixteen chapter pages
+and both seams were inspected; every final changed image was reviewed or
+matched to an inspected image. Chapter overflow and warning counts are zero.
+Post-render references pass for 425 inputs and 12,333 labels; six checker
+tests and the unchanged 42-atom inventory pass. Exact evidence is recorded in
+[ch67_quality_audit_20261002.md](ch67_quality_audit_20261002.md). Chapter 68
 is next; the whole-book goal continues. Work remains local pending explicit
 remote-push approval.

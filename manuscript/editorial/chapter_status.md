@@ -6304,3 +6304,38 @@ blank. No reviewed layout defect remains. Frozen releases, receipts and
 checksum ledgers are unchanged. This direct audit claims no new independent
 verifier verdict. Verified work remains local pending explicit remote-push
 approval.
+
+
+## Chapter 67: complete chapter-quality gate, 2 October 2026
+
+Chapter 67 has passed the sequential programme; Chapter 68 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch67_quality_audit_20261002.md](ch67_quality_audit_20261002.md).
+
+Eleven formal assertions, thirty labelled reusable environments and 86
+labels were reviewed. Four primary PDFs and forty selected pages were
+checked. The supplement passes 6,021 exact and 1,518 numerical checks in
+24 families. References pass for 425 inputs and 12,333 labels; all six
+checker tests pass. The inventory remains 42 atoms in twelve environments,
+tiers (0,3,7,15,17). Post-render scoped/reference checks and git diff --check
+pass. The unavailable legacy house audit is replaced by manual and scoped
+review.
+
+The full build has 4,148 pages and 19,351,391 bytes. PDF SHA-256:
+7a5490a852a2328493dd256d37bd41d9fc88ab6b2c5350b1dedcf704f0703baf.
+Main source SHA-256:
+7c18b065bd99509c075ad2a3fe7f8e4dfeb2812cb0f05d7ae28261ee75e40e0f.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 67 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen duplicate PDF destinations
+in Chapter 70 remain recorded.
+
+All sixteen physical chapter pages 3445--3460 (printed 3375--3390) and both
+adjoining seams were visually inspected. All second-build changed images
+were checked; every final changed image was reinspected or byte-matched to
+an inspected image. The other fifteen final images match inspected first
+images byte for byte. No reviewed layout defect remains. Historical releases,
+receipts and checksum ledgers are unchanged. This direct audit claims no new
+independent verifier verdict. Work remains local pending explicit remote-push
+approval.
