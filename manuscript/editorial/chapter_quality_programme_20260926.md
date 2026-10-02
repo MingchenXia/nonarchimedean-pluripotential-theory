@@ -52,8 +52,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
   the sequential quality gates.
-- **Parts V--VI, Chapters 51--72:** active. Chapters 51--57 are complete;
-  Chapter 58 is next.
+- **Parts V--VI, Chapters 51--72:** active. Chapters 51--58 are complete;
+  Chapter 59 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1587,3 +1587,19 @@ five examples, 4,242 calculation checks, full build, sixteen rendered chapter
 pages and both seams, post-render scoped and reference checks pass. Evidence
 is in `ch57_quality_audit_20261002.md` and `chapter_status.md`. Chapter 58 is
 next; the whole-book goal continues.
+
+
+### Chapter 58
+
+The tropical-spectrum foundations now prove compact reduction by nilpotent
+ideals and give the dual-number calculation. PL density supplies the ideal
+product identity, rational difference lattice and uniform-closure argument.
+Support, local truncation and full-support modification proofs retain their
+extended-real domains. Proper algebraic recovery names exact proper GAGA and
+all three Stacks interfaces; its ideal-function bridge keeps the later
+positivity theorem separate. Two primary PDFs, thirteen source pages and
+three fresh Stacks interfaces were checked. All fourteen assertions, five
+examples, 1,504 calculation checks, full build, eighteen chapter pages and
+both seams, post-render scoped and reference checks pass. Evidence is in
+`ch58_quality_audit_20261002.md` and `chapter_status.md`. Chapter 59 is next;
+the whole-book goal continues.

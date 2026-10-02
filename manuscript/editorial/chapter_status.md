@@ -5996,3 +5996,35 @@ placement. No reviewed chapter layout defect remains. Frozen releases and
 checksum ledgers are unchanged. This direct editorial/source audit does
 not claim an independent verifier verdict. Verified work remains local
 pending explicit remote-push approval.
+
+
+## Chapter 58: complete chapter-quality gate, 2 October 2026
+
+Chapter 58 has passed the sequential programme; Chapter 59 is next. The
+whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are in
+[`ch58_quality_audit_20261002.md`](ch58_quality_audit_20261002.md).
+
+There are fourteen formal assertions, 27 labelled reusable environments and
+66 labels. Two primary PDFs and thirteen rendered source pages were checked,
+along with three fresh Stacks statements and proofs. The exact supplement
+passes 1,504 checks and enumerates 5,461 candidate truncated-ring characters.
+References pass for 425 inputs and 12,142 labels; all six checker tests pass.
+The inventory remains 42 atoms in twelve environments, tiers (0,3,7,15,17).
+Post-render scoped and reference checks and `git diff --check` pass.
+
+The full build gives 4,122 pages and 19,258,283 bytes, PDF SHA-256
+`6ad5a532ba0ee01993aacb761e1f8b71b892edd51197bdf7e921d33f47a14b4f`.
+Final source SHA-256:
+`e6bed6600121e9207dc2bf612f7d89a0e91b94db2d028e1e27c8aa53635ac745`.
+There are no unresolved references or citations, missing glyphs, rerun
+requests or fatal errors. Chapter 58 has no overfull boxes or LaTeX/package
+warnings. Nineteen overfull boxes elsewhere and thirteen duplicate PDF
+destinations in Chapter 70 remain recorded.
+
+All eighteen physical chapter pages 3145--3162 (printed 3077--3094) and
+both adjoining seams were inspected at detail size after the final grammar
+repair. Physical 3162 is intentionally blank. No reviewed chapter layout
+defect remains. Frozen releases and checksum ledgers are unchanged. This
+direct editorial/source audit does not claim an independent verifier verdict.
+Verified work remains local pending explicit remote-push approval.
