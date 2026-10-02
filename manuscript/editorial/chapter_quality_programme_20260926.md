@@ -54,7 +54,7 @@ than mechanically rewritten.
   the sequential quality gates.
 - **Part V, Chapters 51--62:** complete. All twelve chapters have passed
   the sequential quality gates.
-- **Part VI, Chapters 63--72:** active. Chapters 63--67 are complete; Chapter 68 is next.
+- **Part VI, Chapters 63--72:** active. Chapters 63--68 are complete; Chapter 69 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1809,3 +1809,29 @@ tests and the unchanged 42-atom inventory pass. Exact evidence is recorded in
 [ch67_quality_audit_20261002.md](ch67_quality_audit_20261002.md). Chapter 68
 is next; the whole-book goal continues. Work remains local pending explicit
 remote-push approval.
+
+
+### Chapter 68
+
+Chapter 68 now uses the half-entropy normalization required by its Mabuchi
+variation and BHJ slope source, with explicit Ricci energy and translation
+formulas. The base-change correction distinguishes homogeneous M from DF;
+the Fano converse follows BBJ's model approximation argument. Smooth and
+weak-ray interfaces, normalized versus all-big-model stability, finite
+automorphisms and the frozen 2026 claim cutoff retain their exact domains.
+Three worked examples compute the Fano cutoff, P1 entropy/Ricci cancellation
+and a normal quotient with nonreduced central fibre.
+
+All twelve formal assertions, thirty reusable environments and 75 labels
+were reviewed. Nine PDFs and 65 selected source pages were checked. The
+example supplement passes 11,733 exact arithmetic and 58 numerical checks.
+Two full builds pass; the final PDF has 4,150 pages and 19,363,795 bytes.
+All sixteen chapter pages and both seams were inspected, including all
+fifteen changed final images. Chapter overflow/warnings, unresolved
+references, missing glyphs and rerun requests are zero. Eighteen inherited
+overfull boxes and thirteen Chapter 70 duplicate destinations remain.
+Post-render scope and references, all six checker tests, the unchanged
+42-atom inventory and whitespace gates pass. Exact evidence is recorded in
+[ch68_quality_audit_20261002.md](ch68_quality_audit_20261002.md).
+Chapter 69 is next; the whole-book goal continues. Work remains local
+pending explicit remote-push approval.

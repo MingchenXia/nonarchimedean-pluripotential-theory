@@ -6339,3 +6339,38 @@ images byte for byte. No reviewed layout defect remains. Historical releases,
 receipts and checksum ledgers are unchanged. This direct audit claims no new
 independent verifier verdict. Work remains local pending explicit remote-push
 approval.
+
+
+## Chapter 68: complete chapter-quality gate, 2 October 2026
+
+Chapter 68 has passed the sequential programme; Chapter 69 is next.
+The whole-book goal continues, with independent Chapter 72 research paused.
+Repairs and exact source interfaces are recorded in
+[ch68_quality_audit_20261002.md](ch68_quality_audit_20261002.md).
+
+Twelve formal assertions, thirty reusable environments and 75 labels were
+reviewed. Nine primary PDFs and 65 selected pages were checked. The example
+supplement passes 11,733 exact arithmetic and 58 numerical checks in
+25 families. Post-render references pass for 425 inputs and 12,349 labels;
+all six checker tests pass. The inventory remains 42 atoms in twelve
+environments, tiers (0,3,7,15,17). Scoped conventions and whitespace pass;
+the unavailable legacy house audit is replaced by manual/scoped review.
+
+Two full builds pass. The final PDF has 4,150 pages and 19,363,795 bytes.
+PDF SHA-256:
+c9b28ab75f7563846feadcc7867cb99253da9b32df8c4488786d43e3dee76364.
+Main source SHA-256:
+adec7052c146683cab293bc34b0b48aff99e55bdd0812982d386f70a235c15f4.
+No unresolved references/citations, missing glyphs, rerun requests or fatal
+errors remain. Chapter 68 has no overfull boxes or LaTeX/package warnings.
+Eighteen overfull boxes elsewhere and thirteen Chapter 70 duplicate PDF
+destinations remain recorded.
+
+All sixteen physical chapter pages 3461--3476 (printed 3391--3406) and
+both adjoining seams were visually inspected in both builds. All fifteen
+final changed images were reinspected; the other three match inspected
+first images byte for byte. Physical 3476 is intentionally blank.
+No reviewed layout defect remains. Historical releases, receipts and
+checksum ledgers are unchanged. The literature cutoff remains 22 August
+2026; no new research promotion or independent verifier verdict is claimed.
+Work remains local pending explicit remote-push approval.

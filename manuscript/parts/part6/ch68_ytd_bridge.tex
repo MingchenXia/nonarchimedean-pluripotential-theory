@@ -18,8 +18,8 @@ stronger result. This separation is especially important here: an existence
 theorem, a slope formula, and a density or regularization theorem solve
 different arrows of the YTD diagram and are not interchangeable.
 
-We begin with a smooth polarized projective manifold \((X,L)\) of
-dimension \(n\), and set
+We begin with a smooth polarized projective manifold $(X,L)$ of
+dimension $n\geq1$, and set
 \[
                 V=(L^n),
         \qquad
@@ -27,16 +27,24 @@ dimension \(n\), and set
         =-\,\frac{n(K_X\cdot L^{n-1})}{V}.
 \tag{68.1}\label{eq:ytd-volume-slope}
 \]
-Later, \(c_1(L)\) is replaced by a K\"ahler class \(\alpha\).
-All potentials are considered modulo constants.
+Later, $c_1(L)$ is replaced by a K\"ahler class $\alpha$.
+All potentials are considered modulo constants when the functional is
+translation invariant; $E$ itself records the additive origin. Unless a
+probability measure is explicitly displayed, Monge--Amp\`ere measures retain
+the book's raw mass $V$. The analytic entropy used in the Mabuchi package
+below is half the ordinary relative entropy, exactly as in the slope source.
+The polarized automorphism group is understood modulo fibrewise scalars
+on $L$, which already act by additive constants on potentials. Thus
+triviality of its identity component refers to its effective action on $X$.
 
 \section{Three functional packages}
 \label{sec:ytd-three-packages}
 
 \subsection{The analytic package}
+\label{subsec:ytd-analytic}
 
-Fix a smooth K\"ahler form \(\omega\in c_1(L)\). For
-\(\varphi\in\mathcal E^1(X,\omega)\), put
+Fix a smooth K\"ahler form $\omega\in c_1(L)$. For
+$\varphi\in\mathcal E^1(X,\omega)$, put
 \[
  E_\omega(\varphi)
  =\frac{1}{(n+1)V}
@@ -47,49 +55,73 @@ Fix a smooth K\"ahler form \(\omega\in c_1(L)\). For
  \omega_\varphi=\omega+\ddc\varphi.
 \tag{68.2}\label{eq:ytd-analytic-energy}
 \]
-The \(J\)-functional is
+The $J$-functional is
 \[
                     J_\omega(\varphi)
        =V^{-1}\int_X\varphi\,\omega^n-E_\omega(\varphi).
 \tag{68.3}\label{eq:ytd-analytic-j}
 \]
-Both extend by monotonicity from bounded potentials to
-\(\mathcal E^1\).
+Mixed products here are nonpluripolar products. The energy extends by
+decreasing truncation from bounded potentials, and is finite on
+$\mathcal E^1$. The $J$-functional is then defined by
+\eqref{eq:ytd-analytic-j}; it is not asserted to be monotone in the potential.
+Both functionals are continuous for the finite-energy topology.
 
+\begin{remark}[Energy translation]
+\label{rem:ytd-energy-translation}
 Adding a constant gives a useful normalization check. Since every mixed
-Monge--Amp\`ere measure in \eqref{eq:ytd-analytic-energy} has mass \(V\),
+Monge--Amp\`ere measure in \eqref{eq:ytd-analytic-energy} has mass $V$,
 \[
  E_\omega(\varphi+c)=E_\omega(\varphi)+c,
  \qquad
  J_\omega(\varphi+c)=J_\omega(\varphi).
 \]
-Thus \(E\) records the choice of additive origin, whereas \(J\) descends to
+Thus $E$ records the choice of additive origin, whereas $J$ descends to
 potentials modulo constants. The same translation ledger will reappear for
-\(E^{\NA}\) and \(J^{\NA}\).
+$E^{\NA}$ and $J^{\NA}$.
+\end{remark}
 
 Let
 \[
                          \mu_\varphi=V^{-1}\omega_\varphi^n
 \]
-and let \(\mu_0=V^{-1}\omega^n\). The entropy is
+and let $\mu_0=V^{-1}\omega^n$. The entropy is
 \[
  H_\omega(\varphi)
-  :=\operatorname{Ent}_{\mu_0}(\mu_\varphi)
+  :=\frac12\operatorname{Ent}_{\mu_0}(\mu_\varphi)
   =
   \begin{cases}
    \displaystyle
-   \int_X\log\!\left(\frac{\rd\mu_\varphi}{\rd\mu_0}\right)\,\rd\mu_\varphi,
+   \frac12\int_X\log\!\left(\frac{\rd\mu_\varphi}{\rd\mu_0}\right)\,\rd\mu_\varphi,
       &\mu_\varphi\ll\mu_0,\\[6pt]
    +\infty,&\text{otherwise}.
   \end{cases}
 \tag{68.4}\label{eq:ytd-analytic-entropy}
 \]
 
+The factor $1/2$ is \cite[equation~(1.10)]{BHJ19}. The ordinary entropy in
+\Cref{prop:hybrid-entropy-liminf} is $2H_\omega$, so weak-measure entropy
+results and the slope normalization must be compared with that factor.
+Put $\operatorname{Ric}\omega=-\ddc\log\omega^n$, representing $c_1(X)$,
+and normalize scalar curvature by
+$S(\omega)\omega^n=n\operatorname{Ric}\omega\wedge\omega^{n-1}$.
+For a finite-energy potential define the Ricci energy by mixed integration:
+\[
+ R_\omega(\varphi)
+ =-\frac1{2V}\sum_{j=0}^{n-1}
+   \int_X\varphi\,\operatorname{Ric}\omega\wedge
+        \omega_\varphi^j\wedge\omega^{n-1-j}.
+\tag{68.4a}\label{eq:ytd-analytic-ricci-energy}
+\]
+It is finite because the twisting form is smooth. This is the source's
+$-E^{n\operatorname{Ric}\omega}$ after replacing its norm weight by
+$\varphi/2$.
+
 \begin{definition}[Mabuchi functional]
 \label{def:ytd-analytic-mabuchi}
-The Mabuchi functional on \(\mathcal E^1(X,\omega)\) is the
+The Mabuchi functional on $\mathcal E^1(X,\omega)$ is the
 lower-semicontinuous extension of the classical K-energy, normalized
-by \(M_\omega(0)=0\).  In the book's squared-norm convention it is
+by $M_\omega(0)=0$.  In the book's squared-norm convention it is
 characterized on smooth potentials by
 \[
  \frac{\rd}{\rd s}M_\omega(\varphi_s)
@@ -99,38 +131,54 @@ characterized on smooth potentials by
       \omega_{\varphi_s}^n.
 \tag{68.5}\label{eq:ytd-mabuchi-variation}
 \]
-Equivalently, if \(R_\omega\) denotes the Ricci-energy term in this
-normalization, then the Chen--Tian decomposition is
+Equivalently, with the Ricci energy just defined, the Chen--Tian
+decomposition is
 \[
              M_\omega
        =H_\omega+\frac{\overline S}{2}E_\omega+R_\omega.
+\tag{68.5a}\label{eq:ytd-chen-tian}
 \]
 \end{definition}
 
+\begin{remark}[Translation of the full Mabuchi package]
+\label{rem:ytd-mabuchi-translation}
+Every mixed measure in the Ricci formula has integral
+$V\overline S/n$ against $\operatorname{Ric}\omega$. Consequently
+$R_\omega(\varphi+c)=R_\omega(\varphi)-\overline S c/2$.
+The entropy is unchanged because curvature is unchanged. Its translation,
+the Ricci translation and \Cref{rem:ytd-energy-translation} show directly
+that $M_\omega(\varphi+c)=M_\omega(\varphi)$. Thus the origin-dependent
+energy terms cancel in \eqref{eq:ytd-chen-tian}.
+\end{remark}
+
 \begin{proposition}\label{prop:ytd-analytic-convexity}
-The functional \(M_\omega\) is convex along finite-energy geodesics.
+The functional $M_\omega$ is convex along finite-energy geodesics.
 A smooth potential is a critical point if and only if
-\(\omega_\varphi\) has constant scalar curvature.
+$\omega_\varphi$ has constant scalar curvature.
 \end{proposition}
 
 \begin{proof}
 The first variation is \eqref{eq:ytd-mabuchi-variation}. Its vanishing
 against all smooth zero-mean variations says that
-\(S(\omega_\varphi)-\overline S\) is orthogonal to every smooth
+$S(\omega_\varphi)-\overline S$ is orthogonal to every smooth
 zero-mean function. Hence it is constant; its integral is zero by the
-definition of \(\overline S\), so it vanishes. Conversely, a cscK metric
+definition of $\overline S$, so it vanishes. Conversely, a cscK metric
 makes the first variation zero. Convexity of the extended Mabuchi
 functional along finite-energy geodesics is the imported result
-\cite[Theorem~1.2]{BDL17}; the linear reparametrization from norm weights
-to squared-norm potentials preserves geodesics and convexity.
+\cite[Theorem~1.2]{BDL17}. That source uses
+$\mathrm i\partial\bar\partial$, so its potential is
+$u=\varphi/(2\pi)$ and its K-energy is $2M_\omega$ for the same curvature
+forms and reference. These positive linear changes preserve finite-energy
+geodesics, lower semicontinuity and convexity.
 \end{proof}
 
 \subsection{The algebraic package}
+\label{subsec:ytd-algebraic}
 
-Let \((\mathcal X,\mathcal L)\) be a normal relatively ample test
-configuration for \((X,L)\), and let
-\((\overline{\mathcal X},\overline{\mathcal L})\) denote its
-\(\mathbf P^1\)-compactification.
+Let $(\mathcal X,\mathcal L)$ be a normal relatively ample test
+configuration for $(X,L)$, and let
+$(\overline{\mathcal X},\overline{\mathcal L})$ denote its
+$\mathbf P^1$-compactification.
 
 \begin{definition}[Donaldson--Futaki invariant]
 \label{def:ytd-df}
@@ -147,28 +195,32 @@ The Donaldson--Futaki invariant in the present normalization is
 \end{definition}
 
 The sign in the second term agrees with
-\eqref{eq:ytd-volume-slope}. Tensor powers and ramified base change
-scale \(\DF\) according to their standard homogeneity.
+\eqref{eq:ytd-volume-slope}. Replacing both $L$ and $\overline{\mathcal L}$ by their $q$th powers
+leaves this normalized invariant unchanged: $V$ scales by $q^n$ and
+$\overline S$ by $q^{-1}$. Normalized ramified base change need not make
+$\DF$ homogeneous; the precise relation is
+\Cref{prop:ytd-base-change-correction} below.
 
 The same test configuration gives a finitely generated filtration of
 \[
                           R(X,L)=\bigoplus_{m\geq0}H^0(X,mL).
 \]
 The total and maximal asymptotic weights define
-\(E^{\NA}\) and \(J^{\NA}\). This filtration viewpoint is independent
+$E^{\NA}$ and $J^{\NA}$. This filtration viewpoint is independent
 of a chosen resolution.
 
 \subsection{The non-Archimedean package}
+\label{subsec:ytd-nonarchimedean}
 
 The test configuration defines a semipositive model metric
-\(\phi^{\NA}\) on \(L^{\An}\). Put
+$\phi^{\NA}$ on $L^{\An}$. Put
 \[
  E^{\NA}(\phi^{\NA})
     =\frac{1}{(n+1)V}
          (\overline{\mathcal L}^{\,n+1}).
 \tag{68.7}\label{eq:ytd-na-energy}
 \]
-If \(\lambda_{\max}\) is the maximal asymptotic filtration weight, set
+If $\lambda_{\max}$ is the maximal asymptotic filtration weight, set
 \[
                          J^{\NA}(\phi^{\NA})
              =\lambda_{\max}-E^{\NA}(\phi^{\NA}).
@@ -177,8 +229,8 @@ If \(\lambda_{\max}\) is the maximal asymptotic filtration weight, set
 This is nonnegative and vanishes precisely for a translated trivial
 metric on the model locus.
 
-Translation by \(c\) adds \(c\) to every asymptotic filtration weight and
-to \(E^{\NA}\). Consequently
+Translation by $c$ adds $c$ to every asymptotic filtration weight and
+to $E^{\NA}$. Consequently
 \[
  E^{\NA}(\phi^{\NA}+c)=E^{\NA}(\phi^{\NA})+c,
  \qquad
@@ -196,8 +248,9 @@ For a semipositive model metric, define
           V^{-1}\operatorname{MA}^{\NA}(\phi^{\NA}),
 \tag{68.9}\label{eq:ytd-na-entropy}
 \]
-and let \(R^{\NA}\) be the Ricci-energy term obtained by intersecting
-with \(K_X\). Then
+On a common dominating model with $p:\overline{\mathcal X}\to X$, put
+$R^{\NA}=V^{-1}(p^*K_X\cdot\overline{\mathcal L}^{\,n})$.
+This is \cite[Definition~7.20]{BHJ17}. Then
 \[
  M^{\NA}
      =H^{\NA}+\overline S E^{\NA}+R^{\NA}.
@@ -216,16 +269,45 @@ Equivalently,
 
 \begin{remark}[Why the central-fibre correction is present]
 \label{rem:ytd-central-correction}
-If \(\mathcal X_0\) is nonreduced, the discrepancy integral counts
+If $\mathcal X_0$ is nonreduced, the discrepancy integral counts
 the reduced divisorial valuations, while the intersection
-\(\DF\) retains scheme multiplicities. The last term of
+$\DF$ retains scheme multiplicities. The last term of
 \eqref{eq:ytd-mabuchi-df} reconciles them. Thus
-\(M^{\NA}=\DF\) for reduced central fibre, not in general.
+$M^{\NA}=\DF$ for reduced central fibre, not in general.
 \end{remark}
 
+\begin{proposition}[Normalized base change and the correction]
+\label{prop:ytd-base-change-correction}
+Write $\mathcal X_0=\sum_E b_E E$ and set
+\[
+ C(\phi)=V^{-1}\sum_E(1-b_E)(E\cdot\mathcal L^n)\leq0.
+\tag{68.11a}\label{eq:ytd-correction-sum}
+\]
+If $\phi_d$ is the metric of the normalized degree-$d$ base change, then
+\[
+ M^{\NA}(\phi_d)=dM^{\NA}(\phi),\qquad
+ \DF(\phi_d)=d\DF(\phi)+dC(\phi)-C(\phi_d).
+\tag{68.11b}\label{eq:ytd-base-change-df}
+\]
+For sufficiently divisible $d$, the new central fibre is reduced and
+$\DF(\phi_d)=dM^{\NA}(\phi)\leq d\DF(\phi)$.
+\end{proposition}
+
+\begin{proof}
+Relative ampleness makes every component degree nonnegative, proving the
+sign of $C$. The log-relative-canonical formula and projection formula give
+homogeneity of $M^{\NA}$; the exact imported interface is
+\cite[Proposition~7.14]{BHJ17}. Subtracting the two instances of
+\eqref{eq:ytd-mabuchi-df} proves \eqref{eq:ytd-base-change-df}.
+Reduction for sufficiently divisible degree is
+\cite[Proposition~7.16]{BHJ17}; then $C(\phi_d)=0$ and the last assertion
+follows. The function action is $D_d\phi(v)=d\phi(v/d)$ of
+\Cref{ex:functor-base-change-action}, with the valuation unit stated there.
+\end{proof}
+
 \begin{proposition}\label{prop:ytd-birational-invariance}
-The functionals \(E^{\NA},J^{\NA},H^{\NA},R^{\NA}\), and
-\(M^{\NA}\) are unchanged after pulling a normal test configuration to
+The functionals $E^{\NA},J^{\NA},H^{\NA},R^{\NA}$, and
+$M^{\NA}$ are unchanged after pulling a normal test configuration to
 a dominating normal model.
 \end{proposition}
 
@@ -233,7 +315,7 @@ a dominating normal model.
 Energy and the Ricci term are intersection numbers, so the projection
 formula applies. The Monge--Amp\`ere measure pushes forward under the
 model map; log discrepancy is evaluated at the same divisorial
-valuation, so its integral is unchanged. The formula for \(J^{\NA}\)
+valuation, so its integral is unchanged. The formula for $J^{\NA}$
 uses the same asymptotic weights after integral closure of the Rees
 algebra. Equation \eqref{eq:ytd-na-mabuchi} gives the last assertion.
 \end{proof}
@@ -241,35 +323,35 @@ algebra. Equation \eqref{eq:ytd-na-mabuchi} gives the last assertion.
 \section{Slope formulae and their domains}
 \label{sec:ytd-slopes}
 
-Let \((\varphi_s)_{s\geq0}\) be a ray associated to
-\((\mathcal X,\mathcal L)\), with \(s=-\log|t|\).
-The variable \(\varphi_s\) is the book's squared-norm potential.  If
-\(\psi_s=-\log|\cdot|\) denotes the ordinary norm weight used in the
+Let $(\varphi_s)_{s\geq0}$ be a ray associated to
+$(\mathcal X,\mathcal L)$, with $s=-\log|t|$.
+The variable $\varphi_s$ is the book's squared-norm potential.  If
+$\psi_s=-\log|\cdot|$ denotes the ordinary norm weight used in the
 complex-to-non-Archimedean slope literature, then
 \[
                          \varphi_s=2\psi_s.
 \]
-Since the two \(\ddc\)-conventions give the same curvature form,
+Since the two $\ddc$-conventions give the same curvature form,
 \[
  E_\omega(\varphi_s)=2E_{\omega,\mathrm{wt}}(\psi_s),
  \qquad
  J_\omega(\varphi_s)=2J_{\omega,\mathrm{wt}}(\psi_s).
 \]
-Accordingly every \(E\)- or \(J\)-slope below that is compared with the
-standard \(E^{\NA}\) or \(J^{\NA}\) has denominator \(2s\).  Bundled
+Accordingly every $E$- or $J$-slope below that is compared with the
+standard $E^{\NA}$ or $J^{\NA}$ has denominator $2s$.  Bundled
 statements quoted directly from \cite{BHJ19} will keep the source's
 norm-weight notation visible.
 
 The factor two does not multiply every functional. With the curvature form
 held fixed, the Monge--Amp\`ere probability measure is the same for
-\(\varphi_s\) and \(\psi_s\), so
+$\varphi_s$ and $\psi_s$, so
 \[
  H_\omega(\varphi_s)=H_{\omega,\mathrm{wt}}(\psi_s).
 \]
-The coefficient \(1/2\) in \eqref{eq:ytd-mabuchi-variation} similarly makes
+The coefficient $1/2$ in \eqref{eq:ytd-mabuchi-variation} similarly makes
 the book's Mabuchi value equal to the norm-weight Mabuchi value, after the
-common additive normalization. Thus \(E\) and \(J\) use \(2s\), whereas
-entropy, Ricci energy, and Mabuchi use \(s\). Mixing the two denominators
+common additive normalization. Thus $E$ and $J$ use $2s$, whereas
+entropy, Ricci energy, and Mabuchi use $s$. Mixing the two denominators
 would create a spurious factor two in the Chen--Tian decomposition.
 
 \begin{theorem}\label{thm:ytd-energy-slopes}
@@ -286,7 +368,7 @@ configuration,
 \end{theorem}
 
 \begin{proof}
-For the norm-weight ray \(\psi_s\),
+For the norm-weight ray $\psi_s$,
 \Cref{thm:rf-energy-slope} gives
 \[
        \lim_{s\to+\infty}\frac{E_{\mathrm{wt}}(\psi_s)}s
@@ -294,22 +376,22 @@ For the norm-weight ray \(\psi_s\),
 \]
 That theorem was proved from the RWN energy identity and the BHJ
 intersection-moment formula, so no Deligne-pairing argument is repeated
-here. Since \(\varphi_s=2\psi_s\), the analytic energy in the squared-norm
-convention is twice the norm-weight energy. Division by \(2s\) proves the
+here. Since $\varphi_s=2\psi_s$, the analytic energy in the squared-norm
+convention is twice the norm-weight energy. Division by $2s$ proves the
 first equality in \eqref{eq:ytd-energy-slopes}.
 
-The linear term in \(J\) is the maximal asymptotic weight; its radial slope
-is \(\lambda_{\max}\). Subtracting the energy slope gives
-\(\lambda_{\max}-E^{\NA}=J^{\NA}\), proving the second equality. This is
+The linear term in $J$ is the maximal asymptotic weight; its radial slope
+is $\lambda_{\max}$. Subtracting the energy slope gives
+$\lambda_{\max}-E^{\NA}=J^{\NA}$, proving the second equality. This is
 equivalently the hybrid intersection computation of
 \Cref{prop:hybrid-energy-slope}. Neither step uses entropy regularization.
 \end{proof}
 
 \begin{theorem}\label{thm:ytd-smooth-functional-slopes}
 Assume that an ample test configuration carries a smooth strictly
-positive \(S^1\)-invariant metric near its central fibre, and let
-\((\varphi_s)\) be the corresponding smooth positive ray in the book's
-squared-norm convention.  Put \(\psi_s=\varphi_s/2\).  Then
+positive $S^1$-invariant metric near its central fibre, and let
+$(\varphi_s)$ be the corresponding smooth positive ray in the book's
+squared-norm convention.  Put $\psi_s=\varphi_s/2$.  Then
 \[
  \lim_{s\to+\infty}\frac{F_{\mathrm{wt}}(\psi_s)}s
                   =F^{\NA}(\phi^{\NA})
@@ -318,8 +400,8 @@ for
 \[
                        F\in\{E,H,I,J,M,R\}.
 \]
-Here \(F_{\mathrm{wt}}\) denotes exactly the source's norm-weight
-normalization.  In particular, its \(E\)- and \(J\)-components translate to
+Here $F_{\mathrm{wt}}$ denotes exactly the source's norm-weight
+normalization.  In particular, its $E$- and $J$-components translate to
 \[
  \lim_{s\to+\infty}\frac{E_\omega(\varphi_s)}{2s}
        =E^{\NA}(\phi^{\NA}),
@@ -332,7 +414,7 @@ normalization.  In particular, its \(E\)- and \(J\)-components translate to
 
 \begin{proof}
 Apply \Cref{thm:rf-bhj-unaffected-slopes} to the norm-weight ray
-\(\psi_s\). Its expanded proof uses only the Deligne-pairing and snc
+$\psi_s$. Its expanded proof uses only the Deligne-pairing and snc
 integral estimates from Sections~1--4 of \cite{BHJ19}, whose validity is
 explicitly preserved by \cite{BHJ19err}. It gives
 \[
@@ -343,7 +425,7 @@ explicitly preserved by \cite{BHJ19err}. It gives
 This is the first assertion, with no new slope input.
 
 It remains only to translate conventions. In the book's squared-norm
-normalization \(\varphi_s=2\psi_s\). The factor-two ledger in
+normalization $\varphi_s=2\psi_s$. The factor-two ledger in
 \eqref{eq:rf-factor-two-slope-quotients} gives
 \[
  \frac{E_\omega(\varphi_s)}{2s}
@@ -363,15 +445,16 @@ following assembly statement isolates the additional entropy-slope input
 that is required.
 
 \begin{proposition}\label{prop:ytd-mabuchi-liminf}
-Let \((\varphi_s)\) be a weak finite-energy ray with associated
-non-Archimedean metric \(\phi^{\NA}\), and denote by \(R_\omega\) the
+Let $(\varphi_s)$ be a weak finite-energy ray with associated
+non-Archimedean metric $\phi^{\NA}$, and denote by $R_\omega$ the
 Ricci-energy term normalized so that, in the book's squared-potential
 convention, the Chen--Tian formula reads
 \[
  M_\omega=H_\omega+\frac{\overline S}{2}E_\omega+R_\omega.
 \]
 Assume that the energy and
-Ricci-energy terms in the Chen--Tian decomposition satisfy
+Ricci-energy terms in the Chen--Tian decomposition satisfy the following
+finite real limits:
 \[
  \lim_{s\to+\infty}\frac{E_\omega(\varphi_s)}{2s}
       =E^{\NA}(\phi^{\NA}),
@@ -395,21 +478,24 @@ Then
 \end{proposition}
 
 \begin{proof}
-Divide the Chen--Tian decomposition by \(s\). Add the assumed limits of
+Divide the Chen--Tian decomposition by $s$. Add the assumed limits of
 the energy terms to the displayed entropy inequality, and use
-\eqref{eq:ytd-na-mabuchi}.
+\eqref{eq:ytd-na-mabuchi}. Both added limits are finite; the entropy
+inequality may have value $+\infty$, in which case the conclusion is
+understood in the extended-real sense. No difference of infinite quantities
+is taken.
 \end{proof}
 
 \begin{remark}[Why weak convergence alone is insufficient]
 \label{rem:ytd-entropy-slope-firewall}
 \Cref{prop:hybrid-entropy-liminf} concerns ordinary relative
 entropy for weakly converging probability measures. It does not by
-itself identify the rescaled quantity \(s^{-1}H_\omega(\varphi_s)\)
+itself identify the rescaled quantity $s^{-1}H_\omega(\varphi_s)$
 with the non-Archimedean entropy. To verify the entropy-slope hypothesis
 above by a hybrid argument, one must also construct the relevant varying
 reference measures, control their
 logarithmic densities at radial scale, and identify the central
-functional with \(H^{\NA}\). No unconditional weak-ray Mabuchi
+functional with $H^{\NA}$. No unconditional weak-ray Mabuchi
 inequality is deduced here without that separate theorem.
 \end{remark}
 
@@ -449,8 +535,8 @@ an independent source.
 \section{Valuative criteria}
 \label{sec:ytd-valuative}
 
-In a projective Fano setting, the familiar invariants of a prime
-divisor \(F\) over \(X\) are
+In a projective Fano setting take $L=-K_X$. The familiar invariants of a prime
+divisor $F$ over $X$ are
 \[
  \beta(F)
   =A_X(F)V-\int_0^{+\infty}\vol(L-xF)\,\rd x,
@@ -463,16 +549,33 @@ and
        \bigl(V-\vol(L-xF)\bigr)\,\rd x
 \tag{68.17}\label{eq:ytd-j-divisor}
 \]
-where \(\tau(F)=\sup\{x>0:\vol(L-xF)>0\}\) is the pseudoeffective
+where $\tau(F)=\sup\{x>0:\vol(L-xF)>0\}$ is the pseudoeffective
 threshold.  The cut-off must be \emph{imposed} in the second formula, not
-merely observed: past \(\tau(F)\) the integrand of
-\eqref{eq:ytd-j-divisor} equals \(V>0\), so extending the range to
-\((0,+\infty)\) would diverge.  In \eqref{eq:ytd-beta-divisor} the integrand
+merely observed: past $\tau(F)$ the integrand of
+\eqref{eq:ytd-j-divisor} equals $V>0$, so extending the range to
+$(0,+\infty)$ would diverge.  In \eqref{eq:ytd-beta-divisor} the integrand
 does vanish there, and that integral may be written over
-\((0,+\infty)\). These formulas require the Fano normalization when used as
+$(0,+\infty)$. These formulas require the Fano normalization when used as
 a Ding criterion.
 
-For a general K\"ahler class \(\alpha\), the audited
+\begin{example}[The Fano projective line]
+\label{ex:ytd-fano-point}
+Let $X=\mathbf P^1$, $L=-K_X=\mathcal O(2)$ and $F=\{p\}$.
+Then $V=2$, $A_X(F)=1$, $\tau(F)=2$ and
+$\vol(L-xF)=\max\{2-x,0\}$. Hence
+\[
+ \beta(F)=2-\int_0^2(2-x)\,\rd x=0,
+ \qquad j(F)=\int_0^2 x\,\rd x=2.
+\tag{68.17a}\label{eq:ytd-fano-point-invariants}
+\]
+Extending the second integral beyond its threshold adds $2(T-2)$ up to
+$T>2$ and therefore gives $+\infty$ as $T\to\infty$. The finite cut-off
+is part of the invariant. This cscK variety has continuous automorphisms,
+so it is outside the finite-automorphism hypothesis of
+\Cref{thm:ytd-fano-bridge}.
+\end{example}
+
+For a general K\"ahler class $\alpha$, the audited
 measure-theoretic criterion is better suited to model stability.
 Let
 \[
@@ -480,7 +583,10 @@ Let
        \qquad a_i\geq0,\quad\sum_i a_i=1,
 \tag{68.18}\label{eq:ytd-divisorial-measure}
 \]
-be a divisorial probability measure. Define
+be a divisorial probability measure. Here $\Ent$ is the reduced
+non-Archimedean entropy of \Cref{chap:mpwn-k-stability}; the total-space
+discrepancy shift of \eqref{eq:mp-total-reduced-mabuchi} is not included.
+The class derivative keeps $\mu$ fixed. Define
 \[
              \beta_\alpha(\mu)
             :=\Ent(\mu)+\nabla_{K_X}E_\alpha^\vee(\mu).
@@ -527,7 +633,7 @@ see \Cref{rem:mpwn-unnormalized-model-boundary}.
 \begin{remark}[Not merely one divisor at a time]
 \label{warn:ytd-valuative-measures}
 The criterion tests finite weighted sums of divisorial Dirac masses.
-Checking only \(\delta_v\) is a different condition. No dreaminess
+Checking only $\delta_v$ is a different condition. No dreaminess
 assumption is part of
 \Cref{thm:ytd-valuative-measures}.
 \end{remark}
@@ -537,20 +643,20 @@ assumption is part of
 
 \begin{definition}[Analytic coercivity]
 \label{def:ytd-coercivity}
-The Mabuchi functional is \(J\)-coercive if there are
-\(\delta>0\) and \(C\in\mathbf R\) such that
+The Mabuchi functional is $J$-coercive if there are
+$\delta>0$ and $C\in\mathbf R$ such that
 \[
                    M_\omega(\varphi)
           \geq\delta J_\omega(\varphi)-C
 \tag{68.22}\label{eq:ytd-analytic-coercivity}
 \]
-for every \(\varphi\in\mathcal E^1(X,\omega)\).
+for every $\varphi\in\mathcal E^1(X,\omega)$.
 \end{definition}
 
 \begin{definition}[Model uniform stability]
 \label{def:ytd-model-uniform}
-A compact K\"ahler pair \((X,\alpha)\) is uniformly K-stable for
-models if there is \(\delta>0\) such that
+A compact K\"ahler pair $(X,\alpha)$ is uniformly K-stable for
+models if there is $\delta>0$ such that
 \[
          M^{\NA}(\mathcal X,\mathcal A)
               \geq\delta J^{\NA}(\mathcal X,\mathcal A)
@@ -570,42 +676,41 @@ passes through envelopes of big vertical classes.
 
 \begin{proposition}\label{prop:ytd-coercivity-minimizer}
 Assume \eqref{eq:ytd-analytic-coercivity}. Assume moreover that every
-normalized \(J_\omega\)-bounded minimizing sequence has a
-\(d_1\)-convergent subsequence, that \(M_\omega\) is lower semicontinuous
+normalized $J_\omega$-bounded minimizing sequence has a
+$d_1$-convergent subsequence, that $M_\omega$ is lower semicontinuous
 along this convergence, and that every finite-energy minimizer of
-\(M_\omega\) in the class is smooth. Then \(M_\omega\) attains its minimum,
+$M_\omega$ in the class is smooth. Then $M_\omega$ attains its minimum,
 and its minimizer is a smooth cscK metric.
 \end{proposition}
 
 \begin{proof}
-Take a minimizing sequence \((\varphi_j)\) with a fixed additive
+Take a minimizing sequence $(\varphi_j)$ with a fixed additive
 normalization. Coercivity gives
 \[
  \delta J_\omega(\varphi_j)
        \leq M_\omega(\varphi_j)+C,
 \]
-so \(J_\omega(\varphi_j)\) is bounded. The compactness hypothesis supplies
-a \(d_1\)-convergent subsequence with limit \(\varphi_\infty\). Lower
+so $J_\omega(\varphi_j)$ is bounded. The compactness hypothesis supplies
+a $d_1$-convergent subsequence with limit $\varphi_\infty$. Lower
 semicontinuity gives
 \[
  M_\omega(\varphi_\infty)
  \leq\liminf_jM_\omega(\varphi_j)
  =\inf_{\mathcal E^1}M_\omega,
 \]
-so \(\varphi_\infty\) minimizes \(M_\omega\). The variational
-Euler--Lagrange equation is the weak cscK equation. The stated regularity
-hypothesis makes \(\varphi_\infty\) smooth, and then
+so $\varphi_\infty$ minimizes $M_\omega$. The stated regularity hypothesis makes $\varphi_\infty$ smooth. At a
+smooth minimizer every smooth first variation vanishes, and then
 \eqref{eq:ytd-mabuchi-variation} shows that its scalar curvature equals
-\(\overline S\). This proof displays separately the coercivity,
+$\overline S$. This proof displays separately the coercivity,
 compactness, lower-semicontinuity, and regularity inputs.
 \end{proof}
 
 \begin{remark}[Automorphism boundary]
 \label{rem:ytd-automorphisms}
-If \(\Aut^0(X,L)\neq\{1\}\), ordinary \(J\)-coercivity cannot hold
-along all automorphism orbits. One replaces \(J\) by a reduced norm
+If $\Aut^0(X,L)\neq\{1\}$, ordinary $J$-coercivity cannot hold
+along all automorphism orbits. One replaces $J$ by a reduced norm
 and uses relative stability. Statements below that are written with
-ordinary \(J\) belong to the unrelative coercive scope, typically with
+ordinary $J$ belong to the unrelative coercive scope, typically with
 discrete automorphism group.
 \end{remark}
 
@@ -613,22 +718,22 @@ discrete automorphism group.
 \label{sec:ytd-audited-implications}
 
 \begin{theorem}\label{thm:ytd-fano-bridge}
-Let \(X\) be a smooth projective Fano variety with finite automorphism
-group.  Write \(D\) and \(D^{\NA}\) for the Archimedean and
+Let $X$ be a smooth projective Fano variety with finite automorphism
+group.  Write $D$ and $D^{\NA}$ for the Archimedean and
 non-Archimedean Ding functionals in the normalization of \cite{BBJ21}.
 The following are equivalent:
 \begin{enumerate}
-\item there are \(\delta,C>0\) such that
+\item there are $\delta,C>0$ such that
       \[
              D(\varphi)\geq\delta J(\varphi)-C
              \quad\text{on }\mathcal E^1(X,-K_X);
       \]
-\item there is \(\delta'>0\) such that
+\item there is $\delta'>0$ such that
       \[
              D^{\NA}(\phi)\geq\delta'J^{\NA}(\phi)
              \quad\text{for every semipositive model metric }\phi;
       \]
-\item \(c_1(-K_X)\) contains a K\"ahler--Einstein metric.
+\item $c_1(-K_X)$ contains a K\"ahler--Einstein metric.
 \end{enumerate}
 \end{theorem}
 
@@ -636,74 +741,79 @@ The following are equivalent:
 We indicate which implications are slope calculations and which are deep
 variational inputs.
 
-Assume first that (1) holds, and initially let \(\phi\) be represented by
+Assume first that (1) holds, and initially let $\phi$ be represented by
 an ample test configuration carrying a smooth positive invariant metric.
-Its norm weights define a smooth psh ray \((\psi_s)\).  The Ding slope
-formula of \cite[Theorem~4.3]{BHJ19} and the \(J\)-slope formula already
+Its norm weights define a smooth psh ray $(\psi_s)$.  The Ding slope
+formula of \cite[Theorem~4.3]{BHJ19} and the $J$-slope formula already
 audited in \Cref{thm:rf-bhj-unaffected-slopes} give
 \[
  \lim_{s\to+\infty}\frac{D(\psi_s)}s=D^{\NA}(\phi),
  \qquad
  \lim_{s\to+\infty}\frac{J(\psi_s)}s=J^{\NA}(\phi).
 \]
-Divide the coercive inequality by \(s\) and let \(s\to+\infty\).  This
-proves the inequality, with \(\delta'=\delta\), for ample model metrics.
+Divide the coercive inequality by $s$ and let $s\to+\infty$.  This
+proves the inequality, with $\delta'=\delta$, for ample model metrics.
 
 For a general semipositive model metric, pass to a common dominating model
-on which a fixed relatively ample model metric \(\phi_A\) is determined,
+on which a fixed relatively ample model metric $\phi_A$ is determined,
 and set
-\(\phi_\varepsilon=(1-\varepsilon)\phi+\varepsilon\phi_A\)
-with rational \(0<\varepsilon<1\).  A positive rational combination of a
+$\phi_\varepsilon=(1-\varepsilon)\phi+\varepsilon\phi_A$
+with rational $0<\varepsilon<1$.  A positive rational combination of a
 relatively nef model line bundle and a relatively ample one is relatively
-ample, so \(\phi_\varepsilon\) is represented by an ample model and
-converges uniformly to \(\phi\).  The energy and
-\(J^{\NA}\) are continuous under this convergence.  Moreover
+ample, so $\phi_\varepsilon$ is represented by an ample model and
+converges uniformly to $\phi$.  The energy and
+$J^{\NA}$ are continuous under this convergence.  Moreover
 \[
  L^{\NA}(\phi)=\inf_v\bigl(A_X(v)+\phi(v)\bigr)
 \]
-is \(1\)-Lipschitz for the uniform norm; hence
-\(D^{\NA}=L^{\NA}-E^{\NA}\) is continuous as well.  Letting
-\(\varepsilon\downarrow0\) proves (2) for every semipositive model metric.
+is $1$-Lipschitz for the uniform norm; hence
+$D^{\NA}=L^{\NA}-E^{\NA}$ is continuous as well.  Letting
+$\varepsilon\downarrow0$ proves (2) for every semipositive model metric.
 The cited Ding slope theorem lies in Section~4 and is outside the
 quarantined part of \cite{BHJ19}.
 
-The converse implication (2)\(\Rightarrow\)(1) is the main compactness
+The converse implication (2)$\Rightarrow$(1) is the main compactness
 theorem \cite[Theorem~5.1]{BBJ21}.  Its proof is a foundational imported
 input.  Its architecture is as follows.  If coercivity fails, normalized
-finite-energy geodesic segments are extracted, using \(d_1\)-compactness,
-to a nonconstant geodesic ray.  The ray is maximalized and assigned a
-non-Archimedean metric.  The energy and logarithmic-integral estimates
-compare the radial Ding slope with \(D^{\NA}\), while the normalization
-keeps the \(J^{\NA}\)-size nonzero.  This contradicts the uniform lower
-bound in (2).  The compactness, maximal-ray construction, and singularity
+finite-energy geodesic segments are extracted, using $d_1$-compactness,
+to a nonconstant geodesic ray.  The nonconstant normalized ray has energy $E(U_s)=cs$ with $c<0$.
+The source constructs semipositive model approximants $\phi_m$ with
+$\sup\phi_m=0$, $L^{\NA}(\phi_m)\to L^{\NA}(U^{\NA})$ and
+$E^{\NA}(\phi_m)\geq c$; it does not require equality of the energy of
+an arbitrary ray with that of its non-Archimedean datum. After decreasing
+the stability constant to $0<\varepsilon<1$, (2) implies
+$L^{\NA}(\phi_m)\geq(1-\varepsilon)E^{\NA}(\phi_m)$.
+The ray estimate gives $L^{\NA}(U^{\NA})\leq c$. Passing to the limit
+would yield $c\geq(1-\varepsilon)c$, impossible for $c<0$.
+These are \cite[Lemmas~5.7--5.8 and the proof of Theorem~5.1]{BBJ21}.  The compactness, model approximation, and singularity
 comparison are the deep content of the cited theorem; they are not
 silently inferred from the smooth slope formula above.
 
 Finally, the finite-energy variational package
 \cite[Lemma~2.8, Theorem~2.19, Lemma~2.20, and
-Corollary~5.2]{BBJ21} identifies coercivity of \(D\), in the present
+Corollary~5.2]{BBJ21} identifies coercivity of $D$, in the present
 finite-automorphism setting, with existence and uniqueness of its minimizer.
 The Euler--Lagrange
 equation of a minimizer is the K\"ahler--Einstein equation, and the
 regularity theorem in the smooth Fano case upgrades the minimizing current
 to a smooth K\"ahler--Einstein metric.  Conversely, uniqueness of the
 K\"ahler--Einstein metric implies Ding coercivity by the same cited
-variational theorem.  Since \(\Aut(X)\) is finite, Bando--Mabuchi
-uniqueness modulo \(\Aut^0(X)\) is ordinary uniqueness.  This proves the
+variational theorem.  Since $\Aut(X)$ is finite, Bando--Mabuchi
+uniqueness modulo $\Aut^0(X)$ is ordinary uniqueness.  This proves the
 equivalence of (1)--(3).
 
-When \(\Aut^0(X)\neq\{1\}\), the ordinary inequalities in (1) and (2)
+When $\Aut^0(X)\neq\{1\}$, the ordinary inequalities in (1) and (2)
 fail along automorphism directions.  A reduced or relative theorem requires
 additional definitions and inputs and is not asserted by this statement.
 \end{proof}
 
 \begin{theorem}\label{thm:ytd-mpwn-implication}
 As proved in version~1 of \cite{MPWN25}, submitted
-11 September 2025, if a compact K\"ahler pair \((X,\alpha)\) is
+11 September 2025, if a compact K\"ahler pair $(X,\alpha)$ is
 uniformly K-stable for \emph{models} in the sense of
 \Cref{def:ytd-model-uniform}, then the associated
 finite-energy non-Archimedean Mabuchi functional is coercive and the
-existence theorem used there yields a cscK metric in \(\alpha\).
+existence theorem used there yields a cscK metric in $\alpha$.
 In the unrelative discrete-automorphism scope, the metric is unique.
 \end{theorem}
 
@@ -752,10 +862,11 @@ The preprint \cite{Trusiani26}, version~2 dated 17 August 2026, retains its
 automorphism-relative uniform YTD theorem for smooth polarized
 projective varieties and an entropy-regularization theorem; its
 Corollary~B records the equivalence of the smooth projective stability
-signatures stated there.  Its Corollary~A also records the resulting
-projective entropy-slope equality for maximal finite-energy rays.  The new
+signatures stated there. Its Corollary~A gives entropy regularization;
+the following discussion derives the projective entropy-slope equality
+for maximal finite-energy rays. The new
 appendix by S\'ebastien Boucksom gives a non-Archimedean proof of entropy
-regularization over \(\Bbbk((t))\), while Theorem~C adds the
+regularization over $\Bbbk((t))$, while Theorem~C adds the
 weighted-relative correspondence and the log-concave weighted-extremal
 consequence.  This book records those statements as dated recent claims. We
 have not audited every dependency or promoted them to timeless theorems, and
@@ -767,7 +878,7 @@ term by term.
 \begin{proposition}\label{prop:ytd-status}
 The status used in this book is:
 \begin{enumerate}
-\item \(E,J\)-slopes are theorems for normal ample test
+\item $E,J$-slopes are theorems for normal ample test
       configurations.
 \item All smooth-ray slopes are theorems under positivity alone, by
       \cite[Theorem~3.6]{BHJ19}; the subklt hypothesis of
@@ -778,7 +889,7 @@ The status used in this book is:
       semipositive twisted/logarithmic source has its own stated scope.
 \item Model stability implying cscK is a 2025 theorem for all big
       models in its unrelative coercive scope.
-\item Ordinary projective uniform YTD, projective entropy regularization and
+\item Automorphism-relative projective uniform YTD, projective entropy regularization and
       the resulting entropy-slope equality, and the weighted-relative
       projective correspondence are recorded as Trusiani's dated 2026
       version-two claims, not as audited theorems here.
@@ -826,43 +937,97 @@ breaks the proved implication.
 
 \begin{example}[Product configuration]
 \label{ex:ytd-product-configuration}
-A one-parameter subgroup of \(\Aut(X,L)\) gives a product test
-configuration. Its non-Archimedean \(J\)-norm can be positive before
+A one-parameter subgroup of $\Aut(X,L)$ gives a product test
+configuration. Its non-Archimedean $J$-norm can be positive before
 reduction by the automorphism group, while the Mabuchi functional is
 affine along the induced orbit. This is why a stability statement with
 continuous automorphisms must use a reduced norm and a relative
 functional.
 
-For instance, on \((\mathbf P^1,\mathcal O(1))\), the action
-\([x:y]\mapsto[\tau x:\tau^{-1}y]\) gives a nonconstant filtration of
-\(H^0(\mathbf P^1,m\mathcal O(1))\). Its maximal and average weights differ,
-so the unreduced \(J^{\NA}\) is nonzero. Yet the associated ray moves only
-along the automorphism orbit. Taking an infimum over that orbit removes this
-direction; demanding ordinary coercivity without the reduction would test a
-symmetry as though it were a destabilizing degeneration.
+On $(\mathbf P^1,\mathcal O(1))$, the action
+$[x:y]\mapsto[\tau x:\tau^{-1}y]$ gives weights $2k-m$ on the
+$m+1$ degree-$m$ monomials. Their average is zero and their normalized
+maximum is one. Thus $E^{\NA}=0$ and $J^{\NA}=1$; the limiting weight
+measure is uniform on $[-1,1]$.
+
+The same orbit gives a useful analytic normalization check. Write
+$u=|x|^2/(|x|^2+|y|^2)$; normalized Fubini--Study measure sends $u$ to
+Lebesgue measure on $[0,1]$. A squared potential is
+\[
+ \varphi_s=\log\bigl(\rme^{2s}u+\rme^{-2s}(1-u)\bigr).
+\]
+After change of variables by the automorphism, its energy derivative is
+$2\int_0^1(2u-1)\,\rd u=0$, so $E_\omega(\varphi_s)=0$.
+For $s>0$, direct integration gives
+\[
+ J_\omega(\varphi_s)=2s\coth(2s)-1,
+ \qquad \frac{J_\omega(\varphi_s)}{2s}\longrightarrow1.
+\tag{68.24a}\label{eq:ytd-product-orbit-j}
+\]
+Its density is $q_s(u)=(\rme^{2s}u+\rme^{-2s}(1-u))^{-2}$.
+Substitution in the entropy integral gives
+$H_\omega(\varphi_s)=2s\coth(2s)-1$. Since
+$\operatorname{Ric}\omega=2\omega$, the Ricci formula gives
+$R_\omega(\varphi_s)=-J_\omega(\varphi_s)$. Hence $M_\omega=0$ along
+this nonconstant orbit, as expected for cscK metrics. Full relative entropy
+in place of $H_\omega$ would fail this cancellation. Reducing by the
+automorphism orbit makes the reduced $J$ vanish.
 \end{example}
 
 \begin{example}[Nonreduced central fibre]
 \label{ex:ytd-nonreduced-central}
-After a ramified base change, the scheme-theoretic central fibre may
-acquire multiplicity. Formula \eqref{eq:ytd-mabuchi-df} shows that the
-Donaldson--Futaki invariant alone is then not the non-Archimedean
-Mabuchi functional. The reduction correction is required before
-comparing with entropy slopes.
+Normalized ramified base change can remove existing multiplicity. At
+the generic point of a component with $t$ of order $b$, degree $d$ gives
+order $b/\gcd(b,d)$ on each normalized branch; in particular a reduced
+component remains reduced. This explains the sufficiently divisible
+degree in \Cref{prop:ytd-base-change-correction}.
 
-Concretely, if \(\mathcal X_0=mG\) at the generic point of a component,
-then \(\mathcal X_{0,\mathrm{red}}-\mathcal X_0=(1-m)G\). The correction
-therefore records exactly the multiplicity discarded when the discrepancy
-integral replaces the scheme-theoretic component by its normalized
-divisorial valuation. This calculation is also why ramified base change
-must be accompanied by the scaling ledger of
-\Cref{prop:functor-scaling-ledger}.
+For an explicit nonreduced example, take the quotient
+\[
+ \mathcal X=(\mathbf P^1_z\times\mathbf A^1_u)/\boldsymbol\mu_m,
+ \qquad \zeta\cdot(z,u)=(\zeta z,\zeta u),\qquad t=u^m,
+ \quad m\geq2.
+\]
+The pullback of $\mathcal O_{\mathbf P^1}(m)$ descends to a relatively
+ample line bundle $\mathcal L$: the stabilizers at $z=0,\infty$ act
+trivially on its fibres. The quotient is normal and flat over the curve
+base; its general polarized fibre is $(\mathbf P^1,\mathcal O(m))$.
+Diagonal scaling by an $m$th root of $\lambda$ descends to a well-defined
+test-configuration action covering $t\mapsto\lambda t$.
+At a general point of $u=0$ the quotient has no stabilizer, so
+$\mathcal X_0=mG$. The degree-$m$ map $\mathbf P^1\to G$ pulls
+$\mathcal L|_G$ back to $\mathcal O(m)$; hence
+$(G\cdot\mathcal L)=1$, $V=m$ and
+\[
+ C(\phi)=\frac{1-m}{m}.
+\tag{68.24b}\label{eq:ytd-quotient-correction}
+\]
+The normalized degree-$m$ base change is the product configuration on
+$(\mathbf P^1,\mathcal O(m))$ with action $z\mapsto\lambda z$.
+Its weights $0,1,\ldots,mk$ in degree $k$ give $J^{\NA}=m/2$;
+its Mabuchi invariant is zero by \Cref{thm:ytd-smooth-functional-slopes},
+because the Fubini--Study orbit is cscK and has constant Mabuchi value.
+Homogeneity therefore gives, downstairs,
+\[
+ J^{\NA}(\phi)=\frac12,\qquad M^{\NA}(\phi)=0,
+ \qquad \DF(\phi)=\frac{m-1}{m}.
+\tag{68.24c}\label{eq:ytd-quotient-df}
+\]
+Thus $\DF(\phi_m)=0$ while $m\DF(\phi)=m-1$. The correction restores
+the homogeneous Mabuchi value. This example also keeps its ordinary
+automorphism norm separate from the reduced norm.
 \end{example}
 
 \section*{Source notes}
+\label{sec:ytd-source-notes}
 
 The finite-energy geodesic convexity used above is
-\cite[Theorem~1.2]{BDL17}.  The algebraic and model functionals are from \cite{BHJ17,BHJ19}; only
+\cite[Theorem~1.2]{BDL17}.  The algebraic and model functionals are
+\cite[Definitions~7.13/7.20 and Propositions~7.14--7.22]{BHJ17}.
+The analytic entropy is half the ordinary entropy by
+\cite[equation~(1.10)]{BHJ19}; $E,J$ double when norm weights become
+squared potentials, while the half-entropy and Mabuchi value do not.
+Only
 the unaffected slope range certified by \cite{BHJ19err} is used.
 The Fano variational theorem and its automorphism refinement are
 \cite[Theorem~A and Corollary~5.2]{BBJ21}. The transcendental
@@ -870,7 +1035,7 @@ model, finite-energy, and divisorial-measure bridges are the exact
 results of \cite{MP24,MPWN25} already audited in
 \Cref{chap:mpwn-k-stability}. The energy formula used in the
 valuative construction also uses \cite{DXZ23} on its proved
-\(\mathcal I\)-maximal finite-energy locus. The two 2026 preprints
+$\mathcal I$-maximal finite-energy locus. The two 2026 preprints
 \cite{BJ26ComplexNA,Trusiani26} remain explicitly dated context at the
 22 August 2026 cutoff. In particular, no exact identification of a
 canonical entropy approximation or every divisorial-threshold normalization
