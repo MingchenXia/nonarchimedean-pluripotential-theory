@@ -52,8 +52,8 @@ than mechanically rewritten.
   semantic, mathematical, structural, mechanical, and rendered-page gates.
 - **Part IV, Chapters 32--50:** complete. All nineteen chapters have passed
   the sequential quality gates.
-- **Parts V--VI, Chapters 51--72:** active. Chapters 51--58 are complete;
-  Chapter 59 is next.
+- **Parts V--VI, Chapters 51--72:** active. Chapters 51--59 are complete;
+  Chapter 60 is next.
 - **Appendices and front matter:** final consistency pass after the chapters,
   with earlier intervention when a chapter depends on them.
 
@@ -1603,3 +1603,19 @@ examples, 1,504 calculation checks, full build, eighteen chapter pages and
 both seams, post-render scoped and reference checks pass. Evidence is in
 `ch58_quality_audit_20261002.md` and `chapter_status.md`. Chapter 59 is next;
 the whole-book goal continues.
+
+
+### Chapter 59
+
+The model section now exposes the order of flag evaluation, Cartier data,
+density, retraction and inverse limit. Rational PL density cites the proved
+lattice identities and checks its uniform closure. The Stein blowup is a
+labelled example with the invertible-ideal endpoint. Entropy now records the
+actual finite measure mass and has a curve calculation, including infinite
+entropy and zero mass. Existing full-support, integral-closure, monomial,
+Stein, divisor, retraction and discrepancy proofs retain their exact domains.
+Eight primary PDFs, 47 source pages and four fresh Stacks interfaces were
+checked. All seventeen assertions, twelve examples, 15,136 calculation checks,
+full build, thirty chapter pages and both seams, post-render scoped and
+reference checks pass. Evidence is in `ch59_quality_audit_20261002.md` and
+`chapter_status.md`. Chapter 60 is next; the whole-book goal continues.
