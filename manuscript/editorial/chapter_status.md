@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--43 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--44 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -133,7 +133,13 @@ Chapter 43's original 3,538 lines and complete diffs were freshly read;
 Frobenius, exponent, net, weight, example and attribution scopes were repaired.
 All 52 chapter physical pages and both seams passed visual review; see the
 [Chapter 43 audit](second_reading_ch43_audit_20261003.md).
-Chapter 44 is active; all 3,931 original lines freshly read before edits.
+Chapter 44's original 3,931 lines and complete diffs were freshly read;
+additive-power, grading, uniformity, pole and worked-example arguments were
+repaired. All 58 chapter physical pages and both seams passed visual review;
+see the [Chapter 44 audit](second_reading_ch44_audit_20261003.md).
+Appendix A's exponent-zero terminology has a separate scoped
+[follow-up](second_reading_appA_exponent_scope_followup_20261003.md).
+Chapter 45 is active; original lines 1--920 freshly read, remainder pending.
 No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
