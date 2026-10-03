@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--46 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--47 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -147,7 +147,12 @@ Chapter 46's original 3,957 lines and complete diffs were freshly read;
 pairing, class-change, locality, weighted-limit, scaling, toric and provenance
 scopes were checked and repaired. All 56 chapter physical pages and both seams
 passed visual review; see the [Chapter 46 audit](second_reading_ch46_audit_20261003.md).
-Chapter 47 is active; original lines 1--2640 freshly read, remainder pending.
+Chapter 47's original 4,262 lines and complete diffs were freshly read;
+equilibrium-energy dependence, variational limits, closed SNC faces,
+curve contact/truncation formulas and norm-completion scopes were repaired.
+All 60 chapter physical pages and both seams passed visual review;
+see the [Chapter 47 audit](second_reading_ch47_audit_20261003.md).
+Chapter 48 is active; original lines 1--1540 freshly read, remainder pending.
 No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and

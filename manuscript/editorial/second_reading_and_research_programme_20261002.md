@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--46 pass the new source, build,
+Current reading position: Chapters 1--47 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -86,7 +86,8 @@ reference, and rendered-page gates; see the
 [Chapter 43 audit](second_reading_ch43_audit_20261003.md), and
 [Chapter 44 audit](second_reading_ch44_audit_20261003.md), and
 [Chapter 45 audit](second_reading_ch45_audit_20261003.md), and
-[Chapter 46 audit](second_reading_ch46_audit_20261003.md).
+[Chapter 46 audit](second_reading_ch46_audit_20261003.md), and
+[Chapter 47 audit](second_reading_ch47_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -199,8 +200,12 @@ endpoint/example/provenance arguments and all 52 chapter physical pages
 plus both seams were checked. Chapter 46 is now verified: all 3,957 original lines, complete diffs,
 scoped published and internal interfaces, pairing/class-change/locality/
 weighted-limit/scaling/toric/provenance arguments, all 56 chapter physical
-pages and both seams were checked. Chapter 47 is active; original lines
-1--2640 freshly read, remainder pending. No later unit is marked complete.
+pages and both seams were checked. Chapter 47 is now verified: all 4,262 original lines, complete diffs,
+scoped published and internal interfaces, equilibrium-energy dependence,
+variational limits, closed SNC faces, curve contact/truncation formulas,
+norm-completion scopes, all 60 chapter physical pages and both seams were
+checked. Chapter 48 is active; original lines 1--1540 freshly read,
+remainder pending. No later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and
