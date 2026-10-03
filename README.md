@@ -5,12 +5,14 @@ This repository contains the current second draft of the monograph
 left blank in this release.
 
 **Active continuation, 2 October 2026:** a new full reading pass continues
-from Chapter 1 for coherence and readability; Chapters 1--54 pass its gates.
+from Chapter 1 for coherence and readability; Chapters 1--55 pass its gates.
 All current execution remains in the cloud, and Xean setup is suspended by
 the latest user instruction. The standalone catalogue of all 42 active
-open-problem items is complete: [LaTeX source](output/open_problems_catalogue_2026-10-02.tex)
-and [85-page PDF](output/open_problems_catalogue_2026-10-02.pdf), with full
+open-problem items is complete: [LaTeX source](output/open_problems_catalogue_2026-10-03.tex)
+and [85-page PDF](output/open_problems_catalogue_2026-10-03.pdf), with full
 statements, source-dated state of the art, completion criteria and references.
+The dated revision corrects the Chebyshev choice question; the 2 October
+source and PDF remain the historical edition.
 [The new programme](manuscript/editorial/second_reading_and_research_programme_20261002.md)
 tracks this work and preserves the completed edition below.
 

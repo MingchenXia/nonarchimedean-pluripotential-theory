@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--54 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--55 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -187,7 +187,13 @@ Chapter 54's original 1,521 lines, complete 37-line source diff and
 and smooth-ambient multiplier-ideal boundary were corrected. All 20 chapter
 physical pages and both seams passed visual review; see the
 [Chapter 54 audit](second_reading_ch54_audit_20261003.md).
-Chapter 55 is active; all 2,231 original lines freshly read, scoped primary
+Chapter 55's original 2,231 lines and all source/layout diffs were freshly
+read. Its Chebyshev benchmark now retains positive ideal volume and the
+auxiliary Kähler-current potential. All 32 chapter physical pages and both
+seams passed visual review; see the
+[Chapter 55 audit](second_reading_ch55_audit_20261003.md). The restricted
+Chapter 72 and catalogue follow-up leaves all 42 active atoms unchanged.
+Chapter 56 is active; all 1,041 original lines freshly read, scoped primary
 checks and repairs continue. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
