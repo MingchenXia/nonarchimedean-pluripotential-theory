@@ -3,8 +3,8 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--17 pass the new reading
-gates; see the [Chapter 17 audit](second_reading_ch17_audit_20261003.md).
+Chapter 1 for coherence and readability. Chapters 1--18 pass the new reading
+gates; see the [Chapter 18 audit](second_reading_ch18_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
 freshly read; metric classes, residual lifting, curvature examples, formal
 comparison, polar extensions and detection scopes were repaired. All 88
@@ -13,7 +13,12 @@ inputs remain byte-identical. The preceding [Chapter 16 audit](second_reading_ch
 records the product-construction repairs and preserved 83 original inputs.
 The earlier real-coefficient LFS descent correction and affected Chapter 72
 scopes remain in the [3 October correction audit](ch15_lfs_descent_scope_correction_audit_20261003.md).
-Chapter 18 is next; no later chapter is marked reread.
+Chapter 18's complete 4,527-line original source and all nine inputs were
+freshly read. Corner calculations, measure and positivity proofs, harmonic
+charts, curve tests and model comparisons were repaired at their exact source
+and field scopes. All 92 chapter physical pages and two seams passed visual
+review; the nine inputs are byte-identical. Chapter 19 is next; its initial
+reading has begun, but no later chapter is marked reread.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
