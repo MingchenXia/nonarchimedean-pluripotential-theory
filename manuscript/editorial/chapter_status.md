@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--37 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--38 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -106,7 +106,12 @@ Chapter 37's complete original 608-line source was freshly read; assembly
 interfaces, normalization scope and concrete psh sharpness examples were
 checked and repaired. All ten chapter pages and both seams passed visual
 review; see the [Chapter 37 audit](second_reading_ch37_audit_20261003.md).
-Chapter 38 is active; original lines 1--1820 have been freshly read without
+Chapter 38's complete original 3,767-line source was freshly read. The false
+unrestricted trace-nef assertion was narrowed with a computed threefold
+counterexample; base-ideal, drift and fixed-pole arguments were repaired.
+All 52 chapter pages and both seams passed visual review; see the
+[Chapter 38 audit](second_reading_ch38_audit_20261003.md).
+Chapter 39 is active; original lines 1--1300 have been freshly read without
 edits. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
