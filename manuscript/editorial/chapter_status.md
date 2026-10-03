@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--27 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--28 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -58,7 +58,12 @@ inputs. Finite-energy variation, convex duality, orthogonality provenances,
 continuity uses, invariant toric envelopes and graph examples were repaired.
 All 66 chapter physical pages and both seams passed visual review; see the
 [Chapter 27 audit](second_reading_ch27_audit_20261003.md).
-Chapter 28 is next. No later chapter is marked complete.
+Chapter 28's original 3,750-line source was freshly read; there are no direct
+inputs. Quantitative duality, finite-energy existence, stability, uniqueness,
+curve examples and regularity scopes were repaired. All 56 chapter physical
+pages and both seams passed visual review; see the
+[Chapter 28 audit](second_reading_ch28_audit_20261003.md).
+Chapter 29 is next. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
