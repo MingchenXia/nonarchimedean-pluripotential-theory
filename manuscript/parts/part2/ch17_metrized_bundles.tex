@@ -27,8 +27,9 @@ observation.
 \begin{enumerate}
 \item\label{itm:ch17-plan:classes}
  Smooth metrics on line bundles give smooth forms.  Formal metrics are
- instead integral parlinear; their curvature products are skeletal and, in
- top degree, atomic.  For vector bundles of rank at least two, the
+ instead strictly integral parlinear; their curvature products have
+ skeletal trace measures and, in top degree, are atomic.  For vector
+ bundles of rank at least two, the
  total-space notion of smooth metric is empty
  (\Cref{prop:ch17-no-smooth-higher-rank}), so the higher-rank discussion is
  confined to orthogonal, parlinear, and residual structures.
@@ -113,7 +114,8 @@ $K^\circ$.  Unless the contrary is said:
 
 One convention deserves a separate sentence because it is a frequent source
 of confusion.  A \emph{semi-metric} allows the fibre norms to be
-degenerate, and its weight takes values in $\mathbf R\cup\{-\infty\}$.  We
+degenerate.  In an invertible frame its weight $-\log\|e\|$ takes values
+in $\mathbf R\cup\{+\infty\}$, with $-\log0=+\infty$.  We
 allow semi-metrics only when they are locally integrable, and we then say so.
 Every unqualified ``metric'' below is a genuine metric.
 
@@ -147,8 +149,9 @@ point of use.
  \Cref{lem:ch17-detect-model} and are used only in
  \Cref{thm:ch17-detect-subvariety}.
 \item Semicontinuity of the graded transcendence degree along an affinoid
- reduction map, \cite[Proposition~11.10.4]{CLD25}, used once, in
- \Cref{prop:ch17-dimdef-discrete}.
+ reduction map, \cite[Proposition~11.10.4]{CLD25}, used in
+ \Cref{prop:ch17-dimdef-discrete} and in the positivity extension of
+ \Cref{thm:ch17-formal-positivity}.
 \end{enumerate}
 
 The residual-bundle equivalence, dimension-of-definition theorems, and the
@@ -202,7 +205,8 @@ $\mathbf A^{1,\An}_K\to\mathbf R_{\ge0}$ sending every nonzero $K$-point
 to $1$ and the origin to $0$ restricts to a norm on $E(K)=K$; this is
 satisfied both by $|T|$ and by $|T|^2$.  But $|T|^2$ does not induce a
 norm on $E(K)\otimes L=L$ as soon as $L$ is a nontrivially valued
-extension of $K$, since it is not multiplicative there.  Thus a continuous
+extension of $K$, since $\|av\|=|a|^2\|v\|$ violates the required
+scalar homogeneity $\|av\|=|a|\|v\|$.  Thus a continuous
 family of norms only on the original fibres is not the definition: the
 total-space function and its scalar-extension compatibility are part of the
 datum.
@@ -257,12 +261,16 @@ Let $X$ be a $K$-analytic space.
  $f^*:\Pic(X)\to\Pic(Y)$, and $\phi_{f^*e}=f^*\phi_e$ for every frame
  $e$.
 \item\label{itm:ch17-pic:sub}
- The same statements hold verbatim with ``continuous'' replaced throughout
- by ``smooth'', by ``parlinear'', or by ``integral parlinear'', giving
- subgroups
- $\widehat{\Pic}(X,\text{sm})\subseteq\widehat{\Pic}(X,\PL)
-   \subseteq\widehat{\Pic}(X,C^0)$
- stable under pullback.
+ The corresponding metric classes give subgroups stable under pullback,
+ with inclusions
+ \[
+ \widehat{\Pic}(X,\text{sm})\subseteq\widehat{\Pic}(X,C^0),
+ \qquad
+ \widehat{\Pic}(X,\PL_{\mathbf Z})\subseteq
+ \widehat{\Pic}(X,\PL)\subseteq\widehat{\Pic}(X,C^0).
+ \]
+ Their forgetful kernels are the functions in the respective class
+ modulo $\log|\cO^\times(X)|$.
 \end{enumerate}
 \end{proposition}
 
@@ -288,9 +296,12 @@ quotient.
 
 For \cref{itm:ch17-pic:pullback}, define $f^*\|\cdot\|$ as the composite of
 the canonical map $V(f^*L)\to V(L)$ with $\|\cdot\|$; this is a
-continuous metric because the map is continuous and is an isomorphism on
-fibres over each point of $Y$, and the displayed compatibility with frames
-is the definition.  Compatibility with tensor products is checked on frames.
+continuous metric by the universal scalar-extension clause in
+\Cref{def:ch17-continuous-metric}: over $y$ the fibre is
+$L(f(y))\otimes_{\cH(f(y))}\cH(y)$ with the induced norm.
+In a pulled-back frame its norm function is $\|e\|\circ f$, which proves
+the displayed compatibility.  Compatibility with tensor products is
+checked on frames.
 
 For \cref{itm:ch17-pic:sub}, all four operations---tensor, dual, pullback,
 and the identification of the kernel---are expressed by sums, differences,
@@ -299,8 +310,10 @@ and pullbacks of local weights, and each of the three classes of functions
 for smooth functions by \Cref{prop:cld-intrinsic-calculus} and
 \Cref{prop:cld-form-pullback}, for parlinear functions by
 \Cref{prop:ch15-pl-pullback}.  Integrality is preserved because the local
-model of an integral parlinear weight is $\log|g|$ with
-$g\in\cO^\times$, and $f^*\log|g|=\log|f^*g|$.
+presentation of an integral parlinear weight is $c+\log|g|$
+$G$-locally, with $g\in\cO^\times$, and its pullback is
+$c+\log|f^*g|$ on the pulled-back analytic domains.  Smooth weights
+need not be parlinear; $(-\log|T|)^2$ on an annulus is an example.
 \end{proof}
 
 \subsection{Smooth metrics exist in rank one and only in rank one}
@@ -389,7 +402,8 @@ metric.
 \begin{proof}
 Restriction to a point preserves smoothness, so it suffices to treat
 $X=\mathcal M(K)$ and $E=\cO^r$.  After a complete extension we may suppose
-that $K$ is algebraically closed and spherically complete.  Every norm on
+that $K$ is nontrivially valued, algebraically closed and spherically
+complete.  Every norm on
 $K^r$ is then orthogonalizable \cite[\S2.3]{Tem16}: for a suitable basis
 $e_1,\dots,e_r$, with dual coordinates $f_1,\dots,f_r$ and
 $a_i=\|e_i\|>0$, one has
@@ -397,10 +411,16 @@ $a_i=\|e_i\|>0$, one has
 \label{eq:ch17-orthogonal-normal-form}
  \|x\|=\max_{1\le i\le r}a_i|f_i(x)|,\qquad x\in K^r.
 \end{equation}
-The induced weight on $\mathbf P^{r-1,\An}_K$ is the pullback of
-$\max_i(\log a_i+t_i)$.  Its top Monge--Amp\`ere measure is the unit Dirac
-mass at the point where all $r$ affine functions agree
-\cite[Proposition~1.7.7]{CLD25}.  If the original norm were smooth, this
+Continuity and density of $K$-points extend
+\eqref{eq:ch17-orthogonal-normal-form} to the analytic total space.
+On the torus of $\mathbf P^{r-1,\An}_K$, the weight of the dual
+tautological metric is
+$\max\{\log a_1,\log a_2+t_2,\ldots,\log a_r+t_r\}$,
+where $t_i=\log|f_i/f_1|$.  Its subgradient at the unique vertex is
+a standard $(r-1)$-simplex.  The toric comparison of
+\Cref{ex:ch16-toric-normalization}, with the factor $(r-1)!$, gives
+a unit Dirac mass at the corresponding point of the toric Gauss section.
+If the original norm were smooth, this
 top wedge would instead be represented by a smooth top-degree form, which
 cannot be a Dirac mass.  This is precisely the obstruction isolated in
 \cite[Remark~17.1.9]{CLD25}.
@@ -417,8 +437,8 @@ constants $a_1,a_2>0$.  Consider the orthogonal metric
 which is continuous but, by \Cref{prop:ch17-no-smooth-higher-rank}, not
 smooth.  Let us compute the curvature of its induced tautological metric.
 
-Put $t=\log|x_2/x_1|$, a coordinate on the tropicalization of
-$\mathbf P^{1,\An}_K=\mathbf P(E)$ through the moment map $x_2/x_1$.  The
+Put $t=\log|x_2/x_1|$ on the torus $x_1x_2\ne0$ of
+$\mathbf P^{1,\An}_K=\mathbf P(E)$.  The
 tautological subbundle $\cO(-1)\subseteq\pi^*E$ inherits the metric, and
 on the chart $x_1\ne0$ the section $e=x/x_1$ is a frame of $\cO(-1)$
 with
@@ -437,14 +457,16 @@ $\delta_0$---the descended curvature on $\mathbf P^{1,\An}_K$ is
  c_1\bigl(\cO(1),\|\cdot\|^{\vee}\bigr)=\dprimeddprime\lambda=\delta_{\zeta}
  =-\,c_1\bigl(\cO(-1),\|\cdot\|\bigr),
 \]
-the Dirac mass at the point $\zeta$ of $\mathbf P^{1,\An}_K$ with
-$|x_2/x_1|(\zeta)=a_1/a_2$, that is, the Gauss point of the disc of radius
-$a_1/a_2$ about the origin.  Its total mass is
+the Dirac mass at the Gauss point $\zeta=\zeta_{0,a_1/a_2}$
+of the disc of radius $a_1/a_2$ about the origin in the coordinate
+$x_2/x_1$.  Its total mass is
 \[
- \int_{\mathbf P^{1,\An}_K}\dprimeddprime\lambda=1
+ \int_{\mathbf P^{1,\An}_K}c_1(\overline{\cO(1)})=1
  =\deg\cO_{\mathbf P^1}(1),
 \]
-consistently with \Cref{cor:ch17-curve-total-mass} below.  So the
+consistently with \Cref{cor:ch17-curve-total-mass} below.
+Here $\lambda$ is a local frame weight, not a globally defined potential
+on the compact projective line.  So the
 determinant-free content of the rank-two metric is: one atom, at a point
 determined by the ratio $a_1/a_2$ of the two orthogonal norms, of mass
 one.  When $a_1=a_2$ the atom sits at the Gauss point of the unit disc;
@@ -534,9 +556,10 @@ whenever some $f_i\ne0$; the ultrametric inequality in the sharp form
 ``$\|a+b\|=\|a\|$ when $\|b\|<\|a\|$'' then yields
 $\bigl\|\sum f_i(e_i+\varepsilon_i)\bigr\|=\bigl\|\sum f_ie_i\bigr\|
  =\max_i|f_i|\,\|e_i\|$.
-In particular $(e_i+\varepsilon_i)$ spans, since a relation
-$\sum f_i(e_i+\varepsilon_i)=0$ with some $f_i\ne0$ would force
-$\max_i|f_i|\,\|e_i\|=0$; so it is a frame, and it is orthogonal with the
+The $r$ vectors $e_i+\varepsilon_i$ are consequently independent in
+every $\cH(x)$-fibre and hence form a basis there.  The determinant
+of their coefficient matrix is nonzero at every analytic point, hence
+an analytic unit locally.  They form an orthogonal frame with the
 same $\rho_i$.
 
 \cref{itm:ch17-of:normalize}: substituting $f_i\mapsto f_ig_i^{-1}$ in the
@@ -566,8 +589,9 @@ integral metric.  The relations among them are: \emph{integral parlinear}
 is an intrinsic analytic condition; \emph{formal} is a condition referring
 to a model; and \emph{residual} is not a class of metrics at all but the
 pointwise linear-algebra invariant that measures how singular an integral
-parlinear metric is at a given point.  The first two coincide in the strict
-case (\Cref{thm:cld-formal-pl-comparison}); the third is what makes the
+parlinear metric is at a given point.  Formal metrics coincide with
+\emph{strictly integral} parlinear metrics under
+\Cref{thm:cld-formal-pl-comparison}; the third is what makes the
 curvature computable (\Cref{sec:ch17-formal}).
 
 \subsection{The four parlinear classes}
@@ -665,10 +689,13 @@ $(c+\log|g|)+(c'+\log|g'|)=c+c'+\log|gg'|$.
 For the last assertion, work $G$-locally and choose an orthogonal frame
 $(e_i)$.  Writing $s=\sum a_ie_i$ with $a_i$ analytic and
 $\rho_i=\|e_i\|$, the condition $\|s\|\le r$ reads
-$\max_i|a_i|\rho_i\le r$, that is, the finite conjunction of the
-conditions $|a_i|\le r/\rho_i$.  Sublevel sets of parlinear functions are
-analytic domains, so these finitely many conditions cut out an analytic
-domain.  In the strict case, the same argument is valid in the
+$\max_i|a_i|\rho_i\le r$.  Refine until
+$\rho_i=c_i|g_i|^{1/N_i}$ with $g_i$ an analytic unit and $N_i\ge1$;
+then the inequality for the $i$-th term is
+$|a_i^{N_i}g_i|\le(r/c_i)^{N_i}$.  These finitely many inequalities
+cut out an analytic domain, including points where $a_i=0$.
+This uses rational parlinear presentations, not arbitrary
+$\mathbf R$-PL functions.  In the strict case, the same argument is valid in the
 $G_{\mathrm{str}}$-topology and the hypothesis on $r$ makes the resulting
 domain strict.  This is the local calculation of
 \cite[\S17.2.9]{CLD25}.
@@ -720,13 +747,18 @@ $\mathfrak U_{i,\eta}$ gives the familiar formula
 \end{equation}
 The weight of the frame $s_{T_0}$ of $\cO(1)$ on the chart $x_0\ne0$
 is therefore
-$\lambda_0=\max\{0,\log|x_1/x_0|,\dots,\log|x_n/x_0|\}$, the pullback of
-the maximum of $0$ and the coordinates under the moment map
-$(x_1/x_0,\dots,x_n/x_0)$.  This is the toric weight of
+$\lambda_0=\max\{0,\log|x_1/x_0|,\dots,\log|x_n/x_0|\}$.
+On the unit-ratio locus it is the pullback of the maximum of $0$ and
+the coordinates under the moment map $(x_1/x_0,\dots,x_n/x_0)$.
+This is the toric weight of
 \Cref{ex:ch16-fan-p2} for $n=2$, and it is exactly the weight
 \eqref{eq:p1-standard-weight} of the standard model metric for $n=1$.
-The metric is strictly integral parlinear, and it is \emph{not} smooth: its
-curvature is computed in \Cref{ex:ch17-weil-curvature}.
+The maximum formula extends continuously over the zero loci of those
+ratios, with $\log0=-\infty$.  The metric is strictly integral parlinear.
+For $n\ge1$ and $m\ne0$ it is not smooth; its curvature is computed in
+\Cref{ex:ch17-weil-curvature} and
+\Cref{ex:ch17-projective-good-reduction}.  For $m=0$ or $n=0$ it is
+smooth.
 \end{example}
 
 \begin{theorem}
@@ -734,8 +766,10 @@ curvature is computed in \Cref{ex:ch17-weil-curvature}.
 Let $X$ be a paracompact strict $K$-analytic space over a nontrivially
 valued field.  A metric on a vector bundle is formal if and only if it is
 strictly integral PL.  In particular, formal metrics exist.  For line
-bundles on a locally holomorphically separated space, such metrics are dense
-among continuous metrics for uniform convergence on compact subsets.
+bundles on a locally holomorphically separated space, \emph{strict
+parlinear} metrics are dense among continuous metrics for uniform
+convergence on compact subsets.  On a compact space their positive tensor
+powers are formal metrics, so these are rational formal approximants.
 \end{theorem}
 \begin{proof}
 If $(\mathfrak X,\mathfrak E)$ represents a formal metric, trivialize
@@ -753,19 +787,25 @@ bundles to a locally free sheaf $\mathfrak E$ whose formal metric is the
 given one.  Paracompactness and local finiteness permit the local blowups to
 be dominated by one admissible formal model.  This proves the equivalence.
 
-The same gluing construction, starting from arbitrary analytic
-trivializations and enlarging the local lattices until every transition
-matrix and its inverse are power bounded on a compact refinement, produces
-at least one formal metric.  For a line bundle, fix such a metric
-$\|\cdot\|_0$.  The logarithmic ratio of any continuous metric to
-$\|\cdot\|_0$ is a continuous function.  Smooth functions of finitely many
-$-\log|f|$ approximate it uniformly on a compact set by the tropical
-Stone--Weierstrass argument, and a locally finite PL partition glues the
-approximants.  Exponentiating the resulting integral-PL functions gives
-formal metrics converging uniformly on compact subsets.
+Existence of a formal model with a locally free extension of an arbitrary
+$E$ is the separate formal-model theorem
+\cite[Corollary~B.1.6 and Theorem~B.1.8]{CLD25}; it supplies at least
+one formal metric.  For a line bundle fix such a metric $\|\cdot\|_0$
+and write any continuous metric as $\rme^f\|\cdot\|_0$.
+By \cite[Corollary~12.5.8]{CLD25}, strict parlinear functions $u$
+approximate $f$ uniformly on a prescribed compact set.  Thus
+$\rme^u\|\cdot\|_0$ gives the asserted approximation.
+On a compact space a finite strict cover clears all rational
+denominators with one positive integer, and the already proved
+equivalence makes the corresponding tensor power formal.
 
-Formal gluing for vector bundles and the compact-open density statement are
-proved in \cite[\S17.5]{CLD25}.  For line bundles, the equivalence is also
+The equivalence is \cite[Proposition~17.7.5]{CLD25}.  The density
+argument is the proof of \cite[Corollary~17.7.6]{CLD25}, using strict
+parlinear functions from Corollary~12.5.8; it does not give density of
+strictly integral metrics.  Over a discretely valued field, at
+the Gauss point of $\mathbf P^{1,\An}_K$ a formal metric on the trivial
+line has $\log\|1\|\in\log|K^\times|$.  This discrete subgroup cannot
+approximate an arbitrary real constant.  For line bundles, the equivalence is also
 \cite[Proposition~2.10]{GM19}; on a proper algebraic variety the
 algebraization step is \cite[Theorem~1.1]{GM19}.  We do not use that last
 step on a nonproper analytic space.
@@ -792,10 +832,10 @@ $\cH(x)$.  Its \emph{graded reduction} is
 \]
 a graded vector space over the graded residue field
 $\widetilde{\cH(x)}^{\bullet}$ of \Cref{sec:appG-graded-reduction}, with
-the class of $v$ in degree $\|v\|$ written $\widetilde v$.  The
-comparison with the norm is: $\widetilde v\ne0$ exactly when
-$\|v\|$ is realized, and $\widetilde{v+w}=\widetilde v$ when
-$\|w\|<\|v\|$.
+the nonzero class of $v\ne0$ in degree $\|v\|$ written $\widetilde v$.
+In a prescribed degree $a>0$, the class of a vector of norm at most $a$
+is nonzero exactly when its norm equals $a$.  Moreover
+$\widetilde{v+w}=\widetilde v$ when $\|w\|<\|v\|$.
 
 \begin{lemma}
 \label{lem:ch17-orthogonal-reduces}
@@ -834,10 +874,13 @@ is the set of indices attaining the maximum.
 \begin{definition}[Residual bundle]
 \label{def:ch17-residual-bundle}
 For an integral PL metrized vector bundle $\overline E$, the
-\emph{residual bundle} $\widetilde E_x$ is obtained from sections of norm
-at most one modulo those of norm strictly less than one.  It is a graded
-vector bundle on the graded reduction of the germ $(X,x)$.  In the strict
-case its degree-one part descends to the ordinary reduction.
+\emph{residual bundle} $\widetilde E_x$ is the graded vector bundle on
+the germ reduction constructed below from $\widetilde{E(x)}^{\bullet}$
+and its lattices at graded valuations.  On a domain germ $(V,x)$, its
+degree-$a$ sections are represented by sections of norm at most $a$
+on that germ, modulo sections of norm strictly less than $a$ at $x$,
+for every $a>0$.  For a \emph{strictly integral} metric, the degree-one
+part descends to the ordinary germ reduction.
 \end{definition}
 
 The definition needs unwinding, because ``sections of norm at most one'' is
@@ -886,7 +929,10 @@ We claim: with $V,(e_i),s$ as in the construction, $v\in\widetilde{(W',x)}$
 if and only if $v(\widetilde{a(x)})\cdot\max_{i\in I}v(\widetilde{a_i(x)})\le1$.
 Indeed, we may replace $W$ by $V\cap W$ and, since
 $\widetilde{s(x)}=\widetilde{t(x)}$ forces $\|s(x)-t(x)\|<r$, we may
-replace $t$ by $s$ without changing $W'$ near $x$; shrinking $V$
+replace $t$ by $s$ without changing $W'$ near $x$:
+continuity lets us arrange $|a|\,\|s-t\|<r|a(x)|$ there, so the
+ultrametric inequality makes the two sublevel conditions equivalent.
+Shrinking $V$
 so that $\|s\|=\max_{i\in I}|a_i|r_i$ identically, the domain $W'$ is
 cut out by the finitely many inequalities $|aa_i|\le|a(x)a_i(x)|$ for
 $i\in I$.  By the description of germ reductions in
@@ -897,7 +943,11 @@ is the claim.
 The claim shows that the set
 $\Gamma=\{\gamma\in v(\widetilde{\cH(x)}^\times):
  \gamma\cdot\max_{i\in I}v(\widetilde{a_i(x)})\le1\}$
-is determined by $\sigma$ and $v$ alone, since $W'$ is.  As
+is determined by $\sigma$ and $v$ alone, since $W'$ is.
+Every homogeneous element of $\widetilde{\cH(x)}$ is represented
+by an analytic unit on a sufficiently small affinoid-domain germ,
+by \cite[Lemma~17.3.2 and Proposition~17.3.3]{CLD25}.
+Thus these domains test every $\gamma$ in that value group.  As
 $v(\sigma)$ is the inverse of the largest element of $\Gamma$, it is
 determined too.  This proves independence of the choices.
 
@@ -918,12 +968,14 @@ locally trivial of rank $r$, that is, a graded vector bundle.
 \begin{remark}[Why a bundle and not a vector space]
 \label{rem:ch17-residual-bundle-not-space}
 The underlying graded vector space $\widetilde{E(x)}^{\bullet}$ is the
-generic fibre of $\widetilde E_x$ and carries no information beyond its
-dimension.  All the content is in the metric over $\widetilde{(X,x)}$,
+generic fibre of $\widetilde E_x$.  It remembers the rank and the
+degrees of a homogeneous basis modulo the graded field's value group.
+The additional content is in the metric over $\widetilde{(X,x)}$,
 that is, in \emph{which} lattices of $\widetilde{E(x)}^{\bullet}$ are
 distinguished at each graded valuation.  For a line bundle this is a graded
-line bundle on a graded scheme, and it has Chern classes and intersection
-numbers.  Those numbers are the coefficients of the curvature measure
+line bundle on the graded germ reduction.  Its proper graded models carry
+Chern classes and intersection numbers.  Those numbers determine the
+coefficients of the curvature measure
 (\Cref{thm:ch17-atomic-masses}).
 \end{remark}
 
@@ -964,16 +1016,20 @@ their reductions are the corresponding bases of the residual bundles by
 reduction is inherited.  For \cref{itm:ch17-res:pull} one uses in addition
 that $\widetilde{f^*a(y)}$ is the image of $\widetilde{a(x)}$.
 
-For \cref{itm:ch17-res:iso}, let $\theta$ be the given isomorphism.  Choose
-a basis of $\widetilde{E(x)}^{\bullet}$; by
-\Cref{lem:ch17-orthogonal-frames}\,\cref{itm:ch17-of:perturb} and the lifting
-argument of \Cref{prop:ch17-residual-welldefined} there are, after shrinking,
-frames $(e_i)$ and $(f_i)$ of $E$ near $x$, orthogonal for the two
-metrics respectively, with $\widetilde{f_i(x)}=\theta(\widetilde{e_i(x)})$
-and $\|f_i(x)\|'=\|e_i(x)\|$.  The isomorphism $u$ sending $e_i$ to
-$f_i$ is then an isometry at $x$, and both metrics being determined near
-$x$ by their orthogonal frames, $u$ is an isometry on a neighbourhood.
-This is \cite[Lemma~17.3.2 and Theorem~17.4.9]{CLD25}.
+For \cref{itm:ch17-res:iso}, the underlying bundle is locally trivial
+in the usual topology under the standing good-space hypothesis.
+Lift a homogeneous basis and its image under $\theta$ using
+\cite[Lemma~17.3.2]{CLD25}.  This gives analytic frames and an analytic
+isomorphism $u$ inducing $\theta$ and an isometry at $x$.
+Choose finitely many analytic domains covering the germ on which both
+metrics have constant-norm orthogonal frames.  On each domain,
+$\theta$ identifies the residual lattices.  The norm-comparison
+lemma \cite[Lemma~17.4.4]{CLD25} then gives, after shrinking,
+$\|u(s)\|\le\|s\|$; applying it to $u^{-1}$ gives the reverse
+inequality.  Intersect the finitely many resulting neighbourhoods and
+check on their $G$-cover.  Thus $u$ is an isometry near $x$.
+This is the lifting and lattice-comparison argument of
+\cite[Corollary~17.4.6 and Theorem~17.4.9]{CLD25}.
 \end{proof}
 
 The next statement is the bridge between the abstract residual construction
@@ -1064,10 +1120,12 @@ curvature is how small a graded variety already carries the bundle.
 
 \begin{definition}[Dimension of definition]
 \label{def:ch17-dimension-definition}
-The \emph{dimension of definition} of a residual line bundle is the least
-dimension of a proper graded variety on which it has a model.  For several
-residual line bundles, their simultaneous dimension of definition is
-defined by requiring one common model.
+The \emph{residual dimension of definition} at $x$ is the least
+dimension of a graded premodel of the germ reduction together with the
+residual bundle.  For several residual bundles one requires a common
+premodel.  Under the standing boundaryless hypothesis the premodels may
+be taken proper.  The datum includes the germ reduction, not just an
+abstract line bundle.
 \end{definition}
 
 Following \cite[\S17.6]{CLD25} we distinguish two variants.  The
@@ -1081,8 +1139,10 @@ $(Y,y)$ of dimension $d$, integral parlinear metrized bundles
 $(\overline F_i)$ on it, and a flat boundaryless morphism of germs
 $f:(X,x)\to(Y,y)$ with $E_i\simeq f^*F_i$ as metrized bundles.  The
 analytic dimension is always at least the residual one, and equals it when
-$\widetilde K$ is perfect; in general one must pass to a $p$-power
-tensor operation, which is why the statement of
+$\widetilde K$ is perfect as a graded field; in residue characteristic
+$p>0$ this includes $p$-divisibility of the value group as well as
+perfection of the ordinary residue field.  In general one must pass
+to a $p$-power tensor operation, which is why the statement of
 \Cref{thm:ch17-atomic-support} is insensitive to that subtlety.
 
 The following finiteness statement is the one used everywhere.
@@ -1105,8 +1165,8 @@ such that each $E_i|_{X_j}$ has an orthogonal frame
 $(e_{ij\alpha})_\alpha$ of constant norms.  For $\emptyset\ne P\subseteq
 J$ write $X_P=\bigcap_{j\in P}X_j$ and let
 $\rho_P:X_P\to\widetilde{X_P}$ be the reduction of the affinoid.  Let
-$U$ be the topological interior of $\bigcup_jX_j$.  It suffices to prove
-that $W^d\cap U$ is weakly analytic of dimension $\le n-d$.
+$U$ be the topological interior of $\bigcup_jX_j$.  It suffices to
+contain $W^d\cap U$ in a weakly analytic subset of dimension $\le n-d$.
 
 Let $y\in U$ and let $J(y)=\{j:y\in X_j\}$.  Put
 $A=\cO(X_{J(y)})$, $M_i=E_i(X_{J(y)})$ and $\eta=\rho_{J(y)}(y)$, with
@@ -1155,10 +1215,11 @@ and each set on the right is weakly analytic of dimension at most $n-d$
 in the sense of \Cref{def:trop-weakly-analytic}.  That last assertion is the
 semicontinuity of the graded transcendence degree along an affinoid
 reduction map, \cite[Proposition~11.10.4]{CLD25}; it is the one input of
-this proof that is not proved in this book, and it is used nowhere else.
-Intersecting with $U$ preserves both properties, since a closed subset of
-a weakly analytic set of dimension $\le n-d$ is again one.  For $d=n$, a
-weakly analytic set of dimension $\le0$ is closed and discrete.
+this proof that is imported.  Intersecting that containing set with $U$
+preserves weak analyticity and the dimension bound.  For $d=n$, a
+weakly analytic set of dimension $\le0$ is closed and discrete, and
+every subset of such a set is closed and discrete locally in $U$.
+The neighbourhoods $U$ cover $X$, giving the last assertion.
 \end{proof}
 
 This invariant controls where a top curvature product can live.  On a pure
@@ -1314,7 +1375,9 @@ and, when the metrics are smooth or when $f$ is such that the relevant
 pullback of currents is defined,
 $c_1(f^*\overline L)=f^*c_1(\overline L)$.  Thus $c_1$ is a group
 homomorphism $\widehat{\Pic}(X)\to D^{1,1}(X)$; a metrized line bundle lies
-in its kernel exactly when its local weights are pluriharmonic.
+in its kernel exactly when its local weights have zero Hessian current.
+Identifying these weights with a particular pluriharmonic sheaf requires
+the applicable comparison theorem.
 \end{corollary}
 
 \begin{proof}
@@ -1327,8 +1390,8 @@ case both sides are the currents of pulled-back smooth forms and the
 identity is \Cref{prop:cld-form-pullback}; in general it is the definition
 of the pullback of a current where that is available, as delimited in
 \Cref{prop:ch14-no-pullback} and the discussion following it.  The kernel
-description is \Cref{prop:ch17-metric-picard}\,\cref{itm:ch17-pic:kernel}
-together with \Cref{prop:cld-c1-metric-change}.
+description follows directly from the local expression in
+\Cref{prop:ch17-c1-construction}.
 \end{proof}
 
 \subsection{Poincar\'e--Lelong for a metrized line bundle}
@@ -1377,7 +1440,7 @@ section, and
  \log\|s\|^{-1}=\log\|\varepsilon\|^{-1}-\log|f|
 \]
 on the locus where $f$ is invertible.  Both terms are locally integrable
-there---the first by hypothesis, the second by
+on $U$---the first by hypothesis, the second by
 \Cref{prop:ch15-log-current}---so $\log\|s\|^{-1}$ defines a current on
 $U$, namely $[\log\|\varepsilon\|^{-1}]-[\log|f|]$.  Applying
 $\dprimeddprime$ and using \Cref{thm:cld-poincare-lelong} for $f$ gives
@@ -1395,7 +1458,7 @@ left-hand side need not be defined, as \Cref{rem:ch15-nonregular} explains.
 \begin{corollary}
 \label{cor:ch17-curve-total-mass}
 \index{degree!and total curvature mass}
-Let $X$ be a proper $K$-analytic curve and let $L$ be a line bundle on
+Let $X$ be a proper pure one-dimensional $K$-analytic space and let $L$ be a line bundle on
 $X$ with a locally integrable semi-metric.  Then
 \[
  \int_{X}c_1(\overline L)=\deg L.
@@ -1439,7 +1502,8 @@ affine weight has curvature $\sum_v(\text{slope jump at }v)\,\delta_v$.
 $\lambda(t)=\max\{0,t\}$.  Its slope jumps by $1$ at $t=0$, that is,
 at $\zeta_{0,1}$, and by $0$ elsewhere; the branches at
 $T=0$ and $T=\infty$, and every branch off the standard apartment, carry
-constant weight.  Hence
+constant local frame weights after changing frames at $0$ and $\infty$.
+Hence
 \[
  c_1(\overline{\cO(1)}_{\mathrm{Weil}})=\delta_{\zeta_{0,1}},
  \qquad
@@ -1450,59 +1514,63 @@ weight is $d\lambda$ and $c_1=d\,\delta_{\zeta_{0,1}}$, of mass $d$.
 This is the $n=1$ case of \Cref{ex:ch17-support-projective} and reproves
 \eqref{eq:p1-standard-measure}.
 
-\emph{(b) A shifted formal metric.}  Fix $\pi\in K^{\times}$ with
-$|\pi|<1$ and put $\|\cdot\|'=\rme^{-u}\|\cdot\|_{\mathrm{Weil}}$ with
-$u=\min\{1,(-t)^{+}\}$.  This is the hat function of
-\eqref{eq:metrics-p1-blowup-hat}, but written in the coordinate of this
-example: \eqref{eq:metrics-p1-blowup-hat} is stated on the apartment
-parametrized by $v(T)$, and here $t=\log|T|=-v(T)$, so the two
-coordinates are negatives of one another and the hat must be reflected.  Its
-corner accordingly sits at $t=-1$, which under $v_K(\pi)=1$ is
-$\zeta_{0,|\pi|}$; writing $\min\{1,t^{+}\}$ would put it at
-$\zeta_{0,|\pi|^{-1}}$ instead.  The new
-weight is $\max\{0,t\}+\min\{1,(-t)^+\}$; its slope is $0$ for
-$t\le-1$, $-1$ on $[-1,0]$, and $1$ for $t\ge0$, with jumps
-$-1$ at $t=-1$ and $+2$ at $t=0$.  So
+\emph{(b) A shifted formal metric.}  Fix $\pi\in K^\times$ with
+$|\pi|<1$, put $a=-\log|\pi|>0$, and set
+$\|\cdot\|'=\rme^{-u}\|\cdot\|_{\mathrm{Weil}}$, where
 \[
- c_1(\overline L')=2\,\delta_{\zeta_{0,1}}-\delta_{\zeta_{0,|\pi|}},
+                         u=\min\{a,(-t)^+\}.
 \]
-of total mass $2-1=1=\deg\cO(1)$.  The measure is a signed measure: this
-metric is not psh, and indeed the model line bundle
-$\rho^*\cO(1)\otimes\cO(E)$ is not relatively nef.  The example is
-included precisely to show that \Cref{cor:ch17-curve-total-mass} is a
-statement about total mass, not about positivity.
-
-\emph{(c) The blowup metric of \Cref{ex:metrics-p1-blowup}.}  Take instead
-$\|\cdot\|''=\rme^{+u}\|\cdot\|_{\mathrm{Weil}}$, so that the weight is
-$\max\{0,t\}-\min\{1,(-t)^+\}=\max\{-1,t\}$ exactly, with no additive
-constant: for $t\le-1$ both terms give $-1$, on $[-1,0]$ the
-difference is $0-(-t)=t$, and for $t\ge0$ it is $t$.  The slope is
-$0$ for $t\le-1$ and $1$ for
-$t\ge-1$, with a single jump of $1$ at $t=-1$.  Hence
+This is the reflected hat of \eqref{eq:metrics-p1-blowup-hat}, expressed
+in the intrinsic coordinate $t=\log|T|$.  If one uses the normalized
+valuation $v_K(\pi)=1$, then $t=-a\,v_K(T)$; the two coordinates are
+negatives only when $a=1$.  The new weight is
+$\max\{0,t\}+u$.  Its slopes are $0$ on $t<-a$, $-1$ on
+$-a<t<0$, and $1$ on $t>0$.  The jumps are therefore $-1$ at
+$t=-a$ and $2$ at $t=0$, giving
 \[
- c_1(\overline L'')=\delta_{\zeta_{0,|\pi|}},
+ c_1(\overline L')=2\,\delta_{\zeta_{0,1}}
+                  -\delta_{\zeta_{0,|\pi|}}.
 \]
-of mass $1$.  This is exactly \Cref{ex:metrics-cl-p1-blowup}, computed
-there from intersection numbers on the blown-up model
-$\mathcal X'$; the two computations agree, which is the one-dimensional
-case of \Cref{thm:cld-recovers-cl}.
+Its mass is $1=\deg\cO(1)$.  The negative atom shows that this metric
+is not psh; the corresponding model line bundle
+$\rho^*\cO(1)\otimes\cO(E)$ is not relatively nef.
 
-\emph{(d) A metric that is not parlinear.}  Let
+\emph{(c) The blowup metric of \Cref{ex:metrics-p1-blowup}.}  Take
+$\|\cdot\|''=\rme^{u}\|\cdot\|_{\mathrm{Weil}}$.  Its weight is
+\[
+             \max\{0,t\}-\min\{a,(-t)^+\}=\max\{-a,t\}.
+\]
+The slope changes from $0$ to $1$ at $t=-a$, so
+\[
+                  c_1(\overline L'')=\delta_{\zeta_{0,|\pi|}},
+\]
+of mass $1$.  This agrees with the intersection calculation on the
+blown-up model in \Cref{ex:metrics-cl-p1-blowup}.
+
+\emph{(d) A real-PL metric that need not be rational parlinear.}  Set
 $\|\cdot\|_\theta=\rme^{-\theta u}\|\cdot\|_{\mathrm{Weil}}$ for
-$\theta\in\mathbf R$.  Its weight is
-$\max\{0,t\}+\theta\min\{1,(-t)^+\}$
-and
+$\theta\in\mathbf R$.  Its weight and curvature are
 \[
+ \phi_\theta=\max\{0,t\}+\theta\min\{a,(-t)^+\},\qquad
  c_1(\overline L_\theta)
- =(1+\theta)\delta_{\zeta_{0,1}}-\theta\,\delta_{\zeta_{0,|\pi|}},
+ =(1+\theta)\delta_{\zeta_{0,1}}
+       -\theta\delta_{\zeta_{0,|\pi|}}.
 \]
-of mass $1$ for every $\theta$.  For $\theta\notin\mathbf Q$ this
-metric is $\mathbf R$-parlinear but not $\mathbf Q$-parlinear, hence not
-a model metric in the sense of \Cref{chap:metrics}; nonetheless
-$c_1$ is defined, is a signed atomic measure, and has the right mass.  The
-metric is psh exactly for $-1\le\theta\le0$, which is the condition that
-both atoms be nonnegative---and, by \Cref{thm:ch17-psh-residual-nef}, the
-condition that the residual line bundles be nef.
+The mass is $1$ for every $\theta$.  An irrational $\theta$ produces
+an irrational slope on $(-a,0)$, so the metric is $\mathbf R$-PL
+but not rational parlinear and cannot be a rational model metric.
+Its weights remain dpsh, as real linear combinations of the two convex
+weights $\max\{0,t\}$ and $\max\{-a,t\}$.  More precisely,
+\[
+             \phi_\theta=(1+\theta)\max\{0,t\}
+                              -\theta\max\{-a,t\}.
+\]
+For $-1\le\theta\le0$ this is a convex combination of two psh
+weights and is psh.  Outside that interval the curvature has a
+negative atom, excluding pshness.  For rational $\theta$, the same
+condition can also be read as residual nefness after clearing
+denominators; no residual bundle is asserted here for an arbitrary
+real-PL metric.
 \end{example}
 
 \begin{remark}[Reading the four computations]
@@ -1568,15 +1636,17 @@ translates into the following analytic statement: if $s$ is an invertible
 section of $L$ near $x$, there are finitely many
 $a_1,\dots,a_m\in\cO_{X,x}^\times$ with
 \[
- \|s\|^{-1}=\max\{|a_1|,\dots,|a_m|\}
+ \|s\|^{-1}=\max\{r_1|a_1|,\dots,r_m|a_m|\}
 \]
-on a neighbourhood of $x$.  Indeed, global sections
+on a neighbourhood of $x$, for positive real constants $r_j$.
+This is the lifting criterion \cite[Corollary~17.4.12]{CLD25}.
+Indeed, global homogeneous sections
 $\sigma_1,\dots,\sigma_m$ of $\widetilde L_x$ generating it lift, after
 shrinking, to sections whose reductions are the $\sigma_j$, and the
 generation statement says exactly that the maximum of the corresponding
-absolute values computes the norm.  Now
-$\log\max_j|a_j|$ is the pullback of the convex function
-$\max_j t_j$ under the moment map $(a_1,\dots,a_m)$, so it is tropically
+absolute values, with their degree shifts $r_j$, computes the norm.  Now
+$\log\max_j r_j|a_j|$ is the pullback of the convex function
+$\max_j(\log r_j+t_j)$ under the moment map $(a_1,\dots,a_m)$, so it is tropically
 convex by \Cref{prop:ch16-tropically-convex}; hence the metric is
 tropically convex near $x$, and a tropically convex function is psh.
 \end{proof}
@@ -1605,30 +1675,18 @@ positivity half of \Cref{thm:ch17-formal-positivity} below, applied with
 $d=1$; we have separated the statements only because the general case
 requires the residual intersection theory of \Cref{sec:ch17-formal}.
 
-\cref{itm:ch17-nef:nef}$\Rightarrow$\cref{itm:ch17-nef:psh}.  Let
-$(V,M)$ be a premodel of $\widetilde L_x$; since $X$ is boundaryless,
-$V$ is proper, and by Chow's lemma we may assume $V$ projective.  Choose
-an ample $M'$ on $V$.  There is a compact neighbourhood $U$ of $x$
-and a strictly parlinear metric on the trivial bundle $\cO_U$ whose
-residual bundle at $x$ is $M'$; write $h=\log\|1\|^{-1}$ for its
-weight, a tropically convex, hence psh, function by
-\Cref{prop:ch17-globally-generated-psh} applied to a power of $M'$.
-
-For $\varepsilon>0$ let $\|\cdot\|_\varepsilon
-=\rme^{-\varepsilon h}\|\cdot\|$ on $L|_U$.  As
-$\varepsilon\downarrow0$ these converge uniformly on $U$ to the given
-metric, so by \Cref{prop:ch15-uniform-limit} it suffices to show that
-$\|\cdot\|_\varepsilon$ is psh for rational $\varepsilon$.  Write
-$\varepsilon=m/N$ with $m,N\ge1$.  Then
-$(\|\cdot\|_\varepsilon)^{\otimes N}$ is a strictly parlinear metric on
-$L^{\otimes N}|_U$ whose residual bundle at $x$ has premodel
-$(V,M^{\otimes N}\otimes(M')^{\otimes m})$.  Since $M$ is nef and
-$M'$ ample, the Nakai--Moishezon criterion makes
-$M^{\otimes N}\otimes(M')^{\otimes m}$ ample, in particular globally
-generated after a further power; \Cref{prop:ch17-globally-generated-psh}
-then gives pshness of $(\|\cdot\|_\varepsilon)^{\otimes N}$ near $x$,
-hence of $\|\cdot\|_\varepsilon$.  This is
-\cite[Proposition~17.8.4 and Corollary~18.8.8]{CLD25}.
+\cref{itm:ch17-nef:nef}$\Rightarrow$\cref{itm:ch17-nef:psh} is the
+nef-to-psh implication of \cite[Corollary~18.8.8]{CLD25}, which applies
+to integral parlinear metrics on a boundaryless space.  Its residual
+geometric input is easy to identify.  A proper premodel $(V,M)$ can be
+made projective; if $A$ is ample and $M$ nef, then
+$M^{\otimes N}\otimes A^{\otimes m}$ is ample for $m,N\ge1$.
+The lifting theorem and \Cref{prop:ch17-globally-generated-psh}
+therefore give the psh perturbations used in the published local
+argument \cite[Proposition~17.8.4]{CLD25}.  We invoke the cited local
+conclusion here: applying a uniform-limit theorem requires a common
+neighbourhood, and pshness on a possibly different neighbourhood for
+each perturbation would not by itself suffice.
 \end{proof}
 
 \subsection{Global psh metrics, and the gap}
@@ -1699,12 +1757,26 @@ $p^*\cO(1)\simeq\mathfrak L^{\otimes d}$; the induced metric on
 $L^{\otimes d}$ is then $p^*$ of the Weil metric, so it is globally psh,
 and hence so is $\overline L$.
 
-\cref{itm:ch17-gpsh:dpsh}.  The parlinear decomposition used in
-\cite[Corollary~17.8.9]{CLD25} places the metric, after passage to a common
-projective formal model, as the quotient of two formal metrics carried by
-ample line bundles.  Each factor is globally psh by
-\cref{itm:ch17-gpsh:semiample} and
-\cite[Corollary~17.8.7]{CLD25}; hence their quotient is globally dpsh.
+\cref{itm:ch17-gpsh:dpsh} is \cite[Corollary~17.8.9]{CLD25}.
+For a formal metric its decomposition has a concrete model proof.
+Pass to a projective formal model and choose an ample formal line bundle
+$\mathfrak A$ so that both $\mathfrak A$ and
+$\mathfrak L\otimes\mathfrak A$ are ample.  Their generic-fibre
+metrics are globally psh by \cref{itm:ch17-gpsh:semiample}, and their
+quotient is the given metric.
+
+For a rational formal metric choose $N\ge1$ such that the metric on
+$L^{\otimes N}$ is represented by $\mathfrak L$.  Choose
+$\mathfrak A$ ample enough that
+$\mathfrak L\otimes\mathfrak A^{\otimes N}$ is ample as well.
+The existing analytic bundle $L\otimes A$ then receives the $N$-th-root
+metric from this formal metric on $(L\otimes A)^{\otimes N}$.
+Taking $N$-th roots of its smooth psh approximants shows that this
+metric is globally psh.  Its quotient by the formal metric on $A$
+is the original metric on $L$.  The general parlinear assertion is
+imported from the cited corollary; neither this tensor-power argument
+nor the formal comparison theorem identifies arbitrary real constants
+with formal weights.
 \end{proof}
 
 For a general continuous metric, positivity of the current is a necessary
@@ -1821,8 +1893,9 @@ multilinear in the $\overline L_i$, and:
  it is positive when all the metrics are psh and $T\ge0$;
 \item\label{itm:ch17-prod:skel}
  it is skeletal when all metrics are parlinear and $T$ is skeletal, and
- in general, if all the metrics are tropically $d$-convex, its support is
- locally contained in a skeletal subset of $X$.
+ for $T=\delta_X$ and tropically $d$-convex metrics, each trace
+ against a compactly supported smooth complementary form is a signed
+ Radon measure locally supported in a skeletal subset of $X$.
 \end{enumerate}
 \end{proposition}
 
@@ -1846,8 +1919,9 @@ $u_1$ is dpsh.
 \cref{itm:ch17-prod:bt} and \cref{itm:ch17-prod:pos} are
 \Cref{prop:bt-current-stability} and
 \Cref{prop:ch16-iterate-basic}\,\cref{itm:ch16-iter:posclosed}.
-\cref{itm:ch17-prod:skel}: for parlinear metrics this is
-\Cref{thm:ch16-skeletal-product}, and the general support statement is
+\cref{itm:ch17-prod:skel}: with skeletal $T$, iterate
+\Cref{thm:ch16-skeletal-product}.  The trace statement with
+$T=\delta_X$ is
 \Cref{prop:ch16-skeletal-support}, applicable because a tropically
 $d$-convex metric has tropically $d$-convex weights.
 \end{proof}
@@ -2114,8 +2188,11 @@ Fix $x\in X$; we show that near $x$ the product is $\lambda_x\delta_x$
 for some real $\lambda_x$, vanishing if $x\notin S$.  Choose a premodel
 $(V,M_1,\dots,M_n)$ of $(\widetilde{L_{1,x}},\dots,\widetilde{L_{n,x}})$
 with $\dim V$ minimal, that is, equal to the simultaneous residual
-dimension of definition.  By multilinearity and the polarization identity we
-may assume all the $M_i$ equal to one globally generated $M$, so that
+dimension of definition.  Express each $M_i$ as a difference of globally
+generated line bundles on a common projective modification, using
+\cite[\S10.3.7]{CLD25}, and lift these decompositions to metrized germs
+by \cite[Theorem~17.4.9]{CLD25}.  Multilinearity followed by
+polarization reduces the computation to one globally generated $M$, so that
 near $x$ all the $\overline L_i$ are one metrized bundle
 $\overline L$.  By the global-generation description used in the proof of
 \Cref{prop:ch17-globally-generated-psh}, there are an invertible section
@@ -2129,7 +2206,7 @@ that
 near $x$.  Thus the weight is the pullback of a convex piecewise affine
 function under the moment map $a=(a_1,\dots,a_m)$, and the local
 Monge--Amp\`ere computation for such a function
-(\Cref{ex:ch16-fan-p2} and the general statement quoted there) shows that
+\cite[Proposition~8.9.4]{CLD25} shows that
 $c_1(\overline L)^n$ is $\lambda_x\delta_x$ near $x$, the coefficient
 being the tropical-cone invariant of the moment $a$ at $x$.
 
@@ -2139,8 +2216,8 @@ $\dim V<n$, and the relations $\widetilde{a_i}/\widetilde{a_j}\in
 $(a_i/a_1)_i$ to be $<n$, by the tropical-dimension formula
 \Cref{thm:trop-dimension-formula}.  A convex piecewise affine function
 pulled back from a tropical set of dimension $<n$ has vanishing $n$-fold
-Monge--Amp\`ere measure, since its subgradient image is contained in a
-proper affine subspace; hence $c_1(\overline L)^n=0$ near $x$.  This is
+Monge--Amp\`ere measure by that same local top-degree tropical
+calculation; hence $c_1(\overline L)^n=0$ near $x$.  This is
 \cite[Proposition~18.4.3]{CLD25}.
 \end{proof}
 
@@ -2170,10 +2247,13 @@ $V_j\ni x$ covering a neighbourhood of $x$ on which each $L_i$ has a
 section whose norm lies in $\rho_{ij}|\cO^\times(V_j)|$.  Let $r$ be a
 finite polyradius containing all the $\rho_{ij}$ and a generating system
 of $(|\cH(x)^\times|/|K^\times|)\otimes\mathbf Q$, and let $K_r$ be the
-corresponding complete extension.  Pulling back to $X_r=X\times_KK_r$ and
-using \Cref{prop:ch17-product-pushforward}\,\cref{itm:ch17-pf:base}, the mass
-$\lambda_x$ equals the mass at the Shilov section $\sigma(x)$ of the
-product upstairs; and the metrics become strictly integral parlinear.  The
+corresponding complete extension.  On the pullback $X_r=X\times_KK_r$,
+the Shilov-support theorem \cite[Proposition~16.8.2]{CLD25}
+places the support of the pulled-back product on $\sigma(S)$, where
+$S$ is the support downstairs.  Together with
+\Cref{prop:ch17-product-pushforward}\,\cref{itm:ch17-pf:base}, this shows
+that $\lambda_x$ equals the mass at the Shilov section $\sigma(x)$ of
+the product upstairs; and the metrics become strictly integral parlinear.  The
 factors $m(x)$ and $\mathrm{def}_K(x)$ are unchanged by this extension,
 which is analytically separable.
 
@@ -2184,9 +2264,13 @@ must show that $\lambda_x$ is the graded degree.  As in
 \Cref{thm:ch17-atomic-support} one reduces to a single $\overline L$ with
 globally generated residual bundle and
 $\|s\|^{-1}=\max_i|f_i|$, $|f_i(x)|=1$.  Because $d_K(x)=n$, the local
-ring $\cO_{X,x}$ is an artinian reduced ring, hence a field, so $X$ is
-smooth near $x$ and may be replaced by the analytification of a smooth
-affine $K$-variety on which the $f_i$ are units.  Let $(V,M)$ be a
+ring $\cO_{X,x}$ is an artinian reduced ring, hence a field and therefore regular.  Over the algebraically closed
+base this gives geometric regularity; boundarylessness then gives
+smoothness near $x$.  The local algebraization used in
+\cite[Proposition~18.4.5]{CLD25} permits replacement by a smooth
+affine $K$-variety, after approximating the finitely many $f_i$ by
+algebraic units with the same graded reductions at $x$.  These
+approximations preserve the local norm formula and tropical cones.  Let $(V,M)$ be a
 proper model of $\bigl(\widetilde{(X,x)},\widetilde L_x\bigr)$, and let
 $\xi\in V^{\An}$ be the point given by the trivial absolute value on
 $\widetilde K(V)$, so that $\widetilde{\cH(\xi)}=\widetilde{\cH(x)}$.
@@ -2209,8 +2293,8 @@ upstairs and summing over the fibre of $x$, the combinatorial count of the
 graded degrees over the fibre produces exactly the factor
 $m(x)\mathrm{def}_K(x)$ and converts the sum of graded degrees over
 $\widetilde{\cH(y)}$ into the single graded degree over
-$\widetilde{\cH(x)}$.  Integrality is then visible from
-\eqref{eq:ch17-atomic-mass}, all three factors being integers.
+$\widetilde{\cH(x)}$.  The integrality of the resulting coefficient is part of
+\cite[Theorem~18.4.7]{CLD25}.
 \end{proof}
 
 \begin{corollary}
@@ -2293,8 +2377,9 @@ The nonzero coefficients form a closed discrete family, so the right-hand
 side is locally finite.
 \end{theorem}
 \begin{proof}
-Put the integral PL metrics on a common formal model of $X$ and dominate its
-pullback by a formal model of $Y$.  On a residual chart, the mixed Chern
+Work on common residual charts of the integral PL metrics.  These charts
+exist without a strictness assumption or a formal model over the original
+field.  On such a chart, the mixed Chern
 product is computed by intersecting the residual line bundles.  Its
 top-dimensional components lie over the generic points represented by
 $X^\#$; the coefficient over such a point $x$ is precisely $\lambda_x$.
@@ -2473,7 +2558,8 @@ atom: the vertex of the fan corresponds to the Gauss point.
 \label{sec:ch17-defects}
 
 We now state the current CLD theorem in a form that displays its
-hypotheses.  Let $\mathfrak X$ be a flat formal $K^\circ$-scheme,
+hypotheses.  Let $\mathfrak X$ be a flat, separated, quasi-paracompact
+formal $K^\circ$-scheme,
 locally topologically of finite presentation and pure of relative dimension
 $n$.  Assume that its generic fibre $X$ is boundaryless.  Let
 $\mathfrak L_1,\ldots,\mathfrak L_n$ be line bundles on
@@ -2568,7 +2654,7 @@ corner currents is their residual intersection degree
                             c_1(\mathfrak L_{n,s}).
 \]
 The comparison between lattice-normalized tropical volume and the residual
-degree contributes three finite factors: the length of the analytic
+degree contributes three factors: the length of the analytic
 component, the geometric defect, and the graded residue-field degree.  Their
 product is, by definition, $\epsilon_{\mathfrak X}(x)$.  Summing the local
 corner products therefore gives the formula in the statement.  Common
@@ -2578,12 +2664,14 @@ local finiteness of the measure.
 
 If $\mathfrak X$ is proper, integrate the formula.  The residual projection
 formula sums the graded local degrees, with the same defect factors, to the
-intersection of the $\mathfrak L_{i,s}$ against the fundamental cycle of the
-special fibre.  This proves the mass assertion.  The graded-reduction
+intersection of the $\mathfrak L_{i,s}$ against
+$\operatorname{cycle}(\mathfrak X)$.  This proves the mass assertion.
+The graded-reduction
 comparison and its defect ledger are
 \cite[Theorem~18.5.5]{CLD25}.  In the geometrically reduced case the defect
-and graded residue factors are one; over a discrete valuation ring the
-remaining analytic length is the usual component multiplicity.
+and graded residue factors are one.  In the reduced, relatively normal
+discrete-valuation case $m(x)=\mathrm{def}_K(x)=1$, while
+$\lambda_{\mathfrak X}(x)$ is the special-fibre component multiplicity.
 \end{proof}
 
 \begin{proof}[Second proof of the support and mass statements]
@@ -2727,11 +2815,16 @@ topologically of finite presentation, and integrally closed in $A_K$; we
 may assume $\mathfrak X$ equidimensional of dimension $d$.  Then
 $X=\mathcal M(A_K)$ is equidimensional of dimension $d$ and reduced, so
 its non-normal locus $Z$ is a Zariski-closed subset of dimension $<d$.
-The point $x$ we shall construct has
-$\operatorname{tr.deg}(\widetilde{\cH(x)}/\widetilde K)=d$, so it does not
-lie in $Z$, and $\xi$ does not lie in the image
-$\operatorname{red}(Z)$---a constructible, indeed closed, set of dimension
-$<d$ by Chevalley's theorem and finiteness of the reduction of an affinoid.
+Every point $y$ reducing to $\xi$ has ordinary residue transcendence
+degree $d$: the function field of the component embeds in
+$\widetilde{\cH(y)}^1$, and the Abhyankar inequality gives the opposite
+bound.  No such $y$ lies in $Z$, so $\xi$ does not lie in
+$\operatorname{red}(Z)$.  This image is closed: the reduction map
+factors through the canonical reductions of $Z$ and $X$, and the
+resulting maps to the formal special fibre are finite.  Its dimension is
+$<d$, since the residue transcendence degree of every point of $Z$
+is at most its Abhyankar dimension and hence $<d$.  These are the
+reduction facts used in \cite[Proposition~18.5.8]{CLD25}.
 Shrinking, we may assume $X$ integral and normal; then $A$ is a normal
 domain with fraction field $\mathcal K$.
 
@@ -2797,7 +2890,8 @@ intersection numbers]
 \index{special fibre!multiple component}\index{defect factor!computed}
 Let $K$ be discretely valued with uniformizer $\pi$, $v_K(\pi)=1$, let
 $X=\mathbf P^1_K$ with coordinate $T$, and let $L=\cO(1)$, so
-$\deg L=1$.
+$\deg L=1$.  For the numerical weights in this example normalize the
+absolute value by $-\log|\pi|=1$, so $v_K=-\log|\cdot|$.
 
 \emph{The model.}  Let $\mathcal X'\to\mathbf P^1_{K^\circ}$ be the blowup
 of the closed point $p=\{\pi=T=0\}$ of the special fibre, as in
@@ -2969,9 +3063,9 @@ Chambert--Loir measure constructed from the same model.
 \begin{proof}
 Pass to the formal completion of $\mathcal X$ along its special fibre.
 Relative normality gives one analytic point $x_Y$ over the generic point of
-each component.  In the discretely valued calculation, the product of the
-defect factor in \Cref{thm:cld-formal-intersection} and the fundamental
-cycle coefficient is the scheme-theoretic multiplicity $b_Y$.  Applying
+each component.  In the discretely valued calculation, the defect factor in
+\Cref{thm:cld-formal-intersection} is itself the fundamental-cycle
+coefficient $b_Y$ by \Cref{prop:ch17-defect-dvr}.  Applying
 that theorem to $\mathcal L_i$, and using multilinearity under the tensor
 powers $m_i$, gives \eqref{eq:cld-chambert-loir-formula}.  Chambert--Loir's
 definition is the right-hand side, so the two measures agree.  This final
@@ -3072,19 +3166,20 @@ Two delimitations.
 $\mathbf Q$-model metrics, with no positivity assumption; the measure is
 signed in general.  The extension to \emph{continuous semipositive} metrics
 is \Cref{thm:ch17-cl-continuous} below and requires a limit argument on both
-sides.  Beyond that---for arbitrary bounded or finite-energy psh
-metrics---the two theories genuinely diverge, and the delimitation is the
-one drawn in \Cref{sec:ch16-local-vs-global}.
+sides.  For bounded or finite-energy psh metrics, further product constructions
+and comparison theorems are required, with scopes delimited in \Cref{sec:ch16-local-vs-global}.
 
-\emph{(ii) It is a statement over a discretely valued field.}  Over a
-general complete field there is no Chow-theoretic degree on the special
-fibre of an admissible formal model of arbitrary rank, which is exactly why
-\Cref{sec:metrics-cl-measure} restricted to the discretely valued case.  The
-CLD side, by contrast, is defined in complete generality; the correct
-general statement is \Cref{thm:cld-formal-intersection}, in which the
-Chow-theoretic degree on $\mathfrak X_s$ is replaced by a graded degree
-and the multiplicity $b_Y$ by the defect factor
-$\epsilon_{\mathfrak X}$.
+\emph{(ii) Its component normalization uses a discrete valuation.}
+The special-fibre components are proper varieties over the residue field
+and have ordinary Chow-theoretic degrees over a general ground field as
+well.  What changes is the cycle coefficient and the possibility of
+several analytic points over one component.  The general formula
+\Cref{thm:cld-formal-intersection} still uses those component degrees,
+multiplied by $\epsilon_{\mathfrak X}(x)$.  Graded intersection theory
+explains that coefficient; it does not remove the ordinary degree from
+the formula.  Replacing the coefficient by the scheme-theoretic
+multiplicity $b_Y$ requires the hypotheses of
+\Cref{prop:ch17-defect-dvr}.
 \end{remark}
 
 \begin{corollary}
@@ -3191,18 +3286,16 @@ $(L_1\cdots L_n)_X$ by \Cref{cor:ch17-cl-mass}, and mass is continuous
 under weak convergence of positive measures on a compact space.
 \end{proof}
 
-\begin{warning}{Semipositivity is not decoration here}
-The proof used semipositivity twice, and neither use can be removed by an
-easy argument.  It was used to know that the limit metric is psh, so that
-the Bedford--Taylor recursion applies at all; and it was used to know that
-weak convergence of the approximating measures is convergence of
-\emph{positive} measures, so that no mass escapes.  For a continuous metric
-that is merely a uniform limit of arbitrary model metrics, the sequence
-$\bigwedge_ic_1(\overline L_{i,j})$ is a sequence of signed measures of
-bounded total variation only under an extra hypothesis, and
-\Cref{ex:ch17-weil-curvature}\,(b) already shows that the individual
-measures need not be positive.  The correct general statement in that
-regime is not a theorem of this chapter.
+\begin{warning}{Why semipositivity enters the limit argument}
+Semipositivity supplies continuous psh local weights and the
+Bedford--Taylor continuity theorem for their uniformly convergent
+approximants.  An arbitrary uniform sequence of model metrics can have
+signed curvature measures with unbounded total variation, and need not
+supply a continuous dpsh limit to which that theorem applies.
+Positivity is therefore a hypothesis of the construction and continuity
+argument.  Once weak convergence of finite signed measures on the compact
+space is known, their total masses also converge by testing against $1$;
+that last step does not require positivity.
 \end{warning}
 
 \section{Checking the recovery against the model computations}
@@ -3223,7 +3316,8 @@ dimensions one and two, and we verify the total mass $(L^n)$ each time.
 \label{ex:ch17-check-p1}
 \index{Chambert--Loir measure!verified against CLD}
 Let $K$ be discretely valued with uniformizer $\pi$, $v_K(\pi)=1$, and
-let $X=\mathbf P^1_K$, $L=\cO(1)$, so $(L)=\deg L=1$.  Let
+let $X=\mathbf P^1_K$, $L=\cO(1)$, so $(L)=\deg L=1$.  Put
+$a=-\log|\pi|>0$.  Let
 $\rho:\mathcal X'\to\mathbf P^1_{K^\circ}$ be the blowup of the closed
 point $p$ of the special fibre given by $T\equiv0$, and let
 $\mathcal L'=\rho^*\cO(1)\otimes\cO_{\mathcal X'}(-E)$.
@@ -3240,7 +3334,7 @@ $x_E=\zeta_{0,|\pi|}$, of total mass $1$.
 
 \emph{The CLD side.}  \Cref{ex:metrics-p1-blowup} identifies the weight of
 the metric $\|\cdot\|_{\mathcal L'}$ in the frame $Z_0$ as
-$\max\{-1,\log|T|\}$; this is precisely the metric
+$\max\{-a,\log|T|\}$ in the intrinsic logarithmic coordinate; this is precisely the metric
 $\|\cdot\|''$ of \Cref{ex:ch17-weil-curvature}\,(c), whose curvature was
 computed there from slopes alone:
 \[
@@ -3267,7 +3361,8 @@ identity.
 $\mathcal C^{(2)}=\{XY=\pi^2Z^2\}$ with semistable chain model
 $\widetilde{\mathcal C}$, special fibre the chain $C_0,E,C_2$ with all
 multiplicities one, skeleton $\Gamma=[0,2]$, and $L=\cO(1)|_C$ of degree
-$2$.  For a vertical divisor $D=a_0C_0+a_1E+a_2C_2$ it computes
+$2$.  Normalize $-\log|\pi|=1$ in the following numerical weights.
+For an integral vertical divisor $D=a_0C_0+a_1E+a_2C_2$ it computes
 \begin{equation}
 \label{eq:ch17-chain-cl}
  c_1(L,\|\cdot\|_{\mathcal L})
@@ -3298,7 +3393,8 @@ $\mathcal L_0$ has fibre degrees $1,0,1$.  Adding gives exactly
 \[
  (1+a_1-a_0)+(a_0+a_2-2a_1)+(1+a_1-a_2)=2=\deg_CL=(L),
 \]
-for every $(a_0,a_1,a_2)$, as \Cref{cor:ch17-cl-mass} and
+for every integral $(a_0,a_1,a_2)$, and by multilinearity also for
+rational divisors and real model-function combinations, as \Cref{cor:ch17-cl-mass} and
 \Cref{thm:ch17-degree} both require: the $a_i$ cancel because the
 Laplacian of a function on a compact graph has total mass zero, which is the
 one-dimensional case of
@@ -3321,11 +3417,12 @@ nonnegativity is convexity of $\varphi$ at the interior vertex.
 \begin{example}[Verification in dimension two]
 \label{ex:ch17-check-toric-surface}
 \index{Chambert--Loir measure!computed on a toric surface}
-This is the example the plan for the chapter singles out, so we carry it
-through both computations in full.
+We compare a toric Monge--Amp\`ere calculation with the intersection
+calculation on the blowup model.
 
 \emph{The data.}  Let $K$ be discretely valued with $v_K(\pi)=1$, let
-$X=\mathbf P^2_K$ with homogeneous coordinates $Z_0,Z_1,Z_2$ and torus
+$-\log|\pi|=1$, and let $X=\mathbf P^2_K$ with homogeneous
+coordinates $Z_0,Z_1,Z_2$ and torus
 coordinates $x=Z_1/Z_0$, $y=Z_2/Z_0$, and let $L=\cO(1)$, so that
 $(L^2)=1$.  Consider the Fubini--Study metric attached to the three
 sections $s_0=\pi Z_0$, $s_1=Z_1$, $s_2=Z_2$ with zero weights.
@@ -3339,18 +3436,18 @@ by \eqref{eq:metrics-toric-weight}.  This is a convex piecewise affine
 function of $u\in\mathbf R^2$, so
 \Cref{prop:ch16-tropically-convex} makes the metric tropically convex, hence
 psh, and \Cref{thm:ch17-atomic-support} makes $c_1(\overline L)^2$ a
-locally finite atomic measure.  Its atoms sit at the points of the skeleton
-over which $F$ is not affine near which the subgradient image is
-two-dimensional: that is, at the vertices of the corner locus of $F$.  The
+locally finite atomic measure.  The toric comparison in \Cref{ex:ch16-toric-normalization}
+places its atoms on the toric Gauss section where the subgradient image
+is two-dimensional: that is, at the vertices of the corner locus of $F$.  The
 function $\max\{-1,-u_1,-u_2\}$ has exactly one vertex, at
-$u=(1,1)$, where all three affine pieces meet; the two rays
+$u=(1,1)$, where all three affine pieces meet; the three rays
 $\{u_1=u_2\le1\}$, $\{u_1=1\le u_2\}$, $\{u_2=1\le u_1\}$ emanating
 from it are edges, along which the subgradient image is one-dimensional and
 contributes nothing to the top product.  The mass at the vertex is the
 lattice volume of the subgradient image, which is the convex hull of the
-three gradients $(0,0)$, $(-1,0)$, $(0,-1)$; by the normalization
-\eqref{eq:appJ-alexandrov} recorded in \Cref{app:normalizations} and used in
-\Cref{ex:ch16-fan-p2}, that mass is
+three gradients $(0,0)$, $(-1,0)$, $(0,-1)$; the unscaled Alexandrov normalization
+\eqref{eq:appJ-alexandrov}, together with the CLD comparison factor $2!$
+of \Cref{ex:ch16-toric-normalization}, gives mass
 \[
  2!\cdot\vol\bigl(\operatorname{conv}\{(0,0),(-1,0),(0,-1)\}\bigr)
  =2\cdot\tfrac12=1 .
@@ -3437,13 +3534,14 @@ of $\pi Z_0,Z_1,Z_2$, hence a semipositive model metric by
 \Cref{prop:metrics-fs-model}; \Cref{thm:ch17-psh-residual-nef} then predicts
 that its curvature current is positive and that its residual line bundles
 are nef, both of which are visible in the computation:
-$F$ is convex, and the two special-fibre degrees $1$ and $0$ are
-nonnegative.  The vanishing degree on $\widetilde{X_s}$ is the
+$F$ is convex; the restrictions of the model bundle are $\cO(1)$ on
+$E$ and the globally generated class $h-e$ on the other component.
+Their self-intersections $1$ and $0$ alone would not prove nefness.  The vanishing degree on $\widetilde{X_s}$ is the
 two-dimensional analogue of the vanishing degree on the contracted component
 in \Cref{ex:ch17-check-chain}, and of the vanishing degree on
-$\widetilde C$ in \Cref{ex:ch17-check-p1}.  In all three examples the
-entire mass sits on the exceptional component, which is the component on
-which the model line bundle is relatively ample.
+$\widetilde C$ in \Cref{ex:ch17-check-p1}.  In the blown-up line and toric surface examples the entire mass sits
+on the exceptional component.  For the chain, its distribution depends
+on the chosen vertical divisor as in \eqref{eq:ch17-chain-cl}.
 \end{remark}
 
 \section{Bochner--Martinelli and Levine identities}
@@ -3469,7 +3567,7 @@ metrics.
 \subsection{Setting up the extension}
 \label{sec:ch17-bm-setup}
 
-Let $X$ be boundaryless of pure dimension $n$, let
+Let $X$ be boundaryless of pure dimension $n$, let $1\le d\le n$, and let
 $f_1,\dots,f_d$ be a regular sequence of analytic functions on $X$, and
 let $Y=V(f_1,\dots,f_d)$, of pure codimension $d$.  Put
 $U=X\setminus Y$ and $u=\log\max\{|f_1|,\dots,|f_d|\}$ on $U$, a
@@ -3547,8 +3645,10 @@ By definition of the differential of a current and
  =\bigl\langle u(\dprimeddprime u)^{d-1},\dprimeddprime\omega\bigr\rangle
  =\bigl\langle u(\dprimeddprime u)^{d-1},\dprimeddprime\omega|_U\bigr\rangle,
 \]
-the form $\dprimeddprime\omega|_U$ having compact support in $U$ because
-the extension is by zero.  On that compact support the continuous function
+the form $\dprimeddprime\omega|_U$ having compact support in $U$: its
+bidegree is $(n-d+1,n-d+1)$, whereas $d_K(y)\le n-d$ on $Y$,
+so \Cref{lem:ch14-extension-by-zero} makes it vanish on a
+neighbourhood of $Y$.  On that compact support the continuous function
 $\max_i|f_i|=\rme^{u}$ does not vanish, hence is bounded below by some
 $r_0>0$; so $u_r=u$ there for every $0<r\le r_0$.  For such $r$,
 \[
@@ -3599,7 +3699,9 @@ $\dprimeddprime[\log|f_1|]=\delta_{V(f_1)}$, which is
 truncated Poincar\'e--Lelong computation of
 \Cref{ex:ch14-line-model-function}, and no extension lemma is needed.
 
-For $d=n$, so that $Y$ is a finite set of rigid points, the identity says
+For $d=n$, the zero-dimensional space $Y$ is a locally finite set of
+rigid points, and only finitely many meet a compactly supported test.
+The identity then says
 that the $n$-fold Monge--Amp\`ere current of
 $\log\max\{|f_1|,\dots,|f_n|\}$---understood through the extension of
 \Cref{lem:ch17-bm-extension}---is the cycle $\sum_Pm_P\delta_P$, where
@@ -3664,16 +3766,21 @@ $L_a^{-1}\otimes L_b=\cO(-E)$ has no nonzero section.  \Cref{cor:ch15-pl-section
 \end{equation}
 
 Let $\widetilde\omega=\sum_{j=0}^{p-1}\widetilde\alpha^{p-1-j}
-\widetilde\beta^{j}$, a parlinear current of bidimension
-$(n-p+1,n-p+1)$; its support is contained in a compact parlinear subset of
-$\widetilde X$ by
-\Cref{prop:ch17-product-welldefined}\,\cref{itm:ch17-prod:skel}, hence meets
-no strict Zariski-closed subset, hence lies in $U'$.  So
-$\Lambda'=g^*h\cdot\widetilde\omega$ is defined, and
-$g_*\Lambda'=\Lambda$.  Multiplying
-\eqref{eq:ch17-levine-blowup} by $\widetilde\omega$, which is legitimate
-because both $\widetilde\alpha$ and $\widetilde\beta$ are curvature
-currents of parlinear psh metrics, gives
+\widetilde\beta^j$, of bidimension $(n-p+1,n-p+1)$.
+For each smooth test form $\eta$ of that complementary bidegree,
+$\widetilde\omega\wedge\eta$ is a signed Radon measure supported on
+a compact skeletal set determined by a common tropical atlas for the
+metrics and $\eta$.  That set misses $E$.  Thus define
+\[
+       \langle\Lambda',\eta\rangle
+          =\int_{U'}g^*h\;(\widetilde\omega\wedge\eta).
+\]
+The fixed-atlas support control makes this a continuous functional;
+it is the construction of \cite[\S18.7.4]{CLD25}.  It does not assert
+that the whole current $\widetilde\omega$ has a fixed compact support
+away from $E$.  Testing with $g^*\eta$ gives $g_*\Lambda'=\Lambda$.
+The extension-compatible Poincar\'e--Lelong product rule
+\cite[Proposition~18.3.9 and Theorem~18.7.5]{CLD25} then gives
 \[
  \dprimeddprime\Lambda'
  =(\widetilde\alpha-\widetilde\beta)\wedge\widetilde\omega
@@ -3692,7 +3799,8 @@ Pushing forward by $g$, which is birational, and using
 \Cref{prop:ch17-product-pushforward}\,\cref{itm:ch17-pf:proper}, it remains
 to identify $g_*(\widetilde\omega\wedge\delta_E)$ with $\delta_Y$.
 Restricting to $E$, a projective bundle of relative dimension $p-1$ over
-$Y$ on which $L_a$ is trivial and $L_b$ is the relative $\cO(1)$,
+$Y$, the line bundle $L_a$ is pulled back from $\cO_Y(1)$ and is
+trivial on each fibre, while $L_b$ has fibre restriction $\cO(1)$.  Thus
 the fibre integral of $\widetilde\omega|_E$ over a fibre $E_x$ is
 \[
  \sum_{j=0}^{p-1}\bigl(c_1(L_a)^{p-1-j}c_1(L_b)^{j}\cap[E_x]\bigr)
@@ -4294,7 +4402,7 @@ Let $(X,x)$ be a boundaryless germ of $K$-analytic space, and let
 $\overline L_1,\dots,\overline L_d$ be line bundles on $X$ with
 parlinear metrics.  Assume that
 $c_1(\overline L_1)\wedge\cdots\wedge c_1(\overline L_d)$ is positive and
-nonzero, and that $(X,x)$ admits a Zariski-closed subset of dimension
+nonzero, and that $(X,x)$ admits a Zariski-closed subgerm containing $x$ of dimension
 $d_K(x)$.  Then there is an immersion $\varphi:(Y,x)\hookrightarrow(X,x)$
 of a boundaryless germ of dimension $d$ such that
 $c_1(\varphi^*\overline L_1)\wedge\cdots\wedge c_1(\varphi^*\overline L_d)$
@@ -4371,8 +4479,8 @@ The integral above therefore equals
 \label{cor:ch17-curve-test}
 Let $(X,x)$ be a boundaryless germ and let $L$ be a line bundle with a
 parlinear psh metric such that $c_1(\overline L)\ne0$.  If $(X,x)$
-admits a Zariski-closed subset of dimension $d_K(x)$, then there is a germ
-of curve $(Y,x)$ in $(X,x)$ with $c_1(\overline L|_Y)\ne0$.
+admits a Zariski-closed subgerm containing $x$ of dimension $d_K(x)$,
+then there is a germ of curve $(Y,x)$ in $(X,x)$ with $c_1(\overline L|_Y)\ne0$.
 \end{corollary}
 
 \begin{proof}
@@ -4382,76 +4490,65 @@ Apply \Cref{thm:ch17-detect-subvariety} with $d=1$.
 \begin{example}[Detection on a subvariety, computed]
 \label{ex:ch17-detection-computed}
 Let $K$ be discretely valued, $X=\mathbf P^{2,\An}_K$, and let
-$\overline L=\overline{\cO(1)}$ carry the Weil metric.  Take $x$ to be
-the Gauss point $\eta_1$, so $d_K(x)=2$ and
-$\widetilde{\cH(x)}=\widetilde K(s,t)$ with $s,t$ the reductions of the
-torus coordinates $x_1/x_0$, $x_2/x_0$.
+$\overline L=\overline{\cO(1)}$ carry the Weil metric.  At the Gauss
+point $x=\eta_1$ one has $d_K(x)=2$, ordinary residue field
+$\widetilde{\cH(x)}^1=\widetilde K^1(s,t)$, and graded residue field
+$\widetilde{\cH(x)}=\widetilde K(s,t)$, with $s,t$ of degree one.
+The residual model is $(\mathbf P^2_{\widetilde K^1},\cO(1))$;
+its class is nef and nontrivial, and
+$c_1(\overline L)^2=\delta_x$.
 
-\emph{The curvature is nonzero.}  By
-\Cref{ex:ch17-projective-good-reduction}, $c_1(\overline L)^2
-=\delta_{\eta_1}\ne0$; and $c_1(\overline L)\ne0$ a fortiori.  The
-residual bundle at $\eta_1$ has premodel
-$(\mathbf P^2_{\widetilde K},\cO(1))$, so its class is nef and
-numerically nontrivial, as \Cref{thm:ch17-formal-positivity} predicts.
-
-\emph{The subvariety produced by the theorem.}  Apply
-\Cref{thm:ch17-detect-subvariety} with $d=1$, so $m=1$.  A fibration of
-$V=\mathbf P^2_{\widetilde K}$ with positive degree on the generic fibre
-is the linear projection $q:V\dashrightarrow\mathbf P^1_{\widetilde K}$
-from a point, resolved on the blowup $W\to V$; its generic fibre is a
-line, and $\int_{\text{line}}c_1(\cO(1))=1>0$.  Concretely, take
-$q$ to be given by $f=s\in\widetilde K(V)$, a coordinate of degree
-$1$.  Lift $f$ to the analytic unit $g=x_1/x_0$, take
-$r=1$, and set
+For $d=1$, resolve the projection $[x_0:x_1:x_2]\mapsto[x_0:x_1]$
+by blowing up $[0:0:1]$.  Its generic graded fibre is a projective
+line carrying degree $1$.  Analytically, put
+$H=\cH(\zeta_{0,1})$ for the Gauss point of the base projective line,
+and let $\tau\in H$ be the base coordinate, with $|\tau|=1$.
+The resolved fibre over that point is $\mathbf P^1_H$.  Its map to $X$
+is
 \[
- Y=g^{-1}(\eta_{1})
- =\{y\in\mathbf P^{2,\An}_K:\ |x_1/x_0|(y)=1
-    \text{ and }x_1/x_0\text{ is a Gauss point over }y\},
+       [u:v]\longmapsto[u:\tau u:v].
 \]
-which is the fibre of $x_1/x_0:\mathbf P^{2,\An}_K\dashrightarrow
-\mathbf A^{1,\An}_K$ over the Gauss point of the unit disc: a
-one-dimensional $\cH(\eta_1)$-analytic space, namely a projective line
-over the complete residue field $\cH(\eta_1)$.
+The blowup is an isomorphism near $x$, so this fibre gives the germ
+used in \Cref{thm:ch17-detect-subvariety}.  On the affine chart
+$x_0\ne0$ it is $\mathbf A^1_H$, the fibre of $x_1/x_0$ over the
+Gauss point; the full projective line belongs to the resolved projection.
+The equality $|x_1/x_0|=1$ alone would not specify that fibre.
 
-\emph{Verification.}  On that fibre, $\cO(1)|_Y$ is
-$\cO_{\mathbf P^1}(1)$ over $\cH(\eta_1)$ with its Weil metric, so by
-\Cref{ex:ch17-weil-curvature}\,(a),
+The pulled-back line bundle is $\cO_{\mathbf P^1_H}(1)$.  Its norm
+formula uses
+$\max\{|u|,|\tau u|,|v|\}=\max\{|u|,|v|\}$, so it has the Weil
+metric.  Hence
 \[
- c_1(\overline L|_Y)=\delta_{\zeta},\qquad
- \int_Yc_1(\overline L|_Y)=1=\deg\bigl(\cO(1)|_Y\bigr)\ne0,
+       c_1(\overline L|_{\mathbf P^1_H})=\delta_\zeta,
+       \qquad \int_{\mathbf P^1_H}c_1(\overline L)=1,
 \]
-where $\zeta$ is the Gauss point of $Y$.  So the restriction to a
-one-dimensional subvariety detects the positivity, with the same numerical
-value $1$ that \Cref{lem:ch17-detect-fibration} produced on the graded
-side.  The two $1$'s are the same number: the degree of $\cO(1)$ on a
-line in $\mathbf P^2_{\widetilde K}$, and the degree of the restricted
-metrized bundle on $Y$.
+where $\zeta$ is its Gauss point.  This detects the nonzero curvature
+with the same degree $1$ as the graded generic-fibre calculation.
+The curve is over the complete extension $H/K$; it is not a closed
+one-dimensional $K$-analytic subvariety through the maximal Abhyankar
+point $x$.
 
-\emph{What would go wrong without the Abhyankar hypothesis.}  Had we taken
-for $x$ a point with $d_K(x)=0$---a rigid point of
-$\mathbf P^{2,\An}_K$---the residual bundle would be defined over a
-zero-dimensional graded variety, the curvature current would vanish near
-$x$ by \Cref{thm:ch17-atomic-support}, and there would be nothing to
-detect.  The hypothesis that $(X,x)$ contains a Zariski-closed subset of
-dimension $d_K(x)$ is what allows the germ to be replaced by an
-$n$-dimensional one; whether it can be dropped is not known
+At a rigid point of $X$ the Weil metric has a zero-dimensional residual
+premodel, and \Cref{thm:ch17-formal-positivity} makes $c_1$ vanish
+near that point.  There is then no nonzero curvature germ to detect.
+Whether the Zariski-subgerm hypothesis in the detection theorem can be
+dropped remains open in the cited source
 \cite[Remark~18.9.6]{CLD25}.
 \end{example}
 
+\noindent\begin{minipage}{\textwidth}
 \begin{warning}{Detection is not a converse to the model construction}
 \Cref{thm:ch17-detect-subvariety} says that a nonzero positive parlinear
 product is visible on some $d$-dimensional subvariety, possibly after a
 complete valued extension of the base.  It does \emph{not} say that a
 positive current arises from a nef model, nor that pshness may be
-\emph{defined} by restriction to curves.  In the complex case those two
-further statements are true and are how pshness is usually characterized;
-here the first is answered by the counterexamples in the following warning,
-and the second
-fails for the class of curve-test psh functions of \cite{GR25Classical},
-which is compared with the CLD class in
+\emph{defined} by restriction to curves.  The local-to-global approximation questions are treated in the
+following warning.  The curve-test psh class of \cite{GR25Classical}
+is compared with the CLD class in
 \Cref{thm:cld-to-classical-psh,thm:gr-pl-comparison} and is not identified
 with it outside the parlinear case.
 \end{warning}
+\end{minipage}\par
 
 \begin{warning}{The two local-to-global questions are both negative}
 The first question in \cite[Remark~17.8.10]{CLD25} asks for global
@@ -4484,10 +4581,13 @@ continuity of ample-class envelopes.
 \subsection{From the objects of this chapter to their use}
 \label{sec:ch17-dict-forward}
 
-\begin{center}
+\begingroup
 \small
-\begin{tabular}{p{.27\textwidth}|p{.35\textwidth}|p{.30\textwidth}}
+\begin{longtable}{p{.27\textwidth}|p{.35\textwidth}|p{.30\textwidth}}
 \textbf{Object}&\textbf{Established property}&\textbf{First use}\\ \hline
+\endfirsthead
+\textbf{Object}&\textbf{Established property}&\textbf{First use}\\ \hline
+\endhead
 metric weight $\phi_e=-\log\|e\|$
  &frame ambiguity is $\log|g|$
   (\eqref{eq:cld-weight-change-frame})
@@ -4501,8 +4601,8 @@ smooth metric
   (\Cref{prop:ch17-smooth-existence},
    \Cref{prop:ch17-no-smooth-higher-rank})
  &\Cref{thm:ch17-degree}\\
-integral parlinear metric
- &formal, in the strict case
+strictly integral parlinear metric
+ &formal under the nontrivially valued, strict, paracompact hypotheses
   (\Cref{thm:cld-formal-pl-comparison})
  &\Cref{sec:ch17-formal}\\
 residual bundle $\widetilde L_x$
@@ -4510,11 +4610,11 @@ residual bundle $\widetilde L_x$
   (\Cref{lem:ch17-residual-formal})
  &\Cref{thm:ch17-atomic-masses}\\
 dimension of definition
- &high-dimension locus is discrete
+ &maximal-dimension locus is closed and discrete
   (\Cref{prop:ch17-dimdef-discrete})
  &\Cref{thm:ch17-atomic-support}\\
 first Chern current $c_1(\overline L)$
- &closed; positive iff residual nef
+ &closed; for integral PL metrics, positive iff residual nef
   (\Cref{thm:ch17-psh-residual-nef})
  &\Cref{chap:delta-forms}, \Cref{chap:compare-ma}\\
 Poincar\'e--Lelong for sections
@@ -4572,8 +4672,8 @@ fibre formal model
  &need not be globally dpsh
   (\Cref{prop:p082-formal-twistor-counterexample})
  &\Cref{prob:frontier-cld-global-metric}\\
-\end{tabular}
-\end{center}
+\end{longtable}
+\endgroup
 
 \subsection{From the later theory back to this chapter}
 \label{sec:ch17-dict-backward}
@@ -4602,7 +4702,7 @@ support of $c_1(\cO(1))^d$
  &reduction of dimension $\ge d$
  &\Cref{ex:ch17-support-projective}\\
 positivity detected on a curve
- &a line in $\mathbf P^2$, degree $1$
+ &a line over the base Gauss point's complete residue field, degree $1$
  &\Cref{ex:ch17-detection-computed}\\
 $\mathbf R$-parlinear, non-model metric
  &atoms $1+\theta$ and $-\theta$
@@ -4619,16 +4719,16 @@ $\mathbf R$-parlinear, non-model metric
 \textbf{Statement}&\textbf{Hypotheses that cannot be dropped}
  &\textbf{Where it breaks}\\ \hline
 \Cref{prop:ch17-c1-construction}
- &boundaryless; locally integrable weight
- &Green's formula acquires a flux term\\
+ &the chapter's boundaryless calculus; locally integrable weight
+ &a nonintegrable weight needs a separate extension construction\\
 \Cref{thm:ch17-degree}
  &$X$ proper and algebraic; dpsh metrics
  &nonalgebraic case needs
   \Cref{rem:ch17-integrality-analytic}\\
 \Cref{thm:ch17-atomic-support}
  &integral parlinear; boundaryless
- &an $\mathbf R$-parlinear metric still works after scaling, a
-  merely continuous one does not\\
+ &finite real combinations require multilinear expansion;
+  continuity alone does not supply this atomic formula\\
 \Cref{thm:cld-relative-ma}
  &generic flatness; $\dim X=m$
  &fibre dimension jumps and $u_\omega$ is not
@@ -4639,15 +4739,15 @@ $\mathbf R$-parlinear, non-model metric
  &components of $\mathfrak X_s$ fail to be proper\\
 \Cref{thm:cld-recovers-cl}
  &$K$ discretely valued; $\mathcal X$ relatively normal
- &several points over a generic point; no Chow degree\\
+ &several points over a generic point; defect coefficient replaces $b_Y$\\
 \Cref{thm:ch17-cl-continuous}
  &semipositivity
- &no psh limit, and mass may escape\\
+ &pshness and the Bedford--Taylor continuity hypotheses can fail\\
 \Cref{thm:cld-bochner-martinelli}
  &regular sequence
  &codimension and the extension-by-zero bound fail\\
 \Cref{thm:ch17-detect-subvariety}
- &Abhyankar: a Zariski-closed subset of dimension $d_K(x)$
+ &a Zariski-closed subgerm containing $x$ of dimension $d_K(x)$
  &not known to be removable
   \cite[Remark~18.9.6]{CLD25}\\
 \cref{thm:p081-corrected-curve-comparison}
@@ -4776,12 +4876,14 @@ form, positivity of that form is equivalent to pshness of the local weights,
 and pshness may be tested on curves.  All three statements have partial
 analogues here, and each degrades in a different way.  Smooth metrics exist
 only in rank one (\Cref{prop:ch17-no-smooth-higher-rank}), and the metrics
-that matter---the formal ones---are not smooth even then.  Positivity of the
-curvature current is equivalent to pshness only for parlinear metrics, where
-both are equivalent to a numerical condition on a residual bundle
-(\Cref{thm:ch17-psh-residual-nef}); for a general continuous metric the
-equivalence is not available, and the transfinite hierarchy of
-\Cref{def:ch15-hierarchy} is the reason.  The curve test survives as
+that matter---the formal ones---need not be smooth even then.
+For integral parlinear metrics, positivity of the curvature current,
+pshness, and residual nefness are equivalent
+(\Cref{thm:ch17-psh-residual-nef}).  The smooth case and the continuous
+smooth-proper-curve comparison have their own hypotheses; outside the
+proved comparison domains, a positive current does not by definition
+supply a CLD approximation.  The hierarchy of
+\Cref{def:ch15-hierarchy} records that approximation requirement.  The curve test survives as
 \Cref{cor:ch17-curve-test}, but only as a detection statement at an
 Abhyankar point and only for parlinear metrics; the curve-test psh functions
 of \cite{GR25Classical,GR25PL} form a genuinely different class, compared

@@ -32,7 +32,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--16 pass the new source, build,
+Current reading position: Chapters 1--17 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -48,8 +48,9 @@ reference, and rendered-page gates; see the
 [Chapter 12 audit](second_reading_ch12_audit_20261002.md),
 [Chapter 13 audit](second_reading_ch13_audit_20261002.md),
 [Chapter 14 audit](second_reading_ch14_audit_20261002.md),
-[Chapter 15 audit](second_reading_ch15_audit_20261003.md), and
-[Chapter 16 audit](second_reading_ch16_audit_20261003.md).
+[Chapter 15 audit](second_reading_ch15_audit_20261003.md),
+[Chapter 16 audit](second_reading_ch16_audit_20261003.md), and
+[Chapter 17 audit](second_reading_ch17_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -58,7 +59,12 @@ reader copies repair typography, the empty finite-set case and pagination.
 Chapter 15's earlier real-coefficient
 LFS descent correction and affected Chapter 72 scopes are also recorded in the
 [3 October correction audit](ch15_lfs_descent_scope_correction_audit_20261003.md).
-Chapter 17 is next. No later chapter is marked reread.
+Chapter 17's original 4,813-line main source and all seven inputs were
+freshly read. Metric classes, residual constructions, curvature and formal
+comparison, polar extensions and detection scopes were repaired. All 88
+chapter physical pages and two seams passed visual review; the seven input
+files remain byte-identical. Chapter 18 is next. No later chapter is marked
+reread.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and
