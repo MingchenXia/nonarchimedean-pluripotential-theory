@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--41 pass the new source, build,
+Current reading position: Chapters 1--42 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -80,7 +80,9 @@ reference, and rendered-page gates; see the
 [Chapter 38 audit](second_reading_ch38_audit_20261003.md), and
 [Chapter 39 audit](second_reading_ch39_audit_20261003.md), and
 [Chapter 40 audit](second_reading_ch40_audit_20261003.md), and
-[Chapter 41 audit](second_reading_ch41_audit_20261003.md).
+[Chapter 41 audit](second_reading_ch41_audit_20261003.md) and its
+[node-scope follow-up](second_reading_ch41_node_scope_followup_20261003.md), and
+[Chapter 42 audit](second_reading_ch42_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -175,9 +177,12 @@ sources, repaired engine/line-bundle/Gauss/error/comparison arguments and all
 52 chapter pages plus both seams were checked. Chapter 41 is now verified:
 its original 3,832 lines, complete diffs, scoped primary sources, repaired
 norm/openness/flattening/weight/class/pole arguments and all 56 chapter
-pages plus both seams were checked. Chapter 42 is active; all 3,216
-original lines freshly read before edits, with 35 repair candidates.
-No later unit is marked complete.
+pages plus both seams were checked. Its two node-scope follow-up paragraphs
+and affected pages were separately rechecked. Chapter 42 is now verified:
+its original 3,216 lines, complete diffs, scoped primary sources, repaired
+alteration/class/carrier/norm/scope arguments and all 48 chapter pages plus
+both seams were checked. Chapter 43 is active; all 3,538 original lines
+freshly read before edits. No later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and
