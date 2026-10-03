@@ -25,14 +25,17 @@ $\cE^1(\omega)$ out of the functionals $I$, $J_\psi$ and $J$, and
 solved the Monge--Amp\`ere equation $\MA_\omega(\phi)=\mu$ for every
 $\mu$ of finite dual energy; but it deliberately deferred, in
 \Cref{rem:ch47-strong-deferred}, three statements about the resulting
-topology.  This chapter is where those statements are made and where the
-deferred proofs are carried out or, when they are imported, isolated with
-an exact reference.
+topology. This chapter identifies the strong topology and proves its
+completeness, recording the published analytic inputs. For an ample
+line-bundle class, the genuine metric and norm-completion statement is
+deferred further to \Cref{thm:stability-norm-completion} in Chapter 50.
 
-The organizing idea is a single sentence.  \emph{The weak topology sees the
-values of a potential and the mass of a measure; the strong topology sees,
-in addition, one real number --- the energy --- and that number is exactly
-what is needed to make the Monge--Amp\`ere operator a homeomorphism.}
+Weak potential convergence records values at divisorial points; weak
+measure convergence records integrals against every continuous test
+function. The strong topologies also require convergence of the respective
+energies. Under the standing envelope property, the Monge--Amp\`ere map
+then induces a homeomorphism from potentials modulo constants to
+finite-energy measures.
 Everything else in the chapter is either a consequence of this, or the
 set-theoretic shadow of it: the capacity, which measures how much
 Monge--Amp\`ere mass a set can carry, and the three notions of smallness
@@ -60,11 +63,12 @@ available.  It is what makes $\PSH^{\sup}(\omega)$ compact
 calculus available.  Continuous PL regularization in a fixed real ample
 class is already supplied unconditionally by
 \Cref{thm:ch34-fs-regularization}; it is the engine of the
-quasicontinuity theorem below.  Over a discretely valued base one regularizes by
-\emph{model} functions and the corresponding argument
-(\Cref{thm:bounded-quasicontinuity}) has to work with a net of model
-metrics; here one regularizes by \emph{continuous psh} functions in the
-class itself, and the proof shortens accordingly.
+quasicontinuity theorem below. The proof uses a decreasing net of
+continuous PL psh functions in the fixed real ample class. The
+discretely valued argument in \Cref{thm:bounded-quasicontinuity} uses
+a net of model functions with its own regularization hypotheses.
+Both arguments select a sequence by controlling capacity errors;
+neither selection requires a countably cofinal model system.
 
 Third, the capacity is defined using probability measures and satisfies
 $\Capa_\omega(X^{\An})=1$.  This is the probability normalization
@@ -76,15 +80,18 @@ displays it.
 
 Fourth --- and this is the point at which the reader should be most
 careful --- the equivalence of pluripolarity, negligibility and vanishing
-outer capacity is \emph{not} proved here in its entirety.  Two of the six
-implications are imported from \cite{BJ22} with exact references, and
+outer capacity is \emph{not} proved here in its entirety.  Two source inputs are retained from \cite{BJ22}: negligible sets
+have zero outer capacity, and the general lower Alexander--Taylor
+bound turns zero outer capacity into infinite height. The marked
+cycle below distinguishes these inputs from the proved implications, and
 \Cref{sec:ch48-what-is-open} says in prose exactly which ones, why the
 arguments available here do not reach them, and what would have to be
 supplied.  The corresponding statement over a discretely valued base is
 strictly weaker: \Cref{cor:ch25-polar-negligible} gives one implication and
 \Cref{rem:ch25-curve-converse} records that the converse is unavailable
-there.  The gain in the trivially valued setting comes entirely from the
-envelope property.
+there. The general equivalence here uses the published
+envelope-dependent capacity theory, while the quasicontinuity proof
+below uses unconditional fixed-class regularization.
 
 \subsection{The five tasks}
 \label{sec:ch48-tasks}
@@ -392,7 +399,8 @@ $\cE^1(\omega)$, identifies it with the $\mathbb I$-topology, proves the
 monotone criteria, and states completeness.
 \Cref{sec:ch48-measures} does the same on the measure side.
 \Cref{sec:ch48-ma} proves the main theorem: $\MA_\omega$ is a
-bi-Lipschitz homeomorphism of the two strong spaces.
+bi-Lipschitz homeomorphism from potentials modulo constants to
+finite-energy measures.
 \Cref{sec:ch48-capacity} constructs the capacity and proves the estimates.
 \Cref{sec:ch48-quasicontinuity} proves quasicontinuity and its
 consequences, and discharges the step deferred from
@@ -517,8 +525,8 @@ That $\mathbb I$ is a symmetric, separating gauge satisfying the
 quasi-triangle inequality with constant $\max\{C_n,1\}$ is
 \Cref{prop:ch47-quasimetric}, and is not reproved.  What has to be shown is
 the equivalence of the two convergence notions.  We give the two
-implications separately, marking the single place where
-\Cref{imp:ch48-imported}\,\cref{itm:ch48-import:pairing} is used, and then,
+implications separately, identifying the quantitative and fixed-measure
+uses of \Cref{imp:ch48-imported}\,\cref{itm:ch48-import:pairing}, and then,
 in \Cref{sec:ch48-curve-case}, a proof for $n=1$ that replaces the general pairing estimates
 with the curve Dirichlet structure and its Green potentials.
 
@@ -761,8 +769,9 @@ $|\int\chi\,\rd(\mu-\nu)|\le\lVert\chi\rVert\,\lVert a-b\rVert$, valid for
 all $\chi$ in a fixed $J$-sublevel; it is what allows the limit in
 $i$ and the approximation of $\MA_\omega(\phi)$ by a finitely supported
 measure to be interchanged.  In general the analogous statement couples the
-potential gauge $I$ to the measure gauge $I^\vee$, with exponents
-$2^{-n}$ rather than $\tfrac12$, and is
+potential gauge $I$ with exponent $2^{-n}$ to the measure gauge
+$I^\vee$ with exponent $\tfrac12$, together with bounded-energy
+factors, as in \cite[Theorem~10.3]{BJ22}. This is
 \Cref{imp:ch48-imported}\,\cref{itm:ch48-import:pairing}.
 
 The second is that \emph{Monge--Amp\`ere measures of PL potentials, hence
@@ -783,25 +792,15 @@ compare the two error terms.
 
 \begin{proposition}\label{prop:bj-strong-monotone}
 Let $(\phi_i)$ be a monotone net in $\mathcal E^1$ with weak limit
-$\phi\in\mathcal E^1$.  Then $\phi_i\to\phi$ strongly.  If
-$\phi_i\leq\phi$ for all $i$, strong convergence is equivalent to
-$E(\phi_i)\to E(\phi)$.
+$\phi\in\mathcal E^1$. Then $\phi_i\to\phi$ strongly.
+For any net $(\psi_i)$ in $\mathcal E^1$ and fixed
+$\psi\in\mathcal E^1$ with $\psi_i\le\psi$ for every $i$,
+strong convergence to $\psi$ is equivalent to
+$E(\psi_i)\to E(\psi)$; no weak-convergence assumption is needed
+for this ordered criterion.
 \end{proposition}
 
 \begin{proof}
-For a decreasing net, this is continuity of energy along decreasing nets.
-For an increasing net, BJ's mixed-energy continuity theorem gives energy
-convergence; this is \cite[Theorem~12.5]{BJ22}.  Under
-$\phi_i\leq\phi$, the tangent inequality gives
-
-\[
- 0\leq J_\phi(\phi_i)
- \leq E(\phi)-E(\phi_i),
-\]
-
-which proves the last assertion by
-\Cref{thm:bj-strong-e1-quasimetric}.
-
 For a decreasing net, its infimum agrees with $\phi$ on
 $X^{\divis}$ and is not identically $-\infty$. Decreasing closure
 \Cref{thm:bj-basic-closure} makes that infimum $\omega$-psh.
@@ -816,29 +815,40 @@ $\phi=(\sup_i\phi_i)^*$ by
 \Cref{prop:ch45-obstacle-calculus-2}\,\cref{itm:ch45-P:divisorial}; energy
 convergence is
 \Cref{imp:ch48-imported}\,\cref{itm:ch48-import:increasing}.
+Together with the assumed weak convergence, this gives strong convergence
+by \Cref{lem:ch48-net-criterion}\,\cref{itm:ch48-net:criterion}.
 
-For the last assertion, $\phi_i\le\phi$ gives
-$J_\phi(\phi_i)\le E_\omega(\phi)-E_\omega(\phi_i)$ by
-\Cref{lem:ch47-IJ-elementary}\,\cref{itm:ch47-IJ:monotone}, hence
-$I(\phi_i,\phi)\le(n+1)\bigl(E_\omega(\phi)-E_\omega(\phi_i)\bigr)$ by
-\eqref{eq:bj-I-J-comparison}; this is \Cref{cor:ch47-monotone-I}.  If in
-addition $\phi_i\to\phi$ weakly, then
-$\sup\phi_i\to\sup\phi$ as in the proof of
-\Cref{thm:bj-strong-e1-quasimetric}, so
-$\mathbb I(\phi_i,\phi)\to0$ as soon as
-$E_\omega(\phi_i)\to E_\omega(\phi)$; the converse implication is
-\Cref{lem:ch48-net-criterion}\,\cref{itm:ch48-net:criterion}.
+For the ordered criterion, the I/J comparison and monotonicity give
+\[
+ I(\psi_i,\psi)\le(n+1)J_\psi(\psi_i)
+ \le(n+1)\bigl(E_\omega(\psi)-E_\omega(\psi_i)\bigr).
+\]
+Suppose the energies converge. Normalize
+$u_i:=\psi_i-\sup\psi_i$ and $u:=\psi-\sup\psi$.
+Translation invariance gives $\mathbb I(u_i,u)=I(\psi_i,\psi)\to0$,
+so \Cref{thm:bj-strong-e1-quasimetric} gives strong convergence of $u_i$
+to $u$, and hence $E_\omega(u_i)\to E_\omega(u)$. Consequently
+\[
+ \sup\psi_i=E_\omega(\psi_i)-E_\omega(u_i)
+ \longrightarrow E_\omega(\psi)-E_\omega(u)=\sup\psi.
+\]
+Thus $\mathbb I(\psi_i,\psi)\to0$. Conversely, strong convergence
+includes energy convergence by definition. This is
+\cite[Proposition~12.6]{BJ22}.
+
 \end{proof}
 
 \begin{warning}{The two monotone directions are not symmetric}
 \label{warn:ch48-monotone-asymmetry}
 Continuity of $E_\omega$ along \emph{decreasing} nets is
 \Cref{prop:ch46-energy-usc}\,\cref{itm:ch46-Eusc:decreasing}, proved in
-\Cref{chap:bj-energy} from the representation
-\Cref{prop:ch46-energy-usc}\,\cref{itm:ch46-Eusc:rep} of the energy as an
-infimum over dominating PL functions: an infimum of continuous functions of
-the argument is upper semicontinuous, and along a decreasing net the
-infimum is attained in the limit.  The corresponding statement for
+\Cref{chap:bj-energy} from PL domination and compact-Radon monotone integration. The
+representation
+\Cref{prop:ch46-energy-usc}\,\cref{itm:ch46-Eusc:rep}
+expresses the energy as an infimum of affine tangent functionals,
+continuous for divisorial pointwise convergence. It gives upper
+semicontinuity. Continuity along decreasing nets also uses the
+domination and monotone-limit argument in that proposition.  The corresponding statement for
 \emph{increasing} nets is
 \Cref{imp:ch48-imported}\,\cref{itm:ch48-import:increasing} and is
 \emph{not} proved here.  What monotonicity gives for free is only
@@ -846,16 +856,16 @@ $\sup_iE_\omega(\phi_i)\le E_\omega\bigl((\sup_i\phi_i)^*\bigr)$, and
 upper semicontinuity of $E_\omega$ points in the same direction, so it is
 of no help.  The same asymmetry, with the same explanation, is recorded
 over a discretely valued base after
-\Cref{prop:ch26-strong-basic}; the difference is that there the increasing
-statement is not available at all, whereas here it is a theorem of
-\cite{BJ22} whose hypothesis --- the envelope property --- we have.
+\Cref{prop:ch26-strong-basic}: Part III does not prove or use the
+general increasing-net continuity assertion. Here the assertion is
+supplied by \cite[Theorem~12.5]{BJ22} under the stated hypotheses.
 
-The asymmetry is not an artefact of the proofs.  An increasing net can lose
-its regularized supremum on a negligible set, and it is exactly the
-smallness of that set --- \Cref{thm:bj-small-set-equivalence} --- that
-makes the energies converge.  This is why
-\Cref{sec:ch48-small-sets} is logically downstream of nothing in
-\Cref{sec:ch48-potentials} but is used to explain it.
+The raw supremum of an increasing family can differ from its
+regularization on a negligible set. The small-set theory below explains
+why such exceptional sets matter for integration. The increasing-energy
+theorem itself remains the named published input; the proof of the
+potential convergence criterion does not depend on the later
+small-set equivalence.
 \end{warning}
 
 \begin{proposition}
@@ -993,16 +1003,21 @@ what makes the Calabi--Yau theorem \Cref{cor:bj-cy-unibranch} available for
 \emph{every} $\mu\in\cM^1(\omega)$, not merely for the admissible
 measures of \Cref{def:ch47-admissible-measure}, through the implication
 (4)$\Rightarrow$(2) of \Cref{thm:bj-cy-envelope-equivalence}; and it is
-what identifies $\cE^1(\omega)$ with the $d_1$-completion in
-\Cref{thm:stability-norm-completion}.
+part of the strong-theory input to the $d_1$-completion theorem
+\Cref{thm:stability-norm-completion} when $\omega=c_1(L)$ for an
+ample line bundle. That identification also uses the separate
+norm-metric results quoted there.
 \end{remark}
 
 \subsection{\texorpdfstring{$\mathbb I$}{I} is not a metric, and \texorpdfstring{$d_1$}{d1} is}
 \label{sec:ch48-not-a-metric}
 
-The strong topology is metrizable: \Cref{thm:stability-norm-completion}
-produces a metric $d_1$, coming from the norm geometry of graded
-filtrations, that induces it on $\cE^1(L)$ and on $\cM^1(L)$.  It is
+The quasi-metric induces a metrizable strong uniformity for every
+real ample $\omega$, as in \cite[Theorem~12.4]{BJ22}.
+For $\omega=c_1(L)$ with $L$ ample,
+\Cref{thm:stability-norm-completion} supplies the specific metric
+$d_1$ from the norm geometry of graded filtrations on
+$\cE^1(L)$ and $\cM^1(L)$.  It is
 therefore natural to ask whether $d_1$ can be taken to be
 $\mathbb I$.  It cannot, and the obstruction is elementary and explicit.
 
@@ -1017,8 +1032,8 @@ Fix $p\in X(k)$ and keep the family of
   I(\phi_c,\phi_{c'})&=(c-c')^2,&\sup\phi_c&=0.
  \end{aligned}
 \]
-Since all three suprema vanish, $\mathbb I=I$ on this family.  Take
-$\phi_1:=\phi_0=0$, $\phi_3:=\phi_{1/2}$, $\phi_2:=\phi_1$.  Then
+Since all suprema vanish, $\mathbb I=I$ on this family. For the
+three members $\phi_0=0$, $\phi_{1/2}$ and $\phi_1$, we have
 \[
  \mathbb I(\phi_0,\phi_1)=1,
  \qquad
@@ -1066,14 +1081,16 @@ is itself a metric, and
 square of a distance to within dimensional constants.  What is recorded is
 what is proved: $\mathbb I$ is a quasi-metric inducing the strong
 topology (\Cref{prop:ch47-quasimetric},
-\Cref{thm:bj-strong-e1-quasimetric}), and the strong topology is
-metrizable (\Cref{thm:stability-norm-completion}).
+\Cref{thm:bj-strong-e1-quasimetric}) and a metrizable strong uniformity.
+The specific $d_1$ construction in
+\Cref{thm:stability-norm-completion} retains its ample line-bundle
+hypothesis.
 \end{example}
 
 \begin{remark}[The comparison with $d_1$, stated exactly]
 \label{rem:ch48-d1-comparison}
-The metric $d_1$ and the quasi-metric $\mathbb I$ induce the same
-strong topology on the potential space, by
+For an ample line bundle $L$, the metric $d_1$ and the quasi-metric
+$\mathbb I$ induce the same strong topology on $\cE^1(L)$, by
 \Cref{thm:stability-norm-completion,thm:bj-strong-e1-quasimetric}.
 They have different numerical values: \Cref{ex:ch48-not-a-metric}
 shows that $\mathbb I$ fails the triangle inequality even on a curve.
@@ -1106,8 +1123,9 @@ It vanishes precisely at a solution of $\MA(\phi)=\mu$.
 The notation is consistent: when $\mu=\MA_\omega(\psi)$ for some
 $\psi\in\cE^1(\omega)$, the two meanings of $J_\mu$ and $J_\psi$
 agree.  The following proposition proves this and the other properties used
-below; all of them are formal consequences of the Legendre duality of
-\Cref{sec:ch47-dual}, and none needs an import.
+below. They use the Legendre identities and maximizer characterization
+already established in Chapter 47, with the published analytic inputs
+recorded there; they require no additional source theorem.
 
 \begin{proposition}
 \label{prop:ch48-defect-elementary}
@@ -1378,19 +1396,25 @@ class changes neither $\mathcal M^1$ nor its strong topology
 \cite[Corollary~9.21 and Proposition~10.16]{BJ22}.  The numerical energies
 and quasi-metrics do change, so no isometry is claimed.
 
-Concretely, if $\omega,\omega'\in\Amp(X)$ then there is $t>0$ with
-$t\omega\le\omega'\le t^{-1}\omega$, with the inequalities in the nef
-order and $t$ chosen sufficiently small. The source comparison gives
-comparable dual energies and strong gauges, with constants depending on the
-classes. Thus the dual-energy sublevels are cofinal,
-$\cM^1(\omega)=\cM^1(\omega')$, and the strong measure topologies
-coincide. The potential classes themselves retain their positivity
-conditions; they are not equal sets merely because both classes are ample.  What does \emph{not} survive is any numerical
-statement: $E^\vee_\omega\ne E^\vee_{\omega'}$, and
-$I^\vee_\omega\ne I^\vee_{\omega'}$, as
-\Cref{ex:ch47-p1-numbers} already shows by varying $d$.  This is one more
-instance of the rule stated in \Cref{sec:ch47-dictionary}: the class of
-finite-energy objects is intrinsic, the numbers attached to them are not.
+Concretely, choose $s\ge1$ with
+$s^{-1}\omega\le\omega'\le s\omega$ in the nef order.
+\cite[Theorem~9.24]{BJ22} gives comparable dual energies, so their
+sublevels are cofinal. For each normalized bounded
+$J_\omega$-sublevel, \cite[Lemma~9.25]{BJ22} gives a rescaled
+bounded $J_{\omega'}$-sublevel containing it, and conversely.
+The uniform-pairing criterion of \Cref{thm:bj-strong-measures}
+therefore identifies the two strong topologies, as in the proof of
+\cite[Proposition~10.16]{BJ22}.
+
+This argument does not supply a global pointwise comparison of
+$I^\vee_\omega$ and $I^\vee_{\omega'}$; that stronger comparison is
+posed separately in \cite[Remark~10.17]{BJ22}.
+The potential classes retain their positivity conditions and are
+not equal sets merely because both classes are ample. The energies and
+gauges also retain their class-dependent numerical values.
+The intrinsic objects here are the set of finite-energy measures
+and its strong topology.
+
 \end{remark}
 
 \section{Monge--Amp\`ere between the two strong topologies}
@@ -1400,8 +1424,8 @@ This section proves the main theorem of the chapter.  It is the point at
 which the constructions of \Cref{chap:bj-energy,chap:bj-finite-energy} pay
 for themselves: the operator that was defined by intersection numbers on
 test configurations, extended by monotone approximation, and shown to be
-surjective by a variational argument, turns out to be an isomorphism of
-metric structures.
+surjective by a variational argument, induces an isomorphism of
+the stated strong quasi-metric spaces after quotienting by constants.
 
 \subsection{The bi-Lipschitz embedding}
 \label{sec:ch48-bilipschitz}
@@ -1509,7 +1533,7 @@ $\tfrac14\lVert\phi-\psi\rVert^2=\tfrac14I(\phi,\psi)$.
 
 \begin{theorem}
 \label{thm:ch48-ma-homeomorphism}
-Let $X$ be an integral projective unibranch variety of dimension $n$
+Let $X$ be an integral projective unibranch variety of dimension $n\ge1$
 over an algebraically closed trivially valued field, and let
 $\omega\in\Amp(X)$.  Then:
 \begin{enumerate}
@@ -1555,9 +1579,9 @@ $\omega\in\Amp(X)$.  Then:
 in \Cref{prop:bj-ma-strong-embedding} together with
 $I\le\mathbb I$.  Continuity for the two strong topologies then follows
 from \Cref{thm:bj-strong-e1-quasimetric} and
-\Cref{thm:bj-strong-measures}.  Observe that this half of the theorem uses
-no import beyond those of \Cref{imp:ch47-imported}: the estimate
-\eqref{eq:bj-I-J-comparison} is proved in \Cref{chap:bj-finite-energy}.
+\Cref{thm:bj-strong-measures}, with their stated source inputs.
+The numerical inequality itself uses the I/J comparison proved in
+\Cref{chap:bj-finite-energy}.
 
 \cref{itm:ch48-ma:split}.  The map is a bijection with inverse
 $(\phi_0,c)\mapsto\phi_0+c$, by
@@ -1898,24 +1922,6 @@ $\phi\in\mathcal E^1$.
 \end{proposition}
 
 \begin{proof}
-For $-1\leq\psi\leq0$, Chebyshev and the Chern--Levine--Nirenberg
-estimate give
-
-\[
- \int_{\{\phi\leq-t\}}\MA(\psi)
- \leq t^{-1}\int(-\phi)\MA(\psi)\leq nt^{-1}.
-\]
-
-Taking the supremum proves \eqref{eq:bj-cap-sublevel-bound}.  For
-$\phi_s=\max\{\phi,-s\}$, write the layer-cake formula for
-$\int(-\phi_s)\MA(\phi_s)$.  Locality identifies the measures of the
-truncations on the appropriate superlevel sets, while
-$t^{-1}\phi_t$ is admissible in the capacity.  Letting
-$s\to\infty$ gives \eqref{eq:bj-cap-energy-criterion}.  Compare
-\cite[Lemma~7.47]{BJ22}.
-
-We now give the argument in full; no import is used.
-
 \emph{Step 1: \eqref{eq:bj-cap-sublevel-bound}.}  The set
 $\{\phi\le-t\}$ is Borel, $\phi$ being upper semicontinuous, and
 $-\phi\ge0$ on it with $-\phi\ge t$.  For $\psi\in\mathcal U_\omega$,
@@ -2201,16 +2207,7 @@ psh functions.
 \end{theorem}
 
 \begin{proof}
-For bounded $\phi$, choose a decreasing net of continuous $\omega$-psh
-regularizations. The fundamental estimate and Chebyshev yield indices
-$g_m$ such that the error exceeds $m^{-1}$ only on a set of capacity at
-most $2^{-m}\varepsilon$.  On the intersection of the complementary
-compact sets, the selected regularization converges uniformly.  For
-unbounded $\phi$, first remove a deep sublevel set using
-\eqref{eq:bj-cap-sublevel-bound}, then apply the bounded argument to a
-truncation.  A countable diagonal union proves the simultaneous statement.
-Compare \cite[Theorem~13.9 and Corollary~13.10]{BJ22}.
-
+The source result is \cite[Theorem~13.9 and Corollary~13.10]{BJ22}.
 We now carry this out. No additional strong-pairing estimate or envelope
 property is required; the inputs are \Cref{lem:ch48-fundamental} and the unconditional fixed-class
 regularization \Cref{thm:ch34-fs-regularization}.
@@ -2321,15 +2318,19 @@ and countable subadditivity of the capacity, both of which are
 \label{warn:ch48-qc-not}
 \Cref{thm:bj-quasicontinuity} says that $\phi|_K$ is continuous for the
 subspace topology on $K$.  It does not say that $\phi$ is continuous at
-the points of $K$ as a function on $X^{\An}$, and it does not say that
-$\phi$ agrees off a small set with a continuous function on $X^{\An}$.
-Nor does it produce a \emph{single} $K$ working for all
+the points of $K$ as a function on $X^{\An}$. Since $X^{\An}$ is
+compact Hausdorff and $\phi|_K$ is real-valued and continuous, Tietze's
+extension theorem does give a continuous function on $X^{\An}$
+agreeing with $\phi$ on $K$. The theorem does not assert that this
+extension is psh.
+
+It also does not produce a \emph{single} $K$ working for all
 $\varepsilon$: the theorem chooses $K$ separately for each tolerance
 and does not assert that these choices are nested or exhaust $X^{\An}$.  Finally, the
 statement is about a countable family; for an uncountable family the
 diagonal argument of Step~3 fails, and
 \Cref{ex:ch48-proper-support-capacity} shows that the failure is not
-formal.  These are the same three cautions as
+formal.  These subspace, tolerance and countability distinctions also occur in
 \Cref{rem:ch25-qc-not} and \Cref{rem:quasicontinuity-limits}.
 \end{warning}
 
@@ -2354,8 +2355,8 @@ truncated net converges in capacity.
 \begin{proof}
 The first assertion is the estimate displayed in Step~1 of the proof of
 \Cref{thm:bj-quasicontinuity}, which used only that $\phi$ is bounded and
-that the net is decreasing with continuous --- in fact merely bounded above
---- members: \Cref{lem:ch48-fundamental} applies to
+that the net is decreasing with upper semicontinuous psh members
+and a common upper bound; continuity is unnecessary: \Cref{lem:ch48-fundamental} applies to
 $\varphi=\phi-C_0$ and $\psi=u_g-C_0$, and
 \Cref{cor:usc-net-monotone-integral} gives
 $\int(u_g-\phi)\,\MA_\omega(\phi/2)\to0$, by applying the theorem
@@ -2502,6 +2503,12 @@ Consequently:
        \mu(B)\ \le\ 2\,\Capa_\omega(B)^{\frac1{n+1}}
         \bigl((n+1)E^\vee_\omega(\mu)\bigr)^{\frac n{n+1}} .
       \]
+      For every Borel $B$, including when $E^\vee_\omega(\mu)=0$,
+      \[
+       \mu(B)\le
+       2\max\{1,(n+1)E^\vee_\omega(\mu)\}^{\frac n{n+1}}
+       \Capa_\omega(B)^{\frac1{n+1}}.
+      \]
 \end{enumerate}
 \end{proposition}
 
@@ -2548,6 +2555,12 @@ $E^\vee_\omega(\mu)>0$. Take
 $t=\bigl((n+1)E^\vee_\omega(\mu)/\Capa_\omega(B)\bigr)^{1/(n+1)}$, which
 is $\ge1$ by hypothesis; both terms then equal
 $\Capa_\omega(B)^{1/(n+1)}((n+1)E^\vee_\omega(\mu))^{n/(n+1)}$.
+For the global form, if $\Capa_\omega(B)>0$ set
+$A:=\max\{1,(n+1)E^\vee_\omega(\mu)\}$ and
+$t=(A/\Capa_\omega(B))^{1/(n+1)}\ge1$, using
+$\Capa_\omega(B)\le1$. The first displayed estimate is then at most
+$2A^{n/(n+1)}\Capa_\omega(B)^{1/(n+1)}$.
+If the capacity is zero, the nullity statement applies.
 \end{proof}
 
 \begin{remark}
@@ -2560,18 +2573,23 @@ argument for the same conclusion.  It uses
 sets of zero outer capacity; the converse implication is unnecessary
 for this application.
 
-Two further comments.  The quantitative form
-\cref{itm:ch48-mvc:holder} is a genuine domination of $\mu$ by a power of
-the capacity, with exponent $1/(n+1)$, and it is the trivially valued
-analogue of the hypothesis in \Cref{def:ch29-capacity-domination}, where
-over a discretely valued base such a domination has to be \emph{assumed}
-in order to run the continuity theory.  Here it is a theorem, and the
-reason is the Calabi--Yau theorem: every finite-energy measure is a
-Monge--Amp\`ere measure, so the splitting of $B$ along a sublevel set of
-its own potential is available.  Second, the exponent $1/(n+1)$ is not
-claimed to be optimal; for $n=1$ it gives $\mu(B)\lesssim
-\Capa_\omega(B)^{1/2}$, and \Cref{ex:ch48-p1-capacity} shows that no
-exponent larger than $1$ can hold in general.
+The global quantitative form gives a capacity power bound with
+exponent $1/(n+1)$. It follows here by splitting the measure along
+sublevels of its finite-energy Monge--Amp\`ere potential.
+\Cref{def:ch29-capacity-domination} instead assumes an exponent
+$1+\alpha>1$ for the discretely valued continuity argument.
+The present sublinear estimate does not discharge that stronger
+hypothesis.
+
+The exponent is not claimed to be optimal. On the curve it is
+$\tfrac12$. For the quartic profile in \Cref{ex:ch48-p1-capacity},
+the measure of the compact ray tail $R_p^{\ge t}$ is
+$(1+t)^{-3/4}$, whereas its capacity is $t^{-1}$ for $t\ge1$.
+Thus even that fixed finite-energy measure admits no bound
+$\mu(B)\le C\Capa_\omega(B)^q$ with $q>3/4$.
+In particular a universal conclusion with exponent greater than one
+cannot follow from finite energy.
+
 \end{remark}
 
 \begin{proposition}
@@ -2658,17 +2676,11 @@ following are equivalent:
 \end{theorem}
 
 \begin{proof}
-A pole function gives a bounded family whose raw supremum jumps after usc
-regularization, so pluripolar implies negligible
-\cite[Proposition~5.3]{BJ22}.  Quasicontinuity makes a negligible set have
-outer capacity zero.  Finally the Alexander--Taylor inequality below makes
-capacity zero force infinite extremal height, which is equivalent to
-pluripolarity.  These are \cite[Theorems~13.14 and 13.17]{BJ22}.  In BJ22
-the envelope property was available under its historical hypotheses; here
-\Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}
-supplies it for unibranch $X$.
-
-We now go round the cycle, marking each arrow.
+The general source equivalence is
+\cite[Theorems~13.14 and~13.17]{BJ22} under the envelope property.
+Here \Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}
+supplies that property for unibranch $X$. The following cycle marks
+the proved implications and retained source inputs.
 
 \emph{Pluripolar $\Rightarrow$ negligible.}  Proved, as
 \Cref{prop:ch48-pluripolar-negligible}\,\cref{itm:ch48-pn:neg}.  The
@@ -2776,8 +2788,8 @@ Consequently:
       \ \Longleftrightarrow\ T=+\infty
       \ \Longleftrightarrow\ K$ is pluripolar;
 \item\label{itm:ch48-atc:curve}
-      if $n=1$ and $T\ge1$, then
-      $\Capa_\omega(K)=\Capa^*_\omega(K)=T^{-1}$ exactly.
+      if $n=1$, then
+      $\Capa_\omega(K)=\Capa^*_\omega(K)=\min\{1,T^{-1}\}$ exactly.
 \end{enumerate}
 \end{proposition}
 
@@ -2859,8 +2871,11 @@ $\Capa^*_\omega(K)=0$ by \Cref{prop:ch48-pluripolar-capacity}; and
 $\Capa_\omega\le\Capa^*_\omega$ closes the cycle.  If $T=+\infty$ the
 upper bound gives $\Capa^*_\omega(K)=0$.
 
-\cref{itm:ch48-atc:curve}.  For $n=1$ and $T\ge1$ the two bounds are
+\cref{itm:ch48-atc:curve}. For $n=1$ and $1\le T<\infty$ the
+two bounds are
 $T^{-1}\le\Capa_\omega(K)\le\Capa^*_\omega(K)\le T^{-1}$.
+If $T\le1$, the lower bound is $1$, and both capacities are at most
+$1$, so both equal $1$. If $T=+\infty$, the upper bound gives zero.
 \end{proof}
 
 \begin{warning}{Empty sets and infinite heights}
@@ -3045,16 +3060,7 @@ a point of $\mathcal E^1$ converges strongly.
 \end{proposition}
 
 \begin{proof}
-Normalized psh compactness provides weak cluster subnets.  Lower
-semicontinuity of $J=-E$ on the normalized locus gives the finite-energy
-claim.  Criterion \eqref{eq:bj-weak-energy-strong-criterion} is precisely
-the characterization of the strong topology in
-\Cref{thm:bj-strong-e1-quasimetric}.  Notice that no conclusion is
-drawn merely from the energies of weak cluster points: energy is upper
-semicontinuous, not weakly continuous.  The last assertion is
-\Cref{prop:bj-strong-monotone}.
-
-In detail.  The set
+The set
 $\mathcal K_C=\{\psi\in\PSH^{\sup}(\omega)\mid E_\omega(\psi)\ge-C\}$
 contains the net, and it is compact: $\PSH^{\sup}(\omega)$ is weakly
 compact by \Cref{cor:ch45-compactness}, and $\{E_\omega\ge-C\}$ is weakly
@@ -3184,13 +3190,14 @@ $\MA_\omega(\phi_j)$ sits at $\ord_{p_j}$ and converges weakly to the mass at
 $v_{\triv}$. The positive energy defect persists along this convergence
 and prevents strong convergence.
 
-Two positive statements survive, and they are what the variational method
-actually uses.  Energy sublevels are weakly compact, so maximizers exist
-(\Cref{thm:ch47-existence-admissible}); and $\mathbb I$-Cauchy nets do
-converge (\Cref{thm:ch48-completeness}), so almost-maximizing nets, which
-are Cauchy by \Cref{prop:ch47-maximizing-cauchy}, converge strongly.  The
-absence of strong compactness costs nothing, because in every application
-the Cauchy property is available.
+The variational method uses two separate conclusions.
+For admissible data, weakly compact energy sublevels together with
+continuous pairing and upper semicontinuity of the objective give
+a maximizer (\Cref{thm:ch47-existence-admissible}).
+For arbitrary finite-energy data, almost-maximizing nets are Cauchy
+by \Cref{prop:ch47-maximizing-cauchy} and converge strongly by
+\Cref{thm:ch48-completeness}. These arguments do not require
+strong compactness of an entire energy sublevel.
 \end{remark}
 
 \section{Worked examples}
@@ -3351,8 +3358,8 @@ $\mu_\phi$ of \cite[Proposition~7.20]{BJ22} gives the $i$-th
 closed tail the mass $-h'_{i,-}(\varepsilon)$, while its total mass
 is $1$. This graph measure is defined for every psh curve potential
 and agrees with $\MA_\omega(\phi)$ when $\phi\in\cE^1(\omega)$.
-Letting $\varepsilon\downarrow0$ gives $-h'_{i,-}(\varepsilon)\uparrow a_i$
-gives the bound.  By convexity,
+Letting $\varepsilon\downarrow0$, the slopes satisfy
+$-h'_{i,-}(\varepsilon)\uparrow a_i$, which gives the bound.  By convexity,
 $\phi(t\,\ord_{p_i})=h_i(t)\ge h_i(0)+h_i'(0^+)t=-a_it$.  Hence
 \[
  -\sup_{A_m(t)}\phi=\min_i\bigl(-\phi(t\,\ord_{p_i})\bigr)
@@ -3607,21 +3614,27 @@ subsets of capacity zero, all of its points pluripolar, and every countable
 subset pluripolar, and yet it is not pluripolar and its outer capacity is
 as large as possible.
 
-\emph{(6) The exact analogue in Thuillier's theory.}  This is the trivially
-valued form of \cite[Remarque~3.6.12]{Thu05}, recorded in
-\Cref{rem:ch25-thuillier-vs-bfj}: over a residue field of cardinality
-greater than $\aleph_0$, the set of type~$\mathrm I$ points reducing to
-the distinct residues of the Gauss point is closed, lies in the
-$-\infty$ locus of a subharmonic function on each connected component of
-the punctured space, and has infinite outer relative capacity.  In both
-settings the mechanism is the same: the definition of ``polar'' or
-``pluripolar'' asks for \emph{one} function, and a single psh function has
-only countably many rays along which it can decrease, because the sum of
-its initial slopes is bounded by the degree.  The countability clause in
-\cite[Th\'eor\`eme~3.6.11]{Thu05} is thus not a technical convenience, and
-neither is the appearance of $\sigma$-ideals in
-\Cref{prop:ch48-pluripolar-negligible}\,\cref{itm:ch48-pn:ideal} and in
-\Cref{prop:polar-sigma-ideal}.
+\emph{(6) Comparison with Thuillier's countability warning.}
+In \cite[Remarque~3.6.12]{Thu05}, choose one type-$\mathrm I$ point
+for each residue class of an uncountable residue field. The resulting
+set is closed in the punctured domain
+$\Omega=\mathbf A^{1,\An}_K\setminus\{\zeta_{0,1}\}$ and has
+$C^*(\cdot,\Omega)=+\infty$. A global negative subharmonic function
+on this disconnected $\Omega$ can nevertheless have all those
+points in its pole set. The set is not polar in Thuillier's definition,
+which requires a countable cover by connected open domains.
+
+The present global ample-psh example uses a different constraint:
+one normalized potential on $\mathbf P^1$ has finite total initial
+slope and therefore decreases on only countably many rays.
+It cannot have poles at the endpoints of uncountably many rays.
+Thuillier also discusses the set inside a connected open disc
+containing the Gauss point, where the finite local Laplacian mass
+prevents a single subharmonic pole function.
+These examples explain the need to retain both the domain and the
+countability signature. The relative capacity $C^*(\cdot,\Omega)$
+is not identified with the global probability capacity here.
+
 \end{example}
 
 \begin{example}[A pluripolar set of positive outer capacity does not exist,
@@ -3630,8 +3643,8 @@ neither is the appearance of $\sigma$-ideals in
 It is worth contrasting \Cref{ex:ch48-proper-support-capacity}\,(4) with
 \Cref{prop:ch48-pluripolar-capacity}.  The latter says that a pluripolar
 set always has vanishing \emph{outer} capacity, and its proof is three
-lines: the pole function's open sublevel sets form a neighbourhood basis
-of small capacity.  The former exhibits a set whose \emph{inner} capacity
+lines: the pole function's open sublevel sets give neighbourhoods
+with capacity tending to zero.  The former exhibits a set whose \emph{inner} capacity
 vanishes and whose outer capacity is $1$; by
 \Cref{prop:ch48-pluripolar-capacity} that set cannot be pluripolar, and
 \Cref{ex:ch48-proper-support-capacity}\,(3) confirms it directly.  The two
@@ -3733,10 +3746,11 @@ the substitute is completeness plus the Cauchy property
 (\Cref{prop:ch48-criteria}\,\cref{itm:ch48-crit:cauchy}).
 
 \emph{Metrizability by $\mathbb I$.}  $\mathbb I$ is a quasi-metric and
-not a metric (\Cref{ex:ch48-not-a-metric}).  Metrizability of the strong
-topology is \Cref{thm:stability-norm-completion}, proved in
-\Cref{chap:bj-stability} by different means, and no isometry between
-$d_1$ and $\mathbb I$ is asserted anywhere.
+not a metric (\Cref{ex:ch48-not-a-metric}). The quasi-metric
+nevertheless defines a metrizable uniformity. For ample line-bundle
+classes, the particular $d_1$ metric is supplied by
+\Cref{thm:stability-norm-completion} in \Cref{chap:bj-stability}.
+It is distinct from $\mathbb I$.
 
 \emph{Weak continuity of $\MA_\omega$.}  Not asserted.  What is proved is
 strong continuity in both directions
@@ -3877,7 +3891,7 @@ $\Capa^*=0$ \par\smallskip
 \Cref{thm:bj-small-set-equivalence}\\
 Alexander--Taylor &
 $\min\{1,T^{-n}\}\le\Capa^*\le n/T$; both bounds proved for compact
-sets, equality when $n=1$ \par\smallskip
+sets; compact capacity equals $\min\{1,T^{-1}\}$ when $n=1$ \par\smallskip
 \eqref{eq:bj-alexander-taylor},
 \Cref{prop:ch48-at-upper},
 \Cref{prop:ch48-at-compact}\\
@@ -3905,8 +3919,8 @@ simultaneously, and that the discrepancy is measured by a single number.
 sets by a supremum of masses and $\Capa^*_\omega$ on all sets by an
 infimum over open neighbourhoods.  They agree on open sets, and
 $\Capa_\omega\le\Capa^*_\omega$; \Cref{ex:ch48-proper-support-capacity}
-shows the gap can be the whole interval $[0,1]$.  Every statement about
-smallness is about $\Capa^*_\omega$.
+shows the gap can be the whole interval $[0,1]$. The three-way small-set
+equivalence is stated in terms of $\Capa^*_\omega$.
 
 \emph{Proved versus imported.}  The published inputs are listed in \Cref{imp:ch48-imported}:
 pairing estimates, increasing-energy continuity, general measure
@@ -3919,7 +3933,7 @@ equilibrium proof supplies the compact lower Alexander--Taylor bound.
 \Cref{ex:ch48-weak-not-strong} exhibits measures sitting on sets of full
 capacity whose dual energies do not converge, and
 \Cref{ex:ch48-p1-capacity} exhibits a potential of infinite energy whose
-sublevel capacities decay at the maximal permitted rate.  The bridge
+sublevel capacities attain the sharp universal $n/t$ upper bound.  The bridge
 between them is \Cref{prop:bj-capacity-sublevel}, and it is one-directional
 in each of its two halves.
 
@@ -3981,7 +3995,7 @@ statement is folklore; it is written out because
 \Cref{rem:ch48-usc-is-the-point} is used to justify the phrase ``the
 coarsest refinement'' in \Cref{def:bj-strong-e1}, and because
 the corresponding statement over a discretely valued base
-(\Cref{prop:ch26-strong-basic}) is proved there and not here.
+(\Cref{prop:ch26-strong-basic}) is proved with its own hypotheses.
 
 \Cref{sec:ch48-curve-case}: the complete proof of
 \Cref{thm:bj-strong-e1-quasimetric} for $n=1$, in both directions, from
@@ -4037,11 +4051,12 @@ criterion for finite energy; it is not an equivalence.
 dominated by a power of the capacity, with the explicit exponent
 $1/(n+1)$.  This gives the quantitative counterpart of
 \Cref{rem:ch47-polar-scope}\,\cref{itm:ch47-polar:pluripolar},
-using only the implication from pluripolarity to zero capacity.  Over a discretely valued base the
-corresponding domination is a \emph{hypothesis}
-(\Cref{def:ch29-capacity-domination}); here it is a theorem, because the
-Calabi--Yau theorem makes every finite-energy measure a Monge--Amp\`ere
-measure.
+using only the implication from pluripolarity to zero capacity.
+The bound follows from the finite-energy Monge--Amp\`ere potential
+supplied by the Calabi--Yau theorem. Its exponent $1/(n+1)$ is weaker
+than the exponent $1+\alpha>1$ assumed for the continuity theorem
+in \Cref{def:ch29-capacity-domination}; that stronger assumption
+is not a consequence of the present result.
 
 \Cref{prop:ch48-pluripolar-capacity},
 \Cref{prop:ch48-pluripolar-negligible},
@@ -4136,8 +4151,9 @@ the envelope property. Their
 \S\S10, 12 and 13 are the source of this chapter.
 
 Two threads run out of it.  On the metric side,
-\cite{BJKS1} identifies $\cE^1$ and $\cM^1$ with completions of spaces
-of graded norms and filtrations for a genuine metric $d_1$, and
+for an ample line bundle $L$, \cite{BJKS1} identifies
+$\cE^1(L)$ and $\cM^1(L)$ with completions of the appropriate
+spaces of graded norms and filtrations for a genuine metric $d_1$, and
 \Cref{chap:bj-stability} develops that identification; the strong topology
 constructed here is what makes the identification possible, and
 \Cref{rem:ch48-d1-comparison} records exactly what is and is not claimed
