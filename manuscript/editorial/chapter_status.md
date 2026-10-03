@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--32 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--33 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -83,7 +83,12 @@ Sequence and ideal-coordinate topology, support density, quasimonomial
 conventions, Gauss-transfer and complex/hybrid scopes were repaired.
 All 58 chapter pages and both seams passed visual review; see the
 [Chapter 32 audit](second_reading_ch32_audit_20261003.md).
-Chapter 33 is active; original lines 1--2240 have already been freshly read.
+Chapter 33's complete original 3,431-line source was freshly read.
+Relative integral closure, flag/Rees and semiample dictionary, weight
+normalization, DH moments and toric computations were repaired.
+All 50 chapter pages and both seams passed visual review; see the
+[Chapter 33 audit](second_reading_ch33_audit_20261003.md).
+Chapter 34 is active; all 2,904 original lines have been freshly read.
 No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
