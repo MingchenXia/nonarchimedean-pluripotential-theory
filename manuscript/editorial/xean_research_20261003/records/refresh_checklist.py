@@ -35,7 +35,7 @@ for paper in checkpoint['papers_and_supporting_note']:
     })
 
 round03_path = ROOT/'deliverables/round-03/results.json'
-for newer_path in [round03_path, ROOT/'deliverables/round-04/results.json', ROOT/'deliverables/round-05/results.json', ROOT/'deliverables/round-06/results.json', ROOT/'deliverables/round-07/results.json', ROOT/'deliverables/round-08/results.json', ROOT/'deliverables/round-09/results.json', ROOT/'deliverables/round-10/results.json', ROOT/'deliverables/round-11/results.json', ROOT/'deliverables/round-12/results.json']:
+for newer_path in [round03_path, ROOT/'deliverables/round-04/results.json', ROOT/'deliverables/round-05/results.json', ROOT/'deliverables/round-06/results.json', ROOT/'deliverables/round-07/results.json', ROOT/'deliverables/round-08/results.json', ROOT/'deliverables/round-09/results.json', ROOT/'deliverables/round-10/results.json', ROOT/'deliverables/round-11/results.json', ROOT/'deliverables/round-12/results.json', ROOT/'deliverables/round-13/results.json']:
     if newer_path.is_file():
         newer = json.loads(newer_path.read_text())
         for paper in newer['papers_and_supporting_note']:
@@ -66,7 +66,7 @@ for original in baseline['targets']:
             'purely inseparable ascent audit PASS and paper published; '
             'intrinsic curve recognition full-evidence PASS read and published, previous INCONCLUSIVE preserved; '
             'restricted quadratic curve-ascent principal PASS read and published, unused broad supplemental cutoff statement caveated; '
-            'higher-dimensional restricted quadratic compact-specialization PASS8/10 read and published; first broad cutoff caveat preserved; every-separable-quadratic/all-pure-dimensional compact-specialization PASS22/22 read and published; finite-separable curve draft fully read under exact review; completed-algebraic curve research runs. ')
+            'higher-dimensional restricted quadratic compact-specialization PASS8/10 read and published; first broad cutoff caveat preserved; every-separable-quadratic/all-pure-dimensional compact-specialization PASS22/22 read and published; every-finite-separable curve exact partial PASS12/12 fully read and published; completed-algebraic curve research runs. ')
         target['remaining_full_target'] = ('Arbitrary analytic germs and curve maps, '
             'all required field-extension tests, general scalar-current ascent '
             'and two-sign regularization are not established by cone constancy '
