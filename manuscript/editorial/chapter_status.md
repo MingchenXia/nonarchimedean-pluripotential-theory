@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--40 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--41 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -119,7 +119,11 @@ Chapter 40's complete original 3,535-line source was freshly read. Its
 ideal-engine, line-bundle, Gauss-discrepancy, class/value-error and comparison
 arguments were repaired; all 52 chapter pages and both seams passed visual
 review. See the [Chapter 40 audit](second_reading_ch40_audit_20261003.md).
-Chapter 41 is active; original lines 1--1300 freshly read without edits.
+Chapter 41's complete original 3,832-line source was freshly read. Its
+norm, openness, flattening, weight, class and pole arguments were repaired;
+all 56 chapter pages and both seams passed visual review. See the
+[Chapter 41 audit](second_reading_ch41_audit_20261003.md).
+Chapter 42 is active; all 3,216 original lines freshly read before edits.
 No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
