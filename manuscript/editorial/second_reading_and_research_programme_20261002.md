@@ -13,6 +13,11 @@ research. Subsequent user steering suspends Xean setup and requires all
 current execution to remain in the cloud. The active work is the complete
 book rereading and polishing pass; the prepared research queue remains
 historical preparation, with no new solved status.
+On 3 October the user additionally authorized a subsequent literature and
+research phase: after the whole-book polishing pass, explore directions
+related to the existing material and recent relevant arXiv papers. Suitable
+verified material may be integrated into existing chapters or developed as
+new chapters. This does not suspend the current ordered reading pass.
 The earlier completion manifest, source ledger, PDF, source package, audits,
 and verifier receipts remain records of that completed edition.
 
@@ -137,7 +142,32 @@ locator checks, boundary tests, receipt requirements, and integration audit
 are satisfied. Never convert a failed, conditional, or unrun attempt into
 a solved status.
 
-## Runtime and current execution state
+## Related directions and recent arXiv literature after polishing
+
+Start this phase after Chapters 1--72, Appendices A--N, front matter and
+the whole-book coherence checks have passed the renewed reading gates.
+Use the revised book's themes and unresolved interfaces to guide the search;
+record query dates and the exact arXiv identifiers, versions and revision
+dates. Check for later revisions, published versions, corrections and
+withdrawals before treating a preprint claim as current.
+
+For each candidate, read the primary statement and proof in context, record
+all field, regularity, positivity, boundedness and energy hypotheses, and
+verify how its notation and normalizations match the book. Separate proved
+results from conditional results, conjectures and proposed research routes.
+Check the proof's imported dependencies and boundary examples. Resolve
+conflicts with existing text before drafting an integration.
+
+Integrate only material supported by these checks. New chapters must add a
+coherent topic with prerequisites, proofs or precisely scoped imports,
+examples, references and links to the surrounding chapters. Existing-chapter
+updates must reconcile dependent statements and the book's problem inventory.
+Run the repository's relevant reference, scope, build and rendered-page
+checks after each integration. Preserve candidates and unresolved concerns
+outside the active manuscript; do not present an unverified argument as a
+theorem or infer that an open problem is solved from a narrower result.
+
+## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
 `548fbf5b40dea325aa0d762ee091b1ab84a0c88a` (3.0.0 candidate).
