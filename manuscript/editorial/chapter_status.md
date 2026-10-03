@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--52 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--53 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -177,7 +177,12 @@ freshly read. Perron boundary conditions, change-of-background positivity,
 positive filtration degree and the hyperplane projection centre were
 clarified. All 20 chapter physical pages and both seams passed visual
 review; see the [Chapter 52 audit](second_reading_ch52_audit_20261003.md).
-Chapter 53 is active; all 1,011 original lines freshly read, scoped primary
+Chapter 53's original 1,011 lines, complete 56-line source diff and
+50-line layout delta were freshly read. The semipositive background
+comparison and zero-volume safeguard were clarified. All 14 chapter
+physical pages and both seams passed visual review; see the
+[Chapter 53 audit](second_reading_ch53_audit_20261003.md).
+Chapter 54 is active; all 1,521 original lines freshly read, scoped primary
 checks and repairs continue. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
