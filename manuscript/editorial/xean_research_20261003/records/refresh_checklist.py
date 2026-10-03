@@ -3,12 +3,17 @@ from pathlib import Path
 import datetime
 import hashlib
 import json
+import re
 
 ROOT = Path('/workspace/research')
 baseline = json.loads((ROOT/'deliverables/results.json').read_text())
 checkpoint_path = ROOT/'deliverables/round-02-update-01/results.json'
 checkpoint = json.loads(checkpoint_path.read_text())
 active = json.loads((ROOT/'active-work.json').read_text())
+round_match = re.search(r'reviewed-papers-round-(\d+)\.zip$', active['latest_checkpoint'])
+latest_results_path = (ROOT/'deliverables'/('round-'+round_match[1])/'results.json'
+                       if round_match else checkpoint_path)
+assert latest_results_path.is_file()
 
 paper_map = {}
 for paper in baseline['papers']:
@@ -35,7 +40,7 @@ for paper in checkpoint['papers_and_supporting_note']:
     })
 
 round03_path = ROOT/'deliverables/round-03/results.json'
-for newer_path in [round03_path, ROOT/'deliverables/round-04/results.json', ROOT/'deliverables/round-05/results.json', ROOT/'deliverables/round-06/results.json', ROOT/'deliverables/round-07/results.json', ROOT/'deliverables/round-08/results.json', ROOT/'deliverables/round-09/results.json', ROOT/'deliverables/round-10/results.json', ROOT/'deliverables/round-11/results.json', ROOT/'deliverables/round-12/results.json', ROOT/'deliverables/round-13/results.json']:
+for newer_path in [round03_path, ROOT/'deliverables/round-04/results.json', ROOT/'deliverables/round-05/results.json', ROOT/'deliverables/round-06/results.json', ROOT/'deliverables/round-07/results.json', ROOT/'deliverables/round-08/results.json', ROOT/'deliverables/round-09/results.json', ROOT/'deliverables/round-10/results.json', ROOT/'deliverables/round-11/results.json', ROOT/'deliverables/round-12/results.json', ROOT/'deliverables/round-13/results.json', ROOT/'deliverables/round-14/results.json', ROOT/'deliverables/round-15/results.json', ROOT/'deliverables/round-16/results.json', ROOT/'deliverables/round-17/results.json']:
     if newer_path.is_file():
         newer = json.loads(newer_path.read_text())
         for paper in newer['papers_and_supporting_note']:
@@ -66,7 +71,7 @@ for original in baseline['targets']:
             'purely inseparable ascent audit PASS and paper published; '
             'intrinsic curve recognition full-evidence PASS read and published, previous INCONCLUSIVE preserved; '
             'restricted quadratic curve-ascent principal PASS read and published, unused broad supplemental cutoff statement caveated; '
-            'higher-dimensional restricted quadratic compact-specialization PASS8/10 read and published; first broad cutoff caveat preserved; every-separable-quadratic/all-pure-dimensional compact-specialization PASS22/22 read and published; every-finite-separable curve exact partial PASS12/12 fully read and published; completed-algebraic curve research runs. ')
+            'higher-dimensional restricted quadratic compact-specialization PASS8/10 read and published; first broad cutoff caveat preserved; every-separable-quadratic/all-pure-dimensional compact-specialization PASS22/22 read and published; every-finite-separable curve exact partial PASS12/12 fully read and published; completed-algebraic pure curve ascent/compact scalar-test finite-stage descent corrected-source PASS26/35 fully read/bound and published20 pages, original PASS21/27 and source excerpt defect preserved; arbitrary-field curve recognition draft committed; proof-body correspondence/new applications checked and independent review running; two-sign ordinary-psh analytic-curve continuation running. ')
         target['remaining_full_target'] = ('Arbitrary analytic germs and curve maps, '
             'all required field-extension tests, general scalar-current ascent '
             'and two-sign regularization are not established by cone constancy '
@@ -76,7 +81,7 @@ for original in baseline['targets']:
             'product-criterion audit PASS and paper published; native research '
             'on ambient-extendible real references received PASS and was published; '
             'extension-free all-real-reference product PASS read and published, earlier input-access INCONCLUSIVE preserved; '
-            'nonconical graph-cylinder full exact PASS read and published; Bergman all-real-reference actual PAPC-envelope/full contact-defect PASS0/0 read, bound and published; first missing-book-proof INCONCLUSIVE preserved; arbitrary weighted tree-cylinder PASS0/0 fully read and published; cyclic graph-cylinder native continuation runs.')
+            'nonconical graph-cylinder full exact PASS read and published; Bergman all-real-reference actual PAPC-envelope/full contact-defect PASS0/0 read, bound and published; first missing-book-proof INCONCLUSIVE preserved; arbitrary weighted tree-cylinder PASS0/0 fully read and published; every finite graph cylinder including cycles PASS0/0 fully read/bound and published15 pages; restricted cyclic triangle-square/certificate PASS0/0 fully read/bound and published10pages; actual cyclic triangle-square negative contact PASS0/0 fully read/bound and published8pages: actualPAPC/regularizable rawenvelope, completeintegral-8 and independently reconstructed finite totalmass46; graph-product geometric classification continuation running.')
         target['remaining_full_target'] = ('The geometric classification of all '
             'admitted pairs in the fixed coefficient conventions remains open.')
     elif atom == 'P21.3':
@@ -101,7 +106,8 @@ payload = {
     'active_atoms': active['selected_atoms'],
     'route': 'Xean native Codex', 'model': 'gpt-6.1-sol', 'reasoning': 'xhigh',
     'latest_immutable_checkpoint': active['latest_checkpoint'],
-    'checkpoint_results_sha256': hashlib.sha256(checkpoint_path.read_bytes()).hexdigest(),
+    'checkpoint_results_path': str(latest_results_path),
+    'checkpoint_results_sha256': hashlib.sha256(latest_results_path.read_bytes()).hexdigest(),
     'review_limit': baseline['review_limit'],
     'active_work_record': str(ROOT/'active-work.json'),
     'unpublished_drafts': ([] if round03_path.is_file() else [
