@@ -3,8 +3,8 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--22 pass the new reading
-gates; see the [Chapter 22 audit](second_reading_ch22_audit_20261003.md).
+Chapter 1 for coherence and readability. Chapters 1--23 pass the new reading
+gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
 freshly read; metric classes, residual lifting, curvature examples, formal
 comparison, polar extensions and detection scopes were repaired. All 88
@@ -34,7 +34,11 @@ passed visual review. Chapter 22's original 3,773-line source was freshly
 read; there are no direct inputs. Normalization, simplex and slope bounds,
 nef approximation, model-tree examples and sequence/characteristic scopes
 were repaired. All 54 chapter physical pages and both seams passed visual
-review. Chapter 23 is next. No later chapter is marked complete.
+review. Chapter 23's original 3,590-line source was freshly read; there are
+no direct inputs. Envelope calculus, positivity and base ideals, curve and
+toric examples, and later continuity hypotheses were repaired. All 54
+chapter physical pages and both seams passed visual review. Chapter 24 is
+next. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its

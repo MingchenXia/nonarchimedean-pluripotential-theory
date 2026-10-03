@@ -14,8 +14,8 @@ skeletal equicontinuity and pure upper-envelope calculus.  The second runs on
 asymptotic multiplier ideals, and it is the point at which residue
 characteristic zero enters the original multiplier-ideal proof in an
 essential way.  Later test-ideal arguments replace that input only under the
-extra hypotheses recorded in \Cref{sec:ch23-later}.  The third is not proved
-in this chapter at all: it belongs
+extra hypotheses recorded in \Cref{sec:ch23-later}.  The general third
+statement belongs
 to the energy theory of \Cref{chap:bfj-differentiability}, and the present
 chapter proves only its model-level shadow, in dimension one and in the
 polyhedral convex category, where it is an elementary complementary-slackness
@@ -47,7 +47,7 @@ circulation is in force and why they agree here; reconstruct the base-ideal
 proof of continuity, including the exact algebraic input and the exact place
 where it is used; compute an envelope on a curve skeleton and on a polytope
 by hand; and locate precisely where orthogonality is proved, what it costs,
-and why no argument in this chapter delivers it.
+and distinguish the general theorem from its elementary curve and convex cases.
 
 \paragraph{Prerequisites.}
 The compactness and equicontinuity architecture of
@@ -87,7 +87,8 @@ numerical nefness and not a previously constructed singular psh class.
 
 Operations (1) and (2) are related but not identical: $P_\theta(f)$ is the
 supremum of a family that is closed under finite maxima and bounded above by
-$f$, so (2) applies to it, but the conclusion of (2) is about
+$f$.  When that family is nonempty and uniformly bounded above, (2) applies,
+but its conclusion is about
 $(P_\theta(f))^*$ and gives no information about $P_\theta(f)$ itself
 unless the obstacle is known to be upper semicontinuous.  Operations (1) and
 (3) have different competitor sets; that
@@ -127,7 +128,7 @@ the sense of the hypothesis matrix of the conventions sheet.
  (envelope continuity)
  &asymptotic multiplier ideals; subadditivity; uniform global generation;
   log resolutions
- &compactness; orthogonality; the Monge--Amp\`ere operator\\
+ &compactness of the psh space; orthogonality; the Monge--Amp\`ere operator\\
 \Cref{thm:ch23-model-orthogonality-curve}
  (model orthogonality, $n=1$)
  &the linear description of relative nefness on a curve model
@@ -147,8 +148,8 @@ removed only at the cost of new hypotheses of a completely different kind.
 \subsection{What is proved here and what is imported}
 \label{sec:ch23-imported}
 
-Everything in this chapter is proved in full from the following two imported
-packages, and from the results of
+The original BFJ envelope and continuity proofs use the following two
+imported packages, together with the results of
 \Cref{chap:bfj-model-forms,chap:bfj-psh,chap:bfj-compactness}.
 
 \begin{enumerate}
@@ -167,10 +168,12 @@ uniformly dense in $C^0(X^{\An})$.  This is
 by a lattice Stone--Weierstrass argument.
 \end{enumerate}
 
-Nothing else is imported.  In particular, no result of
-\Cref{chap:bfj-ma,chap:bfj-energy,chap:bfj-differentiability} is used
-anywhere in this chapter, which is what makes the dependency chain
-\eqref{eq:ch23-dependency-chain} non-circular.
+These proofs use no result of
+\Cref{chap:bfj-ma,chap:bfj-energy,chap:bfj-differentiability}, which keeps
+\eqref{eq:ch23-dependency-chain} non-circular.  The later model-level
+examples use the already defined model Chambert--Loir measure and the
+convex-analysis facts of \Cref{app:convexity}; the later extension theorems
+are separately quoted with their own sources.
 
 \subsection{Plan}
 \label{sec:ch23-plan}
@@ -311,7 +314,10 @@ $\theta':=\theta+\ddc\psi$ represented by a relatively ample class; in
 particular $\theta'$ is semipositive, so the constant $0$ lies in
 $\PSH(X,\theta')$ and therefore $\psi\in\PSH(X,\theta)$ by
 \eqref{eq:ch21-reference-class-example}.  A model function is continuous on
-the compact space $X^{\An}$, hence bounded.  Put
+the compact space $X^{\An}$, hence bounded.  If $f\equiv+\infty$, every
+translate $\psi+c$, $c\in\mathbf R$, is admissible, so both envelopes
+are $+\infty$ everywhere and \eqref{eq:ch23-envelope-two-sided} holds.
+Otherwise $\inf f$ is finite by the given lower bound.  Put
 \[
  \chi:=\psi+\Bigl(\inf_{X^{\An}}f-\sup_{X^{\An}}\psi\Bigr),
 \]
@@ -359,12 +365,13 @@ which its corrected class stays relatively ample.  This is exactly what part (7)
 \subsection{The formal calculus}
 \label{sec:ch23-formal-calculus}
 
-The next proposition is the algebra of the operator $P_\theta$.  Each of
-its clauses is formal, in the sense that it uses only
+The next proposition is the algebra of the operator $P_\theta$.  Its first
+six clauses use
 \Cref{def:ch23-envelope} and the elementary closure properties of
-$\PSH(X,\theta)$ established in \Cref{prop:ch21-elementary-stability}; none
-uses compactness, multiplier ideals, or any continuity property of the
-output.  We isolate first the one quantitative ingredient, a Lipschitz
+$\PSH(X,\theta)$ established in \Cref{prop:ch21-elementary-stability}.
+Clause (7) also uses a positive model representative and openness of
+ampleness; none uses compactness of the psh space, multiplier ideals, or
+continuity of the output.  We isolate first the quantitative ingredient, a Lipschitz
 estimate for concave functions, because it is used in clause (7) and is easy
 to state incorrectly.
 
@@ -413,8 +420,10 @@ and only afterwards lets $\theta_j$ approach $\theta$.
 \end{remark}
 
 \begin{proposition}\label{prop:ch23-formal-envelope-calculus}
-Whenever the displayed envelopes are finite, the following identities and
-inequalities hold.
+The following identities and inequalities hold whenever the displayed
+extended-real expressions are defined.  In clause (3), zero coefficients
+omit their terms; clauses (5) and (7) concern finite envelopes.  Clause (6)
+also applies to singular psh functions.
 
 \begin{enumerate}
 \item If $f\leq g$, then $P_\theta(f)\leq P_\theta(g)$.
@@ -479,12 +488,16 @@ on a fixed skeleton is again one, and because the nef cone is convex, which
 is what makes those combinations $t\theta+(1-t)\eta$-psh at model level.
 This is the content of \Cref{prop:ch21-elementary-stability} applied on a
 common determining model.  Moreover
-$t\varphi+(1-t)\psi\leq tf+(1-t)g$.  Taking the supremum over
-$\varphi$ and then over $\psi$, and using superadditivity of suprema,
-gives \eqref{eq:ch23-joint-concavity}.  The inequality is genuinely one-sided:
-already for $\theta=\eta$ and $g=f$ equality would assert that the
-envelope is affine in the obstacle, which is false, as the two-obstacle
-computation in \Cref{ex:ch23-curve-envelope-numbers} shows.
+$t\varphi+(1-t)\psi\leq tf+(1-t)g$.  For $0<t<1$ and nonempty competitor
+families, taking the supremum independently over
+$\varphi$ and $\psi$,
+gives \eqref{eq:ch23-joint-concavity}.  If a competitor family is empty,
+the defined right-hand side is $-\infty$ and the inequality is automatic;
+the endpoint cases are identities.
+The inequality can be strict for distinct obstacles with
+$\theta=\eta$, as the two-obstacle computation in
+\Cref{ex:ch23-curve-envelope-numbers} shows.  For identical inputs it is
+an equality.
 
 \emph{(4) Reference change.}  By
 \eqref{eq:ch21-reference-class-example} the map $\varphi\mapsto\varphi-u$
@@ -525,7 +538,9 @@ $\tau$-psh, and \Cref{lem:ch23-envelope-finiteness} gives the bounds
        \leq P_\tau(f)(x)\leq\sup_{X^{\An}} f,
        \qquad \tau\in V,\ x\in X^{\An},
 \end{equation}
-which are uniform in both $\tau\in V$ and $x\in X^{\An}$.  Let $M$ be
+which are uniform in both $\tau\in V$ and $x\in X^{\An}$.  The pullback
+to the higher model is a continuous linear map of numerical class spaces,
+so the assumed convergence $\theta_j\to\theta$ is preserved.  Let $M$ be
 the maximum of the absolute values of the two outer terms in
 \eqref{eq:ch23-uniform-class-bounds}; it is finite because $f$ is
 continuous on a compact space, and it does not depend on $x$ or $\tau$.
@@ -554,8 +569,9 @@ which is (7).
 
 Two comments on the scope of the proposition are in order.  The contraction
 estimate (5) is formal, but only after both raw envelopes are known to be
-finite; that is \Cref{lem:ch23-envelope-finiteness}, and it is the sole place
-where ampleness of $\{\theta\}$ has been used so far.  Continuity of the
+finite; \Cref{lem:ch23-envelope-finiteness} supplies the lower barrier
+from ampleness of $\{\theta\}$.  Class continuity also uses that positivity.
+Continuity of the
 \emph{output} is a completely separate theorem and is proved only in
 \Cref{sec:ch23-continuity}.  Nothing in
 \Cref{prop:ch23-formal-envelope-calculus} asserts that $P_\theta(f)$ is
@@ -612,14 +628,15 @@ reverse inequality.
 $\min\{f,g\}\leq g$ give the first, and $f\leq\max\{f,g\}$,
 $g\leq\max\{f,g\}$ the second.  Neither is an equality in general.  For
 the first, let $f$ and $g$ be two $\theta$-psh model functions whose
-restrictions to a one-dimensional face of some dual complex are affine with
-different slopes.  Their minimum is concave and not affine near the
+affine restrictions cross in the interior of a one-dimensional face of a
+dual complex, with different slopes.  Their minimum is concave and not affine near the
 crossing, hence not convex there, hence not $\theta$-psh by clause (1) of
 \Cref{thm:bfj-skeletal-characterization}.  By clause (6) of
 \Cref{prop:ch23-formal-envelope-calculus} the right-hand side of the first
 inequality in \eqref{eq:ch23-min-max} is $\min\{f,g\}$ itself, while the
-left-hand side is the envelope of a nonpsh obstacle and is therefore
-strictly smaller somewhere.
+left-hand side is psh by \Cref{cor:ch23-continuous-obstacle-psh} and is
+therefore strictly smaller somewhere.  Strictness of the second inequality is
+computed in \Cref{ex:ch23-curve-envelope-numbers}.
 
 (4)  This is \eqref{eq:ch21-retraction-inequality} applied to the psh
 function $P_\theta(f)$; the hypothesis is exactly what
@@ -640,13 +657,14 @@ Let $f\in C^0(X^{\An})$.  Then
  \lim_{\mathcal X}\ \|f\circ p_{\mathcal X}-f\|_\infty=0,
 \end{equation}
 the limit being taken along the directed system of SNC models.  If
-$f\in\mathcal D(X)_{\mathbf R}$ is determined on $\mathcal X_0$, then
+$f\in\mathcal D(X)_{\mathbf R}$ is determined on an SNC model
+$\mathcal X_0$, then
 $f\circ p_{\mathcal X}=f$ for every $\mathcal X\geq\mathcal X_0$.
 \end{lemma}
 
 \begin{proof}
-The second assertion is the definition of a model function determined on
-$\mathcal X_0$: such a function is constant on the fibres of
+By \Cref{lem:model-function-affine}, a model function determined on the
+SNC model $\mathcal X_0$ factors through
 $p_{\mathcal X_0}$, and $p_{\mathcal X_0}p_{\mathcal X}=p_{\mathcal X_0}$
 for $\mathcal X\geq\mathcal X_0$ by
 \eqref{eq:ch21-retraction-composition}, so
@@ -655,7 +673,9 @@ X}=f\circ p_{\mathcal X_0}=f$.
 
 For the first, let $\varepsilon>0$.  By
 \Cref{prop:metrics-model-function-density} there is a model function $u$,
-determined on some $\mathcal X_0$, with $\|f-u\|_\infty<\varepsilon/3$.
+determined on some SNC model $\mathcal X_0$, with
+$\|f-u\|_\infty<\varepsilon/3$; an SNC domination of an initial
+determination exists by \Cref{prop:snc-cofinal}.
 For every $\mathcal X\geq\mathcal X_0$ and every $x\in X^{\An}$,
 \[
  |f(p_{\mathcal X}(x))-f(x)|
@@ -732,15 +752,12 @@ $\chi$ with
  \bigl|\chi-\psi\bigr|<\varepsilon
  \qquad\text{on }\Delta_{\mathcal Z}.
 \end{equation}
-No enlargement of $\mathcal Z$ is needed here, and none is available.  It
-would be circular --- the enlargement is chosen to carry a function produced
-by approximating on that model's own skeleton --- and it cannot be arranged
-in general, because a $\theta$-psh model function determined on
-$\mathcal Z$ is \emph{affine} on each face of $\Delta_{\mathcal Z}$
-(\Cref{lem:model-function-affine}), whereas
-$\psi|_{\Delta_{\mathcal Z}}$ is in general only convex there.  What
-Step~3 uses is an inequality, and that is available for every
-$\theta$-psh function without any determinedness hypothesis.
+The approximant need not be determined on $\mathcal Z$: such a function
+would be affine on each face, whereas $\psi|_{\Delta_{\mathcal Z}}$
+can be strictly convex.  A higher model can determine $\chi$, but the
+approximation estimate has only been proved on the original skeleton.
+Step~3 keeps that skeleton fixed and uses retraction domination, which
+requires no determinedness assumption on $\chi$.
 
 \emph{Step 3: pushing the inequality off the skeleton.}  Since $\chi$ is
 $\theta$-psh and $\mathcal Z$ determines $\theta$, clause~(1) of
@@ -783,22 +800,22 @@ functions.
 equality everywhere, a priori]
 \label{rem:ch23-two-envelopes-scope}
 Nothing in the proof compares the two envelopes at a point that is not
-quasimonomial.  After \Cref{thm:bfj-envelope-regularity} both functions are
-continuous and agree on the dense set of quasimonomial points
-(\Cref{thm:skeleton-inverse-limit}), hence agree everywhere; but that is a
-consequence of continuity, not a substitute for it.  The corresponding
-statement in \cite[Definition~2.8 and the discussion after it]{GJKM19} is
-made in exactly this order, and in the positive-characteristic setting of
-\Cref{sec:ch23-later} the identification of the two definitions is again
-deduced from the continuity theorem, never assumed.
+quasimonomial.  After \Cref{thm:bfj-envelope-regularity}, uniformly approximating
+$P_\theta(f)$ by psh model functions and shifting them down by their
+error produces admissible model competitors.  This proves equality
+everywhere in \Cref{cor:ch23-envelope-by-model-functions}, and therefore
+also continuity of the model envelope.  Equality on a dense set alone
+would not prove continuity of that envelope.  Outside the present BFJ
+hypotheses, comparison with a singular psh class requires the separate
+reconstruction hypotheses recorded in \Cref{sec:ch23-later}.
 \end{remark}
 
 \section{Upper envelopes of psh functions}
 \label{sec:ch23-upper-envelopes}
 
-The first analytic theorem concerns a family of psh functions, not a family
-of model functions.  Its proof uses no algebraic geometry beyond the
-equicontinuity estimate of \Cref{thm:bfj-skeletal-equicontinuity}: everything
+The first analytic theorem concerns an arbitrary psh family.  Its proof
+uses the skeletal framework and finite-maximum stability established
+earlier, together with the equicontinuity estimate of \Cref{thm:bfj-skeletal-equicontinuity}: everything
 else is the upper-envelope and Dini calculus of
 \Cref{chap:topological-tools}.
 
@@ -960,10 +977,15 @@ restrictions of $\theta$-psh model functions.  Both clauses of
 \label{rem:ch23-upper-envelope-hypotheses}
 Nonemptiness of the family is used twice: to know that $\varphi$ is not
 identically $-\infty$, and to get a finite lower bound on each skeleton in
-Step~3.  The uniform upper bound is used only in Step~3, but it cannot be
-weakened to a pointwise bound: without it the increasing limit on a skeleton
-may be $+\infty$ at some point, and then no modulus of continuity is
-available.  Stability under finite maxima
+Step~3.  The uniform upper bound ensures finiteness of the skeletal
+supremum.  In this psh class it follows already from a common finite
+upper bound at one divisorial point $x_0$: on a determining skeleton
+containing $x_0$, the normalized estimate of
+\Cref{thm:bfj-skeletal-equicontinuity} gives
+$\sup_X\varphi_\alpha\leq\varphi_\alpha(x_0)+C$.  Thus pointwise
+finite upper boundedness also suffices.  Without any such control, the
+family of constants tending to $+\infty$ has infinite supremum.
+Stability under finite maxima
 (\Cref{prop:ch21-elementary-stability}) is what makes the reduction of
 Step~1 legitimate; it is a theorem about the nef cone
 (\Cref{prop:ch20-model-max}), not a formality.
@@ -976,16 +998,16 @@ uniformly bounded above, and let $\varphi=\sup_i\varphi_i$.  Then
 $\varphi^*\in\PSH(X,\theta)$, $\varphi^*=\varphi$ on the union of all
 dual complexes, and
 $\varphi^*=\varphi$ on $X^{\An}$ if and only if $\varphi$ is upper
-semicontinuous.  If moreover $\varphi$ is continuous, then
-$\varphi_i\to\varphi$ uniformly on every dual complex.
+semicontinuous.  In every case
+$\varphi_i\to\varphi$ uniformly on each fixed dual complex.
 \end{corollary}
 
 \begin{proof}
 The first two assertions are \Cref{thm:ch23-upper-envelope} together with
 the last assertion of \Cref{prop:usc-majorant}, which says that
 $\varphi=\varphi^*$ exactly when $\varphi$ is upper semicontinuous.  The
-last assertion is \eqref{eq:ch23-dini-on-skeleton}, since an increasing net
-is cofinal in the net of its own finite maxima.
+skeletal assertion follows from its common modulus and Dini on a compact
+dual complex, as in \eqref{eq:ch23-dini-on-skeleton}.  No global continuity hypothesis is needed for this skeletal conclusion.
 \end{proof}
 
 The regularization in \Cref{thm:ch23-upper-envelope} cannot be omitted, and
@@ -994,7 +1016,7 @@ the failure is not confined to pathological families.
 \begin{example}[A bounded increasing family whose supremum is not upper
 semicontinuous]
 \label{ex:ch23-sup-not-usc}
-Let $X=\mathbf P^1_K$ with homogeneous coordinate $z$, let
+Let $X=\mathbf P^1_K$ with affine coordinate $z=Z/W$, let
 $\mathcal X=\mathbf P^1_R$, and let $\theta=c_1(\cO(1),\|\cdot\|_0)$ for
 the model metric of $\cO_{\mathbf P^1_R}(1)$.  Put
 \begin{equation}\label{eq:ch23-log-pole-potential}
@@ -1002,12 +1024,11 @@ the model metric of $\cO_{\mathbf P^1_R}(1)$.  Put
  =\min\{\log|z(x)|,0\},
  \qquad x\in(\mathbf P^1_K)^{\An}.
 \end{equation}
-Then $\psi$ is $\theta$-psh: it is upper semicontinuous because
-$x\mapsto|z(x)|$ is continuous; it satisfies the retraction inequality
-because $|z|$ does, by \Cref{lem:retraction-minorant}; and on the skeleton
-of any SNC model its restriction is the model function of an anti-effective
-vertical divisor whose curvature is nef, as verified in
-\Cref{ex:ch23-pole-model-check}.  Its polar set is the single rigid point
+At infinity the value is $0$.  The section-norm formula
+\eqref{eq:ch23-section-weight} makes $\psi$ globally upper
+semicontinuous.  Its psh property follows from the decreasing nef model
+truncations in \Cref{ex:ch23-pole-model-check}; on every fixed skeleton
+they eventually agree with $\psi$.  Its polar set is the single rigid point
 $z=0$, and $\psi\leq0$ with $\psi=0$ on $\{|z|\geq1\}$.
 
 For $0<\varepsilon\leq1$ put $\varphi_\varepsilon:=\varepsilon\psi$.
@@ -1061,13 +1082,14 @@ infimum $\psi$, and $\psi\not\equiv-\infty$; by
 \Cref{thm:ch21-decreasing-stability}, $\psi\in\PSH(X,\theta)$.  Note also
 that on any fixed dual complex $\Delta$ the function $\psi$ is finite and
 continuous, so $\psi_m=\psi$ on $\Delta$ as soon as
-$m\geq-\min_\Delta\psi$: the truncation is invisible on each skeleton, and
-only the rigid point $z=0$ ever sees it.
+$m\geq-\min_\Delta\psi$: for each fixed skeleton the truncation is eventually invisible.  Every
+finite-valued analytic point eventually sees no truncation; the rigid
+point $z=0$ is affected for every $m$.
 
 It is worth following where the curvature mass goes.  Let
 $\mathcal X_m\to\mathbf P^1_R$ be the model obtained by $m$ successive
-blowups, the first at the reduction of $z=0$ and each subsequent one at the
-point of the last exceptional divisor lying over it.  Its special fibre is a
+blowups, the first at the reduction of $z=0$ and each subsequent one at the intersection of the last exceptional divisor with the strict
+transform of the section $Z=0$.  Its special fibre is a
 chain $E_0\cup\cdots\cup E_m$ of rational curves with all multiplicities
 equal to $1$, with $(E_i\cdot E_{i+1})=1$, all other products zero, and
 \[
@@ -1248,7 +1270,7 @@ next subsection is therefore asserted only on one fixed dual complex.
 \subsection{A countable selection on one skeleton}
 \label{sec:ch23-fixed-skeleton-selection}
 
-The global theory requires nets, but one finite dual complex is metrizable.
+The upper-envelope proof uses nets; one finite dual complex is metrizable.
 The following selection principle is useful when an integral is supported
 on a fixed skeleton.
 
@@ -1394,9 +1416,9 @@ $\|u-u_j\|_\infty\to0$, as asserted.
 \begin{remark}[Exactly what has and has not been selected]
 \label{rem:ch23-selection-scope}
 The proposition makes no assertion that the chosen sequence works on all
-skeleta simultaneously.  Such an assertion would require a countable
-cofinal model system and is not used.  We spell out the point, because it is
-the single most tempting false step in this part of the theory.
+skeleta simultaneously.  The present construction depends on that skeleton and gives no global
+selection theorem.  A diagonal argument over a countable cofinal model
+family would extend its scope, but such a family cannot be assumed.
 
 The sequence $(u_j)$ produced in the proof depends on $\Delta$ through
 three separate choices: the constant $L$ of
@@ -1406,12 +1428,13 @@ uniform bound supplied as the model grows; the
 countable dense subset $(x_k)$; and the selection
 \eqref{eq:ch23-dense-selection} itself.  Nothing in the construction is
 uniform in $\Delta$.  Passing to a larger skeleton $\Delta'\supset\Delta$
-one obtains a different sequence, and there is in general no single sequence
-in $\mathcal F$ whose finite maxima converge uniformly on every dual
-complex from the present hypotheses.  A sequence records only countably many
-skeletal restrictions, whereas the system of SNC models need not have a
-countable cofinal subsystem
+one may obtain a different sequence.  This proof gives no control on a
+larger skeleton from the choices on the smaller one.  The model system
+need not have a countable cofinal subsystem
 (\Cref{ex:ch22-no-countable-cofinal}, \Cref{ex:no-cofinal-sequence}).
+That obstruction does not rule out a global sequence obtained by another
+argument.  The capacity methods of \Cref{chap:bfj-capacity} supply
+additional sequential results.
 
 What \emph{is} true globally is \Cref{thm:ch23-upper-envelope}, which is a
 statement about nets and whose conclusion involves a regularization.  The
@@ -1494,7 +1517,7 @@ do not invoke the present result.
 \end{proof}
 
 This is \cite[Theorem~8.3]{BFJ16}.  Its proof is not a consequence of
-\Cref{thm:ch23-upper-envelope} or compactness.  We give the full reduction
+\Cref{thm:ch23-upper-envelope} or compactness of the psh space.  We give the full reduction
 and the numerical multiplier-ideal argument.  The exact algebraic input is
 the uniform global-generation theorem stated before
 \Cref{thm:ch23-base-ideal-approximation}.
@@ -1663,11 +1686,12 @@ $\|u-(f-v)\|_\infty<\varepsilon$.  Both envelopes are finite by
 \end{equation}
 
 \emph{Reduction 3: to a rational reference class.}
-Pass to one model $\mathcal X_1\geq\mathcal X_0$ determining both
-$\theta'$ and $u$.  Rational classes are dense in the
-finite-dimensional real vector space $N^1(\mathcal X_1/R)$, so part (7) of
+Let $\mathcal X_1\geq\mathcal X_0$ determine $u$ as well.  Carry out
+rational approximation on $\mathcal X_0$, where $\theta'$ is relatively
+ample, and then pull the classes back to $\mathcal X_1$.  Rational classes
+are dense in the finite-dimensional space $N^1(\mathcal X_0/R)$, so part (7) of
 \Cref{prop:ch23-formal-envelope-calculus} allows us to choose a rational
-class $\theta_\varepsilon\in N^1(\mathcal X_1/R)_{\mathbf Q}$, as close to
+class $\theta_\varepsilon\in N^1(\mathcal X_0/R)_{\mathbf Q}$, as close to
 $\theta'$ as we please, with
 \begin{equation}\label{eq:ch23-class-reduction}
  \|P_{\theta_\varepsilon}(u)-P_{\theta'}(u)\|_\infty<\varepsilon .
@@ -1676,8 +1700,9 @@ We impose at the same time
 $\|\theta_\varepsilon-\theta'\|<\varepsilon^2$; both requirements follow
 by taking the rational class sufficiently close.  Shrinking the
 neighborhood if necessary, we also arrange that $\theta_\varepsilon$ is
-$\mathcal X_1$-positive, which is possible because ampleness is an open
-condition.
+$\mathcal X_0$-positive, by openness of ampleness there.  Its pullback
+is nef on $\mathcal X_1$; no relative ampleness of that pullback is
+required.
 
 \emph{Reduction 4: to an integral reference and the zero obstacle.}
 Put $\alpha_\varepsilon:=\theta_\varepsilon+\ddc u$, a rational class on
@@ -1717,11 +1742,13 @@ so that by construction
 \end{equation}
 The second expression in \eqref{eq:ch23-bracketing-form} shows
 $\eta_\varepsilon\to\theta'$ in the finite-dimensional space
-$N^1(\mathcal X_1/R)$, because
+$N^1(\mathcal X_0/R)$, because
 $\|\theta_\varepsilon-\theta'\|/t_\varepsilon<\varepsilon$.  Since
-$\theta'$ is $\mathcal X_1$-positive and ampleness is open,
-$\eta_\varepsilon$ is relatively ample for all small $\varepsilon$; in
-particular the constant $0$ is $\eta_\varepsilon$-psh.  Now
+$\theta'$ is relatively ample on $\mathcal X_0$,
+$\eta_\varepsilon$ is relatively ample there for small $\varepsilon$.
+Its pullback is nef on $\mathcal X_1$, so the constant $0$ is
+$\eta_\varepsilon$-psh.  Relative ampleness need not survive a
+domination; this is why the approximation was made on $\mathcal X_0$.  Now
 \eqref{eq:ch23-bracketing-identity} and the convexity of the semipositive
 cone (\Cref{prop:ch20-semipositive-well-defined}) show that
 \[
@@ -1762,9 +1789,9 @@ $P_\theta(f)$, as required.
 \begin{remark}[Why the curvature correction is needed at all]
 \label{rem:ch23-curvature-correction}
 The natural attempt is to approximate $\theta'$ by rational classes and to
-declare the resulting model functions $\theta'$-psh.  That is false: a
-$\theta_\varepsilon$-psh function is $\theta'$-psh only if
-$\theta'-\theta_\varepsilon$ happens to be semipositive, and a small
+declare the resulting model functions $\theta'$-psh.  Semipositivity of
+$\theta'-\theta_\varepsilon$ would guarantee this, but it is not a
+necessary condition for an individual potential.  A small
 perturbation of a nef class in an arbitrary direction is not nef.  The
 device in \eqref{eq:ch23-bracketing-form} replaces ``perturb and hope'' by an
 exact convex identity: $\theta'$ is written as a convex combination of
@@ -1772,8 +1799,11 @@ $\theta_\varepsilon$ and a class $\eta_\varepsilon$ which is genuinely
 ample, and the corresponding convex combination of potentials is
 $\theta'$-psh by an exact cone statement.  The cost is the factor
 $(1-t_\varepsilon)$, which is harmless precisely because the approximants
-are uniformly bounded.  The same manoeuvre is used, in the same place, by
-\cite[proof of Theorem~8.3]{BFJ16} and \cite[Lemma~8.4]{GJKM19}.
+are uniformly bounded.  This makes explicit the preservation of the psh
+cone in the class reduction.  The source reductions use continuity in the
+class, \cite[Proposition~8.2(vii) and proof of Theorem~8.3]{BFJ16} and
+\cite[Proposition~2.9(6)]{GJKM19}; the latter paper's Lemma~8.4 instead
+absorbs a model obstacle into the reference form.
 \end{remark}
 
 Thus it remains to treat
@@ -1859,13 +1889,15 @@ Part (1) is the model-theoretic version of
 \eqref{eq:ch23-input-subadditivity} is
 \Cref{thm:appC-multiplier-subadditivity} passed to the stabilized
 asymptotic ideals as in
-\eqref{eq:appC-asymptotic-subadditivity}.  Both use a log resolution of
-$\mathfrak a_q$ on $\mathcal X$ and local vanishing, hence residue
-characteristic zero; the subadditivity theorem of Demailly--Ein--Lazarsfeld
-\cite[Theorem~2.3]{DEL00} additionally uses smoothness of the diagonal.
-Part (2) is the model version of \Cref{thm:appC-uniform-generation-multiplier},
-proved by relative Nadel vanishing on a log resolution followed by
-Castelnuovo--Mumford regularity relative to $\Spec R$; the essential point
+\eqref{eq:appC-asymptotic-subadditivity}.  The exact model statements are \cite[Theorem~B.7 and the
+asymptotic construction in Appendix~B]{BFJ16}.  They use log resolutions
+of vertical ideals and model local vanishing.  The
+Demailly--Ein--Lazarsfeld theorem \cite[Theorem~2.3]{DEL00} is the
+absolute smooth-variety antecedent; a regular model is not assumed smooth
+over $R$.  Part (2) is \cite[Theorem~B.8 and Remark~B.9]{BFJ16}, proved
+by relative Nadel vanishing and Castelnuovo--Mumford regularity.
+\Cref{thm:appC-uniform-generation-multiplier} records its absolute
+counterpart; the essential point
 is that the twist $\mathcal B$ does not grow with $m$.  Verticality of
 $\mathcal J(\mathfrak a_\bullet^m)$ follows from verticality of
 $\mathfrak a_\bullet$, since a log resolution of a vertical ideal is an
@@ -1903,6 +1935,27 @@ $\varphi_m$ is a $\theta$-psh model function and
 \begin{proof}
 This is the argument of \cite[Theorem~8.5]{BFJ16}, now written with every
 deduction from the imported algebraic input explicit.  It has five steps.
+First replace $L$ and $\mathcal L$ by a positive tensor power $q$ for
+which $qL$ is globally generated.  In the auxiliary proof keep the same
+notation; then every positive-index base ideal is nonzero and vertical,
+so the all-index graded package applies.  Homogeneity gives
+$P_{q\theta}(0)=qP_\theta(0)$; at the end we recover every sufficiently
+large original index, not just multiples of $q$.
+
+We may also replace the initial model by a higher regular projective
+model carrying a relatively ample extension of the same generic class,
+using the regular-model clause of
+\Cref{prop:ch20-positive-representative}.  For a normal domination
+$\pi$, $\pi_*\cO=\cO$ and the projection formula identify the
+section spaces of $m\mathcal L$ and $m\pi^*\mathcal L$.  Their base
+ideals therefore pull back, and their model functions are unchanged.
+On this regular model choose an effective vertical rational Cartier divisor
+$E$ with $\mathcal A=\mathcal L-E$ relatively ample: the fixed-model
+exact sequence supplies a real correcting divisor; openness of ampleness
+allows rational approximation in its Cartier coefficients, and a rational
+constant shift makes it anti-effective.  Fix this model and $E$ before
+forming multiplier ideals.
+
 Steps~1--2 are formal; Step~3 identifies the envelope on the quasimonomial
 locus and uses no multiplier ideal; Step~4 is where
 \Cref{thm:ch23-uniform-generation-input} enters and produces the
@@ -1927,7 +1980,7 @@ $\varphi_m\in\mathcal A_\theta(0)$ and
  \qquad\text{on }X^{\An}.
 \end{equation}
 
-\emph{Step 2: the potentials are superadditive.}
+\emph{Step 2: the weighted potentials are superadditive.}
 Multiplying sections gives
 \begin{equation}\label{eq:ch23-graded-base-ideals}
                 \mathfrak a_m\mathfrak a_\ell
@@ -1943,8 +1996,8 @@ $\log|\mathfrak c|\leq\log|\mathfrak d|$, we get
              \leq(m+\ell)\varphi_{m+\ell}.
 \end{equation}
 Thus $(m\varphi_m(x))_m$ is a superadditive sequence of real numbers,
-bounded above by $0$; Fekete's lemma identifies its limit along
-sufficiently large indices with $\sup_m\varphi_m(x)$, pointwise on
+bounded above by $0$; Fekete's lemma identifies the normalized limit
+$\lim_m\varphi_m(x)$ with $\sup_m\varphi_m(x)$, pointwise on
 $X^{\An}$.
 
 \emph{Step 3: identification of the envelope at quasimonomial points.}
@@ -1975,9 +2028,9 @@ $\varphi_D$ with
 On $\Delta_{\mathcal Y}$ this gives
 $\varphi_D<\psi\leq0$ and
 $\varphi_D>\psi-2\varepsilon>P_\theta(0)(x)-3\varepsilon$ at $x$.
-There is no need --- and, by the affineness of
-\Cref{lem:model-function-affine}, no possibility in general --- to enlarge
-$\mathcal Y$ so as to make $\varphi_D$ determined on it.  Since
+There is no need to enlarge $\mathcal Y$ at this step.  A higher model
+can determine $\varphi_D$, but the approximation estimate is only on
+$\Delta_{\mathcal Y}$ and that is the skeleton used below.  Since
 $\varphi_D$ is $\theta$-psh and $\mathcal Y$ determines $\theta$,
 clause~(1) of \Cref{def:ch21-bfj-psh} already gives
 $\varphi_D\leq\varphi_D\circ p_{\mathcal Y}$, whence for every
@@ -2002,17 +2055,28 @@ Let $\pi:\mathcal X'\to\mathcal X$ dominate $\mathcal X$,
 $\mathcal Y$, and a model on which $\varphi_D$ is determined --- which
 exists because $\varphi_D$ is a model function, even though
 $\mathcal Y$ itself need not be such a model --- and regard $\varphi_D$
-as attached to a vertical $\mathbf Q$-divisor $D$ on $\mathcal X'$.  By
+as attached initially to a vertical real Cartier divisor $D$ on
+$\mathcal X'$.  By
 \Cref{prop:ch20-positive-representative}, applied to the semipositive class
-$\pi^*\theta+[D]$, there is on a further model a vertical
-$\mathbf Q$-divisor $D'$ with
+$\pi^*\theta+[D]$, there is on a further regular model a vertical real Cartier divisor
+$D'$ with $D+D'$ rational Cartier and
 \begin{equation}\label{eq:ch23-small-ample-correction}
      -\varepsilon\leq\varphi_{D'}\leq0,
      \qquad
      \pi^*\mathcal L+D+D'\text{ ample},
 \end{equation}
-where we have kept the name $\mathcal X'$ for that further model.  Both
-$D$ and $D'$ are anti-effective: a vertical divisor is anti-effective
+where we have kept the name $\mathcal X'$ for that further model.
+Here is the rationalization needed because the competitor may be real.
+Choose the small ample correction first in
+$[-\varepsilon/4,0]$, then subtract
+$(\varepsilon/4)\mathcal X'_s$.  Its coefficients are strictly
+negative and its class remains ample.  Approximate the coefficients of
+the corrected total divisor $D+D'$ by rational coefficients, inside
+the open ample cone and within $\varepsilon/4$ in model sup norm.
+The strict coefficient margin preserves anti-effectivity of its difference
+from $D$; this difference is the final $D'$ and lies in
+$[-\varepsilon,0]$ as a function.  Thus $D+D'$ is rational even if
+neither summand is.  Both $D$ and $D'$ are anti-effective: a vertical divisor is anti-effective
 exactly when its model function is nonpositive at every divisorial point of
 a determining model, by \eqref{eq:ch20-sign}, and
 $\varphi_D\leq0$, $\varphi_{D'}\leq0$ there.
@@ -2089,7 +2153,8 @@ $\log|\mathfrak c|\leq\log|\mathfrak d|$, by
 $\log|\cdot|$ through a normalized blowup.  Hence
 $m\ell\,\varphi_{m\ell}=\log|\mathfrak a_{m\ell}|\leq
 \ell\log|\mathfrak b_m|$; dividing by $m\ell$ and taking the supremum
-over $\ell$, then using \eqref{eq:ch23-envelope-base-sup}, gives on the
+over $\ell$, then using \eqref{eq:ch23-envelope-base-sup} and the Fekete
+limit from Step~2 (which has the same limit on the multiples of $m$), gives on the
 quasimonomial locus
 \begin{equation}\label{eq:ch23-multiplier-upper-control}
               \frac1m\log|\mathfrak b_m|
@@ -2098,16 +2163,10 @@ quasimonomial locus
 
 \emph{Step 4b: uniform global generation converts $\mathfrak b_m$ back
 into a base ideal.}
-After raising the model we may assume $\mathcal X$ regular, and we choose
-an effective vertical $\mathbf Q$-divisor $E$ such that
-$\mathcal A:=\mathcal L-E$ is ample.  This is possible: $\mathcal L$ has
-ample generic restriction, so \Cref{prop:ch20-positive-representative}
-supplies a model function $\varphi_D$, which we may normalize to be
-$\leq0$ by adding a multiple of $\mathcal X_s$ without changing any
-numerical class, such that $\mathcal L+D$ is relatively ample; and
-$\varphi_D\leq0$ at all divisorial points of a determining model means
-exactly that $D$ is anti-effective, so $E:=-D$ is effective and
-$\mathcal A=\mathcal L-E$.  Apply
+Use the regular model and the effective rational divisor $E$ fixed
+at the start of the proof, with $\mathcal A=\mathcal L-E$ ample.  No
+model change or pullback rule for multiplier ideals is being assumed at
+this step.  Apply
 \Cref{thm:ch23-uniform-generation-input}\,(2) with
 $\mathcal M=\mathcal L$: there is an ample $\mathcal B$, independent of
 $m$, with $\mathcal B\otimes m\mathcal L\otimes\mathfrak b_m$ globally
@@ -2212,8 +2271,24 @@ Taking suprema and using the uniform bound just obtained,
  \bigl(B+\lVert\varphi_E\rVert_\infty\bigr)
  =O(m^{-1}).
 \end{equation}
-This proves the uniform convergence in
-\eqref{eq:ch23-base-ideal-convergence}, with an explicit rate.
+This proves uniform convergence and the displayed rate in the auxiliary
+notation.  We now return to the original $L$.  The result just proved for
+$qL$ gives, for the original potentials,
+$0\leq P_\theta(0)-\varphi_{qk}\leq C_1/(qk)$ for large $k$.
+Choose $r$ with all $sL$ globally generated for $s\geq r$, and represent
+every large $m$ as $m=qk+s$, $r\leq s<r+q$.  Gradedness gives
+
+\[
+ \varphi_m\geq\frac{qk}{m}\varphi_{qk}+\frac{s}{m}\varphi_s,
+ \qquad
+ 0\leq P_\theta(0)-\varphi_m
+ \leq\frac{C_1}{m}+\frac{s}{m}\bigl(P_\theta(0)-\varphi_s\bigr).
+\]
+
+The finitely many $\varphi_s$ and the finite envelope are bounded, so
+the right side is $O(m^{-1})$ uniformly.  This recovers
+\eqref{eq:ch23-base-ideal-convergence} at every sufficiently large
+original index, with an explicit rate.
 
 The only imported steps were
 \Cref{thm:ch23-uniform-generation-input}.  Its construction from log
@@ -2234,8 +2309,12 @@ $m_0$ and $C$, depending only on $\mathcal X$ and $\mathcal L$, with
 \end{corollary}
 
 \begin{proof}
-This is \eqref{eq:ch23-envelope-rate} with
-$C=2m_0(B+\|\varphi_E\|_\infty)$, valid for $m\geq2m_0$.
+For the auxiliary globally generated power,
+\eqref{eq:ch23-envelope-rate} gives
+$C=2m_0(B+\|\varphi_E\|_\infty)$ beyond $2m_0$.  For the original
+line bundle, the final residue-class argument of that proof gives another
+constant $C$ and a threshold.  Enlarge $m_0$ so that $2m_0$ exceeds that
+threshold.  These constants depend only on the fixed model and bundle.
 \end{proof}
 
 \begin{remark}[Where each hypothesis was used in the proof]
@@ -2243,10 +2322,12 @@ $C=2m_0(B+\|\varphi_E\|_\infty)$, valid for $m\geq2m_0$.
 Ampleness of $L$ was used in Step~1, to have $mL$ globally generated and
 $\mathfrak a_m$ vertical, and in Step~4b, to produce $E$ with
 $\mathcal L-E$ ample.  Normality of the models was used in Step~3b, in the
-identification $\pi_*\cO_{\mathcal X'}=\cO_{\mathcal X}$.  Residue
-characteristic zero was used exactly once, inside
-\Cref{thm:ch23-uniform-generation-input}, and nowhere else; the arguments of
-Steps~1--3 and~5 are characteristic free.  Discreteness of the valuation is
+identification $\pi_*\cO_{\mathcal X'}=\cO_{\mathcal X}$.  The multiplier-ideal use of residue characteristic zero occurs inside
+\Cref{thm:ch23-uniform-generation-input}.  The psh and skeletal inputs
+of Step~3 also rely on the standing SNC reconstruction framework, and the
+regular ample-extension input at the start has its own model hypotheses.
+Once those are supplied, the numerical and section arguments of
+Steps~1--3 and~5 have no further characteristic restriction.  Discreteness of the valuation is
 used throughout the model theory of \Cref{chap:bfj-model-forms} on which the
 whole chapter rests.  The rate $O(m^{-1})$ in
 \eqref{eq:ch23-explicit-rate} is not used later, but it is worth recording,
@@ -2316,9 +2397,11 @@ formal consequence of maximality.  This section explains what it is in the
 two situations in which the obstacle problem is finite dimensional and
 linear, namely on a curve model and in the polyhedral convex category.  In
 both cases orthogonality is a complementary-slackness statement and has a
-complete elementary proof.  In both cases the proof visibly fails in higher
-dimension, and the reason it fails is the content of
-\Cref{rem:ch23-model-slackness-fails}.
+complete elementary proof.  The curve proof uses a feature special to
+dimension one, explained in \Cref{rem:ch23-model-slackness-fails}.
+The convex proof works in every dimension, but its use on a variety
+requires the invariant convex dictionary; it does not prove general
+non-Archimedean orthogonality.
 
 \subsection{The model obstacle problem}
 \label{sec:ch23-model-obstacle-problem}
@@ -2426,8 +2509,9 @@ $\sum_ic_i=\deg_X\{\theta\}$ by \eqref{eq:ch23-curve-degree-sum}.
 
 The last computation is worth isolating, because it is the mechanism behind
 everything in this subsection: $v\mapsto(A_i(v))_i$ is an affine map whose
-linear part is minus a weighted graph Laplacian, and a weighted graph
-Laplacian has nonnegative off-diagonal entries and vanishing row sums.
+linear part is minus the usual positive graph Laplacian.  The resulting linear map in
+\eqref{eq:ch23-curve-residual-degree} has nonnegative off-diagonal
+entries and vanishing row sums.
 
 \begin{theorem}
 \label{thm:ch23-model-orthogonality-curve}
@@ -2462,10 +2546,12 @@ to rewrite $K_{\mathcal X}(\theta,u)$ as
 \end{equation}
 a closed convex polyhedron, since each $A_i$ is affine.  Note that
 $\varphi_v\leq u$ as functions on $X^{\An}$ is equivalent to
-$v_i\leq u_i$ for all $i$: both functions are determined on
-$\mathcal X$, hence constant on the fibres of $p_{\mathcal X}$ and
-affine on each edge of $\Delta_{\mathcal X}$, so the inequality on the
-vertex set propagates to $\Delta_{\mathcal X}$ and thence to $X^{\An}$.
+$v_i\leq u_i$ for all $i$: their difference is attached to the vertical Cartier divisor
+$\sum_i b_i(u_i-v_i)E_i$.  On the regular model, nonnegative
+coefficients make this divisor effective and its model function
+nonnegative on all of $X^{\An}$.  Conversely, evaluation at the
+divisorial points recovers those coefficients and their signs.  This
+argument does not require an SNC retraction on a merely regular model.
 
 \emph{Step 1: $K\ne\varnothing$.}  For a constant vector $v\equiv t$ one
 has $A_i(t)=c_i\geq0$, because $\theta$ is semipositive; and
@@ -2532,18 +2618,18 @@ $P_i=u_i$ or $A_i(P)=0$, which is
 \]
 by \eqref{eq:ch23-complementary-slackness}.  Since $u-P\geq0$ and
 $\MA_\theta(P)\geq0$, vanishing of the integral says exactly that the
-measure gives no mass to $\{u>P\}$, which in this atomic setting is the
-set of vertices with $P_i<u_i$.  This proves (2) and (3).
+measure gives no mass to $\{u>P\}$: its only possible atoms there are
+the vertices with $P_i<u_i$, and all have zero weight.  This proves (2)
+and (3).
 \end{proof}
 
 \begin{corollary}
 \label{cor:ch23-curve-harmonic-off-contact}
 In the situation of \Cref{thm:ch23-model-orthogonality-curve}, let
 $N:=\{i\in I: P_i<u_i\}$ be the noncontact vertex set.  Then
-$A_i(P)=0$ for every $i\in N$; equivalently, the restriction of
-$\MA_\theta(P)$ to the Borel set $p_{\mathcal X}^{-1}(\{e_i:i\in N\})$
-vanishes, and on the corresponding part of the dual graph the vertical
-divisor of $P$ satisfies the homogeneous Laplace equation
+$A_i(P)=0$ for every $i\in N$; the atomic measure gives no mass to
+$\{u>P\}$.  At the noncontact vertices of the weighted component graph,
+the values of $P$ satisfy the discrete Poisson equation
 $\Delta_\Gamma P=-c$ exactly.
 \end{corollary}
 
@@ -2562,12 +2648,11 @@ First, the description of semipositivity.  In
 \Cref{lem:ch23-curve-residual-degree}\,(2) the nef cone was cut out by the
 $\#I$ linear inequalities $A_i(v)\geq0$, because in a one-dimensional
 special fibre the only proper integral vertical curves are the components
-themselves.  For $n\geq2$ the special fibre contains a continuum of
+themselves.  For $n\geq2$ there can be infinitely many
 vertical curves lying inside the components, and relative nefness is the
 requirement that \emph{all} of them have nonnegative degree.  Raising one
 coefficient $v_i$ can then violate the condition on a curve
-$C\subset E_j$ with $j\ne i$, even though it improves the degree on
-$E_j$ itself.
+$C\subset E_j$ with $j\ne i$, even when a fixed mixed intersection with $E_j$ increases.
 
 Second, the description of the measure.  The atom of the model measure at
 $e_i$ is $b_i\bigl((\theta+\ddc\varphi)^n\cdot E_i\bigr)$, a
@@ -2677,8 +2762,8 @@ polarized toric variety because there the Monge--Amp\`ere operator
 recorded in \Cref{app:normalizations}, and the psh envelope \emph{is} the
 convex envelope; see \Cref{ex:ch23-toric-orthogonality}.  It is not a proof
 of \eqref{eq:ch23-orthogonality-preview} for a general model, for the reason
-given in \Cref{rem:ch23-model-slackness-fails}: outside the invariant
-setting there is no linear or convex parameterization of the psh cone, and
+given in \Cref{rem:ch23-model-slackness-fails}: the general nef constraints do not reduce to a finite graph obstacle
+problem or this Legendre-duality argument, and
 the passage from ``$u$ is affine along a segment'' to ``the measure does
 not charge the point'' has no counterpart.
 \end{remark}
@@ -2721,12 +2806,15 @@ every competitor does too.  Hence $P_\theta(0)=0$, and
 \eqref{eq:ch23-base-ideal-convergence} is an equality at every finite level;
 in \Cref{cor:ch23-envelope-rate} one may take $C=0$.  The
 multiplier-ideal correction becomes necessary only when the chosen
-model extension has vertical base locus.  For an example where it does, keep
+model extension has vertical base locus and uniform convergence has not
+already been established directly.  For an example where it does, keep
 $X=\mathbf P^1_K$ and replace $\mathcal X$ by the blowup
 $\pi:\mathcal X_1\to\mathbf P^1_R$ of \Cref{ex:ch23-pole-model-check}
 with
 $\mathcal L_1:=\pi^*\cO(1)+E_1$, whose generic restriction is again
-$\cO(1)$.  Since $E_1$ is $\pi$-exceptional,
+$\cO(1)$.  In this part of the example set
+$\theta=c_1(\mathcal L_1,\|\cdot\|_{\mathcal L_1})$.
+Since $E_1$ is $\pi$-exceptional,
 $\pi_*\cO_{\mathcal X_1}(mE_1)=\cO_{\mathbf P^1_R}$, so
 $H^0(\mathcal X_1,m\mathcal L_1)=H^0(\mathbf P^1_R,m\cO(1))$: adding
 $E_1$ buys no new sections, and every section, read inside
@@ -2750,8 +2838,10 @@ $u\leq0$ is $-\varphi_{E_1}$: a psh function $v$ for the standard form
 satisfies $\delta_{e_0}+\ddc v\geq0$, hence is convex, and being bounded
 above therefore nonincreasing, along the infinite branch through $e_1$
 towards the rigid point $z=0$; since $v\leq\varphi_{E_1}=0$ at
-$e_0$, it follows that $v\leq0$ on that branch, so the largest
-admissible $v=u+\varphi_{E_1}$ is $0$.  Hence
+$e_0$, it follows that $v\leq0$ on that branch.  Outside that branch,
+the obstacle $\varphi_{E_1}$ is zero as well, so
+$v\leq0$ there already.  Thus the largest globally admissible
+$v=u+\varphi_{E_1}$ is $0$.  Hence
 $P_\theta(0)=\psi_1=\max\{\psi,-1\}$, the function of
 \eqref{eq:ch23-truncated-pole}, and
 \eqref{eq:ch23-base-ideal-convergence} is again an equality at every finite
@@ -2774,12 +2864,12 @@ any convex $u\leq f$ satisfies
 \]
 Since the zero function is admissible, the convex envelope is identically
 zero.  It touches $f$ only at the endpoints and is affine on the
-noncontact interval.  In the metric-graph realization, the variable
-Laplacian consequently vanishes off the contact set, in accordance with
-\Cref{cor:ch23-curve-harmonic-off-contact} and
-\Cref{thm:ch23-convex-envelope-orthogonality}: the contact set is
-$\{0,1\}$, the measure is $\delta_0+\delta_1$ up to the reference term,
-and $\int(f-u)\,\MA_{\mathbf R}(u)=f(0)\cdot1+f(1)\cdot1=0$.  The fixed
+noncontact interval.  The Alexandrov measure of the affine function $u=0$ is zero on
+$(0,1)$; this interior measure has no endpoint atoms.  A graph
+curvature measure can include a reference contribution at its boundary
+vertices, but that requires specifying the global reference and slopes.
+The local interior calculation agrees with
+\Cref{thm:ch23-convex-envelope-orthogonality}.  The fixed
 reference curvature must still be restored when translating this local
 calculation to a global polarized curve; that is done in
 \Cref{ex:ch23-curve-envelope-numbers}.
@@ -2790,7 +2880,7 @@ calculation to a global polarized curve; that is done in
 This is the promised complete computation.  Let $K$ be discretely valued
 with $v(\pi)=1$, let $X=\mathbf P^1_K$, and let $\mathcal X$ be the
 model obtained from $\mathbf P^1_R$ by four successive blowups, each at a
-smooth point of the special fibre lying on the component created by the
+residue-rational smooth point of the special fibre lying on the component created by the
 previous blowup and away from the previous ones.  Then $\mathcal X$ is
 regular with reduced special fibre a chain
 \[
@@ -2879,7 +2969,7 @@ which indeed lies in $K$: $P_i\leq u_i$ holds coordinatewise
  \qquad
  \MA_\theta(P)(X^{\An})=2=\deg_XL ,
 \]
-so the total mass is correct.  The contact set is $\{e_2\}$, since
+so the total mass is correct.  The contact vertex set is $\{e_2\}$, since
 $P_2=u_2=-3$ while $u_i-P_i=1,\ \tfrac12,\ 0,\ \tfrac12,\ 1$ for
 $i=0,\ldots,4$.  Therefore
 \[
@@ -2898,7 +2988,11 @@ $A_0=A_4=0$ coming from the residual degrees $c_0=c_4=1$.
 $\mathcal X$ improves $P$, so that $P=P_\theta(u)$ on
 $\Delta_{\mathcal X}$.  Let $\varphi\in\PSH(X,\theta)$ with
 $\varphi\leq u$.  Its restriction to $\Delta_{\mathcal X}$ is convex on
-each edge by \Cref{thm:bfj-skeletal-characterization}\,(1).  We claim its
+each edge by \Cref{thm:bfj-skeletal-characterization}\,(1).  At each
+interior vertex the reference degree is zero; the curve slope criterion,
+after discarding the nonpositive directions leaving the skeleton, says
+that the right derivative is at least the left derivative.  Thus the
+restriction is convex along the entire path, including its knots.  We claim its
 outgoing slope at $e_0$ along the path, measured in the unit-length
 parameterization of the edges, is $\geq-c_0=-1$.  Granting the claim,
 convexity along the path makes all subsequent slopes $\geq-1$, so
@@ -2916,7 +3010,31 @@ $\Delta_{\mathcal X}$ is towards $e_1$, and the directions leaving the
 skeleton contribute nonpositive slopes by the retraction inequality, so
 discarding them preserves the inequality; see the proof of
 \Cref{thm:curves-arbitrary-field-continuity}, where this reduction is
-carried out in detail.
+carried out in detail.  The model function $P$ is itself admissible.
+Since $u$ and $P$ factor through $p_{\mathcal X}$, retraction domination
+of any competitor extends the inequality from the path to $X^{\An}$.
+Hence $P=P_\theta(u)$ globally.
+
+\emph{Two obstacles showing strict concavity and the maximum inequality.}
+Use the same path parameter $0\leq t\leq4$ and reference degrees.
+Let $f(t)=-2t$ and $g(t)=-8+2t$, extended through the retraction as model
+obstacles.  The slope bounds just proved give
+
+\[
+ P_\theta(f)(t)=-4-t,\qquad P_\theta(g)(t)=-8+t.
+\]
+
+Indeed any competitor below $f$ has value at most $-8$ at $t=4$ and
+slopes at least $-1$, so it lies below $-4-t$; that affine function is
+admissible by the residual-degree test.  The other assertion is symmetric,
+and retraction extends both globally.  The average obstacle is the
+constant $-4$, whose envelope is itself, whereas the average of the two
+envelopes is $-6$.  Joint concavity is therefore strict.  At $t=2$,
+$\max\{f,g\}=-4$ and the constant $-4$ is an admissible minorant of
+this maximum everywhere.  Thus
+$P_\theta(\max\{f,g\})(2)=-4$, while
+$\max\{P_\theta(f),P_\theta(g)\}(2)=-6$, giving the second strict
+inequality claimed in \eqref{eq:ch23-min-max}.
 \end{example}
 
 \begin{remark}[Model dependence of the model-level envelope]
@@ -2929,8 +3047,8 @@ competitor set.  The finite-dimensional shadow of
 \Cref{ex:metrics-max-skeleton} is that a refinement can create a new vertex
 at which a competitor may be raised.
 
-In dimension one, however, the chain does stabilize, and it stabilizes as
-soon as the model sees the data.  Suppose $\mathcal X$ is a strictly
+In the strictly semistable curve setting described next, the chain
+stabilizes once the model determines the data.  Suppose $\mathcal X$ is a strictly
 semistable model, available after a finite extension of $K$, determining
 both $\theta$ and the model obstacle $u$.  The chord argument of
 \cite[Proposition~3.10]{GJKM19}---replace a competitor by the piecewise
@@ -2947,19 +3065,23 @@ edges of $\Delta_{\mathcal X}$.  Hence
 which is the equality verified by hand at the end of
 \Cref{ex:ch23-curve-envelope-numbers}.  This is one more item on the list of
 \Cref{rem:ch23-curve-specialness}: it uses that the psh condition is linear
-on each skeleton and that retraction preserves it, and it has no known
-higher-dimensional analogue.
+on each skeleton and that retraction preserves it.  The same retraction
+argument fails in higher dimension, as explained in
+\Cref{rem:ch23-curve-specialness}.
 \end{remark}
 
 \begin{example}[Toric convex envelopes and orthogonality in numbers]
 \label{ex:ch23-toric-orthogonality}
-For an invariant continuous metric on a polarized toric variety, subtracting
-the reference support function converts the psh envelope into the convex
-envelope with prescribed recession behavior.  Uniform convergence in
+For a full invariant metric weight on the tropical vector space, the
+psh condition is convexity with the polarization's prescribed recession
+behavior.  Its relative potential is obtained by subtracting the fixed
+reference weight; that relative potential need not itself be convex.  Uniform convergence in
 \eqref{eq:ch23-envelope-continuity} becomes uniform convergence of convex
-piecewise affine minorants.  The Alexandrov measure is supported on the
-contact set by \Cref{thm:ch23-convex-envelope-orthogonality}, so
-orthogonality can be verified directly in this invariant setting.  This
+piecewise affine minorants.  The compact-domain theorem
+\Cref{thm:ch23-convex-envelope-orthogonality} supplies the interior
+convex calculation; identifying a global toric envelope also requires
+the recession and boundary conditions.  The computation below supplies
+that global extension explicitly.  This
 direct convex proof is an instance of
 \eqref{eq:ch23-orthogonality-preview}; it is not a proof for arbitrary
 higher-dimensional models, by \Cref{rem:ch23-convex-case-scope}.
@@ -3023,10 +3145,33 @@ which is \eqref{eq:ch23-convex-orthogonality} in numbers.  Note that the
 noncontact region here has full Lebesgue measure and yet carries no
 Monge--Amp\`ere mass at all: the envelope is affine along a segment through
 each of its points, exactly as in Step~1 of the proof of
-\Cref{thm:ch23-convex-envelope-orthogonality}.  Translating through the
-toric dictionary, $u$ is the support-function description of an invariant
-semipositive metric whose Chambert--Loir measure is $n!=2$ times the atom
-above, by the $n!$-test recorded in \Cref{app:normalizations}.
+\Cref{thm:ch23-convex-envelope-orthogonality}.  To make this a global toric example, extend the one-variable obstacle by
+$F(t)=\psi(t)$ for $|t|\leq2$ and $F(t)=|t|/2$ for $|t|\geq2$.
+It is continuous.  Every global convex minorant restricts on $[-2,2]$
+to a function below $u_1$ and is bounded by $F=u_1$ outside, while $u_1$
+itself is admissible.  Hence its global convex envelope is $u_1$.
+The separable two-variable obstacle $F(t_1)+F(t_2)$ similarly has global
+envelope $u$: take the convex envelope in each coordinate, with the other
+fixed, or use the product of the one-variable minimizing barycentric
+measures.
+
+Choose tropical coordinates and toric frames in which the canonical full
+weight on each factor is $\max\{0,t_i\}$.  Add the linear weight
+$(t_1+t_2)/2$.  The resulting convex envelope is
+$\max\{0,t_1\}+\max\{0,t_2\}$, with moment polytope $[0,1]^2$,
+the canonical full weight for the split toric surface
+$X=\mathbf P^1_K\times\mathbf P^1_K$ with $L=\cO(1,1)$.
+The relative obstacle is
+$(F(t_1)-|t_1|/2)+(F(t_2)-|t_2|/2)$; each summand vanishes at the
+ends of the compactified tropical line, so it extends to a global
+continuous invariant potential.  Convex-envelope bounds apply to all
+invariant psh competitors, and the canonical weight is itself admissible.
+In this invariant category the envelope is therefore the canonical
+metric.  Adding the linear weight leaves subgradient volumes unchanged;
+its Chambert--Loir measure is $2\delta_{(0,0)}$, with total mass
+$(L^2)=2$, and its relative obstacle vanishes at that atom.  This is the
+claimed toric orthogonality calculation, with the $n!$ factor of
+\Cref{app:normalizations}.
 \end{example}
 
 \begin{example}[Stability under perturbing the obstacle]
@@ -3050,8 +3195,7 @@ all of them.  Note that this argument transports \emph{continuity} but not
 by \eqref{eq:ch23-envelope-contraction}.
 \end{example}
 
-\begin{example}[An envelope outside the scope of every theorem proved or
-cited here]
+\begin{example}[A mixed-characteristic envelope requiring further hypotheses]
 \label{ex:ch23-outside-scope}
 Let $K=\mathbf Q_p$, which is complete and discretely valued with residue
 field $\mathbf F_p$, so of \emph{mixed} characteristic $(0,p)$.  Let
@@ -3061,13 +3205,18 @@ $\mathbf P^4_{\mathbf Q_p}$ with $L=\cO(1)|_X$, and let
 $\theta=c_1(L,\|\cdot\|_0)$ for a model metric.  Let $f\in C^0(X^{\An})$
 be arbitrary.
 
-None of the theorems available to us applies to $P_\theta(f)$.
+The stated data alone do not meet the hypotheses of an available
+continuity theorem for the rational-model envelope.  To discuss the raw
+all-psh envelope outside the BFJ regime also requires a suitable singular
+psh theory and comparison theorem.
 \Cref{thm:bfj-envelope-regularity} requires residue characteristic zero,
-which fails, and its proof fails twice over: SNC models need not be cofinal
+which fails, and its framework needs two inputs not supplied by these data: SNC models
+are not known to be cofinal in this generality
 (\Cref{rem:cofinality-scope}), so even
 \Cref{def:ch21-bfj-psh} would have to be reconsidered, and asymptotic
-multiplier ideals with subadditivity and fixed-twist global generation are
-not available.  The test-ideal theorem
+multiplier ideals with subadditivity and fixed-twist global generation are not supplied by the characteristic-zero multiplier-ideal engine.
+The mixed-characteristic test-ideal theorem is discussed below.  The equal-
+characteristic test-ideal theorem
 \Cref{thm:ch23-gjkm-positive-characteristic} requires \emph{equal}
 characteristic $p$ and geometric origin from a family over a perfect
 field, both of which fail for $\mathbf Q_p$.  The curve theorem
@@ -3079,12 +3228,14 @@ rather than proving it.
 The honest statement is therefore: for a smooth projective variety of
 dimension at least three over a mixed-characteristic complete discretely
 valued field, continuity of $P_\theta(f)$ for a general continuous $f$
-does not follow from anything proved or cited in this chapter.  Partial
-results in mixed characteristic, and the precise form of the
-Monge--Amp\`ere theory that is currently available there, are recorded in
-\Cref{thm:fgk-mixed-characteristic-cy} with their own hypotheses and date.
-We do not assert that continuity fails; we assert that it is not known by
-these methods, and the distinction is exactly the one that
+does not follow from the data given here.  The mixed-characteristic
+result \cite[Theorems~1.1 and~7.1]{FGK25} proves rational-model
+envelope continuity under resolution for projective $K^\circ$-models.
+That extra assumption has not been supplied in this example.  Embedded
+resolution supplies the further SNC framework used for the equation in
+\Cref{thm:fgk-mixed-characteristic-cy}.
+We do not assert that continuity fails; these methods need additional
+hypotheses to establish it, and the distinction is exactly the one that
 \Cref{sec:ch23-later} is designed to keep visible.
 \end{example}
 
@@ -3092,8 +3243,8 @@ these methods, and the distinction is exactly the one that
 \label{sec:ch23-later}
 
 The multiplier-ideal proof above belongs to the original complete discretely
-valued, residue-characteristic-zero setting.  Four later developments extend
-it, and each of them buys generality in one direction by paying in another.
+valued, residue-characteristic-zero setting.  The later developments below extend envelope continuity or its
+Monge--Amp\`ere consequences under separately stated hypotheses.
 We state them separately, with their own hypotheses, sources and dates,
 rather than folding them into
 \Cref{thm:bfj-envelope-regularity}.  The corresponding
@@ -3151,14 +3302,14 @@ ideals by test ideals.  Three hypotheses appear that have no analogue in
 \label{def:ch23-geometric-origin}
 Let $K$ be complete discretely valued of characteristic $p>0$.  One says
 that $X$ is \emph{of geometric origin from a $d$-dimensional family over
-a field $k$} if there are a $d$-dimensional normal variety $B$ over
-$k$, a codimension-one point $b\in B^{(1)}$, a subfield
-$K'\subset K$ inducing $K$ as the completion of the discrete valuation
-ring $\cO_{B,b}$, and a $K'$-variety $Y$ with
-$Y\otimes_{K'}K\simeq X$.  If in addition a line bundle, respectively a
-closed $(1,1)$-form, on $X$ is induced by base change from that family,
-one says that $(X,L)$, respectively $(X,\theta)$, is of geometric
-origin.
+a field $k$} if there are a normal $d$-dimensional $k$-variety $B$,
+a codimension-one point $b\in B^{(1)}$, an identification
+$\widehat{\cO_{B,b}}\simeq K^\circ$, and a projective variety $Y$
+over $K'=k(B)$ with $Y\otimes_{K'}K\simeq X$, using the induced
+embedding $K'\hookrightarrow K$.  Put $R_0=\cO_{B,b}$.  The pair
+$(X,L)$ is of geometric origin when $L$ descends to a line bundle on $Y$;
+$(X,\theta)$ is of geometric origin when $\theta$ is induced by a line
+bundle on an $R_0$-model of $Y$, after base change to $K^\circ$.
 \end{definition}
 
 \begin{theorem}
@@ -3190,7 +3341,7 @@ subadditivity, and a uniform generation theorem
 \cite[Theorem~1.3 and Theorem~4.6]{GJKM19}, which asserts that for
 $X$ projective over a finitely generated $k$-algebra $R$ and smooth of
 dimension $n$ over $k$, for $H$ ample and basepoint free, $D$ with
-$h^0(mD)\neq0$ for some $m>0$, and $E$ with $D-\lambda E$ nef for
+$h^0(mD)\neq0$ for some $m>0$, and $E$ with $E-\lambda D$ nef for
 some $\lambda\in\mathbf Q_{\geq0}$, the sheaf
 $\cO_X(K_{X/k}+E+dH)\otimes\tau(\lambda\|D\|)$ is globally generated for
 all $d\geq n+1$.  Musta\c{t}\u{a} proved this for $X$ projective over $k$;
@@ -3227,24 +3378,22 @@ scope of \Cref{thm:ch23-gjkm-positive-characteristic}.
 the whole situation to be spread out over a variety $B$ over a perfect
 field, so that test ideals may be formed on a scheme of finite type over
 $k$ rather than over $K^\circ$.  It is a restriction on $X$, not a
-normalization: not every smooth projective variety over
-$\mathbf F_p(\!(t)\!)$ is known to be of geometric origin from a family
-over $\mathbf F_p$.
+normalization: a general variety over the completed field is not assumed to descend
+to a function field $k(B)$ with the required codimension-one completion.
 
 \emph{Resolution.}  Assumption \textup{(R)} is used in dimension $d+n$,
 not $n$; the family contributes its own dimension.  For $n=2$,
 $d=1$ it is a theorem, whence
 \Cref{cor:ch23-gjkm-surfaces}.  For $n\geq3$ it is open in general.
 
-Finally, in the setting of
-\Cref{thm:ch23-gjkm-positive-characteristic} the two envelope definitions of
-\Cref{sec:ch23-three-operators} are again identified, but only \emph{after}
-the continuity theorem: \cite[Section~9]{GJKM19} deduces the agreement of
-\Cref{def:ch23-envelope} and \Cref{def:ch23-model-envelope} from continuity,
-exactly as \Cref{cor:ch23-envelope-by-model-functions} does here.  The
-embedded-resolution assumption is then added, on top of \textup{(R)}, to
-make projective SNC models cofinal and so to reconstruct the psh theory of
-\Cref{chap:bfj-psh}; see \Cref{thm:gjkm-positive-characteristic-cy}.
+Finally, rational-model envelope continuity alone does not construct the
+singular psh class used in \Cref{def:ch23-envelope}.  Section~9 of
+\cite{GJKM19} first adds embedded resolution in dimension $d+n$ to
+\textup{(R)}, giving cofinal projective SNC models and the reconstructed
+psh theory.  With those hypotheses and the continuity theorem, it proves
+agreement with the all-psh envelope.  See
+\Cref{thm:gjkm-positive-characteristic-cy}; that comparison is not part of
+Theorem~8.2 under \textup{(R)} alone.
 \end{remark}
 
 \subsection{Alterations, and what they do and do not replace}
@@ -3289,8 +3438,9 @@ without checking that its hypotheses are met.
 \subsection{Removing algebraizability, and mixed characteristic}
 \label{sec:ch23-later-algebraizability}
 
-Two further developments belong to the record, although neither is a
-statement about continuity of envelopes.
+Two further developments concern different steps: removal of
+algebraizability in orthogonality, and mixed-characteristic envelope
+continuity under model-resolution hypotheses.
 
 Burgos Gil--Gubler--Jell--K\"unnemann--Martin proved differentiability of
 non-Archimedean volumes and deduced the orthogonality property from
@@ -3302,11 +3452,18 @@ hypothesis under which orthogonality had originally been proved in
 \Cref{thm:bfj-envelope-regularity}; it changes what may be deduced
 \emph{from} that theorem.
 
-In mixed characteristic the currently available Monge--Amp\`ere theory, and
-the hypotheses under which it is available, are recorded in
-\Cref{thm:fgk-mixed-characteristic-cy}.  \Cref{ex:ch23-outside-scope}
-records an explicit instance in which continuity of the envelope is not
-covered by any theorem proved or cited here.
+In mixed characteristic, \cite[Theorems~1.1 and~7.1]{FGK25} proves
+continuity of the rational-model envelope for every continuous metric on
+an ample line bundle on a smooth projective variety, assuming resolution
+for projective $K^\circ$-models of that variety.  Its fixed-model theorem
+\cite[Theorem~5.1]{FGK25} uses a regular model carrying an ample extension
+of the generic polarization.  Perturbation-friendly test ideals supply the
+ideal-theoretic engine.  Embedded resolution for regular projective models
+is an additional assumption for the SNC psh framework and the equation
+in \Cref{thm:fgk-mixed-characteristic-cy}, not an assumption of the
+metric-envelope continuity theorem alone.
+\Cref{ex:ch23-outside-scope} omits these resolution assumptions; it is
+therefore outside the unconditional conclusions given by its stated data.
 
 Finally, the trivially valued unibranch theorem of
 \Cref{chap:bj-envelope-statement} is a different result about a different
@@ -3349,7 +3506,13 @@ implies nor is implied by \Cref{thm:bfj-envelope-regularity}.
  &cdv, mixed char.
  &$\geq3$
  &ample
- &not covered by any of the above\\
+ &resolution assumptions not supplied\\
+\cite[Theorems~1.1,~7.1]{FGK25}
+ &cdv, mixed char.
+ &any
+ &ample $L$
+ &rational-model metric envelope; resolution for projective
+ $K^\circ$-models\\
 \end{tabular}
 \end{center}
 
@@ -3395,7 +3558,7 @@ retraction of an obstacle
   (\Cref{lem:ch23-retraction-uniform})
  &\Cref{prop:ch23-model-vs-psh-envelope}\\
 base ideal $\mathfrak a_m$
- &$\varphi_m$ is $\theta$-psh, superadditive, and
+ &$\varphi_m$ is $\theta$-psh, $m\varphi_m$ is superadditive, and
   $\varphi_m\to P_\theta(0)$ at rate $O(m^{-1})$
   (\Cref{thm:ch23-base-ideal-approximation},
    \Cref{cor:ch23-envelope-rate})
@@ -3506,8 +3669,9 @@ proposition itself to the literature.  The
 principle is deliberately restricted to one compact dual complex.  A global
 sequential version---a
 single sequence extracted from $\mathcal F$ that works simultaneously on
-all skeleta---would require a countably cofinal system of models and is
-false in general; see \Cref{rem:ch23-selection-scope},
+all skeleta---is not proved by this construction.  The failure of
+countable cofinality blocks the suggested diagonal argument but does not
+disprove other sequential selection results; see \Cref{rem:ch23-selection-scope},
 \Cref{rem:cofinality-scope}, and \Cref{ex:no-cofinal-sequence}.  The
 statement is used, in exactly the fixed-skeleton form, in the
 supported-measure regularity argument of
@@ -3557,17 +3721,19 @@ discussed in \Cref{sec:ch23-later-alterations}.
 
 \paragraph{Orthogonality.}
 Orthogonality in the sense of
-\eqref{eq:ch23-orthogonality-preview} is not proved in this chapter for
-$n\geq2$.  It appeared first, under an algebraizability hypothesis, as
-\cite[Theorem~A.4]{BFJ15}, and its later unconditional form is
+\eqref{eq:ch23-orthogonality-preview} is not proved here for general
+varieties with $n\geq2$; the invariant convex case is treated separately.
+It appeared first, under an algebraizability hypothesis, as
+\cite[Theorem~A.4]{BFJ15}, and its later form without algebraizability, retaining its other
+hypotheses, is
 \cite{BGGJKM20}; \Cref{thm:orthogonality-provenance} keeps the two apart.
 What \emph{is} proved here is the model-level statement
 \Cref{thm:ch23-model-orthogonality-curve} on a curve and the convex
 statement \Cref{thm:ch23-convex-envelope-orthogonality}; both are
-elementary, both are sharp in the sense that
-\Cref{rem:ch23-model-slackness-fails} identifies exactly which of their
-ingredients fails in higher dimension, and neither is used to prove
-anything about continuity.  In particular this chapter proves continuity
+elementary.  \Cref{rem:ch23-model-slackness-fails} identifies the
+dimension-one ingredient of the curve proof; the convex proof has no such
+dimension restriction.  Neither is used to prove continuity.
+In particular this chapter proves continuity
 without assuming orthogonality and never invokes a componentwise
 complementary-slackness argument outside dimension one.  The convex
 argument, through the nondifferentiability set of the Legendre conjugate, is
@@ -3585,6 +3751,6 @@ linear programming and convex analysis respectively, written out because
 worked computations of \Cref{sec:ch23-worked} are checked against them.
 \Cref{ex:ch23-outside-scope} is a scope statement, not a counterexample: it
 records that continuity of envelopes for threefolds over a
-mixed-characteristic complete discretely valued field is not covered by any
-theorem proved or cited in this book, and it should not be read as an
+mixed-characteristic complete discretely valued field does not follow from
+the example's data without the extra model-resolution hypotheses, and it should not be read as an
 assertion that continuity fails there.
