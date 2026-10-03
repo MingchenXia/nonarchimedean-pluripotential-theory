@@ -61,7 +61,8 @@ reference, and rendered-page gates; see the
 [Chapter 20 audit](second_reading_ch20_audit_20261003.md),
 [Chapter 21 audit](second_reading_ch21_audit_20261003.md),
 [Chapter 22 audit](second_reading_ch22_audit_20261003.md), and
-[Chapter 23 audit](second_reading_ch23_audit_20261003.md).
+[Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
+[rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
