@@ -32,7 +32,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--20 pass the new source, build,
+Current reading position: Chapters 1--21 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -52,8 +52,9 @@ reference, and rendered-page gates; see the
 [Chapter 16 audit](second_reading_ch16_audit_20261003.md),
 [Chapter 17 audit](second_reading_ch17_audit_20261003.md),
 [Chapter 18 audit](second_reading_ch18_audit_20261003.md),
-[Chapter 19 audit](second_reading_ch19_audit_20261003.md), and
-[Chapter 20 audit](second_reading_ch20_audit_20261003.md).
+[Chapter 19 audit](second_reading_ch19_audit_20261003.md),
+[Chapter 20 audit](second_reading_ch20_audit_20261003.md), and
+[Chapter 21 audit](second_reading_ch21_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -81,8 +82,13 @@ byte-identical. Chapter 20's original 3,988-line source was freshly read;
 it has no direct inputs. Numerical restrictions and positivity, exactness and
 regular-model hypotheses, real ample propagation, envelope comparisons and
 worked examples were reconciled with their proof and source scopes. All
-56 chapter physical pages and both seams passed visual review. Chapter 21
-is next. No later chapter is marked reread.
+56 chapter physical pages and both seams passed visual review. Chapter 21's
+original 3,675-line source was freshly read; it has no direct inputs. Full
+skeletal compatibility now gives the correct reconstruction bijection; model
+closedness, real reference forms, pullback, CLD comparisons and polar examples
+were reconciled with their source scopes. All 50 chapter physical pages
+and both seams passed visual review. Chapter 22 is next. No later unit is
+marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and

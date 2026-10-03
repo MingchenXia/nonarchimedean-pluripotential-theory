@@ -39,11 +39,11 @@ model level belongs to the rational subspace
 (\Cref{prop:ch20-model-max}).  In an ample generic class, rational and real
 $\theta$-psh model functions have the same uniform closure
 (\Cref{lem:ch20-fixed-form-rational-approximation}).  What they are not is
-\emph{complete}.  Every
-theorem obtained by minimizing a functional, by taking a supremum over a
-family, or by letting a sequence of potentials degenerate produces a limit
-object outside the model class, and no amount of care in the choice of
-minimizing family can avoid this.  The situation is exactly that of the
+\emph{complete}.  Limits obtained by minimizing a functional, taking an
+envelope, or
+letting potentials degenerate can leave the model class.  A theory of these
+operations must therefore include the resulting nonmodel potentials.
+The situation is analogous to that of the
 complex theory, where the analogue of a model function is a smooth
 potential and the analogue of the completion carried out here is the class
 of $\omega$-psh functions.
@@ -52,8 +52,8 @@ Three requirements shape the definition.
 
 \begin{enumerate}
 \item \emph{Positivity must be remembered.}  Whatever the new class is, its
-members must still satisfy the numerical positivity that
-\Cref{chap:bfj-model-forms} attached to a relatively nef vertical divisor;
+members must still satisfy the numerical positivity of the full model class
+$\theta+\ddc\psi$ established in \Cref{chap:bfj-model-forms};
 otherwise the intersection-theoretic identities on which the whole part
 rests will not survive the passage to the limit.
 \item \emph{The class must be closed under the limits that actually
@@ -63,9 +63,10 @@ semicontinuity, since an upper envelope is not upper semicontinuous without
 regularization (\Cref{prop:usc-majorant}).
 \item \emph{A function must be determined by computable data.}  A psh
 function should be reconstructible from its restrictions to dual complexes,
-which are finite polyhedra on which everything is a piecewise affine
-computation, and ultimately from its values at divisorial points, which are
-integers divided by multiplicities.
+which are finite polyhedra with continuous convex restrictions, and
+ultimately from its values at divisorial points.  These values are real
+numbers; the integer-over-multiplicity formula applies to integral model
+divisors, not to general psh functions.
 \end{enumerate}
 
 The definition of \Cref{sec:ch21-definition} meets all three, and each of
@@ -74,7 +75,8 @@ skeletal approximation clause, carries requirement~(1): a uniform limit of
 restrictions of $\theta$-psh model functions inherits every convexity and
 slope inequality that positivity imposes on a dual complex.  Clause~(1), the
 retraction inequality, carries requirement~(3): together with upper
-semicontinuity it forces the reconstruction formula
+semicontinuity, continuous skeletal restrictions,
+and convergence of the retractions, it forces the reconstruction formula
 \eqref{eq:ch21-skeletal-reconstruction}, so that the function is the
 decreasing limit of its own skeletal shadows.  Requirement~(2) is then a
 theorem, proved in \Cref{sec:ch21-stability}.
@@ -99,8 +101,8 @@ chapters remove some of them:
 \right.
 \end{equation}
 
-The following table records, for each hypothesis, the single place in this
-chapter where it is genuinely used, and what fails without it.  A reader who
+The following table records the principal uses of each hypothesis and
+the limits of the arguments when it is removed.  A reader who
 wants to know whether a statement survives a weakening should consult this
 table first and \Cref{sec:ch21-dictionary} second.
 
@@ -123,13 +125,13 @@ $\operatorname{char}\widetilde K=0$
   of \Cref{sec:ch21-multiplier-input}; and, through
   \Cref{prop:snc-cofinal}, in the cofinality of SNC models
  &the closedness statement \eqref{eq:ch21-model-closedness} is not
-  available by this proof; resolution of singularities is not available for
-  the cofinality of SNC models\\
+  available by this proof; the resolution argument establishing SNC
+  cofinality here does not extend to arbitrary positive residue characteristic\\
 $X$ smooth
  &\Cref{prop:snc-cofinal} and the SNC normal form of
   \Cref{lem:snc-normal-form}, hence the entire skeletal calculus
- &dual complexes need not be simplicial and the monomial description of
-  \Cref{lem:monomial-valuation} fails at a singular point of $X$\\
+ &a singular generic fibre cannot be the generic fibre of a regular
+  SNC model; a different model or alteration framework is needed\\
 $X$ projective
  &\Cref{thm:ch20-ddc-exact} and every use of a relatively ample class
  &$N^1(\mathcal X/R)$ loses the ample cone used in
@@ -183,15 +185,16 @@ ambient datum
  &a projective $K$-variety $X$ and a closed model form $\theta$;
   the present definition is global and does not define sections over a
   proper open subset
- &an arbitrary boundaryless analytic or tropical space; the class is a
-  sheaf and restricts to open subsets\\
+ &the analytic or affine $G$-tropical spaces of
+  \Cref{chap:cld-poincare-lelong}; the generated class is a sheaf\\
 what is quantified over
  &all models of $X$, a directed set with no countable cofinal subfamily
   in general (\Cref{lem:ch21-no-cofinal-sequence})
  &neighbourhoods of a point, and decreasing \emph{sequences}\\
 positivity of what
  &of a numerical class on a model, tested against vertical curves
- &of a current, tested against test forms\\
+ &of smooth $\dprimeddprime u$ at stage zero; generated limits form
+  the hierarchy of \Cref{def:ch15-hierarchy}\\
 values
  &$[-\infty,+\infty)$, bounded above on $X^{\An}$
   (\Cref{prop:ch21-sup-on-skeleton})
@@ -210,28 +213,26 @@ stability under decreasing limits
 \end{tabular}
 \end{center}
 
-The last two rows are the crux, and they explain why no formal argument
-identifies the classes.  A BFJ psh function is, by
-\Cref{thm:bfj-decreasing-regularization}, the limit of a decreasing
-\emph{net} of model functions, and \Cref{lem:ch21-no-cofinal-sequence} shows
-that this net cannot in general be replaced by a sequence.  The CLD
-hierarchy, on the other hand, is generated by decreasing sequences, and
-\Cref{thm:ch15-approachable-stability} explicitly records that stability
-under further decreasing limits is exactly what is not known.  So the
-statement ``both are psh, hence they agree'' is not an argument in either
-direction; it is a pun.
+These definitions require a comparison theorem.  BFJ decreasing
+regularization uses a model-indexed net.  The absence of a countable cofinal
+model family does not rule out a different sequential approximation of a
+particular potential.  On good, topologically separated analytic spaces,
+\Cref{thm:supplied-p071a-analytic-first-stage} proves that the generated
+CLD hierarchy equals its first decreasing-limit stage.  The abstract
+affine $G$-tropical counterexample of
+\Cref{thm:supplied-p071b-second-stage-star} has a different scope.  Neither
+statement supplies stability under arbitrary decreasing nets.
 
-What the book does prove is
-\Cref{thm:ch19-cld-bfj-comparison}: on the model locus the two notions
-coincide, together with Zhang semipositivity, positivity of the Chern
-current, positivity of the Chern delta-form, functorial pshness of the local
-weights, and the curve test; and on the continuous locus the two associated
-Monge--Amp\`ere measures coincide.  Outside those two loci the book proves
-nothing, and \Cref{thm:ch19-cld-bfj-comparison}\,(C) lists the four
-statements that are \emph{not} being asserted.  \Cref{sec:ch21-cld-contrast}
-returns to this with the two provable structural separations and with a
-precise account of why no separating example is available in the present
-scope.
+The precise comparison is \Cref{thm:ch19-cld-bfj-comparison}.  For model
+metrics over the original discretely valued field it identifies numerical
+semipositivity with positivity of the Chern current.  Its delta-form,
+functorial local-weight and curve tests are formulated after passage to the
+completed algebraic closure specified there.  For continuous metrics with
+global uniform semipositive model approximation, the associated measures
+agree.  This compares local metric weights with the BFJ relative-weight
+description, rather than identifying an arbitrary global $\theta$-psh
+function with an untwisted CLD-psh function.  Part~(C) of that theorem and
+\Cref{sec:ch21-cld-contrast} delimit the singular comparison.
 
 \subsection{What is proved here, what is imported, what is deferred}
 \label{sec:ch21-imported}
@@ -251,8 +252,9 @@ Imported with exact citations: the asymptotic multiplier-ideal package of
 \eqref{eq:ch21-multiplier-subadditivity}--\eqref{eq:ch21-uniform-generation}
 and used only in \Cref{thm:ch21-model-consistency}; the skeletal
 equicontinuity estimate \Cref{thm:bfj-skeletal-equicontinuity}, proved in
-\Cref{chap:bfj-compactness} and used only in
-\Cref{thm:ch21-decreasing-stability}; and the decreasing regularization
+\Cref{chap:bfj-compactness}; its model case is used in
+\Cref{thm:ch21-equivalent}, and its extension by skeletal uniform closure
+is used in \Cref{thm:ch21-decreasing-stability}; and the decreasing regularization
 theorem \Cref{thm:bfj-decreasing-regularization}, proved in
 \Cref{chap:bfj-compactness} from the envelope regularity of
 \Cref{chap:bfj-envelopes}, used only in the continuous comparison
@@ -403,33 +405,32 @@ $\varphi|_{\Delta_{\mathcal X}}$ lie in the uniform closure
 
 \emph{The uniform norm.}  The closure in
 \eqref{eq:ch21-skeletal-closure} is taken for the sup-norm on the compact
-polyhedron $\Delta_{\mathcal X}$, not for pointwise convergence.  Pointwise
-convergence would be a strictly weaker requirement and would not force
-continuity of the restriction; uniform convergence does, which is what makes
-\Cref{thm:bfj-skeletal-characterization}\,(1) available at once.  On the
-other hand \Cref{thm:ch21-equivalent} shows that pointwise convergence at
-divisorial points may be substituted, provided the retraction inequality is
-retained --- the missing compactness being supplied by the equicontinuity of
-\Cref{thm:bfj-skeletal-equicontinuity}.
+polyhedron $\Delta_{\mathcal X}$.  It specifies a real-valued continuous
+restriction directly, which makes
+\Cref{thm:bfj-skeletal-characterization}\,(1) available at once.
+\Cref{thm:ch21-equivalent} shows how divisorial pointwise approximation,
+continuous skeletal restrictions and the reconstruction formula give the
+same class.  The upgrade to uniform approximation uses the common
+Lipschitz estimate of \Cref{thm:bfj-skeletal-equicontinuity}, rather than
+a general principle about pointwise limits of continuous functions.
 
 \emph{Upper semicontinuity and the value $-\infty$.}  Both are forced by
 the intended applications: the regularized supremum of a family of
 $\theta$-psh functions is upper semicontinuous but generally not
 continuous, and a decreasing limit of $\theta$-psh functions generally
 takes the value $-\infty$ somewhere.  The exclusion of
-$\varphi\equiv-\infty$ is a convention, not a theorem; without it the
-class would fail to be a subset of the space in which
-\Cref{chap:bfj-energy} works, because no reference point of finiteness would
-be available.  The extended-real conventions of
+$\varphi\equiv-\infty$ makes the nontriviality convention explicit.
+It is already forced by clause~(2), which gives a finite restriction to a
+nonempty determining skeleton.  The extended-real conventions of
 \Cref{sec:extended-arithmetic} are in force: no difference of two
 $-\infty$'s is ever formed, and every identity below is either
 monotone or asserted only where both sides are defined.
 
 \emph{Dependence on $\theta$.}  Membership in $\PSH(X,\theta)$ is not a
 property of $\varphi$ alone.  It is a property of the pair
-$(\theta,\varphi)$, equivalently of the singular metric
-$\|\cdot\|_0\rme^{-\varphi}$ once a model reference of curvature
-$\theta$ has been chosen; this is the content of
+$(\theta,\varphi)$.  When $\theta$ is the curvature of a model metric
+on an actual ample line bundle, it is equivalently a property of the
+singular metric $\|\cdot\|_0\rme^{-\varphi}$; this is the content of
 \Cref{cor:ch21-reference-independence}.  The conventions of the book
 (\Cref{sec:appJ-model-functions} and the paragraph on positivity words)
 forbid inferring anything about a psh class from its notation alone, and
@@ -506,10 +507,10 @@ on every model, and is not $\theta$-psh.
 \begin{example}[Clause~(2) alone is not enough]
 \label{ex:ch21-clause-one-needed}
 \index{plurisubharmonic function!BFJ}
-Assume \eqref{eq:ch21-hypotheses} and let $\theta$ be semipositive, so
-that the constant $0$ is a $\theta$-psh model function.  Choose a point
-$x_0\in X^{\An}$ that is not quasimonomial; for instance a
-$K$-rational point of $X$, viewed in $X^{\An}$.  It lies on no
+Assume \eqref{eq:ch21-hypotheses}, $\dim X>0$, and let $\theta$ be
+semipositive, so that $0$ is a $\theta$-psh model function.  Choose a
+classical point $x_0$ associated to a closed point of $X$ with finite
+residue extension of $K$.  Such a point exists and is not quasimonomial.  It lies on no
 skeleton because it has nonzero schematic support, whereas every point of a
 model skeleton is a valuation of the function field $K(X)$, hence has
 zero support
@@ -624,7 +625,7 @@ clause~(1) for $\mathcal Y$.
 
 \begin{remark}[Which cofinal families are used]
 \label{rem:ch21-cofinal-families}
-Three cofinal families recur.  \emph{(a)} The SNC models dominating one
+Three families recur; the first two are cofinal.  \emph{(a)} The SNC models dominating one
 fixed model $\mathcal X_0$ determining $\theta$; this is the default and
 is directed because two models are dominated by a third
 (\Cref{prop:snc-cofinal}\,(2)).  \emph{(b)} The vertically
@@ -643,8 +644,8 @@ skeletal arguments.
 \label{sec:ch21-nets}
 
 \index{net!no cofinal sequence of models}
-Every limit taken in this chapter and the next is indexed by the directed
-set of models, and the book's standing convention
+The reconstruction limits are indexed by the directed set of models,
+and the book's standing convention
 (\Cref{rem:net-vs-sequence-checklist}) forbids replacing such a limit by a
 sequential one without a proof.  The following lemma shows that the
 prohibition is not pedantry: already for the projective line over a very
@@ -712,8 +713,9 @@ complex is a compact metrizable space, so sequences suffice on it
 the same regularized supremum whenever the ambient space is second
 countable; and a concrete tower of blowups, such as the one in
 \Cref{ex:ch21-p1-refinement}, is indexed by $\mathbf N$ by construction.
-What is never legitimate is to pass from the full model system to a
-sequence without naming one of these three mechanisms.
+A further sequential reduction is the accuracy selection for a
+continuous limit in \Cref{thm:ch21-continuous-zhang}.  Each reduction needs
+its own argument; directedness alone does not provide it.
 \end{remark}
 
 \section{Consistency with model semipositivity}
@@ -724,8 +726,8 @@ model function, and then in \Cref{def:ch21-bfj-psh}.  Their agreement is not
 formal.
 
 One direction is elementary and is the content of
-\Cref{lem:ch21-model-skeletal-properties}: a relatively nef vertical divisor
-produces a function that is convex on faces and dominated by its own
+\Cref{lem:ch21-model-skeletal-properties}: nefness of
+$\theta+\ddc\varphi$ produces a function that is convex on faces and dominated by its own
 retraction, so it satisfies both clauses.  The other direction is a
 closedness statement, and it is the one deep theorem of the chapter.  To see
 why it cannot be formal, notice what it asserts.  Clause~(2) says that the
@@ -764,13 +766,12 @@ curve contracted by $\rho$, by the first case of
 \eqref{eq:ch20-nef-pullback-test}.  The nefness of
 $\rho^*\theta_{\mathcal X}+[D]$ therefore says that $D$ is
 $\rho$-nef: for a curve $C$ contracted by $\rho$,
-$(D\cdot C)=(\rho^*\theta_{\mathcal X}+[D])\cdot C\geq0$.  A relatively
-nef vertical divisor is a limit of relatively
-ample vertical $\mathbf Q$-divisors $A_k$, by Kleiman's criterion
-applied in the finite-dimensional space of vertical numerical classes on
-$\mathcal Y$ relative to $\mathcal X$.  After
-replacing $A_k$ by a
-multiple, $\mathcal O_{\mathcal Y}(m_kA_k)$ is generated relative to
+$(D\cdot C)=(\rho^*\theta_{\mathcal X}+[D])\cdot C\geq0$.  Choose an effective vertical divisor $F$ with $-F$ $\rho$-ample,
+provided by the tautological bundle of the vertical blowup.  For rational
+$\varepsilon_k\downarrow0$, Kleiman's criterion makes
+$A_k=D-\varepsilon_kF$ $\rho$-ample.  These are actual rational divisors
+converging coefficientwise to $D$, so their model functions converge
+uniformly.  For a sufficiently divisible positive multiple, $\mathcal O_{\mathcal Y}(m_kA_k)$ is generated relative to
 $\mathcal X$.  With
 
 \[
@@ -778,7 +779,9 @@ $\mathcal X$.  With
           \mathcal O_{\mathcal Y}(m_kA_k),
 \]
 
-the normalized blowup identity gives
+relative generation identifies the pullback of the vertical
+fractional ideal $\mathfrak a_k$ with
+$\mathcal O_{\mathcal Y}(m_kA_k)$, giving
 $m_k^{-1}\log|\mathfrak a_k|=\varphi_{A_k}$, and these functions converge
 uniformly to $\varphi_D$.  This is the relative Kleiman approximation used
 in \cite[\S5.2]{BFJ16}.
@@ -786,10 +789,15 @@ in \cite[\S5.2]{BFJ16}.
 \emph{Step 2: convexity of $\log|\mathfrak a_k|$ on a face.}  Locally on
 $\mathcal X$, write $\mathfrak a_k=(f_1,\ldots,f_N)$.  On a face
 $\sigma_J$ of the dual complex, the point $\iota_{\mathcal X}(\alpha)$
-is the monomial valuation $v_\alpha$, and
-\Cref{lem:monomial-newton} evaluates $v_\alpha(f_j)$ as the minimum of the
-finitely many linear functions $\alpha\mapsto\langle\alpha,\beta\rangle$
-over the exponents $\beta$ occurring in the expansion of $f_j$.  Hence
+is the monomial valuation $v_\alpha$.
+First multiply the fractional ideal by a power of $\pi$ to make it
+integral; this adds a constant to its logarithm.  The expansions of its
+generators can have infinitely many terms.  The Newton minimum in
+\Cref{lem:monomial-newton} is nevertheless determined by finitely many
+minimal exponents, by the coordinatewise Noetherian property of
+$\mathbf N^J$ (or the vertical truncation argument there).  Thus
+$v_\alpha(f_j)$ is the minimum of finitely many linear functions
+$\alpha\mapsto\langle\alpha,\beta\rangle$ on the face.  Hence
 $\log|f_j|=-v_\bullet(f_j)$ is a maximum of finitely many affine
 functions on $\sigma_J$, and
 
@@ -886,9 +894,13 @@ $\mathfrak a_m$ being the base ideal of $m\mathcal L$.  The precise
 statement behind \eqref{eq:ch21-uniform-generation} is that the coherent
 sheaf
 $\mathcal O_{\mathcal X}(m\mathcal L)\otimes\mathcal A\otimes
-\mathcal J(\mathfrak a_\bullet^m)$ is globally generated for one fixed
-ample $\mathcal A$ and every $m$; when the multiplier ideal is trivial
-this is the displayed assertion.
+\mathcal J(\mathfrak a_\bullet^m)$ is globally generated for one fixed ample $\mathcal A$ and every $m$.
+Here the hypothesis of \cite[Theorem~B.8]{BFJ16} is that
+$\mathcal O(k\mathcal L)\otimes\mathfrak a_k$ is globally generated
+for sufficiently divisible $k$.  It holds for base ideals by their
+evaluation-map definition.  This is not an unconditional assertion for an
+arbitrary graded sequence and an unrelated $\mathcal L$.  When the
+multiplier ideal is trivial, it gives the displayed assertion.
 
 Three comments delimit the import.  First,
 \eqref{eq:ch21-multiplier-subadditivity} and
@@ -945,13 +957,15 @@ Consider
 an SNC model $\mathcal X$ and a line bundle $\mathcal L$ whose generic
 restriction is ample.  Suppose that the weight zero of its model metric is a
 pointwise limit, at every divisorial point, of weights of semipositive model
-metrics on the same generic line bundle.  Let $\mathfrak a_m$ be the base
+metrics on the same generic line bundle.  Replace $\mathcal L$ by a
+positive power whose generic restriction is globally generated.  The
+approximation hypothesis scales accordingly, and nefness of this power is
+equivalent to nefness of $\mathcal L$.  Relabel the power as $\mathcal L$.
+Let $\mathfrak a_m$ be the base
 ideal of $m\mathcal L$, that is, the image of the evaluation map
 $H^0(\mathcal X,m\mathcal L)\otimes(m\mathcal L)^{-1}\to
-\mathcal O_{\mathcal X}$.  It is vertical for $m\gg1$ because the generic
-restriction of $\mathcal L$ is ample, so that $mL$ is globally generated
-on $X$ for $m\gg1$ and the base locus is contained in
-$\mathcal X_s$.  Moreover
+\mathcal O_{\mathcal X}$.  It is a nonzero vertical ideal for every $m\geq1$, since the chosen
+generic $L$ and all its positive powers are globally generated.  Moreover
 $\mathfrak a_m\mathfrak a_\ell\subset\mathfrak a_{m+\ell}$.  Hence
 
 \begin{equation}
@@ -961,7 +975,8 @@ $\mathfrak a_m\mathfrak a_\ell\subset\mathfrak a_{m+\ell}$.  Hence
  \lim_m h_m=\sup_m h_m\leq0
 \end{equation}
 
-pointwise, with the limit understood along sufficiently divisible indices.
+pointwise as $m\to\infty$, and also along every fixed divisibility
+subsequence.
 Indeed, $\log|\mathfrak a_m\mathfrak a_\ell|=
 \log|\mathfrak a_m|+\log|\mathfrak a_\ell|$ and the inclusion
 $\mathfrak a_m\mathfrak a_\ell\subset\mathfrak a_{m+\ell}$ reverses to
@@ -974,9 +989,12 @@ because $\mathfrak a_m\subset\mathcal O_{\mathcal X}$.
 \emph{Step 2: the limit vanishes at divisorial points.}
 We claim that the limit in \eqref{eq:ch21-base-ideal-fekete} is zero at
 every divisorial point $x$.  Fix a
-rational $\varepsilon>0$.  Pointwise convergence at $x$ and at the
-finitely many component valuations of $\mathcal X_s$ supplies a
-semipositive model weight $\varphi_D$ on a higher model such that
+rational $\varepsilon>0$.  Rationalize the approximating model weights
+at the fixed reference form using
+\Cref{lem:ch20-fixed-form-rational-approximation}, with errors tending to
+zero.  Pointwise convergence at $x$ and at the finitely many component
+valuations of $\mathcal X_s$ then supplies a rational semipositive model
+weight $\varphi_D$ on a higher model such that
 
 \begin{equation}
 \label{eq:ch21-closedness-finite-values}
@@ -999,8 +1017,15 @@ is anti-effective and
 $\varphi_{D'}(x)\geq-2\varepsilon$.  Notice the minus sign: it is forced by
 the convention \eqref{eq:ch20-sign}.  Applying
 \Cref{prop:ch20-positive-representative} to the semipositive class
-$c_1(\mathcal L)+[D']$, after raising the model if necessary, gives an
-anti-effective vertical $\mathbf Q$-divisor $D''$ such that
+$c_1(\mathcal L)+[D']$, after raising the model if necessary, gives a
+small real vertical correction.  To obtain a rational correction,
+start with error budget $\varepsilon/4$, subtract
+$(\varepsilon/4)\mathcal X_s$, and approximate its coefficients by
+rational numbers on that fixed model.  Relative ampleness is open, and
+the constant shift puts the function strictly between $-\varepsilon$ and
+$0$, so a sufficiently close rational approximation preserves both
+properties.  We obtain an anti-effective vertical $\mathbf Q$-divisor
+$D''$ such that
 
 \begin{equation}
 \label{eq:ch21-closedness-ample-perturbation}
@@ -1143,8 +1168,9 @@ Two remarks on Step~6.  It is a genuine net argument: no cofinal sequence in
 $I$ exists once the set of divisorial points is uncountable, and
 \Cref{lem:ch21-no-cofinal-sequence} shows that this already happens for
 $\mathbf P^1$ over $\mathbf C((t))$.  And it uses only clause~(2); the
-retraction inequality plays no role here, which is consistent with the fact
-that a model function satisfies it automatically.
+retraction inequality plays no role in this implication.  An arbitrary
+model function has equality on the cofinal models determining it; it need
+not satisfy the inequality on every lower determination of $\theta$.
 \end{proof}
 
 \begin{corollary}\label{cor:ch21-reference-independence}
@@ -1177,8 +1203,9 @@ Suppose then that $\|\cdot\|_1=\|\cdot\|_0\rme^{-\psi}$ is another model
 reference, so that $\psi$ is a model function.  Its curvature is
 $\theta_1=\theta+\ddc\psi$, while the relative weight of
 $\|\cdot\|_\varphi$ with respect to $\|\cdot\|_1$ is
-$\varphi-\psi$.  The two total curvature expressions coincide:
-$\theta_1+\ddc(\varphi-\psi)=\theta+\ddc\varphi$.  It remains to see that
+$\varphi-\psi$.  For every model approximant $u$, the model-form identity
+$\theta_1+\ddc(u-\psi)=\theta+\ddc u$ holds.  No model $\ddc$ is
+being applied to the possibly singular $\varphi$.  It remains to see that
 $\varphi\in\PSH(X,\theta)$ if and only if
 $\varphi-\psi\in\PSH(X,\theta_1)$.  Upper semicontinuity and the exclusion
 of $-\infty$ are unaffected, because $\psi$ is real valued and
@@ -1274,7 +1301,10 @@ residue characteristic.
 Assume \eqref{eq:ch21-hypotheses} and fix a cofinal directed family
 $\mathfrak M$ of SNC models on which $\theta$ is determined.  Let
 $\varphi:X^{\An}\to[-\infty,+\infty)$ be a function which is not
-identically $-\infty$.  The following are equivalent.
+identically $-\infty$.  Items \cref{itm:ch21-equiv:def}--\cref{itm:ch21-equiv:divisorial}
+are equivalent.  If $\theta$ is the curvature of a model metric on an
+actual ample line bundle, item \cref{itm:ch21-equiv:metric} is a further
+equivalent formulation.
 
 \begin{enumerate}
 \item\label{itm:ch21-equiv:def}
@@ -1298,8 +1328,8 @@ $\theta$-psh model functions with $\chi_i\to\varphi$ pointwise at every
 divisorial point;
 \item\label{itm:ch21-equiv:metric}
 $\varphi$ is upper semicontinuous and the singular metric
-$\|\cdot\|_0\rme^{-\varphi}$ attached to any model metric
-$\|\cdot\|_0$ of curvature $\theta$ on an ample line bundle is
+$\|\cdot\|_0\rme^{-\varphi}$ attached to one (hence every) such model
+reference $\|\cdot\|_0$ of curvature $\theta$ is
 semipositive in the sense of \Cref{cor:ch21-reference-independence}.
 \end{enumerate}
 \end{theorem}
@@ -1345,15 +1375,16 @@ coordinates; it is dense in $\Delta$ by
 \Cref{rem:quasimonomial-vs-divisorial}\,(1).  By hypothesis
 $\chi_i\to\varphi$ pointwise on $\Delta^{\divis}$.  By
 \Cref{thm:bfj-skeletal-equicontinuity}\,(1) the restrictions
-$\chi_i|_\Delta$ have a common Lipschitz constant $C$ on each face; and
-they are uniformly bounded on $\Delta$, because they converge at one
-point of $\Delta^{\divis}$ and $\Delta$ has finite diameter.  A
-uniformly Lipschitz family converging pointwise on a dense subset of a
-compact metric space converges uniformly on that space: given
-$\varepsilon>0$, cover $\Delta$ by finitely many balls of radius
-$\varepsilon/(3C)$ centred at points of $\Delta^{\divis}$, choose
-$i_0$ beyond which all centres are approximated within
-$\varepsilon/3$, and combine.  Hence
+$\chi_i|_\Delta$ have a common facewise Lipschitz constant.  Use the
+connected finite-complex path metric of \Cref{lem:ch22-path-metric} and
+increase the constant to $C\geq1$.  Given $\varepsilon>0$, continuity
+of $\varphi|_\Delta$ and the common Lipschitz estimate provide a finite
+cover by small balls centered at divisorial points, such that both
+$|\chi_i(x)-\chi_i(q)|$ and $|\varphi(x)-\varphi(q)|$ are below
+$\varepsilon/3$ in each ball.  Net convergence controls the finitely many
+centers simultaneously on a tail.  The triangle inequality proves
+uniform convergence, without claiming that a convergent net is bounded
+on its entire index set.  Hence
 $\chi_i|_\Delta\to\varphi|_\Delta$ uniformly, which is exactly
 $\varphi|_\Delta\in\mathcal P_{\mathcal X}(\theta)$.
 
@@ -1496,10 +1527,11 @@ SNC model, and such models are cofinal by \Cref{prop:snc-cofinal}.
 
 This is why \Cref{prop:ch21-curve-criterion} quantifies over SNC models and
 uses the multiplicities and residue-degree weights of
-\eqref{eq:ch21-weighted-graph-laplacian}.  In the running examples the
-special fibre is reduced and every displayed node is residue-rational, so
-all those weights equal one; that simplification is an explicit feature of
-the examples, not a convention for the general theorem.
+\eqref{eq:ch21-weighted-graph-laplacian}.  The initial models in the running examples are reduced with
+residue-rational nodes, so their multiplicities and node weights are one.
+Refinements need not remain reduced: the node blowup just described has
+multiplicity two.  The intersection lengths retain these multiplicities
+even when the residue-degree weights stay one.
 \end{remark}
 
 \begin{remark}[What is finite and what is not]
@@ -1662,8 +1694,9 @@ semicontinuity gives, through the net test
 
 This proves \eqref{eq:ch21-skeletal-reconstruction}.  Observe that both
 displayed limits are limits of \emph{nets}: the index set is the set of
-determining SNC models, and \Cref{lem:ch21-no-cofinal-sequence} forbids
-replacing it by a sequence.
+determining SNC models.  \Cref{lem:ch21-no-cofinal-sequence} prevents
+a cofinal sequential subnet in general; it does not exclude another
+sequential approximation of the same potential.
 
 \emph{Step 4: divisorial determination.}
 Divisorial points are exactly the points of a dual complex with rational
@@ -1772,13 +1805,12 @@ $\PSH(X,\theta)$ to $\prod_{\mathcal X}C^0(\Delta_{\mathcal X})$ is
 injective, with left inverse given by
 \eqref{eq:ch21-skeletal-reconstruction};
 \item\label{itm:ch21-rs:notsurjective}
-the map of \cref{itm:ch21-rs:injective} is not surjective onto the compatible
-systems: a family $(u_{\mathcal X})$ satisfying
-\eqref{eq:ch21-restriction-compatibility} with
-$u_{\mathcal X}\in\mathcal P_{\mathcal X}(\theta)$ determines at most one
-candidate $\varphi:=\inf_{\mathcal X}u_{\mathcal X}\circ p_{\mathcal X}$,
-and this candidate lies in $\PSH(X,\theta)$ if and only if it restricts
-back to $u_{\mathcal X}$ on each $\Delta_{\mathcal X}$.
+the map of \cref{itm:ch21-rs:injective} is a bijection onto the systems
+$(u_{\mathcal X})$ satisfying both conditions of
+\eqref{eq:ch21-restriction-compatibility} and
+$u_{\mathcal X}\in\mathcal P_{\mathcal X}(\theta)$.  Its inverse is
+$\varphi:=\inf_{\mathcal X}u_{\mathcal X}\circ p_{\mathcal X}$, which
+automatically restricts to every prescribed $u_{\mathcal X}$.
 \end{enumerate}
 \end{proposition}
 
@@ -1799,11 +1831,20 @@ clause~(1) for $\mathcal X$ restricted to $\Delta_{\mathcal X'}$.
 \Cref{thm:bfj-skeletal-characterization}\,(3) together with
 \eqref{eq:ch21-skeletal-reconstruction}.
 
-\cref{itm:ch21-rs:notsurjective}  Uniqueness of the candidate is
-\eqref{eq:ch21-skeletal-reconstruction} again.  Suppose
-$\varphi:=\inf_{\mathcal X}u_{\mathcal X}\circ p_{\mathcal X}$ restricts
-to $u_{\mathcal X}$ on each $\Delta_{\mathcal X}$.  Then $\varphi$
-satisfies \eqref{eq:ch21-inf-of-retractions} by construction and
+\cref{itm:ch21-rs:notsurjective}  Define
+$\varphi:=\inf_{\mathcal Y}u_{\mathcal Y}\circ p_{\mathcal Y}$.
+Fix $x\in\Delta_{\mathcal X}$ and any determining model $\mathcal Y$.
+Choose $\mathcal Z$ dominating both.  Exact restriction compatibility gives
+$u_{\mathcal Z}(x)=u_{\mathcal X}(x)$, and the second compatibility
+condition gives
+\[
+ u_{\mathcal X}(x)=u_{\mathcal Z}(x)
+ \leq u_{\mathcal Y}(p_{\mathcal Y}(x)).
+\]
+Taking the infimum over $\mathcal Y$ yields
+$u_{\mathcal X}(x)\leq\varphi(x)$; the term $\mathcal Y=\mathcal X$
+gives the reverse inequality.  Thus restriction back is automatic.
+Consequently $\varphi$ satisfies \eqref{eq:ch21-inf-of-retractions} by construction and
 $\varphi|_{\Delta_{\mathcal X}}=u_{\mathcal X}\in
 \mathcal P_{\mathcal X}(\theta)$ by hypothesis; and $\varphi$ is not
 identically $-\infty$, because on one fixed $\Delta_{\mathcal X_0}$ it
@@ -1813,23 +1854,14 @@ $\varphi\in\PSH(X,\theta)$.  The converse implication is
 \eqref{eq:ch21-skeletal-reconstruction}.
 \end{proof}
 
-\begin{warning}{A compatible system need not come from a psh function}
-The last part of \Cref{prop:ch21-restriction-system} is a genuine
-restriction and not a formality.  The consistency conditions
-\eqref{eq:ch21-restriction-compatibility} only constrain a system along
-inclusions of skeleta; nothing in them prevents the candidate
-$\inf_{\mathcal X}u_{\mathcal X}\circ p_{\mathcal X}$ from dropping
-strictly below $u_{\mathcal X_0}$ at a point of
-$\Delta_{\mathcal X_0}$, because the infimum is taken over models whose
-skeleta pass through that point along new branches.  Concretely: on the
-curve of \Cref{ex:ch21-conic-refinement}, prescribing $u\equiv0$ on
-$\Delta_{\mathcal C}$ and $u'(\tau)=-\tau$ on the hair of
-$\Delta_{\mathcal C_1}$ is consistent in the sense of
-\eqref{eq:ch21-restriction-compatibility}, and it does extend; but
-prescribing $u'(\tau)=+\tau$ on the hair violates the second inequality of
-\eqref{eq:ch21-restriction-compatibility} and no psh function realizes it.
-The moral is that the system of restrictions must be checked against
-clause~(1) at every stage, not only against convexity.
+\begin{warning}{Compatibility includes an inequality}
+Full compatibility and membership in every
+$\mathcal P_{\mathcal X}(\theta)$ suffice for reconstruction.
+Agreement on overlaps or convexity on each face alone does not.
+On the hair in \Cref{ex:ch21-conic-refinement}, the prescription
+$u\equiv0$ on the old skeleton and $u'(\tau)=+\tau$ violates
+$u'\leq u\circ\pi$ in \eqref{eq:ch21-restriction-compatibility}.
+It is therefore not a compatible system of the proposition.
 \end{warning}
 
 \subsection{Restriction of the retraction: the curve case}
@@ -1988,9 +2020,9 @@ across two classes, uniform limits, decreasing nets, and pullback.  Each is
 proved separately, and each proof is organized in the same way, because the
 same three verifications recur: upper semicontinuity, the retraction
 inequality, and clause~(2) on a fixed dual complex.  The last of these is
-always the only one with content, and it always reduces to the corresponding
-statement for model functions from \Cref{chap:bfj-model-forms} together with
-a Lipschitz estimate for the operation in question.
+the main analytic step.  For the elementary operations it reduces to
+model-level positivity and an estimate for the operation; decreasing
+stability also needs the common skeletal Lipschitz estimate.
 
 \subsection{The elementary calculus}
 \label{sec:ch21-elementary-calculus}
@@ -2032,7 +2064,10 @@ $\max\{\varphi,\psi\}\in\PSH(X,\theta_1)$; more generally a maximum of
 finitely many members of $\PSH(X,\theta_1)$ is again one.
 \item\label{itm:ch21-stab:unif}
 If $\varphi_k\in\PSH(X,\theta_1)$ converge uniformly on $X^{\An}$ to
-$\varphi$, then $\varphi\in\PSH(X,\theta_1)$.
+$\varphi$, then $\varphi\in\PSH(X,\theta_1)$.  For extended-valued
+weights, uniform convergence means that for every $\varepsilon>0$,
+$\varphi_k-\varepsilon\leq\varphi\leq\varphi_k+\varepsilon$ on
+$X^{\An}$ for all sufficiently large $k$.
 \item\label{itm:ch21-stab:mono}
 If $\varphi\in\PSH(X,\theta_1)$ and $\theta_2-\theta_1$ is semipositive,
 then $\varphi\in\PSH(X,\theta_2)$.
@@ -2120,7 +2155,8 @@ $\varphi_k|_{\Delta_{\mathcal X}}$ is finite and continuous by
 to $\varphi|_{\Delta_{\mathcal X}}$.  Thus the latter is finite and
 continuous, in particular $\varphi\not\equiv-\infty$.  For clause~(2), a
 diagonal choice suffices: given $\varepsilon>0$, pick $k$ with
-$\lVert\varphi_k-\varphi\rVert_{X^{\An}}\leq\varepsilon/2$ and then a
+$\varphi_k-\varepsilon/2\leq\varphi\leq\varphi_k+\varepsilon/2$
+on $X^{\An}$ and then a
 $\theta_1$-psh model function $\psi$ with
 $\lVert\psi-\varphi_k\rVert_{\Delta_{\mathcal X}}\leq\varepsilon/2$.
 This proves membership in $\PSH(X,\theta_1)$; it gives no continuity away
@@ -2138,8 +2174,7 @@ $\theta$.
 \label{rem:ch21-not-stable}
 Three operations are conspicuously absent, and their absence is deliberate.
 
-\emph{Minima.}  The minimum of two $\theta$-psh functions is essentially
-never $\theta$-psh.  Already for model functions on a curve,
+\emph{Minima.}  The class is not stable under minima in general.  Already for model functions on a curve,
 $\min\{\varphi_1,\varphi_2\}$ creates a concave kink, and
 \eqref{eq:ch21-curve-psh-test} fails there;
 \Cref{ex:ch21-conic-numbers} computes the resulting negative mass
@@ -2203,8 +2238,9 @@ a lower bound at one point of $\Delta_{\mathcal X}$ that is uniform in
 $i$.  Fixing one index $i_0$ and discarding the indices not beyond it,
 monotonicity also bounds
 $\varphi_i(y_0)\leq\varphi_{i_0}(y_0)$ from above by one fixed value.
-The common Lipschitz constant, together with the finite diameter of the
-compact polyhedron $\Delta_{\mathcal X}$, therefore gives two-sided
+Use the connected finite-complex path metric of
+\Cref{lem:ch22-path-metric}.  The common facewise Lipschitz constant
+controls this metric; its finite diameter therefore gives two-sided
 uniform bounds
 \[
  \varphi(x_0)-C\operatorname{diam}\Delta_{\mathcal X}
@@ -2292,11 +2328,14 @@ With the notation above:
 \begin{enumerate}
 \item\label{itm:ch21-pb:model}
 if $\varphi$ is a $\theta$-psh model function on $X$, then
-$f^*\varphi:=\varphi\circ f^{\An}$ is an $f^*\theta$-psh model function
-on $Y$;
+$f^*\varphi:=\varphi\circ f^{\An}$ is a model function on $Y$ and
+$f^*\theta+\ddc f^*\varphi$ is semipositive.  This is model pshness in
+the numerical sense, even when $f^*\{\theta\}$ is not ample;
 \item\label{itm:ch21-pb:cont}
-if $\varphi\in\PSH(X,\theta)$ is continuous, then
-$f^*\varphi\in\PSH(Y,f^*\theta)$ and is continuous;
+if $\varphi\in\PSH(X,\theta)$ is continuous, then $f^*\varphi$
+is continuous and has global uniform semipositive model approximation.
+If, in addition, $f^*\{\theta\}$ is ample, then
+$f^*\varphi\in\PSH(Y,f^*\theta)$ in the scope of this chapter;
 \item\label{itm:ch21-pb:sup}
 in both cases $\sup_{Y^{\An}}f^*\varphi\leq\sup_{X^{\An}}\varphi$, with
 equality if $f$ is surjective.
@@ -2327,8 +2366,11 @@ $\theta$-psh function is a uniform limit on $X^{\An}$ of a sequence of
 $\theta$-psh model functions $\psi_k$.  Since $f^{\An}$ is continuous,
 $f^*\psi_k\to f^*\varphi$ uniformly on $Y^{\An}$, and each
 $f^*\psi_k$ is an $f^*\theta$-psh model function by
-\cref{itm:ch21-pb:model}.  Now apply
-\Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:unif} on $Y$.
+\cref{itm:ch21-pb:model}.  This proves the approximation assertion
+without an ampleness hypothesis on the pulled-back class.  If that class
+is ample, all standing hypotheses hold on $Y$, and
+\Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:unif} identifies the
+limit with a member of the psh class defined here.
 
 \cref{itm:ch21-pb:sup}  Immediate, since $f^*\varphi$ takes values in the
 set of values of $\varphi$ on $f^{\An}(Y^{\An})$, and $f^{\An}$ is
@@ -2336,8 +2378,10 @@ surjective when $f$ is, by properness.
 \end{proof}
 
 \begin{warning}{Pullback of a singular potential is a later theorem}
-\Cref{prop:ch21-pullback} is not asserted for a general
-$\varphi\in\PSH(X,\theta)$, and the reader should not assume it.  The
+The generic pullback of an ample class need not be ample; a finite
+morphism has ample pullback, but a positive-dimensional fibre can prevent
+it.  The continuous psh membership assertion above includes this extra
+hypothesis.  Pullback of a general singular potential is deferred.  The
 obstruction is visible in the proof: the argument passes through uniform
 approximation on all of $X^{\An}$, which is available only in the
 continuous case, and the alternative route through
@@ -2389,8 +2433,8 @@ For $\varphi,\psi\in\PSH(X,\theta)$ we write $\varphi\preceq\psi$, and
 say that $\varphi$ is \emph{more singular} than $\psi$, if
 $\varphi\leq\psi+C$ for some $C\in\mathbf R$.  Two psh functions have
 the same \emph{singularity type} if
-$\varphi\preceq\psi\preceq\varphi$, equivalently if their difference
-is bounded in both directions, equivalently if there is $C\geq0$ such that
+$\varphi\preceq\psi\preceq\varphi$, equivalently if there is
+$C\geq0$ such that
 
 \begin{equation}
 \label{eq:ch21-singularity-type}
@@ -2401,8 +2445,8 @@ is bounded in both directions, equivalently if there is $C\geq0$ such that
 The relation $\preceq$ is reflexive and transitive, so singularity types
 form a partially ordered set.  Note that the definition compares two
 elements of the \emph{same} class $\PSH(X,\theta)$; the difference of two
-such functions is not $\theta$-psh for any form and is not even defined
-where both are $-\infty$, so \eqref{eq:ch21-singularity-type} is to be
+such functions need not be psh and is not defined where both are
+$-\infty$, so \eqref{eq:ch21-singularity-type} is to be
 read as the pair of inequalities displayed, each of which is meaningful in
 $[-\infty,+\infty)$ by the conventions of
 \Cref{sec:extended-arithmetic}.
@@ -2529,6 +2573,7 @@ corresponding classification for a general curve through
 \cref{itm:ch21-pol:skeleta}.
 \end{proof}
 
+\noindent\begin{minipage}{\textwidth}
 \begin{warning}{Two things a polar set is not}
 First, a polar set here is \emph{not} the same notion as the pluripolar sets
 of \Cref{chap:bfj-capacity}, which are defined by a capacity and form a
@@ -2540,10 +2585,11 @@ Second, no analyticity is asserted.  \Cref{ex:ch21-polar-noncompact}
 produces a psh function on $\mathbf P^1$ whose polar set is a countably
 infinite set of rational points, which is not Zariski-closed; this is the
 exact analogue of \Cref{ex:ch15-polar-nonanalytic} in the CLD setting, where
-the same warning is issued.  A Siu-type analyticity theorem for polar sets
-or for Lelong sublevel sets is not available in this theory, in either the
-CLD or the BFJ formulation.
+the same warning is issued.  No Siu-type analyticity theorem is asserted here for these polar sets
+or for Lelong sublevel sets; such a statement would require separate
+definitions and hypotheses.
 \end{warning}
+\end{minipage}\par
 
 \begin{remark}[Polar sets and the Monge--Amp\`ere operator]
 \label{rem:ch21-polar-ma}
@@ -2555,11 +2601,15 @@ For a general $\varphi\in\PSH(X,\theta)$ no measure has yet been attached
 to $\theta+\ddc\varphi$: the monotone extension of the mixed model measure
 to bounded psh functions is \Cref{thm:bounded-ma-extension}, and the
 non-pluripolar product is \Cref{def:nonpluripolar-ma}, both in later
-chapters, and the two disagree on polar sets by construction.  What
-\emph{is} legitimate here, and what the examples of
-\Cref{sec:ch21-worked} do, is to compute the model measures of the
-truncations $\max\{\varphi,-m\}$, each of which is a model function, and
-to observe where their mass goes as $m\to\infty$.
+chapters.  They agree for bounded input; the non-pluripolar extension
+to singular input omits polar mass.  General unbounded CLD products may
+not be defined, so no disagreement with an undefined product is asserted.
+The examples of \Cref{sec:ch21-worked} compute the measures of their
+explicit model truncations and track the limiting mass.  For a general
+psh function, $\max\{\varphi,-m\}$ need not be model, and constants
+are $\theta$-psh only when $\theta$ is semipositive.  A general psh
+truncation uses $\max\{\varphi,\psi_0-m\}$ with a fixed model
+$\psi_0\in\PSH(X,\theta)$.
 \end{remark}
 
 \section{Comparison with continuous semipositive metrics}
@@ -2568,8 +2618,10 @@ to observe where their mass goes as $m\to\infty$.
 For continuous metrics the BFJ and Zhang definitions agree.
 
 \begin{theorem}\label{thm:ch21-continuous-zhang}
-Let $L$ be ample and fix a model reference metric of curvature $\theta$.
-For a continuous function $\varphi$, the following are equivalent:
+Assume \eqref{eq:ch21-hypotheses}.  For a continuous function
+$\varphi$, items (1) and (2) below are equivalent.  If $\theta$ is the
+curvature of a model reference metric on an actual ample line bundle $L$,
+item (3) is a further equivalent formulation:
 
 \begin{enumerate}
 \item $\varphi\in\PSH(X,\theta)$;
@@ -2581,12 +2633,15 @@ sense.
 \end{theorem}
 
 \begin{proof}
-The equivalence of (2) and (3) is Zhang's definition, recalled in
+When the stated line-bundle reference exists, the equivalence of
+(2) and (3) is Zhang's definition, recalled in
 \Cref{sec:metrics-semipositive}: a continuous metric on an ample $L$ is
 semipositive in Zhang's sense precisely when it is a uniform limit of
 semipositive model metrics, and by
 \Cref{cor:ch21-reference-independence} the relative weights of those model
-metrics are exactly the $\theta$-psh model functions.
+metrics are the $\theta$-psh rational model functions.
+\Cref{lem:ch20-fixed-form-rational-approximation} gives the same uniform
+closure for real model functions.
 
 (2)$\Rightarrow$(1).  Uniform convergence on $X^{\An}$
 immediately implies the two clauses of \Cref{def:ch21-bfj-psh}: clause~(2)
@@ -2605,7 +2660,9 @@ Dini's theorem for nets on the compact space
 $X^{\An}$, \Cref{prop:dini-nets}, gives $\psi_i\to\varphi$ uniformly;
 the same conclusion follows from \Cref{prop:dini-usc}\,(1) or from the
 appendix form \Cref{thm:appE-dini}.  For each $m\geq1$ select an index
-$i_m$ with $\lVert\psi_{i_m}-\varphi\rVert_\infty\leq1/m$.  The
+$i_m$ beyond both an index attaining error $1/m$ and the previous
+chosen index.  Directedness permits this recursive choice, and
+$\lVert\psi_{i_m}-\varphi\rVert_\infty\leq1/m$.  The
 resulting \emph{sequence} $(\psi_{i_m})_{m\geq1}$ of $\theta$-psh model
 functions converges uniformly to $\varphi$, which is (2).  The algebraic
 proof of decreasing regularization is completed in
@@ -2614,16 +2671,16 @@ proof of decreasing regularization is completed in
 
 \begin{remark}[A legitimate passage from a net to a sequence]
 \label{rem:ch21-net-to-sequence}
-The last proof contains the one place in this chapter where a net is
-replaced by a sequence, and it is instructive to see why this is allowed.
+The last proof reduces a net to a sequence by prescribed accuracies.
 The replacement is not a cofinality statement about the index set --- no
 such statement is available, by \Cref{lem:ch21-no-cofinal-sequence}.  It is
 a statement about a \emph{metric}: continuity of the limit converts the
 decreasing net into a net convergent in the Banach space
 $C^0(X^{\An})$, and in a metric space one may always extract a sequence
-realizing a given sequence of accuracies.  The extracted sequence is not
-increasing or decreasing in the index, and it is not cofinal; it is only
-uniformly convergent, which is all that (2) asks for.  Compare the
+realizing a given sequence of accuracies.  Directedness lets the
+selected indices increase, so the approximating functions can decrease.
+The selected indices need not be cofinal in the model system.  Uniform
+convergence is all that (2) requires.  Compare the
 checklist \Cref{rem:net-vs-sequence-checklist}: this is an instance of the
 first mechanism, metrizability, applied to the target rather than to the
 source.
@@ -2663,12 +2720,10 @@ exactly, in the form the rest of \Cref{part:bfj} relies on.
 \toprule
 \textbf{Locus}&\textbf{What is proved}&\textbf{Reference}\\
 \midrule
-model functions
- &$\theta$-psh $\Leftrightarrow$ Zhang semipositive
-  $\Leftrightarrow$ positive Chern current
-  $\Leftrightarrow$ positive Chern delta-form
-  $\Leftrightarrow$ functorially psh weights
-  $\Leftrightarrow$ curve test
+model metrics on an ample line bundle
+ &numerical semipositivity $\Leftrightarrow$ positive Chern current
+  over $K$; delta-form, functorial local-weight and curve tests over
+  the completed algebraic closure specified in the comparison theorem
  &\Cref{thm:ch19-cld-bfj-comparison}\,(A);
   here \Cref{thm:ch21-model-consistency} for the first equivalence\\
 continuous $\theta$-psh functions
@@ -2683,18 +2738,18 @@ locally CLD-psh functions on $X^{\An}$
  &\emph{nothing}: not asserted to be $\theta$-psh for any $\theta$
  &\Cref{thm:ch19-cld-bfj-comparison}\,\cref{itm:ch19-cb:scope2}\\
 unbounded $\theta$-psh functions
- &\emph{nothing}: the two Monge--Amp\`ere constructions are not compared,
-  and they disagree on polar sets
+ &no general comparison of unbounded products is asserted;
+  the CLD product may be undefined
  &\Cref{thm:ch19-cld-bfj-comparison}\,\cref{itm:ch19-cb:scope3},
   \cref{itm:ch19-cb:scope4}\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-Two structural separations \emph{are} provable, and they are worth having
-because they show that the empty entries above are not merely gaps in the
-present state of knowledge but reflect a difference of type between the two
-constructions.
+Two structural differences help specify what a comparison must address:
+the domains on which the definitions are presented and their limit operations.
+These differences alone do not produce a separating example in one fixed
+metric comparison problem.
 
 \begin{proposition}
 \label{prop:ch21-bfj-vs-cld}
@@ -2719,10 +2774,14 @@ $\PSH(X,\theta)$ is stable under decreasing \emph{nets}
 decreasing net of model functions
 (\Cref{thm:bfj-decreasing-regularization}); the index set of that net has no
 countable cofinal subfamily in general
-(\Cref{lem:ch21-no-cofinal-sequence}).  The CLD class
-$\operatorname{Psh}_{S,1}$ is generated by decreasing \emph{sequences} and
-is not known to be stable under further decreasing limits
-(\Cref{thm:ch15-approachable-stability}).
+(\Cref{lem:ch21-no-cofinal-sequence}); this is not an obstruction to
+every possible sequential approximation of an individual function.
+The CLD hierarchy is generated by local decreasing \emph{sequences}.
+On good, topologically separated analytic spaces it equals stage one by
+\Cref{thm:supplied-p071a-analytic-first-stage}.  The abstract affine
+$G$-tropical stage-two example is
+\Cref{thm:supplied-p071b-second-stage-star}.  Neither result establishes
+closure under arbitrary decreasing nets.
 \end{enumerate}
 \end{proposition}
 
@@ -2742,45 +2801,28 @@ functions is \Cref{prop:ch21-sup-on-skeleton}.
 \cref{itm:ch21-sep:nets}  Each assertion is the cited statement.
 \end{proof}
 
-\begin{remark}[Why no separating example on $X^{\An}$ is available here]
+\begin{remark}[Scope of the singular comparison]
 \label{rem:ch21-no-separating-example}
-\Cref{prop:ch21-bfj-vs-cld} separates the two classes as \emph{classes of
-functions on varying domains}.  It does not produce a function on the whole
-of $X^{\An}$ that belongs to one class and not the other, and this book
-contains no such function.  The reason is precise and worth stating, since
-it is the exact content of
-\Cref{thm:ch19-cld-bfj-comparison}\,\cref{itm:ch19-cb:scope1} and
-\cref{itm:ch19-cb:scope2}.
+The open-domain example in \Cref{prop:ch21-bfj-vs-cld} illustrates
+different domains of definition.  It does not settle the comparison of
+singular metric weights on one projective variety.
 
-In the direction ``BFJ $\Rightarrow$ CLD'': a $\theta$-psh function is a
-decreasing net limit of model functions; each model function has locally
-CLD-psh weights, by
-\Cref{thm:ch19-cld-bfj-comparison}\,\cref{itm:ch19-cb:funct}; so a proof
-would need the CLD class to be stable under decreasing nets of its members.
-It is not known to be stable even under decreasing \emph{sequences} beyond
-the first stage, which is the open problem recorded at
-\Cref{thm:ch15-approachable-stability} and in item (L5) of
-\Cref{sec:ch19-limitations-table}.  Producing a counterexample instead would
-require exhibiting a bounded $\theta$-psh function that fails a local
-regularity condition; no method for verifying such a failure is available,
-because the only known certificates for membership in the CLD sheaf are
-constructive.
+In the direction from BFJ approximation to a local CLD class, the model
+comparison concerns local weights and carries the field scope of
+\Cref{thm:ch19-cld-bfj-comparison}.  A decreasing model net does not by
+itself give a decreasing smooth sequence on one local domain.
+The analytic first-stage theorem resolves the CLD hierarchy issue in its
+stated good, topologically separated scope; it does not turn arbitrary
+decreasing nets into sequences or prove the singular BFJ comparison.
 
-In the direction ``CLD $\Rightarrow$ BFJ'': a locally CLD-psh function on
-$X^{\An}$ is automatically upper semicontinuous and bounded above, since
-$X^{\An}$ is compact, so the cheap obstruction of
-\cref{itm:ch21-sep:global} disappears.  What is missing is any mechanism
-converting local positivity of a current into the \emph{global} numerical
-positivity on models that clause~(2) requires.  The local
-current-positive-to-first-stage implication in item (L4) of
-\Cref{sec:ch19-limitations-table} is a theorem, in its separate local scope,
-for continuous functions on $C^{\An}$ when $K$ is algebraically closed,
-complete, and nontrivially valued and $C$ is a smooth proper algebraic curve
-(\Cref{thm:p063-current-psh-ordinary-regularization}).  Neither it nor
-Wanner's comparison supplies this global numerical conversion, and no
-descent of the ordinary-smooth approximants to the standing BFJ base field
-is asserted.  The book proves the comparison on the model and continuous
-metric loci in all dimensions and asserts nothing further.
+In the other direction, local positivity alone does not verify the two
+global skeletal clauses at a prescribed model form $\theta$.
+The ordinary-smooth curve regularization theorem
+\Cref{thm:p063-current-psh-ordinary-regularization} concerns continuous
+functions over an algebraically closed, complete, nontrivially valued
+field.  It does not supply this global conversion or descent of those
+approximants to the standing BFJ base field.  The proved model and
+continuous metric comparisons remain the precise interfaces used here.
 \end{remark}
 
 \section{Worked examples}
@@ -2795,11 +2837,12 @@ computes a polar set, and exhibits a psh function whose polar set is
 countably infinite and not closed.  The fifth is the toric picture, and the
 sixth is the change of reference form.
 
-All computations below take place on reduced skeleta with residue-rational
-nodes, so the weights in
-\eqref{eq:ch21-weighted-graph-laplacian} are all one and the operator reduces
-to the graph Laplacian \eqref{eq:graph-laplacian}, the sum of outgoing
-slopes.  Thus a convex kink carries positive mass; the curvature measure is
+The initial curve models below are reduced and have residue-rational
+nodes.  Their refinements may have components of higher multiplicity;
+intersection lengths still include those multiplicities.  The node
+residue-degree weights in \eqref{eq:ch21-weighted-graph-laplacian} remain
+one, so with these lengths the operator is the sum of outgoing slopes
+in \eqref{eq:graph-laplacian}.  Thus a convex kink carries positive mass; the curvature measure is
 \eqref{eq:graph-curvature}; and the total mass of
 $\mu_0+\Delta_\Gamma\varphi$ equals $\deg_XL$ by
 \eqref{eq:lap-mass-zero}.  Every displayed measure below is checked against
@@ -2811,7 +2854,8 @@ opposite sign in \eqref{eq:ch20-sign}.
 
 \begin{example}[A kink on a semistable skeleton]
 \label{ex:ch21-kink-example}
-On the nodal interval of \Cref{chap:skeleta}, let
+On the nodal interval of \Cref{chap:skeleta}, fix positive integers
+$p,q$ and let
 
 \begin{equation}
 \label{eq:ch21-kink}
@@ -2907,7 +2951,9 @@ $\max\{|X|,|Y|,|Z|\}=1$ for every $s\in[0,1]$ and
  \varphi|_{\Gamma_0}\equiv0 .
 \end{equation}
 At the coarsest model the potential is therefore indistinguishable from the
-reference, and $\theta+\ddc(\varphi\circ p_{\mathcal C})=\mu_0$.
+reference.  The shadow is the zero model function, its closed model
+form is $\theta$, and its curve measure is
+$\MA(\theta+\ddc(\varphi\circ p_{\mathcal C}))=\mu_0$.
 
 \emph{One blowup.}  The point $\xi_0=[1:0:0]$ reduces to a smooth point
 of $C_0$, namely $\overline{[1:0:0]}$; indeed in the chart $X=1$ with
@@ -2984,11 +3030,14 @@ $\max\{|w(\zeta)|,|\pi|^m\}$.  The right-hand side of
 \eqref{eq:ch21-conic-truncation} is a $\theta$-psh model function by
 \eqref{eq:ch21-conic-curvature-m}, and these functions decrease to
 $\varphi$.  By \Cref{thm:ch21-decreasing-stability},
-$\varphi\in\PSH(C,\theta)$.  Alternatively, $\varphi$ satisfies the two
-clauses directly: it is upper semicontinuous as an infimum of continuous
-functions, its restriction to $\Gamma_m$ is exactly the model function
-\eqref{eq:ch21-conic-restriction-1} extended, and clause~(1) is
-\eqref{eq:ch21-conic-truncation}.
+$\varphi\in\PSH(C,\theta)$; it is not identically $-\infty$ since
+it is zero on $\Gamma_0$.  One can also check the clauses on every
+determining skeleton: $\log\lVert Z\rVert_0$ is finite and continuous
+there, because a skeletal valuation has zero schematic support.
+Compactness gives a lower bound, so the model truncations eventually agree
+with $\varphi$ on that entire skeleton.  Their retraction inequalities
+pass to the pointwise limit.  The displayed blowup tower alone is not a
+cofinal family of models.
 
 \emph{The polar set.}  From \eqref{eq:ch21-conic-truncation},
 $\varphi(\zeta)=-\infty$ exactly when $|w(\zeta)|=0$, that is at
@@ -3008,8 +3057,9 @@ a dual complex may carry no information at all --- here
 \eqref{eq:ch21-conic-restriction-0} is the zero function --- and become
 informative only after the model is refined.  This is why
 \Cref{def:ch21-bfj-psh} quantifies over all models and why
-\Cref{prop:ch21-restriction-system}\,\cref{itm:ch21-rs:notsurjective} is not
-a formality.
+the bijection in
+\Cref{prop:ch21-restriction-system}\,\cref{itm:ch21-rs:notsurjective}
+requires data on the full compatible system, rather than one chosen skeleton.
 \end{example}
 
 \subsection{A maximum and a convex combination, computed}
@@ -3206,9 +3256,10 @@ and \Cref{prop:ch21-constants}\,\cref{itm:ch21-const:const} applies --- so
 \Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:sum} gives
 $\Phi_N\in\PSH(\mathbf P^1,\theta)$.
 
-\emph{The sequence decreases.}  $\Phi_N-\Phi_{N+1}
-=-c_{N+1}\varphi_{a_{N+1}}\geq0$, because
-$\varphi_{a}\leq0$.  Hence $\varphi=\inf_N\Phi_N$ is the limit of a
+\emph{The sequence decreases.}  The well-defined extended-real identity
+$\Phi_{N+1}=\Phi_N+c_{N+1}\varphi_{a_{N+1}}$ and
+$\varphi_a\leq0$ give $\Phi_{N+1}\leq\Phi_N$.
+No difference of two infinite values is formed.  Hence $\varphi=\inf_N\Phi_N$ is the limit of a
 decreasing sequence, itself a net.
 
 \emph{The limit is not identically $-\infty$.}  At the Gauss point
@@ -3217,36 +3268,38 @@ $\varphi_{a_j}(\eta)=0$ for every $j$ and $\varphi(\eta)=0$.  By
 \Cref{thm:ch21-decreasing-stability},
 $\varphi\in\PSH(\mathbf P^1,\theta)$.
 
-\emph{The polar set.}  Let $b\in\mathbf P^1(K)$ be a rational point, that
-is a point of type $1$.  If $|b|>1$ then $\varphi(b)=0$.  If
-$|b|\leq1$, then by \eqref{eq:ch21-separated-centres} there is at most one
-index $j_0$ with $|b-a_{j_0}|<1$, and $|b-a_j|=1$ for all
-$j\neq j_0$.  Consequently
+\emph{The polar set.}  Let $x$ be any point of the analytic affine
+line, viewed as a multiplicative seminorm on $K[z]$.  If $|z(x)|>1$,
+then $|z-a_j|(x)=|z(x)|$ for every $j$, so all normalized section weights
+are zero.  If $|z(x)|\leq1$, all $|z-a_j|(x)\leq1$.  There is at most
+one index $j_0$ with $|z-a_{j_0}|(x)<1$: two such indices would contradict
+$|a_i-a_j|=1$ by the ultrametric inequality.  If such $j_0$ exists,
+all the other norms equal one.  Consequently
 \[
- \varphi(b)=\sum_{j\geq1}c_j\log|b-a_j|
- =\begin{cases}
-   c_{j_0}\log|b-a_{j_0}|, &\text{if such a }j_0\text{ exists},\\
-   0, &\text{otherwise},
+ \varphi(x)=
+ \begin{cases}
+  c_{j_0}\log|z-a_{j_0}|(x),&\text{if such }j_0\text{ exists},\\
+  0,&\text{otherwise}.
  \end{cases}
 \]
-a convergent expression in $[-\infty,0]$, and it equals $-\infty$
-precisely when $b=a_{j_0}$.  If instead $x$ is a point of type $2$,
-$3$ or $4$, let $r(x)>0$ be its radius in the classification
-\Cref{thm:berk-a1-classification}; for $x=\zeta_{b,r}$ one has
-$|z-a_j|(x)=\max\{|b-a_j|,r\}\geq r=r(x)$, and for a type-$4$ point,
-presented as a decreasing intersection of discs $D(b_n,r_n)$ with
-$r_n\downarrow r(x)>0$, the same bound follows in the limit.  Hence
-$\varphi(x)\geq\bigl(\sum_jc_j\bigr)\log r(x)=\log r(x)>-\infty$ at every
-such point.  Therefore
+This equals $-\infty$ exactly when $|z-a_{j_0}|(x)=0$.  The seminorm
+then has support $(z-a_{j_0})$ and is the classical $K$-rational point
+$a_{j_0}$.  At $\infty$ every normalized section weight is zero.
+This argument covers all analytic points over the stated ground field,
+including classical points with nontrivial residue extensions.  Therefore
 \begin{equation}
 \label{eq:ch21-polar-computed}
  \{\varphi=-\infty\}=\{a_1,a_2,a_3,\ldots\},
 \end{equation}
 a countably infinite set of $K$-rational points.
 
-\emph{It is not closed.}  A basic neighbourhood of the Gauss point $\eta$
-is the complement of finitely many open discs, hence contains all but
-finitely many $a_j$.  So $\eta$ lies in the closure of
+\emph{It is not closed.}  Every ordinary neighborhood of the Gauss
+point $\eta$ contains all but finitely many $a_j$.  Indeed the topology on
+the analytic affine line is generated by evaluation of polynomials.
+For any nonzero polynomial $f$, its normalized reduction has only
+finitely many roots in the residue field, so $|f(a_j)|=|f(\eta)|$ for
+all but finitely many of these distinct residue classes.  The same holds
+simultaneously for the finitely many evaluations in a basic neighborhood.  So $\eta$ lies in the closure of
 $\{a_j\}$, while $\varphi(\eta)=0$.  \emph{It is not
 Zariski-closed} either: an infinite subset of a curve that is
 Zariski-closed is the whole curve.  Both conclusions are consistent with
@@ -3254,11 +3307,12 @@ Zariski-closed is the whole curve.  Both conclusions are consistent with
 every quasimonomial point, and it has empty interior, and nothing more is
 claimed.
 
-\emph{Two variants.}  Taking $c_j=2^{-j}$ but allowing the $a_j$ to
-cluster --- for instance $a_j\equiv a\bmod\pi$ for all $j$ --- changes
-the answer: the series $\sum_jc_j\log|b-a_j|$ may then diverge at points
-$b$ that are not among the $a_j$, and the polar set becomes larger and
-harder to describe.  Taking instead finitely many terms returns a polar set
+\emph{Two variants.}  Keeping $c_j=2^{-j}$ and choosing
+$a_j=a+\pi^{2^j}$ makes the centers cluster at $a$, which is not among
+them.  At $a$, every summand is
+$2^{-j}\log|a-a_j|=-1$ under $v(\pi)=1$, so the limit is $-\infty$.
+The same decreasing-stability argument still applies, with value zero
+at the Gauss point, but the polar set now contains an additional point.  Taking instead finitely many terms returns a polar set
 that is finite, hence closed and Zariski-closed.  The example is therefore
 sharp in both directions: finiteness of the polar set is not automatic, and
 its failure to be closed is produced by an entirely explicit series.
@@ -3270,42 +3324,46 @@ its failure to be closed is produced by an entirely explicit series.
 \begin{example}[Toric psh metrics]
 \label{ex:ch21-toric}
 \index{toric variety!BFJ psh metrics}
-Let $X=X_\Sigma$ be a polarized toric variety over $K$, with lattice
-$N$, polytope $P\subset M_{\mathbf R}$, and toric skeleton
-$N_{\mathbf R}\subset X^{\An}$ as in \Cref{sec:toric-convex}.  An
-invariant model metric is
-encoded by a rational piecewise affine convex function $\phi$ on
-$N_{\mathbf R}$ with $\phi-\check h_P$ bounded, the recession data being
-fixed by the polarization.  Uniform completion gives continuous convex
-functions with the same recession behavior, and decreasing completion gives
-singular invariant psh metrics.  The maximum and convex-combination
-operations in \Cref{thm:ch21-stability} become the ordinary
-maximum and convex combination of convex functions.  This is an exact model
-of the skeletal rules, but it does not replace the toroidal and multiplier-%
-ideal arguments in the non-toric case.
+Let $X=X_\Sigma$ be a smooth split polarized toric variety over $K$,
+with lattice $N$ and polytope $P\subset M_{\mathbf R}$.
+Fix the canonical toric model reference with dense-torus weight
+$F_0=\check h_P$ of \eqref{eq:appJ-toric-recession} and curvature
+$\theta$.  An invariant rational model metric has convex piecewise
+affine weight $F$ on $N_{\mathbf R}$; the relative model potential is
+$\psi=F-\check h_P$.  Rational slopes, value-group conditions on
+constants and breaks, and continuous extension of $\psi$ to the extended
+tropicalization are part of this model dictionary.  Boundedness of
+$F-\check h_P$ alone is insufficient.
 
-Three points of the general theory become transparent here, and the reader
-should check each against the corresponding general statement.
+Uniform limits of invariant semipositive model metrics give continuous
+semipositive metrics.  Decreasing nets of their relative potentials give
+invariant BFJ psh functions whenever the limit is nontrivial, by
+\Cref{thm:ch21-decreasing-stability}.  Maxima and convex combinations of
+these potentials correspond to maxima and convex combinations of the full
+weights $F$, since they share the reference $\check h_P$.
 
-\emph{The retraction inequality is the Gauss inequality.}  The retraction
-to the toric skeleton is the Gauss section composed with tropicalization.
-An invariant potential is constant on its fibres, so equality holds for it;
-for logarithms of ideals, the inequality off the skeleton is precisely the
-non-Archimedean triangle inequality comparing a Laurent series with its
-Gauss norm, as in \Cref{lem:ch08-toric-gauss-section}.  Facewise convexity
-is a separate statement about the tropical function and should not be
-confused with this fibrewise inequality.
+\emph{The Gauss retraction.}  On the dense torus the Gauss section
+composed with tropicalization retracts onto $N_{\mathbf R}$.
+Invariant functions are constant on its fibres.  On the toric boundary one
+uses the extended tropicalization and its Gauss section.  These maps are
+distinct from the retraction onto one fixed compact model skeleton.
+For logarithms of ideals the Gauss inequality follows from the
+non-Archimedean triangle inequality, as in
+\Cref{lem:ch08-toric-gauss-section}.
 
-\emph{Clause \textup{(2)} is uniform approximation of a convex function by
-rational piecewise affine convex ones with the same recession function.}
-This is the toric shadow of \Cref{def:ch21-bfj-psh}, and the approximation
-is elementary: take the supremum of finitely many rational affine minorants
-with slopes in $-P\cap\tfrac1kM$, as in Step~3 of the proof of
-\Cref{thm:ch19-toric-ma}.  The general case is not elementary, and it is
-precisely the gap that \Cref{thm:ch21-model-consistency} fills.
+\emph{Global approximation includes the boundary.}  For a continuous
+semipositive toric metric, use the global uniform semipositive toric model
+approximation of Step~3 in \Cref{thm:ch19-toric-ma}.  After subtraction
+of $\check h_P$, convergence is uniform on the compact extended
+tropicalization, hence on $X^{\An}$.  In particular it verifies
+clause~(2) on each model skeleton.  Approximation by finitely many affine
+minorants on a compact ball in $N_{\mathbf R}$ does not alone establish
+this boundary control.  For decreasing limits, the skeletal estimate and
+\Cref{thm:ch21-decreasing-stability} supply the required uniform closure
+on each fixed determining skeleton.
 
-\emph{Polar sets are visible.}  If $\phi$ is allowed to take the value
-$-\infty$ on $N_{\mathbf R}$, the resulting object is \emph{not} an
+\emph{Polar sets are visible.}  If a relative potential is allowed to take the value
+$-\infty$ at a point of $N_{\mathbf R}$, the resulting object is \emph{not} an
 invariant BFJ psh function: by
 \Cref{prop:ch21-first-consequences}\,\cref{itm:ch21-fc:finite} the
 restriction to a dual complex is finite, and the toric skeleton is a union
@@ -3387,9 +3445,10 @@ the skeletal closure
  &\Cref{thm:ch21-decreasing-stability},
   \Cref{thm:ch23-upper-envelope}\\
 model consistency
- &$\theta$-psh model function $\Leftrightarrow$ relatively nef
+ &$\theta$-psh model function $\Leftrightarrow$ relatively nef total
+  curvature class
   (\Cref{thm:ch21-model-consistency})
- &\Cref{chap:bfj-ma},
+ &\Cref{chap:bfj-ma}; corresponds to the numerical notion in
   \Cref{thm:ch19-cld-bfj-comparison}\,(A)\\
 closedness at divisorial points
  &\eqref{eq:ch21-model-closedness}
@@ -3417,14 +3476,15 @@ decreasing nets
  &\Cref{thm:bfj-decreasing-regularization},
   \Cref{chap:bfj-ma}\\
 pullback, model and continuous
- &\Cref{prop:ch21-pullback}
+ &model positivity always; continuous psh membership here when the
+  pulled-back generic class is ample (\Cref{prop:ch21-pullback})
  &\Cref{chap:bfj-functoriality}\\
 polar sets
  &$G_\delta$, no quasimonomial point, empty interior
   (\Cref{prop:ch21-polar-structure})
  &\Cref{chap:bfj-capacity}\\
 singularity types
- &partial order $\preceq$
+ &partial order on types; $\preceq$ is a preorder on functions
   (\Cref{def:ch21-polar-singularity})
  &\Cref{chap:bfj-energy}\\
 continuous comparison
@@ -3449,8 +3509,8 @@ a singular $\theta$-psh function
  &$\log\lVert Z\rVert_0$ on the conic; polar set two rational points
  &\Cref{ex:ch21-conic-refinement}\\
 mass migrating to the polar set
- &$\delta_{v_1}+\delta_{x_E}\to\delta_{\xi_0}+\delta_{\xi_1}$,
-  mass $2$
+ &the two depth-$m$ endpoint atoms converge to
+  $\delta_{\xi_0}+\delta_{\xi_1}$, mass $2$
  &\eqref{eq:ch21-conic-curvature-m}\\
 maximum of two psh functions
  &$|s-\tfrac12|$ on $[0,1]$, measure $2\delta_{1/2}$
@@ -3468,7 +3528,7 @@ no cofinal sequence of models
  &$\mathbf P^1$ over $\mathbf C((t))$
  &\Cref{lem:ch21-no-cofinal-sequence}\\
 clause~(1) is independent
- &$\one_{\{x_0\}}$ at a rational point
+ &$\one_{\{x_0\}}$ at a classical closed point
  &\Cref{ex:ch21-clause-one-needed}\\
 clause~(2) is independent
  &the zero function for a non-semipositive form of ample generic class
@@ -3516,10 +3576,9 @@ $\theta$ semipositive
   \Cref{chap:bfj-compactness} and is never used to prove anything it
   depends on\\
 $\dim X=1$
- &\Cref{prop:ch21-curve-retraction} and
-  \Cref{prop:ch21-polar-structure}\,\cref{itm:ch21-pol:curve} only; these
-  are curve-specific statements and no higher-dimensional analogue is
-  asserted here\\
+ &the weighted graph criterion, \Cref{prop:ch21-curve-retraction},
+  \Cref{prop:ch21-polar-structure}\,\cref{itm:ch21-pol:curve}, and
+  the curve examples; the graph arguments have this dimensional scope\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -3540,8 +3599,8 @@ $\dim X=1$
    \Longrightarrow
    \Cref{cor:ch21-reference-independence},\
    \Cref{prop:ch21-constants};\\
-  &\text{clause (1)}+\text{usc}
-   \Longrightarrow
+  &\text{two clauses, usc, retraction convergence}\\
+  &\hspace{2em}\Longrightarrow
    \Cref{thm:bfj-skeletal-characterization};\\
   &\Cref{thm:bfj-skeletal-equicontinuity}
    \Longrightarrow
@@ -3555,9 +3614,10 @@ $\dim X=1$
  \end{aligned}
 \]
 
-Only the second, fifth and sixth lines use theorems proved elsewhere in the
-book --- they are the three imports of \Cref{sec:ch21-imported} --- and the
-first uses the skeletal calculus of \Cref{chap:skeleta}; the remaining lines
+The second, fifth and sixth implications use the three imported theorems;
+the first also uses the skeletal calculus proved elsewhere in the
+book (\Cref{chap:skeleta}).  The imports are listed in
+\Cref{sec:ch21-imported}; the remaining implications
 are self-contained in this chapter.
 
 \section*{Notes and further reading}
@@ -3565,8 +3625,13 @@ are self-contained in this chapter.
 \paragraph{The definition and its immediate theory.}
 The definition, model-consistency theorem, skeletal reconstruction,
 stability statements, and topology originate in
-\cite[Sections~5--7]{BFJ16}.  Our \Cref{def:ch21-bfj-psh} is their
-definition verbatim; the reorganization here consists in separating the two
+\cite[Sections~5--7]{BFJ16}.  Our \Cref{def:ch21-bfj-psh} follows
+\cite[Definition~7.1]{BFJ16}.  The source uses rational model functions;
+we allow their real-linear enlargement, which has the same fixed-form
+uniform closure by \Cref{lem:ch20-fixed-form-rational-approximation}.
+We also state the nontriviality convention explicitly; finiteness on a
+nonempty skeleton already excludes the identically infinite function.
+The reorganization here consists in separating the two
 clauses logically (\Cref{ex:ch21-clause-one-needed},
 \Cref{ex:ch21-clause-two-needed}), in isolating the skeletal closure
 \eqref{eq:ch21-skeletal-closure} as a named object so that clause~(2) can be
@@ -3624,11 +3689,11 @@ Chambert-Loir and Ducros \cite{CLD25} defines psh functions as sections of a
 sheaf generated by local decreasing limits, and its first stage is the class
 of \emph{locally approachable} functions,
 \cite[Definition~8.1.13]{CLD25}, restated here as
-\Cref{def:ch15-approachable}.  Whether that hierarchy collapses at the first
-stage is open in general, and it is the reason no formal argument passes from
-BFJ to CLD in higher dimension; see
-\Cref{thm:ch15-approachable-stability} and item (L5) of
-\Cref{sec:ch19-limitations-table}.  In the separate scope where $K$ is
+\Cref{def:ch15-approachable}.  On good, topologically separated
+analytic spaces, \Cref{thm:supplied-p071a-analytic-first-stage} proves
+first-stage collapse.  The abstract affine $G$-tropical counterexample
+\Cref{thm:supplied-p071b-second-stage-star} has a separate scope.
+These results do not establish a comparison with singular BFJ model nets.  In the separate scope where $K$ is
 algebraically closed, complete, and nontrivially valued and $C$ is a smooth
 proper algebraic curve, Wanner \cite{Wanner19} identifies current positivity
 on $C^{\An}$ with Thuillier subharmonicity, as reproduced in
@@ -3649,8 +3714,10 @@ positivity of currents rather than through metrics should consult
 \Cref{lem:ch21-no-cofinal-sequence} is elementary and is included because
 the assertion that the model system admits no countable cofinal family is
 often stated without proof.  The proof given is the one-dimensional case;
-that counterexample already blocks any general theorem replacing the full
-model net by a sequence.  The abstract counterparts are
+that counterexample already blocks a general assertion that the full
+model system has a cofinal sequential subnet.  It does not disprove
+sequential approximation of a particular potential; the paragraph following
+\cite[Theorem~8.7]{BFJ16} explicitly distinguishes that question.  The abstract counterparts are
 \Cref{ex:no-cofinal-sequence} and
 \Cref{ex:decreasing-net-not-sequential}, both in
 \Cref{chap:topological-tools}, and the checklist governing every sequential
