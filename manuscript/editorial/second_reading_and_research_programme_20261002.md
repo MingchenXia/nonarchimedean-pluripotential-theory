@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--36 pass the new source, build,
+Current reading position: Chapters 1--37 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -75,7 +75,8 @@ reference, and rendered-page gates; see the
 [Chapter 33 audit](second_reading_ch33_audit_20261003.md), and
 [Chapter 34 audit](second_reading_ch34_audit_20261003.md), and
 [Chapter 35 audit](second_reading_ch35_audit_20261003.md), and
-[Chapter 36 audit](second_reading_ch36_audit_20261003.md).
+[Chapter 36 audit](second_reading_ch36_audit_20261003.md), and
+[Chapter 37 audit](second_reading_ch37_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -157,8 +158,11 @@ scaling/Legendre, fractional-ideal, Siu residual and b-divisor repairs,
 scoped primary checks and visual review of all 58 chapter pages and both
 seams. Chapter 36 has completed its original 709-line read, obstacle and
 historical theorem repairs, scoped primary checks and visual review of all
-twelve chapter pages and both seams. Chapter 37 is active; all 608 original
-lines have been freshly read, but no later unit is marked complete.
+twelve chapter pages and both seams. Chapter 37 has completed its original
+608-line read, scoped assembly-interface checks, sharpness-example repairs
+and visual review of all ten chapter pages and both seams. Chapter 38 is
+active; original lines 1--1820 have been freshly read without edits, but no
+later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and

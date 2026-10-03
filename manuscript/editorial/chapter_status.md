@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--36 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--37 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -102,8 +102,12 @@ regularization, infinite-family bounds, unibranch necessity, uniform-error
 and rational-weight arguments were repaired. All twelve chapter pages
 and both seams passed visual review; see the
 [Chapter 36 audit](second_reading_ch36_audit_20261003.md).
-Chapter 37 is active; all 608 original lines have been freshly read.
-No later chapter is marked complete.
+Chapter 37's complete original 608-line source was freshly read; assembly
+interfaces, normalization scope and concrete psh sharpness examples were
+checked and repaired. All ten chapter pages and both seams passed visual
+review; see the [Chapter 37 audit](second_reading_ch37_audit_20261003.md).
+Chapter 38 is active; original lines 1--1820 have been freshly read without
+edits. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
