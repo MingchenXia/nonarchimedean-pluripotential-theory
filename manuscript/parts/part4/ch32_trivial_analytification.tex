@@ -31,16 +31,16 @@ structures become inseparable from the global theory, and each is used
 continually in \Cref{part:bj}.
 
 \emph{(i) Semivaluations with nonzero kernel are unavoidable.}
-Over a complete nontrivially valued field $K$ one also allows points of
-$X^{\An}$ whose associated seminorm has a kernel; but if $X$ is a variety
-over $K$, the generic point of $X$ is already an analytic point and the
-kernel phenomenon is a boundary effect that can, in the discretely valued
-BFJ theory of \Cref{part:bfj}, largely be handled by working with model
-functions and their limits.  Over a trivially valued field the situation is
-different in kind.  We shall prove in
+Over any complete valued field, an analytic point is a scheme point
+together with an absolute value on its residue field extending the ground
+absolute value.  In positive dimension, a scheme's generic point does
+not specify a unique analytic point; proper-support points occur over nontrivial bases
+as well.  In the trivially valued setting their topological role is
+especially visible.  We shall prove in
 \Cref{prop:ch32-proper-support-dense} that if every irreducible component of
 $X$ has dimension at least two, then the points with \emph{proper support}
---- those whose kernel is a nonzero prime --- are dense in $X^{\An}$.  They
+--- those supported on a proper subvariety of a component --- are dense
+in $X^{\An}$.  They
 cannot be discarded, and a psh function may take the value $-\infty$ at
 such a point.  The standing convention of \Cref{part:bj}, announced in
 \Cref{sec:ch32-standing}, is that the value $-\infty$ at a proper-support
@@ -147,8 +147,9 @@ in \Cref{sec:ch30-hypotheses}.
 \subsection{What is imported}
 \label{sec:ch32-imported}
 
-The chapter is largely self-contained; the following statements are used
-from elsewhere and are the only external inputs.
+The chapter is largely self-contained; the following are its main imported foundations.  Additional source
+boundaries for divisorial classification, density and the quoted
+sequential theorem are recorded where those statements occur.
 
 \begin{enumerate}
 \item\label{itm:ch32-import:berk}
@@ -370,12 +371,13 @@ The pieces $Y^{\val}$ of \Cref{prop:ch32-support-partition} are neither
 open nor closed in general, and the partition is not locally finite.  The
 closed subsets of $X^{\An}$ that the partition does produce are the unions
 $\{s(x)\subset Y\}=Y^{\An}$, and the open ones are the unions
-$\{s(x)\cap U\neq\varnothing\}=U^{\An}$ for $U\subset X$ open.  A point
-of $X^{\val}$ can be a limit of points of $X^{\val}$ that converges to a
-point of proper support: this is the content of
-\Cref{prop:ch32-proper-support-dense}, and it is the reason the partition
-cannot be used to reduce statements about $X^{\An}$ to statements about
-valuations.
+$\{s(x)\cap U\neq\varnothing\}=U^{\An}$ for $U\subset X$ open.  Full-support points can converge to proper-support points: for example,
+$t\ord_p$ converges to $v_{p,\triv}$ on a smooth projective curve as
+$t\to+\infty$ (\Cref{prop:ch32-scaling-limits}).  In the other direction,
+proper-support points are dense when every component has dimension at least
+two (\Cref{prop:ch32-proper-support-dense}).  Both phenomena prevent a
+component-by-component valuation-space treatment from replacing the
+topology of the whole analytification.
 \end{remark}
 
 \begin{definition}
@@ -765,7 +767,7 @@ $X^{\An}=c^{-1}(X)$ is compact, and it is Hausdorff.
 \cref{itm:ch32-cc:affine}  We first check the displayed description of
 $c^{-1}(U)$.  If $v\in X^{\An}$ has $c(v)\in U$, then its support meets
 $U$, so $v\in U^{\An}$, and $v\geq0$ on
-$\cO_{X,c(v)}\supset A$.  Conversely let $v\in U^{\An}$ with $v\geq0$
+the image of $A$ in the local ring of the support at $c(v)$.  Conversely let $v\in U^{\An}$ with $v\geq0$
 on $A$.  Then $\mathfrak q:=\{f\in A:v(f)>0\}$ is a prime ideal of $A$:
 it is closed under addition by ultrametricity, absorbs multiplication by
 \Cref{lem:ch32-semivaluation-calculus}\,\cref{itm:ch32-sc:sum} and
@@ -773,7 +775,9 @@ nonnegativity, and is prime by multiplicativity.  The corresponding point
 $\xi\in U$ satisfies $v\geq0$ on $A_{\mathfrak q}=\cO_{X,\xi}$ --- a
 fraction $f/g$ with $g\notin\mathfrak q$ has $v(g)=0$ hence
 $v(f/g)=v(f)\geq0$ --- and $v>0$ on $\mathfrak q A_{\mathfrak q}$.
-Thus $v$ dominates $\cO_{X,\xi}$, so $\xi$ is a center of $v$, and by
+Thus the induced valuation dominates the support quotient of
+$\cO_{X,\xi}$; its semivaluation is nonnegative there and positive exactly
+on the maximal ideal.  Hence $\xi$ is a center of $v$, and by
 uniqueness of centers on a separated scheme
 (\Cref{prop:centers-proper-separated}) we get $c(v)=\xi\in U$.
 
@@ -800,24 +804,20 @@ provides, by the valuative criterion of properness, a unique
 $k$-morphism $\Spec\cO_v\to X$ extending $\Spec k(s(v))\to X$, and its
 closed point is $c(v)$; this is \Cref{prop:centers-proper-separated}.
 Therefore $X^{\An}=c^{-1}(X)$ is compact by \cref{itm:ch32-cc:general}.
-Hausdorffness holds because $X$ is separated: it is
-\Cref{thm:berk-proper-compact}\,(1), and can also be seen directly from
-\Cref{thm:ch32-ideals-generate}\,\cref{itm:ch32-ig:separate} below, whose
-proof does not use Hausdorffness.
+Hausdorffness holds because $X$ is separated, by
+\Cref{thm:berk-proper-compact}\,(1).  This is the general analytic input
+used to turn the compact sets above into a finite closed cover.
 \end{proof}
 
 \begin{remark}
 \label{rem:ch32-logical-order}
-The only point at which \Cref{thm:ch32-center-compact} borrows from
-\Cref{thm:berk-proper-compact} is Hausdorffness, and even that can be
-avoided: \Cref{thm:ch32-ideals-generate}\,\cref{itm:ch32-ig:separate}
-produces, for any two distinct points, a continuous
-$[0,+\infty]$-valued function separating them, and a space admitting a
-separating family of continuous maps to a Hausdorff space is Hausdorff.  We
-have not arranged the exposition to exploit this, since
-\Cref{thm:berk-proper-compact} is available; but the reader who wants a
-self-contained treatment of the trivially valued case may take
-\Cref{prop:berk-compact-spectrum} as the only input.
+The compactness argument in \Cref{thm:ch32-center-compact} uses the
+Banach-spectrum theorem and existence of centers.  Hausdorffness is
+imported from the separated analytification theorem.  Later, for
+projective $X$, ideal evaluations give a separating continuous family.
+That description is consistent with Hausdorffness, but its continuity
+proof uses the finite closed cover obtained above, so it is not presented
+as an independent replacement for the Hausdorffness input.
 \end{remark}
 
 \subsection{Ideals generate the topology}
@@ -923,13 +923,14 @@ the topology of $X^{\An}$ is given by the sets
  \{v:v(\mathfrak a)<t\}\quad\text{and}\quad\{v:v(\mathfrak a)>t\},
  \qquad \mathfrak a\in\mathcal I(X),\ t\in\mathbf R .
 \]
-Both kinds occur.  Near a point of $X^{\triv}$ only the first kind is
-informative: at a trivial semivaluation every ideal evaluation lies in
-$\{0,+\infty\}$, so a condition $v(\mathfrak a)>t$ with $t<0$ is
-vacuous and one with $t\geq0$ already forces $v(\mathfrak a)=+\infty$.
-This observation is what makes the neighbourhood bases of
+Both kinds occur, including near proper-support trivial points:
+$\{v:v(\mathfrak a)>t\}$ can contain points with large finite value and
+does not force the value $+\infty$.  At the full-support trivial valuation
+of an integral $X$, every nonzero ideal instead has value zero.  There,
+after discarding constant coordinates, only the conditions of the first
+kind are needed.  This gives the neighbourhood bases of
 \Cref{lem:ch32-neighbourhood-basis-triv} and
-\Cref{thm:ch32-not-first-countable} manageable.
+\Cref{thm:ch32-not-first-countable}.
 \end{remark}
 
 \begin{lemma}
@@ -951,23 +952,27 @@ $v_{X,\triv}$, because a nonzero ideal on an integral scheme has stalk
 $\cO_{X,\eta}$ at the generic point $\eta=c(v_{X,\triv})$, so
 $v_{X,\triv}(\mathfrak a_i)=0$.  Conversely, a basic open set containing
 $v_{X,\triv}$ is a finite intersection of subbasic sets as in
-\Cref{rem:ch32-subbasis}.  A subbasic set of the form
+\Cref{rem:ch32-subbasis}.  The zero ideal has the constant value $+\infty$; any factor involving
+it and containing $v_{X,\triv}$ is the whole space and may be discarded.
+For every remaining ideal, a subbasic set of the form
 $\{v(\mathfrak a)>t\}$ containing $v_{X,\triv}$ forces
 $0=v_{X,\triv}(\mathfrak a)>t$, so $t<0$ and the set is all of
 $X^{\An}$ because $v\geq0$ always; such factors may be discarded.  A
 subbasic set $\{v(\mathfrak a)<t\}$ containing $v_{X,\triv}$ has
 $t>0$, and $\mathfrak a\neq0$ since otherwise
 $v_{X,\triv}(\mathfrak a)=+\infty$.  Taking $\varepsilon$ to be the
-smallest of the finitely many $t$'s gives the claim.
+smallest of the finitely many $t$'s gives the claim.  If no factors
+remain, take $r=0$ and any $\varepsilon>0$, so that $W=X^{\An}$.
 \end{proof}
 
 \subsection{Countability: metrizable or not even first countable}
 \label{sec:ch32-countability}
 
 Compactness does not imply metrizability.  Over an uncountable field,
-$X^{\An}$ is generally not first countable.  All compactness arguments in
-this part therefore use nets.  A sequence may be used only after an explicit
-countability or metrization reduction.
+a positive-dimensional $X^{\An}$ need not be first countable.  Nets
+therefore remain available for general directed families.  This does not
+preclude sequential topological tests: the Berkovich sequential theorem
+recorded below applies even when the space is not metrizable.
 
 The two extreme cases are settled by the following two statements, and they
 are the reason for the standing convention.  We first record an elementary
@@ -1085,23 +1090,23 @@ Since a metrizable space is first countable, $X^{\An}$ is not metrizable;
 it is compact Hausdorff by \Cref{thm:ch32-center-compact}.
 \end{proof}
 
-\begin{warning}{Sequences are not enough}
-\Cref{thm:ch32-not-first-countable} is the reason every compactness
-argument in \Crefrange{chap:trivial-analytification}{chap:bj-stability} is
-formulated with nets, in the sense of \Cref{app:nets}, and why the
-regularized supremum $(\sup_i\varphi_i)^*$ of the front matter is taken
-over families rather than sequences.  Concretely: a function on $X^{\An}$
-that is continuous along every sequence need not be continuous; a family of
-psh functions may have a supremum that no sequence from the family
-approaches; and an increasing net of continuous functions may fail to admit a
-cofinal increasing subsequence.  The three chapters that most depend on this
-discipline are \Cref{chap:bj-envelope-statement},
-\Cref{chap:bj-envelope-consequences} and \Cref{chap:bj-strong-topologies}.
-There is a partial converse in the literature --- every point in the closure
-of a subset of $X^{\An}$ is the limit of a \emph{sequence} from that
-subset, so closed subsets are sequentially compact --- but it is a
-nontrivial theorem about Berkovich spaces which we neither prove nor use;
-see \cite[Remark~1.1]{BJ22} for the statement and its provenance.
+\begin{warning}{Sequences and general directed families}
+Non-first-countability does not make sequential continuity weaker here.
+By the Berkovich theorem recorded in \cite[Remark~1.1]{BJ22}, every point
+in the closure of a subset of $X^{\An}$ is the limit of a sequence from
+that subset; closed subsets are sequentially compact.  In particular,
+a sequentially continuous map from $X^{\An}$ to any topological space is
+continuous: otherwise the inverse image of a closed set would contain a
+sequence converging to a point outside that inverse image.
+
+We retain the net formalism of \Cref{app:nets} for arbitrary directed
+families of potentials and model refinements.  Such an index set need not
+have a countable cofinal subset; a theorem about sequences of points of
+$X^{\An}$ does not produce one, nor does it prove a countable reduction
+for a supremum in a function space.  These are separate issues in
+\Cref{chap:bj-envelope-statement}, \Cref{chap:bj-envelope-consequences}
+and \Cref{chap:bj-strong-topologies}.  We quote the point-space sequential
+theorem with its exact scope and do not prove it here.
 \end{warning}
 
 \begin{remark}
@@ -1109,11 +1114,14 @@ see \cite[Remark~1.1]{BJ22} for the statement and its provenance.
 Three statements hold for every algebraically closed $k$:
 $X^{\An}$ is compact Hausdorff; the ideal evaluations generate its
 topology; and $X^{\divis}$ is dense in it
-(\Cref{thm:triv-divisorial-density}).  Density of a countable set is not
-available in general, since $X^{\divis}$ has the cardinality of $k$ when
-$\dim X\geq1$.  The reader should keep the two regimes separate: over
-$\overline{\mathbf Q}$ the space $X^{\An}$ is a compact metric space and
-sequential arguments are legitimate; over $\mathbf C$ they are not.
+(\Cref{thm:triv-divisorial-density}).  Over a countable field the rational-scale convention makes
+$X^{\divis}$ countable, and the preceding ideal-coordinate argument proves
+metrizability.  Over an uncountable field and for $\dim X\geq1$, the space
+is not even separable: a positive-dimensional component has uncountably
+many closed points $p$, and the nonempty open sets $c^{-1}(p)$ are
+pairwise disjoint.  Any dense subset must meet each one.  The first
+countability and metrizability regimes therefore differ, while the quoted
+sequential closure and continuity tests remain valid in both.
 \end{remark}
 
 \section{Centers, supports, and specialization}
@@ -1167,19 +1175,29 @@ composite $\Spec\cO_v\to Y\hookrightarrow X$ is a morphism extending
 $\Spec k(Y)\to X$, and the center is unique by
 \Cref{prop:centers-proper-separated}.  Hence $c(v)=c_Y(v)\in Y$.
 
-\cref{itm:ch32-scm:neither}  Take $X$ integral with $\dim X\geq1$, let
-$p\in X(k)$ be a closed point, $\eta$ the generic point, and let $E$ be
-a prime divisor over $X$ with center $p$, for instance an exceptional
-divisor of the blowup of $p$.  For $s$: the set
+\cref{itm:ch32-scm:neither}  Choose a positive-dimensional reduced
+irreducible component $Y$ of $X$ and a closed point $p\in Y(k)$.
+On a normal proper birational model of $Y$, choose a prime divisor $E$
+centered at $p$: in dimension one use a point of the normalization over
+$p$; in higher dimension use a component above $p$ on the normalized
+blowup of its ideal.  The resulting valuations $\ord_E$ of $k(Y)$
+give semivaluations on $X$.  Write $\eta$ for the generic point of $Y$.
+The limits $t\ord_E\to v_{Y,\triv}$ at zero and
+$t\ord_E\to v_{p,\triv}$ at infinity hold on this proper $Y$ by affine
+evaluation: finite values tend to zero at zero, while on a chart containing
+$p$ they are nonnegative and tend to infinity precisely on the maximal
+ideal at $p$.  This is the same endpoint calculation as
+\Cref{prop:ch32-scaling-limits} and does not require projectivity.
+For $s$: the set
 $s^{-1}(\{p\})=\{v_{p,\triv}\}$ is a single point and is not open, since
 $v_{p,\triv}=\lim_{t\to+\infty}t\ord_E$ by
 \Cref{prop:ch32-scaling-limits}, so every neighbourhood of it contains
-points $t\ord_E$ of support $X$.  As $\{p\}$ is closed in $X$, this
+points $t\ord_E$ of support $Y$.  As $\{p\}$ is closed in $X$, this
 shows $s$ is not anticontinuous.  For $c$: the singleton $\{p\}$ is
 closed in $X$, so $c^{-1}(\{p\})$ is open by \cref{itm:ch32-scm:c}; were
 $c$ continuous it would also be closed.  It is not closed, because it
 contains $t\ord_E$ for every $t>0$ while its closure contains
-$v_{X,\triv}=\lim_{t\to0^+}t\ord_E$, whose center is $\eta\neq p$.
+$v_{Y,\triv}=\lim_{t\to0^+}t\ord_E$, whose center is $\eta\neq p$.
 Hence $c$ is not continuous.
 \end{proof}
 
@@ -1551,8 +1569,8 @@ reason is that the objects being acted on are not functions but metrics:
 scaling a valuation by $t$ scales the additive weight of a metric by $t$
 as well, so the pairing between potentials and valuations is
 $\mathbf R_{>0}$-equivariant only with the factor.  The geometric
-counterpart --- base change along $\varpi\mapsto\varpi^t$ on the
-test-configuration side --- is \Cref{prop:ch30-gauss-scaling} together with
+counterpart --- ordinary integral-power base change on test
+configurations, and the valuation formula for arbitrary real scales --- is \Cref{prop:ch30-gauss-scaling} together with
 \eqref{eq:ch30-gauss-lambda}; the identity
 \eqref{eq:function-scaling-action} in \Cref{chap:bj-homogeneity-bdivisors} is
 the same formula in the notation used there.
@@ -1783,9 +1801,11 @@ domain meeting $X^{\triv}$.
 parametrizes the scaling orbits in $\Omega$, and homogeneous functions on
 $\Omega$ correspond to arbitrary functions on it.  It does \emph{not}
 parametrize the points of $X^{\An}$: the trivial locus and the
-proper-support points are excluded by
-\Cref{thm:ch32-link-cone}\,\cref{itm:ch32-lc:notriv} and by the domain
-restrictions of \Cref{ex:ch32-three-gauges}.  A link on a fixed model may be
+points outside the chosen gauge domain are absent.  The fixed locus
+is excluded by \Cref{thm:ch32-link-cone}\,\cref{itm:ch32-lc:notriv}.
+An ideal gauge excludes supports contained in its zero locus, but can
+include other proper-support points, as its domain in
+\Cref{ex:ch32-three-gauges} shows.  A link on a fixed model may be
 compact, but compactness for a larger scaling-stable domain is a separate
 question and is not asserted here.  The global obstruction is instead that
 no gauge includes the fixed locus $X^{\triv}$.  This is one reason
@@ -1804,11 +1824,12 @@ The scaling action \eqref{eq:valuation-scaling} multiplies a point of
 $X^{\An}$ by a positive real number.  Over a discretely valued field there
 is a superficially similar operation: replacing the ground absolute value
 $|\cdot|$ by $|\cdot|^c$ multiplies every valuation by $c$, see
-\eqref{eq:appJ-uniformizer}.  The two are different.  The second is a
-renormalization of a fixed geometric situation and changes no point of the
-space; the first moves a point of $X^{\An}$ along its ray.  Only the first
-has fixed points, namely $X^{\triv}$.  Under the Gauss extension the first
-is converted into the second, and this is the content of
+\eqref{eq:appJ-uniformizer}.  The first is an action on the fixed trivially valued space, with fixed
+locus $X^{\triv}$.  The second identifies analytic spaces with different
+ground-value normalizations by rescaling all valuations.  Under Gauss
+extension the exact relation combines a change of ground normalization
+with a further rescaling; it is not multiplication of every point in the
+fixed space $X_K^{\An}$.  This is the content of
 \Cref{prop:ch30-gauss-scaling}; see also the warning following it.
 \end{remark}
 
@@ -2018,8 +2039,9 @@ conditions in \Cref{lem:ch32-neighbourhood-basis-triv}.  Now apply
 Let $X=\mathbf P^1_k$.  For each closed point $p$, the valuations
 $t\ord_p$, $t\geq0$, form a ray issuing from $v_{X,\triv}$.  Its other
 endpoint is $v_{p,\triv}$, reached as $t\to+\infty$.  The union of these
-rays gives a compact star-shaped tree.  If $X$ is nodal, the
-analytification is obtained from the tree of the normalization by identifying
+rays gives a compact star-shaped tree.  More generally, for a nodal
+projective curve, analytification is obtained from the disjoint union of
+the normalization components' trees by identifying
 the two proper-support endpoints over each node.  This foreshadows why
 unibranchness is forced by the envelope property.
 \end{example}
@@ -2033,7 +2055,8 @@ of the node/cusp comparison of \Cref{ex:bj-node-cusp}.
 Let $X$ be a connected projective curve over $k$ and
 $\nu:X^\nu\to X$ its normalization.  Then
 $\nu^{\An}:(X^{\nu})^{\An}\to X^{\An}$ is a continuous surjection which is
-injective except over the non-normal points, and for $p\in X(k)$ with
+injective on all full-support points; its only non-singleton fibres
+are over closed-point semivaluations.  For $p\in X(k)$ with
 $\nu^{-1}(p)=\{q_1,\ldots,q_m\}$ it identifies the $m$ endpoints
 $v_{q_i,\triv}$ to the single endpoint $v_{p,\triv}$.  In particular, if
 $X$ is nodal, $X^{\An}$ is obtained from the disjoint union of the trees
@@ -2048,8 +2071,7 @@ surjective as well: for $x\in X^{\An}$, base change to the completed residue
 field $\mathcal H(x)$ gives a nonempty finite fibre; a maximal ideal of its
 coordinate algebra yields a finite extension of $\mathcal H(x)$, whose
 extended absolute value defines a point over $x$.  Thus $\nu^{\An}$ is a
-surjective map of compact spaces.  Since $\nu$ is an isomorphism over
-$X\setminus\Sing(X)$, the map $\nu^{\An}$ is bijective over
+surjective map of compact spaces.  Since $\nu$ is an isomorphism over the regular locus of the curve, the map $\nu^{\An}$ is bijective over
 $\{v:c(v)\notin\Sing(X)\}=c^{-1}(X\setminus\Sing X)$, which is
 \emph{closed}, indeed compact: the centre map is anticontinuous
 (\Cref{thm:ch32-center-compact}\,\cref{itm:ch32-cc:general}), so the preimage
@@ -2169,8 +2191,9 @@ Three comments on the definition are in order, and each is used later.
 \emph{Why the trivial valuation is included.}  With $t=0$ the formula
 $t\ord_E$ gives $v_{X,\triv}$, and by
 \Cref{prop:ch32-scaling-limits} it is the limit of $t\ord_E$ as
-$t\to0^+$.  Excluding it would make $X^{\divis}$ fail to be closed under
-the limits that occur in \Cref{thm:triv-divisorial-density}, and would break
+$t\to0^+$.  Including it records the zero-scale limit explicitly; the density
+theorem itself does not say that $X^{\divis}$ is closed.  The convention
+also gives
 the statement $X^{\divis}=\{v_E\}$ for components $E$ of central fibres
 of test configurations, since the trivial test configuration contributes the
 trivial valuation.  This convention is that of
@@ -2253,10 +2276,10 @@ discrete is part of the Zariski--Abhyankar theorem, not a consequence of the
 numerical inequality alone.  In the present rank-one equality case the
 theorem gives a generator $t>0$ and a prime divisor $E$ on a suitable
 normal projective birational model such that $v=t\ord_E$; see
-\cite[Ch.~VI, \S14]{ZariskiSamuelII}.  We use only
-the direct implications \cref{itm:ch32-di:group}--\cref{itm:ch32-di:center}
-below; \cref{itm:ch32-di:conversely} is quoted for orientation and is not
-used in any proof of this book.
+\cite[Ch.~VI, \S14]{ZariskiSamuelII}.  The direct implications are proved above.  The converse is imported
+with its exact rank-one equality hypothesis and is used for the reverse
+Gauss-divisorial assertion in
+\Cref{thm:ch32-gauss-transfer}\,\cref{itm:ch32-gt:divisorial}.
 \end{proof}
 
 \begin{proposition}
@@ -2310,8 +2333,8 @@ our divisorial convention retains only $t\in\mathbf Q_{>0}$.  Thus the
 inclusion $X^{\divis}\subset X^{\lin}$ is strict as soon as $X$ has a
 prime divisor; irrational quasimonomial points give further examples on
 higher-dimensional cones.  The inclusion $X^{\lin}\subset X^{\val}$ is
-strict in general: \Cref{prop:ch32-valuation-criterion} characterizes linear
-growth by finite maximal vanishing order, while valuations with infinite
+strict in general: \Cref{def:bj-linear-growth} characterizes linear growth by finite
+maximal vanishing order, while valuations with infinite
 maximal vanishing order do occur.  The later theory identifies
 $X^{\lin}$ with the nonpluripolar points of $X^{\An}$; see
 \Cref{chap:bj-linear-growth} and \Cref{thm:bj-dirac-finite-energy}.
@@ -2391,7 +2414,7 @@ from the next two chapters, and no others.
 \item\emph{PL functions are uniformly dense in $C^0(X^{\An})$.}
 This is \eqref{eq:pl-stone-weierstrass} in \Cref{chap:bj-fs-pl-psh}, quoted
 from \cite[Theorem~2.2]{BJ22}.  Its proof is the lattice Stone--Weierstrass
-theorem applied to the algebra generated by the truncated ideal evaluations
+theorem applied to the vector lattice generated by the truncated ideal evaluations
 $\max\{-v(\mathfrak a),-m\}$, which are PL by
 \Cref{thm:tc-pl-correspondence}; the separation hypothesis is
 \Cref{thm:ch32-ideals-generate}\,\cref{itm:ch32-ig:separate}, proved in the
@@ -2535,14 +2558,14 @@ here.
 
 \begin{remark}
 \label{rem:ch32-bE}
-The normalization by $b_E$ in \Cref{thm:ch32-divisorial-tc} is not a
-choice: it is forced by the requirement $w(\varpi)=1$ on the
-test-configuration side, and it disappears after restriction to $k(X)$,
-where no element plays the role of $\varpi$.  The identity
+The normalization by $b_E$ in \Cref{thm:ch32-divisorial-tc} is forced
+by $w(\varpi)=1$ on the test-configuration side.  Restriction to $k(X)$
+retains the scalar $b_E^{-1}$ in $v_E$; what disappears is the equation
+fixing the value of $\varpi$, since $\varpi$ is not an element of $k(X)$.  The identity
 $\sigma(v_E)=b_E^{-1}\ord_E$ of \eqref{eq:ch30-gauss-divisorial} says that
-the Gauss extension puts the factor back.  A formula in $\PL(X)$ that
-looks as though it has lost a factor $b_E$ relative to the corresponding
-formula in \Cref{part:bfj} has almost always lost it here; the unit tests of
+Gauss extension recovers the full normalized model valuation from
+its restriction.  A comparison formula must keep this restricted rational
+scale, rather than replacing it by an unnormalized order of vanishing; the unit tests of
 \Cref{sec:appJ-unit-tests} are designed to catch this.
 \end{remark}
 
@@ -2769,8 +2792,10 @@ $v_\alpha$ is Abhyankar:
 $\operatorname{rat.rk}(v_\alpha)+\operatorname{trdeg}(v_\alpha)=d+(n-d)=n$;
 \item\label{itm:ch32-qi:vertex}
 if $J_+=\{j\}$, then $v_\alpha=\alpha_j\ord_{E_j}$; in particular the
-rays of the cone through the vertices of $\Delta_{Y,E}$ are the divisorial
-rays $\mathbf R_{>0}\ord_{E_j}$;
+rays of the cone through the vertices of $\Delta_{Y,E}$ are
+$\mathbf R_{>0}\ord_{E_j}$; their rational positive multiples are
+divisorial, and their irrational multiples are quasimonomial of rational
+rank one;
 \item\label{itm:ch32-qi:divisorial}
 $v_\alpha$ is divisorial if and only if
 $\alpha=t(p_j)_{j\in J_+}$ with $(p_j)$ a primitive vector of positive
@@ -2889,9 +2914,9 @@ $v_\alpha=t\ord_F$ by
 \Cref{thm:ch32-quasimonomial-invariants}\,\cref{itm:ch32-qi:divisorial}.
 The toroidal computation of the relative canonical divisor gives
 \[
- K_{Y'}-\rho^*K_Y=\Bigl(\sum_{j\in J_+}p_j-1\Bigr)F,
+ \ord_F(K_{Y'}-\rho^*K_Y)=\sum_{j\in J_+}p_j-1,
  \qquad
- \rho^*E_j=E_j'+p_jF\quad(j\in J_+),
+ \ord_F(\rho^*E_j)=p_j\quad(j\in J_+),
 \]
 whence
 \[
@@ -2945,7 +2970,8 @@ Let $X$ be an integral projective $k$-variety.
 \item\label{itm:ch32-qmd:dense}
 Write $X^{\mathrm{qm}}$ for the set of quasimonomial points, that is, the
 union of the cones $\sigma_{Y,E}$ over all SNC pairs over $X$.  Every
-vertex ray of such a cone is a divisorial ray.  Conversely, if
+vertex ray contains the dense divisorial subset
+$\mathbf Q_{>0}\ord_{E_j}$.  Conversely, if
 $\operatorname{char}k=0$, then $X^{\divis}\subset X^{\mathrm{qm}}$, and
 consequently $X^{\mathrm{qm}}$ is dense in $X^{\An}$.
 \item\label{itm:ch32-qmd:abhyankar}
@@ -2963,9 +2989,10 @@ retraction maps as transition morphisms; this is
 \end{theorem}
 
 \begin{proof}
-\cref{itm:ch32-qmd:dense}  That a vertex ray is divisorial is
-\Cref{thm:ch32-quasimonomial-invariants}\,\cref{itm:ch32-qi:vertex}.
-Conversely, let $v=t\ord_E$ with $t\in\mathbf Q_{>0}$ and $E$ a prime
+\cref{itm:ch32-qmd:dense}  The vertex-ray statement follows from
+\Cref{thm:ch32-quasimonomial-invariants}\,\cref{itm:ch32-qi:vertex} and
+the rational-scale convention of \Cref{def:ch32-divisorial}.  The zero
+valuation is included in each cone.  Conversely, let $v=t\ord_E$ with $t\in\mathbf Q_{>0}$ and $E$ a prime
 divisor on a normal projective birational model $Y_0\to X$.  In
 characteristic zero, \Cref{thm:appB-resolution} provides a log resolution
 $Y\to Y_0$ of the pair consisting of $Y_0$, its singular locus, and the
@@ -2977,9 +3004,11 @@ $v=v_\alpha$.  Density then follows from
 existence of such a log resolution is not known in dimension $\geq4$, and
 we make no claim.
 
-\cref{itm:ch32-qmd:abhyankar}  The direct statement is
-\Cref{thm:ch32-quasimonomial-invariants}\,\cref{itm:ch32-qi:abhyankar}.  The
-converse is quoted.
+\cref{itm:ch32-qmd:abhyankar}  For nonzero weights the direct statement
+is \Cref{thm:ch32-quasimonomial-invariants}\,\cref{itm:ch32-qi:abhyankar}.
+For the zero valuation, rational rank is zero and the residue field is
+$k(X)$, of transcendence degree $\dim X$, so equality still holds.
+The converse is quoted.
 
 \cref{itm:ch32-qmd:limit}  Quoted.
 \end{proof}
@@ -3014,7 +3043,7 @@ $(s,0)$, $s>0$&generic pt of $E_1$&$s\mathbf Z$&$1$&$1$&$s$\\
 $(0,s)$, $s>0$&generic pt of $E_2$&$s\mathbf Z$&$1$&$1$&$s$\\
 $(p,q)\in\mathbf Z_{>0}^2$ coprime&origin&$\mathbf Z$&$1$&$1$&$p+q$\\
 $c(p,q)$, $c>0$, $(p,q)$ as above&origin&$c\mathbf Z$&$1$&$1$&$c(p+q)$\\
-$(1,\theta)$, $\theta\notin\mathbf Q$&origin&
+$(1,\theta)$, $\theta>0$, $\theta\notin\mathbf Q$&origin&
  $\mathbf Z+\theta\mathbf Z$&$2$&$0$&$1+\theta$\\
 \bottomrule
 \end{tabular}
@@ -3290,17 +3319,18 @@ $p$, and $v_{p,\triv}\in\{\varphi_{\mathfrak a}=-\infty\}$.
 
 \emph{The polar locus meets no scaling orbit in a proper subset.}  It is
 scaling stable, because $s(tv)=s(v)$; and it consists of points at which
-every homogeneous potential built from $\mathfrak a$ is $-\infty$.
+the untruncated ideal potential $-v(\mathfrak a)$ is $-\infty$.
 
 \emph{The polar locus is where a Fubini--Study function degenerates.}  If
 \[
  \phi=\max_j\{-v(s_j)+\lambda_j\}
 \]
-is a Fubini--Study function in the sense of \Cref{def:gf-fs-functions}, built
-from finitely many sections
-$s_j$ of a line bundle, then $\phi(v)=-\infty$ exactly when every
-$s_j$ vanishes along $s(v)$, that is, when $s(v)$ is contained in the
-common zero locus.  This is \Cref{ex:gf-proper-support-pole}; the present
+is a generically finite Fubini--Study function in the degree-one form of
+\Cref{def:gf-fs-functions}, built from finitely many sections $s_j$ of a
+line bundle, then $\phi(v)=-\infty$ exactly when every $s_j$ vanishes along $s(v)$,
+that is, when $s(v)$ is contained in the common zero locus.  For sections
+of $L^{\otimes m}$ the formula has the factor $m^{-1}$.  A base-point-free
+Fubini--Study function has no such pole.  This is \Cref{ex:gf-proper-support-pole}; the present
 chapter supplies the geometric description of the locus, and
 \Cref{chap:bj-fs-pl-psh} the analytic consequences.
 
@@ -3314,16 +3344,19 @@ $p=[0:1:0]\in L$.  Then for $v\in X^{\An}$:
  \varphi_{\mathfrak a}(v)=-v(\mathfrak a)=
  \begin{cases}
  0,&c(v)\notin L,\\
- -v(x_0/x_1),&c(v)\in L\setminus\{x_1=0\},\ s(v)\not\subset L,\\
+ -v(\ell),&c(v)\in L,\ s(v)\not\subset L,\\
  -\infty,&s(v)\subset L .
  \end{cases}
 \]
-Four sample values.
+Here $\ell$ is a local equation of $L$ at $c(v)$: use $x_0/x_1$
+on $\{x_1\neq0\}$ and $x_0/x_2$ on $\{x_2\neq0\}$.  These two charts
+cover $L$, and the values agree on their overlap.  Four sample values.
 \begin{enumerate}
 \item At $v=v_{X,\triv}$: $\varphi_{\mathfrak a}=0$.
 \item At $v=t\ord_L$ with $t>0$: $\varphi_{\mathfrak a}(v)=-t$, so
-$\varphi_{\mathfrak a}$ is unbounded below already on $X^{\val}$ --- it
-is homogeneous and nonzero, hence unbounded on every nontrivial orbit.
+$\varphi_{\mathfrak a}$ is unbounded below already on $X^{\val}$ --- on every orbit where $0<v(\mathfrak a)<+\infty$, scaling makes
+$-v(\mathfrak a)$ unbounded below.  Orbits centered outside $L$ instead
+have the constant value zero.
 \item At $v=\ord_{(C,p)}$ for $C$ a line through $p$ different from
 $L$: $C\not\subset L$, so $v(\mathfrak a)=\ord_p\bigl((x_0/x_1)|_C\bigr)
 =1$ and $\varphi_{\mathfrak a}(v)=-1$, a finite value at a
@@ -3457,40 +3490,38 @@ dimension at least $2$.
 \end{proposition}
 
 \begin{proof}
-A subset of $X^{\An}$ is dense if and only if its intersection with
-$X_\alpha^{\An}$ is dense in $X_\alpha^{\An}$ for every irreducible
-component, because $X^{\An}=\bigcup_\alpha X_\alpha^{\An}$ is a finite
-closed cover.  So we may assume $X$ integral of dimension $n$.
+We first work on an integral component of dimension $n$, then justify
+the passage to the finite union of components at the end.  A finite
+closed cover alone would not justify the claimed density equivalences.
 
 If $n=0$, then $X^{\An}$ is a point and both displayed subsets are empty,
 so neither is dense, as the two equivalences assert.  If $n=1$, the set of
-points with one-dimensional
-support is $X^{\val}$, which is dense by
-\Cref{prop:ch32-xval-not-locally-compact} --- or directly, since each
-$v_{p,\triv}$ is the limit of $t\ord_p$ --- while
+points with one-dimensional support is $X^{\val}$, which is dense
+by \Cref{thm:triv-divisorial-density}, while
 $X^{\An}\setminus X^{\val}=\{v_{p,\triv}:p\in X(k)\}$ is not dense: its
 closure is contained in the proper closed subset $X^{\triv}$ of
 \Cref{thm:ch32-trivial-locus}\,\cref{itm:ch32-tl:char}, which omits every
-$t\ord_p$ with $0<t<\infty$.
+$t\ord_E$ with $0<t<\infty$, where $E$ is a point of the normalization.
 
 Assume now $n\geq2$.  It suffices to prove that the set $\mathcal C$ of
 semivaluations with one-dimensional support is dense, since every such point
 lies in $X^{\An}\setminus X^{\val}$; this gives both
 \cref{itm:ch32-psd:one} and \cref{itm:ch32-psd:two}.  By
-\Cref{thm:triv-divisorial-density} it is enough to show that every
-$\ord_E\in X^{\divis}$ lies in the closure of $\mathcal C$; here
+\Cref{thm:triv-divisorial-density} it is enough to approximate $t\ord_E$ for every $t\in\mathbf Q_{>0}$.
+The set $\mathcal C$ is scaling stable, so we construct the approximation
+at $t=1$ and then rescale.  The trivial valuation is in the same closure
+by taking $t\to0^+$ on any such ray.  Here
 $\pi:Y\to X$ is a normal projective birational model and $E\subset Y$ a
-prime divisor.  Replacing $Y$ by a resolution of an open neighbourhood of
-the generic point of $E$ --- or simply working at a point where $Y$ is
-regular, which is possible since $Y$ is normal, hence regular in
-codimension one, so regular at the generic point of $E$ and therefore on a
-dense open subset of $E$ --- we may assume $Y$ and $E$ both regular
-near the point chosen below.
+prime divisor.  Normality makes $Y$ regular at the generic point of $E$, and hence
+on a dense open neighborhood there.  Since $k$ is perfect, we may choose
+the point below where both $Y$ and $E$ are smooth; no resolution in
+positive characteristic is used.
 
 By \Cref{def:trivial-analytification} a basic neighbourhood of $\ord_E$ in
 $X^{\An}$ is determined by an affine open $U\subset X$ meeting
 $\pi(E)$, finitely many $f_1,\ldots,f_r\in\cO_X(U)$ and
-$\varepsilon>0$.  We construct $v\in\mathcal C$ with the exact equalities
+$\varepsilon>0$.  Zero test functions have the constant value
+$+\infty$ and may be discarded.  We construct $v\in\mathcal C$ with the exact equalities
 $v(f_i)=\ord_E(f_i)$ for all $i$, which is stronger.
 
 Let $Z\subset Y$ be the union of the irreducible components of
@@ -3512,8 +3543,9 @@ scheme $C:=Y\cap\Lambda$ is, for general $\Lambda$, an integral curve,
 regular at $p$, and meeting $E$ transversely at $p$, the last because
 a general $\Lambda$ through $p$ is transverse to the tangent space
 $T_pE$.  Moreover, for any fixed closed subset $W\subsetneq Y$, cutting
-$W$ by $n-1$ general hyperplanes through $p$ leaves a set of dimension
-at most $\dim W-(n-1)\leq0$; hence $C\not\subset W$.  Applying this to
+$W$ by $n-1$ general hyperplanes through $p$ leaves a set of dimension at most
+$\max\{0,\dim W-(n-1)\}=0$; the zero term allows the prescribed
+point $p$ to remain.  Hence $C\not\subset W$.  Applying this to
 $W=$ the exceptional locus of $\pi$, which is a proper closed subset,
 gives $C\not\subset\operatorname{Exc}(\pi)$, so $\pi(C)$ is an integral
 curve in $X$ meeting $U$.
@@ -3535,20 +3567,32 @@ $\ord_p(z|_C)=1$, and $\ord_p(u_i|_C)=0$, we obtain
 Thus $v$ lies in the prescribed neighbourhood of $\ord_E$, and
 $\ord_E\in\overline{\mathcal C}$.
 
-Finally, the ``only if'' directions: if some component has dimension $0$,
-its analytification is a point of $X^{\triv}$, which has zero-dimensional
-support, so the set in \cref{itm:ch32-psd:one} misses a nonempty open subset
-of $X^{\An}$; if some component has dimension $1$, the argument of the
-case $n=1$ above shows that the proper-support points are not dense in that
-component's analytification.
+For the passage to a reducible $X$, write
+$U_\alpha=X_\alpha\setminus\bigcup_{\beta\neq\alpha}X_\beta$.
+Its analytification is an open subset of $X^{\An}$ and is dense in
+$X_\alpha^{\An}$: the full-support divisorial points of that component
+lie in $U_\alpha^{\An}$ and are dense by
+\Cref{thm:triv-divisorial-density}.  If each component has dimension at
+least one, its dense one-dimensional-support points give density in the
+whole finite union; if each has dimension at least two, these points
+have proper support in $X$ and give the second density statement.
+
+Conversely, a zero-dimensional component is an isolated component, and
+its analytic point misses both sets.  If $X_\alpha$ has dimension one,
+choose $t\ord_E\in U_\alpha^{\An}$ with $t>0$, using a point on its
+normalization.  This is outside the closed set $X_\alpha^{\triv}$,
+whereas every proper-support point of $X$ lying in $U_\alpha^{\An}$
+is supported at a closed point and belongs to that closed set.  Its
+complement in $U_\alpha^{\An}$ is therefore a nonempty open set in
+$X^{\An}$ containing no proper-support point.  This proves necessity.
 \end{proof}
 
 \begin{warning}{The value $-\infty$ is not an edge case}
 Restricting the theory to $X^{\val}$ would lose the compact global domain
-used later.  Indeed, $X^{\val}$ is not compact and is not even locally
-compact at the trivial valuation
-(\Cref{prop:ch32-xval-not-locally-compact}).  Moreover, proper-support points
-are dense as soon as $\dim X\geq2$
+used later.  This failure already occurs for a smooth projective curve:
+$X^{\val}$ is not compact and is not even locally compact at its trivial
+valuation (\Cref{prop:ch32-xval-not-locally-compact}).  Moreover, proper-support points are dense when every component has dimension
+at least two
 (\Cref{prop:ch32-proper-support-dense}), so they cannot be discarded
 topologically.  Finally, the value of a psh function at a
 proper-support point is not determined by its restriction to $X^{\val}$ in
@@ -3557,7 +3601,7 @@ $\theta$-psh function is the
 smallest usc extension of its restriction to $X^{\divis}$ --- is the
 unconditional theorem \cite[Theorem~4.22]{BJ22}, imported in
 \Cref{thm:bj-basic-closure}\,\cref{itm:bj-closure:determination}.
-\emph{Fourth}, the statement of the
+The statement of the
 envelope theorem itself, \Cref{thm:bj-final-envelope}, is about functions
 that may equal $-\infty$ at proper-support points, and its proof passes
 through birational models on which the polar loci move; discarding them would
@@ -3604,8 +3648,8 @@ semivaluation on $A\otimes_kK$ for every finitely generated $k$-algebra
 $A$ and every semivaluation $v$ on $A$ trivial on $k^\times$; the
 construction is compatible with localization, glues to
 \eqref{eq:triv-gauss-section}, satisfies $r\circ\sigma=\mathrm{id}$ for the
-restriction map $r:X_K^{\An}\to X^{\An}$, and is a homeomorphism onto a
-compact image.
+restriction map $r:X_K^{\An}\to X^{\An}$, and is a homeomorphism onto its image, which is compact because $X$ is
+projective.
 \item\label{itm:ch32-gi:centers}
 \Cref{thm:ch30-gauss-centers-supports}: centers are preserved under the
 identification $(X_R)_s=X$, see \eqref{eq:ch30-gauss-center}; supports are
@@ -3646,24 +3690,24 @@ let $\sigma:X^{\An}\to X_K^{\An}$ be the Gauss section
 \begin{enumerate}
 \item\label{itm:ch32-gt:ideals}
 For every coherent ideal $\mathfrak a\subset\cO_X$, writing
-$\mathfrak a_K:=\mathfrak a\cdot\cO_{X_K}$,
+$\mathfrak a_R:=\mathfrak a\cdot\cO_{X_R}$ for its extension to
+the proper constant model $X_R$,
 \begin{equation}
 \label{eq:ch32-gauss-ideal}
- \sigma(v)(\mathfrak a_K)=v(\mathfrak a)
+ \sigma(v)(\mathfrak a_R)=v(\mathfrak a)
  \qquad\text{for all }v\in X^{\An}.
 \end{equation}
 \item\label{itm:ch32-gt:order}
-$\sigma$ is order preserving for the orders
-\eqref{eq:semivaluation-order} on $X^{\An}$ and on $X_K^{\An}$ restricted
-to base-changed ideals; more precisely, $v\geq w$ in $X^{\An}$ if and
-only if $\sigma(v)(\mathfrak a_K)\geq\sigma(w)(\mathfrak a_K)$ for all
+The order \eqref{eq:semivaluation-order} on $X^{\An}$ is detected on
+the Gauss image by these constant-model ideals; more precisely, $v\geq w$ in $X^{\An}$ if and
+only if $\sigma(v)(\mathfrak a_R)\geq\sigma(w)(\mathfrak a_R)$ for all
 coherent $\mathfrak a$ on $X$.
 \item\label{itm:ch32-gt:trivial}
 $\sigma$ maps $X^{\triv}$ bijectively onto the set of points of
 $X_K^{\An}$ of the form $\sigma(v_{Y,\triv})$; these are \emph{not}
 trivial semivaluations of $X_K$, since
-$\sigma(v_{Y,\triv})(\varpi)=1$.  In particular $\sigma$ does not
-commute with the two scaling actions, there being none on the target.
+$\sigma(v_{Y,\triv})(\varpi)=1$.  Multiplication of valuations by $t\neq1$ is not an action on the
+fixed target, since it would change their value on $\varpi$.
 \item\label{itm:ch32-gt:support}
 $\sigma$ maps $X^{\val}$ into $X_K^{\val}$ and maps the
 proper-support locus into the proper-support locus, with
@@ -3689,13 +3733,17 @@ namely the one produced by \Cref{thm:ch30-gauss-model-dictionary}.
 \begin{proof}
 \cref{itm:ch32-gt:ideals}  Fix an affine chart $U=\Spec A$ with
 $c(v)\in U$, and generators $f_1,\ldots,f_s$ of $\mathfrak a(U)$.  Then
-$\mathfrak a_K(U_K)$ is generated by the same $f_i$, viewed in
-$A\otimes_kK$.  By \eqref{eq:ch30-gauss-center} the center of
+$\mathfrak a_R(U_R)$ is generated by the same $f_i$, viewed in
+$A\otimes_kR$.  By \eqref{eq:ch30-gauss-center} the center of
 $\sigma(v)$ on the trivial model $X_R$ is $c(v)$, so the same elements
-generate the stalk of $\mathfrak a_K$ at the center of $\sigma(v)$.
+generate the stalk of $\mathfrak a_R$ at the reduction center of
+$\sigma(v)$ on $X_R$.
 Since $f_i\in A$ has $\sigma(v)(f_i)=v(f_i)$ by
 \Cref{thm:ch30-gauss-well-defined}\,\cref{itm:ch30-gw:semival}, taking the
-minimum gives \eqref{eq:ch32-gauss-ideal}.
+minimum gives \eqref{eq:ch32-gauss-ideal}.  This uses the model:
+units in its local ring have value zero.  A generic-fibre ideal alone
+has no such intrinsic generator minimum, since multiplying a generator
+by the generic-fibre unit $\varpi$ changes its value by one.
 
 \cref{itm:ch32-gt:order}  Immediate from \cref{itm:ch32-gt:ideals} and
 \eqref{eq:semivaluation-order}: both sides of the asserted equivalence are
@@ -3711,9 +3759,9 @@ fact the Gauss point of the trivial model of $Y_K$, as recorded in
 \eqref{eq:gauss-section}.
 
 \cref{itm:ch32-gt:support}  By \eqref{eq:ch30-gauss-support} the support of
-$\sigma(v)$ is the base change of the support of $v$; base change along
-the field extension $K/k$ preserves dimension and irreducibility, the
-latter because $K/k$ is a separable, indeed regular, extension.  Hence
+$\sigma(v)$ is the base change of the support of $v$; base change preserves dimension, and each integral support is
+geometrically integral because $k$ is algebraically closed.  Its base
+change to $K$ is therefore still integral.  Hence
 $\dim s(\sigma(v))=\dim s(v)$, and $s(\sigma(v))$ is an irreducible
 component of $X_K$ exactly when $s(v)$ is one of $X$.
 
@@ -3726,34 +3774,61 @@ $\sigma(c^{-1}v)\neq\sigma(v)$ for $c\neq1$ and
 $v\notin X^{\triv}$.  That no link on the target is distinguished is the
 content of \Cref{prop:ch30-gauss-scaling}: rescaling on the source
 corresponds to changing $v_K(\varpi)$ and then rescaling the resulting
-valuation.  Hence a constant rescaling of a link does not arise from an
-action on the fixed normalized target $X_K^{\An}$; the source gauge is
+valuation.  Hence a constant rescaling of a link is not obtained by
+multiplying valuations within the fixed normalized target $X_K^{\An}$; the source gauge is
 additional data.
 
-\cref{itm:ch32-gt:divisorial}  Combine
-\Cref{thm:ch30-gauss-image} with
-\Cref{thm:ch30-gauss-centers-supports}\,\cref{itm:ch30-gcs:divisorial} and
-\Cref{thm:ch30-gauss-model-dictionary}\,\cref{itm:ch30-gmd:points}: the
-latter exhibits, for a divisorial $v\in X^{\divis}$, an integrally closed
-test configuration $\cX$ with a component $E$ of $\cX_0$ such that
-$v=v_E$, and identifies $\sigma(v_E)$ with $b_E^{-1}\ord_E$ on the
-model $\cX_R$.
+\cref{itm:ch32-gt:divisorial}  For the forward inclusion,
+\Cref{thm:ch32-divisorial-tc} supplies an integrally closed test
+configuration with $v=v_E$.  The Gauss dictionary then identifies
+$\sigma(v_E)$ with the component point $b_E^{-1}\ord_E$.
+
+For the converse, let $y$ be an invariant divisorial point.  By
+\Cref{thm:ch30-gauss-image}, $y=\sigma(v)$ for $v=r(y)$; its full support
+implies that $v$ has full support.  If $v$ is trivial it already belongs
+to $X^{\divis}$.  Otherwise its value group is a nonzero subgroup of
+the discrete group of $y$, hence is $\gamma\mathbf Z$ with
+$\gamma=a/b\in\mathbf Q_{>0}$ in lowest terms.  Choose $f\in k(X)$
+with $v(f)=a/b$.  The Gauss graded calculation gives
+\[
+ \kappa(y)=\kappa(v)(\tau),\qquad
+ \tau=\overline{\varpi^a/f^b},
+\]
+where $\tau$ is transcendental over $\kappa(v)$: in the graded Laurent
+ring, the integer relations between the degrees $a/b$ and $1$ are
+generated by $(b,-a)$, giving precisely this degree-zero variable.
+Initial forms of elements of $K(X_K)$ are determined by finite Laurent
+expansions, since their Gauss tails eventually have larger value, so
+completion of the ground field adds no residue variables.  Divisoriality
+of $y$ gives $\operatorname{trdeg}_k\kappa(y)=n$, and thus
+$\operatorname{trdeg}_k\kappa(v)=n-1$.  By
+\Cref{prop:ch32-divisorial-invariants}\,\cref{itm:ch32-di:conversely},
+$v=\gamma\ord_E$ on a normal birational model.  Since $\gamma$ is
+rational, $v\in X^{\divis}$, as required.
 \end{proof}
 
 \begin{remark}
 \label{rem:ch32-gauss-not-transfer}
-Three structures of this chapter have no counterpart on the target.
-\emph{The scaling action}: $X_K^{\An}$ carries no $\mathbf R_{>0}$-action
-over $K$, because every point satisfies $y(\varpi)=1$; see
-\Cref{prop:ch30-gauss-scaling} and the warning after it.
-\emph{The trivial locus}: there is no analogue of $X^{\triv}$ in
-$X_K^{\An}$, since every analytic point restricts to the prescribed
-nontrivial valuation of $K$, and hence has $y(\varpi)=1$.
-\emph{Compactness of the fibres of $c$}: the center map of $X_K^{\An}$
-refers to a model over $R$, not to $X_K$, and the sets $c^{-1}(U)$ of
-\Cref{thm:ch32-center-compact} are not the preimages under $r$ of anything.
-The correct bookkeeping is the four-data ledger of
-\Cref{cor:ch30-gauss-four-data}: centers, supports, classes, and total mass.
+The structures on the two sides need their proper interpretation.
+\emph{Scaling}: multiplying every valuation by $t\neq1$ changes
+$y(\varpi)=1$, so it does not act on the fixed target.  Source scaling
+does act on the Gauss image by $\sigma\circ(t\,\cdot)\circ r$; the
+ground-normalization formula in \Cref{prop:ch30-gauss-scaling} describes
+it without identifying it with multiplication of target valuations.
+\emph{Trivial points}: no point of $X_K^{\An}$ is trivial on $K$, but
+the images $\sigma(v_{Y,\triv})$ form a distinguished subset of the
+Gauss image.
+\emph{Centers}: let $\operatorname{red}_{X_R}$ be reduction to the
+special fibre of the constant model.  Then
+$\operatorname{red}_{X_R}=c\circ r$ on all of $X_K^{\An}$.
+Indeed, on an affine chart centered at $c(r(y))$, $y$ is nonnegative on
+$A\otimes_kR$; for $F=f_0+\varpi G$ with $G\in A\otimes_kR$,
+$y(F)>0$ iff $y(f_0)>0$.  This identifies its reduction prime.
+Consequently
+$\operatorname{red}_{X_R}^{-1}(U)=r^{-1}(c^{-1}(U))$ is compact for
+every open $U\subset X$.  Other models have their own reduction maps.
+The four-data ledger of \Cref{cor:ch30-gauss-four-data} records centers,
+supports, classes and total mass at their actual scopes.
 \end{remark}
 
 \subsection{The test-configuration realization}
@@ -3799,15 +3874,18 @@ $v_K(\varpi)=\lambda$.  Then the exact relation is
                     \sigma(tv)=t\,\sigma_{1/t}(v),
 \]
 which is \eqref{eq:ch30-gauss-scaling}.  Thus source scaling is represented
-by changing the ground normalization and then rescaling; it is not an action
-on the fixed slice $v_K(\varpi)=1$.  For rational $t$, the corresponding
-model operation is obtained by finite base change followed by normalization,
-as in \Cref{prop:tc-valuative-invariance}.
+by changing the ground normalization and then rescaling; it is not
+multiplication of valuations within the fixed slice $v_K(\varpi)=1$.  For integral $t>0$, the model operation is finite power base change
+followed by normalization, as in \Cref{prop:tc-valuative-invariance}.
+A rational scale $a/b$ is handled by comparison after suitable integral
+power base changes; it is not a map of schemes given by a fractional power
+of $\varpi$.
 
 \begin{example}
 \label{ex:ch32-gauss-ray-numbers}
 Let $X=\mathbf P^1_k$ with coordinate $T$, $p=0$, and consider the
-divisorial ray $v_t:=t\ord_0$, $t\in(0,+\infty)$.  Its Gauss extension
+ray $v_t:=t\ord_0$, $t\in(0,+\infty)$, divisorial at rational $t$.
+Its Gauss extension
 is the monomial point of $(\mathbf P^1_K)^{\An}$ with
 \[
  \sigma(v_t)(T)=t,\qquad \sigma(v_t)(\varpi)=1,
@@ -3821,14 +3899,16 @@ which is the divisorial point of the special fibre of the trivial model
 $\mathbf P^1_R$.  At $t\to+\infty$ the source point tends to
 $v_{0,\triv}$, of proper support, and the image tends to
 $\sigma(v_{0,\triv})$, the rigid point $T=0$ of
-$(\mathbf P^1_K)^{\An}$, which carries no Monge--Amp\`ere mass of a bounded
-potential, the rigid point being pluripolar
+$(\mathbf P^1_K)^{\An}$.  Whenever the bounded BFJ operator applies
+(in particular, under the characteristic-zero standing hypotheses of
+\Cref{part:bfj}), this rigid point carries no mass of a bounded potential,
+since it is pluripolar
 (\Cref{ex:ch23-sup-not-usc}, \Cref{prop:bounded-ma-no-polar-mass}).  Two numerical checks:
 $\sigma(v_t)(T^m)=mt$ for every $m$, so the image ray is parametrized
 linearly; and $\sigma(2v_t)=\sigma(v_{2t})$ has
-$\sigma(2v_t)(T)=2t$ while $\sigma(2v_t)(\varpi)=1$, confirming that
-scaling on the source does not act on the target but moves along the
-apartment.
+$\sigma(2v_t)(T)=2t$ while $\sigma(2v_t)(\varpi)=1$, confirming that source scaling moves the Gauss-image point along
+the apartment while retaining the ground normalization.  It is not
+multiplication of the target valuation by two.
 \end{example}
 
 \subsection{Complexification}
@@ -3840,9 +3920,10 @@ change to $\mathbf C((\varpi))$ produce its nontrivially valued analytic
 generic fibre, while \eqref{eq:triv-gauss-section} selects the invariant slice
 corresponding to the trivially valued analytification.  This is the precise
 sense in which a complex degeneration gives a complexification of the
-radial valuation picture.  There is no canonical map
-$X(\mathbf C)\to X^{\An}$ carrying the Euclidean topology to the Berkovich
-topology; the comparison runs through the degeneration.
+radial valuation picture.  The canonical point assignment $p\mapsto v_{p,\triv}$ exists as a
+set map but is not Euclidean-continuous in positive dimension.
+Degenerations provide a different comparison, rather than making this
+assignment continuous.
 
 We make the negative statement precise, since it is often assumed away.
 
@@ -3885,30 +3966,34 @@ injective and nonconstant, so it cannot be continuous.
 \begin{remark}
 \label{rem:ch32-complexification-content}
 \Cref{prop:ch32-no-complexification-map} does not say that there is no
-relation between the complex and the trivially valued pictures; it says the
-relation is not a map of spaces defined pointwise.  Three genuine
+relation between the complex and the trivially valued pictures; it distinguishes the canonical set injection from a continuous
+comparison of the Euclidean and Berkovich spaces.  Three genuine
 comparisons exist, and each is developed elsewhere in this book.
 \begin{enumerate}
 \item\emph{Through a degeneration.}  A test configuration $(\cX,\cL)$ for
 $(X,L)$ over $\mathbf C$ has, on the one hand, a central fibre and a
 $\mathbf G_m$-action, which produce a PL function on $X^{\An}$ by
 \Cref{thm:tc-pl-correspondence}; and, on the other hand, a family of
-complex manifolds over the punctured disc, which produces a subgeodesic ray
-of metrics on $L$.  The dictionary between these two is the subject of
+complex varieties over the punctured disc; when $X$ is smooth and
+the metric data satisfy the ray construction's hypotheses, this produces
+a subgeodesic ray of metrics on $L$.  The dictionary between these two is the subject of
 \Cref{chap:rays-filtrations}.
 \item\emph{Through filtrations.}  A filtration of the section ring of
 $(X,L)$ gives, on the non-Archimedean side, a Fubini--Study function via
 \eqref{eq:norm-fs-function}, and on the complex side a family of
 Bergman-type metrics; the two are compared in
 \Cref{chap:dxz-bj-comparison}.
-\item\emph{Through hybrid spaces.}  A one-parameter family of complex
-varieties degenerating at $\varpi=0$ can be compactified by attaching
-$X^{\An}$ as a boundary, so that Euclidean and Berkovich topologies live on
-one space; this is the hybrid construction of
+\item\emph{Through hybrid spaces.}  The hybrid analytification of a fixed complex variety connects its
+Euclidean fibres to its trivially valued analytification.  For a
+degenerating family over a punctured disc, the non-Archimedean boundary
+instead comes from its analytic generic fibre over $\mathbf C((\varpi))$.
+These related constructions have different boundary spaces, as explained
+in
 \Cref{chap:hybrid-spaces}.
 \end{enumerate}
-None of these is a pointwise map $X(\mathbf C)\to X^{\An}$, and each carries
-its own hypotheses.  A statement of the form ``the trivially valued
+Each comparison has its own hypotheses; none identifies the
+Euclidean point space with the discrete subspace of closed-point trivial
+semivaluations.  A statement of the form ``the trivially valued
 analytification is the complexification of the valuation picture'' is
 meaningful only relative to one of these three constructions, and the
 present chapter fixes only the target.
@@ -3927,8 +4012,10 @@ $X_{k'}$ need not descend to $k$; no strictness is asserted for every
 extension or every $X$.  We do not use this base change in
 \Cref{part:bj}, and record it only to prevent it from being confused with
 \eqref{eq:triv-gauss-section}, whose target is a \emph{nontrivially} valued
-analytification and whose source and target are analytifications of schemes
-over incomparable valued fields, as emphasized in
+analytification.  The inclusion $k\hookrightarrow k((\varpi))$ is an isometric valued
+field extension, and restriction is its base-change map; the Gauss section
+is additional structure specific to this extension.  The BFJ operator
+hypotheses on the nontrivially valued side are separately recorded in
 \Cref{sec:ch30-gauss-setting}.
 \end{remark}
 
@@ -3963,7 +4050,7 @@ affine open $U=\Spec A$
  &compact $c^{-1}(U)=\mathcal M(A)$
  &\Cref{thm:ch32-center-compact}\\
 prime divisor $E$ on a model
- &divisorial ray $\mathbf R_{>0}\ord_E$
+ &real ray $\mathbf R_{>0}\ord_E$, divisorial at rational scales
  &\Cref{prop:ch32-divisorial-invariants}\\
 component of an integrally closed $\cX_0$
  &divisorial point $v_E$
@@ -4007,8 +4094,8 @@ $\mathbf P^1$; a divisorial point of the trivially valued side with
 parameter $t$ becomes a point of the apartment at distance $t$ from the
 Gauss point (\Cref{ex:ch32-gauss-ray-numbers}).
 \item A component $E$ of a central fibre gives $v_E=b_E^{-1}\ord_E|_{k(X)}$
-with $b_E=\ord_E(\varpi)$: the factor $b_E$ lives on the model side and
-vanishes on the trivially valued side (\Cref{rem:ch32-bE}).
+with $b_E=\ord_E(\varpi)$: the factor $b_E$ normalizes the model valuation and remains encoded in
+its restricted rational scale (\Cref{rem:ch32-bE}).
 \end{enumerate}
 
 \subsection{Source note}
@@ -4047,9 +4134,10 @@ halves of \cite[Remark~1.1]{BJ22}.  We have proved metrizability over a
 countable field by exhibiting a countable generating family of continuous
 functions, and the failure of first countability over an uncountable field by
 the Baire-type argument of \Cref{lem:ch32-uncountable-field}, which is
-classical.  The sequential compactness statement quoted in the warning after
-\Cref{thm:ch32-not-first-countable} rests on a theorem of Poineau on
-Berkovich spaces; we neither prove nor use it, and we have therefore given no
+classical.  The sequential closure and compactness statements quoted in the warning
+after \Cref{thm:ch32-not-first-countable} rest on a theorem of Poineau on
+Berkovich spaces.  We use their elementary consequence for continuity
+tests in that warning but do not prove the underlying theorem, and we have therefore given no
 citation key for it beyond the reference in \cite[Remark~1.1]{BJ22}.
 
 The partial order \eqref{eq:semivaluation-order} and its description by
@@ -4117,8 +4205,9 @@ Finally, a remark on what this chapter does \emph{not} contain.  There is no
 Monge--Amp\`ere operator, no energy, and no psh function here; the classes
 $\PL(X)$, $\FS(X)$ and $\PSH(\theta)$ are introduced in
 \Cref{chap:bj-fs-pl-psh}, after the test configurations of
-\Cref{chap:bj-test-configurations}.  The only forward references made above
-are to \Cref{thm:tc-pl-correspondence} and
-\eqref{eq:pl-stone-weierstrass}, both used in the proof of
-\Cref{thm:triv-divisorial-density} and both independent of it, as
-\Cref{rem:ch32-density-ingredients} records.
+\Cref{chap:bj-test-configurations}.  The proof of \Cref{thm:triv-divisorial-density} imports
+\Cref{thm:tc-pl-correspondence} and \eqref{eq:pl-stone-weierstrass},
+both independent of density, as \Cref{rem:ch32-density-ingredients}
+records.  Other forward references identify later psh determination,
+linear growth, energy and bounded-mass applications; they are not used
+to construct the topological space or prove its elementary properties.

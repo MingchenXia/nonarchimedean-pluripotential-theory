@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--31 pass the new source, build,
+Current reading position: Chapters 1--32 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -70,7 +70,8 @@ reference, and rendered-page gates; see the
 [Chapter 28 audit](second_reading_ch28_audit_20261003.md), and
 [Chapter 29 audit](second_reading_ch29_audit_20261003.md), and
 [Chapter 30 audit](second_reading_ch30_audit_20261003.md), and
-[Chapter 31 audit](second_reading_ch31_audit_20261003.md).
+[Chapter 31 audit](second_reading_ch31_audit_20261003.md), and
+[Chapter 32 audit](second_reading_ch32_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -138,9 +139,11 @@ has completed its full 4,419-line original read, projection and descent
 repairs, scoped primary checks and visual review of all 66 chapter pages
 and both seams. Chapter 31 has completed its original 3,775-line read,
 graph and toric calculations, finite-pole and source-scope repairs, and
-visual review of all 60 chapter pages and both seams. Chapter 32 is active;
-all 4,124 original lines have already been freshly read, but no later unit
-is marked complete.
+visual review of all 60 chapter pages and both seams. Chapter 32 has
+completed its full 4,124-line original read, topology, density, Gauss and
+complex-interface repairs, scoped primary checks and visual review of all
+58 chapter pages and both seams. Chapter 33 is active; original lines
+1--2240 have already been freshly read, but no later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and
