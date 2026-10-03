@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--34 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--35 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -92,7 +92,12 @@ Chapter 34's complete original 2,904-line source was freshly read.
 Section/PL and positivity arguments, psh topology, regularization and pole
 boundaries were repaired. All 42 chapter pages and both seams passed
 visual review; see the [Chapter 34 audit](second_reading_ch34_audit_20261003.md).
-Chapter 35 is active; all 4,169 original lines have been freshly read.
+Chapter 35's original 4,169-line source was freshly read. Scaling,
+Legendre reconstruction, fractional ideals, Siu residuals, Cartier/Weil
+scopes and numerical approximation were repaired. All 58 chapter pages
+and both seams passed visual review; see the
+[Chapter 35 audit](second_reading_ch35_audit_20261003.md).
+Chapter 36 is active; all 709 original lines have been freshly read.
 No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
