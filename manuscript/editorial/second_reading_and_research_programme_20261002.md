@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--26 pass the new source, build,
+Current reading position: Chapters 1--27 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -65,7 +65,8 @@ reference, and rendered-page gates; see the
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md), and
 [Chapter 24 audit](second_reading_ch24_audit_20261003.md), and
 [Chapter 25 audit](second_reading_ch25_audit_20261003.md), and
-[Chapter 26 audit](second_reading_ch26_audit_20261003.md).
+[Chapter 26 audit](second_reading_ch26_audit_20261003.md), and
+[Chapter 27 audit](second_reading_ch27_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -119,8 +120,12 @@ and both seams passed visual review. Chapter 26's original 4,520-line source
 was freshly read; there are no direct inputs. The sharp mixed tail, exact
 unordered cocycle, bounded domination consumers, weighted graph and toric
 formulas, topology and Thuillier source scopes were repaired. All 64 chapter
-physical pages and both seams passed visual review. Chapter 27 is next; its
-full original source has been read but no later unit is marked complete.
+physical pages and both seams passed visual review. Chapter 27's original
+4,491-line source was freshly read; it has no direct inputs. Finite-energy
+variation, convex duality, exact orthogonality routes, continuity uses, toric
+and graph examples were repaired. All 66 chapter physical pages and both
+seams passed visual review. Chapter 28 is next; its full original 3,750-line
+source has been read but no later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and
