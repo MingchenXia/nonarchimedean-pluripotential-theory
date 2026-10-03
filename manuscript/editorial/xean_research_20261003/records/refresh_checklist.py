@@ -35,7 +35,7 @@ for paper in checkpoint['papers_and_supporting_note']:
     })
 
 round03_path = ROOT/'deliverables/round-03/results.json'
-for newer_path in [round03_path, ROOT/'deliverables/round-04/results.json', ROOT/'deliverables/round-05/results.json', ROOT/'deliverables/round-06/results.json', ROOT/'deliverables/round-07/results.json']:
+for newer_path in [round03_path, ROOT/'deliverables/round-04/results.json', ROOT/'deliverables/round-05/results.json', ROOT/'deliverables/round-06/results.json', ROOT/'deliverables/round-07/results.json', ROOT/'deliverables/round-08/results.json']:
     if newer_path.is_file():
         newer = json.loads(newer_path.read_text())
         for paper in newer['papers_and_supporting_note']:
@@ -66,7 +66,7 @@ for original in baseline['targets']:
             'purely inseparable ascent audit PASS and paper published; '
             'intrinsic curve recognition full-evidence PASS read and published, previous INCONCLUSIVE preserved; '
             'restricted quadratic curve-ascent principal PASS read and published, unused broad supplemental cutoff statement caveated; '
-            'native higher-dimensional quadratic-form research is running. ')
+            'higher-dimensional restricted quadratic-form draft is under exact review; wild quadratic research is running. ')
         target['remaining_full_target'] = ('Arbitrary analytic germs and curve maps, '
             'all required field-extension tests, general scalar-current ascent '
             'and two-sign regularization are not established by cone constancy '
@@ -76,7 +76,7 @@ for original in baseline['targets']:
             'product-criterion audit PASS and paper published; native research '
             'on ambient-extendible real references received PASS and was published; '
             'extension-free all-real-reference product PASS read and published, earlier input-access INCONCLUSIVE preserved; '
-            'nonconical graph-cylinder draft under exact review; all-real-reference Bergman actual contact continuation is running.')
+            'nonconical graph-cylinder full exact PASS read and published; all-real-reference Bergman actual contact continuation is running.')
         target['remaining_full_target'] = ('The geometric classification of all '
             'admitted pairs in the fixed coefficient conventions remains open.')
     elif atom == 'P21.3':
