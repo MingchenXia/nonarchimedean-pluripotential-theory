@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--56 pass the new source, build,
+Current reading position: Chapters 1--57 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -96,7 +96,8 @@ reference, and rendered-page gates; see the
 [Chapter 53 audit](second_reading_ch53_audit_20261003.md), and
 [Chapter 54 audit](second_reading_ch54_audit_20261003.md), and
 [Chapter 55 audit](second_reading_ch55_audit_20261003.md), and
-[Chapter 56 audit](second_reading_ch56_audit_20261003.md).
+[Chapter 56 audit](second_reading_ch56_audit_20261003.md), and
+[Chapter 57 audit](second_reading_ch57_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -251,13 +252,18 @@ auxiliary Kähler-current potential. All 32 chapter physical pages and both
 seams passed visual review; see the
 [Chapter 55 audit](second_reading_ch55_audit_20261003.md). The restricted
 Chapter 72 and catalogue follow-up leaves all 42 active atoms unchanged.
-Chapter 56's original 1,041 lines and both source/layout diffs were freshly
+Chapter 56's original 1,041 lines and all source/layout diffs were freshly
 read. Its perturbation-independence proof now uses the strict-interior
 Legendre supremum and treats the terminal contribution explicitly. All
 16 chapter physical pages and both seams passed visual review; see the
 [Chapter 56 audit](second_reading_ch56_audit_20261003.md).
-Chapter 57 is active; all 1,224 original lines freshly read, scoped primary
-checks and repairs continue. No later unit is marked complete.
+Chapter 57's original 1,224 lines and all source/layout diffs were freshly
+read. The trivial-valuation proof now refers explicitly to the terminal
+contribution bound and takes the supremum over strict interior parameters.
+All 18 chapter physical pages and both seams passed visual review; see the
+[Chapter 57 audit](second_reading_ch57_audit_20261003.md).
+Chapter 58 is active; all 1,299 original lines freshly read, scoped primary
+checks and page review continue. No later unit is marked complete.
 
 The 3 October revised catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-03.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-03.pdf), and
