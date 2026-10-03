@@ -32,7 +32,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--14 pass the new source, build,
+Current reading position: Chapters 1--15 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -46,14 +46,15 @@ reference, and rendered-page gates; see the
 [Chapter 10 audit](second_reading_ch10_audit_20261002.md),
 [Chapter 11 audit](second_reading_ch11_audit_20261002.md),
 [Chapter 12 audit](second_reading_ch12_audit_20261002.md),
-[Chapter 13 audit](second_reading_ch13_audit_20261002.md), and
-[Chapter 14 audit](second_reading_ch14_audit_20261002.md).
-Chapter 15's original 4,920-line source and all 57 direct inputs have now
-been freshly read. Its real-coefficient LFS descent correction and affected
-Chapter 72 scopes pass the checkpoint gates; see the
+[Chapter 13 audit](second_reading_ch13_audit_20261002.md),
+[Chapter 14 audit](second_reading_ch14_audit_20261002.md), and
+[Chapter 15 audit](second_reading_ch15_audit_20261003.md).
+Chapter 15's original 4,920-line source and all 57 direct inputs were freshly
+read. Its proof, example, maximum-principle and source scopes were repaired;
+all 158 chapter pages and two seams passed visual review. Its real-coefficient
+LFS descent correction and affected Chapter 72 scopes are also recorded in the
 [3 October correction audit](ch15_lfs_descent_scope_correction_audit_20261003.md).
-The other identified chapter repairs and complete chapter gates remain open.
-No later chapter is marked reread.
+Chapter 16 is next. No later chapter is marked reread.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and
