@@ -1,0 +1,5404 @@
+---
+title: Completed algebraic zero-Hessian ascent on pure analytic curves
+author: Unverified research draft
+date: 3 October 2026
+geometry: margin=1in
+fontsize: 11pt
+---
+
+## 1. Exact result and logical scope
+
+Put $D=d'd''$ and $t_f=-\log|f|$. All smooth forms are **ordinary
+CLD forms**, represented on ordinary open neighbourhoods by analytic
+unit moments. All measures use the canonical calibration of the actual
+analytic algebra, including its Artinian lengths. No space is replaced
+by its reduction for integration.
+
+**Theorem (completed algebraic curve ascent).** Let $K$ be complete and
+nontrivially valued, let $M/K$ be an algebraic extension with an extending
+absolute value, and let $L=\widehat M$. Let $X$ be a good, separated,
+strict, boundaryless, pure one-dimensional $K$-analytic space. Singular
+and nonreduced spaces are allowed. For every continuous finite real
+function $h$ and the scalar projection $\pi:X_L\to X$,
+\[
+             D[h]=0\quad\Longleftrightarrow\quad
+             D[h\circ\pi]=0.                         \tag{1}
+\]
+The statement holds on every ordinary open subspace of $X$. In
+particular it holds for the completion of an algebraic closure, for
+completed separable algebraic extensions, and in positive characteristic
+for arbitrary mixtures of inseparability and separability. $L/K$ itself
+need not be algebraic. No upstairs current equality is imposed.
+
+**Exact compact scalar test descent.** For a good separated
+$K$-analytic $X$, with the same fields, every
+$\beta\in A_c^{0,0}(X_L)$ is the exact smooth pullback of an
+$\alpha\in A_c^{0,0}(X_E)$ for some finite $K\subset E\subset M$.
+Here $q_E:X_L\to X_E$ is the actual scalar projection and
+$\beta=q_E^*\alpha$ as ordinary smooth scalar sections, so also
+$D\beta=q_E^*D\alpha$. This subsidiary result needs no pure dimension
+or boundarylessness. Its proof, including domains, ordinary open loci,
+units and compact supports, is in Section 12. It is local descent to a
+finite stage; it does not assert descent of every analytic function or
+an arbitrary affinoid presentation.
+
+The only approximation needed at the completed stage is of finitely
+many analytic functions in Banach norm. Strict ultrametric inequalities
+turn it into **exact** domain and unit-norm identities. No differentiated
+limit or infinite group average is taken at that stage. For finite
+separable ascent, the separate approximation assertion proved in
+Sections 3--10 is: for invariant $\beta\in A_c^{0,0}(X_E)$ there are
+$\alpha_j\in A_c^{0,0}(X)$ and a fixed compact $C\subset X$ with
+\[
+ \operatorname{supp}\alpha_j\subset C,\qquad
+ \big\|(D(\beta-\pi_E^*\alpha_j))_{\mathrm{Rad},E}\big\|_{\mathrm{TV}}
+                 \longrightarrow0,                  \tag{2}
+\]
+and every error supported in $\pi_E^{-1}C$. Both approximation limits,
+including collision-contained calibrated segments, are reconstructed.
+No earlier draft theorem, review, hash or native note is a premise.
+
+On a pure curve the current equation is precisely
+\[
+ B_h(\psi):=\int_X h\,(D\psi)_{\mathrm{Rad},K}=0
+                  \quad(\psi\in A_c^{0,0}(X)).         \tag{3}
+\]
+Only the differentiated smooth top form is represented by a measure;
+$D[h]$ is not presumed to be a Radon measure. Current-duality signs do
+not affect vanishing.
+
+This is a scalar transport theorem, a partial result for original
+P06.2. It gives no recognition of $h$, no two-sign CLD-psh
+regularization, no universal curve-probe transport, and no
+higher-dimensional separable-current ascent. P05.2 is not addressed.
+The original status is `partial` and `candidate=false`.
+
+Sections 2--10 reconstruct the finite separable dependency. Section 11
+reconstructs finite Frobenius descent and the actual finite mixed-field
+decomposition. Section 12 proves the completion and support gate.
+Section 13 concludes the current theorem. Section 15 includes the used
+cached primary passages and proof bodies in this document itself.
+
+
+## 2. Exact analytic dependencies and source checks
+
+CLD refers to Chambert-Loir--Ducros, *Formes différentielles réelles et
+courants sur les espaces de Berkovich*, arXiv:1204.6277v2, 25 July 2025.
+GR refers to Gubler--Rabinoff, *Classically psh and pluriharmonic functions
+on Berkovich spaces*, arXiv:2506.13548v2, 17 September 2025. Numbering is
+that of these cached primary snapshots, whose statements and proof
+bodies, not just the former drafts' descriptions, were inspected.
+
+1. **Affinoid foundations.** CLD 11.1.1--2: an affinoid spectrum is
+   compact Hausdorff; its algebra is noetherian with closed ideals; the
+   map to its prime spectrum is surjective. CLD 11.1.5: every point of
+   an affinoid has rational affinoid neighbourhoods inside any prescribed
+   ordinary open, with the point satisfying all associated strict
+   inequalities. Rational systems have positive real radii and
+   denominator/numerators with no common zero (Section 12 uses this
+   stronger neighbourhood clause of 11.1.5). CLD 11.1.7--8: a good space has an affinoid
+   neighbourhood basis; ordinary opens are analytic domains; analytic
+   sections form a sheaf also for ordinary opens, and
+   $\mathcal O(\mathcal M(A))=A$. CLD 11.1.9: affinoid fibre products
+   and scalar extensions use completed tensor products, and scalar
+   projection is surjective. CLD 11.4.4: a finite algebra with its
+   finite-module Banach topology is affinoid. CLD 11.7.7: over a
+   nontrivially valued field, every point of a good strict space has a
+   strict affinoid neighbourhood. Applying this to ordinary opens
+   gives such a neighbourhood inside the open. Particular tensor,
+   orbit, compactness, shrinking and unit claims are proved in Section 3.
+
+2. **Dimension and boundary.** CLD 11.2.2: separated analytic spaces
+   are topologically separated. CLD 11.2.3: strict affinoid dimension
+   is Krull dimension, dimension is preserved by complete scalar
+   extension, and domains preserve local analytic dimension. If the
+   minimal-prime components of $\mathcal M(A)$ are $X_i$, then
+   $\dim_xX=\sup_{x\in X_i}\dim X_i$. Pure dimension means constant
+   local dimension. GR 2.11(5), equivalently (5'), states for a morphism
+   $Y\to Z$ and any analytic extension $L/K$ that
+   $\partial(Y_L/Z_L)\subseteq\pi^{-1}(\partial(Y/Z))$.
+   Hence a boundaryless space remains boundaryless. GR 2.11(3),(4)
+   gives boundarylessness for an ordinary open in a boundaryless space:
+   its relative interior is its ordinary topological interior and
+   interiors compose. Section 3 proves purity component by component;
+   equality of total dimensions alone is not the proof.
+
+3. **Ordinary forms.** CLD Corollary 15.1.2 states that a function is
+   smooth near $x$ if it has a representation
+   $\varphi(t_{f_1},\ldots,t_{f_m})$ on a neighbourhood of $x$, where
+   the $f_i$ are analytic units and $\varphi$ is smooth on a Euclidean
+   neighbourhood of the coordinate value. CLD Proposition 15.1.1(b)
+   gives ordinary open moment descriptions for forms in every
+   bidegree. CLD 6.2.1--2 defines ordinary forms and says they form an
+   ordinary sheaf stable under wedge, $J,d',d''$. Moment pullback
+   commutes with the exterior calculus (CLD 3.3.12). In a moment a
+   logarithm is an affine coordinate, so $Dt_f=0$ as a **form**.
+   CLD 3.4.4: for a G-tropical chart $f$ and a coefficient form $a$,
+   its pullback is zero in the G-form sheaf exactly when $a$ restricts
+   to zero on $f(V)$ for every compact domain $V$. This identifies the
+   ordinary form sheaves when the analytic units, domains and moment
+   images are the same; it is not descent through scalar projection.
+
+4. **Compact cutoffs only.** CLD 15.2.2: a good topologically
+   separated space is locally holomorphically separated. CLD
+   Corollary 15.2.5: on a locally holomorphically separated analytic
+   space, for any compact $F$ and ordinary open neighbourhood $U$ of
+   $F$, there is an ordinary smooth function equal to one near $F$
+   with compact support contained in $U$. Its proof uses local
+   differential separation (15.2.4) and the smooth bump result 6.2.4.
+   Section 4 constructs the only partition statement needed, for
+   compact $F$ and finite covers. The overbroad fixed-index
+   countable-at-infinity reading of CLD 15.2.9 is not used.
+
+5. **Canonical top measures.** CLD Theorem 15.7.1: a pure
+   $n$-dimensional topologically separated analytic space with its
+   canonical calibration and analytic boundary is a tropical space of
+   level $n$. CLD 15.7.2: the induced structure on a domain agrees
+   with that domain's analytic structure. CLD 5.4.4: every compact
+   tropical chart is pleasant, and its tropical polyhedron is the
+   top-dimensional part of its compact moment image. CLD
+   14.3.2--5, 14.5.1--2: canonical calibrations are standard and
+   positive, and on a top moment cell $Q$ the calibration is
+   $d_Q\tau_{Q,*}|e_1\wedge\cdots\wedge e_n|$, where $\tau_Q$
+   is the affine inverse of an injective torus projection and $d_Q$
+   is the sum of the actual finite-flat degrees of the skeletal
+   cells above $Q$. Those degrees retain fibre-algebra dimensions,
+   including lengths. CLD 5.8.3--5 constructs a top form's measure by
+   contraction on its supporting skeleton. CLD Proposition
+   5.10.1(c,d): for a pleasant chart $f$ and a Borel $(n,n)$
+   coefficient form $a$, the induced measure is locally finite
+   exactly when $a$ is locally integrable on the calibrated tropical
+   polyhedron, and then
+   $f_*((f^*a)_{\mathrm{Rad}})=\langle a,\mu_{\Pi_f}\rangle_{\mathrm{Rad}}$;
+   the corresponding integrals agree. In particular a smooth top
+   form is finite on a compact moment domain. Lower-dimensional
+   cells have no top measure. Compact moment images are finite
+   polyhedra by the polyhedrality assertion of CLD Theorem 12.2.4.
+   The dimension bound is specifically CLD 12.2.10(1)--(2):
+   $\dim_{\mathrm{trop},x}f\le d_K(x)\le\dim_xX$ and, for compact
+   $X$, $\dim f_{\mathrm{trop}}(X)=\sup_x\dim_{\mathrm{trop},x}f$.
+   Thus compact curve images have dimension at most one. We do not
+   use a claim that a moment image always has dimension equal to its
+   source; constant moments rule out that reading. CLD 7.3.5 defines integration currents
+   for locally integrable multipliers; a continuous finite multiplier
+   is locally integrable. Section 8 proves the carrier total-variation
+   estimate needed here, before any possibly cancelling signed
+   pushforward.
+
+6. **Scalar projection has no field-degree factor.** CLD
+   Proposition 14.3.6: on a level-$n$ analytic space, if $\Sigma$
+   has canonical calibration $\mu$ and $\Sigma_L$ its scalar extension
+   has canonical calibration $\mu_L$, then $\pi_*\mu_L=\mu$.
+   CLD Proposition 15.3.1: for a tropically Borel $(n,n)$ G-form
+   $\omega$, $\pi_*\omega_{L,\mathrm{Bor}}=\omega_{\mathrm{Bor}}$;
+   for a locally integrable such form,
+   \[
+              \pi_*\omega_{L,\mathrm{Rad}}
+                        =\omega_{\mathrm{Rad}}.          \tag{4}
+   \]
+   Here is the primary proof mechanism, retaining its lengths.
+   On a convenient skeletal cell choose a torus projection injective
+   on the cell. Its finite-flat degree downstairs equals the sum of
+   its degrees at all upstairs skeletal lifts. This is CLD Lemma
+   13.3.3(a): degrees at $y$ equal the sum of degrees over $y$ after
+   complete base change and choice of a target lift. The lemma reduces
+   to a fibre; a zero-dimensional local fibre algebra is Artinian,
+   and its tensor decomposes into its local Artinian factors. The sum
+   of their dimensions is the original dimension after scalar
+   extension. Positive-dimensional fibres give infinite degrees on
+   both sides. Thus the cell volume vectors sum to the downstairs
+   vector, proving 14.3.6. Contracting the form and taking Radon
+   measures proves 15.3.1. We apply (4) only to smooth top forms,
+   then pair with $h$; this never assumes pullback of a continuous
+   current.
+
+7. **Same-carrier field restriction has a degree factor.** CLD Remark
+   14.4.3: for a finite extension $F/K$, an $F$-analytic space $Z$
+   of level $n$, and its restricted $K$ structure $Z_0$, dimensions
+   and skeletal subsets agree and
+   $\mu_{Z_0}=[F:K]\mu_Z$. The proof uses the finite-flat degree
+   $[F:K]$ of the projection of the split torus on this restricted
+   carrier. CLD 15.4.1 and Proposition 15.4.3: for a morphism
+   $f:Y\to Z$ of level-$n$ spaces finite off a Zariski closed set of
+   dimension $<n$, a locally integrable $(p,n)$ G-form $\omega$,
+   $p\in\{n-1,n\}$, has locally integrable pullback and
+   $f_*((f^*\omega)_{\mathrm{Rad}})=\mathrm{dc}(f)\omega_{\mathrm{Rad}}$.
+   Its proof first proves the calibrated volume-vector identity on
+   the inverse skeletal set (14.4.2), then contracts and integrates.
+   We use only an actual isomorphism on $Z_0$, whose calibrated
+   degree is one: both local Artinian rings are identical. Cancelling
+   the same-carrier factor $[F:K]$ proves invariance over $F$.
+
+All these source statements apply to the actual, potentially singular
+and nonreduced structure. They require no normalization and no
+quasi-smoothness. No weakly smooth GJR descent, positive-current
+recognition, or catalogue theorem is used as an ordinary form theorem.
+
+### 2.1. Direct proofs of the neighbourhood and compact-cutoff facts used here
+
+The finite proof uses the primary foundations above. For the two
+topological localization facts decisive at completion, the following
+direct constructions supply their proof bodies as well.
+
+On $\mathcal M(A)$ the ordinary topology is initial for all
+evaluations $|a|$ (CLD 11.1.1). A prescribed neighbourhood of a point
+therefore contains a finite intersection of conditions
+$|a_j|>\ell_j>0$ and $|b_k|<u_k$, where thresholds can be chosen
+strictly between the point's value and the excluded endpoint.
+Missing lower or upper bounds impose no condition. Put
+$g=\prod_j a_j$, with $g=1$ when there are no lower bounds. Choose
+$C>0$ so that $C^{-1}<\prod_j\ell_j$. The rational conjunction
+\[
+ |1|\le C|g|,\qquad
+ |\prod_{j'\ne j}a_{j'}|\le\ell_j^{-1}|g|\ (\forall j),\qquad
+ |b_kg|\le u_k|g|\ (\forall k)                         \tag{R}
+\]
+has no common zero among its denominator and numerators, because
+one numerator is $1$. It is a rational analytic domain by the
+universal rational-domain construction of CLD 11.1.5. Its validity
+locus lies in the originally prescribed neighbourhood if the
+thresholds were chosen inside that neighbourhood's intervals:
+its first inequality excludes $g=0$, so division of norms gives
+all chosen lower and upper bounds. The original point satisfies
+every strict inequality, including the first. Non-strict thresholds
+in (R) were chosen inside the original open intervals, so validity
+of the weak system suffices for containment. This proves the strong
+rational-neighbourhood clause needed in Section 12 using the initial
+topology and the rational-domain construction. Real positive
+thresholds suffice even when the value group is discrete.
+
+Here is also a direct compact-cutoff construction in every good
+Hausdorff analytic space occurring in the proof. For a point $x$ in
+an ordinary open $U$, take an affinoid neighbourhood $V_0$ and
+within its ordinary interior a rational neighbourhood $R$ of $x$
+contained in $U$, with strict inequalities
+$|f_i(x)|<r_i|g(x)|$. Its denominator satisfies $g(x)\ne0$.
+Choose $b_i$ with $|f_i(x)|/|g(x)|<b_i<r_i$ and choose
+$0<a<|g(x)|$. On the ordinary nonzero locus of $g$ in $V_0$, a
+smooth function of $\log|g|$ equals one near $x$ and vanishes
+where $|g|\le a$. For each $i$, choose a smooth real function of
+$\log|f_i/g|$ that is one when $|f_i/g|\le b_i$ and zero when
+$|f_i/g|\ge r_i'$ for some $b_i<r_i'<r_i$. Extend that factor
+as the constant one at zeros of $f_i$: near such a zero its ratio
+is below $b_i$, so the extension is locally constant and ordinary
+smooth. On its nonzero locus the ratio is an analytic unit, giving
+the required ordinary moment description. Multiply the factors
+with the denominator cutoff. At points where $g=0$, extend by
+zero; the denominator cutoff already vanishes on a neighbourhood
+of each such point.
+
+The support of this product lies in the compact set in $V_0$
+defined by $|g|\ge a$ and $|f_i|\le r_i'|g|$ for all $i$.
+That compact set lies in the strict locus of $R$, hence in
+$U\cap\operatorname{int}_X(V_0)$. Extend the product by zero
+outside $V_0$: every point outside the compact support has a zero
+neighbourhood, so the extension is ordinary smooth. It equals one
+near $x$. Taking squares gives nonnegative cutoffs. For compact
+$F\subset U$, finitely many positive loci of these point cutoffs
+cover $F$. Their sum $s$ is positive near $F$. Compose with a
+real smooth function that vanishes near zero and equals one on a
+neighbourhood of the compact positive set $s(F)$. This gives a
+compact cutoff equal to one near $F$ and supported in $U$.
+This reconstructs the compact CLD 15.2.5 conclusion in our actual
+good Hausdorff scope. Section 4 then proves its finite-cover
+partition specialization. No countable-at-infinity fixed-index
+compact-support assertion is used.
+
+In particular all cutoffs are obtained from ordinary analytic-unit
+moments, flat constant extensions near analytic zeros and compact
+extension by zero. No weakly smooth tropicalization is substituted.
+
+
+## 3. Finite fields, fibres, analytic structures, and purity
+
+We first treat a finite Galois extension $E/K$, with group $G$ and
+$d=[E:K]=|G|$. The elementary finite field facts used below can be
+justified as follows. A finite separable extension has as many distinct
+embeddings in an algebraic closure as its degree: extend embeddings
+successively by the distinct roots of each separable minimal polynomial.
+The field $K$ is infinite. For two separable generators $u,v$, all but
+finitely many $c\in K$ make the values of $u+cv$ distinct for every
+pair of distinct embeddings; if their $v$ values agree their $u$ values
+already differ. Its minimal polynomial then has at least as many roots
+as the extension degree, so $u+cv$ generates the extension. Induction
+gives a primitive element. The splitting field of its separable minimal
+polynomial is finite separable. Every embedding of this splitting field
+permutes the roots and is onto, so it is Galois and its automorphism
+group has its degree as order. Its fixed field is $K$: the embeddings
+of any intermediate separable simple field extend successively to the
+splitting field, so a fixed element has a minimal polynomial of degree
+one. This also provides the normal closure used in Section 10.
+
+Finite-dimensional norms over a complete non-Archimedean field are
+equivalent to the coefficient maximum norm in a fixed basis. Here is a
+proof. Induct on dimension. The span of all but the last vector is
+complete by induction, hence closed. The last vector has positive
+distance from this span, bounding its coefficient in any combination.
+The ultrametric inequality and induction then bound all other
+coefficients. The reverse bound is the triangle inequality. Consequently
+finite-dimensional normed spaces are complete and their coordinate
+maps bounded. Existence of an absolute value on a finite field extension
+can also be seen by giving the finite algebra its finite-module Banach
+topology, using CLD 11.4.4, and taking a point of its nonempty affinoid
+spectrum. Its kernel is zero since the algebra is a field. Uniqueness
+follows from norm equivalence: compare two extending norms on $z^m$
+and take $m$th roots. Hence all finite field automorphisms preserve the
+absolute value, and every finite field here is complete.
+
+For a $K$-affinoid algebra $A$, tensor the bounded coordinate maps of
+$E$ with $A$. The tensor norm upper bound and these coordinate maps
+identify its topology with a finite sum of copies of $A$. Already
+complete, this proves
+\[
+             B=A\widehat\otimes_K E=A\otimes_K E.        \tag{5}
+\]
+This is the actual algebra, including nilpotents. Taking the kernel of
+$E\to\bigoplus_{g\in G}E$, $z\mapsto(gz-z)_g$, and tensoring over
+the field gives $B^G=A$. Invariant units descend as units since their
+inverses are invariant too. There is no field averaging or division by
+$d$. An affinoid element nonzero at every analytic point is a unit:
+otherwise a maximal ideal containing it and spectral surjectivity give
+a zero.
+
+The fibre over $x$ is
+$\mathcal M(\mathcal H(x)\otimes_K E)$. A primitive separable
+polynomial factors without repeated factors over $\mathcal H(x)$, so
+the tensor is a finite product of fields. Each has one analytic point
+by the existence and uniqueness argument above. The $G$ action on
+these finitely many points is transitive: two orbits would supply a
+nontrivial invariant idempotent, but the invariant algebra is
+$\mathcal H(x)$. Stabilizers can be nontrivial; no local covering-space
+description is claimed or used.
+
+Inverse images of affinoid ordinary interiors give goodness upstairs.
+Strict presentations base change to strict presentations. Base change
+of the closed diagonal gives separatedness. Boundarylessness follows
+from Section 2(2). In particular all carriers are Hausdorff. The inverse
+image of any compact $F\subset X$ is compact: cover $F$ by finitely
+many interiors of affinoid neighbourhoods $V_i$; its inverse image is
+closed in the finite union of the compact $V_{i,E}$.
+
+**Full-fibre shrinking.** In a downstairs strict affinoid neighbourhood
+$V_0$ of $x$, let $N\subset V_{0,E}$ be a relative ordinary open
+containing the whole fibre. The compact complement has closed image
+excluding $x$. Choose a smaller strict affinoid neighbourhood $V$ of
+$x$ in the complement of that image and inside
+$\operatorname{int}_X(V_0)$. Then $V_E\subset N$. Thus finitely many
+unit or strict norm conditions holding on the whole fibre persist on
+one neighbourhood. This includes conditions on elements of zero
+seminorm at $x$ and never replaces $A$ by its reduction.
+
+For completeness, purity is checked at minimal components. In a strict
+affinoid $\mathcal M(A)$ in $X$, each minimal-prime component has
+dimension one: choose a point with kernel that prime by spectral
+surjectivity and apply the local dimension formula. Let $J$ be the
+nilradical. It is nilpotent since $A$ is noetherian. The injection
+$A/J\hookrightarrow\prod_P\operatorname{Frac}(A/P)$ stays injective
+after tensoring with a separable field. Each field tensor is a product
+of fields, hence $(A/J)\otimes E$ is reduced and the nilradical of
+$B$ is exactly $J\otimes E$. The finitely many kernels of its maps
+to those field factors have zero intersection. Their product is zero,
+so a minimal prime contains one of these kernels, and by minimality
+equals it. Its contraction is the corresponding minimal $P$ of $A$.
+The finite integral injection $A/P\hookrightarrow B/Q$ preserves Krull
+dimension. One elementary justification is lying over and going up
+from the determinant argument for a finite module over a local ring:
+$\mathfrak pD_{\mathfrak p}\ne D_{\mathfrak p}$, since otherwise
+the determinant of $I-M$, $M$ with entries in $\mathfrak p$, is a
+unit annihilating that nonzero module. Choose a maximal ideal above it
+and then repeat after quotienting by a chosen prime. For
+incomparability quotient by the smaller prime and invert the nonzero
+elements of the base domain. The resulting finite integral domain over
+a field is a field, since a least-degree monic equation for a nonzero
+element expresses its inverse. A strictly larger prime of the same
+contraction could not survive, nor could a nonzero element of a domain
+vanish under that localization. Going up lifts chains and
+incomparability makes contractions strict. The dimensions agree.
+Every minimal component upstairs therefore has dimension one, proving
+purity. The same proof works for any finite separable stage. Reduction
+here is a dimension check only; all measures below use $B$ itself.
+
+Finally consider the same carrier $Z=X_E$ with its restricted
+$K$-analytic structure $Z_0$. A finite $E/K$ is $K$-affinoid; an
+$E$-affinoid presentation is therefore $K$-affinoid under finite field
+restriction. The finite-module topology is unchanged. Rational domains
+are defined by the same elements and inequalities and have the same
+analytic rings. They give a common local basis and the same unit germs
+and compact moment images. The moment nullity criterion of Section
+2(3) identifies the ordinary form sheaves, their exterior calculus and
+supports. Each $g\in G$ is a bounded $K$-algebra automorphism of (5),
+gluing to a $K$-analytic automorphism of $Z_0$. Its isomorphism
+pushforward formula, followed by cancellation of the same-carrier
+factor $d$, gives for a smooth compact top form $\omega$
+\[
+             g_*((g^*\omega)_{\mathrm{Rad},E})
+                            =\omega_{\mathrm{Rad},E}.    \tag{6}
+\]
+This is different from (4). Both are valid with actual generic lengths.
+
+## 4. Compact partitions and full-fibre scalar descriptions
+
+Let compact $F$ have an ordinary open cover. At every point of $F$,
+apply Section 2(4)'s bump theorem to the singleton in a chosen cover
+member. Squaring the bump makes it nonnegative, still equal to one
+near that point and compactly supported there. Select finitely many
+whose positive loci cover $F$, and group them by cover index as
+$\psi_i$. Then $s=\sum_i\psi_i>0$ near $F$. Take a bump $\chi=1$
+near $F$ compactly supported in $\{s>0\}$ and put
+\[
+                \theta_i=\chi\psi_i/s                  \tag{7}
+\]
+there, extending by zero. Products, smooth composition, and reciprocal
+on $s>0$ are ordinary smooth operations in moment coordinates. The
+compact support of $\chi$ lies inside $\{s>0\}$, so extension by
+zero is smooth also at its complement. Each support is compact and
+contained in its cover member. The sum is one near $F$. This proves
+the needed finite compact partition without any noncompact
+fixed-cover-index assertion.
+
+Let $\beta$ be an invariant ordinary smooth scalar function near a
+whole fibre over $x$. Its fibre has finitely many points. Choose
+pairwise disjoint ordinary neighbourhoods $N_i$ of them with local
+representations $\beta=\varphi_i(t_{f_{i,1}},\ldots)$, using Corollary
+15.1.2. Shrink $N_i$ so the coordinate values are in a relatively
+compact Euclidean region on which $\varphi_i$ is smooth. Full-fibre
+shrinking gives a strict affinoid $V$ with $V_E\subset\bigcup_iN_i$.
+The pieces $C_i=V_E\cap N_i$ are disjoint ordinary opens and closed
+in $V_E$. They are compact. Analytic gluing gives idempotents $e_i$
+which are one on $C_i$ and zero on the other pieces, and gives a global
+unit $\widetilde f_{i,k}$ equal to $f_{i,k}$ on $C_i$ and one elsewhere.
+Its inverse glues in the same way. These are elements of the actual
+affinoid algebra $B$, not formal topological selectors.
+
+Choose $a\in K^\times$ with $|a|\ne1$. The analytic unit
+$s_i=e_i+a(1-e_i)$ has $t_{s_i}=0$ on $C_i$ and
+$t_{s_i}=-\log|a|$ elsewhere. Choose a real smooth $q$ equal to one
+near zero and zero near $-\log|a|$. Extend $\varphi_i$ by a Euclidean
+cutoff equal to one near its compact coordinate image. Thus
+\[
+ \beta=\sum_i q(t_{s_i})\varphi_i(t_{\widetilde f_{i,1}},\ldots)
+                          =\Phi(T)\quad\text{on }V_E,   \tag{8}
+\]
+for one global unit tuple $T$ and a Euclidean smooth $\Phi$.
+All group translates of these units exist on $V_E$; adjoining them
+gives one fixed tuple. The real average
+$|G|^{-1}\sum_g\Phi(T\circ g)$ equals $\beta$ there. This construction
+works for every orbit and stabilizer, including singleton fibres. It
+does not assume exact invariant ordinary scalar descent.
+
+## 5. Polarization removes the orbit-correlation difficulty
+
+For a smooth Euclidean function on a neighbourhood of a compact box,
+there are real polynomials converging through order two on that box.
+Here is a proof of precisely the version used. Extend it by a compact
+Euclidean cutoff, convolve with a Gaussian, and differentiate under the
+integral. Uniform continuity of the derivatives through order two and
+the Gaussian tail give uniform derivative convergence on the box. For
+fixed convolution width, the Gaussian and its first two derivatives
+are uniform limits of their Taylor polynomials on the compact
+difference of the box and the original coefficient support. Integrate
+these polynomials to get polynomial approximants through order two,
+then choose widths and truncation degrees diagonally.
+
+For $k\ge1$ and real symbols $z_1,\ldots,z_k$, including repeated
+symbols, inclusion-exclusion and the multinomial expansion give
+\[
+ z_1\cdots z_k=\frac1{k!}\sum_{J\subseteq\{1,\ldots,k\}}
+            (-1)^{k-|J|}\left(\sum_{j\in J}z_j\right)^k. \tag{9}
+\]
+Indeed each term missing one symbol cancels, and the only surviving
+degree-$k$ term containing every symbol is their product with
+coefficient $k!$. For unit logarithms, a sum is the logarithm of the
+corresponding product unit. Consequently the real group average of
+**every** scalar polynomial in an arbitrary tuple of unit logarithms
+is a finite real linear combination of constants and terms
+\[
+        T_{f,k}=\frac1d\sum_{g\in G}t_{gf}^{,k},          \tag{10}
+\]
+with actual product units $f$. This recovers mixed orbit correlations;
+no claim that separate symmetric sums for the original individual
+units suffice is used. The number of product units may grow with
+polynomial degree. Section 9 handles this explicitly; no common
+neighbourhood for infinitely many product units is assumed.
+
+## 6. Actual root valuations and all coefficient-zero cases
+
+For a unit $f\in B^\times$ set
+\[
+ P_f(Z)=\prod_{g\in G}(Z-gf)
+             =Z^d+\sum_{i=0}^{d-1}c_iZ^i.               \tag{11}
+\]
+Its coefficients lie in $B^G=A$; $c_0$ is a unit. At an analytic
+point $y$, the roots $gf(y)$ are actual nonzero elements of
+$\mathcal H(y)$ with multiplicities indexed by **all** group elements.
+This includes repeated roots and arbitrary stabilizers. Neither a
+separable orbit polynomial nor characteristic-zero coefficients are
+required.
+
+We prove the root-valuation rule rather than importing Newton-polygon
+recognition. For a polynomial $\prod_{j=1}^d(Z-r_j)$ over any valued
+field with nonzero roots, sort $u_j=-\log|r_j|$ in nondecreasing order.
+The coefficient of $Z^{d-k}$ is a sum of products of $k$ roots.
+Every summand has valuation at least $u_1+\cdots+u_k$, so its
+coefficient has valuation at least that number, allowing infinity.
+If $u_k<u_{k+1}$, the subset of the $k$ roots of smallest valuation
+is unique and its product has strictly greater norm than every other
+summand. Ultrametricity makes the coefficient valuation exactly that
+sum. Equality also holds at $k=0,d$. These equality points are
+precisely the ends of constant-valuation blocks. The convex polygon
+joining them lies below all the coefficient points and has its
+successive slopes equal to the root valuations in reversed sign when
+indexed by coefficient exponent. Thus the lower convex hull of
+\[
+          (i,v(c_i))\ (0\le i\le d),\qquad v(c_d)=0      \tag{12}
+\]
+has each segment $i<j$ contributing $j-i$ roots of valuation
+$(v(c_i)-v(c_j))/(j-i)$. Repeated roots, ties, and every cancellation
+are covered by the strict-gap argument. No division occurs in the
+valued field.
+
+Near a fixed downstairs $x$, choose $M$ so all $|t_{gf}|<M$ on its
+finite fibre and retain this inequality by full-fibre shrinking. Then
+$|t_{c_0}|<dM$. If $c_i(x)=0$ for $0<i<d$, shrink further until
+\[
+                      |c_i|<\exp(-dM-1).                \tag{13}
+\]
+Its valuation lies strictly above the chord from $(0,t_{c_0})$ to
+$(d,0)$, since that chord's height is at most $dM$. Hence it cannot
+belong to the lower hull and may be omitted. If $c_i(x)\ne0$, shrink
+to make it a downstairs unit: choose a strict affinoid neighbourhood
+inside its nonzero locus, then use the unit criterion of Section 3.
+Keep $c_0,c_d=1$ in all cases. The retained index set
+$I\subseteq\{0,\ldots,d\}$ therefore includes both ends. Its other
+coefficients are actual units; all omitted coefficients obey (13)
+throughout this neighbourhood. Nilpotent coefficients are included in
+the zero-seminorm case. No coefficient with value zero is logarithmed,
+and small coefficients are not simply assumed harmless.
+
+## 7. A $C^1$ piecewise polynomial and its tangential mollification
+
+For arbitrary real heights $z_i$, $i\in I$, with $z_d=0$, form the
+lower hull of the finitely many points $(i,z_i)$. If consecutive
+vertices are $i<j$, put $m=j-i$ and $u=(z_i-z_j)/m$. Define
+\[
+               H_{I,k}(z)=\sum_{\text{hull segments }i<j}
+                                 m\,u^k.                \tag{14}
+\]
+Collinear vertices may be retained or omitted: (14) is unchanged.
+There are finitely many possible hull chains. Each is selected by
+linear weak inequalities in the heights, so (14) is a polynomial on
+each region of a finite polyhedral subdivision of the whole height
+space. Equations (11)--(13) prove at **every** point upstairs that
+\[
+               T_{f,k}=d^{-1}H_{I,k}(t_{c_i}).            \tag{15}
+\]
+
+We need more than continuity of this formula. For a general smooth
+one-variable $\phi$, the segment term $m\phi((z_i-z_j)/m)$ has gradient
+$\phi'(u)(e_i-e_j)$ and Hessian
+\[
+            \frac{\phi''(u)}m(e_i-e_j)\otimes(e_i-e_j).  \tag{16}
+\]
+If a vertex is inserted or deleted on a collinear segment, all the
+affected $u$ equal one common value. The gradients then telescope:
+$\sum\phi'(u)(e_i-e_j)$ is exactly the gradient of the single merged
+segment. This remains true if several vertices are collinear.
+At a height configuration on a chamber boundary, every limiting hull
+chain refines the unique lower hull by such collinear vertices. Values
+and gradients therefore agree for every limiting chamber. A finite
+piecewise smooth function with these matching values and gradients is
+$C^1$: integrate the matching, continuous candidate gradient on short
+line segments subdivided by the finitely many chamber faces; segments
+contained in faces follow by a small translation and continuity. The
+usual differentiability remainder follows from continuity of that
+gradient. Thus (14) is $C^1$.
+
+On any compact neighbourhood, slopes $u$ are bounded. Each Hessian
+(16) is bounded by $2\sup|\phi''|/m$ in operator norm; there are at
+most $d$ segments. For $\phi(u)=u^k$, there is a finite bound for all
+chamber Hessians on that neighbourhood. The gradient is locally
+Lipschitz by integrating these Hessians along line segments, using its
+continuity at faces as above. The weak Hessian is the bounded
+piecewise Hessian, with no singular face measure: integrate by parts
+on each polyhedral region; the boundary contributions from the
+continuous gradient cancel in pairs. Lower-dimensional intersections
+give no additional boundary term. This proves all assertions used in
+mollification; bounded third or fourth derivatives are unnecessary.
+
+Choose a nonnegative even $C^\infty$ kernel $\rho$ supported in the
+unit ball with integral one. Let $H_\varepsilon=H*\rho_\varepsilon$.
+The local gradient Lipschitz bound yields uniformly on fixed compacts
+$H_\varepsilon\to H$ and $\nabla H_\varepsilon\to\nabla H$; in fact
+the errors are $O(\varepsilon^2)$ and $O(\varepsilon)$. The first
+bound follows from the first-order remainder and the kernel's zero
+first moment. Its Hessian is the convolution of the weak Hessian and
+is uniformly bounded on those compacts.
+
+**Tangential second derivative lemma.** Let an open segment $L$ lie in
+the relative interior of a face $F$ of the subdivision of $H$, with
+tangent vector $v$ in the affine direction of $F$. At every point
+$z\in L$,
+\[
+        \nabla^2H_\varepsilon(z)(v,v)
+                  \longrightarrow (H|_L)''(z;v,v).       \tag{17}
+\]
+To prove this, only chambers incident to $F$ meet a sufficiently small
+ball about $z$. Let their polynomial formulas be $Q_a$. Each agrees
+with $H$ on a relatively open neighbourhood in $F$, so
+$\nabla^2Q_a(z)(v,v)$ is the same tangential derivative of that
+restriction. For points $w$ tending to $z$ through any such chamber,
+the corresponding tangential Hessian tends to this common value.
+Convolving the bounded, piecewise Hessian proves (17). If the line is
+mapped to one point in height space, the tangent is zero and the
+statement is immediate. This proof deals with segments **entirely
+contained in collision walls**; they are not dismissed as measure
+zero. A compact moment segment maps affinely to height space and can
+be subdivided at finitely many face preimages, so the conclusion holds
+almost everywhere on every such segment, including those of deficient
+height-map rank.
+
+## 8. Calibrated differentiated approximation of a fixed trace
+
+Fix $f,k$ and one neighbourhood on which (13)--(15) hold. The
+functions
+\[
+                b_\varepsilon=d^{-1}H_\varepsilon(t_{c_i})
+                                                               \tag{18}
+\]
+are ordinary smooth downstairs, using actual unit moments. On a
+compact upstairs domain add to one moment tuple the units $gf$, the
+pullbacks of all retained coefficients, and any fixed cutoff's units.
+Its image is a finite polyhedral set. Refine its one-dimensional cells
+by the height-fan preimages and by a common skeletal calibration
+subdivision. On each segment, (15) is an identity of functions of
+affine coordinates. Its right side restricts to a polynomial on the
+segment, whose first and second tangent derivatives are therefore
+those of the ordinary upstairs polynomial $T_{f,k}$.
+
+The errors $e_\varepsilon=T_{f,k}-\pi^*b_\varepsilon$ and their first
+derivatives converge uniformly tangentially. Their second tangential
+derivatives are uniformly bounded and converge almost everywhere on
+every segment by (17). No differentiation of (15) as a nonsmooth
+ordinary section is performed; the derivatives are compared on actual
+moment cell tangents.
+
+Here is why this is a total-variation statement on the actual carrier.
+For the enlarged tuple $t_1,\ldots,t_r$ put
+$\zeta=\sum_a d't_a\wedge d''t_a$, with the positive top-order
+convention. On a segment with tangent $v$, a coefficient matrix
+$A=(A_{ab})$ contracts to $\sum A_{ab}v_av_b$ times its positive
+calibration; $\zeta$ contracts to $\sum v_a^2$ times the same
+calibration. Hence $|A_{ab}|\le M$ gives
+\[
+       |\eta_{\mathrm{Rad}}|\le rM\zeta_{\mathrm{Rad}},    \tag{19}
+\]
+by $\big(\sum|v_a|\big)^2\le r\sum v_a^2$. Equivalently use
+bounded tangential coefficients in unit tangent frames on the finitely
+many segments. The estimate is made on the supporting skeletal cells
+before pushforward. Section 2(5) gives finite total mass of $\zeta$
+on the compact domain and a constant finite positive density on each
+moment segment. Thus bounded tangential error converging almost
+everywhere has carrier total variation tending to zero by bounded
+convergence on those finite calibrated segments. Zero-dimensional
+faces carry no top measure. Multiplicities and generic lengths multiply
+both sides of (19); none is removed or replaced by a point count.
+
+For any **fixed** ordinary smooth cutoff $\lambda$ supported in the
+neighbourhood, the product rule for $D(\lambda e_\varepsilon)$ uses
+the scalar error, its two first derivatives, and its mixed second
+derivative, together with fixed bounded derivatives of $\lambda$.
+The preceding convergence and (19) show
+\[
+       \big\|(D((\lambda\circ\pi)e_\varepsilon))_{
+                          \mathrm{Rad},E}\big\|_{\mathrm{TV}}
+                                 \longrightarrow0.       \tag{20}
+\]
+Cover a fixed compact cutoff support by finitely many compact moment
+neighbourhoods to use this argument; their enlarged tuples and
+calibration refinements are fixed during this limit. Signed fibre
+cancellation is not used to infer (20).
+
+For a fixed finite combination of traces (10), Sections 6--8 apply near
+every downstairs point, with finitely many units, omitted coefficients
+and strict inequalities at that point. If a fixed downstairs cutoff
+$\chi$ has compact support in the original unit domain, cover its
+support by finitely many of these local neighbourhood interiors, and
+choose an inner compact partition $\theta_a$ by (7). Let
+$b_{a,\varepsilon}$ be the local combination of (18). Put
+\[
+        a_\varepsilon=
+              \sum_a\widetilde{\chi\theta_a b_{a,\varepsilon}},     \tag{21}
+\]
+where tilde means extension by zero. This is ordinary smooth and
+supported in $\operatorname{supp}\chi$. A product supported compactly
+inside its ordinary open is identically zero on a neighbourhood of
+each point outside that open, so this extension is smooth and has no
+boundary derivative term. The sum-one identity near
+$\operatorname{supp}\chi$ and (20), for this finite fixed cover, prove
+\[
+ \big\|(D((\chi\circ\pi)T-\pi^*a_\varepsilon))_{
+                      \mathrm{Rad},E}\big\|_{\mathrm{TV}}\to0       \tag{22}
+\]
+for the given invariant scalar polynomial $T$. All supports here lie
+in $\pi^{-1}(\operatorname{supp}\chi)$, independently of
+$\varepsilon$. There is no assertion of positive-test preservation.
+
+## 9. Every compact ordinary scalar test; the two limits and support
+
+Let invariant $\beta\in A_c^{0,0}(X_E)$ be arbitrary, and set
+$F=\pi(\operatorname{supp}\beta)$. It is compact. Cover $F$ by
+finitely many ordinary interiors $U_i$ of strict affinoids $V_i$ on
+which (8) holds, and choose outer cutoffs $\chi_i$ from (7), compactly
+supported in $U_i$, with sum one near $F$. Put
+$C=\bigcup_i\operatorname{supp}\chi_i$. It is a fixed compact set
+containing $F$.
+
+On $V_{i,E}$ approximate the fixed Euclidean coefficient $\Phi_i$
+through order two on a box containing the fixed unit moment image by
+polynomials $P_{i,j}$. Choose the box to contain all translated tuple
+images as well. Let $T_{i,j}$ be the real group average of
+$P_{i,j}(T_i)$. Since $\beta$ is invariant, it is also the average
+of $\Phi_i(T_i)$, so $\beta-T_{i,j}$ tends to zero in coefficient
+$C^2$ on a **fixed upstairs** moment tuple containing all the
+translates. Include fixed moment descriptions of $\chi_i\circ\pi$
+on a finite compact cover of its support. The product rule and (19)
+give
+\[
+ \big\|(D((\chi_i\circ\pi)(\beta-T_{i,j})))_{
+                     \mathrm{Rad},E}\big\|_{\mathrm{TV}}\to0.       \tag{23}
+\]
+
+For each fixed $j$, use (9) to express $T_{i,j}$ as finitely many
+traces. Apply (21)--(22) with outer cutoff $\chi_i$ to obtain
+$a_{i,j}$ supported in $\operatorname{supp}\chi_i$ and with
+\[
+ \big\|(D((\chi_i\circ\pi)T_{i,j}-\pi^*a_{i,j}))_{
+                     \mathrm{Rad},E}\big\|_{\mathrm{TV}}<1/j       \tag{24}
+\]
+(or $1/(ij)$ after any fixed finite enumeration). Each fixed-polynomial
+local cover, inner partition and moment refinement is chosen **before**
+its smoothing limit. It may depend on $j$. Its derivative bounds may
+grow with $j$; smoothing is chosen after those bounds. This causes no
+problem because (23) is evaluated with the fixed outer cutoffs, before
+the inner localization of $T_{i,j}$. The varying inner cutoffs never
+multiply the polynomial approximation error in (23), and every
+approximate support remains inside the same outer $C$. Neither a
+degree-uniform estimate nor an infinite simultaneous unit shrink is
+asserted.
+
+Set $\alpha_j=\sum_i a_{i,j}$. Globally
+$\beta=\sum_i(\chi_i\circ\pi)\beta$, since the sum is one near
+its support and it vanishes off that support. Equations (23)--(24)
+and the finite triangle inequality prove (2). The support of every
+differentiated error is contained in $\pi^{-1}(C)$, compact by
+Section 3. Thus for **every** continuous finite multiplier $h$,
+\[
+       B_{h\circ\pi}(\beta-\pi^*\alpha_j)\longrightarrow0,
+                                                               \tag{25}
+\]
+using its boundedness on that compact set. This proves the actual
+ordinary scalar test gate for curves, not merely $C^0$ density of
+invariant functions.
+
+## 10. Forward Galois ascent and actual normal-closure descent
+
+For a general compact ordinary scalar test $\beta$ upstairs, (6),
+ordinary exterior functoriality on the restricted carrier, and
+invariance of $h\circ\pi$ show
+$B_{h\circ\pi}(g^*\beta)=B_{h\circ\pi}(\beta)$. Its real average
+$\beta^{\mathrm{av}}=d^{-1}\sum_g g^*\beta$ has the same pairing.
+Its support is in a compact finite group saturation. Real averaging
+does not divide by $d$ in $K$, including when $\operatorname{char}K$
+divides $d$.
+
+For every downstairs compact test $\alpha$, its pullback is compact.
+The scalar projection formula (4), with **no degree factor**, gives
+\[
+  B_{h\circ\pi}(\pi^*\alpha)
+     =\int_{X_E}(h\circ\pi)(\pi^*D\alpha)_{\mathrm{Rad},E}
+     =\int_X h(D\alpha)_{\mathrm{Rad},K}=B_h(\alpha).     \tag{26}
+\]
+Smooth exterior functoriality suffices; no continuous-current pullback
+has been presumed. If the downstairs current is zero, approximate
+$\beta^{\mathrm{av}}$ by (2). Its approximate pairings vanish by
+(26), and (25) proves that its pairing, hence that of every upstairs
+test, vanishes. This proves forward ascent for every finite Galois
+extension, including wild ones, on all curves in the stated scope.
+
+Conversely, (26) alone proves reverse descent whenever the upstairs
+current is zero. This calculation works for every finite separable
+extension, without a group, by compactness, purity, and (4). It is an
+actual proof of the descent needed below, not a use of an earlier note.
+
+For arbitrary finite separable $E/K$, take the finite Galois normal
+closure $N/K$ constructed in Section 3, with its unique extending
+absolute value and completeness. Forward Galois ascent gives zero
+current on $X_N$. The space $X_E$ retains every ambient hypothesis
+and pure dimension one by Section 3, and $N/E$ is finite separable.
+There is a canonical analytic identification
+$(X_E)_N=X_N$: on affinoids it is the associative tensor isomorphism
+$(A\otimes_K E)\otimes_E N=A\otimes_K N$ with the equivalent
+finite-module topologies. The pullback of $h\circ\pi_E$ is the
+original pullback on $X_N$. Apply the just-proved reverse calculation
+to $N/E$, testing each compact ordinary function on $X_E$, to obtain
+zero current on $X_E$. This proves (1) at every finite separable stage. It is the
+finite dependency, before the completed stage in Section 13. Ordinary opens retain the stated assumptions and the
+same argument applies to their scalar inverse images.
+
+
+
+## 11. Finite inseparability and arbitrary finite algebraic stages
+
+### 11.1. Frobenius, topology and exact scalar tests
+
+Let $k$ be complete, nontrivially valued, of characteristic $p>0$,
+and let $F/k$ be finite purely inseparable. Choose $q=p^e$ with
+$F^q\subset k$. Section 3's bounded-coordinate argument applies to
+**every** finite extension, and gives
+$A\widehat\otimes_k F=A\otimes_k F$ with its finite-module topology.
+Consequently every $u=\sum a_i\otimes\lambda_i$ satisfies
+\[
+                    u^q=\sum a_i^q\lambda_i^q\in A.       \tag{27}
+\]
+This is an identity in the actual algebra, including nilpotents.
+
+Scalar projection is surjective by the affine foundation in Section 2;
+Section 12.1 also gives a direct proof for all fields used here.
+If two points of $\mathcal M(A\otimes F)$ project to $x$, (27) forces
+their values on every $u$ to equal $|u^q(x)|^{1/q}$. They are the same
+seminorm. The projection is thus a continuous bijection from a compact
+space to a Hausdorff space, hence a homeomorphism. On a good separated
+space these affine homeomorphisms glue on the ordinary interiors of
+downstairs affinoid neighbourhoods. No covering-space assertion is used.
+
+For a unit $f\in(A\otimes F)^\times$, (27) gives $f^q=g\in A$.
+The function $g$ has no analytic zero downstairs, by surjectivity,
+so it is an actual unit by Section 3's unit criterion. On the upstairs
+carrier $t_f=q^{-1}t_g$. Now let
+$\beta\in A_c^{0,0}(X_F)$ be arbitrary. Its support has compact
+image $C$ under the homeomorphism. For each point of $C$, select an
+ordinary local description of $\beta$, then a downstairs affinoid
+neighbourhood $V$ whose full inverse image lies in that description
+open. The inverse image is $V_F$, so all coordinate units restrict
+to elements of its actual affinoid algebra. Taking their $q$th powers
+gives an ordinary downstairs scalar description
+$\varphi(q^{-1}t_{g_1},\ldots,q^{-1}t_{g_m})$ on
+$\operatorname{int}_X V$. Equality of numerical smooth scalar
+functions is equality of their ordinary $(0,0)$ sections, as explained
+in Section 12.3. Cover $C$ by finitely many such opens, apply the
+compact partition of Section 4, multiply these local descriptions by
+its cutoffs, and extend by zero. This produces
+$\alpha\in A_c^{0,0}(X)$ with $\beta=\pi_F^*\alpha$ everywhere.
+Compact support inside each open makes the extension ordinary smooth;
+no derivative is extended through an exposed boundary.
+
+Goodness, strictness, separatedness and boundarylessness are preserved
+as in Section 3. Purity is also preserved, and here is a proof that
+does not assume equality of total dimensions gives local purity.
+Given an upstairs point $y$, a downstairs affinoid neighbourhood of
+its image has dimension one, and its scalar extension has dimension
+one, giving the upper local bound. If local dimension at $y$ were
+zero, take this affinoid upstairs and remove all its positive-dimensional
+irreducible components, none of which contains $y$. An affinoid
+neighbourhood inside the remaining ordinary open has dimension zero
+by CLD 11.2.3's component/domain formula. By the homeomorphism choose
+a downstairs affinoid neighbourhood whose full inverse image is
+inside that open. Its downstairs dimension is one (it is a domain in
+the pure curve), and its upstairs total dimension is one by scalar
+dimension invariance, a contradiction. Existence of the smaller
+downstairs affinoid neighbourhood uses goodness. This argument only
+checks dimension; it never reduces the measure.
+
+On these pure curves $D\beta=\pi_F^*D\alpha$, and the smooth
+top-measure identity (4) proves
+\[
+             B_{h\circ\pi_F}(\beta)=B_h(\alpha).         \tag{28}
+\]
+All supports are compact. The converse is obtained by taking
+$\beta=\pi_F^*\alpha$ for an arbitrary compact downstairs scalar
+test. Thus finite purely inseparable zero-Hessian ascent and descent
+are proved here directly. No earlier inseparable manuscript is a premise.
+
+### 11.2. The finite mixed-field decomposition
+
+Let $E/K$ be any finite algebraic extension. In characteristic zero
+every irreducible polynomial has nonzero derivative, and is separable,
+so Sections 3--10 apply. In characteristic $p$, choose finitely many
+generators $a_1,\ldots,a_r$ of $E/K$. For each irreducible minimal
+polynomial, repeatedly remove common factors $p$ from its exponents
+until it has the form
+\[
+                f_i(Z)=g_i(Z^{p^{e_i}}),\qquad g_i'\ne0.
+                                                               \tag{29}
+\]
+The polynomial $g_i$ is irreducible: a factorization of $g_i$ would
+give a factorization of $f_i$ by substitution. Since $g_i$ is
+irreducible and its derivative is nonzero of smaller degree,
+$\gcd(g_i,g_i')=1$; its roots are distinct. Therefore
+$b_i=a_i^{p^{e_i}}$ is separable over $K$. The compositum
+$S=K(b_1,\ldots,b_r)\subset E$ is finite separable: adjoining a
+root of a separable polynomial remains separable over an intermediate
+field because its minimal polynomial divides that polynomial; extending
+embeddings successively gives degree-many embeddings of the tower.
+An intermediate simple field has degree-many embeddings as well:
+each embedding has at most the remaining extension degree lifts, while
+the entire tower has its full degree of embeddings. Thus its minimal
+polynomial is separable. This proves the field facts used here without
+assuming separability of an arbitrary algebraic stage.
+
+With $e=\max e_i$, every $a_i^{p^e}\in S$, and taking $p^e$th powers
+in a rational expression in the $a_i$ shows $E^{p^e}\subset S$.
+Hence $E/S$ is finite purely inseparable. Both fields are complete
+under the prescribed absolute value by the finite norm proof in
+Section 3. This gives the **actual embedded** tower
+$K\subset S\subset E$, not an abstract factorization of degrees.
+
+The finite tensor associativity with bounded inverse maps, proved in
+Section 12.1, identifies $(X_S)_E=X_E$ as analytic spaces, with the
+actual algebra and not its reduction. $X_S$ has all ambient hypotheses
+and pure curve dimension by Section 3. Finite separable ascent to $S$,
+then the proved Frobenius ascent to $E$, proves (1) at every finite
+algebraic stage. Reverse descent uses (4) directly. Generic lengths
+are those of the actual tensors throughout. No degree factor is
+introduced into scalar projection.
+
+## 12. Completion, rational neighbourhoods and every compact scalar test
+
+### 12.1. Fields, completed tensors, surjectivity and compactness
+
+Write $M=\bigcup_E E$, where $E$ ranges over its finite subextensions
+of $K$. It is a directed union: a finite list of algebraic elements
+generates a finite field, by successive multiplication of finite
+degrees. Each $E$ is complete by Section 3. We never regard $M$ as
+a complete analytic field unless it happens already to be complete.
+Its completion $L$ is a complete valued field. For a $K$-affinoid
+algebra $A$, the image of $A\otimes_K M$ is dense in
+$A_L=A\widehat\otimes_K L$. Indeed finite algebraic tensors are
+dense by definition of completion; a tensor
+$\sum a_j\otimes\lambda_j$ can be approximated by replacing its
+finitely many $\lambda_j\in L$ with $m_j\in M$, with tensor error
+at most $\max_j\|a_j\||\lambda_j-m_j|$. Approximation statements
+refer to the **image**, so no injectivity or isometry of an
+uncompleted infinite tensor is presumed.
+
+Here is the associative tensor argument actually required. For finite
+$E/K$ with a basis $e_i$, the bounded coordinate maps give
+$A_E=A\otimes_K E$ with its finite-module topology. The maps on
+algebraic tensors
+\[
+ (a\otimes e)\otimes\lambda\mapsto a\otimes e\lambda,
+ \qquad a\otimes\lambda\mapsto(a\otimes1)\otimes\lambda
+                                                               \tag{30}
+\]
+extend continuously to inverse maps
+$(A_E)\widehat\otimes_E L\simeq A\widehat\otimes_K L$.
+For the first map, the bounded multiplication map
+$(b,\lambda)\mapsto\sum_i a_i\otimes e_i\lambda$, where
+$b=\sum_i a_i\otimes e_i$, is bounded in $b$ by the coordinate
+estimates and in $\lambda$ by the tensor inequality. It is balanced
+over $E$. The reverse map is bounded by the tensor inequality and
+the bounded inclusion $A\to A_E$. These maps are inverse on dense
+elementary tensors, hence inverse on the completions. The same proof
+works when $A$ is affinoid with arbitrary radii, and for two finite
+stages. Thus all stage projections and inverse images of rational
+domains used below are actual analytic base changes. No associativity
+claim for an infinite uncompleted Banach tensor is needed.
+
+For clarity, scalar surjectivity in the present completed-algebraic
+scope also has a direct seminorm proof. Given
+$x\in\mathcal M(A)$, put $H=\mathcal H(x)$. Embed the algebraic
+extension $M$ into an algebraic closure $\overline H$ over $K$.
+Such an embedding is obtained by successively adjoining roots, or by
+maximizing partial embeddings and adjoining a root of the minimal
+polynomial if the domain is not all of $M$. Equip $\overline H$ with
+the extending absolute value: the finite extension existence and
+uniqueness proof of Section 3 makes the norms on its finite
+$H$-subfields compatible. On every finite $K$-subfield of $M$ this
+value is the specified one, again by uniqueness. Completing
+$\overline H$ gives a complete field $F$ into which the isometric
+embedding $M\to F$ extends to $L\to F$. For **every** tensor
+representation with $\lambda_j\in L$, evaluation satisfies
+\[
+ \left|\sum_j a_j(x)\lambda_j\right|
+       \le \max_j\|a_j\||\lambda_j|.
+                                                               \tag{31}
+\]
+Taking the infimum over all representations bounds it by the full
+tensor seminorm. It extends to $A_L$ and gives an analytic point
+over $x$. This proof handles the separated quotient in the tensor
+completion and uses no claimed isometry of $A\otimes M$.
+The identical proof over $E$ gives surjectivity $X_L\to X_E$ and
+surjectivity on every scalar-extended affinoid domain. On good spaces
+these affine facts cover the whole space.
+
+The inverse image of a compact $C\subset X_E$ is compact: finitely
+many ordinary interiors of affinoid neighbourhoods cover $C$.
+Its inverse image is closed in the finite union of their compact
+scalar extensions, since the spaces are Hausdorff. This works for
+the infinite completed projection. It does not assert a finite
+fibre, a finite Galois cover or any infinite group averaging.
+
+For a nonzero $\lambda\in L$, choose $m\in M$ with
+$|m-\lambda|<|\lambda|$. Then $|m|=|\lambda|$. Thus
+$|L^\times|=\bigcup_E|E^\times|$. This observation handles any
+value-group radius if desired, but the rational argument below
+allows **all positive real radii**, so it needs no strictifying
+extension and no approximation of a radius.
+
+### 12.2. Exact rational and strict-locus descent
+
+Let $A$ be affinoid over a finite stage $E_0$, set
+$B=A\widehat\otimes_{E_0}L$, and let a rational domain of
+$\mathcal M(B)$ be defined by
+\[
+             |f_i|\le r_i|g|\quad(1\le i\le s),
+             \qquad r_i>0,                              \tag{32}
+\]
+where $g,f_1,\ldots,f_s$ have no common analytic zero. Empty
+systems can instead be handled by the whole affinoid with the
+harmless condition $|1|\le2|1|$. Compactness gives
+\[
+ \delta=\min_{y\in\mathcal M(B)}
+             \max\{|g(y)|,r_1^{-1}|f_1(y)|,\ldots,
+                                  r_s^{-1}|f_s(y)|\}>0.
+                                                               \tag{33}
+\]
+Choose simultaneous finite-stage approximants $g',f_i'$ in one
+$A_E$ with Banach errors less than
+$\delta\min(1,r_1,\ldots,r_s)$. This is possible by Section 12.1.
+Their evaluation errors satisfy
+\[
+                 |g'-g|<\delta,
+                 |f_i'-f_i|<r_i\delta                 \tag{34}
+\]
+at every point upstairs. Neither vanished nor nilpotent functions
+are logarithmed, and none is assumed to have small Banach norm merely
+because its spectral norm is zero. They are approximated in the actual
+Banach algebra just like the other elements.
+
+Both conjunctions, (32) and the conjunction of its strict versions,
+are **unchanged** by (34). To check all boundary cases, first suppose
+$|g(y)|\ge\delta$. Then $|g'(y)|=|g(y)|$. For each $i$ with
+$|f_i(y)|\ge r_i|g(y)|$, (34) forces $|f_i'(y)|=|f_i(y)|$.
+For each $i$ with $|f_i(y)|<r_i|g(y)|$, it instead forces
+$|f_i'(y)|<r_i|g'(y)|$. Hence each weak inequality, each equality,
+and each strict inequality is preserved at that point. If
+$|g(y)|<\delta$, (33) supplies an $i$ with
+$r_i^{-1}|f_i(y)|\ge\delta$. Its numerator norm is unchanged,
+while $|g'(y)|<\delta$. This inequality remains strictly false,
+so both conjunctions remain false. These arguments also cover
+$g(y)=0$ and any number of zero numerators.
+
+The weighted maximum for the approximants is everywhere positive
+upstairs. Surjectivity to $\mathcal M(A_E)$ then shows the
+denominator/numerators have no common zero there. They generate the
+unit ideal: otherwise a maximal ideal containing them gives an
+analytic common zero. Thus they define a genuine rational analytic
+domain $R_E$ by CLD 11.1.5. Its scalar extension has exactly the set
+(32). Analytic domain uniqueness, or the universal rational-domain
+presentation by adjoining the bounded ratios, identifies it with the
+given domain $R_L$ as an analytic domain. The actual rational
+localization algebra, with all nilpotents, is retained. The strict
+locus $O_E=\{|f_i'|<r_i|g'|\ \forall i\}$ is ordinary open in
+the ambient affinoid, lies in its rational domain, and has inverse
+image **exactly** the original strict locus $O_L$. No invariance of
+absolute analytic interiors or equality of all topological interiors
+is asserted.
+
+The stronger rational-neighbourhood statement of CLD 11.1.5 says
+that for any $y$ and any prescribed ordinary open in an affinoid,
+one can choose (32) with $R_L$ inside that open and $y$ in its
+strict locus. Thus the preceding construction supplies finite-stage
+ordinary neighbourhoods of each chosen point, without controlling
+an entire infinite scalar fibre. Only finitely many such choices
+are subsequently needed on a compact support.
+
+### 12.3. Exact finite-stage local descriptions
+
+Let $\beta$ be ordinary smooth on $X_L$ near $y$, and let $x$ be
+its image in $X$. Choose a downstairs affinoid neighbourhood $V_0$
+and an ordinary open $U_0\subset V_0$ containing $x$. The inverse
+image $U_{0,L}$ is open. Intersect it with an ordinary moment
+description open of $\beta$; on that intersection write
+$\beta=\varphi(t_{f_1},\ldots,t_{f_m})$, with actual analytic
+units and a smooth real coefficient defined on an open Euclidean
+set containing the coordinate image. This can always be arranged
+locally by shrinking the description near $y$.
+
+Inside $V_{0,L}$ select a rational neighbourhood $R_L$ of $y$
+contained in this intersection, with $y$ in its strict locus.
+Section 12.2 gives $R_L=(R_{E_0})_L$ for a finite stage $E_0$,
+and a descended strict locus. Because $R_L\subset U_{0,L}$,
+surjectivity on $R_{E_0}$ gives $R_{E_0}\subset U_{0,E_0}$.
+Its strict locus is therefore an ordinary open of the whole
+$X_{E_0}$, not just an open of an exposed affinoid boundary.
+
+On the compact rational affinoid $R_L$, put
+$\delta_j=\min|f_j|>0$. Apply density in the actual rational
+affinoid algebra, now viewed over $E_0$, to select a common finite
+$E\supset E_0$ and $u_j\in\mathcal O(R_E)$ with
+$\|u_j-f_j\|<\delta_j$ upstairs. Ultrametricity gives
+\[
+                     |u_j(y')|=|f_j(y')|
+                                 \quad(y'\in R_L).     \tag{35}
+\]
+By surjectivity $u_j$ has no zero on $R_E$, so it is an actual
+unit by the unit criterion. Its inverse exists in that affinoid
+algebra; no approximation of an inverse or reduction of the algebra
+is necessary. Surjectivity also makes the finite-stage moment image
+of the $u_j$ equal to the upstairs image of the $f_j$, so the same
+Euclidean coefficient $\varphi$ is defined on it.
+
+On the inverse image $O_E$ of the strict locus define the ordinary
+smooth function $b_E=\varphi(t_{u_1},\ldots,t_{u_m})$.
+Then $q_E^*b_E=\beta$ on $O_L=q_E^{-1}O_E$. This is an exact
+scalar-section identity. To justify the section claim precisely,
+CLD 3.4.6 embeds the $(0,0)$ G-form sheaf in numerical functions:
+on each compact chart the nullity criterion 3.4.1/3.4.4 says that a
+zero numerical coefficient is the zero section; compact charts
+G-cover the space. Hence equal numerical scalar sections coincide,
+and ordinary scalar sections are included in this sheaf. Alternatively,
+the combined moment $(f,u)$ has image in the diagonal
+$\{t_f=t_u\}$ by (35); the difference of the two scalar
+coefficient functions restricts to zero there, and moment nullity
+gives the same conclusion. No universal moment-dimension equality
+is used. Smooth differentiation consequently commutes with this
+**exact identity**, giving $D\beta=q_E^*Db_E$ on that open.
+
+### 12.4. Compact scalar tests and extension by zero
+
+Now let $\beta\in A_c^{0,0}(X_L)$ be arbitrary and put
+$F=\operatorname{supp}\beta$. If $F$ is empty, take $\alpha=0$
+at any finite stage. Otherwise Section 12.3 gives a neighbourhood
+$O_{i,L}=q_{E_i}^{-1}O_{i,E_i}$ and a descended ordinary function
+$b_{i,E_i}$ near each point of $F$. Choose finitely many covering
+$F$. Enlarge to a common finite field $E\subset M$ and base change
+all these rational domains, strict loci and unit lists to $E$.
+Associativity (30) shows
+$O_{i,L}=q_E^{-1}O_{i,E}$ and $\beta=q_E^*b_{i,E}$ there.
+
+The compact set $F_E=q_E(F)$ is covered by the finitely many
+$O_{i,E}$. Apply Section 4's explicit compact partition, built
+only from CLD 15.2.5, to obtain ordinary smooth $\theta_i$ with
+compact support in $O_{i,E}$ and sum one near $F_E$. Put
+\[
+                \alpha=\sum_i\widetilde{\theta_i b_{i,E}},
+                                                               \tag{36}
+\]
+where tilde means extension by zero to $X_E$. Each product is
+ordinary smooth on its open, with support in the compact
+$\operatorname{supp}\theta_i\subset O_{i,E}$. Since that compact
+set is closed in the Hausdorff $X_E$, every point outside it has
+an ordinary zero neighbourhood. Therefore its extension is ordinary
+smooth at every exterior point as well. This proves (36) lies in
+$A_c^{0,0}(X_E)$, with no boundary derivative term.
+
+On the inverse image of its defining open each summand pulls back
+to $(\theta_i\circ q_E)\beta$. Off that open its pullback is
+zero, and $\theta_i\circ q_E$ is also zero. Thus, **globally**,
+\[
+ q_E^*\alpha=(\sum_i\theta_i\circ q_E)\beta=\beta.       \tag{37}
+\]
+On $F$ the sum is one. Outside $F$ the function $\beta$ is zero,
+so the equality also holds there regardless of that sum. No descent
+or saturation of the original support is assumed. No agreement of
+the separate $b_{i,E}$ on downstairs overlaps needs to be presumed;
+the finite sum is itself a smooth section, and (37) proves precisely
+its required pullback. Its support is contained in a finite union of
+compact cutoff supports. The inverse image of that union is compact
+by Section 12.1. Differentiation commutes with the exact ordinary
+smooth identity (37), so every compact upstairs scalar test and its
+Hessian are covered. This is stronger than $C^0$ density and does
+not use a differentiated approximation topology at completion.
+
+### 12.5. Ambient geometry and local purity after completion
+
+Goodness follows because inverse images of downstairs affinoid
+neighbourhoods are affinoid and contain inverse images of their
+ordinary interiors. Strict presentations base change to strict
+presentations. The diagonal base change preserves separatedness.
+Boundarylessness follows from GR 2.11(5'), as stated in Section 2;
+ordinary open restrictions retain it by GR 2.11(3),(4).
+
+We check local purity for $X_L$, rather than just total dimension.
+Around the image of $y\in X_L$ take a downstairs strict affinoid
+neighbourhood $V_0$ of dimension one. Then $V_{0,L}$ has dimension
+one, giving the upper local bound. Suppose local dimension at $y$
+were zero. In $V_{0,L}$ discard its finitely many dimension-one
+minimal-prime components, none of which contains $y$. In the
+remaining ordinary open choose a rational affinoid neighbourhood
+$R_L$ of $y$ inside the inverse image of
+$\operatorname{int}_X V_0$, with strict inequalities at $y$.
+The component/domain dimension formula in CLD 11.2.3 gives
+$\dim R_L=0$. Section 12.2 descends $R_L$ to a nonempty
+$R_E$ at a finite field, inside $X_E$. The actual $X_E$ is pure
+one-dimensional by Sections 3 and 11. Its domain $R_E$ has dimension
+one, including if its chosen real radii make the domain non-strict.
+Scalar dimension invariance and analytic domain identification give
+$\dim R_L=\dim(R_E)_L=\dim R_E=1$, a contradiction.
+Hence every upstairs point has dimension one. This argument keeps
+the original strict ambient space and does not infer an endpoint
+theorem from a non-strict radial core.
+
+All top measures below are on the **actual** pure curves just proved
+to exist. Their multiplicities need not remain numerically unchanged
+point by point. They are the finite-flat fibre-algebra dimensions in
+the canonical calibration. For reference, the usual generic-length
+identity is obtained by tensoring a composition series of a generic
+Artinian stalk with the flat upstairs generic stalk: each residue-field
+quotient becomes the generic Artinian algebra of the base-changed
+reduction. If its length is $\mu$ and the original length is $\ell$,
+the length upstairs is $\mu\ell$. This is CLD 13.2.8 with
+$\mathcal F=\mathcal O_X$; its proof body is included in Section 15.
+We use the calibration and the Artinian degree-sum proof of (4), not
+a replacement by geometric point counts or a supposed constant
+extension degree for an infinite extension.
+
+## 13. Completed forward ascent and actual reverse descent
+
+Assume $D[h]=0$ downstairs. Given **any**
+$\beta\in A_c^{0,0}(X_L)$, Section 12.4 supplies finite $E$ and
+$\alpha\in A_c^{0,0}(X_E)$ with $\beta=q_E^*\alpha$ exactly.
+Put $h_E=h\circ\pi_E$. Finite algebraic ascent, proved in
+Sections 3--11, gives $D[h_E]=0$. Section 12.5 verifies the pure
+curve and ambient hypotheses for both $X_E$ and $X_L$. Smooth
+functoriality and the **$L$- and $E$-calibrated** projection formula
+(4) yield
+\[
+ \begin{aligned}
+ B_{h\circ\pi}(\beta)
+ &=\int_{X_L}(h_E\circ q_E)(q_E^*D\alpha)_{\mathrm{Rad},L}\\
+ &=\int_{X_E}h_E(D\alpha)_{\mathrm{Rad},E}
+ =0.
+ \end{aligned}                                             \tag{38}
+\]
+The relevant supports lie in the compact inverse image of
+$\operatorname{supp}\alpha$; the continuous finite multiplier
+is bounded there. The signed-measure pushforward formula is therefore
+legitimate. Since $\beta$ was arbitrary, the upstairs zero-current
+equation follows. There is no pullback of an arbitrary continuous
+current in this proof and no field-degree factor in (38).
+
+Conversely, suppose the upstairs equation holds. For an arbitrary
+$\psi\in A_c^{0,0}(X)$ its pullback has compact support by
+Section 12.1. Apply smooth functoriality and (4) directly for $L/K$:
+\[
+             B_h(\psi)=B_{h\circ\pi}(\pi^*\psi)=0.        \tag{39}
+\]
+Thus the downstairs equation holds. This reverse calculation is
+included for completeness, not counted as new forward progress.
+Ordinary-open localization follows from the ambient checks and
+the same arguments on that open; no global quasicompactness or
+paracompactness is added. This proves (1) with all its stated scope.
+
+## 14. Comparison, fallibility and reproduction
+
+The controlling P06.2 chapter asks for **classical pluriharmonic
+recognition** of arbitrary continuous zero-current functions on good
+separated strict boundaryless spaces, or a counterexample with all
+those ambient hypotheses. Neither conclusion is claimed here.
+The new gate is unconditional ordinary CLD scalar-current ascent
+on arbitrary pure curves under the completion of an arbitrary
+algebraic extension, including singular and nonreduced curves and
+the completed algebraic closure. It goes beyond merely restating
+the finite separable curve draft or imposing scalar stability.
+
+The finite separable dependency has been supplied with its entire
+scalar-polarization, root-valuation, tangential-convolution and
+calibrated carrier proof. The finite inseparable dependency has been
+supplied with its actual tensor, Frobenius and compact scalar-test
+proof. Neither predecessor's author audit, publication, native note,
+hash, or review verdict is accepted as a mathematical premise.
+The finite-stage support and domain gate for completion has been
+proved directly. No arbitrary infinite fibre is treated as finite.
+
+In dimension at least two, complementary Hessian tests have
+positive bidegree, and the finite separable reconstruction here is
+only scalar. Therefore even an extension of the completed-stage
+argument to all form degrees would not by itself prove the missing
+finite differential-form theorem. Transcendental scalar extensions,
+universal curve probes, normalization transport for recognition,
+and two-sign regularization remain separate unresolved obligations.
+Zero opposite currents after $L/K$ do not put either continuous
+sign into the generated CLD-psh hierarchy. Ordinary smoothness,
+weak smoothness, real-PL regularity and GJR harmonicity of $h$ are
+not asserted. The catalogue's non-strict arbitrary-radius invisible
+boundary example is outside the original strict boundaryless scope
+and is not a counterexample supplied here.
+
+The authoritative file is `P06.2-argument.md`, with the complete
+standalone `P06.2-partial.tex` and twice-compiled
+`P06.2-partial.pdf`. `self-audit.md` and `research-notes.md`
+record the fallible audit and discarded shortcuts. `status.json`
+has exactly `id,status,exact_result,proof_file,concrete_gaps`.
+`source-manifest.json` records copied input origins and hashes;
+`evidence/primary-passages.txt` preserves the primary bytes and
+`evidence/artifact-hashes.json` records build hashes. The two parent
+native notes are preserved as data, not dependencies.
+
+Run `python3 prepare-sources.py` followed by
+`python3 build-and-check.py` in this fresh workspace. Only installed
+tools and bounded standard-library diagnostics are used. The
+finite diagnostic tests perturb exact rational numbers in the
+2-adic norm and check (32)--(34), retaining zero denominators,
+zero numerators, equalities and both conjunctions. They do not
+verify an analytic theorem. Two successful TeX passes likewise
+establish typesetting, not correctness. No heavy computation was
+required; no supervised compute service was exposed or used.
+There is no independent model review, formal certification,
+inherited verdict or priority claim. The manuscript remains an
+unverified draft, `status=partial`, `candidate=false`.
+
+## Bibliography
+
+* A. Chambert-Loir and A. Ducros, *Formes différentielles réelles et
+  courants sur les espaces de Berkovich*, arXiv:1204.6277v2,
+  25 July 2025. Used statements and proof bodies are specified in
+  Section 2 and included below. The rational-domain completion
+  lemma is proved in Section 12, not attributed to a source slogan.
+* W. Gubler and J. Rabinoff, *Classically psh and pluriharmonic
+  functions on Berkovich spaces*, arXiv:2506.13548v2,
+  17 September 2025, Section 2.11(3)--(5).
+* Controlling chapter and family dossier: scope data only. Prior
+  finite separable and inseparable manuscripts: fallible evidence;
+  their needed arguments are reconstructed in this file.
+
+## 15. Included primary statements and proof bodies
+
+These are the inspected primary snapshot passages, included here so a
+reader can examine the exact cited statements and the available proof
+bodies without filesystem access. They are source data, with their
+text-extraction artefacts retained; Section 2 and the direct arguments
+give the precise English statements used. Basic affinoid construction,
+noetherianity and the analytic dimension foundations are cited in CLD's
+foundational recall paragraphs; this packet does not claim to rederive
+all of Berkovich geometry from set theory. Their exact recalled
+statements are included. The new finite-stage domain/test descent is
+proved in full in Section 12, and the needed strong neighbourhood and
+compact bump constructions are supplied directly in Section 2.1.
+
+In the quoted 12.2.4 wording, the universal dimension-equality phrase
+is **not used**. Only compact polyhedrality is used there; the needed
+dimension upper bound is the separately included 12.2.10. Constant
+moments disprove a universal equality. No broad 15.2.9 partition
+assertion is used. The only partition is the finite compact
+construction of Section 4 from 15.2.5, whose local cutoff proof was
+also reconstructed in Section 2.1. Other hypotheses in these passages
+are not silently relaxed.
+
+The PDF transliterates the source-excerpt code blocks to ASCII for
+the installed TeX engine, explicitly naming any symbol without a
+standard ASCII equivalent. The authoritative Markdown retains the
+exact Unicode text. The English mathematical argument is unchanged.
+
+### CLD.txt: cached text lines 14838--15060
+
+```text
+s’il possède un pré-modèle (V, F ) où F est engendré par ses sections globales.
+Remarque 10.7.8. — Supposons que L soit de type fini et degré de transcendance 1
+sur K. C’est alors comme dans le cas non gradué le corps gradué des fonctions d’une
+K-courbe graduée projective intègre et normale C qui est uniquement déterminée, et
+la flèche naturelle ρ : PL/K → C est un isomorphisme d’espaces localement annelés
+gradués ; tout fibré vectoriel E sur un ouvert quasi-compact U de PL/K admet dès lors
+un modèle canonique, à savoir le couple (ρ(U ), ρ∗ E).
+Lemme 10.7.9. — Soit U un ouvert quasi-compact de PL/K et soit E un fibré en
+droites sur U . Il existe deux fibrés en droites D1 et D2 sur U engendrés par leurs sections
+globales et un isomorphisme E ≃ D1 ⊗ D2∨ .
+Démonstration. — Choisissons un pré-modèle (V, G) de (U, E). D’après le corollaire
+10.7.4 on peut supposer V quasi-projectif. Il résulte alors de 10.3.7 qu’il existe deux fibrés
+en droites F1 et F2 sur V , engendré par leurs sections globales, et tels que G ≃ F1 ⊗ F2∨ .
+Il suffit pour conclure de prendre pour D1 et D2 les images réciproques respectives de
+F1 et F2 sur U .
+
+292        CHAPITRE 10. ALGÈBRE GRADUÉE ET RÉDUCTION DES ANNEAUX NORMÉS
+
+Exemple 10.7.10. — Soit D une droite vectorielle graduée sur L et soit t un élément
+homogène non nul de D, de degré r. Soit (ai )1⩽i⩽n une famille finie d’éléments de L×
+algébriquement indépendants sur K et soit E le fibré en droites sur PL/K dont la fibre
+générique est D et dont la métrique est telle que v(t−1 ) = max(1, v(a1 ), . . . , v(an ))
+(lemme 10.6.18).
+                 (1,|a |,...,|an |)
+   Identifions PK 1                 à un prémodèle de L sur K via le plongement K(Ti /T0 )1⩽i⩽n ,→
+L, (Ti /T0 ) 7→ ai dont nous notons F l’image. Soit ∆ l’image réciproque sur PF/K du
+                                       1,|a |,...,|an |
+fibré en droites O(1)[r] de PK 1                        . La fibre générique de ∆ est égale à F · T0 où T0
+est considéré comme homogène de degré r. Les éléments T0 et Ti = ai T0 constituent
+une famille de sections globales de ∆ qui engendrent ce dernier. Il résulte alors du
+lemme 10.6.15 que la métrique sur F · T0 au-dessus de PF/K induite par ∆ est telle
+que v(T0 )−1 = max(1, v(a1 ), . . . v(an )) pour tout v. Il s’ensuit que l’image réciproque de
+                                                                               (1,|a |,...,|an |)
+∆ sur PL/K est isomorphe à E, c’est-à-dire encore que (PK 1                                       , O(1)[r]) est un
+pré-modèle de (PL/K , E). C’en est un modèle si L = K(ai )1⩽i⩽n .
+
+10.7.11. — Soit K ,→ L une extension de corps classiques gradués ; soit n un entier
+supérieur ou égal au degré de transcendance de L sur K. Soit (E1 , . . . , En ) une famille
+de fibrés en droites sur PL/K . Il existe un pré-modèle propre (V, (Fi )) de (PL/K , (Ei ))
+(on peut même si on le souhaite prendre pour V un modèle propre de L sur K, mais
+ce n’est pas nécessaire pour ce qui suit). La formule de projection (lemme 10.4.8 d ))
+entraîne que l’entier défini par
+                    (            R
+                      [L : K(V )] V c1 (L1 ) · · · c1 (Ln ) si dim(V ) = n ;
+                      0                                     si dim(V ) < n
+ne dépend pas du choix de V et des Fi . On le notera
+                              Z
+                                    c1 (E1 ) . . . c1 (En ).
+                                           PL/K
+                          ′
+10.7.12. — Soit L une extension finie de L et soit π le morphisme naturel de PL′ /K
+vers PL/K . Pour tout i, notons Ei′ le fibré en droites π ∗ Ei sur PL′ /K . Soit (V, (Fi )) un
+modèle propre de la famille des Li . C’est alors également un pré-modèle propre de la
+famille des Ei′ , si bien qu’on a les égalités
+                  Z                                         Z
+                               ′              ′       ′
+                          c1 (E1 ) . . . c1 (En ) = [L : L]   c1 (F1 ) · · · c1 (Fn )
+                     PL′ /K                                      V
+                                                                Z
+                                                   = [L′ : L]           c1 (E1 ) . . . c1 (En ).
+                                                                 PL/K
+
+10.7.13. — Soit K ′ une extension de K. Choisissons un modèle propre (V, (Fi )) de la
+famille des Ei . Le K ′ -schéma V ′ = K ′ ⊗k L possède alors r composantes irréductibles
+V1 , . . . , Vr (considérées comme munies de la structure réduite), qui sont toutes de dimen-
+sion n (on se ramène à l’énoncé non gradué analogue grâce au lemme 10.3.5). Notons
+Oj local de V ′ au point générique de Vj , notons mj sa longueur et Lj son corps gradué
+résiduel, c’est-à-dire le corps gradué des fonctions de Vj . Remarquons que K ′ ⊗K L est
+noethérien (en écrivant L comme corps gradué des fractions de OV (U ) où U est un ouvert
+affine non vide de V , on voit en effet que K ′ ⊗K L est un localisé d’un anneau gradué
+noethérien) et que les Oj sont ses localisés en ses différents idéaux premiers gradués
+
+           § 10.7. NOMBRES D’INTERSECTION SUR UN ESPACE DE ZARISKI-RIEMANN                                    293
+
+minimaux. Les Oj , les mj et les Lj ne dépendent donc que de K ′ et pas du choix du
+modèle V . Pour tout (i, j), notons Eij l’image réciproque de Ei sur PLj /K ′ .
+   Pour tout i et tout j notons Fi′ l’image réciproque de Fi sur V ′ et Fij son image
+réciproque sur Vj . Pour tout indice j la famille (Vj , (Fij )i ) est alors un modèle propre de
+la famille (Eij )i . Il vient
+
+               Z                                     Z
+                         c1 (E1 ) . . . c1 (En ) =           c1 (F1 ) · · · c1 (Fn )
+                 PL/K                                V
+                                                     Z
+                                               =   c1 (F1′ ) · · · c1 (Fn′ )
+                                                     V′
+                                                 X     Z
+                                               =   mj         c1 (F1j ) · · · c1 (Fnj )
+                                                         j          Vj
+                                                     X             Z
+                                               =             mj                 c1 (E1j ) . . . c1 (Enj ).,
+                                                         j          PL /K ′
+                                                                         j
+
+
+
+
+où la troisième égalité résulte du lemme 10.4.8 c).
+  Mentionnons un cas particulier important : si K ′ ⊗K L est intègre, si l’on désigne par
+L′ son corps gradué des fractions et par Ei′ l’image réciproque de Ei sur PL′ /K ′ on a
+alors
+                     Z                                         Z
+                               c1 (E1 ) . . . c1 (En ) =                     c1 (E1′ ) . . . c1 (En′ ).
+                        PL/K                                     PL′ /K ′
+
+10.7.14. — Soit (E1 , . . . , Em ) une famille finie de fibrés en droites sur PL/K et soit
+(V, F1 , . . . , Fm ) un pré-modèle de (PL/K , E1 , . . . , Em ) ; remarquons que V est propre.
+Nous dirons que c1 (E1 ) . . . c1 (Em ) est numériquement effectif si c1 (F1 ) . . . , c1 (Fm ) est
+numériquement effectif (10.4.11), ce qui ne dépend pas du choix du pré-modèle V . Nous
+dirons qu’un fibré en droites E sur PL/K est numériquement effectif si c1 (E) est numé-
+riquement effectif. Tout fibré en droites sur PL/K engendré par ses sections globales est
+numériquement effectif.
+   Soit L′ une extension de L et soit K ′ un sous-corps gradué de L′ contenant K. Pour
+tout i notons Ei′ l’image réciproque de Ei sur PL′ /K ′ . Si c1 (E1 ) . . . c1 (Em ) est numéri-
+quement effectif il en va de même de c1 (E1′ ) . . . c1 (Em   ′
+                                                                ) : cela résulte de la préservation
+du caractère numériquement effectif par morphismes propres et extension des scalaires
+(voir 10.4.11).
+
+
+
+Exemple 10.7.15. — Soit D une droite vectorielle graduée sur L et soit t un élément
+homogène non nul de D. Soit (ai )1⩽i⩽n une famille finie d’éléments de L× algébriquement
+indépendants sur K telle que K = K(ai )i et soit E le fibré en droites sur PL/K dont la
+fibre générique est D et dont la métrique est telle que v(t−1 ) = max(1, v(a1 ), . . . , v(an ))
+(lemme 10.6.18). L’exemples 10.7.10 exhibe un modèle de (PL/K , E) de la forme
+(PrK , O(1)[s]) (pour un certain polyrayon s et un certain
+                                                         R s > 0). On déduit alors de
+l’exemple 10.4.10 et de la remarque 10.4.9 on voit que PL/K c1 (E)n = 1.
+
+294       CHAPITRE 10. ALGÈBRE GRADUÉE ET RÉDUCTION DES ANNEAUX NORMÉS
+
+      § 10.8. RÉDUCTION GRADUÉE DES ANNEAUX ET MODULES
+                              NORMÉS
+
+  Nous allons ici présenter la théorie de la réduction graduée des anneaux et modules
+normés telle qu’introduite par Temkin dans [127], en insistant sur le cas particulier
+majeur des corps ultramétriques.
+10.8.1. Réduction graduée. — Soit M un groupe abélien muni d’une semi-norme
+ultramétrique ∥ · ∥, c’est-à-dire d’une application ∥ · ∥ : M → R+ telle que
+
+               ∥0∥ = 0,     ∥(−m)∥ = ∥m∥ et ∥m + n∥ ⩽ max(∥m∥, ∥n∥)
+
+pour tout (m, n). On pose
+                       M
+                   M
+                   f=     {m ∈ M, ∥m∥ ⩽ r}/{m ∈ M, ∥m∥ < r}.
+                            r>0
+
+
+La loi interne de M induit une loi interne sur M   f qui en fait un groupe abélien gradué.
+Dans ce contexte, si µ est un élément homogène de M          f nous poserons ∥µ∥ = 0 si µ
+est nul, et nous désignerons sinon par ∥µ∥ le degré de l’unique composante homogène
+contenant µ (si la semi-norme de M est notée |·|, nous écrirons |µ| plutôt que ∥µ∥). Si
+m est un élément de M et si r est un réel strictement positif tel que r ⩾ m, on notera
+me r l’image de a dans A er . Nous désignerons par m e (sans indice) l’élément homogène de
+M égal à m
+f           e ∥m∥ si ∥m∥ est non nul, et à 0 sinon. Si N est un sous-groupe dense de M
+pour la topologie définie par ∥ · ∥ il résulte des définitions que N e =M f. .
+   Soit A un anneau muni d’une semi-norme ultramétrique et sous-multiplicative ∥ · ∥.
+(nous incluons dans la définition le fait que ∥1∥ ⩽ 1, ce qui entraîne que ∥1∥ = 1
+ou ∥1∥ = 0, ce dernier cas n’étant possible que si ∥ · ∥ est identiquement nulle). La
+multiplication de A induit alors une loi interne sur le groupe abélien gradué A       e qui en
+fait un anneau gradué ; nous l’appellerons l’anneau gradué résiduel de A.
+   L’anneau gradué A  e est intègre si et seulement si ∥ · ∥ est multiplicative (nous incluons
+dans la définition le fait que ∥1∥ = 1).
+   Remarquons que A   e1 est l’anneau résiduel classique {a ∈ A, ∥a∥ ⩽ 1}/{a ∈ A, ∥a∥ < 1}
+de A, et que l’application a 7→ e a1 de A vers A e1 est l’application de réduction classique.
+   Si k est un corps ultramétrique complet, son anneau gradué résiduel e        k est un corps
+gradué, que nous appellerons le corps gradué résiduel de k.
+   Soit M un A-module muni d’une semi-norme ∥ · ∥ telle que ∥am∥ ⩽ ∥a∥ · ∥m∥ pour
+tout (a, m). La loi externe de M induit alors une loi de A      e×M f vers M  f qui fait de ce
+dernier un A-module
+             e          gradué.
+10.8.2. — Soit A un anneau muni une semi-norme sous-multiplicative ∥ · ∥, et soit M
+un A-module muni d’une semi-norme ∥ · ∥ telle que ∥am∥ ⩽ ∥a∥ · ∥m∥ pour tout (a, m).
+Soit m = (mi ) une famille d’éléments de A tels que ∥mi ∥ =     ̸ 0 pour tout i.
+   Soit (ai )i∈I une famille d’éléments presque tous nuls de A. Supposons que les ∥ai ∥ sont
+non toutes nulles, soit r le maximumP    des ∥ai ∥ · ∥mi ∥, et soit I ′ l’ensemble des
+                                                                                    P indices i
+tels que ∥ai ∥ · ∥mi ∥ = r. Posons Pn = i∈I ai mi . On a alors ∥n∥ ⩽ r et n     r =
+                                                                               eP      i∈I ′ a
+                                                                                             ei m
+                                                                                                fi .
+On a ∥n∥ < r si et seulement si i∈I ′ e      e i = 0, et si ∥n∥ = r alors n
+                                          ai m                              e = i∈I ′ e
+                                                                                      ai m
+                                                                                         fi .
+   Il en résulte que les assertions suivantes sont équivalentes :
+
+              § 10.8. RÉDUCTION GRADUÉE DES ANNEAUX ET MODULES NORMÉS                           295
+               P
+   (i) On a ∥ ai mi ∥ = supi ∥ai ∥ · ∥mi ∥ pour toute famille (ai ) de scalaires presque tous
+nuls (notons que supi ∥ai ∥ · ∥mi ∥ = maxi ∥ai ∥ · ∥mi ∥ dès que I est non vide) ;
+   (ii) La famille (f
+                    mi )i d’éléments homogènes de M   f est libre sur A.
+                                                                       e
+   Et si elles sont satisfaites alors pour toute famille (ai ) d’éléments de A presque tous
+                                                   fi où I ′ désigne l’ensemble des indices i
+                     P                     P
+nuls, la réduction ^    ai mi est égale à i∈I ′ e
+                                                ai m
+tels que ∥ai ∥ · ∥mi ∥ = supj ∥aj ∥ · ∥mj ∥.
+10.8.3. — Soit k un corps ultramétrique complet et soit A une k-algèbre munie d’une
+semi-norme multiplicative ∥ · ∥. Soit (ai ) une famille d’éléments de A tels que les ∥ai ∥
+soient tous non nuls. On a ∥aJ ∥ = ∥a∥J et donc a     fJ = e aJ pour tout multi-exposant J.
+                                                    J
+Il résulte alors de 10.8.2 appliqué à la famille (a )J du k-espace vectoriel semi-normé A
+que les assertions suivantes sont équivalentes :
+   (i) On a ∥ λJ aJ ∥ = max|λJ | · ∥aJ ∥ pour toute famille (λJ ) de scalaires presque tous
+               P
+nuls ;
+   (ii) La famille (aei )i d’éléments homogènes de A
+                                                   e est algébriquement indépendante sur e k.
+   Et si elles sont satisfaites alors pour toute famille (λJ ) de scalaires presque tous nuls,
+                                             aJ où E désigne l’ensemble des multi-indices J
+               P                     P
+la réduction ^    λJ aJ est égale à J∈E λ eJ e
+tels que |λJ | · ∥a∥J = maxN |λN | · ∥a∥N .
+Exemple 10.8.4. — Soit k un corps ultramétrique et soit r = (r1 , . . . , rn ) un polyrayon
+                       P T I= (T1 , . . . , Tn ) I et notons A la k-algèbre k[T ] munie de la
+de longueur finie. Posons
+norme multiplicative      aI T 7→ max|aI |r . On déduit de l’équivalence (i) ⇐⇒ (ii)
+```
+
+### CLD.txt: cached text lines 15287--15355
+
+```text
+                           S         un G-recouvrement de X si tout point x de X possède
+un voisinage de la forme i∈J Xi où J est fini et où x ∈ Xi pour tout i ∈ J. Si l’on
+ne s’astreint à recoller que des espaces strictement affinoïdes, on obtient la classe des
+espaces strictement k-analytiques.
+   Soit X un espace k-analytique. C’est en particulier un espace topologique dont tout
+point possède une base de voisinages compacts (mais X n’est pas nécessairement lo-
+calement compact puisqu’un espace topologique localement compact est par définition
+séparé, et que ce n’est pas forcément le cas de X). L’espace X possède par ailleurs une
+classe distinguée de partie compactes, ses domaines affinoïdes (si X = M (A ), les do-
+maines affinoïdes de X sont précisément ceux décrits au 11.1.5 ci-dessus). Un domaine
+analytique de X est une partie de X qui est G-recouverte par les domaines affinoïdes
+qu’elle contient. Tout domaine affinoïde de X est un domaine analytique de X ; plus
+généralement, tout compact de X qui est une union finie de domaines analytiques de
+X est un domaine analytique. Et tout ouvert de X (et notamment X lui-même) est un
+domaine analytique. En particulier, tout point x de X possède un voisinage compact
+qui est une réunion finie de domaines affinoïdes contenant x. Les espaces définis dans [8]
+sont ceux qui sont qualifiés de bons dans [9], c’est-à-dire ceux dont tout point admet un
+voisinage affinoïde (et donc une base de voisinages affinoïdes.) Tout domaine analytique
+de X est une partie localement fermée de X : l’intersection d’une famille finie de do-
+maines analytiques est un domaine analytique ; la réunion d’une famille localement finie
+de domaines analytiques fermés est un domaine analytique.
+   Tout domaine analytique V de X hérite d’une structure canonique d’espace analy-
+tique, et d’un morphisme V ,→ X dont l’application sous-jacente est l’inclusion. Tout
+morphisme f : Y → X se factorisant ensemblistement par V se factorise en fait unique-
+ment par la structure analytique de V .
+11.1.8. La G-topologie. — Soit X un espace k-analytique. En plus du site topolo-
+gique sur X on définit un second site plus fin, noté XG . Ses objets sont les domaines
+analytiques de X, ses flèches sont les inclusions, et ses familles couvrantes sont les G-
+recouvrements. La topologie de ce site est appelée la G-topologie de X.
+  Comme tout ouvert de X est un domaine analytique et comme tout recouvrement
+ouvert est un G-recouvrement, on dispose d’un morphisme de site canonique π : XG →
+X. L’unité d’adjonction id → π∗ π ∗ est un isomorphisme ([9], p. 26).
+  Le site XG est annelé. Nous noterons OX le faisceau structural de XG . Sauf mention du
+contraire, lorsque nous parlerons de faisceaux cohérents sur X, il s’agira plus précisément
+de OX -module cohérents sur XG . Précisons que le faisceau OX ainsi que sa restriction
+au site topologique usuel de X sont cohérents ([49], lemme 0.1 ; pour la correction d’une
+petite erreur dans la preuve, signalée par Jérôme Poineau, voir [52], 1.1.1). Si X = M (A)
+alors OX (X) = A.
+  Tout morphisme f : Y → X entre espaces analytiques est en particulier un morphisme
+de sites annelés : si V est un domaine analytique de Y alors f −1 (V ) est un domaine
+analytique de X et l’on dispose d’un morphisme f ∗ : OX (V ) → OY (f −1 (V )). Si X est
+un espace k-affinoïde M (A) et si Y est un espace affinoïde M (B) sur une extension de
+
+     § 11.1. GÉOMÉTRIE ANALYTIQUE : CONVENTIONS, NOTATIONS, PREMIERS RAPPELS               301
+
+k, l’application f 7→ f ∗ établit une bijection entre l’ensemble des k-morphismes de Y
+vers X et l’ensemble des morphismes bornés de k-algèbres de A vers B.
+   Si X = M (A) est un espace k-affinoïde et si M est un A-module de type fini, le
+faisceau Mf sur XG associé au préfaisceau V 7→ M ⊗A OX (V ) est cohérent. Le foncteur
+M 7→ M f établit une équivalence entre la catégorie des A-modules de type fini et celle
+des faisceaux cohérents sur X, de quasi-inverse F 7→ F (X) (cf. [9] ; ce résultat est dû
+à Kiehl dans le cas strictement affinoïde).
+   Lorsque X est bon, le foncteur π∗ induit une équivalence de catégories entre faisceaux
+cohérents sur XG et faisceaux cohérents sur X, et qu’un faisceau cohérent F sur XG est
+localement libre si et seulement si c’est le cas de π∗ F ([9], 1.3.4 ; notons que la définition
+de faisceau cohérent qu’il utilise dans cette proposition est ad hoc, mais qu’elle coïncide
+bien en fait avec la notion usuelle au vu de la cohérence des faisceaux structuraux sur
+les deux sites annelés en jeu).
+11.1.9. Produits fibrés, extension des scalaires. — La catégorie des espaces k-
+analytiques admet des produits fibrés. Si A → B et A → C sont deux morphismes
+d’algèbres k-affinoïdes, M (B) ×M (A) M (C) = M (B ⊗     b A C).
+   Si L est un extension complète de k on dispose d’un foncteur d’extension des scalaires
+X 7→ XL de la catégorie des espaces k-analytiques vers celle des espaces L-analytiques.
+Si X = M (A) alors XL = M (A⊗       b k L). En général on dispose d’un morphisme naturel
+de sites annelés de XL vers X, qui est surjectif (cf. [48], 0.5).
+   Supposons X bon, soit y un point de XL et soit x son image sur X. Le morphisme
+naturel de Spec OXL ,y vers Spec OX,x est plat à fibres localement d’intersection complète,
+et à fibres géométriquement régulières si L est analytiquement séparable sur k ; c’est le
+théorème [52], th. 2.6.5. La notion d’extension analytiquement séparable est définie
+```
+
+### CLD.txt: cached text lines 15567--15604
+
+```text
+   Un sous-espace analytique fermé de X est un fermé de Zariski Y de X muni d’une
+structure d’espace k-analytique au-dessus de X induite selon le procédé décrit ci-dessus
+par un faisceau cohérent d’idéaux I tel que Y = V (I ) ; notons que I se reconstitue
+alors à partir de cette structure comme le noyau de OX → i∗ OY , où i : Y → X est le
+morphisme structural, qui est topologiquement l’inclusion.
+   Tout fermé de Zariski Y possède au moins une structure de sous-espace analytique
+fermé : celle donnée par le faisceau
+
+                 J := V 7→ {f ∈ O(V ), f (x) = 0 pour tout ∈ Y ∩ V
+
+qui est bien cohérent ([49], Prop. 4.2.1). C’est la plus petite structure de sous-espace
+analytique fermé sur Y , au sens où J est le plus grand faisceau cohérent d’idéaux
+sur X définissant le fermé Y ; c’est aussi la seule structure de sous-espace analytique
+fermée sur Y dont le faisceau structural n’a pas de sections nilpotentes non nulles ;
+on l’appelle la structure réduite sur Y . Si Y = X la structure réduite est associée au
+faisceau d’idéaux dont les sections sont les fonctions localement nilpotentes ; le sous-
+espace analytique fermé correspondant est noté Xred . Le morphisme Xred ,→ X induit
+un homéomorphisme entre Xred et X pour leur topologies usuelles, mais aussi pour leurs
+topologies de Zariski.
+   Si Y est un sous-espace analytique fermé de X, il résulte du théorème de Gerritzen-
+Grauert dans sa version due à Temkin ([128], Th. 3.1) que les domaines analytiques de
+Y sont les sous-ensembles de Y qui admettent un G-recouvrement par des parties de la
+forme V ∩ Y où V est un domaine affinoïde de X.
+   Si V est un domaine analytique de X la topologie de Zariski de V est plus fine que la
+topologie de V induite par la topologie de Zariski de X, et en général strictement plus
+fine.
+   Si E est une partie de X et si (Xi ) est un G-recouvrement de X par des domaines
+analytiques, alors E est un fermé (resp. un ouvert) de Zariski de X si et seulement si
+E ∩ Xi est un fermé (resp. un ouvert) de Zariski de Xi pour tout i ([49], Prop. 4.2.1).
+
+306                  CHAPITRE 11. RAPPELS DE GÉOMÉTRIE ANALYTIQUE
+
+   Une immersion fermée (1) est un morphisme d’espaces k-analytiques f : Y → X se
+factorisant par un isomorphisme entre Y et un sous-espace analytique fermé de X. Une
+immersion fermée préserve les corps résiduels complétés.
+   Un morphisme d’espaces k-analytiques f : Y → X est dit séparé si sa diagonale
+δ : Y → Y ×X Y est une immersion fermée, et X est dit séparé si le morphisme structural
+de X vers M (k) est séparé. La séparation dans ce sens entraîne la séparation topolo-
+```
+
+### CLD.txt: cached text lines 16122--16143
+
+```text
+Démonstration. — Quitte à restreindre X, il suffit de prouver qu’il existe un tel voi-
+sinage. Soit U le lieu de normalité de Xred ; c’est un ouvert de Zariski dense de X
+contenant x. On peut donc supposer que Xred est normal. Tout voisinage analytique
+(resp. voisinage affinoïde) connexe de X est alors irréductible.
+
+Lemme 11.5.8. — Soit n et d des entiers. Soit f : Y → X un morphisme fini entre
+espaces k-analytiques purement de dimension n. Supposons que X est régulier et que Y
+vérifie la propriété (Sd ). Soit x un point de X tel que dk (x) ⩾ n − d. Le morphisme f
+est plat au dessus d’un voisinage de x.
+Démonstration. — Le morphisme f étant fini, il est topologiquement propre. Il suffit
+donc pur prouver l’assertion de montrer que le lieu de platitude de f contient tous les
+antécédents de x. Pour établir ce fait, on peut remplacer X par n’importe quel de ses
+domaines affinoïdes contenant x, et donc supposer X affinoïde ; dans ce cas, Y l’est
+également puisque f est fini. Soit y un antécédent de x. La finitude de f entraîne que
+les les dimensions centrales de (X, x) et (Y, y) sont égales ([52], 3.2.4) ; par ailleurs,
+l’hypothèse faite sur x assure que la dimension centrale de (X, x) vaut au moins n − d.
+Comme on a d’autre part supposé que dimx (X) = dimy (Y ) = n, la formule (11.5.5.1)
+ci-dessus implique que
+                          dimKrull (OX,x ) = dimKrull (OY,y ) ⩽ d.
+Puisque OY,y satisfait la propriété (Sd ), il est de Cohen-Macaulay. La OX,x -algèbre fi-
+nie locale OY,y est de Cohen-Macaulay, et de même dimension de Krull que l’anneau
+local régulier OX,x . En conséquence OY,y est une OX,x -algèbre plate ([71], EGA IV2 ,
+```
+
+### CLD.txt: cached text lines 3750--3920
+
+```text
+Alors l’application p|T : T → Σ est paralinéaire.
+
+Démonstration. — L’assertion est G-locale sur X et Y . Par définition d’une partie pa-
+ralinéaire, on peut donc supposer que Σ est fidèlement paralinéaires. Soit f ∈ Λ(Σ).
+Comme p est un morphisme d’espaces G-tropicaux, f ◦ p est une application paralinéaire
+sur Y . Par suite, f ◦ p|T est paralinéaire (lemme 3.2.8). Comme f identifie Σ à une
+partie paralinéaire d’un espace numérique, cela démontre que p induit une application
+paralinéaire de T vers Σ.
+
+                 § 3.3. FORMES DE TYPE (p, q) SUR UN ESPACE G-TROPICAL                    79
+
+     § 3.3. FORMES DE TYPE (p, q) SUR UN ESPACE G-TROPICAL
+
+  Dans ce paragraphe, on fixe une classe de coefficients G .
+3.3.1. — Soit X un espace G-tropical.
+    Les cartes G-tropicales sur les domaines de X forment une catégorie essentiellement
+petite, un morphisme d’une carte G-tropicale (f : X → E, P ) dans une autre (f ′ : X →
+E ′ , P ′ ) étant une application affine q : E → E ′ tel que f ′ = q ◦ f et q(P ) ⊂ P ′ .
+    Cette catégorie a un objet final pour lequel E = {0} et P est un point. Elle est
+filtrante : si (f : X → E, P ) et (f ′ : X → E ′ , P ′ ) sont deux cartes G-tropicales sur X,
+alors (f × f ′ : X → E × E ′ , P × P ′ ) est une carte G-tropicale sur X qui domine les deux
+cartes G-tropicales données.
+
+Remarque 3.3.2. — Soit X un espace G-tropical compact et soit (f : X → E, P ) une
+G-carte tropicale sur X.
+  a) L’ensemble f (X) est un sous-espace paralinéaire compact de E contenu dans P
+(théorème. 12.2.4) et la carte donnée se factorise par (f : X → E, f (X)). On dira parfois,
+par abus, que f est une carte G-tropicale sur X.
+  b) Pour toute décomposition cellulaire (Pi ) de f (X), la famille (f −1 (Pi )) est un G-
+recouvrement fini de X par des domaines compacts dont l’image par f est une cellule.
+
+3.3.3. — Pour tout domaine V de X et tout couple (p, q) d’entiers naturels, notons
+Gpfp,q (V ) la limite inductive des R-espaces vectoriels GPp,q (P ), lorsque (f : V → E, P )
+parcourt l’ensemble des cartes G-tropicales sur V .
+    Lorsque V parcourt l’ensemble des domaines de X, les espaces vectoriels Gpfp,q (V )
+définissent un préfaisceau sur le site XG .
+    Soit V un domaine de X et soit (f : V → E, P ) une carte G-tropicale sur V . Toute
+forme α appartenant à GPp,q (P ) définit un élément de Gpfp,q (V ) qui est noté f ∗ α.
+    Par définition, toute section de Gpfp,q (V ) est de cette forme ; on peut même supposer
+que P est ouvert. Plus précisément, soit (f : V → E, P ) une carte G-tropicale sur V ,
+soit α ∈ GPp,q (P ) ; il existe un ouvert U de E dont P est une partie fermée ; d’après le
+lemme 1.9.4, il existe β ∈ GEp,q (U ) telle que α = β|P ; on a alors f ∗ α = f ∗ β.
+
+Définition 3.3.4. — On note GXp,qG le faisceau sur XG associé au préfaisceau Gpfp,q . Ses
+sections sont appelées G-formes de type (p, q) à coefficients dans G .
+  Lorsque la classe G est la classe A des fonctions lisses, on parle de G-forme lisse de
+type (p, q).
+
+   Si X est l’espace G-tropical associé à un espace paralinéaire, on retrouve ainsi le
+faisceau des G-formes de type (p, q) à coefficients dans G .
+3.3.5. — On définit le support d’une G-forme de type (p, q) sur X comme le complé-
+mentaire du plus grand ouvert de X en restriction auquel cette forme est nulle.
+  Si (Xi ) est un G-recouvrement de X, le support d’une G-forme ω coïncide avec la
+réunion des supports des G-formes ω|Xi . Il est tout d’abord évident que supp(ω|Xi ) ⊂
+supp(ω) ∩ Xi pour tout i. Inversement, soit x un point de X qui n’appartient au support
+d’aucune des formes ω|Xi ; démontrons T que x n’appartient
+                                                   S       pas au support de ω. Soit I
+un ensemble fini d’indices tel que x ∈ i∈I Xi et i∈I Xi soit un voisinage de x. Pour
+tout i ∈ I, soit Vi un voisinage de x dans Xi qui est un domaine compact et sur lequel
+
+80                            CHAPITRE 3. ESPACES G-TROPICAUX
+                    S
+ω|Vi = 0 ; soit V = i∈I Vi ; c’est un domaine compact de X et un voisinage de x. Par
+construction, la G-forme ω|V est G-localement nulle, donc nulle.
+
+Proposition 3.3.6. — Soit X un espace G-tropical et soit ω une G-forme de type (p, q)
+sur X. Le support de ω est contenu dans l’ensemble des points x ∈ X tels que dtrop (x) ⩾
+max(p, q).
+
+Démonstration. — Soit x ∈ X un point tel que dk (x) < max(p, q) ; démontrons que ω
+est nulle au voisinage de x. Par hypothèse, il existe des domaines compacts V1 , . . . , Vn
+de X dont la réunion est un voisinage V de x dans X, des cartes G-tropicales fi : Vi → Ei
+et des formes αi sur fi,trop (Vi ) tels que ω|Vi = fi∗ αi pour tout i. La dimension tropicale
+de fi en x est majorée par dtrop (x) ; quitte à diminuer les Vi , on peut supposer que
+dim(fi (Vi )) ⩽ dtrop (x) ; alors, αi = 0. On a donc ω|V = 0.
+
+Corollaire 3.3.7. — Si dtrop (X) < max(p, q), alors les faisceaux FXp,q et FXp,qG sont
+nuls.
+
+3.3.8. — Soit ω une G-forme (resp. une forme) de type (p, q) à coefficients dans G
+sur X. Si V est un domaine de X, une G-tropicalisation de ω sur V est la donnée d’une
+carte G-tropicale (f : V → E, P ) et d’une forme α ∈ GPp,q (P ) telle que ω = f ∗ α.
+  On dira que ω est G-tropicale si elle admet une G-tropicalisation sur X.
+  Si V est un domaine de X tel que ω possède une G-tropicalisation sur V , nous dirons
+aussi que V G-tropicalise ω.
+  Soit V un domaine compact de X qui G-tropicalise ω, et soit (f V → E, P, α) une
+G-tropicalisation de ω|V . Comme f (V ) est un sous-espace paralinéaire de E, (f : V →
+E, f (V ), α|f (V ) ) est encore une G-tropicalisation de ω|V ; une telle G-tropicalisation sera
+simplement notée (f : V → E, α) : lorsque V est compact, l’omission du sous-espace
+paralinéaire P signifie qu’il est égal à f (V ).
+
+Remarque 3.3.9. — Soit H une classe de coefficients contenant G . Observons que
+les G-formes à coefficients dans G s’identifient à des G-formes à coefficients dans H .
+   En effet, le G-préfaisceau Gpfp,q sur XG s’identifie à un sous-G-préfaisceau de Hpfp,q , de
+sorte que le G-faisceau GXp,qG sur X s’identifie alors à un sous-G-faisceau de HXp,qG
+                                                                                       . Ces
+identifications sont compatibles avec les constructions faites dans ce paragraphe.
+
+3.3.10. — Le faisceau GXG := GX0,0G est un faisceau en R-algèbres et les faisceaux GXp,qG
+sont des GXG -modules. Leur somme directe GX∗,∗G = p,q GXp,qG est un faisceau en algèbres
+                                                   L
+
+bigraduées commutatives : si ω est de type (p, q) et ω ′ de type (p′ , q ′ ), alors
+                                                    ′     ′
+                                ω ′ ∧ ω = (−1)(p+p )(q+q ) ω ∧ ω ′ .
+3.3.11. — Le G-préfaisceau Gpf∗,∗ est naturellement muni d’un opérateur J qui s’étend
+au faisceau GX∗,∗G . Ce sont des morphismes d’algèbres. On dit qu’une section ω de GXp,qG
+est symétrique si p = q et si Jω = ω.
+    Soit H une classe de coefficients telles que les dérivées partielles des fonctions de G
+existent et appartiennent à H . On dispose alors d’opérateurs différentiels d′ et d′′ de
+Gpf∗,∗ dans Hpf∗,∗ ; ils induisent des opérateurs différentiels de GX∗,∗G dans HX∗,∗
+                                                                                  G
+                                                                                     , caractérisés
+par les relations
+                               d′ f ∗ α = f ∗ d′ α, d′′ f ∗ α = f ∗ d′′ α,
+
+                                 § 3.4. NULLITÉ DES G-FORMES                             81
+
+pour toute carte G-tropicale (f : U → E, P ) et toute forme α de type (p, q) à coeffi-
+cients dans G sur P . Les différentielles vérifient la règle de Leibniz : si ω et ω ′ sont
+respectivement de type (p, q) et (p′ , q ′ ), on a
+(3.3.11.1)               d′ (ω ∧ ω ′ ) = d′ ω ∧ ω ′ + (−1)p+q ω ∧ d′ ω ′ ,
+et de même pour d′′ (ω ∧ ω ′ ).
+   Si G ⊂ C 2 , ces opérateurs vérifient d′ d′ = d′′ d′′ = 0.
+3.3.12. — Cette construction est fonctorielle. Plus précisément, si f : Y → X est un
+morphisme d’espaces G-tropicaux, on dispose de morphismes de faisceaux
+                                     f ∗ : GX∗,∗G → f∗ (GY∗,∗
+                                                           G
+                                                              )
+sur XG qui sont des morphismes d’anneaux gradués, commutent aux dérivations d′ et
+d′′ (lorsqu’elles existent) et à l’opérateur J.
+   Lorsque le contexte rend évident le morphisme f , on se permettra parfois de noter
+ω|Y l’image dans GYp,q G
+                         (Y ) d’une G-forme ω ∈ GXp,qG .
+3.3.13. — Soit (p, q) un couple d’entiers naturels. Soit Σ une partie paralinéaire de X
+et soit j l’inclusion de Σ dans X. C’est un morphisme d’espaces G-tropicaux. On dispose
+donc d’un morphisme de faisceaux de FXp,qG dans j∗ FΣp,qG . On notera ω 7→ ω|Σ l’image
+d’une forme ω et on dira que c’en est la restriction à Σ.
+   Concrètement, cette restriction se calcule de la façon suivante.
+   Soit V un domaine de X, soit (f : V → E, P ) une carte G-tropicale sur V , et soit
+α ∈ FPp,q (P ). Alors Σ ∩ V est une partie paralinéaire de V , l’application f : Σ ∩ V → E
+est paralinéaire et son image est contenue dans P , l’image réciproque f ∗ α de α est
+une forme de type (p, q) sur l’espace paralinéaire Σ ∩ V . Par définition de l’ensemble
+Fpfp,q (V ) comme limite inductive, la forme f ∗ α ne dépend que de la classe de f ∗ α dans
+cet ensemble. Cette construction définit un morphisme de préfaisceaux de FX,pf     p,q
+                                                                                       dans
+j∗ FΣp,q .
+   Par passage aux faisceaux associés, on en déduit le morphisme de restriction de FXp,qG
+dans j∗ FΣp,qG .
+3.3.14. — Soit f : Y → X un morphisme d’espaces G-tropicaux, soit T une partie
+paralinéaires de Y et soit Σ une partie paralinéaire de X telle que f (Σ) ⊂ T. Pour toute
+forme ω ∈ FXp,qG (X), on a (f ∗ ω)|T = (f |T )∗ (ω|Σ ).
+   Nous appliquerons notamment cette remarque lorsque Y est un domaine de X et
+T = Σ ∩ Y , ou bien lorsque Y = X et T est une partie polyédrale de Σ.
+
+
+
+                          § 3.4. NULLITÉ DES G-FORMES
+
+Proposition 3.4.1. — Soit X un espace G-tropical compact, soit f : X → E une carte
+G-tropicale, soit P un sous-ensemble paralinéaire de E contenant f (X) et soit α ∈
+GPp,q (P ). Les assertions suivantes sont équivalentes :
+   a) La restriction de α au sous-espace paralinéaire f (X) est nulle ;
+   b) La section globale f ∗ α de Gpfp,q est nulle.
+Démonstration. — L’hypothèse (1) entraîne que l’image de α dans la carte tropicale
+(f, f (X)) est nulle, de sorte que (2) vaut. Supposons que (2) est vérifiée et prouvons (1).
+
+82                          CHAPITRE 3. ESPACES G-TROPICAUX
+
+   On peut remplacer P par f (X). Par définition, il existe une carte G-tropicale g : X →
+F , une morphisme affine p : F → E tel que p ◦ g = f , et un sous-espace paralinéaire Q
+```
+
+### CLD.txt: cached text lines 5289--5314
+
+```text
+que les classes de ω|Σi et de ωi coïncident dans Vpfn (Xi ). Notons f l’injection de Σi
+dans Σ∩Xi ; il suffit de démontrer l’égalité ω|Σ∩Xi = f∗ ωi de n-formes-volume sur Σ∩Xi .
+Comme le préfaisceau Vpfn est séparé, il suffit de vérifier cette égalité après restriction
+à Σj ∩ Xi , pour tout j.
+   Notons α la n-forme-volume ω|Σi ∩Σj . Comme les classes de ωi et ωj dans V n (Xi ∩ Xj )
+coïncide, la forme-volume ωi |Σi ∩Xj est le prolongement par zéro de ωi |Σi ∩Σj = α, et
+ωj |Σj ∩Xi est le prolongement par zéro de α. Ainsi, ω|Σj ∩Xi = ωj |Σj ∩Xi est le prolongement
+par zéro de ωj |Σi ∩Σj = α. D’autre part, (f∗ ωi )|Σj ∩Xi est le prolongement par zéro de
+ωi |Σi ∩Σj = α. Cela démontre l’égalité requise et termine la démonstration du lemme.
+
+4.3.9. — Soit f : X → Y une immersion par morceaux d’espaces linéaires par mor-
+ceaux. On a alors un morphisme d’image réciproque f ∗ : VYnG → f∗ VXnG , déduit du mor-
+phisme défini dans le paragraphe 4.3.5 lorsque dim(X) ⩽ n. Si, de plus, f est compacte,
+on a un morphisme d’image directe f∗ : f∗ VXnG → VYnG , déduit du morphisme défini dans
+le paragraphe 4.3.6 lorsque dim(X) ⩽ n. Dans les deux cas le point clé est que ces
+opérations commutent au prolongement par zéro.
+
+
+
+
+           § 4.4. MESURE ASSOCIÉE À UNE FORME-VOLUME
+
+4.4.1. — Soit X un espace paralinéaire de niveau n. Soit ω une forme-volume dimen-
+sionnelle à coefficients boréliens sur X. Le but de ce paragraphe est de lui associer une
+mesure (positive) de Borel régulière ωBor sur X et, si cette mesure est localement finie,
+
+```
+
+### CLD.txt: cached text lines 5449--5483
+
+```text
+   En général, le G-faisceau des calibrages sur X est G-localement libre de rang 1
+sur GXG /In GXG . On dira qu’un calibrage est G-localement constant (resp. posi-
+tif, resp. ...) s’il est G-localement multiple d’un calibrage standard par une section
+G-localement constante (resp. positive, resp. ...) de GXG /In GXG .
+
+Exemple 4.5.2. — Soit X un espace paralinéaire de niveau n, paracompact.
+   Soit C une décomposition cellulaire de X ; pour toute cellule C appartenant à C , soit
+fC un isomorphisme de C sur une cellule d’un espace affine VC . Pour toute cellule C ∈ Cn ,
+                                                     −−−−−→
+choisissons une orientation εC de l’espace vectoriel ⟨fC (C)⟩ et une fonction µC de classe G
+                             −−−−−→
+de fC (C) dans l’espace |Λn ⟨fC (C)⟩| des vecteurs-volumes sur cet espace vectoriel ; soit
+                                                          −−−−−→
+alors µ′C l’unique fonction de fC (C) à valeurs dans Λn ⟨fC (C)⟩ tel que µC soit la classe
+de (µ′C , εC ).
+   Il existe alors un unique calibrage µ de X tel que pour toute cellule C de dimen-
+                                    −−−−−→
+sion n et tout élément ω ∈ An,0 (⟨fC (C)⟩), µ(fC∗ [ω, εC ]) soit la classe dans G /In G (C)
+                                                                                  −−−−−→
+de la fonction déduite de (ω, µ′C ) par l’accouplement de dualité entre An,0 (⟨fC (C)⟩) et
+   −−−−−→
+Λn ⟨fC (C)⟩ et composition par fC . On résume cette propriété en écrivant µ|C = fC∗ µC .
+   Si les fonctions µC sont constantes (resp. positives, resp. ...), alors le calibrage µ est
+G-localement constant (resp. positif, resp. ...).
+   Pour tout calibrage µ sur X, il existe une décomposition cellulaire C , une famille (fC )
+d’isomorphismes et une famille (µC ) qui définissent µ comme ci-dessus.
+
+                     § 4.5. CALIBRAGES ET INTÉGRALES DES (n, n)-FORMES                          109
+
+  Si le calibrage µ est G-localement constant (resp. positif), on peut en outre exiger que
+pour toute cellule C de dimension n, la fonction µC soit constante (resp. positive) sur C.
+  Si X est muni d’une immersion par morceaux f : X → V vers un espace affine, on
+peut aussi exiger que fC = f |C pour toute cellule C.
+  En particulier, si X est un sous-espace paralinéaire d’un espace affine V , il existe une
+décomposition cellulaire forte C de X telle que pour toute cellule C ∈ C , le calibrage µ|C
+```
+
+### CLD.txt: cached text lines 6308--6332
+
+```text
+Exemple 5.2.8. — Soit k un corps complet pour une valeur absolue non archimédienne
+et soit X un espace k-analytique, topologiquement séparé, et purement de dimension n.
+Dans la seconde partie de ce livre, nous allons le munir d’une structure d’espace G-
+tropical vertébré. Dans le but d’éclairer les constructions et définitions de la présente
+partie, indiquons ici quelques aspects de cette structure à venir.
+   Les domaines de X, comme espace G-tropical, sont ses domaines analytiques.
+
+126                    CHAPITRE 5. ESPACES G-TROPICAUX CALIBRÉS
+
+   Pour définir ses fonctions paralinéaires et ses fonctions affines, on procédéra à rebours
+de l’axiomatisation générale en commençant par définir les fonctions affines sur l’espace
+G-tropical X : ce sont celles qui sont localement combinaisons Q-linéaires de fonctions
+de la forme log|f |, où f est une fonction analytique inversible sur un domaine analytique
+de X. Les fonctions paralinéaires sur l’espace G-tropical X sont alors les fonctions qui
+sont G-localement affines.
+   Parmi toutes les cartes G-tropicales sur X, il suffira de considérer celles de la forme
+ftrop : V → Rn où V est un domaine analytique de X, f : V → Gnm est un mor-
+phisme d’espaces analytiques (nous appellerons moment de tels morphismes), et ftrop =
+(log|f1 |, . . . , log|fn |).
+   Les parties squelettiques élémentaires de X sont les parties de la forme Σf = f −1 (Sn ),
+où V est un domaine de X et f : V → Gnm est un moment et Sn est le squelette standard
+                                                                  (n)
+de Gnm . Alors, l’ensemble (Σf )(n) n’est autre que l’ensemble Σftrop .
+   Si X est un domaine analytique d’un bon espace, en particulier, si X est sans bord,
+nous démontrerons que l’espace G-tropical associé à X est décent (définition 6.3.1 et
+```
+
+### CLD.txt: cached text lines 6400--6414
+
+```text
+entiers tels que max(p, q) = n et soit Σ une partie squelettique fermée de X qui sup-
+porte fortement ω. Alors, Σ(n) est une partie squelettique fermée de X qui supporte
+fortement ω.
+
+Démonstration. — Comme Σ(n) est une partie paralinéaire fermée de Σ, c’est une partie
+squelettique fermée de X.
+  Soit T une partie squelettique fermée de X qui contient Σ(n) ; démontrons que ω|T
+est le prolongement par zéro de ω|Σ(n) . Quitte à remplacer T par T ∪ Σ, on suppose
+que T contient Σ. Quitte à raisonner G-localement, on peut supposer que T possède
+une décomposition cellulaire adaptée à Σ, et il s’agit de démontrer la restriction de ω à
+toute cellule fermée qui n’est pas contenue dans Σ(n) est nulle. C’est en effet le cas d’une
+cellule qui n’est pas dans Σ, par définition d’un support fort, et d’une cellule qui n’est
+pas dimension n, car la restriction d’une (p, q)-forme à une telle cellule est nulle.
+  Prouvons maintenant que le support de ω est contenu dans Σ(n) . Soit x un point
+de Σ(n) ; prouvons que ω est nulle au voisinage de x. L’assertion est G-locale au voisinage
+```
+
+### CLD.txt: cached text lines 6753--6812
+
+```text
+de X ; pour tout i, soit λi ∈ Vpfp (Xi ). Si λi |Xi ∩Xj = λj |Xi ∩Xj pour tout (i, j) il existe une
+unique forme-volume λ ∈ Vpfp (X) telle que λ|Xi = λi pour tout i.
+
+Démonstration. — L’unicité de λ provient du lemme 5.6.2 ci-dessus. En vertu de cette
+assertion d’unicité, l’existence peut être prouvée après raffinement du recouvrement (Yi ).
+Puisque X est paracompact, on peut donc supposer que le recouvrement (Yi ) est loca-
+lement fini. Pour tout i, choisissons une partie squelettique fermée Σi de Yi telle que λi
+provienne d’un élément λΣi ∈ V p (Σi ). Comme le G-recouvrement (Yi ) est localement fini,
+la réunion Σ des Σi est une partie squelettique fermée de X (proposition 5.1.5) dont la
+famille (Σi ) est un G-recouvrement. Les λΣi se recollent alors en une section λΣ ∈ V p (Σ).
+Notons λ la classe de λΣ dans V p (X) ; alors λ|Xi = λi quel que soit i.
+
+134                   CHAPITRE 5. ESPACES G-TROPICAUX CALIBRÉS
+
+Corollaire 5.6.5. — Soit Y un domaine paracompact de X et soit λ ∈ VXFG,p (Y ) une
+forme-volume p-dimensionnelle sur Y . Il existe une partie squelettique fermée Σ de Y
+de dimension ⩽ p et une p-forme-volume λΣ sur Σ qui définit λ.
+
+  Il est vraisemblable que le corollaire ne vaille pas sans l’hypothèse que Y est paracom-
+pact.
+5.6.6. — Soit Y un domaine fermé de X ; notons i l’immersion canonique de Y dans X.
+Comme toute partie squelettique fermée de Y est une partie squelettique fermée de X,
+le prolongement par zéro définit un homomorphisme de G-préfaisceaux de i∗ VYpG ,pf
+dans VXpG ,pf . On en déduit un morphisme de G-faisceaux de i∗ VYpG dans VXpG . Si λ est une
+forme-volume p-dimensionnelle sur Y , on notera i∗ λ la forme-volume p-dimensionnelle
+correspondante sur X.
+5.6.7. — On dit qu’une forme-volume p-dimensionnelle λ sur X est positive s’il existe
+un G-recouvrement (Xi ) de X tel que, pour tout i, λ soit représentée par une formule-
+volume positive sur une partie squelettique fermée de Xi .
+  Dans ce cas, toute forme-volume sur une partie squelettie fermée d’un domaine Y
+de X induisant la forme-volume ω|Y est elle-même positive.
+
+
+
+
+         § 5.7. MESURES ASSOCIÉES À UNE FORME-VOLUME
+                          p-DIMENSIONNELLE
+
+   Soit X un espace G-tropical vertébré de niveau n et soit p un entier naturel tel que
+p ⩽ n. Nous allons associer à toute forme-volume λ, p-dimensionnelle, à coefficients
+boréliens, sur XG une mesure de Borel régulière λBor sur X et, lorsque cette mesure est
+localement finie, une mesure de Radon λRad sur X telle que λBor = |λRad | qui est positive
+lorsque λ est une forme-volume positive.
+   Soit G une classe de coefficients qui est contenue dans B.
+5.7.1. — Soit Σ et Σ′ des parties squelettiques fermées de X telles que Σ ⊂ Σ′ . Soit λ
+appartenant à V G ,p (Σ) et soit λ′ son prolongement par zéro à Σ′ . Notons µ et µ′ les
+mesures de Borel sur Σ et Σ′ associées à λ et λ′ ; lorsqu’on les considère comme mesures
+de Borel sur X, elles sont égales.
+   Les mesure de Borel µ et µ′ sont simultanément localement finies ou non. Lorsqu’elles
+le sont, les formes-volume λ et λ′ donnent lieu à des mesures de Radon µ̃ et µ̃′ sur Σ
+et Σ′ dont µ et µ′ sont les valeurs absolues. On a de plus µ̃ = µ̃′ lorsque ces mesures de
+Radon sont identifiées à des mesures de Radon sur X.
+   Par conséquent, il existe un unique morphisme de faisceaux λ 7→ λBor sur XG qui, pour
+tout domaine Y de X, toute partie squelettique fermée Σ de Y et toute forme-volume λΣ
+sur Σ, p-dimensionnelle et à coefficients dans G , applique la classe de λΣ dans V G ,p (Y )
+sur la mesure de Borel associée à λΣ , considérée comme une mesure de Borel sur Y .
+   Notons VXGG,p,pf le sous-faisceau de VXGG,p constitué des formes-volume λ telles que λBor
+soit localement finie. Il existe un unique morphisme λ 7→ λRad de ce faisceau à valeurs
+dans le faisceau des mesures de Radon sur X qui, pour tout domaine Y de X, toute
+partie squelettique fermée Σ de Y et toute forme-volume λΣ sur Σ dont la mesure de
+```
+
+### CLD.txt: cached text lines 6934--6977
+
+```text
+   Les G-formes localement intégrables constituent un sous-espace vectoriel de F n,n (XG )
+contenant les G-formes lisses. Les G-formes intégrables en sont un sous-espace vectoriel
+qui contient les G-formes lisses à support compact.
+5.8.6. — Soit u une fonction localement intégrable sur X et soit ω une G-forme lisse
+de type (n, n) sur X. Alors, u est localement intégrable par rapport à la mesure ωBor ,
+de sorte que uωRad est une mesure de Radon sur X.
+   L’application (u, ω) 7→ uωRad est bilinéaire ; elle induit une application linéaire de
+Lloc
+   1
+     (XG ) ⊗ A n,n (XG ) dans l’ensemble des mesures de Radon sur X. Cette application
+se factorise par L1loc (XG ) ⊗ A n,n (XG ). On la notera bien sûr α 7→ αRad .
+   Cette construction s’étend en des morphismes de G-faisceaux
+                  Lloc,X
+                    1
+                        G
+                          ⊗AXG AXn,n
+                                  G
+                                     → Lloc,X
+                                         1
+                                              G
+                                                ⊗AXG AXn,n
+                                                        G
+                                                           → MRad,XG
+
+sur X, où MRad,XG est le G-faisceau des mesures de Radon sur X.
+  Une section du faisceau Lloc,X
+                               1
+                                   G
+                                     ⊗AXG AXp,q
+                                             G
+                                                sera appelée G-forme de type (p, q) à
+coefficients localement intégrables.
+
+
+
+
+                             § 5.9. MESURES DE BORD
+
+  Soit X un espace G-tropical calibré de niveau n.
+5.9.1. — Soit ω ∈ FXn−1,nG
+                            (X), soit Σ une partie squelettique fermée de X qui supporte
+fortement ω. En accouplant la restriction à Σ(n) de la forme ω et le calibrage canonique
+de Σ(n) par la construction du §4.6.3, on obtient une forme-volume (n−1)-dimensionnelle
+sur Σ(n) . D’après la proposition 4.6.5 et la définition d’un support fort, la forme-volume
+```
+
+### CLD.txt: cached text lines 7070--7101
+
+```text
+
+
+
+               § 5.10. INTÉGRALES ET TROPICALISATIONS
+
+  Soit X un espace G-tropical calibré de niveau n.
+Proposition 5.10.1. — Soit f : X → E une carte G-tropicale agréable, soit Πf le
+polyèdre tropical de la carte f et soit µΠf son calibrage.
+  Soit p ∈ {n−1, n} et soit α une (p, n)-forme à coefficients boréliens sur un sous-espace
+paralinéaire P de E contenant f (X).
+  a) Si p = n, on a l’égalité
+                                   ftrop,∗ (f ∗ α)Bor ⩾ ⟨α, µΠf ⟩Bor
+                             (n)
+de mesures de Borel sur Πf .
+  b) Si p = n − 1, on a l’inégalité
+                                   ftrop,∗ (f ∗ α)Bor ⩾ ⟨α, µΠf ⟩Bor
+                             (n)
+de mesures de Borel sur Πf .
+  c) La mesure (f ∗ α)Bor est localement finie si et seulement si la forme α|Πf est locale-
+ment intégrable sur Πf ; dans ce cas, on a l’égalité
+                                   ftrop,∗ (f ∗ α)Rad = ⟨α, µΠf ⟩Rad
+de mesures de Radon sur Πf .
+   d) En particulier, si α est intégrable sur Πf , la forme f ∗ α est intégrable sur X, on a
+l’égalité
+                                   Z         Z
+                                        ∗
+(5.10.1.1)                            f α=       ⟨α, µΠf ⟩
+                                        X           Πf
+
+lorsque p = n et l’égalité
+                                      Z ∂          Z ∂
+                                            ∗
+```
+
+### CLD.txt: cached text lines 8130--8168
+
+```text
+7.2.6. — L’image directe d’un courant positif (resp. faiblement positif, fortement po-
+sitif) par un morphisme topologiquement propre d’espaces tropicaux est de même type.
+Cela résulte du fait que la même propriété vaut pour l’image inverse des formes (§3.5.2).
+Lemme 7.2.7. — Soit α une forme lisse symétrique sur X et soit T un courant symé-
+trique sur X.
+   a) Supposons que la forme α soit fortement positive. Alors, si T est positif ( resp.
+faiblement positif, resp. fortement positif ), il en est de même de T ∧ α.
+   b) Supposons que la forme α soit positive. Si T est positif, le courant T ∧ α est positif.
+   c) Supposons que la forme α soit faiblement positive. Si T est fortement positif, le
+courant T ∧ α est faiblement positif.
+Démonstration. — Ces assertions découlent des propriétés de positivité d’un produit de
+deux formes (prop. 3.5.5).
+
+Proposition 7.2.8. — Soit X un espace tropical de niveau n, localement différentiel-
+lement séparé.
+  a) Toute mesure de Radon positive µ sur X induit, par restriction à Ac (X), un courant
+positif [µ] d’ordre 0.
+  b) L’application µ 7→ [µ] ainsi définie est une bijection continue de l’espace des me-
+sures de Radon positives sur X sur l’espace des courants positifs de bidimension (0, 0)
+sur X.
+Démonstration. — a) Soit µ une mesure de Radon positive sur X ; démontrons que
+la forme linéaire [µ] est un courant ; ce sera alors un courant positif. Soit K une partie
+compacte de X et soit D un jeu de cartes couvrant sur X. Il suffit de démontrer que
+la restriction de [µ] à l’espace AD,K
+                                  0,0
+                                      (X) est continue pour sa topologie C 0 . Soit ∥µ∥K
+
+162                  CHAPITRE 7. COURANTS SUR UN ESPACE TROPICAL
+
+la norme de µ sur K : pour toute fonction continue à support compact sur K, on a
+|µ(f )| ⩽ ∥µ∥K ∥f ∥K . Cette inégalité vaut a fortiori pour toute fonction de AD,K (X) et
+entraîne la continuité voulue.
+   b) Cette implication est injective car l’espace des fonctions lisses à support compact
+est dense dans l’espace des fonctions continues à support compact (corollaire 6.2.6).
+   Il reste à prouver qu’elle est surjective. Soit S un courant positif de bidimension (0, 0)
+sur X. Soit K une partie compacte de X. Soit λ une fonction lisse et positive, à support
+compact sur X, qui vaut 1 au voisinage de K. Pour toute fonction lisse f sur X dont
+le support est contenu dans K, on a −∥f ∥K λ ⩽ f ⩽ ∥f ∥K λ. Comme S est positif, il en
+résulte l’inégalité
+```
+
+### CLD.txt: cached text lines 16809--16927
+
+```text
+
+CHAPITRE 12
+
+
+PARTIES SQUELETTIQUES D’UN ESPACE
+ANALYTIQUE
+
+
+
+
+          § 12.1. TORES ET LEURS SQUELETTES CANONIQUES
+
+12.1.1. Convention. — Dans la suite de ce travail, nous travaillerons très régulière-
+ment avec les analytifiés An,an et Gn,an
+                                      m   des k-schémas An et Gnm , et seulement excep-
+tionnellement avec ces schémas eux-mêmes. Aussi écrirons-nous désormais, afin d’alléger
+l’écriture, An et Gnm au lieu de An,an et Gn,an
+                                           m . Il sera donc considéré par défaut que A
+                                                                                        n
+
+et Gnm sont des espaces analytiques ; si nous avons besoin de travailler par endroit avec
+les schémas correspondants, nous le préciserons explicitement.
+12.1.2. — Dans ce travail, le groupe multiplicatif et ses puissances jouent un rôle
+fondamental. Rappelons que l’anneau des fonctions algébriques sur Gnm est l’anneau
+A = k[T1±1 , . . . , Tn±1 ] des polynômes de Laurent à coefficients dans k en des indétermi-
+nées T1 , . . . , Tn ; l’espace analytique Gnm est l’ensemble des semi-normes multiplicatives
+sur cet anneau qui étendent la valeur absolue de k. L’espace Gnm est un ouvert de Zariski
+dense de An : c’est le lieu des points en lesquels aucune fonction coordonnée ne s’annule.
+                                                                 n
+Pour tout polyrayon r = (r1 , . . . , rn ) le point ηr de de A     (défini à l’exemple 11.1.12)
+                     n
+                                                                    aI T I 7→ max|aI |rI sur l’an-
+                                                                P
+appartient à Gm . Il correspond à la norme multiplicative
+neau des polynômes de Laurent. Si le corps k a besoin d’être rappelé nous écrirons ηk,r
+au lieu de ηr .
+   Pour éviter le recours à un choix explicite de coordonnées, nous adopterons la conven-
+tion suivante : nous appellerons tore (de dimension n) tout groupe analytique isomorphe
+à une puissance Gnm du groupe multiplicatif ; nos tores sont donc implicitement supposés
+déployés.
+12.1.3. — Rappelons que toute fonction analytique inversible sur Gnm est un monôme,
+c’est-à-dire de la forme aT1m1 . . . Tnmn , où a ∈ k ∗ et (m1 , . . . , mn ) ∈ Zn est un vecteur
+appelé exposant. (En dimension 1, cet énoncé est le lemme 9.7.1/1 de [20], le cas général
+en découle par récurrence.) C’est en particulier une fonction algébrique.
+   Le morphisme Gnm → Gm induit par une telle fonction est un homomorphisme de
+groupes analytiques si et seulement si a = 1.
+
+330          CHAPITRE 12. PARTIES SQUELETTIQUES D’UN ESPACE ANALYTIQUE
+
+  Soit T un tore. L’ensemble X(T ) des caractères de T , c’est-à-dire des morphismes de
+groupes analytiques de T vers Gm , est un groupe abélien.
+  On déduit de ce qui précède que tout isomorphisme de T avec Gnm induit un iso-
+morphisme de X(T ) avec Zn ; on en déduit aussi que si T et T ′ sont deux tores, tout
+morphisme d’espaces k-analytiques de T vers T ′ est affine, i.e. composé d’un morphisme
+de groupes analytiques et d’une translation ; c’est donc un morphisme de groupes si et
+seulement si il envoie l’origine de T sur l’origine de T ′ . Pour cette raison, lorsque nous
+évoquerons un morphisme entre tores qui n’est pas nécessairement un morphisme de
+groupes analytiques, nous le qualifierons de morphisme affine.
+12.1.4. Tropicalisations. — On considère le groupe abélien R×            + comme un R-espace
+vectoriel, via l’exponentiation. Par ailleurs, le choix d’une base de logarithmes permet de
+l’identifier à l’espace R. On fixe une fois pour toutes un tel isomorphisme log : R×       + → R.
+Dans ce texte, il n’y a pas d’intérêt particulier à choisir le logarithme néperien ; en
+particulier, nous n’aurons jamais à dériver cet isomorphisme, vu comme fonction d’une
+variable réelle. L’utilisation de cet isomorphisme log présentera pour nous deux intérêts :
+elle nous permettra d’utiliser la géométrie paralinéaire sous sa forme standard, plutôt
+que sa variante multiplicative ; et elle donnera lieu à un formalisme apparenté à celui de
+la géométrie complexe, dans lequel les logarithmes de fonctions holomorphes inversibles
+jouent un rôle majeur.
+   Soit T un tore. Nous noterons Ttrop le R-espace vectoriel Hom(X(T ), R×      + ), que l’on peut
+identifier à (R× + )n
+                      une fois choisie une trivialisation de T , ou à Rn
+                                                                         via l’isomorphisme    log
+choisi. L’espace vectoriel Ttrop est appelé tropicalisation du tore T .
+   Étant donné un point t de T , l’application qui applique un caractère φ ∈ X(T ) sur
+l’élément |φ(t)| est un élément de Ttrop noté trop(t). L’application trop : T → Ttrop ainsi
+définie est continue.
+   La formation de Ttrop est fonctorielle : tout morphisme affine f : T → T ′ entre tores
+                                                   ′
+induit une application affine ftrop : Ttrop → Ttrop    telle que le diagramme
+
+                                                   f
+                                          T   ←         → T′
+                                          ←
+
+
+
+
+                                                          ←→
+                                          →
+
+
+
+
+                                                  ftrop   ′
+                                         Ttrop   ←     → Ttrop
+
+commute.
+12.1.5. Squelette de Gnm . — L’application de tropicalisation Gnm → (Gnm )trop possède
+une section naturelle, notée sq et définie comme suit : pour tout point r = (r1 , . . . , rn ) ∈
+(Gnm )trop = Rn , on note sq(r) le point ηr de Gnm . L’application sq est continue ; elle induit
+un homéomorphisme de (R×        n                                  n        n
+                             + ) sur un sous-espace fermé S(Gm ) de Gm que l’on appelle
+                           n
+squelette canonique de Gm .
+  On munit S(T ) de l’unique structure de groupes pour laquelle sq est un isomomor-
+phisme de groupes. Pour tout extension valuée K de k, l’application naturelle T (K) →
+S(T ) donnée par t 7→ sq(trop(t)) est un morphisme de groupes.
+  Par définition, pour qu’un point x P   ∈ Gnm appartienne à S(Gnm ), il faut et il suffit que
+pour tout polynôme de Laurent f = am T m , on ait
+
+                         |f (x)| = max|am | · |T1 (x)|m1 . . . |Tn (x)|mn .
+                                     m
+
+                      § 12.1. TORES ET LEURS SQUELETTES CANONIQUES                              331
+
+(Si x = sq(r), la formule est vraie par définition ; dans l’autre sens, cette formule prouve
+que x = ηr avec ri = |Ti (x)| pour tout i.)
+  Du point de vue de la réduction graduée, cette dernière condition revient à demander
+que les éléments T] i (x) du corps résiduel gradué H (x) soient algébriquement indépen-
+```
+
+### CLD.txt: cached text lines 18040--18119
+
+```text
+une valeur constante dans Q log|k × | hors d’une partie compacte de U ; elles s’identifient
+à des fonctions continues sur U ′ . Pour u, v ∈ H, les fonctions min(u, v) et max(u, v)
+appartiennent encore à H (lemme 12.5.3).
+   Soit x, y des points de U ′ tels que x ̸= y, soit a, b ∈ R et soit ε > 0. Démontrons qu’il
+existe v ∈ H tel que |v(x) − a| < ε et |v(y) − b| < ε.
+   Par symétrie, on peut supposer que x ∈ U . Soit V un voisinage compact de x qui
+est contenu dans U . D’après le lemme 12.5.6 appliqué il existe une fonction paralinéaire
+(resp. paralinéaire stricte) u sur X qui est strictement positive en x et nulle hors de V .
+En particulier, son support est compact, contenu dans U , et l’on a u(y) = 0. Choisissons
+s ∈ Q log|k × | tel que |s − b| < ε, puis un nombre rationnel r tel que |ru(x) + s − a| < ε.
+La fonction v = ru + s est paraliénaire (strictement paralinéaire stricte) sur X, elle
+vérifie |v(x) − a| < ε et |v(y) − b| < ε.
+
+350         CHAPITRE 12. PARTIES SQUELETTIQUES D’UN ESPACE ANALYTIQUE
+
+     Selon la proposition 2 de Bourbaki, Topologie générale X, p. 34, ceci entraîne que H
+est dense dans l’espace des fonctions numériques continues sur U ′ .
+     Soit f une fonction continue sur X dont le support est compact et contenu dans U .
+Soit ε > 0. D’après ce qui précède, il existe une fonction g ∈ H telle que |f (x) − g(x)| <
+ε/2 pour tout x ∈ U .
+     Si U est compact, on prolonge g par 0 sur l’ouvert X U . On obtient une fonction
+paralinéaire (resp. strictement paralinéaire) dont le support est compact et contenu
+dans U , qui approche f à ε près.
+     Supposons que U n’est pas compact. Par définition de l’ensemble H, il existe a ∈
+Q log|k × | tel que g ′ = g − a soit une fonction paralinéaire (resp. paralinéaire stricte)
+à support compact dans U . Comme f est à support compact dans U , on a |a| ⩽ ε/2.
+Soit x ∈ X. Si x ∈ U , on a |f (x) − g ′ (x)| ⩽ |f (x) − g(x)| + |a| ⩽ ε. Sinon, on a
+g ′ (x) = 0 = f (x). Cela conclut la démonstration de la proposition.
+
+Corollaire 12.5.8. — On suppose que la valeur absolue de k n’est pas triviale. Soit X
+un espace k-analytique ( resp. strictement k-analytique) topologiquement séparé et loca-
+lement holomorphiquement séparé.
+  a) L’ensemble des fonctions paralinéaires ( resp. paralinéaires strictes) à support com-
+pact sur X est dense dans l’espace Cc (X) des fonctions continues à support compact
+sur X, muni de la topologie limite inductive des espaces de fonctions à support dans un
+compact donné.
+  b) L’ensemble des fonctions paralinéaires ( resp. strictement paralinéaires) à support
+compact sur X est dense dans l’espace C (X) des fonctions continues sur X muni de la
+topologie de la convergence uniforme sur tout compact.
+   La démonstration se déduit du théorème 12.5.7 de la même façon que le corollaire A.2.6
+se déduisait du théorème A.2.5, mutatis mutandis.
+
+
+
+        § 12.6. POLYÈDRE CARACTÉRISTIQUE D’UN MOMENT
+
+   Si P un espace paralinéaire et n un entier, rappelons que l’on note P (n) l’ensemble des
+points x ∈ P tels que dimx (P ) ⩾ n ; c’est un sous-espace paralinéaire fermé de P .
+   Les paragraphes qui suivent visent à construire, pour tout espace analytique topologi-
+quement séparé X, une notion de partie squelettique. D’après la construction générale,
+il va suffire de définir la notion de partie squelettique élémentaire et le procédé que nous
+proposons suppose donné un entier naturel n tel que dim(X) ⩽ n. Même si la théorie
+ne voit pas les composantes irréductibles de X de dimension < n, il est commode, pour
+des raisons de rédaction, de ne pas supposer que X est équidimensionnel, ni que n est
+égal à dim(X).
+   Si n est un entier naturel, l’expression « Soit X un espace analytique de niveau n »
+signifiera ainsi que X est un espace analytique topologiquement séparé tel que dim(X) ⩽
+n, et que l’on garde trace de cet entier n.
+   Lorsque L est une extension complète de k, on considérera implicitement l’espace L-
+analytique XL obtenu par changement de base comme un espace analytique de niveau n.
+(Il est topologiquement séparé car le morphisme de changement de base XL → X est
+topologiquement séparé.)
+
+                     § 12.6. POLYÈDRE CARACTÉRISTIQUE D’UN MOMENT                            351
+
+Définition 12.6.1. — Soit X un espace k-analytique de niveau n. Soit T un tore et
+soit f : X → T un moment sur X. On appelle polyèdre caractéristique du moment f
+la réunion des images réciproques par q ◦ f du squelette canonique de Gnm , lorsque q
+parcourt l’ensemble des morphismes de tores de T dans Gnm . On le note Σf .
+   Soit x ∈ Σf . Soit q : T → Gnm un morphisme de tores tel que q ◦ f (x) ∈ S(Gnm ).
+On a donc dk (x) ⩾ dk (f (x)) ⩾ dk (q ◦ f (x)) = n = dim(X), donc dk (x) = dim(X) =
+dk (f (x)) = n. Par suite, le point x n’appartient à aucun fermé de Zariski de dimension <
+dim(X) d’aucun domaine analytique de X. En particulier, le point x n’appartient qu’à
+une seule composante irréductible de X dans laquelle il est Zariski-dense.
+   Cela démontre aussi que Σf est vide si dim(T ) < n.
+   Notons fred : Xred → T le moment déduit de f par restriction. On a Σfred = Σf .
+Remarque 12.6.2. — Soit X un espace k-analytique de niveau n et soit f : X → T
+un moment sur X. Le polyèdre caractéristique Σf est contenu dans la réunion X (n) des
+composantes irrédutibles de X qui sont de dimension n ; en particulier, cette théorie
+ignore les éventuelles composantes de dimension < n. On pourrait travailler sur chacune
+```
+
+### CLD.txt: cached text lines 19153--19240
+
+```text
+
+Théorème 12.11.1. — Soit X un espace k-analytique sans bord, topologiquement sé-
+paré et purement de dimension n ; considérons-le comme un espace analytique de ni-
+veau n. Alors X est très riche (définition 5.2.7).
+Démonstration. — D’après le corollaire 12.10.7, l’espace X est riche ; il reste à démontrer
+que toute partie squelettique compacte Σ de X est contenue dans une partie squelettique
+purement de dimension n.
+   Soit x un point de Σ. Le germe (X, x) est sans bord, donc presque bon ; d’après la
+proposition 12.9.10, il existe un voisinage ouvert Ux de x et un moment fx : Ux → Gnm
+tel que Σ ∩ Ux ⊂ Σfx . Considérons un voisinage analytique compact Vx de x dans Ux .
+Démontrons que x ∈ (Σfx ∩ Vx )(n) .
+   Comme Σ est compact, il existe une partie finie S de Σ telle que les V˚x , pour x ∈ S,
+recouvrent Σ. Soit T la réunion des (Σfs ∩Vs )(n) , pour s ∈ S. c’est une partie squelettique
+compacte de X, purement de dimension n.
+   Démontrons que Σ ⊂ T. Soit x ∈ Σ ; soit s ∈ S tel que x ∈ V˚s . Comme X est sans bord,
+l’ouvert V̊s est sans bord, donc Σfs ∩ V˚s est purement de dimension n (corollaire 12.8.4),
+si bien que x appartient à (Σfs ∩ Vs )(n) . A fortiori, x ∈ T.
+
+Remarque 12.11.2. — On ne peut pas, en général, enlever l’hypothèse que X est
+sans bord. Supposons par exemple qu’il existe r ∈      / |k × |Q et considérons le domaine
+analytique de A1k défini par |T | = r. C’est un espace k-analytique de dimension 1, réduit
+au singleton {ηr }, qui est aussi son bord. Il ne contient aucun squelette de dimension 1,
+et n’est donc pas très riche.
+Remarque 12.11.3. — La structure des courbes k-analytiques (pour laquelle nous
+renvoyons au chapitre 4 de [8], et à la présentation plus générale de [57]) entraîne que
+toute courbe k-analytique ne comportant aucun point de type (3) isolé est très riche.
+En effet, soit X une telle courbe et soit x ∈ X un point tel que dk (x) = 1. Cela entraîne
+que X est de type (2) ou (3). Si x est de type (2), il existe une branche aboutissant à x ;
+il en est de même si x est de type (3) puisque, par hypothèse, il n’est pas isolé.
+   En particulier, pour tout r > 0, le disque de rayon r de A1k est très riche.
+Remarque 12.11.4. — Nous nous attendons à ce que le polydisque unité de Ank soit
+très riche.
+   En revanche, si r ∈  / |k × |Q, le bidisque X de birayon (r, 1/r) n’est pas très riche.
+Considérons en effet l’ouvert U de X défini par |T1 T2 − 1| < 1 ; nous allons démontrer
+qu’il est non vide et contenu dans la fibre de la première projection en ηr , qui est une
+courbe H (ηr )-analytique, et ne contient donc aucune partie squelettique de dimension 2.
+   Soit x ∈ U . Comme |T1 (x)T2 (x) − 1| < 1, on a |T1 (x)||T2 (x)| = 1 ; par définition de X,
+on a |T1 (x)| ⩽ r et |T2 (x)| ⩽ 1/r, si bien que |T1 (x) = r|. Alors y = p1 (x) est un point
+de A1k tel que |T1 (y)| = r ; comme r ∈ / |k × |Q , on a y = ηr .
+   Il reste à vérifier que U n’est pas vide. Mais p−1                                 1
+                                                         1 (ηr ) est le domaine de AH (ηr ) , de
+coordonnée T2 , défini par |T2 | ⩽ 1/r. Le point H (ηr )-rationnel de ce domaine défini par
+T2 = T1 (ηr )−1 appartient à U .
+
+
+CHAPITRE 13
+
+
+COMPLÉMENTS DE GÉOMÉTRIE ANALYTIQUE
+
+
+
+
+                        § 13.1. ANNEAUX G-LOCAUX
+
+13.1.1. — Soit X un espace k-analytique et soit x un point de X. Nous avons défini
+plus haut la dimension centrale du germe (X, x) (11.5.5). Celle-ci possède une variante
+G-topologique : la dimension centrale du G-germe (XG , x), notée dimc (XG , x), et dé-
+                                               VZar
+finie comme le minimum des dimensions de {x}        lorsque V parcourt l’ensemble des
+domaines analytiques de X contenant x.
+   On a de manière évidente
+
+                                                       XZar
+                    dk (x) ⩽ dimc (XG , x) ⩽ dim {x}          ⩽ dimx X ;
+
+en particulier dimc (XG , x) = dimx X dès que dk (x) = n.
+  Soit V un domaine analytique de X contenant x. L’ensemble des domaines analytiques
+de V contenant x est cofinal dans l’ensemble des domaines analytiques de X contenant x ;
+par conséquent dimc (VG , x) = dimc (XG , x).
+  Soit Z un sous-espace analytique fermé de X contenant x. L’ensemble des domaines
+analytiques de Z contenant x de la forme V ∩ Z, où V est un domaine analytique de
+X contenant x, est cofinal dans l’ensemble des domaines analytiques de X contenant x.
+                                                                          (V ∩Z)Zar
+Par conséquent Par conséquent dimc (ZG , x) est le minimum des dim {x}              où V
+parcourt l’ensemble des domaines analytiques de X contenant x. Mais pour un tel V on
+      (V ∩Z)Zar      VZar
+a {x}           = {x} , si bien que dimc (ZG , x) = dimc (XG , x).
+13.1.2. — Nous noterons X gen l’ensemble des points x de X tels que dimc (XG , x) =
+dimx X. Cet ensemble contient {x ∈ X, dk (x) = dimx X}.
+   Si V est un domaine analytique de X on a dimc (VG , x) = dimc (XG , x) et dimx V =
+dimx X pour tout x ∈ V , si bien que V gen = X gen ∩ V .
+   Si Z est un sous-espace analytique fermé de X on a dimc (ZG , x) = dimc (XG , x) pour
+tout x ∈ Z, si bien que Z gen est l’ensemble des points x de Z tels que dimc (ZG , x) =
+dimx Z ; cet ensemble ne dépend que du fermé de Zariski sous-jacent à Z, et pas de la
+structure de sous-espace analytique fermé choisie sur Z.
+
+372              CHAPITRE 13. COMPLÉMENTS DE GÉOMÉTRIE ANALYTIQUE
+```
+
+### CLD.txt: cached text lines 18355--18407
+
+```text
+laire 3.14).
+
+Corollaire 12.7.6. — On ΣfL ∩ p−1 (Xu ) = σL (Σf ∩ Xu ). En particulier, si k est
+algébriquement clos, on a ΣfL = σL (Σf ).
+
+  Lorsqu’on ne fait pas d’hypothèse sur l’extension L de k, nous pouvons préciser un
+résultat de [50].
+
+Proposition 12.7.7. — a) Pour toute extension complète L de k, l’application p
+induit une immersion par morceaux surjective de ΣfL sur Σf qui préserve la dimension
+locale.
+   b) Il existe une extension algébrique séparable F de k, de complétée Fb, telle que,
+pour toute extension complète L de Fb, la projection canonique de ΣfL sur ΣfFb est un
+isomorphisme d’espaces paralinéaires. Si, de plus, X est compact, on peut prendre F
+finie sur k (et donc Fb = F ).
+   c) En particulier, si k est algébriquement clos, alors la projection canonique de ΣfL
+sur Σf est un isomorphisme, pour toute extension complète L de k.
+
+356         CHAPITRE 12. PARTIES SQUELETTIQUES D’UN ESPACE ANALYTIQUE
+
+Démonstration. — D’après [50, théorème 5.1, 3)], l’application p induit une immersion
+par morceaux surjective de ΣfL sur ΣF , ce qui démontre la première partie de l’asser-
+tion a). Si X est compact, le théorème 5.1, 4) de [50] fournit l’assertion b), l’extension F
+de k étant en outre finie. Puisque la formation des polyèdres caractéristiques est G-locale,
+l’assertion b) en résulte en composant toutes les extensions finies de k fournies par un
+recouvrement affinoïde de X. L’assertion c) en découle immédiatement.
+   Prouvons maintenant que le morphisme canonique de ΣfL sur Σf préserve la dimension
+locale. On peut raisonner G-localement sur X, et supposer que X est compact. Soit F
+une extension finie séparable de k, qu’on suppose galoisienne, stabilisant les polyèdres
+caractéristiques et soit M l’extension composée de L et F . Soit y ∈ ΣfL , soit x son
+image dans Σf , soit z un point de ΣfM au-dessus de y et t sa projection dans Σf .
+Comme la projection ΣfM → ΣfF est un isomorphisme, on a dimz (ΣfM ) = dimt (Σf ).
+D’après la proposition 12.7.2, le polyèdre caractéristique Σf est le quotient de ΣfF par
+l’action de Gal(F/k) ; on a donc dimt (ΣfF ) = dimx (Σf ), donc dimz (ΣfM ) = dimx (Σf ).
+Comme les projections ΣfM → ΣfL et ΣfL → Σf sont des immersions par morceaux
+d’espaces paralinéaires, on a dimz (ΣfM ) ⩽ dimy (ΣfL ) ⩽ dimx (Σf ). Cela démontre que
+dimy (ΣfL ) = dimx (Σf ).
+
+
+
+      § 12.8. POLYÈDRES CARACTÉRISTIQUES ET DIMENSION
+                            TROPICALE
+
+12.8.1. — Soit X un espace k-analytique de niveau n, soit m un entier et soit f =
+X → Gm   m un moment sur X. On note (f1 , . . . , fm ) les composantes de f . Pour toute
+partie I de {1, . . . , m}, on note qI la projection canonique de Gm      I
+                                                                   m sur Gm .
+  Rappelons (proposition 12.6.8) que le polyèdre caractéristique de f est une partie
+paralinéaire de X et que l’application ftrop |Σf est une immersion par morceaux d’espaces
+paralinéaires.
+  Le but de ce numéro est de relier la dimension tropicale de ftrop aux propriétés de Σf .
+Théorème 12.8.2. — Soit x un point de X.
+                                                                    (n)
+```
+
+### CLD.txt: cached text lines 20320--20360
+
+```text
+pour tout corps résiduel F de L⊗
+                               b k K.
+
+Démonstration. — Choisissons une présentation analytique (X, x) de L. D’après le
+lemme 13.8.6, on peut supposer qu’il existe un morphisme f : X → Ank tel que
+|fi (x) − ti | < |ti | pour tout i. Alors, les extensions K/k(t)
+                                                            d et K/k(f \  (x)) sont finies, ont
+même degré et même degré résiduel ; elles ont donc même défaut.
+   On peut ainsi supposer que ti = fi (x) pour tout i. Le point f (x) de Ank est alors
+égal à ηr , où r = (|t1 |, . . . , |tn |). Le morphisme f est dimension nulle en x ; quitte à
+restreindre X, on peut supposer que f −1 (ηr ) = {x}.
+   Notons π : XK → X le morphisme de changement de base.
+   D’après la proposition 13.8.8, f ), les différents corps résiduels F de l’anneau arti-
+nien L⊗  b k K sont permutés par Aut(K/k), de sorte que les différents degrés résiduels
+[F : (L · K)]
+ e      e     e sont égaux à un même entier d.        e D’après la proposition 13.8.8, c), ces
+
+                       § 13.8. EXTENSIONS D’ABHYANKAR ET LEUR DÉFAUT                         393
+
+corps F sont de la forme H (y), pour un unique point y ∈ π −1 (x), et l’assertion d )
+affirme que les degrés résiduels considérés sont finis.
+   Notons δ le défaut de H (x) sur H (ηr ).
+   Il reste à démontrer que l’on a δ = ℓd/
+                                        e ℓ.
+                                           e On a :
+                    [H (x) : H (ηr )]   [(H (x) ⊗H (ηr ) H (ηK,r )) : H (ηK,r )]
+               δ=                     =                                          .
+                    [H
+                     ^ (x) : H
+                             ^ (ηr )]   [(H
+                                          ^ (x) ⊗        H^(ηK,r )) : H^
+                                                              H
+                                                              ^ (ηr )
+                                                                        (ηK,r )]
+
+Fixons un point y ∈ f −1 (ηK,r ) et posons d = [H (y) : H (ηK,r )].
+  Puisque les points de f −1 (ηK,r ) sont permutés par Aut(K/k), on a
+                                                      X
+          [(H (x) ⊗H (ηr ) H (ηK,r )) : H (ηK,r )] =        [H (z) : H (ηK,r )]
+                                                                 z∈f −1 (ηK,r )
+
+```
+
+### CLD.txt: cached text lines 20700--20870
+
+```text
+
+                                  § 14.2. MOMENTS ET DEGRÉS                                   399
+
+                                        (n)
+d’un moment agréable. Par suite, Σf est réunion d’une famille dénombrable de sous-
+espaces compacts. Cela entraîne qu’il est paracompact.
+                                                                         (n)
+  D’après le lemme 14.1.5, il existe une décomposition cellulaire C1 de Σf en f -cellules
+                                                                                               (n)
+commodes. D’après la proposition 2.3.6, il existe une décomposition cellulaire C de Σf
+                                                                                              (n)
+qui raffine C1 et une décomposition cellulaire D adaptée à l’inclusion de ftrop (Σf )
+dans Ttrop tel que le couple (C , D) soit adapté à l’immersion par morceaux compacte ftrop .
+Ses cellules sont des f -cellules commodes car la décomposition cellulaire C raffine C1 .
+  La dernière assertion découle de la définition d’une cellule commode.
+
+
+
+                           § 14.2. MOMENTS ET DEGRÉS
+
+Lemme 14.2.1. — Soit X un espace analytique de niveau n, soit f : X → Gnm un
+moment. Alors, f est quasi-fini et plat en tout point de Σf .
+Démonstration. — Soit x ∈ Σf . On a f (x) ∈ S(Gnm ), donc dk (f (x)) = n. D’après
+le lemme 11.5.1, le morphisme f est quasi-fini en x. Comme Gnm est réduit, le théo-
+rème 10.3.7 de [52] entraîne que f est plat en x.
+
+Proposition 14.2.2. — Soit X un espace analytique de niveau n, soit f : X → T un
+moment sur X et soit C une f -cellule commode de dimension n de X. Soit q : T → Gnm
+un morphisme de tores tel que qtrop |ftrop (C) est injectif. Alors le morphisme q ◦ f est de
+dimension relative nulle en tout point de C et il existe un unique entier d > 0 tel que ce
+morphisme soit fini et plat de degré d en tout point de C̊.
+Démonstration. — Soit q : T → Gnm un morphisme de tores tel que qtrop soit injectif sur
+ftrop (C). La dimension tropicale de q ◦ f est égale à n en tout point de C, donc C ⊂
+(q ◦f )−1 (S(Gnm )) d’après la prop. 12.2.8, (iv). D’après le lemme 11.5.1, le morphisme q ◦f
+est de dimension relative nulle en tout point de C.
+   Comme C̊ ne rencontre pas ∂(X), il résulte du lemme 11.6.5 que le morphisme q ◦f est
+fini et plat en tout point de C̊ ; on a noté degx (q ◦ f ) son degré et il s’agit de démontrer
+que l’entier degx (q ◦ f ) est indépendant du point x ∈ C̊.
+   Soit D la cellule sq(qtrop (ftrop (C))) de Gnm . Si un point x ∈ Int(X) vérifie q ◦ f (x) ∈ D̊,
+                                                                                 (n)
+alors q◦f est de dimension tropicale n en x, donc f aussi, si bien que x ∈ Σf . Autrement
+dit, on a les inclusions
+                                                                (n)
+                             C̊ ⊂ (q ◦ f )−1 (D̊) ∩ Int(X) ⊂ Σf .
+                                                                        (n)
+   Soit maintenant x ∈ C̊. Par hypothèse, C̊ est ouvert dans Σf ; il est donc ouvert
+dans (q ◦ f )−1 (D̊) ∩ Int(X). Comme q ◦ f est fini et plat en x, il existe un voisinage
+ouvert U de x dans Int(X) et un voisinage ouvert V de q ◦ f (x) dans Gnm tels que
+q ◦ f induise un morphisme fini et plat de degré degx (q ◦ f ) de U sur V , et tel que
+(q ◦ f )−1 (D̊) ∩ U ⊂ C̊. Un point y ∈ C̊ ∩ U est alors le seul antécédent dans U de
+q ◦ f (y) par q ◦ f ; on a donc degy (q ◦ f ) = degx (q ◦ f ) pour tout y ∈ C̊ ∩ U . La
+fonction x 7→ degx (q ◦ f ) est localement constante sur l’ensemble C̊ ; comme celui-ci est
+connexe, elle est constante.
+
+400           CHAPITRE 14. CALIBRAGE CANONIQUE D’UN ESPACE ANALYTIQUE
+
+Proposition 14.2.3. — Soit X un espace k-analytique paracompact de niveau n et
+soit f : X → Gnm un moment. Soit Σ un sous-espace paralinéaire paracompact de Σf .
+Il existe une décomposition cellulaire C de Σ en f -cellules telle que pour toute cellule
+C ∈ C , l’application x 7→ degx (f ) soit finie et constante sur C̊.
+
+    Rappelons que le degré degx (f ) d’un morphisme f en un point x a été défini au §13.3.1
+sans hypothèse de finitude ou de platitude. Il peut éventuellement être infini.
+Démonstration. — Pour tout x ∈ Σf , on a dk (x) = n, donc f est quasi-fini en x
+(lemme 11.5.1) ; cela prouve que degx (f ) est fini.
+    Nous procédons alors par récurrence sur le niveau n, et supposons donc la proposi-
+tion vraie en niveau < n. Puisque Σ est paracompact, il possède une décomposition
+cellulaire D constituée de f -cellules commodes (lemme 14.1.5).
+    Soit D une cellule de D.
+    Si D est de dimension n, la proposition 14.2.2 assure que f est fini et plat de degré
+constant sur D̊ ; en particulier, la fonction x 7→ degx (f ) est constante sur D̊.
+    Supposons maintenant que dim(D) < n. Il existe un domaine analytique compact V
+de X dont l’intersection avec Σ est égale à V (lemme 3.2.8 (e)) ; on a donc D = Σf |V .
+Comme D est une f -cellule, f (D) est une partie du squelette canonique S(Gnm ), et
+f (D)trop est une d-cellule forte ∆ de Rn . Il existe un automorphisme φ de Gnm tel que
+l’espace affine engendré par φtrop (∆) soit défini par les n−d égalités xd+1 = · · · = xn = 0.
+Quitte à changer f en φ ◦ f , on se ramène au cas où φ est l’identité. La cellule D est
+ainsi contenue dans f −1 (S(Gnm ) ∩ p−1 (η1 )), où p désigne la projection de Gnm sur les n − d
+                                                                                   n−d
+dernières composantes et où η1 désigne, par abus, le point η1,...,1 de Gm              .
+    Notons V la fibre (p ◦ f ) (η1 ) ∩ V . Puisque dk (η1 ) = n − d, la dimension de V ′
+                   ′                      −1
+
+est au plus n − (n − d) = d ; on le considère comme un espace H (η1 )-analytique de
+niveau d. Notons f ′ : V ′ → Gdm,H (η1 ) le morphisme d’espaces H (η1 )-analytiques donné
+par (f1 , . . . , fd ). On a D = Σf ′ . En effet, pour x ∈ V ′ , on a x ∈ Σf ′ si et seule-
+ment si f]     1 (x), . . . , fd (x) sont algébriquement indépendants sur H (η1 ) ; comme ce corps
+                              ]                                             ^
+est transcendant pur engendré par les f]             i (x) pour i > d + 1, cela revient à exiger que
+f]                ]
+  1 (x), . . . , fn (x) soit algébriquement indépendant sur k̃, c’est-à-dire x ∈ Σf , soit encore
+x ∈ D puisque D = Σf ∩ V .
+    Puisque d < n, l’hypothèse de récurrence assure l’existence d’une décomposition cel-
+lulaire DD de D telle que x 7→ degx (f ′ ) soit constant sur toute cellule ouverte de DD .
+Comme les fibres de f ′ sont celles de f , on a degx (f ′ ) = degx (f ) pour tout x ∈ D. Par
+conséquent, x 7→ degx (f ) est constant sur toute cellule ouverte de DD .
+    Choisissons maintenant une décomposition cellulaire D ′ de la réunion des cellules D
+de D de dimension < n et qui raffine chacune des DD .
+    La famille C formée des cellules de D ′ et des cellules de D qui sont de dimension n
+est une décomposition cellulaire de Σ. Elle répond aux exigences de l’énoncé.
+
+14.2.4. — Conservons les notations de la proposition précédente et notons dC la valeur
+constante de degx (f ) sur C̊. Comme x 7→ degx (f ) est semi-continue supérieurement, on
+a dD ⩽ dC si C ⊂ D. Lorsque X est sans bord, on a des relations plus précises données
+par le théorème suivant qui montre, en outre, que toute décomposition cellulaire de Σf
+convient.
+
+                               § 14.2. MOMENTS ET DEGRÉS                                401
+
+Théorème 14.2.5. — Soit X un espace k-analytique de niveau n, sans bord, soit
+f : X → Gnm un moment sur X et soit C une décomposition cellulaire de Σf en f -
+cellules.
+   a) Pour toute cellule C de C , il existe un unique entier dC > 0 tel que f soit fini et
+plat de degré dC en tout point de C̊.
+   b) Soit C ∈ C et soit d un entier tel que dim(C)T⩽ d ⩽ n. Soit ∆ un ensemble
+non vide de cellules de C qui contiennent C, tel que D∈∆ ftrop (D) soit une cellule de
+dimension d, et maximal pour cette propriété ; notons ∆∗ l’ensemble de ses éléments
+minimaux. On a                               X
+                                      dC =       dD .
+                                            D∈∆∗
+
+Démonstration. — Sous les hypothèses du théorème, toute cellule de C est une f -cellule
+commode (remarque 14.1.4, b)). D’après le lemme 11.6.5, le morphisme f est fini et plat
+en tout point de Σf ; le contenu du théorème est la constance du degré sur chaque cellule
+ouverte et une formule de récurrence pour ces degrés.
+   On démontre ces résultats par récurrence descendante sur c = dim(C). Lorsque c = n,
+la première assertion découle de la proposition 14.2.2, et la seconde revient à l’égalité
+triviale dC = dC , car on a alors nécessairement d = n et ∆ = ∆∗ = {C}.
+   Soit c un entier < n ; supposons les assertions (1) et (2) vérifiées pour toute cellule C
+de dimension > c. Pour une telle cellule C, on a donc un degré dC bien défini.
+   Soit C ∈ C une cellule de dimension c. Soit d un entier tel que c ⩽ d T    ⩽ n. Soit EC,d
+l’ensemble des parties ∆ de C formées de cellules contenant C et telles que D∈∆ ftrop (D)
+soit de dimension d, et maximale pour cette propriété. Pour ∆ ∈ EC,d , notons ∆∗ l’en-
+semble des éléments minimaux de ∆, lorsque ce dernier est ordonné par l’inclusion.
+   Comme Σf est purement de dimension n, il existe une n-cellule de C qui contient C.
+Il existe alors une cellule D ∈ C de dimension d qui contient C. Comme ftrop (D) est de
+dimension d, il existe une partie ∆ appartenant à EC,d qui contient D. En particulier,
+EC,d n’est pas vide.
+Lemme 14.2.6. — (Sous l’hypothèse de récurrence.) Supposons d > c. Pour tout ∆ ∈
+EC,d et tout x ∈ C̊, on a degx (f ) = D∈∆∗ dD .
+                                     P
+
+   Admettons provisoirement ce lemme.
+   Rappelons que c < n ; appliqué à d = n et à un élément de l’ensemble non vide EC,n ,
+le lemme 14.2.6 entraîne que la fonction x 7→ degx (f ) est constante sur l’ensemble non
+vide C̊ ; notons dC cette valeur. Cela établit déjà l’assertion (1) pour C.
+   Soit d un entier tel que d ⩽ c ⩽ n. Le lemme 14.2.6 établit alors également l’asser-
+tion (2) dès que d > c. Dans le cas restant où d = c, on a ∆ = ∆∗ = {C} et l’assertion (2)
+se réduit alors à l’égalité tautologique dC = dC .
+   Cela termine la démonstration du théorème et il reste à démontrer le lemme 14.2.6
+que nous avions admis.
+   Notons WC la réunion des cellules ouvertes D̊, où D parcourt l’ensemble des cellules
+de C contenant C ; c’est un voisinage ouvert de C̊ dans Σf . Soit V un voisinage ouvert
+de x dans X tel que V ∩ Σf ⊂ WC et tel que f induise un morphisme fini et plat de
+degré degx (f ) de V sur un voisinage ouvert U de f (x) dans Gnm .
+   Notons P l’intersection des ftrop (D), pour D ∈ ∆ ; c’est une cellule de dimension d
+contenant ftrop (C). Soit E ∈ C contenant C telle que E ̸∈ ∆ ; alors ∆∪{E} n’appartient
+
+402           CHAPITRE 14. CALIBRAGE CANONIQUE D’UN ESPACE ANALYTIQUE
+
+pas à EC,d , par maximalité de ∆, de sorte que P ∩ ftrop (E) est une cellule de dimension <
+d. Notons Q1 la réunion de ces P ∩ ftrop (E), lorsque E parcourt l’ensemble des cellules
+de C contenant C et n’appartenant pas à ∆ ; c’est un sous-espace paralinéaire fermé
+de P , de dimension < d.
+   D’autre part, soit D ∈ ∆∗ et soit E une cellule contenue dans ∂(D) disjointe de C̊ ;
+alors P ∩ ftrop (E) est une cellule, disjointe de ftrop (C̊), car ftrop est injectif sur D. La
+réunion Q2 de ces cellules P ∩ ftrop (E) est un sous-espace paralinéaire de P , fermé,
+disjoint de ftrop (C̊), de sorte que P Q2 est un voisinage de ftrop (C̊) dans P .
+   Posons Q = Q1 ∪Q2 ; c’est un sous-espace paralinéaire de P , fermé. L’ensemble P Q2
+est un voisinage de ftrop (C̊) dans P ; choisissons un ouvert Ω de P tel que ftrop (C̊) ⊂
+Ω ⊂ P Q2 . Comme Q1 est d’intérieur vide dans P , sa trace sur Ω est d’intérieur vide
+```
+
+### CLD.txt: cached text lines 20924--20976
+
+```text
+                                                                                         ′
+groupe, le point yK est le seul antécédent de y dans (Gnm )K . De même, le point yK        est
+                         ′         n
+le seul antécédent de y dans (Gm )K .
+   Notons p : XK → X le morphisme de changement de base canonique. D’après ce qui
+précède, p−1 (x) ⊂ fK−1 (yK ) et p−1 (x) ⊂ (f ′ )−1    ′
+                                                   K (yK ). Appliquons le lemme 13.3.3. On
+obtient
+                            X                                    X
+              degx (f ) =         degz (fK ) et degx (f ′ ) =         degz (fK′ ).
+                             z∈p−1 (x)                                  z∈p−1 (x)
+
+  Soit z ∈ p−1 (x). Le point z est intérieur à XK . De plus, il appartient à l’image
+réciproque du squelette canonique par fK et par fK′ . Quitte à étendre les scalaires à K,
+on peut ainsi supposer que k est algébriquement clos.
+  Notons (f1 , . . . , fn ) et (f1′ , . . . , fn′ ) les composantes de f et de f ′ . Soit i ∈ {1, . . . , n}.
+La fonction numérique |fi′ /fi | est constante sur X ; comme x ∈ Int(X) et comme le
+corps k est maintenant supposé algébriquement clos, la proposition 12.2.12 affirme qu’il
+existe un élément λi ∈ k × et une fonction gi ∈ OX,x            ×
+                                                                    tels que |gi | < |λi | et fi = λi + gi
+au voisinage de x. Quitte à composer f avec la translation par (λ1 , . . . , λn ) dans Gnm , on
+suppose que λ1 = · · · = λn = 1. Alors, trop(y) = trop(y ′ ), donc y = y ′ puisque ces deux
+points appartiennent à S(Gnm ).
+  On a dk (x) = n = dim(X) ; l’anneau local OX,x est donc artinien (§11.5.5) ; c’est
+en particulier un anneau de Cohen-Macaulay. Choisissons alors un voisinage affinoïde
+connexe V de y dans Gnm et et un voisinage affinoïde W de x dans Int(X) tels que les
+conditions suivantes soient satisfaites :
+  – Les fonctions g sont définies sur W et l’on a |gi | < 1 et fi′ = (1 + gi )fi sur W ;
+  – L’espace W est de Cohen-Macaulay ;
+  – Le point x est le seul antécédent de f (x) par f dans W ;
+  – Le morphisme f définit par restriction un morphisme fini et plat de W vers V .
+Comme x est le seul antécédent de f (x) par f dans W , on a degf (x) (f ) = degx (f ).
+Comme V est connexe, il s’ensuit le morphisme fini et plat f |W : W → V est de degré
+constant d.
+   Soit R un nombre réel > 1 tel que R|g| < 1 sur W et soit B = D(0, R) le disque
+ouvert de rayon R dans la droite affine ; on note θ la fonction coordonnée sur B. Soit h
+le morphisme de W × B vers Gnm × B défini par la famille
+
+                                   ((1 + θg1 )f1 , . . . , (1 + θgn )fn ).
+
+Pour tout t ∈ B, on note ht le morphisme de WH (t) dans Gnm,H (t) déduit de h par
+restriction à la fibre de la dernière projection en t. En particulier, on a h0 = f |W et
+h1 = f ′ |W .
+  Rappelons (§12.1.10) que pour r ∈ Rn et t ∈ B, on a noté sqt (r) l’unique point
+de Gnm ×k B caractérisé par les propriétés suivantes :
+
+404          CHAPITRE 14. CALIBRAGE CANONIQUE D’UN ESPACE ANALYTIQUE
+
+  – son image par la composition de la première projection et de l’application de tropi-
+calisation est r ;
+  – son image par la seconde projection est t ;
+  – il appartient au squelette canonique du H (t)-tore Gnm,H (t) , immergé dans Gnm × B.
+
+```
+
+### CLD.txt: cached text lines 21545--21664
+
+```text
+de x ; en particulier, l’anneau local OX,x est un corps. Le théorème 6.3.7 de [52] entraîne
+alors que le morphisme d’anneaux locaux OX,x → OXy ,x est régulier. En conséquence, la
+
+414           CHAPITRE 14. CALIBRAGE CANONIQUE D’UN ESPACE ANALYTIQUE
+
+fibre h−1 (y) est réduite en x. Le degré du morphisme h en x est alors égal au degré de
+l’extension H (x)/H (y), c’est-à-dire P .
+   Soit Ω un voisinage affinoïde de x dans X tel que le polyèdre calibré Πf |Ω soit un
+voisinage de 0, étoilé en 0, dans le cône calibré Πf,x ; on exige en outre que x soit le seul
+antécédent de η1 dans Ω. Le morphisme g|Ω est alors fini et plat au-dessus de η1 . Soit
+W un voisinage affinoïde de η1 dans Gm tel que g induise un morphisme fini et plat
+surjectif de Ω ∩ g −1 (W ) dans W . Il existe une cellule C de Rn , voisinage de l’origine,
+telle que Csq ⊂ W . Soit W ′ = trop−1 (C) ; c’est un domaine affinoïde de Gnm . Alors
+gtrop (Ω ∩ g −1 (W ∩ W ′ )) = C et g(Ω ∩ g −1 (W ∩ W ′ )) contient Csq . Quitte à remplacer Ω
+par Ω ∩ g −1 (W ∩ W ′ ), on peut donc supposer que gtrop (Ω) est une cellule, voisinage de
+l’origine dans Rn , et que g|Ω est fini et plat au-dessus de gtrop (Ω)sq .
+   Soit C une décomposition cellulaire du cône tropical Πf,x , dont les cellules sont des
+cônes et qui est adaptée à son calibrage ; on suppose en outre que son image par qtrop se
+prolonge en une décomposition cellulaire de Rn .
+   Soit C une n-cellule ouverte de Πf,x ; posons C ′ = gtrop (C). Notons aussi D = C ∩
+                                                                             −1
+ftrop (Ω) et D′ = qtrop (D). L’ensemble D est ouvert et fermé dans qtrop         (D′ ) ∩ ftrop (Ω),
+         −1                                         −1
+donc ftrop  (D) ∩ Ω est ouvert et fermé dans gtrop      (D′ ) ∩ Ω. Par suite, la restriction de g
+    −1                                                ′             ′
+à ftrop (D) ∩ Ω est finie et plate au-dessus de Dsq     . Comme Dsq    est connexe et non vide,
+il existe un unique entier NC,Ω tel que cette restriction soit de degré NC,Ω . Le vecteur-
+volume µC correspondant au calibrage de la cellule C de Πf,x est égal à NC,Ω σC (e), où
+e est le vecteur-volume canonique de Rn et σC : Rn → Rm est l’unique section de qtrop
+d’image ⟨C⟩. Cela prouve que l’entier NC,Ω ne dépend pas du choix du voisinage Ω choisi
+comme ci-dessus ; on le notera NC .
+   Le cône tropical Πf˜,ξ jouit d’une description similaire, à l’aide d’un voisinage affi-
+noïde Υ de ξ dans V an et de décompositions cellulaires de f˜(Υ), de Πf˜,ξ et de Rn adap-
+tées à qtrop . Par raffinement, on suppose que ces décompositions cellulaires coïncident
+avec celles introduites précédemment pour Πf,x .
+   Pour toute n-cellule C de Πf˜,ξ qui rencontre la n-cellule ouverte D de C , d’image D′
+                                  −1                                              ′
+dans Rn , la restriction de g̃ à ftrop (C) ∩ Υ est finie et plate au-dessus de Dsq  ; on note ÑC
+le degré correspondant, de sorte que le vecteur-volume µ̃C donné par le calibrage de Πf˜,ξ
+est égal à ÑC σC (e).
+   D’après la proposition suivante, on a NC = ÑC pour toute n-cellule C de Πf,x . Le
+théorème s’ensuit.
+
+Proposition 14.6.4. — Pour toute n-cellule C de Πf,x , on a NC = ÑC .
+
+Démonstration. — On peut définir la n-cellule       conique C comme le lieu de validité
+                                                                                               ′
+dans Rm d’une conjonction d’inégalités Φ = { P aV
+                                                V P
+                                                          r,i xP
+                                                               i < 0}. De même, le cône C
+de Rn est défini par une conjonction d’inégalités Φ′ = { a′s,j yj < 0}.
+  On note Ψ la conjonction des inégalités monomiales |fi |P ar,i < 1 ; elle définit un
+                                                              Q
+                             e la conjonction des inégalités monomiales Q|f]       P ar,i
+ouvert de X. On note aussi Ψ                                                 i (x)|       < 1;
+                 ]
+en interprétant fi (x) comme une fonction rationnelle sur V , cette conjection définit un
+ouvert de V an .
+                                                                ′
+  De même, notons Ψ′ la conjonction des inégalités |Tj |as,j < 1, définissant un ouvert
+                                                       Q
+
+de Gnm,k . On notera Ψe′ la même conjonction d’inégalités définissant un ouvert de Gn .
+                                                                                          m,k̃
+
+                                    § 14.6. CÔNES TROPICAUX                                  415
+
+  Le degré NC peut être caractérisé ainsi : dans l’ouvert de Ω défini par la condition Ψ,
+tout point de S(Gnm ) satisfaisant Ψ′ et suffisamment proche de η1 a NC antécédents
+(comptés avec degrés de l’extension de corps résiduels et multiplicité) par le morphisme g.
+                                                                                            P
+  Pour tout i, choisissons une fonction hi ∈ OY,y telle que |hi (y)| = 1 et h]        ]
+                                                                              i (y) = fi (x) ;
+                                P
+c’est possible puisque H   ^  (x) ⊂ F̃ = H  ^ (y) et puisque, Y = Y an étant sans bord
+(donc presque bon en tout point), κ(y) est dense dans H (y). Au voisinage de x, les
+              P
+fonctions fQ  i et hi ◦ h ont donc même valeur absolue. Notons Θ la conjonction des
+inégalités |hi |ar,i < 1. Elle définit un ouvert de Y dont l’image réciproque            par h se
+décrit au voisinage, de x par la conjonction des inégalités monomiales |fi |P ar,i < 1,
+                                                                                  Q
+c’est-à-dire par Ψ.
+   L’extension F̃ définit un revêtement fini étale Y f de (Gn ) au voisinage de son point
+                                                                m k̃
+générique et le morphisme g̃ : (V , ξ) → (Gm )k̃ se factorise par un morphisme p̃ : Y
+                                    an        n                                           g an →
+
+(Gnm )k̃ . Soit ζ = p̃(ξ) ; alors le morphisme h̃ : (V an , ξ) → (Y  fan , ζ) est fini et plat de
+degré P . De plus, le morphisme p̃ est fini et étale en ζ. La condition Ψ          e ne portant,
+par construction, que sur des normes de fonctions sur Y        f, elle définit une condition Θ  e
+sur Yf .an
+
+
+
+Lemme 14.6.5. — a) Par le morphisme g, tout point de S(Gnm ) satisfaisant Ψ′ et
+suffisamment proche de η1 a exactement NC /P antécédents (comptés avec degrés de
+l’extension de corps résiduels) dans Y satisfaisant Θ.
+   b) Par le morphisme g̃, tout point de S(Gnm,k̃ ) satisfaisant Ψ
+                                                                 e′ et suffisamment proche
+de η1,k̃ a ÑC /P antécédents (comptés avec degrés de l’extension de corps résiduels)
+dans Yfan satisfaisant Θ.
+                       e
+
+Démonstration. — Nous ne démontrons que la première assertion, la seconde en est le
+cas particulier d’un corps trivialement valué.
+  On commence par choisir des voisinages affinoïdes X1 de x dans Ω, Y1 de y dans Y et Z1
+de η1 dans Gnm , tels que h induise un morphisme fini et plat de degré P , h1 : X1 → Y1 ,
+et p : Y → Gmn induise un morphisme fini étale p1 : Y1 → Gnm . C’est possible car le
+morphisme h est fini et plat en x et le morphisme p est fini et étale en y.
+  Comme x est le seul antécédent de η1 par g dans Ω, le voisinage X1 de x est un voisinage
+de la fibre de g ; il contient donc l’image inverse d’un voisinage de η1 . Autrement dit,
+tous les antécédents dans Ω d’un point assez proche de η1 appartiennent à X1 . De même,
+tous les antécédents dans Y d’un point assez proche de η1 appartiennent à Y1 .
+  Soit z un point de Gnm assez proche de η1 satisfaisant la condition Ψ′ . Notons y1 , . . . , ya
+ses antécédents dans Y1 par p. Pour i ∈ {1, . . . , a}, notons xij les antécédents de yi
+dans X1 par h ; on remarque que xij vérifie la condition Ψ si et seulement si yi vérifie la
+condition Θ. Par suite, la définition de NC entraîne que
+                      X                        X
+              NC =         rgOZ,η1 (OX,xij ) =   rgOZ,η1 (OY,yi ) rgOY,y (OX,xij ).
+```
+
+### CLD.txt: cached text lines 21712--21776
+
+```text
+   Retraduisons ceci en termes de valuations. La valuation ηg du corps k(T1 , . . . , Tn )
+possède ainsi NC /P extensions à k(Y ) et satisfaisant Θ, comptées avec multiplicités. A
+priori, la multiplicité associée à une telle extension est le degré de son hensélisé sur celui
+du hensélisé de (k(T1 , . . . , Tn ), η1 ) ; par stabilité, cette multiplicité est simplement égale
+au produit des indices d’inertie et de ramification de l’extension.
+   On prouve de même que la valuation ηg,k̃ possède N˜C /P extensions à e          k(Yf) satisfaisant
+Teheta, comptés avec multiplicités ; et la multiplicité associée à une telle extension est
+simplement égale au produit de ses indices d’inertie et de ramification.
+   Il résulte alors du lemme suivant que NC /P = N            fC /P , si bien que NC = N  eC , ce qui
+conclut la démonstration de la proposition 14.6.4.
+
+Lemme 14.6.6. — Par composition avec la valuation associée à y, toute valuation ṽ
+sur k̃(Y˜ ) triviale sur k̃ induit une valuation v sur k(Y ).
+
+                         § 14.7. VARIATION DES TROPICALISATIONS                           417
+
+   a) Cette application ṽ 7→ v induit une bijection de l’ensemble des prolongements
+à k̃(Y˜ ) de ηg,k̃ sur l’ensemble des prolongements à k(Y ) de ηg .
+   Soit ṽ et v deux telles valuations.
+   b) Les indices d’inertie de v et de ṽ sont égaux.
+   c) Les indices de ramification de v et de ṽ sont égaux.
+   d) La valuation v vérifie la condition Θ si et seulement si la valuation ṽ vérifie la
+condition Θ̃.
+Démonstration. — La valuation ηg raffine η1 qui n’a qu’un seul prolongement à k(Y ).
+En effet, comme k(Y ) est finie sur k(T1 , . . . , Tn ), le groupe des valeurs d’une valuation
+de k(Y ) qui prolonge η1 contient celui de H (η1 ) comme sous-groupe d’indice fini, donc
+coïncide avec celui-ci puisqu’il est égal à |k × | et que k est algébriquement clos. En
+particulier, tout prolongement de η1 à k(Y ) appartient à Y an , donc est égal à y qui
+est le seul antécédent de η1 dans Y an . La première assertion résulte alors de ce que la
+valuation ηg est la composée de la valuation de Gauß usuelle η1 sur k(T1 , . . . , Tn ) et de
+la valuation ηg,k̃ sur k̃(T1 , . . . , Tn ),
+   Puisque les extensions résiduelles correspondantes coïncident, les indices d’inertie de v
+et de ṽ sont égaux. Puisque |H (y)× | = |H (η1 )×| = |k × |, leurs indices de ramification
+sont aussi égaux.
+   Démontrons maintenant que v vérifie la condition Θ si et seulement si ṽ la condition Θ̃.
+Par construction, Θ est une conjonction d’inégalités de la forme |φ| < 1, où φ ∈ OY,y
+vérifie |φ(y)| = 1, et Θ̃ est la conjonction des inégalités |φ(y)|  ˜ < 1 (pour les mêmes
+fonctions φ) où φ(y)˜ ∈H   ^    (y) est considéré comme un élément de O ˜ . Rappelons que
+                                                                         Y ,ζ
+la valuation v est la composée de la valuation associée à y et de ṽ ; comme |φ(y)| = 1,
+les conditions |φ(v)| < 1 et |φ̃(ṽ)| < 1 sont équivalentes. Le lemme en résulte
+   Terminons ce paragraphe par un complément sur la structure des cônes tropicaux
+lorsqu’ils ne sont pas de dimension maximale qui indique néanmoins qu’elles ne peuvent
+être arbitraire. En particulier, il résultera du théorème 15.6.1 qu’ils peuvent être munies
+d’un calibrage partout strictement positif et harmonieux.
+
+
+
+                § 14.7. VARIATION DES TROPICALISATIONS
+
+Lemme 14.7.1. — Soit X un espace analytique compact, soit f : X → Y un mor-
+phisme d’espaces analytiques, soit g : X → Gnm un moment. Pour tout y ∈ Y , on pose
+Xy = f −1 (y). Soit y un point rigide de Y . Il existe un voisinage U de y dans Y et un
+polyèdre ∆ ⊂ gtrop (Xy ) de dimension ⩽ dim(Xy ) − 1 tels que gtrop (Xu ) ⊂ gtrop (Xy ) et
+gtrop (Xu ∩ ∂(X)) ⊂ ∆ pour tout u ∈ U .
+                                               −1
+Démonstration. — Le domaine analytique gtrop      (gtrop (Xy )) de X contient le fermé de
+Zariski Xy , donc en est un voisinage (lemme 11.4.10). Comme X est compact, il existe
+                                           −1
+un voisinage U de y tel que f −1 (U ) ⊂ gtrop (gtrop (Xy )). Ainsi, si u ∈ U , gtrop (Xu ) est
+contenu dans gtrop (Xy ).
+   Le bord ∂(X) de X est contenu dans une réunion finie de compacts qui sont chacun de
+la forme φ−1 (ηr ), où φ est un morphisme d’un domaine affinoïde V de X vers A1 et r est
+un nombre réel > 0 ([50], lemme 3.1). Soit φ : V → A1 un tel morphisme et soit r > 0.
+
+```
+
+### CLD.txt: cached text lines 22100--22151
+
+```text
+pace C (X) des fonctions continues sur X muni de la topologie de la convergence uniforme
+sur tout compact.
+Démonstration. — Comme X est localement différentiellement séparé, c’est une consé-
+quence du corollaire 6.2.6.
+
+Proposition 15.2.8 (Partitions de l’unité lisses). — Soit X un espace analytique
+localement holomorphiquement séparé, paracompact. Soit (Ui )i∈I un recouvrement ouvert
+de X. Il existe une partition de l’unité subordonnée à (Ui ) formée de fonctions lisses
+sur X.
+Démonstration. — Comme X est localement différentiellement séparé, cela résulte de la
+proposition 6.2.7.
+
+Corollaire 15.2.9. — Soit X un espace analytique localement holomorphiquement sé-
+paré et soit F une partie fermée de X qui est dénombrable à l’infini (par exemple, com-
+pacte). Soit (Ui )i∈I un recouvrement de K par des ouverts de X. Il existe une famille
+localement finie (θi ) de fonctions lisses sur X, à support
+                                                          P compact, positives, telle que
+pour tout i, le support de θi soit contenu dans Ui et que   θi vaille 1 au voisinage de F .
+Démonstration. — Comme X est localement différentiellement séparé, cela résulte du
+corollaire 6.2.8.
+
+Corollaire 15.2.10. — Soit X un espace analytique localement holomorphiquement
+séparé, paracompact. Les faisceaux AXp,q de formes lisses sur X sont fins.
+
+                         § 15.4. INTÉGRALES ET MORPHISMES FINIS                        425
+
+Démonstration. — Comme X est localement différentiellement séparé, cela résulte du
+corollaire 6.2.9.
+
+
+
+
+                     § 15.3. EXTENSION DES SCALAIRES
+
+  Soit X un espace k-analytique de niveau n. On le considère comme un espace G-
+tropical de niveau n. On a montré au §5.8.5 comment toute (n, n)-forme ω sur XG à
+coefficients tropicalement boréliens définit une mesure de Borel ωBor sur X, et lorsque
+cette G-forme est localement intégrable, une mesure de Radon ωRad .
+
+Proposition 15.3.1. — Soit L une extension complète de k, soit p : XL → X le mor-
+phisme de changement de base. Pour toute forme ω de type (n, n) sur XG à coefficients
+tropicalement boréliens, on a p∗ (ωL,Bor ) = ωBor . Lorsque ω est localement intégrable, on
+a p∗ (ωL,Rad ) = ωRad .
+
+Démonstration. — En revenant aux définitions, on déduit de la compatibilité du cali-
+brage canonique à l’extension des scalaires (proposition 14.3.6) l’égalité p∗ ω
+                                                                              fL = ωL de
+formes-volume n-dimensionnelles. La proposition en résulte.
+
+Proposition 15.3.2. — Soit L une extension complète de k, soit p : XL → X le mor-
+phisme de changement de base. Pour toute forme ω de type (n−1, n) sur XG à coefficients
+tropicalement boréliens, on a p∗ (ωL,Bor ) = ωBor . Lorsque ω est localement intégrable, on
+```
+
+### CLD.txt: cached text lines 29080--29148
+
+```text
+
+Remarque 19.1.9. — Plaçons-nous encore sous les hypothèses de la proposition. No-
+tons L le fibré en droites L muni de la métrique formelle déduite du prolongement L.
+Soit g = dim(A) et soit γ ∈ A l’unique point dont la réduction est le point générique
+de As .
+  a) La mesure c1 (L)g est supportée par γ. Lorsque k est algébriquement clos, le théo-
+rème 18.4.7 assure que sa masse est (c1 (Ls )g ∩ [As ]) ; c’est encore le cas dans le cas
+général, comme on le voit en appliquant le résultat à l’extension du schéma formel A
+   ◦
+àk .
+  Lorsque A est algébrique, cette masse est également égale à (c1 (L)g ∩ [A]) (théo-
+rème 18.3.11).
+  b) Il résulte de l’exemple 18.8.10, b), que les trois propriétés de positivité suivantes
+sont équivalentes :
+  (i) Le courant c1 (L) est positif ;
+  (ii) Le courant c1 (L) est positif au voisinage de γ ;
+  (iii) Le fibré en droites Ls est numériquement effectif.
+
+                     § 19.2. MÉTRIQUES CUBISTES ET UNIFORMISATION                         551
+
+L’implication (i)⇒(ii) est évidente ; l’implication (ii)⇒(iii) est expliquée dans l’exemple
+indiqué, de même que l’implication (iii)⇒(i).
+
+   Dans le paragraphe suivant, nous allons exploiter l’uniformisation des variétés abé-
+loïdes pour obtenir une description similaire des métriques cubistes sur les fibrés en
+droites et des puissances de leurs courants de courbure.
+
+
+
+          § 19.2. MÉTRIQUES CUBISTES ET UNIFORMISATION
+
+19.2.1. — Rappelons l’uniformisation des variétés abéloïdes, d’après [8, 23, 78, 98] ;
+nous renvoyons aussi le lecteur à l’appendice B.5.
+   Soit A une variété abéloïde sur k ; notons g sa dimension. Il existe une variété abé-
+loïde B à bonne réduction potentielle, un tore algébrique T de dimension r, une exten-
+sion E de B par T , une suite exacte de groupes analytiques
+                                                  p
+                                  0 → Λan → E →
+                                              − A→0
+où Λ est un k-groupe localement isomorphe à Zr pour la topologie étale de Spec(k).
+   Nous dirons que la situation est déployée si B a bonne réduction et si le tore T est
+déployé. Dans ce cas, Λ est isomorphe à Zr , la suite exacte précédente s’interprète comme
+le revêtement universel de l’espace topologique Aan et Λ comme son groupe fondamental.
+   Nous nous plaçons désormais dans ce cas.
+19.2.2. — Notons q : E → B la projection de l’extension E. Son noyau est le tore
+déployé T , de sorte que cette extension est localement triviale pour la topologie de
+Berkovich.
+   L’extension E est construite à partir d’une extension analytique N de B par le tore af-
+finoïde T 1 ; cet espace N est un domaine analytique compact de A, muni d’une structure
+de sous-groupe formellement analytique compact.
+   Soit V un recouvrement formellement affinoïde de B trivialisant l’extension N ; pour
+tout V ∈ V, soit fV : V → N une section de la projection q|N : N → B an . Sur V ∩ W , les
+sections fV et fW diffèrent de la multiplication par un morphisme fV W : V ∩W → T 1 . Ces
+morphismes (fV W ) forment un cocycle à valeurs dans T 1 qui représente l’extension N ,
+mais également, si on les considère comme un cocycle à valeurs dans T , l’extension E.
+   Pour V ∈ V, la section fV permet d’identifier q −1 (V ) au produit V × T ; composons la
+projection sur le second facteur avec l’application de tropicalisation de T vers Ttrop ; on
+obtient une application φV de q −1 (V ) dans Ttrop qui est lisse et pl : lorsqu’on identifie T
+à Grm et Ttrop à Rr , chaque coordonnée est le logarithme de la valeur absolue d’une
+fonction holomorphe inversible (un caractère du tore).
+   Comme le cocycle (fV W ) est à valeurs dans T 1 , ces applications φV se recollent en une
+application G-lisse, pl, de E dans Ttrop . Notons-la τ .
+   La restriction de τ au tore T est l’application de tropicalisation usuelle de T sur Ttrop .
+Comme τ |T est propre et que B est compacte, l’application τ : E → Ttrop est surjective
+et propre.
+   Si E = B, le tore T est de dimension 0 et τ est l’application constante.
+   L’image du réseau Λ par τ est un réseau cocompact de Ttrop (théorème 1.2 de [24]).
+Par suite, τ induit une application surjective, pl, de A dans le tore réel Ttrop /τ (Λ).
+
+```
+
+### GR.txt: cached text lines 302--368
+
+```text
+π−1
+  k r /k
+         (x) = M (H (x)⊗b k r ) = M (H (x) r ) (which is the weighted Gauss point η r ). We
+call σ the Shilov section. The Shilov section is continuous: see [Ber90, Lemma 3.2.2(i)],
+[Duc18, 1.2.16].
+
+2.11. Relative boundary. An important notion in this paper is that of the relative bound-
+ary of a morphism ϕ : X → Y of k-analytic spaces. This is a closed subset of X which we
+denote by ∂ (X /Y ). We will not give the details of this definition, but let us try to explain
+the literature on the subject. In [Ber90, §2.5], Berkovich defines the relative boundary
+∂ (X /Y ) for k-affinoid spaces X and Y . Then in [Ber90, §3.1], he generalizes ∂ (X /Y ) for
+good k-analytic spaces using that all points of X and Y have k-affinoid neighborhoods.
+Berkovich calls ϕ closed if ∂ (X /Y ) = ;. Berkovich defines ∂ (X /Y ) for arbitrary k-analytic
+spaces in [Ber93, 1.5.3(ii)], as follows. A morphism ϕ is closed if for every morphism
+Y ′ → Y from a good k-analytic space Y ′ , the fiber product X ′ := X ×Y Y ′ is good and the
+canonical morphism X ′ → Y ′ is closed in the previous sense. Finally in [Ber93, Defini-
+tion 1.5.4], a point x ∈ X is defined to be in Int(X /Y ) if x has an open neighborhood U
+such that ϕ induces a closed morphism U → Y in the above sense. We refer to [Tem15,
+Definition 4.2.4.1] for a more explicit equivalent definition of ∂ (X /Y ). Note that in this
+paper, we will use the notion closed map in the usual topological sense meaning that it
+maps closed sets to closed sets. This is different from Berkovich’s terminology.
+   The complement Int(X /Y ) := X \ ∂ (X /Y ) is called the relative interior. We will usually
+apply this in the case Y = M (k), in which case we call ∂ X := ∂ (X /M (k)) the boundary
+of X and Int(X ) := X \ ∂ X the interior. If ∂ X = ;, we say that X boundaryless. A bound-
+aryless space is good by definition. Note that Berkovich calls boundaryless k-analytic
+spaces closed.
+   We list here some properties of the boundary and interior which we will use throughout
+the paper:
+   (1) A point x ∈ X is contained in Int(X /Y ) if and only if there is an open neighbor-
+       hood U of x such that Int(U/Y ) = U: this is part of the above definition.
+   (2) If ϕ : X → Y is finite, then Int(X /Y ) = X [Ber93, Example 1.5.3(iii)].
+   (3) If X is an analytic domain in Y , then Int(X /Y ) is the topological interior of X in
+       Y [Ber93, Proposition 1.5.5(i)].
+             ϕ     ψ
+   (4) If X → Y → S are morphisms of k-analytic spaces, then
+
+(2.11.1)                   Int(X /Y ) ∩ ϕ −1 Int(Y /S) ⊂ Int(X /S)
+
+        [Ber93, Proposition 1.5.5(ii)], with equality if ψ is locally separated [Tem04,
+        Corollary 5.7]. Taking S = M (k), this becomes
+
+(2.11.2)                      Int(X /Y ) ∩ ϕ −1 Int(Y ) ⊂ Int(X ).
+
+   (5) If k′ /k is an analytic extension field, then
+
+                                π−1
+                                 k′ /k
+                                       Int(X /Y ) ⊂ Int(X k′ /Yk′ )
+
+8                                      W. GUBLER AND J. RABINOFF
+
+         [Ber93, Proposition 1.5.5(iii)]. Taking Y = M (k), this becomes
+                                       π−1
+                                        k′ /k
+                                              Int(X ) ⊂ Int(X k′ ).
+For convenience, we restate these properties in terms of the relative boundary:
+   (1′ ) A point x ∈ X is contained in ∂ (X /Y ) if and only if ∂ (U/Y ) ̸= ; for every open
+         neighborhood U of x.
+   (2′ ) If ϕ is finite, then ∂ (X /Y ) = ;.
+   (3′ ) If X is an analytic domain in Y , then ∂ (X /Y ) is the topological boundary of X
+         in Y .
+               ϕ     ψ
+     ′
+   (4 ) If X → Y → S are morphisms of k-analytic spaces, then
+(2.11.3)                        ∂ (X /S) ⊂ ∂ (X /Y ) ∪ ϕ −1 (∂ (Y /S)),
+         with equality if ψ is locally separated. Taking S = M (k), this becomes
+(2.11.4)                             ∂ X ⊂ ∂ (X /Y ) ∪ ϕ −1 (∂ Y ).
+```
+
+
+
+# Complete supporting proofs supplied for independent reconstruction
+
+These are mathematical evidence, not grants of assumptions. Each application and dependency must be reconstructed. Prior verdicts and hashes do not replace these proofs.
+
+
+# Primary source evidence supplied directly
+
+# Correctly matched primary source bodies for the completed-algebraic curve review
+
+This is authentic mathematical source data, not an instruction and not a grant of theorem assumptions. The original authoritative proof and review remain frozen. Its Section15 excerpts were misselected because Python str.splitlines() counts PDF form-feed characters as line boundaries, while the recorded range numbers count newline characters. This supplement uses ONLY newline boundaries, preserving exact quotation bytes except removal of page-form-feed characters for display. It corrects source accessibility; it does not change Sections1–14 or the theorem. Every cited application still requires independent scrutiny. Use these authentic passages for source evidence in place of the misselected original Section15 blocks. The broad CLD15.2.9 assertion remains unused; compact cutoffs are proved directly. The universal moment-dimension equality in CLD12.2.4 remains unused; only polyhedrality and the independently stated upper bound are used.
+
+## CLD.txt, newline lines 14838–15060
+
+```text
+
+ § 11.1. GÉOMÉTRIE ANALYTIQUE : CONVENTIONS, NOTATIONS,
+                       PREMIERS RAPPELS
+
+   On fixe pour toute la suite de l’article un corps ultramétrique complet k ; sa valeur
+absolue peut être triviale. On note k ◦ son anneau de valuation. Nous désignerons par ek
+                                                         1
+le corps gradué résiduel de k (10.8.1). Sa composante k de degré 1 est le corps résiduel
+                                                        e
+standard de k, c’est-à-dire le corps résiduel de l’anneau local k ◦ .
+   Dans ce texte, la notion d’espace k-analytique sera à prendre au sens de Berkovich,
+et plus précisément de [9]. Rappelons qu’un polyrayon est une famille (le plus souvent
+finie) de nombres réels strictement positifs ; la longueur d’un polyrayon est le cardinal
+de son ensemble d’indices. Faisons quelques rappels pour la commodité du lecteur.
+11.1.1. — La construction fondamentale sur laquelle repose la géométrie de Berkovich
+est la suivante. Soit A un anneau de Banach, c’est-à-dire un anneau A muni d’une norme
+sous-multiplicative ∥ · ∥ (on inclut dans la définition le fait que ∥1∥ ⩽ 1, ce qui entraîne
+que ∥1∥ = 1 dès que A est non nul) pour laquelle il est complet. À un tel anneau A on
+associe son spectre analytique M (A), qui est défini comme l’ensemble des semi-normes
+multiplicatives bornées sur A, c’est-à-dire des applications φ : A → R+ vérifiant les
+propriétés suivantes :
+
+  – on a φ(0) = 0 et φ(f + g) ⩽ φ(f ) + φ(g) pour tous f, g ∈ A (propriété de semi-
+norme) ;
+  – on a φ(1) = 1 et φ(f g) = φ(f )φ(g) pour tout f, g ∈ A (multiplicativité) ;
+  – il existe un nombre réel c tel que φ(f ) ⩽ c∥f ∥ pour tout f ∈ A (caractère borné de
+φ).
+
+Notons qu’on impose que φ(0) = 0 et φ(1) = 1 : si A est nul, M (A) est donc vide.
+Cet ensemble M (A) est muni de la topologie la moins fine pour laquelle les applications
+φ 7→ φ(f ) sont continues pour tout f ∈ A. L’application φ 7→ (φ(a))a∈A identifie topo-
+logiquement M (A) à un fermé de l’espace produit a∈A [0, ∥a∥], si bien que M (A) est
+                                                   Q
+compact. Si φ appartient à M (A), son noyau est un idéal premier de A, et l’application
+298                   CHAPITRE 11. RAPPELS DE GÉOMÉTRIE ANALYTIQUE
+
+φ 7→ ker φ de M (A) vers Spec A est continue. Son image contient tous les idéaux maxi-
+maux de A (c’est ce qui est réellement démontré dans la preuve du théorème 1.2.1 de
+[8]) ; en particulier M (A) est non vide dès que A est non nul.
+   En général, on note typiquement plutôt x que φ un élément de M (A), en y pensant
+comme à un point. Soit x ∈ M (A). La semi-norme multiplicative x induit une valeur
+absolue sur le corps des fractions de l’anneau intègre A / ker x, corps des fractions dont
+le complété est noté H (x). L’application composée A → A / ker x → H (x) sera notée
+f 7→ f (x), et la valeur absolue du corps complet H (x) sera notée |·| ; avec ces conventions
+on a x(f ) = |f (x)| pour toute f ∈ A et nous utiliserons sauf exception la notation de
+droite. Cette construction est fonctorielle : tout morphisme borné A → B d’anneaux de
+Banach induit par composition une application continue de M (B) vers M (A).
+   La semi-norme spectrale de A est la semi-norme ρ commutant aux puissances définie
+par les formules
+                     ρ(f ) = sup |f (x)| = lim inf ∥f n ∥1/n = inf ∥f n ∥1/n
+                              x∈M (A)            n→∞                n→∞
+
+
+(voir [8], 1.3, pour les deux dernières égalités). Nous désignerons par A◦ (resp. A◦◦ )
+l’ensemble des éléments f de A tels que ρ(f ) ⩽ 1 (resp. ρ(f ) < 1), et par A     e l’anneau
+gradué résiduel de A (10.8.1) relativement à ρ. Sa composante A     e1 est l’anneau résiduel
+            ◦    ◦◦
+standard A /A .
+   Supposons maintenant que A est une k-algèbre et que sa norme est une norme de k-
+espace vectoriel. Dans ce cas λ 7→ |λ(x)| définit pour tout x ∈ M (A) une valeur absolue
+sur k bornée relativement à la valeur absolue structurale de k, ce qui entraîne que
+|λ(x)| = |λ| pour tout λ : la semi-norme x induit donc la valeur absolue structurale de k,
+et (H (x), |·|) est une extension de (k, ·). Comme la valeur absolue de k est ultramétrique,
+celle de H (x) l’est aussi (une valeur absolue |·| étant ultramétrique si et seulement si
+|n| ⩽ 1 pour tout n ∈ Z). On a donc dans ce cas |(f + g)(x)| ⩽ max(|f (x)|, |g(x)|) pour
+tout f, g dans A, puis ρ(f + g) ⩽ max(ρ(f ), ρ(g)) (comme on le voit en faisant varier x).
+11.1.2. — Soit n un entier. Pour tout polyrayon r = (r1 , . . . , rn ), nous désignerons
+         −1             −1
+      P 1 T1 , . . . ,νrn Tn } la sous-algèbre
+par k{r
+                                         ν
+                                                   de k[[T1 , . . . , Tn ]] formée des séries formelles
+                                                  ν1      νn
+                                                                                                 P
+f =      ν∈N n a ν T    telles que a ν r   = a ν 1 . . . rn converge vers 0 lorsque |ν| =
+                                                r                                                  |νj |
+tend vers +∞. On la munit de la norme multiplicative ultramétrique définie par ∥f ∥ =
+max|aν |rν . Pour abréger les notations, on notera aussi k{r−1 T } cette algèbre. C’est une
+algèbre de Banach dont tous les idéaux sont fermés et de type fini.
+   Soit maintenant A une k-algèbre de Banach commutative (par convention, dans cet
+ouvrage, les normes de k-algèbres seront toujours ultramétriques). On dit que A est une
+algèbre k-affinoïde s’il existe un entier n, un polyrayon (r1 , . . . , rn ) et une surjection de
+k{r−1 T } vers A telle que la norme de A soit équivalente à la norme quotient correspon-
+dante. On dit que A est strictement k-affinoïde si l’on peut de plus prendre rj = 1 pour
+tout j. Pour que A soit strictement k-affinoïde, il suffit en fait que l’on puisse prendre
+les rj de torsion modulo |k × | ([20] 6.1.5/4).
+   Une k-algèbre de Banach A est dite affinoïde s’il existe une extension valuée com-
+plète K de k telle que A soit une algèbre K-affinoïde.
+   Si A est une k-algèbre affinoïde l’application continue naturelle de M (A) vers Spec A
+est surjective ([9], Proposition 2.1.1).
+   Soit A une k-algèbre affinoïde et soit ρ sa semi-norme spectrale. L’algèbre A est
+noethérienne, et ses idéaux sont fermés. Pour tout f ∈ A on a ρ(f ) = 0 si et seulement
+     § 11.1. GÉOMÉTRIE ANALYTIQUE : CONVENTIONS, NOTATIONS, PREMIERS RAPPELS             299
+
+si f est nilpotent. En particulier, ρ est une norme si et seulement si A est réduite et si
+c’est le cas, ρ est équivalente à la norme structurale de A.
+Exemple 11.1.3. — Soit r = (ri ) un polyrayon de longueur finie. Soit T P        = (Ti ) une
+famille d’indéterminées et soit kr la k-algèbre constituée des séries formelles I∈Zn aI T I
+à coefficients
+           P dans    k, où |aI | · rI tend vers zéro quand |I| tend vers l’infini, munie de
+la norme      aI T 7→ max|aI | · rI . La k-algèbre normée kr est une k-algèbre affinoïde :
+                  I
+
+elle est en effet isomorphe à k{r−1 T, rS}/(ST − 1). Sa norme est multiplicative ([48],
+1.2.1). Supposons de plus que r soit k-libre, c’est-à-dire que les ri soient Q-linéairement
+indépendants dans Q ⊗Z (R×           ×
+                                + /|k |). Dans ce cas kr est un corps ([48], 1.2.2), et c’est
+donc à la fois une extension complète de k et une algèbre k-affinoïde.
+Remarque 11.1.4. — Soit A = k{r−1 T } une algèbre k-affinoïde, où r = (ri ) est un
+polyrayon de longueur finie. Choisissons un ensemble J d’indices tel que le polyrayon
+s := (rj )j∈J soit k-libre et quiQsoit maximal pour cette propriété. Chacun des ri est
+alors de torsion modulo |k × | · j∈J riZ , si bien que la ks -algèbre de Banach A⊗
+                                                                                 b k ks est
+strictement ks -affinoïde.
+11.1.5. — Soit A une algèbre k-affinoïde ; posons X = M (A ). Une partie V de X
+est appelée un domaine affinoïde de X si le foncteur qui envoie une k-algèbre de Ba-
+nach affinoïde B sur l’ensemble des morphismes bornés de A vers B tels que l’image
+de M (B) soit contenue dans V est représentable par une algèbre k-affinoïde AV . Si c’est
+le cas, M (AV ) ≃ V .
+   Un système rationnel d’inéquations sur X est une combinaison booléenne d’inégalités
+qui est de la forme
+                     |f1 | ⩽ λ1 |g| et |f2 | ⩽ λ2 |g| et . . . et |fn | ⩽ λn |g|
+où g et les fi sont des fonctions analytiques sur X sans zéro commun, et où les λi sont
+des réels.
+  Si β est un système rationnel d’inéquations sur X, on notera β̊ le système défini à partir
+de β en remplaçant toutes inégalités larges par les inégalités strictes correspondantes.
+  Soit
+                    β : |f1 | ⩽ λ1 |g| et |f2 | ⩽ λ2 |g| et . . . et |fn | ⩽ λn |g|
+un système rationnel d’inéquations sur X.
+  On qualifiera de rationnel le lieu de X défini par un tel système d’inéquations. C’est
+un domaine affinoïde de X, avec
+                          AV ≃ k{T1 /λ1 , . . . , Tn /λn }/(fi − Ti g)i .
+Notons que si g s’annulait en un point de V , il en irait de même de chacune des fi ; en
+conséquence, g|V est inversible.
+  Tout point de X possède une base de voisinages rationnels, en particulier une base
+de voisinages affinoïdes. Plus précisément, pour tout x ∈ X et tout voisinage ouvert U
+de x, il existe un système rationnel d’inéquations β dont le lieu de validité est contenu
+dans U , et tel que x satisfasse β̊.
+11.1.6. — Le théorème de Gerritzen-Grauert affirme que tout domaine affinoïde de X
+est réunion finie de domaines rationnels (pour le cas non strict, voir [47], lemme 2.4 ;
+pour une preuve directe, voir aussi [128], théorème 3.1). Il en résulte que si x est un
+point de X situé sur un domaine affinoïde V de X, le corps résiduel complété H (x) ne
+dépend pas du fait que l’on voie x comme appartenant à V = M (AV ) ou à X = M (A).
+300                CHAPITRE 11. RAPPELS DE GÉOMÉTRIE ANALYTIQUE
+
+11.1.7. — À partir des espaces affinoïdes, Berkovich définit dans [9] la catégorie des
+espaces k-analytiques par un procédé de recollement un peu délicat qu’il serait trop
+long de décrire ici en détail ; nous allons tout de même rappeler quelques faits. Suivant
+Berkovich, si X est un espace topologique et si (Xi ) est une famille de parties de X,
+nous dirons que les Xi constituent
+                           S         un G-recouvrement de X si tout point x de X possède
+un voisinage de la forme i∈J Xi où J est fini et où x ∈ Xi pour tout i ∈ J. Si l’on
+ne s’astreint à recoller que des espaces strictement affinoïdes, on obtient la classe des
+espaces strictement k-analytiques.
+   Soit X un espace k-analytique. C’est en particulier un espace topologique dont tout
+point possède une base de voisinages compacts (mais X n’est pas nécessairement lo-
+calement compact puisqu’un espace topologique localement compact est par définition
+séparé, et que ce n’est pas forcément le cas de X). L’espace X possède par ailleurs une
+classe distinguée de partie compactes, ses domaines affinoïdes (si X = M (A ), les do-
+maines affinoïdes de X sont précisément ceux décrits au 11.1.5 ci-dessus). Un domaine
+analytique de X est une partie de X qui est G-recouverte par les domaines affinoïdes
+qu’elle contient. Tout domaine affinoïde de X est un domaine analytique de X ; plus
+généralement, tout compact de X qui est une union finie de domaines analytiques de
+X est un domaine analytique. Et tout ouvert de X (et notamment X lui-même) est un
+domaine analytique. En particulier, tout point x de X possède un voisinage compact
+qui est une réunion finie de domaines affinoïdes contenant x. Les espaces définis dans [8]
+sont ceux qui sont qualifiés de bons dans [9], c’est-à-dire ceux dont tout point admet un
+voisinage affinoïde (et donc une base de voisinages affinoïdes.) Tout domaine analytique
+de X est une partie localement fermée de X : l’intersection d’une famille finie de do-
+maines analytiques est un domaine analytique ; la réunion d’une famille localement finie
+de domaines analytiques fermés est un domaine analytique.
+   Tout domaine analytique V de X hérite d’une structure canonique d’espace analy-
+tique, et d’un morphisme V ,→ X dont l’application sous-jacente est l’inclusion. Tout
+morphisme f : Y → X se factorisant ensemblistement par V se factorise en fait unique-
+ment par la structure analytique de V .
+11.1.8. La G-topologie. — Soit X un espace k-analytique. En plus du site topolo-
+gique sur X on définit un second site plus fin, noté XG . Ses objets sont les domaines
+analytiques de X, ses flèches sont les inclusions, et ses familles couvrantes sont les G-
+recouvrements. La topologie de ce site est appelée la G-topologie de X.
+  Comme tout ouvert de X est un domaine analytique et comme tout recouvrement
+ouvert est un G-recouvrement, on dispose d’un morphisme de site canonique π : XG →
+X. L’unité d’adjonction id → π∗ π ∗ est un isomorphisme ([9], p. 26).
+  Le site XG est annelé. Nous noterons OX le faisceau structural de XG . Sauf mention du
+contraire, lorsque nous parlerons de faisceaux cohérents sur X, il s’agira plus précisément
+de OX -module cohérents sur XG . Précisons que le faisceau OX ainsi que sa restriction
+au site topologique usuel de X sont cohérents ([49], lemme 0.1 ; pour la correction d’une
+petite erreur dans la preuve, signalée par Jérôme Poineau, voir [52], 1.1.1). Si X = M (A)
+alors OX (X) = A.
+  Tout morphisme f : Y → X entre espaces analytiques est en particulier un morphisme
+de sites annelés : si V est un domaine analytique de Y alors f −1 (V ) est un domaine
+analytique de X et l’on dispose d’un morphisme f ∗ : OX (V ) → OY (f −1 (V )). Si X est
+un espace k-affinoïde M (A) et si Y est un espace affinoïde M (B) sur une extension de
+     § 11.1. GÉOMÉTRIE ANALYTIQUE : CONVENTIONS, NOTATIONS, PREMIERS RAPPELS               301
+
+k, l’application f 7→ f ∗ établit une bijection entre l’ensemble des k-morphismes de Y
+vers X et l’ensemble des morphismes bornés de k-algèbres de A vers B.
+   Si X = M (A) est un espace k-affinoïde et si M est un A-module de type fini, le
+faisceau Mf sur XG associé au préfaisceau V 7→ M ⊗A OX (V ) est cohérent. Le foncteur
+M 7→ M f établit une équivalence entre la catégorie des A-modules de type fini et celle
+des faisceaux cohérents sur X, de quasi-inverse F 7→ F (X) (cf. [9] ; ce résultat est dû
+à Kiehl dans le cas strictement affinoïde).
+   Lorsque X est bon, le foncteur π∗ induit une équivalence de catégories entre faisceaux
+cohérents sur XG et faisceaux cohérents sur X, et qu’un faisceau cohérent F sur XG est
+localement libre si et seulement si c’est le cas de π∗ F ([9], 1.3.4 ; notons que la définition
+de faisceau cohérent qu’il utilise dans cette proposition est ad hoc, mais qu’elle coïncide
+bien en fait avec la notion usuelle au vu de la cohérence des faisceaux structuraux sur
+les deux sites annelés en jeu).
+11.1.9. Produits fibrés, extension des scalaires. — La catégorie des espaces k-
+analytiques admet des produits fibrés. Si A → B et A → C sont deux morphismes
+d’algèbres k-affinoïdes, M (B) ×M (A) M (C) = M (B ⊗     b A C).
+   Si L est un extension complète de k on dispose d’un foncteur d’extension des scalaires
+X 7→ XL de la catégorie des espaces k-analytiques vers celle des espaces L-analytiques.
+Si X = M (A) alors XL = M (A⊗       b k L). En général on dispose d’un morphisme naturel
+de sites annelés de XL vers X, qui est surjectif (cf. [48], 0.5).
+   Supposons X bon, soit y un point de XL et soit x son image sur X. Le morphisme
+naturel de Spec OXL ,y vers Spec OX,x est plat à fibres localement d’intersection complète,
+et à fibres géométriquement régulières si L est analytiquement séparable sur k ; c’est le
+théorème [52], th. 2.6.5. La notion d’extension analytiquement séparable est définie
+dans [49] (définition 1.6). Une extension finie de k est analytiquement séparable si et
+seulement si elle est séparable ; si r est un polyrayon de longueur finie et k-libre, kr est
+une extension analytiquement séparable de k ; si k est parfait, toute extension complète
+de k est analytiquement séparable.
+   On définit la catégorie des espaces analytiques au-dessus de k comme la catégorie dont
+```
+
+## CLD.txt, newline lines 15287–15355
+
+```text
+topologie de V induite par la topologie de Zariski de X, et en général strictement plus
+fine.
+   Si E est une partie de X et si (Xi ) est un G-recouvrement de X par des domaines
+analytiques, alors E est un fermé (resp. un ouvert) de Zariski de X si et seulement si
+E ∩ Xi est un fermé (resp. un ouvert) de Zariski de Xi pour tout i ([49], Prop. 4.2.1).
+306                  CHAPITRE 11. RAPPELS DE GÉOMÉTRIE ANALYTIQUE
+
+   Une immersion fermée (1) est un morphisme d’espaces k-analytiques f : Y → X se
+factorisant par un isomorphisme entre Y et un sous-espace analytique fermé de X. Une
+immersion fermée préserve les corps résiduels complétés.
+   Un morphisme d’espaces k-analytiques f : Y → X est dit séparé si sa diagonale
+δ : Y → Y ×X Y est une immersion fermée, et X est dit séparé si le morphisme structural
+de X vers M (k) est séparé. La séparation dans ce sens entraîne la séparation topolo-
+gique, mais la réciproque est fausse : le recollement de deux copies du disque unité le
+long du domaine affinoïde décrit par l’égalité |T | = 1 est topologiquement séparé car le
+domaine de recollement est fermé, mais n’est pas séparé.
+11.2.3. Dimension. — On dispose d’une théorie de la dimension en géométrie ana-
+lytique, due à Berkovich, au sujet de laquelle on pourra consulter le chapitre 2 de [8], la
+fin du paragraphe 1.2 de [9] ou encore l’article [48].
+   Soit X un espace k-analytique. Sa dimension (k-analytique) est définie comme suit.
+Commençons par le cas affinoïde. Écrivons X = M (A) et choisissons une extension
+complète L de k telle que AL := A⊗        b k L soit strictement L-affinoïde. La dimension de
+Krull de AL ne dépend alors pas de L ([48], 1.5) et est appelée dimension de X. (Si X est
+strictement k-affinoïde sa dimension est donc simplement sa dimension de Krull relative
+à sa topologie de Zariski.) On a par construction dim Xred = dim X et dim XL = dim X
+pour toute extension complète L de k.
+   Si Y est un fermé de Zariski de X, le choix d’une structure de sous-espace analytique
+fermé sur Y , c’est-à-dire d’un idéal I de A définissant Y , fait de Y un espace affinoïde
+(identifié à M (A/I)). Sa dimension ne dépend pas du choix de I, et nous parlerons donc
+de la dimension de Y sans spécifier I.
+   Soit X1 , . . . , Xn les fermés de Zariski de X correspondant aux idéaux premiers mini-
+maux de A. Si V est un domaine affinoïde de X on a alors dim V = supi,V ∩Xi ̸=∅ dim Xi .
+En particulier dim V ⩽ dim X = supi dim Xi . Si x est un point de X on définit dimx X
+comme le minimum des dim V où V est un domaine affinoïde de X contenant x ; c’est
+aussi supi,x∈Xi dim Xi . Il vient dim X = supi dim Xi = supx∈X dimx X.
+   Ne supposons plus X affinoïde. Si x est un point de X, on définit la dimension locale
+dimx X de X en x comme le minimum des dim V où V parcourt l’ensemble des domaines
+affinoïdes de X contenant x, et l’on pose alors dim X = supx∈X dimx X. Cette définition
+est compatible avec la précédente lorsque X est affinoïde. Si V est un domaine analytique
+de X on a dimx V = dimx X pour tout x ∈ V , si bien que dim V ⩽ dim X. Si d est un
+entier on dit que X est purement de dimension d si dimx X = d pour tout x ∈ X. Si
+c’est le cas X est ou bien vide, ou bien de dimension d.
+   Pour tout point x de X on pose
+(11.2.3.1)
+                                                   1
+      dk (x) = degtr(H      (x)/k̃) = degtr(H        k 1 ) + dimQ Q ⊗Z (|H (x)× |/|k × |) ,
+                                                                                         
+                         ^                  ^  (x) /e
+où la seconde égalité provient de 10.1.9 ; Berkovich le note d(κ(x)/k) ou d(H (x)/k)
+L’intérêt majeur de cet invariant est l’égalité dim(X) = supx∈X dk (x) ([9], Lemma 2.5.2).
+   Soit Y un fermé de Zariski de X. Munissons-le d’une structure de sous-espace analy-
+tique fermé. La dimension de l’espace analytique correspondant ne dépend que de Y , et
+(1)
+   Dans l’expression « immersion fermée » ou dans l’expression « sous-espace analytique fermé », l’ad-
+jectif « fermé » fait implicitement référence à la topologie de Zariski. Ainsi, en général, un domaine
+analytique fermé V de X n’est pas un sous-espace analytique fermé de X, et le morphisme canonique
+V ,→ X n’est pas une immersion fermée.
+                 § 11.2. TOPOLOGIE DE ZARISKI, THÉORIE DE LA DIMENSION                     307
+
+pas de la structure en question (par exemple au vu de l’égalité ci-dessus, ou par réduc-
+tion au cas affinoïde via la description des domaines analytiques de Y ). On pourra donc
+parler de la dimension de Y sans spécifier la structure dont on le munit.
+
+
+Remarque 11.2.4. — Insistons sur le fait que la dimension considérée ici est en fait
+une dimension relative au corps de base k, même si nous ne rappelons pas cette dépen-
+dance. Considérons par exemple l’algèbre de Banach kr associée à un polyrayon k-libre
+(r1 , . . . , rn ) (exemple 11.1.3). C’est une extension complète de k. En tant qu’algèbre kr -
+affinoïde elle est stricte, et sa dimension de Krull est nulle. Par conséquent la dimension
+```
+
+## CLD.txt, newline lines 15567–15604
+
+```text
+compact si l’image réciproque de toute partie compacte est compacte. Comme tout point
+possède un voisinage compact, cela revient à dire que f est topologiquement propre et
+topologiquement séparé.
+  Suivant [9] (1.5.3), un morphisme est dit propre s’il est compact et sans bord.
+11.4.4. Morphismes finis. — Soit A une algèbre k-affinoïde. Une A-algèbre de Ba-
+nach finie est une A-algèbre de Banach B qui est finie comme A-algèbre, et dont la
+norme est équivalente à la norme quotient induite par une présentation finie An → B
+du A-module B. Dans ce cas la norme de B est en fait équivalente à la norme quotient
+associée à n’importe quelle présentation finie du A-module B (c’est une conséquence de
+[8], Prop. 2.1.9). Toute A-algèbre de Banach finie est k-affinoïde (combiner [20], Prop.
+6.1.3/4 et [8], Cor. 2.1.8). Le foncteur d’oubli de la norme induit une équivalence de
+catégories entre A-algèbres de Banach finies et A-algèbres finies(2) ([8], Prop. 2.1.12).
+   Soit f : Y → X un morphisme entre espaces k-analytiques. Si X et Y sont affinoïdes,
+on dit que f est fini si f ∗ fait de O(Y ) une O(X)-algèbre de Banach finie ; cela revient
+à demander que f soit sans bord ([8], Cor. 2.5.13). En général (si l’on ne suppose plus
+X et Y affinoïdes) les assertions suivantes sont équivalentes : ([9], Cor. 1.3.7).
+  (i) Il existe un G-recouvrement (Xi ) de X par des domaines affinoïdes tels que pour
+tout i, l’image réciproque f −1 (Xi ) soit affinoïde et que le morphisme induit de f −1 (Xi )
+vers Xi soit fini
+  (ii) Pour tout domaine affinoïde V de X l’image réciproque f −1 (V ) est affinoïde et le
+morphisme induit de f −1 (V ) vers V est fini.
+
+  Si |k × | ̸= {1} et si A est strictement k-affinoïde, on déduit de [8], Prop. 2.1.1 et [20], Thm. 6.1.3/1
+(2)
+
+que toute A-algèbre de Banach qui est finie comme A-algèbre est une A-algèbre de Banach finie. Par
+contre si k est trivialement valué et si 0 < r < s < 1, le morphisme continu naturel de k{T /s} vers
+k{T /r} est bijectif (sa source et son but s’identifient tous deux à k[[T ]]) mais sa réciproque n’est pas
+bornée, si bien que k{T /s} n’est pas une k{T /r}-algèbre de Banach finie).
+312                CHAPITRE 11. RAPPELS DE GÉOMÉTRIE ANALYTIQUE
+
+On dit que f est fini si elles sont satisfaites ; cette définition est compatible avec la
+précédente si X et Y sont affinoïdes. Un morphisme fini est sans bord.
+  La classe des morphismes finis est stable par composition et changement de base
+analytique sur k, et la propriété d’être fini est G-locale au but.
+  Soit y un point de Y . On dit que f est fini en y s’il existe un voisinage analytique
+U de f (y) dans X et un voisinage analytique V de y dans f −1 (U ) tel que f induise un
+morphisme fini de V vers U . Si c’est le cas le point y appartient à Int(Y /X), et si de
+```
+
+## CLD.txt, newline lines 16122–16143
+
+```text
+  Supposons réciproquement que (X, ^   x) soit l’image réciproque d’un ouvert affine de
+P ^ 1 e1 . Il résulte de la preuve du lemme 3.5.1 de [52] qu’il existe un entier n, un
+ H (x) /k
+point y du polydisque unité D de dimension n et un morphisme sans bord de (X, x) vers
+(D, y). Lorsque la valeur absolue de k n’est pas triviale, y possède une base de voisinages
+strictement affinoïdes dans D, si bien que (X, x) possède un représentant strictement
+affinoïde.
+11.7.7. — Supposons que la valeur absolue de k n’est pas triviale. On déduit alors
+des résultats rappelés au 11.7.6 que (X, x) est strictement k-analytique si et seulement
+   ^
+si (X, x) est strict, cf. [52, Lemma 3.5.2]. Mentionnons incidemment que si (X, x) est
+                         ^
+à la fois bon et strict, (X, x) est à la fois affine et strict, donc est l’image réciproque
+d’un ouvert affine de P ^ 1 e1 (10.5.5) ; il découle alors de 11.7.6 que le germe (X, x) est
+                        H (x) /k
+strictement affinoïde. Autrement dit tout point d’un bon espace strictement k-analytique
+admet un voisinage strictement affinoïde ce qui, à notre connaissance, ne figurait pas
+jusqu’ici explicitement dans la littérature.
+   Notons que l’hypothèse que la valeur absolue de k n’est pas triviale est indispensable
+à la validité des énoncés ci-dessus. Supposons en effet que |k × | = {1}, et soit X l’ouvert
+de A1k défini par les inégalités 0 < |T | < 1 ; il est sans bord, si bien que pour tout x ∈ X
+              ^
+```
+
+## CLD.txt, newline lines 3750–3920
+
+```text
+3.3.8. — Soit ω une G-forme (resp. une forme) de type (p, q) à coefficients dans G
+sur X. Si V est un domaine de X, une G-tropicalisation de ω sur V est la donnée d’une
+carte G-tropicale (f : V → E, P ) et d’une forme α ∈ GPp,q (P ) telle que ω = f ∗ α.
+  On dira que ω est G-tropicale si elle admet une G-tropicalisation sur X.
+  Si V est un domaine de X tel que ω possède une G-tropicalisation sur V , nous dirons
+aussi que V G-tropicalise ω.
+  Soit V un domaine compact de X qui G-tropicalise ω, et soit (f V → E, P, α) une
+G-tropicalisation de ω|V . Comme f (V ) est un sous-espace paralinéaire de E, (f : V →
+E, f (V ), α|f (V ) ) est encore une G-tropicalisation de ω|V ; une telle G-tropicalisation sera
+simplement notée (f : V → E, α) : lorsque V est compact, l’omission du sous-espace
+paralinéaire P signifie qu’il est égal à f (V ).
+
+Remarque 3.3.9. — Soit H une classe de coefficients contenant G . Observons que
+les G-formes à coefficients dans G s’identifient à des G-formes à coefficients dans H .
+   En effet, le G-préfaisceau Gpfp,q sur XG s’identifie à un sous-G-préfaisceau de Hpfp,q , de
+sorte que le G-faisceau GXp,qG sur X s’identifie alors à un sous-G-faisceau de HXp,qG
+                                                                                       . Ces
+identifications sont compatibles avec les constructions faites dans ce paragraphe.
+
+3.3.10. — Le faisceau GXG := GX0,0G est un faisceau en R-algèbres et les faisceaux GXp,qG
+sont des GXG -modules. Leur somme directe GX∗,∗G = p,q GXp,qG est un faisceau en algèbres
+                                                   L
+
+bigraduées commutatives : si ω est de type (p, q) et ω ′ de type (p′ , q ′ ), alors
+                                                    ′     ′
+                                ω ′ ∧ ω = (−1)(p+p )(q+q ) ω ∧ ω ′ .
+3.3.11. — Le G-préfaisceau Gpf∗,∗ est naturellement muni d’un opérateur J qui s’étend
+au faisceau GX∗,∗G . Ce sont des morphismes d’algèbres. On dit qu’une section ω de GXp,qG
+est symétrique si p = q et si Jω = ω.
+    Soit H une classe de coefficients telles que les dérivées partielles des fonctions de G
+existent et appartiennent à H . On dispose alors d’opérateurs différentiels d′ et d′′ de
+Gpf∗,∗ dans Hpf∗,∗ ; ils induisent des opérateurs différentiels de GX∗,∗G dans HX∗,∗
+                                                                                  G
+                                                                                     , caractérisés
+par les relations
+                               d′ f ∗ α = f ∗ d′ α, d′′ f ∗ α = f ∗ d′′ α,
+                                 § 3.4. NULLITÉ DES G-FORMES                             81
+
+pour toute carte G-tropicale (f : U → E, P ) et toute forme α de type (p, q) à coeffi-
+cients dans G sur P . Les différentielles vérifient la règle de Leibniz : si ω et ω ′ sont
+respectivement de type (p, q) et (p′ , q ′ ), on a
+(3.3.11.1)               d′ (ω ∧ ω ′ ) = d′ ω ∧ ω ′ + (−1)p+q ω ∧ d′ ω ′ ,
+et de même pour d′′ (ω ∧ ω ′ ).
+   Si G ⊂ C 2 , ces opérateurs vérifient d′ d′ = d′′ d′′ = 0.
+3.3.12. — Cette construction est fonctorielle. Plus précisément, si f : Y → X est un
+morphisme d’espaces G-tropicaux, on dispose de morphismes de faisceaux
+                                     f ∗ : GX∗,∗G → f∗ (GY∗,∗
+                                                           G
+                                                              )
+sur XG qui sont des morphismes d’anneaux gradués, commutent aux dérivations d′ et
+d′′ (lorsqu’elles existent) et à l’opérateur J.
+   Lorsque le contexte rend évident le morphisme f , on se permettra parfois de noter
+ω|Y l’image dans GYp,q G
+                         (Y ) d’une G-forme ω ∈ GXp,qG .
+3.3.13. — Soit (p, q) un couple d’entiers naturels. Soit Σ une partie paralinéaire de X
+et soit j l’inclusion de Σ dans X. C’est un morphisme d’espaces G-tropicaux. On dispose
+donc d’un morphisme de faisceaux de FXp,qG dans j∗ FΣp,qG . On notera ω 7→ ω|Σ l’image
+d’une forme ω et on dira que c’en est la restriction à Σ.
+   Concrètement, cette restriction se calcule de la façon suivante.
+   Soit V un domaine de X, soit (f : V → E, P ) une carte G-tropicale sur V , et soit
+α ∈ FPp,q (P ). Alors Σ ∩ V est une partie paralinéaire de V , l’application f : Σ ∩ V → E
+est paralinéaire et son image est contenue dans P , l’image réciproque f ∗ α de α est
+une forme de type (p, q) sur l’espace paralinéaire Σ ∩ V . Par définition de l’ensemble
+Fpfp,q (V ) comme limite inductive, la forme f ∗ α ne dépend que de la classe de f ∗ α dans
+cet ensemble. Cette construction définit un morphisme de préfaisceaux de FX,pf     p,q
+                                                                                       dans
+j∗ FΣp,q .
+   Par passage aux faisceaux associés, on en déduit le morphisme de restriction de FXp,qG
+dans j∗ FΣp,qG .
+3.3.14. — Soit f : Y → X un morphisme d’espaces G-tropicaux, soit T une partie
+paralinéaires de Y et soit Σ une partie paralinéaire de X telle que f (Σ) ⊂ T. Pour toute
+forme ω ∈ FXp,qG (X), on a (f ∗ ω)|T = (f |T )∗ (ω|Σ ).
+   Nous appliquerons notamment cette remarque lorsque Y est un domaine de X et
+T = Σ ∩ Y , ou bien lorsque Y = X et T est une partie polyédrale de Σ.
+
+
+
+                          § 3.4. NULLITÉ DES G-FORMES
+
+Proposition 3.4.1. — Soit X un espace G-tropical compact, soit f : X → E une carte
+G-tropicale, soit P un sous-ensemble paralinéaire de E contenant f (X) et soit α ∈
+GPp,q (P ). Les assertions suivantes sont équivalentes :
+   a) La restriction de α au sous-espace paralinéaire f (X) est nulle ;
+   b) La section globale f ∗ α de Gpfp,q est nulle.
+Démonstration. — L’hypothèse (1) entraîne que l’image de α dans la carte tropicale
+(f, f (X)) est nulle, de sorte que (2) vaut. Supposons que (2) est vérifiée et prouvons (1).
+82                          CHAPITRE 3. ESPACES G-TROPICAUX
+
+   On peut remplacer P par f (X). Par définition, il existe une carte G-tropicale g : X →
+F , une morphisme affine p : F → E tel que p ◦ g = f , et un sous-espace paralinéaire Q
+de F contenant g(X) tels que p(Q) ⊂ P et p∗ α = 0 dans GQp,q (Q). On peut aussi
+remplacer Q par g(X) ; on a alors p(Q) = P .
+   Le morphisme de Q sur P induit par p possède G-localement des sections. D’après
+le corollaire 1.8.5, il existe une décomposition cellulaire (Ci ) de P et, pour tout i, une
+section de ptrop sur Ci à valeurs dans Q. Puisque p∗ α = 0, on a donc α|Ci = 0 pour
+tout i. Par suite, α = 0.
+
+Corollaire 3.4.2. — Soit X un espace G-tropical compact, soit ω ∈ Gpfp,q (X) et soit
+(Xi ) un G-recouvrement de X. Supposons que pour tout i, la restriction de ω à Xi soit
+nulle ; alors ω = 0.
+Démonstration. — Tout G-recouvrement admet un G-recouvrement plus fin formé de
+domaines compacts. Comme X est compact, cela permet de supposer que le recouvre-
+ment (Xi ) est formé d’un nombre fini de domaines compacts. Par définition du préfais-
+ceau Gpfp,q , il existe une carte G-tropicale f : X → E, un sous-espace paralinéaire P de E
+contenant f (X), et une forme α ∈ GPp,q (P ) tels que ω = f ∗ α.
+   Il résulte que de la proposition 3.4.1 que α|f (Xi ) = 0 pour tout i. Comme f (X) est la
+réunion des f (Xi ), la forme α est nulle sur f (X) (lemme 1.9.2). On a donc ω = f ∗ α =
+0.
+
+Remarque 3.4.3. — L’hypothèse que X est compact est cruciale pour le corol-
+laire 3.4.2.
+   Prenons pour espace G-tropical l’ensemble X = R, muni de la topologie discrète, et
+pour carte l’application identique f : R → R. Soit α la forme d′ x sur R. Soit g : X → Rn
+une carte qui domine la carte f , et soit p : Rn → R une application affine telle que
+f = p ◦ g. Alors, p est surjective, donc p∗ α ̸= 0. Cela prouve que la section f ∗ α de Gpf1,0
+n’est pas nulle. En revanche, pour tout t ∈ R, le singleton Vt = {t} est un domaine de X
+de tropicalisation Pt = {t} et α|Pt = 0, si bien que α|Vt = 0. Comme ces domaines Vt
+forment un G-recouvrement de X, cela montre que le préfaisceau Gpf1,0 n’est pas séparé.
+Proposition 3.4.4. — Soit X un espace G-tropical, soit f : X → E une carte G-
+tropicale, soit P un sous-espace paralinéaire de E contenant f (X) et soit α ∈ FPp,q (P ).
+   Les propriétés suivantes sont équivalentes :
+   a) Pour tout domaine compact V de X, la restriction de α au polytope f (V ) est nulle ;
+   b) Pour tout domaine compact V de X, la restriction de f ∗ α à V est nulle ;
+   c) L’image de f ∗ α dans FXp,qG (X) est nulle.
+Démonstration. — D’après la proposition 3.4.1, les assertions (1) et (2) sont équiva-
+lentes.
+   Supposons (1). Comme X admet un G-recouvrement par des domaines compacts,
+l’assertion (3) s’en déduit.
+   Supposons (3). Il existe donc un G-recouvrement (Xi ) tel que f ∗ α|Xi = 0 en tant que
+section du préfaisceau Fpfp,q . Soit V un domaine compact de X. La restriction de f ∗ α
+à Xi ∩ V est nulle pour tout i ; comme la famille (Xi ∩ V ) est un G-recouvrement de V ,
+le corollaire 3.4.2 entraîne que f ∗ α|V = 0, d’où l’assertion (2). Cela termine la preuve
+de la proposition.
+                                § 3.4. NULLITÉ DES G-FORMES                                83
+
+Corollaire 3.4.5. — Soit X un espace G-tropical compact, soit f : X → E une carte
+G-tropical et soit P le sous-espace paralinéaire f (X). Soit α ∈ GPp,q (P ), et soit ω la
+G-forme f ∗ α. Notons K le support de ω dans X et H celui de α dans f (X). On a
+H = f (K).
+
+Démonstration. — Soit x un point de X. Soit Q un voisinage de f (x) dans P qui est
+                                             −1
+un polytope compact. Le domaine W = ftrop       (Q) de X est un voisinage de x et ω|W =
+       ∗
+(f |W ) (α|Q ).
+   Supposons que x appartienne à K. Le compact K rencontre alors l’intérieur de W , ce
+qui entraîne que ω|W ̸= 0, et donc que α|Q ̸= 0. Il s’ensuit que H rencontre Q. Comme
+Q peut être choisi arbitrairement petit, f (x) appartient à H, d’où l’inclusion f (K) ⊂ H.
+   Réciproquement, supposons que f (x) ∈ H. Par définition de H, la restriction à Q de
+la forme α est non nulle. D’après la proposition 3.4.4, la restriction de ω à f −1 (Q) est
+non nulle. Par conséquent, f −1 (Q) rencontre K, donc Q = f (f −1 (Q)) rencontre f (K).
+Comme Q est un voisinage arbitrairement petit de f (x), celui-ci est adhérent à f (K).
+Puisque f (K) est compact, f (x) appartient à f (K).
+
+3.4.6. — À toute carte G-tropicale (f : V → E, P ) sur un domaine V de X et à toute
+fonction u sur P , associons la fonction u◦f sur V . On définit ainsi un morphisme de pré-
+faisceaux de Fpf0,0 vers le G-faisceau des fonctions sur X. Il découle de la proposition 3.4.4
+que le morphisme de FX0,0G dans le G-faisceau des fonctions sur X est injectif, morphisme
+par lequel nous identifierons systématiquement une (0, 0)-G-forme à une fonction.
+   Une section globale du faisceau GX0,0G est une fonction sur X qui est G-localement de la
+forme φ(f1 , . . . , fn ) où les fi sont des fonctions paralinéaires sur X, et où φ appartient
+à la classe G . De telles fonctions seront appelées G-localement tropicales de classe G .
+
+Définition 3.4.7. — Soit A la classe des fonctions lisses. Les sections de AX0,0
+                                                                              G
+                                                                                 sont
+appelées fonctions G-lisses sur X.
+
+   Les fonctions G-lisses sont donc les fonctions sur X sont G-localement de la forme
+φ(f1 , . . . , fn ) où les fi sont des fonctions paralinéaires et où φ est une fonction de
+classe C ∞ .
+```
+
+## CLD.txt, newline lines 5289–5314
+
+```text
+
+Lemme 4.4.5. — Soit f : Y → X une immersion par morceaux d’espaces paralinéaires
+de niveau n. Soit α une forme-volume à coefficients boréliens sur X. On a l’égalité
+(f ∗ α)Bor = f ∗ (αBor ) de mesures de Borel régulières positives sur Y . Si α est localement
+intégrable, alors f ∗ α est localement intégrable et l’on a l’égalité (f ∗ α)Rad = f ∗ (αRad ) de
+mesures de Radon sur Y .
+
+   Comme f est une immersion par morceaux, l’image inverse de la mesure de Borel
+régulière αBor par f est définie G-localement (cf. A.3.13) ; de même pour les mesures de
+Radon.
+Démonstration. — L’espace Y est G-recouvert par des cellules C telles que f induise un
+isomorphisme de C sur son image, laquelle possède une immersion paralinéaire dans Rn .
+L’assertion découle alors de la construction de ces mesures.
+
+Lemme 4.4.6. — Soit f : Y → X une immersion par morceaux compacte d’espaces
+paralinéaires de niveau n. Soit α une forme-volume à coefficients boréliens sur Y . On
+a une inégalité (f∗ α)Bor ⩽ f∗ (αBor ) de mesures de Borel régulières positives sur X, qui
+est une égalité si f est injective. Si α est localement intégrable, alors f∗ α est localement
+intégrable et l’on a l’égalité (f∗ α)Rad = f∗ (αRad ) de mesures de Radon sur X.
+
+Démonstration. — En raisonnant localement, on se ramène au cas où X est paracom-
+pact. Soit (C , D) un couple de décompositions cellulaires qui est adapté à f . Après
+restriction à toute cellule D de D, les assertions découlent directement des définitions
+des mesures et des images directes.
+108    CHAPITRE 4. CALIBRAGES ET INTÉGRATION SUR LES ESPACES PARALINÉAIRES
+
+```
+
+## CLD.txt, newline lines 5449–5483
+
+```text
+forme ω sont positifs.
+   Les (n, n)-formes localement µ-intégrables forment un sous-faisceau en BXG -module
+de BX n,n
+        G
+          , et l’application ω 7→ ⟨ω, µ⟩ est linéaire.
+   On dira enfin que le calibrage µ est localement intégrable si toute forme à coefficients
+localement bornés est localement µ-intégrable. Sur une cellule, cela revient à dire que
+le calibrage est produit d’un calibrage standard par une fonction localement intégrable.
+Les calibrages G-localement constants sont localement intégrables.
+
+Exemple 4.5.7. — Lorsque X est un sous-espace affine de dimension n d’un espace
+affine V , ω une forme lisse sur X et µ un vecteur-volume sur X, on retrouve la notion
+d’intégrale définie dans le paragraphe 1.5.3 à partir des idées de Lagerberg.
+   D’une certaine manière, les constructions de ce chapitre visaient simplement à « G-
+faisceautiser » cette formule élémentaire de Lagerberg sur un espace affine.
+
+Proposition 4.5.8. — Soit f : Y → X une immersion par morceaux propre d’espaces
+paralinéaire de niveau n.
+   a) Pour toute (n, n)-forme ω sur X et tout calibrage µ de Y , on a l’égalité f∗ ⟨f ∗ ω, µ⟩ =
+⟨ω, f∗ µ⟩ de formes-volume n-dimensionnelles sur X.
+   b) Pour toute (n, n)-forme ω sur Y et tout calibrage µ de X, on a l’égalité ⟨f∗ ω, µ⟩ =
+f∗ ⟨ω, f ∗ µ⟩ de formes-volume n-dimensionnelles sur X.
+
+Démonstration. — En raisonnant localement, on se ramène au cas où X est paracom-
+pact. Il existe alors un couple (C , D) de décompositions cellulaires qui est adapté à f .
+                  § 4.6. CALIBRAGES ET INTÉGRALES DES (n − 1, n)-FORMES                  111
+
+Les assertions indiquées se vérifient alors, cellule par cellule, à partir des constructions
+des intégrales et de la définition du calibrage f∗ µ (resp. du calibrage f ∗ µ).
+
+
+
+     § 4.6. CALIBRAGES ET INTÉGRALES DES (n − 1, n)-FORMES
+
+4.6.1. — Soit G une classe de coefficients. Soit X un espace paralinéaire de niveau n,
+```
+
+## CLD.txt, newline lines 6308–6332
+
+```text
+Lemme 5.3.4. — Si la forme ω est G-tropicalisée par une carte G-tropicale f de do-
+                (n)
+maine X, alors Σf supporte fortement ω.
+
+Démonstration. — Le support de ω est contenu dans l’ensemble des points x ∈ X en
+                                                                    (n)
+lesquels f est de dimension tropicale ⩾ n qui, par définition, est Σf .
+                                                                  (n)
+  Soit T un sous-espace paralinéaire fermé de X qui contient Σf . Démontrons que ω|T
+est le prolongement par zéro de ω|Σ(n) . Soit C une décomposition cellulaire en f -cellules
+                                     f
+                             (n)
+de T qui est compatible à Σf . Il suffit de prouver que pour toute cellule C de C      telle
+                        (n)
+que C̊ est disjoint de Σf , on a ω|C = 0.
+  Par hypothèse, f est de dimension tropicale < n en tout point de C̊, donc il existe une
+cellule D, compacte, d’intérieur non vide, de C̊ telle que dim(f (D)) < n. Comme C est
+une f -cellule, on dim(f (C)) = dim(f (C̊)) = dim(f (D)). D’après la proposition 3.4.4, on
+a donc ω|C = 0.
+                          (n)
+  Cela démontre que Σf supporte fortement ω.
+
+Proposition 5.3.5. — Soit n un entier et soit X un espace G-tropical vertébré de
+niveau n. Soit (p, q) un couple d’entiers naturels tel que max(p, q) = n et soit ω une
+G-forme de type (p, q) sur X. Supposons que X est paracompact, ou que le support de ω
+```
+
+## CLD.txt, newline lines 6400–6414
+
+```text
+                                      f
+composition cellulaire finie en f -cellules.
+                                                                         (n)
+   Lorsque f est une carte agréable, nous noterons Πf l’ensemble f (Σf ) et l’appellerons
+le polyèdre tropical de la carte G-tropicale agréable f . Il est purement de dimension n
+                                                               (n)
+et l’application f induit une immersion par morceaux de Σf sur Πf .
+5.4.4. — Si X est compact, toute carte G-tropicale est agréable et l’on a Πf = f (X)(n)
+(proposition 5.2.5).
+Proposition 5.4.5. — Soit X un espace G-tropical vertébré de niveau n, soit f : X →
+E une carte G-tropicale agréable et soit P un sous-espace paralinéaire P de E. Consi-
+dérons la carte G-tropicale fP : f −1 (P ) → E sur le domaine f −1 (P ) (considéré comme
+130                      CHAPITRE 5. ESPACES G-TROPICAUX CALIBRÉS
+
+espace G-tropical vertébré de niveau n) déduite de f par restriction. La carte fP est
+```
+
+## CLD.txt, newline lines 6753–6812
+
+```text
+            = ⟨ω|T , µT ⟩                  d’après (3.3.14)
+            = ⟨(ω|Σ )|T , (µΣ )|T ⟩        d’après (3.3.14) et la définition d’un calibrage
+            = ⟨ω|Σ , µΣ ⟩|T = ω
+                              e |Y
+parce que l’accouplement entre (n, n)-formes et calibrages est un morphisme de faisceaux
+sur le site XG . Le lemme est ainsi démontré.
+
+Proposition 5.8.3. — Il existe un unique morphisme de faisceaux FXn,n            G
+                                                                                    → VXnG
+sur XG , noté ω 7→ ω e , qui prolonge l’application définie en (5.8.1) lorsque ω possède
+un support fort. Ce morphisme est FX0,0G -linéaire. Si ω est une G-forme positive, la
+forme-volume ωe est positive. Si ω est à coefficients dans une classe G , il en va de même
+de la forme-volume ωe.
+Démonstration. — Compte tenu du lemme 5.8.2, la première assertion résulte de ce que
+toute forme sur un domaine paracompact possède un support fort, et que tout domaine
+est G-recouvert par ses domaines paracompacts. Les autres propriétés découlent alors
+de la construction.
+
+5.8.4. — Explicitons cette construction lorsque ω est tropicale. Soit f : X → E une
+carte G-tropicale et soit α une (n, n)-forme sur un sous-espace paralinéaire de E conte-
+                                         (n)
+nant f (X) telle que ω = f ∗ α. Alors, Σf est un support fort de ω (lemme 5.3.4) et on
+                                         (n)
+a l’égalité de formes-volume sur Σf            :
+                                                ∗
+(5.8.4.1)                                ω̃ = ⟨ftrop α, µΣ(n) ⟩.
+                                                            f
+
+Si, de plus, la carte G-tropicale f est agréable, la proposition 4.5.8 entraîne alors que
+(5.8.4.2)                       ftrop,∗ (ω̃) = ⟨α, f∗ µΣ(n) ⟩ = ⟨α, µΠf ⟩.
+                                                        f
+                                   § 5.9. MESURES DE BORD                                  137
+
+ 5.8.5. — Soit ω une forme de type (n, n) sur XG à coefficients tropicalement boréliens.
+ Nous venons de lui associer une forme-volume n-dimensionnelle ω̃. Nous noterons alors
+ ωBor la mesure de Borel sur X associée à ω̃ par la construction du §5.7.1.
+   Nous dirons que ω est localement intégrable si cette mesure est localement finie, et
+ que ω est intégrable si cette mesure est finie. Lorsque ω est localement intégrable, nous
+ noterons ωRad la mesure de Radon associée à ω̃ ; on a |ωRad | = ωBor . Lorsque ω est une
+ G-forme positive, la mesure ωRad est positive.         R           R
+   Si f est une fonction borélienne sur X, on notera X f |ω| et X f ω les intégrales de f
+Rcontre les mesures ωBor et ωRad lorsqu’elles existent. Cela définit en particulier l’intégrale
+  X
+    ω pour toute G-forme de type (n, n) à support compact qui est localement intégrable
+(par exemple lisse).
+   Les G-formes localement intégrables constituent un sous-espace vectoriel de F n,n (XG )
+contenant les G-formes lisses. Les G-formes intégrables en sont un sous-espace vectoriel
+qui contient les G-formes lisses à support compact.
+5.8.6. — Soit u une fonction localement intégrable sur X et soit ω une G-forme lisse
+de type (n, n) sur X. Alors, u est localement intégrable par rapport à la mesure ωBor ,
+de sorte que uωRad est une mesure de Radon sur X.
+   L’application (u, ω) 7→ uωRad est bilinéaire ; elle induit une application linéaire de
+Lloc
+   1
+     (XG ) ⊗ A n,n (XG ) dans l’ensemble des mesures de Radon sur X. Cette application
+se factorise par L1loc (XG ) ⊗ A n,n (XG ). On la notera bien sûr α 7→ αRad .
+   Cette construction s’étend en des morphismes de G-faisceaux
+                  Lloc,X
+                    1
+                        G
+```
+
+## CLD.txt, newline lines 6934–6977
+
+```text
+
+               § 5.10. INTÉGRALES ET TROPICALISATIONS
+
+  Soit X un espace G-tropical calibré de niveau n.
+Proposition 5.10.1. — Soit f : X → E une carte G-tropicale agréable, soit Πf le
+polyèdre tropical de la carte f et soit µΠf son calibrage.
+  Soit p ∈ {n−1, n} et soit α une (p, n)-forme à coefficients boréliens sur un sous-espace
+paralinéaire P de E contenant f (X).
+  a) Si p = n, on a l’égalité
+                                   ftrop,∗ (f ∗ α)Bor ⩾ ⟨α, µΠf ⟩Bor
+                             (n)
+de mesures de Borel sur Πf .
+  b) Si p = n − 1, on a l’inégalité
+                                   ftrop,∗ (f ∗ α)Bor ⩾ ⟨α, µΠf ⟩Bor
+                             (n)
+de mesures de Borel sur Πf .
+  c) La mesure (f ∗ α)Bor est localement finie si et seulement si la forme α|Πf est locale-
+ment intégrable sur Πf ; dans ce cas, on a l’égalité
+                                   ftrop,∗ (f ∗ α)Rad = ⟨α, µΠf ⟩Rad
+de mesures de Radon sur Πf .
+   d) En particulier, si α est intégrable sur Πf , la forme f ∗ α est intégrable sur X, on a
+l’égalité
+                                   Z         Z
+                                        ∗
+(5.10.1.1)                            f α=       ⟨α, µΠf ⟩
+                                        X           Πf
+
+lorsque p = n et l’égalité
+                                      Z ∂          Z ∂
+                                            ∗
+(5.10.1.2)                                  f α=         ⟨α, µΠf ⟩
+                                        X           Πf
+
+lorsque p = n − 1.
+Démonstration. — Posons ω = f ∗ α. D’après la relation (5.8.4.2) lorsque p = n et la
+relation (5.9.4.2) lorsque p = n−1, on a l’égalité (ftrop )∗ (ω̃) = ⟨α, µΠf ⟩ de formes-volume
+p-dimensionnelles sur Πf . Le lemme 4.4.6 entraîne alors que f∗ (ω̃Bor ) ⩾ ⟨α, µΠf ⟩Bor .
+Loreque p = n, on vérifie, en revenant aux définitions et en utilisant la positivité du
+140                   CHAPITRE 5. ESPACES G-TROPICAUX CALIBRÉS
+
+calibrage canonique, que l’on a en fait l’égalité, d’où (1). En appliquant le lemme 4.4.6
+aux mesures de Radon correspondantes, on en déduit (2), puis (3) par intégration.
+
+5.10.2. — La formule (5.10.1.1) définit explicitement l’intégrale d’une forme tropicale.
+```
+
+## CLD.txt, newline lines 7070–7101
+
+```text
+
+
+      § 6.2. FORMES LISSES SUR UN ESPACE G-TROPICAL AFFINÉ
+
+  Soit G une classe de coefficients.
+Définition 6.2.1. — Soit (p, q) un couple d’entiers naturels. Soit ω une G-forme de
+type (p, q) à coefficients dans G sur un domaine V de X.
+  On dit que ω est tropicale s’il existe une carte tropicale qui G-tropicalise ω.
+  On dit que ω est une forme (de type (p, q) à coefficients dans G ) si pour tout point x
+de V , il existe un voisinage ouvert U de x dans V sur lequel ω est tropicale.
+  Lorsque G est la classe des fonctions lisses, on parle de forme lisse sur l’espace G-
+tropical affiné X. Si de plus p = q = 0, on parle de fonction lisse.
+6.2.2. — Les formes lisses forment un sous-G-préfaisceau en R-espaces vectoriels
+de AXp,q qui est un faisceau pour la topologie usuelle. Ces faisceaux sont stables par les
+opérateurs d′ , d′′ , J et par le produit extérieur.
+6.2.3. — Un espace G-tropical affiné (X, LX ) est dit affinement séparé si pour tout
+couple (x, y) de points de X avec x ̸= y, il existe une fonction affine f sur X telle que
+f (x) ̸= f (y). A fortiori, les fonctions lisses sur X séparent les points. On dira alors que
+X est différentiellement séparé.
+   Si X est affinement (resp. différentiellement) séparé, il en est de même de tout domaine.
+   Un espace G-tropical affiné (X, LX ) est dit localement affinement (resp. différentielle-
+ment) séparé si chacun de ses points possède un voisinage affinement (resp. différentiel-
+lement) séparé.
+   Cela entraîne que le faisceau des fonctions lisses sépare localement les points au sens
+du §A.2.2.
+Corollaire 6.2.4. — Soit (X, LX ) un espace G-tropical affiné qui est localement dif-
+férentiellement séparé. Soit K une partie compacte de X et soit U un voisinage ouvert
+de K. Il existe une fonction lisse sur X qui vaut 1 au voisinage de K et dont le support
+est compact et contenu dans U .
+Démonstration. — C’est une conséquence du corollaire A.2.4.
+
+Théorème 6.2.5 (Stone–Weierstraß). — Soit (X, LX ) un espace G-tropical affiné
+```
+
+## CLD.txt, newline lines 8130–8168
+
+```text
+forme positive est positive.                             R∂
+   On définit aussi le courant [ω]∂ par la formule α 7→ X ω∧α défini à l’aide de l’intégrale
+de bord des G-formes. Il est d’ordre 0 et de bidimension (n − p − 1, n − q). Lorsque ω
+est une forme lisse, on a [ω]∂ = δX ∂
+                                      ∧ ω.
+   Il découle de la définition de la topologie des espaces de courants que les applications
+ω 7→ [ω] et ω 7→ [ω]∂ sont continues.
+7.3.5. — Nous allons maintenant généraliser cette construction aux « G-formes » qui
+sont combinaisons linéaires de G-formes usuelles à coefficients dans un anneau de fonc-
+tions non nécessairement tropicales.
+   Soit V un domaine de X et soit U un voisinage ouvert de V dans X dans lequel V
+est fermé. Soit u ∈ L1loc (V ), ω ∈ AXp,q
+                                       G
+                                          (V ) et α ∈ Acn−p,n−q (U ) ; la G-forme ω ∧ α|V est à
+support compact
+            R     dans V , de sorte que u est intégrable pour la mesure associée. L’appli-
+cation α 7→ V u(ω ∧ α)Rad est un courant d’ordre 0 sur U . La section correspondante de
+                              § 7.3. COURANTS D’INTÉGRATION                              165
+
+π ∗ Dp,q (V ) ne dépend pas du choix de U . On définit ainsi un morphisme de G-faisceaux
+                                L1loc,X ⊗ AXp,q
+                                             G
+                                                → π ∗ (Dp,q )X .
+Par adjonction, on en déduit un morphisme de faisceaux
+                            π∗ (L1loc,X ⊗ AXp,q
+                                             G
+                                                ) → π∗ π ∗ (Dp,q )X .
+Comme l’unité id → π∗ π ∗ est un isomorphisme de foncteurs, on en déduit un morphisme
+de faisceaux
+                               π∗ (L1loc,X ⊗ AXp,q
+                                                G
+                                                   ) → (Dp,q )X .
+   L’image d’une section ω sera notée [ω]. La notation est cohérente avec le cas des G-
+formes lisses ; via l’isomorphisme de la proposition 3.4.11, elle est aussi cohérente avec
+les cas des G-formes à coefficients tropicalement boréliens localement bornés. Ce courant
+est d’ordre 0 et de bidimension (n − p, n − q).
+   Par composition avec l’homomorphisme canonique
+                               1
+                         π∗ (Lloc,X ⊗ AXp,q
+```
+
+## CLD.txt, newline lines 16809–16927
+
+```text
+Définition 12.2.1. — Soit X un espace k-analytique ; on appelle moment sur X un
+morphisme de X vers un tore.
+
+   Soit f : X → T un moment sur un espace k-analytique X. On désignera par ftrop : X →
+Ttrop l’application composée X → T → Ttrop . On dira que l’application ftrop est la
+tropicalisation de f ; c’est une application continue.
+
+Remarque 12.2.2. — Si f : T → T ′ est un morphisme affine entre tores, la nota-
+                                                                  ′
+tion ftrop désigne donc aussi bien l’application induite Ttrop → Ttrop que sa composée
+        ′     ′
+T → T → Ttrop avec l’application de tropicalisation de T . Cette ambiguïté n’aura, en
+pratique, guère de conséquences.
+
+Lemme 12.2.3. — Soit X un espace analytique, soit x un point de X et soit V un
+domaine analytique de X contenant x. Soit f : V → Gm une fonction analytique in-
+versible. On suppose que X est presque bon en x. Il existe alors un voisinage ouvert U
+de x et une fonction analytique inversible g sur U telle que |f − g| < |f | sur U ∩ V ; en
+particulier, ftrop et gtrop coïncident sur U ∩ V .
+                      § 12.2. MOMENTS, TROPICALISATIONS, POLYÈDRES                         335
+
+Démonstration. — Soit U un voisinage ouvert de x dans X et g ∈ OX (U ) tels que
+|f (x) − g(x)| < |f (x)| ; il en existe car κ(x) est dense dans H (x) et |f (x)| > 0. L’en-
+semble des points de U ∩ V en lesquels |f − g| < |f | est un voisinage de x dans V ; quitte
+à restreindre U , on peut supposer que cette inégalité vaut dans U ∩ V tout entier. Quitte
+à restreindre encore U , on peut supposer que g est inversible sur U , d’où le lemme.
+
+Théorème 12.2.4. — Soit X un espace k-analytique compact et soit f : X → T un
+moment. Le sous-espace compact ftrop (X) est un polyèdre de Ttrop de dimension dim(X).
+   L’assertion a été établie par Berkovich dans le cas où X est G-localement algébrisable,
+cf. [11], cor. 6.2.2. Pour le cas général, on pourra se reporter à [46], §3.30, ou à [50],
+th. 3.2.
+Corollaire 12.2.5. — Soit X un espace k-analytique compact et soit V une partie
+fermée de X munie d’une structure faiblement analytique de dimension d. Soit f : X → T
+un moment. Alors, ftrop (V ) est une partie paralinéaire de dimension ⩽ d de Ttrop .
+Démonstration. — On se ramène immédiatement au cas où il existe un morphisme
+g : X → Y et un point y ∈ Y tel que V = g −1 (y). Alors, le produit fibré X ×Y H (y)
+permet de considérer V comme un espace H (y)-analytique compact, de dimension ⩽ d,
+et f |V : V → TH (y) comme un moment sur cet espace. On donc dim(ftrop (V )) ⩽ d.
+
+Corollaire 12.2.6. — Soit X un espace k-analytique compact de dimension n. Soit
+f : X → T un moment. Si X est affinoïde, alors ftrop (∂(X)) est une partie paralinéaire
+de dimension ⩽ n − 1 de Ttrop ; en genéral, ftrop (∂(X)) est contenu dans une telle partie
+paralinéaire.
+Démonstration. — Compte tenu de l’exemple 11.10.2 selon lequel ∂(X) est une partie
+faiblement analytique de dimension ⩽ dim(X) − 1, cela résulte du corollaire précédent.
+Il s’agit en fait du théorème 3.2 de [50], démontré de la même façon, même si la notion
+de structure faiblement analytique n’avait pas été dégagée.
+
+12.2.7. — Soit X un espace k-analytique et f : X → T un moment. Soit x ∈ X. On
+appellera degré de transcendance résiduel (gradué) de f en x le degré de transcendance
+résiduel torique du point f (x) de T . Si χ1 , . . . , χn est une base de X(T ), ce degré est
+le degré de transcendance sur ek du sous-corps gradué de H         ^  (x) engendré par e
+                                                                                       k et les
+χi^◦ f (x). Si T = Gn et f = (f1 , . . . , fn ), c’est donc le degré de transcendance sur e
+                     m                                                                    k du
+sous-corps gradué de H ^ (x) engendré par e k et les f]
+                                                      i (x).
+   Le degré de transcendance résiduel de f en x est majoré à la fois par dk (x) et par n.
+Il vaut n si et seulement si f (x) ∈ S(T ).
+Proposition 12.2.8. — Soit X un espace k-analytique et soit x un point de X. Soit
+f = X → T un moment ; posons ξ = ftrop (x). Notons d le degré de transcendance
+résiduel de f en x.
+   Il existe un voisinage analytique compact U de x dans X tel que pour pour tout voi-
+sinage analytique compact V de x contenu dans U , on ait les propriétés suivantes :
+   i) Les germes de polyèdres (ftrop (U ), ξ) et (ftrop (V ), ξ) coïncident ;
+   ii) La dimension locale dimξ (ftrop (V )) est majorée par d, et a fortiori par dk (x).
+336           CHAPITRE 12. PARTIES SQUELETTIQUES D’UN ESPACE ANALYTIQUE
+
+   iii) Si x ̸∈ ∂(X), alors ftrop (V ) est purement de dimension d en ξ. Si, de plus, d = n,
+alors ftrop (V ) est un voisinage de ξ dans Ttrop .
+   iv) Si dimξ (ftrop (V )) = n, alors f (x) ∈ S(T ) ; inversement, si f (x) ∈ S(T ) et si de
+plus x ∈ / ∂(X), alors dimξ (ftrop (V )) = n.
+Démonstration. — L’existence d’un voisinage analytique U vérifiant les i), ii) et iii) est
+le théorème 3.4 de [50]. Montrons (iv). Si dimξ (ftrop (V )) = n, il résulte de (ii) que n ⩽ d,
+donc que d = n et que f (x) ∈ S(T ). Réciproquement, si f (x) ∈ S(T ) alors d = n et si
+de plus x ∈
+          / ∂X il résulte de (iii) que dimξ (ftrop (V )) = n.
+
+Remarque 12.2.9. — Soit X un espace k-analytique et soit x ∈ X. Soit f : X → Gnm
+un moment. Si V est un voisinage analytique compact de x dans X, il résulte de la
+proposition ci-dessus que le germe de ftrop (V ) en x ne dépend pas de V . Nous le noterons
+ftrop (X, x).
+   La preuve du théorème 3.4 de [50] en donne une description en termes de réduction
+de Temkin, que nous allons rappeler ici, en supposant que le germe est (X, x) séparé.
+   Le théorème 10.5.7 assure (en reprenant le vocabulaire et les notations de 10.5.6)
+l’existence d’un sous-foncteur D de Dn{1} tel que pour tout H ∈ D et tout n-uplet
+(h1 , . . . , hn ) d’éléments de H, les assertions suivantes soient équivalentes :
+   (i) h ∈ D(H) ;
+   (ii) il existe H ′ ∈ DH et une valuation w appartenant à (X,   ^   x) à valeurs dans H ′ telle
+que w(f]     i (x)) = hi pour tout i.
+Comme le groupe des paramètres est ici {1}, le foncteur D est simplement définiQpar
+conjonctions et disjonctions d’inégalités de la forme φ ⩽ 1 où φ est un monôme xri i
+à exposants rationnels. L’ensemble D(R×      + ) est alors un cône rationnel, et ftrop (X, x) =
+                ×
+(ftrop (x) · D(R+ ), ftrop (x)) en notation multiplicative.
+                                                      ^
+  En particulier, si x est intérieur, c’est-à-dire si (X, x) = P       , ce germe de polytope
+                                                                 H
+                                                                 ^ (x)/e
+                                                                       k
+
+ne dépend que de la classe d’isomorphie de l’extension graduée F de e       k dans H^  (x)
+engendrée par les f]
+                   i (x), munie de cette famille. Dans ce cas, il est équidimensionnel, de
+dimension égale au degré de transcendance (gradué) de F sur e    k.
+Définition 12.2.10. — Soit X un espace analytique et soit f : X → T un moment.
+Soit x un point de X. On appelle dimension tropicale de f en x la borne inférieure de di-
+mensions des polyèdres ftrop (V ), où V est un domaine analytique compact qui contient x.
+On la note dimtrop,x (f ).
+  Soit d le degré de transcendance résiduel de f en x. D’après le théorème 12.2.4 et la
+proposition 12.2.8, on a
+(12.2.10.1)                 dimtrop,x (f ) ⩽ d ⩽ dk (x) ⩽ dimx (X),
+et dimtrop,x (f ) = d si x ∈
+                           / ∂X. Si X est compact, il résulte de la définition que
+(12.2.10.2)                   dim(ftrop (X)) = sup dimtrop,x (f ).
+                                                x∈X
+
+Proposition 12.2.11. — Soit X un espace analytique, soit x un point de X ∂(X).
+```
+
+## CLD.txt, newline lines 18040–18119
+
+```text
+      § 12.8. POLYÈDRES CARACTÉRISTIQUES ET DIMENSION
+                            TROPICALE
+
+12.8.1. — Soit X un espace k-analytique de niveau n, soit m un entier et soit f =
+X → Gm   m un moment sur X. On note (f1 , . . . , fm ) les composantes de f . Pour toute
+partie I de {1, . . . , m}, on note qI la projection canonique de Gm      I
+                                                                   m sur Gm .
+  Rappelons (proposition 12.6.8) que le polyèdre caractéristique de f est une partie
+paralinéaire de X et que l’application ftrop |Σf est une immersion par morceaux d’espaces
+paralinéaires.
+  Le but de ce numéro est de relier la dimension tropicale de ftrop aux propriétés de Σf .
+Théorème 12.8.2. — Soit x un point de X.
+                                                                    (n)
+   a) On a dimtrop,x (f ) ⩽ n, avec égalité si et seulement si x ∈ Σf .
+   b) Supposons x ∈ Int(X). Les trois assertions suivantes sont équivalentes : (i) x ∈ Σf ;
+                                                        (n)
+(ii) f est de dimension tropicale n en x ; (iii) x ∈ Σf .
+   c) Si X est compact ou plus généralement si l’application ftrop est topologiquement
+                                    (n)
+propre, on a ftrop (X)(n) = ftrop (Σf ).
+Démonstration. — a) Soit d le degré de transcendance résiduel de f en x. On a
+dimtrop,x (f ) ⩽ d ⩽ dimx X ((12.2.10.1)). Comme dimx X ⩽ n, il vient dimtrop,x (f ) ⩽
+d ⩽ n.
+                                                              (n)
+   Supposons que dimtrop,x (f ) = n, et montrons que x ∈ Σf . Puisque dimtrop,x (f ) ⩽
+d ⩽ n, on a d = n. Il existe donc un sous-ensemble I de cardinal d de {1, . . . , m}
+tels que les f] i (x) soient algébriquement indépendants sur k. ll s’ensuit que x ∈ Σf . Il
+                                                             e
+reste à vérifier que dimx (Σf ) = n. Soit V un voisinage analytique compact arbitraire
+de x dans X et démontrons que dim(Σf ∩ V ) = n. Comme dimtrop,x (f ) = n, on a
+dim(ftrop (V )) = n. Soit C une cellule compacte de dimension n de ftrop (V ) et soit
+             § 12.8. POLYÈDRES CARACTÉRISTIQUES ET DIMENSION TROPICALE                     357
+
+q : Gm        n
+      m → Gm un morphisme de tores tel que la restriction de qtrop à ⟨C⟩ soit injective.
+                                                                            (n)
+Alors, dim(q ◦ f )trop (V ) = n. D’après le lemme 12.2.13, (q ◦ f )trop (V )sq est contenu dans
+(q ◦f )(V ), donc dans (q ◦f )(Σf ∩V ). Comme dim(Σf ∩V ) ⩾ n, il vient dim(Σf ∩V ) = n,
+ce qu’il fallait démontrer.
+                                          (n)
+   Inversement, supposons que x ∈ Σf et montrons que dimtrop,x (f ) = n. Soit V un
+                                         (n)                                (n)
+voisinage compact de x. Alors, V ∩ Σf est un voisinage de x dans Σf , donc contient
+une cellule de dimension n puisque dimx Σf = n par hypothèse. Comme la restriction
+               (n)
+de ftrop à Σf est une immersion par morceaux, cela prouve que dim(ftrop (V )) ⩾ n,
+et donc que dim(ftrop (V )) = n puisque dim V ⩽ n. Comme V est arbitraire, il vient
+dimtrop,x (f ) = n.
+   b) Faisons l’hypothèse que x ∈ Int(X). Supposons x ∈ Σf . Il existe alors un sous-
+ensemble I de {1, . . . , m} tels que les f]   i (x) pour i ∈ I soient algébriquement indépen-
+dantes sur k ; par conséquent, d ⩾ n, si bien que d = n puisqu’on sait que d ⩽ n. Et
+              e
+comme x ∈ Int(X), la dimension tropicale de f en x est égale à d (12.2.10.1), et donc
+à n.
+   Supposons réciproquement que x est de dimension tropicale n en x. Le point x appar-
+                  (n)
+tient alors à Σf d’après (a).
+   L’implication (iii)⇒(i) est évidente.
+   c) Supposons ftrop topologiquement propre. En raisonnant G-localement sur Rm on
+                                           (n)
+voit que ftrop (X), ftrop (Σf ) et ftrop (Σf ) sont des parties paralinéaires fermées de Rm .
+                                                                                           (n)
+Comme ftrop induit une immersion par morceaux de Σf sur ftrop (Σf ), l’image ftrop (Σf )
+est purement de dimension n et est donc contenue dans ftrop (X)(n) .
+                                                                         (n)
+  Soit maintenant ξ un point de ftrop (X) qui n’appartient pas à ftrop (Σf ). Soit x un
+                                                     (n)
+point de X tel que ftrop (x) = ξ ; on a donc x ̸∈ Σf . D’après a), ftrop est de dimension
+tropicale < n en x. Comme ftrop est topologiquement propre, il existe un voisinage
+                             −1
+analytique compact V de ftrop   (ξ) et un voisinage paralinéaire U de ξ dans ftrop (X) tels
+      −1
+que ftrop (U ) ⊂ V et que dim(ftrop (V )) ⩽ n−1. Puisque U ⊂ ftrop (V ), il est de dimension
+au plus n − 1 et ξ n’appartient à ftrop (X)(n) .
+
+Corollaire 12.8.3. — Soit X un espace k-analytique de niveau n et soit f : X → T un
+                  (n)                                             (n)
+moment. Alors Σf coïncide avec le polyèdre de variation maximale Σftrop de l’application
+paralinéaire ftrop (définition 5.2.1).
+Démonstration. — C’est l’assertion a) du théorème 12.8.2.
+```
+
+## CLD.txt, newline lines 19153–19240
+
+```text
+Lemme 13.2.8 (Longueur générique et extension des scalaires)
+    Soit X un espace k-analytique et soit K une extension complète de k. Soit F un
+faisceau cohérent sur X. Soit Z une composante irréductible de X, soit ℓ la longueur
+générique de X le long de Z, soit ℓK la longueur générique de FK le long de ZK , et soit
+µ la multiplicité générique de Xred,K le long de ZK . On a alors ℓK = µℓ.
+                                                   gen     gen
+Démonstration. — Choisissons un point y sur ZK         ⊂ XK    dont on note x l’image sur
+X ; par construction, x ∈ Z. L’anneau local OXK,G ,y est artinien car y ∈ XK    gen
+                                                                                    , et il est
+plat sur OXG ,x (13.1.5) ; ce dernier est donc également artinien, ce qui montre que x
+appartient à X gen , et donc à Z gen car x ∈ Z.
+   Pour alléger les notations posons A = OXG ,x , B = OXK,G ,y et M = FXG ,x . On note m
+l’idéal maximal de A et κ = A/m son corps résiduel. Enfin on pose B ′ = B/mB = κ⊗A B.
+Remarquons que κ = OXred,G ,x et B ′ = OXred,K,G ,y (proposition 13.1.9 d ) et c)).
+   Par définition de ℓ il existe une filtration
+
+                             {0} = M0 ⊂ M1 ⊂ . . . ⊂ Mℓ = M
+
+du A-module M dont les quotients successifs sont A-isomorphes à κ. Comme B est plat
+sur A, cette filtration en induit une
+
+                {0} = B ⊗A M0 ⊂ B ⊗A M1 ⊂ . . . ⊂ B ⊗A Mℓ = B ⊗A M
+
+dans la catégorie des B-modules dont les quotients successifs sont tous B-isomorphes à
+B ′ . Il vient
+                    ℓK = ℓB (B ⊗A M ) = ℓ · ℓB (B ′ ) = ℓ · ℓB ′ (B ′ ) = ℓµ.
+378              CHAPITRE 13. COMPLÉMENTS DE GÉOMÉTRIE ANALYTIQUE
+
+§ 13.3. DEGRÉ ET DEGRÉ CALIBRÉ D’UN MORPHISME QUASI-FINI
+
+13.3.1. — Soit f : Y → X un morphisme d’espaces k-analytiques. Soit y ∈ Y . Si
+dimy (f −1 (f (y)) > 0, on pose degy (f ) = +∞. Sinon, le point y est isolé dans sa fibre
+f −1 (f (y)), l’anneau local de f −1 (f (y)) en y est une H (f (y))-algèbre de dimension finie
+et on note degy (f ) sa dimension.
+   Lorsque f est fini et plat en y, cet entier degy (f ) coïncide avec l’entier degy (f ) défini
+en 11.6.3.
+   Nous dirons que degy (f ) est le degré de f en y.
+   Soit V un domaine analytique de Y contenant y et soit U un domaine analytique
+de X tel que f (V ) ⊂ U ; soit g : V → U le morphisme déduit de f . Pour tout y ∈ V , on
+a degy (f ) = degy (g), car pour tout y ∈ V d’image x ∈ X, les anneaux locaux en y de
+f −1 (f (y)) et de g −1 (g(y)) coïncident.
+   Soit Z un sous-espace analytique fermé de X contenant x et soit g : Y ×X Z → Z le
+morphisme déduit de f par changement de base. Comme les espaces H (x)-analytiques
+f −1 (x) et g −1 (x) coïncident, on a degy (f ) = degy (g).
+13.3.2. — Soit f : Y → X un morphisme d’espaces k-analytiques. Pour tout x ∈ X,
+on définit de le degré de f au-dessus de x comme la somme
+                                            X
+                               degx (f ) =     degy (f ).
+                                              y∈f −1 (x)
+
+
+Il est fini si et seulement si f −1 (x) est compact et de dimension nulle ; alors f −1 (x) est
+un espace analytique fini sur H (x), et degx (f ) = dimH (x) (O(f −1 (x))).
+   Lorsque f est globalement fini et plat, cet entier degx (f ) coïncide avec l’entier degx (f )
+défini en 11.6.1.
+
+Lemme 13.3.3. — Soit f : Y → X un morphisme d’espaces analytiques. Soit K une
+extension valuée complète de k ; notons p : XK → X et q : YK → Y les morphismes de
+changement de base, et fK : YK → XK le morphisme déduit de f par changement de
+base. Soit xK ∈ p−1 (x).
+  a) Pour tout y ∈ Y d’image x = f (y) ∈ X, tout point xK ∈ p−1 (x), on a
+                                        X
+                         degy (f ) =              degz (fK ).
+                                           −1
+                                        z∈fK  (xK )∩q −1 (y)
+
+
+  b) Pour tout x ∈ X et tout point xK ∈ p−1 (x), on a degx (f ) = degxK (fK ).
+
+Démonstration. — Tout se passe dans les fibres f −1 (x) et fibre fK−1 (xK ) = f −1 (x) ×
+M (H (xK )). Cela permet de supposer que X = M (k) = {x} et XK = M (K) = {xK }.
+  Prouvons l’égalité a). Si dimy (Y ) > 0, il en est de même de dimz (YK ) pour tout
+antécédent z de y, si bien que les deux membres de l’égalité sont infinis. Supposons
+maintenant dimy (Y ). Alors OY,y est une k-algèbre artinienne et OY,y ⊗k K = z OYK ,z ,
+                                                                              Q
+où z parcourt l’ensemble des antécédents de y dans YK . L’égalité s’ensuit.
+  L’égalité b) s’en déduit en sommant sur tous les points de Y .
+               § 13.3. DEGRÉ ET DEGRÉ CALIBRÉ D’UN MORPHISME QUASI-FINI                    379
+
+13.3.4. — Soit A un anneau local artinien et soit M un A-module de longueur finie.
+Nous noterons δA (M ) le nombre rationnel ℓA (M )/ℓA (A). Indiquons quelques propriétés
+élémentaires de cet invariant.
+   Si A est réduit, c’est un corps, on a ℓA (A) = 1 et δA (M ) est donc simplement ℓA (M ),
+c’est-à-dire la dimension de M comme A-espace vectoriel.
+   Supposons M plat sur A, c’est-à-dire libre comme A-module ; soit r son rang. Comme
+M ≃ Ar , ℓA (M ) = rℓA (A), si bien que δA (M ) = r.
+   Si M = Ared , alors ℓA (M ) = 1 et δA (M ) = 1/ℓA (A).
+   Soit B une A-algèbre finie. Soit κ le corps résiduel de A et λ celui de B. Choisis-
+```
+
+## CLD.txt, newline lines 18355–18407
+
+```text
+Théorème 12.9.11. — Soit X un espace k-analytique de niveau n. Soit L une exten-
+sion complète de k et notons p : XL → X la projection canonique. Soit Σ une partie sque-
+lettique de X ; notons ΣL la réunion des polyèdres caractéristiques ΣfL , où f : V → T
+parcourt l’ensemble des moments définis sur un domaine analytique V de X tels que
+Σf ⊂ Σ.
+   L’ensemble ΣL est une partie squelettique de XL et le morphisme p induit une immer-
+sion par morceaux surjective de ΣL sur Σ qui préserve la dimension locale.
+   De plus, pour tout moment f : V → T tel que Σf ⊂ Σ, on a ΣL ×Σ Σf = ΣfL .
+
+Démonstration. — La première assertion est G-locale sur X ; comme elle est vérifiée
+pour l’application ΣfL → Σf , il suffit de démontrer la seconde assertion.
+   Soit f : V → T un moment défini sur un domaine analytique V de X. Démontrons
+l’égalité PL ×P Σf = ΣfL . Cela revient à démontrer que si g : W → T ′ est un moment et
+x ∈ Σf ∩Σg , alors les fibres de ΣfL et ΣgL au-dessus de x coïncident. Quitte à remplacer X
+par V ∩ W , on suppose que les moments f et g sont définis sur X.
+   Soit x ∈ Σf ∩ Σg . Soit C la complétion d’une clôture algébrique de k et soit M une
+extension complète composée de L et C. Considérons le diagramme
+
+                                               XM   →
+                                                           σ
+                                         q′
+                                         →    ←      ←
+                                                       →
+                                                           ←
+
+                                    XL                  XC
+                                         ←             ←
+                                         p →
+                                                   →   q
+
+                                               X
+dans lequel σ est la section de Poineau de l’application XM → XC dont l’existence
+résulte de ce que C est algébriquement clos. Comme l’extension C/k contient une sous-
+extension algébrique dense, on a ΣfC = q −1 (Σf ). Comme C est algébriquement clos, on
+a ΣfM = σ(ΣfC ). Enfin, on a ΣfL = q ′ (ΣfM ). Par suite,
+                                  ΣfL = q ′ (σ(q −1 (Σf ))),
+donc la fibre de ΣfL au-dessus de x est donnée par la formule
+                                   ΣfL ,x = q ′ (σ(q −1 (x)))
+dans laquelle Σf n’intervient plus ; cette fibre coïncide donc avec la fibre de ΣgL au-dessus
+de x. Cela conclut la démonstration du théorème.
+  Le cas des polyèdres caractéristiques et la définition de ΣL entraînent de plus la
+caractérisation suivante :
+
+Proposition 12.9.12. — Conservons les notations du théorème 12.9.11.
+   a) Si l’extension L/k possède une sous-extension algébrique dense, alors ΣL = p−1 (Σ) ;
+   b) Si l’extension L/k est universellement multiplicative, ou si le corps le corps k est
+algébriquement clos, on a ΣL = σL (Σ).
+
+Démonstration. — Compte tenu de la seconde assertion du théorème, l’assertion a)
+découle de la proposition 12.7.2, et l’assertion b) du corollaire 12.7.5.
+                  § 12.9. PARTIES SQUELETTIQUES D’UN ESPACE ANALYTIQUE                         363
+
+Lemme 12.9.13. — Soit X un espace k-analytique de niveau n, soit Σ une partie
+```
+
+## CLD.txt, newline lines 20320–20360
+
+```text
+                           § 14.2. MOMENTS ET DEGRÉS
+
+Lemme 14.2.1. — Soit X un espace analytique de niveau n, soit f : X → Gnm un
+moment. Alors, f est quasi-fini et plat en tout point de Σf .
+Démonstration. — Soit x ∈ Σf . On a f (x) ∈ S(Gnm ), donc dk (f (x)) = n. D’après
+le lemme 11.5.1, le morphisme f est quasi-fini en x. Comme Gnm est réduit, le théo-
+rème 10.3.7 de [52] entraîne que f est plat en x.
+
+Proposition 14.2.2. — Soit X un espace analytique de niveau n, soit f : X → T un
+moment sur X et soit C une f -cellule commode de dimension n de X. Soit q : T → Gnm
+un morphisme de tores tel que qtrop |ftrop (C) est injectif. Alors le morphisme q ◦ f est de
+dimension relative nulle en tout point de C et il existe un unique entier d > 0 tel que ce
+morphisme soit fini et plat de degré d en tout point de C̊.
+Démonstration. — Soit q : T → Gnm un morphisme de tores tel que qtrop soit injectif sur
+ftrop (C). La dimension tropicale de q ◦ f est égale à n en tout point de C, donc C ⊂
+(q ◦f )−1 (S(Gnm )) d’après la prop. 12.2.8, (iv). D’après le lemme 11.5.1, le morphisme q ◦f
+est de dimension relative nulle en tout point de C.
+   Comme C̊ ne rencontre pas ∂(X), il résulte du lemme 11.6.5 que le morphisme q ◦f est
+fini et plat en tout point de C̊ ; on a noté degx (q ◦ f ) son degré et il s’agit de démontrer
+que l’entier degx (q ◦ f ) est indépendant du point x ∈ C̊.
+   Soit D la cellule sq(qtrop (ftrop (C))) de Gnm . Si un point x ∈ Int(X) vérifie q ◦ f (x) ∈ D̊,
+                                                                                 (n)
+alors q◦f est de dimension tropicale n en x, donc f aussi, si bien que x ∈ Σf . Autrement
+dit, on a les inclusions
+                                                                (n)
+                             C̊ ⊂ (q ◦ f )−1 (D̊) ∩ Int(X) ⊂ Σf .
+                                                                        (n)
+   Soit maintenant x ∈ C̊. Par hypothèse, C̊ est ouvert dans Σf ; il est donc ouvert
+dans (q ◦ f )−1 (D̊) ∩ Int(X). Comme q ◦ f est fini et plat en x, il existe un voisinage
+ouvert U de x dans Int(X) et un voisinage ouvert V de q ◦ f (x) dans Gnm tels que
+q ◦ f induise un morphisme fini et plat de degré degx (q ◦ f ) de U sur V , et tel que
+(q ◦ f )−1 (D̊) ∩ U ⊂ C̊. Un point y ∈ C̊ ∩ U est alors le seul antécédent dans U de
+q ◦ f (y) par q ◦ f ; on a donc degy (q ◦ f ) = degx (q ◦ f ) pour tout y ∈ C̊ ∩ U . La
+fonction x 7→ degx (q ◦ f ) est localement constante sur l’ensemble C̊ ; comme celui-ci est
+connexe, elle est constante.
+400           CHAPITRE 14. CALIBRAGE CANONIQUE D’UN ESPACE ANALYTIQUE
+
+Proposition 14.2.3. — Soit X un espace k-analytique paracompact de niveau n et
+soit f : X → Gnm un moment. Soit Σ un sous-espace paralinéaire paracompact de Σf .
+Il existe une décomposition cellulaire C de Σ en f -cellules telle que pour toute cellule
+C ∈ C , l’application x 7→ degx (f ) soit finie et constante sur C̊.
+```
+
+## CLD.txt, newline lines 20700–20870
+
+```text
+de l’anneau local de (g ′ )−1 (g ′ (y)) en g ′ (y). Considérons X × Gdm comme Gdm,X ; alors
+406           CHAPITRE 14. CALIBRAGE CANONIQUE D’UN ESPACE ANALYTIQUE
+
+g ′ (y) s’identifie au point g|Yx (y) de Gdm,H (x) . De même, la fibre (g ′ )−1 (g ′ (y)) s’identifie à
+la fibre (g|Yx )−1 (g|Yx (y)). Il en résulte l’égalité degy (g ′ ) = degy (g|Yx ).
+                                   ′                                            ′
+     Démontrons enfin que degg (y) (f ′ ) = degx (f ). Par définition, degg (y) (f ′ ) est la dimen-
+sion sur f ′ (g ′ (y)) = h(y) de l’anneau local de (f ′ )−1 (h(y)) en g ′ (y). Le morphisme f ′
+est déduit de f par changement de base. Ainsi, (f ′ )−1 (h(y)) = f −1 (f (x)) ⊗H (f (x))
+H (h(y)). L’anneau local de f −1 (f (x)) en x est une algèbre locale artinienne de di-
+mension degx (f ) sur H (x). Son produit tensoriel par H (h(y)) est le produit des an-
+neaux locaux de (f ′ )−1 (h(y)) en tous les antécédents de x. Pour conclure la démons-
+tration de l’égalité voulue, il suffit de démontrer que le point x n’a qu’un seul an-
+técédent dans (f ′ )−1 (h(y)). Cela résulte du fait que H (f (x)) est séparablement clos
+dans H (h(y)) : le point h(y) appartient à S(Gnm,H (f (x)) ), le corollaire 12.1.8 s’applique
+donc.
+
+
+
+                        § 14.3. CALIBRAGES CANONIQUES
+
+  Soit X un espace analytique de niveau n.
+Proposition 14.3.1. — Soit f : X → T un moment et soit C une f -cellule de dimen-
+                                                                                 ′
+sion n. Soit q et q ′ des morphismes de tores de T dans Gnm tels que qtrop et qtrop  soient in-
+jectifs sur ftrop (C). Soit σq l’unique section affine de qtrop dont l’image contient ftrop (C) ;
+on définit σq′ de façon analogue.
+   Soit µ un vecteur-volume sur Rn . Pour presque tout x ∈ C, on a l’égalité
+(14.3.1.1)                  degx (q ◦ f )σq,∗ (µ) = degx (q ′ ◦ f )σq′ ,∗ (µ)
+de vecteurs volumes sur l’espace affine ⟨ftrop (C)⟩.
+Démonstration. — Notons Cf = ftrop (C).
+  Supposons d’abord que q ′ soit de la forme φ ◦ q, où φ : Gnm → Gnm est un morphisme
+surjectif de tores. D’après la proposition 13.3.10, on a
+                  degx (q ′ ◦ f ) = degx (φ ◦ q ◦ f ) = degq◦f (x) (φ) degx (q ◦ f ).
+Le morphisme φ est fini et plat et pour tout t ∈ S(Gnm ), on a degt (φ) = deg(φ), en vertu
+du corollaire 12.1.7. Par suite, on a degx (q ′ ◦ f ) = deg(φ) degx (q ◦ f ) pour tout x ∈ C.
+   Par ailleurs, φtrop est une application affine bijective de Rn dans lui-même et l’on a
+σq′ = σq ◦φ−1                                                                    →
+                                                                                 −
+              trop . La valeur absolue du déterminant de l’application linéaire φ trop est égale
+au degré de φ. Par suite, φ−1                                                 −1
+                                trop applique le vecteur volume µ sur deg(φ) µ, de sorte que
+σq′ ,∗ (µ) = deg(φ)−1 σq,∗ (µ). La relation voulue est donc vérifiée dans ce cas particulier.
+                               ′
+   Supposons ensuite que qtrop    − qtrop soit constante sur Cf . D’après le théorème 14.2.7,
+          x                 x ′
+on a deg (q ◦ f ) = deg (q ◦ f ) pour tout x ∈ C ∩ Int(X) ; d’autre part, C ∩ ∂(X)
+est localement négligeable. De plus, σq et σq′ diffèrent d’une constante, si bien que
+σq,∗ (µ) = σq′ ,∗ (µ). Cela prouve la relation voulue dans ce cas.
+   Montrons maintenant comment la conjonction de ces deux cas permet d’obtenir le
+cas général. Notons ψ l’unique application linéaire de Rn dans lui-même telle que ψ ◦
+          ′
+qtrop et qtrop diffèrent d’une translation sur Cf . Compte tenu de la convention faite
+au paragraphe 12.1.13, l’espace affine ⟨Cf ⟩ est Q-rationnel, si bien que ψ appartient
+                                 § 14.3. CALIBRAGES CANONIQUES                                  407
+
+à GLn (Q). Il existe donc deux morphismes de tores φ et φ′ de Gnm dans lui-même tels
+que φ′trop ◦ ψ = φtrop . Ainsi, (φ′ ◦ q ′ ◦ f )trop et (φ ◦ q ◦ f )trop diffèrent d’une constante
+                       −1
+sur C. Posons V = ftrop   (Cf ) ; c’est un domaine analytique fermé de X qui contient C.
+                ′  ′
+Sur V , on a (φ ◦ q ◦ f )trop = (φ ◦ q ◦ f )trop .
+  D’après le premier cas particulier, on a donc presque partout les relations
+
+                     degx (φ ◦ q ◦ f |V )σφ◦q,∗ (µ) = degx (q ◦ f |V )σq,∗ (µ)
+
+et
+                   degx (φ′ ◦ q ′ ◦ f |V )σφ′ ◦q′ ,∗ (µ) = degx (q ′ ◦ f |V )σq′ ,∗ (µ).
+D’autre part, il résulte du second cas particulier traité que
+
+                degx (φ ◦ q ◦ f |V )σφ◦q,∗ (µ) = degx (φ′ ◦ q ′ ◦ f |V )σφ′ ◦q′ ,∗ (µ).
+
+Comme V est un domaine de X contenant x, on a les égalités de degrés
+
+             degx (q ◦ f |V ) = degx (q ◦ f ) et         degx (q ′ ◦ f |V ) = degx (q ′ ◦ f )
+
+pour tout x ∈ V . Cela conclut la démonstration de la proposition.
+
+14.3.2. — Soit Σ une partie squelettique de X, paracompacte et contenue dans le
+polyèdre caractéristique Σf d’un moment f : V → T défini sur un domaine analytique V
+de X. Nous allons définir un calibrage µΣ de Σ.
+   Soit C une décomposition cellulaire de Σ en f -cellules commodes (lemme 14.1.5).
+Soit C une cellule de dimension n appartenant à C . Soit q : T → Gnm un morphisme de
+tores tel que qtrop soit injectif sur ftrop (C). D’après la proposition 14.2.2, le morphisme
+q ◦f est fini et plat sur C̊ et son degré x 7→ degx (q ◦f ) prend une valeur finie, strictement
+positive et constante dC sur C̊. Notons e = |e1 ∧ · · · ∧ en | le vecteur-volume canonique
+de Rn , considéré comme un calibrage constant, et posons µC = dC (q ◦ f )∗trop (e) ; c’est
+un calibrage standard de la cellule C. Il ne dépend pas du choix de q d’après la propo-
+sition 14.3.1. La famille (µC ) définit un calibrage standard de Σ ; on le note µΣ,f,C .
+   Vérifions que ce calibrage est indépendant du choix de (V, f, C ).
+   Soit V ′ un domaine analytique de X, soit f ′ : V ′ → T ′ un moment tel que Σ ⊂ Σf ′ et
+soit C ′ une décomposition cellulaire de Σ en f ′ -cellules commodes. Posons W = V ∩ V ′
+et soit g le moment (f, f ′ ) sur W et considérons une décomposition cellulaire D de Σ en
+g-cellules commodes qui est adaptée aux décompositions cellulaires C et C ′ .
+   Soit D une cellule de dimension n appartenant à D. Soit q : T → Gnm un morphisme
+de tores tel que qtrop est injectif sur ftrop (D). Notons aussi p : T × T ′ → T la première
+projection.
+   Soit C une cellule de C contenant D. Comme D̊ ne rencontre pas ∂(W ), il est contenu
+dans Int(W/V ), si bien que q ◦ f |W est fini et plat de degré dC en tout point de D̊. Il
+existe aussi un entier dD > 0 tel que (q ◦ p) ◦ g soit fini et plat de degré dD en tout point
+de D̊ (proposition 14.2.2). Comme on a (q ◦ p) ◦ g = q ◦ f |W , on a dC = dD . Par ailleurs,
+(q ◦ g)∗trop (e) = (q ◦ f )∗trop (e). Par suite, les triplets (V, f, C ) et (W, g, D) induisent le
+même calibrage sur D.
+   Cela entraîne que le calibrage µΣ,f,C de Σ déduit de (V, f, C ) coïncide avec celui déduit
+de (W, g, D) ; par symétrie, il coïncide avec celui déduit de (V ′ , f ′ , C ′ ). Notons-le µΣ .
+408          CHAPITRE 14. CALIBRAGE CANONIQUE D’UN ESPACE ANALYTIQUE
+
+14.3.3. — Soit Σ′ un sous-espace paralinéaire de Σ. Soit C ′ une décomposition cellu-
+laire de Σ en f -cellules commodes qui raffine C ∩ Σ′ . La description de µΣ′ ,f,C ′ entraîne
+alors l’égalité µΣ |Σ′ = µΣ′ .
+Lemme 14.3.4. — Soit X un espace analytique de niveau n et soit Σ une partie sque-
+lettique de X. Il existe un unique calibrage µΣ de Σ vérifiant la propriété suivante : pour
+tout domaine analytique V de X, tout moment f sur V et tout sous-espace paralinéaire Σ′
+de Σf ∩ Σ qui est paracompact, on a µΣ |Σ′ = µΣ′ . Ce calibrage µΣ est standard.
+Démonstration. — Par définition, l’espace squelettique Σ est G-recouvert par des sous-
+espaces paralinéaires Σ′ comme dans l’énoncé. Les calibrages formant un G-faisceau, il
+existe au plus un tel calibrage. Pour démontrer son existence, il suffit alors de vérifier
+la condition de coïncidence. Or, si Σ′ est Σ′′ sont des sous-espaces paralinéaires de Σ
+satisfaisant les conditions de l’énoncé, on a µΣ′ |Σ′ ∩Σ′′ = µΣ′ ∩Σ′′ = µΣ′′ |Σ′ ∩Σ′′ d’après le
+paragraphe 14.3.3.
+
+Définition 14.3.5. — Soit X un espace analytique de niveau n, topologiquement sé-
+paré, et soit Σ une partie squelettique de X. On appelle calibrage canonique de Σ le
+calibrage dont le lemme 14.3.4 affirme l’existence et l’unicité.
+   Par construction, ce calibrage est standard. Si Σ′ ⊂ Σ, on a µΣ |Σ′ = µΣ′ . Il résulte
+aussi des constructions que si Σ est contenu dans un domaine analytique V de X, le
+calibrage canonique µΣ de Σ, vu comme partie squelettique de V , coïncide avec son
+calibrage canonique comme partie squelettique de X.
+   Ce calibrage canonique munit l’espace vertébré associé à l’espace analytique X d’une
+structure d’espace G-tropical calibré de niveau n. Nous supposerons toujours implicite-
+ment que X est muni de cette structure.
+Proposition 14.3.6. — Soit X un espace analytique de niveau n. Soit Σ une partie
+squelettique de X, soit µ son calibrage canonique. Soit L une extension complète de k,
+soit p : XL → X le morphisme de changement de base, soit ΣL la partie squelettique dé-
+duite de Σ par changement de base (théorème 12.9.11) et soit µL son calibrage canonique.
+On a p∗ (µL ) = µ.
+Démonstration. — Il suffit de traiter le cas où X est (para)compact et où il existe un
+moment f : X → T tel que Σ = Σf . Alors, ΣL = ΣfL (théorème 12.9.11). Le morphisme
+de changement de base p étant compact, il existe une décomposition cellulaire C de Σ en
+f -cellules commodes et une décomposition cellulaire D de ΣL en fL -cellules commodes
+telles que le couple (D, C ) soit adapté au morphisme p. Soit C une cellule de dimension n
+de C . et soit q : T → Gnm un morphisme de tores tel que qtrop soit injectif sur ftrop (C).
+Soit x ∈ C̊ et soit t = q ◦ f (x) ∈ S(Gnm ). Soit tL ∈ (Gnm )L l’unique antécédent de t
+dans S(Gnm )L . D’après le lemme 13.3.3, on a
+                                             X
+                       degx (q ◦ f ) =                 degy (q ◦ fL ).
+                                      y∈p−1 (x)∩(q◦fL )−1 (tL )
+
+Les points y qui apparaissent au second membre de cette égalité sont des antécédents
+de x dans ΣfL . Inversement, soit y ∈ ΣfL un point tel que p(y) = x ; prouvons que
+q ◦ fL (y) = tL . Soit D la cellule de D telle que y ∈ D̊ ; on a p(D) = C, donc (q ◦ fL )trop =
+(q ◦ f )trop ◦ p est injectif sur D, si bien que q ◦ fL est de dimension tropicale n en y. Cela
+                  § 14.4. CALIBRAGES CANONIQUES ET MORPHISMES FINIS                         409
+
+entraîne que q ◦ fL (y) ∈ S((Gnm )L ) ; comme c’est un antécédent de t, on a q ◦ fL (y) = tL .
+On a donc                                    X
+                          degx (q ◦ f ) =            degy (q ◦ fL ).
+                                            y∈p−1 (x)∩ΣfL
+
+Par conséquent, µC = D p∗ µD , où D parcourt l’ensemble des n-cellules D de D au-
+                         P
+dessus de C. Ainsi, µΣ = p∗ (µΣL ).
+
+
+
+
+       § 14.4. CALIBRAGES CANONIQUES ET MORPHISMES FINIS
+
+14.4.1. — Soit p : Y → X un morphisme entre espaces k-analytiques de niveau n.
+Soit Σ une partie squelettique de X. Supposons que les fibres de p au-dessus de tout
+point de Σ sont des ensembles finis.
+```
+
+## CLD.txt, newline lines 20924–20976
+
+```text
+Remarque 14.4.3. — Soit F une extension finie de k et soit X un espace F -analytique
+de niveau n. On peut aussi voir X comme un espace k-analytique de niveau n ; pour
+éviter les confusions nous le noterons ici X0 ; on a dim(X0 ) = dim(X).
+   Comme l’extension F de k est algébrique, le squelette canonique S(Gnm,F ) est l’image
+réciproque de S(Gnm ) par la projection de Gnm,F sur Gnm , et S(Gnm ) est l’image de S(Gnm,F )
+([50], (0.15)). On en déduit qu’une partie de X est squelettique si et seulement si elle
+l’est en tant que partie de X0 .
+   Soit donc Σ une partie squelettique de X ; notons µ son calibrage canonique et µ0 celui
+de Σ vu comme partie squelettique de X0 . La projection canonique de Gnm,F sur Gnm est
+finie et plate de degré [F : k]. Il découle donc de la définition du calibrage canonique
+que µ0 = [F : k]µ.
+
+
+
+                § 14.5. CALIBRAGES ET TROPICALISATIONS
+
+Définition 14.5.1. — Soit n un entier, soit X un espace k-analytique de niveau n et
+soit f : X → T un moment agréable sur X. On appelle polyèdre tropical du moment f
+                    (n)                                                            (n)
+le polyèdre ftrop (Σf ) muni du calibrage image directe du calibrage canonique de Σf .
+On le note Πf .
+  Ce n’est autre que le polyèdre tropical de la carte tropicale agréable ftrop .
+  Lorsque X est compact, rappelons (théorème 12.8.2) que l’on a l’égalité de polyèdres
+Πf = ftrop (X)(n) .
+                                       (n)
+  Comme le calibrage canonique de Σf est standard, il en est de même du calibrage
+canonique de Πf .
+  Comme la formation du calibrage canonique de Σf commute à l’extension des scalaires
+(proposition 14.3.6), il en est de même de la formation du calibrage canonique de Πf .
+14.5.2. — Voyons maintenant comment décrire explicitement le calibrage de Πf . Soit
+                                       (n)
+C une décomposition cellulaire de Σf vérifiant les propriétés de la proposition 14.1.12
+et soit D = {ftrop (C) ; C ∈ C } la décomposition cellulaire de Πf qui lui correspond.
+Soit D une n-cellule appartenant à D et soit q : T → Gnm un morphisme de tores tel que
+qtrop |D soit injectif. Soit CD l’ensemble des n-cellules C ∈ C telles que ftrop (C) = D ;
+pour C ∈ CD , soit dC l’entier naturel que q ◦ f soit fini et plat de degré dC en tout
+                           § 14.5. CALIBRAGES ET TROPICALISATIONS                              411
+                                          P
+point de C̊ (prop. 14.2.2). Notons dD = C∈CD dC . Notons e = |e1 ∧ · · · ∧ en | le vecteur-
+volume canonique de Rn , considéré comme un calibrage constant. Soit σD : Rn → Ttrop
+                                                                                        (n)
+l’unique section affine de qtrop d’image ⟨D⟩. Par définition du calibrage canonique de Σf
+et de l’image directe d’un calibrage, on a µΠf ,D = dD σD,∗ (e).
+
+Proposition 14.5.3. — Soit X un espace k-analytique de dimension n, soit f : X → T
+un moment agréable et soit x ∈ Πf . Soit V un voisinage de x dans Πf qui est une n-cellule
+ouverte de Ttrop . Soit q : T → Gnm un morphisme de tores tel que qtrop |V est injectif.
+Supposons que q ◦ f |ftrop
+                       −1
+                           (V ) est fini et plat au-dessus de qtrop (x)sq , de degré dx . Notons
+        n
+σq : R → Ttrop l’unique section affine de qtrop d’image ⟨V ⟩ et notons e = |e1 ∧ · · · ∧ en |
+le vecteur-volume canonique de Rn , considéré comme un calibrage constant. Alors, le
+```
+
+## CLD.txt, newline lines 21545–21664
+
+```text
+Proposition 15.1.1. — Soit X un espace k-analytique topologiquement séparé, consi-
+déré comme espace G-tropical affiné.
+   a) Soit ω une G-forme de type (p, q) sur X. Il existe un G-recouvrement (Vi ) de X et,
+pour tout i, un moment fi : Vi → Ti sur Vi , une forme αi de type (p, q) sur une partie
+                                                                 ∗
+paralinéaire de Ti,trop contenant fi,trop (Vi ) tels que ω|Vi = fi,trop αi .
+   b) Soit ω une forme de type (p, q) sur X. Il existe un recouvrement ouvert (Vi ) de X
+et, pour tout i, un moment fi : Vi → Ti sur Vi , une forme αi de type (p, q) sur une partie
+                                                                 ∗
+paralinéaire de Ti,trop contenant fi,trop (Vi ) tels que ω|Vi = fi,trop αi .
+422 CHAPITRE 15. FORMES DIFFÉRENTIELLES RÉELLES EN GÉOMÉTRIE ULTRAMÉTRIQUE
+
+Démonstration. — On ne traite que le cas des G-formes, l’autre est analogue. Par hy-
+pothèse, il existe un G-recouvrement (Wi ) de X et, pour tout i, une application parali-
+néaire gi sur Wi à valeurs dans un espace affine Rni , une forme βi de type (p, q) sur une
+partie paralinéaire de Ei contenant gi (Wi ), tels que ω|Wi = gi∗ βi pour tout i. Par défini-
+tion d’une application paralinéaire, il existe pour tout i un G-recouvrement (Vi,j ) de Wi
+et, pour tout j, un moment fi,j sur Vi,j , à valeurs dans le tore Gnmi un nombre rationnel
+ai,j et un élément ci,j ∈ Rni tels que gi,j = ai,j fi,j,trop + ci,j . Notons pi,j : Rntrop
+                                                                                        i
+                                                                                           → Rni
+l’application affine t 7→ at + ci,j ; on a donc gi,j = pi,j ◦ fi,j,trop , de sorte que
+                                               ∗
+                                     ω|Vi,j = fi,j,trop (p∗i,j βi ).
+
+L’assertion en résulte.
+
+
+Corollaire 15.1.2. — Une fonction u sur X est lisse au voisinage d’un point x s’il
+existe un voisinage U de x dans X, des fonctions inversibles f1 , . . . , fn sur U et une
+fonction φ sur Rn au voisinage de (f1,trop (x), . . . , fn,trop (x)) telle que u = φ ◦ ftrop sur U .
+
+  Dans la suite du texte, nous travaillerons essentiellement avec ce type de cartes (G)-
+tropicales.
+
+Proposition 15.1.3. — Soit G une classe de coefficients. Soit X un espace analytique
+topologiquement séparé et soit u une fonction numérique sur X.
+  a) Pour que u soit G-localement de classe G , il faut et il suffit que u|Xred le soit.
+  b) Si X est presque bon, pour que u soit localement de classe G , il faut et il suffit que
+u|Xred le soit.
+
+  Une variante de cet énoncé vaut pour les formes et les G-formes.
+Démonstration. — Si u est localement (resp. G-localement) de classe G , il en est de
+même de sa restriction à Xred . Démontrons la réciproque.
+   a) Supposons que u|Xred soit G-localement de classe G . Soit V un domaine affinoïde
+de Xred sur lequel il existe un moment f : V → Gnm et une fonction φ de classe G sur Rn
+telle que u|V = φ ◦ ftrop . On déduit du théorème de Gerritzen–Grauert (voir par exemple
+[128], théorème 3.1) que V est recouvert par une réunion de domaines affinoïdes de la
+forme Wred , où W est un domaine affinoïde de X. Sur Wred , chacune des fi se relève
+en une fonction gi sur W ; ces fonctions sont inversibles et ont même norme que fi ;
+elles définissent un moment g : W → Gnm tel que uW = φ ◦ gtrop . Cela prouve que u est
+G-localement de classe G .
+   b) Soit x un point de X et soit V un voisinage analytique de x dans Xred sur lequel
+il existe un moment f : V → Gnm et une fonction φ de classe G sur Rn telle que u|V =
+φ ◦ ftrop . Comme X est presque bon en x, chaque fi (x) ∈ H (x) est approchée par une
+fonction gi ∈ OX,x . En particulier fi et gi ont même norme au voisinage de g. Ainsi, les
+gi définissent un moment g défini au voisinage de X sur lequel on a u = φ ◦ gtrop ; cela
+prouve que u est de classe G au voisinage de x.
+                              § 15.2. SÉPARATION HOLOMORPHE                                423
+
+                      § 15.2. SÉPARATION HOLOMORPHE
+
+Proposition 15.2.1. — Soit X un espace k-analytique topologiquement séparé, consi-
+déré comme espace G-tropical affiné. Soit ω une G-forme de type (p, q) sur X.
+  a) Le support de ω est contenu dans l’ensemble des points x ∈ X tels que dk (x) ⩾
+max(p, q).
+  b) Soit V un domaine analytique de X et soit Y un fermé de Zariski de V . Si
+dim(Y ) < max(p, q), le support de ω ne rencontre pas Y .
+
+Démonstration. — Démontrons l’assertion a). Soit x ∈ X un point tel que dk (x) <
+max(p, q). Comme dtrop (x) ⩽ dk (x), on a donc dtrop (x) < max(p, q) ; l’assertion résulte
+donc de la proposition 3.3.6.
+  L’assertion b) en résulte car tout point y de Y vérifie dk (y) ⩽ dim(Y ).
+
+15.2.2. Séparation holomorphe. — On dira qu’un espace analytique X est holo-
+morphiquement séparé si pour tout couple (x, y) de points de X avec x ̸= y il existe une
+fonction analytique f sur X telle que |f (x)| =
+                                              ̸ |f (y)|. Un tel espace est topologiquement
+séparé.
+  Si X est un espace holomorphiquement séparé, il en va trivialement de même de tout
+domaine analytique de X.
+  Tout espace affinoïde est par définition holomorphiquement séparé ; en conséquence,
+tout domaine analytique d’un espace affinoïde est holomorphiquement séparé.
+  Un espace analytique sera dit localement holomorphiquement séparé s’il est topologi-
+quement séparé et si chacun de ses points possède un voisinage analytique holomorphi-
+quement séparé.
+  Un espace analytique topologiquement séparé qui est bon, ou plus généralement dont
+tout point possède un voisinage isomorphe à un domaine analytique d’un espace affi-
+noïde, est localement holomorphiquement séparé. C’est en particulier le cas d’un espace
+analytique topologiquement séparé sans bord.
+
+Lemme 15.2.3. — Soit X un espace k-analytique holomorphiquement séparé. L’an-
+neau des fonctions lisses sur X sépare les points.
+
+Démonstration. — Soit x, y des points distincts de X. Par définition de la séparation
+holomorphe, il existe une fonction analytique f sur X telle que |f (x)| =     ̸ |f (y)|.
+  Supposons ces deux valeurs non nulles ; soit φ une fonction C ∞ à support compact
+sur R valant 0 au voisinage de log|f (x)| et 1 au voisinage de log|f (y)|. La fonction
+φ ◦ log|f |, définie sur l’ouvert d’inversibilité de f , est lisse ; prolongeons-la par 0 sur X
+tout entier. Comme φ est à support compact, la fonction obtenue est nulle au voisinage
+de l’ensemble des zéros de f ; elle est donc lisse et prend des valeurs différentes en x et y.
+  Si f (x) = 0, on a alors f (y) ̸= 0 et on raisonne de même à partir d’une fonction φ à
+support compact valant 1 au voisinage de log|f (y)|.
+  Le cas où f (y) = 0 est analogue par symétrie.
+
+Corollaire 15.2.4. — Soit X un espace k-analytique localement holomorphiquement
+séparé. L’espace G-tropical affiné X est localement différentiellement séparé. En parti-
+culier, le faisceau des fonctions lisses sur X sépare localement les points.
+424 CHAPITRE 15. FORMES DIFFÉRENTIELLES RÉELLES EN GÉOMÉTRIE ULTRAMÉTRIQUE
+
+Corollaire 15.2.5. — Soit X un espace analytique localement holomorphiquement sé-
+paré. Soit K une partie compacte de X et soit U un voisinage ouvert de K. Il existe
+une fonction lisse sur X qui vaut 1 au voisinage de K et dont le support est compact et
+contenu dans U .
+Démonstration. — Comme X est localement différentiellement séparé, c’est une consé-
+quence du corollaire 6.2.4.
+
+Théorème 15.2.6 (Stone–Weierstraß). — Soit X un espace analytique localement
+holomorphiquement séparé et soit U un ouvert de X. Soit f une fonction continue à
+valeurs réelles sur X dont le support est compact et contenu dans U . Soit a et b des
+```
+
+## CLD.txt, newline lines 21712–21776
+
+```text
+coefficients tropicalement boréliens définit une mesure de Borel ωBor sur X, et lorsque
+cette G-forme est localement intégrable, une mesure de Radon ωRad .
+
+Proposition 15.3.1. — Soit L une extension complète de k, soit p : XL → X le mor-
+phisme de changement de base. Pour toute forme ω de type (n, n) sur XG à coefficients
+tropicalement boréliens, on a p∗ (ωL,Bor ) = ωBor . Lorsque ω est localement intégrable, on
+a p∗ (ωL,Rad ) = ωRad .
+
+Démonstration. — En revenant aux définitions, on déduit de la compatibilité du cali-
+brage canonique à l’extension des scalaires (proposition 14.3.6) l’égalité p∗ ω
+                                                                              fL = ωL de
+formes-volume n-dimensionnelles. La proposition en résulte.
+
+Proposition 15.3.2. — Soit L une extension complète de k, soit p : XL → X le mor-
+phisme de changement de base. Pour toute forme ω de type (n−1, n) sur XG à coefficients
+tropicalement boréliens, on a p∗ (ωL,Bor ) = ωBor . Lorsque ω est localement intégrable, on
+a p∗ (ωL,Rad ) = ωRad .
+
+Démonstration. — En revenant aux définitions, on déduit de la compatibilité du cali-
+brage canonique à l’extension des scalaires (proposition 14.3.6) l’égalité p∗ ω
+                                                                              fL = ωL de
+formes-volume (n − 1)-dimensionnelles. La proposition en résulte.
+
+
+
+
+               § 15.4. INTÉGRALES ET MORPHISMES FINIS
+
+15.4.1. — Soit n ∈ N et soit X et Y des espaces k-analytiques de niveau n et soit
+f : Y → X un morphisme qui est fini au-dessus du complémentaire d’un fermé de Zariski
+de X de dimension < n. On a défini au §14.4.1 une fonction x 7→ dcx (f ) de X dans N ;
+nous la noterons dcf .
+   Soit p ∈ {n − 1, n} et soit ω une G-forme de type (p, n) sur X. Posons η = f ∗ ω.
+
+Lemme 15.4.2. — Soit Σ un partie squelettique de X qui supporte fortement ω ; notons
+ω̃ la forme-volume p-dimensionnelle sur Σ déduite de ω et du calibrage canonique de Σ.
+   Alors p−1 (Σ) est une partie squelettique de Y qui supporte fortement f ∗ ω ; notons fg
+                                                                                         ∗ω
+
+la forme-volume p-dimensionnelle sur p−1 (Σ) déduite de f ∗ ω et du calibrage canonique
+de p−1 (Σ). On a l’égalité :
+                                          ∗ ω = dc ·ω̃.
+                                      f∗ fg       f
+426 CHAPITRE 15. FORMES DIFFÉRENTIELLES RÉELLES EN GÉOMÉTRIE ULTRAMÉTRIQUE
+
+Démonstration. — Posons T = f −1 (Σ). Notons µΣ et µT les calibrages canoniques de Σ
+et T. On a l’égalité f∗ µT = dcf ·µΣ (proposition 14.4.2). L’assertion découle alors de la
+proposition 4.5.8.
+  Compte tenu de la définition des mesures de Borel et, éventuellement de Radon,
+associées aux formes volumes p-dimensionnelles, on en déduit la proposition suivante.
+
+Proposition 15.4.3. — Supposons que ω soit localement intégrable. Alors, f ∗ ω est
+localement intégrable et l’on a l’égalité
+                                    f∗ (f ∗ ω)Rad = dcf ·ωRad
+de mesures de Radon sur X.
+
+   Remarquons que les supports des mesures ωRad et f∗ (f ∗ ω)Rad évitent tout fermé de Za-
+riski d’intérieur vide de X ; en particulier, ils sont contenus dans le domaine de définition
+du degré calibré.
+
+
+
+§ 15.5. EXISTENCE DE TROPICALISATIONS (PRESQUE) GLOBALES
+
+   La définition d’une forme (resp. d’une G-forme) est locale (resp. G-locale), mais lorsque
+```
+
+## CLD.txt, newline lines 22100–22151
+
+```text
+§ 15.7. L’ESPACE TROPICAL ASSOCIÉ À UN ESPACE ANALYTIQUE
+
+  Soit X un espace analytique purement de dimension n, topologiquement séparé. On le
+considère comme espace G-tropical calibré de niveau n. Il est riche (théorème 12.10.6).
+
+Théorème 15.7.1. — Soit X un espace analytique purement de dimension n, topolo-
+giquement séparé. Muni de son bord ∂(X) au sens de la théorie des espaces analytiques,
+l’espace G-tropical affiné et calibré de niveau n associé à X est un espace tropical de
+niveau n.
+
+Démonstration. — Vérifions les conditions de la définition 6.6.2.
+  L’intérieur Int(X) de X est localement holomorphiquement séparé (15.2.2) ; il est donc
+localement différentiellement séparé (corollaire 15.2.4). Il est décent (proposition 12.4.7)
+car il est sans bord, donc bon, donc presque bon. Il est très riche (théorème 12.11.1) et
+harmonieux (théorème 15.6.1).
+  Et il résulte du corollaire 12.9.14 que Σ ∩ ∂X est n-négligeable pour toute partie
+paralinéaire Σ de X, de même que Σ∩∂(V /X) pour tout domaine V de X car ∂(V /X) ⊂
+∂V .
+  On munit ainsi tout espace analytique X, topologiquement séparé, et purement de
+dimension n, d’une structure d’espace tropical de niveau n.
+              § 15.7. L’ESPACE TROPICAL ASSOCIÉ À UN ESPACE ANALYTIQUE              433
+
+15.7.2. — Soit X un espace analytique topologiquement séparé, purement de dimen-
+sion n et soit V un domaine de X. Le domaine V est muni de deux façons, a priori
+distinctes, d’une structure d’espace tropical de niveau n, soit comme espace analytique,
+soit comme domaine de l’espace tropical X. La formule ∂(V ) = (∂(X) ∩ V ) ∪ ∂(V /X)
+montre que ces deux structures coïncident.
+Remarque 15.7.3. — Soit X un espace analytique de niveau n ; pour que l’on puisse
+le munir d’une structure d’espace tropical de niveau n, il faut et il suffit que X soit
+purement de dimension n. En effet, dans le cas contraire, il possède un domaine ana-
+lytique compact non vide V tel que dim(V ) < n. L’espace X n’est donc pas riche : la
+tropicalisation constante de V n’est couverte par aucun squelette de V puisque la seule
+partie squelettique de V est vide.
+CHAPITRE 16
+
+
+COURANTS SUR LES ESPACES ANALYTIQUES
+
+
+
+
+   Soit X un espace k-analytique topologiquement séparé et purement de dimension n.
+Pour alléger la terminologie, nous dirons plus simplement que X est un n-espace k-
+analytique. Nous l’avons muni d’une structure d’espace G-tropical de niveau n, calibré
+et affiné, et démontré (théorème 15.7.1) que muni de son bord au sens de la théorie des
+espaces k-analytiques, c’est un espace tropical de niveau n.
+   Il en résulte des notions de formes et G-formes différentielles de type (p, q) sur X, à
+coefficients dans une classe de coefficients, une théorie de l’intégration des (n, n)-formes
+et des (n − 1, n)-formes ainsi qu’une théorie de courants.
+   Dans ce chapitre, nous explorons plus avant les propriétés spécifiques des courants
+sur les espaces analytiques qui semblent difficilement formulables dans le contexte des
+espaces tropicaux.
+```
+
+## CLD.txt, newline lines 29080–29148
+
+```text
+pour tout entier n ⩾ 1, posons Kn = W n Wn−1 ; les ensembles Kn sont compacts.
+L’ensemble ouvert Ωn = Vn+1 Vn−2 est un voisinage de Kn ; par construction, Ωn ne
+rencontre pas Ωm si |m − n| ⩾ 3. Pour tout x ∈ Kn , il existe un élément Vx de B contenu
+dans un des ensembles Ui et contenu dans cet ouvert Ωn et tel que x ∈ V̊x . Comme Kn est
+compact, il existe une partie finie Jn de Kn telle que les V̊x , pour x ∈ Jn , recouvrent Kn .
+La famille des Vx , pour n ∈ N et x ∈ Jn , convient.
+
+
+
+
+      § A.2. SÉPARATION, DENSITÉ ET PARTITIONS DE L’UNITÉ
+
+A.2.1. — Nous démontrons ici un certain nombre de résultats généraux et relative-
+ment standard concernant la séparation, la densité de certains sous-espaces de fonctions
+continues et les partitions de l’unité par de telles fonctions.
+   Nous considérons un espace topologique localement compact X (en particulier séparé)
+et un sous-faisceau A en R-algèbres du faisceau des fonctions continues à valeurs réelles
+sur X. On suppose que pour tout ouvert U de X, tout élément f ∈ A (U ) et toute
+fonction lisse φ sur R définie au voisinage de f (U ), la fonction φ ◦ f appartient à A (U ).
+   Notons que cette hypothèse est vérifiée dans les deux cas suivants :
+   – L’espace X est un espace topologique et A est le faisceau des fonctions continues
+sur X ;
+   – L’espace X est un espace paralinéaire affiné ou un espace analytique, plus généra-
+lement un espace G-tropical affiné, et A est le faisceau des fonctions lisses sur X.
+   Pour alléger la rédaction, nous appellerons fonctions lisses les sections du faisceau A .
+A.2.2. — On dit que A (X) sépare les points si pour tout couple (x, y) de points de X
+tels que x ̸= y, il existe une section globale f de AX telle que f (x) ̸= f (y).
+   On dit que A sépare localement les points si pour tout point x de X, il existe un
+voisinage ouvert U de X tel que A (U ) sépare les points de U .
+                   § A.2. SÉPARATION, DENSITÉ ET PARTITIONS DE L’UNITÉ                      565
+
+Lemme A.2.3. — Supposons que A (X) sépare les points. Soit K un sous-ensemble
+compact de X et soit x ∈ X K. Il existe une fonction lisse sur X qui vaut 1 au voisinage
+de x et nulle au voisinage de K.
+Démonstration. — On commence par traiter le cas où K est réduit à un point y. Par
+hypothèse, il existe une fonction lisse f sur X telle que f (x) ̸= f (y). On choisit une
+fonction lisse u sur R qui est constante égale à 0 au voisinage de f (x) et constante égale
+à 1 au voisinage de y ; l’existence de telles fonctions est classique. La fonction u ◦ f sur X
+est lisse et convient.
+   D’après ce qui précède, pour tout y ∈ K, il existe une fonction lisse fy sur X valant 1
+au voisinage de x et nulle dans un voisinage ouvert Vy de    Qy. Soit S une partie finie de K
+telle que les Vy , pour y ∈ S, recouvrent K ; la fonction y∈S fy convient.
+
+Corollaire A.2.4. — On suppose que A sépare localement les points. Soit K une
+partie compacte de X et soit U un voisinage ouvert de K. Il existe une fonction lisse
+sur X qui vaut 1 au voisinage de K et dont le support est compact et contenu dans U .
+Démonstration. — On commence par traiter le cas où le compact K est réduit à un
+point x. Soit V un voisinage compact de x tel que A (V̊ ) sépare les points de V̊ . L’en-
+semble F = V (V̊ ∩U ) est une partie fermée de X contenue dans V . Soit f une fonction
+lisse sur V qui vaut 1 au voisinage de x et qui est nulle au voisinage de F . Soit g la
+fonction sur X qui coïncide avec f sur V et qui est nulle en dehors de V . Elle est lisse
+sur l’intérieur de V , sur l’ouvert X V ainsi que sur un voisinage ouvert de F dans X ;
+ces trois ouverts recouvrent X. La fonction g est donc lisse. Son support est contenu
+dans U ; comme il est contenu dans V , il est aussi compact.
+   Traitons maintenant le cas général. Pour tout x ∈ K, soit fx une fonction lisse sur X
+qui vaut 1 au voisinage de x et dont le support est compact et contenu dans U . Quitte à
+remplacer fx par son carré, on suppose que cette fonction est positive ou nulle. Comme K
+est compact, la somme g d’une sous-famille finie de ces fonctions est strictement positive
+en tout point de K. Elle est lisse et son support est compact et contenu dans U . Soit φ
+une fonction lisse de R vers [0; 1], nulle en 0 et égale à 1 sur un voisinage de g(K) ; la
+fonction f = φ ◦ g convient.
+
+Théorème A.2.5 (Stone–Weierstraß). — On suppose que A sépare localement les
+points. Soit U un ouvert de X et soit f une fonction continue à valeurs réelles sur X
+dont le support est compact et contenu dans U . Soit a et b des nombres réels tels que
+a ⩽ f (x) ⩽ b pour tout x ∈ X.
+  Pour tout ε > 0, il existe une fonction lisse g sur X dont le support est compact,
+contenu dans U , et telle que a ⩽ g(x) ⩽ b et |f (x) − g(x)| < ε pour tout x ∈ X.
+Démonstration. — Soit X ′ le compactifié d’Alexandroff de X ; comme X est localement
+```
+
+## GR.txt, newline lines 302–368
+
+```text
+2.11. Relative boundary. An important notion in this paper is that of the relative bound-
+ary of a morphism ϕ : X → Y of k-analytic spaces. This is a closed subset of X which we
+denote by ∂ (X /Y ). We will not give the details of this definition, but let us try to explain
+the literature on the subject. In [Ber90, §2.5], Berkovich defines the relative boundary
+∂ (X /Y ) for k-affinoid spaces X and Y . Then in [Ber90, §3.1], he generalizes ∂ (X /Y ) for
+good k-analytic spaces using that all points of X and Y have k-affinoid neighborhoods.
+Berkovich calls ϕ closed if ∂ (X /Y ) = ;. Berkovich defines ∂ (X /Y ) for arbitrary k-analytic
+spaces in [Ber93, 1.5.3(ii)], as follows. A morphism ϕ is closed if for every morphism
+Y ′ → Y from a good k-analytic space Y ′ , the fiber product X ′ := X ×Y Y ′ is good and the
+canonical morphism X ′ → Y ′ is closed in the previous sense. Finally in [Ber93, Defini-
+tion 1.5.4], a point x ∈ X is defined to be in Int(X /Y ) if x has an open neighborhood U
+such that ϕ induces a closed morphism U → Y in the above sense. We refer to [Tem15,
+Definition 4.2.4.1] for a more explicit equivalent definition of ∂ (X /Y ). Note that in this
+paper, we will use the notion closed map in the usual topological sense meaning that it
+maps closed sets to closed sets. This is different from Berkovich’s terminology.
+   The complement Int(X /Y ) := X \ ∂ (X /Y ) is called the relative interior. We will usually
+apply this in the case Y = M (k), in which case we call ∂ X := ∂ (X /M (k)) the boundary
+of X and Int(X ) := X \ ∂ X the interior. If ∂ X = ;, we say that X boundaryless. A bound-
+aryless space is good by definition. Note that Berkovich calls boundaryless k-analytic
+spaces closed.
+   We list here some properties of the boundary and interior which we will use throughout
+the paper:
+   (1) A point x ∈ X is contained in Int(X /Y ) if and only if there is an open neighbor-
+       hood U of x such that Int(U/Y ) = U: this is part of the above definition.
+   (2) If ϕ : X → Y is finite, then Int(X /Y ) = X [Ber93, Example 1.5.3(iii)].
+   (3) If X is an analytic domain in Y , then Int(X /Y ) is the topological interior of X in
+       Y [Ber93, Proposition 1.5.5(i)].
+             ϕ     ψ
+   (4) If X → Y → S are morphisms of k-analytic spaces, then
+
+(2.11.1)                   Int(X /Y ) ∩ ϕ −1 Int(Y /S) ⊂ Int(X /S)
+
+        [Ber93, Proposition 1.5.5(ii)], with equality if ψ is locally separated [Tem04,
+        Corollary 5.7]. Taking S = M (k), this becomes
+
+(2.11.2)                      Int(X /Y ) ∩ ϕ −1 Int(Y ) ⊂ Int(X ).
+
+   (5) If k′ /k is an analytic extension field, then
+
+                                π−1
+                                 k′ /k
+                                       Int(X /Y ) ⊂ Int(X k′ /Yk′ )
+8                                      W. GUBLER AND J. RABINOFF
+
+         [Ber93, Proposition 1.5.5(iii)]. Taking Y = M (k), this becomes
+                                       π−1
+                                        k′ /k
+                                              Int(X ) ⊂ Int(X k′ ).
+For convenience, we restate these properties in terms of the relative boundary:
+   (1′ ) A point x ∈ X is contained in ∂ (X /Y ) if and only if ∂ (U/Y ) ̸= ; for every open
+         neighborhood U of x.
+   (2′ ) If ϕ is finite, then ∂ (X /Y ) = ;.
+   (3′ ) If X is an analytic domain in Y , then ∂ (X /Y ) is the topological boundary of X
+         in Y .
+               ϕ     ψ
+     ′
+   (4 ) If X → Y → S are morphisms of k-analytic spaces, then
+(2.11.3)                        ∂ (X /S) ⊂ ∂ (X /Y ) ∪ ϕ −1 (∂ (Y /S)),
+         with equality if ψ is locally separated. Taking S = M (k), this becomes
+(2.11.4)                             ∂ X ⊂ ∂ (X /Y ) ∪ ϕ −1 (∂ Y ).
+    (5′ ) If k′ /k is an analytic extension field, then
+                                     ∂ (X k′ /Yk′ ) ⊂ π−1
+                                                       k′ /k
+                                                             ∂ (X /Y ).
+         Taking Y = M (k), this becomes
+                                           ∂ X k′ ⊂ π−1
+                                                     k′ /k
+```
+
+## Additional complete body: CLD.txt, newline lines 15061–15081
+
+```text
+les objets sout les couples (X, L) où L est une extension complète de k et X un espace L-
+analytique. Un mrophisme de (X, L) vers (Y, M ) est un couple formé d’un k-morphisme
+de M vers L et d’un morphisme d’espaces L-analytiques de X vers YL .
+   Cette catégorie n’admet pas tous les produits fibrés (par exemple M (Cp ) ×M (Qp )
+M (Cp ) n’existe pas en tant qu’espace analytique au-dessus de Qp ) mais si Y → X est
+un morphisme d’espaces k-analytiques et X ′ → X un morphisme d’espaces analytiques
+au-dessus de k alors Y ×k X ′ existe : si L est le corps de définition fourni avec X ′ , le
+produit fibté Y ×k X ′ est simplement le produit fibré YL ×XL X ′ , calculé dans la catégorie
+des espaces L-analytiques.
+11.1.10. — Soit X un espace k-analytique, et soit x ∈ X.
+   On note OX,x la fibre en x de la restriction de OX à la catégorie des ouverts de X,
+c’est-à-dire la colimite des OX (U ) où U parcourt l’ensemble des voisinages ouverts de
+X. C’est un anneau local dont nous noterons κ(x) le corps résiduel.
+   Lorsque X est bon, cet anneau est noethérien ([9], th. 2.1.4), hensélien ([9], th. 2.1.5)
+et excellent ([49], th. 2.13).
+   Au point x est également associé une extension ultramétrique complète H (x) de k,
+qu’on appelle le corps résiduel complété de x ; pour tout domaine analytique V de X
+302                  CHAPITRE 11. RAPPELS DE GÉOMÉTRIE ANALYTIQUE
+
+contenant x, on dispose d’un morphisme d’évaluation f 7→ f (x) de OX (V ) dans H (x).
+Si X = M (A), le corps H (x) et l’application f 7→ f (x) de A vers H (x) coïncident avec
+```
+
+## Additional complete body: CLD.txt, newline lines 15356–15361
+
+```text
+kr -analytique de M (kr ) est nulle. Par ailleurs on a kr ⊗kb r = (kr )r ≃ kr {T, S}/(ST − 1),
+qui est strictement kr -affinoïde de dimension de Krull n. La dimension k-analytique de
+M (kr ) est donc égale à n.
+
+
+11.2.5. Les composantes irréductibles. — Lorsque nous parlerons d’un espace k-
+```
+
+## Additional complete body: CLD.txt, newline lines 6978–6985
+
+```text
+Prouvons inversement que cette relation dans des cartes tropicales permet de reconstituer
+la mesure de Radon associée à une G-forme de type (n, n) et en donne ainsi une définition
+tropicale.
+   Soit ω une G-forme de type (n, n) sur X ; supposons-la à support compact et à coef-
+ficients tropicalement boréliens localement bornés.
+   Soit (Vi )i∈I une famille finie de domaines compacts de X tropicalisant ω et dont dont
+la réunion
+      T       V recouvre le support de ω. Pour toute partie non vide J de I, posons
+```
+
+## Additional complete body: CLD.txt, newline lines 20871–20923
+
+```text
+  Soit x un point de Σ et soit y ∈ f −1 (x). Comme dk (x) = n, on a dim(f −1 (x)) = 0, de
+sorte que f est quasi-finie en y. Par suite, f −1 (x) est un H (x)-espace analytique fini.
+On a ainsi défini au §13.3.6 le nombre rationnel dcx (f ).
+
+Proposition 14.4.2. — Soit p : Y → X un morphisme d’espaces k-analytiques de
+niveau n. Soit Σ une partie squelettique de X, soit µΣ son calibrage canonique. Soit T la
+partie squelettique p−1 (Σ) de Y (proposition 12.9.6) et soit µT son calibrage canonique.
+  Supposons que le morphisme pΣ : T → Σ est topologiquement compact.
+  a) La restriction de la fonction x 7→ dcx (p) à toute partie paralinéaire paracompacte
+de Σ est localement constante en dehors d’une partie paralinéaire n-négligeable.
+  b) On a p∗ µT = dc(p)µΣ .
+
+   Sous les hypothèses de b), les fibres de f en tout point de Σ sont finies, de sorte que
+la fonction x 7→ dcx (p) sur Σ est définie. De plus, l’assertion a) donne sens au produit
+dc(p)µΣ et montre que c’est un calibrage standard de Σ.
+Démonstration. — On sait (proposition 12.9.6) que p induit une immersion par mor-
+ceaux compacte de T sur Σ. Ainsi, l’image directe p∗ µT est définie, et est un calibrage
+standard de Σ.
+   L’espace X est G-recouvert par des domaines analytiques compacts V sur lesquels
+il existe un moment f tel que Σ ∩ V ⊂ Σf . Puisque la formation des calibrages cano-
+niques et des degrés calibrés commute à la restriction à un domaine analytique, on peut
+remplacer X par V et Y par p−1 (V ), ce qui nous ramène à prouver la proposition sous
+l’hypothèse supplémentaire que X est compact et qu’il existe un moment f : X → Gnm tel
+que Σ soit une partie squelettique de Σf . En remplaçant Y par un voisinage analytique
+compact de T, on se ramène au cas où Y est compact.
+                                                                                    (n)
+   Les moments f et f ◦ p sont agréables et l’on a p−1 (Σf ) = Σf ◦p et p−1 (Σf ) =
+ (n)                                                                        (n)
+Σf ◦p (prop. 12.9.6). Choisissons une décomposition cellulaire C de Σf            en f -cellules
+                                                     (n)
+commodes, et une décomposition cellulaire D de Σf ◦p en f ◦ p-cellules commodes, telles
+                                             (n)     (n)
+que le couple (D, C ) soit adapté à pΣ(n) : Σf ◦p → Σf , à Σ et à T.
+                                        f
+  Soit C une n-cellule de C et soit D1 , . . . , Dr les n-cellules de D dont l’image par p
+                                                   (n)        (n)
+est égale à C ; l’immersion par morceaux de Σf ◦p vers Σf induit au-dessus de C̊ un
+410          CHAPITRE 14. CALIBRAGE CANONIQUE D’UN ESPACE ANALYTIQUE
+
+revêtement dont les feuillets sont les D̊i . Soit x ∈ C̊ ; pour tout i, on note yi l’unique
+antécédent de x sur D̊i , et l’on pose ξ = f (x).
+  Par définition d’une cellule commode, le point x appartient à Int(X). De même, chacun
+des yi appartient Int(Y ). Le morphisme f ◦ p est fini et plat en chacun des yi , de degré
+degyi (f ◦ p). Le morphisme f est fini et plat en x, de degré degx (f ).
+  Pour tout i, on a degyi (f ◦ p) = dcyi (f ◦ p), car f ◦ p est fini et plat en yi . Par
+multiplicativité des degrés calibrés, on a degyi (f ◦p) = dcyi (p) dcx (f ), donc degyi (f ◦p) =
+dcyi (p) degx (f ) puisque f est fini et plat en x. On a donc
+                   Xr                 X r
+                          yi
+                       deg (f ◦ p) =      dcyi (p) · degx (f ) = dcx (p) degx (f ).
+                 i=1                 i=1
+Compte tenu de la définition des calibrages canoniques, cela entraîne l’égalité voulue.
+
+```
+
+## Additional complete body: Ducros-S1793744212500077.txt, newline lines 2077–2154
+
+```text
+Théorème 3.2. Soit X un espace k-analytique compact et Γ-strict de dimension d,
+et soit f = (f1 , . . . , fn ) une famille de fonctions analytiques inversibles sur X ;
+notons |f | l’application (|f1 |, . . . , |fn |) de X vers (R∗+ )n . Posons c = (Q, (|k ∗ | · Γ)Q ).
+1) L’image |f |(X) est un c-polytope de (R∗+ )n , qui est de dimension inférieure ou
+   égale à d.
+2) L’image |f |(∂X) est contenue dans un c-polytope de (R∗+ )n qui est de dimension
+   inférieure ou égale à d − 1 ; lorsque X est aﬃnoı̈de |f |(∂X) est elle-même un c-
+   polytope de (R∗+ )n de dimension inférieure ou égale à d − 1.
+    Démonstration. La seconde assertion se déduira de la première.
+(3.2.1) Preuve de 1) : réduction à une situation algébrique. On peut supposer
+que X est aﬃnoı̈de et irréductible, et l’on procède alors par récurrence sur d. Si d = 0
+il n’y a rien à démontrer. Supposons que d > 0 et que 1) est vraie en dimension < d.
+     Le théorème à établir est purement topologique. On peut donc supposer k parfait
+(en étendant les scalaires au complété de la clôture radicelle de k), et X réduit (en
+le remplaçant par Xred ). L’espace X est alors génériquement quasi-lisse. Soit Y son
+lieu de non-quasi-lissité. C’est un fermé de Zariski de X dont toutes les composantes
+irréductibles sont de dimension < d. Par hypothèse de récurrence, |f |(Y ) est un
+c-polytope de (R∗+ )n de dimension ⩽ d − 1. Son image réciproque |f |−1 (|f |(Y )) est
+un domaine analytique Γ-strict de X contenant Y . Comme Y → X est sans bord, Y
+est contenu dans l’intérieur topologique de |f |−1 (|f |(Y )). Ce dernier apparaı̂t ainsi
+comme un voisinage de Y dont l’image par |f | est un c-polytope de dimension
+⩽ d − 1.
+     Soit x ∈ X − Y . Comme X est quasi-lisse en x, le lemme 0.21 assure l’existence
+d’un voisinage aﬃnoı̈de V de x dans X, et d’une k-variété aﬃne X de dimension d,
+telle que V s’identiﬁe à un domaine aﬃnoı̈de Γ-strict de X an (on peut imposer à X
+d’être lisse, mais nous ne nous en servirons pas).
+     Par compacité de X, on se ramène ﬁnalement au cas où X lui-même est est un
+domaine aﬃnoı̈de Γ-strict de l’analytiﬁcation X an d’une k-variété algébrique X
+aﬃne de dimension d.
+     Écrivons X ≃ Spec A où A est une k-algèbre de type ﬁni, et soit (a1 , . . . , ar )
+un système de générateurs de A. Il existe R ∈ Γ · |k ∗ | tel que X soit contenu
+dans le domaine aﬃnoı̈de W de X an déﬁni par les conditions |ai | ⩽ R. En vertu
+du théorème de Gerritzen-Grauert (0.20.7), le domaine X est réunion ﬁnie de
+domaines Γ-rationnels de W ; il suﬃt dès lors de traiter le cas où X est lui-même
+un domaine Γ-rationnel de W .
+     Il est alors déﬁni par une conjonction d’inégalités de la forme |gi | ⩽ λi |h| où les λi
+appartiennent à Γ et où (g1 , . . . , gr , h) engendre l’idéal des fonctions analytiques
+sur W . Cette dernière condition implique que h ne s’annule pas sur X (tout zéro
+de h sur X est un zéro commun à h et aux gi ), et l’on peut donc, par compacité,
+                                            1250007-40
+                            Espaces de Berkovich, polytopes, squelettes et théorie des modèles
+
+
+rajouter une condition de la forme |h| ⩾ r à la déﬁnition de X, où r est un élément
+convenable de (Γ · |k ∗ |)Q . Il est dès lors immédiat que V ne change pas si l’on
+perturbe un peu les gi et h ; on peut par conséquent supposer que toutes ces
+fonctions appartiennent à A.
+    L’anneau des fonctions de la forme a/h , où a ∈ A, et  ⩾ 0, est dense dans
+l’anneau des fonctions de X. Cela permet de supposer, quitte à remplacer X
+par D(h), à remplacer gi par gi /h et à approcher convenablement chacune des fi ,
+que fi ∈ A pour tout i et que h = 1.
+(3.2.2) Nature c-polytopale de |f |(X) dans le cas algébrique. Soit (F, |.|) une
+extension valuée de k (on ne suppose pas que le groupe ordonné |F ∗ | est de
+rang 1). On peut donner un sens naturel à la notation X(F ), coı̈ncidant avec sa
+signiﬁcation usuelle lorsque F est un corps ultramétrique complet : c’est le sous-
+ensemble de X (F ) formé des points P tels que |gi (P )| ⩽ λi pour tout i.
+    Le théorème 1.2 assure l’existence d’un sous-foncteur fermé et déﬁnissable D
+de GnΓ·|k∗ | , de dimension majorée par d (les notations et déﬁnitions sont celles de
+0.32 et sq.) tel que
+                             |f |(X(F )) = D(|F ∗ |) ⊂ |F ∗ |n
+pour tout F ∈ Ck,Γ·|k∗ | .
+     Si F est une extension ultramétrique complète et algébriquement close de k
+munie d’un |k ∗ |-isomorphisme |F ∗ | ≃ R∗+ , tout point P de X(F ) déﬁnit un point x
+de l’espace k-aﬃnoı̈de X, et |f |(x) = |f |(P ) ∈ (R∗+ )n .
+     Réciproquement si x ∈ X il existe une extension complète et algébriquement
+close F de H (x) et un |H (x)∗ |-isomorphisme |F ∗ | ≃ R∗+ , et x est alors induit par
+un F -point canonique de X.
+     En conséquence, le compact |f |(X) est le sous-ensemble D(R∗+ ) de (R∗+ )n , ce
+qui achève de prouver 1).
+                                                                                  
+(3.2.3) Démonstration de l’assertion 2. Si X s’écrit comme une réunion ﬁnie Xi
+où les Xi sont aﬃnoı̈des et Γ-stricts, son bord est contenu dans la réunion des bords
+des Xi . On peut donc supposer que X est aﬃnoı̈de, auquel cas le résultat découle
+de l’assertion 1) déjà établie et du lemme 3.1.
+(3.3) Remarque. Faute d’avoir réussi à exhiber une description suﬃsamment
+maniable de ∂X en général, l’auteur ignore s’il peut arriver que |f |(∂X) ne soit
+pas un polytope, lorsque X n’est pas aﬃnoı̈de. Il serait évidemment intéressant de
+disposer d’un tel exemple — ou, au contraire, d’une preuve que |f |(∂X) est toujours
+```
+
+## Application of the underlying Ducros polyhedrality theorem
+
+Ducros Theorem3.2(1) is used only for the compact strict affinoid moment domains in the finite separable curve argument. With Γ={1}, K nontrivially valued, these are compact Γ-strict analytic spaces of dimension1; finite analytic unit tuples have finite polyhedral image of dimension at most1. The proof's preliminary reductions concern only the topological moment image and do not replace the actual algebra in canonical measures. Its model-theoretic Theorem1.2 is explicitly an underlying foundational dependency of the cited polyhedrality theorem, not a new result proved here. The cited primary theorem applies precisely under these hypotheses. No claim of universal moment-image dimension equality is used.
