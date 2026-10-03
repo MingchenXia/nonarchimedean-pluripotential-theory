@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--24 pass the new source, build,
+Current reading position: Chapters 1--25 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -63,7 +63,8 @@ reference, and rendered-page gates; see the
 [Chapter 22 audit](second_reading_ch22_audit_20261003.md), and
 [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md), and
-[Chapter 24 audit](second_reading_ch24_audit_20261003.md).
+[Chapter 24 audit](second_reading_ch24_audit_20261003.md), and
+[Chapter 25 audit](second_reading_ch25_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -109,7 +110,12 @@ it has no direct inputs. Supported intersections, model independence,
 rational-maximum locality, energy/reference normalization, examples and
 exact CLD comparison scopes were repaired. All 54 chapter physical pages
 and both seams passed visual review, including the repaired display-number
-collision. Chapter 25 is next. No later unit is marked complete.
+collision. Chapter 25's original 4,299-line source was freshly read; it
+has no direct inputs. Outer-capacity convergence, bounded domination,
+real-maximum locality, sequential regularization, curve calculations and
+Thuillier's exact source scopes were repaired. All 60 chapter physical pages
+and both seams passed visual review. Chapter 26 is next; its full original
+source has been read but no later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and
