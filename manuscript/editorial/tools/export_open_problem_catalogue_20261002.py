@@ -212,7 +212,7 @@ sources['manuscript/style/notations.tex']=hashlib.sha256((M/'style/notations.tex
 front=r'''
 \title{Complete Active Open-Problem Catalogue\\[.5em]\large Non-Archimedean Pluripotential Theory}
 \author{}
-\date{Repository snapshot: 2 October 2026}
+\date{Repository snapshot: 2 October 2026\\Scope correction: 3 October 2026}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -237,8 +237,11 @@ retired or historically skipped targets and are not reassigned.
 The general literature search in Chapter 72 has a cutoff of 24 August
 2026, with targeted source updates through 19 September 2026 and dated
 verification records and author-supplied integrations through 26 September
-2026. The 2 October editorial reconciliation does not constitute a new
-exhaustive literature search. ``Open'' below means open in the exact
+2026. The 2 October editorial reconciliation and the 3 October LFS descent
+scope correction do not constitute a new exhaustive literature search.
+The correction distinguishes rational finite-maximum closure from the
+real-coefficient case and local envelopes from globally formed envelopes.
+``Open'' below means open in the exact
 residual scope recorded by those sources. No new research campaign or
 solution is claimed by this export.
 
@@ -282,8 +285,11 @@ valuative/trivially valued carrier used by the raw ideal transform.
 Classical psh is the upper-semicontinuous curve-test notion, with the
 extended \(-\infty\) convention where stated. Real PL means the real linear
 extension of the local integral piecewise-linear class. Semipositivity is
-its residue/model nefness condition. Locally Fubini--Study is the local
-finite logarithmic-max class with its prescribed denominators.
+its residue/model nefness condition. An LFS function is locally a
+nonnegative real linear combination of finite maxima of negative logarithms
+of analytic units. The rational LFS subclass requires rational
+coefficients. Finite maxima of arbitrary real-coefficient LFS functions
+need not be real PL.
 Ordinary CLD smoothness uses smooth tropicalizations; weak smoothness
 permits harmonic tropicalizations. These classes are distinct.
 CLD-v2 denotes the second generated CLD psh stage in the book.
@@ -410,7 +416,7 @@ text=re.sub(r'(Theorem|Proposition|Corollary|Lemma|Example|Definition|Remark|Cha
 text=text.replace(r'\begin{thebibliography}{EGA IV$_4$}',r'\phantomsection'+ '\n'+r'\addcontentsline{toc}{section}{References}'+ '\n'+r'\begin{thebibliography}{EGA IV$_4$}')
 OUT.write_text(text)
 manifest={
- 'snapshot_date':'2026-10-02','repository_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'remote':remote,
+ 'snapshot_date':'2026-10-02','scope_correction_date':'2026-10-03','repository_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'remote':remote,
  'scope':'all active open-problem items in the book, not an exhaustive subject bibliography',
  'general_literature_cutoff':'2026-08-24','targeted_updates_through':'2026-09-19','dated_records_and_supplied_integrations_through':'2026-09-26',
  'active_atoms':report['active_atomic_questions'],'families':report['formal_problem_environments'],'tiers':report['tiers'],'identifiers':report['identifiers'],

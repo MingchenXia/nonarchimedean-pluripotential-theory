@@ -1,5 +1,37 @@
 # Standalone active open-problem catalogue
 
+## 3 October scope correction
+
+The current files include the [LFS descent scope correction](ch15_lfs_descent_scope_correction_audit_20261003.md)
+in book source commit `42d20f9`. The catalogue distinguishes envelopes
+formed on a splitting neighborhood from globally formed envelopes, keeps
+rational orbit descent, and states the additional real-PL maximum condition.
+Its notation now defines the full real-coefficient LFS class explicitly.
+All 42 active atoms, twelve full problem statements, tiers and literature
+cutoffs remain unchanged. Book references were regenerated from the fresh
+successful build; the former maximum theorem is correctly cited as a remark.
+
+The revised saved source passes the native editor compiler and the existing
+cloud PDF export: 85 pages, 770,041 bytes, zero errors, warnings, overfull
+boxes or unresolved references, and one nonfatal underfull box. Changed
+contact sheets 01, 02, 04 and 05 were actually re-viewed; the other eighteen
+are bitmap-identical to the previously reviewed edition. All 85 pages are
+covered. Post-render checks pass for the exact 42 ordered IDs, twelve
+problem environments, 185 labels, 30 embedded bibliography entries, 42
+atomic contents destinations, 266 valid internal links and 346 resolved
+named destinations. All input hashes match. Project references and the
+unchanged active inventory also pass. No new mathematical-verifier verdict
+or research solution is claimed.
+
+Current LaTeX SHA-256:
+`f310bf2365aedc3cd148f87451afe153042ada95ca23f121f3eeaaddf7b75ede`.
+Current PDF SHA-256:
+`3fd72d6bc9628901fa223a44aa897beebf50c2e7028b59881d2e0f2247c8f8c7`.
+The [manifest](../../output/open_problems_catalogue_2026-10-02_manifest.json)
+records the revised source provenance and reviewed bitmap hashes.
+
+## Original 2 October delivery record
+
 Date: 2 October 2026. Source snapshot: `955737afde9e047a23cb3328752f4ec885962e7e`.
 
 The requested [standalone LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex)
