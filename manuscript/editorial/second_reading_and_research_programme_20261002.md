@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--44 pass the new source, build,
+Current reading position: Chapters 1--45 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -84,7 +84,8 @@ reference, and rendered-page gates; see the
 [node-scope follow-up](second_reading_ch41_node_scope_followup_20261003.md), and
 [Chapter 42 audit](second_reading_ch42_audit_20261003.md), and
 [Chapter 43 audit](second_reading_ch43_audit_20261003.md), and
-[Chapter 44 audit](second_reading_ch44_audit_20261003.md).
+[Chapter 44 audit](second_reading_ch44_audit_20261003.md), and
+[Chapter 45 audit](second_reading_ch45_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -191,8 +192,11 @@ lines, complete diffs, scoped primary sources, repaired additive-power,
 grading, uniformity, pole and worked-example arguments and all 58 chapter
 physical pages plus both seams were checked. Appendix A's exponent-zero
 terminology has a scoped follow-up; its full appendix read remains pending.
-Chapter 45 is active; original lines 1--920 freshly read, remainder pending.
-No later unit is marked complete.
+Chapter 45 is now verified: its original 3,444 lines, complete diffs,
+scoped published and internal interfaces, repaired assembly/obstacle/class/
+endpoint/example/provenance arguments and all 52 chapter physical pages
+plus both seams were checked. Chapter 46 is active; original lines 1--880
+freshly read, remainder pending. No later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and
