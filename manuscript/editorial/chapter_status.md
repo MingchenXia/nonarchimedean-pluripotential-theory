@@ -3,14 +3,16 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--15 pass the new reading
-gates; see the [Chapter 15 audit](second_reading_ch15_audit_20261003.md).
-Chapter 15's complete original source and all 57 direct inputs were freshly
-read, its proof and source scopes repaired, and all 158 chapter pages plus
-two seams inspected. The real-coefficient LFS descent correction and affected
+Chapter 1 for coherence and readability. Chapters 1--16 pass the new reading
+gates; see the [Chapter 16 audit](second_reading_ch16_audit_20261003.md).
+Chapter 16's complete original source and all 83 direct inputs were freshly
+read, its construction, proof, example and source scopes repaired, and all
+274 chapter pages plus two seams inspected. Its 83 frozen input files are
+preserved; four reader copies repair typography, a finite-set choice and
+pagination. The earlier real-coefficient LFS descent correction and affected
 Chapter 72 scopes are recorded separately in the
 [3 October correction audit](ch15_lfs_descent_scope_correction_audit_20261003.md).
-Chapter 16 is next; no later chapter is marked reread.
+Chapter 17 is next; no later chapter is marked reread.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
