@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--58 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--59 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -208,7 +208,12 @@ read. Its ideal-character, global-support, bimeromorphic and proper-GAGA
 arguments retain their hypotheses; two short definitions now stay with
 their displays. All 18 chapter physical pages and both seams passed visual
 review; see the [Chapter 58 audit](second_reading_ch58_audit_20261003.md).
-Chapter 59 is active; all 2,114 original lines freshly read, scoped primary
+Chapter 59's original 2,114 lines and full layout diff were freshly
+read. Its relative dimension, global extraction, normalized dual-complex
+and discrepancy arguments retain their hypotheses. Two short statements
+now stay with their formulas. All 30 chapter physical pages and both seams
+passed visual review; see the [Chapter 59 audit](second_reading_ch59_audit_20261003.md).
+Chapter 60 is active; all 2,699 original lines freshly read, scoped primary
 checks continue. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
