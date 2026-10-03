@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--29 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--30 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -68,8 +68,13 @@ inputs. Capacity iteration, fixed-support regularity, uniqueness, later source
 hypotheses and curve examples were repaired. All 48 chapter physical pages
 and both seams passed visual review; see the
 [Chapter 29 audit](second_reading_ch29_audit_20261003.md).
-Chapter 30 is next; its complete original 4,419-line source has already been
-freshly read. No later chapter is marked complete.
+Chapter 30's complete original 4,419-line source was freshly read.
+Finite and birational projection, field normalization, Galois invariant
+measure lifting, positivity descent and the Gauss intersection dictionary
+were repaired. All 66 chapter pages and both seams passed visual review;
+see the [Chapter 30 audit](second_reading_ch30_audit_20261003.md).
+Chapter 31 is active; original lines 1--2650 have already been freshly read.
+No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
