@@ -1,0 +1,80 @@
+{
+  "render": {
+    "command": [
+      "pandoc",
+      "P05.2-argument.md",
+      "--from=markdown+tex_math_single_backslash",
+      "--to=latex",
+      "--standalone",
+      "--top-level-division=section",
+      "-V",
+      "documentclass=article",
+      "-V",
+      "geometry:margin=24mm",
+      "-V",
+      "fontsize=10pt",
+      "-o",
+      "P05.2-partial.tex"
+    ],
+    "exit_code": 0,
+    "stdout": "build-render.stdout.txt",
+    "stderr": "build-render.stderr.txt"
+  },
+  "compiles": [
+    {
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "P05.2-partial.tex"
+      ],
+      "exit_code": 0,
+      "stdout": "build-compile-1.stdout.txt",
+      "stderr": "build-compile-1.stderr.txt",
+      "tex_log": "build-compile-1.log"
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "P05.2-partial.tex"
+      ],
+      "exit_code": 0,
+      "stdout": "build-compile-2.stdout.txt",
+      "stderr": "build-compile-2.stderr.txt",
+      "tex_log": "build-compile-2.log"
+    }
+  ],
+  "pdfinfo": {
+    "command": [
+      "pdfinfo",
+      "P05.2-partial.pdf"
+    ],
+    "exit_code": 0,
+    "stdout": "pdfinfo.txt",
+    "stderr": "pdfinfo.stderr.txt"
+  },
+  "pdf_extraction": {
+    "command": [
+      "pdftotext",
+      "-layout",
+      "P05.2-partial.pdf",
+      "pdf-text.txt"
+    ],
+    "exit_code": 0,
+    "stdout": "build-pdf-extract.stdout.txt",
+    "stderr": "build-pdf-extract.stderr.txt"
+  },
+  "pdf_text_checks": {
+    "generator-contact": true,
+    "128": true,
+    "Unresolved obligations": true,
+    "Bibliography": true,
+    "verification_limits": true
+  },
+  "overfull_boxes": 0,
+  "pdf_sha256": "34cc26a81470c6c041fa80b215c0244ff625b61ad8adc016d764bbaf13964c9a",
+  "mathematical_verification": false,
+  "scope": "Standalone partial working note; no universal product theorem claimed."
+}
