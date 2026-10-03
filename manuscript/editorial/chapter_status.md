@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--25 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--26 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -48,7 +48,12 @@ inputs. Outer-capacity convergence, bounded domination, maximum locality,
 sequential regularization, graph examples and Thuillier's exact source
 scopes were repaired. All 60 chapter physical pages and both seams passed
 visual review; see the [Chapter 25 audit](second_reading_ch25_audit_20261003.md).
-Chapter 26 is next. No later chapter is marked complete.
+Chapter 26's original 4,520-line source was freshly read; there are no direct
+inputs. The sharp mixed tail, exact unordered energy cocycle, bounded
+domination consumers, weighted curve energy, toric derivative and Thuillier
+source scopes were repaired. All 64 chapter physical pages and both seams
+passed visual review; see the [Chapter 26 audit](second_reading_ch26_audit_20261003.md).
+Chapter 27 is next. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
