@@ -1,0 +1,979 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Curve recognition and actual local analytic images},
+  pdfauthor={P06.2 reviewed partial result},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Curve recognition and actual local analytic images}
+\author{P06.2 reviewed partial result}
+\date{3 October 2026}
+
+\begin{document}
+\maketitle
+
+\subsection{Status, conventions, and exact
+statements}\label{status-conventions-and-exact-statements}
+
+This paper gives independently reviewed partial results for P06.2. The
+exact proof, its complete supporting argument and authentic primary
+source bodies received the source-aware PASS accompanying this paper.
+The original problem remains open. No formal verification or priority
+certification is claimed; earlier failed and inconclusive records are
+preserved.
+
+All spaces and morphisms are Berkovich analytic spaces over the field
+specified in each statement. An ordinary open is open in the underlying
+topology. An analytic neighbourhood contains an ordinary neighbourhood;
+an analytic domain alone need not do so. A curve is separated and pure
+of analytic dimension one. Put \(D=d'd''\). All forms and currents in an
+equation below are \textbf{ordinary} Chambert--Loir--Ducros (CLD) forms
+and currents, defined on ordinary opens. For a pure space \(Z\),
+\([u]=u\delta_Z\) uses canonical integration with the actual generic
+artinian lengths of its structure, including nilpotents. In dimension
+one, \[
+                 D[u](\psi)=\int_Z uD\psi,
+                 \qquad \psi\in A_c^{0,0}(Z).
+\] The equation is tested against every compact ordinary smooth scalar
+test. Smooth top forms define signed Radon measures, so these integrals
+with a continuous multiplier are well defined. This is not an a priori
+assertion that the differentiated current \(D[u]\) is a measure.
+
+Here ``harmonic'\,' on an arbitrary curve means Gubler--Rabinoff (GR)
+Definition 3.13: both signs are subharmonic in GR Definition 3.4, which
+includes analytic field extensions. On a smooth strict curve over a
+nontrivially valued field this agrees with Thuillier harmonicity.
+Classical pluriharmonicity means that both signs are classically psh in
+GR Definition 4.1, with its \textbf{every analytic extension and every
+analytic curve map} quantifiers. Gubler--Jell--Rabinoff (GJR)
+harmonicity is the real-PL residual numerical-triviality notion; it is
+not ordinary CLD smoothness. Real PL is used in the precise GR 2.16/GJR
+convention: G-locally on strict analytic domains the function is a
+finite real linear combination of logarithms of analytic units. The
+local real-PL conclusions below refer to that convention, not to one
+ordinary smooth moment expression.
+
+\textbf{Theorem A (intrinsic curve recognition).} Let \(K\) be
+algebraically closed, complete, and nontrivially valued. Let \(Z\) be a
+good separated strict boundaryless pure analytic curve. If
+\(u:Z\to\mathbb R\) is continuous and \(D[u]=0\), then \(u\) is
+GR-harmonic, classically pluriharmonic, locally real PL, and GJR
+harmonic. If \(Z\) is smooth, \(u\) is Thuillier harmonic. There is no
+reducedness, normality, properness, or global algebraic-model
+hypothesis. The theorem also applies on every ordinary open of \(Z\).
+
+\textbf{Proposition B (local images, arbitrary field).} Let \(K\) be
+complete and nontrivially valued, \(X\) good separated strict
+boundaryless, and \(f:Y\to X\) a \(K\)-analytic morphism from a good
+separated smooth strict boundaryless pure curve. At each analytic point
+\(y\in Y\), either:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  on an ordinary neighbourhood of \(y\), \(f\) factors analytically
+  through \(\mathcal M(E)\) for a finite field extension \(E/K\),
+  mapping to a single rigid point of \(X\); or
+\item
+  there are strict affinoid neighbourhoods \(V\) of \(y\) and \(U\) of
+  \(f(y)\), with both points in their ordinary interiors, such that
+  \(V\) is connected and normal and \(V\to U\) is finite. Its reduced
+  kernel image \(C\hookrightarrow U\) is irreducible and pure
+  one-dimensional, \(V\to C\) is finite surjective, and it admits a
+  finite analytic lift to the finite normalization of \(C\).
+\end{enumerate}
+
+\textbf{Theorem C (ground-field ambient probes).} Let \(K\) be
+algebraically closed, complete, and nontrivially valued. Let \(X\) be
+good separated strict boundaryless and pure of dimension \(n\geq1\). If
+\(h:X\to\mathbb R\) is continuous with \(D[h]=0\), then, for every
+\(K\)-analytic map \(f:Y\to X\) as in Proposition B, \(h\circ f\) is
+Thuillier harmonic on \(Y\).
+
+Theorem C is fieldwise. It does \textbf{not} say that \(h\) is
+classically pluriharmonic on \(X\), or that the equation ascends to
+\(X_L\). Even when \(K\) is algebraically closed, analytic extensions
+\(L/K\) can be transcendental. The universal conclusion of Theorem A is
+justified instead by the already-recognized curve harmonicity and the
+precise GR curve functoriality theorem.
+
+\subsection{Exact source inputs and
+applicability}\label{exact-source-inputs-and-applicability}
+
+The primary PDFs and their provenance are copied in \texttt{sources/}.
+Fresh local PDF extractions are in \texttt{evidence/}; numbered selected
+passages are in \texttt{sources/primary-passages.txt}. The source and
+artifact manifests record origins, byte sizes, and SHA-256 values.
+Cached provenance identifies the source URL; this worker claims no new
+network retrieval. The inspected versions, not hypothetical later
+versions, determine all numbering below.
+
+\subsubsection{S1. Supplied supporting theorem
+n100}\label{s1.-supplied-supporting-theorem-n100}
+
+The imported note n100 supplies \emph{Intrinsic zero-Hessian restriction
+to closed analytic curves}, frozen argument SHA-256
+\texttt{be42c6a0e7669dbf1c6fe33ad46ee1f0c020a66efb01a67abff6ee3845e6f836}.
+The local copy equals that hash. Its complete proof and earlier exact-scope
+review remain preserved as \texttt{sources/closed-curves-argument.md} and
+\texttt{sources/closed-curves-review.json}. The present review argument
+also embeds and independently reconstructs the entire supporting proof;
+the expanded argument and full review receipt accompany this paper.
+The precise results used
+are:
+
+\begin{itemize}
+\tightlist
+\item
+  Over any complete nontrivially valued \(K\), if \(M\) is good
+  separated strict boundaryless pure of dimension \(n\geq1\),
+  \(\Omega\subset M\) is ordinary open, and \(h\) is continuous with
+  \(D(h\delta_\Omega)=0\), then for every closed pure analytic curve
+  \(C\hookrightarrow M\), \(D(h|_{C\cap\Omega}\delta_{C\cap\Omega})=0\)
+  intrinsically. This is also local for a closed curve in an ordinary
+  open. Both structures may be nonreduced and all actual generic lengths
+  are retained.
+\item
+  On a good separated strict boundaryless reduced pure curve, a
+  continuous zero-current equation extends across a locally finite set
+  of rigid punctures.
+\item
+  For the finite normalization \(\nu:\widetilde C\to C\) of such a
+  reduced curve, \(D[g]=0\) implies \(D[g\circ\nu]=0\). The proof uses
+  the actual isomorphism locus and then rigid-puncture removal. It does
+  not invert a finite direct image or give arbitrary finite-cover
+  current pullback.
+\end{itemize}
+
+We use these results without reproving them and declare n100 as native
+support wherever they are used. I assessed their proof bodies: their
+cutting argument passes through reduced \(S_1\) component cycles,
+positive weak limits multiplied by a continuous function, and
+closed-embedding test lifts; it does not declare an arbitrary
+embedded-prime quotient \(S_1\). The normalization exception is removed
+by a continuous puncture argument. In Theorem A they are used on
+reduction and normalization only; in Theorem C they are used on an
+actual closed local image inside an ordinary boundaryless open. None of
+their results gives recognition or general scalar-current ascent.
+
+\subsubsection{S2. Affinoid neighbourhoods, algebra, dimensions, and
+smoothness}\label{s2.-affinoid-neighbourhoods-algebra-dimensions-and-smoothness}
+
+CLD means A. Chambert-Loir and A. Ducros, arXiv:1204.6277v2, 25 July
+2025. The exact consequences needed here are these.
+
+\begin{itemize}
+\tightlist
+\item
+  CLD 11.1.2: an affinoid algebra is noetherian, its ideals are closed,
+  \(\mathcal M(A)\to\operatorname{Spec}(A)\) is surjective, and the
+  spectral seminorm vanishes precisely on the nilpotents. On a reduced
+  affinoid algebra it is an equivalent Banach norm. A strict affinoid
+  algebra has a bounded quotient presentation from a Tate algebra with
+  unit radii.
+\item
+  CLD 11.1.5--7: a good analytic space has an affinoid-neighbourhood
+  basis, and ordinary opens are analytic domains. CLD 11.7.7 explicitly
+  adds that every point of a good strict space over a nontrivially
+  valued field has a \textbf{strict affinoid neighbourhood}. Applying it
+  inside a prescribed ordinary open gives such a neighbourhood there.
+\item
+  CLD 11.2.1--3: a closed analytic subspace of \(\mathcal M(A)\) is
+  \(\mathcal M(A/I)\) for an ideal \(I\); on an affinoid the Zariski
+  closed sets are such zero sets. The reduction has the same carrier.
+  Analytic domains preserve local analytic dimension, and the dimension
+  of a strict affinoid equals the Krull dimension of its algebra. CLD
+  11.2.5: affinoids have finitely many irreducible components; an
+  irreducible analytic space is pure, and its proper closed analytic
+  subsets have smaller dimension.
+\item
+  CLD 11.3.1: the stated local-ring regularity conditions persist on
+  analytic domains; the normalization is finite surjective, and locally
+  is the integral closure of the reduced algebra in its total quotient
+  ring. CLD 11.4.8: quasi-smoothness is geometric regularity, hence
+  implies regularity and normality here. CLD 11.4.9: on good spaces
+  smoothness means quasi-smoothness together with relative interior.
+  Thus a boundaryless rig-smooth curve is smooth.
+\end{itemize}
+
+We also use the strict affinoid Nullstellensatz, in its exact form from
+Bosch--Güntzer--Remmert (BGR), \emph{Non-Archimedean Analysis}, 6.1.2/1:
+over a complete nontrivially valued field, the residue field at a
+maximal ideal of a strict affinoid algebra is finite over the ground
+field. Thus every nonempty Zariski closed subset of a strict affinoid
+contains a rigid point. This follows by choosing a maximal ideal of its
+nonzero quotient and using the finite-extension valuation. A
+zero-dimensional strict affinoid algebra is finite over \(K\): it is
+noetherian artinian, its semisimple quotient is a finite product of the
+preceding finite fields, and its nilpotent radical has a finite
+filtration with finite-dimensional successive quotients. A fresh BGR PDF
+is not in the supplied cache; this standard primary theorem is
+explicitly stated and cited, not claimed to have been verified by a
+PDF-byte check. Its strict/nontrivial hypotheses are checked at every
+application.
+
+The other valued-field fact is BGR 3.2.4/2: a finite algebraic extension
+of a complete non-Archimedean field has a unique extending absolute
+value and is complete. It includes inseparable extensions. In the
+application to a finite field inside a reduced affinoid, uniqueness also
+follows by equivalence of finite-dimensional ultrametric norms: for two
+extending norms, \(|z|_1\leq C|z|_2\); applying this to \(z^m\) and
+taking \(m\)th roots gives \(|z|_1\leq|z|_2\), and then the reverse
+inequality. The usual finite-dimensional completeness and
+norm-equivalence proof is by induction, using that a complete
+codimension-one subspace is closed and has positive distance from any
+fixed vector outside it.
+
+\subsubsection{S3. Boundary and local finiteness, with different
+quantifiers}\label{s3.-boundary-and-local-finiteness-with-different-quantifiers}
+
+CLD 11.4.1 states that for an analytic-domain inclusion the relative
+interior is the ordinary topological interior. An algebraic
+analytification is boundaryless. For \(f:Y\to X\) with \textbf{separated
+target} \(X\), formula 11.4.1.3 states exactly \[
+ \operatorname{Int}(Y/X)\cap f^{-1}(\operatorname{Int}(X))
+       =\operatorname{Int}(Y),\qquad
+ \partial Y=\partial(Y/X)\cup f^{-1}(\partial X).
+\] Boundaryless maps are stable under composition and analytic base
+change. The equality is also proved in the author-hosted Conrad--Temkin,
+\emph{Descent for non-Archimedean analytic spaces}, arXiv:1912.06230v2,
+Lemma 2.9: for \(\psi:A\to B\) and \(\phi:B\to C\), the inclusion
+\(\operatorname{Int}(A/B)\cap\psi^{-1}\operatorname{Int}(B/C)
+\subset\operatorname{Int}(A/C)\) is equality when \(\phi\) is locally
+separated. We inspected its actual proof. Only this boundary equality,
+not a current-ascent or general descent result from that paper, is used.
+
+CLD 11.4.4 states that finite maps are boundaryless, finite maps to an
+affinoid have affinoid inverse images, and finite analytic maps are
+equivalent to finite Banach algebra maps on affinoids. Finite Banach
+\(A\)-algebras and finite ring \(A\)-algebras are equivalent categories;
+the finite-module quotient topology determines the Banach topology. Its
+footnote explicitly adds: if \(|K^\times|\ne\{1\}\) and \(A\) is strict,
+a Banach \(A\)-algebra finite as a ring algebra is finite Banach. A map
+is \textbf{finite at \(y\)} precisely when it is finite from an analytic
+neighbourhood \(V\) of \(y\) to an analytic neighbourhood \(U\) of its
+image.
+
+CLD 11.4.5 states that \(\dim_y f=\dim_y(Y_{f(y)})\), with the actual
+fibre over \(\mathcal H(f(y))\), is Zariski upper semicontinuous (citing
+Ducros, \emph{Variation de la dimension relative}, Theorem 4.9), and
+that \(f\) is finite at \(y\) if and only if \(\dim_y f=0\) and
+\(y\in\operatorname{Int}(Y/X)\). This is the local criterion used below.
+CLD 11.6.6 concerns finiteness over a target neighbourhood of an
+\textbf{entire fibre} and has a compactness hypothesis. We neither use
+that different criterion nor assert compactness of an arbitrary original
+fibre.
+
+\subsubsection{S4. The checked affinoid embedding
+theorem}\label{s4.-the-checked-affinoid-embedding-theorem}
+
+M. van der Put, \emph{The class group of a one-dimensional affinoid
+space}, Ann. Inst. Fourier 30(4) (1980), 155--164, Theorem 1.1, printed
+page 156:
+
+\begin{quote}
+Every 1-dimensional, normal, connected affinoid space
+\(Y=\mathrm{Sp}(A)\) is an affinoid subspace of a non-singular complete
+curve.
+\end{quote}
+
+The field assumption on printed page 155 is that \(k\) is
+\textbf{complete and algebraically closed}, with a non-Archimedean
+valuation. Its affinoid convention is an actual quotient of
+\(k\langle T_1,\ldots,T_m\rangle\); these are strict affinoids. The
+proof defines normal/connected by integral closedness and absence of
+nontrivial idempotents. It glues finitely many affinoid pieces to \(Y\)
+and explicitly concludes that \(Y\) is an affinoid domain of the
+resulting \textbf{algebraic} complete nonsingular curve. Over our
+algebraically closed field that curve is smooth and proper. We use this
+theorem only over the same algebraically closed ground field.
+
+For clarity about analytic categories, the exact Berkovich-domain
+formulation is also explicitly used in Thuillier, HAL tel-00010990v1,
+the proof of Theorem 2.3.8, printed page 53: a pure one-dimensional
+rig-smooth strict affinoid, after a finite separable extension
+\(k_1/k\), is isomorphic to an affinoid domain of a smooth proper
+algebraic curve over \(k_1\), with a citation to van der Put's theorem.
+This is an actual assertion in that proof, not an inference from its
+bibliography. In our application \(k=K\) is algebraically closed, so
+that extension is trivial. The affinoid interpretation identifies
+\(\mathrm{Sp}(A)\) with \(\mathcal M(A)\), bounded algebra maps with
+analytic maps, and an affinoid subdomain of the rigid algebraic
+analytification with the affinoid domain of its Berkovich
+analytification. This is the affinoid-domain compatibility in Berkovich
+1993, §1.6, and is precisely the interpretation used by Thuillier in the
+inspected passage. We do not invoke an unspecified equivalence of
+arbitrary nonparacompact spaces. All translation here is on one affinoid
+and an algebraic curve. It preserves the affinoid algebra, its morphism,
+and its analytic-domain structure. The primary input for this proof is
+the \textbf{explicit Berkovich-domain assertion in Thuillier's proof
+just quoted}, used only over algebraically closed \(K\), with its
+embedding premise independently checked in van der Put. No separately
+unchecked general equivalence theorem is needed as a premise. The
+interpretation does not make the entire affinoid ordinary open; the
+ordinary-interior step is separately proved below.
+
+The cached primary PDF has source URL
+\url{https://www.numdam.org/item/AIF_1980__30_4_155_0.pdf}, size 860722
+bytes, and SHA-256:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{583b012282ec23f8da13b9e430a088e48953983643dde6f8a23faf5f2e1b3aca}
+\end{Highlighting}
+\end{Shaded}
+
+These match its local bytes and cached provenance. I inspected the PDF
+images of printed pages 155--156 and the proof through page 159, rather
+than relying solely on the OCR or a reference label. The earlier failed
+retrieval in the blocked campaign supplies no theorem; this cached PDF
+now removes that source gap.
+
+\subsubsection{S5. Wanner comparison and the included-test
+issue}\label{s5.-wanner-comparison-and-the-included-test-issue}
+
+V. Wanner, arXiv:1801.04713v3, 8 November 2018, Section 4 fixes a
+\textbf{smooth proper algebraic} curve over an \textbf{algebraically
+closed complete nontrivially valued} field. Theorem 4.7 states: for an
+ordinary open \(W\subset C^{\mathrm{an}}\), a continuous real-valued
+function that is psh is Thuillier-subharmonic. Corollary 4.8 states the
+equivalence for continuous real-valued functions. In that source,
+Definition 3.16 means by psh positivity of the current \(D[u]\), not
+membership in an approximation-generated hierarchy.
+
+Here only Theorem 4.7's forward implication is needed. Its compact
+scalar tests from Definition 3.11 have presentations in algebraic
+very-affine unit moments. Those regular units are analytic units, so
+each such test is an ordinary CLD test on the same ordinary open, with
+the same compact support. The differentials commute with this inclusion.
+The integration pairing is the canonical CLD pairing used explicitly
+before Wanner Definition 3.16: \(D[u](\psi)=\int_W uD\psi\), described
+there as a current in the sense of CLD. On these unit moments the
+calibration is the canonical one; algebraic tropical chart integration
+is that construction restricted to the algebraic moments. Thus a zero
+equation against every ordinary analytic test implies Wanner-current
+positivity for both signs. We do not need, and do not claim to prove,
+equality of the entire algebraic and analytic test sheaves. Canonical
+integration and its calibration are unchanged by an analytic isomorphism
+and are compatible with analytic domains (CLD 14.3.5, 15.7.1--2 and
+§7.7). In our comparison application the curves are smooth and reduced;
+there is no multiplicity normalization or probability normalization to
+change.
+
+The cache is the stated arXiv v3 PDF; its bytes are not identified with
+the journal PDF. The published citation is Math. Z. 293 (2019),
+443--474, DOI 10.1007/s00209-018-2205-z. No Wanner theorem on arbitrary
+analytic curves or on nonclosed fields is assumed.
+
+\subsubsection{S6. Already-recognized harmonicity, not current
+pullback}\label{s6.-already-recognized-harmonicity-not-current-pullback}
+
+GR is W. Gubler and J. Rabinoff, arXiv:2506.13548v2, 17 September 2025.
+The needed exact statements are:
+
+\begin{itemize}
+\tightlist
+\item
+  3.4.1--2: on a smooth connected strict analytic curve over a
+  nontrivially valued field, a finite upper semicontinuous function is
+  GR-subharmonic if and only if it is Thuillier-subharmonic. The
+  identically \(-\infty\) alternative in 3.4.1 is irrelevant here.
+\item
+  3.12 and Definition 3.13: on a smooth strict curve, harmonicity agrees
+  with both signs being subharmonic; on an arbitrary analytic curve,
+  harmonicity is defined by that two-sign property. The proof in 3.12
+  uses the strict affinoid Dirichlet solution (Thuillier Lemma 2.3.9)
+  and comparison for both signs.
+\item
+  Proposition 3.14(1,6,7): harmonicity is a sheaf; it is preserved and
+  detected by every analytic field extension; for any morphism of
+  analytic curves, harmonicity pulls back, and the converse holds when
+  that morphism is finite surjective. These statements have no
+  reducedness or separability restriction. They concern functions
+  \textbf{already} harmonic, not arbitrary continuous zero currents.
+\item
+  Lemma 3.9(1--2): the finite normalization of a reduced strict analytic
+  curve is rig-smooth if the field is perfect, and is an isomorphism
+  outside a discrete rigid set. We use the smoothness assertion only
+  when \(K\) is algebraically closed and hence perfect; finiteness and
+  boundarylessness make the normalization smooth in the good-space sense
+  of S2.
+\item
+  4.1.2: on an analytic curve, classical psh equals GR-subharmonicity.
+  Its extension-field and curve-map implication uses Proposition
+  3.5(7,8), not a scalar-current assertion. Consequently a GR-harmonic
+  curve function is classically pluriharmonic.
+\item
+  Proposition 3.15: on \textbf{any strict analytic curve} over a
+  nontrivially valued field, a continuous function is harmonic if and
+  only if it is real PL and every residual class
+  \(L_u(x)\in\operatorname{Pic}(\operatorname{red}(Z,x))_{\mathbb R}\)
+  is numerically trivial. This is precisely GJR harmonicity. GJR,
+  arXiv:2111.05741v3, Definition 7.2 and Remark 7.3(1), define
+  harmonicity by both-sign semipositivity and equate it to this
+  numerical triviality for an R-PL function. Nonreduced curves are
+  permitted in GR Proposition 3.15; its proof explicitly passes through
+  reduction.
+\end{itemize}
+
+These sources justify the universal curve conclusions only after
+recognition. In Theorem C the pullback is a pullback of a recognized
+harmonic function; no arbitrary finite-map current pullback is imported.
+
+\subsection{Smooth curve recognition on actual ordinary
+neighbourhoods}\label{smooth-curve-recognition-on-actual-ordinary-neighbourhoods}
+
+\textbf{Lemma 1 (ordinary local algebraic model).} Under the field
+hypotheses of Theorem A, every point \(z\) of a good separated smooth
+strict boundaryless pure curve \(Z\) has an ordinary neighbourhood
+analytically isomorphic to an ordinary open of a smooth proper algebraic
+curve's analytification over the same \(K\).
+
+\textbf{Proof.} Choose a strict affinoid neighbourhood \(Q_0\) of the
+arbitrary analytic point \(z\) inside \(Z\), using S2. It is normal and
+pure one-dimensional by geometric regularity and domain invariance. An
+affinoid algebra has finitely many connected components, represented by
+idempotents. Select the component \(Q\) containing \(z\). Since it is
+open and closed in \(Q_0\), it is still a strict affinoid neighbourhood
+of \(z\) in \(Z\). Its algebra is a normal domain of dimension one: in a
+noetherian normal ring distinct minimal primes cannot meet, because
+every localization is a domain. The finitely many minimal components
+therefore give an idempotent decomposition; connectedness leaves one.
+
+S4 now supplies an isomorphism \(j:Q\simeq Q'\), where \(Q'\) is an
+affinoid domain in \(C^{\mathrm{an}}\) for a nonsingular complete
+algebraic curve \(C\) over \(K\). If necessary take its connected
+component containing \(Q'\); \(C\) is a smooth proper algebraic curve.
+This is a domain embedding, so an additional step is required.
+
+Apply S3 to \(Q\hookrightarrow Z\). Since \(Z\) is separated and
+boundaryless, \[
+      \operatorname{int}_Z(Q)=\operatorname{Int}(Q)=Q\setminus\partial Q.
+\] Apply S3 again to \(Q'\hookrightarrow C^{\mathrm{an}}\). The latter
+is separated and boundaryless, so \[
+      \operatorname{int}_{C^{\mathrm{an}}}(Q')
+             =\operatorname{Int}(Q')=Q'\setminus\partial Q'.
+\] Absolute analytic interior is invariant under the isomorphism \(j\).
+Therefore \(j\) identifies these two \textbf{ordinary opens}. The first
+contains \(z\) because \(Q\) was a neighbourhood. On both sides the open
+analytic structure is the restriction of the domain structure, so the
+induced map is an analytic isomorphism of ordinary neighbourhoods. This
+proof treats every analytic point, including types three and four; it
+uses neither a rigid-point-density cover nor an admissible cover in
+place of an ordinary one. \(\square\)
+
+\textbf{Lemma 2 (smooth recognition).} Under these hypotheses, a
+continuous \(u\) with \(D[u]=0\) on \(Z\) is Thuillier harmonic and
+GR-harmonic.
+
+\textbf{Proof.} At any \(z\), use Lemma 1 to identify an ordinary
+neighbourhood \(O\) with \(W\subset C^{\mathrm{an}}\). Restriction to
+\(O\) is a legitimate restriction of a current. For a compact scalar
+test \(\psi\) on \(W\), its pullback is a compact scalar test on \(O\)
+and can be extended by zero to \(Z\); its support is compactly contained
+in the open. Canonical integration and \(D\) are invariant under the
+analytic isomorphism. Thus the transported continuous function
+\(v=u\circ j^{-1}\) satisfies \(D[v]=0\) on \(W\) against every ordinary
+test. In particular both signs satisfy Wanner's positive-current
+hypothesis by S5. All hypotheses are now met: same algebraically closed
+complete nontrivially valued field, smooth proper algebraic curve,
+actual ordinary open, finite continuous function. Theorem 4.7 makes
+\(v\) and \(-v\) Thuillier-subharmonic.
+
+The two-sign criterion S6 makes \(v\) harmonic. Pull back the already
+recognized function by the open analytic isomorphism. GR 3.4.2 and 3.12
+identify this with Thuillier harmonicity on \(O\). The ordinary opens
+\(O\) cover \(Z\) and harmonicity is a sheaf, so \(u\) is harmonic
+throughout \(Z\). No current has been pulled through a scalar extension
+or a nonisomorphic finite map. \(\square\)
+
+\subsection{Singular and nonreduced intrinsic
+recognition}\label{singular-and-nonreduced-intrinsic-recognition}
+
+\textbf{Proof of Theorem A.} First suppose \(Z\) reduced. Its finite
+normalization \(\nu:\widetilde Z\to Z\) is a good separated strict pure
+curve. It is boundaryless since the finite map is boundaryless and \(Z\)
+is boundaryless. The algebraically closed field is perfect, so S6 makes
+it rig-smooth; S2 then makes it smooth. The normalization-transfer
+theorem of n100 gives the actual equation \[
+                         D[u\circ\nu]=0
+\] on this normalization. Its hypotheses match exactly: reduced strict
+boundaryless pure curve, complete nontrivially valued field, and a
+continuous real multiplier. Lemma 2 recognizes \(u\circ\nu\) as
+harmonic. GR Proposition 3.14(7), for the finite surjective curve
+morphism \(\nu\), descends this \textbf{recognized} harmonicity to
+\(u\). We have not deduced the upstairs equation by inversion of a
+direct image.
+
+For arbitrary \(Z\), the closed immersion
+\(i:Z_{\mathrm{red}}\hookrightarrow Z\) is finite, surjective on
+carriers, and its source is good separated strict boundaryless and pure
+one-dimensional. Apply n100's closed-curve restriction with ambient
+dimension \(n=1\) and \(C=Z_{\mathrm{red}}\). It yields
+\(D[u\circ i]=0\) with the reduced source's canonical integration. This
+explicitly respects the original equation's possibly unequal generic
+nilpotent lengths; they have not been divided out. The reduced case
+proves \(u\circ i\) harmonic. GR Proposition 3.14(7) applies to this
+finite surjective morphism as well and descends harmonicity to \(u\) on
+the original nonreduced curve.
+
+Finally apply GR 4.1.2 to each sign. This gives classical
+pluriharmonicity with the full extension-field quantifiers on the
+\textbf{curve}. GR Proposition 3.15 gives local real-PL regularity and
+numerical triviality of all residual classes, which is GJR harmonicity.
+All constructions apply after ordinary-open restriction. This proves
+Theorem A. No ordinary CLD smooth harmonic regularity or ordinary smooth
+approximation is asserted. \(\square\)
+
+\subsection{The affinoid branch lemma, including Banach
+factorization}\label{the-affinoid-branch-lemma-including-banach-factorization}
+
+\textbf{Lemma 3.} Let \(K\) be complete nontrivially valued,
+\(\mathcal M(B)\) a connected normal strict affinoid pure curve, and
+\(f:\mathcal M(B)\to\mathcal M(A)\) an analytic map to a strict
+affinoid. Either its bounded algebra map factors through a finite field
+\(E/K\) and a rigid point, or \(\dim_y f=0\) at every analytic source
+point.
+
+\textbf{Proof.} As in Lemma 1, connected normality makes \(B\) an
+integral domain, of Krull dimension one. Fix an actual bounded Tate
+presentation \(K\langle T_1,\ldots,T_N\rangle\twoheadrightarrow A\) and
+write \(b_j=f^*(T_j)\in B\).
+
+If every \(b_j\) is algebraic over \(K\), then
+\(E=K[b_1,\ldots,b_N]\subset B\) is finite-dimensional over \(K\) and a
+domain, hence a finite field. Every point of \(\mathcal M(B)\) restricts
+to the unique extending absolute value on \(E\). Thus
+\(\rho_B|_E=|\cdot|_E\). Since \(B\) is reduced its Banach norm is
+equivalent to \(\rho_B\); \(E\) is therefore a closed complete
+finite-dimensional subspace of \(B\) with its usual finite-field
+topology. For every Tate series, polynomial partial sums evaluated at
+the \(b_j\) converge in \(B\) under the bounded map and belong to \(E\).
+Closedness puts the limit in \(E\). Consequently the \textbf{entire}
+bounded map, not just its polynomial subalgebra, factors through \(E\).
+Boundedness to \(E\) follows from \(|e|_E=\rho_B(e)\leq C\|e\|_B\) and
+the bound of the original map; descent to \(A\) uses its quotient norm.
+Its image contains every \(b_j\), so \(A\to E\) is surjective. The
+inclusion \(E\to B\) is bounded by the same norm equivalence. Hence
+\(f\) factors analytically through the singleton \(\mathcal M(E)\),
+mapping to a rigid target point. No separability is required for
+\(E/K\).
+
+Otherwise some \(b=b_j\) is transcendental over \(K\). Let \(a\) be any
+rigid source point. The element \(b(a)\in\mathcal H(a)\) is algebraic
+over \(K\); let \(P_a\in K[t]\) be its monic minimal polynomial. The
+element \(P_a(b)\in B\) is nonzero by transcendence, vanishes at \(a\),
+and is not a unit. A quotient of a noetherian one-dimensional domain by
+a nonzero nonunit has dimension zero: every prime containing it is
+nonzero and therefore maximal. S2's strict Nullstellensatz and the
+artinian argument make \(B/(P_a(b))\) finite over \(K\), retaining its
+possible nilpotents.
+
+Put \(x=f(a)\). The isometric embedding
+\(\mathcal H(x)\hookrightarrow\mathcal H(a)\) makes \(x\) rigid, with
+finite residue field over \(K\). In the actual analytic fibre
+\(\mathcal M(B)\times_{\mathcal M(A)}\mathcal M(\mathcal H(x))\), the
+coordinate \(b\) equals the evaluated target coordinate. Its polynomial
+\(P_a\) is zero there, since it is zero after the injective
+residue-field map into \(\mathcal H(a)\). The universal property of a
+closed zero subspace therefore factors the fibre as a closed subspace of
+\[
+                 \mathcal M(B/(P_a(b)))_{\mathcal H(x)}.
+\] This last space is finite over \(\mathcal H(x)\) and
+zero-dimensional. Equivalently, the completed fibre algebra is the
+quotient of the scalar-extended finite zero algebra by the target-value
+relations. Thus \(\dim_a f=0\). This argument compares fibres over their
+actual field and applies also when that field extension is inseparable.
+
+The locus \(F=\{y:\dim_y f\geq1\}\) is Zariski closed by S3. On a strict
+affinoid any nonempty such locus is the zero set of a proper ideal and
+has a rigid point by S2. Such a point would contradict the preceding
+calculation. Hence \(F\) is empty and \(\dim_y f=0\) for \textbf{every}
+analytic \(y\). This uses Zariski upper semicontinuity, not an extension
+by ordinary-topological density. \(\square\)
+
+\subsection{Proof of the local image
+theorem}\label{proof-of-the-local-image-theorem}
+
+\textbf{Proof of Proposition B.} Fix \(y\in Y\) and \(x=f(y)\). Choose a
+strict affinoid neighbourhood \(U_1\) of \(x\). Inside the ordinary open
+\(f^{-1}(\operatorname{int}_X U_1)\) choose a strict affinoid
+neighbourhood of \(y\) and then its connected component \(Q\) containing
+\(y\). Smoothness makes its algebra normal and domain invariance makes
+it pure one-dimensional, so Lemma 3 applies.
+
+In its constant case, the bounded factorization through \(E\) restricts
+to an ordinary neighbourhood of \(y\) and proves case 1. In the other
+case the local relative dimension of the original \(f\) at \(y\) is
+zero: the restriction fibre is an analytic domain neighbourhood in the
+original fibre, and domain restriction preserves local dimension. Since
+the target \(X\) is separated, S3 gives \[
+                    \partial Y
+                     =\partial(Y/X)\cup f^{-1}(\partial X).
+\] The source is boundaryless, so \(y\) is in the relative interior of
+\(f\). The finite-at-a-point criterion supplies analytic neighbourhoods
+\(V'\to U'\) on which \(f\) is finite. This step establishes no
+compactness of the original entire fibre and uses no such compactness.
+
+Take a strict affinoid neighbourhood \(U\) of \(x\) inside an ordinary
+neighbourhood contained in \(U'\). Its inverse image \(W\) in \(V'\) is
+affinoid and finite over \(U\). It contains an ordinary neighbourhood of
+\(y\) in \(Y\): intersect an ordinary neighbourhood contained in \(V'\)
+with \(f^{-1}(\operatorname{int}_X U)\). Select the connected component
+\(V\) of \(W\) containing \(y\). It is open and closed in the affinoid,
+still a neighbourhood of \(y\), and still finite over \(U\). As a source
+domain it is regular normal and pure one-dimensional, hence its algebra
+\(B\) is a domain.
+
+For completeness, the finite affinoid over the strict
+\(A=\mathcal O(U)\) is strict here. Choose finitely many module
+generators of its reduced algebra \(B\). Multiply each by a suitable
+nonzero scalar from \(K\) so its spectral radius is at most one. Their
+powers are bounded by the equivalence of reduced spectral and Banach
+norms. They and the target Tate generators give a bounded surjection
+from a strict Tate algebra onto \(B\). Its quotient topology is
+equivalent to the finite-module topology: expressions as sums of the
+chosen module generators bound the quotient norm by a fixed multiple of
+the finite-module quotient norm, and the bounded surjection gives the
+reverse bound. S3 identifies this finite-module topology with the
+existing Banach topology. Thus \(V\) is strict. The same argument
+applies to the finite reduced normalization algebra used below.
+
+Let \(I=\ker(A\to B)\) and \(A_0=A/I\). It is a strict affinoid algebra
+that is an integral domain, with an injective bounded map to \(B\), and \(B\) is finite
+integral over \(A_0\). The closed subspace
+\(C=\mathcal M(A_0)\hookrightarrow U\) is reduced. Injective integral
+extensions preserve Krull dimension, by going-up and incomparability, so
+\(\dim A_0=\dim B=1\). The prime kernel and S2 make \(C\) irreducible
+and pure one-dimensional.
+
+To check surjectivity at \textbf{all analytic points}, let \(c\in C\)
+have kernel \(\mathfrak p\subset A_0\). Lying-over for the integral
+injection gives a prime of \(B\) over \(\mathfrak p\). Thus
+\(B\otimes_{A_0}\kappa(\mathfrak p)\) is a nonzero finite-dimensional
+algebra, and extending its field to \(\mathcal H(c)\) leaves it nonzero.
+Finite-module completion identifies this algebra with the finite
+analytic fibre algebra \(B\widehat\otimes_{A_0}\mathcal H(c)\) (S3);
+finite-dimensional vector spaces over a complete field are already
+complete. A maximal ideal gives a finite residue field extension of
+\(\mathcal H(c)\) with its extending absolute value, hence an analytic
+point of the fibre. This proves that \(V\to C\) is finite surjective. It
+is not an inference merely from surjectivity of the two separate maps to
+algebra spectra.
+
+Let \(\overline A_0\) be the finite integral closure of \(A_0\) in its
+fraction field. It exists by S2. The injection into the domain \(B\)
+embeds \(\operatorname{Frac}(A_0)\) in \(\operatorname{Frac}(B)\). An
+element of \(\overline A_0\) is integral over \(A_0\), hence integral
+over \(B\), and belongs to \(B\) by normality. This gives the algebraic
+lift \(\overline A_0\to B\). It is bounded: choose finitely many
+\(A_0\)-module generators for \(\overline A_0\); boundedness of
+\(A_0\to B\) and the norms of their images bound the module map from a
+free presentation, and hence its quotient norm. S3 gives the finite
+Banach topology on \(\overline A_0\). Further, the same \(A_0\)-module
+generators of \(B\) generate \(B\) over \(\overline A_0\), so the lift
+is finite as a ring map; the strict nontrivial finite-Banach assertion
+of S3 makes it finite analytic. This is the asserted lift to the
+normalization. It does not require a separable map, a geometrically
+reduced image, or finite flatness. \(\square\)
+
+\subsection{Intrinsic equations on local images and ground-field
+probes}\label{intrinsic-equations-on-local-images-and-ground-field-probes}
+
+\textbf{Proof of Theorem C.} At \(y\in Y\), apply Proposition B. In the
+constant branch \(h\circ f\) is locally constant and therefore harmonic.
+Otherwise set \(U^o=\operatorname{int}_X U\), an ordinary neighbourhood
+of \(x=f(y)\), and \(C^o=C\cap U^o\). The open \(U^o\) is good separated
+strict boundaryless and pure of dimension \(n\), and \(C^o\) is a closed
+reduced pure curve inside it. Boundarylessness follows from the
+boundaryless open inclusion and the finite closed immersion. Domain
+invariance gives the stated dimensions. Restrict the ambient equation to
+\(U^o\) and apply n100's closed-curve theorem, obtaining \[
+                         D[h|_{C^o}]=0.
+\] Its normalization-transfer theorem then gives
+\(D[h|_{C^o}\circ\nu]=0\) on the finite normalization of \(C^o\). All
+these equations are intrinsic, on the actual ordinary opens, with
+canonical integration. No test meets the affinoid target boundary.
+Normalization restricts to \(C^o\) because integral closure is local.
+
+This normalization is a good separated smooth strict boundaryless pure
+curve over the perfect field \(K\). Lemma 2, or the smooth case of
+Theorem A, recognizes the lifted function as GR-harmonic. The lift in
+Proposition B maps the ordinary neighbourhood \[
+         \operatorname{int}_Y(V)\cap f^{-1}(U^o)
+\] of \(y\) into that normalization. Pull back the \textbf{recognized
+harmonic function} using GR Proposition 3.14(7). It gives harmonicity of
+\(h\circ f\) near \(y\), irrespective of inseparability of the local
+map. On the smooth strict source this is Thuillier harmonicity by S6.
+Locality treats every analytic point of \(Y\), proving the theorem.
+
+We never invert a finite-current direct image. We never replace a curve
+image by its graph in an unproved product-current ascent. The finite
+image, its ordinary interior, its normalization equation, and
+recognition precede harmonic pullback. \(\square\)
+
+\subsection{Comparison with the catalogue and the remaining
+gates}\label{comparison-with-the-catalogue-and-the-remaining-gates}
+
+The catalogue's continuous curve-recognition scope is an ordinary open
+in the analytification of a smooth proper algebraic curve over an
+algebraically closed field. Theorem A reaches \textbf{all good separated
+strict boundaryless pure analytic curves over that field}, including
+singular and nonreduced curves, with no global proper algebraic model.
+The smooth step is local and reduces to the published comparison using
+the checked affinoid embedding and the separately proved ordinary
+interior identification. The singular and nilpotent step uses exactly
+n100. This is a substantive recognition theorem in a new stated scope,
+but is a special case of the original atom, not a full solution.
+
+Proposition B establishes the proposed local-image route for smooth
+strict boundaryless \textbf{ground-field} probes over arbitrary complete
+nontrivially valued fields. In particular, a nonconstant branch has an
+actual local analytic curve image even when global algebraic coordinate
+relations need not exist. It claims no arbitrary finite-cover current
+pullback. Theorem C combines this image result and recognition over
+algebraically closed \(K\). Its exact extra content is harmonicity of
+every such \(K\)-probe into a pure ambient space.
+
+For general \(K\), the normalization of a reduced curve need not be
+rig-smooth before treating geometrically inseparable structure. Even
+over a perfect nonclosed field, normal rig-smooth curves still require
+current recognition there. Neither van der Put's algebraically closed
+field hypothesis nor Wanner's hypothesis can be dropped. The reviewed
+purely inseparable ascent packet mentioned by the operator concerns
+characteristic \(p\) and the completion of a specified purely
+inseparable algebraic extension only. No result from that packet is a
+premise here. Its committed exact-scope PASS is acknowledged without
+transferring it to changed bytes or to separable/transcendental ascent.
+Completed perfection is perfect but may not be algebraically closed.
+
+The \textbf{scalar-current ascent gate} remains distinct. GR Definition
+4.1 requires all analytic \(L/K\) and curve maps into \(X_L\). Theorem C
+supplies none of the missing equations on these actual scalar-extended
+spaces. Algebraic closure of \(K\) removes finite algebraic extensions,
+not transcendental analytic extensions. Theorem A's universal classical
+conclusion is legitimate because harmonicity has already been recognized
+on a curve, where GR 4.1.2 and 3.14 provide the full quantifiers; it
+cannot be applied to turn a fieldwise ambient test property into that
+same universal conclusion.
+
+The \textbf{two-sign ordinary regularization gate} also remains
+separate. This proof does not construct ordinary CLD-smooth harmonic
+approximants or decreasing ordinary smooth psh approximants on arbitrary
+singular curves or arbitrary ambient germs. I read the controlling book
+chapter and the complete frozen P06.3 statement and proof. Their
+endpoint assumes algebraically closed \(K\) and an ordinary open of a
+smooth proper algebraic curve; its recognition implication is Wanner
+Corollary 4.8. Its other direction constructs psh approximants using
+finite tree skeleta, positive rational strictification, residual-divisor
+movement into fresh directions, convex caps, and a decreasing tail
+shift. The approximants can carry positive curvature, so this is not an
+ordinary smooth harmonic-approximation theorem. That packet is not a
+supporting theorem in the present proof. The present ordinary local
+models could support a separate smooth-curve regularization
+globalization after its own source audit; no new regularization theorem
+is claimed here.
+
+No counterexample satisfying the original strict ambient hypotheses is
+constructed. No conclusion is drawn for arbitrary nonproduct
+higher-dimensional germs, nonclosed fields, mixed-dimensional ambient
+current conventions, or the non-strict invisible-boundary product. The
+status is \texttt{partial} and \texttt{candidate=false}.
+
+\subsection{Repair, self-audit, and
+reproducibility}\label{repair-self-audit-and-reproducibility}
+
+The earlier submission's native support entries contained citation
+prose. This repaired submission uses only the supplied ID n100 or
+earlier new local IDs n1, n2, \ldots{} in support arrays. Citations,
+paths, hashes, and commands appear in note text, not support. The prior
+invalid findings, argument, audit, and research notes are preserved
+locally as diagnostic data; no old campaign, database, settings, or
+proof file was modified.
+
+The mathematical change is substantive: the previous draft's smooth
+recognition proof used semistable factorization, skeletal integration,
+and vertex slope detection. The new proof removes those load-bearing
+steps and replaces them with the now-inspected primary affinoid
+embedding theorem, two explicit boundary equalities, included compact
+tests, and the published comparison at exactly its stated scope. The
+local image proof is rechecked here, including constant-branch Banach
+limits, actual residue-field fibres, all-point Zariski reasoning, strict
+finite affinoids, spectral surjectivity, and bounded finite
+normalization lifts. No preceding self-audit or verdict substitutes for
+these arguments.
+
+\texttt{self-audit.md} records applicability and remaining obligations.
+\texttt{research-notes.md} records retained and discarded routes. The
+standalone paper is \texttt{P06.2-partial.tex}, with
+\texttt{P06.2-partial.pdf}. The requested five-field record is
+\texttt{status.json}. The programs, source copies, commands, outputs,
+environment versions, and manifests are saved here.
+
+Rerun from the preserved worker workspace
+\path{/workspace/research/campaigns/round-04/P06.2-curve-recognition-submission-repair/artifacts/codex-bcowsD}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{python}\NormalTok{ prepare.py}
+\ExtensionTok{python}\NormalTok{ build{-}and{-}check.py}
+\end{Highlighting}
+\end{Shaded}
+
+The second command generates the standalone TeX with installed pandoc,
+runs installed pdfLaTeX twice, records outputs, checks the native note
+dependency/schema rules, and writes artifact hashes. Compilation and
+finite source/schema diagnostics establish reproducibility and
+typesetting only; they are not mathematical verification. No
+installation, extra model call, subagent, heavy computation, external
+message, or environment/authentication modification is used. No
+resource-heavy computation is needed for these proofs. The standalone
+publication source is also compiled twice with installed pdfLaTeX.
+The native editor connection did not return, so built-in compilation
+remains unverified; the source and independently compiled PDF are
+preserved.
+
+\subsection{Bibliography}\label{bibliography}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  M. van der Put, \emph{The class group of a one-dimensional affinoid
+  space}, Ann. Inst. Fourier 30(4) (1980), 155--164, Theorem 1.1; field
+  and affinoid conventions on p.~155; proof on pp.~156--159.
+\item
+  V. Wanner, \emph{Comparison of two notions of subharmonicity on
+  non-archimedean curves}, arXiv:1801.04713v3; Math. Z. 293 (2019),
+  443--474. Definitions 3.11, 3.16, Theorem 4.7, Corollary 4.8.
+\item
+  A. Thuillier, \emph{Théorie du potentiel sur les courbes en géométrie
+  analytique non archimédienne. Applications à la théorie d'Arakelov},
+  thesis, 2005, HAL tel-00010990v1. Theorem 2.3.8 and its actual
+  affinoid-embedding assertion; Lemma 2.3.9; Definition 3.1.5.
+\item
+  A. Chambert-Loir and A. Ducros, \emph{Formes différentielles réelles
+  et courants sur les espaces de Berkovich}, arXiv:1204.6277v2, 25 July
+  2025. §§7.7, 11.1--4, 11.7.7, 14.3.5, 15.7.1--2.
+\item
+  W. Gubler and J. Rabinoff, \emph{Classically psh and pluriharmonic
+  functions on Berkovich spaces}, arXiv:2506.13548v2, 17 September 2025.
+  §§3.4.1--2, 3.9, 3.12--15, 4.1.2.
+\item
+  W. Gubler, P. Jell, and J. Rabinoff, \emph{Forms on Berkovich spaces
+  based on harmonic tropicalizations}, arXiv:2111.05741v3, 7 March 2025.
+  Definition 7.2 and Remark 7.3(1). This inspected snapshot labels
+  itself final published version; no later numbering is silently
+  substituted.
+\item
+  B. Conrad and M. Temkin, \emph{Descent for non-Archimedean analytic
+  spaces}, arXiv:1912.06230v2, Lemma 2.9, inspected author-hosted PDF.
+\item
+  V. Berkovich, \emph{Étale cohomology for non-Archimedean analytic
+  spaces}, Publ. Math. IHÉS 78 (1993), §1.6, affinoid-domain
+  compatibility with rigid geometry, as used in the inspected Thuillier
+  passage.
+\item
+  S. Bosch, U. Güntzer, and R. Remmert, \emph{Non-Archimedean Analysis},
+  Springer, 1984, 3.2.4/2 and 6.1.2/1; the finite Banach formulation is
+  read in CLD 11.4.4 and its footnote.
+\item
+  A. Ducros, \emph{Variation de la dimension relative en géométrie
+  analytique p-adique}, Compositio Math. 143 (2007), 1511--1532, Theorem
+  4.9, in the exact formulation read in CLD 11.4.5.
+\item
+  Supplied note n100, \emph{Intrinsic zero-Hessian restriction to closed
+  analytic curves}, frozen complete argument and exact-scope review;
+  provenance and exact hash stated in S1. Used only at its declared
+  scope.
+\end{enumerate}
+
+\end{document}
