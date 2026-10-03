@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--48 pass the new source, build,
+Current reading position: Chapters 1--49 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -88,7 +88,8 @@ reference, and rendered-page gates; see the
 [Chapter 45 audit](second_reading_ch45_audit_20261003.md), and
 [Chapter 46 audit](second_reading_ch46_audit_20261003.md), and
 [Chapter 47 audit](second_reading_ch47_audit_20261003.md), and
-[Chapter 48 audit](second_reading_ch48_audit_20261003.md).
+[Chapter 48 audit](second_reading_ch48_audit_20261003.md), and
+[Chapter 49 audit](second_reading_ch49_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -209,7 +210,11 @@ checked. Chapter 48 is now verified: all 4,153 original lines, complete
 diffs, scoped primary and internal interfaces, strong convergence,
 class-change, capacity, quasicontinuity and relative polarity scopes,
 all 58 chapter physical pages and both seams were checked.
-Chapter 49 is active; all 4,671 original lines freshly read, repairs pending.
+Chapter 49 is now verified: all 4,671 original lines, complete diffs,
+scoped primary and internal interfaces, retraction order, rational divisorial
+approximation, topology, toric and Green-function scopes, all 64 chapter
+physical pages and both seams were checked. Chapter 50 is active; all
+5,353 original lines freshly read, repairs pending.
 No later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
@@ -301,5 +306,13 @@ P02.1 has been initialized with frozen task and settings, zero admitted model
 calls, and no generated mathematical notes. No Xean mathematical campaign
 has yet run, and no new problem is solved.
 
-GitHub default-branch publication remains pending the previously requested
-explicit approval. This continuation grants no new push approval.
+On 3 October 2026 the user explicitly authorized periodic GitHub pushes
+and integration of their additional open-problem research updates. This
+supersedes the previous publication pause, retained in historical receipts.
+Fetch the remote before verified milestones, inspect incoming mathematical
+changes and evidence, merge without discarding either side, rerun affected
+checks, and push normally without force. Source-dated research states are
+updated only after checking the actual claim, proof and primary references.
+The current fetch found origin/main at 0095711: a merged build-environment
+change with six files and no new mathematical research. These changes will
+be merged before publishing the verified local book progress.

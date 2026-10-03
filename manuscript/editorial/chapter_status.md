@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--48 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--49 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -157,7 +157,12 @@ strong convergence, class-change, capacity, quasicontinuity and relative
 polarity scopes were checked and repaired. All 58 chapter physical pages
 and both seams passed visual review; see the
 [Chapter 48 audit](second_reading_ch48_audit_20261003.md).
-Chapter 49 is active; all 4,671 original lines freshly read, repairs pending.
+Chapter 49's original 4,671 lines and complete diffs were freshly read;
+linear-growth topology, rational divisorial approximation, retraction order,
+toric signs, singular energy and Green-function source scopes were repaired.
+All 64 chapter physical pages and both seams passed visual review; see the
+[Chapter 49 audit](second_reading_ch49_audit_20261003.md).
+Chapter 50 is active; all 5,353 original lines freshly read, repairs pending.
 No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
@@ -196,8 +201,10 @@ gates, and remaining nonfatal underfull diagnostics are recorded in
 [active-source ledger](book_completion_source_closure_20261002.sha256).
 Completion does not supply a new independent mathematical-verifier verdict.
 The 42 active research atoms in twelve Chapter 72 problem environments remain
-explicit; independent research is paused. Work is committed locally and
-GitHub publication awaits explicit approval.
+explicit; independent research follows the whole-book polishing pass.
+The user authorized periodic GitHub pushes and integration of their
+remote research updates on 3 October 2026; current synchronization follows
+verified milestones and preserves remote changes.
 
 ## Historical vocabulary and milestone ledger
 
