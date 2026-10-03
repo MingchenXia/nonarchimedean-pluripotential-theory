@@ -35,7 +35,7 @@ for paper in checkpoint['papers_and_supporting_note']:
     })
 
 round03_path = ROOT/'deliverables/round-03/results.json'
-for newer_path in [round03_path, ROOT/'deliverables/round-04/results.json', ROOT/'deliverables/round-05/results.json', ROOT/'deliverables/round-06/results.json', ROOT/'deliverables/round-07/results.json', ROOT/'deliverables/round-08/results.json']:
+for newer_path in [round03_path, ROOT/'deliverables/round-04/results.json', ROOT/'deliverables/round-05/results.json', ROOT/'deliverables/round-06/results.json', ROOT/'deliverables/round-07/results.json', ROOT/'deliverables/round-08/results.json', ROOT/'deliverables/round-09/results.json', ROOT/'deliverables/round-10/results.json']:
     if newer_path.is_file():
         newer = json.loads(newer_path.read_text())
         for paper in newer['papers_and_supporting_note']:
@@ -66,7 +66,7 @@ for original in baseline['targets']:
             'purely inseparable ascent audit PASS and paper published; '
             'intrinsic curve recognition full-evidence PASS read and published, previous INCONCLUSIVE preserved; '
             'restricted quadratic curve-ascent principal PASS read and published, unused broad supplemental cutoff statement caveated; '
-            'higher-dimensional restricted quadratic-form draft is under exact review; wild quadratic research is running. ')
+            'higher-dimensional restricted quadratic compact-specialization PASS8/10 read and published; first broad cutoff caveat preserved; all-separable-quadratic draft completed under exact review, finite-separable research runs. ')
         target['remaining_full_target'] = ('Arbitrary analytic germs and curve maps, '
             'all required field-extension tests, general scalar-current ascent '
             'and two-sign regularization are not established by cone constancy '
@@ -76,7 +76,7 @@ for original in baseline['targets']:
             'product-criterion audit PASS and paper published; native research '
             'on ambient-extendible real references received PASS and was published; '
             'extension-free all-real-reference product PASS read and published, earlier input-access INCONCLUSIVE preserved; '
-            'nonconical graph-cylinder full exact PASS read and published; all-real-reference Bergman actual contact continuation is running.')
+            'nonconical graph-cylinder full exact PASS read and published; Bergman all-real-reference actual PAPC-envelope/full contact-defect PASS0/0 read, bound and published; first missing-book-proof INCONCLUSIVE preserved; arbitrary weighted tree-cylinder draft fully read under exact review; cyclic graph-cylinder native continuation runs.')
         target['remaining_full_target'] = ('The geometric classification of all '
             'admitted pairs in the fixed coefficient conventions remains open.')
     elif atom == 'P21.3':
