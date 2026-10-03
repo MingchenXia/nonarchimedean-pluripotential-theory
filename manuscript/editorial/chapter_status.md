@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--49 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--50 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -162,8 +162,13 @@ linear-growth topology, rational divisorial approximation, retraction order,
 toric signs, singular energy and Green-function source scopes were repaired.
 All 64 chapter physical pages and both seams passed visual review; see the
 [Chapter 49 audit](second_reading_ch49_audit_20261003.md).
-Chapter 50 is active; all 5,353 original lines freshly read, repairs pending.
-No later chapter is marked complete.
+Chapter 50's original 5,353 lines, complete mathematical diffs and all
+follow-up deltas were freshly read; norm-completion, entropy, anticanonical
+model, Ding, threshold, toric and source scopes were repaired. All 74 chapter
+physical pages and both seams passed visual review; see the
+[Chapter 50 audit](second_reading_ch50_audit_20261003.md).
+Chapter 51 is active; all 4,979 original lines freshly read, primary checks
+and repairs continue. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its

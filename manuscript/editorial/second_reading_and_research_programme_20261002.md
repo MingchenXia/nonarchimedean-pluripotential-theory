@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--49 pass the new source, build,
+Current reading position: Chapters 1--50 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -89,7 +89,8 @@ reference, and rendered-page gates; see the
 [Chapter 46 audit](second_reading_ch46_audit_20261003.md), and
 [Chapter 47 audit](second_reading_ch47_audit_20261003.md), and
 [Chapter 48 audit](second_reading_ch48_audit_20261003.md), and
-[Chapter 49 audit](second_reading_ch49_audit_20261003.md).
+[Chapter 49 audit](second_reading_ch49_audit_20261003.md), and
+[Chapter 50 audit](second_reading_ch50_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -213,9 +214,13 @@ all 58 chapter physical pages and both seams were checked.
 Chapter 49 is now verified: all 4,671 original lines, complete diffs,
 scoped primary and internal interfaces, retraction order, rational divisorial
 approximation, topology, toric and Green-function scopes, all 64 chapter
-physical pages and both seams were checked. Chapter 50 is active; all
-5,353 original lines freshly read, repairs pending.
-No later unit is marked complete.
+physical pages and both seams were checked. Chapter 50 is now verified:
+all 5,353 original lines, complete mathematical diffs and follow-up deltas,
+scoped primary and internal interfaces, norm completion, entropy, common
+anticanonical model, exact Ding/Mabuchi coefficients, thresholds and toric
+scopes, all 74 chapter physical pages and both seams were checked.
+Chapter 51 is active; all 4,979 original lines freshly read, primary checks
+and repairs continue. No later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and
@@ -313,6 +318,12 @@ Fetch the remote before verified milestones, inspect incoming mathematical
 changes and evidence, merge without discarding either side, rerun affected
 checks, and push normally without force. Source-dated research states are
 updated only after checking the actual claim, proof and primary references.
-The current fetch found origin/main at 0095711: a merged build-environment
-change with six files and no new mathematical research. These changes will
-be merged before publishing the verified local book progress.
+The fetch found origin/main at 0095711: a merged build-environment change
+with six files and no new mathematical research. It was merged locally at
+2073536, validated, and published to the existing work branch. Draft
+[PR #2](https://github.com/MingchenXia/nonarchimedean-pluripotential-theory/pull/2)
+tracks the continuation. Automatic approval review rejected direct main
+publication as insufficiently authorized for that target, and explicitly
+identified the existing work branch as the safer permitted alternative.
+Normal work-branch pushes continue after verified milestones; incoming main
+research is fetched and checked before integration.

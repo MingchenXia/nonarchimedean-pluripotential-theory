@@ -5,7 +5,7 @@ This repository contains the current second draft of the monograph
 left blank in this release.
 
 **Active continuation, 2 October 2026:** a new full reading pass continues
-from Chapter 1 for coherence and readability; Chapters 1--49 pass its gates.
+from Chapter 1 for coherence and readability; Chapters 1--50 pass its gates.
 All current execution remains in the cloud, and Xean setup is suspended by
 the latest user instruction. The standalone catalogue of all 42 active
 open-problem items is complete: [LaTeX source](output/open_problems_catalogue_2026-10-02.tex)
@@ -13,6 +13,13 @@ and [85-page PDF](output/open_problems_catalogue_2026-10-02.pdf), with full
 statements, source-dated state of the art, completion criteria and references.
 [The new programme](manuscript/editorial/second_reading_and_research_programme_20261002.md)
 tracks this work and preserves the completed edition below.
+
+**GitHub synchronization, 3 October 2026:** periodic publication and review
+of the user's incoming research updates are authorized. Verified progress
+uses the `work` branch and [draft pull request #2](https://github.com/MingchenXia/nonarchimedean-pluripotential-theory/pull/2).
+The fetched build-environment changes at `0095711` were merged locally at
+`2073536`; no incoming mathematical research was present at that check.
+Historical publication pauses below describe their dated editions.
 
 **Second-draft completion, 2 October 2026:** all 72 chapters, Appendices A--N,
 and the nine front-matter files have completed the
