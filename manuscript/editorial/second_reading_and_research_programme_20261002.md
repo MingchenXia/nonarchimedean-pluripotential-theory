@@ -48,10 +48,11 @@ reference, and rendered-page gates; see the
 [Chapter 12 audit](second_reading_ch12_audit_20261002.md),
 [Chapter 13 audit](second_reading_ch13_audit_20261002.md), and
 [Chapter 14 audit](second_reading_ch14_audit_20261002.md).
-Chapter 15 has been freshly read through lines 1--1095 of its 4,920-line
-source; its 57 direct active inputs have not yet been freshly read. There
-are no edits, and its remaining reading, scope and rendered-page gates
-remain open.
+Chapter 15's original 4,920-line source and all 57 direct inputs have now
+been freshly read. Its real-coefficient LFS descent correction and affected
+Chapter 72 scopes pass the checkpoint gates; see the
+[3 October correction audit](ch15_lfs_descent_scope_correction_audit_20261003.md).
+The other identified chapter repairs and complete chapter gates remain open.
 No later chapter is marked reread.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),

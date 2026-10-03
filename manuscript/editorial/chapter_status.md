@@ -5,9 +5,11 @@
 On 2 October 2026 the user requested another complete reading pass from
 Chapter 1 for coherence and readability. Chapters 1--14 pass the new reading
 gates; see the [Chapter 14 audit](second_reading_ch14_audit_20261002.md).
-Chapter 15 has been freshly read through lines 1--1095 of its 4,920-line
-source; its 57 direct active inputs have not yet been freshly read. There
-are no edits, and its remaining reading and verification gates remain open.
+Chapter 15's original 4,920-line source and all 57 direct inputs have now
+been freshly read. A real-coefficient LFS descent inference has been
+corrected, with the affected Chapter 72 scopes reconciled; see the
+[3 October correction audit](ch15_lfs_descent_scope_correction_audit_20261003.md).
+Further chapter repairs and complete chapter verification remain open.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
