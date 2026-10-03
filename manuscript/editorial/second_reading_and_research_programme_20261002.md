@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--38 pass the new source, build,
+Current reading position: Chapters 1--39 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -77,7 +77,8 @@ reference, and rendered-page gates; see the
 [Chapter 35 audit](second_reading_ch35_audit_20261003.md), and
 [Chapter 36 audit](second_reading_ch36_audit_20261003.md), and
 [Chapter 37 audit](second_reading_ch37_audit_20261003.md), and
-[Chapter 38 audit](second_reading_ch38_audit_20261003.md).
+[Chapter 38 audit](second_reading_ch38_audit_20261003.md), and
+[Chapter 39 audit](second_reading_ch39_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -164,9 +165,11 @@ twelve chapter pages and both seams. Chapter 37 has completed its original
 and visual review of all ten chapter pages and both seams. Chapter 38 is
 now verified: its original 3,767 lines, both complete mathematical diffs,
 scoped sources, repaired trace/ideal/drift/pole arguments and all 52 chapter
-pages plus both seams were checked. Chapter 39 is active; original lines
-1--1300 have been freshly read without edits, but no later unit is marked
-complete.
+pages plus both seams were checked. Chapter 39 is now verified: its original
+3,653 lines, complete diffs, scoped sources, reflection/Cartier/carrier/pole
+repairs and all 50 chapter pages plus both seams were checked. Chapter 40 is
+active; all 3,535 original lines have been freshly read before edits, but no
+later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and
