@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--23 pass the new source, build,
+Current reading position: Chapters 1--24 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -62,7 +62,8 @@ reference, and rendered-page gates; see the
 [Chapter 21 audit](second_reading_ch21_audit_20261003.md),
 [Chapter 22 audit](second_reading_ch22_audit_20261003.md), and
 [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
-[rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
+[rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md), and
+[Chapter 24 audit](second_reading_ch24_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -103,7 +104,12 @@ and both seams passed visual review. Chapter 23's original 3,590-line source
 was freshly read; it has no direct inputs. Envelope calculus, preservation
 of positivity, base ideals, curve and toric examples, and later continuity
 hypotheses were repaired. All 54 chapter physical pages and both seams
-passed visual review. Chapter 24 is next. No later unit is marked complete.
+passed visual review. Chapter 24's original 3,729-line source was freshly read;
+it has no direct inputs. Supported intersections, model independence,
+rational-maximum locality, energy/reference normalization, examples and
+exact CLD comparison scopes were repaired. All 54 chapter physical pages
+and both seams passed visual review, including the repaired display-number
+collision. Chapter 25 is next. No later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and

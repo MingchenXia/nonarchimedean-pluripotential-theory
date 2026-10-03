@@ -47,19 +47,23 @@ determined on $\cX$ restricts to each component $E$ of the special fibre
 $\cX_s=\sum_Eb_EE$; an $n$-fold product of such restrictions is a number,
 computed on the projective $k$-variety $E$; weighting by the multiplicity
 $b_E$ and putting the result at the divisorial point $x_E$ produces an
-atomic measure.  That this is \emph{forced}---by multilinearity together with
-the requirement that the total mass be the generic intersection
-number---was already argued in \Cref{sec:metrics-cl-measure}, where the same
-measure appeared under the name of Chambert--Loir.  The only work at this
+atomic measure.  This is the construction of
+\Cref{sec:metrics-cl-measure}, where the same measure appeared under the
+name of Chambert--Loir.  Its compatibility with vertical intersection
+numbers will be proved below; multilinearity and total mass alone would
+not determine the individual atoms.  The only work at this
 level is bookkeeping: independence of the model, symmetry, positivity, mass,
 and the identity that converts an integral of a model function into a
 vertical intersection number.
 
 The difficulty begins one step later.  A bounded $\theta$-psh function is
-not determined on any single model; by
-\Cref{thm:bfj-decreasing-regularization} it is only a decreasing limit of a
-\emph{net} of $\theta$-psh model functions, and by
-\Cref{ex:ch22-no-countable-cofinal} a sequence will not in general do.  One
+not determined on any single model;
+\Cref{thm:bfj-decreasing-regularization} represents it as a decreasing limit of a
+\emph{net} of $\theta$-psh model functions.  The absence of a countably
+cofinal model system in \Cref{ex:ch22-no-countable-cofinal} prevents a
+general diagonal reduction of that construction.  It does not rule out a
+separate sequential regularization theorem, which comes in
+\Cref{chap:bfj-capacity}.  One
 would like to define its Monge--Amp\`ere measure as the weak limit of the
 model measures along such a net.  Three separate things then have to be
 proved, and they organize \Cref{sec:ch24-bounded}.
@@ -143,14 +147,16 @@ finite energy
 \end{tabular}
 \end{center}
 
-This chapter constructs the first three.  The fourth is
-\Cref{chap:bfj-energy} and is \emph{not} obtained by taking a limit of the
-constructions here: an unbounded potential is a decreasing limit of bounded
-ones, but the measures need not converge to anything of mass $V$, and mass
-may be lost to the polar set.  \Cref{prop:bounded-ma-no-polar-mass} is the
-precise statement that no mass is lost \emph{as long as the potentials stay
-bounded}, and \Cref{def:nonpluripolar-ma} is the convention that
-reinstates the loss for unbounded ones.  A fifth product, the
+This chapter constructs the first three.  The fourth is constructed in
+\Cref{chap:bfj-energy} from bounded truncation products restricted to their
+finite layers.  For arbitrary singular potentials, an unrestricted weak
+limit of truncation measures can charge a polar set; the nonpluripolar
+convention discards this mass and can therefore give mass less than $V$.
+It does not restore full mass for every unbounded potential.
+\Cref{prop:bounded-ma-no-polar-mass} excludes polar mass for bounded
+entries, while \Cref{thm:e1-mixed-products} proves full mass and weak
+convergence of the unrestricted truncation products for finite-energy
+entries.  A fifth product, the
 Chambert--Loir--Ducros Bedford--Taylor product of \Cref{chap:cld-bedford-taylor},
 is a local object of a different nature and is compared with the present one
 only on the model and continuous loci; see
@@ -241,9 +247,10 @@ is convenient, that $\theta$ is itself $\cX$-positive on some model, so
 that in particular $0\in\PSH(X,\theta)$ and constants are
 $\theta$-psh (\Cref{prop:ch21-constants}).  Replacing $\theta$ by
 $\theta+\ddc\psi$ and every potential $\varphi$ by $\varphi-\psi$
-changes nothing in the statements below, by
-\Cref{cor:ch21-reference-independence}; the normalization is recorded
-explicitly at each place where it is used.  We write
+preserves the curvature forms, their measures, and the psh classes, by
+\Cref{cor:ch21-reference-independence}.  The scalar energy pairing changes
+by a reference-dependent constant, recorded after its definition below.
+The normalization is recorded explicitly at each place where it is used.  We write
 
 \begin{equation}
 \label{eq:ch24-volume}
@@ -295,8 +302,9 @@ following exceptions.
 \item\label{itm:ch24-import:regularization}
  \emph{Decreasing regularization}, \Cref{thm:bfj-decreasing-regularization},
  proved in \Cref{chap:bfj-compactness} from the envelope-continuity theorem
- \Cref{thm:bfj-envelope-regularity}.  This is where residue characteristic
- zero enters the present chapter, and it enters only here; see
+ \Cref{thm:bfj-envelope-regularity}.  This is the main characteristic-zero
+ input to the analytic extension.  The preceding SNC and relative Hodge
+ framework retains its own resolution hypotheses; see
  \Cref{sec:ch24-scope}.
 \item\label{itm:ch24-import:density}
  \emph{Density of model functions} in $C^0(X^{\An})$,
@@ -357,8 +365,11 @@ and mass errors in this subject; the point was already flagged in
 \Cref{sec:ch20-ddc-definition} after \eqref{eq:ch20-special-fibre-degree}.
 
 Throughout, $\Div_0(\cX)_{\mathbf R}$ denotes the space of vertical
-$\mathbf R$-Cartier divisors on $\cX$, that is, $\mathbf R$-linear
-combinations of the components of $\cX_s$, and $\cX_s=\sum_Eb_EE$.
+$\mathbf R$-Cartier divisors on $\cX$: finite real linear combinations
+of integral vertical Cartier divisors.  Their associated Weil cycles are
+supported on the components of $\cX_s=\sum_Eb_EE$.  On a normal model,
+an arbitrary real combination of those prime components need not be
+Cartier.
 
 \begin{lemma}
 \label{lem:ch24-vertical-numbers}
@@ -417,14 +428,18 @@ distinguished slot may be exchanged with any other, that is, that
  \qquad
  \gamma=c_1(D_3)\cdots\alpha_1\cdots .
 \]
-Both sides are computed on the integral scheme $\cX$: by the second
-assertion of \Cref{lem:vertical-intersection-degree}, $[D_i]$ represents
-$c_1(\cO(D_i))\cap[\cX]$ in the Chow group of $|D_i|\subseteq\cX_s$, so
-both sides equal the degree of
-$c_1(D_1)c_1(D_2)\gamma\cap[\cX]$, computed in
-$A_0(|D_1|\cap|D_2|)_{\mathbf R}$, by the commutativity of Chern class
-operators \cite[Corollary~2.4.2]{Ful}.  Since $|D_1|\cap|D_2|\subseteq\cX_s$
-is proper over $k$, the degree is defined and the two computations agree.
+By \Cref{lem:vertical-intersection-degree}, $[D_i]$ is the
+\emph{supported} Cartier-divisor intersection
+$D_i\mathbin{\cdot}[\cX]\in A_n(|D_i|)$.
+The commutativity theorem for Cartier-divisor intersections with support,
+\cite[Theorem~2.4]{Ful}, identifies the two iterated intersections in
+$A_0(|D_1|\cap|D_2|)_{\mathbf R}$ after the remaining Chern classes
+are applied.  Their proper pushforwards to $\cX_s$ give the two classes
+in the displayed identity, and proper pushforward preserves degree.
+All supports here are proper over $k$, so their degrees agree.
+This uses the supported classes, not merely their images
+$c_1(\cO(D_i))\cap[\cX]$ in $A_n(\cX)$; those images alone do not
+retain the required relative degree.
 
 \emph{\cref{itm:ch24-vn:pullback}.}  This is
 \Cref{thm:model-projection-formula} with $d=1$, applied with the
@@ -566,18 +581,19 @@ Moreover $x_F=x_E$ as points of $X^{\An}$: both are the normalized
 valuation $b^{-1}\ord$ of the same divisorial valuation of $K(X)$, by
 \Cref{prop:component-valuation}.
 
-\emph{(c) The multiplicities add up.}  For each $E$,
+\emph{(c) The multiplicities agree.}  For each $E$,
 \[
-                \sum_{F\mapsto E}e_Fb_F=b_E ,
+                \sum_{F\mapsto E}e_Fb_F=b_E .
 \]
-the sum being over the components of $\cY_s$ dominating $E$.  Indeed
-$\cY_s=\rho^*\cX_s$ as Cartier divisors, both being $\divis(\pi)$, so by
-the projection formula for cycles
-$\rho_*[\cY_s]=\rho_*\bigl(c_1(\cO(\rho^*\cX_s))\cap[\cY]\bigr)
- =c_1(\cO(\cX_s))\cap\rho_*[\cY]=[\cX_s]$, using
-$\rho_*[\cY]=[\cX]$ for a proper birational morphism.  Expanding the left
-side as $\sum_Fb_F\rho_*[F]$ and using $\rho_*[F]=0$ for contracted
-$F$ and $\rho_*[F]=e_F[E]$ otherwise gives the displayed identity.
+Indeed, a proper birational morphism to a normal model is an isomorphism
+over the generic point of every prime divisor.  Its unique strict transform
+$F$ over $E$ has the same discrete valuation ring and residue function
+field there.  Thus $e_F=1$, $\ord_F=\ord_E$, and
+$b_F=\ord_F(\pi)=\ord_E(\pi)=b_E$.
+The displayed sum has exactly that term; all other components are
+contracted.  Equivalently, the supported special-fibre cycles push forward
+to one another.  One must not replace these cycles by ordinary global
+first Chern classes of $\cO(\divis(\pi))$, which vanish.
 
 Combining (a)--(c),
 \[
@@ -673,10 +689,9 @@ determined on a model $\cX$, and let
 $\mu=\theta_1\wedge\cdots\wedge\theta_n$.
 \begin{enumerate}
 \item\label{itm:ch24-ms:atomic} $\mu$ is a finite positive combination of
- Dirac masses at divisorial points of $\cX$; in particular
- $\Supp\mu\subseteq\Delta_{\cX}$, the dual complex of $\cX$, and
- $\mu$ is supported on the set of vertices of $\Delta_{\cX}$ when
- $\cX$ is SNC.
+ Dirac masses at divisorial points of $\cX$.  If $\cX$ is SNC, these
+ points are the vertices of its dual complex $\Delta_{\cX}$, so
+ $\Supp\mu\subseteq\Delta_{\cX}$.
 \item\label{itm:ch24-ms:refine} If $\rho:\cY\to\cX$ is a domination, the
  atoms of $\mu$ computed on $\cY$ sit at the same points of
  $X^{\An}$; no mass appears at a divisorial point of $\cY$ that is not
@@ -703,8 +718,9 @@ set misses $\Supp\mu$.
 
 \begin{example}[Good reduction]
 \label{ex:ch24-good-reduction}
-If $\cX_s$ is irreducible and reduced---the case of good reduction---then
-$\cX_s=E$ with $b_E=1$, the dual complex is the single point $x_E$,
+For a smooth proper model with irreducible special fibre, good reduction
+gives $\cX_s=E$ with $b_E=1$.  Its SNC dual complex is the single
+point $x_E$,
 and \eqref{eq:model-mixed-measure} reduces to
 \[
  \theta_1\wedge\cdots\wedge\theta_n=(\{\theta_1\}\cdots\{\theta_n\})\,
@@ -775,7 +791,8 @@ $Q(\sum_{i\in S}\eta_i)=|S|^n\MA_\theta(\varphi_S)$.  Substituting gives
 \end{proof}
 
 \begin{corollary}\label{cor:ch24-mixed-from-diagonal}
-Two symmetric multilinear measure-valued products defined on $n$-tuples of
+Two symmetric measure-valued products, affine in each entry and defined on
+$n$-tuples of
 $\theta$-psh model functions agree if and only if their diagonals agree.
 The same holds on $n$-tuples of bounded $\theta$-psh functions, once
 \Cref{thm:bounded-ma-extension} has provided the extension, since the class
@@ -783,7 +800,11 @@ of bounded $\theta$-psh functions is stable under averages.
 \end{corollary}
 
 \begin{proof}
-Necessity is trivial and sufficiency is \eqref{eq:ch24-polarization}, whose
+Necessity is trivial.  For a symmetric product affine in each entry,
+homogenize each affine slot by adjoining a coordinate equal to $1$.
+The same multilinear expansion proves the polarization identity
+\eqref{eq:ch24-polarization}, so its diagonal determines the mixed values.
+For the Monge--Amp\`ere products this is the displayed identity, whose
 right-hand side involves only diagonal products.  For the bounded case,
 observe that $\varphi_S$ is bounded $\theta$-psh when the $\varphi_i$
 are, by \Cref{thm:ch21-stability}\,\cref{itm:ch21-stab:sum}, and that
@@ -808,7 +829,8 @@ model, we write
 \]
 a signed atomic measure of \emph{total mass zero}, by
 \eqref{eq:mixed-total-mass} and $\{\ddc f\}=0$.  When $f$ is
-$\theta$-psh and the $\eta_i$ are semipositive, it is a difference of
+$\theta$-psh, $\theta$ is semipositive, and the $\eta_i$ are
+semipositive, it is a difference of
 two positive measures of mass $(\{\theta\}\{\eta_1\}\cdots\{\eta_{n-1}\})$
 each, so its total variation is at most twice that number.  This crude bound
 is used repeatedly below and is the reason the whole construction is stable.
@@ -898,8 +920,8 @@ regular model.  The assertion is then
 \label{rem:ch24-sign-audit}
 Three signs have now been fixed and are mutually consistent.  A vertical
 effective divisor gives a nonnegative model function
-(\eqref{eq:ch20-sign}); a convex corner of a model function on a dual
-complex gives \emph{positive} mass, since by
+(\eqref{eq:ch20-sign}); on a curve, a convex corner along a skeletal
+edge gives \emph{positive} Laplacian mass, since by
 \Cref{prop:ch20-curve-laplacian} the Laplacian is the sum of outgoing
 slopes; and the Dirichlet form
 $f\mapsto\int f\,\ddc f\wedge\eta_\bullet$ is \emph{nonpositive}.  The
@@ -928,9 +950,9 @@ From here to the end of \Cref{sec:ch24-bounded} we use the normalization
 recorded in \Cref{sec:ch24-hypotheses}: \emph{$\theta$ is semipositive}.
 By \Cref{prop:ch20-positive-representative} this may always be arranged by
 replacing $\theta$ with $\theta+\ddc\psi$ and each potential
-$\varphi$ with $\varphi-\psi$, and by
-\Cref{cor:ch21-reference-independence} no statement is affected.  Its only
-role is to make the constant functions $\theta$-psh
+$\varphi$ with $\varphi-\psi$.  This preserves curvature measures and
+psh order.  The energy's reference constant is accounted for below.
+This normalization makes the constant functions $\theta$-psh
 (\Cref{prop:ch21-constants}), so that in particular the entry $0$ and the
 entries $\pm M$ are legitimate arguments of the pairing below.
 
@@ -962,6 +984,23 @@ is exactly what is well defined.  This is the same distinction as in the
 warning after \Cref{lem:ch24-vertical-numbers}, and it is the reason the
 mixed energy pairing, and not a naive top self-intersection, is the object
 that extends.
+
+The reference dependence can also be computed without giving a meaning to
+$\theta^{n+1}$.  If $\psi$ is a model function and
+$\theta'=\theta+\ddc\psi$, expansion of the finite sums in
+\eqref{eq:ch24-mixed-energy} gives the model-level cocycle identity
+\[
+ \mathfrak E_{\theta'}(\varphi_0-\psi,\ldots,\varphi_n-\psi)
+ =\mathfrak E_\theta(\varphi_0,\ldots,\varphi_n)
+  -\mathfrak E_\theta(\psi,\ldots,\psi).
+\]
+To see this, expand the difference of the two products with common full
+entries $\theta+\ddc\varphi_i$ and respective base entries $\theta'$
+and $\theta$.  Every surviving monomial contains a vertical divisor,
+so each is one of the defined relative intersection numbers.
+Where both bounded pairings are defined, decreasing model approximation
+extends the same identity.  Thus the reference change preserves energy
+increments and monotonicity, but not its absolute zero.
 
 \begin{proposition}
 \label{prop:ch24-energy-basic}
@@ -1132,8 +1171,11 @@ of $\theta+\ddc\varphi_i$ is $\{\theta\}$, because
 $\{\ddc\psi\}=0$ for every model function $\psi$ by exactness of
 \eqref{eq:ch20-ddc-exact} at $\mathcal Z^{1,1}(X)$; hence the mixed number
 is $(\{\theta\}^n)=V$.  Statement \cref{itm:ch24-mass:pos} is
-\eqref{eq:ch20-mixed-component-positive} together with positivity of the top
-self-intersection of an ample class.  Statement \cref{itm:ch24-mass:mixed} is
+\eqref{eq:ch20-mixed-component-positive} together with positivity of
+mixed ample intersections.  Explicitly, fix an ample class $H$ and choose
+$\varepsilon>0$ so small that each $\{\theta_i\}-\varepsilon H$ is
+nef.  Expanding their mixed product gives
+$(\{\theta_1\}\cdots\{\theta_n\})\geq\varepsilon^n(H^n)>0$.  Statement \cref{itm:ch24-mass:mixed} is
 the observation that the right-hand side of \eqref{eq:ch24-mass} depends only
 on the generic classes and is symmetric multilinear there, by
 \Cref{prop:appF-mixed-cartier} applied on $X$.
@@ -1235,11 +1277,12 @@ avoid nets by extracting a decreasing \emph{sequence} of model functions
 converging to $\varphi$.  When $\varphi$ is continuous this is
 immediate (\Cref{cor:ch22-continuous-decreasing-sequence}).  In general
 such a sequence does exist, but not by any means assembled so far: the
-regularizing net of \Cref{thm:bfj-decreasing-regularization} admits no
-cofinal sequence (\Cref{lem:ch21-no-cofinal-sequence}), and no countable
-family of dual complexes determines a member of $\PSH(X,\theta)$
-(\Cref{ex:ch22-countable-blind-spot}), so nothing available here extracts a
-sequence from that net.  That every $\theta$-psh function is the
+full determining-model system need not admit a cofinal sequence
+(\Cref{lem:ch21-no-cofinal-sequence}), and values on a chosen countable
+family of dual complexes need not determine a psh function
+(\Cref{ex:ch22-countable-blind-spot}).  These facts block that general
+diagonal argument; they do not prove that every particular regularizing
+net lacks a sequential selection.  That every $\theta$-psh function is the
 pointwise decreasing limit of a \emph{sequence} of psh model functions is
 \Cref{cor:psh-sequential-regularization}, proved in
 \Cref{chap:bfj-capacity} out of the capacity theory, which itself rests on
@@ -1283,9 +1326,11 @@ $\theta+\ddc\psi_0$ is determined on $\mathcal W$ by a relatively
 ample class.  Choose a model $\cX$ dominating $\mathcal W$ on which
 $f=\varphi_D$ is determined.  The pullback of the chosen ample class can
 lose strict positivity on exceptional curves; applying
-\Cref{lem:ch20-ample-propagation} supplies an exceptional correction and a
-model function $\psi_f$ for which $\theta+\ddc\psi_f$ is represented on
-$\cX$ by a relatively ample class $\mathcal A_f$.  This is why the
+\Cref{lem:ch20-ample-propagation} supplies a \emph{further} model
+$\cY\to\cX$ and a vertical correction on $\cY$.  Replace $\cX$ by
+$\cY$ and $D$ by its pullback.  On this new common determination there
+is a model function $\psi_f$ for which $\theta+\ddc\psi_f$ is
+represented by a relatively ample class $\mathcal A_f$.  This is why the
 auxiliary potential is allowed to depend on $f$.  By
 \Cref{lem:ch20-special-fibre-test}\,\cref{itm:ch20-sft:ample} relative
 ampleness of a class in $N^1(\cX/R)$ is ampleness of its image in
@@ -1554,8 +1599,9 @@ completes the proof.
 The proof used: monotonicity and the constant-shift rule for model tuples,
 which are intersection-theoretic; the existence of \emph{some} decreasing
 net of $\theta$-psh model majorants, which is
-\Cref{thm:bfj-decreasing-regularization} and is the only place where
-residue characteristic zero enters; compactness of $X^{\An}$ and upper
+\Cref{thm:bfj-decreasing-regularization}.  This is the
+characteristic-zero input to this extension proof once the preceding model
+and psh framework is supplied; compactness of $X^{\An}$ and upper
 semicontinuity of $\theta$-psh functions, through
 \Cref{lem:ch24-sandwich}; and convergence of monotone nets of real numbers,
 \Cref{lem:monotone-net-converges}.  It did \emph{not} use weak compactness
@@ -1669,7 +1715,9 @@ expression equals $\int\varphi_0^\beta\,
 right-hand side is the limit of these integrals by monotone convergence
 along a decreasing net of continuous functions against the \emph{fixed}
 Radon measure $\MA_\theta(\varphi_1,\ldots,\varphi_n)$, which is
-\Cref{cor:usc-net-monotone-integral}.  This proves
+\Cref{cor:usc-net-monotone-integral}.  Its uniform upper bound is
+obtained by restricting to a tail below one fixed continuous model
+majorant; the bounded limit supplies a uniform lower bound.  This proves
 \eqref{eq:ch24-energy-slot-bounded}.
 
 \emph{Step 6: weighted monotone continuity.}  Let
@@ -1718,9 +1766,8 @@ $\mathfrak E$ finite, and it is used in Step~5 through
 unbounded integrands.  Ampleness of $\{\theta\}$ is used through
 \Cref{lem:ch24-psh-difference}, hence through the density
 \Cref{lem:ch24-dense-tests}; it also guarantees $V>0$.  Residue
-characteristic zero is used only through
-\Cref{thm:bfj-decreasing-regularization}, that is, only to know that
-decreasing model regularizations exist at all; see \Cref{sec:ch24-scope}.
+characteristic zero supplies decreasing model regularization within the
+preceding model and psh framework; see \Cref{sec:ch24-scope}.
 Nothing in the proof requires $X$ to be a curve, or the measures to be
 atomic, or the index sets to be countable.
 \end{remark}
@@ -1743,10 +1790,10 @@ $\theta$-psh functions, let $\varphi_{p+1},\ldots,\varphi_n$ be
 $\theta$-psh model functions, and write
 $M_p(\varphi_1,\ldots,\varphi_p):=
 \MA_\theta(\varphi_1,\ldots,\varphi_n)$ and
-$T:=\MA_\theta(\varphi_1,\ldots,\varphi_{p-1},
-\varphi_{p+1},\ldots,\varphi_n)$ for the corresponding
-$(n-1)$-fold product.  Then, for every $\theta$-psh model function
-$h$,
+$T$ as a formal placeholder for the remaining $n-1$ entries
+$\varphi_1,\ldots,\varphi_{p-1},\varphi_{p+1},\ldots,\varphi_n$.
+No standalone $(n-1)$-fold measure or current is being defined.
+Then, for every $\theta$-psh model function $h$,
 \begin{equation}
 \label{eq:inductive-ma-definition}
 \begin{split}
@@ -1806,8 +1853,9 @@ measures $(\theta+\ddc h)\wedge T$ and $\theta\wedge T$, which are built
 from the other entries.  This is why it can be used as a definition: if
 $\varphi_p^\alpha\searrow\varphi_p$ is a decreasing net of bounded
 $\theta$-psh functions, the right-hand side converges by
-\Cref{cor:usc-net-monotone-integral}, applied separately to the two positive
-measures, and the limit is manifestly independent of the net.  What such an
+\Cref{cor:usc-net-monotone-integral}, applied separately to the two
+positive measures after restricting to a tail below one fixed bounded
+member.  The limit is manifestly independent of the net.  What such an
 argument does not give directly is symmetry in the $n$ slots, since it
 singles out the slot $p$; this is the reason we have routed the
 construction through $\mathfrak E$, where symmetry is built in.
@@ -1826,8 +1874,8 @@ slot carries the form $\theta$.  Then
 \begin{split}
  \int h\,M_p(\chi_1,\ldots,\chi_p)
  \geq{}&\int h\,M_p(\varphi_1,\ldots,\varphi_p)\\
- &+\sum_{i=1}^p\int(\varphi_i-\chi_i)
-       M_p(\varphi_1,\ldots,\varphi_{i-1},0,
+ &+\sum_{i=1}^p\int(\varphi_i-\chi_i)\\
+ &\qquad\quad{}\times M_p(\varphi_1,\ldots,\varphi_{i-1},0,
            \chi_{i+1},\ldots,\chi_p).
 \end{split}
 \end{equation}
@@ -1840,7 +1888,7 @@ $\int h\,M_p(\chi_\bullet)\geq\int h\,M_p(\varphi_\bullet)
 Telescope.  For $0\leq i\leq p$ put
 $A_i:=M_p(\varphi_1,\ldots,\varphi_i,\chi_{i+1},\ldots,\chi_p)$, so that
 $A_0=M_p(\chi_\bullet)$ and $A_p=M_p(\varphi_\bullet)$.  Fix $i$ and
-let $S_i$ denote the $(n-1)$-fold mixed product obtained by deleting the
+let $S_i$ be the formal placeholder for the $n-1$ entries obtained by deleting the
 $i$-th slot from $A_{i-1}$, that is, the product with entries
 $\varphi_1,\ldots,\varphi_{i-1},\chi_{i+1},\ldots,\chi_p$ and
 $\varphi_{p+1},\ldots,\varphi_n$.  Then
@@ -1956,8 +2004,8 @@ differences and not of individual entries.
 
 The naive extension of \eqref{eq:model-ibp} to bounded potentials is
 problematic for a reason worth naming.  A difference $u_1-u_2$ of bounded
-$\theta$-psh functions is neither upper nor lower semicontinuous, so an
-expression such as $\int(u_1-u_2)\,\rd\nu_\alpha$ does not behave well
+$\theta$-psh functions need be neither upper nor lower semicontinuous,
+so an expression such as $\int(u_1-u_2)\,\rd\nu_\alpha$ need not converge
 along a net $\nu_\alpha\to\nu$ of measures.  The remedy is to write the
 \emph{whole} quadratic expression in terms of $\mathfrak E$, where every
 entry is a genuine $\theta$-psh function and the monotone continuity
@@ -2035,7 +2083,8 @@ functions and set
  &-\mathfrak E(u_2,v_1,w_\bullet)+\mathfrak E(u_2,v_2,w_\bullet).
  \end{aligned}
 \]
-Then $B_w$ is symmetric and bilinear in the two differences, and
+Then $B_w$ is symmetric and bilinear in the two differences.
+It extends bilinearly to their real linear span, and
 \begin{equation}
 \label{eq:ch24-bounded-cauchy-schwarz}
  \bigl|B_w\bigl((u_1,u_2),(v_1,v_2)\bigr)\bigr|^2
@@ -2055,7 +2104,11 @@ nets of model approximants by
 \Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:nets}, so the inequality
 persists.  Symmetry and bilinearity follow from
 \Cref{thm:ch24-energy-extension}\,\cref{itm:ch24-ee:sym} and
-\cref{itm:ch24-ee:affine}.
+\cref{itm:ch24-ee:affine}.  They also show that the expression depends
+only on the differences: if $u_1-u_2=u_1'-u_2'$, then
+$(u_1+u_2')/2=(u_1'+u_2)/2$, and applying affineness to this equality
+identifies the two energy differences.  This gives a well-defined
+bilinear extension to the real span of bounded psh differences.
 \end{proof}
 
 \subsection{Continuous potentials}
@@ -2297,8 +2350,8 @@ apart.  (i) \Cref{lem:monotone-net-converges}: a decreasing net of
 involved, and this is what drives
 \Cref{thm:ch24-energy-extension}.  (ii)
 \Cref{cor:usc-net-monotone-integral}: a decreasing net of upper
-semicontinuous \emph{functions}, integrated against one \emph{fixed} Radon
-measure, has convergent integrals---this is used in Step~5 of
+semicontinuous \emph{functions} with a common finite upper bound,
+integrated against one \emph{fixed} Radon measure, has convergent integrals---this is used in Step~5 of
 \Cref{thm:bounded-ma-extension} and in
 \Cref{rem:ch24-forced-ibp-as-definition}.  (iii) The statement that a
 decreasing net of functions integrated against a \emph{moving} net of
@@ -2321,9 +2374,9 @@ visible.
 
 The statement to be proved is a \emph{locality} statement: on the open set
 where $\varphi$ strictly exceeds $\psi$, the measure of the maximum sees
-only $\varphi$.  At model level all measures are finite sums of Dirac
-masses at divisorial points, so the assertion reduces to a comparison of
-finitely many integers, and the proof is a statement about affine functions
+only $\varphi$.  For rational model functions and their maximum, all measures are finite
+sums of Dirac masses at divisorial points, so the assertion reduces to a
+comparison of finitely many real coefficients.  The proof uses affine functions
 on a simplicial complex.  This is worth doing carefully, because the bounded
 version in \Cref{chap:bfj-capacity} is proved by approximation \emph{from}
 this one, and because the geometric mechanism---that a coefficient of
@@ -2342,9 +2395,11 @@ For $\theta$-psh model functions $\varphi,\psi$,
 \end{proposition}
 
 \begin{proof}
-Model functions are stable under maximum, and the maximum of two
-$\theta$-psh model functions is $\theta$-psh, by
-\Cref{prop:ch20-model-max}; write $\sigma:=\max\{\varphi,\psi\}$.
+First suppose $\varphi$ and $\psi$ are rational model functions.
+Their maximum $\sigma:=\max\{\varphi,\psi\}$ is a rational
+$\theta$-psh model function by \Cref{prop:ch20-model-max}.
+For real model functions the maximum is continuous and $\theta$-psh,
+but need not be a model function; Step~5 supplies the passage to that case.
 
 \emph{Step 1: refine before using affineness.}  It is not enough to choose a
 model determining $\varphi$ and $\psi$: their maximum can have a new wall
@@ -2389,15 +2444,36 @@ Hence $D_\sigma-D=\sum_Gc_GG$ with $c_G=0$ whenever $G=E$ or
 $G\cap E\neq\varnothing$; equivalently, $\Supp(D_\sigma-D)$ is disjoint
 from $E$.
 
-\emph{Step 4: conclusion.}  Consequently
-$\cO_{\cX}(D_\sigma-D)|_E\simeq\cO_E$, so
+\emph{Step 4: conclusion.}  Consequently the rational Cartier class
+$[D_\sigma-D]|_E$ vanishes in $N^1(E)$, so
 $(\theta+\ddc\sigma)|_E=(\theta+\ddc\varphi)|_E$ in $N^1(E)$, and the
 two coefficients
 $b_E\bigl((\theta+\ddc\sigma)|_E\bigr)^n$ and
 $b_E\bigl((\theta+\ddc\varphi)|_E\bigr)^n$ in
 \eqref{eq:model-mixed-measure} are equal.  Summing over the components $E$
 with $\varphi(x_E)>\psi(x_E)$ gives
-\eqref{eq:model-maximum-principle}.
+\eqref{eq:model-maximum-principle} for rational model functions.
+
+\emph{Step 5: real model functions and continuous limits.}  For real
+$\theta$-psh model functions, choose rational $\theta$-psh model
+approximants $\varphi_j\to\varphi$, $\psi_j\to\psi$ uniformly by
+\Cref{lem:ch20-fixed-form-rational-approximation}.  Their maxima converge
+uniformly to $\sigma=\max\{\varphi,\psi\}$, so
+\Cref{prop:ch24-continuous-uniform} gives weak convergence of all the
+measures involved.  If $h$ is continuous with compact support in
+$U=\{\varphi>\psi\}$, the gap $\varphi-\psi$ has a positive minimum
+on $\Supp h$.  Thus $\varphi_j>\psi_j$ on that support for all large
+$j$, and the rational case gives
+$\int h\,\MA_\theta(\max\{\varphi_j,\psi_j\})
+=\int h\,\MA_\theta(\varphi_j)$.
+Passing to the weak limit gives the same identity with $\sigma$ and
+$\varphi$.  Radon-measure uniqueness on the locally compact open set
+$U$ gives \eqref{eq:model-maximum-principle}.
+The same argument applies to arbitrary continuous $\theta$-psh functions:
+\Cref{prop:ch24-continuous-uniform} first gives model approximants,
+and fixed-form rational approximation makes them rational.  In this
+continuous case the maximum's measure is the continuous product, with mass
+$V$ by \Cref{thm:bounded-ma-extension}.
 \end{proof}
 
 \begin{corollary}
@@ -2432,8 +2508,8 @@ agree on a subsegment of positive length agree on the whole segment, so
 $\varphi_i(x_F)=\psi_i(x_F)$.  Also $\varphi_i(x_E)=\psi_i(x_E)$.  By
 \Cref{prop:metrics-divisor-model-function} the associated vertical divisors
 $D_i$, $D_i'$ therefore satisfy: $D_i-D_i'$ has zero coefficient along
-$E$ and along every component meeting $E$.  Hence
-$\cO(D_i-D_i')|_E\simeq\cO_E$ and
+$E$ and along every component meeting $E$.  Hence the real numerical class
+$[D_i-D_i']|_E$ vanishes, and
 $(\theta+\ddc\varphi_i)|_E=(\theta+\ddc\psi_i)|_E$ for every $i$.  The
 coefficients of $\delta_{x_E}$ in the two mixed measures
 \eqref{eq:model-mixed-measure} are the products of these restrictions,
@@ -2444,8 +2520,8 @@ hence equal.
 \label{rem:ch24-contact-mass}
 Neither \eqref{eq:model-maximum-principle} nor
 \Cref{cor:ch24-model-locality-open} says anything about the contact set
-$\{\varphi=\psi\}$, and nothing true can be said there in general: the
-measure $\MA_\theta(\max\{\varphi,\psi\})$ typically has an atom on the
+$\{\varphi=\psi\}$, where there is no general equality with either
+operand's measure: the measure $\MA_\theta(\max\{\varphi,\psi\})$ typically has an atom on the
 contact set which is present in neither $\MA_\theta(\varphi)$ nor
 $\MA_\theta(\psi)$.  \Cref{ex:ch24-locality-check} exhibits this on a
 chain of three components, where a new atom of mass $1$ appears at the
@@ -2477,7 +2553,9 @@ For $\theta$-psh model functions $\varphi,\psi$,
 
 \begin{proof}
 Fix $\varepsilon>0$ and put $\sigma_\varepsilon
-:=\max\{\varphi,\psi-\varepsilon\}$, a $\theta$-psh model function.  The
+:=\max\{\varphi,\psi-\varepsilon\}$, a continuous $\theta$-psh
+function.  It need not be a real model function, but the continuous
+locality conclusion just proved applies.  The
 two sets
 \[
  U:=\{\varphi<\psi-\varepsilon\},
@@ -2494,7 +2572,8 @@ $(\varphi,\psi-\varepsilon)$, gives
  \MA_\theta(\sigma_\varepsilon)|_W=\MA_\theta(\varphi)|_W .
 \]
 Since $\MA_\theta(\sigma_\varepsilon)$ is a positive measure of total mass
-$V$ by \Cref{thm:ch24-mass}, discarding its mass on the complement of
+$V$ by \Cref{thm:bounded-ma-extension}, discarding its mass on the
+complement of
 $U\cup W$ yields
 \[
  V\ \geq\ \int_U\MA_\theta(\psi)+\int_W\MA_\theta(\varphi).
@@ -2652,8 +2731,9 @@ domination principle
 
 The reason the model level does not already give the bounded level is that
 the set $\{\varphi>\psi\}$ is open when $\varphi,\psi$ are continuous but
-merely a difference of upper semicontinuous functions in general; weak
-convergence of measures says nothing about the mass of such a set.
+need only be a Borel set defined by the difference of two upper
+semicontinuous functions in general.  Weak convergence alone does not
+control its mass.
 Quasicontinuity replaces it by an open set up to small capacity, and this is
 the whole content of the passage from
 \Cref{prop:model-maximum-principle} to
@@ -2688,8 +2768,9 @@ here, so that no circularity arises.
 \emph{The model case} is
 \Cref{thm:ch19-cld-bfj-comparison}\,(A), and specifically the chain of
 identities \eqref{eq:ch19-cld-bfj-model}.  In one line: for a model metric
-the coefficient at $x_E$ in all three constructions is
-$b_E\bigl(c_1(\mathcal L)|_E\bigr)^n$.  That this is the BFJ coefficient is
+if $\mathcal L$ extends $L^{\otimes m}$ and determines the rational
+model metric, the coefficient at $x_E$ in all three constructions is
+$b_Em^{-n}\bigl(c_1(\mathcal L)|_E\bigr)^n$.  That this is the BFJ coefficient is
 \eqref{eq:model-mixed-measure}; that it is the Chambert--Loir coefficient is
 the defining formula of \cite{CL06}, recorded here as
 \Cref{cor:ch24-cl-identification}; and that it is the mass of the CLD
@@ -2705,25 +2786,28 @@ without circularity.
 \Cref{thm:ch19-cld-bfj-comparison}\,(B), and it is here that the analysis of
 the present chapter is used.  The mechanism is the reduction of uniform
 approximation to \emph{decreasing} uniform approximation.  Choose model
-weights converging uniformly to $\varphi$, and pass to a subsequence with
-$\|\varphi_m-\varphi\|_\infty\leq\varepsilon_m$, where
-$\sum_m\varepsilon_m<\infty$. Put
+potentials of rational semipositive model metrics converging uniformly
+to $\varphi$, and select them so that
+$\|\varphi_m-\varphi\|_\infty\leq2^{-m-3}$.  Put
 \[
- d_m:=\sum_{j\geq m}(\varepsilon_j+\varepsilon_{j+1}),
- \qquad \psi_m:=\varphi_m+d_m.
+                    \psi_m:=\varphi_m+2^{-m}.
 \]
-Then $\psi_m$ is a semipositive model weight and
-$\psi_m\searrow\varphi$, since
-$\|\varphi_m-\varphi_{m+1}\|_\infty
- \leq\varepsilon_m+\varepsilon_{m+1}$.
+The rational constant preserves the model-metric class, and
+$\psi_m\searrow\varphi$ uniformly: the difference of the added constants
+is $2^{-m-1}$, larger than the error bound
+$2^{-m-3}+2^{-m-4}$ for $\varphi_m-\varphi_{m+1}$.
 BFJ monotone continuity and Chambert--Loir's continuity under uniform
 semipositive approximation identify both limits with the weak limit of the
 same model measures $\MA_\theta(\psi_m)$.  On the BFJ side this is
 \Cref{prop:ch24-continuous-uniform}\,\cref{itm:ch24-cu:seq} together with
 \Cref{cor:ch24-continuous-cl}; on the CLD side it is
-\Cref{thm:cld-bt-continuity}, whose hypotheses require exactly the local
-boundedness and uniform convergence supplied by the decreasing sequence
-$(\psi_m)$.  The mixed case follows either by repeating the argument with
+\Cref{thm:cld-bt-continuity}, applied to the continuous local full
+weights $-\log\|s\|_0+\psi_m$ in a local frame $s$.
+Their local CLD-psh admissibility is the model-metric input of
+\Cref{thm:ch19-cld-bfj-comparison}; the relative potentials $\psi_m$
+alone are not asserted to be locally CLD-psh.  The full weights converge
+locally uniformly to the continuous psh weight $-\log\|s\|_0+\varphi$,
+as required by \cite[Proposition~8.7.2]{CLD25}.  The mixed case follows either by repeating the argument with
 different potentials in different slots or, more economically, from the
 diagonal case by the polarization identity
 \eqref{eq:ch24-polarization} and \Cref{cor:ch24-mixed-from-diagonal}.
@@ -2744,8 +2828,8 @@ unrestricted singular BFJ--CLD equivalence.
 
 It is worth spelling out what \Cref{rem:ch24-comparison-boundary} excludes,
 because the temptation to extend \Cref{thm:bfj-cld-ma-common-locus} by
-``continuity'' is strong and each of the four possible extensions fails for a
-different reason.  The list below is
+``continuity'' is strong.  Each of the four extensions below requires inputs
+beyond the proved comparison.  The list is
 \Cref{thm:ch19-cld-bfj-comparison}\,(C), repeated here with the reasons
 attached; the limitations table of \Cref{sec:ch19-limitations} is the full
 account.
@@ -2757,8 +2841,9 @@ account.
  That a bounded $\theta$-psh function is locally CLD-psh
  (\Cref{thm:ch19-cld-bfj-comparison}, item~\cref{itm:ch19-cb:scope1}).  The
  model identification propagates only along \emph{uniformly} convergent
- sequences, whereas a bounded $\theta$-psh function is only a decreasing
- pointwise limit of model functions and need not be continuous; see
+ sequences.  The available model approximation for a general bounded
+ $\theta$-psh function is decreasing and pointwise, and its limit need
+ not be continuous; see
  \Cref{ex:ch24-branch-sum} for such a function.
 \item\label{itm:ch24-notproved:converse}
  That a locally CLD-psh function on $X^{\An}$ is $\theta$-psh for some
@@ -2775,11 +2860,13 @@ account.
  convention \Cref{def:nonpluripolar-ma}.
 \item\label{itm:ch24-notproved:polar}
  That the two constructions assign the same mass to a pluripolar set
- (item~\cref{itm:ch19-cb:scope4} there).  This is not a gap but a genuine
- difference: \Cref{ex:ch16-polar-failure} exhibits a CLD product carrying
- mass on a polar set, while \Cref{prop:bounded-ma-no-polar-mass} shows the
- bounded BFJ product never does, and
- \Cref{def:nonpluripolar-ma} discards such mass by construction.
+ (item~\cref{itm:ch19-cb:scope4} there) outside the common domain.
+ \Cref{ex:ch16-polar-failure} uses an \emph{unbounded} logarithmic weight
+ and a product retaining polar mass.  The bounded BFJ product gives no
+ such mass by \Cref{prop:bounded-ma-no-polar-mass}, and
+ \Cref{def:nonpluripolar-ma} discards it by construction.  This example
+ does not show a disagreement between the products on their common
+ continuous regularizable domain.
 \end{enumerate}
 \end{warning}
 
@@ -2802,10 +2889,11 @@ end of \Cref{part:bfj} is
 
 \begin{remark}[Delta-forms and the third construction]
 \label{rem:ch24-delta-forms}
-On the model locus a fourth object agrees with the three of
-\Cref{thm:bfj-cld-ma-common-locus}: the product of Chern delta-forms of
-\Cref{chap:delta-forms}, by
-\Cref{thm:gk-delta-cl-measure}.  We mention it because it is the
+After pullback to the completed algebraic closure $F$ used in
+\Cref{thm:ch19-cld-bfj-comparison}, a fourth object agrees on the model
+locus: the product of Chern delta-forms of \Cref{chap:delta-forms}, by
+\Cref{thm:gk-delta-cl-measure}.  Its measure pushes forward to the same
+measure on $X^{\An}$ by the comparison and base-change statements there.  We mention it because it is the
 construction under which positivity of a formal metric is most easily
 recognized (\Cref{thm:ch19-cld-bfj-comparison},
 item~\cref{itm:ch19-cb:delta}), but it plays no role in
@@ -2834,8 +2922,8 @@ running two-component curve.
 
 \begin{example}[A semistable curve with two components]
 \label{ex:two-vertex-ma}
-Let a regular semistable model have special fibre $E_0+E_1$, with one node,
-and let the reference measure be
+Let a regular semistable model have special fibre $E_0+E_1$, with one
+residue-rational node, and let the reference measure be
 $\theta=m_0\delta_{x_0}+m_1\delta_{x_1}$, where
 $m_0+m_1=\deg L$. Give the edge length one and let a model function have
 vertex values $a_0,a_1$. With the graph Laplacian convention forced by
@@ -3033,10 +3121,10 @@ contributes only if that Minkowski sum is two-dimensional.  Each
 $\partial F_i(u)$ is a point, a segment, or a triangle; the triangles occur
 only at $u=(0,0)$ for $F_1$ and $u=(1,1)$ for $F_2$, and the two
 segment loci that could combine---the sets where exactly two affine pieces
-are active---are $\{u_1=0,u_2>0\}\cup\{u_2=0,u_1>0\}\cup\{u_1=u_2\leq0\}$
+are active---are $\{u_1=0,u_2>0\}\cup\{u_2=0,u_1>0\}\cup\{u_1=u_2<0\}$
 for $F_1$ and $\{u_1=1,u_2>1\}\cup\{u_2=1,u_1>1\}
-\cup\{u_1=u_2\leq1\}$ for $F_2$; they meet only along
-$\{u_1=u_2\leq0\}$, where both subdifferentials are the \emph{same}
+\cup\{u_1=u_2<1\}$ for $F_2$; they meet only along
+$\{u_1=u_2<0\}$, where both subdifferentials are the \emph{same}
 segment $\operatorname{conv}\{-e_1,-e_2\}$ and the sum is one-dimensional.
 Hence only $(0,0)$ and $(1,1)$ contribute.  At $(0,0)$,
 \[
@@ -3092,7 +3180,7 @@ homogeneity of the real Monge--Amp\`ere operator.
 \subsection{A bounded psh function that is not a model function}
 \label{sec:ch24-ex-branch}
 
-The next example is the smallest complete illustration of
+The next example gives an explicit illustration of
 \Cref{thm:bounded-ma-extension}: a bounded $\theta$-psh function that is
 \emph{not} a model function, is not even continuous, and whose
 Monge--Amp\`ere measure has infinitely many atoms---so that it is not a model
@@ -3113,7 +3201,8 @@ We use the tree structure of $\mathbf P^{1,\An}_K$ and the path metric
 \eqref{eq:ch08-path-metric} of \Cref{def:ch08-path-metric}.
 
 \emph{The pieces.}  By \Cref{prop:ch08-branching} the tangent directions at
-$\zeta$ are in bijection with $\mathbf P^1(k)$, an infinite set.  Choose
+$\zeta$ are indexed by closed points of $\mathbf P^1_k$.  The rational
+directions include $\mathbf P^1(k)$, which is infinite.  Choose
 pairwise distinct residues $\bar a_1,\bar a_2,\ldots\in k$ with lifts
 $a_k\in R$, put $\ell_k:=2^k$, and let $x_k$ be the point of
 $\mathbf P^{1,\An}_K$ at distance $\ell_k$ from $\zeta$ in the
@@ -3161,16 +3250,16 @@ $\theta$-psh model functions.  Hence $\varphi$ is bounded and
 $\theta$-psh, by \Cref{thm:ch21-decreasing-stability}.
 
 \emph{$\varphi$ is not continuous, hence not a model function.}  The
-points $x_k$ converge to $\zeta$.  Indeed, by the tree description
-\Cref{prop:berk-a1-tree} a basic neighbourhood of $\zeta$ is obtained by
-deleting, in each of finitely many tangent directions at $\zeta$, the
-closed sub-branch at distance $\geq\delta$ from $\zeta$; each such
-sub-branch is a closed disc (or, in the direction of $\infty$, the
-complement of an open disc), hence closed, so the complement of finitely
-many of them is open.  A point $x_k$ lies in this neighbourhood as soon as
-its direction $\bar a_k$ is not among the finitely many deleted ones, which
-excludes only finitely many indices $k$, the residues $\bar a_k$ being
-pairwise distinct.
+points $x_k$ converge to $\zeta$.  To check this directly, let
+$P\in K[T]$ be nonzero and divide it by a coefficient of maximal absolute
+value.  The resulting polynomial lies in $R[T]$ and has nonzero reduction
+$\widetilde P\in k[T]$.  Only finitely many of the distinct residues
+$\bar a_k$ are roots of $\widetilde P$.  For every other $k$, the value
+of the original polynomial at $x_k$ has absolute value equal to its Gauss
+norm, hence to $|P(\zeta)|$.  Thus polynomial seminorm evaluations
+converge to those of $\zeta$.  They define the topology of
+$\mathbf A^{1,\An}_K$, so $x_k\to\zeta$ there and on the projective
+line.
 But $\varphi(x_k)=\psi_k(x_k)=-1$ for every $k$, while
 $\varphi(\zeta)=0$.  So $\varphi$ is discontinuous at $\zeta$; it is
 of course upper semicontinuous, being a decreasing limit of continuous
@@ -3334,7 +3423,8 @@ an instance of \eqref{eq:ch24-model-comparison}, with strict inequality.
 \begin{example}[Solving the model equation on a curve, with uniqueness]
 \label{ex:ch24-uniqueness-curve}
 Keep the two-component model of \Cref{ex:two-vertex-ma}: special fibre
-$E_0+E_1$, one node, both multiplicities one, edge length one,
+$E_0+E_1$, one residue-rational node, both multiplicities one, edge
+length one,
 $\theta=m_0\delta_{x_0}+m_1\delta_{x_1}$ with $m_0+m_1=d=\deg L=V$.
 Let
 \[
@@ -3394,8 +3484,12 @@ $\mathfrak E(\varphi,\varphi)=(a_0+a_1)+(a_0+a_1)-(a_0-a_1)^2
  =-1-1-1=-3$.
 For $\mu=\delta_{x_0}+\delta_{x_1}$ the solution is
 $(a_0,a_1)=(0,0)$ and $\mathfrak E=0$; the drop from $0$ to $-3$
-is the energy cost of concentrating the mass, and its sign is
-\eqref{eq:model-dirichlet-negativity}.
+is the energy change for these solutions in the gauge
+$\max\varphi=0$.  The negative quadratic term is the Dirichlet term,
+but the value also includes linear reference terms.  Adding a constant
+to $\varphi$ changes $\mathfrak E(\varphi,\varphi)$ by $2V$ times that
+constant, so the displayed energy difference is not independent of the
+gauge.
 \end{example}
 
 \subsection{The toric projective line}
@@ -3403,10 +3497,12 @@ is the energy cost of concentrating the mass, and its sign is
 
 \begin{example}[The toric projective line]
 \label{ex:ch24-toric-p1}
-On $\mathbf P^1$ with $L=\mathcal O(d)$, an invariant semipositive metric
-is encoded on the dense torus by a convex function with slopes in
-$[0,d]$. For $F(x)=\max\{0,dx\}$, the slope jumps from $0$ to $d$
-at $x=0$. The lattice-normalized Alexandrov measure is $d\delta_0$.
+On $\mathbf P^1$ with $L=\mathcal O(d)$, $d>0$, fix the tropical
+coordinate $t=-v(z)$ on the dense torus.  With this orientation, the
+full weight of an invariant semipositive metric is convex with slopes in
+$[0,d]$.  For the canonical weight $F(t)=\max\{0,dt\}$, the slope
+jumps from $0$ to $d$ at $t=0$.  The lattice-normalized Alexandrov
+measure is $d\delta_0$.
 Under tropicalization this is the BFJ measure, and its mass is
 $d=(L^1)$. This checks both the absence of a hidden probability
 normalization and the sign of $\ddc$.
@@ -3454,8 +3550,7 @@ extensions.
 \Cref{thm:ch24-energy-extension},
 \Cref{thm:bounded-ma-extension}
  &yes
- &\textbf{yes}, only through
-  \Cref{thm:bfj-decreasing-regularization}
+ &\textbf{yes}, through regularization and the preceding psh framework
  &compactness of $X^{\An}$; $\{\theta\}$ ample\\
 \Cref{prop:bounded-ma-no-polar-mass}
  &yes
@@ -3464,44 +3559,47 @@ extensions.
 \Cref{prop:model-maximum-principle},
 \Cref{prop:ch24-model-comparison}
  &yes
- &only through cofinality of SNC models
- &\Cref{prop:ch20-model-max}, hence smoothness of $X$\\
+ &SNC and psh approximation framework
+ &rational maximum stability; continuous extension for real maxima\\
 \Cref{thm:bfj-cld-ma-common-locus}, model part
  &yes, for $b_E$ to be the multiplicity
  &no
- &$X$ proper reduced only; see
-  \Cref{rem:ch19-cld-bfj-hypotheses}\\
+ &proper reduced space and actual model metrics; standing BFJ scope for
+ the full comparison; see \Cref{rem:ch19-cld-bfj-hypotheses}\\
 \Cref{thm:bfj-cld-ma-common-locus}, continuous part
  &yes
- &no
- &density of model functions\\
+ &no additional use once metric approximants are given
+ &uniform semipositive model approximation and local CLD-psh
+ admissibility\\
 \bottomrule
 \end{tabular}
 \end{center}
 
 Three comments on the table.
 
-\emph{Residue characteristic zero enters once.}  It is used only through
-\Cref{thm:bfj-decreasing-regularization}, that is, only to know that every
-$\theta$-psh function is a decreasing limit of $\theta$-psh model
-functions.  Everything else in \Cref{sec:ch24-bounded} is a formal
-consequence of that statement together with intersection theory.  If
-decreasing regularization is available by other means---for instance for
-curves over an arbitrary complete field, or in the positive-characteristic
-situations opened up by test ideals in
-\Cref{sec:ch23-later-test-ideals}---then \Cref{thm:bounded-ma-extension}
-follows verbatim.  This is why the two statements are separated in this
-book: the analytic content of the extension theorem is
-\Cref{lem:ch24-sandwich}, and the arithmetic content is elsewhere.
+\emph{Separate regularization from its framework.}  Once the model
+intersection theory, dense psh test space, order properties and decreasing
+regularization are available, the extension proof in
+\Cref{sec:ch24-bounded} imposes no further characteristic restriction.
+Residue characteristic zero supplies regularization and the earlier SNC
+resolution framework in the original BFJ setting.  Later envelope
+continuity does not alone supply every one of those inputs: in the
+test-ideal settings of \Cref{sec:ch23-later-test-ideals}, embedded
+resolution is additionally used for the SNC all-psh comparison.  Curves
+and more general valued fields require their own appropriate model or
+formal framework, rather than a verbatim use of the discrete special-fibre
+formula.  The analytic extension and those geometric inputs are therefore
+kept separate.
 
-\emph{Ampleness is used for the test space, not for positivity.}  The
-hypothesis that $\{\theta\}$ be ample enters through
+\emph{Ampleness supplies regularization and the test space.}  Besides
+its use in the preceding envelope and psh framework, the hypothesis that
+$\{\theta\}$ be ample enters here through
 \Cref{lem:ch24-psh-difference}, whose role is to guarantee that
 $\theta$-psh model functions span a dense subspace of
-$C^0(X^{\An})$.  If $\{\theta\}$ is merely nef and big, one may still run
-the construction on the ample locus, but the density statement, and with it
-the uniqueness clause of \Cref{thm:bounded-ma-extension}, requires
-modification; we do not pursue this, and \Cref{chap:bfj-energy} likewise
+$C^0(X^{\An})$.  For a merely nef and big class, extensions require
+separate regularization and test-space arguments, including any use of an
+ample locus.  The uniqueness argument here cannot simply be reused
+without them.  We do not pursue this, and \Cref{chap:bfj-energy} likewise
 keeps $\{\theta\}$ ample.
 
 \emph{Discreteness is structural.}  Every statement of this chapter is
@@ -3603,7 +3701,8 @@ total mass of every mixed
  &$V=(\{\theta\}^n)$
  &\eqref{eq:mixed-total-mass},
   \Cref{thm:ch24-mass}\\
-total variation of $\ddc h\wedge\Theta$, $h$ $\theta$-psh
+total variation of $\ddc h\wedge\Theta$, $h$ $\theta$-psh,
+ $\theta$ semipositive, all factors of $\Theta$ of class $\{\theta\}$
  &$\leq2V$
  &\Cref{sec:ch24-model-ibp}\\
 Lipschitz constant of $\mathfrak E$ in one slot
@@ -3640,8 +3739,8 @@ comparison-principle instance
 The model formula, integration by parts, and bounded extension are
 \cite[Proposition--Definition~2.18, Propositions~2.19--2.21, and
 Theorem~3.1]{BFJ15}. The noncharging statement is
-\cite[Proposition~3.7]{BFJ15}. Agreement with the original Chambert--Loir
-measure is \cite[\S3.2]{BFJ15}. Only model and continuous semipositive
+\cite[Proposition~3.11]{BFJ15}. Agreement with the original Chambert--Loir
+measure is \cite[\S3.3]{BFJ15}. Only model and continuous semipositive
 comparison loci have been asserted here.
 
 \paragraph{Provenance, statement by statement.}
@@ -3683,13 +3782,15 @@ pairing $\mathfrak E$ of \Cref{def:ch24-mixed-energy} and recovering the
 measure by the Riesz theorem, rather than by an induction on the number of
 non-model slots.  The advantage is that symmetry, multilinearity, monotone
 continuity and the weighted statement \eqref{eq:weighted-monotone-ma} all
-become properties of a monotone function of $n+1$ real variables, and that
+become properties of a real-valued monotone function of $n+1$ potential
+entries, and that
 the only analytic input is the sandwich lemma
 \Cref{lem:ch24-sandwich}.  The inductive formulae of the original argument
 are retained as \Cref{prop:ch24-forced-ibp} and
 \Cref{prop:ch24-approximate-monotonicity}, now with proofs, because they are
 the shape in which the result is usually quoted and because the second is the
-quantitative statement behind the qualitative one.  Second, the distinction
+model-level quantitative specialization of
+\cite[Lemma~3.8]{BFJ15}, whose source statement allows bounded entries.  Second, the distinction
 between a vertical divisor as a cycle and as a line-bundle class has been
 made into a lemma, \Cref{lem:ch24-vertical-numbers}, rather than left as a
 convention; without it the total mass \eqref{eq:mixed-total-mass} can be
@@ -3725,5 +3826,5 @@ later in a form that is easy to misremember.  The proof of
 argument: every ingredient---monotonicity of intersection numbers, Dini's
 theorem for nets, the Riesz theorem---is in \cite{BFJ15}, and only the order
 is different.  \Cref{ex:ch24-branch-sum} has no counterpart in the sources
-and is the smallest example we know in which the bounded operator is computed
-exactly on a potential that is neither a model function nor continuous.
+and computes the bounded operator explicitly on a potential that is
+neither a model function nor continuous.
