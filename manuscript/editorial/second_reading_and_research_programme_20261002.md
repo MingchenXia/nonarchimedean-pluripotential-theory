@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--51 pass the new source, build,
+Current reading position: Chapters 1--52 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -91,7 +91,8 @@ reference, and rendered-page gates; see the
 [Chapter 48 audit](second_reading_ch48_audit_20261003.md), and
 [Chapter 49 audit](second_reading_ch49_audit_20261003.md), and
 [Chapter 50 audit](second_reading_ch50_audit_20261003.md), and
-[Chapter 51 audit](second_reading_ch51_audit_20261003.md).
+[Chapter 51 audit](second_reading_ch51_audit_20261003.md), and
+[Chapter 52 audit](second_reading_ch52_audit_20261003.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -225,8 +226,13 @@ Lelong and ideal normalizations, envelope scope, zero-mass endpoints,
 nonpluripolar interfaces and the higher-dimensional Cantor mass were
 repaired. All 72 chapter physical pages and both seams passed visual
 review; see the [Chapter 51 audit](second_reading_ch51_audit_20261003.md).
-Chapter 52 is active; all 1,440 original lines freshly read, scoped primary
-checks complete and repairs continue. No later unit is marked complete.
+Chapter 52's original 1,440 lines and complete 97-line repair diff were
+freshly read. Perron boundary conditions, change-of-background positivity,
+positive filtration degree and the hyperplane projection centre were
+clarified. All 20 chapter physical pages and both seams passed visual
+review; see the [Chapter 52 audit](second_reading_ch52_audit_20261003.md).
+Chapter 53 is active; all 1,011 original lines freshly read, scoped primary
+checks and repairs continue. No later unit is marked complete.
 
 The user's standalone catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-02.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-02.pdf), and

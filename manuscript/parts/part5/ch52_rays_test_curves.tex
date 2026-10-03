@@ -64,7 +64,10 @@ replacing every $u_t$ by $u_t-f$, preserves the notion.
 \begin{definition}[Weak geodesic segment]
 \label{def:rays-geodesic-segment}
 For $u_0,u_1\in\PSH(X,\theta)$, their weak geodesic is the Perron
-envelope of all subgeodesics with boundary values at most $u_0,u_1$:
+envelope of subgeodesics on the open strip whose boundary upper limits
+are at most $u_0,u_1$ almost everywhere. These competitors satisfy boundary
+inequalities; equality with the prescribed endpoints in $L^1$ is a
+conclusion under the hypotheses below:
 \[
  u_t=\uscsup\{v_t\mid (v_s)_{0<s<1}\text{ is such a subgeodesic}\}.
 \tag{52.3}\label{eq:rays-perron-geodesic}
@@ -400,7 +403,7 @@ slices at one fixed point; the definitions above are function-valued.
 \caption{The Legendre correspondence at the level of a scalar slice.  The
 upper arrow is \eqref{eq:rays-forward-legendre}; the lower arrow is
 \eqref{eq:rays-inverse-legendre} together with biconjugacy.  The two vertical
-axes have independent scales, so the drawing records convexity and the
+axes have independent origins and scales, so the drawing records convexity and the
 direction of the transforms rather than numerical values.}
 \label{fig:rays-test-curves-legendre}
 \end{figure}
@@ -724,10 +727,18 @@ For smooth closed positive forms $\omega\geq\omega'$, the transitions compose:
 \end{proposition}
 
 \begin{proof}
-Apply the $\mathcal I$-envelope levelwise.  Its monotonicity and
-concavity preserve the test-curve axioms, while adding the positive form
-$\omega$ preserves positive mass at every interior level by mass
-monotonicity.  Thus \eqref{eq:rays-kahler-transition} is a positive-mass
+Apply the $\mathcal I$-envelope levelwise. Its monotonicity and
+concavity preserve the corresponding test-curve axioms. At an interior
+level, positivity and multilinearity of the nonpluripolar product give
+\[
+ \int_X\langle(\theta+\omega+\ddc\Gamma_\tau)^n\rangle
+ \geq\int_X\theta_{\Gamma_\tau}^n>0.
+\]
+The envelope in this enlarged background dominates its argument, so
+mass monotonicity in that fixed background then preserves positive mass.
+Increasing continuity, \cite[Proposition~3.2.13]{XiaBook}, identifies its
+initial level with $P_{\theta+\omega}[\Gamma_{-\infty}]_{\mathcal I}$.
+Thus \eqref{eq:rays-kahler-transition} is a positive-mass
 $\mathcal I$-model test curve.  If $\omega\geq\omega'$, both sides of
 \eqref{eq:rays-transition-cocycle} are the normalized
 $\mathcal I$-model representative in the class $\theta+\omega$ of
@@ -1121,7 +1132,8 @@ $\theta=c_1(L,h)$.  Let
  R(X,L)=\bigoplus_{m\geq0}H^0(X,mL)
 \]
 and let $\mathcal F$ be a decreasing, left-continuous,
-multiplicative, linearly bounded filtration.  Thus, for some $C>0$,
+multiplicative, linearly bounded filtration. Thus, for some $C>0$ and
+every integer $m\geq1$,
 \[
  \mathcal F^{Cm}H^0(X,mL)=0,\qquad
  \mathcal F^{-Cm}H^0(X,mL)=H^0(X,mL).
@@ -1130,7 +1142,7 @@ multiplicative, linearly bounded filtration.  Thus, for some $C>0$,
 The existence of the big line bundle on the compact K\"ahler manifold
 makes $X$ projective.  Missing section degrees are allowed; powers of
 any nonzero section supply arbitrarily large degrees.
-For $\tau\in\mathbf R$, set
+For $\tau\in\mathbf R$ and $m\geq1$, set
 \[
  \Gamma_{\tau}^{\mathcal F,m}
  :=\uscsup\left\{\log|s|_{h^m}^2\ \middle|\
@@ -1216,7 +1228,18 @@ Above the supremum of the normalized nonzero filtration weights
 all obstacles are $-\infty$; the closed endpoint is taken separately.
 The Legendre correspondence then proves the ray assertion.
 
-For the ample case with positive reference curvature, fix a smooth probability volume form and use the resulting $L^2$-orthonormal bases adapted to the filtration. The logarithmic sum estimate compares the weighted Bergman potential with the finite Legendre maximum of the $L^2$ partial obstacles, with error at most $m^{-1}\log h^0(X,mL)$. Converting to the sup-norm obstacles in \eqref{eq:rays-bergman-test} adds a uniform error $\varepsilon_m=O(\log m/m)$. The norm comparison and the two inequalities needed to pass to tail envelopes are proved in \Cref{lem:rf-bergman-norm-comparison,lem:rf-weighted-bergman-comparison,thm:rf-phong-sturm}. They reconstruct \cite[Theorem~9.2]{RWN14} and identify the limit with the Legendre ray, without assuming that a supremum commutes with a limit. Endpoint closure does not change the forward transform.
+For the ample case with positive reference curvature, fix a smooth probability
+volume form and use the resulting $L^2$-orthonormal bases adapted to the
+filtration. The logarithmic sum estimate compares the weighted Bergman
+potential with the finite Legendre maximum of the $L^2$ partial obstacles, with
+error at most $m^{-1}\log h^0(X,mL)$. Converting to the sup-norm obstacles in
+\eqref{eq:rays-bergman-test} adds a uniform error $\varepsilon_m=O(\log m/m)$.
+The norm comparison and the two inequalities needed to pass to tail envelopes
+are proved in
+\Cref{lem:rf-bergman-norm-comparison,lem:rf-weighted-bergman-comparison,thm:rf-phong-sturm}.
+They reconstruct \cite[Theorem~9.2]{RWN14} and identify the limit with the
+Legendre ray, without assuming that a supremum commutes with a limit. Endpoint
+closure does not change the forward transform.
 \end{proof}
 
 \begin{example}[A product one-parameter subgroup]
@@ -1243,7 +1266,8 @@ transform, the linear-supremum lemma and the energy formula at once.
 
 Let $X=\mathbf P^n$, let $L=\mathcal O(1)$ carry the Fubini--Study
 metric $h$, and put $\theta=c_1(L,h)=\omega_{\mathrm{FS}}$, normalized
-so that $\int_X\theta^n=1$.  Let $H=\{x_0=0\}$ and
+so that $\int_X\theta^n=1$. Let $H=\{x_0=0\}$, set
+$P_0=[1:0:\cdots:0]$, and define
 \[
  \psi:=\log|s_H|_h^2=\log\frac{|x_0|^2}{|x|^2},
 \]
