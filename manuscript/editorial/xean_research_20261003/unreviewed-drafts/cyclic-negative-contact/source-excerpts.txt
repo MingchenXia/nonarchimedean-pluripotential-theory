@@ -1,0 +1,792 @@
+FILE BMPS2603.08664v1.txt; NEWLINE RANGE 257:291
+257: Definition 2.1 (Rational polyhedron). A rational polyhedron in NR is a subset σ ⊆ NR defined
+258: by finitely many affine integral equalities and inequalities, i.e.,
+259:                            
+260:                       σ = n ∈ NR | f1 (n) + b1 = . . . = fr (n) + br = 0,
+261:                                       fr+1 (n) + br+1 ≥ 0, . . . , fN (n) + bN ≥ 0
+262: for some linear forms f1 , . . . , fN ∈ M and bi ∈ Z.
+263:     We define
+264:       • Nσ,R the linear space spanned by all x − y for x, y ∈ σ;
+265:       • Nσ = Nσ,R ∩ N the induced sublattice, and Mσ its dual lattice;
+266:       • Vσ,R = x + Nσ,R , x ∈ σ, the smallest affine subspace of NR containing σ;
+267:       • the relative interior of σ, denoted by relint(σ) is the interior of σ as a subset of Vσ,R ;
+268:       • the dimension of σ as the dimension of Nσ,R .
+269: Definition 2.2 (Rational polyhedral complex). A rational polyhedral complex is a finite
+270: collection Π of rational polyhedra satisfying two conditions:
+271:       • if σ is in Π, then so is any face of σ;
+272:       • if σ and σ ′ are in Π, then σ ∩ σ ′ is either empty or a face of both σ and σ ′ .
+273:    The polyhedra of Π are called faces and we write τ ≺ σ whenever τ is a face of σ. We denote
+274: the set of all k-dimensional faces of Π by Π(k) . The union of all faces in Π is denoted |Π| ⊆ NR
+275: and called the support of Π.
+276:   The dimension of Π is defined as the maximum of the dimensions of the faces of Π, and Π is
+277: pure dimensional if every inclusion-maximal face in Π has the same dimension.
+278: Definition 2.3 (Refinement). A refinement Π′ of a rational polyhedral complex Π is a rational
+279: polyhedral complex such that
+280:       • |Π′ | = |Π|
+281:       • for every σ ′ ∈ Π′ , there exists σ ∈ Π such that σ ′ ⊆ σ;
+282: we write Π′ ≥ Π. Two rational polyhedral complexes are equivalent if they admit a common
+283: refinement.
+284: Definition 2.4 (Rational polyhedral space).
+285:       • Let X ⊆ NR be a topological space. A rational polyhedral complex Π is a rational polyhedral
+286:         structure on X if |Π| = X.
+287:       • A polyhedral space X ⊆ NR is a topological space together with an equivalence class of
+288:         rational polyhedral structures on X.
+289:       • A polyhedral space X is of dimension d (respectively of pure dimension d) if some (and
+290:         hence any) representative of the equivalence class of rational polyhedral structures on X has
+291:         dimension d (respectively pure dimension d).
+FILE BMPS2603.08664v1.txt; NEWLINE RANGE 419:470
+419: 2.3. Cycles. Let Π be a polyhedral structure on a polyhedral space X.
+420: Definition 2.18 (Normal vectors). Let τ ≺ σ be faces of Π with dim(τ ) = dim(σ) − 1. This
+421: implies that there exists f ∈ M and b ∈ Q such that f + b is zero on τ , non-negative on σ and
+422: not-identically zero on σ. A normal vector of σ relative to τ is an element
+423:                                                  nσ/τ ∈ Nσ ⊆ N
+424: such that nσ/τ = vσ/τ − v is a primitive generator of Nσ /Nτ and f (vσ/τ ) > 0, when we pick v ∈ τ
+425: and write Vτ,R = v + Nτ,R , Vσ,R = v + Nσ,R .
+426: Definition 2.19 (Weights). A k-weight on Π is a map
+427: 
+428:                                                    ω : Π(k) → Q
+429: and the number ω(σ) is called the weight of σ ∈ Π(k) . We say that
+430: 
+431:       • ω is non-negative if ω(σ) ≥ 0 for all σ ∈ Π(k) ; write ω ≥ 0,
+432:       • ω is strictly positive if ω(σ) > 0 for all σ ∈ Π(k) ; write ω > 0.
+433: 10                             BOTERO, MAZZON, AND PILLE-SCHNEIDER
+434: 
+435: 
+436: Definition 2.20 (Cycles). A k-cycle on Π is a k-weight c : Π(k) → Q such that for any τ ∈ Π(k−1)
+437: the following balancing condition holds:
+438:                                     X
+439: (2.21)                                   c(σ)nσ/τ = 0 ∈ N/Nτ ,
+440:                                     σ∈Π(k)
+441:                                      τ ≺σ
+442: 
+443: equivalently this sum is an element in Nτ .
+444: 
+445:      Denote by
+446:        - Wk (Π) the abelian group of k-weights on Π,
+447:        - Zk (Π) the subgroup of k-cycles,
+448:        - Wk (Π)≥0 , Zk (Π)≥0 , Wk (Π)>0 and Zk (Π)>0 the subsets of non-negative and of strictly
+449:          positive weights and cycles on Π.
+450: Definition 2.22 (Local cones). Let τ ≺ σ be faces of Π, the normal cone of σ relative to τ is
+451: the polyhedral cone
+452:                       Cσ/τ := {λ(x − y) | λ ≥ 0, x ∈ σ, y ∈ τ } ⊂ Nσ,R ;
+453: it satisfies NCσ/τ = Nσ and hence dim(Cσ/τ ) = dim(σ).
+454:      Let x ∈ X and τ ∈ Π the unique face such that x ∈ relint(τ ). We define the star of Π at x as
+455:                                        Starx (Π) := {Cσ/τ }τ ≺σ .
+456: For a face δ of Π we write Starδ (Π) := Starx (Π) for any x ∈ relint(δ).
+457: 
+458:    The set Starx (Π) has the structure of a polyhedral complex whose faces are (not necessarily
+459: strictly convex) cones; such structure is also known as generalized fan; see [CLS11, Definition
+460: 6.2.2].
+461: Definition 2.23. Let τ ∈ Π and x ∈ relint(τ ). For any k-weight ω on Π, with k ≥ dim(τ ), the
+462: k-weight ωx on Starx (Π) is
+463:                                     ωx (Cσ/τ ) := ω(σ).
+464: Lemma 2.24. The weight ω is a cycle if and only if ωx is a cycle for all x ∈ X.
+465: 
+466: Proof. For any ℓ ≥ dim(τ ), ℓ-faces of Π containing τ are in bijection with the ℓ-faces of Starx (Π)
+467: containing Cτ /τ = Nτ,R , and this bijection preserves ℓ-weights by definition. It remains to see that
+468: it preserves normal vectors, i.e. if τ ≺ σ ′ ≺ σ with dim(σ ′ ) = dim(σ) − 1 and nσ/σ′ ∈ Nσ is a
+469: normal vector, then nσ/σ′ is also a normal vector of Cσ/τ relative to Cσ′ /τ . This follows directly
+470: from the fact that NCσ/τ = Nσ and similarly for σ ′ .                                               □
+FILE BMPS2603.08664v1.txt; NEWLINE RANGE 509:629
+509: Definition 2.28 (Piecewise affine functions on Π). Let Π be a polyhedral structure on X. A
+510: continuous function ϕ : X → R is piecewise affine on Π if for any σ ∈ Π we have
+511:                                            ϕ|Vσ,R = ϕσ + bσ
+512: where ϕσ ∈ Mσ is an integral linear function, and bσ ∈ Q. In particular, if x ∈ σ and if we write
+513: Vσ,R = x + Nσ,R , then bσ = ϕσ (0) and ϕ(z) = ϕσ (z − x) + bσ .
+514:    We denote by PA(Π) the set of piecewise affine functions on Π.
+515: Definition 2.29 (Piecewise affine functions on X). A continuous function ϕ : X → R is
+516: piecewise affine if it is piecewise affine on some polyhedral structure on X. The set of piecewise
+517: affine functions on X is denote by PA(X). In other words, we have
+518:                                         PA(X) = lim PA(Π),
+519:                                                 −→
+520:                                                    Π
+521: where the direct limit is over the set of all polyhedral structures on X ordered by refinements, and
+522: with respect to the inclusion PA(Π) ⊆ PA(Π′ ) for any Π′ ≥ Π.
+523: Definition 2.30. Let ϕ ∈ PA(Π), τ ∈ Π, and x ∈ relint(τ ). We denote by ϕx the (conical)
+524: piecewise affine function on Starx (Π) such that for any σ ≻ τ
+525:                                         (ϕx )|Cσ/τ = ϕσ − ϕτ ,
+526: where we write VCσ/τ ,R = x + NCσ/τ ,R , Vσ,R = x + Nσ,R , and Vτ,R = x + Nτ,R .
+527:    We have ϕx (λ(z − y)) = λ(ϕσ (z − x) − ϕτ (y − x)) whenever z ∈ σ and y ∈ τ , and in particular
+528: ϕx = 0 on Cτ /τ .
+529: 12                                         BOTERO, MAZZON, AND PILLE-SCHNEIDER
+530: 
+531: 
+532: Definition 2.31. Let ϕ ∈ PA(Π) and c ∈ Zk (Π). The intersection product ϕ · c is the (k − 1)-cycle
+533: on Π defined by
+534:                                                                                                                         
+535:                                                X                                              X
+536: (2.32)               (ϕ · c)(τ ) :=                         c(σ)ϕσ (nσ/τ ) − ϕτ                             c(σ)nσ/τ 
+537:                                           σ∈Π(k) : τ ≺σ                                   σ∈Π(k) : τ ≺σ
+538: 
+539: 
+540: where τ ∈ Π(k−1) and nσ/τ are normal vectors relative to τ .
+541: 
+542: Remark 2.33. Note that (2.32) is well-defined. Indeed, let n′σ/τ be another choice of normal
+543: vectors. We have
+544:                                                   
+545:         X                           X
+546:               c(σ)ϕσ (nσ/τ ) − ϕτ        c(σ)nσ/τ 
+547:      σ∈Π(k) : τ ≺σ                                    σ∈Π(k) : τ ≺σ
+548:                                                                                                     
+549:                              X                                                X
+550:                      −                   c(σ)ϕσ (n′σ/τ ) + ϕτ                            c(σ)n′σ/τ 
+551:                          σ∈Π(k) : τ ≺σ                                    σ∈Π(k) : τ ≺σ
+552:                                                                                                                                     
+553:                              X                                                            X
+554:                      =                 c(σ)ϕσ (nσ/τ − n′σ/τ ) − ϕτ               c(σ)nσ/τ − c(σ)n′σ/τ 
+555:                          σ∈Π(k) : τ ≺σ                              σ∈Π(k) : τ ≺σ
+556:                                                |    {z    }
+557:                                                              ∈Nτ
+558:                                                                                                                                     
+559:                              X                                                            X
+560:                      =                   c(σ)ϕτ (nσ/τ − n′σ/τ ) − ϕτ                              c(σ)nσ/τ − c(σ)n′σ/τ  = 0.
+561:                          σ∈Π(k) : τ ≺σ                                             σ∈Π(k) : τ ≺σ
+562: 
+563: Lemma 2.34. Let ϕ ∈ PA(Π) and c ∈ Zk (Π). Let Π′ be a refinement of Π, denote by c′ and (ϕ · c)′
+564: the pullbacks to Π′ of c and ϕ · c respectively. The equality
+565: 
+566:                                                                (ϕ · c)′ = ϕ · c′
+567: 
+568: holds in Zk−1 (Π′ ).
+569: 
+570: 
+571: Proof. Let τ ′ ∈ Π′(k−1) and recall that
+572:                                                                                                                             
+573:                                     X                                                        X
+574:                 ϕ · c′ :=                            c′ (σ ′ )ϕσ′ (nσ′ /τ ′ ) − ϕτ ′                        c′ (σ ′ )nσ′ /τ ′  .
+575:                              σ ′ ∈Π′(k) : σ ′ ≻τ ′                                   σ ′ ∈Π′(k) ; σ ′ ≻τ ′
+576: 
+577: 
+578: Let τ be the minimal face of Π such that τ ′ ⊆ τ . If dim(τ ) ≥ k + 1, then for any σ ′ ≻ τ ′ , the
+579: faces σ such that σ ′ ⊆ σ have dimension at least k + 1 as they contain τ . This implies that
+580: (ϕ · c′ )(τ ′ ) = 0 = (ϕ · c)′ (τ ′ ).
+581:     If dim(τ ) = k, then there are precisely two faces σ ′ , σ ′′ ∈ Π′(k) containing τ ′ . We have that
+582: σ ′ ∩ σ ′′ = τ ′ , c′ (σ ′ ) = c′ (σ ′′ ), Nσ′ = Nσ′′ , nσ′ /τ ′ = −nσ′′ /τ ′ , and ϕσ′ = ϕσ′′ . This implies
+583: 
+584:          (ϕ · c′ )(τ ′ ) = c′ (σ ′ ) ϕσ′ (nσ′ /τ ′ ) − ϕσ′ (nσ′ /τ ′ ) − ϕτ ′ (nσ′ /τ ′ − nσ′ /τ ′ = 0 = (ϕ · c)′ (τ ′ ).
+585:                                                                                                   
+586:                       MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                                                    13
+587: 
+588: 
+589:    If dim(τ ) = k − 1, then we denote by σ the minimal face of Π such that σ ′ ⊆ σ, for any σ ′ ∈ Π′(k)
+590: with σ ′ ≻ τ ′ . As c′ (σ ′ ) = 0 unless dim(σ ′ ) = dim(σ) = k, we have
+591:                                                                                           
+592:                                     X                                                        X
+593:          (ϕ · c′ )(τ ′ ) =                        c′ (σ ′ )ϕσ′ (nσ′ /τ ′ ) − ϕτ ′                      c′ (σ ′ )nσ′ /τ ′ 
+594:                                                                                                                          
+595:                                                                                                                          
+596:                                      σ ′ ≻τ ′                                              σ ′ ≻τ ′
+597:                              dim(σ ′ )=dim(σ)=k                                    dim(σ ′ )=dim(σ)=k
+598:                                                                                                 
+599:                                  X                                           X
+600:                        =                    c(σ)ϕσ (nσ/τ ) − ϕτ                       c(σ)nσ/τ 
+601:                              σ∈Π(k) : σ≻τ                               σ∈Π(k) ; σ≻τ
+602:                                                      ′   ′
+603:                        = (ϕ · c)(τ ) = (ϕ · c) (τ ),
+604: which concludes the proof.                                                                                                    □
+605: Lemma 2.35. Let c ∈ Zk (Π), ϕ, ψ ∈ PA(Π), and λ, µ ∈ Q. We have
+606:     (i) (linearity) (λϕ + µψ) · c = λ(ϕ · c) + µ(ψ · c),
+607:    (ii) (balancing condition) ϕ · c ∈ Zk−1 (Π),
+608:   (iii) (commutativity) ψ · (ϕ · c) = ϕ · (ψ · c).
+609: 
+610: Proof. The linearity of the intersection pairing follows from the definition. For the other two
+611: properties, we reduce to the local fans. Indeed, given any x ∈ X, the equality (ϕ · c)x = ϕx · cx
+612: holds in Zk−1 (Starx (Π)). The image of Starx (Π) along the projection map NR → NR /(x + Nτ,R ) is
+613: a fan in the sense of [AR10, Definition 2.2]. Then the statements follow from [AR10, Proposition
+614: 3.7] and Lemma 2.24.                                                                            □
+615: 
+616:    It follows from Lemmas 2.34 and 2.35 that (2.32) induces intersection pairings
+617:                                                PA(X) × Zk (X) → Zk−1 (X)
+618: where, for ϕ ∈ PA(Π1 ) and c ∈ Zk (Π2 ), the pairing is given by ϕ · c′ for any common refinement Π′
+619: of Π1 and Π2 . For any ϕ1 , . . . , ϕℓ ∈ PA(X) and any cycle c ∈ Zk (X), we define inductively
+620: (2.36)                                      ϕ1 · . . . · ϕℓ · c := ϕ1 · (. . . (ϕℓ · c)) .
+621: In particular, for ϕ = ϕ1 = . . . = ϕℓ , we simply write ϕ1 · . . . ϕℓ · c = ϕℓ · c.
+622: Remark 2.37. Let Π be a polyhedral structure on X and U an open subset of X. We can define
+623: the notions of weight and non-negative weight, cycle, pullback of cycles, piecewise affine function,
+624: and intersection product by replacing Π with Π|U in the above definitions. We then denote
+625:                Wk (U ) = lim Wk (Π|U ),             Zk (U ) = lim Zk (Π|U ),           PA(U ) = lim PA(Π|U )
+626:                          −→                                   −→                                −→
+627:                                Π                                  Π                               Π
+628: 
+629: where again the limits are over the set of polyhedral structures on X ordered by refinements.
+FILE BMPS2603.08664v1.txt; NEWLINE RANGE 690:786
+690: 3.1. Polyhedral convexity.
+691: Definition 3.1 (PAPC functions). A piecewise affine function ϕ on X is polyhedrally convex
+692: (in short PAPC) if
+693:                                       ϕ·c≥0
+694: for any c ∈ Zk (U )≥0 an on open U ⊆ X and any k. The space of piecewise affine polyhedrally
+695: convex functions is denoted PAPC(X) and is endowed with the topology of pointwise convergence.
+696: 
+697:   The property of being PAPC does not depend on the choice of a polyhedral structure on X, by
+698: Lemma 2.34. If we want to specify the polyhedral complex Π, we write
+699:                                           PAPC(Π) := PAPC(X) ∩ PA(Π).
+700:                    MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                                      15
+701: 
+702: 
+703: Definition 3.2. A convex combination in X is a triple
+704:                                                (x, (xi )i∈I , (αi )i∈I )
+705: where I is a finite set, xi ∈ X ∩ NQ , αi ∈ [0, 1] such that
+706:                                    X                       X
+707:                                        αi = 1 and x =        αi xi .
+708:                                         i∈I                          i∈I
+709: A convex combination is polyhedral on Π for a polyhedral structure Π on X if there are faces τ
+710: and σi in Π such that x ∈ τ , xi ∈ σi and τ ⪯ σi ; it is polyhedral on X if it is polyhedral for some
+711: polyhedral structure Π on X. We will abbreviate polyhedral convex combination with PCC.
+712: Definition 3.3 (PC functions). A function ϕ : X → R is polyhedrally convex (in short PC) if
+713:                                           X
+714:                                    ϕ(x) ≤      αi ϕ(xi )
+715:                                                            i∈I
+716: for any polyhedral convex combination (x, (xi )i∈I , (αi )i∈I ) in X. The space of polyhedrally convex
+717: functions on X is denoted PC(X) and is endowed with the topology of pointwise convergence.
+718: 
+719:    Note that PC functions are automatically continuous on X by [BBGS22, Theorem 6.2]; moreover,
+720: the restriction of any usual convex function in NR to X is PC. The following lemma is analog to
+721: [BBGS22, Proposition 5.7]. We include a proof since in loc. cit. the authors work with an eucledean
+722: structure, instead of an integral structure.
+723: Lemma 3.4. The two definitions of PAPC functions are equivalent, i.e.,
+724:                                         PAPC(X) = PA(X) ∩ PC(X).
+725: 
+726: Proof. We argue by double inclusion. Let ϕ ∈ PAPC(X) and (x, (xi )i∈I , (αi )i∈I ) a polyhedral
+727: convex combination in X. Let Π be a polyhedral complex such that ϕ ∈ PA(Π), and Π′ a refinement
+728: of Π such that x ∈ Π′(0) and xi ∈ ρi ∈ Π′(1) for some ρi ≻ x. Let nρ/x be normal vectors relative to
+729: x for each ρ ∈ Π′(1) with x ≻ ρ. Then there exist βi ∈ Q≥0 such that xi − x = βi nρi /x . Consider
+730: the weight                  (P
+731:                                 i∈I : xi ∈ρ αi βi if there exists i such that xi ∈ ρ
+732:                     c(ρ) :=
+733:                              0                    otherwise,
+734: and an open U ⊆ X such that U ∩ Π′(0) = {x}. Then c is a non-negative cycle in Z1 (Π′ |U ) as
+735:                      X                   X                 X
+736:                              c(ρ)nρ/x =     αi βi nρi /x =   αi (xi − x) = 0.
+737:                      ρ∈Π′(1) |U : x≺ρ               i∈I                    i∈I
+738: 
+739: By Definition 3.1 we have
+740:                                               X                               X
+741:                    0 ≤ (ϕ · c)(x) =                        c(ρ)ϕρ (nρ/x ) =            αi βi ϕρi (nρi /x )
+742:                                         ρ∈Π′(1) |U : x≻ρ                         i∈I
+743:                                         X                         X
+744:                                     =         αi ϕρi (xi − x) =          αi ϕ(xi ) − ϕ(x)
+745:                                         i∈I                        i∈I
+746: which implies that ϕ is polyhedrally convex in the sense of Definition 3.3.
+747:    Let ϕ ∈ PA(X) ∩ PC(X). Let c ∈ Zk (Π|U ) be a non-negative cycle on an open U ⊆ X.
+748: Up to taking a refinement of Π we can assume that ϕ ∈ PA(Π). Let τ ∈ Π(k−1) |U and pick
+749: x ∈ U ∩ relint(τ ) ∩ NQ . Let nσ/τ be normal vectors relative to τ for each σ ∈ Π(k) |U with τ ≺ σ. By
+750: 16                                   BOTERO, MAZZON, AND PILLE-SCHNEIDER
+751:               P
+752:                         σ/τ = vτ ∈ Nτ . Up to rescaling c, we can assume that gcd(c(σ))σ≻τ = 1
+753: (2.21) we have σ≻τ c(σ)nP
+754: and write gcd(c(σ))σ≻τ = σ≻τ ασ c(σ) for some ασ ∈ Z. We set
+755:                     eσ/τ := nσ/τ − ασ vτ another normal vector of σ relative to τ ,
+756:                     n
+757:                                  nσ/τ ∈ σ ∩ U for some ε ∈ Q>0 sufficiently small,
+758:                       xσ := x + εe
+759:                             X
+760:                        S :=     c(σ) ≥ 0.
+761:                               σ≺τ
+762: 
+763: If S = 0, then (ϕ · c)(τ ) = 0, hence ϕ · c has non-negative weight at τ . If S ̸= 0, then
+764:                                                                     
+765:                                            x, (xσ )σ≻τ , ( c(σ)
+766:                                                             S   )σ≻τ
+767: 
+768: 
+769: is a polyhedral convex combination as c(σ)                                 c(σ)
+770:                                                                   P
+771:                                        S ∈ [0, 1],                  σ≻τ     S = 1 and
+772:                                                                                                        !
+773:           X c(σ)                     X                             X                     X
+774:                 S   xσ = x + Sε               nσ/τ = x + Sε
+775:                                           c(σ)e                          c(σ)nσ/τ − vτ         ασ c(σ)     = x.
+776:           σ≻τ                       σ≻τ                            σ≻τ                   σ≻τ
+777: 
+778: By Definition 3.3 we have
+779:                                                           !
+780:                                X c(σ)                             X
+781:                      0 ≤ Sε           S   ϕ(xσ ) − ϕ(x)       =                 nσ/τ ) = (ϕ · c)(τ )
+782:                                                                         c(σ)ϕσ (e
+783:                                σ≻τ                                σ≻τ
+784: 
+785: which implies that ϕ · c is a non-negative cycle in Zk−1 (Π|U ), hence ϕ is polyhedrally convex in the
+786: sense of Definition 3.1.                                                                            □
+FILE BMPS2603.08664v1.txt; NEWLINE RANGE 885:907
+885: 3.3. Convex functions with growth condition. Let γ be a piecewise affine function on X.
+886: Definition 3.14. The space of γ-bounded PA/PC/PAPC functions are defined as
+887:                               PA(X, γ) := {ϕ ∈ PA(X)| ϕ = γ + O(1)}
+888:                               PC(X, γ) := {ϕ ∈ PC(X)| ϕ = γ + O(1)}
+889:                               PAPC(X, γ) := PA(X, γ) ∩ PC(X, γ)
+890: 
+891:    The non-emptiness of the space PAPC(X, γ) does not imply that the function γ itself is
+892: polyhedrally convex. Nevertheless, whenever this space is non-empty, there exists a polyhedrally
+893: convex function γ ′ ∈ PAPC(X) such that PAPC(X, γ) = PAPC(X, γ ′ ).
+894: Lemma 3.15. Let γ ∈ PA(Π), ϕ ∈ PC(X, γ), and write ψ = ϕ − γ. The inequality
+895:                                              ψ ≤ ψ ◦ rΠ′
+896: holds for any simplicial refinement Π′ ≥ Π. Here, the map rΠ′ : X → Sk(Π′ ) denotes the retraction
+897: map from Definition 2.10.
+898: 
+899: Proof. Let Π′ be a simplicial refinement Π′ ≥ Π. Let σ ∈ Π′ be an unbounded face of dimension d,
+900: which we write as
+901:                                     σ = conv(p0 , . . . , pl ) + Cone(vl+1 , . . . , vd )
+902:        ′
+903: since Π is simplicial. Since γ is affine on σ, the function ψ is convex on σ in the usual sense, and
+904: bounded from above since ϕ ∈ PC(X, γ). As a result, if y ∈ conv(p0 , . . . , pl ), the restriction of ψ
+905: to y + Cone(vl+1 , . . . , vd ) is a convex function on a polyhedral cone which is bounded from above,
+906: hence attains its maximum at the vertex y. This yields precisely ψ(x) ≤ ψ(rΠ′ (x)) for any x ∈ σ
+907: such that y = rΠ′ (x), and varying y concludes the proof.                                             □
+FILE BMPS2603.08664v1.txt; NEWLINE RANGE 985:1029
+985: Definition 3.20 (PSH functions). A function ϕ : X → R is γ-PSH functions if there exists a
+986: decreasing sequence (ϕj )j in PAPC(X, γ) converging pointwise to ϕ.
+987:    The space of γ-PSH functions is denoted PSH(X, γ) and is endowed with the topology of pointwise
+988: convergence, which agrees with the topology of uniform convergence on compact sets by [BBGS22,
+989: Theorem 6.24].
+990: Proposition 3.21. Let ϕ ∈ PSH(X, γ). The following properties hold:
+991:        (i) ϕ is continuous and polyhedrally convex,
+992:       (ii) ϕ ≤ γ + O(1),
+993:      (iii) there exists a decreasing sequence (ϕj )j in PAPC(X, γ) converging locally uniformly to ϕ,
+994:      (iv) for any compact K ⊂ X, ϕ|K is the uniform limit on K of (the restriction of ) a sequence
+995:            of functions in PAPC(X, γ).
+996: 
+997: Proof. Let γ ∈ PA(Π), ϕ ∈ PSH(X, γ), and (ϕj )j a decreasing sequence in PAPC(X, γ) converging
+998: pointwise to ϕ. It follows immediately that ϕ is continuous and PC. Moreover, for any simplicial
+999: refinement Π′ ≥ Π, we have
+1000:                                        ϕ − γ ≤ ϕj − γ ≤ C
+1001: by definition of PAPC(X, γ), which implies (ii).
+1002:     Let x ∈ X and U a neighborhood of x contained in a compact subset K of X; respectively, let K ′
+1003: be any compact subset of X. Applying Dini’s lemma to the restriction of (ϕj )j to K, respectively
+1004: K ′ , we conclude (iii) and (iv).                                                               □
+1005: Proposition 3.22. Let ϕ be a continuous function on X. Then the following conditions are
+1006: equivalent:
+1007:      (1) ϕ ∈ PC(X, γ) ∩ PSH(X, γ);
+1008:                   MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                             21
+1009: 
+1010: 
+1011:    (2) ϕ is the uniform limit on X of a sequence of functions in PAPC(X, γ). One can moreover
+1012:        take the sequence to be decreasing.
+1013: Definition 3.23 (PC-regularizable functions). The space of PC-regularizable functions on X
+1014: is the set of continuous functions on X satisfying one of the equivalent conditions (1) or (2) above.
+1015: We denote it by PCreg (X, γ), and endow this space with the topology of uniform convergence.
+1016: 
+1017: Proof. (1) =⇒ (2). Assume ϕ ∈ PC(X, γ) ∩ PSH(X, γ) and let (ϕj )j be a decreasing sequence
+1018: in PAPC(X, γ) converging pointwise to ϕ. By Lemma 3.16, both ψ := ϕ − γ and ψj := ϕj − γ
+1019: extend continuously to the closure of X in NΣ , for a fan Σ containing rec(Π). We denote by ψ,
+1020: respectively ψ j those continuous extensions. We claim that if x lies on the boundary on X, then
+1021: (ψ j (x))j decreases to ψ(x). Indeed, it follows from the proof of Lemma 3.16 that there exists a
+1022: sequence (xl )l in X converging to x, and such that ψ(x) = inf l ψ(xl ) and similarly for ψ j . Since
+1023: ψ(xl ) = inf j ψj (xl ), we infer ψ(x) = inf (l,j) ψj (xl ) = inf j ψ j (x) and the claim follows.
+1024: As a result, by Dini’s lemma (ψ j )j converges uniformly to ψ on the compactification of X, thus
+1025: (ϕj )j converges uniformly to ϕ on X.
+1026:    (2) =⇒ (1). Let (ϕj )j be a sequence in PAPC(X, γ) converging uniformly to ϕ on X. For an
+1027: index j sufficiently large, we have
+1028:                             |ϕ − γ| ≤ |ϕ − ϕj | + |ϕj − γ| ≤ ε + C ≤ C ′ ,
+1029: which implies that ϕ ∈ PC(X, γ).                                                                   □
+FILE BMPS2603.08664v1.txt; NEWLINE RANGE 1351:1424
+1351: 4.2. Polyhedral Monge–Ampère for PA(X). Let X ⊆ NR be a balanced polyhedral space of
+1352: dimension d. The polyhedral Monge–Ampère measure of a piecewise affine function on X is a
+1353: discrete measure supported on the vertices of a polyhedral structure, and is defined as follows.
+1354: Definition 4.4. Let ϕ ∈ PA(X), and let Π be a polyhedral structure on X on which ϕ and [X] are
+1355: defined. We write
+1356:                                       λi := (ϕd · [X])(vi )
+1357: for vi ∈ Π(0) . The polyhedral Monge-Ampère measure of ϕ is the finite atomic measure
+1358:                                                    X
+1359:                                    MApoly (ϕ) :=        λi δvi .
+1360:                                                     vi ∈Π(0)
+1361: 
+1362:    It follows from Lemma 2.34 that this is indeed independent of Π.
+1363: Definition 4.5. Let c ∈ Z0 (X) be a 0-cycle. The degree of c is the number
+1364:                                                 X
+1365:                                       deg(c) =       c(v)
+1366:                                                    v∈Π(0)
+1367: whenever c ∈ Z0 (Π). For ϕ ∈ PA(X), the degree of ϕ is the rational number
+1368:                                       Z
+1369:                             deg(ϕ) :=   MApoly (ϕ) = deg(ϕd · [X]).
+1370:                                             X
+1371: Lemma 4.6. For any ϕ, ψ ∈ PA(X) such that (ϕ − ψ) is a bounded function on X, we have
+1372: deg(ϕ) = deg(ψ). In particular, if ϕ ∈ PA(X, γ) for some γ ∈ PA(X), then deg(ϕ) = deg(γ).
+1373: 
+1374: Proof. Let Π be a polyhedral complex on X on which ϕ and ψ are defined. Let
+1375:                                    Xd−1
+1376:                                 c=(     ϕj · ψ d−j−1 · [X]) ∈ Z1 (Π),
+1377:                                       j=0
+1378: 
+1379: then by multilinearity and commutativity we have the following equality of 0-cycles:
+1380:                                 (ϕ − ψ) · c = (ϕd · [X]) − (ψ d · [X]).
+1381: We are thus left to prove the following: if η ∈ PAb (Π) and c ∈ Z1 (Π), then deg(η · c) = 0, for which
+1382: we argue as in [AR10, Lemma 8.3]. The quantity deg(η · c) is the sum over vertices v of Π of the
+1383: sum of outgoing slopes of η at v, weighted by c; each bounded edge appears twice, once for each
+1384: of its endpoints which have opposite normal vectors, so that the two corresponding slopes cancel
+1385: 28                                     BOTERO, MAZZON, AND PILLE-SCHNEIDER
+1386: 
+1387: 
+1388: out. Since η has slope zero along each unbounded edge - being a bounded affine function - we get
+1389: deg(η · c) = 0.                                                                               □
+1390: 
+1391:      One can define the mixed Monge–Ampère operator of tuples of piecewise affine functions on X.
+1392: Definition 4.7. Let ϕ1 , . . . , ϕd be a d-tuple in PA(X). The mixed polyhedral Monge–Ampère
+1393: measure of (ϕ1 , . . . , ϕd ) is the finite atomic measure on X
+1394:                                                        X
+1395:                           MApoly (ϕ1 , . . . , ϕd ) :=   ϕ1 · (ϕ2 · (. . . (ϕd · [X]))) δvi ,
+1396:                                                            vi ∈Π(0)
+1397: 
+1398: for any polyhedral structure Π where the functions ϕi and [X] are defined. The mixed degree of
+1399: (ϕ1 , . . . , ϕd ) is the rational number
+1400:                                                               Z
+1401:                                     deg (ϕ1 , . . . , ϕd ) :=   MApoly (ϕ1 , . . . , ϕd ).
+1402:                                                                    X
+1403: Proposition 4.8. The map
+1404:                                            (ϕ1 , . . . , ϕd ) → MApoly (ϕ1 , . . . , ϕd )
+1405: from the space of d-tuples of piecewise affine functions on X to the space of finite atomic measures
+1406: on X, satisfies the following properties:
+1407:      (1) symmetry:
+1408:                 MApoly (ϕ1 , . . . , ϕi , . . . , ϕk , . . . , ϕd ) = MApoly (ϕ1 , . . . , ϕk , . . . , ϕi , . . . , ϕd )
+1409:      (2) invariance with respect to additive constants ci ∈ Q:
+1410:                               MApoly (ϕ1 + c1 , . . . , ϕd + cd ) = MApoly (ϕ1 , . . . , ϕd )
+1411:      (3) linearity in each argument: for λ, µ ∈ Q,
+1412:                   MApoly (λϕ0 +µϕ1 , ϕ2 , . . . , ϕd )
+1413:                                        = λ MApoly (ϕ0 , ϕ2 , . . . , ϕd ) + µ MApoly (ϕ1 , ϕ2 , . . . , ϕd )
+1414:      (4) for k ∈ N and any λ1 , . . . , λk ∈ Q,
+1415:                                                                  k
+1416:                                                                  X
+1417:                  MApoly (λ1 ϕ1 + . . . + λk ϕk ) =                            λi1 . . . λid MApoly (ϕi1 , . . . , ϕid )
+1418:                                                               i1 ,...,id =1
+1419: 
+1420:          where the left-hand side is defined as in Definition 4.4.
+1421: 
+1422: Proof. (1) follows from the commutativity of the intersection pairing, while (3) and (4) follow from
+1423: its linearity, see Lemma 2.35; (2) follows from the definition of intersection pairing, see Equation
+1424: 2.32.                                                                                              □
+FILE BMPS2603.08664v1.txt; NEWLINE RANGE 1740:1783
+1740: 4.4. Properties of MApoly .
+1741: Definition 4.15. Let Π be a polyhedral structure on X and γ ∈ PA(Π). We say that γ is positive
+1742: at infinity if for any face σ ∈ Π and non-zero v ∈ rec(σ), the slope of γσ in the direction v is strictly
+1743: positive.
+1744: 
+1745:    This condition is equivalent to |γ| going to +∞ at infinity on X, so that it is independent of the
+1746: choice of Π where γ is defined.
+1747: Proposition 4.16. For any ϕ ∈ PCreg (X, γ) and ψ ∈ PSH(X, γ), the function (ψ −γ) is integrable
+1748: with respect to MApoly (ϕ).
+1749: As a consequence, if γ is positive at infinity, then MApoly (ϕ) does not charge mass on the boundary
+1750: of XΠ .
+1751: 
+1752: Proof. Set µ := MApoly (ϕ). We normalize the functions by a constant so that
+1753:                                            sup(ϕ − γ) = sup(ψ − γ) = 0.
+1754:                                            X                X
+1755:                     MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                                  35
+1756:                                                           R
+1757: First assume that ψ lies in PAPC(X, γ). We claim that (γ − ψ)µ ≤ M , where M does not depend
+1758: on ψ. Indeed, integration by parts (item (5) in Theorem 4.13) yields
+1759: Z                                   Z                                    Z
+1760:     (γ − ψ) MApoly (ϕ, . . . , ϕ) =   (γ − ϕ) MApoly (ψ, ϕ, . . . , ϕ) +   (ϕ − ψ) MApoly (γ, ϕ, . . . , ϕ).
+1761:  XΠ                                 XΠ                                     XΠ
+1762: 
+1763: The first term is bounded by sup|ϕ − γ| · deg(γ), while we handle the second one by writing
+1764: (ϕ − ψ) = (ϕ − γ) + (γ − ψ). The integral of (ϕ − γ) is again bounded by sup|ϕ − γ| · deg(γ), while
+1765: to the integral of (γ − ψ) we apply again the integration by parts. Iterating this, the final outcome
+1766: is            Z                                                Z
+1767:                     (γ − ψ)MApoly (ϕ) ≤ 2d sup|ϕ − γ| · deg(γ) +           (γ − ψ)MApoly (γ).
+1768:                XΠ                                                     XΠ
+1769: Now MApoly (γ) is supported on a compact set K, and by Theorem 3.36 there exists a constant
+1770: C = C(K) such that any ψ ∈ PAPC(X, γ) satisfies supK |ψ − γ| ≤ C. This yields
+1771:                               Z
+1772:                                   (γ − ψ) MApoly (γ) ≤ C deg(γ)
+1773:                                     XΠ
+1774: 
+1775: and proves the claim. In the general case, let (ψj )j be a sequence in PAPC(X,
+1776:                                                                           R        γ) decreasing
+1777: pointwise to ψ, and satisfying supX (ψj − γ) = 0. By monotone convergence, XΠ (γ − ψj )µ increases
+1778:   R                       R
+1779: to XΠ (γ − ψ)µ, so that XΠ (γ − ψ)µ ≤ M as well, and is thus finite.
+1780:    The second claim comes from the fact that the zero function lies in PSH(X, γ) when γ is positive
+1781: at infinity. Indeed, 0 = limj max{γ − j, 0} pointwise, and max{γ − j, 0} ∈ PAPC(X, γ) since γ goes
+1782: to +∞ at infinity. This implies that −γ is µ-integrable, whence the locus XΠ \ X = {γ = +∞}
+1783: has measure zero.                                                                                □
+FILE BMPS2603.08664v1.txt; NEWLINE RANGE 2252:2293
+2252:                           6. The polyhedral Monge–Ampère equation
+2253: 
+2254:     Let X ⊆ NR be a balanced polyhedral space of dimension d, and γ a PAPC function on X that
+2255: is positive at infinity. In this section, we study polyhedral Monge–Ampère equations and establish
+2256: sufficient conditions for the existence of solutions using a variational approach.
+2257: 
+2258: 6.1. Regularization.
+2259: Definition 6.1. A continuous function f ∈ C 0 (X) is said to be quasi-γ-PSH, if there exists ϕ ∈
+2260: PSH(X, γ) and g ∈ Cb0 (X) such that f = ϕ + g.
+2261: Definition 6.2. Let u be a continuous function on X. The envelope Pγ (u) is defined as
+2262:                    Pγ (u)(x) := sup{ψ(x) | ψ ≤ (γ + u), ψ ∈ PC(X), ψ ≤ γ + O(1)},
+2263: with the convention that Pγ (u) ≡ −∞ if the set of functions {ψ ∈ PC(X)|ψ ≤ γ + u, ψ ≤ γ + O(1)}
+2264: is empty.
+2265: 
+2266:    If (γ + u) is quasi-γ-PSH, then Pγ (u) ̸≡ −∞. Indeed, let γ + u = ϕ + g with ϕ ∈ PSH(X, γ) and
+2267: g ∈ Cb0 (X), then ψ := ϕ + inf X g is a competitor in the supremum defining the envelope.
+2268:      The envelope satisfies the following basic properties.
+2269: Proposition 6.3. Let notations as above and let c ∈ R. The following hold true:
+2270:      (1) if Pγ (u) ̸≡ −∞, then Pγ (u) ∈ PC(X),
+2271:      (2) Pγ (u) ≤ γ + u,
+2272:      (3) if u is bounded, then Pγ (u) ∈ PC(X, γ),
+2273:      (4) if (γ + u) ∈ PSH(X, γ) or (γ + u) ∈ PC(X, γ), then Pγ (u) = γ + u,
+2274:      (5) if u ≤ v then Pγ (u) ≤ Pγ (v),
+2275:      (6) Pγ (u + c) = Pγ (u) + c,
+2276:      (7) Pγ (u) is concave in both arguments in the following sense:
+2277:                          Ptγ+(1−t)γ ′ (tu + (1 − t)u′ ) ≥ tPγ (u) + (1 − t)Pγ ′ (u′ ),
+2278:      (8) supX |Pγ (u) − Pγ (v)|≤ supX |u − v|.
+2279: 
+2280: Proof. If Pγ (u) ̸≡ −∞, then the subset {ψ ∈ PC(X)|ψ ≤ γ + u, ψ ≤ γ + O(1)} ⊂ PC(X) is
+2281: non-empty and uniformly bounded from above, so that its pointwise sup defines a PC function by
+2282: [BBGS22, Theorem 6.24], and Part (1) follows. Part (2) is clear, and Part (3) follows from the
+2283: inequalities:
+2284:                             γ + inf u ≤ Pγ (u) ≤ γ + u ≤ γ + sup u.
+2285:                                       X                                 X
+2286:                    MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                                45
+2287: 
+2288: 
+2289: Finally, (4)-(6) are clear from the definitions. Part (7) follows from the fact that if ψ ∈ PC(X),
+2290: ψ ′ ∈ PC(X) with ψ ≤ γ + u and ψ ′ ≤ γ ′ + u′ , ψ ≤ γ + O(1) and ψ ≤ γ ′ ≤ O(1) then
+2291:                                tψ + (1 − t)ψ ′ ∈ PSH(X, tγ + (1 − t)γ ′ )
+2292: and is dominated by tu + (1 − t)u′ . Finally, (8) follows from applying (5) to the inequality v +
+2293: inf(u − v) ≤ u ≤ v + sup(u − v).                                                                □
+FILE BMPS2603.08664v1.txt; NEWLINE RANGE 2349:2355
+2349: 6.2. Orthogonality.
+2350: Definition 6.9. Assume that (X, γ) has the regularity property. We say that (X, γ) has the
+2351: orthogonality property if, for any bounded piecewise affine function u on X, the envelope Pγ (u) ∈
+2352: PCreg (X, γ) satisfies
+2353:                                Z
+2354:                                  (Pγ (u) − (γ + u))MApoly (Pγ (u)) = 0
+2355:                               X
+FILE BMPS2603.08664v1.txt; NEWLINE RANGE 2473:2502
+2473: 6.4. Dimension one.
+2474: Proposition 6.13. Assume that X is one-dimensional. For any bounded PA function u on X
+2475: defined on a polyhedral structure Π where γ is also defined, the envelope Pγ (u) is in PAPC(X, γ)
+2476: and is defined on Π.
+2477: In particular, the regularity property holds in dimension one.
+2478: 
+2479: Proof. We prove that Pγ (u) is affine on each e of Π, we start with the case where e is bounded. Up
+2480: to adding a global affine function, we may assume that Pγ (u) ≤ 0 on e and is zero on the vertices
+2481: of e. We will show that Pγ (u) has to be zero on the whole edge. Assume by contradiction that
+2482: there exists x ∈ relint(e) such that Pγ (u)(x) = −ε < 0. We claim that the function
+2483:                                      (
+2484:                                        max{Pγ (u), −ε/2} on e
+2485:                                 Q=
+2486:                                        Pγ (u)               otherwise
+2487: lies in PC(X, γ). Since moreover Q ≤ (γ + u), this will provide a contradiction as Q(x) > Pγ (u)(x).
+2488: To prove the claim, let U ⊂ X be the complement in X of relint(e) ∩ {Pγ (u) ≥ −3ε/4}. Then
+2489: U ∪ relint(e) is an open cover of X, and Q = Pγ (u) on U . As a result, Q is PC by [BBGS22,
+2490: Proposition 5.13].
+2491:    We now let e be an unbounded edge with vertex v, and assume again that Pγ (u)(v) = 0. Assume
+2492: by contradiction that the function (Pγ (u) − γ) is not constant on e. Since it is a bounded convex
+2493:                   MONGE–AMPÈRE MEASURES ON BALANCED POLYHEDRAL SPACES                              49
+2494: 
+2495: 
+2496: function on e, it is non-positive, so that there exists x ∈ relint(e) with Pγ (u)(x) = γ(x) − ε, with
+2497: ε > 0. Similarly to the previous case, the function:
+2498:                                     (
+2499:                                       max{Pγ (u), γ − ε/2} on e
+2500:                                Q=
+2501:                                       Pγ (u)                  otherwise
+2502: lies in PC(γ), satisfies Q ≤ γ + u, and we have Q(x) = γ(x) − ε/2 > Pγ (u)(x), a contradiction.     □
+FILE ch72_major_open_problems.tex; NEWLINE RANGE 1767:1852
+1767: \subsection{Regularity and orthogonality on balanced polyhedral spaces}
+1768: 
+1769: \begin{problem}\label{prob:frontier-polyhedral-regularity}
+1770: Let \(\mathbf X\) be a pure-dimensional balanced rational polyhedral space
+1771: and let \(\gamma\) be a piecewise-affine polyhedrally convex reference
+1772: function positive at infinity.  Characterize the pairs
+1773: \((\mathbf X,\gamma)\) for which the
+1774: regularity and orthogonality properties of Botero--Mazzon--Pille-Schneider
+1775: hold.  Under realizability hypotheses, compare their polyhedral
+1776: Monge--Amp\`ere operator with CLD, delta-form, and non-Archimedean
+1777: Monge--Amp\`ere measures.
+1778: \end{problem}
+1779: 
+1780: The bibliographic dates require a correction.  The first arXiv version was
+1781: submitted on 9 March 2026 and the date printed inside the manuscript is
+1782: 10 March 2026, not 11 August 2026 \cite{BMPS26}.  We use that version
+1783: throughout.
+1784: 
+1785: Here are the conventions needed to compare it with
+1786: \Cref{app:tropical-algebra}.  Normal vectors point from a codimension-one
+1787: face into an adjacent top-dimensional face, as in
+1788: \eqref{eq:appG-primitive-normal}, and a convex bend has positive divisor.
+1789: Botero--Mazzon--Pille-Schneider allow positive real balancing weights; a
+1790: tropical cycle in the narrower Mikhalkin--Rau convention has integral
+1791: weights.  Analytic comparison therefore uses the latter only after the
+1792: saturated tangent lattices and analytic tropical multiplicities have been
+1793: installed.  Finally, their real Monge--Amp\`ere measure is the Alexandrov
+1794: measure of \Cref{thm:appD-alexandrov-measure}, without a factorial.  Their
+1795: polyhedral intersection convention consequently gives
+1796: \begin{equation}
+1797:  \one_{\RelInt(\sigma)}\MA_{\mathrm{poly}}(\varphi)
+1798:  =d![\mathbf X](\sigma)\,
+1799:    \MA_{\mathbf R}(\varphi|_{\RelInt(\sigma)})
+1800:  \label{eq:frontier-polyhedral-real-local}
+1801: \end{equation}
+1802: on the relative interior of every top-dimensional face
+1803: \cite[Propositions~4.12 and~4.20]{BMPS26}.  This is exactly the factorial
+1804: firewall in \Cref{app:normalizations}.
+1805: 
+1806: We first separate the source results from the new deduction below.  For a
+1807: piecewise-affine polyhedrally convex reference \(\gamma\) positive at
+1808: infinity, \cite[Theorem~4.13 and Proposition~4.16]{BMPS26} constructs the
+1809: positive mixed operator
+1810: \[
+1811:  \MA_{\mathrm{poly}}:
+1812:  \mathrm{PC}_{\mathrm{reg}}(\mathbf X,\gamma)^d
+1813:  \longrightarrow\mathcal M^+(\mathbf X),
+1814:  \qquad
+1815:  \int_{\mathbf X}\MA_{\mathrm{poly}}=\deg(\gamma),
+1816: \]
+1817: and proves its continuity under uniform, in particular decreasing,
+1818: regularizable approximation.  Its Theorem~6.4 says that regularity is
+1819: equivalent to each of
+1820: \[
+1821:  \begin{split}
+1822:  &P_\gamma(u)\in\mathrm{PC}_{\mathrm{reg}}(\mathbf X,\gamma)
+1823:        \quad\text{for every bounded piecewise-affine }u,\\
+1824:  &\mathrm{PAPC}(\mathbf X,\gamma)
+1825:        \text{ is uniformly dense in }\mathrm{PC}(\mathbf X,\gamma),\\
+1826:  &\mathrm{PC}(\mathbf X,\gamma)
+1827:        =\mathrm{PC}_{\mathrm{reg}}(\mathbf X,\gamma).
+1828:  \end{split}
+1829: \]
+1830: The source states one-dimensional regularity in Proposition~6.13 and
+1831: complete-affine and conical regularization in Remark~6.6.  These statements
+1832: must be separated from its literal coefficient convention: Definition~2.28
+1833: requires integral linear parts and rational constants, while the proofs of
+1834: the cited regularization statements use arbitrary real affine functions.
+1835: The theorem and counterexample below give the precise one-dimensional
+1836: repair.  Orthogonality is the further
+1837: identity
+1838: \begin{equation}
+1839:  \int_{\mathbf X}
+1840:  \bigl(P_\gamma(u)-(\gamma+u)\bigr)
+1841:  \MA_{\mathrm{poly}}(P_\gamma(u))=0.
+1842:  \label{eq:frontier-polyhedral-orthogonality}
+1843: \end{equation}
+1844: The source proves \eqref{eq:frontier-polyhedral-orthogonality} on
+1845: one-dimensional polyhedrally smooth spaces and obtains existence and
+1846: uniqueness, modulo constants, for compactly supported positive measures of
+1847: mass \(\deg(\gamma)\)
+1848: \cite[Proposition~6.21 and Theorem~6.22]{BMPS26}.
+1849: 
+1850: \input{editorial/solver_dossiers_20260925/p051_one_dimensional_regularity_repair_v1_20260925/STATEMENT.tex}
+1851: \input{editorial/solver_dossiers_20260925/p051_one_dimensional_regularity_repair_v1_20260925/PROOF.tex}
+1852: 
+FILE ch72_major_open_problems.tex; NEWLINE RANGE 1997:2022
+1997: P05.2 on every one-dimensional balanced rational polyhedral space admitting
+1998: a finite structure.  Orthogonality holds exactly when every local cone of
+1999: nonnegative balancing relations is one-dimensional.  The theorem allows
+2000: bounded edges and cycles and shows that lattice saturation is irrelevant.
+2001: In the literal coefficient category, one-dimensional regularity holds
+2002: exactly in degree zero, equivalently exactly when the space is compact.
+2003: Every positive-degree graph reference fails literal regularity,
+2004: independently of the local relation cones.  More generally, literal
+2005: regularity fails on every noncompact finite rational polyhedral space in
+2006: every dimension, whether or not it is balanced; in particular, the
+2007: source's literal complete-affine assertion fails in every positive
+2008: dimension.  The earlier strict-vertex theorem remains a local quantitative
+2009: form of this obstruction.  Thus every graph on which real-polyhedral
+2010: orthogonality holds is negative for literal regularity when the literal
+2011: degree is positive, but the literal failure is not confined to that graph
+2012: class.  The
+2013: one-vertex orthogonality theorem and its bounded-reference-shift corollary
+2014: are book-local real-scalar results, not results cited from the withdrawn
+2015: note.  The classification also explains
+2016: \Cref{ex:frontier-polyhedral-cross-orthogonality}: the four-ray cross has a
+2017: two-dimensional cone of nonnegative balancing relations.  Conversely,
+2018: \Cref{ex:frontier-polyhedral-nonsaturated-tripod} shows that lattice
+2019: smoothness is sufficient but not necessary in this class.  The
+2020: higher-dimensional real-PA classification, compact higher-dimensional
+2021: literal case, arbitrary nonseparable product obstacles, and the source
+2022: coefficient-convention repair remain open, so P05.1 and P05.2 remain active.
+FILE ch72_major_open_problems.tex; NEWLINE RANGE 2447:2477
+2447: Thus the audit gives six verdicts.  The real-scalar complete affine case in
+2448: \Cref{thm:frontier-polyhedral-affine-orthogonality} is \emph{verified},
+2449: whereas literal integral-slope regularity already fails on the affine line
+2450: by \Cref{prop:frontier-polyhedral-integral-regularity-counterexample};
+2451: strict positivity alone is \emph{disproved} by
+2452: \Cref{ex:frontier-polyhedral-cross-orthogonality}; positive growth alone,
+2453: even on the displayed Bergman fan, cannot force the conjunction of
+2454: regularity and orthogonality by
+2455: \Cref{prop:frontier-polyhedral-bergman-positive-infinity-obstruction}; the
+2456: recursive CLD and
+2457: delta-form comparison is \emph{verified} under the intrinsic proper
+2458: calibration hypotheses of
+2459: \Cref{prop:p053-projection-recursion-repaired-candidate}, with the genuine
+2460: algebraic tropicalization supplied by
+2461: \Cref{cor:p053-algebraic-chart-repaired-candidate}; the global polarized
+2462: non-Archimedean Monge--Amp\`ere comparison remains \emph{open} beyond the
+2463: realized source cases because the proper polarization, lift, mass, and
+2464: component calibration are additional inputs; and the main
+2465: higher-dimensional local contact problem remains \emph{open}.  The missing local
+2466: assertion is a contact theorem on singular fans: under an intrinsic
+2467: smoothness and strict-positivity package, positive top intersection mass of
+2468: an envelope should force contact with the obstacle.  Neither a proof nor a
+2469: counterexample satisfying both parts of that package is presently known.
+2470: 
+2471: \subsection{Pluriharmonic regularity}
+2472: 
+2473: The supplied singular descent theorem
+2474: \Cref{thm:supplied-p061-singular-pluriharmonic} settles P06.1: classical
+2475: pluriharmonicity implies local real PL regularity throughout the original
+2476: scope, including arbitrary singular points. P06.2 retains the reverse
+2477: bridge from a current equation to the curve-test notion.
+FILE round06-product-argument.md; NEWLINE RANGE 206:259
+206: ## The two-branched-star trap and its full mass
+207: 
+208: Relabel two branched stars as $G_1,G_2$. Write their relations $w_i,w'_j$, weights $\alpha_i=c_1w_i$, $\beta_j=c_2w'_j$. Partition each set of rays into three nonempty groups. Put $W_g=\sum_{i\in g}w_i$, $W'_g=\sum_{j\in g}w'_j$, and
+209: $$
+210: u_1=(1,0),\quad u_2=(0,1),\quad u_3=(-1,-1).
+211: $$
+212: The assignment $L_0(v_i)=u_g/W_g$ annihilates the unique relation and defines a rational linear map. Likewise define $L'_0$. Choose one positive integer $D$ clearing both matrices in lattice bases, and set $L=DL_0$, $L'=DL'_0$. Then
+213: $$
+214: L(v_i)=k_iu_g,\quad k_i=D/W_g\in\mathbb Z_{>0},\qquad
+215: L'(v'_j)=\ell_ju_g,\quad\ell_j=D/W'_g\in\mathbb Z_{>0},
+216: $$
+217: where scalar integrality follows from integrality of the maps and primitivity of $u_g$. Each group satisfies
+218: $$
+219: \sum_{i\in g}\alpha_ik_i=C=c_1D,\qquad
+220: \sum_{j\in g}\beta_j\ell_j=C'=c_2D.
+221: \tag{G1}
+222: $$
+223: 
+224: On $G_1\times G_2$, set $F_1=(La)_1-(L'b)_1$, $F_2=(La)_2-(L'b)_2$, $A=|F_1|$, $B=|F_2|$, $q=A+B$. These restrict ambient rational convex homogeneous functions. In quadrant $(a,b)=(tv_i,sv'_j)$, $F_1=p_it-p'_js$, where $p_i=k_i,0,-k_i$ according to groups 1,2,3. Interior bends of $A$ occur precisely when both rays belong to group 1 or both to group 3. Put $g_{ij}=\gcd(k_i,\ell_j)$ and
+225: $$
+226: h_{ij}=(\ell_jv_i/g_{ij},\ k_iv'_j/g_{ij}).
+227: $$
+228: The saturated quadrant tangent lattice is $\mathbb Z(v_i,0)\oplus\mathbb Z(0,v'_j)$. The displayed diagonal vector is primitive there and in the ambient direct lattice. The primitive quotient covector is $(k_i/g_{ij},-\ell_j/g_{ij})$. Bezout supplies a primitive inward normal lift on which $k_it-\ell_js$ has value $g_{ij}$; opposite normals and the absolute-value bend give weight $2g_{ij}\alpha_i\beta_j$.
+229: 
+230: On a nonzero second-factor axis in group 2 the outgoing normal derivatives give $\beta_j\sum_i\alpha_i|p_i|=2C\beta_j$. On group 1 or 3 axes, the sign is fixed and the derivative sum is $\pm\beta_j\sum_i\alpha_ip_i=0$. First-factor axes give $2C'\alpha_i$ in group 2 and zero otherwise. Other quadrant interiors are affine. This includes every first-divisor face:
+231: $$
+232: \begin{split}
+233: A\cdot[G_1\times G_2]={}&
+234: \sum_{g=1,3}\sum_{i,j\in g}2g_{ij}\alpha_i\beta_j[h_{ij}]\\
+235: &+\sum_{i\in2}2C'\alpha_i[(v_i,0)]
+236: +\sum_{j\in2}2C\beta_j[(0,v'_j)].
+237: \end{split}
+238: \tag{D1}
+239: $$
+240: Here $[h]$ is the ray of primitive generator $h$. The first projections of its diagonal weighted vectors sum to $2C'\sum_{i\in1,3}\alpha_iv_i$, and the axis terms complete this to zero; the second projections similarly complete $2C\sum_{j\in1,3}\beta_jv'_j$ to zero. Thus balancing is also checked directly.
+241: 
+242: The function $A$ vanishes on its entire divisor. The slopes of $B$ on its diagonals are zero, on its first axes $k_i$, and on its second axes $\ell_j$. Therefore
+243: $$
+244: A^2\cdot[G_1\times G_2]=0,\qquad
+245: B\cdot A\cdot[G_1\times G_2]=4CC'\delta_0.
+246: $$
+247: Coordinate exchange gives $B^2=0$. Bilinearity and the two mixed orders give
+248: $$
+249: q^2\cdot[G_1\times G_2]=8CC'\delta_0.
+250: \tag{D2}
+251: $$
+252: This is a direct divisor proof, not a pushforward by the nonproper difference map.
+253: 
+254: There is an actual positive balanced **zero curve** for $q$: take all $h_{ij}$ with both rays in the same group, now including group 2, and ray weights
+255: $$
+256: \theta_{ij}=\alpha_i\beta_jg_{ij}.
+257: \tag{Z}
+258: $$
+259: Its first projection sums to $C'\sum_i\alpha_iv_i=0$ and its second to $C\sum_j\beta_jv'_j=0$. Thus $\sum\theta_{ij}h_{ij}=0$. Its weights have the common real factor $c_1c_2$ times rational numbers. The function $q$ is zero on all its rays. The curve will only manufacture an actual PCC.
+FILE round06-product-argument.md; NEWLINE RANGE 758:766
+758: ## Comparison, limitations and self-audit boundary
+759: 
+760: The controlling Chapter 72 and its included proofs already settle one-dimensional real orthogonality using local relation cones, complete affine real orthogonality, and separable product envelopes. The one-star-times-affine draft gives the positive nonseparable cylinder range. The contribution developed here is the all-rational-reference negative direction for any number of rank-one star factors once two are branched, its full recursive mass formula, and the resulting criterion on this product class. The previous Bergman obstruction and its positive-growth repair are not counted as progress. No assumption of top-cycle uniqueness, balancing, positive total mass or positive growth has been used as a contact theorem.
+761: 
+762: The negative all-reference quantifier is **rational**, not arbitrary real. The operation $\max(\lambda Q,\gamma-M)$ can introduce an irrational spatial wall for a real-coefficient $\gamma$. In one dimension rational chordal interpolation can repair this; here such interpolation has not been supplied with all local PCC inequalities, exact trap germ and growth preserved. Hence the converse for all real references is unresolved. The positive direction remains valid for real references because its epigraph proof establishes rational projected domains directly.
+763: 
+764: No literal all-obstacle classification is claimed. Even (15) with a literal $\gamma$ generally has nonintegral rational slopes. The explicit example (5)--(6) does give a particular literal PA envelope defect, but it does not imply literal regularity. The known noncompact literal regularity obstruction belongs to P05.1 and is background only.
+765: 
+766: The product theorem does not address graph factors with bounded edges or cycles, arbitrary higher-rank star factors, general singular fans, general intrinsic strict-positivity packages, or all balanced pairs. There is no proper polarized analytic realization, CLD/BFJ comparison or P05.5 assertion. The original exact P05.2 atom remains open: status is **partial**, candidate is **false**. These are unverified mathematical drafts.
