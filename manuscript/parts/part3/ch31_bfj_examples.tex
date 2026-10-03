@@ -166,7 +166,12 @@ $\omega$ for a closed model form representing $c_1(L)$ and
 The first half of \eqref{eq:examples-global-normalization} is the additive
 weight convention of \Cref{sec:appJ-metrics}; the second is the mass
 convention of \Cref{sec:appJ-model-ma}.  Both are binding for the whole
-chapter.
+chapter.  Whenever a calculation uses the reference potential $0$, choose
+$\theta$ or $\omega$ semipositive.  Generic ampleness alone does not imply
+this property.  Such a model representative exists by
+\Cref{prop:ch20-positive-representative}; changing from $\theta$ to
+$\theta+\ddc h$ replaces a potential $\varphi$ by $\varphi-h$ and changes
+relative energies by the cocycle of \Cref{prop:ch26-reference-change}.
 
 Three families use additional hypotheses, each stated where it enters.  The
 explicit curve calculations use a split regular semistable model, so that
@@ -230,13 +235,14 @@ and nodes of $\cX_s$ are geometrically irreducible and have residue degree
 one.  Its dual graph, weighted by the
 \emph{modulus lengths} of \Cref{prop:ch08-annulus-skeleton}, is the skeleton
 $\Gamma=\Delta_{\cX}\subseteq X^{\An}$, and there is a retraction
-$p_{\cX}:X^{\An}\to\Gamma$.  A node of $\cX_s$ at which the completed
-local ring is $R[[x,y]]/(xy-\pi^{a})$ contributes an edge of length $a$;
-this is \Cref{ex:ch08-An-edge}, and it is where the normalization
-$v(\pi)=1$ enters the geometry.
+$p_{\cX}:X^{\An}\to\Gamma$.  On this regular model a node has completed local ring
+$R[[x,y]]/(xy-\pi)$, and contributes an edge of length one.  The more
+general normal node $xy=\pi^a$ has length $a$; for $a>1$ its regular
+resolution subdivides that edge into $a$ unit edges.  This is
+\Cref{ex:ch08-An-edge}, and records the normalization $v(\pi)=1$.
 
 A model function on $X^{\An}$ determined on $\cX$ is the pullback under
-$p_{\cX}$ of a piecewise affine function on $\Gamma$, by
+$p_{\cX}$ of a function affine on each existing edge of $\Gamma$, by
 \Cref{thm:bfj-skeletal-characterization}.  For the rational-model
 converse, slopes, values, and subdivision points must satisfy the
 value-group compatibility of \cite[Proposition~3.5]{GJKM19}; an arbitrary
@@ -274,9 +280,10 @@ check~\cref{itm:ch31-check:sign} of \Cref{sec:ch31-checks}.
 \begin{remark}[Why the lengths are not combinatorial]
 \label{rem:ch31-lengths}
 The graph $\Gamma$ carries two structures that must not be confused: the
-combinatorial dual graph of $\cX_s$, and the metric.  Only the second is
-intrinsic to $X$; the first depends on $\cX$, and a vertical blowup
-subdivides an edge without changing anything analytic.  All formulae below
+combinatorial dual graph of $\cX_s$, and the metric.  Both the combinatorial graph and its skeletal subset depend on $\cX$.
+The metric agrees on common skeletal segments.  A blowup at a node can
+subdivide an edge, whereas a blowup at a smooth special-fibre point
+attaches a new edge.  Thus the whole skeleton is not intrinsic to $X$.  All formulae below
 are written so that subdivision is invisible, which is why
 \eqref{eq:ch31-graph-laplacian} is a sum over \emph{all} points of
 $\Gamma$ rather than over a chosen vertex set.  The same insensitivity is
@@ -295,11 +302,14 @@ $\mu_0=\MA_\omega(0)$ for its curvature measure.
 \label{lem:ch31-curve-ma-affine}
 With the above notation, $\mu_0=\sum_E\deg(\cL|_E)\,\delta_{x_E}$ is a
 positive atomic measure of mass $V$ supported on the vertex set of
-$\Gamma$.  Let $u$ be a model function, determined on a regular
-semistable model $\cX_u$ dominating $\cX$, and write
-$\Gamma_u=\Sk(\cX_u)$ for the skeleton of that model, so that
-$\Gamma\subseteq\Gamma_u$ and $u$ is the pullback under
-$p_{\cX_u}$ of a piecewise affine function on $\Gamma_u$.  Then
+$\Gamma$.  Let $u$ be a model function, determined on a regular snc model $\cX_u$ dominating $\cX$, and write
+$\Gamma_u=\Sk(\cX_u)$ for its skeleton.  Use the intersection lengths
+$1/(b_i b_j)$ and residue-degree edge weights of
+\Cref{rem:ch20-multiplicities-lengths} in $\Delta_{\Gamma_u}$.
+Then $\Gamma\subseteq\Gamma_u$, and $u$ is the pullback of an affine
+function on each edge.  In the split refinements used below the edge
+weights are one, but the multiplicities $b_i$ need not be one.  For
+arbitrary model $u$ the following identity uses the signed model product:
 \begin{equation}
                          \MA_\omega(u)=\mu_0+\Delta_{\Gamma_u}u .
 \label{eq:curve-ma-laplacian}
@@ -313,8 +323,9 @@ atom.  The equation $\MA_\omega(u)=\mu$ is
 \label{eq:curve-poisson}
 \end{equation}
 If $u$ is itself the pullback under $p_{\cX}$ of a piecewise affine
-function on $\Gamma$, then $\Gamma_u$ may be taken to be a subdivision
-of $\Gamma$, $\Delta_{\Gamma_u}u=\Delta_\Gamma u$, and both sides of
+function on $\Gamma$, then any extra branches of $\Gamma_u$ carry constant values and make
+no contribution; after subdividing $\Gamma$ at the break points,
+$\Delta_{\Gamma_u}u=\Delta_\Gamma u$, and both sides of
 \eqref{eq:curve-ma-laplacian} are supported on $\Gamma$; this is the case
 throughout \Cref{sec:ch31-curve-green} and
 \Cref{sec:ch31-two-component}.  In general $\Gamma_u$ is strictly larger
@@ -331,14 +342,18 @@ $\sum_E\deg(\cL|_E)=\deg(\cL|_{\cX_s})=\deg L=V$ by flatness, which is
 instead of $\cX$ returns the same answer: the components of
 $(\cX_u)_s$ are the strict transforms of the $E$, on which
 $\deg$ is unchanged, together with components contracted by
-$\cX_u\to\cX$, on which the pullback of $\cL$ has degree $0$; all
-multiplicities are again $1$ by semistability.  Thus $\mu_0$ is the
+$\cX_u\to\cX$, on which the pullback of $\cL$ has degree $0$; the strict transforms retain multiplicity one, while exceptional
+multiplicities can be larger.  Their degrees are zero, so their weighted
+contributions remain zero.  Thus $\mu_0$ is the
 constant term of \eqref{eq:curve-ma-laplacian} whichever of the two models
 is used to compute it, and only the Laplacian term is sensitive to the
 choice.  Since $\MA_\omega$ is affine in the closed
 model form and $\MA_{\omega+\ddc u}(0)=\MA_\omega(u)$ by definition,
-\eqref{eq:curve-ma-laplacian} is \eqref{eq:ch31-graph-laplacian}, applied on
-$\Gamma_u$, together with the additivity of the model measure.  It is
+\eqref{eq:curve-ma-laplacian} follows from the additivity of the model
+measure and \Cref{rem:ch20-multiplicities-lengths}: at $E_i$ the coefficient
+of its Laplacian is $b_i(D\cdot E_i)$, exactly the weighted coefficient
+in the model measure.  In a split reduced model this is
+\eqref{eq:ch31-graph-laplacian}.  It is
 essential that the Laplacian be taken on $\Gamma_u$ and not on
 $\Gamma$: a blowup at a smooth point of $\cX_s$ attaches to $\Gamma$
 a new edge rather than subdividing an old one, and a $u$ supported on
@@ -392,8 +407,10 @@ function
 \label{eq:ch31-green-potential}
  G_q\nu(x)=\int_\Gamma g_q(x,y)\,\rd\nu(y)
 \end{equation}
-is continuous and satisfies $\Delta_\Gamma G_q\nu=\nu$.  Two solutions of
-$\Delta_\Gamma u=\nu$ differ by a constant.
+is continuous and satisfies $\Delta_\Gamma G_q\nu=\nu$.  Here, for a
+continuous function $w$, the identity $\Delta_\Gamma w=\nu$ means
+$\int w\,\rd\Delta_\Gamma f=\int f\,\rd\nu$ for every piecewise affine
+test function $f$.  Two continuous solutions differ by a constant.
 \end{lemma}
 
 \begin{proof}
@@ -425,21 +442,19 @@ subdivision.
 \emph{Continuity and boundedness.}  Regard the slope of
 $g_q(\cdot,y)$ on an edge as electrical current, oriented from the larger
 value to the smaller one.  Kirchhoff's law holds at every vertex other than
-$y,q$, while one unit leaves $y$ and one unit enters $q$.  The
+$y,q$, while one unit leaves $q$ and one unit enters $y$.  The
 orientation contains no directed cycle because the potential strictly
 decreases along every oriented edge.  Conservation therefore expresses
-each edge current as a portion of the unit flow from $y$ to $q$; in
+each edge current as a portion of the unit flow from $q$ to $y$; in
 particular every slope has absolute value at most one.  Hence
 $g_q(\cdot,y)$ is $1$-Lipschitz and, since it vanishes at $q$,
 \[
                  |g_q(x,y)|\leq d_\Gamma(x,q)
                     \leq\operatorname{diam}\Gamma .
 \]
-When $y$ moves along one edge, subdivision at $y$ writes the vertex values
-as the solution of the reduced Kirchhoff system; its coefficients depend
-continuously on the two new edge lengths.  Thus $y\mapsto g_q(x,y)$ is
-continuous on each edge and agrees at the endpoints.  Together with the
-uniform Lipschitz bound in $x$, this proves joint continuity and boundedness.
+Symmetry gives the same $1$-Lipschitz bound in $y$.  The triangle
+inequality therefore gives joint continuity directly, including when a
+moving point reaches a vertex.
 
 \emph{The potential.}  $G_q\nu$ is continuous by joint continuity and
 dominated convergence.  For a test function $f\in\PL(\Gamma)$, Fubini and
@@ -454,11 +469,12 @@ dominated convergence.  For a test function $f\in\PL(\Gamma)$, Fubini and
  \end{aligned}
 \]
 the last step because $\nu(\Gamma)=0$.  Piecewise affine functions are
-dense in $C^0(\Gamma)$, so $\Delta_\Gamma G_q\nu=\nu$.  Uniqueness
-modulo constants: if $\Delta_\Gamma w=0$ then
-$\int|w'|^2\rd s=-\int w\,\Delta_\Gamma w=0$ by
-\eqref{eq:graph-dirichlet-sign}, so $w$ is locally constant, hence
-constant.
+dense in $C^0(\Gamma)$, so $\Delta_\Gamma G_q\nu=\nu$.  For uniqueness, suppose $w$ is continuous and $\Delta_\Gamma w=0$.
+Piecewise affine tests supported inside an edge imply that $w$ is affine
+there: the three-point tent test gives the linear interpolation identity
+for every three interior points.  Thus $w$ is piecewise affine on the
+finite graph.  Now \eqref{eq:graph-dirichlet-sign} gives
+$\int|w'|^2\rd s=0$, so connectedness makes $w$ constant.
 \end{proof}
 
 Only now can the announced solution theory be stated.
@@ -474,26 +490,29 @@ $X^{\An}$ satisfies $\MA_\omega(u)=\mu$.
 
 \begin{proof}
 Since $(\mu-\mu_0)(\Gamma)=V-V=0$, \Cref{lem:ch31-green-kernel} applies
-with $\nu=\mu-\mu_0$: the function
+with $\nu=\mu-\mu_0$ and $q$ an original vertex: the function
 \[
                 u(x)=G_q(\mu-\mu_0)(x)
                     =\int_\Gamma g_q(x,y)\,\rd(\mu-\mu_0)(y)
 \]
 is continuous on $\Gamma$ and has $\Delta_\Gamma u=\mu-\mu_0$, which is
 \eqref{eq:curve-poisson}; uniqueness modulo constants is the last clause of
-that lemma.  Its curvature $\mu_0+\Delta_\Gamma u=\mu$ is positive, so by
-the criterion in \Cref{lem:ch31-curve-ma-affine} every piecewise affine
-approximation of $u$ that is admissible is $\omega$-psh; more directly,
-$u$ is a uniform limit of $\omega$-psh model functions.  Indeed, using
-the integral edge lengths of the split discrete setting, let
-$\mu_m\to\mu$ weakly with $\mu_m$ atomic with rational coefficients,
+that lemma.  To prove semipositivity we construct approximations whose curvature
+is positive, rather than invoking arbitrary interpolations.  Using
+the integral edge lengths of the split discrete setting, choose
+$\mu_m\to\mu$ weakly with $\mu_m$ positive atomic with rational coefficients,
 supported at rational subdivision points of $\Gamma$, and of mass $V$.
 Then $u_m=G_q(\mu_m-\mu_0)$ is rational piecewise affine: after inserting
 the support in a rational subdivision, its vertex values solve a linear
-system over $\mathbf Q$.  It is therefore a rational model function on a
-model dominating $\cX$
-(\Cref{thm:bfj-skeletal-characterization}), it is $\omega$-psh by the same
-criterion, and $u_m\to u$ uniformly.  For the last point, observe that
+system over $\mathbf Q$.  Its pullback is a rational model function.  One can realize the rational
+subdivision by monomial blowups at the nodes and then resolve: after
+clearing denominators, integral vertex values $b_Eu_m(x_E)$ give a
+vertical Cartier divisor on a regular snc model.  The resulting models
+may have nonreduced special fibre; reduced semistable models over the
+fixed DVR are not cofinal among these subdivisions.  The weighted
+intersection formula in \Cref{lem:ch31-curve-ma-affine} gives curvature
+$\mu_m$, so these model functions are $\omega$-psh.  Moreover,
+$u_m\to u$ uniformly.  For the last point, observe that
 $u_m-u=G_q(\mu_m-\mu)$, that the family
 $\{g_q(x,\cdot):x\in\Gamma\}$ is bounded by $\operatorname{diam}\Gamma$
 and equi-Lipschitz, hence relatively compact in $C^0(\Gamma)$, and that
@@ -502,8 +521,11 @@ uniform over a compact family of test functions, by a finite
 $\varepsilon$-net argument.  Hence
 $\sup_{x\in\Gamma}|G_q(\mu_m-\mu)(x)|\to0$.  A concrete choice of
 $\mu_m$ is obtained by moving the mass of a fine partition to rational
-subdivision points and then rounding all but one coefficient rationally,
-with the last coefficient chosen to preserve the total mass $V$.  Thus
+subdivision points and then approximating their normalized masses by a rational probability vector.
+For example, round all but one downward on a sufficiently fine rational
+grid and put the remaining mass in the last coordinate.  Since
+$V=\deg L$ is an integer, multiplying by $V$ preserves rationality,
+nonnegativity and total mass.  Thus
 $u\circ p_{\cX}$ is a continuous $\omega$-psh function in the sense of
 \Cref{thm:ch21-continuous-zhang}.
 
@@ -701,11 +723,11 @@ find it in \Cref{sec:ch27-e1-segment}; the reader who wants to remember it
 should remember this table.
 \end{remark}
 
-\subsection{A chain of four components, solved for four measures}
+\subsection{A chain of four components, solved for five atomic measures}
 \label{sec:ch31-chain}
 
-The two-component curve is too small to distinguish an atomic measure from a
-diffuse one.  The next example is the smallest one that does.
+A segment already supports both atomic and diffuse measures.  A longer
+chain makes the distribution of the atomic masses more visible.
 
 \begin{example}[Inverting the Monge--Amp\`ere operator on a chain]
 \label{ex:ch31-chain-solve}
@@ -732,7 +754,7 @@ so \eqref{eq:curve-poisson} is a triangular linear system: the slopes are
 determined by $\mu$ through
 $s_1=\mu(\{0\})-1$, $s_2=s_1+\mu(\{1\})$, $s_3=s_2+\mu(\{2\})$, and
 the last equation $-s_3=\mu(\{3\})-1$ is automatic because
-$\mu(\Gamma)=2$.  The following table records four measures, the solution
+$\mu(\Gamma)=2$.  The following table records five measures, the solution
 normalized by $\max_iu_i=0$, and the energy computed from
 \eqref{eq:ch26-chain-energy}.
 \begin{center}
@@ -760,13 +782,11 @@ $u_0+u_3-\tfrac12(1+1+1)=-3-\tfrac32=-\tfrac92$.  The second row agrees
 with \Cref{ex:ch26-chain-energy}, which is the only overlap between the two
 tables; that agreement is a normalization test, not a coincidence.
 
-Two features are worth noticing.  First, the energy decreases as the measure
-is concentrated: moving from the balanced measure
-$\tfrac12\sum_i\delta_i$ to $2\delta_0$ drops $E_\omega$ from
-$-\tfrac14$ to $-\tfrac92$.  This is the concavity of $E_\omega$
-together with the fact that the reference potential $0$ maximizes it among
-potentials normalized by $\sup u=0$, which is
-\Cref{cor:energy-monotone-concave} in dimension one.  Second, the solution
+Two features are worth noticing.  First, these particular normalized solutions have quite different
+energies: the balanced atomic measure gives $-\tfrac14$, while
+$2\delta_0$ gives $-\tfrac92$.  Monotonicity implies $E_\omega(u)\leq0$
+when $u\leq0$, but concavity alone does not assert that concentrating a
+measure always decreases its sup-normalized solution's energy.  Second, the solution
 for $2\delta_0$ is the potential whose measure is a single atom at the
 \emph{end} of the chain, and it is the extreme point of the admissible
 polytope in the direction $-e_0$; this is the finite-dimensional shadow of
@@ -804,8 +824,8 @@ substitution $w=\tfrac23t-1$.
 This potential is continuous and $\omega$-psh but is \emph{not} a model
 function: it is strictly convex on $(0,3)$, whereas a model function is
 piecewise affine.  It is therefore an element of the second row of the table
-in \Cref{sec:ch24-four-products} and not of the first, and it is the
-smallest example in this chapter of a potential to which
+in \Cref{sec:ch24-four-products} and not of the first, and it is an
+example of a potential to which
 \Cref{thm:ch19-cld-bfj-comparison}\,(B) applies but not (A).  A model
 approximation is obtained by piecewise affine interpolation at
 $t=0,\tfrac3N,\tfrac6N,\ldots,3$, whose measure is atomic of mass $2$ and
@@ -918,16 +938,17 @@ subsequence decreases uniformly to $u$.
 function \eqref{eq:ch08-green-circle} against $\mu-\mu_0$.  Doing so is a
 useful bookkeeping check and gives the same answer; the differential
 route above is shorter because $\mu-\mu_0$ has a density on the
-complement of one point.  The Green function of the circle is the
-non-Archimedean N\'eron function of a degree-zero divisor, and
-\eqref{eq:ch31-tate-potential} is its second primitive, as recorded after
-\eqref{eq:ch19-tate-weight}.
+complement of one point.  The potential \eqref{eq:ch31-tate-potential} is itself a Poisson
+potential for Haar measure minus $d\delta_0$.  Its relation to the
+quadratic N\'eron function is through that Laplacian identity; it is not
+a second primitive of the Green kernel.
 \end{remark}
 
-\subsection{An atom off every toric skeleton}
+\subsection{An atom off the standard toric skeleton}
 \label{sec:ch31-p1-blowup}
 
-The examples so far live on a skeleton.  The next one does not, and it will
+The next atom lies off the standard toric skeleton, but on the skeleton
+of a blowup model.  It will
 be used twice: in \Cref{sec:ch31-toric} to show that the invariance
 hypothesis cannot be dropped, and in \Cref{sec:ch31-divisorial} as the
 smallest instance of an envelope with prescribed divisorial support.
@@ -971,7 +992,9 @@ $p_{\cY}$ of the affine function on $[x_{\mathrm G},x_E]$ with
 Thus $\varphi_E$ rises with slope $1$ from $0$ at $x_{\mathrm G}$ to
 $1$ at $x_E$ and is constant elsewhere.  Set $\psi:=-\varphi_E$.
 
-\emph{Their Laplacians and measures.}  On the segment
+\emph{Their Laplacians and measures.}  For the non-psh weight
+$\varphi_E$, $\MA_\omega$ here denotes the signed multilinear model
+product.  On the segment
 $[x_{\mathrm G},x_E]$, \eqref{eq:ch31-graph-laplacian} gives
 $\ddc\varphi_E=\delta_{x_{\mathrm G}}-\delta_{x_E}$, so
 \begin{equation}
@@ -1045,9 +1068,11 @@ which is the energy of the other degenerate configuration.)
 \label{rem:ch31-retraction}
 For curves, retraction to a semistable skeleton preserves semipositivity and
 pushes curvature forward: if $p:X^{\An}\to\Gamma$ is the retraction and
-$u$ is a model function, then $p_*\ddc u=\Delta_\Gamma(u|_\Gamma)$, and
-$u\leq u\circ p$ with $u\circ p$ again $\omega$-psh
-(\Cref{prop:ch08-retraction-max}).  This is why the graph solution of
+$u$ is a model function, then $p_*\ddc u=\Delta_\Gamma(u|_\Gamma)$.
+If additionally $u$ is $\omega$-psh and $\omega$ is determined on the
+model defining $\Gamma$, then $u\leq u\circ p$ and $u\circ p$ is
+$\omega$-psh \cite[Proposition~3.8]{GJKM19}.  The inequality does not
+hold for arbitrary model functions, as $\varphi_E$ itself shows.  This is why the graph solution of
 \Cref{prop:graph-ma-solution} produces the analytic solution, and it is what
 makes \eqref{eq:ch31-p1-restrictions-agree} compatible with
 \eqref{eq:ch31-p1-two-measures}: pushing both measures of
@@ -1056,7 +1081,8 @@ $\delta_{x_{\mathrm G}}$ in both cases, which is the measure of the common
 restriction.  The information lost is the position of the mass, not its
 amount.
 
-The corresponding retraction statement is false in higher dimension.  No
+The preceding curve argument does not establish such a psh retraction
+statement in higher dimension.  No
 proof later in the book treats a higher-dimensional skeleton as though it
 were automatically a deformation-invariant psh quotient, and the reader
 should treat any such argument with suspicion; the correct higher-dimensional
@@ -1090,7 +1116,12 @@ prescribed recession function
 \label{eq:ch31-recession}
  \check h_P(u)=\sup_{m\in P}\langle-m,u\rangle=h_{-P}(u),
 \end{equation}
-that is, $F-\check h_P$ is bounded.  Under that convention the subgradient
+so $F-\check h_P$ is bounded.  For convex $F$ and a complete fan,
+the toric metric correspondence guarantees the continuous extension of
+this potential to the compact extended tropicalization
+\cite[Section~5.3.7 and Theorem~5.3.11]{BGJKK25}.  We use that
+correspondence, rather than treating boundedness of a general function
+as a proof of continuity at the boundary.  Under that convention the subgradient
 image $\overline{\bigcup_u\partial F(u)}$ is $-P$
 (\Cref{lem:ch19-toric-recession}); switching to concave roof functions on
 $P$ changes the signs but not the measure, as recorded in
@@ -1112,8 +1143,10 @@ this subject.
 \item\label{itm:ch31-toric:lattice}
  \emph{Lattice Lebesgue measure.}  $\vol_M$ normalizes the covolume of
  $M$ to one; $\MA_{\mathbf R}$ is defined by
- \eqref{eq:appD-alexandrov-measure} using $\operatorname{Leb}_M$.  A
- sublattice of index $r$ multiplies every mass by $r$.
+ \eqref{eq:appD-alexandrov-measure} using $\operatorname{Leb}_M$.  Replacing
+ $M$ by a sublattice $M'$ of index $r$ divides lattice-normalized volumes
+ by $r$: $\vol_{M'}=r^{-1}\vol_M$.  This change of convention is distinct
+ from the degree of a finite toric morphism.
 \item\label{itm:ch31-toric:factorial}
  \emph{The factor $n!$.}  The non-Archimedean measure is $n!$ times the
  Alexandrov measure, \eqref{eq:appJ-alexandrov}.  For $n=1$ it is
@@ -1126,7 +1159,8 @@ this subject.
 
 \begin{theorem}
 \label{thm:toric-bfj-alexandrov}
-For an invariant semipositive metric with convex potential $F$,
+For an invariant continuous semipositive metric with convex weight $F$,
+the measure is carried by the Gauss section and satisfies
 \begin{equation}
         \operatorname{trop}_*\MA_L(F)=n!\,\MA_{\mathbf R}(F),
 \label{eq:toric-bfj-alexandrov}
@@ -1165,9 +1199,10 @@ metric has weight $F$; this is \Cref{rem:ch08-toric-model}.
 of $\Pi_F$ and $E_u$ the corresponding component of $(\cX_F)_s$, with
 multiplicity $b_{E_u}$ equal to the denominator of $u$, so that
 $b_{E_u}=1$ when $u$ is a lattice point.  Then $E_u$ is the
-projective toric variety over $k$ attached to the normal fan of the
-subgradient polytope $\partial F(u)\subseteq-P$, and the restriction
-$\cL_F|_{E_u}$ is the associated toric line bundle.  By the toric degree
+projective toric variety over $k$ with residue character lattice
+$M_u=\{m\in M:\langle m,u\rangle\in\mathbf Z\}$, of index $b_{E_u}$ in
+$M$, and polytope $\partial F(u)$ up to translation.  The restriction
+$\cL_F|_{E_u}$ is the corresponding toric $\mathbf Q$-line bundle.  By the toric degree
 formula \eqref{eq:appJ-toric-degree} the weighted degree is
 \begin{equation}
 \label{eq:ch31-toric-vertex-degree}
@@ -1200,17 +1235,15 @@ that mass is $(L^n)$ by \eqref{eq:mixed-total-mass}.  This proves
 \eqref{eq:toric-total-mass} for polyhedral $F$, and in particular
 reproves the toric degree formula.
 
-\emph{Step 4: approximation.}  Let now $F$ be an arbitrary convex function
-with $F-\check h_P$ bounded, so that $\|\cdot\|_F$ is a continuous
-invariant semipositive metric.  Rational polyhedral convex functions with
-the same recession function are uniformly dense among such $F$: one takes
-for $F_\varepsilon$ the supremum of finitely many affine minorants of
-$F$ with slopes in $-P\cap\tfrac1kM$ and rational constants, chosen so
-that the supremum is within $\varepsilon$ of $F$ on a large ball and has
-the same recession function $\check h_P$, which by
-\Cref{lem:ch19-toric-recession} then forces
-$\|F_\varepsilon-F\|_\infty\leq\varepsilon$.  This is Step~3 of the proof
-of \Cref{thm:ch19-toric-ma}, to which we refer for the details.  On the
+\emph{Step 4: approximation.}  Let $F$ now define an invariant continuous
+semipositive metric.  Its global potential $F-\check h_P$ extends
+continuously to the compact extended tropicalization.  The complete-fan semipositivity correspondence
+\cite[Section~5.3.7 and Theorem~5.3.11]{BGJKK25}, using
+\cite[Theorem~4.8.1]{BGPS14}, supplies uniform toric model approximation.
+Thus rational polyhedral semipositive metric weights converge uniformly
+there, as explained in Step~3 of \Cref{thm:ch19-toric-ma}.  Approximating
+on a large ball and matching recession functions alone does not prove
+this global uniform estimate.  On the
 non-Archimedean side,
 uniform convergence of weights gives weak convergence of the measures by
 \Cref{prop:ch24-continuous-uniform}.  On the convex side, Alexandrov
@@ -1219,7 +1252,12 @@ convex functions (\Cref{thm:appD-alexandrov-measure}).  Passing to the limit
 in Step~2 proves \eqref{eq:toric-bfj-alexandrov} in general, and
 \eqref{eq:toric-total-mass} follows since both sides of
 \eqref{eq:toric-bfj-alexandrov} have the constant total mass computed in
-Step~3.
+Step~3.  The extended Gauss skeleton is closed, so weak limits of the
+model measures stay supported there.  The boundary noncharging statement
+in \Cref{thm:ch19-toric-ma} places their mass in its dense torus stratum.
+Consequently the full identity is
+$\MA_L(F)=\iota_*(n!\MA_{\mathbf R}(F))$; a tropical pushforward formula
+alone would not establish support or identify the full measure.
 
 \emph{Step 5: consistency with \Cref{part:cld}.}  The measure produced in
 Steps~1--4 is the BFJ measure of \Cref{def:mixed-model-measure} and its
@@ -1282,12 +1320,21 @@ of lattice length $1$ each, and by
 Here $\iota(0)=x_{\mathrm G}$ is the Gauss point and $\iota(1)$ is the
 monomial point with $|z|=|\pi|$.  The two subgradient intervals tile
 $-P=[-2,0]$, which is Step~3 of the proof above in the smallest case.
-As a curve computation this is \Cref{lem:ch31-curve-ma-affine} applied to
-the toric model whose special fibre is a chain of two rational curves of
-degrees $1,1$; it is the two-component curve of
-\Cref{ex:two-component-complete} with $m_0=m_1=1$, and one checks
-$E_\omega(F)$ against \eqref{eq:two-component-energy} after normalizing
-$F$ to vanish at one of the two points.
+Use the standard reference weight $F_0=\check h_P$, whose curvature is
+$\mu_0=2\delta_{\iota(0)}$.  The global potential is $u=F-F_0$, with
+values $(1,0)$ at $(\iota(0),\iota(1))$ and slope $-1$ between them.
+The toric model metric itself has component degrees $(1,1)$; these are
+the target degrees, not the standard reference degrees.  The graph formula
+therefore gives
+\[
+ E_\omega(u)=2\cdot1-\tfrac12(-1)^2=\tfrac32.
+\]
+Independently, its concave roof on $P=[0,2]$ is
+$\vartheta(m)=\inf_u(F(u)+mu)=m$ for $0\leq m\leq1$, and $1$ for
+$1\leq m\leq2$.  The standard roof is zero, so
+\Cref{thm:ch26-toric-energy} gives
+$\int_0^2\vartheta(m)\,\rd m=\tfrac12+1=\tfrac32$ as well.
+Normalizing by subtracting a constant $c$ changes this energy by $-2c$.
 \end{example}
 
 \begin{example}[A polyhedral atom on $\mathbf P^n$]
@@ -1337,8 +1384,10 @@ point, so $F$ is an integral polyhedral function and
 $0\leq F-\check h_P\leq1$.
 
 \emph{Locating the vertices.}  A point of $N_\mathbf R$ carries an atom
-exactly when at least three of the four affine pieces are simultaneously
-active and maximal (\Cref{lem:ch08-alexandrov-polyhedral}\,(3)).  The four
+exactly when the active gradients span a two-dimensional subgradient
+polytope (\Cref{lem:ch08-alexandrov-polyhedral}\,(3)).  Thus at least
+three pieces must be maximal; the two maximal triples below indeed have
+noncollinear gradients.  The four
 triples give
 \[
  \begin{array}{llll}
@@ -1371,13 +1420,15 @@ $-P$ with vertices $(0,0)$, $(-2,0)$, $(0,-2)$: they share the edge
 from $(0,0)$ to $(-1,-1)$, and $1+1=2=\vol_M(P)$.  Second, the
 non-Archimedean mass $4$ equals $(\cO(2)^2)$.  Third, the associated
 toric model has special fibre with two components, of residual
-self-intersection $2$ each; the model is obtained from
-$\mathbf P^2_R$ by the weighted blowup encoded by $\Pi_F$, and the
-degrees $2,2$ are the atoms of \eqref{eq:ch31-p2-two-atoms}.  Compare
+self-intersection $2$ each.  This affinity subdivision has vertices
+$(0,1),(1,0)$ and omits the origin, so that two-component model does not
+dominate the standard model $\mathbf P^2_R$.  A common toric refinement
+dominates both; additional components contracted to $\cX_F$ have zero
+degree for its pulled-back metric.  The degrees $2,2$ are the atoms of
+\eqref{eq:ch31-p2-two-atoms}.  Compare
 \Cref{ex:ch19-toric-two-atoms}, which performs the same computation on
 $\mathbf P^1\times\mathbf P^1$ with two atoms of mass $1$; the
-structural difference is that there the subgradient polytopes are half-unit
-squares and here they are triangles of lattice area $1$.
+structural difference is that there the subgradient polytopes are triangles of lattice area $\tfrac12$ and here they are triangles of lattice area $1$.
 \end{example}
 
 \subsection{Smooth potentials: densities in coordinates}
@@ -1396,8 +1447,10 @@ Then $F$ is smooth and strictly convex, with
  \qquad
  F''(u)=\frac{\rme^{-u}}{(1+\rme^{-u})^2}>0,
 \]
-and $0\leq F-\check h_P\leq\log2$, so $\|\cdot\|_F$ is a continuous
-invariant semipositive metric on $\cO(1)$.  Writing $p=-F'(u)$, one has
+and $0\leq F-\check h_P\leq\log2$.  Moreover $F-\check h_P$ tends to
+zero at both ends of the extended tropical line.  It therefore extends
+continuously and defines an invariant continuous semipositive metric on
+$\cO(1)$.  Writing $p=-F'(u)$, one has
 $F''=p(1-p)$ and
 \begin{equation}
 \label{eq:ch31-logistic-measure}
@@ -1415,8 +1468,9 @@ The measure is absolutely continuous on the toric skeleton, with density
 maximal $\tfrac14$ at $u=0$ and decaying like $\rme^{-|u|}$.
 
 This is the one-dimensional companion of \Cref{ex:ch19-toric-p2-smooth}, and
-it is the smallest example in the book of a Monge--Amp\`ere measure that is
-neither atomic nor supported on a proper subset of a skeleton.  It also
+it gives a diffuse Monge--Amp\`ere measure whose relative support is all
+of $\iota(\mathbf R)$.  Its topological support in $X^{\An}$ also includes
+the two boundary endpoints, which have mass zero.  It also
 satisfies the corresponding one-dimensional Poisson equation on the
 noncompact toric skeleton of $\mathbf P^1$: with reference measure
 $\mu_0=\delta_{\iota(0)}$ attached to $\check h_P$, the potential
@@ -1428,17 +1482,19 @@ $\check h_P$ is subtracted.
 
 \begin{example}[Smooth real data need not give a model metric]
 \label{ex:ch31-toric-smooth-not-model}
-If $F$ is strictly convex and smooth on the dense tropical stratum, its
-Alexandrov measure has density $\det(D^2F)$.  The associated invariant
-semipositive metric is continuous, but it is not a model metric unless
-$F$ is rational polyhedral.  Thus the equality of BFJ and real measures is
+If a continuous semipositive toric metric has a strictly convex smooth
+weight $F$ on the dense tropical stratum, its Alexandrov measure has
+density $\det(D^2F)$.  It cannot be a model metric: such weights are
+rational-compatible piecewise affine.  Real model weights are finite real
+linear combinations of rational model weights and remain piecewise affine;
+they too exclude a strictly convex smooth weight.  Thus the equality of BFJ and real measures is
 not restricted to atomic model measures.
 \end{example}
 
 The logistic potential of \Cref{ex:ch31-toric-logistic} makes the point
 concrete: its measure has no atoms, whereas by
 \eqref{eq:ch31-toric-model-measure} the measure of any model metric is a
-finite sum of Dirac masses.  Hence $F$ is not a model function, and the
+finite sum of Dirac masses.  Hence $F-\check h_P$ is not a model potential, and the
 metric $\|\cdot\|_F$ belongs to the second row and not the first of the
 table in \Cref{sec:ch24-four-products}.  The same applies to the family
 $\phi_\varepsilon$ of \Cref{ex:ch19-toric-p2-smooth}, whose densities
@@ -1490,6 +1546,9 @@ absolutely continuous on an $n$-dimensional skeleton.
 
 \begin{proposition}
 \label{prop:ch31-toric-mixed}
+Here the non-Archimedean products are Chambert--Loir mixed model products
+and their continuous uniform extensions.  They do not invoke a singular
+BFJ operator in an individual nonample class.
 Let $L_1,\ldots,L_n$ be nef toric line bundles on $X_\Sigma$ with
 polytopes $P_1,\ldots,P_n$, and assume that
 $L_1+\cdots+L_n$ is ample.  Give them invariant continuous semipositive
@@ -1543,8 +1602,8 @@ Matching coefficients of $\varepsilon_1\cdots\varepsilon_n$ gives
 \eqref{eq:ch31-toric-mixed-mass} follows by the same expansion applied to
 Step~3 of \Cref{thm:toric-bfj-alexandrov}, together with the toric mixed
 degree formula, which is \eqref{eq:appJ-toric-degree} polarized; it also
-follows from \eqref{eq:ch24-mass}, which gives the mass
-$(\{\theta_1\}\cdots\{\theta_n\})$ directly.
+follows from the model mixed-mass identity \eqref{eq:mixed-total-mass}
+and uniform convergence, without requiring each $L_i$ ample.
 \end{proof}
 
 \begin{example}[A mixed measure on $\mathbf P^1\times\mathbf P^1$, with
@@ -1595,9 +1654,9 @@ interior, so $\MA_{\mathbf R}(F)=0$ by
 Monge--Amp\`ere equation $\MA_L(F)=\mu$ is unsolvable for every
 $\mu\neq0$.  On the semipositive psh class every mixed measure occurring
 in \eqref{eq:model-energy} is positive of total mass zero and hence
-vanishes, so $E_\omega$ is identically zero there; its differentiability
-(\Cref{thm:energy-envelope-differentiability}) is vacuous rather than
-informative.
+vanishes, so the model and continuous multilinear energy functional is identically
+zero there.  This calculation does not extend the ample-class
+BFJ differentiability theorem to a singular nef-class operator.
 
 This is the promised example in which a standing hypothesis cannot be
 dropped.  The hypothesis is the ampleness of $\{\theta\}$ in
@@ -1619,8 +1678,10 @@ nef is a different matter: there the volume is positive but the model
 measure of \eqref{eq:model-mixed-measure} need not be positive, and one must
 pass to an envelope.  \Cref{ex:ch20-nef-not-ample} separates nef from ample,
 and the systematic treatment of big classes is \Cref{part:bj}, not
-\Cref{part:bfj}.  No statement of the present chapter is asserted outside
-the ample case.
+\Cref{part:bfj}.  The mixed-nef continuous products of \Cref{prop:ch31-toric-mixed} and
+the zero-mass calculation above are explicitly stated exceptions.  The
+singular BFJ existence and uniqueness package used elsewhere retains an
+ample generic class.
 \end{warning}
 
 \subsection{Invariance cannot be dropped}
@@ -1638,8 +1699,11 @@ Let $X=\mathbf P^1$, $L=\cO(1)$, $P=[0,1]$, and let
 $\varphi_E,\psi=-\varphi_E$ be the two model functions of
 \Cref{ex:ch31-p1-blowup}, attached to the blowup of $\mathbf P^1_R$ at the
 reduction $\xi$ of the non-torus-fixed point $z=1$.  Both are model
-functions on $\mathbf P^{1,\An}$; neither is torus invariant, since
-$\xi$ is not a torus-fixed point of the special fibre.  By
+functions on $\mathbf P^{1,\An}$; neither is invariant under the bounded
+torus.  Indeed the unit action $z\mapsto2z$ sends the disc
+$D(1,|\pi|)$ to $D(2,|\pi|)$, a different disc because residue
+characteristic is zero.  Their curvature atoms consequently move,
+whereas the standard reference metric and its Gauss atom are preserved.  By
 \eqref{eq:ch31-p1-restrictions-agree} their restrictions to the toric
 skeleton coincide:
 \[
@@ -1679,11 +1743,10 @@ the retraction to a skeleton pushes curvature forward
 (\Cref{rem:ch31-retraction}), so the identity
 $\trop_*\MA=n!\MA_{\mathbf R}(\text{restriction})$ survives the loss of
 invariance for $n=1$.  It is the \emph{location} of the mass, and with it
-positivity, that is lost.  In dimension $\geq2$ even the pushforward
-statement is not available for non-invariant metrics, because there is no
-retraction theorem; this is the content of the second half of
-\Cref{rem:ch31-retraction} and of the boundary clause attached to the toric
-row of \Cref{sec:ch31-table-main}.
+positivity, that is lost.  In dimension $\geq2$ this curve proof supplies no such general
+pushforward statement for non-invariant metrics.  The chapter makes no
+claim that every possible higher-dimensional pushforward comparison is
+impossible; the stated toric theorem retains invariance.
 \end{example}
 
 \begin{remark}[Invariance as a hypothesis, not a normalization]
@@ -1761,8 +1824,9 @@ carried by $S$ arises this way.
 
 \begin{proposition}
 \label{prop:finite-pole-envelope}
-Assume orthogonality.  The upper-semicontinuous regularization of
-$\Phi_{S,t}$ is continuous and $\omega$-psh, and
+Assume orthogonality and the semipositive reference fixed above.
+The pointwise supremum $\Phi_{S,t}$ itself is continuous and
+$\omega$-psh, satisfies all the constraints, and
 \begin{equation}
                          \Supp\MA_\omega(\Phi_{S,t})\subset S.
 \label{eq:finite-pole-support}
@@ -1802,12 +1866,25 @@ Doing this on every dominating SNC model yields
  \Supp\MA_\omega(\Phi_{S,t})
  \subseteq\bigcap_{\mathcal X}\{f_{\mathcal X}<0\}.
 \]
-The intersection is exactly $S$: in terms of the center map
-$c_{\mathcal X}:X^{\An}\to\mathcal X_0$, the set
-$\{f_{\mathcal X}<0\}$ is the union of the tubes over the generic points
-$c_{\mathcal X}(x_i)$, and a point lying in all these tubes is one of the
-divisorial valuations $x_i$.  This proves
-\eqref{eq:finite-pole-support}.
+We justify that this intersection is exactly $S$.  The set
+$\{f_{\mathcal X}<0\}$ is the union of the tubes whose centers lie on
+the selected components $E_i=\overline{\{c_{\mathcal X}(x_i)\}}$,
+including all points of those components, not just their generic points.
+Every $x_i$ belongs to every such union.
+
+Conversely, fix $x\notin S$.  Rational model functions separate points
+by \Cref{prop:metrics-model-function-density}.  For each $i$ choose such a function
+$h_i$ with $h_i(x)<h_i(x_i)$ and a rational number
+$c_i$ strictly between these values.  The rational model lattice gives
+$g_i=\max\{h_i-c_i,0\}$, with $g_i(x)=0$ and $g_i(x_i)>0$.
+Choose a common dominating snc model determining all the $g_i$ and having
+all $x_i$ as vertices.  Its vertical divisor for $g_i$ is effective,
+contains $E_i$ with positive coefficient, and has center of $x$ outside
+its support: a local equation for an effective divisor has positive
+valuation at a center on its support.  Thus $c_{\mathcal X}(x)$ lies on
+none of the $E_i$, and $f_{\mathcal X}(x)=0$.  This excludes $x$ from
+the intersection and proves \eqref{eq:finite-pole-support}.  This is the
+model-function separation step in \cite[Lemma~8.5]{BFJ15}.
 
 For the converse, the supported Calabi--Yau theorem gives a continuous
 solution $\varphi$ for $\mu$.  Put $t_i=\varphi(x_i)$.  Then
@@ -1896,9 +1973,12 @@ $\mathbf P^1$, explicitly]
 Continue \Cref{ex:ch31-p1-blowup}: $X=\mathbf P^1$, $L=\cO(1)$,
 $V=1$, $\mu_0=\delta_{x_{\mathrm G}}$, and $x_E$ the divisorial point
 at tree distance $1$ from $x_{\mathrm G}$ in the direction of
-$\xi=\overline{(z=1)}$.  Write $t(y)\in[0,\infty]$ for the distance from
-$x_{\mathrm G}$ to $y$ measured along the branch towards $\xi$, with
-$t(y)=0$ if $y$ does not lie in that branch.  Then
+$\xi=\overline{(z=1)}$.  Write $t(y)$ for the length of the common
+initial path of $[x_{\mathrm G},y]$ and $[x_{\mathrm G},z=1]$.
+Equivalently $t(y)=\max\{0,v_y(z-1)\}$, with $t(\infty)=0$.
+It is zero outside that reduction branch and infinite only at $z=1$;
+a path branching off before depth one retains that branching depth, not
+its entire distance from $x_{\mathrm G}$.  Then
 \begin{equation}
 \label{eq:ch31-p1-green-formula}
  \varphi_{x_E}(y)=1-\min\{t(y),1\}
@@ -1963,17 +2043,21 @@ has the right measure; by \Cref{prop:ch31-one-pole} the envelope has measure
 $V\delta_{\xi_{\mathrm G}}$ and vanishes at $\xi_{\mathrm G}$, and since
 $\delta_{\xi_{\mathrm G}}$ is carried by the dual complex of
 $\mathbf P^n_R$, the uniqueness clause of \Cref{thm:bfj-supported-cy}
-forces the two to agree.  In the language of weights, the Green function of
-the toric Gauss point \emph{is} the reflected support function
-$\check h_P$, whose subgradient at the origin is all of $-P$, so that
-the whole mass $n!\vol_M(P)=d^n$ sits at one point.
+forces the two to agree.  The Green potential is zero relative to the
+standard reference.  Its metric weight is $\check h_P$, whose subgradient
+at the origin is all of $-P$, placing the whole mass
+$n!\vol_M(P)=d^n$ at one point.
 
 For a lattice point $u_0\in N=\mathbf Z^n$ the same computation applies
 after translating by any $t\in T(K)$ with $\trop(t)=u_0$, which exists
-because $v(K^\times)=\mathbf Z$; the envelope becomes
-$\check h_P(\cdot-u_0)$ relative to the translated reference.  The example
-is worth pairing with \Cref{ex:ch31-p1-green}: in the toric case the Green
-function is invariant, polyhedral, and equal to the reference weight, while
+because $v(K^\times)=\mathbf Z$.  Its metric weight is
+$\check h_P(\cdot-u_0)$, and its Green potential relative to that
+translated reference is zero.  Relative to the original standard reference
+the normalized potential is
+$\check h_P(\cdot-u_0)-\check h_P+\check h_P(u_0)$, vanishing at
+$\iota(u_0)$.  The example is worth pairing with
+\Cref{ex:ch31-p1-green}: the toric Green potential is invariant and
+polyhedral, while
 the non-toric function of \Cref{ex:ch31-p1-green} is not torus-invariant
 and is not determined by the toric reference weight.  Both are nevertheless
 model functions with a single atom of mass $V$.
@@ -2010,7 +2094,9 @@ $m$, so every $\varphi_{x_m}$ is admissible and
  \Phi(x_{\mathrm G})\geq\sup_m m=+\infty .
 \]
 Hence $\Phi(y)=+\infty$ for every $y\neq x^{(1)}$, and
-\eqref{eq:finite-pole-envelope} defines nothing.  The failure is exactly the
+$\Phi(x^{(1)})=0$: every competitor is at most zero there and the
+constant zero is admissible.  This pointwise supremum is not a finite
+continuous psh envelope.  The failure is exactly the
 failure of item \cref{itm:ch31-pole:compact}: the estimate of
 \Cref{thm:ch22-proper-normalization} bounds $\sup_X\varphi-\varphi(x)$
 uniformly for $x$ in a \emph{fixed} dual complex, and the constant
@@ -2022,9 +2108,11 @@ one-parameter family $\varphi_{x_m}$ has energies
 $E_\omega(\varphi_{x_m})=m-\tfrac m2\cdot1=\tfrac m2$ --- more precisely,
 by \Cref{prop:ch26-graph-energy} on $[x_{\mathrm G},x_m]$ with
 $\mu_0=\delta_{x_{\mathrm G}}$ and slope $-1$ on a segment of length
-$m$, $E_\omega(\varphi_{x_m})=m-\tfrac12m=\tfrac m2$ --- so the family is
-not bounded in energy either, and \Cref{prop:e1-compact-superlevels} does
-not apply.  Second, normalizing by the supremum instead produces
+$m$, $E_\omega(\varphi_{x_m})=m-\tfrac12m=\tfrac m2$.
+These unnormalized positive energies do not test
+\Cref{prop:e1-compact-superlevels}, which concerns normalized potentials.
+For that normalized family the energies tend to $-\infty$, as the next
+calculation shows, so no fixed energy superlevel contains it.  Second, normalizing by the supremum instead produces
 $\varphi_{x_m}-m=-\min\{t,m\}$, a \emph{decreasing} sequence of
 $\omega$-psh model functions converging pointwise to
 \[
@@ -2066,9 +2154,12 @@ proof has wider scope.
 The values $t_i$ are constraints and the masses
 $a_i=\MA(\Phi_{S,t})(\{x_i\})$ are their Lagrange multipliers.  Adding a
 common constant to $t$ adds that constant to the envelope and leaves every
-$a_i$ unchanged.  On the quotient $\mathbf R^N/\mathbf R(1,\ldots,1)$,
-the energy is concave and its gradient is the mass vector.  This is the
-finite-dimensional shadow of the envelope differentiability theorem.
+$a_i$ unchanged.  On $\mathbf R^N$, the energy is concave and its
+gradient is the mass vector.  It translates by $cV$, so it does not itself
+descend to $\mathbf R^N/\mathbf R(1,\ldots,1)$.  Fixing a gauge, or
+subtracting $Vt_1$, gives a concave function on that quotient; the mass
+vector is already invariant under diagonal translation.  This is the
+finite-dimensional shadow of envelope differentiability.
 \end{example}
 
 The two-component curve realizes this statement with $N=2$ and closed
@@ -2161,9 +2252,16 @@ $\mathcal F(t+c\mathbf 1)=\mathcal F(t)+cV$, and by
                 =\sum_{i=1}^N h_i
                    \MA_\omega(\Phi_{S,t})(\{x_i\}).
 \]
-Indeed, on a fixed SNC model the obstacle $f_{\cX,t}$ depends linearly on
-$t$, and \Cref{prop:finite-pole-envelope} places the envelope measure on
-$S$.  Thus, writing
+To apply the differentiability theorem, work in a bounded neighborhood
+of a fixed $t$.  Compactness provides one constant shift for which all
+competitors in this neighborhood are at most $-1$, as in the proof of
+\Cref{prop:finite-pole-envelope}.  On a fixed snc model the resulting
+obstacles $f_{\cX,t}$ depend affinely on $t$ and satisfy
+$\Phi_{S,t}=P_\omega(f_{\cX,t})$ after undoing that constant shift.
+Their vertex directions have value $h_i$ at $x_i$.
+\Cref{prop:finite-pole-envelope} places the envelope measure on $S$,
+so envelope differentiability gives the displayed derivative.  No single
+unshifted obstacle formula is asserted for all $t\in\mathbf R^N$.  Thus, writing
 $\MA_\omega(\Phi_{S,t})=\sum_i a_i(t)\delta_{x_i}$, one has
 $\nabla\mathcal F(t)=(a_1(t),\ldots,a_N(t))$.  The resulting map from
 constraint values modulo constants to mass vectors is the
@@ -2185,40 +2283,60 @@ generation of a section algebra and may fail.
 
 \begin{remark}[What modelness would mean, and what is known]
 \label{rem:ch31-modelness}
-By \Cref{thm:bfj-skeletal-characterization}, $\Phi_{S,t}$ is a model
-function precisely when it is $\mathbf Q$-piecewise linear on some dual
-complex and factors through the corresponding retraction.  The examples of
-\Cref{sec:ch31-one-pole} are all of this kind: \eqref{eq:ch31-p1-green-formula}
-is piecewise linear with two pieces, and the toric envelope of
-\Cref{ex:ch31-toric-green} is a support function.  That is a feature of
-dimension one and of the invariant category, not a theorem.  In general the
-question is whether the graded algebra
-$\bigoplus_m H^0(X,mL\otimes\cI_m)$ attached to the constraint is finitely
-generated; when it is, the envelope is a model function, and when it is not,
-it need not be.  Boucksom--Jonsson exhibit a divisorial Green function that
-is not $\mathbf Q$-piecewise linear \cite[Theorem~A]{BJGreen24}; the
-statement is proved there for the trivially valued theory and is discussed
-in \Cref{part:bj}.  Nothing in the present chapter asserts modelness beyond
-the cases in which it is computed.
+A rational model potential factors through a model retraction and has
+a rational-compatible piecewise affine restriction.  A real model
+potential is a finite real linear combination of such potentials; it need
+not be $\mathbf Q$-piecewise linear.  Thus real modelness and rational
+modelness must be distinguished.  The explicitly computed potentials in
+\Cref{sec:ch31-one-pole} are rational model potentials.
+
+A sufficient finite-generation criterion is given in
+\cite[Remark~8.8]{BFJ15}.  For one pole $x=x_E$, choose a model extension
+$\mathcal L$ of $L$ and write $\mathcal L'=\mathcal L-E$; the Green
+potential is $P_\omega(-\varphi_E)$ up to a constant.  If the graded
+\emph{model} section algebra
+$\bigoplus_{m\geq0}H^0(\mathcal X,m\mathcal L')$ is finitely generated
+(over the valuation ring, using divisible $m$ for a rational extension),
+the base-ideal construction gives a rational model envelope.
+This is a sufficient criterion, not an equivalence proved here.  Its
+sections live on $\mathcal X$; replacing this algebra by generic-fibre
+sections loses the vertical condition because $\pi$ is invertible there.
+
+Boucksom--Jonsson settle the rational-model question negatively in
+higher dimension over $K=\mathbf C((\pi))$
+\cite[Theorem~A]{BJGreen24}.  For a rational semipositive reference with
+ample generic class, a one-pole Green potential is rational model in
+dimension one, but need not be rational model in dimension at least two.
+Their examples arise through Gauss base change from trivially valued
+geometry, so the resulting counterexamples are genuinely discretely valued.
+The examples in Theorem~A are still $\mathbf R$-PL in that paper's sense,
+which allows finite maxima and minima; this is broader than the finite
+real-linear-combination model space used here.  The theorem alone therefore
+does not identify all real model possibilities.  Their Theorem~B gives a
+continuous solution on $\mathbf P^3_{\mathbf C((\pi))}$ with finite
+support in a dual complex that factors through no model retraction.
+Its support is not asserted to consist of divisorial points, so it is not
+silently substituted for a one-pole counterexample.
 \end{remark}
 
 \begin{warning}{Continuity is a theorem; modelness is not}
 The continuity of $\Phi_{S,t}$ is
 \Cref{thm:bfj-envelope-regularity} and is available under the standing
-hypotheses.  Modelness is a separate and much stronger assertion, and no
-theorem of \Cref{part:bfj} provides it.  A proof that silently replaces a
-continuous envelope by a model function is using finite generation without
-saying so.
+hypotheses.  Modelness is a separate stronger assertion: it holds for one pole on a
+curve with rational reference, but fails in higher-dimensional examples
+by \cite[Theorem~A]{BJGreen24}.  Continuity alone does not provide it.  A proof that silently replaces a
+continuous envelope by a model function needs a separate modelness
+argument; finite generation is one sufficient route.
 \end{warning}
 
 \section{Simple degenerations}
 \label{sec:ch31-degenerations}
 
-The last family concerns metrics that are \emph{canonical}: distinguished by
-a symmetry or by a functional equation rather than by a choice.  In each of
-the cases below the canonical metric is computed in closed form, its
-Monge--Amp\`ere measure is identified, and the mass is checked against an
-intersection number.
+This family compares chosen model metrics with metrics distinguished
+by a symmetry or functional equation.  Good reduction alone does not
+select a canonical metric on an arbitrary polarized variety.  For abelian
+varieties the rigidified cube relation does select one; in each calculation
+we specify the metric and check its mass against an intersection number.
 
 \subsection{Good reduction: the degenerate case of everything}
 \label{sec:ch31-good-reduction}
@@ -2312,8 +2430,8 @@ check~\cref{itm:ch31-check:vertical}.
 \label{ex:ch31-nodal-thickness}
 Suppose instead that the node has completed local ring
 $R[[x,y]]/(xy-\pi^a)$ with $a\in\mathbf Z_{>0}$, so that the edge of
-$\Gamma$ has length $a$ (\Cref{ex:ch08-An-edge}).  Then $\cX$ is
-regular only after resolving into a chain of $a+1$ components; on the
+$\Gamma$ has length $a$ (\Cref{ex:ch08-An-edge}).  For $a>1$ this model is not regular; its regular resolution is a chain
+of $a+1$ components (and for $a=1$ the original model is regular); on the
 normal two-component model the Laplacian of an affine function
 with endpoint values $a_0,a_1$ is
 $\tfrac{a_1-a_0}{a}\delta_{x_0}+\tfrac{a_0-a_1}{a}\delta_{x_1}$, and
@@ -2337,20 +2455,21 @@ that model after subdividing.
 \label{sec:ch31-elliptic}
 
 The Tate curve was computed in \Cref{ex:ch31-tate-bfj}.  We record here what
-it says as a statement about degenerations, and how the two elliptic cases
-sit relative to each other.
+it says for good and split multiplicative reduction.  These two cases
+do not exhaust elliptic reduction over $K$: additive and nonsplit
+multiplicative reduction require separate treatment or extension.
 
 \begin{example}[The two elliptic regimes side by side]
 \label{ex:ch31-elliptic-dichotomy}
-Let $E$ be an elliptic curve over $K$ and $L$ of degree $d>0$; let
-$\|\cdot\|_{\mathrm{can}}$ be the canonical metric, characterized by
-$[2]^*\|\cdot\|_{\mathrm{can}}=\|\cdot\|_{\mathrm{can}}^{\otimes4}$ for
-symmetric $L$.
+Let $E$ have good or split multiplicative reduction over $K$, and let
+$L$ be a rigidified symmetric line bundle of degree $d>0$.  Its canonical
+metric is characterized by the rigidified isomorphism
+$[2]^*L\simeq L^{\otimes4}$ and the corresponding metric equation.
 \begin{center}
 \small
 \begin{tabular}{p{.20\textwidth}|p{.22\textwidth}|p{.24\textwidth}|p{.24\textwidth}}
 \toprule
-&\textbf{good reduction}&\textbf{multiplicative, $v(q)=\ell$}
+&\textbf{good reduction}&\textbf{split multiplicative, $v(q)=\ell$}
  &\textbf{where}\\
 \midrule
 skeleton&a point&circle of circumference $\ell$
@@ -2364,7 +2483,7 @@ canonical measure&$d\,\delta_{x_0}$
 total mass&$d$&$d$&\eqref{eq:examples-global-normalization}\\
 is it a model metric?&yes&no; only uniform piecewise affine model
  approximations&\Cref{ex:ch31-tate-bfj}\\
-energy relative to the balanced model metric&$0$
+energy relative to the model reference with mass $d\delta_0$&$0$
  &$-\tfrac{\ell d^2}{24}$&\eqref{eq:ch31-tate-energy}\\
 \bottomrule
 \end{tabular}
@@ -2388,11 +2507,10 @@ It is a uniform decreasing limit of model metrics along the nested dyadic
 subdivisions described after \eqref{eq:ch31-tate-energy-approx}; the
 associated measures are those of \eqref{eq:ch19-tate-model-approx},
 which is exactly the hypothesis under which
-\Cref{thm:ch19-cld-bfj-comparison}\,(B) applies.  This is the second
-occurrence in this chapter of a potential in the continuous row but not the
-model row of \Cref{sec:ch24-four-products}, the first being
-\Cref{ex:ch31-chain-lebesgue}, and it is the one that matters for
-arithmetic applications.
+\Cref{thm:ch19-cld-bfj-comparison}\,(B) applies.  Like \Cref{ex:ch31-chain-lebesgue} and the smooth toric examples,
+this metric belongs to the continuous row but not the model row of
+\Cref{sec:ch24-four-products}; the canonical case is particularly useful
+in arithmetic applications.
 \end{remark}
 
 \subsection{Totally degenerate abelian varieties}
@@ -2400,18 +2518,20 @@ arithmetic applications.
 
 Let $A$ be a totally degenerate abelian variety over a field satisfying the
 standing BFJ hypotheses, and assume that its Raynaud uniformization is split
-over $K$.  It produces a canonical skeleton
+over $K$, and write $g=\dim A$.  If $\Lambda$ is the analytic period
+group, its tropical image $\Lambda_N=\tau(\Lambda)\subset N_\mathbf R$
+is a full real lattice.  The canonical skeleton is
 \[
-                         \Sigma_A=N_\mathbf R/\Lambda,
+                         \Sigma_A=N_\mathbf R/\Lambda_N.
 \]
-a compact real torus.  Translation-invariant semipositive metrics correspond
+This is a compact real torus.  Invariant continuous semipositive metrics correspond
 to convex quasi-periodic functions on $N_\mathbf R$.  Their
 Chambert--Loir measures are the descended real Alexandrov measures.  The
 canonical metric of an ample symmetric line bundle has constant real
 Monge--Amp\`ere density, hence
 \begin{equation}
-               c_1(L,\|\cdot\|_{\mathrm{can}})^n
-               =(L^n)\,m_{\mathrm{Haar}},
+               c_1(L,\|\cdot\|_{\mathrm{can}})^g
+               =(L^g)\,m_{\mathrm{Haar}},
 \label{eq:abelian-canonical-haar}
 \end{equation}
 where Haar measure has total mass one.  Prescribing a smooth positive density
@@ -2429,27 +2549,36 @@ attached to the polarization by \eqref{eq:ch19-qL}; by
  \MA_{\mathbf R}\bigl(\tfrac12q_L\bigr)
  =\det\bigl(D^2(\tfrac12q_L)\bigr)\rd x=\det(B)\,\rd x,
 \end{equation}
-where $B$ is the Gram matrix of $q_L$ in a basis of
-$\tau(\Lambda)$, and the non-Archimedean measure is $g!\det(B)\rd x$ on a
-torus of lattice volume one, of total mass
+where coordinates are in an integral basis of $N$, $\rd x$ gives $N$
+covolume one, and $B$ is the matrix of $q_L$ in those coordinates.
+Put $c=\operatorname{covol}_N(\Lambda_N)$.  The non-Archimedean density
+is $g!\det(B)\rd x$, and its mass is
 \begin{equation}
 \label{eq:ch31-abelian-mass}
- g!\det(B)=(L^g),
+ g!\det(B)c=(L^g).
 \end{equation}
-the last equality being the Riemann relation $(L^g)=g!\chi(L)$ together
-with $\chi(L)=d_1\cdots d_g=\det(B)$, the $d_i$ being the elementary
-divisors of $B$ and their product its determinant by Smith normal form.
-\Cref{ex:ch19-abelian-surface-degenerate} performs this computation
-for $g=2$ with
-$B=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$, obtaining
-density $6\,\rd x$ and mass $6=(L^2)$ for a polarization of type
-$(1,3)$; the principally polarized case $B=I$ gives density
-$2\,\rd x$ and mass $2$.
+Indeed, if $T$ has as columns a basis of $\Lambda_N$ in the chosen
+$N$-coordinates, the polarization homomorphism $\Lambda\to M$ has
+integral matrix $H=BT$.  Thus
+$\chi(L)=|\det H|=\det(B)c$ and the Riemann relation gives
+$(L^g)=g!\chi(L)$.  Its elementary divisors are those of the integral
+map $H$, not those of an arbitrary real Gram matrix in a period basis.
+Equivalently $\rd x/c$ descends to probability Haar measure.
+
+In \Cref{ex:ch19-abelian-surface-degenerate}, $\Lambda_N=N=\mathbf Z^2$,
+so $T=I$, $c=1$ and
+$B=H=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$.
+The density and mass are both $6$ for type $(1,3)$.
+When $g=2$, $B=I$ and $\Lambda_N=N$, the principally polarized case has
+density $2\rd x$ and mass $2$.  Omitting $c$ outside that unit-period
+setting would give an incorrect degree even for a Tate curve.
 
 \begin{example}[An abelian surface, transported to the BFJ side]
 \label{ex:ch31-abelian-surface-bfj}
-Keep the data of \Cref{ex:ch19-abelian-surface-degenerate}:
-$A=\mathbf G_{m,K}^{2,\An}/\Lambda$ with
+Use the unit-period example of \Cref{ex:ch19-abelian-surface-degenerate}
+over the standing discretely valued field, with $q=\pi$:
+$A=E_q\times E_q=\mathbf G_{m,K}^{2,\An}/\Lambda$, with periods
+$(q,1),(1,q)$ and
 $\tau(\Lambda)=\mathbf Z^2$, skeleton
 $\Sigma_A=\mathbf R^2/\mathbf Z^2$ of lattice volume $1$, and
 $q_L(x)=x^{\mathsf T}Bx$ with
@@ -2464,9 +2593,12 @@ and by \Cref{thm:ch19-cld-bfj-comparison}\,(B), together with
 the BFJ measure, the Chambert--Loir measure and the CLD Bedford--Taylor
 product.  Three checks are available and all three are performed in
 \Cref{ex:ch19-abelian-surface-degenerate}: the polarization type
-$(1,3)$ gives $\chi(L)=3$ and $(L^2)=2!\cdot3=6$; the restriction to
-the closed geodesic in the direction $w=(1,0)$ has degree
-$w^{\mathsf T}Bw=2$; and in the direction $w=(1,1)$ it has degree $6$.
+$(1,3)$ gives $\chi(L)=3$ and $(L^2)=2!\cdot3=6$; the elliptic embedding $E_q\to A$, $z\mapsto(z,1)$, has tropical
+direction $w=(1,0)$ and restricted degree $w^{\mathsf T}Bw=2$;
+the diagonal embedding $z\mapsto(z,z)$ has direction $w=(1,1)$ and
+degree $6$.  These are actual algebraic elliptic subvarieties with tropical
+multiplicity one.  An arbitrary closed real geodesic need not be algebraic;
+the subvariety formula in Chapter~19 requires that additional hypothesis.
 
 For the BFJ theory the transfer is worth stating explicitly.  The canonical
 metric is a uniform limit of semipositive model metrics obtained from
@@ -2490,9 +2622,11 @@ on $A^{\An}$ contains information not determined by its restriction to
 $\Sigma_A$.
 
 \Cref{ex:ch31-noninvariant} is the smallest illustration of the last
-sentence, on $\mathbf P^1$ rather than on an abelian variety; the same
-construction applies verbatim to $A$, by blowing up a non-torus-fixed
-closed point of a special fibre.  The correct general statement of the
+sentence, on $\mathbf P^1$ rather than on an abelian variety.  It is
+not a verbatim coefficient-one construction on a higher-dimensional
+abelian model: an exceptional perturbation must separately satisfy
+relative nefness, with a sufficiently small coefficient and an appropriate
+ample reference.  The correct general statement of the
 relationship between $A^{\An}$ and $\Sigma_A$ is
 \Cref{thm:ch19-raynaud}\,\cref{itm:ch19-ray:skeleton}, a deformation
 retraction of topological spaces, which is not a statement about psh
@@ -2503,9 +2637,10 @@ functions.
 On an abelian variety, \emph{canonical metric} means the metric fixed by the
 multiplication maps, computed in \Cref{sec:ch19-canonical}.  In the
 degeneration literature the same word sometimes denotes the limit of a
-family of Kähler--Einstein metrics.  The two agree for abelian varieties and
-do not agree in general.  \Cref{rem:ch19-canonical-two-meanings} separates
-them; nothing in \Cref{part:bfj} uses the second.
+family of Kähler--Einstein metrics.  No identification of these two constructions is established here,
+including for abelian varieties.  \Cref{rem:ch19-canonical-two-meanings}
+fixes the cube-relation meaning used in this book; nothing in
+\Cref{part:bfj} requires a K\"ahler--Einstein family limit.
 \end{warning}
 
 \subsection{Base change: what is invariant and what is not}
@@ -2525,12 +2660,12 @@ for the absolute value on $K'$, and they must not be mixed
 \item\label{itm:ch31-bc:extend} \emph{Extend} $v$, so that
  $v(\pi')=1/e$; or
 \item\label{itm:ch31-bc:renormalize} \emph{renormalize}, so that
- $v'(\pi')=1$, that is, $v'=e\,v$ on $K$.
+ $v'(\pi')=1$, that is, $v'=e\,v$ on $K'$.
 \end{enumerate}
 Take $X$ with the two-component semistable model of
 \Cref{sec:ch31-nodal}, node of thickness $1$, and let
-$X'=X\otimes_KK'$.  The minimal semistable model of $X'$ has special
-fibre a chain of $e+1$ components, and the skeleton is a segment.
+$X'=X\otimes_KK'$.  Resolving the base-changed node $xy=(\pi')^e$ gives a dominating
+regular semistable model with a chain of $e+1$ components, and the skeleton is a segment.
 \begin{center}
 \small
 \begin{tabular}{p{.28\textwidth}|p{.20\textwidth}|p{.21\textwidth}|p{.21\textwidth}}
@@ -2554,14 +2689,17 @@ energy \eqref{eq:two-component-energy}&$-m_0m_1-\tfrac12m_1^2$
 The general statements behind the table are
 \Cref{prop:base-change-model-metrics} and \Cref{thm:base-change-ma}: the
 Monge--Amp\`ere measure commutes with base change, and the total mass, being
-an intersection number, is insensitive to it.  What changes is the metric on
-the skeleton, and therefore every quantity built from slopes: potentials,
-Dirichlet energies, capacities.
+an intersection number, is insensitive to it.  Under the extended absolute value, total skeletal length, endpoint
+potential values and Dirichlet energy are all unchanged.  The new vertices
+merely subdivide the same metric segment.  Renormalizing $v'=ev$ instead
+multiplies lengths and model potentials by $e$, keeps slopes unchanged,
+and multiplies both Dirichlet energy and relative energy by $e$.
 
-The rule to remember is that \emph{numbers computed by intersection theory
-are invariant and numbers computed by integrating slopes are not}.  A
-computation that produces a base-change-dependent intersection number, or a
-base-change-independent Dirichlet energy, contains an error.
+Thus the change in the last column is a change of ground normalization,
+not an effect of fixed-absolute-value base change.  Intersection numbers
+remain unchanged in either convention.  No universal scaling law for
+capacities follows from this table: their definition also fixes the unit
+bounds $0\leq u\leq1$ on admissible test potentials.
 \end{example}
 
 \begin{remark}[The Gauss extension]
@@ -2592,7 +2730,7 @@ tables below names one statement of \Cref{part:bfj} and one statement of
 \Cref{part:cld}, says on which locus they agree, records the hypotheses each
 side needs, and classifies the relation.
 
-The classification uses four symbols, and the whole value of the tables lies
+The classification uses five symbols, and the whole value of the tables lies
 in keeping them apart.
 
 \begin{description}[style=nextline,leftmargin=0pt,labelindent=0pt,
@@ -2603,10 +2741,10 @@ the same thing, with all normalizations of \Cref{app:normalizations} taken
 into account.  A proof is cited.
 \item[$\Rightarrow$ one-way implication]
 The BFJ statement implies the CLD statement on the stated locus, and the
-converse is not proved in this book.  The cell says where the converse
-fails or is open.
+converse is not proved in this book.  The cell says where the converse is unproved by the cited inputs.
 \item[$\Leftarrow$ one-way implication]
-The CLD statement implies the BFJ statement, and not conversely.
+The CLD statement implies the BFJ statement; a converse would require
+a separate argument.
 \item[$?$ unknown]
 Both statements are meaningful on the stated locus and neither implication
 is proved here.  A pointer to the limitations table or to an open problem is
@@ -2617,6 +2755,16 @@ theory does not address the question.  This is not the same as $?$, and
 conflating the two produces false open problems, as
 \Cref{sec:ch19-limitations-reading} insists.
 \end{description}
+
+All comparisons of potentials use a fixed metrized line-bundle
+reference: positivity concerns its local metric weights and curvature,
+not the bare global function $\varphi$.  Model and continuous real
+combinations are interpreted through the multilinear and real-weight
+extensions proved in \Cref{thm:ch19-cld-bfj-comparison}.  Original CLD
+Chern currents and their products are considered over $K$.  Ordinary GK
+formal delta-forms and functorial curve tests use
+$F=\widehat{\overline K}$ and the base-changed metrics.  This convention
+does not assert positivity descent for an arbitrary current.
 
 Three standing conventions apply to every row.  First, \emph{hypotheses}
 means the hypotheses actually used in the proof cited in that row, not the
@@ -2656,9 +2804,9 @@ counterpart.  The correct summary is \Cref{sec:ch31-table-not}.
   (\Cref{thm:common-model-core},
    \Cref{thm:gk-formal-positivity-comparison})
  &model functions on $X^{\An}$
- &BFJ: \eqref{eq:ch19-bfj-hypotheses}, for the existence of models over
-  $R$.  CLD: $K$ algebraically closed and $X$ proper reduced; the
-  algebraic closure is removed by faithfully flat descent
+ &BFJ: the standing model hypotheses.  CLD current positivity over $K$
+  is the numerical comparison in \Cref{thm:ch17-psh-residual-nef}.
+  GK delta-forms and curve tests are on $X_F$; numerical nefness descends
  &$=$\\
 
 (C2) $\varphi$ continuous $\theta$-psh, i.e.\ a uniform limit of
@@ -2666,27 +2814,29 @@ counterpart.  The correct summary is \Cref{sec:ch31-table-not}.
  &$\|\cdot\|_\varphi$ continuous semipositive in Zhang's sense
   (\Cref{sec:metrics-semipositive})
  &continuous potentials
- &BFJ: density of model functions,
-  \Cref{prop:metrics-model-function-density}.  CLD: none beyond
-  properness of $X$
+ &BFJ: continuous regularization, \Cref{thm:ch21-continuous-zhang},
+  not density alone.  CLD: proper $X$ over complete nontrivially valued
+  $K$, with the same uniform metric definition
  &$=$\\
 
 (C3) same as (C2)
  &$c_1(L,\|\cdot\|_\varphi)\geq0$ as a CLD current
   (\Cref{prop:bt-current-stability})
  &continuous potentials
- &BFJ: as in (C2).  CLD: weak closedness of positivity.  The converse fails
-  to be provable because positivity of a current is a condition from above;
-  row \textup{(L4)}
+ &BFJ: as in (C2).  CLD: weak closedness of positivity.  The quoted inputs
+  do not prove the converse from positive current to global nef-model
+  approximation; row \textup{(L4)}
  &$\Rightarrow$\\
 
 (C4) $\varphi$ bounded $\theta$-psh (\Cref{def:ch21-bfj-psh})
- &$\varphi$ locally CLD-psh (\Cref{def:ch15-hierarchy})
+ &associated local metric weights CLD-psh
+  (\Cref{def:ch15-hierarchy})
  &none proved
  &Both sides are defined; neither implication is proved.  Forward:
   \Cref{thm:ch19-cld-bfj-comparison}\,\cref{itm:ch19-cb:scope1}.  Backward:
-  \cref{itm:ch19-cb:scope2}; row \textup{(L10)},
-  \Cref{prob:frontier-cld-global-metric}
+  \cref{itm:ch19-cb:scope2}; row \textup{(L10)}.  The retired
+  \Cref{prob:frontier-cld-global-metric} asks a different approximation
+  question
  &$?$\\
 
 \bottomrule
@@ -2725,16 +2875,16 @@ only in rows whose hypotheses include the required regularization theorem.
   $F$ (\Cref{thm:toric-positivity},
    \Cref{cor:ch19-toric-convexity-test})
  &torus-invariant piecewise smooth metrics
- &Both sides need \emph{invariance}; it cannot be dropped, by
-  \Cref{ex:ch31-noninvariant}.  CLD additionally needs a complete fan for
-  the last equivalence
+ &Both sides need invariance and continuous extension to the complete
+  toric compactification.  The ordinary GK positivity tests are on $X_F$;
+  see \Cref{thm:toric-positivity} and \Cref{ex:ch31-noninvariant}
  &$=$\\
 
-(C7) $\varphi$ an $\mathbf R$-PL model function
+(C7) local $\mathbf R$-PL metric weights for a model metric
  &residue-nef $=$ classically psh $=$ CLD-v2 psh on the relative
   interior (\Cref{thm:verified-pl-psh-equivalence},
   \cite[Theorem~4.3]{GR25Classical})
- &$\mathbf R$-PL functions on a good strict analytic space
+ &$\mathbf R$-PL metric weights on a good strict analytic space
  &The reverse CLD-v2 implication at a relative-boundary point is not
   proved; see the boundary clause of
   \Cref{thm:verified-pl-psh-equivalence}
@@ -2763,9 +2913,9 @@ only in rows whose hypotheses include the required regularization theorem.
   measure (\Cref{thm:cld-recovers-cl}) and to the delta-form product
   (\Cref{thm:gk-delta-cl-measure})
  &$n$-tuples of model functions
- &BFJ: $K$ discretely valued, so that the defect factor of
-  \Cref{thm:cld-formal-intersection} is the multiplicity $b_E$.  CLD:
-  $\cX$ relatively normal, $X$ proper reduced
+ &Use the actual common DVR-model formula with special-fibre
+  multiplicities $b_E$; a general valued-field defect is not automatically
+  $b_E$.  CLD over $K$, GK delta-products after base change to $F$
  &$=$\\
 
 (M2) total mass $=V=(\{\theta\}^n)$
@@ -2773,7 +2923,7 @@ only in rows whose hypotheses include the required regularization theorem.
  &Chern/\allowbreak intersection degree formula\newline
   (\Cref{thm:ch17-degree})
  &model and continuous potentials
- &BFJ: $\{\theta\}$ ample.  CLD: $L$ ample and the product defined.
+ &BFJ: $\{\theta\}$ ample.  CLD: the product defined; the degree identity does not need ampleness.
   For arbitrary unbounded potentials the mass may drop; finite-energy
   potentials retain full mass.  See row \textup{(L2)} and \Cref{def:e1}
  &$=$\\
@@ -2783,20 +2933,20 @@ only in rows whose hypotheses include the required regularization theorem.
  &weak continuity of the CLD product under uniform convergence
   (\Cref{thm:cld-bt-continuity})
  &continuous potentials, \eqref{eq:ch19-cld-bfj-continuous}
- &BFJ: uniform approximation by model functions.  CLD: local boundedness
-  and uniform convergence.  Both are supplied by
+ &BFJ: uniform semipositive model approximation.  CLD: a defined
+  approachable product class, local boundedness and uniform convergence.  Both are supplied by
   \Cref{thm:ch19-cld-bfj-comparison}\,(B), Step~3
  &$=$\\
 
 (M4) monotone extension to bounded $\theta$-psh potentials
  (\Cref{thm:bounded-ma-extension})
- &Bedford--Taylor product of locally bounded CLD-psh functions
+ &CLD Bedford--Taylor product on the continuous approachable class
   (\Cref{thm:bt-symmetry-locality})
  &only where the potential is also continuous, i.e.\ row (M3)
- &The two mechanisms differ: BFJ uses decreasing \emph{nets} and
-  \Cref{prop:dini-nets}; CLD needs uniform convergence
-  (\Cref{cor:ch16-decreasing-nets}).  Membership of a bounded
-  $\theta$-psh function in the CLD class is (C4)
+ &BFJ uses bounded decreasing nets and weighted monotone convergence.
+  Dini's theorem applies only when the limit is continuous.
+  The stated CLD construction uses local uniform convergence
+  (\Cref{cor:ch16-decreasing-nets}); bounded membership is (C4)
  &$?$\\
 
 \bottomrule
@@ -2817,11 +2967,11 @@ The table continues.
 (M5) nonpluripolar product on $\cE^1$
  (\Cref{def:nonpluripolar-ma}, \Cref{thm:e1-mixed-products})
  &no general canonical CLD product is constructed on the entire
-  $\cE^1$ class (\Cref{lem:continuous-times-positive-current}
-  fails for unbounded $u$)
+  $\cE^1$ class; the continuous-multiplication lemma alone does not
+  construct it (\Cref{lem:continuous-times-positive-current})
  &special subclasses only
- &Row \textup{(L1)}: the recursion needs $uT$, undefined for unbounded
-  $u$.  Where a canonical CLD extension does exist it may charge a polar
+ &Row \textup{(L1)}: the recursion needs a definition and integrability
+  theory for $uT$ on the entire class.  Special unbounded cases can exist.  Where a canonical CLD extension does exist it may charge a polar
   set, whereas the nonpluripolar product discards that mass;
   \Cref{ex:ch16-polar-failure},
   \Cref{thm:ch19-cld-bfj-comparison}\,\cref{itm:ch19-cb:scope3}
@@ -2843,7 +2993,7 @@ The table continues.
  (\Cref{lem:ch31-curve-ma-affine})
  &$c_1(\overline L)=\mu_0+\Delta_\Gamma F$
   (\Cref{prop:ch19-curve-model-curvature})
- &continuous semipositive metrics on a curve
+ &continuous semipositive weights factoring through the fixed graph
  &BFJ: a split regular semistable model for the displayed unweighted
   formula; nonsplit models carry residue-degree weights.  CLD: a formal
   model, no discreteness.  Transfer:
@@ -2879,7 +3029,7 @@ The table continues.
  \eqref{eq:abelian-canonical-haar}
  &$c_1(\overline L)^g$ is Haar of mass $(L^g)$
   (\Cref{thm:ch19-canonical-ma})
- &translation-invariant metrics with split Raynaud data
+ &canonical metrics with split Raynaud data
  &BFJ: \eqref{eq:ch19-bfj-hypotheses} and split Raynaud data.  CLD: $K$
   complete and nontrivially valued with split Raynaud data.  Transfer:
   \Cref{cor:ch19-transfer}\,\cref{itm:ch19-tr:abelian}
@@ -2897,25 +3047,25 @@ The table continues.
   \Cref{thm:ch19-cld-bfj-comparison}\,\cref{itm:ch19-cb:scope4}
  &$=$\\
 
-(M11) comparison principle for bounded potentials
+(M11) global comparison principle
  (\Cref{cor:bounded-comparison-principle})
- &chartwise comparison principle
-  (\Cref{thm:ch16-comparison-chart})
- &continuous potentials
- &BFJ: capacity and quasicontinuity,
-  \Cref{thm:bounded-quasicontinuity}.  CLD: the subgradient inclusion
-  \Cref{lem:ch16-subgradient-inclusion}, a statement about finite convex
-  functions.  Row \textup{(L7)}
- &$\Rightarrow$\\
+ &the same global integral inequality for the common CLD measures
+  (\Cref{thm:ch19-cld-bfj-comparison})
+ &continuous semipositive metrics on the same ample bundle
+ &Equality of measures transfers the same global inequality.
+  The chartwise boundary theorem \Cref{thm:ch16-comparison-chart}
+  has separate hypotheses; row \textup{(L7)}
+ &$=$\\
 
-(M12) maximum principle (\Cref{prop:model-maximum-principle},
+(M12) maximum locality (\Cref{prop:model-maximum-principle},
  \Cref{thm:bounded-maximum-principle})
- &maximum principle in dimension one only
-  (\Cref{thm:ch15-max-onedim}, \Cref{cor:ch15-cld-curve-max})
- &continuous potentials on a curve
- &BFJ: global, all dimensions, for its own class.  CLD: open in dimension
-  $\geq2$; row \textup{(L6)}
- &$\Rightarrow$\\
+ &Bedford--Taylor locality
+  (\Cref{thm:bt-symmetry-locality})
+ &continuous semipositive potentials in every dimension
+ &On the open set $\{\varphi>\psi\}$, $\max\{\varphi,\psi\}=\varphi$,
+  so the products agree.  The CLD strong maximum principle is a different
+  assertion; row \textup{(L6)}
+ &$=$\\
 
 (M13) uniform model estimate
  \eqref{eq:ch24-model-uniform-estimate}
@@ -2935,9 +3085,9 @@ The table continues.
 
 The rows of this table are the ones a reader is most likely to
 misremember, because they are places where \Cref{part:bfj} proves something
-substantial and \Cref{part:cld} says nothing.  The correct reading of a
-$\varnothing$ is that the question is not a CLD question, not that it is
-open.
+substantial and \Cref{part:cld} has not constructed the same global
+apparatus.  A $\varnothing$ records that absence on the stated scope;
+it does not declare local envelopes or local energy meaningless.
 
 \begin{center}
 \footnotesize
@@ -2970,8 +3120,9 @@ open.
   \Cref{thm:ch23-gjkm-positive-characteristic})
  &none
  &---
- &An envelope is defined by a supremum over a global class; there is no
-  local formulation
+ &This global fixed-reference envelope continuity theorem has no
+  counterpart constructed in Part~II; local envelope questions can still
+  be formulated
  &$\varnothing$\\
 
 (G4) capacity and quasicontinuity
@@ -2989,8 +3140,8 @@ open.
   \Cref{thm:ch26-e1-structure})
  &none
  &---
- &Energy is an integral over all of $X^{\An}$ against a measure of total
-  mass $V$; it is meaningless chartwise
+ &The fixed-reference global energy and full $\cE^1$ apparatus are not
+  constructed in Part~II.  Local energy integrals are separate notions
  &$\varnothing$\\
 
 \bottomrule
@@ -3019,12 +3170,15 @@ The table continues.
 
 (G7) solvability of $\MA_\omega(\varphi)=\mu$
  (\Cref{thm:bfj-supported-cy},
+  \Cref{thm:ch28-finite-energy-existence},
   \Cref{cor:bfj-original-continuous-solution})
  &none
  &---
  &Row \textup{(L11)}: solvability is proved by global variational methods
   requiring energy, ampleness and, originally, discreteness and residue
-  characteristic zero.  No local CLD existence theorem is available;
+  characteristic zero.  Under orthogonality, Chapter~28 also treats
+  finite-dual-energy measures without skeletal support.  Part~II supplies
+  no corresponding unrestricted operator and existence theorem;
   \Cref{prob:frontier-general-ma}
  &$\varnothing$\\
 
@@ -3039,11 +3193,13 @@ The table continues.
   \Cref{sec:ch72-resolved-current-residue}
  &$=$ on (M1), (M3); $\varnothing$ beyond\\
 
-(G9) a global $\theta$ exists for a given local psh datum
- &---
- &none
- &This is the converse direction of (C4) and is
-  \Cref{prob:frontier-cld-global-metric}; row \textup{(L10)}
+(G9) BFJ membership of a fixed metrized ample line bundle with locally
+ CLD-psh weights
+ &local positivity of those weights
+ &bounded metric potentials beyond the common continuous locus
+ &The reverse comparison in (C4) is not established; row \textup{(L10)}.
+  Retired P08.1 concerned global ordinary smooth approximation, a distinct
+  question
  &$?$\\
 \bottomrule
 \end{tabular}
@@ -3078,27 +3234,23 @@ regularization; they are internal to \Cref{part:cld} and have no BFJ
 counterpart to compare, which is why they are absent above rather than
 marked $\varnothing$.
 
-\emph{A census.}  The three tables have $7+13+9=29$ rows.  Eleven are
+\emph{A census.}  The three tables have $7+13+9=29$ rows.  Thirteen are
 marked $=$ outright: (C1), (C2), (C6) and
-(M1), (M2), (M3), (M6), (M7), (M8), (M9), (M10).  Two more are equalities
+(M1), (M2), (M3), (M6), (M7), (M8), (M9), (M10), (M11), (M12).  Two more are equalities
 only on a sub-locus: (C7) on the relative interior and (G8) on the model and
-continuous loci.  Four are one-way implications, four are unknown, and
+continuous loci.  Two are one-way implications, four are unknown, and
 eight have no counterpart.
 
-\emph{The direction of the arrows.}  Four rows carry
-$\Rightarrow$ rather than $=$: (C3), (C5), (M11), (M12).  In each the
-BFJ statement is the stronger one.  For (C3), (M11), and (M12), the
-obstruction to the converse is identified in
-\Cref{sec:ch19-limitations-table} --- rows \textup{(L4)}, \textup{(L7)},
-and \textup{(L6)}, respectively.  In (C5),
-\cref{thm:p063-current-psh-ordinary-regularization} supplies the local
+\emph{The direction of the arrows.}  Two rows carry $\Rightarrow$
+rather than $=$: (C3) and (C5).  In (C3) uniform semipositive
+approximation yields a positive current, while the cited inputs do not
+recover that global approximation from current positivity.  In (C5),
+\Cref{thm:p063-current-psh-ordinary-regularization} supplies the local
 current-positive-to-first-stage implication on continuous smooth proper
-curves, but not the reverse local-to-global BFJ numerical implication.  No
-row carries
-$\Leftarrow$.  That asymmetry is not an artefact of exposition: the BFJ
-theory is global and its statements quantify over all of $X^{\An}$, so
-where both theories speak, the global statement implies the local one and
-not conversely.
+curves; the row does not prove the reverse global BFJ membership test.
+No row carries $\Leftarrow$, but global and local scopes alone do not
+impose a general direction of implication.  Each arrow requires its cited
+comparison argument.
 
 \begin{remark}[How to use a row]
 \label{rem:ch31-how-to-use}
@@ -3109,22 +3261,27 @@ in the fourth column are verified.  If it is $\Rightarrow$, the transport
 runs the wrong way and one must find a different argument.  If it is
 $?$ or $\varnothing$, the transport is not available at all, and the
 correct response is to add a hypothesis placing the object on a locus where
-some row applies --- most often continuity, which activates (C2), (M2),
-(M3), (M7).  This is the discipline that \Cref{chap:master-dictionary} will
+some row applies.  Continuity with semipositive approximation activates
+(C2), (M2), (M3).  Row (M7) additionally requires factorization through
+the stated graph; toric and canonical abelian rows require their own
+invariance or canonicality hypotheses.  This is the discipline that \Cref{chap:master-dictionary} will
 apply to six theories at once.
 \end{remark}
 
 \subsection{The synthesis theorem}
 \label{sec:ch31-synthesis-theorem}
 
-The rows marked $=$ in the model and continuous loci are all instances of
-one statement, which we now prove in the form in which it will be quoted.
+On ample line bundles, the rows marked $=$ in the model and continuous
+loci follow from the statement below.  For nef model line bundles the
+same coefficient formula is already \Cref{sec:ch24-mixed-model}.
 
 \begin{theorem}
 \label{thm:bfj-cld-common-locus-synthesis}
-Let $L_1,\ldots,L_n$ carry semipositive model metrics.  The BFJ mixed
-measure, the Chambert--Loir mixed measure, and the CLD/GK product of the
-corresponding formal first Chern currents coincide.  The equality persists
+Let $L_1,\ldots,L_n$ be ample line bundles carrying semipositive model
+metrics.  Over $K$, the BFJ mixed measure, the Chambert--Loir mixed measure
+and the original CLD Bedford--Taylor product coincide.  After base change
+to $F=\widehat{\overline K}$, the formal GK delta-form product equals the
+corresponding base-changed Chambert--Loir measure.  The equality persists
 for continuous semipositive metrics obtained as uniform limits whenever the
 CLD product is defined by local uniform Bedford--Taylor continuity.
 \end{theorem}
@@ -3136,7 +3293,9 @@ third (\Cref{cor:ch20-limit-structure}).  Replacing all data by their
 pullbacks to a common model $\cX$, we may assume that every
 $\|\cdot\|_i$ is the model metric of a relatively nef model
 $\cL_i$ on $\cX$, and that $\cX$ is normal, flat and projective over
-$R$.  Nefness is preserved by pullback (\Cref{prop:nef-pullback}), and the
+$R$.  Rational models are handled by taking tensor powers and then
+dividing each curvature factor; real model combinations use multilinearity.
+Nefness is preserved by pullback (\Cref{prop:nef-pullback}), and the
 measures are unchanged (\Cref{prop:model-ma-basic}), so nothing is lost.
 
 \emph{Step 2: the three coefficients.}  Write $\cX_s=\sum_Eb_EE$.  The BFJ
@@ -3153,13 +3312,14 @@ of the corresponding formal metrics is computed by
 \Cref{thm:cld-formal-intersection} and identified with the same measure by
 \Cref{thm:cld-recovers-cl}, whose hypotheses --- $K$ discretely valued,
 $X$ proper reduced, $\cX$ relatively normal --- hold by Step~1 and
-\eqref{eq:ch19-bfj-hypotheses}.  Finally, that the delta-form product
-$c_1^\delta(\cL_1)\wedge\cdots\wedge c_1^\delta(\cL_n)$ is again this
-measure is \Cref{thm:gk-delta-cl-measure}, proved in \cite{GK17,GK19}; the
-comparison of formal metrics with the CLD calculus of \cite{CLD25} is the
-content of \Cref{thm:common-model-core}.  Hence all four coefficients agree
-at every $E$, and the four measures are equal.  Their common total mass is
-$(\{\theta_1\}\cdots\{\theta_n\})$ by \eqref{eq:ch24-mass}.
+\eqref{eq:ch19-bfj-hypotheses}.  For the separate GK comparison, base change these metrics to
+$X_F$.  There \Cref{thm:gk-delta-cl-measure} identifies
+$c_1^\delta(\mathcal L_1)\wedge\cdots\wedge c_1^\delta(\mathcal L_n)$
+with the Chambert--Loir measure over $F$; its projection to $X^{\An}$
+is the common measure over $K$ by model base-change compatibility.
+This does not place an ordinary GK delta-form over $K$ without the field
+hypotheses of that theory.  The common mass is
+$(L_1\cdots L_n)$ by \eqref{eq:mixed-total-mass}.
 
 \emph{Step 3: continuous metrics.}  Let $\|\cdot\|_i$ be continuous
 semipositive, i.e.\ uniform limits of semipositive model metrics.  Choose,
@@ -3188,7 +3348,8 @@ Under \eqref{eq:ch19-bfj-hypotheses}, in each of the following situations
 the BFJ measure, the Chambert--Loir measure and the CLD Bedford--Taylor
 product coincide, and the stated value is their common value.  When the
 metric is formal/model, or more generally is a delta-metric for which the
-delta-form product is defined, that product has the same value as well.
+delta-form product is defined, over $X_F$ it equals the corresponding base-changed measure and projects
+to the stated value over $K$.
 \begin{enumerate}
 \item\label{itm:ch31-tr:curve} $\dim X=1$ and the continuous
  semipositive weight has the form $u\circ p_{\cX}$ for a continuous graph
@@ -3237,7 +3398,7 @@ cycles are represented internally.  Their agreement on formal metrics is
 the hinge connecting the approaches, and every $=$ in
 \Cref{sec:ch31-table-main} is downstream of that hinge.  The rows marked
 $\varnothing$ in \Cref{sec:ch31-table-global} are not gaps in the hinge;
-they are questions that only one of the two theories poses.
+they record global constructions supplied here by one of the two theories.
 \end{remark}
 
 \subsection{What the tables do not say}
@@ -3250,7 +3411,9 @@ above.
 \item\label{itm:ch31-not:classes}
  \emph{That the BFJ and CLD psh classes coincide.}  They are compared only on the model, $\mathbf R$-PL and continuous loci,
 rows (C1), (C2), (C5), (C6) and (C7).  Row (C4)
- is $?$ and is \Cref{prob:frontier-cld-global-metric}.
+ is $?$ in the stated bounded scope.  The historical
+ \Cref{prob:frontier-cld-global-metric} is retired and concerned ordinary
+ smooth approximation; it is not an active atom for this comparison.
 \item\label{itm:ch31-not:operators}
  \emph{That the two Monge--Amp\`ere operators coincide on their whole
  domains.}  They coincide on (M1) and (M3).  Row (M4) is $?$ and row
@@ -3258,12 +3421,15 @@ rows (C1), (C2), (C5), (C6) and (C7).  Row (C4)
 \item\label{itm:ch31-not:local}
  \emph{That a local CLD statement can be globalized by patching.}  Nothing
  in \Cref{part:cld} produces a global class; that is precisely the content
- of (G9).
+ of (G9) for a fixed metrized ample bundle.  Local line-bundle data can
+ be glued when their transition functions and reference metrics are given;
+ that is distinct from proving global BFJ membership.
 \item\label{itm:ch31-not:skeleton}
  \emph{That a metric is determined by its restriction to a skeleton.}
  False already for a model metric on $\mathbf P^1$, by
- \Cref{ex:ch31-noninvariant}; true after $\trop_*$ only in dimension one,
- by \Cref{rem:ch31-retraction}.
+ \Cref{ex:ch31-noninvariant}.  The curve pushforward is determined by
+ the restriction, by the calculation in \Cref{rem:ch31-retraction}.  No universal
+ higher-dimensional impossibility follows from that example.
 \end{enumerate}
 
 \begin{warning}{Do not enlarge a row silently}
@@ -3296,7 +3462,9 @@ Before using a Monge--Amp\`ere identity, check the following in order:
       value been extended or renormalized?
 \end{enumerate}
 
-On curves all six questions collapse to graph potential theory.  On toric
+For split curves and weights factoring through the stated skeleton, these
+questions can be checked by graph potential theory.  Nonskeletal measures
+and nonsplit fields retain the separate hypotheses described above.  On toric
 varieties they collapse, in the invariant category, to convex analysis.  In
 general they do not collapse, which is precisely why the model, CLD, BFJ,
 and finite-energy layers were constructed separately.
@@ -3338,7 +3506,7 @@ which the wrong answer produces a false statement.
  &\Cref{ex:ch31-noninvariant}\\
 \cref{itm:ch31-diag:field}
  &\Cref{sec:ch31-base-change}
- &an energy is quoted as base-change invariant
+ &valuation renormalization is confused with fixed-value base change
  &\Cref{ex:ch31-base-change}\\
 \bottomrule
 \end{tabular}
@@ -3381,12 +3549,13 @@ equicontinuity on dual complexes
 (\Cref{thm:bfj-skeletal-equicontinuity}), compactness modulo constants
 (\Cref{thm:bfj-psh-compactness}), and decreasing regularization
 (\Cref{thm:bfj-decreasing-regularization}).  The last uses multiplier
-ideals and is where residue characteristic zero first bites.  Everything
-about bounded potentials rests on it.
+ideals and is one analytic use of residue characteristic zero.  That
+hypothesis also supports resolution and cofinal snc models earlier in the
+construction.  The bounded extension uses this regularization.
 
 \emph{The envelope layer.}  \Cref{chap:bfj-envelopes} proves continuity of
-envelopes (\Cref{thm:bfj-envelope-regularity}), the second place where
-residue characteristic zero is used; \Cref{thm:ch23-gjkm-positive-characteristic}
+envelopes (\Cref{thm:bfj-envelope-regularity}), another analytic use of
+residue characteristic zero; \Cref{thm:ch23-gjkm-positive-characteristic}
 replaces it in positive characteristic at the cost of test ideals.  Every
 statement about $\Phi_{S,t}$ in \Cref{sec:ch31-divisorial} rests on this,
 as item \cref{itm:ch31-pole:envelope} records.
@@ -3415,14 +3584,15 @@ the points at which the dependency chain uses its deepest inputs.
  chapter it is what makes $\Phi_{S,t}$ a legitimate object.
 \item\label{itm:ch31-hard:monotone}
  The monotone extension \Cref{thm:bounded-ma-extension}, which extends the
- continuous uniform-limit construction to bounded psh potentials.  No
- example of this chapter requires that extra step: all four families are
- continuous, and continuity suffices by
- \Cref{prop:ch24-continuous-uniform}.
+ continuous uniform-limit construction to bounded psh potentials.  The
+ four families use continuous potentials in their main computations, and continuity suffices by
+ \Cref{prop:ch24-continuous-uniform}.  The type-one limiting example
+ \Cref{ex:ch31-type-one-fails} separately exercises the unbounded
+ nonpluripolar construction.
 \end{enumerate}
-The third item is worth dwelling on.  The examples of a chapter like this
-one can never exercise the hardest theorem of a part, because computable
-objects are regular.  The reader should not conclude that
+The third item is worth dwelling on.  Most main examples here deliberately lie on the common continuous locus;
+this choice does not mean that every explicitly computable potential is
+regular.  The unbounded type-one example makes that distinction visible.  The reader should not conclude that
 \Cref{thm:bounded-ma-extension} is decorative; it is what makes
 \Cref{chap:bfj-energy} and hence \Cref{chap:bfj-finite-energy-measures}
 possible, and \Cref{ex:ch24-branch-sum} is the example that exercises it.
@@ -3437,12 +3607,13 @@ possible, and \Cref{ex:ch24-branch-sum} is the example that exercises it.
 \textbf{Hypothesis}&\textbf{What it buys}&\textbf{What happens without it}\\
 \midrule
 $K$ discretely valued, $v(\pi)=1$
- &models over $R$, the multiplicity $b_E$, integral skeletal lengths
+ &models over $R$, multiplicities $b_E$, integral lengths on the chosen
+  regular split semistable graph; general snc refinements have rational lengths
  &the CLD side survives with a defect factor
   (\Cref{rem:ch19-cld-bfj-hypotheses}); the BFJ side has no model theory in
   the form used here\\
 residue characteristic $0$
- &decreasing regularization
+ &resolution and cofinal snc models, decreasing regularization
   (\Cref{thm:bfj-decreasing-regularization}) and envelope continuity
   (\Cref{thm:bfj-envelope-regularity})
  &replaced by test ideals,
@@ -3455,7 +3626,8 @@ $X$ smooth projective
   reduced $X$; the envelope machinery does not\\
 $\{\theta\}$ ample
  &$V>0$, a nondegenerate capacity, a nontrivial variational problem
- &\Cref{ex:ch31-nef-not-big}: everything degenerates\\
+ &The nef-not-big example has zero mass; nef big classes retain positive
+  volume but require their own analytic package\\
 torus invariance (toric family)
  &positivity $=$ convexity, $\MA=n!\MA_{\mathbf R}$
  &\Cref{ex:ch31-noninvariant}: positivity is not detected by the
@@ -3463,13 +3635,15 @@ torus invariance (toric family)
 $x_i$ divisorial on a dual complex
  &the compactness estimate
   \Cref{thm:ch22-proper-normalization}
- &\Cref{ex:ch31-type-one-fails}: the envelope is $+\infty$\\
+ &\Cref{ex:ch31-type-one-fails}: the envelope is $+\infty$ away from
+  the constrained type-one point\\
 $\mu$ supported on a dual complex
  &continuity of the solution
   (\Cref{thm:bfj-supported-regularity})
- &solvability remains, in finite energy
-  (\Cref{thm:bfj-supported-cy}); continuity is not asserted without
-  the support hypothesis, including on curves\\
+ &Under orthogonality, finite-dual-energy measures have an $\cE^1$
+  solution (\Cref{thm:ch28-finite-energy-existence}).  Skeletal support
+  is sufficient, not necessary, for continuity; see the continuous
+  nonskeletal example in Chapter~28\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -3562,14 +3736,14 @@ divisorial Green function on $\mathbf P^1$
 finite-pole envelope, general
  &$\sum_ia_i\delta_{x_i}$&$V$&$(\{\omega\}^n)$
  &\Cref{prop:finite-pole-envelope}\\
-two-pole programme, $m_0=2,m_1=3$
+two-pole programme, $m_0=2,m_1=3$, $-2\leq\delta\leq3$
  &$(2+\delta)\delta_{x_0}+(3-\delta)\delta_{x_1}$&$5$&$\deg L=5$
  &\eqref{eq:ch31-two-pole-masses}\\
 good reduction
  &$V\delta_{x_0}$&$V$&$(L^n)$
  &\eqref{eq:ch31-good-reduction-measure}\\
 abelian, canonical
- &$(L^g)\,m_{\mathrm{Haar}}$&$(L^g)$&$g!\det B$
+ &$(L^g)\,m_{\mathrm{Haar}}$&$(L^g)$&$g!\det(B)c$
  &\eqref{eq:abelian-canonical-haar},
   \eqref{eq:ch31-abelian-mass}\\
 abelian surface, $B=\bigl(\begin{smallmatrix}2&1\\1&2\end{smallmatrix}\bigr)$
@@ -3655,13 +3829,13 @@ number of rows of the compatibility tables
  &$7+13+9=29$
  &\Cref{sec:ch31-table}\\
 of which marked $=$ outright
- &$11$
+ &$13$
  &\Cref{sec:ch31-table-consistency}\\
 of which equal only on a sub-locus
  &$2$, namely (C7), (G8)
  &\Cref{sec:ch31-table-consistency}\\
 of which marked $\Rightarrow$, $?$, $\varnothing$
- &$4$, $4$, $8$
+ &$2$, $4$, $8$
  &\Cref{sec:ch31-table-consistency}\\
 \bottomrule
 \end{tabular}
@@ -3704,8 +3878,11 @@ argument developed from \Cref{prop:graph-green}; its analytic realization
 uses the curve comparison recorded in \Cref{part:cld}.  The finite-pole
 envelope \Cref{prop:finite-pole-envelope} is exactly
 \cite[Lemma~8.5 and Proposition~8.6]{BFJ15}, and the divisorial Green function
-\eqref{eq:green-envelope-divisorial} is the object studied in
-\cite{BJGreen24}.  Toric and invariant tropical pluripotential theory is
+\eqref{eq:green-envelope-divisorial} is also studied in \cite{BJGreen24}.
+Its Theorem~A gives non-rational-model one-pole examples over
+$\mathbf C((\pi))$, constructed by Gauss base change from trivially
+valued geometry; see \Cref{rem:ch31-modelness} for the rational/real
+piecewise linear distinction.  Toric and invariant tropical pluripotential theory is
 treated in \cite{BGJKK25}, whose Theorem~6.1.1 is the tropical form of
 \eqref{eq:toric-bfj-alexandrov} and whose Theorems~6.3.13 and~8.3.3 solve
 the invariant Monge--Amp\`ere equation; the local real/non-Archimedean
@@ -3722,7 +3899,7 @@ normalization in \Cref{ex:ch19-tate-canonical}.
 \Cref{thm:bounded-ma-extension} is \cite[Theorem~3.1]{BFJ15}; the psh
 formalism it uses is \cite{BFJ16}, with the survey \cite{BFJ16b} as a short
 entry point.  Envelope continuity in residue characteristic zero is
-\cite{BFJ15}; algebraizability is removed in \cite{BGGJKM20}, the
+\cite[Theorem~8.3]{BFJ16}, used in \cite{BFJ15}; algebraizability is removed in \cite{BGGJKM20}, the
 equal-characteristic test-ideal extension is \cite{GJKM19}, and the
 conditional mixed-characteristic extension is \cite{FGK25}.  Continuity of
 solutions for positive skeletal-supported measures of matching mass on
@@ -3747,7 +3924,7 @@ continuous locus.  Wanner's theorem, used in row (C5), is
 hypotheses of each side, and the type of relation.  The
 $\varnothing$ rows of \Cref{sec:ch31-table-global} are the ones most worth
 the reader's attention, since they record questions that one of the two
-theories does not pose, and it is the confusion of $\varnothing$ with
+theories does not construct in the global form used here, and it is the confusion of $\varnothing$ with
 $?$ that manufactures spurious open problems, as
 \Cref{sec:ch19-limitations-reading} warns.
 
