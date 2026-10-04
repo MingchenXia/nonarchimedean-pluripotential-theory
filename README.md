@@ -9,7 +9,12 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,244 pages**. Chapter 19's
+The current research-integration build has **4,246 pages**. Chapter 5 adds
+a source-checked Sylvester height-slice example that computes a normalized
+local monomial model and its regular semistable subdivision. The exact
+local, lattice and source boundaries are in the
+[Sylvester integration audit](manuscript/editorial/sylvester_local_model_integration_audit_20261004.md).
+Chapter 19's
 checked Lin face-restriction example is retained. Chapter 66 now includes
 the specialized intermediate Calabi--Yau potential limit and recent generic
 metric regularity, with precise family, normalization, region and source

@@ -857,6 +857,30 @@ or change to the 42 statuses is claimed. Continue with the known local
 example's ordinary integration audit and the remaining global inputs,
 while fetching incoming research and publishing normally to work.
 
+### Sylvester local-model book integration, 4 October 2026
+
+Chapter 5 now contains a known-source worked example after projective
+skeletal subdivision. The cyclic cover's primitive rays have multiplicity
+one but span a lattice of index 36(k+1); coherent ambient-unimodular
+Sylvester tetrahedra give regular strictly semistable charts. Projection
+checks the full affine difference lattice, and normalized volume gives
+the exact maximal-cell count, including the higher-dimensional and
+unit-interval cases. Appendix L and two version-pinned bibliography
+entries record the precise source application and its local boundary.
+See the [integration audit](sylvester_local_model_integration_audit_20261004.md),
+[manifest](sylvester_local_model_integration_manifest_20261004.json) and
+[source ledger](sylvester_local_model_integration_source_closure_20261004.sha256).
+The 4,246-page full build passes with zero errors, warnings, overflow or
+unresolved references. All 61 selected actual pages in sixteen sheets
+were viewed; complete index/bibliography and scoped seams are included.
+Post-render scope, references, inventory and whitespace checks pass.
+All original formal blocks and 423 other active TeX inputs, including
+108 protected M–N inputs, remain unchanged. No new general theorem,
+independent verifier, enumeration or change to the 42 statuses is claimed.
+The earlier 4,244-page artifacts remain historical. Continue cloud
+research on related recent papers and the remaining global model inputs,
+while fetching user research and publishing normally to work.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
