@@ -336,9 +336,15 @@ freshly read. Historical problem counts and residual scopes are explicitly
 dated; all 148 record titles/source anchors, forty labels, four formal
 remarks and six tagged displays are preserved. All forty-eight pages and
 both seams pass. See the [Appendix L audit](second_reading_appL_audit_20261004.md).
-Appendix M is active; all 4,474 main-source lines have been freshly read.
-Its 104 direct inputs (9,331 lines) are being read and checked individually.
-No later appendix is marked complete in this pass.
+Appendix M's 4,474 original main-source lines and all 104 direct inputs
+(9,331 lines) were freshly read. Chartwise scalar descent and the source
+boundary are clarified; all inputs, displays and archived receipts are
+preserved. All 190 pages and both seams pass, with the five changed pages
+reviewed again after the local assumption-marker repair. See the
+[Appendix M audit](second_reading_appM_audit_20261004.md).
+Appendix N is active; its 83 main-source lines and four proof inputs
+(1,291 lines) have been freshly read. Its source and page checks continue.
+Front matter remains to be closed in this pass.
 The current catalogue incorporates the real-scalar Bergman correction; its
 [4 October audit](open_problem_catalogue_correction_audit_20261004.md) records
 the preserved twelve full problems, unchanged 42 statuses and fresh checks.
