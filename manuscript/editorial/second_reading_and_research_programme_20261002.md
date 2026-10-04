@@ -379,7 +379,11 @@ Appendix E's 669 source lines and its Chapter 7 measure-theory interfaces
 were freshly read. The constant-net check states Hausdorffness as sufficient;
 all ten appendix pages and both seams passed visual review.
 See the [Appendix E audit](second_reading_appE_audit_20261004.md).
-Appendix F is active; all 669 source lines have been freshly read and its
+Appendix F's 669 original lines, 14 selected Dang–Favre pages and two Stacks
+main bodies were freshly read. The plane blowup center is explicitly rational;
+all ten appendix pages and both seams passed visual review.
+See the [Appendix F audit](second_reading_appF_audit_20261004.md).
+Appendix G is active; all 767 source lines have been freshly read and its
 primary checks continue. No later appendix is marked complete in this pass.
 
 The current catalogue incorporates the 4 October real-scalar Bergman repair;
