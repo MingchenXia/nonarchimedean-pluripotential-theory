@@ -9,7 +9,15 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,249 pages**. Chapter 5 adds
+The current research-integration build has **4,253 pages**. The proof of
+Boucksom--Jonsson (2022), Theorem 6.21, incorrectly infers monotonicity of
+a residual with a changing divisor coefficient. Critical homogeneous Siu
+division is now an explicit additional assertion `(SD)_k`; the general
+envelope assembly and deductions through it are conditional on this input.
+The strict division proof and Chapter 40's separate smooth proof retain
+their previous status. No counterexample to the Siu theorem itself is
+claimed. See the [Siu proof-boundary audit](manuscript/editorial/bj22_siu_proof_boundary_audit_20261004.md).
+Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
 local, lattice and source boundaries are in the
@@ -31,11 +39,13 @@ source-checked integration; the 42 open-problem statuses are unchanged.
 All current execution remains in the cloud, and Xean setup is suspended by
 the latest user instruction. The standalone catalogue of all 42 active
 open-problem items is complete: [LaTeX source](output/open_problems_catalogue_2026-10-03.tex)
-and [85-page PDF](output/open_problems_catalogue_2026-10-03.pdf), with full
+and [86-page PDF](output/open_problems_catalogue_2026-10-03.pdf), with full
 statements, source-dated state of the art, completion criteria and references.
 The dated revisions correct the Chebyshev choice question and the scalar
 scope of the Bergman-fan obstruction; see the
 [4 October catalogue audit](manuscript/editorial/open_problem_catalogue_correction_audit_20261004.md).
+The current edition additionally states the Siu proof issue and its
+dependency boundary, separately from the unchanged 42-atom inventory.
 The 2 October source and PDF remain the historical edition.
 [The new programme](manuscript/editorial/second_reading_and_research_programme_20261002.md)
 tracks this work and preserves the completed edition below.

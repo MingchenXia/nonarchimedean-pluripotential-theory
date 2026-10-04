@@ -14,6 +14,16 @@ current execution to remain in the cloud. The ordered book rereading and polishi
 The active work is now related-direction and recent-arXiv exploration,
 followed by source-checked integration. The prepared solver queue remains
 historical preparation, with no new solved status.
+The author's 4 October warning about BJ22 Theorem 6.21 takes priority in
+the current source audit. Its changing-coefficient residual need not
+decrease. The book now displays the unresolved critical division input
+`(SD)_k` and makes the dependent general envelope route conditional;
+the strict division argument and the independent Chapter 40 smooth proof
+are distinguished. See the [Siu proof-boundary audit](bj22_siu_proof_boundary_audit_20261004.md).
+The corrected full build has 4,253 pages and the standalone catalogue has
+86 pages. All 42 atomic statuses remain fixed. Related-paper reading,
+including the pending primary checks of the earlier two-parameter toric
+classification, resumes after this correction's normal work-branch checkpoint.
 On 3 October the user additionally authorized a subsequent literature and
 research phase: after the whole-book polishing pass, explore directions
 related to the existing material and recent relevant arXiv papers. Suitable
@@ -435,14 +445,14 @@ checking primary statements, proofs, versions and compatibility before
 integrating suitable material. Cloud execution and normal work-branch
 publication continue; incoming user research is checked before integration.
 
-The current catalogue incorporates the 4 October real-scalar Bergman repair;
+The preceding catalogue incorporated the 4 October real-scalar Bergman repair;
 see its [latest correction audit](open_problem_catalogue_correction_audit_20261004.md).
 Only pages 35–36 changed from the 3 October PDF; these and pages 34/37 were
 actually viewed. The other 83 pages are pixel-identical and reuse the earlier
 visual review. All twelve full problems and 42 atomic statuses are preserved.
 
 The 3 October catalogue revision was complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-03.tex),
-[85-page PDF](../../output/open_problems_catalogue_2026-10-03.pdf), and
+[current PDF, subsequently revised](../../output/open_problems_catalogue_2026-10-03.pdf), and
 [correction audit](open_problem_catalogue_correction_audit_20261003.md).
 It preserves all 42 atoms and corrects the positive-volume Chebyshev question.
 Cloud latexmk compilation passed; the native UI/compiler calls returned no

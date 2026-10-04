@@ -2455,8 +2455,9 @@ the one cited.
 The next results convert the inequality $\psi\leq\log|s_E|$ into an
 identity.  This is the statement that \Cref{chap:bj-cartier-realization}
 calls homogeneous Siu division.  It belongs to the homogeneous calculus and
-uses no envelope property, and we prove it in the form in which the later
-chapters apply it.
+has a proved strict form and a critical endpoint whose published proof
+contains a gap. The latter is retained below only as an explicit
+conditional interface for the later chapters.
 
 Throughout the subsection $X$ is normal, $E$ is an effective
 $\mathbf Q$-Cartier divisor on $X$, and $\log|s_E|$ is its section
@@ -2659,11 +2660,45 @@ $\log|s_E|$ is finite and may be cancelled; then
 \Cref{cor:ch35-divisorial-determination}\,(2) gives $\psi'_1=\psi'_2$.
 \end{proof}
 
+\begin{warning}{The critical endpoint is an unresolved input}
+\label{warn:ch35-siu-source-gap}
+The proof of \cite[Theorem~6.21, pp.~736--737]{BJ22} incorrectly infers
+that $\psi_a-t_a\log|s_E|$ decreases because $\psi_a$ decreases, although
+the coefficient $t_a$ varies. Its decreasing-closure argument therefore
+does not establish the critical endpoint. This is an error in the proof;
+no counterexample to the theorem itself is asserted here.
+
+Write $\mathrm{(SD)}_k$ for the additional assertion that, for every normal
+integral projective variety $Y$ over $k$, every real numerical class
+$\alpha$, every effective $\mathbf Q$-Cartier divisor $D$, and every
+$\eta\in\PSH_{\mathrm{hom},Y}(\alpha)$ with $\eta\leq\log|s_D|$, there is
+$u\in\PSH_{\mathrm{hom},Y}(\alpha-[D])$ such that
+\begin{equation}
+\label{eq:ch35-siu-endpoint-input}
+                  \eta=\log|s_D|+u .
+\end{equation}
+Only the critical case is additional: the strict case is proved above.
+The general interface below and every later deduction that uses its
+critical case are conditional on $\mathrm{(SD)}_k$, unless an independent
+proof of the required instance is specified. In particular, the general
+envelope argument in
+\Crefrange{chap:bj-envelope-statement}{chap:bj-envelope-consequences}
+does not establish an unconditional theorem while this input is unresolved.
+
+On a smooth projective variety in characteristic zero,
+\cite[Proposition~17]{BJGreen24} supplies the division statement using the
+independently established envelope property of \cite[Theorem~A]{BJ22b}.
+That proof cannot be fed back into an argument for the envelope property.
+The published smooth envelope results themselves retain their independent
+proofs and stated characteristic--dimension hypotheses.
+\end{warning}
+
 \begin{theorem}
 \label{thm:ch35-homogeneous-siu-general}
-Assume $X$ is normal.  Let $\theta\in N^1(X)$, let $E$ be an effective
-$\mathbf Q$-Cartier divisor on $X$, and let
-$\psi\in\PSH_{\mathrm{hom},X}(\theta)$.  Then
+Assume $X$ is normal and assume the additional division assertion
+$\mathrm{(SD)}_k$ of \Cref{warn:ch35-siu-source-gap}. Let
+$\theta\in N^1(X)$, let $E$ be an effective $\mathbf Q$-Cartier divisor
+on $X$, and let $\psi\in\PSH_{\mathrm{hom},X}(\theta)$. Then
 \begin{equation}
 \label{eq:ch35-homogeneous-siu-general}
  \psi\leq\log|s_E|
@@ -2671,7 +2706,8 @@ $\psi\in\PSH_{\mathrm{hom},X}(\theta)$.  Then
  \psi=\log|s_E|+\psi'\ \text{ for some }
  \psi'\in\PSH_{\mathrm{hom},X}(\theta-[E]),
 \end{equation}
-and $\psi'$ is then unique.  No envelope hypothesis is required.
+and $\psi'$ is then unique. This is a conditional interface: its extra
+input is $\mathrm{(SD)}_k$, rather than an envelope hypothesis.
 \end{theorem}
 
 \begin{proof}
@@ -2686,9 +2722,10 @@ the endpoint
 \label{eq:ch35-siu-critical-sup}
  \sup_{K_E}\psi=-1.
 \end{equation}
-That endpoint is \cite[Theorem~6.21]{BJ22}, and we use it as a foundational
-input.  Here is the complete reconstruction of the approximation appearing
-in its published proof.
+That endpoint is the additional assertion $\mathrm{(SD)}_k$, corresponding
+to the statement of \cite[Theorem~6.21]{BJ22}. Under this explicit
+assumption the implication follows; the published proof does not establish
+the assumption. The following reconstruction identifies its failed step.
 
 Choose, by \Cref{cor:ch35-homogenization-psh}, a decreasing net
 $\psi_a\in\cH_{\mathrm{hom}}(L_a)$ such that
@@ -2713,13 +2750,13 @@ Each residual in \eqref{eq:ch35-siu-source-residual} is defined by
 regular sections as in \Cref{lem:ch35-fs-division}; the displayed
 subtraction is an equality on $X^{\val}$. On $X^{\divis}$ one has
 $\rho_a\to\psi-\log|s_E|$, and this limit vanishes at
-$v_{\triv}$, hence is generically finite.  The remaining assertion of
-\cite[Theorem~6.21]{BJ22} is exactly that the residual can be admitted by
-the decreasing-closure axiom in this endpoint situation; applying that
-assertion to \eqref{eq:ch35-siu-source-residual} yields
-$\psi-\log|s_E|\in\PSH_{\mathrm{hom},X}(\theta-[E])$.  Divisorial
-determination then gives the identity on all of $X^{\An}$, as in Step~4
-of \Cref{thm:ch35-homogeneous-siu}.
+$v_{\triv}$, hence is generically finite.  The published proof now claims that $(\rho_a)$ decreases and invokes
+the decreasing-closure axiom. That claim is not justified and is false
+for permissible choices of $t_a$. Pointwise convergence on divisorial
+points alone does not supply psh membership. Under the separately stated
+assumption $\mathrm{(SD)}_k$, the required residual exists; its divisorial
+trace is the displayed limit, and divisorial determination gives uniqueness
+and the identity on all of $X^{\An}$.
 
 The last paragraph is deliberately not presented as a consequence of
 \eqref{eq:ch35-siu-source-ta} alone.  Indeed, for $b\geq a$, monotonicity
@@ -2730,14 +2767,19 @@ of the residuals would require
  \leq\inf_{K_E}(\psi_a-\psi_b),
 \end{equation}
 which is not implied by \eqref{eq:ch35-siu-source-ta}.  Thus the
-foundational input is the full endpoint of \cite[Theorem~6.21]{BJ22}, not
-an unproved claim in this book that arbitrary choices of $t_a$ make
-$(\rho_a)$ decreasing.  After the envelope property has independently
+additional hypothesis is the endpoint assertion itself; citation of
+\cite[Theorem~6.21]{BJ22} does not repair its proof. For example, on
+$\mathbf P^1$, take $E=p$, $\ell=\log|s_p|$,
+$\psi_n=(1-1/(2n))\ell$ and $t_n=1-1/n$, for $n\geq2$. Then
+$\psi_n\searrow\ell$ and $\psi_n\leq t_n\ell$, but
+$\rho_n=\ell/(2n)$ increases wherever $v(p)>0$. This refutes the
+monotonicity inference, while the limiting residual in this example is
+still the psh function zero.  After the envelope property has independently
 been established, the endpoint also follows from the fixed-$t<1$
 argument and increasing-envelope closure; this later proof is written in
 \cite[Proposition~17]{BJGreen24} under its smooth characteristic-zero
-hypotheses.  It cannot replace the present foundational input in the proof
-of the envelope theorem.
+hypotheses.  It cannot discharge $\mathrm{(SD)}_k$ in the general envelope argument
+without an independently established envelope property.
 \end{proof}
 
 \begin{remark}[Where the borderline case is delicate]
@@ -2752,8 +2794,9 @@ and produces the residual family
  \psi'_a=\psi_a-t_a\log|s_E|=\psi_a+t_a\,v(E)
 \]
 as a sum of a decreasing and an increasing family.  The exact obstruction
-is \eqref{eq:ch35-siu-residual-monotonicity-test}; it is why the endpoint is
-imported as the full theorem rather than derived from Dini's lemma alone.
+is \eqref{eq:ch35-siu-residual-monotonicity-test}; the endpoint therefore
+remains an additional hypothesis in this proof, rather than an established
+import or a consequence of Dini's lemma.
 Equivalently, one may
 run the argument for each fixed rational $t<1$, obtaining
 \[
@@ -2777,11 +2820,12 @@ calculus developed in this book.  The general endpoint
 \Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}:
 \Cref{ex:ch38-strict-room-fails,ex:ch39-reflection-borderline} exhibit the
 failure of strict room in the actual reflection construction.  Those uses
-therefore inherit the foundational input \cite[Theorem~6.21]{BJ22}; they are
-not applications of the strict proof under a hidden stronger hypothesis.
+therefore inherit the unresolved assertion $\mathrm{(SD)}_k$. Neither
+their strict-room examples nor citation of \cite[Theorem~6.21]{BJ22}
+discharges that assertion.
 \end{remark}
 
-\begin{warning}{Only the homogeneous statement is unconditional}
+\begin{warning}{General inhomogeneous division requires envelopes}
 \Cref{thm:ch35-homogeneous-siu} is stated for \emph{homogeneous}
 $\theta$-psh functions and requires no envelope hypothesis.  The
 corresponding statement for an arbitrary $\phi\in\PSH_X(\theta+[E])$,
@@ -3509,8 +3553,8 @@ function.
 \begin{proof}
 This is \cite[Theorem~6.35]{BJ22}.  The hypothesis holds when $X$ is
 smooth and $\operatorname{char}k=0$, by \cite[Corollary~5.21]{BJ22}, and it
-holds unconditionally for integral projective unibranch $X$ once
-\Cref{thm:bj-final-envelope} is available; but that theorem is proved in
+holds for integral projective unibranch $X$ through the conditional
+\Cref{thm:bj-final-envelope}, retaining $\mathrm{(SD)}_k$; that theorem is assembled in
 \Crefrange{chap:bj-cartier-realization}{chap:bj-subintegral-normalization}
 using the present chapter, so \Cref{thm:ch35-cartier-psh-criterion} is never
 invoked there.  We prove the implication $\Rightarrow$, which is
@@ -4220,7 +4264,8 @@ The Legendre decomposition
 \Cref{thm:ch35-homogeneous-siu-general} are
 \cite[\S6.3, Theorem~6.21]{BJ22}.  The strict Siu statement
 \Cref{thm:ch35-homogeneous-siu} is the book-local argument that isolates the
-endpoint left to that imported theorem.  The idea of encoding an
+endpoint left unresolved by the published proof;
+\Cref{warn:ch35-siu-source-gap} records the resulting conditional boundary.  The idea of encoding an
 inhomogeneous potential by a concave family of homogeneous ones is due to
 Ross and Witt Nystr\"om \cite{RWN14} in the complex setting, and the
 comparison is made in \Cref{chap:rays-filtrations}.  The identification of
