@@ -1110,6 +1110,31 @@ pins the scope; prior candidate bytes, all 425 active TeX inputs, both PDFs
 and all 42 statuses are preserved. Continue the independent-input review
 and the unresolved birational endpoint investigation.
 
+### Global sections and finite factorization, 4 October 2026
+
+The [global follow-up](finite_galois_global_descent_followup_20261004.md)
+completes a same-agent proof draft for the unadmitted finite candidate.
+An explicit coefficient-section function has the required all-point
+pullback, so that candidate step no longer needs the analytic quotient
+or valuation-conjugacy theorem. Actual norm lines, with explicit rational
+denominators, control the defining decreasing net and its numerical-class
+limit by injective finite pullback. Stacks Tag 030K's full target proof
+confirms the separable-then-purely-inseparable field factorization; the
+normalization maps and global coefficient-section transitions are checked
+in the draft. Deep Nagata and valuation-extension inputs remain reused.
+
+Eight non-simple purely inseparable multiplication matrices, three mixed
+towers, ninety selected weighted/support cases and three degree/exponent
+diagnostics pass. The field degree rather than the inseparability exponent
+is retained in the norm and weight normalization. Selected published BE21
+norm/pullback statements and proofs were checked, with five actual source
+pages viewed; their finite-flat and continuous-metric scopes do not supply
+the full current target. The [manifest](finite_galois_global_descent_manifest_20261004.json)
+pins these boundaries. Independent verification and precise novelty
+classification remain pending. Prior candidate bytes, all 425 active TeX
+inputs, both PDFs and all 42 statuses are preserved; the birational and
+critical Siu gaps are still open.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
