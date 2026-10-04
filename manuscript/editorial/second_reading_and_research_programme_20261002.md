@@ -676,6 +676,29 @@ principal general CY theorem or solved problem is claimed. The checked
 4,244-page book and all 42 statuses are unchanged. The next research step
 is to examine the geometric section-module and local expansion inputs.
 
+### Section module, faithful expansion and analytic remainder, 4 October 2026
+
+The [geometric module reduction](research_dossiers/li_geometric_section_module_20261004.md)
+uses a supplied projective analytic/algebraic germ model, perfect derived
+cohomology and finite coefficient descent to obtain the full small-fibre
+section basis and its completed generic space. It avoids nonexistent
+nonzero-parameter evaluation of the whole germ ring. A finite analytic-path
+evaluation determinant proves faithful formal Laurent expansion, including
+repeated components and vertex charts. The [convergent remainder proof](research_dossiers/li_convergent_chamber_remainder_20261004.md)
+uses a compact interior chamber gap and Cauchy bounds to control the entire
+infinite Taylor tail, retains zeros of leading coefficient functions, and
+checks arbitrary coefficient tuples and frame-weight comparison. Cached
+Stacks 0B91/05LY and Bingener's exact retyping locators were checked; 658
+fresh scoped Bingener lines and six actual pages were inspected. See the
+[audit](li_section_module_and_remainder_audit_20261004.md) and
+[manifest](li_section_module_and_remainder_manifest_20261004.json).
+The global model and analytic/cohomological imports, CY volume/generic-mass
+and uniform Skoda inputs, and the reduced-SNC dyadic scope remain explicit
+application gates. No new calculation, independent verifier or general CY
+theorem is admitted; the active 4,244-page book and all 42 statuses stay
+unchanged. The next research step is the actual volume/generic-mass input
+and the analytic treatment of repeated central components.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
