@@ -293,7 +293,11 @@ Appendix B's 523 original lines and scoped primary interfaces were freshly
 read. The simultaneous-resolution statement now specifies nonzero ideals;
 all eight appendix pages and both seams passed visual review. See the
 [Appendix B audit](second_reading_appB_audit_20261004.md).
-Appendix C is active; all 790 source lines have been freshly read and its
+Appendix C's 790 original lines and 36 selected primary-source pages were
+freshly read. Nonzero graded-sequence hypotheses and the quasi-psh reduction
+are explicit; all twelve appendix pages and both seams passed visual review.
+See the [Appendix C audit](second_reading_appC_audit_20261004.md).
+Appendix D is active; all 936 source lines have been freshly read and its
 primary checks continue. No later appendix is marked complete in this pass.
 The current catalogue incorporates the real-scalar Bergman correction; its
 [4 October audit](open_problem_catalogue_correction_audit_20261004.md) records
