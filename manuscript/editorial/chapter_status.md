@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--65 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--66 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -246,8 +246,14 @@ birational filtered-series volume, probability DH normalization and the
 BHJ erratum boundary. All 34 chapter physical pages and both seams passed
 visual review; see the
 [Chapter 65 audit](second_reading_ch65_audit_20261004.md).
-Chapter 66 is active; all 1,878 original main-file lines freshly read;
-its eleven direct inputs and scoped primary checks continue. No later chapter is marked complete.
+Chapter 66's original 1,878 main-file lines and eleven direct inputs were
+freshly read and remain byte-identical. Hybrid scaling, synchronized psh
+approximation, residue coefficients and the energy/entropy boundary were
+checked; all 64 chapter physical pages and both seams passed visual review.
+Protected P18 and Banach-family proof bytes retain their historical receipts;
+see the [Chapter 66 audit](second_reading_ch66_audit_20261004.md).
+Chapter 67 is active; all 1,138 original lines freshly read; scoped primary
+checks continue. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
