@@ -743,6 +743,26 @@ status change is claimed; the active 4,244-page book and all 42 statuses
 remain fixed. Next check the m=0 analytic boundary and the remaining
 model-presentation gate.
 
+### Zero-dimensional essential-skeleton analytic boundary, 4 October 2026
+
+The [ordinary-chart reduction](research_dossiers/li_zero_dimensional_skeleton_analytic_reduction_20261004.md)
+supplies the m=0 case separately from the historical m>=1 dyadic proof.
+Atomic vertex mass is retained; finite fixed ordinary cores and their
+parents give the potential comparison by energy, Poincare, submean and
+Chebyshev. Integer-valued formal cancellation supplies vertex bases with
+independent residue functions. Their Gram matrix, convergent O(t)
+remainder and full model-frame weights give the same coefficient-uniform
+Hilbert lower bound with O(sqrt(T)) error. The prior conditional FS and
+full hybrid/MA composition can then be used at m=0 as well; see the
+[audit](li_zero_dimensional_skeleton_audit_20261004.md) and
+[manifest](li_zero_dimensional_skeleton_manifest_20261004.json).
+The projective/germ model and reduced-cover presentations, previous
+source imports and independent book-admission verification remain
+explicit. No new source acquisition, finite calculation, verifier or
+status change is claimed. The active 4,244-page book and all 42 statuses
+remain fixed. Next check the model/semistable-cover construction and its
+precise application category.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
