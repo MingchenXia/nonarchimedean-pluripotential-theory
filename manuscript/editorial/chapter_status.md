@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--70 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--71 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -273,8 +273,14 @@ descent, curve functoriality, generalized Lelong numbers, the Gauss core and
 invariant Reeb theory retain their distinct domains and historical pins.
 All 68 chapter pages and both seams passed visual review; see the
 [Chapter 70 audit](second_reading_ch70_audit_20261004.md).
-Chapter 71 is active; all 2,639 original lines freshly read; no direct inputs;
-scoped primary checks continue. No later chapter is marked complete.
+Chapter 71's original 2,639 lines were freshly read and remain byte-identical.
+The raw transform, full Kähler comparison, projective model comparison,
+filtration maximality and zero-volume boundary retain their exact domains;
+all 28 protected blocks keep their historical pins. All 36 chapter pages and
+both seams passed visual review; see the
+[Chapter 71 audit](second_reading_ch71_audit_20261004.md).
+Chapter 72 is active; its 6,550 main-source lines and 39 direct inputs are
+being read. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
