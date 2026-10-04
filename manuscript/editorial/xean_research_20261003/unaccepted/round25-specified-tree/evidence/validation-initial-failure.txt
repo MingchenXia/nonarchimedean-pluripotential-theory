@@ -1,0 +1,8 @@
+Initial command: bash reproduce.sh
+Both pdflatex passes exited successfully and produced a 9-page PDF.
+validate_artifacts.py line 40 rejected regex 'undefined' on the first pass.
+That pass has the expected first-build undefined citations and references;
+build/pass2.stdout has none. This was a packaging-check error, not a failed proof.
+Corrected rule: neither pass may contain actual TeX errors; pass two may not
+contain undefined references. Reproduce.sh removes its own aux/out before
+pass one so the behavior is tested on a clean two-pass build.

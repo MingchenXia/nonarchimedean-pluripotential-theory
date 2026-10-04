@@ -1,0 +1,2801 @@
+# P06.2: specified semistable-tree ordinary regularization
+
+This is the authoritative, self-contained author draft. Status: **partial**;
+candidate: **false**. The claimed conditional theorem concerns a supplied
+actual connected rig-smooth strict affinoid over an algebraically closed
+complete nontrivially valued field, its supplied simply semistable model
+with metric-tree skeleton, and a supplied real harmonic skeletal function.
+It gives ordinary CLD-smooth decreasing psh approximants for both signs on
+the entire actual analytic interior, continuous on the affinoid, hence on
+every SAME supplied compact strict affinoid Y inside that interior.
+
+The original task and completion criteria remain exactly in `input.json`.
+Original P06.2 and its all-curve gate remain open. P05.2 is untouched.
+The proof does not infer factorization, a tree, a model, or harmonicity from
+a continuous current equation. It does not use completed-current transport,
+normalization, nilpotents, Wanner recognition, the book's claimed theorem,
+a prior PASS, or an old note as a mathematical theorem grant.
+
+The new proof includes an exact residual divisor construction, a quotient of
+GLOBAL analytic functions realizing that residual function, finite exceptional
+directions, an explicit common ORDINARY open star, correct one-node slope
+applications, full annular-fibre equalities, all-direction control, caps
+excluding their vertex with a strict error margin and new plateau, exact
+ordinary-open overlap gluing, and calibrated positivity against every
+nonnegative compact ordinary test. Both sequences use the entire fixed Z.
+Old tree/cap/tail diagnostics are reproved as supporting calculations and
+are not presented as new analytic results.
+
+All used new supporting proofs appear below in the complete standalone TeX
+body, followed by complete selected primary bodies. The TeX body is readable
+source, not an inaccessible external proof pointer. Three standard printed
+foundations (BGR affinoid algebra facts, the étale Jacobian criterion in EGA,
+and Hartshorne Riemann--Roch) are stated exactly, cited, and applied in that
+body. Their archival books were not installed here, are not redistributed,
+and have no claimed local source hash. The analytic Newton application and
+every NEW application are proved directly. Installed Thuillier, CLD, GJR, van der Put and Berkovich
+body hashes and exact LF coordinates follow; a definition or a scope statement
+is explicitly distinguished from a complete proof unit.
+
+The draft is not independently verified. Author audit, source identities,
+structural checks and two successful TeX builds do not establish mathematical
+correctness. `bash reproduce.sh` rebuilds selected-body access, two PDF passes,
+and integrity/schema evidence using small local operations only. All new
+files remain in this fresh workspace; old files are read only.
+
+# Complete new argument and standalone paper source
+
+```tex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\ddc}{\mathrm d'\mathrm d''}
+\newcommand{\Int}{\operatorname{Int}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\Div}{\operatorname{Div}}
+\newcommand{\supp}{\operatorname{supp}}
+\title{Ordinary smooth two-sign regularization on a supplied semistable tree}
+\author{Unverified research draft for P06.2}
+\date{4 October 2026}
+\begin{document}
+\maketitle
+
+\noindent\textbf{Status and scope.}
+This is a conditional construction on an actual supplied smooth affinoid
+and actual supplied semistable tree. It does not solve original P06.2 or
+the all-curve regularization gate. No current transport, model existence,
+normalization, or recognition from a continuous current equation is proved
+or assumed. Source extraction and compilation are not mathematical
+certification. All arguments below are author drafts.
+
+\begin{theorem}\label{thm:main}
+Let $C$ be algebraically closed, complete, and nontrivially valued, in any
+characteristic. Let $Z$ be a connected rig-smooth strict affinoid
+$C$-analytic curve, with a supplied simply semistable formal model
+$\mathfrak Z$, finite metric tree $\Gamma$, actual Shilov boundary $B$,
+and retraction $\tau:Z\to\Gamma$. Let $F$ be finite, real, continuous,
+affine on the edges, and harmonic on $\Gamma\setminus B$.
+Put $h=F\circ\tau$ and $\Omega=\Int(Z)$, the absolute analytic interior.
+For each sign $\sigma\in\{1,-1\}$ there are functions
+$u_n^\sigma\in C(Z,\mathbb R)$ such that their restrictions to $\Omega$
+are ordinary CLD-smooth and psh, $u_{n+1}^\sigma\leq u_n^\sigma$ on $Z$,
+and $u_n^\sigma\to\sigma h$ uniformly on $Z$.
+Consequently, for every supplied compact strict affinoid
+$Y\subset\Omega$, both sequences restrict to decreasing uniformly
+convergent sequences on that same $Y$. Every approximant is ordinary
+smooth on the actual ordinary open neighborhood $\Omega$ of $Y$.
+For every nonnegative compactly supported ordinary smooth scalar test
+$\varphi$ on $\Omega$,
+\[
+ \langle\ddc[u_n^\sigma],\varphi\rangle
+ =\int_\Omega u_n^\sigma\ddc\varphi
+ =\int_\Omega\varphi\ddc u_n^\sigma\ \geq 0.
+\]
+No harmonic ordinary-smooth approximants are asserted.
+\end{theorem}
+
+\paragraph{Foundations, with their scopes and uses.}
+We use the following standard analytic and algebraic foundations.
+These are precisely stated inputs; the new constructions and their
+applications are proved below. The authoritative companion
+\texttt{P06.2-argument.md} includes the selected complete primary proof
+units, literal LF ranges, hashes, and the full body of this paper.
+
+\begin{enumerate}
+\item A strict affinoid algebra is Noetherian, and a maximal-ideal
+residue field is finite over the ground field (Tate affinoid
+Noetherianity and Nullstellensatz; \cite[\S6.1.2]{BGR}). A rig-smooth
+affinoid over an algebraically closed field is regular. In dimension
+one, a connected such algebra is an integral normal ring: distinct
+irreducible components of a regular Noetherian ring cannot meet, and
+its finitely many components would otherwise give a disconnected
+spectrum. For a nonzero element $a$ its zero locus is a finite set of
+rigid points. Indeed, in the dimension-one integral ring $A$, $A/(a)$
+is Noetherian of dimension zero, hence Artinian with finitely many
+maximal ideals; their residue fields are $C$. These are the only
+affinoid-algebra facts needed for finiteness of exceptional directions.
+For $x\in\mathcal M(A)$, $\mathcal H(x)$ is by definition the completion
+of $\operatorname{Frac}(A/\ker x)$; see
+\cite[\S2.1.1, immediately before Proposition 2.1.1]{Thu}.
+
+\item For a supplied simply semistable formal curve, its vertices are
+the generic points of the reduced special-fibre components, and its
+edges are the nodes. A vertex outside the actual analytic boundary has
+a proper smooth residual component. For a smooth strict affinoid curve
+the analytic boundary is its Shilov boundary, so $\Omega=Z\setminus B$.
+The residual component at a type-2 vertex $v$, completed if necessary,
+has function field $\widetilde{\mathcal H(v)}$.
+The components of $Z\setminus\Gamma$ retract to single points of
+$\Gamma$. At a model vertex, the directions are the residual closed
+points: nodes give the graph directions; the other points give full
+open residue discs. The node tube, with its two endpoints omitted,
+is a full ordinary open annulus and retracts to that edge interior.
+Sources are \cite[Proposition 2.1.2, Proposition 2.1.12,
+\S2.2.2--2.2.3, and the proper-component criterion in the proof of
+Proposition 2.2.24]{Thu} and \cite[15.2]{GJR}.
+Their hypotheses hold for the actual $\mathfrak Z$; no model is being
+manufactured for a different affinoid.
+
+To check the ambient hypothesis of the cited boundary identity
+explicitly, the rigid affinoid of $Z$ is normal, connected, and
+one-dimensional over complete algebraically closed $C$.
+\cite[Theorem 1.1]{VdP}, with precisely those hypotheses, embeds
+it as an affinoid domain of a nonsingular complete algebraic curve.
+\cite[Theorem 1.6.1 and Lemma 1.6.2(i)]{Ber}, over a nontrivially
+valued field and for Hausdorff strict analytic spaces, identifies
+this same affinoid with a Berkovich affinoid domain in that curve's
+boundaryless analytification. The image is the same affinoid
+algebra, not a substituted neighborhood. Thus Thuillier
+Propositions 2.1.10 and 2.1.12 apply with that boundaryless ambient
+curve: $B=\partial Z$ and its complement is an actual ordinary
+open interior. This use of a published algebraization foundation
+only checks the boundary identity. It supplies no new formal model,
+tree, factorization, or regularization theorem, and no later
+argument uses an algebraic presentation of $Z$.
+
+For clarity, the disc/annulus coordinate assertion used here follows
+from the given formal charts. At a smooth closed point the chart is
+formally etale over a formal line. At a node it is formally etale over
+$\operatorname{Spf}(C^\circ\{X,Y\}/(XY-a))$.
+The residue field of the selected point is $\widetilde C$. Here is
+the actual tube application, including its ordinary domain. The
+etale Jacobian-presentation criterion
+(\cite[IV, 17.6]{EGA}, applied to the finite-presentation formal
+charts) gives, after localization at the selected point, finitely
+many equations in auxiliary variables with a square Jacobian
+invertible at its residual solution. All localizing denominators
+are nonzero at that solution. Choose constant lifts of its residual
+coordinates. On any strict closed subdisc $|T|\leq r<1$, or strict
+closed subannulus inside $|a|<|T|<1$, the equations evaluated at
+these lifts have Banach norm at most some $q<1$. Their Jacobian
+has inverse of norm at most one: its residual matrix is invertible,
+and the inverse is obtained from its adjugate and the geometric
+series for a determinant of the form a unit constant plus an error
+of norm less than one. Localization denominators similarly have
+norm-one inverses throughout the chosen branch. The base variables
+have norm less than one on these strict subdomains; the constant
+residual errors have norm less than one. Thus the asserted $q<1$
+follows directly from the bounded convergent formal coefficients.
+
+Banach Newton iteration now gives analytic auxiliary coordinates
+on that entire subdomain: the first correction has norm at most
+$q$, the next error at most $q^2$, and at step $j$ the error is
+at most $q^{2^j}$. The coefficients are bounded by one, so the
+Taylor remainder has this quadratic bound without dividing by
+factorials, in any characteristic. The limit is unique among
+solutions having the selected residual coordinates. To check this
+last point even for a solution initially farther than $q$ from
+the chosen constant lifts, the linear term has the norm of that
+distance while the quadratic remainder has strictly smaller norm;
+the equation therefore first forces distance at most $q$.
+For two such solutions the same invertible linear-term estimate
+forces equality. The argument also holds after evaluation in any
+completed residue field. Hence the analytic inverse constructed by
+Newton is both a left and right inverse on the selected tube,
+including nonrigid analytic points, rather than just a bijection
+on $C$-points. On overlapping subdomains these inverses agree by
+uniqueness. Their ordinary interiors exhaust the disc or annulus,
+because the value group of $C$ is dense. This gives respectively
+the full ordinary opens $|T|<1$ and $|a|<|T|<1$, with their
+entire analytic fibres, as claimed. This proof uses neither an
+adic completion at the non-finitely-generated maximal ideal of
+$C^\circ$ nor an assertion about the entire etale chart.
+The smooth residual point has the parameter $T$ supplied by that
+formal chart, normalized so the disc is $|T|<1$ and its added
+boundary point is $v$.
+
+\item If $f$ is analytic on the generic fibre of a simply semistable
+formal curve and is generically invertible, then its skeletal
+$\log|f|$ is integral piecewise affine; on each full retraction fibre
+it is an upper bound, with equality if there are no zeros on that
+fibre. Its graph Laplacian in the interior is the divisor degree in
+that fibre. This is \cite[Proposition 2.2.24]{Thu}. In particular,
+for a unit on a standard closed annulus the logarithm is affine on
+its skeleton and equals that affine function on every full fibre.
+For a connected simply semistable formal curve with exactly one node,
+and a unit on its entire generic fibre, the outgoing slope at a
+vertex is
+\[
+                 d_p\log|f|(v)=-\ord_p(\widetilde f),
+\]
+where $|f(v)|=1$ and $\widetilde f$ is its meromorphic residual
+function. This is \cite[Lemma 2.2.25]{Thu}. We apply the lemma only
+to actual one-node formal open subcurves on whose generic fibres
+the chosen quotient is a unit; that application is constructed below.
+The full Proposition 2.2.24 and Lemma 2.2.25 proofs are supplied in
+the companion argument, not just their statements.
+
+\item Type-2 cuts in the supplied model are available by admissible
+blowups (\cite[Lemma 2.2.22]{Thu}). The construction needed here is
+the explicit one in that proof: in a disc direction with formal
+parameter $T$, blow up $(T,c)$, $0<|c|<1$; at a node subdivide by
+the corresponding $(X,c)$ blowup. The new adjacent node tube is
+$|c|<|T|<1$. The strict transform of the original residual component
+is unchanged; the new node is its original point $p$. Finitely many
+such cuts may be made successively. These are all type-2 cuts.
+Any finite extension appearing in that lemma is trivial over $C$.
+Retraction compatibility is \cite[Proposition 2.2.26]{Thu}; the
+original $\tau$ is retained in the approximation.
+
+\item For a smooth projective connected curve $R$ of genus $g$ over an
+algebraically closed field, Riemann--Roch states
+$\ell(D)-\ell(K_R-D)=\deg D+1-g$, with $\deg K_R=2g-2$
+(\cite[IV, Theorem 1.3 and Corollary 1.4]{Hart}). In particular,
+when $\deg D\geq2g$, evaluation
+$H^0(R,\mathcal O(D))\to\mathcal O(D)|_p$ is onto for every closed
+point $p$. The application and exact-order avoidance are proved below.
+No assertion that every degree-zero divisor is principal is used.
+The residual component at the interior vertex meets the projective
+hypothesis as well as the proper one: an abstract nonsingular curve
+is an open subcurve of a nonsingular projective curve
+(\cite[I, Theorem 6.9]{Hart}); if the original curve is proper,
+its image is also closed in that separated projective curve, and
+connectedness makes the image the whole curve. Thus the actual
+smooth proper component $R_v$ is itself projective. This check
+does not require projectivity of the supplied analytic affinoid.
+
+\item Ordinary smooth functions are locally smooth functions of the
+logarithms of a finite tuple of actual analytic units on an ordinary
+open neighborhood (\cite[Proposition 15.1.1(b) and Corollary 15.1.2]{CLD}).
+Pullback commutes with $\mathrm d',\mathrm d''$, and a positive
+top-degree smooth form integrates nonnegatively for the canonical
+analytic calibration (\cite[\S7.3.1--7.3.4]{CLD}). On an analytic
+interior the calibrated space is harmonious
+(\cite[Theorem 15.6.1]{CLD}); the compact-support Stokes and Green
+formula, including the case where only the intersection of the
+supports is compact, is \cite[Proposition 5.11.1]{CLD}.
+These foundations apply to the good, Hausdorff, pure-dimensional,
+boundaryless ordinary open $\Omega$ of our affinoid. They imply that
+for a smooth $g$ and a compact scalar test $\varphi$ there,
+$\int g\ddc\varphi=\int\varphi\ddc g$.
+We prove positivity by calculating $\ddc g$ in the actual unit charts,
+not by a recognition theorem, weak smoothness, or a curve pullback.
+\end{enumerate}
+
+\paragraph{Field and multiplicity checks.}
+The residue field $k=\widetilde C$ is algebraically closed: lift a monic
+polynomial over $k$ to a monic polynomial over $C^\circ$, factor over
+$C$, and use leading-term dominance to see that every root has norm
+at most one. Reduction of the factorization proves the assertion.
+It is consequently infinite, even if it is the algebraic closure of
+a finite field. Taking roots in $C$ makes $|C^\times|$ divisible;
+the logarithms of the rational powers of one nontrivial value are
+dense in $\mathbb R$. Thus arbitrarily short strict type-2 cuts exist.
+The model is simply semistable, so its special fibre is reduced.
+The edge weight is $[\kappa(p):k]$ at the corresponding node
+(\cite[\S2.2.3]{Thu}, \cite[15.2]{GJR}), which is $1$ here.
+The generic integration cycle of $Z$ has length $1$, since $Z$ is
+smooth and reduced. These are computed actual multiplicities, not
+an imposed normalization. In a non-coordinate unit moment there can
+still be higher tropical multiplicities or inseparable degrees;
+they are retained in the canonical calibration in the positivity
+calculation below. No prime-to-characteristic assumption occurs.
+
+\begin{lemma}[Exact residual movement]\label{lem:rr}
+Let $R$ be a smooth projective connected curve of genus $g$ over an
+infinite algebraically closed field $k$. Let $p_1,\ldots,p_d$ be distinct
+closed points and $q_i\in\mathbb Q$ with $D_0=\sum_i q_i>0$.
+For any finite forbidden set $M$ containing those points there is
+an integer $N>0$ clearing all denominators and a rational function
+$\bar f\in k(R)^\times$ such that
+\[
+ \ord_{p_i}(\bar f)=-Nq_i,
+ \qquad
+ \operatorname{div}(\bar f)=A-\sum_i Nq_i[p_i],
+\]
+where $A$ is effective, supported outside $M$, and $\deg A=ND_0$.
+In particular every additional nonzero order is positive.
+\end{lemma}
+\begin{proof}
+Choose a sufficiently large multiple $N$ of a common denominator with
+$ND_0\geq\max\{1,2g\}$, and put $E=\sum_iNq_i[p_i]$.
+For any $p$, both $K_R-E$ and $K_R-E+p$ have negative degree.
+A negative-degree line bundle has no nonzero section, since the
+divisor of a nonzero section would be effective of the same degree.
+Riemann--Roch therefore gives $\ell(E)-\ell(E-p)=1$.
+The kernel of evaluation at $p$ is precisely $H^0(R,\mathcal O(E-p))$,
+so the evaluation kernel is a proper linear subspace.
+Over an infinite field, a finite union of proper subspaces of a finite
+dimensional vector space is not the whole space: take the product of
+nonzero linear forms vanishing on those subspaces, and use induction
+on the number of variables to see that a nonzero polynomial cannot
+vanish at every $k$-point. Choose a section $s$ outside all kernels
+for $p\in M$. The space is nonzero by Riemann--Roch and the degree
+bound. Regard $s$ as a rational function $\bar f$ in the definition
+of $\mathcal O(E)$. Then $A=\operatorname{div}(\bar f)+E$ is effective
+and has coefficient zero at every point of $M$. This proves exact
+orders, not just lower bounds. Its degree is $\deg E=ND_0$ because
+a principal divisor has degree zero. All zeros not prescribed by
+negative $q_i$ are precisely the finite effective divisor $A$.
+\end{proof}
+
+\begin{lemma}[Actual unit and a common ordinary star]\label{lem:star}
+Let $v$ be an interior model vertex of the supplied $Z$, and let
+$\bar f\in k(R_v)^\times$ be any nonzero residual rational function.
+There is a quotient $f=a/b$ with $a,b\in\mathcal O(Z)$, an actual
+ordinary open neighborhood $W$ of $v$ on which $f$ is an analytic
+unit, and finitely many exceptional residual directions $E$, with
+the following properties. We have $|f(v)|=1$ and reduction $\bar f$.
+Every graph direction has a full open annular collar in $W$ on
+which $\log|f|$ is its exact affine outgoing germ, of slope
+$-\ord_p\bar f$. Every direction in $E$ that is not a graph
+direction has such a collar in its full residue disc. In every
+other residue disc $f$ is a unit on the entire disc and $|f|=1$.
+The set $E$ may contain zero-order directions. In those directions
+the collar logarithm is exactly zero, and may be replaced farther
+in the disc by that same constant.
+\end{lemma}
+\begin{proof}
+Write $Z=\mathcal M(A)$. At $v$, the residual function field of the
+given component is $\widetilde{\mathcal H(v)}$, by the reduced model
+and Proposition 2.1.2 of Thuillier. Lift $\bar f$ to
+$z\in\mathcal H(v)^\circ$ of norm one. By the definition of
+$\mathcal H(v)$, choose $a/b\in\operatorname{Frac}(A)$ with
+$|a(v)/b(v)-z|<1$. The quotient has norm one and exactly the same
+residue, not an approximate residue. Here $v$ has zero kernel on
+$A$: it is not a rigid zero of any nonzero element of the integral
+dimension-one ring $A$, as also explained in Thuillier's proof of
+Proposition 2.2.24. Thus the fraction genuinely uses global analytic
+functions $a,b$, both nonzero at $v$.
+
+Let $P$ be the union of their zero sets. It is finite, consists of
+rigid points, and does not contain $v$. On the ordinary open
+$Z\setminus P$, $f$ is an analytic unit. Indeed, around a point
+where $|a|,|b|>0$, lower bounds on both absolute values give rational
+affinoid neighborhoods on which their inverses are analytic, and
+the strict lower-bound loci are ordinary open.
+The functions $a,b$ can be scaled by the same scalar so that both
+have norm one at $v$; this is possible since a model vertex has
+$|\mathcal H(v)^\times|=|C^\times|$. Their quotient reduction is
+still exactly $\bar f$.
+
+Choose an open metric star $S$ in $\Gamma$ about $v$, containing
+no other model vertex or boundary point. Make every graph arm so
+short that it avoids $\tau(P)\setminus\{v\}$. This is possible
+because that set is finite. The ordinary open $U=\tau^{-1}(S)$
+contains the entire residue disc $D_p$ at each non-graph direction
+$p$ of $v$. It also contains full edge collars: it is not just a
+union of paths in the skeleton.
+Let $E$ contain the graph directions, $\supp\operatorname{div}(\bar f)$,
+and the directions of all points in $P\cap\tau^{-1}(v)$.
+This set is finite. For each non-graph $p\in E$, write $D_p$ as
+$|T_p|<1$, as in the formal-chart foundation. Choose
+$r_p\in|C^\times|$, $r_p<1$, larger than the norms of all points
+of $P\cap D_p$, and let $K_p=\{|T_p|\leq r_p\}$.
+It is an actual compact strict closed disc inside $D_p$, hence
+closed in the Hausdorff compact $Z$. Set
+\[
+                     W_0=\tau^{-1}(S)\setminus\bigcup_{p\in E\text{ non-graph}}K_p.
+\]
+This is an ordinary open neighborhood of $v$, contained in
+$\Omega$, disjoint from $P$. Thus $f$ is one actual unit on $W_0$.
+
+We verify all outgoing slopes with their correct formal hypotheses.
+On each graph arm choose a strict type-2 cut inside $S$, before
+any point of $P$ in that arm. In each exceptional residue disc
+use the cut $|T_p|=r_p$, increasing $r_p$ toward $1$ if needed.
+The explicit admissible blowups $(T_p,c_p)$ and the node subdivisions
+in Thuillier Lemma 2.2.22 create these finitely many adjacent edges.
+For a smooth residual point, the charts $T_p=c_pU$ and $T_pV=c_p$
+show directly that the strict transform of $R_v$ is isomorphic to
+$R_v$, that the new node on it is $p$, and that the tube of that
+node is $r_p<|T_p|<1$. At an existing graph node the analogous
+subdivision gives the short original edge collar. None of these
+node tubes meets $P$, by the cuts just chosen.
+
+In this single refined formal model, fix one adjacent node. Its
+special-fibre node point is not the reduction of a point of $P$,
+because its entire tube is disjoint from $P$. Remove the reductions
+of the finitely many points in $P$ and all other nodes, and retain
+a connected formal open neighborhood of the selected node with
+exactly this one singular point. Both components through it are
+retained at their generic points. The quotient $f$ is a unit on
+its entire generic fibre; its reduction at the $v$ component is
+the restriction of the same $\bar f$, and the order at $p$ is
+unchanged. Lemma 2.2.25 now applies with all its actual hypotheses
+and gives $d_p\log|f|(v)=-\ord_p\bar f$.
+This use of a formal open is solely a slope computation; it is
+not an assertion that its generic fibre is the ordinary star.
+The actual ordinary neighborhood is the explicitly open $W_0$.
+Repeating the calculation for the finitely many adjacent nodes
+does not change $f$ or that neighborhood.
+
+The equality on whole collars, rather than just skeletal traces,
+is also exact. Exhaust each selected open annulus by strict closed
+subannuli. The quotient is a unit there. Proposition 2.2.24(ii),(iii)
+on the standard annulus gives equality on every full fibre and
+zero Laplacian at every interior skeletal point. Its piecewise
+integer-affine trace is therefore affine. Overlapping subannuli
+identify one affine function on the entire connected collar. Its
+intercept is $\log|f(v)|=0$ by continuity toward $v$, and its slope
+is the just computed $-\ord_p\bar f$. In a graph arm this uses
+the original edge coordinate and its original distance from $v$.
+For a residue disc it says, with $t_p=-\log|T_p|$,
+\[
+                    \log|f|=-\ord_p(\bar f)\,t_p
+                   \quad (0<t_p<-\log r_p).
+\]
+The strict subannuli exhaust because $\log|C^\times|$ is dense.
+
+Finally, if $p\notin E$ is a non-graph direction, neither $a$ nor
+$b$ vanishes anywhere in $D_p$. Exhaust $D_p$ by nested concentric
+strict closed discs. On each such disc both $f$ and $f^{-1}$ have
+their maximum at the unique Gauss Shilov point. The two inequalities
+force $|f|$ to be constant on that entire closed disc. The nested
+constants agree, hence $|f|$ is constant on $D_p$; its value is
+one by continuity to $v$. This proves all remaining directional
+claims simultaneously. If an exceptional direction has order zero,
+the exact collar formula gives $\log|f|=0$ there even if $a$ or
+$b$ has zeros deeper in the disc. A zero-order lift exception is
+therefore handled without a fictitious all-disc unit assertion.
+One may further shorten each of the finitely many cuts to obtain
+any smaller common ordinary star. The same $f$ works throughout.
+\end{proof}
+
+\begin{lemma}[An analytic cap with exact open overlaps]\label{lem:cap}
+On a full residue disc $D=\{|T|<1\}$ attached at $v$, suppose
+an actual unit germ on a common ordinary neighborhood has potential
+$c-a t$, $a>0$, on the full collar $0<t=-\log|T|<\ell$.
+Given any $\epsilon>0$, this potential can be continued as an
+ordinary smooth psh function on $D$ which agrees with that potential
+on a smaller full collar, is constant on an ordinary inner open
+disc, and differs everywhere from $c$ by less than $\epsilon$.
+It can be glued to the original unit germ using genuine ordinary
+open overlaps; $v$ does not belong to the cap annulus.
+\end{lemma}
+\begin{proof}
+Let $\rho$ be an even nonnegative $C^\infty$ probability density
+supported in $(-1,1)$, and set
+\[
+ \chi_\eta(x)=\int |x-\eta s|\rho(s)\,ds,
+ \qquad M_\eta(x,y)=\frac{x+y+\chi_\eta(x-y)}2.
+\]
+The convolution is smooth and convex, $|\chi_\eta'|\leq1$,
+and $\chi_\eta''\geq0$. Jensen's inequality and the triangle
+inequality give
+$|x|\leq\chi_\eta(x)\leq|x|+\eta$.
+Evenness gives zero first moment, so $\chi_\eta(x)=|x|$ if
+$|x|\geq\eta$. Its Hessian is
+$\chi_\eta''(x-y)(1,-1)^{\mathsf t}(1,-1)/2$ and its first
+partials are nonnegative. Thus $M_\eta$ is smooth convex,
+equals $\max(x,y)$ when $|x-y|\geq\eta$, and lies between
+that maximum and that maximum plus $\eta/2$.
+
+Choose $r>0$ and then $\eta>0$ such that
+\[
+ 0<\eta<ar/2,\qquad r+\eta/a<\ell,
+ \qquad ar+\eta/2<\epsilon.
+\]
+These are strict inequalities. On the full ordinary open annulus
+$A=\{e^{-\ell}<|T|<1\}$ put
+\[
+                 q(t)=M_\eta(c-at,c-ar).
+\]
+It equals $c-at$ for $0<t<r-\eta/a$ and the \emph{new}
+constant $c-ar$ for $t>r+\eta/a$.
+Take $s$ strictly between $r+\eta/a$ and $\ell$, and continue
+by $c-ar$ on the ordinary open inner disc $E=\{|T|<e^{-s}\}$.
+The two opens cover $D$ and agree exactly on the full open annulus
+$s<t<\ell$. To glue at $v$, shorten the star cut to any
+$t_0\in(0,r-\eta/a)$. On its overlap with $A$ there is the
+entire annulus $0<t<t_0$, with identical values. No partition
+gluing is involved. The omitted interface Gauss points are
+included in one or the other of these open sets.
+
+The coordinate $T$ is a unit on $A$, and $t=-\log|T|$ is
+an actual ordinary moment coordinate. The function $q$ is
+smooth convex in $t$, so on $A$
+\[
+                    \ddc q=q''(t)\,\mathrm d't\wedge\mathrm d''t,
+                    \qquad q''(t)\geq0.
+\]
+On $E$ the Hessian is zero. Hence these are ordinary smooth
+functions with positive Hessian form. Their current positivity
+against arbitrary compact tests is proved below using the actual
+analytic calibration. The bound from the regularized maximum is
+$|q-c|\leq ar+\eta/2<\epsilon$, and the constant continuation
+has the same bound. In particular we never restore the old
+constant $c$. No annular chart containing the positive-genus
+vertex was claimed; it is covered by the unchanged unit germ.
+\end{proof}
+
+\begin{proposition}[Uniform ordinary approximation on the supplied domain]\label{prop:raw}
+Under the geometric hypotheses of Theorem \ref{thm:main}, let $H$
+be a finite real continuous edge-affine function on $\Gamma$ with
+nonnegative outgoing-slope sum at every model vertex outside $B$.
+For every $\epsilon>0$ there is $g\in C(Z,\mathbb R)$, ordinary
+CLD-smooth and psh on $\Omega$, with
+$\|g-H\circ\tau\|_{C(Z)}<\epsilon$.
+\end{proposition}
+\begin{proof}
+If $\Gamma$ is a point, $H\circ\tau$ is constant and already
+works. Otherwise let $V$ be the original model vertices and
+$I=V\setminus B$. We use no type-3 model vertices. Redundant
+metric subdivisions at which $H$ is harmonic may be removed;
+in Theorem \ref{thm:main} the slopes on their two arms are equal.
+Choose a root $b\in B$, which is nonempty for a nonempty
+affinoid. Set $\mu=1$ on $I$, $\mu(b)=-|I|$, and zero on
+$B\setminus\{b\}$. Root the tree at $b$. For each child $x$
+let $m_x$ be the sum of $\mu$ over the child subtree; prescribe
+slope $m_x$ from $x$ to its parent and integrate with root value
+zero to get $\psi$. At $x\ne b$ the outgoing sum is
+$m_x-\sum_{y\text{ child of }x}m_y=\mu(x)$; at $b$ the same
+identity follows from $\sum\mu=0$. Thus $\Delta\psi=1$ on $I$.
+
+For $\delta>0$ small, $H+\delta\psi$ is within $\epsilon/4$
+of $H$ and has outgoing-sum margin at least $\delta$ on $I$.
+Round its oriented slopes to rationals with error less than
+$\eta_0$, and integrate them from the root's original value to
+get $G$. Path uniqueness on the tree gives consistency, and if
+$L$ is total length and $d$ maximum valency,
+\[
+ \|G-(H+\delta\psi)\|_\infty\leq L\eta_0,
+ \qquad |\Delta G-\Delta(H+\delta\psi)|\leq d\eta_0.
+\]
+Choose $L\eta_0<\epsilon/4$ and, if $I$ is nonempty,
+$d\eta_0<\delta/2$. Then
+$\|G-H\|_\infty<\epsilon/2$ and $\Delta G(v)>0$ on $I$.
+When $I$ is empty the outgoing-sum condition is empty.
+This elementary tree step is reproved here for use, not presented
+as a new analytic result or as a fixed-cycle rounding procedure.
+
+Fix $v\in I$. Its graph directions correspond to the distinct
+node points $p_i$ of the smooth proper residual component $R_v$;
+there are no self-nodes since the model is simply semistable.
+Let $q_i$ be the outgoing slopes of $G$. Their sum is positive.
+Apply Lemma \ref{lem:rr}, forbidding every graph direction.
+It produces $N_v$ and
+$\operatorname{div}(\bar f_v)=A_v-\sum_i N_vq_i[p_i]$,
+where $A_v=\sum_{p\in S_v}m_p[p]$ is effective and all its
+points are fresh non-graph smooth points. Every such direction
+is a full available residue disc of this actual $Z$.
+Apply Lemma \ref{lem:star} to obtain one actual unit $f_v$.
+The ordinary smooth potential
+\[
+                   H_v=G(v)+N_v^{-1}\log|f_v|
+\]
+has exactly the graph slopes $q_i$, exactly the fresh slopes
+$-m_p/N_v<0$, and zero slopes in all other directions, including
+finite additional lift exceptions. It is an affine function of
+an actual unit moment on the entire common star, so its Hessian
+form is identically zero there. It is not being inferred smooth
+from a weak harmonic tropicalization or from a germ exact sequence.
+
+Choose the metric graph stars at the finitely many $v\in I$ so
+short that they are pairwise disjoint and miss $B$. Lemma
+\ref{lem:star} allows further shrinking without changing $f_v$.
+On every graph collar $H_v=G\circ\tau$ exactly on the whole
+annular fibre: intercept and slope agree. In zero-order exceptional
+residue directions glue $H_v$ to the constant $G(v)$ on the
+whole disc, using the exact constant collar. On every other
+non-fresh direction the full-disc potential is already $G(v)$.
+For each fresh $p\in S_v$, apply Lemma \ref{lem:cap} with
+$c=G(v)$, $a=m_p/N_v$, and error $\epsilon/2$. There are only
+finitely many such directions. Make the finitely many star cuts
+shorter than their exact affine overlap lengths, while leaving
+each cap annulus long enough for its transition and constant
+overlap. The common star remains ordinary open because it is
+an inverse image of an open graph star minus finitely many
+compact closed inner discs. The unchanged central unit germ,
+caps, and constant disc continuations therefore agree on all
+ordinary open overlaps.
+
+On the full annulus attached to each original open edge put the
+original affine value of $G\circ\tau$ in its annulus coordinate.
+This is ordinary smooth with zero Hessian. On every residue
+disc at a model vertex, use the constant or capped function
+just specified; at a boundary vertex use the constant $G(b)$
+on its residue discs and $G\circ\tau$ on a small graph star
+to check continuity. No smoothness at a boundary vertex is
+required. Graph collars at interior vertices agree with the
+edge formula on full ordinary open annuli. Residue discs
+attached at points in an edge interior are already included
+in that edge's full annulus; their values are the same affine
+edge value. This accounts for all analytic points, including
+the type-3 and type-4 points in the annuli and discs.
+
+The preceding sets give an actual ordinary open cover of
+$\Omega$: central stars at interior model vertices, full
+edge annuli, and full residue discs (a fresh disc itself is
+covered by its cap annulus and inner disc). Exact agreement
+on every overlap defines a single ordinary smooth function
+there. It extends continuously to $Z$, with $g(b)=G(b)$:
+there are finitely many interior stars, they avoid $B$, and
+near a boundary vertex the function is just $G\circ\tau$.
+The replacement regions are disjoint apart from their exact
+overlaps. Outside a fresh residue disc the value is exactly
+$G\circ\tau$; inside it the latter is the constant $G(v)$
+and the error is less than $\epsilon/2$. Therefore
+\[
+ \|g-G\circ\tau\|_{C(Z)}<\epsilon/2,
+ \qquad \|g-H\circ\tau\|_{C(Z)}<\epsilon.
+\]
+
+Here is the positivity check with unrestricted ordinary tests.
+In a central star, $g=G(v)+N_v^{-1}\log|f_v|$, so
+$\ddc g=0$ as a smooth form. In an edge annulus it is affine
+in $-\log|T|$, so again the form is zero. In constant regions
+it is zero, and in cap charts it is
+$q''(t)\mathrm d't\wedge\mathrm d''t$ with $q''\geq0$.
+There are no interface distributions, since these smooth
+formulas agree on ordinary open overlaps. To see the sign
+in an arbitrary common unit chart for a test and the cap,
+on each one-dimensional calibrated cell let $\xi$ be a
+primitive tangent coordinate, $m_\alpha>0$ its actual
+canonical multiplicity, and $t=A_\alpha\xi+c_\alpha$.
+Its contribution is
+\[
+            m_\alpha\varphi\,q''(t)A_\alpha^2\,d\xi\geq0.
+\]
+Cells with $A_\alpha=0$ contribute zero, including the
+residual directions collapsed by this coordinate. We neither
+discard those directions nor replace $m_\alpha$ by one.
+The coordinate annulus itself has calibration one, but
+refined moment charts can have other multiplicities.
+Equivalently, $\ddc g$ is a positive ordinary top-degree
+form everywhere, and canonical integration preserves its
+positivity (CLD \S7.3.4). For every compact nonnegative
+ordinary scalar test $\varphi$ on $\Omega$, Green's formula
+with $g$ and $\varphi$ applies because their support
+intersection is compact and $\Omega$ is boundaryless:
+\[
+        \langle\ddc[g],\varphi\rangle
+        =\int_\Omega g\ddc\varphi
+        =\int_\Omega\varphi\ddc g\geq0.
+\]
+This proves ordinary current positivity for every test, and
+thus psh of the smooth approximant in the ordinary CLD
+sense. Only tests, not psh potentials, may be localized by
+partitions; the construction did not use partition gluing.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:main}]
+Both $F$ and $-F$ meet Proposition \ref{prop:raw}'s outgoing-sum
+hypothesis with sum zero. For each sign and $b_n=4^{-n}$,
+choose $g_n^\sigma$ on the same entire $Z$ with
+$\|g_n^\sigma-\sigma h\|_{C(Z)}<b_n$.
+Set
+\[
+ c_n=\sum_{j\geq n}(b_j+b_{j+1})=\tfrac53 b_n,
+ \qquad u_n^\sigma=g_n^\sigma+c_n.
+\]
+Then $c_n-c_{n+1}=b_n+b_{n+1}$, so
+$u_n^\sigma-u_{n+1}^\sigma\geq0$ on $Z$.
+Furthermore
+\[
+             0\leq u_n^\sigma-\sigma h\leq\tfrac83 b_n
+\]
+on $Z$. Thus each sequence decreases uniformly from above.
+Constants preserve ordinary smoothness and current positivity.
+No domain shrinks with $n$ or with the sign. Restricting to
+the supplied $Y\subset\Omega$ proves the required assertion
+on precisely that $Y$, with the ordinary neighborhood
+$\Omega$ available for every approximant. The functions are
+continuous up to $B$, but their boundary values need not
+equal $\sigma F|_B$ at any finite stage.
+\end{proof}
+
+\paragraph{Comparison with original P06.2.}
+The input here already provides smooth reduction, an actual
+semistable model with tree skeleton, and harmonic skeletal
+factorization over an algebraically closed ground field.
+The theorem establishes the ordinary two-sign regularization
+construction under those inputs, including positive residual
+genus, real slopes, all full annular fibres, and finite lift
+exceptions. It does not derive any of those inputs from an
+arbitrary continuous zero-current function. It does not prove
+the all-curve gate, scalar-current ascent, or the unchanged
+good separated strict boundaryless arbitrary-dimensional
+recognition atom. No strict analytic counterexample is given.
+The catalogue's claimed book regularization result was read
+as fallible mathematical source material, not used as a theorem
+grant. The tree and cap calculations already present in the
+predecessor are reproved as supporting steps, not counted as
+new analytic results. The substantive proposed advance is
+the explicit residual lift, finite exceptional-direction
+control, and the resulting actual whole-overlap analytic
+construction. P05.2 is untouched. Candidate remains false.
+
+\begin{thebibliography}{9}
+\bibitem{BGR} S. Bosch, U. G\"untzer, R. Remmert,
+\emph{Non-Archimedean Analysis}, Springer, 1984, \S6.1.2
+(affinoid Noetherianity and Nullstellensatz); regular affinoid
+algebras and the Jacobian criterion in \S7.3.
+\bibitem{EGA} A. Grothendieck and J. Dieudonn\'e,
+\emph{\'El\'ements de g\'eom\'etrie alg\'ebrique IV},
+Publ. Math. IH\'ES 32 (1967), \S17.1 and \S17.6
+(formal etaleness and etale morphisms).
+\bibitem{Hart} R. Hartshorne, \emph{Algebraic Geometry},
+Springer, 1977, Chapter IV, Theorem 1.3 and Corollary 1.4.
+Chapter I, Theorem 6.9, for projective completion of a nonsingular curve.
+\bibitem{Thu} A. Thuillier, \emph{Th\'eorie du potentiel sur
+les courbes en g\'eom\'etrie analytique non archim\'edienne.
+Applications \`a la th\'eorie d'Arakelov}, thesis, 2005,
+HAL tel-00010990v1. Exact installed version, not a later
+transcription.
+\bibitem{CLD} A. Chambert-Loir and A. Ducros,
+\emph{Formes diff\'erentielles r\'eelles et courants sur les
+espaces de Berkovich}, arXiv:1204.6277v2, 25 July 2025.
+The cited numbering is that of the installed v2 PDF, SHA-256
+\texttt{5690f999523017d184ab751bb55857ab1637b197d1186ad4fd2edba7e1bda719}.
+\bibitem{GJR} W. Gubler, P. Jell, J. Rabinoff,
+\emph{Forms on Berkovich spaces based on harmonic tropicalizations},
+arXiv:2111.05741v3, exact installed version, \S15.2.
+\bibitem{VdP} M. van der Put, \emph{The class group of a
+one-dimensional affinoid space}, Ann. Inst. Fourier 30(4) (1980),
+155--164, Theorem 1.1. Its ground field is complete and
+algebraically closed.
+\bibitem{Ber} V. Berkovich, \emph{\'Etale cohomology for
+non-Archimedean analytic spaces}, Publ. Math. IH\'ES 78 (1993),
+5--161, Theorem 1.6.1 and Lemma 1.6.2,
+DOI 10.1007/BF02712916.
+\end{thebibliography}
+\end{document}
+
+```
+
+# Selected primary bodies
+
+## vdp-boundary-check
+
+Field convention and full Theorem 1.1 proof including Lemma 1.2; used only to check the boundary-identity ambient hypothesis.
+
+Source `/workspace/research/shared-sources/van-der-Put-AIF-1980-30-4-155.txt`; SHA-256 `472b65a2f1121efd6971714d3041128c2dfa76b11b6291cd43972e9e6c5d3743`. Inclusive literal LF lines 42--221; body SHA-256 `378e60a95189cc659eac1614edf13fc71d3e29b862a9e1a38bfa9c9b82c75a12`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+    The field k is supposed to be complete with respect to a non-
+archimedean valuation. Moreover we will assume that k is algebraically
+closed. An afflnoid space Y over k is the set of maximal ideals of an
+affmoid algebra. The standard affinoid algebra is fc<T^,...,T^>= the
+set of all power series SflaT^ • • • T^ converging on the closed polydisk
+                          {(^....rJe^alllr.Kl}.
+
+An affinoid algebra is a residue class ring of some fc<Ti,.. .,T^>. An
+algebraic variety over k can be studied locally by its analytic structure over
+k, that is by means of afflnoid spaces.
+    We show that a one-dimensional, normal, connected afflnoid space Y is
+an afflnoid subset ofa non-singular, complete curve C over k (Thm 1.1). If
+Y has a trivial classgroup then Y is in fact an afflnoid subset of P1
+(Thm 2.1). A curve is locally a unique factorization domain (U.F.D.
+for short) if and only the curve is a Mumford curve (i.e. can be
+parametrized by a Schottky group). In general the class group of Y
+can be expressed in terms of the Jacobi-variety of C (prop. 3.1).
+    Some examples show the connection between the class group of Y and
+the class group of the (stable) reduction of Y. For fc-analytic spaces we refer
+to
+    [2], [3]. I thank A. Escassut for bringing the problem on unique
+factorization on afflnoid spaces to my attention. Related questions are treated
+in [1].
+
+                 1. Affinoid subspaces of an algebraic curve.
+
+     A curve C (non-singular and complete) over k has a natural structure as
+(rigid) analytic space over k. This structure is given by a collection
+156                       MARIUS VAN DER PUT
+
+
+of subspaces Y of C, called affmoid, and a sheaf 0 = (9^ with
+respect to the Grothendieck topology of finite coverings by afflnoids.
+For any Y, ^P(Y) is an affinoid algebra (1-dim. and normal) over k
+with Sp((P(Y)) = Y. We want to show :
+
+   1.1. — THEOREM. — Every 1-dimensional, normal, connected affinoid space
+Y = sp(A) is an affinoid subspace of a non-singular complete curve.
+
+     Proof. — Y is called connected and normal if the algebra A has no
+idempotents ^ 0, 1 and A is integrally closed. We use the notations
+A° = {/eA| 11/H <!}, A00 = {/eA| ||/||<1} and A = A7A00, where
+11/11 = max {\f(y)\ \y e Y} is the spectral norm on Y. The algebra A is of
+finite type over k = the residue field of k and the algebraic variety
+Yc = Max (A) is called the canonical reduction of Y. There is a natural
+surjective map R : Y -> Y^, also called the canonical reduction. A pure
+covering of an analytic space X, is an allowed covering ^ = (U^) by
+affinoid spaces, such that for every i + j with U, n U, ^ 0, the set
+U; n \Jj is the inverse image of a Zariski open set V^ in (U^ under the
+map U, -> (U^. The reduction X^ of X with respect to ^ is
+obtained by glueing the afflne algebraic varieties (U^ over the open
+sets V^.. The result is an algebraic variety over k. If X is separated
+then the U^ n Uj are also affinoid, the V^ are afflne and equal to
+(U^oU), and X^ is separated. If X is non-singular, 1-dimensional,
+connected and if X^ is complete then X is a non-singular complete
+curve over k (see [2] ch. IV 2.2).
+    Our proof consists of glueing affinoid spaces Y i , . . . , Y , to Y
+such that the reduction of X = Y u Y^ u . . . u Y, with respect
+to the pure covering {Y,Yi,...,Yj is complete. Then clearly Y is
+an affinoid domain of the algebraic curve X. The 1-dimensional
+space Yc lies in a complete 1-dimensional Z such that F = Z - Y^
+is a finite set of non-singular points. Suppose that we can find for
+every p e F an affinoid space Yp with canonical reduction
+Rp : Yp -> (Yp)^ <= Z where (Y^ is a neighbourhood of p and
+such that
+             Y, ^ R;1^ n Y,) ^ R-^Y;), n Y,) c Y.
+
+   Then we can glue Yp to Y. The space X = YU u Yp has reduction Z
+which is complete. So the glueing has to be done locally on Y and Y^. The
+component C of Z on which p lies can be projected into P^k) such that
+         THE CLASS GROUP OF A ONE-DIMENSIONAL AFFINOID SPACE              157
+
+
+ (the image of) p is still non-singular. A good projection onto P1 maps p
+ onto o and o is an unramified point for the projection. Replacing Y and
+ Y^ by neighbourhoods of p we may therefore suppose :
+
+                     W) = d)(^) = feEr.Mrr^JAP),
+ where
+
+     1) e(t) = (t-a,) . . . (t-a,) with ^, .. .,^ different points of ^ ;they
+ are the residues of ^4, . . . , a, e fe°.
+     2) P is a monic irreducible polynomial of degree n with coefficients in
+ ~k[f}.
+    . dP
+     ' d~~ ls mvertlble as Cement of H[_t,(e(t))~1,5]/(P).
+    4) the point « p » corresponds to t = 0.
+ Then ^(Y)° has the form fe°<T,U,S>/(TE(T)U-l,Q) where
+
+              E(T) = ( T - a i ) ; . . (T-a,)   and     Q = P.
+
+Since Q is general with respect to the variable S, we can apply Weierstrass-
+division and assume that Q is a monic polynomial of degree n in S with
+coefficients in fe°<T,U>/(TE(T)U-l). Suppose that we can find a monic
+polynomial Q* of degree n in S and coefficients in fe°<T,V>/(E(T)V-l)
+such that
+                   fe°<T,U,S>/(TE(T)U-l,Q*) ^ ^(Y)°.
+
+Then Y^ = Sp(fe<T,V,S>/(E(T)V-l,Q*)) has the required properties. So we
+have to get rid of the negative powers of T in the coefficients of
+
+                    C^S^^S"-^ ... +^.
+
+
+    1.2. - LEMMA. - If Q* = S" + a;-^-1 ^ . . . + a? ^5
+coefficients in A = fe°<T,U>/(TE(T)U-l) ^ Q* = Q = p, then
+   a) Q* i5 irreducible
+   b) Q* /ia5 a z^ro in ^(Y)°
+   c) fe<T,U,S>/(TE(T)U-l,Q*) ^ (P(Y).
+
+    Proo/ - a) Let Q* be reducible over the quotient field of A.
+Since A is normal, Q* is a product of monic polynomials with
+coefficients in A. This contradicts the irreducibility of Q* = P.
+158                       MARIUS VAN DER PUT
+
+
+                             f      ^Q*1
+   b) First we show that \Q*,——^ generates the unit ideal in A[S]. Let
+                          I   rfS J
+                                          dQ*
+m be a maximal ideal containing Q* and ——. If m n k° ^ 0 then m
+                                           dS
+induces a maximal ideal of H^t,(te(t))~^][S] = A[S] containing P and
+dP
+—. This contradicts our assumptions on P. So m corresponds to a
+aS
+maximal ideal m^, of fe<T,U>/(TE(T)U-l)[S], containing Q* and
+dQ*
+~dS~'
+   If mi nk<T,U>/(TE(T)U-l) + 0 then m^, is the kernel of a
+homomorphism in k given by T i—> ^ e k, S i—> ^ 6 k with
+
+                  |?4|^ 1,          P4E(5iO|= 1,     |^1 < 1
+
+                                 / dP\
+since Q*^) = 0. Ffom              P.— = ^[^(^(O'^S] it follows that
+                                 \ »S/
+                                 dO*
+                   Z,(S)Q alt +Z,(S)-^=l + S ^S1
+                                  "^       i>o
+
+for certain Z^, Z2 e A[S] and ^ 6 A with ||flf|| < 1. The substitution
+T i—^ ^ i ; S i—> ^2 makes 0 = 1 + ^ ^Ai)^2» which is impossible. So
+                                   i>o
+m and m^ correspond to an ideal of L[S] with L the quotient field of A.
+                                              dQ*
+Since Q* is irreducible, this means that —— = 0. This is obviously in
+                                         dS
+contradiction with (P,—) = K[^?(0)~1].
+                   \ ^S/
+      We conclude the existence of Z^, Z^ e A[S] with
+
+                                                   dQ*
+                        1 =Z,(S)Q*+Z2(S)——.
+                                         aS
+
+    By Newton's method we will show that Q* has a zero in ^(Y)°. Let
+T| e ^(Y)° satisfy IIQ^rOII < 1 (e.g. TI is the residue of S mod Q in
+                                                dO*
+W).         Then       1 - Z,(Ti)Q*(ri) = Z^) -^ (TI)       and  since
+                                                 aS
+        THE CLASS GROUP OF A ONE-DIMENSIONAL AFFINOID SPACE                    159
+
+
+                                               dO*
+l|Zi(ri)Q*(il)|| < 1   it   follows    that    ——(r|)      is   invertible.   Put
+                                               aS
+               /d0*   \~1
+Th = TI - Q*(^)(-^-(Ti)t . Then ||Q*(Tii)|| < ||Q*(Ti)||2. The usual
+
+procedure and the completeness of (P(Y)0 show the existence of a root of Q*
+in (P(Y)°.
+    c) The quotient field of A[S]/Q* is contained in that of A[S]/Q,
+because of (b). Both fields are extensions of degree n of the quotient field
+of A. So they are equal. The rings fe<T,U,S>/(TE(T)U-l,Q*) and ^P(Y)
+are both the integral closure of k<T,U>/(TE(T)U-l) in that field. So they
+are equal.
+
+  End of the proof of 1.1. — We choose Q* with coefficients in
+k°<T,V>/(VE(T)-l) and Q* = P.
+```
+
+## berkovich-boundary-domain-check
+
+Full Theorem 1.6.1 and Lemma 1.6.2 proofs. Domain comparison only, followed separately by Thuillier ordinary boundary/interior identification.
+
+Source `/workspace/research/shared-sources/Berkovich-PMIHES-1993-78-5.txt`; SHA-256 `694ba4de951bb7e40c73fa4057e4bed5ce073757690ac7379bb1cbbabaf62c1d`. Inclusive literal LF lines 1335--1438; body SHA-256 `b1745c2fb24bc2fbf56edf5f5d942e0be14ed28b13480e3f9cc7169050548800`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+1.6. Connection with rigid analytic geometry
+
+       We work here with the category of rigid ^-analytic spaces which is defined in
+ [BGR], §9.
+       Assume that the valuation on k is nontrivial, and let X be a Hausdorff strictly
+^-analytic space. The corresponding rigid A-analytic structure will be defined on the
+set Xo =={x e X | \^[x) : k] < oo }. (We remark that from [Ber], 2.1.15, it follows
+that the set Xo is everywhere dense in X.) First of all, i f X = Ji({^) is strictly A-affinoid,
+then the maximal spectrum Xo = Max(^) is endowed with a rigid ^-analytic space
+structure as in [BGR], § 9.3.1. Suppose that X is arbitrary. We say that a subset
+ °U C Xo is admissible open if, for any strictly affinoid domain V C X, the intersection ^ h Vo
+is an admissible open set in the rigid ^-affinoid space Vo. Furthermore, a covering {^•}^r
+of an admissible open subset ^C X^ by admissible open subsets is admissible if, for any
+strictly affinoid domain V C X, { ^ n VQ },^ i is an admissible open covering of % n Vo.
+In this way we get a G-topology on the set Xo. The sheaves of rings Q^, where V runs
+through the strictly affinoid domains in X, are compatible on intersections, and to they
+glue together to form a sheaf of rings (9^ on the G-topological space Xo. The locally
+G-ringed space (Xo, (P^) satisfies the conditions of Definition 9.3.1/4 from [BGR],
+and so we get a rigid ^-analytic space. We remark that the rigid yfe-analytic space cons-
+tructed is quasiseparated. (A rigid A-analytic space is called quasiseparated if the inter-
+section of two open affinoid domains is a finite union of open affinoid domains.)
+
+       1.6.1. Theorem. —The correspondence X i-> XQ is a fully faithful junctor from the
+category of Hausdorff strictly k-analytic spaces to the category of quasiseparated rigid k-andlytic
+36
+                                    VLADIMIR G. BERKOVICH
+
+spaces. Furthermore, this functor induces an equivalence between, the category of paracompact strictly
+k'analytic spaces and the category of quasiseparated rigid k-analytic spaces that have an admissible
+affinoid covering of finite type.
+
+      A collection of subsets of a set is said to be of finite type if each subset of the col-
+lection meets only a finite number of other subsets of the collection.
+
+      Proof. — Let X be a Hausdorff strictly A-analytic space. First of all we establish
+the following fact.
+
+      1.6.2. Lemma. — (i) Any open affinoid domain in the rigid k-analytic space XQ is of the
+formVo, where V is a strictly affinoid domain in X.
+      (ii) Let {VJ^ be a system of strictly affinoid domains in X. Then { V , o } ^ i is
+ an admissible covering of XQ if and only if each point ofX has a neighborhood of the form
+ V^ U ... uV^ (i.e., { V J ^ i is a quasinet on X).
+
+       Proof. — (i) An open affinoid domain in XQ is an open immersion of rigid ^-analytic
+spaces/: Uo -> XQ, where U is a strictly ^-affinoid space. In particular, for any strictly
+affinoid domain V C X , /-^(Vo) is a finite union of affinoid domains in UQ, and
+{/"^(Vo)}, where V runs through strictly affinoid domains in X, is an affinoid covering.
+It follows that we can find strictly affinoid domains Ui, ..., U^ C U and V\, ..., V C X
+such that U = Ui U ... u U^ and f\^ ^ comes from a morphism of strictly affinoid
+spaces 9,: U, ->V, that identifies U, with an affinoid domain in V,. Moreover, all 9,
+are compatible on intersections. Therefore, we get a morphism of strictly ^-analytic
+spaces <p : U -> X. Since 9, as a map of topological spaces, is compact and induces an
+injection on the everywhere dense subset Uo C U, it follows that 9 induces a homeo-
+morphism of U with its image in X. Finally, 9 identifies U, with a strictly affinoid
+domain in V,, and therefore 9 identifies U with a strictly analytic domain in X. It is
+clear that this is a strictly affinoid domain.
+       (ii) Suppose first that {V, o h e i ls an admissible covering of XQ. This means
+that, for any strictly affinoid domain V C X, { V, o n V^ }, ^; is an admissible covering
+of Vo. It follows that V is contained in a finite union V^ U .. . U V^, and therefore
+each point of X has a neighborhood of the required form. Conversely, assume that
+the latter property is true. Then any strictly affinoid domain is contained in a finite
+union V^ U . .. u V^, and therefore { V, ^ n VQ }^ j is an admissible covering of Vo. •
+       Let 9 : Y -> X be a morphism of strictly A-analytic spaces. First of all we claim
+that the induced map 90 : Yg -> XQ is continuous with respect to the G-topologies on XQ
+and Yo. Let ^C XQ be an admissible open subset, and let VC Y be a strictly affinoid
+domain. By [BGR], 9.1.4/2, and Lemma 1.6.2 (i), the set ^ has an admissible cove-
+ring { U ^ p J ^ j , where U^ are strictly affinoid domains in X. By Corollary 1.2.14,
+for each i e I one has 9-1(U,) n V = U,gj. V^., where V,, are strictly affinoid domains
+in V and J, is finite. We get a covering { V,, o } of the set 9o'lW ^ VQ. To verify that
+            fiTALE COHOMOLOGY FOR NON-ARCHIMEDEAN ANALYTIC SPACES                             37
+
+the latter set is admissible open in VQ, it suffices to show that for any morphism of
+strictly ^-affinoid spaces + : W —Vwith^(Wo) C 9o-l(^) n Vg, the covering { ^ '(V,, o)}
+has a finite affinoid covering that refines it. But this follows from the fact that the latter
+condition is satisfied by the covering {(9^)0" ^U^o h e r Thus, the set 9o~l(<%^) is admis-
+sible open in Yo. In the same way one shows that the preimage of an admissible covering
+of an admissible open set is an admissible open covering. Hence the map of G-topological
+spaces 90 : Y^ -> X^ is continuous. That 9 induces a morphism of locally G-rmged
+spaces easily follows from this.
+       Let now/: Y() -> X^ be a morphism between the above rigid ^-analytic spaces.
+We have to show that it comes from a unique morphism of strictly ^-analytic spaces
+9 : Y -> X. First of all, from Proposition 1.3.2 it follows that it suffices to verify the
+required fact only in the case when Y is strictly ^-affinoid. For this we remark that the
+system { Uo}, where U runs through strictly affinoid domains in X, is an admissible
+covering of X^. Therefore {/"^(Uo)} is an admissible covering of Yg by admissible open
+subsets. By [BGR], 9.1.4/2, the latter covering has a finite affinoid covering that refines
+it. In this way we get strictly affinoid domains V,, . . . , V ^ C Y and Ui, ..., U^C X
+such that YQ = V^o U . . . u V^ (and therefore Y = V^ u . . . u VJ and/(V^) C U,^.
+The induced morphisms of strictly affinoid spaces V, -> U, are obviously compatible
+on intersections, and therefore we get a morphism of strictly yfe-analytic spaces 9 : Y -> X.
+It is easy to see that 90 ==/and that 9 is a unique morphism satisfying this property.
+       If X is a paracompact strictly A-analytic space, then it has a strictly A-affinoid
+atlas with a locally finite net, and therefore the rigid ^-analytic space X^ has an admis-
+sible affinoid covering of finite type. It is also evident that it is quasiseparated. Conversely,
+let °K be a quasiseparated rigid ^-analytic space that has an admissible affinoid cove-
+^g { ^ } i e i of finite tyP0- First of ^ let ^ = L^o, where the U, are strictly
+A-affinoid spaces. Since 3E is quasiseparated, for any pair i,j e I the intersection ^ n %.
+is a finite union of open affinoid domains in SK\ Thus, there are strictly special domains
+U,, C U, and U^ C U, that correspond to ^ n ^, under the identifications ^ == U, p
+and ^. = U, o. Let ^ denote the induced isomorphism U ^ ^ U ^ . It is clear that
+v
+  ii = U? ^(U, n UJ = U,, n U,^ and ^ == v^ o v,, on U^. n U^. By Proposi-
+tion 1.3.3, we can glue all U, along U,, and get a paracompact strictly ^-analytic
+space X. It is easy to see that XQ is isomorphic to S\ •
+```
+
+## thu-residue
+
+Definition of H(x); full Propositions 2.1.1 and 2.1.2 proofs.
+
+Source `/workspace/research/shared-sources/Thuillier-tel-00010990v1.txt`; SHA-256 `e82226b3dde6a8088c35e1481bfd43f64bb69ee309b5cfda92c8c927a7885570`. Inclusive literal LF lines 1222--1360; body SHA-256 `8e50bdf450b010ba69dc29aae4906f1aca277651001b46dab612562a13de368e`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+Semi-norme spe trale.
+   Soit A une k◦ -algèbre topologiquement de présentation nie et plate, de spe tre formel
+X = Spf(A). Le sous-k◦ -module A de A = A ⊗k◦ k munit A d'une stru ture de k-algèbre de
+Bana h via la norme
+                                   |a|A = inf{|λ| ; a ∈ λA}.
+La bre générique de X est l'espa e stri tement k-anoïde M(A), noté Xη ; on rappelle qu'il
+s'agit de l'ensemble des semi-normes multipli ativeset bornées sur la k-algèbre de Bana h A
+qui induise la valeur absolue |.| sur k, muni de la topologie la moins ne rendant ontinues
+les évaluations x 7→ |a(x)| = x(a), a ∈ A. Le noyau px d'une semi-norme multipli ative
+x : A → R≥0 est un idéal premier de A et l'on note H(x) la omplétion du orps des fra tions
+de l'anneau intègre A/px pour la valeur absolue induite par x. Ce orps est le orps résiduel
+ omplété du point x de X .
+Proposition 2.1.1.  La semi-norme spe trale sur A oïn ide ave la norme |.|A asso iée
+au sous-k◦ -module A si et seulement si la ek-algèbre A ⊗k◦ ek est réduite.
+Démonstration. La semi-norme spe trale |.|sp sur A s'obtient par la formule limite usuelle
+à partir de toute norme ||.|| dénissant la stru ture de k-algèbre de Bana h de A :
+                                         |a|sp = lim ||an ||1/n ,
+                                                     n
+et elle oïn ide ave ||.|| si et seulement si ette norme est pré-multipli ative, 'est-à-dire vérie
+||an || = ||a||n pour tous a ∈ A, n ∈ N. Appliquant e i à la norme |.|A asso iée au sous k◦ -
+module A de A, il sut de vérier que ette norme est pré-multipli ative si et seulement si la
+e
+k-algèbre A ⊗k◦ e  k est réduite. Puisque la norme |.|A est à valeurs dans |k| ([8℄, 6.1.1, prop.2),
+sa pré-multipli ativité équivaut à la ondition 1 ≤ |xn |A pour tout x ∈ A tel que |x|A = 1.
+La véri ation est immédiate : il existe x ∈ A et n > 1 tels que |x|A = 1 et |xn |A < 1 si et
+seulement s'il existe x e ∈ A ⊗k ◦ ek et n > 1 tels que xe 6= 0, xen = 0. La norme |.|A est ainsi
+pré-multipli ative si et seulement si la ek-algèbre A ⊗k◦ e k est réduite.                        2
+   La boule unité de A pour la norme spe trale se note A◦ et l'on introduit également l'idéal
+A◦◦ = {a ∈ A ; |a|sp < 1} ; le quotient A e = A◦ /A◦◦ est une e
+                                                              k-algèbre de type ni et réduite
+( ette dernière propriété provient de la pré-multipli ativité de la norme spe trale). La k◦ -
+algèbre A◦ n'est en général pas topologiquement de présentation nie sur k◦ ; 'est toutefois
+le as lorsque la k-algèbre A est réduite et que l'une des onditions suivantes est vériée :
+    la valuation de k est dis rète (Tate) ;
+                                                                                             17
+
+
+
+   le orps k est de ara téristique nulle ;
+   il existe une sous-k◦ -algèbre topologiquement de présentation nie A ⊂ A telle que
+    A ⊗k◦ k = A et que la e k -algèbre A ⊗k◦ e
+                                             k soit réduite.
+  Dans tous les as, la k -algèbre A est la fermeture intégrale de A ([8℄, 6.1.2 et 6.4.3) dans
+                        ◦            ◦
+
+A. Le morphisme dominant anonique
+
+                                   πX : Xe = Spec(A)
+                                                  e → Xs
+
+est par onséquent entier ; les deux e
+                                    k-s hémas étant de de type ni, 'est un morphisme ni.
+Rédu tions et ensemble S0 (X ).
+   On dispose de deux appli ations de rédu tion naturelles :
+    la première, re : Xη → Xe, envoie une semi-norme x : A → H(x) sur la lo alité du
+      ] -point induit A
+     H(x)                    ],
+                        e → H(x)
+                                                                                     ]-
+    la se onde, r : Xη → Xs , envoie une semi-norme x : A → H(x) sur la lo alité du H(x)
+     point induit A ⊗k◦ e     ].
+                        k → H(x)
+   Ces appli ations sont anti- ontinues (l'image ré iproque d'un ouvert est un fermé) et le
+diagramme
+
+                                                        Xe
+                                                     ~>
+                                               re ~~~
+                                                ~~
+                                              ~~
+                                         Xη              πX
+                                              AA
+                                                AA
+                                                  A
+                                               r AAA
+                                                     
+                                                      Xs
+
+est évidemment ommutatif.
+   Le bord de Shilov de X = M(A) est le plus petit fermé Γ(X) ⊂ X tel que haque fon tion
+|a|, a ∈ A, atteigne son maximum en un point de Γ(X).
+Proposition 2.1.2
+   (i ) L'appli ation re est surje tive.
+   (ii ) Le bord de Shilov Γ(X) de X est l'image ré iproque par l'appli ation re de l'ensemble
+e
+X (0)  des points génériques de Xe.
+   (iii ) L'appli ation re réalise une bije tion de Γ(X) sur Xe(0) telle que
+
+                                        κ(e        ]
+                                          r (ξ)) = H(ξ)
+
+pour tout point ξ ∈ Γ(X).
+Démonstration. Les points (i) et (ii) sont démontrés à la proposition 2.4.4 de [3℄. On y
+trouve également la preuve de la première assertion du point (iii), ainsi que de la se onde sous
+l'hypothèse restri tive |H(x)× | = |k× |, laquelle n'est pas né essaire.
+   Remplaçant X par l'image ré iproque re−1 (U ) d'un ouvert ane irrédu tible U de X      e de
+                                             e
+point générique re(ξ), on peut supposer X irrédu tible et Γ(X) = {ξ}. Le point re(ξ) est
+                             ] -point de X
+par dénition la lo alité du H(ξ)             e provenant, par rédu tion, de l'homomorphisme
+A → H(ξ) ; on a don une inje tion anonique κ(e                 ] , ompatible à la lo alisation
+                                                     r (ξ)) ֒→ H(ξ)
+18
+
+
+
+    e : pour tout ouvert ane non vide U ⊂ X
+sur X                                      e , le diagramme naturel
+
+                                        κ(e
+                                          r (ξ))           ]
+                                                         / H(ξ)
+                                               HH
+                                                 HH
+                                                   HH          e
+                                                     HH        j
+                                                       H#    
+                                                        ^
+                                                        H U (ξ)
+
+où HU (ξ) désigne le orps résiduel omplété du point ξ vu dans le domaine k-anoïde re−1 (U )
+et l'homomorphisme j : H(ξ) → HU (ξ) est induit par l'in lusion re−1 (U ) ⊂ X . Cet homomor-
+phisme j est un isomorphisme. On peut en eet supposer U de la forme D(fe), f ∈ A◦ − A◦◦ ,
+auquel as re−1 (U ) est le domaine k-anoïde M(B), ave B = A{X}/(1−Xf ) ; HU (ξ) est par
+dénition la omplétion du orps des fra tions de B réd pour la valeur absolue ξ et l'image de
+Frac(Aréd ) dans Frac(B réd ) est dense pour la topologie asso iée à elle- i. L'homomorphisme
+ anonique A → B induit don une isométrie du orps H(ξ) sur le orps HU (ξ).
+                                                                   ×
+   La on lusion est maintenant évidente. Soit h ∈ H(ξ)  ] et posons κ(ξ) = Frac(Aréd ).
+                                                                      g et H(ξ)
+L'in lusion d'image dense κ(ξ) ֒→ H(ξ) identie les orps résiduels κ(ξ)        ] , de sorte
+que l'on peut supposer h de la forme fe, ave f ∈ κ(ξ)◦ et |f (ξ)| = 1. Considérons alors un
+élément non nul g dans A tel que gf appartienne à A ; le groupe |H(ξ)× |/|k× | étant ni, le
+rempla ement de g par βgn , pour un entier n ≥ 1 et un élément β de k× onvenablement
+ hoisis, permet de supposer |g(ξ)| = 1. Il existe un ouvert ane dense U ⊂ X  e tel que g soit
+inversible sur le domaine k-anoïde re−1 (U ) et l'élément gg   f de κ(e
+                                                             −1 gf     r (ξ)) a pour image h
+      ^         ]
+dans HU (ξ) = H(ξ).                                                                         2
+```
+
+## thu-boundary
+
+Full Proposition 2.1.10 proof; curve convention and Proposition 2.1.12 statement. The latter has no separate printed proof here.
+
+Source `/workspace/research/shared-sources/Thuillier-tel-00010990v1.txt`; SHA-256 `e82226b3dde6a8088c35e1481bfd43f64bb69ee309b5cfda92c8c927a7885570`. Inclusive literal LF lines 1535--1602; body SHA-256 `cbc367ba394bebd5494d70d334df5828df5b969ecbab01cc7ccc4776d408ca19`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+Proposition 2.1.10.  Soient X un espa e k -analytique onnexe sans bord et V ⊂ X un
+domaine k-anoïde. Il y a identité entre :
+   le bord ∂V de V ;
+22
+
+
+
+      la frontière du fermé V de X ;
+      la frontière ∂Ω = Ω − Ω de l'ouvert Ω = X − V de X .
+Démonstration. Dans tout espa e topologique, la frontière d'un fermé oïn ide ave        elle de
+l'ouvert omplémentaire ; il sut don de prouver que ∂V s'identie à la frontière du fermé
+V de X , ou en ore que V − ∂V oïn ide ave l'intérieur topologique de e fermé. Puisque,
+par dénition, V − ∂V = Int(V ), la on lusion résulte des points (i) et (iii) de la proposition
+3.1.3 de [3℄.                                                                                 2
+
+2.1.3. Courbes stri tement k-analytiques.
+Convention. Pré isons la terminologie que nous emploierons :
+- une S - ourbe est un S -s héma formel lo alement de présentation nie, séparé, plat et pure-
+ment de dimension 1 ;
+- une ourbe stri tement k-analytique est un espa e stri tement k-analytique au sens du ha-
+pitre 3 de [3℄, para ompa t, purement de dimension 1 et sans bord.
+Remarque 2.1.11.  Quelques mots de ommentaire s'imposent quant à la dénition adop-
+tée de la notion de ourbe analytique.
+     1. Les espa es k-analytiques analytiés de ourbes lo alement algébriques sur k (séparées)
+        sont des ourbes stri tement k-analytiques au sens pré édent.
+     2. Du point de vue adopté par Berkovi h dans [4℄, nous onsidérons les espa es stri tement
+        k-analytiques para ompa ts qui sont purement de dimension 1, sans bord et tels que tout
+        point admette un voisinage k-anoïde. Ce i ex lut, par exemple, la bre générique X du
+        S -s héma formel X , plat et purement de dimension 1, obtenu en re ollant deux opies de
+        A1S = Spf(k◦ {T1 }) le long de l'ouvert Spf(k◦ {T1 , T1−1 }) (via les immersions anoniques).
+        En eet, l'espa e stri tement k-analytique X (au sens de [4℄) est le re ollement de
+        deux opies du disque unité fermé E(0, 1) = M(k{T1 }) le long du domaine k-anoïde
+        {|T1 | = 1}, via les immersions anoniques, et le point η de X orrespondant au point de
+        Shilov de E(0, 1) ne possède pas de voisinage k-anoïde dans X : il existerait sinon un
+        é latement admissible q : Y → X tel que Y soit un S -s héma séparé, e qui est absurde
+        puisque le morphisme q est séparé tandis que le morphisme stru tural X → S ne l'est
+        pas.
+     3. Un espa e k-anoïde Y purement de dimension 1 est muni d'un fais eau stru tural en
+        k-algèbres OY tel que, pour tout ouvert U ⊂ Y
+                                        Γ(U, OY ) = ←
+                                                    lim
+                                                      −V AV ,
+       V par ourant l'ensemble des domaines k-anoïdes ontenus dans U et AV désignant
+       l'algèbre de V . Compte tenu du fait que les homomorphismes d'algèbres stri tement k-
+       anoïdes sont automatiquement ontinus ([8℄, 6.1.3), nous pouvons reformuler omme
+       suit la dénition des ourbes stri tement k-analytiques que nous avons adoptée :
+              une ourbe stri tement k-analytique X est la donnée d'un espa e topologique
+              para ompa t |X| et d'un fais eau en k-algèbres OX sur |X| tels que l'espa e
+              annelé (|X|, OX ) soit lo alement isomorphe à (Y − ∂Y, OY ), Y étant un
+              espa e stri tement k-anoïde purement de dimension 1.
+       Une ourbe stri tement k-analytique est un parti ulier un espa e lo alement k-annelé
+       et, toujours en vertu de la ontinuité des k-homomorphismes d'algèbres stri tement k-
+       anoïdes, les morphismes de ourbes stri tement k-analytiques sont les morphismes
+       d'espa es lo alement k-annelés.
+                                                                                                23
+
+
+
+  4. Tout point d'une ourbe stri tement k-analytique admet un système fondamental de
+     voisinages ompa ts de la forme Xη , X étant une S - ourbe quasi- ompa te.
+  La proposition 2.1.10 se spé ialise ainsi lorsque l'espa e analytique onsidéré est une ourbe.
+Proposition 2.1.12.  Soit X une        ourbe stri tement k-analytique ; quel que soit le do-
+maine k-anoïde V ⊂ X , il y a identité entre
+   la frontière du fermé V de X ,
+   le bord ∂V de V ,
+   le bord de Shilov Γ(V ) de V .
+  Remarquons expli itement que, dans e as, ∂V = Γ(V ) est toujours un sous-ensemble ni
+de X .
+```
+
+## thu-components
+
+Full Lemma 2.1.13 proof and Remark 2.1.14; ordinary reduction fibres.
+
+Source `/workspace/research/shared-sources/Thuillier-tel-00010990v1.txt`; SHA-256 `e82226b3dde6a8088c35e1481bfd43f64bb69ee309b5cfda92c8c927a7885570`. Inclusive literal LF lines 1604--1638; body SHA-256 `f7db34107adf12b8923d4cae892b6d6fa70b50e3066e7de5e03a8471017e0f4f`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+Lemme 2.1.13.  Soit X         une S - ourbe. L'appli ation de rédu tion
+                                           re : Xη → Xe
+
+(dénie en 2.1.1 ) réalise une bije tion de π0 (Xη −S0 (X )) sur l'ensemble Xe(1) des points fermés
+de la e
+      k- ourbe Xe.
+Démonstration. Chaque omposante onnexe c de Xη − S0 (X ) est la réunion d'une famille
+  roissante de domaines stri tement k-analytiques ompa ts et onnexes. Étant donné un tel
+domaine Y ⊂ c, on déduit du théorème 2 de [25℄ l'existen e d'un S -s héma formel admissible
+quasi- ompa t Y et d'un S -morphisme j : Y → X tels que Yη = Y et jη soit l'immersion
+de Y dans Xη . Le e    k-morphisme e  j : Ye → Xe est de type ni ; son image Z est don une
+partie lo alement onstru tible de Xe en vertu du théorème de Chevalley ([EGA℄, Chap. IV,
+Théorème 1.8.4). L'identité Z = re(Y ), Z est d'autre part onnexe (l'appli ation re est anti-
+  ontinue) et disjointe des points génériques de Xe ; e dernier s héma étant de dimension 1, nous
+en déduisons nalement que Z est un point fermé de Xe, puis que l'appli ation de rédu tion
+re envoie toute la omposante c sur e point. Ce i établit que re induit une appli ation de
+π0 (Xη − S0 (X )) sur Xe(1) (re est surje tive).
+    Il reste à vérier que l'image ré iproque d'un point fermé est onnexe, e qui est démontré
+par Bos h dans l'arti le [7℄ (Theorem 5.9).                                                    2
+Remarque 2.1.14.  Le théorème de Bos h auquel on vient de faire référen e fournit plus
+pré isément le fait suivant : étant donnés un S -s héma formel X , lo alement de présentation
+                                      e de Xe, la k◦ -algèbre topologique
+nie et plat, ainsi qu'un point fermé x
+                                          r −1 (e
+                                        Γ(e     x), OXη )◦
+
+des se tions bornées par 1 du fais eau stru tural OXη de Xη sur l'ouvert re−1 (e
+                                                                               x)  qui s'identie
+à la limite proje tive des k◦ -algèbres A◦Y , Y par ourant l'ensemble ltrant des domaines
+stri tement k-anoïdes Y de Xη ontenus dans re−1 (e     x)  est isomorphe à la omplétion mxe -
+adique du germe au point x  e du fais eau de k◦ -algèbres re∗ OX     e.
+                                                               ◦ sur X
+                                                                η
+   Puisqu'il s'agit d'un anneau lo al, l'ouvert re (e
+                                                  −1 x) est onnexe.
+```
+
+## thu-standard-annulus-unit
+
+Full Lemma 2.2.1 proof and following Newton-polygon remark.
+
+Source `/workspace/research/shared-sources/Thuillier-tel-00010990v1.txt`; SHA-256 `e82226b3dde6a8088c35e1481bfd43f64bb69ee309b5cfda92c8c927a7885570`. Inclusive literal LF lines 2079--2148; body SHA-256 `d04da5d4a3418b008f5a6b8a766df47e20e7005f7a9a7e40ff520d83fbc57341`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+Lemme 2.2.1.  Soit |.|sp la norme spe trale de la k -algèbre de Bana h A(a) ⊗k ◦ k ; le
+                    ×
+groupe A(a) ⊗k◦ k des inversibles de l'anneau A(a) ⊗k◦ k est onstitué des éléments de la
+forme
+
+                                       αT0n0 T1n1 (1 + g),
+où α ∈ k× , n0 , n1 ∈ N, g ∈ A(a) ⊗k◦ k et |g|sp < 1.
+  En parti ulier : l'image de l'homomorphisme
+                                    ×
+                          A(a) ⊗k◦ k → C0 (|S(a)η |, R), f 7→ log |f |,
+est le sous-groupe abélien engendré par log |k× | et les fon tions log |T0 |, log |T1 |.
+Démonstration. Les éléments de   ×
+                                    A(a) ⊗k◦ k pouvant s'é rire omme dans l'énon é forment
+un sous-groupe I ⊂ A(a) ⊗k◦ k       et il sut don de vérier que tout élément inversible de
+A(a) ⊗k◦ k appartient à I .
+   Considérons tout d'abord le as parti ulier a = 1. La norme spe trale |.|sp de la k-algèbre de
+Bana h k{T −1 , T } étant multipli ative (en vertu de l'irrédu tibilité de Spec(e k[T ]), proposition
+2.1.2), un élément inversible f de k{T −1 , T } est de la forme f = αg, ave α ∈ k× tel que
+|α| = |f |sp et g ∈ k◦ {T −1 , T }× . La rédu tion de g dans e
+                                                             k[T −1 , T ] est inversible, don de la
+forme βT n ave β ∈ e  k et n ∈ Z, et g s'é rit par onséquent
+                                      g = γT n + h = γT n (1 + h′ ),
+où γ ∈ k◦ − k◦◦ , h ∈ k◦◦ {T −1 , T } et h′ = γ −1 T −n h. Comme |h′ |sp = |h|sp < 1, f appartient
+à I.
+  Le as général se déduit du as a = 1. C'est immédiat si |a| = 1 puisqu'alors A(a) ≃ A(1),
+de sorte que l'on peut supposer |a| < 1. Identions A(a) ⊗k◦ k et k{|a|T −1 , T } en posant
+32
+
+
+                                                                   P
+T1 = T , T0 = aT −1 et onsidérons un élément inversible f = n∈Z an T n dans k{|a|T −1 , T }.
+Quel que soit le nombre réel r ∈ [|a|, 1], l'image de f par l'homomorphisme k{|a|T −1 , T } →
+k{rX −1 , r −1 X}, T 7→ X , est inversible ( 'est la restri tion de f au domaine k-anoïde
+|T | = r ) et il en est de même après une extension non ar himédienne K/k telle que r ∈
+|K × |. Étant donnée l'identi ation K{rX −1 , r −1 X} ≃ K{Y −1 , Y }, la dis ussion pré édente
+implique l'existen e d'un unique entier relatif N (r) tel que |aN (r) |r N (r) = maxn (|an |r n ) = |f |r ,
+|.|r désignant la norme spe trale sur k{rX −1 , r −1 X}.
+    L'appli ation N : [|a|, 1] → Z, r 7→ N (r) est lo alement onstante : soit en eet r0 ∈ [|a|, 1] ;
+la suite (|an |r n ) tendant vers 0 lorsque |n| tend vers +∞ pour tout r ∈ [|a|, 1], il existe un
+sous-ensemble ni I de Z et un voisinage V de r0 dans [|a|, 1] tels que
+                                        max |an |r n = max |an |r n
+                                        n∈Z                     n∈I
+
+pour tout r ∈ V     et les inégalités |aN (r0 ) |r N (r0 ) > |an |r n , n ∈ I − {N (r0 )}, sont vériées sur
+tout un voisinage de r0 dans V .
+  L'appli ation N est don onstante et il existe ainsi un entier relatif N tel que :
+                               |an | < |aN |        et     |an ||a|n < |aN ||a|N
+pour tout n ∈ Z − {N }. Ces inégalités peuvent s'é rire sous la forme
+                                                                 
+                      max max(|an a−1                −1
+                                      N |), max(|an aN ||a|
+                                                           n−N
+                                                                ) < 1,
+                                 n6=N                    n6=N
+                P              −1
+                                         
+ 'est-à-dire      n∈Z−{N } an aN T     < 1, et nous obtenons nalement la formule
+                                     n−N
+                                               sp
+                  X                     X                 
+                        n       N                   −1 n−N
+               f=   an T = aN T     1+          an aN T      = aN T N (1 + g)
+                    n∈Z                             n∈Z−{N }
+
+ave |g|sp < 1. La démonstration est a hevée.                                                             2
+
+Remarque 2.2.2.  Le lemme pré édent n'est bien entendu pas autre hose que l'assertion
+ lassique selon laquelle un élément f ∈ k{|a|T −1 , T } est inversible si et seulement si son
+polygone de Newton {(x, y) ∈ [0, − log |a|] × R ; y = maxn log |an |e−nx } est un segment ; 'est
+d'ailleurs exa tement e que l'on a démontré.
+```
+
+## thu-supplied-skeleton
+
+Full Theorem 2.2.10 construction/proof through Lemmas 2.2.11--14 and Propositions 2.2.15--20; includes calibration definition.
+
+Source `/workspace/research/shared-sources/Thuillier-tel-00010990v1.txt`; SHA-256 `e82226b3dde6a8088c35e1481bfd43f64bb69ee309b5cfda92c8c927a7885570`. Inclusive literal LF lines 2318--2695; body SHA-256 `81044bcf7e0dc282ece8337ca5a2038c1d55e9ad1cb59bd1f61215307288c02d`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+  Passons maintenant à la onstru tion du squelette d'une S - ourbe simplement semi-stable.
+Théorème 2.2.10.  Il existe, pour toute S - ourbe simplement semi-stable X , un unique
+ ouple (S(X ), τX ), onstitué d'un polyèdre entier de dimension au plus 1 et d'une appli ation
+τX : Xη → S(X ), tel que :
+   (i ) l'espa e topologique sous-ja ent à S(X ) soit un fermé de Xη et l'appli ation τX soit une
+rétra tion, 'est-à-dire induise l'identité sur S(X ) ;
+   (ii ) pour toutouvert U de X , S(X )∩Uη est un domaine polyédral dans S(X ) et l'immersion
+ anonique X|U η ֒→ Xη induit un isomorphisme de S(X|U ) sur S(X ) ∩ Uη , ompatible aux
+rétra tions ;
+   (iii ) quel que soit le morphisme étale p : X → Y entre deux S - ourbes semi-stables, pη
+induit une appli ation de S(X ) dans S(Y) qui est un isomorphisme G-lo al de polyèdres entiers
+s'insérant dans un diagramme ommutatif :
+                                                 τX
+                                         Xη           / S(X )
+
+                                        pη                   pη
+                                                        
+                                         Yη      τY
+                                                      / S(Y).
+
+
+
+  La démonstration du théorème 2.2.10 s'étend jusqu'à le proposition 2.2.20.
+36
+
+
+
+  La ara térisation du fermé S(X ) ⊂ Xη reprend la des ription de S(S(a)) ⊂ S(S(a))η
+donnée dans la proposition 2.2.5.
+Lemme 2.2.11.  Soient X une S - ourbe, p : X → S(a)                un morphisme étale (a ∈
+k◦ − {0}) et V ⊂ Xη , Z ⊂ S(a)η des domaines k-anoïdes ;
+   si V est potentiellement isomorphe au disque unité, il en est de même pour p(V ) ;
+   si p−1 (Z) 6= ∅ et Z est potentiellement isomorphe au disque unité, il en est de même pour
+     p−1 (Z).
+Démonstration. Soit V ⊂ Xη un domaine k-anoïde potentiellement isomorphe au disque
+unité. Chaque omposante onnexe de V est l'image de M(k′ {T }) par un morphisme non
+ onstant, k′ étant une extension nie séparable onvenable de k, et p(V ) est don un domaine
+k-anoïde potentiellement isomorphe au disque unité (lemme 2.2.6).
+   Soit Z ⊂ S(a)η un domaine k-anoïde onnexe et potentiellement isomorphe au disque
+unité. Après un hangement de base S ′ → S , ave S ′ = Spf(k′ ◦ ), k′ étant une extension nie
+séparable de k, il existe un é latement admissible q : Y → S(a), entré en un point fermé x    e
+de S(a)s , et un ouvert U de Ys tels que le ek-s héma Ys soit réduit, l'adhéren e de U soit une
+réunion de omposantes irrédu tibles isomorphes à P1e et Z s'identie à la bre générique du
+                                                        k
+s héma formel induit par Y sur U . Si l'image ré iproque p−1 (Z) est non vide, la bre de ps
+au-dessus de xe est non vide et le morphisme induit par p entre les s hémas formels semi-lo aux
+Xp−1  e)
+   s (x
+         et S(a) e est étale et ni. Considérons alors le diagramme artésien
+                 x
+
+                                                 q′
+                                         Y′            /X
+
+                                        p′                   p
+                                                        
+                                         Y       q
+                                                      / S(a);
+
+le morphisme p′ est étale et il est ni au-dessus de q −1 (e
+                                                           x) ; il induit don un revêtement
+étale au-dessus du sous-s héma fermé réduit U de Ys . Cha une des omposantes irrédu tibles
+de U étant, par hypothèse, isomorphe à P1e , le revêtement p′ −1
+                                                              s (U ) → U est isotrivial ; nous
+                                           k
+pouvons don supposer, quitte à faire un nouveau hangement de base S ′′ → S ′ du même
+type que pré édemment, que le revêtement U ′ = p′ −1 (U ) → U est trivial. Le revêtement
+p′ : Y|U ′ → YU est alors trivial et, par passage aux bres génériques,    haque omposante
+       ′
+
+ onnexe de p (Z) = (Y |U ′ )η est isomorphe à Z . Ce i a hève de prouver que le domaine
+              −1          ′
+
+k-anoïde p−1 (Z) est potentiellement isomorphe au disque unité.                            2
+Corollaire 2.2.12.  Soient C            une S - ourbe et r l'appli ation de rédu tion Cη → Cs ;
+pour tout point fermé lisse x e de Cs , l'ouvert r −1 (e
+                                                       x) est le réunion d'une suite roissante de
+domaines k-anoïdes potentiellement isomorphes au disque unité.
+Démonstration. Quitte à rempla er C par C|U , où U est un voisinage ouvert de xe dans Cs ,
+on peut supposer qu'il existe un morphisme étale p : C → S(1). La bre Ω de l'appli ation de
+rédu tion S(1)η → S(1)s au-dessus du point p(e      x) étant la réunion d'une suite roissante de
+domaines k-anoïdes potentiellement isomorphes au disques unité (voir la démonstration de
+la proposition 2.2.5), il en est de même pour r −1 (e  x) = p−1 (Ω) d'après le lemme pré édent. 2
+
+Définition 2.2.13.  Pour toute S - ourbe simplement semi-stable X , S(X ) est le fermé
+de Xη dont le omplémentaire est la réunion des domaines k-anoïdes potentiellement iso-
+morphes au disque unité et ontenus dans Xη − S0 (X ).
+                                                                                            37
+
+
+
+Lemme 2.2.14.  Pour tout ouvert U             de X et tout morphisme étale p : U → S(a), a ∈
+k − {0},
+ ◦
+
+                             S(X ) ∩ Uη = S(X|U ) = p−1 S(S(a)).
+Démonstration. Soit V ⊂ Xη − S0 (X ) un domaine k-anoïde onnexe et potentiellement
+isomorphe au disque unité ; l'image de V est une partie onstru tible et, l'appli ation de
+                                                  (0)
+rédu tion étant anti- ontinue, onnexe de Xs − Xs , 'est-à-dire un point fermé. L'égalité
+S(X ) ∩ Uη = S(X|U ) en dé oule pour tout ouvert U de X .
+  La se onde égalité S(X|U ) = p−1 S(S(a)) est une reformulation du lemme 2.2.11.            2
+   Étant donnée une S - ourbe simplement semi-stable X , le lemme 2.2.14 permet de travailler
+lo alement sur X pour dénir la stru ture de polyèdre entier sur S(X ) et la rétra tion τX →
+S(X ).
+Proposition 2.2.15.  Soient X           une S - ourbe onnexe et p : X → S(a) un morphisme
+étale.
+    Si la ourbe Xs est lisse, elle est irrédu tible et S(X ) = S0 (X ).
+    Supposons 0 < |a| < 1 ; si la bre de p au-dessus du point singulier de S(a)s est réduite
+     à un point, p induit un homéomorphisme de S(X ) sur S(S(a)).
+Démonstration. Les omposantes irrédu tibles d'une ek - ourbe lisse oïn idant ave ses om-
+posantes onnexes, Xs est irrédu tible si elle lisse. L'image du morphisme ps : Xs → S(a)s
+est ontenue dans l'une des omposantes irrédu tibles de S(a)s , déterminant un point ξ ∈
+S0 (S(a)) ⊂ S(S(a)), et p−1 (S(S(a))) = p−1 (ξ) = S0 (X ).
+   Passons au se ond point de l'énon é.
+   La ourbe Xs étant un e  k-s héma ane ( ar quasi- ompa te et étale sur la e   k - ourbe ane
+S(a)s ), la bre générique Xη de X est un espa e (stri tement) k-anoïde ; l'espa e topologique
+|Xη | est en parti ulier ompa t et l'appli ation ontinue de |Xη | dans |S(a)η | est don propre.
+Il sut alors de vérier que p induit une bije tion de p−1 (S(S(a))) sur S(S(a)) ; e sera
+automatiquement un homéomorphisme.
+   Il s'agit don de prouver que la bre du morphisme p : Xη → S(a)η est réduite à un point
+au-dessus de tout x ∈ S(S(a)) ⊂ S(a)η .
+  Observons tout d'abord que la démonstration peut se faire après passage à une quel onque
+extension non ar himédienne K de k : dans le diagramme ommutatif
+                                                   q′
+                                       b kK
+                                    Xη ⊗                  / Xη
+
+                                       p                        p
+                                                           
+                                         b kK
+                                   S(a)η ⊗         q
+                                                        / S(a)η ,
+
+
+le morphisme q induit un homéomorphisme de S(S(a))K = S(S(a)⊗      b S Spf(K ◦ )) sur S(S(a))
+et le morphisme q est surje tif.
+                 ′
+
+   Appliquant ette remarque ave K = H(x)  le omplété du orps résiduel de x  nous
+pouvons supposer que le point x est de type (2), de groupe des valeurs |H(x)× | = |k× |.
+  Soit b ∈ k◦ tel que |T1 (x)| = |b|. Il existe un é latement admissible Y → S(a) et un ouvert
+U de Ys tels que
+   le S -s héma formel Y|U soit isomorphe à S(b),
+   le point x appartienne au bord de S(S(b)) ⊂ S(S(a)),
+38
+
+
+
+et il est don nalement susant de vérier que les bres de l'appli ation p : S(X ) → S(S(a))
+sont réduites à un point au-dessus du bord S0 (S(a)) de S(S(a)), 'est-à-dire qu'il existe une
+unique omposante irrédu tible de Xs au-dessus de ha une des deux omposantes irrédu -
+tibles de S(a)s .
+   Soit x e l'unique point de Xs au-dessus du point singulier de S(a)s . Il passe exa tement
+deux omposantes irrédu tibles de Xs par le point x  e et, le lieu singulier de Xs étant réduit
+àxe, toutes les autres omposantes irrédu tibles de Xs doivent être lisses et don dénir des
+ omposantes onnexes de Xs . La ourbe Xs étant par hypothèse onnexe, elle possède ainsi
+exa tement deux omposantes irrédu tibles, passant par le point singulier x   e et dominant les
+deux omposantes irrédu tibles de S(a)s . Les bres de l'appli ation p : S(X ) → S(S(a)) sont
+don réduites à un point au-dessus du bord S0 (S(a)) de S(S(a)).                             2
+   Soit X une S - ourbe simplement semi-stable et onsidérons un re ouvrement U de Xs par
+des ouverts onnexes tel que :
+    haque U ∈ U ontienne au plus un point singulier de Xs ,
+    si U, V ∈ U sont deux ouverts distin ts, U ∩ V ne ontienne au un point singulier de Xs ,
+    il existe, pour tout U ∈ U , un morphisme étale pU : X|U → S(a(U )), a(U ) ∈ k◦ − {0}.
+                                      
+   Étant donné U ∈ U , S(X ) ∩ X|U η = S(X|U ) = p−1  U,η (S(S(a(U )))) ontient les points de
+S0 (X) au-dessus des points génériques de U et pU,η réalise un homéomorphisme de S(X ) ∩
+ X|U η sur son image dans S(S(a)), laquelle est une fa e de e polytope entier. Il existe par
+                                                                   
+suite, pour tout ouvert U ∈ U , une unique appli ation τU : X|U η → S(X|U ) telle que le
+diagramme
+
+                                              τU
+                                      X|U η         / S(X|U )
+
+                                    pU,η                    pU,η
+                                                       
+                                   S(a(U ))η   τ
+                                                    / S(S(a))
+
+
+
+soit ommutatif ; pour tout U ∈ U , la restri tion de τU à S(X|U ) est l'identité. Le re ollement
+des es appli ations en une rétra tion τX : Xη → S(X ) est immédiat : si U, V ∈ U sont
+deux ouverts
+           distin ts, U ∩ V est par hypothèse un ouvert irrédu tible disjoint de Sing(Xs )
+et X|U ∩V η est envoyé par ha une des rétra tions τU , τV sur le point de S0 (X ) au-dessus du
+point générique de U ∩ V .
+  Quels que soient les points distin ts x, y ∈ S(X ), des domaines k-anoïdes onnexes V, W ⊂
+Xη tels que Γ(V ) = {x} et Γ(W ) = {y} sont né essairement disjoints. Il sut en eet de le
+vérier pour les domaines k-anoïdes V ∩ X|U η et W ∩ X|U η , U par ourant U : leurs images
+par pU,η sont des domaines k-anoïdes dans S(a(U ))η satisfaisant à la même ondition et la
+ on lusion est alors immédiate.
+  L'observation pré édente permet de vérier que l'appli ation τX : Xη → S(X ) que l'on vient
+de dénir ne dépend pas du hoix des morphismes étales pU : X|U → S(a(U )) : elle induit
+en eet l'identité sur S(X ) et, pour tout x ∈ Xη , le point τX (x) de S(X ) est uniquement
+déterminé par la ondition intrinsèque suivante : il existe un domaine k-anoïde onnexe
+V ⊂ Xη ontenant x et dont τX (x) est l'unique point de Shilov.
+                                                                                                            39
+
+
+
+Proposition 2.2.16.  Soient X , Y deux S - ourbes simplement semi-stables et f : X →
+Y un S -morphisme étale ; le morphisme fη : Xη → Yη envoie S(X ) dans S(Y) et le diagramme
+                                                            τX
+                                                    Xη                 / S(X )
+
+                                                fη                               fη
+                                                                            
+                                                    Yη      τY
+                                                                       / S(Y)
+
+est ommutatif.
+Démonstration. Traitons tout d'abord le         as où Y = S(a), a ∈ k◦ − {0}. L'in lusion
+fη (S(X )) ⊂ S(S(a)) dé oule du lemme 2.2.14. Considérons un re ouvrement U de Xs par
+des ouverts onnexes U ontenant au plus un point singulier de Xs , deux ouverts distin ts
+dans U ayant de plus une interse tion disjointe de Sing(Xs ) ; reprenant la des ription qui
+pré ède la proposition, nous pouvons onstruire à partir des artes étales f|U : X|U → S(a)
+une rétra tion τX′ : Xη → S(X ) telle que le diagramme
+                                                             ′
+                                                            τX
+                                            Xη                             / S(X )
+
+                                           fη                                        fη
+                                                                                
+                                        S(a)η                          / S(S(a))
+                                                               τ
+
+soit ommutatif, la rétra tion τX étant, elle, dénie à partir de morphismes étales pU : X|U →
+S(a(U )), a(U ) ∈ k◦ − {0} ; la ara térisation intrinsèque de la rétra tion τX donnée pré é-
+demment implique l'identité τX = τX′ .
+   Le as d'une S - ourbe simplement semi-stable Y quel onque se déduit trivialement du as
+parti ulier Y = S(a) : onsidérons en eet un re ouvrement U de Ys par des ouverts onnexes
+tel que :
+    haque ouvert U ∈ U ontienne au plus un point singulier de Ys ,
+    deux ouverts distin ts U, V ∈ U aient une interse tion disjointe de Sing(Ys ),
+    il existe pour tout U ∈ U un morphisme étale pU : Y|U → S(a(U )), a(U ) ∈ k◦ − {0}.
+                          
+   Puisque S(Y) ∩ Y|U η = S(Y|U ) = p−1         U,η (S(S(a(U )))) (lemme 2.2.14) et (pU ◦
+                                                                    
+f )η (S(X )) ⊂ S(S(a(U ))), fη (S(X )) ∩ Y|U η ⊂ S(Y) ∩ Y|U η pour tout U ∈ U et
+don fη (S(X )) ⊂ S(Y).
+   Dans le diagramme
+                                      fη                                       pU,η
+                          X|f −1 (U ) η                  / Y|U
+                                                               η
+                                                                                              / S(a(U ))η
+
+                            τX                            τY                                           τ
+                                                                                                 
+                         S(X|f −1 (U ) )                 / S(Y|U )
+                                                                                 pU,η S(S(a(U )))
+                                                                                          /
+                                            fη
+
+les égalités
+                                     pU,η ◦ fη ◦ τX = τ ◦ pU,η ◦ fη
+et
+                                           pU,η ◦ τY = τ ◦ pU,η
+sont onnues d'après la première partie de la démonstration ; l'appli ation pU,η étant inje tive,
+la ommutativité du diagramme en dé oule. En vertu des identités S(X|f −1 (U ) ) = S(X ) ∩
+40
+
+
+                                    
+ X|f −1 (U ) η , S(Y|U ) = S(Y) ∩ Y|U η , U ∈ U , le diagramme
+
+                                                         τX
+                                                Xη            / S(X )
+
+                                           fη                        fη
+                                                                
+                                                Yη       τY
+                                                              / S(Y)
+
+est également ommutatif.                                                                                  2
+
+2.2.3. Le squelette d'une S - ourbe simplement semi-stable : n.
+   Rappelons que, pour tout S -s héma formel plat et lo alement de présentation nie X , Λk (X )
+est le sous-groupe du groupe abélien C0 (|Xη |, R) image de l'homomorphisme anonique
+                                        ×
+                        Γ(X , OX ) ⊗k◦ k → C0 (|Xη |, R), f 7→ log |f |
+et Λ(X ) est le sous-groupe engendré par Λk (X ) et R (2.1.1).
+  Soit X une S - ourbe simplement semi-stable ; il reste, pour a hever la démonstration du
+théorème 2.2.10, à dénir la stru ture de polyèdre entier sur S(X ) et à vérier sa ompatibilité
+aux S -morphismes étales.
+  Tout e dont nous avons besoin est ontenu dans la proposition suivante.
+Proposition 2.2.17.  Soit U un ouvert         onnexe de Xs ren ontrant Sing(Xs ) en au plus
+un point ; pour tout morphisme étale p : X|U → S(a), où
+    |a| = 1 si U est lisse,
+    0 < |a| < 1 si U ontient un point singulier de Xs ,
+l'homomorphisme Λ(p) : Λk (S(a)) → Λk (X|U ) est un isomorphisme.
+Démonstration. La proposition 2.2.15, jointe à la ondition sur |a|, implique que pη réalise
+un homéomorphisme de S(X|U ) sur S(S(a)), identiant S0 (X ) et S0 (S(a)).
+  Les bres spé iales Xs et S(a)s étant réduites, |H(x)|× = |k× | pour tout point
+x ∈ S0 (X ) ∪ S0 (S(a)).
+     Considérons le diagramme ommmutatif
+                                          res        / Hom(S0 (S(a)), log |k × |)
+                             Λk (S(a))
+                              Λ(p)                                        p∗
+                                                                 
+                                          res         / Hom(S0 (X ), log |k|× ),
+                              Λk (X|U )
+
+dans lequelle la è he p∗ est un isomorphisme. La è he Λk (S(a)) → Hom(S0 (S(a)), log |k|× )
+est un isomorphisme en vertu du lemme 2.2.1 ; toutes les è hes de e diagramme sont don
+des isomorphismes.                                                                        2
+
+Corollaire 2.2.18.  Pour tous a, b ∈ k
+                                                          ◦ tels que 0 < |a|, |b| < 1, les points singuliers
+
+des S -s hémas formels S(a) et S(b) ont des voisinages étales isomorphes si et seulement si
+|a| = |b|.
+
+     Considérons un re ouvrement U de Xs par des ouverts onnexes tel que :
+      haque U ∈ U ontienne au plus un point singulier de Xs ;
+      l'interse tion de deux ouverts distin ts U, V ∈ U soit disjointe de Sing(Xs ).
+                                                                                             41
+
+
+
+  Pour tous U, V ∈ U distin ts, U ∩ V est un ouvert irrédu tible et lisse de Xs , S(XU ∩V ) est
+réduit au point de S0 (X ) au-dessus du point générique de U ∩ V et le morphisme de polytopes
+                         (S(X|U ∩V ), Λ(X|U ∩V )) ֒→ (S(X|U ), Λ(X|U ))
+induit par l'in usion U ∩ V ⊂ U est une immersion anonique de 0-fa e. La olle tion des
+(S(X|U ), Λ(X|U )), U ∈ U , est par onséquent un atlas Z-polyédral sur l'espa e topologique
+S(X ) et la proposition 2.2.17 garantit que la stru ture de polyèdre entier sur S(X ) ainsi
+obtenue ne dépend pas du hoix du re ouvrement ouvert U .
+   Le re ouvrement ouvert U de Xs étant de la forme pré édente, l'espa e topologique S(X|U )
+est réduit à un point si l'ouvert U est lisse, homéomorphe au segment [0, 1] si U ontient un
+point singulier de Xs ; l'espa e topologique S(X ) est don naturellement homéomorphe au
+graphe dual de la ek- ourbe nodale Xs et l'appli ation de rédu tion r : Xη → Xs induit, pour
+tout point x ∈ S0 (X ), une bije tion du ne tangent Tx S(X ) à S(X ) en ξ sur l'ensemble des
+points singuliers de Xs appartenant à la omposante irrédu tible de Xs de point générique
+r(ξ).
+  Ce polyèdre entier est muni du poids ( f. 1.2.1) déni par l'appli ation
+                                                ∼
+                           π0 (S(X ) − S0 (X )) −→ Sing(Xs ) → R>0
+qui asso ie à la omposante onnexe de S(X ) − S0 (X ) orrespondant à un point singulier x
+                                                                                       e
+de Xs le nombre entier stri tement positif [κ(e    e
+                                              x) : k].
+   Le polyèdre entier pondéré d'espa e topologique sous-ja ent S(X ) que l'on vient de dénir
+est appelé le squelette de la S - ourbe simplement semi-stable X ; il sera également noté S(X ).
+Remarque 2.2.19
+
+  1. Le polyèdre entier S(X ) est l'égalisateur du diagramme
+                          `                          /`
+                            (U,V )∈U S(X|U ∩V )      / U ∈U S(X|U )
+     dans la atégorie des polyèdres entiers.
+  2. Tout re ouvrement de Xs par des ouverts onnexes ontenant ha un au plus un des
+     points singuliers de Xs dénit une dé omposition élémentaire du polyèdre S(X ) sur
+     laquelle le poids est onstant.
+  3. Puisque S(X ) s'identie, en tant que polyèdre, au graphe dual de la e  k- ourbe Xs , l'ap-
+     pli ation S(X ) → Xs induite par la rédu tion de Xη sur Xs détermine une bije tion entre
+     π0 (S(X )) et π0 (Xs ). On en déduit que l'in lusion S(X ) ⊂ Xη induit une bije tion entre
+     π0 (S(X )) et π0 (Xη ).
+
+Proposition 2.2.20.  Soient X , Y deux S - ourbes simplement semi-stables et f : X →
+Y un morphisme étale. Le morphisme fη : Xη → Yη induit une appli ation de S(X ) dans
+S(Y) qui est un isomorphisme G-lo al de polyèdres entiers.
+Démonstration. Il a déjà été établi (propostion 2.2.16) que le morphisme fη envoie le fermé
+S(X ) de Xη dans le fermé S(Y) de Yη .
+   Le résultat dé oule immédiatement de la proposition 2.2.17 lorsque Y = S(a), a ∈ k◦ −{0} :
+ onsidérant un re ouvrement U de X par des ouverts onnexes ontenant au plus un point
+singulier de Xs , haque morphisme f|U : X|U → S(a) induit un isomorphisme du polytope
+                             
+entier S(X|U ) = S(X ) ∩ X|U η sur une fa e du polytope entier S(S(a)).
+42
+
+
+
+  Le as général s'obtient en re ouvrant Ys par des ouverts onnexes U ontenant au plus
+un point singulier de Ys et pour lesquels il existe un morphisme étale pU : Y|U → S(a(U )),
+a(U ) ∈ k◦ − {0} induisant un isomorphisme entre les polytopes entiers S(X|U ) et S(S(a(u))).
+2
+     La démonstration du théorème 2.2.10 est maintenant a hevée.
+```
+
+## thu-type2-cuts
+
+Full Lemma 2.2.22 proof. Only actual type-2 cuts are used in the new construction.
+
+Source `/workspace/research/shared-sources/Thuillier-tel-00010990v1.txt`; SHA-256 `e82226b3dde6a8088c35e1481bfd43f64bb69ee309b5cfda92c8c927a7885570`. Inclusive literal LF lines 2791--2856; body SHA-256 `1dabe148c2a44501058cad7b1bef2b145397bc61cac14055a57c7bb8fbd912a9`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+Lemme 2.2.22.  Soit X         une S - ourbe simplement semi-stable.
+   (i ) Étant donné un sous-ensemble ni Σ ⊂ S(X ), il existe une extension non ar himédienne
+K/k et un é latement admissible Y → X ×S Spf(K ◦ ) tels que Y soit une Spf(K ◦ )- ourbe
+simplement semi-stable et iK (Σ) ⊂ S0 (Y). L'extension K/k peut être hoisie nie (séparable)
+si et seulement si tous les points de Σ sont de type (2).
+   (ii ) Étant donné un ensemble ni Σ′ de points de type (2) ou (3) dans Xη , il existe une
+extension nie (séparable) k′ /k et un é latement admissible Y ′ → X ×S Spf(k′ ◦ ) tels que Y ′
+soit une Spf(k′ ◦ )- ourbe simplement semi-stable et ik′ (Σ′ ) ⊂ S(Y ′ ).
+Démonstration. Traitons d'abord le as X = S(a).
+(i) On peut supposer que l'ensemble Σ est réduit à un point x.
+    Considérons une extension non ar himédienne K/k telle que |H(x′ )× | = |K × |, où x′ est le
+point de S(S(a))K orrespondant à x dans l'identi ation anonique S(S(a))K = S(S(a)) ;
+  ette extension peut être hoisie si (et seulement si) x est de type (2).
+    Fixons b ∈ K × tel que |T0 (x′ )| = |b| ; |a| ≤ |b| ≤ 1 et l'é latement sur S ×S Spf(K ◦ ) de
+l'Idéal (T0 , b)  inversible en dehors du point singulier de S(a)s  donne lieu à un morphisme
+q : Z → S(a) ×S Spf(K ◦ ) tel que Z soit une Spf(K ◦ )- ourbe simplement semi-stable et
+S0 (Z) = S0 (S(a)) ∪ {x′ }.
+(ii) On peut de nouveau supposer Σ′ réduit à un point x. Si x ∈ S(S(a)), il n'y a rien
+à démontrer ; sinon, le point x′ = τ (x) de S(S(a)) est tel que s(x′ ) = 1 et on vient de
+prouver qu'il existe une extension nie k′ /k telle que le point de S(S(a))k′ orrespondant à
+x′ dans l'identi ation anonique S(S(a))k′ = S(S(a)) appartienne à S0 (S(a) ×S Spf(k′ ◦ )).
+On est ainsi ramené au as d'un point x tel que τ (x) ∈ S0 (S(a)). L'appli ation de rédu tion
+S(a)η → S(a)s envoie x sur un point lisse x    e appartenant à la omposante irrédu tible de
+point générique r(τ (x)).
+   Le omplémentaire E de la omposante onnexe non bornée de S(a)η − {x} ⊂ A1k − {x} est
+un disque fermé de point de Shilov x. Soit y un point dans E tel que l'extension κ(y)/k soit
+nie, de polynme minimal f normalisé de telle sorte que |f (τ (x))| = 1 ; hoisissons également
+b ∈ k× tel que |f (x)| > |b|. L'Idéal I sur S(a) tel que Ixe = f OS(a),xe + bOS(a),xe et I = OS(a)
+sur S(a)s − {ex} est admissible et son é latement q : Z → S(a) fournit une S - ourbe Z dont
+44
+
+
+
+la bre spé iale est la somme amalgamée du diagramme
+
+                                          P1e
+                                              Ok
+                                          0
+
+                                        Spec(e
+                                             k)         e
+                                                        x
+                                                            / S(a)s ,
+
+qui devient simplement semi-stable après une extension nie k′ /k et telle que S(Z ×S Spf(k′ ◦ )
+ ontienne le sous-ensemble ik′ (x).
+   Le as d'une ourbe simplement semi-stable quel onque se déduit dire tement de e qui
+pré ède. On peut en eet supposer que X est munie d'un morphisme étale p : X → S(a) ar
+la question est lo ale sur Xη .
+   Étant donnée une extension non-ar himédienne (resp. une extension nie) K/k telle
+qu'il existe un é latement admissible q : Z → S(a) ×S Spf(K ◦ ) satisfaisant à la ondition
+iK (pη (Σ)) ⊂ S0 (Z) (resp. iK (Σ) ⊂ S(Z)), l'é latement admissible q ′ : Y → X ×S Spf(K ◦ )
+déni par le diagramme artésien
+                                          q′
+                                    Y               / X ×S Spf(K ◦ )
+
+                                                                 p
+                                                            
+                                    Z              / S(a) ×S Spf(K ◦ )
+                                              q
+
+fournit une S - ourbe simplement semi-stable Y telle que iK (Σ) ⊂ S0 (Y) (resp. iK (Σ) ⊂
+S(Z ′ )).
+  L'extension K/k peut être hoisie nie si tous les points de pη (Σ) sont de type (2), don si
+tous les points de Σ sont de type (2).
+     Toutes les extensions nies peuvent être hoisies séparables.                             2
+```
+
+## thu-223-to-227
+
+Full Propositions 2.2.23, 2.2.24, Lemma 2.2.25, Propositions 2.2.26 and 2.2.27. Only 24--26 are essential here; 23 and 27 were inspected as requested.
+
+Source `/workspace/research/shared-sources/Thuillier-tel-00010990v1.txt`; SHA-256 `e82226b3dde6a8088c35e1481bfd43f64bb69ee309b5cfda92c8c927a7885570`. Inclusive literal LF lines 2858--3227; body SHA-256 `9f660ce09200a113b72e59134dbbc1578f7428085d0eeab216b7967ae558dcaa`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+Proposition 2.2.23.  Soit Y un espa e k -anoïde rig-lisse de dimension 1. Toute om-
+posante onnexe Ω de Int(Y ) et la réunion d'une suite de domaines k-anoïdes telle que, pour
+tout n :
+- Vn ⊂ Vn+1 − ∂Vn+1 ;
+- la frontière de haque omposante onnexe de Vn+1 − Vn ne ren ontre Vn (resp. Vn+1 ) qu'en
+un seul point.
+Démonstration. Si l'on dispose d'une telle suite après une extension non ar himédienne
+K/k, son image par la proje tion anonique p : Y ⊗ b k K → Y satisfait aux onditions imposées
+ ar p(∂(V ⊗ b k K)) = ∂V pour tout domaine k-anoïde V ([3℄, proposition 3.1.3, (iv)). Nous
+pouvons don supposer que Y est un domaine sri tement k-anoïde, bre générique d'une
+S - ourbe simplement semi-stable Y .
+   La omposante onnexe Ω de Y = Yη est l'image ré iproque par l'appli ation de rédu tion
+r : Yη → Ys d'un sous-s héma fermé (réduit) Z de Ys , propre sur e   k et onnexe. Les points
+de ∂Ω sont en bije tion ave l'ensemble des points génériques des omposantes irrédu tibles
+anes de Ys ren ontrant Z .
+   L'interse tion Ω ∩ S(Y) est un ouvert de S(Y). Elle est vide si et seulement si Z est un
+point fermé lisse de Ys et la on lusion est dans e as immédiate puisque Ω est la réunion
+d'une suite roissante de domaines stri tement k-anoïdes ayant un unique point de Shilov
+                                                                                                  45
+
+
+
+( orollaire 2.2.12). Si Ω ∩ S(Y) est non vide, il dé oule immédiatement de la onstru tion de
+S(Y)) que
+                                      Ω = τ −1 (Ω ∩ S(Y));
+il ne reste alors plus qu'à dénir les domaines k-anoïdes désirés par :
+                                          Vn = τ −1 (Sn ),
+où (Sn ) est une suite roissante de domaines polyédraux ompa ts de réunion S telle que, pour
+tout n, les omposantes onnexes de Sn+1 − Sn soient des polytopes entiers de dimension 1.
+2
+
+2.2.4. Polygones de Newton généralisés
+   La notion lassique de polygone de Newton d'une série de Laurent à oe ients dans k per-
+met l'étude des fon tions holomorphes sur les ouronnes {r ≤ |T1 | ≤ R} ⊂ Gmk , 0 < r < R,
+lesquelles sont essentiellement les bres génériques des S - ourbes S(a) ( f. [Man℄, hapter 1,
+par exemple). La onstru tion du squelette d'une S - ourbe simplement semi-stable X fournit
+le adre d'une généralisation évidente pour les éléments f de Γ(Xη , OXη ), ledit polygone de
+Newton n'étant autre que le graphe de la fon tion réelle log |f ||S(X ) .
+
+Proposition 2.2.24.  Soient X une S - ourbe simplement semi-stable, de bre générique
+X = Xη , et f une se tion globale de OX , inversible sur un ouvert dense de X .
+   (i ) La restri tion F de la fon tion log |f | à S(X ) ⊂ X est ane par mor eaux : F ∈
+A0Z (S(X )).
+   (ii ) Pour tout point x ∈ S(X ), log |f | ≤ F (x) sur τX−1 (x), ave égalité si et seulement si f
+ne s'annule pas sur τX−1 (x) ; ainsi, la fon tion F ◦ τX majore log |f | sur X , et il y a égalité si
+et seulement si f ∈ Γ(X, OX )× .
+   (iii ) Pour tout x ∈ S(X ) − ∂X , le oe ient de δx dans ddc F est le degré du diviseur
+div(f )|τ −1 (x) ; la mesure induite par ddc F sur S(X )−∂X est don positive et F est harmonique
+        X
+sur S(X ) − ∂X si et seulement si f est inversible sur l'ouvert τ −1 (S(X ) − ∂X) de X .
+Démonstration. Observons tout d'abord que la fon tion log |f | prend des valeurs nies sur
+S(X ) ⊂ X : en eet, f étant génériquement inversible, elle ne peut s'annuler qu'en des points
+x ∈ X tels que |κ(x) : k] < ∞ et la on lusion dé oule de e que l'extension κ(x)/k est
+trans endante pour tout point x ∈ S(X ).
+   Le support du diviseur de f étant un fermé lo alement ni de X , son image Σ par l'appli-
+  ation propre τX est un fermé lo alement ni de S(X ) tel que s(x) = 1 pour tout x ∈ Σ ;
+il existe alors, par appli ation du lemme 2.2.22, une extension nie k′ /k et un é latement
+admissible q : Y → X ×S Spf(k′ ◦ ) tel que Y soit une Spf(k′ ◦ )- ourbe simplement semi-stable
+et q −1 (Σ) ⊂ S0 (Y). Posons S ′ = Spf(k′ ◦ ) ; le morphisme anonique p : Xη ⊗k k′ → Xη induit
+un isomorphisme G-lo al entre les poyèdres entiers pondérés S(X ×S S ′ ) et S(X ) (proposition
+2.2.21) et
+                                       ddc F = p∗ ddc p∗ F
+(remarque 1.2.8, 4). Il est don susant de démontrer la proposition pour p∗ f ∈ Γ(X ⊗k
+k′ , OX⊗k k′ ), e qui permet de supposer que Σ est ontenu dans S0 (X ) ou, de manière équiva-
+lente, que l'image du support de div(f ) par l'appli ation de rédu tion X → Xs est disjointe
+du lieu singulier Sing(Xs ) de Xs .
+  Soit, pour tout point x e ∈ Sing(Xs ), Uxe un voisinage ouvert onnexe de x      e dans
+Xs − r(|div(f )|) tel que U − {e
+                               x} soit lisse ; f étant inversible sur ha un des domaines
+46
+
+
+
+k-anoïdes r −1 (Uxe ), F|S(X )∩r−1 (U ) ∈ Λk (X|U ) d'après le lemme 2.2.22 et le point (i) est
+démontré.
+   Pour tout x ∈ S(X ), τX−1 (x) est un domaine k-anoïde dont x est l'unique point de Shilov.
+La restri tion de f à τX−1 (x) atteint son maximum au point x, d'où l'inégalité log |f | ≤
+log |f (x)| = F (x) sur τX−1 (x) ; appliquant le même raisonnement à f −1 , on obtient l'égalité
+log |f | = F (x) si f est inversible sur τX−1 (x). Ré iproquement, puisque f ne peut s'annuler
+aux points de S(X ), |div(f )| ∩ τX−1 (x) = ∅ si log |f | = F (x) sur τX−1 (x) et fτ −1 (x) est alors
+                                                                                     X
+inversible ; le point (ii) est démontré.
+   Étant donnés un point ξ ∈ S0 (X ) et α ∈ k× tel que |α| = |f (ξ)|, α−1 f est inversible au
+voisinage de ξ dans X et don induit une fon tion méromorphe régulière feξ sur la omposante
+irrédu tible Z[ξ] de Xs de point générique r(ξ). Elle est indépendante du hoix de α et son
+diviseur des ples est lo alisé dans Sing(Xs ) puisque |f | ≤ |α| sur τX (ξ). Quel que soit l'élément
+t de Tξ S(X ) orrespondant à un point singulier x    e de Xs ontenu dans Z[ξ],
+
+                                        λξ,t(F ) = −ordxe (feξ )
+(lemme 2.2.25 i-dessous) et, vu la dénition du poids dont est muni S(X ) (2.2.3),
+                              X  X                           
+                 ddc F =                       λξ,t (F )wξ (t) δξ
+                                ξ∈S0 (X )        t∈Tξ S(X )
+                                  X                X                                
+                            =                                          eξ
+                                                              (−ordxe (f ))[κ(e    e
+                                                                              x) : k] δξ .
+                                ξ∈S0 (X )        e∈Xs ∩Z[ξ]
+                                                 x
+
+
+Le oe ient de −δξ dans ddc F est don le degré de la omposante du diviseur de feξ ontenue
+dans Sing(Xs ). La ek- ourbe Z[ξ] est propre si et seulement si ξ ∈ S0 (X ) − ∂X ; par suite,
+pour tout point ξ ∈ S0 (X ) − ∂X , le oe ient de δξ dans ddc F n'est autre que le degré
+de la omposante du diviseur de feξ ontenu dans Xs − Sing(Xs ). C'est également le degré
+de la omposante de div(f ) ontenu dans le domaine k-anoïde τX−1 (x). En eet, si Z[ξ]′
+est l'ouvert Z[ξ] − (Sing(Xs ) ∩ Z[ξ]) (remarquer que Z[ξ] ren ontre les autres omposantes
+irrédu tibles de Xs en des points singuliers de Xs ) et si α ∈ k× est hoisi tel que |α| = |f (ξ)|,
+α−1 f appartient à la sous-k◦ -algèbre Γ(Z[ξ]′ , OX ) de Γ(Z[ξ]′ , OX ) ⊗k◦ k (proposition 2.1.1)
+et le sous-s héma fermé V (α−1 f ) de X|Z[ξ]′ est l'adhéren e de div(f ) ∩ τX−1 (ξ) dans X ; 'est
+don un S -s héma ni et plat, d'où dé oule l'identité
+                                              
+                        deg div(f ) ∩ τX−1 (ξ) = deg(div(feξ ) ∩ Z[ξ]′ ).
+  Cela garantit la positivité de ddc F sur S(X )−∂X et établit l'équivalen e entre l'inversibilité
+de f sur τX−1 (S(X ) − ∂X) et l'harmoni ité de F sur S(X ) − ∂X .                               2
+Lemme 2.2.25.  Soient X         une S - ourbe simplement semi-stable onnexe dont la bre
+spé iale possède un unique point singulier xe, X = Xη sa bre générique et f un élément de
+Γ(X, OX )× ; notons F la restri tion à S(X ) ⊂ X de la fon tion log |f |.
+   Soient ξ un point dans S0(X ) = ∂S(X ) et Z[ξ] la omposante irrédu tible de Xs orrespon-
+dante ; étant donné α ∈ k× tel que |f (ξ)| = |α|, α−1 f est inversible au voisinage de ξ dans X
+et induit une fon tion méromorphe régulière feξ sur Z[ξ], indépendante du hoix de α.
+     La fon tion F appartient à Λk (X ) et
+                                            λξ (F ) = −ordxe(feξ ).
+                                                                                               47
+
+
+
+Démonstration. Quitte à restreindre U , on peut supposer qu'il existe un morphisme étale
+surje tif p : X → S(a), a ∈ k◦ − {0}, induisant un isomorphisme entre S(X ) et S(S(a)) =
+Spf(k◦ {T0 , T1 }/(T0 T1 − a)) ; on peut également supposer que p∗ T0 est une équation de Z[ξ]
+dans X , auquel as p∗ T1−1 est un paramètre lo al en x       e sur Z[ξ]. L'élément F de Λk (X ) =
+log |k× | ⊕ Z log |p∗ T1 | s'é rit
+                                    F = log |f |(ξ) + n log |p∗ T1 |
+et, si α ∈ k× est hoisi tel que |α| = |f (ξ)|, la se tion α−1 f p∗ T1−n de OX     ×
+                                                                                    est de module
+ onstant égal à 1 sur X et appartient don à Γ(X , OX ) (proposition 2.1.1). Il en dé oule
+                                                               ×
+                                                     ×
+en parti ulier l'appartenan e de α−1 f à p∗ T1n OZ[ξ]    et don , p∗ T1−1 dénissant un paramètre
+lo al en xe sur Z[ξ], l'égalité
+                                     λξ (F ) = n = −ordxe(feξ ).
+                                                                                                2
+2.2.5. Morphismes entre S - ourbes semi-stables.
+   Le ouple (S(X ), τX ) asso ié à une S - ourbe simplement semi-stable dépend (en général)
+du S -s héma formel X et non pas seulement de l'espa e k-analytique Xη ; la situation est
+toutefois assez fa ile à analyser.
+Proposition 2.2.26.  Soient X une S - ourbe simplement semi-stable et q : Y → X un
+é latement admissible tel que Y soit une S - ourbe simplement semi-stable.
+   (i ) L'isomorphisme qη−1 de Xη sur Yη identie S(X ) à un domaine polyédral dans S(Y).
+   (ii ) L'appli ation S(q) = τX ◦ qη |S(Y) est une rétra tion de S(Y) sur S(X ) s'insérant dans
+le diagramme ommutatif
+                                                    τY
+                                         Yη               / S(Y)
+
+                                       qη                         S(q)
+                                                             
+                                        Xη          τX
+                                                          / S(X ).
+
+   (iii ) Soit V une omposante onnexe de S(Y) − S(X ) ; son adhéren e V dans S(Y) est un
+polyèdre entier ompa t dont la frontière V ∩ S(X ) est réduite à un point.
+   (iv ) Quelle que soit la fon tion Φ ∈ A0 (S(X )), S(q)∗ Φ ∈ A0 (S(Y)) et
+                                  ddc Φ = S(q)∗ (ddc S(q)∗ Φ).
+Démonstration. Les espa es k-analytiques Yη et Xη sont identiés via l'isomorphisme qη .
+(i) Le sous-ensemble Σ = S0 (Y) ∩ S(X ) de S(X ) ontient S0 (X ) ( ar qs est dominant) et
+est onstitué de points x tels que |κ(x)× | = |k× | ; il existe par onséquent un é latement
+admissible p : Z → X tel que Z soit une S - ourbe simplement semi-stable, S(Z) = S(X ) et
+S0 (Z) = Σ ; la proposition 2.1.15 implique alors la fa torisation du morphisme q à travers p :
+                                                Y@
+                                                   @@ q
+                                                     @@
+                                                u      @@
+                                                        @
+                                                Z         / X,
+                                                      p
+
+u étant un é latement admissible induisant un isomorphisme au-dessus d'un voisinage ouvert
+de Sing(Zs )  ar au une omposante irrédu tible de Ys ne ren ontre u−1 (Sing(Zs ))  et
+identiant Zs à son transformé stri t dans Ys . Il est maintenant évident que S(X ) = S(Z) est
+un domaine polyédral dans S(Y) : ayant hoisi, pour tout point ye ∈ Sing(Ys ), un voisinage
+ouvert onnexe Uye tel que Uye −{e
+                                y} soit lisse, S(Y) est obtenu en re ollant à S0 (Y) les polytopes
+48
+
+
+
+entiers S(Y|Uye ), ye ∈ Sing(Ys ), tandis que S(Z) est obtenu en re ollant à S0 (Z) ⊂ S0 (Y) les
+polytopes entiers S(Y|Uye ), ye ∈ Sing(Zs ) ⊂ Sing(Ys ).
+(ii) Soit Z ′ le s héma formel induit par Z sur l'ouvert Zs′ = Zs − Sing(Zs ) ; 'est une S - ourbe
+lisse de squelette S0 (Z) et dont la bre générique ontient S(Y)−S(Z). L'appli ation τX envoie
+ ha une des omposantes onnexes de Zη′ ⊂ Xη sur le point de S0 (Z) qu'elle ontient et elle
+rétra te le polyèdre S(Y) sur le domaine polyédral S(Z) ; la ommutativité du diagramme
+                                                    uη                      pη
+                                     Yη                   / Zη                        / Xη
+
+                                   τY                    τZ                                 τX
+                                                                                      
+                                   S(Y)             uη
+                                                         / S(Z)                       S(X )
+
+est évidente.
+(iii) Les bres du morphisme u sont onnexes puisqu'il s'agit de l'é latement d'un Idéal (ad-
+missible) sur Z inversible en dehors d'un fermé ontenu dans le lieu lisse Z ′ . Soit Z ′′ la réunion
+des omposantes onnexes de Zs′ qui ren ontrent Sing(Ys ). Comme on peut le onstater sur la
+des ription du domaine polyédral S(Z) ⊂ S(Y) donnée en (i), l'adhéren e de S(Y)−S(Z) dans
+S(Y) s'identie anoniquement au squelette de la S - ourbe simplement semi-stable u−1 (Z ′′ ),
+dont les omposantes onnexes sont en bije tion ave l'ensemble des points génériques de Zs′′ ;
+il en dé oule que haque omposante onnexe de S(Y) − S(Z) est adhérente à un et un seul
+point dans S0 (Z ′′ ) ⊂ S0 (Z), qui n'est autre que son image par la rétra tion τX .
+(iv) Quels que soient le point x ∈ S(X ) et l'élément t ∈ Tx S(Y), orrespondant à un germe
+de omposante onnexe c de S(Y) en x,
+                           
+                             0         si c est ontenue dans S(Y) − S(X );
+                λx,t (Φ) =
+                             λx,t (Φ) si c est ontenue dans S(X );
+
+l'égalité
+                                     ddc Φ = S(q)∗ (ddc S(q)∗ Φ)
+en dé oule immédiatement.                                                                            2
+Proposition 2.2.27.  Soient X , Y deux S - ourbes simplement semi-stables et f : Xη →
+Yη un morphisme quasi-ni. Il existe une extension nie séparable k′ /k et un é latement
+admissible q : X ′ → X ×S S ′ , S ′ = Spf(k′ ◦ ), tels que
+  (i ) X ′ soit une S - ourbe simplement semi-stable et le morphisme f ′ = f ⊗ 1 : Xη ⊗k k′ →
+Yη ⊗k k′ se prolonge en un Spf(S ′ )-morphisme f ′ : X ′ → Y ′ , où Y ′ = Y ×S Spf(S ′ )
+  (ii ) l'appli ation S(f ′ ) = τY ′ ◦ f|S(X ′ ) de S(X ′ ) dans S(Y ′ ) soit un morphisme de polyèdres
+entiers,
+  (iii ) le diagramme
+                                                          ′
+                                                         τX
+                                            Xη′                     / S(X ′ )
+
+                                            f                               S(f ′ )
+                                                                       
+                                            Yη′          τY ′
+                                                                    / S(Y ′ )
+
+soit ommutatif.
+                                                                                                  49
+
+
+
+  Dans es onditions :
+  (iv ) pour tout point x ∈ S(X ′ ) − ∂Xη′ et toute fon tion Φ ∈ A0 (S(Y ′ )),
+                          Z                              Z
+                                   c   ′ ∗             ′
+                              dd S(f ) Φ = (degx f )            ddc Φ.
+                             {x}                                      {f ′ (x)}
+
+Démonstration.
+(i) Tous les points du sous-ensemble Σ = f −1 (S0 (Y)) de Xη sont de type (2) ( ar f est quasi-
+ni) et, par appli ation du lemme 2.2.22, il existe une extension nie k′ /k et un é latement
+admissible q : X ′ → X ×S S ′ , ave S ′ = Spf(k′ ◦ ), tels que X ′ soit une S - ourbe simplement
+semi-stable et p−1
+                 k ′ (Σ) ⊂ S0 (X ). Sous es onditions, la proposition 2.1.15 montre que le
+                                 ′
+
+morphisme f = f ⊗ 1 : Xη = Xη ⊗k k′ → Yη ⊗k k′ se prolonge en un S ′ -morphisme f : X ′ →
+              ′            ′
+
+Y ′ = Y ×S S ′ .
+  Nous notons dorénavant X , Y , f et f en lieu et pla e de X ′ , Y ′ , f ′ et f ′ respe tivement.
+(ii) Considérons deux points x ∈ Sing(Xs ), y ∈ Sing(Ys ) tels que f (x) = y et soient U ⊂ Xs ,
+V ⊂ Ys des voisinages ouverts anes onnexes de x, y respe tivement tels que U − {x} et
+V − {y} soient lisses. Par onstru tion des polyèdres entiers S(X ) et S(Y),
+                                                               
+                  S(X ) ∩ X|U η = S(X|U ) et S(Y) ∩ Y|V η = S(Y|V )
+
+sont des polytopes entiers, de groupes stru turaux Λ(X|U ) et Λ(Y|V ) respe tivement. Il nous
+faut nous assurer que, pour toute fon tion ϕ ∈ Λ(Y|V ), la fon tion S(f )∗ ϕ sur S(X|U ) appar-
+tient à Λ(X|U ) ; e i est ontenu dans la formule
+                                        S(f )∗ ϕ = Λ(f )(ϕ),
+où Λ(f ) est l'homomorphisme de Λ(Y|V ) dans Λ(X|U ) induit par le morphisme f : X|U → Y|V
+(2.1.1). La véri ation en est fa ile :
+    il n'y a rien à dire si ϕ est onstante ;
+    si la fon tion ϕ appartient au sous-groupe Λk (Y|V ) de Λ(Y|V ), elle est de la forme − log |u|,
+                              ×
+     u ∈ Γ(Y|V , OY ) ⊗k◦ k , et alors
+                                                                  
+                          S(f )∗ ϕ = f ∗ τY∗ ϕ |S(X ) = f ∗ log |u| |S(X )
+                                    = log |f ∗ u||S(X )
+                                    = Λ(f )(ϕ).
+
+(iii) L'appli ation S(f ) : S(X ) → S(Y) étant par dénition la omposée τY ◦ f|S(X ) , le dia-
+gramme
+                                                 τX
+                                         Xη           / S(X )
+
+                                         f                    S(f )
+                                                         
+                                          Yη     τY
+                                                      / S(Y)
+
+est ommutatif si et seulement si l'appli ation τY ◦f est onstante sur les bres de la rétra tion
+τX .                                                                                       
+    Soit Ω l'ouvert Ys − Sing(Ys ) ; la rétra tion τY étant lo alement onstante sur Y|Ω η et
+                                                                                               
+     à valeurs dans S0 (Y), τY ◦ f est onstantes sur les bres de τY au-dessus de S Y|f −1 (Ω)
+     puisque es dernières sont onnexes.
+50
+
+
+
+      Soient y un point dans Sing(Ys ) et V un voisinage ane onnexe de y dans Ys tel que
+       V − {y} soit lisse. Étant donnée une fon tion ϕ ∈ Λ(Y|V ), la fon tion f ∗ ϕ = Λ(f )(ϕ)
+       appartient à Λ(X|f −1 (V ) ) ; elle est don onstante sur les bres de τX . Comme
+                                        f ∗ ϕ = (τY ◦ f )∗ ϕ|S(Y)
+       et que les éléments de Λ(Y|V ) séparent les points de S(Y|V ), ela établit que l'appli ation
+                                                                          
+       τY ◦ f est onstante sur les bres de τX au-dessus de S X|f −1 (V ) .
+(iv) Traitons tout d'abord le as d'un point x ∈ S(X ) appartenant à S0 (X ).
+   Quitte à ee tuer un é latement admissible sur Y , on peut supposer que le point y ap-
+partient à S0 (Y). Notons Cx (resp. Cy ) la omposante irrédu tible de Xs (resp. Ys ) de point
+générique rX (x) (resp. rY (y)).
+   Le morphisme f s : Xs → Ys induit un morphisme quasi-ni et dominant de Cx dans Cy et
+l'homomorphisme orrespondant κ(rY (y)) → κ(rX (x)) entre les orps de fon tions oïn ide
+ave elui provenant de l'homomorphisme H(y) → H(x), déni par f , via les identi ations
+  anoniques
+                             ] = κ(rX (x)),
+                            H(x)                 ] = κ(rY (y))
+                                                H(y)
+                                          / ∂Xη est équivalente à la propreté de la e
+(proposition 2.1.2, (iii)). L'hypothèse x ∈                                         k- ourbe
+algébrique Cx ; il en est alors de même pour la ourbe Cy et le morphisme induit par f s de
+Cx dans Cy est ni, de degré
+                              ] : H(y)]
+                             [H(x) ] = [H(x) : H(y)] = deg f
+                                                          x
+
+(l'extension H(x)/H(y) est non ramiée puisque, les S - ourbes X , Y étant simplement semi-
+stables, |H(y)× | = |k× | = |H(x)× |).
+   Soit p un point singulier de Ys appartenant à Cy ; à p orrespond un sous-polytope entier
+P de S(Y) tel que y ∈ ∂P et on note t la fon tion ane positive sur P qui s'annule en x et
+engendre le groupe abélien Λ(P )/R. Notons ep′ (f ) l'indi e de ramid ation de f en un point
+fermé p′ de Cx .
+   Nous avons d'une part
+                                          ep′ (f ) = 1
+pour tout point fermé ξ ′ ∈ Cx ∩ (Xs − Sing(Xs )) : il passe en eet né essairement deux
+ omposantes irrédu tibles distin tes de Xs par tout point de Cx au-dessus d'un point de
+Cy ∩ Sing(Ys ).
+  D'autre part, la dénition de la stru ture entière sur S(X ) est telle que
+                                        λx,p′ (S(f )∗ t) = ep′ (f )
+pour tout point p′ ∈ Cx ∩ Sing(Xs ).
+  Nous en déduisons :
+                Z                              X
+                    ddc S(f )∗ t =                           λx,p′ (S(f )∗ t)[κ(p′ ) : e
+                                                                                       k]
+                    {x}                  p′ ∈Cx ∩Sing(Xs )
+                                               X
+                                    =                        ep′ (f )[κ(p′ ) : κ(p)][κ(ξ) : e
+                                                                                            k]
+                                         p′ ∈Cx ∩Sing(Xs )
+
+                                    = (deg (f |Cx ))[κ(p) : e
+                                                            k]
+                                                Z
+                                    = (degx f )      ddc t
+                                                      {y}
+                                                                                               51
+
+
+
+et l'égalité
+                            Z                               Z
+                                     c      ∗
+                                   dd S(f ) Φ = (degx f )                 ddc Φ
+                             {x}                                {f (x)}
+
+pour toute fon tion Φ ∈ A0 (S(Y)) s'en déduit immédiatement par linéarité.
+    Le as général se déduit du pré édent en appliquant la proposition 2.2.21 et le lemme 2.2.22.
+2
+```
+
+## thu-residual-exact-sequence-not-used
+
+Context and full Lemma 2.3.22 proof. Inspected but not used to grant unit lifting or a common ordinary star.
+
+Source `/workspace/research/shared-sources/Thuillier-tel-00010990v1.txt`; SHA-256 `e82226b3dde6a8088c35e1481bfd43f64bb69ee309b5cfda92c8c927a7885570`. Inclusive literal LF lines 3623--3700; body SHA-256 `7ccd6100a5e54550dd7db2bcfe6568de104992bfda981c0598d326e3dd5b47a6`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+Cette remarque préliminaire permet de supposer que X est isomorphe à la bre générique
+d'une S - ourbe simplement semi-stable X et que le point x orrespond à une omposante
+irrédu tible propre et géométriquement onnexe Cx de Xs .
+Lemme 2.3.22.  Ave les notations en vigueur, l'espa e ve toriel HX,x /FX,x est anoni-
+quement isomorphe à l'espa e ve toriel Pic0 (Cx ) ⊗Z R.
+Démonstration. Soit V un voisinage stri tement k-anoïde de X . Il existe une extension
+galoisienne nie k′ de k et un é latement admissible q : X ′ → X ⊗S Spf(k′ ◦ ) tel que V ⊗k k′
+soit isomorphe à la bre générique du s héma formel induit par X ′ sur un ouvert U de Xs′ . La
+ omposante irrédu tible Cx de Xs étant supposée géométriquement onnexe, il y a un unique
+point x′ ∈ X ⊗k k′ au-dessus de x, orrespondant à la omposante irrédu tible Cx ⊗ek ke′ de
+X ⊗S Spf(S ′ ) et, elle- i étant propre et lisse, le morphisme q induit un isomorphisme de la
+ omposante irrédu tible de X ′ asso iée à x′ sur Cx ⊗ek ke′ .
+                                                               ′
+    À toute fon tion h ∈ H(V ) = H(V ⊗k k′ )Gal(k /k) orrespond naturellement un R-diviseur
+div(h) sur la ke′ - ourbe Cx ⊗ek ke′ , vue omme omposante irrédu tible de Xs′ : en eet, l'ensemble
+Tx′ S(X ′ ) est anoniquement identié à l'ensemble des points singuliers de Xs′ appartenant à
+Cx ⊗ek ke′ et, notant x      et le point orrespondant à l'élément t de Tx′ S(X ′ ), on pose :
+                                                          X
+                                            div(h) =             λx,t (h)[e
+                                                                          xt ].
+                                              t∈Tx′ S(X ′ )
+
+La ondition d'harmoni ité de h en x′ équivaut à la ondition
+                                            deg div(h) = 0.
+   Le groupe de Galois Gal(k′ /k) opère naturellement sur la ke′ - ourbe Cx ⊗ek ke′ et son a tion
+est transitive sur haque bre du morphisme anonique Cx ⊗ek ke′ → Cx ; puisque h est, par
+hypothèse, invariante sous Gal(k′ /k), ela implique que le R-diviseur div(h) sur Cx ⊗ek ke′
+des end en un R-diviseur de degré 0 sur sur Cx , en ore noté div(h).
+                                                                                                59
+
+
+
+  Nous obtenons ainsi une appli ation linéaire div : HX,x → Div(Cx ) ⊗Z R s'insérant dans
+une suite
+                  0       /R      / HX,x   div   / Div(Cx ) ⊗Z R deg   /R     / 0,
+
+laquelle est exa te. Seule la surje tivité de div sur le sous-espa e des R-diviseurs de degré 0
+requiert une démonstration. Soit
+                                              X
+                                        D=        n(e
+                                                    x)[ex]
+                                             e∈|D|
+                                             x
+
+un R-diviseur de degré 0 sur Cx ; soit I l'Idéal (admissible) dénissant le sous-s héma fermé
+réduit Z = |D|∩(Xs −Sing(Xs )) dans Xs et soit q : X ′ → X son é latement. Puisque X est lisse
+aux points de Z , X ′ est en ore une S - ourbe simplement semi-stable et on note Y l'ouvert de
+X ′ obtenu en retirant, à ha une des omposantes irrédu tibles du diviseur ex eptionnel de X ′ ,
+un point fermé disjoint (du transformé stri t) de X . La S - ourbe Y est simplement semi-stable
+et Yη est un voisinage de x dans X = Xη . L'ensemble Tx S(Y) s'indentie anoniquement à
+une partie nie de l'ensemble des points fermés de Cx et nous avons fait e qu'il fallait pour
+que
+                                         |D| ⊂ Tx S(Y).
+Considérons alors une fon tion ane par mor eaux H sur S(Y) telle que, pour tout polytope
+entier P ⊂ S(Y) de dimension un orrespondant à un élément t ∈ Tx S(Y),
+- λx,t (H) = 0 si x  / |D|,
+                  et ∈
+- λx,t (H) = n(e
+               xt ) si x
+                       et ∈ |D|.
+   Une telle fon tion H est harmonique au point x en vertu de la nullité du degré de D ; elle
+est don harmonique sur un voisinage de x dans S(Y) et la fon tion h = τY∗ H sur X est par
+ onséquent harmonique au voisinage de x dans X . L'identité
+                                           div(h) = D
+est vériée par onstru tion et nous avons ainsi établi l'exa titude de la suite onsidérée
+ i-dessus.
+  Soit Pr(Cx ) le groupe des diviseurs prin ipaux sur Cx . On dispose d'une autre suite exa te
+
+                                  /R       / FX,x    div   / Pr(Cx )   / 0,
+                           0
+                                            ×
+ ar, pour tout germe log |f | ∈ FX,x , f ∈ OX,x , le diviseur de la fon tion harmonique N log |f |
+s'identie à elui de la fon tion méromorphe induite par f N /α sur Cx , où N est un entier
+supérieur à 1 tel que |f (x)|N ∈ |k× | et α est un élément de k tel que |f (x)|N = |α|. Il en
+résulte un isomorphisme d'espa es ve toriels réels
+                                                 ∼
+                                HX,x /FX,x −→ Pic0 (Cx ) ⊗Z R,
+ e qui a hève la preuve du lemme.                                                                2
+```
+
+## cld-stokes-green
+
+Full Proposition 5.11.1 proof, including compact intersection of supports.
+
+Source `/workspace/research/campaigns/round-21/P06.2-all-dimensional-completed-algebraic-continuation/artifacts/codex-ZwIWCf/sources/CLD-v2.txt`; SHA-256 `021be260392de1f3240858d4c775da86653518dfab4fd9c4c21a2406081b6c7e`. Inclusive literal LF lines 6992--7018; body SHA-256 `2a5591dda3afaa1917702f99b05263f1dcb85382b6e601155f6ea9429b4eaddb`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+                 § 5.11. FORMULES DE STOKES ET GREEN
+
+  Soit X un espace G-tropical calibré de niveau n.
+Proposition 5.11.1. — a) Soit ω une G-forme à coefficients C 1 et à support com-
+pact sur X, de type (n − 1, n). On a la formule de Stokes :
+                                   Z         Z ∂
+                                        ′
+                                       d ω=      ω.
+                                      X                X
+   b) Soit α et β des G-formes à coefficients C sur X, symétriques, de type (p, p) et (q, q)
+                                                   2
+
+respectivement, où p + q = n − 1. Si l’intersection de leurs supports est compact, on a la
+formule de Green :
+                 Z                               Z ∂
+                          ′ ′′     ′ ′′
+                    (α ∧ d d β − d d α ∧ β) =        (α ∧ d′′ β − d′′ α ∧ β).
+                  X                                    X
+
+Démonstration. — Comme le support de ω est compact, il existe une partie squelettique
+fermée Σ de X qui la supporte fortement. La formule de Stokes découle alors de la
+formule correspondante en géométrie paralinéaire (proposition 4.6.15), appliquée à Σ(n) ,
+à la forme ω|Σ(n) et au calibrage canonique de Σ(n) .
+   La formule de Green s’en déduit comme dans le lemme 1.5.10 en appliquant la formule
+de Stokes à la forme à support compact ω = α ∧ d′′ β − d′′ α ∧ β. Lorsque α et β sont
+toutes deux à support compact, elle découle aussi de la formule de Green en géométrie
+paralinéaire, appliqué à une partie polyédrale qui supporte fortement ces deux formes.
+```
+
+## cld-positive-integration
+
+Complete definition and sign arguments in 7.3.1--7.3.4 for calibrated integration currents.
+
+Source `/workspace/research/campaigns/round-21/P06.2-all-dimensional-completed-algebraic-continuation/artifacts/codex-ZwIWCf/sources/CLD-v2.txt`; SHA-256 `021be260392de1f3240858d4c775da86653518dfab4fd9c4c21a2406081b6c7e`. Inclusive literal LF lines 8089--8129; body SHA-256 `5bdf3c16d53c638b8d0091a858adc02f1536406c53be4d6858e3676c8b6f6be9`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+                      § 7.3. COURANTS D’INTÉGRATION
+
+7.3.1. — Soit X un espace tropical de niveau    R n. Pour toute (n, n)-forme lisse α à sup-
+port compact sur X, posons alors ⟨δX , α⟩ = X α, où l’intégrale d’une (n, n)-forme lisse
+à support compact sur X a été définie en (5.8.5). On définit ainsi une forme linéaire sur
+l’espace Acn,n (X). Elle est positive ; d’après la proposition 7.2.9, c’est donc un courant
+sur X, qu’on appelle le courant d’intégration sur X et on le note δX . Il est de bidimen-
+sion (n, n) et d’ordre 0. Une forme antisymétrique de type (n, n) sur X étant nulle, donc
+son intégrale aussi, le courant δX est symétrique.
+7.3.2. — On définit de manière analogue
+                                   R∂       le courant d’intégration « sur le bord » de X,
+      ∂                       ∂
+noté δX , par la formule ⟨α, δX ⟩ = X α, pour toute (n − 1, n)-forme à support compact α
+sur X.
+  Cette   forme linéaire est continue pour la topologie C 0 . Compte tenu de la définition
+de X α, cela découle en effet de la continuité pour la topologie C 0 de l’intégrale de bord
+   R
+d’une forme sur un polytope calibré dans un espace affine.
+  Il est de bidimension (n − 1, n) et d’ordre 0 ; son support est contenu dans le bord
+de X.
+7.3.3. — Soit Y un espace tropical de niveau m et soit φ : Y → X un morphisme
+topologiquement propre d’espaces tropicaux. Un cas particulier important est celui d’une
+partie squelettique de X munie de son n-calibrage canonique, plus généralement d’une
+partie squelettique de dimension ⩽ d quelconque munie d’un d-calibrage.
+  Les constructions précédentes fournissent des courants φ∗ δY et φ∗ δY∂ sur X de bidi-
+mensions (m, m) et (m − 1, m) respectivement.
+  Le courant φ∗ δY est fortement positif.
+7.3.4. — Soit ω une G-forme de type (p, q) à coefficients tropicalement boréliens loca-
+lement bornés sur X. ROn définit un courant [ω] de bidimension (p, q) et d’ordre 0 sur X
+par la formule α 7→ X ω ∧ α définie par l’intégrale des G-formes. Lorsque ω est une
+forme lisse, on a [ω] = δX ∧ ω.
+   Si ω est positive (resp. faiblement positive, resp. fortement positive), il en va de même
+du courant [ω]. Cela découle de la définition d’un courant positif, des propriétés de
+stabilité de la positivité par produit (prop. 3.5.5), et de ce que l’intégrale d’une (n, n)-
+forme positive est positive.                             R∂
+   On définit aussi le courant [ω]∂ par la formule α 7→ X ω∧α défini à l’aide de l’intégrale
+de bord des G-formes. Il est d’ordre 0 et de bidimension (n − p − 1, n − q). Lorsque ω
+est une forme lisse, on a [ω]∂ = δX ∂
+                                      ∧ ω.
+   Il découle de la définition de la topologie des espaces de courants que les applications
+ω 7→ [ω] et ω 7→ [ω]∂ sont continues.
+```
+
+## cld-smooth-psh-current
+
+Full Proposition 8.3.1 proof; smooth-function/current identification. No nonsmooth converse is used.
+
+Source `/workspace/research/campaigns/round-21/P06.2-all-dimensional-completed-algebraic-continuation/artifacts/codex-ZwIWCf/sources/CLD-v2.txt`; SHA-256 `021be260392de1f3240858d4c775da86653518dfab4fd9c4c21a2406081b6c7e`. Inclusive literal LF lines 9991--10018; body SHA-256 `d6fab13e765eea628c3804bbc9a68cf70d4b4950470fb6b9ee7584a5bade6744`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+             § 8.3. FONCTIONS PSH ET COURANTS POSITIFS
+
+ Soit X un espace tropical de niveau n. On suppose que X est sans bord ; en particulier,
+X est localement différentiellement séparé, très riche et décent.
+
+Proposition 8.3.1. — Soit u une fonction sur X à valeurs dans R∪{−∞}, localement
+intégrable.
+  a) Si u est plurisousharmonique, le courant d′ d′′ [u] est positif.
+  b) Si u est lisse, elle est plurisousharmonique si et seulement si le courant d′ d′′ [u] est
+positif.
+
+Démonstration. — Pour tout U , notons P(U ) l’ensemble des fonctions localement inté-
+grables u sur U telles que le courant d′ d′′ [u] sur U soit positif. Il est immédiat que
+P est un sous-faisceau du faisceau des fonctions localement intégrables (à valeurs
+dans R ∪ {−∞}) qui contient les fonctions lisses psh. Vérifions qu’il est également
+stable par limite décroissante. Soit (un ) une suite décroissante de fonctions localement
+intégrables sur un ouvert U de X qui converge simplement vers une fonction u locale-
+ment intégrable sur U . Soit ω une (n, n)-forme lisse et à support compact       R sur U . Si ω est
+positive,
+      R    le théorème de  convergence      monotone  entraîne que  la  suite  (   un ω) converge
+vers uω. Comme ω est différence de deux formes positives à support compact, cette
+convergence est encore vérifiée. Cela démontre que la suite de courants ([un ]) converge
+vers le courant [u]. Si de plus d′ d′′ [un ] ⩾ 0 pour tout n, alors d′ d′′ [u] ⩾ 0 par passage à
+la limite. Par conséquent, P contient CPshX . Cela démontre l’assertion a).
+   Supposons maintenant que u est lisse. Si u est plurisousharmonique, alors d′ d′′ [u] est
+positif d’après a). Supposons inversement que le courant d′ d′′ [u] soit positif. Comme
+c’est le courant associé à la forme lisse d′ d′′ u, cette forme est positive, d’après le corol-
+laire 7.3.10. La fonction u appartient donc à CPshX (U ) par définition de ce cône.
+```
+
+## cld-ordinary-unit-charts
+
+Full Proposition 15.1.1 proof and Corollary 15.1.2. Ordinary-open clause (b) is retained.
+
+Source `/workspace/research/campaigns/round-21/P06.2-all-dimensional-completed-algebraic-continuation/artifacts/codex-ZwIWCf/sources/CLD-v2.txt`; SHA-256 `021be260392de1f3240858d4c775da86653518dfab4fd9c4c21a2406081b6c7e`. Inclusive literal LF lines 21480--21512; body SHA-256 `43217c45d6134293c583fe248a35660f04a9bc20e5a52a52dad718a565ce022e`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+                   § 15.1. FORMES ET FONCTIONS LISSES
+
+Proposition 15.1.1. — Soit X un espace k-analytique topologiquement séparé, consi-
+déré comme espace G-tropical affiné.
+   a) Soit ω une G-forme de type (p, q) sur X. Il existe un G-recouvrement (Vi ) de X et,
+pour tout i, un moment fi : Vi → Ti sur Vi , une forme αi de type (p, q) sur une partie
+                                                                 ∗
+paralinéaire de Ti,trop contenant fi,trop (Vi ) tels que ω|Vi = fi,trop αi .
+   b) Soit ω une forme de type (p, q) sur X. Il existe un recouvrement ouvert (Vi ) de X
+et, pour tout i, un moment fi : Vi → Ti sur Vi , une forme αi de type (p, q) sur une partie
+                                                                 ∗
+paralinéaire de Ti,trop contenant fi,trop (Vi ) tels que ω|Vi = fi,trop αi .
+422 CHAPITRE 15. FORMES DIFFÉRENTIELLES RÉELLES EN GÉOMÉTRIE ULTRAMÉTRIQUE
+
+Démonstration. — On ne traite que le cas des G-formes, l’autre est analogue. Par hy-
+pothèse, il existe un G-recouvrement (Wi ) de X et, pour tout i, une application parali-
+néaire gi sur Wi à valeurs dans un espace affine Rni , une forme βi de type (p, q) sur une
+partie paralinéaire de Ei contenant gi (Wi ), tels que ω|Wi = gi∗ βi pour tout i. Par défini-
+tion d’une application paralinéaire, il existe pour tout i un G-recouvrement (Vi,j ) de Wi
+et, pour tout j, un moment fi,j sur Vi,j , à valeurs dans le tore Gnmi un nombre rationnel
+ai,j et un élément ci,j ∈ Rni tels que gi,j = ai,j fi,j,trop + ci,j . Notons pi,j : Rntrop
+                                                                                        i
+                                                                                           → Rni
+l’application affine t 7→ at + ci,j ; on a donc gi,j = pi,j ◦ fi,j,trop , de sorte que
+                                               ∗
+                                     ω|Vi,j = fi,j,trop (p∗i,j βi ).
+
+L’assertion en résulte.
+
+
+Corollaire 15.1.2. — Une fonction u sur X est lisse au voisinage d’un point x s’il
+existe un voisinage U de x dans X, des fonctions inversibles f1 , . . . , fn sur U et une
+fonction φ sur Rn au voisinage de (f1,trop (x), . . . , fn,trop (x)) telle que u = φ ◦ ftrop sur U .
+```
+
+## cld-harmony
+
+Full Theorem 15.6.1 and Lemma 15.6.2 proofs for the analytic interior.
+
+Source `/workspace/research/campaigns/round-21/P06.2-all-dimensional-completed-algebraic-continuation/artifacts/codex-ZwIWCf/sources/CLD-v2.txt`; SHA-256 `021be260392de1f3240858d4c775da86653518dfab4fd9c4c21a2406081b6c7e`. Inclusive literal LF lines 21869--21971; body SHA-256 `7609d3ee6f8f9eaf51394120faff805016366d8ae7c8ee2939df3e67168810ca`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+Théorème 15.6.1. — Soit X un espace analytique de niveau n. L’intérieur de X est
+harmonieux.
+
+Démonstration. — Soit U un ouvert de Int(X), soit f : U → Rn une carte tropicale et
+                                        (n)
+soit C une décomposition cellulaire de Σf en f -cellules qui est adaptée au calibrage
+    (n)
+de Σf . Soit F une (n−1)-cellule de C ; démontrons que F est harmonieuse relativement
+à f.
+   Quitte à remplacer X par U , on peut supposer que f est définie sur X et que X est
+sans bord.
+   Par définition de la structure d’espace affiné sur X, il existe un moment g : X → Gnm
+sur X et un isomorphisme affine p : Rn → Rn tels que gtrop = p ◦ f . Les discordance
+de F relativement à f et gtrop se déduisent l’une de l’autre par transport de structure,
+de sorte que l’on peut supposer que la carte tropicale donnée est de la forme ftrop , où
+f : X → T est un moment.
+430 CHAPITRE 15. FORMES DIFFÉRENTIELLES RÉELLES EN GÉOMÉTRIE ULTRAMÉTRIQUE
+
+                                                                                               (n)
+   Soit C>F l’ensemble des n-cellules de C contenant F ; il est fini et non vide, car Σf est
+purement de dimension n. Fixons une orientation o de ftrop (F ) et, pour tout C ∈ C>F ,
+notons oC l’orientation de ftrop (C) déduite de celle de ftrop (F ) par la règle de la normale
+sortante à ftrop (F ). Il existe un unique n-vecteur, µ̃C , sur le sous-espace affine de Ttrop
+engendré par ftrop (C) tel que (ftrop )∗ (µC ) soit la classe du couple (µ̃C , oC ).
+   Notons µ̃F la somme des fonctions µ̃C |F pour C parcourant C>F . Par définition, la
+discordance de F relativement à ftrop est la classe µF du couple (µ̃F , o) dans le produit
+              →
+              −
+contracté Λn E ×{±1} Or(F ). Il s’agit de démontrer que µ̃F = 0.
+   Soit Ω l’ensemble des applications linéaires u de Ttrop dans Rn telles que u|⟨ftrop (C)⟩ soit
+injectif pour tout C ∈ C>F . Soit q : T → Gnm un morphisme de tores tel que qtrop ∈ Ω.
+   Pour tout C ∈ C>F , soit σC : Rn → Ttrop l’unique section affine de qtrop dont l’image
+est égale à ⟨ftrop (C)⟩. Soit e = e1 ∧ · · · ∧ en le n-vecteur canonique de Rn et soit |e| le
+vecteur-volume associé. L’hyperplan H0 = ⟨(q ◦ f )trop (F )⟩ est naturellement orienté par
+l’image de l’orientation de F . Notons H + le demi-espace bordé par H0 que la règle de
+la normale sortante munit de l’orientation canonique de Rn ; notons H − l’autre demi-
+espace. Pour tout C ∈ C>F , la n-cellule (q ◦ f )trop (C) est contenue dans l’un des deux
+demi-espaces H + et H − , et l’un d’eux seulement. Posons ηC = 1 si (q ◦ f )trop (C) ⊂ H +
+et ηC = −1 sinon.
+   Soit C ∈ C>F ; comme la cellule C est contenue dans Int(X), c’est une q ◦ f -cellule
+commode. Il existe donc un entier dC > 0 tel que le morphisme q ◦ f soit fini et plat de
+degré dC en tout point de C̊ (proposition 14.2.2).
+   Par définition du calibrage canonique, on a µC = (q ◦ f )∗trop (dC |e|), d’où la relation
+                                      (qtrop )∗ (µ̃C ) = ηC dC e.
+Le lemme 15.6.2 ci-dessous entraîne alors que V (qtrop )∗ (µ̃F ) = 0. Autrement dit, µ̃F ap-
+partient au noyau de l’application linéaire n (qtrop )∗ .
+   Ceci vaut pour tout morphisme affine q de tores tel que qtrop appartienne à Ω. Cet
+ensemble Ω est un ouvert de Zariski dense de Hom(Ttrop , Rn ), donc l’ensemble ΩZ de
+ses pointsVentiers est aussi Zariski dense, et l’intersection des noyaux des applications
+linéaires n (qtrop )∗ , pour q ∈ Hom(T, Gnm ) tel que qtrop ∈ Ω est réduite à 0. On en déduit
+que µ̃F = 0, ainsi qu’il fallait démontrer.
+
+                               P
+Lemme 15.6.2. — On a               C∈C>F ηC dC = 0.
+
+                                                                     (n)
+Démonstration. — Soit x un point de F̊ . Par définition, Σf est purement de dimen-
+sion n, l’ensemble C>F n’est pas vide, et q a été choisie de sorte que (q ◦ f )trop soit
+injective sur tout élément de C>F . Par suite, q ◦ f est de dimension tropicale n en x, si
+bien que q ◦ f (x) ∈ S(Gnm ). D’après le lemme 11.6.5, le morphisme q ◦ f est fini et plat
+en x, car x n’appartient pas au bord de X.
+   Soit U un voisinage ouvert et connexe de x dans X et soit V un voisinage ouvert de
+q ◦ f (x) dans Gnm tels que q ◦ f induise un morphisme fini et plat de U sur V , de degré
+dq◦f (x). En particulier, x est le seul point de sa fibre dans U , et q ◦ f (x) = (q ◦ f )trop (x)sq .
+                                         (n)
+On peut en outre supposer que U ∩ Σf est contenu dans la réunion des cellules C, pour
+C ∈ C>F . Notons aussi que ∂(U ) = ∅ car U est un ouvert de X et X est sans bord.
+   Soit C>F+
+              l’ensemble des cellules C ∈ C>F telles que ηC = 1. Pour tout C ∈ C>F               +
+                                                                                                     ,
+                                                     +
+q ◦ f (C) est un voisinage de q ◦ f (x) dans Hsq et l’intersection des cellules ouvertes
+                               § 15.6. HARMONIE INTÉRIEURE                              431
+
+q ◦ f (C̊) rencontre V . Choisissons donc un point z ∈ V tel que z ∈ q ◦ f (C̊) pour tout
+C ∈ C>F +
+           , et z ̸∈ H0,sq .
+   Soit C ∈ C>F   +
+                    . Par choix de z, il existe un point y ∈ C̊ tel que q ◦ f (y) = z. Comme
+q ◦ f |C est injective, y est le seul antécédent de z sur C ; notons-le yC .
+   Inversement, soit y un point de U tel que q ◦ f (y) = z ; d’après la proposition 12.2.8,
+              (n)
+on a y ∈ Σf . Comme y ∈ U , il existe une cellule C ∈ C>F telle que y ∈ C ; comme
+q ◦ f (y) ∈ (H + H0 )sq , on a C ∈ C>F   +
+                                           . Par suite, y = yC .
+   Par définition du degré, on donc
+                              X            X
+                                    dC =         dq◦f (yC ) = dq◦f (x),
+                             +               +
+                          C∈C>F           C∈C>F
+
+puisque q ◦ f induit un morphisme fini et plat de degré dq◦f (x) de V sur U .
+  Notons C>F−
+               Pl’ensemble des cellules C ∈ C>F telles que ηC = −1. Le même argument
+démontre que C∈C − dC = dq◦f (x).
+                      >F
+  On a donc
+                X             X           X
+                     η C dC =       dC −      dC = dq◦f (x) − dq◦f (x) = 0,
+              C∈C>F             +              −
+                             C∈C>F          C∈C>F
+
+d’où le lemme.
+```
+
+## gjr-actual-weights
+
+Definitions/scope 15.1--15.2, including actual edge weights and boundary. This is not a printed theorem proof unit.
+
+Source `/workspace/research/shared-sources/GJR-2111.05741.txt`; SHA-256 `57dfcae1d8dfc25d5ef217f34fabe9e80b679ec2956db1bced3b31bc9afdf8d3`. Inclusive literal LF lines 3919--3953; body SHA-256 `deee6554a1b66cfc532545e94ea002da4ec24ab96ede1e09daf6867350156a55`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+15.1 (Metric Graphs with Boundary). We consider a weighted metric graph (Σ, ∂ Σ) with
+boundary. This is a finite multigraph with no loop edges endowed with positive edge
+lengths assumed to be in Γ . The boundary ∂ Σ is any subset of the vertices of Σ. Every
+edge is endowed with the additional datum of a weight w(e) ∈ Z>0 . If we ignore the
+boundary, then we get a compact piecewise (Z, Γ )-linear space of dimension at most 1 as
+introduced in 2.5. (Note that isolated vertices are allowed.)
+   A function h: Σ → R is called harmonic if the restriction
+                                                        P         of h to any edge is affine
+R-linear, and if for any vertex x of Σ \ ∂ Σ, we have e− =x w(e)de (h) = 0, where e ranges
+over all edges with tail vertex x and de (h) is the outgoing slope of h at x in the direction
+of e.
+   For a subgroup Λ of R containing Γ , we let Σ(Λ) denote the subset of Σ consisting of
+all points x such that f (x) ∈ Λ for all (Z, Γ )-linear functionspf on an edge e containing
+x. Let U ⊂ Σ be a subgraph with vertices contained in Σ( Γ ). A function h: U → R
+is called piecewise (Z, Γ )-linear if there
+                                        p is a subdivision of the subgraph U such that the
+vertices of the subdivision are in Σ( Γ ) and such that the restriction of h to any edge e
+of the subdivision extends to a (Z, Γ )-linear function on the edge of Σ containing e.
+
+15.2 (Skeletons of Curves). Metric graphs with boundary arise in non-Archimedean ge-
+ometry as follows. Let X be a compact rig-smooth curve over K, i.e., a compact rig-smooth
+strictly analytic space of pure dimension 1. We assume that X has a strictly semistable
+model X over the valuation ring K ◦ . This is a formal K ◦ -model of X (see 2.4) whose spe-
+cial fiber Xs is geometrically reduced with smooth irreducible components and at most
+double points as singularities. This is equivalent to [Thu05, Definition 2.2.8], where
+such models are called simplement semi-stable. To such a model is associated a weighted
+metric graph with boundary Σ := S(X), called the skeleton of X. There is a canonical
+inclusion Σ ,→ X . The vertices of Σ correspond to the irreducible components of Xs and
+the edges correspond to the singular points of Xs , so that Σ is the incidence graph of Xs .
+The boundary ∂ Σ consists of the vertices of Σ corresponding to non-proper irreducible
+components of Xs . If x ∈ Xs is a singular point with corresponding edge e, then the
+weight of e is defined to be w(e) = [Ke (x) : K
+                                              e ]. There is an étale neighbourhood of x of
+the form Spf(K{X , Y }/(X Y − ̟)) for some ̟ ∈ K ◦◦ \ {0}; the length of e is then defined
+to be v(̟). There is a canonical deformation retraction map τ: X → S(X).
+```
+
+## gjr-smooth-versus-weak-not-used
+
+Remark 15.10, inspected for the smooth/weak distinction; no germ exactness is imported.
+
+Source `/workspace/research/shared-sources/GJR-2111.05741.txt`; SHA-256 `57dfcae1d8dfc25d5ef217f34fabe9e80b679ec2956db1bced3b31bc9afdf8d3`. Inclusive literal LF lines 4064--4076; body SHA-256 `208f3a17c2416660018a23224b2199675af90ee82a688eb63299e83052a58465`. OCR/control bytes are retained. Printed proof units remain external foundations, not certification of the new applications.
+
+```text
+Remark 15.10. Let X be a smooth curve (that is, a rig-smooth curve without boundary),
+let H be the sheaf of harmonic functions on X , and let F be the subsheaf of R-vector
+spaces generated by the germs log | f | for local invertible analytic functions f . Then Thuil-
+lier [Thu05, 2.3.4] has shown that F might be a strict subsheaf of H , with equality when
+X is potentially locally isomorphic to P1,an or when K e is algebraic over a finite field. It was
+shown in [Wan16, 5.2, 5.3] that F is the kernel of d′ d′′ : A0,0 sm
+                                                                    → A1,1
+                                                                         sm
+                                                                             and that F is the
+sheaf of smooth harmonic functions on X . The latter follows also by Proposition 10.17.
+We conclude that there is a non-smooth harmonic function on an open subset of X if and
+only if the inclusion F ⊂ H is strict. If F = H , then every harmonic tropicalization
+map is a smooth tropicalization map, and Asm = A.
+```
+
+
+
+# Complete supporting proofs supplied for independent reconstruction
+
+These are mathematical evidence, not grants of assumptions. Each application and dependency must be reconstructed. Prior verdicts and hashes do not replace these proofs.
+
+
+# Primary source evidence supplied directly
+
+# Fallible proposal: ordinary regularization on a specified actual semistable tree
+
+This is a new research proposal, not an accepted theorem. It follows the
+incomplete round-23 attempt and is not injected into any earlier campaign.
+The original P06.2 remains open. The current-transport and singular-recognition
+proofs are separate from this proposed analytic construction.
+
+## Exact proposed partial target
+
+Let C be an algebraically closed, complete, nontrivially valued field, of any
+characteristic. Let Z be an actual connected rig-smooth strict affinoid
+C-analytic curve supplied with an actual simply semistable formal model.
+Suppose its finite skeleton Gamma is a metric tree, with its actual Shilov
+boundary B and its actual retraction tau. Residual components may have any
+genus. Let F be a finite real continuous edgewise affine function on Gamma,
+harmonic at all points of Gamma outside B, and let h=F composed with tau.
+Let Y be any supplied compact strict affinoid contained in the actual ordinary
+interior of Z. Can both signs of h be approximated uniformly and decreasingly
+on this same Y by ordinary CLD-smooth psh functions? Ideally construct them
+on the actual ordinary interior of Z, continuously up to its boundary.
+
+The model, tree, retraction, Y, and harmonic factorization are given here.
+This target does not assert their existence at every point of every curve,
+does not infer current transport, and does not settle normalization or
+nilpotent lengths. It asks for the formerly missing ordinary analytic
+unit-lift and whole-overlap construction, including positive residual genus.
+
+## A possible construction, to check rather than assume
+
+On the given tree construct a real PA perturbation psi with positive
+outgoing-slope sum at every interior model vertex and unconstrained sums at
+B. The subtree calculation in the incomplete round-23 core suggests a way.
+For each error tolerance, perturb F by a small positive multiple of psi and
+round the oriented edge slopes rationally. Integrate along the tree from a
+root. This avoids the fixed-cycle period obstruction. Require a strictly
+positive outgoing sum at every vertex where ordinary smoothing is needed.
+
+At such a type-2 vertex v, write the finitely many graph-direction slopes
+as q_i. After taking one large common denominator N, set a_i=N q_i in Z.
+The positive sum D=sum a_i can be made larger than the bounds in residual
+Riemann--Roch while keeping the real slopes unchanged. On the smooth proper
+residual component R_v, seek a rational function fbar with
+
+    ord_{p_i}(fbar) = -a_i
+
+at all specified graph directions, poles only among the p_i with a_i>0,
+and additional zeros at finitely many fresh smooth residual points. The
+unspecified zeros should have total degree D and should avoid all graph
+directions and any additional prescribed finite set. A proof must use the
+actual Riemann--Roch/basepoint-free bounds and avoidance of finitely many
+proper linear subspaces over the infinite algebraically closed residue
+field. It must establish exact orders, not only inequalities. Divisor
+conventions and the slope sign must be checked against the authentic source.
+
+Next lift fbar to an ACTUAL analytic unit near v, with norm one at v and
+with precisely the required slopes in every direction. Possible starting
+points are reduction of H(v), density of meromorphic germs in H(v), and
+the actual formal-model charts. Neither surjectivity of a residue map nor
+Thuillier's printed germ exact sequence alone is a proof of the common
+ordinary-domain application. Prove the chosen lift and its neighborhood,
+including the finite exceptional directions created by numerator and
+denominator lifts. On a suitably small full star its logarithm divided by
+N, shifted by the value of the rational graph approximant at v, should
+agree with that approximant on each graph-direction annular collar.
+The sign convention suggested by Thuillier 2.2.25 is that log absolute
+value has outgoing slope minus the order of the residual function.
+
+The added zero directions then have negative outgoing slope. In each such
+residue disc, keep the unit-log potential on a WHOLE open annular collar
+away from v, use a smooth convex maximum with a lower constant to raise
+the derivative to zero, and continue at that new constant through the
+rest of the disc. Extra directions of slope zero can be glued to the
+same constant on an overlap. Do not include v in an open annular cap,
+restore the old constant after the cap, or use a partition to glue psh
+functions. Choose the collar/cap lengths so every resulting error is
+smaller than the requested tolerance. Prove ordinary smoothness and
+positivity directly in unit-moment charts, with the actual calibration.
+
+At finitely many interior vertices use disjoint stars. Along each remaining
+tree edge use its actual annulus coordinate and the already integrated
+rational affine graph value. Endpoint agreement must hold on genuine
+ordinary open overlaps, including their entire annular fibers. Treat the
+actual boundary vertices separately; Y lies in the ordinary interior of Z,
+so they need not carry psh smoothing on a neighborhood meeting Y. Explain
+any extension to the other residual discs, type-3 or type-4 points, and
+the actual common domain on which the functions are defined.
+
+Repeat for both signs on the SAME fixed Y. Uniform errors b_n=4^{-n}
+permit the tail shift c_n=(5/3)b_n, since
+c_n-c_{n+1}=b_n+b_{n+1}; then the shifted sequence decreases and its
+error from above is at most (8/3)b_n. This last calculation only applies
+after the actual ordinary smooth psh approximants on the fixed domain
+have been proved.
+
+## Evidence boundaries
+
+The incomplete round-23 author argument contains full selected Thuillier
+2.2.24/2.2.25 and 2.3.22 proof units. Its canonical notes, core, audit,
+and status diagnose missing applications and do not grant them. The
+book's p063 proof is a fallible strategy, not independent certification.
+The exact original criteria allow precisely stated published standard
+foundations with their hypotheses and applications checked. New unit-lift,
+overlap, approximation, or extrapolated lemmas require actual proofs.
+
+A proof of this target would be a substantive conditional analytic lemma,
+not a solution of the original atom or its all-curve gate. If any essential
+application remains uncertain, record it and return an incomplete status
+with a null proof pointer. Do not promote a metric-tree calculation,
+source extraction, a prior verdict, or a compilation result to an analytic
+theorem.
