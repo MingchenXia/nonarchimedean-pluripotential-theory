@@ -3,7 +3,7 @@
 ## Active continuation: second reading and research
 
 On 2 October 2026 the user requested another complete reading pass from
-Chapter 1 for coherence and readability. Chapters 1--59 pass the new reading
+Chapter 1 for coherence and readability. Chapters 1--60 pass the new reading
 gates; see the [Chapter 23 audit](second_reading_ch23_audit_20261003.md) and its
 [rational-competitor follow-up](second_reading_ch23_rational_followup_audit_20261003.md).
 Chapter 17's original 4,813-line source and all seven direct inputs were
@@ -213,8 +213,14 @@ read. Its relative dimension, global extraction, normalized dual-complex
 and discrepancy arguments retain their hypotheses. Two short statements
 now stay with their formulas. All 30 chapter physical pages and both seams
 passed visual review; see the [Chapter 59 audit](second_reading_ch59_audit_20261003.md).
-Chapter 60 is active; all 2,699 original lines freshly read, scoped primary
-checks continue. No later chapter is marked complete.
+Chapter 60's original 2,699 lines and full layout diff were freshly
+read. Relative positivity, finite-energy pairings, radial correspondence,
+mixed slopes and reduced entropy retain their stated scopes. Eight compact
+statements and one warning now stay with their formulas. All 54 chapter
+physical pages and both seams passed visual review; see the
+[Chapter 60 audit](second_reading_ch60_audit_20261003.md).
+Chapter 61 is active; all 1,667 original lines freshly read, scoped primary
+and rendered-page checks continue. No later chapter is marked complete.
 The requested standalone open-problem catalogue is complete: all 42 active
 items, twelve full family statements, source-dated state of the art and
 completion criteria in an 85-page independent LaTeX document. See its
