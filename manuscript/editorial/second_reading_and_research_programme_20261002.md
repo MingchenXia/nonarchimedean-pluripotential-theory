@@ -763,6 +763,27 @@ status change is claimed. The active 4,244-page book and all 42 statuses
 remain fixed. Next check the model/semistable-cover construction and its
 precise application category.
 
+### Positive polarization on a normalized-blowup presentation, 4 October 2026
+
+The [model derivation](research_dossiers/li_normalized_blowup_model_presentation_20261004.md)
+pulls relative ampleness through finite normalization and composes the
+vertical tautological bundles of supplied normalized blowups. A power
+of the supplied original polarization then gives a positive rational
+reference on the final smooth reduced model itself, with no extra
+blowup. The fixed generic identification, root curvature, total Kähler
+form and full hybrid reference change are explicit. Complete cached
+Stacks 0892 and 0C4K statements/proofs were freshly read; the earlier
+01OF scope is reused. Publisher/Crossref metadata locate the KKMSD
+semistable-reduction chapter, but its PDF links returned HTML and the
+author's accessible PDF is only a publication list. Thus semistable
+existence and the required normalized-blowup presentation remain
+supplied inputs. See the [audit](li_normalized_blowup_model_audit_20261004.md)
+and [manifest](li_normalized_blowup_model_manifest_20261004.json).
+No new calculation, source-page rendering, independent verifier or
+status change is claimed. The active 4,244-page book and all 42 statuses
+stay fixed. Continue the presentation/category check and related-source
+research in the cloud, while fetching incoming GitHub progress.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
