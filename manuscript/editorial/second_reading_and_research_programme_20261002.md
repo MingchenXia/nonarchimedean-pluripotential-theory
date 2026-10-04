@@ -37,7 +37,7 @@ Compile and inspect the changed pages before closing each verified unit.
 Repeat the reference and relevant scope checks after rendering. Chapter
 checkpoints are milestones; the goal is the complete rereading pass.
 
-Current reading position: Chapters 1--64 pass the new source, build,
+Current reading position: Chapters 1--65 pass the new source, build,
 reference, and rendered-page gates; see the
 [Chapter 1 audit](second_reading_ch01_audit_20261002.md),
 [Chapter 2 audit](second_reading_ch02_audit_20261002.md),
@@ -104,7 +104,8 @@ reference, and rendered-page gates; see the
 [Chapter 61 audit](second_reading_ch61_audit_20261004.md), and
 [Chapter 62 audit](second_reading_ch62_audit_20261004.md), and
 [Chapter 63 audit](second_reading_ch63_audit_20261004.md), and
-[Chapter 64 audit](second_reading_ch64_audit_20261004.md).
+[Chapter 64 audit](second_reading_ch64_audit_20261004.md), and
+[Chapter 65 audit](second_reading_ch65_audit_20261004.md).
 Chapter 16's original 5,753-line source and all 83 direct inputs were freshly
 read. Its product construction, proof interfaces, examples, harmonic
 compatibility and source scopes were repaired; all 274 chapter pages and two
@@ -306,8 +307,14 @@ common regularization, relative DH initial mass, endpoint atom and
 canonical finite-energy truncation hypotheses. All 20 chapter physical
 pages and both seams passed visual review; see the
 [Chapter 64 audit](second_reading_ch64_audit_20261004.md).
-Chapter 65 is active; all 1,568 original lines freshly read, scoped primary
-checks continue. No later unit is marked complete.
+Chapter 65's original 1,568 lines were freshly read and remain byte
+identical. Its filtration/Legendre comparison retains closed endpoints,
+birational filtered-series volume, probability DH normalization and the
+BHJ erratum boundary. All 34 chapter physical pages and both seams passed
+visual review; see the
+[Chapter 65 audit](second_reading_ch65_audit_20261004.md).
+Chapter 66 is active; all 1,878 original main-file lines freshly read;
+its eleven direct inputs and scoped primary checks continue. No later unit is marked complete.
 
 The 3 October revised catalogue is complete: [LaTeX source](../../output/open_problems_catalogue_2026-10-03.tex),
 [85-page PDF](../../output/open_problems_catalogue_2026-10-03.pdf), and
