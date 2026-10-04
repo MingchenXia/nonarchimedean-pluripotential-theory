@@ -531,6 +531,25 @@ and [manifest](lin_face_integration_manifest_20261004.json). Wu's broader
 claims remain outside the active manuscript pending the recorded source
 and dependency checks. Literature research continues in the cloud.
 
+### Hybrid literature and finite-matrix repair, 4 October 2026
+
+An update-sorted metadata query was followed by a scoped reading of
+Boucksom's hybrid lecture notes and a complete reading of Yang Li's
+`2505.11087v1`. Their exact statement, proof, visual and dependency scopes
+are recorded in the [hybrid source audit](hybrid_literature_source_audit_20261004.md)
+and [Li source audit](li_canonical_basis_source_audit_20261004.md).
+Literal auxiliary-construction and proof-display issues remain outside
+the active book; the principal claims are not declared false or admitted
+solely from the abstracts. An elementary finite-matrix
+[repair candidate](research_dossiers/li_finite_constraints_repair_20261004.md)
+supplies the fixed-matrix replacement step without the printed multigraded
+quotients. Its 508 symbolic Cramer identities, 180 rational weight cases
+and four quotient-collapse checks pass. The universal argument is written
+separately from those finite calculations. No new independent verifier
+receipt or problem solution is claimed, and the global metric and analytic
+dependencies remain the next research steps. The active book remains the
+checked 4,240-page edition.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
