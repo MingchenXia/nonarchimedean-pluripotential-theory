@@ -1,0 +1,2034 @@
+                                                           Transcendental Okounkov bodies
+                                                 T. Darvas, R. Reboulet, D. Witt Nyström, M. Xia, K. Zhang
+
+                                                                    To the memory of Jean-Pierre Demailly
+
+
+
+                                                                                   Abstract
+arXiv:2309.07584v3 [math.DG] 5 Jan 2026
+
+
+
+
+                                                  We show that the volume of transcendental big (1, 1)-classes on compact Kähler
+                                               manifolds can be realized by convex bodies, thus answering questions of Lazarsfeld–
+                                               Mustaţă and Deng. In our approach we use an approximation process by partial
+                                               Okounkov bodies together with properties of the restricted volume, and we study
+                                               the extension of Kähler currents, as well as the bimeromorphic behavior of currents
+                                               with analytic singularities. We also establish a connection between transcendental
+                                               Okounkov bodies and toric degenerations.
+
+
+                                          Contents
+                                          1 Introduction                                                                              1
+                                          2 Preliminaries                                                                              5
+                                          3 Transcendental Okounkov bodies                                                            11
+                                          4 Lifting the flags                                                                         14
+                                          5 Partial Okounkov bodies                                                                   17
+                                          6 Extension of Kähler currents                                                             19
+                                          7 The volume identity                                                                       22
+                                          8 Moment bodies                                                                             27
+
+
+                                          1    Introduction
+                                          In toric geometry, there is a striking correspondence between Delzant polytopes ∆ and
+                                          polarized toric manifolds (X∆ , L∆ ). Much of the geometry of the toric manifold is encoded
+                                          in its Delzant polytope: for instance, the volume of L∆ , defined as
+
+                                                                                         h0 (X∆ , kL∆ )
+                                                                        vol(L∆ ) := lim                 ,
+                                                                                     k→∞     k n /n!
+
+                                          is seen to equal n! times the Euclidean volume of ∆.
+                                              Toric manifolds are very special, due to their large group of symmetries. Thus, it was
+                                          quite remarkable that Okounkov in the 90s [41] showed how one can naturally associate
+                                          a convex body ∆(L) to any polarized manifold (X, L). These bodies are now known as
+                                          Okounkov bodies (or Newton–Okounkov bodies).
+
+
+                                                                                        1
+    To construct the Okounkov body, one fixes a complete flag of submanifolds Y• = (X =
+Y0 ⊃ Y1 ⊃ · · · ⊃ Yn−1 ⊃ Yn ). To any s ∈ H 0 (X, kL) \ {0} we associate a valuation vector
+ν(s) := (ν1 , . . . , νn ) ∈ Rn in the following way. First, we let ν1 be the order of vanishing
+of s along Y1 . Next, if sY1 is a defining section for Y1 , we get that (s/sνY11 )|Y1 is a non-zero
+section of Lk ⊗ O(−ν1 Y1 ) restricted to Y1 . We set ν2 to be the order of vanishing along
+Y2 of this section. Continuing this process yields the full valuation vector ν(s). The
+Okounkov body of L, denoted ∆Y• (L), is then defined as the closure of the set of rescaled
+valuation vectors
+
+                     ∆Y• (L) := {ν(s)/k : s ∈ H 0 (X, kL) \ {0}, k ∈ N}.
+
+Convexity of the Okounkov body follows from the fact that ν(s ⊗ t) = ν(s) + ν(t). A
+more difficult fact, however, is that the Okounkov body satisfies the volume identity:
+                                                      1
+                                  volRn (∆Y• (L)) =      vol(L).                             (1.1)
+                                                      n!
+    Later Lazarsfeld–Mustaţă [35] and Kaveh–Khovanskii [34] showed that Okounkov’s
+construction works for more general big line bundles as well, together with the analogous
+volume identity (1.1). One should note that the volume of big line bundles is a much
+more subtle notion compared to the ample case; using convex bodies to study this object
+was indeed a breakthrough. For example, Lazarsfeld–Mustaţă used Okounkov bodies to
+show that the volume function is C 1 on the cone of big R-divisors [35, Corollary C].
+Since then, numerous applications of Okounkov bodies have been found in algebraic and
+complex geometry (see e.g. [3, 9, 36, 8, 32], to only name a few works).
+    The Okounkov body is a numerical invariant of the line bundle, i.e., it only depends on
+the first Chern class c1 (L) of L, which is a real cohomology class of bidegree (1, 1). Real
+cohomology classes that do not correspond to line bundles are called transcendental.
+The weaker positivity notions of being big or pseudoeffective have been extended to
+transcendental classes by Demailly, and Boucksom showed in [12] how to define the volume
+vol(ξ) of a transcendental class ξ.
+    In light of the above, given a flag Y• , a very natural question raised by Lazarsfeld–
+Mustaţă [35, p. 831] asks whether one can define the Okounkov body ∆Y• (ξ) associated
+with a transcendental class ξ, in such a way that it satisfies the volume identity
+                                                      1
+                                  volRn (∆Y• (ξ)) =      vol(ξ).                             (1.2)
+                                                      n!
+    There are some notable open problems related to the volume of big transcendental
+classes, such as obtaining transcendental holomorphic Morse inequalities, or the continu-
+ous differentiability of the volume on the big cone [4]. Identity (1.2) could turn out to be
+useful with tackling these problems, the same way as it was in the line bundle case [35,
+Corollary C].
+    As we explain now, in [25] Deng proposed a construction of Okounkov bodies ∆(ξ)
+for a transcendental class ξ. In the transcendental case global sections make no sense,
+but these classes admit a lot of currents. The vanishing order of a global section s of a
+line bundle can be expressed using Lelong numbers of the current of integration [s = 0].
+Deng’s construction rests on the idea that computing Lelong numbers of appropriate
+currents should be the transcendental analogue of computing vanishing order of sections
+in the algebraic case.
+
+                                                2
+    Let (X, ω) be a connected compact Kähler manifold of dimension n. Let ξ := {θ} ∈
+  1,1
+H (X, R) be a big (or pseudoeffective) cohomology class, with θ being a smooth closed
+(1, 1)-form. Assume that X has a complete flag of submanifolds
+
+                         Y• := (X = Y0 ⊃ Y1 ⊃ · · · ⊃ Yn−1 ⊃ Yn ),
+
+Let A(X, ξ) be the set of positive
+                               P currents    θ + ddc u in ξ with analytic singularities. This
+                                      2
+means that locally u = c log( j |fj | ) + h, for c ∈ Q+ , fj holomorphic, and h bounded.
+    To any T0 ∈ A(X, ξ) one associates a valuation vector ν(T0 ) = (ν1 , . . . , νn ) ∈ Rn in
+the following manner. Let ν1 equal ν(T0 , Y1 ), the generic Lelong number of T0 along Y1 .
+One can show that T1 := (T0 − ν1 [Y1 ])|Y1 has analytic singularities on Y1 . Then one sets
+ν2 := ν(T1 , Y2 ) and continues the above process until all components of ν(T0 ) are defined.
+The Okounkov body of ξ, denoted ∆Y• (ξ) (or just ∆(ξ), once the flag is fixed), is then
+defined as:
+                                  ∆(ξ) := ν(A(X, ξ)) ⊂ Rn .
+As in the line bundle case, the convexity of the Okounkov body follows from the fact
+that ν(S + T ) = ν(S) + ν(T ). When ξ is a pseudoeffective class, one puts ∆(ξ) =
+∩ε>0 ∆(ξ + ε{ω}). For more details, the reader is invited to consult § 3.
+   Deng’s body coincides with Okounkov’s when ξ is the first Chern class of a big line
+bundle [25]. Thus, this body is a natural generalization of the Okounkov body to the
+transcendental setting, and we will work with Deng’s definition in our paper.
+   It remained to show that the transcendental Okounkov body satisfies (1.2). Deng
+proved that this is true when the dimension of X is at most two, but the general case
+was open until now. Our main result proves the volume identity in full generality:
+
+Theorem 1.1. Let ξ be a big cohomology class on X and Y• be a flag on X. Then the
+associated Okounkov body ∆(ξ) of ξ satisfies the volume equality
+                                                  1
+                                 volRn (∆(ξ)) =      vol(ξ).                            (1.3)
+                                                  n!
+   Passing to the limit, the volume identity can be extended to pseudoeffective classes
+as well:
+
+Corollary 1.2. The identity (1.3) holds even if ξ is pseudoeffective.
+
+    Theorem 1.1 and Corollary 1.2 confirm [25, Conjecture 1.4] and also give an affirmative
+answer to the question of Lazarsfeld–Mustaţă [35, p. 831].
+    We note that, a priori X might not contain any proper complex submanifolds of
+positive dimension, let alone flags. For example, this happens if X is a non-algebraic
+simple compact torus. However, one can always blow up X at a point p. Then one
+can construct a flag Y• on Blp X with Y1 ∼   = CPn−1 being the exceptional divisor and
+Y2 ⊃ · · · ⊃ Yn being a flag of linear subspaces in Y1 . Therefore, up to modifying X and
+pulling back ξ, our main result is always applicable.
+    The proof of Theorem 1.1 proceeds by induction on dim X, with the recent work
+of the third named author [51] helping with the induction step. In our proof, it will
+be necessary to approximate the volume of ∆(ξ) using the volume of partial Okounkov
+bodies, as studied in [52]. The advantage of our partial Okounkov bodies is that they
+have good bimeromorphic properties, allowing to reduce their study to the case when ξ
+is Kähler. We will also study currents with analytic singularities whose pushforward also
+
+                                             3
+have this property. This contrasts Deng’s approach in the surface case [25], where he can
+apply the Zariski decomposition, without modifying the surface (cf. [13]).
+   In our approach, an extension result slightly generalizing [19, Theorem 1.1] will be
+necessary to relate the slice volume of the Okounkov body to the restricted volume of
+the big class (see Property Cn ). Let us state this extension result, which could be of
+independent interest, in light of [26, Conjecture 37] and [17].
+Theorem 1.3. Let V ⊆ X be a connected positive dimensional compact complex sub-
+manifold of (X, ω), and T = ω|V + ddc φ be a Kähler current on V . Assume that eφ is a
+Hölder continuous function on V . Then one can find a Kähler current T̃ = ω + ddc φ̃ on
+X such that φ̃|V = φ, i.e., T̃ extends T . Moreover, φ̃ is continuous on X \ V and eφ̃ is
+Hölder continuous on X. In addition, if φ has analytic singularities, then so does φ̃.
+    For the definition of analytic singularities we refer to Definition 2.2. Our definition
+is more general compared to [19]; see Remark 2.7 for a comparison of various notions of
+analytic singularities appearing in the literature.
+    Potentials with exponential Hölder continuity often appear in the literature (see [6,
+42]), so this result may find other applications in Kähler geometry. Similar to [19], we
+prove our extension result using Richberg’s gluing technique. We will adapt the exposition
+from [22, Section I.5.E], which allows for some simplifications.
+    Note that one can not expect Theorem 1.3 to hold for big classes, due to the obvious
+obstruction coming from the non-Kähler locus. In fact one can hope to extend a Kähler
+current in a big class only if it has appropriate prescribed singularities along the non-
+Kähler locus. This technical point will arise in our proof of Theorem 1.1, and will be
+circumvented with the help of partial Okounkov bodies.
+    In Section 8, we describe an alternative way of defining a convex body associated
+with a big class ξ. Instead of using the valuation vectors ν(T ) of closed positive currents
+T ∈ ξ, we consider certain iterated toric degenerations of X, where in n steps (X, T )
+is degenerated to (Pn , Tn ). Here, T is a closed positive (1, 1)-current in ξ, while Tn is a
+closed positive and toric (1, 1)-current on Pn . As described in Section 8, any such toric
+degeneration (Pn , Tn ) comes with a naturally associated moment body ∆(Tn ). This allows
+us to define the moment body ∆µ (ξ) of ξ as the closure of the union of the moment bodies
+of all such metrized toric degenerations of (X, ξ). We note that an algebraic version of
+this construction is considered in the recent thesis of Murata [38]. We show that this
+alternative body agrees with the Okounkov body of ξ:
+Theorem 1.4. For ξ big the moment body ∆µ (ξ) coincides with the Okounkov body ∆(ξ).
+    As a direct consequence of Theorem 1.4 we get that ∆(Tn ) ⊆ ∆(ξ) for all toric degen-
+erations (Pn , Tn ) of (X, ξ), and that for any ϵ > 0 we can find a toric degeneration (Pn , Tn )
+of (X, ξ) such that the Hausdorff distance between ∆(Tn ) and ∆(ξ) is less than ϵ. This
+provides a strong link between transcendental Okounkov bodies and toric degenerations,
+which we think will be useful in further investigations.
+    The above result is inspired by the works of Harada–Kaveh [31] and Kaveh [33], who,
+building on earlier work of Anderson [2], prove related results in the algebraic setting.
+This theorem is also related to work on canonical growth conditions [48].
+
+Further directions Finally, we mention several appealing directions that one could
+explore further. One may try to define the Chebyshev transform of [47] in the transcen-
+dental setting to study weak geodesic rays in connection with transcendental notions of
+
+                                               4
+K-stability attached to cscK metrics [28, 43]. One could try to use Okounkov bodies to
+make progress on the conjectured transcendental Morse inequality [4], or to show differ-
+entiability of the volume in the big cone, akin to [35, Corollary C]. Moreover, one can
+study the mixed volume of Okounkov bodies and investigate its relation with the movable
+intersection product of big classes introduced in [11].
+    Regarding the extension of Kähler currents, it is intriguing to understand how far the
+Richberg type gluing techniques can be pushed.
+    The results of this paper seem to naturally extend to manifolds of the Fujiki class C.
+Going beyond, we ask if one can attach Okounkov bodies to transcendental pseudoeffec-
+tive cohomology classes ξ on general compact complex manifolds.
+    Acknowledgements.We thank Sébastien Boucksom for suggesting Lemma 2.11, sim-
+plifying our original argument, and for helpful discussions regarding analytic singularities.
+We also thank Zhiwei Wang for discussions on the extension of Kähler currents. We also
+thank the anonymous referees for suggestions on how to improve the presentation.
+    The first named author is partially supported by an Alfred P. Sloan Fellowship and
+National Science Foundation grant DMS–2405274. The second named author is sup-
+ported by the Knut och Alice Wallenbergs Stiftelse. The third named author is partially
+supported by a grant from the Swedish Research Council and a grant from the Göran
+Gustafsson Foundation for Research in Natural Sciences and Medicine. The fourth named
+author is supported by Knut och Alice Wallenbergs Stiftelse grant KAW 2024.0273. The
+fifth named author is supported by NSFC grants 12101052, 12271040, and 12271038.
+
+
+2    Preliminaries
+Let (X, ω) be an n-dimensional connected compact Kähler manifold. Let ξ := {θ} ∈
+H 1,1 (X, R) be a big cohomology class. We write Z+ (X) for the set of closed positive
+(1, 1)-currents on X and Z+ (X, ξ) for the set of T ∈ Z+ (X) representing ξ. A function
+φ : X → [−∞, ∞) is called quasi-plurisubharmonic (qpsh) if locally φ = ϕ + ψ, where ϕ
+is smooth and ψ is plurisubharmonic. Put
+
+           PSH(X, θ) := {φ : X → [−∞, ∞) :
+                         φ is a qpsh function on X such that θ + ddc φ ≥ 0},
+               √
+where ddc :=        ¯
+                −1∂ ∂/2π. Given a qpsh function φ, the Lelong number of φ at x ∈ X is
+
+                ν(φ, x) := sup{c ≥ 0 : φ(z) ≤ c log |z − x|2 + O(1) near x}.
+
+Given an irreducible analytic subset E ⊂ X, the generic Lelong number of φ along E is
+
+                                  ν(φ, E) := inf ν(φ, x).
+                                              x∈E
+
+If T = θ + ddc φ for φ ∈ PSH(X, θ), then set ν(T, x) := ν(φ, x) and ν(T, E) := ν(φ, E).
+    If ϕ, ψ are qpsh, we say that ϕ is more singular than ψ and write ϕ ⪯ ψ if ϕ ≤ ψ + C
+for some constant C. If ϕ ⪯ ψ and ψ ⪯ ϕ, we then write ϕ ∼ ψ and say that ϕ and ψ
+have the same singularity type. This defines an equivalence relation.
+    Given T, S ∈ Z+ (X), with T = θ1 + ddc ϕ and S = θ2 + ddc ψ, θ1 , θ2 being smooth,
+then we say that T is more singular than S if ϕ is more singular than ψ, and write T ⪯ S.
+If ϕ ∼ ψ we also say that T and S have the same singularity type and write T ∼ S.
+
+                                             5
+Lemma 2.1. Let π : Z → X be a proper bimeromorphic morphism with Z being a Kähler
+manifold. Then π ∗ and π∗ induce a bijection between Z+ (X, ξ) and Z+ (Z, π ∗ ξ).
+Proof. One can show that the pullback map π ∗ is an isomorphism between PSH(X, θ)
+and PSH(Z, π ∗ θ), where θ is a smooth closed (1, 1)-form representing ξ.
+    It is clear that the pullback map is injective. To show surjectivity, let v ∈ PSH(Z, π ∗ θ).
+Let U ⊂ X be the Zariski open set such that π : π −1 (U ) → U is biholomorphic. Then
+w := v ◦ π −1 ∈ PSH(U, θ), moreover w is bounded from above. Since X \ U is an analytic
+set, it follows that w extends to an element of PSH(X, θ) [22]. Since π ∗ w = v away from
+an analytic set, it follows that π ∗ w = v [22].
+   For a positive current R ∈ Z+ (X, ξ), let E+ (R) denote the locus where R has positive
+Lelong number. The non-Kähler locus EnK (ξ) and Kähler locus K(ξ) are defined by
+                                \
+             EnK (ξ) :=                      E+ (R), K(ξ) := X \ EnK (ξ).
+                          Kähler current R∈Z+ (X,ξ)
+
+The class ξ is Kähler if and only if EnK (ξ) = ∅.
+Definition 2.2. Let q ∈ X be a point. A qpsh function φ on X is said to have (local)
+analytic singularities near q if there exists an open set U containing q such that
+                                              X
+                                   φ = c log     |fi |2 + h,
+                                                   i
+
+where fi ∈ OX (U ) is a finite set of holomorphic functions, c ∈ Q≥0 , and h is bounded.
+   If I is a coherent ideal sheaf on X and c ∈ Q>0 , we say that a qpsh function φ on X
+has analytic singularities (of type (I, c)) if for any q ∈ X, we can locally write φ as
+                                              X
+                                   φ = c log      |fi |2 + h,
+                                                   i
+
+where f1 , . . . , fN is a finite collection of local generators of I, and h is bounded.
+   Similarly, we say a positive current T =: θ+ddc φ ∈ Z+ (X, ξ) has analytic singularities
+near q (resp. has analytic singularities (of type (I, c))) if so does φ. We set
+            A(X, ξ, q) := {T ∈ Z+ (X, ξ) : T has analytic singularities near q} ,
+             A(X, ξ) := {T ∈ Z+ (X, ξ) : T has analytic singularities} ,
+               A(X) := {T ∈ Z+ (X) : T has analytic singularities} .
+Remark 2.3. If φ has local analytic singularities near every point of X, then there is a
+coherent ideal sheaf I and c ∈ Q>0 such that φ has analytic singularities of type (I, c).
+   To see this, take a finite covering {Uj }j of X such that φ can be written as
+                                        cj log |Fj |2 + O(1),
+where Fj = (f1j , . . . , fnj j ) is a finite tuple of holomorphic functions on Uj . In the above
+representation we can always divide cj by an arbitrary N ∈ Z>0 , by adjusting the Fj .
+Since X is compact, we can guarantee that cj does not depend on j. We denote this
+common value by c.
+    Now locally on Uj , the ideal sheaf I can be constructed as the integral closure of the
+ideal generated by f1j , . . . , fnj j . As a consequence of Briançon–Skoda theorem (see [23,
+Corollary 11.18]), this gives a well-defined coherent ideal sheaf on X. But note that T
+does not uniquely determine the pair (I, c).
+
+                                                   6
+    Due to the above remark, when talking about currents T with analytic singularities,
+we will often not specify the type (I, c).
+    We continue with a well known observation, that follows from the short argument of
+[23, Proposition 4.1.8]:
+
+Lemma 2.4. If u, v are qpsh functions with analytic singularities, then max(u, v) also
+has analytic singularities.
+
+   The following useful result due to Siu [44] will be also frequently used.
+
+Lemma 2.5. Assume T ∈ ξ is a positive current and D is a prime divisor on X. If
+ν(T, D) ≥ a for some a ∈ Q≥0 , then T − a[D] is a positive current in ξ − a{[D]}.
+Moreover, if T has analytic singularities near a point, then so does T − a[D].
+
+Proof. The first assertion follows from Siu’s decomposition [44].
+   Let q ∈ X. In a neighborhood of q we have that
+                                           X
+                                 u = c log    |fj |2 + O(1).
+                                            j
+
+
+   After rescaling we can assume that a, c ∈ Z. Let T = θ + ddc u for some qpsh function
+u and smooth closed (1, 1)-form θ.
+   By the Lelong–Poincaré formula there exists a neighborhood U of q and w ∈ O(U )
+such that ddc log |w|2 = a[D]. By properties of Lelong numbers there exists C > 0 such
+that
+                                   u ≤ log |w|2 + C.
+This implies that |fj |2c ≤ C̃|w|2 for all j, for some C̃ > 0. Due to the Riemann extension
+theorem, there exists gj ∈ O(UP   ) such that fjc = wgj . As a result, the local singularities
+of T − a[D] is modelled by log j |gj |2 .
+   We also need to refine the notion of analytic singularities, in a way that goes back to
+Demailly [24]. The definition below is a bit lengthy but turns out to be the most suitable
+one for this paper.
+
+Definition 2.6. Let I ⊆ OX be an analytic coherent ideal sheaf and c ∈ Q>0 . A qpsh
+function φ on X is said to have gentle analytic singularities of type (I, c) if
+
+  1. eφ/c : X → R≥0 is a smooth function;
+
+  2. locally φ can be written as
+                                                    X
+                                      φ = c log         |fi |2 + h,                     (2.1)
+                                                    i
+
+      where {fi } is a finite set of local generators of I and h is a bounded remainder;
+
+  3. there is a proper bimeromorphic morphism π : X̃ → X from a Kähler manifold X̃
+     and an effective Z-divisor D on X̃ such that one can write π ∗ φ locally as
+
+                                       π ∗ φ = c log |g|2 + h,
+
+      where g is a local equation of the divisor D and h is smooth.
+
+                                                7
+    A positive current T = θ+ddc φ ∈ Z+ (X, ξ) is said to have gentle analytic singularities
+of type (I, c) if so does φ. We set
+
+             Ω(X, ξ) := {Kähler current in ξ with gentle analytic singularities} .
+
+Remark 2.7. Let φ be a qpsh function with analytic singularities of type (I, c) such
+that the remainder h is smooth in (2.1). Then φ is easily seen to have gentle ana-
+lytic singularities. The reverse direction is not true however, as the smoothness of the
+remainder depends on the choice of generators for I (we are grateful to S. Boucksom
+for helpful discussions regarding this point). For instance one can look at the potentials
+                                                              2 +|z |2
+log(|z1 |2 + |z2 |2 ) = log(|z1 |2 + |2z2 |2 ) + log |z|z11||2 +|2z2
+                                                                    2|
+                                                                             2
+                                                                       2 in C ; the first has 0 as its smooth
+                                               2    2
+remainder while the remainder log |z|z11||2 +|2z
+                                            +|z2 |
+                                                 2|
+                                                    2 of the second potential is not smooth. This
+
+motivates the use of gentle analytic singularities throughout the paper.
+
+    In the whole paper, we are using the word modification in a ’restrictive’ sense: We
+shall say that π : Y → X is a modification if it is bimeromorphic, and it is a composition
+of a sequence of blowing-ups with smooth centers. Observe that by the construction in
+[46, Theorem 2.0.2], the embedded resolutions where the ambient space is compact are
+always modifications in this sense. Note that if X is a Kähler manifold, then so is Y .
+    It follows from Definition 2.6 that one can always resolve the singularities of Kähler
+currents with gentle analytic singularities. More precisely, by [46, Theorem 3.6.1], for
+any R ∈ Ω(X, ξ), one can find a modification π : Y → X so that
+
+                                             π ∗ R = β + [D],
+
+where β is a smooth semipositive (1, 1)-form on X̃ and D is an effective Q-divisor on Y .
+    A classical regularization result due to Demailly [24] shows that there are plenty of
+Kähler currents in ξ with gentle analytic singularities. We refer the reader to [27, Theorem
+3.2] for a proof of the following version of Demailly’s regularization theorem, and also
+[23, Corollary 13.13] for a detailed exposition.
+
+Theorem 2.8. Let T = θ+ddc φ ∈ Z+ (X, ξ) be a Kähler current. Then one can construct
+a sequence Tk = θ + ddc φk , which are Kähler currents with gentle analytic singularities of
+type (I(kφ), k1 ) and φ ≤ φk for all k ≫ 0. Here I(kφ) denotes the multiplier ideal sheaf
+of kφ that is generated by holomorphic functions f ∈ OX such that |f |2 e−kφ ∈ L1loc .
+
+    As a direct consequence, we have the following result.
+
+Lemma 2.9. For any two Kähler currents T1 , T2 ∈ Z+ (X, ξ), one can find T3 ∈ Ω(X, ξ)
+that is less singular than both T1 and T2 .
+
+Proof. Write Ti = θ + ddc φi for i = 1, 2. Put φ0 := max{φ1 , φ2 }. Then T := ω + ddc φ0
+is a Kähler current that is less singular than both T1 and T2 . Note that T may not have
+gentle analytic singularities, but then we can apply Theorem 2.8 to find another Kähler
+current T ′ ∈ Ω(X, ξ) that is less singular than T .
+   This lemma together with the Noetherian property of analytic sets imply that one
+can find R ∈ Ω(X, ξ) such that E+ (R) = EnK (ξ). So in particular, EnK (ξ) is a closed
+analytic subset of X (see [13, Theorem 3.17]).
+
+
+
+                                                        8
+Remark 2.10. By definition, if T ∈ A(X) has type (I, c) and g : Y → X is a proper
+bimeromorphic morphism and Y is a Kähler manifold, then g ∗ T has type (OY · g −1 I, c).
+    In fact, if we locally write T as ddc φ for some φ satisfying φ = c log(|f1 |2 + · · · +
+|fN |2 ) + O(1), then g ∗ T can locally be written as c log(|g ∗ f1 |2 + · · · + |g ∗ fN |2 ) + O(1). The
+ideal generated by g ∗ f1 , . . . , g ∗ fN is just OY · g −1 I.
+
+   By the above remark, the pullback of currents with analytic singularities is well-
+behaved. The same can not be said about pushforwards. However, the following result
+suggested by Boucksom shows that in certain particular situations good behaviour can
+be expected:
+
+Lemma 2.11. Assume that π : Z → X is a proper bimeromorphic morphism and Z is a
+Kähler manifold. Let ξ be a big class on X and D an effective Q-divisor on Z. Assume
+that π ∗ ξ − {D} contains a smooth Kähler form β. Let T := β + [D]. Then π∗ T belongs
+to A(X, ξ).
+
+Proof. By rescaling, we may assume that D is an integral divisor.
+    After a further rescaling of D, we claim that −D is π-globally generated in the follow-
+ing sense: For all z ∈ Z there exists an open neighborhood U ⊂ X of π(z) such that the
+sections O(−D)(π −1 (U )) generate O(−D)z . Let us assume the claim for the moment. It
+implies that:
+                              OZ · π −1 π∗ OZ (−D) = OZ (−D).                         (2.2)
+    By definition, T has analytic singularities of type OZ (−D). We want to show that
+π∗ T ∈ α has analytic singularities of type π∗ OZ (−D).
+    By [12, Proposition 2.2], there is a closed positive current S on X with analytic singu-
+larities of type π∗ OZ (−D). Then π ∗ S has analytic singularities of type OZ ·π −1 π∗ OZ (−D)
+by Remark 2.10.
+    From (2.2) we obtain that π ∗ S ∼ T = π ∗ π∗ T (the latter equality follows from
+Lemma 2.1). It follows that S ∼ π∗ T . So π∗ T has analytic singularities of type
+π∗ OZ (−D).
+    Finally, we address the claim. This is a simple consequence of [39, Proposition 1.4]
+when π is projective. Here we give a different proof by adapting the L2 techniques of [23,
+Theorem 6.27].
+    Let ω be a Kähler metric of X, satisfying θ < ω, where θ is a smooth closed (1, 1)-form
+in the class of ξ.
+    Let U ⊂ X be a coordinate ball neighborhood of π(z). We can assume existence of
+v ∈ C ∞ (U ) such that ω = ddc v.
+    Let h be a hermitian metric of O(−D) on Z such that iΘ(h) = β − π ∗ θ. We consider
+h̃ = he−v◦π , a hermitian metric on O(−D)|π−1 (U ) . We get that h̃ is a positive metric,
+since iΘ(he−v◦π ) = β + π ∗ (ω − θ) ≥ β > 0.
+    Let fz ≥ 0 be a smooth function on X such that fz (x) = |x−z|2n+1 in a neighborhood
+of z, and fz is bounded away from zero, away from z. Since Z is compact, we can construct
+fz in such a manner that there exists ε > 0 and C > 1, both independent of z, such that:
+
+                                                                           1
+                  fz |B(z,ε) = |x − z|2n+1 , ∥fz ∥C 2 (Z) ≤ C,      sup       ≤ C,                 (2.3)
+                                                                  X\B(z,ε) fz
+
+
+where B(z, ε) is a geodesic ball centered at z, with radius ε > 0.
+
+
+
+                                                   9
+   Let m be an arbitrary hermitian metric on KZ−1 . Let ĥk := h̃k ⊗ me− log fz be a
+hermitian metric on O(−kD) ⊗ KZ−1 |π−1 (U ) . We have that
+
+            iΘ(h̃k ) = iΘ(hk ) + iΘ(m) + ddc log fz ≥ kβ + iΘ(m) + ddc log fz .
+Since log fz is psh in B(z, ε), for k big enough (only dependent on the constant C of
+(2.3)) iΘ(ĥk ) is a strongly positive metric.
+    As a result of the compactness of Z, taking a sufficiently divisible k, we can replace
+D (resp. θ, ω, β) with kD (resp. kθ, kω, kβ) and assume that ĥ is a strongly positive
+(singular) metric of O(−D) ⊗ KZ−1 on π −1 (U ).
+    Let q ∈ O(−D)z = (O(−D) ⊗ KZ−1 ⊗ KZ )z . Let ϕ : Z → R≥0 be a smooth
+function supported in a neighbourhood of z, identically equal to 1 near z, so that
+ϕq ∈ C ∞ (π −1 (U ), O(−D)). Then ∂(ϕq)  ¯     is a smooth 1-form on π −1 (U ), with values
+in O(−D) ⊗ KZ−1 ⊗ KZ ⊗ I(e− log fz ).
+    Since U is a coordinate ball, we get that π −1 (U ) is weakly pseudoconvex, so [23,
+Corollary 5.3] is applicable to yield existence of a smooth section g of O(−D) ⊗ KZ−1 ⊗
+                                                    ¯
+KZ ⊗ I(e− log fz ), defined on π −1 (U ) with ∂g = ∂(ϕq) on π −1 (U ).
+    Due to our choice of fz , g must vanish at z. Hence, w := ϕq−g ∈ H 0 (π −1 (U ), O(−D)),
+moreover (q − w)z ∈ mZ,z · O(−D)z .
+    Since O(−D)z is a finite OZ,z -module, we apply Nakayama’s lemma [1, Proposi-
+tion 2.8] to conclude that O(−D)(π −1 (U )) generates O(−D)z , proving the claim.
+   Finally, we recall the notion of non-pluripolar volumes.
+Definition 2.12 ([12]). The volume vol(ξ) of pseudoeffective class ξ is zero if ξ is not
+big. If ξ is big then                          Z
+                                  vol(ξ) :=     sup            T n.
+                                              T ∈Ω(X,ξ)    X
+
+   Here and in the sequel, products of the form T n are interpreted as non-pluripolar
+complex Monge–Ampère measures, as introduced in [5]. It is shown in [12] that the
+volume function vol(·) thus defined is continuous in H 1,1 (X, R).
+Definition 2.13 ([30, 37, 51, 20]). Assume Z ⊂ X is a closed complex submanifold of
+dimension d. If Z ∩ K(ξ) ̸= ∅, then the restricted volume volX|Z (ξ) of ξ along Z is
+                                                   Z
+                             volX|Z (ξ) := sup        T |dZ .
+                                               T ∈Ω(X,ξ)   Z
+
+If Z ∩ K(ξ + ε{ω}) ̸= ∅ for any ε > 0, then set
+                            volX|Z (ξ) := lim volX|Z (ξ + ε{ω}).
+                                         ε→0
+
+Otherwise, set volX|Z (ξ) := 0.
+    Note that the restricted volume volX|Z (ξ) could be strictly smaller than the volume
+of the restricted class ξ|Z . In general, the restricted volume is notR easy to compute. But
+when ξ is semipositive, one simply has volX|Z (ξ) = vol(ξ|Z ) = Z ξ d . Also recall that,
+in the open cone of big classes whose non-Kähler locus does not contain Z, the function
+volX|Z (·) is continuous [37, Corollary 4.11].
+    The following result was proved by the third named author [51] and extended very
+recently by Vu [45] (see also [25, Theorem 1.5] for the surface case and [7, 35, 49] for the
+case of projective manifolds). It will play a crucial role in proving Theorem 1.1.
+
+                                               10
+Theorem 2.14. Assume that Z is a connected smooth hypersurface in X such that
+Z ∩ K(ξ) ̸= ∅. Put νmax (ξ, Z) := sup{ν(T, Z) : T ∈ Ω(X, ξ)}. Then one has
+
+                         d
+                                vol(ξ − t{Z}) = −n volX|Z (ξ)
+                         dt t=0
+
+and                                  Z νmax (ξ,Z)
+                        vol(ξ) = n                  volX|Z (ξ − t{Z}) dt.
+                                      0
+
+Remark 2.15. According to the recent result of [45], the assumption on Z can be relaxed:
+it suffices to assume that Z is an irreducible hypersurface in X. In particular, the case
+where Z is contained in the non-Kähler locus of ξ is also allowed.
+
+Proof. The first point is due to [51, Theorem C]. The second point is also contained in
+[51]. We recall its proof for the reader’s convenience.
+    We claim that Z ∩ K(ξ − t{Z}) ̸= ∅ for any t ∈ [0, νmax (ξ, Z)). Indeed, for any small
+ε > 0, one can find T ∈ Ω(X, ξ) such that ν(T, Z) = νmax (ξ, Z) − ε. And also, due to
+Z ∩K(ξ) ̸= ∅, there exists S ∈ Ω(X, ξ) with ν(S, Z) = 0. Considering linear interpolation
+between S and T shows that for any t ∈ (0, νmax (ξ, Z)) one can find a Kähler current
+G ∈ Z+ (X, ξ) so that ν(G, Z) = t. Then Siu’s decomposition implies that G − t[Z] is a
+Kähler current with zero Lelong number along Z, showing that Z ∩ K(ξ − t{Z}) ̸= ∅.
+    On the other hand we have vol(ξ − t{Z}) ↘ 0 as t ↗ νmax (ξ, Z). If this were
+not the case, then ξ − νmax (ξ, Z){Z} would have to be a big class. For small ε > 0,
+ξ − (νmax + ε)(ξ, Z){Z} must also be big, and contains a Kähler current Q with gentle
+analytic singularities. Choosing ε so that νmax + ε ∈ Q, then Q + (νmax + ε)[Z] is an
+element in Ω(X, ξ) with Lelong number larger than νmax (ξ, Z) along Z, a contradiction.
+    Now for any c ∈ (0, νmax (ξ, Z)), we deduce from the above that
+                                                Z c
+                    vol(ξ) − vol(ξ − c{Z}) = n      volX|Z (ξ − t{Z}) dt,
+                                                      0
+
+where the integrand is continuous by [37, Corollary 4.11]. Sending c ↗ νmax (ξ, Z) we
+conclude the second point.
+
+
+3     Transcendental Okounkov bodies
+The big case. Let ξ a big (1, 1)-class on X. The goal of this paragraph is to attach
+natural convex bodies (compact convex sets with non-empty interior) ∆(ξ) ⊂ Rn to ξ,
+which will be called the Okounkov bodies of ξ. One starts with a flag
+
+                     Y• = (X = Y0 ⊃ Y1 ⊃ · · · ⊃ Yn−1 ⊃ Yn = {q}),
+
+where Yi is a smooth connected complex submanifold of X with codimension i. We call
+such a flag a smooth flag on X centered at q.
+    However, it is possible that X might not contain any proper submanifolds of positive
+dimension, let alone flags. As we have pointed out in the introduction, an easy remedy
+for this issue is to replace X by a smooth model X ′ and then one can construct a flag
+Y• on X ′ . So after possibly modifying X and pulling back ξ, in what follows we always
+assume that X contains a flag Y• , which is centered at the point q ∈ Yn .
+
+                                               11
+  Next, using Y• we shall associate an Okounkov body ∆(ξ) = ∆Y• (ξ) ⊂ Rn with ξ.
+The construction is essentially the same as in [25], apart from some minor modifications.
+  Following [35, 25], we define a valuative map ν : A(X, ξ, q) → Qn≥0 by
+                         T 7→ ν(T ) = νY• (T ) = (ν1 (T ), . . . , νn (T ))
+as follows. First, set
+                                       ν1 (T ) := ν(T, Y1 ).
+Since the generic Lelong number of T1 := (T − ν1 (T )[Y1 ]) along Y1 is zero and this
+current has analytic singularities near q, its potential is not identically −∞ on Y1 , hence
+T1 := (T − ν1 (T )[Y1 ])|Y1 is a positive current on Y1 , with analytic singularities near q.
+    Next put
+                                        ν2 (T ) := ν(T1 , Y2 ),
+and continue in this manner to define all the remaining values νi (T ) ∈ Q≥0 .
+   Note that Ω(X, ξ) ⊆ A(X, ξ, q). So the map ν is also defined on Ω(X, ξ). Consider
+the image sets
+                            ν(Ω(X, ξ)) and ν(A(X, ξ, q)).
+These two are bounded sets in Qn≥0 , since all the Lelong numbers appearing in the above
+construction are bounded by cohomological constants (see e.g. [25, Lemma 4.3]). More-
+over, they are convex sets in Qn≥0 , since ν(tT1 + (1 − t)T2 ) = tν(T1 ) + (1 − t)ν(T2 ) for
+T1 , T2 in Ω(X, ξ) (or in A(X, ξ, q)) and t ∈ [0, 1] ∩ Q.
+     The following lemma plays a key role in this paper.
+Lemma 3.1. For any T ∈ A(X, ξ, q), one can find a sequence Tk ∈ Ω(X, ξ) such that
+ν(Tk ) → ν(T ) in Qn≥0 .
+Proof. First, we might as well assume that T is a Kähler current. Indeed, one can take
+S ∈ Ω(X, ξ) and let Tε := (1 − ε)T + εS for ε ∈ (0, 1) ∩ Q. So Tε is a Kähler current in
+A(X, ξ, q) and ν(Tε ) = (1 − ε)ν(T ) + εν(S) can be made  Parbitrarily close to ν(T ).
+                                        c                   r     2
+      Next assume that T = θ + dd φ with φ = c log i=1 |gi | + O(1) near q, where
+g1 , . . . , gr ∈ OX,q and c ∈ Q≥0 . Let J ⊆ OX,q be the ideal generated by g1 , . . . , gr . Up
+to rescaling the class ξ we will assume that c = 1 for simplicity. Let Tk P= θ + ddc φk be
+the sequence given by Theorem 2.8. Near q, one can write φk = k1 log l |gkl |2 + O(1)
+for some local generators {gkl }l of I(kφ)q . Let m := min{n − 1, r − 1}. Then by the
+Briançon–Skoda theorem (see [23, Theorem 11.17]), the equality of ideals
+                                I((k + m)φ)q = J k · I(mφ)q
+holds at qPfor any large k ∈ N. Let {hj } be a set of generators of I(mφ)q and put
+ψ := log j |hj |2 , which is a qpsh function defined near q. Then the above equality
+implies that
+                                     k          1
+                           φk+m =        φ+         ψ + O(1)
+                                   k+m       k+m
+holds near q. So sending k → ∞ we find that ν(Tk ) → ν(T ), as desired.
+   Consequently, we are led to the following definition (cf. [25, Definition 4.12]).
+Definition 3.2. The Okounkov body ∆(ξ) = ∆Y• (ξ) of ξ is defined to be
+                     ∆(ξ) := ν(Ω(X, ξ)) = ν(A(X, ξ)) = ν(A(X, ξ, q)).
+Here the closure is taken with respect to the Euclidean topology of Rn .
+
+                                                12
+    As in [25, Proposition 4.13], we have the following properties for ∆(ξ):
+Proposition 3.3. The following properties hold:
+   1. For λ ∈ R>0 , one has ∆(λξ) = λ∆(ξ);
+   2. ∆(ξ1 ) + ∆(ξ2 ) ⊆ ∆(ξ1 + ξ2 ) for two big classes ξ1 and ξ2 ;
+              T
+   3. ∆(ξ) = ε>0 ∆(ξ + ε{ω}) for any Kähler form ω on X.
+Proof. Point (1) is clear when λ ∈ Q>0 . If λ ∈ R>0 , it suffices to observe that, for any
+T ∈ Ω(λξ), one can find a sequence Ti ∈ Ω(X, ξ) so that λν(Ti ) → ν(T ). Point (2) is
+also clear. So it remains to argue (3).                                            √
+    First, it is easy to see that ∆(ξ) ⊆ ∆(ξ + ε{ω}). On the other hand, (1 + ε)ξ −
+(ξ
+√ +n ε{ω}) is a big class for small ε > 0. So from (1) and (2) we have that (1 +
+   ε) volRn (∆(ξ)) ≥ volRn (∆(ξ + ε{ω})). Thus, we get that
+                              volRn (∆(ξ)) = lim volRn (∆(ξ + ε{ω})).
+                                                ε→0
+               T
+So ∆(ξ) = ε>0 ∆(ξ + ε{ω}) follows (here we used that ∆(ξ) is a convex body, by
+Proposition 3.4 below).
+Proposition 3.4. When ξ is big, ∆(ξ) is a convex body in Rn , so volRn (∆(ξ)) > 0.
+    This result is also from [25]. Below we give a slightly different proof.
+Proof. We need to show that ∆(ξ) has non-empty interior. Since ξ can be written as the
+sum of a Kähler class and a big class, it suffices to show that ∆(ξ) has non-empty interior
+when ξ is Kähler.
+    So assume that ξ is Kähler. Fix a Kähler form ω ∈ ξ. We will argue that ∆(ξ)
+contains a small simplex near the origin. Clearly, ∆(ξ) contains the origin. Applying
+[27, Lemma 2.1(i)] to Yi , we can find qpsh functions ψi on X for 1 ≤ i ≤ n so that
+ψi has analytic singularities precisely along Yi . Choosing ε > 0 small enough so that
+Ti := ω + εddc ψi are all elements in Ω(X, ξ). Then one has ν(Ti ) = εei ∈ Rn≥0 , so that
+∆(ξ) contains a simplex.
+    The following result could be of independent interest.
+Proposition 3.5. The map ξ 7→ ∆(ξ) from the big cone of X to Rn is continuous with
+respect to the Hausdorff topology in Rn .
+Proof. Choose smooth (1, 1)-forms η1 , . . . , ηr on X so that the {ηi } form a basis of
+H 1,1 (X, R). For any two big classes ξ, ξ ′ ∈ H 1,1 (X, R) write ξ = (a1 , . . . , ar ) and
+ξ ′ = (a′1 , . . . , a′r ) using this basis and let ∥ξ − ξ ′ ∥ := maxi |ai − a′i |. We wish to argue that
+the Hausdorff distance between ∆(ξ) and ∆(ξ ′ ) tends to zero as ∥ξ − ξ ′ ∥ → 0.
+      Fix a Kähler current T ∈ ξ and assume that T ≥ ω for some Kähler form                P ω′ on X.
+                                                                                     ′ :=
+Pick C > 1 so that −Cω ≤ ηi ≤ Cω holds for all 1 ≤ i ≤ r. Then T                          T + i (ai − ai )ηi
+                                  ′                   ′           −1
+is a Kähler current in ξ as long as ∥ξ − ξ ∥ < (Cr) . Moreover, we see that (1 + ∥ξ −
+ξ ′ ∥1/2 )ξ − ξ ′ is big as well when ∥ξ − ξ ′ ∥ < (Cr)−2 , since (1 + ∥ξ − ξ ′ ∥1/2 )T − T ′ is a
+Kähler current in that class. This implies that ∆(ξ ′ ) ⊆ (1 + ∥ξ − ξ ′ ∥1/2 )∆(ξ) as long
+as ∥ξ − ξ ′ ∥ < (Cr)−2 . On the other hand, observe that (1 + ∥ξ − ξ ′ ∥1/2 )T ′ − T is a
+Kähler current when ∥ξ − ξ ′ ∥ < (2Cr)−2 , so that ∆(ξ) ⊆ (1 + ∥ξ − ξ ′ ∥1/2 )∆(ξ ′ ) when
+∥ξ − ξ ′ ∥ < (2Cr)−2 .
+      The above discussion easily implies that the Hausdorff distance between ∆(ξ) and
+∆(ξ ′ ) tends to zero as ∥ξ − ξ ′ ∥ → 0.
+
+                                                      13
+The pseudoeffective case. In case ξ is only pseudoeffective and not big, there are
+different ways to associate a compact convex set with ξ [18]. In [25, Definition 4.23] Deng
+suggests the definition below that we will follow in this work. For a Kähler form ω, let
+                                         \
+                                 ∆(ξ) :=    ∆(ξ + ε{ω}).                               (3.1)
+                                          ε>0
+
+Due to Proposition 3.3, the above definition does not depend on the choice of ω. Another
+natural choice is
+                                    ˜
+                                    ∆(ξ) := ν(A(X, ξ)).
+Since A(X, ξ) ⊂ A(X, ξ + ε{ω}) we obtain that ∆(ξ) ˜                             ˜
+                                                          ⊂ ∆(ξ). Notice that ∆(ξ)    might
+be empty.
+    In case ξ is pseudoeffective and non-big, we will establish later that volRn ∆(ξ) = 0 =
+                                      ˜
+vol(ξ), so this will imply that volRn ∆(ξ) = 0 = vol(ξ).
+    In particular, Theorem 1.1 will remain valid, regardless what definition one chooses
+for the convex compact sets associated to pseudoeffective (non-big) classes.
+
+The conjectured volume identity. Let us return to a big class ξ. When ξ is in the
+Néron–Severi space it was shown in [25] that vol(ξ) = n! volRn (∆(ξ)). For a transcenden-
+tal big class ξ, following [25, Conjecture 1.4], we expect the same:
+
+Property An . Assume that dim X = n and ξ is big. Then vol(ξ) = n! volRn (∆(ξ)).
+
+    Note that the ensemble of Property An ’s for all n ≥ 1 is equivalent to Theorem 1.1.
+    It is easy to establish this when n = 1. We recall its proof for the reader’s convenience.
+
+Lemma 3.6. Property A1 holds.
+
+Proof. When Rdim X = 1, H 1,1 (X, R) ∼ = H 2 (X, R) ∼= R. A class ξ ∈ H 1,1 (X, R) is Kähler
+if and only if X ξ > 0. Moreover, in this setting every big class ξ = {θ} is a Kähler class,
+and a flag is simplyRa choice of point Y1 = X ⊃ Y0 = {q}.
+    For any t ∈ (0, X θ), {θ} − t{q} the class is Kähler, which then contains a smooth
+                                                                                     R
+Kähler form ωt . Then ωt +t[q] ∈ Ω(X, {θ}) and it Rhas Lelong number t at q. So [0, X θ] ⊆
+∆({θ}).R On the other hand, one has ν(T, q) ≤ X θ for any T ∈ Ω(X, {θ}),      R otherwise
+{θ} − X θ{q} is a Kähler class, which is absurd. So we have ∆({θ}) = [0, X θ].
+   The following sections aim to prove Property An for higher dimensions. It is notable
+that, by using the divisorial Zariski decomposition for surfaces, it was shown in [25,
+Theorem 1.8] that Property A2 holds as well.
+
+
+4     Lifting the flags
+In this section, we fix a smooth flag Y• = (Y0 ⊃ · · · ⊃ Yn ) on X.
+    If π : Y → X is a proper bimeromorphic morphism of complex manifolds and Z is
+an analytic set in X not contained in the exceptional locus E, then we define the strict
+transform of Z in Y as the closure of π −1 Z \ π −1 E in Y . This is an analytic set in Y by
+[22, Corollary 5.4]. When π is a modification, this coincides with the notion defined in
+[10, Section 3, strict transforms] by [10, Remark 3.15].
+
+
+
+                                                14
+Definition 4.1. Let π : Z → X be a proper bimeromorphic morphism with Z being a
+compact Kähler manifold. We say that a smooth flag W• = (W0 ⊃ · · · ⊃ Wn ) is a lifting
+of Y• to Z if the restriction of π to Wi → Yi is defined and bimeromorphic.
+
+Lemma 4.2. Let π : Z → X be a proper bimeromorphic morphism with Z being a Kähler
+manifold. Assume that there is a lifting W• = (W0 ⊃ · · · ⊃ Wn ) of Y• to Z. Then there
+is a matrix g ∈ SLn (Z) of the form I + N with N being strictly upper triangular (namely,
+all entries on and below the diagonal are 0) such that for any T ∈ A(X), we have
+
+                                       νW• (π ∗ T ) = νY• (T )g.
+
+    Here the valuations of currents are considered as row vectors. For simplicity, we will
+also say (W• , g) is a lifting of Y• to Z.
+    Observe that matrices of the form I +N are exactly the automorphisms of the ordered
+Abelian group Zn with respect to the lexicographic order. So this result can be seen as
+a generalization of [15, Theorem 2.9].
+Proof. We take induction on n = dim X. The case n = 1 is trivial. In general, assume
+that the result is proved when dim X = n − 1.
+   For simplicity, we write ν = νY• and ν ′ = νW• . Let µ (resp. µ′ ) be the valuation of
+currents defined by Y1 ⊃ · · · ⊃ Yn (resp. W1 ⊃ · · · ⊃ Wn ). Then we need to show that
+                          ′ ∗
+                          ν (π T )1 µ′ ((π ∗ T − ν ′ (π ∗ T )1 [W1 ])|W1 )
+                                                                           
+
+
+equals                                                         
+                                 ν(T )1 µ((T − ν(T )1 [Y1 ]))|Y1 g.
+Clearly
+                                      ν ′ (π ∗ T )1 = ν(T )1 =: c.
+By the inductive hypothesis, we can find h ∈ SLn−1 (Z) of the form I plus a strictly upper
+triangular matrix such that
+
+                           µ′ (Π∗ (T − c[Y1 ])|Y1 ) = µ((T − c[Y1 ])|Y1 )h,                       (4.1)
+
+where Π : W1 → Y1 is the restriction of π. Observe that
+
+                Π∗ (T − c[Y1 ])|Y1 = (π ∗ (T − c[Y1 ]))|W1
+                                   = (π ∗ T − c[W1 ])|W1 + c(π ∗ [Y1 ] − [W1 ])|W1 .
+
+So
+          µ′ (Π∗ (T − c[Y1 ])|Y1 ) = µ′ ((π ∗ T − c[W1 ])|W1 ) + cµ′ ((π ∗ [Y1 ] − [W1 ])|W1 ).
+Combining the above with (4.1), we see that the following choice of g satisfies the re-
+quirements of the lemma:
+
+                                1 −µ′ ((π ∗ [Y1 ] − [W1 ])|W1 )
+                                                               
+                         g :=                                     .
+                                0                h
+
+
+
+Theorem 4.3. Assume that π : Z → X is a modification of X, then there is a modifica-
+tion π ′ : Z ′ → Z such that the flag Y• admits a lifting W• to Z ′ .
+
+                                                   15
+    By Hironaka’s Chow lemma [29, Corollary 2], we can relax the assumption to that π
+is a proper bimeromorphic morphism from a reduced complex space Z.
+    When X is projective, this result is already known, see [15, Theorem 2.9] for example.
+    The proof below relies on the embedded resolutions studied in [10] and [46]. Let Z be
+an analytic subset of a compact complex manifold M1 , that in turn is a submanifold of
+a compact complex submanifold M2 . Due to [46, Theorem 2.0.2(4)] there exist canonical
+desingularizations σ1 : M1′ → M1 and σ2 : M2′ → M2 of Z inside M1 and M2 respec-
+tively, so that a canonical embedding M1′ ,→ M2′ exists and makes the following diagram
+commute:
+                                      M1′         M2′
+                                         σ1         σ2                               (4.2)
+
+                                         M1          M2 .
+Moreover, M1′ ,→ M2′ maps the (desingularized) strict transforms of Z onto each other.
+Proof. We begin by setting W0 = Z. We will construct Wi inductively for each i. Assume
+that for 0 ≤ i < n a smooth partial flag W0 ⊃ · · · ⊃ Wi has been constructed on a
+modification πi : Zi → Z so that π ◦ πi restricts to bimeromorphic morphisms Wj → Yj
+for each j = 0, . . . , i.
+    By Zariski’s main theorem, Wi → Yi is an isomorphism outside a codimension 2 subset
+of Yi . We let Wi+1 be the strict transform of Yi+1 in Wi . The problem is that Wi+1 is not
+necessarily smooth.
+    We will further modify Zi and lift W1 , . . . , Wi+1 in order to make the flag smooth.
+Take the embedded resolution of (Wj , Wi+1 ), say Wj′ → Wj for each j = 0, . . . , i.
+    Due to (4.2), we have canonical embeddings Wi′ ,→ Wi−1     ′
+                                                                  ,→ · · · ,→ W0′ making the
+following diagram commutative:
+
+                           Wi′             ′
+                                         Wi−1         ···        W0′
+                                                       ..
+                                                        .
+                            Wi           Wi−1         ···        W0
+      ′
+Let Wi+1 be the strict transform of Wi+1 in Wi′ . It suffices to define πi+1 as the morphism
+W0′ → Zi → Z and replace W0 ⊃ · · · ⊃ Wi+1 by W0′ ⊃ · · · ⊃ Wi+1   ′
+                                                                      .
+   As a consequence, we have the following useful approximation result.
+Proposition 4.4. Let π : Z → X be a modification of X and ξ be a big class on X.
+Assume that Y• admits a lifting (W• , g) to Z. For any T ∈ Ω(Z, π ∗ ξ) we can find Kähler
+currents Tk ∈ A(X, ξ) such that
+  1. limk→∞ νY• (Tk ) = νW• (T )g −1 ;
+
+  2. Tk ⪯ π∗ T .
+   In particular, it follows that
+
+                                 ∆W• (Z, π ∗ ξ) = ∆Y• (X, ξ)g.
+
+This is the transcendental generalization of the birational invariance of the classical Ok-
+ounkov bodies.
+
+                                                16
+Proof. By Theorem 4.3 there exists a modification π ′ : Z ′ → Z such that
+    (i) π ′∗ T = β + [D], where β is a smooth semipositive (1, 1)-form on Z ′ and D is an
+        effective Q-divisor;
+ (ii) Y• admits a lifting (V• , h) to Z ′ .
+   Observe that (V• , g −1 h) is a lifting of Y• to Z ′ .
+   Note that π ′ is a composition of blowups with smooth centers. By the proof of [27,
+Theorem 3.5], one can find an effective exceptional divisor E on Z ′ and a smooth (1, 1)-
+form η in {E} such that π ′∗ T − εη is a Kähler current for any small ε > 0. This implies
+that β − εη is a smooth Kähler form. Let us put for k ≫ 1
+                            βk := β − k −1 η and Dk := D + k −1 E.
+Then βk +[Dk ] ∈ (π◦π ′ )∗ ξ and by Lemma 2.11 one has Tk := (π◦π ′ )∗ (βk +[Dk ]) ∈ A(X, ξ).
+  We compute
+             νY• (Tk ) = νV• (βk + k −1 [E] + [D])h
+                       = νV• (π ′∗ T )h + k −1 νV• ([E])h = νW• (T )g + k −1 νV• ([E])h.
+Letting k → ∞ we conclude the first point. The second point is clear from the construc-
+tion of Tk .
+
+
+5      Partial Okounkov bodies
+For this section let ξ be a big class on X. Fix a smooth flag Y• = (Y0 ⊃ · · · ⊃ Yn ). We
+will show that Property An holds with the help of partial Okounkov bodies, introduced
+and studied recently in [52] in case of big line bundles.
+Definition 5.1. For R ∈ Ω(X, ξ), we set
+                            Ω(X, ξ; R) := {T ∈ Ω(X, ξ) : T ⪯ R} .
+The partial Okounkov body of R is defined as the following closed convex subset of Rn≥0 :
+                           ∆(ξ; R) = ∆Y• (ξ; R) := νY• (Ω(X, ξ; R)).
+     We will fix R ∈ Ω(X, ξ) throughout this section.
+Proposition 5.2. The partial Okounkov body ∆(ξ; R) is a convex body in Rn≥0 .
+Proof. Since R is a Kähler current, we may fix a small ε > 0 such that R − εω is still a
+Kähler current. This implies that ∆(ξ; R) contains the set ν(R) + ε∆({ω}). As we have
+seen in the proof of Proposition 3.4, the body ∆({ω}) contains a simplex, hence so does
+∆(ξ; R).
+Example 5.3. When R = [D] + β, where D is a Q-divisor on X and β ∈ Z+ (X) is a
+current with bounded potentials, we have
+                            ∆Y• (ξ; R) = ∆Y• (ξ − {D}) + νY• ([D]).
+Indeed, suppose that T ∈ Ω(X, ξ − {D}), then T + [D] ∈ Ω(X, ξ; R), so
+                            ∆Y• (ξ; R) ⊃ ∆Y• (ξ − {D}) + νY• ([D]).
+On the other hand, if T ∈ Ω(X, ξ; R), then T − [D] ∈ A(X, ξ − {D}), due to Lemma 2.5.
+It follows from Lemma 3.1 that ν(T ) ∈ ∆Y• (ξ − {D}) + νY• ([D]).
+
+                                                 17
+   Let us put
+                           A(X, ξ; R) := {T ∈ A(X, ξ) : T ⪯ R}
+It is helpful to know the following equivalent formulation of ∆(ξ; R).
+Lemma 5.4. One has
+                                  ∆(ξ; R) = ν(A(X, ξ; R)).
+Proof. The proof uses similar strategy as in Lemma 3.1. It suffices to argue that ν(G) ∈
+∆(ξ; R) for any G ∈ A(X, ξ; R). We might as well assume that G is a Kähler current,
+otherwise one can replace G by (1 − ε)G + εR.
+     Write R = θ + ddc u and G = θ + ddc φ, with φ ≤ u. Since they are both Kähler
+currents, we can assume that R ≥ ω and G ≥ ω. For any sufficiently small rational
+number ε > 0, put uε := (1 + ε)u and φε := φ + εu. Then one has Rε := θ + ddc uε ≥ 21 ω
+and Gε := θ + ddc φε ≥ 21 ω. Let Gε,k := θ + ddc φε,k be the regularization sequence
+of Gε given in Theorem 2.8, which are Kähler currents with analytic singularities of
+type (I(kφε ), k1 ). Since I(kφε ) ⊆ I(kuε ) and uε has analytic singularities, we can apply
+                                                                                 k
+Briançon–Skoda theorem as in the proof of Lemma 3.1 to see that φε,k+m ≤ k+m       uε +O(1)
+holds on X, where m ∈ N is independent of k (but it may depend on ε). Then for all
+sufficiently large k, one has φε,k ≤ u+O(1), i.e., Gε,k ∈ Ω(ξ, R). Moreover, by the proof of
+Lemma 3.1, νY• (Gε ) = limk→∞ νY• (Gε,k ), since Gε has analytic singularities; meanwhile,
+it is clear that νY• (G) = limε→0 νY• (Gε ). So the desired assertion follows.
+Proposition 5.5. One can find an increasing sequence Ri ∈ Ω(X, ξ) such that
+  1. E+ (Ri ) = EnK (ξ);
+     R
+  2. X Rin ↗ vol(ξ);
+              S
+  3. ∆(ξ) = i ∆(ξ; Ri ), so that volRn (∆(ξ; Ri )) ↗ volRn (∆(ξ)).
+Proof. Since ν(Ω(X, ξ)) ⊆ Qn≥0 is a countable set, we can write ν(Ω(X, ξ)) = {a1 , a2 , . . . }.
+RPick nTi ∈ Ω(X, ξ) such that ν(Ti ) = ai and also pick a sequence Gi ∈ Ω(X, ξ) such that
+  X
+     Gi → vol(ξ). Choose R0 ∈ Ω(X, ξ) such that E+ (R0 ) = EnK (ξ). Then applying
+ Lemma 2.9 repeatedly, we choose Ri ∈ Ω(X, ξ) so that it is less singular than Ti , Gi and
+ Ri−1 . So Ri is an increasing sequence, which clearly satisfies (1) and (3). That (2) holds
+ follows from the monotonicity of Monge–Ampère masses, see [5, Theorem 1.16] or [50,
+ Theorem 1.2].
+Lemma 5.6. Let R ∈ Ω(X, ξ). Take a modification π : Z → X such that the flag Y•
+admits a lifting (W• , g) to Z and π ∗ R = β + [D], where β is a smooth semipositive form
+on Z and D is an effective Q-divisor. Then
+
+                            ∆Y• (ξ; R)g = ∆W• ({β}) + νW• ([D]).                          (5.1)
+
+Proof. For any T ∈ Ω(X, ξ; R), by Lemma 2.5 π ∗ T −[D] is a positive current with analytic
+singularities in {β}. So one has
+
+            νW• (π ∗ T ) = νW• (π ∗ T − [D]) + νW• ([D]) ∈ ∆W• ({β}) + νW• ([D]).
+
+Therefore, νY• (T ) ∈ ∆W• ({β}) + νW• ([D]) g −1 , implying that
+                                               
+
+                          ∆Y• (ξ; R) ⊆ ∆W• ({β}) + νW• ([D]) g −1 .
+                                                                
+
+
+                                              18
+    On the other hand, for any Kähler current S ∈ Ω(Z, {β}), note that S + [D] belongs
+to Ω(Z, π ∗ ξ) and is more singular than π ∗ R.
+    By Proposition 4.4, there exist Kähler currents Tk ∈ A(X, ξ) s.t. limk→∞ νY• (Tk ) =
+νV• (S + [D])g −1 and Tk ⪯ R.
+    It follows from Lemma 5.4 that νW• (S + [D]) ∈ ∆Y• (ξ; R)g, finishing the proof of
+(5.1):
+                          ∆W• ({β}) + νW• ([D]) g −1 ⊆ ∆Y• (ξ; R).
+                                                
+
+
+
+     We hope to show that partial Okounkov bodies have the following property:
+Property Bn . Assume that dim X = n and ξ is big. For any R ∈ Ω(X, ξ) one has
+                           Z
+                              Rn = n! volRn (∆(ξ; R)).
+                                  X
+
+Lemma 5.7. Property An and Property Bn are equivalent.
+Proof. That Property Bn implies Property An is immediate thanks to Proposition 5.5.
+Let us prove the other direction.
+   Fix R ∈ Ω(X, ξ). By Theorem 4.3, there is a modification π : Z → X such that
+    (i) π ∗ R = β + [D], where β is a smooth semipositive form on Z and D is an effective
+        Q-divisor;
+ (ii) The flag Y• admits a lifting (W• , g) to Z.
+                                                 
+By Lemma 5.6, ∆Y• (ξ; R)g = ∆W• ({β}) + νW• ([D]) . Since det g = 1, we obtain that:
+
+              volRn (∆Y• (ξ; R)) = volRn (∆Y• (ξ; R)) · det g = volRn (∆W• ({β}))
+                                                                   Z
+                                                                 1
+                                                              =        βn
+                                                                n! Z
+                                                                   Z
+                                                                 1
+                                                              =        Rn .
+                                                                n! X
+
+
+     We shall see in §7 that Property Bn holds for all n ≥ 1, and so does An .
+
+
+6      Extension of Kähler currents
+In order to prove Property An , the natural idea is to argue by induction on n. Then we
+need to investigate the Kähler currents on submanifolds and see if they can be extended to
+Kähler currents on the ambient space. This motivates us to prove the following extension
+theorem, generalizing [19, Theorem 1.1].
+Theorem 6.1. (=Theorem 1.3) Let V ⊆ X be a connected positive dimensional compact
+complex submanifold of (X, ω). Let T = ω|V + ddc φ be a Kähler current on V . Assume
+that eφ is a Hölder continuous function on V . Then one can find a Kähler current
+T̃ = ω + ddc φ̃ on X such that φ̃|V = φ, i.e., T̃ extends T . Moreover, φ̃ is continuous
+on X \ V and eφ̃ is Hölder continuous on X. In addition, if φ has analytic singularities,
+then so does φ̃.
+
+                                              19
+Proof. Thanks to [27, Lemma 2.1], we can find a qpsh potential F on X, such that
+F |V ≡ −∞, F is smooth on X \ V and ω + ddc F is a Kähler current with analytic
+singularities precisely along V . Moreover, eF : X → R≥0 is a Hölder continuous function.
+    Choose ε > 0 small enough so that
+
+                          ω|V + ddc φ ≥ 3εω|V and ω + ddc F ≥ 3εω.
+
+   We also choose finitely many open coordinate balls {Wj }1≤j≤r covering V , such that on
+each Wj there are local coordinates (z1 , . . . , zn ) so that V ∩ Wj = {z1 = · · · = zn−k = 0},
+where k = dim V . Write z = (z1 , . . . , zn−k ) and z ′ = (zn−k+1 , . . . , zn ).
+   Assume that eφ is α-Hölder continuous for some α > 0. Due to [27, Lemma 2.1(i)] we
+can rescale F to arrange the existence of c ∈ (0, α) ∩ Q such that on Wj we have
+                                               n−k
+                                          c    X
+                                   F (z) = log     |zi |2 + O(1).                           (6.1)
+                                          2    i=1
+
+   We define a function φj on Wj by
+                                             ′           ′
+                    φj (z, z ′ ) := log(eφ(z ) + eF (z,z ) ) + A · dist((z, z ′ ), V )2 ,   (6.2)
+
+where dist is the Riemannian distance. After shrinking Wj ’s slightly, still preserving
+V ⊂ ∪j Wj , we can fix A > 1 sufficiently large so that φ(z ′ ) + A · dist((z, z ′ ), V )2 and
+F (z, z ′ ) + A · dist((z, z ′ ), V )2 are (1 − 2ε)ω-psh (see [40, §2]). Then
+
+                                           ω + ddc φj ≥ 2εω
+
+holds on Wj for all j, due to [22, Theorem I.4.16].
+    From (6.2) one sees that φj is continuous on Wj \ V and φj |V = φ. If in addition
+φ has analytic singularities, then due to Lemma 2.4, the potential φj has local analytic
+singularities on Wj (in the sense of Definition 2.2), as φj has the same singularity type
+as max(φ(z ′ ), F (z, z ′ )).
+    Next we need to fix slightly smaller open coordinate balls Wj′ ⋐ Uj ⋐ Tj ⋐ Wj such
+that ∪j Wj′ still covers V .
+    Let fj ∈ C ∞ (Wj ), fj ≥ 0, compactly supported such that supp fj ⊂ Wj′ c and fj > 1
+in a neighborhood of Tj \ Uj .
+    Let η > 0 small, so that ddc ηfj ≤ εω. We introduce
+
+                              φ̃j := φj − ηfj ∈ PSH(Wj , (1 − ε)ω).
+
+   Let W := ∪j Tj and for x ∈ W we introduce the function
+
+                                          ψ(x) := max φ̃l (x).                              (6.3)
+                                                     x∈Tl
+
+
+We will show that ψ ∈ PSH(G, (1 − ε)ω) for some neighborhood G ⊂ W of V , moreover
+ψ|V = φ and ψ is continuous on G \ V .
+    For any x ∈ Wj′ let Ix ⊂ {1, . . . , r} be the collection of indices l such that x ∈ Tl \ Ul .
+    Fixing x ∈ Wj′ , there exists an open coordinate ball Bx ⊂ Wj′ , centered at x such that
+for all y ∈ Bx we have Iy ⊂ Ix .
+    After shrinking Bx further, we can assume that φl − η ≥ φ̃l on Bx , for any l ∈ Ix .
+Indeed, this follows from the fact that fl > 1 in a neighborhood of Tl \ Ul , containing x.
+
+                                                    20
+   In case x ∈ V ∩ Wj′ , due to Lemma 6.2, we can shrink Bx ⊂ Wj′ further so that
+
+                    φ̃j (z) = φj (z) > φl (z) − η > φ̃l (z), z ∈ Bx , l ∈ Ix .             (6.4)
+
+    We denote by Jx ⊂ {1, . . . , r} \ Ix the collection of indices l such that Tl ∩ Bx is
+non-empty. We claim that Bx ⊂ Tl for any l ∈ Jx . If this were not the case then there
+would exist y ∈ Bx such that y ∈ ∂Tl ⊂ Tl \ Ul . Hence, l ∈ Iy ⊂ Ix , a contradiction. As
+a result, Jx is also the subset of indices l in {1, . . . , r} \ Ix such that Bx ⊂ Tl . This will
+be used crucially in (6.5) below.
+    Let Bx1 , . . . , Bxp be a covering of V with xi ∈ Wj′i ∩ V . We take
+                                                [
+                                           G :=    Bxj .
+                                                  j
+
+   Clearly, ψ ≥ φ̃j = φj on Wj′ . As φl − ηfl ≤ φ on V ∩ Tj for all l, we get ψ = φ on V .
+   Revisiting (6.3), due to (6.4), on each Bxi we have
+                                                                           
+           ψ|Bxi := max φ̃ji |Bxi , max φ̃k |Bxi = max φji |Bxi , max φ̃k |Bxi .     (6.5)
+                                     k∈Jxi                               k∈Jxi
+
+Since the right-hand side above is clearly a (1 − ε)ω-psh function on Bxi , we get that
+ψ ∈ PSH(G, (1 − ε)ω). Moreover, ψ|V = φ and ψ is continuous on G \ V .
+    After slightly shrinking G, we can assume that ψ is defined and continuous in a
+neighborhood of ∂G. Let k > 0 and introduce φ̃ := max(ψ, F + k) on G and φ̃ := F + k
+on X \ G. For k big enough φ̃ ∈ PSH(X, (1 − ε)ω).
+    If in addition φ has analytic singularities, then thanks to Lemma 2.4 so does φ̃,
+since due to (6.5) the potential φ̃ is locally the maximum of finitely many potentials
+with analytic singularities. Note also that the maximum operation preserves exponential
+Hölder continuity, so all the potentials involved in the proof are exponentially Hölder
+continuous. Therefore, the potential φ̃ satisfies all the required properties.
+   As promised in the above argument, we deliver the following key lemma:
+Lemma 6.2. With the notation of the above proof, the following property holds: for any
+1 ≤ i, j ≤ r, any point p ∈ Wi ∩ Wj ∩ V and η > 0, there is an open neighborhood of p
+on which φj ≥ φi − η holds.
+Proof. Let pi : Wi → V and pj : Wj → V be the coordinate projections onto V in each
+respective chart. To show that φj ≥ φi − η in a neighborhood of p, it is enough to show
+that in a neighborhood of p we have
+
+                        eφ(pj (x)) + eF (x) ≥ e−η eφ(pi (x)) + eF (x) .
+                                                                     
+
+This in turn is equivalent to
+
+                            1 − e−η eF (x) ≥ e−η eφ(pi (x)) − eφ(pj (x)) .
+                                   
+                                                                                           (6.6)
+
+Since e−η < 1, we claim that in fact the following slightly stronger inequality holds, in a
+neighborhood of p:
+                         1 − e−η eF (x) ≥ e−η eφ(pi (x)) − eφ(pj (x)) .
+                                                                    
+
+   Due to (6.1) there exists D > 0 such that
+
+                             1 − e−η eF (x) ≥ D · dist(x, V )c
+                                    
+
+
+                                                21
+for all x ∈ Wi ∩ Wj \ V . As a result, it is enough to argue that in a neighborhood of p
+we have:
+                        D · dist(x, V )c ≥ e−η eφ(pj (x)) − eφ(pi (x)) .
+                                                                      
+                                                                                   (6.7)
+This follows from the α-Hölder continuity of the expression on the right-hand side and
+its vanishing on V (recall that 0 < c < α). So the proof is complete.
+
+Remark 6.3. The key inequality (6.6) does not holdP∞when     eφ is not continuous. Here is
+                                                          1
+a counterexample: let V = C, X = C . Let φ = n=1 n2 log |z − 1/n|2 , a psh function
+                                       2
+
+on C (discontinuous at z = 0). Let pi (z, w) = z and pj (z, w) = z + w. Then one asks if
+                                           ∞                              ∞
+                                                               2/n2                                 2
+                                           Y                              Y
+                             c        −η
+                 (1 − η)|w| ≥ e                  |z − 1/n|            −         |z + w − 1/n|2/n
+                                           n=1                            n=1
+
+holds in a neighborhood of (0, 0). The answer is negative, unfortunately. One sees this
+by taking the sequence of points (z = 0, w = 1/n). Therefore, if one wants to remove the
+continuity assumption on eφ in our extension theorem, a different approach is needed.
+
+    Finally, we state a direct consequence of Theorem 6.1 that is enough for our later use.
+
+Theorem 6.4. Let V ⊊ X be a connected positive dimensional compact complex subman-
+ifold of (X, ω). Let T = ω|V + ddc φ be a Kähler current with gentle analytic singularities
+on V . Then one can find a Kähler current T̃ = ω + ddc φ̃ on X such that
+
+    1. φ̃|V = φ, i.e., T̃ extends T ;
+
+    2. φ̃ has analytic singularities on X;
+
+    3. φ̃ is continuous on X \ V , so φ̃ and φ have the same singular locus.
+
+Proof. Using Definition 2.6(1), we see that eφ ∈ C α (V ) for some α > 0. So the result
+follows directly from Theorem 6.1.
+
+
+7      The volume identity
+Unless specified otherwise, in this section ξ is a big class on X and dim X = n. We also
+fix a smooth flag Y• = (X = Y0 ⊃ · · · ⊃ Yn ) on X. Define
+
+              νmin (ξ, Y1 ) :=     inf       ν(T, Y1 ),        νmax (ξ, Y1 ) :=      sup       ν(T, Y1 ).
+                                 T ∈Ω(X,ξ)                                         T ∈Ω(X,ξ)
+
+
+Lemma 7.1. One has νmin (ξ, Y1 ) < νmax (ξ, Y1 ). Moreover,
+
+                             ν1 (Ω(X, ξ)) = [νmin (ξ, Y1 ), νmax (ξ, Y1 )],
+
+where ν1 is the first component of the valuative map ν.
+
+Proof. Pick any T ∈ Ω(X, ξ), then T − νmin (ξ, Y1 )[Y1 ] is a Kähler current, which implies
+that ξ − νmin (ξ, Y1 ){Y1 } is a big class. So for small ε > 0, ξ − (νmin (ξ, Y1 ) + ε){Y1 } is
+a big class as well. So there exists S ∈ Ω(X, ξ) with ν(S, Y1 ) ≥ νmin (ξ, Y1 ) + ε, giving
+νmin (ξ, Y1 ) < νmax (ξ, Y1 ). The second assertion follows from the convexity of Ω(X, ξ).
+
+
+                                                          22
+Proposition 7.2. Assume that n ≥ 2. One has
+                                      Z νmax (ξ,Y1 )
+                         vol(ξ) = n                    volX|Y1 (ξ − t{Y1 }) dt.
+                                       νmin (ξ,Y1 )
+
+Proof. We first observe that for any t ∈ (νmin (ξ, Y1 ), νmax (ξ, Y1 )), one has
+
+                                   Y1 ∩ K(ξ − t{Y1 }) ̸= ∅.
+
+In fact, by Lemma 7.1, for t ∈ (νmin (ξ, Y1 ), νmax (ξ, Y1 )) lying in a dense subset, there
+exists T ∈ Ω(X, ξ) with ν(T, Y1 ) = t. So T − t[Y1 ] is a Kähler current in ξ − t{Y1 } with
+Y1 ⊈ E+ (T − t[Y1 ]).
+    Clearly, vol(ξ) = vol(ξ − νmin (ξ, Y1 ){Y1 }). By the continuity of vol(·) [12, Proposition
+4.7], one thus has
+                        vol(ξ) = lim vol(ξ − (νmin (ξ, Y1 ) + ε){Y1 }).
+                                   ε↘0
+
+We can apply Theorem 2.14 to the big class ξ − (νmin (ξ, Y1 ) + ε){Y1 } to get
+                                         Z νmax (ξ,Y1 )
+                       vol(ξ) = lim n                       volX|Y1 (ξ − t{Y1 }) dt
+                                ε↘0       νmin (ξ,Y1 )+ε
+                                   Z νmax (ξ,Y1 )
+                              =n                    volX|Y1 (ξ − t{Y1 }) dt
+                                    νmin (ξ,Y1 )
+
+as desired.
+   Now for any t ∈ (νmin (ξ, Y1 ), νmax (ξ, Y1 )), we look at the following restricted volume
+                                                               Z
+                     volX|Y1 (ξ − t{Y1 }) =           sup         T |n−1
+                                                                     Y1
+                                                      T ∈Ω(X,ξ−t{Y1 })   Y1
+
+
+and the t-slice of the Okounkov body
+
+                            ∆t (ξ) := {x ∈ Rn−1 : (t, x) ∈ ∆(ξ)}.
+
+We shall prove that they are related in the following way (cf. [35, Corollary 4.25(i)]).
+
+Property Cn . If n ≥ 2, then for any t ∈ (νmin (ξ, Y1 ), νmax (ξ, Y1 )), one has
+
+                        volX|Y1 (ξ − t{Y1 }) = (n − 1)! volRn−1 (∆t (ξ)).
+
+Lemma 7.3. Assume that n ≥ 2. Property Cn implies Property An .
+
+Proof. By Lemma 7.1, we can express volRn (∆(ξ)) as
+                                           Z νmax (ξ,Y1 )
+                        volRn (∆(ξ)) =                       volRn−1 (∆t (ξ)) dt.
+                                             νmin (ξ,Y1 )
+
+So we conclude from Proposition 7.2.
+
+
+
+
+                                                      23
+    Our goal is now to show that for n ≥ 2, Property Bn−1 implies Property Cn . Since we
+already know by Lemma 5.7 that Property An and Property Bn are equivalent, this will
+together with Lemma 7.3 complete the induction argument and thus prove Property An
+for all n.
+    Note that both maps t 7→ volX|Y1 (ξ − t{Y1 }) and t 7→ volRn−1 (∆t (ξ)) are continuous:
+the former continuity is due to [37, Corollary 4.11] and the latter follows from the Brunn–
+Minkowski inequality. Therefore, to establish Property Cn it is enough to show that
+
+                          volX|Y1 (ξ − t{Y1 }) = (n − 1)! volRn−1 (∆t (ξ))
+
+for all rational t ∈ (νmin (ξ, Y1 ), νmax (ξ, Y1 )).
+    For t ∈ (νmin (ξ, Y1 ), νmax (ξ, Y1 )) ∩ Q, we introduce t-slices of Ω(X, ξ) and A(X, ξ) and
+show how they are connected to the t-slice of the Okounkov body:
+
+                           Ωt (X, ξ) := {T ∈ Ω(X, ξ) : ν(T, Y1 ) = t},
+
+                           At (X, ξ) := {T ∈ A(X, ξ) : ν(T, Y1 ) = t}.
+
+Lemma 7.4. For any t ∈ (νmin (ξ, Y1 ), νmax (ξ, Y1 )) ∩ Q, one has
+
+                           {t} × ∆t (ξ) = ν(Ωt (X, ξ)) = ν(At (X, ξ)).
+
+Proof. It is clear that
+
+                           ν(Ωt (X, ξ)) ⊆ ν(At (X, ξ)) ⊆ {t} × ∆t (ξ).
+
+To finish we will argue that {t} × ∆t (ξ) ⊆ ν(Ωt (X, ξ)). Let a ∈ {t} × ∆t (ξ). Then there
+exists a sequence Ti ∈ Ω(X, ξ) such that ν(Ti ) → a. So in particular, ti := ν(Ti , Y1 ) → t.
+Pick S, G ∈ Ω(X, ξ) such that s := ν1 (S, Y1 ) < t and g := ν(G, Y1 ) > t. Define
+                                 (
+                                                  −t
+                                   t
+                                    t−s
+                                      −s
+                                         Ti + ttii−s S, if ti ≥ t,
+                            Si := g−t
+                                    i
+                                               t−ti
+                                   g−ti i
+                                         T + g−ti G, if ti < t.
+
+Then Si ∈ Ωt (X, ξ) for i ≫ 0 and limi ν(Si ) = limi ν(Ti ) = a, hence a ∈ ν(Ωt (X, ξ)).
+   We are now ready to prove that Property Bn−1 implies Property Cn :
+
+Lemma 7.5. Assume that n ≥ 2, then Property Bn−1 implies Property Cn .
+
+Proof. Pick any t ∈ (νmin (ξ, Y1 ), νmax (ξ, Y1 )) ∩ Q. Put ξt := ξ − t{Y1 } for simplicity. It
+suffices to show the following: there is an increasing sequence Ri ∈ Ω(X, ξt ) such that
+
+ (1) E+ (Ri ) = EnK (ξt ) for all i;
+
+ (2) Ri |Y1 has positive mass and Y1 Ri |n−1
+                                  R
+                                          Y1 ↗ volX|Y1 (ξt );
+
+ (3) One has Y1 Ri |n−1
+               R
+                      Y1  = (n − 1)! volRn−1 (∆t,i ), where ∆t,i is the (n − 1)-dimensional
+     partial Okounkov body ∆(ξt |Y1 ; Ri |Y1 ) of ξt |Y1 with respect to Ri |Y1 , which is defined
+     using the truncated flag Y1 ⊃ Y2 ⊃ · · · ⊃ Yn ;
+
+ (4) ∆t,i is an increasing sequence of (n − 1)-dimensional convex bodies contained in
+     ∆t (ξ) such that volRn−1 (∆t,i ) ↗ volRn−1 (∆t (ξ)).
+
+                                                24
+    The above conditions would imply volX|Y1 (ξ − t{Y1 }) to equal (n − 1)! volRn−1 (∆t (ξ))
+for any t ∈ (νmin (ξ, Y1 ), νmax (ξ, Y1 )) ∩ Q, hence proving Property Cn .
+    To construct the sequence Ri , first note that the set νY• (Ωt (X, ξ)) ⊂ Qn≥0 is countable.
+So one can write ν(Ωt (X, ξ)) = {a1 , a2 , . . . , ai , . . . } with ai ∈ Qn≥0 . Let a′i ∈ Qn−1≥0 be such
+                 ′
+that ai = (t, ai ). Pick Ti ∈ Ωt (ξ) so that νY• (Ti ) = ai . Fix RR0 ∈ Ω(X, ξt ) so that
+E+ (R0 ) = EnK (ξt ). Also pick a sequence Gi ∈ Ω(X, ξt ) so that Y1 Gn−1               i    → volX|Y1 (ξt ).
+Applying Lemma 2.9 inductively, we can find Ri ∈ Ω(X, ξt ) that is less singular than
+Ti − t[Y1 ], Gi and Ri−1 . So Ri ∈ ξt is an increasing sequence of Kähler currents with
+analytic singularities precisely on EnK (ξt ), showing (1). That (2) holds is due to [50,
+Theorem 1.2] and (3) holds thanks to Property Bn−1 . It remains to argue (4).
+    Let νY′ • : A(Y1 , ξt |Y1 ) → Qn−1  ≥0 denote the valuative map constructed using the flag
+Y1 ⊃ Y2 ⊃ · · · ⊃ Yn on Y1 . Then one has that a′i ∈ νY′ • (A(Y1 , ξt |Y1 ; Ri |Y1 )), since (Ti −
+t[Y1 ])|Y1 ∈ A(Y1 , ξt |Y1 ; Ri |Y1 ) and a′i = νY′ • ((Ti − t[Y1 ])|Y1 ). Thus, a′i ∈ ∆t,i by Lemma 5.4,
+                                     S
+which implies that ∆t (ξ) ⊆ i ∆t,i by Lemma 7.4.
+    Next, we show that ∆t,i ⊆ ∆t (ξ) holds for all i. By Theorem 4.3, there are modifica-
+tions πi : Xi → X such that
+  (i) πi∗ Ri = βi +[Di ], where βi is a smooth semipositive form on Xi and Di is an effective
+      Q-divisor on Xi ;
+                                                  (i)
+ (ii) The flag Y• admits a lifting (Y• , gi−1 ) to Xi .
+                        (i)
+    Note that Y1 is the strict transform of Y1 , and it is not contained in Di (as ν(Ri , Y1 ) =
+0). By the Lelong–Poincaré formula, the restricted current [Di ]|Y (i) only has divisorial
+                                                                                          1
+components in its Siu decomposition. Let ν ′ (i) be the Qn−1
+                                                         ≥0 -valued map determined by
+                                                             Y•
+            (i)                     (i)   (i)
+the flag Y1 ⊃ · · · ⊃ Yn on Y1 . By Lemma 4.2, there is hi ∈ SLn−1 (Z) such that
+                               νY′ (i) (πi∗ T )hi = νY′ • (T ) for all T ∈ Ω(Y1 , ξt |Y1 ).
+                                     •
+
+
+From the proof of Lemma 4.2, we see that hi is obtained from gi with the first row and
+the first column removed.
+   Now, for any T ∈ Ω(Y1 , ξt |Y1 ; Ri |Y1 ), Lemma 2.5 implies that Si := πi∗ T − [Di ]|Y (i) is a
+                                                                                                         1
+                              (i)
+positive current on Y1 in the semipositive class {βi |Y (i) } and Si has analytic singularities.
+                                                       1
+   Fix a smooth Kähler form ωi on Xi . Then for any ε > 0, Si,ε := Si +εωi |Y (i) is a Kähler
+                                                                                                  1
+                  (i)
+current on Y1            in the Kähler class (βi + εωi )|Y (i) with analytic singularities. Note that
+                                                                  1
+                                                                                                             (i)
+(merely from Definition 2.6) it is unclear if Si,ε has gentle analytic singularities on Y1 or
+not, but thanks to Theorem 2.8 one can approximate Si,ε by a sequence, say {Si,ε,k }k∈N ,
+                                         (i)
+with gentle analytic singularities on Y1 .
+   Applying Theorem 6.4, we get S̃i,ε,k ∈ {βi + εωi }, currents on Xi , extending Si,ε,k for
+each k. Moreover, S̃i,ε,k has analytic singularities on Xi . Then (the proof of) Lemma 3.1
+implies that
+             (0, νY′ (i) (Si )) = (0, νY′ (i) (Si,ε )) = (0, lim νY′ (i) (Si,ε,k ))
+                        •                  •                    k→∞       •
+
+                                                        = lim νY (i) (S̃i,ε,k ) ∈ ∆Y (i) ({βi + εωi })
+                                                          k→∞         •               •
+
+
+for any ε > 0. By Proposition 3.3(3) we can let ε → 0 to find that
+                 0, νY′ (i) (πi∗ T ) ∈ ∆Y (i) ({βi }) ∩ {0} × Rn−1 + νY (i) ([Di ]),
+                                    
+                               •                  •                                   •
+
+
+
+                                                           25
+where we used (0, ν ′ (i) ([Di ]|Y (i) )) = νY (i) ([Di ]). Since (0, νY′ • (T )) = (0, ν ′ (i) (πi∗ T )hi ) =
+                            Y•       1        •                                          Y•
+(0, ν ′ (i) (πi∗ T ))gi , we have that
+     Y•
+
+                    (0, νY′ • (T )) ∈ ∆Y (i) ({βi }) ∩ {0} × Rn−1 + νY (i) ([Di ]) gi .
+                                                                                  
+                                         •                                     •
+
+
+Thus, we see that
+
+                    {0} × ∆t,i ⊆ ∆Y (i) ({βi }) ∩ {0} × Rn−1 + νY (i) ([Di ]) gi .
+                                                                             
+                                         •                                     •
+
+                                                                             (i)
+   On the other hand, for any G ∈ Ω(Xi , {βi }) with ν(G, Y1 ) = 0, G+[Di ] is an element
+in Ω(πi∗ ξt ). One can then apply Proposition 4.4 to find a sequence Gk ∈ A(X, ξt ) such
+that
+
+                     νY (i) (G + [Di ]) = lim νY (i) (πi∗ Gk )
+                       •                     k→∞   •
+
+                                        = lim νY• (Gk )gi−1 ∈ {0} × ∆t (ξ) gi−1 ,
+                                                                          
+                                             k→∞
+
+where the last inclusion follows from Lemma 7.4 (since Gk + t[Y1 ] ∈ At (X, ξ), as t ∈ Q).
+Thus,
+                 ∆Y (i) ({βi }) ∩ {0} × Rn−1 + νY (i) ([Di ]) gi ⊆ {0} × ∆t (ξ).
+                                                             
+                        •                                   •
+
+Therefore, ∆t,i ⊆ ∆t (ξ) follows, as claimed.
+                                                            S
+   From the above discussions we conclude that ∆t (ξ) = i ∆t,i . Moreover, since Ri is
+an increasing sequence, we see that ∆t,i is an increasing sequence of (n − 1)-dimensional
+convex bodies contained in ∆t (ξ). So we deduce that volRn−1 (∆t,i ) ↗ volRn−1 (∆t (ξ)),
+concluding the proof of (4).
+   We summarize our findings in the next result that proves both Theorem 1.1 and
+Corollary 1.2:
+Theorem 7.6. Let ξ be a big cohomology class on X. Let Y• be a flag on X. Then one
+can associate to it a natural compact convex set ∆Y• (ξ) with ξ so that
+                                                                1
+                                      volRn (∆Y• (ξ)) =            vol(ξ).
+                                                                n!
+Proof. Let n = dim X. Let us first assume that ξ is big. We will show that Property An
+and Property Bn hold for any dimension n ≥ 1 and Property Cn holds for any n ≥ 2.
+We have proved the following implications:
+   1. An ⇐⇒ Bn for n ≥ 1 by Lemma 5.7;
+   2. Bn−1 =⇒ Cn for n ≥ 2 by Lemma 7.5;
+   3. Cn =⇒ An for n ≥ 2 by Lemma 7.3.
+By Lemma 3.6 Property A1 holds, so we conclude the big case by induction.
+    As a simple corollary, we obtain the result for pseudoeffective classes as well:
+Corollary 7.7. Let ξ be a pseudoeffective cohomology class on X. Let Y• be a flag on
+X. Then one can associate to it a natural compact convex set ∆Y• (ξ) with ξ so that
+                                                                1
+                                      volRn (∆Y• (ξ)) =            vol(ξ).
+                                                                n!
+                                                       26
+Proof. Due to the previous theorem, we can assume that ξ is pseudoeffective but not big.
+In this case vol(ξ) = 0. By the definition of ∆Y• (ξ) (recall (3.1)) we obtain that
+
+                           volRn (∆Y• (ξ)) ≤ volRn (∆Y• (ξ + ε{ω})) → 0,
+
+thanks to the continuity of the volume functional on the pseudoeffective cone [12].
+
+
+8     Moment bodies
+The purpose of this section is to give an alternative approach to defining a convex body
+associated with a big cohomology class ξ on a connected compact Kähler manifold X.
+Instead of using valuation vectors ν(T ) of currents T ∈ Ω(X, ξ), we consider certain
+iterated toric degenerations, where say (X, T ) degenerates to (Pn , Tn ), Tn being some
+closed positive toric (1, 1)-current. Since Tn is toric it has an associated moment body
+∆(Tn ) ⊆ Rn (as explained below). We then define the moment body ∆µ (ξ) as the closure
+of the union of the moment bodies ∆(Tn ) of all toric degenerations. In the end we will
+show that this moment body actually coincides with the Okounkov body ∆(ξ), thus
+establishing a link between transcendental Okounkov bodies and toric degenerations.
+
+Moment bodies of toric currents on Pn . Let T be a closed positive (1, 1)-current
+on Pn which is toric (i.e. (S 1 )n -invariant) with respect to the standard toric action on
+Pn . On Cn ⊂ Pn we can then write T = ddc ϕ where ϕ is a toric psh function on Cn , and
+uϕ (x1 , . . . , xn ) := ϕ(ex1 /2 , . . . , exn /2 ) is a convex function on Rn .
+
+Definition 8.1. The moment body ∆(T ) of T is the image of ∇uϕ , the subgradient map
+of uϕ :
+                              ∆(T ) := ∇uϕ (Rn ).
+
+    If T is Kähler on (C∗ )n then in particular ((C∗ )n , T ) is a toric symplectic manifold, and
+µ(e(x1 +iy1 )/2 , . . . , e(xn +iyn )/2 ) := ∇uϕ (x1 , . . . , xn ) is the so-called moment map, explaining
+our terminology (see e.g. [14]).         R
+    If {T } = c1 (O(k)) and Pn T n > 0, then the moment body ∆(T ) coincides with the
+partial Okounkov body of the singular metric corresponding to T in the sense of [52], as
+proved in [52, Theorem 8.3].
+    Let us now record three well-known facts, whose proofs we give for the convenience
+of the reader.
+
+Lemma 8.2. The moment body ∆(T ) is convex.
+
+Proof. Let u := uϕ . Note that u is convex and finite, and hence continuous. Let v be
+a smooth convex function on Rn such that ∇(v)(Rn ) = B1 , where B1 denotes the unit
+ball. Let ϵ > 0 and uϵ := u + ϵv. Let y1 , y2 ∈ ∇u(Rn ). We then get that the functions
+u(x) − x · y1 and u(x) − x · y2 are both bounded from below, and thus uϵ (x) − x · y1 and
+uϵ (x) − x · y1 are both proper and continuous. Given t ∈ [0, 1] it follows that
+
+           t(uϵ (x) − x · y1 ) + (1 − t)(uϵ (x) − x · y2 ) = uϵ (x) − x · (ty1 + (1 − t)y2 )
+
+also is proper and continuous, and hence achieves a minumum at some point x0 . One
+then sees that ty1 + (1 − t)y2 is a subgradient of uϵ at x0 , thus ty1 + (1 − t)y2 ∈ ∇uϵ (Rn )
+
+
+                                                    27
+for all ϵ > 0. Now we note that ∇uϵ (Rn ) ⊆ ∇u(Rn ) + Bϵ . It follows that ty1 + (1 − t)y2 ∈
+∇u(Rn ) + Bϵ for all ϵ > 0, and hence ty1 + (1 − t)y2 ∈ ∇u(Rn ).
+    If y1 , y2 ∈ ∇u(Rn ) then y1 and y2 can be approximated by y1′ , y2′ ∈ ∇u(Rn ), hence
+ty1 + (1 − t)y2′ ∈ ∇u(Rn ), and going to the limit yields that ty1 + (1 − t)y2 ∈ ∇u(Rn ).
+  ′
+
+This shows that ∆(T ) = ∇u(Rn ) is convex.
+
+Lemma 8.3. Suppose that T1 and T2 are two toric closed positive (1, 1)-currents on Pn .
+Assume that T1 is more singular than T2 , then ∆(T1 ) ⊆ ∆(T2 ).
+
+Proof. Let u1 := uϕ1 and u2 := uϕ2 and let v be as in the proof of Lemma 8.2. For ϵ > 0
+let u1,ϵ := u1 + ϵv and u2,ϵ := u2 + ϵv. Let y ∈ ∇u1 (Rn ). It follows then that the function
+u1 (x) − x · y is bounded from below, and since u1 ≤ u2 + C we get that u2,ϵ (x) − x · y
+is proper and continuous for all ϵ > 0. Hence, u2,ϵ (x) − x · y achieves its minimum at
+some point xϵ , and there y will be a subgradient of u2,ϵ . Thus, y ∈ ∇u2 (Rn ) + Bϵ for
+all ϵ, and hence y ∈ ∇u2 (Rn ). We have thus shown that ∇u1 (Rn ) ⊆ ∇u2 (Rn ), i.e.,
+∆(T1 ) ⊆ ∆(T2 ).
+
+Proposition 8.4. Under the assumptions as above,
+                                              Z
+                                            1
+                            volRn (∆(T )) =       T n.
+                                            n! Pn
+Proof. We have that
+            Z       Z                            Z
+                  n                  c   n
+                T =                (dd ϕ) = n!        MA(uϕ ) = n! volRn (∇u(Rn ))
+                Pn        (C∗ )n                 Rn
+
+                                                              = n! volRn (∆(T )),
+
+where MA denotes the real Monge–Ampère operator in the sense of Alexandrov. In
+the second equality we used the standard relationship between the complex and the real
+Monge–Ampère operator [16, Lemma 2.2] (note that the normalization of the real Monge–
+Ampère operator in [16] differs from the usual convention by n!) while the third equality
+used the definition of the real Monge–Ampère operator, namely that
+                                Z
+                                    MA(u) := volRn (∇u(A))
+                                     A
+
+for any Borel subset A ⊆ Rn .
+
+Deformation to the normal bundle. Recall that if Y is a connected submanifold
+of a complex manifold X, the blow-up of X × P1 along Y × {0} defines the total space
+X of what is called the (standard) deformation of X to the normal bundle NY |X of
+Y . There is an obvious morphism X → P1 . The zero fiber has two components: Z
+which is isomorphic to the blow-up of Y in X, and the exceptional divisor E, which is
+isomorphic to the projective completion of NY |X . The natural C∗ -action on X × P1 (i.e.
+τ (z, w) := (z, τ w)) lifts to X , and it restricts to the inverse C∗ -action on the normal
+bundle (i.e. τ acts on a fiber by multiplication by τ −1 ).
+
+
+
+
+                                                 28
+Toric degenerations. Now assume that Y• is a smooth flag in X. Let X 1 denote the
+deformation of X to the normal bundle NY1 |X of Y1 , and let X 1 denote the exceptional
+divisor, so that X 1 is ismorphic to P(NY1 |X ⊕ C). Let also Z 1 denote the other component
+of the zero fiber.
+     If we use the natural identification between Y1 and the zero section of NY1 |X we can
+identify Y2 with a submanifold in X 1 . Thus, we let X 2 denote the deformation of X 1 to
+the normal bundle NY2 |X 1 of Y2 . Also let X 2 denote the exceptional divisor, so that X 2
+is isomorphic to P(NY2 |X 1 ⊕ C). We also let Z 2 denote the other component of the zero
+fiber. As Y2 is fixed by the C∗ -action on X 1 , the action extends to X 2 . This gives X 2 a
+combined (C∗ )2 -action, which also restricts to X 2 .
+     Continuing this way we get a sequence of deformation spaces X i for i = 1, . . . , n, with
+generic fiber X i−1 (with X 0 := X) and exceptional divisor X i (the other component of
+the zero fiber is denoted by Z i ), such that X i has a (C∗ )i -action restricting to X i .
+     Choose local holomorphic coordinates zi on X centered at Yn = x ∈ X such that
+locally Yi = {z1 = · · · = zi = 0}. This induces local holomorphic coordinates zi on
+NY1 |X centered at Yn = x ∈ NY1 |X such that the C∗ -action on the normal bundle acts
+by τ (z1 , . . . , zn ) = (τ z1 , z2 , . . . , zn ). When taking the normal bundle of Y2 we again
+get an induced set of local holomorphic coordinates zi centered at Yn = x ∈ NY2 |X 1 .
+The C∗ -action inherited from NY1 |X will still act by τ (z1 , . . . , zn ) = (τ z1 , z2 , . . . , zn ),
+while the new C∗ -action coming from the normal bundle structure will be τ (z1 , . . . , zn ) =
+(τ z1 , τ z2 , z3 , . . . , zn ). Continuing this way we see that we get local coordinates zi on each
+X i centered at Yn = x ∈ X i adapted to the induced (C∗ )i -action.
+     In the last step we consider the normal bundle of Yn = x ∈ X n−1 , but since x
+is just a point, NYn |X n−1 is the tangent space Tx (X n−1 ) of x in X n−1 . One can see
+that the induced local coordinates zi on Tx (X n−1 ) respect the vector space structure,
+giving us an identification of Tx (X n−1 ) with Cn which adapts to the torus action. As
+X n = P(NYn |X n−1 ⊕ C) we see that X n ≃ Pn , and we will identify X n with Pn by means
+of the identification of Tx (X n−1 ) with Cn . The induced (C∗ )n -action on X n , described
+above, acts on Cn ⊆ X n by (τ1 , . . . , τn )(z1 , . . . , zn ) = (τ1 τ2 . . . τn z1 , τ2 τ3 . . . τn z2 , . . . , τn zn ).
+Here we note that this is different from the standard action (τ1 , . . . , τn )(z1 , . . . , zn ) =
+(τ1 z1 , τ2 z2 , . . . , τn zn ). But we note that a current is toric (i.e. (S 1 )n -invariant) with
+respect to the induced action if and only if it is toric with respect to the standard action.
+     Via the above method X is degenerated (in n steps) to Pn , without taking account of
+the class ξ. To remedy this, we want to equip the deformation spaces X i with compatible
+currents, that somehow ‘metrize’ the n-step degeneration (in a possibly singular sense).
+     Note that there is a natural morphism X i → P1 for each i = 1, . . . , n. For any c ∈ P1 ,
+we denote the fiber of X i over c as Xci . For i = 1, . . . , n − 1, let πX i : X i+1 → X i denote
+the natural morphism. We write πX 0 = πX : X 1 → X for the natural projection map.
+Note that the inclusion X ,→ X × P1 as the fiber over 1 induces an isomorphism X ∼                                = X11 .
+                                                                  1                                           i−1
+We will fix this isomorphism and identify X with X1 . Similarly, we identify X                                      with
+   i
+X1 in the natural way for any i = 2, . . . , n.
+
+Definition 8.5. A choice of closed positive (1, 1)-currents Ti on X i for each i = 1, . . . , n
+is called a toric degeneration of (X, ξ) (with respect to the flag Y• ) if:
+
+   1. Ti is (S 1 )i -invariant for all i = 1, . . . , n;
+
+   2. for all i = 1, . . . , n, Ti has smooth local potentials on the complement of some
+      analytic set Ai ⊂ X i which does not contain (but can intersect) X1i or X i ;
+
+                                                           29
+   3. T1 |X11 ∈ Z+ (X, ξ) and Ti |X1i = Ti−1 |X i−1 for i = 2, . . . , n.
+
+   Note that by the second assumption we are allowed to restrict Ti to X1i and X i .
+   If we denote by T0 := T1 |X11 and Ti := Ti |X i for i = 1, . . . , n, we see that the toric
+degeneration T• encodes a degeneration of (X, T0 ) to (Pn , Tn ), and that Tn is a toric
+current. By abuse of language, we will thus also call (Pn , Tn ) a toric degeneration of
+(X, ξ). It should be understood that when we refer to a toric degeneration (Pn , Tn ), the
+currents T1 , . . . , Tn are implicitly chosen. We also say the T• ’s are the family of currents
+associated with the toric degeneration (Pn , Tn ).
+
+The moment body of (X, ξ). We now note that if (Pn , Tn ) is a toric degeneration of
+(X, ξ), then Tn will have an associated moment body ∆(Tn ).
+Definition 8.6. We define the moment body ∆µ (ξ) = ∆µY• (ξ) of ξ (with respect to the
+flag Y• ) as the closure of the union of the moment bodies ∆(Tn ) of all toric degenerations
+(Pn , Tn ) of (X, ξ) (with respect to the flag Y• ).
+    From the definition it is not obvious that the moment body is convex, since the union
+of convex sets need not be convex. However, the convexity will follow from the next
+proposition.
+Proposition 8.7. If (Pn , Tn ) and (Pn , Tn′ ) are two toric degenerations of (X, ξ) one can
+find a third toric degeneration (Pn , Tn′′ ) of (X, ξ) such that
+
+                                     ∆(Tn′′ ) ⊇ ∆(Tn ) ∪ ∆(Tn′ ).
+
+    The proof of Proposition 8.7 will rely on the following lemma.
+Lemma 8.8. Let T• be a toric degeneration of (X, ξ). For any i = 1, . . . , n and b, c ∈ R≥0 ,
+the currents T̃• defined by
+                             
+                             
+                                                    Tj , if j ̸= i, i + 1;
+                      T̃j :=               i
+                                  Ti + b[X∞ ] + c[Z i ], if j = i;
+                                        ∗      i
+                               Ti+1 + c[πX i ([Z ]|X i )], if j = i + 1 ≤ n
+                             
+
+also give a toric degeneration of (X, ξ). Furthermore, we have that
+
+                                           ∆(T̃n ) = ∆(Tn ).
+
+Proof. We first verify that T̃• is a toric degeneration. It suffices to verify the three
+                                                                                      i
+conditions in Definition 8.5. Condition 1 follows from the facts that Ti , [X∞          ] and [Z i ] are
+all (S 1 )i -invariant and that πX i is C∗ -equivariant. Condition 2 and Condition 3 are clear
+by definition.
+     To see that the moment body remains unchanged, note that if i < n − 1, then
+T̃n = Tn , in which case the equality is obvious. If i = n − 1, note that Z n−1 does not
+intersect the zero section of X n−1 which we identify with Yn−1 . From this it follows
+         −1       n−1                                                  ∗
+that πX    n−1 (X     ∩ Z n−1 ) does not intersect X n = Pn . Since πX        i
+                                                                         i ([Z ]X i ) has support on
+  −1         n−1
+πX  n−1 (X       ∩ Z n−1 ) we thus get that also in this case T̃n = Tn . Now assume that i = n.
+Here we see that T̃n = Tn + c[Zn ]|Pn , but since Pn ∩ Z n is the divisor at infinity and the
+moment body only depends on T̃n |Cn , we get that also in this case the moment body is
+unchanged.
+
+                                                   30
+Proof of Proposition 8.7. Let T• and T•′ be the families of currents associated with the
+toric degenerations (Pn , Tn ) and (Pn , Tn′ ). First we want to show that we can find toric
+degenerations T̃• and T̃•′ such that ∆(T̃n ) = ∆(Tn ) and ∆(T̃n′ ) = ∆(Tn′ ) and such that
+{T̃i } = {T̃i′ } for all i = 1, . . . , n.
+     Let βi := {Ti } and βi′ := {Ti′ }. Recall that H 1,1 (X i , R) is generated by the pullback
+of H 1,1 (X i−1 × P1 , R) together with the class {[X i ]}. Since β1 |X11 = β1′ |X11 = ξ we thus
+have that
+                 ∗
+           β1 = πX             1            1
+                   0 ξ + b1 {[X∞ ]} − c1 {[X ]},           β1′ = πX
+                                                                  ∗        ′    1       ′    1
+                                                                    0 ξ + b1 {[X∞ ]} − c1 {[X ]}
+
+
+
+for some real numbers b1 , c1 , b′1 , c′1 . Now note that
+
+                {[Z 1 ]} = {[X01 ] − [X 1 ]} = {[X01 ]} − {[X 1 ]} = {[X∞
+                                                                        1
+                                                                          ]} − {[X 1 ]},
+
+so we can write
+                                    ∗                  1
+                              β1 = πX ξ + (b1 − c1 ){[X∞ ]} + c1 {[Z 1 ]},
+                              β1′ = πX
+                                     ∗
+                                       ξ + (b′1 − c′1 ){[X∞
+                                                          1
+                                                            ]} + c′1 {[Z 1 ]}.
+From this it is clear that one can find positive numbers d1 , d′1 , e1 , e′1 such that
+                                   1
+                        {T1 + d1 [X∞ ] + e1 [Z 1 ]} = {Ω′1 + d′1 [X∞
+                                                                   1
+                                                                     ] + e′1 [Z 1 ]}.
+                                          1                                 ∗
+Let T̃• be defined by T̃1 := Ω1 + d1 [X∞    ] + e1 [Z 1 ], T̃2 := T2 + e1 πX          1
+                                                                               1 ([Z ]|X 1 ) and T̃j := Tj for
+
+j > 2. Similarly, let T̃1′ := T1′ + d′1 [X∞1
+                                             ] + e′1 [Z 1 ], T̃2′ := T2′ + e′1 πX∗      1               ′
+                                                                                   1 ([Z ]|X 1 ) and T̃j := Tj
+                                                                                                              ′
+
+for j > 2.
+    It follows from Lemma 8.8 that T̃• and T̃•′ are new toric degenerations such that
+
+                                             ∆(T̃n ) = ∆(Tn ).
+
+We have also made sure that {T̃1 } = {T̃1′ }. If {T̃i } ̸= {T̃i′ } for some i > 1 we can use
+the same trick of modifying T̃• and T̃•′ without changing the moment bodies, eventually
+achieving that {T̃i } = {T̃i′ } for all i.
+   Thus, without loss of generality we can assume that {Ti } = {Ti′ } for all i = 1, . . . , n.
+For all such i, pick a smooth closed real (S 1 )i -invariant (1, 1)-form θi ∈ {Ti } and write
+Ti = θi + ddc ϕi and Ti′ = θ1 + ddc ϕ′i for some ϕi , ϕ′i ∈ PSH(X i , θ1 ). Let also maxreg (x, y)
+be a regularized maximum function with the properties that it is smooth and convex,
+
+                              max(x, y) ≤ max(x, y) ≤ max(x, y) + 1,
+                                               reg
+
+and such that
+                                max(x, y) = max(x, y) if |x − y| ≥ 1.
+                                 reg
+
+     Let T1′′ := θ1 + ddc maxreg (ϕ1 , ϕ′1 ). It is clear that T1′′ is (S 1 )-invariant, has smooth
+local potentials on the complement of some analytic set which does not contain X11 or
+X 1 , and that {T1′′ |X 1 } = ξ.
+                        1
+                    ∗                2             2            ∗    ′′         2         2
+     If {T2 } = {πX   1 T1 } + d2 {[X∞ ]} + e2 {[Z ]}, write πX 1 T1 + d2 [X∞ ] + e2 [Z ] = θ2 +
+
+ddc ψ2 for some ψ2 ∈ PSH(X 2 , θ2 ). Since the current T1′′ is less singular than T1 and
+T1′ it follows that ψ2 |X12 is less singular than ϕ2 |X12 and ϕ′2 |X12 . After possibly adding
+a constant we can thus assume that ψ2 ≥ maxreg (ϕ2 , ϕ′2 ) + 1 on X12 . Now let T2′′ :=
+θ2 + ddc maxreg (ψ2 , maxreg (ϕ2 , ϕ′2 )).
+
+                                                      31
+    It is clear that T2′′ is (S 1 )2 -invariant, has smooth local potentials on the complement
+of some analytic set which does not contain X12 or X 2 . Also, since
+
+                                    max(ψ2 , max(ϕ2 , ϕ′2 )) = ψ2
+                                        reg         reg
+
+
+on X12 , we have that T2′′ |X 2 = T1′′ |X 1 .
+                             1
+    Continuing this way we can construct currents Ti′′ for all i = 1, . . . , n, and as above
+one can easily check that T•′′ will have the properties of a toric degeneration of (X, ξ).
+We also see that the current Tn′′ will be less singular than Tn and Tn′ , and so the desired
+inclusion
+                                     ∆(Tn′′ ) ⊇ ∆(Tn ) ∪ ∆(Tn′ )
+follows from Lemma 8.3.
+Corollary 8.9. The moment body ∆µ (ξ) is convex.
+Proof. From Lemma 8.2 and Proposition 8.7 it follows that ∆µ (ξ) is the closure of a
+convex set, and hence it is convex.
+    We now prove a volume inequality for the moment body.
+Proposition 8.10. Under the above assumptions, we have that
+                                                                1
+                                        volRn (∆µ (ξ)) ≤           vol(ξ).
+                                                                n!
+Proof. It follows from Proposition 8.7 that the volume of ∆µ (ξ) is equal to the supremum
+of the volume of the moment bodies of the toric degenerations of (X, ξ).
+    Let T• be a toric degeneration. We first claim that for all i = 1, . . . , n:
+                                    Z          Z
+                                          n
+                                        Ti ≤      Ti n .                              (8.1)
+                                              Xi               X1i
+
+                                                                  ∗                     i            i
+From the proof of Proposition 8.7 we see that {Ti } = πX            i−i {Ti−1 } + bi {[X∞ ]} − ci {[X ]}
+
+for some real numbers bi , ci . We let
+                              (
+                                                 i
+                                      Ti − bi [X∞   ] + ci [X i ], if ci ≥ 0;
+                     T̃i :=                       i
+                                Ti − (bi − ci )[X∞  ] − ci [Z i ], if ci < 0.
+
+                                          ∗                                            i     i
+It follows that in both cases {T̃i } = πX   i−i {Ti−1 } and that T̃i is positive on X \ X∞ . Let
+                                                                                    ∗           c
+θ be a smooth closed real (1, 1)-form in {Ti−1 }. We can then write T̃i = πX          i−1 θ + dd ϕi
+                 ∗                           i−1
+where ϕi is a πX   i−1 θ-psh function on X       × C. Since Ti is S 1 -invariant with respect to
+the action on the base, so is T̃i , and therefore ϕi is S 1 -invariant. For a fixed x ∈ X i−1
+we get that ϕi (x, τ ) is subharmonic in τ , and since it also only depends on |τ | it follows
+that it is increasing in |τ |. Since T̃i = Ti on X i−1 × C∗ and using monotonicity [50] we
+get that                        Z         Z
+                                      n
+                                    Ti =         (θ + ddc ϕi (·, τ ))n
+                                  Xτi              X i−1
+
+is increasing in |τ | for |τ | > 0.
+    Pick a tubular neighbourhood Ui of Yi in X i−1 together with an associated diffeo-
+morphism f between NYi |X i−1 and Ui . Let F : NYi |X i−1 × C → X i be defined by
+
+                                                          32
+F (ζ, τ ) := (f (τ ζ), τ ) for τ ̸= 0 while F (ζ, 0) := ζ ∈ X i . Then F is a diffeomorphism
+between NYi |X i−1 × C and its image. Pick a volume form dV on NYi |X i−1 . Since Ti has
+smooth potentials on the complement of an analytic set not containing X i we can write
+for τ ̸= 0:
+                                       Fτ∗ ((Ti|Xτi )n ) = gτ dV,
+for τ = 0:
+                                              Tin = g0 dV,
+and gτ will converge pointwise to g0 almost everywhere. It thus follows from Fatou’s
+Lemma that
+        Z         Z                    Z                   Z         Z
+               n                                                n
+             Ti =         g0 dV ≤ lim          gτ dV ≤ lim    Ti ≤      Ti n ,
+             Xi         NY |X i−1          τ →0   NY |X i−1          τ →0   Xτi        X1i
+                          i                         i
+
+
+thus proving our claim (8.1).                              R
+   Now we note that since T1 |X11 ∈ Z+ (X, ξ) we have that X 1 T1n ≤ vol(ξ) by definition.
+                                                             1
+By Proposition 8.4 we also have that
+                                                  Z
+                                                1
+                               volRn (∆(Tn )) =       T n,
+                                                n! Pn n
+and combined with the inequalities (8.1) the proposition follows.
+  Given a big class ξ and a flag Y• , we can construct the Okounkov body ∆Y• (ξ) and the
+moment body ∆µY• (ξ). We will now show that they in fact coincide, proving Theorem 1.4.
+Theorem 8.11. Under the above assumptions, we have that
+
+                                          ∆µY• (ξ) = ∆Y• (ξ).                                       (8.2)
+
+Proof. Pick T0 ∈ Ω(X, ξ) and write νY• (T0 ) = (ν1 , . . . , νn ). Pick also a smooth real closed
+(1, 1)-form θ in the class ξ − ν1 [Y1 ]. We can thus write T0 = θ + ν1 [Y1 ] + ddc ϕ, where
+ϕ ∈ PSH(X, θ) restricts to a θ|Y1 -psh function on Y1 . Let D1 denote the strict transform
+of Y1 × P1 in X 1 , and let T1 := πX     ∗
+                                           θ + ν1 [D1 ] + ddc πX∗
+                                                                   ϕ. We see that T1 is a closed positive
+S 1 -invariant current on X 1 which restricts to T0 on X11 , and which has a continuous
+potential away from an analytic set not containing X11 or X 1 .
+     Note that T1 = ν1 [Y1 ] + πY∗1 θ|Y1 + ddc πY∗1 (ϕ|Y1 ), where πY1 denotes the projection from
+X 1 = P(NY1 |X ⊕ C) to the zero section identified with Y1 . We now see that we can write
+T1 = θ1 + ν1 [Y1 ] + ν2 [W2 ] + ddc ϕ1 , where W2 := πY−1        1
+                                                                   (Y2 ), θ1 and ϕ1 are S 1 -invariant and
+ϕ1 restricts to a θ1 |Y2 -psh function on Y2 .
+     Let D1 and D2 denote the strict transforms of Y1 × P1 and W2 × P1 in X 2 respectively.
+               ∗                                     c ∗
+Let T2 := πX     1 θ1 |Y2 + ν1 [D1 ] + ν2 [D2 ] + dd πX 1 (ϕ1 |Y2 ). We see that T2 is a closed positive
+
+(S 1 )2 -invariant current on X 1 which restricts to T1 on X12 , and which has a continuous
+potential away from an analytic set not containing X12 or X 2 .
+     Note that T2 = ν1 [Y1 ] + ν2 [W2 ] + πY∗2 θ1 |Y2 + ddc πY∗2 (ϕ1 |Y2 ), where πY2 denotes the
+projection from X 2 to Y2 . We now see that we can write T2 = θ2 + ν1 [Y1 ] + ν2 [W2 ] +
+ν3 [W3 ] + ddc ϕ2 , where W3 := πY−1     2
+                                           (Y3 ), θ2 and ϕ2 are (S 1 )2 -invariant and ϕ2 restricts to a
+θ2 |Y3 -psh function on Y3 .
+     Continuing this way we get a toric degeneration T• of (X, ξ) such that Tn = ν1 [Y1 ] +
+ν2 [W2 ] + · · · + νn [Wn ]. The divisors Y1 , W2 , . . . , Wn are toric divisors and in the standard
+toric coordinates zi we have that Y1 = {z1 = 0}, W2 = {z1 = z2 = 0}, and so on. Thus,
+
+                                                   33
+on Cn , Tn has the toric potential ψ = ν1 log |z1 |2 + · · · + νn log |zn |2 , and uψ (x1 , . . . , xn ) =
+ν1 x1 + · · · + νn xn . We thus see that ∆(Tn ) = {(ν1 , . . . , νn )} = {ν(T0 )}, hence ∆Y• (ξ) ⊆
+∆µY• (ξ). In particular,
+                                                         1
+                 volRn (∆Y• (ξ)) ≤ volRn (∆µY• (ξ)) ≤       vol(ξ) = volRn (∆Y• (ξ)),
+                                                         n!
+where the second inequality follows from Proposition 8.10 and the equality follows from
+Theorem 7.6. It follows that all inequalities are actual equalities. Since ∆Y• (ξ) has
+positive volume, we conclude (8.2).
+Corollary 8.12. For any toric degeneration (Pn , Tn ) of (X, ξ) we have that
+
+                                            ∆(Tn ) ⊆ ∆(ξ).
+
+Furthermore, for any ϵ > 0 we can find a toric degeneration (Pn , Tn ) of (X, ξ) such that
+the Hausdorff distance between ∆(Tn ) and ∆(ξ) is less than ϵ.
+Proof. Since by definition ∆(Tn ) ⊆ ∆µ (ξ), the first claim follows from Theorem 8.11.
+   That the moment body ∆µ (ξ) can be approximated arbitrarily well (with respect to
+the Hausdorff distance) by moment bodies ∆(Tn ) of toric degenerations (Pn , Tn ) follows
+from Proposition 8.7, so combined with Theorem 8.11 we get the second claim.
+    Corollary 8.12 provides a strong link between transcendental Okounkov bodies and
+toric degenerations, which could be useful in further investigations, for example studying
+the transcendental Chebyshev transform.
+
+
+References
+[1] M. F. Atiyah and I. G. Macdonald, Introduction to commutative algebra, Addison-
+    Wesley Publishing Co., 1969.
+
+[2] D. Anderson, Okounkov bodies and toric degenerations, Math. Ann. 356.3 (2013), pp.
+    1183–1202.
+
+[3] S. Boucksom and H. Chen, Okounkov bodies of filtered linear series, Compos. Math.
+    147.4 (2011), pp. 1205–1229.
+
+[4] S. Boucksom, J.-P. Demailly, M. Păun, and T. Peternell, The pseudo-effective cone of
+    a compact Kähler manifold and varieties of negative Kodaira dimension, J. Algebraic
+    Geom. 22.2 (2013), pp. 201–248.
+
+[5] S. Boucksom, P. Eyssidieux, V. Guedj, and A. Zeriahi, Monge-Ampère equations in
+    big cohomology classes, Acta Math. 205.2 (2010), pp. 199–262.
+
+[6] S. Boucksom, C. Favre, and M. Jonsson, Valuations and plurisubharmonic singulari-
+    ties, Publ. Res. Inst. Math. Sci. 44.2 (2008), pp. 449–494.
+
+[7] S. Boucksom, C. Favre, and M. Jonsson, Differentiability of volumes of divisors and
+    a problem of Teissier, J. Algebraic Geom. 18.2 (2009), pp. 279–308.
+
+[8] H. Blum and M. Jonsson, Thresholds, valuations, and K-stability, Adv. Math. 365
+    (2020), pp. 107062, 57.
+
+                                                   34
+[9] S. Boucksom, A. Küronya, C. Maclean, and T. Szemberg, Vanishing sequences and
+    Okounkov bodies, Math. Ann. 361.3-4 (2015), pp. 811–834.
+
+[10] E. Bierstone and P. D. Milman, Canonical desingularization in characteristic zero
+    by blowing up the maximum strata of a local invariant, Invent. Math. 128.2 (1997),
+    pp. 207–302.
+
+[11] S. Boucksom, Cônes positifs des variétés complexes compactes, Université Joseph-
+    Fourier-Grenoble I, 2002.
+
+[12] S. Boucksom, On the volume of a line bundle, Internat. J. Math. 13.10 (2002), pp.
+    1043–1063.
+
+[13] S. Boucksom, Divisorial Zariski decompositions on compact complex manifolds, Ann.
+    Sci. École Norm. Sup. (4) 37.1 (2004), pp. 45–76.
+
+[14] A. Cannas da Silva, An invitation to symplectic toric manifolds, Bol. Soc. Port. Mat.
+    77 (2019), pp. 119–132.
+
+[15] C. Ciliberto, M. Farnik, A. Küronya, V. Lozovanu, J. Roé, and C. Shramov, New-
+    ton–Okounkov bodies sprouting on the valuative tree, Rendiconti del Circolo Matem-
+    atico di Palermo Series 2 66.2 (2017), pp. 161–194.
+
+[16] D. Coman, V. Guedj, S. Sahin, and A. Zeriahi, Toric pluripotential theory, Ann.
+    Polon. Math. 123.1 (2019), pp. 215–242.
+
+[17] D. Coman, V. Guedj, and A. Zeriahi, Extension of plurisubharmonic functions with
+    growth control, J. Reine Angew. Math. 676 (2013), pp. 33–49.
+
+[18] S. R. Choi, Y. Hyun, J. Park, and J. Won, Okounkov bodies associated to pseudoef-
+    fective divisors, J. Lond. Math. Soc. (2) 97.2 (2018), pp. 170–195.
+
+[19] T. C. Collins and V. Tosatti, An extension theorem for Kähler currents with analytic
+    singularities, Ann. Fac. Sci. Toulouse Math. (6) 23.4 (2014).
+
+[20] T. C. Collins and V. Tosatti, Restricted volumes on Kähler manifolds, Ann. Fac. Sci.
+    Toulouse Math. (6) 31.3 (2022), pp. 907–947.
+
+[21] J.-P. Demailly, Analytic methods in algebraic geometry, Vol. 1, Surveys of Modern
+    Mathematics, International Press, Higher Education Press, Beijing, 2012.
+
+[22] J.-P. Demailly, Complex Analytic and Differential Geometry, Available on personal
+    website, 2012.
+
+[23] J.-P. Demailly, On the cohomology of pseudoeffective line bundles, Complex geometry
+    and dynamics, Vol. 10, Abel Symp., Springer, Cham, 2015, pp. 51–99.
+
+[24] J.-P. Demailly, Regularization of closed positive currents and intersection theory, J.
+    Algebraic Geom. 1.3 (1992), 361–409.
+
+[25] Y. Deng, Transcendental Morse inequality and generalized Okounkov bodies, Algebr.
+    Geom. 4.2 (2017), 177–202.
+
+
+
+                                            35
+[26] S. Dinew, V. Guedj, and A. Zeriahi, Open problems in pluripotential theory, Complex
+    Var. Elliptic Equ. 61.7 (2016), 902–930.
+
+[27] J.-P. Demailly and M. Păun, Numerical characterization of the Kähler cone of a
+    compact Kähler manifold, Ann. of Math. (2) 159.3 (2004), 1247–1274.
+
+[28] R. Dervan and J. Ross, K-stability for Kähler manifolds, Math. Res. Lett. 24.3
+    (2017), 689–739.
+
+[29] H. Hironaka, Flattening theorem in complex-analytic geometry, Amer. J. Math. 97
+    (1975), 503–547.
+
+[30] T. Hisamoto, Restricted Bergman kernel asymptotics, Trans. Amer. Math. Soc. 364.7
+    (2012), 3585–3607.
+[31] M. Harada and K. Kaveh, Integrable systems, toric degenerations and Okounkov
+    bodies, Invent. Math. 202.3 (2015), 927–985.
+
+[32] C. Jiang and Z. Li, Algebraic reverse Khovanskii-Teissier inequality via Okounkov
+    bodies, Math. Z. 305.2 (2023), Paper No. 26, 14.
+
+[33] K. Kaveh, Toric degenerations and symplectic geometry of smooth projective vari-
+    eties, J. Lond. Math. Soc. 99.2 (2019), 377–402.
+
+[34] K. Kaveh and A. G. Khovanskii, Newton-Okounkov bodies, semigroups of integral
+    points, graded algebras and intersection theory, Ann. of Math. (2) 176.2 (2012),
+    925–978.
+
+[35] R. Lazarsfeld and M. Mustaţă, Convex bodies associated to linear series, Ann. Sci.
+    Éc. Norm. Supér. (4) 42.5 (2009), 783–835.
+
+[36] C. Li and C. Xu, Stability of valuations: higher rational rank, Peking Math. J. 1.1
+    (2018), 1–79.
+
+[37] S. Matsumura, Restricted volumes and divisorial Zariski decompositions, Amer. J.
+    Math. 135.3 (2013), 637–662.
+[38] T. Murata, Toric degenerations of projective varieties with an application to equivari-
+    ant Hilbert functions, Thesis (Ph.D.)–University of Pittsburgh, ProQuest LLC, Ann
+    Arbor, MI, 2020.
+
+[39] N. Nakayama, The lower semicontinuity of the plurigenera of complex varieties, Al-
+    gebraic geometry, Sendai, 1985, Vol. 10, Adv. Stud. Pure Math., North-Holland,
+    Amsterdam, 1987, 551–590.
+
+[40] J. Ning, Z. Wang, and X. Zhou, On the extension of Kähler currents on compact
+    Kähler manifolds: holomorphic retraction case, Ann. Fac. Sci. Toulouse Math. (6)
+    (2024), 183–195.
+
+[41] A. Okounkov, Brunn-Minkowski inequality for multiplicities, Invent. Math. 125.3
+    (1996), 405–411.
+
+[42] J. Ross and D. Witt Nyström, Envelopes of positive metrics with prescribed singu-
+    larities, Ann. Fac. Sci. Toulouse Math. (6) 26.3 (2017), 687–728.
+
+                                            36
+[43] Z. Sjöström Dyrefelt, K-semistability of cscK manifolds with transcendental coho-
+    mology class, J. Geom. Anal. 28.4 (2018), 2927–2960.
+
+[44] Y. T. Siu, Analyticity of sets associated to Lelong numbers and the extension of
+    closed positive currents, Invent. Math. 27 (1974), 53–156.
+
+[45] D.-V. Vu, Derivative of volumes of big cohomology classes, 2023, arXiv:2307.15909
+    [math.AG].
+
+[46] J. Wlodarczyk, Resolution of singularities of analytic spaces, Proceedings of
+    Göokova Geometry-Topology Conference 2008, Göokova Geometry/Topology Con-
+    ference (GGT), 2009, 31–63.
+
+[47] D. Witt Nyström, Transforming metrics on a line bundle to the Okounkov body, Ann.
+    Sci. Éc. Norm. Supér. (4) 47.6 (2014), 1111–1161.
+
+[48] D. Witt Nyström, Canonical growth conditions associated to ample line bundles,
+    Duke Math. J. 167.3 (2018), 449–495.
+
+[49] D. Witt Nyström, Duality between the pseudoeffective and the movable cone on a
+    projective manifold, J. Amer. Math. Soc. 32.3 (2019), 675–689. With an appendix by
+    Sébastien Boucksom.
+
+[50] D. Witt Nyström, Monotonicity of non-pluripolar Monge-Ampère masses, Indiana
+    Univ. Math. J. 68.2 (2019), 579–591.
+
+[51] D. Witt Nyström, Deformations of Kähler manifolds to normal bundles and
+    restricted volumes of big classes, J. Differential Geom. (to appear) (2021).
+    arXiv:2103.03660 [math.AG].
+
+[52] M. Xia, Partial Okounkov bodies and Duistermaat–Heckman measures of non-
+    Archimedean metrics, Geom. Topol. (to appear) (2021). arXiv:2112.04290 [math.AG].
+
+
+Tamás Darvas, University of Maryland
+tdarvas@umd.edu
+Rémi Reboulet, David Witt Nyström, Chalmers University of Technology
+and University of Gothenburg
+reboulet@chalmers.se, wittnyst@chalmers.se
+Mingchen Xia, Chalmers Tekniska Högskola and Institute of Geometry
+and Physics, USTC
+xiamingchen2008@gmail.com
+Kewei Zhang, Beijing Normal University
+kwzhang@bnu.edu.cn
+
+
+
+
+                                          37
+

@@ -1,0 +1,359 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+\setlength{\emergencystretch}{3em}
+\title{P16.3: a proved equal-characteristic surface range and the remaining residue-characteristic axis}
+\author{Public primary-source reconstruction}
+\date{4 October 2026}
+\begin{document}
+\maketitle
+This is a partial mathematical result, not a solution of the full original P16.3. The main theorem below concerns nontrivially discretely valued equal-characteristic fields and general smooth projective surfaces of geometric origin. Its target measures have arbitrary support subject to the exact finite-dual-energy condition. The proof constructs the genuine nonpluripolar finite-energy operator and proves variational attainment; it does not infer surjectivity from completion of a space of measures. In higher dimensions the same argument retains precisely stated resolution premises. Mixed characteristic and the unrestricted geometric-origin and dimension obligations remain unresolved here.
+
+All mathematical assertions below are draft deductions from the eleven supplied public primary-source caches. No priority claim is made for the combination proved here. Successful hash checks and TeX builds do not verify these deductions.
+
+\section{Exact sources and what they state}
+
+Use the following abbreviations, always for the exact saved versions.
+
+[S] Boucksom--Favre--Jonsson, *Singular semipositive metrics in non-Archimedean geometry*, arXiv:1201.0187v2. Its standing residue characteristic is zero. Its compactness theorem is Theorem 7.10, and its monotone regularization theorem is Theorem 8.7. The characteristic-zero multiplier-ideal argument in section 8 and Appendix B will not be reused in characteristic p.
+
+[B] Boucksom--Favre--Jonsson, *Solution to a non-Archimedean Monge-Ampere equation*, arXiv:1201.0188v1. This is the actual v1, not a later theorem statement: Theorem A assumes residue characteristic zero, algebraizability, and measure support in an SNC dual complex. Its sequence regularization result is Proposition 4.5. Its operator/energy results are Theorem 3.1, Theorem 5.1, Proposition 6.2, Definition 6.4, Lemmas 6.7--6.10, Propositions 6.11--6.12, and Theorem 7.2/Corollary 7.3. Proposition 8.2 treats uniqueness for finite-energy potentials, not merely continuous ones.
+
+[G] Gubler--Jell--Kunnemann--Martin, with an appendix by Burgos Gil and Sombra, *Continuity of Plurisubharmonic Envelopes in Non-Archimedean Geometry and Test Ideals*, arXiv:1712.00980v3, dated 22 November 2018 on the PDF identifier. Starting in section 7, K is complete discretely valued and has characteristic p\textgreater{}0. It is not a mixed-characteristic theorem. Definition 8.1 requires a normal d-dimensional variety B over k, a codimension-one point b, an identification of the completion of the DVR R=O\_\{B,b\} with K's valuation ring, and a projective variety over k(B) whose base change is X. Perfectness is required of k; it is not in general a statement that the residue field of K is perfect.
+
+Theorem 8.2 of [G] proves continuity and uniform model approximation of envelopes for every closed (1,1)-form with ample de Rham class on such a smooth n-dimensional X, assuming resolution over the perfect field k in dimension d+n. It does not require that the chosen ample class itself descend to the initially chosen k(B)-variety. Its proof handles that issue at the level of model envelopes; no unbounded base-change theorem is inferred here.
+
+Section 9 of [G] adds embedded resolution in dimension d+n. Its assumptions are exactly (A1) geometric origin over a perfect field k of characteristic p\textgreater{}0, (A2) resolution, and (A3) embedded resolution. It proves cofinality of projective SNC models, transfers [S] sections 1--7 and [B] sections 3--6, proves monotone regularization in Corollary 9.1, and proves orthogonality in Theorem 9.2. Its stated equation theorem, Theorem 9.3, still requires support on a projective SNC skeleton. We do not attribute the arbitrary-support theorem below to Theorem 9.3.
+
+Definitions 6.1 and 6.2 in [G] mean the following. Resolution is a projective morphism from a regular variety to each quasi-projective variety of the specified dimension, isomorphic over its regular locus. Embedded resolution is a projective morphism between regular quasi-projective varieties, isomorphic outside the prescribed proper closed subset, with its inverse image supported on a normal crossing divisor. Theorem 6.3 states both in dimension three over any perfect field, citing Cossart--Piltant. Accordingly, Corollary 8.3 and section 9 explicitly make the n=2, d=1 case unconditional. We use this published theorem with this exact dimension check; the separately cited Cossart--Piltant papers were not among the supplied caches.
+
+[M] Boucksom--Jonsson, *Measures of finite energy in pluripotential theory: a synthetic approach*, arXiv:2307.01697v1. It treats model/test potentials and finite-energy measures in a synthetic intersection framework. We use Theorem 1.33, Proposition 2.2, Theorem 2.23, and Lemma 2.25. Its measure completion theorem is not used to manufacture an unbounded solution.
+
+[T] Boucksom--Jonsson, *Global pluripotential theory over a trivially valued field*, arXiv:1801.08229v4. Theorem 12.9 includes smooth varieties of dimension at most two in positive characteristic, but its field has trivial valuation. It is not applied to K here. Its Proposition 9.19 and Theorem 12.8 provide a useful comparison with the variational argument, whose nontrivial-valued application is proved explicitly below.
+
+The remaining caches give no indispensable equation input to this proof. ArXiv:1805.01016v3 is Boucksom--Eriksson's *Spaces of norms, determinant of cohomology and Fekete points in non-Archimedean geometry*. Pille--Schneider arXiv:2209.04879v2, Remark 4.4, distinguishes defining E1 over arbitrary fields from extending its operator; its literal wording says characteristic zero at the discrete endpoint. Gubler--Rabinoff arXiv:2506.13548v2 explicitly puts regularization and Monge-Ampere constructions outside its subject. Thuillier's thesis is a curve theory. The supplied Berkovich 1993 PDF is the etale-cohomology paper, not the 1990 book. Chambert-Loir--Ducros arXiv:1204.6277v2 is the July 2025 version concerning forms and currents; no global BFJ E1 surjectivity theorem is inferred from it.
+
+\section{Main concrete theorem and the conditional higher-dimensional range}
+
+\textbf{Theorem.} Let k be a perfect field of characteristic p\textgreater{}0, let B be a normal integral curve over k, let b be a closed point, let F=k(B), and let K be the completion of F at b with a nontrivial discrete absolute value. Let Y be a smooth geometrically integral projective surface over F and let X=Y times\_F K. Let L be any ample line bundle on X. Choose a semipositive model reference metric on L and put theta equal to its curvature. Write V=(L\textasciicircum{}2)\textgreater{}0.
+
+There is an approximation-independent genuine mixed Monge-Ampere operator on E1(X,theta), whose diagonal has raw total mass V. For every positive Radon measure mu on X analytified with mu(X)=V and finite dual energy as defined in section 5, there is phi in E1 with raw MA\_theta(phi)=mu. It is unique modulo additive real constants. There is no assumption that mu is supported on a skeleton or is invariant under a torus. Continuity of the solution is not claimed.
+
+The same proof applies to a smooth geometrically integral projective n-fold of geometric origin from a d-dimensional normal variety over a perfect characteristic-p field, provided BOTH resolution in Definition 6.1 and embedded resolution in Definition 6.2 of [G] hold in dimension d+n. This is a conditional range when these premises are not established; it does not count as resolving them. The concrete surface theorem above has d+n=3 and uses the proved case in [G], Theorem 6.3.
+
+Here and below the analytic space is always the actual X over the nontrivially valued K. No theorem over a trivial valuation is substituted for it. The surface field has residue field finite over k, hence of characteristic p, and also has characteristic p. A field with characteristic zero and residue characteristic p is excluded by these hypotheses.
+
+\section{Replacement of each geometric input}
+
+Fix one of the ranges in section 2. We check the published inputs before the analytic argument.
+
+\textbf{Reference and positivity.} A sufficiently high power of the ample L embeds X into projective space. The closure over the valuation ring, with O(1), is a projective model of that power. Resolving or taking a dominating SNC model is a modification with unchanged generic fiber. Pulling O(1) back preserves nefness by the projection formula on special-fiber curves. Its pullback need not be ample on that model, and no such assertion is needed. Taking the metric's root gives a semipositive model reference metric on the original L. Thus the positivity datum and the raw mass V remain the original ample polarization and its generic-fiber intersection degree.
+
+\textbf{Regular and SNC models.} Proposition 5.2 of [G] first dominates any valuation-ring model by the completion of an R-model; its vertical blowups descend because their ideals contain a power of the uniformizer. One spreads the R-model to the d-dimensional B. Resolution in dimension d+n produces a regular projective model while keeping the smooth generic fiber. Embedded resolution applied to the bad fibers makes their support normal crossing. Section 9 of [G] checks that completion preserves regularity and strict normal crossing support. This is an application to models, not an alteration of X, and does not assume descent of unbounded potentials, energies, or measures through another variety.
+
+\textbf{Compactness.} With these projective SNC models cofinal, [G] transfers [S] sections 1--7. Define PSH(X,theta) by the usc, retraction-majorization, and model-approximation conditions on each SNC dual complex, as in [S], Definition 7.1. Such functions are determined by their divisorial values; they are finite and continuous on each dual complex. Equip PSH with uniform convergence on each dual complex, called the weak potential topology. The set with sup phi=0 is compact; sup and integration against every fixed model Monge-Ampere measure are continuous. Indeed, a model measure has finite divisorial support, and those evaluations are continuous. These are [S], Corollary 7.7 and Theorem 7.10, with the transfer explicitly supplied in [G], section 9.
+
+\textbf{Test-ideal replacement for envelope regularity.} On the smooth characteristic-p spread-out variety, [G] uses asymptotic test ideals instead of multiplier ideals. The body Theorem 4.6 assumes E-lambda D is nef, a point checked visually on PDF page 15; we do not use the differently ordered displayed condition in introductory Theorem 1.3. In Theorem 7.3 the base ideals a\_m and asymptotic test ideals b\_m satisfy a\_m contained in b\_m, b\_ml contained in b\_m\textasciicircum{}l, and A\textasciicircum{}m0 tensor L\textasciicircum{}m tensor b\_m is globally generated uniformly in m. The last property follows by taking E=mD and lambda=m in Theorem 4.6, so E-lambda D=0, on a variety of total dimension d+n. Its global-generation threshold is that total dimension plus one, not merely n+1 for the generic fiber.
+
+After arranging an ample extension A=L-E with E vertical and effective, these properties give
+
+\[
+\phi_m\leq P_\theta(0)\leq\frac{m}{m-m_0}\phi_m+
+\frac{m_0}{m-m_0}\phi_E\qquad(m\gg1),
+\quad \phi_m=m^{-1}\log|a_m|.
+\]
+
+This is the base-ideal estimate in [S], Theorem 8.5, using exactly the replacement properties proved in [G], Theorem 7.3. Both the bounded correction and a fixed lower bound for the phi\_m give uniform convergence. Regular ample extensions are obtained in [G], Lemma 7.5, using semi-factorial models and resolution, rather than assuming that a resolution pulls ample bundles back to ample bundles. Descent of model functions, the envelope translation identity, the ddc lemma, and the envelope-only finite-normal-extension argument in [G], section 8 then yield Theorem 8.2 for the original X and any ample theta. These steps are part of the published envelope theorem; no new finite-energy base change is used here.
+
+\textbf{Regularization, orthogonality, and differentiation.} Corollary 9.1 of [G] gives decreasing model approximation of every psh potential. Section 9 explicitly carries over the bounded operator and [B] sections 4--6. It also allows decreasing sequences, corresponding to Proposition 4.5 in the actual supplied [B] v1. Theorem 9.2 of [G] gives
+
+\[
+\int (f-P_\theta f)\,\mathrm{MA}_\theta(P_\theta f)=0\qquad(f\in C^0(X)).
+\]
+
+With continuous envelopes and this orthogonality, the proof of [B], Theorem 7.2 applies. Its proof uses monotone regularization, integration by parts, and concavity; the characteristic-zero orthogonality proof in [B], Appendix A is replaced entirely by [G], Theorem 9.2. Corollary 7.3 extends the envelope derivative to E1 by decreasing approximation. All applications take place on X itself.
+
+\section{The genuine E1 operator, mass, and comparison}
+
+We now keep n in the notation. For a bounded psh potential u let the raw mixed operator be the positive Radon measure constructed by [B], Theorem 3.1, of mass V. On model potentials it is the usual intersection-theoretic Chambert-Loir measure. Symmetry, integration by parts, and continuity along decreasing bounded model approximations characterize it uniquely. Thus the bounded definition is independent of the chosen approximation. [G], section 9 explicitly transfers this theorem.
+
+For bounded u define raw energy and its normalized version by
+
+\[
+\mathcal E(u)=\frac1{n+1}\sum_{j=0}^n
+\int u\,(\theta+dd^cu)^j\wedge\theta^{n-j},\qquad
+e(u)=V^{-1}\mathcal E(u).
+\]
+
+For general psh u extend e as the infimum of e(v) over psh model v dominating u. Proposition 6.2 of [B] makes e concave, increasing, weakly upper semicontinuous, and continuous along decreasing nets, with e(u+c)=e(u)+c. Define
+
+\[
+\mathcal E^1(X,\theta)=\{u\in\mathrm{PSH}(X,\theta):e(u)>-\infty\}.
+\]
+
+For u in E1 set u\_t=max(u,-t), after any constant shift needed to have u\textless{}=0, and define
+
+\[
+\mathrm{MA}_\theta(u)=\lim_{t\to\infty}
+\mathbf1_{\{u>-t\}}\mathrm{MA}_\theta(u_t),\qquad
+m(u)=V^{-1}\mathrm{MA}_\theta(u).
+\]
+
+Bounded locality makes the restricted measures increasing and compatible as t changes: on \{u\textgreater{}-t\}, the operators of u\_s and u\_t agree for s\textgreater{}t. Their increasing limit is a Radon measure. Changing the additive normalization only changes truncation thresholds and leaves that limit unchanged. This is [B], Definition 6.4, now justified by the transferred bounded operator and locality.
+
+Here is the full-mass estimate, rather than an assumption of mass preservation. The energy difference formula for bounded potentials gives
+
+\[
+t\,m(u_t)\{u\leq-t\}
+\leq2(n+1)\bigl(e(u_{t/2})-e(u_t)\bigr)\longrightarrow0.
+\]
+
+Indeed, u\_\{t/2\}-u\_t equals t/2 on \{u\textless{}=-t\}, and its integral against m(u\_t), divided by n+1, is one of the nonnegative terms in that difference formula. Decreasing energy continuity makes the right side tend to zero. Thus MA\_theta(u) has exactly raw mass V, places no mass on pluripolar sets, and is the weak limit of MA\_theta(u\_t). This reconstructs [B], Lemma 6.7 with the mass convention explicit.
+
+The corresponding tail bound, for any continuous model test f, is
+
+\[
+\left|\int f\,m(u_t)-\int f\,m(u)\right|
+\leq \frac{2(n+1)|e(u)|}{t}\,\|f\|_\infty\quad(u\leq0).
+\]
+
+Together with bounded decreasing continuity it proves [B], Proposition 6.9: every decreasing E1 approximation to u has operators converging to m(u). Hence no choice of a decreasing model sequence defines a different operator. These tail and monotone-continuity statements are mathematical estimates, not finite computational observations.
+
+For mixed E1 potentials, simultaneously approximate each by decreasing bounded or model potentials. The diagonal operator of every convex combination converges by the preceding result. Polarization determines all mixed coefficients from finitely many such diagonal values. The resulting mixed coefficients are limits of positive measures of mass V, and are independent of all approximations. This constructs the genuine mixed operator; positivity and mass are inherited from the bounded mixed construction. Mixed measures integrate E1 potentials: Lemma 6.10 of [B], applied to a convex average and the positive terms in its Monge-Ampere expansion, bounds these integrals by finite energies.
+
+For u,v in E1 the locality and comparison formulas are
+
+\[
+\mathbf1_{\{u>v\}}m(\max(u,v))=\mathbf1_{\{u>v\}}m(u),\qquad
+\int_{\{u<v\}}m(v)\leq\int_{\{u<v\}}m(u).
+\]
+
+To see that these are the correct unbounded statements, apply bounded locality to the truncations on \{u\_t\textgreater{}v\_t\}. On that set u\textgreater{}-t, so the nonpluripolar measures agree with their truncations. Let t increase. The discarded terms lie in poles of u or v, which carry no mass, and full mass turns locality of max into comparison. This is the proof of [B], Proposition 6.11 and contains no characteristic-zero ideal input.
+
+Energy differentiation retains the actual operator:
+
+\[
+\left.\frac{d}{dt}\right|_{0+} e((1-t)u+tv)=\int(v-u)m(u).
+\]
+
+This follows by the bounded polynomial energy formula, decreasing approximations, mixed integrability, and the tail estimate; it is [B], Proposition 6.12. The envelope derivative needed later is the stronger two-sided identity
+
+\[
+\left.\frac{d}{dt}\right|_0 e(P_\theta(u+tf))=\int f\,m(u)
+\qquad(u\in\mathcal E^1,\ f\in C^0(X)).
+\]
+
+In particular P\_theta(u+tf) lies in E1, since it lies between u-|t| norm(f) and u+|t| norm(f). For decreasing model u\_j to u the envelopes P\_theta(u\_j+tf) decrease to P\_theta(u+tf): their limit is psh, is below u+tf, and dominates that envelope. Decreasing energy/operator continuity and dominated convergence in the integrated continuous-envelope derivative yield the identity in [B], Corollary 7.3. Its prerequisites are exactly the inputs checked in section 3; no skeleton support of a target measure is used in this passage.
+
+\section{Exact finite-dual-energy measure condition}
+
+Let D be the real linear span of model functions and D\_theta its psh subset. Rational model psh functions suffice in every supremum below. For clarity, the real span allows direct use of [M]. On a common model one can perturb a psh real model class toward a relatively ample representative of the same generic ample class, then approximate its vertical coefficients rationally while remaining ample; letting the perturbation decrease gives uniform approximation. The existence of such a representative is [S], Proposition 5.2, transferred by [G]. This also checks the real/rational model convention without changing L.
+
+For a positive Radon measure mu with raw mass V put nu=mu/V, and impose
+
+\[
+\mathcal E^*_\theta(\mu):=
+\sup_{v\in D_\theta}\left(\mathcal E(v)-\int v\,d\mu\right)<+\infty.
+\]
+
+Equivalently, in the normalized notation used for the proof,
+
+\[
+A=e^*(\nu):=\sup_{v\in D_\theta}\left(e(v)-\int v\,d\nu\right)<+\infty,
+\qquad\mathcal E^*_\theta(\mu)=VA.
+\]
+
+Only the entire measure of mass V is divided by V. No restriction of mu to a subset is renormalized. Constants cancel because the mass condition is exact, and v=0 shows A\textgreater{}=0.
+
+This is also the same supremum over all E1 potentials. To prove the indispensable integrability passage, take v\_j decreasing model to u in E1. Since v\_j are uniformly bounded above and
+
+\[
+\int v_j\,d\nu\geq e(v_j)-A\geq e(u)-A,
+\]
+
+monotone convergence proves u in L1(nu). Decreasing continuity of e and of the integrals gives
+
+\[
+e(u)-\int u\,d\nu=\lim_j\left(e(v_j)-\int v_j\,d\nu\right)\leq A.
+\]
+
+Thus model and E1 definitions of the dual energy coincide. We use this exact condition, not an unproved assertion that arbitrary Radon measures are allowed.
+
+Conversely, m(u) has finite dual energy for every u in E1. Mixed integrability and the tangent inequality from concavity give
+
+\[
+e(v)\leq e(u)+\int(v-u)m(u),\qquad
+e^*(m(u))=e(u)-\int u\,m(u)<\infty.
+\]
+
+The supremum equality follows by taking v=u in the already proved E1 form of the supremum. Hence the image and target have the stated finite-energy meaning.
+
+\section{Checking the synthetic source application}
+
+The data for [M] are the actual compact X analytified, D above, Z the direct limit of model numerical (1,1)-classes, dd\textasciicircum{}c on vertical divisors, and the usual model intersection measure. Symmetry and seminegativity of the pairing integral(f dd\textasciicircum{}c g wedge T) for nef T follow from [B], Propositions 2.20--2.21, in the setting transferred by [G]. The former is the intersection projection/integration-by-parts identity; the latter is the vertical Hodge inequality and its Cauchy--Schwarz consequence. One can also check the latter directly with the graph identity in section 9: replace A\textasciicircum{}\{n-1\} there by any mixed product of n-1 nef classes on a common regular SNC model. Its off-diagonal weights are nonnegative, since they are intersections of nef classes on effective special-fiber cycles. That identity makes every vertical square nonpositive; polarization gives the stated symmetric seminegative pairing and Cauchy--Schwarz. This argument works in every residue characteristic. D contains real constants and is dense in C0, and dd\textasciicircum{}c vanishes on constants. Nef forms span Z, since on a sufficiently high common model an ample representative of the same ample generic class dominates any finite collection of classes. The order is nice in [M]'s terminology: on each finite-dimensional space of forms a common model determines the classes, and nefness is the closed collection of nonnegative-degree inequalities on its proper special-fiber curves; pullback preserves and detects nefness, as in [M], section 1.2.2. Thus the positive cone is closed in the finest vector-space topology. [M], section 1.3.2 and [S], Proposition 5.2 identify the positive-class cone at this datum with the preimage of the ample cone. Thus theta is a semipositive form with positive class and volume V, which also checks that the symmetric n-linear measure pairing is nonzero.
+
+One must check [M]'s orthogonality definition, which is stronger in wording than the integral at a continuous envelope. Its Definition 2.15 concerns the increasing directed net of tests v\textless{}f. Tests admit maxima in its Definition 2.11: rational psh model functions are closed under max, and uniform rational approximation with a small constant margin gives the assertion for real tests. Their supremum is P\_theta(f). By continuity of that envelope and Dini's theorem for nets, this increasing net converges uniformly to P\_theta(f). Uniform model-operator continuity then gives
+
+\[
+\lim_{v\in D_\theta,\ v<f}\int(f-v)m(v)
+=\int(f-P_\theta f)m(P_\theta f)=0.
+\]
+
+The final equality is [G], Theorem 9.2. Thus [M], Definition 2.15 really is verified on this space, and Theorem 2.23 and Lemma 2.25 can be applied. No assumption about completion of the unbounded potential space has been inserted.
+
+Set m\_0=m(0) and, for tests, define
+
+\[
+J(u,v)=e(u)-e(v)+\int(v-u)m(u),\qquad
+J(u)=J(0,u)=\int u\,m_0-e(u),
+\]
+
+and define the maximizing defect for the fixed target nu by
+
+\[
+a_\nu(v)=A-e(v)+\int v\,d\nu\geq0.
+\]
+
+Proposition 2.2 of [M] gives quasi-symmetry of J and the defect bound
+
+\[
+J(u,v)\leq C_n\bigl(a_\nu(u)+a_\nu(v)\bigr),\qquad
+J(v)\leq C_n\bigl(A+a_\nu(v)\bigr)
+\]
+
+for tests (the second uses u=0). This can be checked directly: uniform concavity in [M], Theorem 1.33, applied to the midpoint, gives a lower bound for the sum of the two defects; the linear measure term cancels. We shall only need this test-level bound.
+
+Theorem 2.23 and Lemma 2.25 of [M] then supply a maximizing sequence r\_j of tests and, whenever J(v), J(r\_j), and A are bounded by a fixed R, the estimate
+
+\[
+\left|\int v\,(\nu-m(r_j))\right|
+\leq C_{n,R}\,a_\nu(r_j)^{1/2}.
+\]
+
+This is equation (2.27) with the other potential equal to zero. The theorem's model density is used to obtain this uniform integration estimate. We do not assume that its limiting measure is realized by an E1 potential.
+
+\section{New passage: integration is continuous on energy-bounded potential sets}
+
+By compactness from section 3, integration against m\_0 is bounded on normalized PSH. Hence there exists T finite such that
+
+\[
+-T\leq\int u\,m_0\leq0\quad\text{whenever }\sup u=0.
+\]
+
+For C\textgreater{}0 the set
+
+\[
+K_C=\{u\in\mathrm{PSH}(X,\theta):\sup u=0,\ e(u)\geq-C\}
+\]
+
+is weakly compact, since sup is continuous and e is usc. Every member is in E1 and has 0\textless{}=J(u)\textless{}=C.
+
+Choose maximizing tests r\_j for nu; their J are bounded by the preceding defect estimate. Extend the last estimate of section 6 from tests to any u in K\_C as follows. Choose a decreasing model sequence u\_l to u. Both e(u\_l) and integral(u\_l m\_0) tend to their finite limits, so J(u\_l) tends to J(u) and is eventually bounded by C+1. Section 5 already proves u in L1(nu); model measures m(r\_j) integrate u because of their divisorial support (or mixed integrability). Monotone convergence of both integrals therefore lets l tend to infinity in the test estimate. For a fixed common R this gives
+
+\[
+\sup_{u\in K_C}\left|\int u\,d\nu-\int u\,m(r_j)\right|
+\leq C_{n,R}a_\nu(r_j)^{1/2}\longrightarrow0.
+\]
+
+Each functional u maps to integral(u m(r\_j)) is weakly continuous, since m(r\_j) is a fixed finite divisorial measure. Their uniform convergence on K\_C proves that u maps to integral(u dnu) is weakly continuous on K\_C. This is the needed actual potential-space argument. It is not a consequence of completeness of measures alone, and uses the full measure nu throughout.
+
+\section{New passage: actual variational attainment for arbitrary support}
+
+Normalize a model maximizing sequence v\_i by sup v\_i=0; arbitrary real constant shifts are allowed and leave its defect unchanged. The defect estimate bounds J(v\_i). Since
+
+\[
+-e(v_i)=J(v_i)-\int v_i\,m_0\leq J(v_i)+T,
+\]
+
+all sufficiently late v\_i lie in one K\_C. Compactness yields a weakly converging subnet with limit u in K\_C. No sequential compactness of an uncountable collection of models is assumed.
+
+The integral continuity just proved and upper semicontinuity of energy give
+
+\[
+e(u)-\int u\,d\nu\geq
+\limsup_i\left(e(v_i)-\int v_i\,d\nu\right)=A.
+\]
+
+Section 5 gives the reverse inequality. Thus u is an actual E1 maximizer. It lives on X, with no support restriction on nu.
+
+For f continuous and t real put u\_t=P\_theta(u+tf). Then u\_t is in E1 and u\_t\textless{}=u+tf. Define
+
+\[
+h(t)=e(u_t)-\int(u+tf)\,d\nu.
+\]
+
+Positivity of nu and maximality imply h(t)\textless{}=e(u\_t)-integral(u\_t dnu)\textless{}=A=h(0). The envelope derivative in section 4 gives
+
+\[
+0=h'(0)=\int f\,m(u)-\int f\,d\nu.
+\]
+
+Equality for all continuous f proves m(u)=nu and hence raw MA\_theta(u)=mu. This proves existence and realizes the target as the genuine operator, rather than assigning an inverse measure by definition.
+
+\section{Uniqueness and the characteristic-independent strict kernel step}
+
+Let u,v in E1 have the same operator. Mixed integrability makes the following expression meaningful:
+
+\[
+S=\int(u-v)\,(m(v)-m(u))=0.
+\]
+
+The proof of [B], Proposition 8.2, using its mixed polarization, integration by parts, and repeated Cauchy--Schwarz, gives, for any semipositive model reference eta in the same ample class,
+
+\[
+0\leq-\int (u-v)dd^c(u-v)\wedge\eta^{n-1}
+\leq C_{u,v,\eta}S^{2^{1-n}}=0.
+\]
+
+In applying it after a reference change eta=theta+dd\textasciicircum{}c g, one uses u-g and v-g. For model or bounded approximants the raw measures coincide by the curvature identity eta+dd\textasciicircum{}c(u-g)=theta+dd\textasciicircum{}c u. Decreasing operator continuity proves the same identity for E1. The cocycle identity for model energies makes u-g and v-g finite energy: e\_eta(u-g)=e\_theta(u)-e\_theta(g). This cocycle is the bounded mixed energy difference formula followed by decreasing approximation with the fixed bounded model g. Thus reference change is checked, not an assumption about descent through a different variety. The estimate's induction uses the nonnegative mixed norms of u-v, replacing one eta factor at a time by eta\_u-dd\textasciicircum{}c(u-g). The Cauchy--Schwarz cross term bounds the next norm by a constant times the square root of the previous one; the initial mixed norms sum to S. Iterating n-1 times yields the displayed exponent. All cross energies are finite by mixed integrability. No multiplier or test ideal enters this calculus.
+
+For the main surface theorem the vanishing needed above has an especially short independent verification. Write f=u-v, u'=u-g, and eta\_u=eta+dd\textasciicircum{}c u', eta\_v=eta+dd\textasciicircum{}c(v-g). Set N\_T(f)=-integral(f dd\textasciicircum{}c f wedge T). Then
+
+\[
+N_{\eta_u}(f)+N_{\eta_v}(f)=VS=0.
+\]
+
+Both terms are nonnegative. Cauchy--Schwarz with f and u' for each of T=eta\_u, eta\_v therefore makes integral(f dd\textasciicircum{}c u' wedge T) vanish. Subtracting these two identities, using dd\textasciicircum{}c f=eta\_u-eta\_v, gives integral(f dd\textasciicircum{}c f wedge dd\textasciicircum{}c u')=0. Since eta=eta\_u-dd\textasciicircum{}c u', it follows that N\_eta(f)=0. Mixed E1 integrability makes every term finite, so no limiting product has been silently interchanged. This proves the requisite zero norm in dimension two without depending on a higher-dimensional estimate.
+
+For completeness, we prove the final strict kernel assertion instead of leaving it as a characteristic-zero Hodge premise. Fix a sufficiently high regular SNC model determining eta and a relatively ample rational representative A of the same generic class; such an eta is obtainable after a model reference change by [S], Proposition 5.2. Write its special fiber as sum b\_i E\_i, and let w\_ij=(E\_i.E\_j.A\textasciicircum{}\{n-1\}) for i not equal j. The effective intersection cycle and relative ampleness imply w\_ij\textgreater{}=0, strictly positive when E\_i meets E\_j. Since the total fiber is principal, any vertical real divisor D=sum a\_i E\_i satisfies
+
+\[
+D^2 A^{n-1}=-\sum_{i<j}b_i b_j w_{ij}
+\left(\frac{a_i}{b_i}-\frac{a_j}{b_j}\right)^2.
+\]
+
+This follows by expanding D squared and using (sum b\_i E\_i).E\_j.A\textasciicircum{}\{n-1\}=0 to eliminate diagonal terms. The special-fiber intersection graph is connected: the model is normal and proper with geometrically integral generic fiber, so its global functions are the valuation ring (properness makes them integral, and the valuation ring is integrally closed); Stein factorization then gives connected fibers. Therefore equality D\textasciicircum{}2 A\textasciicircum{}\{n-1\}=0 forces a\_i/b\_i to be constant across all components, in every residue characteristic.
+
+Let lambda=-log(abs(pi))\textgreater{}0 for a uniformizer. Set a\_i=b\_i(u-v)(x\_i)/lambda at the divisorial point x\_i of E\_i, and let g\_D be the model function of D. It equals u-v at all these vertices. Cauchy--Schwarz and the vanishing norm established above give integral((u-v) dd\textasciicircum{}c g\_D wedge eta\textasciicircum{}\{n-1\})=0. This measure has support at the vertices, and integration by parts for model intersections identifies that integral with lambda D\textasciicircum{}2 A\textasciicircum{}\{n-1\}. Hence u-v has one constant value on those vertices.
+
+To align these constants across refinements, keep a fixed divisorial point as an anchor and work with SNC models dominating a model containing it. Every other divisorial point occurs on such a dominating model by cofinality. The preceding argument shows that u-v has the anchor's value at every divisorial point. Since psh functions are determined by divisorial values, u=v+c on all of X. Their metrics differ by the positive factor exp(-c). If sup u=sup v=0 then c=0. This avoids the unjustified inference that separately changing the reference preserves equality of the two normalized suprema.
+
+\section{Coverage and concrete remaining obligations}
+
+The surface theorem covers arbitrary-support finite-dual-energy measures on general smooth geometrically integral projective surfaces over completions of function fields of curves over perfect characteristic-p fields. It retains projectivity, smoothness, an ample line bundle, algebraizability, nontrivial discrete valuation, and geometric origin. It has an unconditional resolution check in dimension three; it does not require toric geometry or a projective-line reduction. The operator, full mass, comparison, differentiation, and uniqueness are genuine finite-energy statements. The new deductions beyond [G], Theorem 9.3 are the uniform integration/attainment argument removing skeleton support within that source's geometry, and the explicit characteristic-independent vertical kernel verification. We do not claim these deductions are new to the published literature.
+
+The complete original P16.3 still requires the following, under its retained smooth projective ample discretely valued setting.
+
+First, mixed-characteristic fields, including characteristic-zero fields with positive residue characteristic, are not handled. One needs cofinal sufficiently regular models or proved substitutes, envelope regularity or an alternative, and compatible unbounded operator, differentiation, and comparison. Test ideals on the equal-characteristic spread-out smooth variety supply none of these mixed-characteristic replacements by themselves.
+
+Second, arbitrary higher dimension in equal characteristic is not handled unconditionally. The conditional range above still assumes both specified forms of resolution in dimension d+n. Alterations, or one good model of X, do not prove that every model is dominated by the required regular/SNC models, nor do they prove descent of the E1 theory.
+
+Third, general smooth projective varieties over complete discretely valued characteristic-p fields need not be covered by the geometric-origin hypothesis in [G], Definition 8.1. No claim is made that every such X, or its model-envelope theory, can be realized by an allowed d-dimensional algebraic family. Removing this hypothesis requires replacement envelope/regularization and compactness inputs on the original X.
+
+These are remaining obligations of the original atom; they are not reassigned to a narrower reformulation. The eleven-source audit does not assert an exhaustive survey of all literature available in October 2026. The proper status is partial and candidate=false.
+
+\section{Evidence, source provenance, and rerun instructions}
+
+The preserved inputs are \texttt{input.js\allowbreak{}on}, byte-identical \texttt{input-or\allowbreak{}iginal.j\allowbreak{}son}, decoded \texttt{assignme\allowbreak{}nt-origi\allowbreak{}nal.txt}, and \texttt{task-ori\allowbreak{}ginal.js\allowbreak{}on}. SHA256 of the input bytes is \texttt{551c1e42\allowbreak{}04b90a78\allowbreak{}f8820172\allowbreak{}1de1c4b4\allowbreak{}1a09bfd8\allowbreak{}f3c03cb9\allowbreak{}97e9eb72\allowbreak{}d457c120}.
+
+The rerunnable source audit is \texttt{python3 \allowbreak{}audit\_so\allowbreak{}urces.py}. It verifies all eleven supplied PDFs, text extracts, and supplied abstract files against their given hashes. Its actual result was eleven sources verified, thirty-three literal extract files saved, and input-original byte identity true. \texttt{source-e\allowbreak{}xtracts/\allowbreak{}source-p\allowbreak{}rovenanc\allowbreak{}e.json} retains source versions, filenames, actual hashes, literal published passages, page/line locations, exact application checks, and limitations. The original sources remain read-only. PDF pages 15 and 22 of [G] were rendered and visually checked; the images are retained there. Source-provenance records the body/introductory test-ideal condition discrepancy and the BFJ version numbering difference rather than silently correcting the extracts.
+
+\texttt{P16.3-pa\allowbreak{}per.tex} is a standalone TeX rendition containing this full argument. Run \texttt{python3 \allowbreak{}build\_pa\allowbreak{}per.py} to regenerate it and execute two actual pdflatex passes. Both stdout/stderr diagnostic streams and the distinct TeX logs are saved under \texttt{build/}; \texttt{build/bu\allowbreak{}ild-resu\allowbreak{}lts.json} records commands and return codes. \texttt{environm\allowbreak{}ent.json} records the actual Python/platform/TeX-tool details. No software was installed, no external messages or model workers were used, and no heavy computation was launched.
+
+The mathematical evidence is the published extracts and the deductions above. The finite checks establish provenance and reproducibility, not mathematical correctness. \texttt{status.j\allowbreak{}son} records exactly the required five fields and keeps all concrete original gaps open.
+
+\end{document}
