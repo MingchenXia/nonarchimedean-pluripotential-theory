@@ -371,8 +371,12 @@ Appendix C's 790 original lines and 36 selected primary-source pages were
 freshly read. Nonzero graded-sequence hypotheses and the quasi-psh reduction
 are explicit; all twelve appendix pages and both seams passed visual review.
 See the [Appendix C audit](second_reading_appC_audit_20261004.md).
-Appendix D is active; all 936 source lines have been freshly read and its
-primary checks continue. No later appendix is marked complete in this pass.
+Appendix D's 936 original lines and 21 selected Berndtsson source pages were
+freshly read. Metric normalization and the scope of the Lorentzian signature
+are explicit; all fourteen appendix pages and both seams passed visual review.
+See the [Appendix D audit](second_reading_appD_audit_20261004.md).
+Appendix E is active; all 669 source lines have been freshly read and its
+interface checks continue. No later appendix is marked complete in this pass.
 
 The current catalogue incorporates the 4 October real-scalar Bergman repair;
 see its [latest correction audit](open_problem_catalogue_correction_audit_20261004.md).
