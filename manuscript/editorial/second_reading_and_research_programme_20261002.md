@@ -550,6 +550,26 @@ receipt or problem solution is claimed, and the global metric and analytic
 dependencies remain the next research steps. The active book remains the
 checked 4,240-page edition.
 
+### Published intermediate limits and conditional metric repair, 4 October 2026
+
+Six complete primary texts (7,362 extracted lines) and 42 selected actual
+source pages were read for intermediate Calabi–Yau limits, uniform Skoda
+integrability and comparison metrics. The published Li baseline and Skoda
+editions control their corrected proofs and numbering; the recent
+Li–Tosatti generic-regularity import is pinned to arXiv v2. See the
+[source audit](li_related_sources_audit_20261004.md) and
+[manifest](li_related_sources_manifest_20261004.json). A separate
+[conditional comparison-metric candidate](research_dossiers/li_global_metric_repair_20261004.md)
+gives the logarithmic and transverse lower bounds and integrated energy
+estimate under explicit uniform model positivity. Its three symbolic
+identities, 255 interior cases and twenty boundary/exterior cases pass;
+these finite checks are separate from the universal conditional proof.
+The general chamber, domination and Bergman dependencies remain open in
+this research path. No principal claim, new independent verifier receipt
+or problem solution is admitted. Chapter 66 is the next scoped integration;
+the checked active edition still has 4,240 pages and all 42 problem statuses
+are unchanged.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
