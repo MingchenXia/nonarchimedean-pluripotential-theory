@@ -1,0 +1,327 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{amsmath,amssymb}
+\setlength{\emergencystretch}{2em}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={A relative base Monge-\/-Ampère operator for bounded potentials},
+  pdfauthor={Xean research author draft},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{A relative base Monge-\/-Ampère operator for bounded potentials}
+\author{Xean research author draft}
+\date{4 October 2026; partial result for P15.2}
+
+\begin{document}
+\maketitle
+
+Partial progress for P15.2; the original general pseudoeffective zero-volume atom remains open. Author draft, 4 October 2026. No literature-priority or independent-verification claim is made.
+
+\section{1. Exact scope and statement}\label{exact-scope-and-statement}
+
+Let \(\pi:X\to B\) be a \textbf{supplied} surjective holomorphic map of connected smooth compact Kähler manifolds, with \(\dim_{\mathbb C}X=n\), \(\dim_{\mathbb C}B=\nu\), and \(1\leq\nu<n\). Set \(m=n-\nu\). Neither connected fibres, smooth fibres, equidimensionality, nor flatness is assumed. Let \(\beta\) be a supplied Kähler form on \(B\), set \(\theta=\pi^*\beta\), and fix the normalization \[
+dd^c=\frac{i}{2\pi}\partial\bar\partial,\qquad
+d^c=\frac{i}{4\pi}(\bar\partial-\partial).
+\] Here \(\operatorname{PSH}(B,\beta)\) means the upper semicontinuous quasi-psh functions with \(\beta+dd^c\phi\geq0\); potentials are taken in their psh representatives, not arbitrary almost-everywhere modifications. All norms below are pointwise supremum norms. Every wedge of nonsmooth currents is the ordinary locally bounded Bedford--Taylor (BT) product. Bounded Borel weights use these representatives.
+
+For every Kähler form \(\omega\) on \(X\) there is a constant \(c_\omega>0\) such that \[
+\pi_*(\omega^m)=c_\omega.
+\] Write \(K_\omega=\binom n\nu c_\omega\) and \(V_B=\int_B\beta^\nu>0\). The class \(\alpha=[\theta]\) is nef, has volume zero, and has numerical dimension \(\nu\), using the nef positive-product convention.
+
+\textbf{Theorem (relative base operator, partial scope).} For any globally bounded \(\phi\in\operatorname{PSH}(B,\beta)\), put \(U=\phi\circ\pi\), \(C_\phi=\beta+dd^c\phi\), and \(\gamma_\epsilon=\theta+\epsilon\omega\). If \(u_\epsilon\) is any globally bounded \(\gamma_\epsilon\)-psh potential with \[
+\delta_\epsilon=\|u_\epsilon-U\|_\infty\longrightarrow0,
+\] then \[
+\frac{\pi_*[(\gamma_\epsilon+dd^c u_\epsilon)^n]}
+ {K_\omega\epsilon^m}
+\ \rightharpoonup\ C_\phi^\nu.                                      \tag{1}
+\] The convergence is against all continuous tests on \(B\). The limit has raw mass \(V_B\). The potentials \(u_\epsilon\) need not descend, and no estimate \(\delta_\epsilon=o(\epsilon^a)\) for any \(a>0\) is assumed. In particular \(\delta_\epsilon=o(\epsilon)\) is not required. The exact family \(u_\epsilon=U\) always exists.
+
+Thus the relative operator on the supplied base is \[
+\mathcal M_{\pi,\beta}(\phi)=C_\phi^\nu,
+\qquad \phi\in\operatorname{PSH}(B,\beta)\cap L^\infty(B).
+\] Its carrier is \(B\), of dimension \(\nu\); its reference potential is \(0\), reference current is \(\beta\), and reference mass is \(V_B\). It retains the bounded/minimal singularity type and the actual bounded potential modulo additive constants. It is not an operator determined just by a singularity-equivalence class. The pair \((\pi,B)\) and the base reference class/form are supplied additional data. No minimality or canonical extraction of this data from an arbitrary class is asserted.
+
+\textbf{Associated energy, as structure for this P15.2 operator.} Define, for a Kähler background \(\gamma\) on a \(d\)-dimensional compact Kähler manifold, \[
+E_\gamma(v)=\frac1{d+1}\sum_{j=0}^d
+\int v(\gamma+dd^c v)^j\gamma^{d-j}.
+\] Then in the theorem's scope, \[
+\frac{E_{\gamma_\epsilon}(u_\epsilon)}{K_\omega\epsilon^m}
+\longrightarrow
+E_\beta(\phi)=\frac1{\nu+1}\sum_{a=0}^{\nu}
+\int_B\phi C_\phi^a\beta^{\nu-a}.                                  \tag{2}
+\] This has reference \(0\), mass \(V_B\), the bounded cocycle, segment variational formula, monotonicity, concavity, and constant-shift law proved in Section 4. No separate resolution of P15.1 is claimed.
+
+Both limits are independent of the representative \textbf{and the class} of \(\omega\), after using the corresponding \(c_\omega\). The scalar \(c_\omega\) itself generally depends on the class. More generally they hold with \(\omega=\omega_\epsilon\) whenever each \(\omega_\epsilon\) is Kähler and \(\omega_\epsilon\to\omega_*\) smoothly on \(X\) for a Kähler \(\omega_*\). One can use either \(K_{\omega_\epsilon}\epsilon^m\) or \(K_{\omega_*}\epsilon^m\) in this case. There is no assertion for auxiliary forms tending to a degenerate limit.
+
+If \(\beta'=\beta+dd^c h\) is Kähler for smooth real \(h\), replace \(\phi\) by \(\phi-h\), and \(u_\epsilon\) by \(u_\epsilon-h\circ\pi\). The limiting operator is unchanged, and the energy changes by the reference cocycle \[
+E_{\beta'}(\phi-h)=E_\beta(\phi)-E_\beta(h).                           \tag{3}
+\]
+
+\section{2. Exact imported foundations and applicability}\label{exact-imported-foundations-and-applicability}
+
+The following are the only substantive pluripotential foundations used. The new applications are proved below. No theorem in the supplied catalogue, proposal, comparison papers, or an earlier verdict is a premise.
+
+\textbf{BT bounded local calculus.} On a complex domain, for locally bounded psh functions \(v_1,\ldots,v_p\), \(p\) no larger than the complex dimension, the recursively defined product is a closed positive current, with recursion \[
+dd^c v_1\wedge T=dd^c(v_1T)
+\] when \(T\) is a product of the remaining bounded psh factors. For locally uniformly bounded decreasing psh sequences \(v_{i,k}\downarrow v_i\), their mixed products converge weakly to the product of their limits. Smooth closed factors can be included; the assertion is local. The products depend on the currents rather than their local potentials. This is the bounded construction and decreasing continuity of Bedford--Taylor, \emph{A new capacity for plurisubharmonic functions}, Acta Math. 149 (1982), 1--40, Section 2; it is recalled in BEGZ Section 1.2, LF175--188, and used explicitly in the proof of BEGZ Theorem 1.14, LF651--658. We use the decreasing theorem, not an assertion for arbitrary pointwise-convergent sequences. Local smooth decreasing approximations can be made by radial convolution of a bounded psh function on a slightly smaller coordinate ball: spherical means of a subharmonic function increase with the radius, so shrinking radial convolution radii gives a decreasing sequence. This also explains the local boundedness and smoothness needed below. Pullback of a locally bounded psh function by a holomorphic map is locally bounded psh.
+
+Symmetry and multilinearity in this bounded scope follow without importing the omitted general proof in BEGZ Proposition 1.4: approximate each of finitely many local psh potentials smoothly and decreasingly on a smaller ball, use symmetry and multilinearity of smooth wedges, and pass to the decreasing BT limit. Sums of these approximants are still decreasing and locally uniformly bounded. Signed differences are then obtained by linearity. Globally a smooth closed \((1,1)\) background has a smooth local \(dd^c\)-potential, so all currents used here have these bounded psh local potentials. Wedge multiplication by a smooth closed factor commutes with the recursion and weak convergence. These facts glue because the local product depends only on the currents.
+
+\textbf{Bounded integration by parts.} The precise published statement used is BEGZ Theorem 1.14: if \(A\) is closed complete pluripolar, \(\Theta\) is a closed positive current of bidimension \((1,1)\), \(\varphi_i,\psi_i\) are quasi-psh and locally bounded off \(A\), and \(a=\varphi_1-\varphi_2\), \(b=\psi_1-\psi_2\) are globally bounded, then \[
+\int_{X\setminus A}a\,dd^c b\wedge\Theta
+=\int_{X\setminus A}b\,dd^c a\wedge\Theta
+=-\int_{X\setminus A}db\wedge d^c a\wedge\Theta.                       \tag{4}
+\] The measures and integrals are finite in this statement. BEGZ Lemma 1.15 also gives finite Dirichlet mass for a globally bounded difference of quasi-psh functions locally bounded on the open set of integration. Our application always has \(A=\varnothing\), a compact Kähler manifold, and \(\Theta\) a globally defined positive closed BT mixed product of \(d-1\) factors (smooth positive factors may occur). Every function in (4) is smooth or a difference of \textbf{globally bounded} quasi-psh functions. Thus none of the unbounded-locus extension issues is used. The positive measure \(da\wedge d^c a\wedge\Theta\) is the bounded BT Dirichlet measure in that theorem: locally it follows by polarization from \(dd^c v^2=2v\,dd^c v+2dv\wedge d^c v\) for bounded nonnegative psh \(v\), or by the decreasing local approximation used in its proof. Its positivity is preserved from the smooth identity. Our normalization rescales the displayed identities by a positive constant if a source uses a different \(d^c\) convention.
+
+\textbf{Nef positive products and volume.} BEGZ Definition 1.17 and the following discussion, LF810--840, define the positive product for pseudoeffective classes by Kähler perturbation and state that for nef classes it equals the ordinary cup product. Consequently the volume of a nef class is its top self-intersection; for a Kähler class it is the top integral of a Kähler representative. In this note the numerical dimension of a nef class is \[
+\max\{k:\int_X\theta^k\kappa^{n-k}>0\}
+\] for any Kähler \(\kappa\), equivalently the greatest degree with nonzero positive product. We check the needed integrals directly, so no comparison among other numerical-dimension definitions is imported. Since \(\theta\geq0\) and \(\theta+t\kappa>0\), the class in question is nef; all applications of the nef statement therefore satisfy its hypothesis.
+
+Other basic foundations are distributional Stokes on a compact boundaryless manifold, holomorphic local potential and pullback calculus, and Sard's theorem for smooth maps: the critical values of a smooth map have measure zero (A. Sard, \emph{The measure of the critical values of differentiable maps}, Bull. Amer. Math. Soc. 48 (1942), 883--890). Here \(\pi\) is smooth, so the differentiability hypothesis is satisfied. Fibre integration on the regular locus follows directly by submersion coordinates and ordinary Fubini; no global bundle theorem is used.
+
+For clarity on source status, the retained BEGZ version is arXiv:0812.3674v2, primary PDF pages 4--7, 14--18, and 24--25 for the supplied units; the published article is S. Boucksom, P. Eyssidieux, V. Guedj, A. Zeriahi, \emph{Monge--Ampère equations in big cohomology classes}, Acta Math. 205 (2010), 199--262. Full source units, including transcription defects and explicitly omitted proofs, are reproduced in the evidence appendix of this Markdown file. The argument does not infer stronger unbounded results from those units.
+
+\section{3. Transverse constant, mass, and bounded projection through critical fibres}\label{transverse-constant-mass-and-bounded-projection-through-critical-fibres}
+
+\subsection{3.1 The transverse constant}\label{the-transverse-constant}
+
+Properness of \(\pi\) follows from compactness of \(X\). The pushforward \(\pi_*(\omega^m)\) is a real degree-zero current on \(B\): it acts on a smooth top-degree test form \(\eta\) by \(\int_X\omega^m\wedge\pi^*\eta\). It is positive, since a positive top form pulls back to a semipositive \((\nu,\nu)\) form and \(\omega^m\) is positive. It is closed, since pushforward commutes with \(d\) by the definition on test forms and Stokes, and \(d\omega^m=0\). A distribution of degree zero with every first distributional derivative zero is constant on a connected manifold. To see this locally, convolve the distribution on a ball with a smoothing kernel: the smooth functions obtained have all derivatives zero on smaller balls, so are constants; their distributional limit is constant. Overlapping charts give a single global constant. Thus \(\pi_*(\omega^m)=c_\omega\geq0\), \textbf{on all of \(B\)}, with no possible correction supported on critical values.
+
+Sard's theorem and surjectivity give a regular value \(b\). The critical locus is closed in compact \(X\), so its image is closed; a neighbourhood of \(b\) consists entirely of regular values. On this neighbourhood \(\pi\) is a proper submersion, and submersion coordinates and a partition of unity on the inverse image identify its pushforward with ordinary fibre integration. Therefore \[
+c_\omega=\int_{X_b}\omega^m>0                                  \tag{5}
+\] for every regular value \(b\). The fibre is a nonempty compact smooth complex manifold of dimension \(m\); if disconnected, this integral sums all its components. The regular values form an open dense set, so (5) is its generic-fibre meaning. The global degree-zero-current proof already covers singular, nonreduced, and higher-dimensional exceptional fibres; it does not define their volume by (5).
+
+The smooth projection formula gives the cohomological description \[
+c_\omega V_B=\int_X\theta^\nu\omega^m.                              \tag{6}
+\] If \(\omega\) changes within its de Rham (hence within its Bott--Chern) class, the right side is unchanged by Stokes: the difference of powers is an exact form wedged with a closed form. Thus \(c_\omega\) is representative independent. It is a function of the auxiliary class, and need not be class independent. Equation (6) also gives \(c_{\omega_\epsilon}\to c_{\omega_*}>0\) for smoothly convergent auxiliary forms.
+
+Pointwise \(\theta^{\nu+1}=0\). The pullback has rank \(\nu\) on the nonempty open regular locus, so \(\theta^\nu\kappa^m\) is strictly positive there for every Kähler \(\kappa\). Thus \(\alpha\) has numerical dimension \(\nu\) and top intersection zero. Its nefness and the nef positive-product foundation imply \(\operatorname{vol}(\alpha)=0\). The Kähler class \([\theta+\epsilon\omega]\) has volume \[
+M_\epsilon=\int_X(\theta+\epsilon\omega)^n
+=\sum_{k=0}^{\nu}\binom nk\epsilon^{n-k}
+\int_X\theta^k\omega^{n-k}
+=K_\omega V_B\epsilon^m+O(\epsilon^{m+1}).                           \tag{7}
+\] This is a finite expansion, and also directly checks the zero-volume limit for every auxiliary Kähler direction.
+
+\subsection{3.2 Global bounded mass and exact-current identities}\label{global-bounded-mass-and-exact-current-identities}
+
+Let \(Y\) be compact of complex dimension \(d\). If \(T_i=\eta_i+dd^c v_i\) are closed positive currents with smooth closed backgrounds and globally bounded quasi-psh potentials, the bounded recursion gives, for any mixed product \(S\) of the other \(d-1\) positive factors, \[
+dd^c v_i\wedge S=dd^c(v_iS).
+\] Indeed locally write \(T_i=dd^c q_i\) with bounded psh \(q_i\) and \(\eta_i=dd^c r_i\) smooth; subtract the two recursive formulas. Products with the smooth \(r_i\) obey the ordinary distributional product rule, since \(S\) is closed. The expressions glue globally because \(v_i\) and \(S\) are global. The current \(v_iS\) is well-defined and of order zero, as \(v_i\) is a bounded Borel function and \(S\) has measure coefficients. Testing \(dd^c(v_iS)\) against \(1\) shows \[
+\int_Y T_1\cdots T_d=\int_Y\eta_1\cdots\eta_d.                     \tag{8}
+\] For the applications in this note all backgrounds are positive or semipositive, so replacing factors one by one always leaves a positive closed \(S\); (8) follows by this repeated replacement. No unbounded mass comparison is needed.
+
+In particular all the positive measures here are finite, and their masses are known cohomologically. Also, for a smooth real test \(g\) and a bounded difference \(w=v-v'\) of two potentials with the same background, \[
+\int_Yg\,dd^c w\wedge S=\int_Yw\,dd^c g\wedge S.                   \tag{9}
+\] This follows just by testing the distribution \(dd^c(wS)\), without a nonsmooth test-function approximation. For nonsmooth bounded weights the two-function formula (4), with \(A=\varnothing\), is applicable.
+
+\subsection{3.3 Bounded pullback and projection formula}\label{bounded-pullback-and-projection-formula}
+
+We claim, for \(0\leq a\leq\nu\), \[
+\pi_*\big(H^a\theta^{\nu-a}\omega^m\big)
+=c_\omega C_\phi^a\beta^{\nu-a},\qquad H=\theta+dd^cU.               \tag{10}
+\] We also claim that any BT product of more than \(\nu\) factors drawn from \(H\) and \(\theta\) vanishes; the same statement holds for any finite collection of bounded pullbacks of base psh potentials.
+
+Here is a local proof that includes the critical locus. On a base coordinate ball \(V\) write \(\beta=dd^c\rho\) with \(\rho\) smooth, so \(q=\rho+\phi\) is bounded psh on relatively compact smaller balls. Choose smooth psh \(q_j\downarrow q\) on such a smaller ball \(V'\), locally uniformly bounded. On \textbf{the entire inverse image} \(\pi^{-1}(V')\), the functions \(q_j\circ\pi\) are smooth psh and decrease locally uniformly boundedly to \(q\circ\pi\). By bounded BT continuity, \[
+(dd^c(q_j\circ\pi))^a\theta^{\nu-a}\omega^m
+\ \rightharpoonup\ H^a\theta^{\nu-a}\omega^m.
+\] For a base test supported compactly in \(V'\), its pullback has compact support in \(\pi^{-1}(V')\) by properness. A finite cover by coordinate balls in \(X\) therefore permits the local BT convergence to be pushed forward. For every \(j\) all base factors are smooth, so the smooth projection formula and the global identity \(\pi_*\omega^m=c_\omega\) give \[
+\pi_*\big((\pi^*dd^c q_j)^a\theta^{\nu-a}\omega^m\big)
+=c_\omega (dd^c q_j)^a\beta^{\nu-a}
+\] as currents on \(V'\). The base decreasing BT theorem gives the limit of the right side. This proves (10) locally and hence globally. No exclusion or zero-mass assertion at critical values was used.
+
+For the horizontal vanishing, smooth approximants of each base local potential give wedges of more than \(\nu\) pulled-back \((1,1)\) forms. These vanish identically, simply because the base has dimension \(\nu\), regardless of the differential rank of \(\pi\) at a point. Decreasing mixed BT continuity gives the asserted vanishing for bounded potentials. This proves every horizontal vanishing used in the expansions below; it is not a pullback claim for an arbitrary singular current.
+
+Both sides of (10) are positive top-degree measures. Equality as currents implies equality as Borel measures. Consequently, for any bounded Borel \(g\) on \(B\), \[
+\int_X(g\circ\pi)H^a\theta^{\nu-a}\omega^m
+=c_\omega\int_B g C_\phi^a\beta^{\nu-a}.                            \tag{11}
+\] This uses the defining identity for the pushforward of a measure. In particular it applies to the possibly discontinuous weight \(g=\phi\). It does \textbf{not} try to multiply a weakly convergent current by a discontinuous weight.
+
+For later use, (8) on \(B\) gives \(\int_B C_\phi^a\beta^{\nu-a}=V_B\) for every \(a\). All bounded potentials here have minimal singularities: any global quasi-psh function is bounded above on a compact manifold, so it is at most a bounded potential plus a constant. Conversely, since \(0\) is a positive-background potential, a minimal potential differs from it by a bounded quantity. Thus this scope retains precisely bounded/minimal type, without any claim about prescribed unbounded P-types.
+
+\section{4. Bounded energy calculus at its stated scope}\label{bounded-energy-calculus-at-its-stated-scope}
+
+Let \(\gamma\) be Kähler on compact \(Y\) of dimension \(d\), and \(u,v\) be globally bounded \(\gamma\)-psh potentials. Write \(T_u=\gamma+dd^c u\). All integrals below are finite by boundedness and (8).
+
+For an affine segment \(u_t=v+t(u-v)\), let \(w=u-v\) and \(T_t=(1-t)T_v+tT_u\). BT multilinearity shows that \(e(t)=E_\gamma(u_t)\) is an ordinary finite polynomial in \(t\): signed factors can be expanded using the positive currents \(T_u,T_v,\gamma\) and bounded weights \(u,v\). Differentiating this polynomial and applying (4) with \(a=u_t\), \(b=w\) and \(\Theta=T_t^{j-1}\gamma^{d-j}\) for \(j\geq1\) gives \[
+\begin{aligned}
+(d+1)e'(t)
+&=\sum_{j=0}^d\int_YwT_t^j\gamma^{d-j}
++\sum_{j=1}^d j\int_Yu_t\,dd^c w\,T_t^{j-1}\gamma^{d-j}\\
+&=\sum_{j=0}^d\int_YwT_t^j\gamma^{d-j}
++\sum_{j=1}^d j\int_Yw(T_t-\gamma)T_t^{j-1}\gamma^{d-j}\\
+&=(d+1)\int_YwT_t^d.
+\end{aligned}                                                     \tag{12}
+\] The current \(\Theta\) is positive closed of bidimension \((1,1)\); \(u_t=u_t-0\) and \(w=u-v\) are bounded differences of globally bounded quasi-psh functions, so every antecedent of (4) is satisfied. The final equality telescopes: coefficients of \(T_t^j\gamma^{d-j}\) for \(j<d\) are \(1+j-(j+1)=0\) and that of \(T_t^d\) is \(d+1\).
+
+Integration of (12), and the elementary beta integral \[
+\int_0^1\binom da t^a(1-t)^{d-a}\,dt=\frac1{d+1},
+\] give the full bounded relative formula \[
+E_\gamma(u)-E_\gamma(v)
+=\frac1{d+1}\sum_{a=0}^d\int_Y(u-v)T_u^aT_v^{d-a}.                  \tag{13}
+\] It is a cocycle since the left side is a difference of one functional. Thus this is a proof of the cocycle, not an extra axiom. Formula (12) is the variational formula for all affine bounded psh segments. By the same finite polynomial calculation it holds for differentiable paths in a finite-dimensional affine span of fixed bounded potentials, as long as the path stays in the psh cone. No claim about arbitrary Banach-space paths or unbounded finite-energy paths is needed or made.
+
+If \(w\geq0\), (12) is nonnegative, proving monotonicity. Since \(T_{u+b}=T_u\) and every mixed mass in the energy sum is \(M_\gamma=\int_Y\gamma^d\), one has \[
+E_\gamma(0)=0,\qquad E_\gamma(u+b)=E_\gamma(u)+bM_\gamma.             \tag{14}
+\] Monotonicity and \(v-\delta\leq u\leq v+\delta\) give \[
+|E_\gamma(u)-E_\gamma(v)|\leq M_\gamma\|u-v\|_\infty.                \tag{15}
+\] Finally, another polynomial differentiation and (4) with \(a=b=w\) and \(\Theta=T_t^{d-1}\) give \[
+e''(t)=d\int_Y w\,dd^c w\,T_t^{d-1}
+=-d\int_Ydw\wedge d^cw\wedge T_t^{d-1}\leq0.                       \tag{16}
+\] The Dirichlet integral is finite and positive by the stated bounded integration-by-parts foundation; its hypotheses have already been checked. This proves concavity on the full convex space of bounded \(\gamma\)-psh potentials, including endpoints by polynomial continuity. These arguments apply in particular to \(\gamma_\epsilon\) on \(X\) and to \(\beta\) on \(B\). They do not rely on the more general weighted-energy claims or their proof defects in the supplied source.
+
+\section{5. Operator estimate and convergence with no relative rate}\label{operator-estimate-and-convergence-with-no-relative-rate}
+
+Set \[
+A=\gamma_\epsilon+dd^c u_\epsilon,\quad
+D=\gamma_\epsilon+dd^c U=H+\epsilon\omega,\quad w=u_\epsilon-U.
+\] Both potentials are bounded and both currents positive. Bounded multilinearity and the recursion in Section 3.2 give the identity of signed measures \[
+A^n-D^n=dd^cw\wedge\sum_{j=0}^{n-1}A^jD^{n-1-j}.                   \tag{17}
+\] For a smooth real \(f\) on compact \(B\), choose \(C_f\) with \(-C_f\beta\leq dd^cf\leq C_f\beta\); such a constant exists by the pointwise operator norm relative to the Kähler metric \(\beta\). Pullback preserves these inequalities, even at critical points. With \(S_j=A^jD^{n-1-j}\), (9) yields \[
+\left|\int_X(f\circ\pi)(A^n-D^n)\right|
+\leq \delta_\epsilon C_f\sum_{j=0}^{n-1}\int_X\theta S_j
+=nC_f\delta_\epsilon Q_\epsilon,                                  \tag{18}
+\] where the domination of the signed measure \(\pi^*dd^cf\wedge S_j\) by \(C_f\theta S_j\) follows by wedging the positive forms \(C_f\theta\pm\pi^*dd^cf\) with the positive BT current \(S_j\). The equality of each integral with the common number \(Q_\epsilon\) follows by (8), replacing every bounded-potential factor, with smooth semipositive \(\theta\) left in the product. Explicitly \[
+\begin{aligned}
+Q_\epsilon&=\int_X\theta(\theta+\epsilon\omega)^{n-1}\\
+&=\sum_{k=0}^{\nu-1}\binom{n-1}{k}\epsilon^{n-1-k}
+\int_X\theta^{k+1}\omega^{n-1-k}
+=O(\epsilon^m).
+\end{aligned}                                                     \tag{19}
+\] The smallest exponent is exactly \(m\), not \(m-1\). Consequently (18) divided by \(K_\omega\epsilon^m\) is \(O_f(\delta_\epsilon)\). This is the decisive estimate, valid also for non-descending perturbative potentials.
+
+For the exact pullback family, Section 3.3 permits a finite BT expansion: \[
+\frac{\pi_*D^n}{K_\omega\epsilon^m}=C_\phi^\nu+R_\epsilon,
+\qquad
+R_\epsilon=\sum_{k=0}^{\nu-1}
+\frac{\binom nk}{K_\omega}\epsilon^{\nu-k}
+\pi_*(H^k\omega^{n-k}).                                           \tag{20}
+\] Here (10) identifies the leading term, and horizontal powers of degree greater than \(\nu\) vanish. Each summand of \(R_\epsilon\) is a positive measure. Its mass is computed by (8), so \[
+\|R_\epsilon\|_{\mathrm{TV}}
+=\sum_{k=0}^{\nu-1}\frac{\binom nk}{K_\omega}\epsilon^{\nu-k}
+\int_X\theta^k\omega^{n-k}=O(\epsilon).                            \tag{21}
+\] This does not suppose that the lower-degree pushforwards are smooth at critical values. Combining (18)--(21) gives the explicit useful bound \[
+\left|\left\langle
+\frac{\pi_*A^n}{K_\omega\epsilon^m}-C_\phi^\nu,f
+\right\rangle\right|
+\leq\frac{nC_fQ_\epsilon}{K_\omega\epsilon^m}\delta_\epsilon
++\|f\|_\infty\|R_\epsilon\|_{\mathrm{TV}}.                         \tag{22}
+\] No comparison of \(\delta_\epsilon\) with \(\epsilon\) occurs.
+
+The scaled positive measures have masses \(M_\epsilon/(K_\omega\epsilon^m)\) by (8), uniformly bounded and converging to \(V_B\) by (7). Smooth functions are uniformly dense in continuous functions on compact \(B\), and the limiting BT measure has mass \(V_B\). Approximate a continuous test uniformly by a smooth one in (22); the uniformly bounded masses control the approximation error. This proves (1) against all continuous tests. It also establishes the raw mass directly. If one instead divides the positive-\(\epsilon\) measures by their actual positive masses \(M_\epsilon\), (1) and (7) give \(C_\phi^\nu/V_B\). That is a different probability convention and loses the supplied raw scale; nothing here reconstructs \(V_B\) from I-equivalence.
+
+\section{6. Energy coefficient and the same perturbation independence}\label{energy-coefficient-and-the-same-perturbation-independence}
+
+First (15) and (7) give \[
+\frac{|E_{\gamma_\epsilon}(u_\epsilon)-E_{\gamma_\epsilon}(U)|}
+ {K_\omega\epsilon^m}
+\leq\delta_\epsilon\frac{M_\epsilon}{K_\omega\epsilon^m}
+\longrightarrow0.                                                \tag{23}
+\] Thus it suffices to compute the exact pullback coefficient. Expand \[
+E_{\gamma_\epsilon}(U)=\frac1{n+1}\sum_{j=0}^n
+\int_XU(H+\epsilon\omega)^j(\theta+\epsilon\omega)^{n-j}.
+\] All terms with more than \(\nu\) horizontal factors vanish by the local proof in Section 3.3. Terms with \(\nu\) such factors have coefficient \[
+\frac{\epsilon^m}{n+1}\sum_{a=0}^{\nu}
+\left[\sum_{j=0}^n\binom ja\binom{n-j}{\nu-a}\right]
+\int_X U H^a\theta^{\nu-a}\omega^m.                                \tag{24}
+\] Take a binomial coefficient as zero when its lower index is out of range. The bracket is \(\binom{n+1}{\nu+1}\): count \((\nu+1)\)-element subsets of \(\{1,\ldots,n+1\}\) by their \((a+1)\)-st element \(j+1\); choose \(a\) earlier and \(\nu-a\) later elements. Since \(\binom{n+1}{\nu+1}/(n+1)=\binom n\nu/(\nu+1)\), applying (11) with the bounded Borel weight \(\phi\) to (24) gives precisely \(K_\omega\epsilon^m E_\beta(\phi)\).
+
+All other terms contain \(k<\nu\) horizontal factors and the power \(\epsilon^{n-k}\geq\epsilon^{m+1}\). Their weighted integrals satisfy \[
+\left|\int_X U H^a\theta^b\omega^{n-a-b}\right|
+\leq\|\phi\|_\infty\int_X\theta^{a+b}\omega^{n-a-b},\qquad a+b\leq\nu,
+\] by positivity and (8). There are finitely many terms. Hence \[
+E_{\gamma_\epsilon}(U)
+=K_\omega\epsilon^m E_\beta(\phi)+O(\epsilon^{m+1}).                 \tag{25}
+\] Together with (23) this proves (2), for all bounded base potentials, including discontinuous ones. The segment variation from (12) on \(B\) is \(\frac{d}{dt}E_\beta(\phi_t)=\int_B\dot\phi_t C_{\phi_t}^{\nu}\), so the limiting energy has exactly the base operator as its derivative in the stated bounded-segment scope, with no auxiliary factor remaining.
+
+For an arbitrary fixed Kähler form on \(X\), (18)--(25) prove the identical limiting base measure and energy after its own calibration. Thus changing the auxiliary Kähler class is allowed, not merely changing its representative. It is unnecessary and incorrect to assert that \(c_\omega\) itself is independent of the class.
+
+For moving auxiliary forms \(\omega_\epsilon\to\omega_*>0\) smoothly, repeat the identities for each fixed \(\epsilon\). By (6), the constants \(c_{\omega_\epsilon}\) converge to a positive constant. Every cohomological coefficient in (7), (19), (21), and (25) converges and is bounded, as it is the integral of a finite wedge of smoothly converging forms. The constants in these estimates can therefore be chosen uniformly for small \(\epsilon\). The bounds (22), (23) are again \(O_f(\delta_\epsilon+\epsilon)\) and \(O(\delta_\epsilon)\) after calibration, and the exact pullback remainders tend to zero. This proves both moving-form limits. The ratio \(K_{\omega_\epsilon}/K_{\omega_*}\to1\) proves the alternative calibration assertion. No derivative in \(\epsilon\) or rate of convergence of \(\omega_\epsilon\) is used.
+
+\section{7. Change of base representative and reference}\label{change-of-base-representative-and-reference}
+
+Let \(\beta'=\beta+dd^ch>0\) for smooth real \(h\). Put \(H_h=h\circ\pi\), \(\theta'=\pi^*\beta'\), \(\gamma'_\epsilon=\theta'+\epsilon\omega\), \(\phi'=\phi-h\), and \(u'_\epsilon=u_\epsilon-H_h\). Then \[
+\beta'+dd^c\phi'=C_\phi,\qquad
+\gamma'_\epsilon+dd^cu'_\epsilon=\gamma_\epsilon+dd^cu_\epsilon.
+\] The psh conditions hold and \(\|u'_\epsilon-\phi'\circ\pi\|_\infty=\delta_\epsilon\). The pushforward and its calibration are unchanged even before passage to the limit. Also \(\int_B(\beta')^\nu=V_B\) by Stokes. Thus the operator is invariant under this compensating change of representative.
+
+Formula (13) applied on \(B\) to the bounded \(\beta\)-psh potentials \(\phi,h\) gives \[
+E_\beta(\phi)-E_\beta(h)
+=\frac1{\nu+1}\sum_{a=0}^{\nu}\int_B(\phi-h)C_\phi^a(\beta')^{\nu-a}
+=E_{\beta'}(\phi-h).
+\] This is (3) with every reference explicitly accounted for. On \(X\) the identical formula gives, for each \(\epsilon\), \[
+E_{\gamma'_\epsilon}(u_\epsilon-H_h)
+=E_{\gamma_\epsilon}(u_\epsilon)-E_{\gamma_\epsilon}(H_h).
+\] Here \(H_h\) is \(\gamma_\epsilon\)-psh because \(\gamma_\epsilon+dd^cH_h=\theta'+\epsilon\omega>0\). Applying (2) to its exact pullback family supplies the same limiting reference correction. Arbitrary changes of the base class, carrier, or fibration are not covered by this compensating representative statement.
+
+\section{8. Comparison to P15.2 and proof audit}\label{comparison-to-p15.2-and-proof-audit}
+
+This is a complete proof of a \textbf{special-scope relative theorem}, conditional on the supplied holomorphic fibration and pulled-back Kähler class. Within that scope it covers every such nonproduct fibration, all bounded base potentials, singular and dimension-jumping fibres, non-descending bounded perturbative potentials with only absolute uniform convergence, every auxiliary Kähler direction after explicit transverse calibration, and smoothly converging Kähler auxiliary paths. The associated energy is included only as structural support for P15.2.
+
+The original P15.2 asks for a theory for general pseudoeffective zero-volume classes, with carrier, dimension, mass, reference choices, and independence justified. Such a class need not be a pullback of a Kähler class under a supplied holomorphic map. This proof neither constructs that map/carrier from the class nor proves minimality of the reference choices. It does not extend to prescribed unbounded P-types, singular base or total manifolds, degenerate auxiliary paths, nonuniform potential convergence, or an \(E^1\) theory. We do not claim an optional continuous-descent theorem: the operator proof is formulated for supplied bounded pullbacks, and nowhere requires that every \(\theta\)-psh potential descend. No old product counterexample is re-solved. The full original atom remains open, so status is \textbf{partial} and candidate is \textbf{false}.
+
+The essential new steps are: the global closed degree-zero pushforward argument; local bounded projection and horizontal vanishing on full inverse images; cohomological mass evaluation of all mixed BT terms; the \(O(\delta_\epsilon)\) estimate after cancellation of \(\epsilon^m\); finite positive remainder control; and the bounded energy coefficient and reference cocycle. Their full arguments appear above. The only nonsmooth two-weight integration step is a precisely stated application of published BEGZ Theorem 1.14 with empty exceptional set. No quoted unpublished proof or earlier review supplies a missing lemma.
+
+\section{9. Bibliography}\label{bibliography}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  E. Bedford and B. A. Taylor, \emph{A new capacity for plurisubharmonic functions}, Acta Math. 149 (1982), 1--40, Section 2: bounded products and decreasing continuity. This is BEGZ reference {[}3{]}; BEGZ reference {[}4{]} is instead their 1987 paper \emph{Fine topology, Šilov boundary, and \((dd^c)^n\)}, J. Funct. Anal. 72 (1987), 225--251. The latter is not an essential additional imported theorem here.
+\item
+  S. Boucksom, P. Eyssidieux, V. Guedj, and A. Zeriahi, \emph{Monge--Ampère equations in big cohomology classes}, Acta Math. 205 (2010), 199--262; primary retained version arXiv:0812.3674v2. Section 1.2; Theorem 1.14 and Lemma 1.15; Definition 1.17 and the nef discussion. Proposition 2.8 and Proposition 1.12 are retained comparison/source material, not additional premises of the proof.
+\item
+  A. Sard, \emph{The measure of the critical values of differentiable maps}, Bull. Amer. Math. Soc. 48 (1942), 883--890. Used only to obtain the regular-value locus of a smooth surjective map.
+\item
+  Supplied P15.2 dossier and unverified fibration proposal, retained verbatim. Scope and research input only; neither is a mathematical theorem grant.
+\end{enumerate}
+
+\end{document}
