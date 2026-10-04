@@ -516,6 +516,21 @@ checks after each integration. Preserve candidates and unresolved concerns
 outside the active manuscript; do not present an unverified argument as a
 theorem or infer that an open problem is solved from a narrower result.
 
+### First checked research integration, 4 October 2026
+
+Lin's arXiv:2609.12969v1 Remark 9.8 is integrated as a worked toric
+face-restriction example in Chapter 19, with a direct constant-shift
+variation and explicit value-group, lattice and degree checks. Chapter 64
+and Appendix L record the comparison scope and attribution. All 2,243
+primary-source text lines were read; nine selected actual source PDF pages
+were viewed. The general subvariety theorem is not a load-bearing import.
+The 4,240-page full build and all 55 selected follow-up book pages pass their
+gates. The completed second-reading artifacts remain untouched, and all 42
+problem statuses are unchanged. See the [integration audit](lin_face_integration_audit_20261004.md)
+and [manifest](lin_face_integration_manifest_20261004.json). Wu's broader
+claims remain outside the active manuscript pending the recorded source
+and dependency checks. Literature research continues in the cloud.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit

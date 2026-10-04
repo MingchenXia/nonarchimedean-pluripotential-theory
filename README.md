@@ -6,11 +6,16 @@ left blank in this release.
 
 **Active continuation, 4 October 2026:** the ordered second reading of all
 72 chapters, Appendices A--N and nine front-matter files is complete.
-The current full build has 4,236 pages; its scoped final review includes the
-complete contents, index, bibliography and all part introductions. See the
-[second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-Related directions and recent arXiv literature are now being explored for
-source-checked integration.
+The completed second-reading edition has 4,236 pages; its scoped final
+review includes the complete contents, index, bibliography and all part
+introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
+The current research-integration build has **4,240 pages**. Chapter 19 now
+includes Lin's version-pinned face-restriction example and a direct worked
+variation, with the comparison and provenance interfaces reconciled in
+Chapter 64 and Appendix L. Full-build, reference, exact-calculation and
+scoped rendered-page checks pass; see the [integration audit](manuscript/editorial/lin_face_integration_audit_20261004.md).
+Related directions and recent arXiv literature continue to be explored for
+source-checked integration; the 42 open-problem statuses are unchanged.
 All current execution remains in the cloud, and Xean setup is suspended by
 the latest user instruction. The standalone catalogue of all 42 active
 open-problem items is complete: [LaTeX source](output/open_problems_catalogue_2026-10-03.tex)
