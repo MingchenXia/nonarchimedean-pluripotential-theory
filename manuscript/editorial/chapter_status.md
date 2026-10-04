@@ -301,8 +301,12 @@ Appendix D's 936 original lines and 21 selected Berndtsson source pages were
 freshly read. Metric normalization and the scope of the Lorentzian signature
 are explicit; all fourteen appendix pages and both seams passed visual review.
 See the [Appendix D audit](second_reading_appD_audit_20261004.md).
-Appendix E is active; all 669 source lines have been freshly read and its
-interface checks continue. No later appendix is marked complete in this pass.
+Appendix E's 669 source lines and its Chapter 7 measure-theory interfaces
+were freshly read. The constant-net check states Hausdorffness as sufficient;
+all ten appendix pages and both seams passed visual review.
+See the [Appendix E audit](second_reading_appE_audit_20261004.md).
+Appendix F is active; all 669 source lines have been freshly read and its
+primary checks continue. No later appendix is marked complete in this pass.
 The current catalogue incorporates the real-scalar Bergman correction; its
 [4 October audit](open_problem_catalogue_correction_audit_20261004.md) records
 the preserved twelve full problems, unchanged 42 statuses and fresh checks.
