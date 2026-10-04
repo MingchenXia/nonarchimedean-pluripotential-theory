@@ -348,8 +348,17 @@ pages and unchanged Chapter 19 statement interfaces were checked. All
 eighteen pages and both seams pass. See the
 [Appendix N audit](second_reading_appN_audit_20261004.md).
 Chapters 1–72 and Appendices A–N now close the ordered reading gates.
-The nine front-matter files (952 lines) are freshly read; their final
-coherence, source-boundary and whole-book page checks remain active.
+The nine front-matter files were freshly read in full (952 original,
+955 final lines); all 53 labels and mathematical displays are preserved.
+The final full-book build, reference/citation/navigation checks, complete
+contents/index/bibliography and all six part-introduction page gates pass.
+The ordered second reading is complete. See the
+[whole-book completion audit](book_second_reading_completion_audit_20261004.md)
+and [manifest](book_second_reading_completion_manifest_20261004.json).
+The continuation now explores related directions and recent arXiv papers,
+checking primary statements, proofs, versions and compatibility before
+integrating suitable material. Cloud execution and normal work-branch
+publication continue; incoming user research is checked before integration.
 The current catalogue incorporates the real-scalar Bergman correction; its
 [4 October audit](open_problem_catalogue_correction_audit_20261004.md) records
 the preserved twelve full problems, unchanged 42 statuses and fresh checks.

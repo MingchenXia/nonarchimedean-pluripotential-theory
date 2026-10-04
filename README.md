@@ -4,9 +4,13 @@ This repository contains the current second draft of the monograph
 *Non-Archimedean Pluripotential Theory*.  The author field is intentionally
 left blank in this release.
 
-**Active continuation, 2 October 2026:** a new full reading pass continues
-from Chapter 1 for coherence and readability; Chapters 1--72 pass its gates.
-Appendices A--N also pass; the final front-matter gate is active.
+**Active continuation, 4 October 2026:** the ordered second reading of all
+72 chapters, Appendices A--N and nine front-matter files is complete.
+The current full build has 4,236 pages; its scoped final review includes the
+complete contents, index, bibliography and all part introductions. See the
+[second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
+Related directions and recent arXiv literature are now being explored for
+source-checked integration.
 All current execution remains in the cloud, and Xean setup is suspended by
 the latest user instruction. The standalone catalogue of all 42 active
 open-problem items is complete: [LaTeX source](output/open_problems_catalogue_2026-10-03.tex)
@@ -448,7 +452,7 @@ current-source build produced 3,330 pages.  These checks do not turn
 source imports or book-level derivations into novelty or priority claims, or
 close residual questions outside the displayed theorem scopes.
 
-The manuscript has 72 chapters in six parts and 12 reference appendices.  It
+The manuscript has 72 chapters in six parts and fourteen appendices (A--N). It
 develops:
 
 - valued fields, models, Berkovich spaces, skeleta, and semipositive metrics;

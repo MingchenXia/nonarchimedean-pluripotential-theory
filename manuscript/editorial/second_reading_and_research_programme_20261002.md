@@ -10,8 +10,9 @@ readability. Resume attempts on the active open problems one by one using
 [Xean](https://github.com/chaoxu/xean) and `gpt-6.1-sol` at `xhigh` reasoning.
 This instruction initially superseded the previous pause on independent
 research. Subsequent user steering suspends Xean setup and requires all
-current execution to remain in the cloud. The active work is the complete
-book rereading and polishing pass; the prepared research queue remains
+current execution to remain in the cloud. The ordered book rereading and polishing pass completed on 4 October.
+The active work is now related-direction and recent-arXiv exploration,
+followed by source-checked integration. The prepared solver queue remains
 historical preparation, with no new solved status.
 On 3 October the user additionally authorized a subsequent literature and
 research phase: after the whole-book polishing pass, explore directions
@@ -422,8 +423,17 @@ pages and unchanged Chapter 19 statement interfaces were checked. All
 eighteen pages and both seams pass. See the
 [Appendix N audit](second_reading_appN_audit_20261004.md).
 Chapters 1–72 and Appendices A–N now close the ordered reading gates.
-The nine front-matter files (952 lines) are freshly read; their final
-coherence, source-boundary and whole-book page checks remain active.
+The nine front-matter files were freshly read in full (952 original,
+955 final lines); all 53 labels and mathematical displays are preserved.
+The final full-book build, reference/citation/navigation checks, complete
+contents/index/bibliography and all six part-introduction page gates pass.
+The ordered second reading is complete. See the
+[whole-book completion audit](book_second_reading_completion_audit_20261004.md)
+and [manifest](book_second_reading_completion_manifest_20261004.json).
+The continuation now explores related directions and recent arXiv papers,
+checking primary statements, proofs, versions and compatibility before
+integrating suitable material. Cloud execution and normal work-branch
+publication continue; incoming user research is checked before integration.
 
 The current catalogue incorporates the 4 October real-scalar Bergman repair;
 see its [latest correction audit](open_problem_catalogue_correction_audit_20261004.md).
