@@ -1,0 +1,327 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\newcommand{\MA}{\operatorname{MA}}
+\newcommand{\PSH}{\operatorname{PSH}}
+\newcommand{\CPSH}{\operatorname{CPSH}}
+\newcommand{\FS}{\mathcal H}
+\newcommand{\EE}{\mathcal E^1}
+\newcommand{\dd}{d'd''}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\triv}{\mathrm{triv}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{example}[proposition]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[proposition]{Remark}
+\title{The fixed-Reeb Monge--Amp\`ere image:\\source audit and partial results for P13.2}
+\author{Unverified research draft}
+\date{October 4, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+This paper does not solve the unchanged original P13.2. It verifies the invariant carrier and probability normalization, repairs density and energy-sign statements in the supplied public sources, and proves that finite-energy maximizing sequences are Cauchy in the fixed-Reeb potential quasi-pseudometric. It also computes a genuine irrational toric model output supported at a nondivisorial quasimonomial point. The potential realization, target identification, and general existence passages remain unproved. No sufficient measure criterion for all normal polarized affine cones is claimed.
+\end{abstract}
+
+\section{Scope and source convention}
+The setting is an algebraically closed, trivially valued field of characteristic zero and a normal affine cone $X=\Spec R$ with good effective torus action $T$ and Reeb field $\xi$. No rationality of $\xi$ or smoothness of the cone is assumed in Sections 2--5. The explicit models in Section 6 are smooth toric special cases.
+
+The only primary sources used are \cite{Wu21,Wu24,BJ22,BJ23}, at the exact public versions listed in the bibliography. The accompanying \texttt{source-extracts/source-provenance.json} embeds literal statements and relevant proof bodies, source versions and hashes, and precise application checks. LF ranges here mean one-based inclusive ranges of the supplied literal text split by the newline character; form feeds remain in their lines. All eight supplied PDF/text hashes match. These execution and provenance facts do not establish mathematical correctness.
+
+The task input states that uniqueness modulo constants is already established on the genuine image. That uniqueness is retained as given; it is not promoted to surjectivity. The additional mathematical arguments here are partial.
+
+\section{Carrier and normalization}
+Write $n=\dim X$, $R=\bigoplus_\alpha R_\alpha$, and let $\mathfrak m$ define the vertex. Set
+\[
+ X_0=\{v:v(\mathfrak m)=0\},\qquad K=X_0^T,\qquad \rho=\varphi_\xi.
+\]
+For homogeneous generators $f_j\in R_{\alpha_j}$ of $\mathfrak m$,
+\[
+ \rho(v)=\max_j\frac{-v(f_j)}{\langle\xi,\alpha_j\rangle},\qquad
+ \rho^+=\max\{\rho,0\},\qquad \rho|_{X_0}=0.
+\]
+The genuine volume and model operators have conventions
+\begin{align}
+ V_\xi&=\lim_{m\to\infty}\frac{n!}{m^n}
+       \sum_{\langle\xi,\alpha\rangle\le m}\dim R_\alpha,\label{eq:vol}\\
+ \MA_\xi(\phi_1,\ldots,\phi_{n-1})
+   &=V_\xi^{-1}\dd\phi_1\wedge\cdots\wedge\dd\phi_{n-1}\wedge\dd\rho^+,\label{eq:ma}\\
+ E_\xi(\phi)&=\frac1{nV_\xi}\sum_{j=0}^{n-1}
+ \int(\phi-\rho)(\dd\phi)^j\wedge(\dd\rho)^{n-1-j}\wedge\dd\rho^+.
+ \label{eq:energy}
+\end{align}
+These follow from \cite[Definition 2.4]{Wu21} (LF 205--211) and \cite[Theorem 2.12, Definition 4.1]{Wu24} (LF 321--332, 522--554). There are $n-1$ potential factors and one radial factor in the measure. The transverse dimension is $n-1$ and the energy has $n$ summands, with denominator $nV_\xi$. The mixed measures have mass one, $E(\rho)=0$, and $E(\phi+c)=E(\phi)+c$.
+
+For a positive finite measure $\nu$ of mass $m$,
+\[
+ E(\phi+c)-\int(\phi+c)d\nu=E(\phi)-\int\phi d\nu+(1-m)c.
+\]
+Thus finite dual energy forces $m=1$. Scaling the $n$ current factors yields
+\[
+ V_{a\xi}=a^{-n}V_\xi,\quad
+ \MA_{a\xi}(a^{-1}\phi)=\MA_\xi(\phi),\quad
+ E_{a\xi}(a^{-1}\phi)=a^{-1}E_\xi(\phi).
+\]
+These are single-ray identities only.
+
+\begin{proposition}[Torification]
+The map $\tau(v)(f)=\min_\alpha v(f_\alpha)$, for $f=\sum f_\alpha$, is a continuous retraction $X_0\to K$. Every genuine psh function factors through it. The carrier $K$ is closed and compact.
+\end{proposition}
+\begin{proof}
+Apply the action homomorphism $R\to R[M]$, $f\mapsto\sum f_\alpha\chi^\alpha$. Pass to the fraction field of $R/\ker v$ with its induced valuation, and extend the valuation to Laurent polynomials by assigning every character value zero and taking the minimum of coefficient values. This is multiplicative: the initial Laurent polynomials over the graded residue domain are nonzero and their product is nonzero. Pullback gives $\tau(v)$, including infinite evaluations. Homogeneous evaluations are unchanged.
+
+The invariant-semivaluation criterion in \cite[Lemma 2.8]{Wu21}, LF 269--297, has a character-matrix proof: for the finitely many characters in any $f$, choose torus points whose evaluation matrix is invertible and express each $f_\alpha$ as a linear combination of translates of $f$. It follows that a torus-invariant semivaluation satisfies $v(f)=\min v(f_\alpha)$. Hence $\tau$ lands in the invariant locus and fixes it. Each evaluation of $\tau(v)$ is a finite minimum of continuous extended-real evaluations, proving continuity. Homogeneous generators of $\mathfrak m$ show that $\tau$ preserves the link.
+
+If $v(\mathfrak m)=0$ and $v(g)<0$, choose $h\in\mathfrak m$ of finite value. The values of $g^rh\in\mathfrak m$ tend to $-\infty$, a contradiction. Thus all evaluations are nonnegative. Bounded semivaluations form a closed subset of $[0,+\infty]^R$: the semivaluation equations and inequalities are closed in these evaluation coordinates. The link is the closed subset specified by the finite-generator equation $\min_jv(f_j)=0$. It is compact Hausdorff. The fixed locus of the continuous idempotent $\tau$ is closed, so $K$ is compact.
+
+Homogeneous FS formulas depend only on homogeneous evaluations. Uniform limits and decreasing pointwise limits preserve this dependence. These are precisely the operations defining continuous psh and general psh functions in \cite{Wu24}.
+\end{proof}
+
+\begin{proposition}[Actual output carrier]
+Every genuine finite-energy mixed Monge--Amp\`ere measure is a probability supported on $K$.
+\end{proposition}
+\begin{proof}
+The model result is \cite[Corollary 5.7]{Wu21}, LF 1049--1054. Its proof, LF 1092--1200, uses the vanishing homogeneous top wedge, local tropical facet calculations, and compactness to obtain finite support. The invariant current makes its support a finite $T(k)$-set. A divisible abelian group has no nontrivial finite quotient: if the quotient has exponent $e$, multiplication by $e$ is both surjective and zero. Thus each support point is torus-invariant. This is a pointwise-support assertion, stronger than setwise invariance of a measure. The sentence about a Hessian being zero in the preceding proof must mean its determinant is zero: linearity in the Reeb direction makes the Hessian singular.
+
+Theorem 2.12 of \cite{Wu24} already states the model carrier $X_0^T$. Model approximation proves the continuous case; decreasing-net continuity of its Theorem 6.3 proves the finite-energy case. A weak limit of probabilities supported on a closed subset $K$ is again supported there. Indeed every nonnegative continuous function vanishing on $K$ has integral zero at the limit, and Radon regularity gives zero mass to the complement. Normalized mass remains one.
+\end{proof}
+
+The auxiliary \cite[Lemma 5.8]{Wu21}, LF 1058--1091, has a further literal defect: its boundary-current sum uses full hyperplanes rather than active facets. For $\psi(x,y)=\max\{x,y\}$, a test form near $(0,1)$ sees its $x=0$ term but no part of $\{\psi=0\}$. The boundary calculation must restrict to the oriented facets
+\[
+ \{v_i\cdot x=0,\ v_j\cdot x\le0\text{ for all }j\},
+\]
+with redundancies removed. In the relative interior of a facet the active form is unique. Gradients of uniformly converging convex smooth approximants converge to that form's gradient, by the upper and lower finite-difference bounds for convex derivatives. The same bounds give local boundedness. Facet intersections have lower dimension and zero facet integration measure, so exhaustion of the relative interiors gives the required restricted boundary trace. No full-hyperplane identity or general mass coefficient is used here. The normalized model-carrier application also uses the independently printed \cite[Theorem 2.12]{Wu24} under its precise normal-cone, Reeb, and homogeneous-FS hypotheses.
+
+\section{The corrected density domain}
+Let $D_\xi$ be restrictions to $K$ of differences $\phi-\psi$, with $\phi,\psi\in\CPSH(a\xi)$ for some $a>0$.
+\begin{proposition}
+$D_\xi$ is a real vector lattice containing constants, and is uniformly dense in $C(K)$.
+\end{proposition}
+\begin{proof}
+The same-ray rules of \cite[Proposition 3.3]{Wu24} say that addition at $a\xi,b\xi$ lands at $ab/(a+b)\xi$ and that scalar multiplication rescales the Reeb ray. Thus sums and real multiples of differences remain differences. For $u=\phi_1-\phi_2$ and $v=\psi_1-\psi_2$ use the identity
+\[
+ \max\{u,v\}=\max\{\phi_1+\psi_2,\psi_1+\phi_2\}-(\phi_2+\psi_2).
+\]
+All potentials on the right have the same proportional polarization. Constants arise from $\rho+c-\rho$.
+
+Different invariant semivaluations differ on a homogeneous $f\in R_\alpha$. Its nonzero weight has $d=\langle\xi,\alpha\rangle>0$. The function
+\[
+ u_{f,A}(v)=\max\{(-v(f)+A)/d,\rho(v)\}-\rho(v)
+\]
+is a difference of genuine FS functions, since the reference generators are retained. On $K$ it equals $\max\{(A-v(f))/d,0\}$. Choosing $A$ above both finite values, or above the finite value if the other is infinite, separates the points. The real lattice Stone--Weierstrass theorem proves density.
+\end{proof}
+
+Theorem 3.5 of \cite{Wu24} literally states density in $C(X_0)$, LF 416--417. Its separation proof assumes that different points differ on a homogeneous element, LF 434--435. That assumption holds on $K$, not on $X_0$. Theorem 3.6 likewise must restrict to continuous equivariant functions factoring through torification. The printed maximum formula in LF 424--432 also needs the valid algebraic identity above.
+
+\begin{example}[Full-link finite energy does not determine an output]
+Let $X=\mathbb A^2$, $T=(\mathbb G_m)^2$, and $\xi=(1,1)$. Evaluation at $(1,1)$ gives a semivaluation $w\in X_0$. The generic trivial valuation $v_\triv$ lies in $K$. All nonzero homogeneous monomials have value zero at both, so $\tau(w)=v_\triv$, but
+\[
+ w(x-y)=+\infty,\qquad v_\triv(x-y)=0.
+\]
+Thus $w\notin K$. All genuine potentials agree at these points. For any FS potential, its value at $v_\triv$ is its maximum on the link. Monotonicity and constant translation give $E(\phi)\le\phi(v_\triv)$, and decreasing approximation gives the same for $\EE$ potentials. The reference potential gives equality in the dual supremum. Hence
+\[
+ E^\vee(\delta_w)=E^\vee(\delta_{v_\triv})=0.
+\]
+Yet $\delta_w$ cannot be an output. The continuous function $e^{-v(x-y)}$ separates the two points, proving directly that homogeneous tests are not dense on the full link. This example lies outside the correctly restricted target domain of P13.2.
+\end{example}
+
+\section{Signs, dual energy, and a repaired bound}
+\begin{proposition}[Correct supporting inequalities]
+For $\phi,\psi\in\EE(\xi)$,
+\begin{equation}
+ \int(\phi-\psi)\MA(\phi)\le E(\phi)-E(\psi)
+      \le\int(\phi-\psi)\MA(\psi).\label{eq:support}
+\end{equation}
+Every genuine output satisfies
+\begin{equation}
+ E^\vee(\MA(\phi))=E(\phi)-\int\phi\MA(\phi)<\infty.\label{eq:dual}
+\end{equation}
+\end{proposition}
+\begin{proof}
+For continuous potentials the mixed terms in the energy difference decrease as the number of $\phi$ factors increases. Integration by parts and the Hodge inequality for the invariant difference $\phi-\psi$ prove this. The average lies between its extreme terms, giving \eqref{eq:support}. For finite-energy potentials approximate both decreasingly and use mixed-integral and energy continuity in \cite[Theorem 6.3]{Wu24}. Rearranging the first inequality bounds $E(\psi)-\int\psi\MA(\phi)$ above by the right side of \eqref{eq:dual}; equality occurs for $\psi=\phi$. Mixed finite-energy integrability makes this value finite.
+\end{proof}
+
+The correct second derivative along an admissible segment $\phi_t$ is
+\[
+ \frac{n-1}{V_\xi}\int u\,\dd u\wedge(\dd\phi_t)^{n-2}\wedge\dd\rho^+\le0.
+\]
+In \cite{Wu24}, LF 595--600 omit the factor $\dd u$ and the coefficient $n-1$; LF 605--610 give the correct formula. The Hodge proposition's domain is printed as an equivariant difference space, while its proof uses an invariant difference; only the latter is used here. Proposition 7.3's proof reverses the first supporting inequality at LF 1247--1249. Its resulting dual identity is valid after that sign repair.
+
+There are literal normalization conflicts in \cite{Wu21}. Lemma 3.16 gives $S=n\widetilde S/(n+1)$ for the all-degrees truncated filtration invariant, while Corollary 5.14 identifies genuine energy with projective energy. Theorem 5.15(1) prints $E=S$. On a polynomial cone, the filtration weight $\chi(f_\alpha)=c\langle\xi,\alpha\rangle$ yields the potential $\rho+c$, with energy $c$. Counting monomials in the truncated simplex gives $S=cn/(n+1)$ and the equal-degree invariant is $\widetilde S=c$. Thus the printed $E=S$ is not applied. The factor $(n+1)/n$ in \cite[Proposition 7.4]{Wu24} is consistent with this check; its irrational conclusion is an upper bound, not an asserted equality.
+
+Theorem 6.3 of \cite{Wu21}, LF 1442--1447, prints
+\[
+ E(\chi)=\frac1{(n+1)V_\xi}\int_{P_\xi}\widetilde\chi\,d\lambda,
+ \qquad\lambda(P_\xi)=V_\xi.
+\]
+The same constant-on-the-slice weight gives $c/(n+1)$ instead of $c$. The formula with its stated convention is not used. This check detects the conflict without proposing a full correction of that section.
+
+\begin{lemma}[Decreasing continuous nets]
+On compact $K$, continuous $f_i\downarrow f$ satisfy $\int f_i d\mu\downarrow\int f d\mu$ for a Radon probability, allowing $-\infty$.
+\end{lemma}
+\begin{proof}
+The Radon regularity formula for bounded-above usc functions is
+\[
+ \int f d\mu=\inf_{g\in C(K),\ g\ge f}\int g d\mu,
+\]
+with truncation in the unbounded-below case. Given such $g$ and $\epsilon>0$, the open sets $\{f_i<g+\epsilon\}$ increase to cover $K$. Compactness and directedness give one index for which the set covers $K$. Hence $\inf_i\int f_i\le\int g+\epsilon$. Infimize over $g$ and let $\epsilon$ decrease to zero. The opposite inequality follows from $f_i\ge f$. This avoids using the countable monotone-convergence theorem for an uncountable net.
+\end{proof}
+
+This proves independently, on the actual carrier, the net argument behind \cite[Lemma 7.17]{BJ22}. Together with decreasing FS approximation and energy continuity in \cite{Wu24}, it yields
+\begin{equation}
+ E^\vee_\xi(\mu)=\sup_{\phi\in\FS(\xi)}
+       \left(E_\xi(\phi)-\int_K\phi\,d\mu\right).\label{eq:test}
+\end{equation}
+Finite value forces integrability of every $\EE$ potential. The condition that $\mu$ is a probability on $K$ and \eqref{eq:test} is finite is therefore intrinsic and necessary for being an output. It is not proved sufficient here. Integration continuity just proved concerns decreasing approximation of a fixed potential, not general weakly converging energy-bounded potentials.
+
+\begin{lemma}[Repaired continuous mixed bound]
+If $\phi_0,\ldots,\phi_{n-1}$ are continuous psh and nonpositive on $K$, put $B=\max_i(-E(\phi_i))$. Then
+\[
+ \int\phi_0\MA(\phi_1,\ldots,\phi_{n-1})
+ \ge-\frac{n^{n+1}}{(n-1)!}B.
+\]
+\end{lemma}
+\begin{proof}
+Let $\bar\phi=n^{-1}\sum_i\phi_i$. Concavity gives $E(\bar\phi)\ge-B$. All its energy summands are nonpositive, so keeping only the last gives
+\[
+ E(\bar\phi)\le\frac1n\int\bar\phi\MA(\bar\phi)
+       \le\frac1{n^2}\int\phi_0\MA(\bar\phi).
+\]
+The expansion of $\MA(\bar\phi)$ includes the positive mixed term with coefficient $(n-1)!/n^{n-1}$. Since $\phi_0\le0$, dropping the other terms gives an upper bound. Thus
+\[
+ -B\le E(\bar\phi)\le\frac{(n-1)!}{n^{n+1}}
+          \int\phi_0\MA(\phi_1,\ldots,\phi_{n-1}),
+\]
+as desired.
+\end{proof}
+The proof of \cite[Lemma 6.4]{Wu24} has an invalid displayed $E\le\int\bar\phi\MA(\bar\phi)$ without $1/n$, a missing $-E$ in its displayed definition of $J$, and an incorrect upper summation index. The preceding proof repairs a continuous bound with an explicit nonoptimal constant; it does not by itself establish general target integration continuity.
+
+\section{Maximizing sequences are Cauchy, without realization}
+Write
+\[
+ I(\phi,\psi)=\int(\phi-\psi)(\MA(\psi)-\MA(\phi)),\qquad
+ J_\psi(\phi)=E(\psi)-E(\phi)+\int(\phi-\psi)\MA(\psi).
+\]
+The genuine fixed-Reeb estimates in \cite{Wu24} give
+\[
+ \frac1n I(\phi,\psi)\le J_\psi(\phi)\le\frac{n-1}n I(\phi,\psi),
+\]
+and a quasi-triangle constant $Q_n$ for $I$.
+
+\begin{proposition}
+If $\mu$ has finite dual energy on $K$, choose an FS maximizing sequence $\phi_j$ and let
+\[
+ \Delta_j=E^\vee(\mu)-E(\phi_j)+\int\phi_jd\mu\longrightarrow0.
+\]
+Then
+\begin{align}
+ I(\phi_j,\phi_k)&\le nQ_n(\Delta_j+\Delta_k),\label{eq:cauchy}\\
+ J_\rho(\phi_j)&\le(n-1)Q_n(\Delta_j+E^\vee(\mu)).\label{eq:budget}
+\end{align}
+Consequently the sequence is $I$-Cauchy modulo constants and its genuine outputs are $I^\vee$-Cauchy.
+\end{proposition}
+\begin{proof}
+For $\theta=(\phi+\psi)/2$, cancellation of the integral terms gives
+\begin{align*}
+ E(\theta)-\tfrac12E(\phi)-\tfrac12E(\psi)
+ &=\tfrac12J_\theta(\phi)+\tfrac12J_\theta(\psi)\\
+ &\ge\frac{I(\phi,\theta)+I(\theta,\psi)}{2n}
+ \ge\frac{I(\phi,\psi)}{2nQ_n}.
+\end{align*}
+The left side equals $(\Delta_\mu(\phi)+\Delta_\mu(\psi))/2-\Delta_\mu(\theta)$ and is at most $(\Delta_\mu(\phi)+\Delta_\mu(\psi))/2$. This proves \eqref{eq:cauchy}. Taking $\psi=\rho$, using $\Delta_\mu(\rho)=E^\vee(\mu)$ and the upper $J$ bound, proves \eqref{eq:budget}. The image comparison in \cite[Lemma 7.7]{Wu24} gives the last assertion.
+\end{proof}
+
+There is no inference here that $\phi_j$ converges to a genuine $\EE$ potential or that $\MA(\phi_j)$ converges weakly to $\mu$. The source uses quasi-pseudometrics at this stage; its literal bi-Lipschitz comparison on outputs does not prove global separation or completeness of targets. Given the task's already established separation modulo constants on the genuine image, equal outputs force $I=0$, giving its stated uniqueness. Existence does not follow.
+
+\section{Direct tropical model calculations}
+The local current calculation follows the smooth tropical approximation in the proof of \cite[Corollary 5.7]{Wu21}. Its coefficient can be checked independently. For
+\[
+ L_\epsilon(z)=\epsilon\log(1+e^{z_1/\epsilon}+\cdots+e^{z_r/\epsilon}),
+\]
+the gradient maps $\mathbb R^r$ diffeomorphically to the open standard simplex, so
+\[
+ \int\det(\nabla^2L_\epsilon)dz=1/r!.
+\]
+The superform wedge power has density $r!\det(\nabla^2L_\epsilon)$, of total mass one; scaling shows concentration at zero. The one-dimensional soft positive part has second derivative of integral one and also concentrates at zero. A linear coordinate change $C$ contributes $|\det C|$ to the top-degree integral: two determinant factors occur in the superform and the integration Jacobian cancels one.
+
+On $\mathbb A^2$ with $\xi=(1,1)$, take
+\[
+ \rho=\max\{-a,-b\},\quad\phi_s=\max\{-a,s-b\},\quad s>0.
+\]
+The curvature line $b-a=s$ meets the reference radial cut only at $(0,s)$, and the gradient-jump determinant is one. Near a coordinate boundary one term disappears and the curvature is zero. Thus
+\[
+ \MA(\rho)=\delta_{(0,0)},\quad\MA(\phi_s)=\delta_{(0,s)},\quad
+ E(\phi_s)=\tfrac12(s+0)=s/2.
+\]
+The first and last integrals in \eqref{eq:support} are $0$ and $s$. The printed reverse sign in Proposition 7.3 would assert $s/2\le0$.
+
+For an irrational example let $X=\mathbb A^3$, $T=(\mathbb G_m)^3$, and
+\[
+ \xi=(1,\sqrt2,\sqrt3),\quad
+ \rho=\max\{-a_1,-a_2/\sqrt2,-a_3/\sqrt3\},
+\]
+\[
+ \phi=\max\{-a_1,1-a_2/\sqrt2,1-a_3/\sqrt3\}.
+\]
+This is a genuine FS formula with generators $x_1,x_2,x_3$ and parameters $(0,\sqrt2,\sqrt3)$. The lattice simplex count in \eqref{eq:vol} gives $V_\xi=1/\sqrt6$.
+
+The square of the homogeneous curvature is supported on
+\[
+ a_2=\sqrt2(a_1+1),\qquad a_3=\sqrt3(a_1+1).
+\]
+Off that line at most two terms are active, making the square zero. On the line $\rho=-a_1$, and the radial cut intersects it only at $w=(0,\sqrt2,\sqrt3)$. Near $w$ use coordinates
+\[
+ t=-a_1,\quad z_2=1+a_1-a_2/\sqrt2,\quad z_3=1+a_1-a_3/\sqrt3.
+\]
+Here $\rho^+=\max\{0,t\}$ and $\phi=-a_1+\max\{0,z_2,z_3\}$. The coordinate determinant has absolute value $1/\sqrt6$, giving
+\[
+ (\dd\phi)^2\wedge\dd\rho^+=(1/\sqrt6)\delta_w,
+ \qquad \MA_\xi(\phi)=\delta_w.
+\]
+There is no coordinate-boundary mass: at least one term can be discarded locally, leaving curvature rank at most one. The valuation $w$ is monomial with $x_1$ a unit and weights $\sqrt2,\sqrt3$ on $x_2,x_3$. It belongs to $K$ and has rational rank two, because $\sqrt{2/3}$ is irrational. It is therefore quasimonomial but not a real rescaling of a divisorial valuation. This checks a genuine irrational atomic model output and its probability mass; it does not solve the image problem beyond this explicit toric case.
+
+\section{The unresolved realization passages}
+The attempted transfers from the supplied sources leave the following concrete gaps. This is not a theorem asserting that they can never be filled.
+
+\paragraph{Potential compactness and strong completeness.}
+Decreasing-net closure, quasimonomial value bounds, and upper semicontinuity of energy in \cite{Wu24} do not prove compactness of normalized cone psh functions. A product-space limit need not be a genuine psh function. The proof of \cite[Theorem 5.11]{BJ22} constructs upper envelopes of tails under the envelope property. Its Theorem 12.8 equates that projective property with strong completeness and surjectivity. No cone proof of that envelope property or an adequate substitute was found or established here.
+
+\paragraph{Orthogonality and synthetic hypotheses.}
+Finite max stability does not imply the directed orthogonality limit in \cite[Definition 2.15]{BJ23}, namely $\int(f-\psi)\MA(\psi)\to0$ for psh tests below each obstacle. Proposition 2.19 derives uniform differentiation from that limit. A synthetic application on $K$ needs an actual ordered form space, its positivity and integration axioms, identification of its psh class with genuine cone potentials, and orthogonality. Here its dimension would be $n-1$, with the radial factor retained; the paper's stipulated positive dimension also needs separate treatment when $n=1$. That formalism and its orthogonality are not supplied by notation alone.
+
+\paragraph{Target integration continuity.}
+The decreasing-net result above does not give $L^1(\mu)$ continuity for arbitrary weakly converging, energy-bounded potentials. The proof of \cite[Proposition 9.19]{BJ22} uses uniform target approximation by model-MA measures and an earlier estimate, whose target approximation depends on uniform differentiation. Applying it without the cone analogues would be circular.
+
+\paragraph{Differentiation and Euler--Lagrange.}
+Admissible psh segments at a putative maximizer give only
+\[
+ \int(\psi-\phi)(\MA(\phi)-\mu)\le0\quad(\psi\text{ psh}).
+\]
+A constrained maximum can have a nonzero outward derivative; $-x^2-x$ on $x\ge0$ is a simple example. The two-sided dense-test variation in \cite[Theorem 8.5]{BJ22} uses relative volumes of projective section norms, added polarizations, and fixed mixed masses. Its Theorem 9.11 identifies limits of maximizing outputs, and Corollary 9.12 proves the Euler--Lagrange equality from that differentiability. A genuine cone replacement for the relative-volume comparison is not proved here.
+
+\paragraph{Completing measures is not realizing potentials.}
+Theorems 2.23 and 2.26 of \cite{BJ23} assume orthogonality and prove density and completeness of measures. The introduction expressly does not investigate finite-energy potentials. Even establishing all synthetic axioms would not by itself identify completed objects with Wu's $\EE$ potentials. The Cauchy estimate \eqref{eq:cauchy} makes that missing step explicit.
+
+\paragraph{Rational and varying-Reeb transfers.}
+Lemmas 5.11--5.12 and Proposition 5.13 of \cite{Wu21} identify homogeneous model functions and measures with quotient functions for a primitive rational Reeb field. The quotient can be singular. Theorem 12.9 of \cite{BJ22} assumes a smooth projective variety. Even for a smooth quotient and a larger torus, preservation of the actual invariant carrier and invariant potential class requires proof; full quotient surjectivity alone does not give it, and nonlinear MA cannot be averaged formally. No such quotient transfer is used here.
+
+Lemmas 2.11 and 3.2 of \cite{Wu24} approximate individual continuous potentials with varying Reeb fields; Proposition 3.3 adds only proportional rays. They do not prove estimates uniform for target solutions in two changing nonproportional polarizations or finite-energy realization through an irrational limit. Restricting every intermediate output to divisorial support would also contradict the explicit irrational atom above.
+
+\paragraph{Final mathematical status.}
+No intrinsic sufficient condition satisfying the assignment's exclusions is established. Neither variational attainment, an unknown inverse potential, nor a closure in unknown outputs is presented as a characterization. General existence on normal polarized affine cones, including irrational Reeb fields, remains unresolved in this deliverable. The given uniqueness on the image is retained.
+
+\section{Reproducibility and limitations of checks}
+The companion file \texttt{P13.2-argument.md} contains the full partial argument and exact source-application record. The preserved inputs are \texttt{input.json}, its byte-identical \texttt{input-original.json}, \texttt{assignment-original.txt}, and \texttt{task-original.json}. Run \texttt{python3 build\_provenance.py} and \texttt{python3 run\_checks.py} in the workspace. The latter runs the existing \texttt{pdflatex} twice and retains stdout, stderr, and distinct TeX logs, plus exact finite arithmetic and artifact checks. No software was installed and no heavy computation was launched. Successful execution, compilation, and hashes do not verify the mathematical arguments or constitute a solution of P13.2.
+
+\begin{thebibliography}{9}
+\bibitem{Wu21} Yueqiao Wu, \emph{Volume and Monge--Amp\`ere energy on polarized affine varieties}, arXiv:2106.13395v2. Supplied public PDF and literal extract.
+\bibitem{Wu24} Yueqiao Wu, \emph{Some non-Archimedean pluripotential theory on polarized affine cones}, arXiv:2406.13684v1. Supplied public PDF and literal extract.
+\bibitem{BJ22} S\'ebastien Boucksom and Mattias Jonsson, \emph{Global pluripotential theory over a trivially valued field}, arXiv:1801.08229v4. Supplied public PDF and literal extract.
+\bibitem{BJ23} S\'ebastien Boucksom and Mattias Jonsson, \emph{Measures of finite energy in pluripotential theory: a synthetic approach}, arXiv:2307.01697v1. Supplied public PDF and literal extract.
+\end{thebibliography}
+\end{document}
