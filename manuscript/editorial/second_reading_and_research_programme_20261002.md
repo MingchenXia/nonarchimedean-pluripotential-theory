@@ -1043,6 +1043,29 @@ build and actual-page gates are recorded in the companion manifest.
 Continue the independent normal endpoint and related-source investigations
 after the normal work-branch checkpoint.
 
+### Resolution and horizontal approximation, 4 October 2026
+
+The [birational-descent dossier](bj22_siu_birational_descent_dossier_20261004.md)
+expands the normal characteristic-zero Siu repair route after `1799399`.
+Smooth division leaves a base-space psh descent task. The published
+almost-invariance theorem descends only after an ideal and class error;
+shrinking the error produces increasing functions. Its exact descent lemma
+uses base-space envelopes. Exact pullback section approximations would
+descend, but the regularization theorem supplies arbitrary ample errors
+on the resolution, not the required horizontal approximants. Eight
+selected actual BJ22 pages were viewed, including the complete error and
+envelope-dependent descent proofs. The theorem statement retains the class
+buffer omitted typographically at the end of its printed proof.
+
+Bounded author lookups returned the known Lyuhui Wu preprint and related
+Piquerez background papers, without acquiring the APW primary proofs.
+A different-author Yueqiao Wu query is preserved and excluded from that
+dependency search. The [manifest](bj22_siu_birational_descent_manifest_20261004.json)
+pins these scopes. All 425 active TeX inputs, the current book and catalogue
+PDFs, and all 42 statuses are unchanged. Continue testing noncircular
+horizontal approximation or local descent; do not infer psh membership
+from fiber constancy alone.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
