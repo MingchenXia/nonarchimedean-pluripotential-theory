@@ -17,6 +17,11 @@ envelope assembly and deductions through it are conditional on this input.
 The strict division proof and Chapter 40's separate smooth proof retain
 their previous status. No counterexample to the Siu theorem itself is
 claimed. See the [Siu proof-boundary audit](manuscript/editorial/bj22_siu_proof_boundary_audit_20261004.md).
+The subsequent [b-divisor follow-up](manuscript/editorial/bj22_siu_bdivisor_followup_audit_20261004.md)
+also displays the critical division assumption in the normal Cartier psh
+criterion and its chapter summaries. The smooth characteristic-zero
+numerical correspondence uses independently published all-class envelopes
+and division on that smooth variety, preserving its established scope.
 Chapter 5 adds
 a source-checked Sylvester height-slice example that computes a normalized
 local monomial model and its regular semistable subdivision. The exact
@@ -491,8 +496,8 @@ develops:
 - valued fields, models, Berkovich spaces, skeleta, and semipositive metrics;
 - the Chambert--Loir--Ducros calculus, delta-forms, and tropical methods;
 - Boucksom--Favre--Jonsson pluripotential and variational theory;
-- Boucksom--Jonsson theory over a trivial valuation, including the supplied
-  proof of the envelope theorem for unibranch projective varieties;
+- Boucksom--Jonsson theory over a trivial valuation, including the
+  conditional envelope assembly for unibranch projective varieties;
 - complex and compact Kähler non-Archimedean theories, test curves, tropical
   spectra, and transcendental Monge--Ampère theory;
 - comparison theorems, filtrations, hybrid degenerations, and carefully

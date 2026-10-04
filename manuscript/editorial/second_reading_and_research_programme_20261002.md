@@ -1025,6 +1025,24 @@ All 425 active TeX inputs, the book and catalogue PDFs, and the 42 atomic
 statuses are unchanged. Continue the noncircular endpoint and local
 comparison investigations in the cloud.
 
+### Cartier and numerical b-divisor dependency follow-up, 4 October 2026
+
+The [follow-up audit](bj22_siu_bdivisor_followup_audit_20261004.md)
+makes the critical division input explicit in Chapter 35's normal
+Cartier psh criterion and its dependency summaries. The forward criterion
+and semiample calculus are independent. In the smooth characteristic-zero
+numerical subsection, the independent 2024 all-class envelope theorem and
+Green-function division proposition provide the required instances on the
+given smooth variety. Normalized compactness uses BJ22 Theorem 5.11(ii),
+instead of Corollary 6.22's division-dependent proof. This retains the
+known numerical correspondence; it does not prove `(SD)_k` for arbitrary
+normal varieties. Seven selected actual BJ22 source pages were viewed.
+Only Chapter 35 changes in the active TeX closure. The catalogue, protected
+Appendix M--N inputs and 42 atomic statuses are unchanged. Final source,
+build and actual-page gates are recorded in the companion manifest.
+Continue the independent normal endpoint and related-source investigations
+after the normal work-branch checkpoint.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
