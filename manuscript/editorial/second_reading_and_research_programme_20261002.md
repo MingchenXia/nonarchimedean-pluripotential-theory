@@ -651,6 +651,31 @@ The active 4,244-page book and all 42 statuses stay unchanged. No new
 calculation or independent model verdict is claimed. The next research
 step is the uniform approximation and hybrid limit passage.
 
+### Uniform FS composition and full hybrid limit, 4 October 2026
+
+The [FS composition](research_dossiers/li_uniform_fs_composition_20261004.md)
+combines the fixed-matrix, Bergman, Fourier and uniform domination steps
+under their explicit geometric inputs. It handles inactive chamber rows,
+chooses discarded mass before the fixed-degree radius, obtains error
+\(C_*/l\), and bounds each finite coefficient vector. The
+[hybrid passage](research_dossiers/li_hybrid_limit_passage_20261004.md)
+constructs every-small-fibre neighborhood density from SNC coordinates,
+uses joint FS continuity and coefficient compactness, writes the MA
+comparison on a restricted sequence base, and upgrades the uniquely
+identified central limit to full hybrid continuity using subnets and
+fixed continuous comparison families. Punctured-total-family continuity
+and connected/geometrically integral fibres are explicit; fibrewise
+smoothness and scalar-subsequence uniqueness are not substituted for
+them. Boucksom arXiv v2 was freshly checked in 876 scoped extracted lines
+and thirteen actual pages, including the real-weight FS input and
+absolute-value CLN estimates. See the [audit](li_uniform_fs_and_hybrid_limit_audit_20261004.md)
+and [manifest](li_uniform_fs_and_hybrid_limit_manifest_20261004.json).
+The general geometric module, measure/remainder, Skoda and volume imports
+remain application gates. No external verifier, new calculation,
+principal general CY theorem or solved problem is claimed. The checked
+4,244-page book and all 42 statuses are unchanged. The next research step
+is to examine the geometric section-module and local expansion inputs.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
