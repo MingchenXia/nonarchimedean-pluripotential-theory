@@ -1,0 +1,102 @@
+{
+  "completed": true,
+  "steps": [
+    {
+      "command": [
+        "python",
+        "audit_and_assemble.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.045,
+      "output_file": "build-step-01.txt"
+    },
+    {
+      "command": [
+        "python",
+        "coefficient_check.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.044,
+      "output_file": "build-step-02.txt"
+    },
+    {
+      "command": [
+        "pandoc",
+        "P15.2-main.md",
+        "-f",
+        "markdown+tex_math_single_backslash+tex_math_dollars",
+        "-t",
+        "latex",
+        "-s",
+        "-V",
+        "geometry:margin=24mm",
+        "-V",
+        "fontsize=10pt",
+        "-o",
+        "P15.2-partial.tex"
+      ],
+      "exit_code": 0,
+      "seconds": 0.115,
+      "output_file": "build-step-03.txt"
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "P15.2-partial.tex"
+      ],
+      "exit_code": 0,
+      "seconds": 0.313,
+      "output_file": "build-step-04.txt"
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "P15.2-partial.tex"
+      ],
+      "exit_code": 0,
+      "seconds": 0.383,
+      "output_file": "build-step-05.txt"
+    },
+    {
+      "command": [
+        "pdftotext",
+        "-layout",
+        "P15.2-partial.pdf",
+        "P15.2-pdf-text.txt"
+      ],
+      "exit_code": 0,
+      "seconds": 0.066,
+      "output_file": "build-step-06.txt"
+    },
+    {
+      "command": [
+        "pdfinfo",
+        "P15.2-partial.pdf"
+      ],
+      "exit_code": 0,
+      "seconds": 0.013,
+      "output_file": "build-step-07.txt"
+    }
+  ],
+  "successful_tex_passes": 2,
+  "overfull_hboxes": 0,
+  "underfull_hboxes": 0,
+  "undefined_control_sequences": false,
+  "latex_warnings": [],
+  "analytic_correctness_established": false,
+  "rerun_command": "python build.py",
+  "hashes": {
+    "input.json": "006021d7f992a4e87aa393b89962490e76eb2e92ad6005df99fbd33e55ef8527",
+    "input-original.json": "006021d7f992a4e87aa393b89962490e76eb2e92ad6005df99fbd33e55ef8527",
+    "P15.2-main.md": "d261b4337f8cd111c15b075e126bc8d6f38bd054324bc71f9f4df2d96c7a3dc7",
+    "P15.2-argument.md": "16c3b97e5184196af0d94ca250d20bf02ddf0540e962145057683653a88319e6",
+    "P15.2-partial.tex": "d6b787487f5cd5dfac057ec1de0303934019734e4b60f41e20b211b46071f4f2",
+    "P15.2-partial.pdf": "ee687eaf54698ade8ee68bb7ca7f272c9a01e90916eb6d84c3dd0f949dfb06e4",
+    "source-audit.json": "e0408bf1aab14ca5578ea0bb4878a51240aba0017c8f5dac2f0763a02d5a33d6",
+    "coefficient-check.json": "15ec724c6043334e75002a7c69ef2edde6f053e8658160181b9358b37fa8bce0"
+  }
+}
