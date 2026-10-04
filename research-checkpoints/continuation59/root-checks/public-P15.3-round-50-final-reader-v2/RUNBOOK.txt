@@ -1,0 +1,14 @@
+All commands run from the supplied workspace. No software installation, external network access, other model/worker, or heavy computation is required.
+
+Frozen input.json is never rewritten. input-original.json is a byte-identical copy of its initial bytes. assignment-original.txt is the exact decoded assignment encoded as UTF-8 without an added newline. task-original.json is a frozen serialization of the supplied task object; no original standalone task file existed. See input-preservation.json.
+
+Prepare sources (reads only the four listed public caches):
+python3 prepare_sources.py > source-preparation.stdout 2> source-preparation.stderr
+
+Build twice and retain both actual stdout, stderr, and TeX logs:
+python3 build_paper.py > build-driver.stdout 2> build-driver.stderr
+
+Check hashes, LF locations, input preservation, status schema, and build records:
+python3 verify_artifacts.py > verification.stdout 2> verification.stderr
+
+P15.3-paper.tex is standalone; P15.3-argument.md contains the entire proof and remaining original obligations. The expected status is partial and candidate=false. Source hashes and compilation are documentary evidence only.
