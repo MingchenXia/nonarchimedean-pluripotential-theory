@@ -9,11 +9,13 @@ left blank in this release.
 The completed second-reading edition has 4,236 pages; its scoped final
 review includes the complete contents, index, bibliography and all part
 introductions. See the [second-reading completion audit](manuscript/editorial/book_second_reading_completion_audit_20261004.md).
-The current research-integration build has **4,240 pages**. Chapter 19 now
-includes Lin's version-pinned face-restriction example and a direct worked
-variation, with the comparison and provenance interfaces reconciled in
-Chapter 64 and Appendix L. Full-build, reference, exact-calculation and
-scoped rendered-page checks pass; see the [integration audit](manuscript/editorial/lin_face_integration_audit_20261004.md).
+The current research-integration build has **4,244 pages**. Chapter 19's
+checked Lin face-restriction example is retained. Chapter 66 now includes
+the specialized intermediate Calabi--Yau potential limit and recent generic
+metric regularity, with precise family, normalization, region and source
+boundaries recorded in Appendix L. Full-build, reference and scoped actual
+page checks pass; see the [current integration audit](manuscript/editorial/intermediate_cy_integration_audit_20261004.md)
+and the [earlier Lin audit](manuscript/editorial/lin_face_integration_audit_20261004.md).
 Related directions and recent arXiv literature continue to be explored for
 source-checked integration; the 42 open-problem statuses are unchanged.
 All current execution remains in the cloud, and Xean setup is suspended by

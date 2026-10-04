@@ -570,6 +570,27 @@ or problem solution is admitted. Chapter 66 is the next scoped integration;
 the checked active edition still has 4,240 pages and all 42 problem statuses
 are unchanged.
 
+### Intermediate Calabi–Yau chapter integration, 4 October 2026
+
+Chapter 66 now explains the published intermediate-limit potential and
+Li–Tosatti arXiv v2 generic metric regularity for the explicit Fano
+hypersurface family. The weighted transport, fixed discarded probability
+mass, relative tensor norm and adapted derivative coordinates are stated.
+Appendix L and the bibliography bind the same scope. The full build has
+4,244 pages and all sixty selected actual follow-up pages pass. References,
+index, navigation and the unchanged 42-atom inventory pass; all original
+formal-environment bytes, 423 other active TeX sources and 108 protected
+M–N inputs are preserved. See the [integration audit](intermediate_cy_integration_audit_20261004.md)
+and [manifest](intermediate_cy_integration_manifest_20261004.json).
+The published Fermat capacity/stability input also supports a separate
+[strict-sublevel repair](research_dossiers/li_strict_sublevel_repair_20261004.md)
+under an explicit uniform comparison-potential bound; its
+[source manifest](li_fermat_domination_source_manifest_20261004.json)
+records a scoped reading, not the whole paper. The general chamber-basis,
+uniform-potential and Bergman gates remain research tasks. No new verifier
+receipt or solved problem is claimed. The frozen 4,236- and 4,240-page
+artifacts retain their original scopes. Cloud literature research continues.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
