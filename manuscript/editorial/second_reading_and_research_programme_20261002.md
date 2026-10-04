@@ -998,6 +998,33 @@ atomic statuses stay fixed. Continue by checking alternative
 approximations and more recent primary literature for a noncircular
 endpoint argument.
 
+### Current Siu-related sources and local convex reconstruction, 4 October 2026
+
+The [bounded literature follow-up](siu_current_literature_followup_20261004.md)
+checks the current arXiv version histories of BJ26 and Wu and traces
+Wu's main envelope proof back through weak/regular comparison and the
+singular-stratum Runge argument. APW26b is used in this main route as
+well as in the separately reviewed appendix. Exact-title arXiv queries
+returned no results; these bounded queries do not establish that the
+dependency is unavailable elsewhere. An attempted university homepage
+request failed, and no author-page or erratum clearance is claimed.
+
+Ten selected actual Wu pages and the specified extracted passages were
+read. The printed strict-support comparison in Lemma 6.6 is inconsistent;
+the following proof instead uses the intended supporting-plane comparison.
+The [log-sum-exp dossier](extended_tropical_logsumexp_dossier_20261004.md)
+constructs that corrected local ingredient explicitly on every extended
+coordinate face. Entropy gives its strict supports and uniform separation;
+face-preserving rational simplex subdivisions give uniform decreasing
+rational-PL majorants. This is a worked reconstruction of a known convex
+ingredient, outside active TeX, with no independent production receipt.
+The later normalization, gluing, singular descent and cited-source checks
+remain separate. Neither the Siu input nor the complete Wu envelope proof
+is discharged. See the [source manifest](siu_current_literature_manifest_20261004.json).
+All 425 active TeX inputs, the book and catalogue PDFs, and the 42 atomic
+statuses are unchanged. Continue the noncircular endpoint and local
+comparison investigations in the cloud.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
