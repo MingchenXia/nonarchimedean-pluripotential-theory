@@ -342,9 +342,14 @@ boundary are clarified; all inputs, displays and archived receipts are
 preserved. All 190 pages and both seams pass, with the five changed pages
 reviewed again after the local assumption-marker repair. See the
 [Appendix M audit](second_reading_appM_audit_20261004.md).
-Appendix N is active; its 83 main-source lines and four proof inputs
-(1,291 lines) have been freshly read. Its source and page checks continue.
-Front matter remains to be closed in this pass.
+Appendix N's 83 main-source lines and all four proof inputs (1,291 lines)
+were freshly read. The curve and cubical proof scopes, six selected primary
+pages and unchanged Chapter 19 statement interfaces were checked. All
+eighteen pages and both seams pass. See the
+[Appendix N audit](second_reading_appN_audit_20261004.md).
+Chapters 1–72 and Appendices A–N now close the ordered reading gates.
+The nine front-matter files (952 lines) are freshly read; their final
+coherence, source-boundary and whole-book page checks remain active.
 The current catalogue incorporates the real-scalar Bergman correction; its
 [4 October audit](open_problem_catalogue_correction_audit_20261004.md) records
 the preserved twelve full problems, unchanged 42 statuses and fresh checks.
