@@ -363,8 +363,12 @@ Appendix A's 556 original lines were freshly read. The blowup proof now
 uses invertible ideals and nonzerodivisor generators explicitly; all eight
 appendix pages and both seams passed visual review. See the
 [Appendix A audit](second_reading_appA_audit_20261004.md).
-Appendix B is active; all 523 source lines and its scoped primary interfaces
-have been freshly read. No later appendix is marked complete in this pass.
+Appendix B's 523 original lines and scoped primary interfaces were freshly
+read. The simultaneous-resolution statement now specifies nonzero ideals;
+all eight appendix pages and both seams passed visual review. See the
+[Appendix B audit](second_reading_appB_audit_20261004.md).
+Appendix C is active; all 790 source lines have been freshly read and its
+primary checks continue. No later appendix is marked complete in this pass.
 
 The current catalogue incorporates the 4 October real-scalar Bergman repair;
 see its [latest correction audit](open_problem_catalogue_correction_audit_20261004.md).
