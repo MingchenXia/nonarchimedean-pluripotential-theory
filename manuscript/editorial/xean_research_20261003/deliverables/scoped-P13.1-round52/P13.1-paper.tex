@@ -1,0 +1,510 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,geometry,hyperref}
+\geometry{margin=1in}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\CPSH}{\operatorname{CPSH}}
+\newcommand{\PSH}{\operatorname{PSH}}
+\newcommand{\MA}{\operatorname{MA}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\osc}{\operatorname{osc}}
+\newcommand{\an}{\mathrm{an}}
+\newcommand{\triv}{\mathrm{triv}}
+\title{Direct Reeb-orbit comparison on affine cones\\and a conditional envelope transfer}
+\author{Reviewed partial results for unchanged P13.1}
+\date{4 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For arbitrary, including irrational, Reeb fields on a normal affine cone, a zero-level orbit construction gives presentation-independent order bijections of the actual Fubini--Study, continuous psh, and decreasing-limit psh spaces. Finite generation supplies uniform pointwise comparison constants. We also prove a quantitative comparison for cumulative filtration invariants. A projective envelope input from Lyuhui Wu's September 2026 v1, retained as an explicit unresolved premise after inspecting its proof, would imply a quantified envelope calculus on the fixed invariant carrier for all Reeb fields. Preservation of finite energy and uniform differentiation of the actual cone energy remain unproved. Thus this paper is a partial result and does not solve unchanged P13.1. The complete retained proof and all four canonical notes received an independent source-aware computational correctness review with verdict PASS on 4 October 2026. The accompanying report is not a formal proof certificate or a priority claim. Its conditional envelope result does not establish the envelope premise.
+\end{abstract}
+
+\section{Setting, carrier, and normalization}
+Let $k$ be algebraically closed, trivially valued, and of characteristic zero.
+Let $X=\operatorname{Spec}R$ be a normal affine cone with good effective torus $T$ action, vertex $o$, maximal ideal $\mathfrak m$, and dimension $n$.
+Write $R=\bigoplus_{\alpha\in M}R_\alpha$ and $q_\eta(\alpha)=\langle\eta,\alpha\rangle$ for a Reeb field $\eta$.
+Fix homogeneous algebra generators $g_i$ of $\mathfrak m$, of weights $\beta_i$, $1\leq i\leq N$.
+Set
+\[
+ S=X_0^T,\qquad X_0=\{v:v(\mathfrak m)=0\},\qquad
+ \rho_\eta(v)=\max_i\frac{-v(g_i)}{q_\eta(\beta_i)}.
+\]
+The ultrametric inequality shows that $\rho_\eta$ is also the supremum of $-v(f)/q_\eta(\alpha)$ over all nonzero homogeneous $f\in R_\alpha\cap\mathfrak m$.
+Indeed the corresponding quotient of a monomial is a degree-weighted average of the generator quotients, and a homogeneous sum cannot exceed their maximum.
+On $S$ the reference function is zero. Values on all of $R$ are nonnegative on $X_0$: a negative value on $\mathfrak m$ would give $v(\mathfrak m)=-\infty$ by taking powers.
+
+We use the actual spaces in \cite{YW24}, Definitions 2.9, 3.1, and 5.1.
+A function in $H(\eta)$ is a finite maximum
+\begin{equation}\label{FS}
+ \phi(v)=\max_j\frac{-v(f_j)+\lambda_j}{q_\eta(\alpha_j)},
+\end{equation}
+where the homogeneous $f_j$ generate an $\mathfrak m$-primary ideal.
+$\CPSH(\eta)$ is the local uniform closure of $H(\eta)$ on the punctured analytification.
+$\PSH(\eta)$ consists of nonidentically $-\infty$ decreasing limits of $\CPSH(\eta)$ functions.
+Every such function factors through the continuous torification
+\[
+ r_T(v)(f)=\min_\alpha v(f_\alpha).
+\]
+The invariant carrier $S$ is a closed retract of the fixed compact link: its closedness follows from the equalities defining invariance, and torification preserves $v(\mathfrak m)=0$.
+We compare functions on invariant punctured semivaluations and extend by torification.
+
+Whenever an operator is used, it is the actual positive mixed operator with probability convention
+\begin{equation}\label{MA}
+ \MA_\eta(\phi_1,\ldots,\phi_{n-1})=
+ \frac{d'd''\phi_1\wedge\cdots\wedge d'd''\phi_{n-1}\wedge d'd''\rho_\eta^+}{\vol(\eta)},
+ \qquad \rho_\eta^+=\max(\rho_\eta,0).
+\end{equation}
+The source asserts that these probabilities are supported on $S$.
+For continuous psh potentials, the energy is
+\begin{equation}\label{E}
+ E_\eta(\phi)=\frac1n\sum_{j=0}^{n-1}
+ \int_S\phi\,\MA_\eta(\phi^{[j]},\rho_\eta^{[n-1-j]}).
+\end{equation}
+There are $n-1$ potential factors and one link factor; the energy denominator uses cone dimension $n$.
+The following orbit and filtration arguments do not need an MA theorem.
+Equation \eqref{E} for unbounded potentials requires the actual fixed-Reeb finite-energy theorem and is not a new cross-Reeb definition.
+
+\section{Finite-generation constants}
+For $\xi,\zeta$ define
+\[
+ l=\min_i\frac{q_\zeta(\beta_i)}{q_\xi(\beta_i)},\quad
+ u=\max_i\frac{q_\zeta(\beta_i)}{q_\xi(\beta_i)},\quad
+ \delta=\max_i\left|\log\frac{q_\zeta(\beta_i)}{q_\xi(\beta_i)}\right|.
+\]
+\begin{lemma}\label{degrees}
+For every nonzero occurring weight $\alpha$,
+\[
+ lq_\xi(\alpha)\leq q_\zeta(\alpha)\leq uq_\xi(\alpha),
+ \qquad e^{-\delta}\leq l\leq u\leq e^\delta.
+\]
+For a compact Reeb set $K$, put $a_K=\min_{\eta\in K,i}q_\eta(\beta_i)>0$.
+Then
+\[
+ \delta(\xi,\zeta)\leq
+ \frac{\max_i\|\beta_i\|_*}{a_K}\|\xi-\zeta\|\quad(\xi,\zeta\in K).
+\]
+\end{lemma}
+\begin{proof}
+Express a nonzero homogeneous element as a homogeneous polynomial in the $g_i$.
+At least one monomial survives, so $\alpha=\sum_i m_i\beta_i$ with $m_i\geq0$ integers.
+The degree ratio is a convex combination of generator ratios with weights $m_iq_\xi(\beta_i)/q_\xi(\alpha)$.
+For the last bound use $|\log a-\log b|\leq|a-b|/\min(a,b)$.
+No rationality or bound on generator degrees of a potential is used.
+\end{proof}
+For the nonnegative homogeneous valuative supremum $T(v;\eta)$ on $S$, the same proof gives
+\[
+ u^{-1}T(v;\xi)\leq T(v;\zeta)\leq l^{-1}T(v;\xi)
+\]
+in the extended sense. This is not yet an energy estimate.
+
+\section{An actual orbit bijection of psh spaces}
+On invariant punctured semivaluations, let $a_\eta(t)$ be the torus translation
+\[
+ (a_\eta(t)v)(f_\alpha)=v(f_\alpha)+tq_\eta(\alpha).
+\]
+For a general function take the minimum over homogeneous components.
+This is the Gauss action recorded in \cite{YW24}, Section 2.2.
+It is continuous, invertible on invariant points, and different translations commute.
+For completeness, multiplicativity follows by selecting an additive total order on $M$:
+among the homogeneous components of least translated value in each factor choose the extreme component.
+Their product gives the unique extreme contribution at that value; higher-value terms cannot cancel it.
+The ultrametric and scalar axioms are immediate.
+At least one $g_i$ is finite on a punctured invariant point, and
+\[
+ t\longmapsto\min_i\{v(g_i)+tq_\eta(\beta_i)\}
+\]
+is continuous, strictly increasing, and goes from $-\infty$ to $+\infty$.
+Its unique zero is $\rho_\eta(v)$.
+Thus $a_\eta(\rho_\eta(v))v\in S$.
+Differences of $\eta$-equivariant functions therefore have the same supremum norm on $S$ and on the invariant punctured cone.
+
+\begin{lemma}\label{slopes}
+For $\phi\in\PSH(\xi)$ and $t\geq0$,
+\begin{equation}\label{slopes-eq}
+ \phi(v)-ut\leq\phi(a_\zeta(t)v)\leq\phi(v)-lt.
+\end{equation}
+At a point where $\phi(v)$ is finite, its restriction to the $\zeta$ orbit is finite, Lipschitz, and strictly decreasing, with end limits $+\infty,-\infty$.
+Otherwise it is identically $-\infty$ on that orbit.
+\end{lemma}
+\begin{proof}
+For \eqref{FS} every term has slope $-q_\zeta(\alpha_j)/q_\xi(\alpha_j)\in[-u,-l]$.
+The inequality for a finite maximum passes through local uniform limits and then decreasing pointwise limits.
+Using the inequality also between arbitrary two orbit times gives the Lipschitz assertion, including the assertion that finiteness or minus infinity persists on the orbit.
+The negative-time bounds follow by translating the positive-time inequality backwards.
+\end{proof}
+
+Define $C_{\xi,\zeta}\phi(v)$ to be the unique root $t$ of
+\begin{equation}\label{root}
+ \phi(a_\zeta(t)v)=0
+\end{equation}
+if $\phi(v)$ is finite, and $-\infty$ otherwise.
+This definition uses the actual function.
+For an FS presentation, it gives
+\begin{equation}\label{transport}
+ C_{\xi,\zeta}\phi(v)=
+ \max_j\frac{-v(f_j)+\lambda_j}{q_\zeta(\alpha_j)}.
+\end{equation}
+At this time all translated numerators are nonpositive and one is zero.
+Consequently equality of two FS functions implies equality after transport even when their presentations differ.
+
+\begin{theorem}\label{orbit-theorem}
+The root construction gives order bijections
+\[
+ H(\xi)\simeq H(\zeta),\qquad
+ \CPSH(\xi)\simeq\CPSH(\zeta),\qquad
+ \PSH(\xi)\simeq\PSH(\zeta).
+\]
+They commute with decreasing nets and satisfy
+\[
+ C_{\zeta,\xi}C_{\xi,\zeta}=\mathrm{id},\qquad
+ C_{\zeta,\theta}C_{\xi,\zeta}=C_{\xi,\theta}.
+\]
+Normalization $\sup_S\phi=\phi(v_\triv)=0$ is preserved.
+For $\phi\leq0$ on $S$,
+\begin{equation}\label{pointwise}
+ \frac{\phi}{l}\leq C_{\xi,\zeta}\phi\leq\frac{\phi}{u},\qquad
+ e^\delta\phi\leq C_{\xi,\zeta}\phi\leq e^{-\delta}\phi.
+\end{equation}
+At finite points,
+\begin{equation}\label{error}
+ |C_{\xi,\zeta}\phi-\phi|\leq(e^\delta-1)(-\phi).
+\end{equation}
+All assertions apply to irrational fields.
+\end{theorem}
+\begin{proof}
+The FS assertion follows from \eqref{transport}.
+If $\phi_j\to\phi$ locally uniformly and $\phi\in\CPSH(\xi)$, fix a compact invariant set $A$.
+The root bounds from Lemma \ref{slopes} keep all roots eventually in $[-B,B]$.
+The translated set $\{a_\zeta(t)v:v\in A, |t|\leq B\}$ is compact.
+An error $\epsilon$ on it gives a root error at most $\epsilon/l$.
+Thus the transported FS functions converge locally uniformly to \eqref{root}, proving its CPSH membership.
+Compact sets on the full cone reduce to compact torifications.
+
+Suppose $\phi_j\downarrow\phi$.
+Roots decrease by their order, and at a finite point put $t=C_{\xi,\zeta}\phi(v)$.
+Then
+\[
+ 0\leq C_{\xi,\zeta}\phi_j(v)-t
+ \leq\phi_j(a_\zeta(t)v)/l\longrightarrow0.
+\]
+At a minus-infinite point the general bounds
+\[
+ \min(\phi_j(v)/l,\phi_j(v)/u)\leq C_{\xi,\zeta}\phi_j(v)
+ \leq\max(\phi_j(v)/l,\phi_j(v)/u)
+\]
+force the root limit to $-\infty$.
+This is an actual defining decreasing-net passage in PSH; a finite point of $\phi$ ensures that its transport is nontrivial.
+
+Transport preserves the zero set and the locus of finite values.
+Since $\phi(a_\xi(t)v)=\phi(v)-t$, transport back recovers $\phi$.
+The same zero-set argument on a $\theta$ orbit proves the cocycle identity.
+Function order gives root order.
+
+On $S$ an FS function attains its maximum at $v_\triv$ since all homogeneous valuations are nonnegative.
+This passes to continuous and decreasing limits.
+If the value there were $-\infty$, equivariance and the slice description would make the whole function $-\infty$.
+The value zero there is preserved by the root definition.
+Taking the root at negative time in Lemma \ref{slopes} proves \eqref{pointwise}, and then \eqref{error} follows.
+\end{proof}
+
+For a fixed Radon probability $\mu$ on $S$, \eqref{pointwise} preserves $L^1(\mu)$ for nonpositive potentials and gives
+\begin{equation}\label{integration}
+ \left|\int C_{\xi,\zeta}\phi\,d\mu-\int\phi\,d\mu\right|
+ \leq(e^\delta-1)\int(-\phi)\,d\mu.
+\end{equation}
+This follows by domination and concerns one fixed measure, not a changing family of MA measures.
+
+\begin{remark}
+The map is nonlinear and does not preserve constants.
+On $\mathbb A^2$, for $\xi=(1,1)$ and $\zeta=(1,2)$, transport of $\rho_\xi+c$ is
+\[
+ \max\{\log|x|+c,(\log|y|+c)/2\}.
+\]
+For $c>0$ it is $c$ at $v_\triv$ and $c/2$ when $v(x)>c,v(y)=0$.
+No affine-linear, energetic, or MA functoriality follows from Theorem \ref{orbit-theorem}.
+\end{remark}
+
+\section{Density on the invariant carrier only}
+The full-link separation argument printed in \cite{YW24}, Theorem 3.5, assumes that different points differ on a homogeneous function.
+This fails on the full link: for the full diagonal torus of $\mathbb A^2$, $\operatorname{ord}_{x-y}$ and $v_\triv$ are in $X_0$, agree on every nonzero monomial, and have the same torification, but differ on $x-y$.
+Homogeneous potential tests cannot separate them.
+
+On $S$, different points do differ on a homogeneous $f$.
+For sufficiently large $L$, the restriction
+\[
+ u_{f,L}=\max\{-v(f)/q_\xi(\mathrm{wt}(f)),\rho_\xi-L\}-\rho_\xi
+       =\max\{-v(f)/q_\xi(\mathrm{wt}(f)),-L\}
+\]
+separates them, also when one value is infinite.
+The first maximum is FS after including the $g_i$ with constants $-Lq_\xi(\beta_i)$.
+Same-ray CPSH sums have the harmonic-sum polarization. At a rational Reeb field, common-degree products first give this assertion for rational degree and coefficient ratios. Approximate real coefficients uniformly on the compact carrier and use CPSH closedness. For irrational fields, rationally approximate the field, use the uniform orbit bounds and root transport, and then use diagonal approximation.
+It follows that
+\[
+ V_\xi=\{a(\phi-\psi):a>0,\ \phi,\psi\in\CPSH(\xi)\}|_S
+\]
+is a real vector space containing constants and stable under maxima.
+For example for $u=a(\phi-\psi)$ and $v=b(\theta-\chi)$ use
+\[
+ \max(u,v)=\max(a\phi+b\chi,b\theta+a\psi)-(a\psi+b\chi),
+\]
+where both terms have polarization $\xi/(a+b)$.
+The real lattice Stone--Weierstrass theorem proves density in $C(S)$.
+All measure tests in this paper use this carrier-only quantifier.
+
+\section{Cumulative filtration invariants}
+Let $F$ be a nonnegative, multiplicative, $T$-invariant, linearly bounded filtration as in \cite{YW22}, Definition 3.5.
+Put
+\[
+ R_\eta(m)=\bigoplus_{q_\eta(\alpha)\leq m}R_\alpha,\quad
+ N_\eta(m)=\dim R_\eta(m),\quad A_\eta(m)=\sum\text{ jumping numbers},
+\]
+and
+\[
+ V_\eta=\lim\frac{n!N_\eta(m)}{m^n},\qquad
+ S_\eta=\lim\frac{A_\eta(m)}{mN_\eta(m)}.
+\]
+The second limit is \cite{YW22}, Theorem 3.12 and Corollary 3.13 under the stated hypotheses.
+Integer limits extend to real cutoffs by floor and ceiling and monotonicity.
+Finite-dimensional filtered linear algebra gives $A_\eta(m)=\int_0^\infty\dim F^tR_\eta(m)\,dt$.
+
+\begin{proposition}\label{filtration}
+For every such $F$,
+\[
+ \frac{l^n}{u^{n+1}}S_\xi\leq S_\zeta\leq
+ \frac{u^n}{l^{n+1}}S_\xi,
+\]
+and in particular
+\begin{equation}\label{S-comparison}
+ e^{-(2n+1)\delta}S_\xi\leq S_\zeta\leq e^{(2n+1)\delta}S_\xi.
+\end{equation}
+The constants do not depend on $F$ or on rational denominators.
+\end{proposition}
+\begin{proof}
+Lemma \ref{degrees} gives $R_\xi(m/u)\subset R_\zeta(m)\subset R_\xi(m/l)$.
+Both $N$ and $A$ are monotone under these graded inclusions, since the jumps are nonnegative.
+Taking limits gives
+\[
+ u^{-n}V_\xi\leq V_\zeta\leq l^{-n}V_\xi,\qquad
+ u^{-n-1}S_\xi V_\xi\leq S_\zeta V_\zeta\leq l^{-n-1}S_\xi V_\xi.
+\]
+Divide positive volumes and use the bounds on $l,u$.
+If $S_\xi=0$ both sides force $S_\zeta=0$; no logarithm of zero is used.
+\end{proof}
+This is an actual algebraic invariant comparison, not an energy comparison on completed potential spaces.
+Signed filtrations are outside the assertion.
+Twisting by $q_\xi$ to make jumps nonnegative is not a constant shift after transport to $\zeta$.
+
+\subsection{Normalization and sign diagnostics}
+On $X=\mathbb A^2$ with $\xi=(1,1)$, take $F^tR$ spanned by monomials of total degree at least $t$.
+Its finite-type norm has $\chi(x)=\chi(y)=1$, inducing $\rho_\xi+1$.
+Equation \eqref{E} gives energy $1$, whereas for every integer $m>0$,
+\[
+ N(m)=\frac{(m+1)(m+2)}2,\quad
+ A(m)=\sum_{d=0}^m d(d+1)=\frac{m(m+1)(m+2)}3,\quad
+ S_m=\frac23.
+\]
+The printed $E=S$ in \cite{YW22}, Theorem 5.15, is inconsistent with these definitions.
+Its Lemma 3.16(b) already gives $S=n/(n+1)$ times the degreewise average.
+The factor $(n+1)/n$ repairs this example; no general corrected identity is assumed here.
+\cite{YW24}, Proposition 7.4, uses that factor for rational Dirac energies.
+Thus \eqref{S-comparison} cannot simply be reclassified as an analytic energy theorem.
+
+For actual same-Reeb continuous potentials, decreasing mixed terms in the energy difference formula give
+\begin{equation}\label{concavity}
+ \int(\phi-\psi)\MA(\phi)\leq E(\phi)-E(\psi)
+ \leq\int(\phi-\psi)\MA(\psi).
+\end{equation}
+The first direction is reversed in the displayed claim of \cite{YW24}, Proposition 7.3, LF 1249 of the supplied extract.
+The dual tangent formula needs \eqref{concavity}.
+Its formal first variation is not differentiation of an obstacle envelope.
+
+The sign chain in its Lemma 6.4, LF 1015--1017, is also not used.
+A direct repaired estimate for normalized nonpositive FS potentials $\phi_0,\ldots,\phi_{n-1}$ is obtained with $\tau=n^{-1}\sum_i\phi_i$.
+All other energy summands are nonpositive, so
+\[
+ \int\tau\MA(\tau)\geq nE(\tau)\geq -n\max_i(-E(\phi_i)).
+\]
+Since $\tau\leq\phi_0/n$ and the mixed expansion is positive,
+\[
+ \int\tau\MA(\tau)\leq\frac1n\int\phi_0\MA(\tau)
+ \leq\frac{(n-1)!}{n^n}\int\phi_0\MA(\phi_1,\ldots,\phi_{n-1}).
+\]
+The second inequality reverses the measure domination because $\phi_0\leq0$.
+Thus the last integral is at least $-n^{n+1}\max_i(-E(\phi_i))/(n-1)!$.
+This is a repaired fixed-Reeb estimate using actual positive products only.
+
+\section{The new envelope source and its indispensable premises}
+Lyuhui Wu \cite{LW26} is a different author from Yueqiao Wu \cite{YW22,YW24}.
+The supplied file is arXiv2609.27610v1, stamped 23 September 2026, with no independent acceptance assumed.
+Body Theorem 7.1, LF 2697--2699, states the envelope property for geometrically unibranch projective varieties over discretely or trivially valued equicharacteristic-zero fields.
+Completeness is the standing convention and is explicit in Theorem 6.5.
+The trivial field in our problem is complete.
+
+The inspected proof has the following precise route.
+Under a countable dense subfield, Section 7 resolves singularities, takes an envelope on the smooth resolution, descends along connected geometric fibres using Proposition 2.24, and invokes Theorem 6.5.
+Theorem 6.5, LF 1938--1959, assumes an ample rational model datum and that countability hypothesis.
+It applies Theorem 6.3 to chart potentials, uses logarithmic regularization, and takes $c\downarrow1$.
+The reduction at LF 1942 from an arbitrary ample semipositive model form to a trivial embedding form is not justified there; the necessary reference-change or reduction proof is not supplied in this draft.
+
+Theorem 6.3 is proved by singular-locus induction and finite maps to smooth affine targets, using Proposition 6.14, Lemma 6.15, Runge criteria, and the strict psh barriers in Lemmas 6.6--6.7.
+Lemma 6.6 imports APW26b Proposition 5.7 and Lemma 5.11.
+The strict supporting inequality in that lemma must evaluate the supporting affine function at the comparison point, $l(t^{\prime})$, rather than at the fixed contact point, $l(t)$. This harmless source correction does not establish the imported dependencies.
+Lemma 3.4 imports APW26b Proposition 3.10, Proposition 3.15(3), and Theorem 5.14.
+These are actual proof dependencies.
+At LF 2830--2833 the bibliography lists APW26a and APW26b only as ``Preprint (2026)'', without arXiv IDs.
+Their proof texts are not among the five permitted sources.
+
+Section 7, LF 2718--2747, removes countability separately by descending a PL obstacle and then each competitor to countable fields, using orthogonality, MA pushforward compatibility, positivity, and domination.
+In a trivially valued field, a countable dense subfield would equal the whole field; Theorem 6.5 cannot directly be applied to arbitrary $k$.
+The literal PL competitor quantifier at LF 2731 must be restricted to psh PL competitors below the obstacle.
+The displayed support equality at LF 2742--2743 needs only an inclusion from the previously obtained contact-support inclusion.
+These repairs do not prove the missing local inputs or base-change compatibility.
+
+We retain the explicit premise \textbf{(Env)}: the projective envelope theorem and its indispensable imported local assertions, reference reductions, orthogonality, base-change compatibility, and domination steps are valid in the stated setting.
+We neither refute nor independently establish that theorem.
+Every following envelope conclusion is conditional on (Env).
+
+\section{A checked conditional rational quotient transfer}
+Let $\eta=s\eta_0$ be rational, with $\eta_0$ primitive integral and $s>0$ rational.
+The positive grading defines $V_\eta=\operatorname{Proj}R$.
+A sufficiently divisible Veronese gives projectivity and an actual ample line bundle $L_d=\mathcal O_{V_\eta}(d)$.
+The quotient is normal: on $D_+(f)$ the localization $R_f$ is normal, and an element integral over its degree-zero subring belongs to $R_f$ and remains degree zero, hence belongs to that subring.
+Over our algebraically closed characteristic-zero field it is geometrically normal, hence geometrically unibranch.
+No assertion that it is smooth or has finite quotient singularities is needed or made.
+
+The actual rational polarization is
+\[
+ L_\eta=\frac{1}{sd}L_d.
+\]
+The Seifert/orbiline datum can remember finite stabilizers and boundary multiplicities; they must not be discarded by calling $\mathcal O(1)$ an honest line bundle without passing to $d$.
+The residual torus $T/\mathbb G_m(\eta_0)$ remains, with the induced linearization.
+For $n\geq2$, normality and Hartogs give the section-ring description from the punctured cone; sufficiently divisible section degrees also suffice for every FS list.
+For $n=1$ an effective normal cone has no nonproportional Reeb pair.
+
+The fixed-rational correspondence of \cite{YW22}, Lemmas 5.11--5.12 and Proposition 5.13, identifies $V_\eta^\an$ with $X_0^{\mathbb G_m(\eta_0)}$.
+Powers to a common homogeneous degree identify cone FS potentials with global FS metrics on $L_\eta$.
+The projective dimension is $n-1$, and the factor $1/s$ agrees with the cone proportional law.
+The larger $\mathbb G_m$ carrier is not $S$; residual torification retracts it to $S$.
+
+Assume (Env), and lift $h\in C(S)$ to $H=h\circ r_T$ on this larger slice.
+The global envelope $U=P_{L_\eta}(H)$ is continuous psh.
+It is residual $T(k)$-invariant because translated competitors preserve the reference and obstacle.
+Approximate $U$ uniformly by global FS metrics and replace each by the supremum of its torus translates.
+For a section decomposed as $\sum_\alpha s_\alpha$,
+\[
+ \sup_{t\in T(k)}\left|\sum_\alpha t^\alpha s_\alpha\right|(v)
+ =\max_\alpha|s_\alpha|(v).
+\]
+The upper bound is ultrametric; for the lower bound avoid cancellation in the nonzero leading residue Laurent polynomial over an extension of the infinite field $k$.
+Thus the supremum is a finite homogeneous FS maximum; component sections have no common zero if the original list did not.
+The approximation error to invariant $U$ is unchanged.
+It follows that $U$ factors through residual torification and descends to $\CPSH(\eta)$ on $S$.
+
+Every cone psh competitor below $h$ descends, via its defining decreasing net, to a projective invariant psh competitor below $H$.
+The descended $U$ is itself a cone competitor below $h$.
+Consequently, under (Env),
+\[
+ P_\eta h=\sup\{\phi|_S:\phi\in\PSH(\eta),\ \phi|_S\leq h\}
+\]
+is continuous psh on the carrier for each rational $\eta$.
+This verifies the residual-invariance and rational-line applications; it does not identify two differently graded quotient varieties.
+
+\section{Conditional quantitative envelopes for irrational fields}
+\begin{theorem}[Conditional on (Env)]\label{envelopes}
+For every Reeb field $\xi$ and $h\in C(S)$, $P_\xi h\in\CPSH(\xi)|_S$.
+For every pair $\xi,\zeta$,
+\begin{equation}\label{P-bound}
+ \|P_\xi h-P_\zeta h\|_\infty\leq
+ 2(e^{\delta(\xi,\zeta)}-1)\osc_S h.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Subtract $\sup h$, put $M=\osc h$, and suppose $-M\leq h\leq0$.
+Every competitor can be replaced by $\max(\phi,\rho_\xi-M)$, which is still a competitor and has values in $[-M,0]$ on $S$.
+Maximum stability follows from finite maxima and decreasing defining nets.
+Put $\kappa=e^\delta-1$.
+Equation \eqref{error} implies that $C_{\xi,\zeta}\phi-\kappa M$ is a $\zeta$ competitor below $h$.
+Hence $P_\xi h\leq P_\zeta h+2\kappa M$.
+If $\zeta$ is rational, its conditional envelope is itself a continuous psh potential in $[-M,0]$.
+Transport it back and subtract $\kappa M$ to get a $\xi$ competitor.
+This gives the reverse inequality and also
+\[
+ \|C_{\zeta,\xi}P_\zeta h-P_\xi h\|_\infty\leq3\kappa M.
+\]
+Choose rational $\zeta_j\to\xi$.
+Lemma \ref{degrees} gives $\delta_j\to0$, so the transported envelopes, which are actual CPSH$(\xi)$ functions, converge uniformly to $P_\xi h$ on $S$.
+Their fixed-$\xi$ equivariant extensions converge locally uniformly on the punctured cone.
+The defining closedness of CPSH gives its membership.
+Now the symmetric competitor argument applies to any pair, proving \eqref{P-bound}.
+Restore the obstacle constant using $P_\eta(h+c)=P_\eta h+c$ at each fixed field; no constant-equivariance of $C$ is used.
+\end{proof}
+The transported $3\kappa M$ estimate above uses the centered obstacle.
+For arbitrary $h$, set $c=\sup_S h$; its precise form is
+\[
+ \|C_{\zeta,\xi}(P_\zeta(h-c))+c-P_\xi h\|_\infty
+ \leq 3\kappa\osc_S h.
+\]
+The first, direct envelope comparison holds for arbitrary $h$ because fixed-field
+envelopes commute with constants. Raw root transport does not commute with constants.
+
+At a fixed field monotonicity and constants give the usual 1-Lipschitz obstacle bound.
+For decreasing bounded usc obstacles, if all their envelopes are psh and a nontrivial limiting competitor exists, the order proof gives decreasing envelope convergence: the decreasing psh limit is below the limiting obstacle and every competitor lies below all the envelopes.
+No unbounded obstacle statement without these hypotheses is claimed.
+
+\section{Why unchanged P13.1 remains unresolved}
+Neither Theorem \ref{orbit-theorem} nor the conditional envelope theorem establishes
+\[
+ C_{\xi,\zeta}(E^1(\xi))=E^1(\zeta)
+\]
+or a cross-Reeb energy estimate uniform in bounded truncation and presentation.
+The fixed-Reeb decreasing continuity in \cite{YW24}, Theorem 6.3, presupposes a single polarization and finite-energy limits there.
+It cannot be used for two changing Reeb fields before the missing energy comparison is proved.
+Weak convergence alone also does not justify integrals of unbounded transported potentials against moving mixed MA measures; \eqref{integration} is for one fixed measure.
+
+An actual cone obstacle orthogonality theorem, a defined obstacle energy extension, and a uniform derivative error such as
+\[
+ \left|E_\xi^\downarrow(\phi+tf)-E_\xi(\phi)
+   -t\int_Sf\MA_\xi(\phi)\right|\leq C(K,f)t^2
+\]
+for $\xi\in K$ and all required finite-energy potentials remain unproved.
+No hypothetical inverse potential, formal completion, or derivative assertion is substituted.
+
+\cite{BJ22}, Theorem 8.5, proves a uniform $O(t^2)$ error on one projective variety at a fixed ample class.
+Its proof, LF 4919--4943, constructs the actual positive mixed measure at $\omega+\epsilon\omega'$ and uses fixed mixed intersection masses.
+The nonlinear root map supplies no additive cone counterpart to that structure or denominator-independent intersection bounds for changing quotient varieties.
+The projective dimension there is $n-1$.
+Its Theorem 13.1 derives orthogonality using that differentiability result, so using it in a cone differentiability argument requires an independently justified transfer.
+
+\cite{BJ23} requires a common compact space, dense test vector space, additive ordered closed forms, actual positive mixed products, integration by parts, and Hodge negativity.
+Its differentiability conclusions also assume orthogonality and submean properties.
+These axioms have not been established for changing Reeb fields on $S$ by an order bijection of potentials.
+Even (Env) remains an indispensable unresolved premise here because the imported proof bodies are not supplied or independently proved.
+No image or existence conclusion for P13.2 is asserted, and measures outside $S$ are not claimed as outputs.
+
+\section{Source provenance and reproducibility}
+The author proof uses the input and the five explicitly supplied public caches. The exact independent review, its nine premises and eleven passages, and the root primary quotation checks accompany this reviewed edition.
+The full argument is also retained in \texttt{P13.1-argument.md}.
+\texttt{source-extracts/source-provenance.json} records exact versions, verified SHA-256 hashes, literal theorem statements and proof bodies, inclusive one-based LF ranges using \texttt{split('\textbackslash n')}, checked applications, and concrete limitations.
+\texttt{input-original.json} is byte-identical to \texttt{input.json}; the assignment and task values are retained separately.
+
+Rerun \texttt{python3 reproduce.py} to audit sources, run the small exact diagnostic program, and compile this paper twice using installed \texttt{pdflatex}.
+Each actual stdout/stderr and two distinct TeX log files are preserved.
+Environment, commands, exit codes, and artifact hashes are saved.
+No software installation, external worker, or heavy computation is used.
+The checks cover exactly 63 root and sandwich cases, 252 slope instances, and 32 finite filtration counts.
+For $m=32$, the filtration check gives $N=561$, $A=11968$, and $S_m=2/3$.
+These finite checks are diagnostic, not proofs of the infinite-domain or analytic assertions.
+The infinite-domain direct results have the separate mathematical proofs above, and the envelope theorem is conditional.
+
+\begin{thebibliography}{9}
+\bibitem{YW22} Yueqiao Wu, \emph{Volume and Monge--Amp\`ere energy on polarized affine varieties}, arXiv:2106.13395v2, 14 February 2022. Supplied public primary cache.
+\bibitem{YW24} Yueqiao Wu, \emph{Some non-Archimedean pluripotential theory on polarized affine cones}, arXiv:2406.13684v1. Supplied public primary cache.
+\bibitem{BJ22} S. Boucksom and M. Jonsson, \emph{Global pluripotential theory over a trivially valued field}, arXiv:1801.08229v4. Supplied public primary cache.
+\bibitem{BJ23} S. Boucksom and M. Jonsson, \emph{Measures of finite energy in pluripotential theory: a synthetic approach}, arXiv:2307.01697v1. Supplied public primary cache.
+\bibitem{LW26} Lyuhui Wu, \emph{On the local theory of non-archimedean psh functions}, arXiv:2609.27610v1, 23 September 2026. Preprint; no independent acceptance assumed.
+\end{thebibliography}
+\end{document}
