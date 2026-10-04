@@ -699,6 +699,29 @@ theorem is admitted; the active 4,244-page book and all 42 statuses stay
 unchanged. The next research step is the actual volume/generic-mass input
 and the analytic treatment of repeated central components.
 
+### Volume, repeated components and ramified descent, 4 October 2026
+
+The [volume and generic-mass reduction](research_dossiers/li_volume_and_generic_mass_20261004.md)
+keeps the published arithmetic gcd and integral-affine face-volume
+weights, checks the same raw volume in both Hilbert estimates, and uses
+local cutoff convergence to capture almost all mass in compact transverse
+charts and interior chambers. A displayed constant mismatch in the recent
+exposition is bypassed by the published BJ formula and its local theorem.
+The [nonreduced/descent reduction](research_dossiers/li_nonreduced_obstruction_and_ramified_descent_20261004.md)
+records the disconnected-angle Poincaré/Fourier obstruction and supplies
+an exact trace-coefficient FS descent for the cyclic characteristic-zero
+cover. A supplied reduced model then gives a conditional hybrid quotient
+route, with the reference and potential both rescaled and skeletal mass
+normalized before pushforward. Nine published BJ pages, five new Boucksom
+pages and its reused angular-group page were actually inspected; see the
+[audit](li_volume_and_ramified_descent_audit_20261004.md) and
+[manifest](li_volume_and_ramified_descent_manifest_20261004.json).
+The projective/semistable model, analytic comparison, uniform Skoda and
+regularity/source inputs remain application gates. No general model
+descent, principal CY theorem or independent verifier is claimed. The
+active 4,244-page book and all 42 statuses stay unchanged. The next step
+is the supplied model category and the remaining uniform analytic inputs.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
