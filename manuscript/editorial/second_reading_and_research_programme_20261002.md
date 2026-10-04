@@ -1089,6 +1089,27 @@ pins its scope. No `(SD)_k` assumption, active TeX input, PDF or problem
 status changes. Continue the norm-line, class-limit and support-stratum
 checks; even verified finite descent would leave the birational gap open.
 
+### Local norm-frame follow-up, 4 October 2026
+
+The [local follow-up](finite_galois_norm_line_followup_20261004.md)
+checks the candidate's norm-frame transitions through full-preimage frames,
+the source construction of Picard norms, and orbit coefficient scaling.
+Ten polynomial covariance identities, seventeen norm-unit identities and
+1,152 selected weight/valuation cases pass; 384 use actual frame-unit
+valuation zero, while the others test formal covariance only. Cached
+Stacks Tags 0BRI and 0BRJ target statements/proofs were freshly reread to
+retain support primes and normal residue extensions in the quotient step.
+
+The evaluated generic orbit polynomial is distinguished from a determinant
+on the nonflat fiber algebra, whose dimension can differ from the generic
+degree. This is a same-agent source and local check, not independent
+verification of the global candidate. Numerical-class passage and general
+finite factorization still require that review. The
+[manifest](finite_galois_norm_line_followup_manifest_20261004.json)
+pins the scope; prior candidate bytes, all 425 active TeX inputs, both PDFs
+and all 42 statuses are preserved. Continue the independent-input review
+and the unresolved birational endpoint investigation.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
