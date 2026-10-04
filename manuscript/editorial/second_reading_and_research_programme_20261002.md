@@ -831,6 +831,32 @@ desingularization dependencies and the trait/root-stack/vertical-
 presentation checks. The 4,244-page book and all 42 statuses stay fixed;
 normal GitHub publication and incoming-progress fetches continue.
 
+### Trait presentation and recent Sylvester local models, 4 October 2026
+
+The [trait route](research_dossiers/li_trait_resolution_and_vertical_monomial_presentation_20261004.md)
+checks current ATW scheme hypotheses over an excellent convergent DVR,
+the identity base blowup, a vertical normalized source blowup and the
+specific cyclic atlas of the rank-one root stack. Intrinsic compatible
+support functions give coherent global vertical monomial ideals by
+face localization and etale descent. Known resolution, strictification
+and projective-germ comparison imports remain explicit; the conditional
+analytic-extension paragraph is not treated as an unconditional theorem.
+The [Sylvester example](research_dossiers/sylvester_height_slice_models_20261004.md)
+uses a September 2026 source's coherent flag unimodular triangulations
+to give explicit normalized local monomial models, with the correct
+affine slice lattice and 36(k+1) maximal tetrahedra in dimension three.
+The primitive one-visible-facet proof and regular pulling existence
+are checked without the sources' overly broad auxiliary quantifiers.
+See the [audit](li_trait_and_sylvester_source_audit_20261004.md) and
+[manifest](li_trait_and_sylvester_source_manifest_20261004.json): 2,717
+conservatively counted fresh lines and 28 actual selected page views.
+A bounded eight-result 2026 search supplies further leads; their
+abstracts are read, with unacquired primary proofs explicitly pending.
+No new numerical experiment, independent verifier, active-book change
+or change to the 42 statuses is claimed. Continue with the known local
+example's ordinary integration audit and the remaining global inputs,
+while fetching incoming research and publishing normally to work.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
