@@ -722,6 +722,27 @@ descent, principal CY theorem or independent verifier is claimed. The
 active 4,244-page book and all 42 statuses stay unchanged. The next step
 is the supplied model category and the remaining uniform analytic inputs.
 
+### Canonical, uniform Skoda and parameter inputs, 4 October 2026
+
+The [input reduction](research_dossiers/li_canonical_skoda_and_parameter_inputs_20261004.md)
+applies the fixed section-module comparison to the canonical extension:
+fibrewise triviality and connectedness give rank one and a meromorphic
+relative/total volume form in the supplied projective germ category.
+Every reduced-SNC chart satisfies the density bound of the published
+analytic-model Skoda theorem, whose fixed total Kähler background
+matches the norm convention. This avoids applying its algebraic
+introduction theorem to an unchecked analytic family. A separate
+elliptic/implicit-function reduction gives punctured-family continuity;
+mean normalization is smooth locally, while supremum normalization is
+only claimed continuous. Five reused actual publisher pages were
+freshly inspected; see the [audit](li_canonical_skoda_and_parameter_audit_20261004.md)
+and [manifest](li_canonical_skoda_and_parameter_manifest_20261004.json).
+The supplied model category and the classical/cohomological/hybrid
+imports remain explicit. No independent verifier, general theorem or
+status change is claimed; the active 4,244-page book and all 42 statuses
+remain fixed. Next check the m=0 analytic boundary and the remaining
+model-presentation gate.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
