@@ -359,8 +359,12 @@ real coefficients; its unsupported literal clause is removed and its prior
 protected payload is archived. All 42 atoms retain their statuses. All 144
 chapter pages and both seams passed visual review; see the
 [Chapter 72 audit](second_reading_ch72_audit_20261004.md).
-Appendix A is active; all 556 source lines have been freshly read and scoped
-primary checks continue. No appendix is marked complete in this pass.
+Appendix A's 556 original lines were freshly read. The blowup proof now
+uses invertible ideals and nonzerodivisor generators explicitly; all eight
+appendix pages and both seams passed visual review. See the
+[Appendix A audit](second_reading_appA_audit_20261004.md).
+Appendix B is active; all 523 source lines and its scoped primary interfaces
+have been freshly read. No later appendix is marked complete in this pass.
 
 The current catalogue incorporates the 4 October real-scalar Bergman repair;
 see its [latest correction audit](open_problem_catalogue_correction_audit_20261004.md).
