@@ -608,6 +608,29 @@ problem solution is admitted. The geometric chamber/base-change inputs,
 comparison metric and Bergman/hybrid gates remain separately identified.
 The checked active book stays at 4,244 pages with all 42 statuses unchanged.
 
+### OT/Bergman and positive-model follow-up, 4 October 2026
+
+The [point-extension reconstruction](research_dossiers/li_ot_bergman_reconstruction_20261004.md)
+now checks the complete OT application under explicit projective-model,
+meromorphic-volume and oscillation hypotheses. It separates the embedding
+degree from the reserved curvature degree, makes the zero scheme transverse,
+proves the uniform projective Jacobian bound and retains constants independent
+of point, parameter and tensor degree. Demailly's July 2011 author manuscript,
+Theorem 13.6 and Remark 13.7(a), is the checked input: 596 source lines and
+seven actual pages were inspected. The 2012 printed locator is not silently
+substituted. A [positive-model bridge](research_dossiers/li_positive_model_bridge_20261004.md)
+constructs the needed positive rational reference for a supplied finite
+projective blowup model, with a vertical meromorphic reference change of
+size \(O(-\log|t|)\). Nonreduced SNC multiplicities and curvature conventions
+are included. Its relative-ampleness inputs were checked against cached
+Stacks primary pages. The [audit](li_ot_and_positive_model_audit_20261004.md)
+and [manifest](li_ot_and_positive_model_manifest_20261004.json) preserve the
+exact source and conditional proof scope. No new calculation, external
+verifier, general CY theorem admission or open-problem solution is claimed.
+The remaining general model/chamber/base-change and hybrid approximation
+gates are recorded; the active 4,244-page book stays unchanged. Cloud research
+continues, with normal work-branch publication and incoming-research fetches.
+
 ## Cloud execution record
 
 Xean source checkout: `/workspace/xean`, commit
