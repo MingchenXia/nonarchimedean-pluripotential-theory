@@ -387,8 +387,12 @@ Appendix G's 767 original lines and 25 selected CLD/Mikhalkin–Rau pages were
 freshly read. The calibration proof separates integer flat and calibrated
 degrees; all twelve appendix pages and both seams passed visual review.
 See the [Appendix G audit](second_reading_appG_audit_20261004.md).
-Appendix H is active; all 918 source lines have been freshly read and its
-primary checks continue. No later appendix is marked complete in this pass.
+Appendix H's 918 original lines and 22 selected complex-primary pages were
+freshly read. Pointwise quasi-psh representatives and the subgeodesic psh
+condition are explicit; all sixteen appendix pages and both seams pass.
+See the [Appendix H audit](second_reading_appH_audit_20261004.md).
+Appendix I is active; all 817 source lines have been freshly read and its
+dependency checks continue. No later appendix is marked complete in this pass.
 
 The current catalogue incorporates the 4 October real-scalar Bergman repair;
 see its [latest correction audit](open_problem_catalogue_correction_audit_20261004.md).
